@@ -131,7 +131,7 @@ L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((R326)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
 # ### seat's (set at the seal from the defects bank)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnop'))   # ### (a)-(p) at the seal, every one the seat's
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopq'))   # ### (a)-(q) at the seal, every one the seat's
 
 
 def _bank_utc(text):
