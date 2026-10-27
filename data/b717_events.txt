@@ -24,3 +24,14 @@ THE PRE-RUN'S (found at step [7], after the lock and before the seal; data/b717_
      standing-b3, act; the seal reads those), not for standing-b2a and standing-b2b, which carry none; standing-b3's run on b716's banks
      so read its first half as empty (data/b717_prevrun_standing-b3.txt: 0 acts) and G-ACTROOT-VERIFY there DIVERGE -- a reading of the
      seat's order, not of the chain (the pre-run at HEAD reads b624-b716, 93 acts, all AGREE).
+
+THE CLOSE'S (found after the seal; the root 404b613b computed at relay d5afecf6, 18:59Z):
+    (7) THE SEAT'S [CLOSE ; REPEAT b716 traps]: 18:09Z, AT THE ROOT'S PROMPT (data/b717_author_answers.txt, PROMPT 1): the prompt told the
+     author "The counter so far reads CLAIM 2, CLOSE 28 across six post-lock events"; the counter route read CLAIM 2, CLOSE 29 at the entry's
+     landing (25 letters and six events, data/b717_closing_dry.txt's CLOSE 23 plus the six) -- the seat's sum, not the tool's print. The
+     entry and the trail carry the tool's CLOSE 29; the answers bank unedited.
+    (8) THE SEAT'S [CLOSE ; REPEAT b716 traps]: 19:22Z, AT THE PRE-PUSH SUITE (act part, data/b717_checks_act.txt): G-ARM-SECONDS-BANKED
+     FAILS -- data/b717_arm_seconds.json and .txt, the per-part seconds gathered by the record tool's `armsecs` route before the seal, were
+     not written (the per-part banks data/b717_arm_seconds_<part>.json are, from the pre-run). The order's step [7] ran the pre-run and the
+     combine and not the gather; the root (relay d5afecf6) computed without it. Not written after the root; the arm fails in the pre-push
+     and post-push suites beyond the three the face declares, with events (1) and (2).
