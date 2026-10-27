@@ -154,7 +154,7 @@ CLAUSES = [
     ('ferry parts received', 1, 1, 'parts', '### section (A).'),
     ('struck-clause hits in the ferry scan', 0, 0, 'hits', '### section (A).'),
     ('test files run at step zero', 'TESTS', 'TESTS', 'files', '### MEASURED off the bank.'),
-    ('questions asked of the author before the seal', 'PRESEAL', 'PRESEAL', 'questions', '### the two prompts at Components 2 and 4, their words banked verbatim; MEASURED off data/b715_author_words_preseal.txt.'),
+    ('questions asked of the author before the seal', 'PRESEAL', 'PRESEAL', 'questions', '### the three prompts at Components 2 and 4 and at step [5] the gate (the third past the face`s two, defect (o)), their words banked verbatim; MEASURED off data/b715_author_words_preseal.txt.'),
     ('questions asked of the author at the root', 'QUESTIONS', 'QUESTIONS', 'questions', '### MEASURED off the answers bank (the root`s prompt, once).'),
     ('questions asked of the author after the root', 0, 0, 'questions', '### the answers bank is root-named.'),
     ('readings of the order declared in advance on this face', 'READINGS', 'READINGS', 'readings', '### section (A), MEASURED off the face.'),

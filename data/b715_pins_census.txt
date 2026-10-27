@@ -1,5 +1,5 @@
 ====================================================================================================
-b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE ROSTER NAMES (the four of b714`s roster, then every repository the texts name: 12 texts read from PLACE-papers main).
+b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 39 REPOS THE ROSTER NAMES (the four of b714`s roster, then every PUBLIC repository the texts name, the forks out: 12 texts read from PLACE-papers main).
 ====================================================================================================
   parser fixture                                 got/expected           agree
   a real pair, tab-separated                     (0, 1)/(0, 1)          YES
@@ -13,11 +13,11 @@ b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE R
   parser self-test : PASS
 
 --- relay   (D:\relay)   visibility PUBLIC   named by b714`s roster
-    local HEAD   : b3ff33ce00df176784f2e755cbd679469380f985
+    local HEAD   : 5ae0ea91bc960c5ac25f1fe1873f20d396a0ef7c
     ls-remote    : 1992a71c4670ac3118f383f1bbf0ef9e992fa15a
-    behind/ahead : 0 / 10
+    behind/ahead : 0 / 15
     equal        : False
-    working tree : 8 tracked change(s), 319 untracked
+    working tree : 11 tracked change(s), 332 untracked
 --- SIDE-global-section   (D:\SIDE-global-section)   visibility PUBLIC   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md; FACES_LEDGER.md
     local HEAD   : 504e146bc03881ff07e9afdbf5f3c289a8eb610e
     ls-remote    : 504e146bc03881ff07e9afdbf5f3c289a8eb610e
@@ -25,9 +25,9 @@ b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE R
     equal        : True
     working tree : 0 tracked change(s), 1 untracked
 --- PLACE-papers   (D:\MY-DOwnloads\PLACE-papers)   visibility PRIVATE   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md; FACES_LEDGER.md
-    local HEAD   : 2d9654b39eb3737fe1ab840f88b039c375bfd8c5
+    local HEAD   : 332710b83192b6cad9774e3cb549dd03463a0e84
     ls-remote    : 6959f75f1474f8b563b84def6fa31d5304dcf45e
-    behind/ahead : 0 / 1
+    behind/ahead : 0 / 2
     equal        : False
     working tree : 0 tracked change(s), 2 untracked
 --- SIDE-effects   (D:\SIDE-effects)   visibility PUBLIC   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
@@ -54,12 +54,6 @@ b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE R
     behind/ahead : 0 / 0
     equal        : True
     working tree : 0 tracked change(s), 0 untracked
---- SIDE-carrier-spec   (D:\SIDE-carrier-spec)   visibility PRIVATE   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
-    local HEAD   : dd54a6163c176313de6831f27e1a120a753ff4a7
-    ls-remote    : dd54a6163c176313de6831f27e1a120a753ff4a7
-    behind/ahead : 0 / 0
-    equal        : True
-    working tree : 0 tracked change(s), 0 untracked
 --- SIDE-class-coupling   (D:\SIDE-class-coupling)   visibility PUBLIC   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
     local HEAD   : b6a6e869304d9a2541b56a1d3d9459d77528ed25
     ls-remote    : b6a6e869304d9a2541b56a1d3d9459d77528ed25
@@ -75,12 +69,6 @@ b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE R
 --- SIDE-compression   (D:\SIDE-compression)   visibility PUBLIC   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
     local HEAD   : e9a5a368d14aeb63ae970acb84fc135838b9f6d2
     ls-remote    : e9a5a368d14aeb63ae970acb84fc135838b9f6d2
-    behind/ahead : 0 / 0
-    equal        : True
-    working tree : 0 tracked change(s), 0 untracked
---- SIDE-constants   (D:\SIDE-constants)   visibility PRIVATE   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
-    local HEAD   : 545dde2671c2a4f9404a84bc17af84dfe8bf49a6
-    ls-remote    : 545dde2671c2a4f9404a84bc17af84dfe8bf49a6
     behind/ahead : 0 / 0
     equal        : True
     working tree : 0 tracked change(s), 0 untracked
@@ -258,22 +246,27 @@ b303_pins.py -- THE PINS CENSUS, WIDENED. ### BY `ls-remote`, ALL 44 REPOS THE R
     behind/ahead : 0 / 0
     equal        : True
     working tree : 0 tracked change(s), 0 untracked
---- TECHNE-Core   (D:\TECHNE-Core)   visibility PRIVATE   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
-    ### HARD FAILURE -- NOT A GIT REPOSITORY.
---- glassbead-game   (D:\glassbead-game)   visibility PRIVATE   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
-    ### HARD FAILURE -- NOT A GIT REPOSITORY.
---- mathlib4   (D:\mathlib4)   visibility PUBLIC   named by phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md
-    local HEAD   : cecd0c4d56a6410638a13491d566104756f892bf
-    ls-remote    : ### UNRESOLVED
-    ### HARD FAILURE -- A REPO THAT DOES NOT RESOLVE IS NOT 0/0.
 
-  ### REPOS HARD-FAILING : 3
+  ### PRIVATE REPOSITORIES THE TEXTS NAME OUTSIDE b714`S FOUR : 4 (word (3)(b): counted, not named, not read)
+  ### NAMES THE TEXTS CARRY THAT data/repo_visibility.txt DOES NOT LIST : 0 (not read)
+  ### FORKS OUT OF THE ROSTER (word (3)(c)) : mathlib4, named by a text: True
+  MATHLIB UPSTREAM PIN 5450b53e5ddc75d46418fabb605edbf36bd0beb6 (leanprover-community/mathlib4, the `mathlib` rev of lake-manifest.json; no clone, no ls-remote) : 2 repositories -- SIDE-effects SIDE-cosmo
+  MATHLIB UPSTREAM PIN 5e932f97dd25535344f80f9dd8da3aab83df0fe6 (leanprover-community/mathlib4, the `mathlib` rev of lake-manifest.json; no clone, no ls-remote) : 7 repositories -- SIDE-archimedean SIDE-frobenius SIDE-grh-transfer SIDE-lv-conservation SIDE-rcurve SIDE-simplicity SIDE-spinor
+  MATHLIB UPSTREAM PIN 698d2b68b870f1712040ab0c233d34372d4b56df (leanprover-community/mathlib4, the `mathlib` rev of lake-manifest.json; no clone, no ls-remote) : 2 repositories -- SIDE-interfaces SIDE-trivium
+  MATHLIB UPSTREAM PIN de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11 (leanprover-community/mathlib4, the `mathlib` rev of lake-manifest.json; no clone, no ls-remote) : 1 repositories -- SIDE-explicit-formula
+  MATHLIB UPSTREAM PIN e960b84129b3caf423ecf0ea7409a8758a47012c (leanprover-community/mathlib4, the `mathlib` rev of lake-manifest.json; no clone, no ls-remote) : 1 repositories -- SIDE-kernel
+
+  ### REPOS HARD-FAILING : 0
   ### **A PIN IS A SHA READ BACK FROM THE REMOTE. ### IT SAYS WHAT IS THERE,
   ### NOT THAT WHAT IS THERE IS RIGHT.**
 ====================================================================================================
-  exit 2
+  exit 0
   RECORD      the four of b714`s roster first, at their paths : got [('relay', 'D:\\relay'), ('SIDE-global-section', 'D:\\SIDE-global-section'), ('PLACE-papers', 'D:\\MY-DOwnloads\\PLACE-papers'), ('SIDE-effects', 'D:\\SIDE-effects')] ; wanted [('relay', 'D:\\relay'), ('SIDE-global-section', 'D:\\SIDE-global-section'), ('PLACE-papers', 'D:\\MY-DOwnloads\\PLACE-papers'), ('SIDE-effects', 'D:\\SIDE-effects')] ; AS WANTED
-  RECORD      the repositories of the visibility map no text names (8, e.g. ['PLACE-phase1.5', 'PLACE-phase2', 'SIDE-bsd-multiplicity']): none in the roster : got [] ; wanted [] ; AS WANTED
-  CONSTRUCTED a planted text naming SIDE-kernel and glassbead-game: the roster the four and those two : got ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects', 'SIDE-kernel', 'glassbead-game'] ; wanted ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects', 'SIDE-kernel', 'glassbead-game'] ; AS WANTED
+  RECORD      the repositories of the visibility map no text names (8, PUBLIC ones e.g. ['SIDE-bsd-multiplicity', 'SIDE-dirichlet-mod-24', 'SIDE-formation-procedure']): none in the roster : got [] ; wanted [] ; AS WANTED
+  RECORD      the PRIVATE names the texts carry outside the four (4): none in the roster : got [] ; wanted [] ; AS WANTED
+  CONSTRUCTED a planted text naming SIDE-kernel and one PRIVATE name of the bank (not printed): the four and SIDE-kernel, 1 withheld : got (['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects', 'SIDE-kernel'], 1) ; wanted (['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects', 'SIDE-kernel'], 1) ; AS WANTED
+  CONSTRUCTED the print of that planted text (no repository read): the PRIVATE name absent, the count line 1 : got (False, True) ; wanted (False, True) ; AS WANTED
+  RECORD      the author`s fork of Mathlib, which a text names (True): not in the roster : got [] ; wanted [] ; AS WANTED
+  CONSTRUCTED a planted text naming the fork: the four alone : got ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects'] ; wanted ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects'] ; AS WANTED
   CONSTRUCTED the same text with neither name: the four alone : got ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects'] ; wanted ['relay', 'SIDE-global-section', 'PLACE-papers', 'SIDE-effects'] ; AS WANTED
-  ### ### **PINS ROSTER CONTROLS 4 ; AS WANTED 4 ; ALL AS WANTED True.**
+  ### ### **PINS ROSTER CONTROLS 8 ; AS WANTED 8 ; ALL AS WANTED True.**

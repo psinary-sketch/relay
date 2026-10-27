@@ -641,7 +641,37 @@ def standing(*a):
 
 
 armsecs = R.armsecs
-desk, gatebanks, mbuild, mroot, mverify = R.desk, R.gatebanks, R.mbuild, R.mroot, R.mverify
+desk, mbuild, mroot, mverify = R.desk, R.mbuild, R.mroot, R.mverify
+
+
+def gatebanks(*a):
+    """b698's route (tools/b698_record.py :1943, unedited), carried by the Edit tool with one change, the author's word (3)(a)
+    (data/b715_author_words_preseal.txt (3)): the pins bank the lock gate reads runs `b303_pins.py gate <act>`, b714's four in b714's form,
+    the widened census of (R325)(6) left to its own bank (data/b715_pins_census.txt). The reg gate's record is written before this route runs."""
+    import gate_hash as G
+
+    def runb(args, out):
+        r = subprocess.run([sys.executable, '-X', 'utf8'] + args, capture_output=True, cwd=ROOT)
+        b_ = (r.stdout + r.stderr).replace(b'\r\n', b'\n')
+        if out:
+            p = os.path.join(D, out)
+            with open(p + '.tmp', 'wb') as fh:
+                fh.write(b_)
+            os.replace(p + '.tmp', p)
+        return r.returncode, b_.decode('utf-8', 'replace')
+    rc1, t1 = runb([os.path.join(T, 'banned_terms.py'), '--new', FACE_REL], '%s_reg_termscan.txt' % ACT)
+    rc2, t2 = runb([os.path.join(T, '%s_regspec.py' % ACT)], '%s_regspec_run.txt' % ACT)
+    rc3, t3 = runb([os.path.join(T, 'reg_satisfiable.py'), 'data/%s_satisfiable.json' % ACT, '--emit', ACT], None)
+    print('  banned_terms rc %d ; %s' % (rc1, ([l for l in t1.split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    print('  regspec rc %d ; %s' % (rc2, ([l for l in t2.split(NL) if 'PREDICTIONS FOUND' in l] or ['### NONE'])[0].strip()))
+    print('  reg_satisfiable rc %d ; %s' % (rc3, ([l for l in rdn('audit_%s_reg_satisfiable.txt' % ACT).split(NL) if 'VERDICT' in l] or ['### NO VERDICT'])[0][:160]))
+    for tool, out in (('b307_handoff_census.py', '%s_census_stepzero.txt' % ACT), ('b327_faces_census.py', '%s_faces_census_stepzero.txt' % ACT),
+                      ('b303_pins.py', '%s_pins_stepzero.txt' % ACT)):
+        rc, t = runb([os.path.join(T, tool)] + (['gate'] if tool == 'b303_pins.py' else []) + [ACT], out)   # ### word (3)(a): the gate route
+        print('  %s rc %d ; %s' % (out, rc, ([l.strip() for l in t.split(NL) if 'TOTAL MISSING' in l or 'HARD-FAILING' in l] or ['### NONE'])[0][:120]))
+    for r in ('data/%s_reg_gate.txt' % ACT, 'data/%s_reg_termscan.txt' % ACT, 'data/%s_regspec_run.txt' % ACT, 'data/audit_%s_reg_satisfiable.txt' % ACT):
+        ra = os.path.join(ROOT, *r.split('/'))
+        print('  stamp %s %s %s' % (r, G.stamp(ra, FACE)[:16], G.matches(ra, FACE)[0]))
 
 
 def _one_git_write():
@@ -2087,6 +2117,8 @@ def _figs():
     joins = re.findall(r'(?m)^\s*JOINS (\S+)', rdn('%s_roster.txt' % ACT))
     pn, = _bfig('%s_pins_census.txt' % ACT, r'ALL (\d+) REPOS THE ROSTER NAMES', 'the pins census`s count')
     ph, = _bfig('%s_pins_census.txt' % ACT, r'### REPOS HARD-FAILING : (\d+)', 'the pins census`s hard failures')
+    pv, = _bfig('%s_pins_census.txt' % ACT, r'PRIVATE REPOSITORIES THE TEXTS NAME OUTSIDE b714`S FOUR : (\d+) ', 'the pins census`s PRIVATE count (word (3)(b))')
+    mlp = re.findall(r'(?m)^  MATHLIB UPSTREAM PIN ([0-9a-f]{40}) .* : (\d+) repositories', rdn('%s_pins_census.txt' % ACT))   # ### word (3)(c)
     pt, = _bfig('%s_pins_census.txt' % ACT, r'(\d+) texts read from PLACE-papers main', 'the pins census`s texts')
     pc, = _bfig('%s_pins_census.txt' % ACT, r'\*\*PINS ROSTER CONTROLS (\d+) ; AS WANTED \1 ; ALL AS WANTED True\.\*\*', 'the pins controls')
     cr = _bfig('%s_chain_rows.txt' % ACT, r'\*\*DECLARATIONS (\d+) ; GRADES DEF (\d+), DERIVES (\d+), INTERFACES (\d+), NOT GRADED (\d+) ; AXIOMS READ AT THE PIN (\d+) ;'
@@ -2105,7 +2137,8 @@ def _figs():
                 cc_cases=cc[0], cc_wanted=cc[1], cc_repairs=cc[2], cc_both=cc[3], cc_all=cc[4], hc_cases=hc[0], hc_wanted=hc[1], hc_holds=hh,
                 n_repairs=len(CLASS_REPAIRS) if (cc[4] == 'True' and hh == 'True' and int(cc[2]) == len(CLASS_REPAIRS) - 1) else int(cc[2]),
                 ic_mod=ic[0], ic_act=ic[1], ic_shared=ic[2], ic_lines=ic[3], ic_lit=ic[4], ic_eq=ic[5],
-                ro_ctl=ro, ro_joins=[os.path.basename(j) for j in joins], pins_n=pn, pins_hard=ph, pins_texts=pt, pins_ctl=pc,
+                ro_ctl=ro, ro_joins=[os.path.basename(j) for j in joins], pins_n=pn, pins_hard=ph, pins_texts=pt, pins_ctl=pc, pins_priv=pv,
+                pins_ml=len(mlp), pins_ml_list=', '.join('%s (%s)' % (r[:8], n) for r, n in sorted(mlp, key=lambda x: -int(x[1]))),
                 cr_n=cr[0], cr_def=cr[1], cr_der=cr[2], cr_int=cr[3], cr_ng=cr[4], cr_ax=cr[5], cr_noax=cr[6], cr_sorry=cr[7], cr_reached=reached,
                 cd_from=cd[0], cd_to=cd[1], cd_hunks=cd[2], cd_add=cd[3], cd_rem=cd[4],
                 figs=dict((k, (fj_.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')),
@@ -2347,14 +2380,15 @@ def _for_author():
             'proof; (2) the replay’s %s findings the old tools’, not copied forward -- F-1, the seal’s record naming a relay head that does not '
             'carry every sealed tool (b714, b713), and F-2, b713’s components bank not composed from its step bank (relay data/b715_replay.txt); '
             '(3) the measurement before the copy a lower bound for its literals, its pattern reading no boundary before `_` (relay '
-            'data/b715_import_closure.txt; records (5)); (4) the pins census’s %s hard failures, carried to b716 for a clone or a ruling each: '
-            'TECHNE-Core and glassbead-game with no local clone, mathlib4 with no refs/heads/main at its origin (relay data/b715_pins_census.txt); '
+            'data/b715_import_closure.txt; records (5)); (4) the pins census’s %s hard failures after the author’s word (3), its PUBLIC '
+            'repositories alone, the fork of Mathlib out; upstream Mathlib carried at %s revs across the kernels’ '
+            'manifests (%s), where the word reads one, de5ce8a9 (relay data/b715_pins_census.txt); '
             '(5) three readings of the chain rows stated in the census’s back matter and not repaired: T3_perClass_to_combinations proved by '
             '`sorry` at v0.2.0 where the pilot read it FOUND, and the pilot’s places for SIDEKernel.formation and covers_all (relay '
             'data/b715_chain_rows.txt; records (9)); (6) the census v0.8.2 the family’s newest edition on main, so the mirror’s roster read from '
             'main joins it beside v0.8 and v0.8.1 (relay data/b715_roster.txt; the author’s word (2)); (7) the report tool outside the sealed list '
             'until the root (relay data/b708_rules.txt row (1)); (8) %s and the seat’s %s defect%s as lettered' % (
-                f['ver'], f['cv_std'], f['cv_steps'], f['cv_std_at'], f['cv_per'], f['cv_out'], f['rp_find'], f['pins_hard'],
+                f['ver'], f['cv_std'], f['cv_steps'], f['cv_std_at'], f['cv_per'], f['cv_out'], f['rp_find'], f['pins_hard'], f['pins_ml'], f['pins_ml_list'],
                 ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'the none navigator misses',
                 num_word(seat), '' if seat == 1 else 's'))
 
@@ -2371,10 +2405,11 @@ def _finding_text():
          'One close toolset now stands for every act: tools/standing/ at %s, %s files whose code carries %s act literals, reads its act from '
          'relay data/act_current.json at run time, and rebuilds b714’s and b713’s closes from their committed banks at %s of %s objects EQUAL, the '
          'one difference named by the old tool’s finding; the %d class repairs b714 surfaced hold on a record instance and a constructed one each; '
-         'the mirror’s roster is read from PLACE-papers main; the pins census reads %s repositories, %s of them hard failures carried; and the '
+         'the mirror’s roster is read from PLACE-papers main; the pins census reads %s repositories, its PUBLIC ones alone, %s hard failures, and '
+         'upstream Mathlib at %s revs across the kernels’ manifests; and the '
          'census v0.8.2 on main carries %d of the reduction chain’s %s declarations as printed at their pins -- %s DERIVES, %s INTERFACES, %s not '
          'graded, one proved by `sorry` at its pin.' % (
-             f['ver'], f['sc_files'], f['sc_lit'], f['rp_eq'], f['rp_obj'], f['n_repairs'], f['pins_n'], f['pins_hard'], f['cr_reached'], f['cr_n'],
+             f['ver'], f['sc_files'], f['sc_lit'], f['rp_eq'], f['rp_obj'], f['n_repairs'], f['pins_n'], f['pins_hard'], f['pins_ml'], f['cr_reached'], f['cr_n'],
              f['cr_der'], f['cr_int'], int(f['cr_def']) + int(f['cr_ng'])), '',
          '*Filed at b715 on the author’s ruling `(R325)`; %d question%s put before the root. Banks: relay `data/act_current.json`, '
          '`data/b715_import_closure.txt`, `data/b715_standing_scan.txt`, `data/b715_replay.txt`, `data/b715_toolset_coverage.txt`, '
@@ -2410,9 +2445,12 @@ def _finding_text():
          'b707 roster’s families, each newer edition of a family joining (%s), its diff against the b707 roster printed, its controls %s as '
          'wanted (relay data/b715_roster.txt); the builder reads it and refuses a roster not read.' % (', '.join(f['ro_joins']), f['ro_ctl']), '',
          '**The pins census** ((R325)(6)): tools/b303_pins.py’s roster widened to every repository the day papers’ Correspondence, the census and '
-         'FACES_LEDGER name, read from %s texts on main: %s repositories, each with its head, ls-remote, behind/ahead and visibility; %s hard '
-         'failures named and carried; its controls %s as wanted (relay data/b715_pins_census.txt).' % (
-             f['pins_texts'], f['pins_n'], f['pins_hard'], f['pins_ctl']), '',
+         'FACES_LEDGER name, read from %s texts on main, under the author’s word (3): %s repositories, b714’s four and the PUBLIC names alone, '
+         'each with its head, ls-remote, behind/ahead and visibility; %s PRIVATE names counted and not named or read; the author’s fork of '
+         'Mathlib out, upstream Mathlib printed as the pins the kernels’ manifests carry, %s revs (%s); %s hard failures; its controls %s as '
+         'wanted (relay data/b715_pins_census.txt). The lock gate’s pins bank read b714’s four by the tool’s gate route (relay '
+         'data/b715_pins_stepzero.txt).' % (
+             f['pins_texts'], f['pins_n'], f['pins_priv'], f['pins_ml'], f['pins_ml_list'], f['pins_hard'], f['pins_ctl']), '',
          '**The census rows** ((R325)(7)): the census v0.8.2 (' + K.CENSUS_NEW + ') on PLACE-papers main by the Edit tool, v0.8.1’s bytes and %s lines added, none removed '
          '(relay data/b715_census_diff.txt); %d of the %s declarations of data/b714_pilot.txt (P3), the names with no homebrew row first, each with '
          'its statement at its pin, its grade under the E0 gate -- %s DERIVES, %s INTERFACES, %s definitions and %s field not graded -- and its '
@@ -2435,7 +2473,8 @@ def _finding_text():
          '**Carried to:** b716 (the registrations act, on the standing toolset), each from its bank: the heads draft and the question of inline '
          'footings or a companion correspondence; the six lint hits; the 19 names with no pin; the SIDESystem finding at Silence :212 and :183; the '
          'composition law for the least negative index and its −39 registration; the residual; the rectangle certification of pair 7; the Sonin '
-         'restriction’s price and the law’s identity reading; the pins census’s %s hard failures; the draft held at v5.' % f['pins_hard'], '',
+         'restriction’s price and the law’s identity reading; upstream Mathlib’s %s revs across the kernels’ manifests, where the author’s word (3) '
+         'reads one; the draft held at v5.' % f['pins_ml'], '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
     return _title(), NL.join(e)
@@ -2462,9 +2501,10 @@ def _trail_text():
              'data/b715_standing_controls.txt), the hook’s %s of %s and its class control holding %s (relay data/b715_hook_control.txt).' % (
                  f['cc_cases'], f['cc_wanted'], f['hc_wanted'], f['hc_cases'], f['hc_holds']), '',
              '**The roster, the pins and the census rows:** the mirror’s roster from main, %s joining, controls %s (relay data/b715_roster.txt); the '
-             'pins census at %s repositories, %s hard failures carried, controls %s (relay data/b715_pins_census.txt); the census v0.8.2 on main with '
+             'pins census at %s repositories, PUBLIC alone (%s PRIVATE counted), %s hard failures, upstream Mathlib at %s revs, controls %s (relay '
+             'data/b715_pins_census.txt); the census v0.8.2 on main with '
              '%d of %s chain rows, %s DERIVES, %s INTERFACES (relay data/b715_chain_rows.txt, data/b715_census_diff.txt).' % (
-                 ', '.join(f['ro_joins']), f['ro_ctl'], f['pins_n'], f['pins_hard'], f['pins_ctl'], f['cr_reached'], f['cr_n'], f['cr_der'], f['cr_int']), '',
+                 ', '.join(f['ro_joins']), f['ro_ctl'], f['pins_n'], f['pins_priv'], f['pins_hard'], f['pins_ml'], f['pins_ctl'], f['cr_reached'], f['cr_n'], f['cr_der'], f['cr_int']), '',
              '**Act root:** b715 `%s` (previous `%s`, b714’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
              'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
              '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b715_author_answers.txt): the root’s own prompt, its '
@@ -2871,21 +2911,38 @@ def mbank(*a):
     nd = R6.nd_hits(NL.join(names_), R6.nd_sets())[0]
     files_ = [n for n in names_ if n != 'MANIFEST.md']
     pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
-    L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE UNEDITED BUILDER, banked %s' % (ACT, utc()),
+    # ### (R325)(5)'s control: the MANIFEST lists the census v0.8.1 and day1/Silence_of_Foundations.md, each zip entry at the bytes of
+    # ### a86c9429 (b714's merge); the bytes compared raw and with CR removed (the builder copies working files, autocrlf's trap), each printed
+    man_ctl = []
+    for path in (_C81, 'day1/Silence_of_Foundations.md'):
+        base = path.split('/')[-1]
+        mem = [n for n in names_ if n.split('/')[-1] == base or n.endswith('_' + base)]
+        blob = subprocess.run(['git', '-C', PP, 'show', '%s:%s' % (K.RECUT_MERGE, path)], capture_output=True).stdout
+        zb_ = z.read(mem[0]) if len(mem) == 1 else b''
+        listed = any(base in l for l in ls if '|' in l)
+        man_ctl.append(dict(path=path, member=mem, listed=listed, raw_equal=bool(zb_) and zb_ == blob,
+                            lf_equal=bool(zb_) and zb_.replace(b'\r', b'') == blob.replace(b'\r', b''), blob_bytes=len(blob), member_bytes=len(zb_)))
+    man_ok = all(c['listed'] and len(c['member']) == 1 and c['lf_equal'] for c in man_ctl)
+    L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE REPAIRED BUILDER OVER THE ROSTER FROM MAIN, banked %s' % (ACT, utc()),
          '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
          '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names_), len(files_)),
          '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
          '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
          span_line(ACT),
-         '### THE ROSTER b714`S (tools/mirror_roster.json unedited this act); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R325)(9)); files %d' % len(files_),
+         '### THE ROSTER READ FROM PLACE-papers MAIN AT THE BUILD ((R325)(5); relay data/b715_roster.txt, the families of tools/mirror_roster.json, unedited); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R325)(10)); files %d' % len(files_),
+         '### (R325)(5)`S MANIFEST CONTROL, AGAINST %s (b714`s merge):' % K.RECUT_MERGE[:8]] + [
+         '    %s : zip entry %s ; listed in MANIFEST %s ; its bytes equal to the blob raw %s, with CR removed %s (%d and %d bytes)' % (
+             c['path'], c['member'] or '### NONE', c['listed'], c['raw_equal'], c['lf_equal'], c['member_bytes'], c['blob_bytes']) for c in man_ctl] + [
+         '    the removed file`s instance: relay data/b715_roster.txt :28 (a tree without day1/Spectral_Inertness.md: it leaves the roster)',
+         '### ### **THE MANIFEST CONTROL %s**' % ('AS WANTED' if man_ok else '### NOT AS WANTED'),
          '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
          '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names_]
     put_txt('%s_mirror.txt' % ACT, L)
     put_json('%s_mirror.json' % ACT, dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
                                          manifest_md5=_hl.md5(man).hexdigest(), entries=len(names_), files=len(files_), roster_line=rosterl,
                                          root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd), pp_head=pp_head, last_commit_in_manifest=pp_head in commits,
-                                         span=span_line(ACT)))
-    for l in L[:10]:
+                                         span=span_line(ACT), manifest_control=man_ctl, manifest_ok=man_ok))
+    for l in L[:16]:
         print(l[:240])
 
 
@@ -3134,7 +3191,8 @@ def _full_sentence(l, at):
 def rootprompt(*a):
     """[10], the root's prompt, put once: what b716 inherits from this act, each from its bank -- I. the toolset b716's close runs on ((R325)(3)(v),
     (12)): its version, the coverage table's reach and the replay's foot and findings; II. the pins census's hard failures, for a clone or a
-    ruling each ((R325)(6)). PRINTS ONLY: the prompt's text is banked by the answers route from the transcript; no bank here."""
+    ruling each ((R325)(6)), and upstream Mathlib's revs across the kernels' manifests where the author's word (3)(c) reads one. PRINTS ONLY:
+    the prompt's text is banked by the answers route from the transcript; no bank here."""
     f = _figs()
     rp = rdn('%s_replay.txt' % ACT).split(NL)
     finds = [l.strip() for l in rp if re.match(r'^  F-\d+ \[', l)]
@@ -3152,7 +3210,9 @@ def rootprompt(*a):
     L += ['    ' + x for x in finds]
     L += ['', 'II. THE PINS CENSUS`S %d HARD FAILURES OF %s REPOSITORIES (relay data/b715_pins_census.txt), carried to b716 for a clone or a ruling each:' % (
         len(hard), f['pins_n'])]
-    L += ['  (%d) %s' % (i, h) for i, h in enumerate(hard, 1)]
+    L += ['  (%d) %s' % (i, h) for i, h in enumerate(hard, 1)] or ['  none (the census under the author`s word (3): PUBLIC repositories alone, the fork out)']
+    L += ['  upstream Mathlib in the kernels` manifests at %s revs, the repositories carrying each: %s -- the word (3)(c) reads one, de5ce8a9' % (
+        f['pins_ml'], f['pins_ml_list'])]
     L += ['', '### FINDINGS %d ; HARD FAILURES %d (the foot %s) ; the word is banked in data/b715_author_answers.txt and carried to b716 by the trail' % (
         len(finds), len(hard), f['pins_hard'])]
     print(NL.join(L))

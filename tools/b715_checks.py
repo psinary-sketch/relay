@@ -131,7 +131,7 @@ L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((R325)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
 # ### seat's (set at the seal from the defects bank)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c == 'd' else 'SEAT') for c in 'abcdefghijklmn'))   # ### (a)-(n), (d) the navigator's (the author's word (1))
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c == 'd' else 'SEAT') for c in 'abcdefghijklmnop'))   # ### (a)-(p), (d) the navigator's (the author's word (1))
 
 
 def _bank_utc(text):
@@ -818,9 +818,10 @@ def answers_checked_ok(S):
     return _answers_checked(S, FLOORS['checks'])
 
 
-# ### the author's two words before the seal (data/b715_author_words_preseal.txt (1)-(2)), each checked by its needle before the lock -- after
-# ### the acts they governed (defect (l)); b714's predicate read every stamp after the lock, the act's root prompt the only one
-PRESEAL_NEEDLES = ('Option 1, the core, with four conditions', 'Option 1. The rule, entered in the builder')
+# ### the author's three words before the seal (data/b715_author_words_preseal.txt (1)-(3)), each checked by its needle before the lock -- (1)
+# ### and (2) after the acts they governed (defect (l)), (3) before (defect (o)); b714's predicate read every stamp after the lock, the act's
+# ### root prompt the only one
+PRESEAL_NEEDLES = ('Option 1, the core, with four conditions', 'Option 1. The rule, entered in the builder', 'Option 1 for the gate, with the widened census')
 
 
 def answers_before_ok(S):
@@ -872,7 +873,7 @@ def entry_scores_ok(S):
 # ### census's repositories, the census's chain rows -- each figure the banks' (data/b715_replay.txt, _standing_controls.txt, _hook_control.txt,
 # ### _pins_census.txt, _chain_rows.txt and the census on main)
 TITLE_NEEDLES = ('## the standing close toolset at v1.0.0, replaying b713 and b714 with 2 findings', '; 6 class repairs', '; the mirror’s roster from main',
-                 '; the pins census at 44 repositories', '; the census at v0.8.2 with 24 of 24 chain rows')
+                 '; the pins census at 39 repositories', '; the census at v0.8.2 with 24 of 24 chain rows')
 
 
 def _fold_article(t):
@@ -1390,13 +1391,23 @@ def roster_main_ok(S):
         and {'data/b715_roster.txt', 'tools/standing/roster.py', 'tools/mirror_build.ps1'} <= set(S['files']['c4']) and '(2)' in (S['author_words_pre'] or '')
 
 
+def _private_names():
+    """the names data/repo_visibility.txt marks PRIVATE, b714's four apart -- read at the run, written in no tool (the author's word (3)(b))."""
+    vis = [l.split('|') for l in (rd('repo_visibility.txt') or '').split(NL)]
+    return [p[1].strip() for p in vis if len(p) >= 2 and p[0].strip() == 'PRIVATE' and p[1].strip() != 'PLACE-papers']
+
+
 def pins_census_ok(S):
-    """(R325)(6): tools/b303_pins.py's roster widened -- 44 repositories, read from 12 texts on PLACE-papers main, b714's four first; the three
-    hard failures named (two with no clone, one with no main at its origin), carried; its controls 4 of 4; bank and tool in Component 4's commit."""
+    """(R325)(6) under the author's word (3): tools/b303_pins.py's roster widened -- 39 repositories, read from 12 texts on PLACE-papers main,
+    b714's four first, PUBLIC names alone (4 PRIVATE counted, none named: no name the visibility bank marks PRIVATE outside the four stands in
+    the bank), the fork out, upstream Mathlib's pins from the manifests; 0 hard failures; its controls 8 of 8; bank and tool in Component 4's
+    commit (the bank's first form) and regenerated before any push (word (3)(d))."""
     t = S['pins']
-    return 'ALL 44 REPOS THE ROSTER NAMES' in t and '12 texts read from PLACE-papers main' in t and '### REPOS HARD-FAILING : 3' in t \
-        and t.count('### HARD FAILURE -- NOT A GIT REPOSITORY.') == 2 and t.count('### HARD FAILURE -- A REPO THAT DOES NOT RESOLVE IS NOT 0/0.') == 1 \
-        and '### ### **PINS ROSTER CONTROLS 4 ; AS WANTED 4 ; ALL AS WANTED True.**' in t and 'def roster(' in (S['pins_src'] or '') \
+    priv = _private_names()
+    return 'ALL 39 REPOS THE ROSTER NAMES' in t and '12 texts read from PLACE-papers main' in t and '### REPOS HARD-FAILING : 0' in t \
+        and 'OUTSIDE b714`S FOUR : 4 (word (3)(b)' in t and len(priv) > 0 and not any(re.search(r'(?<![\w.-])%s(?![\w-])' % re.escape(n), t) for n in priv) \
+        and 'FORKS OUT OF THE ROSTER (word (3)(c)) : mathlib4' in t and t.count('MATHLIB UPSTREAM PIN ') >= 1 \
+        and '### ### **PINS ROSTER CONTROLS 8 ; AS WANTED 8 ; ALL AS WANTED True.**' in t and 'def roster(' in (S['pins_src'] or '') \
         and {'data/b715_pins_census.txt', 'tools/b303_pins.py'} <= set(S['files']['c4'])
 
 
@@ -1588,8 +1599,8 @@ ARMS = [
      lambda S: import_closure_ok(S), lambda S: put(S, 'closure', S['closure'].replace('AGAINST THE RECORD EQUAL', 'AGAINST THE RECORD DIFFERS'))),
     ('G-ROSTER-FROM-MAIN', '(R325)(5), the author`s word (2): the roster read from PLACE-papers main, v0.8 and v0.8.1 joining, controls 7 of 7; the builder reading it by print and json and refusing a roster not read; in Component 4`s commit',
      lambda S: roster_main_ok(S), lambda S: put(S, 'builder_src', (S['builder_src'] or '').replace('$rosterTool json', '$rosterTool'))),
-    ('G-PINS-CENSUS', '(R325)(6): the pins census at 44 repositories from 12 texts on main, the 3 hard failures named and carried, controls 4 of 4; bank and tool in Component 4`s commit',
-     lambda S: pins_census_ok(S), lambda S: put(S, 'pins', S['pins'].replace('ALL 44 REPOS', 'ALL 4 REPOS'))),
+    ('G-PINS-CENSUS', '(R325)(6) under the author`s word (3): the pins census at 39 repositories from 12 texts on main, PUBLIC names alone (4 PRIVATE counted, none named), the fork out, upstream Mathlib`s pins printed, 0 hard failures, controls 8 of 8; bank and tool in Component 4`s commit',
+     lambda S: pins_census_ok(S), lambda S: put(S, 'pins', S['pins'] + NL + '--- %s   visibility PRIVATE' % _private_names()[0])),
     ('G-CENSUS-ROWS', '(R325)(7): the census v0.8.2 on PLACE-papers main, 24 of 24 chain rows, v0.8.1 unchanged, 52 lines added and none removed, committed alone; the rows` evidence and the diff in Component 5`s commit, after Component 4`s',
      lambda S: census_rows_ok(S), lambda S: put(S, 'census_new', (S['census_new'] or '').replace('All 24 rows are written', 'All 23 rows are written'))),
     ('G-NO-DISPATCH', 'N1: no runner dispatch and no lean process this act -- no b715 dispatch bank, the command capture`s dispatches and local lean none',

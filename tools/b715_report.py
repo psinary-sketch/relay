@@ -106,8 +106,9 @@ def lines():
     seats.append(sr)
     # ------------------------------------------------------------------ REGISTERED: THE PINS CENSUS ((R325)(6))
     sp = seat('%s_pins_census.txt' % ACT, '### ### **PINS ROSTER CONTROLS')
-    keys['PINS'] = ('REGISTERED -- THE PINS CENSUS AT %s REPOSITORIES: read from %s texts on main, %s hard failures named and carried, controls %s. '
-                    'SOURCE %s.' % (f['pins_n'], f['pins_texts'], f['pins_hard'], f['pins_ctl'], sp['text']))
+    keys['PINS'] = ('REGISTERED -- THE PINS CENSUS AT %s REPOSITORIES: read from %s texts on main under the author`s word (3), PUBLIC names alone '
+                    '(%s PRIVATE counted, not named), the fork of Mathlib out, upstream Mathlib at %s revs, %s hard failures, controls %s. '
+                    'SOURCE %s.' % (f['pins_n'], f['pins_texts'], f['pins_priv'], f['pins_ml'], f['pins_hard'], f['pins_ctl'], sp['text']))
     seats.append(sp)
     # ------------------------------------------------------------------ HELD
     sh = seat('%s_ferry.txt' % ACT, '(11) THE DRAFT stands at v5, HELD')

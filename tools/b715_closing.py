@@ -331,10 +331,11 @@ def state_file_sentence(path='tools/mirror_prevbuild.json', repo=ROOT):
 def mirror_line():
     j = jl('b715_mirror.json')
     if not j:
-        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b715.zip; over b714`s roster of 70 entries, the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
-    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster b714`s, 70 entries; %s' % (
+        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b715.zip; over the roster read from PLACE-papers main ((R325)(5), relay data/b715_roster.txt), the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
+    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster read from PLACE-papers main at the build ((R325)(5)), its MANIFEST control %s ; %s' % (
         j.get('zip'), j.get('bytes', 0), (j.get('zip_sha256') or '')[:16], j.get('manifest_md5'), j.get('entries', 0), j.get('root_line') or '### NO ROOT LINE',
-        'CLEAN ON ALL THREE CLAUSES' if j.get('clean') else '### NOT CLEAN', j.get('span') or '### NO SPAN LINE', state_file_sentence())
+        'CLEAN ON ALL THREE CLAUSES' if j.get('clean') else '### NOT CLEAN', j.get('span') or '### NO SPAN LINE',
+        'AS WANTED' if j.get('manifest_ok') else '### NOT AS WANTED', state_file_sentence())
 
 
 def scores_at_close():
@@ -416,8 +417,8 @@ CARRIED_FIXED = [
     '        finding at Silence_of_Foundations :212 and THE_UNCONDITIONAL_SURROUND :183 (relay data/b714_pilot.txt :20-:21); the composition',
     '        law for the least negative index and its -39 registration; the residual (relay data/b714_residual.txt); pair 7`s rectangle',
     '        certification (relay data/b714_rect.txt); the Sonin restriction`s price (relay data/b714_sonin_price.txt) and the law`s identity',
-    '        reading (relay data/b714_law.txt); the pins census`s three hard-failing repositories (relay data/b715_pins_census.txt); the report',
-    '        tool outside the sealed list; the draft held at v5.',
+    '        reading (relay data/b714_law.txt); upstream Mathlib carried at five revs across the kernels` manifests where the author`s word (3)(c)',
+    '        reads one, de5ce8a9 (relay data/b715_pins_census.txt); the report tool outside the sealed list; the draft held at v5.',
     '    (d) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, data/b694_witness_units.jsonl,',
     '        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, b709`s grid and pairs units files, b711`s and b714`s units files,',
     '        b714`s rectangle units file, b715`s record tool`s hashes bank (declared in their tools` heads) and the zero-byte `=` at relay`s root',

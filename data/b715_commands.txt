@@ -1,7 +1,7 @@
-b715 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T01:09:35Z)
+b715 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-27T01:52:55Z)
 
 ### the source: the seat`s session bde68a30-a303-4bfc-a0eb-fd2e81af3fd2 from its first user line carrying 'RULING (R325) BEGIN', with its subagents` transcripts
-### commands read: 406
+### commands read: 500
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -464,5 +464,99 @@ b715 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #404 | 2026-10-27T01:09:13.755Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py guard
   #405 | 2026-10-27T01:09:19.781Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py figures
   #406 | 2026-10-27T01:09:32.711Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py commands
+  #407 | 2026-10-27T01:09:42.014Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_checks.py --mid b715_mid.txt --part act
+  #408 | 2026-10-27T01:11:12.523Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b703_checks.py "def wl_globs|def wl_ok|fnmatch"
+  #409 | 2026-10-27T01:11:23.241Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_checks.py --mid b715_mid.txt --part standing-a
+  #410 | 2026-10-27T01:16:35.339Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_mid_standing-a.txt "PROCS|PP-SCOPE|DELETE-FREE|CLOSING-SENTENCE|changed files on main|delete 
+  #411 | 2026-10-27T01:16:41.601Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_checks.py "\('G-(PROCS-LISTED|PP-SCOPE|DELETE-FREE|ANSWERS-BANKED)'|def delete_free|def proc
+  #412 | 2026-10-27T01:16:52.953Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_checks.py "def no_delete|DELETE_WORDS|S\['tooltext'\] =|def procs_ok"
+  #413 | 2026-10-27T01:16:58.159Z | seat | PowerShell | git -C D:\relay grep -n -E "def no_delete|def procs_ok|tooltext.. ?=" -- tools/b703_checks.py tools/b714_checks.py tools/b713_checks.py tools/b712_checks.py too
+  #414 | 2026-10-27T01:17:17.564Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\bde68a30-a303-4bfc-a0eb-fd2e81af3fd2.jsonl" '"name":"TaskStop"|"name
+  #415 | 2026-10-27T01:17:24.287Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\bde68a30-a303-4bfc-a0eb-fd2e81af3fd2.jsonl" '"type":"tool_use","id":
+  #416 | 2026-10-27T01:17:33.865Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\bde68a30-a303-4bfc-a0eb-fd2e81af3fd2.jsonl" '\x22name\x22:\x22(TaskS
+  #417 | 2026-10-27T01:17:47.415Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\bde68a30-a303-4bfc-a0eb-fd2e81af3fd2.jsonl" '\x22name\x22:\x22Read\x
+  #418 | 2026-10-27T01:18:15.325Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py defects; git -C D:\relay grep -n -E "os\.remove|os\.unlink|shutil\.rmtree|os\.rmdir|rm -rf|Remove-Item|\.unlink\(|g
+  #419 | 2026-10-27T01:18:22.688Z | seat | PowerShell | git -C D:\relay grep --untracked -n -E "os\.remove|os\.unlink|shutil\.rmtree|os\.rmdir|rm -rf|Remove-Item|\.unlink\(|git branch -D|worktree remove\b|tag -d\b" -
+  #420 | 2026-10-27T01:18:52.634Z | seat | PowerShell | python -X utf8 -m py_compile D:\relay\tools\b715_closing.py; python -X utf8 -m py_compile D:\relay\tools\b715_citation.py; python -X utf8 -m py_compile D:\relay
+  #421 | 2026-10-27T01:19:00.566Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_checks.py --mid b715_mid.txt --part standing-b1
+  #422 | 2026-10-27T01:20:54.592Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_checks.py --mid b715_mid.txt --part standing-b3
+  #423 | 2026-10-27T01:23:46.065Z | seat | PowerShell | git -C D:\relay status --short -- data/b715_* data/b714_* tools/b715_* tools/standing tools/b303_pins.py tools/mirror_build.ps1
+  #424 | 2026-10-27T01:23:58.607Z | seat | PowerShell | git -C D:\relay add -- tools/b715_checks.py tools/b715_closing.py tools/b715_reg_gate.py tools/b715_regspec.py tools/b715_report.py tools/b715_citation.py tools
+  #425 | 2026-10-27T01:24:07.086Z | seat | PowerShell | git -C D:\relay commit -q -m "b715 component 6 before the lock: the face data/b715_registration_2026-10-26.txt (140 arms, two carried failures named); the act's
+  #426 | 2026-10-27T01:24:12.720Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\repairs.py bank
+  #427 | 2026-10-27T01:24:20.825Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py step relay component 6
+  #428 | 2026-10-27T01:24:27.103Z | seat | PowerShell | git -C D:\relay add -- data/b715_tool_repairs.txt data/b715_steps.json data/b715_bank_hashes.json
+  #429 | 2026-10-27T01:24:33.100Z | seat | PowerShell | git -C D:\relay commit -q -m "b715 component 6 before the lock: data/b715_tool_repairs.txt re-banked after 190e1982 (PAIRS 17, NOT FOUND 0, STANDING FILES 11, T
+  #430 | 2026-10-27T01:24:38.940Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py step relay component 6
+  #431 | 2026-10-27T01:24:46.852Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b714_steps.json '\x22phase\x22'
+  #432 | 2026-10-27T01:25:15.650Z | seat | PowerShell | git -C D:\relay add -- data/b715_registration_2026-10-26.txt data/b715_steps.json
+  #433 | 2026-10-27T01:25:20.517Z | seat | PowerShell | git -C D:\relay commit -q -m "b715 [5] the gate's step, its first commit: the face declares Component 6's two commits 190e198 and ce50298; step row 11"
+  #434 | 2026-10-27T01:25:25.110Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py step relay gate
+  #435 | 2026-10-27T01:25:31.221Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py rootdry
+  #436 | 2026-10-27T01:25:49.295Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_closing.py dry
+  #437 | 2026-10-27T01:26:58.047Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_closing.py "roster|def mirror_line"
+  #438 | 2026-10-27T01:27:13.201Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_record.py "^def (mbuild|mroot|mverify|mbank)\(|v0_8_1|MANIFEST CONTROL|removed file|a86c9429
+  #439 | 2026-10-27T01:27:21.053Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_roster.txt "CONTROL|control|removed|JOINS|\(\d\)"
+  #440 | 2026-10-27T01:27:41.964Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers cat-file -t a86c9429:phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md; git -C D:\MY-DOwnloads\PLACE-papers cat-file -t a86c9429:d
+  #441 | 2026-10-27T01:28:13.664Z | seat | PowerShell | python -X utf8 -m py_compile D:\relay\tools\b715_record.py; python -X utf8 -m py_compile D:\relay\tools\b715_closing.py; python -X utf8 D:\relay\tools\b715_clos
+  #442 | 2026-10-27T01:29:13.254Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py scores dry
+  #443 | 2026-10-27T01:30:35.892Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_scores_dry.txt 'beyond the membrane'
+  #444 | 2026-10-27T01:30:49.846Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\standing_clauses_v5.txt '\[5\]' 'gatebanks' 'reg_satisfiable' 'banned_terms' 'gate_hash'
+  #445 | 2026-10-27T01:31:03.038Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\memory\feedback_b714_traps.md" 'gate' 'lock'
+  #446 | 2026-10-27T01:31:07.706Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py "C:\Users\echo chamber\.claude\projects\D--\memory\feedback_b714_traps.md" 'gate|lock' "C:\Users\echo chamber\.c
+  #447 | 2026-10-27T01:31:20.054Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py gatebanks
+  #448 | 2026-10-27T01:31:56.009Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_satisfiable.txt 'CONTRADICT|NOT SAT|clash|vs'
+  #449 | 2026-10-27T01:32:00.487Z | seat | PowerShell | Get-ChildItem -Name -Filter "b715_*sat*" D:\relay\data; Get-ChildItem -Name -Filter "b715_*pins*" D:\relay\data
+  #450 | 2026-10-27T01:32:05.246Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_satisfiable.json 'contrad|CONTRAD|false|clause' D:\relay\data\b715_pins_stepzero.txt 'HARD|FA
+  #451 | 2026-10-27T01:32:11.347Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_satisfiable.json '\x22ok\x22: false|CONTRADICTORY|\x22verdict\x22' D:\relay\data\b714_pins_st
+  #452 | 2026-10-27T01:32:20.171Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_satisfiable.json '\x22demand\x22: [1-9]|contradictions|\x22cap\x22: [1-9]'
+  #453 | 2026-10-27T01:32:26.260Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_regspec_run.txt 'PREDICTION|predict'
+  #454 | 2026-10-27T01:32:51.657Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b698_record.py 'def gatebanks'
+  #455 | 2026-10-27T01:33:03.781Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_pins_census.txt 'TECHNE|glassbead|mathlib4|HARD|VERDICT|###.*\*\*'
+  #456 | 2026-10-27T01:33:10.076Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_registration_2026-10-26.txt 'HARD|hard-fail|TECHNE-Core|mathlib4|pins_stepzero'
+  #457 | 2026-10-27T01:33:15.869Z | seat | PowerShell | git -C D:\relay grep -n -e "pins_stepzero" -e "HARD-FAILING" -- tools/b715_checks.py tools/b715_record.py tools/b715_closing.py tools/standing
+  #458 | 2026-10-27T01:33:20.855Z | seat | PowerShell | git -C D:\relay grep -n -l -e "_pins_stepzero" -- tools
+  #459 | 2026-10-27T01:33:26.050Z | seat | PowerShell | git -C D:\relay grep -n -e "pins_stepzero" -e "HARD" -- tools/b378_lockgate.py
+  #460 | 2026-10-27T01:33:38.562Z | seat | PowerShell | git -C D:\relay diff --stat 1992a71c HEAD -- tools/b303_pins.py; git -C D:\relay log --oneline 1992a71c..HEAD -- tools/b303_pins.py
+  #461 | 2026-10-27T01:33:43.189Z | seat | PowerShell | git -C D:\relay diff 1992a71c HEAD -- tools/b303_pins.py
+  #462 | 2026-10-27T01:33:54.315Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_ferry.txt 'pins|hard'
+  #463 | 2026-10-27T01:34:10.754Z | seat | PowerShell | Test-Path D:\TECHNE-Core; Test-Path D:\glassbead-game; Test-Path D:\mathlib4\.git; git -C D:\mathlib4 remote -v
+  #464 | 2026-10-27T01:34:30.204Z | seat | PowerShell | git -C D:\mathlib4 ls-remote --symref origin HEAD
+  #465 | 2026-10-27T01:39:01.513Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_author_words_preseal.txt '^## |END|BEGIN' D:\relay\tools\b715_citation.py 'preseal|def answer
+  #466 | 2026-10-27T01:39:11.372Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_defects.txt '^\(l\)|00:58|^\(n\)'
+  #467 | 2026-10-27T01:39:32.403Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b682_citation.py '^def answer|q = |MID-ACT'
+  #468 | 2026-10-27T01:39:55.124Z | seat | PowerShell | git -C D:\relay ls-files data/repo_visibility.txt; git -C D:\relay grep -n -c -e "TECHNE-Core" -e "glassbead-game" HEAD -- data/repo_visibility.txt data/b715_pi
+  #469 | 2026-10-27T01:40:06.597Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_citation.py answer "Option 1 for the gate, with the widened census"
+  #470 | 2026-10-27T01:40:18.919Z | seat | PowerShell | git -C D:\relay log --format="%h %s" 1992a71c..HEAD -- data/b715_pins_census.txt data/b715_pins_stepzero.txt data/b715_registration_2026-10-26.txt tools/b303_pi
+  #471 | 2026-10-27T01:40:19.583Z | seat | PowerShell | git -C D:\relay ls-remote origin
+  #472 | 2026-10-27T01:40:31.224Z | seat | PowerShell | foreach ($t in @('1992a71c4670ac3118f383f1bbf0ef9e992fa15a','70b1ce284f363926bad05a08c13509541432e9bf','154953028608744fc970d27e41793ae7bdd0d5dc','6e5638077165a
+  #473 | 2026-10-27T01:40:40.666Z | seat | PowerShell | git -C D:\relay grep -n -e "TECHNE-Core" -e "glassbead-game" 1992a71c -- data/repo_visibility.txt; git -C D:\relay grep -l -e "glassbead-game" 1992a71c -- data 
+  #474 | 2026-10-27T01:41:02.579Z | seat | PowerShell | git -C D:\relay grep -n -e "gatebanks" -e "^from b698_record" -e "^import b698_record" -e "b303_pins" -- tools/b715_record.py
+  #475 | 2026-10-27T01:41:28.744Z | seat | PowerShell | git -C D:\relay grep -n -E "^(T|D|ROOT|ACT|FACE|FACE_REL|NL) *=|^def rdn|^rdn *=|^import subprocess|^import (os|sys)" -- tools/b715_record.py
+  #476 | 2026-10-27T01:41:45.570Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_pins_census.txt 'NOT IN data|visibility PRIVATE|^--- (relay|SIDE-explicit-formula|SIDE-lv-con
+  #477 | 2026-10-27T01:41:59.861Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_pins_census.txt '^--- \S+ +\(\S+\) +visibility (PRIVATE|PUBLIC|###)'
+  #478 | 2026-10-27T01:43:44.331Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b303_pins.py '^def main|return 0 if hard == 0 else 2|^class _Tee'
+  #479 | 2026-10-27T01:44:13.433Z | seat | PowerShell | python -X utf8 D:\relay\tools\b303_pins.py control
+  #480 | 2026-10-27T01:44:23.666Z | seat | PowerShell | python -X utf8 D:\relay\tools\b303_pins.py bank
+  #481 | 2026-10-27T01:45:37.749Z | seat | PowerShell | git -C D:\relay grep -n -E "^import re|^NL *=|^def rd\(|^rd *=|, rd,|pins_census_ok|'G-PINS" -- tools/b715_checks.py
+  #482 | 2026-10-27T01:45:43.953Z | seat | PowerShell | git -C D:\relay grep -n -m 4 -e "rd('" -- tools/b715_checks.py
+  #483 | 2026-10-27T01:46:07.255Z | seat | PowerShell | git -C D:\relay grep -n -E "44 repositor|44 REPOS|hard failures named|3 hard|hard-failing|pins_hard|TECHNE|glassbead|mathlib4" -- tools/b715_*.py data/b715_regi
+  #484 | 2026-10-27T01:46:47.123Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_record.py 'pins_hard|hard failures named|The pins census'
+  #485 | 2026-10-27T01:47:39.765Z | seat | PowerShell | git -C D:\relay grep -n -e "pins_closing" -- tools/b715_closing.py tools/b715_record.py tools/b698_record.py tools/b714_closing.py
+  #486 | 2026-10-27T01:48:09.946Z | seat | PowerShell | git -C D:\relay grep -n -E "f = .*_figs|_figs\(" -- tools/b715_report.py
+  #487 | 2026-10-27T01:48:36.501Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_regspec.py 'questions asked of the author before|readings of the order declared|PRESEAL|READ
+  #488 | 2026-10-27T01:48:45.274Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_registration_2026-10-26.txt '\*\*READING \(\d+\) --|questions? (asked )?(of|to) the author|PR
+  #489 | 2026-10-27T01:48:56.193Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_registration_2026-10-26.txt '(?i)pre-seal|two words|words \(1\) and \(2\)|word \(2\)\b'
+  #490 | 2026-10-27T01:49:06.671Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_checks.py 'PRESEAL_NEEDLES|def answers_before_ok|MID-ACT CHECK'
+  #491 | 2026-10-27T01:49:20.211Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\tools\b715_checks.py '^FLOORS|^NAV_LETTERS|author_words_pre|\(2\).*in \(S'
+  #492 | 2026-10-27T01:49:50.581Z | seat | PowerShell | git -C D:\relay grep -n -E "defects\.json|def defects" -- tools/b715_record.py
+  #493 | 2026-10-27T01:49:55.125Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py defects
+  #494 | 2026-10-27T01:50:01.175Z | seat | PowerShell | python -I -X utf8 D:\relay\tools\b712_locate.py D:\relay\data\b715_registration_2026-10-26.txt '^### +\((m|n)\) |\(a\)-\(n\)|DEFECTS'
+  #495 | 2026-10-27T01:50:25.792Z | seat | PowerShell | git -C D:\relay grep -n -E "abcdefghijklmn|\(a\)-\(n\)|\(h\)-\(n\)|14 letters|fourteen defects" -- tools/b715_*.py data/b715_registration_2026-10-26.txt
+  #496 | 2026-10-27T01:50:33.158Z | seat | PowerShell | python -I -X utf8 -m py_compile D:\relay\tools\b303_pins.py D:\relay\tools\b715_record.py D:\relay\tools\b715_checks.py D:\relay\tools\b715_closing.py D:\relay\
+  #497 | 2026-10-27T01:50:40.260Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_closing.py dry
+  #498 | 2026-10-27T01:51:35.442Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py scores dry
+  #499 | 2026-10-27T01:51:55.688Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_reg_gate.py
+  #500 | 2026-10-27T01:52:52.113Z | seat | PowerShell | python -X utf8 D:\relay\tools\b715_record.py gatebanks
 
-### ### **COMMANDS 406 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 34 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 500 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 34 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
