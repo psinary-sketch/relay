@@ -2451,7 +2451,8 @@ def _for_author():
             '(9) the report tool outside the sealed list until the root (relay data/b708_rules.txt row (1)); (10) %s and the seat’s %s defect%s '
             'as lettered' % (
                 f['pr_budget'], f['fp_target'], f['ep_disp'], f['ep_hours'], f['ks_carried'], f['cv_std'], f['cv_steps'],
-                ('the %s navigator %s (%s)' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', letters)) if nav else 'no navigator miss',
+                # ### the standing reader's form (the gate's and the suite's RESOLVED): the count as a word, "none" for zero (defect (r))
+                'the %s navigator %s%s' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if nav else ''),
                 num_word(seat), '' if seat == 1 else 's'))
 
 

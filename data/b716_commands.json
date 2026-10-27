@@ -1,5 +1,5 @@
 {
- "at": "2026-10-27T06:32:15Z",
+ "at": "2026-10-27T06:46:21Z",
  "anchor": "RULING (R326) BEGIN",
  "rows": [
   {
@@ -1336,6 +1336,286 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/b716_record.py commands",
    "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:32:20.566Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py kernels",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:32:35.053Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py standing",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:32:52.319Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py figures",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:33:05.924Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py figures",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:33:30.283Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py\" tools/b716_record.py guard drycheck",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:33:37.897Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py guard",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:37:50.121Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/repairs.py bank",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:00.447Z",
+   "src": "seat",
+   "cmd": "git status --porcelain",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:13.394Z",
+   "src": "seat",
+   "cmd": "git add data/b716_defects.txt data/b716_hook_refusals.txt data/b716_steps.json data/b716_tool_repairs.txt tools/b716_record.py tools/b716_worklist.py data/b716_carry_checks.txt data/b716_carry_closing.txt data/b716_carry_reg_gate.txt data/b716_carry_regspec.txt data/b716_carry_report.txt data/b716_commands.json data/b716_commands.txt data/b716_guard_dry.json data/b716_guard_dry.txt data/b716_kernels_face.json data/b716_read_calls.json data/b716_read_calls.txt data/b716_registration_2026-10-27.txt data/b716_standing_figures.json data/b716_standing_figures.txt tools/b716_checks.py tools/b716_closing.py tools/b716_reg_gate.py tools/b716_regspec.py tools/b716_report.py",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:19.846Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b716 component 5: the suite, closing, spec, gate, record and report tools for the act; defects (m)-(p); command, read, kernels, guard and figures banks; the face\" && git log -1 --format=%H",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:25.220Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py step relay \"component 5\" 630c9b83",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:31.789Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py rootdry",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:38:43.387Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_closing.py dry",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:39:50.962Z",
+   "src": "seat",
+   "cmd": "date -u +%H:%M:%SZ",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:40:13.757Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/b716_checks.py FLOORS NAV_LETTERS",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:40:20.522Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/b716_checks.py",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:40:44.501Z",
+   "src": "seat",
+   "cmd": "git add data/b716_defects.txt tools/b716_checks.py data/b716_registration_2026-10-27.txt data/b716_root_banks_dry.txt data/b716_closing_dry.txt data/b716_steps.json",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:40:50.594Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b716 component 5: the root route's dry run (READY True) and the closing's dry run; defect (q) and the floors at (a)-(q)\" && git log -1 --format=%H",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:40:55.671Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py step relay \"component 5\" 6fd34430",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:41:01.884Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py scores dry",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:41:39.342Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_reg_gate.py",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:42:28.222Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/b716_record.py",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:42:45.593Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/b716_reg_gate.py",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:43:12.660Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_reg_gate.py",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:44:01.073Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_regspec.py",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:44:11.524Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py armnames",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:44:21.104Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/b716_regspec.py",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:44:32.143Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_regspec.py",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:44:43.100Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_reg_gate.py",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:45:28.770Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_regspec.py",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:45:41.310Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/reg_satisfiable.py",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:45:48.716Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b716_satisfiable.json --emit b716",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:45:56.734Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/0c15655e-4d46-485e-9b80-fada479be2d0/scratchpad/defs.py tools/banned_terms.py",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:46:06.708Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/banned_terms.py --new data/b716_registration_2026-10-27.txt --emit b716",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-27T06:46:17.676Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b716_record.py gatebanks",
+   "n": 202,
    "bg": false
   }
  ],
