@@ -1,0 +1,89 @@
+b716 -- STEP ZERO, (R326)(4): THE REGISTRATION FOR DISCRIMINANT -39, WRITTEN AND COMMITTED ALONE BEFORE ANY COMPUTATION AT IT (2026-10-27)
+
+### rows are registrations, each with its object, quantity, hypothesis, falsifier, controls, the act that computes it and the order it serves,
+### in (R326)(4)'s words and b712's form (relay data/b712_registrations.txt). Written by the Write tool at step zero after the citation check
+### (data/b716_citation_check.txt, 82 cites, 81 OK) and committed alone, ahead of every other bank of this act, with the one control (R326)(4)(i)
+### orders run before the commit and banked beside it (relay data/b716_genus_control.txt and .json, written by tools/b716_genus_control.py at
+### 04:49:02Z). NOTHING OF -39 IS COMPUTED AT b716 BEYOND THAT COUNT CONTROL: no zero, no n*, no log-derivative coefficient, no onset. Nothing
+### here is a statement that RH or GRH holds or locates any zero.
+
+  (i) THE FORMS, THE CLASS GROUP AND THE DECOMPOSITION -- FROM MURTY-OSBURN arXiv:math/0412237v1 THEOREM 2.3, AS PINNED AT b713.
+      THE TEXT IT IS READ FROM: M. Ram Murty and Robert Osburn, "Representations of integers by certain positive definite binary quadratic
+          forms", arXiv:math/0412237v1, page 3, Theorem 2.3 (Kronecker's theorem): the L-function of K for the genus character chi_{D1,D2}
+          factors as L(s, chi_D1) L(s, chi_D2); sha256 5de0ba0368f3c627...3dac, 152951 bytes (relay data/b713_source_pin.txt :16-:30). The
+          bridge zeta(s, C) = Z_Q(s) / w, w = 2 units, is b713's step, named there as the seat's (:38-:39), carried unchanged.
+      THE FORMS: the reduced forms of discriminant -39 are Q1 = x^2 + xy + 10y^2 (the principal class), Q2 = 2x^2 + xy + 5y^2 and its inverse
+          Q2' = 2x^2 - xy + 5y^2, and Q3 = 3x^2 + 3xy + 4y^2. The class group has order 4 and is cyclic: Q1 and Q3 are its two ambiguous classes
+          (2-rank 1, -39 = (-3)(13) two prime discriminants), Q3 = Q2^2 its element of order 2, Q2 and Q2' its generators. The principal genus
+          is {Q1, Q3}, the other genus {Q2, Q2'}.
+      THE DECOMPOSITION BY THE GROUP'S FOUR CHARACTERS, with Z_Q(s) the sum over (x, y) other than (0, 0) of Q(x, y)^(-s):
+              Z_Q1(s) + Z_Q3(s) + 2 Z_Q2(s) = 2 zeta(s) L(s, chi_-39)          the trivial character; Theorem 2.3 at -39 = -39 . 1
+              Z_Q1(s) + Z_Q3(s) - 2 Z_Q2(s) = 2 L(s, chi_-3) L(s, chi_13)      the genus character chi_{-3,13} (+1 on Q1, Q3; -1 on Q2, Q2');
+                                                                               Theorem 2.3 at -39 = (-3)(13)
+              Z_Q1(s) - Z_Q3(s)             = 2 L_K(s, psi)                    the two quartic characters psi, psi-bar (values 1, i, -1, -i on
+                                                                               Q1, Q2, Q3, Q2'); L_K(s, psi) = L_K(s, psi-bar) since Z_Q2 = Z_Q2'
+          each chi_D the Kronecker symbol (D/.), K = Q(sqrt(-39)). The principal form's zeta is then
+              Z_Q1(s) = (1/2) [ zeta(s) L(s, chi_-39) + L(s, chi_-3) L(s, chi_13) ] + L_K(s, psi),
+          a half-sum of two Euler products of weight 1 plus a Hecke L-function of K. THE SCOPE, stated: Theorem 2.3 states the genus
+          characters' factorization alone; L_K(s, psi) is a Hecke L-function attached to a character of order 4, not a product of Dirichlet
+          L-functions, and the text does not reach it -- at -15 (h = 2) every character was a genus character, at -39 two of four are not.
+      THE CONTROL, run before this row is committed and banked beside it (relay data/b716_genus_control.txt :1-:49, .json): the reduced forms
+          enumerated (h = 4, two ambiguous, AS WANTED); r_Q(n) for n <= 400 by direct enumeration against the two genus lines' Dirichlet
+          coefficients 2 sum_{d|n} chi_-39(d) and 2 sum_{d|n} chi_-3(d) chi_13(n/d): MISSES 0 through n = 400, with r_Q2 = r_Q2' and
+          r_Q1 - r_Q3 even at every n; the third line, which no Dirichlet product reaches, read by the Hecke L-function's own laws on
+          a(n) = (r_Q1(n) - r_Q3(n))/2 -- multiplicative on coprime m, n and a(p^(j+1)) = a(p) a(p^j) - chi_-39(p) a(p^(j-1)) -- off at 0
+          coprime pairs and 0 prime powers through n = 400; the hand checks EQUAL (n = 1: trivial 2, genus 2; n = 2: trivial 4, genus -4);
+          three planted controls failing as wanted (Q0 = x^2 + xy + 6y^2 in Q1's place in the trivial line, 21 misses to n = 60; the genus
+          line's sign reversed, 40 misses to n = 60; r_Q1(n)/2 read as a Hecke L-function, 95 coprime pairs and 9 prime powers off its laws).
+
+  (ii) THE PREDICTION -- THE OBSERVATION AT Q0 AND -15 MADE A LAW, COMPUTED AT b717 WHERE (iv)'S PRICE FITS ONE ACT ((R326)(10)).
+      THE OBSERVATIONS IT GENERALISES, read from their banks and not recomputed:
+          Q0 = x^2 + xy + 6y^2 (discriminant -23): the least n with c(n) < 0 is n = 48 = 2^4 . 3, c(48) = (-8) log 2 + (-2) log 3 = -2 log 48
+              (relay data/b711_coeffs.txt :12);
+          Q1 of -15 = x^2 + xy + 4y^2: the least n with c(n) < 0 is n = 24 = 2^3 . 3, c(24) = (-6) log 2 + (-2) log 3 = -2 log 24
+              (relay data/b713_coeffs.txt :13);
+          at both, the primes 2 and 3 of the least index are represented by no form of the principal class (at -23 by 2x^2 +- xy + 3y^2,
+          at -15 by 2x^2 + xy + 2y^2), the seat's reading of the forms' values at those primes, for the author's strike.
+      THE OBJECT: the log-derivative coefficients c(n) of the Epstein zeta of the principal form Q1 = x^2 + xy + 10y^2 of discriminant -39,
+          -Z_Q1'/Z_Q1 = SUM c(n) n^(-s), computed exactly from r_Q1(n) by the recursion over divisors (b711's and b713's route,
+          relay data/b711_coeffs.txt :3-:4), each c(n) a vector of rationals over the primes of n; b(n) = c(n) / log n, the coefficient of
+          n^(-s) in log Z_Q1.
+      THE LAW (THE PREDICTION): the least index n with c(n) < 0 has c(n) = -2 log n, that is b(n) = -2 in log Z; and n is divisible by a
+          prime represented by no form of the principal class (a prime p for which Q1(x, y) = p has no integer solution).
+      FALSIFIER: the least negative coefficient has b(n) other than -2, or its index is divisible by primes of the principal class alone.
+      CONTROLS, printed before the -39 reading: (C1) the route with b_n = 1 returns von Mangoldt exactly through the cut (b711's and b713's
+          C1); (C2) r_Q1(n) against the coefficients of (1/2)[zeta L(chi_-39) + L(chi_-3) L(chi_13)] + L_K(psi) through the cut, i.e. the
+          three lines of (i) re-read at the route's cut; (C3) the route reproducing Q0's least index 48 and -15's 24 with their values,
+          unchanged.
+      THE ORDER IT SERVES: (R326)(10), the computation at -39 under this commit in b717; the next control for Which_Structure_Confines.
+
+  (iii) THE REFINED DETECTION LAW AT -39 -- CARRIED UNCHANGED FROM data/b710_registrations.txt (i), COMPUTED AT b717 FOR -39'S OFF-LINE PAIRS.
+      THE LAW, carried as b712 (ii) carried it to -15 (relay data/b712_registrations.txt :28-:48): "n* solves r(rho)·n* = log(M(n*)/A(rho))"
+          (data/b710_registrations.txt :11-:12), read by b709's route to first order as
+              r n* = 4 log(4C) + 8 log(n* + 1)
+          (:21), r = r(rho) = log |1 - 1/rho'| for the off-line pair (rho' its reflection), C = 2(2 + 2(1 + s)^2) K with s = (1 + 3R)/4 and K
+          the rest set's sum over the certified list with its tail (:14-:17), C read per pair on Q1's own certified list at -39 and from no
+          constant fitted at Q0.
+      THE FORM NAMED, AS b714 (7) READ IT (relay data/b714_law.txt :57-:74, THE READING: TWO FORMS): this registration carries THE FIRST-ORDER
+          FORM WITH C PER PAIR, the form b713's -15 test used (b714_law :70-:71); b710's F2 (alpha = 19.065093, beta = 7.997097, fitted once
+          over Q0's ten onsets, data/b710_registrations.txt :24-:27) is Q0's fitted form, reads no C, and does not enter the -39 predictions.
+          The window [0.99, 1.01] is the first-order form's window (b712 (ii) :46-:48); F2's own window at b710 (i) was [0.9, 1.1] (:43).
+      THE PREDICTIONS: for each off-line pair of Q1 at -39 that b717's list certifies, n*_pred the fixed point of
+          n = (4 log(4C) + 8 log(n + 1)) / r(rho), C read on that list before the pair's n* is computed, each prediction printed and committed
+          before its computation (b710's form, (R320)(6)(i)).
+      HYPOTHESIS: each computed pair's ratio n*/n*_pred lies within [0.99, 1.01].
+      FALSIFIER: a computed pair whose ratio lies outside [0.99, 1.01].
+      CONTROLS, printed before any -39 pair: (C1) the route reproducing -15's eight pairs at b713's ratios on b713's list, the route unchanged
+          (relay data/b713_onsets.txt); (C2) the identity of (i) (data/b716_genus_control.txt), Q1's coefficients the route's input read equal
+          to the three lines' through the route's cut. THE RESIDUAL beside it, an observation and not a falsifier: b714's onset-minus-prediction
+          (relay data/b714_residual.txt, 44.9 to 137.3 in n, positive at 10 of 10) printed for each -39 pair.
+      THE ORDER IT SERVES: (R326)(10), b717.
+
+  (iv) THE PRICE -- written at Component 4 as relay data/b716_price.txt, nothing built: the certified list's tiers (the heights to which Q1's
+      zeros at -39 must be certified for (ii)'s cut and (iii)'s off-line pairs), the coefficients' cut, the foreground hours under the 600 s
+      limit, and the act budget; b717 computes (ii) and (iii) where the price fits one act ((R326)(10)).
+
+### ### **REGISTRATIONS 4 ; (i) THE FORMS OF -39 (h = 4, CYCLIC), THE DECOMPOSITION BY THE FOUR CHARACTERS FROM MURTY-OSBURN THEOREM 2.3 AND THE
+### QUARTIC PAIR'S HECKE L-FUNCTION, ITS CONTROL 0 MISSES THROUGH n = 400 BANKED BESIDE IT ; (ii) THE LEAST NEGATIVE INDEX LAW, b(n) = -2 AND A
+### PRIME OUTSIDE THE PRINCIPAL CLASS ; (iii) THE FIRST-ORDER LAW CARRIED, THE FALSIFIER A RATIO OUTSIDE [0.99, 1.01] ; (iv) THE PRICE AT
+### COMPONENT 4 ; COMPUTED AT b717 ; NOTHING OF THE -39 ZEROS COMPUTED AT b716.**
