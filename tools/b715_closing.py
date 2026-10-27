@@ -558,7 +558,12 @@ def main():
                                        verdict(rd('b715_faces_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b715_faces_census_closing.txt'), encoding='utf-8').read(),
                                                r'TOTAL MISSING : \d+')),
           '    pins : %s' % verdict(rd('b715_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b715_pins_closing.txt'), encoding='utf-8').read(),
-                                    r'REPOS HARD-FAILING : \d+')]
+                                    r'REPOS HARD-FAILING : \d+'),
+          # ### the author's word (3): the widened census's figure after (b) and (c), read from its bank (relay data/b715_pins_census.txt)
+          '    the pins census under the author`s word (3) : %s ; %s ; %s ; Mathlib revs %d' % (
+              verdict(rd('b715_pins_census.txt'), r'ALL \d+ REPOS THE ROSTER NAMES'), verdict(rd('b715_pins_census.txt'), r'REPOS HARD-FAILING : \d+'),
+              verdict(rd('b715_pins_census.txt'), r'PRIVATE REPOSITORIES THE TEXTS NAME OUTSIDE b714`S FOUR : \d+'),
+              len(re.findall(r'(?m)^  MATHLIB UPSTREAM PIN [0-9a-f]{40} ', rd('b715_pins_census.txt'))))]
     L += KERNEL_LINES + ['']
     L += ['### CARRIED FORWARD.'] + carried() + ['=' * 104]
     b = (NL.join(L) + NL).encode('utf-8')

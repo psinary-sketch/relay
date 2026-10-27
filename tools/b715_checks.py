@@ -746,8 +746,11 @@ def dry_step_ok(S):
 # ### that does not exist (data/b714_prints_v0.17.txt for b708's data/b708_prints_v0.17.txt). A row passes where its bank exists, is not empty and
 # ### carries no verdict line by the closing tool's own reader (tools/b715_closing.py VLINE); a row naming no bank, an absent or empty bank, or a
 # ### verdict-bearing bank printed without its verdict fails. The gate writes no JSON bank, so its text is read (data/b715_repair_controls.txt (iii)).
+# ### b715's repair before the seal (defect (q)): the reader is the one that printed the row -- the closing's section rows print by its `vtail`
+# ### (tools/b715_closing.py :99-:101, a verdict at the line's first column), not by `vline` (:91, any indent), which the comment above named;
+# ### an indented bank foot (data/b715_pins_census.txt's controls line) read as a verdict the closing never prints.
 NO_VERDICT_ROW = re.compile(r'\(relay (data/[^\s)]+)\): ### NO VERDICT LINE')
-VLINE_FORM = re.compile(r'^\s*### ### \*\*(.*?)\*\*\s*$', re.M)
+VLINE_FORM = re.compile(r'(?ms)^### ### \*\*(.*?)\*\*\s*$')
 
 
 def no_verdict_line_ok(g, root=ROOT):
