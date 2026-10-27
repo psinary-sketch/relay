@@ -1,0 +1,34 @@
+b718 -- (R328)(9): A CHALLENGE FILE FOR h2_sign_iff_rh CARRYING THE STATEMENT ALONE, PRICED, NOTHING BUILT (2026-10-27)
+
+### Written by the Write tool from the print of tools/b718_reads.py (find, span) over SIDE-explicit-formula at its tag v0.37 (git show and
+### git grep bounded to the kernel's *.lean, row (4)); the form beside it read from openai/math 7ef5c0cc5's comparator challenge
+### (lean/ComparatorChallenges/QuasiRiemannHypothesis.lean and .json, tools/b718_records.py watch). Nothing compiled; no lean on this host.
+
+## (1) THE STATEMENT AND WHAT IT STANDS ON (SIDE-explicit-formula v0.37)
+  SIDEExplicitFormula/Seam.lean :101   theorem h2_sign_iff_rh : h2_sign ↔ RiemannHypothesis := ⟨h2_sign_imp_rh_holds, rh_imp_h2_sign⟩
+  SIDEExplicitFormula/H2Sign.lean :24-:30 (blob b299ffd9)
+      def classK (k : ℝ → ℂ) : Prop := (∀ x : ℝ, k (-x) = k x) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧
+        ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23.EF.weilTest h h
+      def h2_sign : Prop := ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  SIDEExplicitFormula/B321Identity.lean :29-:38 (blob 4d3bdea2)
+      poleTerm k  = paperFT k (I/2) + paperFT k (-I/2)
+      primeSum k  = ∑' n, (Λ(n)/√n : ℝ) * (2 * k (log n))
+      archTerm k  = (1/(2π)) * ∫ r, paperFT k r * (EF.gammaBracket r : ℂ)
+  Zeta23/ExplicitFormula.lean :68       def weilTest (f g : ℝ → ℂ) : ℝ → ℂ := f ⋆[ContinuousLinearMap.mul ℝ ℂ] tilde g
+  The definitions beneath them: Zeta23.paperFT (the kernel's Fourier convention), Zeta23.EF.gammaBracket (Re ψ(1/4 + ir/2) − log π, its
+  docstring :36), tilde; ComplexOrder for `0 ≤` on ℂ (H2Sign.lean :8).
+
+## (2) TWO FORMS, PRICED
+  (A) THE KERNEL'S DEFINITIONS IMPORTED: `import SIDEExplicitFormula.H2Sign`; `theorem h2_sign_iff_rh_challenge : B321.h2_sign ↔
+      RiemannHypothesis := by sorry`; a record beside it in the comparator form (challenge module, solution module SIDEExplicitFormula.Seam,
+      theorem name, permitted axioms propext, Quot.sound, Classical.choice). About 12 lines and a 12-line record. The trust surface is every
+      definition the import carries (paperFT, gammaBracket, weilTest, the zero configuration's modules): a reader audits the kernel's
+      definitions, not the statement alone. 1 dispatch (the challenge elaborates; the solution's theorem matches by name and type).
+  (B) THE STATEMENT ALONE, OVER MATHLIB: the five definitions restated from Mathlib alone (paperFT, gammaBracket, weilTest with tilde,
+      classK, the three terms) -- 50 to 90 lines, `import Mathlib` only -- with the challenge theorem over them; and, in the solution, one
+      bridging theorem per definition that the kernel's equals the restated one (by `rfl` where restated term for term, else a short proof),
+      so the solution module proves the restated statement from h2_sign_iff_rh. The trust surface is the challenge file alone. 2 to 4
+      dispatches (the challenge; the bridges; a second pass where a definition does not unfold by rfl), 2 to 4 hours of writing.
+  THE SEAT'S RECOMMENDATION: (B) -- "the statement alone" is (B)'s trust surface; (A) carries the kernel's definitions in by import.
+  SCOPE: an equivalence between open statements; it proves neither (DetectionRegion.lean :51's own words). Nothing deposits; no kernel's
+  main is touched -- a challenge branch of its own, its tag the author's word.

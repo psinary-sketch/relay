@@ -41,7 +41,35 @@ def surgery():
     print('### b711 SURGERY BANK: keys %s ; seconds %s' % (sorted(j)[:20], j.get('seconds')))
 
 
+def registry():
+    """PLACE-papers REGISTRY.md: its lines, its table rows by kind (a paper row: the first cell an id such as `1.5a-9` or d1-1), the rows
+    whose text reads a tier (K, KC, C, N, E), and each section head with its paper-row count."""
+    import re
+    p = 'D:/MY-DOwnloads/PLACE-papers/REGISTRY.md'
+    L = io.open(p, encoding='utf-8').read().replace('\r', '').split('\n')
+    ID = re.compile(r'^\|\s*\**`?([0-9a-z][0-9a-z.]*-[0-9A-Za-z]+[a-z]?)`?\**\s*\|')
+    rows = [(i + 1, ID.match(l).group(1)) for i, l in enumerate(L) if ID.match(l)]
+    tier = [i for i, _id in rows if re.search(r'\btier (?:K|KC|C|N|E)\b|\bTier (?:K|KC|C|N|E)\b', L[i - 1])]
+    print('### REGISTRY.md : %d lines ; paper rows %d (distinct ids %d) ; rows naming a tier %d' % (len(L), len(rows), len(set(x for _i, x in rows)), len(tier)))
+    sec, n = None, 0
+    for i, l in enumerate(L, 1):
+        if l.startswith('## '):
+            if sec:
+                print('  %-70s rows %d' % (sec[:70], n))
+            sec, n = '%d %s' % (i, l[3:]), 0
+        elif ID.match(l):
+            n += 1
+    if sec:
+        print('  %-70s rows %d' % (sec[:70], n))
+    hdr = [(i + 1, l) for i, l in enumerate(L) if l.startswith('| ID') or l.startswith('| Id') or l.startswith('| #')]
+    for i, l in hdr[:6]:
+        print('  header :%d %s' % (i, l[:200]))
+
+
 if __name__ == '__main__':
-    if sys.argv[1:] != ['surgery']:
-        sys.exit('usage: b718_prices.py surgery')
-    surgery()
+    if sys.argv[1:] == ['registry']:
+        registry()
+    elif sys.argv[1:] == ['surgery']:
+        surgery()
+    else:
+        sys.exit('usage: b718_prices.py surgery | registry')
