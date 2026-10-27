@@ -18,7 +18,8 @@ controls printed before its figures; the counts certified and the off-line point
 ### THE CONTROLS BEFORE ANY -39 BAND (`controls`), changed from b713's where -39 asks it: (C-a) the carried engine at DQ = 23 equal to b667's,
 ### ball for ball, at three points (b713's (C-a)); (C-b) at DQ = 15, Z_Q1 of -15 against b713's genus identity zeta L(chi_-15) + L(chi_-3)
 ### L(chi_5) at three points, the balls overlapping (b713's (C-b), the substitution shown at a second discriminant); (C-e) at DQ = 39, Z_Q1
-### against its own Dirichlet series SUM r_Q1(n) n^(-s) over n <= X = 100000 by direct enumeration, at three points with Re s = 3, the
+### against its own Dirichlet series SUM r_Q1(n) n^(-s) over n <= X = 100000 by direct enumeration, at three points with Re s = 2.4 (b667's
+### t4_bound refuses |sigma - 1/2| > 2, so b713's Re s = 3 moved inside it), the
 ### series' ball widened by the explicit tail bound sigma [2 X^(1-sigma)/(sigma-1) + 10 X^(1/2-sigma)/(sigma-1/2) + X^(-sigma)/sigma] from
 ### #{Q1 <= t} <= 2t + 10 sqrt(t) + 1 (the count itself printed at X against that bound) -- -39's identity of registration (i) carries the
 ### quartic pair's Hecke L-function L_K(s, psi), which flint's Dirichlet L does not reach, so b713's (C-b) cannot be read at -39 and the
