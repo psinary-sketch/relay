@@ -1,0 +1,118 @@
+{
+ "dispatch": [
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-effects",
+   "sha": "57a2353501b58a6acc172a76f2741d96c9b56cd2",
+   "target": "SIDEEffects",
+   "at": "2026-10-27T21:31:32Z",
+   "run": 40587516142,
+   "free_mb": 2491
+  }
+ ],
+ "read": [
+  {
+   "kind": "read",
+   "kernel": "SIDE-effects",
+   "run": "40587516142",
+   "free_mb": 5469,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-27T21:31:34Z",
+   "updated": "2026-10-27T21:33:45Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "57a2353501b58a6acc172a76f2741d96c9b56cd2",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "0",
+   "mem_low_mb": "14487",
+   "stops": [],
+   "error_lines": [],
+   "log_lines": 103,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "'SIDEEffects.ExhaustivenessLicense.Grade.rank' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.Grade.le' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.Grade.le_refl' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.Grade.le_trans' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.theorem_is_top' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.none_is_bottom' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.ladder_strict' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.grade' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.RH_evidence' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.Hodge_evidence' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.T7_evidence' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_evidence' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.RH_grade' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.Hodge_grade' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.T7_grade' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.classNumberDiagonal_grade' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.instances_ordered' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.EDifficultyTop' does not depend on any axioms",
+    "'SIDEEffects.ExhaustivenessLicense.RH_typeI_of_top' does not depend on any axioms",
+    "'formation_seven' does not depend on any axioms",
+    "'AddMult.no_type_d' does not depend on any axioms",
+    "'AddMult.twin_primes_infinite' depends on axioms: [propext]",
+    "'AddMult.goldbach' depends on axioms: [propext]",
+    "'AddMult.sophie_germain_infinite' depends on axioms: [propext]",
+    "'SIDEEffects.Phase15.Module1.StructuralCoupling.period_pos' depends on axioms: [propext, Quot.sound]",
+    "'SIDEEffects.Phase15.Module1.periodic_lift' depends on axioms: [propext]",
+    "'SIDEEffects.Phase15.Module1.StructuralCoupling.eval_periodic' depends on axioms: [propext, Quot.sound]",
+    "'SIDEEffects.Phase15.Module1.ofPeriodic_eval' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'SIDEEffects.Phase15.Module1.to_modular_correct' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'SIDEEffects.Phase15.Module1.crt_exhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'SIDEEffects.Phase15.Module1.no_type_d_conspiracies' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'SIDEFramework.SIDE_exclusion' does not depend on any axioms",
+    "'SIDEFramework.determination_collapse' does not depend on any axioms",
+    "'SIDEFramework.side_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]"
+   ],
+   "verdict": "BUILDS"
+  }
+ ],
+ "held": {
+  "SIDE-frobenius": "no workflow on main (no build-module.yml): no dispatch is possible without a workflow edit, which is a repair",
+  "SIDE-cosmo": "lean_action_ci.yml runs on every push (any branch) with docgen-action and pages: write -- a branch push may publish its pages (N5); not pushed"
+ }
+}
