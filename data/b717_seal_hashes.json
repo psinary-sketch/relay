@@ -1,0 +1,99 @@
+{
+ "at": "2026-10-27T18:07:22Z",
+ "lock": "2026-10-27T17:16:18Z",
+ "tools": {
+  "b717_carry.py": "8ae15b80a13fc4d3514ab693d1b55f3eb8d4bac447d260f388249daf5a541077",
+  "b717_checks.py": "324cde172d61a15683ca50f1cfc360b42f51d50b24f9496780ae3349e414c9cc",
+  "b717_citation.py": "f864add2a439633066b5158e5dd5f766ca429e83bc69de07d97f2ae1b69392bd",
+  "b717_closing.py": "b8dd731dfb957c7ea930c54389484a17617ff12bd41e062d344fa27171d225d8",
+  "b717_coeffs.py": "f960c6e2b1848489e64887b835ac32db40c1e83bc946741b0a2c6a1f2c647113",
+  "b717_corrigendum.py": "2f6d1f27ae19270e0826c3583baa28cf451a6155a6ea7f1589fcbdc251a9a5ab",
+  "b717_list.py": "66702ece2d5656669c3bf47df806cefbf6ecd2724f3a54798ec18da3c7396fcb",
+  "b717_onsets.py": "dfbfa0560feb5e37fa6420e3cee102bd644fc46d3dc0548e25788ccdfe9e070e",
+  "b717_predict.py": "41a064fd24495aa01f5812f85c59e0eb8180a3e71dbf6c253845433b939a1476",
+  "b717_record.py": "0b76db9aab50f43e06f634cc9434150512567785bff0b45382dde0633fa3be47",
+  "b717_reg_gate.py": "6bdaf15ce630bf983bd2aa61af1b0854a6edb576b3e52d561e70d1594bc8a602",
+  "b717_regspec.py": "791d51e2d4e2bdb80deb79d8552daa32f81091cf3c52e89ed8b464a1e70ab14e",
+  "b717_standing.py": "237781c530b53dd08931dad842833da438e5447cbee31b56999426eca0f6a4e8",
+  "b717_tests.py": "6e7e4c1d7e71b174cf9affc144616cf272869588b296605371ee7a2a7cf3ec54",
+  "b717_words.py": "b33210f11928698f267faff57ced6855bd877e217dca74e556f0a1c55f68cbba",
+  "b717_worklist.py": "df5e1407b776251308859201ce3c0dc0a95230fcedc8a63133e29d3d2b7f2224",
+  "standing/VERSION": "6bf25061d3caea72d34f961997d35aca8c8d960aaddac2413516882e6706c97e",
+  "standing/act.py": "d8e7ddc88c4380566b25c26719dfaf6c952d929b93a37ac59a2f4ca302c6a927",
+  "standing/allow.py": "a8ca30f62c44425953e83b8653a3233f1c4e0a448da3a9fd1c2c4b69bc57f274",
+  "standing/arms.py": "010e7d2335d9197fbe7151a1dc8111d8b5a38d77ee8b21b4fe1a5eaf225ce82f",
+  "standing/close.py": "2c0f961c52088d6dfc38b8c94693ab0d4247249b9a5dd5e25972116bca80fe5d",
+  "standing/components.py": "f5f131c6c11043a2a8ffad5e1fd8c8b588c87e375a90241b0fa72121e4ba93f7",
+  "standing/controls.py": "d46e56d2efee579e49abef5a39109ac9332bbcf50e1245a15dc665fedb42c306",
+  "standing/hook.py": "94133594f8ed8e7d2918ecc33e16bc6e652ac62a48a791b2ee1524c9e56ba1db",
+  "standing/repairs.py": "d6ed41236cf5d43c6994078044c0db904f9cd9b92babdde453787e5d91631f13",
+  "standing/replay.py": "e673d88d89935c1e7ad1991589c4540c1309a871f111c70fae1b6bcf0ce814ea",
+  "standing/rootbanks.py": "329d5158ad145e48d7aebcd9f9901c8500a7f9246aca824b7bec34127530bff5",
+  "standing/roster.py": "13fcff5e92ca0d0c3664b5a232a8ca05645daf8757e9953ab808edf25256cd04",
+  "standing/scan.py": "e5753fef4e4c583344ab2612efaa208f69b8919438040b96b8853fcb40467173",
+  "standing/words.py": "37f4d3450d45763494e467522ef05ebb67f2a76702e29cacc1efb06762a214b4"
+ },
+ "relay_head": "43eefe6a16808757051781444b9ec5696366ed68",
+ "letters": [
+  "(a) THE SEAT'S [CLOSE ; REPEAT b716 (a)]: 13:32:38Z, a Bash command reading memory files through cat and head joined by a pipe -- REFUSED BY THE HOOK (PIPE, row (14)), the refusal appended to data/b716_hook_refusals.txt because data/act_current.json still named b716 (committed as it stood, relay 696e12cb)",
+  "(b) THE SEAT'S [CLOSE ; REPEAT b717 (a)]: 13:32:56Z, a PowerShell listing piped to Select-Object -- REFUSED BY THE HOOK (PIPE, row (14)), appended to the same bank",
+  "(c) THE SEAT'S [CLOSE ; REPEAT b716 (h)]: about 13:33Z, line counts of data/b716_toolset_coverage.txt and data/b716_closing.txt by `(Get-Content ...).Count`, and later of three tools by `[IO.File]::ReadAllLines(...).Length` -- reads through an interpreter, not the Read tool (row (19))",
+  "(d) THE SEAT'S [CLOSE ; REPEAT b716 (d)]: about 13:33Z, `git diff data/b716_hook_refusals.txt` printed the bank's changed lines -- a read by git, not the Read tool (row (19))",
+  "(e) THE SEAT'S [CLOSE ; REPEAT b716 (f)]: about 13:34Z and 13:35Z, the Grep tool in content mode over tools/ferry_scan.py and tools/b717_citation.py -- the Grep tool is grep (b702), a read outside the Read tool (row (19))",
+  "(f) THE SEAT'S [CLOSE ; REPEAT b716 (c)]: about 13:36Z, Select-String over data/act_roots.txt and PLACE-papers OPEN_TRAILS.md printing lines -- a read outside the Read tool (row (19))",
+  "(g) THE SEAT'S [CLOSE ; REPEAT b716 (o)]: Read calls with a limit and no offset on files over 200 lines (the memory's state file, data/b716_closing.txt, tools/b716_carry.py) -- the read rule's offset clause",
+  "(h) THE SEAT'S [CLOSE ; NEW]: carried tools read beyond the spans their carry diffs name -- tools/b717_worklist.py whole and tools/b717_citation.py :1-:369 -- against the carry's own line (\"the seat reads the spans, not the whole\")",
+  "(i) THE SEAT'S [CLOSE ; REPEAT b716 (k)]: the stage and the commit of data/standing_clauses_v6.txt sent in one message as parallel calls -- two git writes in one message (row (12))",
+  "(j) THE SEAT'S [CLOSE ; NEW]: `git branch --merged main --list \"push-b716-*\"` -- a glob in the listing before a delete (the delete rule: no glob in the command or the listing before it); re-listed bare before each delete, each delete by its explicit name",
+  "(k) THE SEAT'S [CLOSE ; NEW]: data/b716_bank_hashes.json and data/b716_hook_refusals.txt committed at step zero (relay 43a3a62c, 696e12cb) beyond (R327)(8)'s named pair (the closing push capture and step row 18); b716's closing (d) said the hashes stay local",
+  "(l) THE SEAT'S [CLOSE ; NEW]: 14:13:13Z, the second half of test part 5 run after the free memory printed 2064 MB, beneath the 2560 MB hold -- the `mem` route prints and does not refuse, and the run was chained behind it; part 6 thereafter run file by file behind the refusing `hold` route",
+  "(m) THE SEAT'S [CLOSE ; REPEAT b717 (a)]: 14:14Z, a PowerShell process listing piped to Select-Object -- REFUSED BY THE HOOK (PIPE, row (14)), appended to data/b717_hook_refusals.txt",
+  "(n) THE SEAT'S [CLOSE ; NEW]: the branches bank before the deletes (tools/b717_record.py `branches before`, data/b717_branches_before.json, b698's route) was not written before the five push-b716-* branches were deleted; the deletes stand by name after the bare --merged listing, and their tips are read from the reflogs into the step-zero bank instead",
+  "(o) THE SEAT'S [CLOSE ; REPEAT b717 (e)]: from 14:42Z, the Grep tool in content mode over tools/b717_record.py three times -- the step route's `def` line, the weight-line composer's and c1's `def` lines, the WH constant's two lines -- each span then read through the Read tool (:298-:347, :1187-:1371) -- row (19)",
+  "(p) THE SEAT'S [CLAIM ; NEW]: 14:50Z, the corrigendum's first `write` landed its entry on FINDINGS at :10723 with no blank line after b716's weight line (:10722), the entry's text composed without its leading newline; the landing guard read the heading at :10723 where it wanted :10724 and stopped before the banks",
+  "(q) THE SEAT'S [CLOSE ; NEW]: the weight-line composer `_wb` of tools/b717_record.py, carried, read b715's shapes (seventeen defects with a navigator's (d), eleven events at column 0) and the WH constant named b715's entry line :10582 as a literal; both rewritten by the Edit tool before the landing (the old composer kept as _wb_b715_form, not called), c1's needles moved to b716's entry :10686 and trail :16044",
+  "(r) THE SEAT'S [CLOSE ; NEW, of the standing trap \"foreground beats the OOM\" and the 600 s rule]: about 15:22Z, eight `next tier2` band calls chained in one foreground command passed the 600 s limit and the harness moved the command to the background (task bsu4t65m8) -- against (R327)(4)(i)'s \"band by band in the foreground\"; the bands it ran are units of the same resumable route, each closed by its count, and the loop was let run to its end rather than stopped (a stop leaves the python child running, b590's orphan trap, and may cut a unit mid-write); every band after it run one call per foreground command",
+  "(s) THE SEAT'S [CLAIM ; NEW]: tools/b717_list.py's bank composer and docstring still said (C-e) was read \"at Re s = 3\" after the control moved to Re s = 2.4 (b667's t4_bound refuses |sigma - 1/2| > 2); the bank's line caught at its first write (15:45:36Z) and rewritten by the Edit tool before its commit (relay 3fdfacab), the docstring's line committed stale there and corrected by the Edit tool after it, carried in Component 3's commit",
+  "(t) THE SEAT'S [CLOSE ; REPEAT b717 (c)]: about 15:59Z, ERRATA.md's line count read by `(Get-Content ...).Count` before a windowed Read -- a read through an interpreter, not the Read tool (row (19)); the count alone printed, the lines then read by the Read tool",
+  "(u) THE SEAT'S [CLOSE ; NEW]: tools/b717_words.py `companion` first split section I's rows on ' | ' and S10 and S16 (written `classification|`, `hypothesis|` with no space before the bar) came out with their source in the footing cell; caught on reading the draft bank, repaired by the Edit tool (split on the bar with any spacing) before the companion was written to PLACE-papers",
+  "(v) THE SEAT'S [CLOSE ; REPEAT b717 (a)]: about 16:10Z, a Read call of data/b717_ferry.txt with no limit -- REFUSED BY THE HOOK (READ, row (77) with row (19)), appended to data/b717_hook_refusals.txt; the file then read with a limit of 69",
+  "(w) THE SEAT'S [CLOSE ; REPEAT b717 (a)]: about 16:24Z, a PowerShell call of the record tool's linecheck route carrying a stderr redirect -- REFUSED BY THE HOOK (REDIR, row (77) with row (14)), appended to data/b717_hook_refusals.txt; the route then read through the Read tool",
+  "(x) THE SEAT'S [CLOSE ; NEW]: the step-zero bank's process row (data/b717_stepzero.txt, \"THE LISTING IN THE HOUSE FORM\") names claude, python, lean, lake and git but not tail, and is not written in the standing arm's phrases (\"tail, lean, lake, python and claude named\", \"tail 0, lean 0, lake 0, python 0\", \"No task of this session stopped; no orphan, nothing stopped by PID\"); the standing arm G-PROCS-LISTED fails on it at the mid-act run (16:37Z)",
+  "(y) THE SEAT'S [CLOSE ; REPEAT b717 (g)]: Read calls with a limit and no offset on files over 200 lines after (g) was entered -- tools/b717_worklist.py (13:35Z), data/b717_corrigendum.json twice (16:10Z, 16:26Z), data/b717_names.json (16:10Z), data/b716_closing.txt (16:25Z), data/b716_hook_control.txt (16:29Z) and tools/b717_regspec.py (17:01Z) -- the read rule's offset clause; the read bank (data/b717_read_calls.txt) names each"
+ ],
+ "defects_sha256": "cb82c04399422368fba010ff43200a7bb1c3c3cd3ddb87ccaf47532dd3b5edda",
+ "neg_shown": 140,
+ "withheld": [],
+ "prev_run": {
+  "act": {
+   "pass_on_prev": 15,
+   "fail_as_prev": 4,
+   "diverge": 17,
+   "not_run_by_prev": 6
+  },
+  "standing-a": {
+   "pass_on_prev": 68,
+   "fail_as_prev": 4,
+   "diverge": 16,
+   "not_run_by_prev": 0
+  },
+  "standing-b1": {
+   "pass_on_prev": 1,
+   "fail_as_prev": 0,
+   "diverge": 0,
+   "not_run_by_prev": 0
+  },
+  "standing-b3": {
+   "pass_on_prev": 0,
+   "fail_as_prev": 0,
+   "diverge": 1,
+   "not_run_by_prev": 0
+  },
+  "standing-c": {
+   "pass_on_prev": 5,
+   "fail_as_prev": 2,
+   "diverge": 1,
+   "not_run_by_prev": 0
+  }
+ }
+}
