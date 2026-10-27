@@ -1,0 +1,120 @@
+{
+ "at": "2026-10-27T20:30:30Z",
+ "entry_line": 10822,
+ "title": "## Corrigendum to b717’s record (relay data/b717_events.txt and the five items its close left uncommitted): ten events and five items, each CLAIM or CLOSE and NEW or REPEAT, under (R328)(2)",
+ "claim": 0,
+ "close": 15,
+ "repeat": 10,
+ "items": 15,
+ "events": [
+  {
+   "row": 1,
+   "tag": "CLOSE",
+   "column": "REPEAT b716 event (2)",
+   "cls": "FORM"
+  },
+  {
+   "row": 2,
+   "tag": "CLOSE",
+   "column": "NEW",
+   "cls": "CONTROL"
+  },
+  {
+   "row": 3,
+   "tag": "CLOSE",
+   "column": "REPEAT b716 POS G-PP-SCOPE",
+   "cls": "CONTROL"
+  },
+  {
+   "row": 4,
+   "tag": "CLOSE",
+   "column": "NEW",
+   "cls": "FORM"
+  },
+  {
+   "row": 5,
+   "tag": "CLOSE",
+   "column": "NEW",
+   "cls": "ORDER"
+  },
+  {
+   "row": 6,
+   "tag": "CLOSE",
+   "column": "NEW",
+   "cls": "ORDER"
+  },
+  {
+   "row": 7,
+   "tag": "CLOSE",
+   "column": "REPEAT b716 traps",
+   "cls": "ORDER"
+  },
+  {
+   "row": 8,
+   "tag": "CLOSE",
+   "column": "REPEAT b716 traps",
+   "cls": "ORDER"
+  },
+  {
+   "row": 9,
+   "tag": "CLOSE",
+   "column": "NEW",
+   "cls": "CONTROL"
+  },
+  {
+   "row": 10,
+   "tag": "CLOSE",
+   "column": "REPEAT b716 event (17)",
+   "cls": "CONTROL"
+  }
+ ],
+ "items_uncommitted": [
+  {
+   "key": "A",
+   "what": "the closing push capture data/b717_relay_push-b717-closing_push_out.txt left untracked by b717’s close",
+   "tag": "CLOSE",
+   "column": "REPEAT of b716, its close`s capture carried at b717`s step zero ((R327)(8), the named pair)",
+   "cls": "ORDER"
+  },
+  {
+   "key": "B",
+   "what": "step row 19 of data/b717_steps.json (the closing, 248c5a97) left uncommitted by b717’s close",
+   "tag": "CLOSE",
+   "column": "REPEAT of b716, its step row 18 carried at b717`s step zero ((R327)(8), the named pair)",
+   "cls": "ORDER"
+  },
+  {
+   "key": "C",
+   "what": "data/b717_bank_hashes.json as b717’s close left it, uncommitted",
+   "tag": "CLOSE",
+   "column": "REPEAT of b717 (k) (relay data/b717_defects.txt), b716`s hashes committed at b717`s step zero",
+   "cls": "ORDER"
+  },
+  {
+   "key": "D",
+   "what": "tools/mirror_prevbuild.json as b717’s build left it (blob 53e58138, HEAD bc235618), uncommitted though b717’s closing :82 reads \"committed with this closing\"",
+   "tag": "CLOSE",
+   "column": "REPEAT of b716, whose step zero committed b715`s build file alone (relay 0fbfbf9e)",
+   "cls": "ORDER"
+  },
+  {
+   "key": "E",
+   "what": "the hook’s refusal of a Read call with no limit after b717’s closing (data/b717_hook_refusals.txt :5, 19:51:46Z)",
+   "tag": "CLOSE",
+   "column": "REPEAT of b717 (v) (relay data/b717_defects.txt)",
+   "cls": "HOOK"
+  }
+ ],
+ "counter_claims": [
+  "p",
+  "s"
+ ],
+ "classes": {
+  "FORM": "a writer and its reader in two forms: a face line, a needle or a bank written outside the words the standing reader takes",
+  "CONTROL": "an arm`s pattern or control that cannot fire, or fires on a reference it should not read",
+  "ORDER": "the close`s own sequencing: a step omitted, a file left uncommitted, a figure summed by hand, a plant on the wrong side of the lock",
+  "HOOK": "a call the hook refused before it ran (row (77)): a Read with no limit -- its refusal written into the act`s refusal bank"
+ },
+ "differences": [],
+ "row": 38
+}

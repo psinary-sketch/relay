@@ -1,0 +1,169 @@
+b718 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b717_corrigendum.py -> tools/b718_corrigendum.py (2026-10-27T20:24:20Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b717 -> b718, b716 -> b717, R327 -> R328, R326 -> R327); 276 lines, 61 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b717_tool_repairs.txt AND data/b717_repairdiff_corrigendum.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b717; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b717_corrigendum.py
+  +++ tools/b718_corrigendum.py
+  @@ -2,3 +2,3 @@
+  -"""b717_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R327)(3): b716's nineteen events after its lock and seal (relay data/b716_events.txt,
+  -rows (1)-(19) at four spaces) and b716's eighteen defects (relay data/b716_defects.txt, (a)-(r)), answered by one generated FINDINGS entry,
+  -each item tagged CLAIM or CLOSE under (R327)(2) (standing clauses v6 row (80)) and NEW or REPEAT with the act and letter of its class. A CLAIM
+  +"""b718_corrigendum.py -- THE CORRIGENDUM ENTRY OF (R328)(3): b717's nineteen events after its lock and seal (relay data/b717_events.txt,
+  +rows (1)-(19) at four spaces) and b717's eighteen defects (relay data/b717_defects.txt, (a)-(r)), answered by one generated FINDINGS entry,
+  +each item tagged CLAIM or CLOSE under (R328)(2) (standing clauses v6 row (80)) and NEW or REPEAT with the act and letter of its class. A CLAIM
+  @@ -6,1 +6,1 @@
+  -not repaired. The navigator reads all nineteen events as CLOSE ((R327)(3)); the seat's tags are read from the banks, each difference printed,
+  +not repaired. The navigator reads all nineteen events as CLOSE ((R328)(3)); the seat's tags are read from the banks, each difference printed,
+  @@ -8,2 +8,2 @@
+  -### Carried from tools/b716_corrigendum.py by diff (data/b717_carry_corrigendum.txt) and rewritten whole by the Write tool: b716's tool
+  -### lettered b715's events (r)-(z) and named (R326)(3)'s repairs; (R327)(3) orders tags, not letters, and names no repair by clause.
+  +### Carried from tools/b717_corrigendum.py by diff (data/b718_carry_corrigendum.txt) and rewritten whole by the Write tool: b717's tool
+  +### lettered b715's events (r)-(z) and named (R327)(3)'s repairs; (R328)(3) orders tags, not letters, and names no repair by clause.
+  @@ -13,2 +13,2 @@
+  -### Routes: `dry` prints the entry, the bank and the corrigenda row; `write` lands the entry on FINDINGS through b717_record's guarded landing
+  -### and writes data/b717_corrigendum.txt (.json). The corrigenda bank's row (37) is appended by the seat through the Edit tool from the row
+  +### Routes: `dry` prints the entry, the bank and the corrigenda row; `write` lands the entry on FINDINGS through b718_record's guarded landing
+  +### and writes data/b718_corrigendum.txt (.json). The corrigenda bank's row (37) is appended by the seat through the Edit tool from the row
+  @@ -32,1 +32,1 @@
+  -import b717_record as REC         # noqa: E402  ### the guarded landing, the letters reader
+  +import b718_record as REC         # noqa: E402  ### the guarded landing, the letters reader
+  @@ -34,2 +34,2 @@
+  -TITLE = ('## Corrigendum to b716’s record (relay data/b716_events.txt and data/b716_defects.txt): nineteen events and eighteen defects, '
+  -         'each CLAIM or CLOSE and NEW or REPEAT, under (R327)(2)-(3)')
+  +TITLE = ('## Corrigendum to b717’s record (relay data/b717_events.txt and data/b717_defects.txt): nineteen events and eighteen defects, '
+  +         'each CLAIM or CLOSE and NEW or REPEAT, under (R328)(2)-(3)')
+  @@ -39,1 +39,1 @@
+  -# ### the classes of the CLOSE items, gathered for tools/standing/ v1.2.0 ((R327)(3), (11))
+  +# ### the classes of the CLOSE items, gathered for tools/standing/ v1.2.0 ((R328)(3), (11))
+  @@ -49,1 +49,1 @@
+  -# ### b716's events: (row, the head's needle, the seat's tag, NEW or (act, letter) of its class, the class)
+  +# ### b717's events: (row, the head's needle, the seat's tag, NEW or (act, letter) of its class, the class)
+  @@ -53,3 +53,3 @@
+  -    (3, 'AT THE PRE-RUN: G-RECEIPT-IN-FULL', 'CLOSE', ('b716', 'n', None), 'CARRY'),
+  -    (4, 'AT THE PRE-RUN: G-PRIOR-CLOSED-PUSHED', 'CLOSE', ('b716', '(3)', None), 'CARRY'),
+  -    (5, 'AT THE PRE-RUN: G-CLOSING-DRY-STEP', 'CLOSE', ('b716', '(3)', None), 'CARRY'),
+  +    (3, 'AT THE PRE-RUN: G-RECEIPT-IN-FULL', 'CLOSE', ('b717', 'n', None), 'CARRY'),
+  +    (4, 'AT THE PRE-RUN: G-PRIOR-CLOSED-PUSHED', 'CLOSE', ('b717', '(3)', None), 'CARRY'),
+  +    (5, 'AT THE PRE-RUN: G-CLOSING-DRY-STEP', 'CLOSE', ('b717', '(3)', None), 'CARRY'),
+  @@ -59,3 +59,3 @@
+  -    (9, 'THE GREP TOOL, AFTER THE LOCK', 'CLOSE', ('b716', 'f', None), 'READ'),
+  -    (10, 'AFTER THE SEAL', 'CLOSE', ('b716', 'm', None), 'HOOK'),
+  -    (11, "THE TRAIL'S WORDING", 'CLOSE', ('b716', 'r', None), 'FORM'),
+  +    (9, 'THE GREP TOOL, AFTER THE LOCK', 'CLOSE', ('b717', 'f', None), 'READ'),
+  +    (10, 'AFTER THE SEAL', 'CLOSE', ('b717', 'm', None), 'HOOK'),
+  +    (11, "THE TRAIL'S WORDING", 'CLOSE', ('b717', 'r', None), 'FORM'),
+  @@ -69,1 +69,1 @@
+  -    (19, "THE CLOSING'S STANDING REPORT LINE", 'CLOSE', ('b716', '(3)', None), 'CARRY'),
+  +    (19, "THE CLOSING'S STANDING REPORT LINE", 'CLOSE', ('b717', '(3)', None), 'CARRY'),
+  @@ -72,2 +72,2 @@
+  -# ### b716's defects: (letter, the head's needle, the seat's tag, NEW or (act, letter), the class, the repair or carried for a CLAIM item)
+  -REPAIRED_BEFORE = 'repaired at b716 before any commit carried it (the bank as committed is the second run`s, data/b716_defects.txt row (%s))'
+  +# ### b717's defects: (letter, the head's needle, the seat's tag, NEW or (act, letter), the class, the repair or carried for a CLAIM item)
+  +REPAIRED_BEFORE = 'repaired at b717 before any commit carried it (the bank as committed is the second run`s, data/b717_defects.txt row (%s))'
+  @@ -77,8 +77,8 @@
+  -    ('c', "A FILE'S LINES PRINTED BY A SHELL GREP", 'CLOSE', ('b716', 'b', None), 'READ', None),
+  -    ('d', "TRACKED FILES' CHANGED LINES READ THROUGH", 'CLOSE', ('b716', 'c', None), 'READ', None),
+  -    ('e', 'A COMMAND PREFIXED BY AN ENVIRONMENT VARIABLE', 'CLOSE', ('b716', 'a', None), 'HOOK', None),
+  -    ('f', "FILES' LINES PRINTED BY THE GREP TOOL", 'CLOSE', ('b716', 'c', None), 'READ', None),
+  -    ('g', "A TOOL'S LINES PRINTED BY `git grep`", 'CLOSE', ('b716', 'c', None), 'READ', None),
+  -    ('h', "FILES READ THROUGH AN INTERPRETER'S PRINT", 'CLOSE', ('b716', 'b', None), 'READ', None),
+  -    ('i', 'A LISTING WITH A REDIRECT AND A PIPE', 'CLOSE', ('b716', 'a', None), 'HOOK', None),
+  -    ('j', "ERRATA'S LINES PRINTED BY `git grep`", 'CLOSE', ('b716', 'c', None), 'READ', None),
+  +    ('c', "A FILE'S LINES PRINTED BY A SHELL GREP", 'CLOSE', ('b717', 'b', None), 'READ', None),
+  +    ('d', "TRACKED FILES' CHANGED LINES READ THROUGH", 'CLOSE', ('b717', 'c', None), 'READ', None),
+  +    ('e', 'A COMMAND PREFIXED BY AN ENVIRONMENT VARIABLE', 'CLOSE', ('b717', 'a', None), 'HOOK', None),
+  +    ('f', "FILES' LINES PRINTED BY THE GREP TOOL", 'CLOSE', ('b717', 'c', None), 'READ', None),
+  +    ('g', "A TOOL'S LINES PRINTED BY `git grep`", 'CLOSE', ('b717', 'c', None), 'READ', None),
+  +    ('h', "FILES READ THROUGH AN INTERPRETER'S PRINT", 'CLOSE', ('b717', 'b', None), 'READ', None),
+  +    ('i', 'A LISTING WITH A REDIRECT AND A PIPE', 'CLOSE', ('b717', 'a', None), 'HOOK', None),
+  +    ('j', "ERRATA'S LINES PRINTED BY `git grep`", 'CLOSE', ('b717', 'c', None), 'READ', None),
+  @@ -87,1 +87,1 @@
+  -    ('m', 'A READ CALL WITH NO LIMIT', 'CLOSE', ('b716', 'e', None), 'HOOK', None),
+  +    ('m', 'A READ CALL WITH NO LIMIT', 'CLOSE', ('b717', 'e', None), 'HOOK', None),
+  @@ -91,1 +91,1 @@
+  -    ('q', "A TOOL'S LINES PRINTED BY THE GREP TOOL", 'CLOSE', ('b716', 'f', None), 'READ', None),
+  +    ('q', "A TOOL'S LINES PRINTED BY THE GREP TOOL", 'CLOSE', ('b717', 'f', None), 'READ', None),
+  @@ -114,1 +114,1 @@
+  -    """a REPEAT's cited row present: an act's letter in its defects bank, b716's event (n) in its events bank, or a trap or event named by
+  +    """a REPEAT's cited row present: an act's letter in its defects bank, b717's event (n) in its events bank, or a trap or event named by
+  @@ -127,1 +127,1 @@
+  -    ev = _event_rows(C78.rd(os.path.join(D, 'b716_events.txt')))
+  +    ev = _event_rows(C78.rd(os.path.join(D, 'b717_events.txt')))
+  @@ -129,1 +129,1 @@
+  -    dl = _letter_rows('b716')
+  +    dl = _letter_rows('b717')
+  @@ -134,1 +134,1 @@
+  -                          ('b716`s eighteen letters', sorted(dl) == PREV_LETTERS), ('each defect`s head', not miss_d),
+  +                          ('b717`s eighteen letters', sorted(dl) == PREV_LETTERS), ('each defect`s head', not miss_d),
+  @@ -166,2 +166,2 @@
+  -    L = ['*b716’s events bank (relay data/b716_events.txt) carries nineteen rows (1)-(19), entered after its lock and seal and not lettered, '
+  -         'and its defects bank (relay data/b716_defects.txt) eighteen letters (a)-(r). Under (R327)(2) each item is tagged CLAIM, where it touches '
+  +    L = ['*b717’s events bank (relay data/b717_events.txt) carries nineteen rows (1)-(19), entered after its lock and seal and not lettered, '
+  +         'and its defects bank (relay data/b717_defects.txt) eighteen letters (a)-(r). Under (R328)(2) each item is tagged CLAIM, where it touches '
+  @@ -173,1 +173,1 @@
+  -         '**b716’s events:**', '']
+  +         '**b717’s events:**', '']
+  @@ -175,2 +175,2 @@
+  -        L += ['**(%d) %s** (relay data/b716_events.txt, row (%d); %s; %s; class %s).' % (k, h, k, t, _col(r), c)]
+  -    L += ['', '**b716’s defects:**', '']
+  +        L += ['**(%d) %s** (relay data/b717_events.txt, row (%d); %s; %s; class %s).' % (k, h, k, t, _col(r), c)]
+  +    L += ['', '**b717’s defects:**', '']
+  @@ -179,1 +179,1 @@
+  -        L += ['**(%s) %s** (relay data/b716_defects.txt; %s; %s%s).%s' % (
+  +        L += ['**(%s) %s** (relay data/b717_defects.txt; %s; %s%s).%s' % (
+  @@ -181,1 +181,1 @@
+  -    L += ['', '**The CLOSE classes for the toolset’s v1.2.0** (b718’s, (R327)(11)):', '']
+  +    L += ['', '**The CLOSE classes for the toolset’s v1.2.0** (b718’s, (R328)(11)):', '']
+  @@ -187,5 +187,5 @@
+  -          'b716’s (k) and (l), each a price bank’s first run, were repaired before any commit carried them; nothing is carried.' % (nc, nl, n, rep, n), '',
+  -          ('*Filed at b717 on the author’s ruling `(R327)`(2)-(3): generated by relay `tools/b717_corrigendum.py`, written whole at b717 in the '
+  -           'form (R327)(3) orders, from b716’s events and defects banks read unedited; banked as relay `data/b717_corrigendum.txt`, the '
+  -           'corrigenda bank `data/b675_corrigenda.txt` appended at row (37). It answers b716’s record; no sealed tool, face, trail or root-named '
+  -           'bank of b716 is edited.*')]
+  +          'b717’s (k) and (l), each a price bank’s first run, were repaired before any commit carried them; nothing is carried.' % (nc, nl, n, rep, n), '',
+  +          ('*Filed at b718 on the author’s ruling `(R328)`(2)-(3): generated by relay `tools/b718_corrigendum.py`, written whole at b718 in the '
+  +           'form (R328)(3) orders, from b717’s events and defects banks read unedited; banked as relay `data/b718_corrigendum.txt`, the '
+  +           'corrigenda bank `data/b675_corrigenda.txt` appended at row (37). It answers b717’s record; no sealed tool, face, trail or root-named '
+  +           'bank of b717 is edited.*')]
+  @@ -200,1 +200,1 @@
+  -    """the banks for an entry already on FINDINGS at :ln (b717's first `write` landed it without its leading blank line and stopped before
+  +    """the banks for an entry already on FINDINGS at :ln (b718's first `write` landed it without its leading blank line and stopped before
+  @@ -203,1 +203,1 @@
+  -    import b717_worklist as K
+  +    import b718_worklist as K
+  @@ -212,2 +212,2 @@
+  -ROW = ('  (37) b716\'s record (relay data/b716_events.txt, rows (1)-(19), and data/b716_defects.txt, (a)-(r)): every item tagged CLAIM or\n'
+  -       '      CLOSE under (R327)(2) and NEW or REPEAT; CLAIM %d ((k), (l), each repaired at b716 before any commit), CLOSE %d, by class for\n'
+  +ROW = ('  (37) b717\'s record (relay data/b717_events.txt, rows (1)-(19), and data/b717_defects.txt, (a)-(r)): every item tagged CLAIM or\n'
+  +       '      CLOSE under (R328)(2) and NEW or REPEAT; CLAIM %d ((k), (l), each repaired at b717 before any commit), CLOSE %d, by class for\n'
+  @@ -215,1 +215,1 @@
+  -       '      differ at %s. THE CORRECTION: FINDINGS :%s, relay data/b717_corrigendum.txt.')
+  +       '      differ at %s. THE CORRECTION: FINDINGS :%s, relay data/b718_corrigendum.txt.')
+  @@ -226,2 +226,2 @@
+  -    L = ['b717 -- THE CORRIGENDUM ENTRY FOR b716`S EVENTS AND DEFECTS, (R327)(2)-(3) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  -         '### the figures read before the write: the event rows %s ; b716`s letters %s ; every REPEAT`s cited row found ; the corrigenda bank`s last row (%d).' % (
+  +    L = ['b718 -- THE CORRIGENDUM ENTRY FOR b717`S EVENTS AND DEFECTS, (R328)(2)-(3) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +         '### the figures read before the write: the event rows %s ; b717`s letters %s ; every REPEAT`s cited row found ; the corrigenda bank`s last row (%d).' % (
+  @@ -239,1 +239,1 @@
+  -    MEM.guard_path('b717', p, REC.R.ROOT_EXCLUDE)
+  +    MEM.guard_path('b718', p, REC.R.ROOT_EXCLUDE)
+  @@ -258,2 +258,2 @@
+  -        REC.land([('FINDINGS.md', TITLE, text)], 'b717_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  -        ln = (REC.jl('b717_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  +        REC.land([('FINDINGS.md', TITLE, text)], 'b718_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  +        ln = (REC.jl('b718_corrigendum_landing.json').get('lines') or [{}])[0].get('line')
+  @@ -261,1 +261,1 @@
+  -        sys.exit('usage: b717_corrigendum.py dry | write | banked <line>')
+  +        sys.exit('usage: b718_corrigendum.py dry | write | banked <line>')
+  @@ -263,1 +263,1 @@
+  -    _put('b717_corrigendum.txt', NL.join(L) + NL)
+  +    _put('b718_corrigendum.txt', NL.join(L) + NL)
+  @@ -269,1 +269,1 @@
+  -    _put('b717_corrigendum.json', json.dumps(j, indent=1, ensure_ascii=False) + NL)
+  +    _put('b718_corrigendum.json', json.dumps(j, indent=1, ensure_ascii=False) + NL)
+
+### ### **CARRIED tools/b718_corrigendum.py ; LINES 276 ; CHANGED BY THE SUBSTITUTION 61 ; REPAIR SPANS AT b717 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

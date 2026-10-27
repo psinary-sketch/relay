@@ -1185,12 +1185,58 @@ def _wb_carried713():
 
 
 def _wb():
-    """b717's weight line under (R328)(1), in the clause's order, every figure read from b717's banks by row and cited by its line: the head
-    from its closing :1 and the record's and the closing's commits from its step bank; the registrations at dc5e808f with the count control's
-    misses; the toolset's version at the closing's commit and the coverage table's STANDING steps; the replay's figure and its one DIFFERS; the
-    mirror's verification and its manifest control (event (17)); Silence :212; the pins of the Correspondence names; the three prices by their
-    foot lines; the author's root words; the root; the events by their rows and the defects. Rewritten at b718 by the Edit tool: the carried
-    form (now _wb_b715_form, not called) read b715's shapes -- seventeen defects with a navigator's (d), eleven events at column 0."""
+    """b717's weight line under (R328)(1), every figure read from b717's own banks by row and cited by its line: the head from its closing
+    :1 and the record's and the closing's commits from its step bank; the list's zeros and pairs; the predictions committed alone; the onsets
+    HELD and REFUTED; the least negative coefficient and registration (ii); the companion and the hits; the eleven names; the suite pre-push
+    and post-push; the counter; the mirror and its manifest control; the root; the ten events and the 25 defects. Written at b718 by the Edit
+    tool: the carried composer (now _wb_b716_form, not called) read b716's banks under b717's names -- registrations, genus control,
+    coverage, replay, keystone and pins banks b717 did not write -- and wanted nineteen events and eighteen defects."""
+    c = rdn('b717_closing.txt')
+    head = c.split(NL)[0]
+    st = jl('b717_steps.json').get('rows') or []
+    rec = [r for r in st if r.get('phase') == 'record' and r.get('repo') == 'relay']
+    clo = [r for r in st if r.get('phase') == 'closing']
+    if len(rec) != 1 or len(clo) != 1:
+        sys.exit('### data/b717_steps.json CARRIES %d RELAY RECORD ROWS AND %d CLOSING ROWS, NOT ONE EACH -- NOTHING COMPOSED' % (len(rec), len(clo)))
+    (nzero, npair), lls = _fl('b717_list.txt', r'ON-LINE ZEROS (\d+) ; OFF-LINE PAIRS (\d+)', 'the list`s zeros and pairs')
+    (npred, nbey), lpd = _fl('b717_predictions.txt', r'PREDICTED (\d+) .*BEYOND REACH AT T0` 200: (\d+)', 'the predictions')
+    (nheld, nref), lon = _fl('b717_onsets.txt', r'HELD (\d+) ; REFUTED (\d+)', 'the onsets')
+    (nneg, bneg), lco = _fl('b717_coeffs.txt', r'NEGATIVE FROM n = (\d+) .*b\(n\) = (-\d+)\)', 'the least negative coefficient')
+    _x, lr2 = _fl('b717_coeffs.txt', r'REGISTRATION \(ii\) HELD', 'registration (ii)')
+    (nsen, nker, nhld), lcm = _fl('b717_companion.txt', r'SENTENCES (\d+) ; ROWS \d+ ; KERNEL (\d+) ; HELD (\d+)', 'the companion')
+    (nhit, nad, nfa), lli = _fl('b717_lint.txt', r'HITS (\d+) ; AS DESIGNED (\d+) .*FOR THE AUTHOR (\d+)', 'the hits')
+    (nnm, nfd, nms), lnm = _fl('b717_names.txt', r'NAMES (\d+) ; FOUND AT A CURRENT TAG (\d+) ; MISSING (\d+)', 'the names')
+    suite = r'^\s*%s : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) '
+    (n_pre, p_pre, f_pre), lpre = _fl('b717_closing.txt', suite % 'pre-push', 'the pre-push suite')
+    (n_post, p_post, f_post), lpost = _fl('b717_closing.txt', suite % 'post-push', 'the post-push suite')
+    (ncl, nco), lct = _fl('b717_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+)\s*$', 'the counter')
+    _x, lmv = _fl('b717_mirror.txt', r'CLEAN ON ALL THREE CLAUSES', 'the mirror CLEAN')
+    _x, lmc = _fl('b717_mirror.txt', r'NOT AS WANTED', 'the manifest control')
+    ar = jl('b717_act_root.json')
+    if not ar.get('root') or not ar.get('previous'):
+        sys.exit('### data/b717_act_root.json CARRIES NO ROOT -- NOTHING COMPOSED')
+    evr = [int(m.group(1)) for m in re.finditer(r'(?m)^    \((\d+)\) ', rdn('b717_events.txt'))]
+    short = _defect_short('b717')
+    owners = re.findall(r"^    \(([a-z])\) (THE SEAT'S|THE NAVIGATOR'S) \[", rdn('b717_defects.txt'), re.M)
+    if evr != list(range(1, 11)) or len(short) != 25 or len(owners) != 25 or any(o != "THE SEAT'S" for _x, o in owners):
+        sys.exit('### b717`S EVENTS %s AND DEFECTS %d (OWNERS %d) NOT THE CLOSING`S TEN AND 25 -- NOTHING COMPOSED' % (evr, len(short), len(owners)))
+    return (' “%s” (data/b717_closing.txt :1); its relay commit the record’s %s, the closing’s %s (data/b717_steps.json, the record and '
+            'closing rows). As the banks confirm by row: the -39 list to height 200 at %s zeros on the line and %s off-line pairs located, '
+            'the rectangles not certified (data/b717_list.txt :%d); %s pairs predicted, committed alone at f47d8ab5 before any onset, %s beyond '
+            'reach (data/b717_predictions.txt :%d); HELD %s, REFUTED %s (data/b717_onsets.txt :%d); the least negative coefficient at n = %s, '
+            'b(n) = %s (data/b717_coeffs.txt :%d), registration (ii) HELD (:%d); the companion at %s sentences, KERNEL %s, HELD %s '
+            '(data/b717_companion.txt :%d); the hits %s, AS DESIGNED %s, FOR THE AUTHOR %s (data/b717_lint.txt :%d); %s names, %s found at a '
+            'current tag, %s missing (data/b717_names.txt :%d); the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both '
+            '(data/b717_closing.txt :%d, :%d); the counter CLAIM %s, CLOSE %s (data/b717_closing.txt :%d); the mirror CLEAN on all three clauses '
+            '(data/b717_mirror.txt :%d), its manifest control NOT AS WANTED against a carried reference (:%d; event (10)); the root %s chained '
+            'from %s (data/b717_act_root.json); %d events in data/b717_events.txt, rows (1)-(%d); %d defects (a)–(%s), all the seat’s '
+            '(data/b717_defects.txt). Nothing deposited, nothing published.' % (
+                head, rec[0]['commit'][:8], clo[0]['commit'][:8], nzero, npair, lls, npred, nbey, lpd, nheld, nref, lon, nneg, bneg, lco,
+                lr2, nsen, nker, nhld, lcm, nhit, nad, nfa, lli, nnm, nfd, nms, lnm, p_pre, n_pre, p_post, n_post, lpre, lpost, ncl, nco,
+                lct, lmv, lmc, ar['root'][:8], ar['previous'][:8], len(evr), evr[-1], len(short), _letter(short[-1])))
+
+
+def _wb_b716_form():
     head = rdn('b717_closing.txt').split(NL)[0]
     st = jl('b717_steps.json').get('rows') or []
     rec = [r for r in st if r.get('phase') == 'record' and r.get('repo') == 'relay']
@@ -1365,9 +1411,9 @@ def c1(*a):
     data/b718_record_lines.json. `c1 dry` prints the line and writes nothing."""
     dry = 'dry' in a
     land([('FINDINGS.md', WH, NL + WH + _wb() + NL)], '%s_record_lines.json' % ACT, 'c1', entry=K.B711_ENTRY,
-         check=[('FINDINGS.md', K.B711_ENTRY, '## The -39 law registered before its computation'),
-                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b717 — lane two, act one hundred and forty-three, the registrations act')],
-         dry=dry)   # ### b718: the needles b717's entry (:10686) and trail (:16044), read through the Read tool; the carried needles named b715's
+         check=[('FINDINGS.md', K.B711_ENTRY, '## The -39 control: the certified list to height 200'),
+                ('OPEN_TRAILS.md', K.B711_TRAIL, '### b717 — lane two, act one hundred and forty-four, the test act')],
+         dry=dry)   # ### b718: the needles b717's entry (:10784) and trail (:16086), read through the Read tool; the carried needles named b716's
 
 
 # ================================================================================ COMPONENT 1: THE FACES LEDGER HEAD, (R328)(2)(ii)

@@ -169,14 +169,14 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 # ### stage one (step zero): the commits made so far
 ACT_CURRENT = 'data/act_current.json'   # ### (R324)(6)(ii): the act's figures, written at step zero and committed alone
 STANDING_DIR = 'tools/standing'         # ### (R328)(7): the standing close toolset, versioned by tools/standing/VERSION
-STANDING_COMMIT = ''            # ### data/standing_clauses_v7.txt committed alone ((R328)(3)) -- filled from the log after the commit
-ACT_CURRENT_COMMIT = ''         # ### data/act_current.json committed alone
-STEPZERO = ''                   # ### b717's closing push capture, committed alone at step zero ((R328)(10))
-STEPZERO_STEPS = ''             # ### b717's step row 19, committed alone
-STEPZERO_HASHES = ''            # ### data/b717_bank_hashes.json, committed alone
-STEPZERO_REFUSALS = ''          # ### data/b717_hook_refusals.txt as it stands (the refusal after the closing), committed alone
-STEPZERO_PREVBUILD = ''         # ### tools/mirror_prevbuild.json as b717's build left it, committed alone
-STEPZERO_BANKS = ''             # ### the step-zero banks and tools, committed together by explicit list
+STANDING_COMMIT = '71523e0d9c5091cd3a041fc4b455de202aae3a42'      # ### data/standing_clauses_v7.txt committed alone ((R328)(3))
+ACT_CURRENT_COMMIT = '30965720bbeb35e2fea7b79745d656e255326822'   # ### data/act_current.json committed alone
+STEPZERO = '1e6368bdf26ef7004cbdae0c167564b053a5fc34'             # ### b717's closing push capture, committed alone at step zero ((R328)(10))
+STEPZERO_STEPS = '49778e8184aba9f6ccece7ce578886994fa0aec5'       # ### b717's step row 19, committed alone
+STEPZERO_HASHES = '7ebab305d9986f5bb910a17f596981a873235942'      # ### data/b717_bank_hashes.json, committed alone
+STEPZERO_PREVBUILD = 'b4eb540711aae490078404ad27e072cb0695b57c'   # ### tools/mirror_prevbuild.json as b717's build left it, committed alone
+STEPZERO_REFUSALS = '5ef2ae3a064e51fb706d21c574e2c073bc2a336d'    # ### data/b717_hook_refusals.txt as it stands (the refusal after the closing), committed alone
+STEPZERO_BANKS = 'f79a10e22d599ad5667ad85818197d5111ef7363'       # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = ACT_CURRENT_COMMIT   # ### no visibility map written this act: the arms reading this name read the act's figures' commit
 COMPUTE_TOOLS = ()              # ### the four compute tools of (R328)(4) are tools/b718_*.py and enter SEALED by its rule
 REPAIRED_TOOLS = ()             # ### no shared tool repaired this act (CLOSE items are recorded, not repaired, (R328)(2))
