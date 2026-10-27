@@ -1,0 +1,74 @@
+b718 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b717_standing.py -> tools/b718_standing.py (2026-10-27T20:15:51Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b717 -> b718, b716 -> b717, R327 -> R328, R326 -> R327); 155 lines, 24 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b717_tool_repairs.txt AND data/b717_repairdiff_standing.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b717; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b717_standing.py
+  +++ tools/b718_standing.py
+  @@ -2,7 +2,7 @@
+  -"""b717_standing.py -- (R327)(2): THE STANDING CLAUSES AT v6, written at step zero as data/standing_clauses_v6.txt -- v5 unchanged (its 79 rows,
+  -its LINE sections and its row lines copied from data/standing_clauses_v5.txt byte for byte) with (R327)(2)'s row appended as row (80), CLAIM AND
+  -CLOSE, the ruling's own words cut from (R327)(2) as banked (relay data/b717_ferry.txt :9-:13), joined into one clause line.
+  -Carried from tools/b716_standing.py by diff (data/b717_carry_standing.txt) and rewritten whole by the Write tool: b716's tool was b714's v5
+  -writer carried unused (b716 wrote no standing clauses); this act's writer appends one row to v5 and keeps v5's bytes.
+  -### THE CUT: (R327)(2) at :9 of the banked ferry, from "(2) CLAIM AND CLOSE" to the paragraph's end at :13 ("and prints the counter."), its
+  -### lines :9, :11, :12, :13 joined by single spaces; the cut printed and checked against the transcript's ferry (tools/b717_citation.py ferry,
+  +"""b718_standing.py -- (R328)(2): THE STANDING CLAUSES AT v6, written at step zero as data/standing_clauses_v6.txt -- v5 unchanged (its 79 rows,
+  +its LINE sections and its row lines copied from data/standing_clauses_v5.txt byte for byte) with (R328)(2)'s row appended as row (80), CLAIM AND
+  +CLOSE, the ruling's own words cut from (R328)(2) as banked (relay data/b718_ferry.txt :9-:13), joined into one clause line.
+  +Carried from tools/b717_standing.py by diff (data/b718_carry_standing.txt) and rewritten whole by the Write tool: b717's tool was b714's v5
+  +writer carried unused (b717 wrote no standing clauses); this act's writer appends one row to v5 and keeps v5's bytes.
+  +### THE CUT: (R328)(2) at :9 of the banked ferry, from "(2) CLAIM AND CLOSE" to the paragraph's end at :13 ("and prints the counter."), its
+  +### lines :9, :11, :12, :13 joined by single spaces; the cut printed and checked against the transcript's ferry (tools/b718_citation.py ferry,
+  @@ -10,1 +10,1 @@
+  -### Routes: `write [dry]` -> data/standing_clauses_v6.txt ; `control [dry]` -> data/b717_standing_control.txt (.json). Writes only those banks.
+  +### Routes: `write [dry]` -> data/standing_clauses_v6.txt ; `control [dry]` -> data/b718_standing_control.txt (.json). Writes only those banks.
+  @@ -29,2 +29,2 @@
+  -V5, BANK, FERRY = 'standing_clauses_v5.txt', 'standing_clauses_v6.txt', 'b717_ferry.txt'
+  -ROW_HEAD = '  (%d) STANDING STOP SOURCE (R327)(2) ; first carried in data/b717_ferry.txt under (R327)'
+  +V5, BANK, FERRY = 'standing_clauses_v5.txt', 'standing_clauses_v6.txt', 'b718_ferry.txt'
+  +ROW_HEAD = '  (%d) STANDING STOP SOURCE (R328)(2) ; first carried in data/b718_ferry.txt under (R328)'
+  @@ -64,1 +64,1 @@
+  -    """(R327)(2) as banked: ferry :9 from "(2) CLAIM AND CLOSE" and :11-:13, joined."""
+  +    """(R328)(2) as banked: ferry :9 from "(2) CLAIM AND CLOSE" and :11-:13, joined."""
+  @@ -67,1 +67,1 @@
+  -        sys.exit('### THE CUT DOES NOT STAND AT :9-:13 OF data/b717_ferry.txt -- NOTHING WRITTEN')
+  +        sys.exit('### THE CUT DOES NOT STAND AT :9-:13 OF data/b718_ferry.txt -- NOTHING WRITTEN')
+  @@ -76,2 +76,2 @@
+  -    L = ['b717 -- THE STANDING CLAUSES, VERSION 6, WRITTEN ONCE AT STEP ZERO UNDER (R327)(2): VERSION 5 UNCHANGED (relay data/standing_clauses_v5.txt, its rows '
+  -         '(1)-(%d), its LINE sections and row lines copied byte for byte) WITH (R327)(2)`S ROW, CLAIM AND CLOSE, AS ROW (%d) (%s)' % (n - 1, n, utc()), '',
+  +    L = ['b718 -- THE STANDING CLAUSES, VERSION 6, WRITTEN ONCE AT STEP ZERO UNDER (R328)(2): VERSION 5 UNCHANGED (relay data/standing_clauses_v5.txt, its rows '
+  +         '(1)-(%d), its LINE sections and row lines copied byte for byte) WITH (R328)(2)`S ROW, CLAIM AND CLOSE, AS ROW (%d) (%s)' % (n - 1, n, utc()), '',
+  @@ -81,2 +81,2 @@
+  -         '### lines :5-:9 give KIND, SEP and TAG). Rows (1)-(%d) are v5`s, unchanged, under v5`s own section heads. Row (%d) is (R327)(2), CLAIM AND' % (n - 1, n),
+  -         '### CLOSE, cut from relay data/b717_ferry.txt :9-:13 and its four lines joined by single spaces. Where a row and an earlier row speak to one',
+  +         '### lines :5-:9 give KIND, SEP and TAG). Rows (1)-(%d) are v5`s, unchanged, under v5`s own section heads. Row (%d) is (R328)(2), CLAIM AND' % (n - 1, n),
+  +         '### CLOSE, cut from relay data/b718_ferry.txt :9-:13 and its four lines joined by single spaces. Where a row and an earlier row speak to one',
+  @@ -85,1 +85,1 @@
+  -         '## LINES 9-13 OF data/b717_ferry.txt -- (R327)(2), CLAIM AND CLOSE (the delta of v6)',
+  +         '## LINES 9-13 OF data/b718_ferry.txt -- (R328)(2), CLAIM AND CLOSE (the delta of v6)',
+  @@ -88,1 +88,1 @@
+  -         '### ### **ROWS %d ; v5`S ROWS %d UNCHANGED ; (R327)(2)`S ROW, CLAIM AND CLOSE: EVERY EVENT AND DEFECT FROM b716`S CORRIGENDUM ON TAGGED CLAIM OR CLOSE, '
+  +         '### ### **ROWS %d ; v5`S ROWS %d UNCHANGED ; (R328)(2)`S ROW, CLAIM AND CLOSE: EVERY EVENT AND DEFECT FROM b717`S CORRIGENDUM ON TAGGED CLAIM OR CLOSE, '
+  @@ -103,1 +103,1 @@
+  -    MEM.guard_path('b717', p, None)
+  +    MEM.guard_path('b718', p, None)
+  @@ -121,1 +121,1 @@
+  -    L = ['b717 -- THE CONTROL OF data/standing_clauses_v6.txt ((R327)(2)) (%s)' % utc(), '',
+  +    L = ['b718 -- THE CONTROL OF data/standing_clauses_v6.txt ((R328)(2)) (%s)' % utc(), '',
+  @@ -139,2 +139,2 @@
+  -    for nm, data in (('b717_standing_control.txt', NL.join(L) + NL),
+  -                     ('b717_standing_control.json', json.dumps(dict(at=utc(), rows=len(rows), v5_unchanged=same and whole, row80=last, neg=[neg1, neg2], ok=ok), indent=1) + NL)):
+  +    for nm, data in (('b718_standing_control.txt', NL.join(L) + NL),
+  +                     ('b718_standing_control.json', json.dumps(dict(at=utc(), rows=len(rows), v5_unchanged=same and whole, row80=last, neg=[neg1, neg2], ok=ok), indent=1) + NL)):
+  @@ -142,1 +142,1 @@
+  -        MEM.guard_path('b717', q, None)
+  +        MEM.guard_path('b718', q, None)
+  @@ -152,1 +152,1 @@
+  -        print('usage: b717_standing.py write [dry] | control [dry]')
+  +        print('usage: b718_standing.py write [dry] | control [dry]')
+
+### ### **CARRIED tools/b718_standing.py ; LINES 155 ; CHANGED BY THE SUBSTITUTION 24 ; REPAIR SPANS AT b717 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

@@ -1,0 +1,171 @@
+b718 -- THE PRUNES OF THE CARRIED tools/b718_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -132,167 +132,0 @@ PRUNED (2026-10-27T20:05:51Z)
+-    # ### b718: the cite rows of (R328) and its ferry, written by the Edit tool after b717's rows were pruned (data/b718_prune_citation.txt)
+-    for f in K.PATHS:
+-        add('ruling PATHS', f, os.path.isdir(f), 'present' if os.path.isdir(f) else 'ABSENT', '0')
+-    for f in ('data/b717_closing.txt', 'data/b717_events.txt', 'data/b717_defects.txt', 'data/b717_registrations.txt', 'data/b717_genus_control.txt',
+-              'data/b717_price.txt', 'data/b717_federation_pin_price.txt', 'data/b717_epstein_count_price.txt', 'data/b717_correspondence_pins.txt',
+-              'data/b717_author_answers.txt', 'data/b714_heads_draft.txt', 'data/b714_pilot.txt', 'data/b714_law.txt', 'data/b714_residual.txt',
+-              'data/b713_list.json', 'data/b709_pairs.txt', 'data/standing_clauses_v5.txt', 'data/b717_toolset_coverage.txt'):
+-        add('ferry read-first', f, os.path.exists(p(*f.split('/'))), 'exists at the working tree', '0')
+-    add('ferry read-first', '"the author`s-words bank": data/b717_author_words.txt, the closing`s "NONE RECEIVED" (data/b717_closing.txt :83)',
+-        not os.path.exists(p('data', 'b717_author_words.txt')) and 'NONE RECEIVED' in at(lines_of(p('data', 'b717_closing.txt')), 83),
+-        'absent at the working tree ; :83 names it NONE RECEIVED -- the words of b717 are the answers bank`s (:10, :13)', '0')
+-    add('ferry read-first', 'the census on main by its rows: PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md',
+-        os.path.exists(os.path.join(PP, 'phase2', 'method', 'THE_KEYSTONE_CENSUS_v0_8_2.md')), 'exists at the working tree', '0')
+-    law = lines_of(p('data', 'b714_law.txt'))
+-    add('ferry read-first', '"the law-identity bank of b714 (7)": data/b714_law.txt, (R324)(7)`s bank (its :1), its reading at :66',
+-        '(R324)(7)' in at(law, 1) and 'TWO FORMS' in at(law, 66), ':1 %r ; :66 %r' % (at(law, 1)[:40], at(law, 66).strip()[:40]), '0')
+-    hd = lines_of(p('data', 'b714_heads_draft.txt'))
+-    add('ferry read-first', 'the heads draft`s sections II and III (data/b714_heads_draft.txt :33, :66)', at(hd, 33).startswith('## II.') and at(hd, 66).startswith('## III.'),
+-        ':33 %r ; :66 %r' % (at(hd, 33)[:30], at(hd, 66)[:30]), '5')
+-    pl = lines_of(p('data', 'b714_pilot.txt'))
+-    add('ferry read-first', 'data/b714_pilot.txt (P2): the six lint hits FOR THE AUTHOR (:94)', '(P2) HITS 7: AS DESIGNED 1 ; FOR THE AUTHOR 6' in at(pl, 94), ':94', '5')
+-    # ### (R328)(1): b717 at its weight
+-    cl = lines_of(p('data', 'b717_closing.txt'))
+-    q = _quote(text, 'b717 closed: relay', '”; the closing’s commit')
+-    add('ruling (1)', 'data/b717_closing.txt :1, the head line, against (R328)(1)`s quote', bool(q) and q == cl[0],
+-        'quote %d characters, the line %d ; equal byte for byte %s' % (len(q), len(cl[0]), q == cl[0]), '1')
+-    clo_s = (g(ROOT, 'log', '-1', '--format=%H %s', '983dcbe2')[1] or '').strip()
+-    rec_s = (g(ROOT, 'log', '-1', '--format=%H %s', '78866b19')[1] or '').strip()
+-    rmain = (g(ROOT, 'ls-remote', 'origin', 'refs/heads/main')[1] or '').split()
+-    add('ruling (1)', 'the closing`s commit 983dcbe2 ("b717: the closing"), the record 78866b19 ("b717 record"), the remote main at the closing',
+-        clo_s[41:].startswith('b717: the closing') and rec_s[41:].startswith('b717 record') and rmain[:1] == [clo_s[:40]],
+-        '%s ; %s ; remote main %s' % (clo_s[:58], rec_s[:52], (rmain or ['NONE'])[0][:8]), '1')
+-    dc = (g(ROOT, 'show', '--name-only', '--format=%s', K.REG_COMMIT)[1] or '').split(NL)
+-    first_after = (g(ROOT, 'rev-list', '--reverse', 'cf51ee95..983dcbe2')[1] or '').split()
+-    add('ruling (1); ruling (4)', 'data/b717_registrations.txt committed alone at the act`s opening commit dc5e808f, its count control beside it',
+-        bool(first_after) and first_after[0] == K.REG_COMMIT and 'data/b717_registrations.txt' in dc,
+-        'b717`s first commit after cf51ee95 %s ; its files %s' % ((first_after or ['NONE'])[0][:8], [x for x in dc[1:] if x.strip()]), '1')
+-    gc = lines_of(p('data', 'b717_genus_control.txt'))
+-    add('ruling (1)', 'its count control at 0 misses (data/b717_genus_control.txt :46, :49)', 'THROUGH n = 400: 0' in at(gc, 46) and 'MISSES 0' in at(gc, 49) and 'NOTHING OF THE ZEROS COMPUTED' in at(gc, 49),
+-        ':46 ; :49', '1')
+-    sdir = p('tools', 'standing')
+-    cov = lines_of(p('data', 'b717_toolset_coverage.txt'))
+-    add('ruling (1)', 'the toolset at v1.1.0, 2 of 25 steps STANDING ([8], [18]) (tools/standing/VERSION ; data/b717_toolset_coverage.txt :48)',
+-        (rd(os.path.join(sdir, 'VERSION')) or '').strip() == 'v1.1.0' and 'STEPS 25 ; STANDING 2 ([8], [18])' in at(cov, 48),
+-        'VERSION %r ; :48' % (rd(os.path.join(sdir, 'VERSION')) or '').strip(), '1')
+-    rp = lines_of(p('data', 'b717_replay.txt'))
+-    add('ruling (1)', 'the replay over b715, b714 and b713 at 17 of 18 EQUAL, the one DIFFERS b713`s old tool, F-2 (data/b717_replay.txt :107, :117)',
+-        'OBJECTS 18 ; EQUAL 17 ; DIFFERS 1 [\'b713 (6)\']' in at(rp, 117) and 'F-2' in at(rp, 107), ':107 ; :117', '1')
+-    mi = lines_of(p('data', 'b717_mirror.txt'))
+-    add('ruling (1)', 'the mirror mirror-refresh-2026-10-27-b717.zip CLEAN on all three clauses, its manifest control NOT AS WANTED (data/b717_mirror.txt :2, :13, :14)',
+-        'mirror-refresh-2026-10-27-b717.zip' in at(mi, 2) and 'NOT AS WANTED' in at(mi, 13) and 'CLEAN ON ALL THREE CLAUSES' in at(mi, 14), ':2 ; :13 ; :14', '1')
+-    ev = lines_of(p('data', 'b717_events.txt'))
+-    starts = dict((int(m.group(1)), i + 1) for i, l in enumerate(ev) for m in [re.match(r'^    \((\d+)\) ', l)] if m)
+-    add('ruling (1)', '"against a carried reference, event (17)": data/b717_events.txt (17) names b715`s merge a86c9429 as the control`s reference',
+-        17 in starts and 18 in starts and any('a86c9429' in at(ev, i) for i in range(starts[17], starts[18])), '(17) :%s-:%s' % (starts.get(17), (starts.get(18) or 1) - 1), '1')
+-    sil = (g(PP, 'show', 'main:day1/Silence_of_Foundations.md')[1] or '').split(NL)
+-    add('ruling (1)', 'Silence :212 corrected to SIDE-meta (PLACE-papers main day1/Silence_of_Foundations.md :212)', 'SIDE-meta' in at(sil, 212),
+-        ':212 %r' % at(sil, 212)[:80], '1')
+-    cp = lines_of(p('data', 'b717_correspondence_pins.txt'))
+-    carried = [l for l in cp[23:34] if l.startswith('  ') and ' census ' in l]
+-    add('ruling (1); ruling (6)', '8 of 19 unpinned names pinned, 11 carried (data/b717_correspondence_pins.txt :23-:34, :36)',
+-        at(cp, 23).startswith('## LISTED AND CARRIED, 11') and len(carried) == 11 and 'NAMES 19 ; PINNED FROM THE CENSUS 8' in at(cp, 36) and 'LISTED AND CARRIED 11' in at(cp, 36),
+-        ':23 %r ; rows :24-:34 %d ; :36' % (at(cp, 23)[:30], len(carried)), '1')
+-    cen = (g(PP, 'log', '--format=%h %s', '-1', '--', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md')[1] or '').strip()
+-    add('ruling (1)', 'the census v0.8.2`s 24 chain rows written at b715 (PLACE-papers 332710b, the census`s last commit)', cen.startswith('332710b') and '24 rows' in cen,
+-        '%r' % cen[:70], '1')
+-    for f, n, needle in (('b717_price.txt', 80, 'NOTHING OF -39 COMPUTED'), ('b717_federation_pin_price.txt', 166, 'NOTHING BUILT'), ('b717_epstein_count_price.txt', 152, 'NOTHING BUILT')):
+-        L = lines_of(p('data', f))
+-        add('ruling (1)', 'the price data/%s :%d, its foot' % (f, n), needle in at(L, n) and at(L, n).startswith('### ###'), ':%d %r' % (n, at(L, n)[:50]), '1')
+-    ans = lines_of(p('data', 'b717_author_answers.txt'))
+-    add('ruling (1); ruling (5)', 'the author`s two root words banked verbatim (data/b717_author_answers.txt :4, :7 the two prompts ; :10 the result ; :13 the BEGIN-END word)',
+-        at(ans, 4).startswith('### PROMPT 1') and at(ans, 7).startswith('### PROMPT 2') and at(ans, 10).startswith('RESULT') and at(ans, 12).startswith('### THE AUTHOR`S WORD'),
+-        ':4 ; :7 ; :10 ; :12-:13', '1')
+-    row = act_root_line('b717')
+-    add('ruling (1)', 'the root 4df4ddac (data/act_roots.txt, b717`s row)', bool(row) and row[-1][1].startswith('4df4ddac'), 'row b717 %s' % (row[-1][1][:8] if row else 'NONE'), '1')
+-    add('ruling (1); ruling (3)', 'nineteen events in data/b717_events.txt, (1)-(19) each on its starting line', sorted(starts) == list(range(1, 20)),
+-        'starting lines %s' % [starts[k] for k in sorted(starts)], '1')
+-    dl = lines_of(p('data', 'b717_defects.txt'))
+-    dlet = [(m.group(1), m.group(2)) for l in dl for m in [re.match(r"^    \(([a-z])\) (THE [A-Z]+'S)", l)] if m]
+-    add('ruling (1); ruling (3)', 'eighteen defects in data/b717_defects.txt, (a)-(r)', ''.join(x[0] for x in dlet) == 'abcdefghijklmnopqr',
+-        'letters %s ; the navigator`s %s' % (''.join(x[0] for x in dlet), [x[0] for x in dlet if x[1] == "THE NAVIGATOR'S"]), '1')
+-    add('ruling (1); ruling (10)', '"Nothing deposited, nothing published": the draft at v5, held', K.DRAFT == '23228113', 'tools/b718_worklist.py DRAFT', '1')
+-    # ### (R328)(2)-(3): claim and close; the corrigendum
+-    for f in ('data/standing_clauses_v6.txt', 'data/arm_tags.json', 'data/b718_corrigendum.txt', 'data/b718_readfirst.txt'):
+-        add('ruling (2); ruling (3); ruling (9)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(p(*f.split('/'))), 'absent, as ordered', '0-1')
+-    add('ruling (3)', 'the corrigendum tool to carry (tools/b717_corrigendum.py) and the one lettering (tools/act_letters.py)',
+-        os.path.exists(p('tools', 'b717_corrigendum.py')) and os.path.exists(p('tools', 'act_letters.py')), 'present', '1')
+-    cg = lines_of(p('data', 'b675_corrigenda.txt'))
+-    last = [l for l in cg if re.match(r'^\s*\((\d+)\)', l)]
+-    add('ruling (3)', 'the corrigenda bank, appended only (its last row (36), b717`s)', bool(last) and re.match(r'^\s*\(36\)', last[-1]) is not None,
+-        'data/b675_corrigenda.txt, last row %r' % (last[-1][:40] if last else ''), '1')
+-    # ### (R328)(4): the test at -39
+-    blob = (g(ROOT, 'show', '%s:data/b717_registrations.txt' % K.REG_COMMIT)[1] or '')
+-    add('ruling (4)', 'data/b717_registrations.txt read unchanged from dc5e808f (the working tree`s bytes against the commit`s blob)',
+-        bool(blob) and blob.replace(chr(13), '') == (rd(p('data', 'b717_registrations.txt')) or ''), 'blob %d characters ; equal %s' % (len(blob), blob.replace(chr(13), '') == (rd(p('data', 'b717_registrations.txt')) or '')), '2-4')
+-    rg = lines_of(p('data', 'b717_registrations.txt'))
+-    add('ruling (4)(ii)', '"the form b714 (7) read": registration (iii) carries the first-order form with C per pair (data/b717_registrations.txt :67-:69 ; b714_law :70)',
+-        'THE FIRST-ORDER' in at(rg, 67) and 'FORM WITH C PER PAIR' in at(rg, 68), ':67-:68', '3')
+-    rs = lines_of(p('data', 'b714_residual.txt'))
+-    add('ruling (4)(iii)', '"the additive offset onset minus prediction ... as b714 (8) printed it": data/b714_residual.txt (registration (iii) :78-:79)',
+-        bool(rs) and 'b714_residual' in at(rg, 79), ':79 %r' % at(rg, 79)[:60], '3')
+-    add('ruling (4)(iv)', 'the cut 32532 (data/b717_price.txt :69) and registration (ii) on its two clauses (b(n) = -2 ; a prime outside the principal class, :51-:53)',
+-        'n <= 32532' in at(lines_of(p('data', 'b717_price.txt')), 69) and 'b(n) = -2' in at(rg, 51) and 'FALSIFIER' in at(rg, 53), ':69 ; :51 ; :53', '4')
+-    add('ruling (4)(i)', '"base and tiers [0, 100] and [100, 200]": the price`s tiers (data/b717_price.txt :40-:53, :61)',
+-        'the first tier' in at(lines_of(p('data', 'b717_price.txt')), 40) and 'the second tier band [ 190.0,  200.0]' in at(lines_of(p('data', 'b717_price.txt')), 53), ':40 ; :53', '2')
+-    for t_ in ('b713_list.py', 'b713_predict.py', 'b713_onsets.py', 'b713_coeffs.py'):
+-        add('ruling (4); price (1)', 'tools/%s, the -15 form the -39 tool is carried from' % t_, os.path.exists(p('tools', t_)), 'present', '2-4')
+-    add('price (1)', 'the price`s named tools tools/b713_epstein_certify.py and tools/b713_pairs.py (data/b717_price.txt :8)',
+-        os.path.exists(p('tools', 'b713_epstein_certify.py')) and os.path.exists(p('tools', 'b713_pairs.py')),
+-        'present %s, %s -- b713`s list route is tools/b713_list.py' % (os.path.exists(p('tools', 'b713_epstein_certify.py')), os.path.exists(p('tools', 'b713_pairs.py'))), '2')
+-    for f in ('tools/b718_list.py', 'tools/b718_predict.py', 'tools/b718_onsets.py', 'tools/b718_coeffs.py', 'data/b718_predictions.txt',
+-              'data/b718_list.txt', 'data/b718_onsets.txt', 'data/b718_coeffs.txt'):
+-        add('ruling (4)', '%s -- TO BE WRITTEN by this act' % f, not os.path.exists(p(*f.split('/'))), 'absent, as ordered', '2-4')
+-    wsc = os.path.join(PP, 'day1', 'Which_Structure_Confines.md')
+-    add('ruling (11)', 'Which_Structure_Confines (PLACE-papers day1/Which_Structure_Confines.md)', os.path.exists(wsc), 'present', '6')
+-    add('ruling (11)', 'the gates G1, G4 and G5 of the paper path: no relay or PLACE-papers bank the seat reads names them by these labels',
+-        False, 'the navigator`s labels, not found in a bank the act reads -- entered by the fact clause', '6')
+-    # ### (R328)(5): the author's words
+-    add('ruling (5)(i)', 'the banked word on (R327)(5)(i) names section II`s paragraph (data/b717_author_answers.txt :10)',
+-        'section II’s paragraph replaces :15 with its brackets removed' in at(ans, 10), ':10', '5')
+-    add('ruling (5)(i)', 'Silence_of_Foundations :15 on main, a paragraph', len(at(sil, 15).strip()) > 200, ':15 %d characters, %r' % (len(at(sil, 15)), at(sil, 15)[:50]), '5')
+-    add('ruling (5)(i)', 'day1/Silence_of_Foundations_CORRESPONDENCE.md -- TO BE WRITTEN by this act', not os.path.exists(os.path.join(PP, 'day1', 'Silence_of_Foundations_CORRESPONDENCE.md')),
+-        'absent, as ordered', '5')
+-    add('ruling (5)(ii)', 'the banked word on (R327)(5)(ii): (1), (2), (5) kept AS DESIGNED ; (3), (4), (6) reworded (data/b717_author_answers.txt :13)',
+-        'marked AS DESIGNED' in at(ans, 13) and '(3) Exhaustive_Enumeration :92' in at(ans, 13) and '(4) ONE_PAGE_PROOF :1' in at(ans, 13) and '(6) Third_Identity_Element :78' in at(ans, 13),
+-        ':13', '5')
+-    for f, n, needle in (('day1/Exhaustive_Enumeration.md', 92, 'but gaps were discovered and repaired over the following two decades'),
+-                         ('day1/ONE_PAGE_PROOF.md', 1, 'Proof of the Riemann Hypothesis via SIDE Exclusion'),
+-                         ('day1/Third_Identity_Element.md', 78, 'the gap from 4 to 8 breaks the consecutive chain')):
+-        L = (g(PP, 'show', 'main:' + f)[1] or '').split(NL)
+-        add('ruling (5)(ii)', 'main %s :%d carries the words the author`s word replaces' % (f, n), needle in at(L, n), ':%d %r' % (n, at(L, n)[:60]), '5')
+-    # ### (R328)(6): the eleven names
+-    add('ruling (6)', 'the census v0.8.3 on main -- TO BE WRITTEN by this act', not os.path.exists(os.path.join(PP, 'phase2', 'method', 'THE_KEYSTONE_CENSUS_v0_8_3.md')),
+-        'absent, as ordered', '5')
+-    # ### (R328)(7): scheduled, nothing built
+-    fp = lines_of(p('data', 'b717_federation_pin_price.txt'))
+-    add('ruling (7)(i)', 'the federation pin: 12 kernels below de5ce8a9, 12 dispatches, 3.1 runner hours, the halt "no ref carries the bump" (data/b717_federation_pin_price.txt :166)',
+-        'THE TARGET de5ce8a9a66a ; BELOW IT 12 ; DISPATCHES PRICED 12, 3.1 RUNNER HOURS' in at(fp, 166) and 'NO REF CARRIES THE BUMP' in at(fp, 166), ':166', '0')
+-    ep = lines_of(p('data', 'b717_epstein_count_price.txt'))
+-    add('ruling (7)(ii)', 'the Lean count: [160, 170] at Q0, 15 zeros, 90-180 dispatches, 115-230 hours, four constructions, DERIVES (data/b717_epstein_count_price.txt :152)',
+-        'THE BAND [160, 170] AT Q0, N 15, ALL ON THE LINE' in at(ep, 152) and '90-180 DISPATCHES, 115-230 FOREGROUND HOURS' in at(ep, 152) and 'THE GRADE DERIVES' in at(ep, 152), ':152', '5')
+-    ecl = [i + 1 for i, l in enumerate(ot) if '`W-ORD-EPSTEIN-COUNT-LEAN`' in l and l.startswith('*Appended')]
+-    add('ruling (7)(ii)', 'W-ORD-EPSTEIN-COUNT-LEAN in OPEN_TRAILS: the order`s existing rows (an *Appended* row naming it)', True,
+-        'rows %s -- (7)(ii) enters it at its price beside them' % ecl, '5')
+-    # ### (R328)(8): the carried files and the branches
+-    dirty = (g(ROOT, 'diff', '--name-only')[1] or '').split()
+-    add('ruling (8)', 'data/b717_relay_push-b717-closing_push_out.txt, untracked', os.path.exists(p('data', 'b717_relay_push-b717-closing_push_out.txt'))
+-        and not (g(ROOT, 'ls-files', 'data/b717_relay_push-b717-closing_push_out.txt')[1] or '').strip(), 'present, untracked', '0')
+-    st = _jl('b717_steps.json').get('rows', [])
+-    add('ruling (8)', 'step row 18 of data/b717_steps.json (the closing`s, 983dcbe2), uncommitted', len(st) == 18 and str(st[17].get('commit', '')).startswith('983dcbe2')
+-        and 'data/b717_steps.json' in dirty, 'rows %d ; row 18 %s' % (len(st), (str(st[17].get('commit', ''))[:8], st[17].get('phase')) if len(st) >= 18 else 'NONE'), '0')
+-    for repo, names in K.DELETE:
+-        lst = g(repo, 'branch', '--merged', 'main')[1] or ''
+-        for b in names:
+-            add('ruling (8)', '%s %s (local, listed --merged)' % (os.path.basename(repo), b), b in [x.strip(' *') for x in lst.split(NL)], 'listed by `git branch --merged main` before any delete', '0')
+-    lh = _remote_heads(K.LV_DIR)
+-    loc = (g(K.LV_DIR, 'rev-parse', K.PORT_BRANCH)[1] or '').strip()
+-    add('ruling (8)', 'port-b707 at cb0aea56 locally and at the remote, NOT deleted', loc == K.PORT_TIP and lh.get('refs/heads/port-b707') == K.PORT_TIP,
+-        'local %s ; remote %s' % (loc[:8], (lh.get('refs/heads/port-b707') or '')[:8]), '0')
+-    add('ruling (8)', 'the 2,560 MB hold', K.HOLD == 2560, 'tools/b718_worklist.py HOLD', '0')
+-    # ### the ferry
+-    add('ferry', 'the close runs each step as data/b717_toolset_coverage.txt marks it (STANDING [8], [18])', '[8]  the seal' in at(cov, 17) and '| STANDING |' in at(cov, 17) and '| STANDING |' in at(cov, 27),
+-        ':17 ; :27', '6')
+-    add('ferry', 'the hook in D:/.claude/settings.json is the standing one (tools/standing/hook.py)', 'standing/hook.py' in (rd('D:/.claude/settings.json') or ''), 'D:/.claude/settings.json', '0')
+-    add('ferry C0', 'the READFIRST-CLOSURE reader and rowgen (tools/circuit_read.py)', os.path.exists(p('tools', 'circuit_read.py')), 'present', '0')
+-    add('ferry C6', 'the chain halves as b693 drew them, b718 added to the second', K.CHAIN_HALVES[1] == ('b659', 'b718'), 'tools/b718_worklist.py CHAIN_HALVES', '6')
+-    add('ferry C0', 'this act`s session transcript (a new session after the clear)', os.path.exists(C.SESSION), C.SESSION, '0')
+
