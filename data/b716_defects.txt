@@ -1,0 +1,26 @@
+b716 -- THE DEFECTS OF THE ACT, LETTERED (2026-10-27)
+
+### rows are defects, each lettered by the time it was found, with whose it is, what the rule says, what was done and the repair or the entry.
+### Events that are not defects are entered in data/b716_events.txt, unlettered. Under standing clauses v5 row (52) (v2's, unchanged), a
+### finding made after the seal is entered in the closing's events section and not lettered here.
+
+    (a) THE SEAT'S: A COMMAND WITH A REDIRECT, REFUSED BY THE HOOK INTO b715'S BANK. REFUSED BY THE HOOK. At step zero (04:44:09Z) the seat
+        sent a Bash listing of the coefficient and registration banks, `ls b711_coef* ... 2>/dev/null; ls -1 ...`, carrying a redirect of
+        the error stream; row (14) reads "no redirect of any stream and no pipe in any command, scratch, listings and diagnostics included".
+        The hook (tools/standing/hook.py, row (77)) refused it before it ran ("REFUSED REDIR") and appended the refusal to
+        data/b715_hook_refusals.txt, since data/act_current.json still named b715 (b716's was committed at 060acae9 after it) -- a bank b715's
+        root names. Nothing ran; the listing re-sent without the redirect. The bank committed at step zero as it stands, its line named
+        (relay d6964db8). A REPEAT of b715's (a) (a command refused by the hook into the previous act's root-named bank).
+    (b) THE SEAT'S: A FILE READ THROUGH A SHELL FILTER. At step zero (about 04:50Z) the seat read the last lines of data/act_roots.txt by
+        `tail -n 3`; row (19) reads a file through the Read tool, "not through a shell filter, a shell grep or an interpreter's print". The
+        hook does not refuse it (it carries no pipe and no redirect). The lines re-read through the Read tool (:1-:3, :88-:93) before the
+        readfirst bank cites them; nothing was taken from the `tail` read.
+    (c) THE SEAT'S: A FILE'S LINES PRINTED BY A SHELL GREP. At step zero (about 04:52Z) the seat ran `git grep -n ... -- tools/circuit_read.py`,
+        which printed the tool's lines; row (19) as in (b). The hook does not refuse it. The tool re-read through the Read tool (:395-:537)
+        before the readfirst route was run; nothing was taken from the grep's print.
+    (d) THE SEAT'S: TRACKED FILES' CHANGED LINES READ THROUGH `git diff`. At step zero (between 04:56Z and 04:58Z), before committing the
+        carried files of (R326)(7), the seat read their uncommitted changes by `git diff` (the two hook-refusal banks, then
+        data/b715_bank_hashes.json and tools/mirror_prevbuild.json), which printed the changed lines of each file; row (19) as in (b), and
+        b704's trap (a git command printing blobs, `git show`) the same class. The hook does not refuse it. The commits' messages name what
+        the diffs showed; each carried file stands committed as it stood (rows (16), (18)), and nothing was edited from the reading. The
+        files' lines are read again through the Read tool where a bank of this act cites them. A REPEAT of the class of (c).
