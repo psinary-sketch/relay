@@ -1,0 +1,41 @@
+b718 -- (R328)(4)(iv): THE NEXT DISCRIMINANTS, REGISTERED AND NOT COMPUTED, WITH b719'S PRICE (2026-10-27)
+
+### Written by the Write tool from the print of tools/b718_registrations.py dry (2026-10-27T20:52:19Z), committed alone before anything at
+### either discriminant is computed. Nothing at either is computed at b718 beyond its class number and its reduced forms.
+
+## (1) THE RULE, printed before any discriminant is named
+Among negative fundamental discriminants D with two units (D < -4), ordered by |D|, take the least with h(D) = 2 and the least with
+h(D) = 5, each not yet used -- used meaning computed by the record (-23, -15, -39) or named as a discriminant in PLACE-papers
+FINDINGS.md, OPEN_TRAILS.md or REGISTRY.md (a number beside a discriminant word on one line, every hit hand-read).
+
+## (2) THE RULE'S OUTPUT
+h = 2: the least candidates [-15, -20, -24, -35]; -15 used by the record (the scan's positive control: 5 ledger hits, FINDINGS :10342,
+:10408, :10812, OPEN_TRAILS :15888, :15926, each hand-read as the -15 control); -20 no ledger hit. THE OUTPUT -20.
+h = 5: the least candidates [-47, -79, -103, -127]; -47 no ledger hit. THE OUTPUT -47.
+
+  D = -20: h = 2 ; the reduced forms (1, 0, 5), (2, 2, 3) ; the principal form Q1 = x^2 + 5y^2.
+  D = -47: h = 5 ; the reduced forms (1, 1, 12), (2, -1, 6), (2, 1, 6), (3, -1, 4), (3, 1, 4) ; the principal form Q1 = x^2 + xy + 12y^2.
+
+## (3) WHAT (iii) YIELDS, AND THE PREDICTIONS
+data/b718_derivation.txt grades the argument: clause 2 a theorem (written proof), clause 1 not derived, its step named. (iii) yields a
+RULE for the least negative index -- n0 is the least n instantiating, over D's bad primes with their classes, a minimal negative shape of
+Cl(K) (data/b718_derivation.txt step 7) -- but its prediction at a discriminant needs the classes of that discriminant's primes, which is
+beyond the class number and its forms, the only computation (R328)(4)(iv) allows at either this act. THE CONFLICT, NAMED FOR THE AUTHOR:
+"its prediction at each is written" and "nothing at either is computed this act beyond the class number and its forms" cannot both be
+met; the second is kept, and no prediction of n0 is written here. The rule is fixed now as written; b719 computes the primes' classes at
+each discriminant, writes the rule's prediction of n0 and b(n0), and commits that alone before any coefficient is computed.
+
+## (4) THE LAW, CARRIED UNCHANGED WITH ITS FALSIFIERS (data/b716_registrations.txt (ii), :51-:53)
+At D = -20 and at D = -47, with a(n) = r_Q1(n)/2 and log(Z_Q1/2) = SUM b(n) n^-s, computed exactly through the cut 32532:
+  clause 1: the least n with b(n) < 0 has b(n) = -2. FALSIFIER: b(n0) != -2 at either; or no n <= 32532 with b(n) < 0 (then the
+            clause is NOT SCORABLE at that discriminant through the cut, printed as such).
+  clause 2: n0 is divisible by a prime the principal form does not represent. By data/b718_derivation.txt step 6 every prime of n0 is
+            so; FALSIFIER: a prime of n0 represented by Q1, which refutes the written proof, not only the law.
+
+## (5) b719'S PRICE
+At each discriminant: the primes' classes from the forms (p <= 32532, under a second); r_Q1 by enumeration and b(n) by the Omega
+derivation through 32532 (tools/b718_classgroup.py, about 2 s each at -23, -15, -39, data/b718_decomp.txt, data/b718_derivation.txt);
+the census of minimal negative shapes for C5 at Omega 4-6 (tools/b718_abstract.py; C2 is read in data/b718_derivation.txt), under a
+minute in the foreground; the bank-to-bank checks of data/b718_derivation.txt's steps (1)-(6) re-run at -20 and -47, each with its plant,
+about 25 s per discriminant. Memory under 300 MB. The prediction committed alone before the coefficients; then the coefficients and the
+law read HELD or REFUTED. One component of one act; no lean, no dispatch.
