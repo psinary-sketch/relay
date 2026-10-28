@@ -243,5 +243,11 @@ RETIRED_COUNT = 0            # ### no arm retired this act; b719's run list of 1
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b720_') and f.endswith('.py') and f != 'b720_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
-# ### the act's arms over its own banks: set at Component 7 by the Edit tool
-ACT_ARMS = ()
+# ### the act's arms over its own banks: set at Component 7 by the Edit tool -- the thirty-two of the suite's act part (b719's less the arms
+# ### b719 retired, G-R329-ENTERED shifted to G-R330-ENTERED), as `b720_record.py armnames` prints them beyond the standing (set late, defect (y))
+ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW',
+            'G-CORRIGENDUM-ENTERED', 'G-COUNT-ROUTE-PRICED', 'G-DELETES-ONE-BRANCH', 'G-DERIVATION-GRADED', 'G-DIFFERS-ERRATA', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-GUARD-HELD', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LISTINGS-BEFORE-CLAUSES',
+            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R330-ENTERED', 'G-READFIRST-DIFF-BANKED',
+            'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
+            'G-WRITELIST-MIRROR-STATE')
