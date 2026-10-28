@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import registration_gate as RG   # noqa: E402
 
 D = os.path.join(ROOT, 'data')
-REG = os.path.join(D, 'b719_registration_2026-10-27.txt')
+REG = os.path.join(D, 'b719_registration_2026-10-28.txt')
 OUT = os.path.join(D, 'b719_reg_gate.txt')
 
 if hasattr(sys.stdout, 'reconfigure'):
