@@ -1,0 +1,457 @@
+[
+ {
+  "kind": "push",
+  "kernel": "SIDE-kernel",
+  "sha": "0e5233f011533d09e4799107394c216a915028a1",
+  "at": "2026-10-28T14:28:04Z",
+  "free_mb": 7157,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-kernel",
+  "sha": "0e5233f011533d09e4799107394c216a915028a1",
+  "target": "Kernel Bridge MetaKernel",
+  "at": "2026-10-28T14:28:11Z",
+  "run": 40706230156,
+  "free_mb": 7151
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-lv-conservation",
+  "sha": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+  "at": "2026-10-28T14:28:34Z",
+  "free_mb": 7127,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-lv-conservation",
+  "sha": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+  "target": "SIDELvConservation",
+  "at": "2026-10-28T14:28:41Z",
+  "run": 40706311269,
+  "free_mb": 7133
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-archimedean",
+  "sha": "8019d9dfee87f761f93493513365130fbafdaa17",
+  "at": "2026-10-28T14:29:04Z",
+  "free_mb": 7116,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-archimedean",
+  "sha": "8019d9dfee87f761f93493513365130fbafdaa17",
+  "target": "SIDEArchimedean",
+  "at": "2026-10-28T14:29:11Z",
+  "run": 40706397470,
+  "free_mb": 7197
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-frobenius",
+  "sha": "f9410d2e64ad242a499a034949ef968abd5848a2",
+  "at": "2026-10-28T14:29:34Z",
+  "free_mb": 7149,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch_refused",
+  "kernel": "SIDE-frobenius",
+  "sha": "f9410d2e64ad242a499a034949ef968abd5848a2",
+  "target": "SIDEFrobenius",
+  "at": "2026-10-28T14:29:40Z",
+  "free_mb": 7198,
+  "refusal": "HTTP 404: workflow build-module.yml not found on the default branch (https://api.github.com/repos/psinary-sketch/SIDE-frobenius/actions/workflows/build-module.yml)"
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-spinor",
+  "sha": "b235bc6235b5887fc89a8af3fbec3b96b84016e3",
+  "at": "2026-10-28T14:29:58Z",
+  "free_mb": 7193,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-spinor",
+  "sha": "b235bc6235b5887fc89a8af3fbec3b96b84016e3",
+  "target": "SIDESpinor",
+  "at": "2026-10-28T14:30:05Z",
+  "run": 40706542282,
+  "free_mb": 7136
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-rcurve",
+  "sha": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+  "at": "2026-10-28T14:30:33Z",
+  "free_mb": 7141,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-rcurve",
+  "sha": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+  "target": "SIDERCurve",
+  "at": "2026-10-28T14:30:40Z",
+  "run": 40706645404,
+  "free_mb": 7060
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-kernel",
+  "run": "40706230156",
+  "free_mb": 6737,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-28T14:28:13Z",
+  "updated": "2026-10-28T14:31:15Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "0e5233f011533d09e4799107394c216a915028a1",
+   "leanprover/lean4:v4.29.0-rc8"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "13549",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 150,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "out/Axioms.lean:1:0: error: object file '/home/runner/work/SIDE-kernel/SIDE-kernel/.lake/build/lib/lean/Bridge/CardDerived.olean' of module Bridge.CardDerived does not exist"
+  ],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-lv-conservation",
+  "run": "40706311269",
+  "free_mb": 6685,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-28T14:28:42Z",
+  "updated": "2026-10-28T14:31:19Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Constant closure of the kernel's own declarations",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "13468",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 94,
+  "sorry_warnings": 1,
+  "axioms_lines": [
+   "'SIDELvConservation.T3.ZeroLoc' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.PerClassExcludes' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.CombinationsExclude' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude' depends on axioms: [propext,",
+   " Classical.choice,",
+   " Quot.sound]",
+   "'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3prime_shared_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,",
+   " Classical.choice,",
+   " Quot.sound]"
+  ],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-archimedean",
+  "run": "40706397470",
+  "free_mb": 6681,
+  "status": "completed",
+  "conclusion": "failure",
+  "created": "2026-10-28T14:29:13Z",
+  "updated": "2026-10-28T14:31:35Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "failure"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "8019d9dfee87f761f93493513365130fbafdaa17",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14562",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-spinor",
+  "run": "40706542282",
+  "free_mb": 6638,
+  "status": "completed",
+  "conclusion": "failure",
+  "created": "2026-10-28T14:30:07Z",
+  "updated": "2026-10-28T14:31:44Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "failure"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "b235bc6235b5887fc89a8af3fbec3b96b84016e3",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14192",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-rcurve",
+  "run": "40706645404",
+  "free_mb": 6609,
+  "status": "completed",
+  "conclusion": "failure",
+  "created": "2026-10-28T14:30:42Z",
+  "updated": "2026-10-28T14:32:23Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "failure"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14301",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "trigger_halt",
+  "kernel": "SIDE-frobenius",
+  "diff": [
+   "@@ -16 +16 @@",
+   "-  workflow_dispatch:",
+   "+  push: { branches: [rebuild-b721] }"
+  ],
+  "target": "SIDEFrobenius",
+  "empty_exit": 2,
+  "empty_out": "target refused:",
+  "control_exit": 0,
+  "at": "2026-10-28T14:38:16Z"
+ }
+]

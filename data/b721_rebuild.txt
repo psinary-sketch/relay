@@ -1,0 +1,43 @@
+b721 -- (R331)(7)(iii): THE REBUILD AT EACH WAVE 1 KERNEL`S OWN PIN, LAST AND STOPPABLE -- one branch rebuild-b721 per kernel at its pin, one dispatch each, read by its run id (2026-10-28)
+
+### Written by tools/b721_rebuild.py bank from data/b721_rebuild_rows.json (its push, dispatch and read routes; b718`s dispatch and
+### read routes pointed at b721`s rows). Each kernel at the Mathlib its own manifest carries; nothing repaired; no main or tag touched;
+### no lean or lake process on this host; the free memory read before each push, dispatch and read against the 2,560 MB hold.
+### THE READING OF "where a kernel has no workflow": no build-module.yml on its main (the dispatch reads the workflow from main);
+### five mains carry it, so five branches stand at their pins carrying nothing; SIDE-frobenius has none, and its branch carries
+### SIDE-explicit-formula`s build-module.yml verbatim in one commit on the pin, its author and committer the seat`s neutral identity
+### (b721 rebuild seat <b721-rebuild@relay.invalid>), no identifier of the author in it. The pins` own trees carry a workflow at
+### SIDE-kernel alone (build.yml, triggered by a push to main only, so the branch push ran nothing).
+
+PUSHED 6 ; DISPATCHED 5 (six at most) ; DISPATCH REFUSED 1 ; READ 5 ; BUILDS 5 OF 6 ; HELD (BREAKS) 0 ; NOT READ 0
+
+  SIDE-kernel           v1.5 = 0e5233f ; pushed 0e5233f011 (host free 7157 MB, origin equal True) ; run 40706230156 at 2026-10-28T14:28:11Z (target Kernel Bridge MetaKernel, host free 7151 MB): completed success ; build exit 0 ; memory low 13549 MB ; sorry warnings 0 ; host free 6737 MB at the read ; BUILDS
+      axioms | out/Axioms.lean:1:0: error: object file '/home/runner/work/SIDE-kernel/SIDE-kernel/.lake/build/lib/lean/Bridge/CardDerived.olean' of module Bridge.CardDerived does not exist
+  SIDE-lv-conservation  v0.10.0 = 93c27ec ; pushed 93c27ec2cb (host free 7127 MB, origin equal True) ; run 40706311269 at 2026-10-28T14:28:41Z (target SIDELvConservation, host free 7133 MB): completed success ; build exit 0 ; memory low 13468 MB ; sorry warnings 1 ; host free 6685 MB at the read ; BUILDS
+      axioms | 'SIDELvConservation.T3.ZeroLoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.PerClassExcludes' depends on axioms: [propext, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.CombinationsExclude' depends on axioms: [propext, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi' depends on axioms: [propext, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude' depends on axioms: [propext,
+      axioms | 'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.T3prime_shared_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+      axioms | 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,
+  SIDE-archimedean      v0.1.0 = 8019d9d ; pushed 8019d9dfee (host free 7116 MB, origin equal True) ; run 40706397470 at 2026-10-28T14:29:11Z (target SIDEArchimedean, host free 7197 MB): completed failure ; build exit 0 ; memory low 14562 MB ; sorry warnings 0 ; host free 6681 MB at the read ; BUILDS
+      steps not succeeding: [['Axioms of the named terminals', 'failure']] -- the run`s conclusion is theirs; the build exit is read from the artifact
+  SIDE-frobenius        v0.1.0 = 2efe9f2 ; pushed f9410d2e64 (host free 7149 MB, origin equal True) ; DISPATCH REFUSED (host free 7198 MB): HTTP 404: workflow build-module.yml not found on the default branch (https://api.github.com/repos/psinary-sketch/SIDE-frobenius/actions/workflows/build-module.yml) ; HELD
+      THE AUTHOR`S WORD (a trigger-only change to run on push to rebuild-b721; nothing on main), read at 2026-10-28T14:38:16Z:
+      diff | @@ -16 +16 @@
+      diff | -  workflow_dispatch:
+      diff | +  push: { branches: [rebuild-b721] }
+      the workflow`s refusal step under the TARGET a push carries (inputs.target empty): exit 2 "target refused:" ; under the dispatch target 'SIDEFrobenius' (the control): exit 0
+      HALTED: no trigger-only change can build (env TARGET reads inputs.target alone); nothing committed or pushed, no run spent; a second line (the target) is the author`s to rule
+  SIDE-spinor           v0.1.0 = b235bc6 ; pushed b235bc6235 (host free 7193 MB, origin equal True) ; run 40706542282 at 2026-10-28T14:30:05Z (target SIDESpinor, host free 7136 MB): completed failure ; build exit 0 ; memory low 14192 MB ; sorry warnings 0 ; host free 6638 MB at the read ; BUILDS
+      steps not succeeding: [['Axioms of the named terminals', 'failure']] -- the run`s conclusion is theirs; the build exit is read from the artifact
+  SIDE-rcurve           v0.1.0 = d5f33b4 ; pushed d5f33b44ef (host free 7141 MB, origin equal True) ; run 40706645404 at 2026-10-28T14:30:40Z (target SIDERCurve, host free 7060 MB): completed failure ; build exit 0 ; memory low 14301 MB ; sorry warnings 0 ; host free 6609 MB at the read ; BUILDS
+      steps not succeeding: [['Axioms of the named terminals', 'failure']] -- the run`s conclusion is theirs; the build exit is read from the artifact
+
+## THE GRADE
+  BUILDS means the build exit 0 under the hold, read from the run`s artifact. A build carrying a sorry builds and is not complete:
+  SIDE-lv-conservation (sorry warnings 1; sorryAx in ['SIDELvConservation.T3.T3_perClass_to_combinations']).
+
+### ### **5 OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS (ONE WITH A SORRY: SIDE-lv-conservation) ; SIDE-frobenius HELD, ITS DISPATCH REFUSED, A TRIGGER-ONLY CHANGE HALTED (EMPTY TARGET REFUSED) ; DISPATCHES 5 ; NOTHING REPAIRED ; NO MAIN OR TAG TOUCHED.**
