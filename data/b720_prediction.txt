@@ -1,0 +1,34 @@
+b720 -- (R330)(3)(i): THE PRIMES` CLASSES AT -35 AND -40 AND THE SHAPE RULE`S PREDICTION OF n0 AND b(n0), BEFORE ANY COEFFICIENT (2026-10-28T07:19:39Z)
+
+### the rule: data/b718_derivation.txt step 7 (:109-:118) and its grade (:121-:127), read operationally as this tool`s docstring states;
+### b(n) by tools/b718_abstract.py`s group-ring model over the classes alone (no r_Q1, no coefficient of b711`s route). THE CONTROLS FIRST.
+
+### (P1) D = -23: Cl C3, axioms ALL HOLD ; bad primes <= 32532: 1173 ; the rule`s n0 48, b -2, shape p2^4 . p1^1 (wanted 48, -2) -- AS WANTED
+### (P1) D = -15: Cl C2, axioms ALL HOLD ; bad primes <= 32532: 878 ; the rule`s n0 24, b -2, shape p1^3 . r1^1 (wanted 24, -2) -- AS WANTED
+### (P1) D = -39: Cl C4, axioms ALL HOLD ; bad primes <= 32532: 1324 ; the rule`s n0 120, b -2, shape p3^3 . r2^1 . p1^1 (wanted 120, -2) -- AS WANTED
+### (P1) D = -20: Cl C2, axioms ALL HOLD ; bad primes <= 32532: 884 ; the rule`s n0 36, b -2, shape r1^2 . p1^2 (wanted 36, -2) -- AS WANTED
+### (P1) D = -47: Cl C5, axioms ALL HOLD ; bad primes <= 32532: 1392 ; the rule`s n0 168, b -2, shape p4^3 . p2^1 . p4^1 (wanted 168, -2) -- AS WANTED
+### (P2) PLANT: at -39 the class above 2 set to the identity: the rule`s n0 1521, b -1/2 (not 120) -- FAILS AS WANTED
+### THE CONTROLS: ALL AS WANTED
+
+## D = -35: h = 2 ; Cl(K) cyclic of order 2, generator 3x^2 + 1xy + 3y^2 ; the group`s axioms ALL HOLD
+  p = 2: inert (the ideal (p) principal, of norm p^2; never bad)
+  p = 3: split ; a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  p = 5: ram ; a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  p = 7: ram ; a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  p = 11: split ; a prime ideal above it in the class of 1x^2 + 1xy + 9y^2 (generator^0) ; its order 1 ; GOOD (principal)
+  p = 13: split ; a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  THE RULE`S PREDICTION: n0 = 135 = 3^3 . 5^1 ; b(n0) = -2 ; a(n0) 4, the pair sum 12 ; the shape p1^3 . r1^1 ; bad primes <= 32532: 889
+  its primes: 3 split, class generator^1 ; 5 ram, class generator^1
+
+## D = -40: h = 2 ; Cl(K) cyclic of order 2, generator 2x^2 + 5y^2 ; the group`s axioms ALL HOLD
+  p = 2: ram ; a prime ideal above it in the class of 2x^2 + 5y^2 (generator^1) ; its order 2 ; BAD
+  p = 3: inert (the ideal (p) principal, of norm p^2; never bad)
+  p = 5: ram ; a prime ideal above it in the class of 2x^2 + 5y^2 (generator^1) ; its order 2 ; BAD
+  p = 7: split ; a prime ideal above it in the class of 2x^2 + 5y^2 (generator^1) ; its order 2 ; BAD
+  p = 11: split ; a prime ideal above it in the class of 1x^2 + 10y^2 (generator^0) ; its order 1 ; GOOD (principal)
+  p = 13: split ; a prime ideal above it in the class of 2x^2 + 5y^2 (generator^1) ; its order 2 ; BAD
+  THE RULE`S PREDICTION: n0 = 100 = 2^2 . 5^2 ; b(n0) = -1/2 ; a(n0) 1, the pair sum 3 ; the shape r1^2 . r1^2 ; bad primes <= 32532: 872
+  its primes: 2 ram, class generator^1 ; 5 ram, class generator^1
+
+### ### **THE CONTROLS AS WANTED ; PREDICTED n0(-35) = 135, b = -2 ; PREDICTED n0(-40) = 100, b = -1/2 ; 11 s.**

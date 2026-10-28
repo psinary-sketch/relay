@@ -1,0 +1,78 @@
+b720 -- THE CARRY-TIME REPAIRS OF tools/b720_predict.py AS A DIFF: the carried form (tools/b719_predict.py with the act names substituted) against the file now (2026-10-28T07:19:52Z)
+
+--- tools/b720_predict.py (the carried form)
++++ tools/b720_predict.py (now)
+@@ -2,2 +2,5 @@
+-"""b720_predict.py -- (R330)(6), the order b719's registration (3) fixed (data/b719_registrations.txt :25-:26): the primes' classes at
+--20 and -47 from the reduced forms, and the rule's prediction of n0 and b(n0) at each, before any coefficient is computed.
++"""b720_predict.py -- (R330)(3)(i), the order data/b720_registrations.txt (i) fixes: the primes' classes at -35 and -40 from the reduced
++forms, and the shape rule's prediction of n0 and b(n0) at each, before any coefficient is computed. Carried from tools/b719_predict.py by
++tools/b720_carry.py (data/b720_carry_predict.txt) and repaired at the carry: the substitution named tools/b719_classgroup.py and
++tools/b719_abstract.py, which do not exist -- b718's two are imported unedited, as at b719; the controls P1 read the five banked cases; the
++discriminants -35 and -40 (the repair diff data/b720_repairdiff_predict.txt).
+@@ -5,1 +8,1 @@
+-THE RULE (data/b719_derivation.txt step 7 and its grade :121-:127): n0 is the least n instantiating, over D's bad primes with their
++THE RULE (data/b718_derivation.txt step 7 and its grade :121-:127): n0 is the least n instantiating, over D's bad primes with their
+@@ -7,4 +10,4 @@
+-split or ramified and the classes of the prime ideals above it are not the identity), in increasing order, b(n) is computed by the
+-group-ring model of tools/b719_abstract.py (the divisor lattice of n's exponent vector, each prime its kind and class, a(e) the number of
+-principal ideals of that norm, b by the Omega derivation, exact); the first n with b(n) < 0 is the prediction. No r_Q1 is enumerated and no
+-coefficient of b711's route is read: the prediction stands on the classes alone.
++split or ramified and the classes of the prime ideals above it are not the identity; an inert prime is never bad), in increasing order,
++b(n) is computed by the group-ring model of tools/b718_abstract.py (the divisor lattice of n's exponent vector, each prime its kind and
++class, a(e) the number of principal ideals of that norm, b by the Omega derivation, exact); the first n with b(n) < 0 is the prediction. No
++r_Q1 is enumerated and no coefficient of b711's route is read: the prediction stands on the classes alone.
+@@ -12,4 +15,4 @@
+-THE CONTROLS FIRST: (P1) the rule at -23, -15 and -39 returns b719's n0 and b (48, 24, 120; -2 each; data/b719_decomp.txt :9, :21, :33);
+-(P2) a planted error -- the class of the prime ideal above 2 at -39 set to the identity -- moves the -39 prediction off 120, failing as
+-wanted; (P3) each group's axioms (tools/b719_classgroup.py group). Then -20 and -47. Writes data/b720_prediction.txt (route `bank`);
+-`dry` prints and writes nothing.
++THE CONTROLS FIRST: (P1) the rule at the five banked discriminants returns their n0 and b (-23: 48, -15: 24, -39: 120, -20: 36, -47: 168;
++-2 each; data/b718_decomp.txt :9, :21, :33 and data/b719_coeffs.txt :45); (P2) a planted error -- the class of the prime ideal above 2 at
++-39 set to the identity -- moves the -39 prediction off 120, failing as wanted; (P3) each group's axioms (tools/b718_classgroup.py group).
++Then -35 and -40. Writes data/b720_prediction.txt (route `bank`); `dry` prints and writes nothing.
+@@ -28,2 +31,2 @@
+-import b719_classgroup as CG   # noqa: E402  ### b719's, imported unedited
+-import b719_abstract as AB     # noqa: E402  ### b719's, imported unedited
++import b718_classgroup as CG   # noqa: E402  ### b718's, imported unedited
++import b718_abstract as AB     # noqa: E402  ### b718's, imported unedited
+@@ -33,0 +36,1 @@
++TARGETS = (-35, -40)
+@@ -105,1 +109,1 @@
+-    L += ['b720 -- (R330)(6): THE PRIMES` CLASSES AT -20 AND -47 AND THE RULE`S PREDICTION OF n0 AND b(n0), BEFORE ANY COEFFICIENT (%s)' % (
++    L += ['b720 -- (R330)(3)(i): THE PRIMES` CLASSES AT -35 AND -40 AND THE SHAPE RULE`S PREDICTION OF n0 AND b(n0), BEFORE ANY COEFFICIENT (%s)' % (
+@@ -107,3 +111,3 @@
+-          '### the rule: data/b719_derivation.txt step 7 (:109-:118) and its grade (:121-:127), read operationally as this tool`s docstring states;',
+-          '### b(n) by tools/b719_abstract.py`s group-ring model over the classes alone (no r_Q1, no coefficient of b711`s route). THE CONTROLS FIRST.', '']
+-    want = {-23: (48, -2), -15: (24, -2), -39: (120, -2)}
++          '### the rule: data/b718_derivation.txt step 7 (:109-:118) and its grade (:121-:127), read operationally as this tool`s docstring states;',
++          '### b(n) by tools/b718_abstract.py`s group-ring model over the classes alone (no r_Q1, no coefficient of b711`s route). THE CONTROLS FIRST.', '']
++    want = {-23: (48, -2), -15: (24, -2), -39: (120, -2), -20: (36, -2), -47: (168, -2)}
+@@ -116,1 +120,1 @@
+-        L += ['### (P1) D = %d: Cl C%d, axioms %s ; bad primes <= %d: %d ; the rule`s n0 %s, b %s, shape %s (wanted %d, %d; data/b719_decomp.txt) -- %s' % (
++        L += ['### (P1) D = %d: Cl C%d, axioms %s ; bad primes <= %d: %d ; the rule`s n0 %s, b %s, shape %s (wanted %d, %d) -- %s' % (
+@@ -127,1 +131,1 @@
+-    for D in (-20, -47):
++    for D in TARGETS:
+@@ -131,1 +135,1 @@
+-        for p in (2, 3, 5, 7):
++        for p in (2, 3, 5, 7, 11, 13):
+@@ -134,1 +138,1 @@
+-                L += ['  p = %d: inert' % p]
++                L += ['  p = %d: inert (the ideal (p) principal, of norm p^2; never bad)' % p]
+@@ -142,1 +146,1 @@
+-            L += ['  THE RULE`S PREDICTION: NO bad-supported n <= %d with b(n) < 0 (bad primes %d) -- n0 predicted NOT SCORABLE through the cut' % (CUT, r['nbad']), '']
++            L += ['  THE RULE`S PREDICTION: NO bad-supported n <= %d with b(n) < 0 (bad primes %d) -- the rule yields none; n0 predicted NOT SCORABLE through the cut' % (CUT, r['nbad']), '']
+@@ -145,1 +149,1 @@
+-        L += ['  THE RULE`S PREDICTION: n0 = %d = %s ; b(n0) = %s ; a(n0) %d, the pair sum %d ; the shape %s ; bad primes <= %d: %d' % (
++        L += ['  THE RULE`S PREDICTION: n0 = %d = %s ; b(n0) = %s ; a(n0) %d, the pair sum %s ; the shape %s ; bad primes <= %d: %d' % (
+@@ -147,4 +151,3 @@
+-              '  its primes: ' + ' ; '.join('%d %s, class generator^%d' % (p, t, c[0]) for p, _k, t, c in r['factors']),
+-              '  24 divides the predicted n0: %s' % (r['n'] % 24 == 0), '']
+-    L += ['### ### **THE CONTROLS %s ; PREDICTED n0(-20) = %s, b = %s ; PREDICTED n0(-47) = %s, b = %s ; %d s.**' % (
+-        'AS WANTED' if ok_all else 'NOT AS WANTED', res[-20]['n'], res[-20].get('b'), res[-47]['n'], res[-47].get('b'), int(time.time() - t0))]
++              '  its primes: ' + ' ; '.join('%d %s, class generator^%d' % (p, t, c[0]) for p, _k, t, c in r['factors']), '']
++    L += ['### ### **THE CONTROLS %s ; PREDICTED n0(-35) = %s, b = %s ; PREDICTED n0(-40) = %s, b = %s ; %d s.**' % (
++        'AS WANTED' if ok_all else 'NOT AS WANTED', res[-35]['n'], res[-35].get('b'), res[-40]['n'], res[-40].get('b'), int(time.time() - t0))]
+
+### ### **HUNKS 15 ; LINES REMOVED 27 ; LINES ADDED 30.**

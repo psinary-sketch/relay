@@ -88,3 +88,16 @@ At D = -35 and at D = -40, with a(n) = r_Q1(n)/2 and log(Z_Q1/2) = SUM b(n) n^-s
 any coefficient, or its print that it yields none; (3) then the coefficients through 32532 by b711's route, its controls C1-C3 printed
 first; n0, b(n0), n0's prime factors with their classes, and its decomposition into a(n0) and the ordered pair sum printed at each; every
 row above read HELD or REFUTED, the FORCED parts apart.
+
+## ADDED BY A COMMIT OF ITS OWN, BEFORE ANY COEFFICIENT (the order's step (2)): THE SHAPE RULE'S PREDICTION (data/b720_prediction.txt)
+The primes' classes from the reduced forms and the rule of data/b718_derivation.txt step 7, b(n) by the group-ring model over the classes
+alone (tools/b720_predict.py over tools/b718_abstract.py and tools/b718_classgroup.py, unedited); its controls first: the rule returns the
+five banked n0 (48, 24, 120, 36, 168; b = -2 each), and a planted class moves -39's off 120. The rule takes the inert prime (never bad) and
+the pair of ramified primes; it yields a prediction at both.
+  PRED-35: n0(-35) = 135 = 3^3 . 5, b(n0) = -2 (3 split, 5 ramified, each prime ideal in the class of order 2; a(n0) 4, the pair sum 12).
+           FALSIFIER: the computed n0(-35) != 135, or b(n0) != -2.
+  PRED-40: n0(-40) = 100 = 2^2 . 5^2, b(n0) = -1/2 (2 and 5 ramified, each in the class of order 2; a(n0) 1, the pair sum 3).
+           FALSIFIER: the computed n0(-40) != 100, or b(n0) != -1/2.
+  Read beside the rows above, not in their place: by the prediction H-DECOMP's T1-T4 hold at both (135 = 2^0 . 3^3 . 5 ; 100 = 2^2 . 3^0
+  . 5^2) while its whole-n0 reading at -40 (196) does not; H-RR's -40 clause is the prediction's; and THE LAW's clause 1 fails at -40
+  (b = -1/2, not -2) and holds at -35. Each row is read on the computed coefficients alone, on its own falsifier.
