@@ -578,7 +578,11 @@ def main():
               len(_REMOTE), '; '.join(REREAD) or 'NONE'), '']
     import act_close as AC0
     L += AC0.author_words_section(ACT) + ['']   # ### (R329)(6)(i), v5 row (74): the author's word after the seal, from its bank
-    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b719_author_answers.txt): ' + verdict(rd('b719_author_answers.txt'), r'\d+ prompt\(s\)[^;]*')]
+    # ### the answers bank is written after the seal (the root's prompt); before it the dry run prints it as not yet written, not as a
+    # ### needle missed (b718's G-CLOSING-DRY-STEP failed on this row's NOT FOUND in its gate record; a repair of this tool's dry print)
+    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b719_author_answers.txt): ' + (
+        verdict(rd('b719_author_answers.txt'), r'\d+ prompt\(s\)[^;]*') if os.path.exists(os.path.join(D, 'b719_author_answers.txt'))
+        else '### NOT YET WRITTEN (the root`s prompt, after the seal)')]
     L += ['    ' + l for l in rd('b719_components.txt').split(NL)[2:] if l.strip()]
     L += ['    ' + ' ; '.join(' '.join('(%s) %s' % (k, SC[k][0][0]) for k in ks) for ks in SCORE_KEYS), '']
     L += ['### THE SCORES IN FULL (relay data/b719_scores.json, written once before the entry; a reading that waited, from relay '

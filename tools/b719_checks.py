@@ -2058,8 +2058,10 @@ def combine():
 # ### (G-READ-RULE-STANDING, G-PRIORBANK-UNCHANGED, G-STEPZERO-TESTS) are among the arms (R329)(10) retired and run nowhere this act. The
 # ### combine reads them by name, and no other failure is carried. b719's one: G-BRANCHES-BANKED, failing on data/b719_stepzero.txt absent
 # ### from the step-zero banks' commit (65a8c822) -- step zero wrote no step-zero bank; it was written late at Component 7 (its own :3-:6),
-# ### a defect of the seat's lettered at the lock. The arm is not edited (the freeze).
-CARRIED_FAILING = ('G-BRANCHES-BANKED',)
+# ### a defect of the seat's lettered at the lock. And G-DELETES-ONE-BRANCH, wanting port-b707 among the ruling's kept branches as
+# ### tools/standing/allow.py reads them (a clause saying NOT deleted) where (R329)(12) says "port-b707 kept" -- the ruling's wording and the
+# ### carried reader in conflict, printed for the author (b718's post-push run failed it the same way). Neither arm is edited (the freeze).
+CARRIED_FAILING = ('G-BRANCHES-BANKED', 'G-DELETES-ONE-BRANCH')
 
 
 def main():
