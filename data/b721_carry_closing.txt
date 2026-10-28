@@ -1,0 +1,337 @@
+b721 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b720_closing.py -> tools/b721_closing.py (2026-10-28T15:11:30Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b720 -> b721, b719 -> b720, R330 -> R331, R329 -> R330); 636 lines, 128 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b720_tool_repairs.txt AND data/b720_repairdiff_closing.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b720; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b720_closing.py
+  +++ tools/b721_closing.py
+  @@ -2,2 +2,2 @@
+  -"""b720_closing.py -- THE CLOSING RECORD OF b720, UNDER (R330). Carried from b719_closing.py by tools/b720_carry.py (the act names substituted,
+  -data/b719_rules.txt row (1)), its act sections written for b720 by the Edit tool: the remote reads stored and looked up under ONE key (repo_key(),
+  +"""b721_closing.py -- THE CLOSING RECORD OF b721, UNDER (R331). Carried from b720_closing.py by tools/b721_carry.py (the act names substituted,
+  +data/b720_rules.txt row (1)), its act sections written for b721 by the Edit tool: the remote reads stored and looked up under ONE key (repo_key(),
+  @@ -7,2 +7,2 @@
+  -its scores from the scores-close bank ((R330)(3)(iii), replacing b700's repair (9)), its defect count the defects bank's lettered rows read now;
+  -the mirror line's sentence on the builder's state file read from its blob against its last commit ((R330)(3)(v)). The act's sections (Component 7, by the Edit
+  +its scores from the scores-close bank ((R331)(3)(iii), replacing b700's repair (9)), its defect count the defects bank's lettered rows read now;
+  +the mirror line's sentence on the builder's state file read from its blob against its last commit ((R331)(3)(v)). The act's sections (Component 7, by the Edit
+  @@ -11,1 +11,1 @@
+  -each row by its bank's verdict line or by the line its pattern names (section_reading); (R330)'s counter line beneath the title and the claim
+  +each row by its bank's verdict line or by the line its pattern names (section_reading); (R331)'s counter line beneath the title and the claim
+  @@ -13,1 +13,1 @@
+  -author_words_section, v5 row (74)); the carried items of (R330)(10) for b721. The standing report prints its lines in footing order (KERNEL,
+  +author_words_section, v5 row (74)); the carried items of (R331)(10) for b721. The standing report prints its lines in footing order (KERNEL,
+  @@ -16,1 +16,1 @@
+  -`python tools/b720_closing.py dry` -- (R285)(2)'s rule row (relay data/b675_rules.txt row 1), the closing a gate step before the seal: the record
+  +`python tools/b721_closing.py dry` -- (R285)(2)'s rule row (relay data/b675_rules.txt row 1), the closing a gate step before the seal: the record
+  @@ -18,2 +18,2 @@
+  -`python tools/b720_closing.py defects-row <act>` -- the carried-forward defects row computed from relay data/<act>_defects.txt, printed only.
+  -### Writes data/b720_closing.txt and the closing censuses and pins (each its own tool's output) and nothing else.
+  +`python tools/b721_closing.py defects-row <act>` -- the carried-forward defects row computed from relay data/<act>_defects.txt, printed only.
+  +### Writes data/b721_closing.txt and the closing censuses and pins (each its own tool's output) and nothing else.
+  @@ -36,1 +36,1 @@
+  -import b720_worklist as WL   # noqa: E402
+  +import b721_worklist as WL   # noqa: E402
+  @@ -88,1 +88,1 @@
+  -    """the fixed list, b719's tag SIDE-lv-conservation v0.14.0 at port-b707's tip among them; no tag made this act; no kernel written; no main moved."""
+  +    """the fixed list, b720's tag SIDE-lv-conservation v0.14.0 at port-b707's tip among them; no tag made this act; no kernel written; no main moved."""
+  @@ -144,4 +144,4 @@
+  -    """the carried items for b721 ((R330)(10)): the pin where (5)(iii) carried it -- the breaks held and the excluded, each from the worklist's
+  -    lists, read against the pin bank's head (relay data/b720_pin.txt)."""
+  -    head = re.search(r'(?m)^THE PIN AT [^\n]*', rd('b720_pin.txt') or '')
+  -    pin = ['    (g) The pin`s remainder ((R330)(5)(iii), to b721 by (10); relay data/b720_pin.txt%s): %d held as breaks on their pushed %s branches, '
+  +    """the carried items for b721 ((R331)(10)): the pin where (5)(iii) carried it -- the breaks held and the excluded, each from the worklist's
+  +    lists, read against the pin bank's head (relay data/b721_pin.txt)."""
+  +    head = re.search(r'(?m)^THE PIN AT [^\n]*', rd('b721_pin.txt') or '')
+  +    pin = ['    (g) The pin`s remainder ((R331)(5)(iii), to b721 by (10); relay data/b721_pin.txt%s): %d held as breaks on their pushed %s branches, '
+  @@ -200,1 +200,1 @@
+  -ACT = 'b720'
+  +ACT = 'b721'
+  @@ -204,1 +204,1 @@
+  -# ### (R330)(2)(k), a carry-time repair: the head-line builder's capture-name failures go to the events section (events_section) and never into
+  +# ### (R331)(2)(k), a carry-time repair: the head-line builder's capture-name failures go to the events section (events_section) and never into
+  @@ -226,1 +226,1 @@
+  -    """(R330)(2)(k), repaired: each repository's record commit is the main its LAST push capture of the act read back at the remote (the
+  +    """(R331)(2)(k), repaired: each repository's record commit is the main its LAST push capture of the act read back at the remote (the
+  @@ -229,1 +229,1 @@
+  -    head line carries the commit or `none read`, never the failure's text (b719's head line carried "IS NOT THE RECORD`S CAPTURE" for both)."""
+  +    head line carries the commit or `none read`, never the failure's text (b720's head line carried "IS NOT THE RECORD`S CAPTURE" for both)."""
+  @@ -237,2 +237,2 @@
+  -    # ### (R330)(4)(v), standing clauses v4 row (66): THE HEAD LINE READS EACH REPOSITORY'S MAIN AT THE REMOTE by ls-remote (one read per
+  -    # ### repository, an empty read re-read alone), not from the act's push captures -- b719 wrote no capture but the closing's, and its head line
+  +    # ### (R331)(4)(v), standing clauses v4 row (66): THE HEAD LINE READS EACH REPOSITORY'S MAIN AT THE REMOTE by ls-remote (one read per
+  +    # ### repository, an empty read re-read alone), not from the act's push captures -- b720 wrote no capture but the closing's, and its head line
+  @@ -240,1 +240,1 @@
+  -    # ### events section (a repair at b720, banked by diff).
+  +    # ### events section (a repair at b721, banked by diff).
+  @@ -261,2 +261,2 @@
+  -    # ### (R330)(3)(iii), standing clauses v3: the prompt count is the answers bank's rows with nothing added (b700's "+ 1" for the root's
+  -    # ### prompt counted it twice where the bank already holds it, b719's events :79), and the scores are read from the scores-close bank
+  +    # ### (R331)(3)(iii), standing clauses v3: the prompt count is the answers bank's rows with nothing added (b700's "+ 1" for the root's
+  +    # ### prompt counted it twice where the bank already holds it, b720's events :79), and the scores are read from the scores-close bank
+  @@ -277,1 +277,1 @@
+  -    """(R330)(2)(i), standing clauses v2 row (52): a finding made after the seal is entered here and not lettered in the defects bank (the next
+  +    """(R331)(2)(i), standing clauses v2 row (52): a finding made after the seal is entered here and not lettered in the defects bank (the next
+  @@ -289,1 +289,1 @@
+  -    cc, cj, dl = rd('b720_citation_check.txt'), jl('b720_citation_check.json'), rd('b720_defects.txt')
+  +    cc, cj, dl = rd('b721_citation_check.txt'), jl('b721_citation_check.json'), rd('b721_defects.txt')
+  @@ -293,1 +293,1 @@
+  -    figs = re.findall(r'(?m)^### ### \*\*(ANSWER CITES CHECKED \d+ ; OK \d+ ; MISSES \d+)', cc)   # ### the checks' own verdict lines (a cite row quoting b719's figure at :20 not among them)
+  +    figs = re.findall(r'(?m)^### ### \*\*(ANSWER CITES CHECKED \d+ ; OK \d+ ; MISSES \d+)', cc)   # ### the checks' own verdict lines (a cite row quoting b720's figure at :20 not among them)
+  @@ -302,1 +302,1 @@
+  -    """(R330)(3)(v): the closing's sentence about a state file read from its blob against the last commit before it says "committed": the
+  +    """(R331)(3)(v): the closing's sentence about a state file read from its blob against the last commit before it says "committed": the
+  @@ -314,1 +314,1 @@
+  -    j = jl('b720_mirror.json')
+  +    j = jl('b721_mirror.json')
+  @@ -316,2 +316,2 @@
+  -        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b720.zip; over the roster read from PLACE-papers main ((R330)(5), relay data/b720_roster.txt), the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
+  -    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster read from PLACE-papers main at the build ((R330)(5)), its MANIFEST control %s ; %s' % (
+  +        return '### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-%s-b721.zip; over the roster read from PLACE-papers main ((R331)(5), relay data/b721_roster.txt), the builder`s state file tools/mirror_prevbuild.json named in (W))' % WL.DATE
+  +    return '%s ; %d bytes ; sha256 %s ; MANIFEST md5 %s ; entries %d ; %s ; %s ; %s ; the roster read from PLACE-papers main at the build ((R331)(5)), its MANIFEST control %s ; %s' % (
+  @@ -324,1 +324,1 @@
+  -    S, C = jl('b720_scores.json'), jl('b720_scores_close.json')
+  +    S, C = jl('b721_scores.json'), jl('b721_scores_close.json')
+  @@ -334,1 +334,1 @@
+  -# ================================================================================ THE STANDING REPORT ((R330)(3): its lines in footing order, from the unsealed report tool's bank)
+  +# ================================================================================ THE STANDING REPORT ((R331)(3): its lines in footing order, from the unsealed report tool's bank)
+  @@ -336,1 +336,1 @@
+  -    rj = jl('b720_report.json')
+  +    rj = jl('b721_report.json')
+  @@ -339,1 +339,1 @@
+  -        return ['### THE STANDING REPORT ((R330)(3), its lines in footing order KERNEL, CERTIFIED, REGISTERED, HELD; relay data/b720_report.txt, by the unsealed tools/b720_report.py before the root; its scores line printed after the root by `tools/b720_report.py scores`, written nowhere):'] + [
+  +        return ['### THE STANDING REPORT ((R331)(3), its lines in footing order KERNEL, CERTIFIED, REGISTERED, HELD; relay data/b721_report.txt, by the unsealed tools/b721_report.py before the root; its scores line printed after the root by `tools/b721_report.py scores`, written nowhere):'] + [
+  @@ -341,1 +341,1 @@
+  -    return ['### THE STANDING REPORT ((R330)(3)): ### data/b720_report.txt NOT YET WRITTEN (tools/b720_report.py bank runs before the root)']
+  +    return ['### THE STANDING REPORT ((R331)(3)): ### data/b721_report.txt NOT YET WRITTEN (tools/b721_report.py bank runs before the root)']
+  @@ -344,1 +344,1 @@
+  -TITLE_LINE = ('b720 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FORTY-SEVEN, THE DECOMPOSITION ACT: b719 AT ITS WEIGHT AND ITS '
+  +TITLE_LINE = ('b721 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FORTY-SEVEN, THE DECOMPOSITION ACT: b720 AT ITS WEIGHT AND ITS '
+  @@ -346,1 +346,1 @@
+  -              'WAVE 1; THE CHALLENGE FILE FOR h2_sign_iff_rh; THE PIN`S REMAINDER; THE SURGERY AND THE OFFSET`S NEXT TIER CARRIED, UNDER (R330).**')
+  +              'WAVE 1; THE CHALLENGE FILE FOR h2_sign_iff_rh; THE PIN`S REMAINDER; THE SURGERY AND THE OFFSET`S NEXT TIER CARRIED, UNDER (R331).**')
+  @@ -350,2 +350,2 @@
+  -    """(R330)(2): the counter line, CLAIM n and CLOSE m over the act's events and defects together, by the record tool's reader."""
+  -    import b720_record as REC
+  +    """(R331)(2): the counter line, CLAIM n and CLOSE m over the act's events and defects together, by the record tool's reader."""
+  +    import b721_record as REC
+  @@ -353,1 +353,1 @@
+  -    return '### THE COUNTER ((R330)(2), the act`s events and defects together; relay data/b720_defects.txt, data/b720_events.txt): CLAIM %d, CLOSE %d%s' % (
+  +    return '### THE COUNTER ((R331)(2), the act`s events and defects together; relay data/b721_defects.txt, data/b721_events.txt): CLAIM %d, CLOSE %d%s' % (
+  @@ -361,3 +361,3 @@
+  -    """(R330)(2): the claim arms' figure beside the whole suite's -- every arm row of a combined suite bank read with its tag from
+  -    data/arm_tags.json: CLAIM arms passing of CLAIM arms run; an arm with no tag counted apart (this act G-R330-ENTERED, the carry's act
+  -    shift, which data/arm_tags.json -- outside (R330)(8)'s (W) list -- does not carry)."""
+  +    """(R331)(2): the claim arms' figure beside the whole suite's -- every arm row of a combined suite bank read with its tag from
+  +    data/arm_tags.json: CLAIM arms passing of CLAIM arms run; an arm with no tag counted apart (this act G-R331-ENTERED, the carry's act
+  +    shift, which data/arm_tags.json -- outside (R331)(8)'s (W) list -- does not carry)."""
+  @@ -374,2 +374,2 @@
+  -# ### reads each such bank itself ((R330)(2)(iii): the line passes where the bank exists and carries no verdict line by this tool`s own reader,
+  -# ### tools/b720_checks.py no_verdict_line_ok; no list of names). None this act: every row below names a bank with a verdict line or a pattern.
+  +# ### reads each such bank itself ((R331)(2)(iii): the line passes where the bank exists and carries no verdict line by this tool`s own reader,
+  +# ### tools/b721_checks.py no_verdict_line_ok; no list of names). None this act: every row below names a bank with a verdict line or a pattern.
+  @@ -392,1 +392,1 @@
+  -    """the act's sections over this act's banks (Component 7, the Edit tool; b719's sections over b719's objects -- the DIFFERS, ERRATA, the law
+  +    """the act's sections over this act's banks (Component 7, the Edit tool; b720's sections over b720's objects -- the DIFFERS, ERRATA, the law
+  @@ -396,18 +396,18 @@
+  -    return [('THE CORRIGENDUM ((R330)(1)-(2))', [
+  -                ('the generated entry for b719`s events, defects and memory item, CLAIM or CLOSE, NEW or REPEAT', 'b720_corrigendum.txt'),
+  -                ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b720_root_banks_dry.txt')]),
+  -            ('THE LAW AT -35 AND -40 ((R330)(3))', [
+  -                ('the registration committed alone before any figure at either (N2)', 'b720_registrations.txt', r'(?m)^## THE ORDER SERVED[^\n]*'),
+  -                ('the shape rule`s prediction, added by a commit of its own before any coefficient', 'b720_prediction.txt'),
+  -                ('the coefficients, the controls before the figures, every row HELD or REFUTED, the forced parts apart', 'b720_coeffs.txt')]),
+  -            ('THE DERIVATION ((R330)(4))', [
+  -                ('the -2 with both configurations, each check printed before its step, the grade at the end', 'b720_derivation.txt')]),
+  -            ('THE REGISTRY CELLS ((R330)(5)(i))', [
+  -                ('the attribute block appended, the diff banked', 'b720_registry_diff.txt', r'(?m)^REGISTRY\.md \d+ -> \d+ bytes[^\n]*')]),
+  -            ('THE CHALLENGE FILE ((R330)(5)(ii))', [
+  -                ('the statement of h2_sign_iff_rh on its branch, one dispatch read by its run id', 'b720_challenge.txt', r'(?m)^  VERDICT: [^\n]*')]),
+  -            ('THE PIN`S REMAINDER ((R330)(5)(iii))', [
+  -                ('the eligible pushed and dispatched one per message, each read by its run id', 'b720_pin.txt', r'(?m)^THE PIN AT [^\n]*')]),
+  -            ('THE CARRIED ((R330)(6))', [
+  -                ('the offset`s next tier under H-OFFSET, priced, nothing run', 'b720_offset_price.txt', r'(?m)^b720 -- [^\n]*'),
+  -                ('the surgery under H-SHAPE, carried to b721 (b719`s registration at 965cb8e8)', 'b719_registrations.txt', r'(?m)^## [^\n]*H-SHAPE[^\n]*')]),
+  +    return [('THE CORRIGENDUM ((R331)(1)-(2))', [
+  +                ('the generated entry for b720`s events, defects and memory item, CLAIM or CLOSE, NEW or REPEAT', 'b721_corrigendum.txt'),
+  +                ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', 'b721_root_banks_dry.txt')]),
+  +            ('THE LAW AT -35 AND -40 ((R331)(3))', [
+  +                ('the registration committed alone before any figure at either (N2)', 'b721_registrations.txt', r'(?m)^## THE ORDER SERVED[^\n]*'),
+  +                ('the shape rule`s prediction, added by a commit of its own before any coefficient', 'b721_prediction.txt'),
+  +                ('the coefficients, the controls before the figures, every row HELD or REFUTED, the forced parts apart', 'b721_coeffs.txt')]),
+  +            ('THE DERIVATION ((R331)(4))', [
+  +                ('the -2 with both configurations, each check printed before its step, the grade at the end', 'b721_derivation.txt')]),
+  +            ('THE REGISTRY CELLS ((R331)(5)(i))', [
+  +                ('the attribute block appended, the diff banked', 'b721_registry_diff.txt', r'(?m)^REGISTRY\.md \d+ -> \d+ bytes[^\n]*')]),
+  +            ('THE CHALLENGE FILE ((R331)(5)(ii))', [
+  +                ('the statement of h2_sign_iff_rh on its branch, one dispatch read by its run id', 'b721_challenge.txt', r'(?m)^  VERDICT: [^\n]*')]),
+  +            ('THE PIN`S REMAINDER ((R331)(5)(iii))', [
+  +                ('the eligible pushed and dispatched one per message, each read by its run id', 'b721_pin.txt', r'(?m)^THE PIN AT [^\n]*')]),
+  +            ('THE CARRIED ((R331)(6))', [
+  +                ('the offset`s next tier under H-OFFSET, priced, nothing run', 'b721_offset_price.txt', r'(?m)^b721 -- [^\n]*'),
+  +                ('the surgery under H-SHAPE, carried to b721 (b720`s registration at 965cb8e8)', 'b720_registrations.txt', r'(?m)^## [^\n]*H-SHAPE[^\n]*')]),
+  @@ -415,1 +415,1 @@
+  -                ('every line found for the entry`s objects, AGREES or DIFFERS, by hand before the root', 'b720_touch.txt',
+  +                ('every line found for the entry`s objects, AGREES or DIFFERS, by hand before the root', 'b721_touch.txt',
+  @@ -417,1 +417,1 @@
+  -            ('THE STANDING ARMS', [('the four figures against b719`s, read by b706`s tool', 'b720_standing_figures.txt')])]
+  +            ('THE STANDING ARMS', [('the four figures against b720`s, read by b706`s tool', 'b721_standing_figures.txt')])]
+  @@ -421,2 +421,2 @@
+  -    '    kernels written: no kernel`s main touched and no tag cut ((R330)(5), N5) ; SIDE-explicit-formula`s main at badaccc unmoved, the',
+  -    '    challenge branch challenge-b720-h2-sign-iff-rh at 33916475 (two files on main`s tree: the challenge module and the root probe), not',
+  +    '    kernels written: no kernel`s main touched and no tag cut ((R331)(5), N5) ; SIDE-explicit-formula`s main at badaccc unmoved, the',
+  +    '    challenge branch challenge-b721-h2-sign-iff-rh at 33916475 (two files on main`s tree: the challenge module and the root probe), not',
+  @@ -428,1 +428,1 @@
+  -    '    read before each push, dispatch and read ; the push-b719-* branches of relay and PLACE-papers deleted at step zero by name after',
+  +    '    read before each push, dispatch and read ; the push-b720-* branches of relay and PLACE-papers deleted at step zero by name after',
+  @@ -430,1 +430,1 @@
+  -    '    bank, the navigator`s export, b671`s uncompressed points file and the earlier acts` units files untracked ; N2: data/b720_registrations.txt',
+  +    '    bank, the navigator`s export, b671`s uncompressed points file and the earlier acts` units files untracked ; N2: data/b721_registrations.txt',
+  @@ -438,1 +438,1 @@
+  -    '    v1.2.0 ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b719 unedited ; the mirror zip written outside every',
+  +    '    v1.2.0 ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b720 unedited ; the mirror zip written outside every',
+  @@ -443,3 +443,3 @@
+  -    '    (a) ### **THE NEXT ACT, (R330)(10)**: b721: the surgery under H-SHAPE (relay data/b719_registrations.txt at 965cb8e8); the offset`s',
+  -    '        next tier under H-OFFSET, post hoc on its first seventeen rows (relay data/b720_offset_price.txt); the registry cells for the next',
+  -    '        wave`s rows (REGISTRY`s attribute block, rows reading not yet read); the pin where (5)(iii) carried it (relay data/b720_pin.txt).',
+  +    '    (a) ### **THE NEXT ACT, (R331)(10)**: b721: the surgery under H-SHAPE (relay data/b720_registrations.txt at 965cb8e8); the offset`s',
+  +    '        next tier under H-OFFSET, post hoc on its first seventeen rows (relay data/b721_offset_price.txt); the registry cells for the next',
+  +    '        wave`s rows (REGISTRY`s attribute block, rows reading not yet read); the pin where (5)(iii) carried it (relay data/b721_pin.txt).',
+  @@ -449,3 +449,3 @@
+  -    '    (c) For b721, each from its bank: the derivation`s step at h > 2 named (relay data/b720_derivation.txt, THE GRADE); THE LAW`s clause 1',
+  -    '        refuted at -40 (relay data/b720_coeffs.txt); the pin`s five breaks held, unrepaired, SIDE-interfaces` on its target (relay',
+  -    '        data/b720_pin.txt); the challenge branch standing, not merged; the report tool outside the sealed list; the draft held at v5.',
+  +    '    (c) For b721, each from its bank: the derivation`s step at h > 2 named (relay data/b721_derivation.txt, THE GRADE); THE LAW`s clause 1',
+  +    '        refuted at -40 (relay data/b721_coeffs.txt); the pin`s five breaks held, unrepaired, SIDE-interfaces` on its target (relay',
+  +    '        data/b721_pin.txt); the challenge branch standing, not merged; the report tool outside the sealed list; the draft held at v5.',
+  @@ -454,1 +454,1 @@
+  -    '        units files, b714`s rectangle units file, b720`s record tool`s hashes bank (declared in their tools` heads), the zero-byte `=` and',
+  +    '        units files, b714`s rectangle units file, b721`s record tool`s hashes bank (declared in their tools` heads), the zero-byte `=` and',
+  @@ -456,3 +456,3 @@
+  -    '    (e) The act root of b720 is relay data/act_roots.txt`s last line, chained from b719`s root; the mirror export carries it in MANIFEST.',
+  -    '    (f) Branches left for the next act`s step zero: the push-b720* branches of relay and PLACE-papers. KEPT, not for deletion:',
+  -    '        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); challenge-b720-h2-sign-iff-rh of',
+  +    '    (e) The act root of b721 is relay data/act_roots.txt`s last line, chained from b720`s root; the mirror export carries it in MANIFEST.',
+  +    '    (f) Branches left for the next act`s step zero: the push-b721* branches of relay and PLACE-papers. KEPT, not for deletion:',
+  +    '        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); challenge-b721-h2-sign-iff-rh of',
+  @@ -465,1 +465,1 @@
+  -    """(R330)(2)(ii), standing clauses v2 row (53), the membrane: a write to relay data/ refused once the act's root is appended, unless the
+  +    """(R331)(2)(ii), standing clauses v2 row (53), the membrane: a write to relay data/ refused once the act's root is appended, unless the
+  @@ -470,1 +470,1 @@
+  -    import b720_record as REC
+  +    import b721_record as REC
+  @@ -475,2 +475,2 @@
+  -    for tool, out in (('b307_handoff_census.py', 'b720_census_closing.txt'), ('b327_faces_census.py', 'b720_faces_census_closing.txt'),
+  -                      ('b303_pins.py', 'b720_pins_closing.txt')):
+  +    for tool, out in (('b307_handoff_census.py', 'b721_census_closing.txt'), ('b327_faces_census.py', 'b721_faces_census_closing.txt'),
+  +                      ('b303_pins.py', 'b721_pins_closing.txt')):
+  @@ -500,1 +500,1 @@
+  -    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, KEPT under (R330)(12): b712`s tip %s, no commit this act, tagged %s)' % (
+  +    heads.append('      %-32s local %s ; remote %s ; %s (the forward-port`s branch, KEPT under (R331)(12): b712`s tip %s, no commit this act, tagged %s)' % (
+  @@ -507,1 +507,1 @@
+  -    heads.append('      %-32s local %s ; remote %s ; %s (the re-cut, merged into main at %s by b714, its second parent %s, on main %s; deleted at b719`s step zero, (R329)(9))' % (
+  +    heads.append('      %-32s local %s ; remote %s ; %s (the re-cut, merged into main at %s by b714, its second parent %s, on main %s; deleted at b720`s step zero, (R330)(9))' % (
+  @@ -535,1 +535,1 @@
+  -    pre, post = rd('b720_checks.txt'), rd('b720_checks_postpush.txt')
+  +    pre, post = rd('b721_checks.txt'), rd('b721_checks_postpush.txt')
+  @@ -537,1 +537,1 @@
+  -    rec_ = jl('b720_seal_hashes.json').get('tools') or {}
+  +    rec_ = jl('b721_seal_hashes.json').get('tools') or {}
+  @@ -543,1 +543,1 @@
+  -    L += ['### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b720_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):'] + [
+  +    L += ['### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b721_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):'] + [
+  @@ -546,8 +546,8 @@
+  -    L += ['### THE CITATION CHECK (the gate step at step zero; relay data/b720_citation_check.txt): ' + citation_line(), '']
+  -    RL = jl('b720_record_lines.json').get('lines') or []
+  -    L += ['### THE RECORD LINES ((R330)(1); relay data/b720_record_lines.json): ' + ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in RL), '']
+  -    L += ['### THE DRY RUN ((R267)(2), standing; relay data/b720_reg_gate.txt, the gate`s step before the lock): ' + verdict(
+  -        rd('b720_reg_gate.txt'), r'THE DRY-RUN STEP : [A-Z ]+') + ' ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: ' + verdict(
+  -        rd('b720_reg_gate.txt'), r'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: ' + verdict(
+  -        rd('b720_reg_gate.txt'), r'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): ' + verdict(
+  -        rd('b720_reg_gate.txt'), r'THE CLOSING DRY-RUN STEP : [A-Z ]+'), '']
+  +    L += ['### THE CITATION CHECK (the gate step at step zero; relay data/b721_citation_check.txt): ' + citation_line(), '']
+  +    RL = jl('b721_record_lines.json').get('lines') or []
+  +    L += ['### THE RECORD LINES ((R331)(1); relay data/b721_record_lines.json): ' + ' ; '.join('%s :%s' % (x.get('file'), x.get('line')) for x in RL), '']
+  +    L += ['### THE DRY RUN ((R267)(2), standing; relay data/b721_reg_gate.txt, the gate`s step before the lock): ' + verdict(
+  +        rd('b721_reg_gate.txt'), r'THE DRY-RUN STEP : [A-Z ]+') + ' ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: ' + verdict(
+  +        rd('b721_reg_gate.txt'), r'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: ' + verdict(
+  +        rd('b721_reg_gate.txt'), r'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK \w+') + ' ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): ' + verdict(
+  +        rd('b721_reg_gate.txt'), r'THE CLOSING DRY-RUN STEP : [A-Z ]+'), '']
+  @@ -558,1 +558,1 @@
+  -    L += [('### THE KERNELS: the face`s reading of the kernels (relay data/b720_kernels_face.json): %d kernels read before the seal, none '
+  +    L += [('### THE KERNELS: the face`s reading of the kernels (relay data/b721_kernels_face.json): %d kernels read before the seal, none '
+  @@ -563,1 +563,1 @@
+  -              len(jl('b720_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
+  +              len(jl('b721_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
+  @@ -567,7 +567,7 @@
+  -    L += ['### THE ROOT`S BANKS (relay data/b720_root_banks.txt): ' + (
+  -        vline(rd('b720_root_banks.txt')) if rd('b720_root_banks.txt') else 'TO BE READ AT THE ROOT, before it is computed'), '']
+  -    L += ['### THE MIRROR (relay data/b720_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ' + mirror_line(), '']
+  -    # ### b720: no carried tool repaired and no repairs bank this act (tools/standing/arms.py's RETIRED tuple the one standing change,
+  -    # ### (R330)(10)); the carry's diffs in its place
+  -    cb_ = sorted(f for f in os.listdir(D) if f.startswith('b720_carry_') and f.endswith('.txt'))
+  -    L += ['### THE CARRY`S DIFFS (each carried tool against its b719 source, by tools/b720_carry.py; relay data/b720_carry_*.txt): %d banks -- %s' % (
+  +    L += ['### THE ROOT`S BANKS (relay data/b721_root_banks.txt): ' + (
+  +        vline(rd('b721_root_banks.txt')) if rd('b721_root_banks.txt') else 'TO BE READ AT THE ROOT, before it is computed'), '']
+  +    L += ['### THE MIRROR (relay data/b721_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ' + mirror_line(), '']
+  +    # ### b721: no carried tool repaired and no repairs bank this act (tools/standing/arms.py's RETIRED tuple the one standing change,
+  +    # ### (R331)(10)); the carry's diffs in its place
+  +    cb_ = sorted(f for f in os.listdir(D) if f.startswith('b721_carry_') and f.endswith('.txt'))
+  +    L += ['### THE CARRY`S DIFFS (each carried tool against its b720 source, by tools/b721_carry.py; relay data/b721_carry_*.txt): %d banks -- %s' % (
+  @@ -578,1 +578,1 @@
+  -    L += AC0.author_words_section(ACT) + ['']   # ### (R330)(6)(i), v5 row (74): the author's word after the seal, from its bank
+  +    L += AC0.author_words_section(ACT) + ['']   # ### (R331)(6)(i), v5 row (74): the author's word after the seal, from its bank
+  @@ -580,3 +580,3 @@
+  -    # ### needle missed (b719's G-CLOSING-DRY-STEP failed on this row's NOT FOUND in its gate record; a repair of this tool's dry print)
+  -    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b720_author_answers.txt): ' + (
+  -        verdict(rd('b720_author_answers.txt'), r'\d+ prompt\(s\)[^;]*') if os.path.exists(os.path.join(D, 'b720_author_answers.txt'))
+  +    # ### needle missed (b720's G-CLOSING-DRY-STEP failed on this row's NOT FOUND in its gate record; a repair of this tool's dry print)
+  +    L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/b721_author_answers.txt): ' + (
+  +        verdict(rd('b721_author_answers.txt'), r'\d+ prompt\(s\)[^;]*') if os.path.exists(os.path.join(D, 'b721_author_answers.txt'))
+  @@ -584,1 +584,1 @@
+  -    L += ['    ' + l for l in rd('b720_components.txt').split(NL)[2:] if l.strip()]
+  +    L += ['    ' + l for l in rd('b721_components.txt').split(NL)[2:] if l.strip()]
+  @@ -586,3 +586,3 @@
+  -    L += ['### THE SCORES IN FULL (relay data/b720_scores.json, written once before the entry; a reading that waited, from relay '
+  -          'data/b720_scores_close.json):'] + ['    (%s) %s -- %s [%s]' % (k, SC[k][0][0], SC[k][0][1], SC[k][1]) for ks in SCORE_KEYS for k in ks] + ['']
+  -    L += ['### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.'] + rd('b720_defects.txt').rstrip(NL).split(NL) + ['']
+  +    L += ['### THE SCORES IN FULL (relay data/b721_scores.json, written once before the entry; a reading that waited, from relay '
+  +          'data/b721_scores_close.json):'] + ['    (%s) %s -- %s [%s]' % (k, SC[k][0][0], SC[k][0][1], SC[k][1]) for ks in SCORE_KEYS for k in ks] + ['']
+  +    L += ['### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.'] + rd('b721_defects.txt').rstrip(NL).split(NL) + ['']
+  @@ -596,1 +596,1 @@
+  -    L += ['    censuses : %s / %s' % (verdict(rd('b720_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b720_census_closing.txt'), encoding='utf-8').read(),
+  +    L += ['    censuses : %s / %s' % (verdict(rd('b721_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b721_census_closing.txt'), encoding='utf-8').read(),
+  @@ -598,1 +598,1 @@
+  -                                       verdict(rd('b720_faces_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b720_faces_census_closing.txt'), encoding='utf-8').read(),
+  +                                       verdict(rd('b721_faces_census_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b721_faces_census_closing.txt'), encoding='utf-8').read(),
+  @@ -600,1 +600,1 @@
+  -          '    pins : %s' % verdict(rd('b720_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b720_pins_closing.txt'), encoding='utf-8').read(),
+  +          '    pins : %s' % verdict(rd('b721_pins_closing.txt') if not DRY else io.open(os.path.join(OUTD, 'b721_pins_closing.txt'), encoding='utf-8').read(),
+  @@ -602,3 +602,3 @@
+  -          # ### (R330)(2): the claim arms' figure beside the whole suite's, each run read from its combined bank by data/arm_tags.json
+  -          '    pre-push, (R330)(2) : %s' % claim_figure(pre),
+  -          '    post-push, (R330)(2) : %s' % claim_figure(post)]
+  +          # ### (R331)(2): the claim arms' figure beside the whole suite's, each run read from its combined bank by data/arm_tags.json
+  +          '    pre-push, (R331)(2) : %s' % claim_figure(pre),
+  +          '    post-push, (R331)(2) : %s' % claim_figure(post)]
+  @@ -608,3 +608,3 @@
+  -    _guard('b720_closing.txt')
+  -    # ### (R330)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at b720: the dry run is step [3] of the close's order and
+  -    # ### writes its bank to relay data/ (b719 wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock
+  +    _guard('b721_closing.txt')
+  +    # ### (R331)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at b721: the dry run is step [3] of the close's order and
+  +    # ### writes its bank to relay data/ (b720 wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock
+  @@ -613,1 +613,1 @@
+  -    r = AC.lock_refuses(ACT, 'b720_closing_dry.txt') if DRY else AC.close_refuses(ACT, 25)
+  +    r = AC.lock_refuses(ACT, 'b721_closing_dry.txt') if DRY else AC.close_refuses(ACT, 25)
+  @@ -617,1 +617,1 @@
+  -    p = os.path.join(D, 'b720_closing_dry.txt') if DRY else os.path.join(OUTD, 'b720_closing.txt')
+  +    p = os.path.join(D, 'b721_closing_dry.txt') if DRY else os.path.join(OUTD, 'b721_closing.txt')
+  @@ -624,1 +624,1 @@
+  -            if l.startswith(('b720 closed', '### THE', '    the', '    (')):   # ### Component 7: every section row printed, its reading read by the gate
+  +            if l.startswith(('b721 closed', '### THE', '    the', '    (')):   # ### Component 7: every section row printed, its reading read by the gate
+
+### ### **CARRIED tools/b721_closing.py ; LINES 636 ; CHANGED BY THE SUBSTITUTION 128 ; REPAIR SPANS AT b720 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

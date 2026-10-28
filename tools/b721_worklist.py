@@ -106,8 +106,12 @@ WAVE1 = (('SIDE-kernel', 'v1.5', '0e5233f'), ('SIDE-lv-conservation', 'v0.10.0',
          ('SIDE-frobenius', 'v0.1.0', '2efe9f2'), ('SIDE-spinor', 'v0.1.0', 'b235bc6'), ('SIDE-rcurve', 'v0.1.0', 'd5f33b4'))
 CHECKPOINT_STATEMENTS = (('SIDE-archimedean', 'archimedean_forces_half'), ('SIDE-frobenius', 'indicial_forces_half'),
                          ('SIDE-spinor', 'spinor_forces_half'), ('SIDE-spinor', 'half_iff_centered_zero'), ('SIDE-rcurve', 'monotone_unique_zero'))
-REBUILD_BRANCH = 'rebuild-b721-own-pin'   # ### (R331)(7)(iii): one branch per kernel at its pinned commit, set at Component 6
-REBUILD_RUNS = ()                         # ### (kernel, run id), each read by its id; set at Component 6
+REBUILD_BRANCH = 'rebuild-b721'          # ### (R331)(7)(iii): one branch per kernel at its pinned commit (tools/b721_rebuild.py BRANCH)
+REBUILD_RUNS = (('SIDE-kernel', 40706230156), ('SIDE-lv-conservation', 40706311269), ('SIDE-archimedean', 40706397470),
+                ('SIDE-spinor', 40706542282), ('SIDE-rcurve', 40706645404), ('SIDE-frobenius', 40713201832))   # ### each read by its id
+REBUILD_ROWS = 'data/b721_rebuild_rows.json'
+FROBENIUS_COPY = 'f9410d2e64ad'           # ### the copy commit (the workflow verbatim), pushed; its dispatch refused (no workflow on main)
+FROBENIUS_TWO_LINES = '6b06215745d0'      # ### the author's second word: the push trigger and the fixed target, the run's trigger
 
 PAPERS = dict()
 DATA_STANDING_V1 = 'data/standing_clauses_v1.txt'
@@ -189,14 +193,14 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.2.0 entering this act
 STANDING_COMMIT = None                  # ### no standing clauses version written this act (v7 binds)
-ACT_CURRENT_COMMIT = None               # ### data/act_current.json for b721 committed alone
-STEPZERO = None                         # ### b720's closing capture, committed alone ((R331)(9))
-STEPZERO_STEPS = None                   # ### b720's step-38 row, committed alone ((R331)(9))
+ACT_CURRENT_COMMIT = '7ecfbc05d5'       # ### data/act_current.json for b721 committed alone
+STEPZERO = 'd06d1657f8'                 # ### b720's closing capture, committed alone ((R331)(9))
+STEPZERO_STEPS = '25239eeef3'           # ### b720's step-38 row, committed alone ((R331)(9))
 STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = None
-STEPZERO_BANKS = None                   # ### the step-zero banks and tools, committed together by explicit list
+STEPZERO_BANKS = '99ef83efa0'           # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()
 REPAIRED_TOOLS = ()
@@ -204,34 +208,45 @@ REPAIRED_DATA = ()
 STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'classes.py', 'close.py', 'components.py', 'controls.py', 'hook.py', 'keystone.py',
                   'manifest.py', 'needles.py', 'repairs.py', 'replay.py', 'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
 NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset, sealed by hash beside the act's tools
-STANDING_VERSION = 'v1.2.0'             # ### v1.2.1 once (R331)(2) lands it (Component 1)
-STANDING_CHANGED = ()                   # ### the standing files (R331)(2)'s three repairs change, set at Component 1
-STANDING_NEW = ()
+STANDING_VERSION = 'v1.2.1'             # ### landed at Component 1 (68440f11)
+STANDING_CHANGED = ('VERSION', 'manifest.py')   # ### the standing files (R331)(2)'s three repairs change (Component 1, 68440f11)
+STANDING_NEW = ('gitwrite.py', 'title.py', 'v121.py')
 # ### b720's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '8834a5b6'    # ### b720's closing, the act's relay base
 B714_RECORD = '6d7cb5f7'     # ### b720's record commit (relay, the last before the closing)
 B714_ROOT = 'b5a76ed924905059cdc9da73936b81a4507eaf9ea286f6e2f3438c9300eab77b'   # ### b720's root, data/act_roots.txt :98
 # ### stage two (Component 8, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = None             # ### the corrigendum's relay banks
-C1_PP = None                # ### the weight line and the corrigendum in FINDINGS
-WEIGHT_LINE, CORR_LINE = None, None
+C1_RELAY = '68440f1180'     # ### the corrigendum's relay banks, b721_c1.py and tools/standing/ v1.2.1
+C1_PP = 'af7d8f3ba5'        # ### the weight line and the corrigendum in FINDINGS
+WEIGHT_LINE, CORR_LINE = 11108, 11110
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_REG = None                # ### (R331)(3)(ii), N2: data/b721_registrations.txt committed alone, before any figure at either C2 discriminant
-C2_PRED = None               # ### (R331)(4): the h = 3 and h = 4 predictions, a commit of their own
-C2_CTL = None                # ### the coefficients' controls C1-C3, printed first
-C2_RELAY = None              # ### the coefficients at the two C2 discriminants, every row read
-C3_RELAY = None              # ### (R331)(4): the table over h = 3, 4, 5, data/b721_derivation.txt
+C2_REG = '54be7b0bf0'        # ### (R331)(3)(i), N2: data/b721_registrations.txt committed alone with the rule only, before any discriminant
+C2_SELECT = 'cdb59caaf3'     # ### tools/b721_select.py committed alone before it runs
+C2_HALT = '15cb6cc442'       # ### the registrations alone: the rule's output NONE over the eighteen h = 2 fields -- (R331)(3) HALTED
+C2_PICKER = '6d022f10ee'     # ### the select tool's picker route (the halt's positive control), committed after its run (defect (6))
+C2_PRED = 'e8c3dff40d'       # ### (R331)(4): the h = 3 and h = 4 predictions, section (5) of the registrations, a commit of their own
+C2_CTL = None                # ### no coefficients this act (the halt): no controls commit
+C2_RELAY = None              # ### no coefficients this act (the halt)
+C3_RULE = '5febd903fe'       # ### registration section (4): the rule for the h = 3 and h = 4 predictions
+C3_RELAY = 'b5e232af64'      # ### (R331)(4): the table over h = 3, 4, 5, data/b721_derivation.txt
+C3_PREDICT_TOOL = 'be19ff520c'   # ### tools/b721_predict34.py committed alone before it runs
 C4_REG = None
 C4_PP = None
-C4_RELAY = None              # ### (R331)(5): the offset
+C4_PRED = '0ee39dc612'       # ### (R331)(5)(i): the seventeen pairs' delta_pred, POST HOC
+C4_RELAY = '3482af9bbe'      # ### (R331)(5): the offset read (POST HOC) and the tier
 C5_REG = None
-C5_RELAY = None              # ### (R331)(6): the surgery
-C6_RELAY = None              # ### (R331)(7): the frozen line, its drafts and the rebuild
+C5_RELAY = 'bddd46f15f'      # ### (R331)(6): the surgery carried
+C6_FROZEN = '0b759208fa'     # ### (R331)(7)(i): the frozen line
+C6_DRAFTS = '0370f99b24'     # ### (R331)(7)(ii): the drafts
+C6_CENSUS = '015df0a7fb'     # ### the census's DOMAIN status for StrictMono beside the grade (the author's word)
+C6_REBUILD_5 = 'dc6bad94c1'  # ### (R331)(7)(iii): the rebuild at five, frobenius held (its trigger-only change halted)
+C6_RELAY = '3821caf5b0'      # ### (R331)(7)(iii): the rebuild at 6 of 6, frobenius's push run read by its id
 C6_PP = None
 C6_PP_REPAIR = None
-C7_PP = None                 # ### (R331)(8): the federation pin's orders CLOSED in OPEN_TRAILS
-NEW_DISCRIMINANTS = ()       # ### (R331)(3)(i): the two C2 discriminants the rule names, set when it names them
+C7_PP = None                 # ### (R331)(8): the federation pin closed, a line of b721's trail (written at Component 8)
+NEW_DISCRIMINANTS = ()       # ### (R331)(3)(i): the rule named none (HALTED)
+H34_DISCRIMINANTS = (-31, -55)   # ### (R331)(4): the h = 3 and h = 4 predictions' discriminants; nothing computed at them this act
 CHALLENGE_BRANCH = 'challenge-b720-h2-sign-iff-rh'   # ### b720's, on SIDE-explicit-formula, standing, not merged, no tag
 CHALLENGE_TIP = '3391647518cd37316a448b5013afb62a198fa6c6'
 CHALLENGE_RUN = 40651875792
@@ -253,4 +268,9 @@ RETIRED_COUNT = 0            # ### no arm retired this act; the run list of 116 
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b721_') and f.endswith('.py') and f != 'b721_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
 # ### the act's arms over its own banks: set at Component 8 by the Edit tool, as `b721_record.py armnames` prints them beyond the standing
-ACT_ARMS = ()
+ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW',
+            'G-CORRIGENDUM-ENTERED', 'G-COUNT-ROUTE-PRICED', 'G-DELETES-ONE-BRANCH', 'G-DERIVATION-GRADED', 'G-DIFFERS-ERRATA', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-GUARD-HELD', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LISTINGS-BEFORE-CLAUSES',
+            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R331-ENTERED', 'G-READFIRST-DIFF-BANKED',
+            'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
+            'G-WRITELIST-MIRROR-STATE')   # ### `b721_record.py armnames` at Component 8: the thirty-two beyond the standing, b720's set with (R331)'s shift

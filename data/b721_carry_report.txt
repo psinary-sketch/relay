@@ -1,0 +1,53 @@
+b721 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b720_report.py -> tools/b721_report.py (2026-10-28T15:11:31Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b720 -> b721, b719 -> b720, R330 -> R331, R329 -> R330); 179 lines, 14 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b720_tool_repairs.txt AND data/b720_repairdiff_report.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b720; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b720_report.py
+  +++ tools/b721_report.py
+  @@ -1,1 +1,1 @@
+  -"""b720 -- THE STANDING REPORT TOOL, (R330)(3): data/b720_report.txt (.json). A REPORT, NOT AN ARM.
+  +"""b721 -- THE STANDING REPORT TOOL, (R331)(3): data/b721_report.txt (.json). A REPORT, NOT AN ARM.
+  @@ -3,2 +3,2 @@
+  -Carried from b719's standing report (tools/b719_report.py) by diff and its lines rewritten at Component 7: b719's lines (H-24, H-47,
+  -H-OFFSET, H-SHAPE, the retirement) read banks this act does not write, and are not carried; the lines are b720's: the challenge file and the
+  +Carried from b720's standing report (tools/b720_report.py) by diff and its lines rewritten at Component 7: b720's lines (H-24, H-47,
+  +H-OFFSET, H-SHAPE, the retirement) read banks this act does not write, and are not carried; the lines are b721's: the challenge file and the
+  @@ -11,1 +11,1 @@
+  -          on printed as NONE; written through the membrane to data/b720_report.txt and data/b720_report.json. Nothing else is written.
+  +          on printed as NONE; written through the membrane to data/b721_report.txt and data/b721_report.json. Nothing else is written.
+  @@ -13,1 +13,1 @@
+  -  scores  (after the root) the scores line: all eight from data/b720_scores_close.json, each HELD or BROKEN, and the root line from
+  +  scores  (after the root) the scores line: all eight from data/b721_scores_close.json, each HELD or BROKEN, and the root line from
+  @@ -30,1 +30,1 @@
+  -import b720_worklist as K          # noqa: E402
+  +import b721_worklist as K          # noqa: E402
+  @@ -33,1 +33,1 @@
+  -ACT = 'b720'
+  +ACT = 'b721'
+  @@ -75,1 +75,1 @@
+  -    import b720_record as REC
+  +    import b721_record as REC
+  @@ -78,1 +78,1 @@
+  -    # ------------------------------------------------------------------ KERNEL: THE CHALLENGE AND THE PIN ((R330)(5)(ii)-(iii)), on the runner
+  +    # ------------------------------------------------------------------ KERNEL: THE CHALLENGE AND THE PIN ((R331)(5)(ii)-(iii)), on the runner
+  @@ -90,1 +90,1 @@
+  -    # ------------------------------------------------------------------ CERTIFIED: THE COEFFICIENTS ((R330)(3)), exact through the cut
+  +    # ------------------------------------------------------------------ CERTIFIED: THE COEFFICIENTS ((R331)(3)), exact through the cut
+  @@ -131,1 +131,1 @@
+  -    import b720_record as REC
+  +    import b721_record as REC
+  @@ -135,1 +135,1 @@
+  -    L = ['%s -- THE STANDING REPORT, (R330)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
+  +    L = ['%s -- THE STANDING REPORT, (R331)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (%s)' % (ACT, at), '',
+  @@ -138,1 +138,1 @@
+  -         '### root by `tools/b720_report.py scores`, and written nowhere.', '']
+  +         '### root by `tools/b721_report.py scores`, and written nowhere.', '']
+  @@ -176,1 +176,1 @@
+  -        print('usage: b720_report.py bank | dry | scores')
+  +        print('usage: b721_report.py bank | dry | scores')
+
+### ### **CARRIED tools/b721_report.py ; LINES 179 ; CHANGED BY THE SUBSTITUTION 14 ; REPAIR SPANS AT b720 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
