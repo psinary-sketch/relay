@@ -137,7 +137,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'
 NEXT = ('b720 ((R329)(14)): the REGISTRY cells, the pin`s remainder and the challenge file, for wave 1`s sign core; the next tier of the '
-        'offset under (8)(ii)`s registration; the surgery where (9) carried it')
+        'offset, post hoc, under (8)(ii)`s registration; the surgery where (9) carried it')
 NEXT_ACT = 'b720'
 
 
@@ -171,13 +171,13 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.2.0 entering this act
 STANDING_COMMIT = None                  # ### no standing clauses version written this act (v7 binds)
-ACT_CURRENT_COMMIT = None               # ### data/act_current.json for b719 committed alone
-STEPZERO = None                         # ### b718's step-20 row committed alone ((R329)(12)), after b718's close
+ACT_CURRENT_COMMIT = '4cabf3b72fa7a493ba91247bcac32d87792fb91b'   # ### data/act_current.json for b719 committed alone
+STEPZERO = 'dbea2e3f'                   # ### b718's leftover (its step-24 row and the closing push capture) committed alone after b718's close
 STEPZERO_STEPS = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = None
-STEPZERO_BANKS = None                   # ### the step-zero banks and tools, committed together by explicit list
+STEPZERO_BANKS = '65a8c82237a3618b23603dd0ef1017fbde404894'   # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()
 REPAIRED_TOOLS = ()
@@ -186,24 +186,29 @@ STANDING_FILES = ('VERSION', 'act.py', 'allow.py', 'arms.py', 'classes.py', 'clo
                   'manifest.py', 'needles.py', 'repairs.py', 'replay.py', 'rootbanks.py', 'roster.py', 'scan.py', 'words.py')
 NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset at v1.2.0, sealed by hash beside the act's tools
 STANDING_VERSION = 'v1.2.0'
-STANDING_CHANGED = ()                   # ### (R329)(10) changes the suite's run list (set at Component 6)
+STANDING_CHANGED = ('arms.py',)         # ### (R329)(10): the run list's RETIRED tuple, at 1085464a (VERSION left v1.2.0)
 STANDING_NEW = ()
 # ### b718's commits the act reads ((R329)(2)); set after b718's close at step zero
 B714_CLOSING = '9818a7f0'    # ### b718's closing, the act's relay base (the names kept for the carried arms: the previous act's)
 B714_RECORD = '098289c8'     # ### b718's record commit (relay), pushed at step zero (5fe0c412 the pre-root push, 1c1ce75e the root)
 B714_ROOT = 'b2f1908e325787b31b36d9249d7d68baa7f4e4d905498b4ac04164810fc7fc8b'   # ### b718's root, data/act_roots.txt :96, computed at step zero
 # ### stage two (Component 7, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = None
-C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None
-C2_REG = None                # ### (R329)(6)(i), N2: data/b719_registrations.txt committed alone, before any figure at -20 or -47
-C2_RELAY = None
-C3_RELAY = None
-C4_REG = None                # ### (R329)(8)(ii): the offset's hypothesis added to data/b719_registrations.txt by a commit of its own
-C4_RELAY = None
-C5_REG = None                # ### (R329)(9): H-SHAPE committed before any number
-C5_RELAY = None
-C6_RELAY = None
+C1_RELAY = 'e5528ffe3a64b44d37578f8dcf718c7425b57012'
+C1_PP = 'a01f88780bf82e636c520ce3689497ff8c725db3'   # ### the weight line, the corrigendum, the DIFFERS entry (FINDINGS) and ERRATA's entry
+WEIGHT_LINE, CORR_LINE = 10896, 10898
+DIFFERS_LINE = 10961         # ### FINDINGS: the DIFFERS entry ((R329)(4))
+ERRATA_LINE = 990            # ### ERRATA.md: E-2026-10-28-1 ((R329)(5))
+C2_REG = 'ac88ffb14edcadbaac62a9bb97a042c379c09124'      # ### (R329)(6)(i), N2: data/b719_registrations.txt committed alone, before any figure at -20 or -47
+C2_PRED = '7e743b4d4602c7de2a2cc37f6c52e8d29de21d4a'     # ### the rule's prediction (b718's registration (3)), before the controls
+C2_CTL = '7117115fe310225a9756041fe24b5a735a4d7317'      # ### the controls before the figures
+C2_RELAY = '0bc24b20a40897a508dc2412cf280aa150566952'    # ### the coefficients
+C3_RELAY = 'f8fd5512734e984741aa2b03318e2687690067e3'    # ### the derivation
+C4_REG = '7b1ab86fd48b0dea48523d14e1df72aaafe9ec91'      # ### (R329)(8)(ii): the offset's hypothesis added to data/b719_registrations.txt by a commit of its own
+C4_RELAY = '6d6fcfbd01ac7968503a082a48e883c4debb3fd6'    # ### the offset read, post hoc
+C5_REG = '965cb8e84dc02192854512af53a29b1fbc2b80f5'      # ### (R329)(9): H-SHAPE committed before any number
+C5_RELAY = '49e65ed518c0c89fc5528e1b78beb2bf8ec9d1af'    # ### the surgery carried to b720
+C6_RELAY = ('d033e45083a249feb32977db552e971de89bd56c', '1085464a7623f0fa71200ac6ebc35676f0ca2b3e',
+            'a035408d12256f2b10e2a3346219003fca488590')  # ### the arms' history, the retirement, the count route's price
 C6_PP = None
 C6_PP_REPAIR = None
 NEW_DISCRIMINANTS = ((-20, 2), (-47, 5))   # ### (R329)(6): b718's registered discriminants, computed this act
@@ -213,11 +218,23 @@ PIN_HELD = ('SIDE-cosmo', 'SIDE-frobenius')
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'ERRATA.md')
-ERRATA_ID = None             # ### (R329)(5): the ERRATA entry's id, set when written
-ERRATA_IDS = ()
+ERRATA_ID = 'E-2026-10-28-1'   # ### (R329)(5): the ERRATA entry's id (ERRATA.md :990, at a01f887)
+ERRATA_IDS = (ERRATA_ID,)
+RETIRED_COUNT = 25           # ### (R329)(10): the run list 141 -> 116; the 38 claim arms untouched
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b719_') and f.endswith('.py') and f != 'b719_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
 # ### the act's arms over its own banks: set at Component 7 by the Edit tool (b718's ritual arms carried; its arms over b718's objects replaced
 # ### by arms over this act's: the registrations first, the coefficients, the derivation graded, the offset post hoc, the surgery, the retirement)
-ACT_ARMS = ()
+ACT_ARMS = ('G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED',
+            'G-CLOSING-DRY-STEP', 'G-CORRIGENDUM-ENTERED', 'G-DEFECTS-LETTERED', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-FIGURES-BANKED', 'G-GUARD-HELD', 'G-LISTINGS-BEFORE-CLAUSES', 'G-PARTS-PRERUN',
+            'G-POSTROOT-WRITES-NONE', 'G-R329-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REPORT-UNSEALED', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO',
+            'G-RULES-ROW-ENTERED', 'G-SCORER-READS-BANKS', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS',
+            'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-MIRROR-STATE',
+            'G-MEMBRANE-WIRED', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-ACT-CURRENT',
+            'G-REGISTRATIONS-FIRST', 'G-PREDICTION-FIRST', 'G-COEFFS-LAW', 'G-DERIVATION-GRADED', 'G-OFFSET-POST-HOC', 'G-SURGERY-CARRIED',
+            'G-ARMS-RETIRED', 'G-COUNT-ROUTE-PRICED', 'G-DIFFERS-ERRATA', 'G-TOUCH-READ', 'G-ARM-TAGS')
+# ### Component 7 (the Edit tool): b718's arms over b718's objects (the decomposition, A0, the count read, the two reads, the toolset, the pin,
+# ### the records) not carried -- their banks are b718's and this act writes none; this act's arms over its own banks in their place, tagged
+# ### as the ones they replace (six CLAIM for six CLAIM, G-ARMS-RETIRED CLOSE for G-TOOLSET-V120 CLOSE), so the claim arms stay thirty-eight
