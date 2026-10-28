@@ -1,0 +1,95 @@
+b720 -- THE CORRIGENDUM FOR b719, (R330)(2) (2026-10-28T07:14:22Z)
+
+### the banks read unedited: data/b719_events.txt rows (1)-(10), data/b719_defects.txt 18 rows, data/b719_hook_refusals.txt 8 lines; the corrigenda bank`s last row (39).
+
+## (R330)(2)(ii) READ BY LINE: THE CONTROL b719`S MIRROR BANK RAN (relay tools/b719_record.py :3370-:3381)
+    3370|     # ### (R329)(5)'s control: the MANIFEST lists the census v0.8.1 and day1/Silence_of_Foundations.md, each zip entry at the bytes of
+    3371|     # ### a86c9429 (b718's merge); the bytes compared raw and with CR removed (the builder copies working files, autocrlf's trap), each printed
+    3372|     man_ctl = []
+    3373|     for path in (_C81, 'day1/Silence_of_Foundations.md'):
+    3374|         base = path.split('/')[-1]
+    3375|         mem = [n for n in names_ if n.split('/')[-1] == base or n.endswith('_' + base)]
+    3376|         blob = subprocess.run(['git', '-C', PP, 'show', '%s:%s' % (K.RECUT_MERGE, path)], capture_output=True).stdout
+    3377|         zb_ = z.read(mem[0]) if len(mem) == 1 else b''
+    3378|         listed = any(base in l for l in ls if '|' in l)
+    3379|         man_ctl.append(dict(path=path, member=mem, listed=listed, raw_equal=bool(zb_) and zb_ == blob,
+    3380|                             lf_equal=bool(zb_) and zb_.replace(b'\r', b'') == blob.replace(b'\r', b''), blob_bytes=len(blob), member_bytes=len(zb_)))
+    3381|     man_ok = all(c['listed'] and len(c['member']) == 1 and c['lf_equal'] for c in man_ctl)
+## BESIDE IT, (R328)(7)`S REPAIR (relay a240e6b6, tools/standing/manifest.py new; its control :34-:53)
+    34| def control(zip_path, base, head, repo='pp', files=None, ref=None):
+    35|     """each file the act edited (base..head) that the zip carries, its entry against the blob at `ref` (default `head`). Files the zip does
+    36|     not carry are listed NOT IN THE ROSTER and not failed. Returns dict(rows [(path, entries, raw_equal, lf_equal, state)], ok, head)."""
+    37|     z = zipfile.ZipFile(zip_path)
+    38|     names = [n for n in z.namelist() if n != 'MANIFEST.md']
+    39|     man = z.read('MANIFEST.md').decode('utf-8-sig', 'replace') if 'MANIFEST.md' in z.namelist() else ''
+    40|     ref = ref or head
+    41|     rows = []
+    42|     for p in (files if files is not None else edited(base, head, repo)):
+    43|         mem = member(names, p)
+    44|         if not mem:
+    45|             rows.append((p, [], None, None, 'NOT IN THE ROSTER'))
+    46|             continue
+    47|         b = A.blob(ref, p, repo) or b''
+    48|         zb = z.read(mem[0]) if len(mem) == 1 else b''
+    49|         raw_eq = bool(zb) and zb == b
+    50|         lf_eq = bool(zb) and zb.replace(b'\r', b'') == b.replace(b'\r', b'')
+    51|         listed = p.split('/')[-1] in man
+    52|         rows.append((p, mem, raw_eq, lf_eq, 'AS WANTED' if (len(mem) == 1 and lf_eq and listed) else 'NOT AS WANTED'))
+    53|     return dict(rows=rows, ok=all(r[4] != 'NOT AS WANTED' for r in rows) and any(r[4] == 'AS WANTED' for r in rows), head=head, ref=ref)
+## THE REPAIR COMMIT`S FILES (18): data/b718_classes_controls.txt, data/b718_composition.txt, data/b718_defects.txt, data/b718_hook_refusals.txt, data/b718_join_premise.txt, data/b718_replay.txt, data/b718_steps.json, data/b718_tool_repairs.txt, data/b718_toolset_coverage.txt, tools/b718_reads.py, tools/standing/VERSION, tools/standing/allow.py, tools/standing/classes.py, tools/standing/close.py, tools/standing/keystone.py, tools/standing/manifest.py, tools/standing/needles.py, tools/standing/replay.py
+## THE CALLERS OF MF.control IN tools/: tools/standing/classes.py:132:        old_c = MF.control(zp, pbase, pph.group(1), files=sil, ref=mref.group(1)) ; tools/standing/classes.py:133:        new_c = MF.control(zp, pbase, pph.group(1)) ; tools/standing/classes.py:139:        bad = MF.control(zp, pbase, pph.group(1), ref=pbase) ; IN A RECORD TOOL: NONE
+## THE COVERAGE ROW (data/b718_toolset_coverage.txt :32): [23] the mirror after the root                               | PER-ACT  | tools/b718_record.py mbuild, mroot, mverify, mbank ; (10) reaches mbank: its MANIFEST control by manifest.py control, every file the act edited on PLACE-papers (its base to the build's head) against that head, no carried reference -- not moved
+## THE REASON: the repair was added and controlled in tools/standing/ and never wired into mbank, which kept its inline loop against K.RECUT_MERGE (a86c9429) through b718`s and b719`s carries -- REPEAT.
+## (R330)(2)(i) THE LATE ROW: {"repo": "relay", "commit": "dbea2e3f254cbf7018c6a3bdfa403766d4619a10", "ct": 1793154121, "at": "2026-10-28T07:01:42Z", "phase": "step zero", "subject": "b718 leftover (at b719's step zero, (R329)(12)): step 24's row and the bank hash it moves, and the closing push capture ", "late": "LATE: written at b720`s step zero under (R330)(2)(i) -- b718`s leftover committed at b719`s step zero, which had no row (b719 event (8))"}
+
+  *b719’s events bank (relay data/b719_events.txt) carries ten rows, entered after its lock and seal and not lettered, each tagged in its own bracket; its defects bank eighteen lettered rows, (a)-(r), each tagged in its own bracket; its refusal bank eight lines, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **Three items read by line first (`(R330)`(2)):**
+  
+  **(i) dbea2e3f given its late step row** (event (8), defect (f)): the row stands in relay data/b719_steps.json at index 0 by commit time, phase “step zero”, labelled LATE, written by hand at b720’s step zero and committed alone at 6755e0c9; b719’s hash bank (data/b719_bank_hashes.json) left as it stood, so the hand write reads as one. G-SEALED-AFTER-COMPONENTS now finds a row for every commit of b719; b719’s suite banks stand as written.
+  
+  **(ii) event (9), the MANIFEST control’s reference, read from its source.** The control b719’s mirror bank printed is not the standing control: relay tools/b719_record.py mbank :3370-:3381 compares each entry against `git show K.RECUT_MERGE:<path>`, the worklist’s RECUT_MERGE a86c9429, carried from act to act. (R328)(7)’s repair, b718’s commit a240e6b6, added tools/standing/manifest.py, whose `control` (:34-:53) reads each file the act edited against the head the mirror was built at (`ref = ref or head`), and whose only caller is the class controls in tools/standing/classes.py (tools/standing/classes.py :132, :133, :139); the commit’s files (18) name no record tool, and its coverage table states the repair reached mbank (relay data/b718_toolset_coverage.txt :32: “(10) reaches mbank: its MANIFEST control by manifest.py control … -- not moved”). So the repair was made and controlled in the toolset and never wired into the route that writes the mirror bank; b718’s and b719’s record tools, each carried from the last, kept the inline loop and its carried reference. A repair that did not take: REPEAT, as the events bank tags the row (b718 (10)), the class’s earlier rows b717’s event (10) and b718’s event (18).
+  
+  **(iii) (B) the seat’s memory file feedback_b719_traps.md (the seat’s persistent memory, outside both repositories) replaced whole by the Write tool at 2026-10-28T06:28:01Z, at b719’s close (this session’s transcript line 16474), without a read of what it held -- b719’s step-zero traps, written at 02:28:53Z, lost from it; restored at b720 from the transcript (line 10159) into feedback_b719_stepzero_traps.md at 2026-10-28T06:49:30Z (line 16555), the memory index re-pointed. From this act the seat reads a memory file before it replaces one** (CLOSE; NEW).
+  
+  **b719’s events (1)-(10):**
+  
+  **(1) _PrevWorklist** (relay data/b719_events.txt, row (1); CLOSE; NEW).
+  **(2) G-RECEIPT-IN-FULL** (relay data/b719_events.txt, row (2); CLOSE; NEW).
+  **(3) G-PUSHOUT-COMMITTED** (relay data/b719_events.txt, row (3); CLOSE; NEW).
+  **(4) the twenty-two failures** (relay data/b719_events.txt, row (4); CLOSE; NEW).
+  **(5) PASS 78, FAILED AS b718** (relay data/b719_events.txt, row (5); CLOSE; NEW).
+  **(6) data/b718_standing_control.json** (relay data/b719_events.txt, row (6); CLOSE; REPEAT of b719 (l)).
+  **(7) N4 reads REFUTED on its push** (relay data/b719_events.txt, row (7); CLAIM; NEW).
+  **(8) G-SEALED-AFTER-COMPONENTS** (relay data/b719_events.txt, row (8); CLOSE; NEW).
+  **(9) THE MANIFEST CONTROL reads NOT AS** (relay data/b719_events.txt, row (9); CLOSE; REPEAT of b718 (10); the repair of (R328)(7) not wired, item (ii)).
+  **(10) ForEach-Object** (relay data/b719_events.txt, row (10); CLOSE; REPEAT of b719 (6)).
+  
+  **b719’s defects:**
+  
+  **(a)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (k)).
+  **(b)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (q)).
+  **(c)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (s)).
+  **(d)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (d)).
+  **(e)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b719_defects.txt; the seat’s; CLAIM; NEW).
+  **(i)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (u)).
+  **(j)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (b)).
+  **(k)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (x)).
+  **(l)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b719 (i)).
+  **(m)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b719 (a)).
+  **(n)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (z)).
+  **(o)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b719_defects.txt; the seat’s; CLOSE; REPEAT of b718 (g)).
+  **(r)** (relay data/b719_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b719’s refusals** (relay data/b719_hook_refusals.txt, one a line): :1 PIPE, recorded at defect (b); :2 PIPE, recorded at defect (c); :3 READ, recorded at defect (i); :4 REDIR, recorded at defect (j); :5 READ, recorded at defect (k); :6 READ, recorded at defect (l); :7 READ, recorded at event (6); :8 PIPE, recorded at event (10).
+  
+  **The counter:** CLAIM 2, CLOSE 27 over the 29 items of `(R330)`(2) (ten events, eighteen defects, one item of the seat’s memory); REPEAT 14 of 29; the CLAIM items (7), (h).
+  
+  *Filed at b720 on the author’s ruling `(R330)`(2): generated by relay `tools/b720_c1.py` corrigendum, written whole at b720, from b719’s events, defects and refusal banks read unedited; banked as relay `data/b720_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (40). It answers b719’s record; no sealed tool, face, trail or root-named bank of b719 is edited.*
+
+### ### **ITEMS 29: EVENTS 10, DEFECTS 18, MEMORY 1 ; CLAIM 2, CLOSE 27 ; REPEAT 14 ; (i) THE LATE ROW AT 6755e0c9 ; (ii) THE REPAIR NOT WIRED, REPEAT ; (iii) CLOSE ; THE ENTRY AT FINDINGS :11020.**
