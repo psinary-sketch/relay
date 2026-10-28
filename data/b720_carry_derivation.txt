@@ -1,0 +1,59 @@
+b720 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b719_derivation.py -> tools/b720_derivation.py (2026-10-28T07:24:28Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b719 -> b720, b718 -> b719, R329 -> R330, R328 -> R329); 269 lines, 18 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b719_tool_repairs.txt AND data/b719_repairdiff_derivation.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b719; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b719_derivation.py
+  +++ tools/b720_derivation.py
+  @@ -2,1 +2,1 @@
+  -"""b719_derivation.py -- (R329)(7): THE DERIVATION'S REMAINING STEP, from data/b718_derivation.txt :128-:136 (the step named: "that the least
+  +"""b720_derivation.py -- (R330)(7): THE DERIVATION'S REMAINING STEP, from data/b719_derivation.txt :128-:136 (the step named: "that the least
+  @@ -6,2 +6,2 @@
+  -after (6)(ii): data/b719_coeffs.txt) before it is used, a planted error failing as wanted; graded at its end. Writes
+  -data/b719_derivation.txt (route `bank`); `dry` prints and writes nothing.
+  +after (6)(ii): data/b720_coeffs.txt) before it is used, a planted error failing as wanted; graded at its end. Writes
+  +data/b720_derivation.txt (route `bank`); `dry` prints and writes nothing.
+  @@ -18,2 +18,2 @@
+  - (3) b AT OMEGA <= 5. On a bad-supported n with Omega(n) <= 5 (data/b718_derivation.txt (ii), :124), b(n) = 2 a(n) - (a*a)(n)/2, so
+  -     b(n) = (1/h) SUM_j 2 R_j(n) - (1/(2 h^2)) SUM_{j, k} (R_j * R_k)(n). CHECK: equal to the exact b (tools/b718_classgroup.py log_coeffs)
+  + (3) b AT OMEGA <= 5. On a bad-supported n with Omega(n) <= 5 (data/b719_derivation.txt (ii), :124), b(n) = 2 a(n) - (a*a)(n)/2, so
+  +     b(n) = (1/h) SUM_j 2 R_j(n) - (1/(2 h^2)) SUM_{j, k} (R_j * R_k)(n). CHECK: equal to the exact b (tools/b719_classgroup.py log_coeffs)
+  @@ -25,1 +25,1 @@
+  - (5) WHAT THE GROUP FIXES. The census of minimal negative shapes (tools/b718_abstract.py, unedited) at Omega 4 and 5 over C2-C7 and
+  + (5) WHAT THE GROUP FIXES. The census of minimal negative shapes (tools/b719_abstract.py, unedited) at Omega 4 and 5 over C2-C7 and
+  @@ -43,3 +43,3 @@
+  -import b718_classgroup as CG      # noqa: E402  ### b718's, unedited
+  -import b718_abstract as AB        # noqa: E402  ### b718's, unedited
+  -import b719_coeffs as CO          # noqa: E402  ### b719's (6)(ii) tool: its counts (b716's enumeration) and forms
+  +import b719_classgroup as CG      # noqa: E402  ### b719's, unedited
+  +import b719_abstract as AB        # noqa: E402  ### b719's, unedited
+  +import b720_coeffs as CO          # noqa: E402  ### b720's (6)(ii) tool: its counts (b716's enumeration) and forms
+  @@ -50,2 +50,2 @@
+  -        (-39, (1, 1, 10), 120, 'data/b717_coeffs.txt :16'), (-20, (1, 0, 5), 36, 'data/b719_coeffs.txt'),
+  -        (-47, (1, 1, 12), 168, 'data/b719_coeffs.txt')]
+  +        (-39, (1, 1, 10), 120, 'data/b717_coeffs.txt :16'), (-20, (1, 0, 5), 36, 'data/b720_coeffs.txt'),
+  +        (-47, (1, 1, 12), 168, 'data/b720_coeffs.txt')]
+  @@ -142,1 +142,1 @@
+  -    L = ['b719 -- (R329)(7): THE DERIVATION`S REMAINING STEP THROUGH THE CLASS-GROUP CHARACTERS, EACH STEP CHECKED AT -23, -15, -39, -20, -47 BEFORE USE (%s)' % (
+  +    L = ['b720 -- (R330)(7): THE DERIVATION`S REMAINING STEP THROUGH THE CLASS-GROUP CHARACTERS, EACH STEP CHECKED AT -23, -15, -39, -20, -47 BEFORE USE (%s)' % (
+  @@ -144,3 +144,3 @@
+  -         '### from data/b718_derivation.txt :128-:136 (the step named) ; the five discriminants` n0 from data/b711_coeffs.txt :12, data/b713_coeffs.txt :13,',
+  -         '### data/b717_coeffs.txt :16 and data/b719_coeffs.txt ; a(n) = r_Q1(n)/2 by enumeration (tools/b716_genus_control.py counts) ; b exact by',
+  -         '### tools/b718_classgroup.py log_coeffs. Each CHECK is printed before its step is used; each PLANT must fail. Characters in floating point,',
+  +         '### from data/b719_derivation.txt :128-:136 (the step named) ; the five discriminants` n0 from data/b711_coeffs.txt :12, data/b713_coeffs.txt :13,',
+  +         '### data/b717_coeffs.txt :16 and data/b720_coeffs.txt ; a(n) = r_Q1(n)/2 by enumeration (tools/b716_genus_control.py counts) ; b exact by',
+  +         '### tools/b719_classgroup.py log_coeffs. Each CHECK is printed before its step is used; each PLANT must fail. Characters in floating point,',
+  @@ -215,1 +215,1 @@
+  -    L += ['', '## STEP (5): WHAT THE GROUP FIXES -- the minimal negative shapes at Omega 4 and 5 by exponent pattern (tools/b718_abstract.py), values other than -2 marked']
+  +    L += ['', '## STEP (5): WHAT THE GROUP FIXES -- the minimal negative shapes at Omega 4 and 5 by exponent pattern (tools/b719_abstract.py), values other than -2 marked']
+  @@ -264,1 +264,1 @@
+  -        p = os.path.join(D_, 'b719_derivation.txt')
+  +        p = os.path.join(D_, 'b720_derivation.txt')
+  @@ -268,1 +268,1 @@
+  -        print('written data/b719_derivation.txt')
+  +        print('written data/b720_derivation.txt')
+
+### ### **CARRIED tools/b720_derivation.py ; LINES 269 ; CHANGED BY THE SUBSTITUTION 18 ; REPAIR SPANS AT b719 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

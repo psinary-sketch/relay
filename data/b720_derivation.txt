@@ -1,0 +1,120 @@
+b720 -- (R330)(4): THE DERIVATION`S -2 WITH BOTH CONFIGURATIONS, THE NAVIGATOR`S RECOMPUTATION REPRODUCED BEFORE USE, THE STEP EXTENDED TO -35 AND -40 (2026-10-28T07:28:35Z)
+
+### from data/b719_derivation.txt :70 (the grade) and (R330)(4) ; the seven discriminants` n0 from data/b711_coeffs.txt :12, data/b713_coeffs.txt :13,
+### data/b717_coeffs.txt :16, data/b719_coeffs.txt and data/b720_coeffs.txt ; a(n) = r_Q1(n)/2 by enumeration (tools/b716_genus_control.py counts) ;
+### b exact by tools/b718_classgroup.py log_coeffs. Each CHECK is printed before its step is used; each PLANT must fail. Characters in floating
+### point, every character sum required integral (or a rational with denominator 2) to 1e-07 before it is compared.
+
+## STEP (0): THE NAVIGATOR`S RECOMPUTATION, REPRODUCED BEFORE USE -- a(n0), the ordered pair sum, factorizations into three or more nonzero parts
+  CHECK D = -23, n0 = 48 (data/b711_coeffs.txt :12): a(n0) 4, the ordered pair sum 12, three-or-more-part factorizations 0 (the navigator`s 4, 12, 0) ; b = a - pair/2 = -2 -- REPRODUCED ; PLANT the pair sum unordered: 6 -- FAILS AS WANTED
+  CHECK D = -15, n0 = 24 (data/b713_coeffs.txt :13): a(n0) 4, the ordered pair sum 12, three-or-more-part factorizations 0 (the navigator`s 4, 12, 0) ; b = a - pair/2 = -2 -- REPRODUCED ; PLANT the pair sum unordered: 6 -- FAILS AS WANTED
+  CHECK D = -39, n0 = 120 (data/b717_coeffs.txt :16): a(n0) 4, the ordered pair sum 12, three-or-more-part factorizations 0 (the navigator`s 4, 12, 0) ; b = a - pair/2 = -2 -- REPRODUCED ; PLANT the pair sum unordered: 6 -- FAILS AS WANTED
+  CHECK D = -20, n0 = 36 (data/b719_coeffs.txt :16): a(n0) 3, the ordered pair sum 10, three-or-more-part factorizations 0 (the navigator`s 3, 10, 0) ; b = a - pair/2 = -2 -- REPRODUCED ; PLANT the pair sum unordered: 7 -- FAILS AS WANTED
+  CHECK D = -47, n0 = 168 (data/b719_coeffs.txt :24): a(n0) 4, the ordered pair sum 12, three-or-more-part factorizations 0 (the navigator`s 4, 12, 0) ; b = a - pair/2 = -2 -- REPRODUCED ; PLANT the pair sum unordered: 6 -- FAILS AS WANTED
+
+## STEP (1): THE TURNS -- a(n) = (1/h) SUM_j R_j(n), R_j(p^e) = sin((e+1) theta)/sin(theta) split, chi^e ramified, [e even] inert
+  CHECK D = -23 (Cl C3, generator (2, -1, 3)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 322 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15 (Cl C2, generator (2, 1, 2)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 292 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39 (Cl C4, generator (2, -1, 5)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 321 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20 (Cl C2, generator (2, 2, 3)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 310 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47 (Cl C5, generator (2, -1, 6)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 305 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -35 (Cl C2, generator (3, 1, 3)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 3 moved one step: mismatches 186 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -40 (Cl C2, generator (2, 0, 5)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 278 through 2000 -- AS WANTED, FAILS AS WANTED
+
+## STEP (2): THE PAIR SUM THE SAME WAY -- (a*a)(n) = (1/h^2) SUM_{j,k} (R_j * R_k)(n), the ordered pair sum (a*a)(n) - 2 a(n)
+  CHECK D = -23: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 499 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 418 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 363 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 445 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 411 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -35: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 344 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -40: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 399 through 2000 -- AS WANTED, FAILS AS WANTED
+
+## STEP (3): b AT OMEGA <= 5 ON THE BAD-SUPPORTED n -- b(n) = (1/h) SUM_j 2 R_j(n) - (1/(2 h^2)) SUM_{j,k} (R_j * R_k)(n)
+  CHECK D = -23: at the 4815 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 3642 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15: at the 4400 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1996 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39: at the 7343 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 2960 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20: at the 3900 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1746 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47: at the 6434 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 3595 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -35: at the 2866 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1251 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -40: at the 3625 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1633 -- AS WANTED, FAILS AS WANTED
+
+## STEP (4): THE VALUE AT THE LEAST INSTANCE, IN h AND THE CLASSES THE SHAPE USES (each prime p^e: kind, class g^c, its order, and R_j(p^e) for j = 0..h-1)
+  D = -23, h = 3, n0 = 48 (data/b711_coeffs.txt :12): 2^4 split g^2 (order 3): R_j = [5, -1, -1] ; 3^1 split g^1 (order 3): R_j = [2, -1, -1]
+      a(n0) = (1/3) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b -0.0 -- FAILS AS WANTED
+  D = -15, h = 2, n0 = 24 (data/b713_coeffs.txt :13): 2^3 split g^1 (order 2): R_j = [4, -4] ; 3^1 ram g^1 (order 2): R_j = [1, -1]
+      a(n0) = (1/2) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -39, h = 4, n0 = 120 (data/b717_coeffs.txt :16): 2^3 split g^3 (order 4): R_j = [4, 0, -4, -0] ; 3^1 ram g^2 (order 2): R_j = [1, -1, 1, -1] ; 5^1 split g^1 (order 4): R_j = [2, 0, -2, -0]
+      a(n0) = (1/4) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -20, h = 2, n0 = 36 (data/b719_coeffs.txt :16): 2^2 ram g^1 (order 2): R_j = [1, 1] ; 3^2 split g^1 (order 2): R_j = [3, 3]
+      a(n0) = (1/2) SUM_j PROD = 3.0 ; (a*a)(n0) = 16.0 ; the pair sum 10.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b -8.0 -- FAILS AS WANTED
+  D = -47, h = 5, n0 = 168 (data/b719_coeffs.txt :24): 2^3 split g^4 (order 5): R_j = [4, -1, -1, -1, -1] ; 3^1 split g^2 (order 5): R_j = [2, -1.61803, 0.618034, 0.618034, -1.61803] ; 7^1 split g^4 (order 5): R_j = [2, 0.618034, -1.61803, -1.61803, 0.618034]
+      a(n0) = (1/5) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -35, h = 2, n0 = 135 (data/b720_coeffs.txt): 3^3 split g^1 (order 2): R_j = [4, -4] ; 5^1 ram g^1 (order 2): R_j = [1, -1]
+      a(n0) = (1/2) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 3 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -40, h = 2, n0 = 100 (data/b720_coeffs.txt): 2^2 ram g^1 (order 2): R_j = [1, 1] ; 5^2 ram g^1 (order 2): R_j = [1, 1]
+      a(n0) = (1/2) SUM_j PROD = 1.0 ; (a*a)(n0) = 5.0 ; the pair sum 3.0 ; b(n0) = 2a - (a*a)/2 = a - pair/2 = -0.5 -- AS WANTED (-1/2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b -2.0 -- FAILS AS WANTED
+
+## STEP (5): WHAT THE GROUP FIXES -- the minimal negative shapes at Omega 4 and 5 by exponent pattern (tools/b718_abstract.py), b719`s census re-run
+  C2       Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2
+  C3       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (3, 2): -4 ; Omega 5 (4, 1): -2
+  C4       Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -32, -16, -8, -4 ; Omega 5 (2, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 5 (2, 2, 1): -16, -8, -4, -2 ; Omega 5 (3, 1, 1): -4, -2 ; Omega 5 (3, 2): -4
+  C5       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (1, 1, 1, 1, 1): -6 ; Omega 5 (2, 1, 1, 1): -6, -2 ; Omega 5 (2, 2, 1): -4, -2 ; Omega 5 (3, 1, 1): -2
+  C6       Omega 4 (1, 1, 1, 1): -32, -16, -8, -6, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -32, -16, -12, -8, -6, -4 ; Omega 5 (2, 1, 1, 1): -16, -8, -6, -4, -2 ; Omega 5 (2, 2, 1): -2 ; Omega 5 (3, 1, 1): -4 ; Omega 5 (3, 2): -4 ; Omega 5 (4, 1): -2
+  C7       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (1, 1, 1, 1, 1): -6 ; Omega 5 (2, 1, 1, 1): -6, -2 ; Omega 5 (2, 2, 1): -4, -2 ; Omega 5 (3, 1, 1): -2
+  C2 x C2  Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -64, -32, -16, -8, -4, -2 ; Omega 5 (2, 1, 1, 1): -32, -16, -8, -4, -2, -1 ; Omega 5 (3, 1, 1): -8, -4, -2
+  values other than -2 in all seven groups, as b719 read: True
+
+## STEP (6): THE STEP TAKEN -- C2 AT OMEGA 4 IN CLOSED FORM: a = tau_s(n) [Omega even] ; P = SUM_{d | n, Omega(d) = 2} tau_s(d) tau_s(n/d) ; b = a - P/2
+  (every prime non-principal, its ideals in the class g of order 2; no factorization into three or more parts with a != 0 at Omega 4: each part needs even Omega >= 2)
+  CHECK: the closed form against the group-ring model (tools/b718_abstract.py b_lattice, pair_sum) at all 20 rows: mismatches 0 [] ; PLANT tau counting a ramified prime as (e + 1): mismatches 14 -- AS WANTED, FAILS AS WANTED
+    S^4                    a  5 ; P   9 ; b = 5 - 9/2 = 1/2   
+    R^4                    a  1 ; P   1 ; b = 1 - 1/2 = 1/2   
+    S^3 . S                a  8 ; P  24 ; b = 8 - 24/2 = -4    MINIMAL NEGATIVE
+    S^3 . R                a  4 ; P  12 ; b = 4 - 12/2 = -2    MINIMAL NEGATIVE
+    R^3 . S                a  2 ; P   4 ; b = 2 - 4/2 = 0     
+    R^3 . R                a  1 ; P   2 ; b = 1 - 2/2 = 0     
+    S^2 . S^2              a  9 ; P  34 ; b = 9 - 34/2 = -8    MINIMAL NEGATIVE
+    R^2 . S^2              a  3 ; P  10 ; b = 3 - 10/2 = -2    MINIMAL NEGATIVE
+    R^2 . R^2              a  1 ; P   3 ; b = 1 - 3/2 = -1/2  MINIMAL NEGATIVE
+    S^2 . S . S            a 12 ; P  56 ; b = 12 - 56/2 = -16   MINIMAL NEGATIVE
+    S^2 . R . S            a  6 ; P  28 ; b = 6 - 28/2 = -8    MINIMAL NEGATIVE
+    S^2 . R . R            a  3 ; P  14 ; b = 3 - 14/2 = -4    MINIMAL NEGATIVE
+    R^2 . S . S            a  4 ; P  16 ; b = 4 - 16/2 = -4    MINIMAL NEGATIVE
+    R^2 . R . S            a  2 ; P   8 ; b = 2 - 8/2 = -2    MINIMAL NEGATIVE
+    R^2 . R . R            a  1 ; P   4 ; b = 1 - 4/2 = -1    MINIMAL NEGATIVE
+    S . S . S . S          a 16 ; P  96 ; b = 16 - 96/2 = -32   MINIMAL NEGATIVE
+    R . S . S . S          a  8 ; P  48 ; b = 8 - 48/2 = -16   MINIMAL NEGATIVE
+    R . R . S . S          a  4 ; P  24 ; b = 4 - 24/2 = -8    MINIMAL NEGATIVE
+    R . R . R . S          a  2 ; P  12 ; b = 2 - 12/2 = -4    MINIMAL NEGATIVE
+    R . R . R . R          a  1 ; P   6 ; b = 1 - 6/2 = -2    MINIMAL NEGATIVE
+  THE MINIMAL NEGATIVE SHAPES OF VALUE -2: R . R . R . R, R^2 . R . S, R^2 . S^2, S^3 . R ; OF ANOTHER VALUE: R . R . R . S (-4), R . R . S . S (-8), R . S . S . S (-16), R^2 . R . R (-1), R^2 . R^2 (-1/2), R^2 . S . S (-4), S . S . S . S (-32), S^2 . R . R (-4), S^2 . R . S (-8), S^2 . S . S (-16), S^2 . S^2 (-8), S^3 . S (-4)
+  THE TWO CONFIGURATIONS IN C2: S^3 . R (2 split, -15`s 2^3 . 3): a = 4, P = 12, b = 4 - 12/2 = -2 ; R^2 . S^2 (2 ramified, -20`s 2^2 . 3^2): a = 3,
+  P = 10, b = 3 - 10/2 = -2 ; AND THE THIRD, R^2 . R^2 (two ramified primes): a = 1, P = 3, b = 1 - 3/2 = -1/2 -- READ FROM THE TABLE: True
+
+## STEP (7): THE INSTANCES READ BY THE TABLE
+  D = -15 (C2): n0 = 24 = 2^3 . 3^1, the shape S^3 . R, the table`s value -2, banked -2 -- EQUAL
+  D = -20 (C2): n0 = 36 = 2^2 . 3^2, the shape R^2 . S^2, the table`s value -2, banked -2 -- EQUAL
+  D = -35 (C2): n0 = 135 = 3^3 . 5^1, the shape S^3 . R, the table`s value -2, banked -2 -- EQUAL
+      the least bad primes: split [3, 13, 17, 47], ramified [5, 7] (D`s ramified primes are its divisors alone) ; the least instance of each minimal negative Omega-4 shape: S^3 . R 135 (b -2) ; R^2 . S^2 225 (b -2) ; S^2 . R . R 315 (b -4) ; S^3 . S 351 (b -4) ; R^2 . R . S 525 (b -2) ; S^2 . R . S 585 (b -8) ; R^2 . S . S 975 (b -4) ; R^2 . R^2 1225 (b -1/2) ; R . R . S . S 1365 (b -8) ; S^2 . S^2 1521 (b -8) ; S^2 . S . S 1989 (b -16) ; R . S . S . S 3315 (b -16) ; S . S . S . S 31161 (b -32) ; THE LEAST S^3 . R = 135 (b -2), the computed n0 135 -- EQUAL
+  D = -40 (C2): n0 = 100 = 2^2 . 5^2, the shape R^2 . R^2, the table`s value -1/2, banked -1/2 -- EQUAL
+      the least bad primes: split [7, 13, 23, 37], ramified [2, 5] (D`s ramified primes are its divisors alone) ; the least instance of each minimal negative Omega-4 shape: R^2 . R^2 100 (b -1/2) ; R^2 . R . S 140 (b -2) ; R^2 . S^2 196 (b -2) ; R^2 . S . S 364 (b -4) ; S^2 . R . R 490 (b -4) ; S^3 . R 686 (b -2) ; R . R . S . S 910 (b -8) ; S^2 . R . S 1274 (b -8) ; R . S . S . S 4186 (b -16) ; S^3 . S 4459 (b -4) ; S^2 . S^2 8281 (b -8) ; S^2 . S . S 14651 (b -16) ; S . S . S . S 77441 (b -32) ; THE LEAST R^2 . R^2 = 100 (b -1/2), the computed n0 100 -- EQUAL
+
+## THE GRADE
+  (0) the navigator`s recomputation reproduced at the five: a(n0) = 4 and the pair sum 12 where 2 splits, 3 and 10 at -20, no factorization
+  into three or more nonzero parts at any. (1)-(3) b719`s identities, checked again at seven discriminants. (4) b(n0) evaluated at the seven:
+  -2 at six, -1/2 at -40.
+  THEOREM, WITH ITS HYPOTHESES (a written proof, each step checked; nothing compiled): in Cl(K) = C2, at a bad-supported n with Omega(n) = 4
+  and every prime of n non-principal, a(n) = tau_s(n) and b(n) = a(n) - P(n)/2 in closed form (step (6), the table of 20 rows equal to the
+  group-ring model). Of its minimal negative shapes, those of value -2 are R . R . R . R, R^2 . R . S, R^2 . S^2, S^3 . R; the others R . R . R . S (-4), R . R . S . S (-8), R . S . S . S (-16), R^2 . R . R (-1), R^2 . R^2 (-1/2), R^2 . S . S (-4), S . S . S . S (-32), S^2 . R . R (-4), S^2 . R . S (-8), S^2 . S . S (-16), S^2 . S^2 (-8), S^3 . S (-4).
+  The two configurations are rows of the table -- S^3 . R, 4 - 12/2, and R^2 . S^2, 3 - 10/2 -- so the derivation`s -2 holds for both as a
+  theorem in C2 at Omega 4; and the same table gives -40`s value: R^2 . R^2, 1 - 3/2 = -1/2. At -40 the ramified primes are 2 and 5 alone, the
+  least split bad prime 7, and 2^2 . 5^2 = 100 is the least instance of any minimal negative Omega-4 shape (step (7)); at -35 it is 3^3 . 5 = 135.
+  At -23 (C3), -39 (C4) and -47 (C5), where 2 splits at Omega 5, the values a = 4, P = 12 are evaluated at the instances (step (4)), not
+  derived as a table: THE STEP THAT REMAINS THERE, NAMED -- the closed form of a and P over a cyclic group of order h > 2 at the shapes
+  p^4 q, p^3 q r (the turns of step (1) give them; the table is not written).
+  CLAUSE 1 (b(n0) = -2) IS REFUTED AT -40 (data/b720_coeffs.txt) and is not a theorem: which shape n0 instantiates is decided by the sizes of
+  the least bad primes of each kind; in C2 with Omega(n0) = 4, b(n0) = -2 exactly when n0`s shape is one of the 4 rows of value -2 above.
+  Clause 2 holds at the seven.
+
+### ### **CHECKS 5 STEPS x 7 DISCRIMINANTS AND THE C2 TABLE: ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE: THE -2 OF BOTH CONFIGURATIONS A THEOREM IN C2 AT OMEGA 4 WITH ITS HYPOTHESES, -40`S -1/2 FROM THE SAME TABLE ; CLAUSE 1 REFUTED AT -40 ; THE STEP THAT REMAINS AT h > 2 NAMED ; 29 s.**
