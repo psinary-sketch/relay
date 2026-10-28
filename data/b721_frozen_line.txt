@@ -1,0 +1,282 @@
+b721 -- (R331)(7)(i): THE FROZEN LINE`S STATEMENTS QUOTED AT THEIR PINS, GRADED AT E0, AND EVERY README SENTENCE AND GITHUB
+DESCRIPTION GRADED AGAINST THEM (2026-10-28T14:23:05Z)
+
+### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+### (the rule in full: relay tools/e0_rule.py RULE_TEXT, unedited)
+
+### THE SENTENCE VOCABULARY, printed before any sentence is graded (the seat`s, for (R331)(7)(i); E0 grades the statements, these grade
+### the sentences against them):
+###   STATED   -- what the sentence asserts of the kernel is the content of a compiled statement at the pin: its binders and conclusion,
+###               names and glosses aside.
+###   EXCEEDS  -- the sentence asserts of the kernel more than any compiled statement`s binders and conclusion carry: an object the
+###               statements do not name (zeta, xi, RH, an eigenvalue, a functional equation), a consequence they do not draw, or a
+###               definition`s name read as its content.
+###   OUTSIDE  -- the sentence speaks of a document, path, deposit or result outside the kernel, not of what it compiles.
+###   SCOPE    -- a non-claim (what the kernel does not do or claim), consistent with the statements.
+###   NO CLAIM -- a heading, author line, build or toolchain line, licence or disclosure.
+
+## THE CONTROLS, BEFORE ANY STATEMENT
+  (C1) E0`s own self-test (e0_rule.self_test, both polarities): PASSES -- AS WANTED
+  (C2) PLANT: a header with a premise binder (h : RiemannHypothesis) grades INTERFACES -- INTERFACES, AS WANTED
+  (C3) NEG: archimedean_forces_half sought in SIDE-frobenius`s Indicial.lean at 2efe9f2: yield 0 -- ABSENT, AS WANTED
+
+## SIDE-archimedean at v0.1.0 = 8019d9d (8019d9dfee87; tags at the pin ['v0.1.0']), SIDEArchimedean/Reflection.lean
+  THE STATEMENT, SIDEArchimedean/Reflection.lean :60 (yield 1):
+    theorem archimedean_forces_half (σ : ℚ) (h : fe_reflect σ = σ) : σ = 1 / 2
+    E0: DERIVES -- domain conditions only: h : fe_reflect σ = σ
+  THE README at HEAD fcecc45 (39 lines; equal to the pin`s: True), every sentence:
+    1.1   NO CLAIM | # SIDE-archimedean
+    3.1   EXCEEDS  | Lean 4 kernel — the Archimedean / √ **identification** of sigma = 1/2.
+          names a sqrt / theta structure no statement compiles; the statements are rational arithmetic in sigma : Q
+    5.1   NO CLAIM | (the author line, graded and not quoted)
+    7.1   NO CLAIM | ## What it proves
+    9.1   OUTSIDE  | The Archimedean path (CRITICAL RESOLVE Path One; A Place to Stand, the √ mechanism and Focus) reaches sigma = 1/2 through the theta transformation and the functional equation.
+          the path, outside the kernel
+    9.2   EXCEEDS  | This kernel verifies the algebraic core:
+          calls the compiled arithmetic the algebraic core of the theta/FE path; that relation is asserted, not compiled
+    11.1  EXCEEDS  | - `theta_weight_doubles_to_one` — the √ factor in theta(-1/tau) = sqrt(-i tau)*theta(tau) carries weight 1/2; doubling returns the FE period 1.
+          theta_weight is the definition 1/2 and the theorem 2 * (1/2) = 1; theta(-1/tau), sqrt(-i tau) and an FE period are the definition`s name read as content
+          `theta_weight_doubles_to_one` at the pin :30 -- theorem theta_weight_doubles_to_one : 2 * theta_weight = 1
+    12.1  STATED   | - `fe_reflect_fixed_iff` — the functional-equation reflection sigma to 1-sigma has its unique fixed point at sigma = 1/2.
+          fe_reflect_fixed_iff: (1 - sigma = sigma) iff sigma = 1/2 over Q; "functional-equation" a name
+          `fe_reflect_fixed_iff` at the pin :37 -- theorem fe_reflect_fixed_iff (σ : ℚ) : fe_reflect σ = σ ↔ σ = 1 / 2
+    13.1  EXCEEDS  | - `focus_codim_eq_one_iff` — Focus: at sigma = 1/2 the zero-codimension drops from 2 to 1 (xi real on the line).
+          focus_codim is defined as 1 at sigma = 1/2 and 2 elsewhere; no zero, no codimension, no xi is compiled
+          `focus_codim_eq_one_iff` at the pin :48 -- theorem focus_codim_eq_one_iff (σ : ℚ) : focus_codim σ = 1 ↔ σ = 1 / 2
+    14.1  STATED   | - `archimedean_identifies_half` — the FE fixed point and the Focus point coincide.
+          archimedean_identifies_half: the two defined conditions coincide, as the definitions make them
+          `archimedean_identifies_half` at the pin :54 -- theorem archimedean_identifies_half (σ : ℚ) : fe_reflect σ = σ ↔ focus_codim σ = 1
+    15.1  EXCEEDS  | - `archimedean_forces_half` — the headline: the Archimedean FE structure forces sigma = 1/2.
+          the statement: sigma : Q, 1 - sigma = sigma gives sigma = 1/2; no FE structure enters it
+          `archimedean_forces_half` at the pin :60 -- theorem archimedean_forces_half (σ : ℚ) (h : fe_reflect σ = σ) : σ = 1 / 2
+    17.1  NO CLAIM | ## What it does NOT claim
+    19.1  OUTSIDE  | An **identification kernel** — same status as Voice1 (Euler balance), Voice6 (spectral), and SIDE-frobenius (indicial).
+          a status comparison with other kernels
+    19.2  EXCEEDS  | It verifies the Archimedean machinery *points at* sigma = 1/2.
+          no Archimedean machinery (theta, FE) is compiled; the fixed point of sigma -> 1 - sigma is
+    19.3  SCOPE    | It does **not** prove RH on its own; that requires the exhaustive mechanism catalogue (Ostrowski + Conservation).
+          a non-claim, consistent
+    21.1  NO CLAIM | ## Federation context
+    23.1  OUTSIDE  | Checkpoint 1.2-A in the alternative-proof-paths census (`PATHS_TO_THE_CRITICAL_LINE`), filed within the Phase 1.5 wave.
+          the census
+    23.2  OUTSIDE  | Independent federated kernel: own toolchain pin, own Mathlib pin, own deposit.
+          federation metadata
+    23.3  OUTSIDE  | Mathlib-dependent (pinned v4.29.1, reusing the federation cache).
+          the Mathlib pin, build metadata
+    25.1  NO CLAIM | ## Build
+    27.1  NO CLAIM | lake exe cache get
+    28.1  NO CLAIM | lake build
+    29.1  NO CLAIM | lake env lean AxiomCheck.lean
+    31.1  NO CLAIM | Toolchain leanprover/lean4:v4.29.1; Mathlib pinned v4.29.1.
+    33.1  NO CLAIM | ## License
+    35.1  NO CLAIM | MIT.
+    37.1  NO CLAIM | ## AI disclosure
+    39.1  NO CLAIM | *Computational workflow assisted by various LLM instances.
+    39.2  NO CLAIM | Mathematical content, proof strategies, and editorial decisions are the author's.*
+  THE GITHUB DESCRIPTION (gh repo view psinary-sketch/SIDE-archimedean): "Lean 4 kernel - Archimedean/sqrt identification of sigma=1/2 (Phase 1.5 checkpoint 1.2-A)"
+    EXCEEDS  | as README 3.1: a sqrt / theta structure no statement compiles
+
+## SIDE-frobenius at v0.1.0 = 2efe9f2 (2efe9f2f8655; tags at the pin ['v0.1.0']), SIDEFrobenius/Indicial.lean
+  THE STATEMENT, SIDEFrobenius/Indicial.lean :54 (yield 1):
+    theorem indicial_forces_half (r : ℚ) (h : r ^ 2 + r + 1 / 4 = 0) : -r = 1 / 2
+    E0: DERIVES -- domain conditions only: h : r ^ 2 + r + 1 / 4 = 0
+  THE README at HEAD 2efe9f2 (37 lines; equal to the pin`s: True), every sentence:
+    1.1   NO CLAIM | # SIDE-frobenius
+    3.1   STATED   | Lean 4 kernel — the Frobenius / {2,3} indicial **identification** of sigma = 1/2.
+          the indicial polynomial`s double root and g(2,3) are compiled; indicial_forces_half concludes -r = 1/2
+    5.1   NO CLAIM | (the author line, graded and not quoted)
+    7.1   NO CLAIM | ## What it proves
+    9.1   OUTSIDE  | The Frobenius path (Berry-Keating H = xp; FROBENIUS_23_SPECTRAL_REALIZATION; CRITICAL RESOLVE Path Three) reaches sigma = 1/2 through singular-point analysis.
+          the path, outside the kernel
+    9.2   STATED   | This kernel verifies the algebraic core of that identification:
+          the listed algebra is compiled; its derivation from H = xp is not (the polynomial enters as a polynomial)
+    11.1  STATED   | - `indicial_factor` / `indicial_root_unique` — the indicial polynomial r^2 + r + 1/4 = (r + 1/2)^2 has the unique double root r = -1/2.
+          indicial_factor and indicial_root_unique, as stated
+          `indicial_factor` at the pin :29 -- theorem indicial_factor (r : ℚ) : r ^ 2 + r + 1 / 4 = (r + 1 / 2) ^ 2
+          `indicial_root_unique` at the pin :32 -- theorem indicial_root_unique (r : ℚ) : r ^ 2 + r + 1 / 4 = 0 ↔ r = -1 / 2
+    12.1  STATED   | - `indicial_reflect_fixed_iff` / `indicial_forces_half` — the indicial reflection r ↦ -1-r has its unique fixed point at r = -1/2, mapping (sigma = -r) to sigma = 1/2.
+          indicial_reflect_fixed_iff, and indicial_forces_half: r^2 + r + 1/4 = 0 gives -r = 1/2
+          `indicial_reflect_fixed_iff` at the pin :49 -- theorem indicial_reflect_fixed_iff (r : ℚ) : indicial_reflect r = r ↔ r = -1 / 2
+          `indicial_forces_half` at the pin :54 -- theorem indicial_forces_half (r : ℚ) (h : r ^ 2 + r + 1 / 4 = 0) : -r = 1 / 2
+    13.1  STATED   | - `g_two_three` / `g_two_three_minimal` — Sylvester Frobenius number g(2,3) = 2*3-2-3 = 1, unique among pairs 2 ≤ a < b (excluding {2,3}, the value is ≥ 2).
+          g_two_three and g_two_three_minimal, as stated
+          `g_two_three` at the pin :65 -- theorem g_two_three : frobenius_number 2 3 = 1
+          `g_two_three_minimal` at the pin :68 -- theorem g_two_three_minimal (a b : ℤ) (ha : 2 ≤ a) (hb : a < b) (hne : ¬ (a = 2 ∧ b = 3)) : 2 ≤ frobenius_number a b
+    14.1  STATED   | - `S_squared` / `ST_cubed` — the modular {2,3} order signature: S^2 = -I, (ST)^3 = -I in SL2(Z) (orders 2 and 3 in PSL2).
+          S_squared and ST_cubed over integer matrices; PSL2 a gloss
+          `S_squared` at the pin :95 -- theorem S_squared : Smat * Smat = -1
+          `ST_cubed` at the pin :98 -- theorem ST_cubed : (Smat * Tmat) ^ 3 = -1
+    16.1  NO CLAIM | ## What it does NOT claim
+    18.1  OUTSIDE  | This is an **identification kernel** — the same status as Voice1 (Euler balance) and Voice6 (spectral self-adjointness) in SIDE-kernel.
+          a status comparison with other kernels
+    18.2  STATED   | It verifies that the Frobenius / indicial machinery *points at* sigma = 1/2.
+          the indicial algebra compiled concludes -r = 1/2
+    18.3  SCOPE    | It does **not** verify the Berry-Keating spectral realization — that the operator spectrum *equals* the Riemann zeros — which is a conjecture, not a theorem, and is not asserted here.
+          a non-claim, consistent
+    20.1  NO CLAIM | ## Federation context
+    22.1  OUTSIDE  | Checkpoint 1.2-B in the alternative-proof-paths census (`PATHS_TO_THE_CRITICAL_LINE`), filed within the Phase 1.5 wave.
+          the census
+    22.2  OUTSIDE  | Independent federated kernel: own toolchain pin, own Mathlib pin, own deposit.
+          federation metadata
+    22.3  OUTSIDE  | Mathlib-dependent (matching SIDE-grh-transfer pin v4.29.1) because the content is rational / nonlinear algebra where ring / linarith / nlinarith / decide give clean proofs.
+          the Mathlib pin and the tactics, build metadata
+    24.1  NO CLAIM | ## Build
+    25.1  NO CLAIM | lake exe cache get
+    26.1  NO CLAIM | lake build
+    27.1  OUTSIDE  | lake env lean AxiomCheck.lean   # each theorem: [propext, Classical.choice, Quot.sound]
+          an axiom print, not read here (no lean on the host); (7)(iii)`s rebuild runs AxiomCheck.lean
+    29.1  NO CLAIM | Toolchain leanprover/lean4:v4.29.1; Mathlib pinned v4.29.1.
+    31.1  NO CLAIM | ## License
+    33.1  NO CLAIM | MIT.
+    35.1  NO CLAIM | ## AI disclosure
+    37.1  NO CLAIM | *Computational workflow assisted by various LLM instances.
+    37.2  NO CLAIM | Mathematical content, proof strategies, and editorial decisions are the author's.*
+  THE GITHUB DESCRIPTION (gh repo view psinary-sketch/SIDE-frobenius): "Lean 4 kernel - Frobenius/{2,3} indicial identification of sigma=1/2 (Phase 1.5 checkpoint 1.2-B)"
+    STATED   | as README 3.1: the indicial algebra and {2,3} compiled
+
+## SIDE-spinor at v0.1.0 = b235bc6 (b235bc6235b5; tags at the pin ['v0.1.0']), SIDESpinor/Spinor.lean
+  THE STATEMENT, SIDESpinor/Spinor.lean :70 (yield 1):
+    theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0
+    E0: DERIVES -- domain conditions only: h : Complex.I * w = w
+  THE STATEMENT, SIDESpinor/Spinor.lean :75 (yield 1):
+    theorem half_iff_centered_zero (σ : ℝ) : σ = 1 / 2 ↔ σ - 1 / 2 = 0
+    E0: DERIVES -- no hypothesis binder
+  THE README at HEAD 7e570ee (40 lines; equal to the pin`s: True), every sentence:
+    1.1   NO CLAIM | # SIDE-spinor
+    3.1   EXCEEDS  | Lean 4 kernel — the Spinor / Information **identification** of sigma = 1/2.
+          no spinor or information object is compiled; the statements are Complex.I * w = w gives w = 0, and sigma = 1/2 iff sigma - 1/2 = 0
+    5.1   NO CLAIM | (the author line, graded and not quoted)
+    7.1   NO CLAIM | ## What it proves
+    9.1   OUTSIDE  | The Spinor/Information path (Paper 020; IDENTITY_SUBSPACE_PAPER; THE_SPINOR_CALIBRATION) reaches sigma = 1/2 through the phase-invariant Hermitian observable M = vv-dagger on C^7.
+          the path, outside the kernel
+    9.2   EXCEEDS  | This kernel verifies the algebraic core:
+          calls the compiled facts the algebraic core of the M = vv-dagger path; M is not compiled
+    11.1  EXCEEDS  | - `spectral_volume` — the squared magnitudes |v_n|^2 = |n| over n in {-3..3} sum to 12 = ||v||^2, the unique nonzero eigenvalue of M.
+          spectral_volume: a list [3,2,1,0,1,2,3] sums to 12; no v, no norm, no M, no eigenvalue is compiled
+          `spectral_volume` at the pin :29 -- theorem spectral_volume : v_sqmag.sum = 12
+    12.1  STATED   | - `aperture_decomp` / `aperture` — bright 1 + dark 6 = total 7; aperture = 1/7.
+          aperture_decomp and aperture: the defined 1 + 6 = 7 and 1/7
+          `aperture_decomp` at the pin :37 -- theorem aperture_decomp : bright_dim + dark_dim = total_dim
+          `aperture` at the pin :39 -- theorem aperture : (bright_dim : ℚ) / total_dim = 1 / 7
+    13.1  EXCEEDS  | - `phase_unit` — |i|^2 = 1, the fact that makes M = vv-dagger invariant under the quarter-twist v to iv.
+          phase_unit: normSq I = 1 is compiled; the invariance of M = vv-dagger it is said to make is not
+          `phase_unit` at the pin :46 -- theorem phase_unit : Complex.normSq Complex.I = 1
+    14.1  STATED   | - `spinor_sq` / `spinor_order_four` — T^2 = -I and T^4 = I: the spinor signature (720-degree return).
+          spinor_sq and spinor_order_four: I^2 = -1, I^4 = 1 in C; "T", "720-degree" glosses
+          `spinor_sq` at the pin :50 -- theorem spinor_sq : Complex.I ^ 2 = -1
+          `spinor_order_four` at the pin :52 -- theorem spinor_order_four : Complex.I ^ 4 = 1
+    15.1  EXCEEDS  | - `orbit_collapse_iff` / `spinor_forces_half` — the quarter-twist w to iw fixes only w = 0; in the centered coordinate w = s - 1/2 this is sigma = 1/2.
+          orbit_collapse_iff: I * w = w iff w = 0 is compiled; "w = s - 1/2 ... this is sigma = 1/2" is not: no s appears, and w = 0 for complex w would fix t as well as sigma
+          `orbit_collapse_iff` at the pin :60 -- theorem orbit_collapse_iff (w : ℂ) : Complex.I * w = w ↔ w = 0
+          `spinor_forces_half` at the pin :70 -- theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0
+    16.1  STATED   | - `half_iff_centered_zero` — the centered-coordinate link sigma = 1/2 iff sigma - 1/2 = 0.
+          half_iff_centered_zero, as stated (a real sigma, no hypothesis)
+          `half_iff_centered_zero` at the pin :75 -- theorem half_iff_centered_zero (σ : ℝ) : σ = 1 / 2 ↔ σ - 1 / 2 = 0
+    18.1  NO CLAIM | ## What it does NOT claim
+    20.1  OUTSIDE  | An **identification kernel** — same status as Voice1/Voice6/SIDE-frobenius/SIDE-archimedean.
+          a status comparison with other kernels
+    20.2  EXCEEDS  | It verifies the phase-invariant orbit-collapse *points at* sigma = 1/2.
+          the orbit collapse is compiled at w = 0; its link to sigma is not (half_iff_centered_zero binds an unrelated real)
+    20.3  SCOPE    | It does **not** claim the Hilbert-Polya spectral realization (operator spectrum = Riemann zeros), which is a conjecture; nor does it prove RH alone.
+          a non-claim, consistent
+    22.1  NO CLAIM | ## Federation context
+    24.1  OUTSIDE  | Checkpoint 1.2-C in the alternative-proof-paths census (`PATHS_TO_THE_CRITICAL_LINE`), filed within the Phase 1.5 wave.
+          the census
+    24.2  OUTSIDE  | Independent federated kernel: own toolchain pin, own Mathlib pin, own deposit.
+          federation metadata
+    24.3  OUTSIDE  | Mathlib-dependent (pinned v4.29.1, reusing the federation cache).
+          the Mathlib pin, build metadata
+    26.1  NO CLAIM | ## Build
+    28.1  NO CLAIM | lake exe cache get
+    29.1  NO CLAIM | lake build
+    30.1  NO CLAIM | lake env lean AxiomCheck.lean
+    32.1  NO CLAIM | Toolchain leanprover/lean4:v4.29.1; Mathlib pinned v4.29.1.
+    34.1  NO CLAIM | ## License
+    36.1  NO CLAIM | MIT.
+    38.1  NO CLAIM | ## AI disclosure
+    40.1  NO CLAIM | *Computational workflow assisted by various LLM instances.
+    40.2  NO CLAIM | Mathematical content, proof strategies, and editorial decisions are the author's.*
+  THE GITHUB DESCRIPTION (gh repo view psinary-sketch/SIDE-spinor): "Lean 4 kernel - Spinor/Information identification of sigma=1/2 (Phase 1.5 checkpoint 1.2-C)"
+    EXCEEDS  | as README 3.1: no spinor or information object compiled
+
+## SIDE-rcurve at v0.1.0 = d5f33b4 (d5f33b44ef7b; tags at the pin ['v0.1.0']), SIDERCurve/Criterion.lean
+  THE STATEMENT, SIDERCurve/Criterion.lean :31 (yield 1):
+    theorem monotone_unique_zero {V : ℝ → ℝ} (hV : StrictMono V) {a b : ℝ} (ha : V a = 0) (hb : V b = 0) : a = b
+    E0: INTERFACES -- hV : StrictMono V
+    BESIDE IT, THE SEAT`S READING (not a grade; e0_rule.py not edited): StrictMono V restricts V, a variable the statement binds universally ({V : R -> R}); under (R235)(2)(iii) (a restriction on a universally quantified variable: support, parity, smoothness, continuity, ...) it would read as a domain condition and the statement DERIVES, but StrictMono is not among the rule`s listed restrictions, and the rule returns INTERFACES. The divergence is printed for the author; the rule`s grade stands.
+  THE README at HEAD 54c9040 (43 lines; equal to the pin`s: True), every sentence:
+    1.1   NO CLAIM | # SIDE-rcurve
+    3.1   EXCEEDS  | Lean 4 kernel — the R-Curve **equivalence engine**, checkpoint 1.2-D.
+          no equivalence is compiled; the statements are lemmas on a strictly monotone real function and real algebra
+    5.1   NO CLAIM | (the author line, graded and not quoted)
+    7.1   NO CLAIM | ## What it proves
+    9.1   EXCEEDS  | Verifies the structural/logical core of the **proven** Equivalence Chain (R_CURVE_CRITERION_v0_1, consolidating P22 Phases 1-66): RH iff V strictly monotone on every R-curve in {sigma > 1/2}.
+          no RH, no R-curve, no xi and no equivalence is compiled; "proven" is a status outside the kernel
+    11.1  EXCEEDS  | - `monotone_unique_zero` / `second_zero_breaks_monotone` — the decisive (ii) implies (i) step: a strictly monotone V has at most one zero, so a second (off-line) zero is impossible.
+          monotone_unique_zero: a strictly monotone V vanishes at most once, compiled; "(ii) implies (i)" and "a second (off-line) zero is impossible" are not
+          `monotone_unique_zero` at the pin :31 -- theorem monotone_unique_zero {V : ℝ → ℝ} (hV : StrictMono V) {a b : ℝ} (ha : V a = 0) (hb : V b = 0) : a = b
+          `second_zero_breaks_monotone` at the pin :71 -- theorem second_zero_breaks_monotone {V : ℝ → ℝ} (hV : StrictMono V) {e x : ℝ} (he : V e = 0) (hx : V x = 0) (hne : x ≠ e) : False
+    12.1  EXCEEDS  | - `monotonicity_formula` — the Monotonicity Formula shape V' = |xi'|^2 / beta = (alpha^2 + beta^2)/beta.
+          monotonicity_formula: alpha^2/beta + beta = (alpha^2 + beta^2)/beta for beta != 0; V`, xi` and |xi`|^2/beta are not compiled
+          `monotonicity_formula` at the pin :37 -- theorem monotonicity_formula (α β : ℝ) (hβ : β ≠ 0) : α ^ 2 / β + β = (α ^ 2 + β ^ 2) / β
+    13.1  STATED   | - `beta_V_re` — the Beta-V identity Re(xi'/xi) = beta/V on the curve (xi = iV).
+          beta_V_re: Re((alpha + beta i)/(V i)) = beta/V for V != 0; "xi`/xi", "xi = iV" names
+          `beta_V_re` at the pin :42 -- theorem beta_V_re (α β V : ℝ) (hV : V ≠ 0) : ((↑α + ↑β * Complex.I) / (↑V * Complex.I)).re = β / V
+    14.1  EXCEEDS  | - `singular_repulsion` — positive numerator over positive beta gives positive V': the R-curve is repelled from V = 0.
+          singular_repulsion: 0 < n, 0 < beta give 0 < n/beta; the repulsion of an R-curve is not compiled
+          `singular_repulsion` at the pin :52 -- theorem singular_repulsion (n β : ℝ) (hn : 0 < n) (hβ : 0 < β) : 0 < n / β
+    15.1  EXCEEDS  | - `online_zero_codim_one` / `offline_zero_codim_two` — an on-line zero is codimension 1 (V = 0); an off-line zero needs V = 0 and beta = 0 simultaneously, codimension 2.
+          zero_codim is defined as 1 or 2 by a Bool; the codimension of a zero is the definition`s name read as content
+          `online_zero_codim_one` at the pin :62 -- theorem online_zero_codim_one : zero_codim true = 1
+          `offline_zero_codim_two` at the pin :64 -- theorem offline_zero_codim_two : zero_codim false = 2
+    17.1  NO CLAIM | ## Closure status (not an open margin)
+    19.1  OUTSIDE  | The positivity Re(xi'/xi) > 0 that drives the monotonicity is **closed**, not a reach.
+          a closure status of an analytic positivity, outside the kernel
+    19.2  OUTSIDE  | The Effective Dominance Theorem (Phase-66 SIDE closure) excludes off-line zeros from the seven-class catalogue, sealed by Conservation of Spectra, so every Hadamard term is positive.
+          a theorem of another document
+    19.3  EXCEEDS  | The route shares its bottom step (off-line-zero exclusion) with the deposited SIDE proof (Zenodo 10.5281/zenodo.19938917): this kernel verifies the equivalence machinery; the deposited proof supplies the exclusion.
+          "this kernel verifies the equivalence machinery": no equivalence is compiled (the deposit named is outside)
+    19.4  OUTSIDE  | The Feb-2026 "~1% landscape margin" framing is superseded.
+          a document`s framing
+    21.1  NO CLAIM | ## What it does NOT do
+    23.1  SCOPE    | It does not re-verify the analytic Hadamard-anatomy positivity in Lean (that is the deposited proof's mechanism enumeration).
+          a non-claim, consistent
+    23.2  EXCEEDS  | It verifies the geometry-to-logic engine that connects RH to the geometric criterion.
+          no RH and no geometric criterion is compiled; nothing connects them in the kernel
+    25.1  NO CLAIM | ## Federation context
+    27.1  OUTSIDE  | Checkpoint 1.2-D in the alternative-proof-paths census (`PATHS_TO_THE_CRITICAL_LINE`), filed within the Phase 1.5 wave.
+          the census
+    27.2  OUTSIDE  | Independent federated kernel: own toolchain pin, own Mathlib pin, own deposit.
+          federation metadata
+    27.3  OUTSIDE  | Mathlib-dependent (pinned v4.29.1, reusing the federation cache).
+          the Mathlib pin, build metadata
+    29.1  NO CLAIM | ## Build
+    31.1  NO CLAIM | lake exe cache get
+    32.1  NO CLAIM | lake build
+    33.1  NO CLAIM | lake env lean AxiomCheck.lean
+    35.1  NO CLAIM | Toolchain leanprover/lean4:v4.29.1; Mathlib pinned v4.29.1.
+    37.1  NO CLAIM | ## License
+    39.1  NO CLAIM | MIT.
+    41.1  NO CLAIM | ## AI disclosure
+    43.1  NO CLAIM | *Computational workflow assisted by various LLM instances.
+    43.2  NO CLAIM | Mathematical content, proof strategies, and editorial decisions are the author's.*
+  THE GITHUB DESCRIPTION (gh repo view psinary-sketch/SIDE-rcurve): "Lean 4 kernel - R-curve equivalence engine, sigma=1/2 criterion (Phase 1.5 checkpoint 1.2-D)"
+    EXCEEDS  | as README 3.1: no equivalence and no sigma = 1/2 criterion compiled
+
+## THE TALLY
+  SIDE-archimedean: DESC EXCEEDS 1 ; EXCEEDS 6 ; NO CLAIM 15 ; OUTSIDE 5 ; SCOPE 1 ; STATED 2
+  SIDE-frobenius: DESC STATED 1 ; NO CLAIM 14 ; OUTSIDE 6 ; SCOPE 1 ; STATED 7
+  SIDE-spinor: DESC EXCEEDS 1 ; EXCEEDS 6 ; NO CLAIM 15 ; OUTSIDE 5 ; SCOPE 1 ; STATED 3
+  SIDE-rcurve: DESC EXCEEDS 1 ; EXCEEDS 8 ; NO CLAIM 16 ; OUTSIDE 6 ; SCOPE 1 ; STATED 1
+
+## THE GRADE
+  The five statements are quoted at their pins and graded by E0 as printed above. Every README sentence and description is graded
+  against them in the printed vocabulary, by the seat`s hand: a reading, not a rule; each EXCEEDS names what the sentence asserts
+  that no compiled statement carries. The drafts of (7)(ii) are written from these grades.
+
+### ### **CONTROLS ALL AS WANTED ; FIVE STATEMENTS QUOTED AT THEIR PINS ; SIDE-archimedean EXCEEDS 7, STATED 2 ; SIDE-frobenius EXCEEDS 0, STATED 8 ; SIDE-spinor EXCEEDS 7, STATED 3 ; SIDE-rcurve EXCEEDS 9, STATED 1 ; 3 s.**
