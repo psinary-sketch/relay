@@ -1,0 +1,30 @@
+b719 -- (R329)(6): THE PRIMES` CLASSES AT -20 AND -47 AND THE RULE`S PREDICTION OF n0 AND b(n0), BEFORE ANY COEFFICIENT (2026-10-28T02:39:13Z)
+
+### the rule: data/b718_derivation.txt step 7 (:109-:118) and its grade (:121-:127), read operationally as this tool`s docstring states;
+### b(n) by tools/b718_abstract.py`s group-ring model over the classes alone (no r_Q1, no coefficient of b711`s route). THE CONTROLS FIRST.
+
+### (P1) D = -23: Cl C3, axioms ALL HOLD ; bad primes <= 32532: 1173 ; the rule`s n0 48, b -2, shape p2^4 . p1^1 (wanted 48, -2; data/b718_decomp.txt) -- AS WANTED
+### (P1) D = -15: Cl C2, axioms ALL HOLD ; bad primes <= 32532: 878 ; the rule`s n0 24, b -2, shape p1^3 . r1^1 (wanted 24, -2; data/b718_decomp.txt) -- AS WANTED
+### (P1) D = -39: Cl C4, axioms ALL HOLD ; bad primes <= 32532: 1324 ; the rule`s n0 120, b -2, shape p3^3 . r2^1 . p1^1 (wanted 120, -2; data/b718_decomp.txt) -- AS WANTED
+### (P2) PLANT: at -39 the class above 2 set to the identity: the rule`s n0 1521, b -1/2 (not 120) -- FAILS AS WANTED
+### THE CONTROLS: ALL AS WANTED
+
+## D = -20: h = 2 ; Cl(K) cyclic of order 2, generator 2x^2 + 2xy + 3y^2 ; the group`s axioms ALL HOLD
+  p = 2: ram ; a prime ideal above it in the class of 2x^2 + 2xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  p = 3: split ; a prime ideal above it in the class of 2x^2 + 2xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  p = 5: ram ; a prime ideal above it in the class of 1x^2 + 5y^2 (generator^0) ; its order 1 ; GOOD (principal)
+  p = 7: split ; a prime ideal above it in the class of 2x^2 + 2xy + 3y^2 (generator^1) ; its order 2 ; BAD
+  THE RULE`S PREDICTION: n0 = 36 = 2^2 . 3^2 ; b(n0) = -2 ; a(n0) 3, the pair sum 10 ; the shape r1^2 . p1^2 ; bad primes <= 32532: 884
+  its primes: 2 ram, class generator^1 ; 3 split, class generator^1
+  24 divides the predicted n0: False
+
+## D = -47: h = 5 ; Cl(K) cyclic of order 5, generator 2x^2 - 1xy + 6y^2 ; the group`s axioms ALL HOLD
+  p = 2: split ; a prime ideal above it in the class of 2x^2 + 1xy + 6y^2 (generator^4) ; its order 5 ; BAD
+  p = 3: split ; a prime ideal above it in the class of 3x^2 + 1xy + 4y^2 (generator^2) ; its order 5 ; BAD
+  p = 5: inert
+  p = 7: split ; a prime ideal above it in the class of 2x^2 + 1xy + 6y^2 (generator^4) ; its order 5 ; BAD
+  THE RULE`S PREDICTION: n0 = 168 = 2^3 . 3^1 . 7^1 ; b(n0) = -2 ; a(n0) 4, the pair sum 12 ; the shape p4^3 . p2^1 . p4^1 ; bad primes <= 32532: 1392
+  its primes: 2 split, class generator^4 ; 3 split, class generator^2 ; 7 split, class generator^4
+  24 divides the predicted n0: True
+
+### ### **THE CONTROLS AS WANTED ; PREDICTED n0(-20) = 36, b = -2 ; PREDICTED n0(-47) = 168, b = -2 ; 9 s.**
