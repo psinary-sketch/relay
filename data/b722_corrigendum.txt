@@ -1,0 +1,69 @@
+b722 -- THE CORRIGENDUM FOR b721, (R332)(2) (2026-10-28T20:49:27Z)
+
+### the banks read unedited: data/b721_events.txt rows (1)-(15), data/b721_defects.txt 27 rows, data/b721_hook_refusals.txt 10 lines at 30c0b3c8 and b721`s line of data/b720_hook_refusals.txt; data/b722_standing_v122.txt (the v1.2.2 controls); the corrigenda bank`s last row (41).
+
+  *b721’s events bank (relay data/b721_events.txt) carries fifteen rows, entered after its lock and seal and not lettered, each tagged in its own bracket (fourteen the seat’s, event (10) the author’s); its defects bank twenty-seven lettered rows, (a)-(z) and (a’), the seat’s but (d) and (e), the navigator’s, each tagged in its own bracket; its refusal bank ten lines at b721’s closing commit 30c0b3c8, and b721’s first refusal a line of b720’s bank, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The three repairs (`(R332)`(2)), at tools/standing/ v1.2.2, each controlled on b721’s banks with both instances shown** (relay data/b722_standing_v122.txt, 12 cases, every one AS WANTED, :38):
+  
+  **(i) G-SEAL-HASHES reads its list from the seal bank** (event (11); relay data/b722_standing_v122.txt :6): the arm compared the seal bank’s tools with the worklist’s SEALED tuple, a list kept in the suite, which carried b720’s thirty-three when tools/standing/ had gained three files at v1.2.1; tools/standing/sealcheck.py takes the list from the seal bank’s own `tools` map and reads each name in the tree at its hash. On b721’s seal read at its closing commit 30c0b3c8 the old reading fails on the list alone (33 against 36) and the new reads 36 of 36 and passes; a planted name absent from the tree fails it, and so does a planted hash.
+  
+  **(ii) USED by the discriminant and by its principal form** (defect (h); relay data/b722_standing_v122.txt :15): tools/standing/used.py reads each coefficient bank in every wording b711-b721’s banks carry -- the head’s “AT -15”, “D = -20”, “n0(-35)”, a principal form written out (“x^2 + xy + 10y^2”), a principal form as a triple (“(1, 1, 6)”), and the programme’s named form Q0 -- where b721’s reader read `D = ` and `n0(` alone. Over data/b711_coeffs.txt, b713, b717, b719 and b720 it reads -15, -20, -23, -35, -39, -40 and -47 USED; the old reading read -20, -35, -40 and -47; b711’s bank with its form’s name planted away no longer yields -23, as wanted.
+  
+  **(iii) The readfirst closure reader retired** (relay data/b722_standing_v122.txt :29): from b722 data/bNNN_readfirst_closure.txt is not written and the hand list (data/bNNN_readfirst.txt) is the bank of record, as b710’s reading 5 recommended; tools/standing/readfirst.py reads the hand list present and unchanged since its first commit, and no closure bank. b721 (its closure written) fails the new reading and b722 at step zero passes; a planted closure bank beside b722’s hand list fails it; no tool of the standing set or the act calls the closure reader.
+  
+  **b721’s events (1)-(15):**
+  
+  **(1) given the face’s bare name** (relay data/b721_events.txt, row (1); the seat’s; CLOSE; REPEAT of b720 (1)).
+  **(2) AFTER THE LOCK GATE’S RECORD** (relay data/b721_events.txt, row (2); the seat’s; CLOSE; NEW).
+  **(3) `git checkout 1e3399e2 -- <the three paths>`** (relay data/b721_events.txt, row (3); the seat’s; CLOSE; NEW; the restore an edit from b722, (R332)(1)).
+  **(4) G-NOTHING-RAN-AHEAD failed on real state** (relay data/b721_events.txt, row (4); the seat’s; CLOSE; REPEAT of b720 (2)).
+  **(5) its act-root chain phase 467 s** (relay data/b721_events.txt, row (5); the seat’s; CLOSE; NEW).
+  **(6) LIVE PASSING 94** (relay data/b721_events.txt, row (6); the seat’s; CLOSE; REPEAT of b720 (5)).
+  **(7) PASS 77, FAILED AS b720 FAILED 3, DIVERGE 35** (relay data/b721_events.txt, row (7); the seat’s; CLOSE; REPEAT of b720 (6)).
+  **(8) THE SEAL REFUSED** (relay data/b721_events.txt, row (8); the seat’s; CLOSE; REPEAT of b720 (4)).
+  **(9) N4 REFUTED on one clause** (relay data/b721_events.txt, row (9); the seat’s; CLOSE; NEW; ruled at (R332)(1), the rule of relay data/b722_rules.txt (1)).
+  **(10) option 3, push both** (relay data/b721_events.txt, row (10); the author’s; CLOSE; NEW).
+  **(11) G-SEAL-HASHES failed** (relay data/b721_events.txt, row (11); the seat’s; CLOSE; REPEAT of b720 (4); repair (i)).
+  **(12) LIVE PASSING 112** (relay data/b721_events.txt, row (12); the seat’s; CLOSE; REPEAT of b720 (9)).
+  **(13) the post-push suite in seven parts** (relay data/b721_events.txt, row (13); the seat’s; CLOSE; REPEAT of b720 (13)).
+  **(14) with no limit** (relay data/b721_events.txt, row (14); the seat’s; CLOSE; REPEAT of b721 (z)).
+  **(15) CLEAN ON ALL THREE CLAUSES** (relay data/b721_events.txt, row (15); the seat’s; CLOSE; REPEAT of b720 (15)).
+  
+  **b721’s defects:**
+  
+  **(a)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(b)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(c)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (i)).
+  **(d)** (relay data/b721_defects.txt; the navigator’s; CLAIM; NEW).
+  **(e)** (relay data/b721_defects.txt; the navigator’s; CLOSE; NEW).
+  **(f)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b721_defects.txt; the seat’s; CLAIM; NEW).
+  **(h)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW; ruled at (R332)(1), repair (ii)).
+  **(i)** (relay data/b721_defects.txt; the seat’s; CLAIM; REPEAT of b720 (f)).
+  **(j)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b721_defects.txt; the seat’s; CLAIM; NEW).
+  **(l)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(m)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(o)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (j)).
+  **(p)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (b)).
+  **(q)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(r)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(s)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (j)).
+  **(t)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b721_defects.txt; the seat’s; CLAIM; NEW; G-AXIOM-CLAIM failing to the close, declared).
+  **(v)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (i)).
+  **(w)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (k)).
+  **(x)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (u)).
+  **(y)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (t)).
+  **(z)** (relay data/b721_defects.txt; the seat’s; CLOSE; NEW).
+  **(a’)** (relay data/b721_defects.txt; the seat’s; CLOSE; REPEAT of b720 (r)).
+  
+  **b721’s refusals** (relay data/b721_hook_refusals.txt at 30c0b3c8, one a line): :1 PIPE, recorded at defect (c); :2 PIPE, recorded at defect (l); :3 ENV, recorded at defect (n); :4 REDIR, recorded at defect (o); :5 PIPE, recorded at defect (q); :6 PIPE, recorded at defect (r); :7 REDIR, recorded at defect (s); :8 PIPE, recorded at defect (v); :9 READ, recorded at defect (z); :10 READ, recorded at event (14); and b721’s first, relay data/b720_hook_refusals.txt :13 PIPE, recorded at defect (a).
+  
+  **The counter:** CLAIM 5, CLOSE 37 over the 42 items of `(R332)`(2) (fifteen events, twenty-seven defects); REPEAT 24 of 42; the CLAIM items (d), (g), (i), (k), (u).
+  
+  *Filed at b722 on the author’s ruling `(R332)`(2): generated by relay `tools/b722_c1.py` corrigendum, written whole at b722, from b721’s events, defects and refusal banks read unedited and the v1.2.2 controls bank; banked as relay `data/b722_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (42). It answers b721’s record; no sealed tool, face, trail or root-named bank of b721 is edited.*
+
+### ### **ITEMS 42: EVENTS 15, DEFECTS 27 ; CLAIM 5, CLOSE 37 ; REPEAT 24 ; v1.2.2: (i) THE SEAL`S LIST FROM THE SEAL BANK, (ii) USED BY DISCRIMINANT AND PRINCIPAL FORM -- -15, -20, -23, -35, -39, -40, -47, (iii) THE CLOSURE READER RETIRED ; THE ENTRY AT FINDINGS :11218.**

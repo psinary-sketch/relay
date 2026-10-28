@@ -1,0 +1,38 @@
+b722 -- THE STANDING TOOLSET AT v1.2.2: THE THREE REPAIRS OF R332(2), EACH CONTROLLED ON b721`S BANKS, BOTH INSTANCES SHOWN (2026-10-28T20:45:08Z)
+
+### rows are cases: the repair, the instance (RECORD or CONSTRUCTED), what is read, the figure got, the figure wanted, AS WANTED.
+### Written by tools/standing/v122.py.
+
+## (i) G-SEAL-HASHES READS ITS LIST FROM THE SEAL BANK (tools/standing/sealcheck.py)
+    b721`s seal bank (relay data/b721_seal_hashes.json): tools 36 ; read at b721`s closing commit 30c0b3c8
+    the old reading`s list (b721`s worklist SEALED): 33 ; in the seal and not the list: ['standing/gitwrite.py', 'standing/title.py', 'standing/v121.py']
+    the new reading: listed 36, agree 36, absent NONE, differ NONE
+  (i) RECORD      the old reading: the seal`s list equal to the suite`s carried list : got False ; wanted False ; AS WANTED
+  (i) RECORD      the new reading: every name of the seal bank in the tree at its hash (36 of 36) : got True ; wanted True ; AS WANTED
+  (i) CONSTRUCTED a planted name absent from the tree (['b721_absent_plant.py']) : got False ; wanted False ; AS WANTED
+  (i) CONSTRUCTED a planted hash that differs (['b721_c1.py']) : got False ; wanted False ; AS WANTED
+
+## (ii) THE USED READER BY DISCRIMINANT AND BY PRINCIPAL FORM (tools/standing/used.py), over data/b711_coeffs.txt, data/b713_coeffs.txt, data/b717_coeffs.txt, data/b719_coeffs.txt, data/b720_coeffs.txt
+    -15 USED: b713_coeffs.txt FORM+HEAD ; b717_coeffs.txt TRIPLE ; b719_coeffs.txt TRIPLE ; b720_coeffs.txt TRIPLE
+    -20 USED: b719_coeffs.txt D+HEAD+N0 ; b720_coeffs.txt TRIPLE
+    -23 USED: b711_coeffs.txt NAMED ; b717_coeffs.txt NAMED+TRIPLE ; b719_coeffs.txt TRIPLE ; b720_coeffs.txt TRIPLE
+    -35 USED: b720_coeffs.txt D+HEAD+N0
+    -39 USED: b717_coeffs.txt FORM+HEAD ; b719_coeffs.txt TRIPLE ; b720_coeffs.txt TRIPLE
+    -40 USED: b720_coeffs.txt D+N0
+    -47 USED: b719_coeffs.txt D+N0 ; b720_coeffs.txt TRIPLE
+    the old reading (tools/b721_select.py used_set`s needle, `D = ` and `n0(`): [-20, -35, -40, -47]
+  (ii) RECORD      the old reading`s USED set [-20, -35, -40, -47] equal to the seven : got False ; wanted False ; AS WANTED
+  (ii) RECORD      the new reading`s USED set : got [-15, -20, -23, -35, -39, -40, -47] ; wanted [-15, -20, -23, -35, -39, -40, -47] ; AS WANTED
+  (ii) CONSTRUCTED b711`s bank with its form`s name planted away: -23 USED from it : got False ; wanted False ; AS WANTED
+  (ii) CONSTRUCTED b711`s bank as written: -23 USED from it : got True ; wanted True ; AS WANTED
+
+## (iii) THE READFIRST CLOSURE READER RETIRED, THE HAND LIST THE BANK OF RECORD (tools/standing/readfirst.py)
+    b721: {'ok': False, 'hand': True, 'unchanged': True, 'first': '99ef83ef', 'closure': True}
+    b722: {'ok': True, 'hand': True, 'unchanged': True, 'first': '39521b71', 'closure': False}
+  (iii) RECORD      b721 (its closure bank written, the old practice) under the new reading : got False ; wanted False ; AS WANTED
+  (iii) RECORD      b722 at step zero (the hand list alone, unchanged since 39521b71) : got True ; wanted True ; AS WANTED
+  (iii) CONSTRUCTED a planted closure bank beside b722`s hand list : got False ; wanted False ; AS WANTED
+    the calls of the closure reader (an import of circuit_read, a call of its readfirst, or its command line) in tools/standing/ and the act`s tools: NONE
+  (iii) RECORD      the closure reader called by the standing toolset or the act`s tools : got False ; wanted False ; AS WANTED
+
+### ### **v1.2.2: CASES 12, AS WANTED 12 ; (i) THE SEAL`S LIST FROM THE SEAL BANK ; (ii) USED BY DISCRIMINANT AND PRINCIPAL FORM ; (iii) THE CLOSURE READER RETIRED, THE HAND LIST OF RECORD.**
