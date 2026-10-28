@@ -1,0 +1,33 @@
+b719 -- (R329)(6)(i): TWO HYPOTHESES ON 24 AT -20 AND -47, REGISTERED BEFORE ANY FIGURE AT EITHER (2026-10-28)
+
+### Written by the Write tool and committed alone, before any bank holding a figure at -20 or -47 beyond b718's class numbers and reduced
+### forms (data/b718_registrations.txt :16-:17, at 8146404b, read unchanged). Nothing at either discriminant is computed before this commit.
+### Rows are hypotheses, each with its statement, its falsifier and the order it serves. Later rows are added by commits of their own.
+
+## THE OBJECTS (as data/b718_registrations.txt :29 fixes them)
+At D = -20 (Q1 = x^2 + 5y^2, h = 2) and D = -47 (Q1 = x^2 + xy + 12y^2, h = 5): a(n) = r_Q1(n)/2, log(Z_Q1/2) = SUM b(n) n^-s, computed
+exactly through the cut 32532. n0(D) is the least n <= 32532 with b(n) < 0; if there is none, a row reading n0 is NOT SCORABLE at D
+through the cut, printed as such.
+
+## H-24 (the navigator's)
+  STATEMENT: 24 divides n0(-20), and 24 divides n0(-47).
+  FALSIFIER: n0(-20) or n0(-47) not divisible by 24. NOT SCORABLE at a discriminant with no n0 through the cut.
+  READ: HELD or REFUTED on each discriminant, and on the pair.
+
+## H-47 (the navigator's rival reading)
+  STATEMENT: the exponents of 2 and 3 in n0 are set by the orders of the classes of the prime ideals above 2 and 3; at -47 those orders
+  are 5, so 24 does not divide n0(-47).
+  FALSIFIER: 24 divides n0(-47). NOT SCORABLE if -47 has no n0 through the cut. (The premise on the orders is the hypothesis's own and
+  is printed beside its reading from the class computation of (6)(ii); a premise found false is printed, and the row is read on its
+  falsifier as written.)
+  READ: HELD or REFUTED at -47.
+
+## THE TWO TOGETHER
+At -47 they cannot both hold: when n0(-47) exists, exactly one of H-24 (its -47 clause) and H-47 reads HELD.
+
+## THE ORDER SERVED
+(1) this bank committed alone; (2) then the primes' classes at each discriminant from the reduced forms, and the rule of
+data/b718_registrations.txt (3) -- n0 the least n instantiating, over D's bad primes with their classes, a minimal negative shape of
+Cl(K) -- written as its prediction of n0 and b(n0) at each, added to this bank by a commit of its own before any coefficient
+(b718's (3), :25-:26); (3) then the coefficients through 32532 by b711's route, its controls C1-C3 printed first; every row of
+data/b718_registrations.txt, then H-24 and H-47, read HELD or REFUTED on its own clauses.
