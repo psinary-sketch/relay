@@ -1,0 +1,128 @@
+b720 -- THE PRUNES OF THE CARRIED tools/b720_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -132,124 +132,0 @@ PRUNED (2026-10-28T06:53:22Z)
+-    # ### b720: the cite rows of (R330) and its ferry, written by the Edit tool after b719's rows were pruned (data/b720_prune_citation.txt)
+-    # ### (R330)(1): the author's word on f6f6df5
+-    dl = lines_of(p('data', 'b719_defects.txt'))
+-    add('ruling (1)', 'defect (b`) at data/b719_defects.txt :33 (f6f6df5`s commit message names the outside collection)',
+-        at(dl, 33).startswith("    (b') ") and 'f6f6df5' in at(dl, 33), at(dl, 33)[:90], '0, 1')
+-    msg = (g(PP, 'log', '-1', '--format=%B', 'f6f6df5')[1] or '')
+-    add('ruling (1)', 'the message names openai/math at 7ef5c0cc5, lean/ComparatorChallenges/QuasiRiemannHypothesis.lean, the ruling`s path '
+-        'lean/QuasiRiemannHypothesis.lean as "Not Found", and C6`s grading words',
+-        'openai/math 7ef5c0cc5' in msg and 'lean/ComparatorChallenges/QuasiRiemannHypothesis.lean' in msg and 'lean/QuasiRiemannHypothesis.lean Not Found' in msg
+-        and 'graded at E0' in msg, 'the message %d characters' % len(msg.strip()), '0')
+-    env = dict(os.environ, GIT_TERMINAL_PROMPT='0')   # ### inside the tool's own call, no shell prefix; no token, no credential helper, nothing of the author sent
+-    r = subprocess.run(['git', '-c', 'credential.helper=', '-c', 'core.askPass=', 'ls-remote', 'https://github.com/openai/math', 'refs/heads/main'],
+-                       capture_output=True, text=True, env=env, timeout=60)
+-    add('ruling (1)', 'ls-remote with no token and no credential helper answers refs/heads/main 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a (public)',
+-        r.returncode == 0 and r.stdout.split()[:2] == ['7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a', 'refs/heads/main'], (r.stdout.strip() or r.stderr.strip())[:80], '0')
+-    hr = lines_of(p('data', 'b719_hook_refusals.txt'))
+-    add('ruling (1); ruling (3)', '"at 8:57 PM on 2026-10-27" (local): the read and the refusal of that minute (data/b719_hook_refusals.txt :8, an ENV refusal)',
+-        ' | ENV | ' in at(hr, 8) and at(hr, 8).startswith('2026-10-28T00:56'), at(hr, 8)[:40] + ' (UTC; 8:56:54 PM at UTC-4)', '0, 1')
+-    # ### (R330)(2): b719's close completed at step zero
+-    for repo, nm, short in ((ROOT, 'relay', K.B718_RELAY_HEAD), (PP, 'PLACE-papers', K.B718_PP_HEAD)):
+-        h = (g(repo, 'rev-parse', 'HEAD')[1] or '').strip()
+-        add('ruling (2)', '%s %s, b719`s head, to be pushed by tools/push_gated.sh at step zero' % (nm, short), h.startswith(short) and os.path.exists(p('tools', 'push_gated.sh')),
+-            'HEAD %s' % h[:8], '0')
+-    ti = _quote(text, '"The coefficient law derived to the step named', '". b719')[1:]
+-    fl = at(fi, 10858)
+-    add('ruling (2)', 'b719`s FINDINGS entry at :10858, its title as the ruling quotes it', fl == '## ' + ti,
+-        'equal %s ; equal with x^2 and 10y^2 read as x² and 10y² %s' % (fl == '## ' + ti, fl == '## ' + ti.replace('x^2', 'x²').replace('10y^2', '10y²').replace("'", '’')), '0, 7')
+-    add('ruling (2)', 'b719`s root [14], trail [15], desk, suites, scores close [22], mirror and closing: to be run at step zero under b719`s sealed tools',
+-        os.path.exists(p('data', 'b719_seal_hashes.json')) and not os.path.exists(p('data', 'b719_closing.txt')), 'the seal present, no closing yet', '0')
+-    # ### (R330)(3): the corrigendum's sources
+-    ev = lines_of(p('data', 'b719_events.txt'))
+-    starts = sorted(int(m.group(1)) for m in (re.match(r'^    \((\d+)\) ', l) for l in ev) if m)
+-    tags = [re.search(r'\[(CLAIM|CLOSE) ;', l).group(1) for l in ev if re.match(r'^    \(\d+\) ', l) and re.search(r'\[(CLAIM|CLOSE) ;', l)]
+-    add('ruling (3)', 'data/b719_events.txt (1)-(13), each tagged', starts == list(range(1, 14)) and len(tags) == 13, 'starts %s ; CLAIM %d ; CLOSE %d' % (starts[-1:], tags.count('CLAIM'), tags.count('CLOSE')), '1')
+-    e10 = next((l for l in ev if l.startswith('    (10) ')), '')
+-    add('ruling (3)', 'event (10): FINDINGS :10847 cites (R329)(6) where the toolset`s clause is (R329)(7)',
+-        'FINDINGS :10847' in e10 and '(R329)(6)' in at(fi, 10847) and 'toolset' in at(fi, 10847), at(fi, 10847)[:70], '1')
+-    f18 = rd(p('data', 'b719_ferry.txt')) or ''
+-    add('ruling (3)', '(R329)(7) is the toolset`s clause, (R329)(6) TWO READS (data/b719_ferry.txt)', '(7) THE TOOLSET' in f18 and '(6) TWO READS' in f18,
+-        '(7) THE TOOLSET %s ; (6) TWO READS %s' % ('(7) THE TOOLSET' in f18, '(6) TWO READS' in f18), '1')
+-    # ### (R330)(4): the eleven DIFFERS
+-    tl = lines_of(p('data', 'b719_touch.txt'))
+-    trows = dict((int(m.group(1)), m.group(2)) for m in (re.match(r'^  \((\d+)\) .* -- (AGREES|DIFFERS)\b', l) for l in tl) if m)
+-    dif = sorted(k for k, v in trows.items() if v == 'DIFFERS')
+-    add('ruling (4)', 'the eleven DIFFERS of data/b719_touch.txt, ten on T-COUNT among rows (298)-(309), the eleventh beyond',
+-        len(dif) == 11 and len([k for k in dif if 298 <= k <= 309]) == 10, 'DIFFERS at %s' % dif, '1')
+-    add('ruling (4)', 'data/b719_touch.txt :448, the summary', 'AGREES 402' in at(tl, 448) and 'DIFFERS 11' in at(tl, 448), at(tl, 448)[-70:], '1')
+-    cr = lines_of(p('data', 'b719_count_read.txt'))
+-    add('ruling (4); ruling (11)', 'data/b719_count_read.txt :19, b705`s contour does not discharge the count law', 'DOES NOT' in at(cr, 19), at(cr, 19)[-90:], '1, 6')
+-    # ### (R330)(5): the join's premise
+-    rp = _blob(K.LV_DIR, K.LV_V0100, 'SIDELvConservation/RegisterPentagon.lean').split(NL)
+-    add('ruling (5)', 'RegisterPentagon.lean :149-:152 at the deposit 93c27ec', len(rp) >= 152 and bool(''.join(rp[148:152]).strip()),
+-        [l.strip()[:60] for l in rp[148:152]][:2], '1')
+-    jp = lines_of(p('data', 'b719_join_premise.txt'))
+-    add('ruling (5)', 'data/b719_join_premise.txt :35, DIFFERS as worded', 'DIFFERS' in at(jp, 35), at(jp, 35)[-80:], '1')
+-    jt = (g(K.JOIN_DIR, 'rev-parse', 'v0.1.0^{commit}')[1] or '').strip()
+-    jd = _decl_files(K.JOIN_DIR, 'v0.1.0', 'faces_join')
+-    add('ruling (5)', 'faces_join compiled at SIDE-faces-join v0.1.0', jt == K.JOIN_TAG[2] and bool(jd), 'v0.1.0 at %s ; declared in %s' % (jt[:8], jd), '1')
+-    lvm = (g(K.LV_DIR, 'rev-parse', 'main')[1] or '').strip()
+-    add('ruling (5); N5', 'lv`s main and deposit untouched (main d38f3e8c, deposit 93c27ec)', lvm == K.LV_MAIN and bool(_blob(K.LV_DIR, K.LV_V0100, 'lakefile.toml') or rp[0:1]),
+-        'main %s' % lvm[:8], '1')
+-    # ### (R330)(6): the law at -20 and -47
+-    rb = (g(ROOT, 'show', '%s:%s' % (K.REG_COMMIT, K.REGISTRATIONS))[1] or '')
+-    rg = lines_of(p(*K.REGISTRATIONS.split('/')))
+-    add('ruling (6)(i), N2', 'data/b719_registrations.txt read unchanged from its commit 8146404b; -20 (h 2) and -47 (h 5) at :16-:17',
+-        bool(rb) and rb.replace(chr(13), '') == (rd(p(*K.REGISTRATIONS.split('/'))) or '') and '-20' in at(rg, 16) and '-47' in at(rg, 17),
+-        'blob %d characters ; :16 %r ; :17 %r' % (len(rb), at(rg, 16)[:40], at(rg, 17)[:40]), '2')
+-    # ### H-47's premise: at -47 (h 5, cyclic of prime order) the primes 2 and 3 split and are represented by no principal form, so their classes
+-    # ### have order 5 -- read by the forms alone (x^2 + xy + 12y^2 takes no value 2 or 3; 2x^2 + xy + 6y^2 takes 2, 3x^2 + xy + 4y^2 takes 3)
+-    rep = lambda a, b, c, n: any(a * x * x + b * x * y + c * y * y == n for x in range(-6, 7) for y in range(-6, 7))   # noqa: E731
+-    add('ruling (6)(i)', 'H-47`s premise: at -47 the classes of the prime ideals above 2 and 3 have order 5',
+-        not rep(1, 1, 12, 2) and not rep(1, 1, 12, 3) and rep(2, 1, 6, 2) and rep(3, 1, 4, 3) and 1 * 1 - 4 * 1 * 12 == -47,
+-        'principal takes 2 %s, 3 %s ; 2x^2+xy+6y^2 takes 2 %s ; 3x^2+xy+4y^2 takes 3 %s ; h 5 prime' % (rep(1, 1, 12, 2), rep(1, 1, 12, 3), rep(2, 1, 6, 2), rep(3, 1, 4, 3)), '2')
+-    src = rd(p('tools', 'b711_coeffs.py')) or ''
+-    add('ruling (6)(ii)', 'b711`s route (tools/b711_coeffs.py) through the cut 32532 with its controls C1-C3', '32532' in src and all(c in src for c in ('C1', 'C2', 'C3')),
+-        'cut %s ; C1-C3 %s' % ('32532' in src, all(c in src for c in ('C1', 'C2', 'C3'))), '2')
+-    dc = lines_of(p('data', 'b719_decomp.txt'))
+-    add('ruling (6)(ii)', 'data/b719_decomp.txt :42, the three read', '15' in at(dc, 42), at(dc, 42)[-80:], '2')
+-    # ### (R330)(7): the derivation's remaining step
+-    dv = lines_of(p('data', 'b719_derivation.txt'))
+-    add('ruling (7)', 'data/b719_derivation.txt :136, the grade and the step named', 'CLAUSE 1 NOT DERIVED' in at(dv, 136), at(dv, 136)[-90:], '3')
+-    for f in K.COEFF_BANKS:
+-        add('ruling (7)', 'the check bank %s (-23, -15, -39)' % f, os.path.exists(p(*f.split('/'))), 'present', '3')
+-    # ### (R330)(8): the offset
+-    on = lines_of(p(*K.ONSETS_B717.split('/')))
+-    add('ruling (8)(i)', 'b717`s seven -39 offsets (data/b717_onsets.txt, its last line: HELD 7)', any('HELD 7' in l for l in on), 'found %s' % any('HELD 7' in l for l in on), '4')
+-    add('ruling (8)(i)', 'the ten -15 and -23 offsets (45, 45, 59, 70, 65, 64, 65, 137, 59, 61), the navigator`s post hoc observation: read from their onset banks at Component 4',
+-        True, 'to be read', '4')
+-    # ### (R330)(9): the surgery
+-    add('ruling (9)', 'b709`s grid (data/b709_grid.txt) and b719`s price (data/b719_surgery_price.txt)', os.path.exists(p('data', 'b709_grid.txt')) and os.path.exists(p('data', 'b719_surgery_price.txt')),
+-        'present', '5')
+-    # ### (R330)(10): the arms retired
+-    at_ = _jl('arm_tags.json')
+-    tg = at_.get('tags', at_) if isinstance(at_, dict) else {}
+-    vals = [v if isinstance(v, str) else (v.get('tag') if isinstance(v, dict) else '') for v in tg.values()]
+-    add('ruling (10)', 'data/arm_tags.json, every arm tagged CLAIM or CLOSE', bool(vals) and all(v in ('CLAIM', 'CLOSE') for v in vals),
+-        'arms %d ; CLAIM %d ; CLOSE %d' % (len(vals), vals.count('CLAIM'), vals.count('CLOSE')), '6')
+-    # ### (R330)(11): prices and moves
+-    add('ruling (11)', 'W-ORD-EPSTEIN-COUNT-LEAN in OPEN_TRAILS', any('W-ORD-EPSTEIN-COUNT-LEAN' in l for l in ot), 'found %s' % any('W-ORD-EPSTEIN-COUNT-LEAN' in l for l in ot), '6')
+-    for f in ('b719_registry_cells_price.txt', 'b719_challenge_price.txt', 'b719_pin.txt'):
+-        add('ruling (11)', 'b719`s price or bank data/%s' % f, os.path.exists(p('data', f)), 'present', '6')
+-    lb = [k for k in K.PIN_CARRIED if (g('D:/' + k, 'branch', '--list', K.PIN_BRANCH)[1] or '').strip()]
+-    add('ruling (11)', 'the nine local pin branches carried (%s)' % K.PIN_BRANCH, len(lb) == 9, 'found on %d of %d' % (len(lb), len(K.PIN_CARRIED)), '6')
+-    # ### (R330)(12)-(13)
+-    st = (g(ROOT, 'status', '--short', '--', 'data/b719_steps.json')[1] or '').strip()
+-    add('ruling (12)', 'b719`s step-20 row uncommitted (data/b719_steps.json)', st.startswith('M'), st or 'clean', '0')
+-    br = (g(ROOT, 'branch', '--list', 'push-b719-*')[1] or '').split()
+-    bp = (g(PP, 'branch', '--list', 'push-b719-*')[1] or '').split()
+-    add('ruling (12)', 'the push-b719-* branches: none yet (b719 pushed nothing); made by b719`s close at step zero, deleted after it', not br and not bp,
+-        'relay %s ; PLACE-papers %s' % (br, bp), '0')
+-    pb = (g(K.LV_DIR, 'rev-parse', 'refs/heads/port-b707')[1] or '').strip()
+-    add('ruling (12)', 'port-b707 kept (SIDE-lv-conservation, at cb0aea56)', pb == K.PORT_TIP, pb[:8], '0')
+-    add('ruling (13)', 'the draft at v5 (23228113), held', K.DRAFT == '23228113', 'tools/b720_worklist.py DRAFT', '0')
+-    # ### the ferry: paths and the readfirst list
+-    add('ferry (PATHS)', 'the act`s paths, each present', all(os.path.isdir(x) for x in K.PATHS), 'absent %s' % [x for x in K.PATHS if not os.path.isdir(x)], '0')
+-    rf = ['data/b719_events.txt', 'data/b719_defects.txt', 'data/b719_hook_refusals.txt', 'data/b719_quote_guard.txt', 'data/b719_touch.txt', 'data/b719_count_read.txt',
+-          'data/b719_join_premise.txt', 'data/b719_derivation.txt', 'data/b719_decomp.txt', 'data/b719_registrations.txt', 'data/b719_a0.txt', K.ONSETS_B717,
+-          'data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/arm_tags.json']
+-    add('ferry (readfirst)', 'the readfirst list`s %d relay banks, each present' % len(rf), all(os.path.exists(p(*f.split('/'))) for f in rf),
+-        'absent %s' % [f for f in rf if not os.path.exists(p(*f.split('/')))], '0')
+-    a0 = lines_of(p('data', 'b719_a0.txt'))
+-    add('ferry (readfirst)', 'data/b719_a0.txt :39, A0 certified', 'CERTIFIED' in at(a0, 39), at(a0, 39)[-60:], '0')
+-    add('ferry (readfirst)', 'FINDINGS :10847 and :10858 in local PLACE-papers', at(fi, 10847).startswith('**The CLOSE classes') and at(fi, 10858).startswith('## '),
+-        ':10847 %r ; :10858 %r' % (at(fi, 10847)[:30], at(fi, 10858)[:30]), '0')
+
