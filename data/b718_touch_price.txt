@@ -1,0 +1,31 @@
+b718 -- THE TOUCH READ'S TOOL, PRICED AND NOT BUILT ((R328)(3)): "A tool doing this read for every act is priced in data/b718_touch_price.txt and not built." (2026-10-28)
+
+## What the tool would do
+
+From the act's FINDINGS entry as the record tool composes it, before the root:
+(1) list the objects the entry names, by the four kinds of (R328)(3) -- a declaration, a discriminant, an index, a figure -- each with its needle;
+(2) look each needle up in FINDINGS.md, the census at its current version, FACES_LEDGER.md and the day papers (day1/*.md less the *_vN_N.md snapshots);
+(3) bank every line found with its source, line and needle, its yield by source, and the control of every screen (the lines a screen leaves out);
+(4) read each line against the entry and mark it AGREES or DIFFERS, printing each DIFFERS for the author.
+
+## What this act's hand read took (relay data/b718_touch.txt)
+
+18 needles (3 declarations, 5 discriminants, 1 index, 9 figures); 413 lines found, 402 AGREES and 11 DIFFERS. One screen built and controlled:
+the discriminant needle (no digit, letter, dot, colon, slash or dash before; no digit, letter or dot after), its left-out lines read in full for -23,
+-15, -39 and -47 (74 lines, every one a date, an exponent, a range or an id) and 12 of 294 for -20. The marking was read line by line; 192 of the
+413 lines are one declaration, h2_sign_iff_rh, 125 of them in A_Place_to_Stand.md's erratum and ceiling-correction tables.
+
+## The price
+
+Steps (1)-(3), mechanical: one module of about 150 lines beside tools/b718_reads.py's locate, its needle list drawn from the entry's composer
+(the figures the composer interpolates, tools/b718_record.py _figs, and the declarations and discriminants named in its text), the screens with their
+controls, a planted line per needle that must be found and a planted date that the discriminant screen must leave out. One act, its controls
+printed before its yield.
+Step (4), the reading: not mechanical. A line found agrees or differs with the entry by what it says of the object, not by holding the needle. A
+tool can pre-sort two classes -- lines that state the same figure beside the same object (AGREES by equality) and lines whose status word for the
+object differs from the entry's (assumed beside derived, open beside proved, a cite to another clause) -- and leave every other line to the reader.
+On this act's 413 lines the second class is the 11 DIFFERS; the first would pre-mark perhaps a third; the rest stay a hand read.
+The tool is therefore priced as steps (1)-(3) built, with the pre-sort of (4) as a second module and the hand read kept, at one act for the first and
+one for the second, each with its controls; the ruling's word decides whether either is built.
+
+### ### **PRICED: 2 MODULES, 2 ACTS, THE HAND READ KEPT FOR THE LINES NEITHER CLASS DECIDES. NOT BUILT (no tools/b718_touch.py).**
