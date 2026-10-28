@@ -1,0 +1,322 @@
+b720 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T08:36:48Z)
+
+### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R330) BEGIN', with its subagents` transcripts
+### commands read: 253
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #102 2026-10-28T07:31:29.579Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b719, its own session 02c7cf38, from its post-push combine to that session`s end): 273 commands from 2026-10-28T06:22:03.133Z, its offences printed whole (1):
+  #p122 2026-10-28T07:31:29.579Z b719 seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES ((R330)(5)(ii)-(iii) and N1: the challenge branch`s one through tools/b720_challenge.py dispatch, the pin`s one per kernel through tools/b720_pin.py go) (7):
+  #144 python -X utf8 tools/b720_challenge.py dispatch
+  #157 python -X utf8 tools/b720_pin.py go SIDE-grh-transfer
+  #158 python -X utf8 tools/b720_pin.py go SIDE-interfaces
+  #159 python -X utf8 tools/b720_pin.py go SIDE-kernel
+  #160 python -X utf8 tools/b720_pin.py go SIDE-lv-conservation
+  #161 python -X utf8 tools/b720_pin.py go SIDE-simplicity
+  #162 python -X utf8 tools/b720_pin.py go SIDE-trivium
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (1):
+  #102 cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+  #102 2026-10-28T07:31:29.579Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+  #187 2026-10-28T08:03:08.244Z git log --format='%h %s' -12 | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %s' -3 | cut -c1-90; git log --format=%H -1 ad94c11c 41a0adcf 03f755e7 --no-walk
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (3):
+  #102 2026-10-28T07:31:29.579Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+  #104 2026-10-28T07:32:30.762Z python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 14 260 day1/A_Place_to_Stand.md day1/Exhaustive_Enumeration.md day1/Which_S
+  #187 2026-10-28T08:03:08.244Z git log --format='%h %s' -12 | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %s' -3 | cut -c1-90; git log --format=%H -1 ad94c11c 41a0adcf 03f755e7 --no-walk
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
+  #51 2026-10-28T07:09:33.548Z python -X utf8 -c "pass"; (Get-Content D:/relay/tools/b719_c1.py).Count; git -C D:/relay grep -n -e "^def " -e "^[A-Z_]* = " -- tools/b719_c1.py
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #38 2026-10-28T07:05:56.411Z PowerShell
+      git -C D:/relay branch -d push-b719-closing
+  #39 2026-10-28T07:06:00.889Z PowerShell
+      git -C D:/relay branch -d push-b719-record
+  #40 2026-10-28T07:06:07.356Z PowerShell
+      git -C D:/relay branch -d push-b719-root
+  #41 2026-10-28T07:06:11.960Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b719-record
+  #42 2026-10-28T07:06:16.159Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b719-root
+
+### THE BRANCH DELETES BY SHAPE ((R330)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #38 deletes ['push-b719-closing'], halves 1, globs none, variables none, chained after False; #39 deletes ['push-b719-record'], halves 1, globs none, variables none, chained after False; #40 deletes ['push-b719-root'], halves 1, globs none, variables none, chained after False; #41 deletes ['push-b719-record'], halves 1, globs none, variables none, chained after False; #42 deletes ['push-b719-root'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-28T06:49:16.495Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\memrecover720.py"
+  #2 | 2026-10-28T06:49:56.119Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\cmds720.py" 8590 10330 "C:\Users\ECHOCH~1\AppDat
+  #3 | 2026-10-28T06:51:09.960Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\carrycarry720.py"
+  #4 | 2026-10-28T06:52:49.401Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\paths720.py"
+  #5 | 2026-10-28T06:52:57.762Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry citation
+  #6 | 2026-10-28T06:53:06.203Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b720_citation.py "def " "add(" "s
+  #7 | 2026-10-28T06:53:20.716Z | seat | PowerShell | python -X utf8 tools/b720_carry.py prune citation "    # ### b720: the cite rows of (R330) and its ferry" "    standing_rows(text, add)"
+  #8 | 2026-10-28T06:53:21.030Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry worklist
+  #9 | 2026-10-28T06:53:49.022Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\state720.py"
+  #10 | 2026-10-28T06:55:18.725Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry record
+  #11 | 2026-10-28T06:55:30.615Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recimport720.py"
+  #12 | 2026-10-28T06:56:13.999Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\cited720.py"
+  #13 | 2026-10-28T06:57:41.769Z | seat | PowerShell | python -X utf8 tools/b720_citation.py check dry
+  #14 | 2026-10-28T06:57:56.880Z | seat | PowerShell | python -X utf8 tools/b720_citation.py check
+  #15 | 2026-10-28T06:58:04.699Z | seat | PowerShell | python -X utf8 tools/b720_citation.py ferry
+  #16 | 2026-10-28T06:59:16.355Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\actcur720.py"; git -C D:/relay add -- data/act_c
+  #17 | 2026-10-28T06:59:23.992Z | seat | PowerShell | git -C D:/relay commit -m 'b720 step zero: data/act_current.json for b720 ((R330), act_roots :97 b719`s row, the 96th; chain row 97, prev root 09e524a7, verify 
+  #18 | 2026-10-28T06:59:29.844Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "step zero" 675d8598
+  #19 | 2026-10-28T06:59:54.344Z | seat | PowerShell | git -C D:/relay diff --stat -- data/b719_bank_hashes.json data/b719_steps.json; git -C D:/relay diff -- data/b719_bank_hashes.json
+  #20 | 2026-10-28T06:59:59.890Z | seat | PowerShell | git -C D:/relay add -- data/b719_relay_push-b719-closing_push_out.txt
+  #21 | 2026-10-28T07:00:05.714Z | seat | PowerShell | git -C D:/relay commit -m 'b720 step zero ((R330)(7)): b719`s closing push capture committed alone (relay fa268307..ef648cb9, read back)'
+  #22 | 2026-10-28T07:00:12.911Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "step zero" ec7071b5
+  #23 | 2026-10-28T07:00:18.081Z | seat | PowerShell | git -C D:/relay add -- data/b719_steps.json data/b719_bank_hashes.json
+  #24 | 2026-10-28T07:00:23.165Z | seat | PowerShell | git -C D:/relay commit -m 'b720 step zero ((R330)(7)): b719`s step-33 row (the closing ef648cb9) committed alone, with the one bank hash it moves (data/b719_ban
+  #25 | 2026-10-28T07:00:31.152Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "step zero" 9ec21954
+  #26 | 2026-10-28T07:01:24.115Z | seat | PowerShell | git -C D:/relay grep -n -e "bank_hashes" -- "tools/act_*.py" "tools/b719_*.py" "tools/b698_record.py" "tools/standing/*.py"
+  #27 | 2026-10-28T07:01:32.650Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\late720.py"
+  #28 | 2026-10-28T07:01:41.545Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\late720.py"
+  #29 | 2026-10-28T07:01:51.579Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\sealafter719.py"
+  #30 | 2026-10-28T07:01:58.712Z | seat | PowerShell | git -C D:/relay add -- data/b719_steps.json
+  #31 | 2026-10-28T07:02:05.747Z | seat | PowerShell | git -C D:/relay commit -m 'b720 step zero ((R330)(2)(i)): the late step row for dbea2e3f (b718`s leftover, committed at b719`s step zero) written into data/b719
+  #32 | 2026-10-28T07:02:12.357Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "step zero" 6755e0c9
+  #33 | 2026-10-28T07:04:01.492Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b720_ferry.txt b720_readfirst.txt
+  #34 | 2026-10-28T07:04:47.393Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b720_ferry.txt b720_readfirst.txt
+  #35 | 2026-10-28T07:05:05.962Z | seat | PowerShell | python -X utf8 tools/b720_record.py rowgen
+  #36 | 2026-10-28T07:05:43.372Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs720.py"
+  #37 | 2026-10-28T07:05:51.814Z | seat | PowerShell | git -C D:/relay branch --merged main --list "push-b719-*"; git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b719-*"
+  #38 | 2026-10-28T07:05:56.411Z | seat | PowerShell | git -C D:/relay branch -d push-b719-closing
+  #39 | 2026-10-28T07:06:00.889Z | seat | PowerShell | git -C D:/relay branch -d push-b719-record
+  #40 | 2026-10-28T07:06:07.356Z | seat | PowerShell | git -C D:/relay branch -d push-b719-root
+  #41 | 2026-10-28T07:06:11.960Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b719-record
+  #42 | 2026-10-28T07:06:16.159Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b719-root
+  #43 | 2026-10-28T07:06:25.405Z | seat | PowerShell | git -C D:/relay status --porcelain -- data/b720_* data/act_current.json tools/b720_* tools/mirror_prevbuild.json; git -C D:/MY-DOwnloads/PLACE-papers status --p
+  #44 | 2026-10-28T07:06:32.247Z | seat | PowerShell | git -C D:/relay grep -n -e "def branches_banked" -e "G-BRANCHES-BANKED'" -e "_stepzero.txt" -- tools/b719_checks.py
+  #45 | 2026-10-28T07:08:17.146Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\delts720.py"
+  #46 | 2026-10-28T07:08:23.123Z | seat | PowerShell | git -C D:/SIDE-lv-conservation rev-parse --short=8 port-b707; git -C D:/relay status --short; git -C D:/MY-DOwnloads/PLACE-papers status --short; git -C D:/rela
+  #47 | 2026-10-28T07:08:28.277Z | seat | PowerShell | python -X utf8 tools/b720_carry.py repairdiff citation
+  #48 | 2026-10-28T07:09:00.845Z | seat | PowerShell | git -C D:/relay add data/b720_ferry.txt data/b720_ferry_scan.txt data/b720_citation_check.txt data/b720_citation_check.json data/b720_carry_citation.txt data/b7
+  #49 | 2026-10-28T07:09:07.923Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 step zero ((R330) ferry Component 0): the ferry and its scan (0 hits); the citation check (62 cites, 61 OK, 1 miss by the fac
+  #50 | 2026-10-28T07:09:13.658Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "step zero" e3b3de12
+  #51 | 2026-10-28T07:09:33.548Z | seat | PowerShell | python -X utf8 -c "pass"; (Get-Content D:/relay/tools/b719_c1.py).Count; git -C D:/relay grep -n -e "^def " -e "^[A-Z_]* = " -- tools/b719_c1.py
+  #52 | 2026-10-28T07:10:10.976Z | seat | PowerShell | git -C D:/relay grep -n -e RECUT_MERGE -e "def " -- tools/standing/manifest.py tools/b719_record.py tools/b719_worklist.py tools/mirror_verify.py
+  #53 | 2026-10-28T07:10:21.848Z | seat | PowerShell | git -C D:/relay log --format="%h %ad %s" --date=iso-strict -- tools/standing/manifest.py; git -C D:/relay grep -n -e "manifest" -- tools/b719_record.py tools/b7
+  #54 | 2026-10-28T07:10:29.148Z | seat | PowerShell | git -C D:/relay grep -n -e "import manifest" -e "manifest as " -e "manifest.control" -e "M.control" -- tools
+  #55 | 2026-10-28T07:10:33.816Z | seat | PowerShell | git -C D:/relay grep -n -e "MF\." -- tools/standing/classes.py tools/standing/close.py tools/standing/controls.py
+  #56 | 2026-10-28T07:10:40.247Z | seat | PowerShell | git -C D:/relay show --stat --format="%h %P" a240e6b6
+  #57 | 2026-10-28T07:11:18.502Z | seat | PowerShell | git -C D:/relay grep -n -e "^land = " -e "^def land" -e "^from .* import .*land" -e "^WH = " -e "^R = " -- tools/b720_record.py tools/b698_record.py
+  #58 | 2026-10-28T07:11:40.003Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\lines720.py"
+  #59 | 2026-10-28T07:11:52.485Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\memw720.py"
+  #60 | 2026-10-28T07:13:32.150Z | seat | PowerShell | git -C D:/relay grep -n -e "^  (3[89])" -e "^  (40)" -- data/b675_corrigenda.txt; git -C D:/relay grep -n -e "b675_corrigenda" -- tools/b719_record.py tools/b71
+  #61 | 2026-10-28T07:13:41.628Z | seat | PowerShell | python -X utf8 tools/b720_c1.py weight dry
+  #62 | 2026-10-28T07:13:47.224Z | seat | PowerShell | python -X utf8 tools/b720_c1.py corrigendum dry
+  #63 | 2026-10-28T07:14:07.396Z | seat | PowerShell | python -X utf8 tools/b720_c1.py corrigendum dry
+  #64 | 2026-10-28T07:14:14.489Z | seat | PowerShell | python -X utf8 tools/b720_c1.py weight write
+  #65 | 2026-10-28T07:14:19.589Z | seat | PowerShell | python -X utf8 tools/b720_c1.py corrigendum write
+  #66 | 2026-10-28T07:14:29.876Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short; git -C D:/MY-DOwnloads/PLACE-papers diff --stat
+  #67 | 2026-10-28T07:14:36.487Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add FINDINGS.md; git -C D:/MY-DOwnloads/PLACE-papers commit -q -m 'b720 C1 ((R330)(1)-(2)): b719 at its weight (FINDINGS :11
+  #68 | 2026-10-28T07:14:42.122Z | seat | PowerShell | python -X utf8 tools/b720_record.py step pp "component 1" 5f34d8c3
+  #69 | 2026-10-28T07:14:47.171Z | seat | PowerShell | git -C D:/relay add tools/b720_c1.py tools/b720_worklist.py data/b675_corrigenda.txt data/b720_corrigendum.txt data/b720_corrigendum.json data/b720_corrigendum_
+  #70 | 2026-10-28T07:14:53.208Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 C1 ((R330)(1)-(2)): tools/b720_c1.py written whole (weight, corrigendum); the weight line (FINDINGS :11018) and the corrigend
+  #71 | 2026-10-28T07:14:58.139Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 1" 67987367
+  #72 | 2026-10-28T07:17:56.146Z | seat | PowerShell | git -C D:/relay add data/b720_registrations.txt; git -C D:/relay diff --cached --stat
+  #73 | 2026-10-28T07:18:02.603Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 C2 ((R330)(3)): data/b720_registrations.txt committed alone before any figure at -35 or -40 beyond the class number and forms
+  #74 | 2026-10-28T07:18:07.727Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 2" f5353ca9
+  #75 | 2026-10-28T07:18:16.442Z | seat | PowerShell | (Get-Content D:/relay/tools/b719_predict.py).Count; (Get-Content D:/relay/tools/b718_abstract.py).Count; (Get-Content D:/relay/tools/b718_classgroup.py).Count
+  #76 | 2026-10-28T07:18:30.877Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry predict
+  #77 | 2026-10-28T07:19:11.588Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs720.py"
+  #78 | 2026-10-28T07:19:16.908Z | seat | PowerShell | python -X utf8 tools/b720_predict.py dry
+  #79 | 2026-10-28T07:19:37.943Z | seat | PowerShell | python -X utf8 tools/b720_predict.py bank
+  #80 | 2026-10-28T07:19:37.947Z | seat | PowerShell | python -X utf8 tools/b720_carry.py repairdiff predict
+  #81 | 2026-10-28T07:20:01.925Z | seat | PowerShell | git -C D:/relay add data/b720_registrations.txt data/b720_prediction.txt data/b720_carry_predict.txt data/b720_repairdiff_predict.txt tools/b720_predict.py; git
+  #82 | 2026-10-28T07:20:09.319Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 C2 ((R330)(3)(i)): the shape rule`s prediction before any coefficient, by tools/b720_predict.py (carried, b718`s two tools re
+  #83 | 2026-10-28T07:20:13.894Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 2" 54fc03d9
+  #84 | 2026-10-28T07:20:19.142Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry coeffs
+  #85 | 2026-10-28T07:22:10.475Z | seat | PowerShell | python -X utf8 tools/b720_coeffs.py controls
+  #86 | 2026-10-28T07:22:23.899Z | seat | PowerShell | git -C D:/relay add tools/b720_coeffs.py data/b720_coeffs_controls.json data/b720_carry_coeffs.txt; git -C D:/relay commit -q -m 'b720 C2 ((R330)(3)): the coeff
+  #87 | 2026-10-28T07:22:29.397Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 2" 16fb14c2
+  #88 | 2026-10-28T07:22:34.343Z | seat | PowerShell | python -X utf8 tools/b720_coeffs.py run
+  #89 | 2026-10-28T07:22:41.781Z | seat | PowerShell | git -C D:/relay add data/b720_coeffs.txt data/b720_coeffs.json; git -C D:/relay commit -q -m 'b720 C2 ((R330)(3)): the coefficients at -35 and -40 through 32532
+  #90 | 2026-10-28T07:22:51.892Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 2" 29c10c06
+  #91 | 2026-10-28T07:23:28.058Z | seat | PowerShell | (Get-Content D:/relay/tools/b719_derivation.py).Count; git -C D:/relay grep -n -e "^def " -e "^[A-Z_0-9]* = " -- tools/b719_derivation.py
+  #92 | 2026-10-28T07:24:27.346Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry derivation
+  #93 | 2026-10-28T07:24:35.060Z | seat | PowerShell | git -C D:/relay grep -n -A3 -e "^def b_lattice" -e "^def pair_sum" -e "^def configs" -e "^def ordered_factorizations" -e "^def log_coeffs" -- tools/b718_abstrac
+  #94 | 2026-10-28T07:26:27.480Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs720.py"
+  #95 | 2026-10-28T07:26:36.740Z | seat | PowerShell | python -X utf8 tools/b720_derivation.py dry
+  #96 | 2026-10-28T07:27:53.553Z | seat | PowerShell | python -X utf8 tools/b720_derivation.py dry
+  #97 | 2026-10-28T07:28:30.571Z | seat | PowerShell | python -X utf8 tools/b720_derivation.py bank
+  #98 | 2026-10-28T07:29:10.884Z | seat | PowerShell | git -C D:/relay add tools/b720_derivation.py data/b720_derivation.txt data/b720_carry_derivation.txt; git -C D:/relay commit -q -m 'b720 C3 ((R330)(4)): the der
+  #99 | 2026-10-28T07:29:16.446Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 3" ce378824
+  #100 | 2026-10-28T07:30:11.998Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\reglines720.py" "505,1070" "checkpoint kernel" "
+  #101 | 2026-10-28T07:31:21.790Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\reglines720.py" "765,780" "six" "checkpoint"
+  #102 | 2026-10-28T07:31:29.579Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
+  #103 | 2026-10-28T07:31:57.120Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\regrows720.py"
+  #104 | 2026-10-28T07:32:30.762Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 14 260 day1/A_Place_to_Stand.md day
+  #105 | 2026-10-28T07:32:36.994Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 14 260 day1/A_Place_to_Stand.md day
+  #106 | 2026-10-28T07:33:05.107Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -i -E "tier KC|Tier \*\*KC|KC =|\bKC\b.{0,20}(means|is the|certif)" -- "*.md" ":!internal" ":!meta" -- 2>&1 ; tru
+  #107 | 2026-10-28T07:33:09.268Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -c -i "tier KC" -- "*.md"
+  #108 | 2026-10-28T07:33:15.415Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -i "tier KC" -- phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md REGISTRY.
+  #109 | 2026-10-28T07:33:34.637Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 12 240 phase1.5/proofs/THE_EXCLUSIO
+  #110 | 2026-10-28T07:33:36.593Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 14 240 THE_CLAUSE_AND_ITS_COMPILED_
+  #111 | 2026-10-28T07:33:45.271Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -i -E "DOCUMENT CLASS|^\*\*v[0-9]|version" -- THE_CLAUSE_AND_ITS_COMPILED_FACES.md THE_CLAUSE_AT_THE_DIRICHLET_INSTA
+  #112 | 2026-10-28T07:33:55.782Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 3 1200 THE_CLAUSE_AND_ITS_COMPILED_
+  #113 | 2026-10-28T07:33:57.621Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 10 260 D:/SIDE-archimedean/README.m
+  #114 | 2026-10-28T07:34:19.918Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -c -E "THE_CLAUSE_AND_ITS_COMPILED_FACES|THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE|FACES_LEDGER" -- REGISTRY.md README.md
+  #115 | 2026-10-28T07:34:26.934Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -E "^## |^### " -- REGISTRY.md
+  #116 | 2026-10-28T07:34:45.742Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 4 100000 THE_CLAUSE_AND_ITS_COMPILE
+  #117 | 2026-10-28T07:34:46.808Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 11 100000 FACES_LEDGER.md
+  #118 | 2026-10-28T07:35:18.860Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\reglines720.py" "1074,1075,1076,1077,1078,1079,1
+  #119 | 2026-10-28T07:35:33.146Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -E "^## Correspondence|DOCUMENT CLASS" -- day1/ phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md phase1.5/proofs/MECHAN
+  #120 | 2026-10-28T07:36:39.979Z | seat | PowerShell | python -X utf8 tools/b720_registry.py dry
+  #121 | 2026-10-28T07:36:50.840Z | seat | PowerShell | python -X utf8 tools/b720_registry.py write
+  #122 | 2026-10-28T07:36:55.901Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers add REGISTRY.md; if ($?) { git -C D:\MY-DOwnloads\PLACE-papers commit -m 'b720 (R330)(5)(i): REGISTRY -- three wave-1 sign-c
+  #123 | 2026-10-28T07:37:01.641Z | seat | PowerShell | python -X utf8 tools/b720_record.py step pp "C4 registry" 5872b89
+  #124 | 2026-10-28T07:37:13.655Z | seat | PowerShell | python -X utf8 tools/b720_record.py step pp "component 4" 5872b89
+  #125 | 2026-10-28T07:37:26.700Z | seat | PowerShell | git status --short -- data/b720_steps.json tools/b720_registry.py data/b720_registry_diff.txt tools/b720_worklist.py; git log -1 --stat --format=%h%x20%s
+  #126 | 2026-10-28T07:37:36.678Z | seat | PowerShell | git add tools/b720_registry.py data/b720_registry_diff.txt; if ($?) { git commit -m 'b720 C4 ((R330)(5)(i)): the REGISTRY cells for wave 1 -- 22 rows filled fro
+  #127 | 2026-10-28T07:37:44.355Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 4" ad94c11c
+  #128 | 2026-10-28T07:38:03.081Z | seat | PowerShell | git grep -l -E "gh workflow run|workflow_dispatch|actions/runs" -- tools/*.py tools/*.sh
+  #129 | 2026-10-28T07:38:14.500Z | seat | PowerShell | git grep -n -E "^def |^    if mode|sys.argv|^[A-Z_]+ = " -- tools/b718_pin.py; (Get-Content tools/b718_pin.py).Count
+  #130 | 2026-10-28T07:38:33.158Z | seat | PowerShell | Get-ChildItem data -Filter "b71[89]_pin*" -Name; python -X utf8 -I tools/b718_pin.py bank
+  #131 | 2026-10-28T07:38:41.677Z | seat | PowerShell | git status --short -- data/b718_pin.txt data/b718_pin.json; git diff --stat -- data/b718_pin.txt data/b718_pin.json; git log -1 --format="%h %ad" --date=iso -- 
+  #132 | 2026-10-28T07:38:49.286Z | seat | PowerShell | git checkout -- data/b718_pin.txt; git status --short -- data/b718_pin.txt data/b718_pin.json data/b718_pin_rows.json
+  #133 | 2026-10-28T07:39:11.497Z | seat | PowerShell | git -C D:\MY-DOwnloads\PLACE-papers grep -n -i -E "challenge file|form A\b|\(form A\)" -- OPEN_TRAILS.md FINDINGS.md; git grep -n -i -E "challenge file|form A\b
+  #134 | 2026-10-28T07:39:41.145Z | seat | PowerShell | git -C D:\SIDE-explicit-formula status --short --branch --untracked-files=no; git -C D:\SIDE-explicit-formula log -1 --format="%h %d %s"; git -C D:\SIDE-explici
+  #135 | 2026-10-28T07:39:52.662Z | seat | PowerShell | git -C D:\SIDE-explicit-formula grep -n -E "^(namespace|end|open|import|theorem h2_sign_iff_rh|section|noncomputable)" -- SIDEExplicitFormula/Seam.lean; git -C 
+  #136 | 2026-10-28T07:40:17.168Z | seat | PowerShell | Test-Path D:\SIDE-explicit-formula\.lake\packages\mathlib\.git; git -C D:\SIDE-explicit-formula\.lake\packages\mathlib rev-parse --short=12 HEAD; git -C D:\SIDE
+  #137 | 2026-10-28T07:40:28.195Z | seat | PowerShell | git -C D:\SIDE-explicit-formula ls-tree --name-only HEAD ChainProbe.lean CircuitClosure.lean; git -C D:\SIDE-explicit-formula branch --list; git grep -n -o -E "
+  #138 | 2026-10-28T07:40:35.385Z | seat | PowerShell | git -C D:\SIDE-explicit-formula ls-tree --name-only HEAD ChainProbe.lean CircuitClosure.lean; git -C D:\SIDE-explicit-formula branch --list; git grep -n -o -E "
+  #139 | 2026-10-28T07:40:55.563Z | seat | PowerShell | git grep -h -o -E "target=SIDEExplicitFormula[A-Za-z0-9_. ]{0,80}" -- data/b70*_commands.txt data/b71*_commands.txt
+  #140 | 2026-10-28T07:41:00.784Z | seat | PowerShell | git grep -h -o -E "target[=' ,:]+.?SIDEExplicitFormula\.[A-Za-z0-9_.]{0,60}" -- tools/*.py
+  #141 | 2026-10-28T07:42:29.103Z | seat | PowerShell | python -X utf8 tools/b720_challenge.py plan
+  #142 | 2026-10-28T07:42:44.054Z | seat | PowerShell | python -X utf8 tools/b720_challenge.py make
+  #143 | 2026-10-28T07:42:52.911Z | seat | PowerShell | git -C D:/SIDE-explicit-formula push origin challenge-b720-h2-sign-iff-rh
+  #144 | 2026-10-28T07:43:01.330Z | seat | PowerShell | python -X utf8 tools/b720_challenge.py dispatch
+  #145 | 2026-10-28T07:43:57.583Z | seat | PowerShell | python -X utf8 tools/b720_pin.py plan; git status --short -- data/b718_pin.txt data/b718_pin.json data/b718_pin_rows.json
+  #146 | 2026-10-28T07:44:24.179Z | seat | PowerShell | git grep -n -E "^(C[1-7]_[A-Z_]+|STEPZERO[A-Z_]*|ACT_CURRENT_COMMIT) *=" -- tools/b720_worklist.py
+  #147 | 2026-10-28T07:44:51.005Z | seat | PowerShell | gh run view 40651875792 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #148 | 2026-10-28T07:45:22.352Z | seat | PowerShell | git grep -n "H-OFFSET" -- data/b719_registrations.txt data/b720_ferry.txt data/b719_closing.txt
+  #149 | 2026-10-28T07:45:35.143Z | seat | PowerShell | git grep -n -i -E "(minutes|hours|seconds) (per|a) pair|per pair" -- data/b717*.txt data/b714*.txt data/b713*.txt data/b716_*price*.txt
+  #150 | 2026-10-28T07:45:44.365Z | seat | PowerShell | git grep -n -o -E "W\.(C[1-7]_[A-Z_]+|PIN_[A-Z_]+|NEW_DISCRIMINANTS|DIFFERS_LINE|ERRATA_LINE)" -- tools/b720_checks.py tools/b720_record.py
+  #151 | 2026-10-28T07:45:52.841Z | seat | PowerShell | git grep -n -E "C4_REG|C5_REG|C6_PP|PIN_HELD|PIN_RUNS|C2_CTL" -- tools/b720_*.py tools/standing/*.py
+  #152 | 2026-10-28T07:49:14.276Z | seat | PowerShell | python -X utf8 tools/b720_challenge.py read 40651875792
+  #153 | 2026-10-28T07:49:23.087Z | seat | PowerShell | python -X utf8 tools/b720_challenge.py bank
+  #154 | 2026-10-28T07:49:30.061Z | seat | PowerShell | git add tools/b720_challenge.py data/b720_challenge_rows.json data/b720_challenge.txt data/b720_challenge.json tools/b720_worklist.py; if ($?) { git commit -m '
+  #155 | 2026-10-28T07:49:37.468Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 5" 41a0adcf
+  #156 | 2026-10-28T07:49:44.007Z | seat | PowerShell | python -X utf8 tools/b720_pin.py plan
+  #157 | 2026-10-28T07:49:53.226Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-grh-transfer
+  #158 | 2026-10-28T07:50:12.856Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-interfaces
+  #159 | 2026-10-28T07:50:32.492Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-kernel
+  #160 | 2026-10-28T07:50:52.191Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-lv-conservation
+  #161 | 2026-10-28T07:51:12.025Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-simplicity
+  #162 | 2026-10-28T07:51:28.896Z | seat | PowerShell | python -X utf8 tools/b720_pin.py go SIDE-trivium
+  #163 | 2026-10-28T07:53:01.307Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-grh-transfer 40652622018
+  #164 | 2026-10-28T07:53:08.697Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-interfaces 40652657325
+  #165 | 2026-10-28T07:54:04.843Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-kernel 40652692787
+  #166 | 2026-10-28T07:54:14.327Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-lv-conservation 40652727943
+  #167 | 2026-10-28T07:54:21.739Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-simplicity 40652762827
+  #168 | 2026-10-28T07:54:31.664Z | seat | PowerShell | python -X utf8 tools/b720_pin.py read SIDE-trivium 40652790458
+  #169 | 2026-10-28T07:54:50.910Z | seat | PowerShell | Get-ChildItem -Recurse -File "$env:TEMP\b720_pin_artifacts\SIDE-simplicity_40652762827" -Name; Get-Content "$env:TEMP\b720_pin_artifacts\SIDE-simplicity_4065276
+  #170 | 2026-10-28T07:55:00.103Z | seat | PowerShell | python -X utf8 tools/b720_pin.py bank; git status --short -- data/b718_pin.txt data/b718_pin.json data/b718_pin_rows.json
+  #171 | 2026-10-28T07:55:28.965Z | seat | PowerShell | git add tools/b720_pin.py data/b720_pin_rows.json data/b720_pin.txt data/b720_pin.json data/b720_offset_price.txt; if ($?) { git commit -m 'b720 C6 ((R330)(5)(i
+  #172 | 2026-10-28T07:55:38.180Z | seat | PowerShell | python -X utf8 tools/b720_record.py step relay "component 6" 03f755e7
+  #173 | 2026-10-28T07:55:46.226Z | seat | PowerShell | (Get-Content tools/b720_record.py).Count; (Get-Content tools/b720_checks.py).Count; (Get-Content tools/b720_worklist.py).Count; git grep -n -E "^def |^    elif 
+  #174 | 2026-10-28T07:55:55.521Z | seat | PowerShell | Get-ChildItem tools -Filter "b720_*" -Name; Get-ChildItem tools -Filter "b719_*" -Name
+  #175 | 2026-10-28T07:56:07.561Z | seat | PowerShell | python -X utf8 tools/b720_record.py closeorder
+  #176 | 2026-10-28T07:56:19.643Z | seat | PowerShell | Get-ChildItem data -Filter "b719_carry_*" -Name; Get-ChildItem data -Filter "b720_carry_*" -Name; Get-ChildItem data -Filter "b720_repairdiff_*" -Name
+  #177 | 2026-10-28T07:56:27.637Z | seat | PowerShell | python -X utf8 tools/b720_carry.py carry checks; python -X utf8 tools/b720_carry.py carry closing; python -X utf8 tools/b720_carry.py carry regspec; python -X u
+  #178 | 2026-10-28T07:56:39.798Z | seat | PowerShell | git grep -n -o -E "^ *\('G-[A-Z0-9-]+'" --no-index -- tools/b720_checks.py
+  #179 | 2026-10-28T07:58:28.768Z | seat | PowerShell | git show --stat --format="%h %s" 0c39fb06; git show --stat --format="%h %s" 3140a899
+  #180 | 2026-10-28T07:58:43.909Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\knames720.py" b720_checks.py
+  #181 | 2026-10-28T07:59:30.682Z | seat | PowerShell | git grep -n -E "^\*\*|^### \*\*|^### ### \*\*|ROWS [0-9]+:|^  (THE LAW|PRED-|H-DECOMP|H-RR|F[12]|T[1-4])" -- data/b720_prediction.txt data/b720_coeffs.txt data/
+  #182 | 2026-10-28T07:59:38.001Z | seat | PowerShell | git grep -n -E "NEGATIVE|n0 = |^## D = |THE CONTROLS" -- data/b720_coeffs.txt; git grep -n -E "^### ### \*\*|^### \*\*|VERDICT" -- data/b720_registry_diff.txt d
+  #183 | 2026-10-28T08:01:01.431Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\figs720.py" _figs
+  #184 | 2026-10-28T08:01:13.451Z | seat | PowerShell | git grep -n -E "^## |^### CHECK|^  CHECK|PLANT" -- data/b720_derivation.txt
+  #185 | 2026-10-28T08:02:53.496Z | seat | Bash | grep -n -E "^[A-Z][A-Z0-9_]* *=" tools/b720_worklist.py
+  #186 | 2026-10-28T08:03:01.589Z | seat | Bash | head -c 1500 data/b720_pin_rows.json; echo; echo ----; head -30 data/b720_pin.txt; echo ----; head -c 800 data/b720_challenge.json; echo; git log --oneline -6
+  #187 | 2026-10-28T08:03:08.244Z | seat | Bash | git log --format='%h %s' -12 | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %s' -3 | cut -c1-90; git log --format=%H -1 ad94c11c 41a0adcf 03
+  #188 | 2026-10-28T08:03:14.975Z | seat | Bash | git log --format='%h %<(80,trunc)%s' -12 && git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %<(60,trunc)%s' -3
+  #189 | 2026-10-28T08:04:06.328Z | seat | Bash | grep -n -E "^### THE CONTROLS|^## |^\*\*" data/b720_coeffs.txt && grep -n -E "^## |^\*\*|PLANT" data/b720_prediction.txt && grep -c "" data/b720_registrations.t
+  #190 | 2026-10-28T08:04:13.609Z | seat | Bash | git diff --stat f5353ca9 54fc03d9 -- data/b720_registrations.txt && git diff -U0 f5353ca9 54fc03d9 -- data/b720_registrations.txt
+  #191 | 2026-10-28T08:04:25.230Z | seat | Bash | grep -n -E "dispatches|local_lean" tools/b720_record.py
+  #192 | 2026-10-28T08:04:36.444Z | seat | Bash | grep -n -E "^DISPATCH_CMD|^def local_lean" -A3 tools/b720_record.py tools/b719_record.py tools/b633_record.py tools/b698_record.py
+  #193 | 2026-10-28T08:04:47.409Z | seat | Bash | python -X utf8 - <<'EOF'
+  #194 | 2026-10-28T08:05:37.115Z | seat | Bash | grep -n -E "^import|^from|^LV =|^FACE =|^def _show|^def grc|^def g\(|^def jl|^def rdn" tools/b720_record.py
+  #195 | 2026-10-28T08:05:46.301Z | seat | Bash | grep -n -i -E "forced" data/b720_registrations.txt data/b720_coeffs.txt
+  #196 | 2026-10-28T08:06:19.970Z | seat | Bash | grep -n -A8 "^def _show" tools/b698_record.py
+  #197 | 2026-10-28T08:07:07.332Z | seat | Bash | grep -n -E "def go|argv|ELIGIBLE|FREEZE|EXCL" tools/b720_pin.py
+  #198 | 2026-10-28T08:07:12.904Z | seat | Bash | grep -n -A22 "^def kern_state" tools/b633_record.py && grep -n -A10 "^def kernels" tools/b720_record.py
+  #199 | 2026-10-28T08:07:22.409Z | seat | Bash | git ls-files data/b719_kernels_face.json data/b720_kernels_face.json && git -C /d/SIDE-explicit-formula branch --format="%(refname:short) %(objectname:short)" &
+  #200 | 2026-10-28T08:09:31.295Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice720.py tools/b720_record.py "def TRAIL_HEAD
+  #201 | 2026-10-28T08:09:41.548Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/figs720.py _title _n2 _n3
+  #202 | 2026-10-28T08:09:58.528Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/figs720.py _n3 _n1 _n5
+  #203 | 2026-10-28T08:10:34.077Z | seat | Bash | grep -n -E "^def (wf_ok|runner_ok|gate_ok|merges_ok|wf_state|_verdict|_own|_ctl_first|fline)\b" tools/b720_checks.py
+  #204 | 2026-10-28T08:10:45.379Z | seat | Bash | grep -n -E "^## |FALSIFIER|^\(i|^### " data/b720_registrations.txt && grep -n -E "^\*\*|^### ### " data/b720_prediction.txt data/b720_challenge.txt && grep -n -
+  #205 | 2026-10-28T08:10:53.004Z | seat | Bash | git grep -n -E "135|= 100|-1/2|PRED-" f5353ca9 -- data/b720_registrations.txt
+  #206 | 2026-10-28T08:11:23.259Z | seat | Bash | grep -n -E "^ARMS|^ARMS_ALL|run_list|^import|^from|^STA|^KR|^KI|^EF|^LV" tools/b720_checks.py
+  #207 | 2026-10-28T08:11:48.294Z | seat | Bash | grep -c "\"kind\": \"read\"" data/b720_pin_rows.json && grep -n -A3 "^def _first_ts" tools/b720_checks.py && grep -n -B2 -A3 "\"kind\": \"read\"" data/b720_pin_
+  #208 | 2026-10-28T08:13:06.897Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice720.py tools/b720_checks.py "COEFFS_FOOT = 
+  #209 | 2026-10-28T08:14:37.004Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armrows720.py && python -X utf8 -m py_compile too
+  #210 | 2026-10-28T08:14:46.339Z | seat | Bash | grep -n -E "argv|--only|--part|--arm|--dry|def main" tools/b720_checks.py
+  #211 | 2026-10-28T08:14:53.089Z | seat | Bash | grep -n -E "^def (gather|_gather|state|collect)|^def put\b|^def _mut|S = gather|= _gather" tools/b720_checks.py
+  #212 | 2026-10-28T08:14:58.753Z | seat | Bash | grep -n -E "^def |^    S = dict\(" tools/b720_checks.py --max-count=400
+  #213 | 2026-10-28T08:15:22.721Z | seat | Bash | git status --porcelain --untracked-files=all && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/a
+  #214 | 2026-10-28T08:17:09.812Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armprobe720.py
+  #215 | 2026-10-28T08:18:49.583Z | seat | Bash | grep -n -E "arm_tags|def (tags|claim|run_list|retired)" tools/standing/arms.py tools/standing/close.py tools/b720_checks.py tools/b720_record.py tools/b720_repo
+  #216 | 2026-10-28T08:19:03.195Z | seat | Bash | git grep -n -E "arm_tags|ARM_TAGS" -- "tools/*.py" "tools/standing/*.py"
+  #217 | 2026-10-28T08:19:19.562Z | seat | Bash | grep -n -E "S\['arms_src'\] == S\['arms_src_pre'\]|t == S\['count_route_pre'\]|S\['errata_pp'\] == S\['errata_pp_pre'\]|\^  CHECK \.\*\\$" tools/b720_checks.py
+  #218 | 2026-10-28T08:19:50.506Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/gos720.py
+  #219 | 2026-10-28T08:20:19.297Z | seat | Bash | python -X utf8 -m py_compile tools/b720_checks.py && python -X utf8 -m py_compile tools/b720_record.py && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/cl
+  #220 | 2026-10-28T08:22:13.642Z | seat | Bash | grep -n -E "^### |^  relay|^  PLACE|\| " data/b720_readfirst.txt && grep -n -E "push-b719|KEPT|merged|CITES|branch" data/b720_stepzero.txt && head -1 data/b719_
+  #221 | 2026-10-28T08:22:21.358Z | seat | Bash | grep -n -A12 "^def landed" tools/b720_checks.py
+  #222 | 2026-10-28T08:22:34.328Z | seat | Bash | grep -n -E "\blanded\b" tools/b720_checks.py tools/b703_checks.py tools/b698_record.py --max-count=4
+  #223 | 2026-10-28T08:23:09.427Z | seat | Bash | python -X utf8 -m py_compile tools/b720_checks.py && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratch
+  #224 | 2026-10-28T08:24:41.177Z | seat | Bash | grep -n -E "G-RECEIPT-IN-FULL|G-PROCS-LISTED|G-STEPZERO-TESTS|G-BRANCHES-BANKED|G-CORRIGENDUM-ENTERED" -A1 tools/b720_checks.py && grep -n -A30 "^def receipt_ok
+  #225 | 2026-10-28T08:24:57.472Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/retired720.py
+  #226 | 2026-10-28T08:25:10.173Z | seat | Bash | grep -n -A31 "^def corrigendum_ok" tools/b720_checks.py && grep -n "^VERSION" data/standing_clauses_v7.txt && ls data/b720_standing_control.json data/b719_stand
+  #227 | 2026-10-28T08:25:29.612Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/corrj720.py && grep -n -E "^  \((4[0-9]|39)\) " d
+  #228 | 2026-10-28T08:25:38.829Z | seat | Bash | grep -o -E "\"item\": \{[^}]*\}" data/b720_corrigendum.json && grep -c -E "^  \(40\) " data/b675_corrigenda.txt && grep -c -E "^  \(41\) " data/b675_corrigenda.
+  #229 | 2026-10-28T08:26:28.079Z | seat | Bash | grep -n -B12 -A3 "^CARRIED_FAILING" tools/b720_checks.py && grep -n "CARRIED_FAILING" tools/b720_checks.py
+  #230 | 2026-10-28T08:26:33.412Z | seat | Bash | grep -n -o -E ".{120}(port-b707|NOT deleted|kept).{80}" data/b720_ferry.txt
+  #231 | 2026-10-28T08:26:49.157Z | seat | Bash | python -X utf8 -m py_compile tools/b720_checks.py && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratch
+  #232 | 2026-10-28T08:28:17.863Z | seat | Bash | grep -n -A2 -E "\('G-(PP-SCOPE|KERNELS-UNTOUCHED|SHARED-ADDITIVE|NODISCLOSURE-PUBLIC|DELETE-FREE|WRITELIST-MIRROR-STATE|LSREMOTE-ONE-PER-REPO|CORRESPONDENCE-CUR
+  #233 | 2026-10-28T08:28:25.328Z | seat | Bash | grep -n -A12 "^def no_delete" tools/b720_checks.py tools/b703_checks.py && grep -n -E "os\.remove|unlink|rmtree|shutil\.|os\.rmdir|Remove-Item|\brm " tools/b720
+  #234 | 2026-10-28T08:28:48.647Z | seat | Bash | grep -n -E "def act_sections|differs|errata|offset|surgery|arm_retire|arm_history|count_route|-20|-47|H-24|H-47|C4_|C5_|C6_|K\.[A-Z_]+\[" tools/b720_closing.py
+  #235 | 2026-10-28T08:28:58.502Z | seat | Bash | grep -c -E "^### ### \*\*" data/b720_corrigendum.txt data/b720_prediction.txt data/b720_coeffs.txt data/b720_derivation.txt data/b720_registry_diff.txt data/b72
+  #236 | 2026-10-28T08:29:44.672Z | seat | Bash | grep -n -E "^## .*H-SHAPE|^## .*H-OFFSET" data/b719_registrations.txt && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-
+  #237 | 2026-10-28T08:30:05.870Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/knames720.py b720_closing.py b720_regspec.py b720
+  #238 | 2026-10-28T08:30:13.094Z | seat | Bash | grep -n -E "^\s+\('" tools/b720_regspec.py
+  #239 | 2026-10-28T08:31:10.136Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/regrows720.py
+  #240 | 2026-10-28T08:31:19.767Z | seat | Bash | git status --porcelain -- tools/b720_regspec.py data/ && head -5 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad
+  #241 | 2026-10-28T08:31:50.456Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/specrows720.py
+  #242 | 2026-10-28T08:34:01.465Z | seat | Bash | python -X utf8 -m py_compile tools/b720_regspec.py && echo COMPILED && git grep -n "C4_REG\|C5_REG\|off_lo\|surgery" -- tools/b720_report.py tools/b720_reg_gate
+  #243 | 2026-10-28T08:35:03.001Z | seat | Bash | python -X utf8 -m py_compile tools/b720_report.py && echo COMPILED && grep -n "^DRAFT\|^C2_PRED" tools/b720_worklist.py && grep -n "b719\|C4_REG\|C5_REG\|-20\|-
+  #244 | 2026-10-28T08:35:10.822Z | seat | Bash | python -X utf8 tools/b720_report.py dry && git status --short
+  #245 | 2026-10-28T08:35:20.702Z | seat | Bash | git diff --stat && git log --oneline -6 && git diff data/b720_steps.json
+  #246 | 2026-10-28T08:35:26.392Z | seat | Bash | git show --stat --format=%h 03f755e7 && git diff data/b720_bank_hashes.json && head -5 data/b720_carry_report.txt data/b720_hook_refusals.txt
+  #247 | 2026-10-28T08:35:36.627Z | seat | Bash | git add -- tools/b720_checks.py tools/b720_closing.py tools/b720_reg_gate.py tools/b720_regspec.py tools/b720_report.py tools/b720_record.py tools/b720_worklist
+  #248 | 2026-10-28T08:35:45.677Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 C7 (component 7): the carried tools re-pointed to b720 by the Edit tool -- tools/b720_checks.py (the act arms over the regist
+  #249 | 2026-10-28T08:35:50.615Z | seat | Bash | python -X utf8 tools/b720_record.py step relay "component 7" b85ec85ef7fed1604e1d02f7a1f9cac311c00d9a && python -X utf8 tools/b720_record.py closeorder
+  #250 | 2026-10-28T08:35:58.949Z | seat | Bash | python -X utf8 tools/b720_record.py help
+  #251 | 2026-10-28T08:36:12.223Z | seat | Bash | wc -l data/b719_registration_2026-10-2*.txt && grep -n "^## \|^### ### \*\*(\|^# " data/b719_registration_2026-10-2*.txt
+  #252 | 2026-10-28T08:36:30.458Z | seat | Bash | python -X utf8 tools/b720_record.py figures
+  #253 | 2026-10-28T08:36:43.276Z | seat | Bash | python -X utf8 tools/b720_record.py commands
+
+### ### **COMMANDS 253 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 273 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

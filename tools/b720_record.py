@@ -627,7 +627,7 @@ def kernels(*a):
     ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
     import b633_record as R3
     put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
-    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel`s main written this act, b719`s pin branches (R329)(8) carried on their own refs, (R330)(11); SIDE-lv-conservation`s main '
+    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel`s main written this act, the pin-b718-de5ce8a9 branches of the six eligible pushed on their own refs ((R330)(5)(iii)), the challenge branch off main ((R330)(5)(ii)); SIDE-lv-conservation`s main '
           'untouched, port-b707 at b712`s tip %s, its checkout at main for this read)' % (len(ks), K.JOIN_NEW_TIP[:8], K.PORT_NEW_TIP[:8]))
 
 
