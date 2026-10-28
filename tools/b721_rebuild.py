@@ -20,6 +20,9 @@ rule pointed at the pin's lakefile; b718's bump, stop and bank routes are not ca
   trigger <kernel>     the author's word: a trigger-only change to run on push to BRANCH, its one-line diff formed in memory and the
                        workflow's refusal step run under the TARGET a push carries and under the dispatch target; one row; nothing written
                        to the kernel
+  rebranch <kernel>    the author's second word: one plumbing commit on the pushed copy commit, the workflow two lines against its source
+                       (the push trigger beside workflow_dispatch; TARGET fixed); the diff printed; one ref moved (update-ref, old value checked)
+  push_run <kernel>    free memory read; the fast-forward push, the run's trigger; ls-remote; the run found by branch, event and head sha
   read <kernel> <id>   b718's read route over b721's rows
   bank                 writes data/b721_rebuild.txt from data/b721_rebuild_rows.json
 """
@@ -230,6 +233,101 @@ def trigger(k):
                 'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
 
 
+PUSH_LINE = '  push: { branches: [%s] }' % BRANCH
+
+
+def wf_on_push(k):
+    """### the author's second word (b721): the copied workflow with two lines against SIDE-explicit-formula's file -- the push trigger,
+    ### entered beside workflow_dispatch (replacing that key would orphan its inputs block, which YAML does not allow), and the target
+    ### fixed (TARGET: <the pin's target>), since a push carries no inputs. inputs.ref stays: empty on a push, checkout takes the pushed sha."""
+    src = P.show('D:/' + WF_SRC[0], WF_SRC[1], WF_SRC[2])
+    L = src.split(NL)
+    assert L.count('on:') == 1 and L.count('      TARGET: ${{ inputs.target }}') == 1, 'needle yield not 1'
+    M = list(L)
+    M.insert(M.index('on:') + 1, PUSH_LINE)
+    M[M.index('      TARGET: ${{ inputs.target }}')] = '      TARGET: %s' % target_at_pin(k)
+    return L, M
+
+
+def rebranch(k):
+    repo = 'D:/' + k
+    pushed = [r for r in P.rows_load() if r.get('kind') == 'push' and r['kernel'] == k]
+    tip = P.gs(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + BRANCH)
+    if not pushed or tip != pushed[-1]['sha'] or wf_on_main(k):
+        sys.exit('## %s: the tip is not the pushed copy commit, or the kernel has the workflow on main; nothing written' % k)
+    import difflib
+    L, M = wf_on_push(k)
+    diff = [x for x in difflib.unified_diff(L, M, 'SIDE-explicit-formula:' + WF_PATH, BRANCH + ':' + WF_PATH, lineterm='', n=0)]
+    print('### %s: THE DIFF AGAINST %s`s %s (at %s):' % (k, WF_SRC[0], WF_PATH, P.gs('D:/' + WF_SRC[0], 'rev-parse', '--short=8', WF_SRC[1])))
+    for x in diff:
+        print('   ' + x)
+    b = P.blob(repo, NL.join(M))
+    c, wft, e = P.g(repo, 'mktree', inp=('100644 blob %s\tbuild-module.yml\n' % b).encode('utf-8'))
+    assert c == 0, e
+    c, ght, e = P.g(repo, 'mktree', inp=('040000 tree %s\tworkflows\n' % wft.strip()).encode('utf-8'))
+    assert c == 0, e
+    rows = [l for l in P.gs(repo, 'ls-tree', tip).split(NL) if l.strip() and not l.endswith('\t.github')] + ['040000 tree %s\t.github' % ght.strip()]
+    rows.sort(key=lambda l: l.split('\t', 1)[1] + ('/' if ' tree ' in l else ''))
+    c, tree, e = P.g(repo, 'mktree', inp=(NL.join(rows) + NL).encode('utf-8'))
+    assert c == 0, e
+    msg = ('b721 under (R331)(7)(iii), the author`s word: %s runs on push to %s with its target fixed (%s), two lines against %s`s file; '
+           'the dispatch at the branch was refused (no workflow on main)' % (WF_PATH, BRANCH, target_at_pin(k), WF_SRC[0]))
+    c, cm, e = P.g(repo, *(SEAT + ['commit-tree', tree.strip(), '-p', tip, '-m', msg]))
+    assert c == 0, e
+    cm = cm.strip()
+    c, _o, e = P.g(repo, 'update-ref', 'refs/heads/' + BRANCH, cm, tip)
+    assert c == 0, e
+    print('## %s : %s at %s, parent %s (the pushed copy commit), author and committer %s ; tree change:' % (
+        k, BRANCH, cm[:12], tip[:12], P.gs(repo, 'log', '-1', '--format=%an <%ae> / %cn <%ce>', cm)))
+    print(P.g(repo, 'diff', '--stat', tip, cm)[1].rstrip())
+    P.rows_add({'kind': 'rebranch', 'kernel': k, 'sha': cm, 'parent': tip, 'diff': diff, 'target': target_at_pin(k),
+                'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
+
+
+def push_run(k):
+    """### the second push (fast-forward from the pushed copy commit to rebranch's commit); the push is the run's trigger, the sixth run
+    ### (the remaining dispatch); its run found by the branch and event, rowed as a dispatch (via push)."""
+    repo = 'D:/' + k
+    rb = [r for r in P.rows_load() if r.get('kind') == 'rebranch' and r['kernel'] == k]
+    done = [r for r in P.rows_load() if r.get('kind') == 'dispatch']
+    if not rb or [r for r in P.rows_load() if r.get('kind') == 'push2' and r['kernel'] == k] or len(done) >= P.MAX_DISPATCH:
+        sys.exit('## %s: no rebranch row, pushed already, or six runs reached; nothing pushed' % k)
+    tip = P.gs(repo, 'rev-parse', 'refs/heads/' + BRANCH)
+    if tip != rb[-1]['sha']:
+        sys.exit('## %s: the tip is not rebranch`s commit; nothing pushed' % k)
+    fm = P.hold_or_exit('the push of ' + k)
+    t0 = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+    print('### free memory %d MB (hold %d) ; pushing %s %s at %s (fast-forward from %s)' % (fm, P.HOLD_MB, k, BRANCH, tip[:12], rb[-1]['parent'][:12]))
+    c, o, e = P.g(repo, 'push', 'origin', BRANCH)
+    print('   git push origin %s: exit %d %s' % (BRANCH, c, (o + e).strip().replace(NL, ' / ')[:300]))
+    if c != 0:
+        sys.exit('push refused; no row')
+    remote = P.g(repo, 'ls-remote', 'origin', 'refs/heads/' + BRANCH)[1].strip()
+    print('   ls-remote origin %s: %s ; equal to the tip %s' % (BRANCH, remote[:12], remote.startswith(tip)))
+    P.rows_add({'kind': 'push2', 'kernel': k, 'sha': tip, 'at': t0, 'free_mb': fm, 'remote_equal': remote.startswith(tip)})
+    rid = None
+    for _i in range(24):
+        time.sleep(5)
+        c, o, e = P.gh('run', 'list', '-R', '%s/%s' % (P.OWNER, k), '--branch', BRANCH, '--event', 'push', '-L', '5',
+                       '--json', 'databaseId,createdAt,status,headSha')
+        new = [r for r in json.loads(o or '[]') if r['createdAt'] >= t0 and r['headSha'] == tip]
+        if new:
+            rid = new[-1]['databaseId']
+            break
+    print('   run id %s (event push, head %s, created at or after %s)' % (rid, tip[:12], t0))
+    P.rows_add({'kind': 'dispatch', 'kernel': k, 'sha': tip, 'target': target_at_pin(k), 'at': t0, 'run': rid, 'free_mb': P.free_mb(),
+                'via': 'push'})
+
+
+def fro_line(reads, disp):
+    k = 'SIDE-frobenius'
+    if k not in disp:
+        return 'SIDE-frobenius HELD, ITS DISPATCH REFUSED, A TRIGGER-ONLY CHANGE HALTED (EMPTY TARGET REFUSED)'
+    if k not in reads:
+        return 'SIDE-frobenius RUN ON PUSH (THE AUTHOR`S TWO LINES), NOT READ'
+    return 'SIDE-frobenius RUN ON PUSH (THE AUTHOR`S TWO LINES): %s' % reads[k]['verdict']
+
+
 def bank():
     rs = P.rows_load()
     pushes = dict((r['kernel'], r) for r in rs if r['kind'] == 'push')
@@ -270,7 +368,16 @@ def bank():
                 out.append('      %s' % ('HALTED: no trigger-only change can build (env TARGET reads inputs.target alone); nothing committed or '
                                          'pushed, no run spent; a second line (the target) is the author`s to rule' if th['kind'] == 'trigger_halt'
                                          else 'NOT HALTED by the refusal step'))
-            continue
+            for rb in [r for r in rs if r['kind'] == 'rebranch' and r['kernel'] == k]:
+                out.append('      THE AUTHOR`S SECOND WORD (the target fixed beside the push trigger), read at %s: %s at %s, parent %s ; the diff '
+                           'against %s`s file:' % (rb['at'], BRANCH, rb['sha'][:10], rb['parent'][:10], WF_SRC[0]))
+                out += ['      diff | ' + x for x in rb['diff']]
+            for p2 in [r for r in rs if r['kind'] == 'push2' and r['kernel'] == k]:
+                out.append('      pushed %s (host free %d MB, origin equal %s), the push the run`s trigger' % (p2['sha'][:10], p2['free_mb'], p2['remote_equal']))
+            if k not in disp:
+                continue
+            p2s = [r for r in rs if r['kind'] == 'push2' and r['kernel'] == k]
+            line = '  %-21s %s = %s ; the run triggered by the push of %s' % (k, tag, p, p2s[-1]['sha'][:10] if p2s else '-')
         d = disp.get(k)
         if not d:
             out.append(line + ' ; NOT DISPATCHED, carried')
@@ -296,11 +403,9 @@ def bank():
     out += ['', '## THE GRADE',
             '  BUILDS means the build exit 0 under the hold, read from the run`s artifact. A build carrying a sorry builds and is not complete:',
             '  %s.' % ('; '.join(sor) if sor else 'none carries one'),
-            '', '### ### **%d OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS (%s) ; SIDE-frobenius HELD, ITS DISPATCH REFUSED%s ; DISPATCHES %d ; '
+            '', '### ### **%d OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS (%s) ; %s ; RUNS %d ; '
             'NOTHING REPAIRED ; NO MAIN OR TAG TOUCHED.**' % (builds, ('ONE WITH A SORRY: ' + sor[0].split(' ')[0]) if len(sor) == 1 else
-                                                           ('%d WITH A SORRY' % len(sor)),
-                                                           ', A TRIGGER-ONLY CHANGE HALTED (EMPTY TARGET REFUSED)' if any(
-                                                               r['kind'] == 'trigger_halt' for r in rs) else '', len(disp))]
+                                                           ('%d WITH A SORRY' % len(sor)), fro_line(reads, disp), len(disp))]
     io.open(OUT + '.tmp', 'w', encoding='utf-8', newline='\n').write(NL.join(out) + NL)
     os.replace(OUT + '.tmp', OUT)
     print(NL.join(out))
@@ -319,6 +424,10 @@ if __name__ == '__main__':
         dispatch(a[1])
     elif a[0] == 'read':
         P.read(a[1], a[2])
+    elif a[0] == 'rebranch':
+        rebranch(a[1])
+    elif a[0] == 'push_run':
+        push_run(a[1])
     elif a[0] == 'trigger':
         trigger(a[1])
     elif a[0] == 'bank':

@@ -453,5 +453,116 @@
   "empty_out": "target refused:",
   "control_exit": 0,
   "at": "2026-10-28T14:38:16Z"
+ },
+ {
+  "kind": "rebranch",
+  "kernel": "SIDE-frobenius",
+  "sha": "6b06215745d0d68b5de25b0d9defe83f7b3b8545",
+  "parent": "f9410d2e64ad242a499a034949ef968abd5848a2",
+  "diff": [
+   "--- SIDE-explicit-formula:.github/workflows/build-module.yml",
+   "+++ rebuild-b721:.github/workflows/build-module.yml",
+   "@@ -15,0 +16 @@",
+   "+  push: { branches: [rebuild-b721] }",
+   "@@ -34 +35 @@",
+   "-      TARGET: ${{ inputs.target }}",
+   "+      TARGET: SIDEFrobenius"
+  ],
+  "target": "SIDEFrobenius",
+  "at": "2026-10-28T15:09:55Z"
+ },
+ {
+  "kind": "push2",
+  "kernel": "SIDE-frobenius",
+  "sha": "6b06215745d0d68b5de25b0d9defe83f7b3b8545",
+  "at": "2026-10-28T15:10:01Z",
+  "free_mb": 6908,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-frobenius",
+  "sha": "6b06215745d0d68b5de25b0d9defe83f7b3b8545",
+  "target": "SIDEFrobenius",
+  "at": "2026-10-28T15:10:01Z",
+  "run": 40713201832,
+  "free_mb": 6923,
+  "via": "push"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-frobenius",
+  "run": "40713201832",
+  "free_mb": 6803,
+  "status": "completed",
+  "conclusion": "failure",
+  "created": "2026-10-28T15:10:10Z",
+  "updated": "2026-10-28T15:12:25Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "failure"
+   ],
+   [
+    "Chain probe of the ref's root ChainProbe.lean",
+    "success"
+   ],
+   [
+    "Constant closure of the kernel's own declarations",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Upload the chain probe's artifact, separate from the run's",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "6b06215745d0d68b5de25b0d9defe83f7b3b8545",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14037",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [],
+  "verdict": "BUILDS"
  }
 ]

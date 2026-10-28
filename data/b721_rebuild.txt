@@ -9,7 +9,7 @@ b721 -- (R331)(7)(iii): THE REBUILD AT EACH WAVE 1 KERNEL`S OWN PIN, LAST AND ST
 ### (b721 rebuild seat <b721-rebuild@relay.invalid>), no identifier of the author in it. The pins` own trees carry a workflow at
 ### SIDE-kernel alone (build.yml, triggered by a push to main only, so the branch push ran nothing).
 
-PUSHED 6 ; DISPATCHED 5 (six at most) ; DISPATCH REFUSED 1 ; READ 5 ; BUILDS 5 OF 6 ; HELD (BREAKS) 0 ; NOT READ 0
+PUSHED 6 ; DISPATCHED 6 (six at most) ; DISPATCH REFUSED 1 ; READ 6 ; BUILDS 6 OF 6 ; HELD (BREAKS) 0 ; NOT READ 0
 
   SIDE-kernel           v1.5 = 0e5233f ; pushed 0e5233f011 (host free 7157 MB, origin equal True) ; run 40706230156 at 2026-10-28T14:28:11Z (target Kernel Bridge MetaKernel, host free 7151 MB): completed success ; build exit 0 ; memory low 13549 MB ; sorry warnings 0 ; host free 6737 MB at the read ; BUILDS
       axioms | out/Axioms.lean:1:0: error: object file '/home/runner/work/SIDE-kernel/SIDE-kernel/.lake/build/lib/lean/Bridge/CardDerived.olean' of module Bridge.CardDerived does not exist
@@ -31,6 +31,17 @@ PUSHED 6 ; DISPATCHED 5 (six at most) ; DISPATCH REFUSED 1 ; READ 5 ; BUILDS 5 O
       diff | +  push: { branches: [rebuild-b721] }
       the workflow`s refusal step under the TARGET a push carries (inputs.target empty): exit 2 "target refused:" ; under the dispatch target 'SIDEFrobenius' (the control): exit 0
       HALTED: no trigger-only change can build (env TARGET reads inputs.target alone); nothing committed or pushed, no run spent; a second line (the target) is the author`s to rule
+      THE AUTHOR`S SECOND WORD (the target fixed beside the push trigger), read at 2026-10-28T15:09:55Z: rebuild-b721 at 6b06215745, parent f9410d2e64 ; the diff against SIDE-explicit-formula`s file:
+      diff | --- SIDE-explicit-formula:.github/workflows/build-module.yml
+      diff | +++ rebuild-b721:.github/workflows/build-module.yml
+      diff | @@ -15,0 +16 @@
+      diff | +  push: { branches: [rebuild-b721] }
+      diff | @@ -34 +35 @@
+      diff | -      TARGET: ${{ inputs.target }}
+      diff | +      TARGET: SIDEFrobenius
+      pushed 6b06215745 (host free 6908 MB, origin equal True), the push the run`s trigger
+  SIDE-frobenius        v0.1.0 = 2efe9f2 ; the run triggered by the push of 6b06215745 ; run 40713201832 at 2026-10-28T15:10:01Z (target SIDEFrobenius, host free 6923 MB): completed failure ; build exit 0 ; memory low 14037 MB ; sorry warnings 0 ; host free 6803 MB at the read ; BUILDS
+      steps not succeeding: [['Axioms of the named terminals', 'failure']] -- the run`s conclusion is theirs; the build exit is read from the artifact
   SIDE-spinor           v0.1.0 = b235bc6 ; pushed b235bc6235 (host free 7193 MB, origin equal True) ; run 40706542282 at 2026-10-28T14:30:05Z (target SIDESpinor, host free 7136 MB): completed failure ; build exit 0 ; memory low 14192 MB ; sorry warnings 0 ; host free 6638 MB at the read ; BUILDS
       steps not succeeding: [['Axioms of the named terminals', 'failure']] -- the run`s conclusion is theirs; the build exit is read from the artifact
   SIDE-rcurve           v0.1.0 = d5f33b4 ; pushed d5f33b44ef (host free 7141 MB, origin equal True) ; run 40706645404 at 2026-10-28T14:30:40Z (target SIDERCurve, host free 7060 MB): completed failure ; build exit 0 ; memory low 14301 MB ; sorry warnings 0 ; host free 6609 MB at the read ; BUILDS
@@ -40,4 +51,4 @@ PUSHED 6 ; DISPATCHED 5 (six at most) ; DISPATCH REFUSED 1 ; READ 5 ; BUILDS 5 O
   BUILDS means the build exit 0 under the hold, read from the run`s artifact. A build carrying a sorry builds and is not complete:
   SIDE-lv-conservation (sorry warnings 1; sorryAx in ['SIDELvConservation.T3.T3_perClass_to_combinations']).
 
-### ### **5 OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS (ONE WITH A SORRY: SIDE-lv-conservation) ; SIDE-frobenius HELD, ITS DISPATCH REFUSED, A TRIGGER-ONLY CHANGE HALTED (EMPTY TARGET REFUSED) ; DISPATCHES 5 ; NOTHING REPAIRED ; NO MAIN OR TAG TOUCHED.**
+### ### **6 OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS (ONE WITH A SORRY: SIDE-lv-conservation) ; SIDE-frobenius RUN ON PUSH (THE AUTHOR`S TWO LINES): BUILDS ; RUNS 6 ; NOTHING REPAIRED ; NO MAIN OR TAG TOUCHED.**
