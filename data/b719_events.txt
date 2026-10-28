@@ -47,3 +47,16 @@ AFTER THE SEAL (relay caf8d9d3, sealed 2026-10-28 05:07Z):
      three beyond the two declared (G-RECEIPT-IN-FULL, G-PUSHOUT-COMMITTED, G-SEALED-AFTER-COMPONENTS), not two, and twenty-one by form, not
      twenty-two. Row (4) is not rewritten; this row corrects it. The pre-push combine: ARMS 116, LIVE PASSING 111, LIVE FAILING 5 -- the two
      declared and these three -- NEG 0, POS 0, NOT CLEAN (data/b719_checks.txt).
+
+AFTER THE PUSHES (relay fa268307, PLACE-papers b92bb70a, read back at both remotes):
+    (9) THE SEAT'S [CLOSE ; REPEAT b718 (10)]: 06:24:20Z, AT THE MIRROR ([23], data/b719_mirror.txt): THE MANIFEST CONTROL reads NOT AS
+     WANTED on day1/Silence_of_Foundations.md alone -- the zip's entry 32148 bytes against the blob at a86c9429 (b718's merge, K.RECUT_MERGE)
+     31795, raw and with CR removed. The reference is carried: two commits touched the file after a86c9429 (29c1752, b716 (R326)(5)(iii)-(iv);
+     84dbbf3, b717 (R327)(5)-(7)(ii)), and the entry equals the blob at b92bb70a, PLACE-papers main at the build, raw and with CR removed (a
+     scratch read, writing nothing; 0 CR in the entry). The census v0.8.1 row AS WANTED. The verification CLEAN ON ALL THREE CLAUSES, 74 of
+     74 by name, the root line `Act root: b719 09e524a7...` in the MANIFEST. Recorded, not repaired: the control's reference is the sealed
+     tool's. The post-push suite before it: ARMS 116, LIVE PASSING 111, LIVE FAILING 5, the same five as (8), NEG 0, POS 0, NOT CLEAN
+     (data/b719_checks_postpush.txt); nothing found beyond them.
+    (10) THE SEAT'S [CLOSE ; REPEAT b719 (6)]: 06:25:10Z, after the mirror and before the post-push record commit, a PowerShell command
+     reading b718's mirror commit by `git log ... | ForEach-Object { git show --stat ... }` -- REFUSED BY THE HOOK (row (77), row (14)), a pipe
+     outside quotes, data/b719_hook_refusals.txt :8; nothing run; re-made as two commands with no pipe.
