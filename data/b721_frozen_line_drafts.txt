@@ -1,0 +1,70 @@
+b721 -- (R331)(7)(ii): DRAFTS FOR THE RELEASE SITTING -- A README PARAGRAPH AND A ONE-LINE GITHUB DESCRIPTION PER CHECKPOINT KERNEL, AND
+SPIRAL_MAP :104'S SENTENCE FOR THAT DOCUMENT'S NEXT EDITION (2026-10-28)
+
+### Written by the Write tool from data/b721_frozen_line.txt (committed 0b759208): each paragraph says what the kernel compiles, from the
+### statements quoted there at their pins, and quotes its headline statement; each EXCEEDS of that bank is answered by saying what is
+### compiled and naming what is the path's. DRAFTS: committed to the relay alone; no kernel's README, description, main, tag or pin is
+### touched; SPIRAL_MAP.md (PLACE-papers, private) is cited by line and not quoted here. The author's sitting decides every word.
+
+## SIDE-archimedean (v0.1.0 = 8019d9d)
+  README PARAGRAPH:
+    SIDE-archimedean compiles, over Mathlib, five statements of rational arithmetic in σ : ℚ. The map σ ↦ 1 − σ (named fe_reflect) has
+    σ = 1/2 as its only fixed point (fe_reflect_fixed_iff); a function defined to be 1 at σ = 1/2 and 2 elsewhere (focus_codim) takes the
+    value 1 exactly there (focus_codim_eq_one_iff), so the two conditions coincide (archimedean_identifies_half); and the constant named
+    theta_weight, 1/2, doubles to 1 (theta_weight_doubles_to_one). Its headline statement, at v0.1.0 = 8019d9d:
+        theorem archimedean_forces_half (σ : ℚ) (h : fe_reflect σ = σ) : σ = 1 / 2
+    The names record the Archimedean path they stand for (the θ-transformation, the functional equation ξ(s) = ξ(1 − s), Focus); the
+    kernel compiles none of those objects. It checks the fixed-point arithmetic in which that path reaches σ = 1/2.
+  GITHUB DESCRIPTION (one line):
+    Lean 4 kernel: σ ↦ 1 − σ on ℚ fixes only 1/2 -- the fixed-point arithmetic of the Archimedean path (checkpoint 1.2-A)
+
+## SIDE-frobenius (v0.1.0 = 2efe9f2)
+  README PARAGRAPH:
+    SIDE-frobenius compiles, over Mathlib, statements in ℚ, ℤ and 2 × 2 integer matrices. r² + r + 1/4 = (r + 1/2)², so its only root
+    is r = −1/2 (indicial_factor, indicial_root_unique); r ↦ −1 − r fixes only −1/2 (indicial_reflect_fixed_iff); g(a, b) = ab − a − b is
+    1 at (2, 3) and at least 2 at every other pair 2 ≤ a < b (g_two_three, g_two_three_minimal); and S² = −1, (ST)³ = −1 for
+    S = [[0, −1], [1, 0]], T = [[1, 1], [0, 1]] (S_squared, ST_cubed). Its headline statement, at v0.1.0 = 2efe9f2:
+        theorem indicial_forces_half (r : ℚ) (h : r ^ 2 + r + 1 / 4 = 0) : -r = 1 / 2
+    The polynomial enters as a polynomial: its reading as the indicial equation of H = xp near x = 0 is the Frobenius path's, and the
+    Berry–Keating spectral realization is not asserted.
+  GITHUB DESCRIPTION (one line):
+    Lean 4 kernel: the double root −1/2 of r² + r + 1/4, g(2,3) = 1 and the {2,3} matrix orders -- the Frobenius path's algebra (checkpoint 1.2-B)
+
+## SIDE-spinor (v0.1.0 = b235bc6)
+  README PARAGRAPH:
+    SIDE-spinor compiles, over Mathlib, statements in ℕ, ℚ, ℝ and ℂ. The list [3, 2, 1, 0, 1, 2, 3] sums to 12 (spectral_volume); the
+    defined 1 + 6 = 7, and 1/7 (aperture_decomp, aperture); |i|² = 1, i² = −1 and i⁴ = 1 (phase_unit, spinor_sq, spinor_order_four);
+    i·w = w only at w = 0 for complex w (orbit_collapse_iff); and σ = 1/2 iff σ − 1/2 = 0 for real σ. Its headline statements, at
+    v0.1.0 = b235bc6:
+        theorem spinor_forces_half (w : ℂ) (h : Complex.I * w = w) : w = 0
+        theorem half_iff_centered_zero (σ : ℝ) : σ = 1 / 2 ↔ σ - 1 / 2 = 0
+    The observable M = vv†, its spectrum and its phase invariance are the Spinor/Information path's (Paper 020); the kernel compiles
+    none of them, and no statement in it links the complex w to the real σ.
+  GITHUB DESCRIPTION (one line):
+    Lean 4 kernel: i·w = w forces w = 0 in ℂ, with the arithmetic of the Spinor/Information path (checkpoint 1.2-C)
+
+## SIDE-rcurve (v0.1.0 = d5f33b4)
+  README PARAGRAPH:
+    SIDE-rcurve compiles, over Mathlib, statements about real functions and real and complex algebra. A strictly monotone V : ℝ → ℝ
+    vanishes at most once (monotone_unique_zero, second_zero_breaks_monotone); α²/β + β = (α² + β²)/β for β ≠ 0 (monotonicity_formula);
+    Re((α + βi)/(Vi)) = β/V for V ≠ 0 (beta_V_re); n/β > 0 for n, β > 0 (singular_repulsion); and a function defined as 1 or 2 by a
+    Boolean (zero_codim). Its headline statement, at v0.1.0 = d5f33b4:
+        theorem monotone_unique_zero {V : ℝ → ℝ} (hV : StrictMono V) {a b : ℝ} (ha : V a = 0) (hb : V b = 0) : a = b
+    The R-curve criterion (RH iff V strictly monotone on every R-curve in σ > 1/2), its equivalence and the positivity that drives it
+    are the documents' (R_CURVE_CRITERION_v0_1 and the deposited proof); the kernel compiles none of them. It checks the one-zero lemma
+    and the algebraic identities the criterion uses.
+  GITHUB DESCRIPTION (one line):
+    Lean 4 kernel: a strictly monotone real function vanishes at most once, with the R-curve criterion's algebraic identities (checkpoint 1.2-D)
+
+## SPIRAL_MAP.md :104 (PLACE-papers; its present sentence not quoted here), DRAFTED FOR THE DOCUMENT'S NEXT EDITION
+  The Phase 1.2 checkpoint kernels compile the arithmetic and algebra in which each alternative path of
+  PATHS_TO_THE_CRITICAL_LINE_v0_1.md reaches σ = 1/2: each states, in ℚ, ℝ or ℂ, a fixed point, a root or a one-zero lemma, and none
+  compiles its path's analytic objects (θ, ξ, an operator's spectrum, an R-curve); the headline statements are quoted at their pins in
+  relay data/b721_frozen_line.txt. The axiom profile the line gives stands as it is until (R331)(7)(iii)'s rebuild prints it at each pin.
+
+## THE DRAFTS READ AGAINST THE STATEMENTS (the vocabulary of data/b721_frozen_line.txt)
+  Every sentence above that says what a kernel compiles names a statement quoted at its pin: STATED. Every sentence naming a path's
+  object says that the kernel does not compile it: SCOPE. No draft sentence reads EXCEEDS by that vocabulary (the seat's hand, as in
+  the bank). The drafts change no kernel; they wait for the release sitting ((R331)(10)).
+
+### ### **DRAFTS WRITTEN: 4 README PARAGRAPHS, 4 ONE-LINE DESCRIPTIONS, SPIRAL_MAP :104'S SENTENCE ; COMMITTED TO THE RELAY ALONE ; NO KERNEL TOUCHED.**
