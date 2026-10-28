@@ -1,0 +1,579 @@
+{
+ "eligible": [
+  "SIDE-grh-transfer",
+  "SIDE-interfaces",
+  "SIDE-kernel",
+  "SIDE-lv-conservation",
+  "SIDE-simplicity",
+  "SIDE-trivium"
+ ],
+ "excluded": {
+  "SIDE-archimedean": "the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)",
+  "SIDE-frobenius": "the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)",
+  "SIDE-spinor": "the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)",
+  "SIDE-rcurve": "the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)",
+  "SIDE-cosmo": "pages: write -- lean_action_ci.yml runs on every push with docgen-action and pages: write, so a branch push may publish its pages (b718 HELD); (R330)(5)(iii)"
+ },
+ "push": [
+  {
+   "kind": "push",
+   "kernel": "SIDE-grh-transfer",
+   "sha": "684ed8aea5aa541f7eb679016a2af1438675e042",
+   "at": "2026-10-28T07:49:59Z",
+   "free_mb": 4089,
+   "remote_equal": true
+  },
+  {
+   "kind": "push",
+   "kernel": "SIDE-interfaces",
+   "sha": "c9328e6cd983c30407db4fdfcc0d1794497374be",
+   "at": "2026-10-28T07:50:18Z",
+   "free_mb": 4096,
+   "remote_equal": true
+  },
+  {
+   "kind": "push",
+   "kernel": "SIDE-kernel",
+   "sha": "fe85c518e72a8d9cde4a99b232bb14b2b0f67977",
+   "at": "2026-10-28T07:50:38Z",
+   "free_mb": 4102,
+   "remote_equal": true
+  },
+  {
+   "kind": "push",
+   "kernel": "SIDE-lv-conservation",
+   "sha": "9e2bd31ee2b900a801f90457b124aede799af865",
+   "at": "2026-10-28T07:50:58Z",
+   "free_mb": 4158,
+   "remote_equal": true
+  },
+  {
+   "kind": "push",
+   "kernel": "SIDE-simplicity",
+   "sha": "4ba55671ba853a3931b02b1ab835fbd9188d28a9",
+   "at": "2026-10-28T07:51:17Z",
+   "free_mb": 4160,
+   "remote_equal": true
+  },
+  {
+   "kind": "push",
+   "kernel": "SIDE-trivium",
+   "sha": "ece94ca8074b9417c4871307b51a06f66af4f225",
+   "at": "2026-10-28T07:51:34Z",
+   "free_mb": 4173,
+   "remote_equal": true
+  }
+ ],
+ "dispatch": [
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-grh-transfer",
+   "sha": "684ed8aea5aa541f7eb679016a2af1438675e042",
+   "target": "SIDEGRHTransfer",
+   "at": "2026-10-28T07:50:00Z",
+   "run": 40652622018,
+   "free_mb": 4107
+  },
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-interfaces",
+   "sha": "c9328e6cd983c30407db4fdfcc0d1794497374be",
+   "target": "Kernel Interfaces",
+   "at": "2026-10-28T07:50:18Z",
+   "run": 40652657325,
+   "free_mb": 4098
+  },
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-kernel",
+   "sha": "fe85c518e72a8d9cde4a99b232bb14b2b0f67977",
+   "target": "Kernel Bridge MetaKernel",
+   "at": "2026-10-28T07:50:39Z",
+   "run": 40652692787,
+   "free_mb": 4070
+  },
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-lv-conservation",
+   "sha": "9e2bd31ee2b900a801f90457b124aede799af865",
+   "target": "SIDELvConservation",
+   "at": "2026-10-28T07:50:58Z",
+   "run": 40652727943,
+   "free_mb": 4167
+  },
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-simplicity",
+   "sha": "4ba55671ba853a3931b02b1ab835fbd9188d28a9",
+   "target": "SIDESimplicity",
+   "at": "2026-10-28T07:51:18Z",
+   "run": 40652762827,
+   "free_mb": 4156
+  },
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-trivium",
+   "sha": "ece94ca8074b9417c4871307b51a06f66af4f225",
+   "target": "Trivium",
+   "at": "2026-10-28T07:51:34Z",
+   "run": 40652790458,
+   "free_mb": 4182
+  }
+ ],
+ "read": [
+  {
+   "kind": "read",
+   "kernel": "SIDE-grh-transfer",
+   "run": "40652622018",
+   "free_mb": 4124,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:50:01Z",
+   "updated": "2026-10-28T07:51:57Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "684ed8aea5aa541f7eb679016a2af1438675e042",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "1",
+   "mem_low_mb": "14255",
+   "stops": [],
+   "error_lines": [
+    "error: SIDEGRHTransfer/GRHBridge.lean:39:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7",
+    "in the target expression",
+    "Full error:",
+    "  Application type mismatch: The argument",
+    "    MechanismClass.enumList_nodup",
+    "error: build failed",
+    ""
+   ],
+   "log_lines": 134,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "NOT RUN: the build did not complete under the hold"
+   ],
+   "verdict": "HELD (BREAKS)"
+  },
+  {
+   "kind": "read",
+   "kernel": "SIDE-interfaces",
+   "run": "40652657325",
+   "free_mb": 4157,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:50:20Z",
+   "updated": "2026-10-28T07:51:56Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "c9328e6cd983c30407db4fdfcc0d1794497374be",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "1",
+   "mem_low_mb": "14870",
+   "stops": [],
+   "error_lines": [
+    "error: no such file or directory (error code: 2)",
+    "  file: /home/runner/work/SIDE-interfaces/SIDE-interfaces/Kernel.lean",
+    "✖ [586/934] Running job computation",
+    "error: Kernel: some modules have bad imports or could not be read",
+    "✔ [928/934] Built Kernel.InFormation (247ms)",
+    "✔ [929/934] Built Interfaces.Kappa (892ms)",
+    "error: build failed",
+    ""
+   ],
+   "log_lines": 43,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "NOT RUN: the build did not complete under the hold"
+   ],
+   "verdict": "HELD (BREAKS)"
+  },
+  {
+   "kind": "read",
+   "kernel": "SIDE-kernel",
+   "run": "40652692787",
+   "free_mb": 4230,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:50:40Z",
+   "updated": "2026-10-28T07:53:11Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "fe85c518e72a8d9cde4a99b232bb14b2b0f67977",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "1",
+   "mem_low_mb": "13670",
+   "stops": [],
+   "error_lines": [
+    "error: Kernel/Bijection.lean:8:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7",
+    "in the target expression",
+    "Full error:",
+    "  Application type mismatch: The argument",
+    "    MechClass.enumList_nodup",
+    "error: Kernel/Bijection.lean:12:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7",
+    "in the target expression",
+    "Full error:",
+    "  Application type mismatch: The argument",
+    "    IdElem.enumList_nodup"
+   ],
+   "log_lines": 414,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "NOT RUN: the build did not complete under the hold"
+   ],
+   "verdict": "HELD (BREAKS)"
+  },
+  {
+   "kind": "read",
+   "kernel": "SIDE-lv-conservation",
+   "run": "40652727943",
+   "free_mb": 4253,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:50:59Z",
+   "updated": "2026-10-28T07:53:29Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Constant closure of the kernel's own declarations",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "9e2bd31ee2b900a801f90457b124aede799af865",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "1",
+   "mem_low_mb": "12728",
+   "stops": [],
+   "error_lines": [
+    "error: SIDELvConservation/GammaBounds.lean:179:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  -1 / 2 * t",
+    "in the target expression",
+    "error: build failed",
+    ""
+   ],
+   "log_lines": 73,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "NOT RUN: the build did not complete under the hold"
+   ],
+   "verdict": "HELD (BREAKS)"
+  },
+  {
+   "kind": "read",
+   "kernel": "SIDE-simplicity",
+   "run": "40652762827",
+   "free_mb": 4246,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:51:19Z",
+   "updated": "2026-10-28T07:53:29Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "4ba55671ba853a3931b02b1ab835fbd9188d28a9",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "0",
+   "mem_low_mb": "14246",
+   "stops": [],
+   "error_lines": [],
+   "log_lines": 3,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "'SIDESimplicity.transversal_generic_empty' depends on axioms: [propext, Quot.sound]",
+    "'SIDESimplicity.codim_exceeds_curve' depends on axioms: [propext, Quot.sound]",
+    "'SIDESimplicity.codim_margin' depends on axioms: [propext, Quot.sound]",
+    "'SIDESimplicity.margin_fails_at_threshold' depends on axioms: [propext, Quot.sound]",
+    "'SIDESimplicity.no_tuning' does not depend on any axioms"
+   ],
+   "verdict": "BUILDS"
+  },
+  {
+   "kind": "read",
+   "kernel": "SIDE-trivium",
+   "run": "40652790458",
+   "free_mb": 4186,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:51:36Z",
+   "updated": "2026-10-28T07:53:34Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "ece94ca8074b9417c4871307b51a06f66af4f225",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "1",
+   "mem_low_mb": "14804",
+   "stops": [],
+   "error_lines": [
+    "error: Trivium/Bijection.lean:76:9: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7",
+    "in the target expression",
+    "Full error:",
+    "  Application type mismatch: The argument",
+    "    MechanismClass.enumList_nodup",
+    "error: Trivium/Bijection.lean:101:9: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+    "  @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7",
+    "in the target expression",
+    "Full error:",
+    "  Application type mismatch: The argument",
+    "    QuadraticDiscriminant.enumList_nodup"
+   ],
+   "log_lines": 47,
+   "sorry_warnings": 0,
+   "axioms_lines": [
+    "NOT RUN: the build did not complete under the hold"
+   ],
+   "verdict": "HELD (BREAKS)"
+  }
+ ]
+}

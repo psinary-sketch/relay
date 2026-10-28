@@ -1,0 +1,65 @@
+b720 -- (R330)(5)(iii): THE PIN'S REMAINDER, LAST AND STOPPABLE -- b718's carried branches pin-b718-de5ce8a9 (Mathlib de5ce8a9a66a, leanprover/lean4:v4.34.0-rc1), the freeze and SIDE-cosmo excluded, the eligible pushed and dispatched one per message, each read by its run id (2026-10-28)
+
+### Written by tools/b720_pin.py bank from data/b720_pin_rows.json (the rows its go route and b718's dispatch and read routes, pointed
+### at b720's rows file, appended). The branches are b718's bump commits, unchanged (each tip checked against b718's carried row before
+### its push); no kernel's main touched, no tag cut, nothing repaired; no lean or lake process on this host.
+
+THE PIN AT 1 OF 6 ELIGIBLE (BUILDS) ; PUSHED 6 ; DISPATCHED 6 ; READ 6 ; HELD (BREAKS) 5 ; NOT READ 0 ; EXCLUDED 5 ; AT b718 1 (SIDE-effects, BUILDS)
+
+  SIDE-effects           at b718: run 40587516142, BUILDS (data/b718_pin.txt)
+  SIDE-archimedean       EXCLUDED: the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)
+  SIDE-cosmo             EXCLUDED: pages: write -- lean_action_ci.yml runs on every push with docgen-action and pages: write, so a branch push may publish its pages (b718 HELD); (R330)(5)(iii)
+  SIDE-frobenius         EXCLUDED: the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)
+  SIDE-grh-transfer      pushed 684ed8aea5 (host free 4089 MB) ; run 40652622018 at 2026-10-28T07:50:00Z (target SIDEGRHTransfer, host free 4107 MB): completed success ; build exit 1 ; memory low 14255 MB ; sorry warnings 0 ; host free 4124 MB at the read ; HELD (BREAKS)
+      | error: SIDEGRHTransfer/GRHBridge.lean:39:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+      | in the target expression
+      | Full error:
+      |   Application type mismatch: The argument
+      |     MechanismClass.enumList_nodup
+      | error: build failed
+      | 
+  SIDE-interfaces        pushed c9328e6cd9 (host free 4096 MB) ; run 40652657325 at 2026-10-28T07:50:18Z (target Kernel Interfaces, host free 4098 MB): completed success ; build exit 1 ; memory low 14870 MB ; sorry warnings 0 ; host free 4157 MB at the read ; HELD (BREAKS)
+      | error: no such file or directory (error code: 2)
+      |   file: /home/runner/work/SIDE-interfaces/SIDE-interfaces/Kernel.lean
+      | ✖ [586/934] Running job computation
+      | error: Kernel: some modules have bad imports or could not be read
+      | ✔ [928/934] Built Kernel.InFormation (247ms)
+      | ✔ [929/934] Built Interfaces.Kappa (892ms)
+      | error: build failed
+      | 
+  SIDE-kernel            pushed fe85c518e7 (host free 4102 MB) ; run 40652692787 at 2026-10-28T07:50:39Z (target Kernel Bridge MetaKernel, host free 4070 MB): completed success ; build exit 1 ; memory low 13670 MB ; sorry warnings 0 ; host free 4230 MB at the read ; HELD (BREAKS)
+      | error: Kernel/Bijection.lean:8:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+      | in the target expression
+      | Full error:
+      |   Application type mismatch: The argument
+      |     MechClass.enumList_nodup
+      | error: Kernel/Bijection.lean:12:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+      | in the target expression
+      | Full error:
+      |   Application type mismatch: The argument
+      |     IdElem.enumList_nodup
+  SIDE-lv-conservation   pushed 9e2bd31ee2 (host free 4158 MB) ; run 40652727943 at 2026-10-28T07:50:58Z (target SIDELvConservation, host free 4167 MB): completed success ; build exit 1 ; memory low 12728 MB ; sorry warnings 0 ; host free 4253 MB at the read ; HELD (BREAKS)
+      | error: SIDELvConservation/GammaBounds.lean:179:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   -1 / 2 * t
+      | in the target expression
+      | error: build failed
+      | 
+  SIDE-rcurve            EXCLUDED: the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)
+  SIDE-simplicity        pushed 4ba55671ba (host free 4160 MB) ; run 40652762827 at 2026-10-28T07:51:18Z (target SIDESimplicity, host free 4156 MB): completed success ; build exit 0 ; memory low 14246 MB ; sorry warnings 0 ; host free 4246 MB at the read ; BUILDS
+  SIDE-spinor            EXCLUDED: the freeze: a Phase-1.2 checkpoint kernel, frozen (REGISTRY :711-:720); (R330)(5)(iii)
+  SIDE-trivium           pushed ece94ca807 (host free 4173 MB) ; run 40652790458 at 2026-10-28T07:51:34Z (target Trivium, host free 4182 MB): completed success ; build exit 1 ; memory low 14804 MB ; sorry warnings 0 ; host free 4186 MB at the read ; HELD (BREAKS)
+      | error: Trivium/Bijection.lean:76:9: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+      | in the target expression
+      | Full error:
+      |   Application type mismatch: The argument
+      |     MechanismClass.enumList_nodup
+      | error: Trivium/Bijection.lean:101:9: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+      |   @Membership.mem ?m.6 (Finset ?m.6) SetLike.instMembership { val := ?m.8, nodup := ?m.9 } ?m.7
+      | in the target expression
+      | Full error:
+      |   Application type mismatch: The argument
+      |     QuadraticDiscriminant.enumList_nodup
