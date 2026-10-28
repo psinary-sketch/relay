@@ -1,14 +1,14 @@
 ========================================================================================================
 b721 -- THE SUITE. ### **PRE-SEAL (R202)(3) READING.** ### PART standing-a ### every arm exercised on both controls.
-### the host`s free memory at the part`s start 6181 MB (the hold 2560 MB)
-### run at (UTC) : 2026-10-28T17:31:15Z   ### the standing line of (R202)(3): every arm run at HEAD before the face is sealed, its count printed.
+### the host`s free memory at the part`s start 6937 MB (the hold 2560 MB)
+### run at (UTC) : 2026-10-28T18:39:28Z   ### the standing line of (R202)(3): every arm run at HEAD before the face is sealed, its count printed.
 ========================================================================================================
-  ### THE PHASES, IN SECONDS: the banks and the state 91; the three arms at HEAD 203; the rule arms` trace 46; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 4; the act-root chain`s part (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
-  ### THE LONGEST PHASE 203 s ; above 450 s: False (b675 rules row 2)
+  ### THE PHASES, IN SECONDS: the banks and the state 40; the three arms at HEAD 164; the rule arms` trace 60; the four standing figures (not in this part) 0; the written files, the public bytes and the prior banks (not in this part) 3; the act-root chain`s part (not in this part) 0; the shared additive files (not in this part) 0; the table regenerated (not in this part or run) 0
+  ### THE LONGEST PHASE 164 s ; above 450 s: False (b675 rules row 2)
   arms in the (G2) block : 116 ; in the suite : 116 ; run in this part : 77
   ### (R264)(2) THE FREEZE: the standing arms (b720`s face less its own arms and the arms (R331)(10) retired; none added) 84 ; carried here 84 ; the act`s arms over its own banks ['G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW', 'G-CORRIGENDUM-ENTERED', 'G-COUNT-ROUTE-PRICED', 'G-DELETES-ONE-BRANCH', 'G-DERIVATION-GRADED', 'G-DIFFERS-ERRATA', 'G-DRY-STEP-CLEAN', 'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-GUARD-HELD', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LISTINGS-BEFORE-CLAUSES', 'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R331-ENTERED', 'G-READFIRST-DIFF-BANKED', 'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ', 'G-WRITELIST-MIRROR-STATE'] ; arms beyond both NONE
   ### standing arms not carried here: NONE
-  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace 458 calls:
+  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace 486 calls:
   ###   G-RULE-PAIR-OF-READINGS      PASS read 0 ; failing 0 ; VACUOUS: no declaration of PAIR OF READINGS in any bank or ledger (the condition now distances [('b670_state.txt', [372, 90, 0, 33]), ('b680_closing.txt', [361])])
   ###   G-RULE-METHOD-READINESS      PASS read 12 ; failing 0 ; the methods bank b700_r4_methods.txt: rows 12, READY 9, READY against the criteria NONE
   ###   G-RULE-ROWGEN-REVIEW         PASS read 48 ; failing 0 ; acts b674-b721: banks 48, missing or not exit 0 NONE ; this act`s before its first ledger write True
@@ -19,76 +19,76 @@ b721 -- THE SUITE. ### **PRE-SEAL (R202)(3) READING.** ### PART standing-a ### e
   ###   G-RULE-DETACHED-PRINT        PASS read 582 ; failing 0 ; unit rows 582 in ['b681_narrow_progress.txt'] ; without a time 0
   ###   G-RULE-MIDACT-AFTER-ROOT     PASS read 49 ; failing 0 ; roots read 49 (b672 on) ; mid-act headers after the root in a root-named bank NONE
   ###   G-RULE-CONSUMER-TOLERANCE    PASS read 6 ; failing 0 ; consumers sections 6 (plan banks b672 on) ; citing no bank NONE
-  ###   G-RULE-SCORES-BEFORE-SEAL    PASS read 5 ; failing 0 ; score-route calls 5, the first 2026-10-28T17:03:23Z ; the seal commit not yet
+  ###   G-RULE-SCORES-BEFORE-SEAL    PASS read 5 ; failing 0 ; score-route calls 5, the first 2026-10-28T17:03:23Z ; the seal commit 2026-10-28T18:37:26Z
   ###   G-RULE-DISPATCH-PER-TREE     PASS read 58 ; failing 0 ; runner banks 58 (b673 on), every run`s built tree read ; two runs of one tree in an act NONE
   ###   G-RULE-WALK-TIP              PASS read 0 ; failing 0 ; VACUOUS: no walk bank from b684 (the floor); before it, without its tip: ['b679_zeta_walk.txt'] (b680`s defect (c))
-  ###   G-RULE-ONE-GIT-WRITE         PASS read 37 ; failing 0 ; messages carrying a git write 37 ; with more than one NONE
+  ###   G-RULE-ONE-GIT-WRITE         PASS read 38 ; failing 0 ; messages carrying a git write 38 ; with more than one NONE
   ###   G-RULE-REMOTE-REREAD         PASS read 0 ; failing 0 ; VACUOUS: no ls-remote call in this act`s shell commands
   ###   G-RULE-TIE-BREAK             PASS read 6 ; failing 0 ; naming banks 6, ties 3 ; named against the rule NONE
   ###   G-RULE-HEAD-LINE-QUOTED      PASS read 1 ; failing 0 ; the previous closing`s :1 'b720 closed: relay 6d7cb5f7, PLACE-papers b826da8; suite 111' in this ruling`s (1): True
   ###   G-RULE-CLOSING-DRY           PASS read 47 ; failing 0 ; gate banks b675-b721 read 47 ; without the closing dry-run step CLEAN NONE ; this act`s before the seal True
   ###   G-RULE-LONG-PHASE-SPLIT      PASS read 1 ; failing 0 ; the previous act`s pre-run`s longest phase 400 s (above 450 s: False) ; its parts 7, this act`s 7 -- NOT REACHED
-  ###   G-RULE-SUITE-PARTS           PASS read 127 ; failing 0 ; run banks b678-b721 127, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
+  ###   G-RULE-SUITE-PARTS           PASS read 128 ; failing 0 ; run banks b678-b721 128, each against its act`s governing parts (b678_rules.txt from b678: ['standing-a', 'standing-b', 'act']; b684_rules.txt from b684: ['standing-a', 'standing-b', 'standing-c', 'act']) ; without them or with a part at or above 600 s NONE
   ###   G-RULE-BINARY-HASHES         PASS read 18 ; failing 0 ; binary banks from b680 18, each carried by sha256 in a root-named text bank of its act, the root not naming the binary itself, or its frozen row corrected by a corrigendum (1: data/b694_circuit_SIDE-lv-conservation_v0.13.0.png OK BY CORRIGENDUM -- the frozen r
-  ###   G-RULE-SUITE-PART-CALLS      PASS read 2 ; failing 0 ; suite part and combine calls 2 ; carrying more than one NONE ; sharing a message NONE
-  ###   G-RULE-POSTSEAL-READ         PASS read 0 ; failing 0 ; VACUOUS: the seal not yet made (no `b721 seal` commit); the calls read after it 0
+  ###   G-RULE-SUITE-PART-CALLS      PASS read 19 ; failing 0 ; suite part and combine calls 19 ; carrying more than one NONE ; sharing a message NONE
+  ###   G-RULE-POSTSEAL-READ         PASS read 0 ; failing 0 ; shell calls after the seal 4 ; naming the entry, the dry entry or the trail 0 ; by a shell filter or a redirect NONE
   ###   G-RULE-RECUT-QUOTE           PASS read 11 ; failing 0 ; quotation-search banks from b691 11, each removed line needled, the search before its merge, every quoting line entered in a cut bank of the act ; failing NONE ; acts with more cut banks than searches NONE
   ### THE SEALED TOOLS, recorded at the seal ### NOT RECORDED : b721_c1.py not recorded; b721_carry.py not recorded; b721_checks.py not recorded; b721_citation.py not recorded; b721_closing.py not recorded; b721_derivation.py not recorded; b721_frozen_line.py not recorded; b721_offset.py not recorded; b721_predict34.py not recorded; b721_rebuild.py not recorded; b721_record.py not recorded; b721_reg_gate.py not recorded; b721_regspec.py not recorded; b721_select.py not recorded; b721_worklist.py not recorded; standing/VERSION not recorded; standing/act.py not recorded; standing/allow.py not recorded; standing/arms.py not recorded; standing/classes.py not recorded; standing/close.py not recorded; standing/components.py not recorded; standing/controls.py not recorded; standing/hook.py not recorded; standing/keystone.py not recorded; standing/manifest.py not recorded; standing/needles.py not recorded; standing/repairs.py not recorded; standing/replay.py not recorded; standing/rootbanks.py not recorded; standing/roster.py not recorded; standing/scan.py not recorded; standing/words.py not recorded
-  ### G-EDIT-ROUTE read 458 captured commands of this act and 17 of the previous act after its post-push suite; offences 15: ["#250 ['R sed in any form (data/b685_rules.txt row (2))']", "#252 ['R sed in any form (data/b685_rules.txt row (2))']", "#255 ['R sed in any form (data/b685_rules.txt row (2))']", "#257 ['R sed in any form (data/b685_rules.txt row (2))']", "#270 ['R sed in any form (data/b685_rules.txt row (2))']", "#272 ['R sed in any form (data/b685_rules.txt row (2))']", "#273 ['R sed in any form (data/b685_rules.txt row (2))']", "#281 ['R sed in any form (data/b685_rules.txt row (2))']", "#286 ['R sed in any form (data/b685_rules.txt row (2))']", "#288 ['R sed in any form (data/b685_rules.txt row (2))']", "#294 ['R sed in any form (data/b685_rules.txt row (2))']", "#296 ['R sed in any form (data/b685_rules.txt row (2))']", "#299 ['R sed in any form (data/b685_rules.txt row (2))']", "#300 ['R sed in any form (data/b685_rules.txt row (2))']", "#318 ['S sed -i', 'S sed -i', 'S sed -i']"]
+  ### G-EDIT-ROUTE read 486 captured commands of this act and 17 of the previous act after its post-push suite; offences 15: ["#250 ['R sed in any form (data/b685_rules.txt row (2))']", "#252 ['R sed in any form (data/b685_rules.txt row (2))']", "#255 ['R sed in any form (data/b685_rules.txt row (2))']", "#257 ['R sed in any form (data/b685_rules.txt row (2))']", "#270 ['R sed in any form (data/b685_rules.txt row (2))']", "#272 ['R sed in any form (data/b685_rules.txt row (2))']", "#273 ['R sed in any form (data/b685_rules.txt row (2))']", "#281 ['R sed in any form (data/b685_rules.txt row (2))']", "#286 ['R sed in any form (data/b685_rules.txt row (2))']", "#288 ['R sed in any form (data/b685_rules.txt row (2))']", "#294 ['R sed in any form (data/b685_rules.txt row (2))']", "#296 ['R sed in any form (data/b685_rules.txt row (2))']", "#299 ['R sed in any form (data/b685_rules.txt row (2))']", "#300 ['R sed in any form (data/b685_rules.txt row (2))']", "#318 ['S sed -i', 'S sed -i', 'S sed -i']"]
   ### THE CITATION CHECK: CITES CHECKED 78 ; OK 75 ; MISSES 3
   ### PLACE-papers` changed files on main 1 against the allowed 2 (FINDINGS, OPEN_TRAILS and the merged keystone): beyond NONE
   ### SIDE-explicit-formula: main badacccb867e ; v0.37 38e273477257 (unmoved) ; SIDE-lv-conservation main d38f3e8c99c3, v0.10.0 93c27ec2cb9b, port-b707 cb0aea56354a (b720`s tip, kept, no commit this act) ; the join kernel main 11a472b90553 ; runner dispatches this act 7 (N1: (R331)(7)(iii)`s rebuild alone, six at most)
-  ### THE THREE ARMS AT HEAD (seconds 81, 84, 38):
+  ### THE THREE ARMS AT HEAD (seconds 69, 64, 31):
   ###   G-NO-SORRY-MAIN read 45 kernels` mains, pairs unequal 0; sorry in code 0: none
   ###   G-AXIOM-CLAIM read 198 claims: CONTRADICTED 1, UNVERIFIABLE 7, VERIFIED 54, UNBOUND 4, MENTION 132
   ###   G-MODULE-HEADER read 243 headers: OVERREACHES 0 rows 
   arm                                            LIVE  NEG   POS   secs     verdict
   ----------------------------------------------------------------------------------------------------------
-  G-RECEIPT-IN-FULL                              PASS  PASS  FAIL  0.013    OK
-  G-SCAN-CLEAN                                   PASS  PASS  FAIL  0.001    OK
+  G-RECEIPT-IN-FULL                              PASS  PASS  FAIL  0.010    OK
+  G-SCAN-CLEAN                                   PASS  PASS  FAIL  0.000    OK
   G-PUSHOUT-COMMITTED                            PASS  PASS  FAIL  0.000    OK
-  G-BRANCHES-DELETED                             PASS  PASS  FAIL  0.001    OK
+  G-BRANCHES-DELETED                             PASS  PASS  FAIL  0.002    OK
   G-READFIRST-CITED                              PASS  PASS  FAIL  0.000    OK
   G-LOCAL-BANK-UNTRACKED                         PASS  PASS  FAIL  0.000    OK
   G-EXPORT-UNTRACKED                             PASS  PASS  FAIL  0.000    OK
-  G-NO-LOCAL-LEAN                                PASS  PASS  FAIL  0.021    OK
-  G-WEIGHT-LINE                                  PASS  PASS  FAIL  0.013    OK
+  G-NO-LOCAL-LEAN                                PASS  PASS  FAIL  0.004    OK
+  G-WEIGHT-LINE                                  PASS  PASS  FAIL  0.000    OK
   G-SPEC-PLANTED                                 PASS  PASS  FAIL  0.000    OK
   G-CONVERSION-ONE                               PASS  PASS  FAIL  0.000    OK
-  G-WORKFLOW-FILES                               PASS  PASS  FAIL  0.098    OK
+  G-WORKFLOW-FILES                               PASS  PASS  FAIL  0.064    OK
   G-RUNNER-READ                                  PASS  PASS  FAIL  0.000    OK
-  G-RUNNER-GATE                                  PASS  PASS  FAIL  0.005    OK
+  G-RUNNER-GATE                                  PASS  PASS  FAIL  0.000    OK
   G-MERGES-ON-GATE                               PASS  PASS  FAIL  0.000    OK
-  G-NO-SORRY-MAIN                                PASS  PASS  FAIL  0.002    OK
+  G-NO-SORRY-MAIN                                PASS  PASS  FAIL  0.016    OK
   G-NO-SORRY-MAIN-PLANTED                        PASS  PASS  FAIL  0.000    OK
-  G-AXIOM-CLAIM                                  FAIL  FAIL  FAIL  0.002    ### FAILS
+  G-AXIOM-CLAIM                                  FAIL  FAIL  FAIL  0.000    ### FAILS
   G-AXIOM-CLAIM-PLANTED                          PASS  PASS  FAIL  0.000    OK
-  G-MODULE-HEADER                                PASS  PASS  FAIL  0.002    OK
+  G-MODULE-HEADER                                PASS  PASS  FAIL  0.000    OK
   G-MODULE-HEADER-PLANTED                        PASS  PASS  FAIL  0.000    OK
   G-CONVERSION-TEST                              PASS  PASS  FAIL  0.000    OK
   G-PP-SCOPE                                     FAIL  FAIL  FAIL  0.000    ### FAILS
-  G-CURRENTS-UNEDITED                            PASS  PASS  FAIL  0.002    OK
+  G-CURRENTS-UNEDITED                            PASS  PASS  FAIL  0.000    OK
   G-KERNELS-UNTOUCHED                            PASS  PASS  FAIL  0.000    OK
-  G-INSTRUMENTS-UNEDITED                         PASS  PASS  FAIL  0.004    OK
-  G-FINDINGS-APPEND-ONLY                         PASS  PASS  FAIL  0.001    OK
-  G-TRAIL-APPEND-ONLY                            PASS  PASS  FAIL  0.001    OK
+  G-INSTRUMENTS-UNEDITED                         PASS  PASS  FAIL  0.000    OK
+  G-FINDINGS-APPEND-ONLY                         PASS  PASS  FAIL  0.013    OK
+  G-TRAIL-APPEND-ONLY                            PASS  PASS  FAIL  0.000    OK
   G-OUTSIDE-NAMED-NOWHERE                        PASS  PASS  FAIL  0.000    OK
-  G-DELETE-FREE                                  PASS  PASS  FAIL  0.026    OK
-  G-PUBLISH-UNCALLED                             PASS  PASS  FAIL  0.001    OK
-  G-SEALED-AFTER-COMPONENTS                      PASS  PASS  FAIL  0.002    OK
-  G-NOTHING-RAN-AHEAD                            PASS  PASS  FAIL  20.252   OK
+  G-DELETE-FREE                                  PASS  PASS  FAIL  0.019    OK
+  G-PUBLISH-UNCALLED                             PASS  PASS  FAIL  0.000    OK
+  G-SEALED-AFTER-COMPONENTS                      PASS  PASS  FAIL  0.000    OK
+  G-NOTHING-RAN-AHEAD                            PASS  PASS  FAIL  18.851   OK
   G-LOCKGATE-EIGHT                               PASS  PASS  FAIL  0.000    OK
   G-SEAL-VERIFIES                                PASS  PASS  FAIL  0.000    OK
   G-SEAL-HASHES                                  FAIL  FAIL  FAIL  0.000    ### FAILS
-  G-ARMS-PRERUN                                  FAIL  FAIL  FAIL  0.000    ### FAILS
-  G-PRIOR-CLOSED-PUSHED                          PASS  PASS  FAIL  0.007    OK
-  G-ACTROOT-BANKED                               FAIL  FAIL  FAIL  0.001    ### FAILS
+  G-ARMS-PRERUN                                  PASS  PASS  FAIL  0.000    OK
+  G-PRIOR-CLOSED-PUSHED                          PASS  PASS  FAIL  0.000    OK
+  G-ACTROOT-BANKED                               FAIL  FAIL  FAIL  0.000    ### FAILS
   G-ROOT-BANKS-COMMITTED                         FAIL  FAIL  FAIL  0.000    ### FAILS
   G-ACTROOT-LAST                                 FAIL  FAIL  FAIL  0.000    ### FAILS
-  G-FINDINGS-ENTRY                               FAIL  FAIL  FAIL  0.015    ### FAILS
-  G-TRAIL-RECORD                                 FAIL  FAIL  FAIL  0.003    ### FAILS
-  G-TRAIL-CARRIES-ROOT                           FAIL  FAIL  FAIL  0.002    ### FAILS
-  G-TRAIL-CARRIES-SEAL                           FAIL  FAIL  FAIL  0.003    ### FAILS
+  G-FINDINGS-ENTRY                               FAIL  FAIL  FAIL  0.016    ### FAILS
+  G-TRAIL-RECORD                                 FAIL  FAIL  FAIL  0.000    ### FAILS
+  G-TRAIL-CARRIES-ROOT                           FAIL  FAIL  FAIL  0.000    ### FAILS
+  G-TRAIL-CARRIES-SEAL                           FAIL  FAIL  FAIL  0.000    ### FAILS
   G-N1-SCORED                                    FAIL  FAIL  FAIL  0.000    ### FAILS
   G-N2-SCORED                                    FAIL  FAIL  FAIL  0.000    ### FAILS
   G-N3-SCORED                                    FAIL  FAIL  FAIL  0.000    ### FAILS
@@ -99,7 +99,7 @@ b721 -- THE SUITE. ### **PRE-SEAL (R202)(3) READING.** ### PART standing-a ### e
   G-MUSTFAIL                                     PASS  PASS  FAIL  0.000    OK
   G-ARTEFACTS-NOT-COMMITTED                      PASS  PASS  FAIL  0.000    OK
   G-PUSHED-PREDICATE-THREE-CLAUSED               PASS  PASS  FAIL  0.000    OK
-  G-CLOSING-SENTENCE                             PASS  PASS  FAIL  0.000    OK
+  G-CLOSING-SENTENCE                             PASS  PASS  FAIL  0.013    OK
   G-LSREMOTE-ONE-PER-REPO                        PASS  PASS  FAIL  0.000    OK
   G-RULE-PAIR-OF-READINGS                        PASS  PASS  FAIL  0.000    OK
   G-RULE-METHOD-READINESS                        PASS  PASS  FAIL  0.000    OK
@@ -110,20 +110,20 @@ b721 -- THE SUITE. ### **PRE-SEAL (R202)(3) READING.** ### PART standing-a ### e
   G-RULE-DETACHED-PRINT                          PASS  PASS  FAIL  0.000    OK
   G-RULE-MIDACT-AFTER-ROOT                       PASS  PASS  FAIL  0.000    OK
   G-RULE-CONSUMER-TOLERANCE                      PASS  PASS  FAIL  0.000    OK
-  G-RULE-SCORES-BEFORE-SEAL                      PASS  PASS  FAIL  0.007    OK
+  G-RULE-SCORES-BEFORE-SEAL                      PASS  PASS  FAIL  0.003    OK
   G-RULE-DISPATCH-PER-TREE                       PASS  PASS  FAIL  0.000    OK
   G-RULE-WALK-TIP                                PASS  PASS  FAIL  0.000    OK
-  G-RULE-REMOTE-REREAD                           PASS  PASS  FAIL  0.002    OK
+  G-RULE-REMOTE-REREAD                           PASS  PASS  FAIL  0.000    OK
   G-RULE-TIE-BREAK                               PASS  PASS  FAIL  0.000    OK
   G-RULE-CLOSING-DRY                             PASS  PASS  FAIL  0.000    OK
   G-RULE-LONG-PHASE-SPLIT                        PASS  PASS  FAIL  0.000    OK
   G-RULE-BINARY-HASHES                           PASS  PASS  FAIL  0.000    OK
-  G-RULE-SUITE-PART-CALLS                        PASS  PASS  FAIL  0.003    OK
-  G-RULE-POSTSEAL-READ                           PASS  PASS  FAIL  0.015    OK
+  G-RULE-SUITE-PART-CALLS                        PASS  PASS  FAIL  0.000    OK
+  G-RULE-POSTSEAL-READ                           PASS  PASS  FAIL  0.016    OK
   G-RULE-RECUT-QUOTE                             PASS  PASS  FAIL  0.000    OK
 
   ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: 45 repositories, at most 1 each
-  ### the arms` own seconds summed 20.5, the slowest G-NOTHING-RAN-AHEAD 20.25, G-WORKFLOW-FILES 0.10, G-DELETE-FREE 0.03
-  ### the run took 366 s
-  ### PART standing-a : ARMS 77 ; LIVE PASSING 60 ; LIVE FAILING 17 ["G-AXIOM-CLAIM", "G-PP-SCOPE", "G-SEAL-HASHES", "G-ARMS-PRERUN", "G-ACTROOT-BANKED", "G-ROOT-BANKS-COMMITTED", "G-ACTROOT-LAST", "G-FINDINGS-ENTRY", "G-TRAIL-RECORD", "G-TRAIL-CARRIES-ROOT", "G-TRAIL-CARRIES-SEAL", "G-N1-SCORED", "G-N2-SCORED", "G-N3-SCORED", "G-N4-SCORED", "G-N5-SCORED", "G-SEAT-EXPECTATIONS-SCORED"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 365 s ; WITHHELD, NOT EXERCISABLE 0 NONE
+  ### the arms` own seconds summed 19.0, the slowest G-NOTHING-RAN-AHEAD 18.85, G-WORKFLOW-FILES 0.06, G-DELETE-FREE 0.02
+  ### the run took 287 s
+  ### PART standing-a : ARMS 77 ; LIVE PASSING 61 ; LIVE FAILING 16 ["G-AXIOM-CLAIM", "G-PP-SCOPE", "G-SEAL-HASHES", "G-ACTROOT-BANKED", "G-ROOT-BANKS-COMMITTED", "G-ACTROOT-LAST", "G-FINDINGS-ENTRY", "G-TRAIL-RECORD", "G-TRAIL-CARRIES-ROOT", "G-TRAIL-CARRIES-SEAL", "G-N1-SCORED", "G-N2-SCORED", "G-N3-SCORED", "G-N4-SCORED", "G-N5-SCORED", "G-SEAT-EXPECTATIONS-SCORED"] ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN True ; 286 s ; WITHHELD, NOT EXERCISABLE 0 NONE
 ========================================================================================================
