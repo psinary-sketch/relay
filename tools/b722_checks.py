@@ -134,7 +134,7 @@ L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((R332)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
 # ### seat's (set at the seal from the defects bank)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'de' else 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, (d) and (e) the navigator's, every other the seat's
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, every one the seat's; (b') the navigator's, beyond the single letters this floor reads
 
 
 def _bank_utc(text):
@@ -965,11 +965,12 @@ def entry_scores_ok(S):
 # ### b722's title by its objects (the record tool's _title, printed by a scratch script writing nothing), set by the Edit tool after the lock,
 # ### before the seal, in place of b721's carried needles (events (4))
 # ### Component 8, the Edit tool: b722's title (the ferry's Component 8 form adjusted to what the act did), from the banks as they stand
-TITLE_NEEDLES = ('## the C2 table at the discriminants its rule would choose: none -- every class-number-2 field’s least negative index at -2 '
-                 'or -1/2, the halt proved', '; the table over h = 3, 4, 5 written and checked, two predictions registered (n0 = 80 at -31, 224 '
-                 'at -55)', '; the offset’s post hoc rows, H-OFFSET refuted on its own first rows, and 0 new pairs registered', '; the surgery carried',
-                 '; the frozen line’s statements quoted, its drafts for the release sitting', '; 6 of 6 wave 1 kernels build at their own pins, one '
-                 'with a sorry', '; the federation pin closed')
+# ### Component 8, before the lock, the Edit tool: the needles above were still b721's (defect (c')); b722's title from the record tool's _title
+# ### as it prints over the banks (a scratch call writing nothing), cut at its objects
+TITLE_NEEDLES = ('## the class-number-2 table at its fourteen remaining fields: 14 of 14 HELD, the value law at all eighteen by exhaustion over '
+                 'Baker’s and Stark’s list', '; -31 and -55: n0 80 and 224, HELD', '; the C2 statement for Lean graded DERIVES and priced',
+                 '; 68 research instruments entered as I-41 to I-108, 63 reproducing', '; the propagation read v8 and its 58 notes',
+                 '; the axiom step diagnosed at five wave 1 pins')
 
 
 def _fold_article(t):
@@ -1077,9 +1078,10 @@ def report_lines_ok(j, keys, n):
 # ### the standing report's lines in footing order -- KERNEL (the rebuild, each run by its id), CERTIFIED (the table over h = 3, 4, 5; the C2
 # ### rule's output NONE), REGISTERED (the h = 3, 4 predictions; the fourteen blind), HELD (the offset post hoc, the frozen line, the draft) --
 # ### each read by a phrase its line carries; set by the Edit tool at Component 8, in place of b721's carried keys
-REPORT_KEYS = ('KERNEL -- THE REBUILD AT EACH WAVE 1 KERNEL`S OWN PIN', 'CERTIFIED -- THE TABLE OVER CYCLIC h = 3, 4, 5 AT OMEGA 1-6',
-               'CERTIFIED -- THE C2 RULE`S OUTPUT NONE', 'REGISTERED -- THE h = 3 AND h = 4 PREDICTIONS',
-               'REGISTERED -- THE TABLE`S PREDICTIONS AT THE FOURTEEN UNUSED', 'HELD -- THE OFFSET, POST HOC', 'HELD -- THE FROZEN LINE',
+# ### (b721's keys stood here until the Edit tool set b722's from tools/b722_report.py's dry print before the lock, defect (c'))
+REPORT_KEYS = ('KERNEL -- THE AXIOM STEP AT FIVE WAVE 1 PINS', 'CERTIFIED -- -31 AND -55 UNDER e8c3dff4',
+               'CERTIFIED -- THE FOURTEEN REMAINING CLASS-NUMBER-2 FIELDS', 'CERTIFIED -- THE C2 STATEMENT FOR LEAN',
+               'REGISTERED -- THE RESEARCH INSTRUMENTS BY RULE', 'REGISTERED -- THE REPRODUCTION', 'HELD -- THE PROPAGATION READ',
                'HELD -- the draft at v5')
 FOOTINGS = ['KERNEL', 'CERTIFIED', 'REGISTERED', 'HELD']
 
@@ -1378,12 +1380,14 @@ def corpus_scope_ok(S):
 
 # ### the face's dry-run needles for the entry ((G1), THE DRY-RUN NEEDLES -- ENTRY, 24), set by the Edit tool at Component 8 from the record
 # ### tool's b722 composer, in place of b721's carried needles (the coefficients, the REGISTRY cells, the challenge, the pin)
-ENTRY_NEEDLES = ('**The corrigendum and the repairs**', '**The C2 table’s test**', '**The table over h = 3, 4, 5 and two predictions**',
-                 '**The offset, post hoc**', '**The surgery**', '**The frozen line**', '**The rebuild**', '**The federation pin, closed**',
-                 '**The touch read**', '**The standing arms**', '**The citation check**', '**The scores.**', '**Read in mutual light**',
-                 '**Carried to:**', '**Next.**', 'data/b722_registrations.txt', 'data/b722_derivation.txt', 'data/b722_offset_read.txt',
-                 'data/b722_offset_tier.txt', 'data/b722_surgery_carry.txt', 'data/b722_frozen_line_drafts.txt', 'data/b722_rebuild.txt',
-                 'data/b722_touch.txt', 'The act’s counter CLAIM ')
+# ### (the tuple above stood at b721's headings with b722's paths until the Edit tool set it from _finding_text before the lock, defect (c'))
+ENTRY_NEEDLES = ('**The corrigendum and the repairs**', '**-31 and -55**', '**The fourteen**', '**The C2 statement for Lean**',
+                 '**The research instruments**', '**The propagation read**', '**The author’s name and address**',
+                 '**The axiom step at five wave 1 pins**', '**The release sitting’s list**', '**The touch read**', '**The standing arms**',
+                 '**The citation check**', '**The scores.**', '**Read in mutual light**', '**Carried to:**', '**Next.**',
+                 'data/b722_corrigendum.txt', 'data/b722_coeffs.txt', 'data/b722_walk.txt', 'data/b722_c2_statement.txt', 'data/b722_c2_price.txt',
+                 'data/b722_instruments.txt', 'data/b722_reproduce.txt', 'data/b722_propagation.txt', 'data/b722_address_scan.txt',
+                 'data/b722_axiom_diag.txt', 'data/b722_llm_line_drafts.txt', 'data/b722_touch.txt', 'The act’s counter CLAIM ')
 
 
 def finding_ok(S):
@@ -1412,7 +1416,7 @@ def closing_sentence_ok(S):
 
 
 # ================================================================== THIS ACT'S ARMS OVER ITS OWN BANKS (Component 5)
-NAV_LETTERS = ('d', 'e')      # ### (d) event (12)'s cause as (R332)(1)-(2) names it, (e) (R332)(2)'s "at step zero" against the ferry's order; every other the seat's
+NAV_LETTERS = ()      # ### b722: no single-letter row the navigator's; (b'), (R332)(2)'s "at step zero" against the ferry's order, the navigator's
 
 
 def defects_ok(S):
@@ -1829,7 +1833,7 @@ ARMS_ALL = [
     ('G-SCORER-READS-BANKS', 'the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))', lambda S: scorer_banks_ok(S),
      lambda S: put(S, 'rec_src', '')),
     ('G-ENTRY-SCORES-EQUAL', 'the landed entry`s scores line against the scores bank', lambda S: entry_scores_ok(S), lambda S: put(S, 'sc', {})),
-    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects (the C2 rule choosing none, the halt proved; the table over h = 3, 4, 5 and the predictions at -31 and -55; the offset post hoc, 0 new pairs; the surgery carried; the frozen line and its drafts; 6 of 6 wave 1 kernels building, one with a sorry; the federation pin closed), compared after case-folding the article alone',
+    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects (the fourteen at 14 of 14 HELD and the value law at all eighteen by exhaustion over the cited list; -31 and -55 at n0 80 and 224, HELD; the C2 statement graded DERIVES and priced; 68 instruments, 63 reproducing; the propagation read v8 and its 58 notes; the axiom step diagnosed at five pins), compared after case-folding the article alone',
      lambda S: entry_title_ok(S), lambda S: put(S, 'fj', dict(S['fj'], entry_line=1))),
     ('G-CORRIGENDUM-ENTERED', '(R332)(2): the generated corrigendum for b721`s record, landed at FINDINGS :11218: its fifteen events and twenty-seven defects, 42 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 5 CLOSE 37, REPEAT 24; v1.2.2`s repairs, 12 cases; the corrigenda bank appended at row (42)',
      lambda S: corrigendum_ok(S), lambda S: put(S, 'corrj', {})),
