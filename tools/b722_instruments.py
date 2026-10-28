@@ -289,9 +289,72 @@ def rule(*a):
     print('written data/%s, .json' % BANK)
 
 
+INSTR = os.path.join(PP, 'phase1.5', 'method', 'INSTRUMENTS.md')
+LAST_ABOVE = (488, '**Reads.** A kernel’s environment after its build on the hosted runner')   # ### I-40`s body, the last line above the new entries
+
+
+def _md(s):
+    return re.sub(r'\s+', ' ', s).strip().replace('*', '\\*')
+
+
+def entries(*a):
+    """(R332)(6): the entries I-41 to I-108 in b618's form, from data/b722_instrument_entries.json (each needle checked at its bank and line
+    again here) and the reproduce bank data/b722_reproduce.json (each entry naming its row's grade); appended after INSTRUMENTS.md :488,
+    nothing above edited (the old bytes a prefix of the new, checked before the write). `dry` prints."""
+    import b722_llm_line as LL
+    byline = LL.monograph()[5]
+    E = json.load(open(os.path.join(D, '%s_instrument_entries.json' % ACT), encoding='utf-8'))['entries']
+    R = dict((r['id'], r) for r in json.load(open(os.path.join(D, '%s_reproduce.json' % ACT), encoding='utf-8'))['rows'])
+    old = open(INSTR, 'rb').read()
+    L0 = old.decode('utf-8').split(NL)
+    if not L0[LAST_ABOVE[0] - 1].startswith(LAST_ABOVE[1]) or any(l.strip() for l in L0[LAST_ABOVE[0]:]):
+        sys.exit('### INSTRUMENTS.md :%d NOT AS READ, OR LINES BELOW IT -- NOTHING WRITTEN' % LAST_ABOVE[0])
+    out, bad = [], []
+    for x in E:
+        v = x['validated']
+        bl = open(os.path.join(ROOT, v['bank']), encoding='utf-8', errors='replace').read().split(NL)
+        if v['needle'] not in bl[v['line'] - 1]:
+            bad.append(x['id'])
+        r = R[x['id']]
+        rep = '%s (%s)' % (r['grade'], r['why'][:160] if r['grade'] == 'NOT RUN' else 'computed "%s"%s' % (
+            r.get('got', '')[:80], ' against the banked "%s"' % r['figure'] if r['grade'] == 'DIFFERS' else ''))
+        # ### the field's first line reference, OPEN_TRAILS or bank (a field opening "No OPEN_TRAILS.md line names ..." names its bank line
+        # ### next, and may cite an OPEN_TRAILS span after it as context, not as provenance); none found refuses the write below
+        prov = re.search(r'OPEN_TRAILS(?:\.md)? :\d+|data/[\w\-.]+ :\d+', x['entered'])
+        prov = prov.group(0).replace('OPEN_TRAILS.md', 'OPEN_TRAILS') if prov else None
+        if prov is None:
+            bad.append(x['id'] + ' (no provenance line)')
+            prov = ''
+        head = '## %s — %s (entered 2026-10-28 by b722, under `(R332)`(6); built by %s%s; provenance: %s)' % (
+            x['id'], _md(x['title']), x['act'], (' under ' + _md(x['ruling'])) if x['ruling'] else '', prov if prov.startswith('OPEN') else 'relay ' + prov)
+        body = ('**Reads.** %s **Decides.** %s **Controls.** %s **Validated case.** %s (relay %s :%d, “%s”). **Range limits.** %s '
+                '**Entered.** %s, by %s; entered here by b722; reproduced by relay `tools/research/reproduce.py` row %s: %s.' % (
+                    _md(x['reads']), _md(x['decides']), _md(x['controls']), _md(v['figure']), v['bank'], v['line'], _md(v['needle']),
+                    _md(x['limits']), _md(x['entered']), x['act'], x['id'], _md(rep)))
+        out += [head, '', body, '']
+    nrep = sum(1 for r in R.values() if r['grade'] == 'REPRODUCES')
+    out += ['*Sixty-eight entries, I-41 to I-108, entered 2026-10-28 by b722 under `(R332)`(6) in b618’s form, the research instruments of relay '
+            'data/b722_instruments.txt (its rule printed before any tool was named); each validated case read at its bank and line; %d reproducing '
+            'at relay data/b722_reproduce.txt. No entry above I-41 is edited. Nothing deposits.*' % nrep, '']
+    text = NL.join(out)
+    if bad or (byline and byline in text):
+        sys.exit('### NEEDLES NOT AT THEIR LINES %s, OR THE BYLINE IN THE TEXT %s -- NOTHING WRITTEN' % (bad, bool(byline and byline in text)))
+    new = old + (NL + text).encode('utf-8') if old.endswith(NL.encode()) else old + (NL + NL + text).encode('utf-8')
+    print(text[:3000] + NL + '... [%d entries, %d lines, %d bytes appended; reproducing %d]' % (len(E), len(out), len(new) - len(old), nrep))
+    if 'dry' in a:
+        return
+    if not new.startswith(old):
+        sys.exit('### THE OLD BYTES NOT A PREFIX -- NOTHING WRITTEN')
+    with open(INSTR + '.tmp', 'wb') as fh:
+        fh.write(new)
+    os.replace(INSTR + '.tmp', INSTR)
+    print('written INSTRUMENTS.md: %d -> %d bytes, the old a prefix: %s; I-41 at :%d' % (
+        len(old), len(new), new.startswith(old), new.decode('utf-8').split(NL).index(out[0]) + 1))
+
+
 if __name__ == '__main__':
     route = sys.argv[1] if len(sys.argv) > 1 else ''
-    fn = dict(rule=rule).get(route)
+    fn = dict(rule=rule, entries=entries).get(route)
     if fn is None:
-        sys.exit('usage: b722_instruments.py rule [dry]')
+        sys.exit('usage: b722_instruments.py rule [dry] | entries [dry]')
     fn(*sys.argv[2:])
