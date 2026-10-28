@@ -1287,7 +1287,7 @@ def sealed_after_ok(S):
     return any(_step_phase(rows, 'pp', h) in pre for h, s, t in S['plog'])
 
 
-def nothing_ahead_ok(face, lock_epoch, logs, steps):
+def nothing_ahead_ok(face, lock_epoch, logs, steps, face_first=None):
     """(R330)(3)(ii), standing clauses v3: THE GATE'S COMMIT READ FROM THE STEP BANK. A face cannot carry the hash of the commit that stamps it,
     so the gate's commit is the one step-bank row of phase `gate` (or, for an act before the repair, the row the control names), and every
     other commit at or before the lock is declared on the face by its 7-hex prefix. Pure in its arguments: logs [(hash, subject, epoch)],
@@ -1298,7 +1298,15 @@ def nothing_ahead_ok(face, lock_epoch, logs, steps):
     gates = AC.step_commits(steps, phase='gate')
     if 'WHAT RAN AHEAD OF THIS SEAL' not in (face or '') or lock_epoch is None or not gates:
         return False
-    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not any(gc.startswith(h) for gc in gates))
+    # ### Component 8, after the lock and before the seal (an event): the face cannot carry the hash of the commit that first adds it, nor of
+    # ### any commit after that one; b720 phased those `gate`, b721 phased its face commit and three after it `component 8`. A commit from the
+    # ### face's first commit to the lock is read from the step bank, any phase; every commit before the face's first commit stays declared by
+    # ### its hash on the face, as before.
+    stepped = AC.step_commits(steps)
+    fe = [t for h, s, t in logs if face_first and (h.startswith(face_first[:7]) or face_first.startswith(h[:7]))]
+    fe = min(fe) if fe else None
+    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not any(gc.startswith(h[:7]) for gc in gates)
+               and not (fe is not None and t >= fe and any(c.startswith(h[:7]) for c in stepped)))
 
 
 def _root_banked(S, act, nrows, prev_key='arj0', route_key='route_list', required=REQUIRED_BANKS, exclude=None):
@@ -1858,7 +1866,8 @@ ARMS_ALL = [
     ('G-SEALED-AFTER-COMPONENTS', 'the lock time against every relay and PLACE-papers commit of the act by its row in the act`s step bank, data/b721_steps.json ((R331)(2); not by its subject)', lambda S: sealed_after_ok(S),
      lambda S: put(S, 'plog', S['plog'] + [('deadbee', 'b721 record', 1)])),
     ('G-NOTHING-RAN-AHEAD', 'section (0) and the logs before the lock: every commit before it declared by its hash, the gate`s commit read from the step bank`s one `gate` row ((R330)(3)(ii))',
-     lambda S: nothing_ahead_ok(S['face'], S['lock_epoch'], S['rlog'] + S['plog'], S['steps']),
+     lambda S: nothing_ahead_ok(S['face'], S['lock_epoch'], S['rlog'] + S['plog'], S['steps'],
+                                (gs(ROOT, 'log', '--diff-filter=A', '--format=%H', '--', 'data/' + os.path.basename(FACE)).split() or [''])[-1]),
      lambda S: put(S, 'rlog', S['rlog'] + [('deadbeef', 'x', 1)])),
     ('G-LOCKGATE-EIGHT', 'the lock gate`s verdict line', lambda S: 'GATES READ : 8. ### PASSING : 8.' in S['lock'] and 'VERDICT : LOCK PERMITTED' in S['lock'],
      lambda S: put(S, 'lock', S['lock'].replace('PASSING : 8.', 'PASSING : 7.'))),

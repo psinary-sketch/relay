@@ -1,0 +1,35 @@
+b721 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v2 row (52), v7 row (80)), entered after the lock (relay c40fabd6, locked 2026-10-28 17:21Z), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for b722's corrigendum. A finding after the lock takes no letter in data/b721_defects.txt; no locked bank is rewritten. Each row carries its time, read from the clock or from the bank it cites. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+THE LOCK AND THE PRE-RUN (found between the lock gate's record and the seal; data/b721_arms_prerun_<part>.txt):
+    (1) THE SEAT'S [CLOSE ; REPEAT b720 (1)]: 17:19Z, AT THE LOCK ([6]): `tools/reg_seal.py --lock` given the face's bare name, not its path
+     under data/, stopped at its first read (FileNotFoundError) and wrote nothing -- b720's event (1) in the same words; re-run with
+     data/b721_registration_2026-10-28.txt after event (3), LOCKED at 98271b4d, `--verify` SEAL INTACT.
+    (2) THE SEAT'S [CLOSE ; NEW]: 17:19Z, AFTER THE LOCK GATE'S RECORD (data/b721_lockgate.json, the membrane's lock) and before the lock:
+     the seat lettered event (1) as a defect (b') in data/b721_defects.txt (txt and json) and edited the face's counter lines by three Edit
+     calls, committed 949b662b (step 30, phase `component 8`); the record tool's closing dry then refused by the membrane (standing clauses
+     v4 row (65)) -- the edits were rewrites of banks written before the lock gate.
+    (3) THE SEAT'S [CLOSE ; NEW]: 17:20Z: the face and the defects bank (txt, json) restored to their bytes at 1e3399e2 by
+     `git checkout 1e3399e2 -- <the three paths>` (the face's sha256 98271b4d, the digest the lock gate read), committed 291ef7a0 (step 31,
+     gate); the lock made at 17:21:40Z (c40fabd6, step 32, seal) over those bytes. 949b662b stays in the history; no commit rewritten.
+    (4) THE SEAT'S [CLOSE ; REPEAT b720 (2)]: 17:30Z, AT THE PRE-RUN (standing-a): G-NOTHING-RAN-AHEAD failed on real state -- the face's
+     first commit c66220db and the pre-lock commits after it (af7b59bb, 1e3399e2, 949b662b phased `component 8`; 6114064c, 96ac5d2c,
+     291ef7a0 `gate`) are not named on the face; b720 phased its post-face commits `gate`, b721 did not. REPAIRED by the Edit tool in
+     tools/b721_checks.py before the seal: nothing_ahead_ok takes the face's first commit (git log --diff-filter=A on the face) and reads a
+     commit from it to the lock off the step bank in any phase; a scratch reader writing nothing: LIVE True, the plant (an undeclared
+     commit) False, the old reading False. Part standing-a re-run after the repair (17:37:21Z).
+    (5) THE SEAT'S [CLOSE ; NEW]: 17:47:36Z-17:56:59Z, AT THE PRE-RUN (standing-b2a): the part ran 562 s, its act-root chain phase 467 s,
+     above the 450 s line of b675's rules row (2) (printed True by the part); under the 590 s guard; the part carries no arm. Its run on
+     b720's banks (18:28:42Z) took 555 s, the phase 444 s.
+    (6) THE SEAT'S [CLOSE ; REPEAT b720 (5)]: 18:05:54Z, AT THE PRE-RUN, combined (data/b721_arms_prerun.txt): ARMS 116, LIVE PASSING 94,
+     LIVE FAILING 22, NEG 0, POS 0, NOT CLEAN before the seal's later steps -- twenty-one that read post-seal banks by form (the seal, the
+     pre-run's own arm, the root and its banks, the entry, the trail, the scores, the touch read, the post-root writes, the trail's
+     ratification line; G-PP-SCOPE wanting OPEN_TRAILS.md among PLACE-papers' changed files on main) and G-AXIOM-CLAIM on real state, the
+     face's declared failure (defect (u)), which the suite's CARRIED_FAILING does not list (it lists G-DELETES-ONE-BRANCH and
+     G-DELETE-FREE, both passing), so the combine prints it among the failures beyond the carried. The first combine call, given no bank
+     name, stopped at its argument read (IndexError) and wrote nothing; re-run with b721_arms_prerun.txt.
+    (7) THE SEAT'S [CLOSE ; REPEAT b720 (6)]: 18:06:20Z, the per-part seconds gathered (data/b721_arm_seconds.json; STANDING ARMS CLOCKED 84
+     OF 84, the slowest G-NOTHING-RAN-AHEAD 20.25 s). 18:11:49Z-18:36:30Z (the first and last part banks' write times), AT THE RUNS ON
+     b720'S BANKS, in seven parts (data/b721_prevrun_<part>.txt): PASS 77, FAILED AS b720 FAILED 3, DIVERGE 35 (standing-a 19, act 16),
+     NOT RUN BY b720 1 (G-R331-ENTERED, the act shift); no POSITIVE-CONTROL PASS. The act part's arms read this act's own objects, and
+     standing-a's nineteen include the root's, the entry's and the trail's arms, which b720's post-push combine passed on b720's closed
+     state. Printed as they fall; no arm edited for them.
