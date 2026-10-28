@@ -1,5 +1,5 @@
 {
- "at": "2026-10-28T08:36:48Z",
+ "at": "2026-10-28T09:10:14Z",
  "anchor": "RULING (R330) BEGIN",
  "rows": [
   {
@@ -2025,6 +2025,478 @@
    "cmd": "python -X utf8 tools/b720_record.py commands",
    "n": 253,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:36:54.628Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py reads",
+   "n": 254,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:37:04.490Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py kernels && python -X utf8 tools/b720_record.py guard",
+   "n": 255,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:37:27.848Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py armnames",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:37:35.924Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b720_* tools/b720_* data/act_current.json data/arm_tags.json",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:37:42.852Z",
+   "src": "seat",
+   "cmd": "git ls-files data/b719_hook_refusals.txt data/b719_commands.txt data/b719_kernels_face.json && git log --format=%h -1 -- data/b719_hook_refusals.txt",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:37:47.883Z",
+   "src": "seat",
+   "cmd": "git add -- data/b720_commands.json data/b720_commands.txt data/b720_guard_dry.json data/b720_guard_dry.txt data/b720_kernels_face.json data/b720_read_calls.json data/b720_read_calls.txt data/b720_standing_figures.json data/b720_standing_figures.txt data/b720_bank_hashes.json data/b720_steps.json tools/b720_record.py && git diff --cached --stat",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:37:55.297Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 C7 (component 7): the four standing figures (step [1]; correspondence 1, readme 0, partners 0, pins 0, against b719`s 1, 0, 0, 0), the command bank (253 commands, 7 dispatches, no local lean, 5 single-branch deletes), the read calls (118, 11 offences), the kernels face (23 kernels) and the guard`s dry run (HELD); the kernels route`s print re-pointed to the pin and the challenge branch'; git -C D:/relay log --format=%H -1",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:38:01.790Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay \"component 7\" 07d7c1be7af8831500121f99fa22a7dc128c12a7 && python -X utf8 tools/b720_record.py facerows",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:39:07.347Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:40:27.012Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/heads720b.py && git status --short -- data/b720_*",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:43:23.768Z",
+   "src": "seat",
+   "cmd": "git ls-files tools/b720_*.py && git log --format=\"%h %s\" -1 -- data/b720_steps.json | cut -c1-0 ; python -X utf8 tools/b720_record.py rootexclude",
+   "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:43:30.686Z",
+   "src": "seat",
+   "cmd": "git ls-files tools/b720_*.py && python -X utf8 tools/b720_record.py rootexclude",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:43:46.476Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git status --short -- data/b720_* tools/b720_*",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:44:00.570Z",
+   "src": "seat",
+   "cmd": "git add -- data/b720_registration_2026-10-28.txt data/b720_defects.txt data/b720_defects.json tools/b720_checks.py data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 267,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:44:09.100Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: the registration face (data/b720_registration_2026-10-28.txt), sealed after Components 0-6 and the standing figures, its (W) list by (R330)(8), its declared failures G-DELETES-ONE-BRANCH and G-DELETE-FREE; the defects (a)-(v), CLAIM 2, CLOSE 20; the suite`s CARRIED_FAILING gains G-DELETE-FREE (defect (m))'; git -C D:/relay log --format=%H -1",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:44:15.743Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate 6f514efe85c2c526fa1f9a7a799333f5f86429ee && python -X utf8 tools/b720_record.py rootdry",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:44:32.374Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry",
+   "n": 270,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:45:51.192Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -m py_compile tools/b720_closing.py && grep -n \"^import\\|^from\\|re\\.\\(search\\|compile\\)\" tools/b720_closing.py",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:46:02.536Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && git status --short -- data/b720_* tools/b720_*",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:46:55.554Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && git status --short -- data/b720_* tools/b720_*",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:47:57.332Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- tools/b720_closing.py data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:48:11.851Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: the closing tool`s kernels line and carried item (g) re-pointed to b720`s pin and challenge branch (defect (w)); the face and the defects bank at (a)-(w), CLAIM 2, CLOSE 21'; git -C D:/relay log --format=%H -1",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:48:17.643Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate 408eb8bfae238b5e924eac0bf664662385438e13 && python -X utf8 tools/b720_record.py rootdry",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:48:33.915Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry > /dev/null; python -X utf8 tools/b720_record.py scores dry",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:48:40.530Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && echo CLOSING_DRY_DONE",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:49:41.454Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py scores dry",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:50:12.719Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/n5720.py",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:50:39.279Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %ad %s\" --date=iso -3 -- data/b719_bank_hashes.json && grep -n \"ACT_ARMS\\|STANDING_ADDED\" tools/b720_worklist.py",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:51:42.974Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/n5720.py",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:52:22.348Z",
+   "src": "seat",
+   "cmd": "git add -- tools/b720_worklist.py tools/b720_regspec.py data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:52:32.958Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: the worklist`s ACT_ARMS set to the act part`s thirty-two and the face`s step-zero row given data/b719_bank_hashes.json (defect (y)); the spec`s root-route rows for b720; the defects bank at (a)-(y), CLAIM 2, CLOSE 23'; git -C D:/relay log --format=%H -1",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:52:45.348Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate 5227ee152f8c1c5bbdf792658e019e16490bb98c && python -X utf8 tools/b720_record.py rootdry",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:53:03.290Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && echo CLOSING_DRY_DONE",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:53:56.609Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py scores dry",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:54:46.793Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:55:56.274Z",
+   "src": "seat",
+   "cmd": "python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/none720.py",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:56:35.615Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py drycheck data/b720_registration_2026-10-28.txt standin",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:57:04.117Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- tools/b720_record.py data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:57:21.633Z",
+   "src": "seat",
+   "cmd": "git add -- tools/b720_regspec.py && git diff --cached --stat",
+   "n": 292,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:57:33.858Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: the composers` H-RR clause re-worded off the banned stem and defect (s) off a bare None (defect (z)); defect (f)`s shape names; the spec`s root-route runs five; the defects bank at (a)-(z), CLAIM 2, CLOSE 24'; git -C D:/relay log --format=%H -1",
+   "n": 293,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:57:41.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate e6333fcbbcd525cae2cf325d06d724e69c5827a7 && python -X utf8 tools/b720_record.py rootdry",
+   "n": 294,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T08:58:02.760Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && python -X utf8 tools/b720_record.py scores dry",
+   "n": 295,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T08:59:15.067Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused; python -X utf8 tools/b720_record.py rootexclude",
+   "n": 296,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:00:13.674Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py drycheck data/b720_registration_2026-10-28.txt standin && echo DRYCHECK_EXIT0",
+   "n": 297,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:00:32.153Z",
+   "src": "seat",
+   "cmd": "git add -- data/b720_defects.txt data/b720_defects.json tools/b720_regspec.py data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 298,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:00:40.888Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: defect (z) re-worded off the two screens it reports; the spec`s READY False count one (the fourth run, the gate`s first record uncommitted)'; git -C D:/relay log --format=%H -1",
+   "n": 299,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:00:53.165Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate 0a9cde51ec89cd46cfd6158ee3a80c37c64e5459 && python -X utf8 tools/b720_closing.py dry && python -X utf8 tools/b720_record.py scores dry && echo STEPS34_DONE",
+   "n": 300,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:02:03.051Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused; python -X utf8 tools/b720_record.py rootexclude",
+   "n": 301,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:03:10.400Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_record.py gatebanks",
+   "n": 302,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:04:44.243Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:05:04.864Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: the face`s H-RR wording off the barred stem and the first wave`s name off the count reader (defect (a`)); the defects bank at (a)-(z) and (a`), CLAIM 2, CLOSE 25'; git -C D:/relay log --format=%H -1",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:05:23.112Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate a8b3499cc5caf424054e3ca4df6c34ac7516040f && python -X utf8 tools/b720_closing.py dry && python -X utf8 tools/b720_record.py scores dry && echo STEPS34_DONE",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:06:32.735Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused | Out-Null; Select-String -Path D:/relay/data/b720_reg_gate.txt -Pattern 'GATE VERDICT'",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:06:40.687Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused; \"GATE_RUN_DONE\"",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:07:51.414Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json && git diff --cached --stat",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:09:02.409Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: defect (b`) lettered (the refused Out-Null pipe), the face`s counts to CLOSE 26'; git -C D:/relay log --format=%H -1",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:09:09.864Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate a9a09ab78b210f7f26520b0f418bbcc3a7b8edcc && python -X utf8 tools/b720_reg_gate.py --quiet-unused",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:10:09.137Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:10:09.463Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py gatebanks",
+   "n": 312,
+   "bg": false
   }
  ],
  "offences": [
@@ -2038,7 +2510,7 @@
  "prev": {
   "act": "b719",
   "session": "02c7cf38-4c6a-4f88-b813-a7e15e9b85b4",
-  "rows": 273,
+  "rows": 332,
   "offences": [
    {
     "n": "p122",
@@ -2063,16 +2535,23 @@
  "seds": [
   102
  ],
- "null_redirects": [],
- "redirects": [],
+ "null_redirects": [
+  277
+ ],
+ "redirects": [
+  277
+ ],
  "pipes": [
   102,
-  187
+  187,
+  264
  ],
  "any_pipes": [
   102,
   104,
-  187
+  187,
+  264,
+  306
  ],
  "py_programs": [
   51
