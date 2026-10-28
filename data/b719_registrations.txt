@@ -42,3 +42,18 @@ b718's n0 at -23, -15, -39 (48, 24, 120; b = -2), and a planted class moves -39'
            FALSIFIER: the computed n0(-47) != 168, or b(n0) != -2.
   Read beside H-24 and H-47, not in their place: by the prediction H-24 fails at -20 (36) and holds at -47 (168 = 24 . 7), and H-47 fails
   at -47; each of H-24 and H-47 is read on the computed coefficients alone, on its own falsifier.
+
+## ADDED BY A COMMIT OF ITS OWN ((R329)(8)(ii), Component 4), BEFORE ANY NEXT-TIER ONSET: H-OFFSET, POST HOC
+Written after the offsets were seen (data/b719_offset_read.txt, committed 6d6fcfbd), from the onset's definition (tools/b709_pairs.py
+:154, :170, :179-:180) and the registered law (data/b716_registrations.txt :63-:64); computed at no pair at b719.
+  STATEMENT: the onset-minus-prediction offset is the registered law's dropped second-order term. With r = r(rho), n*_pred the law's
+           fixed point and L = r n*_pred, the offset is
+               delta_pred = (3/8) L / (1 - 8/(r (n*_pred + 1)))
+           from 4 log(R/s) = r - (3/8) r^2 + O(r^3) at s = (1 + 3R)/4, plus the onset's integer step in [0, 1).
+  FALSIFIER: a computed pair with r(rho) <= 0.05 whose offset n* - n*_pred differs from delta_pred by more than 2, delta_pred computed
+           from the pair's own r and committed n*_pred before its n*. A pair with r(rho) > 0.05 is NOT SCORABLE (the bound of 2 holds the
+           integer step and the O(r^3 n) and n*-for-n*_pred terms only for small r). PREMISE, the hypothesis's own and printed beside each
+           reading: the law's r(rho) is log R of the onset tool's dominant point (tools/b709_pairs.py :167-:169).
+  READ: HELD or REFUTED at each pair of the next tier, its first rows the seventeen banked pairs (b713's eight at -15, b714's Q0 pairs
+           11 and 15, b717's seven at -39), labelled post hoc there, then new pairs; HELD overall only if no scorable pair refutes it.
+  THE ORDER IT SERVES: (R329)(8)(ii) and (14), the next tier of the offset at b720 or later.
