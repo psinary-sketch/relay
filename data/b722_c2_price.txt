@@ -1,0 +1,76 @@
+b722 -- (R332)(5): THE C2 STATEMENT GRADED AT E0, THEN PRICED PER FIELD (2026-10-28T20:57:09Z)
+
+### data/b722_c2_statement.txt holds the Lean text alone (written by tools/b722_c2.py statement); read back here, equal to the text the tool writes.
+### NOTHING RUNS LEAN, NOTHING IS DISPATCHED: every price below is a count computed in Python, not a timing. FREE MEMORY 4228 MB against the hold 2560.
+
+## (1) THE E0 GRADE (relay tools/e0_rule.py, imported unedited; its self-test PASS)
+  ### THE E0 RULE (relay tools/e0_rule.py, shared from b568): a theorem is INTERFACES when an explicit hypothesis binder
+  ### of its statement is a named Prop of a vendored or kernel module (a premise passed through); DERIVES when its only
+  ### binders are domain conditions. A domain condition is an order or (in)equality relation, a membership, or a
+  ### predicate on the object`s own data. (R178)(2)(iii): a hypothesis that is one case of an exhaustive split on the
+  ### object`s own data is a domain condition, not a premise, when both cases are present as declarations and the
+  ### exhaustiveness is itself compiled (SPLITS, with its instance gammaBracket_chi_of_even / _of_not_even).
+  THE HEADER GRADED: theorem c2_value_law (D : Int) (n0 : Nat) (v : Int) (q : Nat) (hD : (D, n0, v, q) ∈ walk) : ((q : Int) * bL D n0 = v * 360360) ∧ ∀ n, 2 ≤ n → n < n0 → 0 ≤ bL D n
+  binder explicit   D      : Int                          data ; class B01 ; outcome data
+  binder explicit   n0     : Nat                          data ; class B01 ; outcome data
+  binder explicit   v      : Int                          data ; class B01 ; outcome data
+  binder explicit   q      : Nat                          data ; class B01 ; outcome data
+  binder explicit   hD     : (D, n0, v, q) ∈ walk         prop ; class B07 ; outcome domain condition
+  THE GRADE: DERIVES -- domain conditions only: hD : (D, n0, v, q) ∈ walk
+  SCOPE (beside the statement, not a binder): the list `walk` names the eighteen imaginary quadratic fields of class number 2 by their discriminants; that no other exists is Baker (1971) and Stark (1975), cited and not compiled. The theorem quantifies over the list; it says nothing of a field off it.
+
+## (2) THE STATEMENT AS WRITTEN, MIRRORED IN PYTHON (the file`s pform, rQ`s box, aQ, F, bL; exact integers): at each field b(n0)
+## = v/q and b(n) >= 0 for 2 <= n < n0, read from bL, and the least n with bL(n) < 0
+  D -15   n0 24     value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 24 ; THE STATEMENT AT D: TRUE
+  D -20   n0 36     value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 36 ; THE STATEMENT AT D: TRUE
+  D -24   n0 36     value -1/2 ; bL(n0) = -180180 = -1/2 x L ; the least n with bL < 0: 36 ; THE STATEMENT AT D: TRUE
+  D -35   n0 135    value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 135 ; THE STATEMENT AT D: TRUE
+  D -40   n0 100    value -1/2 ; bL(n0) = -180180 = -1/2 x L ; the least n with bL < 0: 100 ; THE STATEMENT AT D: TRUE
+  D -51   n0 225    value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 225 ; THE STATEMENT AT D: TRUE
+  D -52   n0 196    value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 196 ; THE STATEMENT AT D: TRUE
+  D -88   n0 484    value -1/2 ; bL(n0) = -180180 = -1/2 x L ; the least n with bL < 0: 484 ; THE STATEMENT AT D: TRUE
+  D -91   n0 875    value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 875 ; THE STATEMENT AT D: TRUE
+  D -115  n0 1225   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 1225 ; THE STATEMENT AT D: TRUE
+  D -123  n0 1089   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 1089 ; THE STATEMENT AT D: TRUE
+  D -148  n0 1444   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 1444 ; THE STATEMENT AT D: TRUE
+  D -187  n0 3773   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 3773 ; THE STATEMENT AT D: TRUE
+  D -232  n0 3364   value -1/2 ; bL(n0) = -180180 = -1/2 x L ; the least n with bL < 0: 3364 ; THE STATEMENT AT D: TRUE
+  D -235  n0 4225   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 4225 ; THE STATEMENT AT D: TRUE
+  D -267  n0 4761   value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 4761 ; THE STATEMENT AT D: TRUE
+  D -403  n0 17303  value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 17303 ; THE STATEMENT AT D: TRUE
+  D -427  n0 14161  value -2 ; bL(n0) = -720720 = -2 x L ; the least n with bL < 0: 14161 ; THE STATEMENT AT D: TRUE
+  THE STATEMENT AS WRITTEN, IN PYTHON: TRUE AT 18 OF 18
+
+## (3) THE PRICE PER FIELD, BEFORE ANY PROOF
+### (A) decide in vanilla Lean, axiom-free, no native_decide, on the definitions as written, the kernel sharing nothing: LP the lattice
+###     points rQ`s box [-d, d]^2 enumerates at every aQ d evaluated, SCAN the divisor-scan steps of F`s range filters, both summed over
+###     bL n for every n in 2..n0 (the bounded forall) and n0; FACT the ordered factorizations into factors >= 2 of every n <= n0 (all;
+###     those with every a(d) nonzero beside it).
+### (B) the certificate route: aQ at every n <= n0 by ONE sweep of the lattice points with Q <= n0 (LP*), and b by the Omega recursion
+###     Omega(n) b(n) = Omega(n) a(n) - SUM_{d | n, 1 < d < n} Omega(d) b(d) a(n/d) over the divisor pairs (PAIRS) -- tools/b718_classgroup.py
+###     log_coeffs`s route; its two general lemmas, (L1) the sweep`s table equals rQ and (L2) the Omega recursion equals the ordered-
+###     factorization sum (Omega a derivation of the Dirichlet ring), proved once and not per field, NAMED HERE AND NOT PROVED.
+### THE SEAT`S BOUND for (B): 1.00e+06 elementary operations (LP* + PAIRS) per field, a bound chosen, not measured.
+  D      n0     | A: LP     A: SCAN   A: FACT   FACT a!=0 | B: LP*  B: PAIRS B: TOTAL  UNDER THE BOUND
+  -15    24     | 4.86e+05  1.12e+04  8.70e+01  1.10e+01  | 43      60       103       YES
+  -20    36     | 1.57e+06  2.48e+04  1.70e+02  2.40e+01  | 53      104      157       YES
+  -24    36     | 1.57e+06  2.48e+04  1.70e+02  2.20e+01  | 49      104      153       YES
+  -35    135    | 7.51e+07  3.32e+05  1.53e+03  5.20e+01  | 141     552      693       YES
+  -40    100    | 3.11e+07  1.85e+05  9.48e+02  5.10e+01  | 103     382      485       YES
+  -51    225    | 3.45e+08  9.33e+05  3.78e+03  9.90e+01  | 207     1036     1243      YES
+  -52    196    | 2.29e+08  7.07e+05  2.99e+03  8.40e+01  | 167     874      1041      YES
+  -88    484    | 3.40e+09  4.32e+06  1.42e+04  1.93e+02  | 321     2590     2911      YES
+  -91    875    | 1.99e+10  1.41e+07  3.92e+04  3.21e+02  | 585     5192     5777      YES
+  -115   1225   | 5.47e+10  2.77e+07  6.98e+04  4.31e+02  | 725     7690     8415      YES
+  -123   1089   | 3.84e+10  2.19e+07  5.71e+04  3.72e+02  | 611     6700     7311      YES
+  -148   1444   | 8.95e+10  3.86e+07  9.44e+04  5.15e+02  | 757     9294     10051     YES
+  -187   3773   | 1.59e+12  2.62e+08  4.80e+05  1.16e+03  | 1711    27880    29591     YES
+  -232   3364   | 1.13e+12  2.09e+08  4.00e+05  1.00e+03  | 1387    24486    25873     YES
+  -235   4225   | 2.24e+12  3.30e+08  5.91e+05  1.28e+03  | 1747    31718    33465     YES
+  -267   4761   | 3.20e+12  4.19e+08  7.27e+05  1.38e+03  | 1851    36316    38167     YES
+  -403   17303  | 1.53e+14  5.55e+09  6.84e+06  4.43e+03  | 5431    154232   159663    YES
+  -427   14161  | 8.41e+13  3.71e+09  4.78e+06  3.42e+03  | 4321    123402   127723    YES
+
+### THE READING: route (A) enumerates from 4.86e+05 lattice points (-15, n0 24) to 1.53e+14 (-403, n0 17303), its scan steps from 1.12e+04 to 5.55e+09; no kernel threshold is measured here (nothing runs Lean), so (A) is priced by its counts alone and no field is called in or out of reach. Route (B) keeps each field at or under the seat`s bound 1.00e+06 at 18 of 18 fields (the largest -403: 159663), the lemmas (L1) and (L2) its price beside the counts. Where the compile lives is the author`s word at (13); no Lean file is written and nothing is dispatched.
+
+### ### **THE C2 STATEMENT: E0 DERIVES ; SCOPE BESIDE IT (Baker 1971, Stark 1975, cited) ; AS WRITTEN, TRUE IN PYTHON AT 18 OF 18 ; PRICED: (A) decide as written 4.86e+05 TO 1.53e+14 LATTICE POINTS, UNMEASURED IN LEAN, (B) THE CERTIFICATE ROUTE UNDER 1.00e+06 AT 18 OF 18, TWO LEMMAS NAMED ; 3 s.**

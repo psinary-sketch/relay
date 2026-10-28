@@ -193,12 +193,15 @@ def price(*a):
     if t != lean_text():
         sys.exit('### data/%s IS NOT THE TEXT THIS TOOL WRITES -- NOTHING READ' % STMT)
     head = header_of(t)
+    import b722_coeffs as CF                 # ### the act's free-memory read, the hold 2560 MB
+    mb = CF.free_or_exit('THE C2 GRADE, MIRROR AND PRICE')
     st = E0.self_test()
     g, why, read = E0.grade(head, 'theorem')
     bs = E0.binders_of(head)
     L = ['%s -- (R332)(5): THE C2 STATEMENT GRADED AT E0, THEN PRICED PER FIELD (%s)' % (ACT, utc()), '',
          '### data/%s holds the Lean text alone (written by tools/%s_c2.py statement); read back here, equal to the text the tool writes.' % (STMT, ACT),
-         '### NOTHING RUNS LEAN, NOTHING IS DISPATCHED: every price below is a count computed in Python, not a timing.', '',
+         '### NOTHING RUNS LEAN, NOTHING IS DISPATCHED: every price below is a count computed in Python, not a timing. FREE MEMORY %d MB '
+         'against the hold %d.' % (mb, CF.HOLD_MB), '',
          '## (1) THE E0 GRADE (relay tools/e0_rule.py, imported unedited; its self-test %s)' % ('PASS' if st else '### FAIL')]
     L += ['  ' + x for x in E0.RULE_TEXT[:6]]
     L += ['  THE HEADER GRADED: theorem c2_value_law ' + head]
@@ -238,14 +241,17 @@ def price(*a):
             Dd, n0, sci(pr['A_lp']), sci(pr['A_scan']), sci(pr['A_fact']), sci(pr['A_fact_nonzero']), pts, pr['B_pairs'], tot,
             'YES' if tot <= BOUND else '### NO'))
     big = max(rows, key=lambda r: r[1])
-    L += ['', '### THE READING: route (A) at -403 (n0 17303) enumerates %s lattice points and %s scan steps -- decide on the definitions as '
-          'written is out of reach of the kernel at every field but the smallest; route (B) keeps each field at or under %s operations at %d of '
-          '18 fields (the largest -403: %d), the lemmas (L1) and (L2) its price beside the counts. Where the compile lives is the author`s word '
-          'at (13); no Lean file is written and nothing is dispatched.' % (
-              sci(big[7]['A_lp']), sci(big[7]['A_scan']), sci(BOUND), under, big[6] + big[7]['B_pairs']),
+    small = min(rows, key=lambda r: r[1])
+    L += ['', '### THE READING: route (A) enumerates from %s lattice points (%d, n0 %d) to %s (%d, n0 %d), its scan steps from %s to %s; no '
+          'kernel threshold is measured here (nothing runs Lean), so (A) is priced by its counts alone and no field is called in or out of '
+          'reach. Route (B) keeps each field at or under the seat`s bound %s at %d of 18 fields (the largest -403: %d), the lemmas (L1) and '
+          '(L2) its price beside the counts. Where the compile lives is the author`s word at (13); no Lean file is written and nothing is '
+          'dispatched.' % (sci(small[7]['A_lp']), small[0], small[1], sci(big[7]['A_lp']), big[0], big[1], sci(small[7]['A_scan']),
+                           sci(big[7]['A_scan']), sci(BOUND), under, big[6] + big[7]['B_pairs']),
           '', '### ### **THE C2 STATEMENT: E0 %s ; SCOPE BESIDE IT (Baker 1971, Stark 1975, cited) ; AS WRITTEN, TRUE IN PYTHON AT %d OF 18 ; '
-          'PRICED: (A) decide as written OUT OF REACH, (B) THE CERTIFICATE ROUTE UNDER %s AT %d OF 18, TWO LEMMAS NAMED ; %d s.**' % (
-              g, sum(1 for r in rows if r[4]), sci(BOUND), under, int(time.time() - t0))]
+          'PRICED: (A) decide as written %s TO %s LATTICE POINTS, UNMEASURED IN LEAN, (B) THE CERTIFICATE ROUTE UNDER %s AT %d OF 18, TWO '
+          'LEMMAS NAMED ; %d s.**' % (g, sum(1 for r in rows if r[4]), sci(small[7]['A_lp']), sci(big[7]['A_lp']), sci(BOUND), under,
+                                      int(time.time() - t0))]
     print(NL.join(L))
     if 'dry' in a:
         return
