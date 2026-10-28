@@ -181,10 +181,12 @@ STD3 = ('Classical.choice', 'Quot.sound', 'propext')
 NEXT_RULES_GLOB = 'relay/data/b720_rules.txt'   # ### (R330)(12): data/b720_rules.txt and data/b720_rules.txt named by form; this act writes no rules bank
 # ### (R315)(2)(b), b705's repaired predicate, carried: the root bank's items read against the root route's own item list, and the required list
 # ### read against ROOT_EXCLUDE here, at import (b706's (j)); the binary banks (.gz) are not root items (data/b680_rules.txt row (1)), their hashes banks are
-REQUIRED_BANKS = ('data/b720_corrigendum.txt', 'data/b720_differs.txt', 'data/b720_errata.txt', 'data/b720_registrations.txt',
+# ### this act's banks by its components, set by the Edit tool after the lock, before the seal, in place of b719's carried names (the DIFFERS,
+# ### ERRATA, the offset read, the surgery, the arm history and retirement, the count price: no bank of this act's) (events (4))
+REQUIRED_BANKS = ('data/b720_corrigendum.txt', 'data/b720_registrations.txt',
                   'data/b720_prediction.txt', 'data/b720_coeffs.txt', 'data/b720_coeffs.json', 'data/b720_coeffs_controls.json',
-                  'data/b720_derivation.txt', 'data/b720_offset_read.txt', 'data/b720_surgery.txt', 'data/b720_arm_history.txt',
-                  'data/b720_arm_history.json', 'data/b720_arm_retire.txt', 'data/b720_count_route_price.txt', 'data/b720_touch.txt',
+                  'data/b720_derivation.txt', 'data/b720_registry_diff.txt', 'data/b720_challenge.txt', 'data/b720_challenge.json',
+                  'data/b720_pin.txt', 'data/b720_pin.json', 'data/b720_offset_price.txt', 'data/b720_touch.txt',
                   'data/b720_standing_figures.txt', 'data/b720_stepzero.txt', 'data/b720_report.txt',
                   'data/b720_citation_check.txt', 'data/b720_readfirst.txt', 'data/b720_kernels_face.json')
 STANDING_BANK = 'data/standing_clauses_v7.txt'   # ### (R330)(3): a shared bank by version, outside the act's prefix, named apart
@@ -926,9 +928,12 @@ def entry_scores_ok(S):
 # ### b720's objects (the ferry's Component 7 form, adjusted to what the act did): the least negative index and b(n) at each discriminant, the
 # ### law on its clauses; H-24 (refuted on the pair, its two readings) and H-47; the derivation to the step named; the offset post hoc with its
 # ### hypothesis; the surgery carried; the arms retired
-TITLE_NEEDLES = ('## the coefficient law at -20 and -47: the least negative index 36 and 168, b(n) = -2 and -2, the law HELD on clauses 1 and 2',
-                 '; H-24 REFUTED (refuted at -20, held at -47), H-47 REFUTED', '; the derivation to the step named',
-                 '; the offset read post hoc against 60, its hypothesis registered', '; the surgery carried', '; 25 arms retired')
+# ### b720's title by its objects (the record tool's _title, printed by a scratch script writing nothing), set by the Edit tool after the lock,
+# ### before the seal, in place of b719's carried needles (events (4))
+TITLE_NEEDLES = ('## the coefficient law at -35 and -40: the least negative index 135 and 100, b(n) = -2 and -1/2, the law REFUTED',
+                 '; H-DECOMP HELD on its tests, its forced parts apart', '; the shape rule’s predictions met',
+                 '; the derivation’s -2 closed in C2 at Omega 4, the step at h > 2 named', '; the registry cells for wave 1’s rows',
+                 '; the challenge file elaborates', '; the pin at 1 of 6 eligible')
 
 
 def _fold_article(t):
@@ -1029,14 +1034,16 @@ def report_lines_ok(j, keys, n):
     return isinstance(ls, list) and len(ls) >= n and all(isinstance(x, str) for x in ls) and keys_ci(NL.join(ls), keys)
 
 
-# ### the standing report's lines in footing order -- no KERNEL line (N1), CERTIFIED (the coefficients), REGISTERED (H-24 and H-47, H-OFFSET
-# ### post hoc, H-SHAPE), HELD (the law derived to the step named, the arms retired, the draft) -- each read by a phrase its line carries
-REPORT_KEYS = ('CERTIFIED -- THE COEFFICIENTS AT -20 AND -47', 'REGISTERED -- H-24 AND H-47 BEFORE ANY FIGURE', 'REGISTERED -- H-OFFSET, POST HOC',
-               'REGISTERED -- H-SHAPE', 'HELD -- THE COEFFICIENT LAW AT -20 AND -47', 'HELD -- THE ARMS RETIRED', 'HELD -- the draft at v5')
+# ### the standing report's lines in footing order -- KERNEL (the challenge file, the pin's remainder, each by its run id), CERTIFIED (the
+# ### coefficients), REGISTERED (the prediction, H-DECOMP and the law; H-RR after a figure), HELD (the derivation, the registry cells, the draft)
+# ### -- each read by a phrase its line carries; set by the Edit tool after the lock, before the seal, in place of b719's carried keys (events (4))
+REPORT_KEYS = ('KERNEL -- THE CHALLENGE FILE FOR h2_sign_iff_rh', 'KERNEL -- THE PIN`S REMAINDER', 'CERTIFIED -- THE COEFFICIENTS AT -35 AND -40',
+               'REGISTERED -- THE PREDICTION, H-DECOMP AND THE LAW BEFORE ANY FIGURE', 'REGISTERED, AFTER A FIGURE -- H-RR',
+               'HELD -- THE DERIVATION`S -2 IN BOTH CONFIGURATIONS', 'HELD -- THE REGISTRY CELLS FOR WAVE 1', 'HELD -- the draft at v5')
 FOOTINGS = ['KERNEL', 'CERTIFIED', 'REGISTERED', 'HELD']
 
 
-def report_unsealed_ok(S, keys=None, n=7):
+def report_unsealed_ok(S, keys=None, n=8):
     """the report bank written by the unsealed report tool before the root, read by its JSON bank ((R330)(2)(iii)): its `at` after the lock and at
     or before the root's time; the tool outside the sealed list; its lines the ferry's (report_lines_ok), its footings in the order (R330)(3)
     names, every source seated; the scores line not in the bank (printed after the root, written nowhere)."""
@@ -1309,11 +1316,13 @@ def corpus_scope_ok(S):
     return bool(ch) and set(ch) <= set(S['pp_allowed']) and 'FINDINGS.md' in ch and 'OPEN_TRAILS.md' in ch and not ren
 
 
-ENTRY_NEEDLES = ('**The corrigendum**', '**The registrations and the coefficients**', '**The derivation**', '**The offset, post hoc**',
-                 '**The surgery**', '**The arms retired**', '**The count law’s route**', '**The touch read**', '**The standing arms**',
+# ### the face's dry-run needles for the entry ((G1), THE DRY-RUN NEEDLES -- ENTRY, 23), set by the Edit tool after the lock, before the seal, in
+# ### place of b719's carried needles (the offset, the surgery, the arms retired, the count route) (events (4))
+ENTRY_NEEDLES = ('**The corrigendum**', '**The registrations and the coefficients**', '**The derivation**', '**The REGISTRY cells**',
+                 '**The challenge file**', '**The pin’s remainder**', '**Carried, nothing run**', '**The touch read**', '**The standing arms**',
                  '**The citation check**', '**The scores.**', '**Read in mutual light**', '**Carried to:**', '**Next.**',
-                 'data/b720_coeffs.txt', 'data/b720_derivation.txt', 'data/b720_registrations.txt', 'data/b720_offset_read.txt',
-                 'data/b720_arm_retire.txt', 'data/b720_touch.txt', 'The act’s counter CLAIM ')
+                 'data/b720_coeffs.txt', 'data/b720_derivation.txt', 'data/b720_registrations.txt', 'data/b720_registry_diff.txt',
+                 'data/b720_challenge.txt', 'data/b720_pin.txt', 'data/b720_offset_price.txt', 'data/b720_touch.txt', 'The act’s counter CLAIM ')
 
 
 def finding_ok(S):
@@ -1688,7 +1697,7 @@ ARMS_ALL = [
     ('G-SCORER-READS-BANKS', 'the record tool`s scorers: banks alone, no ledger line (data/b686_rules.txt row (1))', lambda S: scorer_banks_ok(S),
      lambda S: put(S, 'rec_src', '')),
     ('G-ENTRY-SCORES-EQUAL', 'the landed entry`s scores line against the scores bank', lambda S: entry_scores_ok(S), lambda S: put(S, 'sc', {})),
-    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects (the least negative index 36 and 168, b(n) = -2 at each, the law HELD on its clauses; H-24 and H-47 REFUTED; the derivation to the step named; the offset post hoc with its hypothesis; the surgery carried; 25 arms retired), compared after case-folding the article alone',
+    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects (the least negative index 135 and 100, b(n) = -2 and -1/2, the law REFUTED; H-DECOMP HELD, its forced parts apart; the predictions met; the derivation`s -2 closed in C2; the registry cells; the challenge file elaborates; the pin at 1 of 6), compared after case-folding the article alone',
      lambda S: entry_title_ok(S), lambda S: put(S, 'fj', dict(S['fj'], entry_line=1))),
     ('G-CORRIGENDUM-ENTERED', '(R330)(2): the generated corrigendum for b719`s record, landed at FINDINGS :11020: its events by row (1)-(10), its eighteen defects by the one lettering and the memory item by key (B), each CLAIM or CLOSE and NEW or REPEAT, CLAIM 2 CLOSE 27 over 29, REPEAT 14, the CLAIM items (7) and (h); the late step row 6755e0c9; the corrigenda bank appended at row (40)',
      lambda S: corrigendum_ok(S), lambda S: put(S, 'corrj', {})),
@@ -1696,7 +1705,7 @@ ARMS_ALL = [
      lambda S: writelist_mirror_state_ok(S), lambda S: put(S, 'face', S['face'].replace('tools/mirror_prevbuild.json', 'tools/mirror_x.json'))),
     ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); no rules bank of this act`s (b720`s and b720`s named by form)',
      lambda S: rules_row_ok(S), lambda S: put(S, 'standing_bank', S['standing_bank'].replace('VERSION: 7', 'VERSION: 6'))),
-    ('G-REPORT-UNSEALED', 'the standing report bank by the unsealed tool before the root: its stamp after the lock and at or before the root`s, its seven lines by its JSON in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), every source seated, its keys read case-insensitively, no scores line in it, the tool unsealed',
+    ('G-REPORT-UNSEALED', 'the standing report bank by the unsealed tool before the root: its stamp after the lock and at or before the root`s, its eight lines by its JSON in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), every source seated, its keys read case-insensitively, no scores line in it, the tool unsealed',
      lambda S: report_unsealed_ok(S), lambda S: put(S, 'reportj', dict(S['reportj'], lines=(S['reportj'].get('lines') or [])[:1]))),
     ('G-GUARD-HELD', 'the suite`s writer block guarded by `if PRERUN:` and its dry run banked', lambda S: guard_ok(S), lambda S: put(S, 'guard', '')),
     ('G-POSTROOT-WRITES-NONE', 'the per-part seconds banks` commit times against the root`s', lambda S: postroot_writes_none(S), lambda S: put(S, 'guard', '')),
@@ -1814,7 +1823,9 @@ ARMS_ALL = [
      lambda S: put(S, 'prerun', '')),
     # ### b719's trail head as OPEN_TRAILS :16044 carries it (counted once on OPEN_TRAILS by the Grep tool's count mode at Component 6); the
     # ### carried literal named b714's head ("act one hundred and forty-one, the keystone heads act") under b719's ruling, a head no act wrote
-    ('G-PRIOR-CLOSED-PUSHED', 'b719`s trail record on OPEN_TRAILS and its root in the chain', lambda S: '### b719 — lane two, act one hundred and forty-five, the derivation act under (R329)' in S['ot']
+    # ### b720's carry kept b718's head ("act one hundred and forty-five, the derivation act"); b719's own head at OPEN_TRAILS :16172 set here
+    # ### by the Edit tool after the lock, before the seal (the pre-run's standing-a part, events (1))
+    ('G-PRIOR-CLOSED-PUSHED', 'b719`s trail record on OPEN_TRAILS and its root in the chain', lambda S: '### b719 — lane two, act one hundred and forty-six, the coefficient act under (R329)' in S['ot']
      and S['rootsf'].count(NL + PREV_ACT + ' ') == 1, lambda S: put(S, 'ot', S['ot'].replace('### b719 — lane two', '### b719 - lane two'))),
     ('G-TABLE-FINAL', 'the final table bank', lambda S: table_final_ok(S), lambda S: put(S, 'tfj', dict(S['tfj'], grade_moved=[['x', 'y']]))),
     ('G-ACTROOT-BANKED', 'data/act_roots.txt`s chain row for the act at the row act_figures reads (the corrigendum row apart), the root bank and its items against the root route`s own item list (ROOT_EXCLUDE per data/b706_rules.txt row (1), the required list read against it at import), the repairs, the corrigendum, the closure, the scan, the replay, the coverage, the controls, the hook, the roster, the pins, the chain rows, the census diff and the report among them, no bank the route excludes',

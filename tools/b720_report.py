@@ -93,7 +93,7 @@ def lines():
                       'figures; n0(-35) = %s, b = %s, with %s negatives; n0(-40) = %s, b = %s, with %s; every sign decided. SOURCE %s.' % (
                           f['n35'], f['b35'], f['neg35'], f['n40'], f['b40'], f['neg40'], sc['text']))
     seats.append(sc)
-    # ------------------------------------------------------------------ REGISTERED: THE PREDICTION, H-DECOMP, THE LAW; H-RR NOT BLIND (N2)
+    # ------------------------------------------------------------------ REGISTERED: THE PREDICTION, H-DECOMP, THE LAW; H-RR AFTER A FIGURE (N2)
     sr = seat('%s_registrations.txt' % ACT, '## (ii) H-DECOMP')
     keys['REGS'] = ('REGISTERED -- THE PREDICTION, H-DECOMP AND THE LAW BEFORE ANY FIGURE: committed alone at %s, the shape rule`s prediction at %s '
                     'before any coefficient (n0(-35) = %s, n0(-40) = %s); read on the coefficients: ROWS %s, HELD %s, REFUTED %s, the forced %s '
@@ -102,7 +102,7 @@ def lines():
                         f['pred35'], f['pred40'], sr['text']))
     seats.append(sr)
     sq = seat('%s_registrations.txt' % ACT, '## H-RR (the seat')
-    keys['RR'] = ('REGISTERED, NOT BLIND -- H-RR: written after the seat`s hand reading of b(100) = -1/2 at -40, declared in the bank; read: '
+    keys['RR'] = ('REGISTERED, AFTER A FIGURE -- H-RR: written after the seat`s hand reading of b(100) = -1/2 at -40, declared in the bank; read: '
                   '-35 %s, -40 %s, not counted toward the law. SOURCE %s.' % (f['rr35'], f['rr40'], sq['text']))
     seats.append(sq)
     # ------------------------------------------------------------------ HELD: THE DERIVATION; THE REGISTRY CELLS; THE DRAFT AND THE CARRIED
