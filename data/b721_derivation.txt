@@ -1,0 +1,141 @@
+b721 -- (R331)(4): THE TABLE OVER CYCLIC GROUPS OF ORDER h = 3, 4, 5 AT OMEGA 1-6, ITS CLOSED FORMS AT p^4 q AND p^3 q r, CHECKED AGAINST -23, -39 AND -47 BEFORE USE (2026-10-28T14:07:00Z)
+
+### the closed form as tools/b721_derivation.py`s docstring writes it; every figure the group-ring model`s (tools/b718_abstract.py,
+### unedited); no representation count read. EACH CHECK PRINTED BEFORE ITS STEP; EACH PLANT WANTED TO FAIL.
+
+## CHECK (1), BEFORE STEP (1): the count form equal to the turns and to b718`s a_of at every divisor of every row: divisors 12963 ; unequal 0 -- AS WANTED
+   PLANT (1): a split prime`s turn as (e + 1) whatever its class: unequal at 8540 divisors -- FAILS AS WANTED
+
+## CHECK (2), BEFORE STEP (2): b by the m-fold expansion equal to b718`s b_lattice at every row: rows 515 ; unequal 0 -- AS WANTED
+   PLANT (2): the A_3 term dropped: unequal at 173 rows -- FAILS AS WANTED
+
+## STEP (3): THE TABLE (configuration up to c ~ -c and the automorphisms of C_h; p a split bad prime, r a ramified one; the digit its class; a, the pair sum P, A_3, b)
+  C3: rows 29 ; negative 16 ; minimal negative 4 ; Omega of the minimal: [4, 5] ; their values ['-6', '-4', '-2']
+     MIN Omega 4  p1^2 . p1^1 . p1^1         a   4  P   12  A3     0  b -2
+     MIN Omega 4  p1^1 . p1^1 . p1^1 . p1^1  a   6  P   24  A3     0  b -6
+     MIN Omega 5  p1^4 . p1^1                a   4  P   12  A3     0  b -2
+     MIN Omega 5  p1^3 . p1^2                a   4  P   16  A3     0  b -4
+  C4: rows 414 ; negative 76 ; minimal negative 52 ; Omega of the minimal: [4, 5, 6] ; their values ['-32', '-16', '-8', '-4', '-10/3', '-2', '-1', '-1/2']
+     MIN Omega 4  p2^3 . p2^1                a   8  P   24  A3     0  b -4
+     MIN Omega 4  p2^2 . p2^2                a   9  P   34  A3     0  b -8
+     MIN Omega 4  p2^2 . r2^2                a   3  P   10  A3     0  b -2
+     MIN Omega 4  r2^2 . r2^2                a   1  P    3  A3     0  b -1/2
+     MIN Omega 4  p2^3 . r2^1                a   4  P   12  A3     0  b -2
+     MIN Omega 4  p2^2 . p2^1 . p2^1         a  12  P   56  A3     0  b -16
+     MIN Omega 4  r2^2 . p2^1 . p2^1         a   4  P   16  A3     0  b -4
+     MIN Omega 4  r2^2 . p2^1 . r2^1         a   2  P    8  A3     0  b -2
+     MIN Omega 4  r2^2 . r2^1 . r2^1         a   1  P    4  A3     0  b -1
+     MIN Omega 4  p2^2 . p2^1 . r2^1         a   6  P   28  A3     0  b -8
+     MIN Omega 4  p2^2 . r2^1 . r2^1         a   3  P   14  A3     0  b -4
+     MIN Omega 4  p1^1 . p1^1 . p1^1 . p1^1  a   8  P   24  A3     0  b -4
+     MIN Omega 4  p2^1 . p2^1 . p2^1 . p2^1  a  16  P   96  A3     0  b -32
+     MIN Omega 4  p2^1 . p2^1 . p2^1 . r2^1  a   8  P   48  A3     0  b -16
+     MIN Omega 4  p2^1 . p2^1 . r2^1 . r2^1  a   4  P   24  A3     0  b -8
+     MIN Omega 4  p2^1 . r2^1 . r2^1 . r2^1  a   2  P   12  A3     0  b -4
+     MIN Omega 4  r2^1 . r2^1 . r2^1 . r2^1  a   1  P    6  A3     0  b -2
+     MIN Omega 5  p2^3 . p1^2                a   8  P   24  A3     0  b -4
+     MIN Omega 5  p2^3 . p1^1 . p1^1         a   8  P   24  A3     0  b -4
+     MIN Omega 5  p1^3 . p2^1 . p1^1         a   8  P   24  A3     0  b -4
+     MIN Omega 5  p1^3 . p1^1 . r2^1         a   4  P   12  A3     0  b -2
+     MIN Omega 5  p2^2 . p1^2 . p2^1         a  12  P   56  A3     0  b -16
+     MIN Omega 5  p1^2 . r2^2 . p2^1         a   4  P   16  A3     0  b -4
+     MIN Omega 5  p1^2 . r2^2 . r2^1         a   2  P    8  A3     0  b -2
+     MIN Omega 5  p1^2 . p1^2 . p2^1         a   8  P   32  A3     0  b -8
+     MIN Omega 5  p1^2 . p1^2 . r2^1         a   4  P   16  A3     0  b -4
+     MIN Omega 5  p2^2 . p1^2 . r2^1         a   6  P   28  A3     0  b -8
+     MIN Omega 5  p2^2 . p2^1 . p1^1 . p1^1  a  12  P   56  A3     0  b -16
+     MIN Omega 5  r2^2 . p2^1 . p1^1 . p1^1  a   4  P   16  A3     0  b -4
+     MIN Omega 5  r2^2 . p1^1 . p1^1 . r2^1  a   2  P    8  A3     0  b -2
+     MIN Omega 5  p1^2 . p2^1 . p1^1 . p1^1  a  12  P   56  A3     0  b -16
+     MIN Omega 5  p1^2 . p1^1 . p1^1 . r2^1  a   6  P   28  A3     0  b -8
+     MIN Omega 5  p2^2 . p1^1 . p1^1 . r2^1  a   6  P   28  A3     0  b -8
+     MIN Omega 5  p1^2 . p2^1 . p2^1 . p2^1  a  16  P   96  A3     0  b -32
+     MIN Omega 5  p1^2 . p2^1 . p2^1 . r2^1  a   8  P   48  A3     0  b -16
+     MIN Omega 5  p1^2 . p2^1 . r2^1 . r2^1  a   4  P   24  A3     0  b -8
+     MIN Omega 5  p1^2 . r2^1 . r2^1 . r2^1  a   2  P   12  A3     0  b -4
+     MIN Omega 5  p2^1 . p2^1 . p2^1 . p1^1 . p1^1 a  16  P   96  A3     0  b -32
+     MIN Omega 5  p2^1 . p2^1 . p1^1 . p1^1 . r2^1 a   8  P   48  A3     0  b -16
+     MIN Omega 5  p2^1 . p1^1 . p1^1 . r2^1 . r2^1 a   4  P   24  A3     0  b -8
+     MIN Omega 5  p1^1 . p1^1 . r2^1 . r2^1 . r2^1 a   2  P   12  A3     0  b -4
+     MIN Omega 6  p1^5 . p1^1                a   6  P   20  A3     6  b -2
+     MIN Omega 6  p1^4 . p1^2                a   7  P   32  A3    15  b -4
+     MIN Omega 6  p1^3 . p1^3                a   8  P   36  A3    20  b -10/3
+     MIN Omega 6  p1^4 . p2^2                a   9  P   40  A3     9  b -8
+     MIN Omega 6  p1^4 . r2^2                a   3  P   12  A3     3  b -2
+     MIN Omega 6  p1^4 . p1^1 . p1^1         a  10  P   56  A3    30  b -8
+     MIN Omega 6  p1^3 . p1^2 . p1^1         a  12  P   80  A3    60  b -8
+     MIN Omega 6  p1^2 . p1^2 . p1^2         a  13  P  102  A3    90  b -8
+     MIN Omega 6  p1^4 . p2^1 . p2^1         a  12  P   64  A3    12  b -16
+     MIN Omega 6  p1^4 . p2^1 . r2^1         a   6  P   32  A3     6  b -8
+     MIN Omega 6  p1^4 . r2^1 . r2^1         a   3  P   16  A3     3  b -4
+  C5: rows 72 ; negative 31 ; minimal negative 10 ; Omega of the minimal: [4, 5, 6] ; their values ['-6', '-4', '-2']
+     MIN Omega 4  p1^2 . p1^1 . p1^1         a   4  P   12  A3     0  b -2
+     MIN Omega 4  p1^1 . p1^1 . p1^1 . p1^1  a   6  P   24  A3     0  b -6
+     MIN Omega 5  p1^3 . p2^1 . p1^1         a   4  P   12  A3     0  b -2
+     MIN Omega 5  p2^2 . p1^2 . p1^1         a   4  P   12  A3     0  b -2
+     MIN Omega 5  p1^2 . p1^2 . p2^1         a   4  P   16  A3     0  b -4
+     MIN Omega 5  p1^2 . p2^1 . p2^1 . p2^1  a   6  P   24  A3     0  b -6
+     MIN Omega 5  p1^2 . p2^1 . p2^1 . p1^1  a   4  P   12  A3     0  b -2
+     MIN Omega 5  p2^1 . p2^1 . p1^1 . p1^1 . p1^1 a   6  P   24  A3     0  b -6
+     MIN Omega 6  p2^3 . p1^3                a   4  P   16  A3     0  b -4
+     MIN Omega 6  p1^4 . p2^1 . p2^1         a   4  P   16  A3     6  b -2
+
+  THE TWO SHAPES (R331)(4) NAMES, EVERY CLASS ASSIGNMENT AND KIND (a, P, A_3, A_4, A_5, b):
+     C3  p1^4 . p1^1            a  4  P  12  A3    0  A4    0  A5    0  b -2     MINIMAL NEGATIVE
+     C3  p1^3 . p1^1 . p1^1     a  6  P  28  A3    0  A4    0  A5    0  b -8     negative
+     C4  p1^4 . p1^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^4 . p1^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^4 . p1^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^4 . p2^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^4 . p2^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^4 . r2^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^4 . p2^1            a  4  P   8  A3    0  A4    0  A5    0  b 0      
+     C4  p1^4 . r2^1            a  2  P   4  A3    0  A4    0  A5    0  b 0      
+     C4  p2^4 . r2^1            a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^3 . p1^1 . p1^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^3 . p1^1 . p1^1     a  8  P  24  A3    0  A4    0  A5    0  b -4     MINIMAL NEGATIVE
+     C4  r2^3 . p1^1 . p1^1     a  2  P   4  A3    0  A4    0  A5    0  b 0      
+     C4  p2^3 . p2^1 . p1^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^3 . p2^1 . p1^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^3 . p1^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^3 . p2^1 . p2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^3 . p2^1 . p2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^3 . p2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  r2^3 . r2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^3 . p2^1 . p1^1     a  8  P  24  A3    0  A4    0  A5    0  b -4     MINIMAL NEGATIVE
+     C4  p1^3 . p1^1 . r2^1     a  4  P  12  A3    0  A4    0  A5    0  b -2     MINIMAL NEGATIVE
+     C4  p2^3 . p1^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^3 . p2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^3 . p2^1 . p2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^3 . p2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p1^3 . r2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C4  p2^3 . r2^1 . r2^1     a  0  P   0  A3    0  A4    0  A5    0  b 0      
+     C5  p1^4 . p1^1            a  2  P   0  A3    0  A4    0  A5    0  b 2      
+     C5  p1^4 . p2^1            a  2  P   4  A3    0  A4    0  A5    0  b 0      
+     C5  p1^3 . p1^1 . p1^1     a  2  P   0  A3    0  A4    0  A5    0  b 2      
+     C5  p1^3 . p2^1 . p2^1     a  2  P   4  A3    0  A4    0  A5    0  b 0      
+     C5  p1^3 . p2^1 . p1^1     a  4  P  12  A3    0  A4    0  A5    0  b -2     MINIMAL NEGATIVE
+
+## CHECK (4), BEFORE ANY USE OF THE TABLE: -23 (C3), -39 (C4), -47 (C5)
+  D = -23 (C3): the least bad-supported n whose configuration is a negative row: 48 = 2^4 . 3^1 (2 split class 2, 3 split class 1), the row p1^4 . p1^1: a 4, P 12, b -2 ; banked n0 48, b -2 (data/b711_coeffs.txt :12), the navigator`s a 4, P 12 -- AS WANTED
+      below it, of Omega above the table`s and read by the model: none
+  D = -39 (C4): the least bad-supported n whose configuration is a negative row: 120 = 2^3 . 3^1 . 5^1 (2 split class 3, 3 ram class 2, 5 split class 1), the row p1^3 . p1^1 . r2^1: a 4, P 12, b -2 ; banked n0 120, b -2 (data/b717_coeffs.txt :16), the navigator`s a 4, P 12 -- AS WANTED
+      below it, of Omega above the table`s and read by the model: none
+  D = -47 (C5): the least bad-supported n whose configuration is a negative row: 168 = 2^3 . 3^1 . 7^1 (2 split class 4, 3 split class 2, 7 split class 4), the row p1^3 . p2^1 . p1^1: a 4, P 12, b -2 ; banked n0 168, b -2 (data/b719_coeffs.txt :24), the navigator`s a 4, P 12 -- AS WANTED
+      below it, of Omega above the table`s and read by the model: 128 (Omega 7, b 0)
+   PLANT (4): the class above 2 at -39 set to 0: the least 1521 (not 120) -- FAILS AS WANTED
+### CHECK (4): ALL AS WANTED -- THE TABLE MAY BE USED
+
+## THE GRADE
+  THE CLOSED FORMS (the docstring`s), CHECKED BY TWO ROUTES, NOT COMPILED: a(n) by the count form equal to the turns and to b718`s
+  model at every divisor of every row of the three tables (check (1)); b by the m-fold expansion equal to b718`s Omega recursion at
+  every row (check (2)). The table for C3, C4 and C5 at Omega 1-6 is an exact finite computation over every configuration of bad
+  primes up to symmetry: a theorem of the model at those Omega, with its hypotheses (cyclic class group of order 3, 4 or 5; two
+  units; a(n) the principal ideals of norm n; every prime of n bad), checked, not compiled.
+  AT THE TWO SHAPES: the negative rows and their values -- C3 p^3 q r: ['-8'] ; C3 p^4 q: ['-2'] ; C4 p^3 q r: ['-4', '-4', '-2'] ; C4 p^4 q: none negative ; C5 p^3 q r: ['-2'] ; C5 p^4 q: none negative.
+  -23 (C3), -39 (C4), -47 (C5): each n0 the least bad-supported n on a negative row of its table, its row a = 4, P = 12, b = -2: the -2
+  at the three banked h > 2 cases is the table`s value at their shapes, no longer only evaluated at the instances (check (4)).
+  WHAT IT DOES NOT SHOW: which row a new discriminant instantiates depends on the sizes of its least bad primes of each class; the
+  table names the values a least instance can take, not which it takes.
+
+### ### **CHECKS (1) (2) (4): ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE: THE CLOSED FORMS OF a AND P AT p^4 q AND p^3 q r WRITTEN AND CHECKED BY TWO ROUTES ; THE TABLE FOR C3, C4, C5 AT OMEGA 1-6 EXACT ; -23, -39, -47 READ BY IT AS WANTED ; 16 s.**
