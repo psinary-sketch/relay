@@ -1,0 +1,216 @@
+b721 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b720_citation.py -> tools/b721_citation.py (2026-10-28T13:07:58Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b720 -> b721, b719 -> b720, R330 -> R331, R329 -> R330); 455 lines, 81 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b720_tool_repairs.txt AND data/b720_repairdiff_citation.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  :5 ; @@ -133,1 +133,36 @@
+  :43 ; @@ -135,111 +170,77 @@
+  :232 ; @@ -247,9 +248,16 @@
+  :258 ; @@ -264,1 +272,1 @@
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b720_citation.py
+  +++ tools/b721_citation.py
+  @@ -2,1 +2,1 @@
+  -"""b720_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b720's step zero, run before any other step
+  +"""b721_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b721's step zero, run before any other step
+  @@ -6,6 +6,6 @@
+  -### act's (bde68a30, a new session after the clear; the anchor (R330)'s line); the answer route is b682's, imported from
+  -### tools/b682_citation.py with its act names pointed at b720, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  -### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b720_citation_check.txt
+  -### (.json) ; `ferry` -> data/b720_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  -### Carried by diff from b719_citation.py (data/b720_carry_citation.txt), b719's cite rows pruned (data/b720_prune_citation.txt) and this
+  -### ruling's written by the Edit tool; this tool writes only the banks named above. Its (R330)(1) row reads lv's release list by `gh` (the
+  +### act's (bde68a30, a new session after the clear; the anchor (R331)'s line); the answer route is b682's, imported from
+  +### tools/b682_citation.py with its act names pointed at b721, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  +### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b721_citation_check.txt
+  +### (.json) ; `ferry` -> data/b721_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  +### Carried by diff from b720_citation.py (data/b721_carry_citation.txt), b720's cite rows pruned (data/b721_prune_citation.txt) and this
+  +### ruling's written by the Edit tool; this tool writes only the banks named above. Its (R331)(1) row reads lv's release list by `gh` (the
+  @@ -27,2 +27,2 @@
+  -import b720_worklist as K   # noqa: E402
+  -import act_membrane as MEM  # noqa: E402  ### (R330)(2)(ii): the membrane before every bank write of this tool
+  +import b721_worklist as K   # noqa: E402
+  +import act_membrane as MEM  # noqa: E402  ### (R331)(2)(ii): the membrane before every bank write of this tool
+  @@ -32,1 +32,1 @@
+  -    import b720_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  +    import b721_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  @@ -132,1 +132,1 @@
+  -    # ### b720: the cite rows of (R330) and its ferry, written by the Edit tool after b719's rows were pruned (data/b720_prune_citation.txt)
+  +    # ### b721: the cite rows of (R331) and its ferry, written by the Edit tool after b720's rows were pruned (data/b721_prune_citation.txt)
+  @@ -134,4 +134,4 @@
+  -    # ### (R330)(1): b719 at its weight
+  -    cl = lines_of(p('data', 'b719_closing.txt'))
+  -    hq = _quote(text, '"b719 closed: relay fa268307', '; 18 defects"')
+  -    add('ruling (1)', 'data/b719_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 18 defects' == at(cl, 1),
+  +    # ### (R331)(1): b720 at its weight
+  +    cl = lines_of(p('data', 'b720_closing.txt'))
+  +    hq = _quote(text, '"b720 closed: relay fa268307', '; 18 defects"')
+  +    add('ruling (1)', 'data/b720_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 18 defects' == at(cl, 1),
+  @@ -139,2 +139,2 @@
+  -    add('ruling (1)', 'the counter CLAIM 2, CLOSE 26 (data/b719_closing.txt :5)', at(cl, 5).endswith('CLAIM 2, CLOSE 26'), at(cl, 5)[-30:], '1')
+  -    st = _jl('b719_steps.json').get('rows') or []
+  +    add('ruling (1)', 'the counter CLAIM 2, CLOSE 26 (data/b720_closing.txt :5)', at(cl, 5).endswith('CLAIM 2, CLOSE 26'), at(cl, 5)[-30:], '1')
+  +    st = _jl('b720_steps.json').get('rows') or []
+  @@ -145,5 +145,5 @@
+  -    cf = [l for l in cl if '(R329)(2) : THE CLAIM ARMS PASSING' in l]
+  -    add('ruling (1)', 'the claim arms 38 of 38 on both suite runs (data/b719_closing.txt)', len(cf) == 2 and all('38 OF 38' in l for l in cf), '%d lines' % len(cf), '1')
+  -    mi = lines_of(p('data', 'b719_mirror.txt'))
+  -    add('ruling (1)', 'the mirror mirror-refresh-2026-10-28-b719.zip, 74 files, CLEAN with the root line, built at PLACE-papers b92bb70',
+  -        'mirror-refresh-2026-10-28-b719.zip' in at(mi, 2) and 'files 74' in at(mi, 3) and 'b92bb70' in at(mi, 4) and at(mi, 6).endswith('Act root: b719 ' + K.B714_ROOT)
+  +    cf = [l for l in cl if '(R330)(2) : THE CLAIM ARMS PASSING' in l]
+  +    add('ruling (1)', 'the claim arms 38 of 38 on both suite runs (data/b720_closing.txt)', len(cf) == 2 and all('38 OF 38' in l for l in cf), '%d lines' % len(cf), '1')
+  +    mi = lines_of(p('data', 'b720_mirror.txt'))
+  +    add('ruling (1)', 'the mirror mirror-refresh-2026-10-28-b720.zip, 74 files, CLEAN with the root line, built at PLACE-papers b92bb70',
+  +        'mirror-refresh-2026-10-28-b720.zip' in at(mi, 2) and 'files 74' in at(mi, 3) and 'b92bb70' in at(mi, 4) and at(mi, 6).endswith('Act root: b720 ' + K.B714_ROOT)
+  @@ -151,9 +151,9 @@
+  -    ch = [l for l in lines_of(p('data', 'b719_checks_postpush_standing-b3.txt')) if 'THE ACT-ROOT CHAIN`S PART B' in l]
+  -    add('ruling (1)', 'the root chain agreeing from b624 to b719 (the post-push chain parts)', bool(ch) and 'b719 AGREE' in ch[0] and 'DIFFER' not in ch[0], '%d line' % len(ch), '1')
+  -    sc = _jl('b719_scores_close.json')
+  -    add('ruling (1)', 'N4 REFUTED as the author ruled (data/b719_scores_close.json)', (sc.get('N4') or [''])[0] == 'REFUTED', str((sc.get('N4') or [''])[0]), '1')
+  -    for f, n, needle in (('b719_coeffs.txt', 45, 'n0(-20) = 36, b = -2 ; n0(-47) = 168, b = -2'), ('b719_coeffs.txt', 45, 'H-24 REFUTED ; H-47 REFUTED'),
+  -                         ('b719_derivation.txt', 70, 'CLAUSE 1 NOT DERIVED, ITS STEP NAMED'), ('b719_offset_read.txt', 121, '+54.9 TO +161.7'),
+  -                         ('b719_offset_read.txt', 123, 'H-OFFSET, REGISTERED'), ('b719_surgery.txt', 22, 'H-SHAPE REGISTERED AT 965cb8e8'),
+  -                         ('b719_arm_retire.txt', 12, 'RETIRED 25 CLOSE ARMS ; THE RUN LIST 141 -> 116'), ('b719_count_route_price.txt', 44, '19,852 UNIT BANDS'),
+  -                         ('b719_count_route_price.txt', 44, '44 TO ~2,700 FOREGROUND HOURS'), ('b719_touch.txt', 104, 'ROWS 73 ; AGREES 73')):
+  +    ch = [l for l in lines_of(p('data', 'b720_checks_postpush_standing-b3.txt')) if 'THE ACT-ROOT CHAIN`S PART B' in l]
+  +    add('ruling (1)', 'the root chain agreeing from b624 to b720 (the post-push chain parts)', bool(ch) and 'b720 AGREE' in ch[0] and 'DIFFER' not in ch[0], '%d line' % len(ch), '1')
+  +    sc = _jl('b720_scores_close.json')
+  +    add('ruling (1)', 'N4 REFUTED as the author ruled (data/b720_scores_close.json)', (sc.get('N4') or [''])[0] == 'REFUTED', str((sc.get('N4') or [''])[0]), '1')
+  +    for f, n, needle in (('b720_coeffs.txt', 45, 'n0(-20) = 36, b = -2 ; n0(-47) = 168, b = -2'), ('b720_coeffs.txt', 45, 'H-24 REFUTED ; H-47 REFUTED'),
+  +                         ('b720_derivation.txt', 70, 'CLAUSE 1 NOT DERIVED, ITS STEP NAMED'), ('b720_offset_read.txt', 121, '+54.9 TO +161.7'),
+  +                         ('b720_offset_read.txt', 123, 'H-OFFSET, REGISTERED'), ('b720_surgery.txt', 22, 'H-SHAPE REGISTERED AT 965cb8e8'),
+  +                         ('b720_arm_retire.txt', 12, 'RETIRED 25 CLOSE ARMS ; THE RUN LIST 141 -> 116'), ('b720_count_route_price.txt', 44, '19,852 UNIT BANDS'),
+  +                         ('b720_count_route_price.txt', 44, '44 TO ~2,700 FOREGROUND HOURS'), ('b720_touch.txt', 104, 'ROWS 73 ; AGREES 73')):
+  @@ -161,1 +161,1 @@
+  -    add('ruling (1)', 'H-SHAPE committed at 965cb8e8 (data/b719_registrations.txt)', 'H-SHAPE' in _blob('D:/relay', '965cb8e8', 'data/b719_registrations.txt'),
+  +    add('ruling (1)', 'H-SHAPE committed at 965cb8e8 (data/b720_registrations.txt)', 'H-SHAPE' in _blob('D:/relay', '965cb8e8', 'data/b720_registrations.txt'),
+  @@ -163,2 +163,2 @@
+  -    # ### (R330)(2): the corrigendum's sources
+  -    ev = lines_of(p('data', 'b719_events.txt'))
+  +    # ### (R331)(2): the corrigendum's sources
+  +    ev = lines_of(p('data', 'b720_events.txt'))
+  @@ -167,1 +167,1 @@
+  -    add('ruling (2)', 'data/b719_events.txt (1)-(10), each tagged', starts == list(range(1, 11)) and len(tags) == 10,
+  +    add('ruling (2)', 'data/b720_events.txt (1)-(10), each tagged', starts == list(range(1, 11)) and len(tags) == 10,
+  @@ -169,2 +169,2 @@
+  -    dl = lines_of(p('data', 'b719_defects.txt'))
+  -    add('ruling (2)', 'data/b719_defects.txt present, its letters (a)-(r)', any(re.match(r'^\s*\(r\) ', l) for l in dl) and not any(re.match(r'^\s*\(s\) ', l) for l in dl),
+  +    dl = lines_of(p('data', 'b720_defects.txt'))
+  +    add('ruling (2)', 'data/b720_defects.txt present, its letters (a)-(r)', any(re.match(r'^\s*\(r\) ', l) for l in dl) and not any(re.match(r'^\s*\(s\) ', l) for l in dl),
+  @@ -172,1 +172,1 @@
+  -    add('ruling (2)(i)', 'dbea2e3f is b718`s leftover commit and has no row in data/b719_steps.json', bool(gr('D:/relay', 'rev-parse', '--verify', '--quiet', 'dbea2e3f^{commit}'))
+  +    add('ruling (2)(i)', 'dbea2e3f is b718`s leftover commit and has no row in data/b720_steps.json', bool(gr('D:/relay', 'rev-parse', '--verify', '--quiet', 'dbea2e3f^{commit}'))
+  @@ -176,5 +176,5 @@
+  -    add('ruling (2)(ii)', 'the control`s reference K.RECUT_MERGE (tools/b719_worklist.py) is a86c9429', 'RECUT_MERGE = \'a86c9429' in rd(p('tools', 'b719_worklist.py')),
+  -        'tools/b719_worklist.py', '1')
+  -    add('ruling (2)(iii)', 'the memory file overwritten (feedback_b719_traps.md) and its earlier text restored to feedback_b719_stepzero_traps.md',
+  -        os.path.exists('C:/Users/echo chamber/.claude/projects/D--/memory/feedback_b719_stepzero_traps.md'), 'restored at b720`s opening', '1')
+  -    # ### (R330)(3): the registration's discriminants, by their class number and forms alone (the ruling's allowance)
+  +    add('ruling (2)(ii)', 'the control`s reference K.RECUT_MERGE (tools/b720_worklist.py) is a86c9429', 'RECUT_MERGE = \'a86c9429' in rd(p('tools', 'b720_worklist.py')),
+  +        'tools/b720_worklist.py', '1')
+  +    add('ruling (2)(iii)', 'the memory file overwritten (feedback_b720_traps.md) and its earlier text restored to feedback_b720_stepzero_traps.md',
+  +        os.path.exists('C:/Users/echo chamber/.claude/projects/D--/memory/feedback_b720_stepzero_traps.md'), 'restored at b721`s opening', '1')
+  +    # ### (R331)(3): the registration's discriminants, by their class number and forms alone (the ruling's allowance)
+  @@ -212,1 +212,1 @@
+  -    for f in ('b718_derivation.txt', 'b719_derivation.txt'):
+  +    for f in ('b718_derivation.txt', 'b720_derivation.txt'):
+  @@ -214,1 +214,1 @@
+  -    for f in ('b711_coeffs.txt', 'b713_coeffs.txt', 'b717_coeffs.txt', 'b719_coeffs.txt'):
+  +    for f in ('b711_coeffs.txt', 'b713_coeffs.txt', 'b717_coeffs.txt', 'b720_coeffs.txt'):
+  @@ -216,1 +216,1 @@
+  -    # ### (R330)(5): wave 1's groundwork
+  +    # ### (R331)(5): wave 1's groundwork
+  @@ -233,1 +233,1 @@
+  -    # ### (R330)(6)
+  +    # ### (R331)(6)
+  @@ -236,4 +236,4 @@
+  -    # ### (R330)(7): the carried files and branches
+  -    s1 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b719_relay_push-b719-closing_push_out.txt')
+  -    s2 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b719_steps.json')
+  -    add('ruling (7)', 'b719`s closing capture untracked and its step-33 row uncommitted', s1.startswith('??') and s2.startswith('M'), '%s / %s' % (s1, s2), '0')
+  +    # ### (R331)(7): the carried files and branches
+  +    s1 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b720_relay_push-b720-closing_push_out.txt')
+  +    s2 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b720_steps.json')
+  +    add('ruling (7)', 'b720`s closing capture untracked and its step-33 row uncommitted', s1.startswith('??') and s2.startswith('M'), '%s / %s' % (s1, s2), '0')
+  @@ -241,2 +241,2 @@
+  -        mg = gr(repo, 'branch', '--merged', 'main', '--list', 'push-b719-*').replace('*', ' ').split()
+  -        add('ruling (7)', 'the push-b719-* branches of %s merged into main: %s' % (repo, ', '.join(names)), sorted(mg) == sorted(names), 'merged %s' % mg, '0')
+  +        mg = gr(repo, 'branch', '--merged', 'main', '--list', 'push-b720-*').replace('*', ' ').split()
+  +        add('ruling (7)', 'the push-b720-* branches of %s merged into main: %s' % (repo, ', '.join(names)), sorted(mg) == sorted(names), 'merged %s' % mg, '0')
+  @@ -245,2 +245,2 @@
+  -    # ### (R330)(8)-(9) and the ferry
+  -    add('ruling (9)', 'the draft at v5 (23228113), held', K.DRAFT == '23228113', 'tools/b720_worklist.py DRAFT', '0')
+  +    # ### (R331)(8)-(9) and the ferry
+  +    add('ruling (9)', 'the draft at v5 (23228113), held', K.DRAFT == '23228113', 'tools/b721_worklist.py DRAFT', '0')
+  @@ -248,2 +248,2 @@
+  -    rf = ['b719_closing.txt', 'b719_events.txt', 'b719_defects.txt', 'b719_coeffs.txt', 'b719_derivation.txt', 'b718_derivation.txt', 'b719_registrations.txt',
+  -          'b718_registrations.txt', 'b716_registrations.txt', 'b719_offset_read.txt', 'b719_surgery.txt', 'b718_challenge_price.txt', 'b718_registry_cells_price.txt',
+  +    rf = ['b720_closing.txt', 'b720_events.txt', 'b720_defects.txt', 'b720_coeffs.txt', 'b720_derivation.txt', 'b718_derivation.txt', 'b720_registrations.txt',
+  +          'b718_registrations.txt', 'b716_registrations.txt', 'b720_offset_read.txt', 'b720_surgery.txt', 'b718_challenge_price.txt', 'b718_registry_cells_price.txt',
+  @@ -262,2 +262,2 @@
+  -    add('ferry', 'b719`s run list of 116 arms (data/b719_checks.txt)', any('ARMS RUN : 116.' in l for l in lines_of(p('data', 'b719_checks.txt'))),
+  -        'b719`s combine ; the standing run list %s' % n_run, '7')
+  +    add('ferry', 'b720`s run list of 116 arms (data/b720_checks.txt)', any('ARMS RUN : 116.' in l for l in lines_of(p('data', 'b720_checks.txt'))),
+  +        'b720`s combine ; the standing run list %s' % n_run, '7')
+  @@ -271,2 +271,2 @@
+  -    act writes at step zero (v2, (R330)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  -    import b718_standing as SC   # ### b720 carry-time repair: the shift named b719_standing, which does not exist; b719 imported b718's
+  +    act writes at step zero (v2, (R331)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  +    import b718_standing as SC   # ### b721 carry-time repair: the shift named b720_standing, which does not exist; b720 imported b718's
+  @@ -280,1 +280,1 @@
+  -            ctl = _jl('b719_standing_control.json')
+  +            ctl = _jl('b720_standing_control.json')
+  @@ -284,1 +284,1 @@
+  -            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at step zero ((R330)(2))' % (v, v), True, 'absent, as ordered', '0')
+  +            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at step zero ((R331)(2))' % (v, v), True, 'absent, as ordered', '0')
+  @@ -290,4 +290,4 @@
+  -    for n_ in ('b720_citation_check.txt', 'b720_citation_check.json'):
+  -        MEM.guard('b720', n_, _root_exclude())
+  -    for name, data in (('b720_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  -                       ('b720_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  +    for n_ in ('b721_citation_check.txt', 'b721_citation_check.json'):
+  +        MEM.guard('b721', n_, _root_exclude())
+  +    for name, data in (('b721_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  +                       ('b721_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  @@ -305,1 +305,1 @@
+  -    L = ['b720 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +    L = ['b721 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  @@ -321,1 +321,1 @@
+  -    """the ferry is banked by the Write tool (data/b720_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  +    """the ferry is banked by the Write tool (data/b721_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  @@ -323,1 +323,1 @@
+  -    q = os.path.join(D, 'b720_ferry.txt')
+  +    q = os.path.join(D, 'b721_ferry.txt')
+  @@ -326,2 +326,2 @@
+  -    s = os.path.join(D, 'b720_ferry_scan.txt')
+  -    MEM.guard('b720', 'b720_ferry_scan.txt', _root_exclude())
+  +    s = os.path.join(D, 'b721_ferry_scan.txt')
+  +    MEM.guard('b721', 'b721_ferry_scan.txt', _root_exclude())
+  @@ -332,1 +332,1 @@
+  -    print('  b720_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  +    print('  b721_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  @@ -364,1 +364,1 @@
+  -    """(R278)(4): b682's route, imported, with its act names pointed at b720, and b706's repair carried."""
+  +    """(R278)(4): b682's route, imported, with its act names pointed at b721, and b706's repair carried."""
+  @@ -373,1 +373,1 @@
+  -    P.after_root = lambda: bool(act_root_line('b720'))
+  +    P.after_root = lambda: bool(act_root_line('b721'))
+  @@ -391,3 +391,3 @@
+  -    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b720')
+  -    # ### (R330)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  -    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b719's answers read 468 characters. The cut now ends at the answer's
+  +    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b721')
+  +    # ### (R331)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  +    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b720's answers read 468 characters. The cut now ends at the answer's
+  @@ -398,1 +398,1 @@
+  -    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b720', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  +    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b721', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  @@ -401,1 +401,1 @@
+  -    exec(compile(body, 'b682_citation.answer (b720)', 'exec'), ns)
+  +    exec(compile(body, 'b682_citation.answer (b721)', 'exec'), ns)
+  @@ -452,1 +452,1 @@
+  -        print('usage: b720_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+  +        print('usage: b721_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+
+### ### **CARRIED tools/b721_citation.py ; LINES 455 ; CHANGED BY THE SUBSTITUTION 81 ; REPAIR SPANS AT b720 4 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

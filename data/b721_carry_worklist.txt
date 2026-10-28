@@ -1,0 +1,181 @@
+b721 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b720_worklist.py -> tools/b721_worklist.py (2026-10-28T13:08:10Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b720 -> b721, b719 -> b720, R330 -> R331, R329 -> R330); 254 lines, 66 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b720_tool_repairs.txt AND data/b720_repairdiff_worklist.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b720; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b720_worklist.py
+  +++ tools/b721_worklist.py
+  @@ -2,1 +2,1 @@
+  -"""b720_worklist.py -- THE ACT'S DATA, UNDER (R330). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  +"""b721_worklist.py -- THE ACT'S DATA, UNDER (R331). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  @@ -4,1 +4,1 @@
+  -### ### b720: LANE TWO, ACT ONE HUNDRED AND FORTY-SEVEN, THE DECOMPOSITION ACT -- b719 AT ITS WEIGHT; THE CORRIGENDUM; -35 AND -40
+  +### ### b721: LANE TWO, ACT ONE HUNDRED AND FORTY-SEVEN, THE DECOMPOSITION ACT -- b720 AT ITS WEIGHT; THE CORRIGENDUM; -35 AND -40
+  @@ -6,6 +6,6 @@
+  -### FILE; THE PIN'S REMAINDER, LAST AND STOPPABLE. No lean on this host (N1); the runner dispatches are (R330)(5)(ii)-(iii)'s alone.
+  -### Carried by diff from b719_worklist.py (data/b720_carry_worklist.txt) and its stage one rewritten whole by the Write tool with this act's
+  -### objects at step zero (the carried text named b719's objects under b720's names); stage two, Component 7, by the Edit tool.
+  -### The act runs in the SAME session as b719 (02c7cf38; the ruling pasted after b719's closing, no clear): the previous act's window is this
+  -### session cut at b719's anchor, b706's same-session form. b719 closed and pushed itself whole (relay ef648cb9, PLACE-papers b92bb70a, both
+  -### read back); its closing capture and step-33 row are this act's carried files ((R330)(7)).
+  +### FILE; THE PIN'S REMAINDER, LAST AND STOPPABLE. No lean on this host (N1); the runner dispatches are (R331)(5)(ii)-(iii)'s alone.
+  +### Carried by diff from b720_worklist.py (data/b721_carry_worklist.txt) and its stage one rewritten whole by the Write tool with this act's
+  +### objects at step zero (the carried text named b720's objects under b721's names); stage two, Component 7, by the Edit tool.
+  +### The act runs in the SAME session as b720 (02c7cf38; the ruling pasted after b720's closing, no clear): the previous act's window is this
+  +### session cut at b720's anchor, b706's same-session form. b720 closed and pushed itself whole (relay ef648cb9, PLACE-papers b92bb70a, both
+  +### read back); its closing capture and step-33 row are this act's carried files ((R331)(7)).
+  @@ -21,2 +21,2 @@
+  -PRE_PP = 'b92bb70a916c4c3ed6a00fdb3f28b9d2eb9e20b4'    # ### PLACE-papers main before the act's own commits: b719's trail, pushed and read back by b719
+  -PRE_RELAY = 'ef648cb95098481e582042cb4a0dbb8cf9efdeb1'  # ### relay main before the act's own commits: b719's closing, pushed and read back by b719
+  +PRE_PP = 'b92bb70a916c4c3ed6a00fdb3f28b9d2eb9e20b4'    # ### PLACE-papers main before the act's own commits: b720's trail, pushed and read back by b720
+  +PRE_RELAY = 'ef648cb95098481e582042cb4a0dbb8cf9efdeb1'  # ### relay main before the act's own commits: b720's closing, pushed and read back by b720
+  @@ -25,2 +25,2 @@
+  -B718_RELAY_HEAD = 'ef648cb'  # ### the names kept for the carried readers: the previous act's last relay head (b719's closing)
+  -B718_PP_HEAD = 'b92bb70'     # ### the previous act's last PLACE-papers head (b719's trail)
+  +B718_RELAY_HEAD = 'ef648cb'  # ### the names kept for the carried readers: the previous act's last relay head (b720's closing)
+  +B718_PP_HEAD = 'b92bb70'     # ### the previous act's last PLACE-papers head (b720's trail)
+  @@ -31,1 +31,1 @@
+  -ANCHOR = 'RULING (R330) BEGIN'
+  +ANCHOR = 'RULING (R331) BEGIN'
+  @@ -34,2 +34,2 @@
+  -PREV_SESSION = SESSION_ID   # ### b719 ran in this session (from 'RULING (R329) BEGIN', with a compaction); b706's same-session form
+  -PREV_ANCHOR = 'RULING (R329) BEGIN'
+  +PREV_SESSION = SESSION_ID   # ### b720 ran in this session (from 'RULING (R330) BEGIN', with a compaction); b706's same-session form
+  +PREV_ANCHOR = 'RULING (R330) BEGIN'
+  @@ -40,1 +40,1 @@
+  -CITATION_BANK = 'b720_citation_check.txt'
+  +CITATION_BANK = 'b721_citation_check.txt'
+  @@ -43,3 +43,3 @@
+  -B711_ENTRY = 10982          # ### FINDINGS: b719's entry head (PLACE-papers 2b7a6f2b)
+  -B711_WEIGHT = 10896         # ### FINDINGS: b718's weight line (b719's Component 1)
+  -B711_CORRIGENDUM = 10898    # ### FINDINGS: b719's corrigendum for b718
+  +B711_ENTRY = 10982          # ### FINDINGS: b720's entry head (PLACE-papers 2b7a6f2b)
+  +B711_WEIGHT = 10896         # ### FINDINGS: b718's weight line (b720's Component 1)
+  +B711_CORRIGENDUM = 10898    # ### FINDINGS: b720's corrigendum for b718
+  @@ -47,3 +47,3 @@
+  -B711_TRAIL = 16172          # ### OPEN_TRAILS: b719's trail record (PLACE-papers b92bb70a)
+  -B711_FACE = 'data/b719_registration_2026-10-28.txt'
+  -MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-28-b719.zip'   # ### b719's export, built after b719's last push, 74 files, CLEAN
+  +B711_TRAIL = 16172          # ### OPEN_TRAILS: b720's trail record (PLACE-papers b92bb70a)
+  +B711_FACE = 'data/b720_registration_2026-10-28.txt'
+  +MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-28-b720.zip'   # ### b720's export, built after b720's last push, 74 files, CLEAN
+  @@ -56,1 +56,1 @@
+  -TRAIL_RESOLVED = 16210      # ### OPEN_TRAILS: b719's items for the author's strike, in its trail (landed at b92bb70a)
+  +TRAIL_RESOLVED = 16210      # ### OPEN_TRAILS: b720's items for the author's strike, in its trail (landed at b92bb70a)
+  @@ -62,1 +62,1 @@
+  -# ### the branches step zero deletes ((R330)(7)): the push-b719-* branches b719's close made, by name, each read from the listings and
+  +# ### the branches step zero deletes ((R331)(7)): the push-b720-* branches b720's close made, by name, each read from the listings and
+  @@ -64,2 +64,2 @@
+  -DELETE = (('D:/relay', ('push-b719-closing', 'push-b719-record', 'push-b719-root')),
+  -          ('D:/MY-DOwnloads/PLACE-papers', ('push-b719-record', 'push-b719-root')))
+  +DELETE = (('D:/relay', ('push-b720-closing', 'push-b720-record', 'push-b720-root')),
+  +          ('D:/MY-DOwnloads/PLACE-papers', ('push-b720-record', 'push-b720-root')))
+  @@ -67,1 +67,1 @@
+  -KEPT_BRANCH = ('D:/SIDE-lv-conservation', 'port-b707')   # ### (R330)(7): NOT deleted, local or remote
+  +KEPT_BRANCH = ('D:/SIDE-lv-conservation', 'port-b707')   # ### (R331)(7): NOT deleted, local or remote
+  @@ -70,1 +70,1 @@
+  -# ### the kernels: SIDE-explicit-formula gains the challenge branch ((R330)(5)(ii)); the pin's bump branches pushed ((5)(iii)); no main, no tag
+  +# ### the kernels: SIDE-explicit-formula gains the challenge branch ((R331)(5)(ii)); the pin's bump branches pushed ((5)(iii)); no main, no tag
+  @@ -82,1 +82,1 @@
+  -    """the kernels of data/b716_federation_pin_price.txt (1), as D:/<name>, read at import ((R330) PATHS)."""
+  +    """the kernels of data/b716_federation_pin_price.txt (1), as D:/<name>, read at import ((R331) PATHS)."""
+  @@ -89,1 +89,1 @@
+  -PATHS = ('D:/relay', PP, EF_DIR) + tuple(k for k in KERNEL_PATHS if k != EF_DIR)   # ### (R330)'s PATHS, listed at step zero
+  +PATHS = ('D:/relay', PP, EF_DIR) + tuple(k for k in KERNEL_PATHS if k != EF_DIR)   # ### (R331)'s PATHS, listed at step zero
+  @@ -115,2 +115,2 @@
+  -REGISTRATIONS = 'data/b719_registrations.txt'    # ### N2: b719's registrations, read unchanged from their commits (ac88ffb1, 7b1ab86f, 965cb8e8)
+  -REG_COMMIT = '965cb8e84dc02192854512af53a29b1fbc2b80f5'   # ### the last commit of data/b719_registrations.txt (H-SHAPE)
+  +REGISTRATIONS = 'data/b720_registrations.txt'    # ### N2: b720's registrations, read unchanged from their commits (ac88ffb1, 7b1ab86f, 965cb8e8)
+  +REG_COMMIT = '965cb8e84dc02192854512af53a29b1fbc2b80f5'   # ### the last commit of data/b720_registrations.txt (H-SHAPE)
+  @@ -118,1 +118,1 @@
+  -               ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'))   # ### N2: each read unchanged from its commit
+  +               ('data/b720_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'))   # ### N2: each read unchanged from its commit
+  @@ -124,4 +124,4 @@
+  -REGISTRATIONS_NEW = 'data/b720_registrations.txt'   # ### (R330)(3), N2: committed alone before any figure at -35 or -40
+  -COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt')   # ### -23, -15, -39, -20 and -47: read not written
+  -COMPUTE_BANKS = ('data/b720_coeffs.txt', 'data/b720_coeffs.json', 'data/b720_derivation.txt', 'data/b720_derivation.json',
+  -                 'data/b720_registrations.txt', 'data/b720_offset_price.txt')
+  +REGISTRATIONS_NEW = 'data/b721_registrations.txt'   # ### (R331)(3), N2: committed alone before any figure at -35 or -40
+  +COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b720_coeffs.txt')   # ### -23, -15, -39, -20 and -47: read not written
+  +COMPUTE_BANKS = ('data/b721_coeffs.txt', 'data/b721_coeffs.json', 'data/b721_derivation.txt', 'data/b721_derivation.json',
+  +                 'data/b721_registrations.txt', 'data/b721_offset_price.txt')
+  @@ -129,1 +129,1 @@
+  -              'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt')
+  +              'data/b718_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt')
+  @@ -131,1 +131,1 @@
+  -# ### THE SUITE'S PARTS: seven, as b706 split them and b707-b719 carried them
+  +# ### THE SUITE'S PARTS: seven, as b706 split them and b707-b720 carried them
+  @@ -133,1 +133,1 @@
+  -CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b720'))
+  +CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b721'))
+  @@ -142,1 +142,1 @@
+  -PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md')   # ### (R330)(1)-(2) the weight line and corrigendum, (5)(i) REGISTRY's block,
+  +PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md')   # ### (R331)(1)-(2) the weight line and corrigendum, (5)(i) REGISTRY's block,
+  @@ -148,2 +148,2 @@
+  -RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the MANIFEST control's reference, as carried; (R330)(2)(ii) reads it from its source
+  -NEXT = ('b721 ((R330)(10)): the surgery under H-SHAPE; the offset`s next tier under H-OFFSET, post hoc on its first seventeen rows; the registry cells for the next wave`s rows; '
+  +RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the MANIFEST control's reference, as carried; (R331)(2)(ii) reads it from its source
+  +NEXT = ('b721 ((R331)(10)): the surgery under H-SHAPE; the offset`s next tier under H-OFFSET, post hoc on its first seventeen rows; the registry cells for the next wave`s rows; '
+  @@ -184,4 +184,4 @@
+  -ACT_CURRENT_COMMIT = '675d8598'         # ### data/act_current.json for b720 committed alone
+  -STEPZERO = 'ec7071b5'                   # ### b719's closing capture, committed alone ((R330)(7))
+  -STEPZERO_STEPS = '9ec21954'             # ### b719's step-33 row, committed alone ((R330)(7))
+  -STEPZERO_LATE = '6755e0c9'              # ### the late step row for dbea2e3f ((R330)(2)(i))
+  +ACT_CURRENT_COMMIT = '675d8598'         # ### data/act_current.json for b721 committed alone
+  +STEPZERO = 'ec7071b5'                   # ### b720's closing capture, committed alone ((R331)(7))
+  +STEPZERO_STEPS = '9ec21954'             # ### b720's step-33 row, committed alone ((R331)(7))
+  +STEPZERO_LATE = '6755e0c9'              # ### the late step row for dbea2e3f ((R331)(2)(i))
+  @@ -202,4 +202,4 @@
+  -# ### b719's commits the act reads (the names kept for the carried arms: the previous act's)
+  -B714_CLOSING = 'ef648cb9'    # ### b719's closing, the act's relay base
+  -B714_RECORD = 'fa268307'     # ### b719's record commit (relay, the last before the closing)
+  -B714_ROOT = '09e524a73dde38bfe1f9bdd3337b7644997a3f5ed649caec7835cd6d04803b6b'   # ### b719's root, data/act_roots.txt :97
+  +# ### b720's commits the act reads (the names kept for the carried arms: the previous act's)
+  +B714_CLOSING = 'ef648cb9'    # ### b720's closing, the act's relay base
+  +B714_RECORD = 'fa268307'     # ### b720's record commit (relay, the last before the closing)
+  +B714_ROOT = '09e524a73dde38bfe1f9bdd3337b7644997a3f5ed649caec7835cd6d04803b6b'   # ### b720's root, data/act_roots.txt :97
+  @@ -212,1 +212,1 @@
+  -C2_REG = 'f5353ca9'          # ### (R330)(3), N2: data/b720_registrations.txt committed alone, before any figure at -35 or -40 (step 8)
+  +C2_REG = 'f5353ca9'          # ### (R331)(3), N2: data/b721_registrations.txt committed alone, before any figure at -35 or -40 (step 8)
+  @@ -216,1 +216,1 @@
+  -C3_RELAY = 'ce378824'        # ### the derivation's -2, data/b720_derivation.txt (step 12)
+  +C3_RELAY = 'ce378824'        # ### the derivation's -2, data/b721_derivation.txt (step 12)
+  @@ -218,2 +218,2 @@
+  -C4_PP = '5872b8979c01aaf66fe926ae4a4925fc22687fc5'   # ### (R330)(5)(i): REGISTRY's three rows and attribute block, additive (step 13)
+  -C4_RELAY = 'ad94c11c'        # ### the registry tool and data/b720_registry_diff.txt (step 14)
+  +C4_PP = '5872b8979c01aaf66fe926ae4a4925fc22687fc5'   # ### (R331)(5)(i): REGISTRY's three rows and attribute block, additive (step 13)
+  +C4_RELAY = 'ad94c11c'        # ### the registry tool and data/b721_registry_diff.txt (step 14)
+  @@ -221,2 +221,2 @@
+  -C5_RELAY = '41a0adcf'        # ### (R330)(5)(ii): the challenge tool and its banks (step 15)
+  -C6_RELAY = '03f755e7'        # ### (R330)(5)(iii), (6): the pin tool, its banks and the offset's price (step 16)
+  +C5_RELAY = '41a0adcf'        # ### (R331)(5)(ii): the challenge tool and its banks (step 15)
+  +C6_RELAY = '03f755e7'        # ### (R331)(5)(iii), (6): the pin tool, its banks and the offset's price (step 16)
+  @@ -225,2 +225,2 @@
+  -NEW_DISCRIMINANTS = ((-35, 2), (-40, 2))   # ### (R330)(3): class number 2, two units, fundamental
+  -CHALLENGE_BRANCH = 'challenge-b720-h2-sign-iff-rh'   # ### (R330)(5)(ii): on SIDE-explicit-formula, not on main, no tag
+  +NEW_DISCRIMINANTS = ((-35, 2), (-40, 2))   # ### (R331)(3): class number 2, two units, fundamental
+  +CHALLENGE_BRANCH = 'challenge-b721-h2-sign-iff-rh'   # ### (R331)(5)(ii): on SIDE-explicit-formula, not on main, no tag
+  @@ -231,1 +231,1 @@
+  -PIN_BRANCH = 'pin-b718-de5ce8a9'   # ### b718's local pin branches, carried to b720
+  +PIN_BRANCH = 'pin-b718-de5ce8a9'   # ### b718's local pin branches, carried to b721
+  @@ -237,1 +237,1 @@
+  -PIN_TO_NEXT = PIN_HELD       # ### to b721 ((R330)(10)): the pin where (5)(iii) carried it
+  +PIN_TO_NEXT = PIN_HELD       # ### to b721 ((R331)(10)): the pin where (5)(iii) carried it
+  @@ -242,1 +242,1 @@
+  -RETIRED_COUNT = 0            # ### no arm retired this act; b719's run list of 116 binds
+  +RETIRED_COUNT = 0            # ### no arm retired this act; b720's run list of 116 binds
+  @@ -245,3 +245,3 @@
+  -SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b720_') and f.endswith('.py') and f != 'b720_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
+  -# ### the act's arms over its own banks: set at Component 7 by the Edit tool -- the thirty-two of the suite's act part (b719's less the arms
+  -# ### b719 retired, G-R329-ENTERED shifted to G-R330-ENTERED), as `b720_record.py armnames` prints them beyond the standing (set late, defect (y))
+  +SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b721_') and f.endswith('.py') and f != 'b721_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
+  +# ### the act's arms over its own banks: set at Component 7 by the Edit tool -- the thirty-two of the suite's act part (b720's less the arms
+  +# ### b720 retired, G-R330-ENTERED shifted to G-R331-ENTERED), as `b721_record.py armnames` prints them beyond the standing (set late, defect (y))
+  @@ -251,1 +251,1 @@
+  -            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R330-ENTERED', 'G-READFIRST-DIFF-BANKED',
+  +            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R331-ENTERED', 'G-READFIRST-DIFF-BANKED',
+
+### ### **CARRIED tools/b721_worklist.py ; LINES 254 ; CHANGED BY THE SUBSTITUTION 66 ; REPAIR SPANS AT b720 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

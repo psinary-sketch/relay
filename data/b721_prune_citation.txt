@@ -1,0 +1,136 @@
+b721 -- THE PRUNES OF THE CARRIED tools/b721_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -132,132 +132,0 @@ PRUNED (2026-10-28T13:08:06Z)
+-    # ### b721: the cite rows of (R331) and its ferry, written by the Edit tool after b720's rows were pruned (data/b721_prune_citation.txt)
+-    gr = lambda repo, *a: (g(repo, *a)[1] or '').strip()   # noqa: E731
+-    # ### (R331)(1): b720 at its weight
+-    cl = lines_of(p('data', 'b720_closing.txt'))
+-    hq = _quote(text, '"b720 closed: relay fa268307', '; 18 defects"')
+-    add('ruling (1)', 'data/b720_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 18 defects' == at(cl, 1),
+-        at(cl, 1)[:120], '1')
+-    add('ruling (1)', 'the counter CLAIM 2, CLOSE 26 (data/b720_closing.txt :5)', at(cl, 5).endswith('CLAIM 2, CLOSE 26'), at(cl, 5)[-30:], '1')
+-    st = _jl('b720_steps.json').get('rows') or []
+-    r33 = [r for r in st if (r.get('commit') or '').startswith('ef648cb9')]
+-    add('ruling (1)', 'the closing commit ef648cb9 at step 33, pushed and read back', len(st) == 33 and len(r33) == 1 and r33[0].get('phase') == 'closing'
+-        and (_remote_heads('D:/relay').get('refs/heads/main') or '').startswith('ef648cb9'), 'rows %d ; ef648cb9 %s ; remote main %s' % (
+-            len(st), [r.get('phase') for r in r33], (_remote_heads('D:/relay').get('refs/heads/main') or '')[:8]), '1')
+-    cf = [l for l in cl if '(R330)(2) : THE CLAIM ARMS PASSING' in l]
+-    add('ruling (1)', 'the claim arms 38 of 38 on both suite runs (data/b720_closing.txt)', len(cf) == 2 and all('38 OF 38' in l for l in cf), '%d lines' % len(cf), '1')
+-    mi = lines_of(p('data', 'b720_mirror.txt'))
+-    add('ruling (1)', 'the mirror mirror-refresh-2026-10-28-b720.zip, 74 files, CLEAN with the root line, built at PLACE-papers b92bb70',
+-        'mirror-refresh-2026-10-28-b720.zip' in at(mi, 2) and 'files 74' in at(mi, 3) and 'b92bb70' in at(mi, 4) and at(mi, 6).endswith('Act root: b720 ' + K.B714_ROOT)
+-        and any('CLEAN ON ALL THREE CLAUSES' in l for l in mi), 'zip %s ; root line %s' % (os.path.exists(K.MIRROR_ZIP), at(mi, 6)[-20:]), '1')
+-    ch = [l for l in lines_of(p('data', 'b720_checks_postpush_standing-b3.txt')) if 'THE ACT-ROOT CHAIN`S PART B' in l]
+-    add('ruling (1)', 'the root chain agreeing from b624 to b720 (the post-push chain parts)', bool(ch) and 'b720 AGREE' in ch[0] and 'DIFFER' not in ch[0], '%d line' % len(ch), '1')
+-    sc = _jl('b720_scores_close.json')
+-    add('ruling (1)', 'N4 REFUTED as the author ruled (data/b720_scores_close.json)', (sc.get('N4') or [''])[0] == 'REFUTED', str((sc.get('N4') or [''])[0]), '1')
+-    for f, n, needle in (('b720_coeffs.txt', 45, 'n0(-20) = 36, b = -2 ; n0(-47) = 168, b = -2'), ('b720_coeffs.txt', 45, 'H-24 REFUTED ; H-47 REFUTED'),
+-                         ('b720_derivation.txt', 70, 'CLAUSE 1 NOT DERIVED, ITS STEP NAMED'), ('b720_offset_read.txt', 121, '+54.9 TO +161.7'),
+-                         ('b720_offset_read.txt', 123, 'H-OFFSET, REGISTERED'), ('b720_surgery.txt', 22, 'H-SHAPE REGISTERED AT 965cb8e8'),
+-                         ('b720_arm_retire.txt', 12, 'RETIRED 25 CLOSE ARMS ; THE RUN LIST 141 -> 116'), ('b720_count_route_price.txt', 44, '19,852 UNIT BANDS'),
+-                         ('b720_count_route_price.txt', 44, '44 TO ~2,700 FOREGROUND HOURS'), ('b720_touch.txt', 104, 'ROWS 73 ; AGREES 73')):
+-        add('ruling (1)', 'data/%s :%d: %s' % (f, n, needle), needle in at(lines_of(p('data', f)), n), at(lines_of(p('data', f)), n)[:90], '1')
+-    add('ruling (1)', 'H-SHAPE committed at 965cb8e8 (data/b720_registrations.txt)', 'H-SHAPE' in _blob('D:/relay', '965cb8e8', 'data/b720_registrations.txt'),
+-        'the blob at 965cb8e8', '1')
+-    # ### (R331)(2): the corrigendum's sources
+-    ev = lines_of(p('data', 'b720_events.txt'))
+-    starts = [int(m.group(1)) for m in (re.match(r'^    \((\d+)\) ', l) for l in ev) if m]
+-    tags = [m.group(1) for m in (re.search(r'\[(CLAIM|CLOSE) ; ', l) for l in ev if re.match(r'^    \(\d+\) ', l)) if m]
+-    add('ruling (2)', 'data/b720_events.txt (1)-(10), each tagged', starts == list(range(1, 11)) and len(tags) == 10,
+-        'starts %s ; CLAIM %d ; CLOSE %d' % (starts[-1:], tags.count('CLAIM'), tags.count('CLOSE')), '1')
+-    dl = lines_of(p('data', 'b720_defects.txt'))
+-    add('ruling (2)', 'data/b720_defects.txt present, its letters (a)-(r)', any(re.match(r'^\s*\(r\) ', l) for l in dl) and not any(re.match(r'^\s*\(s\) ', l) for l in dl),
+-        '%d lines' % len(dl), '1')
+-    add('ruling (2)(i)', 'dbea2e3f is b718`s leftover commit and has no row in data/b720_steps.json', bool(gr('D:/relay', 'rev-parse', '--verify', '--quiet', 'dbea2e3f^{commit}'))
+-        and not any((r.get('commit') or '').startswith('dbea2e3f') for r in st), 'rows naming it %d' % sum(1 for r in st if (r.get('commit') or '').startswith('dbea2e3f')), '0')
+-    e9 = [l for l in ev if l.startswith('    (9) ')]
+-    add('ruling (2)(ii)', 'event (9): the MANIFEST control against a86c9429 on day1/Silence_of_Foundations.md', bool(e9) and 'NOT AS' in e9[0], (e9 or [''])[0][:90], '1')
+-    add('ruling (2)(ii)', 'the control`s reference K.RECUT_MERGE (tools/b720_worklist.py) is a86c9429', 'RECUT_MERGE = \'a86c9429' in rd(p('tools', 'b720_worklist.py')),
+-        'tools/b720_worklist.py', '1')
+-    add('ruling (2)(iii)', 'the memory file overwritten (feedback_b720_traps.md) and its earlier text restored to feedback_b720_stepzero_traps.md',
+-        os.path.exists('C:/Users/echo chamber/.claude/projects/D--/memory/feedback_b720_stepzero_traps.md'), 'restored at b721`s opening', '1')
+-    # ### (R331)(3): the registration's discriminants, by their class number and forms alone (the ruling's allowance)
+-    def forms(dd):
+-        out = []
+-        a = 1
+-        while 3 * a * a <= -dd:
+-            for b in range(-a + 1, a + 1):
+-                if (b * b - dd) % (4 * a) == 0:
+-                    c = (b * b - dd) // (4 * a)
+-                    if c >= a and not (b < 0 and (a == c)) and __import__('math').gcd(__import__('math').gcd(a, abs(b)), c) == 1:
+-                        out.append((a, b, c))
+-            a += 1
+-        return out
+-
+-    def kron(dd, q):
+-        if dd % q == 0:
+-            return 0
+-        if q == 2:
+-            return 1 if dd % 8 in (1, 7) else -1
+-        return 1 if pow(dd % q, (q - 1) // 2, q) == 1 else -1
+-    for dd, want2, want3 in ((-35, -1, 1), (-40, 0, -1)):
+-        fm = forms(dd)
+-        fund = (dd % 4 == 1 and all(dd % (q * q) for q in range(3, 8, 2))) or (dd % 4 == 0 and (dd // 4) % 4 in (2, 3) and all((dd // 4) % (q * q) for q in range(3, 8, 2)))
+-        add('ruling (3)', '%d: class number 2, fundamental; 2 %s and 3 %s' % (dd, {-1: 'inert', 0: 'ramifies', 1: 'splits'}[want2], {-1: 'inert', 0: 'ramifies', 1: 'splits'}[want3]),
+-            len(fm) == 2 and fund and kron(dd, 2) == want2 and kron(dd, 3) == want3, 'forms %s ; (d/2) %d ; (d/3) %d ; fundamental %s' % (fm, kron(dd, 2), kron(dd, 3), fund), '2')
+-    for f, c in K.REG_COMMITS:
+-        b = _blob('D:/relay', c, f)
+-        add('ruling (3); N2', '%s read unchanged from its commit %s' % (f, c[:8]), bool(b) and b.replace(chr(13), '') == (rd(p(*f.split('/'))) or ''), '%d bytes at the commit' % len(b), '2')
+-    b6 = _blob('D:/relay', 'dc5e808f', 'data/b716_registrations.txt')
+-    add('ruling (3)(iii)', 'data/b716_registrations.txt (ii) at dc5e808f, the law', '(ii) THE PREDICTION' in b6, 'the blob at dc5e808f', '2')
+-    src = rd(p('tools', 'b711_coeffs.py'))
+-    add('ruling (3)', 'b711`s route (tools/b711_coeffs.py) through the cut 32532 with its controls C1-C3', '32532' in src and all(c_ in src for c_ in ('C1', 'C2', 'C3')),
+-        'tools/b711_coeffs.py', '2')
+-    for f in ('b718_derivation.txt', 'b720_derivation.txt'):
+-        add('ruling (3)(i); ruling (4)', 'the shape rule`s and the derivation`s bank data/%s' % f, os.path.exists(p('data', f)), 'present', '2, 3')
+-    for f in ('b711_coeffs.txt', 'b713_coeffs.txt', 'b717_coeffs.txt', 'b720_coeffs.txt'):
+-        add('ruling (3)(ii); ruling (4)', 'the five banked cases` bank data/%s' % f, os.path.exists(p('data', f)), 'present', '2, 3')
+-    # ### (R331)(5): wave 1's groundwork
+-    rg = lines_of(os.path.join(PP, 'REGISTRY.md'))
+-    add('ruling (5)(i)', 'REGISTRY`s phase attribute block (REGISTRY.md :772)', at(rg, 772).startswith('## PHASE ATTRIBUTE'), at(rg, 772)[:60], '4')
+-    add('ruling (5)(iii)', 'REGISTRY`s PHASE 1.2 -- FROZEN block (REGISTRY.md :711)', 'PHASE 1.2 — FROZEN' in at(rg, 711), at(rg, 711)[:60], '6')
+-    for doc in ('THE_CLAUSE_AND_ITS_COMPILED_FACES.md', 'THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md', 'FACES_LEDGER.md', 'phase1.5/spectral/BALANCE_AND_POSITIVITY.md',
+-                'phase1.5/proofs/THE_RESIDUE_OF_RH.md', 'phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md'):
+-        add('ruling (5)(i)', 'the sign core`s document %s on PLACE-papers main' % doc, bool(gr(PP, 'ls-tree', '--name-only', 'main', '--', doc)), 'tracked at main', '4')
+-    add('ruling (5)(ii)', 'b718`s challenge price (data/b718_challenge_price.txt)', os.path.exists(p('data', 'b718_challenge_price.txt')), 'present', '5')
+-    hd = _decl_files(K.EF_DIR, 'main', 'h2_sign_iff_rh')
+-    add('ruling (5)(ii)', 'h2_sign_iff_rh declared in SIDE-explicit-formula at main', len(hd) >= 1, '%s' % hd, '5')
+-    add('ruling (5)(i)', 'b718`s registry cells price (data/b718_registry_cells_price.txt)', os.path.exists(p('data', 'b718_registry_cells_price.txt')), 'present', '4')
+-    add('ruling (5)(iii)', 'b718`s pin (data/b718_pin.txt) and the federation price (data/b716_federation_pin_price.txt)',
+-        os.path.exists(p('data', 'b718_pin.txt')) and os.path.exists(p('data', 'b716_federation_pin_price.txt')), 'present', '6')
+-    lb = [k for k in K.PIN_CARRIED if gr('D:/' + k, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.PIN_BRANCH)]
+-    add('ruling (5)(iii)', 'the nine local bump branches (%s)' % K.PIN_BRANCH, len(lb) == 9, 'found on %d of %d' % (len(lb), len(K.PIN_CARRIED)), '6')
+-    cw = ' '.join(rd(f_) or '' for f_ in glob.glob('D:/SIDE-cosmo/.github/workflows/*.yml'))
+-    add('ruling (5)(iii)', 'SIDE-cosmo`s workflow carries pages: write', 'pages: write' in cw, '%d workflow bytes' % len(cw), '6')
+-    # ### (R331)(6)
+-    add('ruling (6)', 'b709`s grid (data/b709_grid.txt) and b718`s surgery price (data/b718_surgery_price.txt)',
+-        os.path.exists(p('data', 'b709_grid.txt')) and os.path.exists(p('data', 'b718_surgery_price.txt')), 'present', '6')
+-    # ### (R331)(7): the carried files and branches
+-    s1 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b720_relay_push-b720-closing_push_out.txt')
+-    s2 = gr('D:/relay', 'status', '--porcelain', '--', 'data/b720_steps.json')
+-    add('ruling (7)', 'b720`s closing capture untracked and its step-33 row uncommitted', s1.startswith('??') and s2.startswith('M'), '%s / %s' % (s1, s2), '0')
+-    for repo, names in K.DELETE:
+-        mg = gr(repo, 'branch', '--merged', 'main', '--list', 'push-b720-*').replace('*', ' ').split()
+-        add('ruling (7)', 'the push-b720-* branches of %s merged into main: %s' % (repo, ', '.join(names)), sorted(mg) == sorted(names), 'merged %s' % mg, '0')
+-    pb = gr(K.LV_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.PORT_BRANCH)
+-    add('ruling (7)', 'port-b707 kept (SIDE-lv-conservation, at cb0aea56)', pb == K.PORT_TIP, pb[:8], '0')
+-    # ### (R331)(8)-(9) and the ferry
+-    add('ruling (9)', 'the draft at v5 (23228113), held', K.DRAFT == '23228113', 'tools/b721_worklist.py DRAFT', '0')
+-    add('ferry (PATHS)', 'the act`s paths, each present', all(os.path.isdir(x) for x in K.PATHS), 'absent %s' % [x for x in K.PATHS if not os.path.isdir(x)], '0')
+-    rf = ['b720_closing.txt', 'b720_events.txt', 'b720_defects.txt', 'b720_coeffs.txt', 'b720_derivation.txt', 'b718_derivation.txt', 'b720_registrations.txt',
+-          'b718_registrations.txt', 'b716_registrations.txt', 'b720_offset_read.txt', 'b720_surgery.txt', 'b718_challenge_price.txt', 'b718_registry_cells_price.txt',
+-          'b718_pin.txt', 'b716_federation_pin_price.txt']
+-    add('ferry (readfirst)', 'the readfirst list`s %d relay banks, each present' % len(rf), all(os.path.exists(p('data', f)) for f in rf),
+-        'absent %s' % [f for f in rf if not os.path.exists(p('data', f))], '0')
+-    vt = rd(p('tools', 'standing', 'VERSION')) or ''
+-    add('ferry', 'tools/standing/ at v1.2.0', 'v1.2.0' in vt or '1.2.0' in vt, vt.strip()[:20], '7')
+-    try:
+-        sys.path.insert(0, os.path.join(T, 'standing'))
+-        import arms as SA
+-        run = getattr(SA, 'run_list', None)
+-        n_run = len(run()) if callable(run) else None
+-    except Exception as e:
+-        n_run = 'unread: %s' % type(e).__name__
+-    add('ferry', 'b720`s run list of 116 arms (data/b720_checks.txt)', any('ARMS RUN : 116.' in l for l in lines_of(p('data', 'b720_checks.txt'))),
+-        'b720`s combine ; the standing run list %s' % n_run, '7')
+
