@@ -1,5 +1,5 @@
 {
- "at": "2026-10-28T09:10:14Z",
+ "at": "2026-10-28T09:13:57Z",
  "anchor": "RULING (R330) BEGIN",
  "rows": [
   {
@@ -2497,6 +2497,102 @@
    "cmd": "python -X utf8 tools/b720_record.py gatebanks",
    "n": 312,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:10:50.199Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:10:56.667Z",
+   "src": "seat",
+   "cmd": "git log --format='%h %s' -40 --grep='b719' | head -40",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:03.822Z",
+   "src": "seat",
+   "cmd": "git log --format='%h %s' -n 30 --grep='b719 gate' --grep='b719 component 7' --grep='b719 pre-root'",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:08.231Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=%h 7039dbf4 && git show --stat --format=%h 664bd7d7",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:23.017Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- data/b720_defects.txt data/b720_defects.json data/b720_registration_2026-10-28.txt data/b720_steps.json data/b720_bank_hashes.json data/b720_commands.json data/b720_commands.txt && git diff --cached --stat",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:11:32.370Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b720 gate: defect (c`) lettered (the refused pipe to head), the face`s counts to CLOSE 27'; git -C D:/relay log --format=%H -1",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:36.228Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py step relay gate 80e439d917529b844f16c3933e1eaec895131350 && python -X utf8 tools/b720_record.py closingdry && python -X utf8 tools/b720_record.py scoresdry",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:40.839Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py closeorder",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:11:50.172Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_closing.py dry && python -X utf8 tools/b720_record.py scores dry",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:12:57.040Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_reg_gate.py --quiet-unused --summary-only",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-10-28T09:13:46.381Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T09:13:52.078Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b720_record.py gatebanks",
+   "n": 324,
+   "bg": false
   }
  ],
  "offences": [
@@ -2510,7 +2606,7 @@
  "prev": {
   "act": "b719",
   "session": "02c7cf38-4c6a-4f88-b813-a7e15e9b85b4",
-  "rows": 332,
+  "rows": 344,
   "offences": [
    {
     "n": "p122",
@@ -2544,14 +2640,16 @@
  "pipes": [
   102,
   187,
-  264
+  264,
+  314
  ],
  "any_pipes": [
   102,
   104,
   187,
   264,
-  306
+  306,
+  314
  ],
  "py_programs": [
   51

@@ -1,13 +1,13 @@
-b720 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T09:10:14Z)
+b720 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T09:13:57Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R330) BEGIN', with its subagents` transcripts
-### commands read: 312
+### commands read: 324
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #102 2026-10-28T07:31:29.579Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
       cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
 
-### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b719, its own session 02c7cf38, from its post-push combine to that session`s end): 332 commands from 2026-10-28T06:22:03.133Z, its offences printed whole (1):
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b719, its own session 02c7cf38, from its post-push combine to that session`s end): 344 commands from 2026-10-28T06:22:03.133Z, its offences printed whole (1):
   #p122 2026-10-28T07:31:29.579Z b719 seat Bash -- R sed in any form (data/b685_rules.txt row (2))
       cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
 
@@ -35,17 +35,19 @@ b720 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
   #277 2026-10-28T08:48:33.915Z python -X utf8 tools/b720_closing.py dry > /dev/null; python -X utf8 tools/b720_record.py scores dry
 
-### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (4):
   #102 2026-10-28T07:31:29.579Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
   #187 2026-10-28T08:03:08.244Z git log --format='%h %s' -12 | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %s' -3 | cut -c1-90; git log --format=%H -1 ad94c11c 41a0adcf 03f755e7 --no-walk
   #264 2026-10-28T08:43:23.768Z git ls-files tools/b720_*.py && git log --format="%h %s" -1 -- data/b720_steps.json | cut -c1-0 ; python -X utf8 tools/b720_record.py rootexclude
+  #314 2026-10-28T09:10:56.667Z git log --format='%h %s' -40 --grep='b719' | head -40
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (5):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (6):
   #102 2026-10-28T07:31:29.579Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "SIDE-[a-z-]+ [^|]{0,40}" -- REGISTRY.md | sed -n '1,400p' | awk -F: '$2>=700 && $2<=770' | cut -c1-160
   #104 2026-10-28T07:32:30.762Z python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads720.py" 14 260 day1/A_Place_to_Stand.md day1/Exhaustive_Enumeration.md day1/Which_S
   #187 2026-10-28T08:03:08.244Z git log --format='%h %s' -12 | cut -c1-90; git -C /d/MY-DOwnloads/PLACE-papers log --format='%H %s' -3 | cut -c1-90; git log --format=%H -1 ad94c11c 41a0adcf 03f755e7 --no-walk
   #264 2026-10-28T08:43:23.768Z git ls-files tools/b720_*.py && git log --format="%h %s" -1 -- data/b720_steps.json | cut -c1-0 ; python -X utf8 tools/b720_record.py rootexclude
   #306 2026-10-28T09:06:32.735Z [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused | Out-Null; Select-String -Path D:/relay/data/b720_reg_gate.txt -Pa
+  #314 2026-10-28T09:10:56.667Z git log --format='%h %s' -40 --grep='b719' | head -40
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
   #51 2026-10-28T07:09:33.548Z python -X utf8 -c "pass"; (Get-Content D:/relay/tools/b719_c1.py).Count; git -C D:/relay grep -n -e "^def " -e "^[A-Z_]* = " -- tools/b719_c1.py
@@ -380,5 +382,17 @@ b720 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #310 | 2026-10-28T09:09:09.864Z | seat | Bash | python -X utf8 tools/b720_record.py step relay gate a9a09ab78b210f7f26520b0f418bbcc3a7b8edcc && python -X utf8 tools/b720_reg_gate.py --quiet-unused
   #311 | 2026-10-28T09:10:09.137Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
   #312 | 2026-10-28T09:10:09.463Z | seat | Bash | python -X utf8 tools/b720_record.py gatebanks
+  #313 | 2026-10-28T09:10:50.199Z | seat | Bash | git status --porcelain --untracked-files=all
+  #314 | 2026-10-28T09:10:56.667Z | seat | Bash | git log --format='%h %s' -40 --grep='b719' | head -40
+  #315 | 2026-10-28T09:11:03.822Z | seat | Bash | git log --format='%h %s' -n 30 --grep='b719 gate' --grep='b719 component 7' --grep='b719 pre-root'
+  #316 | 2026-10-28T09:11:08.231Z | seat | Bash | git show --stat --format=%h 7039dbf4 && git show --stat --format=%h 664bd7d7
+  #317 | 2026-10-28T09:11:23.017Z | seat | Bash | python -X utf8 tools/b720_record.py defects && python -X utf8 tools/b720_record.py counter && git add -- data/b720_defects.txt data/b720_defects.json data/b720_
+  #318 | 2026-10-28T09:11:32.370Z | seat | PowerShell | git -C D:/relay commit -q -m 'b720 gate: defect (c`) lettered (the refused pipe to head), the face`s counts to CLOSE 27'; git -C D:/relay log --format=%H -1
+  #319 | 2026-10-28T09:11:36.228Z | seat | Bash | python -X utf8 tools/b720_record.py step relay gate 80e439d917529b844f16c3933e1eaec895131350 && python -X utf8 tools/b720_record.py closingdry && python -X utf8
+  #320 | 2026-10-28T09:11:40.839Z | seat | Bash | python -X utf8 tools/b720_record.py closeorder
+  #321 | 2026-10-28T09:11:50.172Z | seat | Bash | python -X utf8 tools/b720_closing.py dry && python -X utf8 tools/b720_record.py scores dry
+  #322 | 2026-10-28T09:12:57.040Z | seat | Bash | python -X utf8 tools/b720_reg_gate.py --quiet-unused --summary-only
+  #323 | 2026-10-28T09:13:46.381Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #324 | 2026-10-28T09:13:52.078Z | seat | Bash | python -X utf8 tools/b720_record.py gatebanks
 
-### ### **COMMANDS 312 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 332 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 324 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 344 COMMANDS, OFFENCES 1 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
