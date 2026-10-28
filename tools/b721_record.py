@@ -2850,7 +2850,7 @@ def _finding_text():
          '**The C2 table’s test** ((R331)(3), N2): the rule committed alone at `%s` before any discriminant was named, its tool alone at `%s` '
          'before it ran; its output NONE at `%s`: of the %s class-number-2 fields (the largest |D| %s; the walk carried to |D| < %s finds no '
          'other), %s already used and %s passed over on a value of -2 or -1/2; the positive control, -2 alone excluded, takes %s (n0 %s) and %s '
-         '(n0 %s); the table’s predictions at the fourteen unused fields registered blind; (3)(ii)’s rows and the coefficients carried to %s on '
+         '(n0 %s); the table’s predictions at the fourteen unused fields registered before any figure at them and carried; (3)(ii)’s rows and the coefficients carried to %s on '
          'the author’s word, nothing substituted.' % (
              K.C2_REG[:8], K.C2_SELECT[:8], K.C2_HALT[:8], f['walk_n'], f['walk_largest'], f['walk_reach'], f['walk_used'], f['walk_passed'],
              f['pc'][0], f['pc'][1], f['pc'][2], f['pc'][3], K.NEXT_ACT), '',
