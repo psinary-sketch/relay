@@ -144,9 +144,11 @@ PREDICTIONS = PRED_B717
 ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = None                         # ### no registration written this act; (3) and (4) read b721's unchanged
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')   # ### read not written
-COMPUTE_BANKS = ('data/b722_coeffs.txt', 'data/b722_coeffs.json', 'data/b722_walk.txt', 'data/b722_walk.json', 'data/b722_c2_statement.txt',
-                 'data/b722_instruments.txt', 'data/b722_reproduce.txt', 'data/b722_propagation.txt', 'data/b722_axiom_diag.txt',
-                 'data/b722_llm_line_drafts.txt')
+COMPUTE_BANKS = ('data/b722_coeffs_controls.json', 'data/b722_coeffs.txt', 'data/b722_coeffs.json', 'data/b722_walk.txt', 'data/b722_walk.json',
+                 'data/b722_c2_statement.txt', 'data/b722_c2_price.txt', 'data/b722_instruments.txt', 'data/b722_instruments.json',
+                 'data/b722_instrument_entries.json', 'data/b722_reproduce.txt', 'data/b722_reproduce.json', 'data/b722_propagation.txt',
+                 'data/b722_propagation.json', 'data/b722_propagation_landing.json', 'data/b722_axiom_diag.txt', 'data/b722_axiom_diag.json',
+                 'data/b722_llm_line_drafts.txt', 'data/b722_llm_line_drafts.json', 'data/b722_address_scan.txt')
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b722_read_calls.txt')
@@ -157,7 +159,7 @@ CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b722'))
 CHAIN_QUARTERS = (('b624', 'b641'), ('b642', 'b658'))
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'
-STANDING_ADDED = ()          # ### (R332)(7): G-RESEARCH-REPRODUCES joins at Component 5 (set by the Edit tool when it lands)
+STANDING_ADDED = ('G-RESEARCH-REPRODUCES',)   # ### (R332)(7): the one standing arm the ruling adds, the run list 117 (Component 8, the Edit tool)
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
@@ -206,7 +208,7 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 # ### stage one (step zero): the commits made so far, each set by the Edit tool after it is made
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.2.1 entering this act
-STANDING_COMMIT = None                  # ### standing clauses v8, landed by a commit of its own at Component 6
+STANDING_COMMIT = '0ff64911'            # ### standing clauses v8, landed by a commit of its own at Component 6 ((R332)(8))
 ACT_CURRENT_COMMIT = '91cb997e13'       # ### data/act_current.json for b722 committed alone
 STEPZERO = 'faf9dccddf'                 # ### b721's closing capture, committed alone ((R332)(11))
 STEPZERO_STEPS = '86801b0fd8'           # ### b721's step-42 row, committed alone ((R332)(11))
@@ -216,7 +218,7 @@ STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = None
 STEPZERO_BANKS = '39521b71f3'           # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = None
-COMPUTE_TOOLS = ()
+COMPUTE_TOOLS = ('research/reproduce.py',)   # ### (R332)(7): the reproduction runner, sealed with the act's tools
 REPAIRED_TOOLS = ()
 REPAIRED_DATA = ()
 # ### b721's trap (event 11): the standing part of the sealed list read from the directory, not a carried tuple
@@ -235,30 +237,22 @@ C1_PP = 'cbb3b47f16'
 WEIGHT_LINE, CORR_LINE = 11216, 11218
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_REG = None
-C2_SELECT = None
-C2_HALT = None
-C2_PICKER = None
-C2_PRED = None
-C2_CTL = None
-C2_RELAY = None
-C3_RULE = None
-C3_RELAY = None
-C3_PREDICT_TOOL = None
-C4_REG = None
-C4_PP = None
-C4_PRED = None
-C4_RELAY = None
-C5_REG = None
-C5_RELAY = None
-C6_FROZEN = None
-C6_DRAFTS = None
-C6_CENSUS = None
-C6_REBUILD_5 = None
-C6_RELAY = None
-C6_PP = None
-C6_PP_REPAIR = None
-C7_PP = None
+# ### b722's components, each commit read from the logs after it was made (Component 8, the Edit tool; b721's names over b721's objects in
+# ### git at b721's worklist)
+C2_CTL = '417ced62'          # ### tools/b722_coeffs.py and its controls C1-C3 (data/b722_coeffs_controls.json), before any figure
+C3_RELAY = '6afe03bf'        # ### -31 and -55 under e8c3dff4 (data/b722_coeffs.txt) and the fourteen under H-C2-WALK (data/b722_walk.txt)
+C4_STMT = '50397f61'         # ### the C2 statement's text alone (data/b722_c2_statement.txt), before its grade and price
+C4_RELAY = '14190fe4'        # ### the grade and price (data/b722_c2_price.txt)
+C5_RULE = 'f52ea31b'         # ### the instruments' rule and its output (data/b722_instruments.txt), before any entry
+C5_RELAY = '3e4415fb'        # ### the entries composed and the reproduction run (data/b722_instrument_entries.json, data/b722_reproduce.txt)
+C5_PP = '4af48e1e'           # ### INSTRUMENTS.md, I-41 to I-108 appended
+C6_RELAY = 'c6af1e67'        # ### the propagation read (data/b722_propagation.txt) and the v8 tool
+C6_PP = 'f127660c'           # ### its 58 dated notes at FINDINGS :11284
+C7_RELAY = '93f20fce'        # ### the axiom step diagnosed and the LLM-contribution line drafted
+REG_C3 = 'e8c3dff4'          # ### H-C3-31 and H-C4-55 (data/b721_registrations.txt section (5)), the registration of -31 and -55
+REG_WALK = '15cb6cc4'        # ### H-C2-WALK (data/b721_registrations.txt :31-:48), the registration of the fourteen
+PROPAGATION_LINE = 11284     # ### FINDINGS: the propagation read's notes (PLACE-papers f127660c)
+INSTRUMENTS_FIRST = 490      # ### INSTRUMENTS.md: I-41's head (PLACE-papers 4af48e1e)
 NEW_DISCRIMINANTS = (-31, -55)   # ### (R332)(3): computed under e8c3dff4
 WALK_DISCRIMINANTS = (-24, -51, -52, -88, -91, -115, -123, -148, -187, -232, -235, -267, -403, -427)   # ### (R332)(4), under H-C2-WALK
 WALK_CONTROL = -15
@@ -284,4 +278,9 @@ RETIRED_COUNT = 0            # ### no arm retired this act; the run list 116, 11
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b722_') and f.endswith('.py') and f != 'b722_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
 # ### the act's arms over its own banks: set at Component 8 by the Edit tool, as `b722_record.py armnames` prints them beyond the standing
-ACT_ARMS = ()
+ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW',
+            'G-CORRIGENDUM-ENTERED', 'G-COUNT-ROUTE-PRICED', 'G-DELETES-ONE-BRANCH', 'G-DERIVATION-GRADED', 'G-DIFFERS-ERRATA', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-GUARD-HELD', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LISTINGS-BEFORE-CLAUSES',
+            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R332-ENTERED', 'G-READFIRST-DIFF-BANKED',
+            'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
+            'G-WRITELIST-MIRROR-STATE')
