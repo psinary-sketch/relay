@@ -1,0 +1,87 @@
+b720 -- (R330)(5)(ii): THE CHALLENGE FILE FOR h2_sign_iff_rh, FORM (A), ON A BRANCH OF SIDE-explicit-formula, ONE DISPATCH READ BY ITS RUN ID (2026-10-28)
+
+### Written by tools/b720_challenge.py bank from data/b720_challenge_rows.json (the rows its dispatch and read routes appended). The
+### branch challenge-b720-h2-sign-iff-rh carries two files on main's tree, made by git plumbing: SIDEExplicitFormula/Challenge/H2SignIffRH.lean and the root ChainProbe.lean
+### (imported by no module), run by build-module.yml's probe step. Main untouched, no tag; no lean or lake process on this host.
+
+## THE CHALLENGE FILE, AS COMMITTED
+
+    /-
+    SIDE-explicit-formula -- SIDEExplicitFormula/Challenge/H2SignIffRH.lean
+    A CHALLENGE FILE (act b720, ruling (R330)(5)(ii); form (A) of relay data/b718_challenge_price.txt): the statement of
+    `SIDEExplicitFormula.B321.h2_sign_iff_rh` (SIDEExplicitFormula/Seam.lean :101) alone, over the imports of its two definitions --
+    `SIDEExplicitFormula.B321.h2_sign` (SIDEExplicitFormula/H2Sign.lean :29) and Mathlib's `RiemannHypothesis`
+    (Mathlib/NumberTheory/LSeries/RiemannZeta.lean :185, at de5ce8a9). Its proof is `sorry`: the file states and proves nothing.
+    Form (A)'s trust surface is every definition the first import carries (classK, poleTerm, primeSum, archTerm, paperFT, gammaBracket,
+    weilTest), not the statement alone. An equivalence between open statements; it proves neither.
+    Imported by no module of the kernel; on a branch of its own; main untouched, no tag.
+    -/
+    import SIDEExplicitFormula.H2Sign
+    import Mathlib.NumberTheory.LSeries.RiemannZeta
+    
+    theorem h2_sign_iff_rh_challenge : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis := by
+      sorry
+
+## THE PROBE, AS COMMITTED
+
+    /-
+    ChainProbe.lean (act b720, ruling (R330)(5)(ii)) -- run by build-module.yml's probe step above the target's modules
+    (SIDEExplicitFormula.Challenge.H2SignIffRH and SIDEExplicitFormula.Seam). Imported by no module. It reads whether the kernel's
+    h2_sign_iff_rh has the challenge's statement, by comparing the two declarations' types as expressions, with two controls made the
+    same way: the statement built by hand from its two constants must compare EQUAL (the construction is sound), and a planted
+    statement (h2_sign_aim in h2_sign's place) must compare UNEQUAL (the comparison can fail). Then the term check, and the axioms.
+    -/
+    open Lean Elab Command in
+    run_cmd do
+      let env ← getEnv
+      let some k := env.find? `SIDEExplicitFormula.B321.h2_sign_iff_rh
+        | throwError "PROBE ABSENT: SIDEExplicitFormula.B321.h2_sign_iff_rh"
+      let some c := env.find? `h2_sign_iff_rh_challenge
+        | throwError "PROBE ABSENT: h2_sign_iff_rh_challenge"
+      unless env.contains `SIDEExplicitFormula.B321.h2_sign_aim do
+        throwError "PROBE ABSENT: SIDEExplicitFormula.B321.h2_sign_aim"
+      logInfo m!"PROBE KERNEL TYPE: {k.type}"
+      logInfo m!"PROBE CHALLENGE TYPE: {c.type}"
+      if k.type == c.type then
+        logInfo "PROBE MATCH: the kernel's h2_sign_iff_rh has the challenge's statement (the two types equal as expressions)"
+      else
+        logInfo "PROBE DIFFER: the kernel's h2_sign_iff_rh does not have the challenge's statement"
+      let built := mkApp2 (mkConst ``Iff) (mkConst `SIDEExplicitFormula.B321.h2_sign) (mkConst `RiemannHypothesis)
+      if built == k.type then
+        logInfo "PROBE CONTROL 1 EQUAL, as wanted: the statement built from its two constants equals the kernel's type"
+      else
+        logInfo "PROBE CONTROL 1 FAILED: the statement built from its two constants differs from the kernel's type"
+      let planted := mkApp2 (mkConst ``Iff) (mkConst `SIDEExplicitFormula.B321.h2_sign_aim) (mkConst `RiemannHypothesis)
+      if planted == k.type then
+        logInfo "PROBE CONTROL 2 FAILED: the planted statement compared equal"
+      else
+        logInfo "PROBE CONTROL 2 UNEQUAL, as wanted: the planted statement (h2_sign_aim in h2_sign's place) differs"
+    
+    theorem b720_probe_term_check : SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis :=
+      SIDEExplicitFormula.B321.h2_sign_iff_rh
+    
+    #print axioms h2_sign_iff_rh_challenge
+    #print axioms SIDEExplicitFormula.B321.h2_sign_iff_rh
+    #print axioms b720_probe_term_check
+
+DISPATCHES 1 (one allowed) ; READ 1
+
+  DISPATCH run 40651875792 at 2026-10-28T07:43:04Z, ref 3391647518, target 'SIDEExplicitFormula.Challenge.H2SignIffRH SIDEExplicitFormula.Seam', host free 4173 MB
+  READ run 40651875792: completed success ; 2026-10-28T07:43:06Z -> 2026-10-28T07:49:09Z ; build exit 0 ; memory low 13240 MB ; stops 0 ; sorry warnings 1 ; host free 4131 MB at the read
+  the challenge module in the build log:
+      | ⚠ [3743/3753] Built SIDEExplicitFormula.Challenge.H2SignIffRH (3.5s)
+      | warning: SIDEExplicitFormula/Challenge/H2SignIffRH.lean:14:8: declaration uses `sorry`
+  the probe: RUN: ChainProbe.lean at the ref, its print in probe/chainprobe.txt
+      > PROBE KERNEL TYPE: SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+      > PROBE CHALLENGE TYPE: SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis
+      > PROBE MATCH: the kernel's h2_sign_iff_rh has the challenge's statement (the two types equal as expressions)
+      > PROBE CONTROL 1 EQUAL, as wanted: the statement built from its two constants equals the kernel's type
+      > PROBE CONTROL 2 UNEQUAL, as wanted: the planted statement (h2_sign_aim in h2_sign's place) differs
+      > 'h2_sign_iff_rh_challenge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+      > 'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+      > 'b720_probe_term_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+  ELABORATES True ; MATCH True ; CONTROL 1 (built statement equal) True ; CONTROL 2 (planted statement unequal) True ; probe errors 0
+  VERDICT: ELABORATES; THE KERNEL'S STATEMENT MATCHES
+
+SCOPE: an equivalence between open statements; the challenge proves neither (its proof is sorry), and the kernel's theorem is
+read for its statement only. Form (A)'s trust surface is every definition SIDEExplicitFormula.H2Sign carries, not the statement alone.

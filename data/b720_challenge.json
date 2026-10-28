@@ -1,0 +1,113 @@
+{
+ "branch": "challenge-b720-h2-sign-iff-rh",
+ "module": "SIDEExplicitFormula.Challenge.H2SignIffRH",
+ "target": "SIDEExplicitFormula.Challenge.H2SignIffRH SIDEExplicitFormula.Seam",
+ "dispatch": [
+  {
+   "kind": "dispatch",
+   "kernel": "SIDE-explicit-formula",
+   "sha": "3391647518cd37316a448b5013afb62a198fa6c6",
+   "target": "SIDEExplicitFormula.Challenge.H2SignIffRH SIDEExplicitFormula.Seam",
+   "at": "2026-10-28T07:43:04Z",
+   "run": 40651875792,
+   "free_mb": 4173
+  }
+ ],
+ "read": [
+  {
+   "kind": "read",
+   "kernel": "SIDE-explicit-formula",
+   "run": "40651875792",
+   "free_mb": 4131,
+   "status": "completed",
+   "conclusion": "success",
+   "created": "2026-10-28T07:43:06Z",
+   "updated": "2026-10-28T07:49:09Z",
+   "steps": [
+    [
+     "Set up job",
+     "success"
+    ],
+    [
+     "Checkout at the ref",
+     "success"
+    ],
+    [
+     "Refuse a target outside the lake grammar",
+     "success"
+    ],
+    [
+     "Install elan (official script; the toolchain from lean-toolchain)",
+     "success"
+    ],
+    [
+     "Mathlib cache",
+     "success"
+    ],
+    [
+     "Build under the hold",
+     "success"
+    ],
+    [
+     "Axioms of the named terminals",
+     "success"
+    ],
+    [
+     "Chain probe of the ref's root ChainProbe.lean",
+     "success"
+    ],
+    [
+     "Constant closure of the kernel's own declarations",
+     "success"
+    ],
+    [
+     "Upload the run's artifact",
+     "success"
+    ],
+    [
+     "Upload the chain probe's artifact, separate from the run's",
+     "success"
+    ],
+    [
+     "Post Checkout at the ref",
+     "success"
+    ],
+    [
+     "Complete job",
+     "success"
+    ]
+   ],
+   "ref": [
+    "3391647518cd37316a448b5013afb62a198fa6c6",
+    "leanprover/lean4:v4.34.0-rc1"
+   ],
+   "build_exit": "0",
+   "mem_low_mb": "13240",
+   "stops": [],
+   "error_lines": [],
+   "log_lines": 366,
+   "sorry_warnings": 1,
+   "challenge_log_lines": [
+    "⚠ [3743/3753] Built SIDEExplicitFormula.Challenge.H2SignIffRH (3.5s)",
+    "warning: SIDEExplicitFormula/Challenge/H2SignIffRH.lean:14:8: declaration uses `sorry`"
+   ],
+   "probe_log": "RUN: ChainProbe.lean at the ref, its print in probe/chainprobe.txt",
+   "probe_lines": [
+    "PROBE KERNEL TYPE: SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis",
+    "PROBE CHALLENGE TYPE: SIDEExplicitFormula.B321.h2_sign ↔ RiemannHypothesis",
+    "PROBE MATCH: the kernel's h2_sign_iff_rh has the challenge's statement (the two types equal as expressions)",
+    "PROBE CONTROL 1 EQUAL, as wanted: the statement built from its two constants equals the kernel's type",
+    "PROBE CONTROL 2 UNEQUAL, as wanted: the planted statement (h2_sign_aim in h2_sign's place) differs",
+    "'h2_sign_iff_rh_challenge' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]",
+    "'SIDEExplicitFormula.B321.h2_sign_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'b720_probe_term_check' depends on axioms: [propext, Classical.choice, Quot.sound]"
+   ],
+   "elaborates": true,
+   "match": true,
+   "control1": true,
+   "control2": true,
+   "probe_errors": [],
+   "verdict": "ELABORATES; THE KERNEL'S STATEMENT MATCHES"
+  }
+ ]
+}
