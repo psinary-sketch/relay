@@ -1,0 +1,123 @@
+b719 -- (R329)(8): THE OFFSET READ, POST HOC -- b717`s -39 OFFSETS BESIDE THE NAVIGATOR`S 60, THE ONSET`S DEFINITION FROM ITS SOURCE,
+THE SUBLEADING TERM FROM THE REGISTERED LAW, ONE HYPOTHESIS (2026-10-28T02:54:14Z)
+
+### POST HOC throughout: every figure below was banked before this read, the navigator`s observation was made after the fact on
+### banked pairs, and nothing is computed at any pair. The hypothesis of (ii) is registered in data/b719_registrations.txt by a
+### commit of its own, for the next tier, and read at no pair this act.
+
+## (i) THE -39 OFFSETS BESIDE 60, POST HOC
+### the navigator`s observation (the ferry, quoted):
+### needle 'labelled post hoc' in data/b719_ferry.txt :24-:24: yield 1 at [24]
+### needle 'from 76 to 802' in data/b719_ferry.txt :24-:24: yield 1 at [24]
+### needle 'no fixed phase' in data/b719_ferry.txt :24-:24: yield 1 at [24]
+  data/b719_ferry.txt :24 | (i) b717's seven -39 offsets (onset minus prediction) read beside the navigator's observation of 2026-10-27, made after the fact on banked pairs and labelled post hoc: at -15 and -23 the offsets lie near 60 (45, 45, 59, 70, 65, 64, 65, 137, 59, 61) while r(rho) varies about 200-fold and the turn period 2 pi / arg(1 - 1/(1 - beta + it)) runs from 76 to 802, and the onsets land at no fixed phase of the turn; so the offset is not a wait for the spiral's next turn.
+### b717`s seven -39 pairs and the residual beside them (quoted):
+### needle 'offset +54.8783' in data/b717_onsets.txt :22-:28: yield 1 at [22]
+### needle 'offset +107.5664' in data/b717_onsets.txt :22-:28: yield 1 at [28]
+  data/b717_onsets.txt :22 |   pair  1 | rho 0.75866 + 21.27417 i | n* 207606 | n*_pred 207551.1 | ratio 1.000264 | offset +54.8783 | HELD
+  data/b717_onsets.txt :23 |   pair  2 | rho 0.72673 + 39.64775 i | n* 903598 | n*_pred 903514.1 | ratio 1.000093 | offset +83.9219 | HELD
+  data/b717_onsets.txt :24 |   pair  3 | rho 0.82865 + 41.74684 i | n* 679030 | n*_pred 678962.8 | ratio 1.000099 | offset +67.1592 | HELD
+  data/b717_onsets.txt :25 |   pair  4 | rho 0.64294 + 44.07148 i | n* 1848695 | n*_pred 1848540.0 | ratio 1.000084 | offset +155.0127 | HELD
+  data/b717_onsets.txt :26 |   pair  5 | rho 0.67727 + 56.09267 i | n* 2454958 | n*_pred 2454796.3 | ratio 1.000066 | offset +161.6797 | HELD
+  data/b717_onsets.txt :27 |   pair  6 | rho 0.75427 + 62.05376 i | n* 2074153 | n*_pred 2074035.6 | ratio 1.000057 | offset +117.3809 | HELD
+  data/b717_onsets.txt :28 |   pair  7 | rho 0.80844 + 69.32018 i | n* 2137480 | n*_pred 2137372.4 | ratio 1.000050 | offset +107.5664 | HELD
+### needle '-15 pair 8 +137.3' in data/b717_onsets.txt :54-:55: yield 1 at [54]
+### needle 'positive at 7 of 7' in data/b717_onsets.txt :54-:55: yield 1 at [55]
+  data/b717_onsets.txt :54 | ### THE RESIDUAL BESIDE IT (b714`s, data/b714_residual.txt :16-:25): -15 pair 1 +45.1 ; -15 pair 2 +44.9 ; -15 pair 3 +58.7 ; -15 pair 4 +70.3 ; -15 pair 5 +65.2 ; -15 pair 6 +64.3 ; -15 pair 7 +64.8 ; -15 pair 8 +137.3 ; Q0 pair 11 +59.4 ; Q0 pair 15 +60.7
+  data/b717_onsets.txt :55 | ### the -39 offsets: +54.9 to +161.7 ; positive at 7 of 7.
+### THE READ, POST HOC: at -39 the seven offsets are +54.9, +83.9, +67.2, +155.0, +161.7, +117.4, +107.6 (:22-:28): positive at 7 of
+### 7; within 10 of 60 at 2 of 7 (pair 1 +54.9, pair 3 +67.2); above 100 at 4 of 7 (pairs 4-7). The
+### ten -15 / Q0 figures the navigator reads near 60 (:54) run +44.9 to +137.3, one of ten above 100 (-15 pair 8). So "near 60"
+### does not carry to -39 as it stands: -39`s offsets are of the same order and sign, and spread wider. The turn-period clause is not
+### read at -39 here: the seven -39 pairs` periods are not banked, and computing them would be new arithmetic ((R329)(8): nothing new).
+
+## (ii) THE ONSET`S OPERATIONAL DEFINITION, PRINTED FROM THE ONSET TOOL`S SOURCE (the route b717 ran, data/b717_onsets.txt :5)
+### needle 'def onset709(' in tools/b709_pairs.py :148-:160: yield 1 at [148]
+### needle 'e = Dm - c * (lR * n).exp() + Cc * (n + 1) ** 2 * (ls * n).exp()' in tools/b709_pairs.py :148-:160: yield 1 at [154]
+### needle 'if e < 0:' in tools/b709_pairs.py :148-:160: yield 1 at [155]
+  tools/b709_pairs.py :148 | def onset709(Dm, R, c, Cc, s, cap, n_start=1, budget=None):
+  tools/b709_pairs.py :149 |     """b675's onset (:153-:160) with the cap a parameter and the loop resumable: (n or None, the expression's ball, the last n read, done)."""
+  tools/b709_pairs.py :150 |     lR, ls = R.log(), s.log()
+  tools/b709_pairs.py :151 |     t0 = time.time()
+  tools/b709_pairs.py :152 |     n = n_start
+  tools/b709_pairs.py :153 |     while n < cap:
+  tools/b709_pairs.py :154 |         e = Dm - c * (lR * n).exp() + Cc * (n + 1) ** 2 * (ls * n).exp()
+  tools/b709_pairs.py :155 |         if e < 0:
+  tools/b709_pairs.py :156 |             return n, e, n, True
+  tools/b709_pairs.py :157 |         if budget is not None and (n & 1023) == 0 and time.time() - t0 > budget:
+  tools/b709_pairs.py :158 |             return None, None, n, False
+  tools/b709_pairs.py :159 |         n += 1
+  tools/b709_pairs.py :160 |     return None, None, cap, True
+### needle 'z = (1 - 1 / acb(d[2], d[3]))' in tools/b709_pairs.py :163-:189: yield 1 at [168]
+### needle 'r = (1 + R) / 2' in tools/b709_pairs.py :163-:189: yield 1 at [170]
+### needle 's = (s1 + R) / 2' in tools/b709_pairs.py :163-:189: yield 1 at [180]
+### needle 'Cc = 2 * (2 + 2 * (1 + s) ** 2) * Kk' in tools/b709_pairs.py :163-:189: yield 1 at [188]
+### needle 'onset709(arb(2), R, arb(1) / 4, Cc, s' in tools/b709_pairs.py :163-:189: yield 1 at [189]
+  tools/b709_pairs.py :163 | def constants_for709(Tm, dom, T0p, cap, removed=(), n_start=1, budget=None):
+  tools/b709_pairs.py :164 |     """b675's constants_for (:163-:194) with T0 and the onset cap as parameters; the arithmetic b675's line for line."""
+  tools/b709_pairs.py :165 |     ctx.prec = B.PREC
+  tools/b709_pairs.py :166 |     rest = [x for x in Tm if x[0] not in removed and x[0] != dom]
+  tools/b709_pairs.py :167 |     d = [x for x in Tm if x[0] == dom][0]
+  tools/b709_pairs.py :168 |     z = (1 - 1 / acb(d[2], d[3]))
+  tools/b709_pairs.py :169 |     R, th = abs(z), z.arg()
+  tools/b709_pairs.py :170 |     r = (1 + R) / 2
+  tools/b709_pairs.py :171 |     mods = [(x[0], abs(1 - 1 / acb(x[2], x[3]))) for x in rest]
+  tools/b709_pairs.py :172 |     nxt = max(mods, key=lambda m: m[1].mid())
+  tools/b709_pairs.py :173 |     unc = (1 + arb(2) / (T0p * T0p)).sqrt()
+  tools/b709_pairs.py :174 |     below_r = all(bool(m[1] < r) for m in mods) and bool(unc < r)
+  tools/b709_pairs.py :175 |     if not below_r:
+  tools/b709_pairs.py :176 |         return dict(dom=dom, reach='the rule`s modulus condition fails: every rest modulus below r %s, the uncertified bound %s' % (
+  tools/b709_pairs.py :177 |             all(bool(m[1] < r) for m in mods), s_(unc, 15)), R=s_(R, 25), r=s_(r, 25), uncertified_modulus_bound=s_(unc, 15), T0=T0p,
+  tools/b709_pairs.py :178 |             next_modulus=[nxt[0], s_(nxt[1], 25)], every_rest_modulus_below_r=below_r, n_star=None, done=True)
+  tools/b709_pairs.py :179 |     s1 = r
+  tools/b709_pairs.py :180 |     s = (s1 + R) / 2
+  tools/b709_pairs.py :181 |     Kc = 2 * sum((1 / (1 + x[3] * x[3] + (x[2] - arb('0.5')) ** 2) for x in rest), arb(0))
+  tools/b709_pairs.py :182 |     Kt = arb(0)
+  tools/b709_pairs.py :183 |     for k in range(T0p - 1, B.KMAX + 1):
+  tools/b709_pairs.py :184 |         kp = arb(max(k, T0p))
+  tools/b709_pairs.py :185 |         Kt += 2 * B.A0 * arb(k + 4).log() / (1 + kp * kp)
+  tools/b709_pairs.py :186 |     Kt += 2 * B.A0 * B._tailint()
+  tools/b709_pairs.py :187 |     Kk = Kc + Kt
+  tools/b709_pairs.py :188 |     Cc = 2 * (2 + 2 * (1 + s) ** 2) * Kk
+  tools/b709_pairs.py :189 |     n_, e, n_last, done = onset709(arb(2), R, arb(1) / 4, Cc, s, cap, n_start, budget)
+### READ FROM THE SOURCE: n* is the least n >= 1 with
+###     2 - (1/4) R^n + C (n + 1)^2 s^n  <  0   (certified, a ball below 0)          [:154-:156, Dm = 2, c = 1/4 from :189]
+### where R = |1 - 1/rho_dom| (:167-:168), s = (s1 + R)/2 with s1 = (1 + R)/2 (:170, :179-:180), so s = (1 + 3R)/4, and
+### C = 2(2 + 2(1 + s)^2) K (:188). The onset is a CERTIFIED DETECTION INDEX: the first n at which the dominant pair`s modulus term
+### (1/4)R^n provably exceeds the on-line background`s bound C(n+1)^2 s^n plus 2. It is not the first sign change of lambda_n. The
+### angle theta = arg z is computed (:168) and returned (:190) but enters no line of onset709 (:154 reads R and s alone): the
+### definition has no phase in it. The navigator`s "no fixed phase of the turn" is consistent with this definition.
+
+## (ii) THE REGISTERED LAW AND ITS SUBLEADING TERM
+### needle 'r n* = 4 log(4C) + 8 log(n* + 1)' in data/b716_registrations.txt :61-:66: yield 1 at [63]
+### needle 'r = r(rho) = log |1 - 1/rho' in data/b716_registrations.txt :61-:66: yield 1 at [64]
+### needle 's = (1 + 3R)/4' in data/b716_registrations.txt :61-:66: yield 1 at [64]
+  data/b716_registrations.txt :61 |       THE LAW, carried as b712 (ii) carried it to -15 (relay data/b712_registrations.txt :28-:48): "n* solves r(rho)·n* = log(M(n*)/A(rho))"
+  data/b716_registrations.txt :62 |           (data/b710_registrations.txt :11-:12), read by b709's route to first order as
+  data/b716_registrations.txt :63 |               r n* = 4 log(4C) + 8 log(n* + 1)
+  data/b716_registrations.txt :64 |           (:21), r = r(rho) = log |1 - 1/rho'| for the off-line pair (rho' its reflection), C = 2(2 + 2(1 + s)^2) K with s = (1 + 3R)/4 and K
+  data/b716_registrations.txt :65 |           the rest set's sum over the certified list with its tail (:14-:17), C read per pair on Q1's own certified list at -39 and from no
+  data/b716_registrations.txt :66 |           constant fitted at Q0.
+### WRITTEN FROM THE LAW AND THE SOURCE (algebra, no pair): the onset condition is exactly
+###     n log(R/s)  >  log(4C) + 2 log(n + 1) + log(1 + 2 / (C (n + 1)^2 s^n)).
+### With R = e^r (r = log R, the law`s r(rho), :64) and s = (1 + 3e^r)/4:
+###     log s = 3r/4 + 3r^2/32 + O(r^3),   so   4 log(R/s) = r - (3/8) r^2 + O(r^3).
+### The law`s first-order form (:63) keeps r and drops the rest: THE SUBLEADING TERM OF THE ON-LINE BACKGROUND is the background`s
+### s^n read past first order, -(3/8) r^2 n on the left of the law multiplied by 4, i.e.
+###     r n - (3/8) r^2 n + O(r^3 n)  =  4 log(4C) + 8 log(n + 1) + 4 log(1 + 2/(C (n + 1)^2 s^n))   at the onset,
+### the last term below 8/(C (n+1)^2 s^n), the constant 2 against a background that is itself ~ R^n/4 there. The onset is the
+### least INTEGER past the root, adding a further [0, 1).
+
+## THE ONE HYPOTHESIS (registered at data/b719_registrations.txt as H-OFFSET, by a commit of its own; computed at no pair this act)
+### Let g(n) = r n - 8 log(n + 1) - 4 log(4C), g(n*_pred) = 0 (the law). At the onset g(n*) = (3/8) r^2 n* to this order, and
+### g`(n) = r - 8/(n + 1), so
+###     n* - n*_pred  =  (3/8) r^2 n* / (r - 8/(n* + 1))  =  (3/8) L / (1 - 8/L`) ,   L = r n*,  L` = r (n* + 1),
+### plus the integer step in [0, 1). The offset is the law`s own dropped second-order term: about (3/8) of r(rho) n*, which varies
+### with r only through log C and log n*, so it moves little while r(rho) moves 200-fold -- a source for "near 60" that is not a
+### wait for a turn; under it -39`s wider spread would sit in L = r n*, through log C and log n*, which this act does not read.
+### POST HOC: written after the offsets were seen. Its premise, taken from :64 and not checked here: the law`s r(rho) is log R
+### of the tool`s dominant point (:167-:169).
+
+### ### **(i) READ POST HOC: -39`S SEVEN OFFSETS POSITIVE, +54.9 TO +161.7, FOUR ABOVE 100, NOT "NEAR 60" AS -15 AND Q0`S TEN ;
+### (ii) THE ONSET A CERTIFIED DETECTION INDEX WITH NO PHASE IN ITS DEFINITION (tools/b709_pairs.py :154) ; THE SUBLEADING TERM
+### -(3/8) r^2 n ; ONE HYPOTHESIS, H-OFFSET, REGISTERED FOR THE NEXT TIER ; NOTHING COMPUTED AT ANY PAIR.**
