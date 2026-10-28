@@ -2272,8 +2272,12 @@ def main():
 
 class _PrevWorklist(object):
     """(R329)(2)(iii): the worklist a run on b718's banks reads -- b718's value for every name b718's worklist carries, this act's for the suite's
-    own structure (the arms by part, the parts, the hold, the chain's halves) and for a name b718's lacks."""
-    OWN = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED')
+    own structure (the arms by part, the parts, the hold, the chain's halves) and for a name b718's lacks. The components' commits are this
+    act's too: b718's worklist reuses the names in other shapes (its C5_RELAY a pair, its C6_RELAY one commit), and only the act's own arms
+    read them (sources, the ancestry pairs, the times and the files) -- found after the lock, before the seal, by the first `--prev` run's
+    crash in sources (a tuple handed to git merge-base); an event of the seat's, not a letter."""
+    OWN = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED',
+           'C1_RELAY', 'C1_PP', 'C2_REG', 'C2_PRED', 'C2_CTL', 'C2_RELAY', 'C3_RELAY', 'C4_REG', 'C4_RELAY', 'C5_REG', 'C5_RELAY', 'C6_RELAY')
 
     def __init__(self, own, prev):
         self._own, self._prev = own, prev
