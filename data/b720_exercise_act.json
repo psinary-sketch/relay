@@ -25,16 +25,16 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the citation bank: every cite checked at step zero, 44 = 42 OK + 2 misses (each entered by the fact clause), the bank before the step-zero commit and that before Component 1`s",
-   "secs": 0.001
+   "secs": 0.0012
   },
   "G-R330-ENTERED": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the trail record`s ratification line",
-   "secs": 0.0031
+   "secs": 0.0063
   },
   "G-ROWGEN-STEPZERO": {
    "live": true,
@@ -43,7 +43,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the rowgen bank`s verdict line (the roster re-pointed, 8)",
-   "secs": 0.0
+   "secs": 0.0016
   },
   "G-BRANCHES-BANKED": {
    "live": true,
@@ -52,7 +52,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the step-zero bank`s branch row (no branches bank this act): the five refs named with their tips, in the step-zero commit, the citation check before the first delete; the one kept branch at its tip",
-   "secs": 0.0012
+   "secs": 0.0
   },
   "G-DELETES-ONE-BRANCH": {
    "live": false,
@@ -61,7 +61,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R329)(3)(i): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after, each allowed by the ruling`s own delete clauses read through tools/standing/allow.py (port-b707 the ruling`s NOT deleted); the command bank`s count",
-   "secs": 0.0249
+   "secs": 0.0293
   },
   "G-LISTINGS-BEFORE-CLAUSES": {
    "live": true,
@@ -73,13 +73,13 @@
    "secs": 0.0
   },
   "G-ENTRY-SCORES-EQUAL": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the landed entry`s scores line against the scores bank",
-   "secs": 0.0111
+   "secs": 0.0091
   },
   "G-ENTRY-TITLE-FORM": {
    "live": false,
@@ -88,7 +88,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the landed entry`s title by its objects (the least negative index 135 and 100, b(n) = -2 and -1/2, the law REFUTED; H-DECOMP HELD, its forced parts apart; the predictions met; the derivation`s -2 closed in C2; the registry cells; the challenge file elaborates; the pin at 1 of 6), compared after case-folding the article alone",
-   "secs": 0.0207
+   "secs": 0.0284
   },
   "G-CORRIGENDUM-ENTERED": {
    "live": true,
@@ -97,7 +97,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(2): the generated corrigendum for b719`s record, landed at FINDINGS :11020: its events by row (1)-(10), its eighteen defects by the one lettering and the memory item by key (B), each CLAIM or CLOSE and NEW or REPEAT, CLAIM 2 CLOSE 27 over 29, REPEAT 14, the CLAIM items (7) and (h); the late step row 6755e0c9; the corrigenda bank appended at row (40)",
-   "secs": 0.0069
+   "secs": 0.0065
   },
   "G-WRITELIST-MIRROR-STATE": {
    "live": true,
@@ -115,7 +115,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); no rules bank of this act`s (b720`s and b720`s named by form)",
-   "secs": 0.0013
+   "secs": 0.0021
   },
   "G-GUARD-HELD": {
    "live": true,
@@ -124,11 +124,11 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the suite`s writer block guarded by `if PRERUN:` and its dry run banked",
-   "secs": 0.0021
+   "secs": 0.001
   },
   "G-POSTROOT-WRITES-NONE": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
@@ -142,7 +142,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "data/b706_rules.txt row (1): the root route run dry on the pre-root tree before the lock, READY True, printed in the face`s (0)",
-   "secs": 0.0021
+   "secs": 0.0031
   },
   "G-READFIRST-DIFF-BANKED": {
    "live": true,
@@ -151,7 +151,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit",
-   "secs": 0.001
+   "secs": 0.0
   },
   "G-MEMBRANE-WIRED": {
    "live": true,
@@ -169,7 +169,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited through v1.2.0; b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank",
-   "secs": 0.0619
+   "secs": 0.0896
   },
   "G-LETTERING-ONE": {
    "live": true,
@@ -178,7 +178,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "v5 row (78): tools/act_letters.py the one lettering, imported by this suite, the corrigendum arm reading through it; the corrigendum tool lettering nothing of its own ((R330)(3): tags, not letters)",
-   "secs": 0.0057
+   "secs": 0.0059
   },
   "G-ACT-CURRENT": {
    "live": true,
@@ -187,7 +187,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(3): data/act_current.json naming b720, b719, b720, R330, the chain row act_figures reads, the seven parts, withheld empty, the shared edit; committed alone at step zero, its figures unchanged since",
-   "secs": 0.001
+   "secs": 0.0011
   },
   "G-REGISTRATIONS-FIRST": {
    "live": true,
@@ -223,7 +223,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(4), N3: the derivation`s -2 with both configurations -- the navigator`s recomputation at the five, every step`s checks at the seven discriminants printed in the step, each AS WANTED with its plant failing, the C2 table`s check; THE GRADE after the last step and in the foot; in Component 3`s commit after the figures`",
-   "secs": 0.0012
+   "secs": 0.001
   },
   "G-OFFSET-POST-HOC": {
    "live": true,
@@ -232,7 +232,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(6), N3: the offset`s next tier under H-OFFSET priced, nothing run (data/b720_offset_price.txt): the seventeen banked pairs POST HOC, their order fixed, 0 dispatches, carried to b721; H-OFFSET unchanged in b719`s registrations; no onset, pairs or offset-read bank of b720; in Component 6`s commit",
-   "secs": 0.0429
+   "secs": 0.0431
   },
   "G-SURGERY-CARRIED": {
    "live": true,
@@ -241,7 +241,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(6): the surgery under H-SHAPE (965cb8e8) carried to b721, nothing run -- H-SHAPE unchanged in b719`s registrations; no surgery or operated-unit bank and no surgery tool of b720; the next act`s line naming it",
-   "secs": 0.048
+   "secs": 0.0482
   },
   "G-ARMS-RETIRED": {
    "live": true,
@@ -259,7 +259,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "b719`s price of the count law`s route read unchanged (data/b719_count_route_price.txt byte-equal at ef648cb9, its verdict NOTHING BUILT); no count tool and no count bank of b720",
-   "secs": 0.0474
+   "secs": 0.0482
   },
   "G-DIFFERS-ERRATA": {
    "live": true,
@@ -268,11 +268,11 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "(R330)(1)-(2): no DIFFERS entry and no ERRATA entry this act -- ERRATA.md byte-equal at b92bb70a, no b720 differs or errata bank, the worklist naming none; the weight line and the corrigendum in Component 1`s PLACE-papers commit 5f34d8c3, FINDINGS the one file there",
-   "secs": 0.0054
+   "secs": 0.0063
   },
   "G-TOUCH-READ": {
-   "live": false,
-   "neg": false,
+   "live": true,
+   "neg": true,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
@@ -291,18 +291,14 @@
  },
  "run": 32,
  "live_failing": [
-  "G-R330-ENTERED",
   "G-DELETES-ONE-BRANCH",
-  "G-ENTRY-SCORES-EQUAL",
-  "G-ENTRY-TITLE-FORM",
-  "G-POSTROOT-WRITES-NONE",
-  "G-TOUCH-READ"
+  "G-ENTRY-TITLE-FORM"
  ],
  "defective": [],
  "neg_failures": 0,
  "withheld": [],
  "part": "act",
- "mode": "prerun",
- "at": "2026-10-28T09:57:57Z",
- "relay_head": "c59ad6039e8a19f9c39e5bb4cf967e0d283e0c95"
+ "mode": "pre-push",
+ "at": "2026-10-28T12:20:01Z",
+ "relay_head": "61bee53a26a3dc58998c7def7fa2e6ba0bfddab2"
 }
