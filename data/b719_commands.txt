@@ -1,0 +1,303 @@
+b719 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T03:39:00Z)
+
+### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R329) BEGIN', with its subagents` transcripts
+### commands read: 241
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
+  NONE
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b718, its own session 02c7cf38, from its post-push combine to that session`s end): 171 commands from 2026-10-28T02:15:59.958Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES (at most three port dispatches and the join`s, (R329)(4) and N1: port-b707 of SIDE-lv-conservation through the portdispatch route, SIDE-faces-join`s main through the dispatch route) (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #213 2026-10-28T03:15:15.984Z echo "- C7, the carry's re-point: a Read of scratch splice.py with no limit; the hook refused it (data/b719_hook_refusals.txt), nothing read; re-made with limit 60." >> "C:/Users/ECHOCH~1/AppData/Loca
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
+  #107 2026-10-28T02:24:10.444Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e '^\*\*Resolved' -- OPEN_TRAILS.md | tail -n 3 | cut -c1-140
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (2):
+  #107 2026-10-28T02:24:10.444Z cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e '^\*\*Resolved' -- OPEN_TRAILS.md | tail -n 3 | cut -c1-140
+  #109 2026-10-28T02:24:56.328Z foreach ($p in 'D:\relay','D:\MY-DOwnloads\PLACE-papers','D:\SIDE-lv-conservation') { "{0} {1}" -f $p, (Test-Path $p) }; Get-Process -Name lean, lake, python, claude, node -ErrorAction SilentlyContinu
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (2):
+  #98 2026-10-28T02:23:05.808Z python -X utf8 -c "import json;d=json.load(open('D:/relay/data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],len(d['components']),sorted(d['replay']))"; git -C D:/relay add -- data/act_current.json
+  #221 2026-10-28T03:23:56.540Z Set-Location D:\relay; python -X utf8 -m py_compile tools/b719_record.py tools/b719_checks.py tools/b719_closing.py tools/b719_worklist.py; if ($?) { python -X utf8 -c "print('compiled')" }
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
+  #24 2026-10-28T01:23:43.599Z PowerShell
+      Remove-Item -LiteralPath D:\relay\data\b719_ferry.txt -Confirm:$false
+  #102 2026-10-28T02:23:32.754Z PowerShell
+      git -C D:/relay branch -d push-b718-preroot
+  #103 2026-10-28T02:23:36.820Z PowerShell
+      git -C D:/relay branch -d push-b718-record
+  #104 2026-10-28T02:23:41.255Z PowerShell
+      git -C D:/relay branch -d push-b718-closing
+  #105 2026-10-28T02:23:45.148Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b718-preroot
+  #106 2026-10-28T02:23:49.465Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b718-record
+
+### THE BRANCH DELETES BY SHAPE ((R329)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #102 deletes ['push-b718-preroot'], halves 1, globs none, variables none, chained after False; #103 deletes ['push-b718-record'], halves 1, globs none, variables none, chained after False; #104 deletes ['push-b718-closing'], halves 1, globs none, variables none, chained after False; #105 deletes ['push-b718-preroot'], halves 1, globs none, variables none, chained after False; #106 deletes ['push-b718-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-28T01:13:20.561Z | seat | PowerShell | git log --reverse --format="%h %ad %s" --date=format:%H:%M 248c5a97..f79a10e2
+  #2 | 2026-10-28T01:14:35.124Z | seat | PowerShell | Test-Path D:\relay; Test-Path D:\MY-DOwnloads\PLACE-papers; Test-Path D:\SIDE-lv-conservation
+  #3 | 2026-10-28T01:14:50.994Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\carrycarry.py
+  #4 | 2026-10-28T01:15:26.320Z | seat | PowerShell | python -X utf8 tools/b719_carry.py carry citation
+  #5 | 2026-10-28T01:15:41.722Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b719_citation.py "def " "ROWS" "(
+  #6 | 2026-10-28T01:16:06.396Z | seat | PowerShell | python -X utf8 tools/b719_carry.py carry worklist
+  #7 | 2026-10-28T01:16:51.962Z | seat | PowerShell | git log -1 --format="%H %s" 8146404b; git show --name-only --format= 8146404b
+  #8 | 2026-10-28T01:17:18.046Z | seat | PowerShell | git ls-files -- data/b718_registration_*.txt data/b717_coeffs.* data/b717_onsets.* data/b717_predictions.* data/b718_derivation.* data/b718_decomp.* tools/b711_
+  #9 | 2026-10-28T01:18:40.529Z | seat | PowerShell | python -X utf8 tools/b719_carry.py prune citation "    cl = lines_of(p('data', 'b718_closing.txt'))" "    standing_rows(text, add)"
+  #10 | 2026-10-28T01:19:10.755Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\lines.py D:/MY-DOwnloads/PLACE-papers/FINDINGS.md
+  #11 | 2026-10-28T01:20:28.999Z | seat | PowerShell | python -X utf8 tools/b719_citation.py check dry
+  #12 | 2026-10-28T01:20:41.885Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b711_coeffs.py "control" "CONTROL
+  #13 | 2026-10-28T01:20:43.265Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b717_coeffs.py "(C1)" "(C2)" "(C3
+  #14 | 2026-10-28T01:21:00.108Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b719_citation.py "def _write" "_r
+  #15 | 2026-10-28T01:21:07.031Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/act_membrane.py "def guard" "act_
+  #16 | 2026-10-28T01:21:20.989Z | seat | PowerShell | python -X utf8 tools/b719_carry.py carry record
+  #17 | 2026-10-28T01:21:29.625Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recimport.py
+  #18 | 2026-10-28T01:21:35.768Z | seat | PowerShell | python -X utf8 tools/b719_citation.py check
+  #19 | 2026-10-28T01:21:35.774Z | seat | PowerShell | python -X utf8 tools/b719_citation.py ferry
+  #20 | 2026-10-28T01:22:02.660Z | seat | PowerShell | git grep -n -e "act_current" -- tools/standing tools/b718_record.py tools/b718_checks.py tools/b718_closing.py tools/act_root.py tools/push_gated.sh tools/b304_
+  #21 | 2026-10-28T01:22:38.776Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_record.py "def push" "push_g
+  #22 | 2026-10-28T01:23:11.147Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\rootstate718.py
+  #23 | 2026-10-28T01:23:38.402Z | seat | PowerShell | Copy-Item -LiteralPath D:\relay\data\b719_ferry.txt -Destination C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad
+  #24 | 2026-10-28T01:23:43.599Z | seat | PowerShell | Remove-Item -LiteralPath D:\relay\data\b719_ferry.txt -Confirm:$false
+  #25 | 2026-10-28T01:23:51.818Z | seat | PowerShell | git branch push-b718-preroot 5fe0c412
+  #26 | 2026-10-28T01:23:57.881Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/relay push-b718-preroot
+  #27 | 2026-10-28T01:24:31.192Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch push-b718-preroot f8010aa
+  #28 | 2026-10-28T01:24:37.095Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b718-preroot
+  #29 | 2026-10-28T01:25:16.579Z | seat | PowerShell | python -X utf8 tools/b718_record.py root
+  #30 | 2026-10-28T01:26:02.625Z | seat | PowerShell | python -X utf8 tools/b718_record.py root_arm
+  #31 | 2026-10-28T01:26:11.345Z | seat | PowerShell | git status --short -- data/act_roots.txt data/b718_* tools/
+  #32 | 2026-10-28T01:26:18.628Z | seat | PowerShell | git add -- data/act_roots.txt data/b718_act_root.json data/b718_act_root.txt data/b718_root_arm.json data/b718_root_arm.txt data/b718_root_banks.json data/b718_
+  #33 | 2026-10-28T01:26:23.976Z | seat | PowerShell | git commit -m "b718 root ([14], at b719's step zero under (R329)(2)): act root b2f1908e over 111 banks, chained from b717's 404b613b; the root arm's recomputati
+  #34 | 2026-10-28T01:26:30.084Z | seat | PowerShell | python -X utf8 tools/b718_record.py step relay "root" 1c1ce75e
+  #35 | 2026-10-28T01:26:36.114Z | seat | PowerShell | python -X utf8 tools/b718_record.py trail
+  #36 | 2026-10-28T01:26:42.410Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md
+  #37 | 2026-10-28T01:26:46.841Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -m "b718 trail ([15]): the record at OPEN_TRAILS :16128 carrying the root b2f1908e (relay data/act_roots.txt), the en
+  #38 | 2026-10-28T01:26:52.766Z | seat | PowerShell | python -X utf8 tools/b718_record.py step pp "record" b6cbbbd
+  #39 | 2026-10-28T01:26:57.491Z | seat | PowerShell | python -X utf8 tools/b718_record.py desk
+  #40 | 2026-10-28T01:27:02.464Z | seat | PowerShell | git status --short -- data/b718_* D:/relay/desk* data/desk*
+  #41 | 2026-10-28T01:27:09.312Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_checks.py "'--part'" "'--com
+  #42 | 2026-10-28T01:27:21.311Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-a
+  #43 | 2026-10-28T01:31:51.943Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-c
+  #44 | 2026-10-28T01:33:08.657Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b1
+  #45 | 2026-10-28T01:34:52.619Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b2a
+  #46 | 2026-10-28T01:42:34.300Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b2b
+  #47 | 2026-10-28T01:44:49.867Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b3
+  #48 | 2026-10-28T01:47:44.193Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part act
+  #49 | 2026-10-28T01:49:29.230Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py data/b718_checks_act.txt "G-DELETES-ONE
+  #50 | 2026-10-28T01:49:41.838Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_checks.py "('G-DELETES-ONE-B
+  #51 | 2026-10-28T01:50:06.936Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_checks.py "def sources" "NEE
+  #52 | 2026-10-28T01:50:33.801Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\diag718.py
+  #53 | 2026-10-28T01:51:58.814Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --combine b718_checks.txt
+  #54 | 2026-10-28T01:52:10.300Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_record.py "def components" "
+  #55 | 2026-10-28T01:52:17.797Z | seat | PowerShell | python -X utf8 tools/b718_record.py components
+  #56 | 2026-10-28T01:52:27.626Z | seat | PowerShell | git status --short -- data/b718_* data/act_roots.txt
+  #57 | 2026-10-28T01:52:38.541Z | seat | PowerShell | git add -- data/b718_bank_hashes.json data/b718_exercise_act.json data/b718_exercise_standing-a.json data/b718_exercise_standing-b1.json data/b718_exercise_stan
+  #58 | 2026-10-28T01:52:45.531Z | seat | PowerShell | git commit -m "b718 record ([16]-[19], at b719's step zero under (R329)(2)): the desk; the pre-push suite in seven parts, 133 of 141 NOT CLEAN, NEG 0, POS 0 (th
+  #59 | 2026-10-28T01:52:52.038Z | seat | PowerShell | python -X utf8 tools/b718_record.py step relay "record" 098289c8
+  #60 | 2026-10-28T01:52:57.645Z | seat | PowerShell | git branch push-b718-record 098289c8
+  #61 | 2026-10-28T01:53:03.974Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/relay push-b718-record
+  #62 | 2026-10-28T01:53:21.803Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch push-b718-record b6cbbbd
+  #63 | 2026-10-28T01:53:28.855Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/MY-DOwnloads/PLACE-papers push-b718-record
+  #64 | 2026-10-28T01:54:10.058Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-a
+  #65 | 2026-10-28T01:58:58.468Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-c
+  #66 | 2026-10-28T02:00:18.999Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b1
+  #67 | 2026-10-28T02:02:05.350Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b2a
+  #68 | 2026-10-28T02:09:47.925Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b2b
+  #69 | 2026-10-28T02:11:50.259Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part standing-b3
+  #70 | 2026-10-28T02:14:30.562Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --part act
+  #71 | 2026-10-28T02:15:59.958Z | seat | PowerShell | python -X utf8 tools/b718_checks.py --combine b718_checks_postpush.txt
+  #72 | 2026-10-28T02:16:10.225Z | seat | PowerShell | [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ')
+  #73 | 2026-10-28T02:16:30.835Z | seat | PowerShell | python -X utf8 tools/b718_record.py scores close
+  #74 | 2026-10-28T02:16:54.972Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_record.py "def mbuild" "def 
+  #75 | 2026-10-28T02:17:00.697Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_record.py "mbuild" "mroot" "
+  #76 | 2026-10-28T02:17:06.179Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b698_record.py "def mbuild" "def 
+  #77 | 2026-10-28T02:17:15.783Z | seat | PowerShell | python -X utf8 tools/b718_record.py mbuild
+  #78 | 2026-10-28T02:17:42.905Z | seat | PowerShell | python -X utf8 tools/b718_record.py mroot
+  #79 | 2026-10-28T02:17:49.408Z | seat | PowerShell | python -X utf8 tools/b718_record.py mverify
+  #80 | 2026-10-28T02:17:56.663Z | seat | PowerShell | python -X utf8 tools/b718_record.py mbank
+  #81 | 2026-10-28T02:18:10.539Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_report.py "def " "usage" "ar
+  #82 | 2026-10-28T02:18:15.503Z | seat | PowerShell | python -X utf8 tools/b718_report.py scores
+  #83 | 2026-10-28T02:18:22.290Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\locate.py tools/b718_closing.py "usage" "def main
+  #84 | 2026-10-28T02:18:36.237Z | seat | PowerShell | python -X utf8 tools/b718_closing.py
+  #85 | 2026-10-28T02:19:37.742Z | seat | PowerShell | git status --short -- data/b718_* data/act_roots.txt tools/mirror_prevbuild.json
+  #86 | 2026-10-28T02:19:49.884Z | seat | PowerShell | git add -- data/b718_bank_hashes.json data/b718_events.txt data/b718_exercise.json data/b718_exercise_act.json data/b718_exercise_standing-a.json data/b718_exer
+  #87 | 2026-10-28T02:19:57.243Z | seat | PowerShell | git commit -m "b718: the closing ([20]-[25], at b719's step zero under (R329)(2)) -- b718 closed: relay 098289c8, PLACE-papers b6cbbbd; suite 133 of 141 post-pu
+  #88 | 2026-10-28T02:20:01.898Z | seat | PowerShell | python -X utf8 tools/b718_record.py step relay "closing" 9818a7f0
+  #89 | 2026-10-28T02:20:06.656Z | seat | PowerShell | git branch push-b718-closing 9818a7f0
+  #90 | 2026-10-28T02:20:10.859Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/relay push-b718-closing
+  #91 | 2026-10-28T02:21:34.645Z | seat | PowerShell | Copy-Item -LiteralPath "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\b719_ferry.txt" -Destination "D:\relay\d
+  #92 | 2026-10-28T02:21:41.433Z | seat | PowerShell | git -C D:/relay diff --stat; git -C D:/relay log --oneline -3; git -C D:/relay ls-remote origin main
+  #93 | 2026-10-28T02:21:46.895Z | seat | PowerShell | git -C D:/relay diff data/b718_bank_hashes.json
+  #94 | 2026-10-28T02:21:54.760Z | seat | PowerShell | git -C D:/relay add -- data/b718_steps.json data/b718_bank_hashes.json data/b718_relay_push-b718-closing_push_out.txt
+  #95 | 2026-10-28T02:21:59.919Z | seat | PowerShell | git -C D:/relay commit -m "b718 leftover (at b719's step zero, (R329)(12)): step 24's row and the bank hash it moves, and the closing push capture (relay 098289
+  #96 | 2026-10-28T02:22:10.112Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers rev-parse HEAD; git -C D:/MY-DOwnloads/PLACE-papers ls-remote origin main; git -C D:/MY-DOwnloads/PLACE-papers status --shor
+  #97 | 2026-10-28T02:22:32.760Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\withheld718.py"
+  #98 | 2026-10-28T02:23:05.808Z | seat | PowerShell | python -X utf8 -c "import json;d=json.load(open('D:/relay/data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],len(d['components']),sorted(d[
+  #99 | 2026-10-28T02:23:15.896Z | seat | PowerShell | git -C D:/relay commit -m "b719 step zero: data/act_current.json for b719 ((R329), act_roots :96 b718's row, the 95th; chain row 96, prev root b2f1908e, verify 
+  #100 | 2026-10-28T02:23:20.396Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "step zero" 4cabf3b7
+  #101 | 2026-10-28T02:23:27.477Z | seat | PowerShell | git -C D:/relay branch --merged main --list "push-b718-*" "port-*" "pin-*"; git -C D:/relay branch --list; git -C D:/MY-DOwnloads/PLACE-papers branch --merged m
+  #102 | 2026-10-28T02:23:32.754Z | seat | PowerShell | git -C D:/relay branch -d push-b718-preroot
+  #103 | 2026-10-28T02:23:36.820Z | seat | PowerShell | git -C D:/relay branch -d push-b718-record
+  #104 | 2026-10-28T02:23:41.255Z | seat | PowerShell | git -C D:/relay branch -d push-b718-closing
+  #105 | 2026-10-28T02:23:45.148Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b718-preroot
+  #106 | 2026-10-28T02:23:49.465Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b718-record
+  #107 | 2026-10-28T02:24:10.444Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e '^\*\*Resolved' -- OPEN_TRAILS.md | tail -n 3 | cut -c1-140
+  #108 | 2026-10-28T02:24:42.109Z | seat | PowerShell | Test-Path D:/MY-DOwnloads/mirror-refresh-2026-10-27-b718.zip; Get-ChildItem D:/relay/data/b718_readfirst*, D:/relay/data/b718_rowgen*, D:/relay/data/b718_conste
+  #109 | 2026-10-28T02:24:56.328Z | seat | PowerShell | foreach ($p in 'D:\relay','D:\MY-DOwnloads\PLACE-papers','D:\SIDE-lv-conservation') { "{0} {1}" -f $p, (Test-Path $p) }; Get-Process -Name lean, lake, python, c
+  #110 | 2026-10-28T02:25:11.226Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs719.py"
+  #111 | 2026-10-28T02:25:19.464Z | seat | PowerShell | python -X utf8 tools/b719_record.py rowgen
+  #112 | 2026-10-28T02:26:08.188Z | seat | Bash | wc -l /d/relay/data/b718_touch.txt /d/relay/data/arm_tags.json
+  #113 | 2026-10-28T02:27:55.583Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b719_ferry.txt b719_readfirst.txt
+  #114 | 2026-10-28T02:28:20.163Z | seat | PowerShell | git -C D:/relay status --short -- data/b719_* tools/b719_* data/act_current.json data/b718_* tools/mirror_prevbuild.json
+  #115 | 2026-10-28T02:28:29.712Z | seat | PowerShell | git -C D:/relay add -- data/b719_bank_hashes.json data/b719_carry_citation.txt data/b719_carry_record.txt data/b719_carry_worklist.txt data/b719_citation_check.
+  #116 | 2026-10-28T02:28:35.964Z | seat | PowerShell | git -C D:/relay commit -m "b719 step zero: the ferry (R329) banked verbatim and scanned (0 hits); the citation check (44 cites, 42 OK, 2 misses for the fact cla
+  #117 | 2026-10-28T02:28:40.432Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "step zero" 65a8c822
+  #118 | 2026-10-28T02:29:19.373Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\memtrim.py"
+  #119 | 2026-10-28T02:29:28.478Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\stat.py" D:/relay/tools/b718_corrigendum.py D:/r
+  #120 | 2026-10-28T02:30:35.632Z | seat | Bash | wc -l /d/MY-DOwnloads/PLACE-papers/FINDINGS.md /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md /d/MY-DOwnloads/PLACE-papers/ERRATA.md
+  #121 | 2026-10-28T02:31:00.298Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loc718.py" D:/relay/data/b718_closing.txt "ARMS 
+  #122 | 2026-10-28T02:31:46.198Z | seat | PowerShell | git -C D:/SIDE-faces-join rev-parse v0.1.0^{commit}; git -C D:/SIDE-faces-join ls-tree -r --name-only v0.1.0; git -C D:/SIDE-faces-join grep -n -e "faces_join" 
+  #123 | 2026-10-28T02:31:52.795Z | seat | PowerShell | git -C D:/SIDE-faces-join rev-parse "v0.1.0^{commit}"; git -C D:/SIDE-faces-join show v0.1.0:FacesJoin.lean
+  #124 | 2026-10-28T02:32:18.753Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\keys718.py"
+  #125 | 2026-10-28T02:34:43.382Z | seat | PowerShell | python -X utf8 tools/b719_c1.py weight dry
+  #126 | 2026-10-28T02:34:49.892Z | seat | PowerShell | python -X utf8 tools/b719_c1.py weight write
+  #127 | 2026-10-28T02:34:55.679Z | seat | PowerShell | python -X utf8 tools/b719_c1.py corrigendum dry
+  #128 | 2026-10-28T02:35:05.204Z | seat | PowerShell | python -X utf8 tools/b719_c1.py corrigendum write
+  #129 | 2026-10-28T02:35:13.854Z | seat | PowerShell | python -X utf8 tools/b719_c1.py differs dry
+  #130 | 2026-10-28T02:35:23.054Z | seat | PowerShell | python -X utf8 tools/b719_c1.py differs write
+  #131 | 2026-10-28T02:35:28.591Z | seat | PowerShell | python -X utf8 tools/b719_c1.py errata dry
+  #132 | 2026-10-28T02:35:40.283Z | seat | PowerShell | python -X utf8 tools/b719_c1.py errata write
+  #133 | 2026-10-28T02:36:02.461Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short; git -C D:/MY-DOwnloads/PLACE-papers diff --stat
+  #134 | 2026-10-28T02:36:07.145Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add -- FINDINGS.md ERRATA.md
+  #135 | 2026-10-28T02:36:14.041Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -m "b719 Component 1 ((R329)(2)-(5)): b718 at its weight (FINDINGS :10896); the corrigendum for b718, CLAIM 4, CLOSE 
+  #136 | 2026-10-28T02:36:18.281Z | seat | PowerShell | python -X utf8 tools/b719_record.py step pp "component 1" a01f887
+  #137 | 2026-10-28T02:36:24.682Z | seat | PowerShell | git -C D:/relay status --short -- data/b719_* tools/b719_* data/b675_corrigenda.txt
+  #138 | 2026-10-28T02:36:29.604Z | seat | PowerShell | git -C D:/relay add -- data/b675_corrigenda.txt data/b719_bank_hashes.json data/b719_steps.json data/b719_corrigendum.json data/b719_corrigendum.txt data/b719_c
+  #139 | 2026-10-28T02:36:35.933Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 1 ((R329)(2)-(5)): tools/b719_c1.py; b718's weight line banked (record_lines); the corrigendum for b718 (CLAIM 4, CLOS
+  #140 | 2026-10-28T02:36:41.248Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 1" e5528ffe
+  #141 | 2026-10-28T02:37:10.592Z | seat | PowerShell | git -C D:/relay add -- data/b719_registrations.txt
+  #142 | 2026-10-28T02:37:16.710Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 2 ((R329)(6)(i)): data/b719_registrations.txt, H-24 and H-47 with their falsifiers and the order they serve, committed
+  #143 | 2026-10-28T02:37:21.245Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 2" ac88ffb1
+  #144 | 2026-10-28T02:37:29.554Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loc718.py" D:/relay/tools/b718_classgroup.py "^d
+  #145 | 2026-10-28T02:37:41.934Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loc718.py" D:/relay/tools/b718_abstract.py "^def
+  #146 | 2026-10-28T02:38:52.374Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs719.py"; python -X utf8 tools/b719_predict.
+  #147 | 2026-10-28T02:39:12.351Z | seat | PowerShell | python -X utf8 tools/b719_predict.py bank
+  #148 | 2026-10-28T02:39:33.905Z | seat | PowerShell | git -C D:/relay add -- data/b719_registrations.txt data/b719_prediction.txt tools/b719_predict.py
+  #149 | 2026-10-28T02:39:47.996Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 2, the prediction (b718's registration (3)): the primes' classes at -20 and -47 and the rule's prediction, n0(-20) = 3
+  #150 | 2026-10-28T02:39:53.058Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 2" 7e743b4d
+  #151 | 2026-10-28T02:40:01.908Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loc718.py" D:/relay/tools/b717_coeffs.py "^def |
+  #152 | 2026-10-28T02:41:57.531Z | seat | PowerShell | python -X utf8 tools/b719_coeffs.py controls dry
+  #153 | 2026-10-28T02:42:08.879Z | seat | PowerShell | python -X utf8 tools/b719_coeffs.py controls
+  #154 | 2026-10-28T02:42:21.792Z | seat | PowerShell | git -C D:/relay add -- tools/b719_coeffs.py data/b719_coeffs_controls.json data/b719_steps.json data/b719_bank_hashes.json
+  #155 | 2026-10-28T02:42:28.919Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 2, the controls before the figures ((R329)(6)(ii)): tools/b719_coeffs.py on b711's route; C1 von Mangoldt 0 mismatches
+  #156 | 2026-10-28T02:42:35.704Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 2" 7117115f; python -X utf8 tools/b719_coeffs.py run
+  #157 | 2026-10-28T02:42:44.944Z | seat | PowerShell | python -X utf8 tools/b719_coeffs.py run
+  #158 | 2026-10-28T02:42:55.381Z | seat | PowerShell | git -C D:/relay add -- tools/b719_coeffs.py data/b719_coeffs.txt data/b719_coeffs.json data/b719_steps.json
+  #159 | 2026-10-28T02:43:02.918Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 2, the coefficients ((R329)(6)(ii)): n0(-20) = 36 = 2^2 . 3^2 and n0(-47) = 168 = 2^3 . 3 . 7, b = -2 each; b718's law
+  #160 | 2026-10-28T02:43:08.370Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 2" 0bc24b20
+  #161 | 2026-10-28T02:44:27.992Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\explore719.py"
+  #162 | 2026-10-28T02:46:59.703Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs719.py"; python -X utf8 tools/b719_derivati
+  #163 | 2026-10-28T02:48:02.544Z | seat | PowerShell | python -X utf8 tools/b719_derivation.py dry
+  #164 | 2026-10-28T02:48:36.576Z | seat | PowerShell | python -X utf8 tools/b719_derivation.py bank
+  #165 | 2026-10-28T02:49:07.331Z | seat | PowerShell | git -C D:/relay add -- tools/b719_derivation.py data/b719_derivation.txt data/b719_steps.json
+  #166 | 2026-10-28T02:50:27.157Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 3 ((R329)(7)): the derivation's remaining step through the class-group characters; character forms of a, the pair sum 
+  #167 | 2026-10-28T02:50:35.220Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 3" f8fd5512
+  #168 | 2026-10-28T02:53:55.373Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs719.py; python -X utf8 tools/b719_offset.py 
+  #169 | 2026-10-28T02:54:13.048Z | seat | PowerShell | python -X utf8 tools/b719_offset.py bank
+  #170 | 2026-10-28T02:54:18.719Z | seat | PowerShell | git -C D:/relay add -- tools/b719_offset.py data/b719_offset_read.txt data/b719_steps.json
+  #171 | 2026-10-28T02:54:29.685Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 4 ((R329)(8)): the offset read, post hoc -- b717's -39 offsets beside 60, the onset's definition from tools/b709_pairs
+  #172 | 2026-10-28T02:54:38.438Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 4" 6d6fcfbd
+  #173 | 2026-10-28T02:54:58.636Z | seat | PowerShell | git -C D:/relay add -- data/b719_registrations.txt data/b719_steps.json
+  #174 | 2026-10-28T02:55:11.153Z | seat | PowerShell | git -C D:/relay restore --staged -- data/b719_steps.json
+  #175 | 2026-10-28T02:55:18.281Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 4 ((R329)(8)(ii)): H-OFFSET registered, post hoc, alone -- the offset as the law's dropped second-order term (3/8) L/(
+  #176 | 2026-10-28T02:55:25.334Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 4" 7b1ab86f
+  #177 | 2026-10-28T02:56:16.188Z | seat | PowerShell | git -C D:/relay add -- data/b719_registrations.txt
+  #178 | 2026-10-28T02:56:22.060Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 5 ((R329)(9)): H-SHAPE registered alone, before any surgery number -- the minimal negative shape's indices carry more 
+  #179 | 2026-10-28T02:56:30.350Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 5" 965cb8e8
+  #180 | 2026-10-28T02:56:46.220Z | seat | PowerShell | git -C D:/relay add -- data/b719_surgery.txt data/b719_steps.json
+  #181 | 2026-10-28T02:56:51.414Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 5 ((R329)(9)): the surgery carried to b720 -- b718's price (6-9 foreground hours) not held beside Components 6-7; H-SH
+  #182 | 2026-10-28T02:56:56.383Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 5" 49e65ed5
+  #183 | 2026-10-28T02:57:43.423Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/hist719.py
+  #184 | 2026-10-28T02:59:24.792Z | seat | PowerShell | python -X utf8 tools/b719_arms.py history dry
+  #185 | 2026-10-28T02:59:55.378Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/residue719.py
+  #186 | 2026-10-28T03:00:45.367Z | seat | PowerShell | python -X utf8 tools/b719_arms.py history bank
+  #187 | 2026-10-28T03:01:03.666Z | seat | PowerShell | python -X utf8 tools/b719_arms.py history bank
+  #188 | 2026-10-28T03:01:11.567Z | seat | PowerShell | python -X utf8 tools/b719_arms.py history bank
+  #189 | 2026-10-28T03:01:16.313Z | seat | PowerShell | git -C D:/relay add -- tools/b719_arms.py data/b719_arm_history.txt data/b719_arm_history.json data/b719_steps.json
+  #190 | 2026-10-28T03:01:22.811Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 6 ((R329)(10)): the CLOSE arms' history b705-b718 banked before any retirement -- 103 CLOSE: 25 to retire, 27 kept as 
+  #191 | 2026-10-28T03:01:27.322Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 6" d033e450
+  #192 | 2026-10-28T03:02:09.474Z | seat | PowerShell | python -X utf8 tools/b719_arms.py figures dry
+  #193 | 2026-10-28T03:02:15.810Z | seat | PowerShell | python -X utf8 tools/b719_arms.py figures bank
+  #194 | 2026-10-28T03:02:16.124Z | seat | PowerShell | git -C D:/relay add -- tools/standing/arms.py data/arm_tags.json tools/b719_arms.py data/b719_arm_retire.txt data/b719_steps.json
+  #195 | 2026-10-28T03:02:23.038Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 6 ((R329)(10)): 25 CLOSE arms retired from the run list (tools/standing/arms.py RETIRED, one line each; data/arm_tags.
+  #196 | 2026-10-28T03:02:27.776Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 6" 1085464a
+  #197 | 2026-10-28T03:03:39.682Z | seat | PowerShell | git -C D:/relay add -- data/b719_count_route_price.txt data/b719_steps.json
+  #198 | 2026-10-28T03:03:49.551Z | seat | PowerShell | git -C D:/relay add -- data/b719_count_route_price.txt
+  #199 | 2026-10-28T03:03:57.925Z | seat | PowerShell | git -C D:/relay commit -m "b719 Component 6 ((R329)(11)): the count law's route priced, nothing built -- a certified count over the onset's unit bands [T0-1, KM
+  #200 | 2026-10-28T03:04:03.868Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 6" a035408d
+  #201 | 2026-10-28T03:04:31.677Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cmds718.py 2026-10-27T21:55 2026-10-27T23:01
+  #202 | 2026-10-28T03:04:47.140Z | seat | PowerShell | python -X utf8 tools/b719_carry.py carry checks
+  #203 | 2026-10-28T03:04:52.295Z | seat | PowerShell | python -X utf8 tools/b719_carry.py carry closing; python -X utf8 tools/b719_carry.py carry reg_gate; python -X utf8 tools/b719_carry.py carry regspec; python -X
+  #204 | 2026-10-28T03:05:27.219Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py tools/b719_checks.py "def sources" "def
+  #205 | 2026-10-28T03:05:36.453Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py tools/b719_worklist.py "^[A-Z_0-9]* = "
+  #206 | 2026-10-28T03:05:53.785Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py tools/b718_worklist.py "ACT_ARMS" "C1_R
+  #207 | 2026-10-28T03:06:38.227Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locate.py tools/b719_checks.py "S['files']" "S['t
+  #208 | 2026-10-28T03:07:24.600Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/tx719.py "Deleted branch" "push-b718-" "free MB" 
+  #209 | 2026-10-28T03:07:58.047Z | seat | PowerShell | (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+  #210 | 2026-10-28T03:10:18.338Z | seat | Bash | wc -l /d/relay/tools/b719_worklist.py /d/relay/tools/b718_worklist.py /d/relay/tools/b719_closing.py /d/relay/tools/b719_reg_gate.py /d/relay/tools/b719_regspec
+  #211 | 2026-10-28T03:12:02.133Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/vt719.py" b719_corrigendum.txt b719_differs.txt 
+  #212 | 2026-10-28T03:12:22.478Z | seat | Bash | git -C /d/SIDE-archimedean branch --list "pin-*"; git -C /d/SIDE-effects branch --list "pin-*"; git -C /d/SIDE-effects ls-remote --heads origin "pin-*"
+  #213 | 2026-10-28T03:15:15.984Z | seat | Bash | echo "- C7, the carry's re-point: a Read of scratch splice.py with no limit; the hook refused it (data/b719_hook_refusals.txt), nothing read; re-made with limit
+  #214 | 2026-10-28T03:17:17.291Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_checks.py "C:/Users/ECHOCH
+  #215 | 2026-10-28T03:18:06.695Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_checks.py "C:/Users/ECHOCH
+  #216 | 2026-10-28T03:20:54.052Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cmds718.py" 2026-10-27T23:00 2026-10-28T01:00
+  #217 | 2026-10-28T03:21:02.534Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cmds718.py" 2026-10-27T00:00 2026-10-29
+  #218 | 2026-10-28T03:21:56.816Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_record.py "C:/Users/ECHOCH
+  #219 | 2026-10-28T03:22:29.685Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_record.py "C:/Users/ECHOCH
+  #220 | 2026-10-28T03:23:39.060Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_record.py "C:/Users/ECHOCH
+  #221 | 2026-10-28T03:23:56.540Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 -m py_compile tools/b719_record.py tools/b719_checks.py tools/b719_closing.py tools/b719_worklist.py; if ($?) { python -X 
+  #222 | 2026-10-28T03:24:06.527Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/t719.py"
+  #223 | 2026-10-28T03:25:48.954Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice.py" tools/b719_report.py "C:/Users/ECHOCH
+  #224 | 2026-10-28T03:26:08.221Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b719_report.py dry
+  #225 | 2026-10-28T03:27:51.177Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\lit719.py" b719_reg_gate.py b719_regspec.py b719
+  #226 | 2026-10-28T03:28:23.586Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\defs719.py" D:\relay\tools\b719_worklist.py EF_D
+  #227 | 2026-10-28T03:29:04.338Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\defs719.py" D:\relay\tools\b719_worklist.py PRE_
+  #228 | 2026-10-28T03:30:55.487Z | seat | PowerShell | python -X utf8 -m py_compile tools/b719_checks.py tools/b719_closing.py tools/b719_record.py tools/b719_report.py tools/b719_worklist.py tools/b719_reg_gate.py 
+  #229 | 2026-10-28T03:31:27.402Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #230 | 2026-10-28T03:31:35.659Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\try719.py" act
+  #231 | 2026-10-28T03:33:31.811Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\dbg719.py"
+  #232 | 2026-10-28T03:35:11.296Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\vt719.py" data/b719_offset_read.txt data/b719_co
+  #233 | 2026-10-28T03:35:17.373Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\vt719.py" b719_offset_read.txt b719_count_route_
+  #234 | 2026-10-28T03:36:07.896Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f
+  #235 | 2026-10-28T03:37:54.299Z | seat | PowerShell | (Get-Content "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\b719_defect_notes.txt").Count
+  #236 | 2026-10-28T03:38:11.540Z | seat | PowerShell | python -X utf8 -m py_compile tools/b719_checks.py tools/b719_regspec.py; if ($?) { "COMPILED" }; git status --short
+  #237 | 2026-10-28T03:38:19.457Z | seat | PowerShell | git add tools/b719_checks.py tools/b719_closing.py tools/b719_reg_gate.py tools/b719_regspec.py tools/b719_report.py tools/b719_record.py tools/b719_worklist.py
+  #238 | 2026-10-28T03:38:31.427Z | seat | PowerShell | git commit -q -m @'
+  #239 | 2026-10-28T03:38:36.378Z | seat | PowerShell | python -X utf8 tools/b719_record.py step relay "component 7" 0c39fb063f640745be5aad503e7a1fd1f14276c1
+  #240 | 2026-10-28T03:38:44.987Z | seat | PowerShell | python -X utf8 tools/b719_record.py figures
+  #241 | 2026-10-28T03:38:58.155Z | seat | PowerShell | python -X utf8 tools/b719_record.py commands
+
+### ### **COMMANDS 241 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 171 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
