@@ -1,0 +1,56 @@
+b721 -- (R331)(5)(i): THE SEVENTEEN BANKED PAIRS UNDER H-OFFSET, POST HOC -- SCORABILITY, THEN delta_pred FROM r AND n*_pred ALONE (2026-10-28T14:14:50Z)
+
+### POST HOC: every row below was computed and its onset banked before H-OFFSET was written (data/b719_offset_read.txt, b719);
+### these rows cannot test it. This route reads no n*: the observed n* is read beside the committed delta_pred by the `read` route
+### after this bank commits (data/b720_offset_price.txt :14-:16). H-OFFSET (data/b719_registrations.txt :49-:56), quoted:
+###   delta_pred = (3/8) L / (1 - 8/(r (n*_pred + 1))), L = r n*_pred ; REFUTED at a pair with r(rho) <= 0.05 where
+###   |(n* - n*_pred) - delta_pred| > 2 ; NOT SCORABLE at r(rho) > 0.05. PREMISE (printed beside each reading): the law`s r(rho)
+###   is log R of the onset tool`s dominant point (tools/b709_pairs.py :167-:169); the banks` r is that log R (b713_predictions.json
+###   r beside R, e.g. pair 1 r 0.00206523, R 1.0020674).
+
+## THE CONTROLS, BEFORE ANY delta_pred
+  (C1) THE FORMULA BY HAND-CARRIED ARITHMETIC at -15 pair 1 (r 0.00206523, n*_pred 50972.8919):
+       L = r n*_pred = 105.2707454895 ; (3/8) L = 39.4765295586 ; 8/(r (n*_pred + 1)) = 0.0759930313 ; 1 - that = 0.9240069687 ;
+       delta_pred = 39.4765295586 / 0.9240069687 = 42.7231946249 ; the tool`s delta() 42.7231946249 -- AS WANTED
+  (C2) NEG: a pair at r = 0.06 (above 0.05) is read NOT SCORABLE by the screen: NOT SCORABLE -- AS WANTED
+       (its delta_pred would be 48.213; the screen, not the formula, refuses it)
+
+## (a) SCORABILITY, EVERY PAIR, BEFORE ANY delta_pred: SCORABLE 17 OF 17 (r(rho) <= 0.05)
+  POST HOC | -15 pair  1 | r(rho) 2.065230e-03 (+/- 8.6e-09) | SCORABLE
+  POST HOC | -15 pair  2 | r(rho) 1.776810e-03 (+/- 7.6e-09) | SCORABLE
+  POST HOC | -15 pair  3 | r(rho) 4.721500e-04 (+/- 3.1e-09) | SCORABLE
+  POST HOC | -15 pair  4 | r(rho) 2.107800e-04 (+/- 3.7e-09) | SCORABLE
+  POST HOC | -15 pair  5 | r(rho) 1.868700e-04 (+/- 2.0e-09) | SCORABLE
+  POST HOC | -15 pair  6 | r(rho) 1.827300e-04 (+/- 8.4e-10) | SCORABLE
+  POST HOC | -15 pair  7 | r(rho) 1.393940e-04 (+/- 5.1e-10) | SCORABLE
+  POST HOC | -15 pair  8 | r(rho) 5.461200e-05 (+/- 2.7e-10) | SCORABLE
+  POST HOC | Q0  pair 11 | r(rho) 1.216895e-05 (+/- 3.1e-28) | SCORABLE
+  POST HOC | Q0  pair 15 | r(rho) 1.022443e-05 (+/- 5.3e-28) | SCORABLE
+  POST HOC | -39 pair  1 | r(rho) 5.711200e-04 (+/- 5.7e-09) | SCORABLE
+  POST HOC | -39 pair  2 | r(rho) 1.442100e-04 (+/- 1.3e-09) | SCORABLE
+  POST HOC | -39 pair  3 | r(rho) 1.885380e-04 (+/- 7.3e-10) | SCORABLE
+  POST HOC | -39 pair  4 | r(rho) 7.358400e-05 (+/- 7.5e-10) | SCORABLE
+  POST HOC | -39 pair  5 | r(rho) 5.633500e-05 (+/- 3.4e-10) | SCORABLE
+  POST HOC | -39 pair  6 | r(rho) 6.602700e-05 (+/- 2.9e-10) | SCORABLE
+  POST HOC | -39 pair  7 | r(rho) 6.418300e-05 (+/- 2.7e-10) | SCORABLE
+
+## (b) delta_pred FROM r AND n*_pred ALONE (the spread from r`s banked radius beside it)
+  POST HOC | -15 pair  1 | n*_pred 50972.8919 | L 105.2707 | delta_pred 42.7232 [42.7230, 42.7234] | b713_predictions.json rows k=1 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  2 | n*_pred 59969.0855 | L 106.5537 | delta_pred 43.2011 [43.2009, 43.2013] | b713_predictions.json rows k=2 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  3 | n*_pred 249825.3448 | L 117.9550 | delta_pred 47.4514 [47.4511, 47.4517] | b713_predictions.json rows k=3 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  4 | n*_pred 592320.7456 | L 124.8494 | delta_pred 50.0239 [50.0231, 50.0247] | b713_predictions.json rows k=4 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  5 | n*_pred 673615.7544 | L 125.8786 | delta_pred 50.4081 [50.4076, 50.4086] | b713_predictions.json rows k=5 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  6 | n*_pred 689917.7227 | L 126.0687 | delta_pred 50.4790 [50.4788, 50.4792] | b713_predictions.json rows k=6 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  7 | n*_pred 920974.2363 | L 128.3783 | delta_pred 51.3412 [51.3410, 51.3414] | b713_predictions.json rows k=7 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | -15 pair  8 | n*_pred 2496822.6953 | L 136.3565 | delta_pred 54.3207 [54.3204, 54.3209] | b713_predictions.json rows k=8 r ; b713_onsets.json rows n_pred, n_star
+  POST HOC | Q0  pair 11 | n*_pred 12275846.5662 | L 149.3841 | delta_pred 59.1888 [59.1888, 59.1888] | b713_onsets.json c1 11@415 r, n_pred, n_star
+  POST HOC | Q0  pair 15 | n*_pred 14748496.3055 | L 150.7950 | delta_pred 59.7162 [59.7162, 59.7162] | b713_onsets.json c1 15@445 r, n_pred, n_star
+  POST HOC | -39 pair  1 | n*_pred 207551.1217 | L 118.5366 | delta_pred 47.6683 [47.6679, 47.6688] | b717_predictions.json rows k=1 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  2 | n*_pred 903514.0781 | L 130.2958 | delta_pred 52.0572 [52.0567, 52.0576] | b717_predictions.json rows k=2 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  3 | n*_pred 678962.8408 | L 128.0103 | delta_pred 51.2038 [51.2037, 51.2040] | b717_predictions.json rows k=3 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  4 | n*_pred 1848539.9873 | L 136.0230 | delta_pred 54.1961 [54.1956, 54.1966] | b717_predictions.json rows k=4 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  5 | n*_pred 2454796.3203 | L 138.2910 | delta_pred 55.0433 [55.0430, 55.0436] | b717_predictions.json rows k=5 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  6 | n*_pred 2074035.6191 | L 136.9423 | delta_pred 54.5395 [54.5393, 54.5397] | b717_predictions.json rows k=6 r ; b717_onsets.json rows n_pred, n_star
+  POST HOC | -39 pair  7 | n*_pred 2137372.4336 | L 137.1830 | delta_pred 54.6294 [54.6292, 54.6296] | b717_predictions.json rows k=7 r ; b717_onsets.json rows n_pred, n_star
+
+### ### **CONTROLS: ALL AS WANTED ; SCORABLE 17 OF 17 ; delta_pred WRITTEN AT 17, 42.7 TO 59.7 ; NO n* READ ; ALL POST HOC ; 0 s.**
