@@ -173,7 +173,12 @@ E0_NOTE = {
     'monotone_unique_zero': 'StrictMono V restricts V, a variable the statement binds universally ({V : R -> R}); under (R235)(2)(iii) '
                             '(a restriction on a universally quantified variable: support, parity, smoothness, continuity, ...) it '
                             'would read as a domain condition and the statement DERIVES, but StrictMono is not among the rule`s listed '
-                            'restrictions, and the rule returns INTERFACES. The divergence is printed for the author; the rule`s grade stands.',
+                            'restrictions, and the rule returns INTERFACES. The divergence is printed for the author; the rule`s grade stands. '
+                            'THE CENSUS (the author`s word, b721): THE_KEYSTONE_CENSUS v0.7.1 (PLACE-papers, private; cited by line, not quoted) '
+                            'lists StrictMono with status DOMAIN at phase2/method/THE_KEYSTONE_CENSUS_v0_7_1.md :1195, :1271 and its glossary '
+                            ':1301; v0.8.3 checked: the same status at THE_KEYSTONE_CENSUS_v0_8_3.md :1214 and :1290. e0_rule.py carries '
+                            'StrictMono in MET (:327) alone -- not in DOMAIN (:67), CLASS_PREDS (:91) or RESTRICTIONS (:278) -- so its binder '
+                            'reads as a premise. The two lists disagree; entered under the consistency line, carried for the author.',
 }
 DESC = {
     'SIDE-archimedean': (X_, 'as README 3.1: a sqrt / theta structure no statement compiles'),
