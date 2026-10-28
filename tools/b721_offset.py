@@ -202,6 +202,9 @@ def band_seconds(f):
     out = []
     for k, v in u.items():
         route, span = k.split('|')
+        if span.count('_') != 1:
+            out.append((route, -1.0, -1.0, v.get('seconds', 0)))
+            continue
         lo, hi = span.split('_')
         out.append((route, float(lo), float(hi), v.get('seconds', 0)))
     return out
@@ -214,7 +217,9 @@ def run_tier():
          '### THE RULE, printed before any pair is named: from the banked prediction rows (data/b713_predictions.json, data/b717_predictions.json),',
          '### every pair with no banked onset whose banked r(rho) <= 0.05 -- r alone, no other screen. For each: delta_pred needs the pair`s',
          '### n*_pred, which b709`s route forms only where the pair is within reach of its certified list (tools/b709_pairs.py :174-:178: every',
-         '### rest modulus and the uncertified bound below r); the rows below print each pair`s banked reach beside its list`s top.', '']
+         '### rest modulus and the uncertified bound below r); the rows below print each pair`s banked reach beside its list`s top.',
+         '### Q0`s list (data/b711_list.json) banks no prediction rows of this form (its pairs 11 and 15 alone were reached, b711 needed/reached),',
+         '### so Q0 enters no row here: named, not screened.', '']
     rows = []
     for f, fld in (('b713_predictions.json', '-15'), ('b717_predictions.json', '-39')):
         on = P(f.replace('predictions', 'onsets'))
@@ -255,7 +260,7 @@ def run_tier():
           '', '## THE CARRY',
           '  No delta_pred is formed this act at any of the %d chosen pairs: each lacks a committed n*_pred, and forming one needs the list' % len(ch),
           '  extended -- a computation the budget after (3)-(4) does not hold beside (6)-(8). The rule and the chosen set are committed here,',
-          '  before any onset; each pair is carried to b722 in this order (nearest reach first), its delta_pred to be committed from its own r',
+          '  before any onset; each pair is carried to b722 in this order (by field, nearest reach first), its delta_pred to be committed from its own r',
           '  and n*_pred before its onset.',
           '', '### ### **THE RULE`S OUTPUT: %d CHOSEN BY r(rho) <= 0.05 ; delta_pred FORMED AT 0 (NO n*_pred WITHIN REACH OF ITS LIST) ; ' % len(ch) +
           'NO LIST EXTENDED, NO ONSET RUN ; CARRIED ; %d s.**' % int(time.time() - t0)]
