@@ -222,17 +222,17 @@ REPAIRED_DATA = ()
 # ### b721's trap (event 11): the standing part of the sealed list read from the directory, not a carried tuple
 STANDING_FILES = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing')) if f == 'VERSION' or f.endswith('.py')))
 NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset, sealed by hash beside the act's tools
-STANDING_VERSION = 'v1.2.1'             # ### v1.2.2 lands at Component 1 ((R332)(2))
-STANDING_CHANGED = ()                   # ### the standing files (R332)(2)'s three repairs change (set at Component 1)
-STANDING_NEW = ()
+STANDING_VERSION = 'v1.2.2'             # ### v1.2.2 landed at Component 1 ((R332)(2)), relay 99b0388d
+STANDING_CHANGED = ('VERSION',)         # ### the standing files (R332)(2)'s three repairs change
+STANDING_NEW = ('readfirst.py', 'sealcheck.py', 'used.py', 'v122.py')
 # ### b721's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '30c0b3c8'    # ### b721's closing, the act's relay base
 B714_RECORD = '74dc741f'     # ### b721's record commit (relay, the last before the closing)
 B714_ROOT = 'c6e2079dbe1c904f470c13d63da91ce79f2fb2eef176b29573308aa7334ad8aa'   # ### b721's root, data/act_roots.txt :99
 # ### stage two (Component 8, before the lock): the commits of the components, read from the logs after each was made
-C1_RELAY = None
-C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None
+C1_RELAY = '99b0388d4f'
+C1_PP = 'cbb3b47f16'
+WEIGHT_LINE, CORR_LINE = 11216, 11218
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_REG = None
