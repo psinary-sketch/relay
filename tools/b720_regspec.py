@@ -132,7 +132,7 @@ CLAUSES = [
     ('events and defects of the act left untagged', 'UNTAGGED', 'UNTAGGED', 'items', '### (R330)(2): the counter`s untagged rows; MEASURED off the defects and events banks.'),
     ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b719_rules.txt row (1); MEASURED off the defects bank`s rows.'),
     ('root-route dry runs printed READY False before the lock', 0, 0, 'runs', '### data/b706_rules.txt row (1); v5 row (76): READY True the seal`s evidence; each run after the face`s commit.'),
-    ('root-route dry runs run before the lock', 4, 4, 'runs', '### the standing order runs it once; defects (w), (y): after the face, after each of its two repairs, and last after the gate`s record was committed.'),
+    ('root-route dry runs run before the lock', 5, 5, 'runs', '### the standing order runs it once; defects (w), (y), (z): after the face, after each of its three repairs, and last after the gate`s record was committed.'),
     ('closing dry-run steps printed CLEAN before the lock', 1, 1, 'steps', '### b675 rules row 1.'),
     ('branches deleted beyond the step zero`s list', 0, 0, 'branches', '### port-b707 kept.'),
     ('declared suite failures carried at the close', 'CARRIED', 'CARRIED', 'failures', '### (G2), MEASURED off the face`s declaration line.'),

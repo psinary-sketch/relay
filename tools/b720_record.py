@@ -2738,7 +2738,7 @@ def _for_author():
     return ('(1) THE LAW’s clause 1 refuted at -40, b(100) = -1/2, the five earlier discriminants and -35 at -2 (relay data/b720_coeffs.txt); '
             '(2) the derivation’s -2 graded in C2 at Omega 4 with its hypotheses, Python-checked, not a kernel statement, the step at h > 2 named '
             '(relay data/b720_derivation.txt, THE GRADE); (3) the hand reading of b(100) = -1/2 before the registration, declared and registered as '
-            'H-RR, NOT BLIND (relay data/b720_registrations.txt); (4) the REGISTRY cells read from each document`s own text, %s candidate, the '
+            'H-RR, written after that figure was seen (relay data/b720_registrations.txt); (4) the REGISTRY cells read from each document`s own text, %s candidate, the '
             'six-against-four checkpoint count entered, not edited (REGISTRY, relay data/b720_registry_diff.txt); (5) the challenge file on its '
             'branch, not merged, no tag (relay data/b720_challenge.txt); (6) the pin at %s of %s, five breaks held unrepaired, SIDE-interfaces`s on '
             'its target, not the bump (relay data/b720_pin.txt); (7) the report tool outside the sealed list until the root (relay '
@@ -2779,7 +2779,7 @@ def _finding_text():
          'and PRED-40 n0 = %s, b = %s; the controls C1-C3 before the figures (`%s`); the coefficients through 32532 by b711’s route (`%s`): '
          'n0(-35) = %s with %s negatives, n0(-40) = %s with %s; the decompositions a(n0) %s and %s, the ordered pair sums %s and %s; %s rows, '
          'HELD %s and REFUTED %s, NOT SCORABLE %s -- THE LAW %s (clause 1 %s at -35, %s at -40), PRED-35 %s and PRED-40 %s, H-DECOMP %s, '
-         'H-RR %s at -35 and %s at -40 (NOT BLIND, the seat’s hand reading of b(100) declared before it was registered); the %s forced parts '
+         'H-RR %s at -35 and %s at -40 (written after a figure was seen: the seat’s hand reading of b(100) declared before it was registered); the %s forced parts '
          'printed apart and counted for nothing.' % (
              K.C2_REG[:8], K.C2_PRED[:8], f['pr35'], f['prb35'], f['pr40'], f['prb40'], K.C2_CTL[:8], K.C2_RELAY[:8], f['n35'], f['neg35'],
              f['n40'], f['neg40'], f['dec35'][0], f['dec40'][0], f['dec35'][1], f['dec40'][1], f['rows'], f['held'], f['refuted'], f['unscor'],
