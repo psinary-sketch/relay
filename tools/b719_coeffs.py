@@ -284,7 +284,7 @@ def run(*a):
             L += ['  NO n <= %d WITH c(n) < 0' % N, '']
             continue
         L += ['  THE LEAST n WITH c(n) < 0: n0 = %d = %s ; c(n0) = %s = %s' % (
-                  r['n0'], ' . '.join(('%d^%d' % (p, k)) if k > 1 else '%d' % p for p, k in r['fac']), r['n0'], r['closed'], r['ball']),
+                  r['n0'], ' . '.join(('%d^%d' % (p, k)) if k > 1 else '%d' % p for p, k in r['fac']), r['closed'], r['ball']),
               '  b(n0) = c(n0)/log n0 = %s ; by the Omega derivation %s ; EQUAL %s' % (r['b'], r['b_omega'], r['b'] == r['b_omega']),
               '  the decomposition: a(n0) %d ; the ordered pair sum %d ; k >= 3 factorizations %d ; a - pair/2 = %s' % (r['a'], r['pair'], r['k3'], r['a_half']),
               '  the proper divisors with nonzero a: ' + ', '.join('%d (%d)' % dv for dv in r['divs']),

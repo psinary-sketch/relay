@@ -1,0 +1,45 @@
+b719 -- (R329)(6)(ii): THE COEFFICIENTS AT -20 AND -47 THROUGH 32532 BY b711`S ROUTE, EVERY ROW READ HELD OR REFUTED (2026-10-28T02:42:47Z)
+
+### rows are readings of c(n), Q1`s log-derivative coefficients (-Z_Q1`/Z_Q1 = SUM c(n) n^-s), exact for n <= 32532, each a vector of rationals
+### over the primes of n (c(n) = SUM q_p log p); b_n = r_Q1(n)/2 (b_1 = 1); b(n) = c(n)/log n, the coefficient of log(Z_Q1/2). The registrations
+### committed before: data/b719_registrations.txt at ac88ffb1 (H-24, H-47) and 7e743b4d (PRED-20, PRED-47). THE CONTROLS FIRST (data/b719_coeffs_controls.json, 2026-10-28T02:42:14Z).
+
+### (C1) the recursion with b_n = 1 (zeta`s series) returns von Mangoldt exactly at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2) D = -20 through 32532: the trivial line SUM_f r_f = 2 SUM chi_D(d) misses 0 [] ; r_Q1/2 against the principal ideals by the primes` classes misses 0 [] (the group`s axioms ALL HOLD) ; the genus line r_Q1 - r_Q2 = 2 SUM chi_-4(d) chi_5(n/d) misses 0 ; NEG r_Q2/2 in Q1`s place misses 11871 (the first [1, 2, 3, 4, 5]) -- AS WANTED
+### (C2) D = -47 through 32532: the trivial line SUM_f r_f = 2 SUM chi_D(d) misses 0 [] ; r_Q1/2 against the principal ideals by the primes` classes misses 0 [] (the group`s axioms ALL HOLD) ; NEG r_Q2/2 in Q1`s place misses 7201 (the first [1, 2, 4, 6, 7]) -- AS WANTED
+### (C3) -23 (1, 1, 6) through 32532: the least negative n = 48, c = (-8) log 2 + (-2) log 3, negatives 1066 (wanted 48, (-8) log 2 + (-2) log 3, 1066 ; data/b711_coeffs.txt :12, :14) -- REPRODUCED
+### (C3) -15 (1, 1, 4) through 32532: the least negative n = 24, c = (-6) log 2 + (-2) log 3, negatives 756 (wanted 24, (-6) log 2 + (-2) log 3, 756 ; data/b713_coeffs.txt :13, :14) -- REPRODUCED
+### (C3) -39 (1, 1, 10) through 32532: the least negative n = 120, c = (-6) log 2 + (-2) log 3 + (-2) log 5, negatives 571 (wanted 120, (-6) log 2 + (-2) log 3 + (-2) log 5, 571 ; data/b717_coeffs.txt :16, :25) -- REPRODUCED
+### THE CONTROLS: C1 True ; C2 True ; C3 True ; 4 s
+
+## D = -20, Q1 = 1x^2 + 5y^2: nonzero c(n) 2645 of 32531 (r_Q1(n) nonzero at 5939 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 36 = 2^2 . 3^2 ; c(n0) = (-4) log 2 + (-4) log 3 = [-7.16703787691222 +/- 3.4e-18]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 4 (1), 6 (2), 9 (3)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 2xy + 3y^2 (order 2), represented by 2x^2 + 2xy + 3y^2, by Q1: False ; 3 split, a prime ideal above it in the class of 2x^2 + 2xy + 3y^2 (order 2), represented by 2x^2 + 2xy + 3y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 478 ; the first ten [36, 54, 84, 126, 189, 196, 276, 294, 414, 441]
+
+## D = -47, Q1 = 1x^2 + 1xy + 12y^2: nonzero c(n) 3841 of 32531 (r_Q1(n) nonzero at 5697 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 168 = 2^3 . 3 . 7 ; c(n0) = (-6) log 2 + (-2) log 3 + (-2) log 7 = [-10.2479279588065 +/- 1.79e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 4 (1), 12 (2), 14 (2), 24 (2), 42 (2), 56 (2), 84 (2)
+  each prime of n0: 2 split, a prime ideal above it in the class of 2x^2 + 1xy + 6y^2 (order 5), represented by 2x^2 - 1xy + 6y^2, 2x^2 + 1xy + 6y^2, by Q1: False ; 3 split, a prime ideal above it in the class of 3x^2 + 1xy + 4y^2 (order 5), represented by 3x^2 - 1xy + 4y^2, 3x^2 + 1xy + 4y^2, by Q1: False ; 7 split, a prime ideal above it in the class of 2x^2 + 1xy + 6y^2 (order 5), represented by 2x^2 - 1xy + 6y^2, 2x^2 + 1xy + 6y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 759 ; the first ten [168, 216, 252, 288, 336, 384, 432, 448, 504, 576]
+
+### THE ROWS, EACH ON ITS OWN CLAUSES (data/b718_registrations.txt (4) :28-:33; data/b719_registrations.txt):
+  b718 law clause 1            -20    HELD         b(36) = -2
+  b718 law clause 2            -20    HELD         primes unrepresented by Q1: [2, 3]
+  b718 law clause 2 (strong)   -20    HELD         every prime of n0 unrepresented by Q1: 2 of 2
+  PRED-20                      -20    HELD         computed n0 36, b -2 ; predicted 36, -2
+  H-24 at -20                  -20    REFUTED      36 mod 24 = 12
+  b718 law clause 1            -47    HELD         b(168) = -2
+  b718 law clause 2            -47    HELD         primes unrepresented by Q1: [2, 3, 7]
+  b718 law clause 2 (strong)   -47    HELD         every prime of n0 unrepresented by Q1: 3 of 3
+  PRED-47                      -47    HELD         computed n0 168, b -2 ; predicted 168, -2
+  H-24 at -47                  -47    HELD         168 mod 24 = 0
+  H-24 (the pair)                     REFUTED      H-24 at -20 REFUTED ; H-24 at -47 HELD
+  H-47                         -47    REFUTED      n0(-47) 168, 24 divides it: True ; the premise, the orders above 2 and 3: 2: split of order 5, 3: split of order 5
+
+### ### **n0(-20) = 36, b = -2 ; n0(-47) = 168, b = -2 ; ROWS 12: HELD 9, REFUTED 3, NOT SCORABLE 0 ; H-24 REFUTED ; H-47 REFUTED ; 0 s.**

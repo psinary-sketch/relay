@@ -1,0 +1,257 @@
+{
+ "at": "2026-10-28T02:42:47Z",
+ "cut": 32532,
+ "controls_at": "2026-10-28T02:42:14Z",
+ "readings": {
+  "-20": {
+   "D": -20,
+   "negatives": 478,
+   "first": [
+    36,
+    54,
+    84,
+    126,
+    189,
+    196,
+    276,
+    294,
+    414,
+    441
+   ],
+   "undecided": 0,
+   "nonzero": 2645,
+   "rnz": 5939,
+   "n0": 36,
+   "fac": [
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "closed": "(-4) log 2 + (-4) log 3",
+   "ball": "[-7.16703787691222 +/- 3.4e-18]",
+   "b": "-2",
+   "b_omega": "-2",
+   "a": 3,
+   "pair": 10,
+   "k3": 0,
+   "a_half": "-2",
+   "divs": [
+    [
+     4,
+     1
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     9,
+     3
+    ]
+   ],
+   "reps": {
+    "2": {
+     "kind": "ram",
+     "cls": "2x^2 + 2xy + 3y^2",
+     "order": 2,
+     "forms": [
+      "2x^2 + 2xy + 3y^2"
+     ],
+     "by_q1": false
+    },
+    "3": {
+     "kind": "split",
+     "cls": "2x^2 + 2xy + 3y^2",
+     "order": 2,
+     "forms": [
+      "2x^2 + 2xy + 3y^2"
+     ],
+     "by_q1": false
+    }
+   }
+  },
+  "-47": {
+   "D": -47,
+   "negatives": 759,
+   "first": [
+    168,
+    216,
+    252,
+    288,
+    336,
+    384,
+    432,
+    448,
+    504,
+    576
+   ],
+   "undecided": 0,
+   "nonzero": 3841,
+   "rnz": 5697,
+   "n0": 168,
+   "fac": [
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     7,
+     1
+    ]
+   ],
+   "closed": "(-6) log 2 + (-2) log 3 + (-2) log 7",
+   "ball": "[-10.2479279588065 +/- 1.79e-14]",
+   "b": "-2",
+   "b_omega": "-2",
+   "a": 4,
+   "pair": 12,
+   "k3": 0,
+   "a_half": "-2",
+   "divs": [
+    [
+     4,
+     1
+    ],
+    [
+     12,
+     2
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     24,
+     2
+    ],
+    [
+     42,
+     2
+    ],
+    [
+     56,
+     2
+    ],
+    [
+     84,
+     2
+    ]
+   ],
+   "reps": {
+    "2": {
+     "kind": "split",
+     "cls": "2x^2 + 1xy + 6y^2",
+     "order": 5,
+     "forms": [
+      "2x^2 - 1xy + 6y^2",
+      "2x^2 + 1xy + 6y^2"
+     ],
+     "by_q1": false
+    },
+    "3": {
+     "kind": "split",
+     "cls": "3x^2 + 1xy + 4y^2",
+     "order": 5,
+     "forms": [
+      "3x^2 - 1xy + 4y^2",
+      "3x^2 + 1xy + 4y^2"
+     ],
+     "by_q1": false
+    },
+    "7": {
+     "kind": "split",
+     "cls": "2x^2 + 1xy + 6y^2",
+     "order": 5,
+     "forms": [
+      "2x^2 - 1xy + 6y^2",
+      "2x^2 + 1xy + 6y^2"
+     ],
+     "by_q1": false
+    }
+   }
+  }
+ },
+ "rows": [
+  {
+   "row": "b718 law clause 1",
+   "D": -20,
+   "verdict": "HELD",
+   "why": "b(36) = -2"
+  },
+  {
+   "row": "b718 law clause 2",
+   "D": -20,
+   "verdict": "HELD",
+   "why": "primes unrepresented by Q1: [2, 3]"
+  },
+  {
+   "row": "b718 law clause 2 (strong)",
+   "D": -20,
+   "verdict": "HELD",
+   "why": "every prime of n0 unrepresented by Q1: 2 of 2"
+  },
+  {
+   "row": "PRED-20",
+   "D": -20,
+   "verdict": "HELD",
+   "why": "computed n0 36, b -2 ; predicted 36, -2"
+  },
+  {
+   "row": "H-24 at -20",
+   "D": -20,
+   "verdict": "REFUTED",
+   "why": "36 mod 24 = 12"
+  },
+  {
+   "row": "b718 law clause 1",
+   "D": -47,
+   "verdict": "HELD",
+   "why": "b(168) = -2"
+  },
+  {
+   "row": "b718 law clause 2",
+   "D": -47,
+   "verdict": "HELD",
+   "why": "primes unrepresented by Q1: [2, 3, 7]"
+  },
+  {
+   "row": "b718 law clause 2 (strong)",
+   "D": -47,
+   "verdict": "HELD",
+   "why": "every prime of n0 unrepresented by Q1: 3 of 3"
+  },
+  {
+   "row": "PRED-47",
+   "D": -47,
+   "verdict": "HELD",
+   "why": "computed n0 168, b -2 ; predicted 168, -2"
+  },
+  {
+   "row": "H-24 at -47",
+   "D": -47,
+   "verdict": "HELD",
+   "why": "168 mod 24 = 0"
+  },
+  {
+   "row": "H-24 (the pair)",
+   "D": null,
+   "verdict": "REFUTED",
+   "why": "H-24 at -20 REFUTED ; H-24 at -47 HELD"
+  },
+  {
+   "row": "H-47",
+   "D": -47,
+   "verdict": "REFUTED",
+   "why": "n0(-47) 168, 24 divides it: True ; the premise, the orders above 2 and 3: 2: split of order 5, 3: split of order 5"
+  }
+ ]
+}
