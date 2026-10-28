@@ -8,3 +8,5 @@
 2026-10-28T09:06:32Z | PIPE | PowerShell | "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 tools/b720_reg_gate.py --quiet-unused | Out-Null; Select-String -Path D:/relay/data/b720_reg_gate.txt -Pattern 'GATE VERDICT'" | a PowerShell command carrying a pipe outside quotes
 2026-10-28T09:10:56Z | PIPE | Bash | "git log --format='%h %s' -40 --grep='b719' | head -40" | a Bash command carrying a pipe outside quotes
 2026-10-28T11:49:09Z | PIPE | Bash | "git diff --stat && git diff --numstat && git diff -U0 FINDINGS.md --stat=200 && git diff -U0 FINDINGS.md | grep -c \"^-[^-]\"" | a Bash command carrying a pipe outside quotes
+2026-10-28T12:21:21Z | READ | Read | "D:\\relay\\data\\b720_relay_push-b720-preroot_push_out.txt" | a Read call with no limit
+2026-10-28T12:47:06Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b719_traps.md" | a Read call with no limit
