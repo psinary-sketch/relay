@@ -1,0 +1,57 @@
+b720 -- (R330)(3): THE COEFFICIENTS AT -35 AND -40 THROUGH 32532 BY b711`S ROUTE, EVERY ROW READ HELD OR REFUTED, THE FORCED PARTS APART (2026-10-28T07:22:35Z)
+
+### rows are readings of c(n), Q1`s log-derivative coefficients (-Z_Q1`/Z_Q1 = SUM c(n) n^-s), exact for n <= 32532, each a vector of rationals
+### over the primes of n (c(n) = SUM q_p log p); b_n = r_Q1(n)/2 (b_1 = 1); b(n) = c(n)/log n, the coefficient of log(Z_Q1/2). The registrations
+### committed before: data/b720_registrations.txt at f5353ca9 (the rule, H-DECOMP, THE LAW, H-RR) and 54fc03d9 (PRED-35, PRED-40). THE CONTROLS FIRST
+### (data/b720_coeffs_controls.json, 2026-10-28T07:22:18Z).
+
+### (C1) the recursion with b_n = 1 (zeta`s series) returns von Mangoldt exactly at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2) D = -35 through 32532: the trivial line SUM_f r_f = 2 SUM chi_D(d) misses 0 [] ; r_Q1/2 against the principal ideals by the primes` classes misses 0 [] (the group`s axioms ALL HOLD) ; the genus line r_Q1 - r_Q2 = 2 SUM chi_-7(d) chi_5(n/d) misses 0 [] ; NEG r_Q2/2 in Q1`s place misses 9073 (the first [1, 3, 4, 5, 7]) -- AS WANTED
+### (C2) D = -40 through 32532: the trivial line SUM_f r_f = 2 SUM chi_D(d) misses 0 [] ; r_Q1/2 against the principal ideals by the primes` classes misses 0 [] (the group`s axioms ALL HOLD) ; the genus line r_Q1 - r_Q2 = 2 SUM chi_-8(d) chi_5(n/d) misses 0 [] ; NEG r_Q2/2 in Q1`s place misses 10578 (the first [1, 2, 4, 5, 7]) -- AS WANTED
+### (C3) -23 (1, 1, 6) through 32532: the least negative n = 48, c = (-8) log 2 + (-2) log 3, negatives 1066 (wanted 48, (-8) log 2 + (-2) log 3, 1066 ; data/b711_coeffs.txt :12, :14) -- REPRODUCED
+### (C3) -15 (1, 1, 4) through 32532: the least negative n = 24, c = (-6) log 2 + (-2) log 3, negatives 756 (wanted 24, (-6) log 2 + (-2) log 3, 756 ; data/b713_coeffs.txt :13, :14) -- REPRODUCED
+### (C3) -39 (1, 1, 10) through 32532: the least negative n = 120, c = (-6) log 2 + (-2) log 3 + (-2) log 5, negatives 571 (wanted 120, (-6) log 2 + (-2) log 3 + (-2) log 5, 571 ; data/b717_coeffs.txt :16, :25) -- REPRODUCED
+### (C3) -20 (1, 0, 5) through 32532: the least negative n = 36, c = (-4) log 2 + (-4) log 3, negatives 478 (wanted 36, (-4) log 2 + (-4) log 3, 478 ; data/b719_coeffs.txt :16, :21) -- REPRODUCED
+### (C3) -47 (1, 1, 12) through 32532: the least negative n = 168, c = (-6) log 2 + (-2) log 3 + (-2) log 7, negatives 759 (wanted 168, (-6) log 2 + (-2) log 3 + (-2) log 7, 759 ; data/b719_coeffs.txt :24, :29) -- REPRODUCED
+### THE CONTROLS: C1 True ; C2 True ; C3 True ; 4 s
+
+## D = -35, Q1 = 1x^2 + 1xy + 9y^2: nonzero c(n) 2176 of 32531 (r_Q1(n) nonzero at 4536 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 135 = 3^3 . 5 ; c(n0) = (-6) log 3 + (-2) log 5 = [-9.81054955687686 +/- 1.11e-15]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 9 (3), 15 (2)
+  each prime of n0: 3 split, a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (order 2), represented by 3x^2 + 1xy + 3y^2, by Q1: False ; 5 ram, a prime ideal above it in the class of 3x^2 + 1xy + 3y^2 (order 2), represented by 3x^2 + 1xy + 3y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 266 ; the first ten [135, 189, 225, 315, 351, 441, 459, 525, 585, 735]
+  H-RR`s index (NOT BLIND): b(1225) = -1/2, c = (-1) log 5 + (-1) log 7
+
+## D = -40, Q1 = 1x^2 + 10y^2: nonzero c(n) 2429 of 32531 (r_Q1(n) nonzero at 5293 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 100 = 2^2 . 5^2 ; c(n0) = (-1) log 2 + (-1) log 5 = [-2.30258509299405 +/- 4.32e-15]
+  b(n0) = c(n0)/log n0 = -1/2 ; by the Omega derivation -1/2 ; EQUAL True
+  the decomposition: a(n0) 1 ; the ordered pair sum 3 ; k >= 3 factorizations 0 ; a - pair/2 = -1/2
+  the proper divisors with nonzero a: 4 (1), 10 (1), 25 (1)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 5y^2 (order 2), represented by 2x^2 + 5y^2, by Q1: False ; 5 ram, a prime ideal above it in the class of 2x^2 + 5y^2 (order 2), represented by 2x^2 + 5y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 354 ; the first ten [100, 140, 196, 260, 350, 364, 460, 490, 644, 650]
+  H-RR`s index (NOT BLIND): b(100) = -1/2, c = (-1) log 2 + (-1) log 5
+
+### THE ROWS, EACH ON ITS OWN CLAUSES (data/b720_registrations.txt (i)-(iii), H-RR):
+  THE LAW clause 1             -35    HELD         b(135) = -2
+  THE LAW clause 2             -35    HELD         primes unrepresented by Q1: [3, 5]
+  THE LAW clause 2 (strong)    -35    HELD         every prime of n0 unrepresented by Q1: 2 of 2
+  PRED-35                      -35    HELD         computed n0 135, b -2 ; predicted 135, -2
+  H-DECOMP T(-35, 2)           -35    HELD         the exponent of 2 in n0 = 135 is 0 ; registered 0
+  H-DECOMP T(-35, 3)           -35    HELD         the exponent of 3 in n0 = 135 is 3 ; registered 3
+  THE LAW clause 1             -40    REFUTED      b(100) = -1/2
+  THE LAW clause 2             -40    HELD         primes unrepresented by Q1: [2, 5]
+  THE LAW clause 2 (strong)    -40    HELD         every prime of n0 unrepresented by Q1: 2 of 2
+  PRED-40                      -40    HELD         computed n0 100, b -1/2 ; predicted 100, -1/2
+  H-DECOMP T(-40, 2)           -40    HELD         the exponent of 2 in n0 = 100 is 2 ; registered 2
+  H-DECOMP T(-40, 3)           -40    HELD         the exponent of 3 in n0 = 100 is 0 ; registered 0
+  H-DECOMP (overall)                  HELD         H-DECOMP T(-35, 2) HELD ; H-DECOMP T(-35, 3) HELD ; H-DECOMP T(-40, 2) HELD ; H-DECOMP T(-40, 3) HELD
+  H-RR at -40 (NOT BLIND)      -40    HELD         b(100) = -1/2 (c = (-1) log 2 + (-1) log 5) ; registered -1/2
+  H-RR at -35 (NOT BLIND)      -35    HELD         b(1225) = -1/2 (c = (-1) log 5 + (-1) log 7) ; registered -1/2
+
+### THE FORCED PARTS, APART AND COUNTED FOR NOTHING (data/b720_registrations.txt (ii) F1, F2):
+  H-DECOMP F(-35, 2)           -35    FORCED, AS FORCED  the exponent of the inert prime 2 in n0 = 135 is 0, even: True
+  H-DECOMP F(-40, 3)           -40    FORCED, AS FORCED  the exponent of the inert prime 3 in n0 = 100 is 0, even: True
+
+### ### **n0(-35) = 135, b = -2 ; n0(-40) = 100, b = -1/2 ; ROWS 15: HELD 14, REFUTED 1, NOT SCORABLE 0 ; THE LAW REFUTED ; H-DECOMP HELD ; PRED-35 HELD, PRED-40 HELD ; FORCED 2 APART ; 0 s.**

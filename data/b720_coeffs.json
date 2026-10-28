@@ -1,0 +1,263 @@
+{
+ "at": "2026-10-28T07:22:35Z",
+ "cut": 32532,
+ "controls_at": "2026-10-28T07:22:18Z",
+ "readings": {
+  "-35": {
+   "D": -35,
+   "negatives": 266,
+   "first": [
+    135,
+    189,
+    225,
+    315,
+    351,
+    441,
+    459,
+    525,
+    585,
+    735
+   ],
+   "undecided": 0,
+   "nonzero": 2176,
+   "rnz": 4536,
+   "hrr": {
+    "n": 1225,
+    "b": "-1/2",
+    "closed": "(-1) log 5 + (-1) log 7"
+   },
+   "n0": 135,
+   "fac": [
+    [
+     3,
+     3
+    ],
+    [
+     5,
+     1
+    ]
+   ],
+   "closed": "(-6) log 3 + (-2) log 5",
+   "ball": "[-9.81054955687686 +/- 1.11e-15]",
+   "b": "-2",
+   "b_omega": "-2",
+   "a": 4,
+   "pair": 12,
+   "k3": 0,
+   "a_half": "-2",
+   "divs": [
+    [
+     9,
+     3
+    ],
+    [
+     15,
+     2
+    ]
+   ],
+   "reps": {
+    "3": {
+     "kind": "split",
+     "cls": "3x^2 + 1xy + 3y^2",
+     "order": 2,
+     "forms": [
+      "3x^2 + 1xy + 3y^2"
+     ],
+     "by_q1": false
+    },
+    "5": {
+     "kind": "ram",
+     "cls": "3x^2 + 1xy + 3y^2",
+     "order": 2,
+     "forms": [
+      "3x^2 + 1xy + 3y^2"
+     ],
+     "by_q1": false
+    }
+   }
+  },
+  "-40": {
+   "D": -40,
+   "negatives": 354,
+   "first": [
+    100,
+    140,
+    196,
+    260,
+    350,
+    364,
+    460,
+    490,
+    644,
+    650
+   ],
+   "undecided": 0,
+   "nonzero": 2429,
+   "rnz": 5293,
+   "hrr": {
+    "n": 100,
+    "b": "-1/2",
+    "closed": "(-1) log 2 + (-1) log 5"
+   },
+   "n0": 100,
+   "fac": [
+    [
+     2,
+     2
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "closed": "(-1) log 2 + (-1) log 5",
+   "ball": "[-2.30258509299405 +/- 4.32e-15]",
+   "b": "-1/2",
+   "b_omega": "-1/2",
+   "a": 1,
+   "pair": 3,
+   "k3": 0,
+   "a_half": "-1/2",
+   "divs": [
+    [
+     4,
+     1
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     25,
+     1
+    ]
+   ],
+   "reps": {
+    "2": {
+     "kind": "ram",
+     "cls": "2x^2 + 5y^2",
+     "order": 2,
+     "forms": [
+      "2x^2 + 5y^2"
+     ],
+     "by_q1": false
+    },
+    "5": {
+     "kind": "ram",
+     "cls": "2x^2 + 5y^2",
+     "order": 2,
+     "forms": [
+      "2x^2 + 5y^2"
+     ],
+     "by_q1": false
+    }
+   }
+  }
+ },
+ "rows": [
+  {
+   "row": "THE LAW clause 1",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "b(135) = -2"
+  },
+  {
+   "row": "THE LAW clause 2",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "primes unrepresented by Q1: [3, 5]"
+  },
+  {
+   "row": "THE LAW clause 2 (strong)",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "every prime of n0 unrepresented by Q1: 2 of 2"
+  },
+  {
+   "row": "PRED-35",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "computed n0 135, b -2 ; predicted 135, -2"
+  },
+  {
+   "row": "H-DECOMP T(-35, 2)",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "the exponent of 2 in n0 = 135 is 0 ; registered 0"
+  },
+  {
+   "row": "H-DECOMP T(-35, 3)",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "the exponent of 3 in n0 = 135 is 3 ; registered 3"
+  },
+  {
+   "row": "THE LAW clause 1",
+   "D": -40,
+   "verdict": "REFUTED",
+   "why": "b(100) = -1/2"
+  },
+  {
+   "row": "THE LAW clause 2",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "primes unrepresented by Q1: [2, 5]"
+  },
+  {
+   "row": "THE LAW clause 2 (strong)",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "every prime of n0 unrepresented by Q1: 2 of 2"
+  },
+  {
+   "row": "PRED-40",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "computed n0 100, b -1/2 ; predicted 100, -1/2"
+  },
+  {
+   "row": "H-DECOMP T(-40, 2)",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "the exponent of 2 in n0 = 100 is 2 ; registered 2"
+  },
+  {
+   "row": "H-DECOMP T(-40, 3)",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "the exponent of 3 in n0 = 100 is 0 ; registered 0"
+  },
+  {
+   "row": "H-DECOMP (overall)",
+   "D": null,
+   "verdict": "HELD",
+   "why": "H-DECOMP T(-35, 2) HELD ; H-DECOMP T(-35, 3) HELD ; H-DECOMP T(-40, 2) HELD ; H-DECOMP T(-40, 3) HELD"
+  },
+  {
+   "row": "H-RR at -40 (NOT BLIND)",
+   "D": -40,
+   "verdict": "HELD",
+   "why": "b(100) = -1/2 (c = (-1) log 2 + (-1) log 5) ; registered -1/2"
+  },
+  {
+   "row": "H-RR at -35 (NOT BLIND)",
+   "D": -35,
+   "verdict": "HELD",
+   "why": "b(1225) = -1/2 (c = (-1) log 5 + (-1) log 7) ; registered -1/2"
+  }
+ ],
+ "forced": [
+  {
+   "row": "H-DECOMP F(-35, 2)",
+   "D": -35,
+   "verdict": "FORCED, AS FORCED",
+   "why": "the exponent of the inert prime 2 in n0 = 135 is 0, even: True"
+  },
+  {
+   "row": "H-DECOMP F(-40, 3)",
+   "D": -40,
+   "verdict": "FORCED, AS FORCED",
+   "why": "the exponent of the inert prime 3 in n0 = 100 is 0, even: True"
+  }
+ ]
+}
