@@ -1,0 +1,191 @@
+b720 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b719_regspec.py -> tools/b720_regspec.py (2026-10-28T07:56:30Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b719 -> b720, b718 -> b719, R329 -> R330, R328 -> R329); 432 lines, 70 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b719_tool_repairs.txt AND data/b719_repairdiff_regspec.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b719; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b719_regspec.py
+  +++ tools/b720_regspec.py
+  @@ -2,1 +2,1 @@
+  -"""b719_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  +"""b720_regspec.py -- THE REGISTRATION'S SATISFIABILITY SPEC. ### **COMPUTED, NOT TYPED.**
+  @@ -4,6 +4,6 @@
+  -### ### Carried from b718's spec by tools/b719_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  -### ### (Component 7): the citation check as a gate step; the corrigendum, the DIFFERS entry and the ERRATA entry ((R329)(3)-(5)); the arms'
+  -### ### tags and the counter; b718's registrations read unchanged and this act's three registrations each committed alone before their figures
+  -### ### ((R329)(6)(i), (8)(ii), (9), N2); the coefficients, the derivation, the offset read, the surgery carried, the history and the
+  -### ### retirement, the count route priced ((R329)(6)-(11)); no dispatch, no pin branch, no kernel touched (N1, N5); the step-zero deletes
+  -### ### ((R329)(12)); the suite in seven parts, one call each;
+  +### ### Carried from b719's spec by tools/b720_carry.py (the act names substituted) and its clauses re-written by the Edit tool against this face
+  +### ### (Component 7): the citation check as a gate step; the corrigendum, the DIFFERS entry and the ERRATA entry ((R330)(3)-(5)); the arms'
+  +### ### tags and the counter; b719's registrations read unchanged and this act's three registrations each committed alone before their figures
+  +### ### ((R330)(6)(i), (8)(ii), (9), N2); the coefficients, the derivation, the offset read, the surgery carried, the history and the
+  +### ### retirement, the count route priced ((R330)(6)-(11)); no dispatch, no pin branch, no kernel touched (N1, N5); the step-zero deletes
+  +### ### ((R330)(12)); the suite in seven parts, one call each;
+  @@ -25,1 +25,1 @@
+  -import b719_worklist as K   # noqa: E402
+  +import b720_worklist as K   # noqa: E402
+  @@ -27,2 +27,2 @@
+  -REG = os.path.join(ROOT, 'data', 'b719_registration_2026-10-28.txt')
+  -SPEC = os.path.join(ROOT, 'data', 'b719_satisfiable.json')
+  +REG = os.path.join(ROOT, 'data', 'b720_registration_2026-10-28.txt')
+  +SPEC = os.path.join(ROOT, 'data', 'b720_satisfiable.json')
+  @@ -44,1 +44,1 @@
+  -    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin`s remainder moved to b720, b718`s nine local pin-b718-de5ce8a9 branches carried unpushed ((R329)(11)); MEASURED off the twelve kernels` refs/heads/pin-b719*.'),
+  +    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin`s remainder moved to b720, b719`s nine local pin-b719-de5ce8a9 branches carried unpushed ((R330)(11)); MEASURED off the twelve kernels` refs/heads/pin-b720*.'),
+  @@ -54,2 +54,2 @@
+  -    ('kernel branches deleted', 0, 0, 'branches', '### none: port-b707 KEPT; b718`s pin branches carried.'),
+  -    ('branches deleted at step zero', 5, 5, 'branches', '### (R329)(12): relay push-b718-preroot, push-b718-record, push-b718-closing; PLACE-papers push-b718-preroot, push-b718-record; each local, by name, after --merged listed it (data/b719_stepzero.txt :30-:33).'),
+  +    ('kernel branches deleted', 0, 0, 'branches', '### none: port-b707 KEPT; b719`s pin branches carried.'),
+  +    ('branches deleted at step zero', 5, 5, 'branches', '### (R330)(12): relay push-b719-preroot, push-b719-record, push-b719-closing; PLACE-papers push-b719-preroot, push-b719-record; each local, by name, after --merged listed it (data/b720_stepzero.txt :30-:33).'),
+  @@ -60,1 +60,1 @@
+  -    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence deleted at b718`s step zero, its tip 0aeca834 merged by b714 at a86c9429.'),
+  +    ('commits on the re-cut branch', 0, 0, 'commits', '### none: recut-b712-silence deleted at b719`s step zero, its tip 0aeca834 merged by b714 at a86c9429.'),
+  @@ -62,1 +62,1 @@
+  -    ('re-cut branches deleted', 0, 0, 'branches', '### none this act (b718`s).'),
+  +    ('re-cut branches deleted', 0, 0, 'branches', '### none this act (b719`s).'),
+  @@ -75,1 +75,1 @@
+  -    ('REGISTRY rows changed', 0, 0, 'rows', '### none this act: the cells moved to b720 ((R329)(11)).'),
+  +    ('REGISTRY rows changed', 0, 0, 'rows', '### none this act: the cells moved to b720 ((R330)(11)).'),
+  @@ -77,4 +77,4 @@
+  -    ('outside collection names written to a ledger', 'OUTSIDE', 'OUTSIDE', 'names', '### b641`s form ((R329)(1)): none; MEASURED off the lines this act adds to PLACE-papers by tools/b641_record.py OAI_NEEDLES.'),
+  -    ('generated corrigendum entries', 1, 1, 'entries', '### (R329)(3): FINDINGS :10898.'),
+  -    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R329)(3): row (39).'),
+  -    ('FINDINGS corrigendum entries for the touch read`s DIFFERS', 1, 1, 'entries', '### (R329)(4): FINDINGS :10961, the ten T-COUNT lines and the eleventh carried for the author; no line of the record rewritten.'),
+  +    ('outside collection names written to a ledger', 'OUTSIDE', 'OUTSIDE', 'names', '### b641`s form ((R330)(1)): none; MEASURED off the lines this act adds to PLACE-papers by tools/b641_record.py OAI_NEEDLES.'),
+  +    ('generated corrigendum entries', 1, 1, 'entries', '### (R330)(3): FINDINGS :10898.'),
+  +    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R330)(3): row (39).'),
+  +    ('FINDINGS corrigendum entries for the touch read`s DIFFERS', 1, 1, 'entries', '### (R330)(4): FINDINGS :10961, the ten T-COUNT lines and the eleventh carried for the author; no line of the record rewritten.'),
+  @@ -83,3 +83,3 @@
+  -    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R329)(6)-(11): the coefficients, the derivation, the offset read, the surgery (carried), the arm history, the retirement and the count route`s price; MEASURED off the banks present.'),
+  -    ('registrations read unchanged from their commit', 1, 1, 'registrations', '### (R329)(6)(i), N2: data/b718_registrations.txt at 8146404b, blob for blob at HEAD.'),
+  -    ('registrations committed alone before their figures', 'REGS', 'REGS', 'registrations', '### (R329)(6)(i), (8)(ii), (9), N2: H-24 and H-47 at ac88ffb1, H-OFFSET at 7b1ab86f, H-SHAPE at 965cb8e8, each touching data/b719_registrations.txt alone; MEASURED off the three commits` files.'),
+  +    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### (R330)(6)-(11): the coefficients, the derivation, the offset read, the surgery (carried), the arm history, the retirement and the count route`s price; MEASURED off the banks present.'),
+  +    ('registrations read unchanged from their commit', 1, 1, 'registrations', '### (R330)(6)(i), N2: data/b719_registrations.txt at 8146404b, blob for blob at HEAD.'),
+  +    ('registrations committed alone before their figures', 'REGS', 'REGS', 'registrations', '### (R330)(6)(i), (8)(ii), (9), N2: H-24 and H-47 at ac88ffb1, H-OFFSET at 7b1ab86f, H-SHAPE at 965cb8e8, each touching data/b720_registrations.txt alone; MEASURED off the three commits` files.'),
+  @@ -91,3 +91,3 @@
+  -    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R329)(10): tools/standing/arms.py, its RETIRED tuple at 1085464a, VERSION left v1.2.0; MEASURED off the worklist`s lists.'),
+  -    ('arms retired from the suite`s run list', 'RETIRED', 'RETIRED', 'arms', '### (R329)(10): CLOSE arms whose failures b705-b718 trace to the close alone, the history first (d033e450), 141 -> 116; MEASURED off tools/standing/arms.py.'),
+  -    ('claim or guarding arms retired', 0, 0, 'arms', '### (R329)(10), N4: G-ARMS-RETIRED.'),
+  +    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R330)(10): tools/standing/arms.py, its RETIRED tuple at 1085464a, VERSION left v1.2.0; MEASURED off the worklist`s lists.'),
+  +    ('arms retired from the suite`s run list', 'RETIRED', 'RETIRED', 'arms', '### (R330)(10): CLOSE arms whose failures b705-b719 trace to the close alone, the history first (d033e450), 141 -> 116; MEASURED off tools/standing/arms.py.'),
+  +    ('claim or guarding arms retired', 0, 0, 'arms', '### (R330)(10), N4: G-ARMS-RETIRED.'),
+  @@ -95,1 +95,1 @@
+  -    ('shared banks written by ruling', 2, 2, 'banks', '### (R329)(12): data/act_current.json at step zero (4cabf3b7); data/arm_tags.json re-pointed at Component 7 for (10)`s retirement.'),
+  +    ('shared banks written by ruling', 2, 2, 'banks', '### (R330)(12): data/act_current.json at step zero (4cabf3b7); data/arm_tags.json re-pointed at Component 7 for (10)`s retirement.'),
+  @@ -97,1 +97,1 @@
+  -    ('computations run with free memory beneath the hold', 'BENEATH', 'BENEATH', 'computations', '### (R329)(12): the 2,560 MB hold read before each; MEASURED off the defects bank.'),
+  +    ('computations run with free memory beneath the hold', 'BENEATH', 'BENEATH', 'computations', '### (R330)(12): the 2,560 MB hold read before each; MEASURED off the defects bank.'),
+  @@ -126,3 +126,3 @@
+  -    ('arms tagged CLAIM or CLOSE', 'TAGGED', 'TAGGED', 'arms', '### (R329)(2): data/arm_tags.json; MEASURED off its tags.'),
+  -    ('events and defects of the act left untagged', 'UNTAGGED', 'UNTAGGED', 'items', '### (R329)(2): the counter`s untagged rows; MEASURED off the defects and events banks.'),
+  -    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b718_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  +    ('arms tagged CLAIM or CLOSE', 'TAGGED', 'TAGGED', 'arms', '### (R330)(2): data/arm_tags.json; MEASURED off its tags.'),
+  +    ('events and defects of the act left untagged', 'UNTAGGED', 'UNTAGGED', 'items', '### (R330)(2): the counter`s untagged rows; MEASURED off the defects and events banks.'),
+  +    ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b719_rules.txt row (1); MEASURED off the defects bank`s rows.'),
+  @@ -138,1 +138,1 @@
+  -    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R329)(1); MEASURED.'),
+  +    ('record lines landed before the seal', 'LINES', 'LINES', 'lines', '### (R330)(1); MEASURED.'),
+  @@ -163,1 +163,1 @@
+  -    ('PLACE-papers ERRATA entries written', 1, 1, 'entries', '### (R329)(5): E-2026-10-28-1 at ERRATA :990, the join`s premise; nothing in lv edited.'),
+  +    ('PLACE-papers ERRATA entries written', 1, 1, 'entries', '### (R330)(5): E-2026-10-28-1 at ERRATA :990, the join`s premise; nothing in lv edited.'),
+  @@ -169,2 +169,2 @@
+  -    ('test files run at step zero', 'TESTS', 'TESTS', 'files', '### none: (R329)`s Component 0 lists no test run (data/b719_stepzero.txt :45-:46); MEASURED off the bank (absent).'),
+  -    ('words of the author received before the seal', 'PRESEAL', 'PRESEAL', 'words', '### none beyond the ruling; MEASURED off data/b719_author_words_preseal.txt (absent reads 0).'),
+  +    ('test files run at step zero', 'TESTS', 'TESTS', 'files', '### none: (R330)`s Component 0 lists no test run (data/b720_stepzero.txt :45-:46); MEASURED off the bank (absent).'),
+  +    ('words of the author received before the seal', 'PRESEAL', 'PRESEAL', 'words', '### none beyond the ruling; MEASURED off data/b720_author_words_preseal.txt (absent reads 0).'),
+  @@ -176,1 +176,1 @@
+  -    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R329).'),
+  +    ('author rulings ratified and entered', 1, 1, 'rulings', '### the ferry: (R330).'),
+  @@ -210,1 +210,1 @@
+  -    import b719_record as REC
+  +    import b720_record as REC
+  @@ -216,1 +216,1 @@
+  -                with tempfile.TemporaryDirectory(prefix='b719_spec_') as d:
+  +                with tempfile.TemporaryDirectory(prefix='b720_spec_') as d:
+  @@ -244,1 +244,1 @@
+  -    import b719_record as REC
+  +    import b720_record as REC
+  @@ -247,1 +247,1 @@
+  -                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b719_ferry.txt'), '### b999 absent')),
+  +                    ('a head the ledger does not carry', lambda: REC.read_head(os.path.join(ROOT, 'data', 'b720_ferry.txt'), '### b999 absent')),
+  @@ -274,3 +274,3 @@
+  -def refresh_commands(bank='b719_commands.json'):
+  -    """(R329)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  -    route in this step, before the face's counts are read from it (b718's face read ANYPIPES 7 from a bank last written before its eighth
+  +def refresh_commands(bank='b720_commands.json'):
+  +    """(R330)(3)(v), standing clauses v3: THE COMMAND SCREEN READS A FRESH BANK -- the command bank rewritten by the record tool's `commands`
+  +    route in this step, before the face's counts are read from it (b719's face read ANYPIPES 7 from a bank last written before its eighth
+  @@ -280,1 +280,1 @@
+  -    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b719_record.py'), 'commands'], capture_output=True,
+  +    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', 'b720_record.py'), 'commands'], capture_output=True,
+  @@ -293,1 +293,1 @@
+  -    print('  ### (R329)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  +    print('  ### (R330)(3)(v) THE COMMAND BANK REFRESHED IN THIS STEP: %s' % (fresh or '### NOT REFRESHED'))
+  @@ -297,1 +297,1 @@
+  -    print('b719_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  +    print('b720_regspec.py -- THE SATISFIABILITY SPEC. ### THE COUNTER IS IMPORTED, NOT COPIED.')
+  @@ -350,2 +350,2 @@
+  -    # ### N1, N5: a pin branch of this act in any of the twelve kernels (none wanted; b718's pin-b718-* carried)
+  -    pin_new = [k for k in K.PIN_KERNELS if _git('D:/' + k, 'for-each-ref', '--format=%(refname)', 'refs/heads/pin-b719*')]
+  +    # ### N1, N5: a pin branch of this act in any of the twelve kernels (none wanted; b719's pin-b719-* carried)
+  +    pin_new = [k for k in K.PIN_KERNELS if _git('D:/' + k, 'for-each-ref', '--format=%(refname)', 'refs/heads/pin-b720*')]
+  @@ -358,1 +358,1 @@
+  -        return _git(ROOT, 'diff-tree', '--no-commit-id', '--name-only', '-r', c).split() == ['data/b719_registrations.txt']
+  +        return _git(ROOT, 'diff-tree', '--no-commit-id', '--name-only', '-r', c).split() == ['data/b720_registrations.txt']
+  @@ -367,1 +367,1 @@
+  -    fig_banks = [p for p in ('data/b719_prediction.txt', 'data/b719_coeffs.txt', 'data/b719_coeffs.json', 'data/b719_coeffs_controls.json')
+  +    fig_banks = [p for p in ('data/b720_prediction.txt', 'data/b720_coeffs.txt', 'data/b720_coeffs.json', 'data/b720_coeffs_controls.json')
+  @@ -371,3 +371,3 @@
+  -                    TESTS=jcount('b719_tests_stepzero.json', len), QUESTIONS=tcount('b719_author_answers.txt', r'^### PROMPT '),
+  -                    LINES=jcount('b719_record_lines.json', lambda j: len(j.get('lines') or [])),
+  -                    MISSES=tfirst('b719_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  +                    TESTS=jcount('b720_tests_stepzero.json', len), QUESTIONS=tcount('b720_author_answers.txt', r'^### PROMPT '),
+  +                    LINES=jcount('b720_record_lines.json', lambda j: len(j.get('lines') or [])),
+  +                    MISSES=tfirst('b720_citation_check.txt', r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)'),
+  @@ -380,2 +380,2 @@
+  -                    ACTEDBEFORE=tcount('b719_defects.txt', r"^    \([a-z]\) THE SEAT'S \[[^]]*\]: the author's word .* acted on .*before its cites were checked"),
+  -                    BENEATH=tcount('b719_defects.txt', r'^    \([a-z]\) .*beneath the 2,560 MB hold'),
+  +                    ACTEDBEFORE=tcount('b720_defects.txt', r"^    \([a-z]\) THE SEAT'S \[[^]]*\]: the author's word .* acted on .*before its cites were checked"),
+  +                    BENEATH=tcount('b720_defects.txt', r'^    \([a-z]\) .*beneath the 2,560 MB hold'),
+  @@ -383,3 +383,3 @@
+  -                    UNTAGGED=len(__import__('b719_record')._counter()['untagged']),
+  -                    PRESEAL=tcount('b719_author_words_preseal.txt', r'^## \(\d+\) '),
+  -                    CARRIED=carried(text), DISPATCHES=jcount('b719_commands.json', lambda j: len(j.get('dispatches') or [])),
+  +                    UNTAGGED=len(__import__('b720_record')._counter()['untagged']),
+  +                    PRESEAL=tcount('b720_author_words_preseal.txt', r'^## \(\d+\) '),
+  +                    CARRIED=carried(text), DISPATCHES=jcount('b720_commands.json', lambda j: len(j.get('dispatches') or [])),
+  @@ -389,1 +389,1 @@
+  -                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b719_\w+_hashes\.txt$', f)]),
+  +                    BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b720_\w+_hashes\.txt$', f)]),
+  @@ -391,1 +391,1 @@
+  -                                 if os.path.exists(os.path.join(ROOT, 'data', 'b719_%s.txt' % n_))]),
+  +                                 if os.path.exists(os.path.join(ROOT, 'data', 'b720_%s.txt' % n_))]),
+  @@ -393,1 +393,1 @@
+  -                    # ### row and read 0 over b719's (q); a repair of this tool's reader at Component 7)
+  +                    # ### row and read 0 over b720's (q); a repair of this tool's reader at Component 7)
+  @@ -395,7 +395,7 @@
+  -                                              io.open(os.path.join(ROOT, 'data', 'b719_defects.txt'), encoding='utf-8').read(), re.M | re.I)),
+  -                    SEDS=jcount('b719_commands.json', lambda j: len(j.get('seds') or [])),
+  -                    REDIRECTS=jcount('b719_commands.json', lambda j: len(j.get('redirects') or [])),
+  -                    PIPES=jcount('b719_commands.json', lambda j: len(j.get('pipes') or [])),
+  -                    ANYPIPES=jcount('b719_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  -                    PYPROGS=jcount('b719_commands.json', lambda j: len(j.get('py_programs') or [])),
+  -                    READOFF=tfirst('b719_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  +                                              io.open(os.path.join(ROOT, 'data', 'b720_defects.txt'), encoding='utf-8').read(), re.M | re.I)),
+  +                    SEDS=jcount('b720_commands.json', lambda j: len(j.get('seds') or [])),
+  +                    REDIRECTS=jcount('b720_commands.json', lambda j: len(j.get('redirects') or [])),
+  +                    PIPES=jcount('b720_commands.json', lambda j: len(j.get('pipes') or [])),
+  +                    ANYPIPES=jcount('b720_commands.json', lambda j: len(j.get('any_pipes') or [])),
+  +                    PYPROGS=jcount('b720_commands.json', lambda j: len(j.get('py_programs') or [])),
+  +                    READOFF=tfirst('b720_read_calls.txt', r'OFFENCES (\d+) ; THE CAP`S PRECURSORS'))
+  @@ -413,1 +413,1 @@
+  -    spec = {"registration": ("data/b719_registration_2026-10-28.txt -- b719, THE COEFFICIENT ACT: b718`s CLOSE COMPLETED; THE CORRIGENDUM; THE "
+  +    spec = {"registration": ("data/b720_registration_2026-10-28.txt -- b720, THE COEFFICIENT ACT: b719`s CLOSE COMPLETED; THE CORRIGENDUM; THE "
+  @@ -415,1 +415,1 @@
+  -                             "DERIVATION`S REMAINING STEP; THE OFFSET READ, POST HOC; THE SURGERY, CARRIED; THE ARMS RETIRED, UNDER (R329)"),
+  +                             "DERIVATION`S REMAINING STEP; THE OFFSET READ, POST HOC; THE SURGERY, CARRIED; THE ARMS RETIRED, UNDER (R330)"),
+
+### ### **CARRIED tools/b720_regspec.py ; LINES 432 ; CHANGED BY THE SUBSTITUTION 70 ; REPAIR SPANS AT b719 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

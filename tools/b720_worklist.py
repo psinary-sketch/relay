@@ -101,7 +101,6 @@ JOIN_NEW_TIP = '11a472b90553deaddc411c5d69ec03611ee277c5'   # ### SIDE-faces-joi
 JOIN_RUN = 40210894425
 JOIN_TAG = ('v0.1.0', '9bf6fe65582187a92b6ab17e03953efb2cecd913', '11a472b90553deaddc411c5d69ec03611ee277c5')   # ### tag object, peeled
 EF_V037 = '38e273477257687d676033be0b0243af84a1e08a'
-MAX_DISPATCHES = None       # ### N1: the challenge file's one dispatch and the pin's, set at Components 5-6 when the eligible count is read
 
 PAPERS = dict()
 DATA_STANDING_V1 = 'data/standing_clauses_v1.txt'
@@ -147,7 +146,7 @@ RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the MANIFEST control's reference, as carried; (R330)(2)(ii) reads it from its source
-NEXT = ('b721 ((R330)(10)): the surgery under H-SHAPE; the offset`s next tier under H-OFFSET; the registry cells for the next wave`s rows; '
+NEXT = ('b721 ((R330)(10)): the surgery under H-SHAPE; the offset`s next tier under H-OFFSET, post hoc on its first seventeen rows; the registry cells for the next wave`s rows; '
         'the pin where (5)(iii) carried it')
 NEXT_ACT = 'b721'
 
@@ -215,19 +214,28 @@ C2_PRED = '54fc03d9'         # ### the shape rule's prediction, its controls fir
 C2_CTL = '16fb14c2'          # ### the coefficients' controls C1-C3, printed first (step 10)
 C2_RELAY = '29c10c06'        # ### the coefficients at -35 and -40, every row read (step 11)
 C3_RELAY = 'ce378824'        # ### the derivation's -2, data/b720_derivation.txt (step 12)
-C4_REG = None
-C4_RELAY = None
+C4_REG = None                # ### no registration this component (the carried name kept for the carried readers)
+C4_PP = '5872b8979c01aaf66fe926ae4a4925fc22687fc5'   # ### (R330)(5)(i): REGISTRY's three rows and attribute block, additive (step 13)
+C4_RELAY = 'ad94c11c'        # ### the registry tool and data/b720_registry_diff.txt (step 14)
 C5_REG = None
-C5_RELAY = None
-C6_RELAY = None
+C5_RELAY = '41a0adcf'        # ### (R330)(5)(ii): the challenge tool and its banks (step 15)
+C6_RELAY = '03f755e7'        # ### (R330)(5)(iii), (6): the pin tool, its banks and the offset's price (step 16)
 C6_PP = None
 C6_PP_REPAIR = None
 NEW_DISCRIMINANTS = ((-35, 2), (-40, 2))   # ### (R330)(3): class number 2, two units, fundamental
-PIN_RUNS = ()                # ### set at Component 6, each run by its id
+CHALLENGE_BRANCH = 'challenge-b720-h2-sign-iff-rh'   # ### (R330)(5)(ii): on SIDE-explicit-formula, not on main, no tag
+CHALLENGE_TIP = '3391647518cd37316a448b5013afb62a198fa6c6'
+CHALLENGE_RUN = 40651875792
+PIN_RUNS = (('SIDE-grh-transfer', 40652622018), ('SIDE-interfaces', 40652657325), ('SIDE-kernel', 40652692787),
+            ('SIDE-lv-conservation', 40652727943), ('SIDE-simplicity', 40652762827), ('SIDE-trivium', 40652790458))   # ### each read by its id
 PIN_BRANCH = 'pin-b718-de5ce8a9'   # ### b718's local pin branches, carried to b720
-PIN_HELD = ('SIDE-cosmo', 'SIDE-frobenius')
+PIN_EXCLUDED = ('SIDE-archimedean', 'SIDE-frobenius', 'SIDE-spinor', 'SIDE-rcurve', 'SIDE-cosmo')   # ### N4: the freeze and SIDE-cosmo, never pushed
+PIN_HELD = ('SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-trivium')   # ### BREAKS, held, nothing repaired
+PIN_BUILDS = ('SIDE-simplicity',)
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
-               'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
+               'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')   # ### b718's nine local bump branches, as step zero's citation check read them
+PIN_TO_NEXT = PIN_HELD       # ### to b721 ((R330)(10)): the pin where (5)(iii) carried it
+MAX_DISPATCHES = 1 + len(PIN_RUNS)   # ### N1: the challenge's one and the pin's six
 PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md')
 ERRATA_ID = None
 ERRATA_IDS = ()
