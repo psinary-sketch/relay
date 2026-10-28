@@ -18,3 +18,53 @@ b711's route. THE OUTPUT: the two least unused D at which the table's n0 carries
 which the table yields no n0 through the cut is passed over and printed with its reason; a D at which b(n0) is -2 or -1/2 is passed over
 and printed with its value. The rule is applied by tools/b721_select.py, which prints this rule before its first discriminant and writes
 no file; its print is entered below by the Write tool.
+
+## (2) THE RULE'S OUTPUT: NONE -- (R331)(3) HALTS AT (i), PROVED (added by a commit of its own after the rule's commit 54be7b0b and the
+## tool's cdb59caa; tools/b721_select.py run 2026-10-28T13:59:38Z, its print entered here by the Write tool, nothing computed from a form)
+THE CONTROLS FIRST, ALL AS WANTED: (S1) the table returns the seven banked n0 and b (-23: 48, -2 ; -15: 24, -2 ; -39: 120, -2 ; -20: 36,
+-2 ; -47: 168, -2 ; -35: 135, -2 ; -40: 100, -1/2); (S2) a planted class at -40 (the class above 2 set to the identity) moves n0 to 1225,
+failing as wanted; (S3) the fundamental test returns the h = 2 list below 100 and rejects -60 and -84.
+THE USED SET as the reader found it: -20, -47 (data/b719_coeffs.txt), -35, -40 (data/b720_coeffs.txt). The reader's `D = ` / `n0(` needle
+did not find -15, -23 and -39 in the older banks' wording; this changes no output (-15 is walked and passed over on its value below; -23
+and -39 are not of class number 2). Printed, not repaired.
+THE WALK, every h = 2 fundamental discriminant with two units, in increasing |D| (the table's reading from decomposition types alone):
+  -15  n0 24 = 2^3 . 3        b -2    shape p^3 . r          passed over (value -2)
+  -20  USED
+  -24  n0 36 = 2^2 . 3^2      b -1/2  shape r^2 . r^2        passed over (value -1/2)
+  -35  USED
+  -40  USED
+  -51  n0 225 = 3^2 . 5^2     b -2    shape r^2 . p^2        passed over (value -2)
+  -52  n0 196 = 2^2 . 7^2     b -2    shape r^2 . p^2        passed over (value -2)
+  -88  n0 484 = 2^2 . 11^2    b -1/2  shape r^2 . r^2        passed over (value -1/2)
+  -91  n0 875 = 5^3 . 7       b -2    shape p^3 . r          passed over (value -2)
+  -115 n0 1225 = 5^2 . 7^2    b -2    shape r^2 . p^2        passed over (value -2)
+  -123 n0 1089 = 3^2 . 11^2   b -2    shape r^2 . p^2        passed over (value -2)
+  -148 n0 1444 = 2^2 . 19^2   b -2    shape r^2 . p^2        passed over (value -2)
+  -187 n0 3773 = 7^3 . 11     b -2    shape p^3 . r          passed over (value -2)
+  -232 n0 3364 = 2^2 . 29^2   b -1/2  shape r^2 . r^2        passed over (value -1/2)
+  -235 n0 4225 = 5^2 . 13^2   b -2    shape r^2 . p^2        passed over (value -2)
+  -267 n0 4761 = 3^2 . 23^2   b -2    shape r^2 . p^2        passed over (value -2)
+  -403 n0 17303 = 11^3 . 13   b -2    shape p^3 . r          passed over (value -2)
+  -427 n0 14161 = 7^2 . 17^2  b -2    shape r^2 . p^2        passed over (value -2)
+  (p a split bad prime, r a ramified bad prime; each n0 below the cut 32532.)
+THE OUTPUT: NONE. Every one of the eighteen walked fields has a table value of -2 or -1/2 at its n0; no unused D meets the rule.
+WHY THE WALK IS EVERY ROUTE: the imaginary quadratic fields of class number 2 are eighteen, the largest |D| 427 (Stark; Baker), and the walk
+carried to |D| < 5000 finds those eighteen and no other (`tools/b721_select.py picker`, 14:00:49Z). Two units holds at every one (D < -4).
+THE POSITIVE CONTROL: the same walk with only -2 excluded takes -24 (n0 36) and -88 (n0 484), each b = -1/2 -- the picker fires where a
+value is allowed, so the empty output is the table's and not the tool's. (The picker's print labels each pick "neither -2 nor -1/2", its
+fixed text; under the control only -2 is excluded.)
+THE READING: at Omega 4 the C2 table's other minimal negative values (-4, -8, -16, -1 and the rest, data/b720_derivation.txt :109) are
+never at the least negative index of a class-number-2 field: there the least is always p^3 r or r^2 p^2 (value -2) or r^2 r^2 with two
+ramified bad primes (value -1/2). (R331)(3)'s test "where the table predicts a value not yet seen" has no instance at h = 2. No discriminant
+is registered for a coefficient, no coefficient is computed, and nothing is substituted: (R331)(3)(ii)'s rows and the coefficients
+through the cut wait on the author's word, carried to b722.
+
+## (3) THE TABLE'S PREDICTIONS AT THE FOURTEEN UNUSED FIELDS, REGISTERED BLIND AND CARRIED (nothing computed from a form this act)
+  H-C2-WALK (the table's): at each of -15, -24, -51, -52, -88, -91, -115, -123, -148, -187, -232, -235, -267, -403, -427, with a(n) =
+           r_Q1(n)/2 and log(Z_Q1/2) = SUM b(n) n^-s through the cut 32532, the least n with b(n) < 0 is the walk's n0 above and b(n0) the
+           walk's value. (-15 is banked, 24 and -2: its row is the control, not a test.)
+  THE PRIME CLAUSE (b716's clause 2, carried): at each, n0 is divisible by a prime the principal form does not represent -- by the table,
+           every prime of n0 is bad.
+  FALSIFIER: at any of the fourteen, the computed n0 differs from the walk's, or b(n0) differs from its value; the prime clause refuted by a
+           prime of n0 the principal form represents. A field with no n0 through the cut: NOT SCORABLE there.
+  READ: not this act. The computation is the author's to order (b722's ruling).
