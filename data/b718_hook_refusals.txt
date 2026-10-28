@@ -5,3 +5,4 @@
 2026-10-27T22:17:12Z | PIPE | PowerShell | "Get-Item -LiteralPath \"D:/relay/=\", \"D:/relay/records.json\" | Select-Object Name, Length, CreationTime, LastWriteTime" | a PowerShell command carrying a pipe outside quotes
 2026-10-27T22:21:31Z | READ | Read | "D:\\relay\\tools\\b718_regspec.py" | a Read call with limit 230, above 200
 2026-10-27T23:32:31Z | PIPE | PowerShell | "Get-ChildItem D:\\relay\\data\\b718_arms_prerun_*, D:\\relay\\data\\b718_*lockgate* | ForEach-Object { \"{0}  {1}  {2}\" -f $_.Name, $_.LastWriteTimeUtc.ToString('HH:mm:ss'), $_.Length }" | a PowerShell command carrying a pipe outside quotes
+2026-10-28T00:56:54Z | ENV | PowerShell | "$env:GIT_TERMINAL_PROMPT = '0'; git -c credential.helper= ls-remote https://github.com/openai/math refs/heads/main" | a PowerShell command prefixed by an environment-variable assignment
