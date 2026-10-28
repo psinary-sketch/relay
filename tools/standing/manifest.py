@@ -9,6 +9,8 @@ event (17), b717's event (10)).
 
   edited(base, head, repo='pp') -> [paths]       member(names, path) -> [zip entries]
   control(zip_path, base, head, repo='pp') -> dict(rows, ok, head, files)
+  control_at_build(zip_path, build, repo='pp') -> control over every roster file at `build` (v1.2.1, (R331)(2)(iii)); the record tool's
+  mbank route calls it, the repair of v1.2.0 never having reached that route (b720's event (15))
 """
 import os
 import sys
@@ -26,9 +28,16 @@ def edited(base, head, repo='pp'):
 
 
 def member(names, path):
-    """the zip's entries for a path: by its flat name (the builder's) or its path."""
+    """the zip's entries for a path: by its path, else the builder's `<parent>__<name>` form, else its flat name (the builder's); v1.2.1:
+    the first form that finds an entry, so a root README.md and an archive's flattened README each find their own (b720's zip, read at
+    its build commit by control_at_build)."""
     base = path.split('/')[-1]
-    return [n for n in names if n == path or n.split('/')[-1] == base or n.endswith('_' + base)]
+    parent = path.split('/')[-2] if '/' in path else ''
+    for want in (lambda n: n == path, lambda n: bool(parent) and n == parent + '__' + base, lambda n: n == base):
+        got = [n for n in names if want(n)]
+        if got:
+            return got
+    return []
 
 
 def control(zip_path, base, head, repo='pp', files=None, ref=None):
@@ -51,3 +60,11 @@ def control(zip_path, base, head, repo='pp', files=None, ref=None):
         listed = p.split('/')[-1] in man
         rows.append((p, mem, raw_eq, lf_eq, 'AS WANTED' if (len(mem) == 1 and lf_eq and listed) else 'NOT AS WANTED'))
     return dict(rows=rows, ok=all(r[4] != 'NOT AS WANTED' for r in rows) and any(r[4] == 'AS WANTED' for r in rows), head=head, ref=ref)
+
+
+def control_at_build(zip_path, build, repo='pp', files=None):
+    """v1.2.1 ((R331)(2)(iii), b720's event (15)): every file of the roster the builder read at `build` -- the commit the mirror is built at,
+    the source head its MANIFEST declares -- read in the zip against its blob at `build`; never a carried reference and not only the files
+    the act edited. The record tool's mirror bank calls this (its mbank route), so the repair reaches the route that writes the bank."""
+    import roster as RO
+    return control(zip_path, None, build, repo, files=RO.roster_at(build) if files is None else files, ref=build)

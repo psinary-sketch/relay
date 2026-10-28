@@ -1,0 +1,71 @@
+b721 -- THE CORRIGENDUM FOR b720, (R331)(2) (2026-10-28T13:55:32Z)
+
+### the banks read unedited: data/b720_events.txt rows (1)-(15), data/b720_defects.txt 29 rows, data/b720_hook_refusals.txt 12 lines at 8834a5b6; data/b721_standing_v121.txt (the v1.2.1 controls); the corrigenda bank`s last row (40).
+
+  *b720’s events bank (relay data/b720_events.txt) carries fifteen rows, entered after its lock and seal and not lettered, each tagged in its own bracket (fourteen the seat’s, event (7) the author’s); its defects bank twenty-nine lettered rows, (a)-(z) and (a’)-(c’), each the seat’s and tagged in its own bracket; its refusal bank twelve lines at b720’s closing commit 8834a5b6, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The three repairs (`(R331)`(2)), at tools/standing/ v1.2.1, each controlled on b720’s banks with both instances shown** (relay data/b721_standing_v121.txt, 13 cases, every one AS WANTED, :222):
+  
+  **(i) The title the author reworded** (events (7) and (9); relay data/b721_standing_v121.txt :6): G-FINDINGS-ENTRY and G-ENTRY-TITLE-FORM compared the landed title with the record tool’s composition alone, so the author’s word itself failed both. tools/standing/title.py reads the word from the answers bank’s verbatim block, applies each change of the form “old” reads “new” to the composition (the old phrase found exactly once, the apostrophe in the ledger’s form) and returns no title where a phrase is not found, so the arm fails and never guesses. On b720’s banks the old reading is not equal to FINDINGS :11072 and the new one is; an answers bank with no word leaves the composition, and a word naming a phrase the title does not carry gives no title.
+  
+  **(ii) One git write per message, counting writes** (event (12); relay data/b721_standing_v121.txt :15): tools/standing/gitwrite.py splits each call into its commands and counts each write; a listing (`git branch` or `git tag` with no name or a listing flag, and every git read) is never a write. Read again from the transcript, event (12)’s cause was not the listing: the old reading, tools/rule_arms.py’s, did not count `git branch --list push-b720-*` (its matcher needs a name and a commit after `branch`); the message it counted twice carried two calls, the PowerShell branch creation and the Bash push through push_gated.sh. The same reading finds a second such message at the closing push, 12:50:15Z, after `scores close`; and the call-counting reading counts the message of 12:21:16Z once, though its one call carried a branch creation and a push line. Counting writes, b720’s window reads three messages over one (12:21:16Z, 12:21:51Z, 12:50:15Z) where the old reading read two; no listing counted. Event (12)’s wording -- “the second a listing read as a write by the trace’s matcher” -- stands as written; this item is its correction.
+  
+  **(iii) The MANIFEST control at the build commit** (event (15); relay data/b721_standing_v121.txt :33): tools/standing/manifest.py control_at_build reads every roster file the zip carries against its blob at the commit the mirror was built at (PLACE-papers HEAD at the build), and the record tool’s mbank route now calls it in place of its inline loop against the carried K.RECUT_MERGE (a86c9429). On b720’s zip at b826da8 all 74 roster files read AS WANTED, where the old control read day1/Silence_of_Foundations.md NOT AS WANTED; the same zip read at a86c9429 as if it were the build fails, as wanted. The member reader was repaired with it: by path, then the builder’s `<parent>__<name>`, then the flat name, so the root README and the archive’s flattened README each find their own. Why (R328)(7)’s repair (b718’s a240e6b6) did not take: it added the control to the toolset, whose only caller was the class controls (tools/standing/classes.py); mbank, which writes the mirror bank, kept its inline loop through every carry from b718 to b720. Its diff and v1.2.1’s are printed beside each other in the controls bank.
+  
+  **b720’s events (1)-(15):**
+  
+  **(1) tools/reg_seal.py --lock** (relay data/b720_events.txt, row (1); the seat’s; CLOSE; NEW).
+  **(2) G-PRIOR-CLOSED-PUSHED failed** (relay data/b720_events.txt, row (2); the seat’s; CLOSE; REPEAT of b720 (s)).
+  **(3) G-CLOSING-SENTENCE failed** (relay data/b720_events.txt, row (3); the seat’s; CLOSE; NEW).
+  **(4) TITLE_NEEDLES** (relay data/b720_events.txt, row (4); the seat’s; CLOSE; REPEAT of b720 (s)).
+  **(5) ARMS 116, LIVE PASSING 93** (relay data/b720_events.txt, row (5); the seat’s; CLOSE; REPEAT of b719 (5)).
+  **(6) PASS 73, FAILED AS b719 FAILED 5** (relay data/b720_events.txt, row (6); the seat’s; CLOSE; REPEAT of b719 (5)).
+  **(7) option 3, push both** (relay data/b720_events.txt, row (7); the author’s; CLOSE; NEW; repair (i)).
+  **(8) piped to grep** (relay data/b720_events.txt, row (8); the seat’s; CLOSE; REPEAT of b720 (c’)).
+  **(9) ARMS RUN 116, LIVE PASSING 111** (relay data/b720_events.txt, row (9); the seat’s; CLOSE; REPEAT of b720 (7), (8); repair (i)).
+  **(10) sed -n 3337,3375p** (relay data/b720_events.txt, row (10); the seat’s; CLOSE; REPEAT of b719 rules row (2)).
+  **(11) push-b720-preroot_push_out.txt with no limit** (relay data/b720_events.txt, row (11); the seat’s; CLOSE; REPEAT of b720 (t)).
+  **(12) G-RULE-ONE-GIT-WRITE** (relay data/b720_events.txt, row (12); the seat’s; CLOSE; NEW; its cause read again, repair (ii)).
+  **(13) the post-push suite in seven parts** (relay data/b720_events.txt, row (13); the seat’s; CLOSE; REPEAT of b720 (9)).
+  **(14) b719’s traps with no limit** (relay data/b720_events.txt, row (14); the seat’s; CLOSE; REPEAT of b720 (11)).
+  **(15) THE MANIFEST CONTROL reads NOT AS WANTED** (relay data/b720_events.txt, row (15); the seat’s; CLOSE; REPEAT of b719 events (9); repair (iii)).
+  
+  **b720’s defects:**
+  
+  **(a)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(b)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(c)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (m)).
+  **(e)** (relay data/b720_defects.txt; the seat’s; CLAIM; NEW).
+  **(f)** (relay data/b720_defects.txt; the seat’s; CLAIM; NEW).
+  **(g)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (h)).
+  **(h)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (b)).
+  **(i)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (c)).
+  **(j)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (j)).
+  **(k)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(o)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (j)).
+  **(p)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(r)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (p)).
+  **(s)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (o)).
+  **(t)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (n)).
+  **(u)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (h)).
+  **(w)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (s)).
+  **(x)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (j)).
+  **(y)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b719 (r)).
+  **(z)** (relay data/b720_defects.txt; the seat’s; CLOSE; NEW).
+  **(a’)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (z)).
+  **(b’)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (i)).
+  **(c’)** (relay data/b720_defects.txt; the seat’s; CLOSE; REPEAT of b720 (b’)).
+  
+  **b720’s refusals** (relay data/b720_hook_refusals.txt at 8834a5b6, one a line): :1 PIPE, recorded at defect (h); :2 PIPE, recorded at defect (i); :3 REDIR, recorded at defect (j); :4 PIPE, recorded at defect (n); :5 REDIR, recorded at defect (o); :6 PIPE, recorded at defect (v); :7 REDIR, recorded at defect (x); :8 PIPE, recorded at defect (b’); :9 PIPE, recorded at defect (c’); :10 PIPE, recorded at event (8); :11 READ, recorded at event (11); :12 READ, recorded at event (14).
+  
+  **The counter:** CLAIM 2, CLOSE 42 over the 44 items of `(R331)`(2) (fifteen events, twenty-nine defects); REPEAT 28 of 44; the CLAIM items (e), (f).
+  
+  *Filed at b721 on the author’s ruling `(R331)`(2): generated by relay `tools/b721_c1.py` corrigendum, written whole at b721, from b720’s events, defects and refusal banks read unedited and the v1.2.1 controls bank; banked as relay `data/b721_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (41). It answers b720’s record; no sealed tool, face, trail or root-named bank of b720 is edited.*
+
+### ### **ITEMS 44: EVENTS 15, DEFECTS 29 ; CLAIM 2, CLOSE 42 ; REPEAT 28 ; v1.2.1: (i) THE TITLE FROM THE ANSWERS BANK, (ii) WRITES COUNTED -- EVENT (12)`S CAUSE THE BRANCH AND THE PUSH IN ONE MESSAGE, NOT THE LISTING, (iii) THE CONTROL AT THE BUILD COMMIT, WIRED INTO mbank ; THE ENTRY AT FINDINGS :11110.**

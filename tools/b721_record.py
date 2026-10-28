@@ -677,7 +677,18 @@ def gatebanks(*a):
 
 
 def _one_git_write():
-    return R._one_git_write()
+    """(R331)(2)(ii), tools/standing/ v1.2.1: one git write per message, counting WRITES -- each call split into its commands, a listing
+    never a write (tools/standing/gitwrite.py) -- over the calls tools/rule_arms.py's sources read for this act (b698's window, unedited)."""
+    import rule_arms as RA
+    sys.path.insert(0, os.path.join(T, 'standing'))
+    import gitwrite as GW
+    lock = R._iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(R.FACE)) or [None, ''])[1])
+    try:
+        S = RA.sources(R.ACT, R.SESSION, K.ANCHOR, K.PARTS, lock, K.PRE_RELAY, K.PRE_PP)
+        ok, _n, _over, note = GW.reading(S['calls'])
+    except Exception as e:
+        return False, 'the rule arm`s sources raised %s' % type(e).__name__
+    return ok, note[:200]
 
 
 def rootdry(*a):
@@ -3454,18 +3465,15 @@ def mbank(*a):
     nd = R6.nd_hits(NL.join(names_), R6.nd_sets())[0]
     files_ = [n for n in names_ if n != 'MANIFEST.md']
     pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
-    # ### (R331)(5)'s control: the MANIFEST lists the census v0.8.1 and day1/Silence_of_Foundations.md, each zip entry at the bytes of
-    # ### a86c9429 (b720's merge); the bytes compared raw and with CR removed (the builder copies working files, autocrlf's trap), each printed
-    man_ctl = []
-    for path in (_C81, 'day1/Silence_of_Foundations.md'):
-        base = path.split('/')[-1]
-        mem = [n for n in names_ if n.split('/')[-1] == base or n.endswith('_' + base)]
-        blob = subprocess.run(['git', '-C', PP, 'show', '%s:%s' % (K.RECUT_MERGE, path)], capture_output=True).stdout
-        zb_ = z.read(mem[0]) if len(mem) == 1 else b''
-        listed = any(base in l for l in ls if '|' in l)
-        man_ctl.append(dict(path=path, member=mem, listed=listed, raw_equal=bool(zb_) and zb_ == blob,
-                            lf_equal=bool(zb_) and zb_.replace(b'\r', b'') == blob.replace(b'\r', b''), blob_bytes=len(blob), member_bytes=len(zb_)))
-    man_ok = all(c['listed'] and len(c['member']) == 1 and c['lf_equal'] for c in man_ctl)
+    # ### (R331)(2)(iii), tools/standing/ v1.2.1: the MANIFEST control reads every roster file against the commit the mirror is built at
+    # ### (PLACE-papers HEAD at the build), by tools/standing/manifest.py control_at_build -- the inline loop against the carried
+    # ### K.RECUT_MERGE (b716-b720's) removed, so (R328)(7)'s repair, made in the toolset and never wired here, now reaches this route
+    sys.path.insert(0, os.path.join(T, 'standing'))
+    import manifest as MF
+    build = g(PP, 'rev-parse', 'HEAD').strip()
+    mc = MF.control_at_build(ZIP, build)
+    man_ctl = [dict(path=p, member=mem, raw_equal=raw, lf_equal=lf, state=st) for p, mem, raw, lf, st in mc['rows']]
+    man_ok = mc['ok']
     L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE REPAIRED BUILDER OVER THE ROSTER FROM MAIN, banked %s' % (ACT, utc()),
          '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
          '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names_), len(files_)),
@@ -3473,10 +3481,12 @@ def mbank(*a):
          '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
          span_line(ACT),
          '### THE ROSTER READ FROM PLACE-papers MAIN AT THE BUILD ((R331)(5); relay data/b721_roster.txt, the families of tools/mirror_roster.json, unedited); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((R331)(10)); files %d' % len(files_),
-         '### (R331)(5)`S MANIFEST CONTROL, AGAINST %s (b720`s merge):' % K.RECUT_MERGE[:8]] + [
-         '    %s : zip entry %s ; listed in MANIFEST %s ; its bytes equal to the blob raw %s, with CR removed %s (%d and %d bytes)' % (
-             c['path'], c['member'] or '### NONE', c['listed'], c['raw_equal'], c['lf_equal'], c['member_bytes'], c['blob_bytes']) for c in man_ctl] + [
-         '    the removed file`s instance: relay data/b721_roster.txt :28 (a tree without day1/Spectral_Inertness.md: it leaves the roster)',
+         '### (R331)(2)(iii)`S MANIFEST CONTROL (tools/standing/manifest.py control_at_build, v1.2.1): every roster file at the build commit %s, '
+         'its zip entry against its blob there, raw and with CR removed; rows %d, AS WANTED %d, NOT AS WANTED %d, NOT IN THE ROSTER %d:' % (
+             build[:8], len(man_ctl), sum(1 for c in man_ctl if c['state'] == 'AS WANTED'), sum(1 for c in man_ctl if c['state'] == 'NOT AS WANTED'),
+             sum(1 for c in man_ctl if c['state'] == 'NOT IN THE ROSTER'))] + [
+         '    %s : zip entry %s ; equal raw %s, with CR removed %s ; %s' % (c['path'], c['member'] or '### NONE', c['raw_equal'], c['lf_equal'], c['state'])
+         for c in man_ctl if c['state'] != 'AS WANTED'] + [
          '### ### **THE MANIFEST CONTROL %s**' % ('AS WANTED' if man_ok else '### NOT AS WANTED'),
          '### THE VERIFICATION : %s' % ('CLEAN ON ALL THREE CLAUSES' if clean else '### NOT CLEAN'),
          '### THE NO-DISCLOSURE ARM OVER THE FILE LIST: %s' % dict(nd), '### THE FILE LIST:'] + ['    %s' % n for n in names_]
