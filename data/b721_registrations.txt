@@ -1,0 +1,20 @@
+b721 -- (R331)(3): THE C2 TABLE TESTED WHERE IT PREDICTS A VALUE NOT YET SEEN -- THE RULE, THEN THE TABLE'S PREDICTIONS, REGISTERED BEFORE ANY FIGURE (2026-10-28)
+
+### Written by the Write tool. Its first commit carries the rule alone, before any discriminant is named ((R331)(3)(i)); the rule's output
+### and the table's predictions are added by a commit of their own, before any figure read from a form at either discriminant
+### ((R331)(1), relay data/b721_rules.txt (1); (R331)(3)(ii)). b716's (ii) (data/b716_registrations.txt :39-:58 at dc5e808f), b718's,
+### b719's and b720's registrations are read unchanged. Rows are hypotheses, each with its statement, its falsifier and the order it
+### serves; FORCED parts are marked and are not tests. Later rows are added by commits of their own.
+
+## (1) THE RULE, printed before any discriminant is named ((R331)(3)(i))
+Negative fundamental discriminants D with class number 2 and two units (D < -4), in increasing |D|. A discriminant is USED when an earlier
+act's coefficient bank (relay data/b711_coeffs.txt, data/b713_coeffs.txt, data/b717_coeffs.txt, data/b719_coeffs.txt, data/b720_coeffs.txt)
+names it in a `D = ` or `n0(` reading; every other is UNUSED. At each unused D the C2 table is read from DECOMPOSITION TYPES ALONE: each
+prime p <= 32532 split, ramified or inert by the Kronecker symbol (D/p), the class of a prime ideal above a split or ramified p the reduced
+form of (p, b, (b^2 - D)/4p) (tools/b718_classgroup.py prime_class, unedited), and b(n) by the group-ring model over those classes
+(tools/b718_abstract.py, unedited), the table's n0 the first n <= 32532 supported on the bad primes (split or ramified, a prime ideal above
+it non-principal) with b(n) < 0 (tools/b720_predict.py predict, imported unedited). No representation count is read and no coefficient of
+b711's route. THE OUTPUT: the two least unused D at which the table's n0 carries a shape value b(n0) that is neither -2 nor -1/2. A D at
+which the table yields no n0 through the cut is passed over and printed with its reason; a D at which b(n0) is -2 or -1/2 is passed over
+and printed with its value. The rule is applied by tools/b721_select.py, which prints this rule before its first discriminant and writes
+no file; its print is entered below by the Write tool.
