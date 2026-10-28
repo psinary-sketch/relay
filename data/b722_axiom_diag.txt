@@ -1,0 +1,48 @@
+b722 -- (R332)(10): THE AXIOM STEP "Axioms of the named terminals" DIAGNOSED AT FIVE WAVE 1 PINS BY RUN ID (2026-10-28T21:43:29Z)
+
+### THE RULE, PRINTED BEFORE ANY KERNEL ((R332)(10)): the cause is read from the step`s opening error lines and the files they name. TARGETS ABSENT AT THE PIN -- the step reads its target list from the checked-out tree (print_targets.txt) and that list is absent at the pin while the kernel carries it elsewhere (main); BUILD TARGET NOT COVERING THE AXIOM FILE`S IMPORTS -- every module the axiom file imports is present at the pin and one is not built by the run`s target; STEP NOT THE PIN`S OWN -- the step was written for another tree than the pin (another kernel`s workflow, or main`s step naming modules or a list the pin never carried); OTHER -- none of these.
+### read-only: gh api GETs (the run, its job, its log, the workflow at the run`s head, the trees at the pin, main and rebuild-b721); nothing committed, pushed or dispatched; no lean process on this host.
+
+## SIDE-kernel -- run 40706230156 (pin 0e5233f011 ; the run`s head 70aba3cd73 on main by workflow_dispatch ; .github/workflows/build-module.yml) ; run success, step success
+  THE OPENING ERROR LINES (the run`s artifact build-module-40706230156, axioms.txt (2 lines; the step exits 0 by `|| true`)):
+    | out/Axioms.lean:1:0: error: object file '/home/runner/work/SIDE-kernel/SIDE-kernel/.lake/build/lib/lean/Bridge/CardDerived.olean' of module Bridge.CardDerived does not exist
+  print_targets.txt: pin False, main False, rebuild-b721 False ; the step reads it: False ; imports in the step 22, absent at the pin 3
+  CLASS: STEP NOT THE PIN`S OWN -- main`s step imports 22 modules, 3 absent at the pin (Bridge.CardDerived, Kernel.Cascade.InvarianceBarrier, Kernel.Voice7Witness), present at main: the step was written for main`s tree
+  REPAIR ON rebuild-b721, PRICED: the step is main`s workflow`s fixed list: the dispatch reads it from main, so no commit on rebuild-b721 changes it; the route is the SIDE-frobenius form -- one commit on rebuild-b721 carrying build-module.yml with a push trigger and an axiom step importing only the pin`s modules (3 of main`s 22 imports dropped) and naming terminals declared at the pin, one push, one run; each line of the changed workflow for the author`s word first
+
+## SIDE-archimedean -- run 40706397470 (pin 8019d9dfee ; the run`s head fcecc45407 on main by workflow_dispatch ; .github/workflows/build-module.yml) ; run failure, step failure
+  THE OPENING ERROR LINES (the step`s log after its script):
+    | cp: cannot stat 'print_targets.txt': No such file or directory
+    | ##[error]Process completed with exit code 1.
+  print_targets.txt: pin False, main True, rebuild-b721 False ; the step reads it: True ; imports in the step 0, absent at the pin 0
+  main`s targets declared at the pin (by name): SIDEArchimedean.theta_weight_doubles_to_one AT SIDEArchimedean/Reflection.lean ; SIDEArchimedean.fe_reflect_fixed_iff AT SIDEArchimedean/Reflection.lean ; SIDEArchimedean.focus_codim_eq_one_iff AT SIDEArchimedean/Reflection.lean ; SIDEArchimedean.archimedean_identifies_half AT SIDEArchimedean/Reflection.lean ; SIDEArchimedean.archimedean_forces_half AT SIDEArchimedean/Reflection.lean
+  CLASS: TARGETS ABSENT AT THE PIN -- the step`s target list print_targets.txt is read from the pin`s tree, absent at the pin and present at main
+  REPAIR ON rebuild-b721, PRICED: one commit on rebuild-b721 adding print_targets.txt (main`s 5 names, each found declared at the pin by name), one push of the branch, one dispatch of main`s build-module.yml at the ref rebuild-b721 (about 3-4 minutes of runner, as b721`s run); no main or tag touched
+
+## SIDE-frobenius -- run 40713201832 (pin 2efe9f2f86 ; the run`s head 6b06215745 on rebuild-b721 by push ; .github/workflows/build-module.yml) ; run failure, step failure
+  THE OPENING ERROR LINES (the step`s log after its script):
+    | cp: cannot stat 'print_targets.txt': No such file or directory
+    | ##[error]Process completed with exit code 1.
+  print_targets.txt: pin False, main False, rebuild-b721 False ; the step reads it: True ; imports in the step 0, absent at the pin 0
+  CLASS: STEP NOT THE PIN`S OWN -- the step reads print_targets.txt, which this kernel carries at no ref read (pin, main, rebuild-b721): the workflow is another kernel`s (data/b721_rebuild.txt :8, SIDE-explicit-formula`s build-module.yml verbatim)
+  REPAIR ON rebuild-b721, PRICED: one commit on rebuild-b721 adding print_targets.txt naming SIDEFrobenius`s terminals at the pin (the list is the author`s word: the kernel never carried one), one push (the branch`s own workflow runs on push, data/b721_rebuild.txt :34-:42); one run
+
+## SIDE-spinor -- run 40706542282 (pin b235bc6235 ; the run`s head 7e570eeddb on main by workflow_dispatch ; .github/workflows/build-module.yml) ; run failure, step failure
+  THE OPENING ERROR LINES (the step`s log after its script):
+    | cp: cannot stat 'print_targets.txt': No such file or directory
+    | ##[error]Process completed with exit code 1.
+  print_targets.txt: pin False, main True, rebuild-b721 False ; the step reads it: True ; imports in the step 0, absent at the pin 0
+  main`s targets declared at the pin (by name): SIDESpinor.spectral_volume AT SIDESpinor/Spinor.lean ; SIDESpinor.aperture_decomp AT SIDESpinor/Spinor.lean ; SIDESpinor.aperture AT SIDESpinor/Spinor.lean ; SIDESpinor.phase_unit AT SIDESpinor/Spinor.lean ; SIDESpinor.spinor_sq AT SIDESpinor/Spinor.lean ; SIDESpinor.spinor_order_four AT SIDESpinor/Spinor.lean ; SIDESpinor.orbit_collapse_iff AT SIDESpinor/Spinor.lean ; SIDESpinor.spinor_forces_half AT SIDESpinor/Spinor.lean ; SIDESpinor.half_iff_centered_zero AT SIDESpinor/Spinor.lean ; SIDESpinorLeg.spinor_signature NOT FOUND ; SIDESpinorLeg.quarter_twist_order_four NOT FOUND ; SIDESpinorLeg.metaplectic_cocycle NOT FOUND ; SIDESpinorLeg.zeta8_sq_eq_T NOT FOUND ; SIDESpinorLeg.zeta8_pow_four NOT FOUND ; SIDESpinorLeg.spinor_leg_derives_neg_one NOT FOUND
+  CLASS: TARGETS ABSENT AT THE PIN -- the step`s target list print_targets.txt is read from the pin`s tree, absent at the pin and present at main
+  REPAIR ON rebuild-b721, PRICED: one commit on rebuild-b721 adding print_targets.txt (main`s 15 names, 6 of them not found declared at the pin by name -- SIDESpinorLeg.spinor_signature, SIDESpinorLeg.quarter_twist_order_four, SIDESpinorLeg.metaplectic_cocycle, SIDESpinorLeg.zeta8_sq_eq_T, SIDESpinorLeg.zeta8_pow_four, SIDESpinorLeg.spinor_leg_derives_neg_one -- each dropped or kept on the author`s word), one push of the branch, one dispatch of main`s build-module.yml at the ref rebuild-b721 (about 3-4 minutes of runner, as b721`s run); no main or tag touched
+
+## SIDE-rcurve -- run 40706645404 (pin d5f33b44ef ; the run`s head 54c9040709 on main by workflow_dispatch ; .github/workflows/build-module.yml) ; run failure, step failure
+  THE OPENING ERROR LINES (the step`s log after its script):
+    | cp: cannot stat 'print_targets.txt': No such file or directory
+    | ##[error]Process completed with exit code 1.
+  print_targets.txt: pin False, main True, rebuild-b721 False ; the step reads it: True ; imports in the step 0, absent at the pin 0
+  main`s targets declared at the pin (by name): SIDERCurve.monotone_unique_zero AT SIDERCurve/Criterion.lean ; SIDERCurve.monotonicity_formula AT SIDERCurve/Criterion.lean ; SIDERCurve.beta_V_re AT SIDERCurve/Criterion.lean ; SIDERCurve.singular_repulsion AT SIDERCurve/Criterion.lean ; SIDERCurve.zero_codim AT SIDERCurve/Criterion.lean ; SIDERCurve.online_zero_codim_one AT SIDERCurve/Criterion.lean ; SIDERCurve.offline_zero_codim_two AT SIDERCurve/Criterion.lean ; SIDERCurve.second_zero_breaks_monotone AT SIDERCurve/Criterion.lean
+  CLASS: TARGETS ABSENT AT THE PIN -- the step`s target list print_targets.txt is read from the pin`s tree, absent at the pin and present at main
+  REPAIR ON rebuild-b721, PRICED: one commit on rebuild-b721 adding print_targets.txt (main`s 8 names, each found declared at the pin by name), one push of the branch, one dispatch of main`s build-module.yml at the ref rebuild-b721 (about 3-4 minutes of runner, as b721`s run); no main or tag touched
+
+### ### **THE AXIOM STEP AT FIVE PINS: TARGETS ABSENT AT THE PIN 3 ; BUILD TARGET NOT COVERING THE AXIOM FILE`S IMPORTS 0 ; STEP NOT THE PIN`S OWN 2 ; OTHER 0 ; NOTHING COMMITTED, PUSHED OR DISPATCHED ; 29 s.**
