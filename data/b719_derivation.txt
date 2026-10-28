@@ -1,0 +1,70 @@
+b719 -- (R329)(7): THE DERIVATION`S REMAINING STEP THROUGH THE CLASS-GROUP CHARACTERS, EACH STEP CHECKED AT -23, -15, -39, -20, -47 BEFORE USE (2026-10-28T02:48:37Z)
+
+### from data/b718_derivation.txt :128-:136 (the step named) ; the five discriminants` n0 from data/b711_coeffs.txt :12, data/b713_coeffs.txt :13,
+### data/b717_coeffs.txt :16 and data/b719_coeffs.txt ; a(n) = r_Q1(n)/2 by enumeration (tools/b716_genus_control.py counts) ; b exact by
+### tools/b718_classgroup.py log_coeffs. Each CHECK is printed before its step is used; each PLANT must fail. Characters in floating point,
+### every character sum required integral (or a rational with denominator 2) to 1e-07 before it is compared.
+
+## STEP (1): THE TURNS -- a(n) = (1/h) SUM_j R_j(n), R_j(p^e) = sin((e+1) theta)/sin(theta) split, chi^e ramified, [e even] inert
+  CHECK D = -23 (Cl C3, generator (2, -1, 3)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 322 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15 (Cl C2, generator (2, 1, 2)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 292 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39 (Cl C4, generator (2, -1, 5)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 321 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20 (Cl C2, generator (2, 2, 3)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 310 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47 (Cl C5, generator (2, -1, 6)): (1/h) SUM_j R_j(n) against r_Q1(n)/2 at every n <= 32532: mismatches 0 [] ; PLANT the class above 2 moved one step: mismatches 305 through 2000 -- AS WANTED, FAILS AS WANTED
+
+## STEP (2): THE PAIR SUM THE SAME WAY -- (a*a)(n) = (1/h^2) SUM_{j,k} (R_j * R_k)(n), the ordered pair sum (a*a)(n) - 2 a(n)
+  CHECK D = -23: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 499 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 418 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 363 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 445 through 2000 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47: the character form of (a*a)(n) against SUM_{d|n} a(d) a(n/d) at every n <= 32532: mismatches 0 [] ; PLANT 1/h for 1/h^2: mismatches 411 through 2000 -- AS WANTED, FAILS AS WANTED
+
+## STEP (3): b AT OMEGA <= 5 ON THE BAD-SUPPORTED n -- b(n) = (1/h) SUM_j 2 R_j(n) - (1/(2 h^2)) SUM_{j,k} (R_j * R_k)(n)
+  CHECK D = -23: at the 4815 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 3642 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -15: at the 4400 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1996 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -39: at the 7343 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 2960 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -20: at the 3900 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 1746 -- AS WANTED, FAILS AS WANTED
+  CHECK D = -47: at the 6434 bad-supported n <= 32532 with Omega <= 5, the character form of b against the exact b: mismatches 0 [] ; PLANT the 1/2 dropped: mismatches 3595 -- AS WANTED, FAILS AS WANTED
+
+## STEP (4): THE VALUE AT THE LEAST INSTANCE, IN h AND THE CLASSES THE SHAPE USES (each prime p^e: kind, class g^c, its order, and R_j(p^e) for j = 0..h-1)
+  D = -23, h = 3, n0 = 48 (data/b711_coeffs.txt :12): 2^4 split g^2 (order 3): R_j = [5, -1, -1] ; 3^1 split g^1 (order 3): R_j = [2, -1, -1]
+      a(n0) = (1/3) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b -0.0 -- FAILS AS WANTED
+  D = -15, h = 2, n0 = 24 (data/b713_coeffs.txt :13): 2^3 split g^1 (order 2): R_j = [4, -4] ; 3^1 ram g^1 (order 2): R_j = [1, -1]
+      a(n0) = (1/2) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -39, h = 4, n0 = 120 (data/b717_coeffs.txt :16): 2^3 split g^3 (order 4): R_j = [4, 0, -4, -0] ; 3^1 ram g^2 (order 2): R_j = [1, -1, 1, -1] ; 5^1 split g^1 (order 4): R_j = [2, 0, -2, -0]
+      a(n0) = (1/4) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+  D = -20, h = 2, n0 = 36 (data/b719_coeffs.txt): 2^2 ram g^1 (order 2): R_j = [1, 1] ; 3^2 split g^1 (order 2): R_j = [3, 3]
+      a(n0) = (1/2) SUM_j PROD = 3.0 ; (a*a)(n0) = 16.0 ; the pair sum 10.0 ; b(n0) = 2a - (a*a)/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b -8.0 -- FAILS AS WANTED
+  D = -47, h = 5, n0 = 168 (data/b719_coeffs.txt): 2^3 split g^4 (order 5): R_j = [4, -1, -1, -1, -1] ; 3^1 split g^2 (order 5): R_j = [2, -1.61803, 0.618034, 0.618034, -1.61803] ; 7^1 split g^4 (order 5): R_j = [2, 0.618034, -1.61803, -1.61803, 0.618034]
+      a(n0) = (1/5) SUM_j PROD = 4.0 ; (a*a)(n0) = 20.0 ; the pair sum 12.0 ; b(n0) = 2a - (a*a)/2 = -2.0 -- AS WANTED (-2) ; PLANT the kind of 2 flipped (split <-> ramified), in a and the pair sum: b 0.0 -- FAILS AS WANTED
+
+## STEP (5): WHAT THE GROUP FIXES -- the minimal negative shapes at Omega 4 and 5 by exponent pattern (tools/b718_abstract.py), values other than -2 marked
+  C2       Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2
+  C3       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (3, 2): -4 ; Omega 5 (4, 1): -2
+           odd h: no bad ramified prime (a ramified prime`s class has order <= 2); at Omega 4 the patterns [(1, 1, 1, 1), (2, 1, 1)] ; values other than -2 at {(1, 1, 1, 1): {'-6'}}
+  C4       Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -32, -16, -8, -4 ; Omega 5 (2, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 5 (2, 2, 1): -16, -8, -4, -2 ; Omega 5 (3, 1, 1): -4, -2 ; Omega 5 (3, 2): -4
+  C5       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (1, 1, 1, 1, 1): -6 ; Omega 5 (2, 1, 1, 1): -6, -2 ; Omega 5 (2, 2, 1): -4, -2 ; Omega 5 (3, 1, 1): -2
+           odd h: no bad ramified prime (a ramified prime`s class has order <= 2); at Omega 4 the patterns [(1, 1, 1, 1), (2, 1, 1)] ; values other than -2 at {(1, 1, 1, 1): {'-6'}}
+  C6       Omega 4 (1, 1, 1, 1): -32, -16, -8, -6, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -32, -16, -12, -8, -6, -4 ; Omega 5 (2, 1, 1, 1): -16, -8, -6, -4, -2 ; Omega 5 (2, 2, 1): -2 ; Omega 5 (3, 1, 1): -4 ; Omega 5 (3, 2): -4 ; Omega 5 (4, 1): -2
+  C7       Omega 4 (1, 1, 1, 1): -6 ; Omega 4 (2, 1, 1): -2 ; Omega 5 (1, 1, 1, 1, 1): -6 ; Omega 5 (2, 1, 1, 1): -6, -2 ; Omega 5 (2, 2, 1): -4, -2 ; Omega 5 (3, 1, 1): -2
+           odd h: no bad ramified prime (a ramified prime`s class has order <= 2); at Omega 4 the patterns [(1, 1, 1, 1), (2, 1, 1)] ; values other than -2 at {(1, 1, 1, 1): {'-6'}}
+  C2 x C2  Omega 4 (1, 1, 1, 1): -32, -16, -8, -4, -2 ; Omega 4 (2, 1, 1): -16, -8, -4, -2, -1 ; Omega 4 (2, 2): -8, -2, -1/2 ; Omega 4 (3, 1): -4, -2 ; Omega 5 (1, 1, 1, 1, 1): -64, -32, -16, -8, -4, -2 ; Omega 5 (2, 1, 1, 1): -32, -16, -8, -4, -2, -1 ; Omega 5 (3, 1, 1): -8, -4, -2
+
+### THE CENSUS READ AS THE GRADE STATES IT (values other than -2 in all 7 groups; the odd groups` Omega-4 exception the pattern (1, 1, 1, 1) at -6 alone): True
+
+## THE GRADE
+  WRITTEN PROOF, EACH STEP CHECKED AT FIVE DISCRIMINANTS (nothing compiled):
+  (1)-(3) are identities: the principal count a(n) is the average over the h characters of the products of each prime`s turn,
+  sin((e+1) theta)/sin theta for a split prime whose ideal turns the class circle by theta, chi^e for a ramified one; the pair sum
+  is the double average of the products of the local convolutions; and on a bad-supported n with Omega(n) <= 5, b(n) is their
+  combination 2a - (a*a)/2. (4) evaluates them at each of the five least instances, b(n0) = -2 at each, in h and the classes used.
+  (5) reads the census: in each group listed, minimal negative shapes of value other than -2 exist at Omega 4 or 5; in the odd
+  groups C3, C5, C7 at Omega 4 the only such pattern is (1, 1, 1, 1), value -6, four distinct bad primes.
+  CLAUSE 1 (b(n0) = -2) IS NOT DERIVED. THE STEP THAT REMAINS, NAMED: the characters give the value of every shape in h and its
+  classes, and the value is -2 at some shapes and not at others in every group read; which shape the least bad-supported n
+  instantiates is decided by the sizes of the least bad primes in each class (the order of the products p^2 q r, p^3 q, p q r s
+  and the rest), a statement on the distribution of primes among the classes -- the splitting of primes in the Hilbert class field --
+  and not on h or the orders. Narrowed in the odd groups read (C3, C5, C7) at Omega(n0) = 4: clause 1 fails there only if n0 is a
+  product of four distinct bad primes. The law stands REGISTERED, HELD at -23, -15, -39, -20 and -47.
+
+### ### **CHECKS 4 STEPS x 5 DISCRIMINANTS: ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE: THE CHARACTER FORMS OF a, THE PAIR SUM AND b A WRITTEN PROOF, CHECKED ; CLAUSE 1 NOT DERIVED, ITS STEP NAMED AND NARROWED ; 24 s.**
