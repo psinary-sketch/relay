@@ -1,0 +1,54 @@
+-- b722 -- THE C2 STATEMENT, (R332)(5): the Lean text alone. Statement and definitions; no proof term; not compiled; vanilla Lean 4
+-- (Int, Nat, List; no Mathlib, no Rat). No Lean file in any kernel holds it.
+
+namespace C2Walk
+
+/-- the walk: (D, n0, v, q) -- at the discriminant D the least n with b(n) < 0 is n0 and b(n0) = v / q.
+    The eighteen imaginary quadratic fields of class number 2 (completeness: Baker 1971, Stark 1975; cited, not compiled). -/
+def walk : List (Int × Nat × Int × Nat) :=
+  [(-15, 24, -2, 1),
+   (-20, 36, -2, 1),
+   (-24, 36, -1, 2),
+   (-35, 135, -2, 1),
+   (-40, 100, -1, 2),
+   (-51, 225, -2, 1),
+   (-52, 196, -2, 1),
+   (-88, 484, -1, 2),
+   (-91, 875, -2, 1),
+   (-115, 1225, -2, 1),
+   (-123, 1089, -2, 1),
+   (-148, 1444, -2, 1),
+   (-187, 3773, -2, 1),
+   (-232, 3364, -1, 2),
+   (-235, 4225, -2, 1),
+   (-267, 4761, -2, 1),
+   (-403, 17303, -2, 1),
+   (-427, 14161, -2, 1)]
+
+/-- the principal form of discriminant D < 0, D ≡ 0 or 1 mod 4: x² + D·y²/(-4) or x² + xy + (1 - D)/4 · y² -/
+def pform (D x y : Int) : Int :=
+  if D % 4 = 0 then x * x + (-D / 4) * y * y else x * x + x * y + ((1 - D) / 4) * y * y
+
+/-- r_Q(n): the number of (x, y) with Q(x, y) = n, by finite enumeration over the box [-n, n]² (every representation lies in it,
+    since Q(x, y) ≥ (x² + y²)/2 for the principal form of D < -4) -/
+def rQ (D : Int) (n : Nat) : Nat :=
+  ((List.range (2 * n + 1)).flatMap fun i => (List.range (2 * n + 1)).map fun j => ((i : Int) - n, (j : Int) - n)).countP
+    fun p => decide (pform D p.1 p.2 = (n : Int))
+
+/-- a(n) = r_Q(n) / 2 (two units) -/
+def aQ (D : Int) (n : Nat) : Int := (rQ D n : Int) / 2
+
+/-- F D k n: the sum over the ordered factorizations n = d₁ ⋯ d_k, every dᵢ ≥ 2, of a(d₁) ⋯ a(d_k) -/
+def F (D : Int) : Nat → Nat → Int
+  | 0, n => if n = 1 then 1 else 0
+  | k + 1, n => ((List.range (n + 1)).filter fun d => decide (2 ≤ d ∧ n % d = 0)).foldl (fun s d => s + aQ D d * F D k (n / d)) 0
+
+/-- L · b(n), L = 360360 = lcm(1, …, 15): b(n), the coefficient of n^-s in log(Z_Q / 2), is SUM over k ≥ 1 of (-1)^(k+1) F_k(n) / k,
+    and k ≤ 15 for n < 2^16 -/
+def bL (D : Int) (n : Nat) : Int :=
+  (List.range 15).foldl (fun s i => s + (if i % 2 = 0 then 1 else -1) * (360360 / ((i : Int) + 1)) * F D (i + 1) n) 0
+
+/-- THE C2 VALUE LAW AT THE LEAST NEGATIVE INDEX, at each field of the list: b(n0) = v / q, and b(n) ≥ 0 for 2 ≤ n < n0. -/
+theorem c2_value_law (D : Int) (n0 : Nat) (v : Int) (q : Nat) (hD : (D, n0, v, q) ∈ walk) : ((q : Int) * bL D n0 = v * 360360) ∧ ∀ n, 2 ≤ n → n < n0 → 0 ≤ bL D n
+
+end C2Walk
