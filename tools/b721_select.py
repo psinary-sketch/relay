@@ -12,6 +12,9 @@ moves -40's off 100; (S3) the fundamental test on the known list of h = 2 discri
 -91), and the rejection of -60 (not fundamental) and -84 (C2 x C2, not class number 2).
 
   python -X utf8 -u tools/b721_select.py          prints; writes nothing
+  python -X utf8 -u tools/b721_select.py picker   THE HALT'S POSITIVE CONTROL: the same walk with only -2 excluded, so the picker is shown
+                                                  firing where a value is allowed; and the walk carried to |D| < 5000, the h = 2 list
+                                                  printed whole (writes nothing)
 """
 import os
 import re
@@ -148,5 +151,11 @@ def run():
 
 
 if __name__ == '__main__':
+    if (sys.argv[1] if len(sys.argv) > 1 else '') == 'picker':
+        SKIP_VALUES = (Fraction(-2),)
+        LIMIT = 5000
+        print('### THE POSITIVE CONTROL: SKIP_VALUES %s ; LIMIT %d' % ([str(x) for x in SKIP_VALUES], LIMIT))
+        allh2 = [D for D in range(-5, -LIMIT, -1) if fundamental(D) and h_of(D) == 2]
+        print('### THE h = 2 FUNDAMENTAL DISCRIMINANTS, D < -4, |D| < %d: %d -- %s' % (LIMIT, len(allh2), allh2))
     L, _out = run()
     print(NL.join(L))
