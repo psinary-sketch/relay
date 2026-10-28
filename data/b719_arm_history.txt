@@ -1,0 +1,335 @@
+b719 -- (R329)(10): THE CLOSE ARMS` FAILURES b705-b718, EACH TRACED, BEFORE ANY RETIREMENT (2026-10-28T03:01:12Z)
+
+### Written by tools/b719_arms.py history (its docstring the method). data/arm_tags.json read as b718 left it: CLOSE 103, CLAIM 38.
+### The readings, each bank`s verdict lines (failing list and declared list) at the lines printed:
+  b705 post at :11, :12 ; failing 10 ; declared 4
+  b705 pre at :11, :12 ; failing 7 ; declared 4
+  b706 post at :12, :13 ; failing 11 ; declared 4
+  b706 pre at :12, :13 ; failing 11 ; declared 4
+  b707 post at :12, :13 ; failing 8 ; declared 4
+  b707 pre at :12, :13 ; failing 4 ; declared 4
+  b708 post at :12, :13 ; failing 2 ; declared 1
+  b708 pre at :12, :13 ; failing 2 ; declared 1
+  b709 post at :12, :13 ; failing 3 ; declared 1
+  b709 pre at :12, :13 ; failing 3 ; declared 1
+  b710 post at :12, :13 ; failing 6 ; declared 1
+  b710 pre at :12, :13 ; failing 5 ; declared 1
+  b711 post at :12, :13 ; failing 5 ; declared 3
+  b711 pre at :12, :13 ; failing 5 ; declared 3
+  b712 post at :12, :13 ; failing 5 ; declared 2
+  b712 pre at :12, :13 ; failing 5 ; declared 2
+  b713 post at :12, :13 ; failing 11 ; declared 2
+  b713 pre at :12, :13 ; failing 11 ; declared 2
+  b714 post at :12, :13 ; failing 16 ; declared 3
+  b714 pre at :12, :13 ; failing 15 ; declared 3
+  b715 post at :12, :13 ; failing 4 ; declared 2
+  b715 pre at :12, :13 ; failing 5 ; declared 2
+  b716 post at :12, :13 ; failing 14 ; declared 2
+  b716 pre at :12, :13 ; failing 14 ; declared 2
+  b717 post at :12, :13 ; failing 7 ; declared 2
+  b717 pre at :12, :13 ; failing 6 ; declared 2
+  b718 post at :12, :13 ; failing 8 ; declared 3
+  b718 pre at :12, :13 ; failing 8 ; declared 3
+
+## THE CLOSE ARMS, ONE ROW EACH (failures as act/reading:trace; a NAMED trace`s banks with their lines, raw | joined, and tags)
+  G-ACT-CURRENT                      KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-ACTROOT-BANKED                   KEPT (guards root chain) ; failures 4
+      b706/pre: NAMED -- b706_defects.txt raw [70] joined [70] tags [] ; b707_corrigendum.txt raw [6, 11] joined [6, 11] tags []
+      b706/post: NAMED -- b706_defects.txt raw [70] joined [70] tags [] ; b707_corrigendum.txt raw [6, 11] joined [6, 11] tags []
+      b713/pre: NAMED -- b713_events.txt raw [56, 75] joined [56, 75] tags [] ; b714_corrigendum.txt raw [17] joined [17] tags []
+      b713/post: NAMED -- b713_events.txt raw [56, 75] joined [56, 75] tags [] ; b714_corrigendum.txt raw [17] joined [17] tags []
+  G-ACTROOT-LAST                     KEPT (guards root chain) ; failures 2
+      b710/post: NAMED -- b711_corrigendum.txt raw [4, 18] joined [4, 18] tags []
+      b714/post: NAMED -- b714_events.txt raw [68] joined [68] tags [] ; b715_corrigendum.txt raw [20] joined [20] tags []
+  G-ACTROOT-VERIFY                   KEPT (guards root chain) ; failures 2
+      b713/pre: NAMED -- b713_events.txt raw [58, 73, 75] joined [58, 73, 75] tags [] ; b714_corrigendum.txt raw [19] joined [19] tags []
+      b713/post: NAMED -- b713_events.txt raw [58, 73, 75] joined [58, 73, 75] tags [] ; b714_corrigendum.txt raw [19] joined [19] tags []
+  G-ANSWERS-BANKED                   RETIRE ; failures 2
+      b711/pre: NAMED -- b711_events.txt raw [61] joined [61] tags [] ; b712_corrigendum.txt raw [21] joined [21] tags []
+      b711/post: NAMED -- b711_events.txt raw [61] joined [61] tags [] ; b712_corrigendum.txt raw [21] joined [21] tags []
+  G-ANSWERS-BEFORE-WRITES            RETIRE ; failures 8
+      b714/pre: NAMED -- b714_events.txt raw [14] joined [14] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [14] joined [14] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b715/pre: NAMED -- b715_events.txt raw [39] joined [39] tags [] ; b716_corrigendum.txt raw [60] joined [60] tags []
+      b715/post: NAMED -- b715_events.txt raw [39] joined [39] tags [] ; b716_corrigendum.txt raw [60] joined [60] tags []
+      b716/pre: NAMED -- b716_events.txt raw [54] joined [54] tags [] ; b717_corrigendum.txt raw [24] joined [24] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [54] joined [54] tags [] ; b717_corrigendum.txt raw [24] joined [24] tags ['CLOSE']
+      b718/pre: NAMED -- b718_events.txt raw [73] joined [73] tags ['CLOSE']
+      b718/post: NAMED -- b718_events.txt raw [73] joined [73] tags ['CLOSE']
+  G-ANSWERS-CHECKED                  RETIRE ; failures 4
+      b705/pre: NAMED -- b705_defects.txt raw [99, 100] joined [99, 100] tags [] ; b706_corrigendum.txt raw [6, 9] joined [6, 9] tags []
+      b705/post: NAMED -- b705_defects.txt raw [99, 100] joined [99, 100] tags [] ; b706_corrigendum.txt raw [6, 9] joined [6, 9] tags []
+      b714/pre: NAMED -- b714_events.txt raw [14] joined [14] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [14] joined [14] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+  G-ARM-SECONDS-BANKED               RETIRE ; failures 8
+      b713/pre: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+      b713/post: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+      b714/pre: NAMED -- b714_events.txt raw [20] joined [20] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [20] joined [20] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b716/pre: NAMED -- b716_events.txt raw [50] joined [50] tags [] ; b717_corrigendum.txt raw [23] joined [23] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [50] joined [50] tags [] ; b717_corrigendum.txt raw [23] joined [23] tags ['CLOSE']
+      b717/pre: NAMED -- b717_events.txt raw [33] joined [33] tags ['CLOSE'] ; b718_corrigendum.txt raw [17] joined [17] tags ['CLOSE']
+      b717/post: NAMED -- b717_events.txt raw [33] joined [33] tags ['CLOSE'] ; b718_corrigendum.txt raw [17] joined [17] tags ['CLOSE']
+  G-ARM-TAGS                         KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-ARMS-DECLARED-EQ-RUN             KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-ARMS-NO-LIVE-LIMB                RETIRE ; failures 2
+      b716/pre: NAMED -- b716_events.txt raw [48, 84] joined [48, 84] tags []
+      b716/post: NAMED -- b716_events.txt raw [48, 84] joined [48, 84] tags []
+  G-ARMS-PRERUN                      KEPT (guards seal) ; failures 2
+      b713/pre: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+      b713/post: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+  G-ARTEFACTS-NOT-COMMITTED          KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-BRANCHES-BANKED                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-BRANCHES-DELETED                 KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-CITATION-CHECKED                 KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-CLOSING-DRY-STEP                 KEPT (a failure not traced to bookkeeping, own defects or a declaration) ; failures 6
+      b708/pre: NAMED -- b708_defects.txt raw [59] joined [59] tags [] ; b709_corrigendum.txt raw [1, 5, 7] joined [1, 5, 7] tags []
+      b708/post: NAMED -- b708_defects.txt raw [59] joined [59] tags [] ; b709_corrigendum.txt raw [1, 5, 7] joined [1, 5, 7] tags []
+      b716/pre: NAMED -- b716_events.txt raw [16] joined [16] tags [] ; b717_corrigendum.txt raw [14] joined [14] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [16] joined [16] tags [] ; b717_corrigendum.txt raw [14] joined [14] tags ['CLOSE']
+      b718/pre: NAMED-CLAIM -- b718_events.txt raw [8] joined [8] tags ['CLAIM'] ; b719_corrigendum.txt raw [10] joined [10] tags ['CLAIM']
+      b718/post: NAMED-CLAIM -- b718_events.txt raw [8] joined [8] tags ['CLAIM'] ; b719_corrigendum.txt raw [10] joined [10] tags ['CLAIM']
+  G-CLOSING-SENTENCE                 KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-CONVERSION-ONE                   KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-CONVERSION-TEST                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-DEFECTS-LETTERED                 RETIRE ; failures 2
+      b714/pre: NAMED -- b714_events.txt raw [18] joined [18] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [18] joined [18] tags [] ; b715_corrigendum.txt raw [12] joined [12] tags []
+  G-DELETE-FREE                      KEPT (guards a standing safety rule (deletes), the seat`s addition) ; failures 2
+      b714/pre: NAMED -- b714_defects.txt raw [64] joined [64] tags []
+      b714/post: NAMED -- b714_defects.txt raw [64] joined [64] tags []
+  G-DELETES-ONE-BRANCH               KEPT (guards a standing safety rule (deletes), the seat`s addition) ; failures 6
+      b715/pre: NAMED -- b715_events.txt raw [35] joined [35] tags []
+      b715/post: NAMED -- b715_events.txt raw [35] joined [35] tags []
+      b717/pre: NAMED -- b717_events.txt raw [8] joined [8] tags ['CLOSE'] ; b718_corrigendum.txt raw [11] joined [11] tags ['CLOSE']
+      b717/post: NAMED -- b717_events.txt raw [8] joined [8] tags ['CLOSE'] ; b718_corrigendum.txt raw [11] joined [11] tags ['CLOSE']
+      b718/pre: NAMED -- b718_events.txt raw [69] joined [69] tags ['CLOSE']
+      b718/post: NAMED -- b718_events.txt raw [69] joined [69] tags ['CLOSE']
+  G-DRY-STEP-CLEAN                   KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-EDIT-ROUTE                       RETIRE ; failures 2
+      b711/pre: DECLARED -- b711_events.txt raw [59] joined [59] tags []
+      b711/post: DECLARED -- b711_events.txt raw [59] joined [59] tags []
+  G-EXPORT-UNTRACKED                 KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-FIGURES-BANKED                   RETIRE ; failures 2
+      b714/pre: NAMED -- b714_defects.txt raw [81] joined [81] tags ['CLOSE']
+      b714/post: NAMED -- b714_defects.txt raw [81] joined [81] tags ['CLOSE']
+  G-GUARD-HELD                       KEPT (guards root chain) ; failures 0
+  G-HOOK-WIRED                       KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-LETTERING-ONE                    KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-LISTINGS-BEFORE-CLAUSES          KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-LOCAL-BANK-UNTRACKED             KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-LOCKGATE-EIGHT                   KEPT (guards seal) ; failures 0
+  G-LSREMOTE-ONE-PER-REPO            KEPT (guards pushes) ; failures 0
+  G-MEMBRANE-WIRED                   KEPT (guards root chain) ; failures 0
+  G-MUSTFAIL                         KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-N1-SCORED                        KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-N2-SCORED                        KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-N3-SCORED                        KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-N4-SCORED                        KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-N5-SCORED                        KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-NEXT-ACT-NAMED                   RETIRE ; failures 2
+      b713/pre: NAMED -- b713_events.txt raw [54, 74] joined [54, 74] tags [] ; b714_corrigendum.txt raw [15] joined [15] tags []
+      b713/post: NAMED -- b713_events.txt raw [54, 74] joined [54, 74] tags [] ; b714_corrigendum.txt raw [15] joined [15] tags []
+  G-NO-LOCAL-LEAN                    KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-NOTHING-RAN-AHEAD                KEPT (guards seal) ; failures 10
+      b706/pre: NAMED -- b706_defects.txt raw [76] joined [76] tags [] ; b707_corrigendum.txt raw [7, 11] joined [7, 11] tags []
+      b706/post: NAMED -- b706_defects.txt raw [76] joined [76] tags [] ; b707_corrigendum.txt raw [7, 11] joined [7, 11] tags []
+      b711/pre: NAMED -- b711_events.txt raw [66] joined [66] tags [] ; b712_corrigendum.txt raw [23] joined [23] tags []
+      b711/post: NAMED -- b711_events.txt raw [66] joined [66] tags [] ; b712_corrigendum.txt raw [23] joined [23] tags []
+      b712/pre: NAMED -- b712_events.txt raw [7] joined [7] tags [] ; b713_corrigendum.txt raw [11] joined [11] tags []
+      b712/post: NAMED -- b712_events.txt raw [7] joined [7] tags [] ; b713_corrigendum.txt raw [11] joined [11] tags []
+      b714/pre: NAMED -- b714_defects.txt raw [71, 73] joined [71, 73] tags []
+      b714/post: NAMED -- b714_defects.txt raw [71, 73] joined [71, 73] tags []
+      b716/pre: NAMED -- b716_events.txt raw [4] joined [4] tags [] ; b717_corrigendum.txt raw [10] joined [10] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [4] joined [4] tags [] ; b717_corrigendum.txt raw [10] joined [10] tags ['CLOSE']
+  G-PARTS-PRERUN                     RETIRE ; failures 2
+      b713/pre: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+      b713/post: NAMED -- b713_events.txt raw [62, 75] joined [62, 75] tags [] ; b714_corrigendum.txt raw [21] joined [21] tags []
+  G-POSTROOT-WRITES-NONE             KEPT (guards root chain) ; failures 0
+  G-PRIOR-CLOSED-PUSHED              KEPT (guards pushes) ; failures 2
+      b716/pre: NAMED -- b716_events.txt raw [13] joined [13] tags [] ; b717_corrigendum.txt raw [13] joined [13] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [13] joined [13] tags [] ; b717_corrigendum.txt raw [13] joined [13] tags ['CLOSE']
+  G-PRIORBANK-UNCHANGED              RETIRE ; failures 14
+      b712/pre: DECLARED
+      b712/post: DECLARED
+      b713/pre: DECLARED -- b713_events.txt raw [70] joined [70] tags [] ; b714_corrigendum.txt raw [25] joined [25] tags []
+      b713/post: DECLARED -- b713_events.txt raw [70] joined [70] tags [] ; b714_corrigendum.txt raw [25] joined [25] tags []
+      b714/pre: DECLARED
+      b714/post: DECLARED
+      b715/pre: DECLARED
+      b715/post: DECLARED
+      b716/pre: DECLARED -- b716_events.txt raw [84] joined [84] tags []
+      b716/post: DECLARED -- b716_events.txt raw [84] joined [84] tags []
+      b717/pre: DECLARED -- b717_events.txt raw [17] joined [17] tags ['CLOSE']
+      b717/post: DECLARED -- b717_events.txt raw [17] joined [17] tags ['CLOSE']
+      b718/pre: DECLARED
+      b718/post: DECLARED
+  G-PROCS-LISTED                     RETIRE ; failures 6
+      b713/pre: NAMED -- b713_events.txt raw [6, 74] joined [6, 74] tags [] ; b714_corrigendum.txt raw [11] joined [11] tags []
+      b713/post: NAMED -- b713_events.txt raw [6, 74] joined [6, 74] tags [] ; b714_corrigendum.txt raw [11] joined [11] tags []
+      b714/pre: NAMED -- b714_events.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [12] joined [12] tags []
+      b717/pre: NAMED -- b717_defects.txt raw [29] joined [29] tags ['CLOSE'] ; b717_events.txt raw [17] joined [17] tags ['CLOSE']
+      b717/post: NAMED -- b717_defects.txt raw [29] joined [29] tags ['CLOSE'] ; b717_events.txt raw [17] joined [17] tags ['CLOSE']
+  G-PUSHED-PREDICATE-THREE-CLAUSED   KEPT (guards pushes) ; failures 0
+  G-PUSHOUT-COMMITTED                KEPT (guards pushes) ; failures 0
+  G-R328-ENTERED                     KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-READ-RULE-STANDING               RETIRE ; failures 26
+      b705/pre: DECLARED -- b705_defects.txt raw [28] joined [28] tags [] ; b706_corrigendum.txt raw [9] joined [9] tags []
+      b705/post: DECLARED -- b705_defects.txt raw [28] joined [28] tags [] ; b706_corrigendum.txt raw [9] joined [9] tags []
+      b707/pre: DECLARED -- b708_corrigendum.txt raw [7] joined [7] tags []
+      b707/post: DECLARED -- b708_corrigendum.txt raw [7] joined [7] tags []
+      b708/pre: DECLARED -- b709_corrigendum.txt raw [7] joined [7] tags []
+      b708/post: DECLARED -- b709_corrigendum.txt raw [7] joined [7] tags []
+      b709/pre: DECLARED -- b709_defects.txt raw [89] joined [89] tags [] ; b710_corrigendum.txt raw [3, 9] joined [3, 9] tags []
+      b709/post: DECLARED -- b709_defects.txt raw [89] joined [89] tags [] ; b710_corrigendum.txt raw [3, 9] joined [3, 9] tags []
+      b710/pre: DECLARED -- b710_defects.txt raw [51] joined [51] tags [] ; b711_corrigendum.txt raw [4, 10] joined [4, 10] tags []
+      b710/post: DECLARED -- b710_defects.txt raw [51] joined [51] tags [] ; b711_corrigendum.txt raw [4, 10] joined [4, 10] tags []
+      b711/pre: DECLARED
+      b711/post: DECLARED
+      b712/pre: DECLARED
+      b712/post: DECLARED
+      b713/pre: DECLARED -- b713_events.txt raw [13, 70] joined [13, 70] tags [] ; b714_corrigendum.txt raw [25] joined [25] tags []
+      b713/post: DECLARED -- b713_events.txt raw [13, 70] joined [13, 70] tags [] ; b714_corrigendum.txt raw [25] joined [25] tags []
+      b714/pre: DECLARED
+      b714/post: DECLARED
+      b715/pre: DECLARED
+      b715/post: DECLARED
+      b716/pre: DECLARED -- b716_events.txt raw [84] joined [84] tags []
+      b716/post: DECLARED -- b716_events.txt raw [84] joined [84] tags []
+      b717/pre: DECLARED -- b717_events.txt raw [16] joined [16] tags ['CLOSE']
+      b717/post: DECLARED -- b717_events.txt raw [16] joined [16] tags ['CLOSE']
+      b718/pre: DECLARED
+      b718/post: DECLARED
+  G-READFIRST-CITED                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-READFIRST-DIFF-BANKED            KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RECEIPT-IN-FULL                  KEPT (guards a standing safety rule (receipt in full), the seat`s addition) ; failures 2
+      b716/pre: NAMED -- b716_events.txt raw [10] joined [10] tags [] ; b717_corrigendum.txt raw [12] joined [12] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [10] joined [10] tags [] ; b717_corrigendum.txt raw [12] joined [12] tags ['CLOSE']
+  G-REPORT-UNSEALED                  RETIRE ; failures 2
+      b709/pre: NAMED -- b709_defects.txt raw [119] joined [119] tags [] ; b710_corrigendum.txt raw [3, 7, 9, 11, 19] joined [3, 7, 9, 11, 19] tags []
+      b709/post: NAMED -- b709_defects.txt raw [119] joined [119] tags [] ; b710_corrigendum.txt raw [3, 7, 9, 11, 19] joined [3, 7, 9, 11, 19] tags []
+  G-ROOT-BANKS-COMMITTED             KEPT (guards root chain) ; failures 0
+  G-ROOTDRY-READY                    KEPT (guards root chain) ; failures 8
+      b712/pre: NAMED -- b712_events.txt raw [29] joined [29] tags [] ; b713_corrigendum.txt raw [15] joined [15] tags []
+      b712/post: NAMED -- b712_events.txt raw [29] joined [29] tags [] ; b713_corrigendum.txt raw [15] joined [15] tags []
+      b713/pre: NAMED -- b713_defects.txt raw [62] joined [62] tags [] ; b713_events.txt raw [68, 76] joined [68, 76] tags []
+      b713/post: NAMED -- b713_defects.txt raw [62] joined [62] tags [] ; b713_events.txt raw [68, 76] joined [68, 76] tags []
+      b716/pre: NAMED -- b716_events.txt raw [7] joined [7] tags [] ; b717_corrigendum.txt raw [11] joined [11] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [7] joined [7] tags [] ; b717_corrigendum.txt raw [11] joined [11] tags ['CLOSE']
+      b717/pre: NAMED -- b717_events.txt raw [4] joined [4] tags ['CLOSE'] ; b718_corrigendum.txt raw [10] joined [10] tags ['CLOSE']
+      b717/post: NAMED -- b717_events.txt raw [4] joined [4] tags ['CLOSE'] ; b718_corrigendum.txt raw [10] joined [10] tags ['CLOSE']
+  G-RULE-BINARY-HASHES               KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-CLOSING-DRY                 KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-CONSUMER-TOLERANCE          KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-DETACHED-PRINT              KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-DISPATCH-PER-TREE           KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-HEAD-LINE-QUOTED            RETIRE ; failures 4
+      b711/pre: DECLARED -- b711_events.txt raw [60] joined [60] tags []
+      b711/post: DECLARED -- b711_events.txt raw [60] joined [60] tags []
+      b718/pre: NAMED -- b718_events.txt raw [4] joined [4] tags ['CLOSE'] ; b719_corrigendum.txt raw [9] joined [9] tags ['CLOSE']
+      b718/post: NAMED -- b718_events.txt raw [4] joined [4] tags ['CLOSE'] ; b719_corrigendum.txt raw [9] joined [9] tags ['CLOSE']
+  G-RULE-LONG-PHASE-SPLIT            KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-METHOD-READINESS            KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-MIDACT-AFTER-ROOT           KEPT (guards root chain) ; failures 0
+  G-RULE-ONE-GIT-WRITE               RETIRE ; failures 2
+      b706/pre: DECLARED -- b706_defects.txt raw [51] joined [51] tags [] ; b707_corrigendum.txt raw [11] joined [11] tags []
+      b706/post: DECLARED -- b706_defects.txt raw [51] joined [51] tags [] ; b707_corrigendum.txt raw [11] joined [11] tags []
+  G-RULE-PAIR-OF-READINGS            KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-POSTSEAL-READ               KEPT (guards seal) ; failures 0
+  G-RULE-REMOTE-REREAD               KEPT (guards pushes) ; failures 2
+      b716/pre: NAMED -- b716_events.txt raw [24] joined [24] tags [] ; b717_corrigendum.txt raw [17] joined [17] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [24] joined [24] tags [] ; b717_corrigendum.txt raw [17] joined [17] tags ['CLOSE']
+  G-RULE-ROWGEN-REVIEW               RETIRE ; failures 2
+      b714/pre: NAMED -- b714_events.txt raw [12] joined [12] tags []
+      b714/post: NAMED -- b714_events.txt raw [12] joined [12] tags []
+  G-RULE-SCORES-BEFORE-SEAL          KEPT (guards seal) ; failures 0
+  G-RULE-SUITE-PART-CALLS            KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-SUITE-PARTS                 RETIRE ; failures 2
+      b706/pre: NAMED -- b706_defects.txt raw [83] joined [83] tags [] ; b707_corrigendum.txt raw [8, 11] joined [8, 11] tags []
+      b706/post: NAMED -- b706_defects.txt raw [83] joined [83] tags [] ; b707_corrigendum.txt raw [8, 11] joined [8, 11] tags []
+  G-RULE-TIE-BREAK                   KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-TRIGGER-T1                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-TRIGGER-T2                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-TRIGGER-T3                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-TRIGGER-T5                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULE-WALK-TIP                    KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-RULES-ROW-ENTERED                KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-SCAN-CLEAN                       KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-SCORER-READS-BANKS               RETIRE ; failures 2
+      b716/pre: NAMED -- b716_events.txt raw [22] joined [22] tags [] ; b717_corrigendum.txt raw [16] joined [16] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [22] joined [22] tags [] ; b717_corrigendum.txt raw [16] joined [16] tags ['CLOSE']
+  G-SEAL-HASHES                      KEPT (guards seal) ; failures 0
+  G-SEAL-VERIFIES                    KEPT (guards seal) ; failures 0
+  G-SEALED-AFTER-COMPONENTS          KEPT (guards seal) ; failures 7
+      b710/pre: NAMED -- b710_defects.txt raw [77] joined [77] tags [] ; b711_corrigendum.txt raw [4, 16] joined [4, 16] tags []
+      b710/post: NAMED -- b710_defects.txt raw [77] joined [77] tags [] ; b711_corrigendum.txt raw [4, 16] joined [4, 16] tags []
+      b714/pre: NAMED -- b714_defects.txt raw [71] joined [71] tags []
+      b714/post: NAMED -- b714_defects.txt raw [71] joined [71] tags []
+      b715/pre: NAMED -- b715_events.txt raw [46] joined [46] tags []
+      b716/pre: NAMED -- b716_events.txt raw [60, 84, 88] joined [60, 84, 88] tags [] ; b717_corrigendum.txt raw [25] joined [25] tags ['CLOSE']
+      b716/post: NAMED -- b716_events.txt raw [60, 84, 88] joined [60, 84, 88] tags [] ; b717_corrigendum.txt raw [25] joined [25] tags ['CLOSE']
+  G-SEAT-EXPECTATIONS-SCORED         KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-SHARED-ADDITIVE                  KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-SPEC-PLANTED                     KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-STEPZERO-TESTS                   RETIRE ; failures 2
+      b718/pre: DECLARED
+      b718/post: DECLARED
+  G-TABLE-FINAL                      RETIRE ; failures 2
+      b706/pre: NAMED -- b707_corrigendum.txt raw [5, 11] joined [5, 11] tags []
+      b706/post: NAMED -- b707_corrigendum.txt raw [5, 11] joined [5, 11] tags []
+  G-TOOLSET-V120                     KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-TRAIL-APPEND-ONLY                KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-TRAIL-CARRIES-ROOT               KEPT (guards root chain) ; failures 0
+  G-TRAIL-CARRIES-SEAL               KEPT (guards seal) ; failures 0
+  G-TRAIL-DEFECTS-EQUAL              RETIRE ; failures 6
+      b705/post: NAMED -- b706_corrigendum.txt raw [8, 9] joined [8, 9] tags []
+      b706/pre: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b706/post: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b707/post: NAMED -- b708_corrigendum.txt raw [6, 7] joined [6, 7] tags []
+      b710/pre: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+      b710/post: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+  G-TRAIL-LINES-EQUAL-DEFECTS        RETIRE ; failures 10
+      b705/post: NAMED -- b706_corrigendum.txt raw [8, 9] joined [8, 9] tags []
+      b706/pre: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b706/post: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b707/post: NAMED -- b708_corrigendum.txt raw [6, 7] joined [6, 7] tags []
+      b710/pre: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+      b710/post: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+      b712/pre: NAMED -- b712_events.txt raw [33] joined [33] tags [] ; b713_corrigendum.txt raw [17] joined [17] tags []
+      b712/post: NAMED -- b712_events.txt raw [33] joined [33] tags [] ; b713_corrigendum.txt raw [17] joined [17] tags []
+      b718/pre: NAMED -- b718_events.txt raw [77] joined [77] tags ['CLOSE']
+      b718/post: NAMED -- b718_events.txt raw [77] joined [77] tags ['CLOSE']
+  G-TRAIL-RECORD                     KEPT (no failure b705-b718; not read vacuously) ; failures 0
+  G-TRAIL-RESOLVED-EQUAL             RETIRE ; failures 6
+      b705/post: NAMED -- b706_corrigendum.txt raw [8, 9] joined [8, 9] tags []
+      b706/pre: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b706/post: NAMED -- b707_corrigendum.txt raw [10, 11] joined [10, 11] tags []
+      b707/post: NAMED -- b708_corrigendum.txt raw [6, 7] joined [6, 7] tags []
+      b710/pre: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+      b710/post: NAMED -- b710_defects.txt raw [124] joined [124] tags [] ; b711_corrigendum.txt raw [4, 22] joined [4, 22] tags []
+  G-WRITELIST-KINDS                  RETIRE ; failures 3
+      b705/pre: NAMED -- b705_defects.txt raw [111] joined [111] tags [] ; b706_corrigendum.txt raw [5, 9] joined [5, 9] tags []
+      b705/post: NAMED -- b705_defects.txt raw [111] joined [111] tags [] ; b706_corrigendum.txt raw [5, 9] joined [5, 9] tags []
+      b707/post: NAMED -- b707_defects.txt raw [58] joined [58] tags [] ; b708_corrigendum.txt raw [5, 7] joined [5, 7] tags []
+  G-WRITELIST-MIRROR-STATE           KEPT (no failure b705-b718; not read vacuously) ; failures 0
+
+## THE TALLY
+  CLOSE arms 103 = RETIRE 25 + KEPT as guards 27 + KEPT never failing 50 + KEPT with an untraced or claim-named failure 1
+  RETIRE: ['G-ANSWERS-BANKED', 'G-ANSWERS-BEFORE-WRITES', 'G-ANSWERS-CHECKED', 'G-ARM-SECONDS-BANKED', 'G-ARMS-NO-LIVE-LIMB', 'G-DEFECTS-LETTERED', 'G-EDIT-ROUTE', 'G-FIGURES-BANKED', 'G-NEXT-ACT-NAMED', 'G-PARTS-PRERUN', 'G-PRIORBANK-UNCHANGED', 'G-PROCS-LISTED', 'G-READ-RULE-STANDING', 'G-REPORT-UNSEALED', 'G-RULE-HEAD-LINE-QUOTED', 'G-RULE-ONE-GIT-WRITE', 'G-RULE-ROWGEN-REVIEW', 'G-RULE-SUITE-PARTS', 'G-SCORER-READS-BANKS', 'G-STEPZERO-TESTS', 'G-TABLE-FINAL', 'G-TRAIL-DEFECTS-EQUAL', 'G-TRAIL-LINES-EQUAL-DEFECTS', 'G-TRAIL-RESOLVED-EQUAL', 'G-WRITELIST-KINDS']
+  KEPT AS GUARDS: ['G-ACTROOT-BANKED (root chain)', 'G-ACTROOT-LAST (root chain)', 'G-ACTROOT-VERIFY (root chain)', 'G-ARMS-PRERUN (seal)', 'G-DELETE-FREE (a standing safety rule (deletes), the seat`s addition)', 'G-DELETES-ONE-BRANCH (a standing safety rule (deletes), the seat`s addition)', 'G-GUARD-HELD (root chain)', 'G-LOCKGATE-EIGHT (seal)', 'G-LSREMOTE-ONE-PER-REPO (pushes)', 'G-MEMBRANE-WIRED (root chain)', 'G-NOTHING-RAN-AHEAD (seal)', 'G-POSTROOT-WRITES-NONE (root chain)', 'G-PRIOR-CLOSED-PUSHED (pushes)', 'G-PUSHED-PREDICATE-THREE-CLAUSED (pushes)', 'G-PUSHOUT-COMMITTED (pushes)', 'G-RECEIPT-IN-FULL (a standing safety rule (receipt in full), the seat`s addition)', 'G-ROOT-BANKS-COMMITTED (root chain)', 'G-ROOTDRY-READY (root chain)', 'G-RULE-MIDACT-AFTER-ROOT (root chain)', 'G-RULE-POSTSEAL-READ (seal)', 'G-RULE-REMOTE-REREAD (pushes)', 'G-RULE-SCORES-BEFORE-SEAL (seal)', 'G-SEAL-HASHES (seal)', 'G-SEAL-VERIFIES (seal)', 'G-SEALED-AFTER-COMPONENTS (seal)', 'G-TRAIL-CARRIES-ROOT (root chain)', 'G-TRAIL-CARRIES-SEAL (seal)']
+  KEPT, A FAILURE NOT TRACED: ['G-CLOSING-DRY-STEP']
+  GUARDS NAMED BUT NOT IN THE CLOSE MAP: ['G-REGISTRATIONS-FIRST']
+
+## THE HAND-READ OF THE RESIDUE (the seat, before this bank: every NAMED hit line of the RETIRE rows printed one line each
+## by a scratch reader over this tool`s history and read through)
+  Each RETIRE arm`s failures are recorded by its act as the close`s own: a face or carried list not bumped (G-NEXT-ACT-NAMED,
+  G-STEPZERO-TESTS), an order step not run before the seal (G-ARM-SECONDS-BANKED, G-PARTS-PRERUN), a bank`s phrase or key not
+  the arm`s needle (G-PROCS-LISTED, G-REPORT-UNSEALED, G-SCORER-READS-BANKS), a late letter against the trail arms (G-TRAIL-*),
+  a sealed predicate miscounting (G-ANSWERS-*, G-RULE-ONE-GIT-WRITE, G-RULE-SUITE-PARTS, G-TABLE-FINAL, G-DEFECTS-LETTERED,
+  G-RULE-HEAD-LINE-QUOTED), a (W) row omitted (G-WRITELIST-KINDS), or the face`s declared carry (G-READ-RULE-STANDING,
+  G-PRIORBANK-UNCHANGED, G-EDIT-ROUTE). Some hits are a tally line only (THE FAILING TEN and the like); each such failure is
+  DECLARED or has a causal row in another of its act`s banks. No RETIRE row`s hit is tagged CLAIM. NAMED is a mention matcher: the hand-read, not
+  the matcher, is what reads the cause.
+
+### ### **CLOSE 103 ; RETIRE 25 ; KEPT 78 (GUARDS 27, NEVER FAILING 50, UNTRACED 1) ; CLAIM ARMS 38 UNTOUCHED.**
