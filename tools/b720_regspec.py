@@ -131,7 +131,7 @@ CLAUSES = [
     ('arms tagged CLAIM or CLOSE', 'TAGGED', 'TAGGED', 'arms', '### (R330)(2): data/arm_tags.json; MEASURED off its tags.'),
     ('events and defects of the act left untagged', 'UNTAGGED', 'UNTAGGED', 'items', '### (R330)(2): the counter`s untagged rows; MEASURED off the defects and events banks.'),
     ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b719_rules.txt row (1); MEASURED off the defects bank`s rows.'),
-    ('root-route dry runs printed READY False before the lock', 0, 0, 'runs', '### data/b706_rules.txt row (1); v5 row (76): READY True the seal`s evidence; each run after the face`s commit.'),
+    ('root-route dry runs printed READY False before the lock', 1, 1, 'runs', '### data/b706_rules.txt row (1); v5 row (76): READY True the seal`s evidence; the fourth run with the gate`s first record written and uncommitted (a bank the root names), as at b719.'),
     ('root-route dry runs run before the lock', 5, 5, 'runs', '### the standing order runs it once; defects (w), (y), (z): after the face, after each of its three repairs, and last after the gate`s record was committed.'),
     ('closing dry-run steps printed CLEAN before the lock', 1, 1, 'steps', '### b675 rules row 1.'),
     ('branches deleted beyond the step zero`s list', 0, 0, 'branches', '### port-b707 kept.'),
