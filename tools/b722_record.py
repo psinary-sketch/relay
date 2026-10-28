@@ -2244,7 +2244,12 @@ SCORE_KEYS = NK + SK
 _sv, scores_line = R._sv, R.scores_line
 _calls, _rl_lines = R._calls, R._rl_lines
 num_word = P3.num_word
-_trail_resolved = P3._trail_resolved
+def _trail_resolved(text):
+    """b703's reader of the trail's Resolved line, its navigator letters taken with a prime: this act's navigator letter is (b`), which b703's
+    `\\([a-z]\\)` cannot read (the gate's dry run, defect (e`)); otherwise as b703's."""
+    m = re.search(r"^\*\*Resolved by the seat, for the author’s strike:\*\* .*\((\d+)\) the (\w+) navigator (?:miss|misses)"
+                  r"(?: \(\([a-z][`'’]?\)(?:, \([a-z][`'’]?\))*\))? and the seat’s (\w+) defects? as lettered\.$", text, re.M)
+    return (m.group(2), m.group(3)) if m else None
 ALLOWED_SHARED_DATA = ('act_roots.txt', 'b721_closing_push_out.txt', 'b675_corrigenda.txt', 'standing_clauses_v3.txt')
 def _s_scores():
     return dict((k, (v[0], v[1].replace('b698_', ACT + '_'))) for k, v in R._s_scores().items())
@@ -2849,7 +2854,8 @@ def _for_author():
     rows, nav = _owners_now()
     f = _figs()
     seat = AC.defect_owners(rows)['SEAT']   # ### (R332)(4)(iii), v4 row (64): the one counter
-    letters = ', '.join(re.match(r'^\(([a-z])\)', r).group(0) for r in nav)
+    # ### the navigator's letter this act is (b'), primed: the reader takes a letter with its prime (the gate's dry run, defect (e'))
+    letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
     why = (': the probe enumerates every repository without a cited pin at its HEAD, so its count moves with the kernels -- its entry’s range '
            'limits say so' if f['rp_differs'] == ['I-76'] else ', each read in its entry')
     return ('(1) the instruments by the rule, not by the navigator’s list: %d entered, the navigator’s %s beside the output, %s of them in it, '
