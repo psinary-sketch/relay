@@ -2104,8 +2104,9 @@ def combine():
 # ### G-DELETES-ONE-BRANCH, wanting port-b707 among the ruling's kept branches as tools/standing/allow.py reads them (a clause saying NOT
 # ### deleted) where the ferry's Component 0 says "port-b707 kept" (data/b720_ferry.txt :26) -- the ruling's wording and the carried reader in
 # ### conflict, as at b719, printed for the author; the arm not edited. b719's G-BRANCHES-BANKED is not carried: b720's step-zero bank stands
-# ### in its step-zero banks' commit (e3b3de12).
-CARRIED_FAILING = ('G-DELETES-ONE-BRANCH',)
+# ### in its step-zero banks' commit (e3b3de12). And G-DELETE-FREE, the standing arm over the act's tools' code, on tools/b720_challenge.py's
+# ### os.remove of its own temporary index (:148, :155) -- defect (m), the tool committed as it ran (41a0adcf), not edited after; the arm not edited.
+CARRIED_FAILING = ('G-DELETES-ONE-BRANCH', 'G-DELETE-FREE')
 
 
 def main():
