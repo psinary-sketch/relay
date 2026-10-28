@@ -1,0 +1,198 @@
+b722 -- (R332)(6): THE RESEARCH INSTRUMENTS ENUMERATED BY RULE (2026-10-28T21:01:18Z)
+
+THE RULE ((R332)(6)), printed before any tool is named: an act-numbered tool under relay tools/ (tools/bNNN_<name>.py, tracked at HEAD) is a
+RESEARCH INSTRUMENT when (I) it computes a figure about a mathematical object -- a zero, a coefficient, an eigenvalue, an onset, a table, a
+build, a statement`s grade -- and (II) a later act imported it unedited or ran it again.
+AS READ BY THIS TOOL:
+  (II) IMPORTED: a tool of a later act (tools/bMMM_*.py, MMM > NNN) carries an import line naming the module (`import bNNN_<name>`,
+       `from bNNN_<name> import`); an import by name edits nothing. Whether a later act edited the module`s own file is NOT read by this
+       tool (a limit, printed). RAN AGAIN: a later act`s bank or tool carries a command line running it (`python` ... `tools/bNNN_<name>.py`).
+       A mention that is neither is not a reuse.
+  (I)  COMPUTES A FIGURE ABOUT A MATHEMATICAL OBJECT, read in two screens and a hand read: (S1) the close`s own families, by the name`s
+       stem, are not instruments -- record, worklist, checks, carry, citation, closing, regspec, reg_gate, report, standing, corrigendum,
+       c1, tests, hooks, extract, lockgate, prune, select of a close, mirror, push, stepzero, rowgen, census, survey of the record --
+       FAMILIES below; (S2) of the rest, a tool whose source imports a mathematical library (flint, mpmath, sympy, numpy, scipy,
+       fractions) or an act tool already passing (S2), or invokes lean or lake, passes; (H) every tool (S2) passes and every tool it
+       sets aside is read by hand from its docstring, each reading printed with its reason; the hand read may strike a tool (S2) passed
+       (a figure about the record, not a mathematical object) and may not add one (S2) set aside without printing why.
+  TOOLS ALREADY ENTERED in INSTRUMENTS.md (I-1 to I-40) are printed and not entered again.
+
+### FAMILIES (S1), by the name`s stem: record, worklist, checks, carry, citation, closing, regspec, reg_gate, report, standing, corrigendum, c1, tests, hooks, extract, lockgate, prune, mirror, push, stepzero, rowgen, census, record_tool, scan, ferry, gate, touch, readfirst, answers, title, face, events, defects, seal, root, trail, entry, ledger, propagation, instruments, cites, registry, snapshot, order, orders, moves, select
+
+## THE YIELDS
+  THE POPULATION: act-numbered tools tracked at HEAD: 3171
+  (II) REUSED by a later act (imported 270, ran again 96, either): 309
+  (S1) not of the close`s families: 93
+  (S2) a mathematical library, an act tool passing (S2), or lean/lake: 65 ; set aside 28
+
+## THE HAND READ (H): each tool (S1) keeps, its first docstring line, (S2)`s word, the seat`s reading and its reason
+  b302_correspondence          (S2) ASIDE    HAND NOT            writes a CORRESPONDENCE row from a build`s profile: a row of the record | b302_correspondence.py -- THE ENCLOSURE TERMINAL'S ROW.
+  b302_kernel                  (S2) PASS     HAND INSTRUMENT     the kernel build, its profile and byte comparisons: a build | b302_kernel.py -- THE KERNEL BUILD, ITS PROFILE, AND THE BYTE COMPARISONS.
+  b303_correspondence          (S2) ASIDE    HAND NOT            a CORRESPONDENCE row: the record | b303_correspondence.py -- THE UNIFORM FAMILY'S ROW.
+  b303_family                  (S2) PASS     HAND INSTRUMENT     the family`s finite half verified at content: computed | b303_family.py -- THE FAMILY'S FINITE HALF, ### **VERIFIED AT CONTENT AND INDEPENDENTLY.**
+  b303_pins                    (S2) ASIDE    HAND NOT            pins by ls-remote: the record`s repositories | b303_pins.py -- THE PINS, ### **BY `ls-remote` ACROSS EVERY REPOSITORY THE ROSTER NAMES.**
+  b303_source                  (S2) ASIDE    HAND NOT            a source text read: a document, not a mathematical object | b303_source.py -- THE SOURCE READ, ### **MADE REPRODUCIBLE INSTEAD OF NARRATED.**
+  b304_smearing                (S2) PASS     HAND INSTRUMENT     the finite analogue of the source`s move computed | b304_smearing.py -- THE FINITE ANALOGUE OF THE SOURCE'S MOVE, COMPRESSED AND COMPUTED.
+  b305_source                  (S2) ASIDE    HAND NOT            a source pinned by hash and its quotations located | b305_source.py -- THE SOURCE READ, PINNED AND LOCATED.
+  b306_stem_scope              (S2) ASIDE    HAND NOT            a stem sweep over the record | b306_stem_scope.py -- THE STEM SWEEP, EXTENDED TO THE SHARED APPEND-TARGETS.
+  b308_local_field             (S2) PASS     HAND INSTRUMENT     the local-field instrument, built with its controls | b308_local_field.py -- THE LOCAL-FIELD INSTRUMENT, ACT ONE. ### THE BUILD AND ITS CONTROLS.
+  b309_scaling_trace           (S2) PASS     HAND INSTRUMENT     the scaling trace Tr(theta(p^k) Pi) computed | b309_scaling_trace.py -- THE SCALING TRACE. ### **THE COMPUTATION AND ITS CONTROLS.**
+  b316_instrument              (S2) PASS     HAND INSTRUMENT     a computable truncation of the archimedean space | b316_instrument.py -- A COMPUTABLE TRUNCATION OF THE OBJECT'S ARCHIMEDEAN SPACE.
+  b317_smear                   (S2) PASS     HAND INSTRUMENT     the smeared trace on the truncated space | b317_smear.py -- THE ASSEMBLY. ### **THE SOURCE'S SMEARED TRACE, ON THE TRUNCATED SPACE.**
+  b318_square                  (S2) PASS     HAND INSTRUMENT     the square form computed | b318_square.py -- THE SQUARE FORM. ### **THE ONE THING THE SOURCE GUARANTEES FOR FREE.**
+  b319_stable                  (S2) PASS     HAND INSTRUMENT     the stable rank of the subspace | b319_stable.py -- THE STABLE RANK. ### **THE SUBSPACE BY THE SOURCE'S OWN CHARACTERIZATION.**
+  b320_corroborate             (S2) PASS     HAND INSTRUMENT     the Weil side by a second route | b320_corroborate.py -- THE WEIL SIDE, BY A SECOND AND INDEPENDENT ROUTE.
+  b320_weil                    (S2) PASS     HAND INSTRUMENT     the archimedean Weil distribution evaluated | b320_weil.py -- THE ARCHIMEDEAN WEIL DISTRIBUTION, FROM THE SOURCE'S OWN FORMULA.
+  b321_window                  (S2) PASS     HAND INSTRUMENT     the remainder integral and places sum on a lawful test function | b321_window.py -- THE REMAINDER INTEGRAL, AND THE PLACES SUM, ON A LAWFUL TEST FUNCTION.
+  b322_ladder                  (S2) PASS     HAND INSTRUMENT     the unit`s residual along the domain ladder and its rate | b322_ladder.py -- THE UNIT'S RESIDUAL ALONG THE DOMAIN LADDER, AND THE RATE IT FALLS AT.
+  b325_epstein                 (S2) PASS     HAND INSTRUMENT     the Epstein channels | b325_epstein.py -- THE EPSTEIN CHANNELS. ### **THE NEGATIVE CONTROL'S INSTRUMENT.**
+  b326_closure                 (S2) PASS     HAND INSTRUMENT     the explicit formula closed at every cell | b326_closure.py -- THE CORROBORATION: THE EXPLICIT FORMULA CLOSED AT EVERY CELL FOR BOTH
+  b326_windows                 (S2) PASS     HAND INSTRUMENT     the two windows at every cell | b326_windows.py -- THE TWO WINDOWS, SIDE BY SIDE, FROM THE ARC'S CELLS THROUGH THE CROSSING
+  b326_zeros                   (S2) PASS     HAND INSTRUMENT     the Epstein zeros on the line | b326_zeros.py -- THE EPSTEIN ZEROS ON THE LINE, BY THE CORPUS'S OWN CENSUS RUN AT Re s = 1/2,
+  b327_bridge                  (S2) PASS     HAND INSTRUMENT     the archimedean channel identity measured | b327_bridge.py -- THE BRIDGE READ'S CORROBORATION, AND THE LIVE ROW IT COMPOSES.
+  b327_faces_row               (S2) ASIDE    HAND NOT            the faces ledger`s row-writer | b327_faces_row.py -- THE FACES LEDGER'S ROW-WRITER. ### **REFUSES DUPLICATES, GUARDS NOTATION, VERIFIES
+  b328_family                  (S2) PASS     HAND INSTRUMENT     the discriminating family, its condition and seeds | b328_family.py -- THE DISCRIMINATING FAMILY: THE CONDITION CHECKED, THE SEEDS BUILT, THE CONTROL RUN.
+  b332_statement               (S2) ASIDE    HAND NOT            generates a clause`s text; computes no figure and grades nothing | b332_statement.py -- THE CLAUSE STATED. ### THE GENERATOR, NOT A PROOF.
+  b333_diagnose                (S2) PASS     HAND INSTRUMENT     evaluates the source`s (150) and attributes each banked number | b333_diagnose.py -- THE MISMATCH DIAGNOSED: WHICH FUNCTION EACH BANKED NUMBER BELONGS TO.
+  b334_aimmap                  (S2) PASS     HAND INSTRUMENT     the aim-map`s four quantities per aim | b334_aimmap.py -- THE AIM-MAP: THE GRID, THE FOUR QUANTITIES PER AIM ON TWO LEGS, THE CHART.
+  b340_li_control              (S2) PASS     HAND INSTRUMENT     the archimedean distribution on the Li family | b340_li_control.py -- THE LI FAMILY CONTROL: THE ARCHIMEDEAN DISTRIBUTION ON THE LI FAMILY BY THE DERIVED KERNEL,
+  b352_fit                     (S2) PASS     HAND INSTRUMENT     fits sealed models to banked residuals: fitted constants | b352_fit.py -- COMPONENT 1 AND 2: THE MODELS, AND THE VERDICT. ### A REFIT. ### NOTHING IS RECOMPUTED.
+  b363_span                    (S2) ASIDE    HAND NOT            counts the record`s span | b363_span.py -- THE FOLD'S OWN THRESHOLD, COUNTED FROM THE RECORD AND NOT TYPED.
+  b366_sweep                   (S2) ASIDE    HAND NOT            counts gate suites` arms | b366_sweep.py -- ADDITION TWO: THE SWEEP. ### **COUNTED BY TOOL, CLASSIFIED BY (R2)'s TEST.**
+  b371_inventory               (S2) ASIDE    HAND NOT            a row inventory of the record | b371_inventory.py -- COMPONENT 2: THE ROW INVENTORY. ### **LISTED, NOT CHECKED.**
+  b374_hedge                   (S2) ASIDE    HAND NOT            a hedge audit of sentences | b374_hedge.py -- COMPONENT 1: THE HEDGE AUDIT OVER A SURFACE IT HAS NEVER COVERED.
+  b376_axes                    (S2) ASIDE    HAND NOT            a rubric`s axes applied to documents | b376_axes.py -- COMPONENTS 2 AND 3: ### **THE TWO AXES, QUOTED NOT INVENTED, THEN APPLIED.**
+  b378_terminals               (S2) ASIDE    HAND NOT            identifier search across kernel refs: names, not a figure | b378_terminals.py -- ADDITION ONE (EVERY REF) AND ADDITION TWO (THE TWO CONVENTIONS).
+  b437_components              (S2) PASS     HAND INSTRUMENT     the window opened by rungs: values computed | b437_components.py -- THE WINDOW OPENED BY RUNGS.
+  b456_components              (S2) ASIDE    HAND NOT            an errata entry and routed items: the record | b456_components.py -- THE ERRATA ENTRY, THE LIVE NOTE, THE PROFILE AT THE TAG, AND THE ROUTED ITEMS.
+  b462_components              (S2) ASIDE    HAND NOT            a census of items in bins: the record | b462_components.py -- THE POPULATION APPLIED, AND THE CENSUS IN THREE BINS.
+  b501_bound                   (S2) PASS     HAND INSTRUMENT     the places-side quadrature bound | b501_bound.py -- COMPONENTS 1 TO 4: THE PLACES-SIDE QUADRATURE BOUND, BUILT AND TESTED.
+  b503_zero                    (S2) PASS     HAND INSTRUMENT     the zero side alias-free | b503_zero.py -- COMPONENTS 1 TO 4: THE ZERO SIDE ALIAS-FREE, THE TAIL RE-READ, THE ATTRIBUTION.
+  b504_chain                   (S2) PASS     HAND INSTRUMENT     the chain on one transform over 119 cells | b504_chain.py -- THE CHAIN ON ONE TRANSFORM: ALL 119 CELLS, THE BOUND, AND THE EPSTEIN CONTROL.
+  b511_families                (S2) PASS     HAND INSTRUMENT     two test-function families in the compiled class | b511_families.py -- TWO FAMILIES INSIDE THE COMPILED CLASS. ### `python tools/b511_families.py fixture | run | report`
+  b512_table                   (S2) ASIDE    HAND INSTRUMENT     set aside by (S2), kept by hand: the register forms` statements graded STATABLE / COMPILED at a kernel pin, a statement`s grade | b512_table.py -- COMPONENTS 1-4: THE REGISTER-EQUIVALENCE READ AT h2_sign. ### `python tools/b512_table.py`
+  b514_window                  (S2) PASS     HAND INSTRUMENT     the matched window | b514_window.py -- THE MATCHED WINDOW. ### `python tools/b514_window.py fixture | matched | run`
+  b519_window                  (S2) PASS     HAND INSTRUMENT     three variants of the two-property window | b519_window.py -- THREE VARIANTS OF THE TWO-PROPERTY WINDOW. ### `python tools/b519_window.py fixture | matched | run`
+  b521_tail                    (S2) PASS     HAND INSTRUMENT     Q0`s tail tightened and the width pass | b521_tail.py -- Q0'S TAIL TIGHTENED, THEN THE WIDTH PASS RE-RUN. ### `python tools/b521_tail.py order | fixture | validity | compare | run`
+  b522_reach                   (S2) PASS     HAND INSTRUMENT     the reach read per width | b522_reach.py -- VARIANT (B) AT p = 7, THE REACH READ PER WIDTH. ### `python tools/b522_reach.py run`
+  b523_caveats                 (S2) PASS     HAND INSTRUMENT     the witness`s caveats priced: sigma_max, counts | b523_caveats.py -- THE WITNESS'S THREE CAVEATS PRICED. ### `python tools/b523_caveats.py sigma | count | reread`
+  b527_values                  (S2) PASS     HAND INSTRUMENT     the plateau`s values two ways | b527_values.py -- COMPONENT 3: THE CONCRETE PLATEAU`S VALUES, TWO WAYS. ### `python tools/b527_values.py`
+  b544_probe_part              (S2) PASS     HAND INSTRUMENT     axiom probes by lake env lean: a statement`s grade | b544_probe_part.py -- THE ENUMERATION AND THE AXIOM PROBES OF b544, UNDER (R154)(4). Imported by b544_record.py.
+  b604_rows                    (S2) ASIDE    HAND NOT            data only, the sieve table`s rows | b604_rows.py -- THE SIEVE TABLE'S DATA, UNDER (R214)(4) AND THE AUTHOR'S THREE ANSWERS BEFORE THE SEAL. ### DATA ONLY.
+  b616_claims                  (S2) PASS     HAND NOT            papers` claims graded: sentences of the record | b616_claims.py -- THE ACT'S DATA AND ITS RESOLVERS, UNDER (R226)(3): THE CLAIMS OF CLUSTER 2G'S SEVEN PAPERS AND TWO SIMULATORS.
+  b634_elab                    (S2) PASS     HAND INSTRUMENT     the elaborated reader of kernel declarations: a statement`s grade | b634_elab.py -- THE ELABORATED READER, UNDER (R244)(4), W-ORD-GATE-FROM-ELABORATOR (OPEN_TRAILS :13000). ### A NEW INSTRUMENT.
+  b661_map                     (S2) PASS     HAND INSTRUMENT     the detection-index map at Z1 | b661_map.py -- THE DETECTION-INDEX MAP AT Z₁, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula v0.28, Schema/RateIndexCfg.lean
+  b662_map                     (S2) PASS     HAND INSTRUMENT     the detection-index map at Z1 | b662_map.py -- THE DETECTION-INDEX MAP AT Z₁, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula v0.28, Schema/RateIndexCfg.lean
+  b663_epstein_map             (S2) PASS     HAND INSTRUMENT     the rate index and zero side at Q0 | b663_epstein_map.py -- THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO zeroSide_neg_at_rate_cfg (SIDE-explicit-formula
+  b667_epstein_certify         (S2) PASS     HAND INSTRUMENT     Q0`s zeros below 150 isolated in balls | b667_epstein_certify.py -- Q0'S ZEROS BELOW HEIGHT 150 ISOLATED IN ARB BALLS BY AN ARGUMENT-PRINCIPLE COUNT, THE LIST'S COMPLETENESS
+  b667_epstein_map_balls       (S2) PASS     HAND INSTRUMENT     the rate index on the balls | b667_epstein_map_balls.py -- THE b663 CONTROL RE-RUN ON THE BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0 CONFIGURATION, BOUND TO
+  b671_narrow                  (S2) PASS     HAND INSTRUMENT     Q0`s points narrowed | b671_narrow.py -- Q0'S 163 POINTS NARROWED TO THE MAP'S INPUT WIDTH, under (R281)(3)-(5) on the author's word on the plan (relay
+  b675_li_bench                (S2) PASS     HAND INSTRUMENT     the Li index at Q0 | b675_li_bench.py -- THE LI INDEX AT Q0, THE BENCH OF (R285)(7) ON THE AUTHOR'S WORD ON THE PLAN (relay data/b675_li_plan.txt, the
+  b677_epstein_map_angle       (S2) PASS     HAND INSTRUMENT     the detection map in the angle form | b677_epstein_map_angle.py -- THE DETECTION MAP IN THE ANGLE FORM OVER THE NARROWED BALLS: THE RATE INDEX AND THE ZERO SIDE AT THE Q0
+  b680_readings                (S2) ASIDE    HAND NOT            readings of the record under the pair rule | b680_readings.py -- COMPONENT 2, (R290)(4): READING 2 OF 2 UNDER THE PAIR RULE (relay data/b670_rules.txt row 1), EACH READING BY b670'S
+  b685_count                   (S2) PASS     HAND INSTRUMENT     the count law for Z_Q at -23 in balls | b685_count.py -- THE COUNT LAW FOR Z_Q AT D = -23 IN BACKLUND'S FORM, ITS CONSTANTS IN ARB BALLS, COMPOSED WITH THE CERTIFIED REGION,
+  b687_readings                (S2) PASS     HAND INSTRUMENT     refutation tests of b685`s derivation at named steps | b687_readings.py -- THE FOUR READINGS OF THE b685 DERIVATION, EACH A REFUTATION TEST AT A NAMED STEP, AND THE CONTROLS, under (R297)(3)-(4)
+  b690_readings                (S2) ASIDE    HAND NOT            readings of the record | b690_readings.py -- COMPONENT 2, (R300)(3): READING 3, EACH READING BY CODE WHERE A TOOL READS IT AND BY HAND WHERE NONE DOES, b680'S FIGURE
+  b694_witness                 (S2) PASS     HAND INSTRUMENT     the off-line zeros as balls, the witness`s zeros route | b694_witness.py -- THE WEIL-FACE WITNESS AT Q0, (R304)(4). ### `python tools/b694_witness.py zeros`
+  b694_witness_terms           (S2) PASS     HAND INSTRUMENT     the Weil-face witness computed | b694_witness_terms.py -- THE WEIL-FACE WITNESS AT Q0, (R304)(4): THE COMPUTATION, ON THE AUTHOR'S WORD (relay data/b694_author_answers.txt,
+  b696_witness_balls           (S2) PASS     HAND INSTRUMENT     the witness with certified tail balls | b696_witness_balls.py -- (R306)(3): THE WEIL-FACE WITNESS AT Q0 WITH ITS TWO TAIL BOUNDS AS CERTIFIED BALLS, ON THE AUTHOR'S WORD AT
+  b704_read_arm                (S2) ASIDE    HAND NOT            a standing arm over read banks | b704_read_arm.py -- G-READ-RULE-STANDING, the standing arm written at b704 on the author's word at the read rule's sort ((R314)(2)).
+  b705_detection               (S2) PASS     HAND INSTRUMENT     the detection law over seventeen pairs | b705_detection.py -- THE DETECTION LAW OVER THE SEVENTEEN OFF-LINE PAIRS, (R315)(7)(i), AS data/b703_registrations.txt (ii) REGISTERED IT
+  b707_onset                   (S2) PASS     HAND INSTRUMENT     the sign-onset radius: least eigenvalues | b707_onset.py -- THE SIGN-ONSET RADIUS AT Q0, (R317)(3), AS data/b705_registrations.txt (iii) REGISTERED IT (:15-:54, committed alone at
+  b709_grid                    (S2) PASS     HAND INSTRUMENT     the onset`s fine grid | b709_grid.py -- THE FINE GRID OF THE SIGN-ONSET RADIUS AT Q0, (R319)(3), AS data/b708_registrations.txt (i) REGISTERED IT (:10-:58,
+  b709_pairs                   (S2) PASS     HAND INSTRUMENT     the detection law over the twelve higher pairs | b709_pairs.py -- THE DETECTION LAW OVER THE TWELVE HIGHER PAIRS, (R319)(5), AS data/b707_registrations.txt (i) REGISTERED IT (:10-:77,
+  b710_fit                     (S2) ASIDE    HAND INSTRUMENT     set aside by (S2), kept by hand: the detection law`s two constants fitted from banked figures, and its predictions | b710_fit.py -- (R320)(6)(i): THE REFINED DETECTION LAW'S FITTED CONSTANTS AND ITS PREDICTIONS FOR PAIRS 11 AND 15, from b709's banked figures
+  b711_coeffs                  (S2) PASS     HAND INSTRUMENT     Q0`s log-derivative coefficients exactly | b711_coeffs.py -- THE COEFFICIENT OBSERVATION, (R321)(5), AS data/b710_registrations.txt (iii) REGISTERED IT (:71-:80, committed at b710's step
+  b711_list                    (S2) PASS     HAND INSTRUMENT     the certified zero list toward 443 | b711_list.py -- THE CERTIFIED LIST TOWARD 443, (R321)(7), W-ORD-Q0-ZEROS-443 (OPEN_TRAILS :15764): "the bands from 325 in fifteens in b709's
+  b712_genus_control           (S2) ASIDE    HAND INSTRUMENT     set aside by (S2), kept by hand: the genus identity checked on representation counts | b712_genus_control.py -- THE CONTROL OF (R322)(6)(i), ON THE AUTHOR'S WORD AT b712'S FIRST PROMPT (the -15 text, option 2 carried with a control).
+  b712_locate                  (S2) ASIDE    HAND NOT            a line locator | b712_locate.py -- A NAMED LOCATOR (standing clauses v2 row (15): "a reading made by a named tool"; row (53): "locator and read tools write
+  b713_list                    (S2) PASS     HAND INSTRUMENT     the certified zero list at -15 | b713_list.py -- THE CERTIFIED ZERO LIST OF Q1 = x^2 + xy + 4y^2 (DISCRIMINANT -15), (R323)(5)(i): "the certified zero list of Q1 at tier
+  b713_predict                 (S2) PASS     HAND INSTRUMENT     n* predictions from the registered law at -15 | b713_predict.py -- THE PREDICTIONS AT -15, (R323)(5)(ii): "data/b713_predictions.txt (n* from the registered law; M and A from Q1's own prime
+  b714_hook                    (S2) ASIDE    HAND NOT            the PreToolUse hook | b714_hook.py -- the PreToolUse hook of (R324)(6)(iv), standing clauses v5 row (77).
+  b714_pilot                   (S2) ASIDE    HAND NOT            a pilot reading the record | b714_pilot.py -- THE PILOT, on the author's word (data/b714_author_words_preseal.txt (2)): it reads the record and changes nothing in it,
+  b716_genus_control           (S2) ASIDE    HAND INSTRUMENT     set aside by (S2), kept by hand: the representation-count control at -39 | b716_genus_control.py -- THE REPRESENTATION-COUNT CONTROL OF (R326)(4)(i), RUN BEFORE data/b716_registrations.txt IS COMMITTED, AS b712'S
+  b717_coeffs                  (S2) PASS     HAND INSTRUMENT     the coefficients at -39 | b717_coeffs.py -- THE COEFFICIENTS AT -39, (R327)(4)(iv): "the log-derivative coefficients through the cut 32532: the least negative index,
+  b717_list                    (S2) PASS     HAND INSTRUMENT     the certified zero list at -39 | b717_list.py -- THE CERTIFIED ZERO LIST OF Q1 = x^2 + xy + 10y^2 (DISCRIMINANT -39), (R327)(4)(i): "the certified zero list of the principal
+  b717_predict                 (S2) PASS     HAND INSTRUMENT     n* predictions at -39 | b717_predict.py -- THE PREDICTIONS AT -39, (R327)(4)(ii): "each reachable off-line pair's prediction computed from the registered law alone,
+  b718_abstract                (S2) PASS     HAND INSTRUMENT     the group-ring model of log(Z_Q1/2) | b718_abstract.py -- (R328)(4)(iii): the group-ring model of log(Z_Q1/2) on the bad-supported indices, abstract: no discriminant, no
+  b718_classgroup              (S2) PASS     HAND INSTRUMENT     class groups and log(Z_Q1/2) coefficients | b718_classgroup.py -- the class group of a negative fundamental discriminant and the coefficients of log(Z_Q1/2), for (R328)(4).
+  b718_pin                     (S2) PASS     HAND INSTRUMENT     the federation pin`s builds dispatched and read by run id: a build | b718_pin.py -- (R328)(8), THE FEDERATION PIN, LAST AND STOPPABLE: one branch per kernel of data/b716_federation_pin_price.txt (the twelve
+  b719_arms                    (S2) ASIDE    HAND NOT            the close arms` history | b719 Component 6 -- (R329)(10): THE CLOSE ARMS' HISTORY b705-b718, THEN THE RETIREMENTS.
+  b720_predict                 (S2) PASS     HAND INSTRUMENT     the shape rule`s n0 and b(n0) at -35 and -40 | b720_predict.py -- (R330)(3)(i), the order data/b720_registrations.txt (i) fixes: the primes' classes at -35 and -40 from the reduced
+
+## THE RULE`S OUTPUT, each with its importers and runners (later acts), ALREADY ENTERED marked
+  b302_kernel                  imported by b303_kernel, b304_kernel, b309_checks, b309_kernel, b310_checks, b310_kernel, b311_checks, b312_checks, b313_checks, b314_checks, b314_coldclone, b315_checks, b329_axiom_probe, b329_kernel ; ran again by NONE
+  b303_family                  imported by b304_smearing, b308_local_field, b308_reproduction, b309_scaling_trace ; ran again by NONE
+  b304_smearing                imported by b308_local_field, b308_reproduction, b309_components, b309_scaling_trace, b310_components, b310_smear ; ran again by NONE
+  b308_local_field             imported by b309_components, b309_scaling_trace, b310_components, b310_smear ; ran again by NONE
+  b309_scaling_trace           imported by b310_components, b310_smear ; ran again by NONE
+  b316_instrument              imported by b317_run, b317_smear, b318_run, b318_square, b319_pin, b319_run, b319_stable, b320_run, b321_run, b322_ladder, b322_run, b334_aimmap, b343_reach, b344_ny, b354_extract, b354_sixth, b356_extract, b356_raised ; ran again by NONE
+  b317_smear                   imported by b318_checks, b318_run, b318_square, b319_pin, b319_run, b320_corroborate, b320_run, b320_weil, b321_run, b321_window, b322_ladder, b322_run, b325_epstein, b325_run, b326_closure, b326_windows, b328_family, b333_diagnose, b334_aimmap, b339_checks, b339_price, b343_reach, b344_ny, b354_extract, b354_sixth, b356_extract, b356_raised, b437_components, b438_components, b439_components, b439_extract, b440_components, b445_components, b446_components, b447_components, b449_components, b476_extract, b477_extract, b477_gram, b492_extract, b492_run, b501_bound, b502_ladder, b503_zero, b504_chain, b505_kernel, b506_kernel, b508_margin, b509_kernel ; ran again by NONE
+  b318_square                  imported by b319_run, b320_corroborate, b320_run, b320_weil, b321_run, b321_window, b325_epstein, b325_run, b326_closure, b326_windows, b328_family, b333_diagnose, b334_aimmap, b343_reach, b344_ny, b354_sixth, b356_raised, b437_components, b438_components, b439_components, b445_components, b446_components, b447_components, b449_components, b476_extract, b477_extract, b477_gram, b492_extract, b492_run, b501_bound, b502_ladder, b503_zero, b504_chain, b505_kernel, b506_kernel, b508_margin, b509_kernel ; ran again by NONE
+  b319_stable                  imported by b320_run, b321_run, b322_ladder, b322_run, b334_aimmap, b343_reach, b344_ny, b354_sixth, b356_raised ; ran again by NONE
+  b320_corroborate             imported by b333_diagnose ; ran again by NONE
+  b320_weil                    imported by b321_run, b333_diagnose, b344_ny, b438_components ; ran again by NONE
+  b321_window                  imported by b325_epstein, b325_run, b326_closure, b326_windows, b334_aimmap, b343_reach, b344_ny, b437_components, b438_components, b440_components, b445_components, b446_components, b447_components, b449_components, b476_extract, b477_extract, b477_gram, b492_extract, b492_run, b501_bound, b502_ladder, b504_chain ; ran again by NONE
+  b322_ladder                  imported by b339_checks, b339_limit, b339_price, b352_checks, b352_fit, b354_sixth ; ran again by NONE
+  b325_epstein                 imported by b326_windows, b328_family, b477_extract, b477_gram, b502_ladder, b504_chain, b505_decomp, b505_kernel, b506_kernel, b511_families, b520_widen, b521_tail, b523_caveats ; ran again by NONE
+  b326_closure                 imported by b328_family, b503_zero, b504_chain, b505_kernel, b506_kernel, b508_margin ; ran again by NONE
+  b326_windows                 imported by b328_family, b334_aimmap, b343_reach, b504_chain ; ran again by NONE
+  b326_zeros                   imported by b505_complete, b506_complete ; ran again by NONE
+  b327_bridge                  imported by b340_li_control, b341_coefficients, b345_control ; ran again by NONE
+  b328_family                  imported by b334_aimmap, b343_reach, b344_edge, b349_extend ; ran again by NONE
+  b333_diagnose                imported by b334_aimmap ; ran again by NONE
+  b334_aimmap                  imported by b343_reach, b344_edge, b349_extend ; ran again by NONE
+  b340_li_control              imported by b345_checks, b345_control ; ran again by NONE
+  b352_fit                     imported by b354_checks, b354_sixth ; ran again by NONE
+  b437_components              imported by b502_ladder ; ran again by NONE
+  b501_bound                   imported by b502_ladder, b504_chain, b505_kernel, b506_kernel ; ran again by NONE
+  b503_zero                    imported by b504_chain, b505_kernel, b506_kernel, b511_families ; ran again by NONE
+  b504_chain                   imported by b505_kernel, b506_kernel ; ran again by NONE
+  b511_families                imported by b514_window, b515_window, b518_window, b519_window, b521_tail, b523_caveats, b526_xi7, b528_smooth, b530_values, b548_record, b549_record, b554_record ; ran again by NONE
+  b512_table                   imported by b513_table ; ran again by NONE
+  b514_window                  imported by b515_window, b518_window, b519_window, b521_tail, b528_smooth, b530_values, b548_record, b553_record, b554_record ; ran again by NONE
+  b519_window                  imported by b520_widen, b521_tail, b526_xi7, b528_smooth, b529_values, b530_values, b548_record, b549_record ; ran again by NONE
+  b521_tail                    imported by b522_reach, b523_caveats, b526_xi7, b529_values, b530_values, b548_record, b549_record, b553_record, b554_record ; ran again by NONE
+  b522_reach                   imported by NONE ; ran again by data/b548_reads.txt
+  b523_caveats                 imported by b528_smooth ; ran again by NONE
+  b527_values                  imported by b528_smooth ; ran again by NONE
+  b544_probe_part              imported by b546_record ; ran again by NONE
+  b634_elab                    imported by b635_record, b636_checks, b636_record, b642_record, b643_record ; ran again by data/b636_reader_diff.txt
+  b661_map                     imported by NONE ; ran again by data/b663_map_diff.txt, tools/b662_map.py
+  b662_map                     imported by b663_record ; ran again by data/b663_map_diff.txt
+  b663_epstein_map             imported by NONE ; ran again by data/b667_commands.json, data/b667_map_balls_diff.txt
+  b667_epstein_certify         imported by b671_narrow, b679_q0_membership, b685_count, b709_pairs ; ran again by NONE
+  b667_epstein_map_balls       imported by b671_epstein_map_narrowed ; ran again by data/b677_map_diff.txt
+  b671_narrow                  imported by b681_narrow, b685_count, b709_pairs ; ran again by tools/b687_readings.py
+  b675_li_bench                imported by b705_detection, b709_pairs ; ran again by NONE
+  b677_epstein_map_angle       imported by b683_epstein_map_angle ; ran again by data/b681_commands.json
+  b685_count                   imported by b687_readings, b718_a0 ; ran again by data/b687_commands.json
+  b687_readings                imported by NONE ; ran again by data/b688_commands.json
+  b694_witness                 imported by b707_onset ; ran again by NONE
+  b694_witness_terms           imported by b696_witness_balls, b705_window, b707_onset, b709_grid, b711_coeffs ; ran again by NONE
+  b696_witness_balls           imported by b705_window, b707_onset, b709_grid ; ran again by NONE
+  b705_detection               imported by b709_pairs ; ran again by NONE
+  b707_onset                   imported by b709_grid, b711_axis ; ran again by NONE
+  b709_grid                    imported by b711_surgery ; ran again by NONE
+  b709_pairs                   imported by b711_axis, b711_coeffs, b711_list, b713_list, b717_list ; ran again by NONE
+  b710_fit                     imported by b711_pairs ; ran again by NONE
+  b711_coeffs                  imported by b713_coeffs, b717_coeffs, b719_coeffs, b720_coeffs, b722_coeffs ; ran again by data/b719_commands.json, data/b719_commands.txt
+  b711_list                    imported by b713_onsets ; ran again by NONE
+  b712_genus_control           imported by b713_coeffs ; ran again by NONE
+  b713_list                    imported by b714_rect, b717_onsets ; ran again by NONE
+  b713_predict                 imported by b717_onsets ; ran again by NONE
+  b716_genus_control           imported by b717_coeffs, b717_onsets, b719_coeffs, b720_coeffs, b722_coeffs ; ran again by NONE
+  b717_coeffs                  imported by NONE ; ran again by data/b719_commands.json, data/b719_commands.txt
+  b717_list                    imported by b718_a0 ; ran again by NONE
+  b717_predict                 imported by b718_a0 ; ran again by NONE
+  b718_abstract                imported by b719_derivation, b719_predict, b720_derivation, b720_predict, b721_derivation ; ran again by data/b719_commands.json, data/b719_commands.txt
+  b718_classgroup              imported by b719_coeffs, b719_derivation, b719_predict, b720_coeffs, b720_derivation, b720_predict, b721_predict34, b721_select, b722_coeffs ; ran again by data/b719_commands.json, data/b719_commands.txt
+  b718_pin                     imported by b720_challenge, b720_pin, b721_rebuild ; ran again by data/b720_closing.txt, data/b720_closing_dry.txt, data/b720_commands.json, data/b720_commands.txt, data/b720_defects.json, data/b720_defects.txt (+5)
+  b720_predict                 imported by b721_derivation, b721_predict34, b721_select ; ran again by data/b721_commands.json, data/b721_commands.txt
+
+## BESIDE IT, THE NAVIGATOR`S EXPECTATION ((R332)(6)), CHOOSING NOTHING
+  in the expectation and the output: b707_onset, b709_pairs, b711_list, b713_list, b717_list, b711_coeffs, b713_predict, b718_classgroup, b718_abstract, b720_predict
+  in the expectation, not the output: b711_surgery (not reused), b718_decomp (not reused), b721_derivation (not reused), b721_rebuild (not reused), b721_frozen_line (not reused)
+  in the output, not the expectation: b302_kernel, b303_family, b304_smearing, b308_local_field, b309_scaling_trace, b316_instrument, b317_smear, b318_square, b319_stable, b320_corroborate, b320_weil, b321_window, b322_ladder, b325_epstein, b326_closure, b326_windows, b326_zeros, b327_bridge, b328_family, b333_diagnose, b334_aimmap, b340_li_control, b352_fit, b437_components, b501_bound, b503_zero, b504_chain, b511_families, b512_table, b514_window, b519_window, b521_tail, b522_reach, b523_caveats, b527_values, b544_probe_part, b634_elab, b661_map, b662_map, b663_epstein_map, b667_epstein_certify, b667_epstein_map_balls, b671_narrow, b675_li_bench, b677_epstein_map_angle, b685_count, b687_readings, b694_witness, b694_witness_terms, b696_witness_balls, b705_detection, b709_grid, b710_fit, b712_genus_control, b716_genus_control, b717_coeffs, b717_predict, b718_pin
+
+### ### **THE RULE`S OUTPUT: 68 INSTRUMENTS (68 NEW, TO BE ENTERED AS I-41 TO I-108) ; POPULATION 3171, REUSED 309, (S1) 93, (S2) 65 ; THE NAVIGATOR`S 15: 10 IN THE OUTPUT ; UNREAD BY HAND 0 ; 3 s.**
