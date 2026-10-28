@@ -289,7 +289,7 @@ def defects(*a):
 # ================================================================================ (R331)(2): THE ACT'S STEP BANK (G-SEALED-AFTER-COMPONENTS reads it)
 # ### (R331)(3)(ii): 'gate' -- the commit of the gate before the lock, the one commit the face cannot carry (it stamps the face); the suite's
 # ### G-NOTHING-RAN-AHEAD reads it from this bank and asks every other commit before the lock to be declared on the face by its hash
-PRE_SEAL_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pilot', 'component 5', 'component 6', 'component 7', 'gate')  # pilot: b720's word (2); component 7: b721's pre-gate commits of Component 7 (data/act_current.json's component 7 phases), b720's in its component 6
+PRE_SEAL_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pilot', 'component 5', 'component 6', 'component 7', 'component 8', 'gate')  # pilot: b720's word (2); component 8: act_current.json's Component 8 phases name it (its pre-gate commits); component 7: b721's pre-gate commits of Component 7 (data/act_current.json's component 7 phases), b720's in its component 6
 POST_SEAL_PHASES = ('seal', 'pre-root', 'root', 'record', 'closing')
 STEP_PHASES = PRE_SEAL_PHASES + POST_SEAL_PHASES
 STEP_REPOS = dict(relay=ROOT, pp=PP)
@@ -497,7 +497,12 @@ def prev_capture():
     first = [r['ts'] for r in rows if '%s_checks_postpush' % PREV in r['cmd'] and '--combine' in r['cmd']]
     if not first:
         sys.exit('### THE PREVIOUS ACT`S POST-PUSH COMBINE IS NOT IN ITS SESSION`S CAPTURE -- NOTHING READ')
-    anchor = '9999'   # ### b721's carry-time repair: the previous act ran in ITS OWN session (b720 bounded it at this act's anchor, b700's same-session form), so its window runs to that session's end (b701's form)
+    # ### Component 8, the Edit tool: b720 ran in THIS session (:47-:48), so its window ends where this act's capture begins (the first command
+    # ### after 'RULING (R331) BEGIN'), b711's same-session form; the carried '9999' (the own-session form) read this act's commands as b720's
+    own = ER.capture(SESSION, K.ANCHOR, SUBAGENTS)
+    if not own:
+        sys.exit('### THIS ACT`S CAPTURE IS EMPTY -- THE PREVIOUS ACT`S WINDOW HAS NO END -- NOTHING READ')
+    anchor = min(r['ts'] for r in own)
     out = [dict(r, src='%s %s' % (PREV, r['src'])) for r in rows if first[0] <= r['ts'] < anchor]
     for i, r in enumerate(out):
         r['n'] = 'p%d' % (i + 1)
@@ -629,7 +634,7 @@ def kernels(*a):
     ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
     import b633_record as R3
     put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
-    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel`s main written this act, the pin-b718-de5ce8a9 branches of the six eligible pushed on their own refs ((R331)(5)(iii)), the challenge branch off main ((R331)(5)(ii)); SIDE-lv-conservation`s main '
+    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; no kernel`s main written this act, the rebuild-b721 branches of the six wave 1 kernels pushed on their own refs ((R331)(7)(iii)), five at their pins and SIDE-frobenius`s at its pin with the workflow copied and its two lines, off main; SIDE-lv-conservation`s main '
           'untouched, port-b707 at b712`s tip %s, its checkout at main for this read)' % (len(ks), K.JOIN_NEW_TIP[:8], K.PORT_NEW_TIP[:8]))
 
 
@@ -946,7 +951,7 @@ def figures(*a):
     t1 = time.time()
     pr = (f.get('partners') or {}).get('rows') or []
     cr = (f.get('correspondence') or {}).get('papers') or []
-    L = ['%s -- COMPONENT 6: THE FOUR STANDING FIGURES AT b721, READ BY b706`S TOOL OVER b706`S ROSTER, AGAINST b720`S (%s)' % (ACT, utc()), '',
+    L = ['%s -- COMPONENT 8: THE FOUR STANDING FIGURES AT b721, READ BY b706`S TOOL OVER b706`S ROSTER, AGAINST b720`S (%s)' % (ACT, utc()), '',
          '### by relay tools/b706_standing_figures.py, unedited (correspondence() and partners() over data/b706_roster_read.json, the 20 tables at the',
          '### unversioned names; readme() tools/b705_standing_figures.py`s, pins() tools/b703_standing_figures.py`s), %.0f s; each arm fails on a' % (t1 - t0),
          '### regression from the previous act`s figure (data/b720_standing_figures.json). The re-cut %s merged into main at %s (b714`s), its branch deleted;' % (

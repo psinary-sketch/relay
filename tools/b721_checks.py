@@ -134,7 +134,7 @@ L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((R331)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
 # ### seat's (set at the seal from the defects bank)
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqr'))   # ### (a)-(r) at the seal, every one the seat's
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'de' else 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, (d) and (e) the navigator's, every other the seat's
 
 
 def _bank_utc(text):
@@ -1348,7 +1348,7 @@ def unedited_all(S):
 
 
 def corpus_scope_ok(S):
-    """N5: PLACE-papers' changed files on main within the two ledgers, ERRATA and the four day papers (R331)(5)(iii)-(iv) edits; no rename."""
+    """N5: PLACE-papers' changed files on main within the two ledgers (K.PP_WRITTEN: FINDINGS and OPEN_TRAILS), both changed; no rename."""
     ch = S['pp_changed']
     ren = [l for l in S['pp_renames'].split(NL) if l[:1] in ('R', 'D')]
     return bool(ch) and set(ch) <= set(S['pp_allowed']) and 'FINDINGS.md' in ch and 'OPEN_TRAILS.md' in ch and not ren
@@ -1390,7 +1390,7 @@ def closing_sentence_ok(S):
 
 
 # ================================================================== THIS ACT'S ARMS OVER ITS OWN BANKS (Component 5)
-NAV_LETTERS = ('i',)          # ### (i) the navigator's, entered by (R331)(1); every other the seat's
+NAV_LETTERS = ('d', 'e')      # ### (d) event (12)'s cause as (R331)(1)-(2) names it, (e) (R331)(2)'s "at step zero" against the ferry's order; every other the seat's
 
 
 def defects_ok(S):
@@ -1813,7 +1813,9 @@ ARMS_ALL = [
     ('G-RUNNER-GATE', '(R331)(5)(iii), N1, N4: the pin`s remainder by its run ids -- the head`s figures (1 of 6 builds; pushed, dispatched, read 6; held 5; unread 0; excluded 5) equal to its rows and the worklist; each excluded kernel printed; each break`s opening error lines; free memory at or above 2,560 MB at every push, dispatch and read; push before dispatch before read per kernel; the plan before the first push; one pin go per command',
      lambda S: gate_ok(S), lambda S: put(S, 'pin_rows', [dict(r, free_mb=100) for r in (S['pin_rows'] or [])])),
     ('G-MERGES-ON-GATE', 'no kernel merge and no tag this act: each wave 1 kernel`s rebuild-b721 at its pin (the tagged commit, its one tag) or, SIDE-frobenius alone, two commits beyond it by the seat`s neutral identity, off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at badaccc and v0.37 unmoved; SIDE-lv-conservation`s main, deposit, port-b707 and v0.14.0 unmoved; the join kernel`s main and its one tag v0.1.0',
-     lambda S: merges_ok(S), lambda S: put(S, 'ef_log', S['ef_log'] + ['deadbeef'])),
+     # ### Component 8, the Edit tool: the plant a tag at SIDE-frobenius's rebuild tip (the carried plant moved ef_log, which the repaired
+     # ### predicate no longer reads, and passed -- the probe's POS PASS)
+     lambda S: merges_ok(S), lambda S: put(S, 'rebuild_state', dict(S['rebuild_state'], **{'SIDE-frobenius': dict(S['rebuild_state']['SIDE-frobenius'], tip_tags=['v0.0.0-plant'])}))),
     ('G-NO-SORRY-MAIN', 'tools/no_sorry_main.py run at HEAD over every kernel, its remote read once by this run: no `sorry` in code, every pair equal',
      lambda S: no_sorry_main(S), lambda S: _live(S, lambda d: d['nsm'][0]['hits'].append(('x.lean', 1, 'sorry')))),
     ('G-NO-SORRY-MAIN-PLANTED', 'tools/test_no_sorry_main.py run: 5 of 5', lambda S: planted_ok(S, 'test_no_sorry_main.py', 5),

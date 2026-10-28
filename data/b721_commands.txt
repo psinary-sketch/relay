@@ -1,0 +1,522 @@
+b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T16:41:21Z)
+
+### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R331) BEGIN', with its subagents` transcripts
+### commands read: 359
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (15):
+  #250 2026-10-28T15:10:47.627Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '55,75p' D:/relay/data/b721_ferry.txt
+  #252 2026-10-28T15:11:00.109Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '1,80p' D:/relay/tools/b720_closing.py
+  #255 2026-10-28T15:11:14.996Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '1,60p' D:/relay/tools/b721_carry.py
+  #257 2026-10-28T15:11:24.475Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '60,240p' D:/relay/tools/b721_carry.py
+  #270 2026-10-28T15:14:09.577Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '1,80p' D:/relay/tools/standing/close.py
+  #272 2026-10-28T15:14:16.928Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '184,200p' D:/relay/data/standing_clauses_v7.txt
+  #273 2026-10-28T15:14:20.313Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '/^ROUTES = dict/,$p' D:/relay/tools/b721_record.py
+  #281 2026-10-28T15:15:31.847Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && grep -n "^NEED\|^B1_ARMS\|^B2_ARMS\|^A_ARMS\|^C_ARMS\|^B3_ARMS\|^def put\|^PART =" tools/b721_checks.py && sed -n '174,178p' tools/b721_checks.py
+  #286 2026-10-28T15:20:49.400Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && grep -n "^### ### " data/b721_corrigendum.txt && sed -n '/^def corrigendum_ok/,/^def writelist_mirror_state_ok/p' tools/b721_checks.py
+  #288 2026-10-28T15:21:13.621Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && sed -n '/^TITLE_NEEDLES/,/^def trail_tail/p' tools/b721_checks.py && grep -n "DOES NOT CARRY the corrigendum" tools/*.py tools/standing/*.py
+  #294 2026-10-28T15:23:43.280Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && sed -n '22,107p' data/b721_registrations.txt && tail -n 12 data/b721_frozen_line.txt && sed -n '10,55p' data/b721_rebuild.txt
+  #296 2026-10-28T15:23:58.920Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_worklist.py | cut -c1-150
+  #299 2026-10-28T15:24:27.790Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && sed -n '16056p;16124p;16142p;16232p' D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md
+  #300 2026-10-28T15:24:34.379Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      cd D:/relay && sed -n '28,34p;58,64p' data/b721_ferry.txt
+  #318 2026-10-28T15:36:05.456Z seat Bash -- S sed -i; S sed -i; S sed -i
+      cd D:/relay && sed -i "503,504s/b720_count_route_price/b719_count_route_price/g" tools/b721_checks.py && sed -i "1566s/b720's price of the count law's route, read unchanged: data\/b720_count_route_price/b719's price of the count law's route, read unchanged: data\/b719_count_route_price/" tools/b721_checks.py && sed -i "1773s/b720\`s price of the count law\`s route read unchanged (data\/b720_count_route_price.txt byte-equal at ef648cb9/b719\`s price of the count law\`s route read unchanged (data\/b719_count_route_price.txt byte-equal at 8834a5b6/" tools/b721_checks.py && sed -n '503,504p;1566p;1773p;733,738p' tools/b721_checks.py
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b720, its own session 02c7cf38, from its post-push combine to that session`s end): 17 commands from 2026-10-28T12:45:20.218Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES ((R331)(7)(iii) and N1: the rebuild`s one per wave 1 kernel through tools/b721_rebuild.py dispatch, SIDE-frobenius`s run on push through push_run) (7):
+  #203 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-kernel
+  #206 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-lv-conservation
+  #209 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-archimedean
+  #212 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-frobenius
+  #215 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-spinor
+  #218 python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-rcurve
+  #247 python -X utf8 -u D:/relay/tools/b721_rebuild.py push_run SIDE-frobenius
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (6):
+  #118 [run_in_background] python -X utf8 -u tools/b721_derivation.py
+  #122 [run_in_background] python -X utf8 -u tools/b721_derivation.py
+  #124 [run_in_background] python -X utf8 -u tools/b721_derivation.py
+  #125 [run_in_background] python -X utf8 -u tools/b721_derivation.py bank
+  #221 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/runs721.py wait
+  #248 [run_in_background] python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait721f.py"
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (15):
+  #250 sed -n '55,75p' D:/relay/data/b721_ferry.txt
+  #252 sed -n '1,80p' D:/relay/tools/b720_closing.py
+  #255 sed -n '1,60p' D:/relay/tools/b721_carry.py
+  #257 sed -n '60,240p' D:/relay/tools/b721_carry.py
+  #270 sed -n '1,80p' D:/relay/tools/standing/close.py
+  #272 sed -n '184,200p' D:/relay/data/standing_clauses_v7.txt
+  #273 sed -n '/^ROUTES = dict/,$p' D:/relay/tools/b721_record.py
+  #281 cd D:/relay && grep -n "^NEED\|^B1_ARMS\|^B2_ARMS\|^A_ARMS\|^C_ARMS\|^B3_ARMS\|^def put\|^PART =" tools/b721_checks.py && sed -n '174,178p' tools/b721_checks.py
+  #286 cd D:/relay && grep -n "^### ### " data/b721_corrigendum.txt && sed -n '/^def corrigendum_ok/,/^def writelist_mirror_state_ok/p' tools/b721_checks.py
+  #288 cd D:/relay && sed -n '/^TITLE_NEEDLES/,/^def trail_tail/p' tools/b721_checks.py && grep -n "DOES NOT CARRY the corrigendum" tools/*.py tools/standing/*.py
+  #294 cd D:/relay && sed -n '22,107p' data/b721_registrations.txt && tail -n 12 data/b721_frozen_line.txt && sed -n '10,55p' data/b721_rebuild.txt
+  #296 cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_worklist.py | cut -c1-150
+  #299 cd D:/relay && sed -n '16056p;16124p;16142p;16232p' D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md
+  #300 cd D:/relay && sed -n '28,34p;58,64p' data/b721_ferry.txt
+  #318 cd D:/relay && sed -i "503,504s/b720_count_route_price/b719_count_route_price/g" tools/b721_checks.py && sed -i "1566s/b720's price of the count law's route, read unchanged: data\/b720_count_route_price/b719's price of the count law's route
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #1 2026-10-28T13:05:54.823Z git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirst.txt 2>/dev/null; git log --format='%h 
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+  #1 2026-10-28T13:05:54.823Z git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirst.txt 2>/dev/null; git log --format='%h 
+  #230 2026-10-28T14:36:25.922Z cd /d/relay && python -X utf8 -u tools/b721_frozen_line.py bank > "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/fl_bank.txt" 2>&1; echo EXIT $?; git 
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (4):
+  #1 2026-10-28T13:05:54.823Z git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirst.txt 2>/dev/null; git log --format='%h 
+  #143 2026-10-28T14:10:29.007Z git grep -n -E "n\*_pred|r\(rho\)|'R'|\"R\"" -- data/b713_predictions.txt data/b717_predictions.txt data/b717_onsets.txt data/b714_residual.txt data/b719_registrations.txt | cut -c1-260
+  #289 2026-10-28T15:21:43.924Z cd D:/relay && git grep -n "NOTHING COMPOSED" -- tools | head -n 20
+  #296 2026-10-28T15:23:58.920Z cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_worklist.py | cut -c1-150
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (6):
+  #1 2026-10-28T13:05:54.823Z git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirst.txt 2>/dev/null; git log --format='%h 
+  #53 2026-10-28T13:42:04.016Z (Get-Content D:/relay/tools/b720_c1.py | Measure-Object -Line).Lines; git -C D:/relay show --stat --format=%s 67987367
+  #143 2026-10-28T14:10:29.007Z git grep -n -E "n\*_pred|r\(rho\)|'R'|\"R\"" -- data/b713_predictions.txt data/b717_predictions.txt data/b717_onsets.txt data/b714_residual.txt data/b719_registrations.txt | cut -c1-260
+  #289 2026-10-28T15:21:43.924Z cd D:/relay && git grep -n "NOTHING COMPOSED" -- tools | head -n 20
+  #296 2026-10-28T15:23:58.920Z cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_worklist.py | cut -c1-150
+  #336 2026-10-28T16:23:29.940Z Get-Process python*, lean*, lake* -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, StartTime, CPU, WorkingSet64; [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (43):
+  #14 2026-10-28T13:11:44.548Z python -X utf8 -c "import io;L=io.open('D:/relay/data/b715_author_answers.txt',encoding='utf-8').read().split('\n');print(L[61][:900]);print('--');print(L[70][:600])"
+  #67 2026-10-28T13:47:08.260Z python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b720_findings.json',encoding='utf-8'));print(j.get('entry_line'));print(j.get('title'))"
+  #95 2026-10-28T13:57:26.421Z python -X utf8 -c "import io;print(len(io.open('D:/relay/tools/b720_predict.py',encoding='utf-8').read().splitlines()), len(io.open('D:/relay/tools/b720_coeffs.py',encoding='utf-8').read().splitlines()), len(io.open('D:/
+  #140 2026-10-28T14:09:49.090Z python -X utf8 -c " t=open('data/b721_ferry.txt',encoding='utf-8').read().split('\n') import textwrap for i in (2,18,63): print(i+1, textwrap.fill(t[i],160)); print() "
+  #144 2026-10-28T14:11:10.097Z Get-ChildItem D:/relay/data -Filter 'b71[37]_*.json' -Name; python -X utf8 -c "import json;d=json.load(open('D:/relay/data/b713_onsets.json',encoding='utf-8'));print(type(d).__name__, list(d)[:20] if isinstance(d,dict) e
+  #145 2026-10-28T14:11:16.237Z python -X utf8 -c "import json;d=json.load(open('D:/relay/data/b713_onsets.json',encoding='utf-8'));print(d['rows'][0]);print(type(d['c1']).__name__);c=d['c1'];print(list(c)[:20] if isinstance(c,dict) else c[0])"; Get-Ch
+  #146 2026-10-28T14:11:25.179Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));a=P('b713_predictions.json');print(list(a) if isinstance(a,dict) else a[0]);b=P('b717_predictions.json');print(list(b) if isi
+  #147 2026-10-28T14:11:30.257Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));print(P('b713_predictions.json')['rows'][0]);print(P('b717_predictions.json')['rows'][0]);print(P('b717_onsets.json')['rows']
+  #148 2026-10-28T14:12:21.944Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f, P(f)['top'], len(P(f)['online']), len(P(f)['offline'])) for f in ('b711_list.json','b713_list.json','b717_list.json
+  #149 2026-10-28T14:12:30.708Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f, {k:(v if not isinstance(v,(list,dict)) else type(v).__name__+str(len(v))) for k,v in P(f).items()}) for f in ('b711
+  #150 2026-10-28T14:12:48.203Z python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b711_list.json',encoding='utf-8'));print(j['needed']);print(j['reached']);print(list(j['units'])[:40])"
+  #151 2026-10-28T14:13:04.871Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f,[(r['k'],r['n_star'],r['seconds']) for r in P(f)['rows']]) for f in ('b713_onsets.json','b717_onsets.json')];print([
+  #152 2026-10-28T14:13:11.406Z python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));exec('for f in (\'b711_list.json\',\'b713_list.json\',\'b717_list.json\'):\n u=P(f)[\'units\']\n print(f, sum(v.get(\'seconds
+  #168 2026-10-28T14:16:12.185Z python -X utf8 -c " import textwrap t=open('data/b721_ferry.txt',encoding='utf-8').read().split('\n') for i in range(55,63): print(i+1, textwrap.fill(t[i],160)); print() "
+  #173 2026-10-28T14:16:49.006Z python -X utf8 -c " import textwrap t=open('data/b721_ferry.txt',encoding='utf-8').read().split('\n') for i in range(21,33): if t[i].strip(): print(i+1, textwrap.fill(t[i],160)); print() "
+  #175 2026-10-28T14:17:21.742Z python -X utf8 -c " import textwrap,re t=open('data/b718_ferry.txt',encoding='utf-8').read().split('\n')[32] i=t.find('E0'); print(textwrap.fill(t[max(0,i-1500):i+800],160)) "
+  #219 2026-10-28T14:30:59.675Z python -X utf8 -c " import textwrap t=open('OPEN_TRAILS.md',encoding='utf-8').read().split('\n') print(len(t)) for n in (16056,16124,16142,16232): print(n, textwrap.shorten(t[n-1], 900)); print() "
+  #253 2026-10-28T15:11:06.181Z python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b720_steps.json',encoding='utf-8'));[print(r) for r in (s if isinstance(s,list) else s.get('steps',s))]"
+  #254 2026-10-28T15:11:09.675Z python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b720_steps.json',encoding='utf-8'));[print(r) for r in s['rows']]"
+  #262 2026-10-28T15:12:01.822Z python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b721_steps.json',encoding='utf-8'));[print(i+1,r['repo'],r['commit'][:10],r['at'],r['phase'],'|',r['subject'][:150]) for i,r in enumerate(s['rows'])]"
+  #274 2026-10-28T15:14:24.953Z python -X utf8 -c " import json,re j=json.load(open('D:/relay/data/b720_commands.json',encoding='utf-8')) print(list(j.keys())[:20]) "
+  #287 2026-10-28T15:20:55.498Z cd D:/relay && python -X utf8 -c " import json j=json.load(open('data/b721_corrigendum.json',encoding='utf-8')) print({k:(v if not isinstance(v,list) else len(v)) for k,v in j.items()}) print(j['events'][0]); print(j['de
+  #298 2026-10-28T15:24:20.594Z cd D:/relay && python -X utf8 -c "import sys; sys.path.insert(0,'tools'); import b721_record as R; print(R.PP)"
+  #301 2026-10-28T15:25:15.434Z cd D:/relay && python -X utf8 -c " import json for r in json.load(open('data/b721_rebuild_rows.json',encoding='utf-8')): print({k:(str(v)[:60]) for k,v in r.items()}) "
+  #303 2026-10-28T15:26:46.433Z cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.py "def _figs():" "TAG_ROW = re.compile" "C:/Users/ECHOCH~1/A
+  #306 2026-10-28T15:27:52.537Z cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.py "# ### N2: the kinds of bank that would hold" "# ### N3: a
+  #309 2026-10-28T15:30:30.297Z cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.py "def TRAIL_HEAD():" "def _trail_text():" "C:/Users/ECHOCH~
+  #310 2026-10-28T15:31:15.740Z cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.py "def _trail_text():" "def _title_b720():" "C:/Users/ECHOCH
+  #315 2026-10-28T15:35:26.263Z cd D:/relay && ls data/ -1 --color=never data/b71*_count_route* data/b720_count* 2>&1; python -X utf8 -c " import json; t=json.load(open('data/arm_tags.json',encoding='utf-8')) tg=t.get('tags') or {} print([k for k in tg
+  #316 2026-10-28T15:35:31.516Z cd D:/relay && python -X utf8 -c " import json; t=json.load(open('data/arm_tags.json',encoding='utf-8')) tg=t.get('tags') or {} print([k for k in tg if k.startswith('G-R3')], sum(1 for v in tg.values() if v=='CLAIM'), le
+  #317 2026-10-28T15:35:53.908Z cd D:/relay && python -X utf8 -c " import glob; print(glob.glob('data/b7*count_route*'))"
+  #319 2026-10-28T15:36:20.847Z cd D:/relay && python -X utf8 -c " import re t=open('data/b721_readfirst.txt',encoding='utf-8').read() for l in t.split(chr(10)): if re.match(r'^ (relay|PLACE-papers) ', l): print(l[:150])"
+  #322 2026-10-28T15:40:58.598Z cd D:/relay && python -X utf8 -c " t=open('D:/MY-DOwnloads/PLACE-papers/FINDINGS.md',encoding='utf-8').read().split(chr(10)) print(t[11107][:900])"
+  #329 2026-10-28T16:10:59.622Z cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_closing.py "def act_sections():" "def _guard(name):" "C:/Users/ECHOC
+  #330 2026-10-28T16:11:05.589Z cd D:/relay && python -X utf8 -c " import sys; sys.path.insert(0,'tools'); import b721_closing as C print(C.section_reading('x','b721_registrations.txt', r'(?m)^THE OUTPUT: NONE\.[^\n]*')) print(C.section_reading('x','b7
+  #331 2026-10-28T16:13:44.077Z cd D:/relay && python -X utf8 -c " import sys, py_compile for f in ('b721_regspec','b721_closing','b721_checks','b721_record','b721_report','b721_reg_gate','b721_worklist'): py_compile.compile('tools/%s.py' % f, doraise=
+  #333 2026-10-28T16:23:17.269Z cd D:/relay && python -X utf8 -c " import json,re t=open('data/b720_prerun.txt',encoding='utf-8').read() if __import__('os').path.exists('data/b720_prerun.txt') else '' print([l for l in t.split(chr(10)) if re.search(r's
+  #334 2026-10-28T16:23:20.671Z cd D:/relay && python -X utf8 -c " t=open('data/b720_arm_seconds.txt',encoding='utf-8').read(); print(t[:2500])"
+  #335 2026-10-28T16:23:24.235Z cd D:/relay && python -X utf8 -c " import json for p in ('standing-a','standing-c','standing-b1','standing-b2a','standing-b2b','standing-b3','act'): j=json.load(open('data/b720_arm_seconds_%s.json'%p,encoding='utf-8')) p
+  #346 2026-10-28T16:39:28.955Z cd D:/relay && stat -c "%y %s" -- "=" data/b721_hook_refusals.txt && python -X utf8 -c "print(open('D:/relay/=','rb').read()[:300])"
+  #347 2026-10-28T16:39:35.932Z cd D:/relay && python -X utf8 -c "import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'));rows=r if isinstance(r,list) else r.get('rows',r);[print(x) for x in (rows[-6:] if isinstance(rows,list) else list(
+  #352 2026-10-28T16:40:00.758Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(list(j));print({k:v for k,v in j.items() if 'phase' in k.lower() or 'comp' in k.lower()})"
+  #357 2026-10-28T16:40:57.321Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(j['session'],j['prev_session'])" && git grep -n -e "PREV_SESSION" -e "SESSION_ID *=" -- tools/b721_worklist.
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #43 2026-10-28T13:37:49.594Z PowerShell
+      git -C D:/relay branch -d push-b720-closing
+  #44 2026-10-28T13:37:56.471Z PowerShell
+      git -C D:/relay branch -d push-b720-preroot
+  #45 2026-10-28T13:38:06.749Z PowerShell
+      git -C D:/relay branch -d push-b720-record
+  #46 2026-10-28T13:38:34.164Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b720-preroot
+  #47 2026-10-28T13:38:40.863Z PowerShell
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b720-record
+
+### THE BRANCH DELETES BY SHAPE ((R331)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #43 deletes ['push-b720-closing'], halves 1, globs none, variables none, chained after False; #44 deletes ['push-b720-preroot'], halves 1, globs none, variables none, chained after False; #45 deletes ['push-b720-record'], halves 1, globs none, variables none, chained after False; #46 deletes ['push-b720-preroot'], halves 1, globs none, variables none, chained after False; #47 deletes ['push-b720-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-28T13:05:54.823Z | seat | Bash | git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirs
+  #2 | 2026-10-28T13:07:03.751Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\findpaste721.py"
+  #3 | 2026-10-28T13:07:11.299Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\cmds720.py" 16497 18200 "C:\Users\ECHOCH~1\AppDa
+  #4 | 2026-10-28T13:07:28.913Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\carrycarry721.py"
+  #5 | 2026-10-28T13:07:52.906Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\paths721.py"
+  #6 | 2026-10-28T13:07:57.085Z | seat | PowerShell | python -X utf8 tools/b721_carry.py carry citation
+  #7 | 2026-10-28T13:08:04.557Z | seat | PowerShell | python -X utf8 tools/b721_carry.py prune citation "    # ### b721: the cite rows of (R331) and its ferry" "    standing_rows(text, add)"
+  #8 | 2026-10-28T13:08:08.803Z | seat | PowerShell | python -X utf8 tools/b721_carry.py carry worklist
+  #9 | 2026-10-28T13:08:31.908Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\state721.py"
+  #10 | 2026-10-28T13:09:52.928Z | seat | PowerShell | python -X utf8 tools/b721_carry.py carry record
+  #11 | 2026-10-28T13:10:01.930Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recimport721.py"
+  #12 | 2026-10-28T13:10:41.832Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\cited721.py"
+  #13 | 2026-10-28T13:10:49.372Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\cited721.py"
+  #14 | 2026-10-28T13:11:44.548Z | seat | Bash | python -X utf8 -c "import io;L=io.open('D:/relay/data/b715_author_answers.txt',encoding='utf-8').read().split('\n');print(L[61][:900]);print('--');print(L[70][:
+  #15 | 2026-10-28T13:12:24.041Z | seat | PowerShell | git -C D:/relay grep -c -e "G-FINDINGS-ENTRY" -e "G-ENTRY-TITLE-FORM" -e "ONE-GIT-WRITE" -e "RECUT_MERGE" -- "tools/standing/*.py" "tools/rule_arms.py" "tools/b
+  #16 | 2026-10-28T13:14:00.839Z | seat | PowerShell | python -X utf8 tools/b721_citation.py check dry
+  #17 | 2026-10-28T13:15:06.900Z | seat | PowerShell | python -X utf8 tools/b721_citation.py check
+  #18 | 2026-10-28T13:15:07.572Z | seat | PowerShell | python -X utf8 tools/b721_citation.py ferry
+  #19 | 2026-10-28T13:16:30.250Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\actcur720.py"
+  #20 | 2026-10-28T13:16:38.155Z | seat | PowerShell | git -C D:/relay add -- data/act_current.json
+  #21 | 2026-10-28T13:16:39.457Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 step zero: data/act_current.json for b721 ((R331), act_roots :98 b720`s row, the 97th; chain row 98, prev root b5a76ed9, veri
+  #22 | 2026-10-28T13:16:39.977Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #23 | 2026-10-28T13:17:17.607Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "step zero" 7ecfbc05d51e1ac6a5894cb3ee70d3251dd91afb
+  #24 | 2026-10-28T13:18:31.079Z | seat | PowerShell | python -X utf8 tools/circuit_read.py readfirst b721_ferry.txt b721_readfirst.txt
+  #25 | 2026-10-28T13:20:49.489Z | seat | PowerShell | (Get-Item "C:\Users\echo chamber\.claude\projects\D--\bde68a30-a303-4bfc-a0eb-fd2e81af3fd2.jsonl").LastWriteTimeUtc.ToString('o'); (Get-Item "C:\Users\echo cham
+  #26 | 2026-10-28T13:21:23.732Z | seat | PowerShell | git -C D:/relay ls-files tools/b720_*.py tools/b718_abstract.py tools/b718_classgroup.py tools/b711_coeffs.py tools/b709_pairs.py
+  #27 | 2026-10-28T13:31:35.014Z | seat | PowerShell | python -X utf8 tools/b721_record.py rowgen
+  #28 | 2026-10-28T13:33:09.977Z | seat | Bash | cp "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs720.py" "/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D-
+  #29 | 2026-10-28T13:33:19.543Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs721.py"
+  #30 | 2026-10-28T13:33:27.820Z | seat | PowerShell | git -C D:/relay add -- data/b720_relay_push-b720-closing_push_out.txt
+  #31 | 2026-10-28T13:33:32.185Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 step zero: b720`s closing push capture, committed alone ((R331)(9))'
+  #32 | 2026-10-28T13:33:36.231Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #33 | 2026-10-28T13:33:39.358Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "step zero" d06d1657f8ab9ec8aa3cb7b878d3d7351d8b2037
+  #34 | 2026-10-28T13:33:43.786Z | seat | PowerShell | git -C D:/relay status --short
+  #35 | 2026-10-28T13:33:49.951Z | seat | PowerShell | git -C D:/relay diff --stat -- data/b720_hook_refusals.txt data/b720_steps.json data/b720_bank_hashes.json
+  #36 | 2026-10-28T13:33:50.630Z | seat | PowerShell | git -C D:/relay diff -U0 -- data/b720_hook_refusals.txt
+  #37 | 2026-10-28T13:34:03.353Z | seat | PowerShell | git -C D:/relay add -- data/b720_steps.json data/b720_bank_hashes.json
+  #38 | 2026-10-28T13:34:36.439Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 step zero: b720`s step-38 row and the bank-hash line it moves, committed alone ((R331)(9))'
+  #39 | 2026-10-28T13:36:45.315Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #40 | 2026-10-28T13:36:52.529Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "step zero" 25239eeef3f63df4584e0826f796dba270dcd192
+  #41 | 2026-10-28T13:37:32.015Z | seat | PowerShell | git -C D:/relay branch --merged main --list "push-b720-*"
+  #42 | 2026-10-28T13:37:40.044Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b720-*"
+  #43 | 2026-10-28T13:37:49.594Z | seat | PowerShell | git -C D:/relay branch -d push-b720-closing
+  #44 | 2026-10-28T13:37:56.471Z | seat | PowerShell | git -C D:/relay branch -d push-b720-preroot
+  #45 | 2026-10-28T13:38:06.749Z | seat | PowerShell | git -C D:/relay branch -d push-b720-record
+  #46 | 2026-10-28T13:38:34.164Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b720-preroot
+  #47 | 2026-10-28T13:38:40.863Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b720-record
+  #48 | 2026-10-28T13:38:55.700Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers status --short
+  #49 | 2026-10-28T13:39:33.346Z | seat | PowerShell | git -C D:/relay add -- data/b721_ferry.txt data/b721_ferry_scan.txt data/b721_citation_check.txt data/b721_citation_check.json data/b721_carry_citation.txt data
+  #50 | 2026-10-28T13:39:49.958Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 step zero: the ferry, scan, citation check, carried tools, readfirst bank with closure and diff, rowgen, step-zero bank ((R33
+  #51 | 2026-10-28T13:40:05.745Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #52 | 2026-10-28T13:40:09.744Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "step zero" 99ef83efa0898ef7506a5ca78933585517c82740
+  #53 | 2026-10-28T13:42:04.016Z | seat | PowerShell | (Get-Content D:/relay/tools/b720_c1.py | Measure-Object -Line).Lines; git -C D:/relay show --stat --format=%s 67987367
+  #54 | 2026-10-28T13:42:17.454Z | seat | PowerShell | git -C D:/relay show --stat --format=%s 67987367
+  #55 | 2026-10-28T13:43:35.883Z | seat | PowerShell | git -C D:/relay grep -n -E "G-FINDINGS-ENTRY|G-ENTRY-TITLE-FORM|G-RULE-ONE-GIT-WRITE|one git write per message|def control" -- tools/standing tools/b720_checks.
+  #56 | 2026-10-28T13:43:44.412Z | seat | PowerShell | git -C D:/relay grep -n -E "def finding_ok|def title_ok|def _entry_title|conv\(|def conv|answers" -- tools/b720_checks.py
+  #57 | 2026-10-28T13:43:58.102Z | seat | PowerShell | git -C D:/relay grep -n -E "^def conv|^def fline|^conv =|import .* conv" -- tools/b720_checks.py tools/b720_record.py tools/standing
+  #58 | 2026-10-28T13:43:58.623Z | seat | PowerShell | git -C D:/relay ls-files tools/standing
+  #59 | 2026-10-28T13:44:11.034Z | seat | PowerShell | git -C D:/relay grep -n -E "ONE-GIT-WRITE|GIT_WRITE|git_write|def one_git|LISTING|--list" -- tools/standing/arms.py tools/b720_record.py tools/rule_arms.py
+  #60 | 2026-10-28T13:44:23.033Z | seat | PowerShell | git -C D:/relay grep -n -E "def _one_git_write|GIT_WRITE =" -- tools
+  #61 | 2026-10-28T13:45:30.312Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\gw721.py" 2026-10-28T12:20:30 2026-10-28T12:23:3
+  #62 | 2026-10-28T13:46:07.089Z | seat | PowerShell | git -C D:/relay grep -n -E "RECUT_MERGE|def mbank|MANIFEST CONTROL|MF\." -- tools/b721_record.py
+  #63 | 2026-10-28T13:46:29.740Z | seat | PowerShell | git -C D:/relay grep -l -e "mirror_roster.json" -- tools
+  #64 | 2026-10-28T13:46:46.841Z | seat | PowerShell | git -C D:/relay grep -n -E "^def |^CASES|^    \('" -- tools/standing/controls.py
+  #65 | 2026-10-28T13:46:55.975Z | seat | PowerShell | git -C D:/relay grep -n -A8 "^def conv" -- tools/b652_record.py tools/b698_record.py
+  #66 | 2026-10-28T13:47:02.638Z | seat | PowerShell | git -C D:/relay grep -n -o -E "fj=jl\('[^']+'\)|tj=jl\('[^']+'\)" -- tools/b720_checks.py
+  #67 | 2026-10-28T13:47:08.260Z | seat | PowerShell | python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b720_findings.json',encoding='utf-8'));print(j.get('entry_line'));print(j.get('title'))"
+  #68 | 2026-10-28T13:47:35.647Z | seat | PowerShell | git -C D:/relay grep -n -E "^def |^[A-Z_]+ = " -- tools/standing/act.py
+  #69 | 2026-10-28T13:48:23.953Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\v121try.py"
+  #70 | 2026-10-28T13:48:55.808Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\v121try.py"
+  #71 | 2026-10-28T13:49:14.648Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\v121try.py"
+  #72 | 2026-10-28T13:49:55.301Z | seat | PowerShell | git -C D:/relay grep -n -E "R\.FACE|^FACE =|S\['calls'\]|'calls'" -- tools/b721_record.py tools/rule_arms.py
+  #73 | 2026-10-28T13:50:06.119Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\gw721.py" 2026-10-28T12:50:00 2026-10-28T12:50:4
+  #74 | 2026-10-28T13:50:52.286Z | seat | PowerShell | python -X utf8 -u tools/standing/v121.py
+  #75 | 2026-10-28T13:51:15.173Z | seat | PowerShell | python -X utf8 -u tools/standing/v121.py bank
+  #76 | 2026-10-28T13:51:32.511Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recimport721.py"
+  #77 | 2026-10-28T13:52:04.780Z | seat | PowerShell | git -C D:/relay ls-files data/b71*_rules.txt data/b720_rules.txt data/b70*_rules.txt
+  #78 | 2026-10-28T13:54:17.773Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py weight dry
+  #79 | 2026-10-28T13:54:37.752Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\fline721.py" D:/relay/data/b721_ferry.txt 5 7 9 
+  #80 | 2026-10-28T13:54:54.713Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py weight dry
+  #81 | 2026-10-28T13:55:04.498Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py corrigendum dry
+  #82 | 2026-10-28T13:55:18.391Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py corrigendum dry
+  #83 | 2026-10-28T13:55:24.627Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py weight write
+  #84 | 2026-10-28T13:55:29.893Z | seat | PowerShell | python -X utf8 -u tools/b721_c1.py corrigendum write
+  #85 | 2026-10-28T13:55:35.351Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers diff --numstat
+  #86 | 2026-10-28T13:56:32.327Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers add -- FINDINGS.md
+  #87 | 2026-10-28T13:56:36.668Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m 'b721 C1 ((R331)(1)-(2)): b720 at its weight (FINDINGS :11108, every figure read from b720`s banks by line, (R3
+  #88 | 2026-10-28T13:56:40.742Z | seat | PowerShell | git -C D:/MY-DOwnloads/PLACE-papers log --format=%H -1
+  #89 | 2026-10-28T13:56:44.304Z | seat | PowerShell | python -X utf8 tools/b721_record.py step pp "component 1" af7d8f3ba5805776bd3f3c5d0cec0d7c1fbbc960
+  #90 | 2026-10-28T13:56:50.007Z | seat | PowerShell | git -C D:/relay status --short -- data/b721_* data/b675_corrigenda.txt tools/b721_* tools/standing
+  #91 | 2026-10-28T13:56:55.700Z | seat | PowerShell | git -C D:/relay add -- data/b675_corrigenda.txt data/b721_bank_hashes.json data/b721_steps.json data/b721_corrigendum.json data/b721_corrigendum.txt data/b721_c
+  #92 | 2026-10-28T13:57:02.894Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C1 ((R331)(1)-(2)): tools/b721_c1.py written whole (weight, corrigendum); the weight line (FINDINGS :11108) and the corrigend
+  #93 | 2026-10-28T13:57:08.436Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #94 | 2026-10-28T13:57:13.586Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 1" 68440f11805b2cd9873cdc8cfc28e2c3a3c9012d
+  #95 | 2026-10-28T13:57:26.421Z | seat | PowerShell | python -X utf8 -c "import io;print(len(io.open('D:/relay/tools/b720_predict.py',encoding='utf-8').read().splitlines()), len(io.open('D:/relay/tools/b720_coeffs.
+  #96 | 2026-10-28T13:58:08.858Z | seat | PowerShell | git -C D:/relay grep -n -E "^def " -- tools/b718_classgroup.py tools/b718_abstract.py
+  #97 | 2026-10-28T13:58:20.451Z | seat | PowerShell | git -C D:/relay ls-files data/b7*_coeffs.txt data/b6*_coeffs.txt
+  #98 | 2026-10-28T13:58:32.408Z | seat | PowerShell | git -C D:/relay add -- data/b721_registrations.txt
+  #99 | 2026-10-28T13:58:37.103Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C2 ((R331)(3)(i)): data/b721_registrations.txt committed alone with the rule only, before any discriminant is named'
+  #100 | 2026-10-28T13:58:43.984Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #101 | 2026-10-28T13:58:46.971Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 2" 54be7b0bf078b55d5d3143af81894a6c8ba86314
+  #102 | 2026-10-28T13:59:20.447Z | seat | PowerShell | git -C D:/relay add -- tools/b721_select.py
+  #103 | 2026-10-28T13:59:24.191Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C2 ((R331)(3)(i)): tools/b721_select.py committed alone before it runs -- the rule applied from decomposition types, its cont
+  #104 | 2026-10-28T13:59:29.813Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #105 | 2026-10-28T13:59:32.844Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 2" cdb59caaf3958f53ffe8c08a1cfe0030487a2ac5
+  #106 | 2026-10-28T13:59:37.059Z | seat | PowerShell | python -X utf8 -u tools/b721_select.py
+  #107 | 2026-10-28T14:00:46.688Z | seat | PowerShell | python -X utf8 -u tools/b721_select.py picker
+  #108 | 2026-10-28T14:01:50.681Z | seat | PowerShell | git -C D:/relay add -- data/b721_registrations.txt
+  #109 | 2026-10-28T14:01:54.780Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C2 ((R331)(3)): data/b721_registrations.txt alone -- the rule`s output NONE, the eighteen class-number-2 fields walked from d
+  #110 | 2026-10-28T14:01:58.695Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #111 | 2026-10-28T14:02:01.615Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 2" 15cb6cc44201a915ae426519521636034946d06a
+  #112 | 2026-10-28T14:02:05.479Z | seat | PowerShell | git -C D:/relay add -- tools/b721_select.py
+  #113 | 2026-10-28T14:02:08.696Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C2: tools/b721_select.py`s picker route (the halt`s positive control and the walk to |D| < 5000), as run at 14:00:49Z'
+  #114 | 2026-10-28T14:02:12.107Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #115 | 2026-10-28T14:02:15.158Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 2" 6d022f10ee7cb1e03c522aeb1daf755b635557e3
+  #116 | 2026-10-28T14:02:29.290Z | seat | PowerShell | git -C D:/relay grep -n -E "^def |^[A-Z_]+ = " -- tools/b720_derivation.py
+  #117 | 2026-10-28T14:02:37.943Z | seat | PowerShell | python -X utf8 "C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\fline721.py" D:/relay/data/b721_ferry.txt 15 17 
+  #118 | 2026-10-28T14:04:51.729Z | seat | PowerShell | python -X utf8 -u tools/b721_derivation.py
+  #119 | 2026-10-28T14:05:07.815Z | seat | PowerShell | git -C D:/relay add -- data/b721_registrations.txt
+  #120 | 2026-10-28T14:05:11.261Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C3 ((R331)(4)): data/b721_registrations.txt alone -- section (4), the rule for the h = 3 and h = 4 predictions, printed befor
+  #121 | 2026-10-28T14:05:15.277Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #122 | 2026-10-28T14:06:03.403Z | seat | PowerShell | python -X utf8 -u tools/b721_derivation.py
+  #123 | 2026-10-28T14:06:09.238Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 3" 5febd903feb0d6bcf6c1d6f1cc8760c8e675b421
+  #124 | 2026-10-28T14:06:22.543Z | seat | PowerShell | python -X utf8 -u tools/b721_derivation.py
+  #125 | 2026-10-28T14:06:58.250Z | seat | PowerShell | python -X utf8 -u tools/b721_derivation.py bank
+  #126 | 2026-10-28T14:08:15.607Z | seat | PowerShell | git -C D:/relay add -- tools/b721_derivation.py data/b721_derivation.txt
+  #127 | 2026-10-28T14:08:19.533Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 component 3: the table over cyclic h = 3, 4, 5 at Omega 1-6, the closed forms at p^4 q and p^3 q r, checked against -23, -39,
+  #128 | 2026-10-28T14:08:23.271Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #129 | 2026-10-28T14:08:26.035Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 3" b5e232af64710a6a03814923696c133071e1e422
+  #130 | 2026-10-28T14:08:30.332Z | seat | PowerShell | git -C D:/relay add -- tools/b721_predict34.py
+  #131 | 2026-10-28T14:08:33.906Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 component 3: tools/b721_predict34.py, the rule of registration section (4) applied, committed alone before it runs'
+  #132 | 2026-10-28T14:08:37.587Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #133 | 2026-10-28T14:08:40.428Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 3" be19ff520c00933e51288c86ebf3824fde308d7d
+  #134 | 2026-10-28T14:08:45.938Z | seat | PowerShell | python -X utf8 -u tools/b721_predict34.py
+  #135 | 2026-10-28T14:09:03.912Z | seat | PowerShell | (Get-Content D:/relay/data/b721_registrations.txt).Count; git -C D:/relay log --format='%h %cI %s' -3 -- data/b721_registrations.txt tools/b721_derivation.py
+  #136 | 2026-10-28T14:09:25.366Z | seat | PowerShell | git -C D:/relay add -- data/b721_registrations.txt
+  #137 | 2026-10-28T14:09:28.955Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C3 ((R331)(4)): data/b721_registrations.txt alone -- section (5), the predictions by rule (4): H-C3-31 (n0 80, b -2) and H-C4
+  #138 | 2026-10-28T14:09:32.777Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #139 | 2026-10-28T14:09:35.818Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 3" e8c3dff40df43269b3f0c4b917baef7c96c0f649
+  #140 | 2026-10-28T14:09:49.090Z | seat | Bash | python -X utf8 -c "
+  #141 | 2026-10-28T14:10:04.891Z | seat | PowerShell | (Get-Content D:/relay/data/b720_offset_price.txt).Count; Get-ChildItem D:/relay/tools -Filter '*offset*' -Name; Get-ChildItem D:/relay/data -Filter '*offset*' -
+  #142 | 2026-10-28T14:10:11.840Z | seat | PowerShell | (Get-Content D:/relay/data/b719_offset_read.txt).Count; (Get-Content D:/relay/tools/b719_offset.py).Count
+  #143 | 2026-10-28T14:10:29.007Z | seat | Bash | git grep -n -E "n\*_pred|r\(rho\)|'R'|\"R\"" -- data/b713_predictions.txt data/b717_predictions.txt data/b717_onsets.txt data/b714_residual.txt data/b719_regist
+  #144 | 2026-10-28T14:11:10.097Z | seat | PowerShell | Get-ChildItem D:/relay/data -Filter 'b71[37]_*.json' -Name; python -X utf8 -c "import json;d=json.load(open('D:/relay/data/b713_onsets.json',encoding='utf-8'));
+  #145 | 2026-10-28T14:11:16.237Z | seat | PowerShell | python -X utf8 -c "import json;d=json.load(open('D:/relay/data/b713_onsets.json',encoding='utf-8'));print(d['rows'][0]);print(type(d['c1']).__name__);c=d['c1'];
+  #146 | 2026-10-28T14:11:25.179Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));a=P('b713_predictions.json');print(list(a) if isinstance(a,dict) 
+  #147 | 2026-10-28T14:11:30.257Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));print(P('b713_predictions.json')['rows'][0]);print(P('b717_predic
+  #148 | 2026-10-28T14:12:21.944Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f, P(f)['top'], len(P(f)['online']), len(P(f)['offline']))
+  #149 | 2026-10-28T14:12:30.708Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f, {k:(v if not isinstance(v,(list,dict)) else type(v).__n
+  #150 | 2026-10-28T14:12:48.203Z | seat | PowerShell | python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b711_list.json',encoding='utf-8'));print(j['needed']);print(j['reached']);print(list(j['units'])[
+  #151 | 2026-10-28T14:13:04.871Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));[print(f,[(r['k'],r['n_star'],r['seconds']) for r in P(f)['rows']
+  #152 | 2026-10-28T14:13:11.406Z | seat | PowerShell | python -X utf8 -c "import json;P=lambda f:json.load(open('D:/relay/data/'+f,encoding='utf-8'));exec('for f in (\'b711_list.json\',\'b713_list.json\',\'b717_list
+  #153 | 2026-10-28T14:14:44.577Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py pred
+  #154 | 2026-10-28T14:14:49.562Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py pred bank
+  #155 | 2026-10-28T14:14:53.627Z | seat | PowerShell | git -C D:/relay add -- tools/b721_offset.py data/b721_offset_pred.txt
+  #156 | 2026-10-28T14:14:57.675Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C4 ((R331)(5)(i)): the seventeen banked pairs under H-OFFSET, POST HOC -- scorability (17 of 17) then delta_pred from r and n
+  #157 | 2026-10-28T14:15:06.819Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #158 | 2026-10-28T14:15:09.692Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 4" 0ee39dc612e8fcfe450a7bd060b30b1ae10c9e81
+  #159 | 2026-10-28T14:15:13.764Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py read bank
+  #160 | 2026-10-28T14:15:20.246Z | seat | PowerShell | git -C D:/relay add -- data/b721_offset_read.txt
+  #161 | 2026-10-28T14:15:20.278Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py tier
+  #162 | 2026-10-28T14:15:26.694Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py tier
+  #163 | 2026-10-28T14:15:35.158Z | seat | PowerShell | python -X utf8 -u tools/b721_offset.py tier bank
+  #164 | 2026-10-28T14:15:40.874Z | seat | PowerShell | git -C D:/relay add -- tools/b721_offset.py data/b721_offset_tier.txt data/b721_offset_read.txt
+  #165 | 2026-10-28T14:15:45.626Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C4 ((R331)(5)): the observed n* beside the committed delta_pred, POST HOC (HELD 3, REFUTED 14 of 17: H-OFFSET refuted on its 
+  #166 | 2026-10-28T14:15:49.297Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #167 | 2026-10-28T14:15:52.105Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 4" 3482af9bbe0aec014fce74c186c0726b4e91f319
+  #168 | 2026-10-28T14:16:12.185Z | seat | Bash | python -X utf8 -c "
+  #169 | 2026-10-28T14:16:32.162Z | seat | PowerShell | git -C D:/relay add -- data/b721_surgery_carry.txt
+  #170 | 2026-10-28T14:16:36.009Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C5 ((R331)(6)): the surgery under H-SHAPE carried, not started -- b718`s price 6-9 h in 40-60 calls against (7)-(8) still to 
+  #171 | 2026-10-28T14:16:39.868Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #172 | 2026-10-28T14:16:42.950Z | seat | PowerShell | python -X utf8 tools/b721_record.py step relay "component 5" bddd46f15f5e99d24535306ed11c88deca736822
+  #173 | 2026-10-28T14:16:49.006Z | seat | Bash | python -X utf8 -c "
+  #174 | 2026-10-28T14:16:55.626Z | seat | PowerShell | Get-ChildItem D:/ -Directory -Name -Filter 'SIDE-*'
+  #175 | 2026-10-28T14:17:21.742Z | seat | Bash | python -X utf8 -c "
+  #176 | 2026-10-28T14:18:16.908Z | seat | PowerShell | git -C D:/relay config --get remote.origin.url; Get-ChildItem D:/ -Directory -Name -Filter 'PLACE*'
+  #177 | 2026-10-28T14:18:42.267Z | seat | Bash | git grep -l -F "graded at E0" -- 'data/b71*' 'data/b72*'
+  #178 | 2026-10-28T14:18:57.628Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -E "QUASI-RH-FIELD-WATCH|E0 \(|E0 =|E0:|at E0" -- OPEN_TRAILS.md FINDINGS.md
+  #179 | 2026-10-28T14:19:06.189Z | seat | Bash | git grep -n -F "THE ORDER **\`W-ORD-E0-MET-CLASSK\`**" -- OPEN_TRAILS.md
+  #180 | 2026-10-28T14:19:17.471Z | seat | Bash | for k in archimedean:8019d9d frobenius:2efe9f2 spinor:b235bc6 rcurve:d5f33b4; do r=${k%%:*}; p=${k##*:}; echo "== SIDE-$r @ $p"; git -C /d/SIDE-$r rev-parse --s
+  #181 | 2026-10-28T14:19:32.661Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/fl721.py
+  #182 | 2026-10-28T14:19:45.834Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/fl721b.py lean
+  #183 | 2026-10-28T14:19:50.469Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/fl721b.py readme
+  #184 | 2026-10-28T14:20:00.511Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/fl721c.py
+  #185 | 2026-10-28T14:20:56.961Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_frozen_line.py ids
+  #186 | 2026-10-28T14:22:41.286Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_frozen_line.py
+  #187 | 2026-10-28T14:23:03.854Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_frozen_line.py bank
+  #188 | 2026-10-28T14:23:13.187Z | seat | PowerShell | git -C D:/relay add -- tools/b721_frozen_line.py data/b721_frozen_line.txt
+  #189 | 2026-10-28T14:23:17.662Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C6 ((R331)(7)(i)): the four checkpoint kernels` five statements quoted at their pins and graded at E0 (four DERIVES, monotone
+  #190 | 2026-10-28T14:23:22.871Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #191 | 2026-10-28T14:23:26.048Z | seat | PowerShell | python -X utf8 D:/relay/tools/b721_record.py step relay "component 6" 0b759208faaf50ad7b5ed55de4e9ac1c04135d31
+  #192 | 2026-10-28T14:24:32.154Z | seat | PowerShell | git -C D:/relay add -- data/b721_frozen_line_drafts.txt
+  #193 | 2026-10-28T14:24:36.112Z | seat | PowerShell | git -C D:/relay commit -q -m 'b721 C6 ((R331)(7)(ii)): drafts for the release sitting -- a README paragraph and a one-line description per checkpoint kernel, ea
+  #194 | 2026-10-28T14:24:40.497Z | seat | PowerShell | git -C D:/relay log --format=%H -1
+  #195 | 2026-10-28T14:24:43.497Z | seat | PowerShell | python -X utf8 D:/relay/tools/b721_record.py step relay "component 6" 0370f99b24e6e4c39bb8de42a365327a23a1166c
+  #196 | 2026-10-28T14:25:01.019Z | seat | PowerShell | git -C D:/SIDE-explicit-formula show HEAD:.github/workflows/build-module.yml; git -C D:/SIDE-kernel show 0e5233f:.github/workflows/build.yml
+  #197 | 2026-10-28T14:25:11.341Z | seat | PowerShell | Get-ChildItem D:/relay/tools -Name -Filter 'b7[12]*pin*'; Get-ChildItem D:/relay/tools -Name -Filter 'b718_*'
+  #198 | 2026-10-28T14:25:28.119Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b718_pin.py plan
+  #199 | 2026-10-28T14:25:52.455Z | seat | PowerShell | git -C D:/SIDE-effects log -1 --format='%h | author %an <%ae> | committer %cn <%ce>' pin-b718-de5ce8a9; git -C D:/SIDE-frobenius config --get user.name; git -C 
+  #200 | 2026-10-28T14:27:22.995Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py plan
+  #201 | 2026-10-28T14:27:51.439Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-kernel
+  #202 | 2026-10-28T14:27:56.000Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-kernel
+  #203 | 2026-10-28T14:28:07.665Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-kernel
+  #204 | 2026-10-28T14:28:21.672Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-lv-conservation
+  #205 | 2026-10-28T14:28:27.018Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-lv-conservation
+  #206 | 2026-10-28T14:28:37.356Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-lv-conservation
+  #207 | 2026-10-28T14:28:51.972Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-archimedean
+  #208 | 2026-10-28T14:28:56.886Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-archimedean
+  #209 | 2026-10-28T14:29:07.022Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-archimedean
+  #210 | 2026-10-28T14:29:22.133Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-frobenius
+  #211 | 2026-10-28T14:29:28.174Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-frobenius
+  #212 | 2026-10-28T14:29:37.333Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-frobenius
+  #213 | 2026-10-28T14:29:46.035Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-spinor
+  #214 | 2026-10-28T14:29:50.879Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-spinor
+  #215 | 2026-10-28T14:30:00.861Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-spinor
+  #216 | 2026-10-28T14:30:15.909Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py branch SIDE-rcurve
+  #217 | 2026-10-28T14:30:20.534Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py push SIDE-rcurve
+  #218 | 2026-10-28T14:30:35.999Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py dispatch SIDE-rcurve
+  #219 | 2026-10-28T14:30:59.675Z | seat | Bash | python -X utf8 -c "
+  #220 | 2026-10-28T14:31:09.626Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/runs721.py
+  #221 | 2026-10-28T14:31:27.986Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/runs721.py wait
+  #222 | 2026-10-28T14:33:14.563Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-kernel 40706230156
+  #223 | 2026-10-28T14:33:20.592Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-lv-conservation 40706311269
+  #224 | 2026-10-28T14:33:27.307Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-archimedean 40706397470
+  #225 | 2026-10-28T14:33:34.926Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-spinor 40706542282
+  #226 | 2026-10-28T14:33:41.895Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-rcurve 40706645404
+  #227 | 2026-10-28T14:33:55.890Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/art721.py SIDE-archimedean SIDE-kernel_
+  #228 | 2026-10-28T14:34:10.392Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py bank
+  #229 | 2026-10-28T14:34:24.153Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b721_rebuild.py bank
+  #230 | 2026-10-28T14:36:25.922Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/b721_frozen_line.py bank > "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchp
+  #231 | 2026-10-28T14:36:31.277Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/b721_frozen_line.py bank
+  #232 | 2026-10-28T14:36:43.005Z | seat | Bash | git -C D:/relay add -- tools/b721_frozen_line.py data/b721_frozen_line.txt
+  #233 | 2026-10-28T14:36:47.005Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 6: the frozen line re-banked with the census`s DOMAIN status for StrictMono beside monotone_unique_zero`s grade (th
+  #234 | 2026-10-28T14:36:51.050Z | seat | Bash | python -X utf8 D:/relay/tools/b721_record.py step relay "component 6" 015df0a7fb8fb696f6ef4a4eb01b48f2d05a496b
+  #235 | 2026-10-28T14:37:00.594Z | seat | Bash | git -C D:/SIDE-frobenius show rebuild-b721:.github/workflows/build-module.yml
+  #236 | 2026-10-28T14:37:33.439Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/trig721.py"
+  #237 | 2026-10-28T14:38:13.780Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py trigger SIDE-frobenius
+  #238 | 2026-10-28T14:38:20.077Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py bank
+  #239 | 2026-10-28T14:38:25.381Z | seat | Bash | git -C D:/relay add -- tools/b721_rebuild.py data/b721_rebuild_rows.json data/b721_rebuild.txt
+  #240 | 2026-10-28T14:38:29.082Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 6: (R331)(7)(iii) the rebuild -- 5 of 6 wave 1 kernels build at their own pins (lv with one sorry); SIDE-frobenius 
+  #241 | 2026-10-28T14:38:33.315Z | seat | Bash | python -X utf8 D:/relay/tools/b721_record.py step relay "component 6" dc6bad94c1dc5aaf01f077596ea327e2b1a0944f
+  #242 | 2026-10-28T14:50:52.806Z | seat | Bash | gh api user --jq .id
+  #243 | 2026-10-28T14:50:57.234Z | seat | Bash | git config --global user.email 263552911+psinary-sketch@users.noreply.github.com && git config --global --get user.email
+  #244 | 2026-10-28T14:51:22.061Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idcheck721.py"
+  #245 | 2026-10-28T15:09:48.281Z | seat | Bash | python -X utf8 -m py_compile D:/relay/tools/b721_rebuild.py && echo COMPILES
+  #246 | 2026-10-28T15:09:52.517Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py rebranch SIDE-frobenius
+  #247 | 2026-10-28T15:09:58.727Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py push_run SIDE-frobenius
+  #248 | 2026-10-28T15:10:20.129Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait721f.py"
+  #249 | 2026-10-28T15:10:47.236Z | seat | Bash | ls D:/relay/tools/ -1 --sort=time -r --color=never -d D:/relay/tools/b72*
+  #250 | 2026-10-28T15:10:47.627Z | seat | Bash | sed -n '55,75p' D:/relay/data/b721_ferry.txt
+  #251 | 2026-10-28T15:10:59.723Z | seat | Bash | ls -1 --color=never -d D:/relay/data/b720_* D:/relay/data/b721_*
+  #252 | 2026-10-28T15:11:00.109Z | seat | Bash | sed -n '1,80p' D:/relay/tools/b720_closing.py
+  #253 | 2026-10-28T15:11:06.181Z | seat | Bash | python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b720_steps.json',encoding='utf-8'));[print(r) for r in (s if isinstance(s,list) else s.get('steps
+  #254 | 2026-10-28T15:11:09.675Z | seat | Bash | python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b720_steps.json',encoding='utf-8'));[print(r) for r in s['rows']]"
+  #255 | 2026-10-28T15:11:14.996Z | seat | Bash | sed -n '1,60p' D:/relay/tools/b721_carry.py
+  #256 | 2026-10-28T15:11:18.768Z | seat | Bash | git -C D:/relay show --stat --format=%B b85ec85e
+  #257 | 2026-10-28T15:11:24.475Z | seat | Bash | sed -n '60,240p' D:/relay/tools/b721_carry.py
+  #258 | 2026-10-28T15:11:27.769Z | seat | Bash | cd D:/relay && for n in checks closing regspec report reg_gate; do python -X utf8 tools/b721_carry.py carry $n; done
+  #259 | 2026-10-28T15:11:36.219Z | seat | Bash | cd D:/relay && grep -n "^def \|^PARTS\|^ACT_ARMS\|^ARMS\|^[A-Z_]* = " tools/b721_checks.py
+  #260 | 2026-10-28T15:11:53.194Z | seat | Bash | cd D:/relay && grep -n "^[A-Z][A-Z0-9_]* = \|^    [A-Z][A-Z0-9_]* = " tools/b721_record.py
+  #261 | 2026-10-28T15:11:56.927Z | seat | Bash | cd D:/relay && grep -n "^[A-Z][A-Z0-9_]* = " tools/b721_worklist.py
+  #262 | 2026-10-28T15:12:01.822Z | seat | Bash | python -X utf8 -c "import json;s=json.load(open('D:/relay/data/b721_steps.json',encoding='utf-8'));[print(i+1,r['repo'],r['commit'][:10],r['at'],r['phase'],'|',
+  #263 | 2026-10-28T15:12:56.598Z | seat | Bash | cd D:/relay && git show --stat --format=%s 68440f11 && git -C D:/MY-DOwnloads/PLACE-papers show --stat --format=%s af7d8f3b && cat data/b721_corrigendum_landing
+  #264 | 2026-10-28T15:13:27.564Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py read SIDE-frobenius 40713201832
+  #265 | 2026-10-28T15:13:34.527Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py bank
+  #266 | 2026-10-28T15:13:42.791Z | seat | Bash | python -X utf8 -u D:/relay/tools/b721_rebuild.py bank
+  #267 | 2026-10-28T15:13:47.916Z | seat | Bash | git -C D:/relay add -- tools/b721_rebuild.py data/b721_rebuild_rows.json data/b721_rebuild.txt
+  #268 | 2026-10-28T15:13:52.089Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 6: (R331)(7)(iii) the rebuild at 6 of 6 -- SIDE-frobenius on the author`s second word: two lines against SIDE-expli
+  #269 | 2026-10-28T15:13:56.291Z | seat | Bash | python -X utf8 D:/relay/tools/b721_record.py step relay "component 6" 3821caf5b0b6841a29183fc602cdb034047b35bf
+  #270 | 2026-10-28T15:14:09.577Z | seat | Bash | sed -n '1,80p' D:/relay/tools/standing/close.py
+  #271 | 2026-10-28T15:14:13.557Z | seat | Bash | grep -n "^ *\[[0-9]*\]\|COVERAGE\|^## " D:/relay/data/standing_clauses_v7.txt
+  #272 | 2026-10-28T15:14:16.928Z | seat | Bash | sed -n '184,200p' D:/relay/data/standing_clauses_v7.txt
+  #273 | 2026-10-28T15:14:20.313Z | seat | Bash | sed -n '/^ROUTES = dict/,$p' D:/relay/tools/b721_record.py
+  #274 | 2026-10-28T15:14:24.953Z | seat | Bash | python -X utf8 -c "
+  #275 | 2026-10-28T15:14:32.453Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cmds720.py"
+  #276 | 2026-10-28T15:14:41.423Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/order720.py"
+  #277 | 2026-10-28T15:14:46.718Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/order720.py" 09:14 13:00
+  #278 | 2026-10-28T15:15:02.902Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py armnames
+  #279 | 2026-10-28T15:15:08.951Z | seat | Bash | cd D:/relay && ls tools/b71*_arms.py && grep -n "import b7[0-9][0-9]_\|from b7[0-9][0-9]_" tools/b721_checks.py tools/b721_closing.py tools/b721_regspec.py tool
+  #280 | 2026-10-28T15:15:15.280Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py armnames
+  #281 | 2026-10-28T15:15:31.847Z | seat | Bash | cd D:/relay && grep -n "^NEED\|^B1_ARMS\|^B2_ARMS\|^A_ARMS\|^C_ARMS\|^B3_ARMS\|^def put\|^PART =" tools/b721_checks.py && sed -n '174,178p' tools/b721_checks.py
+  #282 | 2026-10-28T15:15:41.582Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" act
+  #283 | 2026-10-28T15:16:48.279Z | seat | Bash | cd D:/relay && grep -n "^## \|^### ### \|FALSIFIER\|NONE\|HALT\|^H-C\|n0 = \|PREDICTION" data/b721_registrations.txt
+  #284 | 2026-10-28T15:16:55.446Z | seat | Bash | cd D:/relay && for f in derivation offset_pred offset_read offset_tier surgery_carry frozen_line frozen_line_drafts rebuild; do echo "== $f"; grep -n "^### ### 
+  #285 | 2026-10-28T15:18:51.420Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" act
+  #286 | 2026-10-28T15:20:49.400Z | seat | Bash | cd D:/relay && grep -n "^### ### " data/b721_corrigendum.txt && sed -n '/^def corrigendum_ok/,/^def writelist_mirror_state_ok/p' tools/b721_checks.py
+  #287 | 2026-10-28T15:20:55.498Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #288 | 2026-10-28T15:21:13.621Z | seat | Bash | cd D:/relay && sed -n '/^TITLE_NEEDLES/,/^def trail_tail/p' tools/b721_checks.py && grep -n "DOES NOT CARRY the corrigendum" tools/*.py tools/standing/*.py
+  #289 | 2026-10-28T15:21:43.924Z | seat | Bash | cd D:/relay && git grep -n "NOTHING COMPOSED" -- tools | head -n 20
+  #290 | 2026-10-28T15:21:47.959Z | seat | Bash | cd D:/relay && git grep -n -e "NOTHING COMPOSED" -- tools/b721_record.py tools/b721_c1.py tools/act_close.py tools/standing
+  #291 | 2026-10-28T15:23:29.562Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/feet721.py"
+  #292 | 2026-10-28T15:23:34.192Z | seat | Bash | cd D:/relay && ls data/b721_* && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/feet721.py" 
+  #293 | 2026-10-28T15:23:39.434Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/feet721.py" b721_derivation.tx
+  #294 | 2026-10-28T15:23:43.280Z | seat | Bash | cd D:/relay && sed -n '22,107p' data/b721_registrations.txt && tail -n 12 data/b721_frozen_line.txt && sed -n '10,55p' data/b721_rebuild.txt
+  #295 | 2026-10-28T15:23:48.545Z | seat | Bash | cd D:/relay && grep -n "_figs()\|_figs_b720()\|def _n[1-5]\|def TRAIL_HEAD\|def _title\|def _for_author\|def _finding_text\|def _trail_text\|_dispatch_rows()\|_
+  #296 | 2026-10-28T15:23:58.920Z | seat | Bash | cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_w
+  #297 | 2026-10-28T15:24:08.115Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/kattr721.py" b721_record.py
+  #298 | 2026-10-28T15:24:20.594Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys; sys.path.insert(0,'tools'); import b721_record as R; print(R.PP)"
+  #299 | 2026-10-28T15:24:27.790Z | seat | Bash | cd D:/relay && sed -n '16056p;16124p;16142p;16232p' D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md
+  #300 | 2026-10-28T15:24:34.379Z | seat | Bash | cd D:/relay && sed -n '28,34p;58,64p' data/b721_ferry.txt
+  #301 | 2026-10-28T15:25:15.434Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #302 | 2026-10-28T15:25:40.700Z | seat | Bash | cd D:/relay && grep -c "b721_rebuild.py dispatch\|b721_rebuild.py push_run" "C:/Users/echo chamber/.claude/projects/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4.jso
+  #303 | 2026-10-28T15:26:46.433Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #304 | 2026-10-28T15:27:01.790Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #305 | 2026-10-28T15:27:15.645Z | seat | Bash | cd D:/relay && grep -n -e "-31\b" -e "-55\b" data/b721_derivation.txt data/b721_offset_pred.txt data/b721_offset_read.txt data/b721_offset_tier.txt data/b721_fr
+  #306 | 2026-10-28T15:27:52.537Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #307 | 2026-10-28T15:28:21.495Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #308 | 2026-10-28T15:29:34.992Z | seat | Bash | cd D:/relay && grep -c "^+| \`[^\`]*\` | not yet read | not yet read" data/b720_registry_diff.txt; grep -n "not yet read" D:/MY-DOwnloads/PLACE-papers/REGISTRY.
+  #309 | 2026-10-28T15:30:30.297Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #310 | 2026-10-28T15:31:15.740Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_record.p
+  #311 | 2026-10-28T15:31:46.280Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_report.p
+  #312 | 2026-10-28T15:31:58.885Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" act
+  #313 | 2026-10-28T15:33:53.897Z | seat | Bash | cd D:/relay && grep -n "push-b720\|port-b707\|merged\|KEPT" data/b721_stepzero.txt; grep -n "^NAMED_PUSH\|^READFIRST_NEEDLES\|^TITLE_NEEDLES\|^REPORT_KEYS\|^ENT
+  #314 | 2026-10-28T15:34:31.361Z | seat | Bash | cd D:/relay && cat data/b721_rules.txt; git log --format="%h %s" -- data/b721_rules.txt
+  #315 | 2026-10-28T15:35:26.263Z | seat | Bash | cd D:/relay && ls data/ -1 --color=never data/b71*_count_route* data/b720_count* 2>&1; python -X utf8 -c "
+  #316 | 2026-10-28T15:35:31.516Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #317 | 2026-10-28T15:35:53.908Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #318 | 2026-10-28T15:36:05.456Z | seat | Bash | cd D:/relay && sed -i "503,504s/b720_count_route_price/b719_count_route_price/g" tools/b721_checks.py && sed -i "1566s/b720's price of the count law's route, re
+  #319 | 2026-10-28T15:36:20.847Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #320 | 2026-10-28T15:36:41.288Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" act
+  #321 | 2026-10-28T15:38:25.751Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/dbg_del.py"
+  #322 | 2026-10-28T15:40:58.598Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #323 | 2026-10-28T15:41:05.886Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-a
+  #324 | 2026-10-28T15:47:43.471Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/dbg_sa.py"
+  #325 | 2026-10-28T15:52:26.488Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/dbg_sa.py"
+  #326 | 2026-10-28T15:57:02.022Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/dbg_sa2.py"
+  #327 | 2026-10-28T16:00:01.885Z | seat | Bash | cd D:/SIDE-lv-conservation && git grep -n "sorry" main -- "*.lean"; git grep -n "T3_perClass_to_combinations" main -- "*.lean"; git log --oneline -3 main
+  #328 | 2026-10-28T16:00:20.012Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-c && pyt
+  #329 | 2026-10-28T16:10:59.622Z | seat | Bash | cd D:/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice721.py" tools/b721_closing.
+  #330 | 2026-10-28T16:11:05.589Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #331 | 2026-10-28T16:13:44.077Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #332 | 2026-10-28T16:13:49.907Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-b2a
+  #333 | 2026-10-28T16:23:17.269Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #334 | 2026-10-28T16:23:20.671Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #335 | 2026-10-28T16:23:24.235Z | seat | Bash | cd D:/relay && python -X utf8 -c "
+  #336 | 2026-10-28T16:23:29.940Z | seat | PowerShell | Get-Process python*, lean*, lake* -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, StartTime, CPU, WorkingSet64; [math]::Round((Get-CimInstance Wi
+  #337 | 2026-10-28T16:23:33.228Z | seat | PowerShell | Get-Process -Name python, python3, lean, lake -ErrorAction SilentlyContinue; (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory
+  #338 | 2026-10-28T16:23:46.480Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-b3
+  #339 | 2026-10-28T16:28:41.636Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-b2b
+  #340 | 2026-10-28T16:31:31.080Z | seat | Bash | cd D:/relay && git grep -n -e "b720" -- tools/b721_checks.py
+  #341 | 2026-10-28T16:32:39.972Z | seat | Bash | cd D:/relay && git grep -n -i -e "tests" -- data/b721_ferry.txt data/b721_stepzero.txt && git ls-files data/b720_tests_stepzero.json data/b719_tests_stepzero.js
+  #342 | 2026-10-28T16:32:56.500Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" act G-STEPZERO-TE
+  #343 | 2026-10-28T16:34:38.824Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-a G-STEP
+  #344 | 2026-10-28T16:39:12.710Z | seat | Bash | cd D:/relay && git grep -n -e "G-STEPZERO-TESTS" -e "G-ROOT-BANKED" -- tools/standing/arms.py tools/b721_worklist.py data/arm_tags.json
+  #345 | 2026-10-28T16:39:24.305Z | seat | Bash | cd D:/relay && git status --short
+  #346 | 2026-10-28T16:39:28.955Z | seat | Bash | cd D:/relay && stat -c "%y %s" -- "=" data/b721_hook_refusals.txt && python -X utf8 -c "print(open('D:/relay/=','rb').read()[:300])"
+  #347 | 2026-10-28T16:39:35.932Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'));rows=r if isinstance(r,list) else r.get('rows',r);[prin
+  #348 | 2026-10-28T16:39:41.225Z | seat | Bash | cd D:/relay && python -X utf8 -m py_compile tools/b721_record.py tools/b721_worklist.py tools/b721_checks.py tools/b721_closing.py tools/b721_regspec.py tools/b
+  #349 | 2026-10-28T16:39:45.083Z | seat | Bash | git -C D:/relay add -- tools/b721_record.py tools/b721_worklist.py tools/b721_checks.py tools/b721_closing.py tools/b721_regspec.py tools/b721_report.py tools/b
+  #350 | 2026-10-28T16:39:48.687Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 8: the closing toolset carried from b720 and re-pointed to b721`s objects by the Edit tool (record, checks, closing
+  #351 | 2026-10-28T16:39:52.243Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" c2a710275230762f6caf45a000742c38146f3ec6
+  #352 | 2026-10-28T16:40:00.758Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(list(j));print({k:v for k,v in j.items() if 'pha
+  #353 | 2026-10-28T16:40:08.714Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" c2a710275230762f6caf45a000742c38146f3ec6
+  #354 | 2026-10-28T16:40:23.789Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py figures
+  #355 | 2026-10-28T16:40:37.459Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py figures
+  #356 | 2026-10-28T16:40:47.225Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py commands
+  #357 | 2026-10-28T16:40:57.321Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(j['session'],j['prev_session'])" && git grep -n 
+  #358 | 2026-10-28T16:41:03.136Z | seat | Bash | cd D:/relay && git grep -n -e "ANCHOR" -- tools/b721_worklist.py
+  #359 | 2026-10-28T16:41:15.578Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py commands
+
+### ### **COMMANDS 359 ; G-EDIT-ROUTE OFFENCES 15 (SED IN ANY FORM AMONG THEM 15) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 6 ; sed COMMANDS 15 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 43 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
