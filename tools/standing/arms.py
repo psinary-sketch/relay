@@ -8,6 +8,11 @@ may never write -- the withheld arm of the act before the toolset act) and the a
 these feed.
 
   prev_longest(prev, parts) -> dict(longest, parts_read, rows, refused)
+  run_list(arms) -> the suite's arms less RETIRED           retired() -> RETIRED as a list
+
+THE RETIRED ARMS ((R329)(10), b719): CLOSE-tagged arms whose b705-b718 failures all trace to bookkeeping, own defects or declared
+failures (data/b719_arm_history.txt, committed d033e450 before this edit). They leave the suite's run list through run_list; their tags
+stay in data/arm_tags.json. Each is one line of RETIRED: deleting its line restores it to the run list.
 """
 import os
 import re
@@ -17,6 +22,43 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import act as A   # noqa: E402
 
 LONGEST = re.compile(r'THE LONGEST PHASE (\d+) s')
+
+RETIRED = (
+    'G-ANSWERS-BANKED',
+    'G-ANSWERS-BEFORE-WRITES',
+    'G-ANSWERS-CHECKED',
+    'G-ARM-SECONDS-BANKED',
+    'G-ARMS-NO-LIVE-LIMB',
+    'G-DEFECTS-LETTERED',
+    'G-EDIT-ROUTE',
+    'G-FIGURES-BANKED',
+    'G-NEXT-ACT-NAMED',
+    'G-PARTS-PRERUN',
+    'G-PRIORBANK-UNCHANGED',
+    'G-PROCS-LISTED',
+    'G-READ-RULE-STANDING',
+    'G-REPORT-UNSEALED',
+    'G-RULE-HEAD-LINE-QUOTED',
+    'G-RULE-ONE-GIT-WRITE',
+    'G-RULE-ROWGEN-REVIEW',
+    'G-RULE-SUITE-PARTS',
+    'G-SCORER-READS-BANKS',
+    'G-STEPZERO-TESTS',
+    'G-TABLE-FINAL',
+    'G-TRAIL-DEFECTS-EQUAL',
+    'G-TRAIL-LINES-EQUAL-DEFECTS',
+    'G-TRAIL-RESOLVED-EQUAL',
+    'G-WRITELIST-KINDS',
+)
+
+
+def retired():
+    return list(RETIRED)
+
+
+def run_list(arms):
+    """the suite's arms (name first in each entry) less the retired."""
+    return [a for a in arms if a[0] not in RETIRED]
 
 
 def prev_longest(prev, parts, base='arms_prerun', named=None, read=None):

@@ -220,6 +220,47 @@ def render(H):
     return R, ret
 
 
+def figures():
+    """the suite's figures before and after the retirement: counts over data/arm_tags.json's tags, the run list through
+    tools/standing/arms.py, and b718's banked pre-push reading (data/b718_checks.txt :13) re-counted over each list -- no arm run."""
+    sys.path.insert(0, os.path.join(D, 'tools', 'standing'))
+    import arms as SA
+    T = json.load(io.open(TAGS, encoding='utf-8'))
+    tags, rec = T['tags'], (T.get('retired') or {}).get('arms') or []
+    hist = json.load(io.open(OUT_JSON, encoding='utf-8'))['retire']
+    ret = SA.retired()
+    after = [a for a in sorted(tags) if a in [x[0] for x in SA.run_list([(n,) for n in sorted(tags)])]]
+    r718 = parse_reading(os.path.join(DATA, 'b718_checks.txt'))
+    f718 = r718['fail']
+    R = []
+    R.append('b719 -- (R329)(10): THE RETIREMENT, THE SUITE`S FIGURES BEFORE AND AFTER (%s)' % utc())
+    R.append('')
+    R.append('### Written by tools/b719_arms.py figures after the Edit of tools/standing/arms.py (RETIRED, run_list) and data/arm_tags.json')
+    R.append('### ("retired"); no arm is run here: the counts are over the tags and the run list, b718`s reading re-counted from its bank.')
+    R.append('  THE LISTS AGREE: arms.py RETIRED = the history`s RETIRE (data/b719_arm_history.json) %s ; = arm_tags.json`s record %s ;'
+             ' every retired arm tagged CLOSE %s ; no guard retired %s'
+             % (sorted(ret) == sorted(hist), sorted(ret) == sorted(rec), all(tags.get(a) == 'CLOSE' for a in ret),
+                not any(a in GUARDS for a in ret)))
+    nb, na = len(tags), len(after)
+    cb = sum(1 for a in tags if tags[a] == 'CLOSE')
+    kb = sum(1 for a in tags if tags[a] == 'CLAIM')
+    ca = sum(1 for a in after if tags[a] == 'CLOSE')
+    ka = sum(1 for a in after if tags[a] == 'CLAIM')
+    R.append('  BEFORE: arms %d = CLAIM %d + CLOSE %d (data/arm_tags.json as b718 left it; b718`s suite ran 141, data/b718_checks.txt :13)' % (nb, kb, cb))
+    R.append('  AFTER:  arms %d = CLAIM %d + CLOSE %d (the run list through tools/standing/arms.py run_list) ; retired %d' % (na, ka, ca, nb - na))
+    fb = [a for a in f718 if a in tags]
+    fa = [a for a in f718 if a in after]
+    R.append('  b718`S PRE-PUSH READING RE-COUNTED (banked, not re-run): over the before list failing %d %s, passing %d of %d ; claim arms'
+             ' failing %d of %d' % (len(fb), fb, nb - len(fb), nb, sum(1 for a in fb if tags[a] == 'CLAIM'), kb))
+    R.append('      over the after list failing %d %s, passing %d of %d ; claim arms failing %d of %d'
+             % (len(fa), fa, na - len(fa), na, sum(1 for a in fa if tags[a] == 'CLAIM'), ka))
+    R.append('  RESTORE: delete the arm`s one line in tools/standing/arms.py RETIRED.')
+    R.append('')
+    R.append('### ### **RETIRED %d CLOSE ARMS ; THE RUN LIST %d -> %d ; CLAIM ARMS %d -> %d (UNTOUCHED) ; NO GUARD RETIRED.**'
+             % (nb - na, nb, na, kb, ka))
+    return R
+
+
 if __name__ == '__main__':
     route = sys.argv[1] if len(sys.argv) > 1 else 'history'
     mode = sys.argv[2] if len(sys.argv) > 2 else 'dry'
@@ -234,5 +275,15 @@ if __name__ == '__main__':
             print('written data/b719_arm_history.txt (%d lines) and .json' % len(R))
         else:
             print(NL.join(R))
+    elif route == 'figures':
+        R = figures()
+        if mode == 'bank':
+            p = os.path.join(DATA, 'b719_arm_retire.txt')
+            with open(p + '.tmp', 'wb') as fh:
+                fh.write((NL.join(R) + NL).encode('utf-8'))
+            os.replace(p + '.tmp', p)
+            print('written data/b719_arm_retire.txt (%d lines)' % len(R))
+        else:
+            print(NL.join(R))
     else:
-        sys.exit('### route %r not built yet' % route)
+        sys.exit('### route %r unknown' % route)

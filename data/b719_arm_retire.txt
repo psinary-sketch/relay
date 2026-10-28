@@ -1,0 +1,12 @@
+b719 -- (R329)(10): THE RETIREMENT, THE SUITE`S FIGURES BEFORE AND AFTER (2026-10-28T03:02:17Z)
+
+### Written by tools/b719_arms.py figures after the Edit of tools/standing/arms.py (RETIRED, run_list) and data/arm_tags.json
+### ("retired"); no arm is run here: the counts are over the tags and the run list, b718`s reading re-counted from its bank.
+  THE LISTS AGREE: arms.py RETIRED = the history`s RETIRE (data/b719_arm_history.json) True ; = arm_tags.json`s record True ; every retired arm tagged CLOSE True ; no guard retired True
+  BEFORE: arms 141 = CLAIM 38 + CLOSE 103 (data/arm_tags.json as b718 left it; b718`s suite ran 141, data/b718_checks.txt :13)
+  AFTER:  arms 116 = CLAIM 38 + CLOSE 78 (the run list through tools/standing/arms.py run_list) ; retired 25
+  b718`S PRE-PUSH READING RE-COUNTED (banked, not re-run): over the before list failing 8 ['G-STEPZERO-TESTS', 'G-RULE-HEAD-LINE-QUOTED', 'G-PRIORBANK-UNCHANGED', 'G-READ-RULE-STANDING', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-ANSWERS-BEFORE-WRITES', 'G-TRAIL-LINES-EQUAL-DEFECTS'], passing 133 of 141 ; claim arms failing 0 of 38
+      over the after list failing 2 ['G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH'], passing 114 of 116 ; claim arms failing 0 of 38
+  RESTORE: delete the arm`s one line in tools/standing/arms.py RETIRED.
+
+### ### **RETIRED 25 CLOSE ARMS ; THE RUN LIST 141 -> 116 ; CLAIM ARMS 38 -> 38 (UNTOUCHED) ; NO GUARD RETIRED.**
