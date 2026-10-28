@@ -1,0 +1,152 @@
+b722 -- (R332)(4): THE FOURTEEN CLASS-NUMBER-2 FIELDS UNDER H-C2-WALK THROUGH 32532 BY b711`S ROUTE, -15 THE CONTROL ROW (2026-10-28T20:53:31Z)
+
+### rows as data/b722_coeffs.txt`s; the walk`s n0 and value read from data/b721_registrations.txt`s rows by pattern, its bytes its blob at e8c3dff4 (H-C2-WALK :62-:70,
+### its rows :31-:48 committed at 15cb6cc4). FREE MEMORY 4053 MB against the hold 2560. THE CONTROLS FIRST (data/b722_coeffs_controls.json, 2026-10-28T20:52:50Z):
+### (C1) the recursion with b_n = 1 (zeta`s series) returns von Mangoldt exactly at every n <= 32532: mismatches 0 [] -- AS WANTED
+### (C2) -23, Q = x^2 + xy + 6y^2, through 32532: the least negative n = 48, c = (-8) log 2 + (-2) log 3, negatives 1066 (wanted 48, (-8) log 2 + (-2) log 3, 1066 ; data/b711_coeffs.txt :12, :14) -- REPRODUCED, AS WANTED
+### (C3) the planted coefficient: -23`s series with r_Q(2) planted 2 (b_2 = 1, the true 0): the least negative n = 16, c = (-3) log 2, negatives 1319 -- FAILS TO REPRODUCE, AS WANTED
+### THE CONTROLS: C1 True ; C2 True ; C3 (failing) True ; 0 s
+### (C-WALK) the control row -15 (banked n0 24, -2, data/b713_coeffs.txt :13): computed n0 24, b(n0) -2 (Omega -2) ; the walk`s n0 24, value -2 (:31) ; primes of n0 the principal form represents NONE -- AS WANTED
+
+## D = -15, Q1 = 1x^2 + 1xy + 4y^2: nonzero c(n) 3184 of 32531 (r_Q1(n) nonzero at 5543 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 24 = 2^3 . 3 ; c(n0) = (-6) log 2 + (-2) log 3 = [-6.35610766069589 +/- 1.24e-15]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 4 (3), 6 (2)
+  each prime of n0: 2 split, a prime ideal above it in the class of 2x^2 + 1xy + 2y^2 (order 2), represented by 2x^2 + 1xy + 2y^2, by Q1: False ; 3 ram, a prime ideal above it in the class of 2x^2 + 1xy + 2y^2 (order 2), represented by 2x^2 + 1xy + 2y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 756 ; the first ten [24, 36, 40, 60, 90, 100, 136, 150, 184, 204]
+
+## D = -24, Q1 = 1x^2 + 6y^2: nonzero c(n) 2930 of 32531 (r_Q1(n) nonzero at 6217 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 36 = 2^2 . 3^2 ; c(n0) = (-1) log 2 + (-1) log 3 = [-1.79175946922806 +/- 5.00e-15]
+  b(n0) = c(n0)/log n0 = -1/2 ; by the Omega derivation -1/2 ; EQUAL True
+  the decomposition: a(n0) 1 ; the ordered pair sum 3 ; k >= 3 factorizations 0 ; a - pair/2 = -1/2
+  the proper divisors with nonzero a: 4 (1), 6 (1), 9 (1)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 3y^2 (order 2), represented by 2x^2 + 3y^2, by Q1: False ; 3 ram, a prime ideal above it in the class of 2x^2 + 3y^2 (order 2), represented by 2x^2 + 3y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 600 ; the first ten [36, 60, 90, 100, 132, 150, 198, 220, 225, 250]
+
+## D = -51, Q1 = 1x^2 + 1xy + 13y^2: nonzero c(n) 2005 of 32531 (r_Q1(n) nonzero at 4360 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 225 = 3^2 . 5^2 ; c(n0) = (-4) log 3 + (-4) log 5 = [-10.8322008044088 +/- 4.03e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 9 (1), 15 (2), 25 (3)
+  each prime of n0: 3 ram, a prime ideal above it in the class of 3x^2 + 3xy + 5y^2 (order 2), represented by 3x^2 + 3xy + 5y^2, by Q1: False ; 5 split, a prime ideal above it in the class of 3x^2 + 3xy + 5y^2 (order 2), represented by 3x^2 + 3xy + 5y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 183 ; the first ten [225, 375, 495, 765, 825, 1035, 1089, 1275, 1305, 1375]
+
+## D = -52, Q1 = 1x^2 + 13y^2: nonzero c(n) 2096 of 32531 (r_Q1(n) nonzero at 4690 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 196 = 2^2 . 7^2 ; c(n0) = (-4) log 2 + (-4) log 7 = [-10.5562293184610 +/- 3.45e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 4 (1), 14 (2), 49 (3)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 2xy + 7y^2 (order 2), represented by 2x^2 + 2xy + 7y^2, by Q1: False ; 7 split, a prime ideal above it in the class of 2x^2 + 2xy + 7y^2 (order 2), represented by 2x^2 + 2xy + 7y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 209 ; the first ten [196, 308, 484, 532, 686, 836, 868, 1078, 1316, 1364]
+
+## D = -88, Q1 = 1x^2 + 22y^2: nonzero c(n) 1978 of 32531 (r_Q1(n) nonzero at 4173 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 484 = 2^2 . 11^2 ; c(n0) = (-1) log 2 + (-1) log 11 = [-3.09104245335832 +/- 4.15e-15]
+  b(n0) = c(n0)/log n0 = -1/2 ; by the Omega derivation -1/2 ; EQUAL True
+  the decomposition: a(n0) 1 ; the ordered pair sum 3 ; k >= 3 factorizations 0 ; a - pair/2 = -1/2
+  the proper divisors with nonzero a: 4 (1), 22 (1), 121 (1)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 11y^2 (order 2), represented by 2x^2 + 11y^2, by Q1: False ; 11 ram, a prime ideal above it in the class of 2x^2 + 11y^2 (order 2), represented by 2x^2 + 11y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 168 ; the first ten [484, 572, 676, 836, 988, 1276, 1444, 1508, 1892, 2204]
+
+## D = -91, Q1 = 1x^2 + 1xy + 23y^2: nonzero c(n) 1681 of 32531 (r_Q1(n) nonzero at 3537 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 875 = 5^3 . 7 ; c(n0) = (-6) log 5 + (-2) log 7 = [-13.5484477727152 +/- 2.89e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 25 (3), 35 (2)
+  each prime of n0: 5 split, a prime ideal above it in the class of 5x^2 + 3xy + 5y^2 (order 2), represented by 5x^2 + 3xy + 5y^2, by Q1: False ; 7 ram, a prime ideal above it in the class of 5x^2 + 3xy + 5y^2 (order 2), represented by 5x^2 + 3xy + 5y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 76 ; the first ten [875, 1225, 1625, 2275, 2375, 3185, 3325, 3875, 4225, 4655]
+
+## D = -115, Q1 = 1x^2 + 1xy + 29y^2: nonzero c(n) 1624 of 32531 (r_Q1(n) nonzero at 3396 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 1225 = 5^2 . 7^2 ; c(n0) = (-4) log 5 + (-4) log 7 = [-14.2213922459577 +/- 4.53e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 25 (1), 35 (2), 49 (3)
+  each prime of n0: 5 ram, a prime ideal above it in the class of 5x^2 + 5xy + 7y^2 (order 2), represented by 5x^2 + 5xy + 7y^2, by Q1: False ; 7 split, a prime ideal above it in the class of 5x^2 + 5xy + 7y^2 (order 2), represented by 5x^2 + 5xy + 7y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 55 ; the first ten [1225, 1715, 2975, 4025, 4165, 5635, 5831, 6475, 7225, 7525]
+
+## D = -123, Q1 = 1x^2 + 1xy + 31y^2: nonzero c(n) 1683 of 32531 (r_Q1(n) nonzero at 3499 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 1089 = 3^2 . 11^2 ; c(n0) = (-4) log 3 + (-4) log 11 = [-13.9860302458659 +/- 2.10e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 9 (1), 33 (2), 121 (3)
+  each prime of n0: 3 ram, a prime ideal above it in the class of 3x^2 + 3xy + 11y^2 (order 2), represented by 3x^2 + 3xy + 11y^2, by Q1: False ; 11 split, a prime ideal above it in the class of 3x^2 + 3xy + 11y^2 (order 2), represented by 3x^2 + 3xy + 11y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 68 ; the first ten [1089, 1683, 2601, 2871, 3993, 4059, 4437, 4653, 5247, 6171]
+
+## D = -148, Q1 = 1x^2 + 37y^2: nonzero c(n) 1756 of 32531 (r_Q1(n) nonzero at 3505 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 1444 = 2^2 . 19^2 ; c(n0) = (-4) log 2 + (-4) log 19 = [-14.5503446389055 +/- 4.31e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 4 (1), 38 (2), 361 (3)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 2xy + 19y^2 (order 2), represented by 2x^2 + 2xy + 19y^2, by Q1: False ; 19 split, a prime ideal above it in the class of 2x^2 + 2xy + 19y^2 (order 2), represented by 2x^2 + 2xy + 19y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 74 ; the first ten [1444, 1748, 2116, 2356, 2852, 3268, 3844, 3956, 4484, 5332]
+
+## D = -187, Q1 = 1x^2 + 1xy + 47y^2: nonzero c(n) 1464 of 32531 (r_Q1(n) nonzero at 2874 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 3773 = 7^3 . 11 ; c(n0) = (-6) log 7 + (-2) log 11 = [-16.4712514399286 +/- 2.10e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 49 (3), 77 (2)
+  each prime of n0: 7 split, a prime ideal above it in the class of 7x^2 + 3xy + 7y^2 (order 2), represented by 7x^2 + 3xy + 7y^2, by Q1: False ; 11 ram, a prime ideal above it in the class of 7x^2 + 3xy + 7y^2 (order 2), represented by 7x^2 + 3xy + 7y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 16 ; the first ten [3773, 5831, 5929, 9163, 9947, 14063, 14161, 14399, 15631, 20923]
+
+## D = -232, Q1 = 1x^2 + 58y^2: nonzero c(n) 1661 of 32531 (r_Q1(n) nonzero at 3069 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 3364 = 2^2 . 29^2 ; c(n0) = (-1) log 2 + (-1) log 29 = [-4.06044301054642 +/- 6.64e-16]
+  b(n0) = c(n0)/log n0 = -1/2 ; by the Omega derivation -1/2 ; EQUAL True
+  the decomposition: a(n0) 1 ; the ordered pair sum 3 ; k >= 3 factorizations 0 ; a - pair/2 = -1/2
+  the proper divisors with nonzero a: 4 (1), 58 (1), 841 (1)
+  each prime of n0: 2 ram, a prime ideal above it in the class of 2x^2 + 29y^2 (order 2), represented by 2x^2 + 29y^2, by Q1: False ; 29 ram, a prime ideal above it in the class of 2x^2 + 29y^2 (order 2), represented by 2x^2 + 29y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 44 ; the first ten [3364, 3596, 3844, 4292, 4588, 5452, 5476, 5828, 6956, 7076]
+
+## D = -235, Q1 = 1x^2 + 1xy + 59y^2: nonzero c(n) 1457 of 32531 (r_Q1(n) nonzero at 2791 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 4225 = 5^2 . 13^2 ; c(n0) = (-4) log 5 + (-4) log 13 = [-16.6975490795825 +/- 4.85e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 25 (1), 65 (2), 169 (3)
+  each prime of n0: 5 ram, a prime ideal above it in the class of 5x^2 + 5xy + 13y^2 (order 2), represented by 5x^2 + 5xy + 13y^2, by Q1: False ; 13 split, a prime ideal above it in the class of 5x^2 + 5xy + 13y^2 (order 2), represented by 5x^2 + 5xy + 13y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 11 ; the first ten [4225, 7475, 10985, 13225, 13975, 15275, 19435, 21775, 23725, 24725]
+
+## D = -267, Q1 = 1x^2 + 1xy + 67y^2: nonzero c(n) 1496 of 32531 (r_Q1(n) nonzero at 2784 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 4761 = 3^2 . 23^2 ; c(n0) = (-4) log 3 + (-4) log 23 = [-16.9364260183890 +/- 3.76e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 9 (1), 69 (2), 529 (3)
+  each prime of n0: 3 ram, a prime ideal above it in the class of 3x^2 + 3xy + 23y^2 (order 2), represented by 3x^2 + 3xy + 23y^2, by Q1: False ; 23 split, a prime ideal above it in the class of 3x^2 + 3xy + 23y^2 (order 2), represented by 3x^2 + 3xy + 23y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 21 ; the first ten [4761, 6003, 7569, 8487, 10701, 12213, 15129, 15399, 17181, 18423]
+
+## D = -403, Q1 = 1x^2 + 1xy + 101y^2: nonzero c(n) 1258 of 32531 (r_Q1(n) nonzero at 2245 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 17303 = 11^3 . 13 ; c(n0) = (-6) log 11 + (-2) log 13 = [-19.5172703517133 +/- 3.27e-15]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 4 ; the ordered pair sum 12 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 121 (3), 143 (2)
+  each prime of n0: 11 split, a prime ideal above it in the class of 11x^2 + 9xy + 11y^2 (order 2), represented by 11x^2 + 9xy + 11y^2, by Q1: False ; 13 ram, a prime ideal above it in the class of 11x^2 + 9xy + 11y^2 (order 2), represented by 11x^2 + 9xy + 11y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 2 ; the first ten [17303, 20449]
+
+## D = -427, Q1 = 1x^2 + 1xy + 107y^2: nonzero c(n) 1259 of 32531 (r_Q1(n) nonzero at 2258 n <= 32532) ; signs undecided 0
+  THE LEAST n WITH c(n) < 0: n0 = 14161 = 7^2 . 17^2 ; c(n0) = (-4) log 7 + (-4) log 17 = [-19.1164939724461 +/- 1.76e-14]
+  b(n0) = c(n0)/log n0 = -2 ; by the Omega derivation -2 ; EQUAL True
+  the decomposition: a(n0) 3 ; the ordered pair sum 10 ; k >= 3 factorizations 0 ; a - pair/2 = -2
+  the proper divisors with nonzero a: 49 (1), 119 (2), 289 (3)
+  each prime of n0: 7 ram, a prime ideal above it in the class of 7x^2 + 7xy + 17y^2 (order 2), represented by 7x^2 + 7xy + 17y^2, by Q1: False ; 17 split, a prime ideal above it in the class of 7x^2 + 7xy + 17y^2 (order 2), represented by 7x^2 + 7xy + 17y^2, by Q1: False
+  THE COUNT OF NEGATIVE COEFFICIENTS through 32532: 2 ; the first ten [14161, 25823]
+
+### THE ROWS, EACH ON ITS OWN CLAUSES (H-C2-WALK: n0, b(n0), the prime clause; the falsifier :68-:69):
+  CONTROL -15  -15   HELD         computed n0 24, b(n0) -2 (Omega -2) ; the walk`s n0 24, value -2 (:31) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -24   HELD         computed n0 36, b(n0) -1/2 (Omega -1/2) ; the walk`s n0 36, value -1/2 (:33) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -51   HELD         computed n0 225, b(n0) -2 (Omega -2) ; the walk`s n0 225, value -2 (:36) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -52   HELD         computed n0 196, b(n0) -2 (Omega -2) ; the walk`s n0 196, value -2 (:37) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -88   HELD         computed n0 484, b(n0) -1/2 (Omega -1/2) ; the walk`s n0 484, value -1/2 (:38) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -91   HELD         computed n0 875, b(n0) -2 (Omega -2) ; the walk`s n0 875, value -2 (:39) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -115  HELD         computed n0 1225, b(n0) -2 (Omega -2) ; the walk`s n0 1225, value -2 (:40) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -123  HELD         computed n0 1089, b(n0) -2 (Omega -2) ; the walk`s n0 1089, value -2 (:41) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -148  HELD         computed n0 1444, b(n0) -2 (Omega -2) ; the walk`s n0 1444, value -2 (:42) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -187  HELD         computed n0 3773, b(n0) -2 (Omega -2) ; the walk`s n0 3773, value -2 (:43) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -232  HELD         computed n0 3364, b(n0) -1/2 (Omega -1/2) ; the walk`s n0 3364, value -1/2 (:44) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -235  HELD         computed n0 4225, b(n0) -2 (Omega -2) ; the walk`s n0 4225, value -2 (:45) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -267  HELD         computed n0 4761, b(n0) -2 (Omega -2) ; the walk`s n0 4761, value -2 (:46) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -403  HELD         computed n0 17303, b(n0) -2 (Omega -2) ; the walk`s n0 17303, value -2 (:47) ; primes of n0 the principal form represents NONE
+  H-C2-WALK    -427  HELD         computed n0 14161, b(n0) -2 (Omega -2) ; the walk`s n0 14161, value -2 (:48) ; primes of n0 the principal form represents NONE
+
+### THE EIGHTEEN: the fourteen rows above; -15 the control row above (banked at data/b713_coeffs.txt :13-:14); -20 (n0 36, b -2, data/b719_coeffs.txt :16), -35 (n0 135, b -2) and -40 (n0 100, b -1/2) (data/b720_coeffs.txt :57) -- each at the walk`s value (data/b721_registrations.txt :32, :34, :35, USED).
+
+### THE GRADE: the value law at the least negative index holds at all eighteen imaginary quadratic fields of class number 2, by exhaustion over the list Baker (1971) and Stark (1975) proved complete -- that completeness cited and not compiled -- and over exact rational arithmetic in Python, not compiled.
+
+### ### **H-C2-WALK: 14 OF 14 HELD, REFUTED 0, NOT SCORABLE 0 ; THE CONTROL ROW -15 HELD ; 1 s.**

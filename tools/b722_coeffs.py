@@ -367,7 +367,10 @@ def walk(*a):
         L += reading_lines(R[D_], N)
     L += ['### THE ROWS, EACH ON ITS OWN CLAUSES (H-C2-WALK: n0, b(n0), the prime clause; the falsifier :68-:69):']
     L += ['  %-12s %-5d %-12s %s' % x for x in rows]
-    L += ['', '### THE GRADE: ' + grade, '',
+    L += ['', '### THE EIGHTEEN: the fourteen rows above; -15 the control row above (banked at data/b713_coeffs.txt :13-:14); -20 (n0 36, b -2, '
+          'data/b719_coeffs.txt :16), -35 (n0 135, b -2) and -40 (n0 100, b -1/2) (data/b720_coeffs.txt :57) -- each at the walk`s value '
+          '(data/%s :32, :34, :35, USED).' % REG,
+          '', '### THE GRADE: ' + grade, '',
           '### ### **H-C2-WALK: %d OF 14 HELD, REFUTED %d, NOT SCORABLE %d ; THE CONTROL ROW -15 %s ; %d s.**' % (
               held, ref, len(tests) - held - ref, ctl_row[2], int(time.time() - t0))]
     print(NL.join(L))
