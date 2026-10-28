@@ -141,15 +141,14 @@ def defects_row(act, item='i'):
 
 
 def carried():
-    """the carried items for b720 ((R330)(11), (14)): b719's pin kernels carried and held, each read from b719's pin rows bank by kind (no pin
-    work this act)."""
-    rows = json.loads(rd('b719_pin_rows.json') or '[]')
-    car = [r for r in rows if r.get('kind') == 'carried']
-    held = [r for r in rows if r.get('kind') == 'held']
-    pin = ['    (g) The federation pin`s remainder ((R330)(11), moved to b720; relay data/b719_pin_rows.json, data/b719_pin.txt): %d kernel(s) on their local %s '
-           'branches, unpushed -- %s; %d held for their reasons -- %s.' % (
-               len(car), WL.PIN_BRANCH, ', '.join('%s %s' % (r['kernel'], (r.get('sha') or '')[:10]) for r in car) or 'NONE', len(held),
-               '; '.join('%s (%s)' % (r['kernel'], r.get('reason')) for r in held) or 'NONE')]
+    """the carried items for b721 ((R330)(10)): the pin where (5)(iii) carried it -- the breaks held and the excluded, each from the worklist's
+    lists, read against the pin bank's head (relay data/b720_pin.txt)."""
+    head = re.search(r'(?m)^THE PIN AT [^\n]*', rd('b720_pin.txt') or '')
+    pin = ['    (g) The pin`s remainder ((R330)(5)(iii), to b721 by (10); relay data/b720_pin.txt%s): %d held as breaks on their pushed %s branches, '
+           'nothing repaired -- %s; %d excluded and never pushed (the freeze and SIDE-cosmo) -- %s; %d building -- %s.' % (
+               (', "%s"' % ' '.join(head.group(0).split()[:12])) if head else ', ### HEAD NOT FOUND', len(WL.PIN_HELD), WL.PIN_BRANCH,
+               ', '.join(WL.PIN_HELD) or 'NONE', len(WL.PIN_EXCLUDED), ', '.join(WL.PIN_EXCLUDED) or 'NONE', len(WL.PIN_BUILDS),
+               ', '.join(WL.PIN_BUILDS) or 'NONE')]
     return CARRIED_FIXED + pin
 
 
@@ -556,10 +555,11 @@ def main():
         L += ['### %s:' % title] + ['    %s (relay data/%s): %s' % (r_[0], r_[1], section_reading(*r_)) for r_ in rows]
         L += ['']
     L += report_lines() + ['']
-    L += ['### THE KERNELS: the face`s reading of the kernels (relay data/b720_kernels_face.json): %d kernels read before the seal, none '
-          'written, b719`s pin-b719-de5ce8a9 branches standing as b719 left them, no main moved ; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, no scratch branch ; SIDE-lv-conservation main %s (unmoved), '
+    L += [('### THE KERNELS: the face`s reading of the kernels (relay data/b720_kernels_face.json): %d kernels read before the seal, none '
+          'written on its main, the six eligible pin-b718-de5ce8a9 branches pushed and the five excluded never pushed, no main moved ; SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, the challenge branch '
+          + WL.CHALLENGE_BRANCH + ' at ' + WL.CHALLENGE_TIP[:12] + ', off main, no tag ; SIDE-lv-conservation main %s (unmoved), '
           'v0.10.0 %s (the deposit), port-b707 %s (b712`s tip, KEPT, no commit this act), %s peeled %s (b714`s tag, unmoved) ; SIDE-faces-join main %s '
-          '(unmoved), its tag v0.1.0 unmoved' % (
+          '(unmoved), its tag v0.1.0 unmoved') % (
               len(jl('b720_kernels_face.json').get('kernels') or {}), g('D:/SIDE-explicit-formula', 'rev-parse', 'main')[:12],
               g('D:/SIDE-explicit-formula', 'rev-parse', 'v0.37^{commit}')[:12], g('D:/SIDE-explicit-formula', 'rev-parse', 'v0.17^{commit}')[:12],
               g('D:/SIDE-lv-conservation', 'rev-parse', 'main')[:12], g('D:/SIDE-lv-conservation', 'rev-parse', 'v0.10.0^{commit}')[:12], pl[:12] or '-',
