@@ -126,8 +126,8 @@ CLAUSES = [
     ('arms tagged CLAIM or CLOSE', 'TAGGED', 'TAGGED', 'arms', '### (R329)(2): data/arm_tags.json; MEASURED off its tags.'),
     ('events and defects of the act left untagged', 'UNTAGGED', 'UNTAGGED', 'items', '### (R329)(2): the counter`s untagged rows; MEASURED off the defects and events banks.'),
     ('carried tools read beyond the spans their banks name', 'WHOLEREADS', 'WHOLEREADS', 'tools', '### data/b718_rules.txt row (1); MEASURED off the defects bank`s rows.'),
-    ('root-route dry runs printed READY False before the lock', 1, 1, 'runs', '### data/b706_rules.txt row (1); v5 row (76): READY True the seal`s evidence; defect (r): the first run with the face uncommitted.'),
-    ('root-route dry runs run before the lock', 4, 4, 'runs', '### the standing order runs it once; defect (r): run again after the face`s commit and after each of its two repairs before the lock.'),
+    ('root-route dry runs printed READY False before the lock', 2, 2, 'runs', '### data/b706_rules.txt row (1); v5 row (76): READY True the seal`s evidence; defect (r): the face uncommitted, then the gate`s record uncommitted.'),
+    ('root-route dry runs run before the lock', 5, 5, 'runs', '### the standing order runs it once; defect (r): five runs, the last after the gate`s record was committed.'),
     ('closing dry-run steps printed CLEAN before the lock', 1, 1, 'steps', '### b675 rules row 1.'),
     ('branches deleted beyond the step zero`s list', 0, 0, 'branches', '### port-b707 kept.'),
     ('declared suite failures carried at the close', 'CARRIED', 'CARRIED', 'failures', '### (G2), MEASURED off the face`s declaration line.'),
@@ -389,8 +389,10 @@ def main(argv):
                     BINARIES=len([f for f in os.listdir(os.path.join(ROOT, 'data')) if re.match(r'^b719_\w+_hashes\.txt$', f)]),
                     COMPUTE=len([n_ for n_ in ('coeffs', 'derivation', 'offset_read', 'surgery', 'arm_history', 'arm_retire', 'count_route_price')
                                  if os.path.exists(os.path.join(ROOT, 'data', 'b719_%s.txt' % n_))]),
-                    WHOLEREADS=len(re.findall(r"^    \([a-z]\) THE SEAT'S: THE CARRIED (?:SUITE|TOOLS?) READ BEYOND THE SPANS",
-                                              io.open(os.path.join(ROOT, 'data', 'b719_defects.txt'), encoding='utf-8').read(), re.M)),
+                    # ### the defect rows read with their [TAG] and in either case (the carried pattern wanted an untagged upper-case
+                    # ### row and read 0 over b719's (q); a repair of this tool's reader at Component 7)
+                    WHOLEREADS=len(re.findall(r"^    \([a-z]\) THE SEAT'S(?: \[[^]]*\])?: (?:THE |A )?CARRIED (?:SUITE|TOOLS?) READ BEYOND THE SPANS",
+                                              io.open(os.path.join(ROOT, 'data', 'b719_defects.txt'), encoding='utf-8').read(), re.M | re.I)),
                     SEDS=jcount('b719_commands.json', lambda j: len(j.get('seds') or [])),
                     REDIRECTS=jcount('b719_commands.json', lambda j: len(j.get('redirects') or [])),
                     PIPES=jcount('b719_commands.json', lambda j: len(j.get('pipes') or [])),
