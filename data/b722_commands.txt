@@ -1,7 +1,7 @@
-b722 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T23:12:41Z)
+b722 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T23:39:35Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R332) BEGIN', with its subagents` transcripts
-### commands read: 331
+### commands read: 422
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (2):
   #274 2026-10-28T22:24:00.102Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -31,12 +31,14 @@ import json,collections;j=json.load(open('data/b722_propagation.json',encoding='
 L=json.load(open('data/b722_propagation_la
   #304 grep -n "PP_WRITTEN" tools/b722_worklist.py; sed --version
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (2):
   #197 2026-10-28T21:47:54.458Z ls /d/relay/tools/research/ 2>/dev/null; git -C D:/relay ls-files -- tools/research; ls /d/relay/tools/standing
+  #365 2026-10-28T23:19:46.510Z python -X utf8 -c "
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (3):
   #142 2026-10-28T21:18:26.808Z python -X utf8 -u tools/b722_propagation.py read dry > "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/prop_v2.txt"; python -X utf8 -c "import re;t=ope
   #197 2026-10-28T21:47:54.458Z ls /d/relay/tools/research/ 2>/dev/null; git -C D:/relay ls-files -- tools/research; ls /d/relay/tools/standing
+  #365 2026-10-28T23:19:46.510Z python -X utf8 -c " import re t=open('tools/b722_record.py',encoding='utf-8').read() body=t[229845:241338] for m in re.finditer(r'(?i)score', body): print(m.start(), repr(body[max(0,m.start()-70):m.st
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
   #4 2026-10-28T20:23:29.265Z cd "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad" && ls -t | head -n 80 && head -c 1500 /d/relay/data/b721_ferry_scan.txt
@@ -50,7 +52,7 @@ L=json.load(open('data/b722_propagation_la
   #269 2026-10-28T22:23:19.973Z for f in b722_propagation b722_propagation_landing b722_axiom_diag b722_llm_line_drafts b722_reproduce; do echo "== $f"; grep -n '^### ### \*\*' data/$f.txt; done; ls data/ | grep -E '^b722_(prop|axio
   #307 2026-10-28T22:46:46.413Z grep -n "^if __name__\|^def sources\|NEED\[" tools/b722_checks.py | head -5; grep -n "^def receipt_ok\|^def readfirst_ok\|^def weight_ok\|^def runner_ok\|^def gate_ok\|^def merges_ok\|^def corpus_scop
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (117):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (127):
   #58 2026-10-28T20:42:17.222Z python -X utf8 -c "import json;j=json.load(open('data/b721_seal_hashes.json',encoding='utf-8'));print(sorted(j));print(len(j['tools']), list(j['tools'])[:3]);print({k:(v if not isinstance(v,(dict,list)) else type(v).__na
   #63 2026-10-28T20:45:43.063Z grep -n -E "ARMS RUN : |THE CLAIM ARMS PASSING|^### THE COUNTER|^### THE ROOT.S BANKS|^### THE MIRROR|\(N1\) |ITEMS [0-9]+: EVENTS" data/b721_closing.txt data/b721_corrigendum.txt && grep -n "^### ###" data/b721_surgery_
   #79 2026-10-28T20:50:51.205Z python -X utf8 -c "import sys; [print(p, len(open(p,encoding='utf-8').read().split(chr(10)))) for p in sys.argv[1:]]" D:/relay/tools/b711_coeffs.py D:/relay/tools/b720_coeffs.py D:/relay/data/b720_coeffs.txt D:/relay/dat
@@ -168,6 +170,16 @@ L=json.load(open('data/b722_propagation_la
   #314 2026-10-28T22:53:15.852Z python -X utf8 -c " import sys;sys.path.insert(0,'tools');import b703_checks as C;print('FREE MB', C.free_mb())" && python -X utf8 -u tools/b722_checks.py --part standing-b2a
   #315 2026-10-28T23:02:22.061Z python -X utf8 -c " import sys;sys.path.insert(0,'tools');import b703_checks as C;print('FREE MB', C.free_mb())" && python -X utf8 -u tools/b722_checks.py --part standing-b2b
   #316 2026-10-28T23:05:01.305Z python -X utf8 -c " import sys;sys.path.insert(0,'tools');import b703_checks as C;print('FREE MB', C.free_mb())" && python -X utf8 -u tools/b722_checks.py --part standing-b3
+  #353 2026-10-28T23:16:48.316Z python -X utf8 -c " import json j=json.load(open('data/b722_commands.json',encoding='utf-8')) rows=j['commands'] if isinstance(j,dict) and 'commands' in j else j for r in rows: if isinstance(r,dict) and str(r.get('n'))==
+  #354 2026-10-28T23:16:53.854Z python -X utf8 -c " import json j=json.load(open('data/b722_commands.json',encoding='utf-8')) for r in j['offences']: print(json.dumps(r,ensure_ascii=False)[:1500]) "
+  #355 2026-10-28T23:16:59.610Z python -X utf8 -c " import json j=json.load(open('data/b722_commands.json',encoding='utf-8')) for r in j['rows']: if r.get('n')==274: print(json.dumps(r,ensure_ascii=False)[:3000]) "
+  #363 2026-10-28T23:19:30.038Z python -X utf8 -c " import re t=open('tools/b722_record.py',encoding='utf-8').read() for name in ('_finding_text','_trail_text'): i=t.find('def '+name) j=t.find('\ndef ',i+10) body=t[i:j] hs=re.findall(r'\*\*[^*]{2,80}?\
+  #364 2026-10-28T23:19:38.754Z python -X utf8 -c " import re t=open('tools/b722_record.py',encoding='utf-8').read() body=t[229845:241338] for m in re.finditer(r'The scores|counter CLAIM|THE AUTHOR.S WORD', body): print(m.start(), repr(body[max(0,m.sta
+  #365 2026-10-28T23:19:46.510Z python -X utf8 -c " import re t=open('tools/b722_record.py',encoding='utf-8').read() body=t[229845:241338] for m in re.finditer(r'(?i)score', body): print(m.start(), repr(body[max(0,m.start()-70):m.start()+70])) " && git
+  #366 2026-10-28T23:19:53.287Z python -X utf8 -c " import re t=open('tools/b722_record.py',encoding='utf-8').read() body=t[229845:241338] for m in re.finditer(r'(?i)score', body): print(m.start(), repr(body[max(0,m.start()-70):m.start()+70])) "
+  #368 2026-10-28T23:20:08.028Z python -X utf8 -c " import sys;sys.path.insert(0,'tools') import b722_record as B, inspect print(B.R.__name__) print(inspect.getsource(B.R.scores_line)[:700]) "
+  #377 2026-10-28T23:22:58.349Z python -X utf8 -c " import sys;sys.path.insert(0,'tools') import b722_record as B print(B._title()) "
+  #388 2026-10-28T23:25:24.220Z python -X utf8 -c " L=open('tools/b722_record.py',encoding='utf-8').read().split('\n') for n in (2284,2577,3058): d=[i for i in range(n-1,-1,-1) if L[i].startswith('def ')][0] print(n, d+1, L[d][:80]) "
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #42 2026-10-28T20:39:43.189Z PowerShell
@@ -521,5 +533,96 @@ L=json.load(open('data/b722_propagation_la
   #329 | 2026-10-28T23:12:28.773Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --oneline -4 main
   #330 | 2026-10-28T23:12:33.832Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
   #331 | 2026-10-28T23:12:34.619Z | seat | Bash | python -X utf8 -u tools/b722_record.py commands
+  #332 | 2026-10-28T23:12:44.996Z | seat | Bash | python -X utf8 -u tools/b722_record.py reads
+  #333 | 2026-10-28T23:12:50.758Z | seat | Bash | python -X utf8 -u tools/b722_record.py kernels
+  #334 | 2026-10-28T23:12:59.258Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #335 | 2026-10-28T23:12:59.604Z | seat | Bash | python -X utf8 -u tools/b722_checks.py --guard-dry
+  #336 | 2026-10-28T23:13:09.895Z | seat | Bash | git status --short --untracked-files=all
+  #337 | 2026-10-28T23:13:21.094Z | seat | Bash | git log --format=%h%x20%s -12 --grep=b721
+  #338 | 2026-10-28T23:13:24.125Z | seat | Bash | git log --format=%h%x20%s 30c0b3c8 -30 --grep="standing figures" --grep="registration" --grep="gate"
+  #339 | 2026-10-28T23:13:28.384Z | seat | Bash | git show --stat --format=%h f485aba9
+  #340 | 2026-10-28T23:13:45.209Z | seat | Bash | python -X utf8 -u tools/b722_record.py guard
+  #341 | 2026-10-28T23:13:54.816Z | seat | Bash | git diff data/b720_hook_refusals.txt data/b721_hook_refusals.txt
+  #342 | 2026-10-28T23:14:01.834Z | seat | Bash | ls -t "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad"
+  #343 | 2026-10-28T23:14:21.826Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/defnotes722.py"
+  #344 | 2026-10-28T23:14:41.470Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/deferr722.py"
+  #345 | 2026-10-28T23:15:08.061Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 20:28:00 20:29:30
+  #346 | 2026-10-28T23:15:21.240Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/kw722.py" "KeyError|WROTE 3|CRLF|re\.error|co
+  #347 | 2026-10-28T23:15:31.027Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/kw722.py" "WROTE|wrote rows|provenance|I-87" 
+  #348 | 2026-10-28T23:15:37.696Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 21:59:00 22:08:00 200
+  #349 | 2026-10-28T23:15:48.207Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 21:07:05 21:09:00 180
+  #350 | 2026-10-28T23:15:49.490Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 20:53:02 20:53:40 180
+  #351 | 2026-10-28T23:16:00.919Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 21:38:30 21:44:10 180
+  #352 | 2026-10-28T23:16:02.128Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/win722.py" 22:30:40 22:31:10 180
+  #353 | 2026-10-28T23:16:48.316Z | seat | Bash | python -X utf8 -c "
+  #354 | 2026-10-28T23:16:53.854Z | seat | Bash | python -X utf8 -c "
+  #355 | 2026-10-28T23:16:59.610Z | seat | Bash | python -X utf8 -c "
+  #356 | 2026-10-28T23:17:24.694Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/memread722.py"
+  #357 | 2026-10-28T23:17:35.046Z | seat | Bash | git grep -n -E "free_mb|HOLD_MB|FreePhysicalMemory" -- tools/b722_coeffs.py tools/b722_c2.py tools/b722_instruments.py tools/b722_propagation.py tools/b722_axio
+  #358 | 2026-10-28T23:18:46.886Z | seat | Bash | python -X utf8 -u tools/b722_record.py defects
+  #359 | 2026-10-28T23:18:47.246Z | seat | Bash | python -X utf8 -u tools/b722_record.py counter
+  #360 | 2026-10-28T23:18:55.827Z | seat | Bash | git -C D:/relay add -- data/b722_standing_figures.json data/b722_standing_figures.txt data/b722_commands.json data/b722_commands.txt data/b722_read_calls.json d
+  #361 | 2026-10-28T23:19:01.036Z | seat | Bash | git -C D:/relay commit -q -m 'b722 component 8: the four standing figures (step [1]; correspondence 1, readme 0, partners 0, pins 0, against b721`s 1, 0, 0, 0),
+  #362 | 2026-10-28T23:19:04.844Z | seat | Bash | python -X utf8 tools/b722_record.py step relay "component 8" e0bdc7fae5297639b62cc64eb12ced86e4cf7605
+  #363 | 2026-10-28T23:19:30.038Z | seat | Bash | python -X utf8 -c "
+  #364 | 2026-10-28T23:19:38.754Z | seat | Bash | python -X utf8 -c "
+  #365 | 2026-10-28T23:19:46.510Z | seat | Bash | python -X utf8 -c "
+  #366 | 2026-10-28T23:19:53.287Z | seat | Bash | python -X utf8 -c "
+  #367 | 2026-10-28T23:20:02.145Z | seat | Bash | git grep -n -E "def scores_line|scores_line =|import .*scores_line" -- tools/b722_record.py tools/standing
+  #368 | 2026-10-28T23:20:08.028Z | seat | Bash | python -X utf8 -c "
+  #369 | 2026-10-28T23:20:20.318Z | seat | Bash | git log --reverse --format=%h%x20%cI%x20%s 30c0b3c8..HEAD
+  #370 | 2026-10-28T23:20:21.018Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers log --reverse --format=%h%x20%cI%x20%s 2b194142..main
+  #371 | 2026-10-28T23:20:27.934Z | seat | Bash | wc -l data/b722_ferry.txt data/b722_stepzero.txt data/b722_rules.txt
+  #372 | 2026-10-28T23:21:26.029Z | seat | Bash | python -X utf8 -u tools/b722_record.py defects && python -X utf8 -u tools/b722_record.py counter
+  #373 | 2026-10-28T23:21:33.194Z | seat | Bash | python -X utf8 -u tools/b722_record.py armnames
+  #374 | 2026-10-28T23:21:41.696Z | seat | Bash | git ls-files -- "tools/b722_*" tools/research tools/standing && cat tools/standing/VERSION
+  #375 | 2026-10-28T23:22:33.697Z | seat | Bash | git grep -n -E "DECLARED BEFORE THE LOCK, BY NAME|POST-SEAL PROMPTS NAMED|THE DRY-RUN NEEDLES|WHAT RAN AHEAD OF THIS SEAL|\(W\) THE WRITE LIST|\(Z\) THE NOTHING
+  #376 | 2026-10-28T23:22:50.072Z | seat | Bash | git grep -n -E "NEEDLES = |_NEEDLES\b.*\(" -- tools/b722_checks.py tools/b722_reg_gate.py tools/b722_record.py
+  #377 | 2026-10-28T23:22:58.349Z | seat | Bash | python -X utf8 -c "
+  #378 | 2026-10-28T23:23:04.347Z | seat | Bash | git grep -n -E "'G-ENTRY-TITLE-FORM'|'G-FINDINGS-ENTRY'|'G-TRAIL-RECORD'" -- tools/b722_checks.py
+  #379 | 2026-10-28T23:23:48.458Z | seat | Bash | python -X utf8 -u tools/b722_report.py dry
+  #380 | 2026-10-28T23:23:54.583Z | seat | Bash | git grep -n -E "^FLOORS|'defects':|defects=" -- tools/b722_checks.py
+  #381 | 2026-10-28T23:24:02.927Z | seat | Bash | git grep -n -E "defects_ok|NAV_LETTERS" -- tools/b722_checks.py
+  #382 | 2026-10-28T23:24:12.236Z | seat | Bash | git grep -n -E "FLOORS\[|REPORT_KEYS" -- tools/b722_checks.py
+  #383 | 2026-10-28T23:24:20.206Z | seat | Bash | git grep -n -E "report_unsealed_ok\(|_answers_checked\(S, FLOORS" -- tools/b722_checks.py
+  #384 | 2026-10-28T23:24:45.579Z | seat | Bash | git grep -n -c -E "frozen|offset_(read|tier|pred)|surgery_carry|federation pin|h = 3, 4, 5|b722_registrations|b722_rebuild\.txt|b722_derivation" -- tools/b722_r
+  #385 | 2026-10-28T23:24:50.078Z | seat | Bash | git grep -n -E "frozen|offset_(read|tier|pred)|surgery_carry|federation pin|h = 3, 4, 5|b722_registrations|b722_rebuild\.txt|b722_derivation" -- tools/b722_clos
+  #386 | 2026-10-28T23:25:12.614Z | seat | Bash | git grep -n -o -E ".{0,50}(frozen|offset_(read|tier|pred)|surgery_carry|federation pin|h = 3, 4, 5|b722_registrations|b722_rebuild\.txt|b722_derivation).{0,30}"
+  #387 | 2026-10-28T23:25:18.241Z | seat | Bash | git grep -n -E "^def (_finding_text|_trail_text|_finding_text_\w+|_trail_text_\w+|_dry_\w+|TRAIL_HEAD|_title)\b|^def \w*(b721|prev|old)\w*\(" -- tools/b722_reco
+  #388 | 2026-10-28T23:25:24.220Z | seat | Bash | python -X utf8 -c "
+  #389 | 2026-10-28T23:25:39.690Z | seat | Bash | python -X utf8 -m py_compile tools/b722_checks.py && python -X utf8 -u tools/b722_record.py defects && python -X utf8 -u tools/b722_record.py counter
+  #390 | 2026-10-28T23:25:48.917Z | seat | Bash | git -C D:/relay add -- tools/b722_checks.py data/b722_defects.txt data/b722_defects.json data/b722_bank_hashes.json data/b722_steps.json
+  #391 | 2026-10-28T23:25:53.186Z | seat | Bash | git -C D:/relay commit -q -m 'b722 component 8: defect (c`) -- the suite`s ENTRY_NEEDLES, TITLE_NEEDLES, REPORT_KEYS, the defect floors and NAV_LETTERS set from
+  #392 | 2026-10-28T23:25:57.891Z | seat | Bash | python -X utf8 tools/b722_record.py step relay "component 8" ff416f034f199f3d0df17bd6e1df6b2c65c5ac4f
+  #393 | 2026-10-28T23:29:04.680Z | seat | Bash | git -C D:/relay add -- data/b722_registration_2026-10-28.txt data/b722_steps.json data/b722_bank_hashes.json
+  #394 | 2026-10-28T23:29:09.732Z | seat | Bash | git -C D:/relay commit -q -m 'b722 component 8: the face, data/b722_registration_2026-10-28.txt, before the root`s dry run, the closing`s dry run, the score rou
+  #395 | 2026-10-28T23:29:13.744Z | seat | Bash | python -X utf8 tools/b722_record.py step relay "component 8" 7bc8dc02411f82892b9c72458ea2f2a330d4611f
+  #396 | 2026-10-28T23:29:19.324Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #397 | 2026-10-28T23:29:19.905Z | seat | Bash | python -X utf8 -u tools/b722_record.py rootdry
+  #398 | 2026-10-28T23:29:34.006Z | seat | Bash | python -X utf8 -u tools/b722_closing.py dry
+  #399 | 2026-10-28T23:30:34.607Z | seat | Bash | git grep -n -E "def vtail|vtail =|import .*vtail" -- tools/b722_closing.py
+  #400 | 2026-10-28T23:30:48.353Z | seat | Bash | python -X utf8 -u tools/b722_record.py scores dry
+  #401 | 2026-10-28T23:31:17.113Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/line722.py" D:/relay/data/b722_scores_dry.txt
+  #402 | 2026-10-28T23:31:28.604Z | seat | Bash | git grep -n -E "edited beyond the membrane|beyond the face.s \(W\) list|N5_RELAY_TOOLS =|def globs_of|def _w_globs" -- tools/b722_record.py tools/b698_record.py
+  #403 | 2026-10-28T23:32:10.466Z | seat | Bash | python -X utf8 -u tools/b722_record.py defects && python -X utf8 -u tools/b722_record.py counter
+  #404 | 2026-10-28T23:32:21.860Z | seat | Bash | python -X utf8 -u tools/b722_record.py scores dry
+  #405 | 2026-10-28T23:32:46.408Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/line722.py" D:/relay/data/b722_scores_dry.txt
+  #406 | 2026-10-28T23:32:51.619Z | seat | Bash | git -C D:/relay add -- data/b722_registration_2026-10-28.txt data/b722_defects.txt data/b722_defects.json data/b722_steps.json data/b722_bank_hashes.json
+  #407 | 2026-10-28T23:32:55.663Z | seat | Bash | git -C D:/relay commit -q -m 'b722 component 8: defect (d`) -- the face`s (W) row names relay/tools/research/reproduce.py, read by the score routes` dry form; t
+  #408 | 2026-10-28T23:32:59.500Z | seat | Bash | python -X utf8 tools/b722_record.py step relay "component 8" 9cc0abe89e726160334d8f940174c20ef0f54ec1
+  #409 | 2026-10-28T23:33:05.147Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #410 | 2026-10-28T23:33:05.838Z | seat | Bash | python -X utf8 -u tools/b722_reg_gate.py
+  #411 | 2026-10-28T23:34:29.246Z | seat | Bash | python -X utf8 -m py_compile tools/b722_record.py && python -X utf8 -u tools/b722_record.py defects && python -X utf8 -u tools/b722_record.py counter
+  #412 | 2026-10-28T23:34:35.500Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #413 | 2026-10-28T23:34:35.828Z | seat | Bash | python -X utf8 -u tools/b722_reg_gate.py
+  #414 | 2026-10-28T23:35:37.353Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/line722.py" D:/relay/data/b722_reg_gate.txt 2
+  #415 | 2026-10-28T23:35:52.503Z | seat | Bash | git grep -n -A8 "def _trail_resolved" -- tools/b722_record.py tools/b698_record.py
+  #416 | 2026-10-28T23:36:17.434Z | seat | Bash | git grep -n -E "_trail_resolved|^RESOLVED" -- tools/b722_record.py tools/b722_checks.py
+  #417 | 2026-10-28T23:36:42.532Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/ticks722.py"
+  #418 | 2026-10-28T23:36:54.241Z | seat | Bash | python -X utf8 -m py_compile tools/b722_record.py && python -X utf8 -m py_compile tools/b722_checks.py && python -X utf8 -u tools/b722_record.py defects && pyth
+  #419 | 2026-10-28T23:37:06.295Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #420 | 2026-10-28T23:37:06.778Z | seat | Bash | python -X utf8 -u tools/b722_reg_gate.py
+  #421 | 2026-10-28T23:38:13.726Z | seat | Bash | python -X utf8 -u tools/b722_reg_gate.py --quiet-not-a-flag
+  #422 | 2026-10-28T23:39:27.299Z | seat | Bash | python -X utf8 -u tools/b722_record.py gatebanks
 
-### ### **COMMANDS 331 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 2 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 117 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 4, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 422 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 2 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 127 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 4, AN IDENTIFIER IN 0.**
