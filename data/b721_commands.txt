@@ -1,7 +1,7 @@
-b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T16:41:21Z)
+b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-28T17:17:19Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R331) BEGIN', with its subagents` transcripts
-### commands read: 359
+### commands read: 429
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (15):
   #250 2026-10-28T15:10:47.627Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -96,7 +96,7 @@ b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #296 2026-10-28T15:23:58.920Z cd D:/relay && grep -on "K\.[A-Z][A-Z0-9_]*" tools/b721_record.py | sed 's/^[0-9]*://' | sort | uniq -c | sort -k2 && grep -n "^[A-Z][A-Z0-9_]* *=" tools/b721_worklist.py | cut -c1-150
   #336 2026-10-28T16:23:29.940Z Get-Process python*, lean*, lake* -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, StartTime, CPU, WorkingSet64; [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (43):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (57):
   #14 2026-10-28T13:11:44.548Z python -X utf8 -c "import io;L=io.open('D:/relay/data/b715_author_answers.txt',encoding='utf-8').read().split('\n');print(L[61][:900]);print('--');print(L[70][:600])"
   #67 2026-10-28T13:47:08.260Z python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b720_findings.json',encoding='utf-8'));print(j.get('entry_line'));print(j.get('title'))"
   #95 2026-10-28T13:57:26.421Z python -X utf8 -c "import io;print(len(io.open('D:/relay/tools/b720_predict.py',encoding='utf-8').read().splitlines()), len(io.open('D:/relay/tools/b720_coeffs.py',encoding='utf-8').read().splitlines()), len(io.open('D:/
@@ -140,6 +140,20 @@ b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #347 2026-10-28T16:39:35.932Z cd D:/relay && python -X utf8 -c "import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'));rows=r if isinstance(r,list) else r.get('rows',r);[print(x) for x in (rows[-6:] if isinstance(rows,list) else list(
   #352 2026-10-28T16:40:00.758Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(list(j));print({k:v for k,v in j.items() if 'phase' in k.lower() or 'comp' in k.lower()})"
   #357 2026-10-28T16:40:57.321Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(j['session'],j['prev_session'])" && git grep -n -e "PREV_SESSION" -e "SESSION_ID *=" -- tools/b721_worklist.
+  #365 2026-10-28T16:42:25.545Z cd D:/relay && git ls-files "data/b720_registration*" "data/b719_registration*" && python -X utf8 -c "t=open('D:/relay/data/b720_registration_2026-10-28.txt',encoding='utf-8').read().split(chr(10));print(len(t));[print(i
+  #366 2026-10-28T16:42:43.038Z cd D:/relay && git grep -n -e "^DEFECT_ROW" -e "^def letters_of" -e "^def _counter" -- tools/b721_record.py && python -X utf8 -c "t=open('D:/relay/data/b720_defects.txt',encoding='utf-8').read().split(chr(10));print(len(
+  #368 2026-10-28T16:43:17.559Z cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b720_defects.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:200]) for i,l in enumerate(t[24:36],24)]"
+  #369 2026-10-28T16:43:33.836Z cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_hook_refusals.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:150]) for i,l in enumerate(t)]"
+  #370 2026-10-28T16:43:47.120Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.DEFECT_ROW.pattern);import inspect;print(inspect.getsource(R._tags_of) if hasattr(R,'_tags_of') else 'no _tags_of')"
+  #371 2026-10-28T16:43:50.790Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.TAG_ROW.pattern)"
+  #379 2026-10-28T16:55:18.844Z cd D:/relay && python -X utf8 -c "import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'))['rows'];[print(x['repo'],x['commit'][:8],x['at'][11:19],x['phase'],'|',x['subject'][:150]) for x in r]"
+  #397 2026-10-28T16:58:07.015Z cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_ferry.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l) for i,l in enumerate(t) if l.startswith(('(5)','(6)','(7)','(8)','(9)','(10)','(11)','COMPONEN
+  #400 2026-10-28T17:01:34.419Z cd D:/relay && python -X utf8 -c "import json;[print(r.get('kind'),r.get('kernel'),r.get('run'),r.get('how') or r.get('note') or '') for r in json.load(open('data/b721_rebuild_rows.json',encoding='utf-8')) if r.get('kind
+  #407 2026-10-28T17:05:11.572Z cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('N5');print(t[i:i+4000])"
+  #411 2026-10-28T17:06:19.134Z cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('shared tools edited beyond');print(t[i:i+300]);j=t.find('relay files beyond');print(t[j:j+250])"
+  #419 2026-10-28T17:10:32.530Z cd D:/relay && python -X utf8 -c "import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R._defect_short))"
+  #420 2026-10-28T17:10:36.045Z cd D:/relay && python -X utf8 -c "import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R.read_defect_row))"
+  #421 2026-10-28T17:10:48.079Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'D:/relay/tools');import b721_record as R;[print(len(s), s.count(chr(96))%2, s[:110]) for s in R._defect_short('b721')]"
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #43 2026-10-28T13:37:49.594Z PowerShell
@@ -518,5 +532,75 @@ b721 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #357 | 2026-10-28T16:40:57.321Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/act_current.json',encoding='utf-8'));print(j['session'],j['prev_session'])" && git grep -n 
   #358 | 2026-10-28T16:41:03.136Z | seat | Bash | cd D:/relay && git grep -n -e "ANCHOR" -- tools/b721_worklist.py
   #359 | 2026-10-28T16:41:15.578Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py commands
+  #360 | 2026-10-28T16:41:28.499Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py reads
+  #361 | 2026-10-28T16:41:45.232Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py kernels
+  #362 | 2026-10-28T16:41:59.318Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py kernels
+  #363 | 2026-10-28T16:42:06.418Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py guard
+  #364 | 2026-10-28T16:42:11.559Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py armnames
+  #365 | 2026-10-28T16:42:25.545Z | seat | Bash | cd D:/relay && git ls-files "data/b720_registration*" "data/b719_registration*" && python -X utf8 -c "t=open('D:/relay/data/b720_registration_2026-10-28.txt',en
+  #366 | 2026-10-28T16:42:43.038Z | seat | Bash | cd D:/relay && git grep -n -e "^DEFECT_ROW" -e "^def letters_of" -e "^def _counter" -- tools/b721_record.py && python -X utf8 -c "t=open('D:/relay/data/b720_def
+  #367 | 2026-10-28T16:42:49.683Z | seat | Bash | cd D:/relay && git grep -n -i -e "defect" -e "navigator" -- data/b721_ferry.txt
+  #368 | 2026-10-28T16:43:17.559Z | seat | Bash | cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b720_defects.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:200]) for i,l in enumerate(t[24:
+  #369 | 2026-10-28T16:43:33.836Z | seat | Bash | cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_hook_refusals.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:150]) for i,l in enumerate
+  #370 | 2026-10-28T16:43:47.120Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.DEFECT_ROW.pattern);import inspect;print(inspect.getsour
+  #371 | 2026-10-28T16:43:50.790Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.TAG_ROW.pattern)"
+  #372 | 2026-10-28T16:44:24.484Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_record.py counter
+  #373 | 2026-10-28T16:44:36.945Z | seat | Bash | cd D:/relay && git grep -n -e "REG\b" -e "open(REG" -e "face" -- tools/b721_regspec.py
+  #374 | 2026-10-28T16:44:46.297Z | seat | Bash | cd D:/relay && git grep -n -A6 -e "def carried" -e "READINGS=" -e "ARMS=len" -- tools/b721_regspec.py
+  #375 | 2026-10-28T16:44:53.952Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py" standing-a
+  #376 | 2026-10-28T16:52:06.958Z | seat | Bash | cd D:/relay && git grep -n -e "def merges_ok" -e "'G-MERGES-ON-GATE'" -- tools/b721_checks.py
+  #377 | 2026-10-28T16:52:29.022Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_record.py counter && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/
+  #378 | 2026-10-28T16:55:12.787Z | seat | Bash | cd D:/relay && git grep -n -A3 -e "('G-POSTROOT-WRITES-NONE'" -e "('G-WRITELIST-MIRROR-STATE'" -e "^def postroot_ok" -e "^def writelist_mirror_state_ok" -- tool
+  #379 | 2026-10-28T16:55:18.844Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'))['rows'];[print(x['repo'],x['commit'][:8],x['at'][11:19]
+  #380 | 2026-10-28T16:55:26.722Z | seat | Bash | cd D:/relay && git grep -n -e "### ###" -e "SIDE-frobenius" -- data/b721_rebuild.txt
+  #381 | 2026-10-28T16:55:37.822Z | seat | Bash | cd D:/relay && git grep -n -A10 -e "^def pp_scope_ok" -- tools/b721_checks.py
+  #382 | 2026-10-28T16:55:41.022Z | seat | Bash | cd D:/relay && git grep -n -A2 -e "('G-PP-SCOPE'" -- tools/b721_checks.py
+  #383 | 2026-10-28T16:55:45.557Z | seat | Bash | cd D:/relay && git grep -n -e "pp_allowed=" -e "pp_changed=" -- tools/b721_checks.py && git -C D:/MY-DOwnloads/PLACE-papers diff --name-status 6fa7ee3fd08d2066d
+  #384 | 2026-10-28T16:55:49.763Z | seat | Bash | cd D:/relay && git grep -n -A8 -e "^def corpus_scope_ok" -- tools/b721_checks.py
+  #385 | 2026-10-28T16:55:55.695Z | seat | Bash | cd D:/relay && git grep -n -e "^PP_WRITTEN" -e "^PRE_PP" -e "^PRE_RELAY" -- tools/b721_worklist.py
+  #386 | 2026-10-28T16:56:07.058Z | seat | Bash | cd D:/relay && git grep -n -e "DRY-RUN NEEDLES" -- tools/b721_reg_gate.py tools/b721_record.py tools/b721_checks.py
+  #387 | 2026-10-28T16:56:10.663Z | seat | Bash | cd D:/relay && git grep -n -i -e "needle" -- tools/b721_reg_gate.py
+  #388 | 2026-10-28T16:56:16.300Z | seat | Bash | cd D:/relay && git grep -n -A30 -e "^def drycheck" -- tools/b721_record.py
+  #389 | 2026-10-28T16:56:26.340Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/heads721.py"
+  #390 | 2026-10-28T16:56:38.321Z | seat | Bash | cd D:/relay && python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/heads721.py"
+  #391 | 2026-10-28T16:56:51.644Z | seat | Bash | cd D:/relay && git status --short -- data/b721_* tools/b721_* data/b720_hook_refusals.txt
+  #392 | 2026-10-28T16:57:10.306Z | seat | Bash | git -C D:/relay add -- tools/b721_checks.py tools/b721_record.py data/b721_commands.json data/b721_commands.txt data/b721_defects.json data/b721_defects.txt dat
+  #393 | 2026-10-28T16:57:14.918Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 8: the four standing figures (step [1]), the command bank, the read calls, the kernels face, the guard`s dry run, t
+  #394 | 2026-10-28T16:57:19.168Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" f485aba9a5605b4b840a9819c6e32b3dee9dea3e
+  #395 | 2026-10-28T16:57:24.612Z | seat | Bash | git -C D:/relay diff-tree --no-commit-id --name-only -r 68440f11 && git -C D:/relay show 68440f11:tools/standing/VERSION
+  #396 | 2026-10-28T16:57:53.960Z | seat | Bash | git -C D:/relay ls-files "tools/b721_*" "tools/standing/*"
+  #397 | 2026-10-28T16:58:07.015Z | seat | Bash | cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_ferry.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l) for i,l in enumerate(t) if l.start
+  #398 | 2026-10-28T17:01:07.102Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/asks721.py"
+  #399 | 2026-10-28T17:01:15.298Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/asks721.py"
+  #400 | 2026-10-28T17:01:34.419Z | seat | Bash | cd D:/relay && python -X utf8 -c "import json;[print(r.get('kind'),r.get('kernel'),r.get('run'),r.get('how') or r.get('note') or '') for r in json.load(open('da
+  #401 | 2026-10-28T17:01:51.559Z | seat | Bash | git -C D:/relay add -- data/b721_registration_2026-10-28.txt
+  #402 | 2026-10-28T17:01:54.643Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 8: the face, data/b721_registration_2026-10-28.txt, before the root`s dry run, the closing`s dry run, the score rou
+  #403 | 2026-10-28T17:01:57.809Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" c66220db0100afd616892192d9ef0fe76eaed508
+  #404 | 2026-10-28T17:02:03.150Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py rootdry
+  #405 | 2026-10-28T17:02:13.250Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_closing.py dry
+  #406 | 2026-10-28T17:03:23.628Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry
+  #407 | 2026-10-28T17:05:11.572Z | seat | Bash | cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('N5');print(t[i:i+4000])"
+  #408 | 2026-10-28T17:05:30.128Z | seat | Bash | cd D:/relay && git grep -n -e "beyond the membrane" -e "relay files beyond" -e "^N5_RELAY_TOOLS" -e "^N5_" -- tools/b721_record.py
+  #409 | 2026-10-28T17:05:39.830Z | seat | Bash | cd D:/relay && git grep -n -A14 -e "^def w_patterns" -e "^def w_allows" -- tools/act_close.py
+  #410 | 2026-10-28T17:05:45.524Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry
+  #411 | 2026-10-28T17:06:19.134Z | seat | Bash | cd D:/relay && python -X utf8 -c "t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('shared tools edited beyond');print(t[i:i+300]);j
+  #412 | 2026-10-28T17:06:37.656Z | seat | Bash | git -C D:/relay add -- data/b721_registration_2026-10-28.txt
+  #413 | 2026-10-28T17:06:40.787Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 8: the face`s (W) row for tools/standing/ given its glob, and the dry N5 reading on data/b720_hook_refusals.txt dec
+  #414 | 2026-10-28T17:06:44.829Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" af7b59bb2ee35d43bb9a79235cd0db8030f4d800 && python -X utf8 -u tools/b721_record.py r
+  #415 | 2026-10-28T17:06:57.337Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_closing.py dry && python -X utf8 -u tools/b721_record.py scores dry
+  #416 | 2026-10-28T17:08:32.867Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused
+  #417 | 2026-10-28T17:10:12.138Z | seat | Bash | cd D:/relay && git grep -n -A12 -e "^def _letters_now" -- tools/b721_record.py && git grep -n -i -e "blind" -- tools/b721_record.py
+  #418 | 2026-10-28T17:10:19.977Z | seat | Bash | cd D:/relay && git grep -n -i -e "fourteen" -e "unused" -e "blind" -- data/b721_registrations.txt
+  #419 | 2026-10-28T17:10:32.530Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R._defect_short))"
+  #420 | 2026-10-28T17:10:36.045Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R.read_defect_row))"
+  #421 | 2026-10-28T17:10:48.079Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'D:/relay/tools');import b721_record as R;[print(len(s), s.count(chr(96))%2, s[:110]) for s in R.
+  #422 | 2026-10-28T17:10:54.631Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused
+  #423 | 2026-10-28T17:12:04.376Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py gatebanks
+  #424 | 2026-10-28T17:12:26.052Z | seat | Bash | cd D:/relay && git grep -n -i -e "CONTRADICT" -e "PREDICTIONS FOUND" -e "line " -- data/audit_b721_reg_satisfiable.txt data/b721_regspec_run.txt
+  #425 | 2026-10-28T17:12:41.006Z | seat | Bash | git -C D:/relay add -- data/b721_registration_2026-10-28.txt data/b721_defects.txt data/b721_defects.json tools/b721_record.py data/b721_bank_hashes.json
+  #426 | 2026-10-28T17:12:44.945Z | seat | Bash | git -C D:/relay commit -q -m 'b721 component 8: the gate`s first runs read -- the entry`s banned stem reworded in the record tool, the defects` quoted ellipses 
+  #427 | 2026-10-28T17:12:48.713Z | seat | Bash | cd D:/relay && python -X utf8 tools/b721_record.py step relay "component 8" 1e3399e247c1679581adba3fef76042393d06850 && python -X utf8 -u tools/b721_record.py r
+  #428 | 2026-10-28T17:14:16.790Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry --quiet
+  #429 | 2026-10-28T17:15:55.070Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused && python -X utf8 -u tools/b721_record.py gatebanks
 
-### ### **COMMANDS 359 ; G-EDIT-ROUTE OFFENCES 15 (SED IN ANY FORM AMONG THEM 15) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 6 ; sed COMMANDS 15 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 43 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 429 ; G-EDIT-ROUTE OFFENCES 15 (SED IN ANY FORM AMONG THEM 15) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 7 ; DETACHED RUNS 6 ; sed COMMANDS 15 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 4 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 57 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

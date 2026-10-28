@@ -1,5 +1,5 @@
 {
- "at": "2026-10-28T16:41:21Z",
+ "at": "2026-10-28T17:17:19Z",
  "anchor": "RULING (R331) BEGIN",
  "rows": [
   {
@@ -2873,6 +2873,566 @@
    "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py commands",
    "n": 359,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:41:28.499Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py reads",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:41:45.232Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py kernels",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:41:59.318Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py kernels",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:42:06.418Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py guard",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:42:11.559Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py armnames",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:42:25.545Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git ls-files \"data/b720_registration*\" \"data/b719_registration*\" && python -X utf8 -c \"t=open('D:/relay/data/b720_registration_2026-10-28.txt',encoding='utf-8').read().split(chr(10));print(len(t));[print(i+1,l[:160]) for i,l in enumerate(t) if l.startswith(('#','(','##','  ('))][:80]\"",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:42:43.038Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"^DEFECT_ROW\" -e \"^def letters_of\" -e \"^def _counter\" -- tools/b721_record.py && python -X utf8 -c \"t=open('D:/relay/data/b720_defects.txt',encoding='utf-8').read().split(chr(10));print(len(t));[print(i+1,l[:230]) for i,l in enumerate(t[:24])]\"",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:42:49.683Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -i -e \"defect\" -e \"navigator\" -- data/b721_ferry.txt",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:43:17.559Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"t=open('D:/relay/data/b720_defects.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:200]) for i,l in enumerate(t[24:36],24)]\"",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:43:33.836Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"t=open('D:/relay/data/b721_hook_refusals.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l[:150]) for i,l in enumerate(t)]\"",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:43:47.120Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.DEFECT_ROW.pattern);import inspect;print(inspect.getsource(R._tags_of) if hasattr(R,'_tags_of') else 'no _tags_of')\"",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:43:50.790Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b721_record as R;print(R.TAG_ROW.pattern)\"",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:44:24.484Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_record.py counter",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:44:36.945Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"REG\\b\" -e \"open(REG\" -e \"face\" -- tools/b721_regspec.py",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:44:46.297Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A6 -e \"def carried\" -e \"READINGS=\" -e \"ARMS=len\" -- tools/b721_regspec.py",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:44:53.952Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py\" standing-a",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:52:06.958Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"def merges_ok\" -e \"'G-MERGES-ON-GATE'\" -- tools/b721_checks.py",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:52:29.022Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_record.py counter && python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/probe721.py\" act",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:12.787Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A3 -e \"('G-POSTROOT-WRITES-NONE'\" -e \"('G-WRITELIST-MIRROR-STATE'\" -e \"^def postroot_ok\" -e \"^def writelist_mirror_state_ok\" -- tools/b721_checks.py",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:18.844Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import json;r=json.load(open('data/b721_steps.json',encoding='utf-8'))['rows'];[print(x['repo'],x['commit'][:8],x['at'][11:19],x['phase'],'|',x['subject'][:150]) for x in r]\"",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:26.722Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"### ###\" -e \"SIDE-frobenius\" -- data/b721_rebuild.txt",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:37.822Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A10 -e \"^def pp_scope_ok\" -- tools/b721_checks.py",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:41.022Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A2 -e \"('G-PP-SCOPE'\" -- tools/b721_checks.py",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:45.557Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"pp_allowed=\" -e \"pp_changed=\" -- tools/b721_checks.py && git -C D:/MY-DOwnloads/PLACE-papers diff --name-status 6fa7ee3fd08d2066d8d1d7c13f0763c03c86ab9d HEAD",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:49.763Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A8 -e \"^def corpus_scope_ok\" -- tools/b721_checks.py",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:55:55.695Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"^PP_WRITTEN\" -e \"^PRE_PP\" -e \"^PRE_RELAY\" -- tools/b721_worklist.py",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:07.058Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"DRY-RUN NEEDLES\" -- tools/b721_reg_gate.py tools/b721_record.py tools/b721_checks.py",
+   "n": 386,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:10.663Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -i -e \"needle\" -- tools/b721_reg_gate.py",
+   "n": 387,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:16.300Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A30 -e \"^def drycheck\" -- tools/b721_record.py",
+   "n": 388,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:26.340Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/heads721.py\"",
+   "n": 389,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:38.321Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/heads721.py\"",
+   "n": 390,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:56:51.644Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git status --short -- data/b721_* tools/b721_* data/b720_hook_refusals.txt",
+   "n": 391,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:57:10.306Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- tools/b721_checks.py tools/b721_record.py data/b721_commands.json data/b721_commands.txt data/b721_defects.json data/b721_defects.txt data/b721_guard_dry.json data/b721_guard_dry.txt data/b721_kernels_face.json data/b721_read_calls.json data/b721_read_calls.txt data/b721_standing_figures.json data/b721_standing_figures.txt data/b721_bank_hashes.json",
+   "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:57:14.918Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b721 component 8: the four standing figures (step [1]), the command bank, the read calls, the kernels face, the guard`s dry run, the defects (a)-(z) and (a`) -- CLAIM 5, CLOSE 22; the record`s phase list, previous-act window and kernels line and the suite`s floors, required banks and merges plant repaired by the Edit tool' && git -C D:/relay log --format=%H -1",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:57:19.168Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 tools/b721_record.py step relay \"component 8\" f485aba9a5605b4b840a9819c6e32b3dee9dea3e",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:57:24.612Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay diff-tree --no-commit-id --name-only -r 68440f11 && git -C D:/relay show 68440f11:tools/standing/VERSION",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:57:53.960Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files \"tools/b721_*\" \"tools/standing/*\"",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T16:58:07.015Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"t=open('D:/relay/data/b721_ferry.txt',encoding='utf-8').read().split(chr(10));[print(i+1,l) for i,l in enumerate(t) if l.startswith(('(5)','(6)','(7)','(8)','(9)','(10)','(11)','COMPONENT 8','Component 8','THE SEAT'))]\"",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:07.102Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/asks721.py\"",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:15.298Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/asks721.py\"",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:34.419Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import json;[print(r.get('kind'),r.get('kernel'),r.get('run'),r.get('how') or r.get('note') or '') for r in json.load(open('data/b721_rebuild_rows.json',encoding='utf-8')) if r.get('kind')!='read']\"",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:51.559Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b721_registration_2026-10-28.txt",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:54.643Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b721 component 8: the face, data/b721_registration_2026-10-28.txt, before the root`s dry run, the closing`s dry run, the score routes` dry form and the gate' && git -C D:/relay log --format=%H -1",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:01:57.809Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 tools/b721_record.py step relay \"component 8\" c66220db0100afd616892192d9ef0fe76eaed508",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:02:03.150Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py rootdry",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:02:13.250Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_closing.py dry",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:03:23.628Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:05:11.572Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('N5');print(t[i:i+4000])\"",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:05:30.128Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"beyond the membrane\" -e \"relay files beyond\" -e \"^N5_RELAY_TOOLS\" -e \"^N5_\" -- tools/b721_record.py",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:05:39.830Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A14 -e \"^def w_patterns\" -e \"^def w_allows\" -- tools/act_close.py",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:05:45.524Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:06:19.134Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"t=open('D:/relay/data/b721_scores_dry.txt',encoding='utf-8').read();i=t.find('shared tools edited beyond');print(t[i:i+300]);j=t.find('relay files beyond');print(t[j:j+250])\"",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:06:37.656Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b721_registration_2026-10-28.txt",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:06:40.787Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b721 component 8: the face`s (W) row for tools/standing/ given its glob, and the dry N5 reading on data/b720_hook_refusals.txt declared' && git -C D:/relay log --format=%H -1",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:06:44.829Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 tools/b721_record.py step relay \"component 8\" af7b59bb2ee35d43bb9a79235cd0db8030f4d800 && python -X utf8 -u tools/b721_record.py rootdry",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:06:57.337Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_closing.py dry && python -X utf8 -u tools/b721_record.py scores dry",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:08:32.867Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:12.138Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -A12 -e \"^def _letters_now\" -- tools/b721_record.py && git grep -n -i -e \"blind\" -- tools/b721_record.py",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:19.977Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -i -e \"fourteen\" -e \"unused\" -e \"blind\" -- data/b721_registrations.txt",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:32.530Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R._defect_short))\"",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:36.045Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys,inspect;sys.path.insert(0,'D:/relay/tools');import b721_record as R;print(inspect.getsource(R.read_defect_row))\"",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:48.079Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'D:/relay/tools');import b721_record as R;[print(len(s), s.count(chr(96))%2, s[:110]) for s in R._defect_short('b721')]\"",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:10:54.631Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py defects && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:12:04.376Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py gatebanks",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:12:26.052Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -i -e \"CONTRADICT\" -e \"PREDICTIONS FOUND\" -e \"line \" -- data/audit_b721_reg_satisfiable.txt data/b721_regspec_run.txt",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:12:41.006Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b721_registration_2026-10-28.txt data/b721_defects.txt data/b721_defects.json tools/b721_record.py data/b721_bank_hashes.json",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:12:44.945Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m 'b721 component 8: the gate`s first runs read -- the entry`s banned stem reworded in the record tool, the defects` quoted ellipses set as one character (the trail`s cut), the face`s count word at :54 dropped' && git -C D:/relay log --format=%H -1",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:12:48.713Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 tools/b721_record.py step relay \"component 8\" 1e3399e247c1679581adba3fef76042393d06850 && python -X utf8 -u tools/b721_record.py rootdry && python -X utf8 -u tools/b721_closing.py dry --quiet",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:14:16.790Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_record.py scores dry --quiet",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-28T17:15:55.070Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b721_reg_gate.py --quiet-unused && python -X utf8 -u tools/b721_record.py gatebanks",
+   "n": 429,
+   "bg": false
   }
  ],
  "offences": [
@@ -3074,7 +3634,21 @@
   346,
   347,
   352,
-  357
+  357,
+  365,
+  366,
+  368,
+  369,
+  370,
+  371,
+  379,
+  397,
+  400,
+  407,
+  411,
+  419,
+  420,
+  421
  ],
  "moves_deletes": [
   43,
