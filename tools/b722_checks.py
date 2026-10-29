@@ -2475,7 +2475,8 @@ class _PrevWorklist(object):
     read them (sources, the ancestry pairs, the times and the files) -- found after the lock, before the seal, by the first `--prev` run's
     crash in sources (a tuple handed to git merge-base); an event of the seat's, not a letter."""
     OWN = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED',
-           'C1_RELAY', 'C1_PP', 'C2_REG', 'C2_PRED', 'C2_CTL', 'C2_RELAY', 'C3_RELAY', 'C4_REG', 'C4_RELAY', 'C5_REG', 'C5_RELAY', 'C6_RELAY')
+           'C1_RELAY', 'C1_PP', 'C2_REG', 'C2_PRED', 'C2_CTL', 'C2_RELAY', 'C3_RELAY', 'C4_REG', 'C4_RELAY', 'C5_REG', 'C5_RELAY', 'C6_RELAY',
+           'STANDING_COMMIT', 'REG_C3', 'REG_WALK', 'C4_STMT', 'C5_RULE', 'C6_PP')
 
     def __init__(self, own, prev):
         self._own, self._prev = own, prev
