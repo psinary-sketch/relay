@@ -153,8 +153,13 @@ ROWS = [
     ('I-75', 'b527_values', 'data/b527_values.json', 287, ['4.440892098500626e-16'],
      "import math, b527_values as M\nL=math.log(34.0); us=[(1-M.F)*L+M.F*L*(k+0.5)/20.0 for k in range(20)]\n"
      "print(max(abs(float(M.phi_chain(u,34.0))-float(M.phi_kernel_mp(u,34.0))) for u in us+[-x for x in us]))", 'num', None, C, None),
+    # ### b723, the author's word (3): the row reads its tool's pinned input -- b542_record.REPOS rebound in memory to b544's pins, the eleven
+    # ### repositories it cites by no pin at the last first-parent commit at or before data/b544_decls.json's commit time (deb2a187), as
+    # ### tools/b723_i76.py read them (data/b723_i76.txt: the inputs class CONFIRMED, 5293 at b544's pins, 6650 over today's trees)
     ('I-76', 'b544_probe_part', 'data/b544_decls.json', 1, ['"count": 5293'],
-     "import b544_probe_part as M\nds, fed = M.classify(M.enumerate_all())\nprint(len(ds))", 'num', None, C, None),
+     "import b542_record as Q, b544_probe_part as M\nt = '2026-09-26T01:45:59-04:00'\n"
+     "Q.REPOS = [(r, c or Q.g(r, 'rev-list', '-1', '--first-parent', '--before=' + t, 'HEAD').strip(), x) for r, c, x in Q.REPOS]\n"
+     "ds, fed = M.classify(M.enumerate_all())\nprint(len(ds))", 'num', None, C, None),
     ('I-77', 'b634_elab', 'data/b634_elab_types.txt', 4, ['927 ; MISSING : 13'],
      "import b634_elab as M\nB=M.load_bank_text(open(M.TYPES, encoding='utf-8').read())\n"
      "print(sum(1 for v in B.values() if not v['missing']), sum(1 for v in B.values() if v['missing']))", 'num', None, B, None),

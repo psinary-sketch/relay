@@ -135,7 +135,7 @@ DATA_STANDING_V5 = 'data/standing_clauses_v5.txt'
 DATA_STANDING_V6 = 'data/standing_clauses_v6.txt'
 DATA_STANDING_V7 = 'data/standing_clauses_v7.txt'
 DATA_STANDING_V8 = 'data/standing_clauses_v8.txt'
-DATA_STANDING = 'data/standing_clauses_v8.txt'   # ### binds the act whole; v9 from the commit that lands it at Component 1 ((R333)(2)(v))
+DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739558; v9 from that commit, which landed it at Component 1 ((R333)(2)(v))
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
@@ -211,7 +211,7 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 # ### stage one (step zero): the commits made so far, each set by the Edit tool after it is made
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.2.2 entering this act
-STANDING_COMMIT = None                  # ### standing clauses v9, landed by a commit of its own at Component 1 ((R333)(2)(v))
+STANDING_COMMIT = 'd973955897'          # ### standing clauses v9, landed by a commit of its own at Component 1 ((R333)(2)(v))
 ACT_CURRENT_COMMIT = '1e0500f9c6'       # ### data/act_current.json for b723 committed alone, before any other command (the author's word (1))
 STEPZERO = 'a9d8b6626b'                 # ### b722's closing capture, committed alone ((R333)(9))
 STEPZERO_STEPS = '945b75203d'           # ### b722's step-37 row, committed alone ((R333)(9))

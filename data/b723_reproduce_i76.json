@@ -1,0 +1,32 @@
+{
+ "rule": "THE COMPARISON: the banked figure`s numbers against the leading numbers of the call`s output; an integer exactly; a decimal at the lesser of the two printed significant-digit counts, rounded half-even in decimal; a row graded by words, the text exactly. THE PLANTED CONTROL: the banked figure`s leading digit moved by one (a word row: \" (planted)\" appended), compared the same way; it must DIFFER. NOT RUN: a row needing a dispatch or a network read, or more than 60 s, with its reason and price.",
+ "counts": {
+  "REPRODUCES": 1,
+  "DIFFERS": 0,
+  "NOT RUN": 0
+ },
+ "planted": [
+  1,
+  1
+ ],
+ "rows": [
+  {
+   "id": "I-76",
+   "tool": "b544_probe_part",
+   "bank": "data/b544_decls.json",
+   "line": 1,
+   "figure": "\"count\": 5293",
+   "kind": "COMPUTED",
+   "call": "import b542_record as Q, b544_probe_part as M\nt = '2026-09-26T01:45:59-04:00'\nQ.REPOS = [(r, c or Q.g(r, 'rev-list', '-1', '--first-parent', '--before=' + t, 'HEAD').strip(), x) for r, c, x in Q.REPOS]\nds, fed = M.classify(M.enumerate_all())\nprint(len(ds))",
+   "mode": "num",
+   "free_mb": 4767,
+   "seconds": 19.9,
+   "got": "5293",
+   "grade": "REPRODUCES",
+   "why": "numbers ['5293'] against ['5293']",
+   "planted": "\"count\": 6293",
+   "planted_grade": "DIFFERS",
+   "planted_as_wanted": true
+  }
+ ]
+}

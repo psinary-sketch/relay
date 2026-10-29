@@ -1,0 +1,11 @@
+tools/research/reproduce.py -- THE RESEARCH INSTRUMENTS REPRODUCED, ONE ROW PER INSTRUMENT (2026-10-29T04:04:26Z)
+
+### THE COMPARISON: the banked figure`s numbers against the leading numbers of the call`s output; an integer exactly; a decimal at the lesser of the two printed significant-digit counts, rounded half-even in decimal; a row graded by words, the text exactly. THE PLANTED CONTROL: the banked figure`s leading digit moved by one (a word row: " (planted)" appended), compared the same way; it must DIFFER. NOT RUN: a row needing a dispatch or a network read, or more than 60 s, with its reason and price.
+### rows 68 ; the hold 2560 MB ; the cap 60 s a row ; relay D:\relay
+
+I-76   b544_probe_part          REPRODUCES  data/b544_decls.json :1 -- ""count": 5293" (COMPUTED)
+         computed "5293" in 19.9 s (free 4767 MB) ; numbers ['5293'] against ['5293']
+         PLANTED ""count": 6293": DIFFERS -- AS WANTED
+         CALL: import b542_record as Q, b544_probe_part as M ; t = '2026-09-26T01:45:59-04:00' ; Q.REPOS = [(r, c or Q.g(r, 'rev-list', '-1', '--first-parent', '--before=' + t, 'HEAD').strip(), x) for r, c, x in Q.REPOS] ; ds, fed = M.classify(M.enumerate_all()) ; print(len(ds))
+
+### ### **ROWS 1 ; REPRODUCES 1 ; DIFFERS 0 ; NOT RUN 0 ; PLANTED CONTROLS AS WANTED 1 OF 1 ; 20 s.**
