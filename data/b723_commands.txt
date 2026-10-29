@@ -1,7 +1,7 @@
-b723 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-29T16:09:42Z)
+b723 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-29T16:41:41Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'Go: b723', with its subagents` transcripts
-### commands read: 767
+### commands read: 841
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #284 2026-10-29T07:23:56.295Z seat Bash -- R rm without an explicit absolute path
@@ -32,9 +32,10 @@ b723 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #488 2026-10-29T12:12:42.656Z cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* --  > /dev/null; python -X utf8 tools/standing/peek.py search "n0|b\(n0\)|b\(n\)" --of "git -C D:/relay grep -l -E \"b\(n0\)|\bn0\b\" -- data/
   #632 2026-10-29T14:18:54.428Z git -C D:/SIDE-kernel show rebuild-b721:.github/workflows/build-module.yml > /dev/null; python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.|TARGET:|push:" C:/Users/ECHOCH~1/AppDat
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (3):
   #488 2026-10-29T12:12:42.656Z cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* -- > /dev/null; python -X utf8 tools/standing/peek.py search "n0|b\(n0\)|b\(n\)" --of "git -C D:/relay grep -l -E \"b\(n0\)|\bn0\b\" -- data/b
   #632 2026-10-29T14:18:54.428Z git -C D:/SIDE-kernel show rebuild-b721:.github/workflows/build-module.yml > /dev/null; python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.|TARGET:|push:" C:/Users/ECHOCH~1/AppDat
+  #803 2026-10-29T16:24:32.445Z cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\repcount723.py" --tail; python -X utf8 "$sp\facedry723.py"; pyth
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
   #35 2026-10-29T03:42:23.398Z git status --porcelain --untracked-files=all -- data/ tools/ | head -60
@@ -841,5 +842,79 @@ b723 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #765 | 2026-10-29T16:08:31.954Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py list D:\relay\data --glob "b723_[rst][eocu]*"
   #766 | 2026-10-29T16:08:39.476Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\mtimes723.py D:\relay\data\b723_reproduce.txt D:\
   #767 | 2026-10-29T16:09:31.643Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 -u D:\relay\tools\st
+  #768 | 2026-10-29T16:09:49.447Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record defects; python -X utf8 -u D:\relay\tools\standing\fold.py record reads; python -X utf8 C:\Users\ECHOCH
+  #769 | 2026-10-29T16:12:02.996Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record defects; python -X utf8 -u D:\relay\tools\b723_address_scan.py scan; python -X utf8 C:\Users\ECHOCH~1\A
+  #770 | 2026-10-29T16:12:23.130Z | seat | PowerShell | cd D:\relay; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\idscan723.py tools/acts/b723.py tool
+  #771 | 2026-10-29T16:12:30.737Z | seat | PowerShell | git -C D:/relay add -- tools/acts/b723.py tools/b723_worklist.py tools/b723_repctl.py data/b723_c7_repair_controls.txt data/b723_defects.txt data/b723_defects.j
+  #772 | 2026-10-29T16:12:42.031Z | seat | PowerShell | git -C D:/relay commit -q -m 'b723 Component 7, before the lock: the act module`s Component 7 sections and overrides -- the scorer needles, the dispatch pattern
+  #773 | 2026-10-29T16:12:49.762Z | seat | Bash | git -C D:/relay commit -q -m 'b723 Component 7, before the lock: the act module`s Component 7 sections and overrides -- the scorer needles, the dispatch pattern
+  #774 | 2026-10-29T16:12:52.873Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\fold.py record step relay "component 7" 8c5201a030c3d9ec31f40fd850108d0f455dda1c
+  #775 | 2026-10-29T16:13:07.264Z | seat | Bash | git -C D:/relay diff --name-only 1607e994 HEAD -- . ':(exclude)data/b723_*' ':(exclude)tools/b723_*'; echo ===PP; git -C D:/MY-DOwnloads/PLACE-papers diff --nam
+  #776 | 2026-10-29T16:16:21.404Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record defects; python -X utf8 -u D:\relay\tools\standing\fold.py record facerows
+  #777 | 2026-10-29T16:16:57.338Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\facedry723.py
+  #778 | 2026-10-29T16:17:05.084Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py
+  #779 | 2026-10-29T16:18:23.842Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^=== n|^HELD|^REFUTED|^NOT SCORABLE|REFUTED --|beyond the|outside|NOT IN" --cut 700 "C:\Users\echo chambe
+  #780 | 2026-10-29T16:18:51.235Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 C:\Users\ECHOCH~1\Ap
+  #781 | 2026-10-29T16:18:58.951Z | seat | PowerShell | git -C D:/relay add -- data/b723_registration_2026-10-29.txt data/b723_defects.txt data/b723_defects.json tools/acts/b723.py data/b723_steps.json data/b723_hook
+  #782 | 2026-10-29T16:19:04.376Z | seat | Bash | git -C D:/relay commit -q -m 'b723 Component 7: the face, data/b723_registration_2026-10-29.txt, before the gate -- section (0) every relay and PLACE-papers com
+  #783 | 2026-10-29T16:19:07.913Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\fold.py record step relay "component 7" bac50c90d4f824fe1cf5a67b6a90f9a260701159
+  #784 | 2026-10-29T16:19:15.305Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
+  #785 | 2026-10-29T16:19:38.497Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "False|MODIFIED|UNTRACKED| M |\?\?" --cut 300 D:\relay\data\b723_root_banks_dry.txt
+  #786 | 2026-10-29T16:20:51.296Z | seat | PowerShell | git -C D:\relay diff --stat -- data/b723_bank_hashes.json; git -C D:\relay diff -U0 -- data/b723_bank_hashes.json
+  #787 | 2026-10-29T16:21:00.438Z | seat | PowerShell | cd D:\relay; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\idscan723.py data/b723_bank_hashes.j
+  #788 | 2026-10-29T16:21:11.992Z | seat | PowerShell | git -C D:/relay add -- data/b723_bank_hashes.json data/b723_steps.json data/b723_root_banks_dry.json data/b723_root_banks_dry.txt
+  #789 | 2026-10-29T16:21:15.448Z | seat | Bash | git -C D:/relay commit -q -m 'b723 component 7: the step-36 row, the bank hashes and the root route dry run banks (step [2], first run READY False on the bank-h
+  #790 | 2026-10-29T16:21:44.779Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record rootdry
+  #791 | 2026-10-29T16:21:56.163Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\fold.py record step relay "component 7" 0a6fd0cbd45a363c857657569dc66de102a535ef
+  #792 | 2026-10-29T16:22:10.715Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py tail -n 30 D:\relay\data\b723_defects.txt
+  #793 | 2026-10-29T16:22:15.260Z | seat | PowerShell | cd D:\relay; git grep -n -i -E "READY False|dry run.{0,40}not clean|step row.{0,60}(uncommitted|unclean)" -- data/b71*_defects.txt data/b72*_defects.txt
+  #794 | 2026-10-29T16:22:23.663Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "CLAIM|REPEAT .* of|counter|rows" --cut 400 D:\relay\data\b723_defects.txt
+  #795 | 2026-10-29T16:22:35.738Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "READY False\." --cut 160 "C:\Users\echo chamber\.claude\projects\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4
+  #796 | 2026-10-29T16:22:40.926Z | seat | PowerShell | git -C D:\relay show 0a6fd0cb:data/b723_root_banks_dry.txt --format= -- ; git -C D:\relay show --stat --format=%cI 0a6fd0cb
+  #797 | 2026-10-29T16:22:46.196Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py head -n 1 D:\relay\data\b723_root_banks_dry.txt
+  #798 | 2026-10-29T16:23:16.386Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\facedry723.py"; python -
+  #799 | 2026-10-29T16:23:45.506Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "CLAIM 3|CLOSE 3|REPEAT 2|Traceback|Error|REFUTED|HELD|title|runs3|three acts" --cut 300 "C:\Users\echo ch
+  #800 | 2026-10-29T16:24:01.650Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\repcount723.py
+  #801 | 2026-10-29T16:24:10.288Z | seat | PowerShell | cd D:\relay; git grep -n -i -E "face.{0,80}(count|figure).{0,80}(where|against).{0,40}(bank|read)" -- data/b720_defects.txt data/b721_defects.txt data/b722_defe
+  #802 | 2026-10-29T16:24:13.505Z | seat | PowerShell | cd D:\relay; git grep -n -i -E "by hand|hand-entered|miscount|REPEAT [0-9]+ of" -- data/b720_defects.txt data/b721_defects.txt data/b722_defects.txt
+  #803 | 2026-10-29T16:24:32.445Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\repcount723.py" --tail; 
+  #804 | 2026-10-29T16:24:37.679Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py tail -n 2 D:\relay\data\b723_hook_refusals.txt
+  #805 | 2026-10-29T16:25:27.928Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\repcount723.py"; python 
+  #806 | 2026-10-29T16:25:37.228Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\facedry723.py"; python -
+  #807 | 2026-10-29T16:26:06.815Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "counter CLAIM|rows in [0-9]+ classes|Traceback|Error|=== " --cut 260 "C:\Users\echo chamber\.claude\proje
+  #808 | 2026-10-29T16:26:15.506Z | seat | PowerShell | cd D:\relay; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\idscan723.py data/b723_registration_
+  #809 | 2026-10-29T16:26:27.708Z | seat | PowerShell | git -C D:/relay add -- data/b723_bank_hashes.json data/b723_defects.txt data/b723_hook_refusals.txt data/b723_registration_2026-10-29.txt data/b723_root_banks_d
+  #810 | 2026-10-29T16:26:31.692Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 7: the face's root-route dry-run line and its figures read off the tools (CLAIM 3, CLOSE 34, REPEAT 27 of 37, 21 ro
+  #811 | 2026-10-29T16:26:44.969Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record rootdry
+  #812 | 2026-10-29T16:26:56.129Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\fold.py record step relay "component 7" e5fbd0a44969ea1611de608a56cbd4614ef2a26f
+  #813 | 2026-10-29T16:27:01.512Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
+  #814 | 2026-10-29T16:28:01.572Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py closing dry
+  #815 | 2026-10-29T16:29:01.285Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record scores dry
+  #816 | 2026-10-29T16:29:35.273Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\n5line723.py
+  #817 | 2026-10-29T16:29:43.351Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "reg_gate|regspec|reg_satisfiable|banned_terms|gate_hash|lockgate|reg_seal" --cut 260 D:\relay\data\b722_c
+  #818 | 2026-10-29T16:29:47.192Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^   #4[2-6][0-9] \|" --cut 230 D:\relay\data\b722_commands.txt
+  #819 | 2026-10-29T16:29:54.043Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
+  #820 | 2026-10-29T16:31:07.060Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "VERDICT|FAIL|REFUSED|NOT CLEAN|Traceback|Error|\*\*|exit code|MISSES [1-9]" --cut 260 "C:\Users\echo cham
+  #821 | 2026-10-29T16:31:38.151Z | seat | PowerShell | Test-Path D:\relay\tools\b723_regspec.py; Test-Path D:\relay\tools\b722_regspec.py; python -X utf8 D:\relay\tools\standing\peek.py search "regspec|def run_tool|
+  #822 | 2026-10-29T16:31:44.401Z | seat | PowerShell | cd D:\relay; git grep -n -E "regspec_run|_regspec\.py|'regspec'" -- tools/standing/fold/ tools/standing/fold.py tools/acts/b723.py tools/act_close.py tools/stan
+  #823 | 2026-10-29T16:32:04.481Z | seat | PowerShell | cd D:\relay; git grep -n -E "satisfiable\.json|open\(|put_txt|os\.replace|sys\.argv" -- tools/standing/fold/regspec.tpl
+  #824 | 2026-10-29T16:32:24.862Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\render723.py"; python -X
+  #825 | 2026-10-29T16:32:33.543Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
+  #826 | 2026-10-29T16:33:54.430Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "CONTRADICT|FAIL|NOT SAT|predict|expected|actual|clause" --cut 400 D:\relay\data\audit_b723_reg_satisfiabl
+  #827 | 2026-10-29T16:33:59.195Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "PREDICTION|predict|:[0-9]+ " --cut 400 D:\relay\data\b723_regspec_run.txt
+  #828 | 2026-10-29T16:34:02.048Z | seat | PowerShell | cd D:\relay; git grep -n -A30 "def count_predictions" -- tools/b300_regspec.py
+  #829 | 2026-10-29T16:34:11.928Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\preds723.py bac50c90 e5fbd0a4
+  #830 | 2026-10-29T16:34:36.294Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\mtimes723.py D:\relay\tools\acts\b723.py; python 
+  #831 | 2026-10-29T16:34:46.232Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\runs3dbg723.py"; python 
+  #832 | 2026-10-29T16:34:55.373Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py tail -n 1 --of "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85
+  #833 | 2026-10-29T16:35:10.385Z | seat | PowerShell | cd D:\relay; $sp='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad'; python -X utf8 "$sp\render723.py"; python -X
+  #834 | 2026-10-29T16:35:12.039Z | seat | PowerShell | cd D:\relay; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py
+  #835 | 2026-10-29T16:35:41.144Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^=== |Traceback|Error" --cut 120 "C:\Users\echo chamber\.claude\projects\D--\02c7cf38-4c6a-4f88-b813-a7e1
+  #836 | 2026-10-29T16:35:46.048Z | seat | PowerShell | git -C D:\relay status --short --untracked-files=no; git -C D:\relay status --short -- data/b723_* data/audit_b723_*
+  #837 | 2026-10-29T16:35:52.484Z | seat | PowerShell | cd D:\relay; python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\idscan723.py data/b723_registration_
+  #838 | 2026-10-29T16:36:03.730Z | seat | PowerShell | git -C D:/relay add -- data/b723_registration_2026-10-29.txt data/b723_defects.txt tools/acts/b723.py data/b723_steps.json data/b723_bank_hashes.json
+  #839 | 2026-10-29T16:36:07.918Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 7: the gate banks' regspec route set to the fold's (l'); the face's quotation counted as a prediction replaced by t
+  #840 | 2026-10-29T16:36:11.816Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record rootdry; python -X utf8 -u D:\relay\tools\standing\fold.py closing dry; python -X utf8 -u D:\relay\tool
+  #841 | 2026-10-29T16:40:25.834Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
 
-### ### **COMMANDS 767 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 42 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 841 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 42 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
