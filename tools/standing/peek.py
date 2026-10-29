@@ -10,6 +10,13 @@ read that once needed `| head`, `| cut`, `| grep -c` or `> file` is one call. It
   peek.py tail <path> [N] [--cut W] [--of "<command>"]                    the last N lines (10)
   peek.py count <path>... [--pattern P] [-i] [--fixed] [--of "<command>"] the lines, or the lines matching P, per source and in all
   peek.py list <dir> [--glob G] [--sort name|time|size] [--max N] [--long]  the entries of one directory
+  ### v1.4.0, (R334)(2)(i): the three reads v1.3.0's control found uncovered (tools/standing/v130.py's COVERED IN PART rows), each a verb
+  peek.py tally <path>... [--pattern P] [--group N] [-i] [--fixed] [--max N] [--of "<command>"]
+        the distinct values and their counts, most first -- each line whole, or each match of P (its group N where given): `sort | uniq -c`
+  peek.py json <path> [<key>...] [--keys] [--len] [--cut W]
+        a JSON file's value at a key path (a key per word; a list index a number), printed as JSON; --keys its keys, --len its length: the
+        inline `python -c "json.load(...)[...]"` read
+  peek.py bytes <path> --offset N [--bytes M] [--of "<command>"]       M bytes (500) from byte N: the read by byte offset (`body[a:b]`)
 `--of` runs its command split by shlex with no shell (no pipe, redirect or expansion can act), in the current directory, and reads its
 stdout and stderr together as the source; the command's exit code is printed after.
 """
@@ -29,7 +36,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 def opts(argv):
     """(positional, options): an option a word opening '-'; -i and --fixed and --long are flags, the others take the next word."""
-    flags = {'-i', '--fixed', '--long'}
+    flags = {'-i', '--fixed', '--long', '--keys', '--len'}
     pos, o, i = [], {}, 0
     while i < len(argv):
         a = argv[i]
@@ -170,6 +177,60 @@ def listing(pos, o):
     return done(len(es), None)
 
 
+def tally(pos, o):
+    """v1.4.0: the distinct values (each line, or each match of --pattern, its --group where given) with their counts, most first."""
+    rx, grp, mx = matcher(o.get('--pattern'), o), int(o.get('--group', 0) or 0), int(o.get('--max', 0) or 0)
+    seen = {}
+    srcs, rc = sources(pos, o)
+    for _label, text in srcs:
+        for l in text.split(NL):
+            if rx is None:
+                vals = [l] if l else []
+            else:
+                vals = [m.group(grp) for m in rx.finditer(l)]
+            for v in vals:
+                seen[v] = seen.get(v, 0) + 1
+    rows = sorted(seen.items(), key=lambda kv: (-kv[1], kv[0]))
+    for v, k in rows[:mx] if mx else rows:
+        print(cut('%7d %s' % (k, v), o))
+    print('peek: %d distinct, %d in all' % (len(rows), sum(seen.values())))
+    return done(len(rows), rc)
+
+
+def json_read(pos, o):
+    """v1.4.0: a JSON file's value at a key path, printed as JSON (or its keys, or its length)."""
+    import json
+    if not pos:
+        sys.exit('peek json: a path')
+    v = json.loads(read(pos[0]))
+    for k in pos[1:]:
+        v = v[int(k)] if isinstance(v, list) else v[k]
+    if o.get('--keys'):
+        out = NL.join(str(k) for k in (v.keys() if isinstance(v, dict) else range(len(v))))
+    elif o.get('--len'):
+        out = str(len(v))
+    else:
+        out = json.dumps(v, indent=1, ensure_ascii=False)
+    for l in out.split(NL):
+        print(cut(l, o))
+    return done(None, None)
+
+
+def byte_read(pos, o):
+    """v1.4.0: M bytes from byte N of a file (or of a command's output), decoded as UTF-8 with replacement."""
+    if '--offset' not in o:
+        sys.exit('peek bytes: --offset N')
+    a, m = int(o['--offset']), int(o.get('--bytes', 500))
+    if '--of' in o:
+        text, rc = run_of(o['--of'])
+        b = text.encode('utf-8')
+    else:
+        with open(pos[0], 'rb') as f:
+            b, rc = f.read(), None
+    print(b[a:a + m].decode('utf-8', 'replace'))
+    return done(None, rc)
+
+
 def done(n, rc):
     if rc is not None:
         print('peek: the command exited %d' % rc)
@@ -180,9 +241,10 @@ def main(argv):
     if not argv:
         sys.exit(__doc__)
     verb, (pos, o) = argv[0], opts(argv[1:])
-    fn = dict(search=search, head=head, tail=lambda p, o: head(p, o, tail=True), count=count, list=listing).get(verb)
+    fn = dict(search=search, head=head, tail=lambda p, o: head(p, o, tail=True), count=count, list=listing,
+              tally=tally, json=json_read, bytes=byte_read).get(verb)
     if fn is None:
-        sys.exit('peek: search | head | tail | count | list')
+        sys.exit('peek: search | head | tail | count | list | tally | json | bytes')
     return fn(pos, o)
 
 

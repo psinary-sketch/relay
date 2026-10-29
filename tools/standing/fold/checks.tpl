@@ -452,14 +452,14 @@ def sources(need=()):
                              if re.match(r'^test_.*\.(py|sh)$', os.path.basename(x))),
         sealj=jl('⟪ACT⟫_seal_hashes.json'), sealnow=sealed_now(), cmds=cmds, prev_cmds=prev_now(), cmdj=jl('⟪ACT⟫_commands.json'),
         cmdt=rd('⟪ACT⟫_commands.txt'), reads_bank=rd('⟪ACT⟫_read_calls.txt'), reads_json=jl('⟪ACT⟫_read_calls.json'),
-        planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=read(os.path.join(T, '⟪ACT⟫_checks.py')),
+        planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'checks'),
         citation=rd(K.CITATION_BANK), cit_at=iso_epoch(cit.get('at') or ''), cit_misses=cit.get('misses') or [],
         gate=rd('⟪ACT⟫_reg_gate.txt'), rowgen=rd('⟪ACT⟫_rowgen_stepzero.txt'),
         branch_lists=dict((repo, gs(repo, 'branch', '--list', *bs)) for repo, bs in K.DELETE),
         kept_tips=dict((b, gs(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b)) for repo, b in K.KEPT_BRANCHES),
         repairdiffs=dict((n_, rd('⟪ACT⟫_repairdiff_%s.txt' % n_)) for n_ in CARRIED_NAMES), carry_banks=dict((n_, rd('⟪ACT⟫_carry_%s.txt' % n_)) for n_ in CARRIED_NAMES),
-        spans=rd('⟪ACT⟫_carry_spans.txt'), rec_src=read(os.path.join(T, '⟪ACT⟫_record.py')),
-        closing_src=read(os.path.join(T, '⟪ACT⟫_closing.py')),
+        spans=rd('⟪ACT⟫_carry_spans.txt'), rec_src=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'record'),
+        closing_src=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'closing'),
         defshort=dict(prev=len(REC._defect_short(PREV_ACT)), refuses=refuses),
         defshort_⟪ACT⟫=REC._defect_short(ACTN), letters_seal=REC.letters_at_seal(ACTN),
         corrj=jl('⟪ACT⟫_corrigendum.json'), corrt=rd('⟪ACT⟫_corrigendum.txt'), corrigenda=rd('b675_corrigenda.txt'),
@@ -510,12 +510,12 @@ def sources(need=()):
         join_files=[x for x in gs(KI, 'diff', '--name-only', KR.JOIN_TIP, KR.JOIN_NEW_TIP).split(NL) if x.strip()] if os.path.isdir(KI) else [],
         pp_remote_recut=None,
         rules=rd('⟪ACT⟫_rules.txt'),
-        report=rd('⟪ACT⟫_report.txt'), reportj=jl('⟪ACT⟫_report.json'), report_tool=os.path.exists(os.path.join(T, '⟪ACT⟫_report.py')),
+        report=rd('⟪ACT⟫_report.txt'), reportj=jl('⟪ACT⟫_report.json'), report_tool=__import__('standing.repeat', fromlist=['has_tool']).has_tool(T, '⟪ACT⟫', 'report'),
         ef_main=gs(EF, 'rev-parse', 'main'), ef_tags=dict((t, _tag_peel(EF, t)) for t in ('v0.37', 'v0.1', 'v0.2')),
         ef_log=[l for l in gs(EF, 'log', '--first-parent', '--format=%H', K.EF_V037 + '..main').split(NL) if l.strip()],
         ef_tags_all=[t for t in gs(EF, 'tag', '--list').split(NL) if t.strip()], ef_remote={},
         join_main=gs(KI, 'rev-parse', 'main') if os.path.isdir(KI) else '', join_tags=[t for t in gs(KI, 'tag', '--list').split(NL) if t.strip()] if os.path.isdir(KI) else [],
-        rf_diff=rd('⟪ACT⟫_readfirst_diff.txt'), rf_hand_now=blob(ROOT, 'HEAD:data/⟪ACT⟫_readfirst.txt'),
+        rf_diff=None, rf_hand_now=blob(ROOT, 'HEAD:data/⟪ACT⟫_readfirst.txt'),
         rf_hand_z=blob(ROOT, '%s:data/⟪ACT⟫_readfirst.txt' % K.STEPZERO_BANKS) if K.STEPZERO_BANKS else None,
         asec=jl('⟪ACT⟫_arm_seconds.json'), asect=rd('⟪ACT⟫_arm_seconds.txt'),
         shared=dict((p, (cr0(blob(ROOT, '%s:%s' % (PRE['relay'], p))), cr0(raw(os.path.join(ROOT, *p.split('/')))), cr0(blob(ROOT, 'HEAD:' + p))))
@@ -1221,19 +1221,19 @@ def _step_phase(rows, repo, h):
 def sealed_after_ok(S):
     """(⟪RUL⟫)(2), a carry-time repair (⟪PREV⟫'s (i)): THE ACT'S STEP BANK (data/⟪ACT⟫_steps.json, a row per commit by the record tool's step route,
     written after the commit: the repository, the commit, the phase the seat names from the record tool's STEP_PHASES) and not the commits'
-    subjects -- ⟪PREV⟫'s arm failed on two post-seal subjects outside its prefixes, their order right. Every relay and PLACE-papers commit of the
-    act has its row; a row's phase is a component phase (PRE_SEAL_PHASES) exactly where its commit precedes the lock; PLACE-papers carries a
-    component commit."""
-    lk, rows = S['lock_epoch'], S['steps']
-    if lk is None or not rows:
+    subjects. v1.4.0, (R334)(2)(iv): THE LOCK COMMIT READ BY ITS PHASE -- the one relay row of phase `lock` names it and its commit time is
+    the lock (b723's lock commit took `gate` and the arm failed at every reading, its event (5)); every other commit has a row whose phase is
+    pre-seal exactly where it precedes the lock, a bookkeeping-only commit (the act's step bank, hashes bank, hook refusals: b723's 2be0135c,
+    whose own row no commit can carry) exempt; PLACE-papers carries a pre-seal commit. tools/standing/repeat.py sealed_after."""
+    rows = S['steps']
+    if not rows:
         return False
-    pre = S['REC'].PRE_SEAL_PHASES
-    for repo, log in (('relay', S['rlog']), ('pp', S['plog'])):
-        for h, s, t in log:
-            p = _step_phase(rows, repo, h)
-            if p is None or (t < lk) != (p in pre):
-                return False
-    return any(_step_phase(rows, 'pp', h) in pre for h, s, t in S['plog'])
+    ok, why = __import__('standing.repeat', fromlist=['sealed_after']).sealed_after(
+        rows, S['rlog'], S['plog'], S['REC'].PRE_SEAL_PHASES, __import__('standing.repeat', fromlist=['files_of']).files_of(ROOT, PP), '⟪ACT⟫')
+    if not ok:
+        print('    ### G-SEALED-AFTER-COMPONENTS: %s' % why)
+    return ok
+
 
 
 def nothing_ahead_ok(face, lock_epoch, logs, steps, face_first=None):
@@ -1652,8 +1652,8 @@ ARMS_ALL = [
      lambda S: rootdry_ok(S), lambda S: _mut(S, 'rootdryj', lambda d: d.update(ready=False))),
     ('G-FIGURES-BANKED', 'the four standing figures banked by b706`s tool over b706`s roster against ⟪PREV⟫`s baselines, each at or below ⟪PREV⟫`s, the partners figure 0 with one copy per table',
      lambda S: figures_banked_ok(S), lambda S: put(S, 'figj', {})),
-    ('G-READFIRST-DIFF-BANKED', 'the closure reader`s diff banked; the readfirst bank unchanged since the step-zero commit', lambda S: readfirst_diff_ok(S),
-     lambda S: put(S, 'rf_diff', '')),
+    # ### v1.4.0, (R334)(2)(v): G-READFIRST-DIFF-BANKED RETIRED in the template -- it read data/<act>_readfirst_diff.txt, retired with the
+    # ### closure reader ((R332)(2)(iii)); b723 and b724 retired it by override; standing/repeat.py retired_reads finds no other such read
     ('G-MEMBRANE-WIRED', 'the carried membrane: tools/act_membrane.py`s guard reading data/act_roots.txt, the record tool`s shared writers rebound through it, the suite`s writers calling it',
      lambda S: membrane_ok(S), lambda S: put(S, 'membrane_src', S['membrane_src'].replace('def guard_path(', 'def guard_p('))),
     ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited through v1.2.0; b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
@@ -2033,13 +2033,13 @@ def combine():
     return 0 if ok else 1
 
 
-# ### the carried failures declared on the face by name (section (0)), read off the mid-act run before the face is written. ⟪ACT⟫'s one:
-# ### G-DELETES-ONE-BRANCH, wanting port-b707 among the ruling's kept branches as tools/standing/allow.py reads them (a clause saying NOT
-# ### deleted) where the ferry's Component 0 says "port-b707 kept" (data/⟪ACT⟫_ferry.txt :26) -- the ruling's wording and the carried reader in
-# ### conflict, as at ⟪PREV⟫, printed for the author; the arm not edited. ⟪PREV⟫'s G-BRANCHES-BANKED is not carried: ⟪ACT⟫'s step-zero bank stands
-# ### in its step-zero banks' commit (e3b3de12). And G-DELETE-FREE, the standing arm over the act's tools' code, on tools/⟪ACT⟫_challenge.py's
-# ### os.remove of its own temporary index (:148, :155) -- defect (m), the tool committed as it ran (41a0adcf), not edited after; the arm not edited.
-CARRIED_FAILING = ('G-DELETES-ONE-BRANCH', 'G-DELETE-FREE')
+# ### the carried failures declared on the face by name (section (0)), read off the dev runs before the face is written. v1.4.0,
+# ### (R334)(2)(iii): READ FROM THE FACE, not kept by hand -- its line "DECLARED BEFORE THE LOCK, BY NAME:** `G-...`" (tools/standing/repeat.py
+# ### carried_failing); b723's template literal named b720's two (G-DELETES-ONE-BRANCH, G-DELETE-FREE) where b723's face declared G-AXIOM-CLAIM
+# ### (b723 (g')). Before the face is written the tuple is empty, and the suite's reading of a failing arm is then not carried.
+_FACE_TEXT = open(FACE, encoding='utf-8').read() if os.path.exists(FACE) else ''
+CARRIED_FAILING = __import__('standing.repeat', fromlist=['carried_failing']).carried_failing(_FACE_TEXT)
+
 
 
 def main():
@@ -2059,7 +2059,7 @@ def main():
         return 3
     t_start = time.time()
     pushed = RERUN or (not PRERUN and not MID and not PREV and is_pushed())
-    base = _base_name(pushed)
+    base = __import__('standing.repeat', fromlist=['part_guards']).part_guards(PART, '⟪ACT⟫', ROOT, pushed, bool(RERUN or PRERUN or MID or PREV)) or _base_name(pushed)   # ### v1.4.0 (vii), (iii)
     rec('=' * 104)
     rec('⟪ACT⟫ -- THE SUITE. ### **%s READING.** ### PART %s ### every arm exercised on both controls.' % (
         'ON ⟪PREV⟫`S BANKS ((⟪RUL⟫)(2)(iii))' if PREV else 'PRE-SEAL (R202)(3)' if PRERUN else 'MID-ACT' if MID else 'POST-PUSH' if pushed else 'PRE-PUSH', PART))
@@ -2261,7 +2261,7 @@ class _PrevWorklist(object):
         self._own, self._prev = own, prev
 
     def __getattr__(self, n):
-        if n not in self.OWN and hasattr(self._prev, n):
+        if n not in self.OWN and __import__('standing.repeat', fromlist=['prev_carries']).prev_carries(self._prev, self._own, n):   # ### v1.4.0 (iii)
             return getattr(self._prev, n)
         return getattr(self._own, n)
 

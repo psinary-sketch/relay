@@ -100,6 +100,16 @@ def strip_quotes(cmd):
     return ''.join(out), True
 
 
+def lines_of(path):
+    """v1.4.0: the file's line count (its line feeds, and a last line without one), or None where it is not a readable file."""
+    try:
+        with open(path, 'rb') as f:
+            b = f.read()
+    except OSError:
+        return None
+    return b.count(b'\n') + (1 if b and not b.endswith(b'\n') else 0)
+
+
 def judge(tool, inp):
     """(kind, detail) for a refusal, or None for an allowed call."""
     if tool == 'Read':
@@ -111,6 +121,12 @@ def judge(tool, inp):
                 return 'READ', 'a Read call with limit %s, above %d' % (lim, LIMIT)
         except (TypeError, ValueError):
             return 'READ', 'a Read call with an unreadable limit %r' % (lim,)
+        # ### v1.4.0, (R334)(2)(ii): row (19)'s "by offset and a limit" on a file of two hundred lines or more -- a limit with no offset
+        # ### on such a file is refused (the class the record tool's reads route counted after the fact, b721 (y), b722 (y), b723 (b'))
+        if inp.get('offset') is None:
+            n = lines_of(inp.get('file_path') or '')
+            if n is not None and n >= LIMIT:
+                return 'READ', 'a Read call with a limit and no offset on a file of %d lines' % n
         return None
     if tool in ('Bash', 'PowerShell'):
         cmd = inp.get('command') or ''
@@ -162,6 +178,8 @@ def cases(act):
         ('Read', {'file_path': ferry}, 'READ'),
         ('Read', {'file_path': ferry, 'offset': 1, 'limit': 201}, 'READ'),
         ('Read', {'file_path': ferry, 'offset': 1, 'limit': 200}, None),
+        ('Read', {'file_path': os.path.join(RELAY, 'tools', 'standing', 'hook.py'), 'limit': 60}, 'READ'),   # ### v1.4.0, (2)(ii)
+        ('Read', {'file_path': os.path.join(RELAY, 'tools', 'standing', 'hook.py'), 'offset': 1, 'limit': 60}, None),
         ('Bash', {'command': 'git status | head'}, 'PIPE'),
         ('Bash', {'command': 'git log --oneline -3 2>&1'}, 'REDIR'),
         ('Bash', {'command': 'cat a > b'}, 'REDIR'),

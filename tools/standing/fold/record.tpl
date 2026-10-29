@@ -80,9 +80,9 @@ UNTRACKED_DECL = re.compile(r'^### UNTRACKED WRITE: data/⟪ACT⟫_(\S+)', re.M)
 def declared_untracked():
     """every ⟪ACT⟫_*.py tool's declaration of an untracked write (its units file, its download), read from the tools' own heads: [(tool, name)]."""
     out = []
-    for f in sorted(os.listdir(T)):
-        if f.startswith('⟪ACT⟫_') and f.endswith('.py'):
-            for m in UNTRACKED_DECL.finditer(rd(os.path.join(T, f)) or ''):
+    for f in sorted(os.listdir(T)) + ['standing/fold/%s.tpl' % t for t in __import__('standing.fold', fromlist=['TOOLS']).TOOLS]:   # ### v1.4.0: the templates' heads too
+        if (f.startswith('⟪ACT⟫_') and f.endswith('.py')) or f.endswith('.tpl'):   # ### b723's root named its hashes bank: the fold wrote no tools/<act>_record.py to declare it
+            for m in UNTRACKED_DECL.finditer((rd(os.path.join(T, *f.split('/'))) or '').replace(chr(0x27EA) + 'ACT' + chr(0x27EB), ACT)):
                 out.append((f, m.group(1)))
     return out
 
@@ -122,8 +122,8 @@ def _hash_record(name):
     """(⟪RUL⟫)(6)(i): the bank just written recorded by its sha256 (tools/act_close.py bank_hashes) in this tool's hashes bank, so a hand edit to
     it is read at N4 (hand_edits). The hashes bank is this tool's own write, outside the root (### UNTRACKED WRITE in the head)."""
     p, hp = os.path.join(D, name), os.path.join(D, HASHES)
-    if name == HASHES or not os.path.isfile(p):
-        return
+    if name == HASHES or not os.path.isfile(p) or R.ROOT_EXCLUDE.match(name) or os.path.isfile(os.path.join(D, '%s_act_root.json' % ACT)):
+        return   # ### v1.4.0, the root route: an excluded bank (the step bank, the events) and any write after the root leave the hashes bank alone
     cur = json.load(open(hp, encoding='utf-8')) if os.path.isfile(hp) else {}
     cur[name] = AC.bank_hashes([p])[p]
     with open(hp + '.tmp', 'w', encoding='utf-8', newline='\n') as fh:
@@ -289,8 +289,8 @@ def defects(*a):
 # ================================================================================ (⟪RUL⟫)(2): THE ACT'S STEP BANK (G-SEALED-AFTER-COMPONENTS reads it)
 # ### (⟪RUL⟫)(3)(ii): 'gate' -- the commit of the gate before the lock, the one commit the face cannot carry (it stamps the face); the suite's
 # ### G-NOTHING-RAN-AHEAD reads it from this bank and asks every other commit before the lock to be declared on the face by its hash
-PRE_SEAL_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pilot', 'component 5', 'component 6', 'component 7', 'component 8', 'gate')  # pilot: ⟪PREV⟫'s word (2); component 8: act_current.json's Component 8 phases name it (its pre-gate commits); component 7: ⟪ACT⟫'s pre-gate commits of Component 7 (data/act_current.json's component 7 phases), ⟪PREV⟫'s in its component 6
-POST_SEAL_PHASES = ('seal', 'pre-root', 'root', 'record', 'closing')
+PRE_SEAL_PHASES, POST_SEAL_PHASES = __import__('standing.repeat', fromlist=['phases']).phases(ROOT)   # ### v1.4.0 (R334)(2)(iv): read from data/act_current.json's components, `lock` among them
+# ### before `seal` (a pre-seal phase of its own, the lock commit's), the record and the closing after; no literal tuple to keep by hand
 STEP_PHASES = PRE_SEAL_PHASES + POST_SEAL_PHASES
 STEP_REPOS = dict(relay=ROOT, pp=PP)
 
@@ -514,7 +514,7 @@ edit_route_offences = R.edit_route_offences
 QUOTED, REDIRECT_NULL, REDIRECT_ANY, PIPE_FILTER, PY_PRINT_READ, MOVE_OR_DELETE, SED_KIND = (
     R.QUOTED, R.REDIRECT_NULL, R.REDIRECT_ANY, R.PIPE_FILTER, R.PY_PRINT_READ, R.MOVE_OR_DELETE, R.SED_KIND)
 local_lean, delete_shape, chained_after, seal_hashes, root_banks_state = R.local_lean, R.delete_shape, R.chained_after, R.seal_hashes, R.root_banks_state
-root_banks, rootbanks, root, root_arm, table_final = R.root_banks, R.rootbanks, R.root, R.root_arm, R.table_final
+root_banks, rootbanks, root, root_arm, table_final = R.root_banks, __import__('standing.repeat', fromlist=['committed_root']).committed_root(R), R.root, R.root_arm, R.table_final   # ### v1.4.0 the root route
 # ### ⟪PREV⟫'s pattern read `_record.py dispatch`; this act's one dispatch ran through the `portdispatch` route, so the pattern takes the port prefix too
 # ### (a carry-time repair, banked by diff: the command bank's first write read DISPATCHES 0 against the dispatch bank's one row)
 # ### ⟪ACT⟫: the rebuild's dispatches run inside its tool (⟪ACT⟫_rebuild.py dispatch <k>, and push_run <k> for SIDE-frobenius's run on push, the
@@ -1618,17 +1618,17 @@ def repairctl(*a):
     case('ii', 'on the real chain (⟪ACT⟫ not appended) a write proceeds', bool(MEM.refuses('⟪ACT⟫', '⟪ACT⟫_reading5.txt', R.ROOT_EXCLUDE)), False)
     case('ii', 'POS on the real chain: ⟪PREV⟫ is appended, so a ⟪PREV⟫ bank the root names is refused', bool(MEM.refuses('⟪PREV⟫', '⟪PREV⟫_reading5.txt')), True)
     _wrap = lambda f: getattr(f, '__name__', '') in ('put_json', 'put_txt') and getattr(f, '__module__', '') in ('__main__', '⟪ACT⟫_record')   # noqa: E731
-    wired = dict(record=(_wrap(R.put_json) and _wrap(R.put_txt)), citation=rd(os.path.join(T, '⟪ACT⟫_citation.py')).count('MEM.guard('),
-                 closing=rd(os.path.join(T, '⟪ACT⟫_closing.py')).count('_guard('), suite=rd(os.path.join(T, '⟪ACT⟫_checks.py')).count('_membrane('),
+    wired = dict(record=(_wrap(R.put_json) and _wrap(R.put_txt)), citation=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'citation').count('MEM.guard('),
+                 closing=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'closing').count('_guard('), suite=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'checks').count('_membrane('),
                  independence=rd(os.path.join(T, '⟪ACT⟫_independence.py')).count('_membrane('), standing=rd(os.path.join(T, '⟪ACT⟫_standing.py')).count('_membrane('),
                  tests=rd(os.path.join(T, '⟪ACT⟫_tests.py')).count('_membrane('), carry=rd(os.path.join(T, '⟪ACT⟫_carry.py')).count('_membrane('))
     notes += ['(ii) the guard wired in the writers (calls in the text, the definition counted): %s' % wired]
     case('ii', 'every ⟪ACT⟫ writer calls the guard (the record`s shared writers rebound; the citation`s, the closing`s, the suite`s, independence`s, '
                'standing`s, the tests` and the carry`s calls present)', all(wired.values()), True)
     st0, ds0 = _status(), _data_state()
-    rc1, o1 = _run(os.path.join(T, '⟪ACT⟫_record.py'), 'defs', '⟪ACT⟫_checks.py')
-    rc2, o2 = _run(os.path.join(T, '⟪ACT⟫_record.py'), 'names', '⟪ACT⟫_checks')
-    rc3, o3 = _run(os.path.join(T, '⟪ACT⟫_citation.py'), 'replay', 'Root: 1, proceed', K.PREV_SESSION, K.PREV_ANCHOR)
+    rc1, o1 = _run(*__import__('standing.repeat', fromlist=['argv']).argv(T, '⟪ACT⟫', 'record'), 'defs', '⟪ACT⟫_checks.py')
+    rc2, o2 = _run(*__import__('standing.repeat', fromlist=['argv']).argv(T, '⟪ACT⟫', 'record'), 'names', '⟪ACT⟫_checks')
+    rc3, o3 = _run(*__import__('standing.repeat', fromlist=['argv']).argv(T, '⟪ACT⟫', 'citation'), 'replay', 'Root: 1, proceed', K.PREV_SESSION, K.PREV_ANCHOR)
     st1, ds1 = _status(), _data_state()
     changed = sorted(f for f in set(ds0) | set(ds1) if ds0.get(f) != ds1.get(f))
     case('ii', 'three locator and read calls (the record tool`s defs and names routes, the citation tool`s replay) leave the tree unchanged by git '
@@ -3350,7 +3350,7 @@ def facerows(*a):
     print(post_seal_row(True))
     rows = jl('%s_steps.json' % ACT).get('rows') or []
     for r in rows:
-        if r.get('phase') in PRE_SEAL_PHASES and r.get('phase') != 'gate':
+        if r.get('phase') in PRE_SEAL_PHASES and r.get('phase') not in ('gate', 'lock'):   # ### v1.4.0 (iv): the lock commit lands after the face is locked
             print('  %-5s %s  %-12s %s' % (r['repo'], r['commit'][:8], r['phase'], r.get('subject', '')[:90]))
 
 
@@ -3429,9 +3429,9 @@ def guard(*a):
     """data/⟪ACT⟫_guard_dry.txt (.json): the suite's `--guard-dry` run in its own process (it writes nothing), its print banked verbatim; the writes
     by mode read from the suite's own writer_plan; the writer block's `if PRERUN:` line read by number."""
     import ⟪ACT⟫_checks as CH
-    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, '⟪ACT⟫_checks.py'), '--guard-dry'], capture_output=True, text=True, encoding='utf-8',
+    r = subprocess.run([sys.executable, '-X', 'utf8'] + __import__('standing.repeat', fromlist=['argv']).argv(T, '⟪ACT⟫', 'checks') + ['--guard-dry'], capture_output=True, text=True, encoding='utf-8',
                        errors='replace', cwd=ROOT)
-    src = rd(os.path.join(T, '⟪ACT⟫_checks.py')).split(NL)
+    src = __import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'checks').split(NL)
     k = next((i for i, l in enumerate(src) if l.strip() == CH.GUARD_WRITE), None)
     writes = {}
     for mode, args in (('prerun', (True, False, False, False)), ('pre-push', (False, False, False, False)), ('post-push', (False, True, False, True))):
@@ -3455,7 +3455,7 @@ def guard(*a):
 def scorercheck(*a):
     """a print only: the suite's G-SCORER-READS-BANKS reading over this tool's own source, each clause named; writes nothing."""
     import ⟪ACT⟫_checks as CH
-    src = rd(os.path.join(T, '⟪ACT⟫_record.py'))
+    src = __import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'record')
     n = ''.join(CH.strip_prose(CH._fn_src(src, f)) for f in ('_n1', '_n2', '_n3', '_n4'))
     sc = CH.strip_prose(CH._fn_src(src, 'scores'))
     ft = CH.strip_prose(CH._fn_src(src, '_finding_text'))

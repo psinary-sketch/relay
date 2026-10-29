@@ -274,7 +274,7 @@ def refresh_commands(bank='⟪ACT⟫_commands.json'):
     pipe, events :3). Returns the bank's `at` stamp after the refresh, or None where the refresh did not write it."""
     p = os.path.join(ROOT, 'data', bank)
     t0 = time.time()
-    r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(ROOT, 'tools', '⟪ACT⟫_record.py'), 'commands'], capture_output=True,
+    r = subprocess.run([sys.executable, '-X', 'utf8'] + __import__('standing.repeat', fromlist=['argv']).argv(os.path.join(ROOT, 'tools'), '⟪ACT⟫', 'record', iso=True) + ['commands'], capture_output=True,
                        text=True, encoding='utf-8', errors='replace')
     if r.returncode != 0 or not os.path.exists(p) or os.path.getmtime(p) < t0:
         return None

@@ -55,7 +55,7 @@ def main():
     import subprocess
     rec('')
     rec('--- THE DRY-RUN STEP ((R267)(2)): the entry and the trail record through their guards, the face`s needles, the trail`s Defects and Resolved lines ---')
-    dr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', '⟪ACT⟫_record.py'), 'drycheck', REG, 'standin'], capture_output=True,
+    dr = subprocess.run([sys.executable, '-X', 'utf8'] + __import__('standing.repeat', fromlist=['argv']).argv(os.path.join(ROOT, 'tools'), '⟪ACT⟫', 'record') + ['drycheck', REG, 'standin'], capture_output=True,
                         text=True, encoding='utf-8', errors='replace')
     for ln in ((dr.stdout or '') + (dr.stderr or '')).rstrip(chr(10)).split(chr(10)):
         rec('  ' + ln)
@@ -63,7 +63,7 @@ def main():
     rec('  ### ### **THE DRY-RUN STEP : %s** (exit %d)' % ('CLEAN' if dry_clean else 'NOT CLEAN', dr.returncode))
     rec('')
     rec('--- THE CLOSING DRY-RUN STEP (b675 rules row 1): the closing tool run dry, its readings ---')
-    cr = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools', '⟪ACT⟫_closing.py'), 'dry'], capture_output=True,
+    cr = subprocess.run([sys.executable, '-X', 'utf8'] + __import__('standing.repeat', fromlist=['argv']).argv(os.path.join(ROOT, 'tools'), '⟪ACT⟫', 'closing') + ['dry'], capture_output=True,
                         text=True, encoding='utf-8', errors='replace')
     for ln in ((cr.stdout or '') + (cr.stderr or '')).rstrip(chr(10)).split(chr(10)):
         rec('  ' + ln)
