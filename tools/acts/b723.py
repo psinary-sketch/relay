@@ -252,6 +252,12 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 #⟪OVERRIDE checks 1621 1621 REPAIR (plant)⟫
      lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', S['ferry'].replace('the push-b722* branches of relay and PLACE-papers deleted by name', 'the push-b722* branches of relay and PLACE-papers kept by name'))),
 #⟪END⟫
+# ### b723, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b723_regspec.py, a file the fold does not
+# ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
+# ### fold's own route, `fold.py regspec`
+#⟪OVERRIDE record 671 671 REPAIR (regspec)⟫
+    rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
+#⟪END⟫
 # ### b723, Component 7 (the Edit tool): the carried failures' block named b720's challenge tool (as tools/b723_challenge.py, which does not
 # ### exist), its defect (m) and its commits; b723's carried failures are read off the act's own dev runs before this face
 #⟪OVERRIDE checks 2036 2042 REPAIR (carried)⟫
@@ -263,7 +269,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 CARRIED_FAILING = ('G-AXIOM-CLAIM',)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, every one the seat's; (a')-(d') and (f')-(k') the seat's and (e') the navigator's, beyond the single letters this floor reads
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, every one the seat's; (a')-(d') and (f')-(m') the seat's and (e') the navigator's, beyond the single letters this floor reads
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b723_corrigendum.txt', 'data/b723_standing_v130.txt', 'data/b723_fold.txt', 'data/b723_fold_run.txt',
