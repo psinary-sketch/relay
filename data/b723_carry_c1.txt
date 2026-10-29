@@ -1,0 +1,277 @@
+b723 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b722_c1.py -> tools/b723_c1.py (2026-10-29T03:55:42Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b722 -> b723, b721 -> b722, R332 -> R333, R331 -> R332); 349 lines, 108 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b722_tool_repairs.txt AND data/b722_repairdiff_c1.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b722; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b722_c1.py
+  +++ tools/b723_c1.py
+  @@ -2,2 +2,2 @@
+  -"""b722_c1.py -- COMPONENT 1 OF b722, (R332)(1)-(2): b721 AT ITS WEIGHT AND THE CORRIGENDUM FOR b721, WITH THE THREE REPAIRS.
+  -Written whole at b722 by the Write tool, in b721_c1.py's form (b721's tool composed b720's fifteen events and twenty-nine defects).
+  +"""b723_c1.py -- COMPONENT 1 OF b723, (R333)(1)-(2): b722 AT ITS WEIGHT AND THE CORRIGENDUM FOR b722, WITH THE THREE REPAIRS.
+  +Written whole at b723 by the Write tool, in b722_c1.py's form (b722's tool composed b720's fifteen events and twenty-nine defects).
+  @@ -6,6 +6,6 @@
+  -  weight       FINDINGS: b721's weight line after its entry (:11178), every figure read from b721's banks by line, and (R332)(1)'s rule
+  -               (relay data/b722_rules.txt (1)).
+  -  corrigendum  FINDINGS: the corrigendum for b721 from data/b721_events.txt (1)-(15) and data/b721_defects.txt (a)-(z), (a'), each item
+  -               CLAIM or CLOSE and NEW or REPEAT read from its own bracket; the refusals (the bank's ten lines at b721's closing commit and
+  -               b721's line in data/b720_hook_refusals.txt) answered by the letter or event that records each; the three repairs of
+  -               (R332)(2) at tools/standing/ v1.2.2, each with its control on b721's banks (relay data/b722_standing_v122.txt) -- (i) the
+  +  weight       FINDINGS: b722's weight line after its entry (:11178), every figure read from b722's banks by line, and (R333)(1)'s rule
+  +               (relay data/b723_rules.txt (1)).
+  +  corrigendum  FINDINGS: the corrigendum for b722 from data/b722_events.txt (1)-(15) and data/b722_defects.txt (a)-(z), (a'), each item
+  +               CLAIM or CLOSE and NEW or REPEAT read from its own bracket; the refusals (the bank's ten lines at b722's closing commit and
+  +               b722's line in data/b720_hook_refusals.txt) answered by the letter or event that records each; the three repairs of
+  +               (R333)(2) at tools/standing/ v1.2.2, each with its control on b722's banks (relay data/b723_standing_v122.txt) -- (i) the
+  @@ -30,2 +30,2 @@
+  -import b722_record as REC          # noqa: E402  ### the guarded landing (b698's), its screens, git
+  -import b722_worklist as K          # noqa: E402
+  +import b723_record as REC          # noqa: E402  ### the guarded landing (b698's), its screens, git
+  +import b723_worklist as K          # noqa: E402
+  @@ -35,1 +35,1 @@
+  -PREV_CLOSE = '30c0b3c8'            # ### b721's closing commit: the refusal bank read at it (its eleventh and twelfth lines are b722's own, uncommitted)
+  +PREV_CLOSE = '30c0b3c8'            # ### b722's closing commit: the refusal bank read at it (its eleventh and twelfth lines are b723's own, uncommitted)
+  @@ -70,3 +70,3 @@
+  -# ================================================================================ (R332)(1): b721 AT ITS WEIGHT
+  -WEIGHT_HEAD = '*Appended 2026-10-28 by b722 to b721’s entry (:%d), under `(R332)`(1)' % K.B711_ENTRY
+  -HEAD_QUOTED = ('b721 closed: relay 74dc741f, PLACE-papers 2b19414; suite 112 of 116; root c6e2079dbe1c904f…; 1 prompt answered; scores 6 of 8 '
+  +# ================================================================================ (R333)(1): b722 AT ITS WEIGHT
+  +WEIGHT_HEAD = '*Appended 2026-10-28 by b723 to b722’s entry (:%d), under `(R333)`(1)' % K.B711_ENTRY
+  +HEAD_QUOTED = ('b722 closed: relay 74dc741f, PLACE-papers 2b19414; suite 112 of 116; root c6e2079dbe1c904f…; 1 prompt answered; scores 6 of 8 '
+  @@ -79,1 +79,1 @@
+  -    head = rd('b721_closing.txt').split(NL)[0]
+  +    head = rd('b722_closing.txt').split(NL)[0]
+  @@ -81,5 +81,5 @@
+  -        sys.exit('### data/b721_closing.txt :1 IS NOT THE HEAD LINE (R332)(1) QUOTES -- NOTHING COMPOSED')
+  -    if RULE_QUOTED not in ' '.join(rd('b722_ferry.txt').split()):
+  -        sys.exit('### (R332)(1)`S RULE NOT FOUND IN THE FERRY AS QUOTED -- NOTHING COMPOSED')
+  -    _x, l_rule = fl('b722_rules.txt', r'^  \(1\) NOTHING EDITED AFTER THE LOCK GATE; A RESTORE IS AN EDIT\.', 'the rules bank`s row (1)')
+  -    steps = json.load(open(os.path.join(D, 'b721_steps.json'), encoding='utf-8')).get('rows') or []
+  +        sys.exit('### data/b722_closing.txt :1 IS NOT THE HEAD LINE (R333)(1) QUOTES -- NOTHING COMPOSED')
+  +    if RULE_QUOTED not in ' '.join(rd('b723_ferry.txt').split()):
+  +        sys.exit('### (R333)(1)`S RULE NOT FOUND IN THE FERRY AS QUOTED -- NOTHING COMPOSED')
+  +    _x, l_rule = fl('b723_rules.txt', r'^  \(1\) NOTHING EDITED AFTER THE LOCK GATE; A RESTORE IS AN EDIT\.', 'the rules bank`s row (1)')
+  +    steps = json.load(open(os.path.join(D, 'b722_steps.json'), encoding='utf-8')).get('rows') or []
+  @@ -89,11 +89,11 @@
+  -        sys.exit('### data/b721_steps.json: record %s, closing %s -- NOTHING COMPOSED' % (rec, clo))
+  -    _x, l_out = fl('b721_registrations.txt', r'^THE OUTPUT: NONE\. Every one of the eighteen walked fields has a table value of -2 or -1/2', 'the rule`s output')
+  -    _x, l_pc = fl('b721_registrations.txt', r'^THE POSITIVE CONTROL: the same walk with only -2 excluded takes -24 \(n0 36\) and -88 \(n0 484\)', 'the positive control')
+  -    _x, l_wk = fl('b721_registrations.txt', r'^  H-C2-WALK \(the table`s\)|^  H-C2-WALK \(the table\'s\)', 'H-C2-WALK')
+  -    _x, l_31 = fl('b721_registrations.txt', r'^  H-C3-31 \(D = -31;', 'H-C3-31')
+  -    _x, l_55 = fl('b721_registrations.txt', r'^  H-C4-55 \(D = -55;', 'H-C4-55')
+  -    _x, l_de = fl('b721_derivation.txt', r'CHECKS \(1\) \(2\) \(4\): ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE', 'the table`s grade')
+  -    _x, l_or = fl('b721_offset_read.txt', r'POST HOC 17: HELD 3, REFUTED 14, NOT SCORABLE 0 ; H-OFFSET REFUTED \(POST HOC\)', 'the offset read')
+  -    _x, l_ot = fl('b721_offset_tier.txt', r'THE RULE`S OUTPUT: 53 CHOSEN BY r\(rho\) <= 0\.05 ; delta_pred FORMED AT 0', 'the offset tier')
+  -    _x, l_su = fl('b721_surgery_carry.txt', r'THE SURGERY CARRIED, NOT STARTED', 'the surgery')
+  -    _x, l_fz = fl('b721_frozen_line.txt', r'SIDE-archimedean EXCEEDS 7, STATED 2 ; SIDE-frobenius EXCEEDS 0, STATED 8 ; SIDE-spinor EXCEEDS 7, STATED 3 ; '
+  +        sys.exit('### data/b722_steps.json: record %s, closing %s -- NOTHING COMPOSED' % (rec, clo))
+  +    _x, l_out = fl('b722_registrations.txt', r'^THE OUTPUT: NONE\. Every one of the eighteen walked fields has a table value of -2 or -1/2', 'the rule`s output')
+  +    _x, l_pc = fl('b722_registrations.txt', r'^THE POSITIVE CONTROL: the same walk with only -2 excluded takes -24 \(n0 36\) and -88 \(n0 484\)', 'the positive control')
+  +    _x, l_wk = fl('b722_registrations.txt', r'^  H-C2-WALK \(the table`s\)|^  H-C2-WALK \(the table\'s\)', 'H-C2-WALK')
+  +    _x, l_31 = fl('b722_registrations.txt', r'^  H-C3-31 \(D = -31;', 'H-C3-31')
+  +    _x, l_55 = fl('b722_registrations.txt', r'^  H-C4-55 \(D = -55;', 'H-C4-55')
+  +    _x, l_de = fl('b722_derivation.txt', r'CHECKS \(1\) \(2\) \(4\): ALL AS WANTED ; PLANTS: ALL FAIL AS WANTED ; THE GRADE', 'the table`s grade')
+  +    _x, l_or = fl('b722_offset_read.txt', r'POST HOC 17: HELD 3, REFUTED 14, NOT SCORABLE 0 ; H-OFFSET REFUTED \(POST HOC\)', 'the offset read')
+  +    _x, l_ot = fl('b722_offset_tier.txt', r'THE RULE`S OUTPUT: 53 CHOSEN BY r\(rho\) <= 0\.05 ; delta_pred FORMED AT 0', 'the offset tier')
+  +    _x, l_su = fl('b722_surgery_carry.txt', r'THE SURGERY CARRIED, NOT STARTED', 'the surgery')
+  +    _x, l_fz = fl('b722_frozen_line.txt', r'SIDE-archimedean EXCEEDS 7, STATED 2 ; SIDE-frobenius EXCEEDS 0, STATED 8 ; SIDE-spinor EXCEEDS 7, STATED 3 ; '
+  @@ -101,3 +101,3 @@
+  -    _x, l_rb = fl('b721_rebuild.txt', r'6 OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS \(ONE WITH A SORRY: SIDE-lv-conservation\)', 'the rebuild')
+  -    _x, l_ax = fl('b721_rebuild.txt', r"T3_perClass_to_combinations' depends on axioms: \[propext, sorryAx", 'the sorry`s print')
+  -    (cn, cl, cr), l_cg = fl('b721_corrigendum.txt', r'ITEMS (\d+): EVENTS 15, DEFECTS 29 ; CLAIM (\d+), CLOSE (\d+) ;', 'the corrigendum')
+  +    _x, l_rb = fl('b722_rebuild.txt', r'6 OF 6 WAVE 1 KERNELS BUILD AT THEIR OWN PINS \(ONE WITH A SORRY: SIDE-lv-conservation\)', 'the rebuild')
+  +    _x, l_ax = fl('b722_rebuild.txt', r"T3_perClass_to_combinations' depends on axioms: \[propext, sorryAx", 'the sorry`s print')
+  +    (cn, cl, cr), l_cg = fl('b722_corrigendum.txt', r'ITEMS (\d+): EVENTS 15, DEFECTS 29 ; CLAIM (\d+), CLOSE (\d+) ;', 'the corrigendum')
+  @@ -105,6 +105,6 @@
+  -    pre, l_pre = fl('b721_closing.txt', suite % 'pre-push', 'the pre-push suite')
+  -    post, l_post = fl('b721_closing.txt', suite % 'post-push', 'the post-push suite')
+  -    (ca, cb), l_cl = fl('b721_closing.txt', r'^\s*pre-push, \(R331\)\(2\) : THE CLAIM ARMS PASSING (\d+) OF (\d+) \(failing ', 'the claim arms')
+  -    (cc, cd), l_cn = fl('b721_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+)$', 'the counter')
+  -    (nbk,), l_bk = fl('b721_closing.txt', r'^### THE ROOT`S BANKS .*: BANKS (\d+) ; CLEAN AND EQUAL AT HEAD \1 ; HEAD THE REMOTE MAIN True', 'the root`s banks')
+  -    (msha,), l_mi = fl('b721_closing.txt', r'^### THE MIRROR .*mirror-refresh-2026-10-28-b721\.zip ; \d+ bytes ; sha256 ([0-9a-f]{16}) ; .*Act root: b721 '
+  +    pre, l_pre = fl('b722_closing.txt', suite % 'pre-push', 'the pre-push suite')
+  +    post, l_post = fl('b722_closing.txt', suite % 'post-push', 'the post-push suite')
+  +    (ca, cb), l_cl = fl('b722_closing.txt', r'^\s*pre-push, \(R332\)\(2\) : THE CLAIM ARMS PASSING (\d+) OF (\d+) \(failing ', 'the claim arms')
+  +    (cc, cd), l_cn = fl('b722_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+)$', 'the counter')
+  +    (nbk,), l_bk = fl('b722_closing.txt', r'^### THE ROOT`S BANKS .*: BANKS (\d+) ; CLEAN AND EQUAL AT HEAD \1 ; HEAD THE REMOTE MAIN True', 'the root`s banks')
+  +    (msha,), l_mi = fl('b722_closing.txt', r'^### THE MIRROR .*mirror-refresh-2026-10-28-b722\.zip ; \d+ bytes ; sha256 ([0-9a-f]{16}) ; .*Act root: b722 '
+  @@ -112,4 +112,4 @@
+  -    _x, l_sc = fl('b721_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) REFUTED \(N5\) REFUTED ; \(S1\) HELD \(S2\) HELD \(S3\) HELD$', 'the scores')
+  -    _x, l_e9 = fl('b721_events.txt', r'^    \(9\) THE SEAT\'S \[CLOSE ; NEW\]: 18:45Z, AT THE SCORES', 'event (9)')
+  -    _x, l_dh = fl('b721_defects.txt', r'^    \(h\) THE SEAT\'S \[CLOSE ; NEW\]: Component 2, the used-set reader', 'defect (h)')
+  -    ar = json.load(open(os.path.join(D, 'b721_act_root.json'), encoding='utf-8'))
+  +    _x, l_sc = fl('b722_closing.txt', r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) REFUTED \(N5\) REFUTED ; \(S1\) HELD \(S2\) HELD \(S3\) HELD$', 'the scores')
+  +    _x, l_e9 = fl('b722_events.txt', r'^    \(9\) THE SEAT\'S \[CLOSE ; NEW\]: 18:45Z, AT THE SCORES', 'event (9)')
+  +    _x, l_dh = fl('b722_defects.txt', r'^    \(h\) THE SEAT\'S \[CLOSE ; NEW\]: Component 2, the used-set reader', 'defect (h)')
+  +    ar = json.load(open(os.path.join(D, 'b722_act_root.json'), encoding='utf-8'))
+  @@ -117,1 +117,1 @@
+  -        sys.exit('### data/b721_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
+  +        sys.exit('### data/b722_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
+  @@ -122,4 +122,4 @@
+  -    return (WEIGHT_HEAD + ' -- b721 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b721_closing.txt):* “%s” (data/b721_closing.txt :1); its '
+  -            'relay commit the record’s %s, the closing’s %s (data/b721_steps.json, the record and closing rows). As the banks confirm by '
+  -            'row: the corrigendum for b720 at %s items, CLAIM %s, CLOSE %s (data/b721_corrigendum.txt :%d); the C2 rule’s output NONE, every '
+  -            'one of the eighteen fields of class number 2 at a table value of -2 or -1/2 (data/b721_registrations.txt :%d), its positive '
+  +    return (WEIGHT_HEAD + ' -- b722 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b722_closing.txt):* “%s” (data/b722_closing.txt :1); its '
+  +            'relay commit the record’s %s, the closing’s %s (data/b722_steps.json, the record and closing rows). As the banks confirm by '
+  +            'row: the corrigendum for b720 at %s items, CLAIM %s, CLOSE %s (data/b722_corrigendum.txt :%d); the C2 rule’s output NONE, every '
+  +            'one of the eighteen fields of class number 2 at a table value of -2 or -1/2 (data/b722_registrations.txt :%d), its positive '
+  @@ -128,6 +128,6 @@
+  -            'checked by two routes, not compiled (data/b721_derivation.txt :%d); H-OFFSET on its seventeen post hoc rows HELD 3, REFUTED 14 '
+  -            '(data/b721_offset_read.txt :%d); the next tier 53 chosen, none formed (data/b721_offset_tier.txt :%d); the surgery carried '
+  -            '(data/b721_surgery_carry.txt :%d); the frozen line EXCEEDS 7, 0, 7 and 9, STATED 2, 8, 3 and 1 at SIDE-archimedean, '
+  -            'SIDE-frobenius, SIDE-spinor and SIDE-rcurve (data/b721_frozen_line.txt :%d); 6 of 6 wave 1 kernels building at their own pins, '
+  -            'SIDE-lv-conservation v0.10.0 with one sorry in T3_perClass_to_combinations (data/b721_rebuild.txt :%d, :%d), the axiom prints '
+  -            'read at 1 of 6; the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both, the claim arms %s of %s (data/b721_closing.txt '
+  +            'checked by two routes, not compiled (data/b722_derivation.txt :%d); H-OFFSET on its seventeen post hoc rows HELD 3, REFUTED 14 '
+  +            '(data/b722_offset_read.txt :%d); the next tier 53 chosen, none formed (data/b722_offset_tier.txt :%d); the surgery carried '
+  +            '(data/b722_surgery_carry.txt :%d); the frozen line EXCEEDS 7, 0, 7 and 9, STATED 2, 8, 3 and 1 at SIDE-archimedean, '
+  +            'SIDE-frobenius, SIDE-spinor and SIDE-rcurve (data/b722_frozen_line.txt :%d); 6 of 6 wave 1 kernels building at their own pins, '
+  +            'SIDE-lv-conservation v0.10.0 with one sorry in T3_perClass_to_combinations (data/b722_rebuild.txt :%d, :%d), the axiom prints '
+  +            'read at 1 of 6; the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both, the claim arms %s of %s (data/b722_closing.txt '
+  @@ -135,6 +135,6 @@
+  -            '(data/b721_events.txt :%d), a restore after the lock gate leaving the hash bank on the edited bytes, N5 as declared; the root %s '
+  -            'over %s banks chained from %s (data/b721_act_root.json; :%d); the mirror (sha256 %s…) CLEAN on all three clauses with the root '
+  -            'line (:%d); %d events in data/b721_events.txt, rows (1)-(%d); %d defects (a)–(z), (a’), CLAIM (d), (g), (i), (k), (u) '
+  -            '(data/b721_defects.txt); defect (h), the USED reader’s needles missing -15, -23 and -39 (data/b721_defects.txt :%d), repaired at '
+  -            '`(R332)`(2)(ii) below. Nothing deposited, nothing published. **The rule from this act ((R332)(1)):** “%s” (relay '
+  -            'data/b722_rules.txt :%d, row (1), with its reading).' % (
+  +            '(data/b722_events.txt :%d), a restore after the lock gate leaving the hash bank on the edited bytes, N5 as declared; the root %s '
+  +            'over %s banks chained from %s (data/b722_act_root.json; :%d); the mirror (sha256 %s…) CLEAN on all three clauses with the root '
+  +            'line (:%d); %d events in data/b722_events.txt, rows (1)-(%d); %d defects (a)–(z), (a’), CLAIM (d), (g), (i), (k), (u) '
+  +            '(data/b722_defects.txt); defect (h), the USED reader’s needles missing -15, -23 and -39 (data/b722_defects.txt :%d), repaired at '
+  +            '`(R333)`(2)(ii) below. Nothing deposited, nothing published. **The rule from this act ((R333)(1)):** “%s” (relay '
+  +            'data/b723_rules.txt :%d, row (1), with its reading).' % (
+  @@ -146,1 +146,1 @@
+  -# ================================================================================ (R332)(2): THE CORRIGENDUM FOR b721
+  +# ================================================================================ (R333)(2): THE CORRIGENDUM FOR b722
+  @@ -150,1 +150,1 @@
+  -    for l in rd('b721_events.txt').split(NL):
+  +    for l in rd('b722_events.txt').split(NL):
+  @@ -166,1 +166,1 @@
+  -    """(letter, owner, tag, column) for each row of data/b721_defects.txt opening four spaces."""
+  +    """(letter, owner, tag, column) for each row of data/b722_defects.txt opening four spaces."""
+  @@ -168,1 +168,1 @@
+  -    for m in re.finditer(r"(?m)^    \(([a-z]'?)\) (.*)$", rd('b721_defects.txt')):
+  +    for m in re.finditer(r"(?m)^    \(([a-z]'?)\) (.*)$", rd('b722_defects.txt')):
+  @@ -176,1 +176,1 @@
+  -# ### the events' needles ((R332)(2) names (1)-(15))
+  +# ### the events' needles ((R333)(2) names (1)-(15))
+  @@ -183,1 +183,1 @@
+  -# ### the refusals (data/b721_hook_refusals.txt at b721's closing commit, one a line) and the row recording each: (line, kind, the row, a needle)
+  +# ### the refusals (data/b722_hook_refusals.txt at b722's closing commit, one a line) and the row recording each: (line, kind, the row, a needle)
+  @@ -189,1 +189,1 @@
+  -PREV_BANK_LINE = (13, 'PIPE', 'defect (a)', 'data/b720_hook_refusals.txt')   # ### b721's own refusal, in b720's bank (act_current naming b720)
+  +PREV_BANK_LINE = (13, 'PIPE', 'defect (a)', 'data/b720_hook_refusals.txt')   # ### b722's own refusal, in b720's bank (act_current naming b720)
+  @@ -191,1 +191,1 @@
+  -CORR_TITLE = ('## Corrigendum to b721’s record (relay data/b721_events.txt rows (1)-(15) and data/b721_defects.txt): fifteen events and '
+  +CORR_TITLE = ('## Corrigendum to b722’s record (relay data/b722_events.txt rows (1)-(15) and data/b722_defects.txt): fifteen events and '
+  @@ -193,1 +193,1 @@
+  -              'b721’s banks, under (R332)(2)')
+  +              'b722’s banks, under (R333)(2)')
+  @@ -195,1 +195,1 @@
+  -V122 = 'b722_standing_v122.txt'
+  +V122 = 'b723_standing_v122.txt'
+  @@ -222,1 +222,1 @@
+  -    rl = git('show', '%s:data/b721_hook_refusals.txt' % PREV_CLOSE).replace(chr(13), '').strip(NL).split(NL)
+  +    rl = git('show', '%s:data/b722_hook_refusals.txt' % PREV_CLOSE).replace(chr(13), '').strip(NL).split(NL)
+  @@ -224,1 +224,1 @@
+  -    dtext = dict((m.group(1), m.group(2)) for m in re.finditer(r"(?m)^    \(([a-z]'?)\) (.*)$", rd('b721_defects.txt')))
+  +    dtext = dict((m.group(1), m.group(2)) for m in re.finditer(r"(?m)^    \(([a-z]'?)\) (.*)$", rd('b722_defects.txt')))
+  @@ -234,1 +234,1 @@
+  -    # ### b721's own refusal in b720's bank: its line in the working file (uncommitted, as b721's defect (a) says), read beside the bank at HEAD
+  +    # ### b722's own refusal in b720's bank: its line in the working file (uncommitted, as b722's defect (a) says), read beside the bank at HEAD
+  @@ -241,1 +241,1 @@
+  -                          ('b721`s line in b720`s bank, answered by defect (a)', pb_ok),
+  +                          ('b722`s line in b720`s bank, answered by defect (a)', pb_ok),
+  @@ -259,1 +259,1 @@
+  -    L = ['*b721’s events bank (relay data/b721_events.txt) carries fifteen rows, entered after its lock and seal and not lettered, each tagged '
+  +    L = ['*b722’s events bank (relay data/b722_events.txt) carries fifteen rows, entered after its lock and seal and not lettered, each tagged '
+  @@ -261,2 +261,2 @@
+  -         'the seat’s but (d) and (e), the navigator’s, each tagged in its own bracket; its refusal bank ten lines at b721’s closing commit %s, '
+  -         'and b721’s first refusal a line of b720’s bank, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a '
+  +         'the seat’s but (d) and (e), the navigator’s, each tagged in its own bracket; its refusal bank ten lines at b722’s closing commit %s, '
+  +         'and b722’s first refusal a line of b720’s bank, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a '
+  @@ -266,1 +266,1 @@
+  -         '**The three repairs (`(R332)`(2)), at tools/standing/ v1.2.2, each controlled on b721’s banks with both instances shown** (relay '
+  +         '**The three repairs (`(R333)`(2)), at tools/standing/ v1.2.2, each controlled on b722’s banks with both instances shown** (relay '
+  @@ -271,1 +271,1 @@
+  -         'at its hash. On b721’s seal read at its closing commit 30c0b3c8 the old reading fails on the list alone (33 against 36) and the '
+  +         'at its hash. On b722’s seal read at its closing commit 30c0b3c8 the old reading fails on the list alone (33 against 36) and the '
+  @@ -274,2 +274,2 @@
+  -         'coefficient bank in every wording b711-b721’s banks carry -- the head’s “AT -15”, “D = -20”, “n0(-35)”, a principal form written '
+  -         'out (“x^2 + xy + 10y^2”), a principal form as a triple (“(1, 1, 6)”), and the programme’s named form Q0 -- where b721’s reader '
+  +         'coefficient bank in every wording b711-b722’s banks carry -- the head’s “AT -15”, “D = -20”, “n0(-35)”, a principal form written '
+  +         'out (“x^2 + xy + 10y^2”), a principal form as a triple (“(1, 1, 6)”), and the programme’s named form Q0 -- where b722’s reader '
+  @@ -278,1 +278,1 @@
+  -         '**(iii) The readfirst closure reader retired** (relay data/%s :%d): from b722 data/bNNN_readfirst_closure.txt is not written and '
+  +         '**(iii) The readfirst closure reader retired** (relay data/%s :%d): from b723 data/bNNN_readfirst_closure.txt is not written and '
+  @@ -280,2 +280,2 @@
+  -         'the hand list present and unchanged since its first commit, and no closure bank. b721 (its closure written) fails the new reading '
+  -         'and b722 at step zero passes; a planted closure bank beside b722’s hand list fails it; no tool of the standing set or the act calls '
+  +         'the hand list present and unchanged since its first commit, and no closure bank. b722 (its closure written) fails the new reading '
+  +         'and b723 at step zero passes; a planted closure bank beside b723’s hand list fails it; no tool of the standing set or the act calls '
+  @@ -283,1 +283,1 @@
+  -         '**b721’s events (1)-(15):**', '']
+  +         '**b722’s events (1)-(15):**', '']
+  @@ -286,1 +286,1 @@
+  -        extra = {3: '; the restore an edit from b722, (R332)(1)', 9: '; ruled at (R332)(1), the rule of relay data/b722_rules.txt (1)',
+  +        extra = {3: '; the restore an edit from b723, (R333)(1)', 9: '; ruled at (R333)(1), the rule of relay data/b723_rules.txt (1)',
+  @@ -288,2 +288,2 @@
+  -        L += ['**(%d) %s** (relay data/b721_events.txt, row (%d); %s; %s; %s%s).' % (k, h.replace("'", '’'), k, o.lower().replace("'s", '’s'), t, _col(r), extra)]
+  -    L += ['', '**b721’s defects:**', '']
+  +        L += ['**(%d) %s** (relay data/b722_events.txt, row (%d); %s; %s; %s%s).' % (k, h.replace("'", '’'), k, o.lower().replace("'s", '’s'), t, _col(r), extra)]
+  +    L += ['', '**b722’s defects:**', '']
+  @@ -291,3 +291,3 @@
+  -        extra = {'h': '; ruled at (R332)(1), repair (ii)', 'u': '; G-AXIOM-CLAIM failing to the close, declared'}.get(x, '')
+  -        L += ['**(%s)** (relay data/b721_defects.txt; %s; %s; %s%s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _col(c), extra)]
+  -    L += ['', '**b721’s refusals** (relay data/b721_hook_refusals.txt at %s, one a line): ' % PREV_CLOSE + '; '.join(
+  +        extra = {'h': '; ruled at (R333)(1), repair (ii)', 'u': '; G-AXIOM-CLAIM failing to the close, declared'}.get(x, '')
+  +        L += ['**(%s)** (relay data/b722_defects.txt; %s; %s; %s%s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _col(c), extra)]
+  +    L += ['', '**b722’s refusals** (relay data/b722_hook_refusals.txt at %s, one a line): ' % PREV_CLOSE + '; '.join(
+  @@ -295,2 +295,2 @@
+  -          + '; and b721’s first, relay data/b720_hook_refusals.txt :%d %s, recorded at %s.' % PREV_BANK_LINE[:3], '',
+  -          '**The counter:** CLAIM %d, CLOSE %d over the %d items of `(R332)`(2) (fifteen events, twenty-seven defects); REPEAT %d of %d; the '
+  +          + '; and b722’s first, relay data/b720_hook_refusals.txt :%d %s, recorded at %s.' % PREV_BANK_LINE[:3], '',
+  +          '**The counter:** CLAIM %d, CLOSE %d over the %d items of `(R333)`(2) (fifteen events, twenty-seven defects); REPEAT %d of %d; the '
+  @@ -298,4 +298,4 @@
+  -          '*Filed at b722 on the author’s ruling `(R332)`(2): generated by relay `tools/b722_c1.py` corrigendum, written whole at b722, from '
+  -          'b721’s events, defects and refusal banks read unedited and the v1.2.2 controls bank; banked as relay `data/b722_corrigendum.txt`, '
+  -          'the corrigenda bank `data/b675_corrigenda.txt` appended at row (42). It answers b721’s record; no sealed tool, face, trail or '
+  -          'root-named bank of b721 is edited.*']
+  +          '*Filed at b723 on the author’s ruling `(R333)`(2): generated by relay `tools/b723_c1.py` corrigendum, written whole at b723, from '
+  +          'b722’s events, defects and refusal banks read unedited and the v1.2.2 controls bank; banked as relay `data/b723_corrigendum.txt`, '
+  +          'the corrigenda bank `data/b675_corrigenda.txt` appended at row (42). It answers b722’s record; no sealed tool, face, trail or '
+  +          'root-named bank of b722 is edited.*']
+  @@ -307,3 +307,3 @@
+  -    return (['b722 -- THE CORRIGENDUM FOR b721, (R332)(2) (%s)' % R.utc(), '',
+  -             '### the banks read unedited: data/b721_events.txt rows (1)-(15), data/b721_defects.txt 27 rows, data/b721_hook_refusals.txt 10 '
+  -             'lines at %s and b721`s line of data/b720_hook_refusals.txt; data/%s (the v1.2.2 controls); the corrigenda bank`s last row (%d).' % (
+  +    return (['b723 -- THE CORRIGENDUM FOR b722, (R333)(2) (%s)' % R.utc(), '',
+  +             '### the banks read unedited: data/b722_events.txt rows (1)-(15), data/b722_defects.txt 27 rows, data/b722_hook_refusals.txt 10 '
+  +             'lines at %s and b722`s line of data/b720_hook_refusals.txt; data/%s (the v1.2.2 controls); the corrigenda bank`s last row (%d).' % (
+  @@ -322,1 +322,1 @@
+  -        REC.land([('FINDINGS.md', WEIGHT_HEAD, NL + text + NL)], 'b722_record_lines.json', 'c1', entry=K.B711_ENTRY,
+  +        REC.land([('FINDINGS.md', WEIGHT_HEAD, NL + text + NL)], 'b723_record_lines.json', 'c1', entry=K.B711_ENTRY,
+  @@ -324,1 +324,1 @@
+  -                        ('OPEN_TRAILS.md', K.B711_TRAIL, '### b721 — lane two, act one hundred and forty-eight, the table act')], dry=dry)
+  +                        ('OPEN_TRAILS.md', K.B711_TRAIL, '### b722 — lane two, act one hundred and forty-eight, the table act')], dry=dry)
+  @@ -330,1 +330,1 @@
+  -            REC.land([('FINDINGS.md', CORR_TITLE, text)], 'b722_corrigendum_landing.json', 'corrigendum', entry=None, dry=True)
+  +            REC.land([('FINDINGS.md', CORR_TITLE, text)], 'b723_corrigendum_landing.json', 'corrigendum', entry=None, dry=True)
+  @@ -333,1 +333,1 @@
+  -        REC.land([('FINDINGS.md', CORR_TITLE, text)], 'b722_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  +        REC.land([('FINDINGS.md', CORR_TITLE, text)], 'b723_corrigendum_landing.json', 'corrigendum', entry=None, dry=False)
+  @@ -336,2 +336,2 @@
+  -        _bank('b722_corrigendum.txt', corr_bank_rows(s, ln))
+  -        bank_json('b722_corrigendum.json', dict(at=R.utc(), entry_line=ln, title=CORR_TITLE, claim=nc, close=nl, repeat=rep, items=n,
+  +        _bank('b723_corrigendum.txt', corr_bank_rows(s, ln))
+  +        bank_json('b723_corrigendum.json', dict(at=R.utc(), entry_line=ln, title=CORR_TITLE, claim=nc, close=nl, repeat=rep, items=n,
+  @@ -344,1 +344,1 @@
+  -    sys.exit('usage: b722_c1.py weight | corrigendum  [dry | write]')
+  +    sys.exit('usage: b723_c1.py weight | corrigendum  [dry | write]')
+
+### ### **CARRIED tools/b723_c1.py ; LINES 349 ; CHANGED BY THE SUBSTITUTION 108 ; REPAIR SPANS AT b722 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

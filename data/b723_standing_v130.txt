@@ -1,0 +1,51 @@
+b723 -- THE CONTROLS OF tools/standing/ v1.3.0, (R333)(2), ON b722`S BANKS (2026-10-29T04:10:53Z)
+
+## (ii) THE PIPE-FREE READER, tools/standing/peek.py: the hook refusals of b720-b722 re-run through it, the hook unchanged
+  (ii) b720_hook_refusals.txt :1  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (6 args): ALLOWED, exit 0, 1 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :2  COVERED          the logged PowerShell call judged ALLOWED (logged PIPE) -- TRUNCATED: the hook`s 300-character cut fell before the refused character ; peek head (4 args): ALLOWED, exit 0, 7 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :3  COVERED          the logged Bash call judged REDIR (logged REDIR) ; peek search (6 args): ALLOWED, exit 0, 42 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :4  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek head (5 args): ALLOWED, exit 0, 13 lines; peek head (5 args): ALLOWED, exit 0, 4 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :5  NOT A READ       the logged Bash call judged REDIR (logged REDIR) ; no peek call -- AS WANTED
+       an edit of tools/b720_record.py by a heredoc: the Edit tool
+  (ii) b720_hook_refusals.txt :6  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek list (3 args): ALLOWED, exit 0, 16 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :7  NOT A READ       the logged Bash call judged REDIR (logged REDIR) ; no peek call -- AS WANTED
+       a tool`s dry run with its output discarded: the tool run plainly, its output read
+  (ii) b720_hook_refusals.txt :8  COVERED          the logged PowerShell call judged PIPE (logged PIPE) ; peek search (2 args): ALLOWED, exit 0, 1 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :9  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek head (3 args): ALLOWED, exit 0, 41 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :10 COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek count (4 args): ALLOWED, exit 0, 2 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :11 COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 7 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :12 COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 25 lines -- AS WANTED
+  (ii) b720_hook_refusals.txt :13 COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek head (5 args): ALLOWED, exit 0, 46 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :1  COVERED          the logged PowerShell call judged PIPE (logged PIPE) ; peek count (1 args): ALLOWED, exit 0, 1 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :2  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (8 args): ALLOWED, exit 0, 48 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :3  COVERED          the logged Bash call judged ENV (logged ENV) ; peek search (3 args): ALLOWED, exit 0, 2 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :4  NOT A READ       the logged Bash call judged REDIR (logged REDIR) ; no peek call -- AS WANTED
+       a tool`s bank run captured to a scratch file: the tool`s own bank route, its bank read by peek tail
+  (ii) b721_hook_refusals.txt :5  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (4 args): ALLOWED, exit 0, 21 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :6  COVERED IN PART  the logged Bash call judged PIPE (logged PIPE) ; peek search (4 args): ALLOWED, exit 0, 21 lines; peek search (4 args): ALLOWED, exit 0, 186 lines -- AS WANTED
+       the tally by name (`sort | uniq -c`) is not a peek verb: a scratch reader
+  (ii) b721_hook_refusals.txt :7  COVERED IN PART  the logged Bash call judged REDIR (logged REDIR) ; peek list (3 args): ALLOWED, exit 0, 1 lines -- AS WANTED
+       the inline `python -c` read of data/arm_tags.json: a scratch reader
+  (ii) b721_hook_refusals.txt :8  COVERED          the logged PowerShell call judged PIPE (logged PIPE) ; peek search (4 args): ALLOWED, exit 0, 4 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :9  COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 187 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :10 COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 17 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :11 COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek list (5 args): ALLOWED, exit 0, 80 lines; peek head (3 args): ALLOWED, exit 0, 23 lines -- AS WANTED
+  (ii) b721_hook_refusals.txt :12 COVERED          the logged Bash call judged REDIR (logged REDIR) ; peek list (1 args): ALLOWED, exit 0, 28 lines; peek head (2 args): ALLOWED, exit 0, 1 lines; peek list (1 args): ALLOWED, exit 0, 1 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :1  COVERED          the logged PowerShell call judged PIPE (logged PIPE) ; peek count (2 args): ALLOWED, exit 0, 3 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :2  NOT A READ       the logged Bash call judged REDIR (logged REDIR) ; no peek call -- AS WANTED
+       a tool`s dry run captured to a scratch file, then an inline `python -c`: the tool`s own bank route
+  (ii) b722_hook_refusals.txt :3  COVERED          the logged Bash call judged REDIR (logged REDIR) ; peek list (1 args): ALLOWED, exit 0, 1 lines; peek list (1 args): ALLOWED, exit 0, 28 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :4  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (8 args): ALLOWED, exit 0, 0 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :5  COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 160 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :6  COVERED          the logged Read call judged READ (logged READ) ; peek head (2 args): ALLOWED, exit 0, 27 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :7  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (7 args): ALLOWED, exit 0, 4 lines; peek list (3 args): ALLOWED, exit 0, 205 lines; peek search (2 args): ALLOWED, exit 0, 2 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :8  COVERED          the logged Bash call judged PIPE (logged PIPE) ; peek search (4 args): ALLOWED, exit 0, 6 lines -- AS WANTED
+  (ii) b722_hook_refusals.txt :9  COVERED IN PART  the logged Bash call judged REDIR (logged REDIR) ; peek search (7 args): ALLOWED, exit 0, 41 lines; peek head (3 args): ALLOWED, exit 0, 37 lines -- AS WANTED
+       the read by byte offset (`body[229845:241338]`) is not a peek verb: peek reads by line (--lines)
+  (ii) b722_hook_refusals.txt :10 COVERED          the logged Bash call judged ENV (logged ENV) ; peek search (6 args): ALLOWED, exit 0, 1 lines; peek search (6 args): ALLOWED, exit 0, 1 lines; peek search (6 args): ALLOWED, exit 0, 2 lines -- AS WANTED
+  (ii) PLANTED: a peek line with a pipe appended, judged PIPE -- AS WANTED
+  (ii) PLANTED: a peek read of a path that does not exist, printing ABSENT -- AS WANTED
+  (ii) the hook unchanged: tools/standing/hook.py sha256 94133594f8ed8e7d before, 94133594f8ed8e7d after, its blob at HEAD 94133594f8ed8e7d -- AS WANTED
+  (ii) LINES 35 (b720 13, b721 12, b722 10) ; COVERED 28, COVERED IN PART 3, NOT A READ 4 ; CASES AS WANTED 36 OF 36
+
+### ### **v1.3.0: CONTROLS (ii) ; CASES 36 ; AS WANTED 36 ; ALL AS WANTED.**
