@@ -1,0 +1,229 @@
+[
+ {
+  "kind": "commit",
+  "kernel": "SIDE-archimedean",
+  "sha": "610cbdf91f0a7364d7b478fdff529d91a29922e4",
+  "parent": "8019d9dfee87f761f93493513365130fbafdaa17",
+  "blob": "082948f0c5db41f5021c927827e251709c8bc905",
+  "at": "2026-10-29T13:25:01Z"
+ },
+ {
+  "kind": "commit",
+  "kernel": "SIDE-rcurve",
+  "sha": "f3a5ae5486cdd687c2be9b121a4544618037f242",
+  "parent": "d5f33b44ef7b2e70eda8d10789997e0a10985de8",
+  "blob": "4d98ea2463adb91e2d8eb4b4e67d291553c9e5b9",
+  "at": "2026-10-29T13:25:06Z"
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-archimedean",
+  "sha": "610cbdf91f0a7364d7b478fdff529d91a29922e4",
+  "at": "2026-10-29T13:25:16Z",
+  "free_mb": 3077,
+  "remote_equal": true
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-rcurve",
+  "sha": "f3a5ae5486cdd687c2be9b121a4544618037f242",
+  "at": "2026-10-29T13:25:23Z",
+  "free_mb": 2997,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-archimedean",
+  "sha": "610cbdf91f0a7364d7b478fdff529d91a29922e4",
+  "target": "SIDEArchimedean",
+  "at": "2026-10-29T13:25:30Z",
+  "run": 40881801296,
+  "free_mb": 3057
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-rcurve",
+  "sha": "f3a5ae5486cdd687c2be9b121a4544618037f242",
+  "target": "SIDERCurve",
+  "at": "2026-10-29T13:25:42Z",
+  "run": 40881833590,
+  "free_mb": 2984
+ },
+ {
+  "kind": "lv",
+  "kernel": "SIDE-lv-conservation",
+  "pin": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+  "decls": [
+   {
+    "path": "SIDELvConservation/T3_StepNineBridge.lean",
+    "line": 92,
+    "statement": [
+     "theorem T3_perClass_to_combinations",
+     "    (𝒞 : Set Coupling) (s : ℂ)",
+     "    (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :",
+     "    CombinationsExclude 𝒞 s := by"
+    ],
+    "sorry_lines": [
+     108
+    ],
+    "proof_end": 120
+   }
+  ],
+  "all_sorry": [
+   "PinnedGoal.lean:23:  sorry",
+   "SIDELvConservation/T3_StepNineBridge.lean:108:  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption"
+  ],
+  "closure": {
+   "statement_line": 92,
+   "neg_line": 137,
+   "closure": "∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "neg": "¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "equal": true,
+   "control_equal": false
+  },
+  "at": "2026-10-29T13:26:39Z"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-archimedean",
+  "run": "40881801296",
+  "free_mb": 3584,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T13:25:31Z",
+  "updated": "2026-10-29T13:27:26Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "610cbdf91f0a7364d7b478fdff529d91a29922e4",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14026",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "'SIDEArchimedean.theta_weight_doubles_to_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEArchimedean.fe_reflect_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEArchimedean.focus_codim_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEArchimedean.archimedean_identifies_half' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEArchimedean.archimedean_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-rcurve",
+  "run": "40881833590",
+  "free_mb": 3640,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T13:25:44Z",
+  "updated": "2026-10-29T13:27:52Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "f3a5ae5486cdd687c2be9b121a4544618037f242",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14164",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "'SIDERCurve.monotone_unique_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDERCurve.monotonicity_formula' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDERCurve.beta_V_re' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDERCurve.singular_repulsion' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDERCurve.zero_codim' does not depend on any axioms",
+   "'SIDERCurve.online_zero_codim_one' does not depend on any axioms",
+   "'SIDERCurve.offline_zero_codim_two' does not depend on any axioms",
+   "'SIDERCurve.second_zero_breaks_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "verdict": "BUILDS"
+ }
+]
