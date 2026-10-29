@@ -1,22 +1,24 @@
 {
  "exercise": {
   "G-ACTROOT-VERIFY": {
-   "live": true,
-   "neg": true,
+   "live": false,
+   "neg": false,
    "pos": false,
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the chain recomputed at commit in three parts by act with the suite`s own remote reads: standing-b2a`s banked b624-b641, standing-b2b`s b642-b658 and standing-b3`s b659-b723 all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), b723 written LF",
-   "secs": 0.1205
+   "secs": 0.1173
   }
  },
  "run": 1,
- "live_failing": [],
+ "live_failing": [
+  "G-ACTROOT-VERIFY"
+ ],
  "defective": [],
  "neg_failures": 0,
  "withheld": [],
  "part": "standing-b3",
- "mode": "prerun",
- "at": "2026-10-29T17:14:29Z",
- "relay_head": "85647a2f6c3875e83c4037e44344601daf9428b0"
+ "mode": "pre-push",
+ "at": "2026-10-29T19:00:00Z",
+ "relay_head": "f585420f24c25d56a290df4b4a95e50c569c05a7"
 }
