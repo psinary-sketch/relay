@@ -1,0 +1,126 @@
+[
+ {
+  "kind": "commit",
+  "kernel": "SIDE-lv-conservation",
+  "sha": "c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3",
+  "parent": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+  "blob": "87931656f6d35d41a99385fe34b262f418a2211b",
+  "tree": "9eba91a88c2814d9abc18d61563e3c1a175507ee",
+  "at": "2026-10-29T22:12:20Z"
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-lv-conservation",
+  "sha": "c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3",
+  "at": "2026-10-29T22:12:33Z",
+  "free_mb": 4541,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-lv-conservation",
+  "sha": "c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3",
+  "target": "SIDELvConservation",
+  "at": "2026-10-29T22:13:12Z",
+  "run": 40964150574,
+  "free_mb": 4426
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-lv-conservation",
+  "run": "40964150574",
+  "free_mb": 4414,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T22:13:13Z",
+  "updated": "2026-10-29T22:15:39Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Constant closure of the kernel's own declarations",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "13522",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 94,
+  "sorry_warnings": 1,
+  "axioms_lines": [
+   "'SIDELvConservation.T3.ZeroLoc' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.PerClassExcludes' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.CombinationsExclude' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3a_zeroLoc_is_function_of_Phi' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3b_joint_witness_gives_combinations_exclude' depends on axioms: [propext,",
+   " Classical.choice,",
+   " Quot.sound]",
+   "'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3prime_shared_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,",
+   " Classical.choice,",
+   " Quot.sound]"
+  ],
+  "verdict": "BUILDS",
+  "closure_lines": [
+   "T3_perClass_to_combinations : ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s",
+   "'SIDELvConservation.T3.not_T3_perClass_to_combinations' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,",
+   " Classical.choice,",
+   " Quot.sound]",
+   "'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]",
+   "out/Closure.lean:44:12: error: Application type mismatch: The argument",
+   "  T3_perClass_to_combinations",
+   "has type",
+   "  ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s",
+   "of sort `Prop` but is expected to have type",
+   "  Prop",
+   "of sort `Type` in the application",
+   "  ¬T3_perClass_to_combinations"
+  ],
+  "closure_read": true
+ }
+]

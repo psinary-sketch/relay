@@ -1,0 +1,74 @@
+b724 -- (R334)(5): THE lv NEGATION, ON A SCRATCH BRANCH OF SIDE-lv-conservation ALONE, ONE DISPATCH READ BY ITS RUN ID (2026-10-29T22:21:36Z)
+
+### Written by a scratch writer of the seat`s from relay data/b724_lv_rows.json (the scratch tool`s rows: commit, push, dispatch, read).
+### The branch scratch-b724 is the deposit pin v0.10.0 = 93c27ec with one file at the root, CircuitClosure.lean, imported by no module;
+### main`s build-module.yml (b694) runs that file`s text above every module of the target in its closure step and keeps Lean`s output
+### (out/closure_log.txt). No source module and no workflow touched; no main, no tag; nothing run on this host (N1).
+
+## THE BRANCH AND THE RUN
+  commit c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3 over 93c27ec2cb9b (blob 87931656f6d3), at 2026-10-29T22:12:20Z
+  pushed c9cd1ea90e13 at 2026-10-29T22:12:33Z, origin equal True (host free 4541 MB)
+  dispatch 1 of 1: run 40964150574 at 2026-10-29T22:13:12Z, ref c9cd1ea90e13, target SIDELvConservation (host free 4426 MB)
+  read: completed success (2026-10-29T22:13:13Z -> 2026-10-29T22:15:39Z) ; toolchain leanprover/lean4:v4.29.1 ; build exit 0 ; memory low 13522 MB ; stops 0 ; sorry warnings 1 ; BUILDS
+
+## THE FILE (CircuitClosure.lean at c9cd1ea90e13)
+    1| /-!
+    2| # b724, (R334)(5): the negation of T3_perClass_to_combinations, on the scratch branch scratch-b724 alone
+    4| At the deposit pin v0.10.0 = 93c27ec, imported by no module; the workflow`s closure step runs this text above every module of the
+    5| target. (1) The theorem: its statement the negation of the deposit statement`s closure over its binders, proved from
+    6| `T3doubleprime_general_commutation_fails`. (2) An `example` deriving `False` from it and the deposit`s theorem, so the elaborator
+    7| checks the statement against the deposit`s own. (3) The axioms printed. (4) The statement as the text writes it, as an `example`,
+    8| printed beside.
+    9| -/
+   11| namespace SIDELvConservation
+   12| namespace T3
+   14| #check @T3_perClass_to_combinations
+   16| theorem not_T3_perClass_to_combinations :
+   17|     ¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s :=
+   18|   fun h => T3doubleprime_general_commutation_fails (fun 𝒞 s hp => h 𝒞 s hp)
+   20| example : False := not_T3_perClass_to_combinations T3_perClass_to_combinations
+   22| end T3
+   23| end SIDELvConservation
+   25| #print axioms SIDELvConservation.T3.not_T3_perClass_to_combinations
+   26| #print axioms SIDELvConservation.T3.T3doubleprime_general_commutation_fails
+   27| #print axioms SIDELvConservation.T3.T3_perClass_to_combinations
+   29| namespace SIDELvConservation
+   30| namespace T3
+   32| example : ¬ T3_perClass_to_combinations := T3doubleprime_general_commutation_fails
+   34| end T3
+   35| end SIDELvConservation
+
+## THE CLOSURE LOG, WHOLE (14 lines)
+  cl | T3_perClass_to_combinations : ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s
+  cl | 'SIDELvConservation.T3.not_T3_perClass_to_combinations' depends on axioms: [propext, Classical.choice, Quot.sound]
+  cl | 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext,
+  cl |  Classical.choice,
+  cl |  Quot.sound]
+  cl | 'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  cl | out/Closure.lean:44:12: error: Application type mismatch: The argument
+  cl |   T3_perClass_to_combinations
+  cl | has type
+  cl |   ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) → CombinationsExclude 𝒞 s
+  cl | of sort `Prop` but is expected to have type
+  cl |   Prop
+  cl | of sort `Type` in the application
+  cl |   ¬T3_perClass_to_combinations
+
+## THE READING
+  (1) the theorem: not_T3_perClass_to_combinations, its statement `¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, PerClassExcludes C s) →
+      CombinationsExclude 𝒞 s`, compiles from T3doubleprime_general_commutation_fails; its axioms: [propext, Classical.choice, Quot.sound] -- CLEAN, NO sorryAx.
+  (2) the statement checked against the deposit`s own: the `#check` line prints the deposit theorem`s type as the text the theorem
+      negates, and `example : False := not_T3_perClass_to_combinations T3_perClass_to_combinations` elaborates (no error at its line) --
+      the deposit`s theorem, closed by its sorry, with the negation proves False: 'SIDELvConservation.T3.T3_perClass_to_combinations' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  (3) THE TEXT AS WRITTEN, `¬ T3_perClass_to_combinations`, as an `example` (the file`s :32, the log`s :44, 12 imports above it):
+      DOES NOT ELABORATE -- the error the log prints: a theorem`s name is a proof, its type a proposition (of sort Prop), where `¬`
+      takes a proposition itself (a term of type Prop, of sort Type). THE DIFFERENCE THE TWO STATEMENTS SHOW: the text names the theorem; the compiled statement negates its type
+      (its closure over 𝒞 and s), the closure b723`s by-text reading set beside T3doubleprime (relay data/b723_axiom.txt :107-:108).
+      The text`s reading -- that the statement is false as stated -- is what the compile tests; it compiled at (1).
+  (4) dependents at the pin (git grep -w over *.lean at 93c27ec): 2 lines -- AxiomCheck.lean:37:#print axioms T3.T3_perClass_to_combinations ; SIDELvConservation/T3_StepNineBridge.lean:92:theorem T3_perClass_to_combinations ; used by another declaration: 0.
+  THE COURSE, (R334)(5) as ruled "on a clean print": the ERRATA entry stating the deposit`s statement is false as stated and that no
+  other declaration depends on it (PLACE-papers ERRATA.md, E-2026-10-29-1); the release sitting`s list gains the deposit
+  description`s "zero sorry" correction (relay data/b724_release_list.txt); lv`s next version replaces the statement by its proved
+  negation, not this act. The text as written not elaborating is printed for the author at the root`s prompt beside it.
+
+### ### **THE lv NEGATION: not_T3_perClass_to_combinations COMPILES ON scratch-b724 (c9cd1ea9), RUN 40964150574, AXIOMS [propext, Classical.choice, Quot.sound], NO sorryAx ; THE TEXT AS WRITTEN DOES NOT ELABORATE (A THEOREM`S NAME IS NOT A PROP) ; DEPENDENTS 0 ; ONE DISPATCH ; NO MAIN OR TAG TOUCHED.**
