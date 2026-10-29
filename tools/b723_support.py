@@ -338,23 +338,29 @@ def bank(*a):
             res.append((name, None))
             continue
         if o.get('beyond') or o.get('foot'):
-            L.append('    %s' % ('BEYOND REACH' if o.get('beyond') else 'NEGATIVE AT THE LADDER`S FOOT'))
-            res.append((name, 'beyond'))
+            top = 2 * math.log(192)
+            L.append('    %s' % ('BEYOND REACH: no negative direction on the ladder to 2 log 192 = %.6f; no onset computed. Were the onset above it, '
+                                 'a*/a*_pred - 1 > %+.5f' % (top, top / ap - 1) if o.get('beyond') else 'NEGATIVE AT THE LADDER`S FOOT'))
+            res.append((name, 'beyond' if o.get('beyond') else 'foot'))
             continue
         a_on = float(bl(o['a']).mid())
         dev = a_on / ap - 1
         res.append((name, dev))
-        L.append('    THE ONSET: %s (grid point %d of %d in (%s, %s]) at a = %s, lambda_min %s ; a*/a*_pred - 1 = %+.5f -- %s ; %d s' % (
+        nu = [u for k, u in U.items() if k[0] in ('coarse', 'fine') and k[1] == name]
+        L.append('    THE ONSET: %s (grid point %d of %d in (%s, %s]) at a = %s, lambda_min %s ; a*/a*_pred - 1 = %+.5f -- %s ; units %d, their seconds summed %d' % (
             o['point'], o['i'], o['points'] - 1, o['lo'], o['hi'], fmt(bl(o['a']), 10), fmt(bl(o['lmin']), 10), dev,
-            'WITHIN 0.03' if abs(dev) <= 0.03 else 'BEYOND 0.03', o.get('seconds', 0)))
+            'WITHIN 0.03' if abs(dev) <= 0.03 else 'BEYOND 0.03', len(nu), sum(u.get('seconds', 0) for u in nu)))
     run_ = [d for _n, d in res if isinstance(d, float)]
-    fired = [n for n, d in res if (isinstance(d, float) and abs(d) > 0.03) or d == 'beyond']
+    fired = [n for n, d in res if isinstance(d, float) and abs(d) > 0.03]
+    beyond = [n for n, d in res if d == 'beyond']
     L.append('')
     L.append('THE FALSIFIER (a computed family onset with |a*/a*_pred - 1| > 0.03): %s' % ('FIRED at %s' % fired if fired else ('NOT FIRED on %d zeros' % len(run_))))
+    L.append('BEYOND REACH, NO ONSET COMPUTED (the falsifier as worded reads computed onsets only): %s' % (beyond or 'none'))
     L.append('THE HYPOTHESIS: %s' % ('NOT HELD' if fired else ('HELD ON %d OF %d ZEROS' % (len(run_), len(Z)) if run_ else 'NOT RUN')))
     L.append('')
-    L.append('### ### **H-SUPPORT: C1 %s ; ZEROS %d ; ONSETS COMPUTED %d ; WITHIN 0.03 %d ; FALSIFIER %s.**' % (
-        'AS WANTED' if _c1_ok(U) else 'NOT AS WANTED', len(Z), len(run_), sum(1 for d in run_ if abs(d) <= 0.03), 'FIRED' if fired else 'NOT FIRED'))
+    L.append('### ### **H-SUPPORT: C1 %s ; ZEROS %d ; ONSETS COMPUTED %d ; WITHIN 0.03 %d ; BEYOND REACH %d ; FALSIFIER %s ; THE HYPOTHESIS %s.**' % (
+        'AS WANTED' if _c1_ok(U) else 'NOT AS WANTED', len(Z), len(run_), sum(1 for d in run_ if abs(d) <= 0.03), len(beyond),
+        'FIRED' if fired else 'NOT FIRED', 'NOT HELD' if fired else 'HELD'))
     p = os.path.join(D, 'b723_support.txt')
     with open(p + '.tmp', 'wb') as f:
         f.write((NL.join(L) + NL).encode('utf-8'))
