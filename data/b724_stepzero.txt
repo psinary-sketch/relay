@@ -1,0 +1,40 @@
+b724 -- STEP ZERO, (R334)(8) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, AND THE STEP-ZERO DEFECTS (2026-10-29)
+
+## IN ORDER
+  data/b724_ferry.txt banked from the transcript (line 62002, 20:52:25Z; 13921 characters, part 1 of 1 received in full and confirmed)
+  data/act_current.json for b724 committed alone: relay 0b81b3dd -- but see defect (a)
+  b723's closing step row 54: relay 6b1eedb6 -- see defect (b); b723's closing push capture alone: relay 9e3f4e39
+  tools/b724_carry.py from tools/b723_carry.py by the scratch carrycarry724.py, its SUBS set by the Edit tool, an `acts` route added (the
+    carry of tools/acts/<act>.py, the fold's arms module): tools/acts/b724.py (data/b724_carry_acts.txt) and tools/b724_worklist.py
+    (data/b724_carry_worklist.txt) carried
+  the ferry scan: data/b724_ferry_scan.txt (equal True ; ferry_scan exit 0)
+  THE CITATION CHECK: dry 59 cites, 38 OK, 21 misses, every one a b723 (R333) row carried by the shift; those rows pruned and (R334)'s
+    written by the Edit tool (sections citation 1, 4, 5, 7, 9, 10 of tools/acts/b724.py); dry again 57 / 56 / 1; banked 57 / 56 / 1
+    (data/b724_citation_check.txt) -- the one miss defect (b), entered and not repaired
+  THE READFIRST BANK: data/b724_readfirst.txt, then the step-zero commit relay 21681ef9 (step 4)
+  THE DELETES, each after its --merged listing, one per message: relay push-b723-closing (b8334f17), push-b723-preroot (2be0135c),
+    push-b723-record (14bf5ec5); PLACE-papers push-b723-preroot (9821160), push-b723-record (698fe44). Kept: port-b707,
+    challenge-b720-h2-sign-iff-rh, the pin-b718-de5ce8a9 branches as banked, the rebuild-b721 branches as banked (the citation check's rows)
+  THE PROCESS LISTING (21:07:12Z): claude.exe 1, python.exe 1 (the reader itself), lean 0, lake 0; free 4451 MB of 16178, the hold 2560 MET
+  GIT'S IDENTITY BY KIND: the global user.email the noreply form; user.name the account login; equal and effective in relay, PLACE-papers
+    and the six kernels read
+  ROWGEN DIFF AND CONSTELLATION MODE: data/b724_rowgen_stepzero.txt -- CONSTELLATION EXIT 0 ; ROWGEN DIFF EXIT 0 ; TABLES 19 ; RE-POINTED 8
+  GIT STATUS (relay): the act's step-zero files the only b724 entries; the rest the old untracked files of earlier acts, unchanged
+  THE ADDRESS SCAN carried: tools/b724_address_scan.py (data/b724_carry_address_scan.txt), its byline import repaired (defect (d));
+    run: PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; controls 4 of 4 AS WANTED
+  THE WORKLIST'S STAGE ONE set by the Edit tool: the bases b8334f17 and 698fe441, the anchor, b723's ledger lines (FINDINGS :11399, :11401,
+    :11490; OPEN_TRAILS :16366, :16372, :16406, :16418), the mirror's name, the next act b725 per (R334)(10), the stage-one commits, the
+    later stages cleared to None
+  THE PRICE TABLE: data/b724_price.txt -- the choice: (3) CARRIED WHOLE WITH ITS PRICE, (2) and (4)-(6) run
+  NO BUILD on this host; no lean process.
+
+## THE STEP-ZERO DEFECTS (each the seat's; tags by (R334)(2)'s classes where one fits)
+  (a) [CLOSE ; NEW] a `peek.py count` read ran before the act_current commit, against (R334)(8)'s "before any other command"; it wrote nothing
+  (b) [CLOSE ; REPEAT b723 (10)] 6b1eedb6, b723's step row 54, carries data/b723_bank_hashes.json beside data/b723_steps.json: the step
+      recorder (tools/standing/fold.py record step) writes the hashes bank with the row, so the row was not committed alone as (R334)(8)
+      orders -- the hashes bank written by a route other than its own, the root route's class
+  (c) [CLOSE ; REPEAT class (i)] a hook refusal of a pipe (`| Select-Object -Last 4`) on the citation check's banking run
+      (data/b724_hook_refusals.txt), the command re-run without it
+  (d) [CLOSE ; REPEAT class (ix)] the carry's substitution named tools/b723_llm_line.py in tools/b724_address_scan.py (b723's own repair
+      had named b722_llm_line, the one that exists); the import failing until repaired by the Edit tool, every "### b724" mark the file
+      carries but that one b723's own, shifted (a note added to its docstring)
