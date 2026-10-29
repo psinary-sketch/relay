@@ -1,0 +1,23 @@
+b723 -- THE RUN CONTROL OF THE FOLD ON b722`S BANKS ((R333)(2)(i)): b722`s suite, part by part, by the tool as b722 left it
+(tools/b722_checks.py) and by the fold (tools/standing/fold.py checks --act b722), in a worktree of the relay at 65430407e5ec2d2d867d0c147aa0d2c547ee63ad
+(b722 record, its post-push reading`s HEAD); each part`s banks named *_rcorig_* and *_rcfold_* (--rerun-postpush), the fold`s files
+copied in untracked: fold.py a6e8ea6303c076f1, the worktree`s copy a6e8ea6303c076f1 ; tools/acts/b722.py 8060af765775be03, the worktree`s 8060af765775be03
+### A TRANSIENT, RECORDED: the original`s first standing-b2a run (its half banked 2026-10-29T06:42:52Z) read 17 of b624-b641 DISAGREE,
+### each "head SIDE-li-map b515e6b62c15 not on the remote main " with the remote main EMPTY (act_root.py :447-450: ls-remote returned
+### no refs), and its standing-b3 FAILED G-ACTROOT-VERIFY; the claim tested directly (ls-remote: main 9e02bc0010f1, b515e6b62c15 its
+### ancestor), the original`s standing-b2a and standing-b3 re-run alone (07:01:59Z, 07:10:14Z): AGREE 35, PASS. The first half`s JSON was
+### overwritten by the re-run, its words above from the session`s output. The runs compared below are the re-runs.
+
+  standing-a    arms: original  78, fold  78, b722`s bank  78 ; original vs fold differ 0 ; fold vs b722`s bank differ 4
+  standing-c    arms: original   5, fold   5, b722`s bank   5 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  standing-b1   arms: original   1, fold   1, b722`s bank   1 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  standing-b2a  arms: original   0, fold   0, b722`s bank   0 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  standing-b2b  arms: original   0, fold   0, b722`s bank   0 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  standing-b3   arms: original   1, fold   1, b722`s bank   1 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  act           arms: original  32, fold  32, b722`s bank  32 ; original vs fold differ 0 ; fold vs b722`s bank differ 0
+  ### THE TWIN (the tool as b722 left it vs the fold, same worktree, same state): 117 arm rows, EQUAL ARM FOR ARM -- AS WANTED
+  ### THE FOLD VS b722`S BANKED POST-PUSH READING: 4 arm(s) differ:
+    standing-a    G-ACTROOT-LAST                 b722`s bank ('PASS', 'PASS', 'FAIL', 'OK') ; this run ('FAIL', 'FAIL', 'FAIL', '### FAILS') ; THE WORKTREE: the arm reads each root bank`s write time against the root`s; a checkout writes every file at its own time
+    standing-a    G-EXPORT-UNTRACKED             b722`s bank ('PASS', 'PASS', 'FAIL', 'OK') ; this run ('FAIL', 'FAIL', 'FAIL', '### FAILS') ; THE WORKTREE: the navigator`s export data/b647_navigator_memory.txt is untracked, present in the relay, absent from a worktree
+    standing-a    G-LOCAL-BANK-UNTRACKED         b722`s bank ('PASS', 'PASS', 'FAIL', 'OK') ; this run ('FAIL', 'FAIL', 'FAIL', '### FAILS') ; THE WORKTREE: b628`s local bank data/b628_intake_crank_v0_5.txt is untracked, present in the relay, absent from a worktree
+    standing-a    G-RULE-POSTSEAL-READ           b722`s bank ('PASS', 'PASS', 'FAIL', 'OK') ; this run ('FAIL', 'FAIL', 'FAIL', '### FAILS') ; THE TRANSCRIPT READ LATER: the session transcript now carries the shell calls made after b722`s post-push reading (two by a filter or a redirect, 03:05:11Z and 03:38:05Z)

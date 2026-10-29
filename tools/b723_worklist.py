@@ -221,14 +221,20 @@ STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ('5bc549cef5', '29cb27b429')   # ### the two hook-refusal banks, each its own commit (the author's word (1)): b720's, b721's
 STEPZERO_BANKS = '026335ad2a'           # ### the step-zero banks and tools, committed together by explicit list
 VISIBILITY_COMMIT = None
-COMPUTE_TOOLS = ()
+COMPUTE_TOOLS = ('research/reproduce.py',)   # ### Component 1: its I-76 row edited this act (the inputs read at the bank's own time), sealed
 REPAIRED_TOOLS = ()
 REPAIRED_DATA = ()
 # ### b721's trap (event 11): the standing part of the sealed list read from the directory, not a carried tuple
 STANDING_FILES = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing')) if f == 'VERSION' or f.endswith('.py')))
 NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset, sealed by hash beside the act's tools
-STANDING_VERSION = 'v1.2.2'             # ### v1.3.0 lands at Component 1 ((R333)(2))
-STANDING_CHANGED = ()                   # ### the standing files (R333)(2)'s repairs change (set at Component 1)
+# ### Component 1, (R333)(2)(i) on the author's word (Option 2): the seven close tools are tools/standing/fold.py's renders of its templates
+# ### (tools/standing/fold/<tool>.tpl) with the act's arms module (tools/acts/b723.py) -- every byte a render reads sealed beside the act's tools
+FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl'))) \
+    + ('acts/b723.py',)
+NEW_TOOLS = NEW_TOOLS + FOLD_FILES
+STANDING_VERSION = 'v1.3.0'             # ### (R333)(2), landed at Component 1
+STANDING_CHANGED = ('standing/close.py', 'standing/fold.py', 'standing/legacy.py', 'standing/peek.py', 'standing/v130.py', 'standing/VERSION') \
+    + FOLD_FILES[:-1]                   # ### the standing files (R333)(2)'s repairs change or add
 STANDING_NEW = ()
 # ### b722's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '1607e994'    # ### b722's closing, the act's relay base

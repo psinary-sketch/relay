@@ -316,6 +316,17 @@ def sealed_list(act, names=None):
     return sorted(own + std)
 
 
+def worklist_sealed(act):
+    """v1.3.0 ((R333)(2)(i), the root answer's (b) at b723's step zero): THE SEAL ROUTE READS THE WORKLIST'S SEALED, so one list feeds the
+    seal and the arms that read it (G-SEAL-HASHES, the trail's sealed-tools line). b722's seal hashed sealed_list's rule, 42 tools, while its
+    worklist named 43 (tools/research/reproduce.py among its COMPUTE_TOOLS; event (12)). sealed_list stays for the replay of a seal at a
+    commit (controls.py's (3ii)), where the act's own rule is the record."""
+    import importlib
+    if A.T not in sys.path:
+        sys.path.insert(0, A.T)
+    return sorted(importlib.import_module('%s_worklist' % act).SEALED)
+
+
 def lock_of(act, date):
     """the lock's time on the act's registration face (data/<act>_registration_<date>.txt, its "locked at (UTC)" line), or None."""
     m = re.search(r'locked at \(UTC\)\s*:\s*(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', A.rd('%s_registration_%s.txt' % (act, date)))
@@ -354,7 +365,7 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
         return 3, ['### THE FACE IS NOT LOCKED -- NOTHING RECORDED']
     if os.path.exists(p):
         return 3, ['### THE HASHES ARE RECORDED ALREADY -- NOTHING RECORDED TWICE']
-    tools = sealed_list(act)
+    tools = worklist_sealed(act)
     g = seal_guard(tools)
     if not g['ok']:
         return 3, ['### THE SEAL`S GUARD: %d SEALED TOOL(S) NOT AS COMMITTED AT HEAD -- COMMIT THEM IN THE SEAL`S STEP; NOTHING RECORDED' % len(g['refused'])] + [

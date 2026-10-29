@@ -200,7 +200,323 @@ def control_ii():
     return L, good, len(cases) + 1
 
 
-CONTROLS = dict(ii=control_ii)
+def _git(repo, *a):
+    r = subprocess.run(['git', '-C', repo] + list(a), capture_output=True)
+    return r.stdout.decode('utf-8', 'replace').replace('\r', '')
+
+
+def _log(repo, a, b):
+    out = []
+    for l in _git(repo, 'log', '--reverse', '--format=%h %ct %s', '%s..%s' % (a, b)).split(NL):
+        if l.strip():
+            p = l.split(' ', 2)
+            out.append((p[0], p[2] if len(p) > 2 else '', int(p[1])))
+    return out
+
+
+def control_iii():
+    """(iii) THE LOCK ROW, on b722's steps bank beside b722's event (5): b722's instance of G-SEALED-AFTER-COMPONENTS and b723's (the fold's
+    renders, tools/standing/fold.py), each read on b722's bank as banked and on copies changed in memory; b723's phases read from
+    data/act_current.json, `lock` among the record tool's step phases."""
+    import types
+    sys.path.insert(0, T)
+    import fold as F
+    F.install()
+    import importlib
+    L = ['  (iii) THE LOCK ROW -- the step recorder takes `lock`; G-SEALED-AFTER-COMPONENTS reads the lock commit by that phase']
+    ev = (open(os.path.join(D, 'b722_events.txt'), encoding='utf-8').read().replace('\r', '').split(NL))[20:24]
+    L += ['  (iii) b722`s event (5), data/b722_events.txt :21-:24:'] + ['      ' + l.strip() for l in ev]
+    C2 = importlib.import_module('b722_checks')
+    C3 = importlib.import_module('b723_checks')
+    R2 = importlib.import_module('b722_record')
+    R3 = importlib.import_module('b723_record')
+    ac2 = json.loads(_git(RELAY, 'show', '1607e994:data/act_current.json'))
+    head_r, head_p = '65430407', ac2.get('pre_pp') and A.current()['pre_pp']
+    rows = json.load(open(os.path.join(D, 'b722_steps.json'), encoding='utf-8'))['rows']
+    k26 = [i for i, r in enumerate(rows) if r['commit'].startswith('794b7bc7')]
+    L.append('  (iii) b722`s steps bank: %d rows ; the lock commit 794b7bc7 at step %s, phase %r' % (
+        len(rows), ', '.join(str(i + 1) for i in k26), rows[k26[0]]['phase'] if k26 else None))
+    face = open(C2.FACE, encoding='utf-8').read()
+    S = dict(steps=rows, rlog=_log(RELAY, ac2['pre_relay'], head_r), plog=_log(PP, ac2['pre_pp'], head_p),
+             lock_epoch=C2.utc_epoch(face, 'locked at (UTC)'), REC=types.SimpleNamespace(PRE_SEAL_PHASES=R2.PRE_SEAL_PHASES))
+    L.append('  (iii) b722`s logs read: relay %s..%s %d commits, PLACE-papers %s..%s %d ; the face`s lock %s' % (
+        ac2['pre_relay'][:8], head_r, len(S['rlog']), ac2['pre_pp'][:8], head_p[:8], len(S['plog']),
+        time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(S['lock_epoch'])) if S['lock_epoch'] else None))
+    plant = [dict(r, phase='lock') if i in k26 else r for i, r in enumerate(rows)]
+    gate = [i for i, r in enumerate(rows) if r['phase'] == 'gate' and i not in k26]
+    plant2 = [dict(r, phase='lock') if (i in k26 or i == (gate[0] if gate else -1)) else r for i, r in enumerate(rows)]
+    cases = [
+        ('b722`s instance on b722`s bank as banked (b722 banked it failing, event (5))', C2.sealed_after_ok(S), False),
+        ('b723`s instance on b722`s bank as banked: no `lock` row, step 26 reads `gate`', C3.sealed_after_ok(S), False),
+        ('b723`s instance on b722`s bank with step 26`s phase `lock` (in memory)', C3.sealed_after_ok(dict(S, steps=plant)), True),
+        ('b723`s instance with a second `lock` row, b722`s gate commit %s (in memory)' % (rows[gate[0]]['commit'][:8] if gate else '-'),
+         C3.sealed_after_ok(dict(S, steps=plant2)), False),
+    ]
+    good = 0
+    for w, got, want in cases:
+        ok = bool(got) == want
+        good += ok
+        L.append('  (iii) %s: %s -- %s' % (w, 'PASS' if got else 'FAIL', 'AS WANTED' if ok else 'NOT AS WANTED'))
+    L.append('  (iii) beside them, not counted: b722`s instance on the step-26 copy %s (b722`s reads the lock by the face`s time alone)' % (
+        'PASS' if C2.sealed_after_ok(dict(S, steps=plant)) else 'FAIL'))
+    pre, post = R3.PRE_SEAL_PHASES, R3.POST_SEAL_PHASES
+    ph_ok = pre[-2:] == ('gate', 'lock') and post == ('seal', 'pre-root', 'root', 'record', 'closing') and 'lock' in R3.STEP_PHASES \
+        and 'lock' not in R2.STEP_PHASES
+    good += ph_ok
+    L.append('  (iii) b723`s phases from data/act_current.json: pre-seal %s ; post-seal %s ; `lock` a step phase of b723`s recorder %s, of b722`s %s -- %s' % (
+        list(pre), list(post), 'lock' in R3.STEP_PHASES, 'lock' in R2.STEP_PHASES, 'AS WANTED' if ph_ok else 'NOT AS WANTED'))
+    return L, good, len(cases) + 1
+
+
+def _arms_table(text):
+    """[(arm, live predicate text)] -- each ARMS entry of a checks render: its name and the text of its first lambda (the live predicate)."""
+    out = []
+    # ### the description may run over lines or carry a comment after it: everything to the entry's first `lambda S:` skipped; the live
+    # ### predicate runs to the next line opening `lambda S:` (the NEG plant), a comment line between them allowed
+    for m in re.finditer(r"(?m)^\s*\(\s*'(G-[A-Z0-9-]+)',(?:(?!^\s*\(\s*'G-).)*?(lambda S: .*?)(?=,\s*(?:#[^\n]*\n\s*)*\n\s*lambda S:|\)\s*,\s*\n)",
+                         text, re.S):
+        out.append((m.group(1), m.group(2)))
+    return out
+
+
+def _bodies(text):
+    """{function name: body text} of a render's top-level functions."""
+    out = {}
+    for m in re.finditer(r'(?m)^def (\w+)\(.*?(?=^\S)', text + '\nEND\n', re.S):
+        out[m.group(1)] = m.group(0)
+    return out
+
+
+def _module_banks(paths):
+    """{function name: set of act-bank names} -- each top-level function of the given modules and the act banks it reads by an act-parametric
+    name ('%s_<name>' % act, or '<act>_<name>' after a render), the names written with the act as `%s`."""
+    out = {}
+    for p in paths:
+        try:
+            src = open(p, encoding='utf-8').read()
+        except OSError:
+            continue
+        mod = os.path.basename(p)[:-3]
+        for fn, body in _bodies(src).items():
+            bs = set(re.findall(r"'%s_([\w%%.-]+\.(?:txt|json|gz))'", body))
+            if bs:
+                out.setdefault('%s.%s' % (mod, fn), set()).update('%s_' + b for b in bs)
+    return out
+
+
+# ### the module functions reading a bank no longer written, graded by hand (each read in its module, reason printed); one ungraded fails
+HAND_IV_MOD = {
+    'act_close.author_words': 'CONDITIONAL: the author`s word after the seal, None where the act has no such bank (its docstring); read by the record tools',
+    'allow.words_of': 'CONDITIONAL: the author`s-words banks, written where the author`s words come mid-act; read by G-DELETES-ONE-BRANCH (graded above)',
+    'hook.control': 'A WRITER: the hook`s own control writes data/<act>_hook_control.txt when run',
+    'hook.instance_constructed': 'THE HOOK CONTROL`S CONSTRUCTED CASE: a planted old bank, written and read in that control alone',
+    'readfirst.hand_ok': 'READS FOR ABSENCE: the retirement`s own check (the closure bank absent, the hand list standing), called by v122.py alone',
+    'v122.lines': 'b722`S v1.2.2 CONTROLS: reads the closure bank for its absence on b721`s and b722`s banks',
+    'v121.main': 'A WRITER: v1.2.1`s controls bank, written by its own route (b721)',
+    'classes.main': 'A WRITER: the classes controls bank, written by its own route',
+    'replay.main': 'A WRITER: the replay bank, written by its own route',
+    'roster.main': 'A WRITER: the roster bank, written by its own route',
+    'scan.main': 'A WRITER: the standing scan bank, written by its own route',
+    'repairs.main': 'A WRITER: the tool-repairs bank, written by its own route',
+    'controls.main': 'A WRITER: the standing controls bank, written by its own route',
+    'controls.minted': 'READS THE HISTORY: the first chain act with a standing controls bank, read over every act',
+}
+
+
+# ### THE HAND TABLE of (iv): each arm the trace finds reading a bank no longer written, graded by hand with its reason (v8 row (82)'s
+# ### propagation read: a grade the rule cannot give is given here, printed); an arm the trace finds and this table does not grade fails.
+HAND_IV = {
+    'G-READFIRST-DIFF-BANKED': ('RETIRED THIS ACT', 'reads data/<act>_readfirst_diff.txt, the closure reader`s diff; (R332)(2)(iii) retired the reader '
+                                'and b722 wrote no diff (event (6)); (R333)(2)(iv) retires the arm with it'),
+    'G-DELETES-ONE-BRANCH': ('STANDS: A CONDITIONAL BANK', 'reads the author`s-words banks through tools/standing/allow.py words_of '
+                             '(data/<act>_author_words_preseal.txt, data/<act>_author_words.txt), written where the author`s words come mid-act '
+                             '(b714, b715, b718), not retired; b723 owes them for its two mid-act words'),
+    'G-MUSTFAIL': ('STANDS: READS FOR ABSENCE', 'the suite`s own control, `a file that must not exist`: passes while data/<act>_mustnotexist.txt is absent'),
+    'G-DIFFERS-ERRATA': ('STANDS: READS FOR ABSENCE', 'wants no differs and no errata bank this act (`not S[\'differs\'] and not S[\'errata\']`)'),
+    'G-STEPZERO-TESTS': ('STANDS: READS FOR ABSENCE', 'wants no tests bank and nothing withheld at a step zero that ran no test (tests_ok)'),
+}
+
+
+def control_iv():
+    """(iv) THE PROPAGATION READ OVER THE SUITE'S ARMS (v8 row (82) run with the object `a bank no longer written`): G-READFIRST-DIFF-BANKED
+    retired with the reader (R332)(2)(iii) retired; every arm b722's suite ran, in b723's render, traced to the act banks it reads -- its live
+    predicate and the functions it calls to depth three, the checks render's own (their state keys, each to the banks sources() reads into
+    it) and the standing and arm modules' (each function's act-parametric bank names) -- and every bank graded by what the acts before
+    wrote: WRITTEN (b722, tracked at its close 1607e994), STOPPED (b721, at 30c0b3c8, and not b722), STOPPED EARLY (the newest act bank of
+    that name in the history before b721), NEVER. Every arm reading a stopped bank is graded by the hand table HAND_IV with its reason, and
+    one the table does not grade fails; the rule printed before the read."""
+    import fnmatch
+    sys.path.insert(0, T)
+    import fold as F
+    F.install()
+    act = A.current()['act']
+    L = ['  (iv) THE RULE, before the read: an arm reads a bank where its live predicate, or a function it calls (to depth three), reads a state',
+         '       key sources() fills from data/%s_<name>, or is a module function reading data/<act>_<name>; each bank graded by the acts' % act,
+         '       before as written (WRITTEN b722 / STOPPED at b721 / STOPPED EARLY / NEVER); a %s or %d in a name read as any text; every',
+         '       arm reading a stopped bank graded by hand (HAND_IV), one ungraded failing.']
+    text = F.render(act, 'checks')
+    bodies = _bodies(text)
+    src = bodies.get('sources', '')
+    keys = {}
+    pos = [(m.start(), m.group(1)) for m in re.finditer(r'(?m)(?:^\s+|,\s*)([a-z_][a-z0-9_]*)=(?!=)', src)]
+    for k, (p, name) in enumerate(pos):
+        seg = src[p:pos[k + 1][0] if k + 1 < len(pos) else len(src)]
+        bs = set(b.replace(act, '%s', 1) for b in re.findall(r"'(%s_[\w%%.-]+\.(?:txt|json|gz))'" % act, seg))
+        if bs:
+            keys.setdefault(name, set()).update(bs)
+    mods = [os.path.join(S, f) for f in sorted(os.listdir(S)) if f.endswith('.py') and f not in ('v130.py', 'fold.py', 'legacy.py', 'peek.py')] + \
+        [os.path.join(T, f) for f in ('rule_arms.py', 'b719_arms.py', 'act_close.py', 'act_letters.py', 'b703_checks.py', 'b704_read_arm.py')]
+    mfn = _module_banks(mods)
+    tracked = {}
+    for rev, a in (('1607e994', 'b722'), ('30c0b3c8', 'b721')):
+        tracked[a] = [x[5:] for x in _git(RELAY, 'ls-tree', '-r', '--name-only', rev, '--', 'data/').split(NL) if x.startswith('data/%s_' % a)]
+    memo = {}
+
+    def grade(b):
+        if b in memo:
+            return memo[b]
+        glob = b.replace('%s', '*', 1) if b.startswith('%s') else b
+        glob = glob.replace('%s', '*').replace('%d', '*')
+        g = None
+        for a, gr in (('b722', 'WRITTEN'), ('b721', 'STOPPED')):
+            if any(fnmatch.fnmatch(x, glob.replace('*', a, 1) if b.startswith('%s') else glob) for x in tracked[a]):
+                g = (gr, a)
+                break
+        if g is None:
+            suf = b[2:].replace('%s', '*').replace('%d', '*')
+            hist = sorted(set(x for x in _git(RELAY, 'log', '--all', '--name-only', '--format=', '--',
+                                              ':(glob)data/b[67][0-9][0-9]%s' % suf).split(NL) if x))
+            g = ('STOPPED EARLY', hist[-1][5:9]) if hist else ('NEVER', None)
+        memo[b] = g
+        return g
+
+    def reads(expr, depth):
+        ks = set(re.findall(r"S\['(\w+)'\]", expr))
+        bs = set(b for k in ks for b in keys.get(k, ()))
+        for fn in set(re.findall(r'\.(\w+)\(', expr)):
+            for k, v in mfn.items():
+                if k.split('.', 1)[1] == fn:
+                    bs |= v
+        if depth:
+            for fn in set(re.findall(r'(?<![\w.])(\w+)\(', expr)):
+                if fn in bodies and fn != 'sources':
+                    bs |= reads(bodies[fn], depth - 1)
+        return bs
+
+    arms = dict(_arms_table(text))
+    banked = []
+    for part in ('standing-a', 'standing-c', 'standing-b1', 'standing-b3', 'act'):
+        p = os.path.join(D, 'b722_checks_postpush_%s.txt' % part)
+        banked += re.findall(r'(?m)^  (G-[A-Z0-9-]+)\s+(?:PASS|FAIL)', open(p, encoding='utf-8').read())
+    run = [a.replace('G-R332-', 'G-R333-') for a in banked]           # ### the carry's one rename
+    allb = sorted(set(b for v in keys.values() for b in v) | set(b for v in mfn.values() for b in v))
+    by = {}
+    for b in allb:
+        by.setdefault(grade(b)[0], []).append(b)
+    L.append('  (iv) b722`s suite ran %d arms ; in b723`s render`s table %d ; act banks read by the checks render or the modules %d: %s' % (
+        len(run), sum(1 for a in run if a in arms), len(allb), ', '.join('%s %d' % (g, len(v)) for g, v in sorted(by.items()))))
+    for g in ('STOPPED', 'STOPPED EARLY', 'NEVER'):
+        for b in by.get(g, []):
+            L.append('  (iv) %-13s data/%s%s' % (g, b.replace('%s', '<act>', 1), '' if g != 'STOPPED EARLY' else '   (the newest: %s)' % grade(b)[1]))
+    per, untraced = {}, []
+    for a in run:
+        if a in arms:
+            per[a] = sorted(b for b in reads(arms[a], 3) if grade(b)[0] != 'WRITTEN')
+        else:
+            untraced.append(a)
+    readers = dict((a, v) for a, v in per.items() if v)
+    good = n = 0
+    for a, bs in sorted(readers.items()):
+        g = HAND_IV.get(a)
+        n += 1
+        good += g is not None
+        L.append('  (iv) %-26s reads %s ; %s -- %s' % (a, ', '.join('data/' + b.replace('%s', '<act>', 1) for b in bs),
+                                                    ('%s: %s' % g) if g else 'NOT GRADED', 'AS WANTED' if g else 'NOT AS WANTED'))
+    L.append('  (iv) the arms b722`s suite ran outside the render`s table %d, not traced to banks by this rule: %s' % (len(untraced), ', '.join(untraced)))
+    mods_stopped = {}
+    for fn, bs in mfn.items():
+        for b in bs:
+            if grade(b)[0] != 'WRITTEN':
+                mods_stopped.setdefault(fn, []).append(b)
+    for fn, bs in sorted(mods_stopped.items()):
+        g = HAND_IV_MOD.get(fn)
+        n += 1
+        good += g is not None
+        L.append('  (iv) module %-26s names %s ; %s -- %s' % (fn, ', '.join('data/' + b.replace('%s', '<act>', 1) for b in sorted(bs)),
+                                                           g or 'NOT GRADED', 'AS WANTED' if g else 'NOT AS WANTED'))
+    orphan = sorted(b for b in allb if grade(b)[0] != 'WRITTEN' and not any(b in v for v in readers.values()))
+    L.append('  (iv) stopped banks no run arm reads (read by sources() or a module function alone): %s' % (
+        ', '.join('data/' + b.replace('%s', '<act>', 1) for b in orphan) or 'NONE'))
+    # ### both instances: the arm in b722's render, traced, reads the stopped bank; in b723's render it is gone
+    arms722 = dict(_arms_table(F.render('b722', 'checks')))
+    rfd = arms722.get('G-READFIRST-DIFF-BANKED')
+    c1 = rfd is not None and '%s_readfirst_diff.txt' in reads(rfd, 3) and grade('%s_readfirst_diff.txt')[0] == 'STOPPED'
+    in_table = 'G-READFIRST-DIFF-BANKED' in arms
+    L.append('  (iv) b722`s instance: G-READFIRST-DIFF-BANKED in its table, traced to data/<act>_readfirst_diff.txt, graded STOPPED: %s -- %s' % (
+        c1, 'AS WANTED' if c1 else 'NOT AS WANTED'))
+    L.append('  (iv) G-READFIRST-DIFF-BANKED in b723`s arms table: %s -- %s' % (in_table, 'NOT AS WANTED (not yet retired)' if in_table else 'AS WANTED (retired)'))
+    return L, good + int(c1) + int(not in_table), n + 2, dict(readers=readers, by=by, orphan=orphan)
+
+
+def _iv():
+    L, g, n, _x = control_iv()
+    return L, g, n
+
+
+def control_b():
+    """(b), the root answer's at b723's step zero: (R333)(2)(i) covers the seal route's own list of sealed tools, read from the worklist's
+    SEALED, so one list feeds both. b722's instance: its rule's list (close.sealed_list) against its worklist's SEALED, the difference
+    tools/research/reproduce.py (event (12)); b723's: the seal route's list (close.worklist_sealed) equal to the worklist's SEALED, the
+    compute tool and the fold's files among it."""
+    import importlib
+    sys.path.insert(0, T)
+    import fold as F
+    F.install()
+    import close as C
+    act = A.current()['act']
+    L = ['  (b) THE SEAL ROUTE`S LIST READ FROM THE WORKLIST`S SEALED']
+    w2 = sorted(importlib.import_module('b722_worklist').SEALED)
+    r2 = C.sealed_list('b722')
+    d2 = sorted(set(w2) ^ set(r2))
+    w3 = sorted(importlib.import_module('%s_worklist' % act).SEALED)
+    s3 = C.worklist_sealed(act)
+    fold_in = all(x in s3 for x in ('standing/fold.py', 'standing/legacy.py', 'acts/%s.py' % act)) and \
+        sum(1 for x in s3 if x.startswith('standing/fold/') and x.endswith('.tpl')) == 7
+    cases = [('b722`s instance: the rule`s list %d against the worklist`s SEALED %d, differing by %s (event (12))' % (len(r2), len(w2), d2),
+              d2 == ['research/reproduce.py']),
+             ('b723`s seal route`s list %d equal to its worklist`s SEALED %d' % (len(s3), len(w3)), s3 == w3),
+             ('tools/research/reproduce.py in b723`s sealed list', 'research/reproduce.py' in s3),
+             ('the fold`s files in b723`s sealed list (fold.py, legacy.py, the seven templates, tools/acts/%s.py)' % act, fold_in)]
+    good = 0
+    for w, ok in cases:
+        good += ok
+        L.append('  (b) %s -- %s' % (w, 'AS WANTED' if ok else 'NOT AS WANTED'))
+    return L, good, len(cases)
+
+
+def control_i():
+    """(i) THE CLOSE TOOLS TAKE THE ACT (the author's word, Option 2: the seven folded into tools/standing/fold.py): the build's controls run
+    by tools/<act>_fold.py and their lines carried here -- the text control (every render of b722 and b721 equal to its file byte for byte,
+    b723's base render to its landed tools, a plant differing), the names control (the planted missing name refused), the --prev names
+    computed beside the hand list (every name both worklists carry owned alike; the --prev reading itself carried to the pre-seal run,
+    its sources reading the components' commits) -- and the run control on b722's banks, read from data/<act>_fold_run.txt."""
+    act = A.current()['act']
+    L, good, n = ['  (i) THE SEVEN CLOSE TOOLS FOLDED: tools/standing/fold.py, its templates and the act`s arms module'], 0, 0
+    for verb in ('text', 'names', 'prevnames'):
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, '%s_fold.py' % act), verb], capture_output=True, cwd=RELAY)
+        out = r.stdout.decode('utf-8', 'replace').replace('\r', '').rstrip(NL).split(NL)
+        L += ['  (i) %s: %s' % (verb, l.strip()) for l in out]
+        n += 1
+        good += r.returncode == 0 and bool(out) and 'ALL' in out[-1] and 'NOT AS WANTED' not in out[-1] and 'DIFFERS' not in out[-1]
+    p = os.path.join(D, '%s_fold_run.txt' % act)
+    run = open(p, encoding='utf-8').read().replace('\r', '').rstrip(NL).split(NL) if os.path.isfile(p) else []
+    L += ['  (i) run: %s' % l.strip() for l in run] or ['  (i) run: ### data/%s_fold_run.txt ABSENT' % act]
+    n += 1
+    good += any('EQUAL ARM FOR ARM -- AS WANTED' in l for l in run)
+    return L, good, n
+
+
+CONTROLS = dict(i=control_i, ii=control_ii, iii=control_iii, iv=_iv, b=control_b)
 
 
 def main(argv):
