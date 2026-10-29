@@ -263,7 +263,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 CARRIED_FAILING = ('G-AXIOM-CLAIM',)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, every one the seat's; (a')-(d') and (f')-(h') the seat's and (e') the navigator's, beyond the single letters this floor reads
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) at the seal, every one the seat's; (a')-(d') and (f')-(k') the seat's and (e') the navigator's, beyond the single letters this floor reads
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b723_corrigendum.txt', 'data/b723_standing_v130.txt', 'data/b723_fold.txt', 'data/b723_fold_run.txt',
