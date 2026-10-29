@@ -10,3 +10,4 @@
 2026-10-28T11:49:09Z | PIPE | Bash | "git diff --stat && git diff --numstat && git diff -U0 FINDINGS.md --stat=200 && git diff -U0 FINDINGS.md | grep -c \"^-[^-]\"" | a Bash command carrying a pipe outside quotes
 2026-10-28T12:21:21Z | READ | Read | "D:\\relay\\data\\b720_relay_push-b720-preroot_push_out.txt" | a Read call with no limit
 2026-10-28T12:47:06Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b719_traps.md" | a Read call with no limit
+2026-10-28T13:05:54Z | PIPE | Bash | "git log --format='%h %ad %s' --date=format:%H:%M --reverse 8a7a0000..HEAD -- data/act_current.json data/b720_stepzero.txt data/b720_ferry.txt data/b720_readfirst.txt 2>/dev/null; git log --format='%h %s' -45 --reverse | cut -c1-200" | a Bash command carrying a pipe outside quotes
