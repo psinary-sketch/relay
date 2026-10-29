@@ -4,9 +4,47 @@ b723 -- (R333)(7): WAVE 1`S AXIOM STEP AT THE SIX PINS, STOPPABLE -- repaired on
 ### against the 2,560 MB hold (b718`s hold_or_exit); no main or tag touched; no lean or lake process on this host; the branch commits
 ### by git plumbing, author and committer the seat`s neutral identity (b723 axiom seat <b723-axiom@relay.invalid>).
 
-COMMITTED 2 ; PUSHED 2 ; DISPATCHED 2 (six at most) ; READ 2
+COMMITTED 4 ; PUSHED 4 ; DISPATCHED 4 (six at most) ; READ 4
 
-  SIDE-kernel           v1.5 = 0e5233f ; NOT COMMITTED: READY ON THE AUTHOR`S WORD -- the changed workflow, each line, a push trigger and the pin`s imports (data/b722_axiom_diag.txt :11)
+  SIDE-kernel           v1.5 = 0e5233f ; HALTED (the author`s word (6)(c)): the diff formed in memory, places ['imports', 'targets', 'trigger'] ; imports cut 3 (Bridge.CardDerived, Kernel.Cascade.InvarianceBarrier, Kernel.Voice7Witness) ; #print names kept 43, cut 11
+      cut | InvarianceBarrier.Derives (not declared at the pin)
+      cut | InvarianceBarrier.DeterminedBy (not declared at the pin)
+      cut | InvarianceBarrier.derivability_barrier (not declared at the pin)
+      cut | InvarianceBarrier.invariance_barrier (not declared at the pin)
+      cut | Voice7Witness.hadObs_dark (not declared at the pin)
+      cut | Voice7Witness.hadamard_does_not_enforce_online (not declared at the pin)
+      cut | Voice7Witness.hadamard_does_not_enforce_online' (not declared at the pin)
+      cut | Voice7Witness.hadamard_witness (not declared at the pin)
+      cut | mechanism_class_card_derived (not declared at the pin)
+      cut | mechanism_class_card_value (not declared at the pin)
+      cut | substrate_value_injective (not declared at the pin)
+      diff | --- main:.github/workflows/build-module.yml
+      diff | +++ rebuild-b721:.github/workflows/build-module.yml
+      diff | @@ -8,0 +9 @@
+      diff | +  push: { branches: [rebuild-b721] }
+      diff | @@ -78 +78,0 @@
+      diff | -          import Bridge.CardDerived
+      diff | @@ -84 +83,0 @@
+      diff | -          import Kernel.Cascade.InvarianceBarrier
+      diff | @@ -98 +96,0 @@
+      diff | -          import Kernel.Voice7Witness
+      diff | @@ -104,4 +101,0 @@
+      diff | -          #print axioms InvarianceBarrier.Derives
+      diff | -          #print axioms InvarianceBarrier.DeterminedBy
+      diff | -          #print axioms InvarianceBarrier.derivability_barrier
+      diff | -          #print axioms InvarianceBarrier.invariance_barrier
+      diff | @@ -111,4 +104,0 @@
+      diff | -          #print axioms Voice7Witness.hadObs_dark
+      diff | -          #print axioms Voice7Witness.hadamard_does_not_enforce_online
+      diff | -          #print axioms Voice7Witness.hadamard_does_not_enforce_online'
+      diff | -          #print axioms Voice7Witness.hadamard_witness
+      diff | @@ -127,2 +116,0 @@
+      diff | -          #print axioms mechanism_class_card_derived
+      diff | -          #print axioms mechanism_class_card_value
+      diff | @@ -136 +123,0 @@
+      diff | -          #print axioms substrate_value_injective
+      the refusal step under the TARGET a push carries: exit 2 "target refused:" ; under the dispatch target: exit 0
+      the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits 2 before elan, the cache or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push trigger) is the author`s to rule; nothing committed, pushed or run
   SIDE-lv-conservation  v0.10.0 = 93c27ec ; the step ran clean at b721 (run 40706311269, data/b721_rebuild.txt :17-:24), not re-dispatched
       SIDELvConservation/T3_StepNineBridge.lean :92, the statement:
       | theorem T3_perClass_to_combinations
@@ -18,8 +56,9 @@ COMMITTED 2 ; PUSHED 2 ; DISPATCHED 2 (six at most) ; READ 2
       | ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
       T3doubleprime_general_commutation_fails :137 reads `¬ ` and that closure: EQUAL ; its control (T3prime_shared_witness in its place) NOT EQUAL, AS WANTED
       T3doubleprime_general_commutation_fails at b721`s run 40706311269: 'SIDELvConservation.T3.T3doubleprime_general_commutation_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
-      THE DISCHARGE, PRICED: NOT AVAILABLE AS STATED -- the kernel proves, sorry-free, the negation of the statement`s closure, so a proof of it would derive False; the routes the file itself names: T3prime_shared_witness (:121, Determination`s two hypotheses, a changed statement the work order`s "no weakened statement" bars) or the deposit`s wording corrected at the release sitting. The author`s word at the root`s prompt chooses.
-  SIDE-archimedean      v0.1.0 = 8019d9d ; committed 610cbdf91f (print_targets.txt, blob 082948f0c5, main`s verbatim)
+      the name in the pin`s .lean files: 2 lines ; used by another declaration: 0 (none: its own declaration and AxiomCheck.lean`s #print alone)
+      THE DISCHARGE, PRICED: NOT AVAILABLE AS STATED -- T3_perClass_to_combinations is false as stated: the kernel proves its negation sorry-free (:137), so a proof of it would derive False; no other declaration depends on it. THE READING FOR THE ROOT`S PROMPT (the author`s word (6)(d)): an ERRATA entry with the deposit`s wording corrected at the release sitting, and the statement replaced by its proved negation or removed at lv`s next version; the author`s word at the root chooses.
+  SIDE-archimedean      v0.1.0 = 8019d9d ; committed 610cbdf91f over 8019d9dfee (print_targets.txt, blob 082948f0c5, 5 names: main`s blob verbatim)
       pushed 610cbdf91f (host free 3077 MB, origin equal True)
       run 40881801296 at 2026-10-29T13:25:30Z (target SIDEArchimedean, host free 3057 MB): completed success ; build exit 0 ; sorry warnings 0 ; the axiom step success ; host free 3584 MB at the read
       ax | 'SIDEArchimedean.theta_weight_doubles_to_one' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -27,9 +66,38 @@ COMMITTED 2 ; PUSHED 2 ; DISPATCHED 2 (six at most) ; READ 2
       ax | 'SIDEArchimedean.focus_codim_eq_one_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
       ax | 'SIDEArchimedean.archimedean_identifies_half' depends on axioms: [propext, Classical.choice, Quot.sound]
       ax | 'SIDEArchimedean.archimedean_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-  SIDE-frobenius        v0.1.0 = 2efe9f2 ; NOT COMMITTED: READY ON THE AUTHOR`S WORD -- the target list: the kernel never carried one (data/b722_axiom_diag.txt :28)
-  SIDE-spinor           v0.1.0 = b235bc6 ; NOT COMMITTED: READY ON THE AUTHOR`S WORD -- the six SIDESpinorLeg names not declared at the pin, dropped or kept (b722`s price, data/b722_axiom_diag.txt :37)
-  SIDE-rcurve           v0.1.0 = d5f33b4 ; committed f3a5ae5486 (print_targets.txt, blob 4d98ea2463, main`s verbatim)
+  SIDE-frobenius        v0.1.0 = 2efe9f2 ; committed b4ef3958cd over 6b06215745 (print_targets.txt, blob 190cf131e8, 8 names: the STATED rows` declarations, data/b721_frozen_line.txt (the author`s word (6)(b)))
+      names | SIDEFrobenius.indicial_factor ; SIDEFrobenius.indicial_root_unique ; SIDEFrobenius.indicial_reflect_fixed_iff ; SIDEFrobenius.indicial_forces_half ; SIDEFrobenius.g_two_three ; SIDEFrobenius.g_two_three_minimal ; SIDEFrobenius.S_squared ; SIDEFrobenius.ST_cubed
+      pushed b4ef3958cd (host free 2892 MB, origin equal True)
+      run 40885967139 at 2026-10-29T13:52:25Z (target SIDEFrobenius, host free 3150 MB): completed success ; build exit 0 ; sorry warnings 0 ; the axiom step success ; host free 4648 MB at the read
+      ax | 'SIDEFrobenius.indicial_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.indicial_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.indicial_reflect_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.indicial_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.g_two_three' depends on axioms: [propext]
+      ax | 'SIDEFrobenius.g_two_three_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.S_squared' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEFrobenius.ST_cubed' depends on axioms: [propext, Classical.choice, Quot.sound]
+  SIDE-spinor           v0.1.0 = b235bc6 ; committed 526727ef7a over b235bc6235 (print_targets.txt, blob ba7b146cf5, 9 names: main`s names, the six SIDESpinorLeg dropped (the author`s word (6)(a)))
+      names | SIDESpinor.spectral_volume ; SIDESpinor.aperture_decomp ; SIDESpinor.aperture ; SIDESpinor.phase_unit ; SIDESpinor.spinor_sq ; SIDESpinor.spinor_order_four ; SIDESpinor.orbit_collapse_iff ; SIDESpinor.spinor_forces_half ; SIDESpinor.half_iff_centered_zero
+      DROPPED | SIDESpinorLeg.spinor_signature -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      DROPPED | SIDESpinorLeg.quarter_twist_order_four -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      DROPPED | SIDESpinorLeg.metaplectic_cocycle -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      DROPPED | SIDESpinorLeg.zeta8_sq_eq_T -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      DROPPED | SIDESpinorLeg.zeta8_pow_four -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      DROPPED | SIDESpinorLeg.spinor_leg_derives_neg_one -- added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there
+      pushed 526727ef7a (host free 3037 MB, origin equal True)
+      run 40885978813 at 2026-10-29T13:52:30Z (target SIDESpinor, host free 3124 MB): completed success ; build exit 0 ; sorry warnings 0 ; the axiom step success ; host free 2602 MB at the read
+      ax | 'SIDESpinor.spectral_volume' depends on axioms: [propext]
+      ax | 'SIDESpinor.aperture_decomp' does not depend on any axioms
+      ax | 'SIDESpinor.aperture' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.phase_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.spinor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.spinor_order_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.orbit_collapse_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.spinor_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDESpinor.half_iff_centered_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+  SIDE-rcurve           v0.1.0 = d5f33b4 ; committed f3a5ae5486 over d5f33b44ef (print_targets.txt, blob 4d98ea2463, 8 names: main`s blob verbatim)
       pushed f3a5ae5486 (host free 2997 MB, origin equal True)
       run 40881833590 at 2026-10-29T13:25:42Z (target SIDERCurve, host free 2984 MB): completed success ; build exit 0 ; sorry warnings 0 ; the axiom step success ; host free 3640 MB at the read
       ax | 'SIDERCurve.monotone_unique_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -41,4 +109,4 @@ COMMITTED 2 ; PUSHED 2 ; DISPATCHED 2 (six at most) ; READ 2
       ax | 'SIDERCurve.offline_zero_codim_two' does not depend on any axioms
       ax | 'SIDERCurve.second_zero_breaks_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
 
-### ### **THE AXIOM STEP AT 3 OF 6 PINS (2 REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; READY ON THE AUTHOR`S WORD 3 (SIDE-spinor, SIDE-frobenius, SIDE-kernel) ; DISPATCHED 2 ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**
+### ### **THE AXIOM STEP AT 5 OF 6 PINS (4 REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; HALTED 1 (SIDE-kernel) ; RUNS 4 ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**

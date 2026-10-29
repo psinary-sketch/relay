@@ -11,7 +11,12 @@ touched; no lean or lake process on this host.
 THE ROUTES AS PRICED, BY CLASS: TARGETS ABSENT AT THE PIN (SIDE-archimedean, SIDE-spinor, SIDE-rcurve) -- one commit adding
 print_targets.txt, one push, one dispatch of main's build-module.yml at the branch's sha. b722's price leaves to the author's word: the
 six SIDESpinorLeg names not declared at SIDE-spinor's pin (dropped or kept); SIDE-frobenius's target list (the kernel never carried one);
-SIDE-kernel's changed workflow, each line. Those three are READY ON THE AUTHOR'S WORD: drafted and printed by `plan`, not committed.
+SIDE-kernel's changed workflow, each line. The author's word (6) (data/b723_author_words_preseal.txt (6)) routes them: (a) SIDE-spinor's
+six SIDESpinorLeg names dropped (added past the pin, REGISTRY's 1.2-C exception), the nine the pin declares printed; (b) SIDE-frobenius's
+list the declarations behind the README sentences data/b721_frozen_line.txt grades STATED for it, each checked declared at the pin, its
+branch's own workflow running on the push (b721's two lines), so the push is its run; (c) SIDE-kernel's workflow on rebuild-b721 changed
+in three places and nothing else (a push trigger, the axiom step's imports cut to the pin's modules, its #print list cut to terminals
+declared at the pin), the diff printed before any commit, and the step halting to ask if it touches anything else (`kdraft`).
 SIDE-lv-conservation's step ran clean at b721 (data/b721_rebuild.txt :17-:24); its route is `lv`, the sorry's statement and position.
 
   plan                 per kernel: the pin, the branch's local and origin tips, b722's class, the route, the print_targets.txt drafted (main's
@@ -20,6 +25,10 @@ SIDE-lv-conservation's step ran clean at b721 (data/b721_rebuild.txt :17-:24); i
   push <kernel>        free memory read; the branch pushed; ls-remote read; one row
   dispatch <kernel>    b718's dispatch (main's build-module.yml, -f ref=<the branch's sha>, -f target=<the pin's target>); one row
   read <kernel> <id>   b718's read route over b723's rows; the axioms lines printed whole
+  push_run <kernel>    SIDE-frobenius: the push is the run's trigger (its branch's workflow runs on push); the run found by branch, event
+                       and head sha, rowed as a dispatch via push
+  kdraft               SIDE-kernel: the three-place diff formed in memory and printed, each kept import and name checked at the pin, and the
+                       file's own refusal step read under the TARGET a push carries; HALTED (one row) if the three places cannot build alone
   lv                   SIDE-lv-conservation at its pin: T3_perClass_to_combinations's statement and the sorry's position; nothing written
   bank                 data/b723_axiom.txt from the rows
 """
@@ -50,10 +59,12 @@ P.MAX_DISPATCH = 6
 P.target_of = R.target_at_pin
 SEAT = ['-c', 'user.name=b723 axiom seat', '-c', 'user.email=b723-axiom@relay.invalid']
 DIAG = os.path.join(D_, 'b722_axiom_diag.json')
-READY = ('SIDE-archimedean', 'SIDE-rcurve')
-WORD = {'SIDE-spinor': 'the six SIDESpinorLeg names not declared at the pin, dropped or kept (b722`s price, data/b722_axiom_diag.txt :37)',
-        'SIDE-frobenius': 'the target list: the kernel never carried one (data/b722_axiom_diag.txt :28)',
-        'SIDE-kernel': 'the changed workflow, each line, a push trigger and the pin`s imports (data/b722_axiom_diag.txt :11)'}
+READY = ('SIDE-archimedean', 'SIDE-rcurve', 'SIDE-spinor', 'SIDE-frobenius')
+VERBATIM = ('SIDE-archimedean', 'SIDE-rcurve')      # ### main's blob verbatim; spinor main's names less the dropped; frobenius from the bank
+DROP_REASON = 'added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there'
+FRO_FIX = '6b06215745'                              # ### b721's rebranch commit (the two lines), the frobenius branch's tip
+WORD = {'SIDE-kernel': 'the changed workflow in three places alone (the author`s word (6)(c)); see the kdraft row'}
+WF_PATH = '.github/workflows/build-module.yml'
 LV = ('SIDE-lv-conservation', 'T3_perClass_to_combinations')
 
 
@@ -75,8 +86,76 @@ def declared_at_pin(k, names):
     return out
 
 
-def targets_text(k):
-    return P.show('D:/' + k, 'main', 'print_targets.txt') or ''
+def qualified_at_pin(k, rev, short, want=None):
+    """### the declaration of `short` in the .lean files at rev (git grep), qualified by the namespaces open at its line (namespace X /
+    ### end X read down the file); None where no declaration is found. A name ending in a prime is matched to its end."""
+    ### every hit read (a short name may be declared in several namespaces), a dotted declaration name (theorem Ns.short) taken whole;
+    ### with `want` the hit whose full name equals it or ends with it is returned, else the first.
+    repo = 'D:/' + k
+    pat = (r'^(private |protected |noncomputable )*(theorem|lemma|def|abbrev|structure|inductive|class|instance)[[:space:]]+'
+           r'([^[:space:]]+\.)?%s([[:space:]]|:|$)' % re.escape(short).replace("\\'", "'"))
+    hits = [l for l in P.g(repo, 'grep', '-n', '-E', pat, rev, '--', '*.lean')[1].split(NL) if l.strip()]
+    if not hits:
+        return None, None
+    cands = []
+    for h in hits:
+        _r, path, ln, text = h.split(':', 3)
+        L = (P.show(repo, rev, path) or '').split(NL)
+        st = []
+        for l in L[:int(ln) - 1]:
+            m = re.match(r'^namespace\s+(\S+)', l)
+            if m:
+                st.append(m.group(1))
+            m = re.match(r'^end\s+(\S+)', l)
+            if m and st and st[-1] == m.group(1):
+                st.pop()
+        dn = re.match(r'^(?:(?:private|protected|noncomputable) )*\S+\s+(\S+?)(?=[\s:]|$)', text).group(1)
+        cands.append(('.'.join(st + [dn]), '%s:%s' % (path, ln)))
+    if want:
+        for q, at in cands:
+            if q == want or q.endswith('.' + want):
+                return q, at
+    return cands[0] if not want else (' | '.join(q for q, _a in cands), None)
+
+
+def frozen_names():
+    """### (6)(b): the declarations named under the README sentences data/b721_frozen_line.txt grades STATED for SIDE-frobenius -- the
+    ### "`name` at the pin :N" lines beneath a STATED row in its block, read in order, each once."""
+    L = io.open(os.path.join(D_, 'b721_frozen_line.txt'), encoding='utf-8').read().split(NL)
+    i = next(m for m, l in enumerate(L) if l.startswith('## SIDE-frobenius'))
+    j = next((m for m in range(i + 1, len(L)) if L[m].startswith('## ')), len(L))
+    grade, out = None, []
+    for m in range(i, j):
+        g = re.match(r'^\s{4}\d+\.\d+\s+(STATED|NO CLAIM|OUTSIDE|SCOPE|EXCEEDS)\s*\|', L[m])
+        if g:
+            grade = g.group(1)
+            continue
+        n = re.match(r'^\s+`([A-Za-z0-9_\']+)` at the pin :(\d+)', L[m])
+        if n and grade == 'STATED' and n.group(1) not in [x[0] for x in out]:
+            out.append((n.group(1), m + 1))
+    return out
+
+
+def drafted(k):
+    """### the print_targets.txt each READY kernel's commit carries: (text, names, dropped [(name, reason)], source line)."""
+    if k in VERBATIM:
+        t = P.show('D:/' + k, 'main', 'print_targets.txt') or ''
+        return t, [n.strip() for n in t.split(NL) if n.strip()], [], 'main`s blob verbatim'
+    if k == 'SIDE-spinor':
+        names = [n.strip() for n in (P.show('D:/' + k, 'main', 'print_targets.txt') or '').split(NL) if n.strip()]
+        dec = declared_at_pin(k, names)
+        keep = [n for n in names if dec[n]]
+        drop = [n for n in names if not dec[n]]
+        assert len(drop) == 6 and all(n.startswith('SIDESpinorLeg.') for n in drop), drop
+        return NL.join(keep) + NL, keep, [(n, DROP_REASON) for n in drop], 'main`s names, the six SIDESpinorLeg dropped (the author`s word (6)(a))'
+    if k == 'SIDE-frobenius':
+        names = []
+        for short, ln in frozen_names():
+            q, at = qualified_at_pin(k, R.full(k), short)
+            assert q, '%s not declared at the pin' % short
+            names.append(q)
+        return NL.join(names) + NL, names, [], 'the STATED rows` declarations, data/b721_frozen_line.txt (the author`s word (6)(b))'
+    raise SystemExit('## %s: no drafted list' % k)
 
 
 def plan():
@@ -92,14 +171,15 @@ def plan():
                                                                       'READY ON THE AUTHOR`S WORD: ' + WORD[k])
         print('## %-21s pin %s = %s ; %s local %s, origin %s ; b722 class %s ; ROUTE %s' % (k, tag, f[:12], BRANCH, tip[:12], rem[:12],
                                                                                           cls, route))
-        if k in READY or k == 'SIDE-spinor':
-            t = targets_text(k)
-            names = [n.strip() for n in t.split(NL) if n.strip()]
-            dec = declared_at_pin(k, names)
-            print('   print_targets.txt drafted: main`s blob verbatim, %d bytes, %d names ; declared at the pin by git grep: %d of %d' % (
-                len(t.encode('utf-8')), len(names), sum(1 for v in dec.values() if v), len(names)))
+        if k in READY:
+            t, names, drop, src = drafted(k)
+            dec = dict((n, qualified_at_pin(k, f, n.split('.')[-1], want=n)) for n in names)
+            print('   print_targets.txt drafted: %s, %d bytes, %d names ; declared at the pin under that full name: %d of %d' % (
+                src, len(t.encode('utf-8')), len(names), sum(1 for n in names if dec[n][0] == n), len(names)))
             for n in names:
-                print('     %-48s %s' % (n, ('AT ' + dec[n]) if dec[n] else 'NOT FOUND'))
+                print('     %-48s %s' % (n, ('AT ' + dec[n][1]) if dec[n][0] == n else 'NOT AT THE PIN UNDER THIS NAME (%s)' % (dec[n],)))
+            for n, why in drop:
+                print('     %-48s DROPPED: %s' % (n, why))
 
 
 def commit(k):
@@ -110,29 +190,36 @@ def commit(k):
     repo = 'D:/' + k
     f = R.full(k)
     tip = P.gs(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + BRANCH)
-    if tip != f:
-        sys.exit('## %s: the tip %s is not the pin %s; nothing written' % (k, tip[:12], f[:12]))
-    if P.g(repo, 'ls-tree', f, 'print_targets.txt')[1].strip():
-        sys.exit('## %s: the pin carries print_targets.txt; nothing written' % k)
-    t = targets_text(k)
+    base_ok = tip == f or (k == 'SIDE-frobenius' and tip.startswith(FRO_FIX) and P.gs(repo, 'rev-parse', tip + '^^') == f)
+    if not base_ok:
+        sys.exit('## %s: the tip %s is not the pin %s (nor frobenius`s b721 two-line commit over it); nothing written' % (k, tip[:12], f[:12]))
+    if P.g(repo, 'ls-tree', tip, 'print_targets.txt')[1].strip():
+        sys.exit('## %s: the tip carries print_targets.txt; nothing written' % k)
+    t, names, drop, src = drafted(k)
+    for n in names:                                    # ### each name declared at the pin under its full name, before any write
+        q = qualified_at_pin(k, f, n.split('.')[-1], want=n)[0]
+        if q != n:
+            sys.exit('## %s: %s not declared at the pin under that name (%s); nothing written' % (k, n, q))
     b = P.blob(repo, t)
-    mb = P.gs(repo, 'rev-parse', 'main:print_targets.txt')
-    assert b == mb, (b, mb)
-    rows = [l for l in P.gs(repo, 'ls-tree', f).split(NL) if l.strip()] + ['100644 blob %s\tprint_targets.txt' % b]
+    if k in VERBATIM:
+        mb = P.gs(repo, 'rev-parse', 'main:print_targets.txt')
+        assert b == mb, (b, mb)
+    rows = [l for l in P.gs(repo, 'ls-tree', tip).split(NL) if l.strip()] + ['100644 blob %s\tprint_targets.txt' % b]
     rows.sort(key=lambda l: l.split('\t', 1)[1] + ('/' if ' tree ' in l else ''))
     c, tree, e = P.g(repo, 'mktree', inp=(NL.join(rows) + NL).encode('utf-8'))
     assert c == 0, e
-    msg = ('b723 under (R333)(7): the axiom step`s target list print_targets.txt at the pin %s, main`s blob %s verbatim, nothing else '
-           '(b722`s class TARGETS ABSENT AT THE PIN)' % (f[:12], b[:12]))
-    c, cm, e = P.g(repo, *(SEAT + ['commit-tree', tree.strip(), '-p', f, '-m', msg]))
+    msg = ('b723 under (R333)(7): the axiom step`s target list print_targets.txt over %s (the pin %s), %d names, %s; nothing else' % (
+        tip[:12], f[:12], len(names), src))
+    c, cm, e = P.g(repo, *(SEAT + ['commit-tree', tree.strip(), '-p', tip, '-m', msg]))
     assert c == 0, e
     cm = cm.strip()
-    c, _o, e = P.g(repo, 'update-ref', 'refs/heads/' + BRANCH, cm, f)
+    c, _o, e = P.g(repo, 'update-ref', 'refs/heads/' + BRANCH, cm, tip)
     assert c == 0, e
-    print('## %s : %s at %s, parent the pin %s, adding print_targets.txt (blob %s, equal to main`s) and nothing else; author and committer %s'
-          % (k, BRANCH, cm[:12], f[:12], b[:12], P.gs(repo, 'log', '-1', '--format=%an <%ae> / %cn <%ce>', cm)))
-    print(P.g(repo, 'diff', '--stat', f, cm)[1].rstrip())
-    P.rows_add({'kind': 'commit', 'kernel': k, 'sha': cm, 'parent': f, 'blob': b, 'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
+    print('## %s : %s at %s, parent %s, adding print_targets.txt (blob %s, %d names: %s) and nothing else; author and committer %s'
+          % (k, BRANCH, cm[:12], tip[:12], b[:12], len(names), src, P.gs(repo, 'log', '-1', '--format=%an <%ae> / %cn <%ce>', cm)))
+    print(P.g(repo, 'diff', '--stat', tip, cm)[1].rstrip())
+    P.rows_add({'kind': 'commit', 'kernel': k, 'sha': cm, 'parent': tip, 'blob': b, 'names': names, 'dropped': drop, 'source': src,
+                'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
 
 
 def push(k):
@@ -144,7 +231,7 @@ def push(k):
     if tip != cm[-1]['sha']:
         sys.exit('## %s: the tip is not b723`s commit; nothing pushed' % k)
     fm = P.hold_or_exit('the push of ' + k)
-    print('### free memory %d MB (hold %d) ; pushing %s %s at %s (fast-forward from the pin %s)' % (fm, P.HOLD_MB, k, BRANCH, tip[:12],
+    print('### free memory %d MB (hold %d) ; pushing %s %s at %s (fast-forward from its parent %s)' % (fm, P.HOLD_MB, k, BRANCH, tip[:12],
                                                                                                   cm[-1]['parent'][:12]))
     c, o, e = P.g(repo, 'push', 'origin', BRANCH)
     print('   git push origin %s: exit %d %s' % (BRANCH, c, (o + e).strip().replace(NL, ' / ')[:300]))
@@ -159,7 +246,108 @@ def push(k):
 def dispatch(k):
     if not [r for r in P.rows_load() if r.get('kind') == 'push' and r['kernel'] == k]:
         sys.exit('## %s: not pushed at b723; nothing dispatched' % k)
+    if k == 'SIDE-frobenius':
+        sys.exit('## %s: no workflow on main; its branch`s workflow runs on the push -- use findrun; nothing dispatched' % k)
     P.dispatch(k)
+
+
+def findrun(k):
+    """### SIDE-frobenius: the run its push triggered, found by branch, event push and head sha (b721's push_run form), rowed as a dispatch
+    ### via push; counted toward the six."""
+    pu = [r for r in P.rows_load() if r.get('kind') == 'push' and r['kernel'] == k]
+    done = [r for r in P.rows_load() if r.get('kind') == 'dispatch']
+    if not pu or [r for r in done if r['kernel'] == k] or len(done) >= P.MAX_DISPATCH:
+        sys.exit('## %s: not pushed, its run rowed already, or six reached; nothing rowed' % k)
+    tip, t0 = pu[-1]['sha'], pu[-1]['at']
+    rid = None
+    for _i in range(24):
+        c, o, e = P.gh('run', 'list', '-R', '%s/%s' % (P.OWNER, k), '--branch', BRANCH, '--event', 'push', '-L', '5',
+                       '--json', 'databaseId,createdAt,status,headSha')
+        new = [r for r in json.loads(o or '[]') if r['createdAt'] >= t0 and r['headSha'] == tip]
+        if new:
+            rid = new[-1]['databaseId']
+            break
+        time.sleep(5)
+    print('   run id %s (event push, head %s, created at or after %s)' % (rid, tip[:12], t0))
+    if rid:
+        P.rows_add({'kind': 'dispatch', 'kernel': k, 'sha': tip, 'target': R.target_at_pin(k), 'at': t0, 'run': rid, 'free_mb': P.free_mb(),
+                    'via': 'push'})
+
+
+def kdraft():
+    """### (6)(c): SIDE-kernel's workflow for rebuild-b721, main's build-module.yml changed in three places alone -- (1) a push trigger beside
+    ### workflow_dispatch, (2) the axiom step's imports cut to the modules present at the pin, (3) its #print list cut to the terminals
+    ### declared at the pin under the printed name -- formed in memory, the diff printed. Then the file's own refusal step read (bash on
+    ### this host) under the TARGET a push carries: TARGET is `${{ inputs.target }}` and a push has no inputs. If the three places cannot
+    ### build alone, HALTED: nothing committed, one row, the fourth line the author's to rule."""
+    import difflib
+    import subprocess
+    k = 'SIDE-kernel'
+    repo, f = 'D:/' + k, R.full(k)
+    L = (P.show(repo, 'main', WF_PATH) or '').split(NL)
+    pin_files = set(x for x in P.gs(repo, 'ls-tree', '-r', '--name-only', f).split(NL) if x.strip())
+    M = list(L)
+    assert M.count('on:') == 1
+    M.insert(M.index('on:') + 1, '  push: { branches: [%s] }' % BRANCH)
+    kept_i, cut_i, kept_n, cut_n = [], [], [], []
+    out = []
+    for l in M:
+        mi = re.match(r'^ {10}import (\S+)$', l)
+        mp = re.match(r'^ {10}#print axioms (\S+)$', l)
+        if mi:
+            (kept_i if mi.group(1).replace('.', '/') + '.lean' in pin_files else cut_i).append(mi.group(1))
+            if mi.group(1).replace('.', '/') + '.lean' not in pin_files:
+                continue
+        if mp:
+            n = mp.group(1)
+            q, at = qualified_at_pin(k, f, n.split('.')[-1], want=n)
+            ok = at is not None
+            (kept_n if ok else cut_n).append((n, at if ok else q))
+            if not ok:
+                continue
+        out.append(l)
+    diff = [x for x in difflib.unified_diff(L, out, 'main:' + WF_PATH, BRANCH + ':' + WF_PATH, lineterm='', n=0)]
+    places = set()
+    for x in diff:
+        if x.startswith(('---', '+++', '@@')):
+            continue
+        if x.startswith('+  push:'):
+            places.add('trigger')
+        elif re.match(r'^- {10}import ', x):
+            places.add('imports')
+        elif re.match(r'^- {10}#print axioms ', x):
+            places.add('targets')
+        else:
+            places.add('OTHER: ' + x)
+    print('### SIDE-kernel: main`s %s (%d lines) changed in memory for %s, the pin %s' % (WF_PATH, len(L), BRANCH, f[:12]))
+    print('   imports kept %d, cut %d (%s) ; #print names kept %d, cut %d' % (len(kept_i), len(cut_i), ', '.join(cut_i), len(kept_n), len(cut_n)))
+    for n, why in cut_n:
+        print('     cut: %-58s %s' % (n, 'NOT DECLARED AT THE PIN' if why is None else 'declared as %s' % why))
+    print('   THE DIFF (formed in memory, not committed): %d lines ; the places it touches: %s' % (len(diff), sorted(places)))
+    for x in diff:
+        print('     ' + x)
+    i = L.index('      - name: Refuse a target outside the lake grammar')
+    case = NL.join(l[10:] for l in L[i + 2:i + 5])
+    p = subprocess.run(['bash', '-c', "TARGET=''%s%s%secho PASSED" % (NL, case, NL)], capture_output=True, text=True)
+    ctl = subprocess.run(['bash', '-c', "TARGET='%s'%s%s%secho PASSED" % (R.target_at_pin(k), NL, case, NL)], capture_output=True, text=True)
+    env_t = [l.strip() for l in L if l.strip().startswith('TARGET:')]
+    print('   env %s ; the refusal step under the TARGET a push carries (empty): exit %d %s ; under the dispatch target %r (the control): '
+          'exit %d %s' % (env_t, p.returncode, (p.stdout + p.stderr).strip(), R.target_at_pin(k), ctl.returncode, (ctl.stdout + ctl.stderr).strip()))
+    other = [x for x in places if x.startswith('OTHER')]
+    halt = bool(other) or (p.returncode != 0 and ctl.returncode == 0)
+    why = ('the diff touches another place: %s' % other) if other else (
+        'the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits %d before elan, the cache '
+        'or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push '
+        'trigger) is the author`s to rule' % p.returncode) if halt else 'NOT HALTED'
+    print('   %s' % (('HALTED: ' + why + '; nothing committed, pushed or run') if halt else why))
+    keep = [r for r in P.rows_load() if not r.get('kind', '').startswith('kdraft')]
+    if len(keep) != len(P.rows_load()):              # ### a draft, no kernel touched: the earlier draft row replaced
+        io.open(ROWS + '.tmp', 'w', encoding='utf-8', newline='\n').write(json.dumps(keep, indent=1, ensure_ascii=False) + NL)
+        os.replace(ROWS + '.tmp', ROWS)
+        print('   the earlier kdraft row replaced')
+    P.rows_add({'kind': 'kdraft_halt' if halt else 'kdraft_clear', 'kernel': k, 'diff': diff, 'places': sorted(places), 'imports_cut': cut_i,
+                'names_kept': len(kept_n), 'names_cut': cut_n, 'empty_exit': p.returncode, 'empty_out': (p.stdout + p.stderr).strip(),
+                'control_exit': ctl.returncode, 'why': why, 'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
 
 
 def read(k, rid):
@@ -243,6 +431,11 @@ def lv():
             print('   %5d| %s' % (s, L[s - 1]))
         out.append({'path': path, 'line': i + 1, 'statement': L[i:j + 1], 'sorry_lines': sor, 'proof_end': end})
     neg = closure_check(repo, f)
+    uses = [l.split(':', 1)[1] for l in P.g(repo, 'grep', '-n', '-w', name, f, '--', '*.lean')[1].split(NL) if l.strip()]
+    dep = [u for u in uses if not re.search(r'(theorem|lemma)\s+%s\b|#print axioms' % name, u.split(':', 2)[2])]
+    print('### the name in the pin`s .lean files: %d lines (%s) ; used by another declaration: %d%s' % (
+        len(uses), ' ; '.join(u[:90] for u in uses), len(dep), (' -- ' + ' ; '.join(dep)) if dep else ''))
+    neg['uses'], neg['dependents'] = uses, dep
     allw = [l for l in P.g(repo, 'grep', '-n', '-w', 'sorry', f, '--', '*.lean')[1].split(NL) if l.strip()]
     allsor = [l for l in allw if re.match(r'^\s*sorry\b', l.split(':', 3)[3])]          # ### a line opening with the tactic
     print('### the `sorry` word in the pin`s .lean files: %d lines ; of them a line opening with the tactic: %d -- %s (the build`s target '
@@ -299,18 +492,39 @@ def bank():
                             NEG, c['neg_line'], 'EQUAL' if c['equal'] else 'NOT EQUAL', 'EQUAL' if c['control_equal'] else 'NOT EQUAL',
                             'NOT WANTED' if c['control_equal'] else 'WANTED'),
                         '      %s at b721`s run 40706311269: %s' % (NEG, ' '.join(ax) or 'NOT READ'),
-                        '      THE DISCHARGE, PRICED: NOT AVAILABLE AS STATED -- the kernel proves, sorry-free, the negation of the statement`s closure, so '
-                        'a proof of it would derive False; the routes the file itself names: T3prime_shared_witness (:121, Determination`s two '
-                        'hypotheses, a changed statement the work order`s "no weakened statement" bars) or the deposit`s wording corrected at the '
-                        'release sitting. The author`s word at the root`s prompt chooses.']
+                        '      the name in the pin`s .lean files: %d lines ; used by another declaration: %d (%s)' % (
+                            len(c.get('uses', [])), len(c.get('dependents', [])), ' ; '.join(c.get('dependents', [])) or 'none: its own '
+                            'declaration and AxiomCheck.lean`s #print alone'),
+                        '      THE DISCHARGE, PRICED: NOT AVAILABLE AS STATED -- T3_perClass_to_combinations is false as stated: the kernel proves its '
+                        'negation sorry-free (:137), so a proof of it would derive False; no other declaration depends on it. THE READING FOR THE '
+                        'ROOT`S PROMPT (the author`s word (6)(d)): an ERRATA entry with the deposit`s wording corrected at the release sitting, and '
+                        'the statement replaced by its proved negation or removed at lv`s next version; the author`s word at the root chooses.']
             if not lvr:
                 out.append('      the lv route NOT RUN')
             done += 1
             continue
         if k not in cm:
-            out.append(line + ' ; NOT COMMITTED: %s' % ('READY, not run' if k in READY else 'READY ON THE AUTHOR`S WORD -- ' + WORD[k]))
+            kd = [r for r in rs if r.get('kind', '').startswith('kdraft') and r['kernel'] == k]
+            if kd:
+                d = kd[-1]
+                out.append(line + ' ; %s (the author`s word (6)(c)): the diff formed in memory, places %s ; imports cut %d (%s) ; #print names '
+                           'kept %d, cut %d' % ('HALTED' if d['kind'] == 'kdraft_halt' else 'DRAFT CLEAR', d['places'], len(d['imports_cut']),
+                                                ', '.join(d['imports_cut']), d['names_kept'], len(d['names_cut'])))
+                out += ['      cut | %s (%s)' % (n, 'not declared at the pin' if w is None else w) for n, w in d['names_cut']]
+                out += ['      diff | ' + x for x in d['diff']]
+                out.append('      the refusal step under the TARGET a push carries: exit %d "%s" ; under the dispatch target: exit %d' % (
+                    d['empty_exit'], d['empty_out'], d['control_exit']))
+                out.append('      ' + d['why'] + '; nothing committed, pushed or run')
+            else:
+                out.append(line + ' ; NOT COMMITTED: %s' % ('READY, not run' if k in READY else WORD[k]))
             continue
-        out.append(line + ' ; committed %s (print_targets.txt, blob %s, main`s verbatim)' % (cm[k]['sha'][:10], cm[k]['blob'][:10]))
+        nn = len(cm[k]['names']) if cm[k].get('names') else len([x for x in rd.get(k, {}).get('axioms_lines', []) if x.startswith("'")])
+        out.append(line + ' ; committed %s over %s (print_targets.txt, blob %s, %d names: %s)' % (
+            cm[k]['sha'][:10], cm[k]['parent'][:10], cm[k]['blob'][:10], nn, cm[k].get('source', 'main`s blob verbatim')))
+        if cm[k].get('names') and k not in VERBATIM:
+            out.append('      names | ' + ' ; '.join(cm[k]['names']))
+        for n, why in cm[k].get('dropped', []):
+            out.append('      DROPPED | %s -- %s' % (n, why))
         if k in pu:
             out.append('      pushed %s (host free %d MB, origin equal %s)' % (pu[k]['sha'][:10], pu[k]['free_mb'], pu[k]['remote_equal']))
         d = di.get(k)
@@ -328,9 +542,10 @@ def bank():
         out += ['      ax | ' + l[:240] for l in r.get('axioms_lines', [])]
         if st and st[0][1] == 'success' and any('depends on axioms' in l or 'does not depend on any axioms' in l for l in r.get('axioms_lines', [])):
             done += 1
-    out += ['', '### ### **THE AXIOM STEP AT %d OF 6 PINS (%d REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; READY ON THE AUTHOR`S '
-            'WORD %d (%s) ; DISPATCHED %d ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**' % (
-                done, done - 1, len([k for k in WORD if k not in cm]), ', '.join(k for k in WORD if k not in cm) or 'none', len(di))]
+    halted = [r['kernel'] for r in rs if r.get('kind') == 'kdraft_halt']
+    out += ['', '### ### **THE AXIOM STEP AT %d OF 6 PINS (%d REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; HALTED %d (%s) ; '
+            'RUNS %d ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**' % (
+                done, done - 1, len(halted), ', '.join(halted) or 'none', len(di))]
     io.open(OUT + '.tmp', 'w', encoding='utf-8', newline='\n').write(NL.join(out) + NL)
     os.replace(OUT + '.tmp', OUT)
     print(NL.join(out))
@@ -349,6 +564,10 @@ if __name__ == '__main__':
         dispatch(a[1])
     elif a[0] == 'read':
         read(a[1], a[2])
+    elif a[0] == 'findrun':
+        findrun(a[1])
+    elif a[0] == 'kdraft':
+        kdraft()
     elif a[0] == 'lv':
         lv()
     elif a[0] == 'bank':

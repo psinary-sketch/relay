@@ -10,9 +10,12 @@ b723 -- COMPONENT 5, (R333)(6): THE C2 CLOSED FORM, A WRITTEN DERIVATION; ITS CH
   K an imaginary quadratic field of discriminant D < -4 and class number h(D) = 2; Cl(K) = {C0, C1}, C0 the principal class; Q the principal
   form (x^2 + (-D/4) y^2 or x^2 + xy + ((1 - D)/4) y^2). Z_Q(s) = SUM' Q(x, y)^-s over (x, y) != (0, 0). The units are +-1, so
   Z_Q(s) = 2 zeta(s, C0), zeta(s, C) = SUM over integral ideals a in C of N(a)^-s. b(n) is the coefficient of n^-s in log(Z_Q / 2).
-  A rational prime p is BAD when it splits or ramifies in K and its prime ideals lie in C1 (chi_D(p) != -1 and Q does not represent p);
-  GOOD otherwise (inert, or split or ramified into principal prime ideals). e_p = 2 for a bad split p (two prime ideals of norm p), 1 for a
-  bad ramified p (one). S(s) = SUM over bad p of e_p artanh(p^-s).
+  A rational prime p is NON-PRINCIPAL when it splits or ramifies into prime ideals outside the principal class, that is in C1
+  (chi_D(p) != -1 and Q does not represent p); PRINCIPAL otherwise (inert, or split or ramified into principal prime ideals). e_p is the
+  number of prime ideals above p: 2 for a non-principal split p (two prime ideals of norm p), 1 for a non-principal ramified p (one).
+  S(s), the non-principal prime sum, = SUM over non-principal p of e_p artanh(p^-s).
+  THE TERMS (the author's word (6)(f), at b723 before the lock): b716-b722's banks, and this file before that word, call the
+  non-principal primes "bad" and the principal primes "good"; the objects are the same.
 
 ## THE STATEMENT
   log(Z_Q / 2) = log zeta_K - S + log cosh S.
@@ -23,44 +26,45 @@ b723 -- COMPONENT 5, (R333)(6): THE C2 CLOSED FORM, A WRITTEN DERIVATION; ITS CH
   (2) L(psi) / zeta_K = e^(-2S): both are Euler products over the prime ideals P, zeta_K = PROD (1 - N(P)^-s)^-1 and
       L(psi) = PROD (1 - psi(P) N(P)^-s)^-1. They differ only at the P with psi(P) = -1, the prime ideals in C1: an inert p gives
       P = (p), principal; a split or ramified p gives prime ideals all in one class (P and its conjugate are inverse, and C1 is its own
-      inverse), so the P with psi(P) = -1 are exactly those above the bad primes, e_p of them, each of norm p. Hence
-      L(psi) / zeta_K = PROD over bad p of ((1 - p^-s) / (1 + p^-s))^(e_p), and (1 - x) / (1 + x) = e^(-2 artanh x) gives e^(-2S).
+      inverse), so the P with psi(P) = -1 are exactly those above the non-principal primes, e_p of them, each of norm p. Hence
+      L(psi) / zeta_K = PROD over non-principal p of ((1 - p^-s) / (1 + p^-s))^(e_p), and (1 - x) / (1 + x) = e^(-2 artanh x) gives e^(-2S).
   (3) (1 + e^(-2S)) / 2 = e^(-S) (e^S + e^(-S)) / 2 = e^(-S) cosh S.
   (4) The logarithm: Z_Q / 2 = zeta_K e^(-S) cosh S by (1)-(3), so log(Z_Q / 2) = log zeta_K - S + log cosh S, for Re s > 1, where each
       series converges absolutely.
 
 ## THE CONSEQUENCES, FROM THE COEFFICIENTS
   log zeta_K = SUM over P, k >= 1 of N(P)^-ks / k: supported on prime powers, its coefficient at p^k positive where nonzero (split 2/k,
-  ramified 1/k, inert 2/k at even k and 0 at odd k). S = SUM over bad p, odd k of e_p p^-ks / k: supported on odd powers of bad primes.
+  ramified 1/k, inert 2/k at even k and 0 at odd k). S = SUM over non-principal p, odd k of e_p p^-ks / k: supported on odd powers of
+  non-principal primes.
   log cosh x = x^2/2 - x^4/12 + x^6/45 - 17 x^8/2520 + ...: even powers only, so -S + log cosh S is supported on the n all of whose prime
-  factors are bad, and its part of degree j in S sits on the n with Omega(n) of j's parity, j <= Omega(n).
-  (a) b(n) = 0 at every n with two or more distinct prime factors one of which is good: log zeta_K is zero off the prime powers and
-      -S + log cosh S is zero off the bad-smooth n. READING OF THE FERRY'S WORD: "every composite with a good prime" is read as such n; at
-      a good prime power p^k (k >= 2), composite and good, b(p^k) is log zeta_K's coefficient and positive (at D = -15 the good split
-      prime 19 = Q(1, 2) gives b(361) = 1), so the statement holds as stated here, not at the prime powers.
-  (b) No negative b(n) at Omega(n) <= 3. At a bad p^k, k odd: log zeta_K gives e_p / k and -S gives -e_p / k, which cancel (b(p) = 0, as
+  factors are non-principal, and its part of degree j in S sits on the n with Omega(n) of j's parity, j <= Omega(n).
+  (a) b(n) = 0 at every n with two or more distinct prime factors one of which is principal: log zeta_K is zero off the prime powers and
+      -S + log cosh S is zero off the n whose primes are all non-principal. READING OF THE FERRY'S WORD: "every composite with a good
+      prime" is read as such n; at a principal prime power p^k (k >= 2), composite, b(p^k) is log zeta_K's coefficient and positive (at
+      D = -15 the principal split prime 19 = Q(1, 2) gives b(361) = 1), so the statement holds as stated here, not at the prime powers.
+  (b) No negative b(n) at Omega(n) <= 3. At a non-principal p^k, k odd: log zeta_K gives e_p / k and -S gives -e_p / k, which cancel (b(p) = 0, as
       Q does not represent p); the S^2/2 terms are >= 0 and sit on even Omega; there is no odd power of S beyond -S. So at Omega(n) = 1
       and 3, b(n) is 0 or an S^2-free cancellation (0); at Omega(n) = 2, b(n) = (log zeta_K at p^2, >= 0) + (S^2/2, >= 0) >= 0.
   (c) Omega(n) = 4 is the first place a negative can sit, from -S^4/12, with the S^2/2 terms beside it. At n = PROD p_i^(k_i), the S^4
       term counts the ordered factorisations of n into four odd prime-power parts with the weights e_p / k: the multinomial count. The
       eighteen n0 of the walk take two shapes:
-        n0 = p^3 q (p, q bad): S^2/2 gives (1/2) . 2 . (e_p / 3) e_q, and -S^4/12 gives -(1/12) . 4 . e_p^3 e_q (the four places of q);
+        n0 = p^3 q (p, q non-principal): S^2/2 gives (1/2) . 2 . (e_p / 3) e_q, and -S^4/12 gives -(1/12) . 4 . e_p^3 e_q (the four places of q);
           with e_p = 2, e_q = 1: 2/3 - 8/3 = -2 (D = -15: 24 = 2^3.3; -35: 135; -91: 875; -187: 3773; -403: 17303).
         n0 = p^2 q^2: S^2/2 gives nothing (p^2 and q^2 are even powers, not in S); -S^4/12 gives -(1/12) . 6 . e_p^2 e_q^2:
           e_p e_q = 2 gives -2 (one split, one ramified: -20, -51, -52, -115, -123, -148, -235, -267, -427), and e_p = e_q = 1 gives
           -1/2 (both ramified: -24, -40, -88, -232).
       These are the values -2 and -1/2 the walk banked (data/b722_c2_statement.txt :9-:26); the check prints each n0's two terms.
-  (d) EVERY SUCH FIELD HAS A BAD RAMIFIED PRIME (genus theory): h(D) = 2 makes Cl(K) of exponent 2, so Cl(K) = Cl(K)[2], which genus theory
+  (d) EVERY SUCH FIELD HAS A NON-PRINCIPAL RAMIFIED PRIME (genus theory): h(D) = 2 makes Cl(K) of exponent 2, so Cl(K) = Cl(K)[2], which genus theory
       gives as 2^(t - 1) classes, t the number of primes dividing D; so t = 2. For D < -4 every class of order <= 2 (an ambiguous class)
       contains an ambiguous ideal, a product of the ramified prime ideals; C1 is ambiguous, so some ramified prime ideal lies in C1, and its
-      prime is bad and ramified (e_p = 1). The check reads a bad ramified prime at each of the eighteen fields.
+      prime is non-principal and ramified (e_p = 1). The check reads a non-principal ramified prime at each of the eighteen fields.
 
 ## THE CHECK, POST HOC (data/b723_c2_check.txt; tools/b723_c2_check.py)
-  b(n) computed from the closed form alone (log zeta_K at the bad prime powers, -S + log cosh S exact in rationals, B_2m exact) to the
+  b(n) computed from the closed form alone (log zeta_K at the non-principal prime powers, -S + log cosh S exact in rationals, B_2m exact) to the
   banks' cut 32532, at the eighteen fields of class number 2 in the coefficient banks of b711-b722 (b713 -15; b719 -20; b720 -35, -40;
   b722's walk -15 and the fourteen beside it). The controls first: (C0) the closed form against the direct series from r_Q at every
   n <= 3000 at -15 and -20, 0 mismatches; (C1) a planted e_p (e_2 = 1 at -15) FAILS to reproduce, as wanted. THE ROWS: 19 (eighteen
   fields, -15 twice), each POST HOC: n0, b(n0), the count of negatives through 32532 and every listed negative reproduced at all 19, no
-  listed negative carrying a good prime; no negative at Omega <= 3 at any field; a bad ramified prime at every field.
+  listed negative carrying a principal prime; no negative at Omega <= 3 at any field; a non-principal ramified prime at every field.
 
 ### ### **THE C2 CLOSED FORM: WRITTEN AS A DERIVATION, FOUR STEPS ; CHECKED POST HOC, 19 ROWS OF 19 REPRODUCED, THE PLANTED e_p FAILING ; NOT COMPILED.**

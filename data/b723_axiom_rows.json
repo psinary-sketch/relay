@@ -50,40 +50,6 @@
   "free_mb": 2984
  },
  {
-  "kind": "lv",
-  "kernel": "SIDE-lv-conservation",
-  "pin": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
-  "decls": [
-   {
-    "path": "SIDELvConservation/T3_StepNineBridge.lean",
-    "line": 92,
-    "statement": [
-     "theorem T3_perClass_to_combinations",
-     "    (𝒞 : Set Coupling) (s : ℂ)",
-     "    (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :",
-     "    CombinationsExclude 𝒞 s := by"
-    ],
-    "sorry_lines": [
-     108
-    ],
-    "proof_end": 120
-   }
-  ],
-  "all_sorry": [
-   "PinnedGoal.lean:23:  sorry",
-   "SIDELvConservation/T3_StepNineBridge.lean:108:  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption"
-  ],
-  "closure": {
-   "statement_line": 92,
-   "neg_line": 137,
-   "closure": "∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
-   "neg": "¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
-   "equal": true,
-   "control_equal": false
-  },
-  "at": "2026-10-29T13:26:39Z"
- },
- {
   "kind": "read",
   "kernel": "SIDE-archimedean",
   "run": "40881801296",
@@ -223,6 +189,398 @@
    "'SIDERCurve.online_zero_codim_one' does not depend on any axioms",
    "'SIDERCurve.offline_zero_codim_two' does not depend on any axioms",
    "'SIDERCurve.second_zero_breaks_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "commit",
+  "kernel": "SIDE-spinor",
+  "sha": "526727ef7a037426b0343b5ae24664c6248cb372",
+  "parent": "b235bc6235b5887fc89a8af3fbec3b96b84016e3",
+  "blob": "ba7b146cf558bb847aada45a45ee3e84859426d6",
+  "names": [
+   "SIDESpinor.spectral_volume",
+   "SIDESpinor.aperture_decomp",
+   "SIDESpinor.aperture",
+   "SIDESpinor.phase_unit",
+   "SIDESpinor.spinor_sq",
+   "SIDESpinor.spinor_order_four",
+   "SIDESpinor.orbit_collapse_iff",
+   "SIDESpinor.spinor_forces_half",
+   "SIDESpinor.half_iff_centered_zero"
+  ],
+  "dropped": [
+   [
+    "SIDESpinorLeg.spinor_signature",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ],
+   [
+    "SIDESpinorLeg.quarter_twist_order_four",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ],
+   [
+    "SIDESpinorLeg.metaplectic_cocycle",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ],
+   [
+    "SIDESpinorLeg.zeta8_sq_eq_T",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ],
+   [
+    "SIDESpinorLeg.zeta8_pow_four",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ],
+   [
+    "SIDESpinorLeg.spinor_leg_derives_neg_one",
+    "added in the two commits past the pin (REGISTRY`s 1.2-C exception); not declared at the pin, cannot be printed there"
+   ]
+  ],
+  "source": "main`s names, the six SIDESpinorLeg dropped (the author`s word (6)(a))",
+  "at": "2026-10-29T13:49:52Z"
+ },
+ {
+  "kind": "commit",
+  "kernel": "SIDE-frobenius",
+  "sha": "b4ef3958cd8f2d62e27778abb9cbfdddbf5cba9a",
+  "parent": "6b06215745d0d68b5de25b0d9defe83f7b3b8545",
+  "blob": "190cf131e84971e4adf985531f3fa1cd28737643",
+  "names": [
+   "SIDEFrobenius.indicial_factor",
+   "SIDEFrobenius.indicial_root_unique",
+   "SIDEFrobenius.indicial_reflect_fixed_iff",
+   "SIDEFrobenius.indicial_forces_half",
+   "SIDEFrobenius.g_two_three",
+   "SIDEFrobenius.g_two_three_minimal",
+   "SIDEFrobenius.S_squared",
+   "SIDEFrobenius.ST_cubed"
+  ],
+  "dropped": [],
+  "source": "the STATED rows` declarations, data/b721_frozen_line.txt (the author`s word (6)(b))",
+  "at": "2026-10-29T13:49:59Z"
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-spinor",
+  "sha": "526727ef7a037426b0343b5ae24664c6248cb372",
+  "at": "2026-10-29T13:52:17Z",
+  "free_mb": 3037,
+  "remote_equal": true
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-frobenius",
+  "sha": "b4ef3958cd8f2d62e27778abb9cbfdddbf5cba9a",
+  "at": "2026-10-29T13:52:25Z",
+  "free_mb": 2892,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-spinor",
+  "sha": "526727ef7a037426b0343b5ae24664c6248cb372",
+  "target": "SIDESpinor",
+  "at": "2026-10-29T13:52:30Z",
+  "run": 40885978813,
+  "free_mb": 3124
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-frobenius",
+  "sha": "b4ef3958cd8f2d62e27778abb9cbfdddbf5cba9a",
+  "target": "SIDEFrobenius",
+  "at": "2026-10-29T13:52:25Z",
+  "run": 40885967139,
+  "free_mb": 3150,
+  "via": "push"
+ },
+ {
+  "kind": "kdraft_halt",
+  "kernel": "SIDE-kernel",
+  "diff": [
+   "--- main:.github/workflows/build-module.yml",
+   "+++ rebuild-b721:.github/workflows/build-module.yml",
+   "@@ -8,0 +9 @@",
+   "+  push: { branches: [rebuild-b721] }",
+   "@@ -78 +78,0 @@",
+   "-          import Bridge.CardDerived",
+   "@@ -84 +83,0 @@",
+   "-          import Kernel.Cascade.InvarianceBarrier",
+   "@@ -98 +96,0 @@",
+   "-          import Kernel.Voice7Witness",
+   "@@ -104,4 +101,0 @@",
+   "-          #print axioms InvarianceBarrier.Derives",
+   "-          #print axioms InvarianceBarrier.DeterminedBy",
+   "-          #print axioms InvarianceBarrier.derivability_barrier",
+   "-          #print axioms InvarianceBarrier.invariance_barrier",
+   "@@ -111,4 +104,0 @@",
+   "-          #print axioms Voice7Witness.hadObs_dark",
+   "-          #print axioms Voice7Witness.hadamard_does_not_enforce_online",
+   "-          #print axioms Voice7Witness.hadamard_does_not_enforce_online'",
+   "-          #print axioms Voice7Witness.hadamard_witness",
+   "@@ -127,2 +116,0 @@",
+   "-          #print axioms mechanism_class_card_derived",
+   "-          #print axioms mechanism_class_card_value",
+   "@@ -136 +123,0 @@",
+   "-          #print axioms substrate_value_injective"
+  ],
+  "places": [
+   "imports",
+   "targets",
+   "trigger"
+  ],
+  "imports_cut": [
+   "Bridge.CardDerived",
+   "Kernel.Cascade.InvarianceBarrier",
+   "Kernel.Voice7Witness"
+  ],
+  "names_kept": 43,
+  "names_cut": [
+   [
+    "InvarianceBarrier.Derives",
+    null
+   ],
+   [
+    "InvarianceBarrier.DeterminedBy",
+    null
+   ],
+   [
+    "InvarianceBarrier.derivability_barrier",
+    null
+   ],
+   [
+    "InvarianceBarrier.invariance_barrier",
+    null
+   ],
+   [
+    "Voice7Witness.hadObs_dark",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_does_not_enforce_online",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_does_not_enforce_online'",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_witness",
+    null
+   ],
+   [
+    "mechanism_class_card_derived",
+    null
+   ],
+   [
+    "mechanism_class_card_value",
+    null
+   ],
+   [
+    "substrate_value_injective",
+    null
+   ]
+  ],
+  "empty_exit": 2,
+  "empty_out": "target refused:",
+  "control_exit": 0,
+  "why": "the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits 2 before elan, the cache or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push trigger) is the author`s to rule",
+  "at": "2026-10-29T13:53:44Z"
+ },
+ {
+  "kind": "lv",
+  "kernel": "SIDE-lv-conservation",
+  "pin": "93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f",
+  "decls": [
+   {
+    "path": "SIDELvConservation/T3_StepNineBridge.lean",
+    "line": 92,
+    "statement": [
+     "theorem T3_perClass_to_combinations",
+     "    (𝒞 : Set Coupling) (s : ℂ)",
+     "    (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :",
+     "    CombinationsExclude 𝒞 s := by"
+    ],
+    "sorry_lines": [
+     108
+    ],
+    "proof_end": 120
+   }
+  ],
+  "all_sorry": [
+   "PinnedGoal.lean:23:  sorry",
+   "SIDELvConservation/T3_StepNineBridge.lean:108:  sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption"
+  ],
+  "closure": {
+   "statement_line": 92,
+   "neg_line": 137,
+   "closure": "∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "neg": "¬ ∀ (𝒞 : Set Coupling) (s : ℂ), (∀ C ∈ 𝒞, ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0) → ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0",
+   "equal": true,
+   "control_equal": false,
+   "uses": [
+    "AxiomCheck.lean:37:#print axioms T3.T3_perClass_to_combinations",
+    "SIDELvConservation/T3_StepNineBridge.lean:92:theorem T3_perClass_to_combinations"
+   ],
+   "dependents": []
+  },
+  "at": "2026-10-29T13:54:05Z"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-spinor",
+  "run": "40885978813",
+  "free_mb": 2602,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T13:52:32Z",
+  "updated": "2026-10-29T13:54:21Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "526727ef7a037426b0343b5ae24664c6248cb372",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14297",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "'SIDESpinor.spectral_volume' depends on axioms: [propext]",
+   "'SIDESpinor.aperture_decomp' does not depend on any axioms",
+   "'SIDESpinor.aperture' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.phase_unit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.spinor_sq' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.spinor_order_four' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.orbit_collapse_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.spinor_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDESpinor.half_iff_centered_zero' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "verdict": "BUILDS"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-frobenius",
+  "run": "40885967139",
+  "free_mb": 4648,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T13:52:27Z",
+  "updated": "2026-10-29T13:54:19Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Chain probe of the ref's root ChainProbe.lean",
+    "success"
+   ],
+   [
+    "Constant closure of the kernel's own declarations",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Upload the chain probe's artifact, separate from the run's",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "b4ef3958cd8f2d62e27778abb9cbfdddbf5cba9a",
+   "leanprover/lean4:v4.29.1"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "14158",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 3,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "'SIDEFrobenius.indicial_factor' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.indicial_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.indicial_reflect_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.indicial_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.g_two_three' depends on axioms: [propext]",
+   "'SIDEFrobenius.g_two_three_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.S_squared' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEFrobenius.ST_cubed' depends on axioms: [propext, Classical.choice, Quot.sound]"
   ],
   "verdict": "BUILDS"
  }
