@@ -3,18 +3,21 @@
 OPEN_TRAILS.md at a revision (HEAD by default, never the working copy) and prints each order OPEN or CLOSED by the rule below, the rule
 printed before the output. From b723 the trail's open-orders line is written from this tool's output (`line`).
 
-THE RULE: an order is a name W-ORD-<A-Z0-9 and hyphens>; its entry the first line of OPEN_TRAILS naming it. It is OPEN unless a later
-line (after its entry, a roll line "**The open orders:**" excepted) CLOSES it: names it with DISCHARGED, CLOSED, RETIRED or SUPERSEDED
-in the clause that names it -- the words after the name up to the next order's name, a ';', or the clause's end at '. ', within 160
-characters, or the 40 characters before it with no other order's name between -- the word not negated (no "not", "no", "never", "nor",
-"unless" or "un-" within the 14 characters before it); or names a successor order that replaces it ("replaced by", "superseded by",
-"succeeded by", "its successor" and a W-ORD name, in that clause).
+THE RULE: an order is a name W-ORD-<A-Z0-9 and hyphens>; its entry the first line of OPEN_TRAILS naming it, where it is OPEN. Its
+status is read from the latest later line (a roll line "**The open orders:**" excepted) that names it with a status word: a closing
+word (DISCHARGED, CLOSED, RETIRED, SUPERSEDED, or a successor order that replaces it: "replaced by", "superseded by", "succeeded by",
+"its successor" and a W-ORD name) reads CLOSED; an entry word (ENTERED, OPENED, RE-ENTERED, CARRIED) reads OPEN -- the author's
+ruling of b723 (data/b723_author_words_preseal.txt (3)). A status word counts in the clause that names the order -- the words after the
+name up to the next order's name not coordinated with it, a ';', or the clause's end at '. ', within 160 characters -- or standing
+directly before the name; not negated (no "not", "no", "never", "nor", "unless" or "un-" within the 14 characters before it). Where
+one line carries several, the last in reading order decides.
 
   orders.py read [--at REV] [--bank]     the orders, each OPEN or CLOSED with its closing line; --bank writes data/<act>_orders.txt
   orders.py line [--at REV]              the trail's open-orders line, from the output
   orders.py control [--at REV] [--bank]  (R333)(3)(i)'s controls: the output contains the last roll line's names (OPEN_TRAILS :16250's
                                          ten at b723) and the twenty of (R332)(14) as the previous act's events bank names them; a
                                          planted closing line (in memory) removes its order; a planted negated line does not
+  ... [--beside REV2]                    read or control: the same rule at REV2 printed beside, its counts and the orders moved
 It reads and prints; with --bank it writes its one bank.
 """
 import json
@@ -35,17 +38,20 @@ if hasattr(sys.stdout, 'reconfigure'):
 NAME = re.compile(r'W-ORD-[A-Z0-9]+(?:-[A-Z0-9]+)*')
 # ### the words as a status: not a hyphenated compound ("DISCHARGED-BY-READING", a triage class) and not "CLOSED FORM" (an adjective)
 CLOSE = re.compile(r'\b(DISCHARGED|CLOSED|RETIRED|SUPERSEDED)\b(?!-)(?![ -](?i:form))')
-REENTRY = re.compile(r'(?i)\b(ENTERED|RE-?OPENED|REMAINDER)\b')
+ENTRY = re.compile(r'\b(RE-ENTERED|ENTERED|OPENED|CARRIED)\b(?!-)')   # ### the ruling's four entry words, matched as the closing words are
+ENTRY_ANYCASE = re.compile(r'(?i)\b(RE-ENTERED|ENTERED|OPENED|CARRIED)\b(?!-)')   # ### printed beside as a yield, not a status
 NEG = re.compile(r'(?i)(\bnot\b|\bno\b|\bnever\b|\bnor\b|\bunless\b|\bun-)')
 SUCC = re.compile(r'(?i)(replaced by|superseded by|succeeded by|its successor)\W{0,12}`?(W-ORD-[A-Z0-9]+(?:-[A-Z0-9]+)*)')
 ROLL = '**The open orders:**'
-RULE = ('THE RULE: an order is a name W-ORD-<...>; its entry the first line of OPEN_TRAILS naming it; OPEN unless a later line, a roll '
-        'line excepted, names it with DISCHARGED, CLOSED, RETIRED or SUPERSEDED in the clause naming it (after the name up to the next '
-        'order`s name not coordinated with it, or a `;` or `. ` outside parentheses, within 160 characters; or the word standing directly '
-        'before the name), not negated (not, no, '
-        'never, nor, unless, un- within 14 characters before the word), or names a successor replacing it in that clause; the words '
-        'read as a status (not a hyphenated compound, not "CLOSED FORM"). PRINTED BESIDE, NOT A STATUS: a line after the closing line '
-        'naming the order with ENTERED, REOPENED or REMAINDER in its clause (RE-ENTERED), and the roll lines carrying a CLOSED order')
+RULE = ('THE RULE (amended at b723 by the author`s ruling, data/b723_author_words_preseal.txt (3)): an order is a name W-ORD-<...>; its '
+        'entry the first line of OPEN_TRAILS naming it, where it is OPEN; its status read from the latest later line, a roll line '
+        'excepted, that names it with a status word -- a closing word (DISCHARGED, CLOSED, RETIRED, SUPERSEDED, or a successor replacing '
+        'it) reading CLOSED, an entry word (ENTERED, OPENED, RE-ENTERED, CARRIED) reading OPEN -- in the clause naming it (after the name '
+        'up to the next order`s name not coordinated with it, or a `;` or `. ` outside parentheses, within 160 characters; or the word '
+        'standing directly before the name), not negated (not, no, never, nor, unless, un- within 14 characters before the word), the '
+        'last in reading order deciding where a line carries several; the words read as a status in capitals (not a hyphenated compound, '
+        'not "CLOSED FORM"). PRINTED BESIDE, NOT A STATUS: the roll lines carrying a CLOSED order after its closing line, and the lines '
+        'carrying an entry word in lower or mixed case in a clause naming an order')
 
 
 def act():
@@ -81,34 +87,53 @@ def _clause_after(line, end):
         return s[:m.start()]
 
 
-BEFORE = re.compile(r'\b(DISCHARGED|CLOSED|RETIRED|SUPERSEDED)\b[\s:*`—–-]*$')
+BEFORE = re.compile(r'\b(DISCHARGED|CLOSED|RETIRED|SUPERSEDED|RE-ENTERED|ENTERED|OPENED|CARRIED)\b[\s:*`—–-]*$')
+
+
+def _state(word):
+    return 'OPEN' if ENTRY.fullmatch(word) else 'CLOSED'
+
+
+def _status(line, name):
+    """the status a line gives `name` -- ('CLOSED' or 'OPEN', the word) -- or None: every status word in the clause after each mention of
+    the name, or standing directly before it (nothing but spaces, ':', '*', '`' or a dash between), not negated; the last in reading
+    order decides."""
+    found = []
+    for m in re.finditer(re.escape(name) + r'(?![A-Z0-9-])', line):
+        after = _clause_after(line, m.end())
+        for rx in (CLOSE, ENTRY):
+            for c in rx.finditer(after):
+                if not NEG.search(after[max(0, c.start() - 14):c.start()]):
+                    found.append((m.end() + c.start(), c.group(1)))
+        b0 = max(0, m.start() - 40)
+        before = line[b0:m.start()]
+        b = BEFORE.search(before)
+        if b and not NEG.search(before[max(0, b.start() - 14):b.start()]):
+            found.append((b0 + b.start(), b.group(1)))
+        s = SUCC.search(after)
+        if s and s.group(2) != name:
+            found.append((m.end() + s.start(), 'successor %s' % s.group(2)))
+    if not found:
+        return None
+    word = max(found)[1]
+    return ('CLOSED' if word.startswith('successor ') else _state(word)), word
 
 
 def _closer(line, name):
-    """the reason a line closes `name` ('DISCHARGED', 'successor W-ORD-X', ...), or None: the word in the clause after the name, or
-    standing directly before it (nothing but spaces, ':', '*', '`' or a dash between)."""
-    for m in re.finditer(re.escape(name) + r'(?![A-Z0-9-])', line):
-        after = _clause_after(line, m.end())
-        for c in CLOSE.finditer(after):
-            if not NEG.search(after[max(0, c.start() - 14):c.start()]):
-                return c.group(1)
-        before = line[max(0, m.start() - 40):m.start()]
-        b = BEFORE.search(before)
-        if b and not NEG.search(before[max(0, b.start() - 14):b.start()]):
-            return b.group(1)
-        s = SUCC.search(after)
-        if s and s.group(2) != name:
-            return 'successor %s' % s.group(2)
-    return None
+    """the closing reason a line gives `name`, or None (read beside by the controls)."""
+    st = _status(line, name)
+    return st[1] if st and st[0] == 'CLOSED' else None
 
 
 def read(lines):
-    """{name: dict(entry, status, closed_at, why, named)} over every order the trail names, in entry order."""
+    """{name: dict(entry, status, decided_at, why, closed_at, reopened_at, named, rolls_after)} over every order the trail names, in entry
+    order: the status from the latest line giving one (decided_at, why); closed_at the latest closing line; reopened_at the first line
+    reading OPEN after a closing line."""
     orders, order = {}, []
     for i, l in enumerate(lines, 1):
         for n in set(NAME.findall(l)):
             if n not in orders:
-                orders[n] = dict(entry=i, status='OPEN', closed_at=None, why=None, named=0)
+                orders[n] = dict(entry=i, status='OPEN', decided_at=None, why=None, closed_at=None, reopened_at=None, named=0)
                 order.append(n)
             orders[n]['named'] += 1
     for i, l in enumerate(lines, 1):
@@ -116,28 +141,40 @@ def read(lines):
             continue
         for n in set(NAME.findall(l)):
             o = orders[n]
-            if i <= o['entry'] or o['closed_at']:
+            if i <= o['entry']:
                 continue
-            why = _closer(l, n)
-            if why:
-                o.update(status='CLOSED', closed_at=i, why=why)
-    # ### beside the status, not changing it: a re-entry after the closing line, and the roll lines naming a CLOSED order after it
+            st = _status(l, n)
+            if not st:
+                continue
+            if st[0] == 'OPEN' and o['status'] == 'CLOSED' and o['reopened_at'] is None:
+                o['reopened_at'] = i
+            o.update(status=st[0], decided_at=i, why=st[1])
+            if st[0] == 'CLOSED':
+                o['closed_at'] = i
+    # ### beside the status, not changing it: the roll lines naming a CLOSED order after its closing line
     for n in order:
         o = orders[n]
-        o['reentered'], o['rolls_after'] = None, 0
-        if not o['closed_at']:
+        o['rolls_after'] = 0
+        if o['status'] != 'CLOSED':
             continue
-        for i, l in enumerate(lines[o['closed_at']:], o['closed_at'] + 1):
-            if n not in l:
-                continue
-            if l.lstrip().startswith(ROLL):
+        for l in lines[o['decided_at']:]:
+            if n in l and l.lstrip().startswith(ROLL):
                 o['rolls_after'] += 1
-            elif o['reentered'] is None:
-                for m in re.finditer(re.escape(n) + r'(?![A-Z0-9-])', l):
-                    if REENTRY.search(_clause_after(l, m.end())):
-                        o['reentered'] = i
-                        break
     return [(n, orders[n]) for n in order]
+
+
+def anycase_yield(lines):
+    """the lines (a roll line excepted) carrying an entry word in lower or mixed case in a clause naming an order: printed, not read."""
+    out = 0
+    for l in lines:
+        if l.lstrip().startswith(ROLL):
+            continue
+        for n in set(NAME.findall(l)):
+            if any(ENTRY_ANYCASE.search(c) and not ENTRY.search(c) for c in
+                   (_clause_after(l, m.end()) for m in re.finditer(re.escape(n) + r'(?![A-Z0-9-])', l))):
+                out += 1
+                break
+    return out
 
 
 def last_roll(lines):
@@ -162,16 +199,22 @@ def report(rows, rev):
         act()['act'], time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### PLACE-papers OPEN_TRAILS.md at %s (%s), read through git, the working copy not read' % (
              rev, subprocess.run(['git', '-C', PP, 'rev-parse', '--short=8', rev], capture_output=True, text=True).stdout.strip()),
-         '### ' + RULE, '', '## THE ORDERS (name ; entry ; status ; the closing line and its word ; lines naming it)']
+         '### ' + RULE, '', '## THE ORDERS (name ; entry ; status ; the line deciding it and its word ; lines naming it)']
     for n, o in rows:
         beside = ''
-        if o['closed_at'] and (o['reentered'] or o['rolls_after']):
-            beside = ' ; ### RE-ENTERED at :%s, ON %d ROLL LINE(S) AFTER ITS CLOSE' % (o['reentered'] or '-', o['rolls_after'])
+        if o['reopened_at']:
+            beside += ' ; OPEN AGAIN at :%d after a closing line' % o['reopened_at']
+        if o['status'] == 'CLOSED' and o['rolls_after']:
+            beside += ' ; ### ON %d ROLL LINE(S) AFTER ITS CLOSE' % o['rolls_after']
         L.append('  %-40s entry :%-6d %-7s %s ; named %d%s' % (n, o['entry'], o['status'],
-                                                            (':%d %s' % (o['closed_at'], o['why'])) if o['closed_at'] else '-', o['named'], beside))
-    conflict = [n for n, o in rows if o['closed_at'] and (o['reentered'] or o['rolls_after'])]
-    L += ['', '### ### **ORDERS %d ; OPEN %d ; CLOSED %d ; CLOSED BY THE RULE AND CARRIED OR RE-ENTERED AFTER %d%s.**' % (
-        len(rows), len(op), len(rows) - len(op), len(conflict), (': ' + ', '.join(conflict)) if conflict else '')]
+                                                            (':%d %s' % (o['decided_at'], o['why'])) if o['decided_at'] else '-', o['named'], beside))
+    conflict = [n for n, o in rows if o['status'] == 'CLOSED' and o['rolls_after']]
+    reopened = [n for n, o in rows if o['reopened_at']]
+    L += ['', '### PRINTED BESIDE, NOT READ: lines carrying an entry word in lower or mixed case in a clause naming an order: %d' % anycase_yield(
+              trail(rev)),
+          '', '### ### **ORDERS %d ; OPEN %d ; CLOSED %d ; OPEN AGAIN AFTER A CLOSING LINE %d%s ; CLOSED AND ON A ROLL AFTER %d%s.**' % (
+              len(rows), len(op), len(rows) - len(op), len(reopened), (': ' + ', '.join(reopened)) if reopened else '',
+              len(conflict), (': ' + ', '.join(conflict)) if conflict else '')]
     return L, op
 
 
@@ -215,6 +258,9 @@ def control(lines, rev):
         case(negated[x]['status'] == 'OPEN', 'PLANTED: a negated line for %s ("not DISCHARGED"): the order stays OPEN' % x)
         other = dict(read(lines + ['PLANTED (in memory): `%s` carried; `W-ORD-PLANT-OTHER` DISCHARGED.' % x]))
         case(other[x]['status'] == 'OPEN', 'PLANTED: a line naming %s beside another order DISCHARGED: %s stays OPEN' % (x, x))
+        # ### THE SEAT'S, beside the five: the ruling's own clause, a closing line then an entry line, read OPEN
+        again = dict(read(lines + ['PLANTED (in memory): `%s` DISCHARGED at the plant.' % x, 'PLANTED (in memory): `%s` RE-ENTERED after it.' % x]))
+        case(again[x]['status'] == 'OPEN', 'PLANTED (THE SEAT`S, BESIDE THE FIVE): a closing line for %s, then a line naming it RE-ENTERED: the order OPEN' % x)
     L += ['', '### ### **THE ORDERS` CONTROLS: CASES %d ; AS WANTED %d ; %s.**' % (n, good, 'ALL AS WANTED' if good == n else 'NOT ALL AS WANTED')]
     return L, good == n
 
@@ -226,15 +272,28 @@ def main(argv):
     if verb == 'read' or verb == 'control':
         rows = read(lines)
         L, op = report(rows, rev)
-        L += ['', '## THE CLOSING LINES ACCEPTED, EACH FOR A HAND READ (the order ; the line ; its text, 300 characters around the name)']
+        L += ['', '## THE DECIDING LINES OF THE CLOSED ORDERS AND OF THE ORDERS OPEN AGAIN, EACH FOR A HAND READ (the order ; the line ; its '
+                  'text, 300 characters around the name)']
         for nm, o in rows:
-            if o['closed_at']:
-                t = lines[o['closed_at'] - 1]
+            if o['status'] == 'CLOSED' or o['reopened_at']:
+                t = lines[o['decided_at'] - 1]
                 k = t.find(nm)
-                L.append('  %s ; :%d %s ; %s' % (nm, o['closed_at'], o['why'], t[max(0, k - 120):k + 180].strip()))
+                L.append('  %s ; %s :%d %s ; %s' % (nm, o['status'], o['decided_at'], o['why'], t[max(0, k - 120):k + 180].strip()))
         if verb == 'control':
             C, ok = control(lines, rev)
             L += [''] + C
+        if '--beside' in argv:
+            rev2 = argv[argv.index('--beside') + 1]
+            rows2 = read(trail(rev2))
+            st1, st2 = dict(rows), dict(rows2)
+            op2 = [n for n, o in rows2 if o['status'] == 'OPEN']
+            moved = [n for n in st2 if st1.get(n, {}).get('status') != st2[n]['status']]
+            L += ['', '## BESIDE: THE SAME RULE AT %s (%s)' % (rev2, subprocess.run(['git', '-C', PP, 'rev-parse', '--short=8', rev2],
+                                                                                   capture_output=True, text=True).stdout.strip())]
+            L += ['  %s: %s at %s -> %s at %s ; :%s %s' % (n, st1[n]['status'] if n in st1 else 'ABSENT', rev, st2[n]['status'], rev2,
+                                                       st2[n]['decided_at'], st2[n]['why']) for n in moved]
+            L += ['### ### **AT %s: ORDERS %d ; OPEN %d ; CLOSED %d ; STATUS MOVED FROM %s %d.**' % (
+                rev2, len(rows2), len(op2), len(rows2) - len(op2), rev, len(moved))]
         print(NL.join(L))
         if '--bank' in argv:
             _bank('%s_orders.txt' % act()['act'], L)
