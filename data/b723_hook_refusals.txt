@@ -4,3 +4,4 @@
 2026-10-29T07:18:22Z | PIPE | PowerShell | "Get-Item -LiteralPath 'D:\\relay\\=' | Select-Object FullName, Length, CreationTimeUtc, LastWriteTimeUtc" | a PowerShell command carrying a pipe outside quotes
 2026-10-29T10:00:34Z | PIPE | Bash | "ls D:/relay/tools/ | grep -i -E \"list|zeros|b711_|b706_|b707_|b709_\" ; ls D:/relay/data/ | grep -i -E \"_list|zeros\" " | a Bash command carrying a pipe outside quotes
 2026-10-29T10:02:51Z | READ | Read | "D:\\relay\\tools\\b707_onset.py" | a Read call with limit 210, above 200
+2026-10-29T12:12:42Z | REDIR | Bash | "cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* --  > /dev/null; python -X utf8 tools/standing/peek.py search \"n0|b\\(n0\\)|b\\(n\\)\" --of \"git -C D:/relay grep -l -E \\\"b\\(n0\\)|\\bn0\\b\\\" -- data/b711* data/b712* data/b713* data/b714* data/b715* data/b716* data/b717* data/b718* d | a Bash command carrying a redirect outside quotes
