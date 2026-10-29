@@ -90,6 +90,17 @@ def _clause_after(line, end):
 BEFORE = re.compile(r'\b(DISCHARGED|CLOSED|RETIRED|SUPERSEDED|RE-ENTERED|ENTERED|OPENED|CARRIED)\b[\s:*`—–-]*$')
 
 
+LOCATOR = re.compile(r'(?i)\b(beneath|beside|above|below)\b((?:[\s`*"“”]|W-ORD-[A-Z0-9]+(?:-[A-Z0-9]+)*|,|\band\b|&)*)$')
+LOCATOR_ON = False  # ### the author's ruling (3) of b723 (data/b723_author_words_preseal.txt (4)), TRIED and BROKEN by the record
+#                   # ### (locator_trial below prints the cases), so the rule as ruled earlier stands; True reads the locator reading
+
+
+def _in_locator(line, start):
+    """True where the mention starting at `start` stands inside a locator phrase: a locator word before it with nothing between but
+    spaces, backticks, asterisks, quotes and other order names coordinated with it (',', 'and', '&')."""
+    return bool(LOCATOR.search(line[max(0, start - 200):start]))
+
+
 def _state(word):
     return 'OPEN' if ENTRY.fullmatch(word) else 'CLOSED'
 
@@ -100,6 +111,8 @@ def _status(line, name):
     order decides."""
     found = []
     for m in re.finditer(re.escape(name) + r'(?![A-Z0-9-])', line):
+        if LOCATOR_ON and _in_locator(line, m.start()):
+            continue
         after = _clause_after(line, m.end())
         for rx in (CLOSE, ENTRY):
             for c in rx.finditer(after):
@@ -161,6 +174,44 @@ def read(lines):
             if n in l and l.lstrip().startswith(ROLL):
                 o['rolls_after'] += 1
     return [(n, orders[n]) for n in order]
+
+
+def locator_trial(lines):
+    """the author's ruling (3) of b723 tried: the orders read with the locator reading on and off, its two named controls, and every order
+    whose status moves, with its deciding lines under the rule as ruled earlier; BROKEN where a moved order is not one the ruling names."""
+    global LOCATOR_ON
+    keep = LOCATOR_ON
+    try:
+        LOCATOR_ON = True
+        on = dict(read(lines))
+        LOCATOR_ON = False
+        off = dict(read(lines))
+    finally:
+        LOCATOR_ON = keep
+    e1, et = on.get('W-ORD-E1-CFG'), on.get('W-ORD-ENTRY-TAG-PRINTS')
+    c1 = bool(e1) and e1['status'] == 'CLOSED' and e1['decided_at'] == 14068
+    c2 = bool(et) and et['status'] == 'OPEN' and et['decided_at'] == 15684
+    L = ['## THE LOCATOR READING TRIED (the author`s ruling (3) of b723: a name inside a line`s locator phrase -- after beneath, beside, above or '
+         'below, other names coordinated with it -- takes no status from that line)',
+         '  its control: W-ORD-E1-CFG CLOSED on its b659 discharge (:14068): %s (read %s, decided :%s %s)' % (
+             'AS WANTED' if c1 else 'NOT AS WANTED', e1['status'], e1['decided_at'], e1['why']),
+         '  its control: W-ORD-ENTRY-TAG-PRINTS OPEN on b707`s remainder (:15684): %s (read %s, decided :%s %s%s)' % (
+             'AS WANTED' if c2 else 'NOT AS WANTED', et['status'], et['decided_at'], et['why'],
+             ' -- OPEN BY DEFAULT ONLY: its discharge :15642 and its remainder :15684 both name it inside a locator phrase' if not et['decided_at'] else '')]
+    moved = [n for n in on if on[n]['status'] != off[n]['status']]
+    breaking = [n for n in moved if n not in ('W-ORD-E1-CFG', 'W-ORD-ENTRY-TAG-PRINTS')]
+    L.append('  orders whose status moves under it: %d ; outside the two the ruling names: %d' % (len(moved), len(breaking)))
+    for n in moved:
+        d = off[n]['decided_at']
+        t = lines[d - 1] if d else ''
+        k = t.find(n)
+        L.append('    %s: %s as ruled earlier (:%s %s) -> %s under the locator reading%s ; %s' % (
+            n, off[n]['status'], d, off[n]['why'], on[n]['status'], ' -- BREAKS THE LOCATOR READING' if n in breaking else '',
+            t[max(0, k - 60):k + 140].strip()))
+    ok = c1 and c2 and not breaking
+    L.append('### ### **THE LOCATOR READING: CONTROLS %d OF 2 AS WANTED ; CASES BREAKING IT %d ; %s.**' % (
+        c1 + c2, len(breaking), 'HELD, IN FORCE' if ok else 'BROKEN BY THE RECORD, NOT IN FORCE: THE RULE AS RULED EARLIER STANDS'))
+    return L, ok
 
 
 def anycase_yield(lines):
@@ -282,6 +333,7 @@ def main(argv):
         if verb == 'control':
             C, ok = control(lines, rev)
             L += [''] + C
+            L += [''] + locator_trial(lines)[0]
         if '--beside' in argv:
             rev2 = argv[argv.index('--beside') + 1]
             rows2 = read(trail(rev2))
