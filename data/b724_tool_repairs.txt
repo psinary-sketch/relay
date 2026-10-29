@@ -1,0 +1,977 @@
+b724 -- THE STANDING TOOLSET`S CHANGES AT v1.4.0, BY DIFF AGAINST HEAD (2026-10-29T21:46:01Z)
+
+### every file of tools/standing/: tracked files by `git diff HEAD`, a file not yet tracked whole with each line marked +.
+
+### PAIR tools/standing/VERSION (changed)
+diff --git a/tools/standing/VERSION b/tools/standing/VERSION
+index 18fa8e74..0d0c52f8 100644
+--- a/tools/standing/VERSION
++++ b/tools/standing/VERSION
+@@ -1 +1 @@
+-v1.3.0
++v1.4.0
+
+### PAIR tools/standing/carry.py (new)
++# -*- coding: utf-8 -*-
++"""tools/standing/carry.py -- THE CARRY BY DIFF as a standing route (v1.4.0, (R334)(2)(ix)): a tool or sections file carried from the
++previous act by the act names' substitution alone, its diff banked, and THE SUBSTITUTION REFUSED WHERE IT SHIFTS A NAME PAST WHAT EXISTS --
++a module or tool the carried text names that tools/ lacks, where the source line named one that exists (b721 (p), b723 (d), b724 (d):
++tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line, which no act wrote). The refusal is before the write.
++
++### carry.py <src_rel> <dst_rel> <name> --subs a:b,c:d,... [--shifted] [--again]
++###   the pairs applied in the order given (descending, so each name shifts once); the diff banked in data/<act>_carry_<name>.txt, <act> the
++###   destination's act (the second name of the first pair); `--shifted` writes a refused carry, the shifted names printed in its bank
++### carry.py check <src_rel> <dst_rel>
++###   a print only: the shifted names between two files already written; exit 1 where there are any
++"""
++import difflib
++import io
++import os
++import sys
++import time
++
++HERE = os.path.dirname(os.path.abspath(__file__))
++T = os.path.dirname(HERE)
++ROOT = os.path.dirname(T)
++D = os.path.join(ROOT, 'data')
++NL = chr(10)
++if T not in sys.path:
++    sys.path.insert(0, T)
++if hasattr(sys.stdout, 'reconfigure'):
++    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
++import standing.repeat as RP  # noqa: E402
++
++
++def rd(p):
++    return io.open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
++
++
++def substitute(text, subs):
++    out = text
++    for a, b in subs:
++        out = out.replace(a, b)
++    return out
++
++
++def udiff(old, new, a_name, b_name):
++    sm = difflib.SequenceMatcher(None, old, new, autojunk=False)
++    L = ['--- ' + a_name, '+++ ' + b_name]
++    for tag, i1, i2, j1, j2 in sm.get_opcodes():
++        if tag == 'equal':
++            continue
++        L.append('@@ -%d,%d +%d,%d @@' % (i1 + 1, i2 - i1, j1 + 1, j2 - j1))
++        L += ['-' + l for l in old[i1:i2]] + ['+' + l for l in new[j1:j2]]
++    return L
++
++
++def _path(rel):
++    return rel if os.path.isabs(rel) else os.path.join(ROOT, *rel.split('/'))
++
++
++def carry(src_rel, dst_rel, name, subs, shifted_ok=False, again=False):
++    old = rd(_path(src_rel))
++    if not old:
++        sys.exit('### %s IS NOT THERE -- NOTHING CARRIED' % src_rel)
++    dst = _path(dst_rel)
++    if os.path.exists(dst) and not again:
++        sys.exit('### %s EXISTS -- NOTHING WRITTEN (give --again to rewrite the carried form)' % dst_rel)
++    new = substitute(old, subs)
++    shifted = RP.shifted_missing(old, new, T)
++    if shifted and not shifted_ok:
++        sys.exit(NL.join(['### THE SUBSTITUTION SHIFTS %d NAME(S) PAST WHAT EXISTS -- NOTHING WRITTEN ((R334)(2)(ix)):' % len(shifted)]
++                         + ['  :%d %s (tools/%s.py absent; the source line named a module that exists)' % (i, n, n) for i, n in shifted]
++                         + ['### repair the carried form by hand after `--shifted`, or carry the name unshifted']))
++    act = subs[0][1]
++    ol, nl_ = old.split(NL), new.split(NL)
++    diff = udiff(ol, nl_, src_rel, dst_rel)
++    changed = sum(1 for l in diff if l.startswith('+') and not l.startswith('+++'))
++    L = ['%s -- THE CARRY BY DIFF (tools/standing/carry.py): %s -> %s (%s)' % (act, src_rel, dst_rel, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++         '### the substitution alone (%s); %d lines, %d changed' % (', '.join('%s -> %s' % s for s in subs), len(nl_), changed),
++         '### SHIFTED PAST WHAT EXISTS: %s' % ('; '.join(':%d %s' % s for s in shifted) if shifted else 'NONE'), '',
++         '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
++    L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED %d ; SHIFTED %d%s**' % (dst_rel, len(nl_), changed, len(shifted),
++                                                                          ' (WRITTEN BY --shifted)' if shifted else '')]
++    p = os.path.join(D, '%s_carry_%s.txt' % (act, name))
++    import act_membrane as MEM
++    MEM.guard_path(act, p, None)
++    for path, body in ((dst, new), (p, NL.join(L) + NL)):
++        with open(path + '.tmp', 'wb') as fh:
++            fh.write(body.encode('utf-8'))
++        os.replace(path + '.tmp', path)
++    print(NL.join(L[:4] + L[-1:]))
++
++
++def check(src_rel, dst_rel):
++    shifted = RP.shifted_missing(rd(_path(src_rel)), rd(_path(dst_rel)), T)
++    for s in shifted:
++        print('  :%d %s' % s)
++    print('### SHIFTED PAST WHAT EXISTS: %d' % len(shifted))
++    return 1 if shifted else 0
++
++
++def main(argv):
++    if argv[:1] == ['check'] and len(argv) == 3:
++        return check(argv[1], argv[2])
++    if len(argv) < 5 or '--subs' not in argv:
++        sys.exit(__doc__)
++    i = argv.index('--subs')
++    subs = tuple(tuple(x.split(':', 1)) for x in argv[i + 1].split(','))
++    carry(argv[0], argv[1], argv[2], subs, '--shifted' in argv, '--again' in argv)
++    return 0
++
++
++if __name__ == '__main__':
++    sys.exit(main(sys.argv[1:]))
++
+
+### PAIR tools/standing/hook.py (changed)
+diff --git a/tools/standing/hook.py b/tools/standing/hook.py
+index 9faf3a94..d43c9963 100644
+--- a/tools/standing/hook.py
++++ b/tools/standing/hook.py
+@@ -100,6 +100,16 @@ def strip_quotes(cmd):
+     return ''.join(out), True
+ 
+ 
++def lines_of(path):
++    """v1.4.0: the file's line count (its line feeds, and a last line without one), or None where it is not a readable file."""
++    try:
++        with open(path, 'rb') as f:
++            b = f.read()
++    except OSError:
++        return None
++    return b.count(b'\n') + (1 if b and not b.endswith(b'\n') else 0)
++
++
+ def judge(tool, inp):
+     """(kind, detail) for a refusal, or None for an allowed call."""
+     if tool == 'Read':
+@@ -111,6 +121,12 @@ def judge(tool, inp):
+                 return 'READ', 'a Read call with limit %s, above %d' % (lim, LIMIT)
+         except (TypeError, ValueError):
+             return 'READ', 'a Read call with an unreadable limit %r' % (lim,)
++        # ### v1.4.0, (R334)(2)(ii): row (19)'s "by offset and a limit" on a file of two hundred lines or more -- a limit with no offset
++        # ### on such a file is refused (the class the record tool's reads route counted after the fact, b721 (y), b722 (y), b723 (b'))
++        if inp.get('offset') is None:
++            n = lines_of(inp.get('file_path') or '')
++            if n is not None and n >= LIMIT:
++                return 'READ', 'a Read call with a limit and no offset on a file of %d lines' % n
+         return None
+     if tool in ('Bash', 'PowerShell'):
+         cmd = inp.get('command') or ''
+@@ -162,6 +178,8 @@ def cases(act):
+         ('Read', {'file_path': ferry}, 'READ'),
+         ('Read', {'file_path': ferry, 'offset': 1, 'limit': 201}, 'READ'),
+         ('Read', {'file_path': ferry, 'offset': 1, 'limit': 200}, None),
++        ('Read', {'file_path': os.path.join(RELAY, 'tools', 'standing', 'hook.py'), 'limit': 60}, 'READ'),   # ### v1.4.0, (2)(ii)
++        ('Read', {'file_path': os.path.join(RELAY, 'tools', 'standing', 'hook.py'), 'offset': 1, 'limit': 60}, None),
+         ('Bash', {'command': 'git status | head'}, 'PIPE'),
+         ('Bash', {'command': 'git log --oneline -3 2>&1'}, 'REDIR'),
+         ('Bash', {'command': 'cat a > b'}, 'REDIR'),
+
+### PAIR tools/standing/peek.py (changed)
+diff --git a/tools/standing/peek.py b/tools/standing/peek.py
+index 5018db61..20c9e9de 100644
+--- a/tools/standing/peek.py
++++ b/tools/standing/peek.py
+@@ -10,6 +10,13 @@ read that once needed `| head`, `| cut`, `| grep -c` or `> file` is one call. It
+   peek.py tail <path> [N] [--cut W] [--of "<command>"]                    the last N lines (10)
+   peek.py count <path>... [--pattern P] [-i] [--fixed] [--of "<command>"] the lines, or the lines matching P, per source and in all
+   peek.py list <dir> [--glob G] [--sort name|time|size] [--max N] [--long]  the entries of one directory
++  ### v1.4.0, (R334)(2)(i): the three reads v1.3.0's control found uncovered (tools/standing/v130.py's COVERED IN PART rows), each a verb
++  peek.py tally <path>... [--pattern P] [--group N] [-i] [--fixed] [--max N] [--of "<command>"]
++        the distinct values and their counts, most first -- each line whole, or each match of P (its group N where given): `sort | uniq -c`
++  peek.py json <path> [<key>...] [--keys] [--len] [--cut W]
++        a JSON file's value at a key path (a key per word; a list index a number), printed as JSON; --keys its keys, --len its length: the
++        inline `python -c "json.load(...)[...]"` read
++  peek.py bytes <path> --offset N [--bytes M] [--of "<command>"]       M bytes (500) from byte N: the read by byte offset (`body[a:b]`)
+ `--of` runs its command split by shlex with no shell (no pipe, redirect or expansion can act), in the current directory, and reads its
+ stdout and stderr together as the source; the command's exit code is printed after.
+ """
+@@ -29,7 +36,7 @@ if hasattr(sys.stdout, 'reconfigure'):
+ 
+ def opts(argv):
+     """(positional, options): an option a word opening '-'; -i and --fixed and --long are flags, the others take the next word."""
+-    flags = {'-i', '--fixed', '--long'}
++    flags = {'-i', '--fixed', '--long', '--keys', '--len'}
+     pos, o, i = [], {}, 0
+     while i < len(argv):
+         a = argv[i]
+@@ -170,6 +177,60 @@ def listing(pos, o):
+     return done(len(es), None)
+ 
+ 
++def tally(pos, o):
++    """v1.4.0: the distinct values (each line, or each match of --pattern, its --group where given) with their counts, most first."""
++    rx, grp, mx = matcher(o.get('--pattern'), o), int(o.get('--group', 0) or 0), int(o.get('--max', 0) or 0)
++    seen = {}
++    srcs, rc = sources(pos, o)
++    for _label, text in srcs:
++        for l in text.split(NL):
++            if rx is None:
++                vals = [l] if l else []
++            else:
++                vals = [m.group(grp) for m in rx.finditer(l)]
++            for v in vals:
++                seen[v] = seen.get(v, 0) + 1
++    rows = sorted(seen.items(), key=lambda kv: (-kv[1], kv[0]))
++    for v, k in rows[:mx] if mx else rows:
++        print(cut('%7d %s' % (k, v), o))
++    print('peek: %d distinct, %d in all' % (len(rows), sum(seen.values())))
++    return done(len(rows), rc)
++
++
++def json_read(pos, o):
++    """v1.4.0: a JSON file's value at a key path, printed as JSON (or its keys, or its length)."""
++    import json
++    if not pos:
++        sys.exit('peek json: a path')
++    v = json.loads(read(pos[0]))
++    for k in pos[1:]:
++        v = v[int(k)] if isinstance(v, list) else v[k]
++    if o.get('--keys'):
++        out = NL.join(str(k) for k in (v.keys() if isinstance(v, dict) else range(len(v))))
++    elif o.get('--len'):
++        out = str(len(v))
++    else:
++        out = json.dumps(v, indent=1, ensure_ascii=False)
++    for l in out.split(NL):
++        print(cut(l, o))
++    return done(None, None)
++
++
++def byte_read(pos, o):
++    """v1.4.0: M bytes from byte N of a file (or of a command's output), decoded as UTF-8 with replacement."""
++    if '--offset' not in o:
++        sys.exit('peek bytes: --offset N')
++    a, m = int(o['--offset']), int(o.get('--bytes', 500))
++    if '--of' in o:
++        text, rc = run_of(o['--of'])
++        b = text.encode('utf-8')
++    else:
++        with open(pos[0], 'rb') as f:
++            b, rc = f.read(), None
++    print(b[a:a + m].decode('utf-8', 'replace'))
++    return done(None, rc)
++
++
+ def done(n, rc):
+     if rc is not None:
+         print('peek: the command exited %d' % rc)
+@@ -180,9 +241,10 @@ def main(argv):
+     if not argv:
+         sys.exit(__doc__)
+     verb, (pos, o) = argv[0], opts(argv[1:])
+-    fn = dict(search=search, head=head, tail=lambda p, o: head(p, o, tail=True), count=count, list=listing).get(verb)
++    fn = dict(search=search, head=head, tail=lambda p, o: head(p, o, tail=True), count=count, list=listing,
++              tally=tally, json=json_read, bytes=byte_read).get(verb)
+     if fn is None:
+-        sys.exit('peek: search | head | tail | count | list')
++        sys.exit('peek: search | head | tail | count | list | tally | json | bytes')
+     return fn(pos, o)
+
+### PAIR tools/standing/repeat.py (new)
++# -*- coding: utf-8 -*-
++"""standing/repeat.py -- v1.4.0 ((R334)(2), standing clauses v9 row (83)): THE REPEAT CLASSES' REPAIRS, ONE FUNCTION OR GUARD PER CLASS,
++called from the fold's templates by one line each (the templates' line numbers kept, so no act's OVERRIDE moves) and from the act's tools.
++Written at b724 by the Write tool; each repair's control is tools/standing/v140.py's, on the class's last banked instance.
++
++  (iii) carried_failing(face_text)       the face's declared carried failures, read from its line, not a hand tuple
++        prepush_after_record(act, root)  a pre-push reading refused once the act's components bank is committed (b723 event (16))
++        seal_against_worklist(seal, sealed)  the seal's tools against the worklist's SEALED, both ways (b722 event (12))
++  (iv)  phases(root)                     the step recorder's phases from data/act_current.json's components (`lock` among them)
++        bookkeeping_only(files, act)     a commit carrying only the act's step, hashes and hook banks: no step of its own
++        sealed_after(rows, rlog, plog, pre, files_of, act)   G-SEALED-AFTER-COMPONENTS by the lock's phase, bookkeeping commits exempt
++  (v)   retired_reads(text, act, tools_dir)   a route reading a retired bank or a tool file the fold does not write
++  (vi)  quarters(reads, first, last)     the chain's first half cut where the banked walks halve
++  (vii) others_running(table, self_pid)  another suite part in the process table; refuse_concurrent_part(part) the guard
++  (ix)  shifted_missing(src, dst, tools_dir)  a module or tool path the carry's substitution named that does not exist
++  (x)   grade(ok, yes, no)               the grade sentence composed from the check's result
++"""
++import json
++import os
++import re
++import subprocess
++import sys
++
++NL = '\n'
++TOOLS = ('checks', 'citation', 'closing', 'record', 'reg_gate', 'regspec', 'report')   # ### the fold's seven: no tools/<act>_<tool>.py since v1.3.0
++RETIRED_KINDS = ('readfirst_diff', 'readfirst_closure')   # ### (R332)(2)(iii): the closure reader and its diff retired from b722
++
++
++# ================================================================================ (iii) HAND-KEPT NAME LISTS
++DECLARED = re.compile(r'DECLARED BEFORE THE LOCK, BY NAME:\*\*\s*(.*)$', re.M)
++
++
++def carried_failing(face_text):
++    """the arms the face declares failing on real state before the lock (its line "... DECLARED BEFORE THE LOCK, BY NAME:** `G-...`"), in
++    the order written; () where the face declares none or carries no such line."""
++    m = DECLARED.search(face_text or '')
++    return tuple(re.findall(r'`(G-[A-Z0-9-]+)`', m.group(1))) if m else ()
++
++
++def _git(root, *a):
++    return subprocess.run(['git', '-C', root] + list(a), capture_output=True, text=True, encoding='utf-8', errors='replace').stdout.strip()
++
++
++def record_committed(act, root):
++    """True once data/<act>_components.txt is carried by HEAD's tree: the record is committed, the pre-push reading is over."""
++    return bool(_git(root, 'ls-tree', '--name-only', 'HEAD', '--', 'data/%s_components.txt' % act))
++
++
++def prepush_after_record(act, root, pushed, other_mode):
++    """b723 event (16): a part run with no mode after the record read PRE-PUSH (is_pushed False at a step-row tip) and wrote over the committed
++    pre-push bank. Refused here: a pre-push reading (not pushed, no pre-run, mid, --prev or --rerun-postpush) once the record is committed;
++    the post-push reading is the re-run's, to a file of its own ((R334)(1))."""
++    if pushed or other_mode or not record_committed(act, root):
++        return None
++    sys.exit('### THE RECORD IS COMMITTED (data/%s_components.txt AT HEAD) AND THIS PART WOULD READ PRE-PUSH, OVER THE COMMITTED PRE-PUSH BANK -- '
++             'NOTHING RUN: the post-push reading is `--rerun-postpush %s_checks_postpush.txt` ((R334)(1))' % (act, act))
++
++
++def prev_carries(prev, own, n):
++    """`--prev`'s worklist: the previous act's value is read for name n only where it carries one in this act's shape -- not missing, not
++    None, and (where this act's is a string, a tuple or a list) of the same kind, a string against a string. Otherwise this act's value: the
++    hand list _PrevWorklist.OWN missed names the previous worklist set to None (b722 events (8)-(10), C6_PP among them) or reused in another
++    shape (C5_RELAY a pair where this act's is one commit)."""
++    if not hasattr(prev, n):
++        return False
++    p, o = getattr(prev, n), getattr(own, n, None)
++    if p is None:
++        return False
++    if isinstance(o, str):
++        return isinstance(p, str)
++    if isinstance(o, (tuple, list)):
++        return isinstance(p, (tuple, list))
++    return True
++
++
++def seal_against_worklist(seal_tools, sealed):
++    """(missing, extra): the worklist's SEALED tools the seal did not record, and the seal's tools the worklist does not name."""
++    s, w = set(seal_tools or ()), set(sealed or ())
++    return sorted(w - s), sorted(s - w)
++
++
++# ================================================================================ (iv) THE LOCK PHASE AND THE STEP RECORDER'S PHASES
++def phases(root, current=None):
++    """(pre-seal phases, post-seal phases) from data/act_current.json's components, each component's phases in order: before `seal` the
++    pre-seal, from `seal` on the post-seal, the record and the closing after them. Refuses a components list with no `lock` before `seal`."""
++    if current is None:
++        with open(os.path.join(root, 'data', 'act_current.json'), encoding='utf-8') as fh:
++            current = json.load(fh)
++    seq = [p for c in current['components'] for p in c['phases']]
++    if 'seal' not in seq or 'lock' not in seq or seq.index('lock') > seq.index('seal'):
++        sys.exit('### data/act_current.json: the components name no `lock` before `seal` -- the phases not read')
++    k = seq.index('seal')
++    return tuple(seq[:k]), tuple(seq[k:]) + tuple(p for p in ('record', 'closing') if p not in seq)
++
++
++def bookkeeping_only(files, act):
++    """True for a commit whose files are all the act's bookkeeping banks -- its step bank, its hashes bank, its hook's refusals -- which a
++    step row cannot carry for itself (its row is written after it and committed by a later commit): b723's 2be0135c and 14bf5ec5."""
++    keep = {'data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act}
++    return bool(files) and set(files) <= keep
++
++
++def files_of(root, pp):
++    """files_of(repo, h): the files a commit carries, by `git show --name-only` in the relay (repo 'relay') or PLACE-papers ('pp')"""
++    where = dict(relay=root, pp=pp)
++    return lambda repo, h: [l for l in _git(where[repo], 'show', '--name-only', '--format=', h).split(NL) if l.strip()]
++
++
++def _phase_of(rows, repo, h):
++    for r in rows:
++        if r.get('repo') == repo and any(c.startswith(h) for c in ([r.get('commit')] + list(r.get('commits') or [])) if c):
++            return r.get('phase')
++    return None
++
++
++def sealed_after(rows, rlog, plog, pre, files_of, act):
++    """G-SEALED-AFTER-COMPONENTS: one relay row of phase `lock`; every other commit of the act (logs of (hash, subject, time)) has a row whose
++    phase is pre-seal exactly where its time precedes the lock's; a bookkeeping-only commit (files_of(repo, hash)) is exempt; PLACE-papers
++    carries a pre-seal commit. Returns (ok, the first breaking commit or reason)."""
++    if not rows:
++        return False, 'no step rows'
++    locks = [r for r in rows if r.get('phase') == 'lock']
++    if len(locks) != 1 or locks[0].get('repo') != 'relay':
++        return False, 'lock rows %d' % len(locks)
++    lt = [t for h, s, t in rlog if locks[0]['commit'].startswith(h)]
++    if len(lt) != 1:
++        return False, 'the lock commit not in the act`s relay log'
++    lk = lt[0]
++    for repo, log in (('relay', rlog), ('pp', plog)):
++        for h, s, t in log:
++            p = _phase_of(rows, repo, h)
++            if p == 'lock':
++                if repo != 'relay' or not locks[0]['commit'].startswith(h):
++                    return False, '%s %s a second lock' % (repo, h[:8])
++                continue
++            if p is None:
++                if bookkeeping_only(files_of(repo, h), act):
++                    continue
++                return False, '%s %s has no row' % (repo, h[:8])
++            if (t < lk) != (p in pre):
++                return False, '%s %s phase %r against the lock' % (repo, h[:8], p)
++    if not any(_phase_of(rows, 'pp', h) in pre for h, s, t in plog):
++        return False, 'no PLACE-papers commit of a pre-seal phase'
++    return True, ''
++
++
++# ================================================================================ (v) ROUTES READING RETIRED BANKS OR UNWRITTEN TOOL FILES
++def retired_reads(text, act, tools_dir):
++    """[(what, the line)]: every line of a rendered tool naming data/<act>_<retired kind> or tools/<act>_<tool>.py for a folded tool whose
++    file does not exist (the fold renders it in memory) -- b722 event (6), b723 (y) and (l')."""
++    out = []
++    # ### a name READ by code: the bank reader's argument (rd/rdn/jl) or a path joined under tools/ (os.path.join(T, ...)), on a line that is
++    # ### not a comment -- a name in a set, a plant or prose is not a read
++    pat = re.compile(r'''(?:\b(?:rd|rdn|jl)\(\s*|os\.path\.join\(\s*(?:T|ROOT\s*,\s*['"]tools['"])\s*,\s*)['"](?:(%s_(?:%s)\.(?:txt|json))|(%s_(%s)\.py))['"]''' % (
++        re.escape(act), '|'.join(RETIRED_KINDS), re.escape(act), '|'.join(TOOLS)))
++    for i, l in enumerate((text or '').split(NL), 1):
++        if l.lstrip().startswith('#'):
++            continue
++        for m in pat.finditer(l):
++            if m.group(1):
++                out.append(('retired bank %s' % m.group(1), i))
++            elif not os.path.exists(os.path.join(tools_dir, m.group(2))):
++                out.append(('tool file %s, not written' % m.group(2), i))
++    return out
++
++
++def src(tools_dir, act, tool):
++    """a tool's text: tools/<act>_<tool>.py where the act wrote one (b722 and before), else the fold's render of it -- the template's
++    one-line route in place of read(os.path.join(T, '<act>_<tool>.py'))"""
++    p = os.path.join(tools_dir, '%s_%s.py' % (act, tool))
++    if os.path.exists(p):
++        with open(p, encoding='utf-8') as f:
++            return f.read()
++    return __import__('standing.fold', fromlist=['render']).render(act, tool)
++
++
++def argv(tools_dir, act, tool, iso=False):
++    """the run's argv after the interpreter's -X utf8: [-I?, tools/<act>_<tool>.py] where the file exists, else [tools/standing/fold.py,
++    --act, <act>, <tool>] (fold.py strips --act wherever it stands); `-I` (iso) is kept off the fold route, which imports from
++    tools/standing/"""
++    p = os.path.join(tools_dir, '%s_%s.py' % (act, tool))
++    if os.path.exists(p):
++        return (['-I'] if iso else []) + [p]
++    return [os.path.join(tools_dir, 'standing', 'fold.py'), '--act', act, tool]
++
++
++def has_tool(tools_dir, act, tool):
++    """the tool present: its file, or (a folded act) the act's sections file"""
++    return os.path.exists(os.path.join(tools_dir, '%s_%s.py' % (act, tool))) or \
++        __import__('standing.fold', fromlist=['has_sections']).has_sections(act)
++
++
++# ================================================================================ THE ROOT ROUTE ((R334)(2), after the ten)
++def committed_root(R):
++    """b698_record's rootbanks rebound so the root names committed blobs alone: its reading (every named bank clean and equal to HEAD's blob,
++    HEAD the remote main), its own writes (the root-banks banks, an excluded kind), and then the same reading again over the names root_banks
++    gives at that moment -- a bank written or added between the first reading and the compute refuses the root. b723's root named
++    data/b723_bank_hashes.json, which the hash recorder rewrote after the reading (no commit carries the hashed blob, 133004c8)."""
++    first = R.rootbanks
++
++    def rootbanks(*a):
++        if not first(*a):
++            return False
++        s = R.root_banks_state(R.root_banks())
++        bad = [r['bank'] for r in s['rows'] if not (r['status'] == 'clean' and r['equal'])]
++        if bad or not s['pushed']:
++            print('### THE ROOT ROUTE: AFTER ITS OWN WRITES %d NAMED BANK(S) NOT AS COMMITTED AT HEAD (%s)%s -- NO ROOT' % (
++                len(bad), ', '.join(bad[:6]), '' if s['pushed'] else ' ; HEAD NOT THE REMOTE MAIN'))
++            return False
++        return True
++    R.rootbanks = rootbanks
++    return rootbanks
++
++
++# ================================================================================ (vi) THE CHAIN PHASE ABOVE 450 S
++def quarters(reads, first, last):
++    """the chain's first half (acts first..last) cut in two where the banked walks halve: `reads` is {act: {later: n}} (the chain-half banks'
++    reads, b723's); the walk per act is its `later` count, the first-parent walk act_root.py at_commit makes for a bank not at the root's
++    commit. Returns ((first, cut-1), (cut, last))."""
++    acts = sorted(a for a in reads if first <= a <= last)
++    tot = sum(int(reads[a].get('later', 0)) for a in acts)
++    run = 0
++    for a in acts:
++        run += int(reads[a].get('later', 0))
++        if run * 2 >= tot:
++            i = acts.index(a)
++            return (acts[0], acts[i - 1] if i else acts[0]), (a, acts[-1])
++    return (acts[0], acts[-2]), (acts[-1], acts[-1])
++
++
++# ================================================================================ (vii) SUITE PARTS RUN CONCURRENTLY
++PART_CMD = re.compile(r'(?:fold\.py\s+checks|_checks\.py)\b[^\n]*--part\s+(\S+)')
++
++
++def process_table():
++    """[(pid, command line)] of the host's python processes, read by PowerShell's Get-CimInstance (no shell pipe in the seat's command: the
++    pipeline is the subprocess's own argument)."""
++    ps = ("Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ForEach-Object { '{0}`t{1}' -f $_.ProcessId, $_.CommandLine }")
++    out = subprocess.run(['powershell', '-NoProfile', '-NonInteractive', '-Command', ps], capture_output=True, text=True, encoding='utf-8',
++                         errors='replace').stdout
++    rows = []
++    for l in out.split(NL):
++        if '\t' in l:
++            pid, cmd = l.split('\t', 1)
++            if pid.strip().isdigit():
++                rows.append((int(pid.strip()), cmd.strip()))
++    return rows
++
++
++def others_running(table, self_pids):
++    """[(pid, part)]: every process in the table running a suite part, other than the given pids (this run and its parent)."""
++    return [(pid, m.group(1)) for pid, cmd in table for m in [PART_CMD.search(cmd or '')] if m and pid not in self_pids]
++
++
++def refuse_concurrent_part(part):
++    """b723 event (13), the author's rule at b723's close: suite parts run one at a time. Read the process table before a part starts and
++    refuse while another part runs."""
++    o = others_running(process_table(), {os.getpid(), os.getppid()})
++    if o:
++        sys.exit('### ANOTHER SUITE PART IS RUNNING (%s) -- PART %s NOT RUN: suite parts run one at a time (the author`s rule at b723`s close)' % (
++            ', '.join('pid %d part %s' % x for x in o), part))
++    return None
++
++
++def part_guards(part, act, root, pushed, other_mode):
++    """the suite's two refusals before a part reads anything, called from main's one line: (vii) another part running, (iii) a pre-push
++    reading once the record is committed. Returns None or exits."""
++    refuse_concurrent_part(part)
++    return prepush_after_record(act, root, pushed, other_mode)
++
++
++# ================================================================================ (ix) THE CARRY'S ACT-NAME SUBSTITUTION
++REF = re.compile(r'\bimport\s+(b\d{3}_\w+)|\b(b\d{3}_\w+)\s+as\s+\w+|tools[/\\](b\d{3}_\w+)\.py|\b(b\d{3}_\w+)\.py\b')
++
++
++def shifted_missing(src, dst, tools_dir):
++    """[(line, name)]: a module or tool the carried text (dst) names that does not exist in tools/, where the source line at the same place
++    named one that does -- the substitution shifted a name past what exists (b721 (p), b723 (d), b724 (d))."""
++    out = []
++    s_lines, d_lines = (src or '').split(NL), (dst or '').split(NL)
++    for i, (a, b) in enumerate(zip(s_lines, d_lines), 1):
++        if a == b:
++            continue
++        for m in REF.finditer(b):
++            name = next(x for x in m.groups() if x)
++            if not os.path.exists(os.path.join(tools_dir, name + '.py')):
++                ms = [next(x for x in mm.groups() if x) for mm in REF.finditer(a)]
++                if any(os.path.exists(os.path.join(tools_dir, n + '.py')) for n in ms):
++                    out.append((i, name))
++    return out
++
++
++# ================================================================================ (x) A FIXED GRADE SENTENCE BEFORE ITS CHECK
++def grade(ok, yes, no):
++    """the grade sentence composed from the check's result: `yes` where ok is True, `no` where False; anything else (an unread check, None)
++    refuses -- no sentence stands before its check."""
++    if ok is True:
++        return yes
++    if ok is False:
++        return no
++    raise SystemExit('### A GRADE SENTENCE ASKED BEFORE ITS CHECK (the check read %r) -- NOTHING PRINTED' % (ok,))
++
+
+### PAIR tools/standing/v140.py (new)
++# -*- coding: utf-8 -*-
++"""standing/v140.py -- THE CONTROLS OF v1.4.0 ((R334)(2)): for each of the ten repeat classes and the root route, the class's last banked
++instance replayed through the route as it stood at HEAD before the repair (the blob read from git, or the literal the template carried) and
++through the repaired route; AS WANTED where the old route fails the instance and the new passes it. Both instances printed. Written at b724
++by the Write tool.
++
++  python -X utf8 tools/standing/v140.py control [i|ii|...|x|root ...] [--bank]
++        runs the named controls (all where none is named); --bank writes data/<act>_standing_v140.txt (the act read from
++        data/act_current.json) with every control run, nothing else.
++
++The old routes are read at BASE (the commit before v1.4.0's, given in the bank's head), each into a temporary directory removed on exit;
++nothing in the tree is written but the bank.
++"""
++import hashlib
++import importlib.util
++import json
++import os
++import re
++import shutil
++import subprocess
++import sys
++import tempfile
++import time
++
++T = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++RELAY = os.path.dirname(T)
++D = os.path.join(RELAY, 'data')
++S = os.path.join(T, 'standing')
++NL = '\n'
++PP = 'D:/MY-DOwnloads/PLACE-papers'
++for p_ in (S, T):
++    if p_ not in sys.path:
++        sys.path.insert(0, p_)
++if hasattr(sys.stdout, 'reconfigure'):
++    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
++
++import act as A                 # noqa: E402
++import hook as H                # noqa: E402
++import standing.repeat as RP    # noqa: E402
++
++BASE = 'HEAD'   # ### the routes before the repair: v1.4.0's files are uncommitted when the controls run, so HEAD carries v1.3.0's
++TMP = tempfile.mkdtemp(prefix='v140_')
++
++
++def _git(repo, *a):
++    return subprocess.run(['git', '-C', repo] + list(a), capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
++
++
++def blob(rel, rev=None, repo=RELAY):
++    r = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (rev or BASE, rel)], capture_output=True)
++    return r.stdout if r.returncode == 0 else None
++
++
++def old_module(rel, name):
++    """the module at BASE, loaded from a temporary copy under its own name (the live module untouched)"""
++    p = os.path.join(TMP, name + '.py')
++    with open(p, 'wb') as f:
++        f.write(blob(rel))
++    spec = importlib.util.spec_from_file_location(name, p)
++    m = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(m)
++    return m
++
++
++def case(L, cls, what, old, new, old_fails, new_passes):
++    ok = bool(old_fails) and bool(new_passes)
++    L += ['  (%s) %s' % (cls, what), '      BEFORE (v1.3.0): %s -> %s' % (old, 'FAILS' if old_fails else 'DOES NOT FAIL'),
++          '      AFTER  (v1.4.0): %s -> %s' % (new, 'PASSES' if new_passes else 'DOES NOT PASS'),
++          '      %s' % ('AS WANTED' if ok else 'NOT AS WANTED')]
++    return ok
++
++
++def _run(argv):
++    r = subprocess.run([sys.executable, '-X', 'utf8'] + argv, capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=RELAY)
++    return r.returncode, (r.stdout or '') + (r.stderr or '')
++
++
++# ================================================================================ (i) HOOK REFUSALS: THE READER'S MISSING VERBS
++def control_i():
++    """v1.3.0's (ii) control classed three b721-b722 refusals COVERED IN PART: a tally (b721 :6), a python -c read of a JSON bank (b721 :7)
++    and a read by byte offset (b722 :9). Each replayed through peek.py at BASE and now."""
++    L = ['### (i) HOOK REFUSALS -- tools/standing/peek.py`s tally, json and bytes verbs; instances data/b721_hook_refusals.txt :6, :7 and '
++         'data/b722_hook_refusals.txt :9 (v1.3.0`s three COVERED IN PART rows)']
++    old = os.path.join(TMP, 'peek_old.py')
++    with open(old, 'wb') as f:
++        f.write(blob('tools/standing/peek.py'))
++    calls = (('b721 :6, `grep -on K.* | sort | uniq -c`', ['tally', 'tools/b721_record.py', '--pattern', r'K\.[A-Z][A-Z0-9_]*', '--max', '3']),
++             ('b721 :7, `python -c` over data/arm_tags.json', ['json', 'data/arm_tags.json', 'tags', '--len']),
++             ('b722 :9, body[229845:241338] of tools/b722_record.py', ['bytes', 'tools/b722_record.py', '--offset', '229845', '--bytes', '11493']))
++    g = n = 0
++    for what, argv in calls:
++        r0, o0 = _run([old] + argv)
++        r1, o1 = _run([os.path.join(S, 'peek.py')] + argv)
++        shell = 'python -X utf8 tools/standing/peek.py ' + ' '.join('"%s"' % a if ' ' in a or '|' in a else a for a in argv)
++        allowed = H.judge('Bash', {'command': shell}) is None
++        n += 1
++        g += case(L, 'i', what, 'exit %d (%d lines)' % (r0, len(o0.strip().split(NL))), 'exit %d (%d lines) ; the hook allows the call %s' % (
++            r1, len(o1.strip().split(NL)), allowed), r0 != 0, r1 == 0 and allowed)
++    return L, g, n
++
++
++# ================================================================================ (ii) A READ WITH A LIMIT AND NO OFFSET ON 200+ LINES
++def control_ii():
++    """b723 (b'): 27 of 327 Read calls offended the offset rule (data/b723_read_calls.txt), the hook refusing only a limit above 200. Every
++    offence of a limit with no offset on a file of 200+ lines, its file present now, judged by hook.py at BASE and now."""
++    L = ['### (ii) READ WITH A LIMIT AND NO OFFSET -- tools/standing/hook.py judge(); instance b723 (b`) (data/b723_read_calls.txt, its offence rows)']
++    H0 = old_module('tools/standing/hook.py', 'hook_v130')
++    rows = []
++    for l in open(os.path.join(D, 'b723_read_calls.txt'), encoding='utf-8').read().split(NL):
++        p = [x.strip() for x in l.split('|')]
++        if len(p) >= 7 and p[3] == 'offset None' and p[4].startswith('limit ') and 'WITHIN' not in p[5]:
++            rows.append((p[0], int(p[4].split()[1]), p[6]))
++    over = [r for r in rows if r[1] > H.LIMIT]   # ### a limit above 200: refused by v1.3.0 already, outside this class
++    rows = [r for r in rows if r[1] <= H.LIMIT]
++    L.append('  offence rows whose limit was above 200 (v1.3.0 refused them already; not this class`s instance): %d' % len(over))
++    present = [r for r in rows if os.path.isfile(r[2]) and H.lines_of(r[2]) >= H.LIMIT]
++    old_allow = sum(1 for _ln, lim, path in present if H0.judge('Read', {'file_path': path, 'limit': lim}) is None)
++    new_refuse = sum(1 for _ln, lim, path in present if (H.judge('Read', {'file_path': path, 'limit': lim}) or ('',))[0] == 'READ')
++    with_off = sum(1 for _ln, lim, path in present if H.judge('Read', {'file_path': path, 'offset': 1, 'limit': min(lim, 200)}) is None)
++    L.append('  offence rows with a limit and no offset: %d ; their file present now at 200+ lines: %d' % (len(rows), len(present)))
++    ok = case(L, 'ii', 'the %d calls, each as logged' % len(present), 'allowed %d of %d' % (old_allow, len(present)),
++              'refused READ %d of %d ; the same calls given an offset allowed %d of %d' % (new_refuse, len(present), with_off, len(present)),
++              bool(present) and old_allow == len(present), bool(present) and new_refuse == len(present) and with_off == len(present))
++    return L, int(ok), 1
++
++
++# ================================================================================ (iii) HAND-KEPT NAME LISTS
++def control_iii():
++    L = ['### (iii) HAND-KEPT NAME LISTS -- CARRIED_FAILING, the record-committed pre-push reading, the seal`s list, --prev`s OWN']
++    g = n = 0
++    # ### (a) b723 (g'): the template's literal against the face's declaration
++    tpl0 = blob('tools/standing/fold/checks.tpl').decode('utf-8')
++    lit = re.search(r"^CARRIED_FAILING = (\(.*\))$", tpl0, re.M).group(1)
++    old = tuple(re.findall(r"'(G-[A-Z0-9-]+)'", lit))
++    face = open(os.path.join(D, 'b723_registration_2026-10-29.txt'), encoding='utf-8').read()
++    decl = RP.carried_failing(face)
++    n += 1
++    g += case(L, 'iii', 'b723 (g`): CARRIED_FAILING against b723`s face (data/b723_registration_2026-10-29.txt, its DECLARED line %s)' % (decl,),
++              'the template literal %s' % (old,), 'read from the face: %s' % (RP.carried_failing(face),), old != decl, RP.carried_failing(face) == decl and bool(decl))
++    # ### (b) b723 event (16): a part run with no mode after the record commit read PRE-PUSH and wrote over the committed bank
++    committed = RP.record_committed('b723', RELAY)
++    try:
++        RP.prepush_after_record('b723', RELAY, False, False)
++        refused = False
++    except SystemExit:
++        refused = True
++    n += 1
++    g += case(L, 'iii', 'b723 event (16): `fold.py checks --part act` after the record commit (data/b723_components.txt at HEAD %s), read PRE-PUSH' % committed,
++              'main ran the part pre-push and wrote data/b723_checks_act.txt over its committed bank', 'part_guards refuses: %s' % refused,
++              committed, refused)
++    # ### (c) b722 event (12): the seal's own list against the worklist
++    sj = json.load(open(os.path.join(D, 'b722_seal_hashes.json'), encoding='utf-8'))
++    seal_tools = sorted(sj.get('tools') or {})
++    import close as C
++    wl = C.worklist_sealed('b722')
++    grown = [t for t in wl if t.startswith('standing/') and t not in seal_tools]
++    wl = [t for t in wl if t not in grown]   # ### tools/standing/ has grown since b722's seal (b722's worklist lists the directory at import)
++    L.append('  tools/standing/ files added since b722`s seal, read out of both sides: %d' % len(grown))
++    m0, x0 = RP.seal_against_worklist(seal_tools, wl)
++    m1, x1 = RP.seal_against_worklist([t for t in C.worklist_sealed('b722') if t not in grown], wl)
++    n += 1
++    g += case(L, 'iii', 'b722 event (12): the seal`s tools against b722`s worklist SEALED (%d)' % len(wl),
++              'b722`s seal (sealed_list`s rule, %d): missing %s extra %s' % (len(seal_tools), m0, x0),
++              'the seal route reads the worklist (worklist_sealed, v1.3.0): missing %s extra %s' % (m1, x1), bool(m0 or x0), not (m1 or x1))
++    # ### (d) b722 events (8)-(10): `--prev` at b723 over b722's worklist, names b722's sets to None
++    import b722_worklist as W722
++    import b723_worklist as W723
++    nones = sorted(k for k in dir(W722) if k.isupper() and getattr(W722, k) is None and getattr(W723, k, None) is not None)
++    own0 = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED')
++    old_none = [k for k in nones if k not in own0 and hasattr(W722, k)]
++    new_none = [k for k in nones if k not in own0 and RP.prev_carries(W722, W723, k)]
++    n += 1
++    g += case(L, 'iii', 'b722 events (8)-(10): --prev`s worklist, the %d names b722`s sets to None where b723`s carries a value (%s)' % (
++        len(nones), ', '.join(nones[:8])), 'hasattr: %d read as b722`s None' % len(old_none), 'prev_carries: %d read as None' % len(new_none),
++        bool(old_none), not new_none)
++    return L, g, n
++
++
++# ================================================================================ (iv) THE LOCK PHASE AND THE STEP RECORDER'S PHASES
++def control_iv():
++    L = ['### (iv) THE LOCK PHASE -- the step recorder`s phases and G-SEALED-AFTER-COMPONENTS over b723`s step bank and commits']
++    g = n = 0
++    tpl0 = blob('tools/standing/fold/record.tpl').decode('utf-8')
++    pre0 = re.search(r"^PRE_SEAL_PHASES = (\(.*?\))", tpl0, re.M).group(1)
++    pre1, post1 = RP.phases(RELAY)
++    n += 1
++    g += case(L, 'iv', 'the phase `lock` (data/act_current.json`s Component 6 names it before `seal`) among the recorder`s pre-seal phases',
++              'the template`s literal: `lock` %s' % ("'lock'" in pre0), 'read from act_current: `lock` %s ; %s' % ('lock' in pre1, ', '.join(pre1)),
++              "'lock'" not in pre0, 'lock' in pre1 and 'seal' in post1)
++    rows = json.load(open(os.path.join(D, 'b723_steps.json'), encoding='utf-8'))['rows']
++
++    def log(repo, a, b):
++        out = _git(repo, 'log', '--format=%H%x09%s%x09%ct', '%s..%s' % (a, b))
++        return [(x.split('\t')[0], x.split('\t')[1], int(x.split('\t')[2])) for x in out.split(NL) if x.strip()]
++    rlog = log(RELAY, '1607e994dd6c98250428d8197665bf440950e5ca', 'b8334f17')
++    plog = log(PP, '1553808a9278e28e2e819e4f39008bd3df37d54b', '698fe441')
++    pre723 = tuple(re.findall(r"'([^']+)'", pre0)) + ('lock',)   # ### b723's own phases (the BASE literal, its components 7 and 8), `lock` its override's
++    ok0, why0 = RP.sealed_after(rows, rlog, plog, pre723, lambda repo, h: [], 'b723')
++    ok1, why1 = RP.sealed_after(rows, rlog, plog, pre723, RP.files_of(RELAY, PP), 'b723')
++    n += 1
++    g += case(L, 'iv', 'b723`s G-SEALED-AFTER-COMPONENTS (relay 1607e994..b8334f17, %d commits; PLACE-papers ..698fe441, %d)' % (len(rlog), len(plog)),
++              'no bookkeeping exemption: %s (%s)' % (ok0, why0), 'the bookkeeping-only commit exempt: %s%s' % (ok1, (' (%s)' % why1) if why1 else ''),
++              not ok0, ok1)
++    return L, g, n
++
++
++# ================================================================================ (v) ROUTES READING RETIRED BANKS OR UNWRITTEN TOOL FILES
++def control_v():
++    L = ['### (v) RETIRED READS -- every template line reading a retired bank or a tools/<act>_<tool>.py the fold does not write, over b724`s names']
++    import fold as F
++    old = new = 0
++    det = []
++    for tool in F.TOOLS:
++        rel = 'tools/standing/fold/%s.tpl' % tool
++        t0 = blob(rel).decode('utf-8').replace(chr(0x27EA) + 'ACT' + chr(0x27EB), 'b724')
++        t1 = open(os.path.join(RELAY, *rel.split('/')), encoding='utf-8').read().replace(chr(0x27EA) + 'ACT' + chr(0x27EB), 'b724')
++        h0, h1 = RP.retired_reads(t0, 'b724', T), RP.retired_reads(t1, 'b724', T)
++        old, new = old + len(h0), new + len(h1)
++        det += ['      %s :%d %s' % (tool, i, w) for w, i in h0]
++    L += ['  the reads at BASE:'] + det
++    ok = case(L, 'v', 'the seven templates read with b724`s names', 'reads %d' % old, 'reads %d (the text through standing/repeat.py src, the run through argv)' % new,
++              old > 0, new == 0)
++    return L, int(ok), 1
++
++
++# ================================================================================ (vi) THE CHAIN PHASE ABOVE 450 S
++def control_vi():
++    L = ['### (vi) THE CHAIN PHASE -- b2a re-cut where b723`s banked first-parent walks halve; seconds PROJECTED from b723`s timings by walk share']
++    reads = {}
++    for h in ('a1', 'a2'):
++        reads.update(json.load(open(os.path.join(D, 'b723_chain_half_%s_checks.json' % h), encoding='utf-8'))['reads'])
++    secs = {}
++    for part in ('b2a', 'b2b'):
++        j = json.load(open(os.path.join(D, 'b723_arm_seconds_standing-%s.json' % part), encoding='utf-8'))
++        secs[part] = float(j.get('run_secs') or 0)
++    q_old = (('b624', 'b641'), ('b642', 'b658'))
++    q_new = RP.quarters(reads, 'b624', 'b658')
++
++    def walk(a, b):
++        return sum(int(r.get('later', 0)) for k, r in reads.items() if a <= k <= b)
++    w_a1, w_a2 = walk(*q_old[0]), walk(*q_old[1])
++    # ### a part's seconds as a fixed cost (the part's own reads, the same in each) and a cost per walk, solved from b723's two measured parts
++    per = (secs['b2a'] - secs['b2b']) / (w_a1 - w_a2)
++    fixed = secs['b2b'] - per * w_a2
++    proj = [fixed + per * walk(*q) for q in q_new]
++    wl = __import__('b724_worklist')
++    L.append('  b723 measured: b2a %.0f s over walks %d (%s-%s) ; b2b %.0f s over walks %d ; fixed %.0f s + %.3f s a walk ; the worklist`s CHAIN_QUARTERS now %s' % (
++        secs['b2a'], w_a1, q_old[0][0], q_old[0][1], secs['b2b'], w_a2, fixed, per, wl.CHAIN_QUARTERS))
++    ok = case(L, 'vi', 'the chain`s first half in two parts against the 450 s guard',
++              'quarters %s: b2a %.0f s MEASURED' % (q_old, secs['b2a']),
++              'quarters %s: b2a %.0f s, b2b %.0f s PROJECTED (walks %d and %d)' % (q_new, proj[0], proj[1], walk(*q_new[0]), walk(*q_new[1])),
++              secs['b2a'] > 450, all(p < 450 for p in proj) and tuple(map(tuple, wl.CHAIN_QUARTERS)) == tuple(q_new))
++    return L, int(ok), 1
++
++
++# ================================================================================ (vii) SUITE PARTS RUN CONCURRENTLY
++def control_vii():
++    L = ['### (vii) CONCURRENT PARTS -- b723 event (13): act and standing-a started while standing-b2a ran; the process table replayed']
++    table = [(1001, 'python -X utf8 -u tools/standing/fold.py checks --part standing-b2a'),
++             (1002, 'python -X utf8 tools/standing/fold.py checks --part act')]
++    old_seen = []   # ### v1.3.0's main read no process table
++    new_seen = RP.others_running(table, {1002})
++    live = RP.others_running(RP.process_table(), {os.getpid(), os.getppid()})
++    g = case(L, 'vii', 'part act (pid 1002) starting beside standing-b2a (pid 1001)', 'parts seen running %s: the part ran' % old_seen,
++             'parts seen running %s: refused ; the live table now %s' % (new_seen, live or 'none (a part may start)'), not old_seen, bool(new_seen) and not live)
++    return L, int(g), 1
++
++
++# ================================================================================ (viii) THE PREVIOUS ACT'S WINDOW
++def control_viii():
++    L = ['### (viii) THE PREVIOUS ACT`S WINDOW -- G-EDIT-ROUTE`s window over b723, read in this one session: to the session`s end (the carried own-session form) '
++         'and to b724`s anchor']
++    import edit_route as ER
++    import b724_worklist as K
++    proj = os.path.join(os.path.expanduser('~'), '.claude', 'projects', 'D--')
++    sess = os.path.join(proj, K.SESSION_ID + '.jsonl')
++    subs = os.path.join(proj, K.SESSION_ID, 'subagents')
++    rows = ER.capture(sess, K.PREV_ANCHOR, subs)
++    own = ER.capture(sess, K.ANCHOR, subs)
++    first = [r['ts'] for r in rows if 'b723_checks_postpush' in r['cmd'] and '--combine' in r['cmd']]
++    anchor = min(r['ts'] for r in own) if own else None
++    f0 = first[0] if first else ''
++    old = [r for r in rows if f0 <= r['ts']]
++    new = [r for r in rows if f0 <= r['ts'] < anchor] if anchor else []
++    old_own = sum(1 for r in old if anchor and r['ts'] >= anchor)
++    new_own = sum(1 for r in new if r['ts'] >= anchor)
++    L.append('  b723`s post-push combine at %s ; b724`s anchor at %s ; b724`s commands %d' % (f0 or '-', anchor or '-', len(own)))
++    L.append('  NOTE: the template at BASE already ends the window at the act`s anchor (record.tpl prev_capture, a carry-time repair of b723`s); '
++             'BEFORE below is the carried own-session form (to the session`s end) that bound replaced, not a v1.3.0 line -- no v1.4.0 edit')
++    g = case(L, 'viii', 'the window`s rows that are b724`s own commands', 'to the session`s end: %d rows, %d of them b724`s' % (len(old), old_own),
++             'to b724`s anchor: %d rows, %d of them b724`s' % (len(new), new_own), bool(first) and old_own > 0, bool(first) and new_own == 0 and bool(new))
++    return L, int(g), 1
++
++
++# ================================================================================ (ix) THE CARRY'S ACT-NAME SUBSTITUTION
++def control_ix():
++    L = ['### (ix) THE CARRY`S SUBSTITUTION -- b724 (d): tools/b723_address_scan.py carried to b724 named b723_llm_line, which no act wrote']
++    src = blob('tools/b723_address_scan.py', rev='HEAD')
++    src = src.decode('utf-8') if src else open(os.path.join(T, 'b723_address_scan.py'), encoding='utf-8').read()
++    subs = (('b723', 'b724'), ('b722', 'b723'), ('R333', 'R334'), ('R332', 'R333'))
++    out = src
++    for a, b in subs:
++        out = out.replace(a, b)
++    shifted = RP.shifted_missing(src, out, T)
++    tmp_dst = os.path.join(TMP, 'carry_dst.py')
++    rc, o = _run([os.path.join(S, 'carry.py'), 'tools/b723_address_scan.py', tmp_dst,
++                  'v140probe', '--subs', ','.join('%s:%s' % s for s in subs)])
++    written = os.path.exists(tmp_dst)
++    g = case(L, 'ix', 'the b723 -> b724 carry of tools/b723_address_scan.py', 'tools/b724_carry.py`s substitute wrote it, shifted names unread (%s)' % (
++        ', '.join(':%d %s' % s for s in shifted) or 'none'), 'tools/standing/carry.py: exit %d, written %s ; %s' % (
++        rc, written, (o.strip().split(NL) or [''])[0][:110]), bool(shifted), rc != 0 and not written and 'PAST WHAT EXISTS -- NOTHING WRITTEN' in o)
++    return L, int(g), 1
++
++
++# ================================================================================ (x) A FIXED GRADE SENTENCE BEFORE ITS CHECK
++def control_x():
++    L = ['### (x) A FIXED GRADE -- b721 (i): tools/b721_derivation.py printed "READ BY IT AS WANTED" as fixed text while its check (4) read NOT AS WANTED']
++    check4 = False   # ### b721 (i): check (4) at -47 read NOT AS WANTED
++    old = 'READ BY IT AS WANTED'
++    new = RP.grade(check4, 'READ BY IT AS WANTED', 'NOT AS WANTED')
++    try:
++        RP.grade(None, 'READ BY IT AS WANTED', 'NOT AS WANTED')
++        unread = 'composed'
++    except (ValueError, SystemExit, TypeError) as e:
++        unread = 'refused (%s)' % type(e).__name__
++    g = case(L, 'x', 'the grade sentence with its check (4) False', 'fixed text: "%s"' % old, 'repeat.grade: "%s" ; an unread check %s' % (new, unread),
++             old != 'NOT AS WANTED', new == 'NOT AS WANTED' and unread.startswith('refused'))
++    return L, int(g), 1
++
++
++# ================================================================================ THE ROOT ROUTE
++def control_root():
++    """b723's root named data/b723_bank_hashes.json at 133004c8, a blob no commit carries; b723's root banks were committed at f585420f.
++    The replay at f585420f: every named relay bank's recorded hash against its blob there, with the hashes bank named (the route as it was)
++    and excluded (the route repaired, record.tpl's head declaration read)."""
++    L = ['### THE ROOT ROUTE -- b723`s root items replayed at f585420f (b723`s root banks` commit)']
++    import act_root as AR
++    J = json.load(open(os.path.join(D, 'b723_act_root.json'), encoding='utf-8'))
++    items = [it for it in J['items'] if it.startswith('data/')]
++    decl = re.findall(r'^### UNTRACKED WRITE: data/(?:\u27eaACT\u27eb|b72\d)_(\S+)', open(os.path.join(S, 'fold', 'record.tpl'), encoding='utf-8').read(), re.M)
++    excluded = ['data/b723_' + d for d in decl]
++
++    def at(rev, its):
++        bad = []
++        for it in its:
++            path, h = it.split()[:2]
++            b = blob(path, rev=rev)
++            if b is None or hashlib.sha256(b).hexdigest() != h:
++                bad.append(path)
++        return bad
++    bad0 = at('f585420f', items)
++    kept = [it for it in items if it.split()[0] not in excluded]
++    bad1 = at('f585420f', kept)
++    r1 = AR.root_of([it for it in J['items'] if it.split()[0] not in excluded], J['previous'])
++    L.append('  the template`s head declares %s ; named relay banks %d, %d with the hashes bank excluded' % (excluded, len(items), len(kept)))
++    L.append('  the root over the remaining items (printed only, not recorded): %s ; b723`s recorded root %s' % (r1, J['root']))
++    g = case(L, 'root', 'b723`s named banks at f585420f', 'the hashes bank named: %d DISAGREE (%s)' % (len(bad0), ', '.join(bad0[:4])),
++             'excluded: %d disagree%s' % (len(bad1), (' (%s)' % ', '.join(bad1[:4])) if bad1 else ' -- AGREE'), bool(bad0), not bad1 and bool(kept))
++    return L, int(g), 1
++
++
++CONTROLS = dict(i=control_i, ii=control_ii, iii=control_iii, iv=control_iv, v=control_v, vi=control_vi, vii=control_vii, viii=control_viii,
++                ix=control_ix, x=control_x, root=control_root)
++ORDER = ('i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'root')
++
++
++def main(argv):
++    if not argv or argv[0] != 'control':
++        sys.exit(__doc__)
++    names = [a for a in ORDER if a in argv[1:]] or list(ORDER)
++    act = A.current().get('act')
++    out = ['%s -- THE CONTROLS OF tools/standing/ v1.4.0, (R334)(2): THE TEN REPEAT CLASSES AND THE ROOT ROUTE (%s)' % (
++        act, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
++           '### the routes before the repair read at %s (%s); each case its instance through both' % (BASE, _git(RELAY, 'rev-parse', '--short=8', BASE).strip()), '']
++    tg = tn = 0
++    try:
++        for k in names:
++            try:
++                L, g, n = CONTROLS[k]()
++            except Exception as e:  # noqa: BLE001
++                L, g, n = ['### (%s) THE CONTROL RAISED %s: %s -- NOT AS WANTED' % (k, type(e).__name__, e)], 0, 1
++            out += L + ['']
++            tg, tn = tg + g, tn + n
++    finally:
++        shutil.rmtree(TMP, ignore_errors=True)
++    out.append('### ### **v1.4.0: CONTROLS %s ; CASES %d ; AS WANTED %d ; %s.**' % (
++        ', '.join('(%s)' % k for k in names), tn, tg, 'ALL AS WANTED' if tg == tn else 'NOT ALL AS WANTED'))
++    print(NL.join(out))
++    if '--bank' in argv:
++        p = os.path.join(D, '%s_standing_v140.txt' % act)
++        with open(p + '.tmp', 'wb') as f:
++            f.write((NL.join(out) + NL).encode('utf-8'))
++        os.replace(p + '.tmp', p)
++        print('written data/%s_standing_v140.txt' % act)
++
++
++if __name__ == '__main__':
++    main(sys.argv[1:])
++
+

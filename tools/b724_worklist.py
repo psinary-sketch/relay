@@ -160,7 +160,7 @@ READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709
 # ### THE SUITE'S PARTS: seven, as b706 split them and b707-b723 carried them
 PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act')
 CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b724'))
-CHAIN_QUARTERS = (('b624', 'b641'), ('b642', 'b658'))
+CHAIN_QUARTERS = (('b624', 'b631'), ('b632', 'b658'))   # ### (R334)(2)(vi): b2a split where b723's banked walks halve (repeat.quarters; b2a's run 575 s at b723)
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'
 STANDING_ADDED = ()          # ### set by the Edit tool when a component adds a standing arm
@@ -232,9 +232,10 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b724.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.3.0'             # ### entering the act; (R334)(2) lands the next by a commit of its own at Component 1
-STANDING_CHANGED = ()                   # ### the standing files (R334)(2) and (6) change or add, set by the Edit tool at their commits
-STANDING_NEW = ()
+STANDING_VERSION = 'v1.4.0'             # ### (R334)(2), landed by a commit of its own at Component 1 (v1.3.0 entering the act)
+STANDING_CHANGED = ('standing/VERSION', 'standing/fold/checks.tpl', 'standing/fold/record.tpl', 'standing/fold/reg_gate.tpl',
+                    'standing/fold/regspec.tpl', 'standing/hook.py', 'standing/peek.py')   # ### the standing files (R334)(2) changes
+STANDING_NEW = ('standing/carry.py', 'standing/repeat.py', 'standing/v140.py')
 # ### b723's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = 'b8334f17'    # ### b723's closing, the act's relay base
 B714_RECORD = '14bf5ec5'     # ### b723's record commit (relay, the head line's)

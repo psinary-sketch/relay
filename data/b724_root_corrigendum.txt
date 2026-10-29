@@ -1,0 +1,34 @@
+b724 -- B723'S CORRIGENDUM ROW, (R334)(2) THE ROOT ROUTE: "b723's corrigendum row is written in the form b680's carries" (2026-10-29T21:47Z)
+
+### THE ROW (data/act_roots.txt :102, appended beneath b723's root row :101, which stands as recorded -- the author's word at b723's close:
+### "carry the root as recorded ... No recompute, no second line in act_roots.txt"; this row is a corrigendum, not a second root line):
+  corrigendum b723 2be0135cf8a8172863e947df905c23dc749a0719 f585420f24c25d56a290df4b4a95e50c569c05a7 9296406733ce0d44e197b8110ae942efb9f6fa121f7416214560282cbf42d553 data/b723_bank_hashes.json
+### the form b680's row carries (data/act_roots.txt :58): corrigendum <act> <the recorded commit> <the corrected commit> <the root> <the banks
+### read at the corrected commit>. The recorded commit 2be0135c is b723's root's (data/b723_act_root.json `commit.relay`); f585420f is the
+### commit of b723's root banks; the one bank named is the one tools/act_root.py verify read as changed.
+
+### VERIFY OVER THE ROW (tools/act_root.py verify for b723 alone, scratch verify723.py, read-only):
+  b723 DISAGREE {'commit': '2be0135cf8a8172863e947df905c23dc749a0719', 'blob': 105, 'crlf': 0, 'later': 0, 'unread': 0, 'corrected': 1}
+     - bank data/b723_bank_hashes.json changed (read at f585420f24c2)
+### the row is read (corrected 1) and the reading stays DISAGREE: the root named data/b723_bank_hashes.json at sha256 133004c8..., and
+### NO COMMITTED BLOB OF THAT FILE CARRIES IT -- 41 commits change the file, none (LF or CR LF) hashes to 133004c8 (scratch bh724.py); its
+### blobs at f585420f and at 2be0135c are equal to each other. The root hashed the working file after the hash recorder rewrote it, past
+### the root-banks reading (b723 (10); the cause, record.tpl's declared_untracked reading tools/<act>_*.py heads alone, which the fold does
+### not write since v1.3.0, so the template's own `### UNTRACKED WRITE: data/<act>_bank_hashes.json` was never read).
+### No row of this form can make b723 AGREE: the file's hashed form exists in no commit. The remaining 105 named banks agree at the
+### recorded commit.
+
+### THE ROUTE REPAIRED (v1.4.0, 69386258; its control data/b724_standing_v140.txt THE ROOT ROUTE): b723's items replayed at f585420f --
+### the hashes bank named, 1 DISAGREE; excluded (the template's head declaration now read), 0 disagree, AGREE. The root over the remaining
+### items, printed only and recorded nowhere: 4f7ae0b75c8de9cfda662783a2ecd8bcf2be1c3577e01c3eab02b2acdc423f79.
+
+### THE TWO FORMS PRICED ((R334)(2): "whichever tools/act_root.py prices lower"). tools/act_root.py carries no price route (its CLI is
+### compute and verify alone); the two forms are priced by what its verify reads. EXCLUDED: the hashes bank outside the set the root names,
+### verify reading the named banks at the recorded commit, 105 at b723 with 0 later walks and no commit added. NAMED AT ITS COMMITTED BLOB:
+### the hashes bank committed after its last write and before the root, and nothing writing it between that commit and the root's hash
+### (the hash recorder writes it at every bank write, the root-banks reading's own among them), verify reading it at the root's commit;
+### one commit and an order the route cannot hold by itself, and DISAGREE where it slips, as at b723. THE EXCLUDED FORM IS THE LOWER,
+### taken at v1.4.0.
+
+### ### **THE ROW WRITTEN IN b680'S FORM ; VERIFY OVER IT: b723 DISAGREE, ONE BANK, NO COMMITTED BLOB CARRIES ITS HASH ; THE REPAIRED ROUTE`S
+### REPLAY AGREES ; FOR THE AUTHOR AT THE ROOT PROMPT: THE CHAIN`S STANDING READING OF b723.**

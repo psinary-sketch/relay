@@ -1,0 +1,121 @@
+b724 -- THE CONTROLS OF tools/standing/ v1.4.0, (R334)(2): THE TEN REPEAT CLASSES AND THE ROOT ROUTE (2026-10-29T21:45:43Z)
+
+### the routes before the repair read at HEAD (d5432f23); each case its instance through both
+
+### (i) HOOK REFUSALS -- tools/standing/peek.py`s tally, json and bytes verbs; instances data/b721_hook_refusals.txt :6, :7 and data/b722_hook_refusals.txt :9 (v1.3.0`s three COVERED IN PART rows)
+  (i) b721 :6, `grep -on K.* | sort | uniq -c`
+      BEFORE (v1.3.0): exit 1 (1 lines) -> FAILS
+      AFTER  (v1.4.0): exit 0 (4 lines) ; the hook allows the call True -> PASSES
+      AS WANTED
+  (i) b721 :7, `python -c` over data/arm_tags.json
+      BEFORE (v1.3.0): exit 1 (1 lines) -> FAILS
+      AFTER  (v1.4.0): exit 0 (1 lines) ; the hook allows the call True -> PASSES
+      AS WANTED
+  (i) b722 :9, body[229845:241338] of tools/b722_record.py
+      BEFORE (v1.3.0): exit 1 (1 lines) -> FAILS
+      AFTER  (v1.4.0): exit 0 (103 lines) ; the hook allows the call True -> PASSES
+      AS WANTED
+
+### (ii) READ WITH A LIMIT AND NO OFFSET -- tools/standing/hook.py judge(); instance b723 (b`) (data/b723_read_calls.txt, its offence rows)
+  offence rows whose limit was above 200 (v1.3.0 refused them already; not this class`s instance): 1
+  offence rows with a limit and no offset: 25 ; their file present now at 200+ lines: 23
+  (ii) the 23 calls, each as logged
+      BEFORE (v1.3.0): allowed 23 of 23 -> FAILS
+      AFTER  (v1.4.0): refused READ 23 of 23 ; the same calls given an offset allowed 23 of 23 -> PASSES
+      AS WANTED
+
+### (iii) HAND-KEPT NAME LISTS -- CARRIED_FAILING, the record-committed pre-push reading, the seal`s list, --prev`s OWN
+  (iii) b723 (g`): CARRIED_FAILING against b723`s face (data/b723_registration_2026-10-29.txt, its DECLARED line ('G-AXIOM-CLAIM',))
+      BEFORE (v1.3.0): the template literal ('G-DELETES-ONE-BRANCH', 'G-DELETE-FREE') -> FAILS
+      AFTER  (v1.4.0): read from the face: ('G-AXIOM-CLAIM',) -> PASSES
+      AS WANTED
+  (iii) b723 event (16): `fold.py checks --part act` after the record commit (data/b723_components.txt at HEAD True), read PRE-PUSH
+      BEFORE (v1.3.0): main ran the part pre-push and wrote data/b723_checks_act.txt over its committed bank -> FAILS
+      AFTER  (v1.4.0): part_guards refuses: True -> PASSES
+      AS WANTED
+  tools/standing/ files added since b722`s seal, read out of both sides: 8
+  (iii) b722 event (12): the seal`s tools against b722`s worklist SEALED (43)
+      BEFORE (v1.3.0): b722`s seal (sealed_list`s rule, 42): missing ['research/reproduce.py'] extra [] -> FAILS
+      AFTER  (v1.4.0): the seal route reads the worklist (worklist_sealed, v1.3.0): missing [] extra [] -> PASSES
+      AS WANTED
+  (iii) b722 events (8)-(10): --prev`s worklist, the 2 names b722`s sets to None where b723`s carries a value (REGISTRATIONS_NEW, STEPZERO_REFUSALS)
+      BEFORE (v1.3.0): hasattr: 2 read as b722`s None -> FAILS
+      AFTER  (v1.4.0): prev_carries: 0 read as None -> PASSES
+      AS WANTED
+
+### (iv) THE LOCK PHASE -- the step recorder`s phases and G-SEALED-AFTER-COMPONENTS over b723`s step bank and commits
+  (iv) the phase `lock` (data/act_current.json`s Component 6 names it before `seal`) among the recorder`s pre-seal phases
+      BEFORE (v1.3.0): the template`s literal: `lock` False -> FAILS
+      AFTER  (v1.4.0): read from act_current: `lock` True ; step zero, component 1, component 2, component 3, component 4, component 5, component 6, gate, lock -> PASSES
+      AS WANTED
+  (iv) b723`s G-SEALED-AFTER-COMPONENTS (relay 1607e994..b8334f17, 50 commits; PLACE-papers ..698fe441, 5)
+      BEFORE (v1.3.0): no bookkeeping exemption: False (relay 2be0135c has no row) -> FAILS
+      AFTER  (v1.4.0): the bookkeeping-only commit exempt: True -> PASSES
+      AS WANTED
+
+### (v) RETIRED READS -- every template line reading a retired bank or a tools/<act>_<tool>.py the fold does not write, over b724`s names
+  the reads at BASE:
+      checks :455 tool file b724_checks.py, not written
+      checks :461 tool file b724_record.py, not written
+      checks :462 tool file b724_closing.py, not written
+      checks :513 tool file b724_report.py, not written
+      checks :518 retired bank b724_readfirst_diff.txt
+      record :1621 tool file b724_citation.py, not written
+      record :1622 tool file b724_closing.py, not written
+      record :1622 tool file b724_checks.py, not written
+      record :1629 tool file b724_record.py, not written
+      record :1630 tool file b724_record.py, not written
+      record :1631 tool file b724_citation.py, not written
+      record :3432 tool file b724_checks.py, not written
+      record :3434 tool file b724_checks.py, not written
+      record :3458 tool file b724_record.py, not written
+      reg_gate :58 tool file b724_record.py, not written
+      reg_gate :66 tool file b724_closing.py, not written
+      regspec :277 tool file b724_record.py, not written
+  (v) the seven templates read with b724`s names
+      BEFORE (v1.3.0): reads 17 -> FAILS
+      AFTER  (v1.4.0): reads 0 (the text through standing/repeat.py src, the run through argv) -> PASSES
+      AS WANTED
+
+### (vi) THE CHAIN PHASE -- b2a re-cut where b723`s banked first-parent walks halve; seconds PROJECTED from b723`s timings by walk share
+  b723 measured: b2a 575 s over walks 722 (b624-b641) ; b2b 193 s over walks 10 ; fixed 188 s + 0.537 s a walk ; the worklist`s CHAIN_QUARTERS now (('b624', 'b631'), ('b632', 'b658'))
+  (vi) the chain`s first half in two parts against the 450 s guard
+      BEFORE (v1.3.0): quarters (('b624', 'b641'), ('b642', 'b658')): b2a 575 s MEASURED -> FAILS
+      AFTER  (v1.4.0): quarters (('b624', 'b631'), ('b632', 'b658')): b2a 366 s, b2b 402 s PROJECTED (walks 333 and 399) -> PASSES
+      AS WANTED
+
+### (vii) CONCURRENT PARTS -- b723 event (13): act and standing-a started while standing-b2a ran; the process table replayed
+  (vii) part act (pid 1002) starting beside standing-b2a (pid 1001)
+      BEFORE (v1.3.0): parts seen running []: the part ran -> FAILS
+      AFTER  (v1.4.0): parts seen running [(1001, 'standing-b2a')]: refused ; the live table now none (a part may start) -> PASSES
+      AS WANTED
+
+### (viii) THE PREVIOUS ACT`S WINDOW -- G-EDIT-ROUTE`s window over b723, read in this one session: to the session`s end (the carried own-session form) and to b724`s anchor
+  b723`s post-push combine at 2026-10-29T20:06:05.473Z ; b724`s anchor at 2026-10-29T20:52:36.468Z ; b724`s commands 131
+  NOTE: the template at BASE already ends the window at the act`s anchor (record.tpl prev_capture, a carry-time repair of b723`s); BEFORE below is the carried own-session form (to the session`s end) that bound replaced, not a v1.3.0 line -- no v1.4.0 edit
+  (viii) the window`s rows that are b724`s own commands
+      BEFORE (v1.3.0): to the session`s end: 152 rows, 131 of them b724`s -> FAILS
+      AFTER  (v1.4.0): to b724`s anchor: 21 rows, 0 of them b724`s -> PASSES
+      AS WANTED
+
+### (ix) THE CARRY`S SUBSTITUTION -- b724 (d): tools/b723_address_scan.py carried to b724 named b723_llm_line, which no act wrote
+  (ix) the b723 -> b724 carry of tools/b723_address_scan.py
+      BEFORE (v1.3.0): tools/b724_carry.py`s substitute wrote it, shifted names unread (:12 b723_llm_line, :53 b723_llm_line) -> FAILS
+      AFTER  (v1.4.0): tools/standing/carry.py: exit 1, written False ; ### THE SUBSTITUTION SHIFTS 2 NAME(S) PAST WHAT EXISTS -- NOTHING WRITTEN ((R334)(2)(ix)): -> PASSES
+      AS WANTED
+
+### (x) A FIXED GRADE -- b721 (i): tools/b721_derivation.py printed "READ BY IT AS WANTED" as fixed text while its check (4) read NOT AS WANTED
+  (x) the grade sentence with its check (4) False
+      BEFORE (v1.3.0): fixed text: "READ BY IT AS WANTED" -> FAILS
+      AFTER  (v1.4.0): repeat.grade: "NOT AS WANTED" ; an unread check refused (SystemExit) -> PASSES
+      AS WANTED
+
+### THE ROOT ROUTE -- b723`s root items replayed at f585420f (b723`s root banks` commit)
+  the template`s head declares ['data/b723_bank_hashes.json'] ; named relay banks 106, 105 with the hashes bank excluded
+  the root over the remaining items (printed only, not recorded): 4f7ae0b75c8de9cfda662783a2ecd8bcf2be1c3577e01c3eab02b2acdc423f79 ; b723`s recorded root 9296406733ce0d44e197b8110ae942efb9f6fa121f7416214560282cbf42d553
+  (root) b723`s named banks at f585420f
+      BEFORE (v1.3.0): the hashes bank named: 1 DISAGREE (data/b723_bank_hashes.json) -> FAILS
+      AFTER  (v1.4.0): excluded: 0 disagree -- AGREE -> PASSES
+      AS WANTED
+
+### ### **v1.4.0: CONTROLS (i), (ii), (iii), (iv), (v), (vi), (vii), (viii), (ix), (x), (root) ; CASES 17 ; AS WANTED 17 ; ALL AS WANTED.**
