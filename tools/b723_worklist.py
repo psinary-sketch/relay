@@ -234,15 +234,16 @@ FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
 STANDING_VERSION = 'v1.3.0'             # ### (R333)(2), landed at Component 1
 STANDING_CHANGED = ('standing/close.py', 'standing/fold.py', 'standing/legacy.py', 'standing/peek.py', 'standing/v130.py', 'standing/VERSION') \
-    + FOLD_FILES[:-1]                   # ### the standing files (R333)(2)'s repairs change or add
+    + FOLD_FILES[:-1] \
+    + ('standing/orders.py',)           # ### the standing files (R333)(2)'s repairs change or add; (R333)(3)(i)'s generator, Component 2
 STANDING_NEW = ()
 # ### b722's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '1607e994'    # ### b722's closing, the act's relay base
 B714_RECORD = '65430407'     # ### b722's record commit (relay, the last before the closing)
 B714_ROOT = '0d26295f7b567e20fcf6c938b9e154fe6f1358cf7d9e401ac1f872b6b2182e20'   # ### b722's root, data/act_roots.txt :100
 # ### later stages: the commits of the components, read from the logs after each was made
-C1_RELAY = None
-C1_PP = None
+C1_RELAY = 'fac1cda8cb'   # ### b722 at its weight and the corrigendum for b722 (data/b723_corrigendum.txt), after v1.3.0 (be821907)
+C1_PP = '763ae914f3'      # ### FINDINGS :11399 (the weight line) and :11401 (the corrigendum)
 WEIGHT_LINE, CORR_LINE = 11399, 11401   # ### FINDINGS: b722's weight line and the corrigendum for b722 (tools/b723_c1.py, Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
