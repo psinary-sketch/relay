@@ -1178,7 +1178,7 @@ def _support_lists():
     return ('(1) the open orders by tools/standing/orders.py`s rule, %s of %s open at PLACE-papers main, the trail’s open-orders line written '
             'from its output, none carried by hand; its controls print after its output, not before (relay data/b723_orders.txt); (2) the twenty '
             'against their triggers as written: %s met, %s acted and %s priced and named, %s discharged by reading, %s offered for retire (relay '
-            'data/b723_orders_twenty.txt); (3) H-SUPPORT %s at %s zeros, the falsifier fired at %s and %s beyond reach, its successor registered at '
+            'data/b723_orders_twenty.txt); (3) H-SUPPORT %s at %s zeros, the falsifier fired at %s; %s beyond reach, not counted as a firing; its successor registered at '
             '%s (relay data/b723_support.txt); H-ZETAK %s; H-DIAL priced and carried, its registration committed (relay data/b723_dial_price.txt); '
             '(4) the C2 closed form written as a derivation and checked post hoc, %s of %s rows reproduced, not compiled, the compile where the '
             'author names it (relay data/b723_c2_check.txt); (5) the axiom step at %s of %s pins, %s runs each read by its id, the lv sorry’s '
@@ -1367,8 +1367,8 @@ def _finding_text_b722():
              'data/b723_orders_twenty.txt).' % (
                  f['od_open'], f['od_n'], f['od_closed'], f['oc_wanted'], f['oc_cases'], f['tw_met'], f['tw_acted'], f['tw_priced'], f['tw_read'],
                  f['tw_retire']), '',
-             '**The hypotheses:** registered at `%s`; H-ZETAK %s (relay data/b723_zetak.txt); H-SUPPORT %s at %s zeros, the falsifier fired at %s '
-             'and %s beyond reach (relay data/b723_support_rule.txt, data/b723_support.txt); H-DIAL priced, %s, %s (relay data/b723_dial_price.txt).' % (
+             '**The hypotheses:** registered at `%s`; H-ZETAK %s (relay data/b723_zetak.txt); H-SUPPORT %s at %s zeros, the falsifier fired at %s; '
+             '%s beyond reach, not counted as a firing (relay data/b723_support_rule.txt, data/b723_support.txt); H-DIAL priced, %s, %s (relay data/b723_dial_price.txt).' % (
                  K.REG_COMMIT[:8], f['zk_grade'], f['sp_grade'], f['sp_zeros'], ', '.join(fired) or 'none', ', '.join(beyond) or 'none',
                  f['dl_run'].lower(), f['dl_word'].lower()), '',
              '**The C2 closed form:** written as a derivation; checked POST HOC, %s of %s rows reproduced; not compiled (relay '
