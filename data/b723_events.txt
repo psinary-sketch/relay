@@ -77,3 +77,22 @@ close: suite parts run one at a time, a part started while another runs a defect
      `tools/standing/peek.py` count and tail of OPEN_TRAILS.md) and G-RULE-SCORES-BEFORE-SEAL (its reader: score-route calls 0, the seal
      commit 18:06:15Z), its cause not read this act; and G-SEALED-AFTER-COMPONENTS failing before [18] as at b722 (event (5) of b722).
      G-SEAL-HASHES and G-TRAIL-CARRIES-SEAL pass their positive controls, b722's event (12) cause.
+
+THE RECORD AND THE POST-PUSH SUITE (steps [19]-[20]):
+    (16) THE SEAT'S [CLOSE ; NEW]: 19:29Z, AT THE RECORD ([19]): the record commit 49de42fe carrying data/b723_components.txt, then
+     PLACE-papers 698fe441, then the two step rows committed alone at 14bf5ec5 and pushed as the tip -- so the suite's pushed predicate
+     (is_pushed: HEAD the remote main, its subject b723, AND HEAD carrying data/b723_components.txt) read False at the pushed tip (b722
+     carried its rows in the commit with the components). The first post-push call, `fold.py checks --part act` after the pushes of 19:30Z, read as
+     PRE-PUSH and wrote data/b723_checks_act.txt over its committed bank (31 of 31, as before); the components route run again wrote
+     its bank byte-identical, so no commit could carry it; the post-push suite then run in b700's form, `--rerun-postpush
+     b723_checks_postpush.txt` on each part (data/b700_commands.txt #225-#231), the relay tip read back at the remote equal to HEAD.
+    (17) THE SEAT'S [CLAIM ; REPEAT b723 (9)]: AT THE POST-PUSH SUITE, G-ACTROOT-BANKED failing where it passed before the push: the
+     root route's bank list read now carries data/b723_author_words.txt, the author's word after the seal, banked after the root
+     (at step [17], after the combine of 19:05:16Z) because the word came after it, and the root's items do not; the list and the items otherwise equal (a scratch reader).
+     The root's set is fixed at its compute, so a bank first written after the root and not excluded is named by the route and not by
+     the root -- the route's repair at b724's (R334)(2) to take it.
+    (18) THE SEAT'S [CLOSE ; REPEAT b723 (3)]: after the post-push standing-b2b, the post-push standing-b2a run alone in the background: 542 s, its chain phase
+     461 s, above the 450 s line, under the 590 s guard. The post-push combine (data/b723_checks_postpush.txt): ARMS 116, LIVE PASSING
+     108, LIVE FAILING 8 (G-AXIOM-CLAIM declared; G-SEALED-AFTER-COMPONENTS; G-ACTROOT-BANKED, G-ROOT-BANKS-COMMITTED, G-ACTROOT-LAST,
+     G-ACTROOT-VERIFY on (9), (10), (17); G-RULE-SCORES-BEFORE-SEAL, G-RULE-POSTSEAL-READ on (15)), NEG 0, POS 2, NOT CLEAN; every part
+     run one at a time.
