@@ -140,7 +140,6 @@ DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
 REGISTRATIONS = 'data/b723_registrations.txt'    # ### (R333)(4): written and committed alone at Component 3, before any figure it names
-REG_COMMIT = None                                # ### its commit, set by the Edit tool when it is made
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b722's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
@@ -153,7 +152,9 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b723_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt',
                'data/b722_coeffs.txt')   # ### read not written; (R333)(6)'s check reads the class-number-2 rows of b711-b722
-COMPUTE_BANKS = ()           # ### the banks of (R333)(3)-(8), set by the Edit tool as each component lands
+COMPUTE_BANKS = ('data/b723_orders.txt', 'data/b723_orders_twenty.txt', 'data/b723_support_rule.txt', 'data/b723_zetak.txt',
+                 'data/b723_support.txt', 'data/b723_dial_price.txt', 'data/b723_c2_closed_form.txt', 'data/b723_c2_check.txt',
+                 'data/b723_axiom.txt', 'data/b723_axiom_rows.json', 'data/b723_split_price.txt')   # ### the banks of (R333)(3)-(8), Component 7
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b722_read_calls.txt', 'data/b723_read_calls.txt')
@@ -229,8 +230,10 @@ STANDING_FILES = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools', 
 NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing close toolset, sealed by hash beside the act's tools
 # ### Component 1, (R333)(2)(i) on the author's word (Option 2): the seven close tools are tools/standing/fold.py's renders of its templates
 # ### (tools/standing/fold/<tool>.tpl) with the act's arms module (tools/acts/b723.py) -- every byte a render reads sealed beside the act's tools
-FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl'))) \
-    + ('acts/b723.py',)
+# ### Component 7, before the lock: report.tpl left out of the seal -- the standing report tool is run unsealed before and after the root
+# ### (b708's report row: "no report tool sealed", the suite's G-REPORT-UNSEALED); the act's report sections ride in acts/b723.py, sealed
+FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
+                          and f != 'report.tpl')) + ('acts/b723.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
 STANDING_VERSION = 'v1.3.0'             # ### (R333)(2), landed at Component 1
 STANDING_CHANGED = ('standing/close.py', 'standing/fold.py', 'standing/legacy.py', 'standing/peek.py', 'standing/v130.py', 'standing/VERSION') \
@@ -247,30 +250,34 @@ C1_PP = '763ae914f3'      # ### FINDINGS :11399 (the weight line) and :11401 (th
 WEIGHT_LINE, CORR_LINE = 11399, 11401   # ### FINDINGS: b722's weight line and the corrigendum for b722 (tools/b723_c1.py, Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_REG = None
-C2_SELECT = None
-C2_HALT = None
-C2_PICKER = None
-C2_PRED = None
-C2_CTL = None
-C2_RELAY = None
-C3_RULE = None
-C3_RELAY = None
-C3_PREDICT_TOOL = None
-C4_REG = None
-C4_PP = None
-C4_PRED = None
-C4_RELAY = None
-C5_REG = None
-C5_RELAY = None
-C6_FROZEN = None
-C6_DRAFTS = None
-C6_CENSUS = None
-C6_REBUILD_5 = None
-C6_RELAY = None
-C6_PP = None
-C6_PP_REPAIR = None
-C7_PP = None
+# ### Component 7, before the lock, the Edit tool: the components' commits as the step bank rows them (data/b723_steps.json, steps 7-34)
+C1_ADDR = 'd0ee06a86e'    # ### (R332)(9)'s scan with its second name arm (the author's word (1))
+C1_V130 = 'be821907a6'    # ### tools/standing/ v1.3.0: the seven close tools folded (the author's word (2), Option 2), (iii), (iv), (b)
+C1_I76 = '82e62fd75c'     # ### I-76 read at b544's pins, tools/research/reproduce.py's row edited (the root answer's (c))
+C2_RELAY = '709ba3eb6c'   # ### tools/standing/orders.py, its rule printed before its output, its controls; the twenty read (data/b723_orders_twenty.txt)
+C2_PP = '9e09854805'      # ### three closing lines on OPEN_TRAILS ((R333)(3)(ii))
+C2_RULING = 'd9fbceb45e'  # ### the latest-status rule (the author's word (3))
+C2_LOCATOR = '5f61725ee6'  # ### the locator reading tried (the author's word (4)(3)), broken by the record, the earlier rule standing
+C2_WEED_PP = '70d9c0d0cd'  # ### OPEN_TRAILS' dated line, W-ORD-E1-CFG CLOSED (the author's word (5))
+C2_REPRINT = '9c026ef706'  # ### the orders reprinted after the weed: controls 6 of 6 at 763ae914, at HEAD 193 / 143 / 50
+REG_COMMIT = '9ad2642115'  # ### data/b723_registrations.txt committed alone ((R333)(4), N2)
+C3_RULE_TOOL = 'f7ee91e604'  # ### H-SUPPORT's rule tool, computing no onset
+C3_PRED = '0e91c670a1'    # ### H-SUPPORT's rule output and each a*_pred, by a commit of their own before any onset
+C4_ZETAK = '23f54c746c'   # ### H-ZETAK: controls, then the two windows (data/b723_zetak.txt)
+C4_ONSET_TOOL = '7f77844c0b'  # ### H-SUPPORT's onset tool, after its C1 and before any onset
+C4_SUPPORT = '1530d2f252'  # ### H-SUPPORT's onsets (data/b723_support.txt)
+C4_GRADES = 'ac75a51cef'  # ### the grade words in (R333)(5)'s vocabulary
+C4_DIAL = 'ca2c6a9d28'    # ### H-DIAL's build priced, carried (data/b723_dial_price.txt)
+C4_RULINGS = 'a8c4160e02'  # ### the author's word (4)(1)-(2): off52 beside the refutation, the five products POST HOC
+C5_RELAY = 'cdc46c59a6'   # ### the C2 closed form written and checked POST HOC (data/b723_c2_closed_form.txt, data/b723_c2_check.txt)
+C6_AXIOM = ('f26236c99e', '0e68a2d7e7', 'f81abaf9ca')   # ### the axiom step at 3, 5 and 6 of 6 pins; the split priced and carried in the second
+C6_RELAY = 'f81abaf9ca'
+REBUILD_COMMITS = (('SIDE-archimedean', '610cbdf91f'), ('SIDE-rcurve', 'f3a5ae5486'), ('SIDE-spinor', '526727ef7a'),
+                   ('SIDE-frobenius', 'b4ef3958cd'), ('SIDE-kernel', 'c683fcd7f4'))   # ### (R333)(7): one commit each on rebuild-b721
+B723_RUNS = (('SIDE-archimedean', 40881801296), ('SIDE-rcurve', 40881833590), ('SIDE-spinor', 40885978813),
+             ('SIDE-frobenius', 40885967139), ('SIDE-kernel', 40887008505))   # ### five runs, each read by its id (N1: six at most)
+ORDERS = (193, 143, 50)   # ### the generator at HEAD after the weed (data/b723_orders.txt :282)
+TWENTY = 'data/b723_orders_twenty.txt'
 NEW_DISCRIMINANTS = (-31, -55)   # ### b722's, read by the carried arms (b722 computed them under e8c3dff4)
 WALK_DISCRIMINANTS = (-24, -51, -52, -88, -91, -115, -123, -148, -187, -232, -235, -267, -403, -427)   # ### b722's fourteen, under H-C2-WALK
 WALK_CONTROL = -15
@@ -291,9 +298,15 @@ MAX_DISPATCHES = 6           # ### N1: (R333)(7)'s, one per kernel, six at most
 PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')
 ERRATA_ID = None
 ERRATA_IDS = ()
-RETIRED_COUNT = 0            # ### (R333)(2)(iv) retires G-READFIRST-DIFF-BANKED at Component 1 (set by the Edit tool when it lands)
+RETIRED_COUNT = 0            # ### tools/standing/arms.py RETIRED unchanged; (R333)(2)(iv)'s G-READFIRST-DIFF-BANKED left the arm list itself at v1.3.0 (be821907), the run list 116
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
 SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b723_') and f.endswith('.py') and f != 'b723_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
-# ### the act's arms over its own banks: set before the lock by the Edit tool
-ACT_ARMS = ()
+# ### the act's arms over its own banks: set before the lock by the Edit tool -- b722's list, the act shift G-R332-ENTERED to G-R333-ENTERED,
+# ### G-READFIRST-DIFF-BANKED out of the arm list at v1.3.0 ((R333)(2)(iv))
+ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW',
+            'G-CORRIGENDUM-ENTERED', 'G-COUNT-ROUTE-PRICED', 'G-DELETES-ONE-BRANCH', 'G-DERIVATION-GRADED', 'G-DIFFERS-ERRATA', 'G-DRY-STEP-CLEAN',
+            'G-ENTRY-SCORES-EQUAL', 'G-ENTRY-TITLE-FORM', 'G-GUARD-HELD', 'G-HOOK-WIRED', 'G-LETTERING-ONE', 'G-LISTINGS-BEFORE-CLAUSES',
+            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R333-ENTERED',
+            'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
+            'G-WRITELIST-MIRROR-STATE')

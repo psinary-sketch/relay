@@ -1,0 +1,21 @@
+b723 -- THE CONTROLS OF COMPONENT 7`S REPAIRS (standing clauses v9 row (83)), EACH ON THE FOLDED TOOLS AS RENDERED (2026-10-29T15:43:59Z)
+
+### by tools/b723_repctl.py; each repair an override in tools/acts/b723.py made by the Edit tool before the lock; each case its reading
+### and the reading wanted. The defects these repairs meet are lettered in data/b723_defects.txt.
+
+  (needle) G-CONVERSION-ONE        the needle meets a planted one-argument conversion `def conv(t):`                                                      True  wanted True  -- AS WANTED
+  (needle) G-CONVERSION-ONE        the needle passes tools/b723_c2_check.py`s convolution `def conv(A, B, cut)`                                           False wanted False -- AS WANTED
+  (needle) G-SCORER-READS-BANKS    the scorers as rendered read b723`s banks                                                                              True  wanted True  -- AS WANTED
+  (needle) G-SCORER-READS-BANKS    planted: N1 reading the pin rows in place of the axiom rows                                                            False wanted False -- AS WANTED
+  (dispatch) DISPATCH_CMD          meets `python -X utf8 tools/b723_axiom.py dispatch SIDE-spinor`                                                        True  wanted True  -- AS WANTED
+  (dispatch) DISPATCH_CMD          passes `python -X utf8 tools/b723_rebuild.py dispatch SIDE-spinor` (the carried route)                                 False wanted False -- AS WANTED
+  (dispatch) DISPATCH_CMD          the capture`s dispatch commands (3: #533, #534, #576) equal the axiom rows` dispatches by command (3)                  True  wanted True  -- AS WANTED
+  (fold) the face`s date           the regspec`s REG is the record`s FACE (b723_registration_2026-10-29.txt)                                              True  wanted True  -- AS WANTED
+  (fold) the face`s date           the gate`s REG names the worklist`s DATE, not 2026-10-28 (os.path.join(D, 'b723_registration_%s.txt' % __import__('b723_worklist').DATE)) True  wanted True  -- AS WANTED
+  (fold) the carry row             the fold bank carries `tools/acts/b723.py: sections `                                                                  True  wanted True  -- AS WANTED
+  (fold) the carry row             planted: the bank with that row cut                                                                                    False wanted False -- AS WANTED
+  (regspec) the OPEN_TRAILS row    lines added at OPEN_TRAILS before the seal, removed none (9e098548 +6 -0; 70d9c0d0 +2 -0)                              True  wanted True  -- AS WANTED
+  (repeat) three acts running      live: b723 (a) read as b721 (q) -> b722 (u) -> b723 (a); 18 rows                                                       True  wanted True  -- AS WANTED
+  (repeat) three acts running      planted: b722 (u) tagged NEW, so b723 (a) is a repeat of two acts only (17 rows)                                       False wanted False -- AS WANTED
+
+### ### **REPAIR CONTROLS: CASES 14 ; AS WANTED 14 ; ALL AS WANTED.**

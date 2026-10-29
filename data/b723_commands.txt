@@ -1,0 +1,845 @@
+b723 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-29T16:09:42Z)
+
+### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'Go: b723', with its subagents` transcripts
+### commands read: 767
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #284 2026-10-29T07:23:56.295Z seat Bash -- R rm without an explicit absolute path
+      git -C D:/relay rm -q -- tools/b723_record.py tools/b723_citation.py
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b722, its own session 02c7cf38, from its post-push combine to that session`s end): 42 commands from 2026-10-29T03:00:58.191Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES ((R333)(7)(iii) and N1: the rebuild`s one per wave 1 kernel through tools/b723_rebuild.py dispatch, SIDE-frobenius`s run on push through push_run) (3):
+  #533 cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-archimedean
+  #534 cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-rcurve
+  #576 cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-spinor
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (5):
+  #539 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-archimedean=40881801296 SIDE-rcurve=40881833590
+  #566 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/memwait723.py
+  #570 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/memwait723.py
+  #578 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-spinor=40885978813 SIDE-frobenius=40885967139
+  #600 [run_in_background] python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-kernel=40887008505
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (2):
+  #488 2026-10-29T12:12:42.656Z cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* --  > /dev/null; python -X utf8 tools/standing/peek.py search "n0|b\(n0\)|b\(n\)" --of "git -C D:/relay grep -l -E \"b\(n0\)|\bn0\b\" -- data/
+  #632 2026-10-29T14:18:54.428Z git -C D:/SIDE-kernel show rebuild-b721:.github/workflows/build-module.yml > /dev/null; python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.|TARGET:|push:" C:/Users/ECHOCH~1/AppDat
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+  #488 2026-10-29T12:12:42.656Z cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* -- > /dev/null; python -X utf8 tools/standing/peek.py search "n0|b\(n0\)|b\(n\)" --of "git -C D:/relay grep -l -E \"b\(n0\)|\bn0\b\" -- data/b
+  #632 2026-10-29T14:18:54.428Z git -C D:/SIDE-kernel show rebuild-b721:.github/workflows/build-module.yml > /dev/null; python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.|TARGET:|push:" C:/Users/ECHOCH~1/AppDat
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
+  #35 2026-10-29T03:42:23.398Z git status --porcelain --untracked-files=all -- data/ tools/ | head -60
+  #416 2026-10-29T10:00:34.027Z ls D:/relay/tools/ | grep -i -E "list|zeros|b711_|b706_|b707_|b709_" ; ls D:/relay/data/ | grep -i -E "_list|zeros"
+  #685 2026-10-29T15:09:38.110Z cd /d/relay/data && ls b723_* | tr '\n' ' '
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (6):
+  #35 2026-10-29T03:42:23.398Z git status --porcelain --untracked-files=all -- data/ tools/ | head -60
+  #126 2026-10-29T04:30:06.677Z Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Select-Object ProcessId, @{n='cmd';e={$_.CommandLine.Substring(0,[Math]::Min(150,$_.CommandLine.Length))}} | Format-Table -AutoSize -Wrap
+  #271 2026-10-29T07:18:22.584Z Get-Item -LiteralPath 'D:\relay\=' | Select-Object FullName, Length, CreationTimeUtc, LastWriteTimeUtc
+  #416 2026-10-29T10:00:34.027Z ls D:/relay/tools/ | grep -i -E "list|zeros|b711_|b706_|b707_|b709_" ; ls D:/relay/data/ | grep -i -E "_list|zeros"
+  #685 2026-10-29T15:09:38.110Z cd /d/relay/data && ls b723_* | tr '\n' ' '
+  #763 2026-10-29T16:08:22.984Z Get-ChildItem D:\relay\data\b723_reproduce.txt, D:\relay\data\b723_reproduce.json, D:\relay\data\b723_touch.txt, D:\relay\data\b723_support_units.jsonl, D:\relay\data\b723_scanfile_c1.md, D:\relay\dat
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (7):
+  #51 2026-10-29T03:44:20.150Z Bash
+      git -C D:/relay branch -d push-b722-closing
+  #52 2026-10-29T03:44:25.377Z Bash
+      git -C D:/relay branch -d push-b722-preroot
+  #53 2026-10-29T03:44:29.317Z Bash
+      git -C D:/relay branch -d push-b722-record
+  #55 2026-10-29T03:44:39.839Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b722-preroot
+  #56 2026-10-29T03:44:43.949Z Bash
+      git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b722-record
+  #159 2026-10-29T05:22:25.682Z Bash
+      test -f D:/relay/tools/b721_sections.py && test -f D:/relay/tools/b722_sections.py && rm -- D:/relay/tools/b721_sections.py D:/relay/tools/b722_sections.py && echo DELETED
+  #284 2026-10-29T07:23:56.295Z Bash
+      git -C D:/relay rm -q -- tools/b723_record.py tools/b723_citation.py
+
+### THE BRANCH DELETES BY SHAPE ((R333)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #51 deletes ['push-b722-closing'], halves 1, globs none, variables none, chained after False; #52 deletes ['push-b722-preroot'], halves 1, globs none, variables none, chained after False; #53 deletes ['push-b722-record'], halves 1, globs none, variables none, chained after False; #55 deletes ['push-b722-preroot'], halves 1, globs none, variables none, chained after False; #56 deletes ['push-b722-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-29T03:27:27.748Z | seat | Bash | git -C D:/relay add -- data/act_current.json
+  #2 | 2026-10-29T03:27:32.152Z | seat | Bash | git -C D:/relay commit -q -m "b723 step zero: data/act_current.json for b723 (R333), committed alone before any other command of the act (the author's word (1))
+  #3 | 2026-10-29T03:27:44.286Z | seat | Bash | git show --stat --format=%H 1e0500f9 && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/jsonok72
+  #4 | 2026-10-29T03:27:53.849Z | seat | Bash | git log --reverse --format="%h %s" 30c0b3c8..d6a38c6b --max-count=14
+  #5 | 2026-10-29T03:28:00.270Z | seat | Bash | git log --reverse --format="%h %s" 30c0b3c8..50397f61
+  #6 | 2026-10-29T03:28:06.619Z | seat | Bash | git show --stat=160 --format=%h 39521b71
+  #7 | 2026-10-29T03:29:21.907Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/paths723.py"
+  #8 | 2026-10-29T03:29:30.170Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/carrycarry723.py"
+  #9 | 2026-10-29T03:29:54.370Z | seat | Bash | python -X utf8 tools/b723_carry.py carry worklist
+  #10 | 2026-10-29T03:30:21.524Z | seat | Bash | git show 39521b71:tools/b722_worklist.py
+  #11 | 2026-10-29T03:30:50.287Z | seat | Bash | git -C D:/relay branch --list "push-b722*"
+  #12 | 2026-10-29T03:30:50.510Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --list "push-b722*"
+  #13 | 2026-10-29T03:32:15.203Z | seat | Bash | python -X utf8 tools/b723_carry.py carry citation
+  #14 | 2026-10-29T03:33:52.351Z | seat | Bash | python -X utf8 tools/b723_carry.py carry record
+  #15 | 2026-10-29T03:34:01.808Z | seat | Bash | python -X utf8 tools/b723_record.py
+  #16 | 2026-10-29T03:34:08.852Z | seat | Bash | python -X utf8 tools/b723_citation.py ferry
+  #17 | 2026-10-29T03:34:21.462Z | seat | Bash | git diff --quiet 1607e994 -- data/b722_closing.txt && echo "closing bank equal to its blob at 1607e994" && git ls-remote origin refs/heads/main
+  #18 | 2026-10-29T03:36:04.040Z | seat | Bash | python -X utf8 tools/b723_citation.py ferry
+  #19 | 2026-10-29T03:36:04.458Z | seat | Bash | python -X utf8 tools/ferry_scan.py data/b723_ferry_addendum.txt
+  #20 | 2026-10-29T03:36:23.571Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines722.py" FINDINGS.md 5667,10206
+  #21 | 2026-10-29T03:38:05.600Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lines722.py" OPEN_TRAILS.md 14680,16250 && pytho
+  #22 | 2026-10-29T03:38:14.827Z | seat | Bash | python -X utf8 tools/b723_carry.py prune citation "    # ### (R333)(1): b722 at its weight" "    standing_rows(text, add)"
+  #23 | 2026-10-29T03:38:26.769Z | seat | Bash | git grep -n -E "^    \((1[5-9]|20)\) " -- data/b722_events.txt && git grep -c -E "^    \([a-z]'?\) " -- data/b722_defects.txt && git grep -n -i "rebuild-b721" -
+  #24 | 2026-10-29T03:38:31.255Z | seat | Bash | git grep -n "^## " -- data/b722_axiom_diag.txt && git grep -n -i "frobenius" -- data/b721_frozen_line.txt
+  #25 | 2026-10-29T03:38:43.544Z | seat | Bash | git grep -n "CARRIED FORWARD" -- data/b722_closing.txt && git grep -n -E "\"phase\": \"gate\"" -- data/b722_steps.json && git grep -n "\"count\"" -- data/b544_d
+  #26 | 2026-10-29T03:38:48.638Z | seat | Bash | git status --porcelain -- data/b720_hook_refusals.txt data/b721_hook_refusals.txt data/b722_steps.json data/b722_relay_push-b722-closing_push_out.txt && git gre
+  #27 | 2026-10-29T03:39:39.215Z | seat | Bash | python -X utf8 tools/b723_citation.py check dry
+  #28 | 2026-10-29T03:40:07.902Z | seat | Bash | python -X utf8 tools/b723_citation.py check dry
+  #29 | 2026-10-29T03:40:20.439Z | seat | Bash | python -X utf8 tools/b723_citation.py check && ls -la data/b723_citation_check.txt data/b723_citation_check.json
+  #30 | 2026-10-29T03:40:49.222Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cited723.py" 200
+  #31 | 2026-10-29T03:41:00.160Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/list723.py"
+  #32 | 2026-10-29T03:41:06.133Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/paths723.py"
+  #33 | 2026-10-29T03:41:52.257Z | seat | Bash | git log --format=%H -1 -- data/b722_rowgen_stepzero.txt && git grep -n -i "rowgen" -- data/b722_commands.txt
+  #34 | 2026-10-29T03:41:56.809Z | seat | PowerShell | Set-Location D:\relay; python -X utf8 tools/b723_record.py rowgen
+  #35 | 2026-10-29T03:42:23.398Z | seat | Bash | git status --porcelain --untracked-files=all -- data/ tools/ | head -60
+  #36 | 2026-10-29T03:42:28.232Z | seat | Bash | git status --porcelain --untracked-files=all -- data/ tools/
+  #37 | 2026-10-29T03:42:35.105Z | seat | Bash | git diff --stat -- data/b722_bank_hashes.json data/b722_steps.json && git diff -U0 -- data/b722_bank_hashes.json
+  #38 | 2026-10-29T03:42:41.791Z | seat | Bash | sha256sum data/b722_steps.json && stat -c '%y %n' data/b722_bank_hashes.json data/b722_steps.json data/b723_rowgen_stepzero.txt
+  #39 | 2026-10-29T03:43:18.134Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py" && python -X utf8 "C:/Users/ECHOCH~
+  #40 | 2026-10-29T03:43:28.026Z | seat | Bash | git -C D:/relay add -- data/b722_relay_push-b722-closing_push_out.txt
+  #41 | 2026-10-29T03:43:32.555Z | seat | Bash | git -C D:/relay commit -q -m 'b723 step zero ((R333)(9)): b722`s closing push-out capture (data/b722_relay_push-b722-closing_push_out.txt), committed alone as b
+  #42 | 2026-10-29T03:43:37.291Z | seat | Bash | git -C D:/relay add -- data/b722_steps.json data/b722_bank_hashes.json
+  #43 | 2026-10-29T03:43:42.474Z | seat | Bash | git -C D:/relay commit -q -m 'b723 step zero ((R333)(9)): b722`s last step row (step 37, the closing commit 1607e994, data/b722_steps.json) with the bank-hash l
+  #44 | 2026-10-29T03:43:47.271Z | seat | Bash | git -C D:/relay show --format= -U0 945b7520 -- data/b722_steps.json
+  #45 | 2026-10-29T03:43:52.199Z | seat | Bash | git diff -U0 -- data/b720_hook_refusals.txt data/b721_hook_refusals.txt
+  #46 | 2026-10-29T03:43:57.058Z | seat | Bash | git -C D:/relay add -- data/b720_hook_refusals.txt
+  #47 | 2026-10-29T03:44:01.356Z | seat | Bash | git -C D:/relay commit -q -m 'b723 step zero (the author`s word (1)): data/b720_hook_refusals.txt committed as it stands, alone; its 13:05Z line (2026-10-28T13:
+  #48 | 2026-10-29T03:44:05.718Z | seat | Bash | git -C D:/relay add -- data/b721_hook_refusals.txt
+  #49 | 2026-10-29T03:44:09.813Z | seat | Bash | git -C D:/relay commit -q -m 'b723 step zero (the author`s word (1)): data/b721_hook_refusals.txt committed as it stands, alone; its 20:23Z (PIPE) and 20:25Z (R
+  #50 | 2026-10-29T03:44:15.476Z | seat | Bash | git -C D:/relay branch --merged main --list "push-b722-*"
+  #51 | 2026-10-29T03:44:20.150Z | seat | Bash | git -C D:/relay branch -d push-b722-closing
+  #52 | 2026-10-29T03:44:25.377Z | seat | Bash | git -C D:/relay branch -d push-b722-preroot
+  #53 | 2026-10-29T03:44:29.317Z | seat | Bash | git -C D:/relay branch -d push-b722-record
+  #54 | 2026-10-29T03:44:33.916Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b722-*"
+  #55 | 2026-10-29T03:44:39.839Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b722-preroot
+  #56 | 2026-10-29T03:44:43.949Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers branch -d push-b722-record
+  #57 | 2026-10-29T03:44:49.799Z | seat | Bash | git -C D:/relay status --short --branch -- data/b72* tools/b723_* data/act_current.json && git -C D:/MY-DOwnloads/PLACE-papers status --short --branch && git -C
+  #58 | 2026-10-29T03:45:06.171Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "step zero" 1e0500f9c6260506c09ff04dd030c0a4c5e555e5
+  #59 | 2026-10-29T03:45:15.665Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "step zero" a9d8b6626ba17bdbc216c50de4d232d9af8fcf7f && python -X utf8 tools/b723_record.py step relay "step zero
+  #60 | 2026-10-29T03:45:27.990Z | seat | Bash | git -C D:/relay log --format="%H %s" -6
+  #61 | 2026-10-29T03:45:31.728Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "step zero" 29cb27b429ea42c9b783bf23c1bdf8715b4e2bde
+  #62 | 2026-10-29T03:46:33.465Z | seat | Bash | python -X utf8 -m py_compile tools/b723_worklist.py tools/b723_citation.py tools/b723_record.py tools/b723_carry.py && echo COMPILED && git status --porcelain -
+  #63 | 2026-10-29T03:46:48.410Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py" data/b723_bank_hashes.json data/b7
+  #64 | 2026-10-29T03:47:06.020Z | seat | Bash | git -C D:/relay add -- data/b723_bank_hashes.json data/b723_carry_citation.txt data/b723_carry_record.txt data/b723_carry_worklist.txt data/b723_citation_check.
+  #65 | 2026-10-29T03:47:12.080Z | seat | Bash | git -C D:/relay commit -q -m 'b723 step zero: the ferry and its addendum, scan, citation check (60 of 60), carried tools with their carry and prune diffs, readf
+  #66 | 2026-10-29T03:47:19.187Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "step zero" 026335ad2a816e71d873a1ccfe8e371cc348bca5
+  #67 | 2026-10-29T03:52:35.744Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py" data/b723_bank_hashes.json data/b7
+  #68 | 2026-10-29T03:52:56.086Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py" data/b723_bank_hashes.json data/b7
+  #69 | 2026-10-29T03:53:19.533Z | seat | Bash | ls -la tools/standing/ && ls data/b722_carry_*.txt && wc -l tools/b722_*.py
+  #70 | 2026-10-29T03:53:38.131Z | seat | Bash | python -X utf8 tools/b723_carry.py carry address_scan
+  #71 | 2026-10-29T03:54:22.471Z | seat | Bash | python -X utf8 tools/b723_address_scan.py scan
+  #72 | 2026-10-29T03:54:33.071Z | seat | Bash | python -X utf8 tools/b723_address_scan.py scan --bank
+  #73 | 2026-10-29T03:54:58.915Z | seat | Bash | git status --porcelain -- data/b723_* tools/b723_* data/act_current.json
+  #74 | 2026-10-29T03:55:04.668Z | seat | Bash | git -C D:/relay add -- data/b723_bank_hashes.json data/b723_steps.json tools/b723_worklist.py data/b723_address_scan.txt data/b723_carry_address_scan.txt data/b
+  #75 | 2026-10-29T03:55:10.748Z | seat | Bash | git -C D:/relay commit -q -m 'b723 component 1 (the author`s word): (R332)(9)`s scan with its second name arm, the previous user.name read from 30c0b3c8`s autho
+  #76 | 2026-10-29T03:55:15.976Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "component 1" d0ee06a86ed46159bf3fcba8f3a1907c15672f0c
+  #77 | 2026-10-29T03:55:25.866Z | seat | Bash | python -X utf8 tools/b723_record.py
+  #78 | 2026-10-29T03:55:31.111Z | seat | Bash | git -C D:/relay log --format="%h %s" 91cb997e..1607e994 --grep="component 1" -i
+  #79 | 2026-10-29T03:55:35.444Z | seat | Bash | git -C D:/relay show --stat --format="%B" 99b0388d
+  #80 | 2026-10-29T03:55:41.332Z | seat | Bash | python -X utf8 tools/b723_carry.py carry c1
+  #81 | 2026-10-29T03:56:08.946Z | seat | Bash | wc -l data/b722_tool_repairs.txt data/b722_repairdiff_*.txt && cat tools/standing/VERSION && git log --format="%h %s" -8 -- tools/standing/
+  #82 | 2026-10-29T03:56:30.195Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/actdiff723.py"
+  #83 | 2026-10-29T03:56:55.680Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/actdiff723.py" checks
+  #84 | 2026-10-29T03:57:46.994Z | seat | Bash | wc -l data/standing_clauses_v8.txt && head -12 data/standing_clauses_v8.txt && tail -8 data/standing_clauses_v8.txt
+  #85 | 2026-10-29T03:58:24.912Z | seat | Bash | python -X utf8 tools/b723_v9.py dry
+  #86 | 2026-10-29T03:58:33.112Z | seat | Bash | python -X utf8 tools/b723_v9.py write && python -X utf8 tools/b723_citation.py check dry
+  #87 | 2026-10-29T03:58:45.240Z | seat | Bash | git -C D:/relay add -- data/standing_clauses_v9.txt
+  #88 | 2026-10-29T03:58:49.616Z | seat | Bash | git -C D:/relay commit -q -m 'b723 component 1 ((R333)(2)(v)): standing clauses v9, data/standing_clauses_v9.txt, landed by a commit of its own -- v8 :10-:199 b
+  #89 | 2026-10-29T03:58:57.247Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "component 1" d973955897003e8418249fa8e1d3f687717b1f4a
+  #90 | 2026-10-29T03:59:39.818Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/i76repos.py"
+  #91 | 2026-10-29T04:00:41.424Z | seat | Bash | python -X utf8 -u tools/b723_i76.py run
+  #92 | 2026-10-29T04:02:06.838Z | seat | Bash | python -X utf8 -u tools/b723_i76.py run --bank
+  #93 | 2026-10-29T04:03:55.917Z | seat | Bash | python -X utf8 -u tools/research/reproduce.py run --only I-76
+  #94 | 2026-10-29T04:04:24.849Z | seat | Bash | python -X utf8 -u tools/research/reproduce.py run --only I-76 --bank data/b723_reproduce_i76
+  #95 | 2026-10-29T04:04:52.717Z | seat | Bash | python -X utf8 tools/b723_address_scan.py scan
+  #96 | 2026-10-29T04:05:05.853Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py" tools/b723_i76.py tools/b723_v9.py
+  #97 | 2026-10-29T04:05:13.880Z | seat | Bash | git -C D:/relay add -- tools/b723_i76.py data/b723_i76.txt data/b723_i76.json tools/research/reproduce.py data/b723_reproduce_i76.txt data/b723_reproduce_i76.js
+  #98 | 2026-10-29T04:05:20.374Z | seat | Bash | git -C D:/relay commit -q -m 'b723 component 1 (the root answer`s (c), the author`s word (3)): I-76 read at b544`s pins -- the inputs class CONFIRMED (data/b723
+  #99 | 2026-10-29T04:05:25.703Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "component 1" 82e62fd75c458ed2912b47b5a14252edfde24ff0
+  #100 | 2026-10-29T04:06:12.846Z | seat | Bash | ls -la /d/.claude/ && cat /d/.claude/settings.json
+  #101 | 2026-10-29T04:07:14.612Z | seat | Bash | python -X utf8 tools/standing/peek.py head --of "git log --format=%h -50" 3 && python -X utf8 tools/standing/peek.py count data/b722_hook_refusals.txt data/b721
+  #102 | 2026-10-29T04:08:52.839Z | seat | Bash | python -X utf8 tools/standing/v130.py control ii
+  #103 | 2026-10-29T04:09:23.937Z | seat | Bash | python -X utf8 tools/standing/v130.py control ii
+  #104 | 2026-10-29T04:09:41.552Z | seat | Bash | python -X utf8 tools/standing/peek.py search "PLANTED|unchanged|LINES 35|v1.3.0:" --of "python -X utf8 tools/standing/v130.py control ii"
+  #105 | 2026-10-29T04:09:59.554Z | seat | Bash | python -X utf8 tools/standing/peek.py search "NOT AS WANTED|PLANTED|unchanged|LINES 35|v1.3.0:" --of "python -X utf8 tools/standing/v130.py control ii"
+  #106 | 2026-10-29T04:10:50.609Z | seat | Bash | python -X utf8 tools/standing/peek.py tail --of "python -X utf8 tools/standing/v130.py control ii --bank" 3
+  #107 | 2026-10-29T04:11:04.912Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py" tools/standing/peek.py tools/stand
+  #108 | 2026-10-29T04:11:16.838Z | seat | Bash | git status --porcelain -- data/b723_* tools/b723_* tools/standing/ tools/research/
+  #109 | 2026-10-29T04:11:21.593Z | seat | Bash | git -C D:/relay add -- data/b723_bank_hashes.json data/b723_steps.json data/b723_carry_c1.txt data/b723_standing_v130.txt tools/b723_c1.py tools/standing/peek.p
+  #110 | 2026-10-29T04:11:28.751Z | seat | Bash | git -C D:/relay commit -q -m 'b723 component 1 ((R333)(2)(ii)), v1.3.0 in progress (tools/standing/VERSION still v1.2.2): the pipe-free reader tools/standing/pe
+  #111 | 2026-10-29T04:11:33.476Z | seat | Bash | python -X utf8 tools/b723_record.py step relay "component 1" 7a78a0b519339295ca513a37738a4b5240f5bf1b
+  #112 | 2026-10-29T04:19:55.217Z | seat | Bash | python -X utf8 tools/standing/peek.py count tools/b722_checks.py --pattern "Component 8, the Edit tool" && python -X utf8 tools/standing/peek.py search "^def [a
+  #113 | 2026-10-29T04:20:42.792Z | seat | Bash | python -X utf8 tools/standing/peek.py head tools/repair_snapshot.py 40
+  #114 | 2026-10-29T04:22:57.425Z | seat | Bash | python -X utf8 tools/standing/peek.py count tools/b722_checks.py tools/b722_citation.py tools/b722_closing.py tools/b722_record.py tools/b722_reg_gate.py tools/
+  #115 | 2026-10-29T04:23:03.073Z | seat | Bash | python -X utf8 tools/standing/peek.py search "@@|#@SLOT" tools/b722_record.py --cut 160
+  #116 | 2026-10-29T04:25:15.794Z | seat | Bash | python -X utf8 tools/standing/peek.py head data/act_current.json 60
+  #117 | 2026-10-29T04:25:25.885Z | seat | Bash | python -X utf8 tools/b723_fold.py build dry
+  #118 | 2026-10-29T04:25:33.178Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^\s*(import|from) .*b7[0-9][0-9]_|importlib|__import__" tools/b722_checks.py tools/b722_record.py tools/b722_citat
+  #119 | 2026-10-29T04:26:34.304Z | seat | Bash | python -X utf8 tools/b723_fold.py build
+  #120 | 2026-10-29T04:26:41.790Z | seat | Bash | python -X utf8 tools/b723_fold.py text
+  #121 | 2026-10-29T04:27:05.717Z | seat | Bash | python -X utf8 tools/b723_fold.py legacy dry
+  #122 | 2026-10-29T04:27:17.066Z | seat | Bash | python -X utf8 tools/b723_fold.py legacy && python -X utf8 tools/standing/peek.py head data/b722_checks_postpush.txt 25 --cut 220
+  #123 | 2026-10-29T04:27:29.743Z | seat | Bash | python -X utf8 tools/standing/peek.py search "[Dd]:[/\\\\]+relay|/d/relay" tools/b722_checks.py tools/b722_record.py tools/b722_closing.py tools/b722_citation.p
+  #124 | 2026-10-29T04:27:35.456Z | seat | Bash | python -X utf8 tools/standing/peek.py search "relay['\"/]|D:.{1,2}relay|d/relay" tools/b722_checks.py tools/b722_record.py tools/b722_closing.py tools/b722_cita
+  #125 | 2026-10-29T04:27:47.695Z | seat | Bash | python -X utf8 tools/standing/peek.py search "b722_checks.py .*--part" data --glob "b722_*" --cut 260 --max 12
+  #126 | 2026-10-29T04:30:06.677Z | seat | PowerShell | Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Select-Object ProcessId, @{n='cmd';e={$_.CommandLine.Substring(0,[Math]::Min(150,$_.CommandLine.Leng
+  #127 | 2026-10-29T04:30:13.585Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #128 | 2026-10-29T04:30:20.081Z | seat | Bash | python -X utf8 tools/standing/peek.py list data --glob "b722_c*"
+  #129 | 2026-10-29T04:30:25.104Z | seat | Bash | python -X utf8 tools/standing/peek.py search "checks.py.*(--part|postpush|--combine)" data/b722_commands.txt --cut 300 --max 20
+  #130 | 2026-10-29T04:30:31.011Z | seat | Bash | python -X utf8 tools/standing/peek.py search "checks.py" data/b722_commands.txt --lines 172-489 --cut 260 --max 30
+  #131 | 2026-10-29T04:30:37.752Z | seat | Bash | python -X utf8 tools/standing/peek.py search "postpush|POST-PUSH|sys\.argv|'--[a-z]+'" tools/b722_checks.py --cut 220 --max 40
+  #132 | 2026-10-29T04:30:58.844Z | seat | Bash | git log -1 --format="%H %ad %s" --date=iso-strict 65430407 && git log --format="%h %s" -3 1607e994
+  #133 | 2026-10-29T04:31:05.932Z | seat | Bash | git -C D:/relay worktree add --detach C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 65430407e5ec2d2d867d
+  #134 | 2026-10-29T04:32:15.472Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtprep723.py
+  #135 | 2026-10-29T04:32:24.804Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && cd C:/Users/ECHOCH~1/AppData/Local
+  #136 | 2026-10-29T04:33:41.856Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && cd C:/Users/ECHOCH~1/AppData/Local
+  #137 | 2026-10-29T04:33:50.039Z | seat | Bash | python -X utf8 tools/standing/peek.py search "K\.(B710_TRAIL|C2_HALT|PORT_FILE|C6_CENSUS|MAX_PORT_DISPATCHES)\b" tools/b722_record.py --cut 200 --max 12
+  #138 | 2026-10-29T04:34:27.134Z | seat | Bash | python -X utf8 tools/b723_fold.py build && python -X utf8 tools/b723_fold.py text
+  #139 | 2026-10-29T04:34:38.129Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtprep723.py && python -X utf8 C:/Users/ECHOCH~1/
+  #140 | 2026-10-29T04:35:55.340Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && cd C:/Users/ECHOCH~1/AppData/Local
+  #141 | 2026-10-29T04:40:39.908Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && cd C:/Users/ECHOCH~1/AppData/Local
+  #142 | 2026-10-29T04:44:46.220Z | seat | Bash | W=C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad; cd $W/wt722 && python -X utf8 $W/procs723.py && python -X utf
+  #143 | 2026-10-29T04:44:58.111Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #144 | 2026-10-29T04:49:22.610Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #145 | 2026-10-29T04:53:32.278Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #146 | 2026-10-29T05:01:54.201Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #147 | 2026-10-29T05:10:13.827Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #148 | 2026-10-29T05:14:20.282Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #149 | 2026-10-29T05:20:13.325Z | seat | Bash | cd /d/relay && python -X utf8 tools/b723_fold.py run C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722
+  #150 | 2026-10-29T05:20:23.820Z | seat | Bash | python -X utf8 tools/standing/peek.py search "ACTROOT-LAST|EXPORT-UNTRACKED|INSTRUMENTS-UNEDITED|LOCAL-BANK-UNTRACKED|POSTSEAL-READ" C:/Users/ECHOCH~1/AppData/L
+  #151 | 2026-10-29T05:20:32.842Z | seat | Bash | python -X utf8 tools/standing/peek.py search "def (local_bank|export_untracked|export|instruments_unedited|instruments|actroot_last)\w*\(|'G-(ACTROOT-LAST|EXPOR
+  #152 | 2026-10-29T05:20:50.469Z | seat | Bash | python -X utf8 tools/standing/peek.py search "inst=\{f:|INSTRUMENTS\b|INSTRUMENTS =" tools/b722_checks.py tools/b722_worklist.py --cut 300 --max 8
+  #153 | 2026-10-29T05:21:02.987Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^INST\b|^INST =|INST = " tools/b722_checks.py --cut 400
+  #154 | 2026-10-29T05:21:28.340Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtcause723.py
+  #155 | 2026-10-29T05:21:39.526Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^SEALED|glob" tools/b721_worklist.py tools/b722_worklist.py tools/b723_worklist.py --cut 260
+  #156 | 2026-10-29T05:21:51.467Z | seat | Bash | python -X utf8 tools/standing/peek.py search "sections" tools/b723_fold.py tools/standing/fold.py --cut 200
+  #157 | 2026-10-29T05:22:15.018Z | seat | Bash | python -X utf8 tools/standing/peek.py list tools --glob "acts*" && git ls-files tools/acts && python -X utf8 tools/standing/peek.py list tools --glob "b72?_sect
+  #158 | 2026-10-29T05:22:20.394Z | seat | Bash | git ls-files --error-unmatch tools/b721_sections.py tools/b722_sections.py
+  #159 | 2026-10-29T05:22:25.682Z | seat | Bash | test -f D:/relay/tools/b721_sections.py && test -f D:/relay/tools/b722_sections.py && rm -- D:/relay/tools/b721_sections.py D:/relay/tools/b722_sections.py && e
+  #160 | 2026-10-29T05:22:26.220Z | seat | Bash | python -X utf8 tools/b723_fold.py build && python -X utf8 tools/b723_fold.py text && python -X utf8 tools/b723_fold.py legacy
+  #161 | 2026-10-29T05:22:43.433Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtprep723.py && cd C:/Users/ECHOCH~1/AppData/Loca
+  #162 | 2026-10-29T05:26:54.372Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #163 | 2026-10-29T05:31:06.747Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^EXPORT =" tools/b722_checks.py --cut 200 && git ls-files --error-unmatch data/b628_intake_crank_v0_5.txt
+  #164 | 2026-10-29T05:31:19.264Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtcause723.py
+  #165 | 2026-10-29T05:31:37.149Z | seat | Bash | python -X utf8 tools/standing/peek.py list tools --glob "b723_*" --long && git status --porcelain --untracked-files=all -- tools data/act_current.json
+  #166 | 2026-10-29T05:31:47.339Z | seat | Bash | git log --format="%h %s" -- tools/b723_record.py tools/b723_citation.py && git status --porcelain -- tools/b723_record.py tools/b723_citation.py
+  #167 | 2026-10-29T05:31:55.048Z | seat | Bash | python -X utf8 tools/standing/peek.py search "SUBS|def shift|re\.compile|def sub" tools/b723_carry.py --cut 240
+  #168 | 2026-10-29T05:32:27.804Z | seat | Bash | python -X utf8 tools/standing/peek.py search "PRE_SEAL_PHASES =|POST_SEAL_PHASES =|READFIRST-DIFF-BANKED'" tools/standing/fold/record.tpl tools/standing/fold/ch
+  #169 | 2026-10-29T05:32:43.741Z | seat | Bash | python -X utf8 tools/standing/peek.py search "def sealed_after_ok|def readfirst_diff_ok|'gate'" tools/standing/fold/checks.tpl --cut 220
+  #170 | 2026-10-29T05:33:03.231Z | seat | Bash | python -X utf8 tools/standing/peek.py search "lock_epoch'\] =|lock_epoch=|def _lock|lock=" tools/standing/fold/checks.tpl --cut 260
+  #171 | 2026-10-29T05:33:10.250Z | seat | Bash | python -X utf8 tools/standing/peek.py search "step 26|lock commit|phase .?gate|G-SEALED-AFTER" data/b722_events.txt --cut 700
+  #172 | 2026-10-29T05:33:59.022Z | seat | Bash | python -X utf8 tools/b723_fold.py text
+  #173 | 2026-10-29T05:34:18.546Z | seat | Bash | python -X utf8 tools/b723_fold.py carry
+  #174 | 2026-10-29T05:34:44.109Z | seat | Bash | python -X utf8 tools/b723_fold.py carry again && git diff --stat 026335ad~1 026335ad -- tools/b723_citation.py
+  #175 | 2026-10-29T05:35:00.458Z | seat | Bash | python -X utf8 tools/standing/peek.py list data --glob "b723_*prune*" && python -X utf8 tools/standing/peek.py search "PRUNE|pruned|### ###" data/b723_carry_cit
+  #176 | 2026-10-29T05:35:34.554Z | seat | Bash | python -X utf8 tools/b723_fold.py adopt citation && python -X utf8 tools/b723_fold.py text
+  #177 | 2026-10-29T05:35:48.472Z | seat | Bash | python -X utf8 tools/b723_fold.py adopt citation && python -X utf8 tools/b723_fold.py text
+  #178 | 2026-10-29T05:36:25.139Z | seat | Bash | python -X utf8 tools/b723_fold.py build && python -X utf8 tools/b723_fold.py carry again && python -X utf8 tools/b723_fold.py adopt citation && python -X utf8 t
+  #179 | 2026-10-29T05:36:56.829Z | seat | Bash | python -X utf8 tools/b723_fold.py names
+  #180 | 2026-10-29T05:37:13.749Z | seat | Bash | python -X utf8 tools/b723_fold.py names
+  #181 | 2026-10-29T05:37:37.448Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/deadwhere723.py
+  #182 | 2026-10-29T05:38:29.872Z | seat | Bash | python -X utf8 tools/b723_fold.py carry again && python -X utf8 tools/b723_fold.py adopt citation && python -X utf8 tools/b723_fold.py text && python -X utf8 to
+  #183 | 2026-10-29T05:38:42.547Z | seat | Bash | python -X utf8 tools/standing/peek.py search "STEP_PHASES|PRE_SEAL_PHASES|POST_SEAL_PHASES|^import json|^import os|^ROOT =" tools/standing/fold/record.tpl tools
+  #184 | 2026-10-29T05:38:53.999Z | seat | Bash | python -X utf8 tools/standing/peek.py head tools/acts/b723.py 30 --cut 200
+  #185 | 2026-10-29T05:39:23.356Z | seat | Bash | python -X utf8 tools/standing/peek.py search "def step_commits" tools/act_close.py -A 0 --cut 200 && python -X utf8 tools/standing/peek.py search "def _step_pha
+  #186 | 2026-10-29T05:40:04.339Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^import sys|^import " tools/standing/fold/record.tpl --lines 1-40 && python -X utf8 tools/b723_fold.py names
+  #187 | 2026-10-29T05:40:57.769Z | seat | Bash | python -X utf8 tools/b723_fold.py text
+  #188 | 2026-10-29T05:41:12.549Z | seat | Bash | python -X utf8 tools/standing/peek.py search "rlog=|plog=|steps=|'steps'\]|face = |face=" tools/standing/fold/checks.tpl --cut 230
+  #189 | 2026-10-29T05:41:27.434Z | seat | Bash | python -X utf8 tools/standing/peek.py search "794b7bc7" data/b722_steps.json --cut 300 && python -X utf8 tools/standing/peek.py head data/b722_steps.json 12 --c
+  #190 | 2026-10-29T05:41:34.279Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^def |^CONTROLS|^if __name__|^import|^from|^[A-Z_]+ = " tools/standing/v130.py --cut 200
+  #191 | 2026-10-29T05:42:19.392Z | seat | Bash | python -X utf8 tools/standing/v130.py control iii
+  #192 | 2026-10-29T05:42:32.718Z | seat | Bash | python -X utf8 tools/standing/peek.py head tools/b722_propagation.py 45 --cut 240 && python -X utf8 tools/standing/peek.py search "\(82\)" data/standing_clauses
+  #193 | 2026-10-29T05:42:39.025Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iv\)|propagation read of v8|retired" data/b723_ferry.txt --cut 700
+  #194 | 2026-10-29T05:42:49.286Z | seat | Bash | python -X utf8 tools/standing/peek.py search "retire" data/b712_ferry.txt data/b713_ferry.txt data/b714_ferry.txt data/b715_ferry.txt data/b716_ferry.txt data/b
+  #195 | 2026-10-29T05:42:58.337Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iii\)" data/b722_ferry.txt --lines 11-11 --cut 3000
+  #196 | 2026-10-29T05:43:08.352Z | seat | Bash | git grep -n -i -E "no longer written|reader retired|closure reader|bank retired|retired the|is retired|be retired" -- "data/*_ferry*.txt"
+  #197 | 2026-10-29T05:44:03.119Z | seat | Bash | python -X utf8 tools/standing/v130.py control iv
+  #198 | 2026-10-29T05:44:10.585Z | seat | Bash | python -X utf8 tools/standing/v130.py control iv
+  #199 | 2026-10-29T05:44:30.389Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armsyield723.py
+  #200 | 2026-10-29T05:44:48.470Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armsyield723.py && python -X utf8 tools/standing/
+  #201 | 2026-10-29T05:45:06.289Z | seat | Bash | python -X utf8 tools/standing/v130.py control iv
+  #202 | 2026-10-29T05:47:41.708Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/stoppedkeys723.py
+  #203 | 2026-10-29T05:50:07.162Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/renderlines723.py b723 checks 700-718,1466-1473,1
+  #204 | 2026-10-29T05:50:30.947Z | seat | Bash | python -X utf8 tools/standing/peek.py search "differs_errata_ok|no_dispatch_ok|tests_ok\(|readfirst_diff_ok" tools/standing/fold/checks.tpl --cut 160 && python 
+  #205 | 2026-10-29T05:50:41.752Z | seat | Bash | git grep -n -E "words_of|AL\.|import allow|from standing import allow|allow as" -- tools/standing tools/standing/fold tools/acts tools/rule_arms.py tools/b719_a
+  #206 | 2026-10-29T05:50:55.397Z | seat | Bash | python -X utf8 tools/standing/peek.py search "G-DELETES-ONE-BRANCH|CL\.|import classes|classes as" tools/standing/fold/checks.tpl tools/acts/b723.py --cut 220 &
+  #207 | 2026-10-29T05:51:03.351Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/renderlines723.py b723 checks 1638-1642 && python
+  #208 | 2026-10-29T05:51:20.744Z | seat | Bash | git ls-tree -r --name-only HEAD -- data/ --format= && echo
+  #209 | 2026-10-29T05:51:26.313Z | seat | Bash | python -X utf8 tools/standing/peek.py list data --glob "b7[12]?_*addendum*" && python -X utf8 tools/standing/peek.py list data --glob "b7[12]?_*author*" && pyth
+  #210 | 2026-10-29T05:51:47.538Z | seat | Bash | python -X utf8 tools/standing/peek.py search "lambda S: (no_dispatch_ok|tests_ok|differs_errata_ok|deletes_one_ok|readfirst_diff_ok)\(S\)" tools/standing/fold/c
+  #211 | 2026-10-29T05:51:53.609Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^    \('G-" tools/standing/fold/checks.tpl --lines 1580-1670 --cut 60 && python -X utf8 tools/standing/peek.py sea
+  #212 | 2026-10-29T05:52:54.897Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/splice723.py && python -X utf8 tools/standing/v13
+  #213 | 2026-10-29T05:56:08.266Z | seat | Bash | python -X utf8 tools/standing/peek.py search "mustnotexist|G-MUSTFAIL" tools/standing/fold/checks.tpl tools/standing/arms.py tools/standing/close.py --cut 260
+  #214 | 2026-10-29T05:56:18.481Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iv\) (the arms|the module|G-MUSTFAIL)|v1.3.0:" --cut 2000 --of "python -X utf8 tools/standing/v130.py control iv
+  #215 | 2026-10-29T05:59:29.269Z | seat | Bash | git grep -n -E "hand_ok|RF\.lines|readfirst\.lines|import readfirst|readfirst as" -- tools/standing tools/rule_arms.py tools/b719_arms.py tools/act_close.py too
+  #216 | 2026-10-29T05:59:38.322Z | seat | Bash | git grep -n -E "^def (author_words|control|instance_constructed|lines|minted|main)\(" -- tools/standing tools/rule_arms.py tools/b719_arms.py tools/act_close.py
+  #217 | 2026-10-29T05:59:47.435Z | seat | Bash | git grep -n -E "AC\.author_words\(|\.author_words\(" -- tools/standing tools/standing/fold tools/acts tools/rule_arms.py tools/b719_arms.py tools/b703_checks.py
+  #218 | 2026-10-29T05:59:53.996Z | seat | Bash | git grep -n "author_words(" -- "tools/*.py" "tools/standing/*" "tools/acts/*"
+  #219 | 2026-10-29T06:00:16.468Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iv\) (module|G-|the arms)|v1.3.0:" --cut 400 --of "python -X utf8 tools/standing/v130.py control iv"
+  #220 | 2026-10-29T06:03:28.489Z | seat | Bash | git grep -n -E "_(classes_controls|tool_repairs|standing_controls|hook_control|replay|roster|standing_scan|standing_v121)\.txt" -- tools/standing/classes.py too
+  #221 | 2026-10-29T06:03:48.267Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iv\) G-READFIRST|v1.3.0:" --cut 300 --of "python -X utf8 tools/standing/v130.py control iv" && python -X utf8 to
+  #222 | 2026-10-29T06:07:03.283Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(iv\) (G-READFIRST|b722)|v1.3.0:" --cut 300 --of "python -X utf8 tools/standing/v130.py control iv"
+  #223 | 2026-10-29T06:10:14.746Z | seat | Bash | python -X utf8 tools/standing/peek.py search "\(b\)|SEALED|seal route" data/b723_ferry_addendum.txt --cut 900
+  #224 | 2026-10-29T06:10:22.175Z | seat | Bash | python -X utf8 tools/standing/peek.py search "def seal\w*\(|SEALED|reproduce" tools/standing/fold/checks.tpl --cut 220 && python -X utf8 tools/standing/peek.py 
+  #225 | 2026-10-29T06:10:31.319Z | seat | Bash | python -X utf8 tools/standing/peek.py search "def seal|def _seal|SEALED|sealed_list|def tools_of|seal_hashes" tools/standing/close.py tools/standing/sealcheck.p
+  #226 | 2026-10-29T06:10:46.212Z | seat | Bash | git grep -n "sealed_list(" -- "tools/*.py" "tools/standing/*.py" "tools/standing/fold/*" "tools/acts/*"
+  #227 | 2026-10-29T06:11:07.130Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^NEW_TOOLS|^COMPUTE_TOOLS|^REPAIRED_TOOLS|^SEALED|^STANDING_VERSION" tools/b723_worklist.py --cut 900
+  #228 | 2026-10-29T06:11:32.616Z | seat | Bash | python -X utf8 tools/standing/peek.py search "^import|^from" tools/standing/close.py --lines 1-40
+  #229 | 2026-10-29T06:12:05.705Z | seat | Bash | python -X utf8 tools/standing/v130.py control b
+  #230 | 2026-10-29T06:12:37.293Z | seat | Bash | python -X utf8 tools/b723_fold.py legacy && python -X utf8 tools/standing/peek.py search "^###|^  (tools|PENDING|the|through)|direct" --cut 300 --of "python -X 
+  #231 | 2026-10-29T06:12:56.061Z | seat | Bash | python -X utf8 tools/standing/peek.py head tools/standing/VERSION 20 && git log --format="%h %s" -3 -- tools/standing/VERSION
+  #232 | 2026-10-29T06:13:05.247Z | seat | Bash | git diff --stat -- tools/standing/VERSION && python -X utf8 tools/standing/peek.py head tools/standing/VERSION --bytes 20
+  #233 | 2026-10-29T06:13:12.347Z | seat | Bash | python -X utf8 tools/standing/fold.py record step
+  #234 | 2026-10-29T06:13:39.664Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wtprep723.py && cd C:/Users/ECHOCH~1/AppData/Loca
+  #235 | 2026-10-29T06:17:18.512Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #236 | 2026-10-29T06:25:40.099Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #237 | 2026-10-29T06:30:01.433Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #238 | 2026-10-29T06:34:05.218Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #239 | 2026-10-29T06:43:17.714Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #240 | 2026-10-29T06:51:28.455Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #241 | 2026-10-29T06:53:29.989Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #242 | 2026-10-29T06:58:16.291Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #243 | 2026-10-29T07:01:05.603Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 D:/relay/tools/standing/peek.py searc
+  #244 | 2026-10-29T07:01:11.359Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722/data -
+  #245 | 2026-10-29T07:01:17.038Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722/data && python -X utf8 D:/relay/tools/standing/peek.py 
+  #246 | 2026-10-29T07:01:24.803Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722/data && python -X utf8 D:/relay/tools/standing/peek.py 
+  #247 | 2026-10-29T07:01:35.751Z | seat | Bash | cd D:/relay && git grep -n "not on the remote main" -- tools/b722_checks.py tools/standing
+  #248 | 2026-10-29T07:01:40.165Z | seat | Bash | cd D:/relay && git grep -n "on the remote main" -- tools
+  #249 | 2026-10-29T07:01:50.522Z | seat | Bash | git -C D:/SIDE-li-map ls-remote origin refs/heads/main && git -C D:/SIDE-li-map merge-base --is-ancestor b515e6b62c15 origin/main && echo ANCESTOR-OF-TRACKING-M
+  #250 | 2026-10-29T07:01:58.879Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #251 | 2026-10-29T07:10:13.994Z | seat | Bash | cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 && python -X utf8 ../procs723.py && python -X utf8 D:/r
+  #252 | 2026-10-29T07:13:07.036Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_fold.py run C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wt722 --ban
+  #253 | 2026-10-29T07:13:15.506Z | seat | Bash | cd D:/relay && git grep -n -e "def control_i" -e "prev" -- tools/standing/v130.py
+  #254 | 2026-10-29T07:13:28.792Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "\-\-prev" tools/standing/fold/checks.tpl tools/acts/b723.py tools/b723_worklist.py --cut 220
+  #255 | 2026-10-29T07:13:39.891Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "SECTION checks 63|OWN|_prev_names|prev_names" tools/acts/b723.py tools/acts/b722.py tools/standing/
+  #256 | 2026-10-29T07:13:54.284Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^(C\d_\w+|STANDING_COMMIT|REG_C3|REG_WALK|C4_STMT|C5_RULE|C6_PP|COMPONENT\w*|OWN\w*) *=" tools/b723
+  #257 | 2026-10-29T07:14:18.712Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "def render|SLOT|unused|not filled|ovs" tools/standing/fold.py --cut 200
+  #258 | 2026-10-29T07:14:45.531Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^class " tools/standing/fold.py --cut 120
+  #259 | 2026-10-29T07:15:01.912Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/prevown723.py
+  #260 | 2026-10-29T07:15:12.462Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^REG_\w+ *=" tools/b723_worklist.py tools/b722_worklist.py tools/b721_worklist.py --cut 260
+  #261 | 2026-10-29T07:15:39.142Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/prevown723.py
+  #262 | 2026-10-29T07:16:02.116Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "PREV and|if PREV|_prev_|'prev'|prev\.txt|_prev" tools/standing/fold/checks.tpl --cut 220
+  #263 | 2026-10-29T07:16:15.920Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #264 | 2026-10-29T07:16:32.432Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "." --cut 300 --of "python -X utf8 -u tools/standing/fold.py checks --prev --part act"
+  #265 | 2026-10-29T07:16:50.756Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "OWN|None" "C:/Users/echo chamber/.claude/projects/D--/memory/feedback_b722_traps.md" --cut 600
+  #266 | 2026-10-29T07:16:58.909Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/renderlines723.py b723 checks 488-
+  #267 | 2026-10-29T07:17:11.056Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #268 | 2026-10-29T07:17:38.278Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "if r == 'names'|^def names_control|^import|^from|^T =|^ROOT =" tools/b723_fold.py --cut 160
+  #269 | 2026-10-29T07:18:07.532Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_fold.py prevnames
+  #270 | 2026-10-29T07:18:15.006Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list D:/relay/data --glob "b723_prevrun*" && git -C D:/relay status --short --untracked-files=all
+  #271 | 2026-10-29T07:18:22.584Z | seat | PowerShell | Get-Item -LiteralPath 'D:\relay\=' | Select-Object FullName, Length, CreationTimeUtc, LastWriteTimeUtc
+  #272 | 2026-10-29T07:18:31.093Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/stray723.py
+  #273 | 2026-10-29T07:18:42.643Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #274 | 2026-10-29T07:22:39.796Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_fold.py text && python -X utf8 tools/b723_fold.py bank
+  #275 | 2026-10-29T07:22:53.079Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "exception|act\.py" tools/standing/legacy.py tools/standing/act.py --cut 300
+  #276 | 2026-10-29T07:22:58.935Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #277 | 2026-10-29T07:23:17.945Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/standing/fold.p
+  #278 | 2026-10-29T07:23:25.162Z | seat | Bash | cd D:/relay && git diff --stat && git diff -U0 -- data/b723_steps.json data/b723_hook_refusals.txt
+  #279 | 2026-10-29T07:23:30.518Z | seat | Bash | git -C D:/relay add -- tools/standing/fold.py tools/standing/legacy.py tools/standing/fold/checks.tpl tools/standing/fold/citation.tpl tools/standing/fold/closi
+  #280 | 2026-10-29T07:23:36.327Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 1 ((R333)(2)(i),(iii),(iv),(b)), v1.3.0: the seven close tools folded into tools/standing/fold.py on the author's w
+  #281 | 2026-10-29T07:23:39.116Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 1" be821907a6cdba291630f8657acd1e38aad8d96e
+  #282 | 2026-10-29T07:23:44.838Z | seat | Bash | cd D:/relay && git grep -n -e "b723_record" -e "b723_citation" -- tools ":!tools/acts" ":!tools/b723_fold.py"
+  #283 | 2026-10-29T07:23:51.378Z | seat | Bash | cd D:/relay && git grep -n -e "install" -e "import fold" -e "__file__" -- tools/standing/v130.py tools/b723_carry.py
+  #284 | 2026-10-29T07:23:56.295Z | seat | Bash | git -C D:/relay rm -q -- tools/b723_record.py tools/b723_citation.py
+  #285 | 2026-10-29T07:24:00.389Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_fold.py text && python -X utf8 tools/b723_fold.py names
+  #286 | 2026-10-29T07:24:06.317Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 1 ((R333)(2)(i), Option 2): tools/b723_record.py and tools/b723_citation.py removed, superseded by tools/standing/f
+  #287 | 2026-10-29T07:24:09.250Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 1" 93925aac1719e1314df09f562557e38c31bdbcab
+  #288 | 2026-10-29T07:24:17.315Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list D:/relay/data --glob "b7*_author_words*" && git grep -n -A25 "def words_of" -- tools/standing/allow.py
+  #289 | 2026-10-29T07:24:30.316Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py
+  #290 | 2026-10-29T07:24:38.708Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py
+  #291 | 2026-10-29T07:24:50.300Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/endmark723.py
+  #292 | 2026-10-29T07:24:59.632Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^\[2026|^===" --cut 120 --of "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf
+  #293 | 2026-10-29T07:25:06.452Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ASSTTIME|^===" --cut 120 --of "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7c
+  #294 | 2026-10-29T07:25:28.051Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wordscheck723.py
+  #295 | 2026-10-29T07:25:33.249Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b723_author_word
+  #296 | 2026-10-29T07:25:39.427Z | seat | Bash | git -C D:/relay add -- data/b723_author_words_preseal.txt data/b723_steps.json data/b723_bank_hashes.json
+  #297 | 2026-10-29T07:25:42.385Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 1: the author's two mid-act words banked verbatim (data/b723_author_words_preseal.txt: (1) 03:52:17Z, its END queue
+  #298 | 2026-10-29T07:25:45.095Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 1" 2a2ec53db785fbad965c23b697f8fa498a9829a8
+  #299 | 2026-10-29T07:25:50.021Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^[A-Z_]+ = |^import|^from|^ROUTES|b722|b721" tools/b723_c1.py --cut 200
+  #300 | 2026-10-29T07:26:00.910Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^\(1\)|^\(2\)|^\(3\)|weight|corrigendum" data/b723_ferry.txt --cut 160
+  #301 | 2026-10-29T07:26:07.267Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py count "." data/b723_ferry_addendum.txt
+  #302 | 2026-10-29T07:28:14.581Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #303 | 2026-10-29T07:28:22.320Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list D:/relay/data --glob "b723_*" && python -X utf8 tools/standing/peek.py list D:/relay/tools --glob "b72
+  #304 | 2026-10-29T07:28:25.889Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b723_i76.txt 30 && git log --format="%h %s" -1 -- data/b723_i76.txt
+  #305 | 2026-10-29T07:28:33.064Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^    \(\d+\) " data/b722_events.txt --cut 260
+  #306 | 2026-10-29T07:28:37.488Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b723_rowgen_stepzero.txt 40
+  #307 | 2026-10-29T07:28:47.587Z | seat | Bash | cd D:/relay && git grep -n -e "b675_corrigenda" -e "def land" -e "B711_ENTRY\b *=" -e "B711_TRAIL\b *=" -- tools/b722_c1.py tools/b722_record.py tools/b723_work
+  #308 | 2026-10-29T07:28:51.972Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^  \(4[0-2]\) " data/b675_corrigenda.txt --cut 400
+  #309 | 2026-10-29T07:29:00.683Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^b722 closed|ARMS RUN|CLAIM ARMS PASSING|THE COUNTER|THE ROOT`S BANKS|THE MIRROR|\(N1\)|CARRIED FOR
+  #310 | 2026-10-29T07:29:04.297Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^b722 closed|ARMS RUN|CLAIM ARMS PASSING|THE COUNTER|THE ROOT.S BANKS|THE MIRROR|\(N1\)|CARRIED FOR
+  #311 | 2026-10-29T07:29:14.220Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "\(82\)|dated note" data/standing_clauses_v8.txt --cut 700
+  #312 | 2026-10-29T07:29:27.183Z | seat | Bash | cd D:/MY-DOwnloads/PLACE-papers && git grep -n -e "sealed with the act" -e "the wave 1 act" -e "None annotated this act" -- FINDINGS.md OPEN_TRAILS.md && cd D:/
+  #313 | 2026-10-29T07:29:44.613Z | seat | Bash | cd D:/relay && git show 1607e994:data/b722_hook_refusals.txt && git grep -n -e "hook_refusals" -e "REFUSED BY THE HOOK" -- data/b722_defects.txt data/b722_event
+  #314 | 2026-10-29T07:29:53.464Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^land = |^def land|^R = |^import b698_record|^from b698_record|R\.FIND = |^FIND" tools/standing/fol
+  #315 | 2026-10-29T07:29:56.922Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "land|b698_record|^R\b|^R =" tools/standing/fold/record.tpl --cut 160
+  #316 | 2026-10-29T07:30:05.001Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^   \(83\)|^       A defect|VERSION 9" data/standing_clauses_v9.txt --cut 400 && python -X utf8 too
+  #317 | 2026-10-29T07:30:08.772Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^    \([a-z]'?\) " data/b722_defects.txt --cut 150
+  #318 | 2026-10-29T07:30:36.125Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "." D:/MY-DOwnloads/PLACE-papers/FINDINGS.md --cut 160 --of "git -C D:/MY-DOwnloads/PLACE-papers sho
+  #319 | 2026-10-29T07:30:43.892Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "\"phase\": \"(record|closing)\"" data/b722_steps.json --cut 80 && python -X utf8 tools/standing/pee
+  #320 | 2026-10-29T07:32:46.469Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_c1.py weight dry
+  #321 | 2026-10-29T07:32:52.563Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_c1.py corrigendum dry
+  #322 | 2026-10-29T07:32:59.624Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "None|^- \*\*" "C:/Users/echo chamber/.claude/projects/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/tool
+  #323 | 2026-10-29T07:33:11.230Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_c1.py corrigendum dry
+  #324 | 2026-10-29T07:33:37.162Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "unread figures|closing.txt :46[45]|^\*\*\(10\)\*\*|^\*\*\(3\)\*\*" --cut 330 --of "python -X utf8 t
+  #325 | 2026-10-29T07:33:46.461Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "unread figures|closing.txt :4(64|70|71)" --cut 400 --of "python -X utf8 tools/b723_c1.py corrigendu
+  #326 | 2026-10-29T07:33:53.616Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "landed|written|refus|REFUS|Traceback|Error|line" --cut 300 --of "python -X utf8 tools/b723_c1.py we
+  #327 | 2026-10-29T07:33:58.908Z | seat | Bash | cd D:/relay && git -C D:/MY-DOwnloads/PLACE-papers status --short && git -C D:/MY-DOwnloads/PLACE-papers diff --stat && python -X utf8 tools/standing/peek.py he
+  #328 | 2026-10-29T07:34:03.159Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "CLAIM .* CLOSE|Traceback|Error|unread figures" --cut 300 --of "python -X utf8 tools/b723_c1.py corr
+  #329 | 2026-10-29T07:34:20.155Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^\*Appended 2026-10-29 by b723|^## Corrigendum to b722|^\*Filed at b723" D:/MY-DOwnloads/PLACE-pape
+  #330 | 2026-10-29T07:34:28.842Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #331 | 2026-10-29T07:34:45.120Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/addedlines723.py && python -X utf8 C:/Users/ECHOC
+  #332 | 2026-10-29T07:35:12.012Z | seat | Bash | git -C D:/relay add -- tools/b723_c1.py tools/b723_worklist.py data/b675_corrigenda.txt data/b723_corrigendum.txt data/b723_corrigendum.json data/b723_corrigend
+  #333 | 2026-10-29T07:35:19.615Z | seat | Bash | git -C D:/relay commit -q -m "b723 component 1 ((R333)(1)-(2)): b722 at its weight (FINDINGS :11399, every figure from data/b722_closing.txt by line) and the co
+  #334 | 2026-10-29T07:35:27.049Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- FINDINGS.md
+  #335 | 2026-10-29T07:35:32.723Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b723 component 1 ((R333)(1)-(2)): b722 at its weight (FINDINGS :11399) and the corrigendum for b722 (FINDINGS 
+  #336 | 2026-10-29T07:35:39.134Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 1" fac1cda8cb13b6d903ee1ffc74b39c3b386bc665 && python -X utf8 tools/standing/f
+  #337 | 2026-10-29T07:37:26.834Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ORDERS \d+|CONTROLS|AS WANTED|Traceback|Error" --cut 400 --of "python -X utf8 tools/standing/orders
+  #338 | 2026-10-29T07:37:36.528Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^  W-ORD-(ENTRY-TAG-PRINTS|DETECTION-REGION|PROBE-HOLD) ; :" --cut 700 --of "python -X utf8 tools/s
+  #339 | 2026-10-29T07:37:48.208Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ENTRY-TAG-PRINTS" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md D:/MY-DOwnloads/PLACE-papers/FINDINGS
+  #340 | 2026-10-29T07:38:19.770Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ORDERS \d+|AS WANTED|Traceback|Error" --cut 600 --of "python -X utf8 tools/standing/orders.py contr
+  #341 | 2026-10-29T07:38:36.628Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/ordersdump723.py
+  #342 | 2026-10-29T07:39:27.888Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ORDERS \d+|AS WANTED|Traceback|Error" --cut 700 --of "python -X utf8 tools/standing/orders.py contr
+  #343 | 2026-10-29T07:40:07.162Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/ordersresid723.py
+  #344 | 2026-10-29T07:41:48.671Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "W-ORD-Q0[^-A-Z]" D:/relay/OPEN_TRAILS.md --cut 300
+  #345 | 2026-10-29T07:42:02.213Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "W-ORD-Q0[^-A-Z0-9]|W-ORD-Q0$|W-ORD-ONE-COPY. as a reading" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md --
+  #346 | 2026-10-29T07:42:10.178Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/ordersdump723.py
+  #347 | 2026-10-29T07:42:15.186Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "^W-ORD" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/o
+  #348 | 2026-10-29T07:42:25.859Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/coorddiff723.py
+  #349 | 2026-10-29T07:42:34.570Z | seat | Bash | python -X utf8 D:/relay/tools/standing/orders.py control --bank
+  #350 | 2026-10-29T07:42:39.703Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "^ORDERS|AS WANTED|NOT AS WANTED|^## |CASES" D:/relay/data/b723_orders.txt --cut 300
+  #351 | 2026-10-29T07:42:58.804Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "### ###" D:/relay/data/b722_events.txt D:/relay/data/b723_standing_v130.txt --cut 120
+  #352 | 2026-10-29T07:43:06.465Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "^\s+W-ORD-[A-Z0-9-]+ -- OPEN; entry" D:/relay/data/b722_events.txt --cut 600
+  #353 | 2026-10-29T07:43:38.335Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/twentyentries723.py
+  #354 | 2026-10-29T07:44:28.871Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "\(3\)|\(8\)|ledger split|LEDGER-SPLIT|stoppable" D:/relay/data/b723_ferry.txt --cut 900
+  #355 | 2026-10-29T07:44:37.824Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "re-cut act|RE-CUT ACT|print_targets|census of the suite|LI-THREE-WAY" D:/MY-DOwnloads/PLACE-papers/OPEN_T
+  #356 | 2026-10-29T07:44:38.564Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "PROBE-HOLD|free memory|2560" D:/relay/tools/chain_page.py --cut 220
+  #357 | 2026-10-29T07:44:48.902Z | seat | Bash | git -C D:/relay show --stat --format=%H%n%s%n%ad 9b01204d
+  #358 | 2026-10-29T07:45:11.803Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers log --since=2026-10-16 --format="%h %ad %s" --date=short --name-only -- "*GRH_CASCADE*" "*R_CURVE_CRITERION*" "*SILENCE_STAG
+  #359 | 2026-10-29T07:45:49.405Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "print_targets" D:/relay/data/b672_correspondence_diff.txt D:/MY-DOwnloads/PLACE-papers/FINDINGS.md --cut 
+  #360 | 2026-10-29T07:46:02.921Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "exists_norm_completedRiemannZeta|C5_input_at_Phi|steane_parameters|ExhaustivenessLicense|gate_e_exhaustiv
+  #361 | 2026-10-29T07:46:13.546Z | seat | Bash | git -C D:/SIDE-cosmo log --format="%h %ad %s" --date=short -3 -- print_targets.txt
+  #362 | 2026-10-29T07:46:20.059Z | seat | Bash | git -C D:/SIDE-effects log --format="%h %ad %s" --date=short -3 -- print_targets.txt
+  #363 | 2026-10-29T07:46:27.166Z | seat | Bash | git -C D:/SIDE-kernel log --since=2026-10-16 --format="%h %ad %s" --date=short -5
+  #364 | 2026-10-29T07:46:36.423Z | seat | Bash | git -C D:/SIDE-lv-conservation log --all --since=2026-10-16 --format="%h %ad %D %s" --date=short -- print_targets.txt
+  #365 | 2026-10-29T07:46:45.181Z | seat | Bash | git -C D:/relay log --since=2026-10-17 --format="%h %ad %s" --date=short -- tools/chain_page.py tools/test_chain_page_b638.py
+  #366 | 2026-10-29T07:46:51.545Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "by what each reads|arms census|census of the suite|CHAIN-PAGE-B638|test_chain_page_b638" D:/MY-DOwnloads/
+  #367 | 2026-10-29T07:46:59.759Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py head D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md 14694 --cut 1400
+  #368 | 2026-10-29T07:47:17.364Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "SHAPE|VALUE|reads" D:/relay/data/b680_rules_arms.txt --cut 220
+  #369 | 2026-10-29T07:47:23.938Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b680_*arm*"
+  #370 | 2026-10-29T07:47:37.208Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "SHAPE|VALUE|chain_page|b638" D:/relay/data/b680_arms.txt --cut 260
+  #371 | 2026-10-29T07:48:25.819Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "^### b6[4-9][0-9].*edition|^### b7[0-2][0-9].*edition|edition act" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAI
+  #372 | 2026-10-29T07:48:35.323Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "the edition of|edition written|new edition|edition act|EDITION" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.
+  #373 | 2026-10-29T07:48:41.845Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "KERNEL COLUMN: CLUSTERS-SERVED" D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md --cut 1500
+  #374 | 2026-10-29T07:48:56.342Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "^### b651 |^### b652 " D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md --cut 600
+  #375 | 2026-10-29T07:49:15.774Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "W-ORD-[A-Z0-9-]+" D:/relay/data/b723_ferry.txt D:/relay/data/b723_ferry_addendum.txt D:/relay/data/b723_a
+  #376 | 2026-10-29T07:49:31.705Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "complete True|BANDS|685|pair 11|pair 15|HELD" D:/relay/data/b711_list.txt D:/relay/data/b711_pairs.txt --
+  #377 | 2026-10-29T07:49:58.511Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "7 of 7|1000|99999|exit 4|PASS" D:/relay/data/b630_probe_test.txt --cut 240
+  #378 | 2026-10-29T07:50:04.997Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "test_chain_page_b630|test_chain_page_b638" D:/relay/data --glob "b723_*" --cut 240
+  #379 | 2026-10-29T07:52:33.855Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "test_chain_page_b630|test_chain_page_b638" D:/relay/data/b723_tests_stepzero.txt --cut 240
+  #380 | 2026-10-29T07:52:40.118Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b72[0-3]_*test*"
+  #381 | 2026-10-29T07:52:46.158Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "*tests_stepzero*"
+  #382 | 2026-10-29T07:52:52.733Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "test_chain_page_b630|test_chain_page_b638" D:/relay/data/b717_tests_stepzero.txt --cut 240
+  #383 | 2026-10-29T07:53:58.033Z | seat | Bash | date -u +%Y-%m-%dT%H:%M:%SZ
+  #384 | 2026-10-29T07:55:22.713Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/closings723.py dry
+  #385 | 2026-10-29T07:55:31.660Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers status --porcelain --untracked-files=no
+  #386 | 2026-10-29T07:55:36.703Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py C:/Users/ECHOCH~1/AppData/Local/Temp
+  #387 | 2026-10-29T07:55:41.250Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/closings723.py write
+  #388 | 2026-10-29T07:55:49.043Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "STANDING_NEW|STANDING_CHANGED" D:/relay/tools/b723_worklist.py D:/relay/tools/acts/b723.py D:/relay/tools
+  #389 | 2026-10-29T07:55:51.835Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "STANDING_NEW|STANDING_CHANGED" D:/relay/tools/standing/fold --cut 220
+  #390 | 2026-10-29T07:56:06.150Z | seat | Bash | python -X utf8 -m py_compile D:/relay/tools/b723_worklist.py D:/relay/tools/standing/orders.py && python -X utf8 D:/relay/tools/b723_address_scan.py scan
+  #391 | 2026-10-29T07:56:13.878Z | seat | Bash | git -C D:/relay status --porcelain
+  #392 | 2026-10-29T07:56:19.176Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/stray723.py
+  #393 | 2026-10-29T07:56:23.798Z | seat | Bash | git -C D:/relay add -- tools/standing/orders.py data/b723_orders.txt data/b723_orders_twenty.txt tools/b723_worklist.py data/b723_bank_hashes.json data/b723_ste
+  #394 | 2026-10-29T07:56:28.453Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 2 (R333)(3): tools/standing/orders.py -- the open orders generated from OPEN_TRAILS by a printed rule (193 orders, 
+  #395 | 2026-10-29T07:56:31.660Z | seat | Bash | python -X utf8 D:/relay/tools/standing/fold.py record step relay "Component 2 (R333)(3): the orders generator, its controls, the twenty graded" 709ba3eb
+  #396 | 2026-10-29T07:56:34.828Z | seat | Bash | python -X utf8 D:/relay/tools/standing/fold.py record step relay "component 2" 709ba3eb
+  #397 | 2026-10-29T07:56:38.456Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md
+  #398 | 2026-10-29T07:56:42.013Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b723 Component 2 (R333)(3)(ii): three closing lines on OPEN_TRAILS -- W-ORD-PROBE-HOLD discharged by reading (
+  #399 | 2026-10-29T07:56:45.084Z | seat | Bash | python -X utf8 D:/relay/tools/standing/fold.py record step pp "component 2" 9e098548
+  #400 | 2026-10-29T07:56:49.301Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py --of "python -X utf8 D:/relay/tools/standing/orders.py read" search "ORDERS [0-9]+ ; OPEN|PROBE-HOLD|Q0-ZEROS-443
+  #401 | 2026-10-29T07:56:53.305Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "ORDERS [0-9]+ ; OPEN|PROBE-HOLD  |Q0-ZEROS-443  |READING5-INDEPENDENCE  " --of "python -X utf8 D:/relay/t
+  #402 | 2026-10-29T07:57:03.465Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b7*_registrations*"
+  #403 | 2026-10-29T07:57:12.762Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "0\.9532604748|6\.838396011|10\.38532711|0\.79800" D:/MY-DOwnloads/PLACE-papers/FINDINGS.md D:/relay/data/
+  #404 | 2026-10-29T07:57:16.501Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/MY-DOwnloads/PLACE-papers --glob "OPEN_TRAILS*"
+  #405 | 2026-10-29T07:57:19.414Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers ls-files "*OPEN_TRAILS*"
+  #406 | 2026-10-29T07:57:25.428Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b71[137]_list.json"
+  #407 | 2026-10-29T07:57:57.852Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py D:/relay/data/b723_registrations.txt
+  #408 | 2026-10-29T07:58:00.882Z | seat | Bash | git -C D:/relay add -- data/b723_registrations.txt
+  #409 | 2026-10-29T07:58:04.495Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 3 (R333)(4): data/b723_registrations.txt committed alone -- H-SUPPORT (the onset law a*_pred = K/(beta - 1/2), K = 
+  #410 | 2026-10-29T07:58:07.025Z | seat | Bash | python -X utf8 D:/relay/tools/standing/fold.py record step relay "component 3" 9ad26421
+  #411 | 2026-10-29T09:59:47.695Z | seat | Bash | ls C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/
+  #412 | 2026-10-29T09:59:55.843Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py
+  #413 | 2026-10-29T10:00:07.788Z | seat | Bash | ls -la D:/relay/data/b711_list.json D:/relay/data/b713_list.json D:/relay/data/b717_list.json D:/relay/data/b709_grid.txt; python -X utf8 D:/relay/tools/standin
+  #414 | 2026-10-29T10:00:15.107Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/listshape723.py D:/relay/data/b711_list.json D:/r
+  #415 | 2026-10-29T10:00:24.103Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/q0units723.py
+  #416 | 2026-10-29T10:00:34.027Z | seat | Bash | ls D:/relay/tools/ | grep -i -E "list|zeros|b711_|b706_|b707_|b709_" ; ls D:/relay/data/ | grep -i -E "_list|zeros" 
+  #417 | 2026-10-29T10:00:38.817Z | seat | Bash | date -u +%H:%M:%SZ; python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "*_list*"; python -X utf8 D:/relay/tools/standing/peek.py list D:/r
+  #418 | 2026-10-29T10:01:16.403Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #419 | 2026-10-29T10:01:52.456Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support_rule.py show
+  #420 | 2026-10-29T10:02:02.407Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support_rule.py bank
+  #421 | 2026-10-29T10:02:10.353Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #422 | 2026-10-29T10:02:19.056Z | seat | Bash | git -C D:/relay add -- tools/b723_support_rule.py data/b723_author_words_preseal.txt data/b723_hook_refusals.txt data/b723_steps.json data/b723_bank_hashes.json
+  #423 | 2026-10-29T10:02:22.099Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 3: H-SUPPORT's rule tool (tools/b723_support_rule.py, computes no onset); the author's word (3) banked; step 18 and
+  #424 | 2026-10-29T10:02:25.340Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 3" f7ee91e604131c2463cb5c4982220e364fcc3557
+  #425 | 2026-10-29T10:02:28.739Z | seat | Bash | git -C D:/relay add -- data/b723_support_rule.txt
+  #426 | 2026-10-29T10:02:31.867Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 3: H-SUPPORT's rule output and each a*_pred, by a commit of their own before any onset (off12, off52, off27 selecte
+  #427 | 2026-10-29T10:02:35.249Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 3" 0e91c670a1d1c31296252a50ccd6a9a18f7817fe
+  #428 | 2026-10-29T10:02:48.808Z | seat | Bash | cd D:/relay && wc -l tools/b707_onset.py tools/b709_grid.py && python -X utf8 tools/standing/peek.py search "^def |Lambda_Q|lam_q|def lam|import " tools/b707_on
+  #429 | 2026-10-29T10:03:00.867Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^class |lambda_q|lambda_z|^import|^[A-Z_0-9]+ = " tools/b709_grid.py --cut 200
+  #430 | 2026-10-29T10:03:31.976Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/zkprice723.py
+  #431 | 2026-10-29T10:04:59.845Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #432 | 2026-10-29T10:05:04.368Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_zetak.py run
+  #433 | 2026-10-29T10:05:29.912Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_zetak.py bank && python -X utf8 tools/standing/peek.py head data/b723_zetak.txt 6
+  #434 | 2026-10-29T10:05:52.234Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #435 | 2026-10-29T10:05:59.161Z | seat | Bash | git -C D:/relay add -- tools/b723_zetak.py data/b723_zetak.txt data/b723_steps.json data/b723_bank_hashes.json
+  #436 | 2026-10-29T10:06:02.835Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4 (i): H-ZETAK -- controls C1 (b709's two least eigenvalues reproduced) and C2 (chi by two routes) as wanted; zeta_
+  #437 | 2026-10-29T10:06:06.236Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" 23f54c746cb8ae3102d2e9b4eb3ab347e093c8db
+  #438 | 2026-10-29T10:06:47.440Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/price709.py
+  #439 | 2026-10-29T10:09:00.801Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && cd D:/relay && python -X utf8 -u t
+  #440 | 2026-10-29T10:09:26.924Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/b723_support.py
+  #441 | 2026-10-29T10:09:31.348Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4 (ii): H-SUPPORT's onset tool (b707's ladder, b709's fine grid, both unedited), committed after its C1 read as wan
+  #442 | 2026-10-29T10:09:34.867Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" 7f77844c0b068cf3cd047d31476ed45fbdec207d && python -X utf8 -u tools/b723_su
+  #443 | 2026-10-29T10:09:41.034Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off12
+  #444 | 2026-10-29T10:18:59.405Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off12
+  #445 | 2026-10-29T10:26:50.596Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py price off52 && python -X utf8 -u tools/b723_support.py price off27
+  #446 | 2026-10-29T10:27:02.386Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off52
+  #447 | 2026-10-29T10:27:38.718Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off27
+  #448 | 2026-10-29T10:36:50.524Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off27
+  #449 | 2026-10-29T10:45:55.590Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off27
+  #450 | 2026-10-29T10:55:18.167Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off27
+  #451 | 2026-10-29T11:04:25.462Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py run off27
+  #452 | 2026-10-29T11:11:25.931Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py bank
+  #453 | 2026-10-29T11:11:36.787Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py bank && python -X utf8 tools/standing/peek.py search "THE ONSET:|BEYOND REACH:" data/b723_support.txt --c
+  #454 | 2026-10-29T11:11:44.687Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/b723_support.py
+  #455 | 2026-10-29T11:11:49.098Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4 (ii): H-SUPPORT's onsets -- off12 a* 8.553 (+0.247), off27 a* 9.866 (+0.309), off52 beyond reach; the falsifier F
+  #456 | 2026-10-29T11:11:52.202Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" 1530d2f25225ba6e4d867f41b52e2c95f030a0c8
+  #457 | 2026-10-29T11:12:12.423Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "(?i)budget|hours|H-DIAL" data/b723_ferry.txt data/b723_ferry_addendum.txt --cut 400
+  #458 | 2026-10-29T11:12:31.950Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py bank && python -X utf8 -u tools/b723_zetak.py bank && git -C D:/relay diff --stat
+  #459 | 2026-10-29T11:12:58.729Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/b723_support.py
+  #460 | 2026-10-29T11:13:03.398Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4: the grade words corrected to (R333)(5)'s vocabulary -- H-SUPPORT REFUTED (was NOT HELD), H-ZETAK HELD; figures u
+  #461 | 2026-10-29T11:13:06.503Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" ac75a51cef5f00cab36e362ef1c7d548a8ebe8ee
+  #462 | 2026-10-29T11:13:34.298Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |obj ==|obj=='|'zeta'|'q0'" tools/b696_witness_balls.py --cut 200
+  #463 | 2026-10-29T11:14:09.380Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b723_dial_price.
+  #464 | 2026-10-29T11:14:14.533Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4 (iii): H-DIAL's build priced; not run this act, carried with its registration committed (relay 9ad26421); no F_c 
+  #465 | 2026-10-29T11:14:17.682Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" ca2c6a9d28430970762483880efaa00f170df9fe
+  #466 | 2026-10-29T11:14:23.280Z | seat | Bash | cd D:/relay && wc -l tools/standing/orders.py && python -X utf8 tools/standing/peek.py search "^def |^[A-Z_]+ = |DISCHARGED|ENTERED|CARRIED" tools/standing/orde
+  #467 | 2026-10-29T11:15:01.806Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/orderssnap723.py save C:/Users/ECH
+  #468 | 2026-10-29T11:16:16.756Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/orderssnap723.py diff C:/Users/ECH
+  #469 | 2026-10-29T11:16:41.945Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/orders.py control --bank && python -X utf8 tools/standing/peek.py search "### ### |AS WANTED|PRINTED BESIDE, NOT RE
+  #470 | 2026-10-29T11:16:47.436Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "### ### |-- AS WANTED|-- NOT AS WANTED|PRINTED BESIDE, NOT READ|W-ORD-E1-CFG  |W-ORD-ENTRY-TAG-PRIN
+  #471 | 2026-10-29T11:17:00.703Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "### ### |-- AS WANTED|-- NOT AS WANTED" --of "python -X utf8 tools/standing/orders.py control --at 
+  #472 | 2026-10-29T11:17:18.188Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "### ### |-- AS WANTED|-- NOT AS WANTED|^## BESIDE|-> |^### PLACE|written" --of "python -X utf8 tool
+  #473 | 2026-10-29T11:17:26.213Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "ENTRY-TAG|E1-CFG|142|CONFLICT|conflict" data/b723_orders_twenty.txt --cut 300
+  #474 | 2026-10-29T11:17:45.526Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/standing/orders
+  #475 | 2026-10-29T11:17:50.903Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 2, the author's ruling: orders.py reads an order's status from the latest line naming it with a status word (ENTERE
+  #476 | 2026-10-29T11:17:54.442Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 2" d9fbceb45e7eab4ca6f380a1a73be6f1c4c0aef4
+  #477 | 2026-10-29T12:10:14.747Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py
+  #478 | 2026-10-29T12:10:40.731Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_support.py bank
+  #479 | 2026-10-29T12:10:49.565Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/b723_support.py
+  #480 | 2026-10-29T12:10:54.103Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 4, the author's rulings (1)-(2): off52 printed beside the refutation (product > 4.3212), the five products against 
+  #481 | 2026-10-29T12:10:59.518Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 4" a8c4160e02e08ecd12fb422cddb0efcd769c1b76 && python -X utf8 C:/Users/ECHOCH~
+  #482 | 2026-10-29T12:11:22.133Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/orderssnap723.py diff C:/Users/ECH
+  #483 | 2026-10-29T12:11:35.949Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/locatorread723.py W-ORD-ENTRY-TAG-
+  #484 | 2026-10-29T12:12:02.413Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "### ### |-- AS WANTED|-- NOT AS WANTED|LOCATOR|moves under|-> |written" --of "python -X utf8 tools/
+  #485 | 2026-10-29T12:12:10.941Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py tools/standing/orders
+  #486 | 2026-10-29T12:12:16.107Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 2, the author's ruling (3): the locator reading tried -- E1-CFG CLOSED as wanted, ENTRY-TAG-PRINTS OPEN by default 
+  #487 | 2026-10-29T12:12:20.085Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 2" 5f61725ee6c7ff03dd78c84ed0a1ea8ca13603c6 && python -X utf8 tools/standing/p
+  #488 | 2026-10-29T12:12:42.656Z | seat | Bash | cd D:/relay && git ls-files data/b71[1-9]* data/b72[0-2]* --  > /dev/null; python -X utf8 tools/standing/peek.py search "n0|b\(n0\)|b\(n\)" --of "git -C D:/rela
+  #489 | 2026-10-29T12:12:47.119Z | seat | Bash | cd D:/relay && git grep -l -E "b\(n0\)|\bn0\b|n_0" -- "data/b711*" "data/b712*" "data/b713*" "data/b714*" "data/b715*" "data/b716*" "data/b717*" "data/b718*" "d
+  #490 | 2026-10-29T12:12:57.536Z | seat | Bash | cd D:/relay && git ls-files "data/b71[1-9]*coeff*" "data/b72[0-2]*coeff*" "data/b71[1-9]*walk*" "data/b72[0-2]*walk*" "data/b71[1-9]*c2*" "data/b72[0-2]*c2*"
+  #491 | 2026-10-29T12:13:01.290Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^## D|n0 =|b\(n0\)|^### rows|THE WALK|D = -" data/b711_coeffs.txt data/b713_coeffs.txt data/b717_co
+  #492 | 2026-10-29T12:13:15.030Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/coeffshape723.py data/b713_coeffs.
+  #493 | 2026-10-29T12:14:00.745Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^  [a-z_0-9]+:|^    -[0-9]+:|^      (n0|b|negatives|first|fac):" --of "python -X utf8 C:/Users/ECHO
+  #494 | 2026-10-29T12:15:26.764Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u t
+  #495 | 2026-10-29T12:15:47.290Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "(?i)prior.art" data/b723_ferry.txt data/b723_ferry_addendum.txt data/b722_c2_price.txt --cut 600
+  #496 | 2026-10-29T12:16:41.345Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_c2_check.py bank && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b8
+  #497 | 2026-10-29T12:16:53.162Z | seat | Bash | git -C D:/relay add -- tools/b723_c2_check.py data/b723_c2_check.txt data/b723_c2_closed_form.txt data/b723_hook_refusals.txt data/b723_steps.json data/b723_ban
+  #498 | 2026-10-29T12:16:56.639Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 5: the C2 closed form written as a derivation (four steps, consequences, genus-theory reason; not compiled), checke
+  #499 | 2026-10-29T12:16:59.970Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 5" cdc46c59a61f4d81a80061b441575e5fff5ad67b
+  #500 | 2026-10-29T13:19:03.096Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b723_author_words_preseal.txt 60
+  #501 | 2026-10-29T13:19:11.300Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py --of x
+  #502 | 2026-10-29T13:19:47.590Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/weed723.py
+  #503 | 2026-10-29T13:19:53.787Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #504 | 2026-10-29T13:20:13.979Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers add -- OPEN_TRAILS.md
+  #505 | 2026-10-29T13:20:17.209Z | seat | Bash | git -C D:/MY-DOwnloads/PLACE-papers commit -q -m "b723 Component 2's record, on the author's word (5): OPEN_TRAILS gains one dated line, W-ORD-E1-CFG CLOSED, it
+  #506 | 2026-10-29T13:20:20.156Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step pp "component 2" 70d9c0d0 && python -X utf8 tools/standing/orders.py control --at 70d9c0d0 --be
+  #507 | 2026-10-29T13:20:27.926Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "AS WANTED|FAIL|ORDERS 19|E1-CFG|ENTRY-TAG-PRINTS|^###" "C:/Users/echo chamber/.claude/projects/D--/
+  #508 | 2026-10-29T13:20:36.742Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/orders.py control --at 763ae914 --beside HEAD --bank --of x
+  #509 | 2026-10-29T13:20:42.298Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^### ###|NOT AS WANT" data/b723_orders.txt --cut 220
+  #510 | 2026-10-29T13:20:49.521Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b723_author_word
+  #511 | 2026-10-29T13:20:53.550Z | seat | Bash | git -C D:/relay add -- data/b723_author_words_preseal.txt data/b723_orders.txt data/b723_steps.json data/b723_bank_hashes.json
+  #512 | 2026-10-29T13:20:56.763Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 2's record: the author's word (5) banked; the orders reprinted after PLACE-papers 70d9c0d0 (W-ORD-E1-CFG CLOSED by 
+  #513 | 2026-10-29T13:20:59.618Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 2" 9c026ef7
+  #514 | 2026-10-29T13:21:05.433Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list data --glob "b722_a*"
+  #515 | 2026-10-29T13:21:13.369Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "axiom|frobenius|spinor|lv-conservation|\(4\)" data/b722_author_answers.txt --cut 400
+  #516 | 2026-10-29T13:21:17.683Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "axiom|AXIOM|frobenius|spinor|NOT FOUND|word \(4\)|lv-conservation" data/b723_ferry.txt --cut 900
+  #517 | 2026-10-29T13:21:23.545Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list data --glob "b72*_author_words*"
+  #518 | 2026-10-29T13:21:26.615Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list data --glob "b722_*word*"
+  #519 | 2026-10-29T13:21:31.603Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "\(10\)|author.s word \(4\)|axiom" data/b722_ferry.txt --cut 900
+  #520 | 2026-10-29T13:21:54.976Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^[A-Z_]+ = |argv|gh', 'api|workflow" tools/b721_rebuild.py --cut 200
+  #521 | 2026-10-29T13:22:15.670Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 C:/U
+  #522 | 2026-10-29T13:22:24.078Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^[A-Z_]+ = " tools/b718_pin.py --cut 160
+  #523 | 2026-10-29T13:22:31.964Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/axread723.py SIDE-kernel SIDE-frob
+  #524 | 2026-10-29T13:22:52.144Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |NOT FOUND|declared" tools/b722_axiom_diag.py --cut 200
+  #525 | 2026-10-29T13:24:14.334Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py plan
+  #526 | 2026-10-29T13:24:28.102Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #527 | 2026-10-29T13:24:41.544Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py lv
+  #528 | 2026-10-29T13:24:51.900Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py lv --of x && python -X utf8 tools/standing/peek.py search "sorry_lines|\"line\"" data/b723_axiom_rows.json --c
+  #529 | 2026-10-29T13:24:58.937Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py commit SIDE-archimedean
+  #530 | 2026-10-29T13:25:04.130Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py commit SIDE-rcurve
+  #531 | 2026-10-29T13:25:10.192Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py push SIDE-archimedean
+  #532 | 2026-10-29T13:25:18.394Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py push SIDE-rcurve
+  #533 | 2026-10-29T13:25:26.976Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-archimedean
+  #534 | 2026-10-29T13:25:39.807Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-rcurve
+  #535 | 2026-10-29T13:26:01.015Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/lvread723.py SIDELvConservation/T3
+  #536 | 2026-10-29T13:26:36.890Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py lv
+  #537 | 2026-10-29T13:26:43.054Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "T3doubleprime|T3prime_shared" data/b721_rebuild_rows.json --cut 300
+  #538 | 2026-10-29T13:27:02.804Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py read SIDE-archimedean 40881801296
+  #539 | 2026-10-29T13:27:15.447Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-archimedean=40881801296 SIDE-r
+  #540 | 2026-10-29T13:27:23.975Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "archive-3|ledger split|LEDGER SPLIT" data/b723_ferry.txt data/b722_ferry.txt data/b721_ferry.txt --
+  #541 | 2026-10-29T13:27:31.455Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list data --glob "*split*"
+  #542 | 2026-10-29T13:27:45.868Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "split_price" tools/b680_split.py tools/b680_components.py tools/ledger_split.py --cut 200
+  #543 | 2026-10-29T13:27:49.721Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py list tools --glob "b680*"
+  #544 | 2026-10-29T13:27:53.570Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "split_price" tools/b680_readings.py tools/b680_worklist.py tools/b680_citation.py tools/b680_rules_
+  #545 | 2026-10-29T13:28:11.402Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 C:/U
+  #546 | 2026-10-29T13:28:35.161Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py read SIDE-archimedean 40881801296
+  #547 | 2026-10-29T13:28:41.722Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py read SIDE-rcurve 40881833590
+  #548 | 2026-10-29T13:28:55.097Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "seal|closing|gate|lock|root" data/b722_steps.txt --cut 160
+  #549 | 2026-10-29T13:28:58.907Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "\"phase\": \"(component 8|gate|lock|seal|root|closing|record)\"|\"at\"" data/b722_steps.json --cut 
+  #550 | 2026-10-29T13:29:03.696Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^###|PRICE|hours|minutes" data/b680_split_price.txt --cut 400
+  #551 | 2026-10-29T13:29:43.286Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #552 | 2026-10-29T13:29:49.706Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b722_steps.json 16
+  #553 | 2026-10-29T13:29:53.797Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_split_price.py bank
+  #554 | 2026-10-29T13:30:06.854Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_split_price.py bank --of x && python -X utf8 tools/b723_axiom.py bank
+  #555 | 2026-10-29T13:30:21.907Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py bank --of x && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Loca
+  #556 | 2026-10-29T13:30:33.334Z | seat | Bash | git -C D:/relay add -- tools/b723_axiom.py tools/b723_split_price.py data/b723_axiom.txt data/b723_axiom_rows.json data/b723_split_price.txt data/b723_steps.jso
+  #557 | 2026-10-29T13:30:37.528Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 6: the axiom step at 3 of 6 pins (SIDE-archimedean and SIDE-rcurve repaired by b722's priced route and run, every t
+  #558 | 2026-10-29T13:30:41.201Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 6" f26236c9
+  #559 | 2026-10-29T13:36:11.017Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py && python -X utf8 tool
+  #560 | 2026-10-29T13:36:31.819Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "frobenius|Frobenius" data/b721_frozen_line.txt --cut 700
+  #561 | 2026-10-29T13:36:54.161Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wfread723.py SIDE-kernel main .git
+  #562 | 2026-10-29T13:37:05.572Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wfread723.py SIDE-kernel main .git
+  #563 | 2026-10-29T13:37:22.493Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wfread723.py SIDE-frobenius 2efe9f
+  #564 | 2026-10-29T13:39:05.335Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py plan
+  #565 | 2026-10-29T13:39:18.973Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #566 | 2026-10-29T13:39:31.005Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/memwait723.py
+  #567 | 2026-10-29T13:39:59.642Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "(?i)\bbad\b|\bgood\b" data/b723_c2_closed_form.txt --cut 200
+  #568 | 2026-10-29T13:40:10.105Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/bde68a30-a303-4bfc-a0eb-fd2e81af3fd2/tasks/bidh5ata1.
+  #569 | 2026-10-29T13:49:35.905Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/bde68a30-a303-4bfc-a0eb-fd2e81af3fd2/tasks/bidh5ata1.
+  #570 | 2026-10-29T13:49:44.130Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/memwait723.py
+  #571 | 2026-10-29T13:49:48.159Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py commit SIDE-spinor
+  #572 | 2026-10-29T13:49:55.613Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py commit SIDE-frobenius
+  #573 | 2026-10-29T13:52:04.028Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "HELD|MET" "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/bde68a30-a303-4bfc-a0eb-fd2e81af3fd2/tas
+  #574 | 2026-10-29T13:52:11.102Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py push SIDE-spinor
+  #575 | 2026-10-29T13:52:19.969Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py push SIDE-frobenius
+  #576 | 2026-10-29T13:52:29.159Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py dispatch SIDE-spinor
+  #577 | 2026-10-29T13:52:41.253Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py findrun SIDE-frobenius
+  #578 | 2026-10-29T13:52:48.174Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-spinor=40885978813 SIDE-froben
+  #579 | 2026-10-29T13:52:53.603Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #580 | 2026-10-29T13:53:36.543Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #581 | 2026-10-29T13:53:50.158Z | seat | Bash | git -C D:/SIDE-lv-conservation grep -n -w T3_perClass_to_combinations 93c27ec --
+  #582 | 2026-10-29T13:54:03.393Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py lv
+  #583 | 2026-10-29T13:54:36.379Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "argv|^  [a-z]+ " tools/b723_c2_check.py --cut 160
+  #584 | 2026-10-29T13:54:43.417Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py read SIDE-spinor 40885978813
+  #585 | 2026-10-29T13:54:50.816Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py read SIDE-frobenius 40885967139
+  #586 | 2026-10-29T13:55:00.558Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py bank && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/sc
+  #587 | 2026-10-29T13:55:20.893Z | seat | Bash | git -C D:/relay diff --stat -- data/b723_c2_check.txt data/b723_c2_closed_form.txt
+  #588 | 2026-10-29T13:55:25.196Z | seat | Bash | git -C D:/relay diff -U0 -- data/b723_c2_check.txt
+  #589 | 2026-10-29T13:55:31.895Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py bank --of x && python -X utf8 tools/standing/peek.py search "committed|### ###" data/b723_axiom.txt --cut 200 
+  #590 | 2026-10-29T13:55:42.243Z | seat | Bash | git -C D:/relay add -- tools/b723_axiom.py data/b723_axiom.txt data/b723_axiom_rows.json data/b723_c2_check.txt data/b723_c2_closed_form.txt data/b723_author_wo
+  #591 | 2026-10-29T13:55:47.111Z | seat | Bash | git -C D:/relay commit -q -m "b723 Component 6 on the author's word (6): the axiom step at 5 of 6 pins (SIDE-spinor nine names, the six SIDESpinorLeg dropped; S
+  #592 | 2026-10-29T13:55:51.873Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 6" 0e68a2d7
+  #593 | 2026-10-29T13:57:20.810Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/words723.py --of x && python -X ut
+  #594 | 2026-10-29T13:58:22.186Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 tool
+  #595 | 2026-10-29T13:58:33.473Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py kdraft --fourth
+  #596 | 2026-10-29T13:58:43.667Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py kcommit
+  #597 | 2026-10-29T13:58:56.882Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/kblob723.py && python -X utf8 C:/U
+  #598 | 2026-10-29T13:59:01.764Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py push SIDE-kernel
+  #599 | 2026-10-29T13:59:09.322Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py findrun SIDE-kernel
+  #600 | 2026-10-29T13:59:18.420Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wait723.py SIDE-kernel=40887008505
+  #601 | 2026-10-29T13:59:23.871Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py --help
+  #602 | 2026-10-29T13:59:35.086Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record
+  #603 | 2026-10-29T13:59:39.859Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record closeorder
+  #604 | 2026-10-29T13:59:46.563Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "PENDING|^C4_STMT|^C5_PP|^C5_RULE|^C7_RELAY|^INSTRUMENTS_FIRST|^REG_C3|^REG_WALK|^C2_|^C3_" tools/b7
+  #605 | 2026-10-29T14:00:42.479Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^#⟪|^def |^[A-Z_]+ = " tools/acts/b723.py --cut 150
+  #606 | 2026-10-29T14:02:11.565Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b723_*"
+  #607 | 2026-10-29T14:02:20.501Z | seat | PowerShell | Get-Date -Format "HH:mm:ss"; python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #608 | 2026-10-29T14:02:32.056Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b723_axiom.py read SIDE-kernel 40887008505
+  #609 | 2026-10-29T14:02:54.587Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_axiom.py bank
+  #610 | 2026-10-29T14:03:00.279Z | seat | Bash | cd D:/relay && python -X utf8 tools/b723_address_scan.py scan && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b
+  #611 | 2026-10-29T14:03:09.271Z | seat | Bash | git -C D:/relay status --short
+  #612 | 2026-10-29T14:03:13.335Z | seat | Bash | git -C D:/relay add -- data/b723_author_words_preseal.txt data/b723_axiom.txt data/b723_axiom_rows.json data/b723_bank_hashes.json data/b723_steps.json tools/b7
+  #613 | 2026-10-29T14:03:16.672Z | seat | Bash | git -C D:/relay commit -q -m 'b723 Component 6 under (R333)(7): the author`s word (7) banked verbatim; SIDE-kernel`s rebuild-b721 build-module.yml in four place
+  #614 | 2026-10-29T14:03:19.848Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/fold.py record step relay "component 6" f81abaf9caa59e57397bdaa5d93475a5e41a3d2c
+  #615 | 2026-10-29T14:03:24.767Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "#⟪|PENDING|^def |^[A-Z_0-9]+ = " D:/relay/tools/acts/b723.py --cut 150
+  #616 | 2026-10-29T14:03:33.657Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "argv|def route|elif a\[|if a\[0\]|== '" D:/relay/tools/standing/fold.py --cut 160
+  #617 | 2026-10-29T14:03:47.234Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render723.py
+  #618 | 2026-10-29T14:03:52.261Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search ">>>SLOT" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/
+  #619 | 2026-10-29T14:04:08.357Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py count D:/relay/tools/b723_worklist.py
+  #620 | 2026-10-29T14:04:18.388Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/steps723.py
+  #621 | 2026-10-29T14:05:18.497Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py tail data/b722_reproduce.txt 6 && python -X utf8 tools/standing/peek.py tail data/b723_reproduce_i76.txt 6 
+  #622 | 2026-10-29T14:05:33.126Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && git -C D:/relay log --format=%h -2
+  #623 | 2026-10-29T14:05:38.080Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/research/reproduce.py run --bank data/b723_reproduce
+  #624 | 2026-10-29T14:11:50.792Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py tail data/b723_reproduce.txt 2 && python -X utf8 tools/standing/peek.py search "DIFFERS  |NOT RUN  " data/b
+  #625 | 2026-10-29T14:12:06.655Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/feet723.py b723_registrations.txt 
+  #626 | 2026-10-29T14:12:50.724Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/tools --glob "b723_*"
+  #627 | 2026-10-29T14:12:59.991Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "text|path|file|render" data/b723_fold.txt --cut 260
+  #628 | 2026-10-29T14:15:03.966Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py list D:/relay/data --glob "b72[12]_rebuild*"; python -X utf8 D:/relay/tools/standing/peek.py search "G-RUNNER-REA
+  #629 | 2026-10-29T14:15:16.320Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/axrows723.py
+  #630 | 2026-10-29T14:17:12.443Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/corrj723.py
+  #631 | 2026-10-29T14:18:26.442Z | seat | Bash | git -C D:/SIDE-frobenius log --format="%h %an <%ae>" 2efe9f2..rebuild-b721 && git -C D:/SIDE-archimedean log --format="%h %an <%ae>" 8019d9d..rebuild-b721
+  #632 | 2026-10-29T14:18:54.428Z | seat | Bash | git -C D:/SIDE-kernel show rebuild-b721:.github/workflows/build-module.yml > /dev/null; python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.
+  #633 | 2026-10-29T14:18:59.892Z | seat | Bash | python -X utf8 D:/relay/tools/standing/peek.py search "hold_mb|secrets\.|TARGET:|push:" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-
+  #634 | 2026-10-29T14:19:49.040Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^##|^### THE|^C[0-9]|CONTROL" data/b723_zetak.txt data/b723_support.txt --cut 150
+  #635 | 2026-10-29T14:20:23.219Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b723_orders.txt 12 && python -X utf8 tools/standing/peek.py head data/standing_clauses_v9.txt 9 &
+  #636 | 2026-10-29T14:22:01.720Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render723.py && python -X utf8 too
+  #637 | 2026-10-29T14:22:10.890Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "SECTION checks|OVERRIDE|PENDING|DEAD" tools/acts/b723.py --cut 120
+  #638 | 2026-10-29T14:22:17.729Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "files=dict|c1=files_of|c1pp=files_of|reg=files_of|anc=dict|touch=|v7=|ferry=|errata|differs=" C:/Us
+  #639 | 2026-10-29T14:22:26.598Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head tools/standing/fold.py 60
+  #640 | 2026-10-29T14:22:31.180Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "def put|deepcopy|for name, desc, pred, plant|plant\(" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D
+  #641 | 2026-10-29T14:22:33.881Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "put|def run|POS|NEG" tools/standing/arms.py --cut 180
+  #642 | 2026-10-29T14:22:37.276Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def put|^put =|import .*put|def exercise|planted = |NEG|neg\b" C:/Users/ECHOCH~1/AppData/Local/Tem
+  #643 | 2026-10-29T14:22:52.629Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cfiles723.py
+  #644 | 2026-10-29T14:23:02.561Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cfiles723.py --skip && python -X u
+  #645 | 2026-10-29T14:23:13.621Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py tail C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/cfiles
+  #646 | 2026-10-29T14:23:23.281Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/feet723.py b723_zetak.txt b723_sup
+  #647 | 2026-10-29T14:23:32.383Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/repj723.py
+  #648 | 2026-10-29T14:24:41.612Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "builds and is not complete|^def _verdict|^def _mut|^def put|SLOT 6[0-3]⟫|SLOT 5[6-9]⟫" tools/standi
+  #649 | 2026-10-29T14:24:50.487Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^##|^### ###" data/b723_orders.txt --cut 260
+  #650 | 2026-10-29T14:25:43.529Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^TWENTY|^ORDERS|^B723_RUNS|^DATA_STANDING_V9|^RETIRED_COUNT|^STANDING_ADDED|^ACT_ARMS|^DIFFERS_LINE
+  #651 | 2026-10-29T14:26:54.349Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "sources\(|^ARMS = |^ARMS =|ARMS = \[|^PARTS|def _part_of" C:/Users/ECHOCH~1/AppData/Local/Temp/clau
+  #652 | 2026-10-29T14:27:11.431Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py
+  #653 | 2026-10-29T14:27:16.452Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armdev723.py act
+  #654 | 2026-10-29T14:27:26.253Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armdev723.py act
+  #655 | 2026-10-29T14:27:48.981Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^ACT_ARMS" tools/b722_worklist.py --cut 3000 && python -X utf8 tools/standing/peek.py search "^ACT_
+  #656 | 2026-10-29T14:28:01.152Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armdev723.py act
+  #657 | 2026-10-29T14:30:08.900Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "except Exception" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b8
+  #658 | 2026-10-29T14:30:19.514Z | seat | Bash | cd D:/relay && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/armdev723.py act
+  #659 | 2026-10-29T14:32:16.480Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/shift723.py
+  #660 | 2026-10-29T14:32:26.232Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "PRE = |^PRE\b|^PREV_ACT|^NEXT_ACT" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f
+  #661 | 2026-10-29T14:34:21.740Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u C
+  #662 | 2026-10-29T14:36:26.501Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "carry_banks=|cmdt=|first_delete_ts|'cmds'\] = |cmds=" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D
+  #663 | 2026-10-29T14:36:34.747Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b723_fold.txt 14 && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-
+  #664 | 2026-10-29T14:36:43.131Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "carry_banks'\]\.get\(n\) for n in" tools/standing/fold/checks.tpl --cut 300
+  #665 | 2026-10-29T14:36:55.942Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u C
+  #666 | 2026-10-29T14:43:30.042Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def kernels_untouched|^def axiom_claim|conv_bad=|conv_bad'\] =|^def ac_count|SCORES-BEFORE-SEAL" C
+  #667 | 2026-10-29T14:43:36.481Z | seat | Bash | cd D:/relay && git grep -n -e "def kernels_untouched" -e "def axiom_claim(" -e "kernels_untouched =" -e "axiom_claim =" -- tools
+  #668 | 2026-10-29T14:43:52.984Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "kernels_untouched|axiom_claim|^from |^import " C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7
+  #669 | 2026-10-29T14:43:56.047Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def kernels_untouched|^def axiom_claim" tools/b703_checks.py --cut 100
+  #670 | 2026-10-29T14:44:09.954Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u C
+  #671 | 2026-10-29T14:48:42.037Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "G-AXIOM-CLAIM |G-CONVERSION-ONE |CARRIED_FAILING =" data/b722_suite_postpush_standing-a.txt data/b7
+  #672 | 2026-10-29T14:48:45.364Z | seat | Bash | cd D:/relay && git grep -n -e "G-AXIOM-CLAIM  " -e "G-CONVERSION-ONE  " -- "data/b722_*.txt"
+  #673 | 2026-10-29T14:48:52.384Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "def conv|unicodedata|translate\(|maketrans|NFKC|\.replace\('`'" tools/b723_c2_check.py --cut 200
+  #674 | 2026-10-29T14:49:11.661Z | seat | Bash | cd D:/relay && git grep -n -e "^def conv(" -- tools/b652_record.py tools/b723_c2_check.py && python -X utf8 tools/standing/peek.py search "def conv_alone|'def '
+  #675 | 2026-10-29T14:49:33.685Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u C
+  #676 | 2026-10-29T14:55:40.374Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py && python -X utf8 -u C
+  #677 | 2026-10-29T14:58:37.847Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^#⟪SECTION (citation|closing|record|regspec|report|reg_gate)" tools/acts/b723.py --cut 80
+  #678 | 2026-10-29T14:58:50.402Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "SLOT closing" C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/
+  #679 | 2026-10-29T14:59:22.455Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^\(3\)|opening component|^\(11\)|^\(2\)|three acts running" data/b723_ferry.txt --cut 900
+  #680 | 2026-10-29T14:59:30.909Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^def |^    [a-z_]+\s+[a-z].*--|usage|^  python" tools/standing/orders.py --cut 220
+  #681 | 2026-10-29T15:06:26.360Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "OFFERED FOR RETIRE|ACTED THIS ACT|DISCHARGED BY READING|PRICED AND NAMED" data/b723_orders_twenty.t
+  #682 | 2026-10-29T15:06:52.925Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py head data/b722_defects.txt 14
+  #683 | 2026-10-29T15:07:10.257Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render723.py && python -X utf8 C:/
+  #684 | 2026-10-29T15:07:19.782Z | seat | Bash | cd D:/relay && python -X utf8 tools/standing/peek.py search "^#⟪SECTION record 1⟫|^#⟪SECTION regspec 1⟫" tools/acts/b723.py
+  #685 | 2026-10-29T15:09:38.110Z | seat | Bash | cd /d/relay/data && ls b723_* | tr '\n' ' '
+  #686 | 2026-10-29T15:10:02.788Z | seat | PowerShell | (Get-ChildItem D:\relay\data -Filter 'b723_*').Name -join ' '
+  #687 | 2026-10-29T15:10:09.878Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\feet723.py b723_standing_v130.txt b723_orders.txt
+  #688 | 2026-10-29T15:10:22.430Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\fkeys723.py
+  #689 | 2026-10-29T15:11:05.761Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\axrows723b.py
+  #690 | 2026-10-29T15:11:47.526Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\kattr723.py FROBENIUS_COPY FROBENIUS_TWO_LINES EF
+  #691 | 2026-10-29T15:14:14.291Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\kattr723.py C1_RELAY C1_PP C1_ADDR CITATION_BANK 
+  #692 | 2026-10-29T15:14:36.052Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py lines D:\relay\data\b723_orders.txt 2 5 --cut 400; python -X utf8 D:\relay\tools\standing\peek.py lines D:\relay\
+  #693 | 2026-10-29T15:19:07.452Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\secrepl723.py C:\Users\ECHOCH~1\AppData\Local\Tem
+  #694 | 2026-10-29T15:19:47.269Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\kattr723.py REBUILD_ROWS PIN_KERNELS LV_DIR PORT_
+  #695 | 2026-10-29T15:19:56.034Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\kattr723.py DATE
+  #696 | 2026-10-29T15:20:48.683Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\rbfiles723.py
+  #697 | 2026-10-29T15:21:32.386Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\secrepl723.py C:\Users\ECHOCH~1\AppData\Local\Tem
+  #698 | 2026-10-29T15:22:38.749Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\secrepl723.py C:\Users\ECHOCH~1\AppData\Local\Tem
+  #699 | 2026-10-29T15:22:50.289Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loadall723.py
+  #700 | 2026-10-29T15:23:07.663Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\kuse723.py C2_HALT C2_PRED C2_REG C2_SELECT C3_RE
+  #701 | 2026-10-29T15:23:18.335Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\loadall723.py
+  #702 | 2026-10-29T15:23:32.243Z | seat | PowerShell | python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py figs title author
+  #703 | 2026-10-29T15:23:41.410Z | seat | PowerShell | python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py entry n1 n2 n3 n5 report
+  #704 | 2026-10-29T15:25:50.402Z | seat | PowerShell | python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py report trail
+  #705 | 2026-10-29T15:26:06.692Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 C:\Users\ECHOCH~1\App
+  #706 | 2026-10-29T15:26:11.544Z | seat | PowerShell | python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\armdev723.py act
+  #707 | 2026-10-29T15:29:09.236Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\touchloc723.py 3
+  #708 | 2026-10-29T15:33:04.414Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\b723_repctl.py
+  #709 | 2026-10-29T15:33:50.027Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\scorerdbg723.py
+  #710 | 2026-10-29T15:35:06.410Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\scorerdbg723.py
+  #711 | 2026-10-29T15:35:24.517Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\b723_repctl.py
+  #712 | 2026-10-29T15:35:35.288Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 C:\Users\ECHOCH~1\Ap
+  #713 | 2026-10-29T15:35:40.900Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\b72
+  #714 | 2026-10-29T15:35:51.475Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py head D:\relay\data\b722_defects.txt 40
+  #715 | 2026-10-29T15:35:57.418Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^  python -X utf8 tools/<act>_record.py|^  python -X utf8 tools/\S+_record.py" --cut 220 D:\relay\tools\s
+  #716 | 2026-10-29T15:36:18.010Z | seat | PowerShell | git -C D:/relay log --format="%h %ad %s" --date=iso -- data/b723_repair_controls.txt data/b723_repair_controls.json; git -C D:/relay status --porcelain -- data/
+  #717 | 2026-10-29T15:36:54.140Z | seat | Bash | test -f /d/relay/data/b723_repair_controls.txt && git -C /d/relay ls-files --error-unmatch data/b723_repair_controls.txt; test ! -e /d/relay/data/b723_repair_co
+  #718 | 2026-10-29T15:37:01.525Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 C:\Users\ECHOCH~1\Ap
+  #719 | 2026-10-29T15:37:12.527Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record commands
+  #720 | 2026-10-29T15:37:26.832Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record reads
+  #721 | 2026-10-29T15:37:38.161Z | seat | PowerShell | (Get-ChildItem D:\relay\data -Filter 'b723_def*').Name -join ' '; (Get-ChildItem C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9
+  #722 | 2026-10-29T15:37:52.135Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\defnotes723.py 03:25 09:00
+  #723 | 2026-10-29T15:37:58.114Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\defnotes723.py 09:00 15:40
+  #724 | 2026-10-29T15:38:19.606Z | seat | PowerShell | git -C D:/relay grep -n -E "rm without an explicit absolute path|without an explicit absolute" -- data/b72*_defects.txt data/b71*_defects.txt; git -C D:/relay g
+  #725 | 2026-10-29T15:38:33.428Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\textwin723.py 14:31:00 14:52:00
+  #726 | 2026-10-29T15:39:00.746Z | seat | PowerShell | git -C D:/relay grep -n -E "\(ENV\)|ENV\)|timeout|absolute path" -- data/b721_defects.txt data/b722_defects.txt data/b720_defects.txt; git -C D:/relay grep -n -
+  #727 | 2026-10-29T15:39:05.537Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^COMPONENT 1" --cut 400 D:\relay\data\b723_ferry.txt; python -X utf8 D:\relay\tools\standing\peek.py sear
+  #728 | 2026-10-29T15:39:11.912Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "#284 |^ *284 " --cut 300 D:\relay\data\b723_commands.txt
+  #729 | 2026-10-29T15:40:11.840Z | seat | PowerShell | $s='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\textwin723.py'; python -X utf8 $s 04:10:00 04:13:00; python 
+  #730 | 2026-10-29T15:40:36.909Z | seat | PowerShell | $s='C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\textwin723.py'; python -X utf8 $s 13:56:00 13:56:10 6000; py
+  #731 | 2026-10-29T15:41:54.457Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 -u D:\relay\tools\st
+  #732 | 2026-10-29T15:42:01.277Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\recdry723.py
+  #733 | 2026-10-29T15:42:25.758Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^=== |REPEAT|repeat|^## |GRADE|HELD|REFUTED|Traceback|Error" --cut 260 "C:\Users\echo chamber\.claude\pro
+  #734 | 2026-10-29T15:42:36.651Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "three acts|running|opening component" --cut 500 "C:\Users\echo chamber\.claude\projects\D--\02c7cf38-4c6a
+  #735 | 2026-10-29T15:43:17.999Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\runs3dbg723.py
+  #736 | 2026-10-29T15:43:28.263Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\runs3dbg723.py
+  #737 | 2026-10-29T15:43:41.538Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 C:\Users\ECHOCH~1\Ap
+  #738 | 2026-10-29T15:43:53.692Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\b72
+  #739 | 2026-10-29T15:44:04.776Z | seat | PowerShell | Test-Path D:\relay\data\b723_registration_2026-10-29.txt; python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4
+  #740 | 2026-10-29T15:46:18.781Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py count "" D:\relay\data\b722_registration_2026-10-28.txt; python -X utf8 D:\relay\tools\standing\peek.py search "^
+  #741 | 2026-10-29T15:46:48.334Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\facefacts723.py
+  #742 | 2026-10-29T15:46:56.924Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\facefacts723.py
+  #743 | 2026-10-29T15:47:39.709Z | seat | PowerShell | python -X utf8 -u C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\deldbg723.py
+  #744 | 2026-10-29T15:50:00.573Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "port-b707" --cut 300 D:\relay\data\b723_ferry.txt
+  #745 | 2026-10-29T15:50:39.390Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 C:\Users\ECHOCH~1\Ap
+  #746 | 2026-10-29T15:53:02.227Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u C:\Users\ECHOCH~1\
+  #747 | 2026-10-29T16:00:16.719Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record closeorder
+  #748 | 2026-10-29T16:00:23.186Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u D:\relay\tools\sta
+  #749 | 2026-10-29T16:00:37.863Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record kernels
+  #750 | 2026-10-29T16:00:51.092Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "REBUILD_COMMITS|B723_RUNS" --cut 400 D:\relay\tools\b723_worklist.py
+  #751 | 2026-10-29T16:01:01.558Z | seat | PowerShell | python -X utf8 -u D:\relay\tools\standing\fold.py record guard
+  #752 | 2026-10-29T16:01:10.909Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\procs723.py; python -X utf8 -u C:\Users\ECHOCH~1\
+  #753 | 2026-10-29T16:06:04.287Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "ARMS RUN|carried|FAILS|PART " --cut 300 D:\relay\data\b722_arms_prerun.txt
+  #754 | 2026-10-29T16:06:17.900Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^### |^\(\d\) |^WORD|BEGIN" --cut 260 D:\relay\data\b723_author_words_preseal.txt
+  #755 | 2026-10-29T16:06:21.545Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^\(\d\) 20|^\(\d\) \d\d:|^\(\d\) " --cut 200 D:\relay\data\b723_author_words_preseal.txt
+  #756 | 2026-10-29T16:06:25.969Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^    \(\d\)|^  \(\d\)|^\(\d+\) [0-9T:Z-]+|^    [0-9]" --cut 220 D:\relay\data\b723_author_words_preseal.t
+  #757 | 2026-10-29T16:06:29.243Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^## \(\d\)" --cut 300 D:\relay\data\b723_author_words_preseal.txt
+  #758 | 2026-10-29T16:06:49.434Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py search "^SEALED|^UNSEALED|^REPORT_TOOL|^STANDING_COMMIT|^SESSION_ID|^ANCHOR" --cut 600 D:\relay\tools\b723_workli
+  #759 | 2026-10-29T16:07:00.688Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\sealed723.py
+  #760 | 2026-10-29T16:07:09.901Z | seat | PowerShell | git -C D:/relay status --porcelain --untracked-files=all -- tools/ data/; git -C D:/relay check-ignore -v tools/acts/b723.py; git -C D:/relay log --format="%h %
+  #761 | 2026-10-29T16:07:48.325Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\heads723.py
+  #762 | 2026-10-29T16:08:16.373Z | seat | PowerShell | git -C D:/relay diff --stat -- tools/b723_worklist.py tools/acts/b723.py data/b723_steps.json data/b723_bank_hashes.json data/b723_hook_refusals.txt; git -C D:/
+  #763 | 2026-10-29T16:08:22.984Z | seat | PowerShell | Get-ChildItem D:\relay\data\b723_reproduce.txt, D:\relay\data\b723_reproduce.json, D:\relay\data\b723_touch.txt, D:\relay\data\b723_support_units.jsonl, D:\rela
+  #764 | 2026-10-29T16:08:28.226Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py list D:\relay\data\b723_reproduce.txt D:\relay\data\b723_reproduce.json D:\relay\data\b723_touch.txt D:\relay\dat
+  #765 | 2026-10-29T16:08:31.954Z | seat | PowerShell | python -X utf8 D:\relay\tools\standing\peek.py list D:\relay\data --glob "b723_[rst][eocu]*"
+  #766 | 2026-10-29T16:08:39.476Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\mtimes723.py D:\relay\data\b723_reproduce.txt D:\
+  #767 | 2026-10-29T16:09:31.643Z | seat | PowerShell | python -X utf8 C:\Users\ECHOCH~1\AppData\Local\Temp\claude\D--\02c7cf38-4c6a-4f88-b813-a7e15e9b85b4\scratchpad\render723.py; python -X utf8 -u D:\relay\tools\st
+
+### ### **COMMANDS 767 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 42 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
