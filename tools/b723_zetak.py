@@ -219,13 +219,14 @@ def run(write):
     out()
     held = all(p for _f, p, _n, _r in verdicts)
     fired = any(n for _f, _p, n, _r in verdicts)
-    out('THE HYPOTHESIS (positive definite beyond its ball at both windows): %s' % ('HELD' if held else ('NOT HELD' if fired else 'UNDECIDED')))
+    out('THE HYPOTHESIS (positive definite beyond its ball at both windows; (R333)(5): HELD, REFUTED or NOT SCORABLE): %s' % (
+        'HELD' if held else ('REFUTED' if fired else 'NOT SCORABLE')))
     out('THE FALSIFIER (a least eigenvalue negative beyond its ball at either window): %s' % (
         'FIRED at %s' % [f for f, _p, n, _r in verdicts if n] if fired else 'NOT FIRED'))
     out()
     out('### ### **H-ZETAK: C1 %s ; C2 %s ; C3 %s ; rho0 %s ; band %s ; THE HYPOTHESIS %s ; %d s.**' % (
         'AS WANTED', 'AS WANTED', 'HOLDS' if c3 else 'DEFECT',
-        verdicts[0][3]['reading'], verdicts[1][3]['reading'], 'HELD' if held else ('NOT HELD' if fired else 'UNDECIDED'), int(time.time() - t_start)))
+        verdicts[0][3]['reading'], verdicts[1][3]['reading'], 'HELD' if held else ('REFUTED' if fired else 'NOT SCORABLE'), int(time.time() - t_start)))
     _write(write, L)
     return 0
 

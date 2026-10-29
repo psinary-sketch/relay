@@ -356,11 +356,11 @@ def bank(*a):
     L.append('')
     L.append('THE FALSIFIER (a computed family onset with |a*/a*_pred - 1| > 0.03): %s' % ('FIRED at %s' % fired if fired else ('NOT FIRED on %d zeros' % len(run_))))
     L.append('BEYOND REACH, NO ONSET COMPUTED (the falsifier as worded reads computed onsets only): %s' % (beyond or 'none'))
-    L.append('THE HYPOTHESIS: %s' % ('NOT HELD' if fired else ('HELD ON %d OF %d ZEROS' % (len(run_), len(Z)) if run_ else 'NOT RUN')))
+    L.append('THE HYPOTHESIS ((R333)(5): HELD, REFUTED or NOT SCORABLE): %s' % ('REFUTED' if fired else ('HELD' if run_ else 'NOT SCORABLE')))
     L.append('')
     L.append('### ### **H-SUPPORT: C1 %s ; ZEROS %d ; ONSETS COMPUTED %d ; WITHIN 0.03 %d ; BEYOND REACH %d ; FALSIFIER %s ; THE HYPOTHESIS %s.**' % (
         'AS WANTED' if _c1_ok(U) else 'NOT AS WANTED', len(Z), len(run_), sum(1 for d in run_ if abs(d) <= 0.03), len(beyond),
-        'FIRED' if fired else 'NOT FIRED', 'NOT HELD' if fired else 'HELD'))
+        'FIRED' if fired else 'NOT FIRED', 'REFUTED' if fired else ('HELD' if run_ else 'NOT SCORABLE')))
     p = os.path.join(D, 'b723_support.txt')
     with open(p + '.tmp', 'wb') as f:
         f.write((NL.join(L) + NL).encode('utf-8'))
