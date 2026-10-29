@@ -583,5 +583,240 @@
    "'SIDEFrobenius.ST_cubed' depends on axioms: [propext, Classical.choice, Quot.sound]"
   ],
   "verdict": "BUILDS"
+ },
+ {
+  "kind": "kdraft4_clear",
+  "text": "# build-module -- a hand-dispatched build of one ref, under (R263)(4).\n# Inputs: the ref to build and the lake target. Steps: checkout at the ref; elan from its official install script, the toolchain pinned by\n# lean-toolchain; lake exe cache get; a free-memory logger beside the build that stops lake if free memory falls beneath the 2,560 MB hold;\n# lake build of the target; a scratch file through lake env lean carrying #print axioms for every named terminal; the build log, the memory log\n# and the axioms output uploaded as the run's artifact. No secret is used; the platform's own token alone (read-only contents).\nname: build-module\n\non:\n  push: { branches: [rebuild-b721] }\n  workflow_dispatch:\n    inputs:\n      ref:\n        description: \"the commit SHA or branch to build\"\n        required: true\n      target:\n        description: \"the lake target to build\"\n        required: true\n\npermissions:\n  contents: read\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    timeout-minutes: 300\n    env:\n      HOLD_MB: \"2560\"\n      TARGET: Kernel Bridge MetaKernel\n    steps:\n      - name: Checkout at the ref\n        uses: actions/checkout@v4\n        with:\n          ref: ${{ inputs.ref }}\n\n      - name: Refuse a target outside the lake grammar\n        run: |\n          case \"$TARGET\" in\n            *[!A-Za-z0-9_.\\ ]*|\"\") echo \"target refused: $TARGET\"; exit 2 ;;\n          esac\n          mkdir -p out\n          git rev-parse HEAD > out/ref.txt\n          cat lean-toolchain >> out/ref.txt\n\n      - name: Install elan (official script; the toolchain from lean-toolchain)\n        run: |\n          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh\n          sh elan-init.sh -y --default-toolchain none\n          echo \"$HOME/.elan/bin\" >> \"$GITHUB_PATH\"\n\n      - name: Mathlib cache\n        run: lake exe cache get 2>&1 | tail -20 > out/cache.log\n\n      - name: Build under the hold\n        run: |\n          (\n            while true; do\n              avail=$(awk '/MemAvailable/ {print int($2/1024)}' /proc/meminfo)\n              echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail\" >> out/mem.log\n              if [ \"$avail\" -lt \"$HOLD_MB\" ]; then\n                echo \"STOP $(date -u +%Y-%m-%dT%H:%M:%SZ) avail_mb=$avail beneath the hold $HOLD_MB\" >> out/mem.log\n                pkill -f lake || true\n                pkill -f lean || true\n              fi\n              sleep 5\n            done\n          ) &\n          LOGGER=$!\n          set +e\n          lake build $TARGET > out/build.log 2>&1\n          echo \"$?\" > out/build_exit.txt\n          kill \"$LOGGER\" || true\n          awk -F'avail_mb=' '/avail_mb=/ {split($2,a,\" \"); if (min==\"\" || a[1]+0<min) min=a[1]+0} END {print \"LOW \" min}' out/mem.log >> out/mem.log\n          exit 0\n\n      - name: Axioms of the named terminals\n        if: always()\n        run: |\n          cat > out/Axioms.lean <<'EOF'\n          import Bridge.CartanBBridge\n          import Bridge.ConservationBridge\n          import Bridge.CrossClassExclusion\n          import Bridge.TheBridgeComplete\n          import Bridge.Voice3_FE\n          import Kernel.Cascade.SieveCeiling\n          import Kernel.Cascade.SieveCeilingBridge\n          import Kernel.Cascade.SieveCeilingSemantic\n          import Kernel.Cascade.SieveCeilingWitness\n          import Kernel.Core\n          import Kernel.Integration\n          import Kernel.Layer1\n          import Kernel.ProductFormula_Rat\n          import Kernel.SilenceTheorem\n          import Kernel.SpectralCannonFull\n          import Kernel.Voice1\n          import Kernel.Voice3b\n          import Kernel.Voice7\n          import MetaKernel\n          #print axioms ConservationBridge.conservation_activates_balance\n          #print axioms ConservationBridge.riemann_hypothesis\n          #print axioms ConservationBridge.structural_exhaustiveness_proved\n          #print axioms ConservationBridge.ConservationHypothesis\n          #print axioms SIDEKernel.formation\n          #print axioms techne_kernel.SIDE_exclusion\n          #print axioms SpectralCannonFull.spectral_cannon\n          #print axioms techne_kernel_voice1.balance_theorem\n          #print axioms SieveCeilingBridge.blind_sieve_ceiling\n          #print axioms bright_access_required\n          #print axioms c6_exclusion\n          #print axioms c7_exclusion\n          #print axioms ProductFormula.conservation_of_spectra\n          #print axioms SieveCeilingWitness.dh_witness\n          #print axioms e_difficulty\n          #print axioms CartanBridge.elliptic_regularity_collapse\n          #print axioms fe_symmetry\n          #print axioms CartanBridge.formation_n_3_eq_two\n          #print axioms CartanBridge.identity_theorem_unique_bridge\n          #print axioms none_produce\n          #print axioms CartanBridge.output_stage_card\n          #print axioms proof_dichotomy\n          #print axioms ProductFormula.s_darkness_from_product\n          #print axioms sieve_ceiling\n          #print axioms SieveCeilingSemantic.sieve_ceiling_semantic\n          #print axioms SilenceTheorem.silence_universal\n          #print axioms techne_kernel_cross_exclusion.all_pairs_excluded\n          #print axioms techne_kernel_integration.rh_from_structural_exhaustiveness\n          #print axioms techne_kernel_integration.structural_exhaustiveness_iff_rh\n          #print axioms techne_kernel_integration.voice3b_certificate\n          #print axioms techne_kernel_integration.voice7_certificate\n          #print axioms techne_kernel_voice3b.codim_off_line\n          #print axioms techne_kernel_voice3b.codim_on_line\n          #print axioms techne_kernel_voice3b.cr_forces_half\n          #print axioms techne_kernel_voice3b.cr_minimal_iff\n          #print axioms techne_kernel_voice3b.offLine_of_codim_two\n          #print axioms techne_kernel_voice3b.realConstraint_card\n          #print axioms techne_kernel_voice3b.reflect_fixed_iff\n          #print axioms techne_kernel_voice3b.zero_codimension\n          #print axioms techne_kernel_voice7.topological_constant\n          #print axioms techne_kernel_voice7.topological_no_sigma_preference\n          #print axioms ECondition.type_I_has_ostrowski\n          #print axioms voice7_sigma_neutral\n          EOF\n          if [ \"$(cat out/build_exit.txt)\" = \"0\" ] && ! grep -q '^STOP ' out/mem.log; then\n            lake env lean out/Axioms.lean > out/axioms.txt 2>&1 || true\n          else\n            echo \"NOT RUN: the build did not complete under the hold\" > out/axioms.txt\n          fi\n\n      - name: Upload the run's artifact\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: build-module-${{ github.run_id }}\n          path: out/\n          if-no-files-found: error\n",
+  "kernel": "SIDE-kernel",
+  "diff": [
+   "--- main:.github/workflows/build-module.yml",
+   "+++ rebuild-b721:.github/workflows/build-module.yml",
+   "@@ -8,0 +9 @@",
+   "+  push: { branches: [rebuild-b721] }",
+   "@@ -27 +28 @@",
+   "-      TARGET: ${{ inputs.target }}",
+   "+      TARGET: Kernel Bridge MetaKernel",
+   "@@ -78 +78,0 @@",
+   "-          import Bridge.CardDerived",
+   "@@ -84 +83,0 @@",
+   "-          import Kernel.Cascade.InvarianceBarrier",
+   "@@ -98 +96,0 @@",
+   "-          import Kernel.Voice7Witness",
+   "@@ -104,4 +101,0 @@",
+   "-          #print axioms InvarianceBarrier.Derives",
+   "-          #print axioms InvarianceBarrier.DeterminedBy",
+   "-          #print axioms InvarianceBarrier.derivability_barrier",
+   "-          #print axioms InvarianceBarrier.invariance_barrier",
+   "@@ -111,4 +104,0 @@",
+   "-          #print axioms Voice7Witness.hadObs_dark",
+   "-          #print axioms Voice7Witness.hadamard_does_not_enforce_online",
+   "-          #print axioms Voice7Witness.hadamard_does_not_enforce_online'",
+   "-          #print axioms Voice7Witness.hadamard_witness",
+   "@@ -127,2 +116,0 @@",
+   "-          #print axioms mechanism_class_card_derived",
+   "-          #print axioms mechanism_class_card_value",
+   "@@ -136 +123,0 @@",
+   "-          #print axioms substrate_value_injective"
+  ],
+  "places": [
+   "imports",
+   "target fixed",
+   "targets",
+   "trigger"
+  ],
+  "imports_cut": [
+   "Bridge.CardDerived",
+   "Kernel.Cascade.InvarianceBarrier",
+   "Kernel.Voice7Witness"
+  ],
+  "names_kept": 43,
+  "names_cut": [
+   [
+    "InvarianceBarrier.Derives",
+    null
+   ],
+   [
+    "InvarianceBarrier.DeterminedBy",
+    null
+   ],
+   [
+    "InvarianceBarrier.derivability_barrier",
+    null
+   ],
+   [
+    "InvarianceBarrier.invariance_barrier",
+    null
+   ],
+   [
+    "Voice7Witness.hadObs_dark",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_does_not_enforce_online",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_does_not_enforce_online'",
+    null
+   ],
+   [
+    "Voice7Witness.hadamard_witness",
+    null
+   ],
+   [
+    "mechanism_class_card_derived",
+    null
+   ],
+   [
+    "mechanism_class_card_value",
+    null
+   ],
+   [
+    "substrate_value_injective",
+    null
+   ]
+  ],
+  "empty_exit": 2,
+  "empty_out": "target refused:",
+  "control_exit": 0,
+  "why": "four places as the author`s word (7) rules",
+  "at": "2026-10-29T13:58:40Z"
+ },
+ {
+  "kind": "commit",
+  "kernel": "SIDE-kernel",
+  "sha": "c683fcd7f4074eb42baf45e4aa69cd7f7f3e021d",
+  "parent": "0e5233f011533d09e4799107394c216a915028a1",
+  "blob": "a9842176780cf73197d29ba498a0cfa281ed23e0",
+  "names": [],
+  "dropped": [],
+  "source": "main`s build-module.yml in four places (the author`s word (7))",
+  "at": "2026-10-29T13:58:46Z"
+ },
+ {
+  "kind": "push",
+  "kernel": "SIDE-kernel",
+  "sha": "c683fcd7f4074eb42baf45e4aa69cd7f7f3e021d",
+  "at": "2026-10-29T13:59:06Z",
+  "free_mb": 4749,
+  "remote_equal": true
+ },
+ {
+  "kind": "dispatch",
+  "kernel": "SIDE-kernel",
+  "sha": "c683fcd7f4074eb42baf45e4aa69cd7f7f3e021d",
+  "target": "Kernel Bridge MetaKernel",
+  "at": "2026-10-29T13:59:06Z",
+  "run": 40887008505,
+  "free_mb": 4592,
+  "via": "push"
+ },
+ {
+  "kind": "read",
+  "kernel": "SIDE-kernel",
+  "run": "40887008505",
+  "free_mb": 4881,
+  "status": "completed",
+  "conclusion": "success",
+  "created": "2026-10-29T13:59:08Z",
+  "updated": "2026-10-29T14:02:22Z",
+  "steps": [
+   [
+    "Set up job",
+    "success"
+   ],
+   [
+    "Checkout at the ref",
+    "success"
+   ],
+   [
+    "Refuse a target outside the lake grammar",
+    "success"
+   ],
+   [
+    "Install elan (official script; the toolchain from lean-toolchain)",
+    "success"
+   ],
+   [
+    "Mathlib cache",
+    "success"
+   ],
+   [
+    "Build under the hold",
+    "success"
+   ],
+   [
+    "Axioms of the named terminals",
+    "success"
+   ],
+   [
+    "Upload the run's artifact",
+    "success"
+   ],
+   [
+    "Post Checkout at the ref",
+    "success"
+   ],
+   [
+    "Complete job",
+    "success"
+   ]
+  ],
+  "ref": [
+   "c683fcd7f4074eb42baf45e4aa69cd7f7f3e021d",
+   "leanprover/lean4:v4.29.0-rc8"
+  ],
+  "build_exit": "0",
+  "mem_low_mb": "12939",
+  "stops": [],
+  "error_lines": [],
+  "log_lines": 150,
+  "sorry_warnings": 0,
+  "axioms_lines": [
+   "'ConservationBridge.conservation_activates_balance' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'ConservationBridge.structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'ConservationBridge.ConservationHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SIDEKernel.formation' does not depend on any axioms",
+   "'techne_kernel.SIDE_exclusion' does not depend on any axioms",
+   "'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice1.balance_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SieveCeilingBridge.blind_sieve_ceiling' does not depend on any axioms",
+   "'bright_access_required' does not depend on any axioms",
+   "'c6_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'c7_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'ProductFormula.conservation_of_spectra' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'SieveCeilingWitness.dh_witness' does not depend on any axioms",
+   "'e_difficulty' depends on axioms: [propext, Quot.sound]",
+   "'CartanBridge.elliptic_regularity_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'fe_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'CartanBridge.formation_n_3_eq_two' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'CartanBridge.identity_theorem_unique_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'none_produce' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'CartanBridge.output_stage_card' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'proof_dichotomy' does not depend on any axioms",
+   "'ProductFormula.s_darkness_from_product' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'sieve_ceiling' does not depend on any axioms",
+   "'SieveCeilingSemantic.sieve_ceiling_semantic' does not depend on any axioms",
+   "'SilenceTheorem.silence_universal' does not depend on any axioms",
+   "'techne_kernel_cross_exclusion.all_pairs_excluded' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_integration.rh_from_structural_exhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_integration.structural_exhaustiveness_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_integration.voice3b_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_integration.voice7_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.codim_off_line' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.codim_on_line' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.cr_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.cr_minimal_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.offLine_of_codim_two' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.realConstraint_card' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.reflect_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice3b.zero_codimension' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice7.topological_constant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'techne_kernel_voice7.topological_no_sigma_preference' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "'ECondition.type_I_has_ostrowski' depends on axioms: [propext, Quot.sound]",
+   "'voice7_sigma_neutral' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "verdict": "BUILDS"
  }
 ]

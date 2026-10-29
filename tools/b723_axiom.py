@@ -274,7 +274,63 @@ def findrun(k):
                     'via': 'push'})
 
 
-def kdraft():
+K_TARGET_OLD = '      TARGET: ${{ inputs.target }}'
+
+
+def _subtree(repo, rev_tree, add_name, add_line):
+    """### a tree's entries with one entry added (refused if the name exists), written by mktree; returns the new tree's sha."""
+    rows = [l for l in P.gs(repo, 'ls-tree', rev_tree).split(NL) if l.strip()]
+    if [l for l in rows if l.split('\t', 1)[1] == add_name]:
+        sys.exit('## %s exists in %s; nothing written' % (add_name, rev_tree))
+    rows.append(add_line)
+    rows.sort(key=lambda l: l.split('\t', 1)[1] + ('/' if ' tree ' in l else ''))
+    c, t, e = P.g(repo, 'mktree', inp=(NL.join(rows) + NL).encode('utf-8'))
+    assert c == 0, e
+    return t.strip()
+
+
+def kcommit():
+    """### the author's word (7): SIDE-kernel's rebuild-b721 gains .github/workflows/build-module.yml, main's file in the four places of
+    ### the kdraft4_clear row and nothing else, beside the pin's own build.yml; one plumbing commit on the pin; one ref moved."""
+    k = 'SIDE-kernel'
+    repo, f = 'D:/' + k, R.full(k)
+    d = [r for r in P.rows_load() if r.get('kind') == 'kdraft4_clear' and r['kernel'] == k]
+    if not d or [r for r in P.rows_load() if r.get('kind') == 'commit' and r['kernel'] == k]:
+        sys.exit('## %s: no clear four-place draft, or committed already; nothing written' % k)
+    tip = P.gs(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + BRANCH)
+    if tip != f:
+        sys.exit('## %s: the tip %s is not the pin %s; nothing written' % (k, tip[:12], f[:12]))
+    text = d[-1]['text']
+    b = P.blob(repo, text)
+    old_wf = P.gs(repo, 'rev-parse', f + ':.github/workflows')
+    old_gh = P.gs(repo, 'rev-parse', f + ':.github')
+    wf = _subtree(repo, old_wf, 'build-module.yml', '100644 blob %s\tbuild-module.yml' % b)
+    gh_rows = [l for l in P.gs(repo, 'ls-tree', old_gh).split(NL) if l.strip() and l.split('\t', 1)[1] != 'workflows']
+    gh_rows.append('040000 tree %s\tworkflows' % wf)
+    gh_rows.sort(key=lambda l: l.split('\t', 1)[1] + ('/' if ' tree ' in l else ''))
+    c, ght, e = P.g(repo, 'mktree', inp=(NL.join(gh_rows) + NL).encode('utf-8'))
+    assert c == 0, e
+    rows = [l for l in P.gs(repo, 'ls-tree', f).split(NL) if l.strip() and l.split('\t', 1)[1] != '.github'] + ['040000 tree %s\t.github' % ght.strip()]
+    rows.sort(key=lambda l: l.split('\t', 1)[1] + ('/' if ' tree ' in l else ''))
+    c, tree, e = P.g(repo, 'mktree', inp=(NL.join(rows) + NL).encode('utf-8'))
+    assert c == 0, e
+    msg = ('b723 under (R333)(7), the author`s word (7): %s, main`s file in four places (a push trigger on %s, the axiom step`s imports cut '
+           'to the pin`s modules, its #print list cut to terminals declared at the pin, TARGET fixed to %s), beside the pin`s build.yml; '
+           'nothing else' % (WF_PATH, BRANCH, R.target_at_pin(k)))
+    c, cm, e = P.g(repo, *(SEAT + ['commit-tree', tree.strip(), '-p', f, '-m', msg]))
+    assert c == 0, e
+    cm = cm.strip()
+    c, _o, e = P.g(repo, 'update-ref', 'refs/heads/' + BRANCH, cm, f)
+    assert c == 0, e
+    stat = P.g(repo, 'diff', '--stat', f, cm)[1].rstrip()
+    print('## %s : %s at %s, parent the pin %s, adding %s (blob %s) and nothing else; author and committer %s' % (
+        k, BRANCH, cm[:12], f[:12], WF_PATH, b[:12], P.gs(repo, 'log', '-1', '--format=%an <%ae> / %cn <%ce>', cm)))
+    print(stat)
+    P.rows_add({'kind': 'commit', 'kernel': k, 'sha': cm, 'parent': f, 'blob': b, 'names': [], 'dropped': [],
+                'source': 'main`s build-module.yml in four places (the author`s word (7))', 'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
+
+
+def kdraft(fourth=False):
     """### (6)(c): SIDE-kernel's workflow for rebuild-b721, main's build-module.yml changed in three places alone -- (1) a push trigger beside
     ### workflow_dispatch, (2) the axiom step's imports cut to the modules present at the pin, (3) its #print list cut to the terminals
     ### declared at the pin under the printed name -- formed in memory, the diff printed. Then the file's own refusal step read (bash on
@@ -306,12 +362,17 @@ def kdraft():
             if not ok:
                 continue
         out.append(l)
+    if fourth:                                         # ### the author's word (7): the fourth line, TARGET fixed to the pin's own target
+        assert out.count(K_TARGET_OLD) == 1, 'TARGET needle yield not 1'
+        out[out.index(K_TARGET_OLD)] = '      TARGET: %s' % R.target_at_pin(k)
     diff = [x for x in difflib.unified_diff(L, out, 'main:' + WF_PATH, BRANCH + ':' + WF_PATH, lineterm='', n=0)]
     places = set()
     for x in diff:
         if x.startswith(('---', '+++', '@@')):
             continue
-        if x.startswith('+  push:'):
+        if fourth and x in ('-' + K_TARGET_OLD, '+      TARGET: %s' % R.target_at_pin(k)):
+            places.add('target fixed')
+        elif x.startswith('+  push:'):
             places.add('trigger')
         elif re.match(r'^- {10}import ', x):
             places.add('imports')
@@ -330,22 +391,36 @@ def kdraft():
     case = NL.join(l[10:] for l in L[i + 2:i + 5])
     p = subprocess.run(['bash', '-c', "TARGET=''%s%s%secho PASSED" % (NL, case, NL)], capture_output=True, text=True)
     ctl = subprocess.run(['bash', '-c', "TARGET='%s'%s%s%secho PASSED" % (R.target_at_pin(k), NL, case, NL)], capture_output=True, text=True)
-    env_t = [l.strip() for l in L if l.strip().startswith('TARGET:')]
+    env_t = [l.strip() for l in out if l.strip().startswith('TARGET:')]
     print('   env %s ; the refusal step under the TARGET a push carries (empty): exit %d %s ; under the dispatch target %r (the control): '
           'exit %d %s' % (env_t, p.returncode, (p.stdout + p.stderr).strip(), R.target_at_pin(k), ctl.returncode, (ctl.stdout + ctl.stderr).strip()))
     other = [x for x in places if x.startswith('OTHER')]
-    halt = bool(other) or (p.returncode != 0 and ctl.returncode == 0)
-    why = ('the diff touches another place: %s' % other) if other else (
-        'the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits %d before elan, the cache '
-        'or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push '
-        'trigger) is the author`s to rule' % p.returncode) if halt else 'NOT HALTED'
+    want = {'trigger', 'imports', 'targets'} | ({'target fixed'} if fourth else set())
+    if fourth:                                         # ### on a push the fixed TARGET is the one the step reads: the control's case decides
+        halt = bool(other) or places != want or ctl.returncode != 0
+    else:
+        halt = bool(other) or (p.returncode != 0 and ctl.returncode == 0)
+    if fourth and not halt:
+        print('   CLEAR: four places, nothing else (%s); on a push the step reads TARGET %r, which the refusal step passes (exit %d)' % (
+            sorted(places), R.target_at_pin(k), ctl.returncode))
+    if other:
+        why = 'the diff touches another place: %s' % other
+    elif fourth:
+        why = 'four places as the author`s word (7) rules' if not halt else 'the four places not as ruled: %s' % sorted(places)
+    elif halt:
+        why = ('the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits %d before elan, '
+               'the cache or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs '
+               '(no push trigger) is the author`s to rule' % p.returncode)
+    else:
+        why = 'NOT HALTED'
     print('   %s' % (('HALTED: ' + why + '; nothing committed, pushed or run') if halt else why))
-    keep = [r for r in P.rows_load() if not r.get('kind', '').startswith('kdraft')]
-    if len(keep) != len(P.rows_load()):              # ### a draft, no kernel touched: the earlier draft row replaced
+    kind = ('kdraft4_halt' if halt else 'kdraft4_clear') if fourth else ('kdraft_halt' if halt else 'kdraft_clear')
+    keep = [r for r in P.rows_load() if r.get('kind') != kind]
+    if len(keep) != len(P.rows_load()):              # ### a draft, no kernel touched: the earlier draft row of its kind replaced
         io.open(ROWS + '.tmp', 'w', encoding='utf-8', newline='\n').write(json.dumps(keep, indent=1, ensure_ascii=False) + NL)
         os.replace(ROWS + '.tmp', ROWS)
-        print('   the earlier kdraft row replaced')
-    P.rows_add({'kind': 'kdraft_halt' if halt else 'kdraft_clear', 'kernel': k, 'diff': diff, 'places': sorted(places), 'imports_cut': cut_i,
+        print('   the earlier %s row replaced' % kind)
+    P.rows_add({'kind': kind, 'text': NL.join(out) if fourth and not halt else None, 'kernel': k, 'diff': diff, 'places': sorted(places), 'imports_cut': cut_i,
                 'names_kept': len(kept_n), 'names_cut': cut_n, 'empty_exit': p.returncode, 'empty_out': (p.stdout + p.stderr).strip(),
                 'control_exit': ctl.returncode, 'why': why, 'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())})
 
@@ -519,8 +594,23 @@ def bank():
                 out.append(line + ' ; NOT COMMITTED: %s' % ('READY, not run' if k in READY else WORD[k]))
             continue
         nn = len(cm[k]['names']) if cm[k].get('names') else len([x for x in rd.get(k, {}).get('axioms_lines', []) if x.startswith("'")])
-        out.append(line + ' ; committed %s over %s (print_targets.txt, blob %s, %d names: %s)' % (
-            cm[k]['sha'][:10], cm[k]['parent'][:10], cm[k]['blob'][:10], nn, cm[k].get('source', 'main`s blob verbatim')))
+        kd = [r for r in rs if r.get('kind', '').startswith('kdraft') and r['kernel'] == k]
+        if kd:
+            out.append(line)
+            for d in kd:
+                out.append('      %s (%s): places %s ; imports cut %d (%s) ; #print names kept %d, cut %d' % (
+                    d['kind'], 'the author`s word (6)(c)' if not d['kind'].startswith('kdraft4') else 'the author`s word (7), the fourth line',
+                    d['places'], len(d['imports_cut']), ', '.join(d['imports_cut']), d['names_kept'], len(d['names_cut'])))
+                if d is kd[-1]:
+                    out += ['      cut | %s (%s)' % (n, 'not declared at the pin' if w is None else w) for n, w in d['names_cut']]
+                    out += ['      diff | ' + x for x in d['diff']]
+                out.append('      the refusal step under the TARGET a push carries: exit %d "%s" ; under the dispatch target: exit %d ; %s' % (
+                    d['empty_exit'], d['empty_out'], d['control_exit'], d['why']))
+            out.append('      committed %s over the pin %s (.github/workflows/build-module.yml, blob %s: %s) ; the run push-triggered, rowed '
+                       'by findrun' % (cm[k]['sha'][:10], cm[k]['parent'][:10], cm[k]['blob'][:10], cm[k]['source']))
+        else:
+            out.append(line + ' ; committed %s over %s (print_targets.txt, blob %s, %d names: %s)' % (
+                cm[k]['sha'][:10], cm[k]['parent'][:10], cm[k]['blob'][:10], nn, cm[k].get('source', 'main`s blob verbatim')))
         if cm[k].get('names') and k not in VERBATIM:
             out.append('      names | ' + ' ; '.join(cm[k]['names']))
         for n, why in cm[k].get('dropped', []):
@@ -542,7 +632,7 @@ def bank():
         out += ['      ax | ' + l[:240] for l in r.get('axioms_lines', [])]
         if st and st[0][1] == 'success' and any('depends on axioms' in l or 'does not depend on any axioms' in l for l in r.get('axioms_lines', [])):
             done += 1
-    halted = [r['kernel'] for r in rs if r.get('kind') == 'kdraft_halt']
+    halted = [r['kernel'] for r in rs if r.get('kind') == 'kdraft_halt' and r['kernel'] not in rd]
     out += ['', '### ### **THE AXIOM STEP AT %d OF 6 PINS (%d REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; HALTED %d (%s) ; '
             'RUNS %d ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**' % (
                 done, done - 1, len(halted), ', '.join(halted) or 'none', len(di))]
@@ -567,7 +657,9 @@ if __name__ == '__main__':
     elif a[0] == 'findrun':
         findrun(a[1])
     elif a[0] == 'kdraft':
-        kdraft()
+        kdraft(fourth='--fourth' in a)
+    elif a[0] == 'kcommit':
+        kcommit()
     elif a[0] == 'lv':
         lv()
     elif a[0] == 'bank':

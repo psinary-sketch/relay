@@ -4,9 +4,12 @@ b723 -- (R333)(7): WAVE 1`S AXIOM STEP AT THE SIX PINS, STOPPABLE -- repaired on
 ### against the 2,560 MB hold (b718`s hold_or_exit); no main or tag touched; no lean or lake process on this host; the branch commits
 ### by git plumbing, author and committer the seat`s neutral identity (b723 axiom seat <b723-axiom@relay.invalid>).
 
-COMMITTED 4 ; PUSHED 4 ; DISPATCHED 4 (six at most) ; READ 4
+COMMITTED 5 ; PUSHED 5 ; DISPATCHED 5 (six at most) ; READ 5
 
-  SIDE-kernel           v1.5 = 0e5233f ; HALTED (the author`s word (6)(c)): the diff formed in memory, places ['imports', 'targets', 'trigger'] ; imports cut 3 (Bridge.CardDerived, Kernel.Cascade.InvarianceBarrier, Kernel.Voice7Witness) ; #print names kept 43, cut 11
+  SIDE-kernel           v1.5 = 0e5233f
+      kdraft_halt (the author`s word (6)(c)): places ['imports', 'targets', 'trigger'] ; imports cut 3 (Bridge.CardDerived, Kernel.Cascade.InvarianceBarrier, Kernel.Voice7Witness) ; #print names kept 43, cut 11
+      the refusal step under the TARGET a push carries: exit 2 "target refused:" ; under the dispatch target: exit 0 ; the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits 2 before elan, the cache or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push trigger) is the author`s to rule
+      kdraft4_clear (the author`s word (7), the fourth line): places ['imports', 'target fixed', 'targets', 'trigger'] ; imports cut 3 (Bridge.CardDerived, Kernel.Cascade.InvarianceBarrier, Kernel.Voice7Witness) ; #print names kept 43, cut 11
       cut | InvarianceBarrier.Derives (not declared at the pin)
       cut | InvarianceBarrier.DeterminedBy (not declared at the pin)
       cut | InvarianceBarrier.derivability_barrier (not declared at the pin)
@@ -22,6 +25,9 @@ COMMITTED 4 ; PUSHED 4 ; DISPATCHED 4 (six at most) ; READ 4
       diff | +++ rebuild-b721:.github/workflows/build-module.yml
       diff | @@ -8,0 +9 @@
       diff | +  push: { branches: [rebuild-b721] }
+      diff | @@ -27 +28 @@
+      diff | -      TARGET: ${{ inputs.target }}
+      diff | +      TARGET: Kernel Bridge MetaKernel
       diff | @@ -78 +78,0 @@
       diff | -          import Bridge.CardDerived
       diff | @@ -84 +83,0 @@
@@ -43,8 +49,53 @@ COMMITTED 4 ; PUSHED 4 ; DISPATCHED 4 (six at most) ; READ 4
       diff | -          #print axioms mechanism_class_card_value
       diff | @@ -136 +123,0 @@
       diff | -          #print axioms substrate_value_injective
-      the refusal step under the TARGET a push carries: exit 2 "target refused:" ; under the dispatch target: exit 0
-      the three places alone cannot build: on a push inputs.target is empty and the file`s own refusal step exits 2 before elan, the cache or lake; a fourth line (TARGET fixed, as b721`s frobenius second word) or a dispatch at the branch with its inputs (no push trigger) is the author`s to rule; nothing committed, pushed or run
+      the refusal step under the TARGET a push carries: exit 2 "target refused:" ; under the dispatch target: exit 0 ; four places as the author`s word (7) rules
+      committed c683fcd7f4 over the pin 0e5233f011 (.github/workflows/build-module.yml, blob a984217678: main`s build-module.yml in four places (the author`s word (7))) ; the run push-triggered, rowed by findrun
+      pushed c683fcd7f4 (host free 4749 MB, origin equal True)
+      run 40887008505 at 2026-10-29T13:59:06Z (target Kernel Bridge MetaKernel, host free 4592 MB): completed success ; build exit 0 ; sorry warnings 0 ; the axiom step success ; host free 4881 MB at the read
+      ax | 'ConservationBridge.conservation_activates_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'ConservationBridge.riemann_hypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'ConservationBridge.structural_exhaustiveness_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'ConservationBridge.ConservationHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SIDEKernel.formation' does not depend on any axioms
+      ax | 'techne_kernel.SIDE_exclusion' does not depend on any axioms
+      ax | 'SpectralCannonFull.spectral_cannon' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice1.balance_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SieveCeilingBridge.blind_sieve_ceiling' does not depend on any axioms
+      ax | 'bright_access_required' does not depend on any axioms
+      ax | 'c6_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'c7_exclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'ProductFormula.conservation_of_spectra' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'SieveCeilingWitness.dh_witness' does not depend on any axioms
+      ax | 'e_difficulty' depends on axioms: [propext, Quot.sound]
+      ax | 'CartanBridge.elliptic_regularity_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'fe_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'CartanBridge.formation_n_3_eq_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'CartanBridge.identity_theorem_unique_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'none_produce' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'CartanBridge.output_stage_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'proof_dichotomy' does not depend on any axioms
+      ax | 'ProductFormula.s_darkness_from_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'sieve_ceiling' does not depend on any axioms
+      ax | 'SieveCeilingSemantic.sieve_ceiling_semantic' does not depend on any axioms
+      ax | 'SilenceTheorem.silence_universal' does not depend on any axioms
+      ax | 'techne_kernel_cross_exclusion.all_pairs_excluded' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_integration.rh_from_structural_exhaustiveness' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_integration.structural_exhaustiveness_iff_rh' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_integration.voice3b_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_integration.voice7_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.codim_off_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.codim_on_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.cr_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.cr_minimal_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.offLine_of_codim_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.realConstraint_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.reflect_fixed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice3b.zero_codimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice7.topological_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'techne_kernel_voice7.topological_no_sigma_preference' depends on axioms: [propext, Classical.choice, Quot.sound]
+      ax | 'ECondition.type_I_has_ostrowski' depends on axioms: [propext, Quot.sound]
+      ax | 'voice7_sigma_neutral' depends on axioms: [propext, Classical.choice, Quot.sound]
   SIDE-lv-conservation  v0.10.0 = 93c27ec ; the step ran clean at b721 (run 40706311269, data/b721_rebuild.txt :17-:24), not re-dispatched
       SIDELvConservation/T3_StepNineBridge.lean :92, the statement:
       | theorem T3_perClass_to_combinations
@@ -109,4 +160,4 @@ COMMITTED 4 ; PUSHED 4 ; DISPATCHED 4 (six at most) ; READ 4
       ax | 'SIDERCurve.offline_zero_codim_two' does not depend on any axioms
       ax | 'SIDERCurve.second_zero_breaks_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
 
-### ### **THE AXIOM STEP AT 5 OF 6 PINS (4 REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; HALTED 1 (SIDE-kernel) ; RUNS 4 ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**
+### ### **THE AXIOM STEP AT 6 OF 6 PINS (5 REPAIRED AND RUN THIS ACT, SIDE-lv-conservation CLEAN AT b721) ; HALTED 0 (none) ; RUNS 5 ; THE lv SORRY`S DISCHARGE NOT AVAILABLE AS STATED ; NO MAIN OR TAG TOUCHED.**
