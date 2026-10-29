@@ -243,7 +243,7 @@ B714_ROOT = '0d26295f7b567e20fcf6c938b9e154fe6f1358cf7d9e401ac1f872b6b2182e20'  
 # ### later stages: the commits of the components, read from the logs after each was made
 C1_RELAY = None
 C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None
+WEIGHT_LINE, CORR_LINE = 11399, 11401   # ### FINDINGS: b722's weight line and the corrigendum for b722 (tools/b723_c1.py, Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_REG = None
