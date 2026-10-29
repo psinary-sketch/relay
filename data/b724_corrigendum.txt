@@ -1,0 +1,110 @@
+b724 -- THE CORRIGENDUM FOR b723, (R334)(1)-(2) (2026-10-29T21:57:52Z)
+
+### the banks read unedited: data/b723_events.txt rows (1)-(18), data/b723_defects.txt 39 rows, data/b723_hook_refusals.txt 14 lines at b8334f17; the noted lines at their repositories` HEAD; data/b724_standing_v140.txt (the v1.4.0 controls); the corrigenda bank`s last row (43).
+
+  *b723’s events bank (relay data/b723_events.txt) carries eighteen rows, entered after its lock and not lettered, each tagged in its own bracket (18 the seat’s); its defects bank thirty-nine lettered rows, (a)-(z) and (a’)-(m’), each tagged in its own bracket (38 the seat’s, 1 the navigator’s); its refusal bank fourteen lines at b723’s closing commit b8334f17, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The two score readings, ruled** (`(R334)`(1)): where a score’s reader and the suite disagree, the suite’s figure governs and the score is REFUTED BY THE SUITE, both readings beside it; b723’s two stand as printed, the ruling’s note beneath each. **Dated notes** (standing clauses v8 row (82): no line rewritten, a note beside each that reads wrong), each dated 2026-10-29:
+  
+  - **relay data/b723_closing.txt :276** (the closing’s event (15); written 2026-10-29T20:10:57Z at b8334f17; READS WRONG, noted 2026-10-29): "…ED-AFTER-COMPONENTS failing before [18] as at b722 (event (5) of b722)." -- the cause read wrong: G-SEALED-AFTER-COMPONENTS failed on relay 2be0135c, a commit of data/b723_bank_hashes.json and data/b723_steps.json alone, whose step row no commit can carry (and after the push on 14bf5ec5, the same kind), not on b722’s lock-phase class -- b723’s lock commit 85647a2f carried its `lock` row; read by replaying the arm over b723’s step bank and commits (relay data/b724_standing_v140.txt (iv), :51), repaired at v1.4.0 (iv).
+  - **relay data/b723_events.txt :78** (the events bank, row (15); written 2026-10-29T19:29:22Z at 49de42fe; READS WRONG, noted 2026-10-29): "…ED-AFTER-COMPONENTS failing before [18] as at b722 (event (5) of b722)." -- the cause read wrong: G-SEALED-AFTER-COMPONENTS failed on relay 2be0135c, a commit of data/b723_bank_hashes.json and data/b723_steps.json alone, whose step row no commit can carry (and after the push on 14bf5ec5, the same kind), not on b722’s lock-phase class -- b723’s lock commit 85647a2f carried its `lock` row; read by replaying the arm over b723’s step bank and commits (relay data/b724_standing_v140.txt (iv), :51), repaired at v1.4.0 (iv).
+  - **FINDINGS.md :11530** (the sealed entry; written 2026-10-29T18:20:13Z at 98211607; READS WRONG, noted 2026-10-29): "\*\*Next.\*\* b724 ((R333)(11)), the wave 1 act: the sign core’s paper drafted in paper mode, the front-door list assembled for the release sitting…" -- `(R334)` governs b724, the second checkpoint act; it names b725 the research act and b726 the wave 1 act (relay data/b724_ferry.txt :27, clause (10)); `(R333)`(11)’s wave 1 work is b726’s.
+  - **OPEN_TRAILS.md :16412** (the sealed trail; written 2026-10-29T19:29:31Z at 698fe441; READS WRONG, noted 2026-10-29): "\*\*Next:\*\* b724 ((R333)(11)), the wave 1 act: the sign core’s paper drafted in paper mode, the front-door list assembled for the release sitting…" -- `(R334)` governs b724, the second checkpoint act; it names b725 the research act and b726 the wave 1 act (relay data/b724_ferry.txt :27, clause (10)); `(R333)`(11)’s wave 1 work is b726’s.
+  - **relay data/b723_closing.txt :438** (the closing, CARRIED FORWARD (a); written 2026-10-29T20:10:57Z at b8334f17; READS WRONG, noted 2026-10-29): "…(a) ### \*\*THE NEXT ACT, (R333)(13)\*\*: b724 ((R333)(11)), the wave 1 act: the sign core’s paper drafted in paper mode, the front-door list assembled for the release sitting…" -- `(R334)` governs b724, the second checkpoint act; it names b725 the research act and b726 the wave 1 act (relay data/b724_ferry.txt :27, clause (10)); `(R333)`(11)’s wave 1 work is b726’s.
+  - **relay data/b723_closing.txt :152** (the closing’s N4; written 2026-10-29T20:10:57Z at b8334f17; REFUTED BY THE SUITE, noted 2026-10-29): "(N4) HELD -- the lock at 2026-10-29T16:44:53Z, its commit 85647a2f; the commits after it (relay) 2, touching the face, a tool or a bank tracked a…" -- `(R334)`(1): where a score’s reader and the suite disagree, the suite governs -- N4 is REFUTED BY THE SUITE: the score’s reading HELD (no bank after the root waits on it); the suite’s G-ACTROOT-LAST failing pre-push and post-push (relay data/b723_closing.txt :298, :300).
+  - **relay data/b723_closing.txt :155** (the closing’s S2; written 2026-10-29T20:10:57Z at b8334f17; REFUTED BY THE SUITE, noted 2026-10-29): "(S2) HELD -- the root recomputed equal, the one-byte control moving it, the root order holding locally [close]" -- `(R334)`(1): where a score’s reader and the suite disagree, the suite governs -- S2 is REFUTED BY THE SUITE: the score’s reading HELD (the root recomputed equal); the suite’s G-ACTROOT-VERIFY failing pre-push and post-push (relay data/b723_closing.txt :298, :300).
+  
+  **The repeat classes and the root route (`(R334)`(2)), at tools/standing/ v1.4.0, each with a control replaying the class’s last banked instance, failing on the route before the repair and passing after, both instances printed** (relay data/b724_standing_v140.txt, 17 cases, AS WANTED 17):
+  
+  **(i) Hook refusals of pipes and redirects** -- tools/standing/peek.py takes the three reads v1.3.0’s control left uncovered -- a tally, a JSON read, a read by byte offset -- each of b721’s :6 and :7 and b722’s :9 failing on v1.3.0’s reader and passing on v1.4.0’s, the hook allowing the call (:5).
+  
+  **(ii) Read calls with a limit and no offset on files of 200 lines or more** -- the hook refuses them (tools/standing/hook.py): b723’s (b’) offences replayed, each allowed by v1.3.0’s hook and refused by v1.4.0’s, the same calls with an offset allowed (:19).
+  
+  **(iii) Hand-kept name lists** -- CARRIED_FAILING read from the face’s declared line, not a template literal; a part run pre-push after the record commit refused, the post-push re-run to a file of its own (event (16)); the seal’s list read from the worklist (v1.3.0, b722’s event (12) replayed); `--prev` reading the previous worklist’s value only where it carries one in this act’s shape (b722’s events (8)-(10)) (:27).
+  
+  **(iv) The lock phase and the step recorder’s phases** -- the phases read from data/act_current.json, `lock` among them; G-SEALED-AFTER-COMPONENTS exempting a bookkeeping-only commit (the step bank, the hashes bank, the hook’s refusals), b723’s arm replayed over its commits (:46).
+  
+  **(v) Arms and routes reading retired banks or unwritten tool files** -- the templates read a tool’s text through the fold and run it through tools/standing/fold.py where no tools/<act>_<tool>.py exists, and G-READFIRST-DIFF-BANKED retired in the template: seventeen such reads in v1.3.0’s templates, none in v1.4.0’s (:56).
+  
+  **(vi) The chain phase above 450 s** -- b2a re-cut where b723’s banked first-parent walks halve, (b624-b631) and (b632-b658); b723’s b2a 575 s measured, the two cuts projected under 450 s from b723’s two timings (a fixed cost and a cost per walk), measured at this act’s suite (:80).
+  
+  **(vii) Suite parts run concurrently** -- the suite reads the host’s process table before a part starts and refuses while another part runs (b723’s event (13) replayed on its table) (:87).
+  
+  **(viii) The previous act’s window** -- the record tool’s window over the previous act ends at this act’s anchor -- a carry-time repair already in the template at v1.3.0, no v1.4.0 edit; its control replays the own-session form against it (:93).
+  
+  **(ix) The carry’s act-name substitution** -- tools/standing/carry.py refuses a carried form naming a module tools/ lacks where the source named one that exists, before it writes (b724’s (d), b723_llm_line, replayed) (:101).
+  
+  **(x) A fixed grade sentence before its check** -- tools/standing/repeat.py grade composes the sentence from the check’s result and refuses an unread check (b721’s (i) replayed) (:107).
+  
+  **The root route** (events (9), (10), (12), (17)): the root names committed blobs alone -- the fold’s templates declare their untracked writes again (b723’s root named data/b723_bank_hashes.json because the declaration lived only in the record template, which no act wrote out since v1.3.0), the hashes bank excluded from the set the root names (the lower price: no commit and no walk), no write after the root recorded in it, and the root’s reading taken again after its own writes; b723’s items replayed at f585420f read AGREE with the hashes bank excluded, DISAGREE with it named (:113). b723’s corrigendum row is written in b680’s form (relay data/act_roots.txt, the row beneath b723’s; data/b724_root_corrigendum.txt); verify over it still reads b723 DISAGREE, one bank, no committed blob carrying its recorded hash -- put to the author at b724’s root.
+  
+  **b723’s events (1)-(18):**
+  
+  **(1)** 16:27:01Z, Component 7, step [3] (relay data/b723_events.txt, row (1); the seat’s; CLOSE; NEW).
+  **(2)** about 16:43Z, at the gate, a ’tools/standing/peek.py search’ whose pattern carried quotes and a backslash broke on … (relay data/b723_events.txt, row (2); the seat’s; CLOSE; REPEAT of b723 (f’)).
+  **(3)** 16:56:52Z-17:06:27Z, AT THE PRE-RUN, part standing-b2a (relay data/b723_events.txt, row (3); the seat’s; CLOSE; NEW; repair (vi)).
+  **(4)** 17:22:01Z, AT THE PRE-RUN, the first combine call ’fold.py checks --prerun --combine’ given no bank name -- an … (relay data/b723_events.txt, row (4); the seat’s; CLOSE; REPEAT of b721 (6)).
+  **(5)** 16:45Z-17:22Z, AT THE PRE-RUN, seven parts and combined (data/b723\_arms\_prerun.txt) (relay data/b723_events.txt, row (5); the seat’s; CLOSE; REPEAT of b722 (4)).
+  **(6)** 17:22Z-17:53Z, AT THE RUNS ON b722’S BANKS, in seven parts (data/b723\_prevrun\_<part>.txt) (relay data/b723_events.txt, row (6); the seat’s; CLOSE; REPEAT of b722 (11)).
+  **(7)** 17:35Z-17:48Z, AT THE RUNS ON b722’S BANKS, part standing-b2a (relay data/b723_events.txt, row (7); the seat’s; CLOSE; NEW; repair (vi)).
+  **(8)** 18:14Z, AT THE ENTRY’S DRY RUN (relay data/b723_events.txt, row (8); the seat’s; CLAIM; NEW).
+  **(9)** 18:21:34Z, AT THE ROOT ([14]), in the root tool’s own words (relay data/b723_events.txt, row (9); the seat’s; CLAIM; NEW; the root route).
+  **(10)** 18:24:18Z, AT THE DESK ([16]) (relay data/b723_events.txt, row (10); the seat’s; CLAIM; REPEAT of b723 (9); the root route).
+  **(11)** 18:17:46Z and 18:24:25Z, at the root’s reading and at the desk, two Read calls with no limit (b722’s pre-root push … (relay data/b723_events.txt, row (11); the seat’s; CLOSE; REPEAT of b720; repair (ii)).
+  **(12)** 18:24:40Z-18:34Z, AT THE PRE-PUSH SUITE ([17]) (relay data/b723_events.txt, row (12); the seat’s; CLOSE; NEW; the root route).
+  **(13)** 18:24:42Z, 18:26:57Z, 18:34:36Z and 18:36:43Z, AT THE PRE-PUSH SUITE (relay data/b723_events.txt, row (13); the seat’s; CLOSE; NEW; repair (vii)).
+  **(14)** 18:34:34Z, part standing-b2a (relay data/b723_events.txt, row (14); the seat’s; CLOSE; REPEAT of b723 (3); repair (vi)).
+  **(15)** AT THE PRE-PUSH SUITE, beside the root’s arms, two arms failing beyond the face’s declared G-AXIOM-CLAIM (relay data/b723_events.txt, row (15); the seat’s; CLOSE; NEW; repair (iv), the dated notes above).
+  **(16)** 19:29Z, AT THE RECORD ([19]) (relay data/b723_events.txt, row (16); the seat’s; CLOSE; NEW; repair (iii), the post-push re-run’s own file).
+  **(17)** AT THE POST-PUSH SUITE, G-ACTROOT-BANKED failing where it passed before the push (relay data/b723_events.txt, row (17); the seat’s; CLAIM; REPEAT of b723 (9); the root route).
+  **(18)** after the post-push standing-b2b, the post-push standing-b2a run alone in the background (relay data/b723_events.txt, row (18); the seat’s; CLOSE; REPEAT of b723 (3); repair (vi)).
+  
+  **b723’s defects:**
+  
+  **(a)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (u); repair (i)).
+  **(b)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (e)).
+  **(c)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (c)).
+  **(d)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (v); repair (ix)).
+  **(e)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (n)).
+  **(h)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (d); repair (i)).
+  **(i)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b721 (n); repair (i)).
+  **(j)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (d); repair (i)).
+  **(k)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b720 (m)).
+  **(l)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (q); repair (i)).
+  **(o)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (o); repair (i)).
+  **(p)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (j); repair (i)).
+  **(q)** (relay data/b723_defects.txt; the seat’s; CLAIM; REPEAT of b711).
+  **(r)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (v)).
+  **(t)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (j); repair (i)).
+  **(u)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (o); repair (i)).
+  **(v)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (c’); repair (v)).
+  **(w)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (v); repair (v)).
+  **(x)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (q); repair (i)).
+  **(y)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (c’); repair (v)).
+  **(z)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(a’)** (relay data/b723_defects.txt; the seat’s; CLAIM; NEW).
+  **(b’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (y); repair (ii)).
+  **(c’)** (relay data/b723_defects.txt; the seat’s; CLAIM; REPEAT of b722 (w)).
+  **(d’)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(e’)** (relay data/b723_defects.txt; the navigator’s; CLOSE; REPEAT of b722 (b’)).
+  **(f’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (d); repair (i)).
+  **(g’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (c’); repair (iii)).
+  **(h’)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(i’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b719 (r)).
+  **(j’)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  **(k’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (j); repair (i)).
+  **(l’)** (relay data/b723_defects.txt; the seat’s; CLOSE; REPEAT of b722 (c’); repair (v)).
+  **(m’)** (relay data/b723_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b723’s refusals** (relay data/b723_hook_refusals.txt at b8334f17, one a line): :1 PIPE 03:42:23Z, recorded at defect (a); :2 PIPE 04:30:06Z, recorded at defect (h); :3 ENV 04:44:46Z, recorded at defect (i); :4 PIPE 07:18:22Z, recorded at defect (j); :5 PIPE 10:00:34Z, recorded at defect (n); :6 READ 10:02:51Z, recorded at defect (o); :7 REDIR 12:12:42Z, recorded at defect (p); :8 REDIR 14:18:54Z, recorded at defect (t); :9 READ 14:23:46Z, recorded at defect (u); :10 PIPE 15:09:38Z, recorded at defect (x); :11 PIPE 16:08:23Z, recorded at defect (f’); :12 REDIR 16:24:32Z, recorded at defect (k’); :13 READ 18:17:46Z, recorded at event (11); :14 READ 18:24:25Z, recorded at event (11).
+  
+  **The counter:** CLAIM 7, CLOSE 50 over the 57 items (eighteen events, thirty-nine defects), equal to b723’s closing’s (relay data/b723_closing.txt :5); REPEAT 37 of 57; the CLAIM items (8), (9), (10), (17), (q), (a’), (c’).
+  
+  *Filed at b724 on the author’s ruling `(R334)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b724.py) from b723’s events, defects and refusal banks read unedited, the lines noted read at their repositories’ HEAD, and the v1.4.0 controls bank; banked as relay `data/b724_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (44). It answers b723’s record; no sealed tool, face, trail or root-named bank of b723 is edited.*
+
+### ### **ITEMS 57: EVENTS 18, DEFECTS 39 ; CLAIM 7, CLOSE 50 ; REPEAT 37 ; DATED NOTES 7 ; v1.4.0: THE TEN REPEAT CLASSES AND THE ROOT ROUTE ; THE ENTRY AT FINDINGS :11536.**
