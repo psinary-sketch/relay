@@ -1,0 +1,102 @@
+b723 -- THE PRUNES OF THE CARRIED tools/b723_citation.py: the previous act`s routes over its own objects, removed at carry time (data/b709_rules.txt row (1)); rows are hunks.
+
+@@ -134,98 +134,0 @@ PRUNED (2026-10-29T03:38:15Z)
+-    # ### (R333)(1): b722 at its weight
+-    cl = lines_of(p('data', 'b722_closing.txt'))
+-    hq = _quote(text, '"b722 closed: relay 74dc741f', '; 27 defects"')
+-    add('ruling (1)', 'data/b722_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 27 defects' == at(cl, 1), at(cl, 1)[:120], '1')
+-    pub = _blob('D:/relay', '30c0b3c8', 'data/b722_closing.txt').replace(chr(13), '').split(NL)
+-    add('ruling (1)', 'the head line as the public relay carries it at 30c0b3c8', bool(pub) and pub[0] == at(cl, 1)
+-        and (_remote_heads('D:/relay').get('refs/heads/main') or '').startswith('30c0b3c8'), 'remote main %s' % (_remote_heads('D:/relay').get('refs/heads/main') or '')[:8], '1')
+-    add('ruling (1)', 'the counter CLAIM 5, CLOSE 37 (data/b722_closing.txt :5)', at(cl, 5).endswith('CLAIM 5, CLOSE 37'), at(cl, 5)[-30:], '1')
+-    cs = [l for l in cl if '112 OF 116' in l.upper() or '112 of 116' in l]
+-    add('ruling (1)', 'the suite 112 of 116 pre-push and post-push (data/b722_closing.txt)', len(cs) >= 2, '%d lines' % len(cs), '1')
+-    for arm in ('G-AXIOM-CLAIM', 'G-SEAL-HASHES', 'G-FINDINGS-ENTRY', 'G-ENTRY-TITLE-FORM'):
+-        fl = [l for l in lines_of(p('data', 'b722_checks_postpush.txt')) if arm in l and 'FAIL' in l]
+-        add('ruling (1)', '%s failing in the post-push suite (data/b722_checks_postpush.txt)' % arm, bool(fl), '%d lines' % len(fl), '1')
+-    add('ruling (1)', 'the entry at FINDINGS :11178', at(fi, 11178).startswith('## The C2 table’s rule chose no discriminant'), at(fi, 11178)[:60], '1')
+-    add('ruling (1)', 'the trail at OPEN_TRAILS :16264', at(ot, 16264).startswith('### b722 — lane two, act one hundred and forty-eight'), at(ot, 16264)[:60], '1')
+-    rg = lines_of(p('data', 'b722_registrations.txt'))
+-    for n, needle in ((50, 'THE OUTPUT: NONE'), (53, 'takes -24 (n0 36) and -88 (n0 484)'), (62, 'REGISTERED BLIND'), (63, 'H-C2-WALK'),
+-                      (83, 'THE PREDICTIONS BY RULE (4)'), (84, '-31 TAKEN'), (84, '-55 TAKEN'), (47, '-403 n0 17303'),
+-                      (27, 'THE USED SET'), (28, 'did not find -15, -23 and -39')):
+-        add('ruling (1), (2), (5)', 'data/b722_registrations.txt :%d: %s' % (n, needle), needle in at(rg, n), at(rg, n)[:80], '1')
+-    add('ruling (1)', 'H-C3-31 (n0 = 80) and H-C4-55 (n0 = 224) committed at e8c3dff4', all(s_ in _blob('D:/relay', 'e8c3dff4', 'data/b722_registrations.txt')
+-        for s_ in ('H-C3-31', 'H-C4-55')), 'the blob at e8c3dff4', '1')
+-    orr = lines_of(p('data', 'b722_offset_read.txt'))
+-    add('ruling (1)', 'H-OFFSET HELD 3, REFUTED 14 (data/b722_offset_read.txt :29-:34)', 'HELD 3, REFUTED 14' in at(orr, 30) and 'REFUTED 14' in at(orr, 34), at(orr, 30)[:80], '1')
+-    ti = rd(p('data', 'b722_offset_tier.txt')) or ''
+-    add('ruling (1)', 'the next tier 53 chosen, none formable, short by 6.0 (data/b722_offset_tier.txt)', '53' in ti and '6.0' in ti, 'the bank', '1')
+-    add('ruling (1)', 'the surgery carried (data/b722_surgery_carry.txt)', os.path.exists(p('data', 'b722_surgery_carry.txt')), 'present', '1')
+-    fz = lines_of(p('data', 'b722_frozen_line.txt'))
+-    add('ruling (1)', 'the frozen line EXCEEDS 7, 0, 7, 9 and STATED 2, 8, 3, 1 (data/b722_frozen_line.txt :282)', all(s_ in at(fz, 282) for s_ in (
+-        'SIDE-archimedean EXCEEDS 7, STATED 2', 'SIDE-frobenius EXCEEDS 0, STATED 8', 'SIDE-spinor EXCEEDS 7, STATED 3', 'SIDE-rcurve EXCEEDS 9, STATED 1')), at(fz, 282)[-80:], '1')
+-    rb = lines_of(p('data', 'b722_rebuild.txt'))
+-    add('ruling (1)', 'data/b722_rebuild.txt :12 and :54: 6 of 6 build, one with a sorry', 'BUILDS 6 OF 6' in at(rb, 12) and 'ONE WITH A SORRY: SIDE-lv-conservation' in at(rb, 54), at(rb, 12)[:60], '1')
+-    ax = [l for l in rb if 'axiom' in l.lower()]
+-    add('ruling (1)', 'the axiom prints read at 1 of 6 (data/b722_rebuild.txt)', bool(ax), '%d lines naming the axiom step' % len(ax), '1')
+-    ev = lines_of(p('data', 'b722_events.txt'))
+-    add('ruling (1)', 'event (9) at data/b722_events.txt :47', at(ev, 47).startswith('    (9) ') and 'N4 REFUTED' in at(ev, 47), at(ev, 47)[:60], '1')
+-    starts = [int(m.group(1)) for m in (re.match(r'^    \((\d+)\) ', l) for l in ev) if m]
+-    dl = lines_of(p('data', 'b722_defects.txt'))
+-    letters = [m.group(1) for m in (re.match(r"^    \(([a-z]'?)\) ", l) for l in dl) if m]
+-    add('ruling (2)', 'events (1)-(15) and the defects (data/b722_events.txt, data/b722_defects.txt)', starts == list(range(1, 16)) and len(letters) >= 27,
+-        'events %s ; letters %d' % (starts[-1:], len(letters)), '1')
+-    add('ferry (read first)', 'data/b722_defects.txt (h) and (u)', any(l.startswith('    (h) ') for l in dl) and any(l.startswith('    (u) ') for l in dl), 'both present', '0')
+-    # ### (R333)(2): the repairs' objects
+-    add('ruling (2)', 'tools/standing/ at v1.2.1 entering the act (tools/standing/VERSION)', at(lines_of(p('tools', 'standing', 'VERSION')), 1) == 'v1.2.1',
+-        at(lines_of(p('tools', 'standing', 'VERSION')), 1), '1')
+-    sh = _jl('b722_seal_hashes.json')
+-    add('ruling (2)(i)', 'the seal bank of b722 (data/b722_seal_hashes.json) holding 36 tools', len(sh.get('hashes') or sh.get('tools') or {}) == 36,
+-        'keys %s' % sorted(sh)[:6], '1')
+-    add('ruling (2)(iii)', 'the readfirst closure reader (tools/circuit_read.py readfirst) and b710`s reading 5', 'def readfirst' in (rd(p('tools', 'circuit_read.py')) or ''),
+-        'tools/circuit_read.py', '1')
+-    # ### (R333)(3)-(5): b711's route, the tools
+-    src = rd(p('tools', 'b711_coeffs.py')) or ''
+-    add('ruling (3)', 'b711`s route (tools/b711_coeffs.py) through the cut 32532 with its controls C1-C3', '32532' in src and bool(re.search(r'\bC1\b', src)) and bool(re.search(r'\bC3\b', src)),
+-        'C1 %s ; C2 %s ; C3 %s' % tuple(bool(re.search(r'\b%s\b' % c_, src)) for c_ in ('C1', 'C2', 'C3')), '2')
+-    add('ruling (5)', 'relay tools/e0_rule.py', os.path.exists(p('tools', 'e0_rule.py')), 'present', '4')
+-    # ### (R333)(6)-(7): the instruments
+-    ins = lines_of(os.path.join(PP, K.INSTRUMENTS))
+-    last = [i + 1 for i, l in enumerate(ins) if re.match(r'^## I-\d+ ', l)]
+-    add('ruling (6)', 'INSTRUMENTS.md`s last entry I-40 (b692) (PLACE-papers %s :486)' % K.INSTRUMENTS, bool(last) and at(ins, last[-1]).startswith('## I-40 ') and 'b692' in at(ins, last[-1]),
+-        at(ins, last[-1] if last else 0)[:60], '5')
+-    for t_ in ('b707_onset', 'b709_pairs', 'b711_list', 'b713_list', 'b717_list', 'b711_coeffs', 'b711_surgery', 'b713_predict', 'b718_classgroup', 'b718_abstract',
+-               'b718_decomp', 'b720_predict', 'b722_derivation', 'b722_rebuild', 'b722_frozen_line'):
+-        add('ruling (6)', 'the navigator`s expectation names tools/%s.py' % t_, os.path.exists(p('tools', t_ + '.py')), 'present' if os.path.exists(p('tools', t_ + '.py')) else 'ABSENT', '5')
+-    b618 = [l for l in lines_of(p('data', 'b618_append_INSTRUMENTS.md')) if l.startswith('## I-')]
+-    add('ruling (6)', 'b618`s form (data/b618_append_INSTRUMENTS.md)', bool(b618), '%d entries' % len(b618), '5')
+-    # ### (R333)(8): the propagation
+-    add('ruling (8)', 'data/standing_clauses_v7.txt present (v8 is v7 with one row)', os.path.exists(p('data', 'standing_clauses_v7.txt')), 'present', '6')
+-    cr = lines_of(p('data', 'b718_count_read.txt'))
+-    add('ruling (8)(ii)', 'data/b718_count_read.txt :19-:27', 'does not discharge T-COUNT' in at(cr, 19) and 'FINDINGS :8881' in at(cr, 27), at(cr, 27)[:60], '6')
+-    add('ruling (8)(ii)', 'FINDINGS :8881 naming T-COUNT as assumed', 'T-COUNT' in at(fi, 8881), at(fi, 8881)[:60], '6')
+-    add('ruling (8)(i)', 'the law`s value clause refuted at -40 (b720, data/b720_coeffs.txt)', 'REFUTED' in (rd(p('data', 'b720_coeffs.txt')) or ''), 'the bank', '6')
+-    # ### (R333)(10): the five runs
+-    rbj = ' '.join(rb)
+-    for k_, run_ in K.AXIOM_RUNS:
+-        add('ruling (10)', '%s run %d in data/b722_rebuild.txt' % (k_, run_), str(run_) in rbj, 'the bank', '7')
+-    add('ruling (10)', 'the step "Axioms of the named terminals"', 'Axioms of the named terminals' in rbj, 'the bank', '7')
+-    add('ruling (10)', 'SIDE-kernel`s run: the olean of Bridge.CardDerived reported missing', 'CardDerived' in rbj, 'the bank', '7')
+-    # ### (R333)(11): the carried files and branches
+-    for repo_, names_ in K.DELETE:
+-        mg = gr(repo_, 'branch', '--merged', 'main', '--list', 'push-b722-*').replace('*', '').split()
+-        add('ruling (11)', 'the push-b722-* branches of %s, --merged into main' % repo_.split('/')[-1], sorted(mg) == sorted(names_), ' '.join(mg) or 'NONE', '0')
+-    stc = gr('D:/relay', 'status', '--porcelain', '--', 'data/b722_relay_push-b722-closing_push_out.txt', 'data/b722_steps.json')
+-    add('ruling (11)', 'b722`s closing capture untracked and its step-42 row uncommitted', '?? data/b722_relay_push-b722-closing_push_out.txt' in stc
+-        and 'M data/b722_steps.json' in stc, stc.replace(NL, ' | '), '0')
+-    for repo_, br_ in K.KEPT_BRANCHES:
+-        add('ruling (11)', '%s kept on %s' % (br_, repo_.split('/')[-1]), bool(gr(repo_, 'rev-parse', '--verify', '--quiet', br_)), 'local', '0')
+-    for k_ in K.PIN_CARRIED:
+-        add('ruling (11)', 'pin-b718-de5ce8a9 as banked on %s' % k_, True, 'local %s' % bool(gr('D:/' + k_, 'rev-parse', '--verify', '--quiet', K.PIN_BRANCH)), '0')
+-    add('ruling (11)', 'tools/mirror_prevbuild.json', os.path.exists(p('tools', 'mirror_prevbuild.json')), 'present', '8')
+-    # ### (R333)(12): the monograph
+-    mono = lines_of(os.path.join(PP, 'day1', 'A_Place_to_Stand.md'))
+-    ag = [i + 1 for i, l in enumerate(mono) if l.startswith('#') and 'Appendix G' in l]
+-    add('ruling (12)', 'A_Place_to_Stand.md (PLACE-papers day1/) and its Appendix G', bool(ag), 'Appendix G at %s' % ag[:2], '7')
+-    # ### the ferry's read-first list
+-    add('ferry (read first)', 'data/b722_closing.txt :389-:430, the carried items', len(cl) >= 430 and at(cl, 389).startswith('### CARRIED FORWARD'),
+-        'the bank has %d lines; :389 %r; :%d-:430 beyond its end' % (len(cl), at(cl, 389)[:24], len(cl) + 1), '0')
+-    add('ferry (read first)', 'data/b722_derivation.txt', os.path.exists(p('data', 'b722_derivation.txt')), 'present', '0')
+-    add('ferry (read first)', 'data/b722_frozen_line.txt :271-:282', at(fz, 271).startswith('## THE TALLY'), at(fz, 271)[:30], '0')
+

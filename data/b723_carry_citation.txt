@@ -1,0 +1,221 @@
+b723 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b722_citation.py -> tools/b723_citation.py (2026-10-29T03:32:15Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b722 -> b723, b721 -> b722, R332 -> R333, R331 -> R332); 432 lines, 82 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b722_tool_repairs.txt AND data/b722_repairdiff_citation.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b722; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b722_citation.py
+  +++ tools/b723_citation.py
+  @@ -2,1 +2,1 @@
+  -"""b722_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b722's step zero, run before any other step
+  +"""b723_citation.py -- THE CITATION CHECK AS A GATE STEP (standing from b662, OPEN_TRAILS :14136), b723's step zero, run before any other step
+  @@ -6,6 +6,6 @@
+  -### act's (bde68a30, a new session after the clear; the anchor (R332)'s line); the answer route is b682's, imported from
+  -### tools/b682_citation.py with its act names pointed at b722, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  -### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b722_citation_check.txt
+  -### (.json) ; `ferry` -> data/b722_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  -### Carried by diff from b721_citation.py (data/b722_carry_citation.txt), b721's cite rows pruned (data/b722_prune_citation.txt) and this
+  -### ruling's written by the Edit tool; this tool writes only the banks named above. Its (R332)(1) row reads lv's release list by `gh` (the
+  +### act's (bde68a30, a new session after the clear; the anchor (R333)'s line); the answer route is b682's, imported from
+  +### tools/b682_citation.py with its act names pointed at b723, b706's repair carried (a bare eight-hex token a bank names as a sha256 or a
+  +### kernel's lakefile pins as a rev is not read as a commit); the `word` route is b694's. Routes: `check [dry]` -> data/b723_citation_check.txt
+  +### (.json) ; `ferry` -> data/b723_ferry_scan.txt ; `answer <needle>` / `word <needle>` -> the check on one answer.
+  +### Carried by diff from b722_citation.py (data/b723_carry_citation.txt), b722's cite rows pruned (data/b723_prune_citation.txt) and this
+  +### ruling's written by the Edit tool; this tool writes only the banks named above. Its (R333)(1) row reads lv's release list by `gh` (the
+  @@ -27,2 +27,2 @@
+  -import b722_worklist as K   # noqa: E402
+  -import act_membrane as MEM  # noqa: E402  ### (R332)(2)(ii): the membrane before every bank write of this tool
+  +import b723_worklist as K   # noqa: E402
+  +import act_membrane as MEM  # noqa: E402  ### (R333)(2)(ii): the membrane before every bank write of this tool
+  @@ -32,1 +32,1 @@
+  -    import b722_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  +    import b723_record as REC   # ### the record tool's exclusion pattern, the one the root route reads (imported at the call, nothing written)
+  @@ -132,1 +132,1 @@
+  -    # ### b722: the cite rows of (R332) and its ferry, written by the Edit tool after b721's rows were pruned (data/b722_prune_citation.txt)
+  +    # ### b723: the cite rows of (R333) and its ferry, written by the Edit tool after b722's rows were pruned (data/b723_prune_citation.txt)
+  @@ -134,5 +134,5 @@
+  -    # ### (R332)(1): b721 at its weight
+  -    cl = lines_of(p('data', 'b721_closing.txt'))
+  -    hq = _quote(text, '"b721 closed: relay 74dc741f', '; 27 defects"')
+  -    add('ruling (1)', 'data/b721_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 27 defects' == at(cl, 1), at(cl, 1)[:120], '1')
+  -    pub = _blob('D:/relay', '30c0b3c8', 'data/b721_closing.txt').replace(chr(13), '').split(NL)
+  +    # ### (R333)(1): b722 at its weight
+  +    cl = lines_of(p('data', 'b722_closing.txt'))
+  +    hq = _quote(text, '"b722 closed: relay 74dc741f', '; 27 defects"')
+  +    add('ruling (1)', 'data/b722_closing.txt :1, the head line as the ruling quotes it', bool(hq) and hq[1:] + '; 27 defects' == at(cl, 1), at(cl, 1)[:120], '1')
+  +    pub = _blob('D:/relay', '30c0b3c8', 'data/b722_closing.txt').replace(chr(13), '').split(NL)
+  @@ -141,1 +141,1 @@
+  -    add('ruling (1)', 'the counter CLAIM 5, CLOSE 37 (data/b721_closing.txt :5)', at(cl, 5).endswith('CLAIM 5, CLOSE 37'), at(cl, 5)[-30:], '1')
+  +    add('ruling (1)', 'the counter CLAIM 5, CLOSE 37 (data/b722_closing.txt :5)', at(cl, 5).endswith('CLAIM 5, CLOSE 37'), at(cl, 5)[-30:], '1')
+  @@ -143,1 +143,1 @@
+  -    add('ruling (1)', 'the suite 112 of 116 pre-push and post-push (data/b721_closing.txt)', len(cs) >= 2, '%d lines' % len(cs), '1')
+  +    add('ruling (1)', 'the suite 112 of 116 pre-push and post-push (data/b722_closing.txt)', len(cs) >= 2, '%d lines' % len(cs), '1')
+  @@ -145,2 +145,2 @@
+  -        fl = [l for l in lines_of(p('data', 'b721_checks_postpush.txt')) if arm in l and 'FAIL' in l]
+  -        add('ruling (1)', '%s failing in the post-push suite (data/b721_checks_postpush.txt)' % arm, bool(fl), '%d lines' % len(fl), '1')
+  +        fl = [l for l in lines_of(p('data', 'b722_checks_postpush.txt')) if arm in l and 'FAIL' in l]
+  +        add('ruling (1)', '%s failing in the post-push suite (data/b722_checks_postpush.txt)' % arm, bool(fl), '%d lines' % len(fl), '1')
+  @@ -148,2 +148,2 @@
+  -    add('ruling (1)', 'the trail at OPEN_TRAILS :16264', at(ot, 16264).startswith('### b721 — lane two, act one hundred and forty-eight'), at(ot, 16264)[:60], '1')
+  -    rg = lines_of(p('data', 'b721_registrations.txt'))
+  +    add('ruling (1)', 'the trail at OPEN_TRAILS :16264', at(ot, 16264).startswith('### b722 — lane two, act one hundred and forty-eight'), at(ot, 16264)[:60], '1')
+  +    rg = lines_of(p('data', 'b722_registrations.txt'))
+  @@ -153,2 +153,2 @@
+  -        add('ruling (1), (2), (5)', 'data/b721_registrations.txt :%d: %s' % (n, needle), needle in at(rg, n), at(rg, n)[:80], '1')
+  -    add('ruling (1)', 'H-C3-31 (n0 = 80) and H-C4-55 (n0 = 224) committed at e8c3dff4', all(s_ in _blob('D:/relay', 'e8c3dff4', 'data/b721_registrations.txt')
+  +        add('ruling (1), (2), (5)', 'data/b722_registrations.txt :%d: %s' % (n, needle), needle in at(rg, n), at(rg, n)[:80], '1')
+  +    add('ruling (1)', 'H-C3-31 (n0 = 80) and H-C4-55 (n0 = 224) committed at e8c3dff4', all(s_ in _blob('D:/relay', 'e8c3dff4', 'data/b722_registrations.txt')
+  @@ -156,7 +156,7 @@
+  -    orr = lines_of(p('data', 'b721_offset_read.txt'))
+  -    add('ruling (1)', 'H-OFFSET HELD 3, REFUTED 14 (data/b721_offset_read.txt :29-:34)', 'HELD 3, REFUTED 14' in at(orr, 30) and 'REFUTED 14' in at(orr, 34), at(orr, 30)[:80], '1')
+  -    ti = rd(p('data', 'b721_offset_tier.txt')) or ''
+  -    add('ruling (1)', 'the next tier 53 chosen, none formable, short by 6.0 (data/b721_offset_tier.txt)', '53' in ti and '6.0' in ti, 'the bank', '1')
+  -    add('ruling (1)', 'the surgery carried (data/b721_surgery_carry.txt)', os.path.exists(p('data', 'b721_surgery_carry.txt')), 'present', '1')
+  -    fz = lines_of(p('data', 'b721_frozen_line.txt'))
+  -    add('ruling (1)', 'the frozen line EXCEEDS 7, 0, 7, 9 and STATED 2, 8, 3, 1 (data/b721_frozen_line.txt :282)', all(s_ in at(fz, 282) for s_ in (
+  +    orr = lines_of(p('data', 'b722_offset_read.txt'))
+  +    add('ruling (1)', 'H-OFFSET HELD 3, REFUTED 14 (data/b722_offset_read.txt :29-:34)', 'HELD 3, REFUTED 14' in at(orr, 30) and 'REFUTED 14' in at(orr, 34), at(orr, 30)[:80], '1')
+  +    ti = rd(p('data', 'b722_offset_tier.txt')) or ''
+  +    add('ruling (1)', 'the next tier 53 chosen, none formable, short by 6.0 (data/b722_offset_tier.txt)', '53' in ti and '6.0' in ti, 'the bank', '1')
+  +    add('ruling (1)', 'the surgery carried (data/b722_surgery_carry.txt)', os.path.exists(p('data', 'b722_surgery_carry.txt')), 'present', '1')
+  +    fz = lines_of(p('data', 'b722_frozen_line.txt'))
+  +    add('ruling (1)', 'the frozen line EXCEEDS 7, 0, 7, 9 and STATED 2, 8, 3, 1 (data/b722_frozen_line.txt :282)', all(s_ in at(fz, 282) for s_ in (
+  @@ -164,2 +164,2 @@
+  -    rb = lines_of(p('data', 'b721_rebuild.txt'))
+  -    add('ruling (1)', 'data/b721_rebuild.txt :12 and :54: 6 of 6 build, one with a sorry', 'BUILDS 6 OF 6' in at(rb, 12) and 'ONE WITH A SORRY: SIDE-lv-conservation' in at(rb, 54), at(rb, 12)[:60], '1')
+  +    rb = lines_of(p('data', 'b722_rebuild.txt'))
+  +    add('ruling (1)', 'data/b722_rebuild.txt :12 and :54: 6 of 6 build, one with a sorry', 'BUILDS 6 OF 6' in at(rb, 12) and 'ONE WITH A SORRY: SIDE-lv-conservation' in at(rb, 54), at(rb, 12)[:60], '1')
+  @@ -167,3 +167,3 @@
+  -    add('ruling (1)', 'the axiom prints read at 1 of 6 (data/b721_rebuild.txt)', bool(ax), '%d lines naming the axiom step' % len(ax), '1')
+  -    ev = lines_of(p('data', 'b721_events.txt'))
+  -    add('ruling (1)', 'event (9) at data/b721_events.txt :47', at(ev, 47).startswith('    (9) ') and 'N4 REFUTED' in at(ev, 47), at(ev, 47)[:60], '1')
+  +    add('ruling (1)', 'the axiom prints read at 1 of 6 (data/b722_rebuild.txt)', bool(ax), '%d lines naming the axiom step' % len(ax), '1')
+  +    ev = lines_of(p('data', 'b722_events.txt'))
+  +    add('ruling (1)', 'event (9) at data/b722_events.txt :47', at(ev, 47).startswith('    (9) ') and 'N4 REFUTED' in at(ev, 47), at(ev, 47)[:60], '1')
+  @@ -171,1 +171,1 @@
+  -    dl = lines_of(p('data', 'b721_defects.txt'))
+  +    dl = lines_of(p('data', 'b722_defects.txt'))
+  @@ -173,1 +173,1 @@
+  -    add('ruling (2)', 'events (1)-(15) and the defects (data/b721_events.txt, data/b721_defects.txt)', starts == list(range(1, 16)) and len(letters) >= 27,
+  +    add('ruling (2)', 'events (1)-(15) and the defects (data/b722_events.txt, data/b722_defects.txt)', starts == list(range(1, 16)) and len(letters) >= 27,
+  @@ -175,2 +175,2 @@
+  -    add('ferry (read first)', 'data/b721_defects.txt (h) and (u)', any(l.startswith('    (h) ') for l in dl) and any(l.startswith('    (u) ') for l in dl), 'both present', '0')
+  -    # ### (R332)(2): the repairs' objects
+  +    add('ferry (read first)', 'data/b722_defects.txt (h) and (u)', any(l.startswith('    (h) ') for l in dl) and any(l.startswith('    (u) ') for l in dl), 'both present', '0')
+  +    # ### (R333)(2): the repairs' objects
+  @@ -179,2 +179,2 @@
+  -    sh = _jl('b721_seal_hashes.json')
+  -    add('ruling (2)(i)', 'the seal bank of b721 (data/b721_seal_hashes.json) holding 36 tools', len(sh.get('hashes') or sh.get('tools') or {}) == 36,
+  +    sh = _jl('b722_seal_hashes.json')
+  +    add('ruling (2)(i)', 'the seal bank of b722 (data/b722_seal_hashes.json) holding 36 tools', len(sh.get('hashes') or sh.get('tools') or {}) == 36,
+  @@ -184,1 +184,1 @@
+  -    # ### (R332)(3)-(5): b711's route, the tools
+  +    # ### (R333)(3)-(5): b711's route, the tools
+  @@ -189,1 +189,1 @@
+  -    # ### (R332)(6)-(7): the instruments
+  +    # ### (R333)(6)-(7): the instruments
+  @@ -195,1 +195,1 @@
+  -               'b718_decomp', 'b720_predict', 'b721_derivation', 'b721_rebuild', 'b721_frozen_line'):
+  +               'b718_decomp', 'b720_predict', 'b722_derivation', 'b722_rebuild', 'b722_frozen_line'):
+  @@ -199,1 +199,1 @@
+  -    # ### (R332)(8): the propagation
+  +    # ### (R333)(8): the propagation
+  @@ -205,1 +205,1 @@
+  -    # ### (R332)(10): the five runs
+  +    # ### (R333)(10): the five runs
+  @@ -208,1 +208,1 @@
+  -        add('ruling (10)', '%s run %d in data/b721_rebuild.txt' % (k_, run_), str(run_) in rbj, 'the bank', '7')
+  +        add('ruling (10)', '%s run %d in data/b722_rebuild.txt' % (k_, run_), str(run_) in rbj, 'the bank', '7')
+  @@ -211,1 +211,1 @@
+  -    # ### (R332)(11): the carried files and branches
+  +    # ### (R333)(11): the carried files and branches
+  @@ -213,5 +213,5 @@
+  -        mg = gr(repo_, 'branch', '--merged', 'main', '--list', 'push-b721-*').replace('*', '').split()
+  -        add('ruling (11)', 'the push-b721-* branches of %s, --merged into main' % repo_.split('/')[-1], sorted(mg) == sorted(names_), ' '.join(mg) or 'NONE', '0')
+  -    stc = gr('D:/relay', 'status', '--porcelain', '--', 'data/b721_relay_push-b721-closing_push_out.txt', 'data/b721_steps.json')
+  -    add('ruling (11)', 'b721`s closing capture untracked and its step-42 row uncommitted', '?? data/b721_relay_push-b721-closing_push_out.txt' in stc
+  -        and 'M data/b721_steps.json' in stc, stc.replace(NL, ' | '), '0')
+  +        mg = gr(repo_, 'branch', '--merged', 'main', '--list', 'push-b722-*').replace('*', '').split()
+  +        add('ruling (11)', 'the push-b722-* branches of %s, --merged into main' % repo_.split('/')[-1], sorted(mg) == sorted(names_), ' '.join(mg) or 'NONE', '0')
+  +    stc = gr('D:/relay', 'status', '--porcelain', '--', 'data/b722_relay_push-b722-closing_push_out.txt', 'data/b722_steps.json')
+  +    add('ruling (11)', 'b722`s closing capture untracked and its step-42 row uncommitted', '?? data/b722_relay_push-b722-closing_push_out.txt' in stc
+  +        and 'M data/b722_steps.json' in stc, stc.replace(NL, ' | '), '0')
+  @@ -223,1 +223,1 @@
+  -    # ### (R332)(12): the monograph
+  +    # ### (R333)(12): the monograph
+  @@ -228,1 +228,1 @@
+  -    add('ferry (read first)', 'data/b721_closing.txt :389-:430, the carried items', len(cl) >= 430 and at(cl, 389).startswith('### CARRIED FORWARD'),
+  +    add('ferry (read first)', 'data/b722_closing.txt :389-:430, the carried items', len(cl) >= 430 and at(cl, 389).startswith('### CARRIED FORWARD'),
+  @@ -230,2 +230,2 @@
+  -    add('ferry (read first)', 'data/b721_derivation.txt', os.path.exists(p('data', 'b721_derivation.txt')), 'present', '0')
+  -    add('ferry (read first)', 'data/b721_frozen_line.txt :271-:282', at(fz, 271).startswith('## THE TALLY'), at(fz, 271)[:30], '0')
+  +    add('ferry (read first)', 'data/b722_derivation.txt', os.path.exists(p('data', 'b722_derivation.txt')), 'present', '0')
+  +    add('ferry (read first)', 'data/b722_frozen_line.txt :271-:282', at(fz, 271).startswith('## THE TALLY'), at(fz, 271)[:30], '0')
+  @@ -246,2 +246,2 @@
+  -    act writes at step zero (v2, (R332)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  -    import b718_standing as SC   # ### b722 carry-time repair: the shift named b721_standing, which does not exist; b721 imported b718's
+  +    act writes at step zero (v2, (R333)(2)) read as TO BE WRITTEN when absent and from the bank when present."""
+  +    import b718_standing as SC   # ### b723 carry-time repair: the shift named b722_standing, which does not exist; b722 imported b718's
+  @@ -249,2 +249,2 @@
+  -    # ### b722 carry-time repair: the ferry names its versions as "data/standing_clauses_v7.txt" and "standing clause v8"; the needle widened
+  -    # ### to both wordings (the bare form fell to v1, whose control the shift named b721_standing_control.json, a bank that does not exist)
+  +    # ### b723 carry-time repair: the ferry names its versions as "data/standing_clauses_v7.txt" and "standing clause v8"; the needle widened
+  +    # ### to both wordings (the bare form fell to v1, whose control the shift named b722_standing_control.json, a bank that does not exist)
+  @@ -257,1 +257,1 @@
+  -            ctl = _jl('b721_standing_control.json')
+  +            ctl = _jl('b722_standing_control.json')
+  @@ -261,1 +261,1 @@
+  -            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at Component 6 ((R332)(8))' % (v, v), True, 'absent, as ordered', '0')
+  +            add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- TO BE WRITTEN at Component 6 ((R333)(8))' % (v, v), True, 'absent, as ordered', '0')
+  @@ -267,4 +267,4 @@
+  -    for n_ in ('b722_citation_check.txt', 'b722_citation_check.json'):
+  -        MEM.guard('b722', n_, _root_exclude())
+  -    for name, data in (('b722_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  -                       ('b722_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  +    for n_ in ('b723_citation_check.txt', 'b723_citation_check.json'):
+  +        MEM.guard('b723', n_, _root_exclude())
+  +    for name, data in (('b723_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
+  +                       ('b723_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+  @@ -282,1 +282,1 @@
+  -    L = ['b722 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  +    L = ['b723 -- THE CITATION CHECK, A GATE STEP AT STEP ZERO, BEFORE ANY OTHER STEP (standing from b662; the ferry`s Component 0) (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+  @@ -298,1 +298,1 @@
+  -    """the ferry is banked by the Write tool (data/b722_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  +    """the ferry is banked by the Write tool (data/b723_ferry.txt); this route compares it with the transcript's text and runs the scan."""
+  @@ -300,1 +300,1 @@
+  -    q = os.path.join(D, 'b722_ferry.txt')
+  +    q = os.path.join(D, 'b723_ferry.txt')
+  @@ -303,2 +303,2 @@
+  -    s = os.path.join(D, 'b722_ferry_scan.txt')
+  -    MEM.guard('b722', 'b722_ferry_scan.txt', _root_exclude())
+  +    s = os.path.join(D, 'b723_ferry_scan.txt')
+  +    MEM.guard('b723', 'b723_ferry_scan.txt', _root_exclude())
+  @@ -309,1 +309,1 @@
+  -    print('  b722_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  +    print('  b723_ferry.txt %d characters ; the transcript`s text %d characters ; equal %s ; ferry_scan exit %d' % (
+  @@ -341,1 +341,1 @@
+  -    """(R278)(4): b682's route, imported, with its act names pointed at b722, and b706's repair carried."""
+  +    """(R278)(4): b682's route, imported, with its act names pointed at b723, and b706's repair carried."""
+  @@ -350,1 +350,1 @@
+  -    P.after_root = lambda: bool(act_root_line('b722'))
+  +    P.after_root = lambda: bool(act_root_line('b723'))
+  @@ -368,3 +368,3 @@
+  -    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b722')
+  -    # ### (R332)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  -    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b721's answers read 468 characters. The cut now ends at the answer's
+  +    body = src[src.index('def answer(needle, *a):'):src.index("if __name__ == '__main__':")].replace('b682', 'b723')
+  +    # ### (R333)(2), the item repair: THE WHOLE ANSWER. b682's cut ends at the first "END" after the needle (`best.find('END', k)`, :221), which a
+  +    # ### word carrying END (AMENDMENT, APPENDED, RECOMMENDED) ends inside: b722's answers read 468 characters. The cut now ends at the answer's
+  @@ -375,1 +375,1 @@
+  -    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b722', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  +    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('b723', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+  @@ -378,1 +378,1 @@
+  -    exec(compile(body, 'b682_citation.answer (b722)', 'exec'), ns)
+  +    exec(compile(body, 'b682_citation.answer (b723)', 'exec'), ns)
+  @@ -429,1 +429,1 @@
+  -        print('usage: b722_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+  +        print('usage: b723_citation.py check [dry] | ferry | answer <needle> | word <needle> | replay <needle> <session id> <anchor>')
+
+### ### **CARRIED tools/b723_citation.py ; LINES 432 ; CHANGED BY THE SUBSTITUTION 82 ; REPAIR SPANS AT b722 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
