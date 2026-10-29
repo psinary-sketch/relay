@@ -58,6 +58,11 @@ BANKED = dict(rho0=dict(g0=O7.RHO0_IM, onset='mid929_937', a='6.838396011', lo='
               band=dict(g0=O7.BAND_IM, onset='rung32381', a='10.38532711', lo='128', hi='192'))
 
 
+def R_K():
+    import b723_support_rule as R
+    return R.K
+
+
 def utc():
     return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
@@ -356,7 +361,28 @@ def bank(*a):
     L.append('')
     L.append('THE FALSIFIER (a computed family onset with |a*/a*_pred - 1| > 0.03): %s' % ('FIRED at %s' % fired if fired else ('NOT FIRED on %d zeros' % len(run_))))
     L.append('BEYOND REACH, NO ONSET COMPUTED (the falsifier as worded reads computed onsets only): %s' % (beyond or 'none'))
+    top = 2 * math.log(192)
+    for n in beyond:
+        b_ = Z[n][0] - 0.5
+        L.append('  %s, BY THE AUTHOR`S RULING (1) (data/b723_author_words_preseal.txt (4)): positive to 2 log 192, so its product (beta - 1/2) a* exceeds '
+                 '%.6f x %.6f = %.4f against K = %s -- CONSISTENT WITH THE REFUTATION, NOT COUNTED AS A FIRING, as the falsifier is worded' % (n, b_, top, b_ * top, R_K()))
     L.append('THE HYPOTHESIS ((R333)(5): HELD, REFUTED or NOT SCORABLE): %s' % ('REFUTED' if fired else ('HELD' if run_ else 'NOT SCORABLE')))
+    # ---- POST HOC, by the author's ruling (2): the products against log gamma, read and no law fitted
+    L.append('')
+    L.append('## POST HOC, NOT A TEST (the author`s ruling (2), data/b723_author_words_preseal.txt (4)): THE PRODUCTS (beta - 1/2) a* AGAINST log gamma, '
+             'THE RISE READ AND NO LAW FITTED')
+    P = [(float(B['g0'][:12]), float({'rho0': '0.9532604748', 'band': '0.79800'}[f]) - 0.5, float(B['a']), '=', 'banked (%s)' % f) for f, B in BANKED.items()]
+    for name, (beta, g0, ap) in Z.items():
+        o = next((u for k, u in U.items() if k[0] == 'onset' and k[1] == name), None)
+        if o and not (o.get('beyond') or o.get('foot')):
+            P.append((float(g0[:14]), beta - 0.5, float(bl(o['a']).mid()), '=', 'this act (%s)' % name))
+        elif o and o.get('beyond'):
+            P.append((float(g0[:14]), beta - 0.5, top, '>', 'this act (%s), beyond reach' % name))
+    for g, b_, a_, rel, src in sorted(P):
+        L.append('  gamma %9.4f  log gamma %.4f  beta - 1/2 %.10f  a* %s %.9f  product %s %.4f  -- %s' % (g, math.log(g), b_, rel, a_, rel, b_ * a_, src))
+    L.append('  READ: the product rises with log gamma across the five, from about 3.10 at the two banked to above 4.32 at the highest; no law is')
+    L.append('  fitted here. ITS SUCCESSOR is registered at b724, not here (the ruling): the onset predicted from the on-line mass the template window')
+    L.append('  sees at each zero, read from the certified list, in the form of the refined Li law.')
     L.append('')
     L.append('### ### **H-SUPPORT: C1 %s ; ZEROS %d ; ONSETS COMPUTED %d ; WITHIN 0.03 %d ; BEYOND REACH %d ; FALSIFIER %s ; THE HYPOTHESIS %s.**' % (
         'AS WANTED' if _c1_ok(U) else 'NOT AS WANTED', len(Z), len(run_), sum(1 for d in run_ if abs(d) <= 0.03), len(beyond),
