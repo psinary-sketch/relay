@@ -1,4 +1,4 @@
-b725 -- (R335)(3)(iv), (4)(iv): THE C2 THEOREM BY THE CERTIFICATE ROUTE -- THE E0 GRADE FIRST, THE ROUTE MIRRORED, THEN THE BRANCH (2026-10-30T16:51:41Z)
+b725 -- (R335)(3)(iv), (4)(iv): THE C2 THEOREM BY THE CERTIFICATE ROUTE -- THE E0 GRADE FIRST, THE ROUTE MIRRORED, THEN THE BRANCH (2026-10-30T16:58:50Z)
 
 ### Written by tools/b725_c2.py bank before any Lean file of (iv) is written; nothing here runs Lean or dispatches. The Lean tree, its
 ### one dispatch and its grades are appended below by the Edit tool after the read.
@@ -10,24 +10,64 @@ b725 -- (R335)(3)(iv), (4)(iv): THE C2 THEOREM BY THE CERTIFICATE ROUTE -- THE E
   SCOPE (beside the statement, not a binder): the list `walk` names the eighteen imaginary quadratic fields of class number 2; that no other exists is Baker (1971) and Stark (1975), cited and not compiled.
 
 ## (2) ROUTE (B) MIRRORED IN PYTHON IN C2Walk.lean`s ARITHMETIC, AGAINST THE STATEMENT`S OWN bL AT EVERY n <= n0
-  D -15   n0 24     box s 7    points 43     pairs 37      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -20   n0 36     box s 9    points 53     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -24   n0 36     box s 9    points 49     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -35   n0 135    box s 17   points 141    pairs 418     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -40   n0 100    box s 15   points 103    pairs 283     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -51   n0 225    box s 22   points 207    pairs 812     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -52   n0 196    box s 20   points 167    pairs 679     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -88   n0 484    box s 32   points 321    pairs 2107    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -91   n0 875    box s 42   points 585    pairs 4318    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -115  n0 1225   box s 50   points 725    pairs 6466    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -123  n0 1089   box s 47   points 611    pairs 5612    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -148  n0 1444   box s 54   points 757    pairs 7851    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -187  n0 3773   box s 87   points 1711   pairs 24108   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -232  n0 3364   box s 83   points 1387   pairs 21123   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -235  n0 4225   box s 92   points 1747   pairs 27494   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -267  n0 4761   box s 98   points 1851   pairs 31556   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -403  n0 17303  box s 187  points 5431   pairs 136930  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
-  D -427  n0 14161  box s 169  points 4321   pairs 109242  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -15   n0 24     box s 7    points 43     pairs 37      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -20   n0 36     box s 9    points 53     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -24   n0 36     box s 9    points 49     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -35   n0 135    box s 17   points 141    pairs 418     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -40   n0 100    box s 15   points 103    pairs 283     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -51   n0 225    box s 22   points 207    pairs 812     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -52   n0 196    box s 20   points 167    pairs 679     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -88   n0 484    box s 32   points 321    pairs 2107    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -91   n0 875    box s 42   points 585    pairs 4318    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -115  n0 1225   box s 50   points 725    pairs 6466    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -123  n0 1089   box s 47   points 611    pairs 5612    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -148  n0 1444   box s 54   points 757    pairs 7851    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -187  n0 3773   box s 87   points 1711   pairs 24108   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -232  n0 3364   box s 83   points 1387   pairs 21123   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -235  n0 4225   box s 92   points 1747   pairs 27494   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -267  n0 4761   box s 98   points 1851   pairs 31556   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -403  n0 17303  box s 187  points 5431   pairs 136930  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
+  D -427  n0 14161  box s 169  points 4321   pairs 109242  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True ; W = Omega bL at 2..n0 True ; the Lean cert (W form) True
   THE ROUTE AS THE LEAN DEFINITIONS COMPUTE IT: EQUAL TO THE STATEMENT AND THE CERTIFICATE TRUE AT 18 OF 18
 
-### ### **THE C2 STATEMENT: E0 DERIVES ; ROUTE (B) IN THE LEAN DEFINITIONS` ARITHMETIC EQUAL TO THE STATEMENT, THE CERTIFICATE TRUE AT 18 OF 18 ; 27 s.**
+### ### **THE C2 STATEMENT: E0 DERIVES ; ROUTE (B) IN THE LEAN DEFINITIONS` ARITHMETIC EQUAL TO THE STATEMENT, THE CERTIFICATE TRUE AT 18 OF 18 ; 26 s.**
+
+## (3) THE BRANCH AND ITS ONE TREE STATE (appended by the Edit tool)
+  c2-b725 cut from main badaccc at 16:59Z; no main, no tag.
+  TREE STATE 1: commit 52cbbc11fd97cf3fd3749c1324f42a7041da49aa over badaccc (identity on the command: the global noreply form, read
+  back by kind before the push; the local config not edited, defect (d)). SIDEExplicitFormula/C2Walk.lean new, vanilla (no import):
+    - the statement's definitions as data/b722_c2_statement.txt writes them; the statement as the Prop C2ValueLaw (its binders under
+      one forall);
+    - route (B): a Nat-keyed table (Tab), the sweep over [-s, s]^2, Omega by trial division (bigOmega), the table W = Omega L b by the
+      Omega recursion, and `cert D n0 v q : Bool` (Omega(n0) | W(n0), q (W(n0) / Omega(n0)) = v L, W >= 0 on [2, n0)) -- the W form
+      mirrored above, equal at 18 of 18;
+    - (L1) the sweep is r_Q on [0, n0] and (L2) W(n) = Omega(n) bL(n) for 2 <= n <= N < 2^16, as Props, not proved;
+    - eighteen theorems cert_m<|D|> : cert D n0 v q = true in the order of n0, each `first | (decide +kernel; trace KERNEL) |
+      (trace SORRY; sorry)` under maxHeartbeats 5000000.
+  print_targets.txt: the eighteen certificate names. Pushed alone by push_gated.sh --branch --scratch at 17:00:48Z, read back equal
+  (capture data/b725_SIDE-explicit-formula_c2-b725_push_out.txt).
+  DISPATCH 3 of 3: build-module.yml at main, ref 52cbbc11, target SIDEExplicitFormula.C2Walk -- run 41095053686, 2026-10-30T17:00:57Z
+  (free 4869 MB at 17:00:42Z).
+
+## (4) THE READ OF RUN 41095053686, BY ITS ID (appended by the Edit tool, 2026-10-30T17:13Z; free 5019 MB at 17:13:16Z)
+  the run: completed, conclusion success (the workflow's own steps ran to the upload); ref.txt 52cbbc11 at leanprover/lean4:v4.34.0-rc1.
+  build_exit.txt: 143 (the hold's SIGTERM). build.log: 0 bytes -- lake flushed no line, so no trace (KERNEL or SORRY) of any
+  certificate is read. axioms.txt and closure_log.txt: "NOT RUN: the build did not complete under the hold". chainprobe_log.txt:
+  "NOT RUN: no ChainProbe.lean at the ref".
+  mem.log: "STOP 2026-10-30T17:12:11Z avail_mb=2389 beneath the hold 2560", LOW 2389. After the Mathlib cache, four episodes, each
+  starting near 14.5 GB free and falling about 400 MB per 5 s:
+    17:04:15Z-17:05:41Z  low 6882 MB
+    17:05:46Z-17:07:36Z  low 5226 MB
+    17:07:41Z-17:09:51Z  low 3586 MB
+    17:09:56Z-17:12:11Z  stopped at 2389 MB
+  Each recovery reads as one declaration's check ending, but whether it ended in KERNEL, at the heartbeat cap, or in SORRY is not in
+  any file of the run: NOT READ, and no count of certificates is claimed from the memory curve.
+  THE GRADE OF THE RUN: STOPPED UNDER THE HOLD. Where it fell short: decide +kernel on the table walk holds more memory per
+  certificate than the runner keeps above the hold (each episode lower than the last, the fourth beneath 2560 MB).
+  THE STOP RULE (data/b725_stop_rule.txt (iv)): "carried with its tree state after its one dispatch" -- dispatches 3 of 3 are spent;
+  (iv) is CARRIED at c2-b725 52cbbc11, tree state 1.
+  WHAT REMAINS: the eighteen certificates in the kernel; (L1) and (L2) proved; the theorem c2_value_law from them. A successor route
+  is priced, not registered: a memory-bounded form (one certificate per module, a lower heartbeat cap, or a table the kernel does
+  not hold whole), one dispatch per module set.
+
+### ### **THE C2 THEOREM: E0 DERIVES ; ROUTE (B) EQUAL TO THE STATEMENT AT 18 OF 18 ; ON c2-b725 (52cbbc11, RUN 41095053686) THE BUILD STOPPED UNDER THE RUNNER'S HOLD (LOW 2389 MB, EXIT 143, NO LOG LINE) ; CERTIFICATES BY decide +kernel 0 OF 18 READ ; CARRIED WITH ITS TREE STATE ; WHAT REMAINS: THE 18 CERTIFICATES, (L1), (L2), THE THEOREM ; DISPATCHES 3 OF 3 ; NO MAIN, NO TAG.**

@@ -89,6 +89,22 @@ def b_table(Dd, N, a):
     return B, pairs, ''
 
 
+def w_cert(Dd, n0, v, q, a):
+    """C2Walk.lean's cert as written: W(n) = Omega(n) L a(n) - SUM over d | n, 2 <= d, d * d <= n, of W(d) a(n/d) (+ W(n/d) a(d) where
+    n/d != d); the certificate: Omega(n0) divides W(n0), q (W(n0) / Omega(n0)) = v L, and W(n) >= 0 for 2 <= n < n0."""
+    W = [0] * (n0 + 1)
+    for n in range(2, n0 + 1):
+        s, d = 0, 2
+        while d * d <= n:
+            if n % d == 0:
+                e = n // d
+                s += W[d] * a[d] if e == d else W[d] * a[e] + W[e] * a[d]
+            d += 1
+        W[n] = omega(n) * L_SCALE * a[n] - s
+    o = omega(n0)
+    return W, W[n0] % o == 0 and q * (W[n0] // o) == v * L_SCALE and all(W[n] >= 0 for n in range(2, n0))
+
+
 def mirror_lines():
     L, ok_all = ['', '## (2) ROUTE (B) MIRRORED IN PYTHON IN C2Walk.lean`s ARITHMETIC, AGAINST THE STATEMENT`S OWN bL AT EVERY n <= n0'], True
     n_ok = 0
@@ -99,11 +115,14 @@ def mirror_lines():
         eq_a = aS[1:] == a[1:]
         eq_b = B is not None and B[2:] == bL[2:]
         cert = B is not None and q * B[n0] == v * L_SCALE and all(B[n] >= 0 for n in range(2, n0)) and B[n0] < 0
-        ok = eq_a and eq_b and cert and not err
+        W, wc = w_cert(Dd, n0, v, q, aS)
+        eq_w = B is not None and all(W[n] == omega(n) * B[n] for n in range(2, n0 + 1))
+        ok = eq_a and eq_b and cert and eq_w and wc and not err
         ok_all = ok_all and ok
         n_ok += ok
         L.append('  D %-5d n0 %-6d box s %-4d points %-6d pairs %-7d | a equal %s ; bL equal at 2..n0 %s ; the certificate (q bL(n0) = v L, '
-                 'bL >= 0 below n0) %s%s' % (Dd, n0, s, pts, pairs, eq_a, eq_b, cert, (' ; ' + err) if err else ''))
+                 'bL >= 0 below n0) %s ; W = Omega bL at 2..n0 %s ; the Lean cert (W form) %s%s'
+                 % (Dd, n0, s, pts, pairs, eq_a, eq_b, cert, eq_w, wc, (' ; ' + err) if err else ''))
     L.append('  THE ROUTE AS THE LEAN DEFINITIONS COMPUTE IT: %s AT %d OF %d' % ('EQUAL TO THE STATEMENT AND THE CERTIFICATE TRUE' if ok_all
                                                                               else '### NOT EQUAL', n_ok, len(C2.WALK)))
     return L, ok_all

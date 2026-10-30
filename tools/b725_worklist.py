@@ -143,7 +143,8 @@ REGISTRATIONS = 'data/b725_registrations.txt'    # ### (R335)(4): written and co
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b724's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
-               ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'))   # ### N2 (b725's row added at Component 3)
+               ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'),
+               ('data/b725_registrations.txt', '22210d4b'))   # ### N2 (b725's row added at Component 2, step 11)
 REG_FILES = tuple(f for f, _c in REG_COMMITS)
 PRED_B717 = 'data/b717_predictions.txt'
 PRED_B717_COMMIT = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'
@@ -152,9 +153,11 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b724 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b725_price.txt', 'data/b725_standing_v140.txt', 'data/b725_root_corrigendum.txt', 'data/b725_split_price.txt',
-                 'data/b725_orders_triage.txt', 'data/b725_lv.txt', 'data/b725_lv_rows.json', 'data/b725_release_list.txt', 'data/b725_legacy.txt')
-#   ### the banks of (R335)(2)-(6), each written by its component (the price table at step zero)
+COMPUTE_BANKS = ('data/b725_price.txt', 'data/b725_standing_v150.txt', 'data/b725_root_row.txt', 'data/b725_rescope.txt',
+                 'data/b725_registrations.txt', 'data/b725_onset_mass_control.txt', 'data/b725_onset_mass_rule.txt', 'data/b725_onset_mass.txt',
+                 'data/b725_addendum.txt', 'data/b725_addendum_citation.txt', 'data/b725_interference.txt', 'data/b725_dial.txt',
+                 'data/b725_stop_rule.txt', 'data/b725_lambda2.txt', 'data/b725_author_words_preseal.txt')
+#   ### the banks of (R335)(2)-(4) and (8)-(9), each written by its component (the price table at step zero)
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b724_read_calls.txt', 'data/b725_read_calls.txt')
@@ -220,8 +223,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None                   # ### the step-zero banks and tools, committed together by explicit list
-STEPZERO_BANK_COMMIT = None             # ### the step-zero bank itself (data/b725_stepzero.txt), with the price table, after the banks' commit
+STEPZERO_BANKS = 'afea78a4'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = '7afce313'       # ### the step-zero bank itself (data/b725_stepzero.txt), with the price table, after the banks' commit (step 5)
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = ()
@@ -234,7 +237,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b725.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.4.0'             # ### b724's version entering the act; (R335)(2)'s repairs land a version by a commit of their own
+STANDING_VERSION = 'v1.5.0'             # ### (R335)(2)'s repairs landed v1.5.0 by a commit of their own (C1_STANDING, step 6; 0c30a6b2 its line-count repair, step 7)
 STANDING_CHANGED = ()                   # ### the standing files (R335)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b724's commits the act reads (the names kept for the carried arms: the previous act's)
@@ -243,23 +246,25 @@ B714_RECORD = '6ca86862'     # ### b724's record commit (relay, the head line's)
 B714_ROOT = 'e09d0fac7d52e9e2ad3f206a9eae98391e6f31d38ad892531e5da4d487441d11'   # ### b724's root, data/act_roots.txt :103
 B723_ROOT_BANKS = '0df8247b'  # ### b724's root commit (step 29), the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
-C1_RELAY = None
-C1_CORR = None
-C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None     # ### FINDINGS: b724's weight line and the corrigendum for b724 (Component 1)
+C1_STANDING = '7be1601c'                # ### (R335)(2)(ii),(iii),(v): tools/standing/ v1.5.0 (step 6)
+C1_STANDING_REPAIR = '0c30a6b2'         # ### record.tpl back to its line count (step 7)
+C1_RELAY = 'e6c6348a'                   # ### (R335)(2)(i),(iv): b723's corrigendum row read, the RE-SCOPE reads (step 8)
+C1_CORR = 'c59a3e97'                    # ### the c1 route, the corrigendum banks, the corrigenda row (step 10)
+C1_PP = '9b0daac6'                      # ### FINDINGS: b724 at its weight and the corrigendum for b724 (step 9)
+WEIGHT_LINE, CORR_LINE = 11681, 11683   # ### FINDINGS: b724's weight line and the corrigendum for b724 (Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None                         # ### (R335)(3): data/b725_registrations.txt, committed alone
+C2_RELAY = '22210d4b'                   # ### (R335)(3): data/b725_registrations.txt, committed alone (step 11)
+C2_AMEND = ('390b7894', '706b4ca1', '2531aad5', 'dc0d4133')   # ### registration (v) and its amendment; H-DIAL's build reading and its c = 1 amendment
 C2_PP = None
-C3_RELAY = None
+C3_RELAY = ('5f882c5a', '47647ad7', '9ad10fba', '431ef005', '97588dd5', '308326d8', 'a975e4d9', 'a8474569')   # ### (R335)(4), (8)-(9): the computations' commits
 C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = None                       # ### (R335)(3): the registrations' commit, set when made
+REG_COMMIT = '22210d4b'                 # ### (R335)(3): the registrations' commit
 ORDERS = (142, 60, 42, 12, 28)          # ### b724's (R334)(4) triage, carried as read (data/b724_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b724_orders_triage.txt'
 LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R335)(5))
@@ -278,9 +283,15 @@ PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
 MAX_DISPATCHES = 3           # ### N1: (R335)(4)(iii)-(iv)'s, three at most
+EF_DIR = 'D:/SIDE-explicit-formula'
+EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, both branches cut from it, untouched (N5)
+EF_BRANCHES = (('keiper-b725', 'f52e188c2409436337019ea0008d7352bde404c2'),   # ### (4)(iii), tree states 1-2
+               ('c2-b725', '52cbbc11fd97cf3fd3749c1324f42a7041da49aa'))       # ### (4)(iv), tree state 1
+EF_RUNS = (('(4)(iii)', 41090029391), ('(4)(iii)', 41091360710), ('(4)(iv)', 41095053686))   # ### the three dispatches, each read by its id
+DISPATCH_ROWS = 'data/b725_dispatch_rows.json'
 PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the two ledgers alone ((R335)(5))
-ERRATA_ID = 'E-2026-10-29-1'
-ERRATA_IDS = ('E-2026-10-29-1',)
+ERRATA_ID = None             # ### b725 files no ERRATA ((R335)(1)-(2): the corrigendum is b724's weight line, no ERRATA row)
+ERRATA_IDS = ()
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
