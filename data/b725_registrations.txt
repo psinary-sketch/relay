@@ -151,3 +151,32 @@ THE BALL, READ INSTEAD AS b667's (3b) (tools/b667_epstein_certify.py :12-:14, dK
   its relative radius is below 2^-60 (at most 4096 bits), plus |nu - nu_mid| sup|d_nu K| by b667's bound; every other factor in balls on the
   row's ball as before; the whole evaluation's ladder 200 / 400 / 800 and every other clause of (v) unchanged.
 THE CONTROLS (C2)-(C4) re-run whole under the amended route before any off-line zero; their first run kept in the units file and printed.
+
+## (ii) H-DIAL: THE SEAT'S READING OF THE BUILD, BEFORE ANY FIGURE AT F_c ((R335)(8) moves (4)(i)'s remaining budget here; added by a
+## commit of its own; the statement, falsifier and control of (ii) above unchanged)
+### No term of F_c at any c, no tail ball and no onset has been computed before this commit.
+THE FRAME: G_c(s) = F_c(s + c/2) = zeta(s + c/2) zeta(s - c/2), its functional equation about Re s = 1/2 (b707's template line), its zeros
+  1/2 +- c/2 + i gamma (gamma zeta's ordinates), i.e. z = gamma -+ i c/2 with s = 1/2 + i z. The window b707's (C, N, CN at gamma_0 = zeta's
+  lowest ordinate, acb.zeta_zero(1)), the form S = P - PR + A on span{C, N} read as tools/b707_onset.py gram and reading (imported unedited).
+P: the completed function's four poles s = 1 + c/2, 1 - c/2, c/2, -c/2, i.e. z = -+ i(1/2 + c/2), -+ i(1/2 - c/2), each k^ summed with its
+  multiplicity (at c = 1.0 the poles c/2 and 1 - c/2 coincide at s = 1/2, z = 0: a double pole on the line, 2 k^(0)).
+PR: tools/b694_witness_terms.py prime_sum (b707's ladder) and tools/b709_grid.py prime_sum709 (the fine grid), imported unedited, with
+  Lambda_G(n) = Lambda(n) (n^(c/2) + n^(-c/2)) in place of Lambda_Q.
+A: (1/pi) INT_0^R k^(r) B_c(r) dr by acb.integral per chunk of 2 at b694's tolerances, R = 4000, B_c = SUM_{delta = +-c/2} [ (psi(u + 1 + iz/2)
+  + psi(u + 1 - iz/2))/2 - u / (u^2 + z^2/4) - log pi ], u = 1/4 + delta/2 (psi(w) = psi(w + 1) - 1/w, so the two 1/w terms are written as one
+  fraction, which is 0 at u = 0: at c = 1.0 the integrand stays analytic on the line and every term is continuous in c). At c = 0 B_0 is twice
+  zeta's bracket (tools/b694_witness_terms.py :367), term by term.
+THE ARCHIMEDEAN TAIL BALL beyond R (the build's first): for r >= R and X = u + 1 in [1, 3/2], DLMF 5.11.2 at n = 1 with the remainder bound
+  sec^2(ph w / 2) / (12 |w|^2) <= 1 / (6 y^2) (ph w < pi/2), y = r/2: |Re psi(X + iy)| <= log y + X^2 / (2 y^2) + 1 / (2y) + 1 / (6 y^2), and
+  u / (u^2 + r^2/4) <= 2 / r^2; so |B_c(r)| <= alpha log r + beta, alpha = 2, beta = 2 log(pi/2) + 2/R + (43/3)/R^2; the ball b696's arch_tail
+  closed form (tools/b696_witness_balls.py :90-:107, its window bound unchanged) with this alpha and beta, written in the tool and printed.
+THE ZERO-SIDE TAIL BALL (the build's second): b696's zero_tail at zeta bounds |k^(gamma - i delta)| for |delta| <= Y = 1/2 (:126-:127), and
+  c/2 <= 1/2 at every c here; each zeta ordinate above T0 gives two terms (gamma -+ i c/2), so the tail is 2 x zero_tail(window, 'zeta', T0),
+  imported unedited, T0 = 151.59 (b696's), the zeros below it by acb.zeta_zero(n), n = 1, 2, ... while gamma_n < T0.
+THE CONTROLS BEFORE ANY ONSET: (c0) at c = 0 every term twice b707's zeta unit at the same window (data/b707_onset_units.jsonl, rung 32, C, N,
+  CN), within the balls -- a positive control on P, PR and A; (id) at each of c = 0.6, 0.8, 1.0, at the window C of rung 32: S from the prime
+  side and SUM over zeta's ordinates (both signs) of k^(gamma - i c/2) + k^(gamma + i c/2) plus the tail ball, overlapping (the registration's
+  control), each ball's radius printed (not vacuous where below 1e-6 of the value).
+THE ONSET at each c: b707's seven rungs (C, N, CN), the coarse bracket, then b709's fine grid in it (tools/b709_grid.py grid, imported
+  unedited), the least grid point read NEGATIVE DIRECTION BEYOND ITS BOUND; no zeta form per point (b723's price, data/b723_dial_price.txt
+  :22). Workers 3 or fewer as the free memory admits beside the running off18 onset; each call budgeted and resumable.
