@@ -1,7 +1,7 @@
-b725 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-30T19:19:50Z)
+b725 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-30T19:45:51Z)
 
 ### the source: the seat`s session 02c7cf38-4c6a-4f88-b813-a7e15e9b85b4 from its first user line carrying 'RULING (R335) BEGIN', with its subagents` transcripts
-### commands read: 406
+### commands read: 446
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -52,8 +52,9 @@ b725 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #73 2026-10-30T14:14:34.850Z git -C D:\relay add -- data/b725_steps.json data/b725_rescope.txt data/b725_root_row.txt; Get-Item -LiteralPath "D:\relay\=" | Select-Object -Property Length, LastWriteTimeUtc
   #236 2026-10-30T16:21:51.319Z (Get-Content D:\relay\data\b725_defects.txt).Count; (Get-Content D:\relay\data\b725_defects.txt)[19..24] | ForEach-Object { $_.Substring(0, [Math]::Min(200, $_.Length)) }
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (2):
   #340 2026-10-30T17:30:13.875Z python -X utf8 -c "" 2>NUL; python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/slotctx725.py checks 0 0
+  #438 2026-10-30T19:38:52.695Z python -X utf8 -I -c "pass"
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #28 2026-10-30T13:50:52.395Z PowerShell
@@ -479,5 +480,45 @@ b725 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #404 | 2026-10-30T19:13:19.950Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/wfmerge725.py
   #405 | 2026-10-30T19:19:26.496Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render725.py
   #406 | 2026-10-30T19:19:30.012Z | seat | Bash | python -X utf8 tools/standing/fold.py record findings dry
+  #407 | 2026-10-30T19:19:37.161Z | seat | Bash | python -X utf8 tools/standing/fold.py record commands
+  #408 | 2026-10-30T19:19:37.966Z | seat | Bash | python -X utf8 tools/standing/fold.py record reads
+  #409 | 2026-10-30T19:19:38.549Z | seat | Bash | python -X utf8 tools/b725_address_scan.py scan --bank
+  #410 | 2026-10-30T19:20:02.339Z | seat | Bash | git status --porcelain --untracked-files=all -- data/b725_* tools/acts tools/b725_worklist.py tools/standing
+  #411 | 2026-10-30T19:20:09.941Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b725_address_scan.txt data/b725
+  #412 | 2026-10-30T19:20:19.390Z | seat | Bash | git add -- data/b725_address_scan.txt data/b725_defects.txt data/b725_hook_refusals.txt data/b725_steps.json tools/acts/b725.py tools/b725_worklist.py data/b725
+  #413 | 2026-10-30T19:20:25.002Z | seat | Bash | git commit -q -m 'b725 the face: data/b725_registration_2026-10-30.txt, before the lock; the probes of the act part and standing-a and their repairs (defects (w
+  #414 | 2026-10-30T19:20:29.034Z | seat | Bash | python -X utf8 tools/standing/fold.py record step relay face efed4823aa8027d8c9888e8d04bcc5a09b731af2
+  #415 | 2026-10-30T19:20:33.305Z | seat | Bash | python -X utf8 tools/standing/fold.py record step relay "component 4" efed4823aa8027d8c9888e8d04bcc5a09b731af2
+  #416 | 2026-10-30T19:20:37.818Z | seat | Bash | python -X utf8 tools/standing/fold.py record rootdry
+  #417 | 2026-10-30T19:20:50.617Z | seat | Bash | python -X utf8 tools/standing/fold.py closing dry
+  #418 | 2026-10-30T19:22:39.671Z | seat | Bash | python -X utf8 tools/standing/fold.py record scores dry
+  #419 | 2026-10-30T19:25:16.007Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/n5row725.py N5
+  #420 | 2026-10-30T19:25:22.560Z | seat | Bash | python -X utf8 tools/standing/fold.py record scores dry
+  #421 | 2026-10-30T19:26:59.422Z | seat | Bash | python -X utf8 tools/standing/fold.py record scores dry
+  #422 | 2026-10-30T19:28:36.071Z | seat | Bash | date -u +%H:%M:%SZ
+  #423 | 2026-10-30T19:29:04.272Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render725.py
+  #424 | 2026-10-30T19:29:04.873Z | seat | Bash | python -X utf8 tools/standing/fold.py closing dry
+  #425 | 2026-10-30T19:29:05.565Z | seat | Bash | python -X utf8 tools/standing/fold.py record scores dry
+  #426 | 2026-10-30T19:31:20.969Z | seat | Bash | git status --porcelain --untracked-files=all
+  #427 | 2026-10-30T19:31:27.812Z | seat | Bash | git ls-files data/b724_closing_dry.txt data/b724_scores_dry.txt data/b724_root_banks_dry.txt data/b724_root_banks_dry.json data/b724_scanfile_c1.md data/b724_sc
+  #428 | 2026-10-30T19:31:35.167Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b725_defects.txt data/b725_regi
+  #429 | 2026-10-30T19:31:46.141Z | seat | Bash | git add -- data/b725_defects.txt data/b725_registration_2026-10-30.txt data/b725_steps.json tools/acts/b725.py data/b725_closing_dry.txt data/b725_scores_dry.tx
+  #430 | 2026-10-30T19:31:51.567Z | seat | Bash | git commit -q -m 'b725 (R335) Component 4: steps [3]-[4] run dry before the gate -- the closing dry, the score routes dry (N2 HELD after defect (z): the entry c
+  #431 | 2026-10-30T19:31:56.443Z | seat | Bash | python -X utf8 tools/standing/fold.py record step relay "component 4" 7343ece0f713d9303d725f9043b2c150cd3923e1
+  #432 | 2026-10-30T19:32:02.672Z | seat | Bash | python -X utf8 tools/standing/fold.py record rootdry
+  #433 | 2026-10-30T19:32:14.420Z | seat | Bash | python -X utf8 tools/standing/fold.py reg_gate
+  #434 | 2026-10-30T19:33:11.692Z | seat | Bash | python -X utf8 tools/standing/fold.py regspec
+  #435 | 2026-10-30T19:35:38.399Z | seat | Bash | python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725
+  #436 | 2026-10-30T19:36:01.120Z | seat | Bash | python -X utf8 tools/standing/fold.py regspec
+  #437 | 2026-10-30T19:38:31.371Z | seat | Bash | python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725
+  #438 | 2026-10-30T19:38:52.695Z | seat | Bash | python -X utf8 -I -c "pass"
+  #439 | 2026-10-30T19:39:05.898Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/line725.py D:/relay/data/b723_defects.txt 48
+  #440 | 2026-10-30T19:39:13.731Z | seat | Bash | date -u +%H:%M:%SZ
+  #441 | 2026-10-30T19:39:43.625Z | seat | Bash | python -X utf8 tools/standing/fold.py closing dry
+  #442 | 2026-10-30T19:40:35.019Z | seat | Bash | python -X utf8 tools/standing/fold.py record scores dry
+  #443 | 2026-10-30T19:42:08.351Z | seat | Bash | python -X utf8 tools/standing/fold.py reg_gate
+  #444 | 2026-10-30T19:43:03.191Z | seat | Bash | python -X utf8 tools/standing/fold.py regspec
+  #445 | 2026-10-30T19:45:33.562Z | seat | Bash | python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725
+  #446 | 2026-10-30T19:45:38.149Z | seat | Bash | python -X utf8 tools/standing/fold.py record gatebanks
 
-### ### **COMMANDS 406 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 15 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 446 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 15 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,5 +1,5 @@
 {
- "at": "2026-10-30T19:19:50Z",
+ "at": "2026-10-30T19:45:51Z",
  "anchor": "RULING (R335) BEGIN",
  "rows": [
   {
@@ -3249,6 +3249,326 @@
    "cmd": "python -X utf8 tools/standing/fold.py record findings dry",
    "n": 406,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:19:37.161Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record commands",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:19:37.966Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record reads",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:19:38.549Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b725_address_scan.py scan --bank",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:02.339Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- data/b725_* tools/acts tools/b725_worklist.py tools/standing",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:09.941Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b725_address_scan.txt data/b725_defects.txt data/b725_hook_refusals.txt data/b725_steps.json tools/acts/b725.py tools/b725_worklist.py data/b725_commands.json data/b725_commands.txt data/b725_probe2_standing-a.json data/b725_probe2_standing-a.txt data/b725_probe_act.json data/b725_probe_act.txt data/b725_probe_standing-a.json data/b725_probe_standing-a.txt data/b725_read_calls.json data/b725_read_calls.txt data/b725_registration_2026-10-30.txt && python -X utf8 tools/b725_address_scan.py scan",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:19.390Z",
+   "src": "seat",
+   "cmd": "git add -- data/b725_address_scan.txt data/b725_defects.txt data/b725_hook_refusals.txt data/b725_steps.json tools/acts/b725.py tools/b725_worklist.py data/b725_commands.json data/b725_commands.txt data/b725_probe2_standing-a.json data/b725_probe2_standing-a.txt data/b725_probe_act.json data/b725_probe_act.txt data/b725_probe_standing-a.json data/b725_probe_standing-a.txt data/b725_read_calls.json data/b725_read_calls.txt data/b725_registration_2026-10-30.txt",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:25.002Z",
+   "src": "seat",
+   "cmd": "git commit -q -m 'b725 the face: data/b725_registration_2026-10-30.txt, before the lock; the probes of the act part and standing-a and their repairs (defects (w)-(y)); the command bank, the read calls, the address scan' -- data/b725_address_scan.txt data/b725_defects.txt data/b725_hook_refusals.txt data/b725_steps.json tools/acts/b725.py tools/b725_worklist.py data/b725_commands.json data/b725_commands.txt data/b725_probe2_standing-a.json data/b725_probe2_standing-a.txt data/b725_probe_act.json data/b725_probe_act.txt data/b725_probe_standing-a.json data/b725_probe_standing-a.txt data/b725_read_calls.json data/b725_read_calls.txt data/b725_registration_2026-10-30.txt && git log --format=%H -1",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:29.034Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay face efed4823aa8027d8c9888e8d04bcc5a09b731af2",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:33.305Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay \"component 4\" efed4823aa8027d8c9888e8d04bcc5a09b731af2",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:37.818Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record rootdry",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:20:50.617Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py closing dry",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:22:39.671Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record scores dry",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:25:16.007Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/n5row725.py N5",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:25:22.560Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record scores dry",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:26:59.422Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record scores dry",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:28:36.071Z",
+   "src": "seat",
+   "cmd": "date -u +%H:%M:%SZ",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:29:04.272Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/render725.py",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:29:04.873Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py closing dry",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:29:05.565Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record scores dry",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:20.969Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:27.812Z",
+   "src": "seat",
+   "cmd": "git ls-files data/b724_closing_dry.txt data/b724_scores_dry.txt data/b724_root_banks_dry.txt data/b724_root_banks_dry.json data/b724_scanfile_c1.md data/b724_scanfile_corrigendum.md",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:35.167Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/idscan723.py data/b725_defects.txt data/b725_registration_2026-10-30.txt data/b725_steps.json tools/acts/b725.py data/b725_closing_dry.txt data/b725_scores_dry.txt && python -X utf8 tools/b725_address_scan.py scan",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:46.141Z",
+   "src": "seat",
+   "cmd": "git add -- data/b725_defects.txt data/b725_registration_2026-10-30.txt data/b725_steps.json tools/acts/b725.py data/b725_closing_dry.txt data/b725_scores_dry.txt data/b725_address_scan.txt",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:51.567Z",
+   "src": "seat",
+   "cmd": "git commit -q -m 'b725 (R335) Component 4: steps [3]-[4] run dry before the gate -- the closing dry, the score routes dry (N2 HELD after defect (z): the entry composer`s Banks list labelled POST HOC and N2`s predicate testing the whole sentence; N5 waits on the seal), the face and FLOORS at (a)-(z), the address scan' -- data/b725_defects.txt data/b725_registration_2026-10-30.txt data/b725_steps.json tools/acts/b725.py data/b725_closing_dry.txt data/b725_scores_dry.txt data/b725_address_scan.txt && git log --format=%H -1",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:31:56.443Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay \"component 4\" 7343ece0f713d9303d725f9043b2c150cd3923e1",
+   "n": 431,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:32:02.672Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record rootdry",
+   "n": 432,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:32:14.420Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py reg_gate",
+   "n": 433,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:33:11.692Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py regspec",
+   "n": 434,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:35:38.399Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725",
+   "n": 435,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:36:01.120Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py regspec",
+   "n": 436,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:38:31.371Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:38:52.695Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I -c \"pass\"",
+   "n": 438,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:39:05.898Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/line725.py D:/relay/data/b723_defects.txt 48",
+   "n": 439,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:39:13.731Z",
+   "src": "seat",
+   "cmd": "date -u +%H:%M:%SZ",
+   "n": 440,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:39:43.625Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py closing dry",
+   "n": 441,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:40:35.019Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record scores dry",
+   "n": 442,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:42:08.351Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py reg_gate",
+   "n": 443,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:43:03.191Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py regspec",
+   "n": 444,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:45:33.562Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/reg_satisfiable.py data/b725_satisfiable.json --emit b725",
+   "n": 445,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-30T19:45:38.149Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record gatebanks",
+   "n": 446,
+   "bg": false
   }
  ],
  "offences": [],
@@ -3294,7 +3614,8 @@
   236
  ],
  "py_programs": [
-  340
+  340,
+  438
  ],
  "moves_deletes": [
   28,
