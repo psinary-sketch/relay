@@ -562,7 +562,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxy'))   # ### (a)-(y) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### (a)-(z) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b725_price.txt', 'data/b725_corrigendum.txt', 'data/b725_standing_v150.txt', 'data/b725_root_row.txt',
@@ -1368,8 +1368,8 @@ def _strictly_before(a, b):
     fj_ = jl('%s_findings.json' % ACT)
     etext = fj_.get('text') or _finding_text()[1]
     ctl_t = rdn('%s_onset_mass_control.txt' % ACT)
-    named = [s.strip()[:90] for s in re.split(r'(?<=[.;])\s+', etext) if re.search(r'(?i)\bfive\b[^.;]*\bcontrol\b|onset_mass_control', s)]
-    unlabelled = [s for s in named if 'POST HOC' not in s]
+    named = [s.strip() for s in re.split(r'(?<=[.;])\s+', etext) if re.search(r'(?i)\bfive\b[^.;]*\bcontrol\b|onset_mass_control', s)]
+    unlabelled = [s[:90] for s in named if 'POST HOC' not in s]
     ph_ok = not unlabelled and 'CONTROL (POST HOC)' in ctl_t
 #⟪END⟫
 #⟪SECTION record 12⟫
@@ -1658,7 +1658,7 @@ def _runs3_line():
              ', '.join('%s %s' % x for x in chain)), '',
          '*Filed at b725 on the author’s ruling `(R335)` and its addendum (8)-(10); %d question%s put before the root. Banks: relay '
          '`data/b725_corrigendum.txt`, `data/b725_standing_v150.txt`, `data/b725_root_row.txt`, `data/b725_rescope.txt`, '
-         '`data/b725_registrations.txt`, `data/b725_price.txt`, `data/b725_stop_rule.txt`, `data/b725_onset_mass_control.txt`, '
+         '`data/b725_registrations.txt`, `data/b725_price.txt`, `data/b725_stop_rule.txt`, `data/b725_onset_mass_control.txt` (the five-zero control, POST HOC), '
          '`data/b725_onset_mass_rule.txt`, `data/b725_onset_mass.txt`, `data/b725_dial.txt`, `data/b725_interference.txt`, '
          '`data/b725_lambda2.txt`, `data/b725_c2.txt`, `data/b725_dispatch_rows.json`, `data/b725_reproduce.txt`, `data/b725_address_scan.txt`, '
          '`data/b725_touch.txt`, `data/b725_standing_figures.txt`, `data/b725_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
