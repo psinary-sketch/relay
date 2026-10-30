@@ -78,7 +78,12 @@ def put_txt(p, L):
 
 
 def workers_arg(a):
+    global BUDGET
     a = list(a)
+    if '--budget' in a:                         # ### seconds per call (default 540, the foreground's); the units file resumes either way
+        i = a.index('--budget')
+        BUDGET = int(a[i + 1])
+        del a[i:i + 2]
     if '--workers' in a:
         i = a.index('--workers')
         n = int(a[i + 1])
