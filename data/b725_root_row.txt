@@ -1,0 +1,41 @@
+b725 -- (R335)(2)(i): b723'S CORRIGENDUM ROW IN b680'S FORM, THE CHAIN'S READER OVER IT, AND THE BYTES b723'S ROOT HASHED REBUILT (2026-10-30T14:00Z)
+
+### Written by the Write tool from two read-only scratch readers (bh725.py, verify723.py; neither writes). (R335)(2)(i): "b723's corrigendum row
+### in b680's form, so the chain's reader takes b723 through its row; the chain verify re-read and printed."
+
+## THE ROW, AS IT STANDS (written at b724, data/act_roots.txt :102; data/b724_root_corrigendum.txt :5)
+  corrigendum b723 2be0135cf8a8172863e947df905c23dc749a0719 f585420f24c25d56a290df4b4a95e50c569c05a7 9296406733ce0d44e197b8110ae942efb9f6fa121f7416214560282cbf42d553 data/b723_bank_hashes.json
+  b680's form (data/act_roots.txt :58): corrigendum <act> <recorded commit> <corrected commit> <root> <bank> ...; tools/act_root.py :44-:49
+  reads the named banks at the corrected commit when the row's act has a chain row, the recorded commit is the root's, the root is the act's,
+  the corrected commit descends from the recorded one and every bank named is one the root names. All five hold for :102 (verify's
+  `corrected 1` below): the reader takes b723 through its row. No second row is written: a row in this form already stands, and the reader
+  reads it.
+
+## THE CHAIN VERIFY RE-READ (tools/act_root.py verify, acts b722, b723, b724; 13:58:41Z, free 3933 MB, the hold MET)
+  b722 AGREE    at 8fdd096c: blob 104, crlf 0, later 0, unread 0, corrected 0
+  b723 DISAGREE at 2be0135c: blob 105, crlf 0, later 0, unread 0, corrected 1
+     - bank data/b723_bank_hashes.json changed (read at f585420f24c2)
+  b724 AGREE    at 21b11e4b: blob 91, crlf 0, later 0, unread 0, corrected 0
+  The whole chain is not run here in the foreground (b724 event (12): over 600 s); the suite's chain parts read it at the close.
+
+## WHY THE ROW CANNOT TURN b723 TO AGREE: THE BYTES THE ROOT HASHED, REBUILT
+  b723's root names data/b723_bank_hashes.json at sha256 133004c8f910b786b8582a122fad2f4f68b0d253bdce3a2ff945625bd043b0de
+  (data/b723_act_root.json :105). 41 commits on relay main change the file; none of their blobs, LF or CR LF, hashes to it (b724's bh724.py,
+  re-read here). REBUILT: the blob at the recorded commit 2be0135c (2348 bytes, a dict, serialised indent=1 with a final newline -- four
+  json.dumps forms reproduce it byte for byte) with two entries added, b723_root_banks.json and b723_root_banks.txt, each at its value in the
+  next committed blob (49de42fe, b723's record commit), hashes to 133004c8 exactly (64 candidates hashed: every subset of the 8 entries
+  49de42fe adds or changes, in two key orders; one hit). So the root hashed the bank one step after the hash recorder had entered the
+  root-banks reading's two banks and before any commit carried that state: b723 defect (10) and b724's repaired route ((R334)(2), v1.4.0),
+  confirmed now byte for byte. Nothing else in the 105 other banks differs.
+  A row in b680's form reads a bank AT A COMMIT; no commit carries these bytes, so no corrected commit on relay main can make the reading
+  AGREE. Writing them at a commit would write data/b723_bank_hashes.json, a bank b723's root names -- not ordered by (R335)(2)(i) and not done.
+
+## THE ROUTES, FOR THE AUTHOR AT THE ROOT'S PROMPT (none taken)
+  (A) a commit on a side branch of relay (corrigendum-b723), its parent 2be0135c, carrying the rebuilt bytes at data/b723_bank_hashes.json
+      and nothing else; the row's corrected commit that commit (a new row in b680's form, or :102's reading of it); verify then reads b723
+      AGREE at 106 of 106, main's b723 bank untouched; the branch pushed to the public relay so a clone's verify can read it. Price: about
+      0.5 h. It writes b723's bank in a commit off main: the author's word.
+  (B) the reading stands: b723 DISAGREE on one bank, its hashed bytes rebuilt from two committed blobs and printed here; G-ACTROOT-VERIFY
+      fails on b723's row alone at every later close, as (R335)(1)(iii) rules for the scores. Price: none.
+
+### ### **b723'S ROW IN b680'S FORM: STANDING AT :102, READ BY THE CHAIN'S READER (corrected 1) ; VERIFY b722 AGREE, b723 DISAGREE (ONE BANK), b724 AGREE ; THE HASHED BYTES REBUILT: THE BASE AT 2be0135c + 2 ENTRIES OF 49de42fe = 133004c8 ; NO COMMIT CARRIES THEM ; ROUTES (A) AND (B) FOR THE AUTHOR.**
