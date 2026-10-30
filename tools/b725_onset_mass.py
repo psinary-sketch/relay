@@ -385,6 +385,37 @@ def price(zero, *a):
     return us
 
 
+def ladder(zero, *a):
+    """(R335)(8): a zero carried, not computed -- b707's seven rungs alone (both forms), its coarse bracket printed; no fine grid."""
+    workers_arg(a)
+    U = units()
+    if not S._c1_ok(U):
+        sys.exit('### C1 NOT READ AS WANTED -- NO FIGURE AT A NAMED ZERO')
+    sg, tt, ap = selected()[zero]
+    g0 = tt.mid().str(25, radius=False)
+    S.guard('ladder ' + zero)
+    with Pool(S.WORKERS) as pool:
+        for obj in ('zeta', 'q0'):
+            S._compute(pool, U, [(g0, r, kd, obj) for r in S.LADDER for kd in G9.KINDS], 'coarse', zero, lambda t: t[1])
+    rq = dict((r, S._read(U, 'coarse', zero, r, 'q0')) for r in S.LADDER)
+    for r in S.LADDER:
+        print('  %s coarse %-4s q0 lambda_min %s | %s' % (zero, r, fmt(bl(rq[r]['lmin']), 10), rq[r]['reading']), flush=True)
+    negs = [r for r in S.LADDER if rq[r]['reading'] == NEG]
+    if negs:
+        hi = negs[0]
+        lo = S.LADDER[S.LADDER.index(hi) - 1] if hi != S.LADDER[0] else None
+        a_lo = 2 * math.log(float(O7.arb(S.WIDTH[lo]).mid())) if lo else 0.0
+        a_hi = 2 * math.log(float(O7.arb(S.WIDTH[hi]).mid()))
+        beyond = a_lo / ap - 1 >= 0.05 or a_hi / ap - 1 < -0.05     # ### the claim only when the whole bracket lies outside the tolerance
+        print('### %s CARRIED: THE COARSE BRACKET (%s, %s], a in (%.6f, %.6f] ; a*/a*_pred - 1 in (%+.4f, %+.4f] -- %s' % (
+            zero, lo, hi, a_lo, a_hi, a_lo / ap - 1, a_hi / ap - 1,
+            'every onset in it beyond 0.05' if beyond else 'THE BRACKET MEETS THE 0.05 TOLERANCE: NO READING WITHOUT THE FINE GRID'))
+        S.put_unit(dict(route='bracket', fam=zero, kind='', point='', obj='q0', lo=lo, hi=hi, a_lo=a_lo, a_hi=a_hi))
+    else:
+        print('### %s CARRIED: POSITIVE TO 2 log 192 -- BEYOND REACH' % zero)
+        S.put_unit(dict(route='bracket', fam=zero, kind='', point='', obj='q0', beyond=True))
+
+
 def run(zero, *a):
     workers_arg(a)
     U = units()
@@ -481,7 +512,14 @@ def bank(*a):
         L.append('    the ladder (q0): ' + ' ; '.join('%s %s' % (r, ('%s %s' % (fmt(bl(x['lmin']), 6), 'POS' if x['reading'] == POS else ('NEG' if x['reading'] == NEG else 'UND'))) if x else 'not run')
                                                     for r, x in cz))
         if o is None:
-            L.append('    NOT RUN')
+            bk = U.get(('bracket', name, '', '', 'q0'))
+            if bk and bk.get('beyond'):
+                L.append('    CARRIED, NOT COMPUTED ((R335)(8)): the ladder positive to 2 log 192 -- beyond reach')
+            elif bk:
+                L.append('    CARRIED, NOT COMPUTED ((R335)(8)): the coarse bracket (%s, %s], a in (%.6f, %.6f] ; were the onset computed, a*/a*_pred - 1 in (%+.4f, %+.4f]' % (
+                    bk['lo'], bk['hi'], bk['a_lo'], bk['a_hi'], bk['a_lo'] / ap - 1, bk['a_hi'] / ap - 1))
+            else:
+                L.append('    NOT RUN')
             res.append((name, None))
             continue
         if o.get('beyond') or o.get('foot'):
@@ -514,7 +552,7 @@ def bank(*a):
     print('written data/b725_onset_mass.txt')
 
 
-ROUTES = dict(control=control, rule=rule, c1=c1, price=price, run=run, bank=bank)
+ROUTES = dict(control=control, rule=rule, c1=c1, price=price, ladder=ladder, run=run, bank=bank)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2 or sys.argv[1] not in ROUTES:

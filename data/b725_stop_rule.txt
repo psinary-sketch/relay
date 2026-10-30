@@ -1,0 +1,26 @@
+b725 -- (R335)(4): THE STOP RULE READ AT EACH STOP POINT (data/b725_price.txt :62-:66), THE ELAPSED TIME FROM 13:39Z PRINTED
+
+### The rule as the price table writes it (:62-:64): "(4)(ii), then (4)(iii), then (4)(iv), each started only where the act's elapsed
+### time at its start (from 13:39Z) plus that item's low price plus the close's 4 h stays inside 16.7 h". Low prices (:68): (4)(ii) 3 h,
+### (4)(iii) 8 h, (4)(iv) 6 h. Written by the Write tool; one row per stop point, appended in time order.
+
+## (4)(ii) H-DIAL -- NOT READ AT ITS START (defect (p)); read here after the fact
+  Started on (R335)(8)'s word ("Their budget goes to (4)(ii) H-DIAL"), its build reading relay 2531aad5 (step 18) after the addendum's
+  paste (about 15:40Z); the stop rule was not printed then. Read after the fact at the latest bound, 16:06Z (its c = 0.6 run's start):
+  elapsed 2.45 h + low price 3 h + the close 4 h = 9.45 h <= 16.7 h -- the rule admits it at any start before then. Banked
+  data/b725_dial.txt, relay 308326d8: REFUTED.
+
+## (4)(iii) lambda_2 -- read at 2026-10-30T16:21:20Z
+  elapsed 2.71 h + low price 8 h + the close 4 h = 14.71 h <= 16.7 h : STARTED.
+  THE SCOPE TAKEN AT ITS START, AND WHY. The registration (data/b725_registrations.txt :84-:88) names the target liCoeff_two_pos from
+  (a) GammaRZetaValues at index 1's coefficient (O4 at k = 0: gammaRLogCoeff 1 = (3/4) zeta(2), i.e. psi'(1/2) = pi^2/2) and (b) a
+  two-sided rational bound on gamma_1, and its WHERE IT FALLS SHORT: "the compiled part lands on the branch and the sorry-free statement
+  of what remains is printed". Neither (a) nor (b) has a route at the pin (data/b641_keiper_status.txt (K4), :41; (B2), :61; Mathlib holds
+  no derivative of digamma and names no Stieltjes constant past gamma), and N1 allows no Lean on this host and at most 3 dispatches, so
+  no proof of (a) or (b) can be iterated. The compiled part taken: a module SIDEExplicitFormula/KeiperTwo.lean on keiper-b725 proving
+  (1) the closed form LiCoeff 2 = 1 + gamma - log 4 pi - gamma^2 - 2 Re gamma_1 + pi^2/8 from (O1)-(O3) as KeiperIdentities.lean proves
+  them and (O4) at k = 0 as a hypothesis, and (2) 0 < LiCoeff 2 from (O4) at k = 0 and Re gamma_1 < -1/20 as hypotheses (the margin at
+  the bounds the module uses: 1 + 2/9 - 2.5421 + 3.1415^2/8 + 1/10 = +0.0138; Re gamma_1 = -0.0728158 by the literature, not read here,
+  and nothing here assumes it). What remains is printed as two sorry-free statements, each a candidate declaration written nowhere.
+  Its own stop: the module is abandoned, carried with its tree state, where its second dispatch does not read DERIVES or where elapsed
+  reaches 12.7 h (16.7 h less the close), whichever is first.
