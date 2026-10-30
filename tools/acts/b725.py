@@ -1139,7 +1139,7 @@ tool's scores route and written nowhere. Kernels written this act on SIDE-explic
 #⟪SECTION closing 4⟫
 TITLE_LINE = ('b725 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-TWO, THE RESEARCH ACT: H-ONSET-MASS, H-DIAL AND '
               'H-INTERFERENCE READ AGAINST THEIR REGISTRATIONS; lambda_2 > 0 ON TWO NAMED PREMISES ON keiper-b725; THE C2 THEOREM GRADED DERIVES '
-              'AND CARRIED ON c2-b725; b723`S ROW WRITTEN; v1.5.0 LANDED, UNDER (R335).**')
+              'AND CARRIED ON c2-b725; b723`S ROW READ IN b680`S FORM; v1.5.0 LANDED, UNDER (R335).**')
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (Component 4, the Edit tool; b724's sections over b724's objects not carried). A row of two

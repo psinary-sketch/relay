@@ -1,0 +1,26 @@
+b725 -- (R335)(4)(i): H-ONSET-MASS`S ONSETS ON THE ZEROS ITS RULE NAMED, BY b707`S ROUTE ON b709`S LADDER (2026-10-30T18:16:00Z)
+
+### by tools/b725_onset_mass.py (tools/b723_support.py`s route, imported unedited); the registration data/b725_registrations.txt (i)
+### (relay 22210d4b), the control data/b725_onset_mass_control.txt and the rule`s output data/b725_onset_mass_rule.txt committed before
+### any onset. Units: data/b725_onset_mass_units.jsonl (untracked). The falsifier: |a*/a*_pred - 1| > 0.05.
+
+## (C1) THE BANKED ONSETS THROUGH THIS CODE PATH: AS WANTED ; (C2) AS WANTED
+  rho0 onset mid929_937 at a = 6.838396011 +- 2.47e-38 (banked 6.838396011)
+  band onset rung32381 at a = 10.38532711 +- 5.11e-38 (banked 10.38532711)
+
+## THE ZEROS, IN THE RULE`S ORDER
+  off18: beta 0.9105105144 ; gamma0 155.5508257408436275089011 ; a*_pred 1.386294361
+    the ladder (q0): log2 9.44488 +- 7.34e-14 POS ; 32 3.66432 +- 5.38e-25 POS ; 48 2.83647 +- 1.32e-25 POS ; 64 2.31227 +- 5.02e-26 POS ; 96 1.48961 +- 1.27e-26 POS ; 128 0.761788 +- 5.24e-27 POS ; 192 -0.548207 +- 1.01e-27 NEG
+    THE ONSET: mid26959_26981 (grid point 2136 of 4052 in (128, 192]) at a = 10.20248033 +- 4.97e-38, lambda_min -0.0002229856298 +- 1.88e-27 ; a*/a*_pred - 1 = +6.35953 -- BEYOND 0.05 ; units 12858, their seconds summed 25610
+  off44: beta 0.9101856764 ; gamma0 309.8110569470678054560428 ; a*_pred 1.386294361
+    the ladder (q0): log2 10.8771 +- 6.73e-14 POS ; 32 5.28198 +- 3.98e-25 POS ; 48 4.39352 +- 1.01e-25 POS ; 64 3.81202 +- 4.16e-26 POS ; 96 2.91073 +- 1.36e-26 POS ; 128 2.13176 +- 8.99e-27 POS ; 192 0.749423 +- 6.35e-27 POS
+    CARRIED, NOT COMPUTED ((R335)(8)): the ladder positive to 2 log 192 -- beyond reach
+  off24: beta 0.9060417757 ; gamma0 201.2801534672070906377288 ; a*_pred 1.386294361
+    the ladder (q0): log2 9.98512 +- 6.84e-14 POS ; 32 4.95561 +- 1.33e-25 POS ; 48 3.99682 +- 2.47e-26 POS ; 64 3.26598 +- 8.17e-27 POS ; 96 2.06970 +- 2.11e-27 POS ; 128 1.03954 +- 1.36e-27 POS ; 192 -0.755402 +- 1.19e-27 NEG
+    CARRIED, NOT COMPUTED ((R335)(8)): the coarse bracket (128, 192], a in (9.704061, 10.514991] ; were the onset computed, a*/a*_pred - 1 in (+6.0000, +6.5850]
+
+THE FALSIFIER (a computed onset with |a*/a*_pred - 1| > 0.05 at a test zero): FIRED at ['off18']
+BEYOND REACH, NO ONSET COMPUTED: none ; NOT RUN (carried with its price): ['off44', 'off24']
+THE HYPOTHESIS (HELD, REFUTED or NOT SCORABLE): REFUTED
+
+### ### **H-ONSET-MASS: C1 AS WANTED ; ZEROS 3 ; ONSETS COMPUTED 1 ; WITHIN 0.05 0 ; BEYOND REACH 0 ; NOT RUN 2 ; THE HYPOTHESIS REFUTED.**
