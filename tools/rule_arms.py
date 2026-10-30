@@ -455,7 +455,7 @@ def reading(name, R):
         bad = [b for b, ok in cs if not ok]
         return bool(cs) and not bad, len(cs), len(bad), 'consumers sections %d (plan banks b672 on) ; citing no bank %s' % (len(cs), bad or 'NONE')
     if name == 'G-RULE-SCORES-BEFORE-SEAL':
-        sc = [c for c in R['calls'] if re.search(r'\b%s_record\.py\s+scores\b' % R['act'], c['cmd'])]
+        sc = [c for c in R['calls'] if re.search(r'(?:\b%s_record\.py|\bstanding/fold\.py\s+record)\s+scores\b' % R['act'], c['cmd'])]  # ### v1.6.0, (R336)(2)(iii): the fold's route read
         first = min((_iso(c['ts']) for c in sc if _iso(c['ts'])), default=None)
         ok = bool(sc) and (R['seal_ct'] is None or (first is not None and first < R['seal_ct']))
         return ok, len(sc), 0 if ok else 1, 'score-route calls %d, the first %s ; the seal commit %s' % (

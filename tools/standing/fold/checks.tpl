@@ -1332,7 +1332,7 @@ def scored(S, k):
 
 
 def closing_sentence_ok(S):
-    t = S['closing_src']
+    t = re.sub(r"\s*',?\s*\n\s*'\s*", ' ', S['closing_src'])  # ### v1.6.0, (R336)(2)(iii): the search text unwrapped; a hard-wrapped sentence matches
     return ('no identifier of the author ' + 'in any outbound') in t and ('plain requests to ' + 'github.com') in t \
         and '### THE CITATION CHECK' in t and '### THE RECORD LINES' in t and '### THE DRY RUN' in t \
         and all(('THE %s' % s) in t for s in CLOSING_SECTIONS) \
@@ -1782,7 +1782,7 @@ ARMS_ALL = [
                                                                             and ".startswith(ACT_NOW)" in S['suite'] and "'data/%s_components.txt' % ACT_NOW in" in S['suite']),
      lambda S: put(S, 'suite', '')),
     ('G-CLOSING-SENTENCE', 'tools/⟪ACT⟫_closing.py: the closing sentence in the rule`s words with the plain reads named; the citation check, the record lines, the dry run, the corrigendum, the derivation, the controls` ripe work, the two reads, the toolset at v1.2.0, the federation pin, the records, the touch read, the standing arms, the kernels, the author`s word from its bank, the mirror, the carry`s diffs',
-     lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any outbound', 'x'))),
+     lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any', 'x'))),
     ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703)',
      lambda S: lsr_ok(S), lambda S: put(S, 'lsr', {PP: 2})),
     ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b706_standing_figures.py (b703`s reading over b706`s roster at the unversioned names) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than ⟪PREV⟫`s figure',

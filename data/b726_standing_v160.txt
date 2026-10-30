@@ -1,0 +1,27 @@
+b726 -- THE CONTROLS OF tools/standing/ v1.6.0, (R336)(2)(iii): G-CLOSING-SENTENCE`S SEARCH TEXT UNWRAPPED, G-RULE-SCORES-BEFORE-SEAL`S READER ON THE FOLD`S ROUTE (2026-10-30T23:49:14Z)
+
+### the routes before the repair read at HEAD (bc253274); each case its instance through both
+
+### (closing) G-CLOSING-SENTENCE -- checks.tpl closing_sentence_ok; instance: tools/acts/b725.py`s closing as rendered (event (5))
+  the regex read from the template: \s*',?\s*\n\s*'\s* ; the render 46422 chars, unwrapped 45630
+  (closing) the sentence in b725`s render
+      BEFORE (v1.5.0): the needle in the raw render False -> FAILS
+      AFTER  (v1.6.0): the needle in the unwrapped render True -> PASSES
+      AS WANTED
+  (closing) the arm`s plant on the same render
+      BEFORE (v1.5.0): the old plant changes the render False -> FAILS
+      AFTER  (v1.6.0): after the new plant the needle in the unwrapped render False -> PASSES
+      AS WANTED
+
+### (scores) G-RULE-SCORES-BEFORE-SEAL -- tools/rule_arms.py :458; instance: b725`s session, its seal 1e37ee28 (event (8))
+  the calls read from the session 635 ; the seal commit time 1793395200
+  (scores) b725`s calls through the arm`s reading
+      BEFORE (v1.5.0): ok False, calls 0 ; score-route calls 0, the first NONE ; the seal commit 2026-10-30T21:20:00Z -> FAILS
+      AFTER  (v1.6.0): ok True, calls 7 ; score-route calls 7, the first 2026-10-30T19:22:39Z ; the seal commit 2026-10-30T21:20:00Z -> PASSES
+      AS WANTED
+  (scores) the same calls against a seal planted before every call
+      BEFORE (v1.5.0): not read (the old reader finds no call) -> FAILS
+      AFTER  (v1.6.0): ok False ; score-route calls 7, the first 2026-10-30T19:22:39Z ; the seal commit 1970-01-01T00:00:01Z -> PASSES
+      AS WANTED
+
+### ### **v1.6.0: CONTROLS (closing), (scores) ; CASES 4 ; AS WANTED 4 ; ALL AS WANTED.**
