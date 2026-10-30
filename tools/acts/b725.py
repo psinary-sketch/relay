@@ -394,7 +394,7 @@ def rebuild_wf_ok(S):
     """(R334)(7), as b724 left the branches (no kernel commit this act): the workflow at each rebuild branch's tip -- the five kernels other
     than SIDE-frobenius carrying build-module.yml on main; SIDE-frobenius none on main, its tip's workflow SIDE-explicit-formula's with b721's
     two lines (the push trigger to the branch, the target fixed) and nothing else, the hold kept; SIDE-kernel's tip carrying main's
-    build-module.yml changed in the four places of b724's kdraft4_clear row (data/b724_axiom_rows.json) and nothing else; no identifier of
+    build-module.yml changed in the four places of b723's kdraft4_clear row (data/b723_axiom_rows.json) and nothing else; no identifier of
     the author and no secret at either tip."""
     import difflib
     st = S['rebuild_state'] or {}
@@ -405,7 +405,7 @@ def rebuild_wf_ok(S):
     km = read_blob('D:/SIDE-kernel', 'main:.github/workflows/build-module.yml') or ''
     kt = kn.get('wf_tip') or ''
     kd = [x for x in difflib.unified_diff(km.split(NL), kt.split(NL), lineterm='', n=0) if x[:1] in '+-' and x[:3] not in ('+++', '---')]
-    row = [r for r in (S['rebuild_rows_b724'] or []) if r.get('kind') == 'kdraft4_clear' and r.get('kernel') == 'SIDE-kernel']
+    row = [r for r in (S['rebuild_rows_b723'] or []) if r.get('kind') == 'kdraft4_clear' and r.get('kernel') == 'SIDE-kernel']
     want = [x for x in (row[-1].get('diff') or []) if x[:1] in '+-' and x[:3] not in ('+++', '---')] if row else None
     return all(v['wf_main'] for k, v in st.items() if k != 'SIDE-frobenius') and fr.get('wf_main') is False \
         and d == ['+  push: { branches: [%s] }' % K.REBUILD_BRANCH, '-      TARGET: ${{ inputs.target }}', '+      TARGET: SIDEFrobenius'] \
@@ -562,7 +562,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### (a)-(u) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxy'))   # ### (a)-(y) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b725_price.txt', 'data/b725_corrigendum.txt', 'data/b725_standing_v150.txt', 'data/b725_root_row.txt',
@@ -619,7 +619,7 @@ def _addr_live():
         # ### read), the lambda_2 bank beside them; the wave 1 kernels' rebuild-b721 branches, main and tags as b724 left them (its axiom rows
         # ### read for the workflows there, no commit on those kernels this act)
         rebuild=rd('b725_lambda2.txt'), rebuild_rows=json.loads(rd('b725_dispatch_rows.json') or '[]'), rebuild_state=_rebuild_state(),
-        rebuild_rows_b724=json.loads(rd('b724_axiom_rows.json') or '[]'),
+        rebuild_rows_b723=json.loads(rd('b723_axiom_rows.json') or '[]'),   # ### b723's rows: the act shift had moved this name to b724, which has no such bank (defect (y))
         ef_branches=dict((b, dict(local=gs(EF, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b),
                                   remote=gs(EF, 'rev-parse', '--verify', '--quiet', 'refs/remotes/origin/' + b),
                                   base=gs(EF, 'merge-base', K.EF_BASE, t_),
@@ -737,7 +737,7 @@ REPORT_KEYS = ('KERNEL -- lambda_2 ON keiper-b725', 'KERNEL -- THE C2 THEOREM ON
 #⟪END⟫
 #⟪SECTION checks 27⟫
         and beyond == {'SIDE-archimedean': '1', 'SIDE-rcurve': '1', 'SIDE-spinor': '1', 'SIDE-frobenius': '3', 'SIDE-kernel': '1'} \
-        and all(set(st[k]['author'].split(NL)[:1]) == {'b724 axiom seat <b724-axiom@relay.invalid>'} for k in beyond) \
+        and all(set(st[k]['author'].split(NL)[:1]) == {'b723 axiom seat <b723-axiom@relay.invalid>'} for k in beyond) \
         and set(st['SIDE-frobenius']['author'].split(NL)[1:]) == {'b721 rebuild seat <b721-rebuild@relay.invalid>'} \
 #⟪END⟫
 #⟪SECTION checks 28⟫
@@ -978,7 +978,7 @@ def research_reproduces_ok(S):
     ('G-RUNNER-GATE', 'N1, N4: the dispatches` order and hold -- free memory at or above 2,560 MB at each push, dispatch and read; for each dispatch its commit before its push before it before its read; three dispatches, each by `gh workflow run build-module.yml` at main with the ref input the branch`s tip, none by push; no b721-b724 rebuild or axiom route this act',
 #⟪END⟫
 #⟪SECTION checks 58⟫
-    ('G-MERGES-ON-GATE', 'no kernel merge and no tag this act: each repaired wave 1 kernel`s rebuild-b721 as b724 left it, beyond its pin by b724`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at badaccc and v0.37 unmoved, keiper-b725 and c2-b725 off it; SIDE-lv-conservation`s main, deposit, port-b707 and v0.14.0 unmoved; the join kernel`s main and its one tag v0.1.0',
+    ('G-MERGES-ON-GATE', 'no kernel merge and no tag this act: each repaired wave 1 kernel`s rebuild-b721 as b724 left it, beyond its pin by b723`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at badaccc and v0.37 unmoved, keiper-b725 and c2-b725 off it; SIDE-lv-conservation`s main, deposit, port-b707 and v0.14.0 unmoved; the join kernel`s main and its one tag v0.1.0',
 #⟪END⟫
 #⟪SECTION checks 59⟫
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s two (FINDINGS and OPEN_TRAILS, (R335)(5)); no ERRATA, no rename (N5)',
@@ -1756,7 +1756,7 @@ def _finding_text_b724():
     if shut:
         sys.exit('### THE TRAIL: (R335)(10)`S ORDERS NOT OPEN BY THE GENERATOR`S RULE OVER THEIR LINES: %s -- NOTHING COMPOSED' % shut)
     rows_ = ['', TRAIL_HEAD(), '',
-             '**(R335) ratified, with its addendum (8)-(10).** Its components as the ferry orders them (relay data/b725_ferry.txt, '
+             '**(R335) ratified.** With its addendum (8)-(10); its components as the ferry orders them (relay data/b725_ferry.txt, '
              'data/b725_addendum.txt), each read below from its bank.', '',
              '**Entered:** FINDINGS.md:%s (b724’s weight), :%s (the corrigendum), :%s (the entry); no ERRATA; this record.' % (
                  f['weight'], f['corr_line'], fj.get('entry_line')), '',
@@ -1779,7 +1779,7 @@ def _finding_text_b724():
              '**H-INTERFERENCE:** %s at %s of %s zeros, Z_Q1 excluding 0 at %s (relay data/b725_interference.txt).' % (
                  f['it_word'], f['it_read'], f['it_zeros'], f['it_excl']), '',
              '**lambda_2:** on keiper-b725 (`%s`), run %s, compiled with the standard three on two named premises, printed as what remains; '
-             'DERIVES %s, INTERFACES %s (relay data/b725_lambda2.txt).' % (f['l2_tip'], f['l2_run'], f['l2_derives'], f['l2_interfaces']), '',
+             'of its declarations %s derive and %s interface (relay data/b725_lambda2.txt).' % (f['l2_tip'], f['l2_run'], f['l2_derives'], f['l2_interfaces']), '',
              '**The C2 theorem:** E0 DERIVES; the route equal at %s of 18; on c2-b725 (`%s`), run %s stopped under the runner’s hold at %s MB, '
              'certificates read %s of 18; carried with its tree state (relay data/b725_c2.txt).' % (
                  f['c2_mirror'], f['c2_tip'], f['c2_run'], f['c2_low'], f['c2_certs']), '',

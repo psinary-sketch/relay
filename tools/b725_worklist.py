@@ -144,7 +144,7 @@ REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
                ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'),
-               ('data/b725_registrations.txt', '22210d4b'))   # ### N2 (b725's row added at Component 2, step 11)
+               ('data/b725_registrations.txt', 'dc0d4133'))   # ### N2 (b725's row added at Component 2, step 11; read at its last amendment dc0d4133, the blob HEAD carries -- 22210d4b's text its prefix, read by G-REGISTRATIONS-FIRST's own clause; Component 4's probe, before the lock)
 REG_FILES = tuple(f for f, _c in REG_COMMITS)
 PRED_B717 = 'data/b717_predictions.txt'
 PRED_B717_COMMIT = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'
