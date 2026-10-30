@@ -598,10 +598,11 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
         and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
              or bool(re.search(r'\bkept: [^.;]*\b%s\b' % re.escape(K.PORT_BRANCH), S['ferry']))) \
 #⟪END⟫
-# ### b724, Component 7 (the Edit tool): G-DELETES-ONE-BRANCH's plant replaced "the push-b723-* branches", where (R334)(9) writes "the push-b723*
-# ### branches", so the plant changed nothing; set to the ruling's own words
+# ### b724, after the lock, on the author's word (event (10), REPEAT b721 (8)): the carried plant replaced "the push-b723* branches of relay
+# ### and PLACE-papers deleted by name", which b724's ferry does not carry (its :23 writes "the push-b723-preroot, -record and -closing
+# ### branches deleted by name"), so the plant changed nothing and the seal refused; set to the b724 ferry's own words
 #⟪OVERRIDE checks 1621 1621 REPAIR (plant)⟫
-     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', S['ferry'].replace('the push-b723* branches of relay and PLACE-papers deleted by name', 'the push-b723* branches of relay and PLACE-papers kept by name'))),
+     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', S['ferry'].replace('the push-b723-preroot, -record and -closing branches deleted by name', 'the push-b723-preroot, -record and -closing branches kept by name'))),
 #⟪END⟫
 # ### b724, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b724_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
