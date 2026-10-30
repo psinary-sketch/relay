@@ -242,10 +242,10 @@ STANDING_VERSION = 'v1.5.0'             # ### (R336)(2)'s repairs landed v1.5.0 
 STANDING_CHANGED = ()                   # ### the standing files (R336)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b725's commits the act reads (the names kept for the carried arms: the previous act's)
-B714_CLOSING = 'f4ab9491'    # ### b725's closing, the act's relay base
-B714_RECORD = '6ca86862'     # ### b725's record commit (relay, the head line's)
-B714_ROOT = 'e09d0fac7d52e9e2ad3f206a9eae98391e6f31d38ad892531e5da4d487441d11'   # ### b725's root, data/act_roots.txt :103
-B723_ROOT_BANKS = '0df8247b'  # ### b725's root commit (step 29), the banks its root rode with
+B714_CLOSING = 'e2246a8e'    # ### b725's closing, the act's relay base
+B714_RECORD = '14593dda'     # ### b725's record commit (relay, the head line's)
+B714_ROOT = 'd85513caeb001601649df5f7a5cf4b634e3db0c6a8d65db87be0ddac99a73d97'   # ### b725's root, data/act_roots.txt :104
+B723_ROOT_BANKS = '34fee845'  # ### b725's root commit (step 37), the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '7be1601c'                # ### (R336)(2)(ii),(iii),(v): tools/standing/ v1.5.0 (step 6)
 C1_STANDING_REPAIR = '0c30a6b2'         # ### record.tpl back to its line count (step 7)

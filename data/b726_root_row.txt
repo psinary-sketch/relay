@@ -1,0 +1,32 @@
+b726 -- (R336)(2)(ii): b723'S ROW CARRIED ON ITS BRANCH, THE CHAIN VERIFY RE-READ (2026-10-30T23:51Z)
+
+### Written by the Write tool from the scratch branch726.py (plumbing, a temporary index: main and the working tree untouched) and the read-only
+### verify723.py. b725's route (A), data/b725_root_row.txt :34-:37, taken on (R336)(2)(ii).
+
+## THE BRANCH
+  corrigendum-b723 at 16caad109b0a7d768406d8492398c7e87e5613d6, parent 2be0135cf8a8172863e947df905c23dc749a0719, tree 3dbbc9f1; files against the
+  parent: data/b723_bank_hashes.json alone. Its blob 1d2ea944, 2533 bytes, sha256 133004c8f910b786b8582a122fad2f4f68b0d253bdce3a2ff945625bd043b0de,
+  the recorded value (data/b723_act_root.json :105): the blob at 2be0135c with the two entries b723_root_banks.json and b723_root_banks.txt at their
+  values in 49de42fe, in the later blob's key order (the first build kept insertion order, read bd491f2a, NOT EQUAL, wrote nothing; the order
+  corrected before any write). Author and committer the noreply form. Pushed alone by push_gated.sh --branch --scratch at 23:50:27Z, read back
+  equal (data/b726_relay_corrigendum-b723_push_out.txt); main not pushed.
+
+## THE ROW
+  An appended row in b680's form, data/act_roots.txt :105, no row edited, the root value kept:
+  corrigendum b723 2be0135cf8a8172863e947df905c23dc749a0719 16caad109b0a7d768406d8492398c7e87e5613d6 9296406733ce0d44e197b8110ae942efb9f6fa121f7416214560282cbf42d553 data/b723_bank_hashes.json
+  :102's row stands above it and is read first; the reader applies a row's corrected commit by update, so the later row decides the bank (tools/act_root.py
+  :398-:416), and `corrected` prints 2.
+
+## THE CHAIN VERIFY RE-READ (tools/act_root.py verify, acts b722, b723, b724, b725; free 5493 MB, the hold MET)
+  FIRST READ, 23:51Z: all four DISAGREE on one and the same two reasons, "head SIDE-spinor 7e570eeddb57 not on the remote main" with the remote read empty,
+  and "tag SIDE-spinor v0.1.0 at the remote ABSENT"; every bank AGREE. The read tested directly, not assumed: `git ls-remote` on the URL and through the
+  clone's origin each returned main 7e570eed and v0.1.0 fdfe957c, equal to the record; the repository public (gh api). One remote read failed twice inside the
+  tool's process, its result cached per process and shared by the four acts. Printed, not a finding on the chain.
+  SECOND READ, the tool alone:
+    b722 AGREE at 8fdd096c: blob 104, crlf 0, later 0, unread 0, corrected 0
+    b723 AGREE at 2be0135c: blob 106, crlf 0, later 1, unread 0, corrected 2
+    b724 AGREE at 21b11e4b: blob 91, crlf 0, later 0, unread 0, corrected 0
+    b725 AGREE at 6b3f46a8: blob 102, crlf 0, later 0, unread 0, corrected 0
+  The whole chain is not run here (over 600 s, b724 event (12)); the suite's chain parts read it at the close. A clone's verify needs the branch fetched.
+
+### ### **b723'S ROW CARRIED ON corrigendum-b723 (16caad10, sha 133004c8) ; THE ROW AT act_roots :105 ; VERIFY b722 AGREE, b723 AGREE (106 OF 106), b724 AGREE, b725 AGREE ; MAIN UNTOUCHED.**

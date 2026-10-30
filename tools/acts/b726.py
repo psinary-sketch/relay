@@ -26,17 +26,17 @@
 #⟪PENDING regspec ⟫
 #⟪PENDING report ⟫
 # ### b726, Component 1 (the Edit tool): THE c1 ROUTE FOR b725'S WEIGHT LINE AND ITS CORRIGENDUM, (R336)(1)-(2). Carried from b725's
-# ### override (its b723 needles shifted by the carry, class (ix)) and rewritten here against b725's own banks: the closing's lines by
-# ### needle, the events (18), the defects (19), the refusals (8 at f4ab9491), the v1.5.0 controls. `c1 weight|corrigendum [dry|write]`;
+# ### override and rewritten here against b725's own banks: the closing's lines by needle, the events (10), the defects (28), the refusals
+# ### (9 at e2246a8e), the v1.6.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record 1428 1435 REPAIR (c1)⟫
-C1_PREV_CLOSE = 'f4ab9491'          # ### b725's closing commit (relay main at b726's step zero): its refusal bank read at it
+C1_PREV_CLOSE = 'e2246a8e'          # ### b725's closing commit (relay main at b726's step zero): its refusal bank read at it
 C1_NOTED = '2026-10-30'
-C1_CORRIGENDA_LAST = 44
-C1_V140 = 'b726_standing_v150.txt'  # ### the name kept for the routes below: b726's controls bank is v1.5.0's
+C1_CORRIGENDA_LAST = 45
+C1_V140 = 'b726_standing_v160.txt'  # ### the name kept for the routes below: b726's controls bank is v1.6.0's
 C1_WEIGHT_HEAD = '*Appended 2026-10-30 by b726 to b725’s entry (:%d), under `(R336)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## 9 of 10 repeat classes repaired with controls'
-C1_TRAIL_NEEDLE = '### b725 — lane two, act one hundred and fifty-one, the second checkpoint act under (R335)'
+C1_ENTRY_NEEDLE = '## H-ONSET-MASS at 1 of 3 zeros REFUTED, two carried; H-DIAL at c = 0.6, 0.8, 1.0 REFUTED'
+C1_TRAIL_NEEDLE = '### b725 — lane two, act one hundred and fifty-two, the research act under (R335)'
 C1_BRACKET = re.compile(r"^(THE SEAT'S|THE NAVIGATOR'S|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
@@ -85,7 +85,7 @@ def _c1_weight():
     c = 'b725_closing.txt'
     head = _c1_rd(c).split(NL)[0]
     q = re.search(r'^\(1\) b725 AT ITS WEIGHT\. Its closing head line, quoted from data/b725_closing\.txt :1 as the public relay carries it at '
-                  r'f4ab9491: "([^"]+)"', _c1_rd('b726_ferry.txt'), re.M)
+                  r'e2246a8e: "([^"]+)"', _c1_rd('b726_ferry.txt'), re.M)
     if not q or q.group(1) != head:
         sys.exit('### data/b725_closing.txt :1 IS NOT THE HEAD LINE (R336)(1) QUOTES -- NOTHING COMPOSED')
     steps = json.load(open(os.path.join(D, 'b725_steps.json'), encoding='utf-8')).get('rows') or []
@@ -93,92 +93,84 @@ def _c1_weight():
     clo = [r['commit'][:8] for r in steps if r.get('phase') == 'closing' and r.get('repo') == 'relay']
     if K.B714_RECORD[:8] not in rec or clo[-1:] != [C1_PREV_CLOSE] or K.B714_RECORD[:8] not in head:
         sys.exit('### data/b725_steps.json: record %s, closing %s -- NOTHING COMPOSED' % (rec, clo))
-    (cc, cd, rp, rn), l_cn = _c1_fl(c, r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+) ; REPEAT (\d+) OF (\d+)$', 'the counter')
+    (cc, cd, rp, rn), l_cn = _c1_fl(c, r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT (\d+) OF (\d+)$', 'the counter')
     (sa, sb), l_sh = _c1_fl(c, r'^      ### AGREE (\d+) of (\d+)$', 'the sealed tools')
-    (gi, gc, gl, gr), l_cg = _c1_fl(c, r'ITEMS (\d+): EVENTS 18, DEFECTS 39 ; CLAIM (\d+), CLOSE (\d+) ; REPEAT (\d+) ;', 'the corrigendum for b723')
-    (vc,), l_v = _c1_fl(c, r'v1\.4\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED \1 ; ALL AS WANTED', 'v1.4.0`s controls')
-    _x, l_rw = _c1_fl(c, r"THE ROW WRITTEN IN b680'S FORM ; VERIFY OVER IT: b723 DISAGREE, ONE BANK", 'b723`s row')
-    _x, l_pc = _c1_fl(c, r'THE CHOICE: \(3\) CARRIED WHOLE WITH ITS PRICE, \(2\) AND \(4\)-\(6\) RUN', 'the price table')
-    _x, l_sp = _c1_fl(c, r'THE LEDGER SPLIT: CARRIED WHOLE TO b726 WITH ITS PRICE', 'the ledger split')
-    (otr, odn, onm, omt, oaw, ort, okp, ors), l_or = _c1_fl(
-        c, r'THE OPEN ORDERS: (\d+) TRIAGED -- DONE (\d+) ; TRIGGER NOT MET (\d+) ; TRIGGER MET (\d+) .* AUTHOR.S WORD (\d+) \(RETIRE (\d+), '
-           r'KEEP (\d+), RE-SCOPE (\d+)\)', 'the orders triage')
-    otl = [i for i, l in enumerate(_c1_git('show', 'HEAD:OPEN_TRAILS.md', repo=PP).replace(chr(13), '').split(NL), 1)
-           for m in [re.search(r'open orders (\d+) before these lines, (\d+) after', l)] if m and m.group(1) == '82' and m.group(2) == '63']
-    if len(otl) != 1:
-        sys.exit('### OPEN_TRAILS: %d LINES READ "open orders 82 before these lines, 63 after", NOT ONE -- NOTHING COMPOSED' % len(otl))
-    (lvc, lvr), l_lv = _c1_fl(c, r'THE lv NEGATION: not_T3_perClass_to_combinations COMPILES ON scratch-b725 \(([0-9a-f]{8})\), RUN (\d+), AXIOMS '
-                                 r'\[propext, Classical\.choice, Quot\.sound\], NO sorryAx', 'the lv negation')
-    l_lv43 = 43                         # ### (R336)(1) cites data/b725_lv.txt :43 for the standard three; the line read, not trusted
-    if 'propext, Classical.choice, Quot.sound' not in _c1_rd('b725_lv.txt').split(NL)[l_lv43 - 1]:
-        sys.exit('### data/b725_lv.txt :43 DOES NOT CARRY THE STANDARD THREE -- NOTHING COMPOSED')
-    _x, l_er = _c1_fl(c, r'ERRATA E-2026-10-29-1; no main or tag touched', 'the erratum')
-    _x, l_lg = _c1_fl(c, r'THE LEGACY IMPORTS: CARRIED WITH THE REMAINING PRICE \(ABOUT 1\.5-2 H\) -- 186 SOURCES SCANNED', 'the legacy imports')
-    _x, l_re = _c1_fl(c, r'ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ;', 'the reproduction')
-    _x, l_ad = _c1_fl(c, r'PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; PLACES 48 ; CONTROLS 4 OF 4 AS WANTED ;', 'the name and address')
-    _x, l_tr = _c1_fl(c, r'entered in the trail beside its citation of touch row \(6\)', 'the touch row (6) reading')
+    (gi, gc, gl, gr), l_cg = _c1_fl(c, r'ITEMS (\d+): EVENTS 18, DEFECTS 19 ; CLAIM (\d+), CLOSE (\d+) ; REPEAT (\d+) ;', 'the corrigendum for b724')
+    (vc,), l_v = _c1_fl(c, r'v1\.5\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED \1 ; ALL AS WANTED', 'v1.5.0`s controls')
+    _x, l_rw = _c1_fl(c, r"b723'S ROW IN b680'S FORM: STANDING AT :102, READ BY THE CHAIN'S READER \(corrected 1\) ; VERIFY b722 AGREE, b723 DISAGREE \(ONE BANK\)", 'b723`s row')
+    (ni,), l_in = _c1_fl(c, r'H-INTERFERENCE: \(C1\) AS WANTED ; \(C2\)-\(C4\) AS WANTED ; ZEROS (\d+) ; READ \1 ; Z_Q1 EXCLUDES 0 AT \1 ; THE HYPOTHESIS HELD', 'H-INTERFERENCE')
+    _x, l_on = _c1_fl(c, r'H-ONSET-MASS: C1 AS WANTED ; ZEROS 3 ; ONSETS COMPUTED 1 ; WITHIN 0\.05 0 ; BEYOND REACH 0 ; NOT RUN 2 ; THE HYPOTHESIS REFUTED', 'H-ONSET-MASS')
+    _x, l_di = _c1_fl(c, r'H-DIAL: \(c0\) AS WANTED ; \(id\) AS WANTED ; ONSETS 3 OF 3 ; THE HYPOTHESIS REFUTED', 'H-DIAL')
+    (lc_, lr_), l_la = _c1_fl(c, r'lambda_2 > 0 -- NOT COMPILED OUTRIGHT: .*keiper-b725 \(([0-9a-f]{8}), RUN (\d+)\) WITH THE STANDARD THREE, NO sorryAx, ON TWO NAMED PREMISES', 'lambda_2')
+    (cc_, cr_, cl_), l_c2 = _c1_fl(c, r'THE C2 THEOREM: E0 DERIVES ; .*ON c2-b725 \(([0-9a-f]{8}), RUN (\d+)\) THE BUILD STOPPED .*LOW (\d+) MB.*CERTIFICATES BY decide \+kernel 0 OF 18 READ', 'the C2 theorem')
+    (ap_,), l_ad = _c1_fl(c, r'PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; PLACES (\d+) ; CONTROLS 4 OF 4 AS WANTED ;', 'the name and address')
     suite = r'^\s*%s : ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) '
     pre, l_pre = _c1_fl(c, suite % 'pre-push', 'the pre-push suite')
     post, l_post = _c1_fl(c, suite % 'post-push', 'the post-push suite')
     (ca, cb), l_cl = _c1_fl(c, r'^\s*pre-push, \(R335\)\(2\) : THE CLAIM ARMS PASSING (\d+) OF (\d+) \(failing ', 'the claim arms')
     (nbk,), l_bk = _c1_fl(c, r'^### THE ROOT`S BANKS .*: BANKS (\d+) ; CLEAN AND EQUAL AT HEAD \1 ; HEAD THE REMOTE MAIN True', 'the root`s banks')
-    (msha,), l_mi = _c1_fl(c, r'^### THE MIRROR .*mirror-refresh-2026-10-29-b725\.zip ; \d+ bytes ; sha256 ([0-9a-f]{16}) ; .*Act root: b725 '
+    (msha,), l_mi = _c1_fl(c, r'^### THE MIRROR .*mirror-refresh-2026-10-30-b725\.zip ; \d+ bytes ; sha256 ([0-9a-f]{16}) ; .*Act root: b725 '
                            + K.B714_ROOT + r' ; CLEAN ON ALL THREE CLAUSES', 'the mirror')
-    _x, l_sc = _c1_fl(c, r'^\s*\(N1\) HELD \(N2\) HELD \(N3\) HELD \(N4\) REFUTED \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD$', 'the scores')
     (np_,), l_an = _c1_fl(c, r'^### THE AUTHOR`S ANSWERS AND WORDS .*: (\d+) prompt\(s\) put by the seat', 'the prompts')
+    n4 = (json.load(open(os.path.join(D, 'b725_scores_close.json'), encoding='utf-8')).get('scores') or {}).get('N4') or \
+        json.load(open(os.path.join(D, 'b725_scores_close.json'), encoding='utf-8')).get('N4')
+    if not n4 or n4[0] != 'REFUTED':
+        sys.exit('### data/b725_scores_close.json: N4 %s -- NOTHING COMPOSED' % (n4,))
+    # ### each figure (R336)(1) cites, read at its bank and line, not trusted
+    for bank, line, needle in (('b725_onset_mass.txt', 14, 'at a = 10.20248033'), ('b725_onset_mass.txt', 12, 'a*_pred 1.386294361'),
+                               ('b725_onset_mass.txt', 22, 'FIRED at [\'off18\']'), ('b725_onset_mass.txt', 8, '6.838396011'), ('b725_onset_mass.txt', 9, '10.38532711'),
+                               ('b725_dial.txt', 33, 'at a = 3.039966598'), ('b725_dial.txt', 35, 'at a = 2.888826162'),
+                               ('b725_dial.txt', 37, 'rung16 (grid point 17 of 393 in (log2, 32]) at a = 2.772588722'),
+                               ('b725_dial.txt', 39, "['0.911990', '1.155530', '1.386294']"), ('b725_interference.txt', 106, 'Z_Q1 EXCLUDES 0 AT 69')):
+        if needle not in _c1_rd(bank).split(NL)[line - 1]:
+            sys.exit('### data/%s :%d DOES NOT CARRY %r -- NOTHING COMPOSED' % (bank, line, needle))
     ar = json.load(open(os.path.join(D, 'b725_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
         sys.exit('### data/b725_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
     ev, dr = _c1_events(), _c1_defects()
-    if sorted(ev) != list(range(1, 19)) or len(dr) != 19:
+    if sorted(ev) != list(range(1, 11)) or len(dr) != 28:
         sys.exit('### EVENTS %s ; DEFECTS %d -- NOTHING COMPOSED' % (sorted(ev), len(dr)))
     return (C1_WEIGHT_HEAD + ' -- b725 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b725_closing.txt):* “%s” (data/b725_closing.txt :1); its '
-            'relay commit the record’s %s, the closing’s %s (data/b725_steps.json, the record and closing rows). As the closing’s rows read: '
-            'the corrigendum for b723 at %s items, CLAIM %s, CLOSE %s, REPEAT %s, and v1.4.0’s %s controls AS WANTED, the repeat classes '
-            'repaired with controls as data/b725_standing_v140.txt banks them (:%d, :%d); b723’s row written at act_roots :102 in b680’s form, '
-            'verify over it b723 DISAGREE on one bank (:%d); the ledger split carried whole with its price, as step zero’s price table chose '
-            'it (:%d, :%d); the open orders triaged, %s -- done %s, trigger not met %s, trigger met %s, %s for the author’s word (retire %s, '
-            'keep %s, re-scope %s) (:%d), 82 open to 63 on the author’s word (OPEN_TRAILS :%d); the lv negation compiled on scratch-b725 '
-            '(%s), run %s read by its id, its axioms the standard three (:%d; data/b725_lv.txt :%d), E-2026-10-29-1 entered (:%d); the legacy '
-            'flattening carried with its price (:%d; data/b725_legacy.txt); tools/research/reproduce.py 64 REPRODUCES, 0 DIFFERS, 4 NOT RUN, '
-            'the plants 64 of 64 (:%d); the name and address 0 and 0 (:%d). The sealed tools AGREE %s of %s (:%d); the suite %s of %s '
-            'pre-push and %s of %s post-push, NOT CLEAN both, the claim arms %s of %s (:%d, :%d, :%d); the counter CLAIM %s, CLOSE %s, '
-            'REPEAT %s of %s (:%d); N4 REFUTED, the rest HELD (:%d). The three readings, as `(R336)`(1) rules them: (i) the imprecision '
-            'entered in the trail beside its citation of touch row (6) stands (:%d); (ii) event (13)’s form -- a note on an earlier act’s '
-            'line written in the current act’s section, naming the line by number -- stands for every later dated note, and the notes in '
-            'the corrigendum below take it; (iii) S2 HELD stands: an arm failing on an earlier act’s row alone while the act reads AGREE is '
-            'not a disagreement with the act’s own score. The root %s over %s banks by the repaired route, chained from %s '
-            '(data/b725_act_root.json; :%d), the chain AGREE at b725 and DISAGREE at b723 alone; the mirror (sha256 %s…) CLEAN on all three '
-            'clauses with the root line (:%d); %s prompts answered (:%d); %d events in data/b725_events.txt, rows (1)-(%d); %d defects, '
-            '(a)–(s) (data/b725_defects.txt). Nothing deposited, nothing published; the corrigendum for these rows follows, under '
+            'relay commit the record’s %s, the closing’s %s (data/b725_steps.json, the record and closing rows). As its rows read: '
+            'H-INTERFERENCE HELD, Z_Q1 excluding 0 at %s of %s certified off-line zeros of Z_Q0 to height 445 (:%d; data/b725_interference.txt '
+            ':106); H-ONSET-MASS REFUTED at off18, a* = 10.20248033 against a*_pred = log 4, the two remaining zeros not run (:%d; '
+            'data/b725_onset_mass.txt :14, :22); H-DIAL REFUTED, onsets a*(0.6) = 3.039966598, a*(0.8) = 2.888826162, a*(1.0) = 2.772588722, the '
+            'products 0.912, 1.156, 1.386 (:%d; data/b725_dial.txt :33-:39); lambda_2 > 0 INTERFACES on two named premises on keiper-b725 (%s, '
+            'run %s read by its id) (:%d); the C2 theorem DERIVES at its statement, its one build stopped under the runner’s hold (low %s MB, run '
+            '%s, %s on c2-b725), 0 of 18 certificates read, carried (:%d); the six orders of `(R335)`(10) entered (OPEN_TRAILS :16589-:16594); the '
+            'local user.email of five clones set to the noreply form on the author’s word (data/b725_events.txt row (2)). The corrigendum for '
+            'b724 at %s items, CLAIM %s, CLOSE %s, REPEAT %s, and v1.5.0’s %s controls AS WANTED (:%d, :%d); b723’s row read at act_roots :102, '
+            'verify b723 DISAGREE on one bank (:%d), since carried on its branch below; the name and address 0 and 0 (:%d, %s places). The sealed '
+            'tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both, the claim arms %s of %s (:%d, :%d, :%d); '
+            'the counter CLAIM %s, CLOSE %s, REPEAT %s of %s (:%d); N4 REFUTED, the rest HELD, 7 of 8 (data/b725_scores_close.json). The root %s over '
+            '%s banks, chained from %s (data/b725_act_root.json; :%d); the mirror (sha256 %s…) CLEAN on all three clauses with the root line '
+            '(:%d); %s prompts answered (:%d); %d events in data/b725_events.txt, rows (1)-(%d), the tenth filed after the closing’s counter; %d '
+            'defects, (a)–(z), (a’), (b’) (data/b725_defects.txt). Nothing deposited, nothing published; the corrigendum for these rows follows, under '
             '`(R336)`(1)-(2).' % (
-                head, K.B714_RECORD[:8], C1_PREV_CLOSE, gi, gc, gl, gr, vc, l_cg, l_v, l_rw, l_pc, l_sp, otr, odn, onm, omt, oaw, ort, okp,
-                ors, l_or, otl[0], lvc, lvr, l_lv, l_lv43, l_er, l_lg, l_re, l_ad, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], ca, cb,
-                l_pre, l_post, l_cl, cc, cd, rp, rn, l_cn, l_sc, l_tr, K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, msha, l_mi,
-                np_, l_an, len(ev), max(ev), len(dr)))
+                head, K.B714_RECORD[:8], C1_PREV_CLOSE, ni, ni, l_in, l_on, l_di, lc_, lr_, l_la, cl_, cr_, cc_, l_c2, gi, gc, gl, gr, vc, l_cg, l_v,
+                l_rw, l_ad, ap_, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], ca, cb, l_pre, l_post, l_cl, cc, cd, rp, rn, l_cn,
+                K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, msha, l_mi, np_, l_an, len(ev), max(ev), len(dr))
+            + NL + NL + C1_OBSERVATION)
 
 
+# ### (R336)(1): an observation, POST HOC, entered with its banks and no hypothesis; no sentence calls it a law
+C1_OBSERVATION = ('*An observation of b725’s runs, POST HOC and not a law, entered under `(R336)`(1) with its banks and no hypothesis:* the '
+                  'size-broken control’s onsets sit at the ladder’s foot, 2.77 to 3.04 across c = 0.6 to 1.0, with a*(1.0) at the rung log 16 exactly '
+                  '(relay data/b725_dial.txt :33-:37), while Q0’s cosh failures onset at 6.84 to 10.39 and rise with gamma (data/b725_onset_mass.txt '
+                  ':8, :9, :14). The onset’s place on the ladder separates the two mechanisms in these runs.')
 # ### the refusals: b725's bank at its closing commit, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(1, 'PIPE', '21:03:28Z', 'defect (c)'), (2, 'PIPE', '21:44:56Z', 'defect (f)'), (3, 'PIPE', '21:51:19Z', 'defect (g)'),
-               (4, 'REDIR', '21:51:37Z', 'defect (h)'), (5, 'REDIR', '22:02:03Z', 'defect (m)'), (6, 'PIPE', '22:28:49Z', 'defect (n)'),
-               (7, 'REDIR', '22:30:55Z', 'defect (o)'), (8, 'PIPE', '02:01:42Z', 'event (11)')]
-C1_CORR_TITLE = ('## Corrigendum to b725’s record (relay data/b725_events.txt rows (1)-(18) and data/b725_defects.txt): eighteen events and '
-                 'nineteen defects, each CLAIM or CLOSE and NEW or REPEAT; the three readings ruled; dated notes, in this section, naming '
-                 'the lines that read wrong; and the short names, the plant needle, the legacy copy and the mirror’s citations repaired at '
-                 'tools/standing/ v1.5.0, each controlled on its last banked instance, under (R336)(1)-(2)')
-C1_ROSTER_FIX = ('the clause that ordered the roster read from PLACE-papers main is b715’s `(R325)`(5) (relay data/b715_ferry.txt :26); '
-                 'b725’s `(R335)`(5) is its lv negation -- a citation moved by the carry’s act substitution (event (18)), repaired at v1.5.0 '
-                 '(relay tools/standing/cites.py; data/b726_standing_v150.txt, :%d)')
-C1_W_FIX = ('the (W) clause naming tools/mirror_prevbuild.json is b725’s `(R335)`(8) (relay data/b725_ferry.txt :23); `(R335)`(10) is '
-            'another clause -- a third wrong citation in the bank, beyond the two event (18) names, caught by v1.5.0’s control (relay '
-            'data/b726_standing_v150.txt, :%d)')
-C1_MANIFEST_FIX = ('the clause that ordered the MANIFEST control at the build commit is b721’s `(R331)`(2)(iii) (relay data/b721_ferry.txt '
-                   ':11); repaired at v1.5.0 (relay data/b726_standing_v150.txt, :%d)')
+C1_REFUSALS = [(1, 'READ', '13:42:02Z', 'defect (b)'), (2, 'PIPE', '14:07:06Z', 'defect (f)'), (3, 'PIPE', '14:14:34Z', 'defect (g)'),
+               (4, 'READ', '14:25:23Z', 'defect (k)'), (5, 'PIPE', '16:21:51Z', 'defect (q)'), (6, 'REDIR', '17:02:55Z', 'defect (s)'),
+               (7, 'REDIR', '17:30:13Z', 'defect (t)'), (8, 'READ', '18:16:54Z', 'defect (u)'), (9, 'READ', '18:29:25Z', 'defect (v)')]
+C1_CORR_TITLE = ('## Corrigendum to b725’s record (relay data/b725_events.txt rows (1)-(10) and data/b725_defects.txt): ten events and '
+                 'twenty-eight defects, each CLAIM or CLOSE and NEW or REPEAT; a dated note, in this section, naming the line that reads stale; '
+                 'G-CLOSING-SENTENCE and G-RULE-SCORES-BEFORE-SEAL repaired at tools/standing/ v1.6.0, each controlled on b725’s banks; b723’s row '
+                 'carried on its branch, under (R336)(1)-(2)')
+C1_CONFIG_FIX = ('true of the act’s kernel commits, all made before the author’s word at b725’s root, and stale as of the close: on that word the local '
+                 'user.email of five clones, SIDE-explicit-formula among them, was set to the noreply form (relay data/b725_events.txt, rows (2) and '
+                 '(10); OPEN_TRAILS :16644). The sentence stands as written')
 C1_NOTES = [
-    ('the mirror bank, the roster’s citation', None, 'data/b725_mirror.txt', 8, '((R335)(5);', 'READS WRONG', 'roster'),
-    ('the mirror bank, (W)’s citation', None, 'data/b725_mirror.txt', 8, '((R335)(10))', 'READS WRONG', 'w'),
-    ('the mirror bank, the MANIFEST control’s citation', None, 'data/b725_mirror.txt', 9, '(R335)(2)(iii)`S MANIFEST CONTROL', 'READS WRONG', 'manifest'),
-    ('the closing’s mirror row', None, 'data/b725_closing.txt', 105, '((R335)(5))', 'READS WRONG', 'roster'),
+    ('the closing’s kernels paragraph, event (10)’s stale parenthesis', None, 'data/b725_closing.txt', 352, 'the local configuration not edited', 'READS STALE', 'config'),
 ]
 
 
@@ -201,8 +193,7 @@ def _c1_v140_line(needle):
 
 
 def _c1_notes():
-    lc = _c1_v140_line('### (cites) ')
-    fixes = dict(roster=C1_ROSTER_FIX % lc, w=C1_W_FIX % lc, manifest=C1_MANIFEST_FIX % lc)
+    fixes = dict(config=C1_CONFIG_FIX)
     out = []
     for where, repo, path, n, needle, cls, fx in C1_NOTES:
         lines = _c1_git('show', 'HEAD:' + path, repo=repo).replace(chr(13), '').split(NL)
@@ -234,16 +225,17 @@ def _c1_state():
         if ('REFUSED BY THE HOOK (%s' % kind) not in src:
             bad_ref.append(ln)
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
-    (cc, cd), _l = _c1_fl('b725_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+) ; REPEAT', 'the counter')
+    (cc, cd), _l = _c1_fl('b725_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V140)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.5.0: CONTROLS')]
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.6.0: CONTROLS')]
     s = dict(events=ev, tags=tags, defects=dr, notes=_c1_notes())
     nc, nl_, _rep, _n = _c1_counts(s)
-    bad = [k_ for k_, ok_ in (('the event rows (1)-(18)', sorted(ev) == list(range(1, 19))), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 19', len(dr) == 19), ('the refusals 8, each answered as listed', len(rl) == 8 and not bad_ref),
+    # ### the closing's counter read 37 items: event (10) is about the closing and was filed after it, a CLOSE, so CLOSE reads one more here
+    bad = [k_ for k_, ok_ in (('the event rows (1)-(10)', sorted(ev) == list(range(1, 11))), ('each event`s bracket', all(t[0] for t in tags.values())),
+                              ('the defect rows 28', len(dr) == 28), ('the refusals 9, each answered as listed', len(rl) == 9 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.5.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
-                              ('the counter equal to the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
+                              ('the v1.6.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the counter the closing`s (CLAIM %s, CLOSE %s) with event (10) added' % (cc, cd), (nc, nl_) == (int(cc), int(cd) + 1))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
     s['v140_foot'] = foot[0]
@@ -268,24 +260,16 @@ def _c1_col(c):
 
 
 # ### the repairs each event or defect is met by at v1.4.0 (the ten classes of (R336)(2) and the root route)
-C1_EV_EXTRA = {3: '; repair (needle)', 4: '; b723’s row, (R336)(2)(i)', 9: '; repair (needle)', 10: '; repair (needle)',
-               13: '; its form ruled the standing one, (R336)(1)(ii)', 18: '; repair (cites), the dated notes above'}
+C1_EV_EXTRA = {1: '; this act’s face writes the arm’s words', 2: '; the rule stands, this act one git write per message',
+               5: '; repair (closing)', 7: '; the two plants still inert, no clause of (R336) orders their repair, carried',
+               8: '; repair (scores)', 10: '; the dated note above'}
 C1_DF_EXTRA = {}
 C1_REFUSAL_LETTERS = set(row.split('(', 1)[1].rstrip(')') for _l, _k, _a, row in C1_REFUSALS if row.startswith('defect'))
 C1_CLASSES = (
-    ('short', 'Short branch names after a full one', 'tools/standing/allow.py reads "push-b725-preroot, -record and -closing" as three '
-              'names: b725’s and b726’s five deletes, each three of five outside on v1.4.0’s reader and none on v1.5.0’s; b725’s hand-kept '
-              'regex in its own module retired'),
-    ('needle', 'The plant’s needle (`(R336)`(2)(ii))', 'G-DELETES-ONE-BRANCH’s plant reads the delete clause from the act’s own ferry by '
-               'the branch names it must carry (allow.py delete_clause, plant_kept): the b723, b725 and b726 ferries found, each changed '
-               'by the new plant and by none of the old, and a ferry with no such clause given no plant'),
-    ('legacy', 'The legacy copy (`(R336)`(2)(iii))', 'tools/b644_record.py copied as tools/standing/routes/b644_record.py, its :1088 '
-               'replaced by the account login, the header stating both; the copy equal to its source at 2456 of 2457 lines, no identifier '
-               'in it, served by tools/standing/fold.py’s RouteLoader with the original’s __file__; legacy.py at 191 names, its remainder '
-               'listed with its price (about 1.5-2 h)'),
-    ('cites', 'The mirror’s citations (`(R336)`(2)(v))', 'the mirror bank’s citations read from tools/standing/cites.py’s table of '
-              '(act, clause) and the current ferry’s (W) clause, the ruling token gone from record.tpl’s mbank; b725’s bank checked: the '
-              'two event (18) names caught, and a third'),
+    ('closing', 'G-CLOSING-SENTENCE (`(R336)`(2)(iii), event (5))', 'closing_sentence_ok reads the closing’s render unwrapped, so the sentence hard-wrapped '
+                'between “in any” and “outbound” matches; the arm’s plant cut to “in any”, since the old plant changed nothing on a wrapped render'),
+    ('scores', 'G-RULE-SCORES-BEFORE-SEAL (`(R336)`(2)(iii), event (8))', 'tools/rule_arms.py :458 reads the fold’s route `fold.py record scores` beside the '
+               'old form: b725’s calls 0 on the old reader and 7 on the new, the first before the seal; a seal planted before every call fails it'),
 )
 
 
@@ -293,35 +277,29 @@ def _c1_lines(s):
     nc, nl_, rep, n = _c1_counts(s)
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v140_foot'])
-    L = ['*b725’s events bank (relay data/b725_events.txt) carries eighteen rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank nineteen lettered rows, (a)-(s), each tagged in its own bracket (%s); its '
-         'refusal bank eight lines at b725’s closing commit %s, each recorded by a letter or an event. Each item is tagged CLAIM, where it '
+    L = ['*b725’s events bank (relay data/b725_events.txt) carries ten rows, entered after its lock and not lettered, each tagged in its '
+         'own bracket (%s); its defects bank twenty-eight lettered rows, (a)-(z), (a’), (b’), each tagged in its own bracket (%s); its '
+         'refusal bank nine lines at b725’s closing commit %s, each recorded by a letter. Each item is tagged CLAIM, where it '
          'touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the '
          'banks’ own; this entry edits none of them.*' % (
              _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_PREV_CLOSE), '',
-         '**The three readings, ruled** (`(R336)`(1)): (i) the imprecision entered in the trail beside its citation of touch row (6) '
-         'stands; (ii) event (13)’s form stands for every later dated note -- a note on an earlier act’s line is written in the current '
-         'act’s section, naming the line by number, not beneath the line; (iii) S2 HELD stands -- an arm failing on an earlier act’s row '
-         'alone while the act reads AGREE is not a disagreement with the act’s own score. **Dated notes**, in (ii)’s form (no line '
-         'rewritten; each line that reads wrong named here by its place and number), each dated %s:' % C1_NOTED, '']
+         '**The dated note** (`(R336)`(2)(iv)), in the form `(R335)`(1) ruled, written in this act’s section, no line rewritten, the line named here by its '
+         'place and number, dated %s:' % C1_NOTED, '']
     for x in s['notes']:
         L += ['- **%s :%d** (%s; written %s at %s; %s, noted %s): "%s" -- %s.' % (
             x['place'], x['line'], x['where'], x['written'], x['commit'], x['cls'], C1_NOTED, _c1_q(x['quote']), x['fix'])]
-    L += ['', '**The repairs of `(R336)`(2)(ii), (iii) and (v), at tools/standing/ v1.5.0, each with a control replaying its last banked '
-          'instance, failing on the route before the repair and passing after, both instances printed** (relay data/%s, %s cases, AS '
-          'WANTED %s):' % (C1_V140, m.group(1), m.group(2)), '']
+    L += ['', '**The repairs of `(R336)`(2)(iii), at tools/standing/ v1.6.0, each with a control on b725’s banks, failing on the route before the repair '
+          'and passing after, both instances printed** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V140, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v140_line('### (%s) ' % k_)), '']
-    L += ['**b723’s row** (`(R336)`(2)(i)): the row in b680’s form stands at relay data/act_roots.txt :102 and the chain’s reader takes '
-          'b723 through it (corrected 1); verify re-read reads b722 AGREE, b723 DISAGREE on one bank (data/b723_bank_hashes.json), b725 '
-          'AGREE. The bytes b723’s root hashed rebuilt: the bank’s blob at 2be0135c with the two root-banks entries of 49de42fe hashes to '
-          'the recorded 133004c8, and no commit carries those bytes, so no row reading a bank at a commit can turn the reading AGREE; a '
-          'side-branch commit carrying them, or the reading standing, put to the author at b726’s root (relay data/b726_root_row.txt). '
-          '**The three RE-SCOPE orders** (`(R336)`(2)(iv)): each source read and each given a written trigger -- W-ORD-LI-FAMILY-CONTROL '
-          'and W-ORD-STRICT-BOUND kept, W-ORD-EXACT-SUPPORT kept after a draft offering it for retire was withdrawn on a search -- for '
-          'the root’s prompt (relay data/b726_rescope.txt).', '',
-          '**b725’s events (1)-(18):**', '']
+    L += ['**b723’s row** (`(R336)`(2)(ii)): relay branch corrigendum-b723 (16caad10) off 2be0135c carries data/b723_bank_hashes.json at the bytes b723’s '
+          'root hashed, sha 133004c8, and nothing else, pushed and read back, main untouched; the row appended at relay data/act_roots.txt :105 in '
+          'b680’s form, no row edited; verify re-read b722 AGREE, b723 AGREE at 106 of 106 banks, b724 AGREE, b725 AGREE, after a first read '
+          'failed on one remote read that the direct read then found equal (relay data/b726_root_row.txt). **The author’s word on user.name** '
+          '(`(R336)`(2)(i)): banked at relay data/b726_author_words_preseal.txt, run at SIDE-grh-transfer and the patent repository, one git write per '
+          'message, the scan’s PREVIOUS NAME arm 0 after.', '',
+          '**b725’s events (1)-(10):**', '']
     for k_ in sorted(s['events']):
         t, r, o = s['tags'][k_]
         h = re.sub(r"^(THE SEAT'S|THE NAVIGATOR'S|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_]).split(': ', 1)[0]
@@ -334,11 +312,11 @@ def _c1_lines(s):
         L += ['**(%s)** (relay data/b725_defects.txt; %s; %s; %s%s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _c1_col(c), extra)]
     L += ['', '**b725’s refusals** (relay data/b725_hook_refusals.txt at %s, one a line): ' % C1_PREV_CLOSE + '; '.join(
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
-          '**The counter:** CLAIM %d, CLOSE %d over the %d items (eighteen events, nineteen defects), equal to b725’s closing’s (relay '
-          'data/b725_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (nc, nl_, n, rep, n, ', '.join(claims)), '',
+          '**The counter:** CLAIM %d, CLOSE %d over the %d items (ten events, twenty-eight defects); b725’s closing’s counter reads 37 items (relay '
+          'data/b725_closing.txt :5), event (10) filed after it and a CLOSE; REPEAT %d of %d; the CLAIM items %s.' % (nc, nl_, n, rep, n, ', '.join(claims)), '',
           '*Filed at b726 on the author’s ruling `(R336)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 '
           'corrigendum`, the act’s override in relay tools/acts/b726.py) from b725’s events, defects and refusal banks read unedited, the '
-          'lines noted read at their repositories’ HEAD, and the v1.5.0 controls bank; banked as relay `data/b726_corrigendum.txt`, the '
+          'lines noted read at their repositories’ HEAD, and the v1.6.0 controls bank; banked as relay `data/b726_corrigendum.txt`, the '
           'corrigenda bank `data/b675_corrigenda.txt` appended at row (%d). It answers b725’s record; no sealed tool, face, trail or '
           'root-named bank of b725 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
@@ -347,12 +325,12 @@ def _c1_lines(s):
 def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
     return (['b726 -- THE CORRIGENDUM FOR b725, (R336)(1)-(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b725_events.txt rows (1)-(18), data/b725_defects.txt 19 rows, data/b725_hook_refusals.txt 8 '
-             'lines at %s; the noted lines at their repositories` HEAD; data/%s (the v1.5.0 controls); the corrigenda bank`s last row (%d).' % (
+             '### the banks read unedited: data/b725_events.txt rows (1)-(10), data/b725_defects.txt 28 rows, data/b725_hook_refusals.txt 9 '
+             'lines at %s; the noted lines at their repositories` HEAD; data/%s (the v1.6.0 controls); the corrigenda bank`s last row (%d).' % (
                  C1_PREV_CLOSE, C1_V140, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 18, DEFECTS 19 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.5.0: THE SHORT NAMES, THE PLANT '
-               'NEEDLE, THE LEGACY COPY, THE MIRROR CITATIONS ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
+            + ['', '### ### **ITEMS %d: EVENTS 10, DEFECTS 28 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.6.0: G-CLOSING-SENTENCE, '
+               'G-RULE-SCORES-BEFORE-SEAL ; b723`S ROW ON ITS BRANCH ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
 
 
 def c1(*a):
@@ -380,7 +358,7 @@ def c1(*a):
                                                    events=[dict(row=k_, owner=s['tags'][k_][2], tag=s['tags'][k_][0], column=s['tags'][k_][1]) for k_ in sorted(s['events'])],
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.5.0', bank='data/' + C1_V140),
+                                                   notes=s['notes'], repairs=dict(version='v1.6.0', bank='data/' + C1_V140),
                                                    row=C1_CORRIGENDA_LAST + 1))
         print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(s['notes']), ln))
         return
