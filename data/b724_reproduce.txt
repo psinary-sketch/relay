@@ -1,0 +1,275 @@
+tools/research/reproduce.py -- THE RESEARCH INSTRUMENTS REPRODUCED, ONE ROW PER INSTRUMENT (2026-10-29T23:10:15Z)
+
+### THE COMPARISON: the banked figure`s numbers against the leading numbers of the call`s output; an integer exactly; a decimal at the lesser of the two printed significant-digit counts, rounded half-even in decimal; a row graded by words, the text exactly. THE PLANTED CONTROL: the banked figure`s leading digit moved by one (a word row: " (planted)" appended), compared the same way; it must DIFFER. NOT RUN: a row needing a dispatch or a network read, or more than 60 s, with its reason and price.
+### rows 68 ; the hold 2560 MB ; the cap 60 s a row ; relay D:\relay
+
+I-41   b302_kernel              REPRODUCES  data/b302_kernel_run.txt :37 -- "11, 11 zero-axiom, 0" (COMPUTED)
+         computed "(11, 11, 0)" in 0.2 s (free 4320 MB) ; numbers ['11', '11', '0'] against ['11', '11', '0']
+         PLANTED "21, 11 zero-axiom, 0": DIFFERS -- AS WANTED
+         CALL: import b302_kernel as M ; raw=open(M.PROFILE,'rb').read() ; sel=b''.join(l+b'\n' for l in raw.split(b'\n') if b"'B302." in l) ; print(M.count_prints(sel))
+I-42   b303_family              REPRODUCES  data/b303_family_run.txt :27 -- "fires 64" (COMPUTED)
+         computed "64" in 0.1 s (free 4321 MB) ; numbers ['64'] against ['64']
+         PLANTED "fires 74": DIFFERS -- AS WANTED
+         CALL: import b303_family as M ; print(len(M.nullspace(M.rows_member(3,2,0,0),81)))
+I-43   b304_smearing            REPRODUCES  data/b304_smearing_run.txt :68 -- "= -3" (COMPUTED)
+         computed "-3" in 0.1 s (free 4320 MB) ; numbers ['-3'] against ['-3']
+         PLANTED "= -4": DIFFERS -- AS WANTED
+         CALL: import b304_smearing as M ; F=M.FAM ; P,rk=M.projector(F.nullspace(F.rows_member(2,2,0,0),16),16) ; print(M.trace_scaled(P,5,16))
+I-44   b308_local_field         REPRODUCES  data/b308_instrument_run.txt :56 -- "M = 16   cell mass 1/4" (COMPUTED)
+         computed "16 1/4" in 0.1 s (free 4326 MB) ; numbers ['16', '1', '4'] against ['16', '1', '4']
+         PLANTED "M = 26   cell mass 1/4": DIFFERS -- AS WANTED
+         CALL: import b308_local_field as M ; fr=M.Frame(2,2,2) ; print(fr.M, fr.cell_mass())
+I-45   b309_scaling_trace       REPRODUCES  data/b309_components_run.txt :158 -- "B         0                0" (COMPUTED)
+         computed "0 0" in 0.1 s (free 4325 MB) ; numbers ['0', '0'] against ['0', '0']
+         PLANTED "B         1                0": DIFFERS -- AS WANTED
+         CALL: import b309_scaling_trace as M ; print(M.trace_route_a(2,2,-1)[0], M.trace_route_b(2,2,-1))
+I-46   b316_instrument          REPRODUCES  data/b316_components_run.txt :156 -- "0.9455" (COMPUTED)
+         computed "0.945469363191082" in 2.6 s (free 4327 MB) ; numbers ['0.9455'] against ['0.945469363191082']
+         PLANTED "0.8455": DIFFERS -- AS WANTED
+         CALL: import numpy as np, b316_instrument as M ; fr=M.Frame(1024,16.0,256); sub=fr.subspace(); u=M.sonin_unit(fr) ; print(float(np.linalg.norm(fr.outside(sub,u))/max(np.linalg.norm(u[sub['hi']]),1e-300)))
+I-47   b317_smear               REPRODUCES  data/b317_components_run.txt :140 -- "-0.0417829" (COMPUTED)
+         computed "-0.04178288655734619" in 1.4 s (free 4313 MB) ; numbers ['-0.0417829'] against ['-0.04178288655734619']
+         PLANTED "-0.0517829": DIFFERS -- AS WANTED
+         CALL: import b316_instrument as INS, b317_smear as M ; fr=INS.Frame(4096,32.0,512); sub=fr.subspace() ; print(M.compressed_trace(fr,sub,M.corpus_bump(1.5))[0])
+I-48   b318_square              REPRODUCES  data/b318_components_run.txt :138 -- "3.781374629" (COMPUTED)
+         computed "3.7813746286377987" in 2.4 s (free 4267 MB) ; numbers ['3.781374629'] against ['3.7813746286377987']
+         PLANTED "4.781374629": DIFFERS -- AS WANTED
+         CALL: import b316_instrument as INS, b317_smear as SM, b318_square as M ; fr=INS.Frame(4096,32.0,512); sub=fr.subspace() ; print(M.square_trace(fr,sub,SM.mean_zero_variant(1.5)))
+I-49   b319_stable              REPRODUCES  data/b319_components_run.txt :62 -- "80        69" (COMPUTED)
+         computed "80 69" in 0.8 s (free 4270 MB) ; numbers ['80', '69'] against ['80', '69']
+         PLANTED "90        69": DIFFERS -- AS WANTED
+         CALL: import b316_instrument as INS, b319_stable as M ; st,gr=M.both_subspaces(INS.Frame(4096,32.0,512)) ; print(gr['rank'], st['rank'])
+I-50   b320_corroborate         REPRODUCES  data/b320_corroboration.txt :5 -- "2.466025237" (COMPUTED)
+         computed "2.4660252370788998" in 25.2 s (free 4270 MB) ; numbers ['2.466025237'] against ['2.4660252370788998']
+         PLANTED "3.466025237": DIFFERS -- AS WANTED
+         CALL: import b317_smear as SM, b318_square as SQ, b320_corroborate as M ; print(M.digamma_side(SQ.autocorrelation(SM.mean_zero_variant(SM.FIXTURE_A))))
+I-51   b320_weil                REPRODUCES  data/b320_components_run.txt :15 -- "2.466039906" (COMPUTED)
+         computed "2.4660399059471216" in 0.3 s (free 4251 MB) ; numbers ['2.466039906'] against ['2.4660399059471216']
+         PLANTED "3.466039906": DIFFERS -- AS WANTED
+         CALL: import b317_smear as SM, b318_square as SQ, b320_weil as M ; print(M.weil(SQ.autocorrelation(SM.mean_zero_variant(SM.FIXTURE_A)))[0])
+I-52   b321_window              REPRODUCES  data/b321_components_run.txt :51 -- "-0.158889558       -0.158889572" (COMPUTED)
+         computed "-0.15888955786032344 -0.1588895722398492" in 36.5 s (free 4244 MB) ; numbers ['-0.158889558', '-0.158889572'] against ['-0.15888955786032344', '-0.1588895722398492']
+         PLANTED "-0.258889558       -0.158889572": DIFFERS -- AS WANTED
+         CALL: import b317_smear as SM, b318_square as SQ, b321_window as M ; f=SQ.autocorrelation(SM.mean_zero_variant(1.3)) ; print(M.remainder_integral(f), M.remainder_integral(f, route='cheb'))
+I-53   b322_ladder              REPRODUCES  data/b322_components_run.txt :42 -- "20       0.797250168" (COMPUTED)
+         computed "20 0.7972501676204521" in 1.3 s (free 4317 MB) ; numbers ['20', '0.797250168'] against ['20', '0.7972501676204521']
+         PLANTED "30       0.797250168": DIFFERS -- AS WANTED
+         CALL: import b322_ladder as M ; r=M.frame_row(1024,8.0,512) ; print(r['rank'], r['stable'])
+I-54   b325_epstein             REPRODUCES  data/b325_run.txt :111 -- "0.006348865       2.249539781" (COMPUTED)
+         computed "0.006348865400957133 2.2495397811958537" in 4.8 s (free 4316 MB) ; numbers ['0.006348865', '2.249539781'] against ['0.006348865400957133', '2.2495397811958537']
+         PLANTED "0.007348865       2.249539781": DIFFERS -- AS WANTED
+         CALL: import b317_smear as SM, b318_square as SQ, b325_epstein as M ; f=SQ.autocorrelation(SM.mean_zero_variant(3.0)) ; c=M.channels_q(f.v,f.w) ; print(c['finite'], c['arch'])
+I-55   b326_closure             REPRODUCES  data/b326_closure_run.txt :9 -- "zeta 0.315809856997" (COMPUTED)
+         computed "0.31580985699747005" in 2.0 s (free 4312 MB) ; numbers ['0.315809856997'] against ['0.31580985699747005']
+         PLANTED "zeta 0.415809856997": DIFFERS -- AS WANTED
+         CALL: import numpy as np, carto_atlas as AT, b326_windows as BW, b326_closure as M ; f=BW.cell_function(3.0) ; print(2.0*float(np.sum(M.hhat_exact(f.v,f.w,np.asarray(AT.GAM,dtype=float)))))
+I-56   b326_windows             NOT RUN     data/b326_windows_run.txt :37 -- "-0.251245834   -0.000389214" (COMPUTED)
+         MORE THAN 60 s: two 41,600 x 16,385 transforms and about 125,000 digamma calls at a = 32; priced at 60-120 s on this host (the drafter`s estimate, unmeasured)
+         CALL: import b326_windows as M ; lz=M.von_mangoldt_sieve(1026); lq=M.lambda_q_sieve(1026) ; c=M.channels(M.cell_function(32.0),lz,lq,refine=1) ; print(c['arch_z'], c['places_z'])
+I-57   b326_zeros               NOT RUN     data/b326_zeros_run.txt :77 -- "route A [0.9532604747946607, 16.290215720390393]" (COMPUTED)
+         MORE THAN 60 s: two secant root-finds at 119 digits with 240 incomplete-gamma terms; measured past the 60 s cap at b722 (scratch run, killed at 60.0 s); priced at 60-120 s
+         CALL: import b326_zeros as M ; M.bind(119,240) ; r=M.task_offline(((0.94,1.08),(16.0,16.5))) ; print(r[2]['rho_a'])
+I-58   b327_bridge              REPRODUCES  data/b327_bridge_run.txt :40 -- ": 1.33e-251" (COMPUTED)
+         computed "1.33e-251" in 3.6 s (free 4300 MB) ; numbers ['1.33e-251'] against ['1.33e-251']
+         PLANTED ": 2.33e-251": DIFFERS -- AS WANTED
+         CALL: import b327_bridge as M, mpmath as mp ; ns,_,_ = M.load_bench_definitions() ; eta = ns['taylor_coeffs'](ns['f_A'], mp.mpf(M.RADII[0]), M.M_QUAD, 30) ; lam = ns['lambdas'](eta, 30) ; print(mp.nstr(abs(lam[30] - M.s_inf_closed(30) - 1), 3))
+I-59   b328_family              REPRODUCES  data/b328_family_run.txt :7 -- "+6.550532e-01" (COMPUTED)
+         computed "0.6550532089558803" in 43.9 s (free 4298 MB) ; numbers ['+6.550532e-01'] against ['0.6550532089558803']
+         PLANTED "+7.550532e-01": DIFFERS -- AS WANTED
+         CALL: import b328_family as M ; a = 40.0; f = M.SQ.autocorrelation(M.make_seed('E', a)); N = int(a*a) + 2 ; lam_z, lam_q, _, _ = M.finite_sides(N) ; print(M.BW.channels(f, lam_z, lam_q, refine=1)['places_q'])
+I-60   b333_diagnose            REPRODUCES  data/b333_diagnose_run.txt :24 -- "1.864e-06" (READ FROM BANKS)
+         computed "1.8636573035912818e-06" in 0.3 s (free 4295 MB) ; numbers ['1.864e-06'] against ['1.8636573035912818e-06']
+         PLANTED "2.864e-06": DIFFERS -- AS WANTED
+         CALL: import json, b333_diagnose as M ; R = json.load(open(M.os.path.join(M.D, 'b333_derive.json'), encoding='utf-8')) ; arch = {} ; for ln in open(M.os.path.join(M.D, 'carto_atlas.jsonl'), encoding='utf-8'): ;     r = json.loads(ln) if ln.strip() else {} ;     if r.get('a') is not None: arch[str(r['a'])] = float(r['arch']) ; print(max(abs(R['cells'][a]['A3'] - arch[a if a in arch else str(float(a))]) for a in M.CELLS))
+I-61   b334_aimmap              NOT RUN     data/b334_chart_run.txt :64 -- "sealed rule 270" (COMPUTED)
+         MORE THAN 60 s: the count 270 is the whole route (grid, three legs, chart), the covered leg alone 1906.9 s by its bank; no import-only route reaches it; priced at about 3,600 s on this host
+         CALL: (none: the route named in the reason)
+I-62   b340_li_control          REPRODUCES  data/b340_control_run3.txt :31 -- "-1.5541199559354118268" (COMPUTED)
+         computed "-1.55411995593541" in 1.2 s (free 4290 MB) ; numbers ['-1.5541199559354118268'] against ['-1.55411995593541']
+         PLANTED "-2.5541199559354118268": DIFFERS -- AS WANTED
+         CALL: import b340_li_control as M ; print(M.I_theta(1)[0])
+I-63   b352_fit                 REPRODUCES  data/b352_fit_run6.txt :27 -- "A=22.057336 p=1.551336 c=+1.151251e-02" (COMPUTED)
+         computed "22.057336455261197 1.5513356751635914 0.011512512219385188" in 0.3 s (free 4292 MB) ; numbers ['22.057336', '1.551336', '+1.151251e-02'] against ['22.057336455261197', '1.5513356751635914', '0.011512512219385188']
+         PLANTED "A=32.057336 p=1.551336 c=+1.151251e-02": DIFFERS -- AS WANTED
+         CALL: import json, numpy as np, b352_fit as M ; P = json.load(open(M.os.path.join('D:\\relay', 'data', 'b339_price.json'), encoding='utf-8')) ; X = np.asarray(P['xs'], float); R = np.asarray(P['cells']['1.3']['R'], float) ; t1, S1, _ = M.fit(M.m1, [1.0, 1.0], X, R) ; t, S, r = M.fit(M.m2, list(t1) + [0.0], X, R) ; print(*[repr(float(x)) for x in t])
+I-64   b437_components          REPRODUCES  data/b437_components.txt :116 -- "Z 0.315810473  A 0.506671341" (COMPUTED)
+         computed "0.31581047297869735 0.5066713407407162" in 6.8 s (free 4287 MB) ; numbers ['0.315810473', '0.506671341'] against ['0.31581047297869735', '0.5066713407407162']
+         PLANTED "Z 0.415810473  A 0.506671341": DIFFERS -- AS WANTED
+         CALL: import b437_components as M ; r = M.run_cell(3.0) ; print(r['zero'], r['arch'])
+I-65   b501_bound               REPRODUCES  data/b501_components_c234.txt :52 -- "m_grid -1.391017772759520" (COMPUTED)
+         computed "-1.3910177727595199" in 35.8 s (free 4357 MB) ; numbers ['-1.391017772759520'] against ['-1.3910177727595199']
+         PLANTED "m_grid -2.391017772759520": DIFFERS -- AS WANTED
+         CALL: import numpy as np, b501_bound as M ; L, s = 2.2, 2.2/8.0 ; def gauss(N): ;     v = np.linspace(-L, L, 2*N-1); return v, np.exp(-v**2/(2*s*s)) ; print(repr(M.bound_for(gauss, M.LEVELS)['levels'][0]['m']))
+I-66   b503_zero                REPRODUCES  data/b503_fixture.txt :11 -- "HOLDS TO 4.27e-14" (COMPUTED)
+         computed "4.2732128143390975e-14" in 0.3 s (free 4302 MB) ; numbers ['4.27e-14'] against ['4.2732128143390975e-14']
+         PLANTED "HOLDS TO 5.27e-14": DIFFERS -- AS WANTED
+         CALL: import numpy as np, b503_zero as M ; v, w = M.vw(4.061553); dv = float(v[1]-v[0]) ; ex = M.BC.hhat_exact(v, w, M.LOW5); tr = M.AT.hhat(v, w, M.LOW5) ; s2 = (np.sin(M.LOW5*dv/2)/(M.LOW5*dv/2))**2 ; print(np.max(np.abs(ex - s2*tr)/np.abs(ex)))
+I-67   b504_chain               REPRODUCES  data/b504_fixture.txt :4 -- "r -4.608526620042408e-08" (COMPUTED)
+         computed "-4.608526620042408e-08" in 29.8 s (free 4299 MB) ; numbers ['-4.608526620042408e-08'] against ['-4.608526620042408e-08']
+         PLANTED "r -5.608526620042408e-08": DIFFERS -- AS WANTED
+         CALL: import b504_chain as M ; K = M.kernels() ; a = min((r['a'] for r in M.BZ.rows_all()), key=lambda x: abs(x-4.061553)) ; print(repr(M.cell(a, K)['r']))
+I-68   b511_families            REPRODUCES  data/b511_components.txt :6 -- "= 1.59e-14" (COMPUTED)
+         computed "1.5894424124205778e-14" in 0.6 s (free 4404 MB) ; numbers ['1.59e-14'] against ['1.5894424124205778e-14']
+         PLANTED "= 2.59e-14": DIFFERS -- AS WANTED
+         CALL: import numpy as np, b511_families as M ; W = M.Window(5.0, 4, ()) ; kb = np.unique(np.round((W.knots[:,None]+W.knots[None,:]).ravel(), 14)); kb = kb[(kb>=-2*W.half)&(kb<=2*W.half)] ; nd, wt = np.polynomial.legendre.leggauss(24); a0, b0 = kb[:-1], kb[1:]; mid, rad = (a0+b0)/2, (b0-a0)/2 ; xx = (mid[:,None]+rad[:,None]*nd[None,:]).ravel(); ww = (rad[:,None]*wt[None,:]).ravel(); kx = W.k(xx, 10) ; us = np.array([0.0, 1.0, 5.0, 14.134725141734695, 30.0, 60.0]) ; num = np.array([float(np.sum(ww*kx*np.cos(u*xx))) for u in us]) ; print(np.max(np.abs(W.khat(us).real - num)))
+I-69   b512_table               REPRODUCES  data/b512_table.txt :88 -- "COMPILED" (READ FROM BANKS)
+         computed "COMPILED" in 25.1 s (free 4400 MB) ; text
+         PLANTED "COMPILED (planted)": DIFFERS -- AS WANTED
+         CALL: import b512_table as M ; print('COMPILED' if M.in_kernel('h2_sign_imp_cell') else 'NOT COMPILED')
+I-70   b514_window              REPRODUCES  data/b514_components.txt :6 -- "6.11e-16" (COMPUTED)
+         computed "6.106226635438361e-16" in 0.4 s (free 4340 MB) ; numbers ['6.11e-16'] against ['6.106226635438361e-16']
+         PLANTED "7.11e-16": DIFFERS -- AS WANTED
+         CALL: import numpy as np, b514_window as M ; G0 = 14.1347; W = M.MWindow(5.0, G0) ; kb = np.unique(np.round((W.knots[:,None]+W.knots[None,:]).ravel(), 14)); kb = kb[(kb>=-2*W.half)&(kb<=2*W.half)] ; nd, wt = np.polynomial.legendre.leggauss(80); a0, b0 = kb[:-1], kb[1:]; mid, rad = (a0+b0)/2, (b0-a0)/2 ; xx = (mid[:,None]+rad[:,None]*nd[None,:]).ravel(); ww = (rad[:,None]*wt[None,:]).ravel(); kx = W.k(xx, M.QH) ; G = M.F.GAM; near = sorted(G[np.argsort(np.abs(G-G0))[:3]].tolist()); near = [x for x in near if abs(x-G0) > 1e-3][:2] ; us = np.array([0.0, 1.0, G0] + near + [30.0, 60.0]) ; num = np.array(
+I-71   b519_window              REPRODUCES  data/b519_components.txt :24 -- "1.6e-13" (COMPUTED)
+         computed "1.5689566098827956e-13" in 0.3 s (free 4345 MB) ; numbers ['1.6e-13'] against ['1.5689566098827956e-13']
+         PLANTED "2.6e-13": DIFFERS -- AS WANTED
+         CALL: import b519_window as M ; W = M.VWindow(5.0, 'xi', 'B') ; print(abs(W.k([0.7], M.QH)[0] - W.k([-0.7], M.QH)[0]))
+I-72   b521_tail                REPRODUCES  data/b521_components.txt :127 -- ": 6.0999e-09" (COMPUTED)
+         computed "6.099878344232498e-09" in 0.3 s (free 4349 MB) ; numbers ['6.0999e-09'] against ['6.099878344232498e-09']
+         PLANTED ": 7.0999e-09": DIFFERS -- AS WANTED
+         CALL: import b521_tail as M ; print(M.tail_s(M.PWindow(60.0, 'q', 7), 0.5))
+I-73   b522_reach               REPRODUCES  data/b522_components.txt :10 -- "1.522e-06   1.669e-07" (COMPUTED)
+         computed "1.5223405343921387e-06 1.66907371505667e-07" in 3.1 s (free 4344 MB) ; numbers ['1.522e-06', '1.669e-07'] against ['1.5223405343921387e-06', '1.66907371505667e-07']
+         PLANTED "2.522e-06   1.669e-07": DIFFERS -- AS WANTED
+         CALL: import b522_reach, b521_tail as B21 ; c = B21.cell_q(15.0, 7) ; print(c['Etail'], c['Bprime'])
+I-74   b523_caveats             REPRODUCES  data/b523_components.txt :151 -- "eta = 1.994818 (exact part 1.968754" (COMPUTED)
+         computed "1.9948181083118548 1.9687537965118735" in 2.9 s (free 4344 MB) ; numbers ['1.994818', '1.968754'] against ['1.9948181083118548', '1.9687537965118735']
+         PLANTED "eta = 2.994818 (exact part 1.968754": DIFFERS -- AS WANTED
+         CALL: import b523_caveats as M ; r, a = M.tables() ; print(*M.eta_bound(1.425, r, a)[:2])
+I-75   b527_values              REPRODUCES  data/b527_values.json :287 -- "4.440892098500626e-16" (COMPUTED)
+         computed "4.440892098500626e-16" in 0.2 s (free 4355 MB) ; numbers ['4.440892098500626e-16'] against ['4.440892098500626e-16']
+         PLANTED "5.440892098500626e-16": DIFFERS -- AS WANTED
+         CALL: import math, b527_values as M ; L=math.log(34.0); us=[(1-M.F)*L+M.F*L*(k+0.5)/20.0 for k in range(20)] ; print(max(abs(float(M.phi_chain(u,34.0))-float(M.phi_kernel_mp(u,34.0))) for u in us+[-x for x in us]))
+I-76   b544_probe_part          REPRODUCES  data/b544_decls.json :1 -- ""count": 5293" (COMPUTED)
+         computed "5293" in 30.4 s (free 4345 MB) ; numbers ['5293'] against ['5293']
+         PLANTED ""count": 6293": DIFFERS -- AS WANTED
+         CALL: import b542_record as Q, b544_probe_part as M ; t = '2026-09-26T01:45:59-04:00' ; Q.REPOS = [(r, c or Q.g(r, 'rev-list', '-1', '--first-parent', '--before=' + t, 'HEAD').strip(), x) for r, c, x in Q.REPOS] ; ds, fed = M.classify(M.enumerate_all()) ; print(len(ds))
+I-77   b634_elab                REPRODUCES  data/b634_elab_types.txt :4 -- "927 ; MISSING : 13" (READ FROM BANKS)
+         computed "927 13" in 0.1 s (free 4318 MB) ; numbers ['927', '13'] against ['927', '13']
+         PLANTED "827 ; MISSING : 13": DIFFERS -- AS WANTED
+         CALL: import b634_elab as M ; B=M.load_bank_text(open(M.TYPES, encoding='utf-8').read()) ; print(sum(1 for v in B.values() if not v['missing']), sum(1 for v in B.values() if v['missing']))
+I-78   b661_map                 REPRODUCES  data/b661_detection_map.txt :252 -- "NONE ≤ J_max" (COMPUTED)
+         computed "NONE ≤ J_max" in 15.0 s (free 4314 MB) ; text
+         PLANTED "NONE ≤ J_max (planted)": DIFFERS -- AS WANTED
+         CALL: import b661_map as M ; from flint import ctx; ctx.prec=M.PREC ; n,zl,ok,_a,_b=M.zero_list(); lo,hi=M.i4_ball(); i4=M.span(lo,hi) ; print(M.cell('0.8','29.6',M.PREC,zl,i4)['reading'])
+I-79   b662_map                 REPRODUCES  data/b662_detection_map_40.txt :750 -- "j₀ = 31" (COMPUTED)
+         computed "j₀ = 31" in 22.4 s (free 4333 MB) ; numbers ['31'] against ['31']
+         PLANTED "j₀ = 41": DIFFERS -- AS WANTED
+         CALL: import b662_map as M ; from flint import ctx; ctx.prec=M.PREC ; n,zl,ok,_a,_b=M.zero_list(); lo,hi=M.i4_ball(); i4=M.span(lo,hi) ; print(M.cell('0.8','29.6',M.PREC,zl,i4)['reading'])
+I-80   b663_epstein_map         REPRODUCES  data/b663_epstein_control.txt :86 -- "j₀ = 38" (COMPUTED)
+         computed "j₀ = 38" in 6.4 s (free 4359 MB) ; numbers ['38'] against ['38']
+         PLANTED "j₀ = 48": DIFFERS -- AS WANTED
+         CALL: import b663_epstein_map as M ; from flint import ctx; ctx.prec=M.PREC ; lo,hi=M.i4_ball(); i4s={M.PREC: M.span(lo,hi)}; on,off=M.q0_list() ; print(M.run_cell('Q0 AT qE0', off[M.Q0_BASE], on, off, i4s, None, above=M.Q0_T, a0_premise=M.Q0_A0)['reading'])
+I-81   b667_epstein_certify     REPRODUCES  data/b667_epstein_counts.txt :34 -- "[3.54841378141857 +/- 1.08e-15]" (COMPUTED)
+         computed "[3.54841378141857 +/- 1.08e-15]" in 0.2 s (free 4327 MB) ; numbers ['3.54841378141857', '1.08e-15'] against ['3.54841378141857', '1.08e-15']
+         PLANTED "[4.54841378141857 +/- 1.08e-15]": DIFFERS -- AS WANTED
+         CALL: import b667_epstein_certify as M ; from flint import acb, arb, ctx; ctx.prec=M.PREC ; print(M.zq(acb(arb(3)/2, 0)).real.str(15, radius=True))
+I-82   b667_epstein_map_balls   REPRODUCES  data/b667_epstein_control_balls.txt :81 -- "HYP-UNVERIFIED(hQtie)" (COMPUTED)
+         computed "HYP-UNVERIFIED(hQtie)" in 16.2 s (free 4328 MB) ; text
+         PLANTED "HYP-UNVERIFIED(hQtie) (planted)": DIFFERS -- AS WANTED
+         CALL: import b667_epstein_map_balls as M ; from flint import ctx; ctx.prec=M.PREC ; lo,hi=M.i4_ball(); i4s={M.PREC: M.span(lo,hi)}; on,off=M.q0_list() ; print(M.run_cell('Q0 AT qE0', off[M.Q0_BASE], on, off, i4s, None, above=M.Q0_T, a0_premise=M.Q0_A0)['reading'])
+I-83   b671_narrow              REPRODUCES  data/b671_narrow_log.txt :6 -- "depth 40" (COMPUTED)
+         computed "40 NARROWED" in 0.2 s (free 4324 MB) ; numbers ['40'] against ['40']
+         PLANTED "depth 50": DIFFERS -- AS WANTED
+         CALL: import b671_narrow as M ; from flint import acb, ctx; ctx.prec=M.PREC ; t0=acb.zeta_zero(1).imag.mid().str(M.DIGITS, radius=False) ; r,_=M.narrow_on(M.lam_z_at, 'C1 n=1', t0, M.H0) ; print(r['depth'], r['reading'])
+I-84   b675_li_bench            REPRODUCES  data/b675_li_bench.txt :851 -- "HOLD) 63676" (COMPUTED)
+         computed "63676" in 0.3 s (free 4321 MB) ; numbers ['63676'] against ['63676']
+         PLANTED "HOLD) 73676": DIFFERS -- AS WANTED
+         CALL: import b675_li_bench as M ; print(M.constants_for(M.terms(M.reps()), 'ref0')['n_star'])
+I-85   b677_epstein_map_angle   REPRODUCES  data/b677_map.txt :131 -- "PASS 29 (j 24-52)" (COMPUTED)
+         computed "29 (j 24-52)" in 4.3 s (free 4318 MB) ; numbers ['29', '24', '52'] against ['29', '24', '52']
+         PLANTED "PASS 39 (j 24-52)": DIFFERS -- AS WANTED
+         CALL: import b677_epstein_map_angle as M ; from flint import ctx; ctx.prec=M.PREC ; p=[x['j'] for x in M._tie_cell()['ties'] if x['word']=='PASS'] ; print('%d (j %d-%d)' % (len(p), min(p), max(p)))
+I-86   b685_count               REPRODUCES  data/b685_count.txt :21 -- "a = 0.432571915432" (COMPUTED)
+         computed "0.432571915432 ± 7.18e-58" in 1.3 s (free 4332 MB) ; numbers ['0.432571915432'] against ['0.432571915432']
+         PLANTED "a = 0.532571915432": DIFFERS -- AS WANTED
+         CALL: import b685_count as M ; from flint import ctx; ctx.prec=M.PREC ; grid=M.get('b685_count_part1.json')['grid']; pr=M.params_q(grid, 1.7, 2.05, 0.2) ; I=M.jensen(pr, M.N_FINAL, M.A(M.T_MIN)) ; print(M.bs((I[0]-1)/(2*pr['ell'])))
+I-87   b687_readings            REPRODUCES  data/b687_composition.txt :12 -- "MARGIN 41.9784580673" (COMPUTED)
+         computed "41.9784580673 ± 5.83e-39" in 0.2 s (free 4328 MB) ; numbers ['41.9784580673'] against ['41.9784580673']
+         PLANTED "MARGIN 51.9784580673": DIFFERS -- AS WANTED
+         CALL: import b687_readings as M ; print(M.bs(M.des(M.composition()['narrowest']['margin'])))
+I-88   b694_witness             REPRODUCES  data/b694_witness_zeros.txt :5 -- "= 0.453260474794660686250509013567280024290084839" (COMPUTED)
+         computed "0.453260474794660686250509013567280024290084839" in 0.1 s (free 4323 MB) ; numbers ['0.453260474794660686250509013567280024290084839'] against ['0.453260474794660686250509013567280024290084839']
+         PLANTED "= 0.553260474794660686250509013567280024290084839": DIFFERS -- AS WANTED
+         CALL: import b694_witness as M ; r=[x for x in M.balls()['rows'] if x['kind']=='OFF'][0] ; print(M._minus_half(r['re']))
+I-89   b694_witness_terms       REPRODUCES  data/b694_witness.txt :15 -- "S -7.7752874967979" (COMPUTED)
+         computed "-7.77528749680 +- 1.43e-18" in 2.0 s (free 4324 MB) ; numbers ['-7.7752874967979'] against ['-7.77528749680']
+         PLANTED "S -8.7752874967979": DIFFERS -- AS WANTED
+         CALL: import b694_witness_terms as M ; print(M.fmt(M.bl(M.terms(M.Window('32','N'),'q0')['S'])))
+I-90   b696_witness_balls       REPRODUCES  data/b696_witness_balls.txt :14 -- "S -7.7752874967979" (COMPUTED)
+         computed "-7.77528749680 +- 3.68e-23" in 2.0 s (free 4322 MB) ; numbers ['-7.7752874967979'] against ['-7.77528749680']
+         PLANTED "S -8.7752874967979": DIFFERS -- AS WANTED
+         CALL: import b696_witness_balls as M ; print(M.fmt(M.bl(M.terms(M.W.Window('32','N'),'q0')['S'])))
+I-91   b705_detection           REPRODUCES  data/b705_detection.txt :10 -- "n* 63651" (COMPUTED)
+         computed "63651" in 0.3 s (free 4322 MB) ; numbers ['63651'] against ['63651']
+         PLANTED "n* 73651": DIFFERS -- AS WANTED
+         CALL: import b705_detection as M ; print(M.B.constants_for(M.B.terms(M.pair_rows(M.rows_all(), 0)), 'ref0')['n_star'])
+I-92   b707_onset               REPRODUCES  data/b707_onset.txt :12 -- "S_CC 10.46804976" (READ FROM UNITS)
+         computed "10.46804976 +- 9.46e-26" in 0.1 s (free 4315 MB) ; numbers ['10.46804976'] against ['10.46804976']
+         PLANTED "S_CC 20.46804976": DIFFERS -- AS WANTED
+         CALL: import b707_onset as M ; u=M.units()[('terms','band','C','log2','q0')] ; print(M.fmt(M.bl(u['S']),10))
+I-93   b709_grid                REPRODUCES  data/b709_grid.txt :409 -- "lambda -0.003719132066" (READ FROM UNITS)
+         computed "-0.003719132066 +- 3.04e-24" in 0.6 s (free 4314 MB) ; numbers ['-0.003719132066'] against ['-0.003719132066']
+         PLANTED "lambda -0.004719132066": DIFFERS -- AS WANTED
+         CALL: import b709_grid as M ; U=M.units(); pt=M.grid('rho0')[362]; us,G,Mm,r=M._form(U,'rho0',pt,'q0') ; print(M.fmt(M.bl(r['lmin']),10))
+I-94   b709_pairs               REPRODUCES  data/b709_pairs.txt :46 -- "n* 1646498" (READ FROM UNITS)
+         computed "n* 1646498" in 0.2 s (free 4307 MB) ; numbers ['1646498'] against ['1646498']
+         PLANTED "n* 2646498": DIFFERS -- AS WANTED
+         CALL: import b709_pairs as M ; M.pairs('5','5')
+I-95   b710_fit                 REPRODUCES  data/b710_fit.txt :21 -- "alpha 19.065093 ; beta 7.997097" (COMPUTED)
+         computed "19.06509320532713 7.9970965565108365" in 0.1 s (free 4310 MB) ; numbers ['19.065093', '7.997097'] against ['19.06509320532713', '7.9970965565108365']
+         PLANTED "alpha 29.065093 ; beta 7.997097": DIFFERS -- AS WANTED
+         CALL: import math, b710_fit as M ; R=[x for x in M.rows() if x['nstar']] ; print(*M.lsq([math.log(x['nstar']+1) for x in R], [x['r']*x['nstar'] for x in R]))
+I-96   b711_coeffs              REPRODUCES  data/b711_coeffs.txt :12 -- "(-8) log 2 + (-2) log 3" (COMPUTED)
+         computed "(-8) log 2 + (-2) log 3" in 0.2 s (free 4315 MB) ; numbers ['-8', '2', '-2', '3'] against ['-8', '2', '-2', '3']
+         PLANTED "(-9) log 2 + (-2) log 3": DIFFERS -- AS WANTED
+         CALL: import b711_coeffs as M, b694_witness_terms as W ; from flint import fmpq ; N=100; spf=M.spf_table(N); lam,r=W.lambda_q(N) ; c=M.recursion([fmpq(r[k],2) for k in range(N+1)],N,spf) ; print(M.show(c[48]))
+I-97   b711_list                REPRODUCES  data/b711_list.txt :16 -- "COMPLETE TO 445.0" (READ FROM UNITS)
+         computed "445.0" in 0.2 s (free 4305 MB) ; numbers ['445.0'] against ['445.0']
+         PLANTED "COMPLETE TO 545.0": DIFFERS -- AS WANTED
+         CALL: import b711_list as M ; U=M.units() ; print(M.P9._complete_to(M.P9._bands(U),U))
+I-98   b712_genus_control       REPRODUCES  data/b712_genus_control.txt :43 -- ": 0" (COMPUTED)
+         computed "0" in 0.1 s (free 4305 MB) ; numbers ['0'] against ['0']
+         PLANTED ": 1": DIFFERS -- AS WANTED
+         CALL: import b712_genus_control as M ; rows,misses=M.compute() ; print(len(misses))
+I-99   b713_list                REPRODUCES  data/b713_list.txt :74 -- "COMPLETE TO 199.33082" (READ FROM UNITS)
+         computed "COMPLETE TO 199.33082" in 0.2 s (free 4302 MB) ; numbers ['199.33082'] against ['199.33082']
+         PLANTED "COMPLETE TO 299.33082": DIFFERS -- AS WANTED
+         CALL: import b713_list as M ; M.status()
+I-100  b713_predict             REPRODUCES  data/b713_predictions.txt :10 -- "n*_pred 50972.9" (COMPUTED)
+         computed "50972.89188" in 0.2 s (free 4297 MB) ; numbers ['50972.9'] against ['50972.89188']
+         PLANTED "n*_pred 60972.9": DIFFERS -- AS WANTED
+         CALL: import b713_predict as M ; T0p,on,pairs,j=M.list_rows(); k,off,ref=pairs[0] ; c=M.P9.constants_for709(M.B.terms(on+[off,ref]),'ref1',T0p,1) ; print(M.law(M.P9._arb(c['C']), M.P5.r_of(off[1],off[2])).mid().str(10, radius=False))
+I-101  b716_genus_control       REPRODUCES  data/b716_genus_control.txt :46 -- ": 0" (COMPUTED)
+         computed "0" in 0.1 s (free 4301 MB) ; numbers ['0'] against ['0']
+         PLANTED ": 1": DIFFERS -- AS WANTED
+         CALL: import b716_genus_control as M ; c=M.compute() ; print(len(c['misses']))
+I-102  b717_coeffs              REPRODUCES  data/b717_coeffs.txt :16 -- "n = 120" (COMPUTED)
+         computed "120" in 0.1 s (free 4299 MB) ; numbers ['120'] against ['120']
+         PLANTED "n = 220": DIFFERS -- AS WANTED
+         CALL: import b717_coeffs as M, b711_coeffs as C ; N=200; spf=C.spf_table(N) ; b,c,neg,und,vals=M.coeffs(M.counts((1,1,10),-39,N),N,spf) ; print(neg[0])
+I-103  b717_list                REPRODUCES  data/b717_list.txt :69 -- "COMPLETE TO 200.0" (READ FROM UNITS)
+         computed "COMPLETE TO 200.0" in 0.2 s (free 4299 MB) ; numbers ['200.0'] against ['200.0']
+         PLANTED "COMPLETE TO 300.0": DIFFERS -- AS WANTED
+         CALL: import b717_list as M ; M.status()
+I-104  b717_predict             REPRODUCES  data/b717_predictions.txt :11 -- "n*_pred 207551.1" (COMPUTED)
+         computed "207551.1217" in 0.2 s (free 4295 MB) ; numbers ['207551.1'] against ['207551.1217']
+         PLANTED "n*_pred 307551.1": DIFFERS -- AS WANTED
+         CALL: import b717_predict as M ; T0p,on,pairs,j=M.list_rows(); k,off,ref=pairs[0] ; c=M.P9.constants_for709(M.B.terms(on+[off,ref]),'ref1',T0p,1) ; print(M.law(M.P9._arb(c['C']), M.P5.r_of(off[1],off[2])).mid().str(10, radius=False))
+I-105  b718_abstract            REPRODUCES  data/b718_derivation.txt :104 -- "shapes 4" (COMPUTED)
+         computed "4" in 0.1 s (free 4294 MB) ; numbers ['4'] against ['4']
+         PLANTED "shapes 5": DIFFERS -- AS WANTED
+         CALL: import b718_abstract as M ; r=M.census(groups=[(3,)], oms=(4,5), verbose=False) ; print(sum(v['minimal'] for v in r.values()))
+I-106  b718_classgroup          REPRODUCES  data/b718_derivation.txt :6 -- "-23: h 3, ALL TRUE ; -15: h 2, ALL TRUE" (COMPUTED)
+         computed "-23: h 3, ALL TRUE ; -15: h 2, ALL TRUE" in 0.1 s (free 4292 MB) ; text
+         PLANTED "-23: h 3, ALL TRUE ; -15: h 2, ALL TRUE (planted)": DIFFERS -- AS WANTED
+         CALL: import b718_classgroup as M ; print(' ; '.join('%d: h %d, ALL %s' % (D, len(M.group(D)[0]), str(all(M.group(D)[3].values())).upper()) for D in (-23, -15)))
+I-107  b718_pin                 NOT RUN     data/b718_pin.txt :7 -- "BUILDS 1" (COMPUTED)
+         A NETWORK READ: the figure is run 40587516142`s read (route `read SIDE-effects 40587516142`, which appends to data/b718_pin_rows.json); priced at one read of the run and its artifact, under a minute, with a bank write the route would make
+         CALL: (none: the route named in the reason)
+I-108  b720_predict             REPRODUCES  data/b720_prediction.txt :21 -- "n0 = 135 b(n0) = -2" (COMPUTED)
+         computed "135 -2" in 1.6 s (free 4293 MB) ; numbers ['135', '-2'] against ['135', '-2']
+         PLANTED "n0 = 235 b(n0) = -2": DIFFERS -- AS WANTED
+         CALL: import b720_predict as M ; r=M.predict(M.setup(-35)) ; print(r['n'], r['b'])
+
+### ### **ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 358 s.**

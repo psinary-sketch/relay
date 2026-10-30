@@ -151,8 +151,9 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b724_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b723 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b724_price.txt', 'data/b724_orders_triage.txt', 'data/b724_lv.txt')   # ### the banks of (R334)(3)-(6) known at step
-#   ### zero (the price table, (4)'s triage, (5)'s run); the rest set by the Edit tool as each component writes them
+COMPUTE_BANKS = ('data/b724_price.txt', 'data/b724_standing_v140.txt', 'data/b724_root_corrigendum.txt', 'data/b724_split_price.txt',
+                 'data/b724_orders_triage.txt', 'data/b724_lv.txt', 'data/b724_lv_rows.json', 'data/b724_release_list.txt', 'data/b724_legacy.txt')
+#   ### the banks of (R334)(2)-(6), each written by its component (the price table at step zero)
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b723_read_calls.txt', 'data/b724_read_calls.txt')
@@ -168,7 +169,7 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the weight line, the corrigendum, the entry and the trail; (R334)(8)'s archive-3 files where it lands
+PP_WRITTEN = ('ERRATA.md', 'FINDINGS.md', 'OPEN_TRAILS.md')   # ### the weight line, the corrigendum, the entry and the trail; (R334)(5)'s ERRATA entry; no archive file ((3) carried)
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
@@ -176,7 +177,7 @@ RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
 NEXT = ('b725 ((R334)(10)), the research act: H-ONSET-MASS registered (the onset at a zero predicted from the on-line mass the template '
-        'window sees, read from the certified list, in the refined Li law`s form) and tested on zeros not yet computed; H-DIAL at c = 0.6, 0.8 '
+        'window sees, read from the certified list, in the refined Li law’s form) and tested on zeros not yet computed; H-DIAL at c = 0.6, 0.8 '
         'and 1.0; lambda_2 > 0 by the fourth Keiper obligation at index 1 and a gamma_1 bound; the C2 compile by the certificate route on a '
         'branch of SIDE-explicit-formula. Then b726, the wave 1 act')
 NEXT_ACT = 'b725'
@@ -220,6 +221,7 @@ STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
 STEPZERO_BANKS = '21681ef9'             # ### the step-zero banks and tools, committed together by explicit list
+STEPZERO_BANK_COMMIT = 'd5432f23'       # ### the step-zero bank itself (data/b724_stepzero.txt), with the price table, after the banks' commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = ()
@@ -242,23 +244,28 @@ B714_RECORD = '14bf5ec5'     # ### b723's record commit (relay, the head line's)
 B714_ROOT = '9296406733ce0d44e197b8110ae942efb9f6fa121f7416214560282cbf42d553'   # ### b723's root, data/act_roots.txt :101, carried as recorded
 B723_ROOT_BANKS = 'f585420f'  # ### b723's root banks' commit, the root route's control replays b723's banks there ((R334)(2))
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_RELAY = None
-C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None     # ### FINDINGS: b723's weight line and the corrigendum for b723 (Component 1)
+C1_STANDING = '6938625834306c5e83709956b541332cd9f2c026'   # ### tools/standing/ v1.4.0, by a commit of its own (Component 1, step 6)
+C1_RELAY = 'e5f9f7a50390c66ede87f9e8ebc72a58d01909ce'      # ### v1.4.0's controls bank, the root corrigendum row and bank, the defects bank (step 7)
+C1_CORR = 'a5a7144213ee8d4815608014a4501651ddff1e74'       # ### the corrigendum banks and the b675 corrigenda row (44) (step 9)
+C1_PP = '88f234edbc2585d6ddd68f23f47931d1a50aa8b3'         # ### FINDINGS: b723's weight line and the corrigendum (step 8)
+WEIGHT_LINE, CORR_LINE = 11534, 11536   # ### FINDINGS: b723's weight line and the corrigendum for b723 (Component 1)
 DIFFERS_LINE = None
-ERRATA_LINE = None
-C1_STANDING = None                      # ### the new tools/standing/ version, by a commit of its own (Component 1)
-C2_RELAY = None
-C2_PP = None
-C3_RELAY = None
-C3_PP = None
-C4_LV = None                            # ### the lv negation's commit on its scratch branch (Component 4)
-C4_RUN = None                           # ### its one dispatch, read by its run id
-C5_RELAY = None
+ERRATA_LINE = None                      # ### ERRATA.md: read by its id (ERRATA_ID), not by a line
+C2_RELAY = 'b34fb50ee74bc438f0d066eaeeb00195a3a30bde'      # ### (R334)(3): the ledger split carried whole with its price (step 10)
+C2_PP = None                            # ### nothing of (3) landed (N3)
+C3_RELAY = '688c9e99dc7e0a6655f3bcc0500dfb331cf1ff3f'      # ### (R334)(4): the triage bank (step 11)
+C3_PP = None                            # ### the DONE orders' dated closing lines written with the trail at the close
+C4_LV = 'c9cd1ea90e1367fb6ba4d55e4d3538a0179b69a3'         # ### the lv negation's commit on its scratch branch (Component 4)
+C4_RUN = 40964150574                    # ### its one dispatch, read by its run id
+C4_PP = 'c3c6ba8657516d671b1ce9d21baaecf2deb286c9'         # ### ERRATA.md: E-2026-10-29-1 (step 12)
+C4_RELAY = 'bb304a67ee996928fe25da1e1e808c073fb51228'      # ### the lv bank, its rows and the release sitting's list (step 13)
+C5_RELAY = '01dd9f44492034c649b5fcbfeef0f220caa923aa'      # ### (R334)(6): the legacy imports carried with the remaining price (step 14)
 REG_COMMIT = None                       # ### (R334)(10): the act registers no hypothesis
-ORDERS = None                           # ### the generator at HEAD, set at Component 3
+ORDERS = (142, 60, 42, 12, 28)          # ### (R334)(4): the open orders triaged (data/b724_orders_triage.txt :531): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b724_orders_triage.txt'
-LV_SCRATCH_BRANCH = None                # ### (R334)(5)'s scratch branch of SIDE-lv-conservation, named at Component 4
+LV_SCRATCH_BRANCH = 'scratch-b724'      # ### (R334)(5)'s scratch branch of SIDE-lv-conservation, at C4_LV over the deposit pin
+LV_RUNS = (('SIDE-lv-conservation', 40964150574),)   # ### N1: (R334)(5)'s one dispatch, read by its id
+LV_ROWS = 'data/b724_lv_rows.json'
 CHALLENGE_BRANCH = 'challenge-b720-h2-sign-iff-rh'   # ### b720's, on SIDE-explicit-formula, standing, not merged, no tag
 CHALLENGE_TIP = '3391647518cd37316a448b5013afb62a198fa6c6'
 CHALLENGE_RUN = 40651875792
@@ -272,9 +279,9 @@ PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
 MAX_DISPATCHES = 1           # ### N1: (R334)(5)'s one
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')
-ERRATA_ID = None
-ERRATA_IDS = ()
+PP_EDITED = ('ERRATA.md', 'FINDINGS.md', 'OPEN_TRAILS.md')   # ### (R334)(5)'s ERRATA entry beside the two ledgers
+ERRATA_ID = 'E-2026-10-29-1'
+ERRATA_IDS = ('E-2026-10-29-1',)
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
