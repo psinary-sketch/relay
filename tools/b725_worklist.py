@@ -257,7 +257,7 @@ ERRATA_LINE = None
 C2_RELAY = '22210d4b'                   # ### (R335)(3): data/b725_registrations.txt, committed alone (step 11)
 C2_AMEND = ('390b7894', '706b4ca1', '2531aad5', 'dc0d4133')   # ### registration (v) and its amendment; H-DIAL's build reading and its c = 1 amendment
 C2_PP = None
-C3_RELAY = ('5f882c5a', '47647ad7', '9ad10fba', '431ef005', '97588dd5', '308326d8', 'a975e4d9', 'a8474569')   # ### (R335)(4), (8)-(9): the computations' commits
+C3_RELAY = ('5f882c5a', '47647ad7', '9ad10fba', '431ef005', '97588dd5', '308326d8', 'a975e4d9', 'a8474569', '5a27ab16')   # ### (R335)(4), (8)-(9): the computations' commits
 C3_PP = None
 C4_LV = None
 C4_RUN = None

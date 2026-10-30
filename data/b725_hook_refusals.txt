@@ -4,3 +4,4 @@
 2026-10-30T14:25:23Z | READ | Read | "D:\\relay\\tools\\b707_onset.py" | a Read call with limit 210, above 200
 2026-10-30T16:21:51Z | PIPE | PowerShell | "(Get-Content D:\\relay\\data\\b725_defects.txt).Count; (Get-Content D:\\relay\\data\\b725_defects.txt)[19..24] | ForEach-Object { $_.Substring(0, [Math]::Min(200, $_.Length)) }" | a PowerShell command carrying a pipe outside quotes
 2026-10-30T17:02:55Z | REDIR | Bash | "cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad && cat > ferrygrep725.py << 'EOF'\nEOF\necho skip" | a Bash command carrying a redirect outside quotes
+2026-10-30T17:30:13Z | REDIR | Bash | "python -X utf8 -c \"\" 2>NUL; python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/slotctx725.py checks 0 0" | a Bash command carrying a redirect outside quotes
