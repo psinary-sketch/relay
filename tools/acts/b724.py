@@ -558,6 +558,21 @@ REG = os.path.join(D, 'b724_registration_%s.txt' % __import__('b724_worklist').D
 #⟪END⟫
 # ### b724, Component 6 (the Edit tool): b723's row measured (R333)(3)(ii)'s closing lines landed before the seal; b724 lands none before
 # ### the seal -- the DONE orders' dated closing lines ride in the trail at the close
+# ### b724, Component 6 (the Edit tool, before the face): four template clauses contradicting b724's own -- the scratch branch (slot 2's
+# ### LVSCRATCH beside the template's 0), the Lean file (the port-branch measure under a kernel-wide label), the papers written (ERRATA
+# ### beside FINDINGS and OPEN_TRAILS, (R334)(5)), the ERRATA entries (slot 10's 1 beside the template's 0)
+#⟪OVERRIDE regspec 45 45⟫
+    # ### the scratch branches' clause is slot 2's (LVSCRATCH), b724's one
+#⟪END⟫
+#⟪OVERRIDE regspec 52 52⟫
+    ('Lean files written on the port branch', 'LEANFILES', 'LEANFILES', 'files', '### none on port-b707 (N5); MEASURED off the port branch against its tip; the scratch branch`s one file is slot 4`s LVLEANACT.'),
+#⟪END⟫
+#⟪OVERRIDE regspec 68 68⟫
+    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS, ERRATA and REGISTRY', 0, 0, 'papers', '### N5: ERRATA one entry appended ((R334)(5)), FINDINGS and OPEN_TRAILS appended, REGISTRY untouched.'),
+#⟪END⟫
+#⟪OVERRIDE regspec 160 160⟫
+    # ### the ERRATA entries' clause is slot 10's (1, E-2026-10-29-1)
+#⟪END⟫
 #⟪OVERRIDE regspec 78 78⟫
     ('orders and annotations entered at OPEN_TRAILS before the seal', 0, 0, 'lines', '### none: (R334)(4)`s DONE orders` dated closing lines written with the trail at the close; OPEN_TRAILS untouched before the seal.'),
 #⟪END⟫
