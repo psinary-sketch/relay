@@ -98,3 +98,43 @@ CONTROL BEFORE ANY PROOF (the ferry's). E0 graded at the statement (relay tools/
 THE ORDER IT SERVES. (R335)(4)(iv); no main, no tag.
 
 ### ### **REGISTERED: H-ONSET-MASS (THE READING OF M, A AND a*_pred FIXED), H-DIAL AT c = 0.6, 0.8, 1.0, THE lambda_2 TARGET, THE C2 STATEMENT ; TEST ZEROS NAMED 0 ; FIGURES AT A REGISTERED OBJECT 0 ; THE RULE'S OUTPUT BY A COMMIT OF ITS OWN.**
+
+## (v) H-INTERFERENCE ((R335)(9), the addendum data/b725_addendum.txt, relay 9ad10fba; added by a commit of its own before any figure at it)
+### No Z_Q1 value, no Z_Q0 value at an off-line zero, no coefficient of (C1) and no value of (C2) has been computed by hand or by tool before
+### this commit. The citation check (data/b725_addendum_citation.txt) read the ruling's route "Z_Q1 by b694's route" MISS: b694 carries no
+### evaluation of Z_Q at a point; the route below is the seat's, for the author's strike.
+THE SETTING AND STATEMENT (the ruling's): discriminant -23; Q0 = x^2 + xy + 6y^2, Q1 = 2x^2 + xy + 3y^2; zeta_K = (Z_Q0 + 2 Z_Q1)/2 and
+  L(s, psi) = (Z_Q0 - Z_Q1)/2, psi the class-group character of order 3. THE HYPOTHESIS: at every certified off-line zero rho of Z_Q0 in
+  data/b711_list.json (to height 445), Z_Q1(rho) is nonzero beyond its certified ball. FALSIFIER: one off-line rho at which Z_Q1's ball
+  contains 0. FORCED, printed and not a test: zeta_K(rho) = -2 L(rho, psi) at each (Z_Q0(rho) = 0 gives zeta_K(rho) = Z_Q1(rho) =
+  -2 L(rho, psi)). READ BESIDE IT, not a test: |Z_Q1(rho)| against beta - 1/2 (and gamma), a table. SCOPE: Q0's certified list to 445.
+THE ZEROS, THE SEAT'S: the list's off-line rows with beta > 1/2 (extended_rows(U, top), names beginning "off"; 69 as b723 read them,
+  data/b723_support_rule.txt), each rho its row's ball sigma + i t. Their reflections 1 - conj(rho) and conjugates are not evaluated: Z_Q1 is
+  real on the real axis and Lambda_Q1(s) = (2 pi / sqrt 23)^(-s) Gamma(s) Z_Q1(s) satisfies Lambda_Q1(1 - s) = Lambda_Q1(s) (the same
+  discriminant as Q0), so Z_Q1 vanishes at a twin exactly where it vanishes at rho.
+THE ROUTE FOR Z_Q1, THE SEAT'S (the general Chowla-Selberg expansion, Q = a x^2 + b xy + c y^2, |D| = 4ac - b^2; at a = b = 1, |D| = 23
+  it is tools/b667_epstein_certify.py zq's T1-T3 term by term):
+  Z_Q(s) = 2 a^(-s) zeta(2s) + 2 a^(-1/2) sqrt(pi) Gamma(s - 1/2)/Gamma(s) (|D|/(4a))^(1/2 - s) zeta(2s - 1)
+           + 8 pi^s / (Gamma(s) sqrt a) SUM_{m=1..M} cos(pi m b / a) K_{s-1/2}(pi m sqrt|D| / a) SUM_{k|m} (2k / (sqrt|D| (m/k)))^(s - 1/2) + T4,
+  at Q1: a = 2, b = 1, |D| = 23 (cos(pi m / 2): 0 at odd m, -1 at m = 2 mod 4, +1 at m = 0 mod 4).
+  T4, a rigorous bound added as the radius: |K_nu(x)| <= K_{|Re nu|}(x) for x > 0, x -> e^x K_mu(x) nonincreasing, |the divisor sum| <= m (C m)^|mu|
+  with C = sqrt|D| / 2 and |mu| the ball's largest |sigma - 1/2| (< 1/2 here), so |T4| <= 8 |pi^s / Gamma(s)| a^(-1/2) C^|mu| K_{|mu|}(c (M+1))
+  (M+1)^(1 + |mu|) / (1 - rho_M), c = pi sqrt|D| / a, rho_M = ((M+2)/(M+1))^(1 + |mu|) e^(-c) ; M the least integer with c M >= pi |t| / 2 +
+  (prec + 20) log 2 + c.
+  THE BALL: Z_Q1 evaluated on the row's ball (python-flint, the Bessel factor on the ball), at 200 bits, re-taken at 400 and then 800 bits where
+  the ball contains 0 or its radius exceeds 2^-40 of its midpoint's modulus; the falsifier read on the ball at the last precision taken, its
+  precision and radius printed beside it. Z_Q0 on the same ball by b667's zq, printed beside (its ball containing 0, a check of the row).
+CONTROLS BEFORE ANY FIGURE AT AN OFF-LINE ZERO (the ruling's (C1), (C2); the seat's (C3), (C4)):
+  (C1) exact arithmetic, n = 1..3000: r_Q0(n) + 2 r_Q1(n) = 2 SUM_{d|n} (-23/d) (the ideal count, w = 2), and (r_Q0(n) - r_Q1(n))/2 equal to the
+       q^n coefficient of eta(z) eta(23z) = q PROD_k (1 - q^k)(1 - q^(23k)) (L(s, psi)'s Dirichlet series, the weight-one form of level 23) and
+       multiplicative on coprime pairs m n <= 3000; r_Q by enumeration of (x, y).
+  (C2) at zeta's first zero rho_1 = 1/2 + i 14.1347... (a ball certified by its sign change of Hardy's Z, refined by Newton in balls): Z_Q0 +
+       2 Z_Q1 contains 0, its radius below 1e-20 (not vacuous), and Z_Q1(rho_1) printed (nonzero: the cancellation shown at an on-line zero).
+  (C3) at s = 2 + 3i and s = 0.7 + 50i: (Z_Q0 + 2 Z_Q1)/2 overlaps zeta(s) L(s, chi_-23) (python-flint's dirichlet_l), each radius below 1e-20.
+  (C4) the route at a = b = 1, |D| = 23 overlaps b667's zq at s = 0.7 + 50i.
+THE PRICE: printed before any off-line zero runs, from (C2)-(C4)'s measured seconds per evaluation times 69; the run stoppable between zeros.
+THE READING: HELD where every one of the 69 balls excludes 0 at the last precision taken; REFUTED at one containing 0; NOT SCORABLE where a
+  zero is not evaluated (carried with its price).
+THE ORDER IT SERVES. (R335)(9); the trigger of W-ORD-VISIBILITY ((R335)(10)) is its table banked.
+
+### ### **REGISTERED (v): H-INTERFERENCE, ITS ROUTE FOR Z_Q1 THE SEAT'S (THE RULING'S CITED ROUTE A MISS) ; FIGURES AT IT 0.**
