@@ -49,3 +49,16 @@ AT THE PRE-PUSH SUITE (the root committed at relay 34fee845, the trail and its h
      "b725_record.py scores", a form from before the fold, while the fold's route is `fold.py record scores`; step [4]'s dry run of the
      scores (19:2xZ, before the seal at 21:20Z) is not of that form, so the reader reads 0 calls -- b723's and b724's failure of this
      arm the same reader's -- NEG 0, POS 2 (event (7)), VERDICT NOT CLEAN.
+
+AFTER THE PUSH OF THE RECORD (relay 14593dda and PLACE-papers 06af23f0 pushed through push_gated.sh and read back):
+    (9) THE SEAT'S [CLOSE ; REPEAT b724 event (17)]: 22:30Z-23:06Z, THE POST-PUSH SUITE, seven parts one at a time in the foreground,
+     each after a free-memory read (the hold met at each, 2831-3611 MB), each under the 590 s guard (169, 356, 225, 399, 476, 277, 155
+     s), the record commit the pushed tip (its step row 39 uncommitted, for the closing), combined (data/b725_checks_postpush.txt): ARMS
+     116, LIVE PASSING 110, LIVE FAILING 6 -- the six of the pre-push reading (event (8)) and no other; NEG 0, POS 2 (G-SEAL-HASHES,
+     G-TRAIL-CARRIES-SEAL, event (7)), VERDICT NOT CLEAN; the chain's parts A1 and A2 AGREE, B AGREE but b723, b725 AGREE at 6b3f46a8.
+    (10) THE SEAT'S [CLOSE ; NEW]: 23:12Z, the closing (data/b725_closing.txt, `fold.py closing`): its kernels paragraph says the
+     commits there were made "under the noreply identity on the command (the local configuration not edited, defect (d))" -- the
+     sealed act module's text, written before the author's word at the root; on that word the local user.email of five clones,
+     SIDE-explicit-formula among them, was set to the noreply form at 21:28Z-21:3xZ (event (2); OPEN_TRAILS, "### b725 — the author’s
+     answers at the root, carried", :16644). The kernel commits of this act all came before the word, so the sentence is true of them,
+     and its parenthesis is stale as of the close. Nothing rewritten; the trail's section the record of the change.
