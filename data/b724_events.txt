@@ -1,0 +1,47 @@
+b724 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay 63f78a87, locked 2026-10-30 00:28Z), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for b725's corrigendum. A finding after the lock takes no letter in data/b724_defects.txt; no locked bank is rewritten ((R332)(1)). Each row carries its time, read from the clock, from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+BEFORE THE LOCK, FOUND AFTER IT (read at the pre-run; the face and the gate's banks locked, so entered here, not lettered):
+    (1) THE SEAT'S [CLOSE ; REPEAT class (ix)]: 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act: G-ROOTDRY-READY fails LIVE -- its
+     predicate (checks.tpl rootdry_ok) wants the face to carry "the root route`s dry run READY True", b723's face's wording; this face's
+     section (0) writes "the root route run dry on the pre-root tree (step [2]) ..., READY True its evidence for the seal". The dry run
+     itself READY True (data/b724_root_banks_dry.txt, relay 67186de6, 43 banks); the face's wording locked, not rewritten.
+    (2) THE SEAT'S [CLOSE ; NEW]: 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act: G-CLOSING-DRY-STEP fails LIVE -- its predicate refuses
+     "): ### NOT FOUND" in the gate's record, and data/b724_reg_gate.txt :39 carries it: the closing's dry run inside the gate's one run
+     (00:23:04Z) read the gate's own bank before the gate wrote it ("THE DRY RUN ((R267)(2) ...): ### NOT FOUND"). b723's gate ran over
+     an earlier gate bank of its own and its record carried no such row. The gate not re-run: a re-run writes a bank after the lock gate.
+    (3) THE SEAT'S [CLOSE ; REPEAT b724 (p)]: 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act: G-DELETES-ONE-BRANCH's POSITIVE CONTROL
+     PASSES (DEFECTIVE) -- the plant replaces b723's ferry wording "the push-b723-* branches of relay and PLACE-papers deleted by name",
+     which b724's ferry does not carry, so the plant changes nothing it reads; the carried arm read in b723's wording, the class of (p).
+    (4) THE SEAT'S [CLAIM ; NEW]: 00:57:01Z-01:01:07Z, AT THE PRE-RUN, part standing-b3: G-ACTROOT-VERIFY fails LIVE on b723 DISAGREE
+     ("bank data/b723_bank_hashes.json changed (read at f585420f24c2)") beside b724's root not yet written -- the DISAGREE banked at
+     Component 1 (data/b724_root_corrigendum.txt, data/act_roots.txt :102) and put to the author at the root's prompt, but the arm not
+     named on the face's DECLARED line; it fails after the root on b723 alone. b723's own post-push run failed it the same way
+     (data/b724_prevrun_standing-b3.txt: FAILED AS b723 FAILED 1).
+
+THE LOCK AND THE PRE-RUN (found between the lock gate's record and the seal; data/b724_arms_prerun_<part>.txt):
+    (5) THE SEAT'S [CLOSE ; NEW]: 00:31:46Z-00:38:02Z, AT THE PRE-RUN, part standing-a: G-LSREMOTE-ONE-PER-REPO fails LIVE --
+     D:/SIDE-dirichlet-mod-24 read twice (data/b724_lsr_prerun_standing-a.json :17): tools/b616_claims.py remote_refs re-reads once alone
+     a read carrying no refs/heads/ (its docstring :480-:481), so the first read came back empty at the remote and the standing retry
+     read it; no seat call. b723's part read every repository once; the same part on b723's banks at 01:07Z read 45, at most 1 each. The
+     part not re-run: a re-run rewrites its bank after the lock.
+    (6) THE SEAT'S [CLOSE ; NEW]: 00:27:02Z, AT THE GATE, the root route run dry a second time (b723's form: "the root route dry, its last
+     run before the lock", b723's step 40), after the touch bank's header was demoted beneath its foot (relay 228eda75); the face's (G1)
+     reads "THE ROOT ROUTE`S DRY RUN ON THE PRE-ROOT TREE, ONCE" and the spec's clause "root-route dry runs run before the lock" cap 1,
+     measured at the first run. Both runs READY True (36 banks, then 43).
+    (7) THE SEAT'S [CLOSE ; REPEAT b723 (5)]: 00:28Z-01:04Z, AT THE PRE-RUN, seven parts one at a time, each in the foreground under the
+     590 s guard, and combined (data/b724_arms_prerun.txt): ARMS 116, LIVE PASSING 89, LIVE FAILING 27, NEG 0, POS 1 (G-DELETES-ONE-BRANCH,
+     event (3)), NOT CLEAN before the seal's later steps. G-AXIOM-CLAIM and G-RULE-LONG-PHASE-SPLIT the face's declared failures on real
+     state; events (1), (2), (4) and (5); G-PP-SCOPE waiting on the trail's landing; the rest reading banks of later steps (the seal, the
+     pre-run's own combined bank, the scores, the root, the entry, the trail) or, for G-R334-ENTERED, G-ENTRY-SCORES-EQUAL,
+     G-ENTRY-TITLE-FORM and G-POSTROOT-WRITES-NONE, the entry, the trail and the root not yet written. The chain's halves A1, A2 and B:
+     AGREE at every act b624-b722, b723 DISAGREE (event (4)), the boundary equal True. The parts 123, 376, 192, 349, 450, 246 and 133 s,
+     the longest phase 307 s (standing-b2b's chain part), above 450 s nowhere: v1.4.0's (vi) re-cut held, standing-b2b 450 s against the
+     402 s projected (data/b724_standing_v140.txt). The seconds gathered (`fold.py record armsecs`): STANDING ARMS CLOCKED 85 OF 85, the
+     three slowest G-NOTHING-RAN-AHEAD (standing-a, 22.77 s), G-RESEARCH-REPRODUCES (0.23 s), G-WORKFLOW-FILES (0.17 s).
+    (8) THE SEAT'S [CLOSE ; REPEAT b723 (6)]: 01:04Z-01:37Z, AT THE RUNS ON b723'S BANKS, seven parts one at a time in the foreground
+     (data/b724_prevrun_<part>.txt): act PASS 12, FAILED AS b723 FAILED 0, DIVERGE 18, NOT RUN BY b723 1 (G-R334-ENTERED, the act shift);
+     standing-a PASS 54, FAILED AS b723 FAILED 6 (G-AXIOM-CLAIM, G-SEALED-AFTER-COMPONENTS, G-ACTROOT-BANKED, G-ROOT-BANKS-COMMITTED,
+     G-ACTROOT-LAST, G-RULE-SCORES-BEFORE-SEAL), DIVERGE 18; standing-b1 and -c PASS 1 and 5; standing-b3 FAILED AS b723 FAILED 1
+     (G-ACTROOT-VERIFY); NEG failures 0, no POSITIVE-CONTROL PASS. The act part's arms read this act's own objects, and standing-a's include
+     the root's, entry's and trail's arms, which b723's post-push combine passed on b723's closed state. b723's event (7) not repeated:
+     standing-b2a 363 s and standing-b2b 439 s, each in the foreground, no part in the background. No tool edited for these runs.
