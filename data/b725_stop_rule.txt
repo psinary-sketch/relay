@@ -5,8 +5,8 @@ b725 -- (R335)(4): THE STOP RULE READ AT EACH STOP POINT (data/b725_price.txt :6
 ### (4)(iii) 8 h, (4)(iv) 6 h. Written by the Write tool; one row per stop point, appended in time order.
 
 ## (4)(ii) H-DIAL -- NOT READ AT ITS START (defect (p)); read here after the fact
-  Started on (R335)(8)'s word ("Their budget goes to (4)(ii) H-DIAL"), its build reading relay 2531aad5 (step 18) after the addendum's
-  paste (about 15:40Z); the stop rule was not printed then. Read after the fact at the latest bound, 16:06Z (its c = 0.6 run's start):
+  Started on (R335)(8)'s word ("Their budget goes to (4)(ii) H-DIAL") between 15:59Z (relay 431ef005, step 17) and 16:02Z (its build
+  reading relay 2531aad5, step 18); the stop rule was not printed then. Read after the fact at the latest bound, 16:06Z (its c = 0.6 run's start):
   elapsed 2.45 h + low price 3 h + the close 4 h = 9.45 h <= 16.7 h -- the rule admits it at any start before then. Banked
   data/b725_dial.txt, relay 308326d8: REFUTED.
 
@@ -24,3 +24,17 @@ b725 -- (R335)(4): THE STOP RULE READ AT EACH STOP POINT (data/b725_price.txt :6
   and nothing here assumes it). What remains is printed as two sorry-free statements, each a candidate declaration written nowhere.
   Its own stop: the module is abandoned, carried with its tree state, where its second dispatch does not read DERIVES or where elapsed
   reaches 12.7 h (16.7 h less the close), whichever is first.
+  ENDED 16:42Z (elapsed 3.05 h), two dispatches: the closed form and the sign compiled on two named premises, both printed as what
+  remains (data/b725_lambda2.txt's last line).
+
+## (4)(iv) THE C2 THEOREM -- read at 2026-10-30T16:44:03Z
+  elapsed 3.08 h + low price 6 h + the close 4 h = 13.08 h <= 16.7 h : STARTED.
+  THE SCOPE TAKEN AT ITS START. One dispatch remains (N1: three at most, two spent at (iii)); no local compile. The registration
+  (data/b725_registrations.txt :90-:98) wants the statement graded E0 before any proof, then route (B): (L1) the sweep's table equals rQ
+  and (L2) the Omega recursion equals the ordered-factorization sum, proved once, and per-field certificates under 10^6 steps, vanilla
+  Lean, no native_decide. Taken: the E0 grade printed first (data/b725_c2.txt); a module SIDEExplicitFormula/C2Walk.lean on c2-b725
+  holding the statement's definitions as written, the statement as a Prop, the route's sweep and Omega recursion as definitions, (L1) and
+  (L2) as Props, and the eighteen per-field certificates of the route, each by `decide` under a heartbeat cap with a sorry fallback, so
+  that the one dispatch builds and prints which certificates close; the route mirrored in Python against the statement's own values at
+  18 of 18 before any Lean is written. (L1), (L2) and the theorem from them are printed as what remains unless the dispatch closes them.
+  Its own stop: carried with its tree state after its one dispatch, or where elapsed reaches 12.7 h, whichever is first.

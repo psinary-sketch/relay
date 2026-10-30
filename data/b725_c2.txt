@@ -1,0 +1,33 @@
+b725 -- (R335)(3)(iv), (4)(iv): THE C2 THEOREM BY THE CERTIFICATE ROUTE -- THE E0 GRADE FIRST, THE ROUTE MIRRORED, THEN THE BRANCH (2026-10-30T16:51:41Z)
+
+### Written by tools/b725_c2.py bank before any Lean file of (iv) is written; nothing here runs Lean or dispatches. The Lean tree, its
+### one dispatch and its grades are appended below by the Edit tool after the read.
+
+## (1) THE E0 GRADE AT THE STATEMENT, BEFORE ANY PROOF (relay tools/e0_rule.py, imported unedited; its self-test PASS)
+  the statement: data/b722_c2_statement.txt, equal to tools/b722_c2.py`s text: True
+  THE HEADER GRADED: theorem c2_value_law (D : Int) (n0 : Nat) (v : Int) (q : Nat) (hD : (D, n0, v, q) ∈ walk) : ((q : Int) * bL D n0 = v * 360360) ∧ ∀ n, 2 ≤ n → n < n0 → 0 ≤ bL D n
+  THE GRADE: DERIVES -- domain conditions only: hD : (D, n0, v, q) ∈ walk
+  SCOPE (beside the statement, not a binder): the list `walk` names the eighteen imaginary quadratic fields of class number 2; that no other exists is Baker (1971) and Stark (1975), cited and not compiled.
+
+## (2) ROUTE (B) MIRRORED IN PYTHON IN C2Walk.lean`s ARITHMETIC, AGAINST THE STATEMENT`S OWN bL AT EVERY n <= n0
+  D -15   n0 24     box s 7    points 43     pairs 37      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -20   n0 36     box s 9    points 53     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -24   n0 36     box s 9    points 49     pairs 69      | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -35   n0 135    box s 17   points 141    pairs 418     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -40   n0 100    box s 15   points 103    pairs 283     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -51   n0 225    box s 22   points 207    pairs 812     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -52   n0 196    box s 20   points 167    pairs 679     | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -88   n0 484    box s 32   points 321    pairs 2107    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -91   n0 875    box s 42   points 585    pairs 4318    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -115  n0 1225   box s 50   points 725    pairs 6466    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -123  n0 1089   box s 47   points 611    pairs 5612    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -148  n0 1444   box s 54   points 757    pairs 7851    | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -187  n0 3773   box s 87   points 1711   pairs 24108   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -232  n0 3364   box s 83   points 1387   pairs 21123   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -235  n0 4225   box s 92   points 1747   pairs 27494   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -267  n0 4761   box s 98   points 1851   pairs 31556   | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -403  n0 17303  box s 187  points 5431   pairs 136930  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  D -427  n0 14161  box s 169  points 4321   pairs 109242  | a equal True ; bL equal at 2..n0 True ; the certificate (q bL(n0) = v L, bL >= 0 below n0) True
+  THE ROUTE AS THE LEAN DEFINITIONS COMPUTE IT: EQUAL TO THE STATEMENT AND THE CERTIFICATE TRUE AT 18 OF 18
+
+### ### **THE C2 STATEMENT: E0 DERIVES ; ROUTE (B) IN THE LEAN DEFINITIONS` ARITHMETIC EQUAL TO THE STATEMENT, THE CERTIFICATE TRUE AT 18 OF 18 ; 27 s.**

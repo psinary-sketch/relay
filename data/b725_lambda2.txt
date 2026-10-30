@@ -14,3 +14,45 @@ b725 -- (R335)(4)(iii): lambda_2 > 0 ON BRANCH keiper-b725 OF SIDE-explicit-form
   declarations. Pushed alone by push_gated.sh --branch --scratch, read back at the remote equal (capture
   data/b725_SIDE-explicit-formula_keiper-b725_push_out.txt).
   DISPATCH 1 of 3: build-module.yml at main, ref 9a61ba22, target SIDEExplicitFormula.KeiperTwo -- run 41090029391, 2026-10-30T16:27Z.
+  READ BY ITS ID at 16:34Z: completed, conclusion success (the workflow's own), the built ref 9a61ba22 at leanprover/lean4:v4.34.0-rc1;
+  BUILD EXIT 1 -- ONE ERROR: SIDEExplicitFormula/KeiperTwo.lean:87:85 unsolved goals, in liCoeff_two_keiper. Its last step's first
+  alternative (simp, then ring) left the real parts of the ofReal squares, (↑γ ^ 2).re and (↑π ^ 2).re, unreduced; Mathlib's ring, failing
+  to close, fell back to ring_nf with a "Try this" note and did not fail, so the alternative ran to its trace and the theorem closed with a
+  goal left. Every other step traced its first alternative (gammaRZetaOne_of, poleCoeff 1 and 2, the sum at k = 1, zetaLogCoeff_one,
+  taylorCoeff_xi_one, the complex closed form hc, and in liCoeff_two_pos_of the bounds hA, hgg, hpi2 and the final linarith). AXIOMS NOT
+  RUN (the build did not complete). The runner's lowest free memory 12797 MB. Rows: data/b725_dispatch_rows.json.
+
+## TREE STATE 2 -- STRIPPED TO THE TRACED ALTERNATIVES, THE ONE OPEN STEP GIVEN FOUR ALTERNATIVES EACH CLOSED BY done
+  commit f52e188c2409436337019ea0008d7352bde404c2 over 9a61ba22 (identity read back by kind); pushed alone, read back equal.
+  DISPATCH 2 of 3: build-module.yml at main, ref f52e188c, target SIDEExplicitFormula.KeiperTwo -- run 41091360710, 2026-10-30T16:36Z.
+  READ BY ITS ID at 16:42Z: completed, success, the built ref f52e188c at leanprover/lean4:v4.34.0-rc1; BUILD EXIT 0, NO ERROR; the open
+  step closed by its alternative A (rw through Complex.sub_re, ofReal_re, mul_re; norm_num; ring_nf; done), the sorry alternative unused.
+  THE AXIOMS (out/axioms.txt, the six names of print_targets.txt):
+    SIDEExplicitFormula.KeiperTwo.gammaRZetaOne_of               [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.KeiperTwo.zetaLogCoeff_one               [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.KeiperTwo.taylorCoeff_xi_one             [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.KeiperTwo.liCoeff_two_keiper             [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.KeiperTwo.liCoeff_two_pos_of             [propext, Classical.choice, Quot.sound]
+    SIDEExplicitFormula.KeiperTwo.liCoeff_two_pos_of_obligations [propext, Classical.choice, Quot.sound]
+  no sorryAx at any of the six. The runner's lowest free memory 12897 MB.
+
+## THE GRADES (relay tools/e0_rule.py grade, imported unedited, self-test True; its lexicon given two Props in memory for this read,
+## printed: GammaRZetaValues at SIDEExplicitFormula/Keiper.lean :107, GammaRZetaOne at KeiperTwo.lean :38 -- the tool not edited)
+  gammaRZetaOne_of                INTERFACES -- h : GammaRZetaValues
+  zetaLogCoeff_one                DERIVES -- no hypothesis binder
+  taylorCoeff_xi_one              DERIVES -- no hypothesis binder
+  liCoeff_two_keiper              INTERFACES -- h4 : GammaRZetaOne
+  liCoeff_two_pos_of              INTERFACES -- h4 : GammaRZetaOne (the rule reads h1 : (stieltjes 1).re < -1 / 20 as a domain condition,
+                                  an order relation; read here as the premise it is in substance: the open bound on gamma_1)
+  liCoeff_two_pos_of_obligations  INTERFACES -- h4 : GammaRZetaValues (h1 likewise)
+
+## WHAT REMAINS, THE SORRY-FREE STATEMENTS PRINTED (candidate declarations, written nowhere; the registration's WHERE IT FALLS SHORT)
+  (a) theorem gammaRZetaOne_holds : SIDEExplicitFormula.KeiperTwo.GammaRZetaOne
+      -- gammaRLogCoeff 1 = 3/4 * riemannZeta 2, i.e. psi'(1/2) = pi^2/2 carried through GammaR s = pi^(-s/2) Gamma(s/2); Mathlib at the
+      -- pin holds no derivative of digamma ((K4) of data/b641_keiper_status.txt).
+  (b) theorem stieltjes_one_re_lt : (SIDEExplicitFormula.Keiper.stieltjes 1).re < -1 / 20
+      -- one side of the registration's two-sided bound, the side the sign needs; no kernel module or Mathlib lemma at the pin links
+      -- gamma_1 to a computable sequence ((B2)).
+  With (a) and (b): theorem liCoeff_two_pos : 0 < LiWeil.LiCoeff 2 := KeiperTwo.liCoeff_two_pos_of gammaRZetaOne_holds stieltjes_one_re_lt.
+
+### ### **lambda_2 > 0 -- NOT COMPILED OUTRIGHT: THE CLOSED FORM LiCoeff 2 = 1 + gamma - log 4 pi - gamma^2 - 2 Re gamma_1 + pi^2/8 AND THE SIGN COMPILED ON keiper-b725 (f52e188c, RUN 41091360710) WITH THE STANDARD THREE, NO sorryAx, ON TWO NAMED PREMISES -- (O4) AT ITS FIRST INDEX AND Re gamma_1 < -1/20 -- BOTH PRINTED AS WHAT REMAINS ; GRADES DERIVES 2, INTERFACES 4 ; DISPATCHES 2 OF 3 ; NO MAIN, NO TAG.**
