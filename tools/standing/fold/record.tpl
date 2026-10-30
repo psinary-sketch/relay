@@ -3391,11 +3391,12 @@ def mbank(*a):
     nd = R6.nd_hits(NL.join(names_), R6.nd_sets())[0]
     files_ = [n for n in names_ if n != 'MANIFEST.md']
     pp_head = g(PP, 'rev-parse', '--short=7', 'HEAD').strip()
-    # ### (⟪RUL⟫)(2)(iii), tools/standing/ v1.2.1: the MANIFEST control reads every roster file against the commit the mirror is built at
+    # ### (R331)(2)(iii), tools/standing/ v1.2.1: the MANIFEST control reads every roster file against the commit the mirror is built at
     # ### (PLACE-papers HEAD at the build), by tools/standing/manifest.py control_at_build -- the inline loop against the carried
     # ### K.RECUT_MERGE (b716-⟪PREV⟫'s) removed, so (R328)(7)'s repair, made in the toolset and never wired here, now reaches this route
     sys.path.insert(0, os.path.join(T, 'standing'))
     import manifest as MF
+    import cites as CI   # ### v1.5.0 ((R335)(2)(v)): the bank's citations read from tools/standing/cites.py's table, not the ruling token
     build = g(PP, 'rev-parse', 'HEAD').strip()
     mc = MF.control_at_build(ZIP, build)
     man_ctl = [dict(path=p, member=mem, raw_equal=raw, lf_equal=lf, state=st) for p, mem, raw, lf, st in mc['rows']]
@@ -3406,10 +3407,11 @@ def mbank(*a):
          '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
          '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
          span_line(ACT),
-         '### THE ROSTER READ FROM PLACE-papers MAIN AT THE BUILD ((⟪RUL⟫)(5); relay data/⟪ACT⟫_roster.txt, the families of tools/mirror_roster.json, unedited); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) ((⟪RUL⟫)(10)); files %d' % len(files_),
-         '### (⟪RUL⟫)(2)(iii)`S MANIFEST CONTROL (tools/standing/manifest.py control_at_build, v1.2.1): every roster file at the build commit %s, '
+         '### THE ROSTER READ FROM PLACE-papers MAIN AT THE BUILD (%s; relay data/⟪ACT⟫_roster.txt, the families of tools/mirror_roster.json, unedited); the builder`s state file tools/mirror_prevbuild.json written at this build, named in (W) (%s); files %d' % (
+             CI.cite('mirror.roster'), CI.cite('mirror.prevbuild', ACT), len(files_)),
+         '### %s`S MANIFEST CONTROL (tools/standing/manifest.py control_at_build, v1.2.1): every roster file at the build commit %s, '
          'its zip entry against its blob there, raw and with CR removed; rows %d, AS WANTED %d, NOT AS WANTED %d, NOT IN THE ROSTER %d:' % (
-             build[:8], len(man_ctl), sum(1 for c in man_ctl if c['state'] == 'AS WANTED'), sum(1 for c in man_ctl if c['state'] == 'NOT AS WANTED'),
+             CI.cite('mirror.manifest'), build[:8], len(man_ctl), sum(1 for c in man_ctl if c['state'] == 'AS WANTED'), sum(1 for c in man_ctl if c['state'] == 'NOT AS WANTED'),
              sum(1 for c in man_ctl if c['state'] == 'NOT IN THE ROSTER'))] + [
          '    %s : zip entry %s ; equal raw %s, with CR removed %s ; %s' % (c['path'], c['member'] or '### NONE', c['raw_equal'], c['lf_equal'], c['state'])
          for c in man_ctl if c['state'] != 'AS WANTED'] + [

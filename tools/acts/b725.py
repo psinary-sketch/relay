@@ -465,12 +465,6 @@ def runner_ok(S):
 #⟪OVERRIDE checks 751 751⟫
     return len(tips) >= len(NAMED_PUSH) == 5 and 'data/b725_stepzero.txt' in files_of(ROOT, K.STEPZERO_BANK_COMMIT) and bool(fd) \
 #⟪END⟫
-# ### b725, Component 6 (the Edit tool): (R335)(8) names the branches "the push-b724-preroot, -record and -closing branches"; allow.py's reader
-# ### takes the full names alone, so the abbreviated pair read outside; the ferry's text given to it with each short form written out
-#⟪OVERRIDE checks 763 763⟫
-    rd_ = STW.deletes_read([('-', b) for b in got], re.sub(r'\b(push-b\d{3})-(\w+), -(\w+) and -(\w+)', r'\1-\2, \1-\3 and \1-\4', S['ferry']),
-                           STW.words_of(ACTN))
-#⟪END⟫
 # ### b725, Component 6 (the Edit tool): b725's step-zero bank words the row "THE DELETES, each after its --merged listing" (:15); the
 # ### carried needle was b724's wording
 #⟪OVERRIDE checks 776 776⟫
@@ -597,12 +591,6 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
         and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
         and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
              or bool(re.search(r'\bkept: [^.;]*\b%s\b' % re.escape(K.PORT_BRANCH), S['ferry']))) \
-#⟪END⟫
-# ### b725, after the lock, on the author's word (event (10), REPEAT b721 (8)): the carried plant replaced "the push-b724* branches of relay
-# ### and PLACE-papers deleted by name", which b725's ferry does not carry (its :23 writes "the push-b724-preroot, -record and -closing
-# ### branches deleted by name"), so the plant changed nothing and the seal refused; set to the b725 ferry's own words
-#⟪OVERRIDE checks 1621 1621 REPAIR (plant)⟫
-     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', S['ferry'].replace('the push-b724-preroot, -record and -closing branches deleted by name', 'the push-b724-preroot, -record and -closing branches kept by name'))),
 #⟪END⟫
 # ### b725, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b725_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the

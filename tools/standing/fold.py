@@ -13,7 +13,9 @@ data/act_current.json for the act and the act before it, and from its `replay` r
   install()          the import finder: an import of <act>_<tool> for an act with a sections file is that act's folded tool; such an act's
                      own other tools (its worklist, its carry, its components' tools) are its files; every other act-numbered import must
                      be named in tools/standing/legacy.py (the act-numbered predecessor modules, the stated exception to
-                     tools/standing/act.py's rule), or it is refused
+                     tools/standing/act.py's rule), or it is refused. v1.5.0 ((R335)(2)(iii)): a predecessor copied under its own name
+                     into tools/standing/routes/ is served from that copy (its code compiled from the copy, its __file__ the original's
+                     path in tools/, so a source computing ROOT from __file__ reads the relay), and is named in legacy.py no more
   render(act, tool)  the act's tool as text
 
   python -X utf8 tools/standing/fold.py <tool> [args...] [--act bNNN]
@@ -33,7 +35,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TOOLS_DIR = os.path.dirname(HERE)
 ROOT = os.path.dirname(TOOLS_DIR)
 TPL_DIR = os.path.join(HERE, 'fold')
-TOOLS = ('checks', 'citation', 'closing', 'record', 'reg_gate', 'regspec', 'report')
+ROUTES_DIR = os.path.join(HERE, 'routes')   # ### v1.5.0: the predecessor routes copied under their own names
+TOOLS =('checks', 'citation', 'closing', 'record', 'reg_gate', 'regspec', 'report')
 ACT_NAME = re.compile(r'^b\d{3}_\w+$')
 SLOT = re.compile(r'(?m)^⟪SLOT (\d+)⟫\n')
 SECTION = re.compile(r'(?m)^#⟪(SECTION|OVERRIDE) (\w+) (\d+)(?: (\d+))?( NOEOL)?(?: REPAIR ([\w()]+))?⟫\n')
@@ -250,9 +253,11 @@ class Finder(importlib.abc.MetaPathFinder, importlib.abc.Loader):
             return importlib.util.spec_from_loader(fullname, self)
         if has_sections(act) and tool not in TOOLS and os.path.isfile(os.path.join(TOOLS_DIR, fullname + '.py')):
             return None                     # ### a folded act's own tool beside the seven (its worklist, its carry, its components)
+        if os.path.isfile(os.path.join(ROUTES_DIR, fullname + '.py')):
+            return importlib.util.spec_from_loader(fullname, ROUTE_LOADER)   # ### v1.5.0: the standing copy
         if fullname in legacy():
             return None
-        raise FoldRefused('fold: %s is act-numbered, neither a folded tool nor named in tools/standing/legacy.py -- refused' % fullname)
+        raise FoldRefused('fold: %s is act-numbered, neither a folded tool, a standing route nor named in tools/standing/legacy.py -- refused' % fullname)
 
     def create_module(self, spec):
         return None
@@ -267,6 +272,22 @@ class Finder(importlib.abc.MetaPathFinder, importlib.abc.Loader):
         exec(code, mod.__dict__)
 
 
+class RouteLoader(importlib.abc.Loader):
+    """v1.5.0 ((R335)(2)(iii)): a predecessor served from its standing copy tools/standing/routes/<name>.py -- compiled from the copy (its
+    tracebacks name the copy), executed with __file__ at the original's path in tools/ (ROOT read from __file__ stays the relay) and
+    __route__ naming the copy."""
+
+    def create_module(self, spec):
+        return None
+
+    def exec_module(self, mod):
+        src = os.path.join(ROUTES_DIR, mod.__name__ + '.py')
+        mod.__file__ = os.path.join(TOOLS_DIR, mod.__name__ + '.py')
+        mod.__route__ = src
+        exec(compile(_rd(src), src, 'exec'), mod.__dict__)
+
+
+ROUTE_LOADER = RouteLoader()
 FINDER = Finder()
 
 

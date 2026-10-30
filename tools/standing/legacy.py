@@ -2,7 +2,9 @@
 """standing/legacy.py -- THE ACT-NUMBERED PREDECESSOR MODULES THE FOLDED TOOLS IMPORT, BY NAME ((R333)(2)(i), the author`s word:
 Option 2). THE STATED EXCEPTION TO tools/standing/act.py`S RULE: tools/standing/fold.py`s import finder lets an act-numbered import
 through only where it is a folded tool or is named here. Written at b723 by tools/b723_fold.py legacy from the imports written in
-the folded tools and, followed, in the modules they reach; their flattening priced and carried to b724 (data/b723_fold.txt)."""
+the folded tools and, followed, in the modules they reach; their flattening priced and carried to b724 (data/b723_fold.txt).
+v1.5.0 ((R335)(2)(iii), b725): b644_record removed -- served from its standing copy tools/standing/routes/b644_record.py (fold.py's
+RouteLoader); 191 names remain, listed with their price in data/b725_standing_v150.txt."""
 NAMES = (
     'b300_regspec',
     'b302_correspondence',
@@ -58,7 +60,6 @@ NAMES = (
     'b641_worklist',
     'b643_record',
     'b643_worklist',
-    'b644_record',
     'b644_worklist',
     'b645_record',
     'b645_worklist',

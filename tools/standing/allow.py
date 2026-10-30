@@ -16,8 +16,19 @@ deleted" names a pattern; v1.1.0's BRANCH dropped the star and read it as the on
 as outside the ruling. The name now keeps its glob tail (`-*` or `*`), and a delete is allowed where its branch matches a delete name or
 pattern (fnmatch, case-sensitive) and no kept name or pattern.
 
+v1.5.0 ((R335)(2)(ii), b724's events (9)-(10)): A SHORT NAME READ AFTER ITS FULL ONE, AND THE PLANT'S NEEDLE FROM THE ACT'S OWN FERRY.
+A ruling names branches as "push-b724-preroot, -record and -closing": v1.4.0 read the first name alone, so the act's deletes of the other two
+read outside (b724 wrote the short forms out in its own module, a hand-kept regex). `names_in` reads each short tail (`-word` after a comma or
+"and", directly after a full name or another tail) as the full name's prefix with that word. And G-DELETES-ONE-BRANCH's plant replaced a
+hand-kept sentence ("the push-<prev>-* branches of relay and PLACE-papers deleted by name") that b724's ferry did not carry, so the plant
+changed nothing and the seal refused: `delete_clause` locates the ruling's delete clause by the branch names it must carry, and
+`plant_kept` turns that clause's "deleted" into "kept"; where no clause carries them it returns None, and the plant then changes nothing
+(the arm's positive control read DEFECTIVE, never a silent pass of a plant that was placed).
+
   deletes_allowed(ruling, words) -> [names]        prompts_read(answers, ruling, heads) -> dict(rows, allowed, unbanked, ok)
   deletes_read(deleted, ruling, words) -> dict(rows, outside, ok)
+  names_in(clause) -> [names]   delete_clause(ruling, must) -> clause or ''   plant_kept(ruling, must) -> the ruling, whitespace collapsed, with
+  that clause's "deleted" read "kept", or None
 """
 import fnmatch
 import os
@@ -42,12 +53,35 @@ def clauses(text):
     return [c.strip() for c in re.split(r'(?<=[.;])\s+(?=[A-Za-z(])', flat) if c.strip()]
 
 
+TAIL = re.compile(r'(?:,\s*(?:and\s+)?|\s+and\s+)-([A-Za-z0-9][A-Za-z0-9.]*[A-Za-z0-9]|[A-Za-z0-9])(?![\w*-])')
+
+
+def names_in(clause, pattern=BRANCH):
+    """v1.5.0: the branch names of a clause, each short tail after a full name read as that name's prefix with the tail's word
+    ("push-b724-preroot, -record and -closing" -> push-b724-preroot, push-b724-record, push-b724-closing); a pattern (`-*`) takes no tail.
+    `pattern` BRANCH_V110 reads no tails, as v1.1.0 did."""
+    out = []
+    for m in pattern.finditer(clause):
+        b = m.group(1)
+        out.append(b)
+        if pattern is BRANCH_V110 or b.endswith('*') or '-' not in b:
+            continue
+        pre, i = b.rsplit('-', 1)[0], m.end()
+        while True:
+            t = TAIL.match(clause, i)
+            if not t:
+                break
+            out.append('%s-%s' % (pre, t.group(1)))
+            i = t.end()
+    return out
+
+
 def deletes_allowed(ruling, words='', pattern=BRANCH):
     """the branch names and patterns the ruling's delete clauses and the author's words name, in order, each once."""
     out = []
     for c in clauses(ruling) + clauses(words):
         if DELETED.search(c) and not NOT_DELETED.search(c):
-            for b in pattern.findall(c):
+            for b in names_in(c, pattern):
                 if b not in out:
                     out.append(b)
     return out
@@ -58,8 +92,29 @@ def deletes_kept(ruling, words='', pattern=BRANCH):
     out = []
     for c in clauses(ruling) + clauses(words):
         if NOT_DELETED.search(c):
-            out += [b for b in pattern.findall(c) if b not in out]
+            out += [b for b in names_in(c, pattern) if b not in out]
     return out
+
+
+def delete_clause(ruling, must):
+    """v1.5.0: the first clause of the ruling that says branches are deleted (and not NOT deleted) and whose names cover every branch in
+    `must` (each equal to a name or matched by a pattern of the clause); '' where none does."""
+    for c in clauses(ruling):
+        if DELETED.search(c) and not NOT_DELETED.search(c):
+            ns = names_in(c)
+            if must and all(matches(b, ns) for b in must):
+                return c
+    return ''
+
+
+def plant_kept(ruling, must):
+    """v1.5.0: the plant of G-DELETES-ONE-BRANCH -- the ruling with its whitespace collapsed (the form clauses() reads) and the located
+    delete clause's first "deleted" read "kept", so the clause no longer allows its branches; None where no clause carries `must`."""
+    c = delete_clause(ruling, must)
+    if not c:
+        return None
+    flat = re.sub(r'\s+', ' ', ruling or '')
+    return flat.replace(c, DELETED.sub('kept', c, count=1), 1)
 
 
 def matches(branch, names):

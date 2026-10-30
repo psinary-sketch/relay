@@ -1618,7 +1618,7 @@ ARMS_ALL = [
     ('G-BRANCHES-BANKED', 'the step-zero bank`s branch row (no branches bank this act): the five refs named with their tips, in the step-zero commit, the citation check before the first delete; the one kept branch at its tip',
 ⟪SLOT 48⟫
     ('G-DELETES-ONE-BRANCH', '(⟪PRUL⟫)(3)(i): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after, each allowed by the ruling`s own delete clauses read through tools/standing/allow.py (port-b707 the ruling`s NOT deleted); the command bank`s count',
-     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', S['ferry'].replace('the push-⟪PREV⟫-* branches of relay and PLACE-papers deleted by name', 'the push-⟪PREV⟫-* branches of relay and PLACE-papers kept by name'))),
+     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', STW.plant_kept(S['ferry'], NAMED_PUSH) or S['ferry'])),
     ('G-LISTINGS-BEFORE-CLAUSES', 'N3: the `--merged` listing in the capture before the first delete; every branch deleted among those banked before any delete; the step-zero bank`s listings row',
      lambda S: listings_before_ok(S), lambda S: put(S, 'first_listing_ts', 10 ** 12)),
     ('G-ANSWERS-CHECKED', 'the citation bank`s mid-act prints: the first prompt`s answer and the root prompt`s, each with its time, the root`s after the lock',

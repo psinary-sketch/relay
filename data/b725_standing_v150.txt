@@ -1,0 +1,56 @@
+b725 -- THE CONTROLS OF tools/standing/ v1.5.0, (R335)(2)(ii), (iii) AND (v): THE SHORT NAMES, THE PLANT`S NEEDLE, THE LEGACY COPY, THE MIRROR CITATIONS (2026-10-30T14:10:11Z)
+
+### the routes before the repair read at HEAD (7afce313); each case its instance through both
+
+### (short) THE SHORT NAMES -- tools/standing/allow.py deletes_read; instances: each act`s DELETE (its worklist) against its own ferry
+  (short) b724`s five deletes against data/b724_ferry.txt
+      BEFORE (v1.4.0): outside 3 of 5 (push-b723-closing, push-b723-record, push-b723-record) ; names read push-b723-preroot -> FAILS
+      AFTER  (v1.5.0): outside 0 of 5 ; names read push-b723-preroot, push-b723-record, push-b723-closing -> PASSES
+      AS WANTED
+  (short) b725`s five deletes against data/b725_ferry.txt
+      BEFORE (v1.4.0): outside 3 of 5 (push-b724-closing, push-b724-record, push-b724-record) ; names read push-b724-preroot -> FAILS
+      AFTER  (v1.5.0): outside 0 of 5 ; names read push-b724-preroot, push-b724-record, push-b724-closing -> PASSES
+      AS WANTED
+
+### (needle) THE PLANT`S NEEDLE -- checks.tpl :1621, G-DELETES-ONE-BRANCH; instances: the b723, b724 and b725 ferries, and one with no clause
+  the old plant read at HEAD: FOUND
+  (needle) b723`s ferry, the branches push-b722-closing, push-b722-preroot, push-b722-record
+      BEFORE (v1.4.0): the plant changes the ferry False -> FAILS
+      AFTER  (v1.5.0): clause found True (131 chars) ; the deletes allowed before the plant True, after it False -> PASSES
+      AS WANTED
+  (needle) b724`s ferry, the branches push-b723-closing, push-b723-preroot, push-b723-record
+      BEFORE (v1.4.0): the plant changes the ferry False -> FAILS
+      AFTER  (v1.5.0): clause found True (112 chars) ; the deletes allowed before the plant True, after it False -> PASSES
+      AS WANTED
+  (needle) b725`s ferry, the branches push-b724-closing, push-b724-preroot, push-b724-record
+      BEFORE (v1.4.0): the plant changes the ferry False -> FAILS
+      AFTER  (v1.5.0): clause found True (158 chars) ; the deletes allowed before the plant True, after it False -> PASSES
+      AS WANTED
+  (needle) a ferry with no such clause: b725`s with its delete clause (158 chars) cut out
+      AFTER  (v1.5.0): plant_kept -> None -> PASSES (the plant reads nothing to plant)
+      AS WANTED
+
+### (legacy) THE LEGACY COPY -- tools/standing/routes/b644_record.py against tools/b644_record.py; fold.py`s RouteLoader; legacy.py
+  (legacy) the copy against its source, line by line beneath its 7-line header
+      BEFORE (v1.4.0): no copy at HEAD (the route served from tools/b644_record.py, the name in code) -> FAILS
+      AFTER  (v1.5.0): lines 2457 against 2457 ; differing lines [1088] ; at :1088 the login once and no identifier True, the rest of the line equal True ; in the whole copy name 0, username 0, address 0 -> PASSES
+      AS WANTED
+  (legacy) import b644_record through fold.py`s finder
+      BEFORE (v1.4.0): legacy.py names b644_record True (192 names) -> FAILS
+      AFTER  (v1.5.0): legacy.py names it False (191 names) ; served from the copy True, __file__ the original`s True, patch_plan defined True -> PASSES
+      AS WANTED
+  THE EXCEPTION FILE`S REMAINDER (tools/standing/legacy.py NAMES, 191; not emptied): b300_regspec b302_correspondence b303_correspondence b303_source b305_source b327_bridge_pairs b327_faces_row b327_faces_rows b378_terminals b551_record b558_record b560_record b561_record b562_record b563_record b564_record b565_record b566_record b569_record b601_checks b601_record b602_record b604_record b604_rows b610_census b616_claims b616_record b618_record b619_census b626_record b626_worklist b632_record b632_worklist b633_census b633_record b633_worklist b634_elab b634_record b634_worklist b635_elab b635_record b635_worklist b637_record b637_worklist b638_record b638_worklist b639_record b639_worklist b640_record b640_worklist b641_record b641_worklist b643_record b643_worklist b644_worklist b645_record b645_worklist b646_record b646_worklist b647_record b647_worklist b652_checks b652_record b652_worklist b671_worklist b672_checks b672_record b672_regspec b672_worklist b677_citation b682_citation b695_worklist b696_worklist b697_worklist b698_record b698_worklist b699_worklist b700_worklist b701_worklist b702_worklist b703_checks b703_record b703_regspec b703_standing_figures b703_worklist b704_checks b704_read_arm b704_record b704_regspec b704_worklist b705_checks b705_record b705_regspec b705_standing_figures b705_worklist b706_checks b706_citation b706_record b706_regspec b706_standing_figures b706_worklist b707_checks b707_record b707_regspec b707_worklist b708_checks b708_record b708_regspec b708_worklist b709_checks b709_record b709_regspec b709_tests b709_worklist b710_checks b710_citation b710_closing b710_fit b710_record b710_regspec b710_standing b710_worklist b711_checks b711_closing b711_record b711_regspec b711_tests b711_worklist b712_checks b712_closing b712_record b712_regspec b712_tests b712_worklist b713_checks b713_closing b713_record b713_regspec b713_tests b713_worklist b714_checks b714_closing b714_pilot b714_record b714_regspec b714_tests b714_worklist b715_checks b715_closing b715_record b715_regspec b715_tests b715_worklist b716_checks b716_closing b716_record b716_regspec b716_tests b716_worklist b717_checks b717_closing b717_record b717_regspec b717_tests b717_worklist b718_checks b718_closing b718_record b718_regspec b718_standing b718_tests b718_worklist b719_arms b719_checks b719_closing b719_record b719_regspec b719_tests b719_worklist b720_checks b720_closing b720_record b720_regspec b720_tests b720_worklist b721_tests b721_worklist b722_tests b722_worklist b723_tests b723_worklist
+  ITS PRICE: about 1.5-2 h (data/b724_legacy.txt :33, the flatten of the predecessors that carry no identifier: each copied under its
+  standing name into tools/standing/routes/ and served by the RouteLoader, its control the copy`s equality); carried, not run at b725.
+
+### (cites) THE MIRROR BANK`S CITATIONS -- tools/standing/cites.py; instance data/b724_mirror.txt (event (18))
+  caught: mirror.roster cited (R334)(5), the table (R325)(5); mirror.prevbuild cited (R334)(10), the table (R334)(8); mirror.manifest cited (R334)(2)(iii), the table (R331)(2)(iii)
+  the table: roster (R325)(5), manifest (R331)(2)(iii) ; (W) read from the b724 ferry (R334)(8), from the b725 ferry (R335)(5)
+  FIRST RUN (14:08:48Z): the predicate wanted exactly the two, caught three -> NOT AS WANTED; the predicate now the two among those caught
+  A FINDING BEYOND EVENT (18): mirror.prevbuild cited (R334)(10) in data/b724_mirror.txt, the ferry`s own item (R334)(8) (data/b724_ferry.txt, its top-level head before the clause carrying mirror_prevbuild)
+  (cites) record.tpl`s mbank citations; the b724 bank checked
+      BEFORE (v1.4.0): the two citations rendered from the ruling token, 2 template sites -> FAILS
+      AFTER  (v1.5.0): ruling-token sites 0 ; the bank`s wrong citations caught 3 (mirror.manifest, mirror.prevbuild, mirror.roster) -> PASSES
+      AS WANTED
+
+### ### **v1.5.0: CONTROLS (short), (needle), (legacy), (cites) ; CASES 9 ; AS WANTED 9 ; ALL AS WANTED.**
