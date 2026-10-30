@@ -1,0 +1,24 @@
+b725 -- (R335)(4)(i): H-ONSET-MASS`S RULE AND ITS OUTPUT, EACH a*_pred, BY A COMMIT OF THEIR OWN BEFORE ANY ONSET (2026-10-30T14:56:26Z)
+
+### by tools/b725_onset_mass.py `rule`; the reading fixed by data/b725_registrations.txt (i) (relay 22210d4b), the control banked before.
+### No onset computed.
+
+THE RULE (data/b725_registrations.txt :53-:57), printed before any test zero is named:
+  Q0's certified off-line zeros not among the five, in decreasing beta - 1/2, whose predicted a* lies under the ladder's top 2 log 192, at
+  most three. Read as written: the list's off-line rows with beta > 1/2, the five excluded by name, walked in decreasing beta - 1/2, each
+  one's a*_pred computed in that order until three lie under 2 log 192 or the list ends; no other condition.
+
+THE LIST READ: complete to 445.0 ; rows 685 ; off-line rows with beta > 1/2: 69 ; the five excluded by name: rho0 (row off0), band (row off1), off12 (row off12), off27 (row off27), off52 (row off52)
+
+THE WALK, IN DECREASING beta - 1/2:
+  off18  beta 0.9105105144 gamma  155.550826  beta-1/2 0.4105105144  a*_pred 1.386294361 ; d >= 0 ALREADY AT log 4: a*_pred AT THE INTERVAL`S FOOT ; undefined grid points 0 ; 65 evaluations, 193 s  SELECTED
+  off44  beta 0.9101856764 gamma  309.811057  beta-1/2 0.4101856764  a*_pred 1.386294361 ; d >= 0 ALREADY AT log 4: a*_pred AT THE INTERVAL`S FOOT ; undefined grid points 0 ; 65 evaluations, 152 s  SELECTED
+  off24  beta 0.9060417757 gamma  201.280153  beta-1/2 0.4060417757  a*_pred 1.386294361 ; d >= 0 ALREADY AT log 4: a*_pred AT THE INTERVAL`S FOOT ; undefined grid points 0 ; 65 evaluations, 173 s  SELECTED
+  walked 3 of 64 ; selected 3
+
+THE SELECTION, EACH a*_pred:
+  (1) Q0 off18 = 0.9105105144 + 155.550826i ; beta - 1/2 = 0.4105105144 ; a*_pred = 1.386294361 ; falsified where |a*/a*_pred - 1| > 0.05, i.e. a* outside [1.316980, 1.455609]
+  (2) Q0 off44 = 0.9101856764 + 309.811057i ; beta - 1/2 = 0.4101856764 ; a*_pred = 1.386294361 ; falsified where |a*/a*_pred - 1| > 0.05, i.e. a* outside [1.316980, 1.455609]
+  (3) Q0 off24 = 0.9060417757 + 201.280153i ; beta - 1/2 = 0.4060417757 ; a*_pred = 1.386294361 ; falsified where |a*/a*_pred - 1| > 0.05, i.e. a* outside [1.316980, 1.455609]
+
+### ### **H-ONSET-MASS`S RULE: WALKED 3 ; SELECTED 3 ; ONSETS COMPUTED 0.**
