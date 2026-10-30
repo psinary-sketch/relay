@@ -562,7 +562,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrst'))   # ### (a)-(t) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### (a)-(u) entered before the lock, every one the seat's (data/b725_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b725_price.txt', 'data/b725_corrigendum.txt', 'data/b725_standing_v150.txt', 'data/b725_root_row.txt',
@@ -1686,7 +1686,8 @@ def _runs3_line():
          'b707’s template at zeta’s lowest ordinate; the products (c/2) a* %s, mean %s, spread %s against %s: the hypothesis %s (relay '
          'data/b725_dial.txt).' % (f['dl_onsets'], f['dl_products'].replace("'", ''), f['dl_mean'], f['dl_spread'], f['dl_bar'], f['dl_word']), '',
          '**H-INTERFERENCE** ((R335)(9)): the identities (C1) exact to n = 3000 and (C2)-(C4) as wanted before any figure; at %s of %s '
-         'certified off-line zeros of Z_Q0 to height 445, Z_Q1 excludes 0 beyond its ball at %s -- the hypothesis %s at %s of %s zeros, each such '
+         'certified off-line zeros of Z_Q0 (discriminant -23, Q0 = x^2 + xy + 6y^2) to height 445, Z_Q1 (Q1 = 2x^2 + xy + 3y^2) excludes 0 '
+         'beyond its ball at %s -- the hypothesis %s at %s of %s zeros, each such '
          'zero a cancellation zeta_K(rho) = -2 L(rho, psi); the |Z_Q1| table read beside, not a test (relay data/b725_interference.txt).' % (
              f['it_read'], f['it_zeros'], f['it_excl'], f['it_word'], f['it_read'], f['it_zeros']), '',
          '**lambda_2** ((R335)(4)(iii), N1, N5): on keiper-b725 (`%s`), two dispatches each read by its run id -- the first failing at one step '
