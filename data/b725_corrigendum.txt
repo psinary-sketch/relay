@@ -1,0 +1,75 @@
+b725 -- THE CORRIGENDUM FOR b724, (R335)(1)-(2) (2026-10-30T14:21:17Z)
+
+### the banks read unedited: data/b724_events.txt rows (1)-(18), data/b724_defects.txt 19 rows, data/b724_hook_refusals.txt 8 lines at f4ab9491; the noted lines at their repositories` HEAD; data/b725_standing_v150.txt (the v1.5.0 controls); the corrigenda bank`s last row (44).
+
+  *b724’s events bank (relay data/b724_events.txt) carries eighteen rows, entered after its lock and not lettered, each tagged in its own bracket (18 the seat’s); its defects bank nineteen lettered rows, (a)-(s), each tagged in its own bracket (19 the seat’s); its refusal bank eight lines at b724’s closing commit f4ab9491, each recorded by a letter or an event. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The three readings, ruled** (`(R335)`(1)): (i) the imprecision entered in the trail beside its citation of touch row (6) stands; (ii) event (13)’s form stands for every later dated note -- a note on an earlier act’s line is written in the current act’s section, naming the line by number, not beneath the line; (iii) S2 HELD stands -- an arm failing on an earlier act’s row alone while the act reads AGREE is not a disagreement with the act’s own score. **Dated notes**, in (ii)’s form (no line rewritten; each line that reads wrong named here by its place and number), each dated 2026-10-30:
+  
+  - **relay data/b724_mirror.txt :8** (the mirror bank, the roster’s citation; written 2026-10-30T03:32:42Z at f4ab9491; READS WRONG, noted 2026-10-30): "…EAD FROM PLACE-papers MAIN AT THE BUILD ((R334)(5); relay data/b724\_roster.txt, the families of tools/mirror\_roster.json, unedited); the builder’s stat…" -- the clause that ordered the roster read from PLACE-papers main is b715’s `(R325)`(5) (relay data/b715_ferry.txt :26); b724’s `(R334)`(5) is its lv negation -- a citation moved by the carry’s act substitution (event (18)), repaired at v1.5.0 (relay tools/standing/cites.py; data/b725_standing_v150.txt, :46).
+  - **relay data/b724_mirror.txt :8** (the mirror bank, (W)’s citation; written 2026-10-30T03:32:42Z at f4ab9491; READS WRONG, noted 2026-10-30): "…son written at this build, named in (W) ((R334)(10)); files 74" -- the (W) clause naming tools/mirror_prevbuild.json is b724’s `(R334)`(8) (relay data/b724_ferry.txt :23); `(R334)`(10) is another clause -- a third wrong citation in the bank, beyond the two event (18) names, caught by v1.5.0’s control (relay data/b725_standing_v150.txt, :46).
+  - **relay data/b724_mirror.txt :9** (the mirror bank, the MANIFEST control’s citation; written 2026-10-30T03:32:42Z at f4ab9491; READS WRONG, noted 2026-10-30): "### (R334)(2)(iii)’S MANIFEST CONTROL (tools/standing/manifest.py control\_at\_build, v1.2.1): every roster file at the build commit a6d363…" -- the clause that ordered the MANIFEST control at the build commit is b721’s `(R331)`(2)(iii) (relay data/b721_ferry.txt :11); repaired at v1.5.0 (relay data/b725_standing_v150.txt, :46).
+  - **relay data/b724_closing.txt :105** (the closing’s mirror row; written 2026-10-30T03:32:42Z at f4ab9491; READS WRONG, noted 2026-10-30): "…ead from PLACE-papers main at the build ((R334)(5)), its MANIFEST control AS WANTED ; tools/mirror\_prevbuild.json unchanged since its last commit b4eb5…" -- the clause that ordered the roster read from PLACE-papers main is b715’s `(R325)`(5) (relay data/b715_ferry.txt :26); b724’s `(R334)`(5) is its lv negation -- a citation moved by the carry’s act substitution (event (18)), repaired at v1.5.0 (relay tools/standing/cites.py; data/b725_standing_v150.txt, :46).
+  
+  **The repairs of `(R335)`(2)(ii), (iii) and (v), at tools/standing/ v1.5.0, each with a control replaying its last banked instance, failing on the route before the repair and passing after, both instances printed** (relay data/b725_standing_v150.txt, 9 cases, AS WANTED 9):
+  
+  **(short) Short branch names after a full one** -- tools/standing/allow.py reads "push-b724-preroot, -record and -closing" as three names: b724’s and b725’s five deletes, each three of five outside on v1.4.0’s reader and none on v1.5.0’s; b724’s hand-kept regex in its own module retired (:5).
+  
+  **(needle) The plant’s needle (`(R335)`(2)(ii))** -- G-DELETES-ONE-BRANCH’s plant reads the delete clause from the act’s own ferry by the branch names it must carry (allow.py delete_clause, plant_kept): the b723, b724 and b725 ferries found, each changed by the new plant and by none of the old, and a ferry with no such clause given no plant (:15).
+  
+  **(legacy) The legacy copy (`(R335)`(2)(iii))** -- tools/b644_record.py copied as tools/standing/routes/b644_record.py, its :1088 replaced by the account login, the header stating both; the copy equal to its source at 2456 of 2457 lines, no identifier in it, served by tools/standing/fold.py’s RouteLoader with the original’s __file__; legacy.py at 191 names, its remainder listed with its price (about 1.5-2 h) (:33).
+  
+  **(cites) The mirror’s citations (`(R335)`(2)(v))** -- the mirror bank’s citations read from tools/standing/cites.py’s table of (act, clause) and the current ferry’s (W) clause, the ruling token gone from record.tpl’s mbank; b724’s bank checked: the two event (18) names caught, and a third (:46).
+  
+  **b723’s row** (`(R335)`(2)(i)): the row in b680’s form stands at relay data/act_roots.txt :102 and the chain’s reader takes b723 through it (corrected 1); verify re-read reads b722 AGREE, b723 DISAGREE on one bank (data/b723_bank_hashes.json), b724 AGREE. The bytes b723’s root hashed rebuilt: the bank’s blob at 2be0135c with the two root-banks entries of 49de42fe hashes to the recorded 133004c8, and no commit carries those bytes, so no row reading a bank at a commit can turn the reading AGREE; a side-branch commit carrying them, or the reading standing, put to the author at b725’s root (relay data/b725_root_row.txt). **The three RE-SCOPE orders** (`(R335)`(2)(iv)): each source read and each given a written trigger -- W-ORD-LI-FAMILY-CONTROL and W-ORD-STRICT-BOUND kept, W-ORD-EXACT-SUPPORT kept after a draft offering it for retire was withdrawn on a search -- for the root’s prompt (relay data/b725_rescope.txt).
+  
+  **b724’s events (1)-(18):**
+  
+  **(1)** 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act (relay data/b724_events.txt, row (1); the seat’s; CLOSE; REPEAT of class (ix)).
+  **(2)** 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act (relay data/b724_events.txt, row (2); the seat’s; CLOSE; NEW).
+  **(3)** 00:28:59Z-00:31:02Z, AT THE PRE-RUN, part act (relay data/b724_events.txt, row (3); the seat’s; CLOSE; REPEAT of b724 (p); repair (needle)).
+  **(4)** 00:57:01Z-01:01:07Z, AT THE PRE-RUN, part standing-b3 (relay data/b724_events.txt, row (4); the seat’s; CLAIM; NEW; b723’s row, (R335)(2)(i)).
+  **(5)** 00:31:46Z-00:38:02Z, AT THE PRE-RUN, part standing-a (relay data/b724_events.txt, row (5); the seat’s; CLOSE; NEW).
+  **(6)** 00:27:02Z, AT THE GATE, the root route run dry a second time (b723’s form (relay data/b724_events.txt, row (6); the seat’s; CLOSE; NEW).
+  **(7)** 00:28Z-01:04Z, AT THE PRE-RUN, seven parts one at a time, each in the foreground under the 590 s guard, and combined … (relay data/b724_events.txt, row (7); the seat’s; CLOSE; REPEAT of b723 (5)).
+  **(8)** 01:04Z-01:37Z, AT THE RUNS ON b723’S BANKS, seven parts one at a time in the foreground (data/b724\_prevrun\_<part>.txt) (relay data/b724_events.txt, row (8); the seat’s; CLOSE; REPEAT of b723 (6)).
+  **(9)** 01:39Z, AT THE SEAL, after seal (1 of 2) at 3a04b419 (relay data/b724_events.txt, row (9); the seat’s; CLOSE; REPEAT of b721 (8); repair (needle)).
+  **(10)** after 01:39Z, ON THE AUTHOR’S WORD (data/b724\_author\_words.txt, route (a)) (relay data/b724_events.txt, row (10); the seat’s; CLOSE; REPEAT of b721 (8); repair (needle)).
+  **(11)** 02:01:42Z, AFTER STEP [13], a PowerShell ’Get-ChildItem … | Where-Object … | Select-Object … | Format-Table’ listing … (relay data/b724_events.txt, row (11); the seat’s; CLOSE; REPEAT of class (i)).
+  **(12)** 02:07:56Z-02:18Z, AFTER THE ROOT’S COMMIT (relay 0df8247b), the seat ran tools/act\_root.py verify over the whole chain … (relay data/b724_events.txt, row (12); the seat’s; CLOSE; REPEAT of b723 (m)).
+  **(13)** 02:22Z-02:30Z, AT THE PRE-PUSH SUITE, part standing-a (relay data/b724_events.txt, row (13); the seat’s; CLOSE; NEW; its form ruled the standing one, (R335)(1)(ii)).
+  **(14)** AT THE PRE-PUSH SUITE, part standing-a (relay data/b724_events.txt, row (14); the seat’s; CLOSE; REPEAT of b724 (3)).
+  **(15)** 02:22Z-02:56Z, THE PRE-PUSH SUITE, seven parts one at a time in the foreground, each under the 590 s guard, combined … (relay data/b724_events.txt, row (15); the seat’s; CLOSE; REPEAT of b723 (5)).
+  **(16)** STEP [15], THE AUTHOR’S ANSWERS AT THE ROOT CARRIED IN THE TRAIL (OPEN\_TRAILS, "### b724 — the author’s answers at the … (relay data/b724_events.txt, row (16); the seat’s; CLAIM; NEW).
+  **(17)** 02:59Z-03:26Z, THE POST-PUSH SUITE, seven parts one at a time in the foreground, each under the 590 s guard, the record … (relay data/b724_events.txt, row (17); the seat’s; CLOSE; REPEAT of b723 (5)).
+  **(18)** 03:29:30Z, STEP [23], the mirror’s bank (data/b724\_mirror.txt, ’fold.py record mbank’) (relay data/b724_events.txt, row (18); the seat’s; CLOSE; REPEAT of class (ix); repair (cites), the dated notes above).
+  
+  **b724’s defects:**
+  
+  **(a)** (relay data/b724_defects.txt; the seat’s; CLOSE; NEW).
+  **(b)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of b723 (10)).
+  **(c)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(d)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (ix)).
+  **(e)** (relay data/b724_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(g)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(h)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(i)** (relay data/b724_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b724_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b724_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (ix)).
+  **(m)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(n)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(o)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (i); a hook refusal, its line below).
+  **(p)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (ix)).
+  **(q)** (relay data/b724_defects.txt; the seat’s; CLAIM; NEW).
+  **(r)** (relay data/b724_defects.txt; the seat’s; CLAIM; REPEAT of b723 (c’)).
+  **(s)** (relay data/b724_defects.txt; the seat’s; CLOSE; REPEAT of class (ii)).
+  
+  **b724’s refusals** (relay data/b724_hook_refusals.txt at f4ab9491, one a line): :1 PIPE 21:03:28Z, recorded at defect (c); :2 PIPE 21:44:56Z, recorded at defect (f); :3 PIPE 21:51:19Z, recorded at defect (g); :4 REDIR 21:51:37Z, recorded at defect (h); :5 REDIR 22:02:03Z, recorded at defect (m); :6 PIPE 22:28:49Z, recorded at defect (n); :7 REDIR 22:30:55Z, recorded at defect (o); :8 PIPE 02:01:42Z, recorded at event (11).
+  
+  **The counter:** CLAIM 4, CLOSE 33 over the 37 items (eighteen events, nineteen defects), equal to b724’s closing’s (relay data/b724_closing.txt :5); REPEAT 25 of 37; the CLAIM items (4), (16), (q), (r).
+  
+  *Filed at b725 on the author’s ruling `(R335)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b725.py) from b724’s events, defects and refusal banks read unedited, the lines noted read at their repositories’ HEAD, and the v1.5.0 controls bank; banked as relay `data/b725_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (45). It answers b724’s record; no sealed tool, face, trail or root-named bank of b724 is edited.*
+
+### ### **ITEMS 37: EVENTS 18, DEFECTS 19 ; CLAIM 4, CLOSE 33 ; REPEAT 25 ; DATED NOTES 4 ; v1.5.0: THE SHORT NAMES, THE PLANT NEEDLE, THE LEGACY COPY, THE MIRROR CITATIONS ; THE ENTRY AT FINDINGS :11683.**
