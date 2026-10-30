@@ -25,3 +25,27 @@ AFTER THE SEAL:
      lines) to data/b725_citation_check.txt, a bank tracked at the lock commit e86dbcd5. The check's place is after the answers and so after
      the seal; its bank is the step-zero citation bank. b724 ran no such check after its lock. The lines kept and committed as written, not
      restored (a restore an edit, N4); N4's reading at the close prints what this does to it.
+
+AT THE PRE-PUSH SUITE (the root committed at relay 34fee845, the trail and its hand section written, PLACE-papers' trail uncommitted):
+    (5) THE SEAT'S [CLOSE ; REPEAT b720 event (3)]: BEFORE THE LOCK, FOUND AFTER IT -- G-CLOSING-SENTENCE fails LIVE on real state. Its
+     predicate (checks.tpl closing_sentence_ok) wants the closing's render to carry "no identifier of the author in any outbound"; the
+     render carries the sentence hard-wrapped between "in any" and "outbound" (read by scratch closingsent725.py: 20 of its 21 needles
+     present, that one absent), so the needle misses the words it names. The arm failed at the pre-run too (data/b725_arms_prerun.txt
+     :121, 19:52Z-19:55Z) and was read there with the steps not yet run, not as real state; b720's event (3), the same arm on a re-wrap,
+     was repaired before its seal. The render is the sealed act module's; nothing rewritten; the arm fails at every later run of this act.
+    (6) THE SEAT'S [CLOSE ; REPEAT b723 event (15)]: 21:44:42Z, after the seal, while checking the author's word "no sentence calls it a
+     rung added" against the entry: a shell call `git grep -n -i -e "rung" -- FINDINGS.md` in PLACE-papers -- a shell filter naming the
+     entry, against b690 row (1) (G-RULE-POSTSEAL-READ: shell calls after the seal 62, naming the entry, the dry entry or the trail 2, by
+     a filter 1). It wrote nothing; its output (the whole file's lines, 60.5 KB) went to the harness's persisted output, and the check
+     was re-read by the Grep tool (FINDINGS.md's last "rung" at :10116, before b724's lines; none in b725's section of OPEN_TRAILS).
+    (7) THE SEAT'S [CLOSE ; REPEAT b724 event (14)]: part standing-a, two POSITIVE CONTROLS PASS (DEFECTIVE) -- G-SEAL-HASHES and
+     G-TRAIL-CARRIES-SEAL, the hand-kept-string plants b724's event (14) named, their repair named for b725's opening component; both
+     plants still inert at this suite (data/b725_checks_standing-a.txt :82, :91).
+    (8) THE SEAT'S [CLOSE ; REPEAT b724 event (15)]: 21:48Z-22:24Z, THE PRE-PUSH SUITE, seven parts one at a time in the foreground,
+     each after a free-memory read (the hold met at each, 3349-4498 MB), each under the 590 s guard (167, 330, 215, 392, 475, 269, 163
+     s), combined (data/b725_checks.txt): ARMS 116, LIVE PASSING 110, LIVE FAILING 6 -- G-AXIOM-CLAIM and G-ACTROOT-VERIFY the face's
+     declared failures (the chain AGREE b624-b725 but b723, b725 AGREE at 6b3f46a8); G-ROOTDRY-READY event (1); G-CLOSING-SENTENCE event
+     (5); G-RULE-POSTSEAL-READ event (6); G-RULE-SCORES-BEFORE-SEAL, its cause read now: tools/rule_arms.py :458 counts calls matching
+     "b725_record.py scores", a form from before the fold, while the fold's route is `fold.py record scores`; step [4]'s dry run of the
+     scores (19:2xZ, before the seal at 21:20Z) is not of that form, so the reader reads 0 calls -- b723's and b724's failure of this
+     arm the same reader's -- NEG 0, POS 2 (event (7)), VERDICT NOT CLEAN.
