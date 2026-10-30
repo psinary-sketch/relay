@@ -1,0 +1,42 @@
+b725 -- (R335)(4)(ii): H-DIAL AT c = 0.6, 0.8, 1.0 ON b707`S TEMPLATE AT ZETA`S LOWEST ORDINATE (2026-10-30T16:15:30Z)
+
+### by tools/b725_dial.py; the registration data/b725_registrations.txt (ii) (relay 22210d4b) and the seat`s reading of the build (relay
+### 2531aad5), both committed before any figure at F_c. The frame G_c(s) = zeta(s + c/2) zeta(s - c/2); gamma_0 = 14.1347251417346937904572519836.
+### Units: data/b725_dial_units.jsonl (untracked).
+
+## THE TWO TAIL BALLS
+  THE ARCHIMEDEAN TAIL (the build`s first): alpha 2 ; beta 2 log(pi/2) + 2/R + (43/3)/R^2 = 0.903666306412 +- 1.29e-38 at R = 4000
+  the ball at window C, rung 32, gamma_0 14.134725141: 9.22232e-38 +- 2.60e-74 (b696`s zeta ball at the same window 4.61116e-38 +- 1.30e-74)
+  the ball at window N, rung 32, gamma_0 14.134725141: 3.73182e-23 +- 1.08e-59 (b696`s zeta ball at the same window 1.86591e-23 +- 5.38e-60)
+  THE ZERO-SIDE TAIL (the build`s second): 2 x b696`s zero_tail(window C rung 32, zeta, T0 = 151.59) = 6.16564e-19 +- 1.04e-53 (|delta| <= 1/2 covers c/2)
+## (c0)
+  (c0) C  rho0 rung 32: S 0.037687849389416 +- 5.16e-30 against 2 x b707`s 0.037687849389416 +- 5.20e-30 ; P, PR, A, S each overlapping [True, True, True, True] ; 2.1 s -- AS WANTED
+  (c0) N  rho0 rung 32: S 162.08908621098 +- 3.76e-23 against 2 x b707`s 162.08908621098 +- 3.76e-23 ; P, PR, A, S each overlapping [True, True, True, True] ; 4.1 s -- AS WANTED
+  (c0) CN rho0 rung 32: S 167.06996141606 +- 3.76e-23 against 2 x b707`s 167.06996141606 +- 3.76e-23 ; P, PR, A, S each overlapping [True, True, True, True] ; 4.0 s -- AS WANTED
+### (c0) AS WANTED
+## (id)
+  ## RUN 1 of 2 at 2026-10-30T16:04:46Z (BEFORE THE AMENDMENT at c = 1.0; not the run read)
+  (id) zeta`s ordinates below T0 = 151.59: 54 (acb.zeta_zero(1..54)), the last [150.925257612 +/- 2.42e-10]
+  (id) c = 0.6, window C rung 32 at 14.1347251: S (prime side) 1.0618329676184 +- 1.30e-29 ; the zero side 1.0618329676184 +- 6.17e-19 (its imaginary part 0 +- 5.22e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 2.0017802e-11 +- 4.15e-47, PR -0.78597920 +- 1.29e-29, A 0.27585377 +- 4.05e-32 ; 2.2 s -- AS WANTED
+  (id) c = 0.8, window C rung 32 at 14.1347251: S (prime side) 1.1124646825270 +- 2.18e-29 ; the zero side 1.1124646825270 +- 6.17e-19 (its imaginary part 0 +- 5.77e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 1.7645350e-11 +- 4.19e-47, PR -0.83655049 +- 2.18e-29, A 0.27591419 +- 4.08e-32 ; 2.3 s -- AS WANTED
+  (id) c = 1.0, window C rung 32 at 14.1347251: S (prime side) 1.1810012095166 +- 3.77e-29 ; the zero side 1.1810012095103 +- 6.17e-19 (its imaginary part 0 +- 6.46e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 1.4910910e-11 +- 3.47e-47, PR -0.90500936 +- 3.77e-29, A 0.27599185 +- 4.10e-32 ; 2.2 s -- NOT AS WANTED
+### (id) NOT AS WANTED
+  ## RUN 2 of 2 at 2026-10-30T16:06:13Z (THE RUN READ)
+  (id) zeta`s ordinates below T0 = 151.59: 54 (acb.zeta_zero(1..54)), the last [150.925257612 +/- 2.42e-10]
+  (id) c = 0.6, window C rung 32 at 14.1347251: S (prime side) 1.0618329676184 +- 1.30e-29 ; the zero side 1.0618329676184 +- 6.17e-19 (its imaginary part 0 +- 5.22e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 2.0017802e-11 +- 4.15e-47, PR -0.78597920 +- 1.29e-29, A 0.27585377 +- 4.05e-32 ; 2.4 s -- AS WANTED
+  (id) c = 0.8, window C rung 32 at 14.1347251: S (prime side) 1.1124646825270 +- 2.18e-29 ; the zero side 1.1124646825270 +- 6.17e-19 (its imaginary part 0 +- 5.77e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 1.7645350e-11 +- 4.19e-47, PR -0.83655049 +- 2.18e-29, A 0.27591419 +- 4.08e-32 ; 2.3 s -- AS WANTED
+  (id) c = 1.0, window C rung 32 at 14.1347251: S (prime side) 1.1810012095103 +- 3.77e-29 ; the zero side 1.1810012095103 +- 6.17e-19 (its imaginary part 0 +- 6.46e-37 ; tail 6.17e-19 +- 1.04e-53) ; P 1.4910910e-11 +- 3.47e-47, PR -0.90500936 +- 3.77e-29, A 0.27599185 +- 4.10e-32 ; 2.2 s -- AS WANTED
+### (id) AS WANTED
+
+## THE ONSETS
+  c = 0.6, the ladder: log2 0.607409 +- 9.63e-14 POS ; 32 -0.784667 +- 1.23e-24 NEG ; 48 -1.11045 +- 4.07e-25 NEG ; 64 -1.39321 +- 2.00e-25 NEG ; 96 -1.87506 +- 8.00e-26 NEG ; 128 -2.28341 +- 4.47e-26 NEG ; 192 -2.96550 +- 2.19e-26 NEG
+    THE ONSET: mid19_23 (grid point 22 of 393 in (log2, 32]) at a = 3.039966598 +- 1.43e-38, lambda_min -0.01714709138 +- 6.08e-21 ; (c/2) a* = 0.911990 ; units 93, seconds summed 488
+  c = 0.8, the ladder: log2 0.607041 +- 9.63e-14 POS ; 32 -1.46135 +- 1.17e-24 NEG ; 48 -2.09201 +- 3.84e-25 NEG ; 64 -2.64822 +- 1.87e-25 NEG ; 96 -3.61303 +- 7.43e-26 NEG ; 128 -4.44600 +- 4.22e-26 NEG ; 192 -5.86578 +- 2.27e-26 NEG
+    THE ONSET: mid17_19 (grid point 20 of 393 in (log2, 32]) at a = 2.888826162 +- 1.59e-38, lambda_min -0.01727903279 +- 1.07e-20 ; (c/2) a* = 1.155530 ; units 81, seconds summed 463
+  c = 1.0, the ladder: log2 0.606568 +- 9.63e-14 POS ; 32 -2.42377 +- 1.12e-24 NEG ; 48 -3.52123 +- 3.60e-25 NEG ; 64 -4.50858 +- 1.75e-25 NEG ; 96 -6.25933 +- 6.94e-26 NEG ; 128 -7.80568 +- 4.17e-26 NEG ; 192 -10.5075 +- 2.78e-26 NEG
+    THE ONSET: rung16 (grid point 17 of 393 in (log2, 32]) at a = 2.772588722 +- 1.32e-38, lambda_min -0.01947935660 +- 1.68e-20 ; (c/2) a* = 1.386294 ; units 81, seconds summed 437
+
+THE PRODUCTS ['0.911990', '1.155530', '1.386294'] ; mean 1.151272 ; spread (max - min)/mean 0.4120 against 0.10 -- THE FALSIFIER FIRES
+THE HYPOTHESIS (HELD, REFUTED or NOT SCORABLE): REFUTED
+
+### ### **H-DIAL: (c0) AS WANTED ; (id) AS WANTED ; ONSETS 3 OF 3 ; THE HYPOTHESIS REFUTED.**
