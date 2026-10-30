@@ -1,0 +1,100 @@
+b725 -- (R335)(3): THE REGISTRATIONS -- H-ONSET-MASS, H-DIAL, AND THE STATEMENTS OF lambda_2 AND C2 -- BEFORE ANY FIGURE AT ANY OBJECT THEY NAME (2026-10-30)
+
+### Written by the Write tool and committed alone, before any bank holding a figure at any object a row names ((R335)(3); N2). Rows are
+### hypotheses or statements, each with its statement, its falsifier, its controls and the order it serves; FORCED parts are marked and are
+### not tests. The statements and falsifiers are (R335)(3)(i)-(iv) as the ferry writes them (data/b725_ferry.txt :12-:15); the exact readings
+### marked THE SEAT'S are fixed here, before any figure, as (R335)(3)(i) asks ("the exact reading of M and A written in the row and fixed by its
+### commit"). H-ONSET-MASS's control, rule output and each a*_pred are added by a commit of their own, before any onset. No M, no A, no
+### a*_pred, no onset, no F_c form and no Lean term at a registered object has been worked by hand or by tool before this commit (the one
+### read of data/b711_list.json before it read its keys and its row count, nothing at a zero).
+
+## THE SOURCES THE ROWS READ (each located at its line before this commit; nothing computed)
+  b707's template and form          relay tools/b707_onset.py :10-:24 (the ladder, the family span{C, N}, S = P - PR + A in balls), :133-:143
+                                    (the windows), :155-:168 (terms707: P, PR, A = the archimedean integral over [0, 4000] plus its tail ball)
+  the onset route and fine grid     relay tools/b723_support.py (b707's ladder and b709's fine grid, imported unedited), data/b723_support.txt :3-:6
+  the certified list                relay data/b711_list.json (Q0, to height 445), read as tools/b723_support_rule.py zeros() :39-:50 reads it:
+                                    tools/b711_list.py units() and top(), tools/b709_pairs.py extended_rows(U, top), each row (name, sigma, t)
+  the five banked zeros             rho0 0.9532604748 + 16.29021i, a* 6.838396011 (data/b709_grid.txt :441; data/b723_support.txt :9)
+                                    the band zero 0.7979971572 + 29.551761i, a* 10.38532711 (data/b709_grid.txt :4501; data/b723_support.txt :10)
+                                    off12 0.9515046580 + 107.399291i, a* 8.553331773 (data/b723_support.txt :15)
+                                    off27 0.9107626196 + 218.700845i, a* 9.866304749 (data/b723_support.txt :21)
+                                    off52 0.9109585427 + 355.531957i, positive to 2 log 192: a* > 10.514990744 (data/b723_support.txt :18, :25)
+  the refined Li law's form         relay data/b710_registrations.txt :11-:23 ("n* solves r(rho) n* = log(M(n*)/A(rho))", read as a fixed point)
+  H-DIAL as b723 registered it      relay data/b723_registrations.txt :52-:60 ; its price and the two tail balls, data/b723_dial_price.txt :10-:20
+  the Keiper obligations            SIDE-explicit-formula KeiperIdentities.lean :20 (GammaRZetaValues), KeiperSign.lean :40-:83 (the gamma route)
+  the C2 statement and route (B)    relay data/b722_c2_statement.txt (the Lean text) ; data/b722_c2_price.txt :49-:53 (route (B), L1, L2), :54-:72
+
+## (i) H-ONSET-MASS, THE ONSET FROM THE ON-LINE MASS, IN THE REFINED LI LAW'S FORM ((R335)(3)(i); served at (R335)(4)(i))
+STATEMENT (the ferry's). At an off-line zero rho = beta + i gamma of Q0, on b707's template family at the zero's frequency, the onset radius
+a* is predicted by (beta - 1/2) a* = log(M(gamma) / A), with M(gamma) the on-line mass the template window sees at that frequency, read from
+the certified list (data/b711_list.json) as the sum over on-line zeros of the window's transform at their ordinates, and A the archimedean
+margin of the template at that frequency, both read before any onset.
+THE EXACT READING, THE SEAT'S, FIXED BY THIS COMMIT:
+  THE WINDOW. b707's C window at gamma_0 = gamma (tools/b707_onset.py :135-:136, W.Window(w, 'C', g0=gamma)): h(u) = cos(gamma u) phi_a(u),
+    support radius a/2, k = h * h~ of support radius a; its transform k^(t) = |h^(t)|^2 at real t. C is the family's base window (N is its
+    notched image under gamma^2 + D^2); the reading takes C alone.
+  M(gamma; a) = SUM over the on-line rows of the certified list (the rows of extended_rows(U, top) whose name does not begin "off"), at both
+    ordinates +t and -t of each, of k^(t) for the C window of radius a at gamma_0 = gamma. Every on-line row to the list's top 445 enters; no
+    zero above 445 and no tail term is added. Computed in balls at 128 bits by the window's own transform (b694's Window, imported unedited).
+  A(gamma; a) = the archimedean term of b707's form for the same window: terms707's A (tools/b707_onset.py :162-:164) -- WB.a_int over
+    [0, 4000] plus the unit ball of WB.arch_tail beyond 4000, obj 'q0' -- in balls at 128 bits. "The archimedean margin" is read as this
+    term; where the ruling meant another quantity, the author's strike moves this reading and nothing computed under it is kept.
+  a*_pred. As the refined Li law is read at b710 (n* the fixed point of n = (alpha + beta log(n + 1)) / r), a*_pred is the least a in
+    (log 4, 2 log 192] at which (beta - 1/2) a >= log(M(gamma; a) / A(gamma; a)), located by bisection to 1e-9 in a between the points of a
+    grid of 64 equal steps of (log 4, 2 log 192] at which the difference changes sign, the midpoints of the balls used for the bisection and
+    the ball of the difference printed at the located a. Where A(gamma; a) <= 0 or M/A <= 0 at a grid point, the log is undefined there and
+    the point is printed UNDEFINED; where no grid point carries the inequality, the zero has no a*_pred under 2 log 192.
+  THE ONSET a*. By b707's route on b709's fine grid as tools/b723_support.py computes it (the least fine-grid point in the coarse bracket read
+    NEGATIVE DIRECTION BEYOND ITS BOUND, the zeta form read POSITIVE at every point first), imported unedited.
+THE CONTROL, BEFORE ANY NEW ZERO (the ferry's): the formula at the five banked zeros -- rho0, the band zero, off12, off27, off52's bound --
+  LABELLED POST HOC, each a*_pred printed beside its banked a* and the ratio a*/a*_pred (off52: the bound a* > 2 log 192, its ratio a lower
+  bound); M, A and the difference printed at the banked a* of each. Not a test: the five chose nothing in the reading above, and none can
+  falsify it.
+THE RULE, printed before any test zero is named (the ferry's): Q0's certified off-line zeros not among the five, in decreasing beta - 1/2,
+  whose predicted a* lies under the ladder's top 2 log 192, at most three. Read as written: the list's off-line rows with beta > 1/2 (b723's
+  reading, each reflection its twin), the five excluded by name, walked in decreasing beta - 1/2, each one's a*_pred computed in that order
+  until three lie under 2 log 192 or the list ends; no other condition. The rule's output and each a*_pred added by a commit of their own
+  before any onset.
+FALSIFIER (the ferry's). A computed onset with |a* / a*_pred - 1| > 0.05 at any test zero.
+NOT SCORABLE where it falls: a test zero positive to 2 log 192 has no computed onset; it is printed BEYOND REACH with its ratio's lower bound
+  and does not fire the falsifier as worded (b723's off52 reading, data/b723_support.txt :24-:25); where no test zero has a computed onset the
+  hypothesis is NOT SCORABLE.
+SCOPE (the ferry's). A family onset bounds the class onset from above; the law, if held, is the template's.
+CONTROLS, THE SEAT'S, BEFORE ANY ONSET AT A TEST ZERO. (C1) the onset route reproduces rho0's and the band zero's banked onsets (as b723's C1,
+  data/b723_support.txt :8-:10); (C2) M's sum at one window computed twice, in the list's order and in reverse, equal within its ball, and A
+  equal to the A a b707 unit banked at the same (gamma, a) where one exists (data/b707_onset_units.jsonl), within its ball; (C3) each zero's
+  price read from b723's banked timings (data/b723_support.txt :15, :21: 2677 and 7345 unit-seconds) and printed before it runs, the run
+  stoppable between zeros.
+THE ORDER IT SERVES. (R335)(4)(i); the price data/b725_price.txt (4)(i).
+
+## (ii) H-DIAL AT c = 0.6, 0.8 AND 1.0 ((R335)(3)(ii); served at (R335)(4)(ii))
+STATEMENT, b723's row (iii) (data/b723_registrations.txt :53-:58) carried with its c values replaced, nothing else changed:
+  F_c(s) = zeta(s) zeta(s - c), with gamma factor GammaR(s) GammaR(s - c), functional equation about Re s = (1 + c)/2, every zero at
+  distance c/2 from that line, prime weights Lambda(n)(1 + n^c). THE HYPOTHESIS: on b707's template at the frequency of zeta's lowest zero,
+  the family onset radius a*(c) at c = 0.6, 0.8 and 1.0 satisfies (c/2) * a*(c) within 10% of its mean across the three.
+FALSIFIER. The three products spread by more than 10% of their mean.
+CONTROL BEFORE ANY ONSET (the ferry's). The form computed from the prime side and from the zero side (zeta's certified zeros shifted by c/2)
+  agreeing within its balls at one window. The two tail bounds b723 priced (data/b723_dial_price.txt :10-:13: the archimedean tail ball for
+  the two digamma pairs psi(1/4 +- c/4 + ir/2) beyond R = 4000, and the zero-tail ball at Im z = +-c/2) built before any onset, their
+  derivations banked.
+NOT SCORABLE where it falls: an a*(c) beyond the ladder's top has no product; with fewer than three products the spread is not read.
+THE ORDER IT SERVES. (R335)(4)(ii): run where data/b725_price.txt's stop rule admits it; what is not run is carried with this row committed.
+
+## (iii) lambda_2 > 0 -- A COMPILE, NO HYPOTHESIS ROW ((R335)(3)(iii); served at (R335)(4)(iii))
+THE STATEMENT, PRINTED SO THE COMPILE HAS A FIXED TARGET: liCoeff_two_pos : 0 < LiWeil.LiCoeff 2, compiling with the standard three axioms
+  [propext, Classical.choice, Quot.sound] on branch keiper-b725 of SIDE-explicit-formula, from (a) the fourth Keiper obligation
+  GammaRZetaValues at index 1 (KeiperIdentities.lean :20) proved and (b) a two-sided rational bound on the Stieltjes constant gamma_1 proved by
+  the route KeiperSign.lean :40-:83 takes for gamma. No main, no tag; commits there with the identity on the command (defect (d)).
+WHERE IT FALLS SHORT: the compiled part lands on the branch and the sorry-free statement of what remains is printed. Nothing is a test.
+
+## (iv) THE C2 THEOREM BY THE CERTIFICATE ROUTE ((R335)(3)(iv); served at (R335)(4)(iv))
+THE STATEMENT, AS data/b722_c2_price.txt WRITES IT (the Lean text data/b722_c2_statement.txt): for each D of the eighteen, the least n with
+  b(n) < 0 is the walk's n0 and b(n0) its value; proved on branch c2-b725 of SIDE-explicit-formula by route (B) -- (L1) the sweep's table
+  equals r_Q, (L2) the Omega recursion equals the ordered-factorization sum, proved once -- and per-field certificates under 10^6 steps;
+  vanilla Lean, no native_decide. SCOPE, a sentence and not a binder: the completeness of the list of eighteen cites Baker (1971) and
+  Stark (1975).
+CONTROL BEFORE ANY PROOF (the ferry's). E0 graded at the statement (relay tools/e0_rule.py, as data/b722_c2_price.txt :6-:12 graded it) and
+  printed before any proof term is written; at the end the axioms printed and the grade DERIVES read, or printed where it falls short.
+THE ORDER IT SERVES. (R335)(4)(iv); no main, no tag.
+
+### ### **REGISTERED: H-ONSET-MASS (THE READING OF M, A AND a*_pred FIXED), H-DIAL AT c = 0.6, 0.8, 1.0, THE lambda_2 TARGET, THE C2 STATEMENT ; TEST ZEROS NAMED 0 ; FIGURES AT A REGISTERED OBJECT 0 ; THE RULE'S OUTPUT BY A COMMIT OF ITS OWN.**
