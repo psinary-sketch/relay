@@ -20,7 +20,7 @@
 ###   (C1) the banked lambda_min at each of the five onset points recomputed, within 1e-8 relative, the reading NEGATIVE;
 ###   (C2) the identity at the C window, S = M + O + (the list's tail): O the off-line rows' four images each, |S - M - O| <= 1e-3 |M|.
 ### Routes: table [--bank] ; banks data/b728_onset_table.txt.
-###         reread [--bank]: b725's three rule zeros, a*_pred by b725's predict with the list as b725 read it and with the on rows alone, so that its
+###         reread [--bank]: off18, the one zero where b725's falsifier fired, a*_pred by b725's predict with the list as b725 read it and with the on rows alone, so that its
 ###         REFUTED is read on the corrected sum; banks data/b728_onset_b725_reread.txt. Written by the Write tool at b728; it writes those two and nothing else.
 ### Every value a ball at 128 bits. Nothing here proves RH or GRH.
 """
@@ -243,7 +243,7 @@ def table(*a):
 
 
 def reread(*a):
-    """b725's three rule zeros: predict with the_list() as b725 read it (616 ordinates), then with the on rows alone (547), both on the registered grid."""
+    """off18: predict with the_list() as b725 read it (616 ordinates), then with the on rows alone (547), both on the registered grid."""
     do_bank = '--bank' in a
     S.WORKERS = 1
     S.guard('the reread')
@@ -259,9 +259,9 @@ def reread(*a):
     out('### with the list as b725 read it, then with the rows named on. The falsifier as registered: |a*/a*_pred - 1| > 0.05.')
     out()
     as725 = list(OM.the_list()['on'])
-    banked = dict(off18=('10.20248033', 'THE ONSET'), off44=(None, 'POSITIVE TO 2 log 192'), off24=(None, 'BRACKET (9.704061, 10.514991]'))
+    banked = dict(off18=('10.20248033', 'THE ONSET'))
     fired = []
-    for lab in ('off18', 'off44', 'off24'):
+    for lab in ('off18',):                      # ### the one zero whose falsifier fired (data/b725_onset_mass.txt :22); off44 and off24 carry no computed onset
         sg, tt = OM.the_list()['off'][lab]
         OM.the_list()['on'] = as725
         r0 = OM.predict(sg, tt)
