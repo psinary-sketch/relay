@@ -1257,7 +1257,7 @@ def _runs3_line():
     for l, c in r:
         by.setdefault(c.split(' -> ')[0], []).append(l)
     return ('the classes repeating three acts running, by the tags (v9 row (83), each the next act’s opening component, printed for the '
-            'author beside the next act of (R338)(7)): %d rows in %d classes -- %s' % (len(r), len(by), '; '.join(
+            'author beside the next act of (R338)(10)): %d rows in %d classes -- %s' % (len(r), len(by), '; '.join(
                 '%s as %s' % (k, ', '.join('(%s)' % x for x in v)) for k, v in sorted(by.items())) or 'none'))
 
 
@@ -1285,11 +1285,11 @@ def _runs3_line():
              K.C1_STANDING[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'],
              f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_line'], f['corr_row'], f['ver'], f['v180_ctl'], f['v180_cases'],
              f['v180_wanted']), '',
-         '**The onset successor** ((R338)(3), N2): the table at the six zeros the banks hold, five onsets and off52’s lower bound, POST HOC: (beta - 1/2) a* runs 3.09 to 4.32 and log(M*/A*) -1.06 to -0.46, M* and A* read as the quadratic form at the least direction at each onset point, the C window beside; the pairs do not agree within 10%%, nothing is registered, no new zero is run. '
+         '**The onset successor** ((R338)(3), N2): the table at the six zeros the banks hold, five onsets and off52’s lower bound, POST HOC: (beta - 1/2) a* runs 3.09 to 4.32 and log(M*/A*) -1.06 to -0.46, M* and A* read as the quadratic form at the least direction at each onset point, the C window beside; the pairs do not agree within 10%, nothing is registered, no new zero is run. '
          'Moving most with gamma, by rank over five points: the C window’s M, Spearman +0.90. The table is an observation (relay data/b728_onset_table.txt). The identity S = M + O found b725’s list taking 69 ref rows as on-line; on the rows named on b725’s REFUTED stands (relay data/b728_onset_b725_reread.txt).', '',
          '**The C2 theorem** ((R338)(4), N1): the certificate compiled at %d of 18 fields with no axiom, each at its own ref, by %d dispatches each read by its run id, the certificate split within the field by checkpoints where the field needed it; (L1), (L2) and c2_value_law itself not compiled, a compiled certificate not a compiled theorem (relay data/b728_c2.txt, data/b728_dispatch_rows.json).' % (f['c2_k'], f['c2_disp']), '',
          '**lambda_2** ((R338)(5), N3): %s; axioms printed: %s; what remains: %s; %d dispatch%s (relay data/b728_lambda2.txt).' % (f['l2_clause'], f['l2_axioms'], f['l2_remains'], f['l2_disp'], '' if f['l2_disp'] == 1 else 'es'), '',
-         '**The visibility table** ((R338)(6)): |Z_Q1(rho)| at the 69 off-line zeros, read by rank against beta - 1/2 (+0.2753, 40.62%% of the disjoint-ball pairs against the sign) and against gamma (-0.0749, 47.38%%); neither reads clean by the bar fixed in the tool before the read; no candidate written, no law fitted, nothing registered (relay data/b728_visibility.txt).', '',
+         '**The visibility table** ((R338)(6)): |Z_Q1(rho)| at the 69 off-line zeros, read by rank against beta - 1/2 (+0.2753, 40.62% of the disjoint-ball pairs against the sign) and against gamma (-0.0749, 47.38%); neither reads clean by the bar fixed in the tool before the read; no candidate written, no law fitted, nothing registered (relay data/b728_visibility.txt).', '',
          '**The mechanism table** ((R338)(7)): the size row stood at b726 (data/b726_mechanisms.txt :14-:19); the comparison added by a commit of its own, the size row’s 2.77 to 3.04 against the cosh row’s 6.84 to 10.39, the spans not meeting, an observation POST HOC on the families named (:32-:36).', '',
          '**The research instruments reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py over the entered '
          'instruments, %s rows: %d REPRODUCES, %s DIFFERS, %s NOT RUN (%s, each with its reason and price), the planted controls as wanted at '
@@ -1345,7 +1345,7 @@ def _finding_text_b727():
                  len(op), len(ORD.read(ORD.trail('HEAD') + two))), '',
              '**The carried items:** tools/standing/ at %s, its controls %s cases, %s as wanted (relay data/b728_standing_v180.txt).' % (
                  f['ver'], f['v180_cases'], f['v180_wanted']), '',
-             '**The onset successor:** not registered, the pairs not agreeing within 10%%, the table POST HOC (relay data/b728_onset_table.txt).', '',
+             '**The onset successor:** not registered, the pairs not agreeing within 10%, the table POST HOC (relay data/b728_onset_table.txt).', '',
              '**The C2 theorem:** the certificate at %d of 18 fields with no axiom, %d dispatches, the theorem not compiled (relay data/b728_c2.txt).' % (f['c2_k'], f['c2_disp']), '',
              '**lambda_2:** %s; axioms %s; what remains: %s (relay data/b728_lambda2.txt).' % (f['l2_clause'], f['l2_axioms'], f['l2_remains']), '',
              '**The instruments reproduced:** %d of %s, DIFFERS %s, NOT RUN %s (%s) (relay data/b728_reproduce.txt).' % (
