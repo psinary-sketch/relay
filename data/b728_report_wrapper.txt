@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# b728, the author's word at the report halt, route A: runs `fold.py report bank` unedited, supplying at run time the one name its act section
+# (tools/acts/b728.py report 2) does not define, sk, as the C2 bank's seat in the shape the template's seat() returns. No tool's bytes change.
+import builtins, hashlib, runpy, sys
+name, needle = 'b728_c2.txt', '**THE C2 THEOREM: '
+p = 'D:/relay/data/' + name
+h = hashlib.sha256(open(p, 'rb').read()).hexdigest()
+row = next(i for i, l in enumerate(open(p, encoding='utf-8').read().replace('\r', '').split('\n'), 1) if needle in l)
+builtins.sk = dict(bank='data/' + name, row=row, sha256=h, ok=True, text='relay data/%s :%s ; sha256 %s' % (name, row, h[:16]))
+sys.argv = ['fold.py', 'report', 'bank']
+sys.path.insert(0, 'D:/relay/tools')
+sys.path.insert(0, 'D:/relay/tools/standing')
+runpy.run_path('D:/relay/tools/standing/fold.py', run_name='__main__')
