@@ -1,0 +1,55 @@
+b726 -- (R336)(4): WHICH STRUCTURE CONFINES v2.4.0 AGAINST v2.3.1, SENTENCE BY SENTENCE, AND ITS SCORES (2026-10-31T00:22:32Z)
+
+### by tools/b726_edition.py from the current bytes; the current version unedited (sha256 18bfcb06d8b21bc5), the edition sha256 218a5d2c362f3eaf.
+### THE OFFSET (I-22): lines of v2.3.1 from :6 sit 2 lower in the edition, and from the section at "Why the Functional Equation" lower by the section`s length as well; every
+### line in the back matter`s rows is the final file`s. The byline and two self-citations are not reprinted here: the author`s name and ORCID are not carried.
+
+## THE CHANGES (line of v2.3.1 | clause | v2.3.1 | v2.4.0 | why)
+  :1 | the form | # Which Structure Confines the Zeros? | # Which Structure Confines the Zeros? The Euler Product, the Epstein Family at Class Numbers 2 and 3, and the Weil Form Beside the Dedekind Zeta | the title names objects and conditions
+  :3 | (R336)(8) | [the byline, not reprinted] | **The author** | v2.4.0, October 2026 | no identifier of the author
+  :142, :144 | (R336)(8) | [two self-citations, not reprinted] | The author. ... | no identifier of the author
+  :9 | ceiling | We identify the Euler product as the structural component responsible for confining zeros of L-functions to the critical line. | We identify the Euler product as the structural component whose removal, in every family tested here, lets zeros leave the critical line. | the sentence claimed confinement of zeros generally, which nothing here reaches: the object is what the tested removal does
+  :9 | ceiling | every tested function with both properties confines its zeros; every function lacking the Euler product does not. | every tested function with both properties has all its computed zeros on the line; every function lacking the Euler product does not. | the record is of computed zeros, as :109 says
+  :109 | ceiling | The structural argument — that the Euler product provides the only mechanism for zero confinement, as shown by the discriminating-variable analysis — supplements the correlational evidence. | The structural argument — that among the mechanisms tested the Euler product is the only one present wherever the zeros stayed on the line, as the discriminating-variable analysis reads them — supplements the correlational evidence. | "the only mechanism for zero confinement" is beyond what a comparison of tested families shows
+  :109 | ceiling | since the point is that the functional equation *permits* off-line zeros while the Euler product *prevents* them. | since the point is that the functional equation *permits* off-line zeros while no tested function with an Euler product shows one. | "prevents" would state the open clause as done
+  :117 | ceiling | The Epstein experiment identifies which axiom is doing the work. | The Epstein experiment identifies the axiom whose removal changes the outcome. | the object is the removal, not a confinement the experiment does not show
+  :121 | ceiling | The Euler product confines the actors. | Removing the Euler product lets the actors leave it. | as :9
+  :121 | ceiling | correctly identifies which structural component confines zeros, by exhibiting | points to the same structural component, by exhibiting | as :9
+  :121 | ceiling | The decomposition is correct. | The decomposition stands at this test. | one experiment does not close the exhaustion
+  :121 | ceiling | is the one certified premise — the inter-class conservation step | is the one open premise — the inter-class conservation step | README :106-:108: the premise is undischarged
+  :158 | ruled | *Computational workflow assisted by various LLM instances. Mathematical content, proof strategies, and editorial decisions are the author's.* | *Computational workflow assisted by various LLM instances. Mathematical content, strategies of argument, and editorial decisions are the author's.* | (R336)(6): the monograph's words, day1/A_Place_to_Stand.md :2178, in its position, after the references and before the colophon
+  :163 | ceiling | This paper develops one component of a proof of Theorem (RH) presented in the companion monograph *A Place to Stand* (2026). | This paper develops one component of the work on Theorem (RH), which stays open, presented in the companion monograph *A Place to Stand* (2026). | README :107: "RH proved" is not supportable
+
+## THE ADDITIONS, EACH FIGURE READ AT ITS BANK AND LINE BEFORE COMPOSITION (21 reads, all as wanted)
+  data/b709_grid.txt :441 carries: a = 6.838396011
+  data/b709_grid.txt :441 carries: lambda_min -0.0037191321
+  data/b709_grid.txt :4501 carries: a = 10.38532711
+  data/b709_grid.txt :4501 carries: lambda_min -3.5300862e-5
+  data/b723_zetak.txt :55 carries: P, A, k(0) Q0`S
+  data/b723_zetak.txt :59 carries: lambda_min 0.6888118560
+  data/b723_zetak.txt :65 carries: lambda_min 2.995245235
+  data/b723_zetak.txt :70 carries: HELD
+  data/b723_registrations.txt :37 carries: Q0's gamma factor, conductor and pole
+  data/b723_registrations.txt :39 carries: P and A unchanged
+  data/b723_c2_closed_form.txt :16 carries: S(s), the non-principal prime sum
+  data/b723_c2_closed_form.txt :21 carries: log(Z_Q / 2) = log zeta_K - S + log cosh S
+  data/b723_c2_closed_form.txt :24 carries: Z_Q / 2 = (zeta_K + L(psi)) / 2
+  data/b723_c2_closed_form.txt :26 carries: L(psi) / zeta_K = e^(-2S)
+  data/b723_c2_closed_form.txt :32 carries: for Re s > 1
+  data/b723_c2_closed_form.txt :70 carries: 19 ROWS OF 19
+  data/b723_c2_closed_form.txt :70 carries: NOT COMPILED
+  data/b725_interference.txt :31 carries: zeta_K(rho) = Z_Q1(rho) = -2 L(rho, psi) (FORCED)
+  data/b725_interference.txt :106 carries: Z_Q1 EXCLUDES 0 AT 69
+  data/b725_interference.txt :104 carries: HELD
+  data/b725_registration_2026-10-30.txt :159 carries: 69 certified off-line zeros to height 445
+
+## THE SCORES
+  H28a: MOVED-IN-MEANING rows 0 (no CP-1b work-list carries this document: data/b558_cp1b.json, data/b558_editions.json); each addition cites its bank and line (6 relay citations in the section, 21 reads) -- HELD, VACUOUS on the work-list`s rows and carried on the ruled additions
+  H28b (I-21): body sentences 119 against 108, back matter 151 against 142 counted beside; difference 11 against the bound 12 (ruled citations 10, CREDIT 1, removals 0, one version line) -- HELD
+  H28c: live banned stems in the whole file 0 (read by this tool`s pattern; tools/banned_terms.py --new read after the write); sentences beyond the ceiling 0, by the list ['proof of Theorem', 'RH proved', 'certified premise', 'decomposition is correct', '*prevents*', 'confines the actors', 'correctly identifies', 'only mechanism for zero confinement', 'doing the work', 'responsible for confining', 'confines its zeros', 'reduction machine-verified'] -- HELD
+  THE ONE HIT READ BY HAND AND CARRIED: current :20, "Which structural feature is responsible for confining zeros to the critical line?", the paper`s question, which asserts nothing; it is struck from the ceiling count above and stands
+  STANDS: 97 of 108 sentences of v2.3.1`s body carried unchanged; the ceiling clause (I-19) corrected the rest as listed; the stem clause, the fact clause and the restatement clause touched nothing; the history clause: every dated entry and era annotation carried unchanged
+  THE PAGE CLAUSE (I-28): the two pages name no line of this document in their Placement and the edition moves no node, so neither page is regenerated
+  THE LLM LINE: the monograph`s words and position ((R336)(6)); THE VERSION LINE v2.4.0; committed to PLACE-papers, deposited nowhere
+
+### ### **WHICH STRUCTURE CONFINES v2.4.0: WRITTEN BESIDE v2.3.1, UNEDITED ; H28a HELD (0 WORK-LIST ROWS) ; H28b HELD (11 AGAINST 12) ; H28c HELD ; STEMS 0 ; CEILING 0 ; NOT DEPOSITED.**

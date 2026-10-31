@@ -1,0 +1,30 @@
+b726 -- (R336)(7): THE MECHANISM TABLE, W-ORD-MECHANISM-TABLE, FROM THE BANKS, NO COMPUTATION (2026-10-31T00:22:07Z)
+
+### by tools/b726_mechanisms.py; every figure below read at its bank and line before composition (24 reads, all as wanted).
+### THE SCOPE: this table lists the mechanisms the record and the cited literature show, and asserts nothing about zeta.
+### Each onset row is a record of what was read at that family. That onsets differ between rows is an observation, POST HOC, not a law (FINDINGS.md :11797).
+
+## ROW 1 -- CLASS-GROUP AVERAGING
+  FAMILY:      the Epstein zetas, class numbers 2 and 3; Davenport-Heilbronn cited as the same mechanism
+  INGREDIENTS: kept: functional equation, Ramanujan size, the integers` additive structure. dropped: the Euler product.
+  MECHANISM:   Z_Q averages over the class group, and its zeros are where the averaged terms cancel. h = 2: log(Z_Q / 2) = log zeta_K - S + log cosh S for Re s > 1 (data/b723_c2_closed_form.txt :21, :32; a derivation, NOT COMPILED, checked POST HOC 19 of 19, :70), the off-line zeros where zeta_K does not vanish being those of cosh S read through the continuation. h = 3: at a zero of Z_Q0, zeta_K = Z_Q1 = -2 L(s, psi) (data/b725_interference.txt :31), H-INTERFERENCE HELD, Z_Q1 excluding 0 at 69 of 69 (:104, :106).
+  INSTANCE:    the 69 certified off-line zeros of Z_Q0 to height 445, x^2 + xy + 6y^2 (data/b725_registration_2026-10-30.txt :159). Davenport-Heilbronn: zeros with Re rho > 1 above t = 150 (data/b675_hypotheses.txt :67; data/b705_contour.txt :37-:39), cited, not computed here; the kernel`s witness SIDE-kernel v1.8 dh_witness (data/b710_r5_controls.txt :110).
+  ONSET:       Q0`s two onsets: a = 6.838396011 and 10.38532711, so 6.84 to 10.39 (data/b709_grid.txt :441, :4501).
+
+## ROW 2 -- SIZE
+  FAMILY:      zeta(s + c/2) zeta(s - c/2), the frame of zeta(s) zeta(s - c), at c = 0.6, 0.8, 1.0
+  INGREDIENTS: kept: an Euler product, a functional equation. dropped: Ramanujan size.
+  MECHANISM:   the shift moves each factor`s zeros off the product`s centre line by c/2: off the line by construction, at every zero of zeta (data/b725_dial.txt :4).
+  INSTANCE:    each zero rho of zeta gives zeros at rho + c/2 and rho - c/2; the frame`s lowest ordinate gamma_0 is the banked instance (:4).
+  ONSET:       a = 3.039966598, 2.888826162, 2.772588722 at c = 0.6, 0.8, 1.0, so 2.77 to 3.04 (data/b725_dial.txt :33, :35, :37). H-DIAL`s constant product REFUTED (spread 0.4120, :39-:40): no law of c is read from them.
+
+## ROW 3 -- ADDITIVE STRUCTURE
+  FAMILY:      Beurling generalized-prime systems
+  INGREDIENTS: kept: an Euler product. dropped: the integers` additive structure. A functional equation: NO INSTANCE FOUND in the sources read.
+  MECHANISM:   the prime system itself is chosen, and the cited constructions choose it so that the zeros fall where they are placed (data/b726_beurling_read.txt :9, :13). Why additive structure would exclude this is not read here.
+  INSTANCE:    NO INSTANCE FOUND of a Beurling system carrying a functional equation with a zero off its centre line, sources read at data/b726_beurling_read.txt. Cited without a functional equation: Broucke-Debruyne, Appendix A, zeros at rho_k = beta + i gamma_k, on the line Re s = beta, theta < beta < 1 (:9-:10). There is no centre line for that zero to be off, so the row`s mechanism stands at that weaker instance.
+  ONSET:       none banked.
+
+## THE ORDER: W-ORD-MECHANISM-TABLE stays OPEN for its fourth row.
+
+### ### **THE MECHANISM TABLE: 3 ROWS ; READS 24 OF 24 AS WANTED ; THE BEURLING INSTANCE WITH A FUNCTIONAL EQUATION: NO INSTANCE FOUND ; ASSERTS NOTHING ABOUT ZETA ; THE ORDER OPEN.**
