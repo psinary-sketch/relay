@@ -221,8 +221,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### the step-zero banks and tools, committed together by explicit list (step 4)
-STEPZERO_BANK_COMMIT = None       # ### the step-zero bank itself (data/b729_stepzero.txt), with the price table, in that commit
+STEPZERO_BANKS = 'b2a7f040'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = 'b2a7f040'       # ### the step-zero bank itself (data/b729_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -236,7 +236,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b729.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.8.0'             # ### (R339)(2)'s repairs landed v1.8.0 by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.9.0'             # ### (R339)(2)'s repairs landed v1.8.0 by a commit of their own (C1_STANDING)
 STANDING_CHANGED = ()                   # ### the standing files (R339)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b728's commits the act reads (the names kept for the carried arms: the previous act's)
@@ -245,7 +245,7 @@ B714_RECORD = '90d7af67'     # ### b728's record commit (relay, the head line's)
 B714_ROOT = 'b097c2b0b6fc62697e1f55f08e86ff2337a527d6b716c35bc6e3931c9df6269e'   # ### b728's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '1245971b'  # ### b728's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
+C1_STANDING = '17ee7abd'
 C1_STANDING_REPAIR = None
 C1_RELAY = None
 C1_CORR = None
