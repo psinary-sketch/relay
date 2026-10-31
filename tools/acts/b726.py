@@ -1508,8 +1508,8 @@ def _runs3_line():
          'the front-door list holds %s items, %s load-bearing and %s silent of %s EXCEEDS, assembled and not applied; the LLM line reads differently at %s of the %d papers and READMEs read; '
          'the C2 certificates compile by decide +kernel at %s of 18 fields, %s, %s, while (L1), (L2) and the theorem stay unproved; b723’s row is carried on its branch and the chain reads %s; '
          'the mechanism table has %s rows, the Beurling row without an instance carrying a functional equation; the onset signature stands as an observation, POST HOC, not a law.' % (
-             f['fd_items'], f['fd_load'], f['fd_silent'], f['fd_exceeds'], f['fd_differ'], int(f['fd_papers']) + int(f['fd_readmes']), f['c2_k'], left,
-             f['c2_ax'].lower(), ', '.join('%s %s' % x for x in chain), f['me_rows']), '',
+             f['fd_items'], f['fd_load'], f['fd_silent'], f['fd_exceeds'], f['fd_differ'], int(f['fd_papers']) + int(f['fd_readmes']), f['c2_k'],
+             f['c2_ax'].lower(), left, ', '.join('%s %s' % x for x in chain), f['me_rows']), '',
          '*Filed at b726 on the author’s ruling `(R336)`; %d question%s put before the root. Banks: relay '
          '`data/b726_corrigendum.txt`, `data/b726_standing_v160.txt`, `data/b726_root_row.txt`, `data/b726_c2.txt`, `data/b726_dispatch_rows.json`, `data/b726_edition_diff.txt`, '
          '`data/b726_frontdoors.txt`, `data/b726_zenodo_read.json`, `data/b726_mechanisms.txt`, `data/b726_beurling_read.txt`, `data/b726_reproduce.txt`, `data/b726_address_scan.txt`, '
@@ -1524,7 +1524,7 @@ def _runs3_line():
              f['v160_wanted']), '',
          '**b723’s row** ((R336)(2)(ii), `%s`): relay branch corrigendum-b723 (`%s`) off 2be0135c carries data/b723_bank_hashes.json at the bytes b723’s root hashed, sha %s, and nothing else; '
          'the row at act_roots :%s in b680’s form; verify reads %s; main untouched (relay data/b726_root_row.txt).' % (K.C1_RELAY[:8], f['rr_tip'], f['rr_sha'], f['rr_row'], f['rr_verify']), '',
-         '**The C2 build per field** ((R336)(3), N1, N3, N5): the E0 grade DERIVES at the unchanged header; on c2-b725 (`%s`) one job per discriminant, %s dispatches of eighteen at most, each read by its run id, '
+         '**The C2 build per field** ((R336)(3), N1, N3, N5): the E0 grade DERIVES at the unchanged header; on c2-b725 at %s one job per discriminant, %s dispatches of eighteen at most, each read by its run id, '
          'the free memory read before each. The first dispatch failed: the statement’s text as b722 banked it does not elaborate at rQ and bL, which b725’s empty log had hidden, and the repair on the branch is binder annotations alone, every term and C2ValueLaw’s header unchanged. '
          'The certificates compiled at %s of 18 by decide +kernel, %s; not compiled: %s. Compiled here means the certificate `cert D n0 v q = true`: what remains is %s, so the module’s statement stays graded DERIVES and C2ValueLaw is not compiled at any field '
          '(relay data/b726_c2.txt, data/b726_dispatch_rows.json).' % (
