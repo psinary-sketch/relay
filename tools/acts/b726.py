@@ -1310,11 +1310,11 @@ N3_NEGATED = re.compile(r'(?i)\b(?:not|never|nor|nothing|no)\b[^.;]{0,24}$')
     unlabelled = [s.strip()[:120] for s in obs if 'observation' not in s.lower()]
     lawsaid = [s.strip()[:120] for s in obs if re.search(r'(?i)\bis a law\b', s)]
     zeta = [s.strip()[:120] for s in sents if re.search(r'(?i)bears? on zeta|zeta’s zeros (?:lie|are)|zeros of zeta (?:lie|are)', s) and not re.search(r'(?i)\b(?:no|not|nothing|nor)\b', s)]
-    ok = all(o for _n, o in graded) and not bare and not unlabelled and not lawsaid and not zeta
+    ok = all(o for _n, o in graded) and not unlabelled and not lawsaid and not zeta   # ### the ferry's N3 as written; `bare` is b725's clause, printed and not scored
 #⟪END⟫
 #⟪SECTION record 21⟫
         'each bank`s foot its last line carrying its grade: %s; the sentences of %s saying a module compiles, not in negation, without its '
-        'axioms: %s; the onset signature named %d time%s, unlabelled an observation: %s; called a law: %s; a statement here bearing on zeta`s zeros: %s' % (
+        'axioms, b725`s clause printed and not scored, this ruling`s N3 not carrying it: %s; the onset signature named %d time%s, unlabelled an observation: %s; called a law: %s; a statement here bearing on zeta`s zeros: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), src, bare or 'NONE', len(obs), '' if len(obs) == 1 else 's', unlabelled or 'NONE', lawsaid or 'NONE', zeta or 'NONE'))
 #⟪END⟫
 #⟪SECTION record 22⟫
