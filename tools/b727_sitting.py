@@ -164,15 +164,13 @@ def anon(rec):
 
 def compare(n, it, held=None):
     """(ok, printable current, printable wanted, plan). held replaces the read, for the control."""
-    if n in AS or n in (4, 6, 8, 10):
+    if n in (1, 2, 4, 6, 8, 10):
         kernel = it['file'].split()[0]
         text, _ = read(REPOS[kernel] + '/README.md')
         text = text if held is None else held
         ln = text.split(NL)
         if ln[2] != it['current'] and n in (1, 4, 6, 8, 10):
             return False, ln[2], it['current'], None
-        if n == 3:
-            pass
         if n == 2:
             return (ln[10] == it['current']), ln[10], it['current'], None
         if n in (1,):
@@ -329,7 +327,7 @@ def identity_scan(repo):
 def commit(n, it, repo, name):
     r = PP if repo == 'PP' else REPOS[repo]
     scan = identity_scan(r)
-    msg = 'b727 [%d]: %s, by (R337)(3) (relay data/b726_frontdoors.txt :%d)' % (n, it['title'].lower().replace('`', "'"), it['at'])
+    msg = 'b727 [%d]: %s, %s, by (R337)(3) (relay data/b726_frontdoors.txt :%d)' % (n, name, it['title'].lower().replace('`', "'"), it['at'])
     if repo in SKIP_CI:
         msg += ' [skip ci]'
     rc, out, err = git(r, 'commit', '-m', msg, '--', name)
@@ -508,6 +506,60 @@ def item(n):
     bank(R)
 
 
+ERRATA_ID = 'E-2026-10-31-1'
+
+
+def errata():
+    """(R337)(4): the one ERRATA entry, naming the sitting, its items and their commits, composed from the rows; refuses a second entry."""
+    p = PP + '/ERRATA.md'
+    text, crlf = read(p)
+    if ERRATA_ID in text:
+        sys.exit('### %s STANDS ALREADY -- NOTHING WRITTEN' % ERRATA_ID)
+    R = rows()
+    if sorted(int(k) for k in R) != list(range(1, 47)):
+        sys.exit('### THE SITTING HAS %d ROWS, NOT 46 -- NOTHING WRITTEN' % len(R))
+    st = {k: R[str(k)]['state'].split()[0].rstrip(',') for k in range(1, 47)}
+    done, struck, na = [k for k, v in st.items() if v == 'PASS'], [k for k, v in st.items() if v == 'STRUCK'], [k for k, v in st.items() if v == 'NOT']
+    conf = lambda k: R[str(k)]['confirm'].split(' (scan')[0]
+    commits = [k for k in done if ' (scan' in R[str(k)]['confirm']]
+    desc = [5, 7, 9, 11]
+    zen = sorted(ZEN)
+    t = ['## %s — The release sitting: the front-door list applied item by item, %d items applied, %d struck, %d not applied; %d deposit descriptions noted, no file of any deposit changed and no version made (DEPOSIT-FACING; KERNEL-FACING; NO DEPOSITED FILE IS AFFECTED)' % (
+             ERRATA_ID, len(done), len(struck), len(na), len(zen)), '',
+         '**Filed 2026-10-31 by b727, under the author’s ruling `(R337)`(3)-(4). The list: relay `data/b726_frontdoors.txt`. The record, one row per item: relay `data/b727_sitting.txt`. The deposit descriptions’ read-backs: relay `data/b727_zenodo_readback.json`.**', '',
+         '**The rule applied.** Each item in its number order, one git write or one metadata edit; its current words read at the file, the record or by `gh` and compared to the list before the write; no mismatch at any item.', '',
+         '**The commits.** ' + '; '.join('[%d] %s' % (k, conf(k)) for k in commits) + '. [1] and [2] are satisfied by [10], [3] by [11], and applied as those.', '',
+         '**The GitHub descriptions.** ' + '; '.join('[%d] %s' % (k, I_file(k)) for k in desc) + ', each read back by `gh` equal to its draft.', '',
+         '**The deposit descriptions, on the author’s pass by number.** ' + '; '.join('[%d] Zenodo %s' % (k, ZEN[k][0]) for k in zen) + ', each a description edit at the record, read back anonymously with its other metadata, files, DOI and version equal. This closes the description’s correction carried by E-2026-10-29-1.', '',
+         '**Struck.** ' + '; '.join('[%d] %s' % (k, R[str(k)]['state'].split(' ', 1)[1]) for k in struck) + '.', '',
+         '**Scope.** README paragraphs and one-line descriptions of the four checkpoint kernels at their compiled statements; SPIRAL_MAP :104; the SIDE-cosmo Planck reference and 0.14σ; the LLM line in the monograph’s words; the byline and two self-citations of Which Structure Confines v2.4.0 restored under I-23. No Lean file, tag or release; REGISTRY’s wave 1 rows gain nothing; nothing deposits. Nothing here is a statement about RH or any zero beyond the words the notes carry.', '',
+         '**Status.** APPLIED.']
+    write(p, text.rstrip(NL) + NL + NL + NL + NL.join(t) + NL, crlf)
+    scan = identity_scan(PP)
+    rc, out, err = git(PP, 'commit', '-m', 'b727 component 2: ERRATA %s, the release sitting, its items and their commits, by (R337)(4)' % ERRATA_ID, '--', 'ERRATA.md')
+    if rc:
+        sys.exit('### THE COMMIT REFUSED: %s %s' % (out, err))
+    h = git(PP, 'rev-parse', '--short=8', 'HEAD')[1]
+    print('  COMMIT PLACE-papers %s ; %s ; applied %d, struck %d, not applied %d' % (h, scan, len(done), len(struck), len(na)))
+    subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, 'tools/standing/fold.py'), 'record', 'step', 'pp', 'component 2', h], cwd=ROOT, check=True)
+
+
+def I_file(k):
+    return items()[k]['file'].split()[0]
+
+
+def recompare(n, why):
+    """a row whose comparison read the wrong place: compared again, before the item's write, the correction written into the row."""
+    I = items()
+    R = rows()
+    ok, cur, wanted, _ = compare(n, I[n])
+    print('[%d] CURRENT AT THE RECORD: %s' % (n, cur))
+    print('[%d] CURRENT IN THE BANK:   %s' % (n, wanted))
+    print('[%d] COMPARISON: %s' % (n, 'EQUAL' if ok else 'MISMATCH'))
+    R[str(n)].update(read=cur, compared=('EQUAL' if ok else 'MISMATCH') + ' (compared again %s: %s)' % (now(), why))
+    bank(R)
+
+
 def check():
     I = items()
     bad = 0
@@ -546,6 +598,10 @@ if __name__ == '__main__':
         control()
     elif a[:1] == ['item']:
         item(int(a[1]))
+    elif a[:1] == ['errata']:
+        errata()
+    elif a[:1] == ['recompare']:
+        recompare(int(a[1]), a[2])
     elif a[:1] == ['bank']:
         bank(rows())
     else:
