@@ -323,6 +323,11 @@ def runner_ok(S):
 #⟪OVERRIDE checks 1175 1175⟫
     return (not mem or all(int(r.get('free_mb') or 0) >= K.HOLD for r in mem)) and order \
 #⟪END⟫
+# ### b727, after the lock, by the author's word (data/b727_author_words_preseal.txt): the carried plant set free_mb on rows this act has none of,
+# ### and the seal refused; N4 reads REFUTED on this line
+#⟪OVERRIDE checks 1692 1692⟫
+     lambda S: gate_ok(S), lambda S: put(S, 'rebuild_rows', [dict(kind='dispatch', kernel='SIDE-kernel', free_mb=100)])),
+#⟪END⟫
 # ### b727, Component 6 (the Edit tool): the corrigendum arm's event rows, written into the template as b722's fifteen; b726's record has eighteen
 #⟪OVERRIDE checks 982 982⟫
     return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('row') for x in evs] == list(range(1, 17)) \
