@@ -10,6 +10,7 @@ carried kind `chain_.*` (b707's) read its required chain-rows bank as excluded u
 
   exclusion(act, kinds, names=()) -> compiled pattern      overlap(required, exclude) -> [paths]
   guard(required, exclude) -> None, or SystemExit naming the overlap
+  unlistable(required, act, shared) -> [paths]      guard_listable(required, act, shared) -> None, or SystemExit naming them (v1.9.0, (R339)(2)(iii))
 """
 import os
 import re
@@ -23,6 +24,19 @@ def exclusion(act, kinds, names=()):
 def overlap(required, exclude):
     """the required banks (relay paths) whose basename the exclusion takes out."""
     return [p for p in required if exclude.match(os.path.basename(p))]
+
+
+def unlistable(required, act, shared=()):
+    """the required banks the root route cannot list: it names data/<act>_* alone (the record tool's root_banks), so a bank of another act's name, b728's
+    data/b726_mechanisms.txt, can never be among its items and G-ACTROOT-BANKED could never pass (b728 event (9)). `shared` the act's shared banks, named apart."""
+    return [p for p in required if not os.path.basename(p).startswith(act + '_') and p not in shared]
+
+
+def guard_listable(required, act, shared=()):
+    """refuse at the suite's import: a SystemExit naming every required bank the root route cannot list."""
+    over = unlistable(required, act, shared)
+    if over:
+        raise SystemExit('### THE ROOT`S REQUIRED BANKS NAME %d BANK(S) THE ROUTE CANNOT LIST ((R339)(2)(iii)): %s' % (len(over), over))
 
 
 def guard(required, exclude):

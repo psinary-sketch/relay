@@ -214,12 +214,19 @@ def check(*a):
         L.append('  %-4s | %s | %s | %s | Component %s' % ('OK' if ok else 'MISS', where, what, how, comp))
     L += ['', '### THE MISSES, EACH RAISED TO THE AUTHOR OR ENTERED BY THE FACT CLAUSE BEFORE THE COMPONENT THAT CITES IT RUNS (none repaired silently):']
     L += ['  %s -- %s (Component %s)' % (what, how, comp) for _w, what, ok, how, comp in miss] or ['  NONE']
+    # ### v1.9.0, (⟪RUL⟫)(2)(vii): a count or an object noun typed on a text the act's rows name, differing from its bank, halts the check
+    SN = __import__('standing.nouns', fromlist=['halts'])
+    hl = SN.halts(getattr(K, 'NOUN_ROWS', ()), lambda n: rd(os.path.join(D, n)) or '')
+    L += ['', '### THE TYPED COUNTS AND NOUNS AGAINST THEIR BANKS: rows %d ; differing %d' % (len(getattr(K, 'NOUN_ROWS', ())), len(hl))]
+    L += ['  HALT | %s | typed %r | the bank reads %r' % h for h in hl]
     L += ['', '### ### **CITES CHECKED %d ; OK %d ; MISSES %d.**' % (len(R), len(R) - len(miss), len(miss))]
     if 'dry' in a:
         print(NL.join(L))
         return
     _write(L, R, miss)
-    print(NL.join(L[-(len(miss) + 4):]))
+    print(NL.join(L[-(len(miss) + len(hl) + 6):]))
+    if hl:
+        sys.exit(3)
 
 
 def ferry(*a):

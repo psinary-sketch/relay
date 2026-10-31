@@ -102,6 +102,15 @@ def strip_quotes(cmd):
     return ''.join(out), True
 
 
+REDIR_CMDLET = re.compile(r'(?i)(?<![\w-])(?:Out-File|Set-Content|Add-Content|Tee-Object)(?![\w-])')
+INNER_SHELL = re.compile(r"""(?i)(?<![\w./-])(?:bash|sh|powershell(?:\.exe)?|pwsh(?:\.exe)?|cmd(?:\.exe)?)(?:\s+-\w+)*\s+(?:-c|-Command|/c)\s+(?:'([^']*)'|"((?:[^"\\`]|[\\`].)*)")""", re.S)
+
+
+def inner_shell_args(cmd):
+    """the quoted arguments an inner shell runs: `bash -c '...'`, `sh -c "..."`, `powershell -Command "..."`, `cmd /c "..."`."""
+    return [m.group(1) if m.group(1) is not None else m.group(2) for m in INNER_SHELL.finditer(cmd)]
+
+
 def lines_of(path):
     """v1.4.0: the file's line count (its line feeds, and a last line without one), or None where it is not a readable file."""
     try:
@@ -137,6 +146,12 @@ def judge(tool, inp):
             return 'PIPE', 'a %s command carrying a pipe outside quotes' % tool
         if '>' in bare or '<' in bare:
             return 'REDIR', 'a %s command carrying a redirect outside quotes' % tool
+        if REDIR_CMDLET.search(bare):   # ### v1.9.0, (R339)(2)(i): a redirect that carries no `>`
+            return 'REDIR', 'a %s command carrying a redirect by cmdlet' % tool
+        for inner in inner_shell_args(cmd):   # ### v1.9.0, (R339)(2)(i): strip_quotes blanks an inner shell's argument, the one place a redirect passed the test above
+            ibare, _c = strip_quotes(inner)
+            if '|' in ibare or '>' in ibare or '<' in ibare:
+                return 'REDIR', 'a %s command carrying a redirect or a pipe inside an inner shell`s quoted argument' % tool
         if bare.count('ls-remote') > 1:   # ### v1.8.0, (R338)(2)(iv)(d): b727 event (7), four reads chained in one diagnostic
             return 'REMOTE', 'a %s command carrying more than one remote read' % tool
         for seg in re.split(r'&&|;|\n', bare):
@@ -198,6 +213,14 @@ def cases(act):
         ('PowerShell', {'command': '$env:PYTHONIOENCODING = "utf-8"; python x.py'}, 'ENV'),
         ('PowerShell', {'command': "git commit -m @'\nline | with > marks\n'@"}, None),
         ('PowerShell', {'command': 'Get-PSDrive'}, None),
+        ('PowerShell', {'command': 'git status > $null'}, 'REDIR'),   # ### v1.9.0, (R339)(2)(i), the two forms the ruling names
+        ('Bash', {'command': 'python x.py 2>&1'}, 'REDIR'),
+        ('Bash', {'command': "bash -c 'git status > out.txt'"}, 'REDIR'),   # ### the forms that did pass before this version
+        ('Bash', {'command': 'sh -c "ls | wc -l"'}, 'REDIR'),
+        ('PowerShell', {'command': 'powershell -Command "git log 2>&1"'}, 'REDIR'),
+        ('PowerShell', {'command': 'git status; Set-Content -Path a -Value b'}, 'REDIR'),
+        ('Bash', {'command': "bash -c 'git status'"}, None),
+        ('Bash', {'command': 'git -C /d/relay commit -m "the Out-File rule"'}, None),
         ('Grep', {'pattern': 'a|b'}, None),
     ]
 

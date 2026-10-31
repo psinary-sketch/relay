@@ -192,6 +192,7 @@ NEXT_RULES_GLOB = 'relay/data/⟪ACT⟫_rules.txt'   # ### (⟪RUL⟫)(12): data
 ⟪SLOT 3⟫
 from standing import rootbanks as STR   # noqa: E402  ### the class repair (3)(vi): the import check made one standing function
 STR.guard(REQUIRED_BANKS, REC0.R.ROOT_EXCLUDE)
+STR.guard_listable(REQUIRED_BANKS, ACT_NOW, K.SHARED_APPENDED)   # ### v1.9.0, (⟪RUL⟫)(2)(iii)
 
 
 def rec(s=''):
@@ -1743,7 +1744,7 @@ ARMS_ALL = [
      lambda S: put(S, 'lock', S['lock'].replace('PASSING : 8.', 'PASSING : 7.'))),
     ('G-SEAL-VERIFIES', 'reg_seal --verify', lambda S: any('SEAL INTACT' in l for l in S['seal'].split(NL)), lambda S: put(S, 'seal', '')),
     ('G-SEAL-HASHES', 'the seal bank against the sealed tools now', lambda S: seal_hashes_ok(S),
-     lambda S: put(S, 'sealnow', dict(S['sealnow'], **{'⟪ACT⟫_closing.py': 'x'}))),
+     lambda S: put(S, 'sealnow', dict(S['sealnow'], **{K.SEALED[0]: 'x'}))),
     ('G-ARMS-PRERUN', 'the pre-run bank: every arm run at HEAD before the lock, its count printed (R202)(3), in seven parts summed',
      lambda S: S['lock_epoch'] is not None and re.search(r'ARMS RUN : %d\.' % len(ARMS), S['prerun']) is not None and 'PRE-SEAL (R202)(3)' in S['prerun'],
      lambda S: put(S, 'prerun', '')),
@@ -1769,7 +1770,7 @@ ARMS_ALL = [
     ('G-TRAIL-CARRIES-ROOT', 'the trail record and the root bank', lambda S: bool(S['arj'].get('root')) and ('⟪ACT⟫ `%s`' % S['arj'].get('root')) in trail_tail(S),
      lambda S: put(S, 'arj', dict(S['arj'], root='0' * 64))),
     ('G-TRAIL-CARRIES-SEAL', 'the trail record`s sealed-tools line', lambda S: all(('%s agree' % t) in trail_tail(S) for t in K.SEALED),
-     lambda S: put(S, 'ot', S['ot'].replace('⟪ACT⟫_record.py agree', '⟪ACT⟫_record.py differ'))),
+     lambda S: put(S, 'ot', S['ot'].replace('%s agree' % K.SEALED[0], '%s differ' % K.SEALED[0]))),
     ('G-NEXT-ACT-NAMED', 'the trail record`s next line naming the next act as act_figures reads it (v5 (ii); ⟪PREV⟫`s needle named its own act)',
      lambda S: ('**Next:** %s' % NEXT_ACT) in trail_tail(S),
      lambda S: put(S, 'ot', S['ot'].replace('**Next:** %s' % NEXT_ACT, '**Next:** %s' % ACT_NOW))),

@@ -123,8 +123,18 @@ def answer_banks(act):
 
 def post_lock_appended(act):
     """the banks written after the lock by design, outside the lock's hash set and N4's read; the lock gate prints them by name."""
-    return ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act,
+    return ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act,
             'tools/mirror_prevbuild.json') + answer_banks(act)
+
+
+def scan_bank_name(act, locked):
+    """v1.9.0, (R339)(2)(v): the scan's bank before the lock and its bank after it: the lock freezes the first, so a run after the lock lands in the second, in the same form."""
+    return '%s_address_scan%s.txt' % (act, '_postlock' if locked else '')
+
+
+def scan_append(prior, stamp, text):
+    """the post-lock bank's text: each run beneath the earlier, its bank form whole, none rewritten."""
+    return (prior or '') + ('' if not prior else '\n') + '## THE RUN AFTER THE LOCK, %s\n' % stamp + text + '\n'
 
 
 def first_stamp(prev, now):

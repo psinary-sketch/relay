@@ -451,7 +451,7 @@ FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in '
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b729_corrigendum.txt', 'data/b729_standing_v180.txt', 'data/b729_onset_table.txt', 'data/b729_onset_b725_reread.txt', 'data/b729_c2.txt',
-                  'data/b729_lambda2.txt', 'data/b729_dispatch_rows.json', 'data/b729_visibility.txt', 'data/b726_mechanisms.txt',
+                  'data/b729_lambda2.txt', 'data/b729_dispatch_rows.json', 'data/b729_visibility.txt',
                   'data/b729_reproduce.txt', 'data/b729_reproduce.json', 'data/b729_address_scan.txt', 'data/b729_touch.txt',
 #⟪END⟫
 #⟪SECTION checks 3⟫
@@ -1467,6 +1467,7 @@ visibility and mechanism tables (REGISTERED), and the draft (HELD).
     # ### b729's lines, each from the record tool's figures over b729's banks
     # ------------------------------------------------------------------ KERNEL: (R339)(4)-(5), on the runner only
     sc2 = seat('%s_c2.txt' % ACT, '**THE C2 THEOREM: ')
+    sk = sc2   # ### (R339)(2)(ii): the name the template appends, b728's defect
     keys['C2'] = ('KERNEL -- THE C2 THEOREM: the certificate compiled at %d of 18 fields with no axiom, %d dispatches each read by its run id; the theorem not compiled. SOURCE %s.' % (f['c2_k'], f['c2_disp'], sc2['text']))
     sl2 = seat('%s_lambda2.txt' % ACT, '**lambda_2: ')
     keys['L2'] = ('KERNEL -- lambda_2: %s; axioms %s; what remains: %s. SOURCE %s.' % (f['l2_clause'], f['l2_axioms'], f['l2_remains'], sl2['text']))

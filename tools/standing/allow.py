@@ -153,6 +153,13 @@ def prompts_read(answers, ruling, heads_text):
     return dict(rows=rows, allowed=root_allowed + heads, unbanked=unbanked, ok=not unbanked)
 
 
+def calls_read(answers):
+    """v1.9.0, (R339)(2)(viii): the prompts put, one a call, a call with two questions one prompt: the root's prompt and each halt after it that took the author's word.
+    Returns dict(calls, root, halts): the first call the root's prompt, every later call a halt."""
+    calls = re.split(r'(?m)^### CALL ', answers or '')[1:]
+    return dict(calls=len(calls), root=min(len(calls), 1), halts=max(len(calls) - 1, 0))
+
+
 def ruling_of(act):
     return A.rd('%s_ferry.txt' % act)
 

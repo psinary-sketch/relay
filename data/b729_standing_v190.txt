@@ -1,0 +1,133 @@
+b729 -- THE CONTROLS OF tools/standing/ v1.9.0, (R339)(2)(i)-(viii): THE REDIR CLASS, report dry BEFORE THE LOCK, THE REQUIRED LIST, THE TWO PLANTS, THE SCAN AFTER THE LOCK, N5`S COUNT, COUNTS AND NOUNS FROM THE BANKS, THE PROMPT COUNT (2026-10-31T22:06:45Z)
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay b2a7f040
+
+### (redir) THE REDIR CLASS -- hook.py judge; the banks hold five REDIR rows, b725 :6, b727 :1, b728 :5, :8, :9, each refused when it ran; `> $null` stands in none of them (a citation MISS, data/b729_stepzero.txt)
+  (redir) GUARD, NO FAILING SIDE: the banked refusal b725 :6 replayed
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the banked refusal b727 :1 replayed
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the banked refusal b728 :5 replayed
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the banked refusal b728 :8 replayed
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the banked refusal b728 :9 replayed
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) the form that passed: bash -c 'git status > out.txt'
+      BEFORE (v1.8.0): read ALLOWED -> FAILS
+      AFTER  (v1.9.0): read REDIR -> PASSES
+      AS WANTED
+  (redir) the form that passed: sh -c "ls | wc -l"
+      BEFORE (v1.8.0): read ALLOWED -> FAILS
+      AFTER  (v1.9.0): read REDIR -> PASSES
+      AS WANTED
+  (redir) the form that passed: powershell -Command "git log 2>&1"
+      BEFORE (v1.8.0): read ALLOWED -> FAILS
+      AFTER  (v1.9.0): read REDIR -> PASSES
+      AS WANTED
+  (redir) the form that passed: git status; Set-Content -Path a -Value b
+      BEFORE (v1.8.0): read ALLOWED -> FAILS
+      AFTER  (v1.9.0): read REDIR -> PASSES
+      AS WANTED
+  (redir) the form that passed: cmd /c "dir > x.txt"
+      BEFORE (v1.8.0): read ALLOWED -> FAILS
+      AFTER  (v1.9.0): read REDIR -> PASSES
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the ruling`s form git status > $null, refused before and after
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: the ruling`s form python x.py 2>&1, refused before and after
+      AFTER  (v1.9.0): read REDIR -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: a planted clean command: git -C /d/relay log --oneline -3
+      AFTER  (v1.9.0): read ALLOWED -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: a planted clean command: bash -c 'git status'
+      AFTER  (v1.9.0): read ALLOWED -> HOLDS
+      AS WANTED
+  (redir) GUARD, NO FAILING SIDE: a planted clean command: git -C /d/relay commit -m "the Out-File rule, a > b"
+      AFTER  (v1.9.0): read ALLOWED -> HOLDS
+      AS WANTED
+
+### (reportdry) report dry BEFORE THE LOCK -- reportdry.py; reg_gate.tpl; close.py; act_close.py close_steps_printed; instance: b728 event (6), tools/acts/b728.py's report section and sk
+  (reportdry) b728`s section, as sealed
+      BEFORE (v1.8.0): no dry before the lock: the crash came at `report bank`, after the root`s prompt -> FAILS
+      AFTER  (v1.9.0): the rendered tool read: undefined ['sk'] -> PASSES
+      AS WANTED
+  (reportdry) GUARD, NO FAILING SIDE: this act`s section
+      AFTER  (v1.9.0): undefined NONE -> HOLDS
+      AS WANTED
+  (reportdry) GUARD, NO FAILING SIDE: the printed order: [5a] after [5] and before [6]
+      AFTER  (v1.9.0): [1, 2, 3, 4, 5, '5a', 6, 7, '7a'] -> HOLDS
+      AS WANTED
+  (reportdry) GUARD, NO FAILING SIDE: the gate reads the dry, the seal refuses without it
+      AFTER  (v1.9.0): in reg_gate.tpl True ; in close.py True -> HOLDS
+      AS WANTED
+
+### (required) THE REQUIRED LIST AGAINST WHAT THE ROUTE CAN LIST -- rootbanks.py guard_listable; instance: b728 event (9), data/b726_mechanisms.txt
+  (required) b728`s list
+      BEFORE (v1.8.0): guard read the exclusion alone, 13 banks, G-ACTROOT-BANKED failing post-push -> FAILS
+      AFTER  (v1.9.0): refused at import, naming ['data/b726_mechanisms.txt'] -> PASSES
+      AS WANTED
+  (required) GUARD, NO FAILING SIDE: this act`s list
+      AFTER  (v1.9.0): 12 banks, unlistable NONE -> HOLDS
+      AS WANTED
+
+### (plants) G-SEAL-HASHES`S PLANT AND G-TRAIL-CARRIES-SEAL`S -- checks.tpl; instance: b728 event (12), each plant replayed over b728`s seal bank and trail line at its close, under b728`s STC.plant_vacuous reading
+  (plants) GUARD, NO FAILING SIDE: the arms live on the b728 state
+      AFTER  (v1.9.0): seal True ; trail True -> HOLDS
+      AS WANTED
+  (plants) G-SEAL-HASHES`S POS
+      BEFORE (v1.8.0): the plant keyed a tool no list carries: the arm still passes on it, True (POSITIVE-CONTROL PASSES 1) -> FAILS
+      AFTER  (v1.9.0): the plant keyed the list`s first tool: the arm reads False -> PASSES
+      AS WANTED
+  (plants) G-TRAIL-CARRIES-SEAL`S POS
+      BEFORE (v1.8.0): the plant mutated nothing: True (VACUOUS 1) -> FAILS
+      AFTER  (v1.9.0): the plant mutated the trail: True, the arm reads False -> PASSES
+      AS WANTED
+
+### (scanback) THE SCAN WRITTEN BACK AFTER THE LOCK -- act.py scan_bank_name, scan_append, post_lock_appended; instance: b728`s bank last written at 65a92110, before its lock 689402fe; the suite`s live runs after the lock wrote nothing, so the post-lock run`s own figures stand in no bank and the reproduction carries the closing`s foot in the bank form
+  (scanback) b728`s post-lock run
+      BEFORE (v1.8.0): the bank`s last commit 65a92110 stands before the lock, PLACES 95; a post-lock bank at the close: False -> FAILS
+      AFTER  (v1.9.0): in the bank form at b728_address_scan_postlock.txt: its foot read back True -> PASSES
+      AS WANTED
+  (scanback) GUARD, NO FAILING SIDE: a second run beneath the first, none rewritten; the name before the lock unchanged; the post-lock bank outside the locked set
+      AFTER  (v1.9.0): 2 runs ; b728_address_scan.txt ; True -> HOLDS
+      AS WANTED
+
+### (n5count) N5`S COUNT FROM THE (W) LIST -- faceform.py readme_writes; instance: b728`s (14), three README writes where N5 carried the number one
+  (n5count) b728`s (W) list
+      BEFORE (v1.8.0): N5 said one and the writes were three: a carried number, the word "three writes where N5 says one" printed by hand -> FAILS
+      AFTER  (v1.9.0): 3 kernel README writes by the (W) list: SIDE-archimedean, SIDE-rcurve, SIDE-spinor -> PASSES
+      AS WANTED
+  (n5count) GUARD, NO FAILING SIDE: a (W) list with no README
+      AFTER  (v1.9.0): 0 kernel README writes by the (W) list -> HOLDS
+      AS WANTED
+
+### (nouns) COUNTS AND NOUNS FROM THE BANKS -- nouns.py; citation.tpl check; instances: b728`s title "the C2 theorem at 18 of 18 fields" against data/b728_c2.txt, (R338)(3)`s seven against the table`s six
+  (nouns) b728`s two typed words through the rows
+      BEFORE (v1.8.0): the citation check carried a row by hand for each; the title was typed by the ruling and stood -> FAILS
+      AFTER  (v1.9.0): halts [('the entry`s object noun', 'theorem', 'certificate'), ('the onsets counted', '7', '6')] -> PASSES
+      AS WANTED
+  (nouns) GUARD, NO FAILING SIDE: the corrected words
+      AFTER  (v1.9.0): halts NONE -> HOLDS
+      AS WANTED
+  (nouns) GUARD, NO FAILING SIDE: the check exits 3 on a halt
+      AFTER  (v1.9.0): in citation.tpl: True -> HOLDS
+      AS WANTED
+
+### (promptonce) THE PROMPT-ONCE CLAUSE -- allow.py calls_read; closing.tpl head_line; instance: b728`s bank, the root`s prompt and two halts, the head line reading 4
+  (promptonce) b728`s three
+      BEFORE (v1.8.0): the head line counted the PROMPT rows, questions: 4 prompts answered -> FAILS
+      AFTER  (v1.9.0): calls 3 ; the root`s 1 ; halts 2 -> PASSES
+      AS WANTED
+  (promptonce) GUARD, NO FAILING SIDE: the head line reads the calls
+      AFTER  (v1.9.0): calls_read in closing.tpl: True -> HOLDS
+      AS WANTED
+
+### ### **v1.9.0: CONTROLS (redir), (reportdry), (required), (plants), (scanback), (n5count), (nouns), (promptonce) ; CASES 33 ; AS WANTED 33 ; ALL AS WANTED.**

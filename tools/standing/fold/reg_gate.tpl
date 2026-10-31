@@ -69,7 +69,12 @@ def main():
         rec('  ' + ln)
     closing_clean = cr.returncode == 0 and 'THE CLOSING DRY-RUN : READ' in (cr.stdout or '')
     rec('  ### ### **THE CLOSING DRY-RUN STEP : %s** (exit %d)' % ('CLEAN' if closing_clean else 'NOT CLEAN', cr.returncode))
-    clear = bool(ok_index) and bf and st and not floor_misses and not arm_misses and not misses and dry_clean and closing_clean
+    rec('')
+    rec('--- REPORT DRY, STEP [5a] ((R339)(2)(ii)): the report tool as rendered, a name nothing binds failing it ---')
+    report_clean, rl = __import__('standing.reportdry', fromlist=['bank']).bank('⟪ACT⟫')
+    for ln in rl[1:]:
+        rec('  ' + ln)
+    clear = bool(ok_index) and bf and st and not floor_misses and not arm_misses and not misses and dry_clean and closing_clean and report_clean
     rec('  ### ### **GATE VERDICT : %s**' % ('CLEAR' if clear else 'NOT CLEAR'))
     rec('=' * 100)
     with io.open(OUT, 'w', encoding='utf-8', newline=chr(10)) as fh:

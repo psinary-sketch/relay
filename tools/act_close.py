@@ -123,11 +123,16 @@ def close_steps(v4_text=None):
 DRY_AFTER_COMBINE = ('7a', 'close.py dry straight after the pre-run`s combine, the seal`s refusals read before the seal ((R338)(2)(iv)(e))', 'data/<act>_close_dry.txt')
 
 
+REPORT_DRY_BEFORE_LOCK = ('5a', 'report dry inside the registration gate, the rendered report tool read for a name nothing binds, before the lock ((R339)(2)(ii))', 'data/<act>_report_dry.txt')
+
+
 def close_steps_printed(v4_text=None):
-    """the steps as closeorder prints them: the row's, and v1.8.0's [7a] after [7]. The standing row keeps its numbers, so every _close_step(n) reads as it did."""
+    """the steps as closeorder prints them: the row's, and v1.8.0's [7a] after [7], v1.9.0's [5a] after [5]. The standing row keeps its numbers, so every _close_step(n) reads as it did."""
     out = []
     for s in close_steps(v4_text):
         out.append(s)
+        if s[0] == 5:
+            out.append(REPORT_DRY_BEFORE_LOCK)
         if s[0] == 7:
             out.append(DRY_AFTER_COMBINE)
     return out

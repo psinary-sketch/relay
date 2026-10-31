@@ -169,11 +169,16 @@ def scan(*a):
         sys.exit('### THE BANK WOULD CARRY THE ADDRESS OR THE NAME -- NOTHING PRINTED OR WRITTEN')
     print(text)
     if '--bank' in a:
-        p = os.path.join(D, '%s_address_scan.txt' % ACT)
+        # ### v1.9.0, (R339)(2)(v): after the lock the run is written back to the scan's post-lock bank in the same form, the locked bank unedited
+        import standing.act as SA
+        locked = os.path.exists(os.path.join(D, '%s_lockgate.json' % ACT))
+        nm = SA.scan_bank_name(ACT, locked)
+        p = os.path.join(D, nm)
+        body = SA.scan_append(open(p, encoding='utf-8').read() if os.path.exists(p) else '', time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), text) if locked else text + NL
         with open(p + '.tmp', 'wb') as fh:
-            fh.write((text + NL).encode('utf-8'))
+            fh.write(body.encode('utf-8'))
         os.replace(p + '.tmp', p)
-        print('written data/%s_address_scan.txt' % ACT)
+        print('written data/%s' % nm)
     return na, nn, nu
 
 

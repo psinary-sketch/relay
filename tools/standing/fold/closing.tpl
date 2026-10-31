@@ -248,7 +248,8 @@ def head_line(dd=None, act=ACT, events=None):
         root = '### NOT READ'
     # ### (⟪RUL⟫)(3)(iii), standing clauses v3: the prompt count is the answers bank's rows with nothing added (b700's "+ 1" for the root's
     # ### prompt counted it twice where the bank already holds it, ⟪PREV⟫'s events :79), and the scores are read from the scores-close bank
-    k = len(re.findall(r'^### PROMPT ', _t('%s_author_answers.txt' % act), re.M))
+    # ### v1.9.0, (⟪RUL⟫)(2)(viii): one prompt a call, a halt after the root among them; the bank's PROMPT rows count questions (b728's four where three calls stood)
+    k = __import__('standing.allow', fromlist=['calls_read']).calls_read(_t('%s_author_answers.txt' % act))['calls']
     d = len([l for l in _t('%s_defects.txt' % act).split(NL) if DEFECT_ROW.match(l)])
     try:
         sc = json.loads(_t('%s_scores_close.json' % act))

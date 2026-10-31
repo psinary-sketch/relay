@@ -187,8 +187,8 @@ def control_closeorder():
     steps = AC.close_steps_printed()
     src = open(os.path.join(S, 'close.py'), encoding='utf-8').read()
     keys = [s[0] for s in steps]
-    g1 = case(L, 'closeorder', 'the printed order', 'a step [7a] in tools/act_close.py: %s' % ('7a' in oldp), 'printed after [7]: %s ; the row`s numbers unmoved: %s' % (keys[keys.index(7) + 1] == '7a', [k for k in keys if k != '7a'] == list(range(1, 26))),
-              '7a' not in oldp, keys[keys.index(7) + 1] == '7a' and [k for k in keys if k != '7a'] == list(range(1, 26)))
+    g1 = case(L, 'closeorder', 'the printed order', 'a step [7a] in tools/act_close.py: %s' % ('7a' in oldp), 'printed after [7]: %s ; the row`s numbers unmoved: %s' % (keys[keys.index(7) + 1] == '7a', [k for k in keys if not isinstance(k, str)] == list(range(1, 26))),
+              '7a' not in oldp, keys[keys.index(7) + 1] == '7a' and [k for k in keys if not isinstance(k, str)] == list(range(1, 26)))
     g2 = case(L, 'closeorder', 'the seal without the dry', 'b727`s seal found its own refusal: no read of the bank', 'seal_write refuses where data/<act>_close_dry.txt is absent: %s' % ('STEP [7a]' in src), 'close_dry' not in _git('show', '%s:tools/standing/close.py' % BASE), 'STEP [7a]' in src)
     return L, int(g1) + int(g2), 2
 

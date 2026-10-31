@@ -398,6 +398,9 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     dry_bank = os.path.join(A.D, '%s_close_dry.txt' % act)   # ### v1.8.0, (R338)(2)(iv)(e): step [7a], the dry after the combine, before the seal
     if write and not os.path.exists(dry_bank):
         return 3, ['### THE SEAL REFUSED -- STEP [7a]: close.py dry WAS NOT RUN AFTER THE COMBINE (data/%s_close_dry.txt ABSENT); NOTHING RECORDED' % act]
+    import reportdry as RD
+    if write and not RD.stands(act):   # ### v1.9.0, (R339)(2)(ii): step [5a], read again at the seal
+        return 3, ['### THE SEAL REFUSED -- STEP [5a]: data/%s_report_dry.txt ABSENT OR NOT CLEAN; NOTHING RECORDED' % act]
     tools = worklist_sealed(act)
     g = seal_guard(tools)
     if not g['ok']:

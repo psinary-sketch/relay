@@ -49,5 +49,20 @@ def n5_kernel_clause(agents=()):
     return s + ' ; no .lean file, no workflow file, no tag'
 
 
+def readme_writes(write_list):
+    """v1.9.0, (R339)(2)(vi): N5's count of kernel README writes, derived from the (W) list and carried as no number: the kernels (W) names with a README.md."""
+    out = set()
+    for l in (write_list or '').split('\n'):
+        i = l.find('README.md')
+        if i >= 0:
+            out.update(re.findall(r'SIDE-[\w-]+', l[i:]))
+    return sorted(out)
+
+
+def n5_count_sentence(write_list):
+    r = readme_writes(write_list)
+    return '%d kernel README write%s by the (W) list%s' % (len(r), '' if len(r) == 1 else 's', (': ' + ', '.join(r)) if r else '')
+
+
 def kernel_file_allowed(kernel, path, agents=()):
     return path == 'README.md' or (path == 'AGENTS.md' and any(k == kernel for k, _i in agents))
