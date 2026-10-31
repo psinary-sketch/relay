@@ -1,0 +1,68 @@
+b729 -- (R339)(7): H-ONSET-C`S FIT ON THE FIVE COMPUTED ONSETS, POST HOC (2026-10-31T22:12:09Z)
+
+### by tools/b729_onset_fit.py `fit`; from data/b728_onset_table.txt :30-:34 alone; no form run; off52 a bound and in no fit. Fitted on five: every row below is POST HOC and tests nothing.
+
+## THE FIT: y = (beta - 1/2) a*, x = log(M_C/(P+A)_C), BY LEAST SQUARES ON THE FIVE
+  alpha 4.464839662
+  kappa 0.607144077
+
+## THE RESIDUALS, POST HOC (y - fit; in a: the residual / (beta - 1/2), and as a share of a*); BESIDE EACH THE ROW LEFT OUT, THE FOUR-POINT FIT`S a AT IT
+  rho0   x -2.3244890 y 3.099575 fit 3.053540 residual +0.046035 ; in a +0.10156 of a* 6.83840, +1.49% ; left out: alpha 4.4905 kappa 0.6417, a 6.61644, a*/a - 1 +3.35%
+  band   x -2.1908600 y 3.094798 fit 3.134672 residual -0.039874 ; in a -0.13381 of a* 10.38533, -1.29% ; left out: alpha 4.4506 kappa 0.5853, a 10.63168, a*/a - 1 -2.32%
+  off12  x -0.7614241 y 3.861869 fit 4.002546 residual -0.140677 ; in a -0.31157 of a* 8.55333, -3.64% ; left out: alpha 4.5581 kappa 0.6467, a 9.00476, a*/a - 1 -5.01%
+  off18  x -0.6284140 y 4.188225 fit 4.083302 residual +0.104923 ; in a +0.25559 of a* 10.20248, +2.51% ; left out: alpha 4.3788 kappa 0.5673, a 9.79833, a*/a - 1 +4.12%
+  off27  x -0.7275422 y 4.052709 fit 4.023117 residual +0.029592 ; in a +0.07204 of a* 9.86630, +0.73% ; left out: alpha 4.4441 kappa 0.5981, a 9.75983, a*/a - 1 +1.09%
+  the residual sum of squares 0.035384 on 3 degrees of freedom ; the largest residual as a share of a* 3.64% ; the largest left-out miss 5.01%
+  the falsifier`s tolerance is 5%; x clusters: rho0 and band near -2.3, the three others near -0.7, so kappa is carried by two clusters, not by five free points.
+
+### ### **H-ONSET-C`S FIT, POST HOC: alpha 4.464840 ; kappa 0.607144 ; FIVE RESIDUALS PRINTED ; FITTED ON FIVE, NOTHING TESTED.**
+
+## THE CONTROLS, BEFORE THE POST HOC ROWS (2026-10-31T22:12:14Z)
+  (C1) rho0   M_C 0.085174146 +- 3.30e-25 against 0.085174146, -4.04e-09 ; (P+A)_C 0.87060400 +- 6.55e-32 against 0.870604, -2.70e-09 ; AS WANTED
+  (C1) band   M_C 0.079292876 +- 4.77e-25 against 0.079292876, +2.15e-10 ; (P+A)_C 0.70910828 +- 6.04e-32 against 0.70910828, -5.52e-09 ; AS WANTED
+  (C1) off12  M_C 0.56863253 +- 1.04e-24 against 0.56863253, -8.20e-09 ; (P+A)_C 1.2176262 +- 6.20e-32 against 1.2176262, +1.50e-08 ; AS WANTED
+  (C1) off18  M_C 0.59031400 +- 8.71e-9 against 0.590314, +4.46e-09 ; (P+A)_C 1.1066233 +- 9.43e-32 against 1.1066233, -1.06e-08 ; AS WANTED
+  (C1) off27  M_C 0.59225282 +- 7.74e-9 against 0.59225282, +2.50e-09 ; (P+A)_C 1.2259555 +- 8.71e-32 against 1.2259555, +2.38e-09 ; AS WANTED
+  (C2) off18 (P+A)_C twice: 1.1066233 +- 9.43e-32 ; 1.1066233 +- 9.43e-32 ; difference 0.00e+00 ; AS WANTED
+
+## THE RULE AT THE FIVE, POST HOC, DECIDING NOTHING
+  rho0
+    rung log2  a 0.693147 M_C 7.3788742 +- 9.64e-20 (P+A)_C 8.8445697 +- 9.09e-26 x -0.1811826 +- 1.31e-20 d -4.040660 +- 7.93e-21
+    rung 32    a 6.931472 M_C 0.080311221 +- 3.20e-25 (P+A)_C 0.85892618 +- 6.50e-32 x -2.369774 +- 3.98e-24 d 0.1157166 +- 9.35e-24
+  rho0   a*_pred 6.776684 ; bisected in (log2, 32] ; a* 6.838396 ; a*/a*_pred - 1 +0.91%
+  band
+    rung log2  a 0.693147 M_C 7.9020297 +- 3.27e-19 (P+A)_C 10.468050 +- 9.46e-26 x -0.2812081 +- 4.14e-20 d -4.087550 +- 2.51e-20
+    rung 32    a 6.931472 M_C 0.29816101 +- 8.41e-25 (P+A)_C 1.0623697 +- 6.28e-32 x -1.270624 +- 2.82e-24 d -1.627829 +- 8.64e-24
+    rung 48    a 7.742402 M_C 0.22351163 +- 7.64e-25 (P+A)_C 0.95112312 +- 7.89e-32 x -1.448180 +- 3.42e-24 d -1.278372 +- 9.82e-24
+    rung 64    a 8.317766 M_C 0.18089546 +- 7.00e-25 (P+A)_C 0.88534359 +- 6.72e-32 x -1.588057 +- 3.87e-24 d -1.021990 +- 1.07e-23
+    rung 96    a 9.128696 M_C 0.13257535 +- 6.11e-25 (P+A)_C 0.80670827 +- 5.83e-32 x -1.805811 +- 4.61e-24 d -0.6481267 +- 1.19e-23
+    rung 128   a 9.704061 M_C 0.10530885 +- 5.48e-25 (P+A)_C 0.75888427 +- 6.11e-32 x -1.974952 +- 5.21e-24 d -0.3739769 +- 1.29e-23
+    rung 192   a 10.514991 M_C 0.075017380 +- 4.63e-25 (P+A)_C 0.70036504 +- 4.81e-32 x -2.233882 +- 6.18e-24 d 0.02488584 +- 1.43e-23
+  band   a*_pred 10.465253 ; bisected in (128, 192] ; a* 10.385327 ; a*/a*_pred - 1 -0.76%
+  off12
+    rung log2  a 0.693147 M_C 12.320258 +- 4.43e-16 (P+A)_C 15.014769 +- 1.20e-25 x -0.1977894 +- 3.59e-17 d -4.031794 +- 2.18e-17
+    rung 32    a 6.931472 M_C 0.72606900 +- 1.22e-24 (P+A)_C 1.5025288 +- 6.25e-32 x -0.7272598 +- 1.68e-24 d -0.8936964 +- 7.95e-24
+    rung 48    a 7.742402 M_C 0.63618323 +- 1.11e-24 (P+A)_C 1.3451575 +- 7.73e-32 x -0.7487798 +- 1.74e-24 d -0.5144919 +- 8.80e-24
+    rung 64    a 8.317766 M_C 0.58632163 +- 1.06e-24 (P+A)_C 1.2521100 +- 4.75e-32 x -0.7587169 +- 1.80e-24 d -0.2486790 +- 9.41e-24
+    rung 96    a 9.128696 M_C 0.53101726 +- 1.01e-24 (P+A)_C 1.1408822 +- 6.85e-32 x -0.7647625 +- 1.90e-24 d 0.1211303 +- 1.03e-23
+  off12  a*_pred 8.861736 ; bisected in (64, 96] ; a* 8.553332 ; a*/a*_pred - 1 -3.48%
+  off18
+    rung log2  a 0.693147 M_C 13.867182 +- 7.16e-9 (P+A)_C 16.283445 +- 1.39e-25 x -0.1606239 +- 5.16e-10 d -4.082774 +- 6.93e-7
+    rung 32    a 6.931472 M_C 0.87746876 +- 7.92e-9 (P+A)_C 1.6288436 +- 8.20e-32 x -0.6185843 +- 9.02e-9 d -1.243828 +- 6.94e-6
+    rung 48    a 7.742402 M_C 0.78588029 +- 8.14e-9 (P+A)_C 1.4582413 +- 9.59e-32 x -0.6181819 +- 1.04e-8 d -0.9111767 +- 7.75e-6
+    rung 64    a 8.317766 M_C 0.73124422 +- 8.22e-9 (P+A)_C 1.3573710 +- 9.98e-32 x -0.6185575 +- 1.12e-8 d -0.6747557 +- 8.32e-6
+    rung 96    a 9.128696 M_C 0.66468709 +- 8.40e-9 (P+A)_C 1.2367920 +- 9.10e-32 x -0.6209598 +- 1.26e-8 d -0.3404018 +- 9.14e-6
+    rung 128   a 9.704061 M_C 0.62318508 +- 8.56e-9 (P+A)_C 1.1634615 +- 9.60e-32 x -0.6243113 +- 1.37e-8 d -0.1021739 +- 9.71e-6
+    rung 192   a 10.514991 M_C 0.57096707 +- 8.81e-9 (P+A)_C 1.0737340 +- 9.40e-32 x -0.6315661 +- 1.54e-8 d 0.2351262 +- 1.05e-5
+  off18  a*_pred 9.950169 ; bisected in (128, 192] ; a* 10.202480 ; a*/a*_pred - 1 +2.54%
+  off27
+    rung log2  a 0.693147 M_C 13.594129 +- 1.26e-8 (P+A)_C 17.447803 +- 1.70e-25 x -0.2495757 +- 9.26e-10 d -4.028592 +- 6.94e-7
+    rung 32    a 6.931472 M_C 0.92193638 +- 9.23e-9 (P+A)_C 1.7450322 +- 9.97e-32 x -0.6380521 +- 1.00e-8 d -1.230261 +- 6.94e-6
+    rung 48    a 7.742402 M_C 0.80240939 +- 9.07e-9 (P+A)_C 1.5622600 +- 9.50e-32 x -0.6662698 +- 1.13e-8 d -0.8800285 +- 7.75e-6
+    rung 64    a 8.317766 M_C 0.73227190 +- 8.70e-9 (P+A)_C 1.4541942 +- 1.18e-31 x -0.6860553 +- 1.19e-8 d -0.6316778 +- 8.32e-6
+    rung 96    a 9.128696 M_C 0.65101893 +- 8.15e-9 (P+A)_C 1.3250138 +- 1.04e-31 x -0.7106395 +- 1.25e-8 d -0.2836519 +- 9.14e-6
+    rung 128   a 9.704061 M_C 0.60408436 +- 7.82e-9 (P+A)_C 1.2464525 +- 1.11e-31 x -0.7243429 +- 1.29e-8 d -0.03899382 +- 9.71e-6
+    rung 192   a 10.514991 M_C 0.55033963 +- 7.47e-9 (P+A)_C 1.1503245 +- 9.12e-32 x -0.7372638 +- 1.36e-8 d 0.3019508 +- 1.05e-5
+  off27  a*_pred 9.796249 ; bisected in (128, 192] ; a* 9.866305 ; a*/a*_pred - 1 +0.72%
+
+### ### **H-ONSET-C`S CONTROLS: C1 AND C2 AS WANTED.**
