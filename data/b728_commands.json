@@ -1,5 +1,5 @@
 {
- "at": "2026-10-31T17:48:31Z",
+ "at": "2026-10-31T17:52:22Z",
  "anchor": "RULING (R338) BEGIN",
  "rows": [
   {
@@ -2177,6 +2177,126 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py record kernels; python -X utf8 -u tools/standing/fold.py record guard; python -X utf8 -u tools/standing/fold.py record commands; python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py\"",
    "n": 272,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:48:38.888Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b728_*\" tools/b728_face.py tools/mirror_prevbuild.json",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:48:43.689Z",
+   "src": "seat",
+   "cmd": "git add data/b728_registration_2026-10-31.txt tools/b728_face.py data/b728_standing_figures.json data/b728_standing_figures.txt data/b728_guard_dry.json data/b728_guard_dry.txt data/b728_kernels_face.json data/b728_commands.json data/b728_commands.txt data/b728_address_scan.txt data/b728_bank_hashes.json data/b728_steps.json",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:48:46.329Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b728_address_scan.py scan --bank",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:48:54.283Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b728 gate: the face, the four standing figures, the kernels face, the guard's dry run, the command capture\" && git rev-parse --short=8 HEAD",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:48:57.547Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" bd2e77b8 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:10.382Z",
+   "src": "seat",
+   "cmd": "git ls-files \"data/b727_root*\"; git log --format=\"%h %s\" -12 --grep=\"rootdry\\|root route\\|preroot\\|pre-root\" 1bf8a57c~30..1bf8a57c",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:17.198Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=\"%h %s\" f2c0362b; git grep -n -E \"READY|HEAD THE REMOTE|dirty|untracked|NOT COMMITTED|DIFFERS\" -- data/b727_root_banks_dry.txt data/b728_root_banks_dry.txt; git grep -n -E \"def rootdry|READY|remote_eq|head_remote\" -- tools/standing/fold/record.tpl",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:23.213Z",
+   "src": "seat",
+   "cmd": "git add data/b728_address_scan.txt data/b728_bank_hashes.json data/b728_steps.json data/b728_root_banks_dry.json data/b728_root_banks_dry.txt data/b728_defects.txt data/b728_hook_refusals.txt",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:26.751Z",
+   "src": "seat",
+   "cmd": "git add data/b728_mid_act_act.json data/b728_mid_act_act.txt",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:29.959Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b728_address_scan.py scan",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:37.344Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b728 gate: the address scan's bank, the mid probe, the first dry reading of the root route, READY False on three uncommitted banks, printed\" && git rev-parse --short=8 HEAD",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:49:41.955Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" ef57e9ea && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:50:06.860Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/closecmds.py\"",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:50:11.825Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T17:51:23.548Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks && git status --short -- \"data/b728_*\" tools/acts/b728.py tools/b728_worklist.py",
+   "n": 287,
+   "bg": true
   }
  ],
  "offences": [],
@@ -2197,7 +2317,8 @@
   167,
   201,
   202,
-  203
+  203,
+  287
  ],
  "seds": [],
  "null_redirects": [

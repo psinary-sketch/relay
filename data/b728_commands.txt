@@ -1,7 +1,7 @@
-b728 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-31T17:48:31Z)
+b728 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-10-31T17:52:22Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R338) BEGIN', with its subagents` transcripts
-### commands read: 272
+### commands read: 287
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -18,11 +18,12 @@ b728 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #199 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=b91bf5af59b36891765baee33da50ecf7291b025 -f target=SIDEExplicitFormula.C2Field.M403
   #200 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147 -f target=SIDEExplicitFormula.KeiperGammaOne
 
-### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (4):
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (5):
   #167 [run_in_background] gh run watch 41220283401 -R psinary-sketch/SIDE-explicit-formula --interval 30 --exit-status
   #201 [run_in_background] gh run watch 41220932768 -R psinary-sketch/SIDE-explicit-formula --interval 30 --exit-status
   #202 [run_in_background] gh run watch 41220928153 -R psinary-sketch/SIDE-explicit-formula --interval 30 --exit-status
   #203 [run_in_background] gh run watch 41220930451 -R psinary-sketch/SIDE-explicit-formula --interval 30 --exit-status
+  #287 [run_in_background] python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks && git status --short -- "data/b728_*" tools/acts/b728.py tools/b728_worklist
 
 ### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
   NONE
@@ -335,5 +336,20 @@ b728 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #270 | 2026-10-31T17:48:09.559Z | seat | Bash | python -X utf8 -u tools/b728_face.py; git ls-files "data/b728_kernels_face*" "data/b728_guard*" "data/b727_kernels_face*"; git grep -n -E "kernels_face|guard_dr
   #271 | 2026-10-31T17:48:15.149Z | seat | Bash | git grep -n -E "^def kern|^def k_face|kernels=|'kernels':|'guard':|guard=" -- tools/standing/fold/record.tpl
   #272 | 2026-10-31T17:48:19.909Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record kernels; python -X utf8 -u tools/standing/fold.py record guard; python -X utf8 -u tools/standing/fold.py record 
+  #273 | 2026-10-31T17:48:38.888Z | seat | Bash | git status --short -- "data/b728_*" tools/b728_face.py tools/mirror_prevbuild.json
+  #274 | 2026-10-31T17:48:43.689Z | seat | Bash | git add data/b728_registration_2026-10-31.txt tools/b728_face.py data/b728_standing_figures.json data/b728_standing_figures.txt data/b728_guard_dry.json data/b7
+  #275 | 2026-10-31T17:48:46.329Z | seat | Bash | python -X utf8 -u tools/b728_address_scan.py scan --bank
+  #276 | 2026-10-31T17:48:54.283Z | seat | Bash | git commit -q -m "b728 gate: the face, the four standing figures, the kernels face, the guard's dry run, the command capture" && git rev-parse --short=8 HEAD
+  #277 | 2026-10-31T17:48:57.547Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "gate" bd2e77b8 && python -X utf8 -u tools/standing/fold.py record rootdry
+  #278 | 2026-10-31T17:49:10.382Z | seat | Bash | git ls-files "data/b727_root*"; git log --format="%h %s" -12 --grep="rootdry\|root route\|preroot\|pre-root" 1bf8a57c~30..1bf8a57c
+  #279 | 2026-10-31T17:49:17.198Z | seat | Bash | git show --stat --format="%h %s" f2c0362b; git grep -n -E "READY|HEAD THE REMOTE|dirty|untracked|NOT COMMITTED|DIFFERS" -- data/b727_root_banks_dry.txt data/b72
+  #280 | 2026-10-31T17:49:23.213Z | seat | Bash | git add data/b728_address_scan.txt data/b728_bank_hashes.json data/b728_steps.json data/b728_root_banks_dry.json data/b728_root_banks_dry.txt data/b728_defects.
+  #281 | 2026-10-31T17:49:26.751Z | seat | Bash | git add data/b728_mid_act_act.json data/b728_mid_act_act.txt
+  #282 | 2026-10-31T17:49:29.959Z | seat | Bash | python -X utf8 -u tools/b728_address_scan.py scan
+  #283 | 2026-10-31T17:49:37.344Z | seat | Bash | git commit -q -m "b728 gate: the address scan's bank, the mid probe, the first dry reading of the root route, READY False on three uncommitted banks, printed" &
+  #284 | 2026-10-31T17:49:41.955Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "gate" ef57e9ea && python -X utf8 -u tools/standing/fold.py record rootdry
+  #285 | 2026-10-31T17:50:06.860Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/closecmds.py"
+  #286 | 2026-10-31T17:50:11.825Z | seat | Bash | python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate
+  #287 | 2026-10-31T17:51:23.548Z | seat | Bash | python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gateban
 
-### ### **COMMANDS 272 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 4 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 3 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 287 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 4 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 3 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
