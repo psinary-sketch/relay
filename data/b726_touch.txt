@@ -1,0 +1,35 @@
+b726 -- THE TOUCH READ OF STANDING CLAUSES v9, BY HAND, BEFORE THE ROOT (2026-10-31): each object the act's FINDINGS entry names -- a tool version, the corrigenda row, b723's row and its hash, the C2 fields, the edition, the orders the act touched, the instruments, the next act -- looked up by needle in FINDINGS.md, OPEN_TRAILS.md, phase1.5/method/INSTRUMENTS.md, FACES_LEDGER.md and ERRATA.md (PLACE-papers at its local HEAD 2f3deb91), each line found read against the entry and marked AGREES or DIFFERS. A disagreement is printed for the author and carried; no side is chosen.
+
+### THE ENTRY READ: the record tool's composition (`fold.py record findings dry`, nothing written, 2026-10-31 after 01:15Z); no entry of this act's title landed yet, so the needles read the ledgers whole.
+### THE LOCATOR: the Grep tool, one needle set per ledger, a line's text read by -o or the Read tool; no touch tool built; every line marked here by hand. The keystone census and the day papers were not read this act's touch: no object of the entry stands in the census, and the edition is read by its diff bank.
+### THE NEEDLES, each object as the entry names it, and its yield (lines found, by source):
+###   figure       v1.6.0                     FINDINGS 3 lines (:11801, :11809, :11865)
+###   clause       row (46)                   FINDINGS 1 (:11865)
+###   branch       corrigendum-b723           FINDINGS 1 (:11815)
+###   figure       133004c8                   FINDINGS 3 (:11704, :11763, :11815)
+###   branch       c2-b725                    FINDINGS 4 (:11775, :11791, :11797, among them), OPEN_TRAILS 5 (:16612, :16628, :16636, :16638, :16659)
+###   figure       the C2 theorem             FINDINGS 4 (:11755, :11789, :11791, :11797)
+###   paper        Which Structure Confines   FINDINGS 1 in the b725 range (:11793); FACES_LEDGER 0
+###   order        W-ORD-MECHANISM-TABLE      OPEN_TRAILS 3 (:16589, :16594, :16596); FACES_LEDGER 0
+###   order        W-ORD-SILENT-SENTENCES     OPEN_TRAILS 2 (:16593, :16596)
+###   order        W-ORD-VISIBILITY           OPEN_TRAILS 2 (:16590, :16596)
+###   erratum      E-2026-10-29-1             ERRATA 1 (:1006), OPEN_TRAILS read at :16499
+###   instrument   I-56, I-57                 FINDINGS 5 (:11777 the last)
+###   act          b726                       FINDINGS, OPEN_TRAILS (read at FINDINGS :11793, OPEN_TRAILS :16593, :16642)
+###   phrase       release sitting            OPEN_TRAILS 14 (read at :16593, :16642)
+### **ROWS 10 BELOW, the lines that read on what the entry says.** An object first named at this act (the 15 of 18, the front-door figures, the mechanism table's rows) has no line of the record before this entry lands; each such needle finds its object in the entry's own text and its bank.
+
+### rows: (n) source:line  needle -- AGREES | DIFFERS: the reading against the entry.
+
+  (1) FINDINGS.md:11809  v1.6.0 -- AGREES: "The repairs of `(R336)`(2)(iii), at tools/standing/ v1.6.0, each with a control on b725's banks, failing on the route before the repair and passing after"; the entry: "tools/standing/ at v1.6.0 ... 4 cases, 4 as wanted, each failing before its repair and passing after".
+  (2) FINDINGS.md:11865  row (46) -- AGREES: "the corrigenda bank `data/b675_corrigenda.txt` appended at row (46)"; the entry: "the corrigenda bank appended at row (46)".
+  (3) FINDINGS.md:11815  corrigendum-b723, 133004c8 -- AGREES: "relay branch corrigendum-b723 (16caad10) off 2be0135c carries data/b723_bank_hashes.json at the bytes b723's root hashed, sha 133004c8, and nothing else"; the entry the same.
+  (4) FINDINGS.md:11755  the chain -- DIFFERS: b725's head line reads "the chain DISAGREE at b723 (one bank)"; the entry reads b723 AGREE. The difference is the act's own: the branch of (R336)(2)(ii) carries the hashed bytes, and the verify read after it is relay data/b726_root_row.txt's. b725's line stands as written at its act; printed for the author.
+  (5) FINDINGS.md:11775, :11797  c2-b725 -- DIFFERS: b725's lines read 52cbbc11 and 0 of 18 certificates read, the build stopped under the hold; the entry reads ea95a8d0 and 15 of 18. The branch moved at this act by (R336)(3), so both stand at their own tips. Also :11775's "graded E0 DERIVES" was graded on a text that did not elaborate as banked (defect (m)): the grade reads the header, unchanged, and the entry says so; printed for the author.
+  (6) OPEN_TRAILS.md:16589  W-ORD-MECHANISM-TABLE -- AGREES: its condition "a mechanism claimed is shown at an instance"; the entry's rows each name an instance, the Beurling row NO INSTANCE FOUND with a functional equation and its weaker cited instance named; the order left OPEN for its fourth row as (R336)(7) orders.
+  (7) OPEN_TRAILS.md:16593  W-ORD-SILENT-SENTENCES -- AGREES: "the load-bearing repaired at the release sitting and the silent carried with their notes ... the citation read by the citation sweep, not by hand"; the entry: 3 load-bearing and 20 silent, the sweep tool's (matcher M4, data/b726_frontdoors.txt), a hand read having refused its second matcher only.
+  (8) FINDINGS.md:11793, OPEN_TRAILS.md:16642  b726 -- DIFFERS: b725's Next read "the lv description corrected; the axiom prints at six pins cited; the release sitting on the author's word" among b726's objects; (R336)(5) and (9) LIST the lv correction (data/b726_frontdoors.txt [13]) and do not apply it, and (R336)(10) moves the release sitting after this act. The ruling governs; printed for the author.
+  (9) FINDINGS.md:11777  I-56, I-57 -- AGREES: b725's "68 rows: 64 REPRODUCES, 0 DIFFERS, 4 NOT RUN (I-56, I-57, I-61, I-107"; the entry the same at b726 (relay data/b726_reproduce.txt).
+  (10) ERRATA.md:1006  E-2026-10-29-1 -- AGREES: the front-door list's item [13] drafts the lv description in the words of this erratum; no ERRATA entry this act; ERRATA.md unedited.
+
+### ### **ROWS 10: AGREES 7, DIFFERS 3.**
