@@ -1,0 +1,66 @@
+b727 -- THE CORRIGENDUM FOR b726, (R337)(1)-(2) (2026-10-31T04:34:48Z)
+
+### the banks read unedited: data/b726_events.txt rows (1)-(16), data/b726_defects.txt 22 rows, data/b726_hook_refusals.txt 2 lines at 9fac0a1d; data/b727_standing_v170.txt (the v1.7.0 controls); the corrigenda bank`s last row (46).
+
+  *b726’s events bank (relay data/b726_events.txt) carries sixteen rows, entered after its lock and not lettered, each tagged in its own bracket (16 the seat’s); its defects bank twenty-two lettered rows, (a)-(v), each tagged in its own bracket (22 the seat’s); its refusal bank two lines at b726’s closing commit 9fac0a1d, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  
+  **The repairs of `(R337)`(2), at tools/standing/ v1.7.0, each with a control on b726’s and b725’s banks, failing on the route before the repair and passing after, both instances printed** (relay data/b727_standing_v170.txt, 8 cases, AS WANTED 8):
+  
+  **(actcur) G-ACT-CURRENT (`(R337)`(2), event (2))** -- the worklist’s REPAIRED_TOOLS is read from data/act_current.json’s shared_edits, the one hand list, and the arm reads that list against the shared tools git shows changed, so a repair recorded in one of two lists cannot pass or fail silently (:5).
+  
+  **(branches) G-BRANCHES-BANKED (`(R337)`(2), event (3))** -- the citation bank keeps its first banking’s time through a re-bank (first_at) and the arm reads that against the first delete; the arm’s NEG plant is a pattern over the bank, where the literal had gone inert (:20).
+  
+  **(answers) the answers pair and the answer check (`(R337)`(2), b725 event (4))** -- data/bNNN_author_answers.txt, .json and data/bNNN_answer_check.txt, the check’s own bank, stand outside the lock’s hash set and N4’s read, one list (tools/standing/act.py post_lock_appended), the lock gate printing it by name; b725’s event (4) replayed reads no refutation (:34).
+  
+  **b726’s events (1)-(16):**
+  
+  **(1)** 02:13:18Z, AT THE PRE-RUN, part act (relay data/b726_events.txt, row (1); the seat’s; CLOSE; REPEAT of b725 event (1); this act’s face writes the arm’s words).
+  **(2)** 02:13:18Z, AT THE PRE-RUN, part act (relay data/b726_events.txt, row (2); the seat’s; CLOSE; NEW; repair (actcur)).
+  **(3)** 02:13:18Z, AT THE PRE-RUN, part act (relay data/b726_events.txt, row (3); the seat’s; CLOSE; NEW; repair (branches)).
+  **(4)** 01:50:40Z, AT THE PRE-RUN, part standing-c (relay data/b726_events.txt, row (4); the seat’s; CLOSE; REPEAT of b725 (read rule)).
+  **(5)** 01:44Z, AT THE LOCK (relay data/b726_events.txt, row (5); the seat’s; CLOSE; NEW).
+  **(6)** 01:44:15Z, THE LOCK COMMIT 16c393b4 (relay data/b726_events.txt, row (6); the seat’s; CLOSE; NEW).
+  **(7)** 02:19:03Z, THE --prev RUN, part standing-a (relay data/b726_events.txt, row (7); the seat’s; CLOSE; REPEAT of (R334)(2)(i)).
+  **(8)** 02:5xZ, the check of the author’s answer (relay data/b726_events.txt, row (8); the seat’s; CLOSE; REPEAT of b725 event (6)).
+  **(9)** 02:59:50Z, THE ANSWER CHECK, BY A SEPARATE READ, THE AUTHOR’S WORD ("Option 1 (relay data/b726_events.txt, row (9); the seat’s; CLOSE; REPEAT of b725 event (4); repair (answers), the separate read standing until it landed).
+  **(10)** 02:59:50Z, THE AUTHOR’S RULINGS AT THE ROOT ON WHAT THIS ACT’S BANKS CARRY, entered and not applied (relay data/b726_events.txt, row (10); the seat’s; CLOSE; NEW).
+  **(11)** 02:5xZ, THE ROOT’S PROMPT, its fourth question (relay data/b726_events.txt, row (11); the seat’s; CLOSE; NEW).
+  **(12)** 03:34Z, read at the pre-push combine (relay data/b726_events.txt, row (12); the seat’s; CLOSE; NEW; the arms named in event (9) are not in the suite).
+  **(13)** 03:06Z-03:10Z, THE PRE-PUSH SUITE, part standing-a, first run (relay data/b726_events.txt, row (13); the seat’s; CLOSE; NEW).
+  **(14)** 03:06Z, THE PRE-PUSH SUITE, part standing-a (relay data/b726_events.txt, row (14); the seat’s; CLOSE; REPEAT of b725 event (7); the two plants still inert, carried).
+  **(15)** 03:06Z, THE PRE-PUSH SUITE (relay data/b726_events.txt, row (15); the seat’s; CLOSE; REPEAT of b725 event (6); the rule stands).
+  **(16)** 03:00Z, the answers bank’s head reads "(2026-10-30)" where the answers arrived at 2026-10-31T02:59Z; the route’s own … (relay data/b726_events.txt, row (16); the seat’s; CLOSE; NEW).
+  
+  **b726’s defects:**
+  
+  **(a)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of b725 (b)).
+  **(b)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of b725 (a)).
+  **(c)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of b725 (f)).
+  **(d)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(e)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of class (recursive grep, b565)).
+  **(g)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of b725 (a)).
+  **(i)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of b725 (e)).
+  **(k)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b726_defects.txt; the seat’s; CLOSE; REPEAT of class (recursive grep, b565)).
+  **(m)** (relay data/b726_defects.txt; the seat’s; CLAIM; NEW).
+  **(n)** (relay data/b726_defects.txt; the seat’s; CLAIM; NEW).
+  **(o)** (relay data/b726_defects.txt; the seat’s; CLAIM; NEW).
+  **(p)** (relay data/b726_defects.txt; the seat’s; CLAIM; NEW).
+  **(q)** (relay data/b726_defects.txt; the seat’s; CLAIM; NEW).
+  **(r)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b726_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b726’s refusals** (relay data/b726_hook_refusals.txt at 9fac0a1d, one a line): :1 PIPE 23:32:19Z, recorded at defect (c); :2 PIPE 02:19:03Z, recorded at event (7).
+  
+  **The counter:** CLAIM 5, CLOSE 33 over the 38 items (sixteen events, twenty-two defects), as b726’s closing prints it (relay data/b726_closing.txt :5); REPEAT 14 of 38; the CLAIM items (m), (n), (o), (p), (q).
+  
+  *Filed at b727 on the author’s ruling `(R337)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b727.py) from b726’s events, defects and refusal banks read unedited, and the v1.7.0 controls bank; banked as relay `data/b727_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (47). It answers b726’s record; no sealed tool, face, trail or root-named bank of b726 is edited.*
+
+### ### **ITEMS 38: EVENTS 16, DEFECTS 22 ; CLAIM 5, CLOSE 33 ; REPEAT 14 ; DATED NOTES 0 ; v1.7.0: G-ACT-CURRENT, G-BRANCHES-BANKED, THE ANSWERS PAIR ; THE ENTRY AT FINDINGS :11913.**

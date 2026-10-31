@@ -82,15 +82,38 @@ def added(diff):
     return NL.join(l[1:] for l in diff.split(NL) if l.startswith('+') and not l.startswith('+++'))
 
 
+SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', 'fcecc45'), ('D:/SIDE-frobenius', 'SIDE-frobenius', '2efe9f2'),
+                 ('D:/SIDE-spinor', 'SIDE-spinor', '7e570ee'), ('D:/SIDE-rcurve', 'SIDE-rcurve', '54c9040'),
+                 ('D:/SIDE-cosmo', 'SIDE-cosmo', 'ca04c8c'), ('D:/SIDE-kernel', 'SIDE-kernel', '70aba3c'),
+                 ('D:/SIDE-lv-conservation', 'SIDE-lv-conservation', 'd38f3e8'))   # ### b727, (R337)(3): the seven repositories the sitting writes, at their heads before it
+BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b727, (R337)(3) and (5): item [46]'s byline and two self-citations, under I-23
+BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
+BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
+
+
+def split_byline(diff):
+    """### b727: the diff less BYLINE_FILE's section, and that section's added lines."""
+    rest, by = [], []
+    for sec in ('\n' + diff).split('\ndiff --git '):
+        (by if sec.split(NL, 1)[0].endswith('/' + BYLINE_FILE) else rest).append(sec)
+    return '\ndiff --git '.join(rest), added(NL.join(by))
+
+
 def places():
     """(kind, label, text): the new text the act wrote, by place."""
     out = []
-    for repo, name, pre in ((ROOT, 'relay', K.PRE_RELAY), (PP, 'PLACE-papers', K.PRE_PP)):
+    for repo, name, pre in ((ROOT, 'relay', K.PRE_RELAY), (PP, 'PLACE-papers', K.PRE_PP)) + tuple((r, n, p) for r, n, p in SITTING_REPOS):
         for h in [x for x in git(repo, 'rev-list', '--reverse', '%s..HEAD' % pre).split(NL) if x.strip()]:
             out.append(('commit fields', '%s %s' % (name, h[:8]), git(repo, 'log', '-1', '--format=%an%n%ae%n%cn%n%ce', h)))
             out.append(('commit message', '%s %s' % (name, h[:8]), git(repo, 'log', '-1', '--format=%B', h)))
-            out.append(('commit added lines', '%s %s' % (name, h[:8]), added(git(repo, 'show', '--format=', '--no-color', '--no-ext-diff', h))))
-        out.append(('working tree added lines', name, added(git(repo, 'diff', '--no-color', '--no-ext-diff', 'HEAD'))))
+            rest, by = split_byline(git(repo, 'show', '--format=', '--no-color', '--no-ext-diff', h))
+            out.append(('commit added lines', '%s %s' % (name, h[:8]), added(rest)))
+            if by:
+                out.append((BYLINE_KIND, '%s %s' % (name, h[:8]), by))
+        rest, by = split_byline(git(repo, 'diff', '--no-color', '--no-ext-diff', 'HEAD'))
+        out.append(('working tree added lines', name, added(rest)))
+        if by:
+            out.append((BYLINE_KIND, name + ' working tree', by))
     tracked = set(git(ROOT, 'ls-files', '--', 'data/').split(NL))
     for f in sorted(os.listdir(D)):
         p = 'data/' + f
@@ -120,9 +143,13 @@ def scan(*a):
         sys.exit('### A CONTROL NOT AS WANTED -- NOTHING COUNTED')
     P = places()
     by = {}
+    exc = []
     na = nn = nu = 0
     for kind, label, text in P:
         x, y, z = count(text, addr), count(text, name), count(text, uname)
+        if kind == BYLINE_KIND and x == 0 and y <= BYLINE_MAX and z <= BYLINE_MAX:   # ### b727: named in the bank, not counted; beyond this it counts
+            exc.append('  %s: %s: address %d ; name %d ; previous user.name %d (at most %d)' % (kind, label, x, y, z, BYLINE_MAX))
+            continue
         na, nn, nu = na + x, nn + y, nu + z
         k = by.setdefault(kind, [0, 0, 0, 0])
         k[0] += 1
@@ -131,8 +158,9 @@ def scan(*a):
         k[3] += z
     L += ['', '## THE PLACES READ, BY KIND (places ; address ; name ; previous user.name)']
     L += ['  %-28s %4d ; %d ; %d ; %d' % (k, v[0], v[1], v[2], v[3]) for k, v in sorted(by.items())]
-    hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if count(text, addr) or count(text, name) or count(text, uname)))
+    hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if kind != BYLINE_KIND and (count(text, addr) or count(text, name) or count(text, uname))))
     L += ['', '## THE PLACES WITH AN OCCURRENCE (by place, never the text): %s' % ('; '.join(hits) if hits else 'NONE')]
+    L += ['', '## THE EXCEPTION OF (R337)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, '',
           '### ### **PREVIOUS ADDRESS: %d ; THE AUTHOR`S NAME: %d ; PREVIOUS NAME: %d ; PLACES %d ; CONTROLS %d OF %d AS WANTED ; %d s.**' % (
               na, nn, nu, len(P), len(ctl), len(ctl), int(time.time() - t0))]

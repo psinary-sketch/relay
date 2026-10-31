@@ -44,10 +44,10 @@ CITATION_BANK = 'b727_citation_check.txt'
 
 # ### the ledger lines of the previous act (the carried tools' B711_* names read the previous act's lines)
 B711_ENTRY = 11867          # ### FINDINGS: b726's entry head (PLACE-papers 9f07bc70)
-B711_WEIGHT = 11681         # ### FINDINGS: b724's weight line (b726's Component 1)
-B711_CORRIGENDUM = 11683    # ### FINDINGS: b726's corrigendum for b724
+B711_WEIGHT = 11797         # ### FINDINGS: b724's weight line (b726's Component 1)
+B711_CORRIGENDUM = 11801    # ### FINDINGS: b726's corrigendum for b724
 B718_CLASSES = 10847        # ### FINDINGS: b718's CLOSE classes line (carried name, unmoved)
-B711_TRAIL = 16581          # ### OPEN_TRAILS: b726's trail record (PLACE-papers 06af23f0)
+B711_TRAIL = 16669          # ### OPEN_TRAILS: b726's trail record (PLACE-papers 06af23f0)
 B711_FACE = 'data/b726_registration_2026-10-30.txt'
 MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-10-30-b726.zip'   # ### b726's export, built after b726's last PLACE-papers push, CLEAN 3/3
 ORDER_LV_JOIN = 15452       # ### OPEN_TRAILS: W-ORD-LV-CLOSURE-JOIN (b702)
@@ -242,10 +242,10 @@ STANDING_VERSION = 'v1.6.0'             # ### (R337)(2)(iii)'s repairs landed v1
 STANDING_CHANGED = ()                   # ### the standing files (R337)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b726's commits the act reads (the names kept for the carried arms: the previous act's)
-B714_CLOSING = 'e2246a8e'    # ### b726's closing, the act's relay base
-B714_RECORD = '14593dda'     # ### b726's record commit (relay, the head line's)
-B714_ROOT = 'd85513caeb001601649df5f7a5cf4b634e3db0c6a8d65db87be0ddac99a73d97'   # ### b726's root, data/act_roots.txt :104
-B723_ROOT_BANKS = '34fee845'  # ### b726's root commit (step 37), the banks its root rode with
+B714_CLOSING = '9fac0a1d'    # ### b726's closing, the act's relay base
+B714_RECORD = '3dd8f806'     # ### b726's record commit (relay, the head line's)
+B714_ROOT = '720308d8bd702563b284c7e5d7061639dff30b777f5aa9204a7bf9590a8325b2'   # ### b726's root, data/act_roots.txt :106
+B723_ROOT_BANKS = '9a2a2093'  # ### b726's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '0dc805b2'                # ### (R337)(2)(iii): tools/standing/ v1.6.0
 C1_STANDING_REPAIR = None
