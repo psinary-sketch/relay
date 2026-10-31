@@ -389,8 +389,8 @@ def runner_ok(S):
 # ### b727, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b727's orders are (R337)(10)'s six,
 # ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output
 #⟪OVERRIDE closing 394 395⟫
-    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-SILENT-SENTENCES DISCHARGED by (R337)(5)`s list, W-ORD-MECHANISM-TABLE',
-    '        left OPEN for its fourth row, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
+    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-CHAIN-PAGE-LLM-LINE entered by (R337)(3) [34]-[35],',
+    '        W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
 #⟪END⟫
 # ### b727, Component 7 (the Edit tool), the v1.3.0 fold defect's third instance: the regspec and reg_gate templates name the face by
 # ### b726's date (2026-10-28) where the record and checks templates read the worklist's DATE; the face named by K.DATE in both
@@ -419,14 +419,14 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_FIGURE_BANKS' in n and '_first_add(' in n \
         and "_onset_mass_control.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
-# ### b727, Component 7 (the Edit tool): G-DELETES-ONE-BRANCH read the kept branch in b726's ruling's form "port-b707 kept;", where (R337)(9)
-# ### writes "kept: port-b707, …" (data/b727_ferry.txt :34), so the arm failed on the act's real deletes; both forms read as written
+# ### b727, Component 3 (the Edit tool): G-DELETES-ONE-BRANCH read the kept branch in b726's ruling's form; (R337)(5) writes "; kept as banked." naming no branch
+# ### (data/b727_ferry.txt :22), so the arm failed on the act's real deletes; read as written, port-b707 still out of the deletes (defect (u))
 #⟪OVERRIDE checks 766 769 REPAIR (needle)⟫
-    # ### (R336)(9) wrote "port-b707 kept;" and (R337)(9) writes "kept: port-b707, …"; allow.py's NOT-deleted reader takes neither; each read as written
+    # ### (R336)(9) wrote "port-b707 kept;" and (R337)(5) writes "; kept as banked."; allow.py's NOT-deleted reader takes neither; each read as written
     return bool(shapes) and all(len(d) == 1 and not gl and not vs and not c for (d, gl, vs), c in shapes) \
         and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
         and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
-             or bool(re.search(r'\bkept: [^.;]*\b%s\b' % re.escape(K.PORT_BRANCH), S['ferry']))) \
+             or '; kept as banked.' in S['ferry']) \
 #⟪END⟫
 # ### b727, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b727_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
@@ -439,12 +439,12 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 def differs_errata_ok(S):
     """(R337)(4): one ERRATA entry, naming the sitting -- ERRATA.md at HEAD its blob at the act's base with the entry appended and nothing before it changed, the id once at its line; no
     DIFFERS entry; the weight line and the corrigendum at FINDINGS in Component 1's PLACE-papers commit, FINDINGS the one file there."""
-    now, pre = S['errata_pp_now'] or '', S['errata_pp_pre'] or ''
+    now, pre = (S['errata_pp_now'] or b'').decode('utf-8'), (S['errata_pp_pre'] or b'').decode('utf-8')
     return bool(pre) and now.startswith(pre.rstrip(NL)) and now.count('## %s ' % K.ERRATA_ID) == 1 and not S['differs'] and K.DIFFERS_LINE is None \
         and now.split(NL)[K.ERRATA_LINE - 1].startswith('## %s ' % K.ERRATA_ID) and S['files']['c1pp'] == ['FINDINGS.md'] and 'weight' in fline(S, K.WEIGHT_LINE).lower()
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrst'))   # ### (a)-(t), entered before the lock, every one the seat's (data/b727_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### (a)-(u), entered before the lock, every one the seat's (data/b727_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b727_corrigendum.txt', 'data/b727_standing_v170.txt', 'data/b727_sitting.txt', 'data/b727_sitting.json',
