@@ -1,5 +1,5 @@
 {
- "at": "2026-10-31T01:36:38Z",
+ "at": "2026-10-31T01:43:28Z",
  "anchor": "RULING (R336) BEGIN",
  "rows": [
   {
@@ -2552,6 +2552,206 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/b726_address_scan.py scan --bank",
    "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:47.772Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add -- data/b726_registration_2026-10-30.txt tools/b726_face.py tools/b726_face_blocks.txt tools/b726_worklist.py tools/acts/b726.py data/b726_defects.txt data/b726_touch.txt data/b726_address_scan.txt data/b726_commands.json data/b726_commands.txt data/b726_read_calls.json data/b726_read_calls.txt data/b726_probe_standing-a_standing-a.txt data/b726_probe_standing-a_standing-a.json data/b726_probe2_standing-a.txt data/b726_probe2_standing-a.json data/b726_probe3_standing-b3.txt data/b726_probe3_standing-b3.json data/b726_steps.json data/b726_bank_hashes.json data/b726_hook_refusals.txt",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:50.693Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b726 gate: the face, its composer, the probes, the command and read banks, the touch read, defects (a)-(v)\"",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:53.795Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 2cc01d85",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:54.590Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:55.336Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:36:56.020Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:32.884Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b726_face.py",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:38.583Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add -- data/b726_registration_2026-10-30.txt tools/b726_face_blocks.txt tools/acts/b726.py data/b726_steps.json data/b726_bank_hashes.json",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:41.755Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b726 gate: the write list names b725's refusals bank, N3 scored as the ferry writes it\"",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:44.521Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 4d56d274",
+   "n": 329,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:45.271Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 330,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:46.023Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 331,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:38:46.700Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 332,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:40:47.224Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b726_face.py",
+   "n": 333,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:40:47.964Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record findings dry",
+   "n": 334,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:40:57.847Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add -- data/b726_registration_2026-10-30.txt tools/b726_face_blocks.txt tools/acts/b726.py data/b726_steps.json data/b726_bank_hashes.json data/b726_reg_gate.txt",
+   "n": 335,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:02.580Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b726 gate: the face declares its side, the C2 paragraph's tip out of the table's name form, the head sentence's order\"",
+   "n": 336,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:05.654Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" ec8ad3d4",
+   "n": 337,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:06.405Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 338,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:07.252Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 339,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:08.007Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:41:08.755Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:43:08.103Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py regspec",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:43:18.640Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/reg_satisfiable.py data/b726_satisfiable.json --emit b726",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T01:43:22.755Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 344,
    "bg": false
   }
  ],
