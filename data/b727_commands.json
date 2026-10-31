@@ -1,5 +1,5 @@
 {
- "at": "2026-10-31T05:09:54Z",
+ "at": "2026-10-31T05:17:48Z",
  "anchor": "RULING (R337) BEGIN",
  "rows": [
   {
@@ -1176,6 +1176,118 @@
    "src": "seat",
    "cmd": "cd /d/relay && python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/apply727d.py\" && python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py record kernels && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/standing/fold.py record reads && python -X utf8 -u tools/b727_address_scan.py scan --bank",
    "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:10:06.925Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b727_*\" \"tools/b727_*\" tools/acts/b727.py",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:10:10.599Z",
+   "src": "seat",
+   "cmd": "git add -- data/b727_address_scan.txt data/b727_bank_hashes.json data/b727_steps.json tools/acts/b727.py tools/b727_worklist.py data/b727_commands.json data/b727_commands.txt data/b727_defects.txt data/b727_guard_dry.json data/b727_guard_dry.txt data/b727_kernels_face.json data/b727_read_calls.json data/b727_read_calls.txt data/b727_registration_2026-10-31.txt data/b727_standing_figures.json data/b727_standing_figures.txt data/b727_touch.txt tools/b727_face.py tools/b727_face_blocks.txt",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:10:14.320Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b727 component 3: the act module and worklist over the sitting's objects, the face's composer, the figures, the kernels face, the guard's dry run, the touch read, the defects (a)-(t)\" && git rev-parse --short=8 HEAD && git rev-parse HEAD",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:10:19.298Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" 60606147 && python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py\" && python -X utf8 -u tools/standing/fold.py checks --mid b727_probe.txt --part act",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:12:36.912Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/del727.py\"",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:13:16.086Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/apply727e.py\" && python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py closing dry && python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:14:39.898Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5727.py\"",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:14:48.272Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -n 3 9fac0a1d..HEAD -- tools/b378_lockgate.py && git diff --stat 9fac0a1d HEAD -- tools/b378_lockgate.py",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:15:01.990Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/apply727f.py\" && python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/b727_address_scan.py scan --bank && python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:15:32.573Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5727.py\" && git status --short -- \"data/b727_*\" \"tools/b727_*\" tools/acts/b727.py",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:15:37.636Z",
+   "src": "seat",
+   "cmd": "git add -- data/b727_address_scan.txt data/b727_defects.txt data/b727_registration_2026-10-31.txt data/b727_steps.json tools/acts/b727.py tools/b727_face_blocks.txt data/b727_closing_dry.txt data/b727_exercise_act.json data/b727_probe_act.json data/b727_probe_act.txt data/b727_root_banks_dry.json data/b727_root_banks_dry.txt data/b727_scores_dry.txt",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:15:40.860Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b727 gate: the face, the probe, the dry runs of the root route, the closing and the scores, defect (u), the lock gate named in the write list\" && git rev-parse --short=8 HEAD",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:15:44.274Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" b0b74b4e && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:16:52.220Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 161,
    "bg": false
   }
  ],
