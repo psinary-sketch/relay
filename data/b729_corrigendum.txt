@@ -1,0 +1,76 @@
+b729 -- THE CORRIGENDUM FOR b728, (R339)(1)-(2) (2026-10-31T22:24:55Z)
+
+### the banks read unedited: data/b728_events.txt rows (1)-(13), data/b728_defects.txt 25 rows, data/b728_hook_refusals.txt 9 lines at 0650a188; data/b729_standing_v190.txt (the v1.9.0 controls); the corrigenda bank`s last row (48).
+
+  *b728’s events bank (relay data/b728_events.txt) carries thirteen rows, entered after its lock and not lettered, each tagged in its own bracket (9 the seat’s, 3 the author’s word, 1 the tool’s); its defects bank twenty-five lettered rows, (a)-(y), each tagged in its own bracket (25 the seat’s); its refusal bank nine lines at b728’s closing commit 0650a188, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  
+  **The repairs of `(R339)`(2), at tools/standing/ v1.9.0, each with a control on b728’s banks, failing on the route before the repair and passing after, both instances printed** (relay data/b729_standing_v190.txt, 33 cases, AS WANTED 33):
+  
+  **(redir) the REDIR class (`(R339)`(2)(i), event (2), defects (h), (k))** -- the hook reaches a redirect inside an inner shell’s quoted argument and the redirect-by-cmdlet forms; the banked REDIR rows replayed and refused, a planted clean command passed. The citation missed: `> $null` stands in no bank, every banked form was refused when it ran, and nothing slipped past (relay data/b729_stepzero.txt :22-:26) (:5).
+  
+  **(reportdry) report dry before the lock (`(R339)`(2)(ii), event (6))** -- the registration gate reads the rendered report tool at step [5a], and the seal refuses where its bank is absent or failing; b728’s sk fails it (:57).
+  
+  **(required) the required list (`(R339)`(2)(iii), event (9))** -- REQUIRED_BANKS read against what the root route can list; data/b726_mechanisms.txt refused as an unlistable name (:72).
+  
+  **(plants) the two plants (`(R339)`(2)(iv), event (12))** -- G-SEAL-HASHES’ plant fails and G-TRAIL-CARRIES-SEAL’s mutates, each replayed over b728’s state (:81).
+  
+  **(scanback) the scan written back (`(R339)`(2)(v))** -- a post-lock scan writes its own bank, outside the locked set; b728’s bank was last written before its lock, the closing’s foot reproduced in the bank form (:94).
+  
+  **(n5count) N5’s count (`(R339)`(2)(vi), event (4))** -- the count of README writes derived from the (W) list; b728’s three read as three (:103).
+  
+  **(nouns) counts and nouns from the banks (`(R339)`(2)(vii), events (3), (5))** -- a typed count or object noun that differs from its bank halts the citation check; “theorem” against data/b728_c2.txt halts, and seven against the table’s six (:112).
+  
+  **(promptonce) the prompt-once clause (`(R339)`(2)(viii), event (6))** -- a halt after the root that needs the author’s word counts as a prompt in the head line; b728’s three read as three (:124).
+  
+  **b728’s events (1)-(13):**
+  
+  **(1)** the run of standing-a on b727’s banks went in the background, against the face’s foreground clause for suite parts. Its … (relay data/b728_events.txt, row (1); the seat’s; CLOSE; NEW).
+  **(2)** a command carrying a redirect was refused by the hook (data/b728\_hook\_refusals.txt :9). Nothing ran. The class is the … (relay data/b728_events.txt, row (2); the seat’s; CLOSE; REPEAT of b726 (a); repair (redir)).
+  **(3)** the three DIFFERS rows of data/b728\_touch.txt (:23, :30, :31) stand as events by the author’s word, option 2. (7) the … (relay data/b728_events.txt, row (3); the author’s word; CLOSE; NEW; repair (nouns); the title stands with its dated note).
+  **(4)** (14) (2)(viii) ordered three README writes and (9) and N5 said one; the three stand, N5’s clause read as three for this … (relay data/b728_events.txt, row (4); the author’s word; CLOSE; NEW; repair (n5count)).
+  **(5)** (15) (R338)(3) said seven banked onsets; the banks hold six, off52 a bound and off44 carried; the words corrected by … (relay data/b728_events.txt, row (5); the author’s word; CLOSE; NEW; repair (nouns)).
+  **(6)** ’report bank’ crashed with NameError on sk (tools/standing/fold/report.tpl :75; b728’s report section, … (relay data/b728_events.txt, row (6); the seat’s; CLOSE; NEW; repairs (reportdry), (promptonce)).
+  **(7)** the halt’s prompt said G-REPORT-UNSEALED would fail at 7 of 8 lines, and the author’s word repeated it. That arm is … (relay data/b728_events.txt, row (7); the seat’s; CLAIM; NEW).
+  **(8)** the first ’record root’ refused, READY False, BANKS 95, CLEAN 94: data/b728\_close\_dry.txt, a named bank, was left out … (relay data/b728_events.txt, row (8); the seat’s; CLOSE; NEW).
+  **(9)** G-ACTROOT-BANKED fails, pre-push and post-push, and could never pass: REQUIRED\_BANKS (tools/acts/b728.py :453) names … (relay data/b728_events.txt, row (9); the seat’s; CLOSE; NEW; repair (required)).
+  **(10)** plain standing-a ran before the step row of 90d7af67 existed and read G-SEALED-AFTER-COMPONENTS failing; the row … (relay data/b728_events.txt, row (10); the seat’s; CLOSE; NEW).
+  **(11)** that re-run of standing-a went in the background, the second background part after event (1), noticed at once. It was … (relay data/b728_events.txt, row (11); the seat’s; CLOSE; REPEAT of b728 event (1)).
+  **(12)** G-SEAL-HASHES’s plant passes (POSITIVE-CONTROL PASSES 1) and G-TRAIL-CARRIES-SEAL’s plant mutates nothing (VACUOUS 1), … (relay data/b728_events.txt, row (12); the tool’s; CLOSE; NEW; repair (plants)).
+  **(13)** standing-c prints "G-READ-RULE-STANDING’S READING ... FAIL ; rows 0" with data/b728\_read\_calls.txt; that arm is retired … (relay data/b728_events.txt, row (13); the seat’s; CLAIM; NEW; traced at this act: tools/standing/fold/checks.tpl :2108 prints a retired arm’s reading, drives no verdict, and stands outside (R339)(2); carried).
+  
+  **b728’s defects:**
+  
+  **(a)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of b727 (a)).
+  **(b)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(c)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(e)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(f)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(g)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(h)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of b727 (p)).
+  **(i)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(k)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of b727 (p)).
+  **(l)** (relay data/b728_defects.txt; the seat’s; CLAIM; NEW).
+  **(m)** (relay data/b728_defects.txt; the seat’s; CLOSE; REPEAT of class (tolerance finer than the rounding)).
+  **(n)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(o)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(r)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b728_defects.txt; the seat’s; CLAIM; NEW).
+  **(u)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(w)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(x)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  **(y)** (relay data/b728_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b728’s refusals** (relay data/b728_hook_refusals.txt at 0650a188, one a line): :1 PIPE 15:47:32Z, recorded at defect (b); :2 READ 15:51:01Z, recorded at defect (e); :3 READ 15:51:04Z, recorded at defect (f); :4 PIPE 15:51:39Z, recorded at defect (g); :5 REDIR 16:25:21Z, recorded at defect (h); :6 ENV 16:32:47Z, recorded at defect (i); :7 READ 16:43:32Z, recorded at defect (j); :8 REDIR 16:45:43Z, recorded at defect (k); :9 REDIR 19:15:06Z, recorded at event (2).
+  
+  **The counter:** CLAIM 4, CLOSE 34 over the 38 items (thirteen events, twenty-five defects), as b728’s closing prints it (relay data/b728_closing.txt :5); REPEAT 11 of 38; the CLAIM items (7), (13), (l), (t).
+  
+  *Filed at b729 on the author’s ruling `(R339)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b729.py) from b728’s events, defects and refusal banks read unedited, and the v1.9.0 controls bank; banked as relay `data/b729_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (49). It answers b728’s record; no sealed tool, face, trail or root-named bank of b728 is edited.*
+
+### ### **ITEMS 38: EVENTS 13, DEFECTS 25 ; CLAIM 4, CLOSE 34 ; REPEAT 11 ; DATED NOTES 0 ; v1.9.0: THE REDIR CLASS, REPORT DRY, THE REQUIRED LIST, THE PLANTS, THE SCAN, N5`S COUNT, THE NOUNS, THE PROMPT-ONCE CLAUSE ; THE ENTRY AT FINDINGS :12143.**
