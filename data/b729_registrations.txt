@@ -1,0 +1,33 @@
+b729 -- REGISTRATIONS, (R339)(7) AND (R339)(2)(ix): H-ONSET-C, COMMITTED ALONE BEFORE ANY FIGURE OF THIS ACT AT off44 OR off24
+
+## H-ONSET-C, THE ONSET CANDIDATE, FITTED AND SAID SO
+STATEMENT (the ruling's). At an off-line zero rho = beta + i gamma of Q0, on b707's template family at the zero's frequency, the onset radius a* satisfies
+  (beta - 1/2) a* = alpha + kappa log(M_C / (P + A)_C),
+  alpha and kappa fitted by least squares on the five computed onsets of data/b728_onset_table.txt :30-:34.
+THE FIT, POST HOC (data/b729_onset_fit.txt, tools/b729_onset_fit.py `fit`): alpha 4.464839662, kappa 0.607144077.
+  Residuals in y, and as a share of a*: rho0 +0.046035, +1.49% ; band -0.039874, -1.29% ; off12 -0.140677, -3.64% ; off18 +0.104923, +2.51% ; off27 +0.029592, +0.73%.
+  The left-out rows' misses: +3.35%, -2.32%, -5.01%, +4.12%, +1.09%. Five points, two clusters in x (rho0 and band near -2.3; the three others near -0.7); these tested nothing.
+  The rule below at the five, POST HOC, deciding nothing (same bank): a*/a*_pred - 1 at rho0 +0.91%, band -0.76%, off12 -3.48%, off18 +2.54%, off27 +0.72%.
+THE EXACT READING, FIXED BY tools/b729_onset_fit.py's head at the commit before this one:
+  THE WINDOW. b707's C window at gamma_0 = the list's gamma (b725's window_at, imported unedited).
+  M_C = the sum over the rows named on, at +t and -t, of khat(t).real (b728's corrected mass, 547 rows); b725's sum, which took 69 reflections as on-line, is not used.
+  (P + A)_C = khat(i/2) + khat(-i/2) + b725's arch, as terms709 builds them.
+  d(a) = (beta - 1/2) a - alpha - kappa log(M_C(a) / (P + A)_C(a)), undefined where the log's argument is not certified positive.
+  a*_pred. Read at the ladder's rungs (log 2, 32, 48, 64, 96, 128, 192), and at 256 and 384 above the ladder where d < 0 at 192: the least rung with d >= 0 whose left neighbour reads d < 0, then bisection
+    on the midpoints to 1e-6 in a. d >= 0 at the foot, an undefined left neighbour, or no rung to 384 carrying d >= 0: no a*_pred, the row printed so, and the row is NOT SCORABLE.
+  THE ONSET a*. By b707's route on b709's fine grid as tools/b725_onset_mass.py `run` computes it, the zeta form positive at every point first, imported unedited, b725's C1 read first.
+THE TEST ZEROS, (R339)(2)(ix): off44 (beta 0.9101856764, gamma 309.811057) and off24 (beta 0.9060417757, gamma 201.280153), CARRIED FROM b725 and named here as carried. Neither was chosen by this registration, and neither
+  is blind in everything: data/b725_onset_mass.txt :16 and :19 bank both ladders. off24 is known bracketed in (128, 192], a in (9.704061, 10.514991]; off44 is known positive to 2 log 192. Their M_C and (P + A)_C were read
+  by no act, so the prediction is new where the brackets are not. off18, b725's third test zero, is among the five fitted here and tests nothing.
+THE SHARE OF THE TEST THE BRACKET ALREADY DECIDES, printed with the predictions: off24's bracket is about 8% of its own a wide, the tolerance window 10%. A window covering the bracket cannot fire; the predictions bank prints how
+  much of the bracket lies outside the window, and a HELD at off24 reads at that weight.
+FALSIFIER (the ruling's). |a* / a*_pred - 1| > 0.05 at either zero.
+A BOUND, THE SEAT'S READING, FIXED HERE AND REFINING data/b729_stepzero.txt :27-:28. Where a zero has no computed onset and its banked or computed lower bound a_- on a* has a_- / a*_pred - 1 > 0.05, every onset above the bound is beyond
+  the tolerance, so the falsifier's words hold, and the row reads REFUTED BY THE BOUND. The ruling's falsifier has no "computed", b725's had; the stepzero bank wrote "NOT SCORABLE" for this case, which would have let a satisfied
+  falsifier pass unread. Where the bound lies within the tolerance the row stays a bound, NOT SCORABLE, and never reads as a confirmation.
+THE VERDICT. HELD: an onset computed at both zeros, each within 0.05; "HELD at 2", two points and not a law. REFUTED: the falsifier at either, computed or by the bound. CARRIED: neither, with what remains and its price.
+  One zero within 0.05 and the other not reached reads CARRIED, HELD AT ONE, and no sentence reads it as held.
+SCOPE (the ruling's). Fitted on five, tested on two; a HELD is two points, not a law.
+PRICE. From b725's timing, data/b725_onset_mass.txt :14: 25610 unit-seconds at off18, 1.8-3.6 h over 4 workers at off24. Above 192, the rung 256 first, 0.5-1 h; its onset 2-4 h if the rung reads negative at all. Stoppable between the two.
+THE ORDER. The fit and its residuals (above); this registration, committed alone; the predictions by a commit of their own; then the onsets, off24 first, the order printed by ancestry.
+THE ORDER IT SERVES. (R339)(7); the price data/b729_stepzero.txt :51-:52.
