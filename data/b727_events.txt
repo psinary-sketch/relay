@@ -1,0 +1,87 @@
+b727 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay ebd69756, locked 2026-10-31 05:26Z), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for b728's corrigendum. A finding after the lock takes no letter in data/b727_defects.txt; no locked bank is rewritten ((R332)(1)). Each row carries its time, read from the clock, from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone. The author's words are quoted from data/b727_author_answers.txt (transcript lines 9272 and 9407) and data/b727_author_words_preseal.txt.
+
+BEFORE THE SEAL (the lock passed, the seal refused at relay 56249341):
+    (1) THE SEAT'S [CLOSE ; REPEAT b722 event (8)]: AFTER 06:33:09Z, AT THE SEAL: close.py seal REFUSED, G-RUNNER-GATE's mutated copy passed (POS 1 at
+     56249341). The plant set free_mb on the rows of rebuild_rows; this act has no dispatch (N1), the list is empty, the plant changed nothing, and an arm
+     whose plant can mutate nothing passes its positive control. THE AUTHOR'S WORD, A (11:29:05Z): "A, the one plant line in tools/acts/b727.py, its diff
+     entered as an event naming b722's as its REPEAT; N4 printed REFUTED on it, unreworded." REPAIRED by the Edit tool after the lock, before the seal, at
+     relay 750fb0d9 (11:33:55Z), the predicate unchanged. The line replaced, tools/standing/fold/checks.tpl :1692:
+     -     lambda S: gate_ok(S), lambda S: put(S, 'rebuild_rows', [dict(r, free_mb=100) for r in (S['rebuild_rows'] or [])])),
+     The diff (git diff 56249341 750fb0d9 -- tools/acts/b727.py, index c66746fa..a31b1341):
+     +# ### b727, after the lock, by the author's word (data/b727_author_words_preseal.txt): the carried plant set free_mb on rows this act has none of,
+     +# ### and the seal refused; N4 reads REFUTED on this line
+     +#⟪OVERRIDE checks 1692 1692⟫
+     +     lambda S: gate_ok(S), lambda S: put(S, 'rebuild_rows', [dict(kind='dispatch', kernel='SIDE-kernel', free_mb=100)])),
+     +#⟪END⟫
+     N4 reads REFUTED on this edit, its wording unchanged. The class goes to b728's corrigendum, the author's word: "a positive control whose plant finds
+     nothing to mutate (here rebuild_rows empty in an act with no dispatch) prints VACUOUS, and the seal reads VACUOUS as neither a pass nor a failure of the
+     arm; the control replays b727's state and reads VACUOUS where it read PASS."
+    (2) THE SEAT'S [CLOSE ; NEW]: 06:33:09Z, AT THE SEAL: close.py dry was not run straight after the pre-run's combine, as b721's rule says; the seal itself
+     found the refusal. The dry ran at 11:33:57Z, after the repair of event (1). Repair named by the author, (e): "close.py dry after the combine made a step
+     of the close order, printed by closeorder."
+
+THE SITTING'S CLAIMS, READ AFTER THE LOCK:
+    (3) THE NAVIGATOR'S [CLAIM ; NEW]: tools/b727_sitting.py :399 called Zenodo's actions/publish seven times, once each for [13]-[19], before the lock; each
+     saved an in-place metadata edit on a published record (Zenodo's edit-then-publish route for metadata). The read-backs (data/b727_sitting.txt) show the
+     same record, DOI, version and files for all seven. The sentence "publish not called", (R337)(6), and the locked face's and the closing's "publish never
+     called" (data/b727_registration_2026-10-31.txt :339) are false read literally and true in the sense the ruling gave them: no deposit, no new version,
+     the v5 draft unpublished. The author's word: "The imprecision is the navigator's: (R337)(3) ordered 'one metadata edit at Zenodo' without naming the
+     endpoint it runs through." N5 scores on the read-backs, naming them. G-PUBLISH-UNCALLED stays failing this act. From b728 the clause reads "no deposit,
+     no new version, no draft published; metadata edits on published records are permitted where a ruling names them by record", and the arm reads the
+     deposit route alone, with a control that the seven b727 calls read as metadata edits and a planted new-version call reads as a publish.
+    (4) THE SEAT'S [CLOSE ; NEW]: AT THE PRE-RUN, G-NOTHING-RAN-AHEAD fails LIVE on real state: PLACE-papers commits for [24]-[30], seven (4d976ef9, 9f83d1cf,
+     42f2dd65, f08c839f, 6ea30518, f224ae19, c76b228a), ran before the face's first commit, and the face names them by no hash, though the sitting bank
+     carries them. Repair named by the author, (a): "the face's form gains a field listing by hash the commits a sitting act makes before its face, the arm
+     reading that field; control, b727's seven read as declared, a planted eighth read as ran ahead."
+    (5) THE SEAT'S [CLOSE ; NEW]: AT THE PRE-RUN, G-READFIRST-CITED fails LIVE on real state: data/b727_readfirst.txt lacks the section title "THE ACT'S OWN
+     BEYOND THE LIST". Repair named by the author, (b): "the readfirst bank written by the tool with its section titles fixed; control, b727's regenerated
+     bank carries the title."
+    (6) THE SEAT'S [CLOSE ; REPEAT b725 event (5)]: AT THE PRE-RUN, G-CLOSING-SENTENCE fails LIVE. The arm is b725's; the cause differs: the seat's rewrite of
+     the closing sections dropped "plain requests to github.com". Repair named by the author, (c): "the closing's sentences composed from the face's clauses,
+     not rewritten by hand; control, b727's dropped phrase present on regeneration."
+    (7) THE SEAT'S [CLOSE ; NEW]: 05:56:02Z, G-RULE-REMOTE-REREAD fails: a diagnostic of event (9) chained four ls-remote reads in one command. The reading
+     stands at every run. Repair named by the author, (d): "one remote read per command, enforced by the hook as pipes are; control, b727's chained
+     diagnostic refused on replay."
+    (8) THE SEAT'S [CLOSE ; NEW]: 11:33:49Z, RELAY 750fb0d9'S STAGING: two git adds chained in one message, against one git write per message. G-RULE-ONE-GIT-WRITE
+     passes, read 39, none flagged (data/b727_checks_postpush_standing-a.txt): the arm did not see it. Why it did not is not traced in this act; to b728 with
+     repair (d).
+
+THE EMPTY REMOTE READS:
+    (9) THE SEAT'S [CLOSE ; NEW]: 05:55:43Z, THE PRE-RUN'S standing-b3: every remote read returned empty, the chain read DISAGREE from b659 on. A direct read
+     returned at once; the part re-run alone read 68 rows AGREE. Not a state of the chain. Its own event by the author's word: "a remote read returning empty
+     for every repository is a connectivity reading, printed as such and re-run once before any DISAGREE is scored." The transcript holds the run, not its
+     cause: "connectivity" is the reading, not a finding about the network.
+    (10) THE SEAT'S [CLOSE ; REPEAT b727 event (9)]: 14:10:22Z, record root (called 14:08:46Z): HEAD NOT THE REMOTE MAIN -- NO ROOT, the bare ls-remote read
+     empty, the refusal printed "AFTER ITS OWN WRITES", no root recorded by that run. Re-run alone at 14:11:06Z, the root c527524a over 87 banks; the chain reads it
+     AGREE at commit (data/b727_checks_postpush_standing-b3.txt). The same class, at the root's prompt in place of the suite.
+
+AFTER THE SEAL, THE CLOSE:
+    (11) THE SEAT'S [CLOSE ; REPEAT b726 event (8)]: 14:13:33Z, G-RULE-POSTSEAL-READ fails: `wc -l` on OPEN_TRAILS.md by the shell after the seal; the Grep and
+     Read tools the route. The file was counted, not read through it. The reading stands at every run.
+    (12) THE SEAT'S [CLOSE ; REPEAT b726 event (7)]: 14:17:38Z, a PowerShell pipe, refused by the hook, data/b727_hook_refusals.txt :3; nothing ran.
+    (13) THE SEAT'S [CLOSE ; REPEAT b722 event (2)]: 14:14:08Z, THE FREE MEMORY 2400 MB, BENEATH THE HOLD 2560 MB, and 14:17:31Z, part standing-a NOT RUN at
+     2428 MB, exit 3. Waited by the poller, nothing started below the hold; no lean process (counts lean 0, lake 0).
+    (14) THE SEAT'S [CLOSE ; NEW]: AT THE PRE-PUSH SUITE, G-ENTRY-TITLE-FORM fails LIVE: TITLE_NEEDLES' first needle, "## The release sitting: ", carries its
+     capital T against the title as _fold_article folds it. The title in FINDINGS.md is correct; the fault is the seat's needle, locked. The reading stands at
+     every run.
+    (15) THE NAVIGATOR'S [CLAIM ; NEW]: READ AT THE ROOT, the author's fixed words for (e) say "aperture_decomp and two of SIDE-rcurve's on none"; data/b723_axiom.txt
+     :158-:160 reads three: zero_codim, online_zero_codim_one, offline_zero_codim_two. The words stand carried as the author gave them (OPEN_TRAILS's hand
+     section, PLACE-papers 3742f12) with the seat's correction beside them; the cited lines :128, :142, :143 do not reach :158-:160. For b728's reading before
+     it applies the line. Nothing written to SPIRAL_MAP in this act.
+    (16) THE SEAT'S [CLAIM ; NEW]: 11:35:23Z, THE SEAT'S PROMPT on (e) said [12]'s ruled sentence "is now public in SPIRAL_MAP". PLACE-papers is PRIVATE
+     (data/repo_visibility.txt); the sentence is public nowhere. The prompt's error, corrected in the trail's hand section; the author's answer does not rest on it.
+    (17) THE SEAT'S [CLAIM ; NEW]: THE COMPOSER'S LINES: "AUTHOR'S WORD AFTER THE SEAL ... NONE RECEIVED" reads the post-seal bank alone, the root's answers came
+     after the seal and stand in the trail's hand section; the closing's N5 clause "nothing deposits or publishes" carries event (3)'s imprecision, and is
+     read with it. Both stand as composed.
+    (18) THE SEAT'S [CLOSE ; NEW]: 06:34:28Z, A PROMPT AFTER THE LOCK: the seat's two-question call at the refused seal (5 questions in 2 calls, data/b727_author_answers.txt)
+     is not named on the face, which names the root's one prompt of (R337)(5). The root's call was one call of three, as ordered; the other was forced by event (1).
+    (19) THE SEAT'S [CLOSE ; NEW]: 15:0xZ, THE POST-PUSH SUITE: G-RULE-SUITE-PART-CALLS PASSES VACUOUS, read 0, "no suite part or combine call in this act's shell
+     commands yet", in the same run as seven part calls. tools/rule_arms.py :154 SUITE_PART and :596 match "_checks.py"; the suite has run through
+     tools/standing/fold.py since b724, so the arm read 0 and printed VACUOUS at b724, b725, b726 and b727 (each act's data/<act>_checks_postpush_standing-a.txt
+     :32), having read 18 to 46 calls at b710-b723. Four acts' passes are not evidence; b727's own calls, read by hand, went one part to a message post-push.
+     Not an arm that fails: of the VACUOUS class of event (1), named for b728's control: the reader matched to the fold.py route, a replay reading b727's calls.
+    (20) THE SEAT'S [CLOSE ; NEW]: THE RULE TRACE PRINTS TWO FAILS outside the suite's list, neither an arm of the 116: G-RULE-HEAD-LINE-QUOTED, read 1, failing 1
+     (b726's closing head line not in (R337)(1)), new at this act; G-RULE-SUITE-PARTS, read 147, failing 1, its row b723's, printed since b724
+     (data/b724_checks_postpush_standing-a.txt :30). Each read in data/b727_checks_postpush_standing-a.txt :27, :30.
+    (21) THE SEAT'S [CLOSE ; NEW]: 05:32:07Z, A SCRATCH NAME: pre727.py, reused, ran an older read-only script of the same name; nothing written. Printed so the
+     reading it returned is not taken for the one intended.
