@@ -1,0 +1,356 @@
+b728 closed: relay 90d7af67, PLACE-papers 26fb938; suite 113 of 116; root b097c2b0b6fc6269…; 4 prompts answered; scores 8 of 8 HELD; 25 defects
+========================================================================================================
+b728 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-FIVE, THE RESEARCH ACT: THE CARRIED REPAIRS WITH THEIR CONTROLS; THE ONSET SUCCESSOR`S TABLE; THE LAST C2 FIELDS; lambda_2`S PREMISES; THE VISIBILITY TABLE; THE SIZE ROW; v1.8.0 LANDED, UNDER (R338).**
+========================================================================================================
+### THE COUNTER ((R338) Component 4, the act`s events and defects together; relay data/b728_defects.txt, data/b728_events.txt): CLAIM 4, CLOSE 34, REPEAT 11 OF 38
+
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b728_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):
+      b728_address_scan.py           seal ff777a8ae25c678e ; close ff777a8ae25c678e ; AGREE
+      b728_c2.py                     seal 444dc00f1ff643fa ; close 444dc00f1ff643fa ; AGREE
+      b728_carry.py                  seal 4f01a4ed35030742 ; close 4f01a4ed35030742 ; AGREE
+      b728_face.py                   seal f085a92c03af9f57 ; close f085a92c03af9f57 ; AGREE
+      b728_onset_table.py            seal 574cb0fc571b7741 ; close 574cb0fc571b7741 ; AGREE
+      b728_visibility.py             seal b92555231c91e8a9 ; close b92555231c91e8a9 ; AGREE
+      b728_worklist.py               seal 4dd812de1e682871 ; close 4dd812de1e682871 ; AGREE
+      standing/VERSION               seal 7eeea52d4b80909b ; close 7eeea52d4b80909b ; AGREE
+      standing/act.py                seal efda58cca18842e1 ; close efda58cca18842e1 ; AGREE
+      standing/allow.py              seal 30636a12a08133bc ; close 30636a12a08133bc ; AGREE
+      standing/arms.py               seal 5de7abdf63a5aa28 ; close 5de7abdf63a5aa28 ; AGREE
+      standing/carry.py              seal 92883e11e980ffb1 ; close 92883e11e980ffb1 ; AGREE
+      standing/cites.py              seal 060f6a97211aaf41 ; close 060f6a97211aaf41 ; AGREE
+      standing/classes.py            seal 0ccf4ec896e66baf ; close 0ccf4ec896e66baf ; AGREE
+      standing/close.py              seal 31a6c5479b11723d ; close 31a6c5479b11723d ; AGREE
+      standing/components.py         seal f5f131c6c11043a2 ; close f5f131c6c11043a2 ; AGREE
+      standing/controls.py           seal d46e56d2efee579e ; close d46e56d2efee579e ; AGREE
+      standing/faceform.py           seal 61aa0da20a7ec008 ; close 61aa0da20a7ec008 ; AGREE
+      standing/fold.py               seal dbee3806ec8879ec ; close dbee3806ec8879ec ; AGREE
+      standing/gitwrite.py           seal 78a79ec5ccf88983 ; close 78a79ec5ccf88983 ; AGREE
+      standing/hook.py               seal 9e0cd6e1255af21b ; close 9e0cd6e1255af21b ; AGREE
+      standing/keystone.py           seal 30229a8111c4c9b7 ; close 30229a8111c4c9b7 ; AGREE
+      standing/legacy.py             seal aa7846f9505eb38f ; close aa7846f9505eb38f ; AGREE
+      standing/manifest.py           seal 161cfad6d8ab15b0 ; close 161cfad6d8ab15b0 ; AGREE
+      standing/needles.py            seal 375b1bbd0480ce59 ; close 375b1bbd0480ce59 ; AGREE
+      standing/orders.py             seal 22a5106dadbd6ccd ; close 22a5106dadbd6ccd ; AGREE
+      standing/peek.py               seal 55955817773c1895 ; close 55955817773c1895 ; AGREE
+      standing/readfirst.py          seal 4e6e795b8e9937b3 ; close 4e6e795b8e9937b3 ; AGREE
+      standing/repairs.py            seal d6ed41236cf5d43c ; close d6ed41236cf5d43c ; AGREE
+      standing/repeat.py             seal 137647aba64c025e ; close 137647aba64c025e ; AGREE
+      standing/replay.py             seal e83382723e0c07ed ; close e83382723e0c07ed ; AGREE
+      standing/rootbanks.py          seal 329d5158ad145e48 ; close 329d5158ad145e48 ; AGREE
+      standing/roster.py             seal 13fcff5e92ca0d0c ; close 13fcff5e92ca0d0c ; AGREE
+      standing/scan.py               seal e5753fef4e4c5833 ; close e5753fef4e4c5833 ; AGREE
+      standing/sealcheck.py          seal 5c45631ca492395b ; close 5c45631ca492395b ; AGREE
+      standing/title.py              seal 9679d862a34a6242 ; close 9679d862a34a6242 ; AGREE
+      standing/used.py               seal 130a09591306a0c1 ; close 130a09591306a0c1 ; AGREE
+      standing/v121.py               seal ffd9f39096fce689 ; close ffd9f39096fce689 ; AGREE
+      standing/v122.py               seal 2a522a0e4cc127d2 ; close 2a522a0e4cc127d2 ; AGREE
+      standing/v130.py               seal bb13697fa9812105 ; close bb13697fa9812105 ; AGREE
+      standing/v140.py               seal 57c0f35b8b6352b2 ; close 57c0f35b8b6352b2 ; AGREE
+      standing/v150.py               seal e444484955b2a5b4 ; close e444484955b2a5b4 ; AGREE
+      standing/v160.py               seal 243ce38a848eab28 ; close 243ce38a848eab28 ; AGREE
+      standing/v170.py               seal f6084ddc3644f033 ; close f6084ddc3644f033 ; AGREE
+      standing/v180.py               seal 43724abdb5d6a8a6 ; close 43724abdb5d6a8a6 ; AGREE
+      standing/words.py              seal 37f4d3450d457634 ; close 37f4d3450d457634 ; AGREE
+      standing/fold/checks.tpl       seal aa18cb9cb27939bc ; close aa18cb9cb27939bc ; AGREE
+      standing/fold/citation.tpl     seal b3ef3acc2d05c032 ; close b3ef3acc2d05c032 ; AGREE
+      standing/fold/closing.tpl      seal 1f63124e1f56ae08 ; close 1f63124e1f56ae08 ; AGREE
+      standing/fold/record.tpl       seal d87705938afb0861 ; close d87705938afb0861 ; AGREE
+      standing/fold/reg_gate.tpl     seal 59c9d7bf92b25f9d ; close 59c9d7bf92b25f9d ; AGREE
+      standing/fold/regspec.tpl      seal dcf1f69006799860 ; close dcf1f69006799860 ; AGREE
+      acts/b728.py                   seal 1615efb275f63ac1 ; close 1615efb275f63ac1 ; AGREE
+      act_close.py                   seal ebd59edbe685c303 ; close ebd59edbe685c303 ; AGREE
+      act_root.py                    seal 023a066e549528ea ; close 023a066e549528ea ; AGREE
+      rule_arms.py                   seal 77d748de4b8d7119 ; close 77d748de4b8d7119 ; AGREE
+      ### AGREE 56 of 56
+
+### THE CITATION CHECK (the gate step at step zero; relay data/b728_citation_check.txt): CITES CHECKED 99 ; OK 96 ; MISSES 3 ; the misses as the bank lists them: 3 (the seven banked onsets the ruling counts -- the banks carry; off44 a zero the ladder reaches ((R338)(3) names it a test z; one README write on a kernel`s main, as (9) and N5 say -- (2) ; the answers checked ((R278)(4)), by their needles: NONE, the prints NONE ; entered as the defects bank letters them: the navigator`s NONE
+
+### THE RECORD LINES ((R338)(1); relay data/b728_record_lines.json): FINDINGS.md :12014
+
+### THE DRY RUN ((R267)(2), standing; relay data/b728_reg_gate.txt, the gate`s step before the lock): THE DRY-RUN STEP : CLEAN ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): THE CLOSING DRY-RUN STEP : CLEAN
+
+### THE CORRIGENDUM ((R338)(1)-(2)):
+    the generated entry for b727`s events and defects, CLAIM or CLOSE, NEW or REPEAT (relay data/b728_corrigendum.txt): ITEMS 44: EVENTS 21, DEFECTS 23 ; CLAIM 6, CLOSE 38 ; REPEAT 8 ; DATED NOTES 0 ; v1.8.0: THE VACUOUS CLASS, THE SITTING`S REPAIRS, ONE GIT WRITE, THE CONNECTIVITY READING ; THE ENTRY AT FINDINGS :12016
+    tools/standing/ at v1.8.0: the VACUOUS class, one git write counted, the face`s field, the closing`s clause, one remote read, the dry after the combine and the connectivity reading, each case failing before its repair and passing after (relay data/b728_standing_v180.txt): v1.8.0: CONTROLS (vacuous), (answers), (face), (readfirst), (closing), (remote), (closeorder), (gitwrite), (connectivity), (n5), (legacy) ; CASES 23 ; AS WANTED 23 ; ALL AS WANTED
+    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b728_root_banks_dry.txt): BANKS 45 ; CLEAN AND EQUAL AT HEAD 45 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY True
+
+### THE ONSET TABLE ((R338)(3)):
+    the table at six zeros, POST HOC, the pairs not agreeing, nothing registered (relay data/b728_onset_table.txt): THE TABLE AT SIX ZEROS, POST HOC: C1 AND C2 AS WANTED ; THE PAIRS DO NOT AGREE WITHIN 10%: NO HYPOTHESIS REGISTERED, THE TABLE AN OBSERVATION
+    b725`s H-ONSET-MASS re-read on the rows named on (relay data/b728_onset_b725_reread.txt): b725`S H-ONSET-MASS ON THE ON-LINE ROWS ALONE: THE FALSIFIER FIRES AT ['off18'], REFUTED STANDS
+
+### THE C2 FIELDS AND lambda_2 ((R338)(4)-(5)):
+    the fields by split dispatch, each read by its run id, axioms printed (relay data/b728_c2.txt): THE C2 THEOREM: 18 OF 18 FIELDS COMPILED WITH NO AXIOM ; DISPATCHES 3 OF AT MOST 6 ; WHAT COMPILED IS THE CERTIFICATE AT EACH FIELD, EACH AT ITS OWN REF, NOT THE THEOREM ; WHAT REMAINS: (L1), (L2), c2_value_law ; E0 DERIVES UNCHANGED ; NO MAIN, NO TAG
+    lambda_2`s premises, the axioms printed, what remains stated (relay data/b728_lambda2.txt): lambda_2: GammaRZetaValues at index 1 proved, the bound on gamma_1 remaining ; AXIOMS propext, Classical.choice, Quot.sound ; REMAINS (stieltjes 1).re < -1/20 ; DISPATCHES 1 OF AT MOST 2
+
+### THE VISIBILITY TABLE AND THE SIZE ROW ((R338)(6)-(7)):
+    |Z_Q1| at the 69 zeros against beta - 1/2 and gamma, by a bar fixed before the read (relay data/b728_visibility.txt): W-ORD-VISIBILITY, THE TABLE AT 69 ZEROS: AGAINST beta - 1/2 NOT CLEAN ; AGAINST gamma NOT CLEAN ; NO LAW FITTED ; NOTHING REGISTERED
+    the size row beside the cosh row, no computation (relay data/b726_mechanisms.txt): THE TWO SPANS DO NOT MEET
+
+### THE NAME AND ADDRESS ((R338)(8)):
+    the scan over every commit and bank of the act, the counts alone (relay data/b728_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; PLACES 95 ; CONTROLS 4 OF 4 AS WANTED ; 5 s
+
+### THE RESEARCH INSTRUMENTS REPRODUCED (b727`s standing arm G-RESEARCH-REPRODUCES):
+    tools/research/reproduce.py`s full run, one row per instrument I-41 to I-108, a planted wrong figure per run row (relay data/b728_reproduce.txt): ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 360 s
+
+### THE TOUCH READ (standing clauses v9):
+    every line found for the entry`s objects, AGREES or DIFFERS, by hand before the root (relay data/b728_touch.txt): ### ### **THE TOUCH READ: 17 ROWS ; AGREES 14 ; DIFFERS 3 ; NO SIDE CHOSEN.**
+
+### THE STANDING ARMS:
+    the four figures against b727`s, read by b706`s tool (relay data/b728_standing_figures.txt): FIGURES AT b728: CORRESPONDENCE 1 ; README 0 ; PARTNERS 0 (ONE COPY 20 OF 20 TABLES) ; PINS 0 -- AGAINST b727`S 1, 0, 0, 0 ; THE ROSTER b706`S, 20 TABLES
+
+### THE STANDING REPORT ((R338)(3), its lines in footing order KERNEL, CERTIFIED, REGISTERED, HELD; relay data/b728_report.txt, by the unsealed tools/b728_report.py before the root; its scores line printed after the root by `tools/b728_report.py scores`, written nowhere):
+    (1) KERNEL -- THE C2 THEOREM: the certificate compiled at 18 of 18 fields with no axiom, 3 dispatches each read by its run id; the theorem not compiled. SOURCE relay data/b728_c2.txt :30 ; sha256 4011b07ef91b208e.
+    (2) KERNEL -- lambda_2: GammaRZetaValues at index 1 proved, the bound on gamma_1 remaining; axioms propext, Classical.choice, Quot.sound; what remains: (stieltjes 1).re < -1/20. SOURCE relay data/b728_lambda2.txt :36 ; sha256 caa5203864e03535.
+    (3) CERTIFIED -- tools/standing/ v1.8.0: controls (vacuous), (answers), (face), (readfirst), (closing), (remote), (closeorder), (gitwrite), (connectivity), (n5), (legacy) -- 23 cases, 23 as wanted, each failing before its repair and passing after. SOURCE relay data/b728_standing_v180.txt :123 ; sha256 453cf1cd749e9ee5.
+    (4) REGISTERED -- THE ONSET TABLE, POST HOC: the pairs not agreeing within 10%, no hypothesis registered. SOURCE relay data/b728_onset_table.txt :48 ; sha256 572d2611ea89ff0b.
+    (5) REGISTERED -- THE VISIBILITY TABLE: neither relation monotone clean by the bar fixed in its tool, no candidate. SOURCE relay data/b728_visibility.txt :85 ; sha256 c7d93ccb5d7fde85.
+    (6) REGISTERED -- THE MECHANISM TABLE: the size row beside the cosh row, the spans not meeting, POST HOC. SOURCE relay data/b726_mechanisms.txt :36 ; sha256 4c4a039ad6fd26fa.
+    (7) HELD -- the draft at v5 (23228113), unpublished, nothing deposits. SOURCE relay data/b728_ferry.txt :25 ; sha256 9ee7f6bebb281fd6.
+
+### THE KERNELS: the face`s reading of the kernels (relay data/b728_kernels_face.json): 23 kernels read before the seal, none written on main, three kernels` README.md by (R338)(2)(viii), no Lean file on a main, no tag cut ; SIDE-explicit-formula main badacccb867e (unmoved), v0.37 38e273477257, v0.17 5a1630b8292b, the challenge branch challenge-b720-h2-sign-iff-rh at 3391647518cd standing ; SIDE-lv-conservation main 305a87c9e09c (b727`s [41]), v0.10.0 93c27ec2cb9b (the deposit), port-b707 cb0aea56354a (b712`s tip, KEPT, no commit this act), v0.14.0 peeled cb0aea56354a (b714`s tag, unmoved) ; SIDE-faces-join main 11a472b90553 (unmoved), its tag v0.1.0 unmoved
+
+### THE ROOT`S BANKS (relay data/b728_root_banks.txt): BANKS 95 ; CLEAN AND EQUAL AT HEAD 95 ; HEAD THE REMOTE MAIN True ; READY True
+
+### THE MIRROR (relay data/b728_mirror.txt, the b670 form, after the root and the last PLACE-papers push): D:/MY-DOwnloads/mirror-refresh-2026-10-31-b728.zip ; 4670696 bytes ; sha256 304796d11f670b99 ; MANIFEST md5 2137cd2622d2db839a4a547443d0f172 ; entries 75 ; Act root: b728 b097c2b0b6fc62697e1f55f08e86ff2337a527d6b716c35bc6e3931c9df6269e ; CLEAN ON ALL THREE CLAUSES ; ### THE SPAN: every roster and ledger change of b728 (the last export b727`s, D:/MY-DOwnloads/mirror-refresh-2026-10-31-b727.zip) ; the roster read from PLACE-papers main at the build ((R338)(5)), its MANIFEST control AS WANTED ; tools/mirror_prevbuild.json unchanged since its last commit b4eb5407 (blob 53e58138, equal at HEAD and in the working tree), not committed with this closing
+
+### THE CARRY`S DIFFS (each carried tool against its b727 source, by tools/b728_carry.py; relay data/b728_carry_*.txt): 3 banks -- b728_carry_acts.txt, b728_carry_address_scan.txt, b728_carry_worklist.txt
+    the remote reads this run: 38 repositories, one call each in sequence ; empty reads re-read alone: NONE
+
+### THE AUTHOR'S WORD AFTER THE SEAL (data/b728_author_words.txt): NONE RECEIVED
+
+### THE AUTHOR`S ANSWERS AND WORDS (relay data/b728_author_answers.txt): 4 prompt(s) put by the seat in this act (2026-10-31), banked verbatim with the options and the recommended mark
+    ### COMPONENT 0 : step row 1 relay 55c59169 (step zero) ; step row 2 relay f740eab6 (step zero) ; step row 3 relay 6405579d (step zero) ; step row 4 relay a9227b53 (step zero) ; step row 5 relay a9dd62ce (step zero) ; the banks they carry (16): data/act_current.json, data/b728_postclose_rulings.txt, data/b727_steps.json, data/b727_relay_push-b727-closing_push_out.txt, data/b728_carry_acts.txt, data/b728_carry_address_scan.txt, data/b728_carry_worklist.txt, data/b728_citation_check.json, data/b728_citation_check.txt, data/b728_ferry.txt, data/b728_ferry_scan.txt, data/b728_hook_refusals.txt, data/b728_readfirst.txt, data/b728_readfirst_rows.json, data/b728_rowgen_stepzero.txt, data/b728_stepzero.txt ; N4 HELD
+    ### COMPONENT 1 : step row 6 relay 26a54c72 (component 1) ; step row 7 pp 67a585fa (component 1) ; step row 8 pp a9b6af10 (component 1) ; step row 9 pp 8bf9f6a3 (component 1) ; step row 10 pp 00b235da (component 1) ; step row 11 relay 48952a59 (component 1) ; the banks they carry (19): data/act_current.json, data/b728_gitwrite_trace.txt, data/b728_hook_control.txt, data/b728_hook_refusals.txt, data/b728_standing_v180.txt, PLACE-papers SPIRAL_MAP.md, PLACE-papers day1/Which_Structure_Confines_v2_4_0.md, PLACE-papers OPEN_TRAILS.md, PLACE-papers FINDINGS.md, data/b675_corrigenda.txt, data/b728_SIDE-archimedean_push-b728-readme_push_out.txt, data/b728_SIDE-rcurve_push-b728-readme_push_out.txt, data/b728_SIDE-spinor_push-b728-readme_push_out.txt, data/b728_address_scan.txt, data/b728_bank_hashes.json, data/b728_corrigendum.json, data/b728_corrigendum.txt, data/b728_corrigendum_landing.json, data/b728_record_lines.json ; N5 HELD
+    ### COMPONENT 2 : step row 12 relay 690ccacd (component 2) ; step row 13 relay ec2abce7 (component 2) ; step row 14 relay 13bdc06f (component 2) ; the banks they carry (2): data/b728_onset_b725_reread.txt, data/b728_onset_table.txt ; no score reading names these banks
+    ### COMPONENT 3 : step row 15 relay f1c86348 (component 3) ; step row 19 relay 7da3e794 (component 3) ; the banks they carry (11): data/b728_SIDE-explicit-formula_c2-b725_push_out.txt, data/b728_SIDE-explicit-formula_keiper-b725_push_out.txt, data/b728_address_scan.txt, data/b728_c2.txt, data/b728_defects.txt, data/b728_dispatch_rows.json, data/b728_hook_refusals.txt, data/b728_lambda2.txt, data/b728_reproduce.json, data/b728_reproduce.txt, data/b728_stepzero.txt ; N1 HELD
+    ### COMPONENT 4 : step row 16 relay 3b8a2496 (component 4) ; step row 17 relay fa13b578 (component 4) ; step row 18 relay ef0093fa (component 4) ; the banks they carry (3): data/b728_SIDE-explicit-formula_c2-b725_push_out.txt, data/b728_visibility.txt, data/b726_mechanisms.txt ; no score reading names these banks
+    ### COMPONENT 5 : step row 20 relay 052e23fd (component 5) ; step row 21 relay bd2e77b8 (gate) ; step row 22 relay ef57e9ea (gate) ; step row 23 relay 446b3a9e (gate) ; step row 24 relay 65a92110 (gate) ; step row 25 relay 00d6f214 (gate) ; step row 26 relay e386749f (gate) ; step row 27 relay 689402fe (lock) ; step row 28 relay 5bc27b84 (seal) ; step row 29 relay 51f91119 (seal) ; step row 30 relay f4599185 (pre-root) ; step row 31 pp 8442dda9 (pre-root) ; step row 32 relay 6427cb56 (pre-root) ; step row 33 relay 1245971b (root) ; the banks they carry (111): data/b728_address_scan.txt, data/b728_touch.txt, data/b728_bank_hashes.json, data/b728_commands.json, data/b728_commands.txt, data/b728_guard_dry.json, data/b728_guard_dry.txt, data/b728_kernels_face.json, data/b728_registration_2026-10-31.txt, data/b728_standing_figures.json, data/b728_standing_figures.txt, data/b728_mid_act_act.json, data/b728_mid_act_act.txt, data/b728_root_banks_dry.json, data/b728_root_banks_dry.txt, data/audit_b728_reg_satisfiable.txt, data/b728_census_stepzero.txt, data/b728_closing_dry.txt, data/b728_faces_census_stepzero.txt, data/b728_pins_stepzero.txt, data/b728_reg_gate.txt, data/b728_reg_termscan.txt, data/b728_regspec_run.txt, data/b728_satisfiable.json, data/b728_scores_dry.txt, data/b728_lockgate.json, data/b728_lockgate_notes.txt, data/b728_arm_seconds.json, data/b728_arm_seconds.txt, data/b728_arm_seconds_act.json, data/b728_arm_seconds_standing-a.json, data/b728_arm_seconds_standing-b1.json, data/b728_arm_seconds_standing-b2a.json, data/b728_arm_seconds_standing-b2b.json, data/b728_arm_seconds_standing-b3.json, data/b728_arm_seconds_standing-c.json, data/b728_arms_prerun.txt, data/b728_arms_prerun_act.txt, data/b728_arms_prerun_standing-a.txt, data/b728_arms_prerun_standing-b1.txt, data/b728_arms_prerun_standing-b2a.txt, data/b728_arms_prerun_standing-b2b.txt, data/b728_arms_prerun_standing-b3.txt, data/b728_arms_prerun_standing-c.txt, data/b728_chain_half_a1_arms_prerun.json, data/b728_chain_half_a1_prevrun.json, data/b728_chain_half_a2_arms_prerun.json, data/b728_chain_half_a2_prevrun.json, data/b728_chain_half_b_arms_prerun.json, data/b728_chain_half_b_prevrun.json, data/b728_exercise_act.json, data/b728_exercise_standing-a.json, data/b728_exercise_standing-b1.json, data/b728_exercise_standing-b2a.json, data/b728_exercise_standing-b2b.json, data/b728_exercise_standing-b3.json, data/b728_exercise_standing-c.json, data/b728_lsr_prerun_act.json, data/b728_lsr_prerun_standing-a.json, data/b728_lsr_prerun_standing-b1.json, data/b728_lsr_prerun_standing-b2a.json, data/b728_lsr_prerun_standing-b2b.json, data/b728_lsr_prerun_standing-b3.json, data/b728_lsr_prerun_standing-c.json, data/b728_prevrun_act.json, data/b728_prevrun_act.txt, data/b728_prevrun_exercise_act.json, data/b728_prevrun_exercise_standing-a.json, data/b728_prevrun_exercise_standing-b1.json, data/b728_prevrun_exercise_standing-b2a.json, data/b728_prevrun_exercise_standing-b2b.json, data/b728_prevrun_exercise_standing-b3.json, data/b728_prevrun_exercise_standing-c.json, data/b728_prevrun_standing-a.json, data/b728_prevrun_standing-a.txt, data/b728_prevrun_standing-b1.json, data/b728_prevrun_standing-b1.txt, data/b728_prevrun_standing-b2a.json, data/b728_prevrun_standing-b2a.txt, data/b728_prevrun_standing-b2b.json, data/b728_prevrun_standing-b2b.txt, data/b728_prevrun_standing-b3.json, data/b728_prevrun_standing-b3.txt, data/b728_prevrun_standing-c.json, data/b728_prevrun_standing-c.txt, data/b728_seal_hashes.json, data/b728_answer_check.txt, data/b728_author_answers.json, data/b728_author_answers.txt, data/b728_findings.json, data/b728_hook_refusals.txt, data/b728_report.json, data/b728_report.txt, data/b728_report_wrapper.txt, data/b728_scores.json, data/b728_table_final.json, data/b728_table_final.txt, data/terminal_table.json, data/terminal_table.md, PLACE-papers FINDINGS.md, data/b728_close_dry.txt, data/act_roots.txt, data/b728_PLACE-papers_push-b728-preroot_push_out.txt, data/b728_act_root.json, data/b728_act_root.txt, data/b728_relay_push-b728-preroot2_push_out.txt, data/b728_relay_push-b728-preroot_push_out.txt, data/b728_root_arm.json, data/b728_root_arm.txt, data/b728_root_banks.json, data/b728_root_banks.txt ; FINDINGS :12103 ; the root b097c2b0b6fc6269 ; OPEN_TRAILS :16820 ; the mirror after the root ; N2 HELD ; N3 HELD ; S1 PENDING ; S2 PENDING ; S3 HELD
+    (N1) HELD (N2) HELD (N3) HELD (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THE SCORES IN FULL (relay data/b728_scores.json, written once before the entry; a reading that waited, from relay data/b728_scores_close.json):
+    (N1) HELD -- the seat`s commands running lean or lake on this host (relay data/b728_commands.json): NONE; dispatch commands in the capture: 4, the worklist`s runs 4, each read by its run id: ['41220283401', '41220928153', '41220930451', '41220932768'] (relay data/b728_dispatch_rows.json) [record]
+    (N2) HELD -- the onset table`s label POST HOC printed: True; the tool committed before the bank: True; no registration written: True; the tools` controls before their figures: b728_address_scan.txt True, b728_onset_table.txt True [record]
+    (N3) HELD -- each bank`s foot its last line carrying its grade: b728_standing_v180.txt True, b728_onset_table.txt True, b728_onset_b725_reread.txt True, b728_c2.txt True, b728_lambda2.txt True, b728_visibility.txt True, b728_citation_check.txt True, b728_reproduce.txt True, b728_address_scan.txt True; the entry`s sentences calling the successor a law or lambda_2 a rung with no axiom print, read from the composer`s text (no entry landed yet): NONE [record]
+    (N4) HELD -- the lock at 2026-10-31T18:00:30Z, its commit 689402fe; the commits after it (relay) 2, touching the face, a tool or a bank tracked at the lock commit: NONE; the working tree`s changes to them: NONE; appended by design and read apart: data/b728_steps.json, data/b728_bank_hashes.json, data/b728_hook_refusals.txt, tools/mirror_prevbuild.json, data/b728_author_answers.txt, data/b728_author_answers.json, data/b728_answer_check.txt; the letters the seal records (relay data/b728_seal_hashes.json) 25, the defects bank`s letters now 25, letters after the seal NONE; the step bank`s commits after the seal (relay data/b728_steps.json) 1, each with a post-seal phase: True; the events bank for what is found after the seal not written (none found); no bank after the root (relay data/b728_root_arm.json) waits on the root; the pushes through push_gated.sh in the capture 6, each with its capture: every one, each capture printing its repository`s visibility: every one; the author`s word after the seal (relay data/b728_author_words.txt) none received, printed from its bank by the closing, record and trail tools; the banks this tool wrote, by its hashes bank (relay data/b728_bank_hashes.json, 12), edited by hand since: NONE; the closing`s head line carrying commits read from the remotes: waits on the closing; the clauses that wait read again at `scores close` [record]
+    (N5) HELD -- the address scan (relay data/b728_address_scan.txt): PREVIOUS ADDRESS: 0; a commit after the act`s opening commit on any ref of a kernel other than at a README tip or on c2-b725 or keiper-b725, or a .lean file in a kernel`s tree (37 kernels read): NONE; the three repositories` files against their heads before the writes, README.md alone, three writes where N5 says one (printed, not smoothed): True; the rebuild-b721 branch kept on the wave 1 kernels: 6 of 6; nothing deposits or publishes: the deposit route untouched (draft 23228113, v5, unpublished); no release route in the act`s tools: True; every kernel as the face read it: True; every kernel`s main and tags as b727`s face read them (relay data/b727_kernels_face.json), moved: NONE; the rebuild`s SIDE-frobenius commits on its main: NONE; SIDE-explicit-formula`s main at badaccc, no tag past v0.37, the challenge branch challenge-b720-h2-sign-iff-rh at 33916475 with no tag and off main (True): True; SIDE-lv-conservation`s main and deposit untouched, port-b707 at cb0aea56, the one tag v0.14.0 at it, unmoved: True; the join kernel`s main at 11a472b9 with the one tag v0.1.0: True; the re-cut`s merge a86c9429 on PLACE-papers main: True; the standing arms added beyond b727`s face, the act arms apart: NONE (True); shared tools edited beyond the membrane ['tools/act_close.py', 'tools/act_root.py', 'tools/acts/b728.py', 'tools/b728_address_scan.py', 'tools/b728_c2.py', 'tools/b728_carry.py', 'tools/b728_face.py', 'tools/b728_face_blocks.txt', 'tools/b728_onset_table.py', 'tools/b728_visibility.py', 'tools/b728_worklist.py', 'tools/rule_arms.py', 'tools/standing/VERSION', 'tools/standing/close.py', 'tools/standing/faceform.py', 'tools/standing/fold/checks.tpl', 'tools/standing/fold/record.tpl', 'tools/standing/fold/report.tpl', 'tools/standing/hook.py', 'tools/standing/readfirst.py', 'tools/standing/v180.py']: NONE; sealed tools not agreeing: NONE; commits amended after the seal (relay, PLACE-papers, SIDE-lv-conservation, SIDE-explicit-formula): NONE; deletes with anything chained after: NONE; a kept branch deleted (port-b707): NONE; one git write per message (messages carrying a git write 87 ; with more than one NONE): True; PLACE-papers beyond the face`s (W) list: NONE; papers moved or renamed: NONE; relay files beyond the face`s (W) list: NONE; the glossary unchanged: True; outbound requests other than git and gh 0, an identifier of the author in NONE; the clauses that wait (the hashes at the close, no bank after the root) read again at `scores close` [record]
+    (S1) HELD -- the table at the end against relay HEAD`s: moved 0, gone 0, added 0, grade moved 0 [close]
+    (S2) HELD -- the root recomputed equal, the one-byte control moving it, the root order holding locally [close]
+    (S3) HELD -- the sealed tools` hashes {'agree': 56} [record]
+
+### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.
+b728 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)(2), v9 row (80)) AND NEW OR REPEAT WITH THE ACT AND LETTER OF ITS CLASS (2026-10-31)
+
+### rows are defects, each opening four spaces: (letter) THE SEAT'S [TAG ; NEW | REPEAT <act> (<letter>) | REPEAT class (<n>)]: what was done, when,
+### and what the standing rows say. Written by the Write tool; rows (a)-(d) as relay data/b728_stepzero.txt :57-:61 enters them. The hook's refusals are rows of data/b728_hook_refusals.txt (:n), each lettered; nothing ran at a refusal.
+
+    (a) THE SEAT'S [CLOSE ; REPEAT b727 (a)]: step zero, Reads and Greps of the step-zero form stood before the act_current commit, against the ruling's "before any other command", and the address scan could not run before the carry; they wrote nothing (data/b728_stepzero.txt :57).
+    (b) THE SEAT'S [CLOSE ; REPEAT class (14)]: one Bash carrying a pipe, 15:47Z, was refused by the hook (data/b728_hook_refusals.txt :1; data/b728_stepzero.txt :59).
+    (c) THE SEAT'S [CLOSE ; NEW]: a no-op probe printed the whole of record.tpl, 310 KB; a wasted read, no write (data/b728_stepzero.txt :60).
+    (d) THE SEAT'S [CLOSE ; NEW]: the citation table carried stale, 30 misses at its first run; its sections rewritten to the ruling, then 3, not re-banked after the check stood (data/b728_stepzero.txt :61).
+    (e) THE SEAT'S [CLOSE ; REPEAT class (19)]: a Read with limit 205, above 200, 15:51Z, was refused (:2).
+    (f) THE SEAT'S [CLOSE ; REPEAT class (19)]: a Read with no limit, 15:51Z, was refused (:3).
+    (g) THE SEAT'S [CLOSE ; REPEAT class (14)]: one Bash carrying a pipe, 15:51Z, was refused (:4).
+    (h) THE SEAT'S [CLOSE ; REPEAT b727 (p)]: one Bash carrying `2>/dev/null`, 16:25Z, was refused (:5).
+    (i) THE SEAT'S [CLOSE ; NEW]: one Bash with a variable assigned at its head, 16:32Z, was refused (:6).
+    (j) THE SEAT'S [CLOSE ; REPEAT class (19)]: a Read with a limit and no offset on a file of 318 lines, 16:43Z, was refused (:7).
+    (k) THE SEAT'S [CLOSE ; REPEAT b727 (p)]: one Bash carrying a heredoc, read as a redirect, 16:45Z, was refused (:8); the same work ran from a scratch file.
+    (l) THE SEAT'S [CLAIM ; NEW]: b725's tools/b725_onset_mass.py :106 took every row that "does not begin off" as on-line, so the 69 ref rows, the reflections 1 - beta of the off rows, stood among the on-line ordinates: 616 where the rows named on are 547 (data/b725_onset_mass_control.txt :4); the table's identity S = M + O read -0.5000 at every window and exposed it (control (C2), data/b728_onset_table.txt). b725's banks are not edited; H-ONSET-MASS re-read on the rows named on keeps its REFUTED (data/b728_onset_b725_reread.txt :9), and b725's mass figures stand with this row beside them. Printed for the author.
+    (m) THE SEAT'S [CLOSE ; REPEAT class (tolerance finer than the rounding)]: control (C1) first failed at the band zero, its 1e-8 tolerance finer than the eight-digit lambda banked at data/b709_grid.txt :4501; repaired to the ten-digit figures at :409 and :3629 (relay ec2abce7) before any table row.
+    (n) THE SEAT'S [CLOSE ; NEW]: print_targets.txt first carried two names with the character R-double-struck, which the workflow's guard refuses; removed before the commit, the three names of KeiperGammaOne.lean printed under ASCII.
+    (o) THE SEAT'S [CLOSE ; NEW]: tools/b728_address_scan.py carries the stale heading "THE EXCEPTION OF (R338)(5)", b727's clause shifted by the carry; this act's clause is (R338)(8) and no exception was taken; the bank's line reads "none yet" and is not rewritten.
+    (p) THE SEAT'S [CLOSE ; NEW]: the price table's (2)(ix) row overstated what remained: the copy had landed at v1.5.0 (relay 7be1601c); found at the repair, printed at data/b728_standing_v180.txt under (legacy).
+    (q) THE SEAT'S [CLOSE ; NEW]: two Bash commands failed on an unquoted %(refname:short), and two on origin/main:.github/... under Git Bash's path conversion; nothing ran at any of the four.
+    (r) THE SEAT'S [CLOSE ; NEW]: (R338)(8) orders free memory read before each dispatch; the read of 16:32:17Z, 5371 MB, stood for all four dispatches, the three of 16:41Z nine minutes after it, and for the pushes between. Every read that was taken stood at or above the 2,560 MB hold; the rows carry the read's own time.
+    (s) THE SEAT'S [CLOSE ; NEW]: tools/standing/VERSION was bumped by one `python -c`, an interpreter's one-line program, before this face; the file's byte is as the controls read it.
+    (t) THE SEAT'S [CLAIM ; NEW]: (R338)(4) orders b726's elaboration failure read and its cause printed before any of the three runs. The cause stood at data/b726_c2.txt :12 and was read at step zero, but this act's bank data/b728_c2.txt, which prints it first, was written after the runs; the order is met by the reading and not by the bank's time.
+    (u) THE SEAT'S [CLOSE ; NEW]: the `reread` route was narrowed to off18 alone, off44 and off24 carrying no computed onset; the bank says so.
+    (v) THE SEAT'S [CLOSE ; NEW]: tools/act_close.py, tools/act_root.py and tools/rule_arms.py were edited with v1.8.0; they stand outside tools/standing/, the only path (R338)(8)'s (W) names for (2); the face names them and data/act_current.json lists them. Printed for the author.
+    (w) THE SEAT'S [CLOSE ; NEW]: the worklist's carried figures named b727's commits up to the close sections' rewrite (STEPZERO_BANKS b21a1649 among them); the suite read none of them before the rewrite, and all were set from the logs before this face.
+    (x) THE SEAT'S [CLOSE ; NEW]: the address scan first reached c2-b725 and keiper-b725 through scratch worktrees; re-pointed at the branches by their refs in D:/SIDE-explicit-formula, so the scan does not depend on the scratchpad at the close.
+    (y) THE SEAT'S [CLOSE ; NEW]: data/b728_stepzero.txt committed at a9dd62ce named the five deletes without their tips, which G-BRANCHES-BANKED wants; the tips, as each delete printed them, appended to that bank before the lock.
+
+### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/b728_events.txt, unlettered, for the next act`s corrigendum):
+    (1) THE SEAT'S [CLOSE ; NEW]: AFTER 18:00:30Z: the run of standing-a on b727's banks went in the background, against the face's foreground clause
+     for suite parts. Its bank stands; nothing overlapped it.
+    (2) THE SEAT'S [CLOSE ; REPEAT b726 (a)]: 19:15:06Z: a command carrying a redirect was refused by the hook (data/b728_hook_refusals.txt :9). Nothing
+     ran. The class is the one the defects bank carries as (h) and (k), three acts running.
+    (3) THE AUTHOR'S WORD [CLOSE ; NEW]: 19:58Z: the three DIFFERS rows of data/b728_touch.txt (:23, :30, :31) stand as events by the author's word, option 2.
+     (7) the entry's title keeps the ruled form "the C2 theorem at 18 of 18 fields"; what compiled is each field's certificate at its own ref, with no
+     axiom; (L1), (L2) and c2_value_law are compiled at none. The composer is sealed and the option chosen read no edit, so the title is not rewritten and
+     the corrected words stand in the dated note of b728's own section of OPEN_TRAILS.
+    (4) THE AUTHOR'S WORD [CLOSE ; NEW]: 19:58Z: (14) (2)(viii) ordered three README writes and (9) and N5 said one; the three stand, N5's clause read as
+     three for this act.
+    (5) THE AUTHOR'S WORD [CLOSE ; NEW]: 19:58Z: (15) (R338)(3) said seven banked onsets; the banks hold six, off52 a bound and off44 carried; the words
+     corrected by note.
+    (6) THE SEAT'S [CLOSE ; NEW]: 20:17Z: `report bank` crashed with NameError on sk (tools/standing/fold/report.tpl :75; b728's report section,
+     tools/acts/b728.py :1484-:1491, defines sc2 and sl2 and never sk). No report dry ran before the lock. Two prompts were put after the root's prompt, the
+     second because the first was answered with the earlier word again. THE AUTHOR'S WORD: "Option A: the scratch wrapper supplies sk at run time, no tool's
+     bytes change; the report lands at 7 lines". The wrapper's text is banked at data/b728_report_wrapper.txt. The tool ran with one name it does not carry;
+     N4 and S3 hold on their wording only. Repair at b729 by the author's word.
+    (7) THE SEAT'S [CLAIM ; NEW]: 19:58Z to 20:17Z: the halt's prompt said G-REPORT-UNSEALED would fail at 7 of 8 lines, and the author's word repeated it.
+     That arm is retired (tools/standing/arms.py :40), is not among the suite's 116, and no arm reads the report. The seat found this at 20:58Z, reading the
+     suite, and corrected the sentence in the uncommitted trail note before its commit at 26fb938d.
+    (8) THE SEAT'S [CLOSE ; NEW]: 20:20Z: the first `record root` refused, READY False, BANKS 95, CLEAN 94: data/b728_close_dry.txt, a named bank, was left
+     out of the pre-root commit on b727's untracked precedent. No root was written. Committed at 6427cb56, pushed at 1b8e31e6, a second pre-root push; the
+     root taken over 95 banks, b097c2b0, the arm's recomputation equal, verify AGREE.
+    (9) THE SEAT'S [CLOSE ; NEW]: 20:31Z: G-ACTROOT-BANKED fails, pre-push and post-push, and could never pass: REQUIRED_BANKS (tools/acts/b728.py :453) names
+     data/b726_mechanisms.txt, which the root route, reading b728's prefix and the shared list, cannot name. The pending failure at the pre-run hid it.
+     Each other clause read true apart: the route's list equal to the items, 95; the root recomputed; the heads, 38; the chain row. The root is sound; the
+     arm's required list is the defect. Sealed, not repaired; for b729.
+    (10) THE SEAT'S [CLOSE ; NEW]: post-push: plain standing-a ran before the step row of 90d7af67 existed and read G-SEALED-AFTER-COMPONENTS failing; the row
+     written uncommitted, the part re-run, the arm passing.
+    (11) THE SEAT'S [CLOSE ; REPEAT b728 event (1)]: post-push: that re-run of standing-a went in the background, the second background part after event
+     (1), noticed at once. It was let finish alone and the part run again in the foreground; the banked reading is the foreground run's.
+    (12) THE TOOL'S [CLOSE ; NEW]: pre-push and post-push: G-SEAL-HASHES's plant passes (POSITIVE-CONTROL PASSES 1) and G-TRAIL-CARRIES-SEAL's plant mutates
+     nothing (VACUOUS 1), the hand-kept-string class of b724's traps; both show only once LIVE passes, so the pre-run could not show them.
+    (13) THE SEAT'S [CLAIM ; NEW]: standing-c prints "G-READ-RULE-STANDING`S READING ... FAIL ; rows 0" with data/b728_read_calls.txt; that arm is retired and the
+     line drives no verdict. Not traced in this act; for b729.
+    ### EVENTS 13 ; THE HEAD LINE`S 0
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 116. ### LIVE PASSING : 113. ### LIVE FAILING : 2 ['G-AXIOM-CLAIM', 'G-ACTROOT-BANKED']. ### WITHHELD, NOT EXERCISABLE : 0 .
+    pre-push : VERDICT : NOT CLEAN
+    post-push : ARMS RUN : 116. ### LIVE PASSING : 113. ### LIVE FAILING : 2 ['G-AXIOM-CLAIM', 'G-ACTROOT-BANKED']. ### WITHHELD, NOT EXERCISABLE : 0 .
+    post-push : VERDICT : NOT CLEAN
+      relay                            main 90d7af6795e3 ; remote 90d7af6795e3 ; AGREE
+      PLACE-papers                     main 26fb938d55d3 ; remote 26fb938d55d3 ; AGREE
+      SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
+      SIDE-explicit-formula            main badacccb867e ; remote badacccb867e ; AGREE
+      SIDE-faces-join                  main 11a472b90553 ; remote 11a472b90553 ; AGREE
+      SIDE-kernel                      main 2e06bebc89f8 ; remote 2e06bebc89f8 ; AGREE
+      SIDE-lv-conservation             main 305a87c9e09c ; remote 305a87c9e09c ; AGREE
+      SIDE-effects                     main 78bbcff533b7 ; remote 78bbcff533b7 ; AGREE
+      SIDE-silence-principle           main 716b686ea846 ; remote 716b686ea846 ; AGREE
+      SIDE-omega-b                     main 9c80279b6976 ; remote 9c80279b6976 ; AGREE
+      SIDE-cosmo                       main 5ad736fecd77 ; remote 5ad736fecd77 ; AGREE
+      SIDE-trivium                     main 6ede9af61387 ; remote 6ede9af61387 ; AGREE
+      SIDE-residual-bridge             main 5aa5ab72af41 ; remote 5aa5ab72af41 ; AGREE
+      SIDE-yang-mills-formation        main 73e9e2c3e962 ; remote 73e9e2c3e962 ; AGREE
+      SIDE-substrate-cluster           main 0c98a9a23cdb ; remote 0c98a9a23cdb ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 967f747c4365 ; remote 967f747c4365 ; AGREE
+      SIDE-bsd-formation-transfer      main 34917669160d ; remote 34917669160d ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 7a62cedbb956 ; remote 7a62cedbb956 ; AGREE
+      SIDE-quaternionic-dark-sector    main e860142a5381 ; remote e860142a5381 ; AGREE
+      SIDE-spinor                      main 25c76d8ea207 ; remote 25c76d8ea207 ; AGREE
+      SIDE-bijection                   main b800504350f0 ; remote b800504350f0 ; AGREE
+      SIDE-class-coupling              main b6a6e869304d ; remote b6a6e869304d ; AGREE
+      SIDE-coupling                    main 42b5e4e5a1f9 ; remote 42b5e4e5a1f9 ; AGREE
+      SIDE-formation-arithmetic        main ef0fcf1e9967 ; remote ef0fcf1e9967 ; AGREE
+      SIDE-meta                        main 6bb7b23b4e6c ; remote 6bb7b23b4e6c ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 5476ef356920 ; remote 5476ef356920 ; AGREE
+      SIDE-carrier-spec                main dd54a6163c17 ; remote dd54a6163c17 ; AGREE
+      SIDE-grh-transfer                main 6e149db34ab5 ; remote 6e149db34ab5 ; AGREE
+      SIDE-window                      main b9055074f965 ; remote b9055074f965 ; AGREE
+      SIDE-class-number-anomaly        main 68df58d440be ; remote 68df58d440be ; AGREE
+      SIDE-li-map                      main 9e02bc0010f1 ; remote 9e02bc0010f1 ; AGREE
+      SIDE-rcurve                      main 0bcb6c1d7076 ; remote 0bcb6c1d7076 ; AGREE
+      SIDE-archimedean                 main b71ffb8aa3fd ; remote b71ffb8aa3fd ; AGREE
+      SIDE-interfaces                  main c8bd217af5ff ; remote c8bd217af5ff ; AGREE
+      SIDE-explicit-formula            v0.37 peeled 38e273477257 ; at the remote 38e273477257 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.36 peeled dfadc8cb6b36 ; at the remote dfadc8cb6b36 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.35 peeled d4e046adbb84 ; at the remote d4e046adbb84 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.34.1 peeled e5fcda7b08f1 ; at the remote e5fcda7b08f1 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.34 peeled 8fbc27bef051 ; at the remote 8fbc27bef051 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.17 peeled 5a1630b8292b ; at the remote 5a1630b8292b (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.2 peeled 5c72cad24303 ; at the remote 5c72cad24303 (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-explicit-formula            v0.1 peeled baed4df861da ; at the remote baed4df861da (annotated, peeled) ; main badacccb867e ; AGREE
+      SIDE-substrate-cluster           v0.4.1 peeled 0c98a9a23cdb ; at the remote 0c98a9a23cdb (annotated, peeled) ; main 0c98a9a23cdb ; AGREE
+      SIDE-substrate-cluster           v0.4 peeled 06b61c3afe80 ; at the remote 06b61c3afe80 (lightweight, its own line) ; main 0c98a9a23cdb ; AGREE
+      SIDE-simplicity                  v0.1.2 peeled 967f747c4365 ; at the remote 967f747c4365 (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-simplicity                  v0.1.1 peeled 53df27fb6dcc ; at the remote 53df27fb6dcc (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-simplicity                  v0.1.0 peeled 54ba4f38b729 ; at the remote 54ba4f38b729 (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-interfaces                  v0.2.1 peeled c8bd217af5ff ; at the remote c8bd217af5ff (annotated, peeled) ; main c8bd217af5ff ; AGREE
+      SIDE-interfaces                  v0.2 peeled 172879629642 ; at the remote 172879629642 (annotated, peeled) ; main c8bd217af5ff ; AGREE
+      SIDE-archimedean                 v0.1.1 peeled fcecc454077c ; at the remote fcecc454077c (annotated, peeled) ; main b71ffb8aa3fd ; AGREE
+      SIDE-archimedean                 v0.1.0 peeled 8019d9dfee87 ; at the remote 8019d9dfee87 (annotated, peeled) ; main b71ffb8aa3fd ; AGREE
+      SIDE-rcurve                      v0.1.1 peeled 54c9040709cf ; at the remote 54c9040709cf (annotated, peeled) ; main 0bcb6c1d7076 ; AGREE
+      SIDE-rcurve                      v0.1.0 peeled d5f33b44ef7b ; at the remote d5f33b44ef7b (annotated, peeled) ; main 0bcb6c1d7076 ; AGREE
+      SIDE-li-map                      v0.1.1 peeled 9e02bc0010f1 ; at the remote 9e02bc0010f1 (annotated, peeled) ; main 9e02bc0010f1 ; AGREE
+      SIDE-spinor                      v0.1.2 peeled 7e570eeddb57 ; at the remote 7e570eeddb57 (annotated, peeled) ; main 25c76d8ea207 ; AGREE
+      SIDE-class-number-anomaly        v0.2.1 peeled 68df58d440be ; at the remote 68df58d440be (annotated, peeled) ; main 68df58d440be ; AGREE
+      SIDE-window                      v0.5.2 peeled b9055074f965 ; at the remote b9055074f965 (annotated, peeled) ; main b9055074f965 ; AGREE
+      SIDE-trivium                     v0.1.2 peeled 6ede9af61387 ; at the remote 6ede9af61387 (annotated, peeled) ; main 6ede9af61387 ; AGREE
+      SIDE-silence-principle           v0.2.2 peeled 716b686ea846 ; at the remote 716b686ea846 (annotated, peeled) ; main 716b686ea846 ; AGREE
+      SIDE-bijection                   v0.2.1 peeled b800504350f0 ; at the remote b800504350f0 (annotated, peeled) ; main b800504350f0 ; AGREE
+      SIDE-grh-transfer                v0.5.1 peeled 6e149db34ab5 ; at the remote 6e149db34ab5 (annotated, peeled) ; main 6e149db34ab5 ; AGREE
+      SIDE-cosmo                       v0.3.1 peeled ca04c8cf467a ; at the remote ca04c8cf467a (annotated, peeled) ; main 5ad736fecd77 ; AGREE
+      SIDE-effects                     v0.1.1 peeled 78bbcff533b7 ; at the remote 78bbcff533b7 (annotated, peeled) ; main 78bbcff533b7 ; AGREE
+      SIDE-carrier-spec                v0.4.2 peeled dd54a6163c17 ; at the remote dd54a6163c17 (annotated, peeled) ; main dd54a6163c17 ; AGREE
+      SIDE-structural-error-correction v0.2.3 peeled 5476ef356920 ; at the remote 5476ef356920 (annotated, peeled) ; main 5476ef356920 ; AGREE
+      SIDE-lv-conservation             v0.14.0 peeled cb0aea56354a ; at the remote cb0aea56354a (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-lv-conservation             v0.13.0 peeled 8e3bc76cbb32 ; at the remote 8e3bc76cbb32 (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-lv-conservation             v0.10.0 peeled 93c27ec2cb9b ; at the remote 93c27ec2cb9b (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-global-section              v0.3.0 peeled 504e146bc038 ; at the remote 504e146bc038 (annotated, peeled) ; main 504e146bc038 ; AGREE
+      SIDE-kernel                      v1.8 peeled 70aba3cd7392 ; at the remote 70aba3cd7392 (annotated, peeled) ; main 2e06bebc89f8 ; AGREE
+      port-b707                        local cb0aea56354a ; remote cb0aea56354a ; AGREE (the forward-port`s branch, KEPT under (R338)(12): b712`s tip cb0aea56, no commit this act, tagged v0.14.0)
+      recut-b712-silence               local absent ; remote 0aeca8341ae4 ; ### DIFFER (the re-cut, merged into main at a86c9429 by b714, its second parent 0aeca834, on main True; deleted at b727`s step zero, (R337)(9))
+      SIDE-faces-join                  tags local ['v0.1.0'] ; at the remote ['refs/tags/v0.1.0', 'refs/tags/v0.1.0^{}'] ; v0.1.0 peeled 11a472b90553 ; AGREE (the join`s tag, b712`s, unmoved)
+      sorry-quarantine-SIDE-kernel     local a28f62f1f5f8 ; remote a28f62f1f5f8 ; AGREE (the quarantine and its legacy map)
+      sorry-quarantine-SIDE-lv-conserv local 011121e5d446 ; remote 011121e5d446 ; AGREE (the quarantine and its legacy map)
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a (annotated, peeled) ; main 5476ef356920 (unmoved by this act) ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : TOTAL MISSING : 0 / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 1
+    pre-push, (R338)(2) : THE CLAIM ARMS PASSING 37 OF 38 (failing ['G-AXIOM-CLAIM']) ; THE WHOLE SUITE PASSING 113 OF 115 ; UNTAGGED ['G-R338-ENTERED', 'G-RESEARCH-REPRODUCES']
+    post-push, (R338)(2) : THE CLAIM ARMS PASSING 37 OF 38 (failing ['G-AXIOM-CLAIM']) ; THE WHOLE SUITE PASSING 113 OF 115 ; UNTAGGED ['G-R338-ENTERED', 'G-RESEARCH-REPRODUCES']
+    kernels written: README.md on main of SIDE-rcurve, SIDE-archimedean and SIDE-spinor by (R338)(2)(viii), three writes where (9) and N5 say one (printed at the citation check, not smoothed), each commit
+    under the noreply identity, each pushed through push_gated.sh and read back ; README.md alone on each kernel named ; no .lean file, no workflow file, no tag on those mains ;
+    SIDE-explicit-formula`s main at badaccc and v0.37 unmoved ; on its branches c2-b725 and keiper-b725 the Lean modules of (R338)(4)-(5), each pushed through push_gated.sh, off main, untagged ;
+    4 runner dispatches (N1, eight at most), each read by its run id, relay data/b728_dispatch_rows.json ; the rebuild-b721 branches of the wave 1 kernels as b727 left them ;
+    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;
+    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each suite part, computation, push and dispatch ;
+    the push-b727-* branches of relay and PLACE-papers deleted at step zero by name, one per command and each its own message ; N2: the onset table`s controls before its table, the table POST HOC, nothing registered, no new zero ;
+    N3: every grade at its bank`s end ; (R338)(8): no new occurrence of the author`s name or address in anything the act wrote, committed or pushed (relay data/b728_address_scan.txt) ;
+    the commits under the GitHub login and its noreply address ; no identifier of the author in any outbound request header, URL, input or payload, or in any workflow file ; no secret added ; the outbound reads: the seat`s plain requests to github.com ; gh reads and the workflow dispatches under the GitHub login ;
+    nothing deposited ; the deposit route untouched, publish never called, the draft held at v5 ;
+    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry), OPEN_TRAILS (the dated note, the trail), SPIRAL_MAP :104 and the edition`s :316 written ; no paper cut, moved or renamed ;
+    no FOUNDATIONS, REGISTRY, README or faces page byte ; data/act_roots.txt (b728`s root), data/b726_mechanisms.txt (by (R338)(7), appended) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;
+    tools/standing/ at v1.8.0 by (R338)(2) ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b727 unedited ; the mirror zip written outside every repository over the
+    roster read from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT, (R338)(10)**: b729 under (R338)(10): the Beurling row’s literature read for the mechanism table and the 2C cluster’s note on the statement-grading instruments beside Invariance Barriers; H-ONSET-MASS-2’s test and W-ORD-VISIBILITY’s registration fall away, (3) having registered nothing and (6) having written no candidate.
+    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-CHAIN-PAGE-LLM-LINE, entered at b727,
+        W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.
+    (c) For b729, each from its bank: the fields not compiled, if any (relay data/b728_c2.txt); what remains of lambda_2 (relay data/b728_lambda2.txt); the reproduction`s NOT RUN rows, each with its price
+        (relay data/b728_reproduce.txt); W-ORD-VISIBILITY and W-ORD-MECHANISM-TABLE, each CARRIED ; the b725 list`s 69 ref rows taken as on-line, printed for the author (relay data/b728_defects.txt) ; the draft held at v5.
+    (d) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, data/b694_witness_units.jsonl,
+        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, b709`s grid and pairs units files, b711`s, b713`s and b717`s
+        units files, b714`s rectangle units file (declared in their tools` heads), the zero-byte `=` and records.json at relay`s root
+        (2026-09-24 and 2026-09-12, neither this act`s) stay local and untracked.
+    (e) The act root of b728 is relay data/act_roots.txt`s last line, chained from b727`s root; the mirror export carries it in MANIFEST.
+    (f) Branches left for the next act`s step zero: the push-b728* branches of relay and PLACE-papers. KEPT, not for deletion:
+        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); keiper-b725 at 2cb3936c and c2-b725 at b91bf5af of
+        SIDE-explicit-formula, off main, untagged; scratch-b724 of SIDE-lv-conservation; corrigendum-b723 of relay; the three push-b728-readme branches;
+        challenge-b720-h2-sign-iff-rh of SIDE-explicit-formula; the pin-b718-de5ce8a9 branches; the rebuild-b721 branches of the wave 1 kernels as b727 left them.
+    (g) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+========================================================================================================
