@@ -1,0 +1,61 @@
+b727 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b726_address_scan.py -> tools/b727_address_scan.py (2026-10-31T04:23:41Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b726 -> b727, b725 -> b726, R336 -> R337, R335 -> R336); 157 lines, 18 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b726_tool_repairs.txt AND data/b726_repairdiff_address_scan.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b726; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b726_address_scan.py
+  +++ tools/b727_address_scan.py
+  @@ -2,4 +2,4 @@
+  -"""b726_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b726 (data/b726_carry_address_scan.txt), its carry-time repairs and the author's word at b726's Component 1 marked ### b726.
+  -### b726, the carry's note: this file came from tools/b725_address_scan.py by the act names' shift alone, so every "### b726" mark below
+  -### but the import line's repair was b725's own mark, shifted (the substitution class (R336)(2)(ix) names); the second name arm is b725's
+  +"""b727_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b727 (data/b727_carry_address_scan.txt), its carry-time repairs and the author's word at b727's Component 1 marked ### b727.
+  +### b727, the carry's note: this file came from tools/b726_address_scan.py by the act names' shift alone, so every "### b727" mark below
+  +### but the import line's repair was b726's own mark, shifted (the substitution class (R337)(2)(ix) names); the second name arm is b726's
+  @@ -7,2 +7,2 @@
+  -### b726 carry-time repair (class (ix), (R336)(2)(v)'s): :2 and the bank's title name (R332)(9)(i) and b722 again, as tools/b722_address_scan.py
+  -### :2 wrote them; the carries of b725 and b726 had shifted them to (R333)/(R335) and b723/b725.
+  +### b727 carry-time repair (class (ix), (R337)(2)(v)'s): :2 and the bank's title name (R332)(9)(i) and b722 again, as tools/b722_address_scan.py
+  +### :2 wrote them; the carries of b726 and b727 had shifted them to (R333)/(R336) and b723/b726.
+  @@ -10,2 +10,2 @@
+  -  ### b726, the author's word at Component 1: a second name arm -- the previous user.name read from the history (the author field of
+  -  ### 30c0b3c8, the last relay commit before b725's step zero 91cb997e), held in memory as the address is, its count printed alone as
+  +  ### b727, the author's word at Component 1: a second name arm -- the previous user.name read from the history (the author field of
+  +  ### 30c0b3c8, the last relay commit before b726's step zero 91cb997e), held in memory as the address is, its count printed alone as
+  @@ -17,1 +17,1 @@
+  -                  (tools/b725_llm_line.py monograph(), at run time); both held in memory, neither printed. Counted, as NEW occurrences:
+  +                  (tools/b726_llm_line.py monograph(), at run time); both held in memory, neither printed. Counted, as NEW occurrences:
+  @@ -23,1 +23,1 @@
+  -                  --bank writes data/b726_address_scan.txt.
+  +                  --bank writes data/b727_address_scan.txt.
+  @@ -37,1 +37,1 @@
+  -import b726_worklist as K   # noqa: E402
+  +import b727_worklist as K   # noqa: E402
+  @@ -39,1 +39,1 @@
+  -ACT = 'b726'
+  +ACT = 'b727'
+  @@ -58,1 +58,1 @@
+  -    import b722_llm_line as LL   # ### b726 carry-time repair: the shift named b725_llm_line, which does not exist; b722's read, as b725 read it
+  +    import b722_llm_line as LL   # ### b727 carry-time repair: the shift named b726_llm_line, which does not exist; b722's read, as b726 read it
+  @@ -65,1 +65,1 @@
+  -USERNAME_REF = '91cb997e~1'   # ### b726: 30c0b3c8, the last relay commit before b725's step zero (b725's act_current, 91cb997e)
+  +USERNAME_REF = '91cb997e~1'   # ### b727: 30c0b3c8, the last relay commit before b726's step zero (b726's act_current, 91cb997e)
+  @@ -69,1 +69,1 @@
+  -    """### b726, the author's word: the previous user.name, the author field of USERNAME_REF; refuses when it is unset or the login."""
+  +    """### b727, the author's word: the previous user.name, the author field of USERNAME_REF; refuses when it is unset or the login."""
+  @@ -109,1 +109,1 @@
+  -    s = 'control %s between %s end' % (addr, uname)   # ### b726: the author's word's control, one string built and dropped in memory
+  +    s = 'control %s between %s end' % (addr, uname)   # ### b727: the author's word's control, one string built and dropped in memory
+  @@ -114,1 +114,1 @@
+  -         '### name from the monograph`s byline at run time, the previous user.name from 30c0b3c8`s author field (b726); all held in memory, none printed. New text only: the commits from relay %s and' % K.PRE_RELAY[:8],
+  +         '### name from the monograph`s byline at run time, the previous user.name from 30c0b3c8`s author field (b727); all held in memory, none printed. New text only: the commits from relay %s and' % K.PRE_RELAY[:8],
+  @@ -155,1 +155,1 @@
+  -        sys.exit('usage: b726_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b727_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b727_address_scan.py ; LINES 157 ; CHANGED BY THE SUBSTITUTION 18 ; REPAIR SPANS AT b726 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
