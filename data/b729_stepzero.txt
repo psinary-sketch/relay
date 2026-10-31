@@ -1,0 +1,69 @@
+b729 -- STEP ZERO, (R339)(9) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, THE PRICE TABLE AND THE STEP-ZERO DEFECTS (2026-10-31)
+
+## IN ORDER
+  the ruling and the ferry received in full (RULING (R339) + FERRY, part 1 of 1), confirmed before acting
+  data/act_current.json for b729 committed alone: relay d3512b5f
+  data/b729_ferry.txt banked from the transcript, verbatim; `citation ferry`: 13118 characters, equal True, ferry_scan exit 0; data/b729_ferry_scan.txt
+  tools/b729_carry.py from tools/b728_carry.py by the scratch carrycarry729.py; tools/acts/b729.py, tools/b729_worklist.py and tools/b729_address_scan.py carried (data/b729_carry_*.txt);
+    the worklist's stage one set by the scratch stage729.py, the citation sections 1, 4 by the scratch cite729.py
+  THE CARRIED FILES, each alone, each scanned before: b728's step row 36: relay ca799158; b728's closing capture: relay 26965c01
+  THE PATHS: listed by the citation check's PATHS rows, none absent
+  ROWGEN DIFF AND CONSTELLATION: data/b729_rowgen_stepzero.txt, constellation exit 0, rowgen diff exit 0, tables 19, re-pointed 8, STALE 0
+  THE PROCESS LISTING: 21:50:02Z claude 1, python 1 (the reader), lean 0, lake 0; free 4441 of 16178 MB; 22:00:20Z again, free 4722; the hold 2560 MET
+  THE CITATION CHECK: 82 cites, 80 OK, 2 MISSES, each printed below: data/b729_citation_check.txt
+  THE READFIRST BANK BY THE TOOL: tools/standing/readfirst.py write b729: data/b729_readfirst_rows.json -> data/b729_readfirst.txt, 18 ferry rows, 4 own, before any delete
+  THE DELETES, each after its --merged listing, one per message: relay push-b728-closing (0650a188), push-b728-preroot (97f4eea6), push-b728-preroot2 (1b8e31e6), push-b728-record (90d7af67);
+    PLACE-papers push-b728-preroot (8442dda), push-b728-record (26fb938).
+    KEPT as banked: port-b707, challenge-b720-h2-sign-iff-rh, scratch-b724, keiper-b725, c2-b725, corrigendum-b723, the rebuild-b721 and pin-b718-de5ce8a9 branches; detect-b729 not yet made
+  git status: data/b728_hook_refusals.txt modified, two rows of the hook's own after b728's close (defect (b) below), left uncommitted; the act's banks untracked, committed below by explicit list
+  NO BUILD on this host; no lean process.
+
+## THE TWO CITATION MISSES, EACH WITH THE SEAT'S DECISION
+  (a) (R339)(2)(i) says the `> $null` and `2>&1` forms slipped past the hook at b726-b728. The refusal banks of b725-b728 carry four REDIR rows (b725 :6, b727 :1 with `2>&1`, b728 :5, :8, :9) and every one
+      was REFUSED: tools/standing/hook.py :138 refuses any `>` or `<` outside quotes, and `> $null` carries one. No form in any bank slipped past; `> $null` is in no bank. What repeats is the seat's attempt, refused
+      each time. DECIDED: the replay runs on the rows the banks hold, and `> $null` and `2>&1` are added as cases. The extension itself goes where the hook truly does not reach: a redirect inside the quoted
+      argument of an inner shell (`bash -c`, `sh -c`, `powershell -Command`, `cmd /c`), which strip_quotes blanks, and the redirect-by-cmdlet forms carrying no `>` (Out-File, Set-Content, Add-Content, Tee-Object).
+      `-RedirectStandardOutput` is not refused: tools/standing/routes/b644_record.py :389 writes it into a launcher. Printed for the author at the root's prompt.
+  (b) (R339)(7) tests at off44; data/b725_onset_mass.txt :17 reads it positive to 2 log 192. DECIDED: off44's prediction is registered with the rest; its onset needs rungs beyond 192. Priced below; if the rung is not
+      negative within reach its row stays a bound and never reads as a confirmation; H-ONSET-C then scores at off24 alone and carries, as NOT SCORABLE at off44.
+
+## THE PRICE TABLE ((R339)(9), clause | the work | the price | its source)
+  Each price is the seat's estimate, a range. THE BUDGET: b723's act, 16.7 h, the close inside it at 4.0 h (data/b724_price.txt :3-:10). Act begun 21:40Z; this table 22:02Z, 0.4 h spent.
+  (2)(i)     the REDIR class: inner shells and cmdlets, the replay of the banked rows, the planted clean command | 0.4-0.6 h | data/b724_price.txt :13-:16 (0.4-0.5 h a class)
+  (2)(ii)    report dry a pre-lock step; the undefined-name reading; control b728's sk | 0.4-0.6 h | the same rate
+  (2)(iii)   REQUIRED_BANKS from the (W) list the root route can list; control data/b726_mechanisms.txt | 0.3-0.5 h | the same rate
+  (2)(iv)    G-SEAL-HASHES' POS, G-TRAIL-CARRIES-SEAL's plant; two b728 states | 0.5-0.75 h | the same rate
+  (2)(v)     the scan written back after the lock | 0.2-0.4 h | the same rate
+  (2)(vi)    N5's count from the (W) list | 0.2-0.3 h | the same rate
+  (2)(vii)   counts and nouns from the banks, a typed difference halting the check; control "theorem" against data/b728_c2.txt | 0.5-0.75 h | the same rate
+  (2)(viii)  the prompt-once clause counted in the head line; control b728's three | 0.2-0.3 h | the same rate
+  (2)(ix)    a row of the registration, written at (7) | 0 here | (7)
+  (2) SUM    2.8-4.2 h
+  (3)        the C2 theorem, blind (N1), at most three dispatches, about 570 lines in seven modules: Tab get/set; bigOmega = Mathlib's cardFactors; the sweep's count = rQ (L1); divSum = the sum over x y = n; wLoop's table;
+             the Omega derivation on Mathlib's ArithmeticFunction ring (L2); the join, and a field chain so that the eighteen compile in ONE run under the hold (each field's module takes one import line; no certificate's
+             statement moves). Dispatches 1-2 the lemmas, 3 the whole. Run times 2-4 min a field, 28 and 57 min at -427 and -403: about 2 h in chain, under the job's 300 min | 6-9 h | data/b728_c2.txt; gh run list
+  (4)        (stieltjes 1).re < -1/20. Mathlib at the pin has no representation of gamma_1 by name (`stieltjes` is the kernel's own, an iterated derivative of riemannZeta₀ at 1; ZetaAsymp.lean holds term, termTSum at s = 1 and
+             real s > 1 and no derivative in s). THE ROUTE PRICED AND CHOSEN: a finite sum with a one-sided tail whose bound is a theorem. With r_n(s) = n^-s - ((n-1/2)^(1-s) - (n+1/2)^(1-s))/(s-1), r_n(s) >= r_n(1) for s > 1,
+             n >= 5, by concavity of x^-s - x^-1 on [9/2, oo); so riemannZeta₀(1+v) - gamma >= S(v) - S(0), S the sum to n = 4 with (9/2)^-v - 1 over v; hence gamma_1 <= log 2 + (log 3)/3 - (log 9/2)^2 / 2 = -0.0718..., needing only
+             log 2 (Real.log_two_gt_d9) and 3^12 >= 2^19. About 200 lines, at most two dispatches. Then liCoeff_two_pos from the compiled conditional | 3-5 h | data/b728_lambda2.txt :26-:31; ZetaAsymp.lean
+  (5)        the statement alone, E0 graded, the contrapositive, the lemmas priced; no proof this act unless the table holds it after (3)-(4): THE TABLE DOES NOT | 1-2 h | Schema/Detector.lean :99; FirstOrderBound.lean :149
+  (6)        the count law's price against b716's bank; nothing dispatched | 0.5-1 h | data/b716_epstein_count_price.txt
+  (7)        the fit, registration and predictions 0.5 h; off24's onset in (128, 192], off18's 25610 unit-seconds over 4 workers, 1.8-3.6 h; off44 past 192, the ladder's next rung 0.5-1 h, its onset 2-4 h if the rung is negative at all;
+             stoppable between the two | 2.8-9.1 h | data/b725_onset_mass.txt :13-:20
+  THE CLOSE  4.0 h | data/b724_price.txt :9-:10
+  THE SUM    step zero 0.4 + (2) 2.8-4.2 + (3)-(7) 13.3-26.1 + the close 4.0 = 20.5-34.7 h against 16.7 h
+
+## WHAT RUNS AND WHAT IS CARRIED
+  (2) runs whole before (3), as the ruling orders. The sum overruns the budget at both ends, so the stop rule will fire: the order is (2), (7)'s fit, registration and predictions (cheap, and the rule wants them before
+  any onset), (3), (4), (5), (6), then (7)'s onsets, off24 first. (5) and (6) carry no computation at risk and their statement and price are short; off44's onset is the first thing to go.
+  THE STOP RULE (b725's form): before each clause begins, elapsed + its low price + the close's 4 h <= 16.7 h, else that clause is carried with its remaining price and the next that fits runs.
+  Nothing is carried at this table; what is carried is printed where the rule fires. The detection theorem's proof is carried now, by the ruling's own condition.
+
+## THE STEP-ZERO DEFECTS (each the seat's)
+  (a) [CLOSE ; REPEAT b728 (a)] the ruling orders act_current "before any other command"; Reads and Greps of the step-zero form stood before that commit, the ferry's paste being read first. None wrote or moved anything
+  (b) [CLOSE ; REPEAT class (19)] two Reads refused by the hook: :10 at 21:37Z (a limit, no offset, data/b728_closing.txt) and :11 at 21:46Z (no limit, data/act_current.json). The hook keyed them to the act then current, b728, so they
+      stand as uncommitted rows of data/b728_hook_refusals.txt, a closed act's bank; that file is not committed by this act and its rows are entered here
+  (c) [CLOSE ; NEW] `citation ferry` run before tools/acts/b729.py was carried: FileNotFoundError; run again after the carry, equal True
+  (d) [CLOSE ; NEW] `readfirst.py write b729` run before its rows bank stood: FileNotFoundError; nothing written
+  (e) [CLOSE ; NEW] `citation bank` is no subcommand of the tool: exit 2, its usage printed; `citation check` banks
+  (f) [CLOSE ; NEW] the citation sections' first needle for data/b728_standing_v180.txt ("23 OF 23") was not that bank's wording; a third miss at the first run, the seat's needle, repaired to "CASES 23 ; AS WANTED 23" (the first run's count 82, 79, 3)
