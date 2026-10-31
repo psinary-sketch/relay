@@ -169,6 +169,10 @@ def main(argv=None):
     else:
         rec('  ### ### **THE FACE DOES NOT EXIST. ### REFUSING.**')
         return 2
+    # ### b727, (R337)(2): the banks written by design after the lock, printed by name; outside the lock's hash set and N4's read
+    sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'standing'))
+    import act as STANDING_ACT
+    rec('  ### excluded from the lock`s hash set and N4`s read, by name : %s' % ', '.join(STANDING_ACT.post_lock_appended(act)))
     rec('')
     rec('-' * 100)
     rec('  ### (1) THE HELPER`S OWN FIXTURES, BEFORE THE GATE USES IT.')

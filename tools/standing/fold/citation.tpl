@@ -189,8 +189,13 @@ def standing_rows(text, add):
 def _write(L, R, miss):
     for n_ in ('⟪ACT⟫_citation_check.txt', '⟪ACT⟫_citation_check.json'):
         MEM.guard('⟪ACT⟫', n_, _root_exclude())
+    now_ = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+    # ### b727, (R337)(2), G-BRANCHES-BANKED: a re-bank keeps the first banking's time, which the arm reads against the first delete
+    sys.path.append(os.path.join(T, 'standing'))
+    import act as STANDING_ACT
+    first_ = STANDING_ACT.first_stamp(_jl('⟪ACT⟫_citation_check.json'), now_)
     for name, data in (('⟪ACT⟫_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
-                       ('⟪ACT⟫_citation_check.json', (json.dumps(dict(at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), rows=R,
+                       ('⟪ACT⟫_citation_check.json', (json.dumps(dict(at=now_, first_at=first_, rows=R,
                                                                        misses=[r[1] for r in miss]), indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
         q = os.path.join(D, name)
         with open(q + '.tmp', 'wb') as fh:
@@ -295,6 +300,10 @@ def answer(needle, *a):
     if body.count("best.find('END', k)") != 1:
         sys.exit('### b682`s CUT NOT FOUND ONCE IN ITS answer -- NOTHING CHECKED')
     body = body.replace("best.find('END', k)", "best.rfind('END')")
+    # ### b727, (R337)(2), b725 event (4): the check's output in a bank of its own, named by the lock gate, never in the banks tracked at the lock
+    if body.count("'⟪ACT⟫_defects.txt' if after_root() else '⟪ACT⟫_citation_check.txt'") != 1:
+        sys.exit('### b682`s BANK NOT FOUND ONCE IN ITS answer -- NOTHING CHECKED')
+    body = body.replace("'⟪ACT⟫_defects.txt' if after_root() else '⟪ACT⟫_citation_check.txt'", "'⟪ACT⟫_answer_check.txt'")
     body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('⟪ACT⟫', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
     ns = dict(vars(P))
     ns.update(MEM=MEM, ROOT_EXCLUDE=_root_exclude())

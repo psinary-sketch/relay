@@ -1,0 +1,45 @@
+b727 -- THE CONTROLS OF tools/standing/ v1.7.0, (R337)(2): shared_edits ONE LIST READ AGAINST GIT, THE CITATION BANK`S FIRST TIME, THE ANSWER CHECK`S BANK (2026-10-31T04:32:26Z)
+
+### the instances read at their commits; each case through both routes
+
+### (actcur) G-ACT-CURRENT -- checks.tpl act_current_ok; instance: b726`s two lists at 9fac0a1d (event (2))
+  the json [] ; the worklist ['tools/rule_arms.py'] ; git ['tools/rule_arms.py']
+  (actcur) b726`s two hand lists, a repair recorded in one
+      BEFORE (v1.6.0): the json against the worklist: False -> FAILS
+      AFTER  (v1.7.0): the worklist read from the json: one list, equal by construction -> PASSES
+      AS WANTED
+  (actcur) both lists stale, a plant: each [] while git shows ['tools/rule_arms.py'] changed
+      BEFORE (v1.6.0): the two lists compared with each other -> PASSES THE STALE PAIR
+      AFTER  (v1.7.0): the json compared with git -> REFUSES IT
+      AS WANTED
+  (actcur) the json naming git`s list
+      BEFORE (v1.6.0): the worklist a second list to keep -> FAILS
+      AFTER  (v1.7.0): the json ['tools/rule_arms.py'] against git ['tools/rule_arms.py'] -> PASSES
+      AS WANTED
+
+### (branches) G-BRANCHES-BANKED -- checks.tpl cit_at, citation.tpl _write; instance: data/b726_citation_check.json (event (3))
+  (branches) the check run before the deletes, re-banked after them
+      BEFORE (v1.6.0): the bank`s time 2026-10-30T23:46:49Z against the first delete 2026-10-30T23:39:57Z: before False -> FAILS
+      AFTER  (v1.7.0): the first banking`s time kept through the re-bank 2026-10-30T23:36:45Z: before True -> PASSES
+      AS WANTED
+  (branches) a check first banked after the deletes, a plant
+      BEFORE (v1.6.0): read as above: before False -> FAILS
+      AFTER  (v1.7.0): the first banking 2026-10-30T23:46:49Z: before False, the arm still refuses -> PASSES
+      AS WANTED
+  (branches) the arm`s NEG plant, inert at b726 (the literal f4ab9491 where the bank read e2246a8e)
+      BEFORE (v1.6.0): the old literal over b726`s bank: changes it False -> FAILS
+      AFTER  (v1.7.0): the regular plant over this act`s bank: changes it True -> PASSES
+      AS WANTED
+
+### (answers) N4 -- tools/acts/b727.py N4_APPENDED, citation.tpl answer; instance: b725`s commits after its lock e86dbcd5 (event (4))
+  (answers) b725`s post-lock commits, 7 of them
+      BEFORE (v1.6.0): edited ['13e43508 data/b725_citation_check.txt'] -> FAILS
+      AFTER  (v1.7.0): edited NONE -> PASSES
+      AS WANTED
+  (answers) the route and the lock gate
+      BEFORE (v1.6.0): the route writes the citation bank ; the gate prints no exclusion -> FAILS
+      AFTER  (v1.7.0): the route writes data/bNNN_answer_check.txt ; the gate prints post_lock_appended: data/bNNN_steps.json, data/bNNN_bank_hashes.json, data/bNNN_hook_refusals.txt, tools/mirror_prevbuild.json, data/bNNN_author_answers.txt, data/bNNN_author_answers.json, data/bNNN_answer_check.txt -> PASSES
+      AS WANTED
+  what the replay leaves: NONE
+
+### ### **v1.7.0: CONTROLS (actcur), (branches), (answers) ; CASES 8 ; AS WANTED 8 ; ALL AS WANTED.**

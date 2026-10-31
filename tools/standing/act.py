@@ -114,3 +114,27 @@ def step_commit(act, phase, repo='relay'):
     """the last step row's commit of a phase in a repository (None where there is none)."""
     cs = [r['commit'] for r in steps(act) if r.get('phase') == phase and r.get('repo') == repo]
     return cs[-1] if cs else None
+
+
+def answer_banks(act):
+    """(R337)(2), b725 event (4): the answers pair and the answer check's output, written after the lock by design."""
+    return ('data/%s_author_answers.txt' % act, 'data/%s_author_answers.json' % act, 'data/%s_answer_check.txt' % act)
+
+
+def post_lock_appended(act):
+    """the banks written after the lock by design, outside the lock's hash set and N4's read; the lock gate prints them by name."""
+    return ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act,
+            'tools/mirror_prevbuild.json') + answer_banks(act)
+
+
+def first_stamp(prev, now):
+    """(R337)(2), b726 event (3): the time of a bank's first banking, kept through a re-bank; prev the bank's json as it stands, {} where absent."""
+    return (prev or {}).get('first_at') or (prev or {}).get('at') or now
+
+
+def shared_tools_changed(repo, base, act):
+    """(R337)(2), b726 event (2): the tools outside the act's own files and the standing toolset that git shows changed from base to HEAD, as
+    tools/<name>, sorted: what data/act_current.json's shared_edits must name."""
+    out = subprocess.run(['git', '-C', repo, 'diff', '--name-only', base, 'HEAD', '--', 'tools/'], capture_output=True, text=True,
+                         encoding='utf-8', errors='replace').stdout.split()
+    return sorted(p for p in out if not p.startswith(('tools/%s_' % act, 'tools/acts/', 'tools/standing/')))

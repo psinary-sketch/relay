@@ -78,6 +78,8 @@ import b697_worklist as K697  # noqa: E402
 import b696_worklist as K696  # noqa: E402
 import b695_worklist as K695  # noqa: E402
 import rule_arms as RA        # noqa: E402
+sys.path.append(os.path.join(ROOT, 'tools', 'standing'))
+import act as STANDING_ACT    # noqa: E402  ### b727, (R337)(2): the shared tools read from git
 import b704_read_arm as RDA   # noqa: E402
 import b703_checks as C3      # noqa: E402  ### the pure helpers alone (no source, no predicate over an act's banks)
 
@@ -453,7 +455,7 @@ def sources(need=()):
         sealj=jl('⟪ACT⟫_seal_hashes.json'), sealnow=sealed_now(), cmds=cmds, prev_cmds=prev_now(), cmdj=jl('⟪ACT⟫_commands.json'),
         cmdt=rd('⟪ACT⟫_commands.txt'), reads_bank=rd('⟪ACT⟫_read_calls.txt'), reads_json=jl('⟪ACT⟫_read_calls.json'),
         planted={t: run_test(t) for t in TESTS}, spec=spec_planted(), conv_bad=conv_alone(), suite=__import__('standing.repeat', fromlist=['src']).src(T, '⟪ACT⟫', 'checks'),
-        citation=rd(K.CITATION_BANK), cit_at=iso_epoch(cit.get('at') or ''), cit_misses=cit.get('misses') or [],
+        citation=rd(K.CITATION_BANK), cit_at=iso_epoch(cit.get('first_at') or cit.get('at') or ''), cit_misses=cit.get('misses') or [],
         gate=rd('⟪ACT⟫_reg_gate.txt'), rowgen=rd('⟪ACT⟫_rowgen_stepzero.txt'),
         branch_lists=dict((repo, gs(repo, 'branch', '--list', *bs)) for repo, bs in K.DELETE),
         kept_tips=dict((b, gs(repo, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b)) for repo, b in K.KEPT_BRANCHES),
@@ -1415,9 +1417,11 @@ def act_current_ok(S):
     except ValueError:
         z = {}
     keep = ('act', 'prev', 'next', 'ruling', 'prev_ruling', 'pre_relay', 'pre_pp', 'chain_row', 'prev_root', 'parts', 'withheld', 'replay')
+    # ### b727, (R337)(2): shared_edits, the one hand list (the worklist's REPAIRED_TOOLS is read from it), against the shared tools git shows changed
+    shared = STANDING_ACT.shared_tools_changed(ROOT, K.PRE_RELAY, ACTN)
     return j.get('act') == ACTN and j.get('prev') == PREV_ACT and j.get('next') == K.NEXT_ACT and j.get('ruling') == '⟪RUL⟫' \
         and j.get('chain_row') == AF['own_row'] and list(j.get('parts') or []) == list(K.PARTS) and j.get('withheld') == [] \
-        and list(j.get('shared_edits') or []) == ['tools/' + f for f in K.REPAIRED_TOOLS] and bool(z) and all(z.get(k) == j.get(k) for k in keep) \
+        and sorted(j.get('shared_edits') or []) == shared and bool(z) and all(z.get(k) == j.get(k) for k in keep) \
         and S['files']['actcur'] == [K.ACT_CURRENT]
 
 
