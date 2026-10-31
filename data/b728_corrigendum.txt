@@ -1,0 +1,90 @@
+b728 -- THE CORRIGENDUM FOR b727, (R338)(1)-(2) (2026-10-31T16:08:07Z)
+
+### the banks read unedited: data/b727_events.txt rows (1)-(21), data/b727_defects.txt 23 rows, data/b727_hook_refusals.txt 3 lines at 1bf8a57c; data/b728_standing_v180.txt (the v1.8.0 controls); the corrigenda bank`s last row (47).
+
+  *b727’s events bank (relay data/b727_events.txt) carries twenty-one rows, entered after its lock and not lettered, each tagged in its own bracket (19 the seat’s, 2 the navigator’s); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (23 the seat’s); its refusal bank three lines at b727’s closing commit 1bf8a57c, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  
+  **The repairs of `(R338)`(2), at tools/standing/ v1.8.0, each with a control on b727’s and b725’s banks, failing on the route before the repair and passing after, both instances printed** (relay data/b728_standing_v180.txt, 23 cases, AS WANTED 23):
+  
+  **(vacuous) the VACUOUS class (`(R338)`(2)(ii), events (1), (19))** -- a plant that mutates nothing reads VACUOUS, neither a pass nor a failure of the arm, and the seal lists it apart; G-RULE-SUITE-PART-CALLS reads the fold’s route (:5).
+  
+  **(answers) the answers pair (`(R338)`(2)(iii), b725 event (4))** -- v1.7.0 carried this repair; b725’s event (4) replayed at this act reads no refutation (:23).
+  
+  **(face) G-NOTHING-RAN-AHEAD (`(R338)`(2)(iv)(a), event (4))** -- the face carries a field of pre-face commits by hash and the arm reads it; b727’s seven read declared, a planted eighth ran ahead (:35).
+  
+  **(readfirst) G-READFIRST-CITED (`(R338)`(2)(iv)(b), event (5))** -- the bank written by the tool with its titles fixed; b727’s bank regenerated carries the title (:49).
+  
+  **(closing) G-CLOSING-SENTENCE (`(R338)`(2)(iv)(c), event (6))** -- the closing’s outbound sentence composed from one standing clause; b727’s dropped phrase present on regeneration (:58).
+  
+  **(remote) one remote read per command (`(R338)`(2)(iv)(d), event (7))** -- the hook refuses a command carrying two; b727’s chained diagnostic refused on replay (:64).
+  
+  **(closeorder) the dry after the combine (`(R338)`(2)(iv)(e), event (2))** -- step [7a] printed by closeorder, the seal refusing while its bank is absent (:74).
+  
+  **(gitwrite) G-RULE-ONE-GIT-WRITE (`(R338)`(2)(v), event (8))** -- traced first, relay data/b728_gitwrite_trace.txt: `add` was not in the expression and the arm counted calls; repaired, it fires on b727’s two adds, and b727’s pass and every earlier one stand marked weak (:84).
+  
+  **(connectivity) the connectivity reading (`(R338)`(2)(vi), events (9)-(10))** -- a remote read empty for every repository printed as such and re-run once before any DISAGREE; empty twice, the rows read UNREAD (:96).
+  
+  **(n5) the N5 clause and the report’s word (`(R338)`(2)(vii), defect (g), the ruling (5))** -- README.md, and AGENTS.md where a ruling passes an AGENTS item; the report prints REFUTED (:106).
+  
+  **(legacy) the legacy copy (`(R338)`(2)(ix))** -- read as landed at v1.5.0 (relay 7be1601c), where the ruling reads “b725 did not land”; the copy equal to its source at every line but :1088; 191 names remain, so the exception file is not emptied (:116).
+  
+  **G-RULE-SUITE-PART-CALLS’s four VACUOUS passes, one event by the ruling of 2026-10-31 (1):** read 0, failing 0, at b724, b725, b726 and b727 (relay data/b724_checks_postpush_standing-a.txt, data/b725_checks_postpush_standing-a.txt, data/b726_checks_postpush_standing-a.txt, data/b727_checks_postpush_standing-a.txt, each :32): the suite moved to the fold’s route at b724 and the arm’s expression did not; none of the four is evidence (CLOSE; NEW).
+  
+  **b727’s events (1)-(21):**
+  
+  **(1)** AFTER 06:33:09Z, AT THE SEAL (relay data/b727_events.txt, row (1); the seat’s; CLOSE; REPEAT of b722 event (8); repair (vacuous)).
+  **(2)** 06:33:09Z, AT THE SEAL (relay data/b727_events.txt, row (2); the seat’s; CLOSE; NEW; repair (closeorder)).
+  **(3)** tools/b727\_sitting.py :399 called Zenodo’s actions/publish seven times, once each for [13]-[19], before the lock; each … (relay data/b727_events.txt, row (3); the navigator’s; CLAIM; NEW; the clause as the author’s word read it, on this act’s face).
+  **(4)** AT THE PRE-RUN, G-NOTHING-RAN-AHEAD fails LIVE on real state (relay data/b727_events.txt, row (4); the seat’s; CLOSE; NEW; repair (face)).
+  **(5)** AT THE PRE-RUN, G-READFIRST-CITED fails LIVE on real state (relay data/b727_events.txt, row (5); the seat’s; CLOSE; NEW; repair (readfirst)).
+  **(6)** AT THE PRE-RUN, G-CLOSING-SENTENCE fails LIVE. The arm is b725’s; the cause differs (relay data/b727_events.txt, row (6); the seat’s; CLOSE; REPEAT of b725 event (5); repair (closing)).
+  **(7)** 05:56:02Z, G-RULE-REMOTE-REREAD fails (relay data/b727_events.txt, row (7); the seat’s; CLOSE; NEW; repair (remote)).
+  **(8)** 11:33:49Z, RELAY 750fb0d9’S STAGING (relay data/b727_events.txt, row (8); the seat’s; CLOSE; NEW; repair (gitwrite)).
+  **(9)** 05:55:43Z, THE PRE-RUN’S standing-b3 (relay data/b727_events.txt, row (9); the seat’s; CLOSE; NEW; repair (connectivity)).
+  **(10)** 14:10:22Z, record root (called 14:08:46Z) (relay data/b727_events.txt, row (10); the seat’s; CLOSE; REPEAT of b727 event (9); repair (connectivity)).
+  **(11)** 14:13:33Z, G-RULE-POSTSEAL-READ fails (relay data/b727_events.txt, row (11); the seat’s; CLOSE; REPEAT of b726 event (8)).
+  **(12)** 14:17:38Z, a PowerShell pipe, refused by the hook, data/b727\_hook\_refusals.txt :3; nothing ran. (relay data/b727_events.txt, row (12); the seat’s; CLOSE; REPEAT of b726 event (7)).
+  **(13)** 14:14:08Z, THE FREE MEMORY 2400 MB, BENEATH THE HOLD 2560 MB, and 14:17:31Z, part standing-a NOT RUN at 2428 MB, exit … (relay data/b727_events.txt, row (13); the seat’s; CLOSE; REPEAT of b722 event (2)).
+  **(14)** AT THE PRE-PUSH SUITE, G-ENTRY-TITLE-FORM fails LIVE (relay data/b727_events.txt, row (14); the seat’s; CLOSE; NEW; the seat’s needle, lower-cased at this act’s lock).
+  **(15)** READ AT THE ROOT, the author’s fixed words for (e) say "aperture\_decomp and two of SIDE-rcurve’s on none"; … (relay data/b727_events.txt, row (15); the navigator’s; CLAIM; NEW; SPIRAL_MAP :104 corrected, PLACE-papers 67a585f).
+  **(16)** 11:35:23Z, THE SEAT’S PROMPT on (e) said [12]’s ruled sentence "is now public in SPIRAL\_MAP". PLACE-papers is PRIVATE … (relay data/b727_events.txt, row (16); the seat’s; CLAIM; NEW).
+  **(17)** THE COMPOSER’S LINES (relay data/b727_events.txt, row (17); the seat’s; CLAIM; NEW).
+  **(18)** 06:34:28Z, A PROMPT AFTER THE LOCK (relay data/b727_events.txt, row (18); the seat’s; CLOSE; NEW).
+  **(19)** 15:0xZ, THE POST-PUSH SUITE (relay data/b727_events.txt, row (19); the seat’s; CLOSE; NEW; repair (vacuous)).
+  **(20)** THE RULE TRACE PRINTS TWO FAILS outside the suite’s list, neither an arm of the 116 (relay data/b727_events.txt, row (20); the seat’s; CLOSE; NEW).
+  **(21)** 05:32:07Z, A SCRATCH NAME (relay data/b727_events.txt, row (21); the seat’s; CLOSE; NEW).
+  
+  **b727’s defects:**
+  
+  **(a)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(b)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(c)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(e)** (relay data/b727_defects.txt; the seat’s; CLAIM; NEW).
+  **(f)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b727_defects.txt; the seat’s; CLAIM; NEW).
+  **(k)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(o)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b727_defects.txt; the seat’s; CLOSE; REPEAT of b726 (a)).
+  **(q)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(r)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b727_defects.txt; the seat’s; CLOSE; NEW).
+  **(w)** (relay data/b727_defects.txt; the seat’s; CLOSE; REPEAT of b726 (a)).
+  
+  **b727’s refusals** (relay data/b727_hook_refusals.txt at 1bf8a57c, one a line): :1 REDIR 04:36:24Z, recorded at defect (p); :2 REDIR 05:22:26Z, recorded at defect (w); :3 PIPE 14:17:38Z, recorded at event (12).
+  
+  **The counter:** CLAIM 6, CLOSE 38 over the 44 items (twenty-one events, twenty-three defects), as b727’s closing prints it (relay data/b727_closing.txt :5); REPEAT 8 of 44; the CLAIM items (3), (15), (16), (17), (e), (j).
+  
+  *Filed at b728 on the author’s ruling `(R338)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b728.py) from b727’s events, defects and refusal banks read unedited, and the v1.8.0 controls bank; banked as relay `data/b728_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (48). It answers b727’s record; no sealed tool, face, trail or root-named bank of b727 is edited.*
+
+### ### **ITEMS 44: EVENTS 21, DEFECTS 23 ; CLAIM 6, CLOSE 38 ; REPEAT 8 ; DATED NOTES 0 ; v1.8.0: THE VACUOUS CLASS, THE SITTING`S REPAIRS, ONE GIT WRITE, THE CONNECTIVITY READING ; THE ENTRY AT FINDINGS :12016.**

@@ -82,10 +82,8 @@ def added(diff):
     return NL.join(l[1:] for l in diff.split(NL) if l.startswith('+') and not l.startswith('+++'))
 
 
-SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', 'fcecc45'), ('D:/SIDE-frobenius', 'SIDE-frobenius', '2efe9f2'),
-                 ('D:/SIDE-spinor', 'SIDE-spinor', '7e570ee'), ('D:/SIDE-rcurve', 'SIDE-rcurve', '54c9040'),
-                 ('D:/SIDE-cosmo', 'SIDE-cosmo', 'ca04c8c'), ('D:/SIDE-kernel', 'SIDE-kernel', '70aba3c'),
-                 ('D:/SIDE-lv-conservation', 'SIDE-lv-conservation', 'd38f3e8'))   # ### b728, (R338)(3): the seven repositories the sitting writes, at their heads before it
+SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', '0e3336f'), ('D:/SIDE-spinor', 'SIDE-spinor', '5c34c72'),
+                 ('D:/SIDE-rcurve', 'SIDE-rcurve', 'f093005'))   # ### b728, (R338)(2)(viii): the three kernels this act's README writes touch, at their heads before them
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b728, (R338)(3) and (5): item [46]'s byline and two self-citations, under I-23
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
