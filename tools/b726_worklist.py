@@ -227,7 +227,7 @@ STEPZERO_BANKS = 'bc253274'             # ### the step-zero banks and tools, com
 STEPZERO_BANK_COMMIT = 'bc253274'       # ### the step-zero bank itself (data/b726_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
-REPAIRED_TOOLS = ()
+REPAIRED_TOOLS = ('rule_arms.py',)      # ### (R336)(2)(iii): the one edit to a shared tool, at 0dc805b2, sealed before the suite runs (b696's form)
 REPAIRED_DATA = ()
 # ### b721's trap (event 11): the standing part of the sealed list read from the directory, not a carried tuple
 STANDING_FILES = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing')) if f == 'VERSION' or f.endswith('.py')))
@@ -298,7 +298,7 @@ ERRATA_IDS = ()
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
-SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b726_') and f.endswith('.py') and f != 'b726_report.py')) + NEW_TOOLS + COMPUTE_TOOLS
+SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b726_') and f.endswith('.py') and f != 'b726_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
 # ### the act's arms over its own banks: set before the lock by the Edit tool -- b725's list, the act shift G-R335-ENTERED to G-R336-ENTERED,
 # ### G-READFIRST-DIFF-BANKED out of the arm list at v1.3.0 ((R336)(2)(iv))
 ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED', 'G-CITATION-CHECKED', 'G-CLOSING-DRY-STEP', 'G-COEFFS-LAW',

@@ -14,8 +14,14 @@ BLOCKS = os.path.join(T, 'b726_face_blocks.txt')
 KEEP = ('keiper-b725', 'c2-b725', 'scratch-b724', 'rebuild-b721')
 MAP = {'b725': 'b726', 'b724': 'b725', '(R335)': '(R336)', 'R335': 'R336', 'v1.5.0': 'v1.6.0'}
 PLACE = dict(DISPATCHES='EIGHTEEN', R83='3 rows in 2 classes repeating three acts running, printed in the entry for the author beside the next act of (R336)(10)',
-             REFUSALS='one command', C2_COMMIT='8b6a6c71', PROBE_NOTE='the probes` findings as the defects bank enters them.',
-             DECLARED='`G-AXIOM-CLAIM`, read below.')   # ### set by the Edit tool from the banks before the gate
+             REFUSALS='one command', C2_COMMIT='8b6a6c71',
+             PROBE_NOTE=('relay da63319f -- those banks, the act module`s and the worklist`s stage values and this composer; (`fold.py checks --mid`): the act part, 22 of 31 passing, '
+                         'no positive control passing, whose G-BRANCHES-BANKED found defect (u); standing-a twice (data/b726_probe_standing-a_standing-a.txt, '
+                         'data/b726_probe2_standing-a.txt), whose first run found defect (v), repaired by the Edit tool before this face`s commit; standing-b3 (data/b726_probe3_standing-b3.txt), '
+                         'the chain b659-b725 AGREE, its arm reading no first half in a part run alone.'),
+             DECLARED=('`G-AXIOM-CLAIM`.\n### `G-AXIOM-CLAIM` reads CONTRADICTED 1 (the probe: 198 claims, CONTRADICTED 1, VERIFIED 54), the row b721`s defect (u), b722`s (w), b723`s (c`), '
+                       'b724`s (r) and b725`s carried, tools/axiom_claim.py outside (W), no bank rewritten.\n### `G-ACTROOT-VERIFY` is not declared: with b723`s row carried on its branch the chain '
+                       'reads AGREE at the probe. An arm failing at step [7] on real state beyond this is an event, not a letter.'))   # ### set by the Edit tool from the banks before the gate
 PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('(R335)', 'R335', 'v1.5.0', 'b725', 'b724')))
 
 
