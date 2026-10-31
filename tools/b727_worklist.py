@@ -56,9 +56,9 @@ ORDER_LV_PORT_LATEST = 15914
 ORDER_LV_PORT_TAG = 15848   # ### OPEN_TRAILS: W-ORD-LV-PORT-TAG (b711)
 ORDER_KEYSTONE = (15454, 15496)   # ### OPEN_TRAILS: W-ORD-KEYSTONE-HEADS (b702) and b703's addition beneath it
 ORDER_LEDGER_SPLIT = 14680  # ### OPEN_TRAILS: W-ORD-LEDGER-SPLIT-RESOLVER (b680), (R337)(3)
-TRAIL_ORDERS = 16596        # ### OPEN_TRAILS: the last open-orders line, b726's, written from the generator's output
-TRAIL_RESOLVED = 16636      # ### OPEN_TRAILS: b726's items for the author's strike, in its trail
-TRAIL_RETIRED = 16667       # ### OPEN_TRAILS: b726's count line of the author's answers
+TRAIL_ORDERS = 16680        # ### OPEN_TRAILS: the last open-orders line, b726's, written from the generator's output
+TRAIL_RESOLVED = 16716      # ### OPEN_TRAILS: b726's items for the author's strike, in its trail
+TRAIL_RETIRED = 16744       # ### OPEN_TRAILS: b726's count line of the author's answers
 WATCH_LINE = 16126          # ### OPEN_TRAILS: W-ORD-QUASI-RH-FIELD-WATCH, annotated at b718's C6
 FACES_HEAD = 8              # ### FACES_LEDGER.md: the head's sentence
 FACES_JOIN_ROW = 547        # ### FACES_LEDGER.md: faces_join's row
@@ -98,7 +98,7 @@ def _kernel_paths():
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R337)'s PATHS
 EF_MAIN = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'    # ### SIDE-explicit-formula's main, untouched (N5)
-LV_MAIN = 'd38f3e8c99c3431c604bcba13210042df7748859'    # ### SIDE-lv-conservation's main, untouched (N5)
+LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R337)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
 PORT_TIP = 'cb0aea56354abb3abda3fdaef28429c6605605d5'   # ### port-b707's tip, unmoved
@@ -139,24 +139,22 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-REGISTRATIONS = 'data/b726_registrations.txt'    # ### b727 registers no hypothesis ((R337) orders none; b726's the last, carried name)
+REGISTRATIONS = 'data/b725_registrations.txt'    # ### b727 registers no hypothesis ((R337) orders none; b726 registered none: b725's the last, carried name)
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b726's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
                ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'),
-               ('data/b726_registrations.txt', 'dc0d4133'))   # ### N2 (b726's row, its last amendment, the blob HEAD carries; b727 registers nothing)
+               ('data/b725_registrations.txt', 'dc0d4133'))   # ### N2 (b725's row, its last amendment, the blob HEAD carries; b727 registers nothing)
 REG_FILES = tuple(f for f, _c in REG_COMMITS)
 PRED_B717 = 'data/b717_predictions.txt'
 PRED_B717_COMMIT = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'
 PREDICTIONS = PRED_B717
 ONSETS_B717 = 'data/b717_onsets.txt'
-REGISTRATIONS_NEW = 'data/b726_registrations.txt'
+REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b726 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b727_price.txt', 'data/b727_standing_v160.txt', 'data/b727_root_row.txt', 'data/b727_c2.txt',
-                 'data/b727_edition_diff.txt', 'data/b727_zenodo_read.json', 'data/b727_frontdoors.txt', 'data/b727_beurling_read.txt',
-                 'data/b727_mechanisms.txt')
-#   ### the banks of (R337)(2)-(7), each written by its component (the price table at step zero)
+COMPUTE_BANKS = ('data/b727_standing_v170.txt', 'data/b727_sitting.txt', 'data/b727_zenodo_readback.json', 'data/b727_address_scan.txt')
+#   ### the banks of (R337)(2)-(5), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b726_read_calls.txt', 'data/b727_read_calls.txt')
@@ -172,17 +170,20 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_WRITTEN = ('FINDINGS.md', 'OPEN_TRAILS.md', 'day1/Which_Structure_Confines_v2_4_0.md')   # ### the weight line, the corrigendum, the entry, the trail and the edition ((R337)(8)'s (W) list); no ERRATA entry ordered
+PP_EDITED = ('ERRATA.md', 'FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md',
+             'day1/Silence_of_Foundations.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md', 'day1/Which_Structure_Confines.md', 'day1/Which_Structure_Confines_v2_4_0.md',
+             'phase1.5/proofs/MECHANISM_EXCLUSION.md', 'phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md', 'phase1.5/proofs/THE_RESIDUE_OF_RH.md', 'phase1.5/spectral/BALANCE_AND_POSITIVITY.md',
+             'phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md')   # ### the ledgers, ERRATA, SPIRAL_MAP and the papers (R337)(3) passes
+PP_WRITTEN = PP_EDITED
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('the release sitting on the author’s word, the list of (R337)(5) as its agenda; then b727 ((R337)(10)), the research act: the onset '
-        'successor from the six banked products and off18’s, M and A read from the computed form before any registration; the Beurling row’s '
-        'instance if found; lambda_2’s two premises; W-ORD-VISIBILITY from H-INTERFERENCE’s table')
-NEXT_ACT = 'b727'
+NEXT = ('the research act under (R337)(7): the onset successor from the six banked products and off18’s, M and A read from the computed form and checked against the banked onsets '
+        'before any registration commits; H-DIAL’s finding into the mechanism table; the three C2 fields finished by split dispatch; lambda_2’s two premises; W-ORD-VISIBILITY from H-INTERFERENCE’s table')
+NEXT_ACT = 'b728'
 
 
 def orders_naming(ot_text, act):
@@ -216,15 +217,15 @@ ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.5.0 entering this act
 STANDING_COMMIT = 'd973955897'          # ### standing clauses v9 (b723's Component 1), binding this act whole (carried name)
 ACT_CURRENT_COMMIT = 'e9c5ab7d'         # ### data/act_current.json for b727 committed alone, before any other git command ((R337)(8))
-STEPZERO = None                   # ### b726's closing capture, committed alone ((R337)(8))
-STEPZERO_STEPS = None             # ### b726's step-40 row, committed alone ((R337)(8))
+STEPZERO = '800f494c'             # ### b726's closing capture, committed alone ((R337)(8))
+STEPZERO_STEPS = '9f13c9e5'       # ### b726's step-40 row, committed alone ((R337)(8))
 STEPZERO_TABLE = None             # ### the terminal table regenerated and committed ((R337)(8))
 STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = 'bc253274'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
-STEPZERO_BANK_COMMIT = 'bc253274'       # ### the step-zero bank itself (data/b727_stepzero.txt), with the price table, in that commit
+STEPZERO_BANKS = 'b21a1649'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = 'b21a1649'       # ### the step-zero bank itself (data/b727_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -238,7 +239,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b727.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.6.0'             # ### (R337)(2)(iii)'s repairs landed v1.6.0 by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.7.0'             # ### (R337)(2)'s repairs landed v1.7.0 by a commit of their own (C1_STANDING)
 STANDING_CHANGED = ()                   # ### the standing files (R337)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b726's commits the act reads (the names kept for the carried arms: the previous act's)
@@ -247,19 +248,19 @@ B714_RECORD = '3dd8f806'     # ### b726's record commit (relay, the head line's)
 B714_ROOT = '720308d8bd702563b284c7e5d7061639dff30b777f5aa9204a7bf9590a8325b2'   # ### b726's root, data/act_roots.txt :106
 B723_ROOT_BANKS = '9a2a2093'  # ### b726's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = '0dc805b2'                # ### (R337)(2)(iii): tools/standing/ v1.6.0
+C1_STANDING = 'a8edc153'                # ### (R337)(2): tools/standing/ v1.7.0
 C1_STANDING_REPAIR = None
-C1_RELAY = '5f46a6a3'                   # ### (R337)(2)(ii): b723's row on its branch, act_roots, the c1 route
-C1_CORR = 'fe20cd09'                    # ### the corrigendum banks, the corrigenda row
-C1_PP = 'e3818db7'                      # ### FINDINGS: b726 at its weight, the observation and the corrigendum for b726
-WEIGHT_LINE, CORR_LINE = 11797, 11801   # ### FINDINGS: b726's weight line and the corrigendum for b726 (Component 1)
+C1_RELAY = '491dd688'                   # ### (R337)(1)-(2): the corrigendum's banks and the sitting tool
+C1_CORR = '491dd688'                    # ### the corrigendum banks, the corrigenda row
+C1_PP = '3e0ca39'                      # ### FINDINGS: b726 at its weight, the observation and the corrigendum for b726
+WEIGHT_LINE, CORR_LINE = 11911, 11913   # ### FINDINGS: b726's weight line and the corrigendum for b726 (Component 1)
 DIFFERS_LINE = None
-ERRATA_LINE = None
-C2_RELAY = '8b6a6c71'                   # ### (R337)(3): the C2 bank's commit, after the components' (the fields ran beside them)
+ERRATA_LINE = 1021
+C2_RELAY = '499977b2'                   # ### (R337)(3): the sitting's record, read-backs, scan, reproduction and push captures
 C2_AMEND = ()
-C2_PP = None
-C3_RELAY = ('d49a7ba8',)                # ### (R337)(4)-(7): the edition's diff, the front-door list, the mechanism table, their tools
-C3_PP = '2f3deb91'                      # ### (R337)(4): the edition, beside v2.3.1
+C2_PP = '6ace971b'
+C3_RELAY = ('499977b2',)                # ### (R337)(3)-(4): one commit with C2_RELAY
+C3_PP = '268096e2'                      # ### (R337)(4): ERRATA E-2026-10-31-1 at its title's correction
 C4_LV = None
 C4_RUN = None
 C4_PP = None
@@ -283,19 +284,15 @@ PIN_BUILDS = ('SIDE-simplicity',)
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
-MAX_DISPATCHES = 18          # ### N1: (R337)(3)'s, eighteen at most
+MAX_DISPATCHES = 0           # ### N1: no runner dispatch this act
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, both branches cut from it, untouched (N5)
 EF_BRANCHES = (('keiper-b725', 'f52e188c2409436337019ea0008d7352bde404c2'),   # ### b726's, kept
                ('c2-b725', 'ea95a8d07a0ffae2012d715d5e95194cbf4df1ad'))       # ### (R337)(3): the split c9add92f, the binder repair on it
-EF_RUNS = (('(3) D=-15', 41147584871), ('(3) D=-15', 41148340840), ('(3) D=-20', 41148615288), ('(3) D=-24', 41149195356), ('(3) D=-40', 41149723199),
-           ('(3) D=-35', 41149939848), ('(3) D=-52', 41150124566), ('(3) D=-51', 41150327748), ('(3) D=-88', 41150696282), ('(3) D=-91', 41151096621),
-           ('(3) D=-123', 41151758237), ('(3) D=-115', 41152040078), ('(3) D=-148', 41152352459), ('(3) D=-232', 41152579553), ('(3) D=-187', 41152916381),
-           ('(3) D=-235', 41153237700), ('(3) D=-267', 41153599031), ('(3) D=-427', 41154021667))   # ### each read by its id
+EF_RUNS = ()   # ### N1: none this act
 DISPATCH_ROWS = 'data/b727_dispatch_rows.json'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the two ledgers, the edition beside them read by G-PP-SCOPE ((R337)(8))
-ERRATA_ID = None             # ### b727 files no ERRATA ((R337)(1)-(2): the corrigendum is b726's weight line, no ERRATA row)
-ERRATA_IDS = ()
+ERRATA_ID = 'E-2026-10-31-1'   # ### (R337)(4): the one ERRATA entry
+ERRATA_IDS = ('E-2026-10-31-1',)
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
@@ -308,3 +305,14 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R337-ENTERED',
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
+
+# ### (R337)(3): the sitting's repositories (name, path, head before the sitting), their tips, the struck items, the deposit records
+SITTING_REPOS = (('SIDE-archimedean', 'D:/SIDE-archimedean', 'fcecc45'), ('SIDE-frobenius', 'D:/SIDE-frobenius', '2efe9f2'), ('SIDE-spinor', 'D:/SIDE-spinor', '7e570ee'),
+                 ('SIDE-rcurve', 'D:/SIDE-rcurve', '54c9040'), ('SIDE-cosmo', 'D:/SIDE-cosmo', 'ca04c8c'), ('SIDE-kernel', 'D:/SIDE-kernel', '70aba3c'),
+                 ('SIDE-lv-conservation', 'D:/SIDE-lv-conservation', 'd38f3e8'))
+SITTING_TIPS = {'SIDE-archimedean': '0e3336fc57eccdd849d862455541d8f460d23589', 'SIDE-frobenius': '31ad3d5dea75a0e97dbf3b421dfc21557795fc1b',
+                'SIDE-spinor': '5c34c7250d6d2fe849d85f757be18bd3d278ae7f', 'SIDE-rcurve': 'f093005191b6a56415f83a4050bb86e783b57b38',
+                'SIDE-cosmo': '5ad736fecd77c47a9549d1c4390fe4a9a70de0dc', 'SIDE-kernel': '2e06bebc89f8bc31c908d852da8a5817c5cfe748',
+                'SIDE-lv-conservation': '305a87c9e09c45cc8a935b1065f26f929634c707'}
+SITTING_STRUCK = (32, 33, 34, 35, 36)
+ZEN_RECORDS = {13: '21539068', 14: '19938917', 15: '19937590', 16: '21436282', 17: '21539167', 18: '21520474', 19: '21539068'}
