@@ -1,0 +1,21 @@
+b728 -- (R338)(2)(v): G-RULE-ONE-GIT-WRITE TRACED ON b727`S TWO CHAINED ADDS, BEFORE ANY REPAIR OF THE ARM (2026-10-31T15:56:42Z)
+
+### the arm`s regular expression read unedited: tools/rule_arms.py GIT_WRITE, tools/standing/gitwrite.py writes(); the calls of b727`s session between 2026-10-31T04:20:00Z and 2026-10-31T15:39:00Z: 310
+
+## THE CHAINED CALLS (1)
+  2026-10-31T11:33:49.834Z | git add -u data/ tools/acts/b727.py && git add data/b727_author_words_preseal.txt
+    commands split: ['git add -u data/ tools/acts/b727.py', 'git add data/b727_author_words_preseal.txt']
+    GIT_WRITE matches each command: [False, False]
+    writes() reads 0 ; the arm`s call count 0
+
+## THE CAUSES, READ
+  (1) GIT_WRITE names commit, push, merge, rebase, reset, tag, branch -d/-m and push_gated.sh; it does not name `add`. The two adds match nothing, so the arm never saw them.
+  (2) tools/rule_arms.py :481-:488 counts CALLS by message, not writes: tools/standing/gitwrite.py reading() (v1.2.1) counts writes and the arm never called it.
+  (3) a third hole, read in the same regular expression: `git branch <name> main` is a write and the branch form wants a hexadecimal tip, so the push-branch writes pass unread.
+  branch form against `git branch push-b728-x main`: False
+
+## THE READING
+  b727`s pass (read 39, none flagged) is WEAK EVIDENCE, as the author`s ruling (2) of 2026-10-31 marks it, and every earlier act`s pass of this arm with it: staging was outside what the arm read.
+  It stays marked weak until the repaired arm fires on these two adds (tools/standing/v180.py control gitwrite).
+
+### ### **THE TRACE: 1 CHAINED CALL(S) ; THE ARM SAW 0 WRITE(S) IN THEM ; THE CAUSE: `add` NOT IN GIT_WRITE, AND THE ARM COUNTS CALLS.**

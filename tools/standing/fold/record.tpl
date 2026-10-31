@@ -3028,8 +3028,8 @@ def closeorder(*a):
     """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
     [19] among them); prints and exits 5 where it refuses; writes nothing."""
     if not a or not a[0].isdigit():
-        for k, w, e in AC.close_steps():
-            print('  [%d] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+        for k, w, e in AC.close_steps_printed():
+            print('  [%s] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
         return
     _close_step(int(a[0]))
 

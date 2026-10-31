@@ -1,1 +1,4 @@
 2026-10-31T15:47:32Z | PIPE | Bash | "git ls-files tools | git -C /d/relay grep -l -E \"def (lambda_min|weil_form|form_at|gram)\" -- \"tools/b70*.py\" \"tools/b72*.py\"" | a Bash command carrying a pipe outside quotes
+2026-10-31T15:51:01Z | READ | Read | "D:\\relay\\tools\\standing\\fold\\checks.tpl" | a Read call with limit 205, above 200
+2026-10-31T15:51:04Z | READ | Read | "D:\\relay\\tools\\standing\\VERSION" | a Read call with no limit
+2026-10-31T15:51:39Z | PIPE | Bash | "git ls-files data | git -C /d/relay grep -c \"x\" -- data/nothing.txt; git -C /d/relay ls-files \"data/b727_comm*\" \"data/b727_call*\" \"data/b727_read_calls*\"; python -X utf8 -c \"print(1)\"" | a Bash command carrying a pipe outside quotes

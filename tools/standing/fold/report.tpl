@@ -6,7 +6,7 @@ Three routes:
           line and the bank's sha256 now -- the lines printed in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), a footing no line stands
           on printed as NONE; written through the membrane to data/⟪ACT⟫_report.txt and data/⟪ACT⟫_report.json. Nothing else is written.
   dry     the lines printed, nothing written.
-  scores  (after the root) the scores line: all eight from data/⟪ACT⟫_scores_close.json, each HELD or BROKEN, and the root line from
+  scores  (after the root) the scores line: all eight from data/⟪ACT⟫_scores_close.json, each HELD or REFUTED, and the root line from
           data/act_roots.txt; PRINTED ONLY -- no bank is written after the root (N4), and the membrane refuses one.
 The tool decides nothing: no verdict is gated on its lines (no arm reads its exit code), and a line it cannot recompute prints as such.
 """
@@ -120,7 +120,7 @@ def dry():
 def scores():
     sc = jl('%s_scores_close.json' % ACT)
     keys = ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3')
-    word = dict(HELD='HELD', REFUTED='BROKEN')
+    word = dict(HELD='HELD', REFUTED='REFUTED')   # ### v1.8.0, (R338)(2)(vii): the report's word and the scores' word are one
     roots = [l for l in rd('act_roots.txt').split(NL) if l.startswith(ACT + ' ')]
     print('### THE ROOT: %s' % (roots[-1] if roots else '### NOT APPENDED -- the scores line waits on the root'))
     print('### THE SCORES (relay data/%s_scores_close.json, sha256 %s…): %s' % (ACT, (sha('%s_scores_close.json' % ACT) or '### ABSENT')[:16],

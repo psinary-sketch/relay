@@ -41,8 +41,9 @@ TS = re.compile(r'(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)')
 DECL = re.compile(r'(?m)^[#*\s]*DECLARED:\s*(PAIR OF READINGS|T1|T2|T3|T5) MET\b')
 WALK_FLOOR = 684            # ### the author's word: walk banks from b684 onward; data/b679_zeta_walk.txt the breach before the floor (b680 (c))
 PROGRESS_FLOOR = 672        # ### b671 row 7 was set mid-act at b671 after its run (b671 (h)); b671's progress bank is the table read after it
-GIT_WRITE = re.compile(r'\bgit\s+(?:-C\s+\S+\s+)*(?:commit\b|push\b|merge(?![-\w])|rebase\b|reset\b|tag\s+(?!-l\b|--list\b|--points-at\b)\S|'
-                       r'branch\s+-[dDmM]\b|branch\s+(?!-)[\w./-]+\s+[0-9a-f]{7,40}\b)|push_gated\.sh')
+# ### v1.8.0, (R338)(2)(v): `add`, `rm`, `mv`, cherry-pick, stash and `branch <name> main` named, data/b728_gitwrite_trace.txt: b727's two chained adds matched nothing
+GIT_WRITE = re.compile(r'\bgit\s+(?:-C\s+\S+\s+)*(?:add\b|rm\b|mv\b|cherry-pick\b|stash\b|commit\b|push\b|merge(?![-\w])|rebase\b|reset\b|tag\s+(?!-l\b|--list\b|--points-at\b)\S|'
+                       r'branch\s+-[dDmM]\b|branch\s+(?!-)[\w./-]+\s+(?:main|[0-9a-f]{7,40})\b)|push_gated\.sh')
 QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
 
 
@@ -151,7 +152,9 @@ RECUT_FLOOR = 691           # ### b690 rows (1) and (2) bind from b691
 LEDGER_READ = ('FINDINGS.md', 'OPEN_TRAILS.md', '_scanfile_entry', '_scanfile_trail', 'scanfile_entry', 'scanfile_trail')
 SHELL_FILTER = re.compile(r'(?<![\w.-])(?:sed|awk|grep|head|tail|cat|less|more|cut|tr|sort|uniq|wc)(?![\w.-])')
 REDIRECT = re.compile(r'(?<![<>=\-])(?:\d?>>?|&>)(?!&)')
-SUITE_PART = re.compile(r'_checks\.py\b[^|;&]*?--part\s+(\S+)')
+SUITE_RUN = r'(?:_checks\.py\b|\bstanding/fold\.py\s+checks\b)'    # ### v1.8.0, (R338)(2)(ii): the suite runs through the fold's route since b724
+SUITE_PART = re.compile(SUITE_RUN + r'[^|;&]*?--part\s+(\S+)')
+SUITE_COMBINE = re.compile(SUITE_RUN + r'[^|;&]*--combine')
 
 
 # ================================================================================ THE SOURCES
@@ -479,13 +482,9 @@ def reading(name, R):
         return not bad, len(wk), len(bad), ('VACUOUS: no walk bank from b%d (the floor); before it, without its tip: %s (b680`s defect (c))' % (
             WALK_FLOOR, R['walk_before_floor'] or 'NONE')) if not wk else 'walk banks %d from b%d ; without their tip %s' % (len(wk), WALK_FLOOR, bad or 'NONE')
     if name == 'G-RULE-ONE-GIT-WRITE':
-        per = {}
-        for c in R['calls']:
-            if GIT_WRITE.search(QUOTED.sub('""', c['cmd'])):
-                per.setdefault(c['mid'], []).append(c['ts'])
-        bad = [(m, ts) for m, ts in per.items() if len(ts) > 1]
-        return bool(R['calls']) and not bad, len(per), len(bad), 'messages carrying a git write %d ; with more than one %s' % (
-            len(per), [ts[0] for _m, ts in bad][:3] or 'NONE')
+        from standing import gitwrite as GW   # ### v1.8.0, (R338)(2)(v): writes counted, not calls (v1.2.1's reading, which this arm never called)
+        ok, n, over, note = GW.reading(R['calls'])
+        return ok, n, len(over), note
     if name == 'G-RULE-REMOTE-REREAD':
         ls = [c for c in R['calls'] if 'ls-remote' in c['cmd']]
         multi = [c['ts'] for c in ls if c['cmd'].count('ls-remote') > 1]
@@ -593,8 +592,8 @@ def reading(name, R):
             'the root not naming the binary itself, or its frozen row corrected by a corrigendum (%d: %s) ; failing %s' % (
                 BINARY_FLOOR, len(bs), len(beside), ' ; '.join(beside) or 'NONE', bad or 'NONE')
     if name == 'G-RULE-SUITE-PART-CALLS':
-        pc = [c for c in R['calls'] if SUITE_PART.search(c['cmd']) or re.search(r'_checks\.py\b[^|;&]*--combine', c['cmd'])]
-        two = [c['ts'] for c in pc if len(SUITE_PART.findall(c['cmd'])) + len(re.findall(r'--combine', c['cmd'])) > 1]
+        pc = [c for c in R['calls'] if SUITE_PART.search(c['cmd']) or SUITE_COMBINE.search(c['cmd'])]
+        two = [c['ts'] for c in pc if len(SUITE_PART.findall(c['cmd'])) + len(SUITE_COMBINE.findall(c['cmd'])) > 1]
         per = {}
         for c in pc:
             per.setdefault(c['mid'], []).append(c['ts'])

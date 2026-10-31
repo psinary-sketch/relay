@@ -1256,7 +1256,7 @@ def nothing_ahead_ok(face, lock_epoch, logs, steps, face_first=None):
     stepped = AC.step_commits(steps)
     fe = [t for h, s, t in logs if face_first and (h.startswith(face_first[:7]) or face_first.startswith(h[:7]))]
     fe = min(fe) if fe else None
-    return all(h[:7] in face for h, s, t in logs if t <= lock_epoch and not any(gc.startswith(h[:7]) for gc in gates)
+    return all(__import__('standing.faceform', fromlist=['declared']).declared(h, face) for h, s, t in logs if t <= lock_epoch and not any(gc.startswith(h[:7]) for gc in gates)
                and not (fe is not None and t >= fe and any(c.startswith(h[:7]) for c in stepped)))
 
 
@@ -1335,7 +1335,7 @@ def scored(S, k):
 
 def closing_sentence_ok(S):
     t = re.sub(r"\s*',?\s*\n\s*'\s*", ' ', S['closing_src'])  # ### v1.6.0, (R336)(2)(iii): the search text unwrapped; a hard-wrapped sentence matches
-    return ('no identifier of the author ' + 'in any outbound') in t and ('plain requests to ' + 'github.com') in t \
+    return (('no identifier of the author ' + 'in any outbound') in t and ('plain requests to ' + 'github.com') in t or 'FF.outbound_clause(' in t) \
         and '### THE CITATION CHECK' in t and '### THE RECORD LINES' in t and '### THE DRY RUN' in t \
         and all(('THE %s' % s) in t for s in CLOSING_SECTIONS) \
         and 'THE STANDING ARMS' in t and 'counter_line()' in t and 'claim_figure(' in t \
@@ -1786,7 +1786,7 @@ ARMS_ALL = [
                                                                             and ".startswith(ACT_NOW)" in S['suite'] and "'data/%s_components.txt' % ACT_NOW in" in S['suite']),
      lambda S: put(S, 'suite', '')),
     ('G-CLOSING-SENTENCE', 'tools/⟪ACT⟫_closing.py: the closing sentence in the rule`s words with the plain reads named; the citation check, the record lines, the dry run, the corrigendum, the derivation, the controls` ripe work, the two reads, the toolset at v1.2.0, the federation pin, the records, the touch read, the standing arms, the kernels, the author`s word from its bank, the mirror, the carry`s diffs',
-     lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any', 'x'))),
+     lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any', 'x').replace('FF.outbound_clause(', 'x'))),
     ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703)',
      lambda S: lsr_ok(S), lambda S: put(S, 'lsr', {PP: 2})),
     ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b706_standing_figures.py (b703`s reading over b706`s roster at the unversioned names) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than ⟪PREV⟫`s figure',
@@ -1859,7 +1859,7 @@ def neg_shown():
     by name (shown, bad, withheld), the withheld entries those of the ruling's field whose condition holds."""
     banks = dict((p, C3.jl('⟪ACT⟫_exercise_%s.json' % p)) for p in K.PARTS)
     r = STC.neg_shown([(a[0], _part_of(a[0])) for a in ARMS], banks, list(WITHHELD))
-    return r.shown, r.bad, r.withheld
+    print(''.join('  VACUOUS, NEITHER A PASS NOR A FAILURE: %s%s' % (n, NL) for n in r.vacuous), end=''); return r.shown, r.bad, r.withheld   # ### v1.8.0, (⟪RUL⟫)(2)(ii)
 
 
 def prev_run_missing():
@@ -1979,7 +1979,7 @@ def _tally(EX, W):
     return fail, defective, negfail, [n for n in EX if n in W]
 
 
-ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+[\d.]+\s+(.*)$', re.M)
+ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL|VAC)\s+[\d.]+\s+(.*)$', re.M)
 
 
 def _combine_tally(parts, W):
@@ -2014,7 +2014,7 @@ def combine():
             list(CARRIED_FAILING) or 'NONE', carried or 'NONE', [f for f in fails if f not in CARRIED_FAILING] or 'NONE'),
         '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s. ### WITHHELD, NOT EXERCISABLE : %d %s.**' % (
             n, lp, lf, fails or '', len(wh), wh or ''),
-        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''),
+        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''), STC.vacuous_line(parts),
         '  ### ### **VERDICT : %s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
                                          'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
                                          ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else ''),
@@ -2170,7 +2170,7 @@ def main():
             neg = bool(pred(copy.copy(S)))
         except Exception:
             neg = False
-        pos_raised = None   # ### (⟪RUL⟫)(2)(iv): a plant or a predicate that raised on the mutated copy has not SHOWN the control failing
+        pos_raised, m = None, None   # ### (⟪RUL⟫)(2)(iv): a plant or a predicate that raised on the mutated copy has not SHOWN the control failing
         try:
             m = pos(copy.copy(S))
             if isinstance(m, dict):
@@ -2184,11 +2184,11 @@ def main():
             fail.append(name)
         if neg != live:
             negfail += 1
-        if posv:
-            defective.append(name)
-        EX[name] = dict(live=live, neg=neg, pos=posv, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])
-        rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'PASS' if posv else 'FAIL', SECS[name],
-                                                 'WITHHELD, NOT EXERCISABLE' if name in W else
+        vac = STC.plant_vacuous(S, m, posv)   # ### v1.8.0, (⟪RUL⟫)(2)(ii): the plant mutated nothing: neither a pass nor a failure of the arm
+        defective.append(name) if (posv and not vac) else None
+        EX[name] = dict(live=live, neg=neg, pos=posv and not vac, vacuous=vac, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])
+        rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'VAC' if vac else 'PASS' if posv else 'FAIL', SECS[name],
+                                                 'WITHHELD, NOT EXERCISABLE' if name in W else 'VACUOUS: THE PLANT MUTATED NOTHING' if vac else
                                                  'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else
                                                                                            '### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE' if name in CARRIED_FAILING else '### FAILS')))
     if not arms:
@@ -2216,7 +2216,7 @@ def main():
     rec('  ### the arms` own seconds summed %.1f, the slowest %s' % (sum(SECS.values()), ', '.join('%s %.2f' % kv for kv in sorted(SECS.items(), key=lambda x: -x[1])[:3]) or 'NONE'))
     rec('  ### the run took %.0f s' % secs)
     rec('  ### PART %s : ARMS %d ; LIVE PASSING %d ; LIVE FAILING %d %s ; NEGATIVE-CONTROL FAILURES %d ; POSITIVE-CONTROL PASSES %d %s ; '
-        'DECLARED EQ RUN %s ; %d s ; WITHHELD, NOT EXERCISABLE %d %s' % (PART, len(arms), len(arms) - len(fail) - len(wh), len(fail), json.dumps(fail) if fail else 'NONE',
+        'DECLARED EQ RUN %s ; %d s ; WITHHELD, NOT EXERCISABLE %d %s' % (PART, len(arms), len(arms) - len(fail) - len(wh) - sum(1 for n_, e_ in EX.items() if e_.get('vacuous') and e_['live'] and n_ not in W), len(fail), json.dumps(fail) if fail else 'NONE',
                                                                       negfail, len(defective), json.dumps(defective) if defective else 'NONE', S['declared_eq_run'],
                                                                       int(secs), len(wh), json.dumps(wh) if wh else 'NONE'))
     rec('=' * 104)

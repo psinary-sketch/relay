@@ -35,13 +35,40 @@ SCORE_KEYS = (('N1', 'N2', 'N3', 'N4', 'N5'), ('S1', 'S2', 'S3'))
 DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
 PART_FOOT = re.compile(r'### PART ([\w-]+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\]|NONE) ; NEGATIVE-CONTROL '
                        r'FAILURES (\d+) ; POSITIVE-CONTROL PASSES (\d+) (\[[^\]]*\]|NONE) ; DECLARED EQ RUN (\w+) ; (\d+) s')
-ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+[\d.]+\s+(.*)$', re.M)
+ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL|VAC)\s+[\d.]+\s+(.*)$', re.M)
 FIG_LINE = re.compile(r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) ?(\[[^\]]*\])?\.'
                       r'(?: ### WITHHELD, NOT EXERCISABLE : (\d+) ?(\[[^\]]*\])?\.)?')
 CTL_LINE = re.compile(r'NEGATIVE-CONTROL FAILURES : (\d+)\. ### POSITIVE-CONTROL PASSES : (\d+) ?(\[[^\]]*\])?\.')
 VERDICT_LINE = re.compile(r'VERDICT : ([^*;]+?)(?: ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: ([^*]+))?\*\*')
 
-NegShown = collections.namedtuple('NegShown', 'shown bad withheld')
+NegShown = collections.namedtuple('NegShown', 'shown bad withheld vacuous', defaults=((),))
+
+
+def plant_vacuous(S, m, posv):
+    """v1.8.0, (R338)(2)(ii): a positive control whose plant found nothing to mutate. True where the mutated copy passed and differs from the
+    source in no key: nothing was planted, so the pass shows nothing about the arm either way (b727 event (1): rebuild_rows empty, the plant's
+    comprehension over no rows). A plant that changed a key and still passed stays a defect."""
+    if not posv or not isinstance(m, dict):
+        return False
+    for k in set(S) | set(m):
+        a, b = S.get(k), m.get(k)
+        if a is not b:
+            try:
+                if a != b:
+                    return False
+            except Exception:  # noqa: BLE001  ### values that refuse comparison are read as changed
+                return False
+    return True
+
+
+def vacuous_of(parts):
+    """the arms the parts' rows print VACUOUS, in part order; each counted neither passing nor failing."""
+    return [r.group(1) for _p, _m, t in parts for r in ARM_ROW.finditer(t) if r.group(4) == 'VAC']
+
+
+def vacuous_line(parts):
+    v = vacuous_of(parts)
+    return '  ### ### **VACUOUS, THE PLANT MUTATED NOTHING, COUNTED NEITHER PASSING NOR FAILING : %d %s.**' % (len(v), v or '')
 
 
 # ======================================================================== THE HEAD LINE
@@ -147,7 +174,7 @@ def tally_lines(parts, W, carried):
     return dict(arms=n, passing=lp, failing=lf, fails=fails, neg=ng, pos=pc, defs=defs, withheld=wh, lines=[
         '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s. ### WITHHELD, NOT EXERCISABLE : %d %s.**' % (
             n, lp, lf, fails or '', len(wh), wh or ''),
-        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''),
+        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''), vacuous_line(parts),
         '  ### ### **VERDICT : %s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
                                          'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
                                          ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else '')])
@@ -194,10 +221,11 @@ def withheld_entries(spec, rev=None, exists=None):
 def neg_shown(arms, banks, withheld):
     """an arm's NEG control shown failing on its mutated copy, read from the pre-run's exercise banks: `arms` [(arm, part)], `banks`
     {part: exercise json}, `withheld` [(arm, reason)] the field's entries whose condition holds. An arm with no row, whose mutated copy
-    passed, or whose plant or predicate raised, is not shown; an arm in `withheld` whose mutated copy passed is withheld. Returns NegShown
-    (shown, bad, withheld), each a list, read by name by every caller."""
+    passed, or whose plant or predicate raised, is not shown; an arm in `withheld` whose mutated copy passed is withheld; v1.8.0, an arm whose
+    plant mutated nothing is vacuous, neither shown nor bad. Returns NegShown (shown, bad, withheld, vacuous), each a list, read by name by
+    every caller."""
     wl = dict(withheld)
-    shown, bad, wh = [], [], []
+    shown, bad, wh, vac = [], [], [], []
     for n, p in arms:
         j = banks.get(p) or {}
         e = (j.get('exercise') or {}).get(n)
@@ -205,6 +233,8 @@ def neg_shown(arms, banks, withheld):
             bad.append((n, 'part %s: no pre-run exercise bank (mode %s)' % (p, j.get('mode'))))
         elif e is None:
             bad.append((n, 'part %s: no row in the pre-run' % p))
+        elif e.get('vacuous'):
+            vac.append(n)
         elif e.get('pos') and n in wl:
             wh.append((n, wl[n]))
         elif e.get('pos'):
@@ -213,7 +243,7 @@ def neg_shown(arms, banks, withheld):
             bad.append((n, 'the mutated copy raised: %s' % e.get('pos_raised')))
         else:
             shown.append(n)
-    return NegShown(shown, bad, wh)
+    return NegShown(shown, bad, wh, vac)
 
 
 def exercise_banks(act, parts, rev=None):
@@ -365,6 +395,9 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
         return 3, ['### THE FACE IS NOT LOCKED -- NOTHING RECORDED']
     if os.path.exists(p):
         return 3, ['### THE HASHES ARE RECORDED ALREADY -- NOTHING RECORDED TWICE']
+    dry_bank = os.path.join(A.D, '%s_close_dry.txt' % act)   # ### v1.8.0, (R338)(2)(iv)(e): step [7a], the dry after the combine, before the seal
+    if write and not os.path.exists(dry_bank):
+        return 3, ['### THE SEAL REFUSED -- STEP [7a]: close.py dry WAS NOT RUN AFTER THE COMBINE (data/%s_close_dry.txt ABSENT); NOTHING RECORDED' % act]
     tools = worklist_sealed(act)
     g = seal_guard(tools)
     if not g['ok']:
@@ -376,6 +409,7 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     aparts = sorted(set(q for _n, q in arms))
     missing = [q for q in aparts if A.jl('%s_prevrun_exercise_%s.json' % (act, q)).get('mode') != 'prev']
     L += ['  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, w) for n, w in ns.withheld]
+    L += ['  VACUOUS, NEITHER A PASS NOR A FAILURE: %s' % n for n in ns.vacuous]
     sg = seconds_gathered(act, parts)
     if ns.bad or missing or not sg['ok']:
         return 3, L + ['### %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(ns.bad), len(arms))] + [
@@ -407,6 +441,11 @@ def main(route):
     cur = A.current()
     code, L = seal_write(cur['act'], cur['parts'], cur['date'], cur.get('withheld'), cur.get('prev'), write=(route == 'seal'))
     print(NL.join(L))
+    if route != 'seal':
+        p = os.path.join(A.D, '%s_close_dry.txt' % cur['act'])
+        with open(p + '.tmp', 'wb') as fh:
+            fh.write((NL.join(['%s -- close.py dry, step [7a], exit %d (%s)' % (cur['act'], code, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))] + L) + NL).encode('utf-8'))
+        os.replace(p + '.tmp', p)
     return code
 
 

@@ -7,6 +7,7 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   PIPE   a Bash or PowerShell command carrying a pipe outside quotes   -- rows (77) and (14)
   REDIR  a Bash or PowerShell command carrying a redirect outside quotes -- rows (77) and (14)
   ENV    a command prefixed by an environment-variable assignment     -- rows (77) and (20)
+  REMOTE a Bash or PowerShell command carrying more than one ls-remote outside quotes -- row (77), (R338)(2)(iv)(d)
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -41,6 +42,7 @@ ROWS = {
     'REDIR': ROW77 + ' ; (14) no redirect of any stream and no pipe in any command, scratch, listings and '
                      'diagnostics included',
     'ENV': ROW77 + ' ; (20) environment variables left as they are',
+    'REMOTE': ROW77 + ' ; (R338)(2)(iv)(d) one remote read per command, b674 row 1',
 }
 
 ASSIGN = re.compile(r'^\s*(?:env\s+)?[A-Za-z_][A-Za-z0-9_]*=')
@@ -135,6 +137,8 @@ def judge(tool, inp):
             return 'PIPE', 'a %s command carrying a pipe outside quotes' % tool
         if '>' in bare or '<' in bare:
             return 'REDIR', 'a %s command carrying a redirect outside quotes' % tool
+        if bare.count('ls-remote') > 1:   # ### v1.8.0, (R338)(2)(iv)(d): b727 event (7), four reads chained in one diagnostic
+            return 'REMOTE', 'a %s command carrying more than one remote read' % tool
         for seg in re.split(r'&&|;|\n', bare):
             if ASSIGN.match(seg) or PS_ENV.match(seg):
                 return 'ENV', 'a %s command prefixed by an environment-variable assignment' % tool
@@ -187,6 +191,8 @@ def cases(act):
         ('Bash', {'command': 'cd /d/relay && FOO=1 python x.py'}, 'ENV'),
         ('Bash', {'command': 'cd /d/relay && python -I -X utf8 tools/locate.py data/x.txt "a|b>c"'}, None),
         ('Bash', {'command': 'git -C /d/relay commit -m "%s: a -> b, x|y"' % act}, None),
+        ('Bash', {'command': 'git -C /d/a ls-remote origin ; git -C /d/b ls-remote origin'}, 'REMOTE'),   # ### v1.8.0, (2)(iv)(d)
+        ('Bash', {'command': 'git -C /d/a ls-remote origin'}, None),
         ('PowerShell', {'command': 'Get-ChildItem D:/relay | Select-Object -First 3'}, 'PIPE'),
         ('PowerShell', {'command': 'git status > out.txt'}, 'REDIR'),
         ('PowerShell', {'command': '$env:PYTHONIOENCODING = "utf-8"; python x.py'}, 'ENV'),

@@ -347,6 +347,28 @@ def at_commit(commit, paths):
 
 
 def verify(remote=ls_remote, worktree=None, acts=None):
+    """### v1.8.0, (R338)(2)(vi), b727 events (9)-(10): THE CONNECTIVITY READING. Where every repository's remote read came back empty, the DISAGREEs
+    of that run are no reading of the chain: printed as such and the run made once more; empty twice, those rows read UNREAD, never DISAGREE."""
+    reads = {}
+
+    def tracked(p):
+        r = remote(p)
+        reads[p] = bool(r)
+        return r
+    out = _verify(tracked, worktree, acts)
+    if reads and not any(reads.values()) and any(v == 'DISAGREE' for _a, v, _w in out):
+        print('### THE CONNECTIVITY READING: THE REMOTE READ EMPTY FOR EVERY REPOSITORY (%d) -- NOT A STATE OF THE CHAIN; RE-RUN ONCE BEFORE ANY DISAGREE' % len(reads), flush=True)
+        _REMOTE.clear()
+        getattr(sys.modules.get(getattr(remote, '__module__', '')), '_REMOTE', {}).clear()   # ### the suite's reader, tools/b616_claims.py remote_refs, keeps its own
+        reads.clear()
+        out = _verify(tracked, worktree, acts)
+        if reads and not any(reads.values()):
+            print('### THE CONNECTIVITY READING STANDS AFTER THE RE-RUN: EVERY REPOSITORY EMPTY TWICE -- THE ROWS READ UNREAD', flush=True)
+            out = [(a, 'UNREAD' if v == 'DISAGREE' else v, w) for a, v, w in out]
+    return out
+
+
+def _verify(remote=ls_remote, worktree=None, acts=None):
     """### every act of data/act_roots.txt recomputed: [(act, verdict, reasons)]; (R254)(2): the banks read at each root's recorded commit
     ### (worktree=None reads at commit in a clone and the working tree in a stand-in; worktree=True reads the working tree).
     ### b693, (R303)(4) on the author's word (the chain split by act): `acts`, where given, is the set of acts verified; every row before them

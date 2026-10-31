@@ -120,6 +120,19 @@ def close_steps(v4_text=None):
     return [(int(n), w, e) for n, w, e, _q in STEP.findall(row)]
 
 
+DRY_AFTER_COMBINE = ('7a', 'close.py dry straight after the pre-run`s combine, the seal`s refusals read before the seal ((R338)(2)(iv)(e))', 'data/<act>_close_dry.txt')
+
+
+def close_steps_printed(v4_text=None):
+    """the steps as closeorder prints them: the row's, and v1.8.0's [7a] after [7]. The standing row keeps its numbers, so every _close_step(n) reads as it did."""
+    out = []
+    for s in close_steps(v4_text):
+        out.append(s)
+        if s[0] == 7:
+            out.append(DRY_AFTER_COMBINE)
+    return out
+
+
 def step_qualifiers(text=None):
     """{n: qualifier} for the steps whose evidence carries one: {2: 'reading ready True'} at v5."""
     row, _name = _close_row(text)
