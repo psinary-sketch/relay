@@ -1,0 +1,53 @@
+b726 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay 16c393b4, locked 2026-10-31 01:44Z), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for b727's corrigendum. A finding after the lock takes no letter in data/b726_defects.txt; no locked bank is rewritten ((R332)(1)). Each row carries its time, read from the clock, from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+BEFORE THE LOCK, FOUND AFTER IT (read at the pre-run; the face and the gate's banks locked, so entered here, not lettered):
+    (1) THE SEAT'S [CLOSE ; REPEAT b725 event (1)]: 02:13:18Z, AT THE PRE-RUN, part act: G-ROOTDRY-READY fails LIVE on the face's wording
+     (data/b726_registration_2026-10-30.txt :81), the wording b724's and b725's events named; the dry run itself READY True (data/b726_root_banks_dry.txt).
+     The face locked, not rewritten; the arm fails at every later run of this act. The author's word at the root: stands as an event.
+    (2) THE SEAT'S [CLOSE ; NEW]: 02:13:18Z, AT THE PRE-RUN, part act: G-ACT-CURRENT fails LIVE: data/act_current.json :26 reads shared_edits []
+     where the arm wants ['tools/' + f for f in REPAIRED_TOOLS], and the seat's repair of defect (v) set REPAIRED_TOOLS = ('rule_arms.py',) at
+     tools/b726_worklist.py :230 after the file's step-zero commit. The arm passed at the first probe; the repair for one arm failed another
+     and the act arms were not re-probed before the lock. The author's word at the root: a hand-kept-state fault of (R334)(2)(iii)'s class,
+     to b727's corrigendum with controls. No edit.
+    (3) THE SEAT'S [CLOSE ; NEW]: 02:13:18Z, AT THE PRE-RUN, part act: G-BRANCHES-BANKED fails LIVE on its clause cit_at < first delete: the
+     citation bank's time reads 23:46:49Z (data/b726_citation_check.json :2), after the first delete at 23:39:57Z (data/b726_commands.txt :132),
+     because defect (e)'s re-bank wrote over the time of the check run before the deletes. It failed at the first probe too; defect (u)'s tips
+     cured a different clause and the arm was not re-read. The arm's NEG plant at tools/acts/b726.py :865 replaces 'push-b725-closing (f4ab9491)',
+     b724's tip, where this act's bank reads e2246a8e: an inert plant, hidden while the arm fails LIVE (b724's trap). The author's word at the
+     root: of (R334)(2)(iii)'s class, to b727's corrigendum with controls. No edit.
+    (4) THE SEAT'S [CLOSE ; REPEAT b725 (read rule)]: 01:50:40Z, AT THE PRE-RUN, part standing-c: G-READ-RULE-STANDING's printed reading FAIL, offences 3
+     (data/b726_arms_prerun_standing-c.txt): three Read calls at 23:30Z with a limit and no offset on files of 200 lines or more
+     (data/b725_commands.txt, data/b725_closing.txt, data/standing_clauses_v9.txt). The reading is printed, not an arm of this suite; b725's
+     calls read 4 offences by the same reader (data/b726_prevrun_standing-c.txt). The class of (R334)(2)(ii).
+
+AT THE LOCK AND THE PRE-RUN:
+    (5) THE SEAT'S [CLOSE ; NEW]: 01:44Z, AT THE LOCK: `tools/reg_seal.py --lock` given the bare file name raised FileNotFoundError after the lock
+     gate's banks were written; nothing written; re-run with the data/ path, LOCKED. A failed call after the gate, the seat's own.
+    (6) THE SEAT'S [CLOSE ; NEW]: 01:44:15Z, THE LOCK COMMIT 16c393b4: committed before its address scan, the scan run at 01:45:15Z, after the
+     commit, against (R336)(8)'s "at every commit". The scan read the commit's fields, message and added lines: PREVIOUS ADDRESS 0, NAME 0,
+     PREVIOUS NAME 0, CONTROLS 4 OF 4. Every later commit scanned before it.
+    (7) THE SEAT'S [CLOSE ; REPEAT (R334)(2)(i)]: 02:19:03Z, THE --prev RUN, part standing-a: a pipe into tail, refused by the hook, row (77)
+     (data/b726_hook_refusals.txt :2); nothing ran; re-sent without the pipe.
+
+AFTER THE SEAL:
+    (8) THE SEAT'S [CLOSE ; REPEAT b725 event (6)]: 02:5xZ, the check of the author's answer: `git grep` with pathspecs excluding FINDINGS.md and
+     OPEN_TRAILS.md, a shell filter naming both after the seal (G-RULE-POSTSEAL-READ's class), read over the other files only; neither ledger read through it.
+     The Grep tool the route; the exclude written where it should not have been.
+    (9) THE SEAT'S [CLOSE ; REPEAT b725 event (4)]: 02:59:50Z, THE ANSWER CHECK, BY A SEPARATE READ, THE AUTHOR'S WORD ("Option 1: the check by a
+     separate read, printed in data/b726_events.txt, the citation bank untouched; the two arms fail as events, each naming this word").
+     `fold.py citation answer` not run; data/b726_citation_check.txt not touched. G-ANSWERS-CHECKED and G-ANSWERS-BEFORE-WRITES therefore fail at
+     every run after the answers, each naming this word.
+     THE READ, BY THE SEAT, BEFORE ACTING: (R334)(2)(iii) -- data/b724_ferry.txt :11, the hand-kept name lists, OK ; I-23 -- PLACE-papers
+     phase1.5/method/INSTRUMENTS.md :416, THE NAME-AND-TITLE EXCEPTION, OK ; (R336)(5), (8), (9), (10) -- data/b726_ferry.txt, OK ; b725's event (4) --
+     data/b725_events.txt :22-:27, OK ; the current version's byline carrying a name and an ORCID -- data/b726_edition_diff.txt :5, :9, OK ;
+     data/bNNN_author_answers.txt and .json -- the pair this act's bank writes, OK. CITES CHECKED 6 ; OK 6 ; MISSES 0.
+     THE TWO PARTS OF THE WORD READ TOGETHER: the word on the failing-arms prompt carries "this act's answer check still reads as b725's did and is
+     entered as the same event, REPEAT"; the word on the answer-check prompt orders the separate read, the citation bank untouched, "the route at
+     every root prompt". The seat acted on the second, the specific answer to the question put and the one writing nothing into a locked bank,
+     and entered this row as the first orders, REPEAT of b725's event (4). If the first was meant to govern, the check's output is this row and the
+     append can be made at b727 from it; nothing is lost by the reading. Printed for the author.
+    (10) THE SEAT'S [CLOSE ; NEW]: 02:59:50Z, THE AUTHOR'S RULINGS AT THE ROOT ON WHAT THIS ACT'S BANKS CARRY, entered and not applied: the edition's byline
+     and self-citations (data/b726_edition_diff.txt :9-:10) are not edited after the lock, and are restored at the release sitting under I-23, the
+     author's line the reason, the edition form gaining its sentence; so day1/Which_Structure_Confines_v2_4_0.md stands at this act with "The author", the
+     author ruling that (R336)(8) governs commit metadata, banks and public tooling and not a paper's byline. The seat's reading of (R336)(8) at
+     Component 3 took in more than the clause reaches.
