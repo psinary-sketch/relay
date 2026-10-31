@@ -330,7 +330,7 @@ def runner_ok(S):
 # ### base -- now its blob at HEAD, at v1.8.0's commit and in the working tree the same, edited by that commit alone (b724's override, carried)
 #⟪OVERRIDE checks 1520 1520⟫
         and cr0(blob(ROOT, '%s:tools/standing/hook.py' % K.C1_STANDING)) == cr0(raw(os.path.join(T, 'standing', 'hook.py'))) == cr0(blob(ROOT, 'HEAD:tools/standing/hook.py')) \
-        and gs(ROOT, 'log', '--format=%H', '%s..HEAD' % PRE['relay'], '--', 'tools/standing/hook.py').split() == [K.C1_STANDING] \
+        and [h[:8] for h in gs(ROOT, 'log', '--format=%H', '%s..HEAD' % PRE['relay'], '--', 'tools/standing/hook.py').split()] == [K.C1_STANDING] \
 #⟪END⟫
 #⟪OVERRIDE checks 1663 1663⟫
     ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, edited this act by v1.8.0`s commit 26a54c72 alone (one remote read); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
@@ -431,14 +431,14 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_onset_table.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
-# ### b728, Component 3 (the Edit tool): G-DELETES-ONE-BRANCH read the kept branch in b727's ruling's form; (R338)(5) writes "; kept as banked." naming no branch
-# ### (data/b728_ferry.txt :22), so the arm failed on the act's real deletes; read as written, port-b707 still out of the deletes (defect (u))
+# ### b728, Component 3 (the Edit tool): G-DELETES-ONE-BRANCH read the kept branch in b727's ruling's form; (R338)(8) writes "; kept as banked, c2-b725 and keiper-b725 among them." naming port-b707 nowhere
+# ### (data/b728_ferry.txt :23), so the arm failed on the act's real deletes; read as written, port-b707 still out of the deletes (defect (u))
 #⟪OVERRIDE checks 766 769 REPAIR (needle)⟫
-    # ### (R337)(9) wrote "port-b707 kept;" and (R338)(5) writes "; kept as banked."; allow.py's NOT-deleted reader takes neither; each read as written
+    # ### (R337)(9) wrote "port-b707 kept;" and (R338)(8) writes "; kept as banked, c2-b725 and keiper-b725 among them."; allow.py's NOT-deleted reader takes neither; each read as written
     return bool(shapes) and all(len(d) == 1 and not gl and not vs and not c for (d, gl, vs), c in shapes) \
         and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
         and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
-             or '; kept as banked.' in S['ferry']) \
+             or '; kept as banked, c2-b725 and keiper-b725 among them.' in S['ferry']) \
 #⟪END⟫
 # ### b728, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b728_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
