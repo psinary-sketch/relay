@@ -1,13 +1,13 @@
-b727 closed: relay 9fac0a1d, PLACE-papers 9338dc3; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 21 defects
+b727 closed: relay 9fac0a1d, PLACE-papers 9338dc3; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 23 defects
 ========================================================================================================
 b727 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-FOUR, THE RELEASE SITTING: THE FRONT-DOOR LIST APPLIED ITEM BY ITEM; THE FOUR CHECKPOINT KERNELS AT THEIR COMPILED STATEMENTS; THE LLM LINE; THE DEPOSIT DESCRIPTIONS ON THE AUTHOR`S PASS; THE EDITION`S BYLINE RESTORED; v1.7.0 LANDED, UNDER (R337).**
 ========================================================================================================
-### THE COUNTER ((R337) Component 4, the act`s events and defects together; relay data/b727_defects.txt, data/b727_events.txt): CLAIM 2, CLOSE 19, REPEAT 1 OF 21
+### THE COUNTER ((R337) Component 4, the act`s events and defects together; relay data/b727_defects.txt, data/b727_events.txt): CLAIM 2, CLOSE 21, REPEAT 2 OF 23
 
 ### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b727_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):
       b727_address_scan.py           seal - ; close de4dedb502be9c3c ; ABSENT
       b727_carry.py                  seal - ; close 306c3c03b694df9c ; ABSENT
-      b727_face.py                   seal - ; close 9460544585269e4d ; ABSENT
+      b727_face.py                   seal - ; close d28c35cac221460b ; ABSENT
       b727_sitting.py                seal - ; close 4a726de8fe0be81a ; ABSENT
       b727_worklist.py               seal - ; close a7ece02e3c16b068 ; ABSENT
       standing/VERSION               seal - ; close 57f8036dfdcb78e8 ; ABSENT
@@ -53,7 +53,7 @@ b727 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-FOUR, THE 
       standing/fold/record.tpl       seal - ; close fca6ec5de9ce40b3 ; ABSENT
       standing/fold/reg_gate.tpl     seal - ; close 59c9d7bf92b25f9d ; ABSENT
       standing/fold/regspec.tpl      seal - ; close dcf1f69006799860 ; ABSENT
-      acts/b727.py                   seal - ; close c71729483377247c ; ABSENT
+      acts/b727.py                   seal - ; close a428d83fe92d63ea ; ABSENT
       b378_lockgate.py               seal - ; close 5fb4f5afe602bc1c ; ABSENT
       ### AGREE 0 of 50
 
@@ -66,7 +66,7 @@ b727 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-FOUR, THE 
 ### THE CORRIGENDUM ((R337)(1)-(2)):
     the generated entry for b726`s events and defects, CLAIM or CLOSE, NEW or REPEAT (relay data/b727_corrigendum.txt): ITEMS 38: EVENTS 16, DEFECTS 22 ; CLAIM 5, CLOSE 33 ; REPEAT 14 ; DATED NOTES 0 ; v1.7.0: G-ACT-CURRENT, G-BRANCHES-BANKED, THE ANSWERS PAIR ; THE ENTRY AT FINDINGS :11913
     tools/standing/ at v1.7.0: G-ACT-CURRENT and G-BRANCHES-BANKED repaired, the answers pair and the answer check out of the lock`s set, each case failing before its repair and passing after (relay data/b727_standing_v170.txt): v1.7.0: CONTROLS (actcur), (branches), (answers) ; CASES 8 ; AS WANTED 8 ; ALL AS WANTED
-    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b727_root_banks_dry.txt): BANKS 31 ; CLEAN AND EQUAL AT HEAD 28 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY False
+    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b727_root_banks_dry.txt): BANKS 38 ; CLEAN AND EQUAL AT HEAD 38 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY True
 
 ### THE SITTING ((R337)(3)-(4)):
     one row per item of the list, every current read and compared before its write (relay data/b727_sitting.txt): THE SITTING: 46 ROWS OF 46 ; PASS 38 ; PASS, 3 ; STRUCK 5
@@ -140,6 +140,8 @@ b727 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
     (s) THE SEAT'S [CLOSE ; NEW]: the first item's commit message omitted the file it named; later messages carry it, and [4]'s reads "readme paragraph".
     (t) THE SEAT'S [CLOSE ; NEW]: b726's stated Lean branch names c2-b726 and keiper-b726 in carried text are shift errors for c2-b725 and keiper-b725; set right in this act's closing, regspec and face; b726's banks not edited.
     (u) THE SEAT'S [CLOSE ; NEW]: (R337)(5)'s kept clause, "kept as banked.", names no branch, and the carried G-DELETES-ONE-BRANCH wanted port-b707 named; the mid-act probe found it; the override reads the clause as written, port-b707 still out of the deletes, the worklist's KEPT_BRANCHES the list.
+    (v) THE SEAT'S [CLOSE ; NEW]: the act's CLOSING_SECTIONS carried two titles with their own "THE", which the arm prefixes again, so G-CLOSING-DRY-STEP read "THE THE SITTING" and failed on a clean dry run; the pre-lock probe found it, the two titles repaired before the lock.
+    (w) THE SEAT'S [CLOSE ; REPEAT b726 (a)]: one Bash carrying `> /dev/null` was refused by the hook (data/b727_hook_refusals.txt :2); nothing ran.
 
 ### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/b727_events.txt, unlettered, for the next act`s corrigendum):
     NONE ENTERED IN THE EVENTS BANK
@@ -152,7 +154,7 @@ b727 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
     pre-push : ### NOT FOUND
     post-push : ### NOT FOUND
     post-push : ### NOT FOUND
-      relay                            main b0b74b4e5ad9 ; remote 9fac0a1d36e7 ; ### DIFFER
+      relay                            main ddd7896cde01 ; remote 9fac0a1d36e7 ; ### DIFFER
       PLACE-papers                     main 268096e20e29 ; remote 9338dc3f7af0 ; ### DIFFER
       SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
       SIDE-explicit-formula            main badacccb867e ; remote badacccb867e ; AGREE

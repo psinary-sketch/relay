@@ -1,5 +1,5 @@
 {
- "at": "2026-10-31T05:17:48Z",
+ "at": "2026-10-31T05:23:39Z",
  "anchor": "RULING (R337) BEGIN",
  "rows": [
   {
@@ -1289,6 +1289,86 @@
    "cmd": "python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 161,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:18:48.771Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:19:05.413Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b727_address_scan.py scan",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:19:14.409Z",
+   "src": "seat",
+   "cmd": "git add data/b727_registration_2026-10-31.txt tools/b727_face_blocks.txt data/b727_closing_dry.txt data/b727_commands.json data/b727_commands.txt data/b727_steps.json data/b727_reg_gate.txt data/b727_reg_termscan.txt data/b727_regspec_run.txt data/audit_b727_reg_satisfiable.txt data/b727_satisfiable.json data/b727_census_stepzero.txt data/b727_faces_census_stepzero.txt data/b727_pins_stepzero.txt",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:19:16.926Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b727: the face with the root route's dry run sentence and the gate banks\"",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:19:20.354Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate ddd7896c && python -X utf8 -u tools/standing/fold.py record rootdry && git status --short data/b727_registration_2026-10-31.txt data/b727_root_banks_dry.txt data/b727_root_banks_dry.json data/b727_steps.json",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:19:39.858Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py\" && python -X utf8 -u tools/standing/fold.py checks --mid probe --part act",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:22:20.039Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py render && python -X utf8 -u tools/standing/fold.py checks --mid probe --part act",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:22:26.139Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py regspec > /dev/null ; python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:22:43.354Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b727_face.py && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-10-31T05:23:34.455Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/b727_address_scan.py scan",
+   "n": 171,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1304,8 +1384,12 @@
   117
  ],
  "seds": [],
- "null_redirects": [],
- "redirects": [],
+ "null_redirects": [
+  169
+ ],
+ "redirects": [
+  169
+ ],
  "pipes": [],
  "any_pipes": [],
  "py_programs": [

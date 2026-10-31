@@ -444,7 +444,7 @@ def differs_errata_ok(S):
         and now.split(NL)[K.ERRATA_LINE - 1].startswith('## %s ' % K.ERRATA_ID) and S['files']['c1pp'] == ['FINDINGS.md'] and 'weight' in fline(S, K.WEIGHT_LINE).lower()
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### (a)-(u), entered before the lock, every one the seat's (data/b727_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvw'))   # ### (a)-(w), entered before the lock, every one the seat's (data/b727_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b727_corrigendum.txt', 'data/b727_standing_v170.txt', 'data/b727_sitting.txt', 'data/b727_sitting.json',
@@ -507,7 +507,7 @@ READFIRST_NEEDLES = ('relay data/b726_closing.txt |', 'relay data/b726_events.tx
                      'PLACE-papers day1/Which_Structure_Confines.md |', 'PLACE-papers OPEN_TRAILS.md |', 'the author`s word of 2026-10-31 passing PART C |'.replace('`', "'"))
 #⟪END⟫
 #⟪SECTION checks 11⟫
-CLOSING_SECTIONS = ('CORRIGENDUM ((R337)(1)-(2))', 'THE SITTING ((R337)(3)-(4))', 'THE DEPOSIT DESCRIPTIONS ((R337)(3) PART C)', 'NAME AND ADDRESS ((R337)(5))', 'TOUCH READ (standing clauses v9)')
+CLOSING_SECTIONS = ('CORRIGENDUM ((R337)(1)-(2))', 'SITTING ((R337)(3)-(4))', 'DEPOSIT DESCRIPTIONS ((R337)(3) PART C)', 'NAME AND ADDRESS ((R337)(5))', 'TOUCH READ (standing clauses v9)')
 #⟪END⟫
 #⟪SECTION checks 12⟫
     """the citation check's bank: every cite checked, OK and misses summing (79 = 79 + 0, data/b727_citation_check.txt); the bank

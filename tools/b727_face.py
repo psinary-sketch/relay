@@ -13,8 +13,8 @@ OLD, NEW = os.path.join(D, 'b725_registration_2026-10-30.txt'), os.path.join(D, 
 BLOCKS = os.path.join(T, 'b727_face_blocks.txt')
 KEEP = ('keiper-b725', 'c2-b725', 'scratch-b724', 'rebuild-b721')
 MAP = {'b725': 'b727', 'b724': 'b726', '(R335)': '(R337)', 'R335': 'R337', 'v1.5.0': 'v1.7.0', '2026-10-30': '2026-10-31'}
-PLACE = dict(R83='1 row in 1 class repeating three acts running, printed in the entry for the author beside the next act of (R337)(7)',
-             REFUSALS='one command',
+PLACE = dict(R83='2 rows in 1 class repeating three acts running, printed in the entry for the author beside the next act of (R337)(7)',
+             REFUSALS='two commands',
              DECLARED=('`G-AXIOM-CLAIM`.\n### `G-AXIOM-CLAIM` reads CONTRADICTED 1, the row b721`s defect (u) and each act since carried, tools/axiom_claim.py outside (W), no bank rewritten. '
                        'An arm failing at step [7] on real state beyond this is an event, not a letter.'))   # ### set by the Edit tool from the banks before the gate
 PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('(R335)', 'R335', 'v1.5.0', 'b725', 'b724', '2026-10-30')))
