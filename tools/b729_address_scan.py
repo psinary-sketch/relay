@@ -84,8 +84,9 @@ def added(diff):
 
 SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', '0e3336f'), ('D:/SIDE-spinor', 'SIDE-spinor', '5c34c72'),
                  ('D:/SIDE-rcurve', 'SIDE-rcurve', 'f093005'),   # ### b729, (R339)(2)(viii): the three kernels this act's README writes touch, at their heads before them
-                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula c2-b725', 'ea95a8d..c2-b725'),   # ### (R339)(4): the branch by its ref, no worktree needed
-                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula keiper-b725', 'f52e188..keiper-b725'))   # ### (R339)(5)
+                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula c2-b725', 'ea95a8d..c2-b725'),   # ### (R339)(3): the branch by its ref, no worktree needed
+                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula keiper-b725', 'f52e188..keiper-b725'),   # ### (R339)(4)
+                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula detect-b729', 'main..detect-b729'))   # ### (R339)(5)
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b729, (R339)(3) and (5): item [46]'s byline and two self-citations, under I-23
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception

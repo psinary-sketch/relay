@@ -1,0 +1,29 @@
+b729 -- (R339)(4): THE gamma_1 BOUND AND THE SIGN OF lambda_2, COMPILED (2026-10-31)
+
+### rows: (1) the theorems; (2) the read of the run; (3) the numeric control; (4) the route; (5) the scope. Read by run id from the run's artifact.
+
+## (1) THE THEOREMS, branch keiper-b725, tip 01fd33c2d7dc62d4702b075de3dda9253c5c2f87, module SIDEExplicitFormula/KeiperGammaBound.lean
+  deriv_bound         : (3 / 50 : ℝ) ≤ (deriv riemannZeta₀ 1).re
+  stieltjes_one_lt    : (stieltjes 1).re < -1 / 20
+  liCoeff_two_pos     : 0 < LiWeil.LiCoeff 2
+  No binder and no premise in any of the three. Under tools/e0_rule.py each is a statement with no hypothesis binder: DERIVES.
+
+## (2) THE READ OF THE RUN
+  run 41250704286, the first of the two dispatches (R339)(4) allows, the only one used; built ref 01fd33c2d7dc62d4702b075de3dda9253c5c2f87, leanprover/lean4:v4.34.0-rc1; build exit 0; low memory on the runner 12791 MB
+  the build log: "[8819/8819] Built SIDEExplicitFormula.KeiperGammaBound (7.9s)", warnings only (unused alternatives of `first`), no error, no `sorry` in that module
+  THE AXIOMS, read from the artifact's axioms.txt:
+    'SIDEExplicitFormula.KeiperTwo.deriv_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.KeiperTwo.stieltjes_one_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+    'SIDEExplicitFormula.KeiperTwo.liCoeff_two_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## (3) THE NUMERIC CONTROL (mpmath, not part of the proof)
+  gamma_1 = -0.0728158454836767, so -gamma_1 = 0.0728158...; the hand constant log(9/2)^2/2 - log 2 - log 3 / 3 = 0.0717731...; the proved 33/500 = 0.066 and 3/50 = 0.06. They stand in the order the proof requires: 0.05 < 0.06 < 0.066 < 0.0717731 < 0.0728158.
+
+## (4) THE ROUTE
+  For v > 0, T(M) = Sum_{n <= M} (n^(-1-v) - 1/n) + ((M + 1/2)^(-v) - 1)/v + log (M + 1/2). psi(x) = x^(-1-v) - 1/x is concave on [9/2, oo) because log(9/2) >= 3/2, so the midpoint rule runs one way and T is monotone from M = 4; T tends to
+  zeta0(1 + v) - gamma. So zeta0(1 + v) - gamma >= T(4), bounded by hand with Real.exp_bound; the right slope at 1 gives Re zeta0'(1) >= 3/50, and gamma_1 = -zeta0'(1). Nothing about the zeros of zeta enters.
+
+## (5) THE SCOPE
+  One rung: lambda_2 > 0. It is not Li's criterion, it proves no other lambda_n and nothing about RH. The branch keeps it; no main, no tag.
+
+### ### **lambda_2 > 0 COMPILED WITH THE STANDARD THREE, RUN 41250704286, ONE DISPATCH OF TWO ; (stieltjes 1).re < -1/20 ; THE NUMERIC CONTROL IN ORDER ; ONE RUNG, NOT LI'S CRITERION.**

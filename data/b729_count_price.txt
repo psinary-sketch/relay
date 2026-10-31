@@ -1,0 +1,47 @@
+b729 -- (R339)(6): THE COUNT LAW'S COMPILE PRICED AGAINST b716'S BANK; NOTHING BUILT, NO LEAN PROCESS, NO DISPATCH; FOR THE AUTHOR'S WORD (2026-10-31)
+
+### rows: (1) the finding the price turns on; (2) the two objects the record prices; (3) what would move the grade, field by field; (4) the lemmas, each with its nearest compiled neighbour; (5) Mathlib at the pin;
+### (6) the seat's recommendation. Kernel lines read at SIDE-explicit-formula main; Mathlib at de5ce8a9a66a, the same pin as b716.
+
+## (1) THE FINDING
+  (R339)(6) names this "the one compile that moves the Epstein instance from INTERFACES to DERIVES". THE KERNEL DOES NOT BEAR THAT OUT. ZQPremises (Schema/EpsteinZQ.lean :137-:142) has FIVE fields: continuation, zeros, logDeriv,
+  explicitFormula, count. Each theorem over the instance (zq_count :153, zq_explicit_formula :157, zq_li_nonneg_imp_online :164) binds `h : ZQPremises zq Z c` whole. Discharging `count` alone leaves four named premises, so the
+  instance stays INTERFACES. b701 :100 agrees in form: `zq_count` itself binds the continuation.
+  AND b716'S BANK IS NOT THE COUNT LAW. b716 prices one band, [160, 170] at Q0, N 15: "THE GRADE DERIVES (E0), ONE BAND", its scope line naming "the one band at Q0". The count law the instance needs is HCount at every height.
+  The ruling's "against b716's bank" is carried out below; the two objects are priced apart because they are different statements.
+
+## (2) THE TWO OBJECTS THE RECORD PRICES
+  object                                       source                         price in the record
+  the band count [160, 170], N 15              b716 (5)                       5,600-11,100 lines; 90-180 dispatches; 115-230 foreground hours; 15-30 acts
+  HCount Z A0Q at every height (P3, A0Q = 10)  b701 section 5, b700 slate     M1-M6, "6 DISPATCHES AT THE LEAST", at one per tree state, each compiling first time; M2 "not bounded above by any bank"; M1 BUILT at b703
+  The two share b716's (b), Lambda_Q0, and b716's (a), the argument principle. b701's 6 is a floor on an ideal, not an estimate; b716's rows are the honest scale for it. b701's route needs (1d) as a premise: its theorem would stay INTERFACES on ZQContinuation.
+
+## (3) WHAT WOULD MOVE THE GRADE, FIELD BY FIELD (THE SEAT'S ESTIMATE, NOT A BOUND; NOTHING MEASURED)
+  field            what it is                                        nearest compiled neighbour, measured lines                    lines            dispatches   foreground h
+  continuation     Lambda_Q's continuation and FE, by Q0's theta     jacobiTheta2_functional_equation (Mathlib); WeakFEPair        1,500-3,000 (b716 b)  25-50    35-70
+  zeros            the configuration WideConfig over Lambda_Q        zetaZeroConfig; chiZeroConfig, Chi/Generic.lean, 521 lines    300-600              5-10     8-15
+  logDeriv         the series of -Z'/Z on Re s >= 3/2                LSeries Convolution :142, Deriv :45, :105 (b701 (1f))         200-400              3-8      5-10
+  explicitFormula  the contour chain for Lambda_Q                    Zeta23/WeilEF/*.lean, 12 modules, 3,742 lines                 3,000-5,000          40-80    60-120
+  count            HCount Z A0Q, or the existential form below       Zeta23/RvM, 850 lines; Chi/LocalCount.lean, 246 lines         800-2,000            15-35    20-45
+  IN ALL, FIVE FIELDS                                                                                                              5,800-11,000         88-183   128-260
+  The band's enclosures (b716 (c), 3,000-6,000 lines) are not in this sum: no field of ZQPremises needs a band.
+
+## (4) THE COUNT FIELD'S LEMMAS (the least route, with its neighbour)
+  C1 Jensen on a disc for a(s) = (s - 1) Z_Q(s), the local upper count             half_count_large, Zeta23/RvM/LocalCount.lean :112; half_count_large_chi, Chi/LocalCount.lean :81
+  C2 the growth bound on the disc, by Phragmen-Lindelof and the FE                 Zeta23/RvM/ZetaGrowth.lean, 252 lines
+  C3 the lower bound at the centre, |Z_Q(c + it)| >= 4 - Z_Q(c)                    ABSENT in Lean: b685 steps (3), (6); the kernel's analogue is the Euler product, which Z_Q has not
+  C4 Z_Q(3/2) bounded above by a rational                                          ABSENT: needs the lattice count's asymptotic (b701 (1c)) or a certified truncation
+  C5 the small heights, |t| <= 4                                                   count_small, Zeta23/RvM/LocalCount.lean :271; count_small_chi :207
+  C6 the assembly, for WideConfig                                                  zetaZeroConfig_local_count :310; chiZeroConfig_local_count :218; Wide HCount, Schema/Wide/Config.lean :49
+  C7 the Halving and count-by-integral reductions                                  Zeta23/RvM/Halving.lean, CountByIntegral.lean
+  THIS ROUTE GIVES AN UNNAMED A0 (∃ A0), which is all WeilConfig.count asks (Schema/Config.lean :31); it does not give A0Q = 10. ZQPremises.count names A0Q, so it would need restating. Keeping 10 means b685's Backlund route, M2-M6, the dearer row.
+
+## (5) MATHLIB AT THE PIN
+  the checkout de5ce8a9a66a, the same as b716's. The four needles re-read: A5 zeros by name 0; B3 Bessel declarations 0 (one file mentions the word, RegularizedHypergeometric.lean); B4 Epstein 0; C2 interval arithmetic 0.
+  Unchanged: Mathlib moved nowhere between b716 and this act. Present as b716 read them: A1 Cauchy on a rectangle, A3 logDeriv, A4 meromorphic order, A6 Jensen, B7 jacobiTheta, B8 WeakFEPair, C3 exp bounds.
+
+## (6) THE SEAT'S RECOMMENDATION, FOR THE AUTHOR'S WORD
+  Do not buy the band for this purpose: it moves no grade of the instance. If the object is the grade, the first compile is `continuation`, which every other field stands on, and the count follows it; the whole is 88-183 dispatches, the same
+  order as b716's band and buying a different thing. A cheaper object exists if the author wants one: `count` alone at the existential A0, over ZQContinuation as a premise, a theorem of grade INTERFACES on one named field rather than five.
+
+### ### **THE COUNT LAW PRICED ; b716'S BAND AND THE COUNT AT EVERY HEIGHT ARE DIFFERENT STATEMENTS ; THE COUNT ALONE DOES NOT MOVE THE INSTANCE, FIVE FIELDS DO ; 7 LEMMAS, 2 ABSENT, FOR THE COUNT ; 88-183 DISPATCHES FOR ALL FIVE (THE SEAT'S) ; NEEDLES 0 AT THE SAME PIN ; NOTHING BUILT.**
