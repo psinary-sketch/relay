@@ -56,6 +56,7 @@ def main():
     parts = [B['HEAD'], '', '', B['ZERO'], '', '', B['A'], '', '', L(135, 136), B['B_TOOLS'], L(147, 153), B['B_LAST'], '', '', B['C'], '', '', B['D'], '', '', L(185, 192),
              L(193, 203), B['NEEDLES'], '', '', L(208, 236), B['G2'], L(242, 248), B['G2_RUN'], L(255, 279), '', '', B['W'], '', '', B['Z'], '']
     t = '\n'.join(parts).replace('@@PREFACE@@', PRE_FACE_TITLE + ' ' + pre_face())
+    t = t.replace('(R338)(5)`s (W) list', '(R338)(8)`s (W) list').replace('read (R338)(5) and the rules banks', 'read (R338)(8) and the rules banks')   # ### b727's (W) clause, this act's (8)
     left = re.findall(r'@@\w+@@', t)
     if left:
         print('REFUSED: unfilled', sorted(set(left)))
