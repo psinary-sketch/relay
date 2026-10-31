@@ -1,0 +1,45 @@
+b726 -- (R336)(3): THE C2 BUILD SPLIT PER FIELD ON c2-b725, ONE JOB PER DISCRIMINANT, EIGHTEEN DISPATCHES AT MOST, EACH READ BY ITS RUN ID (2026-10-31T01:15:07Z)
+
+### Written by tools/b726_c2.py from each run`s own artifact; the rows at data/b726_dispatch_rows.json. No Lean ran on this host; the branch stays a branch.
+
+## (1) THE E0 GRADE, RE-READ AT THE HEADER, WHICH THE SPLIT LEFT UNCHANGED (relay tools/e0_rule.py, imported unedited; its self-test PASS)
+  THE HEADER GRADED: theorem c2_value_law (D : Int) (n0 : Nat) (v : Int) (q : Nat) (hD : (D, n0, v, q) ∈ walk) : ((q : Int) * bL D n0 = v * 360360) ∧ ∀ n, 2 ≤ n → n < n0 → 0 ≤ bL D n
+  THE GRADE: DERIVES -- domain conditions only: hD : (D, n0, v, q) ∈ walk
+  ROUTE (B) mirrored equal to the statement at 18 of 18 (data/b725_c2.txt :31); the repair below changes no term, so that row stands unre-run.
+
+## (2) THE BRANCH
+  tree state 2, c9add92f over 52cbbc11: the eighteen certificates each in its own module SIDEExplicitFormula/C2Field/M<|D|>.lean, one target per job.
+  dispatch 1 at it (run 41147584871, D=-15) FAILS: C2Walk.lean does not elaborate at rQ (:50) and bL (:64). `(i : Int)` types the binder ahead of a Nat list.
+  So the text b722 banked (data/b722_c2_statement.txt :35, :49) never elaborated, and b725`s empty build log hid that. That bank is not edited; this line names it.
+  tree state 3, ea95a8d0 over c9add92f: binder annotations alone at rQ and bL; every term and C2ValueLaw`s header unchanged.
+
+## (3) THE FIELDS, EACH READ BY ITS RUN ID
+  dispatch  1  D=-15      run 41147584871  ref c9add92f  exit 1  FAILS  runner low 14645 MB  | NO AXIOM LINE
+  dispatch  2  D=-15      run 41148340840  ref ea95a8d0  exit 0  KERNEL  runner low 14676 MB  | 'C2Walk.cert_m15' does not depend on any axioms
+  dispatch  3  D=-20      run 41148615288  ref ea95a8d0  exit 0  KERNEL  runner low 14665 MB  | 'C2Walk.cert_m20' does not depend on any axioms
+  dispatch  4  D=-24      run 41149195356  ref ea95a8d0  exit 0  KERNEL  runner low 14869 MB  | 'C2Walk.cert_m24' does not depend on any axioms
+  dispatch  5  D=-40      run 41149723199  ref ea95a8d0  exit 0  KERNEL  runner low 14715 MB  | 'C2Walk.cert_m40' does not depend on any axioms
+  dispatch  6  D=-35      run 41149939848  ref ea95a8d0  exit 0  KERNEL  runner low 14787 MB  | 'C2Walk.cert_m35' does not depend on any axioms
+  dispatch  7  D=-52      run 41150124566  ref ea95a8d0  exit 0  KERNEL  runner low 14858 MB  | 'C2Walk.cert_m52' does not depend on any axioms
+  dispatch  8  D=-51      run 41150327748  ref ea95a8d0  exit 0  KERNEL  runner low 14645 MB  | 'C2Walk.cert_m51' does not depend on any axioms
+  dispatch  9  D=-88      run 41150696282  ref ea95a8d0  exit 0  KERNEL  runner low 14031 MB  | 'C2Walk.cert_m88' does not depend on any axioms
+  dispatch 10  D=-91      run 41151096621  ref ea95a8d0  exit 0  KERNEL  runner low 13199 MB  | 'C2Walk.cert_m91' does not depend on any axioms
+  dispatch 11  D=-123     run 41151758237  ref ea95a8d0  exit 0  KERNEL  runner low 12742 MB  | 'C2Walk.cert_m123' does not depend on any axioms
+  dispatch 12  D=-115     run 41152040078  ref ea95a8d0  exit 0  KERNEL  runner low 12555 MB  | 'C2Walk.cert_m115' does not depend on any axioms
+  dispatch 13  D=-148     run 41152352459  ref ea95a8d0  exit 0  KERNEL  runner low 12105 MB  | 'C2Walk.cert_m148' does not depend on any axioms
+  dispatch 14  D=-232     run 41152579553  ref ea95a8d0  exit 0  KERNEL  runner low 7087 MB  | 'C2Walk.cert_m232' does not depend on any axioms
+  dispatch 15  D=-187     run 41152916381  ref ea95a8d0  exit 0  KERNEL  runner low 5464 MB  | 'C2Walk.cert_m187' does not depend on any axioms
+  dispatch 16  D=-235     run 41153237700  ref ea95a8d0  exit 0  KERNEL  runner low 3942 MB  | 'C2Walk.cert_m235' does not depend on any axioms
+  dispatch 17  D=-267     run 41153599031  ref ea95a8d0  exit 143  STOPPED UNDER THE HOLD  runner low 2226 MB  | NO AXIOM LINE
+  dispatch 18  D=-427     run 41154021667  ref ea95a8d0  exit 143  STOPPED UNDER THE HOLD  runner low 2446 MB  | NO AXIOM LINE
+
+## (4) WHAT THE GRADE COVERS AND WHAT REMAINS
+  Compiled: the certificate `cert D n0 v q = true` at the fields above. No sorry, and no axiom at all where the line says so, inside the standard three the ruling names as the ceiling.
+  Not compiled: (L1) the sweep is r_Q on [0, n0]; (L2) W(n) = Omega(n) bL(n); the theorem c2_value_law from them. These stand as unproved Props, so C2ValueLaw itself is not compiled at any field.
+  The statement`s grade stays E0 DERIVES as graded at (1); a compiled certificate is not a compiled theorem.
+  FIELDS NOT COMPILED, each printed with its count ((R336)(3)) and carried:
+    D=-267  n0 4761  pairs 31556 (data/b725_c2.txt :28-:30): its job stopped under the hold at run 41153599031, exit 143, runner low 2226 MB, no certificate read
+    D=-427  n0 14161  pairs 109242 (data/b725_c2.txt :28-:30): its job stopped under the hold at run 41154021667, exit 143, runner low 2446 MB, no certificate read
+    D=-403  n0 17303  pairs 136930 (data/b725_c2.txt :28-:30): no dispatch: the eighteen were spent, one on the elaboration failure of dispatch 1, and n0 here is the largest of the 18
+
+### ### **THE C2 THEOREM: E0 DERIVES ; ROUTE (B) EQUAL TO THE STATEMENT AT 18 OF 18 ; ON c2-b725 (ea95a8d0) CERTIFICATES COMPILED AT 15 OF 18 BY decide +kernel, EACH DEPENDING ON NO AXIOM ; NOT COMPILED: D=-267, D=-427, D=-403 ; WHAT REMAINS: (L1), (L2), THE THEOREM ; DISPATCHES 18 OF 18 ; NO MAIN, NO TAG.**
