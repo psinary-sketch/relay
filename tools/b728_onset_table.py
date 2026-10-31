@@ -6,7 +6,10 @@
 ###     :15, :21; data/b725_onset_mass.txt :14); off52 has no onset: the point is a_- = 2 log 192, read POSITIVE, and its row is a one-sided bound;
 ###   the windows: b709's C, N and C + N at that point (G9._window, imported unedited);
 ###   per window, as b707's terms build it (terms709): P = khat(i/2) + khat(-i/2), the archimedean A, the prime sum PR, S = P - PR + A;
-###     and M = the sum over the on-line rows of the certified list, at +t and at -t, of khat(t).real (b725's mass, imported unedited);
+###     and M = the sum over the on-line rows of the certified list, at +t and at -t, of khat(t).real (b725's mass, imported unedited), the
+###     on-line rows being those whose name begins "on": b725's the_list() and data/b725_registrations.txt :36 read "does not begin off", which
+###     also takes the 69 ref rows, the reflections 1 - beta of the off-line rows (tools/b709_pairs.py :852); this tool's first run, whose (C2)
+###     read S - M - O = -0.5000 at every C window and no table row, found them; the mass below is over the 547 on rows of (R338)(3)'s words;
 ###   THE PRIMARY READING, the form on the template family at its own least direction: v = (v_1, v_2) the witness of b707's reading at the point;
 ###     M* = v_1^2 M_CC + 2 v_1 v_2 M_CN + v_2^2 M_NN, A* = the same in P + A, M_CN and (P + A)_CN by the polarisation of b707's gram;
 ###   BESIDE IT, NOT THE TEST: the C window alone, M_C and (P + A)_C, the window b725 read;
@@ -16,7 +19,9 @@
 ### THE CONTROLS, PRINTED BEFORE THE TABLE, A TABLE ROW REFUSED UNTIL BOTH READ AS WANTED:
 ###   (C1) the banked lambda_min at each of the five onset points recomputed, within 1e-8 relative, the reading NEGATIVE;
 ###   (C2) the identity at the C window, S = M + O + (the list's tail): O the off-line rows' four images each, |S - M - O| <= 1e-3 |M|.
-### Routes: table [--bank] ; banks data/b728_onset_table.txt. Written by the Write tool at b728; it writes that bank and nothing else.
+### Routes: table [--bank] ; banks data/b728_onset_table.txt.
+###         reread [--bank]: b725's three rule zeros, a*_pred by b725's predict with the list as b725 read it and with the on rows alone, so that its
+###         REFUTED is read on the corrected sum; banks data/b728_onset_b725_reread.txt. Written by the Write tool at b728; it writes those two and nothing else.
 ### Every value a ball at 128 bits. Nothing here proves RH or GRH.
 """
 import os
@@ -37,12 +42,28 @@ S, O7, G9 = OM.S, OM.O7, OM.G9
 bs, bl, fmt = OM.bs, OM.bl, OM.fmt
 BANK = os.path.join(D, 'b728_onset_table.txt')
 # ### (label, list beta, list gamma, lo rung, hi rung, the point, the banked a*, the banked lambda_min, its bank)
-ZEROS = (('rho0', '0.9532604748', '16.29021', 'log2', '32', 'mid929_937', '6.838396011', '-0.0037191321', 'data/b709_grid.txt :441'),
-         ('band', '0.7979971572', '29.551761', '128', '192', 'rung32381', '10.38532711', '-3.5300862e-5', 'data/b709_grid.txt :4501'),
+ZEROS = (('rho0', '0.9532604748', '16.29021', 'log2', '32', 'mid929_937', '6.838396011', '-0.003719132066', 'data/b709_grid.txt :409'),
+         ('band', '0.7979971572', '29.551761', '128', '192', 'rung32381', '10.38532711', '-3.530086238e-5', 'data/b709_grid.txt :3629'),
          ('off12', '0.9515046580', '107.399291', '64', '96', 'mid5179_5189', '8.553331773', '-4.953079012e-5', 'data/b723_support.txt :15'),
          ('off18', '0.9105105144', '155.5508257', '128', '192', 'mid26959_26981', '10.20248033', '-0.0002229856298', 'data/b725_onset_mass.txt :14'),
          ('off27', '0.9107626196', '218.700845', '128', '192', 'mid19267_19273', '9.866304749', '-0.0001322565600', 'data/b723_support.txt :21'),
          ('off52', '0.9109585427', '355.531957', '128', '192', 'a-', None, None, 'data/b725_onset_mass.txt :17 ; data/b725_onset_mass_rule.txt'))
+
+
+_ON = []
+
+
+def online():
+    """the ordinates of the rows named on*, read once: the certified on-line zeros, beta = 1/2 exactly."""
+    if not _ON:
+        import b709_pairs as P9
+        import b711_list as L11
+        rows = P9.extended_rows(L11.units(), L11.top())[0]
+        bad = [n for n, sg, tt in rows if n.startswith('on') and sg.mid().str(5, radius=False) not in ('0.5', '0.50000')]
+        if bad:
+            sys.exit('### A ROW NAMED on NOT AT beta 1/2: %s -- REFUSED' % bad[:3])
+        _ON.extend(tt for n, sg, tt in rows if n.startswith('on'))
+    return _ON
 
 
 def row_of(lab, b, g):
@@ -82,7 +103,7 @@ def rowread(lab, b, g, lo, hi, name):
     sg, tt = row_of(lab, b, g)
     g0 = tt.mid().str(25, radius=False)
     pt = point(lab, g0, lo, hi, name)
-    on = OM.the_list()['on']
+    on = online()
     us, Ms, Os = {}, {}, {}
     for kd in ('C', 'N', 'CN'):
         us[kd] = G9.terms709(lab, pt, kd, 'q0')
@@ -141,7 +162,7 @@ def table(*a):
     out('b728 -- (R338)(3): THE SIX BANKED ONSETS, M* AND A* AT EACH ONSET POINT, POST HOC, NOTHING FITTED (%s)' % OM.utc())
     out()
     out('### by tools/b728_onset_table.py; the reading fixed in its head and committed before any figure. The ruling says seven; the banks hold six zeros, five onsets and off52`s bound.')
-    out('### The list: %d on-line ordinates, %d off-line rows with beta > 1/2, top %s.' % (len(OM.the_list()['on']), len(OM.the_list()['off']), OM.the_list()['top']))
+    out('### The list: %d on-line ordinates (rows named on), %d off-line rows with beta > 1/2 and their reflections, top %s.' % (len(online()), len(OM.the_list()['off']), OM.the_list()['top']))
     R = []
     for z in ZEROS:
         print('  reading %s ...' % z[0], flush=True)
@@ -221,8 +242,47 @@ def table(*a):
         print('written data/b728_onset_table.txt')
 
 
-ROUTES = dict(table=table)
+def reread(*a):
+    """b725's three rule zeros: predict with the_list() as b725 read it (616 ordinates), then with the on rows alone (547), both on the registered grid."""
+    do_bank = '--bank' in a
+    S.WORKERS = 1
+    S.guard('the reread')
+    L = []
+
+    def out(s=''):
+        print(s, flush=True)
+        L.append(s)
+
+    out('b728 -- b725`S H-ONSET-MASS READ ON THE ON-LINE ROWS ALONE (%s)' % OM.utc())
+    out()
+    out('### b725`s the_list() and data/b725_registrations.txt :36 took 69 ref rows, reflections of off-line zeros, as on-line; b725`s banks are not edited. By b725`s predict, imported unedited,')
+    out('### with the list as b725 read it, then with the rows named on. The falsifier as registered: |a*/a*_pred - 1| > 0.05.')
+    out()
+    as725 = list(OM.the_list()['on'])
+    banked = dict(off18=('10.20248033', 'THE ONSET'), off44=(None, 'POSITIVE TO 2 log 192'), off24=(None, 'BRACKET (9.704061, 10.514991]'))
+    fired = []
+    for lab in ('off18', 'off44', 'off24'):
+        sg, tt = OM.the_list()['off'][lab]
+        OM.the_list()['on'] = as725
+        r0 = OM.predict(sg, tt)
+        OM.the_list()['on'] = list(online())
+        r1 = OM.predict(sg, tt)
+        out('  %s: as b725 read (%d ordinates): %s a*_pred %s | on rows alone (%d): %s a*_pred %s | banked: %s %s' % (
+            lab, len(as725), r0['kind'], r0.get('a_pred'), len(online()), r1['kind'], r1.get('a_pred'), banked[lab][1], banked[lab][0] or ''))
+        if lab == 'off18' and r1.get('a_pred') is not None:
+            q = float(banked[lab][0]) / r1['a_pred'] - 1
+            out('    off18: a*/a*_pred - 1 on the on rows alone = %+.5f ; %s' % (q, 'BEYOND 0.05: THE FALSIFIER FIRES ON THE CORRECTED SUM' if abs(q) > 0.05 else 'WITHIN 0.05: b725`S FIRING DOES NOT STAND ON THE CORRECTED SUM'))
+            if abs(q) > 0.05:
+                fired.append(lab)
+    out()
+    out('### ### **b725`S H-ONSET-MASS ON THE ON-LINE ROWS ALONE: THE FALSIFIER %s.**' % ('FIRES AT %s, REFUTED STANDS' % fired if fired else 'DOES NOT FIRE, REFUTED DOES NOT STAND ON THE CORRECTED SUM'))
+    if do_bank:
+        OM.put_txt(os.path.join(D, 'b728_onset_b725_reread.txt'), L)
+        print('written data/b728_onset_b725_reread.txt')
+
+
+ROUTES = dict(table=table, reread=reread)
 if __name__ == '__main__':
     if len(sys.argv) < 2 or sys.argv[1] not in ROUTES:
-        sys.exit('usage: b728_onset_table.py table [--bank]')
+        sys.exit('usage: b728_onset_table.py table|reread [--bank]')
     ROUTES[sys.argv[1]](*sys.argv[2:])
