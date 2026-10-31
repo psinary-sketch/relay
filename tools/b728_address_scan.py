@@ -84,7 +84,8 @@ def added(diff):
 
 SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', '0e3336f'), ('D:/SIDE-spinor', 'SIDE-spinor', '5c34c72'),
                  ('D:/SIDE-rcurve', 'SIDE-rcurve', 'f093005'),   # ### b728, (R338)(2)(viii): the three kernels this act's README writes touch, at their heads before them
-                 ('C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2wt', 'SIDE-explicit-formula c2-b725', 'ea95a8d'))   # ### (R338)(4): the branch's worktree
+                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula c2-b725', 'ea95a8d..c2-b725'),   # ### (R338)(4): the branch by its ref, no worktree needed
+                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula keiper-b725', 'f52e188..keiper-b725'))   # ### (R338)(5)
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b728, (R338)(3) and (5): item [46]'s byline and two self-citations, under I-23
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
@@ -102,7 +103,7 @@ def places():
     """(kind, label, text): the new text the act wrote, by place."""
     out = []
     for repo, name, pre in ((ROOT, 'relay', K.PRE_RELAY), (PP, 'PLACE-papers', K.PRE_PP)) + tuple((r, n, p) for r, n, p in SITTING_REPOS):
-        for h in [x for x in git(repo, 'rev-list', '--reverse', '%s..HEAD' % pre).split(NL) if x.strip()]:
+        for h in [x for x in git(repo, 'rev-list', '--reverse', pre if '..' in pre else '%s..HEAD' % pre).split(NL) if x.strip()]:
             out.append(('commit fields', '%s %s' % (name, h[:8]), git(repo, 'log', '-1', '--format=%an%n%ae%n%cn%n%ce', h)))
             out.append(('commit message', '%s %s' % (name, h[:8]), git(repo, 'log', '-1', '--format=%B', h)))
             rest, by = split_byline(git(repo, 'show', '--format=', '--no-color', '--no-ext-diff', h))

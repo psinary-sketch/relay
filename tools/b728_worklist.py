@@ -153,7 +153,7 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b727 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b728_standing_v170.txt', 'data/b728_sitting.txt', 'data/b728_zenodo_readback.json', 'data/b728_address_scan.txt')
+COMPUTE_BANKS = ('data/b728_standing_v180.txt', 'data/b728_onset_table.txt', 'data/b728_onset_b725_reread.txt', 'data/b728_c2.txt', 'data/b728_lambda2.txt', 'data/b728_visibility.txt', 'data/b728_address_scan.txt')
 #   ### the banks of (R338)(2)-(5), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
@@ -170,10 +170,7 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('ERRATA.md', 'FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'day1/Exhaustive_Enumeration.md', 'day1/ONE_PAGE_PROOF.md', 'day1/Seven_Mechanism_Classes.md',
-             'day1/Silence_of_Foundations.md', 'day1/Spectral_Inertness.md', 'day1/Third_Identity_Element.md', 'day1/Which_Structure_Confines.md', 'day1/Which_Structure_Confines_v2_4_0.md',
-             'phase1.5/proofs/MECHANISM_EXCLUSION.md', 'phase1.5/proofs/THE_EXCLUSION_ARCHITECTURE.md', 'phase1.5/proofs/THE_RESIDUE_OF_RH.md', 'phase1.5/spectral/BALANCE_AND_POSITIVITY.md',
-             'phase2/method/FACES_OF_H2_AT_FINITE_INSTANCE.md')   # ### the ledgers, ERRATA, SPIRAL_MAP and the papers (R338)(3) passes
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'day1/Which_Structure_Confines_v2_4_0.md')   # ### the ledgers and (R338)(2)(viii)'s SPIRAL_MAP :104 and edition :316
 PP_WRITTEN = PP_EDITED
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
@@ -181,9 +178,9 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('the research act under (R338)(7): the onset successor from the six banked products and off18’s, M and A read from the computed form and checked against the banked onsets '
-        'before any registration commits; H-DIAL’s finding into the mechanism table; the three C2 fields finished by split dispatch; lambda_2’s two premises; W-ORD-VISIBILITY from H-INTERFERENCE’s table')
-NEXT_ACT = 'b728'
+NEXT = ('b729 under (R338)(10): the Beurling row’s literature read for the mechanism table and the 2C cluster’s note on the statement-grading instruments beside Invariance Barriers; '
+        'H-ONSET-MASS-2’s test and W-ORD-VISIBILITY’s registration fall away, (3) having registered nothing and (6) having written no candidate')
+NEXT_ACT = 'b729'
 
 
 def orders_naming(ot_text, act):
@@ -224,8 +221,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = 'b21a1649'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
-STEPZERO_BANK_COMMIT = 'b21a1649'       # ### the step-zero bank itself (data/b728_stepzero.txt), with the price table, in that commit
+STEPZERO_BANKS = 'a9dd62ce'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = 'a9dd62ce'       # ### the step-zero bank itself (data/b728_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -239,7 +236,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b728.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.7.0'             # ### (R338)(2)'s repairs landed v1.7.0 by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.8.0'             # ### (R338)(2)'s repairs landed v1.8.0 by a commit of their own (C1_STANDING)
 STANDING_CHANGED = ()                   # ### the standing files (R338)(2) changes, set by the Edit tool when they land
 STANDING_NEW = ()
 # ### b727's commits the act reads (the names kept for the carried arms: the previous act's)
@@ -248,19 +245,19 @@ B714_RECORD = 'a079a1ad'     # ### b727's record commit (relay, the head line's)
 B714_ROOT = 'c527524ad1541ba76f916984b320b8098460600556d1e93d52ac1769202ca76e'   # ### b727's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '38043c6e'  # ### b727's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = 'a8edc153'                # ### (R338)(2): tools/standing/ v1.7.0
+C1_STANDING = '26a54c72'                # ### (R338)(2): tools/standing/ v1.8.0
 C1_STANDING_REPAIR = None
-C1_RELAY = '491dd688'                   # ### (R338)(1)-(2): the corrigendum's banks and the sitting tool
-C1_CORR = '491dd688'                    # ### the corrigendum banks, the corrigenda row
-C1_PP = '3e0ca39'                      # ### FINDINGS: b727 at its weight, the observation and the corrigendum for b727
-WEIGHT_LINE, CORR_LINE = 11911, 11913   # ### FINDINGS: b727's weight line and the corrigendum for b727 (Component 1)
+C1_RELAY = '48952a59'                   # ### (R338)(1)-(2): the corrigendum's banks and the sitting tool
+C1_CORR = '48952a59'                    # ### the corrigendum banks, the corrigenda row
+C1_PP = '00b235d'                      # ### FINDINGS: b727 at its weight, the observation and the corrigendum for b727
+WEIGHT_LINE, CORR_LINE = 12014, 12016   # ### FINDINGS: b727's weight line and the corrigendum for b727 (Component 1)
 DIFFERS_LINE = None
-ERRATA_LINE = 1021
-C2_RELAY = '499977b2'                   # ### (R338)(3): the sitting's record, read-backs, scan, reproduction and push captures
+ERRATA_LINE = None
+C2_RELAY = '13bdc06f'                   # ### (R338)(3): the onset table, POST HOC, and b725's refutation re-read
 C2_AMEND = ()
-C2_PP = '6ace971b'
-C3_RELAY = ('499977b2',)                # ### (R338)(3)-(4): one commit with C2_RELAY
-C3_PP = '268096e2'                      # ### (R338)(4): ERRATA E-2026-10-31-1 at its title's correction
+C2_PP = None
+C3_RELAY = ('f1c86348',)                # ### (R338)(4): tools/b728_c2.py; the banks' commit added when it is made
+C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
@@ -285,14 +282,19 @@ PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
 MAX_DISPATCHES = 8           # ### N1: (R338)(4) six at most, (R338)(5) two at most
+MAX_C2, MAX_KEIPER = 6, 2
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, both branches cut from it, untouched (N5)
-EF_BRANCHES = (('keiper-b725', 'f52e188c2409436337019ea0008d7352bde404c2'),   # ### b727's, kept
-               ('c2-b725', 'ea95a8d07a0ffae2012d715d5e95194cbf4df1ad'))       # ### (R338)(3): the split c9add92f, the binder repair on it
-EF_RUNS = ()   # ### N1: none this act
+EF_BRANCHES = (('keiper-b725', '2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147'),   # ### (R338)(5): KeiperGammaOne.lean on f52e188c
+               ('c2-b725', 'b91bf5af59b36891765baee33da50ecf7291b025'))       # ### (R338)(4): the split within the field, d7ba0ee1 then b91bf5af, on ea95a8d0
+EF_BRANCHES_ENTERING = ('f52e188c2409436337019ea0008d7352bde404c2', 'ea95a8d07a0ffae2012d715d5e95194cbf4df1ad')   # ### keiper-b725 and c2-b725 entering the act
+EF_RUNS = (('c2', 41220283401, 'd7ba0ee187ec0175dc260fb25bd688cbe0a6a0dd', 'SIDEExplicitFormula.C2Field.M267'),
+           ('c2', 41220928153, 'b91bf5af59b36891765baee33da50ecf7291b025', 'SIDEExplicitFormula.C2Field.M427'),
+           ('c2', 41220930451, 'b91bf5af59b36891765baee33da50ecf7291b025', 'SIDEExplicitFormula.C2Field.M403'),
+           ('keiper', 41220932768, '2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147', 'SIDEExplicitFormula.KeiperGammaOne'))   # ### N1: set from the runs read, (kind, run id, ref, target)
 DISPATCH_ROWS = 'data/b728_dispatch_rows.json'
-ERRATA_ID = 'E-2026-10-31-1'   # ### (R338)(4): the one ERRATA entry
-ERRATA_IDS = ('E-2026-10-31-1',)
+ERRATA_ID = None   # ### (R338) orders no ERRATA entry
+ERRATA_IDS = ()
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
@@ -306,13 +308,7 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### (R338)(3): the sitting's repositories (name, path, head before the sitting), their tips, the struck items, the deposit records
-SITTING_REPOS = (('SIDE-archimedean', 'D:/SIDE-archimedean', 'fcecc45'), ('SIDE-frobenius', 'D:/SIDE-frobenius', '2efe9f2'), ('SIDE-spinor', 'D:/SIDE-spinor', '7e570ee'),
-                 ('SIDE-rcurve', 'D:/SIDE-rcurve', '54c9040'), ('SIDE-cosmo', 'D:/SIDE-cosmo', 'ca04c8c'), ('SIDE-kernel', 'D:/SIDE-kernel', '70aba3c'),
-                 ('SIDE-lv-conservation', 'D:/SIDE-lv-conservation', 'd38f3e8'))
-SITTING_TIPS = {'SIDE-archimedean': '0e3336fc57eccdd849d862455541d8f460d23589', 'SIDE-frobenius': '31ad3d5dea75a0e97dbf3b421dfc21557795fc1b',
-                'SIDE-spinor': '5c34c7250d6d2fe849d85f757be18bd3d278ae7f', 'SIDE-rcurve': 'f093005191b6a56415f83a4050bb86e783b57b38',
-                'SIDE-cosmo': '5ad736fecd77c47a9549d1c4390fe4a9a70de0dc', 'SIDE-kernel': '2e06bebc89f8bc31c908d852da8a5817c5cfe748',
-                'SIDE-lv-conservation': '305a87c9e09c45cc8a935b1065f26f929634c707'}
-SITTING_STRUCK = (32, 33, 34, 35, 36)
-ZEN_RECORDS = {13: '21539068', 14: '19938917', 15: '19937590', 16: '21436282', 17: '21539167', 18: '21520474', 19: '21539068'}
+# ### (R338)(2)(viii): the three kernels' README writes (name, path, head before the write), their tips (carried names, b727's sitting's)
+SITTING_REPOS = (('SIDE-archimedean', 'D:/SIDE-archimedean', '0e3336f'), ('SIDE-spinor', 'D:/SIDE-spinor', '5c34c72'), ('SIDE-rcurve', 'D:/SIDE-rcurve', 'f093005'))
+SITTING_TIPS = {'SIDE-archimedean': 'b71ffb8aa3fd8e47b2e4f2228cdb78ce85f8ceb6', 'SIDE-spinor': '25c76d8ea20787f64963c4ac834ccb303239146b',
+                'SIDE-rcurve': '0bcb6c1d707646fc7a02fb9fed5cf9b01f3d7a66'}

@@ -1,0 +1,30 @@
+b728 -- (R338)(4): THE LAST THREE C2 FIELDS ON c2-b725, D=-267, D=-427, D=-403, SPLIT BY CERTIFICATE WITHIN THE FIELD, EACH READ BY ITS RUN ID (2026-10-31)
+
+### by the Write tool, from each run's own artifact (build.log, build_exit.txt, axioms.txt, ref.txt, mem.log); the rows at data/b728_dispatch_rows.json. No lean process on this host (N1); the branch stays a branch.
+
+## (1) b726's ELABORATION FAILURE, READ BEFORE ANY OF THE THREE RUNS (defect (t): read then, banked here after them)
+  run 41147584871, D=-15, ref c9add92f: exit 1. `C2Walk.lean:50:45`, an application type mismatch, `List.range (2*n+1)` being a List Nat, and `:64:106`, a type mismatch, `i + 1` being an Int.
+  THE CAUSE: `(i : Int)` typed the binder ahead of a Nat list, at rQ and bL. Repaired by binder annotations alone at ea95a8d0, every term and C2ValueLaw's header unchanged (data/b726_c2.txt :12, :14).
+  That failure is not what stopped D=-267 and D=-427 at b726: those two stopped under the runner's hold, exit 143, runner low 2226 MB and 2446 MB, no certificate read (data/b726_c2.txt :33-:34). D=-403 had no dispatch.
+  So the split here answers the memory of one `decide +kernel` over a whole field, not the elaboration.
+
+## (2) THE SPLIT
+  tree state 4, d7ba0ee1 over ea95a8d0: SIDEExplicitFormula/C2Chain.lean, and D=-267 in 7 sweep blocks and 8 step blocks, one module each.
+  tree state 5, b91bf5af over d7ba0ee1: by the same route, D=-427 in 19 + 30 blocks and D=-403 in 25 + 40.
+  C2Walk.lean is unchanged by both. The fifteen other field modules are unchanged by both (git diff --stat ea95a8d0 c2-b725: of the M files, M267, M403 and M427 alone).
+  THE STATEMENT IS THE SAME: read at ea95a8d0 and at the tip, `cert (-267) 4761 (-2) 1 = true`, `cert (-427) 14161 (-2) 1 = true`, `cert (-403) 17303 (-2) 1 = true`. The proof changed; the theorem's line did not.
+  Each block is a `decide +kernel`; `cert_of_tabs` in C2Chain.lean joins them. The unsplit module's `sorry` fallback is gone from the three.
+
+## THE DISPATCHES
+  dispatch 1  D=-267  run 41220283401  ref d7ba0ee1  exit 0  KERNEL  19 jobs  runner low 13240 MB  | 'C2Walk.cert_m267' does not depend on any axioms
+  dispatch 2  D=-427  run 41220928153  ref b91bf5af  exit 0  KERNEL  53 jobs  runner low 12220 MB  | 'C2Walk.cert_m427' does not depend on any axioms
+  dispatch 3  D=-403  run 41220930451  ref b91bf5af  exit 0  KERNEL  69 jobs  runner low 11507 MB  | 'C2Walk.cert_m403' does not depend on any axioms
+  Three dispatches of the six allowed; none repeated, none failed. The other seventeen names in each axioms.txt read "Unknown constant": each job imports its own field's module alone, and each run's line for its own field is the line that counts.
+
+## (3) WHAT THE GRADE COVERS AND WHAT REMAINS
+  Compiled: the certificate `cert D n0 v q = true` at all 18 fields, each with no axiom at all: 15 at ea95a8d0 (data/b726_c2.txt :18-:32) and these 3.
+  EACH AT ITS OWN REF AND ITS OWN RUN: no single build compiled the eighteen together. The fifteen's modules and C2Walk.lean are unchanged to the tip, so the eighteen statements all stand at b91bf5af, but those fifteen were not rebuilt there.
+  NOT COMPILED: (L1) the sweep is r_Q on [0, n0]; (L2) W(n) = Omega(n) bL(n); the theorem c2_value_law from them. These stand as unproved Props, so C2ValueLaw itself is not compiled at any field.
+  The heading's "THE C2 THEOREM" is (R338)(4)'s name for the work. A compiled certificate is not a compiled theorem (data/b726_c2.txt :39), and 18 of 18 does not change that. The statement's grade stays E0 DERIVES (data/b726_c2.txt :6-:7), its header untouched; route (B)'s 18 of 18 stands unre-run, no term having moved.
+
+### ### **THE C2 THEOREM: 18 OF 18 FIELDS COMPILED WITH NO AXIOM ; DISPATCHES 3 OF AT MOST 6 ; WHAT COMPILED IS THE CERTIFICATE AT EACH FIELD, EACH AT ITS OWN REF, NOT THE THEOREM ; WHAT REMAINS: (L1), (L2), c2_value_law ; E0 DERIVES UNCHANGED ; NO MAIN, NO TAG.**

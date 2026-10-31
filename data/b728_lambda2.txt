@@ -1,0 +1,36 @@
+b728 -- (R338)(5): lambda_2'S TWO PREMISES ON keiper-b725, READ BY ITS RUN ID (2026-10-31)
+
+### by the Write tool, from run 41220932768's artifact (build.log, build_exit.txt, axioms.txt, ref.txt, mem.log). No lean process on this host (N1).
+
+## THE DISPATCH
+  run 41220932768  ref 2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147  target SIDEExplicitFormula.KeiperGammaOne  toolchain leanprover/lean4:v4.34.0-rc1
+  conclusion success ; build exit 0 ; "Build completed successfully (3837 jobs)." (build.log :562) ; runner low 12821 MB (mem.log :78)
+  One dispatch of the two allowed. The second is not spent: what remains below cannot be reached by one blind build.
+
+## THE AXIOMS, AS axioms.txt PRINTS THEM
+  KeiperTwo.gammaRZetaOne_of                    [propext, Classical.choice, Quot.sound]
+  KeiperTwo.zetaLogCoeff_one                    [propext, Classical.choice, Quot.sound]
+  KeiperTwo.taylorCoeff_xi_one                  [propext, Classical.choice, Quot.sound]
+  KeiperTwo.liCoeff_two_keiper                  [propext, Classical.choice, Quot.sound]
+  KeiperTwo.liCoeff_two_pos_of                  [propext, Classical.choice, Quot.sound]
+  KeiperTwo.liCoeff_two_pos_of_obligations      [propext, Classical.choice, Quot.sound]
+  KeiperTwo.gammaRZetaOne_holds                 [propext, Classical.choice, Quot.sound]
+  KeiperTwo.liCoeff_two_closed                  [propext, Classical.choice, Quot.sound]
+  KeiperTwo.liCoeff_two_pos_of_stieltjes_one    [propext, Classical.choice, Quot.sound]
+  no sorryAx. The word "sorry" stands in no line of SIDEExplicitFormula/KeiperGammaOne.lean. Its one occurrence in the build log is KeiperTwo.lean :86's fallback alternative, which the unused-tactic linter reports as doing nothing (build.log :546).
+
+## THE FIRST PREMISE: PROVED
+  GammaRZetaValues at index 1 (KeiperIdentities.lean :20, at its first index): `gammaRZetaOne_holds : GammaRZetaOne`, KeiperGammaOne.lean :149. The route: Mathlib holds no derivative of digamma at the pin, and none is needed: the reflection Gammaℝ(s) Gammaℝ(2 - s) = 1 / sin(pi s / 2) (:57) fixes deriv (logDeriv Gammaℝ) 1 = pi^2 / 8 (:122).
+  What it gives: `liCoeff_two_closed` (:157), LiCoeff 2 = 1 + gamma - log(4 pi) - gamma^2 - 2 Re gamma_1 + pi^2 / 8.
+
+## THE SECOND PREMISE: NOT PROVED, NOT ATTEMPTED IN LEAN
+  The two-sided rational bound on gamma_1 (KeiperBounds.lean :109-:112, higher_stieltjes at n = 1) is not on the branch. KeiperSign.lean's route for gamma rests on Mathlib's monotone sequences for the Euler-Mascheroni constant; Mathlib at the pin has no such sequence for gamma_1, and no theorem linking the second Laurent coefficient of zeta at 1 to a computable limit.
+  WHAT REMAINS, STATED, SORRY-FREE AS A STATEMENT AND NOT ON THE BRANCH AS A THEOREM:
+    theorem stieltjes_one_re_lt : (SIDEExplicitFormula.Keiper.stieltjes 1).re < -1 / 20
+  It needs three things: (i) the Laurent link, stieltjes 1 = lim (sum_{k <= N} (log k) / k - (log N)^2 / 2); (ii) a monotone bracket of that limit; (iii) the bracket evaluated at an index where it reads below -1/20.
+  WHAT IT WOULD GIVE, COMPILED NOW AS A CONDITIONAL: `liCoeff_two_pos_of_stieltjes_one (h1 : (stieltjes 1).re < -1 / 20) : 0 < LiWeil.LiCoeff 2` (:163), one rung on one named premise. liCoeff_two_pos is NOT compiled unconditionally; no rung of the Li ladder is added by this act.
+
+## THE BRANCH
+  (R338)(5) says "the branch left as it stands" where a premise does not close. One premise closed and one did not, so KeiperGammaOne.lean stands on keiper-b725 with the conditional beside it: printed for the author. keiper-b725 at 2cb3936c, off main, untagged.
+
+### ### **lambda_2: GammaRZetaValues at index 1 proved, the bound on gamma_1 remaining ; AXIOMS propext, Classical.choice, Quot.sound ; REMAINS (stieltjes 1).re < -1/20 ; DISPATCHES 1 OF AT MOST 2.**
