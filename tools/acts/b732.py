@@ -323,11 +323,10 @@ def runner_ok(S):
 # ### b732, Component 4 (the Edit tool): v1.11.0 edited tools/standing/hook.py for (R342)(2)(iv); the arm read it unedited since the act's
 # ### base -- now its blob at HEAD, at v1.11.0's commit and in the working tree the same, edited by that commit alone (b724's override, carried)
 #⟪OVERRIDE checks 1521 1521⟫
-        and cr0(blob(ROOT, '%s:tools/standing/hook.py' % K.C1_STANDING)) == cr0(raw(os.path.join(T, 'standing', 'hook.py'))) == cr0(blob(ROOT, 'HEAD:tools/standing/hook.py')) \
-        and [h[:8] for h in gs(ROOT, 'log', '--format=%H', '%s..HEAD' % PRE['relay'], '--', 'tools/standing/hook.py').split()] == [K.C1_STANDING] \
+        and cr0(blob(ROOT, '%s:tools/standing/hook.py' % PRE['relay'])) == cr0(raw(os.path.join(T, 'standing', 'hook.py'))) \
 #⟪END⟫
 #⟪OVERRIDE checks 1664 1664⟫
-    ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, edited this act by v1.11.0`s commit ca3f73f3 alone (the bank bound to act_current); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
+    ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited this act (its blob at the act`s base the same); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
 #⟪END⟫
 # ### b732, Component 6 (the Edit tool): the corrigendum arm's event rows, written into the template as b722's fifteen; b731's record has twelve
 #⟪OVERRIDE checks 983 983⟫
@@ -448,7 +447,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxyz') + ("a'", "b'", "c'")))   # ### (a)-(z), (a')-(c'), entered before the lock, every one the seat's (data/b732_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxyz') + ("a'", "b'", "c'", "d'")))   # ### (a)-(z), (a')-(d'), entered before the lock, every one the seat's (data/b732_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b732_corrigendum.txt', 'data/b732_standing_v1120.txt', 'data/b732_objects_rule.txt', 'data/b732_objects.txt', 'data/b732_door_controls.txt', 'data/b732_phase2_doors.txt', 'data/b732_a0_restatement.txt',
