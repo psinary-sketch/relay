@@ -1,0 +1,53 @@
+b731 -- STEP ZERO, (R341)(5) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, THE PRICE TABLE AND THE STEP-ZERO DEFECTS (2026-11-01)
+
+## IN ORDER
+  the ruling and the ferry received in full (RULING (R341) + FERRY, part 1 of 1), confirmed before acting
+  data/act_current.json for b731 committed alone: relay c7349445; no Read before it, the file read and printed by the writing script itself
+  data/b731_ferry.txt banked from the transcript, verbatim; `citation ferry`: 10245 characters, equal True, ferry_scan exit 0
+  tools/b731_carry.py from tools/b730_carry.py by the scratch carrycarry731.py; tools/acts/b731.py, tools/b731_worklist.py and tools/b731_address_scan.py carried (data/b731_carry_*.txt);
+    the worklist's stage one set by the scratch stage731.py, the citation sections 1, 4 by the scratch cite731.py
+  THE CARRIED FILES, each alone, each scanned before: b730's step row 29: relay ad834e51; b730's closing capture: relay 99763137
+  THE PATHS: listed by the citation check's PATHS rows, none absent
+  THE CITATION CHECK, BEFORE ANY DELETE: 83 cites, 82 OK, 1 MISS, printed below: data/b731_citation_check.txt
+  THE DELETES, each after its --merged listing and after the citation check, one per message: relay push-b730-closing (d0bedc7d), push-b730-preroot (a952b3c7), push-b730-record (25a434f1); PLACE-papers push-b730-preroot (14cc90f), push-b730-record (12abf2b).
+    KEPT as banked: port-b707, challenge-b720-h2-sign-iff-rh, scratch-b724, keiper-b725, c2-b725, detect-b729, zq-b730, corrigendum-b723, the rebuild-b721 and pin-b718-de5ce8a9 branches
+  ROWGEN DIFF AND CONSTELLATION: data/b731_rowgen_stepzero.txt, constellation exit 0, rowgen diff exit 0, tables 19, re-pointed 8, STALE 0; run once
+  THE PROCESS LISTING: 13:56:45Z claude 1, python 1 (the reader), lean 0, lake 0; free 5507 of 16178 MB; the hold 2560 MET
+  THE READFIRST BANK BY THE TOOL: tools/standing/readfirst.py write b731
+  NO BUILD on this host; no lean process.
+
+## THE ONE CITATION MISS, WITH THE SEAT'S DECISION
+  (a) (R341)(4) reads "zetaZeroConfig and chiZeroConfig's form (Chi/Generic.lean)", and data/b729_count_price.txt :22 the same. Chi/Generic.lean uses chiZeroConfig 183 times and does not define it; the definition stands at Chi/ZeroConfig.lean. DECIDED: both read, the second the form the field follows; b729's cite is the loose one. Nothing in the act stands on the file name.
+
+## THE FINDING THE PRICE TURNS ON (READ BEFORE THE RE-PRICE)
+  ZQPremises.logDeriv holds at every s with Re s >= 3/2 and Mathlib's LSeries reads 0 where the series does not converge, so the coefficients c of -Z'/Z must be absolutely summable on the line Re s = 3/2 itself. Z_Q has r_Q(1) = 2 and no Euler product, so the route is the inverse of a Dirichlet series with leading coefficient 2,
+  and its one hypothesis is SUM_{k>=2} r_Q(k) k^{-3/2} < 2, that is Z_Q(3/2) < 4. THIS IS C4 OF data/b729_count_price.txt :33, ROWED THERE UNDER THE COUNT AND ABSENT IN LEAN; the logDeriv row at :23 does not carry it. It is a numeric theorem and not a convolution lemma: floats by the lattice read Z_Q(3/2) = 3.548414 (R 200, 800, 2000 agreeing to 1e-6; scratch z32.py), and a row-by-row bound, n = 0 giving 2 zeta(3) and each row n != 0 at most
+  2/A^2 + 2/A^3, A = sqrt(23)|n|/2, gives 2 zeta(3) + (16/23) zeta(2) + (32/23^{3/2}) zeta(3) = 3.8971 < 4. The margin is 0.10 against the true 0.45. The same bound gives no zero on Re s >= 3/2, which the zeros field's strip clause needs, so (3) feeds (4).
+
+## THE PRICE TABLE ((R341)(5), clause | the work | the price | its source)
+  Each price is the seat's estimate, a range. THE BUDGET: b723's act, 16.7 h, the close inside it at 4.0 h (data/b724_price.txt :3-:10); no clock bounds the act. Act begun 13:46Z; this table about 14:00Z, 0.25 h spent.
+  (1)        the record lines, the weight line | 0.2 h | b730's Component 1
+  (2)(i)     the face composer reads the clauses into (W); control (R340)(6)'s move | 0.4-0.6 h | data/b724_price.txt :13-:16, 0.4-0.5 h a class
+  (2)(ii)    the price bank's measured row, I-10's form; control 835/6 beside 1,500-3,000/25-50 | 0.3-0.5 h | the same rate
+  (2)(iii)   a stamped route's re-run to a suffixed path; control b730's rowgen | 0.3-0.5 h | the same rate
+  (2)(iv)    the post-lock scan's bank, out of the lock's hash; control b730's printed scans | 0.3-0.5 h | the same rate
+  (2)(v)     the seat's three arms, each with its defect row's control | 0.6-0.9 h | three repairs at the rate
+  (2)(vi)    the citation check over the author's word; control b730's word | 0.3-0.5 h | the same rate
+  (2)(vii)   the head line's count of questions; control b730's two | 0.2-0.3 h | the same rate
+  (2) SUM    2.1-3.5 h ; the corrigendum's rows inside it
+  (3)        THE logDeriv FIELD, THE RATIO FIRST, AS (R341)(3) ORDERS. b730's measured ratio against its bank row: lines 835 / 1,500-3,000 = 0.278-0.557; dispatches 6 / 25-50 = 0.12-0.24.
+             The bank's 200-400 lines by the ratio: 56-223 lines. Its 3-8 dispatches: 0.36-1.92, so 1-2.
+             THE SEAT DOES NOT PRICE THE FIELD THERE. The ratio is one measurement on a different kind of proof, a route the bank had over-counted, and the bank's row here under-counts: it holds no line for Z_Q(3/2) < 4. RE-PRICED FROM THE LEMMAS (the plan bank carries the list): 350-550 lines in 2 modules, 3-6 dispatches, 5-9 h. THE SEAT'S ESTIMATE, UNMEASURED FOR THIS PROOF, ABOVE THE RATIO'S RANGE BY THAT ONE ROW.
+  (4)        THE zeros FIELD. The bank's 300-600 lines by the ratio: 83-334 lines. Its 5-10 dispatches: 0.6-2.4, so 1-3.
+             RE-PRICED FROM THE LEMMAS: 300-500 lines in 1-2 modules, 3-6 dispatches, 5-9 h, the seat's. The clauses: the full functional equation off the poles (the ZQContinuation clause is the open strip alone), conjugate symmetry by the identity theorem, the entire function (1-s) zqFn s for the point at 1, order and reflection of the order.
+  THE CLOSE  4.0 h | data/b724_price.txt :9-:10
+  THE SUM    step zero 0.3 + (1) 0.2 + (2) 2.1-3.5 + (3) 5-9 + (4) 5-9 + the close 4.0 = 16.6-25.0 h against 16.7 h
+  THE DISPATCHES: at most six a field, twelve this act ((R341)(3)-(4)); priced 6-12.
+
+## WHAT RUNS AND WHAT IS CARRIED
+  (2) runs whole before (3), as the ruling orders. (4) after (3) closes or stops. The stops are the ruling's: the sixth dispatch of a field. A compile error is a dispatch on this blind host, so each group is read line by line against the pin's Mathlib before it is pushed. Nothing is carried at this table.
+
+## THE STEP-ZERO DEFECTS (each the seat's)
+  (a) [CLOSE ; NEW] 13:46Z: the seat's first act_current script shifted the file by one blanket regex and wrote it: next left at b731, the chain figures and pre-heads at b729's, the b729 replay row renamed to a false b730 row, the old components' titles. Printed, read as wrong, and rebuilt from the HEAD blob by 21 count-asserted replacements before any commit (actcur731b.py). No wrong byte was committed
+  (b) [CLOSE ; NEW] the carry shifted names the act does not move: zq-b730 to zq-b731 and detect-b729 to detect-b730 in the worklist, tools/acts/b731.py and the scan's SITTING_REPOS, and the banks AXIOM_DIAG, TRIAGE. The worklist's and the scan's set back at stage one; the sections file's set back with its arms at the gate. b730 defect (m) the same class on one file. The carry's substitution table has no exception list; the repair is the seat's reading, not a guard
+  (c) [CLOSE ; NEW] 13:53Z-13:55Z: `cd` into PLACE-papers and Mathlib in parallel commands moved the shell's cwd; a `git show d0bedc7d` then ran in the wrong repository and refused. Read-only. Later commands use git -C
