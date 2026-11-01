@@ -688,6 +688,27 @@ def _vlast(t):
         and 'THE FIELD STATED' in z and '1 MODULE' in z and 'THE CAP SIX' in z and "NOTHING OF THE FIELD ON THE BRANCH AT THIS BANK'S COMMIT" in z \
         and (S['ldj'] or {}).get('dispatches', 99) <= K.MAX_LOGDERIV and (S['zfj'] or {}).get('dispatches', 99) <= K.MAX_ZEROS \
         and 'THREE ROWS MEASURED' in r and 'count AND explicitFormula RE-READ AND NOT TOUCHED' in r
+
+
+def research_reproduces_ok(S):
+    """the standing arm G-RESEARCH-REPRODUCES (b729's (R339)(7), carried in the run list): tools/research/reproduce.py's full run banked this
+    act -- one row per instrument, the rows' ids I-41 to I-108 in order; each row REPRODUCES, DIFFERS or NOT RUN; each run row's planted wrong
+    figure graded DIFFERS (as wanted); each NOT RUN row with its reason and its price (more than 60 s or a dispatch or network read); the
+    json's counts and the bank's foot the rows'; the tool at HEAD its blob at the act's base (unchanged this act) and the working tree's."""
+    j = S['reproducej'] or {}
+    R = j.get('rows') or []
+    ids = ['I-%d' % i for i in range(41, 109)]
+    run = [r for r in R if r.get('grade') in ('REPRODUCES', 'DIFFERS')]
+    nr = [r for r in R if r.get('grade') == 'NOT RUN']
+    c = dict((g, sum(1 for r in R if r.get('grade') == g)) for g in ('REPRODUCES', 'DIFFERS', 'NOT RUN'))
+    f = re.search(r'ROWS (\d+) ; REPRODUCES (\d+) ; DIFFERS (\d+) ; NOT RUN (\d+) ; PLANTED CONTROLS AS WANTED (\d+) OF (\d+) ;', _verdict(S['reproduce']))
+    tool = 'tools/research/reproduce.py'
+    src = _s(blob(ROOT, 'HEAD:' + tool))
+    return bool(R) and [r.get('id') for r in R] == ids and len(run) + len(nr) == len(R) \
+        and all(str(r.get('planted_as_wanted')) == 'True' and r.get('planted_grade') == 'DIFFERS' for r in run) \
+        and all(re.match(r'(MORE THAN 60 s|A DISPATCH|A NETWORK READ): ', r.get('why') or '') and 'priced' in (r.get('why') or '') for r in nr) \
+        and j.get('counts') == c and bool(f) and [int(x) for x in f.groups()] == [len(R), c['REPRODUCES'], c['DIFFERS'], c['NOT RUN'], len(run), len(run)] \
+        and bool(src) and src == _s(blob(ROOT, '%s:%s' % (PRE['relay'], tool))) and src == (read(os.path.join(ROOT, *tool.split('/'))) or '')
 #⟪END⟫
 #⟪SECTION checks 41⟫
     """standing clauses v9 (Component 7 of (R341): "the touch read of v9 banked before the root"), N4: the touch read banked as data/b731_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
