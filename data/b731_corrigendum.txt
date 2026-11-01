@@ -1,0 +1,70 @@
+b731 -- THE CORRIGENDUM FOR b730, (R341)(1)-(2) (2026-11-01T14:10:12Z)
+
+### the banks read unedited: data/b730_events.txt rows (1)-(12), data/b730_defects.txt 23 rows, data/b730_hook_refusals.txt 4 lines at d0bedc7d; data/b731_standing_v1110.txt (the v1.11.0 controls); the corrigenda bank`s last row (50).
+
+  *b730’s events bank (relay data/b730_events.txt) carries twelve rows, entered after its lock and not lettered, each tagged in its own bracket (11 the seat’s, 1 the author’s word); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (23 the seat’s); its refusal bank four lines at d0bedc7d, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R341)`(2), at tools/standing/ v1.11.0, each with a control on b730’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b731_standing_v1110.txt, 17 cases, AS WANTED 17):
+  
+  **(face) the face composer reads the clauses into (W) (`(R341)`(2)(i), event (3), the author’s word (1))** -- standing.faceform reads a ruling’s clauses for the paths a write verb governs and for a move’s target, the source’s kind at the act named; a path only cited is not picked; the composer adds the row the list lacks. (R340)(6)’s move reads into b730’s list; b730’s N5 stands REFUTED unreworded (:5).
+  
+  **(price) the price bank’s measured row, in I-10’s form (`(R341)`(2)(ii), the author’s word (2))** -- standing.pricebank: a measured row read from the tree and the run ids beside its estimate, refused without a run; 835 lines and 6 dispatches beside 1,500-3,000 and 25-50, the ratio 0.278-0.557 and 0.12-0.24 printed. The rooted bank is not edited: the rows stand in the act’s data/<act>_price_measured.txt (:14).
+  
+  **(rerun) a stamped route’s re-run to a suffixed path (`(R341)`(2)(iii), event (5), the author’s word (4))** -- the rowgen route takes the first free <stem>_rerunN name where the bank stands, the stamp standing; a first run keeps the plain name (:26).
+  
+  **(postlock) the post-lock scan’s bank out of the lock’s hash (`(R341)`(2)(iv))** -- the root’s exclusion takes data/<act>_address_scan_postlock.txt beside the lock’s list, which v1.9.0 had; b730’s nine scans printed after its lock, read from the session’s transcript, enter the form, the texts kept in no bank (:35).
+  
+  **(arms) the seat’s three (`(R341)`(2)(v), events (1), (2), (8), (12))** -- each refused at the seat’s hand, since a read of b730’s calls cannot be repaired: the hook refuses a command of more than one suite part or combine, kind SUITE, and a branch delete before the act’s citation check, kind ORDER; the step recorder refuses a second `lock` row, naming `seal` (:44).
+  
+  **(word) the citation check over the author’s word (`(R341)`(2)(vi), event (7))** -- standing.cites reads a word’s clauses against their ruling’s items, its instruments against INSTRUMENTS.md and its figures of lines and dispatches against the banks of the act and the act before; b730’s word, 0 cites and VACUOUS, reads 4 rows, 4 found (:67).
+  
+  **(questions) the head line’s count of questions (`(R341)`(2)(vii))** -- the closing reads the bank’s PROMPT rows and not the calls: b730’s one call of two questions reads two (:80).
+  
+  **b730’s events (1)-(12):**
+  
+  **(1)** the seat chained ’checks --combine b730\_arms\_prerun.txt && checks --prev --part standing-a’ in one command, against … (relay data/b730_events.txt, row (1); the seat’s; CLOSE; NEW; repair (arms); the arm stands failing at b730, the call in its capture).
+  **(2)** the seat named a835a8cd, the pre-run’s banks after the lock, phase ’lock’, b729’s like commit having taken ’seal’; its … (relay data/b730_events.txt, row (2); the seat’s; CLOSE; NEW; repair (arms); the row not rewritten).
+  **(3)** ’record scores’ read N5 REFUTED on one clause, "relay files beyond the face’s (W) list: … (relay data/b730_events.txt, row (3); the seat’s; CLOSE; REPEAT of b729 event (5); repair (face); N5 stands REFUTED unreworded by the author’s word).
+  **(4)** the first rows of the root’s prompt cited a line number as its own token; the composer of v1.10.0 refused the prompt, … (relay data/b730_events.txt, row (4); the seat’s; CLOSE; REPEAT of b730 defect (t); the control working as built).
+  **(5)** read after the pre-run’s standing-a of 10:46:44Z: the rule arm’s trace G-RULE-ROWGEN-REVIEW reads FAIL, 57 rows, 1 … (relay data/b730_events.txt, row (5); the seat’s; CLOSE; NEW; repair (rerun)).
+  **(6)** "Option 2, repairs named for b731’s opening": (1) "the navigator’s error, a write ordered outside the (W) list it … (relay data/b730_events.txt, row (6); the author’s word; CLOSE; NEW; repairs (face), (price), (rerun), carried by ’(R341)’(2)(i)-(iii)).
+  **(7)** ’citation answer’ over the root’s word read 0 cites, VACUOUS: the word names no path, line or commit … (relay data/b730_events.txt, row (7); the seat’s; CLOSE; NEW; repair (word)).
+  **(8)** read at the pre-push act part, about 12:50Z: G-BRANCHES-BANKED, failing at the pre-run and filed by the seat among the … (relay data/b730_events.txt, row (8); the seat’s; CLAIM; REPEAT of b728 trap, a pending arm hides a dead one; repair (arms); the arm stands failing at b730).
+  **(9)** the face’s (W) table :313 names ’relay/data/b730\_registration\_2026-10-31.txt’, b729’s date carried by the shift; the … (relay data/b730_events.txt, row (9); the seat’s; CLOSE; NEW; the face not edited; b731’s (W) rows read from its own face’s date).
+  **(10)** 13:12:22Z and 13:12:59Z: the post-push standing-b3 refused twice by its own guard, 1797 MB and 2551 MB free against the … (relay data/b730_events.txt, row (10); the seat’s; CLOSE; NEW; no guard moved; carried).
+  **(11)** the post-push standing-b2b’s ls-remote count reads 2 for D:/SIDE-meta, 1 for each other repository … (relay data/b730_events.txt, row (11); the seat’s; CLOSE; NEW; no cause named; carried).
+  **(12)** both suites read 116 run, 112 passing, 4 failing, NOT CLEAN: G-AXIOM-CLAIM carried, and G-SEALED-AFTER-COMPONENTS, … (relay data/b730_events.txt, row (12); the seat’s; CLOSE; NEW; the four as named; G-AXIOM-CLAIM declared and carried).
+  
+  **b730’s defects:**
+  
+  **(a)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of b729 (a)).
+  **(b)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(c)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(e)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(f)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(g)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(h)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b730_defects.txt; the seat’s; CLAIM; REPEAT of b729 (5)).
+  **(o)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b730_defects.txt; the seat’s; CLOSE; REPEAT of b730 (o)).
+  **(q)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(r)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  **(w)** (relay data/b730_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b730’s refusals** (relay data/b730_hook_refusals.txt at d0bedc7d, one a line): :1 REDIR 08:47:00Z, recorded at defect (d); :2 PIPE 09:13:58Z, recorded at defect (e); :3 READ 09:27:08Z, recorded at defect (f); :4 ENV 09:32:44Z, recorded at defect (g).
+  
+  **The counter:** CLAIM 2, CLOSE 33 over the 35 items (twelve events, twenty-three defects), as b730’s closing prints it (relay data/b730_closing.txt :5); REPEAT 10 of 35; the CLAIM items (8), (n).
+  
+  *Filed at b731 on the author’s ruling `(R341)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b731.py) from b730’s events and defects banks read unedited, its refusal bank, and the v1.11.0 controls bank; banked as relay `data/b731_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (51). It answers b730’s record; no sealed tool, face, trail or root-named bank of b730 is edited.*
+
+### ### **ITEMS 35: EVENTS 12, DEFECTS 23 ; CLAIM 2, CLOSE 33 ; REPEAT 10 ; DATED NOTES 0 ; v1.11.0: THE COMPOSER AND (W), THE MEASURED ROW, A STAMPED RE-RUN, THE POST-LOCK SCAN, THE SEAT`S THREE ARMS, THE AUTHOR`S WORD, THE QUESTIONS COUNT ; THE ENTRY AT FINDINGS :12369.**

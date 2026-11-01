@@ -247,11 +247,11 @@ B714_RECORD = '25a434f1'     # ### b730's record commit (relay, the head line's)
 B714_ROOT = '991878af05fb436b901ed1c1aa41dfb412760d109b111f6d695de2cba5fab35b'   # ### b730's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '6a0d9e97'  # ### b730's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
+C1_STANDING = 'ca3f73f3'
 C1_STANDING_REPAIR = None
 C1_RELAY = None
 C1_CORR = None
-C1_PP = None
+C1_PP = 'd660659'
 WEIGHT_LINE, CORR_LINE = None, None
 DIFFERS_LINE = None
 ERRATA_LINE = None
