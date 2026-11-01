@@ -508,13 +508,14 @@ def _addr_live():
 #⟪END⟫
 #⟪SECTION checks 10⟫
 # ### b729's read-first bank's items by path, as its step zero wrote them (data/b729_readfirst.txt :9-:25)
-READFIRST_NEEDLES = ('relay data/b728_closing.txt |', 'relay data/b728_events.txt |', 'relay data/b728_defects.txt |', 'relay data/b728_sitting.txt |',
-                     'relay data/b724_legacy.txt |', 'relay data/b725_dial.txt |', 'relay data/b725_onset_mass.txt |', 'relay data/b725_interference.txt |',
-                     'relay data/b723_support.txt |', 'relay data/b709_grid.txt |', 'relay data/b723_axiom.txt |', 'relay data/b726_c2.txt |', 'relay data/b726_mechanisms.txt |',
-                     'SIDE-explicit-formula KeiperIdentities.lean |', 'SIDE-explicit-formula KeiperBounds.lean |', 'PLACE-papers REGISTRY.md |')
+READFIRST_NEEDLES = ('relay data/b728_closing.txt |', 'relay data/b728_events.txt |', 'relay data/b728_defects.txt |', 'relay data/b728_postclose_rulings.txt |',
+                     'relay data/b728_author_answers.txt |', 'relay data/b728_c2.txt |', 'relay data/b728_lambda2.txt |', 'relay data/b728_onset_table.txt |',
+                     'relay data/b728_visibility.txt |', 'relay data/b728_report_wrapper.txt |', 'relay data/b716_epstein_count_price.txt |', 'relay data/b725_onset_mass.txt |',
+                     'SIDE-explicit-formula Schema/Detector.lean |', 'SIDE-explicit-formula FirstOrderBound.lean |', 'SIDE-explicit-formula KeiperBounds.lean |',
+                     'SIDE-explicit-formula c2-b725 |', 'SIDE-explicit-formula keiper-b725 |', 'PLACE-papers REGISTRY.md |')
 #⟪END⟫
 #⟪SECTION checks 11⟫
-CLOSING_SECTIONS = ('CORRIGENDUM ((R339)(1)-(2))', 'THE C2 THEOREM ((R339)(3))', 'THE gamma_1 BOUND ((R339)(4))', 'THE DETECTION STATEMENT AND THE COUNT LAW ((R339)(5)-(6))', 'H-ONSET-C ((R339)(7))', 'NAME AND ADDRESS ((R339)(9))', 'TOUCH READ (standing clauses v9)')
+CLOSING_SECTIONS = ('CORRIGENDUM ((R339)(1)-(2))', 'C2 THEOREM ((R339)(3))', 'gamma_1 BOUND ((R339)(4))', 'DETECTION STATEMENT AND THE COUNT LAW ((R339)(5)-(6))', 'ONSETS AND H-ONSET-C ((R339)(7))', 'NAME AND ADDRESS ((R339)(9))', 'TOUCH READ (standing clauses v9)')
 #⟪END⟫
 #⟪SECTION checks 12⟫
     """the citation check's bank: every cite checked, OK and misses summing (82 = 80 + 2, data/b729_citation_check.txt, the two misses printed there and carried for the author); the bank
@@ -944,7 +945,7 @@ TITLE_LINE = ('b729 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND F
             ('THE DETECTION STATEMENT AND THE COUNT LAW ((R339)(5)-(6))', [
                 ('the statement on detect-b729, graded, not compiled, no proof, priced', 'b729_detection.txt'),
                 ('the count law priced; the count alone does not move the instance', 'b729_count_price.txt')]),
-            ('H-ONSET-C ((R339)(7))', [
+            ('THE ONSETS AND H-ONSET-C ((R339)(7))', [
                 ('the fit on five, POST HOC, the controls', 'b729_onset_fit.txt', r'(?m)^### ### \*\*H-ONSET-C`S CONTROLS'),
                 ('the predictions by their own commit', 'b729_onset_pred.txt'),
                 ('the onsets at off24 and off44 and the registration`s verdict', 'b729_onset_score.txt')]),

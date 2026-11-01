@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T05:01:13Z",
+ "at": "2026-11-01T05:13:07Z",
  "anchor": "RULING (R339) BEGIN",
  "rows": [
   {
@@ -2896,6 +2896,166 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:01:52.876Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b729_*\" \"data/audit_b729_*\" tools/b729_face_blocks.txt tools/acts/b729.py",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:01:56.448Z",
+   "src": "seat",
+   "cmd": "git add data/b729_closing_dry.txt data/b729_commands.json data/b729_commands.txt data/b729_registration_2026-10-31.txt data/b729_root_banks_dry.json data/b729_root_banks_dry.txt data/b729_steps.json tools/b729_face_blocks.txt data/audit_b729_reg_satisfiable.txt data/b729_census_stepzero.txt data/b729_faces_census_stepzero.txt data/b729_pins_stepzero.txt data/b729_reg_gate.txt data/b729_reg_termscan.txt data/b729_regspec_run.txt data/b729_report_dry.txt data/b729_satisfiable.json data/b729_scores_dry.txt",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:01:59.824Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_address_scan.py scan --bank",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:08.229Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b729 gate: GATE VERDICT CLEAR, the dry-run step, the closing's dry run and report dry each clean; the census, faces and pin readings; the score routes dry; the root route's dry run READY True; the face's trail needles restored\"",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:11.432Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:12.932Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -3 --grep=\"b728 lock\" --abbrev=8",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:15.039Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"b378_lockgate|reg_seal|gate_hash\" -- \"tools/standing/close.py\" \"tools/standing/fold/record.tpl\" \"data/standing_clauses_v9.txt\"",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:19.358Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 6e9dd01c",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:02:25.069Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/midpart.py\" act",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:03:59.658Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-CLOSING-DRY-STEP\" 1",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:04:01.831Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" closing_dry_ok gate_closing_ok",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:04:16.497Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/midpart.py\" standing-a",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:08:41.691Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-READFIRST-CITED\" 1",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:08:43.664Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" readfirst_ok pp_scope_ok",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:08:50.979Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-PP-SCOPE'\" 2",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:08:53.211Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-NOTHING-RAN-AHEAD'\" 2",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:09:08.021Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-PP-SCOPE'\" 7",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:09:10.270Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" pp_ok ppscope_ok pp_scope",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:09:15.826Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" corpus_scope_ok",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:09:30.295Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/gaterun.py\" face \"closing dry\" regspec reg_gate \"closing dry\" reg_gate \"record gatebanks\"",
+   "n": 382,
    "bg": false
   }
  ],

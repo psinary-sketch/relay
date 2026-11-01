@@ -1,7 +1,7 @@
-b729 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-01T05:01:13Z)
+b729 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-01T05:13:07Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R339) BEGIN', with its subagents` transcripts
-### commands read: 362
+### commands read: 382
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #154 2026-10-31T22:50:02.843Z seat Bash -- R rm without an explicit absolute path
@@ -430,5 +430,25 @@ b729 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #360 | 2026-11-01T04:59:39.435Z | seat | Bash | python -X utf8 -u tools/b729_face.py && python -X utf8 -u tools/standing/fold.py regspec
   #361 | 2026-11-01T05:00:12.957Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate
   #362 | 2026-11-01T05:01:06.637Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #363 | 2026-11-01T05:01:52.876Z | seat | Bash | git status --short -- "data/b729_*" "data/audit_b729_*" tools/b729_face_blocks.txt tools/acts/b729.py
+  #364 | 2026-11-01T05:01:56.448Z | seat | Bash | git add data/b729_closing_dry.txt data/b729_commands.json data/b729_commands.txt data/b729_registration_2026-10-31.txt data/b729_root_banks_dry.json data/b729_r
+  #365 | 2026-11-01T05:01:59.824Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan --bank
+  #366 | 2026-11-01T05:02:08.229Z | seat | Bash | git commit -q -m "b729 gate: GATE VERDICT CLEAR, the dry-run step, the closing's dry run and report dry each clean; the census, faces and pin readings; the scor
+  #367 | 2026-11-01T05:02:11.432Z | seat | Bash | git rev-parse --short=8 HEAD
+  #368 | 2026-11-01T05:02:12.932Z | seat | Bash | git log --format="%h %s" -3 --grep="b728 lock" --abbrev=8
+  #369 | 2026-11-01T05:02:15.039Z | seat | Bash | git grep -n -E "b378_lockgate|reg_seal|gate_hash" -- "tools/standing/close.py" "tools/standing/fold/record.tpl" "data/standing_clauses_v9.txt"
+  #370 | 2026-11-01T05:02:19.358Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "gate" 6e9dd01c
+  #371 | 2026-11-01T05:02:25.069Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/midpart.py" act
+  #372 | 2026-11-01T05:03:59.658Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py" checks "G-CLOSING-DRY-STEP" 1
+  #373 | 2026-11-01T05:04:01.831Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" closing_dry_ok gate_closing_ok
+  #374 | 2026-11-01T05:04:16.497Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/midpart.py" standing-a
+  #375 | 2026-11-01T05:08:41.691Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py" checks "G-READFIRST-CITED" 1
+  #376 | 2026-11-01T05:08:43.664Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" readfirst_ok pp_scope_ok
+  #377 | 2026-11-01T05:08:50.979Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py" checks "G-PP-SCOPE'" 2
+  #378 | 2026-11-01T05:08:53.211Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py" checks "G-NOTHING-RAN-AHEAD'" 2
+  #379 | 2026-11-01T05:09:08.021Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py" checks "G-PP-SCOPE'" 7
+  #380 | 2026-11-01T05:09:10.270Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" pp_ok ppscope_ok pp_scope
+  #381 | 2026-11-01T05:09:15.826Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" corpus_scope_ok
+  #382 | 2026-11-01T05:09:30.295Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/gaterun.py" face "closing dry" regspec reg_gate 
 
-### ### **COMMANDS 362 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 2 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 382 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 2 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 8 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
