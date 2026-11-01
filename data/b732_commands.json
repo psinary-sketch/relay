@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T19:51:10Z",
+ "at": "2026-11-01T20:26:08Z",
  "anchor": "RULING (R342) BEGIN",
  "rows": [
   {
@@ -4544,6 +4544,494 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record commands",
    "n": 568,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:24.497Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/sec732d.py\" && python -X utf8 -u /d/relay/tools/standing/actmodule.py render b732 9aa8e011 --write",
+   "n": 569,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:28.499Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- \"data/b732*\" \"tools/b732*\" \"tools/acts/b732*\" \"tools/standing\"",
+   "n": 570,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:36.741Z",
+   "src": "seat",
+   "cmd": "mkdir -p \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/probes1\" && mv /d/relay/data/b732_checks_act.txt /d/relay/data/b732_checks_standing-a.txt /d/relay/data/b732_exercise_act.json /d/relay/data/b732_exercise_standing-a.json /d/relay/data/b732_lsr_act.json /d/relay/data/b732_lsr_standing-a.json \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/probes1/\"",
+   "n": 571,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:39.770Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_defects.txt data/b732_steps.json tools/acts/b732.py tools/b732_sections.txt tools/b732_worklist.py data/b732_bank_hashes.json data/b732_commands.json data/b732_commands.txt data/b732_guard_dry.json data/b732_guard_dry.txt data/b732_kernels_face.json data/b732_standing_figures.json data/b732_standing_figures.txt",
+   "n": 572,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:42.245Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_address_scan.py scan --bank",
+   "n": 573,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:49.314Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_address_scan.txt",
+   "n": 574,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:51.706Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b732 gate: the worklist's later stages, the defects to (d'), the figures, the kernels' face, the guard's dry run, the commands bank\"",
+   "n": 575,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:53.843Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 576,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:51:55.935Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 58e789de",
+   "n": 577,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:52:01.904Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --prev --part act",
+   "n": 578,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:53:41.187Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 579,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:53:55.761Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/rd732.py\"",
+   "n": 580,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:54:01.689Z",
+   "src": "seat",
+   "cmd": "mv /d/relay/data/b732_prevrun_act.json /d/relay/data/b732_prevrun_act.txt /d/relay/data/b732_prevrun_exercise_act.json \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/probes1/\"",
+   "n": 581,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:54:11.032Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/cmds731b.py\"",
+   "n": 582,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:54:21.102Z",
+   "src": "seat",
+   "cmd": "wc -l /d/relay/tools/b731_face.py /d/relay/tools/b731_face_blocks.txt /d/relay/data/b731_registration_2026-11-01.txt",
+   "n": 583,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:54:37.709Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" --reverse 5a7d5778..HEAD --no-merges --abbrev=8 -- data/b732_steps.json",
+   "n": 584,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:16.745Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/facegen732.py\"",
+   "n": 585,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:26.356Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/facegen732.py\"",
+   "n": 586,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:28.729Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_face.py",
+   "n": 587,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:37.856Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_face.py",
+   "n": 588,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:38.923Z",
+   "src": "seat",
+   "cmd": "git grep -n --untracked -E \"\\(R342\\)\\([0-9]+\\)\" -- data/b732_registration_2026-11-01.txt --max-count=0 --count",
+   "n": 589,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:56:47.094Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 590,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:57:58.746Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/sec732e.py\" && python -X utf8 -u /d/relay/tools/standing/actmodule.py render b732 9aa8e011 --write && cd /d/relay && python -X utf8 -u tools/b732_face.py",
+   "n": 591,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:58:02.856Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 592,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:58:27.368Z",
+   "src": "seat",
+   "cmd": "git grep -n --untracked -o -E \"[^;]{0,120}(False|REFUTED|DIFFER|unsealed|outside)[^;]{0,120}\" -- data/b732_scores_dry.txt",
+   "n": 593,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:58:33.275Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 594,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:59:33.207Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/sec732f.py\" && python -X utf8 -u /d/relay/tools/standing/actmodule.py render b732 9aa8e011 --write && cd /d/relay && python -X utf8 -u tools/b732_face.py",
+   "n": 595,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T19:59:37.501Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 596,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:34.497Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- \"data/b732*\" \"data/audit_b732*\" \"tools/b732*\" \"tools/acts/b732*\" \"tools/standing\"",
+   "n": 597,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:38.276Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_defects.txt data/b732_steps.json data/b732_touch.txt tools/acts/b732.py tools/b732_sections.txt data/b732_closing_dry.txt data/b732_reg_gate.txt data/b732_registration_2026-11-01.txt data/b732_report_dry.txt data/b732_root_banks_dry.json data/b732_root_banks_dry.txt data/b732_scores_dry.txt tools/b732_face.py tools/b732_face_blocks.txt data/b732_bank_hashes.json",
+   "n": 598,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:40.754Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_address_scan.py scan --bank",
+   "n": 599,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:46.895Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_address_scan.txt",
+   "n": 600,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:49.541Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b732 gate: GATE VERDICT CLEAR, the closing's dry run and report dry each clean; the face and its tool; the touch read's foot; the score routes dry\"",
+   "n": 601,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:51.704Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 602,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:54.357Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate bc77cb5b",
+   "n": 603,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:00:59.508Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 604,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:01:10.602Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-c",
+   "n": 605,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:04:30.972Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b1",
+   "n": 606,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:06:47.290Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2a",
+   "n": 607,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:12:09.095Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2b",
+   "n": 608,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:19:42.173Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b3",
+   "n": 609,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:22:53.195Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- \"data/b732*\" \"tools/b732*\" \"tools/acts/b732.py\"",
+   "n": 610,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:22:54.011Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -- \"data/audit_b732*\" \"data/act_current*\" \"data/*_b732*\"",
+   "n": 611,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:03.875Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/mvprobes.py\"",
+   "n": 612,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:08.907Z",
+   "src": "seat",
+   "cmd": "git ls-files \"data/b731_scanfile*\" && ls -la data/b732_scanfile_c1.md data/b732_scanfile_corrigendum.md",
+   "n": 613,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:14.803Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay grep -n -I \"scanfile\" -- \"tools/*\"",
+   "n": 614,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:38.077Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add tools/b732_worklist.py data/b732_steps.json data/b732_root_banks_dry.json data/b732_root_banks_dry.txt",
+   "n": 615,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:40.639Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_address_scan.py scan --bank",
+   "n": 616,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:46.651Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_address_scan.txt data/b732_bank_hashes.json",
+   "n": 617,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:48.750Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -m \"b732 gate: every suite part probed before the lock, the shared-additive list read to the mechanisms bank\"",
+   "n": 618,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:51.482Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 12a07f18",
+   "n": 619,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:23:57.838Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/cmds731b.py\"",
+   "n": 620,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:03.130Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 621,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:13.252Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_root_banks_dry.json data/b732_root_banks_dry.txt data/b732_steps.json data/b732_bank_hashes.json",
+   "n": 622,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:15.609Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b732_address_scan.py scan --bank",
+   "n": 623,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:22.419Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay add data/b732_address_scan.txt data/b732_bank_hashes.json",
+   "n": 624,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:24.877Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b732 gate: the root route's dry run READY True over 44 banks\"",
+   "n": 625,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:27.236Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 626,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:29.683Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 2243a55a",
+   "n": 627,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:24:33.765Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 628,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T20:25:58.141Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 629,
    "bg": false
   }
  ],
