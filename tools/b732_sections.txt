@@ -705,7 +705,7 @@ N3_GRADED = (('b732_standing_v1120.txt', ('ALL AS WANTED',)), ('b732_objects_rul
          '**The order of the act** (N2): the objects rule printed before any kernel named (relay data/b732_objects_rule.txt, committed at `%s`); the door controls all as wanted before any sentence (relay data/b732_door_controls.txt); the rule names 24 kernels, the navigator’s list 20, 17 in both, the rule governing (relay data/b732_objects.txt).' % K.REG_COMMIT[:8], '',
          '**The A0 premise** ((R342)(3), N1, N3): `count : ∃ A₀ : ℝ, Wide.HCount Z A₀` on zq-b730 at `%s`, one dispatch, run %s, build exit %s, no sorryAx, the three binders at axioms %s. %s of %s conclusions unchanged; zq_count moved with the field, on the author’s word, printed at the bank. A0Q stays a separate definition and no theorem row is added. The premise stands stated and not proved (relay data/b732_a0_restatement.txt, data/b732_dispatch_rows.json).' % (
              f['a0_tip'], f['a0_run'], f['a0_exit'], f['a0_axioms'], f['a0_same'], f['a0_of']), '',
-         '**The doors** ((R342)(4), N2, N3): %d kernels, %d deposits and %d synthesis heads, %d sentences, each graded STATED, EXCEEDS, OUTSIDE, SCOPE or NO CLAIM against the statements at the pin, a README read at main and the gap printed where a main moved; EXCEEDS %d, of them LOAD-BEARING %d and SILENT %d by the class’s matcher, its yield printed beside b726’s and the matchers’ lineage at the bank, the citation sweep’s controls %s of %s. The six grading seats’ proposals were hand-read on every EXCEEDS row, and a row graded too low elsewhere is not caught by that read (relay data/b732_phase2_doors.txt).' % (
+         '**The doors** ((R342)(4), N2, N3): %d kernels, %d deposits and %d synthesis heads, %d sentences, each graded STATED, EXCEEDS, OUTSIDE, SCOPE or NO CLAIM against the statements at the pin, a README read at main and the distance printed where a main moved; EXCEEDS %d, of them LOAD-BEARING %d and SILENT %d by the class’s matcher, its yield printed beside b726’s and the matchers’ lineage at the bank, the citation sweep’s controls %s of %s. The six grading seats’ proposals were hand-read on every EXCEEDS row, and a row graded too low elsewhere is not caught by that read (relay data/b732_phase2_doors.txt).' % (
              f['d_k'], f['d_d'], f['d_s'], f['d_n'], f['d_e'], f['d_l'], f['d_q'], f['d_cw'], f['d_ct']), '',
          '**The drafts** ((R342)(5), N3): %d items, %d drafts LISTED, APPLIED NOWHERE: README paragraphs quoting statements at the pin, one-line descriptions, the deposit notes in b726’s words, the head sentences in the edition form and the 2C note; controls %s of %s. The second sitting is the author’s (relay data/b732_phase2_frontdoors.txt).' % (
              f['fd_items'], f['fd_drafts'], f['fd_cw'], f['fd_ct']), '',
@@ -950,3 +950,10 @@ def _runs3_line():
 #⟪OVERRIDE checks 1664 1664⟫
     ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited this act (its blob at the act`s base the same); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
 #⟪END⟫
+#⟪OVERRIDE closing 340 341⟫
+    rows = [l for n_ in ('b732_defects.txt', 'b732_events.txt') for l in (rd(n_) or '').split(NL) if re.match(r"^    \((?:[a-z]'?|\d+)\) ", l)]
+    rep = sum(1 for l in rows if re.search(r'\[(?:CLAIM|CLOSE) ; REPEAT\b', l))
+    return '### THE COUNTER ((R342) Component 5, the act`s events and defects together; relay data/b732_defects.txt, data/b732_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d%s' % (
+        c['claim'], c['close'], rep, len(rows), (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
+#⟪END⟫
+
