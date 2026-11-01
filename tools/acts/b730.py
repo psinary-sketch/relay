@@ -432,7 +432,7 @@ def runner_ok(S):
     return '### THE COUNTER ((R340) Component 4, the act`s events and defects together; relay data/b730_defects.txt, data/b730_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d%s' % (
         c['claim'], c['close'], rep, len(rows), (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
 #⟪END⟫
-# ### b730, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b730's orders are (R340)(10)'s six,
+# ### b730, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b730's orders are those orders.py reads open,
 # ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output
 #⟪OVERRIDE closing 395 396⟫
     '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-DERIVES, entered at b730 with its first field compiled,',
@@ -481,7 +481,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxy'))   # ### (a)-(y), entered before the lock, every one the seat's (data/b730_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrst'))   # ### (a)-(t), entered before the lock, every one the seat's (data/b730_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b730_corrigendum.txt', 'data/b730_standing_v1100.txt', 'data/b730_continuation_plan.txt', 'data/b730_continuation.txt', 'data/b730_continuation.json', 'data/b730_theta_check.txt',
@@ -493,7 +493,7 @@ STANDING_BANK = 'data/standing_clauses_v7.txt'   # ### a shared bank by version,
 #⟪END⟫
 #⟪SECTION checks 4⟫
 def _addr_live():
-    """(R340)(9): the address scan run live (no --bank: it writes nothing), its two counts read from its foot; the address and the name are
+    """(R340)(6): the address scan run live (no --bank: it writes nothing), its two counts read from its foot; the address and the name are
     held by the tool alone and never reach this suite."""
     p = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'b730_address_scan.py'), 'scan'], capture_output=True, text=True,
                        encoding='utf-8', errors='replace')
@@ -1049,7 +1049,7 @@ def _trail_resolved(text):
                 corr_repeat=ci[5], corr_row=co.get('row'),
                 v1100_ctl=v5[0], v1100_cases=v5[1], v1100_wanted=v5[2], repairs=len(v5[0].split(', ')),
                 plan_route=pl[0], plan_groups=pl[1], plan_lines=pl[2], plan_disp=pl[3],
-                fd_grade=fd[0], fd_axioms=fd[1], fd_disp=int(fd[2]), fd_cap=int(fd[3]), fd_lines=int(fd[4]), th_foot=th[0], dl_names=dl[0],
+                fd_grade=fd[0], fd_axioms=fd[1], fd_disp=int(fd[2]), fd_cap=int(fd[3]), fd_lines=int(fd[4]), th_foot=th[0], dl_names=dl[0].replace(' AND ', ' and '),
                 cit_n=cit[0], cit_ok=cit[1], cit_miss=cit[2],
                 rp_rows=rp[0], rp_rep=int(rp[1]), rp_diff=rp[2], rp_notrun=rp[3], rp_pw=rp[4], rp_pr=rp[5],
                 rp_differs=[r['id'] for r in rpj if r.get('grade') == 'DIFFERS'], rp_notruns=[r['id'] for r in rpj if r.get('grade') == 'NOT RUN'],
@@ -1265,7 +1265,7 @@ def _runs3_line():
     for l, c in r:
         by.setdefault(c.split(' -> ')[0], []).append(l)
     return ('the classes repeating three acts running, by the tags (v9 row (83), each the next act’s opening component, printed for the '
-            'author beside the next act of (R340)(10)): %d rows in %d classes -- %s' % (len(r), len(by), '; '.join(
+            'author beside the next act of (R340)(8)): %d rows in %d classes -- %s' % (len(r), len(by), '; '.join(
                 '%s as %s' % (k, ', '.join('(%s)' % x for x in v)) for k, v in sorted(by.items())) or 'none'))
 
 
