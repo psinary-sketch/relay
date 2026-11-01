@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T10:35:35Z",
+ "at": "2026-11-01T10:40:24Z",
  "anchor": "RULING (R340) BEGIN",
  "rows": [
   {
@@ -2224,6 +2224,190 @@
    "src": "seat",
    "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix730h.py\" && cd /d/relay && python -X utf8 -u tools/standing/fold.py reg_gate --quiet",
    "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:35:29.084Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py regspec",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:35:29.955Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --prev --part act",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:21.324Z",
+   "src": "seat",
+   "cmd": "git status --short -- \"data/b730_*\" \"tools/b730_*\" tools/acts/b730.py",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:31.440Z",
+   "src": "seat",
+   "cmd": "git add tools/acts/b730.py tools/b730_face.py tools/b730_face_blocks.txt data/b730_bank_hashes.json data/b730_defects.txt data/b730_registration_2026-11-01.txt data/b730_root_banks_dry.json data/b730_root_banks_dry.txt data/b730_steps.json data/b730_closing_dry.txt data/b730_commands.json data/b730_commands.txt data/b730_guard_dry.json data/b730_guard_dry.txt data/b730_kernels_face.json data/b730_reg_gate.txt data/b730_report_dry.txt data/b730_satisfiable.json data/b730_scores_dry.txt",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:34.692Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b730_address_scan.py scan --bank",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:41.394Z",
+   "src": "seat",
+   "cmd": "git add data/b730_address_scan.txt",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:45.126Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b730 gate: GATE VERDICT CLEAR, the closing's dry run and report dry each clean; the kernels face, the guard's dry run, the commands; the face's marks and the entry's cell repaired\"",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:47.796Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:53.719Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate a547ab77",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:37:59.857Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:38:14.239Z",
+   "src": "seat",
+   "cmd": "mv /d/relay/data/b730_prevrun_act.json /d/relay/data/b730_prevrun_act.txt /d/relay/data/b730_prevrun_exercise_act.json \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/\" && echo moved",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:38:16.668Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:38:28.692Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:22.067Z",
+   "src": "seat",
+   "cmd": "git add data/b730_closing_dry.txt data/b730_reg_gate.txt data/b730_root_banks_dry.json data/b730_root_banks_dry.txt data/b730_steps.json data/b730_bank_hashes.json data/b730_report_dry.txt data/b730_commands.json data/b730_commands.txt",
+   "n": 292,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:24.652Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b730_address_scan.py scan --bank",
+   "n": 293,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:31.560Z",
+   "src": "seat",
+   "cmd": "git add data/b730_address_scan.txt",
+   "n": 294,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:33.963Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b730 gate: the gate re-run CLEAR over the root route's READY state; the scan bank and the step bank at the gate\"",
+   "n": 295,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:36.591Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 296,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:39.101Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate ae918968 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 297,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:49.799Z",
+   "src": "seat",
+   "cmd": "git add data/b730_root_banks_dry.json data/b730_root_banks_dry.txt data/b730_steps.json data/b730_bank_hashes.json",
+   "n": 298,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:39:52.855Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b730 gate: the root route's dry run READY True over 37 banks\"",
+   "n": 299,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:40:06.006Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 300,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:40:17.022Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix730i.py\" && cd /d/relay && python -X utf8 -u tools/standing/fold.py record step relay gate c11e3dee && python -X utf8 tools/b730_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b730_address_scan.py scan --bank",
+   "n": 301,
    "bg": false
   }
  ],
