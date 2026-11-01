@@ -1,0 +1,16 @@
+b731 -- THE STANDING REPORT, (R341)(3): THE LINES IN FOOTING ORDER, EACH RECOMPUTED FROM ITS BANKS (2026-11-01T17:03:55Z)
+
+### rows are the report`s lines in footing order (KERNEL, CERTIFIED, REGISTERED, HELD), each line`s figures recomputed from the act`s
+### banks, its SOURCE the bank by path, row and sha256. A report, not an arm: no verdict reads it. The scores line is printed after the
+### root by `tools/b731_report.py scores`, and written nowhere.
+
+  (1) KERNEL -- THE logDeriv FIELD: CLOSED, zq_logDeriv, axioms propext, Classical.choice, Quot.sound, 3 dispatches of at most 6 each read by its run id, 786 lines, on zq-b730 alone. SOURCE relay data/b731_logderiv.txt :49 ; sha256 ba5801c74dec8057.
+  (2) KERNEL -- THE zeros FIELD: CLOSED, zq_zeros and exists_zq_zeros, axioms propext, Classical.choice, Quot.sound, 1 dispatch of at most 6 read by its run id, 340 lines, on zq-b730 alone. SOURCE relay data/b731_zeros.txt :42 ; sha256 1e368a7d90425fab.
+  (3) CERTIFIED -- tools/standing/ v1.11.0: controls (face), (price), (rerun), (postlock), (arms), (word), (questions) -- 17 cases, 17 as wanted, each failing before its repair and passing after. SOURCE relay data/b731_standing_v1110.txt :86 ; sha256 b1c1c602f25f7a1c.
+  (4) REGISTERED -- W-ORD-ZQ-DERIVES: five fields, three closed, count and explicitFormula open. SOURCE relay data/b731_ferry.txt :21 ; sha256 d217ba6de7fcfa47.
+  (5) REGISTERED -- THE PRICE BANK: three rows measured, count and explicitFormula re-read and not touched. SOURCE relay data/b731_price_measured.txt :49 ; sha256 b1aa199222e5a7cd.
+  (6) HELD -- the draft at v5 (23228113), unpublished, nothing deposits. SOURCE relay data/b731_ferry.txt :19 ; sha256 d217ba6de7fcfa47.
+
+### FOOTINGS NO LINE STANDS ON: NONE (KERNEL: on the runner only, each by its run id; no lean on the host, N1)
+### SOURCES NOT SEATED (a needle not found or a bank absent): NONE
+### ### **THE STANDING REPORT: 6 LINES IN FOOTING ORDER ; SOURCES 4, SEATED 4 ; THE SCORES LINE AFTER THE ROOT.**
