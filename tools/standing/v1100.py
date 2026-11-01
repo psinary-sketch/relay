@@ -81,12 +81,15 @@ def old_module(rel, name):
     return m
 
 
-HAND = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED')   # ### the template's six as BASE carried them, each act's section adding names by hand
+def hand():
+    """the template's OWN as BASE carried it, read from BASE and kept nowhere here; each act's section added names to it by hand."""
+    t = _git('show', '%s:tools/standing/fold/checks.tpl' % BASE)
+    return re.findall(r"'([A-Z0-9_]+)'", t[t.index('    OWN = ('):].split(NL)[0])
 
 
 def old_read(oldrp, prev, own, n):
     """the reading as it stood before the act's own hand edit to the list: the names above and the component commits; the route at BASE."""
-    if n not in HAND and not re.match(r'^C\d+_', n) and oldrp.prev_carries(prev, own, n):
+    if n not in hand() and not re.match(r'^C\d+_', n) and oldrp.prev_carries(prev, own, n):
         return getattr(prev, n)
     return getattr(own, n)
 
@@ -97,7 +100,7 @@ def new_read(prev, own, n):
 
 def hasattr_read(prev, own, n):
     """the reading b722's run met: the name in the previous worklist read as the previous worklist's, whatever it held (v1.4.0 came after it)."""
-    return getattr(prev, n) if hasattr(prev, n) and n not in HAND and n != 'C5_RELAY' else getattr(own, n)
+    return getattr(prev, n) if hasattr(prev, n) and n not in hand() and n != 'C5_RELAY' else getattr(own, n)
 
 
 def sweep(prev, own):
