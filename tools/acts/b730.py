@@ -481,7 +481,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrst'))   # ### (a)-(t), entered before the lock, every one the seat's (data/b730_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### (a)-(u), entered before the lock, every one the seat's (data/b730_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b730_corrigendum.txt', 'data/b730_standing_v1100.txt', 'data/b730_continuation_plan.txt', 'data/b730_continuation.txt', 'data/b730_continuation.json', 'data/b730_theta_check.txt',
@@ -1293,7 +1293,7 @@ def _runs3_line():
              K.C1_STANDING[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'],
              f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_line'], f['corr_row'], f['ver'], f['v1100_ctl'], f['v1100_cases'],
              f['v1100_wanted']), '',
-         '**The order** ((R340)(3), N2): W-ORD-ZQ-DERIVES entered at PLACE-papers `%s` before the plan `%s`, the plan before the first Lean commit `%s` of zq-b730; the five fields of ZQPremises in the order continuation, logDeriv, zeros, count, explicitFormula, each act stoppable, the count field’s A0 sentence on the order’s line.' % (
+         '**The order** ((R340)(3), N2): entered at PLACE-papers `%s` before the plan `%s`, the plan before the first Lean commit `%s` of zq-b730; the five fields of ZQPremises in the order continuation, logDeriv, zeros, count, explicitFormula, each act stoppable, the count field’s A0 sentence on the order’s line.' % (
              K.C2_PP[:8], K.REG_COMMIT[:8], K.ZQ_FIRST[:8]), '',
          '**The continuation field** ((R340)(4), N1, N3): the plan’s route %s, %s groups, about %s lines and %s dispatches the seat’s; the theta law’s control before any Lean (%s, relay data/b730_theta_check.txt). Spent %d dispatches, each read by its run id, %d lines in Schema/ZQ on zq-b730 at `%s`; zq_continuation and exists_zq_continuation at axioms %s by the artifact’s own print, no sorry at the tip. The exit file governs, not the conclusion: the first read showed a conclusion of success over build exit 1 (relay data/b730_continuation.txt, data/b730_dispatch_rows.json).' % (
              f['plan_route'], f['plan_groups'], f['plan_lines'], f['plan_disp'], f['th_foot'], f['fd_disp'], f['fd_lines'], K.ZQ_TIP[:8], f['fd_axioms']), '',
@@ -1336,7 +1336,7 @@ def _finding_text_b729():
     _r, _n, sh = seal_hashes()
     f = _figs()
     rep, tot = _repeats()
-    two = ['**`W-ORD-ZQ-DERIVES` CARRIED at b730, (R340)(4):** the field continuation %s with the standard three at zq-b730 `%s`; logDeriv, zeros, count and explicitFormula open.' % (f['fd_grade'], K.ZQ_TIP[:8])]
+    two = ['**`W-ORD-ZQ-DERIVES` CARRIED at b730, (R340)(4):** the field continuation %s with the standard three at zq-b730 `%s`, logDeriv, zeros, count and explicitFormula open.' % (f['fd_grade'].lower(), K.ZQ_TIP[:8])]
     op = ORD.report(ORD.read(ORD.trail('HEAD') + two), 'HEAD')[1]
     if 'W-ORD-ZQ-DERIVES' not in op:
         sys.exit('### THE TRAIL: AN ANNOTATED ORDER NOT READ OPEN BY THE GENERATOR`S RULE -- NOTHING COMPOSED')

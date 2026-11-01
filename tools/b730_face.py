@@ -42,7 +42,7 @@ def carried(o, old):
     """the paragraphs of b729's face standing between its blocks: gap[k], the lines after block k up to the next, blank edges cut; the lines found by each block's own last
     and first lines, each read once."""
     gaps = {}
-    i = 0
+    i = 0   # ### a gap kept line for line, its blank lines the face's own
     for n, k in enumerate(ORDER):
         ls = old[k].split('\n')
         first = next(l for l in ls if l and '@@' not in l)
@@ -50,7 +50,7 @@ def carried(o, old):
         a = o.index(first, i)
         b = o.index(last, a)
         if n:
-            gaps[ORDER[n - 1]] = '\n'.join(o[i:a]).strip('\n')
+            gaps[ORDER[n - 1]] = o[i:a]
         i = b + 1
     return gaps
 
@@ -73,11 +73,7 @@ def main():
     B = blocks(BLOCKS)
     parts = []
     for k in ORDER:
-        parts += [B[k]]
-        if G.get(k):
-            parts += ['', '', shift(G[k]).replace('(R340)(9)`s (W) list', '(R340)(6)`s (W) list').replace('read (R340)(9) and the rules banks', 'read (R340)(6) and the rules banks'), '', '']
-        elif k != 'Z':
-            parts += ['', '']
+        parts += [B[k]] + [shift(l).replace('(R340)(9)`s (W) list', '(R340)(6)`s (W) list').replace('read (R340)(9) and the rules banks', 'read (R340)(6) and the rules banks') for l in G.get(k, [])]
     t = '\n'.join(parts) + '\n'
     t = t.replace('@@PREFACE@@', PRE_FACE_TITLE + ' ' + pre_face())
     t = t.replace('`tools/b730_*.py` and `tools/b729_*.py` run unedited', '`tools/b729_*.py` run unedited')
