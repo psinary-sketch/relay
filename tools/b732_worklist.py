@@ -249,8 +249,8 @@ B723_ROOT_BANKS = '56841ba3'  # ### b731's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'e164457f'
 C1_STANDING_REPAIR = None
-C1_RELAY = None
-C1_CORR = None
+C1_RELAY = 'fac4e19a'
+C1_CORR = 'fac4e19a'
 C1_PP = 'af07e3c'
 WEIGHT_LINE, CORR_LINE = None, None
 DIFFERS_LINE = None
@@ -291,7 +291,7 @@ EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formu
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '23b006dfd7a88c8eb51331f9202ade85390ea547'   # ### b731's tip, the base of this act's one Lean commit
 ZQ_FIRST = None   # ### (R342)(3): the act's one Lean commit, read from the log when made
-ZQ_TIP = ZQ_ENTERING    # ### the tip, read back equal at origin, set when (R342)(3) lands
+ZQ_TIP = '1b34964ae229c8d3ce769dbe01e53d8f43b92ed0'    # ### the tip, read back equal at origin, set when (R342)(3) lands
 ZQ_MODULES = ()   # ### no module added: (R342)(3) changes a field's type
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
@@ -302,7 +302,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R342)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: (kind, run id, ref, target), (R342)(3)'s one when dispatched
+EF_RUNS = (('A0', 41337967613, '1b34964ae229c8d3ce769dbe01e53d8f43b92ed0', 'SIDEExplicitFormula.Schema.EpsteinZQ SIDEExplicitFormula.Schema.ZQ.Zeros SIDEExplicitFormula.Schema.ZQ.LogDeriv'),)   # ### N1: (kind, run id, ref, target), (R342)(3)'s one when dispatched
 EF_RUNS_B731 = (41316031450, 41316963968, 41317771708, 41318856071)   # ### b731's four, read not re-run
 DISPATCH_ROWS = 'data/b732_dispatch_rows.json'
 ERRATA_ID = None   # ### (R342) orders no ERRATA entry

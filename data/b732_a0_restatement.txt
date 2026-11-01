@@ -1,0 +1,37 @@
+b732 -- (R342)(3): THE A0 PREMISE RESTATED, THE COMMIT, THE ONE DISPATCH AND EVERY THEOREM BINDING THE PREMISES
+
+## THE WORD. The question put at Component 2 (zq_count's conclusion names the field; the field's type changes, so either the conclusion follows or the theorem breaks), answered: "Field, follow zq_count (Recommended)".
+## THE COMMIT: 1b34964ae229c8d3ce769dbe01e53d8f43b92ed0 on zq-b730, parent 23b006df, file SIDEExplicitFormula/Schema/EpsteinZQ.lean alone; main untouched; pushed and read back equal (data/b732_SIDE-explicit-formula_zq-b730_push_out.txt).
+## THE DISPATCH, THE ONE (N1): run 41337967613, built ref 1b34964ae229c8d3ce769dbe01e53d8f43b92ed0, status completed, conclusion success, build_exit 0, errors 0, sorryAx False. No lean process ran on this host.
+
+## THE FIELD
+  before | count : Wide.HCount Z A0Q
+  after  | count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  the form asked | WeilConfig.count, Schema/Config.lean :31 at the tip: count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+
+## EVERY THEOREM BINDING ZQPremises (git grep at the tip: the structure and these 3, nothing else in the kernel), EACH ELABORATED BY THE RUN ABOVE, CONCLUSION BEFORE AND AFTER FROM THE BLOBS
+  zq_count | MOVED, THE AUTHOR'S WORD | axioms [propext, Classical.choice, Quot.sound]
+    before: Wide.HCount Z A0Q
+    after : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  zq_explicit_formula | UNCHANGED | axioms [propext, Classical.choice, Quot.sound]
+    before: zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+    after : zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+  zq_li_nonneg_imp_online | UNCHANGED | axioms [propext, Classical.choice, Quot.sound]
+    before: (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2
+    after : (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2
+
+### ### **THE CONCLUSIONS: 2 of 3 UNCHANGED; zq_count MOVED, THE ONE CONCLUSION THAT MOVED. IT READS THE FIELD OFF THE BUNDLE, SO IT FOLLOWS THE FIELD, BY THE AUTHOR'S WORD ABOVE; THE QUESTION'S WORDS "printed unchanged in conclusion" STAND FOR THE OTHER TWO AND NOT FOR THIS ONE.**
+
+## WHAT THE COMMIT ALSO CHANGED, BEYOND THE FIELD'S LINE, PRINTED PLAINLY
+  zq_count's statement (above); zq_li_nonneg_imp_online's PROOF, h.count now opened by .elim, its statement unchanged; the docstring of ZQPremises (:135-:136), which named the old form;
+  and the module docstring at :17, beyond what the question named: it stated the count as `Wide.HCount Z A0Q`, which would have read false at the tip. Stat: 6 insertions, 6 deletions, one file.
+
+## THE A0Q ROW, (R342)(3)'s LAST CLAUSE: the named value stays a separate definition and is not a field
+  def A0Q : ℝ := 10 | SIDEExplicitFormula/Schema/EpsteinQ0.lean
+  def Q0Count (Z : Zeta23.ZeroConfig) : Prop := HCount Z A0Q | SIDEExplicitFormula/Schema/EpsteinQ0.lean
+  git diff 23b006df..1b34964a over that file: 0 lines (0 wanted).
+  THE BANKS THAT CITE IT: every bank row naming `HCount Z A0Q` or zq_count's A0Q form cites main or a commit before this one (b703_epstein_grade.txt, b729_count_price.txt, b730_ferry.txt among them; git grep over data/b7[0-3]*): main badacccb is untouched, so they stand as cited. No theorem row is added: no compiled statement proves the count at 10, and Q0Count is the separate definition such a row would name.
+
+## THE PROBE NOT RUN: ChainProbe.lean would have added a file to the commit that changes the field and nothing else, so the conclusions above are read from the source blobs and the compile, exit 0, is what elaborated them; chainprobe_log: NOT RUN.
+## THE ARTEFACT'S REFUSED ROWS, NOT A FAILURE OF THE BUILD: the workflow carries a fixed print list; 20 names on it are not on this branch ("Unknown constant"), 2 print targets refused (axioms_refused.txt). build_exit governs and is 0. None of the three binders is among them.
+## (R342)(3) NEXT: b733 takes the count field on the restated premise; C3 and C4 are priced before any build. No field of ZQPremises is discharged here: the premises stand, stated and not proved.
