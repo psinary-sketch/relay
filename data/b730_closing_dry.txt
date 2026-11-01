@@ -68,12 +68,12 @@ b730 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-SEVEN, THE
 
 ### THE RECORD LINES ((R340)(1); relay data/b730_record_lines.json): FINDINGS.md :12254
 
-### THE DRY RUN ((R267)(2), standing; relay data/b730_reg_gate.txt, the gate`s step before the lock): THE DRY-RUN STEP : NOT CLEAN ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): THE CLOSING DRY-RUN STEP : CLEAN
+### THE DRY RUN ((R267)(2), standing; relay data/b730_reg_gate.txt, the gate`s step before the lock): THE DRY-RUN STEP : CLEAN ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): THE CLOSING DRY-RUN STEP : CLEAN
 
 ### THE CORRIGENDUM ((R340)(1)-(2)):
     the generated entry for b729`s events and defects, CLAIM or CLOSE, NEW or REPEAT (relay data/b730_corrigendum.txt): ITEMS 38: EVENTS 13, DEFECTS 25 ; CLAIM 5, CLOSE 33 ; REPEAT 8 ; DATED NOTES 2 ; v1.10.0: THE HAND-KEPT-NAMES CLASS, THE ROOT`S LIST, THE PRE-RUN, THE HOOK, THE ANSWER CHECKS, THE KERNELS LINE, THE ROOT`S PROMPT ; THE ENTRY AT FINDINGS :12256
     tools/standing/ at v1.10.0: the hand-kept-names class, the root`s list, the pre-run, the hook, the answer checks, the kernels line and the root`s prompt, each case failing before its repair and passing after (relay data/b730_standing_v1100.txt): v1.10.0: CONTROLS (own), (actroot), (exercise), (hookact), (answers), (n5line), (rootprompt) ; CASES 26 ; AS WANTED 26 ; ALL AS WANTED
-    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b730_root_banks_dry.txt): BANKS 33 ; CLEAN AND EQUAL AT HEAD 31 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY False
+    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b730_root_banks_dry.txt): BANKS 37 ; CLEAN AND EQUAL AT HEAD 37 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY True
 
 ### THE ORDER ((R340)(3)):
     W-ORD-ZQ-DERIVES entered by a commit of its own before any Lean, five fields in their order, the plan`s statement of the first (relay data/b730_continuation_plan.txt): THE FIELD STATED ; ROUTE evenKernel/cosKernel + WeakFEPair ; 4 GROUPS, ABOUT 715 LINES, 5-12 DISPATCHES (THE SEAT'S) ; THE CAP TWELVE ; NOTHING BUILT AT THIS BANK'S COMMIT
@@ -86,7 +86,7 @@ b730 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND FIFTY-SEVEN, THE
     D9 and D13 named with what each needs, no proof (relay data/b730_detection_lemmas.txt): D9 AND D13 NAMED, WHAT EACH NEEDS PRINTED ; NO PROOF ; NOTHING ON detect-b729 CHANGED AT THIS ACT
 
 ### THE NAME AND ADDRESS ((R340)(6)):
-    the scan over every commit and bank of the act, the counts alone (relay data/b730_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; PLACES 63 ; CONTROLS 4 OF 4 AS WANTED ; 2 s
+    the scan over every commit and bank of the act, the counts alone (relay data/b730_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; PLACES 67 ; CONTROLS 4 OF 4 AS WANTED ; 3 s
 
 ### THE RESEARCH INSTRUMENTS REPRODUCED (b729`s standing arm G-RESEARCH-REPRODUCES):
     tools/research/reproduce.py`s full run, one row per instrument I-41 to I-108, a planted wrong figure per run row (relay data/b730_reproduce.txt): ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 315 s
@@ -162,7 +162,7 @@ b730 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
     pre-push : ### NOT FOUND
     post-push : ### NOT FOUND
     post-push : ### NOT FOUND
-      relay                            main d533a5c06238 ; remote ee4ba59a0ae3 ; ### DIFFER
+      relay                            main a547ab773247 ; remote ee4ba59a0ae3 ; ### DIFFER
       PLACE-papers                     main b65bcff96575 ; remote ea2ba4e10f55 ; ### DIFFER
       SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
       SIDE-explicit-formula            main badacccb867e ; remote badacccb867e ; AGREE
