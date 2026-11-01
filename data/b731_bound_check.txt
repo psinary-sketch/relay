@@ -1,0 +1,19 @@
+b731 -- THE FLOAT CONTROL OF Z_Q(3/2) < 4, (R341)(3), BEFORE ANY LEAN (2026-11-01T14:13:37Z)
+
+### floats, no proof. The Lean route: n = 0 gives 2 zeta(3); each row n != 0 is bounded pointwise by r (G(x + 1/2) - G(x - 1/2)), G(x) = x / (A^2 sqrt(x^2 + A^2)), A^2 = 23 n^2 / 4, r = 1.38, which telescopes to 2 r / A^2.
+
+## (1) THE LATTICE SUM, BY THE TRUNCATION Q <= R^2 AND THE TAIL 2 (2 pi / sqrt 23) / R
+  R 200   partial 3.535314 tail 0.013101 total 3.548415
+  R 800   partial 3.545138 tail 0.003275 total 3.548414
+
+## (2) THE POINTWISE STEP f(x) <= r (G(x + 1/2) - G(x - 1/2)), GRID x IN [-60, 60], STEP 1/8, A = sqrt(23) n / 2, n = 1..12
+  the largest f / (G difference) 1.021508 ; points above r: 0
+
+## (3) THE ALGEBRAIC STEP ((y + 1/2)^2 + A^2) <= 1.239 (y^2 + A^2), y >= 0, A^2 >= 23/4, AND 1.239^3 <= 1.38^2
+  the largest ratio 1.231384 <= 1.239: True ; 1.902015 <= 1.904400: True
+
+## (4) THE CLOSED TOTAL
+  zeta(3) <= 1 + 1/8 + 1/27 + 1/24 = 1.203704 (k^-3 <= (1/2)(1/((k-1)k) - 1/(k(k+1))) from k = 4), zeta(2) <= 1.645
+  2 zeta(3) + r (16/23) zeta(2) <= 3.986607 < 4: True ; the margin 0.013393
+
+### ### **Z_Q(3/2) ABOUT 3.5484 ; THE ROUTE`S TOTAL 3.9866 ; POINTWISE STEP HOLDS ON THE GRID True.**

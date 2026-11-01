@@ -1,0 +1,47 @@
+b731 -- THE logDeriv FIELD'S PLAN, (R341)(3): WRITTEN AND COMMITTED BEFORE ANY LEAN. Pins read: SIDE-explicit-formula zq-b730 at 5688816e, Mathlib de5ce8a9a66a, Lean v4.34.0-rc1. No lean on this host; every module read by a dispatch on zq-b730.
+
+## (1) THE FIELD AS A LEAN Prop, MATCHING ZQPremises.logDeriv AT THE PIN
+  ZQPremises.logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s) (Schema/EpsteinZQ.lean :140), the coefficients c : ℕ → ℝ a parameter of the bundle.
+  THE TARGET:  def SIDEExplicitFormula.Schema.ZQ.cQ : ℕ → ℝ, the coefficients of -Z'/Z, by recursion from a = r_Q
+               theorem SIDEExplicitFormula.Schema.ZQ.zq_logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (cQ n : ℂ)) s = -(deriv zqFn s / zqFn s)
+               theorem SIDEExplicitFormula.Schema.ZQ.zq_ne_zero_of_three_halves_le : ∀ s : ℂ, 3 / 2 ≤ s.re → zqFn s ≠ 0 (fed to (R341)(4)'s strip clause)
+  Mathlib's LSeries reads 0 where the series does not converge, so c must be absolutely summable on the line Re s = 3/2 itself, not merely to the right of it.
+
+## (2) THE ROUTE, AND THE ONE ROW THE BANK DID NOT CARRY
+  a = r_Q, a(1) = 2, no Euler product. c solves c ⍟ a = logMul a: 2 c(n) = a(n) log n - sum over d | n, d < n of c(d) a(n/d), c(1) = 0. Let w(k) = a(k) k^(-3/2), B = sum over k >= 2 of w(k). With u(n) = |c(n)| n^(-3/2), partial sums read
+      2 S_N <= A' + S_N B,  A' = sum of a(k) log k k^(-3/2), finite by LSeriesSummable_logMul_of_lt_re (Deriv.lean :98).
+  So S_N <= A' / (2 - B), THE ONE HYPOTHESIS BEING B < 2, THAT IS Z_Q(3/2) < 4. THIS IS C4 OF data/b729_count_price.txt :33, ABSENT IN LEAN AND NOT ROWED UNDER logDeriv AT :23. The same B gives |Z - 2| <= B < 2 on Re s >= 3/2, so Z has no zero there: both the field and (R341)(4)'s strip clause rest on it.
+  THE BOUND, THE SEAT'S DESIGN, NO PARITY AND NO SHIFT OF m: on the row n != 0 put A^2 = 23 n^2 / 4, x = m + n/2, f(x) = (x^2 + A^2)^(-3/2), G(x) = x / (A^2 sqrt(x^2 + A^2)), G' = f, |G| <= 1/A^2. The mean value theorem on [x - 1/2, x + 1/2] and f decreasing in |x| give
+      f(x) <= 1.38 (G(x + 1/2) - G(x - 1/2)), from ((y + 1/2)^2 + A^2) <= 1.239 (y^2 + A^2) at y = |x|, A^2 >= 23/4 (a quadratic with negative discriminant), and 1.239^3 <= 1.38^2.
+  The row telescopes on each half of ℤ (tsum_of_nat_of_neg_add_one, NatInt.lean :370; Finset.sum_range_sub) to 2(1.38)/A^2. The row n = 0 is 2 zeta(3) <= 2(1 + 1/8 + 1/27 + 1/24), by k^-3 <= (1/2)(1/((k-1)k) - 1/(k(k+1))) from k = 4. Summed over n != 0 by hasSum_zeta_two (ZetaValues.lean :453) and pi < 3.1416:
+      Z_Q(3/2) <= 3.9867 < 4, the margin 0.0133.
+  A control printed before any Lean: data/b731_bound_check.txt by tools/b731_bound_check.py: the lattice sum 3.5484, the pointwise step on the grid (largest ratio 1.0215 against 1.38, 0 points above), the algebraic step, the closed total. Floats, no proof.
+
+## (3) THE LEMMAS, EACH WITH ITS NEAREST COMPILED NEIGHBOUR AND ITS PRICE (THE SEAT'S ESTIMATE, NOT A BOUND)
+  GROUP   MODULE                       LEMMA                                                    NEAREST COMPILED NEIGHBOUR                                         LINES    DISPATCHES
+  A       Schema/ZQ/Bound.lean         rowG, hasDerivAt, |G| <= 1/A^2                           Real.hasDerivAt_sqrt; HasDerivAt.div                               35       1-2
+                                       row_step (the pointwise step)                            exists_hasDerivAt_eq_slope, Deriv/MeanValue.lean :122              45
+                                       row_le (the telescope, one row)                          tsum_of_nat_of_neg_add_one :370; Real.tsum_le_of_sum_range_le :99  45
+                                       row_zero_le (2 zeta(3))                                  the same; Finset.sum_range_sub                                     40
+                                       zq_three_halves_lt : Z_Q(3/2) < 4                        hasSum_fiber, lattice_rpow_summable (Lattice.lean); Summable.tsum_prod'; hasSum_zeta_two  50
+  B       Schema/ZQ/LogDeriv.lean      rQ_one : r_Q(1) = 2                                      preimage_boxF, four_mul_Q0form                                     20       1-2
+                                       cQ, cQ_conv : c ⍟ a = logMul a off 0                     Nat.sum_divisorsAntidiagonal; Nat.sum_divisors_eq_sum_properDivisors_add_self  40
+                                       cQ_summable on Re s = 3/2                                summable_of_sum_range_le, Real.lean :89; Finset.sum_fiberwise_of_maps_to  70
+  C       Schema/ZQ/LogDeriv.lean      zq_sub_two_norm_lt, zq_ne_zero_of_three_halves_le        norm_tsum_le_tsum_norm; LSeriesSummable.of_re_le_re, Basic.lean :240  35       1-2
+                                       deriv_zqFn (eventually equal to the LSeries)             LSeries_deriv, Deriv.lean :86; Filter.EventuallyEq.deriv_eq         20
+                                       zq_logDeriv                                              LSeries_convolution', Convolution.lean :151                        30
+  IN ALL: 2 modules, about 430 lines, 3-6 dispatches, 5-9 foreground hours (the seat's).
+
+## (4) THE RE-PRICE, (R341)(3): THE BANK'S ROW READ BY b730'S MEASURED RATIO, PRINTED AS THE SEAT'S
+  The bank's row (data/b729_count_price.txt :23): 200-400 lines, 3-8 dispatches. b730's ratio (835 lines, 6 dispatches beside 1,500-3,000 and 25-50, data/b731_standing_v1110.txt): lines 0.278-0.557, dispatches 0.12-0.24.
+  BY THE RATIO: 56-223 lines, 1-2 dispatches. THE SEAT DOES NOT PRICE THE FIELD THERE: one measurement on a different kind of proof, and the bank's row holds no line for Z_Q(3/2) < 4, which is group A entire. FROM THE LEMMAS ABOVE: about 430 lines, 3-6 dispatches. THE SEAT'S ESTIMATE, UNMEASURED FOR THIS PROOF, TO BE MEASURED BESIDE IT WHEN THE FIELD LANDS (tools/standing/pricebank.py, data/b731_price_measured.txt).
+
+## (5) THE ORDER THEY BUILD IN
+  A, B, C: one dispatch per group, each read by its run id, the target that group's module; free memory printed before each; each group's source read through against the pin's Mathlib before its push (b730 (o), (p): a blind host pays a dispatch for every line it did not read). THE EXIT FILE GOVERNS: build_exit.txt read, the conclusion word not (b730 (n)).
+  print_targets.txt on the branch appended with ASCII names alone (b730 (r)): zq_three_halves_lt, cQ, zq_logDeriv, zq_ne_zero_of_three_halves_le.
+
+## (6) THE STOP POINTS
+  After each group the branch compiles to that group. STOP AT THE SIXTH DISPATCH OR AT ANY GROUP WHERE A LEMMA RESISTS: the field reads OPEN at the first lemma not compiled, the dispatches spent and the lines written, the sorry-free statement of what remains printed from the group's compiled theorems (no sorry on the branch, no axiom added, a remaining lemma stated in the bank and not in Lean).
+  THE GRADE is CLOSED only on zq_logDeriv compiled with the standard three, read from the run's axioms output. (R341)(4) then runs, whichever way this stops.
+
+### ### **THE FIELD STATED ; ROUTE c ⍟ a = logMul a, THE HYPOTHESIS Z_Q(3/2) < 4 BOUNDED BY ROWS ; 3 GROUPS, ABOUT 430 LINES, 3-6 DISPATCHES (THE SEAT'S) ; THE CAP SIX ; NOTHING BUILT AT THIS BANK'S COMMIT.**

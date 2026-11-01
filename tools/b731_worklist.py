@@ -249,8 +249,8 @@ B723_ROOT_BANKS = '6a0d9e97'  # ### b730's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'ca3f73f3'
 C1_STANDING_REPAIR = None
-C1_RELAY = None
-C1_CORR = None
+C1_RELAY = '68e539df'
+C1_CORR = '68e539df'
 C1_PP = 'd660659'
 WEIGHT_LINE, CORR_LINE = None, None
 DIFFERS_LINE = None
