@@ -1,3 +1,5 @@
+2026-10-31T21:37:00Z | READ | Read | "D:\\relay\\data\\b728_closing.txt" | a Read call with a limit and no offset on a file of 356 lines
+2026-10-31T21:46:56Z | READ | Read | "D:\\relay\\data\\act_current.json" | a Read call with no limit
 2026-10-31T22:10:42Z | PIPE | Bash | "git status --short --untracked-files=no && git ls-files data | git grep -n \"b729\" -- data/b729_registrations.txt" | a Bash command carrying a pipe outside quotes
 2026-10-31T22:41:52Z | PIPE | Bash | "git grep -n -E \"gh (workflow|run)|dispatched|run_id|workflow\" -- data/b728_events.txt tools/b728_dispatch_rows.py tools/standing/fold/record.tpl tools/b729_worklist.py | head -0; git -C \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work\" grep | a Bash command carrying a pipe outside quotes
 2026-11-01T02:36:07Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-String -Width 80" | a PowerShell command carrying a pipe outside quotes
