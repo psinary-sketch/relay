@@ -118,7 +118,9 @@ def cmd_bank(art):
             '',
             '## THE PROBE NOT RUN: ChainProbe.lean would have added a file to the commit that changes the field and nothing else, so the conclusions above are read from the source blobs and the compile, exit 0, is what elaborated them; chainprobe_log: NOT RUN.',
             '## THE ARTEFACT\'S REFUSED ROWS, NOT A FAILURE OF THE BUILD: the workflow carries a fixed print list; %d names on it are not on this branch ("Unknown constant"), 2 print targets refused (axioms_refused.txt). build_exit governs and is 0. %s' % (len(unknown), 'None of the three binders is among them.'),
-            '## (R342)(3) NEXT: b733 takes the count field on the restated premise; C3 and C4 are priced before any build. No field of ZQPremises is discharged here: the premises stand, stated and not proved.']
+            '## (R342)(3) NEXT: b733 takes the count field on the restated premise; C3 and C4 are priced before any build. No field of ZQPremises is discharged here: the premises stand, stated and not proved.',
+            '',
+            '### ### **THE A0 PREMISE RESTATED ON zq-b730 AT 1b34964a: RUN 41337967613, BUILD EXIT 0, NO sorryAx, AXIOMS propext, Classical.choice, Quot.sound ; 2 of 3 CONCLUSIONS UNCHANGED ; zq_count MOVED.**']
     t = '\n'.join(out) + '\n'
     with io.open(BANK, 'w', encoding='utf-8', newline='\n') as fh:
         fh.write(t)
