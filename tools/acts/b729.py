@@ -802,6 +802,7 @@ def research_reproduces_ok(S):
            # ### (the worklist's C<n>_ names, its "later stages: the commits of the components") and the standing commit (landed at a component)
            # ### the previous act's worklist carries and this act's carries too; a name the previous act's alone carries reads the previous act's
            # ### (no value of this act's to read), and the registration block's REG_* names stay the previous act's, the standing arms reading them
+           'EF_BRANCHES',
            ) + tuple(sorted(n for n in vars(K707) if re.match(r'^(C\d+_\w+|STANDING_COMMIT)$', n) and hasattr(K, n)))
 #⟪END⟫
 # ### b729, Component 3 (the Edit tool): the sitting moved seven kernels' mains by (R339)(3): a main at its sitting tip, its tags unmoved, is not a move against b728's face

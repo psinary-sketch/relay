@@ -1,0 +1,18 @@
+b729 -- THE EVENTS AFTER THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay 099afbb8), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for b730's corrigendum. A finding after the lock takes no letter in data/b729_defects.txt; no locked bank is rewritten. Each row carries its time, read from the clock, from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone. The author's words are quoted from data/b729_author_words_preseal.txt and data/b729_author_answers.txt.
+
+BEFORE THE SEAL (after the lock):
+    (1) THE SEAT'S [CLOSE ; NEW]: 05:26:25Z: the pre-run's standing-b1 refused by its own guard at 2104 MB free against the 2,560 MB hold, nothing computed. The seat's background wait on the
+     memory was killed by the harness for low memory; the seat reported it and did not start it again. The author freed memory (5102 MB read), and the part ran in the foreground.
+    (2) THE SEAT'S [CLOSE ; NEW]: the pre-run's standing-c read 5/5 and printed uncovered ['relay/data/b728_hook_refusals.txt']: the two rows of a closed act's bank that data/b729_defects.txt row (b)
+     enters, written there by the hook at step zero. Not restored: a restore is an edit of a closed act's bank.
+    (3) THE SEAT'S [CLOSE ; REPEAT b722 event (8)]: about 05:50Z, AT THE RUNS ON b728'S BANKS: `checks --prev --part standing-a` crashed in sources, IndexError at K.EF_BRANCHES[2]: `--prev` rebinds K to
+     _PrevWorklist, b728's worklist carries two rows of EF_BRANCHES, this act's source line reads the third (detect-b729). close.py dry had refused just before on the --prev parts not being run. Every route
+     past it edits after the lock gate (tools/acts/b729.py, tools/b728_worklist.py, or a withheld entry in data/act_current.json): HALTED for the author's word, no edit made. A read-only comparison of the
+     suite's 78 K. names against both worklists found EF_BRANCHES the one short index; the name added to OWN in memory alone, sources returned with detect_src 3565 bytes, no file touched.
+    (4) THE AUTHOR'S WORD [CLOSE ; REPEAT b722 event (8)]: 05:54Z: "A: OWN gains ‘EF_BRANCHES’ and nothing else, by the Edit tool after the lock and before the seal; the diff entered as an event naming b722
+     event (8) as its REPEAT; N4 printed REFUTED, unreworded. Then the seven --prev parts, close dry, seal." REPAIRED by the Edit tool after the lock, before the seal, before any `--prev` part completed.
+     The diff (git diff -- tools/acts/b729.py, index 992db1f0..a2df413d), section checks 63:
+     +           'EF_BRANCHES',
+     N4 reads REFUTED on this edit, its wording unchanged. Two banks written after the lock with it: data/b729_author_words_preseal.txt and this one. The class, the author's word: "The class is the
+     hand-kept-names list a third time, and (R334)(2)(i) ordered it computed: b730’s corrigendum opens on it, OWN derived from the worklist module’s own exported names and no list kept, its control the
+     b722, b724 and b729 crashes replayed with no edit."
