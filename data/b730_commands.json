@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T10:40:24Z",
+ "at": "2026-11-01T10:44:22Z",
  "anchor": "RULING (R340) BEGIN",
  "rows": [
   {
@@ -2408,6 +2408,86 @@
    "src": "seat",
    "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix730i.py\" && cd /d/relay && python -X utf8 -u tools/standing/fold.py record step relay gate c11e3dee && python -X utf8 tools/b730_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b730_address_scan.py scan --bank",
    "n": 301,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:40:31.790Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 302,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:41:20.979Z",
+   "src": "seat",
+   "cmd": "git add tools/acts/b730.py tools/b730_face_blocks.txt data/b730_defects.txt data/b730_registration_2026-11-01.txt data/b730_closing_dry.txt data/b730_reg_gate.txt data/b730_report_dry.txt data/b730_commands.json data/b730_commands.txt data/b730_steps.json data/b730_bank_hashes.json data/b730_address_scan.txt",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:41:24.775Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b730_address_scan.py scan",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:41:31.026Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b730 gate: the unscanned commit entered as defect (v), the gate re-run CLEAR, the face recomposed, the scan read\"",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:41:34.086Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:41:37.158Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 75aea476 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/b378_lockgate.py b730 data/b730_registration_2026-11-01.txt",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:42:01.220Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix730j.py\" && cd /d/relay && python -X utf8 tools/b730_face.py && python -X utf8 -u tools/standing/fold.py regspec --quiet",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:42:27.209Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:43:19.293Z",
+   "src": "seat",
+   "cmd": "mv /d/relay/data/b730_lockgate.json /d/relay/data/b730_lockgate_notes.txt \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/\" && echo moved",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T10:43:28.015Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix730k.py\" && cd /d/relay && python -X utf8 tools/b730_face.py && python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 311,
    "bg": false
   }
  ],
