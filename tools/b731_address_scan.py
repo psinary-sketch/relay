@@ -157,7 +157,7 @@ def scan(*a):
     L += ['  %-28s %4d ; %d ; %d ; %d' % (k, v[0], v[1], v[2], v[3]) for k, v in sorted(by.items())]
     hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if kind != BYLINE_KIND and (count(text, addr) or count(text, name) or count(text, uname))))
     L += ['', '## THE PLACES WITH AN OCCURRENCE (by place, never the text): %s' % ('; '.join(hits) if hits else 'NONE')]
-    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R341)(6), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R341)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, '',
           '### ### **PREVIOUS ADDRESS: %d ; THE AUTHOR`S NAME: %d ; PREVIOUS NAME: %d ; PLACES %d ; CONTROLS %d OF %d AS WANTED ; %d s.**' % (
               na, nn, nu, len(P), len(ctl), len(ctl), int(time.time() - t0))]

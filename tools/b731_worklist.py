@@ -155,7 +155,7 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b730 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b731_standing_v1110.txt', 'data/b731_logderiv.txt', 'data/b731_zeros.txt', 'data/b731_address_scan.txt')
+COMPUTE_BANKS = ('data/b731_standing_v1110.txt', 'data/b731_bound_check.txt', 'data/b731_logderiv.txt', 'data/b731_zeros.txt', 'data/b731_price_measured.txt', 'data/b731_reproduce.txt', 'data/b731_address_scan.txt')
 #   ### the banks of (R341)(2)-(4), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
@@ -252,20 +252,21 @@ C1_STANDING_REPAIR = None
 C1_RELAY = '68e539df'
 C1_CORR = '68e539df'
 C1_PP = 'd660659'
-WEIGHT_LINE, CORR_LINE = None, None
+WEIGHT_LINE, CORR_LINE = 12367, 12369
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None
+C2_RELAY = '44a933a3'    # ### the logDeriv grade
 C2_AMEND = ()
-C2_PP = None
-C3_RELAY = ()
+C2_PP = C1_PP            # ### (R341)(5): (2) whole before (3); b731 enters no order, the corrigendum's commit stands first in N2's chain
+C3_RELAY = ('ca204110', '729b24a8')   # ### the zeros plan, the zeros grade and the price bank
 C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = None
+REG_COMMIT = '4f610ea0'          # ### (R341)(3), N2: the logDeriv plan and the bound's control
+ZEROS_REG_COMMIT = 'ca204110'    # ### (R341)(4), N2: the zeros plan
 ORDERS = (142, 60, 42, 12, 28)          # ### b730's (R340)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b729_orders_triage.txt'
 LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R341)(8))
@@ -290,17 +291,23 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '5688816e232b654918eb3ebcfa6c25f7d0c7dfc2'   # ### b730's tip, the base of this act's Lean
-ZQ_FIRST = None   # ### (R341)(3): the act's first Lean commit, read from the log when made
-ZQ_TIP = ZQ_ENTERING    # ### the tip, read back equal at origin, set when a group lands
+ZQ_FIRST = 'c3a7daf5'   # ### (R341)(3): the act's first Lean commit, read from the log
+ZQ_ZEROS_FIRST = '23b006df'   # ### (R341)(4): the zeros field's first Lean commit
+ZQ_TIP = '23b006dfd7a88c8eb51331f9202ade85390ea547'    # ### the tip, read back equal at origin
+ZQ_LOGDERIV_TIP = '5eb1d014febe441a1e6873eeaf6dbc858db16891'   # ### the tip at the logDeriv grade
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')
-ZQ_MODULES = ()   # ### the modules of this act, set when each lands
+ZQ_MODULES = ('Bound', 'LogDeriv', 'Zeros')   # ### the modules of this act
+ZQ_LOGDERIV_MODULES, ZQ_ZEROS_MODULES = ('Bound', 'LogDeriv'), ('Zeros',)
 EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # ### (R341)(4): the gamma_1 bound
                ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'),       # ### (R341)(3): the theorem, built whole at this tip
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R341)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
 _ZQ = 'SIDEExplicitFormula.Schema.ZQ.'
-EF_RUNS = ()   # ### N1: (kind, run id, ref, target), each set when dispatched, twelve at most
+EF_RUNS = (('zq', 41316031450, 'c3a7daf5', _ZQ + 'Bound'),
+           ('zq', 41316963968, '27d1829d', _ZQ + 'LogDeriv'),
+           ('zq', 41317771708, '5eb1d014', _ZQ + 'LogDeriv'),
+           ('zq', 41318856071, '23b006df', _ZQ + 'Zeros'))   # ### N1: (kind, run id, ref, target), four of (R341)(3)-(4)'s twelve
 EF_RUNS_B730 = (41292290796, 41293161382, 41293638071, 41294254957, 41294932964, 41295546328)   # ### b730's six, read not re-run
 DISPATCH_ROWS = 'data/b731_dispatch_rows.json'
 ERRATA_ID = None   # ### (R341) orders no ERRATA entry
