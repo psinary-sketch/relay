@@ -1,0 +1,49 @@
+b731 -- THE logDeriv FIELD, ITS GRADE, (R341)(3), N1, N3 (2026-11-01T14:57:28Z)
+
+### The statement: ZQPremises.logDeriv at Schema/EpsteinZQ.lean :140. Branch zq-b730 of SIDE-explicit-formula, entering at 5688816e, tip 5eb1d014, read back at origin True.
+
+## THE CONTROLS FIRST (the grade`s own predicate, on planted rows)
+  a read of exit 0, every terminal at the three, a clean source                          CLOSED AS WANTED
+  the conclusion success with build exit 1 (this act`s runs 41316031450, 41316963968)    OPEN   AS WANTED
+  a sorryAx in the print                                                                 OPEN   AS WANTED
+  a terminal at the three plus sorryAx in its line                                       OPEN   AS WANTED
+  one terminal missing from the print                                                    OPEN   AS WANTED
+  a `sorry` in the source at the tip                                                     OPEN   AS WANTED
+  an `axiom` in the source at the tip                                                    OPEN   AS WANTED
+  a module absent at the tip                                                             OPEN   AS WANTED
+  no read at all                                                                         OPEN   AS WANTED
+  CONTROLS 9 OF 9 AS WANTED
+
+## THE DISPATCHES, EACH BY ITS RUN ID (the conclusion printed and governing nothing; relay data/b731_dispatch_rows.json)
+  1  (3) group A                    run 41316031450  ref c3a7daf5  conclusion success  build exit 1  BREAKS  free before 5596 MB  runner low 13292 MB
+       error: Schema/ZQ/Bound.lean:36:6: Tactic `apply` failed: could not unify the conclusion of `@funext`
+       error: Schema/ZQ/Bound.lean:38:6: `ring_nf` made no progress on the goal
+       error: Schema/ZQ/Bound.lean:33:61: unsolved goals
+  2  (3) group A repair, group B    run 41316963968  ref 27d1829d  conclusion success  build exit 1  BREAKS  free before 5347 MB  runner low 13068 MB
+       error: Schema/ZQ/LogDeriv.lean:213:8: Type mismatch
+  3  (3) group B repair, group C    run 41317771708  ref 5eb1d014  conclusion success  build exit 0  KERNEL  free before 5475 MB  runner low 13094 MB
+
+## THE LINES, MODULE BY MODULE (the plan data/b731_logderiv_plan.txt)
+  Bound          379 lines
+  LogDeriv       407 lines
+  THE SUM 786 LEAN LINES, spent 3 dispatches of at most 6
+  against the prices: the bank`s 200-400 lines, 3-8 dispatches (data/b729_count_price.txt :23) ; the plan`s about 430 lines, 3-6 dispatches. Every estimate was the seat`s.
+
+## THE FIELD`S THEOREMS
+  the coefficients               cQ                               Schema/ZQ/LogDeriv.lean    [propext, Classical.choice, Quot.sound]
+  the hypothesis Z_Q(3/2) < 4    zq_three_halves_tsum_lt          Schema/ZQ/Bound.lean       [propext, Classical.choice, Quot.sound]
+  no zero in Re s >= 3/2         zq_ne_zero_of_three_halves_le    Schema/ZQ/LogDeriv.lean    [propext, Classical.choice, Quot.sound]
+  the series on Re s >= 3/2      zq_logDeriv                      Schema/ZQ/LogDeriv.lean    [propext, Classical.choice, Quot.sound]
+
+## THE AXIOM PRINT OF THE TERMINALS, THE ARTIFACT`S OWN LINES (run 41317771708, out/axioms.txt)
+  'SIDEExplicitFormula.Schema.ZQ.zq_three_halves_tsum_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.Schema.ZQ.cQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.Schema.ZQ.zq_ne_zero_of_three_halves_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'SIDEExplicitFormula.Schema.ZQ.zq_logDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## WHAT THE THEOREM IS NOT
+  zq_logDeriv says ZQPremises.logDeriv for zqFn and cQ and no more. The series is -Z`/Z on Re s >= 3/2 and nothing is claimed left of that line. cQ is real by construction; its sign, its size and any Euler form are not stated.
+  zq_three_halves_lt bounds one number: Z_Q(3/2) < 4 from above. The figure 3.9867 stands in the plan and the float control, not in the theorem. The zero-free half-plane is Re s >= 3/2 alone; it locates no zero and proves no RH or GRH.
+  The files are on the branch alone: not on main, no tag. The fields count and explicitFormula stay named premises; the instance`s theorems still bind the whole bundle; the instance`s grade does not move.
+
+### ### **THE logDeriv FIELD CLOSED: zq_logDeriv COMPILED ; AXIOMS propext, Classical.choice, Quot.sound ; NO sorry ; DISPATCHES 3 OF AT MOST 6 ; LINES 786.**
