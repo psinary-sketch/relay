@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T04:48:13Z",
+ "at": "2026-11-01T05:01:13Z",
  "anchor": "RULING (R339) BEGIN",
  "rows": [
   {
@@ -2593,6 +2593,310 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py record kernels && python -X utf8 -u tools/standing/fold.py record guard && python -X utf8 -u tools/standing/fold.py record commands",
    "n": 324,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:48:25.534Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part act --mid b729_mid_act.txt",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:49:59.656Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" branches_ok",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:08.718Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"NAMED_PUSH\"",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:16.948Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"== 5\"",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:36.350Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/delprobe.py\"",
+   "n": 329,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:44.756Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py report dry",
+   "n": 330,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:45.591Z",
+   "src": "seat",
+   "cmd": "git status --short -- tools/acts tools/b729_worklist.py tools/b729_onset_run.py data/act_current.json data/b728_hook_refusals.txt \"data/b729_*\"",
+   "n": 331,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:53.401Z",
+   "src": "seat",
+   "cmd": "git add data/act_current.json data/b729_defects.txt data/b729_onset_score.txt data/b729_steps.json tools/acts/b729.py tools/b729_onset_run.py tools/b729_worklist.py data/b729_bank_hashes.json data/b729_citation_check.json data/b729_commands.json data/b729_commands.txt data/b729_guard_dry.json data/b729_guard_dry.txt data/b729_hook_refusals.txt data/b729_kernels_face.json data/b729_mid_act_act.json data/b729_mid_act_act.txt data/b729_reproduce.json data/b729_reproduce.txt data/b729_scanfile_c1.md data/b729_scanfile_corrigendum.md data/b729_standing_figures.json data/b729_standing_figures.txt data/b729_touch.txt",
+   "n": 332,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:50:56.906Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_address_scan.py scan --bank",
+   "n": 333,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:06.019Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b729 component 5: the touch read, 17 rows, 14 AGREES, 3 DIFFERS, no side chosen; the instruments reproduced; the standing figures; the kernels face, the guard's dry run and the command capture; the override lines moved by v1.9.0's one line; shared_edits as git shows them; the delete counts and the kept clause as (R339)(9) reads them\"",
+   "n": 334,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:09.082Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 335,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:12.916Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 5\" 571b84b5 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 336,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:28.115Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -14 0650a188~14..0650a188 --grep=\"gate\\|lock\\|push-b728\\|pre-root\\|registration\" --abbrev=8",
+   "n": 337,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:29.991Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py\" rootdry_ok",
+   "n": 338,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:36.418Z",
+   "src": "seat",
+   "cmd": "git add data/b729_address_scan.txt data/b729_steps.json data/b729_root_banks_dry.json data/b729_root_banks_dry.txt",
+   "n": 339,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:39.172Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"face=\" 0",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:51:47.188Z",
+   "src": "seat",
+   "cmd": "git grep -c \"\" -- data/b728_registration_2026-10-31.txt tools/b728_face_blocks.txt",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:54:11.223Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_face.py",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:54:20.216Z",
+   "src": "seat",
+   "cmd": "git ls-files data/b728_scanfile_c1.md data/b728_scanfile_corrigendum.md data/b729_scanfile_c1.md data/b729_scanfile_corrigendum.md data/b728_exercise_act.json data/b728_mid_act_act.txt",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:54:22.298Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" checks \"G-ARTEFACTS-NOT-COMMITTED\" 1",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:54:28.440Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rm --cached -q \"D:/relay/data/b729_scanfile_c1.md\" \"D:/relay/data/b729_scanfile_corrigendum.md\"",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:54:36.327Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_face.py && python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:55:32.636Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" closing \"CLOSING_SECTIONS\" 6",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:55:39.712Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" closing \"def verdict\" 10",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:55:46.595Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/grender.py\" closing \"THE TOUCH READ (standing clauses v9)\" 26",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:55:56.610Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_face.py",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:02.577Z",
+   "src": "seat",
+   "cmd": "git add data/b729_registration_2026-10-31.txt tools/b729_face.py tools/b729_face_blocks.txt data/b729_defects.txt tools/acts/b729.py data/b729_exercise_act.json data/b729_closing_dry.txt data/b729_mid_act_act.json data/b729_mid_act_act.txt",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:05.533Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_address_scan.py scan",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:13.444Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b729 gate: the face, composed from b728's sealed face by tools/b729_face.py; the root route's first dry reading; the scan files taken off the index\"",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:16.582Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:19.507Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"gate\" 16391028 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:56:31.736Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:58:03.636Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py\"",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:58:08.552Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py regspec && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:59:33.421Z",
+   "src": "seat",
+   "cmd": "git grep -n -o -E \"\\*\\*[A-Za-z_(][^*]{2,40}:\\*\\*\" -- tools/acts/b729.py",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T04:59:39.435Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b729_face.py && python -X utf8 -u tools/standing/fold.py regspec",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:00:12.957Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-01T05:01:06.637Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 362,
+   "bg": false
   }
  ],
  "offences": [
@@ -2640,7 +2944,8 @@
   41,
   42,
   43,
-  154
+  154,
+  345
  ],
  "delete_shapes": [
   {
