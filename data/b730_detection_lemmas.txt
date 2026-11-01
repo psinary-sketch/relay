@@ -1,0 +1,11 @@
+b730 -- THE DETECTION THEOREM'S TWO LEMMAS WITH NO COMPILED NEIGHBOUR, (R340)(5): NAMED WITH WHAT EACH NEEDS; NO PROOF THIS ACT. Read from data/b729_detection.txt :51, :55, :62; the theorem stays on detect-b729, not compiled.
+
+  D9 (data/b729_detection.txt :51): Polya positivity of the cosine transform of (1 - x/X)_+ e^{-a x}.
+     WHAT IT NEEDS: the transform of the truncated, tilted ramp written in closed form (one integration by parts over [0, X], no improper step), and its sign for every real frequency, read from that closed form by hand. Polya's criterion in general
+     (convex, decreasing, vanishing at infinity) is not needed if the closed form's sign can be read directly; the bank's needle found no Fejer or Polya declaration under Mathlib/Analysis or MeasureTheory at the pin, so either route is written here. Its risk is the sign at
+     frequencies comparable to a, where the closed form's two terms compete; the neighbour of the integration is integral_exp_mul_complex and its by-parts forms.
+  D13 (data/b729_detection.txt :55): the constant c read, K's form closed.
+     WHAT IT NEEDS: every earlier lemma's constant in hand (D4's E, D5's bound from HCount at height t, D6's decay order m about A0 / delta, D8's weight at the maximiser, D11's far tail), then new arithmetic comparing them against supportK at one explicit c. It cannot be stated before D11's balance is settled:
+     data/b729_detection.txt :39-:40 names D11 as the point where K's form may fail, and a defect there changes D13's statement and not only its proof.
+
+### ### **D9 AND D13 NAMED, WHAT EACH NEEDS PRINTED ; NO PROOF ; NOTHING ON detect-b729 CHANGED AT THIS ACT.**

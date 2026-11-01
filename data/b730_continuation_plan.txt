@@ -1,0 +1,48 @@
+b730 -- THE continuation FIELD'S PLAN, (R340)(4): WRITTEN AND COMMITTED BEFORE ANY LEAN. Pins read: SIDE-explicit-formula main badaccc, Mathlib de5ce8a9a66a, Lean v4.34.0-rc1. No lean on this host; every module read by a dispatch on zq-b730.
+
+## (1) THE FIELD AS A LEAN Prop, MATCHING ZQPremises.continuation AT THE PIN
+  ZQPremises.continuation : ZQContinuation zq (Schema/EpsteinZQ.lean :138), the structure at :80-:86, five clauses: summable, agrees, holomorphic, functional_equation, real_on_real.
+  THE TARGET:  theorem SIDEExplicitFormula.Schema.ZQ.zq_continuation : ZQContinuation zqFn
+               theorem SIDEExplicitFormula.Schema.ZQ.exists_zq_continuation : ∃ zq : ℂ → ℂ, ZQContinuation zq
+  zqFn s := qBase ^ s * ((Gamma s)⁻¹ * (zqPair.Λ₀ s - 1 / (1 - s)) - (Gamma (s + 1))⁻¹), holomorphic off 1 with the pole of Gamma at each non-positive integer cancelled by (Gamma s)⁻¹.
+  The instance's grade does not move on this field: four fields stay named premises, and no sentence of this act gives the instance DERIVES.
+
+## (2) THE ROUTE, AND ITS ONE DIFFERENCE FROM THE BANK'S WORDS
+  (R340)(4) and data/b729_count_price.txt (5) name jacobiTheta2_functional_equation and WeakFEPair. The route uses WeakFEPair directly and the first through Mathlib's kernels: evenKernel_functional_equation
+  (NumberTheory/LSeries/HurwitzZetaEven.lean :132, its proof at :138 a rewrite by jacobiTheta₂_functional_equation), hasSum_int_evenKernel :163, hasSum_int_cosKernel :172.
+  Write Q(m,n) = (m + n/2)^2 + (23/4) n^2 and thetaU a = sum over (m,n) of exp(-pi a Q). Summing in m first and applying the kernel equation:
+      thetaU a = a^(-1/2) * D(23a/4, 1/a),   D(x, y) = sum_n sum_k exp(-pi n^2 x) * c(n,k) * exp(-pi k^2 y),   c(n,k) = exp(2 pi i (n/2) k) = c(k,n).
+  D(x,y) = D(y,x) by one exchange of a summable double sum. Applied at a and at b = 4/(23a), where (b*23/4, 1/b) = (1/a, 23a/4), the same D appears twice, so a^(1/2) thetaU a = b^(1/2) thetaU b. THE SEAT'S DESIGN, smaller than
+  a second Poisson step: one lemma used twice and one exchange. With theta(t) = thetaU((2/sqrt 23) t), theta(1/t) = t theta(t): a WeakFEPair with f = g = theta, k = 1, epsilon = 1, f0 = g0 = 1.
+  A control printed by the seat before any Lean: the identity's two sides at a = 0.7 and a = 1.3, truncated lattice sum, tools/b730_theta_check.py, its bank data/b730_theta_check.txt; a false law found here costs no dispatch.
+
+## (3) THE LEMMAS, EACH WITH ITS NEAREST COMPILED NEIGHBOUR AND ITS PRICE (THE SEAT'S ESTIMATE, NOT A BOUND)
+  GROUP   MODULE                                 LEMMA                                                 NEAREST COMPILED NEIGHBOUR                                        LINES    DISPATCHES
+  A       Schema/ZQ/Lattice.lean                 half_le_qR, one_le_Q0form (form bounds)                four_mul_Q0form, Schema/EpsteinZQ.lean :46                        30       1-3
+                                                 gauss_summable, lattice_summable                       hasSum_int_evenKernel :163; Summable.mul_of_nonneg                30
+                                                 mem_box, preimage_boxF, hasSum_fiber (r_Q's fibres)    HasSum.tsum_fiberwise, Constructions.lean :240; Finset.tsum_subtype 70
+                                                 lattice_rpow_summable, rQ_term_summable, zq_summable   summable_one_div_norm_rpow, EisensteinSeries/Summable.lean :203   70
+  B       Schema/ZQ/Theta.lean                   cTerm, its norm and symmetry                           Complex.norm_exp_ofReal_mul_I                                     20       1-3
+                                                 thetaU_eq (the Step above)                             evenKernel_functional_equation :132; hasSum_int_cosKernel :172    70
+                                                 dbl_comm (the exchange)                                Summable.tsum_comm, Constructions.lean :260                       30
+                                                 thetaU_inversion                                       thetaU_eq twice                                                   30
+  C       Schema/ZQ/FEPair.lean                  thetaC_continuousOn                                    continuousOn_tsum, FunctionSeries.lean :116                       35       1-3
+                                                 thetaU_sub_one_le, thetaC_decay                        isLittleO_exp_neg_mul_rpow_atTop, Pow/Asymptotics.lean :347       65
+                                                 thetaC_feq, zqPair : WeakFEPair ℂ, zqPair_symm_Λ       WeakFEPair, AbstractFuncEq.lean :80; h_feq' :107                  50
+  D       Schema/ZQ/Continuation.lean            hasSum_theta_sub_one, mellin_eq (Mellin = Dirichlet)   hasSum_mellin, MellinEqDirichlet.lean :24                         70       2-3
+                                                 zqFn, mul_zqFn_eq, agrees, holomorphic, FE             hasMellin :405; functional_equation :425; differentiable_Λ₀ :389  80
+                                                 Λ₀_real, real_on_real                                  integral_ofReal, Bochner/ContinuousLinearMap.lean :158            50
+                                                 zq_continuation                                        the five clauses                                                  15
+  IN ALL: 4 modules, about 715 lines, 5-12 dispatches, 9-14 foreground hours (the seat's). THE RE-PRICE against the bank's 1,500-3,000 lines and 25-50 dispatches (b716 (b), data/b729_count_price.txt (3)): that estimate assumed a two-dimensional
+  Poisson step written from nothing; thetaU_eq reads Mathlib's one-dimensional kernels and the exchange replaces the second transform. Blind writing (no lean on this host) is the risk, and it is measured only by the dispatches themselves.
+
+## (4) THE ORDER THEY BUILD IN
+  A, B, C, D: one dispatch per group, each read by its run id, the target that group's module (each imports the one before); free memory printed before each; each group's source read through before its push, b729 defect (r) the cost of not doing so.
+  print_targets.txt on the branch appended with the field's names.
+
+## (5) THE STOP POINTS
+  After each group the branch compiles to that group. STOP AT ANY GROUP where the twelve dispatches run out or a lemma resists: the field reads OPEN at the first lemma not compiled, the dispatches spent and the lines written, and the sorry-free statement of what remains is printed from the
+  group's compiled theorems (no sorry on the branch, no axiom added, a remaining lemma stated in the bank and not in Lean). THE GRADE is CLOSED only on zq_continuation compiled with the standard three, read from the run's axioms output.
+  Each stopped act carries this bank, the branch and the remaining groups' lines.
+
+### ### **THE FIELD STATED ; ROUTE evenKernel/cosKernel + WeakFEPair ; 4 GROUPS, ABOUT 715 LINES, 5-12 DISPATCHES (THE SEAT'S) ; THE CAP TWELVE ; NOTHING BUILT AT THIS BANK'S COMMIT.**
