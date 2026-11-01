@@ -15,6 +15,7 @@ ruling's top-level item whose clause carries that name (b725: (R335)(5)); where 
 """
 import os
 import re
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -54,6 +55,49 @@ def word_rows(word, read=None, act=None):
     banks = '\n'.join(read('data/' + f) for f in sorted(os.listdir(A.D)) if f[:5] in [x + '_' for x in acts] and f.endswith('.txt') and 'author_answers' not in f and 'ferry' not in f and 'commands' not in f)
     for num, unit in sorted(set(FIGURE.findall(word or ''))):
         rows.append(('figure', '%s %s' % (num, unit), bool(re.search(r'(?<![\d,.])%s(?![\d,])' % re.escape(num), banks))))
+    return rows
+
+
+LEAN_PATH = re.compile(r'(?<![\w/.-])[A-Za-z][\w./-]*\.lean\b')
+LEAN_NAME = re.compile(r'(?<![\w.-])[a-zA-Z]\w*(?:[A-Z_]\w*)(?:\.[A-Za-z_]\w*)*')
+LEAN_DECL = r'^\s*(private\s+)?(noncomputable\s+)?(theorem|lemma|def|structure|abbrev|instance)\s+%s(\s|$|:)'
+
+
+def _tree(repo, rev):
+    r = subprocess.run(['git', '-C', repo, 'ls-tree', '-r', '--name-only', rev], capture_output=True)
+    if r.returncode:
+        raise ValueError('cites: %s has no tree at %s' % (repo, rev))
+    return r.stdout.decode('utf-8', 'replace').split('\n')
+
+
+def _decl(repo, rev, name):
+    r = subprocess.run(['git', '-C', repo, 'grep', '-l', '-E', LEAN_DECL % re.escape(name.split('.')[-1]), rev, '--', '*.lean'], capture_output=True)
+    return [l.split(':', 1)[1] for l in r.stdout.decode('utf-8', 'replace').split('\n') if ':' in l]
+
+
+def lean_rows(text, trees, near=110):
+    """v1.12.0, (R342)(2)(iii): every Lean path the text names, against the trees at their pins, [(where, what, reading, ok)]. A path no tree holds is one failing row. The instance (R342) names is not of that kind:
+    (R341)(4)'s Chi/Generic.lean stands in the tree, and the declaration it was cited for, chiZeroConfig, stands in Chi/ZeroConfig.lean; so a declaration named just before a path, inside its sentence, and
+    declared elsewhere is a failing row too. A word no tree declares is no declaration and takes no row. trees: [(repo, rev)]."""
+    files = [(repo, rev, f) for repo, rev in trees for f in _tree(repo, rev)]
+    cache, rows = {}, []
+    for m in LEAN_PATH.finditer(text or ''):
+        p, line = m.group(0), text.count('\n', 0, m.start()) + 1
+        hits = [f for _r, _v, f in files if f == p or f.endswith('/' + p)]
+        rows.append((':%d' % line, p, 'in the tree at %s' % ', '.join(sorted(set(h for h in hits))) if hits else 'ABSENT FROM THE TREE AT ITS PIN', bool(hits)))
+        if not hits:
+            continue
+        w = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
+        w = re.split(r'\.lean\b|[.;:] ', w)[-1]
+        for name in reversed(LEAN_NAME.findall(w)):      # ### the nearest declaration before the path is the one it is cited for; a dotted name is a field and no declaration
+            if '.' in name:
+                continue
+            if name not in cache:
+                cache[name] = sorted(set(f for repo, rev in trees for f in _decl(repo, rev, name)))
+            at = cache[name]
+            if at:
+                rows.append((':%d' % line, '%s beside %s' % (name, p), 'declared at %s' % ', '.join(at), bool(set(at) & set(hits))))
+                break
     return rows
 
 

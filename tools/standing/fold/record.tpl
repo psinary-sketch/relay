@@ -2440,8 +2440,8 @@ def _n3():
     f = _figs()
 ⟪SLOT 19⟫
     fj = jl('%s_findings.json' % ACT)
-    text = fj.get('text') or ''
-    src = 'the landed entry`s text (relay data/⟪ACT⟫_findings.json)'
+    text = __import__('standing.act', fromlist=['landed_entry']).landed_entry('⟪ACT⟫', fj) if fj.get('line') else ''   # ### v1.12.0, (R342)(2)(iv): the landed lines, keyed by the bank's line; a line that does not read as the entry raises
+    src = 'the landed entry`s lines (PLACE-papers FINDINGS.md :%s at HEAD)' % fj.get('line')
     if not text:
         text, src = _finding_text()[1], 'the composer`s text (no entry landed yet)'
     sents = [s for s in re.split(r'(?<=[.;])\s+', text) if 'Nothing here is a statement' not in s]

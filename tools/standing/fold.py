@@ -84,13 +84,13 @@ def has_sections(act):
     return os.path.isfile(sections_path(act))
 
 
-def _parse(act):
+def _parse(act, t=None):
     """(sections {(tool, n): text}, overrides {tool: [(first, last, text)]}) -- each the lines from its marker line to the next line
     "#⟪END⟫" (no source carries the mark, so the end cannot be mistaken; a marker ending " NOEOL" means the text's last line has no newline,
     the one written before the end line dropped). A SECTION fills the template's slot n; an OVERRIDE is the act's own lines in place of the
     template's lines first..last (1-based, inclusive; last = first - 1 inserts before first), the way an act changes a line every earlier
     act shares without changing their renders: the template stays, the act's module carries the change. Edited by the Edit tool."""
-    t = _rd(sections_path(act))
+    t = _rd(sections_path(act)) if t is None else t   # ### v1.12.0: a module's text passed, a blob read at its commit
     secs, ovs, i = {}, {}, 0
     while True:
         m = SECTION.search(t, i)

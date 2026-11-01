@@ -60,6 +60,25 @@ def gs(repo, *args):
     return None if b is None else b.decode('utf-8', 'replace').replace('\r', '').strip()
 
 
+def landed_entry(act, fj, rev='HEAD'):
+    """v1.12.0, (R342)(2)(iv): the act's FINDINGS entry as it landed, keyed to the line data/<act>_findings.json banks, read from PLACE-papers at `rev`, as many bytes as the bank's `append` records (a later act's
+    dated note under the entry is not the entry: b730's stands so), to the next heading at column 0 where it records none. The bank carries no `text` key, so N3's reader, reading that key, fell to the composer at
+    b730 and b731 (b731 event (10)). The line must read the bank's head or this raises; it never falls to the composer."""
+    b = git('pp', 'show', '%s:FINDINGS.md' % rev)
+    if b is None:
+        raise ValueError('landed_entry: %s: no FINDINGS.md at %s' % (act, rev))
+    lines = b.decode('utf-8').split(NL)
+    i = int(fj['line']) - 1
+    if not 0 <= i < len(lines) or lines[i].rstrip() != (fj.get('head') or fj.get('title') or '').rstrip():
+        raise ValueError('landed_entry: %s: FINDINGS.md :%d does not read the bank`s head' % (act, i + 1))
+    ap = fj.get('append') or {}
+    if ap.get('added'):
+        at = len(NL.join(lines[:i]).encode('utf-8')) + 1
+        return b[at:at + int(ap['added']) - (1 if ap.get('prefix') else 0)].decode('utf-8').strip() + NL
+    e = next((k for k in range(i + 1, len(lines)) if lines[k].startswith('## ')), len(lines))
+    return NL.join(lines[i:e]).strip() + NL
+
+
 def blob(rev, rel, repo='relay'):
     """a file's bytes at a commit (None where the commit does not carry it)."""
     return git(repo, 'show', '%s:%s' % (rev, rel))

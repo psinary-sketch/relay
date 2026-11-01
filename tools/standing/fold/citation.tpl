@@ -215,9 +215,9 @@ def check(*a):
     L += ['', '### THE MISSES, EACH RAISED TO THE AUTHOR OR ENTERED BY THE FACT CLAUSE BEFORE THE COMPONENT THAT CITES IT RUNS (none repaired silently):']
     L += ['  %s -- %s (Component %s)' % (what, how, comp) for _w, what, ok, how, comp in miss] or ['  NONE']
     # ### v1.9.0, (⟪RUL⟫)(2)(vii): a count or an object noun typed on a text the act's rows name, differing from its bank, halts the check
-    SN = __import__('standing.nouns', fromlist=['halts'])
-    hl = SN.halts(getattr(K, 'NOUN_ROWS', ()), lambda n: rd(os.path.join(D, n)) or '')
-    L += ['', '### THE TYPED COUNTS AND NOUNS AGAINST THEIR BANKS: rows %d ; differing %d' % (len(getattr(K, 'NOUN_ROWS', ())), len(hl))]
+    SN, LN = __import__('standing.nouns', fromlist=['halts']), __import__('standing.cites', fromlist=['lean_rows']).lean_rows(text, getattr(K, 'LEAN_TREES', ()))   # ### v1.12.0, (R342)(2)(iii): every Lean path the ruling or ferry names, and a declaration beside it, against the tree at the pin
+    hl = SN.halts(getattr(K, 'NOUN_ROWS', ()), lambda n: rd(os.path.join(D, n)) or '') + [r[:3] for r in LN if not r[3]]
+    L += ['', '### THE TYPED COUNTS AND NOUNS AGAINST THEIR BANKS: rows %d ; THE LEAN PATHS AND THE DECLARATIONS BESIDE THEM AGAINST THE TREE: rows %d ; differing %d' % (len(getattr(K, 'NOUN_ROWS', ())), len(LN), len(hl))]
     L += ['  HALT | %s | typed %r | the bank reads %r' % h for h in hl]
     L += ['', '### ### **CITES CHECKED %d ; OK %d ; MISSES %d.**' % (len(R), len(R) - len(miss), len(miss))]
     if 'dry' in a:

@@ -7,9 +7,14 @@ Written at b731 by the Write tool.
   ratio(row, est_lines, est_disp)                         the row beside its estimate, the two ratios each low-high
   reprice(est_lines, est_disp, r)                         an estimate read by a measured ratio, the dispatches rounded out
   rows_text(rows)                                         the bank's table
+  v1.12.0, (R342)(2)(ii): estimates(text), measured_rows(text), reprice_read(price_text, measured_text, field, by): the re-price read from the banks, no hand arithmetic
+  python -X utf8 tools/standing/pricebank.py reprice <field> <by> <measured-bank>     prints it; the price bank data/b729_count_price.txt
 Pure in its arguments; the act's tool writes the bank.
 """
 import math
+import os
+import re
+import sys
 
 FORM = 'I-10`s form: a lower bound on a specified implementation, re-measured after the build; a floor on that one route and no estimate of another'
 
@@ -30,6 +35,36 @@ def reprice(est_lines, est_disp, r):
     return (int(est_lines[0] * r[0]), int(math.ceil(est_lines[1] * r[1])), max(1, int(math.floor(est_disp[0] * r[2]))), max(1, int(math.ceil(est_disp[1] * r[3]))))
 
 
+EST_ROW = re.compile(r'(?m)^  (\w+)\s+\S.*?\s(\d[\d,]*-\d[\d,]*)(?: \([^)]*\))?\s+(\d+-\d+)\s+(\d+-\d+)\s*$')
+MEAS_ROW = re.compile(r'(?m)^  (\w+)\s+(\d+-\d+)\s+(\d+-\d+)\s+(\d+)\s+(\d+)\s+[\d.]+-[\d.]+ ; [\d.]+-[\d.]+\s+\S')
+PRICE_BANK = 'data/b729_count_price.txt'
+
+
+def _pair(s):
+    a, b = s.replace(',', '').split('-')
+    return int(a), int(b)
+
+
+def estimates(text):
+    """v1.12.0, (R342)(2)(ii): the price bank's table of fields: {field: (est_lines, est_disp)}, read from its rows."""
+    return dict((m.group(1), (_pair(m.group(2)), _pair(m.group(3)))) for m in EST_ROW.finditer(text))
+
+
+def measured_rows(text):
+    """the measured bank's rows: {field: (est_lines, est_disp, lines, dispatches)}, read from its table."""
+    return dict((m.group(1), (_pair(m.group(2)), _pair(m.group(3)), int(m.group(4)), int(m.group(5)))) for m in MEAS_ROW.finditer(text))
+
+
+def reprice_read(price_text, measured_text, field, by):
+    """the re-price from the two banks alone, no figure typed: `field`'s estimate read by the ratio of `by`'s measured row beside `by`'s own estimate. A field or row the banks lack raises."""
+    est, mea = estimates(price_text), measured_rows(measured_text)
+    if field not in est or by not in mea:
+        raise ValueError('pricebank: %s or %s not in the banks: estimates %s, measured %s' % (field, by, sorted(est), sorted(mea)))
+    el, ed, lines, disp = mea[by]
+    r = ratio(dict(lines=lines, dispatches=disp), el, ed)
+    return reprice(est[field][0], est[field][1], r)
+
+
 def rows_text(rows):
     """rows: dict(field, est_lines, est_disp, source, row): one line a field, estimate beside measured, the ratio printed."""
     L = ['  %-16s %-14s %-11s %-9s %-11s %-30s %s' % ('field', 'est lines', 'est disp', 'lines', 'dispatches', 'ratio lines ; dispatches', 'the estimate`s source')]
@@ -38,3 +73,13 @@ def rows_text(rows):
         L.append('  %-16s %-14s %-11s %-9d %-11d %-30s %s' % (x['field'], '%d-%d' % x['est_lines'], '%d-%d' % x['est_disp'], x['row']['lines'], x['row']['dispatches'],
                                                              '%.3f-%.3f ; %.3f-%.3f' % r, x['source']))
     return L
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 5 or sys.argv[1] != 'reprice':
+        sys.exit(__doc__)
+    ROOT_ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    def rd_(rel):
+        with open(os.path.join(ROOT_, rel), encoding='utf-8') as f:
+            return f.read()
+    print('%s by %s`s measured ratio: %d-%d lines, %d-%d dispatches (read from %s and %s)' % ((sys.argv[2], sys.argv[3]) + reprice_read(rd_(PRICE_BANK), rd_(sys.argv[4]), sys.argv[2], sys.argv[3]) + (PRICE_BANK, sys.argv[4])))
