@@ -139,12 +139,15 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-REGISTRATIONS = 'data/b725_registrations.txt'    # ### b729 registers no hypothesis ((R339) orders none; b728 registered none: b725's the last, carried name)
+REGISTRATIONS = 'data/b729_registrations.txt'    # ### (R339)(7): H-ONSET-C, committed alone at d1f94c17
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b728's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
                ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'),
-               ('data/b725_registrations.txt', 'dc0d4133'))   # ### N2 (b725's row, its last amendment, the blob HEAD carries; b729 registers nothing)
+               ('data/b725_registrations.txt', 'dc0d4133'),   # ### N2 (b725's row, its last amendment, the blob HEAD carries)
+               ('data/b729_registrations.txt', 'd1f94c17'))   # ### N2: H-ONSET-C, before any figure at off44 or off24
+FIT_COMMIT, PRED_COMMIT = 'a311a99b', 'acf699c0'              # ### N2: the fit with its residuals before the registration, the predictions by their own commit after it
+ONSET_COMMIT = '40a4e6b0'                                     # ### the onsets' units and score, committed
 REG_FILES = tuple(f for f, _c in REG_COMMITS)
 PRED_B717 = 'data/b717_predictions.txt'
 PRED_B717_COMMIT = 'f47d8ab5840d287bf63c1f0b59ba707ed85dbe07'
@@ -153,8 +156,9 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b728 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b729_standing_v180.txt', 'data/b729_onset_table.txt', 'data/b729_onset_b725_reread.txt', 'data/b729_c2.txt', 'data/b729_lambda2.txt', 'data/b729_visibility.txt', 'data/b729_address_scan.txt')
-#   ### the banks of (R339)(2)-(5), each written by its component
+COMPUTE_BANKS = ('data/b729_standing_v190.txt', 'data/b729_c2.txt', 'data/b729_lambda2.txt', 'data/b729_detection.txt', 'data/b729_count_price.txt', 'data/b729_onset_fit.txt', 'data/b729_onset_pred.txt',
+                 'data/b729_onset_score.txt', 'data/b729_onset_units.jsonl', 'data/b729_address_scan.txt')
+#   ### the banks of (R339)(2)-(7), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b728_read_calls.txt', 'data/b729_read_calls.txt')
@@ -170,7 +174,7 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'SPIRAL_MAP.md', 'day1/Which_Structure_Confines_v2_4_0.md')   # ### the ledgers and (R339)(2)(viii)'s SPIRAL_MAP :104 and edition :316
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the ledgers alone (N5, the (W) list of (R339)(9))
 PP_WRITTEN = PP_EDITED
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
@@ -178,9 +182,9 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('b729 under (R339)(10): the Beurling row’s literature read for the mechanism table and the 2C cluster’s note on the statement-grading instruments beside Invariance Barriers; '
-        'H-ONSET-MASS-2’s test and W-ORD-VISIBILITY’s registration fall away, (3) having registered nothing and (6) having written no candidate')
-NEXT_ACT = 'b729'
+NEXT = ('b730 under (R339)(11): the Phase 2 doors act, the STATED / EXCEEDS / OUTSIDE audit over the 2A-2G syntheses’ head sentences and their kernels’ READMEs against the statements at their pins, '
+        'drafts for a second sitting, nothing applied')
+NEXT_ACT = 'b730'
 
 
 def orders_naming(ot_text, act):
@@ -247,23 +251,23 @@ B723_ROOT_BANKS = '1245971b'  # ### b728's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '17ee7abd'
 C1_STANDING_REPAIR = None
-C1_RELAY = None
-C1_CORR = None
-C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None
+C1_RELAY = '82a182d0'
+C1_CORR = 'c58597fd'
+C1_PP = '07910b7'
+WEIGHT_LINE, CORR_LINE = 12141, 12143
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None
+C2_RELAY = '24f2f3a2'
 C2_AMEND = ()
 C2_PP = None
-C3_RELAY = None
+C3_RELAY = ('24e07f4a',)
 C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = 'dc0d4133'                 # ### b728's last registration commit (carried name; b729 registers nothing)
+REG_COMMIT = 'd1f94c17'                 # ### (R339)(7): the registration, alone (N2)
 ORDERS = (142, 60, 42, 12, 28)          # ### b728's (R338)(4) triage, carried as read (data/b728_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b728_orders_triage.txt'
 LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R339)(8))
@@ -285,13 +289,13 @@ MAX_DISPATCHES = 5           # ### N1: (R339)(3) three at most, (R339)(4) two at
 MAX_C2, MAX_KEIPER = 3, 2
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, both branches cut from it, untouched (N5)
-EF_BRANCHES = (('keiper-b725', '2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147'),   # ### (R339)(4): set when the act's tips are read
-               ('c2-b725', 'b91bf5af59b36891765baee33da50ecf7291b025'))       # ### (R339)(4): the split within the field, d7ba0ee1 then b91bf5af, on ea95a8d0
-EF_BRANCHES_ENTERING = ('2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147', 'b91bf5af59b36891765baee33da50ecf7291b025')   # ### keiper-b725 and c2-b725 entering the act
-EF_RUNS = (('c2', 41220283401, 'd7ba0ee187ec0175dc260fb25bd688cbe0a6a0dd', 'SIDEExplicitFormula.C2Field.M267'),
-           ('c2', 41220928153, 'b91bf5af59b36891765baee33da50ecf7291b025', 'SIDEExplicitFormula.C2Field.M427'),
-           ('c2', 41220930451, 'b91bf5af59b36891765baee33da50ecf7291b025', 'SIDEExplicitFormula.C2Field.M403'),
-           ('keiper', 41220932768, '2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147', 'SIDEExplicitFormula.KeiperGammaOne'))   # ### N1: set from the runs read, (kind, run id, ref, target)
+EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # ### (R339)(4): the gamma_1 bound
+               ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'),       # ### (R339)(3): the theorem, built whole at this tip
+               ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'))   # ### (R339)(5): the statement alone, not compiled
+EF_BRANCHES_ENTERING = ('2cb3936cfa87cfbcdc324c1bb950c9a0dbbe8147', 'b91bf5af59b36891765baee33da50ecf7291b025', EF_BASE)   # ### the three entering the act; detect-b729 cut from main
+EF_RUNS = (('c2', 41249471618, '9af30c5dfd34db707d5e7d374cd564c20f67e33d', 'C2Tab C2Omega C2Div C2Arith C2Sweep C2Law C2Probe.Sweep C2Probe.Law'),
+           ('c2', 41249967563, '0395f15d3b2906716ccb1f09ca24171d7a921210', 'SIDEExplicitFormula.C2Theorem'),
+           ('keiper', 41250704286, '01fd33c2d7dc62d4702b075de3dda9253c5c2f87', 'SIDEExplicitFormula.KeiperGammaBound'))   # ### N1: (kind, run id, ref, target), three of the five
 DISPATCH_ROWS = 'data/b729_dispatch_rows.json'
 ERRATA_ID = None   # ### (R339) orders no ERRATA entry
 ERRATA_IDS = ()
@@ -309,6 +313,5 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-WRITELIST-MIRROR-STATE')
 
 # ### (R339)(2)(viii): the three kernels' README writes (name, path, head before the write), their tips (carried names, b728's sitting's)
-SITTING_REPOS = (('SIDE-archimedean', 'D:/SIDE-archimedean', '0e3336f'), ('SIDE-spinor', 'D:/SIDE-spinor', '5c34c72'), ('SIDE-rcurve', 'D:/SIDE-rcurve', 'f093005'))
-SITTING_TIPS = {'SIDE-archimedean': 'b71ffb8aa3fd8e47b2e4f2228cdb78ce85f8ceb6', 'SIDE-spinor': '25c76d8ea20787f64963c4ac834ccb303239146b',
-                'SIDE-rcurve': '0bcb6c1d707646fc7a02fb9fed5cf9b01f3d7a66'}
+SITTING_REPOS = ()     # ### b729 writes no kernel's main (N5): no sitting
+SITTING_TIPS = {}

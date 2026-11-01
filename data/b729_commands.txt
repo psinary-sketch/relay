@@ -1,0 +1,394 @@
+b729 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-01T04:48:13Z)
+
+### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R339) BEGIN', with its subagents` transcripts
+### commands read: 324
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #154 2026-10-31T22:50:02.843Z seat Bash -- R rm without an explicit absolute path
+      git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" rm -r -q SIDEExplicitFormula/C2Probe
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b728, its own session 7c29db99, from its post-push combine to that session`s end): 14 commands from 2026-10-31T21:33:30.794Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES ((R339)(7)(iii) and N1: the rebuild`s one per wave 1 kernel through tools/b729_rebuild.py dispatch, SIDE-frobenius`s run on push through push_run) (3):
+  #142 python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py" && gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=9af30c5dfd34db707d5e7
+  #161 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=0395f15d3b2906716ccb1f09ca24171d7a921210 -f target="SIDEExplicitFormula.C2Theorem"
+  #179 gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=01fd33c2d7dc62d4702b075de3dda9253c5c2f87 -f target="SIDEExplicitFormula.KeiperGammaBound"
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (2):
+  #14 [run_in_background] python -X utf8 -u tools/b729_address_scan.py scan --bank
+  #18 [run_in_background] python -X utf8 -u tools/standing/fold.py record rowgen stepzero
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+  #133 2026-10-31T22:41:52.343Z git grep -n -E "gh (workflow|run)|dispatched|run_id|workflow" -- data/b728_events.txt tools/b728_dispatch_rows.py tools/standing/fold/record.tpl tools/b729_worklist.py | head -0; git -C "C:/Users/ECHO
+  #302 2026-11-01T04:36:51.634Z ls /d/relay/data/ -1 --ignore='*.png' -t --time-style=+%H:%M -l --color=never --hide='b[0-9][0-9][0-9]_*' --hide='b6*' --hide='b5*' --hide='b4*' --hide='b3*' | wc -c; ls -1 /d/relay/data/b729_* /d/rel
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (4):
+  #83 2026-10-31T22:10:42.537Z git status --short --untracked-files=no && git ls-files data | git grep -n "b729" -- data/b729_registrations.txt
+  #133 2026-10-31T22:41:52.343Z git grep -n -E "gh (workflow|run)|dispatched|run_id|workflow" -- data/b728_events.txt tools/b728_dispatch_rows.py tools/standing/fold/record.tpl tools/b729_worklist.py | head -0; git -C "C:/Users/ECHO
+  #270 2026-11-01T02:36:03.725Z Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-String -Width 80
+  #302 2026-11-01T04:36:51.634Z ls /d/relay/data/ -1 --ignore='*.png' -t --time-style=+%H:%M -l --color=never --hide='b[0-9][0-9][0-9]_*' --hide='b6*' --hide='b5*' --hide='b4*' --hide='b3*' | wc -c; ls -1 /d/relay/data/b729_* /d/rel
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
+  NONE
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (7):
+  #38 2026-10-31T21:56:24.076Z Bash
+      git -C /d/relay branch -d push-b728-closing
+  #39 2026-10-31T21:56:25.862Z Bash
+      git -C /d/relay branch -d push-b728-preroot
+  #40 2026-10-31T21:56:28.524Z Bash
+      git -C /d/relay branch -d push-b728-preroot2
+  #41 2026-10-31T21:56:31.325Z Bash
+      git -C /d/relay branch -d push-b728-record
+  #42 2026-10-31T21:56:34.350Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b728-preroot
+  #43 2026-10-31T21:56:37.147Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b728-record
+  #154 2026-10-31T22:50:02.843Z Bash
+      git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" rm -r -q SIDEExplicitFormula/C2Probe
+
+### THE BRANCH DELETES BY SHAPE ((R339)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #38 deletes ['push-b728-closing'], halves 1, globs none, variables none, chained after False; #39 deletes ['push-b728-preroot'], halves 1, globs none, variables none, chained after False; #40 deletes ['push-b728-preroot2'], halves 1, globs none, variables none, chained after False; #41 deletes ['push-b728-record'], halves 1, globs none, variables none, chained after False; #42 deletes ['push-b728-preroot'], halves 1, globs none, variables none, chained after False; #43 deletes ['push-b728-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-10-31T21:47:29.804Z | seat | Bash | git -C /d/relay add data/act_current.json
+  #2 | 2026-10-31T21:47:31.652Z | seat | Bash | git -C /d/relay commit -q -m "b729 step zero: data/act_current.json for b729 under (R339), committed alone before any other command of the act"
+  #3 | 2026-10-31T21:48:18.877Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation ferry
+  #4 | 2026-10-31T21:48:20.042Z | seat | Bash | git status --short --untracked-files=no && git log -2 --format="%h %s" && git grep -c "" -- tools/b728_carry.py tools/b728_worklist.py tools/acts/b728.py tools/
+  #5 | 2026-10-31T21:48:37.901Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/carrycarry729.py" && cd /d/relay && python -X ut
+  #6 | 2026-10-31T21:48:43.436Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation ferry
+  #7 | 2026-10-31T21:48:45.883Z | seat | Bash | git -C /d/relay branch --list "push-b728*" -v
+  #8 | 2026-10-31T21:48:46.587Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --list "push-b728*" -v
+  #9 | 2026-10-31T21:49:03.823Z | seat | Bash | git grep -n -E "1bf8a57c|3742f12|a079a1ad|c527524a|--bank|KEEP|def main|sys.argv" -- tools/b728_address_scan.py
+  #10 | 2026-10-31T21:49:33.617Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/stage729.py" && cd /d/relay && python -X utf8 -u
+  #11 | 2026-10-31T21:49:40.742Z | seat | Bash | git -C /d/relay add -- data/b728_steps.json
+  #12 | 2026-10-31T21:49:42.747Z | seat | Bash | git -C /d/relay commit -q -m "b729 step zero: b728's closing step row 36, committed alone ((R339)(9))"
+  #13 | 2026-10-31T21:49:45.254Z | seat | Bash | git -C /d/relay add -- data/b728_relay_push-b728-closing_push_out.txt
+  #14 | 2026-10-31T21:49:47.731Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan --bank
+  #15 | 2026-10-31T21:49:55.200Z | seat | Bash | git -C /d/relay commit -q -m "b729 step zero: b728's closing push capture, committed alone ((R339)(9))"
+  #16 | 2026-10-31T21:49:59.173Z | seat | Bash | python -X utf8 -u tools/standing/readfirst.py write b729
+  #17 | 2026-10-31T21:50:00.570Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #18 | 2026-10-31T21:50:01.677Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rowgen stepzero
+  #19 | 2026-10-31T21:51:30.996Z | seat | Bash | git status --short --branch
+  #20 | 2026-10-31T21:51:59.746Z | seat | Bash | git -C /d/SIDE-explicit-formula branch -a --list "*b725*" -v
+  #21 | 2026-10-31T21:52:00.802Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree -r --name-only c2-b725 --  SIDEExplicitFormula/C2Walk.lean SIDEExplicitFormula/C2Chain.lean SIDEExplicitFormula/C2ValueL
+  #22 | 2026-10-31T21:52:03.863Z | seat | Bash | git -C /d/SIDE-explicit-formula show c2-b725:SIDEExplicitFormula/C2Walk.lean
+  #23 | 2026-10-31T21:52:04.614Z | seat | Bash | git -C /d/SIDE-explicit-formula show c2-b725:SIDEExplicitFormula/C2Chain.lean
+  #24 | 2026-10-31T21:52:05.415Z | seat | Bash | git -C /d/SIDE-explicit-formula show keiper-b725:SIDEExplicitFormula/KeiperBounds.lean
+  #25 | 2026-10-31T21:52:06.217Z | seat | Bash | git -C /d/SIDE-explicit-formula show keiper-b725:SIDEExplicitFormula/KeiperGammaOne.lean
+  #26 | 2026-10-31T21:52:07.186Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree -r --name-only c2-b725 -- SIDEExplicitFormula/
+  #27 | 2026-10-31T21:54:23.092Z | seat | Bash | git -C /d/SIDE-explicit-formula show main:SIDEExplicitFormula/Schema/Detector.lean
+  #28 | 2026-10-31T21:54:23.844Z | seat | Bash | git -C /d/SIDE-explicit-formula show main:SIDEExplicitFormula/FirstOrderBound.lean
+  #29 | 2026-10-31T21:54:24.640Z | seat | Bash | git -C /d/SIDE-explicit-formula show keiper-b725:SIDEExplicitFormula/Keiper.lean
+  #30 | 2026-10-31T21:54:25.593Z | seat | Bash | git -C /d/SIDE-explicit-formula ls-tree -r --name-only c2-b725 -- .github lakefile.toml lakefile.lean lake-manifest.json lean-toolchain
+  #31 | 2026-10-31T21:54:46.438Z | seat | Bash | git diff --stat -- data/b728_hook_refusals.txt && git log --oneline -5 && git -C /d/SIDE-explicit-formula log --oneline -1 main && git -C /d/SIDE-explicit-formu
+  #32 | 2026-10-31T21:54:48.105Z | seat | Bash | git -C /d/SIDE-explicit-formula show c2-b725:.github/workflows/build-module.yml
+  #33 | 2026-10-31T21:55:46.619Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/cite729.py" && python -X utf8 -u tools/standi
+  #34 | 2026-10-31T21:56:12.222Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation bank && python -X utf8 -u tools/standing/readfirst.py write b729
+  #35 | 2026-10-31T21:56:15.573Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation check && python -X utf8 -u tools/standing/readfirst.py write b729
+  #36 | 2026-10-31T21:56:16.325Z | seat | Bash | git -C /d/relay branch --merged main --list "push-b728-*"
+  #37 | 2026-10-31T21:56:16.995Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b728-*"
+  #38 | 2026-10-31T21:56:24.076Z | seat | Bash | git -C /d/relay branch -d push-b728-closing
+  #39 | 2026-10-31T21:56:25.862Z | seat | Bash | git -C /d/relay branch -d push-b728-preroot
+  #40 | 2026-10-31T21:56:28.524Z | seat | Bash | git -C /d/relay branch -d push-b728-preroot2
+  #41 | 2026-10-31T21:56:31.325Z | seat | Bash | git -C /d/relay branch -d push-b728-record
+  #42 | 2026-10-31T21:56:34.350Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b728-preroot
+  #43 | 2026-10-31T21:56:37.147Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b728-record
+  #44 | 2026-10-31T21:59:37.567Z | seat | Bash | git -C /d/SIDE-explicit-formula show c2-b725:SIDEExplicitFormula/C2Field/M235.lean
+  #45 | 2026-10-31T21:59:38.189Z | seat | Bash | git -C /d/SIDE-explicit-formula show c2-b725:lakefile.toml
+  #46 | 2026-10-31T21:59:53.271Z | seat | Bash | gh run list -R psinary-sketch/SIDE-explicit-formula --workflow build-module.yml --limit 24 --json databaseId,createdAt,updatedAt,conclusion --template "{{range 
+  #47 | 2026-10-31T21:59:53.902Z | seat | Bash | date -u +%Y-%m-%dT%H:%M:%SZ
+  #48 | 2026-10-31T21:59:57.324Z | seat | Bash | git ls-files tools/standing tools/standing/fold
+  #49 | 2026-10-31T22:00:19.533Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #50 | 2026-10-31T22:01:00.659Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #51 | 2026-10-31T22:01:01.534Z | seat | Bash | git status --short -- data/b729_citation_check.txt data/b729_readfirst.txt tools/b729_carry.py
+  #52 | 2026-10-31T22:01:15.704Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/stage729b.py" && git add data/b729_stepzero.t
+  #53 | 2026-10-31T22:01:20.232Z | seat | Bash | git commit -m "b729 step zero: the ferry, the citation check, the readfirst bank, the price table, the carried tools ((R339)(9))"
+  #54 | 2026-10-31T22:01:33.577Z | seat | Bash | git grep -n -E "G-ACTROOT-BANKED|REQUIRED_BANKS|G-SEAL-HASHES|G-TRAIL-CARRIES-SEAL|POSITIVE-CONTROL PASSES" -- tools/standing tools/acts/b729.py tools/act_close
+  #55 | 2026-10-31T22:01:34.937Z | seat | Bash | git grep -n -E "close_steps_printed|STEP \[7a\]|report dry|def seal_write|close_dry|prompts answered|def prompts_|prompts_put|n5_kernel_clause|def kernel_file_a
+  #56 | 2026-10-31T22:01:41.842Z | seat | Bash | git grep -n -E "def seal_hashes_ok|def trail_tail|'G-SEAL-HASHES'|'G-TRAIL-CARRIES-SEAL'|def _pos_|POS = |NEG = |def _vacuous|VACUOUS" -- tools/standing/fold/ch
+  #57 | 2026-10-31T22:02:07.955Z | seat | Bash | git grep -n "THE CLOSE IN ONE ORDER AT v5" -- data/standing_clauses_v9.txt data/standing_clauses_v5.txt
+  #58 | 2026-10-31T22:02:09.205Z | seat | Bash | git grep -n -E "lockgate|def lock_of|lock gate|FERRY SCAN|def guard\b" -- tools/standing/close.py tools/standing/fold.py tools/acts/b729.py tools/standing/act.p
+  #59 | 2026-10-31T22:02:10.215Z | seat | Bash | git grep -n -E "address_scan|--bank" -- tools/b729_address_scan.py tools/acts/b729.py tools/standing/close.py
+  #60 | 2026-10-31T22:02:12.724Z | seat | Bash | git grep -n -E "write_globs|'globs'|\(W\)|def globs_of|W_LIST|globs_of" -- tools/acts/b729.py tools/standing/fold/record.tpl tools/standing/fold/checks.tpl tool
+  #61 | 2026-10-31T22:02:22.898Z | seat | Bash | git grep -n -l "lockgate" -- "tools/*.py" tools/standing tools/acts/b729.py
+  #62 | 2026-10-31T22:02:23.614Z | seat | Bash | git grep -n -E "lockgate" -- data/b728_commands.txt data/b728_steps.json
+  #63 | 2026-10-31T22:02:46.941Z | seat | Bash | git grep -n -E "STR\.guard|import .* as STR|SHARED_APPENDED|def root_banks|def guard\(" -- tools/standing tools/b729_worklist.py tools/acts/b729.py
+  #64 | 2026-10-31T22:02:48.851Z | seat | Bash | git grep -n -E "address_scan" -- data/b728_events.txt data/b728_closing.txt data/b728_defects.txt tools/standing/act.py tools/standing/fold/record.tpl tools/sta
+  #65 | 2026-10-31T22:03:13.439Z | seat | Bash | git grep -n -E "prompts answered|prompts_n|n_ans|PROMPT_ROW|^### CALL" -- tools/standing/fold/closing.tpl tools/standing/fold/record.tpl tools/standing/allow.py
+  #66 | 2026-10-31T22:03:19.662Z | seat | Bash | git grep -n -E "prompts answered|prompts answered;" -- tools/act_close.py tools/act_root.py tools/standing/close.py tools/standing/orders.py tools/standing/fold
+  #67 | 2026-10-31T22:03:20.552Z | seat | Bash | git grep -n -E "HEAD_LINE|head_line|def head\b|closed: relay" -- tools/standing/fold/closing.tpl tools/acts/b729.py
+  #68 | 2026-10-31T22:04:50.737Z | seat | Bash | git grep -n -E "^import|^from" -- tools/standing/faceform.py tools/standing/hook.py tools/standing/allow.py && git grep -n -E "^(import|from) " -- tools/b729_ad
+  #69 | 2026-10-31T22:06:02.673Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/repair729.py" && python -X utf8 -u tools/stan
+  #70 | 2026-10-31T22:06:12.174Z | seat | Bash | git log --format="%h %ai %s" -5 0650a188 -- data/b728_address_scan.txt
+  #71 | 2026-10-31T22:06:14.233Z | seat | Bash | git grep -n "(W) THE WRITE LIST" -- data/b728_registration_2026-10-31.txt tools/acts/b728.py
+  #72 | 2026-10-31T22:06:23.471Z | seat | Bash | git grep -n -E "README|THE NOTHINGS" -- data/b728_registration_2026-10-31.txt
+  #73 | 2026-10-31T22:06:42.827Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/repair729b.py" && python -X utf8 -u tools/sta
+  #74 | 2026-10-31T22:06:53.943Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan --bank && git status --short -- tools/standing tools/act_close.py tools/acts/b729.py tools/b729_address_scan.p
+  #75 | 2026-10-31T22:07:01.294Z | seat | Bash | git add tools/act_close.py tools/acts/b729.py tools/b729_address_scan.py tools/standing/VERSION tools/standing/act.py tools/standing/allow.py tools/standing/clo
+  #76 | 2026-10-31T22:07:04.677Z | seat | Bash | git commit -m "b729 Component 1: tools/standing/ v1.9.0, (R339)(2)(i)-(viii): the REDIR class at inner shells and cmdlets, report dry before the lock, the requi
+  #77 | 2026-10-31T22:08:03.706Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "step zero" d3512b5f && python -X utf8 -u tools/standing/fold.py record step relay "step zero" ca7991
+  #78 | 2026-10-31T22:09:48.143Z | seat | Bash | git grep -n -E "^\(7\)|H-ONSET-C|COMPONENT 4" -- data/b729_ferry.txt data/b729_stepzero.txt
+  #79 | 2026-10-31T22:09:57.900Z | seat | Bash | git grep -n -E "^def |^    def " -- tools/b725_onset_mass.py
+  #80 | 2026-10-31T22:10:30.236Z | seat | Bash | git grep -n -E "^(  )?(off44|off24|off18)|off24|off44" -- data/b725_onset_mass.txt
+  #81 | 2026-10-31T22:10:40.583Z | seat | Bash | git grep -n -E "^(LADDER|WIDTH|BATCH|WORKERS|RUNGS)|^def guard|'P'\]? *[:=]|us\['P'\]|def terms709|def _window|KINDS *=" -- tools/b723_support.py tools/b709_gri
+  #82 | 2026-10-31T22:10:41.434Z | seat | Bash | git grep -n -E "^\(7\)|^  \(7\)|off24|off44" -- data/b729_stepzero.txt
+  #83 | 2026-10-31T22:10:42.537Z | seat | Bash | git status --short --untracked-files=no && git ls-files data | git grep -n "b729" -- data/b729_registrations.txt
+  #84 | 2026-10-31T22:11:57.350Z | seat | Bash | python -X utf8 -u tools/b729_onset_fit.py fit --bank
+  #85 | 2026-10-31T22:12:06.808Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py" && python -X utf8 -u tools/b729_ons
+  #86 | 2026-10-31T22:19:36.194Z | seat | Bash | git add tools/b729_onset_fit.py data/b729_onset_fit.txt
+  #87 | 2026-10-31T22:20:11.299Z | seat | Bash | git add tools/b729_onset_fit.py data/b729_onset_fit.txt
+  #88 | 2026-10-31T22:20:13.403Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #89 | 2026-10-31T22:20:18.829Z | seat | Bash | git commit -q -m "b729 Component 4: tools/b729_onset_fit.py and the fit on five, POST HOC, the controls and the rule at the five; no figure at off44 or off24"
+  #90 | 2026-10-31T22:20:21.033Z | seat | Bash | git add data/b729_registrations.txt
+  #91 | 2026-10-31T22:20:23.881Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #92 | 2026-10-31T22:20:29.191Z | seat | Bash | git commit -q -m "b729 Component 4: H-ONSET-C registered, alone, before any figure at off44 or off24; POST HOC on five, off44 and off24 carried from b725"
+  #93 | 2026-10-31T22:20:32.931Z | seat | Bash | git log -3 --format=%h && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py" && python
+  #94 | 2026-10-31T22:22:37.705Z | seat | Bash | git add data/b729_onset_pred.txt
+  #95 | 2026-10-31T22:22:39.873Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan --bank
+  #96 | 2026-10-31T22:22:45.251Z | seat | Bash | git commit -q -m "b729 Component 4: H-ONSET-C's predictions by their own commit, before any onset: off44 10.101388, off24 10.176189; off24's bracket lies wholly
+  #97 | 2026-10-31T22:22:50.642Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 4" a311a99b && python -X utf8 -u tools/standing/fold.py record step relay "component 4" d1
+  #98 | 2026-10-31T22:22:56.942Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 4" acf699c0
+  #99 | 2026-10-31T22:22:59.692Z | seat | Bash | git grep -n -E "CORRIGENDUM|\(2\)\(i\)|\(ii\)|\(iii\)|\(iv\)|\(v\)|\(vi\)|\(vii\)|\(viii\)" -- data/b729_ferry.txt
+  #100 | 2026-10-31T22:23:00.575Z | seat | Bash | git grep -c "" -- data/b728_events.txt data/b728_defects.txt data/b728_hook_refusals.txt data/b675_corrigenda.txt data/b729_defects.txt
+  #101 | 2026-10-31T22:23:09.101Z | seat | Bash | git show 0650a188:data/b728_hook_refusals.txt
+  #102 | 2026-10-31T22:23:10.647Z | seat | Bash | git grep -n -E "B711_ENTRY|B711_TRAIL|B714_RECORD|B714_ROOT|STANDING_VERSION|C1_STANDING|^NEXT|^PREV|STEPZERO|NOUN_ROWS|^ACT_ARMS|C1_RELAY|C1_PP|C1_CORR" -- too
+  #103 | 2026-10-31T22:23:31.566Z | seat | Bash | git grep -n -E "^### \(|^### ### " -- data/b729_standing_v190.txt && git grep -n "G-READ-RULE-STANDING" -- tools/standing/fold/checks.tpl tools/standing/arms.py
+  #104 | 2026-10-31T22:24:26.476Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c1729.py" && python -X utf8 -u tools/standing/fo
+  #105 | 2026-10-31T22:24:32.682Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record c1 weight write && python -X utf8 -u tools/standing/fold.py record c1 corrigendum dry
+  #106 | 2026-10-31T22:24:52.213Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c1729b.py" && python -X utf8 -u tools/standing/f
+  #107 | 2026-10-31T22:25:06.099Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/corr49.py" && git grep -n -i -E "defect" -- data
+  #108 | 2026-10-31T22:25:24.049Z | seat | Bash | git add tools/acts/b729.py tools/b729_worklist.py data/b729_record_lines.json data/b729_steps.json data/b729_address_scan.txt data/b729_defects.txt
+  #109 | 2026-10-31T22:25:27.205Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan --bank && git add data/b729_address_scan.txt
+  #110 | 2026-10-31T22:25:34.032Z | seat | Bash | git commit -q -m "b729 Component 1: b728 at its weight, the c1 composers rewritten to b728's banks, the worklist's fields, the defects bank"
+  #111 | 2026-10-31T22:25:36.886Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers add FINDINGS.md
+  #112 | 2026-10-31T22:25:39.083Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #113 | 2026-10-31T22:25:45.494Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers commit -q -m "b729 Component 1: b728 at its weight and the corrigendum for b728, under (R339)(1)-(2)"
+  #114 | 2026-10-31T22:25:48.823Z | seat | Bash | git add data/b729_corrigendum.txt data/b729_corrigendum.json data/b729_corrigendum_landing.json data/b675_corrigenda.txt
+  #115 | 2026-10-31T22:25:51.166Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #116 | 2026-10-31T22:25:56.737Z | seat | Bash | git commit -q -m "b729 Component 1: the corrigendum bank for b728 and row (49) of the corrigenda bank"
+  #117 | 2026-10-31T22:26:04.156Z | seat | Bash | git log -2 --format=%h && git -C /d/MY-DOwnloads/PLACE-papers log -1 --format=%h && git -C /d/SIDE-explicit-formula branch -a --list "*c2-b725*" "*keiper-b725*"
+  #118 | 2026-10-31T22:26:08.557Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 1" 5f0000000 ; python -X utf8 -u tools/standing/fold.py record step pp "component 1" 07910
+  #119 | 2026-10-31T22:26:11.458Z | seat | Bash | git log -4 --format="%h %s" && git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2clone" log -6 --format=
+  #120 | 2026-10-31T22:26:14.134Z | seat | Bash | cd "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2clone" && git grep -c "" -- "SIDEExplicitFormula/C2Walk.le
+  #121 | 2026-10-31T22:26:24.705Z | seat | Bash | git -C /d/SIDE-explicit-formula fetch -q origin c2-b725 keiper-b725 && git -C /d/SIDE-explicit-formula log -8 --format="%h %s" origin/c2-b725 && git -C /d/SIDE-
+  #122 | 2026-10-31T22:26:33.677Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2clone" remote -v && git -C "C:/Users/ECHOCH~1/AppData/
+  #123 | 2026-10-31T22:26:39.945Z | seat | Bash | git -C /d/SIDE-explicit-formula rev-parse --short c2-b725 origin/c2-b725 keiper-b725 origin/keiper-b725 && git -C /d/SIDE-explicit-formula worktree list
+  #124 | 2026-10-31T22:26:42.839Z | seat | Bash | git -C /d/SIDE-explicit-formula rev-parse c2-b725 origin/c2-b725 keiper-b725 origin/keiper-b725 && git -C /d/SIDE-explicit-formula worktree list
+  #125 | 2026-10-31T22:26:47.478Z | seat | Bash | git clone -q --branch c2-b725 --single-branch "D:/SIDE-explicit-formula" "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/s
+  #126 | 2026-10-31T22:29:49.177Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 1" 82a182d0 && python -X utf8 -u tools/standing/fold.py record step relay "component 1" c5
+  #127 | 2026-10-31T22:30:14.494Z | seat | Bash | ls -d /d/SIDE-*/.lake/packages/mathlib /d/relay/.lake/packages/mathlib /d/*/.lake/packages/mathlib/.git
+  #128 | 2026-10-31T22:30:21.174Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib rev-parse HEAD && git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "theorem (cardFactors
+  #129 | 2026-10-31T22:34:10.307Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "theorem (minFac_sq_le_self|minFac_le|minFac_prime|minFac_dvd|prod_toFinset|prod_divisorsAntid
+  #130 | 2026-10-31T22:34:12.010Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "(prod|sum)_toFinset|theorem Finset\.prod_list|prod_product\b" -- "Mathlib/Algebra/BigOperator
+  #131 | 2026-10-31T22:37:56.025Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2fix1.py" && git -C /d/relay ls-files -- tools/
+  #132 | 2026-10-31T22:41:42.163Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2fix2.py" && git -C /d/SIDE-explicit-formula/.l
+  #133 | 2026-10-31T22:41:52.343Z | seat | Bash | git grep -n -E "gh (workflow|run)|dispatched|run_id|workflow" -- data/b728_events.txt tools/b728_dispatch_rows.py tools/standing/fold/record.tpl tools/b729_work
+  #134 | 2026-10-31T22:41:57.800Z | seat | Bash | ls "$HOME/.elan/toolchains/leanprover--lean4---v4.28.0/src/lean/Init/Data/List/" --hide="*.olean" -d ; git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7
+  #135 | 2026-10-31T22:42:29.846Z | seat | Bash | git grep -n -E "c2-b725|gh workflow|workflow run" -- data/b728_stepzero.txt data/b728_defects.txt tools/b728_address_scan.py && git grep -n -E "\"run\"|run_id|\
+  #136 | 2026-10-31T22:43:02.614Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2fix3.py" && git -C "C:/Users/ECHOCH~1/AppData/
+  #137 | 2026-10-31T22:43:03.360Z | seat | Bash | git grep -n -E "c2-b725|keiper-b725|detect-b729" -- tools/b729_address_scan.py
+  #138 | 2026-10-31T22:43:14.839Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" commit -q -m "b729 (R339)(3): the C2 theorem's l
+  #139 | 2026-10-31T22:43:18.187Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" push -q origin c2-b725
+  #140 | 2026-10-31T22:43:22.469Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #141 | 2026-10-31T22:43:30.153Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch c2-b725 --scratch
+  #142 | 2026-10-31T22:43:42.274Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py" && gh workflow run build-module.yml
+  #143 | 2026-10-31T22:43:52.486Z | seat | Bash | git clone -q --branch keiper-b725 --single-branch "D:/SIDE-explicit-formula" "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5d
+  #144 | 2026-10-31T22:44:00.079Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "riemannZeta₀|theorem riemannZeta_eq_inv_sub_add|tendsto_harmonic_sub_log|tendsto_riemannZeta_
+  #145 | 2026-10-31T22:44:01.223Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "riemannZeta₀|def stieltjes|theorem .*riemannZeta₀" origin/keiper-b725 -- "SIDEExplicitFormula/*.lean"
+  #146 | 2026-10-31T22:46:32.092Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "theorem (antitoneOn_of_deriv_nonpos|HasDerivAt.comp_const_add|HasDerivAt.comp_const_sub|comp_
+  #147 | 2026-10-31T22:46:32.943Z | seat | Bash | gh run view 41249471618 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #148 | 2026-10-31T22:48:07.211Z | seat | Bash | gh run download 41249471618 -R psinary-sketch/SIDE-explicit-formula -D "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scr
+  #149 | 2026-10-31T22:48:08.060Z | seat | Bash | gh run view 41249471618 -R psinary-sketch/SIDE-explicit-formula --json jobs,createdAt,headSha,event
+  #150 | 2026-10-31T22:48:31.625Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" ls-files SIDEExplicitFormula/C2 SIDEExplicitForm
+  #151 | 2026-10-31T22:48:39.951Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" grep -n -E "^theorem cert_m[0-9]+|C2ValueLaw *:|
+  #152 | 2026-10-31T22:49:51.008Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2fix4.py"
+  #153 | 2026-10-31T22:49:56.669Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" grep -n -A1 -E "^theorem (get_set|bigOmega_eq|ca
+  #154 | 2026-10-31T22:50:02.843Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" rm -r -q SIDEExplicitFormula/C2Probe
+  #155 | 2026-10-31T22:50:06.805Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" add SIDEExplicitFormula
+  #156 | 2026-10-31T22:50:10.285Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" commit -q -m "b729 (R339)(3): C2Theorem; field c
+  #157 | 2026-10-31T22:50:14.319Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" push -q origin c2-b725
+  #158 | 2026-10-31T22:50:18.274Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #159 | 2026-10-31T22:50:24.266Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch c2-b725 --scratch
+  #160 | 2026-10-31T22:50:33.357Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #161 | 2026-10-31T22:50:37.297Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=0395f15d3b2906716ccb1f09ca24171d7a921210 -f target="SIDEExplicitFormu
+  #162 | 2026-10-31T22:50:42.785Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "target|lake build" main -- .github/workflows/build-module.yml
+  #163 | 2026-10-31T22:50:43.764Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,displayTitle,createdAt
+  #164 | 2026-10-31T22:52:21.562Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -A3 -E "theorem HasDerivAt.real_of_complex|theorem HasDerivAt.tendsto_slope_zero_right|theorem co
+  #165 | 2026-10-31T22:52:30.310Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "(theorem|lemma) [A-Za-z_.]*(concaveOn_of_(has)?[dD]eriv|concaveOn_of_deriv2_nonpos|concaveOn_
+  #166 | 2026-10-31T22:52:39.347Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "^(theorem|lemma) (image_le_of_deriv_right_le_deriv_boundary|Convex.image_sub_le_mul_sub_of_de
+  #167 | 2026-10-31T22:55:53.123Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "(theorem|lemma) (HasDerivAt\.)?(comp_const_sub|fun_sub|const_mul|mul_const|fun_add)\b|(theore
+  #168 | 2026-10-31T22:55:56.551Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kwork" grep -n -E "^import|^def stieltjes|^namespace|^op
+  #169 | 2026-10-31T22:56:02.568Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "HasDerivAt\.(fun_)?sub\b|HasDerivAt\.(fun_)?add\b|theorem Filter\.Tendsto\.sub_const|Tendsto\
+  #170 | 2026-10-31T22:56:08.354Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "(alias|theorem|lemma) (le_of_tendsto|ge_of_tendsto)|to_dual.*le_of_tendsto|ge_of_tendsto'?\b"
+  #171 | 2026-10-31T22:59:38.168Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -E "^(namespace|end|open|section) |^noncomputable section" -- Mathlib/NumberTheory/Harmonic/Euler
+  #172 | 2026-10-31T23:00:31.636Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kfix1.py"
+  #173 | 2026-10-31T23:00:35.237Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kwork" add SIDEExplicitFormula/KeiperGammaBound.lean pri
+  #174 | 2026-10-31T23:00:38.637Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kwork" commit -q -m "b729 (R339)(4): the gamma_1 bound a
+  #175 | 2026-10-31T23:00:42.410Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kwork" push -q origin keiper-b725
+  #176 | 2026-10-31T23:00:45.730Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #177 | 2026-10-31T23:00:52.379Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch keiper-b725 --scratch
+  #178 | 2026-10-31T23:01:00.992Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #179 | 2026-10-31T23:01:05.207Z | seat | Bash | gh workflow run build-module.yml -R psinary-sketch/SIDE-explicit-formula --ref main -f ref=01fd33c2d7dc62d4702b075de3dda9253c5c2f87 -f target="SIDEExplicitFormu
+  #180 | 2026-10-31T23:01:13.676Z | seat | Bash | git -C /d/SIDE-explicit-formula branch --show-current
+  #181 | 2026-10-31T23:01:15.082Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "^theorem|^def |^structure|^noncomputable def|^abbrev" main -- SIDEExplicitFormula/Chi/LocalCount.lean SIDEExplicitFo
+  #182 | 2026-10-31T23:01:21.255Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "structure WeilConfig|theorem zeroSide_eventually_neg_cfg|theorem dominant_exists|def offScore|def zeroSide_cfg|def l
+  #183 | 2026-10-31T23:01:30.934Z | seat | Bash | git -C /d/relay grep -n -E "\bB1\b" -- "data/b7*_ferry.txt" "data/b72*_stepzero*" "data/b729*" "FINDINGS.md"
+  #184 | 2026-10-31T23:01:56.988Z | seat | Bash | git -C /d/relay grep -l -i -E "support.face|K\(gamma|detection theorem|W-ORD-DETECTION" -- "data/*.txt" "*.md"
+  #185 | 2026-10-31T23:01:58.083Z | seat | Bash | git -C /d/relay grep -n -E "^def |^    *'(DERIVES|EXCEEDS|OUTSIDE|STATED)|DERIVES" -- tools/e0_rule.py
+  #186 | 2026-10-31T23:01:59.035Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -A6 -E "def HCount|structure HCount" main -- "SIDEExplicitFormula/*.lean" "Zeta23/*.lean"
+  #187 | 2026-10-31T23:05:45.387Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -A5 -E "^def classK|^theorem kWindow_classK|^theorem pwWindow_support|^theorem h2_sign_cfg_imp_online" main -- SIDEExpli
+  #188 | 2026-10-31T23:05:46.380Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #189 | 2026-10-31T23:06:16.782Z | seat | Bash | git clone -q --no-hardlinks --branch main /d/SIDE-explicit-formula "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratch
+  #190 | 2026-10-31T23:06:40.344Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #191 | 2026-10-31T23:06:46.764Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/dwork" checkout -q -b detect-b729
+  #192 | 2026-10-31T23:06:54.926Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/dwork" add SIDEExplicitFormula/Schema/SupportDetection.l
+  #193 | 2026-10-31T23:06:59.622Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/dwork" commit -q -m "b729 (R339)(5): the support-face de
+  #194 | 2026-10-31T23:07:02.958Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/dwork" push -q origin detect-b729
+  #195 | 2026-10-31T23:07:05.895Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #196 | 2026-10-31T23:07:13.676Z | seat | Bash | bash /d/relay/tools/push_gated.sh /d/SIDE-explicit-formula --branch detect-b729 --scratch
+  #197 | 2026-10-31T23:07:20.757Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/e0det.py"
+  #198 | 2026-10-31T23:07:39.297Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib rev-parse --short=12 HEAD
+  #199 | 2026-10-31T23:07:41.453Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -c -i -E "theorem [^ ]*(card_?zeros|zeros_?card|countZeros|numZeros|zeroCount)|def [^ ]*(card_?zeros
+  #200 | 2026-10-31T23:07:42.353Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -l -i -E "bessel" -- Mathlib/Analysis/SpecialFunctions
+  #201 | 2026-10-31T23:07:43.805Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "^(theorem|def|structure|noncomputable def|abbrev) " main -- SIDEExplicitFormula/Schema/EpsteinQ0.lean SIDEExplicitFo
+  #202 | 2026-10-31T23:07:44.521Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #203 | 2026-10-31T23:08:21.175Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -c "" main -- "Zeta23/RvM/*.lean" SIDEExplicitFormula/Chi/LocalCount.lean SIDEExplicitFormula/Chi/Landau.lean SIDEExplicitF
+  #204 | 2026-10-31T23:08:22.526Z | seat | Bash | git -C /d/relay grep -n -E "EpsteinZQ|ZQPremises|Epstein.*INTERFACES|INTERFACES.*Epstein|count law|COUNT LAW" -- "data/b72*_ferry.txt" "data/b728_*.txt" "data/b
+  #205 | 2026-10-31T23:08:33.575Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -n -E "^theorem (chi_RiemannVonMangoldt_local_count|half_count_large|zeta_local_count|count_small|bounded_count|ZetaZeroCon
+  #206 | 2026-10-31T23:08:34.381Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #207 | 2026-10-31T23:08:49.151Z | seat | Bash | git -C /d/SIDE-explicit-formula grep -c "" main -- "Zeta23/WeilEF*" "Zeta23/WeilEF/*.lean" "SIDEExplicitFormula/Chi/ExplicitFormula*.lean" "SIDEExplicitFormula/
+  #208 | 2026-10-31T23:09:06.509Z | seat | Bash | git -C /d/SIDE-explicit-formula/.lake/packages/mathlib grep -n -i -E "(theorem|lemma) [^ ]*(fejer|polya_|cosine_transform)" -- Mathlib/Analysis Mathlib/MeasureT
+  #209 | 2026-10-31T23:10:07.144Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #210 | 2026-10-31T23:10:14.590Z | seat | Bash | gh run download 41250704286 -R psinary-sketch/SIDE-explicit-formula -D "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scr
+  #211 | 2026-10-31T23:10:41.089Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/memlow.py" "C:/Users/ECHOCH~1/AppData/Local/Temp
+  #212 | 2026-10-31T23:10:42.142Z | seat | Bash | gh run view 41250704286 -R psinary-sketch/SIDE-explicit-formula --json jobs --jq ".jobs[0].steps[5]"
+  #213 | 2026-10-31T23:11:20.891Z | seat | Bash | git ls-files -s data/b725_onset_mass_units.jsonl data/b725_onset_mass.txt && git log -1 --format=%h%x20%s -- data/b725_onset_mass_units.jsonl
+  #214 | 2026-10-31T23:11:28.923Z | seat | Bash | git grep -n -E "UNITS|^LADDER|^WIDTH|^WORKERS|^BATCH|def guard|def register|def put_unit|def _c1_ok|def _compute|def _read|^import|^from " -- tools/b723_support
+  #215 | 2026-10-31T23:11:29.628Z | seat | Bash | wc -c /d/relay/data/b725_onset_mass_units.jsonl
+  #216 | 2026-10-31T23:11:30.549Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #217 | 2026-10-31T23:11:52.366Z | seat | Bash | git grep -n -E "RUNGS|WIDTH\[|PMAX|SIEVE|sieve|prime_limit|primes\(|X_MAX|XMAX|def terms|def gram|def worker|def task|def unit" -- tools/b707_onset.py tools/b70
+  #218 | 2026-10-31T23:12:29.760Z | seat | Bash | git grep -n -E "^(fmt|bl) =|^def (fmt|bl)\b|^from .* import|\bfmt\b.*import|G9\b.*=|^import b709" -- tools/b725_onset_mass.py
+  #219 | 2026-10-31T23:12:36.929Z | seat | Bash | git grep -n -E "\bbl\b.*=|\bfmt\b.*=|def units|return S\.units|^def bl|^def fmt" -- tools/b725_onset_mass.py tools/b723_support.py
+  #220 | 2026-10-31T23:12:43.045Z | seat | Bash | git status --short
+  #221 | 2026-10-31T23:12:47.761Z | seat | Bash | git add tools/b729_onset_run.py tools/b729_address_scan.py data/b729_detection.txt data/b729_count_price.txt data/b729_lambda2.txt data/b729_steps.json data/b72
+  #222 | 2026-10-31T23:12:50.911Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #223 | 2026-10-31T23:12:57.958Z | seat | Bash | git commit -q -m "b729 (R339)(4)-(6), (7): lambda_2 > 0 compiled, the detection statement graded and priced, the count law priced, the onset runner"
+  #224 | 2026-10-31T23:13:01.169Z | seat | Bash | git rev-parse --short=8 HEAD
+  #225 | 2026-10-31T23:13:02.754Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #226 | 2026-10-31T23:13:06.432Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 3" 24e07f4a
+  #227 | 2026-10-31T23:13:07.271Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #228 | 2026-10-31T23:22:36.193Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #229 | 2026-10-31T23:22:37.343Z | seat | Bash | git grep -n -E "^(def |[A-Z_]{3,}\s*=|# =====)|^sec\(|^    sec\(" -- tools/acts/b729.py
+  #230 | 2026-10-31T23:33:04.144Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #231 | 2026-10-31T23:33:04.996Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #232 | 2026-10-31T23:42:19.487Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #233 | 2026-10-31T23:42:24.837Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #234 | 2026-10-31T23:51:36.064Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #235 | 2026-11-01T00:00:51.949Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #236 | 2026-11-01T00:00:53.331Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #237 | 2026-11-01T00:10:08.759Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #238 | 2026-11-01T00:19:33.487Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #239 | 2026-11-01T00:19:34.718Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt
+  #240 | 2026-11-01T00:28:40.810Z | seat | Bash | gh run download 41249967563 -R psinary-sketch/SIDE-explicit-formula -D "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scr
+  #241 | 2026-11-01T00:28:41.914Z | seat | Bash | gh run view 41249967563 -R psinary-sketch/SIDE-explicit-formula --json status,conclusion,updatedAt,createdAt,headSha
+  #242 | 2026-11-01T00:29:02.001Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #243 | 2026-11-01T00:29:03.127Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" show 0395f15:SIDEExplicitFormula/C2Theorem.lean
+  #244 | 2026-11-01T00:29:05.023Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" show 0395f15:SIDEExplicitFormula/C2Walk.lean
+  #245 | 2026-11-01T00:38:28.402Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" diff --stat b91bf5af 0395f15 -- SIDEExplicitForm
+  #246 | 2026-11-01T00:38:30.353Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" diff --shortstat b91bf5af 0395f15
+  #247 | 2026-11-01T00:38:31.208Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4
+  #248 | 2026-11-01T00:47:48.899Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #249 | 2026-11-01T00:57:19.909Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/e0c2.py"
+  #250 | 2026-11-01T00:57:21.208Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #251 | 2026-11-01T00:58:01.425Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/c2work" log --format="%H %P %cI %s" b91bf5af..0395f15
+  #252 | 2026-11-01T00:58:03.572Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/kwork" log -3 --format="%H %P %cI %s" 01fd33c
+  #253 | 2026-11-01T00:58:05.521Z | seat | Bash | git -C "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/dwork" log -2 --format="%H %P %cI %s" 1023301c
+  #254 | 2026-11-01T00:58:07.797Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #255 | 2026-11-01T01:08:03.607Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #256 | 2026-11-01T01:18:06.431Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/rows729.py"
+  #257 | 2026-11-01T01:18:07.270Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #258 | 2026-11-01T01:27:48.032Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #259 | 2026-11-01T01:37:52.446Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #260 | 2026-11-01T01:47:31.222Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #261 | 2026-11-01T01:57:37.456Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off24 --workers 4 --budget 560
+  #262 | 2026-11-01T02:02:20.011Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off44 --workers 4 --budget 560
+  #263 | 2026-11-01T02:02:20.201Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py state
+  #264 | 2026-11-01T02:12:06.044Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py run off44 --workers 4 --budget 560
+  #265 | 2026-11-01T02:22:03.734Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44
+  #266 | 2026-11-01T02:32:15.318Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44
+  #267 | 2026-11-01T02:33:10.708Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #268 | 2026-11-01T02:35:48.823Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44
+  #269 | 2026-11-01T02:36:02.371Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/acts729a.py"
+  #270 | 2026-11-01T02:36:03.725Z | seat | PowerShell | Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}} | Format-Table -AutoSize | Out-St
+  #271 | 2026-11-01T02:36:05.819Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #272 | 2026-11-01T02:46:03.859Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/acts729a.py"
+  #273 | 2026-11-01T02:46:05.689Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #274 | 2026-11-01T02:57:33.498Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/acts729b.py"
+  #275 | 2026-11-01T02:57:35.728Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #276 | 2026-11-01T03:07:25.081Z | seat | Bash | git -C /d/relay add data/b729_c2.txt data/b729_dispatch_rows.json data/b729_steps.json
+  #277 | 2026-11-01T03:07:28.032Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #278 | 2026-11-01T03:07:39.238Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #279 | 2026-11-01T03:07:41.121Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/02c7cf38-4c6a-4f88-b813-a7e15e9b85b4/scratchpad/procs723.py"
+  #280 | 2026-11-01T03:07:50.911Z | seat | Bash | git -C /d/relay commit -q -m "b729 component 2: the C2 theorem compiled at 18 of 18 with its lemmas, one build at 0395f15d, data/b729_c2.txt; the dispatch rows,
+  #281 | 2026-11-01T03:07:52.988Z | seat | Bash | git -C /d/relay rev-parse HEAD
+  #282 | 2026-11-01T03:08:00.401Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #283 | 2026-11-01T03:17:40.393Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #284 | 2026-11-01T03:17:46.686Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/corrkeys.py"
+  #285 | 2026-11-01T03:27:38.000Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #286 | 2026-11-01T03:27:52.671Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 2" 24f2f3a2
+  #287 | 2026-11-01T03:37:56.825Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #288 | 2026-11-01T03:37:59.028Z | seat | Bash | git grep -n "b729_rules\|C4_\|def main\|^def " -- tools/standing/repeat.py
+  #289 | 2026-11-01T03:48:45.636Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #290 | 2026-11-01T03:58:17.666Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #291 | 2026-11-01T03:58:20.593Z | seat | Bash | date -u +%H:%M:%SZ
+  #292 | 2026-11-01T04:08:25.227Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #293 | 2026-11-01T04:17:55.789Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #294 | 2026-11-01T04:27:48.306Z | seat | Bash | python -X utf8 -u "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tailrun.py" off44 3
+  #295 | 2026-11-01T04:36:05.382Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py score --bank
+  #296 | 2026-11-01T04:36:22.183Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py score --bank
+  #297 | 2026-11-01T04:36:28.600Z | seat | Bash | git add data/b729_onset_score.txt data/b729_onset_units.jsonl tools/b729_onset_run.py
+  #298 | 2026-11-01T04:36:31.305Z | seat | Bash | python -X utf8 -u tools/b729_address_scan.py scan
+  #299 | 2026-11-01T04:36:41.706Z | seat | Bash | git commit -q -m "b729 component 4: H-ONSET-C scored REFUTED by the registration's bound at off44 (off24's onset within 0.05, off44 positive to a = 10.688758, o
+  #300 | 2026-11-01T04:36:44.693Z | seat | Bash | git rev-parse --short=8 HEAD
+  #301 | 2026-11-01T04:36:48.283Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 4" 40a4e6b0
+  #302 | 2026-11-01T04:36:51.634Z | seat | Bash | ls /d/relay/data/ -1 --ignore='*.png' -t --time-style=+%H:%M -l --color=never --hide='b[0-9][0-9][0-9]_*' --hide='b6*' --hide='b5*' --hide='b4*' --hide='b3*' | 
+  #303 | 2026-11-01T04:36:52.314Z | seat | Bash | python -X utf8 -u tools/standing/fold.py 2>&1
+  #304 | 2026-11-01T04:37:14.823Z | seat | Bash | git grep -n "b728_mid_act\|b728_kernels_face\|b728_standing_figures\|b728_guard_dry\|mid_act_act\|kernels_face\|'guard'" -- tools/standing/closeorder.py tools/s
+  #305 | 2026-11-01T04:37:20.636Z | seat | Bash | python -X utf8 -u tools/standing/fold.py
+  #306 | 2026-11-01T04:37:29.974Z | seat | Bash | python -X utf8 -u tools/research/reproduce.py run --bank data/b729_reproduce
+  #307 | 2026-11-01T04:43:33.388Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act --mid b729_mid_act.txt
+  #308 | 2026-11-01T04:43:39.279Z | seat | Bash | git log --format="%h %s" -4 -- tools/standing/fold/checks.tpl
+  #309 | 2026-11-01T04:43:40.012Z | seat | Bash | git grep -n "OVERRIDE checks" -- tools/acts/b728.py
+  #310 | 2026-11-01T04:43:46.098Z | seat | Bash | git diff --stat 17ee7abd~1 17ee7abd -- tools/standing/fold/
+  #311 | 2026-11-01T04:43:53.970Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tplshift.py"
+  #312 | 2026-11-01T04:44:06.572Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/shiftov.py" && cd /d/relay && python -X utf8 -u 
+  #313 | 2026-11-01T04:45:39.370Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record findings dry
+  #314 | 2026-11-01T04:45:45.668Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/armsrc.py" "'G-ACT-CURRENT'" "'G-BRANCHES-BANKED
+  #315 | 2026-11-01T04:46:02.822Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" act_current_ok branches_banked_ok dele
+  #316 | 2026-11-01T04:46:11.488Z | seat | Bash | python -X utf8 -u tools/b729_onset_run.py score --bank
+  #317 | 2026-11-01T04:46:25.043Z | seat | Bash | git diff --stat 0650a188 HEAD -- tools/act_close.py tools/act_root.py tools/rule_arms.py tools/standing/fold/record.tpl tools/b378_lockgate.py
+  #318 | 2026-11-01T04:46:59.886Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record closeorder
+  #319 | 2026-11-01T04:47:01.133Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git rev-parse --short HEAD && git grep -n -E "v1\.9\.0|row \(49\)" -- FINDINGS.md
+  #320 | 2026-11-01T04:47:02.185Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -E "W-ORD-VISIBILITY|H-ONSET-C|H-ONSET-MASS-2" -- OPEN_TRAILS.md
+  #321 | 2026-11-01T04:47:03.248Z | seat | Bash | git -C /d/SIDE-explicit-formula for-each-ref --format="%(refname:short) %(objectname:short=8)" refs/heads/main refs/heads/c2-b725 refs/heads/keiper-b725 refs/he
+  #322 | 2026-11-01T04:47:21.622Z | seat | Bash | python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fnsrc.py" touch_read_ok differs_ok differs_errat
+  #323 | 2026-11-01T04:47:47.127Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/standing/fold.py record figures
+  #324 | 2026-11-01T04:47:58.793Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record kernels && python -X utf8 -u tools/standing/fold.py record guard && python -X utf8 -u tools/standing/fold.py rec
+
+### ### **COMMANDS 324 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 14 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 2 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 7 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

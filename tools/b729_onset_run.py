@@ -105,7 +105,7 @@ def score(*argv):
             L.append('  %s the onset at %s, a = %.9f ; a*_pred %.6f ; a*/a*_pred - 1 = %+.5f ; %s' % (z, o['point'], a, r['pred'], dev, 'WITHIN 0.05' if ok else 'BEYOND 0.05'))
             (held if ok else refuted).append(z)
         elif r['top'] is not None and r['top'] / r['pred'] - 1 > FALSIFIER:
-            L.append('  %s no onset; positive to a = %.6f, so a*/a*_pred - 1 > %+.5f ; REFUTED BY THE BOUND' % (z, r['top'], r['top'] / r['pred'] - 1))
+            L.append('  %s no onset computed; positive to a = %.6f, so a*/a*_pred - 1 > %+.5f ; REFUTED BY THE BOUND' % (z, r['top'], r['top'] / r['pred'] - 1))
             refuted.append(z)
         else:
             L.append('  %s no onset computed ; a bound, NOT SCORABLE, never a confirmation' % z)
