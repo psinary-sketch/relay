@@ -82,11 +82,7 @@ def added(diff):
     return NL.join(l[1:] for l in diff.split(NL) if l.startswith('+') and not l.startswith('+++'))
 
 
-SITTING_REPOS = (('D:/SIDE-archimedean', 'SIDE-archimedean', '0e3336f'), ('D:/SIDE-spinor', 'SIDE-spinor', '5c34c72'),
-                 ('D:/SIDE-rcurve', 'SIDE-rcurve', 'f093005'),   # ### b730, (R340)(2)(viii): the three kernels this act's README writes touch, at their heads before them
-                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula c2-b725', 'ea95a8d..c2-b725'),   # ### (R340)(3): the branch by its ref, no worktree needed
-                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula keiper-b725', 'f52e188..keiper-b725'),   # ### (R340)(4)
-                 ('D:/SIDE-explicit-formula', 'SIDE-explicit-formula detect-b730', 'main..detect-b730'))   # ### (R340)(5)
+SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R340)(4): the act's one kernel branch, by its ref; b729 defect (p): its commits land in this repository, so the scan reads each at the commit
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b730, (R340)(3) and (5): item [46]'s byline and two self-citations, under I-23
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception

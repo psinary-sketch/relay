@@ -139,13 +139,12 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-REGISTRATIONS = 'data/b730_registrations.txt'    # ### (R340)(7): H-ONSET-C, committed alone at d1f94c17
+REGISTRATIONS = 'data/b730_continuation_plan.txt'    # ### (R340)(4), N2: the plan, the act's first-registered object, committed at 77c7e2a2 before any Lean
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b729's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
                ('data/b721_registrations.txt', 'e8c3dff40df43269b3f0c4b917baef7c96c0f649'),
-               ('data/b725_registrations.txt', 'dc0d4133'),   # ### N2 (b725's row, its last amendment, the blob HEAD carries)
-               ('data/b730_registrations.txt', 'd1f94c17'))   # ### N2: H-ONSET-C, before any figure at off44 or off24
+               ('data/b725_registrations.txt', 'dc0d4133'))   # ### N2 (b725's row, its last amendment, the blob HEAD carries)
 FIT_COMMIT, PRED_COMMIT = None, None
 ONSET_COMMIT = None
 REG_FILES = tuple(f for f, _c in REG_COMMITS)
@@ -156,8 +155,7 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b729 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b730_standing_v190.txt', 'data/b730_c2.txt', 'data/b730_lambda2.txt', 'data/b730_detection.txt', 'data/b730_count_price.txt', 'data/b730_onset_fit.txt', 'data/b730_onset_pred.txt',
-                 'data/b730_onset_score.txt', 'data/b730_onset_units.jsonl', 'data/b730_address_scan.txt')
+COMPUTE_BANKS = ('data/b730_standing_v1100.txt', 'data/b730_continuation.txt', 'data/b730_theta_check.txt', 'data/b730_address_scan.txt')
 #   ### the banks of (R340)(2)-(7), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
@@ -257,17 +255,17 @@ C1_PP = '6daaac8'
 WEIGHT_LINE, CORR_LINE = 12254, 12256
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None
+C2_RELAY = '77c7e2a2'
 C2_AMEND = ()
-C2_PP = None
-C3_RELAY = ()
+C2_PP = 'b65bcff'
+C3_RELAY = ('77c7e2a2',)
 C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = None
+REG_COMMIT = '77c7e2a2'
 ORDERS = (142, 60, 42, 12, 28)          # ### b729's (R339)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b729_orders_triage.txt'
 LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R340)(8))
@@ -288,14 +286,23 @@ PIN_TO_NEXT = ()
 MAX_DISPATCHES = 12          # ### N1: (R340)(4) twelve at most
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, both branches cut from it, untouched (N5)
+EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
+ZQ_BRANCH = 'zq-b730'
+ZQ_FIRST = '6ee19e5966b66dcf9fc569d024cd7d8f4e595f2d'  # ### (R340)(4): group A, the act's first Lean commit
+ZQ_TIP = '5688816e232b654918eb3ebcfa6c25f7d0c7dfc2'    # ### group D, the tip, read back equal at origin
+ZQ_MODULES = ('Lattice', 'Theta', 'FEPair', 'Continuation')
 EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # ### (R340)(4): the gamma_1 bound
                ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'),       # ### (R340)(3): the theorem, built whole at this tip
-               ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'))   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
-EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e')   # ### the three entering the act
-EF_RUNS = (('c2', 41249471618, '9af30c5dfd34db707d5e7d374cd564c20f67e33d', 'C2Tab C2Omega C2Div C2Arith C2Sweep C2Law C2Probe.Sweep C2Probe.Law'),
-           ('c2', 41249967563, '0395f15d3b2906716ccb1f09ca24171d7a921210', 'SIDEExplicitFormula.C2Theorem'),
-           ('keiper', 41250704286, '01fd33c2d7dc62d4702b075de3dda9253c5c2f87', 'SIDEExplicitFormula.KeiperGammaBound'))   # ### N1: (kind, run id, ref, target), three of the five
+               ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
+               (ZQ_BRANCH, ZQ_TIP))                                           # ### (R340)(4): the continuation field
+EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', EF_BASE)   # ### the three entering the act; zq-b730 from main
+_ZQ = 'SIDEExplicitFormula.Schema.ZQ.'
+EF_RUNS = (('zq', 41292290796, '6ee19e5966b66dcf9fc569d024cd7d8f4e595f2d', _ZQ + 'Lattice'),
+           ('zq', 41293161382, '077d06e1', _ZQ + 'Lattice'),
+           ('zq', 41293638071, 'aafd8ea7', _ZQ + 'Theta'),
+           ('zq', 41294254957, '538ba3bf', _ZQ + 'Theta'),
+           ('zq', 41294932964, '2df682be', _ZQ + 'FEPair'),
+           ('zq', 41295546328, ZQ_TIP, _ZQ + 'Continuation'))   # ### N1: (kind, run id, ref, target), the six of (R340)(4)'s twelve
 DISPATCH_ROWS = 'data/b730_dispatch_rows.json'
 ERRATA_ID = None   # ### (R340) orders no ERRATA entry
 ERRATA_IDS = ()
