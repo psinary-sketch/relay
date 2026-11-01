@@ -1,0 +1,49 @@
+b731 -- THE PRICE BANK`S MEASURED ROWS AND THE RE-PRICE OF THE TWO FIELDS NOT TAKEN, (R341)(2)(ii), (4); NOTHING BUILT BY THIS BANK, NO LEAN PROCESS, NO DISPATCH
+
+### FORM: I-10`s form: a lower bound on a specified implementation, re-measured after the build; a floor on that one route and no estimate of another.
+### The rooted bank data/b729_count_price.txt is not edited; the next field`s act reads these rows from here.
+
+## THE CONTROLS FIRST
+  a measured row with no run                     True                               AS WANTED
+  a measured row with no lines                   True                               AS WANTED
+  b730`s ratio as v1.11.0 printed it             (0.278, 0.557, 0.12, 0.24)         AS WANTED
+  logDeriv by b730`s ratio, exact (plan 56-223)  (55, 223, 1, 2)                    AS WANTED
+  zeros by b730`s ratio, exact (plan 83-335)     (83, 334, 1, 3)                    AS WANTED
+  the zeros plan`s re-price by (3)`s ratio       (589, 2358, 1, 10)                 AS WANTED
+  CONTROLS 6 OF 6 AS WANTED
+
+## THE THREE MEASURED ROWS, EACH BESIDE ITS ESTIMATE
+  field            est lines      est disp    lines     dispatches  ratio lines ; dispatches       the estimate`s source
+  continuation     1500-3000      25-50       835       6           0.278-0.557 ; 0.120-0.240      data/b729_count_price.txt :21
+  logDeriv         200-400        3-8         786       3           1.965-3.930 ; 0.375-1.000      data/b729_count_price.txt :23
+  zeros            300-600        5-10        340       1           0.567-1.133 ; 0.100-0.200      data/b729_count_price.txt :22
+
+## WHAT EACH ROW MEASURED
+  continuation   Mathlib`s even kernel route, b730 ; modules Lattice, Theta, FEPair, Continuation at 5688816e ; runs 41292290796, 41293161382, 41293638071, 41294254957, 41294932964, 41295546328
+  logDeriv       the LSeries route with the bound Z_Q(3/2) < 4, b731 ; modules Bound, LogDeriv at 23b006df ; runs 41316031450, 41316963968, 41317771708
+  zeros          zetaZeroConfig`s form over the completed function, b731 ; modules Zeros at 23b006df ; runs 41318856071
+
+## THE TWO FIELDS NOT TAKEN, RE-READ BY EACH MEASURED RATIO (NOT TOUCHED THIS ACT; PRINTED FOR THE ACTS THAT TAKE THEM; THE SEAT`S, NOT A BOUND)
+  count: the bank`s 800-2000 lines, 15-35 dispatches (data/b729_count_price.txt :25)
+    by continuation`s ratio 222-1114 lines, 1-9 dispatches
+    by logDeriv`s ratio 1572-7860 lines, 5-35 dispatches
+    by zeros`s ratio  453-2267 lines, 1-7 dispatches
+    THE ENVELOPE OF THE THREE 222-7860 lines, 1-35 dispatches. The bank`s 20-45 foreground hours are not re-read: no hours were measured.
+  explicitFormula: the bank`s 3000-5000 lines, 40-80 dispatches (data/b729_count_price.txt :24)
+    by continuation`s ratio 835-2784 lines, 4-20 dispatches
+    by logDeriv`s ratio 5895-19650 lines, 15-80 dispatches
+    by zeros`s ratio  1700-5667 lines, 4-16 dispatches
+    THE ENVELOPE OF THE THREE 835-19650 lines, 4-80 dispatches. The bank`s 60-120 foreground hours are not re-read: no hours were measured.
+
+## TWO FIGURES IN THE PLANS CORRECTED HERE, THE PLANS NOT EDITED
+  data/b731_logderiv_plan.txt :37 prints 56-223 lines and data/b731_zeros_plan.txt :37 prints 83-335. The exact readings are 55-223 and 83-334 (600 x 835/1500 = 334).
+  Both were worked by hand from the rounded ratios 0.278 and 0.557, not by pricebank.reprice; the first run of this tool`s controls found the second. Neither moved a decision: each plan priced its field from its lemmas.
+
+## HOW FAR THE RATIOS GO
+  The three ratios do not agree, and the envelope is their spread, not a confidence interval: three fields, three kinds of proof, each estimate the seat`s.
+  Lines ran under the bank on continuation, over it on logDeriv, inside it on zeros. Dispatches ran under the bank on continuation and zeros and at its floor on logDeriv.
+  The zeros row is the cheapest in dispatches because the module had a compiled form to follow and was read through before its one dispatch; it is no promise for a field without one.
+  count: b729`s bank marks C3 and C4 ABSENT in Lean (:32, :33), and says ZQPremises.count names A0Q = 10 while the least route gives an unnamed A0 (:37). The dearer route is the author`s word on A0; no ratio here prices that choice.
+  explicitFormula: its neighbour is 12 modules, 3,742 lines (:24), and no field measured here is a contour chain. The ratios read the bank`s row and do not re-derive it.
+
+### ### **THE PRICE BANK: THREE ROWS MEASURED ; count AND explicitFormula RE-READ AND NOT TOUCHED ; THE RATIOS DISAGREE AND THE SPREAD IS PRINTED, NO ONE RATIO CHOSEN.**
