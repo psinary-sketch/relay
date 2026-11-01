@@ -29,6 +29,34 @@ TOP = re.compile(r'^\((\d+)\) ', re.M)
 RUL = re.compile(r'RULING (\(R\d+\))')
 
 
+CLAUSE = re.compile(r'\(R(\d{3})\)\((\d+)\)')
+INSTRUMENT = re.compile(r'\bI-(\d{1,3})\b')
+FIGURE = re.compile(r'\b(\d[\d,]*(?:-\d[\d,]*)?) (lines|dispatches)\b')
+
+
+def word_rows(word, read=None, act=None):
+    """v1.11.0: a word's cites beyond paths, ledger lines and commits, read as a ruling's are, each row (kind, what, ok): a clause (Rnnn)(k) against that ruling's item (k) in its act's ferry; an instrument I-n against
+    PLACE-papers' document; a figure of lines or dispatches against the banks of the act and the act before. read(path relative to the relay) -> text; the banks found by listing data/."""
+    read = read or (lambda rel: A.rd(rel[len('data/'):]))
+    act = act or A.current().get('act')
+    ferries = sorted((f for f in os.listdir(A.D) if re.match(r'^b\d{3}_ferry\.txt$', f)), reverse=True)[:16]
+    rows = []
+    for rn, k in sorted(set(CLAUSE.findall(word or ''))):
+        t = next((x for x in (read('data/' + f) for f in ferries) if ('RULING (R%s) BEGIN' % rn) in x), '')
+        rows.append(('clause', '(R%s)(%s)' % (rn, k), bool(re.search(r'(?m)^\(%s\) ' % k, t))))
+    try:
+        ins = open(os.path.join(os.path.dirname(A.RELAY), 'MY-DOwnloads', 'PLACE-papers', 'phase1.5', 'method', 'INSTRUMENTS.md'), encoding='utf-8', errors='replace').read()
+    except OSError:
+        ins = ''
+    for n in sorted(set(INSTRUMENT.findall(word or ''))):
+        rows.append(('instrument', 'I-%s' % n, bool(re.search(r'(?m)^## I-%s\b' % n, ins))))
+    acts = (act, 'b%d' % (int(act[1:]) - 1))
+    banks = '\n'.join(read('data/' + f) for f in sorted(os.listdir(A.D)) if f[:5] in [x + '_' for x in acts] and f.endswith('.txt') and 'author_answers' not in f and 'ferry' not in f and 'commands' not in f)
+    for num, unit in sorted(set(FIGURE.findall(word or ''))):
+        rows.append(('figure', '%s %s' % (num, unit), bool(re.search(r'(?<![\d,.])%s(?![\d,])' % re.escape(num), banks))))
+    return rows
+
+
 def ferry_cite(act, needle):
     """the ruling's own number and the top-level item (n) of the act's ferry whose text carries `needle`; None where none does."""
     t = A.rd('%s_ferry.txt' % act)

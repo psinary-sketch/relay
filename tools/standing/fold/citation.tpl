@@ -311,7 +311,7 @@ def answer(needle, *a):
     if body.count("'⟪ACT⟫_defects.txt' if after_root() else '⟪ACT⟫_citation_check.txt'") != 1:
         sys.exit('### b682`s BANK NOT FOUND ONCE IN ITS answer -- NOTHING CHECKED')
     body = body.replace("'⟪ACT⟫_defects.txt' if after_root() else '⟪ACT⟫_citation_check.txt'", "'⟪ACT⟫_answer_check.txt'")
-    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('⟪ACT⟫', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')")
+    body = body.replace("    open(q + '.tmp', 'wb')", "    MEM.guard('⟪ACT⟫', os.path.basename(q), ROOT_EXCLUDE)\n    open(q + '.tmp', 'wb')").replace("    miss = [r for r in rows_ if not r[2]]", "    rows_ += __import__('standing.cites', fromlist=['word_rows']).word_rows(best)\n    miss = [r for r in rows_ if not r[2]]")   # ### v1.11.0: the word's clauses, instruments and figures read too
     ns = dict(vars(P))
     ns.update(MEM=MEM, ROOT_EXCLUDE=_root_exclude())
     exec(compile(body, 'b682_citation.answer (⟪ACT⟫)', 'exec'), ns)

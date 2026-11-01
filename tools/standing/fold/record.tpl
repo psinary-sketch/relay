@@ -65,7 +65,7 @@ R.N5_RELAY_TOOLS = ('mirror_prevbuild.json',)   # ### (⟪RUL⟫)(2): the mirror
 # ### ⟪ACT⟫_*.py tool declares in its own head, read at import. A tool declares one by a line `### UNTRACKED WRITE: data/⟪ACT⟫_<name>`.
 # ### (⟪RUL⟫)(2): the events bank (row (52): a finding after the seal, written after the seal and after the root) and the step bank (G-SEALED-AFTER-
 # ### COMPONENTS, a row per commit written after the commit, the record's and the closing's among them) are the defects bank's kind: not root items
-EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals'   # ### (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind
+EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals|address_scan_postlock|rowgen_\w+_rerun\d+'   # ### (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind; v1.11.0: the post-lock scan and a stamped route's re-run beside it
 # ### b707's kind `chain_.*` (the suite's chain parts, `<act>_chain_half_<i>_<key>.json`) read as wide as every bank whose name opens `chain_`, so
 # ### (⟪RUL⟫)(7)'s data/⟪ACT⟫_chain_rows.txt was excluded from the root (the suite's import check refused REQUIRED_BANKS on it); narrowed to the
 # ### suite's own kind, `chain_half_.*`, the chain parts still excluded. A carry-time repair, banked by diff (data/⟪ACT⟫_tool_repairs.txt).
@@ -242,7 +242,7 @@ def rowgen(*a):
     L += ['', '### constellation, exit %d ; its last lines:' % con.returncode] + ['    ' + l for l in tail(co)] + [
          '', '### diff_rowpin, exit %d ; its last lines:' % dif.returncode] + ['    ' + l for l in tail(do)] + [
          '', '### ### **CONSTELLATION EXIT %d ; ROWGEN DIFF EXIT %d ; TABLES 19 ; RE-POINTED %d.**' % (con.returncode, dif.returncode, len(moved))]
-    put_txt('%s_rowgen_%s.txt' % (ACT, stage), L)
+    put_txt(__import__('standing.act', fromlist=['stamped_name']).stamped_name(D, '%s_rowgen_%s.txt' % (ACT, stage)), L)   # ### v1.11.0: a re-run to a suffixed path, the stamp standing
     print(NL.join(L[-14:]))
 
 
@@ -319,7 +319,7 @@ def step(*a):
         fulls.append(full)
     ct, subj = g(STEP_REPOS[a[0]], 'log', '-1', '--format=%ct%x09%s', fulls[-1]).strip().split('\t', 1)
     j = jl('%s_steps.json' % ACT)
-    rows = j.get('rows') or []
+    rows = __import__('standing.repeat', fromlist=['one_lock']).one_lock(j.get('rows') or [], phase)   # ### v1.11.0: a second `lock` row refused, the commit after the lock takes `seal`
     have = set(AC.step_commits(rows, repo=a[0]))
     dup = [f[:8] for f in fulls if f in have]
     if dup:

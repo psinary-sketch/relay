@@ -9,12 +9,17 @@
     words named README.md alone while [20] and [22], passed, wrote SIDE-cosmo's AGENTS.md).
 Pure in its arguments; nothing written.
 """
+import fnmatch
 import re
 
 PRE_FACE_TITLE = '### THE PRE-FACE COMMITS, BY HASH:'
 PRE_FACE = re.compile(r'^' + re.escape(PRE_FACE_TITLE) + r'(.*)$', re.M)
 HEX = re.compile(r'\b[0-9a-f]{7,40}\b')
 SECTION = re.compile(r'^### \([0-9A-Za-z]+\) ', re.M)
+W_PATH = r'((?:data|tools)/[\w.*/-]+\.(?:txt|json|md|py))'
+WRITE_AFTER = re.compile(W_PATH + r"[^;,.]{0,60}?\b(?:committed|written|moved|appended)\b")
+WRITE_BEFORE = re.compile(r"\b(?:writes? to|written to|appended to|moved to|the plan bank)\s+" + W_PATH)
+WRITE_MOVE = re.compile(r"data/(b\d{3})_([\w-]+)\.txt[^;]*?\bmoved to (b\d{3})[’']s bank")
 OUTBOUND_HEAD = ('no identifier of the author in any outbound request header, URL, input or payload, or in any workflow file ; no secret added ; '
                  'the outbound reads: the seat`s plain requests to github.com')
 
@@ -72,6 +77,31 @@ def readme_writes(write_list):
 def n5_count_sentence(write_list):
     r = readme_writes(write_list)
     return '%d kernel README write%s by the (W) list%s' % (len(r), '' if len(r) == 1 else 's', (': ' + ', '.join(r)) if r else '')
+
+
+def clause_writes(ruling):
+    """v1.11.0, the composer's reading: the files a ruling's clauses order written, by the clause's own words: a path a write verb governs, and a move's target ("<path>'s rows ... moved to <act>'s bank", the source's kind at
+    that act). A path only cited is not one. Sorted, relay-relative; a form with NNN in it is a rule and no file."""
+    t = ruling or ''
+    i, j = t.find('RULING ('), t.find(' END\n')
+    t = t[i:j] if 0 <= i < j else t
+    out = set(m.group(1) for m in WRITE_AFTER.finditer(t)) | set(m.group(1) for m in WRITE_BEFORE.finditer(t))
+    out |= set('data/%s_%s.txt' % (m.group(3), m.group(2)) for m in WRITE_MOVE.finditer(t))
+    return sorted(p for p in out if 'NNN' not in p)
+
+
+def w_missing(ruling, face):
+    """the clause-ordered files the face's write list does not cover, each read against the list's backticked names and globs."""
+    toks = re.findall(r'`([^`\s]+)`', face or '')
+    def covered(p):
+        return any(fnmatch.fnmatch('relay/' + p, x) or fnmatch.fnmatch(p, x) for x in toks)
+    return [p for p in clause_writes(ruling) if not covered(p)]
+
+
+def w_row(ruling, face):
+    """the (W) row the composer adds, or None where every clause-ordered file stands on the list."""
+    miss = w_missing(ruling, face)
+    return ('### | the ruling`s clauses, read by the composer (v1.11.0) | %s |' % ' '.join('`relay/%s`' % p for p in miss)) if miss else None
 
 
 def kernel_file_allowed(kernel, path, agents=()):

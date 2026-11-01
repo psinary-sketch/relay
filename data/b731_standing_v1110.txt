@@ -1,0 +1,86 @@
+b731 -- THE CONTROLS OF tools/standing/ v1.11.0, (R341)(2)(i)-(vii): THE COMPOSER AND (W), THE MEASURED ROW, A STAMPED RE-RUN, THE POST-LOCK SCAN, THE SEAT`S THREE ARMS, THE AUTHOR`S WORD, THE QUESTIONS COUNT (2026-11-01T14:07:34Z)
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay 64f0d801
+
+### (face) THE COMPOSER READS THE CLAUSES INTO (W), (R341)(2)(i); THE INSTANCE, (R340)(6)`S MOVE
+  (face) b730`s face and (R340)(6): "data/b728_hook_refusals.txt`s two rows read and moved to b729`s bank by one commit"
+      BEFORE (v1.10.0): the (W) list by hand, 46 patterns: data/b729_hook_refusals.txt allowed False, a write of b730 outside its own list; clause_writes at BASE False -> FAILS
+      AFTER  (v1.11.0): the composer`s row: ### | the ruling`s clauses, read by the composer (v1.11.0) | `relay/data/b728_hook_refusals.txt` `relay/data/b729_hook_refusals.txt` | ; data/b729_hook_refusals.txt allowed True -> PASSES
+      AS WANTED
+  (face) GUARD, NO FAILING SIDE: a path only cited is not a write: (R341) cites data/b729_count_price.txt, data/b730_continuation.txt, reads them, and neither is picked; its two plan banks are
+      AFTER  (v1.11.0): data/act_current.json data/b731_logderiv_plan.txt data/b731_zeros_plan.txt -> HOLDS
+      AS WANTED
+
+### (price) THE MEASURED ROW BESIDE THE ESTIMATE, (R341)(2)(ii), I-10`s form: a lower bound on a specified implementation, re-measured after the build; a floor on that one route and no estimate of another; THE INSTANCE, b730`S CONTINUATION FIELD
+  the lines by module, read from the tree: {'Lattice': 252, 'Theta': 148, 'FEPair': 203, 'Continuation': 232} ; the runs: [41292290796, 41293161382, 41293638071, 41294254957, 41294932964, 41295546328]
+  field            est lines      est disp    lines     dispatches  ratio lines ; dispatches       the estimate`s source
+  continuation     1500-3000      25-50       835       6           0.278-0.557 ; 0.120-0.240      data/b729_count_price.txt
+  (price) the bank beside the build: 1,500-3,000 lines, 25-50 dispatches
+      BEFORE (v1.10.0): data/b729_count_price.txt holds the measured 835: False ; pricebank.py at BASE: False -> FAILS
+      AFTER  (v1.11.0): measured 835 lines, 6 dispatches, the ratio 0.278-0.557 ; 0.120-0.240, the figures of (R341)(2)(ii) -> PASSES
+      AS WANTED
+  (price) GUARD, NO FAILING SIDE: a measured row with no run id is refused
+      AFTER  (v1.11.0): refused True -> HOLDS
+      AS WANTED
+
+### (rerun) A STAMPED ROUTE`S RE-RUN TO A SUFFIXED PATH, (R341)(2)(iii); THE INSTANCE, b730`S ROWGEN
+  (rerun) data/b730_rowgen_stepzero.txt, the stamp at 3b661a42, re-run at d533a5c0 (b730 event (5)); the bank`s commits ['d533a5c0', '3b661a42']
+      BEFORE (v1.10.0): the route wrote the one name: put_txt('%s_rowgen_%s.txt' % (ACT, stage), L) stands True, the stamp moved -> FAILS
+      AFTER  (v1.11.0): the route takes stamped_name: b730_rowgen_stepzero_rerun1.txt ; the first bank unedited -> PASSES
+      AS WANTED
+  (rerun) GUARD, NO FAILING SIDE: a first run keeps the plain name; a third takes the next suffix
+      AFTER  (v1.11.0): b.txt ; a_rerun2.txt -> HOLDS
+      AS WANTED
+
+### (postlock) THE POST-LOCK SCAN`S BANK OUT OF THE LOCK`S HASH, (R341)(2)(iv); THE INSTANCE, b730`S PRINTED SCANS
+  (postlock) b730`s scans after its lock 2026-11-01T10:46:41Z, printed and in no bank: 9 read from the session`s transcript, 9 carrying the scan`s head, first 2026-11-01T11:34:26.051Z last 2026-11-01T13:38:19.914Z (bounded at b731`s start 2026-11-01T13:46:00Z; the texts entered in the bank form in memory and not banked here, the count being what the control needs)
+      BEFORE (v1.10.0): the root`s exclusion takes b730_address_scan_postlock.txt: False, so a written bank sits in the root and a hashed name after the lock -> FAILS
+      AFTER  (v1.11.0): entered into the form, 9 runs of 9 under their heads, 15092 characters; the exclusion takes it: True ; the lock`s excluded list names it: True -> PASSES
+      AS WANTED
+  (postlock) GUARD, NO FAILING SIDE: the pre-lock scan bank stays in the lock and the root
+      AFTER  (v1.11.0): b730_address_scan.txt taken by the exclusion: False -> HOLDS
+      AS WANTED
+
+### (arms) THE SEAT`S THREE, (R341)(2)(v): G-RULE-SUITE-PART-CALLS, G-SEALED-AFTER-COMPONENTS, G-BRANCHES-BANKED, EACH REFUSED AT THE SEAT`S HAND, EACH WITH ITS EVENT`S CONTROL. A READ OF b730`S CALLS CANNOT BE REPAIRED: THE CURE IS THE REFUSAL NEXT TIME
+  (arms) b730 event (1), 11:10:34Z, G-RULE-SUITE-PART-CALLS: `python -X utf8 -u tools/standing/fold.py checks --combine b730_arms_prerun.txt && python -X utf8 -u tools/standing/fold.py checks --prev --part standing-a`
+      BEFORE (v1.10.0): the hook carried no such kind: 'SUITE' in the hook False, the call ran -> FAILS
+      AFTER  (v1.11.0): refused ('SUITE', 'a Bash command carrying more than one suite part or combine') -> PASSES
+      AS WANTED
+  (arms) GUARD, NO FAILING SIDE: one part alone runs
+      AFTER  (v1.11.0): judged None -> HOLDS
+      AS WANTED
+  (arms) b730 event (2), 11:34:38Z, G-SEALED-AFTER-COMPONENTS: a835a8cd named `lock` with 0d3c026f standing: rows of phase lock in b730`s steps 2
+      BEFORE (v1.10.0): the step recorder at BASE checks a lock row: False, the row written -> FAILS
+      AFTER  (v1.11.0): refused: ### A LOCK ROW STANDS: the commit after the lock takes phase `seal` -- NOTHING WRITTEN -> PASSES
+      AS WANTED
+  (arms) GUARD, NO FAILING SIDE: the first lock row and a `seal` row after it pass
+      AFTER  (v1.11.0): 0 ; 20 -> HOLDS
+      AS WANTED
+  (arms) b730 event (8), G-BRANCHES-BANKED: the first delete 08:39:51Z, the citation check`s first_at 2026-11-01T08:44:39Z
+      BEFORE (v1.10.0): the hook carried no such kind: 'ORDER' in the hook False, the delete ran -> FAILS
+      AFTER  (v1.11.0): before the check: refused ('ORDER', 'a branch delete before the act`s citation check') -> PASSES
+      AS WANTED
+  (arms) GUARD, NO FAILING SIDE: after the check the delete runs
+      AFTER  (v1.11.0): judged None -> HOLDS
+      AS WANTED
+
+### (word) THE CITATION CHECK OVER THE AUTHOR`S WORD, (R341)(2)(vi); THE INSTANCE, b730`S ROOT WORD, VACUOUS
+    clause      (R340)(6)              FOUND
+    instrument  I-10                   FOUND
+    figure      6 dispatches           FOUND
+    figure      835 lines              FOUND
+  (word) data/b730_author_answers.txt :13, 789 characters
+      BEFORE (v1.10.0): the check read paths, ledger lines and commits alone: "### (R278)(4) THE MID-ACT CHECK (2026-11-01T12:26:07Z): the answer carrying 'Option 2, repairs named for b731', 799 char" -> FAILS
+      AFTER  (v1.11.0): word_rows yields 4 rows, 4 found, 0 not, the route reading it: True -> PASSES
+      AS WANTED
+  (word) GUARD, NO FAILING SIDE: a cite of nothing reads NOT FOUND, three rows
+      AFTER  (v1.11.0): (R999)(7) False ; I-999 False ; 987654 dispatches False -> HOLDS
+      AS WANTED
+
+### (questions) THE HEAD LINE`S COUNT, (R341)(2)(vii); THE INSTANCE, b730`S ONE CALL OF TWO QUESTIONS
+  (questions) b730`s head line: "1 prompt answered"
+      BEFORE (v1.10.0): the route printed calls: 1 -> FAILS
+      AFTER  (v1.11.0): the route prints questions: 2 -> PASSES
+      AS WANTED
+
+### ### **v1.11.0: CONTROLS (face), (price), (rerun), (postlock), (arms), (word), (questions) ; CASES 17 ; AS WANTED 17 ; ALL AS WANTED.**

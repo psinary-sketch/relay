@@ -137,6 +137,17 @@ def scan_append(prior, stamp, text):
     return (prior or '') + ('' if not prior else '\n') + '## THE RUN AFTER THE LOCK, %s\n' % stamp + text + '\n'
 
 
+def stamped_name(d, name, exists=os.path.exists):
+    """v1.11.0: a stamped route's bank name: <name> where it does not stand, else <stem>_rerun<n><ext>, the first free n: the stamp stands and the re-run is kept beside it, the first bank unedited."""
+    if not exists(os.path.join(d, name)):
+        return name
+    stem, ext = os.path.splitext(name)
+    n = 1
+    while exists(os.path.join(d, '%s_rerun%d%s' % (stem, n, ext))):
+        n += 1
+    return '%s_rerun%d%s' % (stem, n, ext)
+
+
 def first_stamp(prev, now):
     """(R337)(2), b726 event (3): the time of a bank's first banking, kept through a re-bank; prev the bank's json as it stands, {} where absent."""
     return (prev or {}).get('first_at') or (prev or {}).get('at') or now

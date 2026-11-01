@@ -223,8 +223,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### the step-zero banks and tools, committed together by explicit list (step 4)
-STEPZERO_BANK_COMMIT = None       # ### the step-zero bank itself (data/b731_stepzero.txt), with the price table, in that commit
+STEPZERO_BANKS = '64f0d801'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = '64f0d801'       # ### the step-zero bank itself (data/b731_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -238,9 +238,9 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b731.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.10.0'            # ### (R341)(2)'s repairs landed v1.10.0 by a commit of their own (C1_STANDING)
-STANDING_CHANGED = ('standing/VERSION', 'standing/close.py', 'standing/faceform.py', 'standing/fold/checks.tpl', 'standing/fold/record.tpl', 'standing/hook.py', 'standing/nouns.py', 'standing/repeat.py')
-STANDING_NEW = ('standing/rootprompt.py', 'standing/v1100.py')
+STANDING_VERSION = 'v1.11.0'            # ### (R341)(2)'s repairs landed v1.11.0 by a commit of their own (C1_STANDING)
+STANDING_CHANGED = ('standing/VERSION', 'standing/act.py', 'standing/allow.py', 'standing/cites.py', 'standing/faceform.py', 'standing/fold/citation.tpl', 'standing/fold/closing.tpl', 'standing/fold/record.tpl', 'standing/hook.py', 'standing/repeat.py')
+STANDING_NEW = ('standing/pricebank.py', 'standing/v1110.py')
 # ### b730's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = 'd0bedc7d'    # ### b730's closing, the act's relay base
 B714_RECORD = '25a434f1'     # ### b730's record commit (relay, the head line's)

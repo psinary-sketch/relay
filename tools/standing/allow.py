@@ -155,9 +155,9 @@ def prompts_read(answers, ruling, heads_text):
 
 def calls_read(answers):
     """v1.9.0, (R339)(2)(viii): the prompts put, one a call, a call with two questions one prompt: the root's prompt and each halt after it that took the author's word.
-    Returns dict(calls, root, halts): the first call the root's prompt, every later call a halt."""
+    Returns dict(calls, root, halts, questions): the first call the root's prompt, every later call a halt; v1.11.0, the questions put, the count the head line prints."""
     calls = re.split(r'(?m)^### CALL ', answers or '')[1:]
-    return dict(calls=len(calls), root=min(len(calls), 1), halts=max(len(calls) - 1, 0))
+    return dict(calls=len(calls), root=min(len(calls), 1), halts=max(len(calls) - 1, 0), questions=len(re.findall(r'(?m)^### PROMPT \d+ ', answers or '')))
 
 
 def ruling_of(act):

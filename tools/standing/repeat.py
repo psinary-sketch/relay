@@ -147,6 +147,13 @@ def _phase_of(rows, repo, h):
     return None
 
 
+def one_lock(rows, phase):
+    """v1.11.0: the step recorder refuses a second row of phase `lock`, G-SEALED-AFTER-COMPONENTS wanting exactly one: the commits after the lock take `seal`, nothing written. Returns rows."""
+    if phase == 'lock' and any(r.get('phase') == 'lock' for r in rows):
+        raise SystemExit('### A LOCK ROW STANDS: the commit after the lock takes phase `seal` -- NOTHING WRITTEN')
+    return rows
+
+
 def sealed_after(rows, rlog, plog, pre, files_of, act):
     """G-SEALED-AFTER-COMPONENTS: one relay row of phase `lock`; every other commit of the act (logs of (hash, subject, time)) has a row whose
     phase is pre-seal exactly where its time precedes the lock's; a bookkeeping-only commit (files_of(repo, hash)) is exempt; PLACE-papers

@@ -43,8 +43,14 @@ ROWS = {
                      'diagnostics included',
     'ENV': ROW77 + ' ; (20) environment variables left as they are',
     'REMOTE': ROW77 + ' ; (R338)(2)(iv)(d) one remote read per command, b674 row 1',
+    'SUITE': ROW77 + ' ; one suite part or combine per call, each its own message',
+    'ORDER': ROW77 + ' ; the suite`s G-BRANCHES-BANKED clause, the citation check before the first delete',
 }
 
+SUITE_RUN = r'(?:_checks\.py\b|\bstanding/fold\.py\s+checks\b)'   # ### v1.11.0: tools/rule_arms.py :155-:157's two calls
+SUITE_PART = re.compile(SUITE_RUN + r'[^|;&]*?--part\s+(\S+)')
+SUITE_COMBINE = re.compile(SUITE_RUN + r'[^|;&]*--combine')
+BRANCH_DEL = re.compile(r'\bbranch\s+(?:-[dD]|--delete)(?![\w-])')
 ASSIGN = re.compile(r'^\s*(?:env\s+)?[A-Za-z_][A-Za-z0-9_]*=')
 PS_ENV = re.compile(r'(?i)^\s*\$env:[A-Za-z_][A-Za-z0-9_]*\s*=')
 
@@ -74,6 +80,12 @@ def bank_act(relay=RELAY):
     if act and os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act)):
         return next_of(relay)
     return act
+
+
+def citation_done(relay=RELAY):
+    """v1.11.0: the act's citation check has run: its bank's json stands."""
+    act = bank_act(relay)
+    return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_citation_check.json' % act))
 
 
 def refusals_path(relay=RELAY):
@@ -139,7 +151,7 @@ def lines_of(path):
     return b.count(b'\n') + (1 if b and not b.endswith(b'\n') else 0)
 
 
-def judge(tool, inp):
+def judge(tool, inp, relay=RELAY):
     """(kind, detail) for a refusal, or None for an allowed call."""
     if tool == 'Read':
         lim = inp.get('limit')
@@ -172,6 +184,10 @@ def judge(tool, inp):
                 return 'REDIR', 'a %s command carrying a redirect or a pipe inside an inner shell`s quoted argument' % tool
         if bare.count('ls-remote') > 1:   # ### v1.8.0, (R338)(2)(iv)(d): b727 event (7), four reads chained in one diagnostic
             return 'REMOTE', 'a %s command carrying more than one remote read' % tool
+        if len(SUITE_PART.findall(bare)) + len(SUITE_COMBINE.findall(bare)) > 1:   # ### v1.11.0: a chained suite call stands in the capture for good
+            return 'SUITE', 'a %s command carrying more than one suite part or combine' % tool
+        if BRANCH_DEL.search(bare) and not citation_done(relay):   # ### v1.11.0: the arm's clause, enforced before the delete and not read after it
+            return 'ORDER', 'a branch delete before the act`s citation check'
         for seg in re.split(r'&&|;|\n', bare):
             if ASSIGN.match(seg) or PS_ENV.match(seg):
                 return 'ENV', 'a %s command prefixed by an environment-variable assignment' % tool
@@ -226,6 +242,8 @@ def cases(act):
         ('Bash', {'command': 'git -C /d/relay commit -m "%s: a -> b, x|y"' % act}, None),
         ('Bash', {'command': 'git -C /d/a ls-remote origin ; git -C /d/b ls-remote origin'}, 'REMOTE'),   # ### v1.8.0, (2)(iv)(d)
         ('Bash', {'command': 'git -C /d/a ls-remote origin'}, None),
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --combine x.txt && python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, 'SUITE'),   # ### v1.11.0
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, None),
         ('PowerShell', {'command': 'Get-ChildItem D:/relay | Select-Object -First 3'}, 'PIPE'),
         ('PowerShell', {'command': 'git status > out.txt'}, 'REDIR'),
         ('PowerShell', {'command': '$env:PYTHONIOENCODING = "utf-8"; python x.py'}, 'ENV'),
