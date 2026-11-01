@@ -87,11 +87,13 @@ def state(*a):
     return res
 
 
-def score(*a):
+def score(*argv):
     res = state()
     L = ['b729 -- (R339)(7): H-ONSET-C SCORED, BY THE REGISTRATION`S OWN VERDICT (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
          '### by tools/b729_onset_run.py; b707`s route as tools/b725_onset_mass.py `run` computes it, imported unedited; the registration data/b729_registrations.txt at relay d1f94c17; the predictions at acf699c0.',
-         '### SCOPE: fitted on five, tested on two; a HELD is two points, not a law.', '']
+         '### SCOPE: fitted on five, tested on two; a HELD is two points, not a law.',
+         '### off24`s WEIGHT: its whole banked bracket lay inside its 5% window (data/b729_onset_pred.txt), so its onset could not fire the falsifier; its 0.2% is a closeness, not a test passed.',
+         '### off44`s STOP: the rule of the registration (A BOUND) fired at a read of a = 10.615236; the calls went on to tighten the bound and were stopped at point 1321 of 5295, the guard refusing and the trend putting the onset near point 3100, past the 06:20Z cap the seat had set; off44`s onset is NOT computed.', '']
     held, refuted, open_ = [], [], []
     for z in ('off24', 'off44'):
         r = res[z]
@@ -118,7 +120,7 @@ def score(*a):
         v = 'CARRIED'
     L += ['', '### ### **H-ONSET-C %s ; ONSETS COMPUTED %d ; WITHIN 0.05: %s ; BEYOND: %s ; OPEN: %s.**' % (v, len(held) + sum(1 for z in refuted if res[z]['onset']), held or 'none', refuted or 'none', open_ or 'none')]
     print(NL.join(L))
-    if '--bank' in a:
+    if '--bank' in argv:
         with open(SCORE, 'w', encoding='utf-8', newline='') as fh:
             fh.write(NL.join(L) + NL)
         print('### banked', os.path.relpath(SCORE, ROOT))
