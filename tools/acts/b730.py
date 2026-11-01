@@ -27,16 +27,17 @@
 #⟪PENDING report ⟫
 # ### b730, Component 1 (the Edit tool): THE c1 ROUTE FOR b729'S WEIGHT LINE AND ITS CORRIGENDUM, (R340)(1)-(2). Carried from b729's
 # ### override and rewritten here against b729's own banks: the closing's lines by needle, the events (13), the defects (25), the refusals
-# ### (9 at 0650a188), the v1.9.0 controls. `c1 weight|corrigendum [dry|write]`;
+# ### (7 since 698b4c28's move), the v1.10.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record 1428 1435 REPAIR (c1)⟫
-C1_PREV_CLOSE = '0650a188'          # ### b729's closing commit: its refusal bank read at it
-C1_NOTED = '2026-10-31'
-C1_CORRIGENDA_LAST = 48
-C1_V170 = 'b730_standing_v190.txt'
-C1_WEIGHT_HEAD = '*Appended 2026-10-31 by b730 to b729’s entry (:%d), under `(R340)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## 11 carried repairs landed'
-C1_TRAIL_NEEDLE = '### b729 — lane two, act one hundred and fifty-five, the research act under (R339)'
+C1_PREV_CLOSE = 'ee4ba59a'          # ### b729's closing commit
+C1_REFUSAL_AT = '698b4c28'          # ### its refusal bank read at the commit (R340)(6) ordered, the two rows moved in from b728's
+C1_NOTED = '2026-11-01'
+C1_CORRIGENDA_LAST = 49
+C1_V170 = 'b730_standing_v1100.txt'
+C1_WEIGHT_HEAD = '*Appended 2026-11-01 by b730 to b729’s entry (:%d), under `(R340)`(1)' % K.B711_ENTRY
+C1_ENTRY_NEEDLE = '## The C2 theorem compiled at 18 of 18 with its lemmas'
+C1_TRAIL_NEEDLE = '### b729 — lane two, act one hundred and fifty-six, the compile act under (R339)'
 C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
@@ -102,7 +103,7 @@ def _c1_weight():
     sc = json.load(open(os.path.join(D, 'b729_scores_close.json'), encoding='utf-8'))
     sc = sc.get('scores') or sc
     held = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'HELD']
-    if len(held) != 8:
+    if len(held) != 6:
         sys.exit('### data/b729_scores_close.json: HELD %s -- NOTHING COMPOSED' % held)
     ar = json.load(open(os.path.join(D, 'b729_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
@@ -111,23 +112,32 @@ def _c1_weight():
     if sorted(ev) != list(range(1, 14)) or len(dr) != 25:
         sys.exit('### EVENTS %s ; DEFECTS %d -- NOTHING COMPOSED' % (sorted(ev), len(dr)))
     return (C1_WEIGHT_HEAD + ' -- b729 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b729_closing.txt):* “%s” (data/b729_closing.txt :1, the public relay at %s); its '
-            'relay commit the record’s %s, the closing’s %s (data/b729_steps.json, the record and closing rows). As its rows read: the C2 certificates at 18 of 18 fields with no axiom, the theorem not compiled, (L1), (L2) and '
-            'c2_value_law remaining (data/b729_c2.txt); lambda_2: GammaRZetaValues at index 1 proved with the standard three, (stieltjes 1).re < -1/20 remaining (data/b729_lambda2.txt); the six-onset table POST HOC, the pairs not '
-            'within 10%%, nothing registered (data/b729_onset_table.txt); W-ORD-VISIBILITY NOT CLEAN at 69 zeros, nothing registered (data/b729_visibility.txt); the scores 8 of 8 HELD (data/b729_scores_close.json). '
+            'relay commit the record’s %s, the closing’s %s (data/b729_steps.json, the record and closing rows). As its rows read: the C2 theorem compiled at 18 of 18 with c2_value_law and c2_least_negative, the standard three, no sorry, E0 DERIVES, '
+            'the list’s completeness cited (data/b729_c2.txt :45); lambda_2 > 0 compiled with the standard three, one rung, not Li’s criterion (data/b729_lambda2.txt :29); SupportDetection stated on detect-b729, DERIVES, not compiled, 14 lemmas, 2 with '
+            'no compiled neighbour (data/b729_detection.txt :62); the count law priced, the finding that ZQPremises has five fields and the count alone moves no grade (data/b729_count_price.txt (1), (3), (6)); H-ONSET-C REFUTED, off24 within 0.05, off44 '
+            'beyond by a bound (data/b729_onset_score.txt :11); the standing tools v1.9.0, controls 33 of 33 (data/b729_standing_v190.txt); the scores 6 of 8 HELD, N4 and N5 REFUTED (data/b729_scores_close.json). '
             'The sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both (:%d, :%d); the counter CLAIM %s, CLOSE %s, REPEAT %s of %s (:%d). '
-            'The root %s over %s banks, chained from %s (data/b729_act_root.json; :%d), the chain AGREE b624-b729; %s prompts answered (:%d); %d events in data/b729_events.txt, rows (1)-(%d); %d defects, (a)–(y) '
-            '(data/b729_defects.txt). THE TITLE as landed (“the C2 theorem at 18 of 18 fields”) stands with its dated note; what compiled at b729 is each field’s certificate. Nothing deposited, no draft published; the corrigendum '
-            'for these rows follows, under `(R340)`(1)-(2).' % (
+            'The root %s over %s banks, chained from %s (data/b729_act_root.json; :%d), the chain AGREE b624-b729; %s prompts banked as put by the seat (:%d), the head line’s count two; %d events in data/b729_events.txt, rows (1)-(%d); %d defects, (a)–(y) '
+            '(data/b729_defects.txt). THE NAVIGATOR’S TWO ERRORS AT `(R339)`(6) stand corrected in the trail’s hand section and here: the count law is one of five fields, and b716’s band is a component of the count, not the count. '
+            'Nothing deposited, no draft published; the corrigendum for these rows follows, under `(R340)`(1)-(2).' % (
                 head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
                 cc, cd, rp, rn, l_cn, K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, np_, l_an, len(ev), max(ev), len(dr)))
 
 
-# ### the refusals: b729's bank at its closing commit, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(1, 'PIPE', '15:47:32Z', 'defect (b)'), (2, 'READ', '15:51:01Z', 'defect (e)'), (3, 'READ', '15:51:04Z', 'defect (f)'), (4, 'PIPE', '15:51:39Z', 'defect (g)'),
-               (5, 'REDIR', '16:25:21Z', 'defect (h)'), (6, 'ENV', '16:32:47Z', 'defect (i)'), (7, 'READ', '16:43:32Z', 'defect (j)'), (8, 'REDIR', '16:45:43Z', 'defect (k)'), (9, 'REDIR', '19:15:06Z', 'event (2)')]
+# ### the refusals: b729's bank at C1_REFUSAL_AT, one a line, and the row recording each (line, kind, time, row)
+C1_REFUSALS = [(1, 'READ', '21:37:00Z', 'defect (b)'), (2, 'READ', '21:46:56Z', 'defect (b)'), (3, 'PIPE', '22:10:42Z', 'defect (j)'), (4, 'PIPE', '22:41:52Z', 'defect (n)'),
+               (5, 'PIPE', '02:36:07Z', 'defect (q)'), (6, 'PIPE', '04:36:55Z', 'defect (u)'), (7, 'REDIR', '04:36:55Z', 'defect (u)')]
 C1_CORR_TITLE = ('## Corrigendum to b729’s record (relay data/b729_events.txt rows (1)-(13) and data/b729_defects.txt): thirteen events and twenty-five defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT; the REDIR class at its head, report dry before the lock, the required list, the two plants, the scan written back, N5’s count, counts and nouns from the banks and the prompt-once clause '
-                 'at tools/standing/ v1.9.0, each controlled on b729’s banks, under (R340)(1)-(2)')
+                 'REPEAT; the hand-kept-names class at its head, the --prev names computed and no list kept; the root’s list and the units file, the pre-run off committed banks, the hook off a closed act’s bank, '
+                 'the answer checks from their bank, the closing’s N5 line and the root’s prompt composed, at tools/standing/ v1.10.0, each controlled on b729’s banks; the two lines of event (9) given dated notes, under (R340)(1)-(2)')
+# ### (viii): b725's standing form, (R335)(1)(ii): a note on an earlier act's line is written in the current act's section, naming the line by number, not beneath the line
+C1_NOTES = [
+    ('b729’s entry, the citation paragraph', K.PP if hasattr(K, 'PP') else PP, 'FINDINGS.md', 12242, '0 answer checks before the root', 'READS WRONG', 'answers'),
+    ('b729’s entry, the count paragraph', K.PP if hasattr(K, 'PP') else PP, 'FINDINGS.md', 12230, 'ZQPremises has five fields', 'INCOMPLETE', 'fields'),
+]
+C1_ANSWERS_FIX = ('data/b729_answer_check.txt holds three, 20 cites, 20 OK, the first VACUOUS (b729 event (9)); the composer read the step-zero bank alone, repaired at v1.10.0 (relay data/b730_standing_v1100.txt, :%d)')
+C1_FIELDS_FIX = ('the fields’ count stands; the author’s word for b729’s (10), composed after this line, reads “the count law discharges one of ZQPremises’ five fields”, the word the trail’s hand section carries '
+                 '(b729 event (9)) and `(R340)`(1) repeats; the count alone moves no grade')
 
 
 def _c1_q(s):
@@ -142,12 +152,30 @@ def _c1_v170_line(needle):
     return h[0]
 
 
+def _c1_notes():
+    fixes = dict(answers=C1_ANSWERS_FIX % _c1_v170_line('### (answers) '), fields=C1_FIELDS_FIX)
+    out = []
+    for where, repo, path, n, needle, cls, fx in C1_NOTES:
+        lines = _c1_git('show', 'HEAD:' + path, repo=repo).replace(chr(13), '').split(NL)
+        line = lines[n - 1] if n <= len(lines) else ''
+        if line.count(needle) != 1:
+            sys.exit('### %s :%d (%s) DOES NOT CARRY ITS SENTENCE ONCE (%d) -- NOTHING COMPOSED' % (path, n, where, line.count(needle)))
+        o = _c1_git('blame', '--porcelain', '-L', '%d,%d' % (n, n), 'HEAD', '--', path, repo=repo)
+        m = re.search(r'(?m)^committer-time (\d+)$', o)
+        at = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(int(m.group(1)))) if m else None
+        i = line.index(needle)
+        a, b = max(0, i - 60), min(len(line), i + len(needle) + 60)
+        out.append(dict(where=where, place=path, line=n, written=at, commit=o.split(' ', 1)[0][:8], cls=cls,
+                        quote=('…' if a else '') + line[a:b].strip() + ('…' if b < len(line) else ''), fix=fixes[fx]))
+    return out
+
+
 def _c1_state():
     ev = _c1_events()
     tags = dict((n, (lambda m: (m.group(2), m.group(3), m.group(1)) if m else (None, None, None))(C1_BRACKET.match(ev[n]))) for n in ev)
     dr = _c1_defects()
     dtext = dict((x[0], x[4]) for x in dr)
-    rl = _c1_git('show', '%s:data/b729_hook_refusals.txt' % C1_PREV_CLOSE).replace(chr(13), '').strip(NL).split(NL)
+    rl = _c1_git('show', '%s:data/b729_hook_refusals.txt' % C1_REFUSAL_AT).replace(chr(13), '').strip(NL).split(NL)
     bad_ref = []
     for ln, kind, at, row in C1_REFUSALS:
         if ln > len(rl) or ('| %s |' % kind) not in rl[ln - 1] or at not in rl[ln - 1]:
@@ -160,13 +188,13 @@ def _c1_state():
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
     (cc, cd), _l = _c1_fl('b729_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V170)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.9.0: CONTROLS')]
-    s = dict(events=ev, tags=tags, defects=dr, notes=[])
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.10.0: CONTROLS')]
+    s = dict(events=ev, tags=tags, defects=dr, notes=_c1_notes())
     nc, nl_, _rep, _n = _c1_counts(s)
     bad = [k_ for k_, ok_ in (('the event rows (1)-(13)', sorted(ev) == list(range(1, 14))), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 25', len(dr) == 25), ('the refusals 9, each answered as listed', len(rl) == 9 and not bad_ref),
+                              ('the defect rows 25', len(dr) == 25), ('the refusals 7, each answered as listed', len(rl) == 7 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.9.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the v1.10.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
                               ('the counter the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
@@ -191,18 +219,17 @@ def _c1_col(c):
     return 'NEW' if c == 'NEW' else c.replace('REPEAT ', 'REPEAT of ', 1).replace("'", '’').replace('`', '’')
 
 
-# ### the repairs each event is met by at v1.9.0
-C1_EV_EXTRA = {2: '; repair (redir)', 3: '; repair (nouns); the title stands with its dated note', 4: '; repair (n5count)', 5: '; repair (nouns)', 6: '; repairs (reportdry), (promptonce)', 9: '; repair (required)', 12: '; repair (plants)',
-               13: '; traced at this act: tools/standing/fold/checks.tpl :2108 prints a retired arm’s reading, drives no verdict, and stands outside (R340)(2); carried'}
+# ### the repairs each event is met by at v1.10.0
+C1_EV_EXTRA = {2: '; repair (hookact); the two rows moved to b729’s bank at relay 698b4c28 by (R340)(6)', 3: '; repair (own)', 4: '; repair (own)', 5: '; repair (hookact)', 6: '; repair (exercise)', 7: '; repair (rootprompt)',
+               9: '; repair (answers), the dated notes above', 11: '; repair (actroot)', 12: '; the line stands; nothing in (R340)(2) touches it; carried'}
 C1_CLASSES = (
-    ('redir', 'the REDIR class (`(R340)`(2)(i), event (2), defects (h), (k))', 'the hook reaches a redirect inside an inner shell’s quoted argument and the redirect-by-cmdlet forms; the banked REDIR rows replayed and refused, a planted clean command passed. The citation missed: `> $null` stands in no bank, every banked form was refused when it ran, and nothing slipped past (relay data/b730_stepzero.txt :22-:26)'),
-    ('reportdry', 'report dry before the lock (`(R340)`(2)(ii), event (6))', 'the registration gate reads the rendered report tool at step [5a], and the seal refuses where its bank is absent or failing; b729’s sk fails it'),
-    ('required', 'the required list (`(R340)`(2)(iii), event (9))', 'REQUIRED_BANKS read against what the root route can list; data/b726_mechanisms.txt refused as an unlistable name'),
-    ('plants', 'the two plants (`(R340)`(2)(iv), event (12))', 'G-SEAL-HASHES’ plant fails and G-TRAIL-CARRIES-SEAL’s mutates, each replayed over b729’s state'),
-    ('scanback', 'the scan written back (`(R340)`(2)(v))', 'a post-lock scan writes its own bank, outside the locked set; b729’s bank was last written before its lock, the closing’s foot reproduced in the bank form'),
-    ('n5count', 'N5’s count (`(R340)`(2)(vi), event (4))', 'the count of README writes derived from the (W) list; b729’s three read as three'),
-    ('nouns', 'counts and nouns from the banks (`(R340)`(2)(vii), events (3), (5))', 'a typed count or object noun that differs from its bank halts the citation check; “theorem” against data/b729_c2.txt halts, and seven against the table’s six'),
-    ('promptonce', 'the prompt-once clause (`(R340)`(2)(viii), event (6))', 'a halt after the root that needs the author’s word counts as a prompt in the head line; b729’s three read as three'),
+    ('own', 'the hand-kept-names class, a third act running (`(R340)`(2)(i), events (3), (4))', 'no list stands anywhere in tools/: the template’s OWN and the act’s section are gone, and standing.repeat decides each name from the two modules’ exports by shape (a component this act has made, a table shorter than this act’s, a kind that differs); the suite’s structure reads KS, bound before `--prev` rebinds K. b729’s crash and b722’s two read through with no edit, b730 over b729 whole, and a worklist with one more exported name and one more row. The citation missed: the banks hold no --prev crash at b724, which landed the order as prev_carries (relay data/b724_standing_v140.txt); b724’s pair is replayed whole and printed as that. The seat’s first cut of the rule crashed on the real `checks --prev --part act` at b730, K.C3_RELAY[0] on an empty tuple, a case the replay had not held; repaired before the version landed and in the control, marked as found by the run'),
+    ('actroot', 'the root’s list against G-ACTROOT-BANKED (`(R340)`(2)(ii), event (11))', 'the clause’s second road: a units file is out of the root’s set by rule, tracked or not, so the route and the arm’s bar read one list; b729’s onset units fall out and no .txt bank moves'),
+    ('exercise', 'the pre-run over a committed bank (`(R340)`(2)(iii), event (6))', 'where the plain name is tracked the pre-run writes the act-suffixed path, the readers taking it first; a mid probe has a name of its own'),
+    ('hookact', 'the hook and a closed act’s bank (`(R340)`(2)(iv), events (2), (5))', 'the hook writes to the act data/act_current.json names while that act is open; once its closing bank stands the bank is refused and the refusal is the next act’s, the reading this repair gives the clause; b729’s two rows land in b729’s bank, an open act keeps its own'),
+    ('answers', 'the answer checks (`(R340)`(2)(v), event (9))', 'the count read from data/<act>_answer_check.txt: b729’s 0 reads three'),
+    ('n5line', 'the closing’s kernels line (`(R340)`(2)(vi))', 'composed from N5’s clause as the act’s ferry words it, carried from no earlier act'),
+    ('rootprompt', 'the root’s prompt (`(R340)`(2)(vii), event (7))', 'the route carried since b714 retired; the prompt composed from a bank of rows, each figure a cite the composer finds on its bank line or refuses; b729’s and b728’s prompts regenerated equal to what was put. The rows are cut from the text as put: the equal shows form and figures and is no independent reading of the words'),
 )
 
 
@@ -211,12 +238,15 @@ def _c1_lines(s):
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v170_foot'])
     L = ['*b729’s events bank (relay data/b729_events.txt) carries thirteen rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank twenty-five lettered rows, (a)-(y), each tagged in its own bracket (%s); its refusal bank nine lines at b729’s closing commit %s, '
+         'own bracket (%s); its defects bank twenty-five lettered rows, (a)-(y), each tagged in its own bracket (%s); its refusal bank seven lines at %s, five at b729’s closing commit and two moved in from b728’s by `(R340)`(6), '
          'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*' % (
-             _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_PREV_CLOSE), '']
-    L += ['', '**The repairs of `(R340)`(2), at tools/standing/ v1.9.0, each with a control on b729’s banks, failing on the route before the repair '
-          'and passing after, both instances printed** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
+             _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
+    L += ['**Dated notes**, `(R340)`(2)(viii), in the form of `(R335)`(1)(ii) (no line rewritten; each line named here by its place and number), each dated %s:' % C1_NOTED, '']
+    for x in s['notes']:
+        L += ['- **%s :%d** (%s; written %s at %s; %s, noted %s): "%s" -- %s.' % (x['place'], x['line'], x['where'], x['written'], x['commit'], x['cls'], C1_NOTED, _c1_q(x['quote']), x['fix'])]
+    L += ['', '**The repairs of `(R340)`(2), at tools/standing/ v1.10.0, each with a control on b729’s banks, failing on the route before the repair '
+          'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v170_line('### (%s) ' % k_)), '']
     L += ['**b729’s events (1)-(13):**', '']
@@ -230,12 +260,12 @@ def _c1_lines(s):
     L += ['', '**b729’s defects:**', '']
     for x, o, t, c, _tx in s['defects']:
         L += ['**(%s)** (relay data/b729_defects.txt; %s; %s; %s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _c1_col(c))]
-    L += ['', '**b729’s refusals** (relay data/b729_hook_refusals.txt at %s, one a line): ' % C1_PREV_CLOSE + '; '.join(
+    L += ['', '**b729’s refusals** (relay data/b729_hook_refusals.txt at %s, one a line, the first two moved in by `(R340)`(6)): ' % C1_REFUSAL_AT + '; '.join(
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
           '**The counter:** CLAIM %d, CLOSE %d over the %d items (thirteen events, twenty-five defects), as b729’s closing prints it (relay data/b729_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
               nc, nl_, n, rep, n, ', '.join(claims)), '',
           '*Filed at b730 on the author’s ruling `(R340)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b730.py) from '
-          'b729’s events, defects and refusal banks read unedited, and the v1.9.0 controls bank; banked as relay `data/b730_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
+          'b729’s events and defects banks read unedited, its refusal bank as `(R340)`(6) left it, and the v1.10.0 controls bank; banked as relay `data/b730_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b729’s record; no sealed tool, face, trail or root-named bank of b729 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
 
@@ -243,11 +273,11 @@ def _c1_lines(s):
 def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
     return (['b730 -- THE CORRIGENDUM FOR b729, (R340)(1)-(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b729_events.txt rows (1)-(13), data/b729_defects.txt 25 rows, data/b729_hook_refusals.txt 9 '
-             'lines at %s; data/%s (the v1.9.0 controls); the corrigenda bank`s last row (%d).' % (C1_PREV_CLOSE, C1_V170, C1_CORRIGENDA_LAST), '']
+             '### the banks read unedited: data/b729_events.txt rows (1)-(13), data/b729_defects.txt 25 rows, data/b729_hook_refusals.txt 7 '
+             'lines at %s; data/%s (the v1.10.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 13, DEFECTS 25 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.9.0: THE REDIR CLASS, '
-               'REPORT DRY, THE REQUIRED LIST, THE PLANTS, THE SCAN, N5`S COUNT, THE NOUNS, THE PROMPT-ONCE CLAUSE ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
+            + ['', '### ### **ITEMS %d: EVENTS 13, DEFECTS 25 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.10.0: THE HAND-KEPT-NAMES CLASS, '
+               'THE ROOT`S LIST, THE PRE-RUN, THE HOOK, THE ANSWER CHECKS, THE KERNELS LINE, THE ROOT`S PROMPT ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
 
 
 def c1(*a):
@@ -275,7 +305,7 @@ def c1(*a):
                                                    events=[dict(row=k_, owner=s['tags'][k_][2], tag=s['tags'][k_][0], column=s['tags'][k_][1]) for k_ in sorted(s['events'])],
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.9.0', bank='data/' + C1_V170),
+                                                   notes=s['notes'], repairs=dict(version='v1.10.0', bank='data/' + C1_V170),
                                                    row=C1_CORRIGENDA_LAST + 1))
         print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(s['notes']), ln))
         return
