@@ -1,0 +1,49 @@
+b731 -- THE zeros FIELD'S PLAN, (R341)(4): WRITTEN AND COMMITTED BEFORE ANY LEAN OF THE FIELD REACHES THE BRANCH. Pins read: SIDE-explicit-formula zq-b730 at 5eb1d014, Mathlib de5ce8a9a66a, Lean v4.34.0-rc1. (3) stands CLOSED at this bank (data/b731_logderiv.txt, 3 dispatches of 6), so (4) runs. No lean on this host; the module read by dispatches on zq-b730.
+
+## (1) THE FIELD AS A LEAN Prop, MATCHING ZQPremises.zeros AT THE PIN
+  ZQPremises.zeros : ZQZeros zq Z (Schema/EpsteinZQ.lean :139), ZQZeros at :99-:101: carrier_eq : Z.carrier = LambdaQZeros zq ; mult_order : for each ρ in the carrier, g analytic at ρ, g ρ != 0, eventually zq z = (z - ρ)^(Z.mult ρ) * g z.
+  WideConfig (Schema/Wide/Config.lean :28-:38): one_le_mult, strip (-1/2 < Re ρ < 3/2), reflect_mem, mult_reflect, finite_window. reflect ρ = 1 - conj ρ (Zeta23/Defs.lean :124).
+  THE TARGET:  def SIDEExplicitFormula.Schema.ZQ.zqZeroConfig : WideConfig, carrier LambdaQZeros zqFn, mult analyticOrderNatAt zqFn
+               theorem SIDEExplicitFormula.Schema.ZQ.zq_zeros : ZQZeros zqFn zqZeroConfig
+               theorem SIDEExplicitFormula.Schema.ZQ.exists_zq_zeros : ∃ Z : WideConfig, ZQZeros zqFn Z
+  THE FERRY'S CITATION: "chiZeroConfig's form (Chi/Generic.lean)". chiZeroConfig stands at Chi/ZeroConfig.lean :225, not Chi/Generic.lean. The form read is ZeroConfig.lean's; the miss is named, the clause otherwise as ruled.
+
+## (2) THE ROUTE, AND WHAT THE CONTINUATION OF b730 AND (3) GIVE IT
+  CONSUMED, COMPILED: zqFn_holomorphic, zqFn_agrees, mul_zqFn_eq, zqPair_Λ_eq, zqPair_Λ_one_sub, qBase_cpow_ne (b730); zq_ne_zero_of_three_halves_le, aQ (this act's (3)).
+  THE FULL FUNCTIONAL EQUATION: zqFn_functional_equation is the strip's alone. zq_fe restates it off the poles from mul_zqFn_eq at z and 1 - z and zqPair_Λ_one_sub, the hypotheses z != 0, z != 1, Gamma z != 0, Gamma (1 - z) != 0.
+  THE STRIP: Re ρ < 3/2 is (3)'s half-plane. Re ρ <= -1/2 would put 1 - ρ in that half-plane, and zq_fe with zqFn ρ = 0 gives a product of three nonzero factors equal to 0.
+  SCHWARZ REFLECTION: riemannZeta_conj's proof (Zeta23/ZetaReflect.lean :78) re-run for zqFn: the terms of the series are reflected on Re s > 1, the identity theorem on the connected complement of 1 carries it. zqFn_real is not used.
+  NO ACCUMULATION AT THE POLE: zqFn's own zeros could in principle pile up at 1, where it is not analytic. a(s) = (1 - s) zqFn s extends to an entire aE, aE 1 = -qBase != 0; an infinite set of its zeros in a compact set has an accumulation point and forces aE = 0. THIS IS THE ONE LEMMA NO χ-NEIGHBOUR NEEDS: L(s, χ) has no pole.
+  THE ORDER: at a nonpole z the order of zqFn is the order of Λ (the factor q^s Γ(s)⁻¹ analytic nonzero there); Λ(1 - s) = Λ(s) by analyticOrderAt_comp_of_deriv_ne_zero; the order at conj ρ by Zeta23.analyticOrderAt_conj_conj. No factorization is transported by hand.
+  mult_order is analyticOrderAt_eq_natCast read off, its smul a product.
+
+## (3) THE LEMMAS, EACH WITH ITS NEAREST COMPILED NEIGHBOUR AND ITS PRICE (THE SEAT'S ESTIMATE, NOT A BOUND)
+  GROUP   LEMMA                                                  NEAREST COMPILED NEIGHBOUR                                                  LINES
+  D       zq_differentiableAt, zq_analyticOnNhd                  zqFn_holomorphic; DifferentiableOn.analyticOnNhd                            10
+          zq_conj_of_one_lt_re, zq_conj                          zeta_conj_of_one_lt_re, riemannZeta_conj, Zeta23/ZetaReflect.lean :56, :78  60
+          zq_fe                                                  zqFn_functional_equation, Continuation.lean :165                            5
+          aE, aE_differentiable, aE_eq, aE_one                   zqFn_holomorphic's proof, :147; zqFn_aux, :125                              40
+          aE_zero_finite                                         finite_window_chi, Chi/ZeroConfig.lean :103; exists_accPt_of_subset_isCompact, Compact.lean :925  15
+  E       mem_C, C_gamma_ne, C_gamma_one_sub, C_re_lt, C_re_gt   chi_reflect_zero, Chi/ZeroConfig.lean :183; Complex.Gamma_ne_zero, Beta.lean :427  45
+          C_conj, C_one_sub                                      chi_reflect_zero :183                                                       35
+          zq_order_ne_top, zq_order_cast, C_one_le_mult          analyticOrderAt_LFunction_ne_top :66, one_le_zeroMultChi :75                30
+          zq_order_conj, zq_order_eq_Lam, Lam_order_one_sub      analyticOrderAt_LFunction_eq_completed :132, analyticOrderAt_completed_le_one_sub :146  50
+          C_mult_reflect, C_finite_window                        chi_mult_reflect :208, finite_window_chi :103                               30
+          zqZeroConfig, zq_zeros, exists_zq_zeros                chiZeroConfig :225                                                          20
+  IN ALL: 1 module, Schema/ZQ/Zeros.lean, about 340 lines, 2-6 dispatches, 1-3 foreground hours (the seat's). THE LINE COUNT IS READ FROM A DRAFT: 340 lines stand in the seat's scratchpad, uncommitted, read through against the pin; no line of it is on the branch at this bank's commit.
+
+## (4) THE RE-PRICE, (R341)(4): THE BANK'S ROW READ BY THE MEASURED RATIOS, PRINTED AS THE SEAT'S
+  The bank's row (data/b729_count_price.txt :22): 300-600 lines, 5-10 dispatches, 8-15 hours.
+  BY b730'S RATIO (835 lines, 6 dispatches beside 1,500-3,000 and 25-50): lines 0.278-0.557, dispatches 0.12-0.24: 83-335 lines, 1-3 dispatches.
+  BY (3)'S RATIO (786 lines, 3 dispatches beside 200-400 and 3-8): lines 1.965-3.930, dispatches 0.375-1.000: 589-2,358 lines, 1-10 dispatches.
+  THE TWO MEASUREMENTS DISAGREE ON LINES BY 3.5 AT THEIR NEAREST ENDS (1.965 / 0.557) AND THEY ARE NOT THE SAME KIND OF MISS: b730's bank priced a route Mathlib's even kernel shortened; (3)'s bank carried no row for Z_Q(3/2) < 4, which was 379 lines of the 786. NEITHER RATIO PRICES THE zeros FIELD. FROM THE LEMMAS ABOVE: about 340 lines, 2-6 dispatches. THE SEAT'S, TO BE MEASURED BESIDE IT WHEN THE FIELD LANDS (tools/standing/pricebank.py, data/b731_price_measured.txt).
+
+## (5) THE ORDER THEY BUILD IN
+  D and E are one module and a failing declaration does not stop the file's other declarations: one dispatch reads both groups, target SIDEExplicitFormula.Schema.ZQ.Zeros, free memory printed before it, the module read through against the pin's Mathlib before its push. Each repair a dispatch. THE EXIT FILE GOVERNS, build_exit.txt read, the conclusion word not (runs 41316031450 and 41316963968 carried conclusion success over exit 1).
+  print_targets.txt appended with ASCII names alone: zq_conj, zqZeroConfig, zq_zeros, exists_zq_zeros.
+
+## (6) THE STOP POINTS
+  STOP AT THE SIXTH DISPATCH OF THIS FIELD OR AT ANY LEMMA THAT RESISTS: the field reads OPEN at the first lemma not compiled, the dispatches spent and the lines written, the sorry-free statement of what remains printed from the compiled theorems (no sorry on the branch, no axiom added, a remaining lemma stated in the bank and not in Lean).
+  THE GRADE is CLOSED only on zq_zeros and exists_zq_zeros compiled at the standard three, read from the run's axioms output by tools/b731_fields.py zeros. The fields count and explicitFormula are not touched; their re-price is printed in data/b731_price_measured.txt.
+
+### ### **THE FIELD STATED ; ROUTE (3)'S HALF-PLANE, THE FULL FE, SCHWARZ REFLECTION, AN ENTIRE aE WITH aE 1 != 0, THE ORDER OF Λ ; 1 MODULE, ABOUT 340 LINES, 2-6 DISPATCHES (THE SEAT'S) ; THE CAP SIX ; NOTHING OF THE FIELD ON THE BRANCH AT THIS BANK'S COMMIT.**
