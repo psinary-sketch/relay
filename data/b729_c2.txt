@@ -1,0 +1,45 @@
+b729 -- (R339)(3): THE C2 THEOREM COMPILED, ON c2-b725, BY THE LEMMAS (L1), (L2) AND THE JOIN TO THE EIGHTEEN CERTIFICATES (2026-11-01)
+
+### by the Write tool, from the runs' own artifacts (build.log, build_exit.txt, axioms.txt, ref.txt, mem.log), read by run id; the rows at data/b729_dispatch_rows.json. No lean process on this host (N1); the branch stays a branch.
+### rows: (1) the theorems; (2) the dispatches; (3) the axioms; (4) the E0 grades; (5) the lemmas; (6) the scope.
+
+## (1) THE THEOREMS, branch c2-b725, tip 0395f15d3b2906716ccb1f09ca24171d7a921210, module SIDEExplicitFormula/C2Theorem.lean
+  theorem c2_value_law : C2ValueLaw
+    where C2ValueLaw : forall (D n0 v q), (D, n0, v, q) in walk -> (q * bL D n0 = v * 360360) and forall n, 2 <= n -> n < n0 -> 0 <= bL D n
+  theorem c2_least_negative (D n0 v q) (hw : (D, n0, v, q) in walk) : (q * bL D n0 = v * 360360) and bL D n0 < 0 and forall n, n < n0 -> 0 <= bL D n
+  So for each of the eighteen rows of `walk` it is a theorem that the least n with b(n) < 0 is n0 and that b(n0) is the walk's value v / q. bL is 360360 b: every statement is in integers.
+  C2Walk.lean is unchanged by the act (git diff --stat b91bf5af 0395f15 -- SIDEExplicitFormula/C2Walk.lean prints nothing): the statement is the one b725 wrote and b726 repaired by binder annotations alone. The act's diff adds 26 files, removes none.
+
+## (2) THE DISPATCHES
+  dispatch 1  run 41249471618  ref 9af30c5d  targets C2Tab C2Omega C2Div C2Arith C2Sweep C2Law C2Probe.Sweep C2Probe.Law   exit 1  one error: C2Sweep.lean:120, `Ibox` needs noncomputable (the seat's omission); the other modules built; no axiom print, the build having failed. The run's conclusion read `success`: the exit file governs, not the conclusion.
+  dispatch 2  run 41249967563  ref 0395f15d  target SIDEExplicitFormula.C2Theorem  exit 0  "Build completed successfully (8863 jobs)"; [8863/8863] Built SIDEExplicitFormula.C2Theorem (22s); runner low 3823 MB; started 22:50:39Z, ended 00:19:54Z
+  Two dispatches of the three (R339)(3) allows. The eighteen trace lines of run 41249967563 each read `CERT D=... KERNEL`, none SORRY, no `declaration uses` line in the log.
+  ONE BUILD, ONE REF: the eighteen certificates, the field chain (one import line each, no certificate statement moved), (L1), (L2) and the join were all built by this one run at 0395f15d. b728's caveat "each at its own ref, not the theorem" no longer stands.
+
+## (3) THE AXIOMS, READ FROM THE ARTIFACT'S axioms.txt
+  'C2Walk.c2_value_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'C2Walk.c2_least_negative' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'C2Walk.L1_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'C2Walk.L2_holds' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'C2Walk.law_of_cert' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'C2Walk.value_law_of_certs' depends on axioms: [propext, Classical.choice, Quot.sound]
+  the eighteen `C2Walk.cert_m<|D|>`: each "does not depend on any axioms" (18 lines, axioms.txt :1-:18). No sorryAx in any line.
+  NOT axiom-free: the certificates are; the theorem is not, the lemmas carrying the standard three.
+
+## (4) THE E0 GRADES (tools/e0_rule.py `grade`, imported unedited, its self test True; the control first)
+  CONTROL premise       INTERFACES : hX : LiLimitExchange n, as wanted
+  c2_value_law          DERIVES : no hypothesis binder
+  C2ValueLaw unfolded   DERIVES : no hypothesis binder
+  c2_least_negative     DERIVES : domain conditions only: hw : (D, n0, v, q) in walk
+
+## (5) THE LEMMAS
+  (L1) L1_holds : the sweep's table is r_Q on [0, n0] at each row of the walk.
+  (L2) L2_holds : W(n) = Omega(n) bL(n) for 2 <= n <= N < 2^16.
+  law_of_cert : one certificate gives the value law at its row (hypotheses D <= -15, 2 <= n0, n0 < 65536); value_law_of_certs : the certificates at all rows give C2ValueLaw; all_certs discharges them row by row.
+
+## (6) THE SCOPE
+  That `walk` is the complete list of imaginary quadratic fields of class number 2 is Baker 1971 and Stark 1975, cited and not compiled: it stands in a comment and enters no binder. Every theorem here is about the eighteen rows of `walk` and only those.
+  NOT COMPILED: that bL D n is L times the coefficient of n^-s in log(Z_Q / 2). That is the definition's docstring, a reading; the theorem is about the finite sum `bL` as defined (k <= 15, sufficient for n < 2^16, every n0 here).
+  The theorem is at the principal form of each discriminant. It says nothing of zeros, RH or GRH.
+
+### ### **THE C2 THEOREM: c2_value_law AND c2_least_negative COMPILED AT 18 OF 18 ; AXIOMS propext, Classical.choice, Quot.sound ; NO sorry ; E0 DERIVES ; DISPATCHES 2 OF AT MOST 3 ; ONE BUILD AT 0395f15d ; THE LIST'S COMPLETENESS CITED, NOT COMPILED ; NO MAIN, NO TAG.**
