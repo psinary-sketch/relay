@@ -247,7 +247,7 @@ def neg_shown(arms, banks, withheld):
 
 
 def exercise_banks(act, parts, rev=None):
-    return dict((p, A.jl('%s_exercise_%s.json' % (act, p), rev)) for p in parts)
+    return dict((p, A.jl('%s_exercise_%s_%s.json' % (act, p, act), rev) or A.jl('%s_exercise_%s.json' % (act, p), rev)) for p in parts)   # ### v1.10.0, (R340)(2)(iii)
 
 
 def arms_of(banks, parts):

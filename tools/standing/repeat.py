@@ -60,17 +60,51 @@ def prev_carries(prev, own, n):
     """`--prev`'s worklist: the previous act's value is read for name n only where it carries one in this act's shape -- not missing, not
     None, and (where this act's is a string, a tuple or a list) of the same kind, a string against a string. Otherwise this act's value: the
     hand list _PrevWorklist.OWN missed names the previous worklist set to None (b722 events (8)-(10), C6_PP among them) or reused in another
-    shape (C5_RELAY a pair where this act's is one commit)."""
+    shape (C5_RELAY a pair where this act's is one commit). v1.10.0, (R340)(2)(i), the class a third act running: NO LIST IS KEPT. A component's
+    commit (C<n>_...) is this act's where this act carries the name, its value naming nothing of the previous act's banks; a table of rows is read
+    only where the previous act's has every row this act's source can index (b729 event (3): EF_BRANCHES[2] on two rows). The suite's own
+    structure is no name here at all: the checks tool reads it through KS, bound before the rebinding."""
     if not hasattr(prev, n):
         return False
     p, o = getattr(prev, n), getattr(own, n, None)
     if p is None:
         return False
+    if o and re.match(r'^C\d+_', n):     # ### a component not yet made carries nothing to read: the previous act's (b730's own probe, K.C3_RELAY[0] on an empty tuple)
+        return False
     if isinstance(o, str):
         return isinstance(p, str)
     if isinstance(o, (tuple, list)):
-        return isinstance(p, (tuple, list))
+        if not isinstance(p, (tuple, list)):
+            return False
+        return not (o and all(isinstance(r, (tuple, list)) for r in o) and len(p) < len(o))
     return True
+
+
+def exported(mod):
+    """the worklist module's exported names: its upper-case module attributes, nothing kept."""
+    return sorted(k for k in vars(mod) if k.upper() == k and not k.startswith('_'))
+
+
+def own_names(prev, own):
+    """v1.10.0, (R340)(2)(i): the names a `--prev` run reads as this act's, computed from the two modules' own exports and printed; no list kept in tools/."""
+    return [n for n in exported(own) if not prev_carries(prev, own, n)]
+
+
+def exercise_name(act, part, mode, tracked):
+    """v1.10.0, (R340)(2)(iii), b729 events (6): the exercise bank a run writes. A mid probe writes its own name; the pre-run never writes over a
+    committed bank, so a name tracked before it runs takes the act-suffixed path. `tracked`: is this bank name committed at HEAD."""
+    if mode == 'prev':
+        return '%s_prevrun_exercise_%s.json' % (act, part)
+    if mode == 'mid':
+        return '%s_mid_exercise_%s.json' % (act, part)
+    n = '%s_exercise_%s.json' % (act, part)
+    return '%s_exercise_%s_%s.json' % (act, part, act) if mode == 'prerun' and tracked(n) else n
+
+
+def exercise_read(act, part, exists):
+    """the exercise bank a reader takes: the act-suffixed path where the pre-run wrote one, else the plain one."""
+    n = '%s_exercise_%s_%s.json' % (act, part, act)
+    return n if exists(n) else '%s_exercise_%s.json' % (act, part)
 
 
 def seal_against_worklist(seal_tools, sealed):

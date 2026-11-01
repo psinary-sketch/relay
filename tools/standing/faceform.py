@@ -49,6 +49,16 @@ def n5_kernel_clause(agents=()):
     return s + ' ; no .lean file, no workflow file, no tag'
 
 
+def n5_clause_of(ferry):
+    """v1.10.0, (R340)(2)(vi): the closing's kernels line composed from N5's clause as the act's ferry words it, carried from no earlier act: the semicolon-clauses of (N5) naming a kernel, a
+    Lean file, a README or a tag. None where the ferry carries no (N5)."""
+    m = re.search(r'\(N5\) (.*?)(?=\s*\(N\d\) |\s*\n|$)', ferry or '')
+    if not m:
+        return None
+    parts = [p.strip().rstrip('.') for p in m.group(1).split(';')]
+    return ' ; '.join(p for p in parts if re.search(r'kernel|Lean file|\.lean|README|tag', p))
+
+
 def readme_writes(write_list):
     """v1.9.0, (R339)(2)(vi): N5's count of kernel README writes, derived from the (W) list and carried as no number: the kernels (W) names with a README.md."""
     out = set()

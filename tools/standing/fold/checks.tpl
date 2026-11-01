@@ -60,7 +60,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 import b616_claims as KC0     # noqa: E402
-import ⟪ACT⟫_worklist as K     # noqa: E402
+import ⟪ACT⟫_worklist as KS; K = KS     # noqa: E402  ### v1.10.0, (⟪RUL⟫)(2)(i): KS the suite's own structure, never rebound; K what `--prev` rebinds
 import ⟪ACT⟫_record as REC0    # noqa: E402  ### imported before ⟪PREV⟫'s and b703's suites: b698's record tool is then rebound to ⟪ACT⟫ once
 from ⟪ACT⟫_record import conv  # noqa: E402
 import ⟪PREV⟫_worklist as K707  # noqa: E402  ### the previous act's worklist (its arms, its sealed tools, its heads for --prev)
@@ -244,12 +244,12 @@ def prev_now():
 def ra_sources(lock):
     """tools/rule_arms.py's sources over the seat's session from (⟪RUL⟫)'s anchor, its call trace extended by any continuation session's
     (K.SESSIONS_AFTER, none so far) through rule_arms.transcript."""
-    R_ = RA.sources(ACT_NOW, SESSION, K.ANCHOR, K.PARTS, lock, PRE['relay'], PRE['pp'])
+    R_ = RA.sources(ACT_NOW, SESSION, K.ANCHOR, KS.PARTS, lock, PRE['relay'], PRE['pp'])
     for sid, anc in K.SESSIONS_AFTER:
         R_['calls'] = list(R_.get('calls') or []) + RA.transcript('%s/%s.jsonl' % (PROJ, sid), anc)
     # ### (⟪RUL⟫)(4)(i): G-RULE-LONG-PHASE-SPLIT's figures from the previous act's part banks, each read against its root's sha256 (the
     # ### combined bank rule_arms.py :305 reads is one no act writes); a refused bank is counted apart and never read
-    pl = STA.prev_longest(PREV_ACT, K.PARTS)
+    pl = STA.prev_longest(PREV_ACT, KS.PARTS)
     R_['prev_longest'], R_['prev_parts'], R_['prev_refused'] = pl['longest'], pl['parts_read'], pl['refused']
     return R_
 
@@ -323,7 +323,7 @@ def wf_state():
     return out
 
 
-STANDING = sorted((set(g2_of(B707_FACE)) - set(K707.ACT_ARMS)) | set(K.STANDING_ADDED))
+STANDING = sorted((set(g2_of(B707_FACE)) - set(K707.ACT_ARMS)) | set(KS.STANDING_ADDED))
 TESTS = ('test_no_sorry_main.py', 'test_axiom_claim.py', 'test_module_header.py', 'test_conversion_b652.py')
 
 
@@ -338,15 +338,15 @@ def _acts_between(lo_hi):
 
 
 def half_acts(i):
-    return _acts_between(K.CHAIN_HALVES[i])
+    return _acts_between(KS.CHAIN_HALVES[i])
 
 
 def quarter_acts(q):
-    return _acts_between(K.CHAIN_QUARTERS[q])
+    return _acts_between(KS.CHAIN_QUARTERS[q])
 
 
 def boundary():
-    a, b = K.CHAIN_HALVES[0][1], K.CHAIN_HALVES[1][0]
+    a, b = KS.CHAIN_HALVES[0][1], KS.CHAIN_HALVES[1][0]
     rows = dict((l.split()[0], l.split()) for l in rd('act_roots.txt').split(NL) if l.strip() and not l.startswith('corrigendum '))
     ra, rb = rows.get(a) or [], rows.get(b) or []
     root_a, prev_b = (ra[1] if len(ra) > 1 else ''), (rb[2] if len(rb) > 2 else '')
@@ -575,7 +575,7 @@ def sources(need=()):
                 refs[ref.strip()] = sha.strip()
         S['lv_remote'] = refs
     S['root_at_commit'] = _root_named_at_commit(S['arj'])
-    S['secs_ct'] = dict((p, _ct(ROOT, gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/⟪ACT⟫_arm_seconds_%s.json' % p))) for p in K.PARTS)
+    S['secs_ct'] = dict((p, _ct(ROOT, gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/⟪ACT⟫_arm_seconds_%s.json' % p))) for p in KS.PARTS)
     S['root_ct'] = _ct(ROOT, (S['arj'].get('commit') or {}).get('relay') or '')
     S['phase_secs'] = {'the banks and the state': time.time() - t0}
     S['pp_allowed'] = sorted(set(K.PP_WRITTEN))
@@ -1069,7 +1069,7 @@ def postroot_writes_none(S):
     j = S['guardj']
     w = j.get('writes') or {}
     return 'POST-ROOT PATH WRITES NONE' in S['guard'] and w.get('pre-push') == [] and w.get('post-push') == [] and bool(S['root_ct']) \
-        and sorted(S['secs_ct']) == sorted(K.PARTS) and all(v is not None and v <= S['root_ct'] for v in S['secs_ct'].values())
+        and sorted(S['secs_ct']) == sorted(KS.PARTS) and all(v is not None and v <= S['root_ct'] for v in S['secs_ct'].values())
 
 
 def trail_lines_equal_defects(S):
@@ -1173,7 +1173,7 @@ def gate_ok(S):
             and seq.index('dispatch') < seq.index('read')
     mem = [r for r in rows if r.get('kind') in ('push', 'push2', 'dispatch', 'dispatch_refused', 'read')]
 ⟪SLOT 25⟫
-    return bool(mem) and all((r.get('free_mb') or 0) >= K.HOLD for r in mem) and order \
+    return bool(mem) and all((r.get('free_mb') or 0) >= KS.HOLD for r in mem) and order \
 ⟪SLOT 26⟫
 
 
@@ -1386,13 +1386,13 @@ def readfirst_diff_ok(S):
 
 def parts_prerun_ok(S):
     t = S['prerun']
-    return all(('### PART %s : ARMS' % p) in t for p in K.PARTS) and 'under the 590 s guard True' in t and 'PRE-SEAL (R202)(3)' in t
+    return all(('### PART %s : ARMS' % p) in t for p in KS.PARTS) and 'under the 590 s guard True' in t and 'PRE-SEAL (R202)(3)' in t
 
 
 def arm_seconds_ok(S):
     j = S['asec']
-    return sorted(j.get('parts') or []) == sorted(K.PARTS) if isinstance(j.get('parts'), (list, dict)) else (
-        sorted(j) >= [] and all(p in json.dumps(j) for p in K.PARTS) and 'THE PER-PART SECONDS' in S['asect'].upper())
+    return sorted(j.get('parts') or []) == sorted(KS.PARTS) if isinstance(j.get('parts'), (list, dict)) else (
+        sorted(j) >= [] and all(p in json.dumps(j) for p in KS.PARTS) and 'THE PER-PART SECONDS' in S['asect'].upper())
 
 
 def figures_banked_ok(S):
@@ -1421,7 +1421,7 @@ def act_current_ok(S):
     # ### b727, (R337)(2): shared_edits, the one hand list (the worklist's REPAIRED_TOOLS is read from it), against the shared tools git shows changed
     shared = STANDING_ACT.shared_tools_changed(ROOT, K.PRE_RELAY, ACTN)
     return j.get('act') == ACTN and j.get('prev') == PREV_ACT and j.get('next') == K.NEXT_ACT and j.get('ruling') == '⟪RUL⟫' \
-        and j.get('chain_row') == AF['own_row'] and list(j.get('parts') or []) == list(K.PARTS) and j.get('withheld') == [] \
+        and j.get('chain_row') == AF['own_row'] and list(j.get('parts') or []) == list(KS.PARTS) and j.get('withheld') == [] \
         and sorted(j.get('shared_edits') or []) == shared and bool(z) and all(z.get(k) == j.get(k) for k in keep) \
         and S['files']['actcur'] == [K.ACT_CURRENT]
 
@@ -1808,7 +1808,7 @@ ARMS = STA.run_list(ARMS_ALL)
 
 
 def _part_of(name):
-    if name in K.ACT_ARMS:
+    if name in KS.ACT_ARMS:
         return 'act'
     if name in B1_ARMS:
         return 'standing-b1'
@@ -1858,7 +1858,7 @@ def neg_shown():
     part's table (its planted source; the arm must FAIL on it) -- has not been shown to fail, read from the pre-run's exercise banks
     (data/⟪ACT⟫_exercise_<part>.json, `mode` prerun, every part's). (⟪RUL⟫)(4)(vi): by tools/standing/close.py neg_shown, its three lists read
     by name (shown, bad, withheld), the withheld entries those of the ruling's field whose condition holds."""
-    banks = dict((p, C3.jl('⟪ACT⟫_exercise_%s.json' % p)) for p in K.PARTS)
+    banks = dict((p, C3.jl('⟪ACT⟫_exercise_%s_⟪ACT⟫.json' % p) or C3.jl('⟪ACT⟫_exercise_%s.json' % p)) for p in KS.PARTS)
     r = STC.neg_shown([(a[0], _part_of(a[0])) for a in ARMS], banks, list(WITHHELD))
     print(''.join('  VACUOUS, NEITHER A PASS NOR A FAILURE: %s%s' % (n, NL) for n in r.vacuous), end=''); return r.shown, r.bad, r.withheld   # ### v1.8.0, (⟪RUL⟫)(2)(ii)
 
@@ -1994,7 +1994,7 @@ def _combine_tally(parts, W):
 def combine():
     base = sys.argv[sys.argv.index('--combine') + 1]
     parts, heads = [], []
-    for part in K.PARTS:
+    for part in KS.PARTS:
         t = rd(_part_name(base, part))
         m = PART_FOOT.search(t)
         if not m or m.group(1) != part:
@@ -2024,8 +2024,8 @@ def combine():
         out += ['### THE PART BANK %s, WHOLE:' % _part_name(base, p)] + t.rstrip(NL).split(NL) + ['']
     _write(base, out)
     ex = {}
-    for part in K.PARTS:
-        ex.update(jl('⟪ACT⟫_exercise_%s.json' % part).get('exercise') or {})
+    for part in KS.PARTS:
+        ex.update((jl('⟪ACT⟫_exercise_%s_⟪ACT⟫.json' % part) or jl('⟪ACT⟫_exercise_%s.json' % part)).get('exercise') or {})
     if ex and base in ('⟪ACT⟫_checks.txt', '⟪ACT⟫_checks_postpush.txt'):
         e = (json.dumps(dict(exercise=ex, run=n, live_failing=fails, defective=defs, neg_failures=ng, withheld=wh), indent=1, ensure_ascii=False) + NL).encode('utf-8')
         p_ = os.path.join(D, '⟪ACT⟫_exercise.json')
@@ -2054,13 +2054,13 @@ def main():
         return combine()
     if GUARD_DRY:
         return guard_dry()
-    if PART not in K.PARTS:
-        print('### every run in seven foreground parts -- give `--part %s`' % ' | '.join(K.PARTS))
+    if PART not in KS.PARTS:
+        print('### every run in seven foreground parts -- give `--part %s`' % ' | '.join(KS.PARTS))
         return 2
     fm = free_mb()
-    if fm < K.HOLD:
+    if fm < KS.HOLD:
         print('%s  ### THE HOST`S FREE MEMORY %d MB, BENEATH THE HOLD %d MB: PART %s NOT RUN ((R294)(2))' % (
-            time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), fm, K.HOLD, PART))
+            time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), fm, KS.HOLD, PART))
         return 3
     t_start = time.time()
     pushed = RERUN or (not PRERUN and not MID and not PREV and is_pushed())
@@ -2068,7 +2068,7 @@ def main():
     rec('=' * 104)
     rec('⟪ACT⟫ -- THE SUITE. ### **%s READING.** ### PART %s ### every arm exercised on both controls.' % (
         'ON ⟪PREV⟫`S BANKS ((⟪RUL⟫)(2)(iii))' if PREV else 'PRE-SEAL (R202)(3)' if PRERUN else 'MID-ACT' if MID else 'POST-PUSH' if pushed else 'PRE-PUSH', PART))
-    rec('### the host`s free memory at the part`s start %d MB (the hold %d MB)' % (fm, K.HOLD))
+    rec('### the host`s free memory at the part`s start %d MB (the hold %d MB)' % (fm, KS.HOLD))
     if PRERUN or MID:
         rec('### run at (UTC) : %s   ### %s' % (time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
                                               'the standing line of (R202)(3): every arm run at HEAD before the face is sealed, its count printed.'
@@ -2098,7 +2098,7 @@ def main():
     rec('  ### (R264)(2) THE FREEZE: the standing arms (⟪PREV⟫`s face less its own arms and the arms (⟪RUL⟫)(10) retired; none added) %d ; '
         'carried here %d ; the act`s arms over its own banks %s ; arms beyond both %s' % (
             len(S['standing']), len(set(names) & set(S['standing'])), sorted(set(names) - set(S['standing'])),
-            sorted(set(names) - set(S['standing']) - set(K.ACT_ARMS)) or 'NONE'))
+            sorted(set(names) - set(S['standing']) - set(KS.ACT_ARMS)) or 'NONE'))
     rec('  ### standing arms not carried here: %s' % (sorted(set(S['standing']) - set(names)) or 'NONE'))
     if 'figures' in NEED[PART]:
         rec('  ### THE FOUR STANDING FIGURES, each against the previous act`s (%s):' % S['fig_prev_name'])
@@ -2115,7 +2115,7 @@ def main():
             rec('  ###   %-28s %-4s read %d ; failing %d ; %s' % (nm, 'PASS' if ok_ else 'FAIL', n_, b_, note[:260]))
     chain_part = next((x for x in ('chain_a1', 'chain_a2', 'chain_b') if x in NEED[PART]), None)
     if chain_part:
-        key, span = {'chain_a1': ('a1', K.CHAIN_QUARTERS[0]), 'chain_a2': ('a2', K.CHAIN_QUARTERS[1]), 'chain_b': ('b', K.CHAIN_HALVES[1])}[chain_part]
+        key, span = {'chain_a1': ('a1', KS.CHAIN_QUARTERS[0]), 'chain_a2': ('a2', KS.CHAIN_QUARTERS[1]), 'chain_b': ('b', KS.CHAIN_HALVES[1])}[chain_part]
         av = S['ar_verify']
         bd = S['boundary']
         rec('  ### THE ACT-ROOT CHAIN`S PART %s, %s-%s, recomputed at commit: %s' % (key.upper(), span[0], span[1],
@@ -2232,7 +2232,7 @@ def main():
               mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push',
               at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), relay_head=gs(ROOT, 'rev-parse', 'HEAD'))
     ex.update(pv)
-    ep = os.path.join(D, ('⟪ACT⟫_prevrun_exercise_%s.json' if PREV else '⟪ACT⟫_exercise_%s.json') % PART)
+    ep = os.path.join(D, __import__('standing.repeat', fromlist=['exercise_name']).exercise_name('⟪ACT⟫', PART, ex['mode'], lambda n: bool(gs(ROOT, 'ls-files', 'data/' + n))))   # ### v1.10.0, (⟪RUL⟫)(2)(iii)
     _membrane(ep)
     with open(ep + '.tmp', 'wb') as fh:
         fh.write((json.dumps(ex, indent=1, ensure_ascii=False) + NL).encode('utf-8'))
@@ -2259,14 +2259,14 @@ class _PrevWorklist(object):
     act's too: ⟪PREV⟫'s worklist reuses the names in other shapes (its C5_RELAY a pair, its C6_RELAY one commit), and only the act's own arms
     read them (sources, the ancestry pairs, the times and the files) -- found after the lock, before the seal, by the first `--prev` run's
     crash in sources (a tuple handed to git merge-base); an event of the seat's, not a letter."""
-    OWN = ('ACT_ARMS', 'PARTS', 'HOLD', 'CHAIN_HALVES', 'CHAIN_QUARTERS', 'STANDING_ADDED',
-⟪SLOT 63⟫
+    # ### v1.10.0, (⟪RUL⟫)(2)(i): NO LIST. standing.repeat.own_names computes, from the two modules' exports, the names read as this act's; the suite's
+    # ### own structure reads KS, bound before the rebinding, and so is no name here.
 
     def __init__(self, own, prev):
         self._own, self._prev = own, prev
 
     def __getattr__(self, n):
-        if n not in self.OWN and __import__('standing.repeat', fromlist=['prev_carries']).prev_carries(self._prev, self._own, n):   # ### v1.4.0 (iii)
+        if __import__('standing.repeat', fromlist=['prev_carries']).prev_carries(self._prev, self._own, n):   # ### v1.4.0 (iii); v1.10.0 (⟪RUL⟫)(2)(i)
             return getattr(self._prev, n)
         return getattr(self._own, n)
 

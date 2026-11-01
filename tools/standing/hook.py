@@ -58,8 +58,26 @@ def act_of(relay=RELAY):
         return None
 
 
-def refusals_path(relay=RELAY):
+def next_of(relay=RELAY):
+    """the act data/act_current.json names as next, or None."""
+    try:
+        with open(os.path.join(relay, 'data', 'act_current.json'), encoding='utf-8') as f:
+            return json.load(f).get('next')
+    except (OSError, ValueError):
+        return None
+
+
+def bank_act(relay=RELAY):
+    """v1.10.0, (R340)(2)(iv): the one act whose refusal bank a refusal may reach: the act data/act_current.json names, while that act is open. A closed
+    act (its closing bank written) has no bank left to append to: the refusal is the next act's, b729's two rows at step zero into b728's bank the case."""
     act = act_of(relay)
+    if act and os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act)):
+        return next_of(relay)
+    return act
+
+
+def refusals_path(relay=RELAY):
+    act = bank_act(relay)
     return os.path.join(relay, 'data', '%s_%s.txt' % (act, EXCLUDED_KIND) if act else 'act_unread_%s.txt' % EXCLUDED_KIND)
 
 

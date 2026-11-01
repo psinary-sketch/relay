@@ -1,0 +1,114 @@
+b730 -- THE CONTROLS OF tools/standing/ v1.10.0, (R340)(2)(i)-(vii): THE HAND-KEPT-NAMES CLASS, G-ACTROOT-BANKED AND THE ROUTE`S LIST, THE PRE-RUN OVER A COMMITTED BANK, THE HOOK AND A CLOSED ACT, THE ANSWER CHECKS, THE CLOSING`S KERNELS LINE, THE ROOT`S PROMPT (2026-11-01T08:58:59Z)
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay 3b661a42
+
+### (own) THE HAND-KEPT-NAMES CLASS, (R340)(2)(i): OWN COMPUTED, NO LIST KEPT; b722`S CRASHES, b729`S CRASH, b724`S PAIR, ONE MORE EXPORTED NAME
+  (own) b729 event (3), replayed on b729`s worklist and b728`s, nothing edited
+      BEFORE (v1.9.0): K.EF_BRANCHES[2] on b728`s two rows: IndexError (tuple index out of range), the crash of b729 event (3) -> FAILS
+      AFTER  (v1.10.0): K.EF_BRANCHES[2] reads detect-b729 -> PASSES
+      AS WANTED
+  (own) b722 event (8), replayed on b722`s worklist and b721`s, nothing edited: STANDING_COMMIT
+      BEFORE (v1.9.0): STANDING_COMMIT read as None: None handed to git -> FAILS
+      AFTER  (v1.10.0): STANDING_COMMIT read as '0ff64911' -> PASSES
+      AS WANTED
+  (own) b722 event (9), replayed on b722`s worklist and b721`s, nothing edited: C6_PP
+      BEFORE (v1.9.0): C6_PP read as None: None handed to git -> FAILS
+      AFTER  (v1.10.0): C6_PP read as 'f127660c' -> PASSES
+      AS WANTED
+  (own) GUARD, NO FAILING SIDE: b724: THE BANKS HOLD NO --prev CRASH AT b724 (no such row in data/b724_events.txt or data/b724_defects.txt; (R334)(2)(i), the order, stands at b724, and v1.4.0 landed it as prev_carries, data/b724_standing_v140.txt): the pair replayed whole, every exported name of b724`s worklist read over b723`s
+      AFTER  (v1.10.0): 192 names ; a table read short none ; read None none -> HOLDS
+      AS WANTED
+  (own) GUARD, NO FAILING SIDE: the pair b722 over b721 replayed whole, no edit
+      AFTER  (v1.10.0): 186 names ; a table read short none ; read None none -> HOLDS
+      AS WANTED
+  (own) GUARD, NO FAILING SIDE: the pair b729 over b728 replayed whole, no edit
+      AFTER  (v1.10.0): 207 names ; a table read short none ; read None none -> HOLDS
+      AS WANTED
+  (own) GUARD, NO FAILING SIDE: the pair b730 over b729 replayed whole, no edit
+      AFTER  (v1.10.0): 207 names ; a table read short none ; read None none -> HOLDS
+      AS WANTED
+  (own) a worklist with one more exported name and one more row, read with no edit anywhere
+      BEFORE (v1.9.0): K.EF_BRANCHES[3] on b729`s three rows: IndexError (tuple index out of range) -> FAILS
+      AFTER  (v1.10.0): EF_BRANCHES[3] zq-b730 ; ZZ_NEW (('a', 'b'), ('c', 'd')) -> PASSES
+      AS WANTED
+  (own) GUARD, NO FAILING SIDE: FOUND BY THE REAL RUN, NOT BY THIS CONTROL: `checks --prev --part act` at b730 before this case stood crashed on K.C3_RELAY[0], the first cut of the component rule reading this act`s empty tuple. A component not yet made reads the previous act`s
+      AFTER  (v1.10.0): C3_RELAY read ('24e07f4a',) -> HOLDS
+      AS WANTED
+  (own) no list kept: the template`s OWN tuple and the act`s section checks 63
+      BEFORE (v1.9.0): OWN = ( in the template True -> FAILS
+      AFTER  (v1.10.0): in the template False ; the act`s section False ; self.OWN read False -> PASSES
+      AS WANTED
+  THE NAMES A --prev RUN AT b730 READS AS ITS OWN, COMPUTED FROM THE TWO MODULES (standing.repeat.own_names; printed, kept nowhere): C1_STANDING_REPAIR, C2_PP, C3_PP, C4_LV, C4_PP, C4_RELAY, C4_RUN, C5_RELAY, DIFFERS_LINE, ERRATA_ID, ERRATA_LINE, STEPZERO_HASHES, STEPZERO_LATE, STEPZERO_PREVBUILD, STEPZERO_TABLE, VISIBILITY_COMMIT
+  THE SUITE`S STRUCTURE IS NO NAME IN THAT LIST: it reads KS, bound before the rebinding (fold/checks.tpl :63).
+
+### (actroot) G-ACTROOT-BANKED AGAINST THE ROUTE`S LIST, (R340)(2)(ii); THE INSTANCE, b729`S ONSET UNITS
+  (actroot) data/b729_onset_units.jsonl at 40a4e6b0: the route listed it (99 root paths, barred ['data/b729_onset_units.jsonl']) and the arm refused any .jsonl the route lists: two lists
+      BEFORE (v1.9.0): the route`s exclusion takes it False, so the root names it and the arm fails -> FAILS
+      AFTER  (v1.10.0): the route`s exclusion takes it True, by the rule "a units file is out of the root, tracked or not", the arm`s bar and the route one reading -> PASSES
+      AS WANTED
+  (actroot) GUARD, NO FAILING SIDE: a bank the route named at b729 and no units file stays in the route
+      AFTER  (v1.10.0): 40 .txt paths tried ; newly excluded none -> HOLDS
+      AS WANTED
+
+### (exercise) THE PRE-RUN OVER A COMMITTED BANK, (R340)(2)(iii); THE INSTANCE, b729`S TWO EXERCISE BANKS
+  (exercise) data/b729_exercise_act.json, tracked at b729`s lock 099afbb8
+      BEFORE (v1.9.0): the pre-run wrote b729_exercise_act.json over the committed bank (d96d5df1, N4`s row) -> FAILS
+      AFTER  (v1.10.0): the pre-run writes b729_exercise_act_b729.json -> PASSES
+      AS WANTED
+  (exercise) data/b729_exercise_standing-a.json, tracked at b729`s lock 099afbb8
+      BEFORE (v1.9.0): the pre-run wrote b729_exercise_standing-a.json over the committed bank (d96d5df1, N4`s row) -> FAILS
+      AFTER  (v1.10.0): the pre-run writes b729_exercise_standing-a_b729.json -> PASSES
+      AS WANTED
+  (exercise) GUARD, NO FAILING SIDE: a mid probe has its own name, so nothing the pre-run writes is committed by a mid commit
+      AFTER  (v1.10.0): b730_mid_exercise_act.json -> HOLDS
+      AS WANTED
+  (exercise) GUARD, NO FAILING SIDE: a bank not tracked keeps its plain name, and the reader takes the suffixed one where it stands
+      AFTER  (v1.10.0): b730_exercise_act.json ; b730_exercise_act_b730.json -> HOLDS
+      AS WANTED
+
+### (hookact) THE HOOK AND A CLOSED ACT`S BANK, (R340)(2)(iv); THE INSTANCE, b729`S TWO ROWS INTO b728`S BANK
+  (hookact) b729 step zero: act_current still names b728, whose closing stands; the rows 2026-10-31T21:37:00Z ; 2026-10-31T21:46:56Z
+      BEFORE (v1.9.0): the refusal appended to b728_hook_refusals.txt, a closed act`s bank -> FAILS
+      AFTER  (v1.10.0): the refusal appended to b729_hook_refusals.txt -> PASSES
+      AS WANTED
+  (hookact) GUARD, NO FAILING SIDE: an open act keeps its own bank
+      AFTER  (v1.10.0): b728_hook_refusals.txt -> HOLDS
+      AS WANTED
+
+### (answers) THE ENTRY`S ANSWER CHECKS, (R340)(2)(v); THE INSTANCE, b729`S 0 AGAINST THREE
+  (answers) b729`s entry, FINDINGS :12242
+      BEFORE (v1.9.0): the count read from the step-zero citation bank: 0 -> FAILS
+      AFTER  (v1.10.0): the count read from data/b729_answer_check.txt: 3 -> PASSES
+      AS WANTED
+
+### (n5line) THE CLOSING`S KERNELS LINE, (R340)(2)(vi): COMPOSED FROM N5`S CLAUSE, NOT CARRIED
+  (n5line) b729`s ferry: the closing`s line
+      BEFORE (v1.9.0): carried: "README.md alone on each kernel named ; no .lean file, no workflow file, no tag" (data/b729_closing.txt :325 the form), words b729`s N5 does not hold -> FAILS
+      AFTER  (v1.10.0): composed: "no kernel's main is touched ; no tag is cut ; every Lean file of this act lives on c2-b725, keiper-b725 or detect-b729 alone" -> PASSES
+      AS WANTED
+  (n5line) b730`s ferry: the closing`s line
+      BEFORE (v1.9.0): carried: "README.md alone on each kernel named ; no .lean file, no workflow file, no tag" (data/b729_closing.txt :325 the form), words b730`s N5 does not hold -> FAILS
+      AFTER  (v1.10.0): composed: "no kernel's main is touched ; no tag is cut ; every Lean file of this act lives on zq-b730 alone" -> PASSES
+      AS WANTED
+
+### (rootprompt) THE ROOT`S PROMPT COMPOSED, (R340)(2)(vii); THE INSTANCES, b729`S AND b728`S PROMPTS REGENERATED EQUAL TO WHAT WAS PUT
+  WHAT EQUALITY SHOWS: the form and the figures. The rows are cut from the text as put, so the words are the seat`s and the equal is no independent reading of them; the figures are what the composer checks against their bank lines.
+  (rootprompt) b729`s close prompt, data/b729_author_answers.txt :13, 2059 characters
+      BEFORE (v1.9.0): the route printed b714`s heads draft: reads HEADS_DRAFT True, the put text in its output False -> FAILS
+      AFTER  (v1.10.0): composed from 18 rows, 32 figures found on their bank lines: equal to what was put True -> PASSES
+      AS WANTED
+  (rootprompt) GUARD, NO FAILING SIDE: a figure not on its bank line refuses the prompt (b729, every figure made 999999)
+      AFTER  (v1.10.0): refused True -> HOLDS
+      AS WANTED
+  (rootprompt) b728`s close prompt, data/b728_author_answers.txt :7, 1726 characters
+      BEFORE (v1.9.0): the route printed b714`s heads draft: reads HEADS_DRAFT True, the put text in its output False -> FAILS
+      AFTER  (v1.10.0): composed from 14 rows, 25 figures found on their bank lines: equal to what was put True -> PASSES
+      AS WANTED
+  (rootprompt) GUARD, NO FAILING SIDE: a figure not on its bank line refuses the prompt (b728, every figure made 999999)
+      AFTER  (v1.10.0): refused True -> HOLDS
+      AS WANTED
+  (rootprompt) GUARD, NO FAILING SIDE: the record tool`s route reads the act`s own rows and b714`s draft no longer
+      AFTER  (v1.10.0): reads HEADS_DRAFT in rootprompt False -> HOLDS
+      AS WANTED
+
+### ### **v1.10.0: CONTROLS (own), (actroot), (exercise), (hookact), (answers), (n5line), (rootprompt) ; CASES 26 ; AS WANTED 26 ; ALL AS WANTED.**

@@ -25,6 +25,11 @@ def of_bank(text, pattern):
     return normal(m.group(1)) if m else None
 
 
+def answer_checks(bank):
+    """v1.10.0, (R340)(2)(v): the answer checks the act ran, read from data/<act>_answer_check.txt, the bank the check writes, and not from the step-zero citation bank (b729's entry: 0 against three)."""
+    return len(re.findall(r'(?m)^### \(R278\)\(4\) THE MID-ACT CHECK ', bank or ''))
+
+
 def halts(rows, read):
     """each row whose text types a word that differs from its bank's; a text that does not type it is no difference, a bank that does not read it is one."""
     out = []

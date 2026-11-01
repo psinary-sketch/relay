@@ -89,7 +89,7 @@ def declared_untracked():
 
 def _root_exclude():
     names = [(re.escape(n[:-1]) + r'\S*') if n.endswith('*') else re.escape(n) for _f, n in declared_untracked()]
-    return re.compile(r'^⟪ACT⟫_(' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)$')
+    return re.compile(r'^⟪ACT⟫_((' + EXCLUDE_KINDS + (('|' + '|'.join(names)) if names else '') + r')\.?(txt|json|md|jsonl|)|\S*\.jsonl)$')   # ### v1.10.0, (⟪RUL⟫)(2)(ii): a units file is out of the root by rule, tracked or not
 
 
 R.ROOT_EXCLUDE = _root_exclude()
@@ -2665,7 +2665,7 @@ def _finding_text():
     f = _figs()
     n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
     cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
-    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (⟪RUL⟫)(2)(v)
     per = '; '.join('%s EXCEEDS %s, STATED %s' % p for p in f['fz_per'])
     e = ['', _title(), '',
          'The C2 table predicts no value not yet seen at any field of class number 2: walked over all %s such fields from decomposition types '
@@ -2876,7 +2876,7 @@ def _finding_text_⟪PREV⟫():
     f = _figs_⟪PREV⟫()
     n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
     cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
-    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (⟪RUL⟫)(2)(v)
     e = ['', _title(), '',
          'The prediction for discriminant -39 stands committed before any computation at it: the least index with a negative log-derivative '
          'coefficient has b(n) = -2 and an index divisible by a prime no principal form represents, its count control reading %s misses through '
@@ -3693,27 +3693,21 @@ def _lint_hits():
 
 
 def rootprompt(*a):
-    """[10], the root's prompt, put once ((⟪RUL⟫)(8)), carrying (⟪RUL⟫)(5)(i)-(ii) for the author's word, applied at ⟪ACT⟫: I. sections II and III of
-    the heads draft (relay data/b714_heads_draft.txt), printed in full, and the question of inline footings or a companion correspondence;
-    II. the six lint hits of b714's pilot (P2), each with its file, line and sentence. PRINTS ONLY: the prompt's text is banked by the answers
-    route from the transcript; no bank here."""
-    hd = rdn(HEADS_DRAFT).split(NL)
-    i2 = next((i for i, l in enumerate(hd) if l.startswith('## II. ')), None)
-    i3 = next((i for i, l in enumerate(hd) if l.startswith('## III. ')), None)
-    end = next((i for i, l in enumerate(hd) if l.startswith('### ### **')), len(hd))
-    if i2 is None or i3 is None:
-        sys.exit('### data/%s CARRIES NO SECTION II OR III -- NOTHING PRINTED' % HEADS_DRAFT)
-    hits = _lint_hits()
-    L = ['THE ROOT`S PROMPT (⟪ACT⟫, put once; (⟪RUL⟫)(5)(i)-(ii), the word applied at ⟪ACT⟫; nothing written to main without it)', '',
-         'I. THE HEADS DRAFT, SECTIONS II AND III IN FULL (relay data/%s :%d-:%d, Silence_of_Foundations.md :15 at a86c9429):' % (HEADS_DRAFT, i2 + 1, end), '']
-    L += hd[i2:end]
-    L += ['', '  THE QUESTION: the footings inline, in brackets after each sentence as section II prints them, or a companion correspondence',
-          '  (the paragraph as it stands, its footings in a table beside it)?', '',
-          'II. THE SIX LINT HITS FOR THE AUTHOR (relay data/%s (P2)), each with its file, line and sentence (the sentence read at PLACE-papers HEAD):' % LINT_BANK, '']
-    for k, (n, f_, line, kind, hit, sent) in enumerate(hits, 1):
-        L += ['  (%d) %s :%d  %s `%s`  (the pilot`s row :%d)' % (k, f_, line, kind, hit, n), '      ' + sent]
-    L += ['', '### HEADS DRAFT SECTIONS 2 (II, III) ; LINT HITS %d ; the word is banked in data/⟪ACT⟫_author_answers.txt and applied at ⟪ACT⟫' % len(hits)]
-    print(NL.join(L))
+    """[10], the root's prompt, put once. v1.10.0, (⟪RUL⟫)(2)(vii): composed by standing.rootprompt from data/⟪ACT⟫_rootprompt_rows.json, each figure a cite the composer finds on its bank
+    line or refuses; b714's route over its heads draft retired (b729 event (7)). PRINTS ONLY: the prompt's text is banked by the answers route from the transcript."""
+    import standing.rootprompt as RPM
+
+    def line(bank, n):
+        t = (rdn(bank[len('data/'):]) or '').split(NL)
+        return t[n - 1] if 0 < n <= len(t) else None
+
+    j = json.loads(rdn('%s_rootprompt_rows.json' % ACT) or '{}')
+    if not j.get('questions'):
+        sys.exit('### data/%s_rootprompt_rows.json CARRIES NO QUESTION -- NOTHING PRINTED' % ACT)
+    for q in j['questions']:
+        print('### %s:' % q.get('header'))
+        print(RPM.compose(q['rows'], line))
+        print()
 
 
 # ================================================================================ COMPONENT 5, (⟪RUL⟫)(7): THE CHAIN'S CENSUS ROWS

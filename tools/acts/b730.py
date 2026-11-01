@@ -797,14 +797,6 @@ def research_reproduces_ok(S):
 #⟪SECTION checks 62⟫
     rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b729`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches in the command bank %d (N1: five at most; -1 the command bank not yet written)' % (
 #⟪END⟫
-#⟪SECTION checks 63⟫
-           # ### the author's word, Option 2: the --prev names computed from the worklist, no longer a hand list -- every component commit
-           # ### (the worklist's C<n>_ names, its "later stages: the commits of the components") and the standing commit (landed at a component)
-           # ### the previous act's worklist carries and this act's carries too; a name the previous act's alone carries reads the previous act's
-           # ### (no value of this act's to read), and the registration block's REG_* names stay the previous act's, the standing arms reading them
-           'EF_BRANCHES',
-           ) + tuple(sorted(n for n in vars(K707) if re.match(r'^(C\d+_\w+|STANDING_COMMIT)$', n) and hasattr(K, n)))
-#⟪END⟫
 # ### b730, Component 3 (the Edit tool): the sitting moved seven kernels' mains by (R340)(3): a main at its sitting tip, its tags unmoved, is not a move against b729's face
 #⟪OVERRIDE record 2554 2554⟫
     moved = [k for k, v in prev.items() if k in now and (now[k][0] != v[0] or now[k][1] != v[1]) and not (K.SITTING_TIPS.get(k, '').startswith(now[k][0]) and now[k][1] == v[1])]
@@ -965,7 +957,7 @@ TITLE_LINE = ('b730 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND F
             ('THE TOUCH READ (standing clauses v9)', [
 #⟪END⟫
 #⟪SECTION closing 8⟫
-    '    kernels written: no kernel`s main ; ' + FF.n5_kernel_clause() + ' ;',
+    '    kernels written, N5`s clause as the ferry words it: ' + FF.n5_clause_of(rd('%s_ferry.txt' % ACT)) + ' ;',   # ### v1.10.0, (R340)(2)(vi): composed, not carried
     '    SIDE-explicit-formula`s main at badaccc and v0.37 unmoved ; on its branches c2-b725, keiper-b725 and detect-b730 alone the Lean modules of (R340)(3)-(5), each pushed through push_gated.sh, off main, untagged ;',
     '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches (N1, five at most), each read by its run id, relay data/b730_dispatch_rows.json ; the rebuild-b721 branches of the wave 1 kernels as b729 left them ;',
     '    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;',
@@ -1276,7 +1268,7 @@ def _runs3_line():
     rep, tot = _repeats()
     n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
     cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
-    checks = len(re.findall(r'^### \(R278\)\(4\) THE MID-ACT CHECK ', rdn(K.CITATION_BANK), re.M))
+    checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R340)(2)(v)
     e = ['', _title(), '',
          'The C2 theorem compiles at %d of 18 with its lemmas, axioms %s, E0 %s: for each row of the walk the least n with b(n) < 0 is n0 and b(n0) is the walk’s value; lambda_2 > 0 compiles with the standard three, %s; the support-face detection statement stands on detect-b730, graded %s, not compiled and not proved, priced in %s lemmas; '
          'the count law is priced, and the count alone does not move the Epstein instance, five fields do; H-ONSET-C reads %s; tools/standing/ stands at %s; the draft stands at v5, HELD.' % (
