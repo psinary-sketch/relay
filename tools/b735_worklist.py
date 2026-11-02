@@ -249,9 +249,9 @@ B723_ROOT_BANKS = 'efb643c7'  # ### b734's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'deac7a43'
 C1_STANDING_REPAIR = None
-C1_RELAY = None
+C1_RELAY = 'f479a7fe'
 C1_CORR = None
-C1_PP = None
+C1_PP = '71795853'
 WEIGHT_LINE, CORR_LINE = 12791, 12793
 DIFFERS_LINE = None
 ERRATA_LINE = None
@@ -295,8 +295,8 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '09053d3b07367aa7ef2e26cbeb27fd35d8734d82'   # ### b733's tip, unmoved by b734; the build lands on zq-b730
-ZQ_FIRST = None   # ### the first Lean commit of the build, set when made
-ZQ_TIP = ZQ_ENTERING    # ### moved when the build lands
+ZQ_FIRST = 'd0f63854'   # ### the first Lean commit of the build, group A's
+ZQ_TIP = 'b25fd82c0f216505d67c4c72c70f6e1b3f307d03'    # ### the build's landed tip, dispatch 11's ref
 ZQ_MODULES = ()   # ### no module this act
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
@@ -307,7 +307,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R345)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: (kind, run id, ref, target), (R345)(3)'s, each when dispatched
+EF_RUNS = tuple(('build-module', r['run'], r['sha'], r['target']) for r in json.load(open(os.path.join(ROOT, 'data', 'b735_dispatch_rows.json'), encoding='utf-8')) if r['kind'] == 'dispatch')   # ### N1: (kind, run id, ref, target), (R345)(3)'s eleven, read from the rows and not typed
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b734's five, read not re-run
 DISPATCH_ROWS = 'data/b735_dispatch_rows.json'
 ERRATA_ID = None   # ### (R345) orders no ERRATA entry
