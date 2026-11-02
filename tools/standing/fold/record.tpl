@@ -65,7 +65,7 @@ R.N5_RELAY_TOOLS = ('mirror_prevbuild.json',)   # ### (⟪RUL⟫)(2): the mirror
 # ### ⟪ACT⟫_*.py tool declares in its own head, read at import. A tool declares one by a line `### UNTRACKED WRITE: data/⟪ACT⟫_<name>`.
 # ### (⟪RUL⟫)(2): the events bank (row (52): a finding after the seal, written after the seal and after the root) and the step bank (G-SEALED-AFTER-
 # ### COMPONENTS, a row per commit written after the commit, the record's and the closing's among them) are the defects bank's kind: not root items
-EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals|address_scan_postlock|rowgen_\w+_rerun\d+'   # ### (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind; v1.11.0: the post-lock scan and a stamped route's re-run beside it
+EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals|address_scan_postlock|rowgen_\w+_rerun\d+|probe_.*|mid_exercise_.*'   # ### (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind; v1.11.0: the post-lock scan and a stamped route's re-run beside it; v1.14.0's repair: the probes' own paths, untracked by rule, no root item (the chain halves' probes already under chain_half_.*)
 # ### b707's kind `chain_.*` (the suite's chain parts, `<act>_chain_half_<i>_<key>.json`) read as wide as every bank whose name opens `chain_`, so
 # ### (⟪RUL⟫)(7)'s data/⟪ACT⟫_chain_rows.txt was excluded from the root (the suite's import check refused REQUIRED_BANKS on it); narrowed to the
 # ### suite's own kind, `chain_half_.*`, the chain parts still excluded. A carry-time repair, banked by diff (data/⟪ACT⟫_tool_repairs.txt).
