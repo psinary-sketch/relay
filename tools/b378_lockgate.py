@@ -224,7 +224,18 @@ def main(argv=None):
     rec('  ### THE PROBE-PATH REFUSAL ((R344)(2)(i)):')
     for ln in probe_lines:
         rec(ln)
-    v = verdict(gates) and not probe_refused
+    # ### v1.15.0, (R345)(2)(i), (iv): THE LOCK REFUSES OVER A RENDER THAT DOES NOT COMPILE AND OVER A COMMIT TO tools/standing/ OUTSIDE A VERSION
+    import compilecontrol as STANDING_COMPILE
+    import repaircommits as STANDING_REPAIRS
+    compiled = STANDING_COMPILE.check(act)
+    rec('')
+    rec('  ### THE COMPILE CONTROL ((R345)(2)(i)):')
+    for ln in STANDING_COMPILE.lines(compiled):
+        rec(ln)
+    ver_commit = subprocess.run(['git', '-C', ROOT, 'log', '-1', '--format=%h', '--', 'tools/standing/VERSION'], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout.strip()
+    stray = STANDING_REPAIRS.outside(ver_commit)
+    rec('  ### THE COMMITS TO tools/standing/ AFTER THE VERSION`S %s LEAVING VERSION UNMOVED ((R345)(2)(iv)): %s' % (ver_commit, stray or 'NONE'))
+    v = verdict(gates) and not probe_refused and compiled['ok'] and not stray
     nface = sum(1 for g in gates if g['subject_is_face'])
     rec('')
     rec('    ### ### **GATES READ : %d. ### PASSING : %d. ### FACE-SUBJECT GATES CHECKED BY DIGEST : '

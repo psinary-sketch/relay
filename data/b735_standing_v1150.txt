@@ -1,0 +1,90 @@
+b735 -- THE CONTROLS OF tools/standing/ v1.15.0, (R345)(2)(i)-(viii): THE COMPILE CONTROL AT THE HEAD, OVERRIDES BY MARK, THE KEPT CLAUSE, A REPAIR MOVES VERSION, THE ENTRY NAMES EVERY REPAIR, THE DELETE STEP`S LISTING, THE COUNTER`S RULE, THE EXERCISE BANK`S CARRY (2026-11-02T14:37:33Z)
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i)):
+  checks render            OK    2446 lines
+  citation render          OK    450 lines
+  closing render           OK    614 lines
+  record render            OK    4434 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    150 lines
+  tools/b735_worklist.py   OK    330 lines
+### THE COMPILE CONTROL : b735 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay 5609d5fd
+
+### (compile) (R345)(2)(i), THE CONTROLS THAT DID NOT COMPILE, DEFECT (p): v1.14.0`S PARTS AS COMMITTED AT 59e3efa8 READ AS FAILING, v1.15.0`S AS PASSING
+  (compile) the checks render at 59e3efa8, the template blob with the act`s sections, the render every suite part runs
+      BEFORE (v1.14.0): v1.14.0`s 25 controls compiled no render: 25 of 25 printed over it; the render reads invalid syntax at line 126 -> FAILS
+      AFTER  (v1.15.0): the control over this tree: ### THE COMPILE CONTROL : b735 COMPILES WHOLE, 8 OF 8 -> PASSES
+      AS WANTED
+      the tool at 59e3efa8, 8 rows: checks render FAIL ; citation render OK ; closing render OK ; record render OK ; reg_gate render OK ; regspec render OK ; report render OK ; tools/b734_worklist.py OK
+  (compile) GUARD, NO FAILING SIDE: the tool reads the commit: at 59e3efa8 not clear, at b734`s closing clear
+      AFTER  (v1.15.0): False ; True -> HOLDS
+      AS WANTED
+  (compile) GUARD, NO FAILING SIDE: the lock refuses over a render that does not compile
+      AFTER  (v1.15.0): tools/b378_lockgate.py reads compilecontrol: True -> HOLDS
+      AS WANTED
+
+### (marks) (R345)(2)(ii), DEFECT (q): b734`S THREE MARKERS FOUND AFTER A ONE-LINE INSERTION ABOVE THEM
+  (marks) b734`s overrides of checks, the three [(1132, 1144), (1147, 1162), (1173, 1176)] among them, the template one line longer at its head
+      BEFORE (v1.14.0): keyed by line: fold: b734 override checks 1694-1694 covers a slot line -> FAILS
+      AFTER  (v1.15.0): keyed by mark: the render equal to the wanted, one line longer: True -> PASSES
+      AS WANTED
+  (marks) GUARD, NO FAILING SIDE: a line the override replaces, edited, refuses and is not silently replaced
+      AFTER  (v1.15.0): refused True -> HOLDS
+      AS WANTED
+  (marks) GUARD, NO FAILING SIDE: from b735 an override keyed by a line number is refused
+      AFTER  (v1.15.0): refused True ; the module`s own: numbers 0 -> HOLDS
+      AS WANTED
+
+### (kept) (R345)(2)(iii), DEFECT (u): THE KEPT CLAUSE READ BY THE STANDING READER, THE OVERRIDE RETIRED
+  (kept) (R344)(4)`s kept clause
+      BEFORE (v1.14.0): the old needle reads '' -> FAILS
+      AFTER  (v1.15.0): the reader reads ['c2-b725', 'keiper-b725', 'detect-b729', 'zq-b730'] -> PASSES
+      AS WANTED
+  (kept) (R345)(4)`s kept clause
+      BEFORE (v1.14.0): the old needle reads '' -> FAILS
+      AFTER  (v1.15.0): the reader reads ['c2-b725', 'keiper-b725', 'detect-b729', 'zq-b730'] -> PASSES
+      AS WANTED
+  (kept) GUARD, NO FAILING SIDE: the same names, the two rulings read by one reader; the override retired
+      AFTER  (v1.15.0): equal True ; the template reads kept_clause True ; an override carrying it in b735`s module: False -> HOLDS
+      AS WANTED
+
+### (commits) (R345)(2)(iv), b734`S TWO COMMITS READ AGAINST v1.14.0`S BANK AS UNCONTROLLED
+  (commits) the commits after v1.14.0 to b734`s closing touching tools/standing/, VERSION unmoved
+      BEFORE (v1.14.0): the version`s bank names 21a94e81: False, 117ab5bc: False; nothing read them -> FAILS
+      AFTER  (v1.15.0): the reader lists ['21a94e81', '117ab5bc'] -> PASSES
+      AS WANTED
+  (commits) GUARD, NO FAILING SIDE: the lock refuses while such a commit stands
+      AFTER  (v1.15.0): tools/b378_lockgate.py reads repaircommits.outside: True -> HOLDS
+      AS WANTED
+
+### (entry) (R345)(2)(v), EVENT (5): THE ENTRY NAMES EVERY REPAIR COMMIT THE EVENTS BANK NAMES
+  (entry) b734`s entry at FINDINGS :12751, 39 lines
+      BEFORE (v1.14.0): the commits the banks name that it omits: ['117ab5bc'] -> FAILS
+      AFTER  (v1.15.0): regenerated, the clause reads: the repair commits the banks name: `21a94e81`, `117ab5bc`, `dad59fe6`, `59e3efa8` -> PASSES
+      AS WANTED
+
+### (deletes) (R345)(2)(vi), DEFECT (s), G-LISTINGS-BEFORE-CLAUSES: b734`S FIVE DELETES REPLAYED WITH THE LISTING PRINTED
+  (deletes) the deletes with their listing
+      BEFORE (v1.14.0): b734`s window, the seat`s tool calls carrying --merged at 07:2x: 0; the step-zero bank wrote the sentence ahead of it -> FAILS
+      AFTER  (v1.15.0): a delete before the listing exit 3 ; the listing [('C:/Users/ECHOCH~1/AppData/Local/Temp/tmpij8mcv9o/r', ['push-b734-closing', 'push-b734-preroot', 'push-b734-record'])] ; the deletes exit [0, 0, 0] ; a name outside it exit 3 ; left [] -> PASSES
+      AS WANTED
+
+### (counter) (R345)(2)(vii), EVENT (10): b734`S TWO FIGURES WITH THEIR DATED NOTE
+  (counter) OPEN_TRAILS :17273 against data/b734_closing.txt :5
+      BEFORE (v1.14.0): hand (2, 31, 16, 33), closing (2, 32, 17, 34), equal False, names the closing False -> FAILS
+      AFTER  (v1.15.0): with the dated note: names the closing True -> PASSES
+      AS WANTED
+  (counter) GUARD, NO FAILING SIDE: equal figures pass with no note
+      AFTER  (v1.15.0): True -> HOLDS
+      AS WANTED
+
+### (exercise) (R345)(2)(viii): data/bNNN_exercise.json COMMITTED AT EVERY CLOSING, THE RULE WRITTEN, b733`S ABSENCE NOTED
+  (exercise) the bank at each closing
+      BEFORE (v1.14.0): b733`s closing 05d53af9 carries it: False; its last commit da240250, the record -> FAILS
+      AFTER  (v1.15.0): b734`s closing carries it: True ; the rule in data/b735_rules.txt: True -> PASSES
+      AS WANTED
+
+### ### **v1.15.0: CONTROLS (compile), (marks), (kept), (commits), (entry), (deletes), (counter), (exercise) ; CASES 16 ; AS WANTED 16 ; ALL AS WANTED.**

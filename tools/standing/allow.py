@@ -120,8 +120,16 @@ def plant_kept(ruling, must):
 def kept_clause(ruling):
     """v1.13.0, (R343)(2)(iii): the clause "kept: <names>, and the rest as banked" as the ruling writes it, whitespace collapsed; '' where it writes none. The arm's needle
     is read here from the act's ferry, never typed into the act's override, where the carry shifted it (b732 event (2))."""
-    m = re.search(r'\bkept: [^.;]*?, and the rest as banked', re.sub(r'\s+', ' ', ruling or ''))
+    m = re.search(r'\bkept(?: branches)?:? [^.;]*?, and the rest as banked', re.sub(r'\s+', ' ', ruling or ''))   # ### v1.15.0, (R345)(2)(iii), b734 defect (u): "the kept branches ..." read beside "kept: ..."
     return m.group(0) if m else ''
+
+
+KEPT_NAME = re.compile(r'(?<![\w/.-])([a-z][a-z0-9]*(?:-[a-z0-9]+)*-b\d{3}(?:-[a-z0-9]+)*)(?![\w-])')
+
+
+def kept_names(ruling):
+    """v1.15.0, (R345)(2)(iii): the branch names the kept clause writes, whichever of the ruling's two wordings it takes."""
+    return KEPT_NAME.findall(kept_clause(ruling))
 
 
 def matches(branch, names):

@@ -30,7 +30,14 @@ class RenderRefused(Exception):
 def blocks(text):
     out, i = [], 0
     while True:
-        m = F.SECTION.search(text, i)
+        m, k = F.SECTION.search(text, i), F.MARK.search(text, i)   # ### v1.15.0: an override keyed by its mark is a block too
+        if k and (not m or k.start() < m.start()):
+            e = text.find(F.END, k.end())
+            if e < 0:
+                raise RenderRefused('actmodule: OVERRIDE %s %s has no end line' % k.group(1, 2))
+            i = e + len(F.END)
+            out.append((('OVERRIDE', k.group(1), k.group(2)), k.start(), i))
+            continue
         if not m:
             return out
         e = text.find(F.END, m.end())

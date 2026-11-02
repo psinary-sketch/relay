@@ -767,10 +767,10 @@ def deletes_one_ok(S):
     shapes = [(s, c) for s, c in shapes if s[0]]
     got = sorted(x for (d, _g, _v), _c in shapes for x in d)
     rd_ = STW.deletes_read([('-', b) for b in got], S['ferry'], STW.words_of(ACTN))
-    # ### Component 8: (⟪RUL⟫)(9) writes "port-b707 kept;", which allow.py's NOT-deleted reader (⟪PREV⟫'s wording) does not take; read as written
+    # ### v1.15.0, (R345)(2)(iii): the kept clause read by the standing reader in either of the ruling's wordings, no act's override; "port-b707 kept;" stands for the acts that wrote it
     return bool(shapes) and all(len(d) == 1 and not gl and not vs and not c for (d, gl, vs), c in shapes) \
         and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
-        and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']) \
+        and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry'] or bool(STW.kept_clause(S['ferry']))) \
         and ('BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER %d OF %d' % (len(shapes), len(shapes))) in S['cmdt']
 
 

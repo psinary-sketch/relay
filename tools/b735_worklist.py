@@ -237,10 +237,10 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b735.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.14.0'            # ### entering the act; (R345)(2)'s repairs land the next version by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.15.0'            # ### entering at v1.14.0; (R345)(2)'s repairs landed this version by a commit of their own (C1_STANDING)
 LEAN_TREES = (('D:/SIDE-explicit-formula', '09053d3b'),)   # ### (R345)(3): the tree the ruling's Lean paths are read against, zq-b730's tip
-STANDING_CHANGED = ()
-STANDING_NEW = ()
+STANDING_CHANGED = ('standing/VERSION', 'standing/actmodule.py', 'standing/allow.py', 'standing/fold.py', 'standing/fold/checks.tpl')
+STANDING_NEW = ('standing/compilecontrol.py', 'standing/counterline.py', 'standing/deletes.py', 'standing/repaircommits.py', 'standing/v1150.py')
 # ### b734's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '5609d5fd'    # ### b734's closing, the act's relay base
 B714_RECORD = 'd768ca35'     # ### b734's record commit (relay, the head line's)

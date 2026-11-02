@@ -29,7 +29,7 @@
 # ### override and rewritten here against b734's own banks: the closing's lines by needle, the events (11), the defects (18), the refusals
 # ### (12), the v1.14.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
-#⟪OVERRIDE record 1428 1435 REPAIR (c1)⟫
+#⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
 C1_PREV_CLOSE = '05d53af9'          # ### b734's closing commit
 C1_REFUSAL_AT = '05d53af9'          # ### its refusal bank read at its closing commit
 C1_NOTED = '2026-11-02'
@@ -291,7 +291,7 @@ def c1(*a):
 # ### b735, Component 4 (the Edit tool, before the lock): THE STANDING RUNNER ARMS OVER THIS ACT'S THREE DISPATCHES. The template's three
 # ### runner functions carry b721's rebuild in their text (six runs, its bank's head and foot, SIDE-frobenius's halt); b735 ran three
 # ### ((R345)(4)(iii)-(iv), N1), rowed in data/b735_dispatch_rows.json. Replaced for b735 alone; the arms' names stand, their plants on b735's rows.
-#⟪OVERRIDE checks 1132 1144⟫
+#⟪OVERRIDE checks MARK 8df6a527436b 13⟫
 def rebuild_wf_ok(S):
     """(R344)(7), as b734 left the branches (no kernel commit this act): the workflow at each rebuild branch's tip -- the five kernels other
     than SIDE-frobenius carrying build-module.yml on main; SIDE-frobenius none on main, its tip's workflow SIDE-explicit-formula's with b721's
@@ -314,7 +314,7 @@ def rebuild_wf_ok(S):
         and bool(kt) and bool(want) and kd == want and not any(w in (x or '').lower() for x in (tip, kt) for w in IDENT_WF) \
         and 'hold_mb: "2560"' in tip.lower()
 #⟪END⟫
-#⟪OVERRIDE checks 1147 1162⟫
+#⟪OVERRIDE checks MARK aed8852d751b 16⟫
 def runner_ok(S):
     """(R345), N1, b735: the dispatches of (R345)(3)-(4) -- at most twelve, all on zq-b730; every dispatch read by its run id; the rows' runs the worklist's."""
     rows = S['drows'] or []
@@ -323,7 +323,7 @@ def runner_ok(S):
     return bool(disp) and len(disp) <= K.MAX_DISPATCHES \
         and sorted(str(r['run']) for r in disp) == sorted(str(r['run']) for r in reads) == sorted(str(x[1]) for x in K.EF_RUNS)
 #⟪END⟫
-#⟪OVERRIDE checks 1173 1176⟫
+#⟪OVERRIDE checks MARK 066da78426c2 4⟫
     for d_ in [r for r in rows if r.get('kind') == 'dispatch']:
         i_ = rows.index(d_)
         rd_ = [j for j, r in enumerate(rows) if r.get('kind') == 'read' and str(r.get('run')) == str(d_.get('run'))]
@@ -331,46 +331,46 @@ def runner_ok(S):
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): v1.11.0 edited tools/standing/hook.py for (R345)(2)(iv); the arm read it unedited since the act's
 # ### base -- now its blob at HEAD, at v1.11.0's commit and in the working tree the same, edited by that commit alone (b724's override, carried)
-#⟪OVERRIDE checks 1524 1524⟫
+#⟪OVERRIDE checks MARK 80aa4913de16 1⟫
         and cr0(blob(ROOT, '%s:tools/standing/hook.py' % K.C1_STANDING)) == cr0(raw(os.path.join(T, 'standing', 'hook.py'))) \
 #⟪END⟫
-#⟪OVERRIDE checks 1667 1667⟫
+#⟪OVERRIDE checks MARK 9e6d0f5720f3 1⟫
     ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited this act (its blob at 59e3efa8 the working tree`s); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
 #⟪END⟫
 # ### b735, Component 6 (the Edit tool): the corrigendum arm's event rows, written into the template as b722's fifteen; b734's record has twelve
-#⟪OVERRIDE checks 986 986⟫
+#⟪OVERRIDE checks MARK bcd4d281b141 1⟫
     return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('row') for x in evs] == list(range(1, 12)) \
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): b735's step-zero bank landed in the step-zero commit after the banks' (7afce313, STEPZERO_BANK_COMMIT),
 # ### not in STEPZERO_BANKS (afea78a4); the arm reads it there. (b734's override of checks 526 -- no registration commit -- removed: b735
 # ### registers at 22210d4b and the template's line reads it.)
-#⟪OVERRIDE checks 757 757⟫
+#⟪OVERRIDE checks MARK 0b7306236355 1⟫
     return len(tips) >= len(NAMED_PUSH) == 5 and 'data/b735_stepzero.txt' in files_of(ROOT, K.STEPZERO_BANK_COMMIT) and bool(fd) \
 #⟪END⟫
 # ### b735, Component 6 (the Edit tool): b735's step-zero bank words the row "THE DELETES, each after its --merged listing" (:15); the
 # ### carried needle was b734's wording
-#⟪OVERRIDE checks 782 782⟫
+#⟪OVERRIDE checks MARK 3938376d9390 1⟫
         and 'THE DELETES, each after its --merged listing' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): b734's overrides of checks 1516 and 1659 (hook.py edited by b734's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b735 as it stands
 # ### b735, Component 6 (the Edit tool): the corrigendum bank is committed in C1_CORR (step 9), beside the corrigenda row, not in C1_RELAY
-#⟪OVERRIDE checks 991 991⟫
+#⟪OVERRIDE checks MARK fdd9ef0a58a9 1⟫
         and 'data/b735_corrigendum.txt' in S['files']['corr']
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): b734's override of checks 1476-1482 (one ERRATA entry at b734's (R344)(5)) removed -- (R345)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b735 as it stands
 # ### b735, Component 6 (the Edit tool): G-BRANCHES-DELETED's needle 'KEPT' was b734's step-zero wording; b735's bank (committed
 # ### d5432f23) writes "Kept: port-b707," (:16), read in its own wording
-#⟪OVERRIDE checks 747 747⟫
+#⟪OVERRIDE checks MARK 6381bcfb3cc2 1⟫
     return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
-#⟪OVERRIDE checks 748 748⟫
+#⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
         and 'port-b707' in z and 'KEPT as banked: port-b707' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): G-RUNNER-READ's plant on b735's dispatch rows -- run 2's axiom lines carrying sorryAx (b734's
 # ### plant read the lv rows' closure log, which b735 does not write)
-#⟪OVERRIDE checks 1694 1694⟫
+#⟪OVERRIDE checks MARK 92dcf3918e5c 1⟫
      lambda S: runner_ok(S), lambda S: _mut(S, 'drows', lambda d: d.append(dict(kind='dispatch', item='(4) planted', run=1)))),
 #⟪END⟫
 # ### b735, Component 7 (the Edit tool), the v1.3.0 fold defect's second instance: b709's row (1) read through the carry banks of record,
@@ -378,18 +378,18 @@ def runner_ok(S):
 # ### read in the fold bank, its row for the act's sections file; b735, Component 6 (the Edit tool): the fold bank was b734's own route
 # ### (tools/b734_fold.py); b735's sections were carried at step zero by tools/standing/carry.py, whose diff bank is
 # ### data/b735_carry_acts.txt (relay 21681ef9), read here by its head
-#⟪OVERRIDE checks 1011 1011 REPAIR (fold)⟫
+#⟪OVERRIDE checks MARK 8d42fcd6833e 1 REPAIR (fold)⟫
         and '(1) THE CARRY IS READ BY DIFF' in rd('b709_rules.txt') and (all(S['carry_banks'].get(n) for n in ('record', 'checks', 'closing'))
                                                                           or (bool(S['report_tool']) and 'tools/acts/b734.py -> tools/acts/b735.py' in (rd('b735_carry_acts.txt') or '').split('\n')[0])) \
 #⟪END⟫
 # ### b735, the Edit tool: v1.9.0's tools/standing/reportdry.py carries the word report and is no report tool; the needle read it as one (the mid probe's LIVE FAIL)
-#⟪OVERRIDE checks 1014 1014 REPAIR (needle)⟫
+#⟪OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)⟫
         and not any('report' in t for t in K.SEALED if t != 'standing/reportdry.py') and 'b735_report.py' not in (S['sealj'].get('tools') or {})
 #⟪END⟫
 # ### b735, Component 7 (the Edit tool): G-CONVERSION-ONE's needle `def conv(` read tools/b735_c2_check.py's Dirichlet convolution
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
-#⟪OVERRIDE checks 262 269 REPAIR (needle)⟫
+#⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
     toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
     one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
     bad = []
@@ -401,7 +401,7 @@ def runner_ok(S):
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R345): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
-#⟪OVERRIDE closing 340 341⟫
+#⟪OVERRIDE closing MARK 176194092462 2⟫
     rows = [l for n_ in ('b735_defects.txt', 'b735_events.txt') for l in (rd(n_) or '').split(NL) if re.match(r"^    \((?:[a-z]'?|\d+)\) ", l)]
     rep = sum(1 for l in rows if re.search(r'\[(?:CLAIM|CLOSE) ; REPEAT\b', l))
     return '### THE COUNTER ((R345) Component 5, the act`s events and defects together; relay data/b735_defects.txt, data/b735_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d%s' % (
@@ -409,50 +409,42 @@ def runner_ok(S):
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b735's orders are those orders.py reads open,
 # ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output
-#⟪OVERRIDE closing 395 396⟫
+#⟪OVERRIDE closing MARK 92495058e2fb 2⟫
     '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-DERIVES, annotated at b735, four of its five fields closed,',
     '        explicitFormula open, and W-ORD-CHAIN-PAGE-LLM-LINE, W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
 #⟪END⟫
 # ### b735, Component 7 (the Edit tool), the v1.3.0 fold defect's third instance: the regspec and reg_gate templates name the face by
 # ### b734's date (2026-10-28) where the record and checks templates read the worklist's DATE; the face named by K.DATE in both
-#⟪OVERRIDE regspec 27 27 REPAIR (fold)⟫
+#⟪OVERRIDE regspec MARK 0b197e20ec06 1 REPAIR (fold)⟫
 REG = os.path.join(ROOT, 'data', 'b735_registration_%s.txt' % K.DATE)
 #⟪END⟫
-#⟪OVERRIDE reg_gate 21 21 REPAIR (fold)⟫
+#⟪OVERRIDE reg_gate MARK 082a572c890b 1 REPAIR (fold)⟫
 REG = os.path.join(D, 'b735_registration_%s.txt' % __import__('b735_worklist').DATE)   # ### the gate imports no worklist of its own
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool, before the face): b734's overrides of regspec 45, 68, 78 and 160 (its scratch branch, its ERRATA
 # ### entry, its triage's closing lines) are false for b735, whose template lines are right (no scratch branch, no ERRATA, OPEN_TRAILS
 # ### written by the trail at the close alone); removed. The Lean-file clause keeps its relabelling: the template measures the port branch
 # ### under a kernel-wide label, and b735's Lean files are slot 4's EFLEAN on SIDE-explicit-formula's four branches
-#⟪OVERRIDE regspec 52 52⟫
+#⟪OVERRIDE regspec MARK 93dd78f2e845 1⟫
     ('Lean files written on the port branch', 'LEANFILES', 'LEANFILES', 'files', '### none on port-b707 (N5); MEASURED off the port branch against its tip; the act`s Lean files are slot 4`s EFLEAN.'),
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): N1's dispatch commands are the seat's `gh workflow run build-module.yml` ((R345)(4)(iii)-(iv));
 # ### the carried pattern named the template's rebuild tool, which b735 does not have
-#⟪OVERRIDE record 524 525⟫
+#⟪OVERRIDE record MARK 8470bd7d4f52 2⟫
 DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)?dispatch\b(?![^\n]*\bdry\b)|-I "" dispatch\b', re.M)   # ### b735: the print's one route, the scratch tool's path a quoted string, cut to "" where this pattern reads
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): G-SCORER-READS-BANKS's needles named b734's banks (the lv rows, v1.4.0's controls, the split's
 # ### price), which no b735 scorer reads; the needles set to the banks b735's N1-N4 read (the command bank and the dispatch rows, the
 # ### figure banks by their first commits and the five-zero control's bank, the seal and step banks), the ledger exclusion unchanged
-#⟪OVERRIDE checks 909 910 REPAIR (needle)⟫
+#⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_explicitformula_plan.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
-# ### b735, (R345)(2)(iii): G-DELETES-ONE-BRANCH reads the kept clause from the act's ferry through standing.allow.kept_clause, no string typed here; the ruling writes "kept: ..., and the rest as banked." naming port-b707 nowhere
-# ### (data/b735_ferry.txt :17), so the arm failed on the act's real deletes; read as written, port-b707 still out of the deletes (defect (u))
-#⟪OVERRIDE checks 770 773 REPAIR (needle)⟫
-    # ### (R344)(9) wrote "port-b707 kept;" and (R345)(4) writes a kept clause; allow.py's NOT-deleted reader takes neither; each read as written, the clause by kept_clause
-    return bool(shapes) and all(len(d) == 1 and not gl and not vs and not c for (d, gl, vs), c in shapes) \
-        and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
-        and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
-             or bool(STW.kept_clause(S['ferry'])) or 'and the rest as banked' in S['ferry']) \
-#⟪END⟫
+# ### b735, (R345)(2)(iii): b734's override of G-DELETES-ONE-BRANCH retired, the template's line reading the kept clause through standing.allow.kept_clause in either wording
 # ### b735, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b735_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
 # ### fold's own route, `fold.py regspec`
-#⟪OVERRIDE record 671 671 REPAIR (regspec)⟫
+#⟪OVERRIDE record MARK 5077a057931b 1 REPAIR (regspec)⟫
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
@@ -785,7 +777,7 @@ def research_reproduces_ok(S):
     rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b734`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches in the command bank %d (N1: at most two; -1 the command bank not yet written)' % (
 #⟪END⟫
 # ### b735, Component 3 (the Edit tool): the sitting moved seven kernels' mains by (R345)(3): a main at its sitting tip, its tags unmoved, is not a move against b734's face
-#⟪OVERRIDE record 2554 2554⟫
+#⟪OVERRIDE record MARK 8aa097f94edc 1⟫
     moved = [k for k, v in prev.items() if k in now and (now[k][0] != v[0] or now[k][1] != v[1]) and not (K.SITTING_TIPS.get(k, '').startswith(now[k][0]) and now[k][1] == v[1])]
 #⟪END⟫
 #⟪SECTION citation 1⟫
@@ -1490,14 +1482,14 @@ act does not write, and are not carried; the lines are b735's: the dependency pr
 #⟪SECTION report 5⟫
     order = [('CERTIFIED', ['ZQ', 'V1120']), ('REGISTERED', ['ORD']), ('HELD', ['HELD'])]
 #⟪END⟫
-#⟪OVERRIDE citation 47 47⟫
+#⟪OVERRIDE citation MARK 31b08d46e87d 1⟫
 C.ANCHOR, C.TAIL = K.RULING_ANCHOR, K.TAIL   # ### b735 carry-time repair: the ruling's BEGIN line (pasted before the act opened); K.ANCHOR is the capture's
 #⟪END⟫
-#⟪OVERRIDE citation 146 146⟫
+#⟪OVERRIDE citation MARK 4c93044332ef 1⟫
 #⟪END⟫
-#⟪OVERRIDE citation 151 151⟫
+#⟪OVERRIDE citation MARK 9d93e16b7a2c 1⟫
 #⟪END⟫
-#⟪OVERRIDE citation 153 153⟫
+#⟪OVERRIDE citation MARK 367558757a34 1⟫
 #⟪END⟫
-#⟪OVERRIDE citation 155 155⟫
+#⟪OVERRIDE citation MARK 0fc89e683898 1⟫
 #⟪END⟫

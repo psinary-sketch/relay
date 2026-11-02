@@ -22,6 +22,7 @@ data/act_current.json for the act and the act before it, and from its `replay` r
                      runs the act's tool as `python tools/<act>_<tool>.py args...` runs it (its own __main__, tools/ first on the path),
                      the act from data/act_current.json unless --act names one
 """
+import hashlib
 import importlib.abc
 import importlib.util
 import json
@@ -40,6 +41,11 @@ TOOLS =('checks', 'citation', 'closing', 'record', 'reg_gate', 'regspec', 'repor
 ACT_NAME = re.compile(r'^b\d{3}_\w+$')
 SLOT = re.compile(r'(?m)^⟪SLOT (\d+)⟫\n')
 SECTION = re.compile(r'(?m)^#⟪(SECTION|OVERRIDE) (\w+) (\d+)(?: (\d+))?( NOEOL)?(?: REPAIR ([\w()]+))?⟫\n')
+# ### v1.15.0, (R345)(2)(ii), b734 defect (q): AN OVERRIDE KEYED TO A MARKER THE TOOL FINDS, NOT TO A LINE NUMBER. "#⟪OVERRIDE <tool> MARK <hash> <count>⟫": the template's <count> lines whose
+# ### mark is <hash>, found by render wherever they stand, the same bytes found exactly once or refused; an edit above them moves nothing, an edit of them refuses. Count 0 inserts before the one
+# ### line the mark reads. From b735 an act's override keyed by a number is refused; the acts before read as they did.
+MARK = re.compile(r'(?m)^#⟪OVERRIDE (\w+) MARK ([0-9a-f]{12}) (\d+)( NOEOL)?(?: REPAIR ([\w()]+))?⟫\n')
+MARK_FROM = 735
 END = '#⟪END⟫\n'
 
 
@@ -93,7 +99,17 @@ def _parse(act, t=None):
     t = _rd(sections_path(act)) if t is None else t   # ### v1.12.0: a module's text passed, a blob read at its commit
     secs, ovs, i = {}, {}, 0
     while True:
-        m = SECTION.search(t, i)
+        m, k = SECTION.search(t, i), MARK.search(t, i)
+        if k and (not m or k.start() < m.start()):
+            e = t.find(END, k.end())
+            if e < 0 or (e > k.end() and t[e - 1] != '\n'):
+                raise FoldRefused('fold: %s module: OVERRIDE %s MARK %s has no end line' % (act, k.group(1), k.group(2)))
+            text = t[k.end():e]
+            ovs.setdefault(k.group(1), []).append((k.group(2), int(k.group(3)), text[:-1] if k.group(4) else text))
+            if k.group(5):
+                REPAIRS.setdefault(act, {})[(k.group(1), k.group(2))] = k.group(5)
+            i = e + len(END)
+            continue
         if not m:
             break
         e = t.find(END, m.end())
@@ -105,6 +121,8 @@ def _parse(act, t=None):
         if m.group(1) == 'SECTION':
             secs[(m.group(2), int(m.group(3)))] = text
         else:
+            if int(act[1:]) >= MARK_FROM:
+                raise FoldRefused('fold: %s module: OVERRIDE %s %s keyed by a line number, refused from b%d; key it by a MARK ((R345)(2)(ii))' % (act, m.group(2), m.group(3), MARK_FROM))
             ovs.setdefault(m.group(2), []).append((int(m.group(3)), int(m.group(4)), text))
             if m.group(6):
                 REPAIRS.setdefault(act, {})[(m.group(2), int(m.group(3)))] = m.group(6)
@@ -123,8 +141,22 @@ def overrides(act):
     return _parse(act)[1]
 
 
-def render(act, tool, secs=None, ovs=None):
-    tpl = _rd(os.path.join(TPL_DIR, tool + '.tpl')).splitlines(keepends=True)
+def mark_of(lines):
+    """v1.15.0: the mark of a span of template lines: its bytes hashed with the line ends stripped, twelve hex."""
+    return hashlib.sha256(''.join(x.rstrip('\r\n') + '\n' for x in lines).encode('utf-8')).hexdigest()[:12]
+
+
+def find_mark(tpl, mark, count, what=''):
+    """v1.15.0: (first, last) of the span the mark names, read over the template's lines, refused unless found exactly once."""
+    n = max(count, 1)
+    hits = [i for i in range(len(tpl) - n + 1) if mark_of(tpl[i:i + n]) == mark]
+    if len(hits) != 1:
+        raise FoldRefused('fold: override %s MARK %s %d found %d times in the template, wanted once' % (what, mark, count, len(hits)))
+    return hits[0] + 1, hits[0] + count
+
+
+def render(act, tool, secs=None, ovs=None, tpl=None):
+    tpl = (_rd(os.path.join(TPL_DIR, tool + '.tpl')) if tpl is None else tpl).splitlines(keepends=True)   # ### v1.15.0: a template's text passed, a blob read at its commit
     nm = names(act)
     if secs is None or ovs is None:
         s0, o0 = _parse(act)
@@ -132,6 +164,8 @@ def render(act, tool, secs=None, ovs=None):
         ovs = o0 if ovs is None else ovs
     at = {}
     for first, last, text in ovs.get(tool, []):
+        if isinstance(first, str):
+            first, last = find_mark(tpl, first, last, '%s %s' % (act, tool))
         if first < 1 or last < first - 1 or last > len(tpl) or first in at:
             raise FoldRefused('fold: %s override %s %d-%d out of the template (%d lines) or overlapping' % (act, tool, first, last, len(tpl)))
         if any(SLOT.match(tpl[j]) for j in range(first - 1, last)):
