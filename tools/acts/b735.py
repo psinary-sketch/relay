@@ -349,7 +349,7 @@ def runner_ok(S):
 # ### b735, Component 6 (the Edit tool): b735's step-zero bank words the row "THE DELETES, each after its --merged listing" (:15); the
 # ### carried needle was b734's wording
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE DELETES, each after its --merged listing' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING, PRINTED BEFORE THE DELETES' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): b734's overrides of checks 1516 and 1659 (hook.py edited by b734's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b735 as it stands
@@ -365,7 +365,7 @@ def runner_ok(S):
     return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and 'port-b707' in z and 'KEPT as banked: port-b707' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and 'port-b707' in z and 'KEPT as banked:' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
 # ### b735, Component 4 (the Edit tool): G-RUNNER-READ's plant on b735's dispatch rows -- run 2's axiom lines carrying sorryAx (b734's
 # ### plant read the lv rows' closure log, which b735 does not write)
@@ -499,8 +499,8 @@ def _addr_live():
 #⟪END⟫
 #⟪SECTION checks 10⟫
 # ### b735's read-first bank's items by path, as its step zero wrote them (data/b735_readfirst.txt)
-READFIRST_NEEDLES = ('relay data/b734_closing.txt |', 'relay data/b734_events.txt |', 'relay data/b734_defects.txt |', 'relay data/b734_count.txt |', 'relay data/b731_price_measured.txt |', 'relay data/b729_count_price.txt |',
-                     'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean |', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Epstein.lean |', 'SIDE-explicit-formula Zeta23/WeilEF/*.lean and Zeta23/GammaFacts/*.lean |', 'PLACE-papers FINDINGS.md |')
+READFIRST_NEEDLES = ('relay data/b734_closing.txt |', 'relay data/b734_events.txt |', 'relay data/b734_defects.txt |', 'relay data/b734_explicitformula_plan.txt |', 'relay data/b734_ef_print.txt |', 'relay data/b733_count.txt |',
+                     'relay data/b731_price_measured.txt |', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean |', 'SIDE-explicit-formula Zeta23/WeilEF/*.lean |', 'Mathlib at de5ce8a9 |')
 #⟪END⟫
 #⟪SECTION checks 11⟫
 CLOSING_SECTIONS = ('CORRIGENDUM ((R345)(1)-(2))', 'explicitFormula FIELD ((R345)(3))', 'NAME AND ADDRESS (N5)', 'TOUCH READ (standing clauses v9)')
@@ -538,7 +538,7 @@ TITLE_NEEDLES = ('## W-ORD-ZQ-DERIVES: the explicitFormula field CLOSED with the
 #⟪END⟫
 #⟪SECTION checks 19⟫
         and 'v1.15.0: CONTROLS ' in (S['v1130'] or '') and 'ALL AS WANTED' in (S['v1130'] or '') \
-        and len(j.get('notes') or []) == 0 \
+        and len(j.get('notes') or []) == 2 \
         and '  (55) ' in S['corrigenda'] and '  (56) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫

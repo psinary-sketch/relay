@@ -52,7 +52,7 @@ TITLE_NEEDLES = ('## W-ORD-ZQ-DERIVES: the explicitFormula field CLOSED with the
 #⟪END⟫
 #⟪SECTION checks 19⟫
         and 'v1.15.0: CONTROLS ' in (S['v1130'] or '') and 'ALL AS WANTED' in (S['v1130'] or '') \
-        and len(j.get('notes') or []) == 0 \
+        and len(j.get('notes') or []) == 2 \
         and '  (55) ' in S['corrigenda'] and '  (56) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
@@ -226,6 +226,17 @@ def research_reproduces_ok(S):
 #⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_explicitformula.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
+#⟪END⟫
+#⟪SECTION checks 10⟫
+# ### b735's read-first bank's items by path, as its step zero wrote them (data/b735_readfirst.txt)
+READFIRST_NEEDLES = ('relay data/b734_closing.txt |', 'relay data/b734_events.txt |', 'relay data/b734_defects.txt |', 'relay data/b734_explicitformula_plan.txt |', 'relay data/b734_ef_print.txt |', 'relay data/b733_count.txt |',
+                     'relay data/b731_price_measured.txt |', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean |', 'SIDE-explicit-formula Zeta23/WeilEF/*.lean |', 'Mathlib at de5ce8a9 |')
+#⟪END⟫
+#⟪OVERRIDE checks MARK 3938376d9390 1⟫
+        and 'THE --MERGED LISTING, PRINTED BEFORE THE DELETES' in z and all(b in z for b in NAMED_PUSH)
+#⟪END⟫
+#⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
+        and 'port-b707' in z and 'KEPT as banked:' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
 #⟪OVERRIDE closing MARK 92495058e2fb 2⟫
     '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-DERIVES, annotated at b735, five of its five fields closed,',

@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T17:13:54Z",
+ "at": "2026-11-02T17:54:20Z",
  "anchor": "RULING (R345) BEGIN",
  "rows": [
   {
@@ -1960,6 +1960,278 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/b735_prepaths.py --bank && python -X utf8 -u tools/standing/fold.py record findings dry",
    "n": 245,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:14:13.700Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py report dry && python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 246,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:15:15.735Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet ; git status --short -- data tools",
+   "n": 247,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:15:25.299Z",
+   "src": "seat",
+   "cmd": "git add data/b735_address_scan.txt data/b735_bank_hashes.json data/b735_defects.txt data/b735_hook_refusals.txt data/b735_steps.json tools/acts/b735.py tools/b735_worklist.py tools/b735_face.py tools/b735_face_blocks.txt tools/b735_prepaths.py tools/b735_sections.txt data/b735_closing_dry.txt data/b735_commands.json data/b735_commands.txt data/b735_corrigendum.json data/b735_corrigendum_landing.json data/b735_kernels_face.json data/b735_pathrefusal.txt data/b735_record_lines.json data/b735_registration_2026-11-02.txt data/b735_reproduce.json data/b735_reproduce.txt data/b735_standing_figures.json data/b735_standing_figures.txt",
+   "n": 248,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:15:28.738Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b735 gate: the act's sections, the face tool and its blocks, the probe-path refusal, the reproduction, the standing figures, the kernels face, the defects in the reader's form, the worklist's commits\"",
+   "n": 249,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:15:31.139Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 250,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:15:35.183Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate ba3ec9f0 && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 251,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:17:43.888Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/why735.py\" act",
+   "n": 252,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:17:46.614Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"G-DRY-STEP-CLEAN|G-CLOSING-DRY-STEP|G-CORRIGENDUM-ENTERED|G-GUARD-HELD|G-TOUCH-READ\" -- tools/acts/b735.py tools/standing/fold/checks.tpl",
+   "n": 253,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:17:51.296Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"guard_ok|'guard'|_guard_dry|guard dry|def corrigendum_ok|corrigendum_landed|argv\\[2\\] == 'guard'|'dry_step|closing_dry\" -- tools/standing/fold/checks.tpl tools/standing/fold/record.tpl tools/acts/b735.py",
+   "n": 254,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:17:57.048Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"'guard'|cmd_guard|guard\\(\" -- tools/standing/fold/record.tpl",
+   "n": 255,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:18:04.711Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record guard",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:18:19.336Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"corrigenda_tri|corrj=|c1=\" -- tools/standing/fold/checks.tpl",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:18:24.126Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"v1130=|v1140=|v1150=\" -- tools/standing/fold/checks.tpl tools/acts/b735.py && git grep -n -E \"C1_RELAY|C1_CORR|C1_PP\" -- tools/b735_worklist.py && git show --stat --format=%h f479a7fe",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:18:35.747Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/corr735.py\"",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:18:41.574Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"touch\" -- tools/acts/b735.py tools/standing/fold/checks.tpl tools/b735_sections.txt",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:19:01.578Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/touch735.py\"",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:19:20.985Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b735 HEAD --write",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:19:33.060Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:25:33.217Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/cmp735.py\" act standing-a",
+   "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:25:34.338Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"G-BRANCHES-DELETED|G-READFIRST-CITED|G-PP-SCOPE|HEAD-LINE-QUOTED\" -- tools/standing/fold/checks.tpl tools/rule_arms.py tools/standing/arms.py",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:25:40.936Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"STEPZERO|NAMED_PUSH|def readfirst_ok|def branches_deleted|readfirst\" -- tools/b735_worklist.py tools/standing/fold/checks.tpl tools/acts/b735.py",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:25:41.957Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" 5609d5fd..HEAD --name-only -- data/b735_stepzero.txt data/b735_readfirst.txt data/b735_ferry.txt",
+   "n": 267,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:25:58.889Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"OVERRIDE|^#.SECTION checks (10|11)\" -- tools/b735_sections.txt",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:26:01.211Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"G-LISTINGS-BEFORE-CLAUSES|CARRIED_FAIL|DECLARED_FAIL|G-AXIOM-CLAIM\" -- tools/b735_worklist.py tools/b735_face_blocks.txt tools/acts/b735.py",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:26:26.633Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b735 HEAD --write",
+   "n": 270,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:26:27.459Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"listing_ts|first_listing\" -- tools/standing/fold/checks.tpl",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:26:33.289Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --prev b734_arms_prerun_standing-b1.txt",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:29:21.056Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-b1",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:32:06.305Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2a",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:38:06.788Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2b",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:45:40.374Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-b3",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:49:37.939Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part standing-c",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:03.558Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^    if .*argv|'rootdry'|'scores'|def rootdry|def gatebanks|sys.argv\\[1\\] ==|cmd == '\" -- tools/standing/fold/record.tpl",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:07.779Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- data/b735_touch.txt data/b735_guard_dry.txt data/b735_guard_dry.json",
+   "n": 279,
    "bg": false
   }
  ],
