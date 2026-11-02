@@ -1,0 +1,81 @@
+b736 -- THE CORRIGENDUM FOR b735, (R346)(3) (2026-11-02T22:41:32Z)
+
+### the banks read unedited: data/b735_events.txt rows (1)-(8), data/b735_defects.txt 26 rows, data/b735_hook_refusals.txt 9 lines at d4e0ea02; data/b736_standing_v1160.txt (the v1.16.0 controls); the corrigenda bank`s last row (55).
+
+  *b735’s events bank (relay data/b735_events.txt) carries eight rows, entered after its lock and not lettered, each tagged in its own bracket (7 the seat’s, 1 the host); its defects bank twenty-six lettered rows, (a)-(z), each tagged in its own bracket (26 the seat’s); its refusal bank nine lines at d4e0ea02, each recorded by a row, and one refusal stands after them in this act’s bank. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R346)`(3), at tools/standing/ v1.16.0, each with a control on b735’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b736_standing_v1160.txt, 25 cases, AS WANTED 25):
+  
+  **(vacuous) the vacuous pass (`(R346)`(3)(i), relay data/b735_explicitformula.txt :211; CLAIM ; REPEAT of b735 (t), a check that could not fire)** -- the salt-check’s “no hypothesis that is the claim” compared text and passed six rows of six, where two proofs are projections of the hypothesis. standing.salthead reads the proof’s head and fails on a projection of a bound hypothesis, printing it; EpsteinZQ.lean :153 reads FAIL, Main.lean :194 PASS. The arm reads one thing and the grade another; neither replaces the other; the three premise-free forms read PASS, compiled (:16).
+  
+  **(lexicon) the grader’s private lexicon (`(R346)`(3)(ii); CLAIM ; NEW)** -- b735 graded with an extension in its own tool and tools/e0_rule.py unedited. The three entries landed in the shared rule by a commit of their own, `3afd2697`; the three premise-free forms read the same under the rule as it stood and under the rule as landed, so their grade did not rest on the extension; the five ζ and Dirichlet rows unchanged; the landed lines raised under the rule as it stood and read on h after (relay data/b736_e0_landing.txt) (:43).
+  
+  **(refused) the Read refused after the closing was composed (`(R346)`(3)(iii); CLOSE ; REPEAT class (19))** -- rule (1) of data/b736_rules.txt: such a refusal goes by the hook to the next act’s bank and that act enters it as the closed act’s event; the row and its time below, the counter’s dated note after (:55).
+  
+  **(fsck) the scratch clone’s pack loss (`(R346)`(3)(iv), defect (p); CLAIM ; NEW)** -- rule (2) of data/b736_rules.txt; standing.scratchfsck reads a clone’s fsck, and standing.dispatchrows refuses a read row naming a clone without its reads before and after. The cause is not established and zqwork stands in place. THE RULED CONTROL DOES NOT READ CLEAN: zqwork2’s two reads both fail, its pack directory gone at 2026-11-02T21:44:22Z, every loose object directory touched in that second, as zqwork’s were at 15:33:57Z, no seat call within minutes of the second time. A second instance, found by this reader. The clean arm is zqwork3, cut fresh at this act, two reads clean, the seat’s addition and declared; the kernel’s fsck clean when read after each loss; no figure of b735 or b736 rests on a read of a clone after its loss, the tip read from the kernel (:67).
+  
+  **(watch) the reaped watch (`(R346)`(3)(v), defect (n); CLOSE ; NEW)** -- rule (3) of data/b736_rules.txt; a row with its watch reaped carries restarted or foreground, or standing.dispatchrows refuses it. b735’s rows for dispatch 5 carry no such field; its banked rows stand (:87).
+  
+  **(dry) the score routes’ dry form before the lock (`(R346)`(3)(vi), event (1); CLOSE ; NEW)** -- rule (4) of data/b736_rules.txt; standing.prelock reads NOT CLEAR while the dry bank is absent, and scores_dry_order reads the bank’s first commit against the lock by ancestry. b735’s late run reads OUT OF ORDER at f95ff91f after 0fed13c1, b734’s IN ORDER (:99).
+  
+  **(counter) the hand section’s counter against the closing’s (`(R346)`(3)(vii); CLOSE ; REPEAT of b734, event (10))** -- standing.counterline reads b735’s hand CLOSE 25 of 26 and closing CLOSE 32 of 34 unequal, the hand section not naming the closing; with the dated note below it passes. This act’s trail names the closing as the last figure (:108).
+  
+  **b735’s events (1)-(8):**
+  
+  **(1)** found about 19:35Z: the score routes’ dry form, step [4] of v4 row (68), was not run before the lock; b734 banked it at … (relay data/b735_events.txt, row (1); the seat’s; CLOSE; NEW; repair (dry); rule (4) of data/b736_rules.txt).
+  **(2)** found at the same review: before the lock three untracked banks written by a --prev probe made the root dry READY … (relay data/b735_events.txt, row (2); the seat’s; CLOSE; REPEAT of b734 (w)).
+  **(3)** the dry form read N5 REFUTED; read to its predicate before the seal: its one false clause ’not differ’, the seal hashes … (relay data/b735_events.txt, row (3); the seat’s; CLOSE; NEW).
+  **(4)** a Read with no limit on a memory file refused by the hook, READ; nothing ran (data/b735\_hook\_refusals.txt). (relay data/b735_events.txt, row (4); the seat’s; CLOSE; REPEAT of class (19)).
+  **(5)** at the root’s prompt: (R345)(6) calls a sentence compiled if the field closes, "a degree-2 object with off-line zeros … (relay data/b735_events.txt, row (5); the seat’s; CLAIM; NEW; (R345)(6)’s sentence withdrawn by (R346)(2), the dated note in the trail).
+  **(6)** ’record table\_final’ rewrote the tracked data/terminal\_table.json and data/terminal\_table\_run.txt, the loose matcher’s … (relay data/b735_events.txt, row (6); the seat’s; CLOSE; NEW).
+  **(7)** a Grep over the trail ledger with its limit set to none, its output 615.6 KB, saved by the harness to a tool-results … (relay data/b735_events.txt, row (7); the seat’s; CLOSE; NEW).
+  **(8)** free memory 3278 MB at the start of the pre-push part standing-b2b, above the hold; the scratch wait run alone before … (relay data/b735_events.txt, row (8); the host; CLOSE; NEW).
+  
+  **b735’s defects:**
+  
+  **(a)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of b734 (a)).
+  **(b)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(c)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(e)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(f)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(i)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(k)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(l)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW; repair (watch); rule (3) of data/b736_rules.txt).
+  **(o)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b735_defects.txt; the seat’s; CLAIM; NEW; repair (fsck); rule (2) of data/b736_rules.txt; the cause not established).
+  **(q)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(r)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(v)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(w)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(x)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(y)** (relay data/b735_defects.txt; the seat’s; CLOSE; NEW).
+  **(z)** (relay data/b735_defects.txt; the seat’s; CLOSE; REPEAT of b604 (a)).
+  
+  **b735’s refusals** (relay data/b735_hook_refusals.txt at d4e0ea02, one a line): :1 READ 14:25:47Z, recorded at defect (b); :2 REDIR 14:37:23Z, recorded at defect (e); :3 READ 14:41:05Z, recorded at defect (h); :4 REDIR 14:48:04Z, recorded at defect (j); :5 ENV 14:48:28Z, recorded at defect (k); :6 READ 16:55:06Z, recorded at defect (u); :7 REDIR 16:55:41Z, recorded at defect (v); :8 READ 16:57:31Z, recorded at defect (u); :9 READ 19:38:50Z, recorded at event (4).
+  
+  **The refusal after the closing:** 2026-11-02T20:49:14Z, READ, a Read of data/b735_closing.txt with a limit and no offset on a file of 331 lines, nothing ran, after that closing was composed; recorded at relay data/b736_hook_refusals.txt :1, where the hook’s route puts it (tools/standing/hook.py), entered here as b735’s event (CLOSE ; REPEAT class (19); repair (refused); rule (1) of data/b736_rules.txt).
+  
+  **Dated notes:**
+  
+  Dated note, b736, to the counter of relay data/b735_closing.txt :5 (`(R346)`(3)(iii)): the counter of 34 stands; the refused Read entered above came after the events bank was read and is no item of the 34.
+  
+  Dated note, b736, to OPEN_TRAILS :17305 (`(R346)`(3)(vii)): the closing carries the last figure, CLAIM 2, CLOSE 32, REPEAT 12 of 34; the hand section’s CLAIM 1, CLOSE 25, REPEAT 10 of 26 read the defects before the eight events landed. The rule of `(R345)`(2)(vii) was not met at b735: the hand figure neither equalled the closing’s nor named it.
+  
+  Dated note, b736, to the seat’s report at b735’s close: “in no bank” was wrong as written. The refused Read stood in data/b736_hook_refusals.txt, put there by the hook, untracked until b736’s first commit carried it.
+  
+  Dated note, b736, to `(R346)`(3)(i): the ruling reads the three landed rows as projections of the bundle; the proof terms read two and one, EpsteinZQ.lean :153 h.count and :157 h.explicitFormula.ef projections, :164 h.count.elim an elimination whose body applies Wide.li_nonneg_cfg_imp_online_ne_zero. The arm prints each as it stands: FAIL, FAIL, PASS.
+  
+  **The counter:** CLAIM 2, CLOSE 32 over the 34 items (eight events, twenty-six defects), as b735’s closing prints it (relay data/b735_closing.txt :5); REPEAT 12 of 34; the CLAIM items (5), (p).
+  
+  *Filed at b736 on the author’s ruling `(R346)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b736.py) from b735’s events and defects banks read unedited, its refusal bank, and the v1.16.0 controls bank; banked as relay `data/b736_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (56). It answers b735’s record; no sealed tool, face, trail or root-named bank of b735 is edited.*
+
+### ### **ITEMS 34: EVENTS 8, DEFECTS 26 ; CLAIM 2, CLOSE 32 ; REPEAT 12 ; DATED NOTES 4 ; v1.16.0: THE VACUOUS PASS, THE PRIVATE LEXICON, THE REFUSED READ, THE CLONE`S FSCK, THE REAPED WATCH, THE SCORE ROUTES` DRY FORM, THE COUNTER ; THE ENTRY AT FINDINGS :12911.**

@@ -247,11 +247,11 @@ B714_RECORD = 'd20a7119'     # ### b735's record commit (relay, the head line's)
 B714_ROOT = '879dfce5007d76b51343834af9947ef3d480a0e3997853fdf34304cc1a4e6bf3'   # ### b735's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '30761f2f'  # ### b735's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
+C1_STANDING = '86d86ef6'
 C1_STANDING_REPAIR = None
 C1_RELAY = None
 C1_CORR = None
-C1_PP = None
+C1_PP = 'dadfdf07'
 WEIGHT_LINE, CORR_LINE = None, None
 DIFFERS_LINE = None
 ERRATA_LINE = None
