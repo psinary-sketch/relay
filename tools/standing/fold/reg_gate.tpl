@@ -74,7 +74,12 @@ def main():
     report_clean, rl = __import__('standing.reportdry', fromlist=['bank']).bank('⟪ACT⟫')
     for ln in rl[1:]:
         rec('  ' + ln)
-    clear = bool(ok_index) and bf and st and not floor_misses and not arm_misses and not misses and dry_clean and closing_clean and report_clean
+    rec('')
+    rec('--- THE PRE-LOCK COMPARISON ((R343)(2)(i)): the probes against the previous act`s pre-run lists, every arm newly failing by name, each on the face ---')
+    prelock_clear, pl = __import__('standing.prelock', fromlist=['gate']).gate('⟪ACT⟫', txt)
+    for ln in pl[1:]:
+        rec('  ' + ln)
+    clear = bool(ok_index) and bf and st and not floor_misses and not arm_misses and not misses and dry_clean and closing_clean and report_clean and prelock_clear
     rec('  ### ### **GATE VERDICT : %s**' % ('CLEAR' if clear else 'NOT CLEAR'))
     rec('=' * 100)
     with io.open(OUT, 'w', encoding='utf-8', newline=chr(10)) as fh:

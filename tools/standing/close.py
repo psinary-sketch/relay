@@ -401,6 +401,9 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     import reportdry as RD
     if write and not RD.stands(act):   # ### v1.9.0, (R339)(2)(ii): step [5a], read again at the seal
         return 3, ['### THE SEAL REFUSED -- STEP [5a]: data/%s_report_dry.txt ABSENT OR NOT CLEAN; NOTHING RECORDED' % act]
+    import prelock as PL
+    if write and not PL.stands(act):   # ### v1.13.0, (R343)(2)(i): the comparison the gate prints, read again at the seal
+        return 3, ['### THE SEAL REFUSED -- STEP [5b]: data/%s_prelock.txt ABSENT OR NOT CLEAR; NOTHING RECORDED' % act]
     tools = worklist_sealed(act)
     g = seal_guard(tools)
     if not g['ok']:

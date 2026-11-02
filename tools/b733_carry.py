@@ -54,11 +54,10 @@ def _membrane(p):
 
 
 def substitute(text):
-    """the act names shifted by one act, in order so that b732 -> b733 runs before b719 -> b732."""
-    out = text
-    for a, b in SUBS:
-        out = out.replace(a, b)
-    return out
+    """the act names shifted by one act, in order so that b732 -> b733 runs before b719 -> b732; v1.13.0: through the standing route, a kept branch's name held out."""
+    sys.path.insert(0, T)
+    import standing.carry as CR
+    return CR.substitute(text, SUBS)
 
 
 def udiff(old, new, a_name, b_name):

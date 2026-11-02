@@ -13,6 +13,7 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 import difflib
 import io
 import os
+import re
 import sys
 import time
 
@@ -32,11 +33,21 @@ def rd(p):
     return io.open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
 
 
+# ### v1.13.0, (R343)(2)(vii): a kept branch is a name the act does not move: b730 (m), b731 (b), b732 (c), each the shift of zq-b730 by one act. push-bNNN alone is the act's and shifts
+KEPT_BRANCH = re.compile(r'(?<![\w-])(?:zq|detect|keiper|c2|rebuild|port|scratch|pin|recut|challenge|corrigendum)-b[0-9]{3}(?![0-9])')
+
+
 def substitute(text, subs):
-    out = text
+    """the pairs applied in order, every kept branch's name held out of them."""
+    held = []
+
+    def hold(m):
+        held.append(m.group(0))
+        return '\0%d\0' % (len(held) - 1)
+    out = KEPT_BRANCH.sub(hold, text)
     for a, b in subs:
         out = out.replace(a, b)
-    return out
+    return re.sub('\0([0-9]+)\0', lambda m: held[int(m.group(1))], out)
 
 
 def udiff(old, new, a_name, b_name):

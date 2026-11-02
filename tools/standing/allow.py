@@ -117,6 +117,13 @@ def plant_kept(ruling, must):
     return flat.replace(c, DELETED.sub('kept', c, count=1), 1)
 
 
+def kept_clause(ruling):
+    """v1.13.0, (R343)(2)(iii): the clause "kept: <names>, and the rest as banked" as the ruling writes it, whitespace collapsed; '' where it writes none. The arm's needle
+    is read here from the act's ferry, never typed into the act's override, where the carry shifted it (b732 event (2))."""
+    m = re.search(r'\bkept: [^.;]*?, and the rest as banked', re.sub(r'\s+', ' ', ruling or ''))
+    return m.group(0) if m else ''
+
+
 def matches(branch, names):
     """the branch is one of `names`, each a name or a glob pattern (v1.2.0)."""
     return any(branch == n or fnmatch.fnmatchcase(branch, n) for n in names)

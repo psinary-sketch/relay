@@ -8,6 +8,7 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   REDIR  a Bash or PowerShell command carrying a redirect outside quotes -- rows (77) and (14)
   ENV    a command prefixed by an environment-variable assignment     -- rows (77) and (20)
   REMOTE a Bash or PowerShell command carrying more than one ls-remote outside quotes -- row (77), (R338)(2)(iv)(d)
+  POSTSEAL a shell command the arm G-RULE-POSTSEAL-READ would count, the seal recorded -- v1.13.0, (R343)(2)(vi); the arm's own lists read from tools/rule_arms.py at the call
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -19,6 +20,7 @@ call, a bank of the excluded kind `hook_refusals` the root route takes out. Allo
   python -I -X utf8 tools/standing/hook.py control    the offline control: the judge's cases, and the (4)(iii) two instances in a scratch
                                                       directory outside data/ and tools/, bank data/<act>_hook_control.txt
 """
+import ast
 import datetime
 import hashlib
 import json
@@ -45,6 +47,7 @@ ROWS = {
     'REMOTE': ROW77 + ' ; (R338)(2)(iv)(d) one remote read per command, b674 row 1',
     'SUITE': ROW77 + ' ; one suite part or combine per call, each its own message',
     'ORDER': ROW77 + ' ; the suite`s G-BRANCHES-BANKED clause, the citation check before the first delete',
+    'POSTSEAL': ROW77 + ' ; the suite`s G-RULE-POSTSEAL-READ, after the seal no shell filter or redirect over the entry or the trail, its list read from tools/rule_arms.py',
 }
 
 SUITE_RUN = r'(?:_checks\.py\b|\bstanding/fold\.py\s+checks\b)'   # ### v1.11.0: tools/rule_arms.py :155-:157's two calls
@@ -86,6 +89,36 @@ def citation_done(relay=RELAY):
     """v1.11.0: the act's citation check has run: its bank's json stands."""
     act = bank_act(relay)
     return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_citation_check.json' % act))
+
+
+def sealed(relay=RELAY):
+    """v1.13.0: the open act's seal is recorded: its data/<act>_seal_hashes.json stands (written just before the seal commit the arm dates from)."""
+    act = bank_act(relay)
+    return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_seal_hashes.json' % act))
+
+
+def ledger_rule(relay=RELAY):
+    """v1.13.0, (R343)(2)(vi): the post-seal read rule AS THE ARM HOLDS IT, read from tools/rule_arms.py at the call and not kept here: the ledger names, the shell filter,
+    the quoted-span form, and the exclude list out of the arm's own block; None where the file does not read so (the suite's arm still stands behind the hook)."""
+    try:
+        with open(os.path.join(relay, 'tools', 'rule_arms.py'), encoding='utf-8') as f:
+            t = f.read()
+        names = ast.literal_eval(re.search(r'(?m)^LEDGER_READ = (\(.*\))$', t).group(1))
+        filt = re.compile(ast.literal_eval(re.search(r'(?m)^SHELL_FILTER = re\.compile\((r\'.*\')\)$', t).group(1)))
+        quoted = re.compile(ast.literal_eval(re.search(r'(?m)^QUOTED = re\.compile\((r\'.*\')\)$', t).group(1)))
+        block = t.split("if name == 'G-RULE-POSTSEAL-READ':", 1)[1].split('if name == ', 1)[0]
+        return names, re.findall(r"'([^']+)' not in c\['cmd'\]", block), filt, quoted
+    except (OSError, ValueError, SyntaxError, AttributeError, IndexError):
+        return None
+
+
+def postseal_read(cmd, relay=RELAY):
+    """v1.13.0: the command the arm would count: it names a ledger, carries none of the exclude list, and runs a shell filter outside quotes."""
+    rule = ledger_rule(relay)
+    if rule is None:
+        return False
+    names, excl, filt, quoted = rule
+    return any(x in cmd for x in names) and not any(x in cmd for x in excl) and bool(filt.search(quoted.sub('""', cmd)))
 
 
 def refusals_path(relay=RELAY):
@@ -188,6 +221,8 @@ def judge(tool, inp, relay=RELAY):
             return 'SUITE', 'a %s command carrying more than one suite part or combine' % tool
         if BRANCH_DEL.search(bare) and not citation_done(relay):   # ### v1.11.0: the arm's clause, enforced before the delete and not read after it
             return 'ORDER', 'a branch delete before the act`s citation check'
+        if sealed(relay) and postseal_read(cmd, relay):   # ### v1.13.0, (R343)(2)(vi): b732 event (11), two reads the arm found after they ran
+            return 'POSTSEAL', 'a %s command running a shell filter over the entry or the trail after the seal' % tool
         for seg in re.split(r'&&|;|\n', bare):
             if ASSIGN.match(seg) or PS_ENV.match(seg):
                 return 'ENV', 'a %s command prefixed by an environment-variable assignment' % tool
