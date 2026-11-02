@@ -6,7 +6,8 @@
   push <sha>            a push row, the free read taken now
   dispatch <sha> <n> <item> <target>   gh workflow run, the row carrying the free read before it; the run id read back into the row
   read <n> <run> <artifact dir> a read row, verdict from the artifact's files
-  bank                  writes data/b733_count.txt from the rows and the tip
+  commit <sha> <item>   a commit row
+  bank <artifact dir> <tip>  writes data/b733_count.txt from the rows, the last run's artifacts and the tip, the grade's controls printed before its figures
 """
 import io
 import json
@@ -236,6 +237,108 @@ def cmd_read(n, run, art):
     print({k_: rows[-1][k_] for k_ in ('n', 'run', 'conclusion', 'build_exit', 'verdict', 'sorry_warnings', 'sorryAx', 'runner_low_mb', 'free_mb')}, 'errors', len(errs))
 
 
+FIELD = 'zq_count_holds'
+STANDARD = 'propext, Classical.choice, Quot.sound'
+MODULES = ('SIDEExplicitFormula/Schema/ZQ/Growth.lean', 'SIDEExplicitFormula/Schema/ZQ/Count.lean')
+FOUND_AS = (('aE_apriori', 'aE_strip_bound'), ('aE_left_edge', 'aE_left'))
+
+
+def grade(last, tip, axioms, sorries):
+    """The grade from the last read alone: CLOSED only on a kernel build of the tip, the field's axiom row the standard three, no sorryAx, no `sorry` in the modules."""
+    why = []
+    if last.get('verdict') != 'KERNEL':
+        why.append('verdict %s' % last.get('verdict'))
+    if last.get('built_ref') != tip:
+        why.append('built ref %s is not the tip' % last.get('built_ref'))
+    if last.get('sorryAx') or last.get('sorry_warnings'):
+        why.append('a sorry in the build')
+    if sorries:
+        why.append('%d sorry in the modules' % sorries)
+    if axioms.get(FIELD) != STANDARD:
+        why.append('the field`s axiom row reads [%s]' % axioms.get(FIELD))
+    return ('CLOSED', why) if not why else ('OPEN', why)
+
+
+def cmd_bank(art, tip):
+    rows = _rows()
+    reads = [r for r in rows if r['kind'] == 'read']
+    last = reads[-1]
+    ax_text = io.open(art + '/axioms.txt', encoding='utf-8', errors='replace').read()
+    ax = {k_: ' '.join(v.split()) for k_, v in re.findall(r"'SIDEExplicitFormula\.Schema\.ZQ\.([A-Za-z_0-9]+)' depends on axioms: \[([^\]]*)\]", ax_text)}
+    good = dict(verdict='KERNEL', built_ref=tip, sorryAx=False, sorry_warnings=0)
+    ok = {FIELD: STANDARD}
+    out = ['b733 -- (R343)(3): THE count FIELD, BUILT AND GRADED ON zq-b730 (%s)' % time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), '',
+           '### every figure read from the dispatch rows, the run`s artifacts and the tree at the tip; no lean process on this host (N1).', '',
+           '## THE GRADE`S CONTROLS FIRST']
+    for name, want, got in (('a kernel build of the tip, the standard three', 'CLOSED', grade(good, tip, ok, 0)[0]),
+                            ('a planted broken build', 'OPEN', grade(dict(good, verdict='BREAKS'), tip, ok, 0)[0]),
+                            ('a planted build of another ref', 'OPEN', grade(dict(good, built_ref='0' * 40), tip, ok, 0)[0]),
+                            ('a planted sorryAx', 'OPEN', grade(dict(good, sorryAx=True), tip, ok, 0)[0]),
+                            ('a planted `sorry` in a module', 'OPEN', grade(good, tip, ok, 1)[0]),
+                            ('a planted axiom beyond the three', 'OPEN', grade(good, tip, {FIELD: STANDARD + ', sorryAx'}, 0)[0]),
+                            ('no axiom row for the field', 'OPEN', grade(good, tip, {}, 0)[0])):
+        if want != got:
+            sys.exit('### CONTROL FAILED: %s -- NOTHING WRITTEN' % name)
+        out.append('  %-50s %s AS WANTED' % (name, want))
+    n_c = 7
+    plan_at = git(RELAY, 'log', '-1', '--format=%cI', K.REG_COMMIT).strip()
+    first = next(r for r in rows if r['kind'] == 'commit')
+    first_at = git(EF, 'log', '-1', '--format=%cI', first['sha']).strip()
+    out += ['', '## (N2) THE PLAN BEFORE ANY LEAN, BY ANCESTRY AND TIME',
+            '  the plan bank data/b733_count_plan.txt at relay %s, committed %s' % (K.REG_COMMIT, plan_at),
+            '  the first Lean commit of this act %s, parent %s = zq-b730 entering (%s), committed %s' % (first['sha'][:8], first['parent'][:8], str(git(EF, 'merge-base', '--is-ancestor', K.ZQ_ENTERING, first['sha']) == ''), first_at),
+            '  plan before Lean: %s' % (plan_at < first_at), '',
+            '## THE DISPATCHES: %d OF AT MOST %d, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb' % (len([r for r in rows if r['kind'] == 'dispatch']), K.MAX_DISPATCHES)]
+    for r in [x for x in rows if x['kind'] == 'dispatch']:
+        rd = next(x for x in reads if x['n'] == r['n'])
+        out.append('  %d | group %-8s | %s | sha %s | run %s | free %d MB | %s, exit %s, %d errors, sorry warnings %d, sorryAx %s, read at free %d MB' % (r['n'], r['item'], r['target'].split('.')[-1], r['sha'][:8], r['run'], r['free_mb'], rd['verdict'], rd['build_exit'], len(rd['errors']), rd['sorry_warnings'], rd['sorryAx'], rd['free_mb']))
+        for e in rd['errors']:
+            out.append('      ' + e)
+    sor, lines = 0, {}
+    out += ['', '## THE MODULES AT THE TIP %s, zq-b730 ALONE' % tip]
+    for p in MODULES:
+        t = show(p, tip)
+        body = re.sub(r'/-.*?-/', '', t, flags=re.S)
+        n = len(re.findall(r'\bsorry\b', body))
+        sor += n
+        lines[p] = len(t.rstrip(NL).split(NL))
+        out.append('  %s : %d lines, %d `sorry` outside comments, git blob %s' % (p, lines[p], n, git(EF, 'rev-parse', '%s:%s' % (tip, p)).strip()))
+    tot = sum(lines.values())
+    seat = sum(x[4] for x in K_LEMMAS())
+    out += ['  on main: %s (0 wanted, this act touches no main)' % len([x for x in git(EF, 'ls-tree', '-r', '--name-only', 'origin/main', 'SIDEExplicitFormula/Schema/ZQ/').split(NL) if x.endswith(('Growth.lean', 'Count.lean'))]), '',
+            '## THE SEVEN, EACH WITH WHAT STANDS']
+    held = (('C1', 'halfQ_count', 'compiled'), ('C2', 'aE_growth', 'compiled'), ('C3', 'zq_norm_ge', 'compiled'), ('C4', 'zq_three_halves_tsum_lt', 'TAKEN AS COMPILED at 23b006df, no line of this act; Bound.lean'),
+            ('C5', None, 'ABSORBED: aE has no pole, the disc holds at every t; no declaration'), ('C6', FIELD, 'compiled'), ('C7', 'wide_N_le_two_mul_half', 'compiled'))
+    for c, nm, st in held:
+        a = ax.get(nm) if nm else None
+        if c in ('C1', 'C2', 'C3', 'C6', 'C7') and a != STANDARD:
+            sys.exit('### %s: %s HAS AXIOM ROW [%s] -- NOTHING WRITTEN' % (c, nm, a))
+        out.append('  %s | %s | %s%s' % (c, nm or '(no declaration)', st, ' | axioms [%s]' % a if a else ''))
+    n, ln = next((i + 1, l) for i, l in enumerate(show(MODULES[1], tip).split(NL)) if l.startswith('theorem %s' % FIELD))
+    g, why = grade(last, tip, ax, sor)
+    out += ['', '## THE FIELD`S THEOREM, FROM THE BLOB',
+            '  %s :%d  %s' % (MODULES[1], n, ln),
+            '  its Prop, %s' % re.search(r'(?m)^def HCount.*\n.*$', show('SIDEExplicitFormula/Schema/Wide/Config.lean', tip)).group(0).replace(NL, ' '),
+            '  zq_three_halves_eq reads the C3 bound as the ruling writes it, 4 - Z_Q(3/2): axioms [%s].' % ax.get('zq_three_halves_eq'), '',
+            '## WHAT THE PRICE SAID AND WHAT IT COST',
+            '  the seat`s plan: %d lines, 3-8 dispatches on this route (data/b733_count_plan.txt); the bank`s 800-2000 lines, 15-35 dispatches (data/b729_count_price.txt :25).' % seat,
+            '  the act: %d lines in two modules, %d dispatches, 2 of them repairs of one proof step each, each named above; a price is a range, no bound, and one act`s figure sets none.' % (tot, len([r for r in rows if r['kind'] == 'dispatch'])),
+            '  two of the plan`s group rows named a declaration that compiled under another name, the plan fixing the name and no statement; the a-priori bound on aE rather than on F: ' + ' ; '.join('%s compiled as %s' % x for x in FOUND_AS) + '.', '',
+            '## WHAT THE ARTEFACT REFUSES, NOT A FAILURE OF THE BUILD: the workflow carries a fixed print list; %d names on it lie outside the target`s imports ("Unknown constant"). build_exit governs and is %s.' % (len(re.findall(r'unknownIdentifier', ax_text)), last['build_exit']), '',
+            '## THE GRADE, AT ITS END',
+            '  %s%s' % (g, ' : ' + ' ; '.join(why) if why else '')]
+    if g == 'CLOSED':
+        out += ['  the count field CLOSED: %s at tip %s, run %s, the standard three, no sorry ; FOUR OF FIVE FIELDS CLOSED, explicitFormula OPEN, the instance`s grade unchanged: it does not DERIVE.' % (FIELD, tip[:8], last['run']), '',
+                '### ### **THE count FIELD CLOSED: zq_count_holds, RUN %s, BUILD EXIT 0, NO sorryAx, AXIOMS %s ; %d OF %d DISPATCHES ; %d LINES ; C3 COMPILED, C4 THE COMPILED THEOREM ; FOUR OF FIVE FIELDS ; THE INSTANCE NOT DERIVES.**' % (last['run'], STANDARD, len([r for r in rows if r['kind'] == 'dispatch']), K.MAX_DISPATCHES, tot)]
+    t = NL.join(out) + NL
+    io.open(os.path.join(D, 'b733_count.txt'), 'w', encoding='utf-8', newline='\n').write(t)
+    print(t)
+
+
+def K_LEMMAS():
+    return LEMMAS
+
+
 if __name__ == '__main__':
     a = sys.argv[1:]
     if not a:
@@ -250,5 +353,7 @@ if __name__ == '__main__':
         cmd_dispatch(a[1], a[2], a[3], a[4])
     elif a[0] == 'read':
         cmd_read(a[1], a[2], a[3])
+    elif a[0] == 'bank':
+        cmd_bank(a[1], a[2])
     else:
         sys.exit(__doc__)

@@ -268,8 +268,8 @@ C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = None
-ZEROS_REG_COMMIT = None
+REG_COMMIT = '00a0f5867a8528d0a00c38d6adc742e3e51fd754'   # ### the plan bank, before any Lean (N2)
+ZEROS_REG_COMMIT = REG_COMMIT
 ORDERS = (142, 60, 42, 12, 28)          # ### b732's (R342)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b729_orders_triage.txt'
 LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R343)(8))
@@ -293,9 +293,9 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '1b34964ae229c8d3ce769dbe01e53d8f43b92ed0'   # ### b732's tip, the base of this act's Lean commits
-ZQ_FIRST = None   # ### (R343)(3): the act's first Lean commit, read from the log when made
-ZQ_TIP = ZQ_ENTERING    # ### the tip, read back equal at origin, set when (R343)(3) lands
-ZQ_MODULES = ()   # ### set by the plan: the count field's modules under Schema/ZQ/
+ZQ_FIRST = '834f6ac2ebb288e601465f14d4360c8df636a041'   # ### (R343)(3): the act's first Lean commit
+ZQ_TIP = '09053d3b07367aa7ef2e26cbeb27fd35d8734d82'    # ### the tip, read back equal at origin
+ZQ_MODULES = ('Growth', 'Count')   # ### the plan's: the count field's modules under Schema/ZQ/
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
 ZQ_LOGDERIV_MODULES, ZQ_ZEROS_MODULES = (), ()
@@ -305,7 +305,11 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R343)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: (kind, run id, ref, target), (R343)(3)'s, each when dispatched
+EF_RUNS = (('A', 41371666217, '834f6ac2ebb288e601465f14d4360c8df636a041', 'SIDEExplicitFormula.Schema.ZQ.Growth'),
+           ('A-repair', 41372597450, '7fe6c9c71949cb9bab9ff7465f7fde4b32727bc1', 'SIDEExplicitFormula.Schema.ZQ.Growth'),
+           ('B', 41373409167, '98a037f94663476c91d1d3fa1b0ccc6d282b68da', 'SIDEExplicitFormula.Schema.ZQ.Growth'),
+           ('B-repair', 41374121055, '84f783a7546bf87db7fe6608fa59d3643f95a206', 'SIDEExplicitFormula.Schema.ZQ.Growth'),
+           ('C', 41374814817, '09053d3b07367aa7ef2e26cbeb27fd35d8734d82', 'SIDEExplicitFormula.Schema.ZQ.Count'))   # ### N1: (group, run id, ref, target), (R343)(3)'s five, each read by its id
 EF_RUNS_B731 = (41316031450, 41316963968, 41317771708, 41318856071, 41337967613)   # ### b731's four and b732's one, read not re-run
 DISPATCH_ROWS = 'data/b733_dispatch_rows.json'
 ERRATA_ID = None   # ### (R343) orders no ERRATA entry

@@ -1,0 +1,58 @@
+b733 -- (R343)(3): THE count FIELD, BUILT AND GRADED ON zq-b730 (2026-11-02T02:03:05Z)
+
+### every figure read from the dispatch rows, the run`s artifacts and the tree at the tip; no lean process on this host (N1).
+
+## THE GRADE`S CONTROLS FIRST
+  a kernel build of the tip, the standard three      CLOSED AS WANTED
+  a planted broken build                             OPEN AS WANTED
+  a planted build of another ref                     OPEN AS WANTED
+  a planted sorryAx                                  OPEN AS WANTED
+  a planted `sorry` in a module                      OPEN AS WANTED
+  a planted axiom beyond the three                   OPEN AS WANTED
+  no axiom row for the field                         OPEN AS WANTED
+
+## (N2) THE PLAN BEFORE ANY LEAN, BY ANCESTRY AND TIME
+  the plan bank data/b733_count_plan.txt at relay 00a0f5867a8528d0a00c38d6adc742e3e51fd754, committed 2026-11-01T20:15:28-05:00
+  the first Lean commit of this act 834f6ac2, parent 1b34964a = zq-b730 entering (True), committed 2026-11-01T20:16:38-05:00
+  plan before Lean: True
+
+## THE DISPATCHES: 5 OF AT MOST 14, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb
+  1 | group A        | Growth | sha 834f6ac2 | run 41371666217 | free 4714 MB | BREAKS, exit 1, 1 errors, sorry warnings 0, sorryAx False, read at free 3052 MB
+      error: SIDEExplicitFormula/Schema/ZQ/Growth.lean:107:28: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  2 | group A-repair | Growth | sha 7fe6c9c7 | run 41372597450 | free 3066 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, read at free 4619 MB
+  3 | group B        | Growth | sha 98a037f9 | run 41373409167 | free 4636 MB | BREAKS, exit 1, 1 errors, sorry warnings 0, sorryAx False, read at free 4755 MB
+      error: SIDEExplicitFormula/Schema/ZQ/Growth.lean:301:2: linarith failed to find a contradiction
+  4 | group B-repair | Growth | sha 84f783a7 | run 41374121055 | free 4780 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, read at free 4718 MB
+  5 | group C        | Count | sha 09053d3b | run 41374814817 | free 4559 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, read at free 5002 MB
+
+## THE MODULES AT THE TIP 09053d3b07367aa7ef2e26cbeb27fd35d8734d82, zq-b730 ALONE
+  SIDEExplicitFormula/Schema/ZQ/Growth.lean : 529 lines, 0 `sorry` outside comments, git blob 0c5fc19ddadf01108a8b2a56c6943622e8cfbf45
+  SIDEExplicitFormula/Schema/ZQ/Count.lean : 354 lines, 0 `sorry` outside comments, git blob 514d508e1c91ad6b03caec81d936a1455fcfb0ad
+  on main: 0 (0 wanted, this act touches no main)
+
+## THE SEVEN, EACH WITH WHAT STANDS
+  C1 | halfQ_count | compiled | axioms [propext, Classical.choice, Quot.sound]
+  C2 | aE_growth | compiled | axioms [propext, Classical.choice, Quot.sound]
+  C3 | zq_norm_ge | compiled | axioms [propext, Classical.choice, Quot.sound]
+  C4 | zq_three_halves_tsum_lt | TAKEN AS COMPILED at 23b006df, no line of this act; Bound.lean | axioms [propext, Classical.choice, Quot.sound]
+  C5 | (no declaration) | ABSORBED: aE has no pole, the disc holds at every t; no declaration
+  C6 | zq_count_holds | compiled | axioms [propext, Classical.choice, Quot.sound]
+  C7 | wide_N_le_two_mul_half | compiled | axioms [propext, Classical.choice, Quot.sound]
+
+## THE FIELD`S THEOREM, FROM THE BLOB
+  SIDEExplicitFormula/Schema/ZQ/Count.lean :338  theorem zq_count_holds : ∃ A₀ : ℝ, Wide.HCount zqZeroConfig A₀ := by
+  its Prop, def HCount (Z : WideConfig) (A₀ : ℝ) : Prop :=   1 ≤ A₀ ∧ ∀ t : ℝ, (N Z t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+  zq_three_halves_eq reads the C3 bound as the ruling writes it, 4 - Z_Q(3/2): axioms [propext, Classical.choice, Quot.sound].
+
+## WHAT THE PRICE SAID AND WHAT IT COST
+  the seat`s plan: 515 lines, 3-8 dispatches on this route (data/b733_count_plan.txt); the bank`s 800-2000 lines, 15-35 dispatches (data/b729_count_price.txt :25).
+  the act: 883 lines in two modules, 5 dispatches, 2 of them repairs of one proof step each, each named above; a price is a range, no bound, and one act`s figure sets none.
+  two of the plan`s group rows named a declaration that compiled under another name, the plan fixing the name and no statement; the a-priori bound on aE rather than on F: aE_apriori compiled as aE_strip_bound ; aE_left_edge compiled as aE_left.
+
+## WHAT THE ARTEFACT REFUSES, NOT A FAILURE OF THE BUILD: the workflow carries a fixed print list; 20 names on it lie outside the target`s imports ("Unknown constant"). build_exit governs and is 0.
+
+## THE GRADE, AT ITS END
+  CLOSED
+  the count field CLOSED: zq_count_holds at tip 09053d3b, run 41374814817, the standard three, no sorry ; FOUR OF FIVE FIELDS CLOSED, explicitFormula OPEN, the instance`s grade unchanged: it does not DERIVE.
+
+### ### **THE count FIELD CLOSED: zq_count_holds, RUN 41374814817, BUILD EXIT 0, NO sorryAx, AXIOMS propext, Classical.choice, Quot.sound ; 5 OF 14 DISPATCHES ; 883 LINES ; C3 COMPILED, C4 THE COMPILED THEOREM ; FOUR OF FIVE FIELDS ; THE INSTANCE NOT DERIVES.**
