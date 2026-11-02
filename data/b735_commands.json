@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T17:54:20Z",
+ "at": "2026-11-02T18:02:33Z",
  "anchor": "RULING (R345) BEGIN",
  "rows": [
   {
@@ -2232,6 +2232,246 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- data/b735_touch.txt data/b735_guard_dry.txt data/b735_guard_dry.json",
    "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:29.394Z",
+   "src": "seat",
+   "cmd": "git add data/b735_address_scan.txt data/b735_bank_hashes.json data/b735_commands.json data/b735_commands.txt data/b735_registration_2026-11-02.txt data/b735_steps.json tools/acts/b735.py tools/b735_sections.txt data/b735_guard_dry.json data/b735_guard_dry.txt data/b735_touch.txt",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:32.638Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b735 gate: the touch read, the guard's dry run, the read-first and step-zero needles in this act's wording, the corrigendum arm's two dated notes\"",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:35.200Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:37.623Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate bec02bf7 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:52.762Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:54:53.579Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:55:56.486Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"NOT READ OPEN BY THE GENERATOR|ANNOTATED|annotated_ok|TRAIL_ANNOT\" -- tools/standing/fold/record.tpl tools/acts/b735.py tools/b735_sections.txt tools/b735_worklist.py tools/standing/orders.py",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:55:59.923Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"ANNOTATED_ORDERS|ANNOT_ORDERS|ORD_ANNOT|^[A-Z_]*ANNOT[A-Z_]* *=\" -- tools/b735_worklist.py tools/acts/b735.py",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:56:03.279Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"CLOSED|DISCHARGED|CARRIED|OPEN|def read|def report|re\\.compile\" -- tools/standing/orders.py",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:56:13.160Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"W-ORD-ZQ-DERIVES\" -- tools/b735_worklist.py tools/b735_face_blocks.txt",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:56:19.502Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b735 HEAD --write && python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt --bank-only",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:22.758Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"table cells|def screens|def _cells|odd backticks|def defects_line|Defects\\*\\* \\(relay\" -- tools/standing/fold/record.tpl tools/standing/fold/reg_gate.tpl tools/acts/b735.py",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:26.001Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"def _letters_now|def screen|def _screen|def lean_cells|def table_cells|'table cells:|odd backticks\" -- tools/standing/ tools/acts/b735.py",
+   "n": 292,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:30.534Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"odd backticks by line|def screens\\(|^def cells|def verdict_cells\" -- \"tools/*.py\" \"tools/standing/fold/*.tpl\" \"tools/standing/*.py\"",
+   "n": 293,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:36.869Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"def _defect_short|def defect_short|def letters_at_seal\" -- tools/standing/ tools/standing/fold/record.tpl tools/acts/b735.py",
+   "n": 294,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:46.473Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"def predict_cells|def _defect_short|_defect_short *=|defect_short\" -- tools/b633_record.py tools/standing/fold/record.tpl tools/standing/act.py tools/standing/routes/ tools/acts/b735.py",
+   "n": 295,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:49.686Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^(import|from) .* as P3|P3 *=|def _defect_short\" -- tools/standing/fold/record.tpl \"tools/b7*_record.py\" tools/standing/legacy.py",
+   "n": 296,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:57:56.936Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^WINDOW|^GRADE_RE|^FIND_SUP_RE|def _segments|def _names_on|^NAME_RE|^[A-Z_]+_RE *=\" -- tools/terminal_table.py",
+   "n": 297,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:58:01.168Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" --grep=\"table cell\" -n 6 && git grep -n -E \"G-.*TABLE|TERMINAL TABLE|terminal table\" -- tools/standing/fold/checks.tpl",
+   "n": 298,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:58:12.205Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"(DERIVES|INTERFACES|%s).*`zq_|`zq_.*(DERIVES|INTERFACES|ef_grade|instance_grade)\" -- tools/b735_sections.txt",
+   "n": 299,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:58:12.618Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"`zq_|`h : ZQ\" -- tools/b735_face_blocks.txt",
+   "n": 300,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:07.366Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b735 HEAD --write && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face735.py\" && python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py record dry",
+   "n": 301,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:16.118Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record drycheck",
+   "n": 302,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:26.259Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record trail dry",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:38.396Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"\\*\\*Entered:\\*\\*|\\*\\*Act root:\\*\\*|fj = jl|J = jl|, J = jl|standin|\\.get\\('root'\" -- tools/acts/b734.py tools/acts/b735.py",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:39.221Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"unread figures|DRY-RUN STEP : (NOT )?CLEAN\" -- data/b734_reg_gate.txt",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T17:59:50.744Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt --bank-only",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:00:56.699Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- data/audit_b735_reg_satisfiable.txt \"data/b735_*\"",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:02:07.092Z",
+   "src": "seat",
+   "cmd": "git grep -n -A14 \"def count_predictions\" -- tools/b300_regspec.py",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:02:17.111Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face735.py\" && python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 309,
    "bg": false
   }
  ],
