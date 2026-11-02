@@ -1,0 +1,11 @@
+b733 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)(2), v9 row (80)) AND NEW OR REPEAT WITH THE ACT AND LETTER OF ITS CLASS (2026-11-02)
+
+### rows are defects, each opening four spaces: (letter) THE SEAT'S [TAG ; NEW | REPEAT <act> (<letter>) | REPEAT class (<n>)]: what was done, when,
+### and what the standing rows say. Written by the Write tool; rows (a)-(e) as relay data/b733_stepzero.txt :45-:49 enters them. The hook's refusals are rows of data/b733_hook_refusals.txt (:n), each lettered; nothing ran at a refusal.
+
+    (a) THE SEAT'S [CLOSE ; REPEAT b732 (a)]: 00:49Z-00:51Z, (R343)(4) orders act_current committed before any other command; the script writing it ran first, and before its commit went a chained `git add`, `git diff --stat`, `git log` and a `git ls-files`, all read-only but the add; Reads of memory and a Glob of the scratchpad before those; nothing else written (data/b733_stepzero.txt :45).
+    (b) THE SEAT'S [CLOSE ; REPEAT class (19)]: 00:48Z, three Reads with no limit refused by the hook, READ; nothing ran (data/b733_hook_refusals.txt :1-:3).
+    (c) THE SEAT'S [CLOSE ; NEW]: two Globs over relay's tools/ and data/ timed out at 20 s on that tree's size; a `git ls-files` read the same lists (data/b733_stepzero.txt :47).
+    (d) THE SEAT'S [CLOSE ; REPEAT b732 (d)]: one `python -c` deriving the two scratch scripts where a scratch file is the form; it wrote only those two scripts (data/b733_stepzero.txt :48).
+    (e) THE SEAT'S [CLOSE ; REPEAT b732 (g)]: two reads printed far more than they needed, a bare `git status --short` over relay's untracked history and two `git grep -l` listings naming the files that carry the ORCID field, names only; neither wrote a bank, and no value was printed (data/b733_stepzero.txt :49).
+    (f) THE SEAT'S [CLOSE ; REPEAT b732 (c)]: b733's carry ran before repair (carry) and shifted zq-b730 to zq-b732 four times in tools/acts/b733.py, a docstring, two comments and the needle; set back with repair (needle), and the worklist's and the scan's rows, set at stage one, carried no shift.

@@ -1,0 +1,101 @@
+b733 -- THE CONTROLS OF tools/standing/ v1.13.0, (R343)(2)(i)-(viii): THE PRE-LOCK COMPARISON, free_mb IN EVERY ROW KIND, THE NEEDLE FROM THE FERRY, THE 2C NOTE, THE ORCID, THE POST-SEAL RULE IN THE HOOK, THE KEPT BRANCH IN THE CARRY (2026-11-02T01:06:53Z)
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay 0dc27476
+
+### (prelock) THE PRE-LOCK FAILING-LIST COMPARISON, (R343)(2)(i), b732 event (3); THE INSTANCE, b732`S TWO ARMS ON b731`S LISTS
+  (prelock) b732`s pre-run lists, seven parts, against b731`s: arms read 116, failing 23 and 20
+      BEFORE (v1.12.0): the gate at BASE reads no list (a comparison step in reg_gate.tpl: False; prelock.py at BASE: False); the lock went at 20:23Z and the lists were read at 20:58Z, b732 event (3) -> FAILS
+      AFTER  (v1.13.0): newly failing by name: ['G-ARMS-PRERUN', 'G-DELETES-ONE-BRANCH', 'G-RUNNER-GATE'] -> PASSES
+      AS WANTED
+  (prelock) GUARD, NO FAILING SIDE: a ruling`s own arm is the same arm across acts: G-R342-ENTERED failing at b732, G-R341-ENTERED at b731
+      AFTER  (v1.13.0): G-R342-ENTERED among the newly failing: False -> HOLDS
+      AS WANTED
+  (prelock) GUARD, NO FAILING SIDE: the gate`s reading: an arm not on the face holds the gate, the same arm on the face does not
+      AFTER  (v1.13.0): not on an empty face 3 ; not on a face naming them 0 -> HOLDS
+      AS WANTED
+  (prelock) GUARD, NO FAILING SIDE: the seal reads the bank again: b732 has none, so the seal of an act without the step refuses
+      AFTER  (v1.13.0): stands(b732) False ; the refusal at close.py: True -> HOLDS
+      AS WANTED
+
+### (rows) EVERY DISPATCH-ROW KIND CARRIES free_mb FROM THE READ BEFORE IT, (R343)(2)(ii), b732 event (1); THE INSTANCE, b732`S PUSH AND DISPATCH ROWS
+  (rows) data/b732_dispatch_rows.json, 4 rows, ['commit', 'push', 'dispatch', 'read']
+      BEFORE (v1.12.0): tools/b732_a0.py wrote the file with free_mb on the read row alone, nothing refusing: gate_ok`s memory clause over its rows False, read after the lock -> FAILS
+      AFTER  (v1.13.0): the one writer refuses them before writing: [(0, 'commit'), (1, 'push'), (2, 'dispatch')] ; a file written False -> PASSES
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: the same four rows with b732`s own read before them, 4314 MB at 18:41:53Z, pass; a figure under the hold does not
+      AFTER  (v1.13.0): refused 0 ; under the hold refused 1 -> HOLDS
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: the row route: a row made with no read refuses at the row
+      AFTER  (v1.13.0): refused True -> HOLDS
+      AS WANTED
+
+### (needle) THE G-DELETES-ONE-BRANCH NEEDLE READ FROM THE ACT`S FERRY, (R343)(2)(iii), b732 event (2); THE INSTANCE, b732`S HAND NEEDLE AGAINST ITS FERRY`S LINE
+  (needle) tools/acts/b732.py at a8a702dd, the override`s string against data/b732_ferry.txt
+      BEFORE (v1.12.0): the hand string "kept: c2-b725, keiper-b725, detect-b729, zq-b731, and the rest as banked" in the ferry: False -> FAILS
+      AFTER  (v1.13.0): allow.kept_clause reads "kept: c2-b725, keiper-b725, detect-b729, zq-b730, and the rest as banked" ; in the ferry: True -> PASSES
+      AS WANTED
+  (needle) tools/acts/b733.py at BASE, the same string carried a third time against data/b733_ferry.txt
+      BEFORE (v1.12.0): the hand string "kept: c2-b725, keiper-b725, detect-b729, zq-b732, and the rest as banked" in the ferry: False -> FAILS
+      AFTER  (v1.13.0): allow.kept_clause reads "kept: c2-b725, keiper-b725, detect-b729, zq-b730, and the rest as banked" ; in the ferry: True -> PASSES
+      AS WANTED
+  (needle) GUARD, NO FAILING SIDE: a ferry writing no such clause reads none, so the arm`s disjunct cannot pass on nothing
+      AFTER  (v1.13.0): kept_clause on a sentence with no clause: '' -> HOLDS
+      AS WANTED
+
+### (note) THE 2C NOTE`S WORDS AMENDED AS THE AUTHOR`S ROW (6) RULED, (R343)(2)(iv); THE INSTANCE, THE DRAFT AT data/b732_phase2_frontdoors.txt
+  (note) the draft at data/b732_phase2_frontdoors.txt :799, against the words "the five fields instancing two kinds and the C2 certificates the third"
+      BEFORE (v1.12.0): the words in the rooted draft: False -> FAILS
+      AFTER  (v1.13.0): the words in data/b733_2c_note.txt: True -> PASSES
+      AS WANTED
+  (note) GUARD, NO FAILING SIDE: the amendment moves that sentence and nothing else; the rooted bank unedited since b732`s close
+      AFTER  (v1.13.0): the rest byte-equal: True ; data/b732_phase2_frontdoors.txt at HEAD equal to a8a702dd: True -> HOLDS
+      AS WANTED
+
+### (orcid) THE SCAN`S THIRD TARGET HELD IN MEMORY, (R343)(2)(v); THE INSTANCE, A PLANTED STRING IN MEMORY; THE VALUE NEVER PRINTED
+  (orcid) a string built in memory carrying the value once, dropped after the count
+      BEFORE (v1.12.0): tools/b732_address_scan.py has no third target (a form for it in the file: False), so the planted string counted 0 at every arm -> FAILS
+      AFTER  (v1.13.0): the arm counts 1 -> PASSES
+      AS WANTED
+  (orcid) GUARD, NO FAILING SIDE: excepted in a paper`s byline under I-23 and nowhere else
+      AFTER  (v1.13.0): the byline kind excepts it: True ; the other kinds excepting it: NONE -> HOLDS
+      AS WANTED
+
+### (postseal) THE POST-SEAL READ RULE`S LISTS READ BY THE HOOK, (R343)(2)(vi), b732 event (11); THE INSTANCE, b732`S TWO COMMANDS ON REPLAY, JUDGED, NOT RUN
+  (postseal) the rule as the hook read it from tools/rule_arms.py: ledger names ['FINDINGS.md', 'OPEN_TRAILS.md', '_scanfile_entry', '_scanfile_trail', 'scanfile_entry', 'scanfile_trail'] ; exclude list ['_record.py', '_checks.py']
+  (postseal) 2026-11-01T22:19:23Z: git -C /d/MY-DOwnloads/PLACE-papers grep -n -E "^### b731 |^\*\*.*b731.*(hand|dated)|^### b730 — " -- OPEN_TRAILS.md
+      BEFORE (v1.12.0): the hook at BASE: None, allowed; the arm counted it after it ran -> FAILS
+      AFTER  (v1.13.0): the hook, the seal recorded: POSTSEAL -> PASSES
+      AS WANTED
+  (postseal) 2026-11-01T22:20:08Z: wc -l /d/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md
+      BEFORE (v1.12.0): the hook at BASE: None, allowed; the arm counted it after it ran -> FAILS
+      AFTER  (v1.13.0): the hook, the seal recorded: POSTSEAL -> PASSES
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: before the seal the same two pass
+      AFTER  (v1.13.0): refused [None, None] -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: after the seal the commands the arm does not count pass: no filter, and the exclude list: ['git -C /d/relay log --oneline -3 -- FINDINGS.md', 'git -C /d/relay add FINDINGS.md', 'python -X utf8 -u tools/b732_record.py sort FINDINGS.md']
+      AFTER  (v1.13.0): refused [] -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the list is the arm`s, not the hook`s: a name added to tools/rule_arms.py alone, in a scratch copy, is refused with no hook edit
+      AFTER  (v1.13.0): wc -l of the planted name: POSTSEAL -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the live relay is not sealed at this control, so the hook passes the same commands now
+      AFTER  (v1.13.0): sealed(RELAY) False -> HOLDS
+      AS WANTED
+
+### (carry) THE RUNS-OF-THREE ROW b730 (m), b731 (b), b732 (c), THE SHIFT OF A KEPT BRANCH, (R343)(2)(vii); THE INSTANCE, THE zq-b730 SHIFT
+  (carry) the scan`s SITTING_REPOS line through the three pairs
+      BEFORE (v1.12.0): the plain replace: SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b731', 'main..zq-b731'),) -> FAILS
+      AFTER  (v1.13.0): the standing route: SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),) -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: the shift still moves what the act moves: the act`s banks and its push branches
+      AFTER  (v1.13.0): kept: c2-b725, keiper-b725, detect-b729, zq-b730; b733_stepzero and push-b733-closing -> HOLDS
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: the kept forms the step-zero list banks, each held; a name of no kept form still shifts
+      AFTER  (v1.13.0): pin-b718-de5ce8a9 rebuild-b721 port-b707 scratch-b724 corrigendum-b723 challenge-b720-h2 x-b722 -> HOLDS
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: the act`s carry tool goes through the standing route, not a copy of the loop
+      AFTER  (v1.13.0): CR.substitute in tools/b733_carry.py: True -> HOLDS
+      AS WANTED
+
+### ### **v1.13.0: CONTROLS (prelock), (rows), (needle), (note), (orcid), (postseal), (carry) ; CASES 24 ; AS WANTED 24 ; ALL AS WANTED.**
