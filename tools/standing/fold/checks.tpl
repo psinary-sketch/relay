@@ -123,7 +123,7 @@ SEAL = '--seal' in sys.argv
 COMBINE = '--combine' in sys.argv
 GUARD_DRY = '--guard-dry' in sys.argv
 # ### v1.14.0, (⟪RUL⟫)(2)(i): a part with no mode named before the lock gate has permitted the lock is a probe, written to the probe paths, never a name the pre-push suite writes
-PROBE = not (MID or RERUN or PRERUN or GUARD_DRY or '--prev' in sys.argv) and__import__('standing.probes', fromlist=['auto']).auto('⟪ACT⟫', D)
+PROBE = not (MID or RERUN or PRERUN or GUARD_DRY or '--prev' in sys.argv) and __import__('standing.probes', fromlist=['auto']).auto('⟪ACT⟫', D)
 MID = MID or PROBE
 # ### (⟪RUL⟫)(2)(iii), standing clauses v2 row (54): `--prev --part <p>` runs every arm of the part on the PREVIOUS ACT'S banks before the seal --
 # ### the banks' act prefix, the face, the worklist and the pre-act heads read as ⟪PREV⟫'s (_prev_rebind, at the foot) -- and banks each arm's
