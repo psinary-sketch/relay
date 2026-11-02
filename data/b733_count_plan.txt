@@ -1,0 +1,104 @@
+b733 -- THE count FIELD`S PLAN, (R343)(3): C1-C7 ON THE RESTATED PREMISE, C3 AND C4 IN FULL, COMMITTED BEFORE ANY LEAN (2026-11-02T01:15:11Z)
+
+### every neighbour read from the tree at zq-b730 1b34964a by tools/b733_count.py; the Mathlib objects at the pin de5ce8a9 by path and line; each price the seat`s, a range, no bound. No lean process on this host.
+
+## THE STATEMENT
+  Schema/Wide/Config.lean :49 HCount Z A0 := 1 <= A0 and for all t, N(t, t+1) <= A0 log(|t| + 3). The restated premise (data/b732_a0_restatement.txt :23) asks exists A0, Wide.HCount Z A0, so A0 is unnamed.
+  The theorem aimed at: zq_count_holds : exists A0, Wide.HCount zqZeroConfig A0, in SIDEExplicitFormula/Schema/ZQ/Count.lean, on zq-b730 alone.
+
+## THE ROUTE, THE LEAST ONE, AND WHAT DIFFERS FROM THE PRICE BANK`S ROWS
+  The bank`s rows copy the kernel`s route over zeta. Two readings, data/b733_stepzero.txt :21-:22, shorten it; neither is a theorem until it compiles.
+  (1) Jensen runs on aE (Schema/ZQ/Zeros.lean :98), a(s) = (1 - s) Z_Q(s) extended, entire, aE 1 = -qBase; so the disc needs no distance from a pole, C1 holds at every t, and C5 is absorbed.
+  (2) The left edge needs no Stirling at Re s = -1/2: the functional equation gives |Gamma(1 - s) / Gamma(s)| = 1/4 + t^2 exactly, Gamma`s recursion twice and Gamma_conj. That line fixes the strip at [-1/2, 3/2].
+  THE DISC: centre c0 = 3/2 + (t + 1/2) i, kappa = 13/10, r = 0.87, R = 0.95. kappa r = 1.131 >= sqrt(5/4), so the disc holds every point with 1/2 <= Re < 3/2 and t < Im <= t + 1; kappa R = 1.235, so it reads aE at Re >= 0.265 and |Im| <= |t| + 2.
+  ZerosBound (Zeta23/FromPNTPlus/StrongPNTPrefix.lean :481) on g(z) = aE(c0 + kappa z) u, u = (aE c0)^-1: the sum of orders in the small disc is at most log B / log(R / r).
+  B = (M + 1) (|t| + 7)^3 / delta, delta = (4 - totQ) / 2, from C2 above and from C3 below: |aE c0| = |1 - c0| |Z_Q(c0)| >= delta. log B <= K log(|t| + 3), the count.
+
+## THE SEVEN, EACH WITH ITS PROP, NEIGHBOUR AND PRICE
+### THE BANK`S PRICE, RE-READ BY THE THREE MEASURED RATIOS THROUGH standing.pricebank.reprice_read, NO FIGURE TYPED (800-2000 lines, 15-35 dispatches, data/b729_count_price.txt :25):
+  by continuation  222-1114 lines, 1-9 dispatches
+  by logDeriv      1572-7860 lines, 5-35 dispatches
+  by zeros         453-2267 lines, 1-7 dispatches
+  THE ENVELOPE 222-7860 lines, 1-35 dispatches, equal to data/b731_price_measured.txt :31; the ratios disagree and that spread is no confidence interval.
+### EACH LEMMA`S SHARE OF THE ENVELOPE, BY ITS NEIGHBOUR`S LINES IN THE TREE, THE SEAT`S APPORTIONING; AND THE SEAT`S OWN ESTIMATE ON THIS ROUTE BESIDE IT:
+
+  C1  the disc: for every t, the zeros with Re >= 1/2 in (t, t+1], with multiplicity, number at most A1 log(|t| + 3) (halfQ_count)
+      neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :81 half_count_large_chi, 125 lines
+      price      share 0.245 of the envelope: 54-1926 lines, 0.2-8.6 dispatches ; the seat`s on this route: 150 lines ; module Count
+
+  C2  growth on the strip: exists M, for Re s >= -1/2, |a(s)| <= M |s + 2|^3 (aE_growth)
+      neighbour  Zeta23/RvM/ZetaGrowth.lean :1 (the module), 253 lines
+      price      share 0.496 of the envelope: 110-3899 lines, 0.5-17.4 dispatches ; the seat`s on this route: 230 lines ; module Growth
+
+  C3  the lower bound at the centre: for Re s >= 3/2, |Z_Q(s)| >= 4 - Z_Q(3/2) (zq_norm_ge)
+      neighbour  SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :341 zq_ne_zero_of_three_halves_le, 46 lines
+      price      share 0.090 of the envelope: 20-709 lines, 0.1-3.2 dispatches ; the seat`s on this route: 45 lines ; module Growth
+
+  C4  Z_Q(3/2) < 4: TAKEN AS COMPILED, zq_three_halves_tsum_lt, the sum over k of r_Q(k) / k^(3/2) < 4, no line of this act
+      neighbour  SIDEExplicitFormula/Schema/ZQ/Bound.lean :370 zq_three_halves_tsum_lt, 7 lines
+      price      share 0.014 of the envelope: 3-108 lines, 0.0-0.5 dispatches ; the seat`s on this route: 0 lines ; module Bound, compiled
+
+  C5  the small heights: ABSORBED. a has no pole, so the disc of C1 holds at every t and no finite constant is needed; no Lean declaration, the row kept so the seven stay seven
+      neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :207 count_small_chi, 9 lines
+      price      share 0.018 of the envelope: 4-139 lines, 0.0-0.6 dispatches ; the seat`s on this route: 0 lines ; module none
+
+  C6  the assembly: zq_count_holds : exists A0, Wide.HCount zqZeroConfig A0
+      neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :218 chiZeroConfig_local_count, 27 lines
+      price      share 0.053 of the envelope: 12-416 lines, 0.1-1.9 dispatches ; the seat`s on this route: 30 lines ; module Count
+
+  C7  the halving: N(T1, T2) <= 2 times the sum over the window with Re >= 1/2, over WideConfig (wide_N_le_two_mul_half)
+      neighbour  Zeta23/RvM/Halving.lean :59 N_le_two_mul_half, 43 lines
+      price      share 0.084 of the envelope: 19-663 lines, 0.1-3.0 dispatches ; the seat`s on this route: 60 lines ; module Count
+
+  THE SEAT`S SUM ON THIS ROUTE: 515 lines, 3-8 dispatches, inside the envelope. C4 and C5 cost no line, and the price bank`s row for each is read down accordingly. A compile failure costs a dispatch; no module is built here first.
+
+## C3 IN FULL, PRICED APART: 45 LINES, ONE DISPATCH OF GROUP A
+  THE STATEMENT, with c = 3/2 fixed: for Re s >= 3/2, |Z_Q(s)| >= 4 - Z_Q(3/2), where Z_Q(3/2) is the real sum totQ. On the line Re s = c it is the ruling`s form.
+  THE SOURCE: b685 step (3), data/b685_count_plan.txt :26-:29, |Z_Q(s) - 2| <= Z_Q(sigma) - 2 < 2 for sigma >= 3/2, and step (6), :55-:59, the Euler-product bound replaced by |Z_Q(c + iT)| >= 2 - (Z_Q(c) - 2) = 4 - Z_Q(c) > 0, c >= 3/2 forced.
+  THE ROUTE, LEMMA BY LEMMA:
+    totQ := the sum over k of wQ k, wQ of Schema/ZQ/LogDeriv.lean :99
+    zq_sub_two_le : Re s >= 3/2 -> |zqFn s - 2| <= totQ - 2. The proof of zq_ne_zero_of_three_halves_le, LogDeriv.lean :341, to its line `hn`, taken whole; the file is not edited.
+    zq_norm_le : Re s >= 3/2 -> |zqFn s| <= totQ, the triangle inequality on zq_sub_two_le.
+    zq_norm_ge : Re s >= 3/2 -> 4 - totQ <= |zqFn s|, the reverse triangle inequality. THIS IS C3.
+    zq_three_halves_eq : zqFn (3/2) = totQ, so the bound reads as the ruling writes it, 4 - Z_Q(3/2); LSeries termwise, Complex.ofReal_tsum.
+  THE MATHLIB OBJECTS AT THE PIN: tsum_of_norm_bounded, HasSum.sub, hasSum_ite_eq, LSeries.norm_term_eq, Real.rpow_le_rpow_of_exponent_le, as LogDeriv.lean uses them; no new object.
+  THE KERNEL`S ANALOGUE, the Euler product, is not used; Z_Q has none. C3 stands on r_Q >= 0 and the term at k = 1, r_Q(1) = 2, and on C4.
+
+## C4 IN FULL, PRICED APART: 0 LINES
+  READ AGAINST THE ROWS: C3 needs totQ < 4. zq_three_halves_tsum_lt, Schema/ZQ/Bound.lean :370 at 23b006df and at this tip, is that sentence: the sum over k of r_Q(k) / k^(3/2) < 4. zq_three_halves_lt, :319, is its lattice form.
+  TAKEN AS THAT THEOREM. No certified truncation is planned; b729`s row (data/b729_count_price.txt :33) stands answered by b731. delta = (4 - totQ) / 2 > 0 needs only the strict inequality, no rational beside it.
+
+## C2 IN FULL: THE ROUTE, LEMMA BY LEMMA, WITH THE MATHLIB OBJECTS BY PATH AND LINE
+  F(s) = aE s / (s + 2)^3 on the strip -1/2 <= Re s <= 3/2, width 2, so c = 1 < pi / 2 is allowed.
+  right edge : Re s >= 3/2: |aE s| = |1 - s| |Z_Q s| <= |s + 2|^3 totQ, by zq_norm_le; this also carries Re s > 3/2 directly.
+  left edge  : Re s = -1/2: zq_fe (Zeros.lean :91) with w = s + 1: |Gamma(1 - s)| = |w| |s| |Gamma s|, by Gamma_add_one twice and Gamma_conj, so |Z_Q s| = lam^-2 |w| |s| |Z_Q(1 - s)| <= lam^-2 |s + 2|^2 totQ.
+  a priori   : for |Im s| >= 1 on the strip, aE s = q^s (Gamma s)^-1 ((1 - s) Lam0 s - 1 - (1 - s) / s). Lam0 bounded on vertical strips: it is mellin f_modif, |t^(s-1)| <= t^(a-1) + t^(b-1), both integrable by the strong pair`s convergence.
+               (Gamma s)^-1 = (s - 1)^-1 (Gamma (s - 1))^-1, and for Re w < 1, (Gamma w)^-1 = Gamma(1 - w) sin(pi w) / pi, with |Gamma z| <= Gamma(Re z) for Re z > 0 and |sin z| <= exp |Im z|. So |F s| <= K exp(pi |Im s|), which is O(exp(pi exp(1 * |Im s|))).
+  conclusion : PhragmenLindelof.vertical_strip gives |F| <= M on the strip.
+  OBJECTS:
+    Mathlib/Analysis/Complex/PhragmenLindelof.lean :275 PhragmenLindelof.vertical_strip
+    Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean :398 Complex.Gamma_mul_Gamma_one_sub
+    Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean :454 Complex.Gamma_ne_zero_of_re_pos
+    Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :312 Complex.Gamma_add_one
+    Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :356 Complex.Gamma_conj
+    Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean :319 Complex.Gamma_eq_integral
+    Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :376 WeakFEPair.Λ₀
+    Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean :484 IsStrongFEPair.hasMellin; the convergence lemma beside it is private, so the route reads HasMellin`s first half
+    Mathlib/Analysis/MellinTransform.lean :91 mellin
+    Mathlib/MeasureTheory/Integral/Bochner/Basic.lean :947 norm_integral_le_of_norm_le
+    Mathlib/Analysis/Calculus/DiffContOnCl.lean :39 DifferentiableOn.diffContOnCl
+
+## THE ORDER OF BUILD; EACH GROUP ONE DISPATCH READ BY ITS RUN ID, FREE MEMORY READ BEFORE IT AND CARRIED IN EVERY ROW BY standing.dispatchrows
+  group | lemmas | module | declarations
+  A | C3, C4 read | SIDEExplicitFormula.Schema.ZQ.Growth, first section | totQ, zq_sub_two_le, zq_norm_le, zq_norm_ge, zq_three_halves_eq
+  B | C2 | SIDEExplicitFormula.Schema.ZQ.Growth, whole | norm_Gamma_le, norm_sin_le_exp, norm_inv_Gamma_le, Lam0_bounded, aE_apriori, aE_left_edge, aE_right, aE_growth
+  C | C7, C1, C6 | SIDEExplicitFormula.Schema.ZQ.Count | wide_N_le_two_mul_half, aE_order_eq, gQ, halfQ_count, zq_count_holds
+
+## THE STOP POINTS
+  after each group, its run read before the next dispatch; a failing group is repaired from its log and re-dispatched, each re-dispatch counted, at most fourteen in the act.
+  group A stands: C3 compiled, C4 read, whatever follows.
+  group B fails past repair: the count stops OPEN at C2, the sorry-free remainder printed, three of five fields, the instance`s grade unchanged.
+  group C fails past repair: OPEN at the lemma named by the log, C2 and C3 standing. Fourteen dispatches spent: the same, at the lemma reached.
+  CLOSED: zq_count_holds with its axiom print, the standard three, no sorryAx; four of five fields; explicitFormula open, the instance not DERIVES.
+
+### ### **THE PLAN: SEVEN ROWS, C4 TAKEN AS COMPILED, C5 ABSORBED, FIVE TO BUILD ; C3 AND C4 IN FULL ; THREE GROUPS ; AT MOST FOURTEEN DISPATCHES ; NOTHING BUILT.**
