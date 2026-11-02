@@ -1,7 +1,7 @@
-b733 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T02:19:37Z)
+b733 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T03:18:35Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R343) BEGIN', with its subagents` transcripts
-### commands read: 191
+### commands read: 242
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -35,11 +35,13 @@ b733 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
   #184 2026-11-02T02:11:00.558Z git show HEAD:tools/acts/b733.py > "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/b733_head.py" && git grep -n -E "^#⟪(SECTION|OVERRIDE) " HEAD -- too
 
-### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
   #97 2026-11-02T01:19:12.640Z cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -E "theorem two_sin|theorem norm_conj|lemma norm_conj|le_self_pow₀|theorem inv_le_one_of_one_le₀|lemma inv_le_one_of_one_le₀|theorem d
+  #237 2026-11-02T03:15:28.142Z python -X utf8 -u tools/standing/fold.py reg_gate --quiet 2>&1 | tail -n 3; true
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (2):
   #97 2026-11-02T01:19:12.640Z cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -E "theorem two_sin|theorem norm_conj|lemma norm_conj|le_self_pow₀|theorem inv_le_one_of_one_le₀|lemma inv_le_one_of_one_le₀|theorem d
+  #237 2026-11-02T03:15:28.142Z python -X utf8 -u tools/standing/fold.py reg_gate --quiet 2>&1 | tail -n 3; true
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (2):
   #7 2026-11-02T00:49:35.877Z cd "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad" && python -X utf8 -c " import io for a,b in (('bank732.py','bank733.py'),('carrycarry732.py','carrycarry733.py')): s=io
@@ -254,5 +256,56 @@ b733 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #189 | 2026-11-02T02:18:57.556Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record figures && python -X utf8 -u tools/standing/fold.py record findings dry
   #190 | 2026-11-02T02:19:16.464Z | seat | Bash | python -X utf8 -u tools/standing/fold.py report dry
   #191 | 2026-11-02T02:19:29.697Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/standing/fold.py record kernels && python -X utf8 -u tools/standing/fold.py 
+  #192 | 2026-11-02T02:20:16.892Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -I "tools/b733_address_scan.py" scan --bank
+  #193 | 2026-11-02T02:20:25.237Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act
+  #194 | 2026-11-02T02:22:34.427Z | seat | Bash | git ls-files --error-unmatch tools/b732_face.py tools/b732_face_blocks.txt data/b732_registration_2026-11-01.txt && git grep -n -E "b732|a8a702dd|R342|K\.[A-Z_]
+  #195 | 2026-11-02T02:23:10.678Z | seat | Bash | git log --reverse --format="%h %s" a8a702dd..HEAD && git -C /d/SIDE-explicit-formula log --reverse --format="%h %s" 1b34964a..zq-b730
+  #196 | 2026-11-02T02:24:21.067Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face733.py"
+  #197 | 2026-11-02T02:24:33.685Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && git add tools/b733_sections.txt tools/acts/b733.py tools/b733_worklist.py tools/b733_face
+  #198 | 2026-11-02T02:24:45.153Z | seat | Bash | git add data/b733_address_scan.txt && git commit -q -m "b733 gate: the act module over b733's objects, the worklist's later stages, the face tool and its blocks
+  #199 | 2026-11-02T02:24:48.485Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 1f48b857 && python -X utf8 -u tools/standing/fold.py checks --part standing-a
+  #200 | 2026-11-02T02:29:24.584Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-c
+  #201 | 2026-11-02T02:31:10.423Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b1
+  #202 | 2026-11-02T02:33:31.619Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b2a
+  #203 | 2026-11-02T02:38:54.635Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b2b
+  #204 | 2026-11-02T02:47:37.370Z | seat | Bash | git ls-remote origin refs/heads/main && git merge-base --is-ancestor 2299971fce4a HEAD && echo ANCESTOR_OF_HEAD
+  #205 | 2026-11-02T02:47:43.884Z | seat | Bash | cd /d/SIDE-trivium && git ls-remote origin refs/heads/main
+  #206 | 2026-11-02T02:47:44.206Z | seat | Bash | cd /d/SIDE-yang-mills-formation && git ls-remote origin refs/heads/main refs/tags/v0.1.0
+  #207 | 2026-11-02T02:47:49.586Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/standing/fold.py checks --part standing-b2b
+  #208 | 2026-11-02T02:54:19.605Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b3
+  #209 | 2026-11-02T02:57:36.482Z | seat | Bash | git grep -n -E "prelock" -- tools/standing/fold/reg_gate.tpl tools/standing/close.py && git grep -n -E "^def |sys\.argv|__main__" -- tools/standing/prelock.py
+  #210 | 2026-11-02T02:57:40.804Z | seat | Bash | python -X utf8 -u tools/standing/prelock.py print
+  #211 | 2026-11-02T02:57:59.112Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record r
+  #212 | 2026-11-02T02:58:05.394Z | seat | Bash | python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py closing dry && pytho
+  #213 | 2026-11-02T02:59:33.119Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py"
+  #214 | 2026-11-02T02:59:48.043Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py"
+  #215 | 2026-11-02T03:00:00.101Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py" && git grep -n "(f)" -- data/b731_
+  #216 | 2026-11-02T03:00:05.936Z | seat | Bash | git grep -n -i -E "one message|same message|dependent|stale" -- data/b731_defects.txt data/b731_events.txt data/b732_defects.txt data/b732_events.txt
+  #217 | 2026-11-02T03:00:19.175Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/defswap.py" && python -X utf8 tools/standing/
+  #218 | 2026-11-02T03:00:29.037Z | seat | Bash | python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py closing dry && git add tools/b733_sections.txt tools/acts/b733.py tools/b733_wo
+  #219 | 2026-11-02T03:01:24.088Z | seat | Bash | git add tools/b733_sections.txt tools/acts/b733.py tools/b733_worklist.py tools/b733_face.py tools/b733_face_blocks.txt data/b733_defects.txt data/b733_hook_ref
+  #220 | 2026-11-02T03:01:37.090Z | seat | Bash | git ls-files -s --error-unmatch data/b733_checks_standing-b2b.txt; stat -c '%y %n' data/b733_checks_standing-b3.txt data/b733_chain_half_a1_checks.json data/b73
+  #221 | 2026-11-02T03:01:50.380Z | seat | Bash | git add data/b733_defects.txt data/b733_address_scan.txt && git commit -q -m "b733 gate: the face and its tool, the root route's, closing's and score routes' dr
+  #222 | 2026-11-02T03:01:54.482Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 50b2ae29 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/s
+  #223 | 2026-11-02T03:02:58.500Z | seat | Bash | git grep -n -E "^def |re\.compile|OPEN|CARRIED" -- tools/standing/orders.py
+  #224 | 2026-11-02T03:03:08.521Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py checks -
+  #225 | 2026-11-02T03:05:10.733Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate
+  #226 | 2026-11-02T03:06:13.310Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/standing/fold.py reg_gate
+  #227 | 2026-11-02T03:07:10.891Z | seat | Bash | git add tools/b733_sections.txt tools/acts/b733.py tools/b733_face_blocks.txt data/b733_registration_2026-11-02.txt data/b733_reg_gate.txt data/b733_report_dry.
+  #228 | 2026-11-02T03:07:18.379Z | seat | Bash | git add data/b733_address_scan.txt && git commit -q -m "b733 gate: GATE VERDICT CLEAR, the dry step, the closing's dry run, report dry and the pre-lock comparis
+  #229 | 2026-11-02T03:07:21.757Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 6a4e3066 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/s
+  #230 | 2026-11-02T03:12:23.518Z | seat | Bash | python -X utf8 -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/ogw.py"
+  #231 | 2026-11-02T03:12:42.193Z | seat | Bash | git grep -n -i -E "one git write|git writes? per message|two git writes" -- data/b731_defects.txt data/b731_events.txt data/b732_defects.txt data/b732_events.tx
+  #232 | 2026-11-02T03:12:57.484Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && git add tools/b733_sections.txt tools/acts/b733.p
+  #233 | 2026-11-02T03:13:04.967Z | seat | Bash | git add data/b733_address_scan.txt
+  #234 | 2026-11-02T03:13:07.209Z | seat | Bash | git commit -q -m "b733 gate: defect (q), the one-write row, the face and module read to (a)-(q)"
+  #235 | 2026-11-02T03:13:10.436Z | seat | Bash | git log -1 --format="%H" && python -X utf8 -u tools/standing/fold.py record step relay gate HEAD
+  #236 | 2026-11-02T03:13:16.109Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 620e36f3 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/s
+  #237 | 2026-11-02T03:15:28.142Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate --quiet 2>&1 | tail -n 3; true
+  #238 | 2026-11-02T03:15:33.522Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate
+  #239 | 2026-11-02T03:15:36.029Z | seat | Bash | git grep -n -E "b378_lockgate|reg_seal\.py|gate_hash" -- tools/standing/close.py tools/standing/fold/record.tpl tools/standing/fold/reg_gate.tpl tools/acts/b733
+  #240 | 2026-11-02T03:16:43.459Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record g
+  #241 | 2026-11-02T03:17:29.782Z | seat | Bash | python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py reg_gate
+  #242 | 2026-11-02T03:18:24.682Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
 
-### ### **COMMANDS 191 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 5 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 242 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 5 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 2 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

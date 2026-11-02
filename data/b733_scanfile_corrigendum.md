@@ -1,0 +1,73 @@
+
+## Corrigendum to b732’s record (relay data/b732_events.txt rows (1)-(11) and data/b732_defects.txt): eleven events and thirty defects, each CLAIM or CLOSE and NEW or REPEAT; the pre-lock failing-list comparison at its head; free_mb in every dispatch-row kind, the delete arm’s needle read from the ferry, the 2C note’s words amended, the ORCID the scan’s third target, the post-seal rule read by the hook, the kept branch held out of the carry, at tools/standing/ v1.13.0, each controlled, under (R343)(1)-(2)
+
+*b732’s events bank (relay data/b732_events.txt) carries eleven rows, entered after its lock and not lettered, each tagged in its own bracket (10 the seat’s, 1 the author’s word); its defects bank thirty lettered rows, (a)-(d’), each tagged in its own bracket (30 the seat’s); its refusal bank fifteen lines at a8a702dd, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+
+**The repairs of `(R343)`(2), at tools/standing/ v1.13.0, each with a control on b732’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b733_standing_v1130.txt, 24 cases, AS WANTED 24):
+
+**(prelock) the pre-lock failing-list comparison (`(R343)`(2)(i), event (3))** -- standing.prelock reads the act’s probes against the previous act’s pre-run lists by arm name, a ruling’s own arm the same arm across acts; every arm newly failing prints by name in the registration gate, the gate NOT CLEAR while one is not on the face, the seal refusing where the bank is absent or not clear. On b732’s lists against b731’s: G-DELETES-ONE-BRANCH and G-RUNNER-GATE, the two the ruling names, and G-ARMS-PRERUN, which waits on the combine and is a pending arm a face names (:5).
+
+**(rows) every dispatch-row kind carries free_mb from the read before it (`(R343)`(2)(ii), event (1))** -- standing.dispatchrows is the one writer of the rows and refuses a row with no read or under the hold, before it writes. b732’s file is refused at its commit, push and dispatch rows; the same rows with b732’s own read, 4314 MB at 18:41:53Z, pass (:20).
+
+**(needle) the G-DELETES-ONE-BRANCH needle read from the act’s ferry (`(R343)`(2)(iii), event (2))** -- standing.allow.kept_clause reads the clause from the ferry; the override types no string. b732’s hand needle named zq-b731 where its ferry wrote zq-b730, and b733’s carried it to zq-b732; the route reads zq-b730 from both (:32).
+
+**(note) the 2C note’s words amended as the author’s row (6) ruled (`(R343)`(2)(iv))** -- relay data/b733_2c_note.txt, the one sentence moved by tool, every other byte of the draft standing and the rooted bank unedited: the five fields instancing two kinds and the C2 certificates the third. The figures stay b732’s, and the note stays applied nowhere (:45).
+
+**(orcid) the scan’s third target held in memory (`(R343)`(2)(v), defect (p))** -- set at step zero in tools/b733_address_scan.py: read at run time, counted, never printed, excepted in a paper’s byline under I-23 and nowhere else; the control a string in memory, the value neither printed nor written (:54).
+
+**(postseal) the post-seal read rule’s lists read by the hook (`(R343)`(2)(vi), event (11))** -- standing.hook reads the ledger names, the shell filter and the exclude list from tools/rule_arms.py at the call, the arm’s own text, and refuses the command the arm would count once the seal is recorded. b732’s two commands, judged on replay and not run, are refused; a name added to the arm’s file alone, in a scratch copy, is refused with no hook edit (:63).
+
+**(carry) the runs-of-three row b730 (m), b731 (b), b732 (c) as its class, the shift of a kept branch (`(R343)`(2)(vii))** -- standing.carry.substitute holds a kept branch’s name out of the act names’ shift, the act’s carry tool going through it; the act’s banks and push branches still shift. b733’s own carry ran before this repair and shifted the name a fourth time, in the act module: set back by the same commit that reads the needle from the ferry (:86).
+
+**b732’s events (1)-(11):**
+
+**(1)** 20:33Z, the pre-run’s standing-a: G-RUNNER-GATE FAILS on real state (data/b732\_arms\_prerun\_standing-a.txt :61). gate\_ok … (relay data/b732_events.txt, row (1); the seat’s; CLOSE; NEW; repair (rows): the one writer refuses the row before it is written).
+**(2)** 20:57Z, the pre-run’s act part: G-DELETES-ONE-BRANCH FAILS (data/b732\_arms\_prerun\_act.txt). The override’s needle at … (relay data/b732_events.txt, row (2); the seat’s; CLOSE; REPEAT of b732 (c); repairs (needle) and (carry)).
+**(3)** both arms failed at the pre-lock probes, before 20:23Z, and the seat’s reading of those probes called every failure … (relay data/b732_events.txt, row (3); the seat’s; CLAIM; REPEAT of b728 trap 2; repair (prelock): the comparison prints before the lock gate and holds it).
+**(4)** about 21:00Z, tools/standing/close.py dry refused the seal, its third list naming five parts not run on b731’s banks: … (relay data/b732_events.txt, row (4); the seat’s; CLOSE; NEW; the refusal did its work; ’--prev’ in all seven parts carried).
+**(5)** 20:34Z, a Read with no limit refused by the hook, READ; nothing ran (data/b732\_hook\_refusals.txt :15). (relay data/b732_events.txt, row (5); the seat’s; CLOSE; REPEAT of class (19); nothing ran).
+**(6)** G-PP-SCOPE fails at the pre-run for the reason b731’s did: it wants OPEN\_TRAILS.md in PLACE-papers’ changed set and the … (relay data/b732_events.txt, row (6); the seat’s; CLOSE; REPEAT of b731 event (5); no arm dead; read again at the pre-push suite).
+**(7)** 22:13Z, the root’s prompt, 2 questions in 1 call, 3 questions in 2 calls with the A0 prompt … (relay data/b732_events.txt, row (7); the author’s word; CLOSE; NEW; acted on as checked).
+**(8)** 22:12Z, ’record answers’ printed "words banked: 0": the answer opens with the line "Checking the dispatch rows against … (relay data/b732_events.txt, row (8); the seat’s; CLOSE; NEW; the word reader carried with BEGIN first).
+**(9)** the word’s row (4) orders the navigator’s list printed as "the navigator’s miss of four, the four named". The bank does … (relay data/b732_events.txt, row (9); the seat’s; CLAIM; NEW; (R343)(1): the two sets as this row prints them govern, the navigator’s list a miss of seven and an excess of three).
+**(10)** 22:14Z, PLACE-papers 65cb830 committed before its scan; the scan ran straight after, before any push, reading that … (relay data/b732_events.txt, row (10); the seat’s; CLOSE; NEW; the order add, scan, commit kept at this act’s commits).
+**(11)** 22:19:23Z and 22:20:08Z, two shell commands named the trail after the seal: a ’git grep’ locating b731’s record in … (relay data/b732_events.txt, row (11); the seat’s; CLOSE; REPEAT of b726 trap 5; repair (postseal): the hook refuses the command before it runs; the arm stood failing as it read).
+
+**b732’s defects:**
+
+**(a)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b729 trap 5).
+**(b)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(c)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (b); repair (carry)).
+**(d)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (e)).
+**(e)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(f)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (f)).
+**(g)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(h)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(i)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(j)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(k)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(l)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b732 (g)).
+**(m)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (i)).
+**(n)** (relay data/b732_defects.txt; the seat’s; CLAIM; NEW).
+**(o)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(p)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW; repair (orcid): the hole named here closed at b733’s step zero).
+**(q)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(r)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(s)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(t)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(u)** (relay data/b732_defects.txt; the seat’s; CLAIM; NEW).
+**(v)** (relay data/b732_defects.txt; the seat’s; CLAIM; NEW).
+**(w)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(x)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(y)** (relay data/b732_defects.txt; the seat’s; CLAIM; NEW).
+**(z)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (e)).
+**(a’)** (relay data/b732_defects.txt; the seat’s; CLAIM; NEW).
+**(b’)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+**(c’)** (relay data/b732_defects.txt; the seat’s; CLOSE; NEW).
+**(d’)** (relay data/b732_defects.txt; the seat’s; CLOSE; REPEAT of b731 (e)).
+
+**b732’s refusals** (relay data/b732_hook_refusals.txt at a8a702dd, one a line): :1 READ 18:12:28Z, recorded at defect (b); :2 READ 18:12:29Z, recorded at defect (b); :3 PIPE 18:25:35Z, recorded at defect (i); :4 READ 18:32:18Z, recorded at defect (j); :5 READ 18:47:38Z, recorded at defect (o); :6 READ 18:47:38Z, recorded at defect (o); :7 READ 18:47:38Z, recorded at defect (o); :8 READ 18:47:38Z, recorded at defect (o); :9 READ 18:47:38Z, recorded at defect (o); :10 READ 18:47:38Z, recorded at defect (o); :11 READ 19:06:57Z, recorded at defect (w); :12 READ 19:24:53Z, recorded at defect (b’); :13 PIPE 19:28:31Z, recorded at defect (b’); :14 REDIR 19:31:22Z, recorded at defect (b’); :15 READ 20:34:05Z, recorded at event (5).
+
+**The counter:** CLAIM 7, CLOSE 34 over the 41 items (eleven events, thirty defects), as b732’s closing prints it (relay data/b732_closing.txt :5), the ruling’s CLAIM 5, CLOSE 25, REPEAT 14 of 30 the defects bank’s alone; REPEAT 19 of 41; the CLAIM items (3), (9), (n), (u), (v), (y), (a’).
+
+*Filed at b733 on the author’s ruling `(R343)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b733.py) from b732’s events and defects banks read unedited, its refusal bank, and the v1.13.0 controls bank; banked as relay `data/b733_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (53). It answers b732’s record; no sealed tool, face, trail or root-named bank of b732 is edited.*

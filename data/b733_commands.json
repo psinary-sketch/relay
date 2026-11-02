@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T02:19:37Z",
+ "at": "2026-11-02T03:18:35Z",
  "anchor": "RULING (R343) BEGIN",
  "rows": [
   {
@@ -1529,6 +1529,414 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/standing/fold.py record kernels && python -X utf8 -u tools/standing/fold.py record guard && python -X utf8 -u tools/standing/fold.py record closeorder",
    "n": 191,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:20:16.892Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -I \"tools/b733_address_scan.py\" scan --bank",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:20:25.237Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:22:34.427Z",
+   "src": "seat",
+   "cmd": "git ls-files --error-unmatch tools/b732_face.py tools/b732_face_blocks.txt data/b732_registration_2026-11-01.txt && git grep -n -E \"b732|a8a702dd|R342|K\\.[A-Z_]+ *=\" -- tools/b732_face.py",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:23:10.678Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format=\"%h %s\" a8a702dd..HEAD && git -C /d/SIDE-explicit-formula log --reverse --format=\"%h %s\" 1b34964a..zq-b730",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:24:21.067Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face733.py\"",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:24:33.685Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && git add tools/b733_sections.txt tools/acts/b733.py tools/b733_worklist.py tools/b733_face.py tools/b733_face_blocks.txt data/b733_defects.txt data/b733_hook_refusals.txt data/b733_steps.json data/b733_bank_hashes.json data/b733_reproduce.txt data/b733_reproduce.json data/b733_touch.txt data/b733_standing_figures.txt data/b733_standing_figures.json data/b733_kernels_face.json data/b733_guard_dry.txt data/b733_guard_dry.json data/b733_commands.txt data/b733_commands.json && python -X utf8 -u tools/b733_address_scan.py scan --bank",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:24:45.153Z",
+   "src": "seat",
+   "cmd": "git add data/b733_address_scan.txt && git commit -q -m \"b733 gate: the act module over b733's objects, the worklist's later stages, the face tool and its blocks, the defects to (m), the reproduction 64 of 68, the touch read, the standing figures, the kernels' face, the guard's dry run, the commands bank\" && git log -1 --format=\"%H\"",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:24:48.485Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 1f48b857 && python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:29:24.584Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-c",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:31:10.423Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b1",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:33:31.619Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2a",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:38:54.635Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2b",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:47:37.370Z",
+   "src": "seat",
+   "cmd": "git ls-remote origin refs/heads/main && git merge-base --is-ancestor 2299971fce4a HEAD && echo ANCESTOR_OF_HEAD",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:47:43.884Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-trivium && git ls-remote origin refs/heads/main",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:47:44.206Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-yang-mills-formation && git ls-remote origin refs/heads/main refs/tags/v0.1.0",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:47:49.586Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 -u tools/standing/fold.py checks --part standing-b2b",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:54:19.605Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b3",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:57:36.482Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"prelock\" -- tools/standing/fold/reg_gate.tpl tools/standing/close.py && git grep -n -E \"^def |sys\\.argv|__main__\" -- tools/standing/prelock.py",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:57:40.804Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:57:59.112Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py closing dry && python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:58:05.394Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py closing dry && python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:59:33.119Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py\"",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T02:59:48.043Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py\"",
+   "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:00:00.101Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/n5read.py\" && git grep -n \"(f)\" -- data/b731_defects.txt",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:00:05.936Z",
+   "src": "seat",
+   "cmd": "git grep -n -i -E \"one message|same message|dependent|stale\" -- data/b731_defects.txt data/b731_events.txt data/b732_defects.txt data/b732_events.txt",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:00:19.175Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/defswap.py\" && python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:00:29.037Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py closing dry && git add tools/b733_sections.txt tools/acts/b733.py tools/b733_worklist.py tools/b733_face.py tools/b733_face_blocks.txt data/b733_defects.txt data/b733_hook_refusals.txt data/b733_steps.json data/b733_bank_hashes.json data/b733_registration_2026-11-02.txt data/b733_closing_dry.txt data/b733_root_banks_dry.txt data/b733_root_banks_dry.json data/b733_scores_dry.txt data/b733_report_dry.txt && python -X utf8 -u tools/b733_address_scan.py scan --bank",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:01:24.088Z",
+   "src": "seat",
+   "cmd": "git add tools/b733_sections.txt tools/acts/b733.py tools/b733_worklist.py tools/b733_face.py tools/b733_face_blocks.txt data/b733_defects.txt data/b733_hook_refusals.txt data/b733_steps.json data/b733_bank_hashes.json data/b733_registration_2026-11-02.txt data/b733_closing_dry.txt data/b733_root_banks_dry.txt data/b733_root_banks_dry.json data/b733_scores_dry.txt && python -X utf8 -u tools/b733_address_scan.py scan --bank",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:01:37.090Z",
+   "src": "seat",
+   "cmd": "git ls-files -s --error-unmatch data/b733_checks_standing-b2b.txt; stat -c '%y %n' data/b733_checks_standing-b3.txt data/b733_chain_half_a1_checks.json data/b733_chain_half_a2_checks.json data/b733_checks_act.txt",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:01:50.380Z",
+   "src": "seat",
+   "cmd": "git add data/b733_defects.txt data/b733_address_scan.txt && git commit -q -m \"b733 gate: the face and its tool, the root route's, closing's and score routes' dry banks, the defects to (p), the FINDINGS lines in the worklist\" && git log -1 --format=\"%H\"",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:01:54.482Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 50b2ae29 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:02:58.500Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^def |re\\.compile|OPEN|CARRIED\" -- tools/standing/orders.py",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:03:08.521Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:05:10.733Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:06:13.310Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:07:10.891Z",
+   "src": "seat",
+   "cmd": "git add tools/b733_sections.txt tools/acts/b733.py tools/b733_face_blocks.txt data/b733_registration_2026-11-02.txt data/b733_reg_gate.txt data/b733_report_dry.txt data/b733_prelock.txt data/b733_closing_dry.txt data/b733_steps.json data/b733_bank_hashes.json data/b733_root_banks_dry.txt data/b733_root_banks_dry.json && python -X utf8 -u tools/b733_address_scan.py scan --bank",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:07:18.379Z",
+   "src": "seat",
+   "cmd": "git add data/b733_address_scan.txt && git commit -q -m \"b733 gate: GATE VERDICT CLEAR, the dry step, the closing's dry run, report dry and the pre-lock comparison each clean\" && git log -1 --format=\"%H\"",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:07:21.757Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 6a4e3066 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:12:23.518Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/ogw.py\"",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:12:42.193Z",
+   "src": "seat",
+   "cmd": "git grep -n -i -E \"one git write|git writes? per message|two git writes\" -- data/b731_defects.txt data/b731_events.txt data/b732_defects.txt data/b732_events.txt data/b730_defects.txt data/b730_events.txt",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:12:57.484Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && git add tools/b733_sections.txt tools/acts/b733.py tools/b733_face_blocks.txt data/b733_registration_2026-11-02.txt data/b733_defects.txt data/b733_steps.json data/b733_bank_hashes.json data/b733_root_banks_dry.txt data/b733_root_banks_dry.json data/b733_hook_refusals.txt && python -X utf8 -u tools/b733_address_scan.py scan --bank",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:13:04.967Z",
+   "src": "seat",
+   "cmd": "git add data/b733_address_scan.txt",
+   "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:13:07.209Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b733 gate: defect (q), the one-write row, the face and module read to (a)-(q)\"",
+   "n": 234,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:13:10.436Z",
+   "src": "seat",
+   "cmd": "git log -1 --format=\"%H\" && python -X utf8 -u tools/standing/fold.py record step relay gate HEAD",
+   "n": 235,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:13:16.109Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 620e36f3 && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 236,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:15:28.142Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate --quiet 2>&1 | tail -n 3; true",
+   "n": 237,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:15:33.522Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 238,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:15:36.029Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"b378_lockgate|reg_seal\\.py|gate_hash\" -- tools/standing/close.py tools/standing/fold/record.tpl tools/standing/fold/reg_gate.tpl tools/acts/b733.py",
+   "n": 239,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:16:43.459Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/actmodule.py render b733 HEAD --write && python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 240,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:17:29.782Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b733_face.py && python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 241,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T03:18:24.682Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 242,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1559,10 +1967,12 @@
   184
  ],
  "pipes": [
-  97
+  97,
+  237
  ],
  "any_pipes": [
-  97
+  97,
+  237
  ],
  "py_programs": [
   7,
