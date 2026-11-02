@@ -1,0 +1,1558 @@
+b734 -- THE DEPENDENCY PRINT, (R344)(3): THE CONSTANT CLOSURE BENEATH Zeta23.WeilEF.EF_lit_zeta, SORTED INTO THE RULING`S FOUR BINS, NO BUILD OF ANYTHING NEW AND NO LEAN FILE WRITTEN (2026-11-02T08:01:08Z)
+
+### THE SOURCE: run 41408235115 of build-module.yml at SIDE-explicit-formula 09053d3b07367aa7ef2e26cbeb27fd35d8734d82, the tree as it stands, closure.jsonl.gz sha256 d7e0dc33723d272dd57d63eba9b072642c663a76c058c9cd814601fadc4aa012 ; records 2354 ; Mathlib read at its clone`s HEAD de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11, 168921 declaration names.
+### THE MAIN THEOREM, printed from the tree: Zeta23/WeilEF/Main.lean :67 theorem EF_lit_zeta (hs : ZetaSeam) : Zeta23.EF.EF_lit (zetaZeros hs) ; its axioms in the record: propext, Classical.choice, Quot.sound.
+### THE GRADES: (a), (b) programme members and (d) are COMPILED, the records the compiled closure wrote; (c) and the library members of (b) are LEXICAL, tokens of the closure`s own declarations resolved against Mathlib`s names. The tool stops at the library`s edge, so no library constant is called compiled here.
+
+## THE CONTROLS FIRST
+  the top constant is in the closure, a (b) constant                                               AS WANTED
+  a known zeta statement reads (b): Zeta23.WeilEF.good_heights                                     AS WANTED
+  a generic disk lemma reads (d): Zeta23.WeilEF.logDeriv_partial_fraction_disk                     AS WANTED
+  a count constant reads (a): Zeta23.RvM.local_count, or the module`s first zeta constant          AS WANTED
+  every closure constant found a statement or is compiler-generated                                AS WANTED
+  the tokenizer resolves a planted Mathlib name: Real.log_le_log                                   AS WANTED
+  the tokenizer refuses a planted false name: Mathlib.no_such_lemma_b734                           AS WANTED
+
+### CONTROLS 7 OF 7 AS WANTED
+
+## THE COUNTS
+  the closure: 383 programme constants, the theorem itself among them, 0 of them from SIDEExplicitFormula.Chi
+  (a) SUPPLIED BY THE CLOSED FIELDS (COMPILED)                64
+  (a) SUPPLIED, LIBRARY FORMS OF THE SAME WORK (LEXICAL)      11
+  (b) ζ`S ALONE, PROGRAMME (COMPILED)                         92
+  (b) ζ`S ALONE, LIBRARY (LEXICAL)                            7
+  (c) MATHLIB, NEUTRAL (LEXICAL)                              1069
+  (d) NEITHER, PROGRAMME, NAMING NO ζ WORD (COMPILED)         227, of which compiler-generated 17
+  BENEATH: members of (d) with a (b) constant in their own closure: 5, and with an (a) constant: 7 (a statement that names no ζ word and a proof that rests on one; the two are read apart; named at the rows, BENEATH-b and BENEATH-a)
+  TAKING A ZeroConfig: members of (d) whose own statement or name carries Zeta23.ZeroConfig: 18. Each reads no zeta word and none applies as it stands to Q0, whose configuration is a WideConfig; marked TAKES-ZeroConfig at the rows.
+  THE LEXICAL TOKENS OF A LOCAL HYPOTHESIS`S DOT-NOTATION, RESOLVED ON THEIR LAST COMPONENT ONLY, HEAD NO NAMESPACE, NOT MEMBERS: 358
+
+## (a) SUPPLIED BY THE CLOSED FIELDS, BY FIELD, THE SUPPLYING THEOREM BY PATH AND LINE ON zq-b730 AT 09053d3b
+### continuation: SIDEExplicitFormula/Schema/ZQ/Continuation.lean :221 zq_continuation -- 13 members, 6 library forms
+  HasDerivAtZeta0  [Zeta23.FromPNTPlus.ZetaBounds :1095] theorem  <- Zeta0
+  HolomorphicOn_riemannZeta  [Zeta23.FromPNTPlus.ZetaBounds :1117] theorem  <- riemannZeta
+  HolomorphicOn_riemannZeta0  [Zeta23.FromPNTPlus.ZetaBounds :1112] theorem  <- riemannZeta
+  HolomorphicOn_riemannZeta0.match_1_1  [Zeta23.FromPNTPlus.ZetaBounds :None] def  <- riemannZeta
+  Zeta0EqZeta  [Zeta23.FromPNTPlus.ZetaBounds :1178] theorem  <- Zeta0
+  Zeta23.RvM.analyticOnNhd_riemannZeta  [Zeta23.RvM.ZetaGrowth :58] theorem  <- riemannZeta
+  Zeta23.WeilEF.analyticAt_riemannZeta  [Zeta23.WeilEF.XiLogDeriv :76] theorem  <- riemannZeta
+  hasDerivAt_Zeta0Integral  [Zeta23.FromPNTPlus.ZetaBounds :977] theorem  <- Zeta0
+  integrableOn_of_Zeta0_fun  [Zeta23.FromPNTPlus.ZetaBounds :802] theorem  <- Zeta0
+  integrableOn_of_Zeta0_fun_log  [Zeta23.FromPNTPlus.ZetaBounds :946] theorem  <- Zeta0
+  riemannZeta0  [Zeta23.FromPNTPlus.ZetaBounds :548] def  <- riemannZeta
+  riemannZeta0_apply  [Zeta23.FromPNTPlus.ZetaBounds :557] theorem  <- riemannZeta
+  ζ₀'  [Zeta23.FromPNTPlus.ZetaBounds :1067] def  <- ζ
+  completedRiemannZeta_one_sub  LEXICAL (3)
+  differentiableAt_completedZeta  LEXICAL (2)
+  differentiableAt_riemannZeta  LEXICAL (8)
+  riemannZeta_def_of_ne_zero  LEXICAL (3)
+  riemannZeta_one_sub  LEXICAL (2)
+  riemannZeta_residue_one  LEXICAL (1)
+### zeros: SIDEExplicitFormula/Schema/ZQ/Zeros.lean :329 zq_zeros -- 35 members, 0 library forms
+  Zeta23.IsNontrivialZero  [Zeta23.Statement :48] def  <- IsNontrivialZero
+  Zeta23.IsNontrivialZero.not_trivial  [Zeta23.Statement :140] theorem  <- IsNontrivialZero
+  Zeta23.Ncount  [Zeta23.Statement :64] def  <- Ncount
+  Zeta23.RvM.analyticAt_completedRiemannZeta  [Zeta23.RvM.CountByIntegral :48] theorem  <- completedRiemannZeta
+  Zeta23.RvM.analyticOrderNatAt_completedRiemannZeta  [Zeta23.RvM.CountByIntegral :95] theorem  <- completedRiemannZeta
+  Zeta23.RvM.completedRiemannZeta_eq_Gammaℝ_mul  [Zeta23.RvM.CountByIntegral :57] theorem  <- completedRiemannZeta
+  Zeta23.RvM.completedRiemannZeta_eq_zero_iff_of_re_pos  [Zeta23.RvM.CountByIntegral :62] theorem  <- completedRiemannZeta
+  Zeta23.RvM.completedRiemannZeta_ne_zero_of_one_le_re  [Zeta23.RvM.CountByIntegral :69] theorem  <- completedRiemannZeta
+  Zeta23.RvM.completedRiemannZeta_ne_zero_of_re_nonpos  [Zeta23.RvM.CountByIntegral :74] theorem  <- completedRiemannZeta
+  Zeta23.ZetaSeam  [Zeta23.Statement :85] inductive  <- ZetaSeam
+  Zeta23.ZetaSeam.finite_window  [Zeta23.Statement :99] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.finite_window_holds  [Zeta23.Statement.Seam :106] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.mk  [Zeta23.Statement :91] ctor  <- ZetaSeam
+  Zeta23.ZetaSeam.mult_reflect  [Zeta23.Statement :97] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.of_reflect  [Zeta23.Statement.Seam :122] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.one_le_mult  [Zeta23.Statement :93] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.one_le_mult_holds  [Zeta23.Statement.Seam :65] theorem  <- ZetaSeam
+  Zeta23.ZetaSeam.reflect_zero  [Zeta23.Statement :95] theorem  <- ZetaSeam
+  Zeta23.analyticOrderAt_riemannZeta_ne_top  [Zeta23.Statement.Seam :55] theorem  <- riemannZeta
+  Zeta23.analyticOrderAt_zeta_conj  [Zeta23.ZetaReflect :159] theorem  <- zeta
+  Zeta23.analyticOrderAt_zeta_one_sub  [Zeta23.ZetaReflect :238] theorem  <- zeta
+  Zeta23.riemannZeta_analyticOnNhd_compl_one  [Zeta23.Statement.Seam :45] theorem  <- riemannZeta
+  Zeta23.riemannZeta_conj  [Zeta23.ZetaReflect :77] theorem  <- riemannZeta
+  Zeta23.riemannZeta_zeros_locallyFinite  [Zeta23.Statement.Seam :78] theorem  <- riemannZeta
+  Zeta23.zeroMult  [Zeta23.Statement :56] def  <- zeroMult
+  Zeta23.zerosIn  [Zeta23.Statement :61] def  <- zerosIn
+  Zeta23.zetaSeam  [Zeta23.Statement.SeamClosed :37] theorem  <- zeta
+  Zeta23.zetaZeroConfig  [Zeta23.Statement.SeamClosed :40] def  <- zeta
+  Zeta23.zetaZeroConfig_N  [Zeta23.Statement.SeamClosed :47] theorem  <- zeta
+  Zeta23.zetaZeroConfig_carrier  [Zeta23.Statement.SeamClosed :44] theorem  <- zeta
+  Zeta23.zetaZeros_N  [Zeta23.Statement :123] theorem  <- zeta
+  Zeta23.zetaZeros_window  [Zeta23.Statement :120] theorem  <- zeta
+  Zeta23.zeta_mult_reflect  [Zeta23.ZetaReflect :329] theorem  <- zeta
+  Zeta23.zeta_reflect_zero  [Zeta23.ZetaReflect :293] theorem  <- zeta
+  _private.Zeta23.ZetaReflect.0.Zeta23.zeta_conj_of_one_lt_re  [Zeta23.ZetaReflect :56] theorem  <- zeta
+### logDeriv: SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :396 zq_logDeriv -- 0 members, 5 library forms
+  ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div  LEXICAL (2)
+  riemannZeta_ne_zero_of_one_le_re  LEXICAL (2)
+  riemannZeta_ne_zero_of_one_lt_re  LEXICAL (6)
+  zeta_eq_tsum_one_div_nat_add_one_cpow  LEXICAL (1)
+  zeta_eq_tsum_one_div_nat_cpow  LEXICAL (2)
+### count: SIDEExplicitFormula/Schema/ZQ/Count.lean :338 zq_count_holds -- 16 members, 0 library forms
+  Zeta23.RvM.analyticOrderNatAt_gfun  [Zeta23.RvM.LocalCount :78] theorem  <- zeroMult
+  Zeta23.RvM.comp_affine_analyticAt  [Zeta23.RvM.LocalCount :66] theorem  <- riemannZeta
+  Zeta23.RvM.count_small  [Zeta23.RvM.LocalCount :270] theorem  <- Ncount
+  Zeta23.RvM.norm_riemannZeta_ge_of_two_le_re  [Zeta23.RvM.ZetaGrowth :213] theorem  <- riemannZeta
+  Zeta23.RvM.norm_riemannZeta_le_of_re_pos  [Zeta23.RvM.ZetaGrowth :68] theorem  <- riemannZeta
+  Zeta23.RvM.norm_riemannZeta_le_of_two_le_re  [Zeta23.RvM.ZetaGrowth :242] theorem  <- riemannZeta
+  Zeta23.RvM.norm_riemannZeta_sub_one_le  [Zeta23.RvM.ZetaGrowth :166] theorem  <- riemannZeta
+  Zeta23.RvM.riemannZeta_linear_growth  [Zeta23.RvM.ZetaGrowth :92] theorem  <- riemannZeta
+  Zeta23.RvM.riemannZeta_zeros_finite_of_isCompact  [Zeta23.RvM.LocalCount :53] theorem  <- riemannZeta
+  Zeta23.RvM.zetaZeroConfig_local_count  [Zeta23.RvM.LocalCount :309] theorem  <- zeta
+  Zeta23.RvM.zeta_growth  [Zeta23.RvM.ZetaGrowth :116] theorem  <- zeta
+  Zeta23.RvM.zeta_growth_quarter  [Zeta23.RvM.ZetaGrowth :122] theorem  <- zeta
+  Zeta23.RvM.zeta_growth_right  [Zeta23.RvM.ZetaGrowth :159] theorem  <- zeta
+  Zeta23.RvM.zeta_growth_right_at  [Zeta23.RvM.ZetaGrowth :132] theorem  <- zeta
+  Zeta23.RvM.zeta_local_zero_count  [Zeta23.RvM.LocalCount :280] theorem  <- zeta
+  Zeta23.RvM.zeta_lower_bound_two  [Zeta23.RvM.ZetaGrowth :231] theorem  <- zeta
+
+## (b) ζ`S ALONE, PROGRAMME, BY MODULE
+### Zeta23.ExplicitFormula -- 3
+  Zeta23.EF.EF_lit  [Zeta23.ExplicitFormula :92] def  <- EF_lit
+  Zeta23.EF.gammaBracket  [Zeta23.ExplicitFormula :77] def  <- gammaBracket
+  Zeta23.EF.literatureRHS  [Zeta23.ExplicitFormula :82] def  <- literatureRHS
+### Zeta23.GammaFacts.Series -- 14
+  Zeta23.DigammaSeries.harmonic_cast_eq  [Zeta23.GammaFacts.Series :138] theorem
+  Zeta23.DigammaSeries.hasSum_digamma_series  [Zeta23.GammaFacts.Series :362] theorem
+  Zeta23.DigammaSeries.inv_gammaSeq_eq  [Zeta23.GammaFacts.Series :145] theorem
+  Zeta23.DigammaSeries.inv_gamma_eq_prod  [Zeta23.GammaFacts.Series :223] theorem
+  Zeta23.DigammaSeries.logDeriv_one_add_wTerm  [Zeta23.GammaFacts.Series :264] theorem
+  Zeta23.DigammaSeries.multipliable_one_add_wTerm  [Zeta23.GammaFacts.Series :133] theorem
+  Zeta23.DigammaSeries.norm_natCast_add_one  [Zeta23.GammaFacts.Series :61] theorem
+  Zeta23.DigammaSeries.norm_wTerm_le  [Zeta23.GammaFacts.Series :65] theorem
+  Zeta23.DigammaSeries.one_add_wTerm  [Zeta23.GammaFacts.Series :56] theorem
+  Zeta23.DigammaSeries.summable_digamma_series  [Zeta23.GammaFacts.Series :313] theorem
+  Zeta23.DigammaSeries.summable_norm_wTerm  [Zeta23.GammaFacts.Series :123] theorem
+  Zeta23.DigammaSeries.summable_wBound  [Zeta23.GammaFacts.Series :105] theorem
+  Zeta23.DigammaSeries.wTerm  [Zeta23.GammaFacts.Series :53] def
+  harmonic.eq_1  [Zeta23.GammaFacts.Series :None] theorem
+### Zeta23.GammaFacts.StirlingVert -- 37
+  Zeta23.StirlingVert.abs_im_le_norm_add  [Zeta23.GammaFacts.StirlingVert :58] theorem
+  Zeta23.StirlingVert.add_mem_slitPlane  [Zeta23.GammaFacts.StirlingVert :66] theorem
+  Zeta23.StirlingVert.add_ne_zero  [Zeta23.GammaFacts.StirlingVert :70] theorem
+  Zeta23.StirlingVert.digamma_eq  [Zeta23.GammaFacts.StirlingVert :446] theorem
+  Zeta23.StirlingVert.digamma_stirling  [Zeta23.GammaFacts.StirlingVert :497] theorem
+  Zeta23.StirlingVert.eps  [Zeta23.GammaFacts.StirlingVert :109] def
+  Zeta23.StirlingVert.hasDerivAt_log_add  [Zeta23.GammaFacts.StirlingVert :75] theorem
+  Zeta23.StirlingVert.integral_inv_add_eq  [Zeta23.GammaFacts.StirlingVert :113] theorem
+  Zeta23.StirlingVert.integral_inv_add_eq_log_sub  [Zeta23.GammaFacts.StirlingVert :83] theorem
+  Zeta23.StirlingVert.intervalIntegral_mul_const_C  [Zeta23.GammaFacts.StirlingVert :48] theorem
+  Zeta23.StirlingVert.inv_add_expand  [Zeta23.GammaFacts.StirlingVert :100] theorem
+  Zeta23.StirlingVert.inv_natp1_eq  [Zeta23.GammaFacts.StirlingVert :205] theorem
+  Zeta23.StirlingVert.inv_natp1_sq_eq  [Zeta23.GammaFacts.StirlingVert :222] theorem
+  Zeta23.StirlingVert.inv_norm_sq_le_telescope  [Zeta23.GammaFacts.StirlingVert :285] theorem
+  Zeta23.StirlingVert.log_one_add_sub_log  [Zeta23.GammaFacts.StirlingVert :478] theorem
+  Zeta23.StirlingVert.natp1_le_norm  [Zeta23.GammaFacts.StirlingVert :197] theorem
+  Zeta23.StirlingVert.natp1_ne_zero  [Zeta23.GammaFacts.StirlingVert :191] theorem
+  Zeta23.StirlingVert.natp1_re_pos  [Zeta23.GammaFacts.StirlingVert :188] theorem
+  Zeta23.StirlingVert.norm_eps_le  [Zeta23.GammaFacts.StirlingVert :151] theorem
+  Zeta23.StirlingVert.norm_eps_natp1_le  [Zeta23.GammaFacts.StirlingVert :245] theorem
+  Zeta23.StirlingVert.norm_eps_zero_le  [Zeta23.GammaFacts.StirlingVert :486] theorem
+  Zeta23.StirlingVert.norm_rho_le  [Zeta23.GammaFacts.StirlingVert :234] theorem
+  Zeta23.StirlingVert.norm_sq_natp1_ge  [Zeta23.GammaFacts.StirlingVert :277] theorem
+  Zeta23.StirlingVert.norm_tsum_eps_le  [Zeta23.GammaFacts.StirlingVert :372] theorem
+  Zeta23.StirlingVert.norm_tsum_rho_le  [Zeta23.GammaFacts.StirlingVert :358] theorem
+  Zeta23.StirlingVert.partial_sum_eq  [Zeta23.GammaFacts.StirlingVert :251] theorem
+  Zeta23.StirlingVert.re_add_pos  [Zeta23.GammaFacts.StirlingVert :63] theorem
+  Zeta23.StirlingVert.rho  [Zeta23.GammaFacts.StirlingVert :219] def
+  Zeta23.StirlingVert.sum_inv_norm_sq_le  [Zeta23.GammaFacts.StirlingVert :301] theorem
+  Zeta23.StirlingVert.summable_eps  [Zeta23.GammaFacts.StirlingVert :334] theorem
+  Zeta23.StirlingVert.summable_inv_norm_sq  [Zeta23.GammaFacts.StirlingVert :320] theorem
+  Zeta23.StirlingVert.summable_norm_eps  [Zeta23.GammaFacts.StirlingVert :347] theorem
+  Zeta23.StirlingVert.summable_norm_rho  [Zeta23.GammaFacts.StirlingVert :341] theorem
+  Zeta23.StirlingVert.summable_rho  [Zeta23.GammaFacts.StirlingVert :329] theorem
+  Zeta23.StirlingVert.tendsto_harmonic_sub_clog  [Zeta23.GammaFacts.StirlingVert :389] theorem
+  Zeta23.StirlingVert.tendsto_inv_natp1  [Zeta23.GammaFacts.StirlingVert :433] theorem
+  Zeta23.StirlingVert.tsum_inv_norm_sq_le  [Zeta23.GammaFacts.StirlingVert :354] theorem
+### Zeta23.Statement -- 1
+  Zeta23.zetaZeros  [Zeta23.Statement :101] def  <- zeta
+### Zeta23.WeilEF.Contour -- 1
+  Zeta23.WeilEF.rectangle_identity  [Zeta23.WeilEF.Contour :43] theorem  <- completedRiemannZeta
+### Zeta23.WeilEF.FullLine -- 10
+  Zeta23.WeilEF.completedZeta_ne_zero_on_horizontals  [Zeta23.WeilEF.FullLine :302] theorem  <- completedZeta
+  Zeta23.WeilEF.continuous_logDeriv_Gammaℝ_line  [Zeta23.WeilEF.FullLine :198] theorem  <- Gammaℝ
+  Zeta23.WeilEF.continuous_logDeriv_zeta_line  [Zeta23.WeilEF.FullLine :132] theorem  <- zeta
+  Zeta23.WeilEF.integrable_Hfn_mul_logDeriv_Gammaℝ  [Zeta23.WeilEF.FullLine :288] theorem  <- Gammaℝ
+  Zeta23.WeilEF.integrable_Hfn_mul_logDeriv_zeta  [Zeta23.WeilEF.FullLine :164] theorem  <- zeta
+  Zeta23.WeilEF.integrable_mul_logDeriv_Gammaℝ_of_decay  [Zeta23.WeilEF.FullLine :225] theorem  <- Gammaℝ
+  Zeta23.WeilEF.integrable_mul_logDeriv_zeta_of_decay  [Zeta23.WeilEF.FullLine :149] theorem  <- zeta
+  Zeta23.WeilEF.logDeriv_completedZeta_line  [Zeta23.WeilEF.FullLine :352] theorem  <- completedZeta
+  Zeta23.WeilEF.norm_logDeriv_zeta_le_of_one_lt_re  [Zeta23.WeilEF.FullLine :106] theorem  <- zeta
+  Zeta23.WeilEF.verticals_eq  [Zeta23.WeilEF.FullLine :383] theorem  <- completedRiemannZeta
+### Zeta23.WeilEF.FullLineAssembly -- 1
+  Zeta23.WeilEF.full_line_identity  [Zeta23.WeilEF.FullLineAssembly :51] theorem  <- ZetaSeam
+### Zeta23.WeilEF.GammaRBracket -- 3
+  Zeta23.WeilEF.digamma_conj  [Zeta23.WeilEF.GammaRBracket :43] theorem
+  Zeta23.WeilEF.gammaR_bracket  [Zeta23.WeilEF.GammaRBracket :111] theorem  <- Gammaℝ
+  Zeta23.WeilEF.logDeriv_Gammaℝ  [Zeta23.WeilEF.GammaRBracket :68] theorem  <- Gammaℝ
+### Zeta23.WeilEF.GoodHeights -- 5
+  Zeta23.WeilEF.card_le_sum_mult  [Zeta23.WeilEF.GoodHeights :162] theorem  <- zeta
+  Zeta23.WeilEF.good_heights  [Zeta23.WeilEF.GoodHeights :343] theorem  <- riemannZeta
+  Zeta23.WeilEF.good_heights_at  [Zeta23.WeilEF.GoodHeights :171] theorem  <- riemannZeta
+  Zeta23.WeilEF.isNontrivialZero_of_mem_closedBall  [Zeta23.WeilEF.GoodHeights :98] theorem  <- riemannZeta
+  Zeta23.WeilEF.sum_mult_six_windows  [Zeta23.WeilEF.GoodHeights :115] theorem  <- zeta
+### Zeta23.WeilEF.Horizontal -- 1
+  Zeta23.WeilEF.horizontal_vanish  [Zeta23.WeilEF.Horizontal :42] theorem  <- riemannZeta
+### Zeta23.WeilEF.Landau -- 1
+  Zeta23.WeilEF.zeta_logDeriv_partial_fraction  [Zeta23.WeilEF.Landau :524] theorem  <- zeta
+### Zeta23.WeilEF.Main -- 2
+  Zeta23.EF.literatureRHS.eq_1  [Zeta23.WeilEF.Main :None] theorem  <- literatureRHS
+  Zeta23.WeilEF.EF_lit_zeta  [Zeta23.WeilEF.Main :56] theorem  <- EF_lit
+### Zeta23.WeilEF.VerticalLine -- 4
+  Zeta23.WeilEF.gamma_line_shift  [Zeta23.WeilEF.VerticalLine :656] theorem  <- Gammaℝ
+  Zeta23.WeilEF.integrand_eq_tsum  [Zeta23.WeilEF.VerticalLine :98] theorem  <- riemannZeta
+  Zeta23.WeilEF.norm_logDeriv_Gammaℝ_le  [Zeta23.WeilEF.VerticalLine :625] theorem  <- Gammaℝ
+  Zeta23.WeilEF.prime_side_line  [Zeta23.WeilEF.VerticalLine :236] theorem  <- riemannZeta
+### Zeta23.WeilEF.XiLogDeriv -- 7
+  Zeta23.IsNontrivialZero.eq_1  [Zeta23.WeilEF.XiLogDeriv :None] theorem  <- IsNontrivialZero
+  Zeta23.WeilEF.analyticAt_Gammaℝ  [Zeta23.WeilEF.XiLogDeriv :60] theorem  <- Gammaℝ
+  Zeta23.WeilEF.completedZeta_eventuallyEq_mul  [Zeta23.WeilEF.XiLogDeriv :66] theorem  <- completedZeta
+  Zeta23.WeilEF.completedZeta_zeros_strip  [Zeta23.WeilEF.XiLogDeriv :109] theorem  <- completedZeta
+  Zeta23.WeilEF.differentiableAt_Gammaℝ  [Zeta23.WeilEF.XiLogDeriv :45] theorem  <- Gammaℝ
+  Zeta23.WeilEF.logDeriv_completedZeta  [Zeta23.WeilEF.XiLogDeriv :82] theorem  <- completedZeta
+  Zeta23.WeilEF.logDeriv_completedZeta_one_sub  [Zeta23.WeilEF.XiLogDeriv :93] theorem  <- completedZeta
+### Zeta23.WeilEF.ZeroSumLimit -- 1
+  Zeta23.WeilEF.zero_sum_limit  [Zeta23.WeilEF.ZeroSumLimit :40] theorem  <- ZetaSeam
+### Zeta23.WeilEF.ZeroSummability -- 1
+  Zeta23.WeilEF.EF_zero_sum_summable  [Zeta23.WeilEF.ZeroSummability :255] theorem  <- ZetaSeam
+
+## (b) ζ`S ALONE, LIBRARY (LEXICAL), EACH WITH THE CLOSURE DECLARATIONS THAT NAME IT
+  Complex.Gammaℝ  (11)
+  Complex.Gammaℝ_def  (1)
+  Gammaℝ  (8)
+  Gammaℝ_def  (1)
+  Gammaℝ_ne_zero_of_re_pos  (6)
+  completedRiemannZeta  (18)
+  riemannZeta  (50)
+
+## (c) MATHLIB, NEUTRAL (LEXICAL)
+  AEStronglyMeasurable  (3)
+  AnalyticAt  (19)
+  AnalyticAt.congr  (1)
+  AnalyticAt.div  (1)
+  AnalyticAt.div_const  (1)
+  AnalyticOn  (5)
+  AnalyticOnNhd  (20)
+  AnalyticOnNhd.analyticOn  (1)
+  AnalyticOnNhd.analyticOrderAt_ne_top_of_isPreconnected  (1)
+  AnalyticOnNhd.div  (1)
+  AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq  (1)
+  AnalyticOnNhd.fun_pow  (1)
+  AnalyticOnNhd.mul  (1)
+  And.right  (1)
+  ArithmeticFunction.LSeriesSummable_vonMangoldt  (2)
+  ArithmeticFunction.vonMangoldt  (1)
+  ArithmeticFunction.vonMangoldt_nonneg  (1)
+  Asymptotics.isBigO_atTop_iff_eventually_exists  (1)
+  Asymptotics.isBigO_iff_eventually  (1)
+  BddAbove  (2)
+  Borel  (1)
+  CStarRing.norm_of_mem_unitary  (1)
+  Cauchy  (1)
+  CompleteSpace  (1)
+  Complex.GammaSeq  (2)
+  Complex.GammaSeq_tendsto_Gamma  (1)
+  Complex.Gamma_ne_zero  (5)
+  Complex.Gamma_ne_zero_of_re_pos  (1)
+  Complex.I  (2)
+  Complex.I_im  (1)
+  Complex.I_mul_I  (1)
+  Complex.I_ne_zero  (1)
+  Complex.I_re  (1)
+  Complex.abs_arg_le_pi  (1)
+  Complex.abs_im_le_norm  (10)
+  Complex.abs_re_le_norm  (5)
+  Complex.add_conj  (1)
+  Complex.add_re  (1)
+  Complex.analyticAt_cos.comp  (1)
+  Complex.analyticAt_iff_eventually_differentiableAt  (2)
+  Complex.arg  (1)
+  Complex.conj_I  (1)
+  Complex.conj_conj  (5)
+  Complex.conj_natCast  (1)
+  Complex.conj_ofReal  (2)
+  Complex.conj_re  (2)
+  Complex.continuous_conj  (1)
+  Complex.continuous_exp.tendsto  (1)
+  Complex.continuous_ofReal.tendsto  (2)
+  Complex.continuous_re  (7)
+  Complex.cos  (3)
+  Complex.cos_eq_zero_iff  (1)
+  Complex.cpow_add  (1)
+  Complex.cpow_conj  (1)
+  Complex.cpow_def_of_ne_zero  (4)
+  Complex.cpow_neg  (1)
+  Complex.differentiableAt_Gamma  (6)
+  Complex.differentiable_one_div_Gamma  (1)
+  Complex.digamma  (13)
+  Complex.digamma_def  (4)
+  Complex.dist_eq  (7)
+  Complex.div_I  (2)
+  Complex.div_ofNat_im  (1)
+  Complex.div_ofNat_re  (1)
+  Complex.exp  (9)
+  Complex.exp_add  (2)
+  Complex.exp_ne_zero  (5)
+  Complex.exp_neg  (1)
+  Complex.exp_sub  (1)
+  Complex.exp_sum  (1)
+  Complex.exp_zero  (1)
+  Complex.hasDerivAt_exp  (1)
+  Complex.hasDerivAt_log  (1)
+  Complex.hasSum_conj'  (1)
+  Complex.im  (3)
+  Complex.intCast_re  (1)
+  Complex.integerComplement  (10)
+  Complex.integerComplement.ne_zero  (1)
+  Complex.integerComplement_add_ne_zero  (3)
+  Complex.integral_boundary_rect_eq_zero_of_differentiableOn  (1)
+  Complex.interior_reProdIm  (1)
+  Complex.inv_def  (1)
+  Complex.log  (10)
+  Complex.log_im  (1)
+  Complex.log_ofReal_mul  (1)
+  Complex.log_re  (1)
+  Complex.mem_reProdIm  (2)
+  Complex.mem_reProdIm.mp  (1)
+  Complex.mem_slitPlane_iff.mpr  (1)
+  Complex.mul_im  (2)
+  Complex.mul_re  (3)
+  Complex.multipliable_one_add_of_summable  (1)
+  Complex.natCast_arg  (1)
+  Complex.natCast_re  (5)
+  Complex.neg_re  (5)
+  Complex.normSq  (2)
+  Complex.normSq_apply  (4)
+  Complex.normSq_eq_conj_mul_self  (1)
+  Complex.normSq_eq_norm_sq  (3)
+  Complex.normSq_nonneg  (1)
+  Complex.norm_I  (2)
+  Complex.norm_cpow_eq_rpow_re_of_pos  (1)
+  Complex.norm_div  (2)
+  Complex.norm_exp  (3)
+  Complex.norm_le_abs_re_add_abs_im  (3)
+  Complex.norm_le_of_forall_mem_frontier_norm_le  (1)
+  Complex.norm_mul  (2)
+  Complex.norm_natCast  (2)
+  Complex.norm_natCast_cpow_of_pos  (1)
+  Complex.norm_natCast_cpow_of_re_ne_zero  (2)
+  Complex.norm_real  (16)
+  Complex.ofRealCLM.contDiff.comp  (1)
+  Complex.ofReal_cpow  (1)
+  Complex.ofReal_exp  (2)
+  Complex.ofReal_im  (2)
+  Complex.ofReal_log  (4)
+  Complex.ofReal_ne_zero.mpr  (3)
+  Complex.ofReal_re  (2)
+  Complex.ofReal_sub  (1)
+  Complex.ofReal_zero  (1)
+  Complex.one_cpow  (1)
+  Complex.one_im  (2)
+  Complex.one_re  (4)
+  Complex.rank_real_complex  (2)
+  Complex.re  (9)
+  Complex.reProdIm  (1)
+  Complex.re_le_norm  (2)
+  Complex.real_smul  (1)
+  Complex.slitPlane  (1)
+  Complex.sq_norm  (2)
+  Complex.sub_im  (1)
+  Complex.sub_re  (1)
+  Complex.summable_one_div_nat_cpow.mpr  (1)
+  Complex.two_pi_I_inv_smul_circleIntegral_sub_sq_inv_smul_of_differentiable  (1)
+  Complex.zero_cpow  (1)
+  Complex.zero_im  (1)
+  Complex.zero_re  (1)
+  ContDiff  (29)
+  Continuous  (20)
+  Continuous.aestronglyMeasurable  (1)
+  Continuous.const_cpow  (1)
+  Continuous.integrable_of_hasCompactSupport  (1)
+  Continuous.intervalIntegrable  (1)
+  Continuous.tendsto'  (1)
+  ContinuousAt  (6)
+  ContinuousAt.comp  (2)
+  ContinuousAt.comp_of_eq  (1)
+  ContinuousLinearMap.toSpanSingleton_zero  (1)
+  ContinuousOn  (9)
+  ContinuousOn.abs  (1)
+  ContinuousOn.div  (2)
+  ContinuousOn.intervalIntegrable  (3)
+  ContinuousOn.inv₀  (1)
+  ContinuousOn.mul  (1)
+  ContinuousOn.rpow  (1)
+  ContinuousWithinAt.cpow  (1)
+  Convex.is_const_of_fderivWithin_eq_zero  (1)
+  Differentiable  (4)
+  DifferentiableAt  (19)
+  DifferentiableOn  (6)
+  DifferentiableOn.analyticAt  (3)
+  DifferentiableOn.analyticOnNhd  (3)
+  DifferentiableOn.diffContOnCl  (1)
+  DifferentiableOn.isExactOn_ball  (1)
+  DifferentiableWithinAt  (1)
+  Disjoint  (4)
+  ENat.ne_top_iff_exists.mp  (2)
+  ENat.top_pos  (1)
+  ENat.zero_ne_top  (1)
+  Eq.comm  (1)
+  EqOn  (2)
+  EventuallyEq.rfl  (2)
+  Filter.Eventually  (2)
+  Filter.Eventually.of_forall  (9)
+  Filter.Tendsto  (5)
+  Filter.Tendsto.congr'  (1)
+  Filter.Tendsto.inv_tendsto_atTop  (1)
+  Filter.atTop  (2)
+  Filter.codiscreteWithin  (1)
+  Filter.eventually_atTop  (1)
+  Filter.eventually_atTop.mp  (1)
+  Filter.eventually_atTop.mpr  (1)
+  Filter.eventually_ge_atTop  (4)
+  Filter.eventually_of_mem  (1)
+  Filter.inter_mem  (1)
+  Filter.mem_atTop  (3)
+  Filter.tendsto_id  (2)
+  Finite  (28)
+  Finite.mem_toFinset  (1)
+  Finset  (16)
+  Finset.Ico  (2)
+  Finset.Ioc  (5)
+  Finset.analyticOnNhd_fun_prod  (1)
+  Finset.card_eq_sum_ones  (1)
+  Finset.card_image_le  (1)
+  Finset.card_union_le  (1)
+  Finset.coe_empty  (1)
+  Finset.coe_image  (1)
+  Finset.coe_insert  (2)
+  Finset.coe_singleton  (1)
+  Finset.disjoint_left  (1)
+  Finset.disjoint_left.mp  (1)
+  Finset.exists_ne_map_eq_of_card_lt_of_maps_to  (1)
+  Finset.filter_true_of_mem  (1)
+  Finset.induction  (1)
+  Finset.induction_on  (1)
+  Finset.mem_Ico  (1)
+  Finset.mem_Ioc  (1)
+  Finset.mem_coe  (4)
+  Finset.mem_filter  (2)
+  Finset.mem_image.mp  (1)
+  Finset.mem_image.mpr  (1)
+  Finset.mem_image_of_mem  (1)
+  Finset.mem_insert  (1)
+  Finset.mem_insert_of_mem  (1)
+  Finset.mem_insert_self  (1)
+  Finset.mem_map  (1)
+  Finset.mem_range.mp  (1)
+  Finset.mem_sdiff  (2)
+  Finset.mem_singleton  (3)
+  Finset.mem_subtype  (1)
+  Finset.mem_union  (1)
+  Finset.mem_union.mp  (1)
+  Finset.mul_sum  (5)
+  Finset.prod_congr  (1)
+  Finset.prod_div_distrib  (1)
+  Finset.prod_empty  (1)
+  Finset.prod_eq_one  (1)
+  Finset.prod_eq_prod_sdiff_singleton_mul  (1)
+  Finset.prod_eq_zero_iff  (1)
+  Finset.prod_insert  (1)
+  Finset.prod_inv_distrib  (2)
+  Finset.prod_le_one  (1)
+  Finset.prod_le_prod  (2)
+  Finset.prod_mul_distrib  (3)
+  Finset.prod_ne_zero_iff.mpr  (3)
+  Finset.prod_pos  (1)
+  Finset.prod_pow_eq_pow_sum  (2)
+  Finset.prod_range_add_one_eq_factorial  (1)
+  Finset.prod_range_succ'  (1)
+  Finset.range  (12)
+  Finset.single_le_sum  (1)
+  Finset.sum_add_distrib  (1)
+  Finset.sum_congr  (9)
+  Finset.sum_empty  (1)
+  Finset.sum_le_sum  (4)
+  Finset.sum_mul  (1)
+  Function.Embedding.subtype  (1)
+  Function.Injective  (3)
+  Function.LeftInverse.injective  (1)
+  Function.comp_apply  (3)
+  Function.comp_def  (3)
+  Function.mem_support  (1)
+  Function.mem_support.mpr  (3)
+  Function.support  (1)
+  Function.update  (2)
+  Function.update_of_ne  (2)
+  Function.update_self  (1)
+  HasDerivAt  (17)
+  HasDerivAt.add_const  (1)
+  HasDerivAt.comp  (2)
+  HasDerivAt.const_cpow  (2)
+  HasDerivAt.fun_sum  (1)
+  HasDerivAt.mul  (1)
+  HasDerivAt.mul_const  (1)
+  HurwitzZeta.completedHurwitzZetaEven_residue_zero  (1)
+  I.finite_toSet.biUnion  (2)
+  I_im  (3)
+  I_mul_I  (1)
+  I_ne_zero  (3)
+  I_re  (3)
+  I_sq  (3)
+  Int.cast_abs  (1)
+  Int.ceil_lt_add_one  (2)
+  Int.floor_le  (1)
+  Int.le_ceil  (2)
+  Int.lt_floor_add_one  (1)
+  Int.measurable_floor  (3)
+  Int.natCast_floor_eq_floor  (1)
+  Int.one_le_abs  (1)
+  Integrable  (22)
+  Integrable.bdd_mul  (1)
+  Integrable.mono'  (2)
+  IntegrableOn  (2)
+  IntegrableOn.congr_fun  (1)
+  IntegrableOn.mono_set  (1)
+  IntervalIntegrable  (8)
+  IntervalIntegrable.continuousOn_mul  (1)
+  IsClosed  (1)
+  IsCompact  (3)
+  IsConnected  (1)
+  IsOpen  (11)
+  IsPathConnected  (1)
+  IsPreconnected  (2)
+  LSeries  (2)
+  LSeries.norm_term_eq  (2)
+  LSeries.term  (5)
+  LSeries.term_of_ne_zero  (2)
+  LSeries.term_zero  (1)
+  LSeriesSummable  (1)
+  LocallyIntegrableOn.integrableOn_of_isBigO_atTop  (1)
+  MapsTo  (4)
+  Measurable  (1)
+  Measurable.comp  (3)
+  Measurable.div  (1)
+  MeasurableSet  (1)
+  Measure  (2)
+  Measure.integral_comp_mul_left  (1)
+  Measure.restrict  (1)
+  MeasureTheory.Integrable.bdd_mul  (1)
+  MeasureTheory.IntegrableOn  (1)
+  MeasureTheory.Measure.integrableOn_of_bounded  (1)
+  MeasureTheory.ae_of_all  (2)
+  MeasureTheory.hasSum_integral_of_summable_integral_norm  (1)
+  MeasureTheory.intervalIntegral_tendsto_integral_Ioi  (1)
+  MeasureTheory.volume  (3)
+  Metric.ball  (9)
+  Metric.ball_mem_nhds  (2)
+  Metric.ball_subset_ball  (1)
+  Metric.ball_subset_closedBall  (2)
+  Metric.closedBall  (23)
+  Metric.closedBall_mem_nhds_of_mem  (1)
+  Metric.closedBall_subset_ball  (3)
+  Metric.closedBall_subset_closedBall  (6)
+  Metric.closure_closedBall  (1)
+  Metric.isBounded_closedBall  (1)
+  Metric.isOpen_ball  (3)
+  Metric.isOpen_ball.sdiff  (1)
+  Metric.isPreconnected_closedBall  (2)
+  Metric.mem_ball  (4)
+  Metric.mem_ball.mpr  (2)
+  Metric.mem_ball_self  (1)
+  Metric.mem_closedBall  (11)
+  Metric.mem_closedBall.mp  (2)
+  Metric.mem_closedBall.mpr  (2)
+  Metric.mem_closedBall_self  (1)
+  Metric.pos_of_mem_ball  (1)
+  Metric.sphere  (1)
+  Metric.sphere_subset_closedBall  (1)
+  Module.finrank_self  (2)
+  Module.rank  (1)
+  Monotone  (1)
+  Multipliable  (1)
+  MultipliableLocallyUniformlyOn  (1)
+  N..t  (1)
+  N.factorial  (1)
+  Nat.abs_cast  (1)
+  Nat.card_Icc  (1)
+  Nat.cast_add  (2)
+  Nat.cast_add_one_ne_zero  (5)
+  Nat.cast_eq_zero  (1)
+  Nat.cast_ne_zero.mpr  (1)
+  Nat.cast_nonneg  (12)
+  Nat.cast_one  (3)
+  Nat.cast_sum  (2)
+  Nat.cast_zero  (2)
+  Nat.cofinite_eq_atTop  (2)
+  Nat.factorial_ne_zero  (1)
+  Nat.floor_le  (1)
+  Nat.floor_natCast  (1)
+  Nat.le_ceil  (4)
+  Nat.lt_or_gt_of_ne  (1)
+  Nat.lt_succ_floor  (1)
+  Nat.lt_succ_iff.mp  (1)
+  Nat.one_le_cast  (1)
+  Nat.one_le_iff_ne_zero.mpr  (1)
+  Nat.one_lt_ofNat  (1)
+  NormedSpace  (2)
+  Or.inl  (11)
+  Or.inr  (7)
+  Pi.add_apply  (3)
+  Pi.div_apply  (5)
+  Pi.mul_apply  (1)
+  Pi.one_apply  (1)
+  Pi.sub_apply  (2)
+  RCLike.continuous_ofReal.continuousOn.comp  (1)
+  RCLike.continuous_ofReal.continuousWithinAt  (1)
+  RCLike.ofRealCLM  (1)
+  Real.abs_rpow_of_nonneg  (2)
+  Real.contDiff_exp.comp  (1)
+  Real.continuous_fourierChar  (1)
+  Real.differentiableAt_rpow_const_of_ne  (1)
+  Real.eulerMascheroniConstant  (5)
+  Real.exp  (17)
+  Real.exp_add  (1)
+  Real.exp_le_exp  (1)
+  Real.exp_le_exp.mpr  (5)
+  Real.exp_log  (1)
+  Real.exp_nonneg  (1)
+  Real.exp_one_lt_d9  (5)
+  Real.exp_pos  (7)
+  Real.exp_zero  (1)
+  Real.fourierInv_eq_fourier_neg  (1)
+  Real.fourier_real_eq_integral_exp_smul  (2)
+  Real.le_log_iff_exp_le  (1)
+  Real.log  (48)
+  Real.log_div  (1)
+  Real.log_eq_zero  (1)
+  Real.log_exp  (5)
+  Real.log_inv  (2)
+  Real.log_le_log  (11)
+  Real.log_le_rpow_div  (3)
+  Real.log_le_sub_one_of_pos  (2)
+  Real.log_mul  (4)
+  Real.log_nonneg  (8)
+  Real.log_pos  (7)
+  Real.log_pow  (3)
+  Real.log_rpow  (2)
+  Real.log_sqrt  (1)
+  Real.log_two_gt_d9  (1)
+  Real.log_zero  (1)
+  Real.mul_rpow  (2)
+  Real.norm_eq_abs  (21)
+  Real.norm_of_nonneg  (1)
+  Real.one_le_rpow  (3)
+  Real.one_rpow  (1)
+  Real.pi  (25)
+  Real.pi_gt_three  (4)
+  Real.pi_lt_d2  (2)
+  Real.pi_lt_four  (1)
+  Real.pi_ne_zero  (4)
+  Real.pi_pos  (2)
+  Real.pi_pos.le  (1)
+  Real.pi_pos.ne'  (2)
+  Real.rpow_add  (4)
+  Real.rpow_def_of_pos  (1)
+  Real.rpow_eq_zero  (1)
+  Real.rpow_le_rpow  (5)
+  Real.rpow_le_rpow_of_exponent_le  (4)
+  Real.rpow_mul  (3)
+  Real.rpow_natCast  (4)
+  Real.rpow_natCast_mul  (1)
+  Real.rpow_neg  (5)
+  Real.rpow_nonneg  (2)
+  Real.rpow_one  (3)
+  Real.rpow_sub  (1)
+  Real.rpow_two  (3)
+  Real.sq_sqrt  (1)
+  Real.sqrt  (5)
+  Real.sqrt_eq_rpow  (2)
+  Real.sqrt_le_sqrt  (1)
+  Real.sqrt_nonneg  (1)
+  Real.sqrt_pos.mpr  (1)
+  Real.sqrt_sq  (1)
+  Real.summable_abs_int_rpow  (1)
+  Real.summable_nat_rpow_inv.mpr  (2)
+  Real.summable_one_div_nat_pow.mpr  (1)
+  Real.tendsto_harmonic_sub_log.congr  (1)
+  Real.tendsto_harmonic_sub_log_add_one  (1)
+  Real.tsum_le_of_sum_range_le  (1)
+  Rectangle  (8)
+  S.card  (2)
+  S.finite_toSet.isClosed  (1)
+  Set.EqOn  (2)
+  Set.Finite.biUnion  (1)
+  Set.Finite.mem_toFinset  (6)
+  Set.Finite.subset  (2)
+  Set.Finite.toFinset_subset_toFinset.mpr  (1)
+  Set.Icc  (4)
+  Set.Iic  (1)
+  Set.Ioi  (1)
+  Set.MapsTo  (1)
+  Set.disjoint_left  (1)
+  Set.disjoint_right.mp  (1)
+  Set.finite_empty  (1)
+  Set.mapsTo_image  (4)
+  Set.mem_Icc  (3)
+  Set.mem_Iic  (1)
+  Set.mem_Ioo  (1)
+  Set.mem_biUnion  (1)
+  Set.mem_compl_iff  (2)
+  Set.mem_iUnion₂.mp  (1)
+  Set.mem_image  (1)
+  Set.mem_insert_iff  (1)
+  Set.mem_inter_iff  (1)
+  Set.mem_preimage  (1)
+  Set.mem_sdiff  (2)
+  Set.mem_singleton_iff  (2)
+  Set.mem_union  (2)
+  Set.sdiff_subset  (1)
+  Set.sdiff_subset_sdiff_left  (1)
+  Set.subset_compl_singleton_iff.mpr  (1)
+  Set.toFinite  (1)
+  Set.uIcc  (1)
+  Set.uIcc_of_le  (5)
+  Set.uIoc_of_le  (2)
+  Set.uIoo  (5)
+  Set.uIoo_of_le  (1)
+  Subtype.val_injective.injOn  (2)
+  Summable.hasSum_iff_tendsto_nat  (1)
+  Summable.multipliableLocallyUniformlyOn_nat_one_add  (1)
+  Summable.of_nonneg_of_le  (3)
+  Summable.of_norm  (1)
+  Summable.of_norm_bounded  (2)
+  Summable.of_norm_bounded_eventually  (3)
+  Summable.tsum_add  (1)
+  Summable.tsum_le_tsum  (2)
+  Tendsto  (13)
+  UnitAddCircle  (1)
+  VectorFourier.fourierIntegral_continuous  (1)
+  W.Finite  (1)
+  _root_.abs_abs  (2)
+  _root_.continuous_abs.measurable.comp  (1)
+  abbrev  (2)
+  abs_div  (4)
+  abs_im_le_norm  (1)
+  abs_mul  (5)
+  abs_neg  (5)
+  abs_nonneg  (14)
+  abs_of_neg  (1)
+  abs_of_nonneg  (9)
+  abs_of_nonpos  (3)
+  abs_of_pos  (12)
+  abs_re_le_norm  (2)
+  abs_two  (1)
+  abs_zero  (1)
+  across  (1)
+  add_assoc  (2)
+  add_comm  (7)
+  add_const  (1)
+  add_im  (3)
+  add_lt_add  (1)
+  add_mul  (2)
+  add_nonneg  (1)
+  add_re  (2)
+  add_right_inj  (1)
+  add_sub_cancel_left  (6)
+  add_sub_cancel_right  (1)
+  add_zero  (7)
+  ae_restrict_of_ae_restrict_of_subset  (1)
+  aestronglyMeasurable  (8)
+  algebra  (1)
+  analyticAt_const  (5)
+  analyticAt_id  (3)
+  analyticAt_iff_eventually_differentiableAt  (3)
+  analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt  (1)
+  analyticOn  (1)
+  analyticOnNhd  (1)
+  analyticOnNhd_const  (1)
+  analyticOnNhd_id  (1)
+  analyticOrderAt  (14)
+  analyticOrderAt_comp_of_deriv_ne_zero  (3)
+  analyticOrderAt_congr  (4)
+  analyticOrderAt_eq_natCast  (1)
+  analyticOrderAt_eq_top  (1)
+  analyticOrderAt_eq_zero  (1)
+  analyticOrderAt_mul  (4)
+  analyticOrderAt_of_not_analyticAt  (1)
+  analyticOrderAt_smul  (1)
+  analyticOrderNatAt  (18)
+  apply  (59)
+  arctan  (3)
+  arctan_inv_of_neg  (1)
+  arctan_inv_of_pos  (1)
+  arctan_neg  (1)
+  atTop  (14)
+  ball  (2)
+  bound  (10)
+  by_cases  (14)
+  card_range  (1)
+  cexp  (8)
+  choose  (8)
+  choose_spec  (2)
+  circleIntegral.norm_two_pi_i_inv_smul_integral_le_of_norm_le_const  (1)
+  closed  (1)
+  closure_minimal  (1)
+  codiscreteWithin_iff_locallyFiniteComplementWithin  (2)
+  comp  (11)
+  compare  (1)
+  comparison  (2)
+  cond  (1)
+  congr  (25)
+  congr'  (2)
+  congr_arg  (1)
+  conj  (14)
+  conj_ofReal  (1)
+  const  (1)
+  const_add  (1)
+  const_cpow  (5)
+  const_mul  (8)
+  contDiff_id  (1)
+  contDiff_neg  (1)
+  continuousAt  (4)
+  continuousAt_clog  (1)
+  continuousAt_update_same  (1)
+  continuousWithinAt  (1)
+  continuous_const  (10)
+  continuous_id  (1)
+  continuous_inner  (1)
+  continuous_neg  (1)
+  convert  (20)
+  convex_ball  (1)
+  cpow_add  (1)
+  cpow_eq_zero_iff  (3)
+  cpow_neg  (5)
+  cpow_zero  (1)
+  decomposition  (1)
+  deriv_const_add  (1)
+  deriv_const_mul  (2)
+  deriv_const_sub  (2)
+  deriv_id''  (2)
+  derivative  (2)
+  differentiableAt  (5)
+  differentiableAt_const  (3)
+  differentiableAt_id  (3)
+  differentiableAt_inv  (1)
+  differentiableOn_update_limUnder_of_bddAbove  (1)
+  differentiableWithinAt  (9)
+  differentiableWithinAt_inter'  (1)
+  dist_eq_norm  (4)
+  dist_self  (1)
+  dist_zero_right  (4)
+  div_const  (8)
+  div_eq_iff  (2)
+  div_eq_inv_mul  (4)
+  div_eq_mul_inv  (14)
+  div_eq_mul_one_div  (3)
+  div_le_div_iff_of_pos_right  (1)
+  div_le_div_iff₀  (6)
+  div_le_div_of_nonneg_left  (7)
+  div_le_div_of_nonneg_right  (2)
+  div_le_iff₀  (7)
+  div_le_one  (3)
+  div_mul_cancel₀  (3)
+  div_mul_eq_div_div_swap  (1)
+  div_mul_eq_mul_div  (1)
+  div_ne_zero  (2)
+  div_nonneg  (3)
+  div_one  (1)
+  div_pos  (1)
+  div_pow  (3)
+  div_self  (1)
+  div_zero  (2)
+  elim_nhds_subcover'  (1)
+  empty  (2)
+  enorm  (1)
+  eqOn_zero_or_eventually_ne_zero_of_preconnected  (1)
+  eq_one_div_of_mul_eq_one_left  (1)
+  eq_or_ne  (3)
+  evaluation  (1)
+  eventually  (2)
+  eventually_cofinite_ne  (1)
+  eventually_nhdsWithin_iff  (1)
+  every  (2)
+  exact  (157)
+  exfalso  (2)
+  exists_nat_gt  (1)
+  extended  (1)
+  extension  (1)
+  f_eq  (1)
+  factor  (1)
+  factors  (1)
+  false  (2)
+  fderivWithin_of_isOpen  (1)
+  field  (1)
+  filter  (1)
+  finite  (7)
+  finset  (1)
+  forall_const  (1)
+  from  (6)
+  frontier_closedBall'  (1)
+  full  (1)
+  function  (1)
+  funext  (20)
+  good  (2)
+  group  (2)
+  h_eq  (1)
+  harmonic  (2)
+  hasDerivAt_add_const_iff  (1)
+  hasDerivAt_const  (1)
+  hasDerivAt_id  (10)
+  hasDerivAt_integral_of_dominated_loc_of_deriv_le  (2)
+  hasDerivAt_inv  (1)
+  hasDerivAt_neg'  (2)
+  hasDerivAt_ofReal_cpow_const'  (1)
+  hasDerivAt_pow  (1)
+  hasSum  (1)
+  hasSum_zeta_two  (1)
+  hcast  (1)
+  hcomp  (3)
+  height  (2)
+  heval  (1)
+  hint  (7)
+  horizontal  (2)
+  horizontalSegment_eq  (2)
+  hsmul  (1)
+  hsum  (6)
+  id_eq  (4)
+  identity  (1)
+  im_ofNat  (1)
+  image_mono  (1)
+  image_subset_iff  (1)
+  induction  (2)
+  insert  (2)
+  integer  (1)
+  integrableOn_Icc  (1)
+  integrableOn_Ioi_cpow_iff  (1)
+  integrableOn_Ioi_rpow_iff  (1)
+  integrable_norm_iff  (1)
+  integrable_of_hasCompactSupport  (2)
+  integrable_one_add_norm  (1)
+  integrable_rpow_neg_one_add_norm_sq  (1)
+  integral  (5)
+  integral_add  (3)
+  integral_boundary_rect_eq_zero_of_differentiableOn  (1)
+  integral_congr  (4)
+  integral_congr_ae  (5)
+  integral_const_mul  (3)
+  integral_cpow  (1)
+  integral_deriv_eq_sub  (1)
+  integral_eq_sub_of_hasDerivAt  (1)
+  integral_id  (1)
+  integral_mul_const  (1)
+  integral_mul_deriv_eq_deriv_mul_of_integrable  (1)
+  integral_neg  (1)
+  integral_nonneg  (4)
+  integral_one_div_one_add_sq  (1)
+  integral_pow  (1)
+  integral_rpow  (1)
+  integral_sub  (2)
+  inter  (1)
+  inter_subset_left  (3)
+  interior  (1)
+  interior_Icc  (1)
+  intervalIntegrable  (3)
+  intervalIntegrable_iff'  (1)
+  intervalIntegrable_of_Icc  (1)
+  intervalIntegral.integral_add  (2)
+  intervalIntegral.integral_comp_neg  (1)
+  intervalIntegral.integral_comp_sub_right  (3)
+  intervalIntegral.integral_congr  (6)
+  intervalIntegral.integral_const  (1)
+  intervalIntegral.integral_const_mul  (3)
+  intervalIntegral.integral_div  (1)
+  intervalIntegral.integral_mono_on  (2)
+  intervalIntegral.integral_mul_const  (1)
+  intervalIntegral.integral_mul_deriv_eq_deriv_mul  (1)
+  intervalIntegral.integral_neg  (3)
+  intervalIntegral.integral_ofReal  (2)
+  intervalIntegral.integral_of_le  (2)
+  intervalIntegral.integral_sub  (1)
+  intervalIntegral.norm_integral_le_integral_norm  (1)
+  intervalIntegral.norm_integral_le_of_norm_le_const  (2)
+  intervalIntegral_tendsto_integral  (2)
+  intervalIntegral_tendsto_integral_Ioi  (1)
+  intro  (91)
+  inv_I  (1)
+  inv_anti₀  (1)
+  inv_eq_one_div  (1)
+  inv_inv  (1)
+  inv_le_comm₀  (1)
+  inv_mul_cancel₀  (1)
+  inv_mul_eq_div  (1)
+  inv_mul_le_iff₀  (1)
+  inv_ne_zero  (4)
+  inv_neg  (1)
+  inv_pow  (2)
+  inv₀  (1)
+  irrelevant  (2)
+  isBigO  (1)
+  isBigO_iff  (1)
+  isBigO_one  (2)
+  isBigO_zero  (1)
+  isClosed_Icc  (1)
+  isCompact_Icc  (3)
+  isCompact_closedBall  (2)
+  isConnected_compl_singleton_of_one_lt_rank  (1)
+  isLittleO_log_rpow_atTop  (1)
+  isOpen_compl_range_intCast  (2)
+  isOpen_compl_singleton  (3)
+  isOpen_lt  (9)
+  isOpen_lt'  (1)
+  isOpen_ne  (2)
+  isPathConnected_compl_singleton_of_one_lt_rank  (1)
+  iterate  (1)
+  itself  (1)
+  le_div_iff₀  (9)
+  le_mul_of_one_le_right  (2)
+  le_of_eq  (9)
+  le_of_lt  (7)
+  le_of_not_ge  (2)
+  le_of_tendsto  (1)
+  le_of_tendsto_of_tendsto  (1)
+  le_or_gt  (6)
+  le_refl  (2)
+  le_rfl  (10)
+  le_top  (1)
+  le_trans  (23)
+  left  (7)
+  left_mem_uIcc  (1)
+  limUnder  (1)
+  limit  (1)
+  locallyIntegrableOn  (1)
+  logDeriv_apply  (8)
+  logDeriv_comp  (5)
+  logDeriv_const_mul  (1)
+  logDeriv_fun_pow  (1)
+  logDeriv_inv  (1)
+  logDeriv_mul  (5)
+  logDeriv_pow  (1)
+  logDeriv_prod  (1)
+  logDeriv_tprod_eq_tsum  (1)
+  lower  (1)
+  lt_div_iff₀  (1)
+  lt_irrefl  (3)
+  lt_of_le_of_lt  (3)
+  lt_of_le_of_ne  (3)
+  lt_of_lt_of_le  (10)
+  lt_or_eq_of_le  (1)
+  lt_or_ge  (2)
+  lt_self_iff_false  (3)
+  lt_trans  (3)
+  map_add  (2)
+  map_div₀  (1)
+  map_mul  (2)
+  map_natCast  (1)
+  map_one  (5)
+  map_pow  (1)
+  map_sub  (5)
+  mapsTo_image  (1)
+  maximum  (1)
+  measurableSet  (1)
+  measurable_const  (3)
+  measurable_id  (1)
+  mem_Icc  (3)
+  mem_Ioo  (1)
+  mem_atTop  (1)
+  mem_compl_iff  (2)
+  mem_image  (1)
+  mem_inf_principal'  (1)
+  mem_insert_iff  (2)
+  mem_inter_iff  (2)
+  mem_interior_iff_mem_nhds  (1)
+  mem_nhdsWithin_of_mem_nhds  (2)
+  mem_nhds_iff  (1)
+  mem_of_mem_nhds  (1)
+  mem_reProdIm  (2)
+  mem_singleton_iff  (4)
+  mem_union  (2)
+  minus  (1)
+  module  (1)
+  mono'  (1)
+  mono_fun  (1)
+  move  (1)
+  mul_add  (3)
+  mul_assoc  (10)
+  mul_comm  (16)
+  mul_comm_div  (1)
+  mul_const  (1)
+  mul_div  (1)
+  mul_div_assoc  (1)
+  mul_div_cancel_left₀  (2)
+  mul_div_cancel₀  (2)
+  mul_div_mul_right  (1)
+  mul_eq_mul_left_iff  (1)
+  mul_eq_mul_right_iff  (1)
+  mul_eq_zero  (3)
+  mul_im  (2)
+  mul_integral_comp_mul_right  (1)
+  mul_inv_cancel₀  (1)
+  mul_le_mul  (12)
+  mul_le_mul_of_nonneg_left  (17)
+  mul_le_mul_of_nonneg_right  (10)
+  mul_left  (8)
+  mul_left_cancel₀  (2)
+  mul_left_comm  (1)
+  mul_ne_zero  (6)
+  mul_neg  (4)
+  mul_neg_of_neg_of_pos  (1)
+  mul_neg_of_pos_of_neg  (1)
+  mul_nonneg  (5)
+  mul_one  (7)
+  mul_one_div  (1)
+  mul_pos  (1)
+  mul_pos_of_neg_of_neg  (1)
+  mul_pow  (2)
+  mul_re  (2)
+  mul_right_eq_self₀  (1)
+  mul_right_inj'  (1)
+  mul_sub  (1)
+  mul_zero  (8)
+  multiplicity  (5)
+  natCast_log  (2)
+  neg_add  (1)
+  neg_add_cancel  (1)
+  neg_div  (1)
+  neg_mul  (5)
+  neg_neg  (7)
+  neg_re  (1)
+  neg_sq  (1)
+  neg_sub  (1)
+  nhds  (12)
+  nhdsWithin  (3)
+  nhdsWithin_le_nhds  (2)
+  nontrivial  (2)
+  normSq  (1)
+  norm_add_le  (6)
+  norm_conj  (1)
+  norm_cpow_eq_rpow_re_of_pos  (3)
+  norm_div  (19)
+  norm_eq_abs  (1)
+  norm_eq_zero  (1)
+  norm_exp_sub_one_sub_id_le  (1)
+  norm_integral_le_integral_norm  (1)
+  norm_integral_le_of_norm_le  (1)
+  norm_inv  (6)
+  norm_mul  (23)
+  norm_neg  (13)
+  norm_one  (6)
+  norm_pow  (9)
+  norm_prod  (3)
+  norm_real  (4)
+  norm_sum_le  (1)
+  norm_tsum_le_tsum_norm  (4)
+  norm_zero  (6)
+  not_exists  (1)
+  not_le  (1)
+  not_not  (1)
+  nsmul_eq_mul  (2)
+  ofReal_div  (1)
+  ofReal_eq_zero  (1)
+  ofReal_im  (3)
+  ofReal_mem_slitPlane  (1)
+  ofReal_mul  (1)
+  ofReal_neg  (1)
+  ofReal_ofNat  (1)
+  ofReal_one  (1)
+  ofReal_pow  (1)
+  ofReal_re  (3)
+  ofReal_sub  (1)
+  of_le  (1)
+  of_norm  (1)
+  of_norm_bounded_eventually  (1)
+  omega  (12)
+  one_div  (17)
+  one_div_le_one_div_of_le  (3)
+  one_div_one_div  (1)
+  one_im  (1)
+  one_le_pow₀  (1)
+  one_lt_two  (1)
+  one_mem  (1)
+  one_mul  (12)
+  one_ne_zero  (6)
+  one_pow  (1)
+  one_re  (4)
+  one_smul  (1)
+  opposite  (1)
+  order  (2)
+  other  (1)
+  over  (3)
+  part  (4)
+  pointwise  (3)
+  positivity  (50)
+  pow_eq_zero_iff'  (1)
+  pow_le_one₀  (1)
+  pow_le_pow_iff_left₀  (1)
+  pow_le_pow_left₀  (5)
+  pow_ne_zero  (8)
+  pow_nonneg  (1)
+  pow_pos  (2)
+  preimage  (1)
+  prime  (1)
+  principal  (1)
+  product  (3)
+  push  (3)
+  r_pos  (4)
+  radius  (2)
+  range  (1)
+  re_add_im  (1)
+  re_ofNat  (2)
+  refine  (113)
+  reflection  (1)
+  remainder  (1)
+  replace  (1)
+  right  (6)
+  right_mem_uIcc  (1)
+  ring  (77)
+  sdiff_empty  (1)
+  segment  (1)
+  self_mem_ae_restrict  (2)
+  self_mem_nhdsWithin  (2)
+  setIntegral_congr_fun  (1)
+  sets  (1)
+  shape  (1)
+  shift  (1)
+  sides  (1)
+  since  (1)
+  slope_fun_def_field  (1)
+  small  (2)
+  smul_add  (1)
+  smul_eq_mul  (9)
+  smul_sub  (1)
+  smul_zero  (1)
+  sphere  (1)
+  split  (2)
+  sq_abs  (11)
+  sq_nonneg  (9)
+  squeeze_zero  (2)
+  star  (1)
+  starRingEnd  (6)
+  star_div₀  (1)
+  star_one  (1)
+  structure  (6)
+  sub_add_cancel  (3)
+  sub_const  (5)
+  sub_eq_zero  (1)
+  sub_im  (2)
+  sub_mul  (2)
+  sub_re  (4)
+  sub_self  (6)
+  sub_zero  (12)
+  subset  (5)
+  subst  (2)
+  subtype  (1)
+  sum_add_tsum_nat_add  (1)
+  sum_const  (2)
+  sum_le_sum  (1)
+  sum_mul_eq_sub_sub_integral_mul  (1)
+  summable_nat_add_iff  (5)
+  summable_of_sum_le  (1)
+  support  (2)
+  support_deriv_subset  (1)
+  tendsto  (1)
+  tendsto_atTop_atTop_of_monotone  (1)
+  tendsto_atTop_mono  (1)
+  tendsto_const_nhds  (5)
+  tendsto_natCast_atTop_atTop  (5)
+  tendsto_nhdsWithin_of_tendsto_nhds  (1)
+  tendsto_nhds_unique  (5)
+  tendsto_of_tendsto_of_tendsto_of_le_of_le  (1)
+  tendsto_one_div_add_atTop_nhds_zero_nat  (1)
+  tendsto_rpow_atTop  (1)
+  tendsto_rpow_neg_atTop  (2)
+  then  (7)
+  this  (77)
+  three  (2)
+  toFinset  (9)
+  toNat  (3)
+  total  (1)
+  trans  (8)
+  triangle  (1)
+  trivial  (3)
+  tsub_le_iff_right  (1)
+  tsub_zero  (1)
+  tsum_mul_left  (4)
+  tsum_star  (1)
+  tsupport_deriv_subset  (1)
+  two_ne_zero  (3)
+  uIcc  (2)
+  uIcc_of_le  (7)
+  uIoo  (1)
+  uIoo_of_le  (2)
+  unfold  (43)
+  unitInterval  (1)
+  value  (3)
+  vertical  (1)
+  verticalSegment_eq  (2)
+  volume  (13)
+  which  (1)
+  with  (66)
+  x_pos  (1)
+  zero_add  (9)
+  zero_cpow  (1)
+  zero_div  (2)
+  zero_le_one  (6)
+  zero_le_two  (1)
+  zero_mul  (5)
+  zero_re  (1)
+  zero_sub  (2)
+
+## (d) NEITHER, BY MODULE
+### Zeta23.Analytic.RectangleLogDeriv -- 3
+  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv_of_poles  [Zeta23.Analytic.RectangleLogDeriv :180] theorem
+  Zeta23.Analytic.rectangleIntegral'_mul_logDeriv_of_poles.match_1_5  [Zeta23.Analytic.RectangleLogDeriv :None] def
+  Zeta23.Analytic.residueTheorem_finset  [Zeta23.Analytic.RectangleLogDeriv :46] theorem
+### Zeta23.Analytic.Stirling -- 1
+  Zeta23.Stirling.differentiableAt_digamma  [Zeta23.Analytic.Stirling :44] theorem
+### Zeta23.Defs -- 14
+  Zeta23.ZeroConfig  [Zeta23.Defs :126] inductive  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.N  [Zeta23.Defs :161] def  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.carrier  [Zeta23.Defs :138] def  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.finite_window  [Zeta23.Defs :146] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.mk  [Zeta23.Defs :136] ctor  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.mult  [Zeta23.Defs :140] def  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.mult_reflect  [Zeta23.Defs :144] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.one_le_mult  [Zeta23.Defs :141] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.reflect_mem  [Zeta23.Defs :143] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.strip  [Zeta23.Defs :142] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.window  [Zeta23.Defs :152] def  TAKES-ZeroConfig
+  Zeta23.gammaOf  [Zeta23.Defs :119] def
+  Zeta23.paperFT  [Zeta23.Defs :58] def
+  Zeta23.reflect  [Zeta23.Defs :123] def
+### Zeta23.Defs.Counting -- 2
+  Zeta23.ZeroConfig.finsum_mult_mono  [Zeta23.Defs.Counting :50] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.window_finite  [Zeta23.Defs.Counting :36] theorem  TAKES-ZeroConfig
+### Zeta23.ExplicitFormula -- 4
+  Zeta23.EF.cintegral_const_mul  [Zeta23.ExplicitFormula :115] theorem
+  Zeta23.EF.integrable_paperFT_ofReal  [Zeta23.ExplicitFormula :139] theorem
+  Zeta23.EF.paperFT_ofReal_eq_fourier  [Zeta23.ExplicitFormula :125] theorem
+  Zeta23.EF.paper_inversion  [Zeta23.ExplicitFormula :147] theorem
+### Zeta23.ExplicitFormula.Bridge -- 4
+  Zeta23.EF.continuous_fourier_of_integrable  [Zeta23.ExplicitFormula.Bridge :81] theorem
+  Zeta23.EF.exists_abs_le_of_hasCompactSupport  [Zeta23.ExplicitFormula.Bridge :48] theorem
+  Zeta23.EF.integrable_fourier_of_contDiff_two  [Zeta23.ExplicitFormula.Bridge :84] theorem
+  Zeta23.EF.norm_fourier_mul_one_add_sq_le  [Zeta23.ExplicitFormula.Bridge :56] theorem
+### Zeta23.FromPNTPlus.Auxiliary -- 1
+  DifferentiableAt.comp_ofReal  [Zeta23.FromPNTPlus.Auxiliary :68] theorem
+### Zeta23.FromPNTPlus.EulerMaclaurin -- 10
+  B1  [Zeta23.FromPNTPlus.EulerMaclaurin :55] def
+  _private.Zeta23.FromPNTPlus.EulerMaclaurin.0.abs_B1_le_half._proof_1_1  [Zeta23.FromPNTPlus.EulerMaclaurin :None] theorem
+  _private.Zeta23.FromPNTPlus.EulerMaclaurin.0.abs_B1_le_half._proof_1_2  [Zeta23.FromPNTPlus.EulerMaclaurin :None] theorem
+  _private.Zeta23.FromPNTPlus.EulerMaclaurin.0.integral_deriv_mul_add_const._simp_1_1  [Zeta23.FromPNTPlus.EulerMaclaurin :None] theorem
+  abs_B1_le_half  [Zeta23.FromPNTPlus.EulerMaclaurin :63] theorem
+  aestronglyMeasurable_B1  [Zeta23.FromPNTPlus.EulerMaclaurin :58] theorem
+  integral_deriv_mul_add_const  [Zeta23.FromPNTPlus.EulerMaclaurin :69] theorem
+  integral_deriv_mul_floor_add_one  [Zeta23.FromPNTPlus.EulerMaclaurin :92] theorem
+  intervalIntegrable_deriv_mul_B1  [Zeta23.FromPNTPlus.EulerMaclaurin :82] theorem
+  sum_eq_integral_add_integral_deriv  [Zeta23.FromPNTPlus.EulerMaclaurin :108] theorem
+### Zeta23.FromPNTPlus.Rectangle -- 15
+  RectangleBorder  [Zeta23.FromPNTPlus.Rectangle :63] def
+  Set.left_not_mem_uIoo  [Zeta23.FromPNTPlus.Rectangle :114] theorem
+  Set.left_not_mem_uIoo.match_1_1  [Zeta23.FromPNTPlus.Rectangle :None] def
+  Set.ne_left_of_mem_uIoo  [Zeta23.FromPNTPlus.Rectangle :120] theorem
+  Set.ne_right_of_mem_uIoo  [Zeta23.FromPNTPlus.Rectangle :123] theorem
+  Set.right_not_mem_uIoo  [Zeta23.FromPNTPlus.Rectangle :117] theorem
+  Set.right_not_mem_uIoo.match_1_1  [Zeta23.FromPNTPlus.Rectangle :None] def
+  mapsTo_rectangleBorder_left_im  [Zeta23.FromPNTPlus.Rectangle :238] theorem
+  mapsTo_rectangleBorder_left_re  [Zeta23.FromPNTPlus.Rectangle :228] theorem
+  mapsTo_rectangleBorder_right_im  [Zeta23.FromPNTPlus.Rectangle :243] theorem
+  mapsTo_rectangleBorder_right_re  [Zeta23.FromPNTPlus.Rectangle :233] theorem
+  not_mem_rectangleBorder_of_rectangle_mem_nhds  [Zeta23.FromPNTPlus.Rectangle :272] theorem
+  rectangleBorder_disjoint_singleton  [Zeta23.FromPNTPlus.Rectangle :182] theorem
+  rectangleBorder_subset_rectangle  [Zeta23.FromPNTPlus.Rectangle :162] theorem
+  rectangle_mem_nhds_iff  [Zeta23.FromPNTPlus.Rectangle :207] theorem
+### Zeta23.FromPNTPlus.ResidueCalcOnRectangles -- 25
+  Complex.inv_re_add_im  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :439] theorem
+  ContinuousOn.rectangleBorder_integrable  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :197] theorem
+  HIntegral  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :59] def
+  HolomorphicOn  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :129] def
+  HolomorphicOn.vanishesOnRectangle  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :145] theorem
+  IsBigO_to_BddAbove  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :584] theorem
+  RectangleBorderIntegrable  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :179] def
+  RectangleBorderIntegrable.add  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :185] theorem
+  RectangleIntegral  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :78] def
+  RectangleIntegral'  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :84] def
+  RectangleIntegral'.eq_1  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :None] theorem
+  RectangleIntegral'_congr  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :162] theorem
+  RectangleIntegral.eq_1  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :None] theorem
+  RectangleIntegral.translate  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :429] theorem
+  RectangleIntegral.translate'  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :435] theorem
+  RectangleIntegral_congr  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :152] theorem
+  ResidueTheoremAtOrigin'  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :514] theorem
+  ResidueTheoremInRectangle  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :536] theorem
+  VIntegral  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :62] def
+  continuous_self_div_sq_add_sq  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :446] theorem
+  integral_const_div_re_add_self  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :496] theorem
+  integral_const_div_self_add_im  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :473] theorem
+  integral_const_div_sq_add_sq  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :463] theorem
+  integral_self_div_sq_add_sq  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :450] theorem
+  sq_add_sq_ne_zero  [Zeta23.FromPNTPlus.ResidueCalcOnRectangles :443] theorem
+### Zeta23.FromPNTPlus.StrongPNTPrefix -- 18
+  AnalyticOn.norm_le_of_norm_le_on_sphere  [Zeta23.FromPNTPlus.StrongPNTPrefix :61] theorem
+  BlaschkeAnalytic  [Zeta23.FromPNTPlus.StrongPNTPrefix :345] theorem
+  BlaschkeB  [Zeta23.FromPNTPlus.StrongPNTPrefix :340] def
+  BlaschkeOfZero  [Zeta23.FromPNTPlus.StrongPNTPrefix :364] theorem
+  BorelCaratheodoryDeriv  [Zeta23.FromPNTPlus.StrongPNTPrefix :136] theorem
+  Cf  [Zeta23.FromPNTPlus.StrongPNTPrefix :269] def
+  CfAnalytic  [Zeta23.FromPNTPlus.StrongPNTPrefix :289] theorem
+  DerivativeBound  [Zeta23.FromPNTPlus.StrongPNTPrefix :110] theorem
+  DiskBound  [Zeta23.FromPNTPlus.StrongPNTPrefix :405] theorem
+  LogOfAnalyticFunction  [Zeta23.FromPNTPlus.StrongPNTPrefix :152] theorem
+  SetOfZeros  [Zeta23.FromPNTPlus.StrongPNTPrefix :222] def
+  ZeroFactor  [Zeta23.FromPNTPlus.StrongPNTPrefix :235] def
+  ZeroFactorization  [Zeta23.FromPNTPlus.StrongPNTPrefix :242] theorem
+  ZerosBound  [Zeta23.FromPNTPlus.StrongPNTPrefix :481] theorem
+  analyticAt_finset_prod_sub_pow  [Zeta23.FromPNTPlus.StrongPNTPrefix :277] theorem
+  borelCaratheodory'  [Zeta23.FromPNTPlus.StrongPNTPrefix :79] theorem
+  cauchy_formula_deriv  [Zeta23.FromPNTPlus.StrongPNTPrefix :100] theorem
+  finiteSetOfZeros_mono  [Zeta23.FromPNTPlus.StrongPNTPrefix :224] theorem
+### Zeta23.FromPNTPlus.ZetaBounds -- 39
+  Complex.cpow_inv_tendsto  [Zeta23.FromPNTPlus.ZetaBounds :780] theorem
+  Complex.cpow_tendsto  [Zeta23.FromPNTPlus.ZetaBounds :772] theorem
+  Complex.one_div_cpow_eq  [Zeta23.FromPNTPlus.ZetaBounds :569] theorem
+  Finset.Ioc_eq_Ico  [Zeta23.FromPNTPlus.ZetaBounds :751] theorem
+  Finset.Ioc_eq_Ico.match_1_3  [Zeta23.FromPNTPlus.ZetaBounds :None] def
+  Finset.Ioc_eq_Ico.match_1_5  [Zeta23.FromPNTPlus.ZetaBounds :None] def
+  HasDerivAt_cpow_over_var  [Zeta23.FromPNTPlus.ZetaBounds :1079] theorem
+  HasDerivAt_neg_cpow_over2  [Zeta23.FromPNTPlus.ZetaBounds :1074] theorem
+  Real.differentiableAt_cpow_const_of_ne  [Zeta23.FromPNTPlus.ZetaBounds :564] theorem
+  ZetaBnd_aux1a  [Zeta23.FromPNTPlus.ZetaBounds :741] theorem
+  ZetaBnd_aux1b  [Zeta23.FromPNTPlus.ZetaBounds :843] theorem  BENEATH-a
+  ZetaSum_aux1  [Zeta23.FromPNTPlus.ZetaBounds :642] theorem
+  ZetaSum_aux1_1  [Zeta23.FromPNTPlus.ZetaBounds :667] theorem
+  ZetaSum_aux1_1'  [Zeta23.FromPNTPlus.ZetaBounds :664] theorem
+  ZetaSum_aux1_2  [Zeta23.FromPNTPlus.ZetaBounds :670] theorem
+  ZetaSum_aux1_3  [Zeta23.FromPNTPlus.ZetaBounds :682] theorem
+  ZetaSum_aux1_4  [Zeta23.FromPNTPlus.ZetaBounds :691] theorem
+  ZetaSum_aux1_4'  [Zeta23.FromPNTPlus.ZetaBounds :685] theorem
+  ZetaSum_aux1_5  [Zeta23.FromPNTPlus.ZetaBounds :733] theorem
+  ZetaSum_aux1_5a  [Zeta23.FromPNTPlus.ZetaBounds :697] theorem
+  ZetaSum_aux1_5b  [Zeta23.FromPNTPlus.ZetaBounds :703] theorem
+  ZetaSum_aux1_5c  [Zeta23.FromPNTPlus.ZetaBounds :715] theorem
+  ZetaSum_aux1_5d  [Zeta23.FromPNTPlus.ZetaBounds :723] theorem
+  ZetaSum_aux1derivφCont  [Zeta23.FromPNTPlus.ZetaBounds :634] theorem
+  ZetaSum_aux1φDiff  [Zeta23.FromPNTPlus.ZetaBounds :610] theorem
+  ZetaSum_aux1φderiv  [Zeta23.FromPNTPlus.ZetaBounds :616] theorem
+  ZetaSum_aux1₁  [Zeta23.FromPNTPlus.ZetaBounds :600] theorem
+  ZetaSum_aux2  [Zeta23.FromPNTPlus.ZetaBounds :813] theorem  BENEATH-a
+  ZetaSum_aux2a  [Zeta23.FromPNTPlus.ZetaBounds :787] theorem
+  ZetaSum_aux3  [Zeta23.FromPNTPlus.ZetaBounds :790] theorem
+  div_cpow_eq_cpow_neg  [Zeta23.FromPNTPlus.ZetaBounds :58] theorem
+  div_rpow_eq_rpow_neg  [Zeta23.FromPNTPlus.ZetaBounds :64] theorem
+  finsetSum_tendsto_tsum  [Zeta23.FromPNTPlus.ZetaBounds :760] theorem
+  integrable_log_over_pow  [Zeta23.FromPNTPlus.ZetaBounds :910] theorem
+  isOpen_aux  [Zeta23.FromPNTPlus.ZetaBounds :905] theorem
+  isPathConnected_aux  [Zeta23.FromPNTPlus.ZetaBounds :1123] theorem
+  measurable_floor_add_half_sub  [Zeta23.FromPNTPlus.ZetaBounds :710] theorem
+  sum_eq_int_deriv  [Zeta23.FromPNTPlus.ZetaBounds :574] theorem
+  xpos_of_uIcc  [Zeta23.FromPNTPlus.ZetaBounds :595] theorem
+### Zeta23.Poisson.PaperFT -- 10
+  Zeta23.hasCompactSupport_of_support_subset_abs  [Zeta23.Poisson.PaperFT :143] theorem
+  Zeta23.norm_cexp_I_mul  [Zeta23.Poisson.PaperFT :83] theorem
+  Zeta23.norm_cexp_I_mul_le  [Zeta23.Poisson.PaperFT :88] theorem
+  Zeta23.norm_paperFT_le  [Zeta23.Poisson.PaperFT :95] theorem
+  Zeta23.norm_paperFT_le_div  [Zeta23.Poisson.PaperFT :171] theorem
+  Zeta23.norm_paperFT_mul_sq_le  [Zeta23.Poisson.PaperFT :153] theorem
+  Zeta23.paperFT_def  [Zeta23.Poisson.PaperFT :43] theorem
+  Zeta23.paperFT_deriv  [Zeta23.Poisson.PaperFT :108] theorem
+  Zeta23.paperFT_deriv_deriv  [Zeta23.Poisson.PaperFT :134] theorem
+  Zeta23.tsupport_subset_of_support_subset_abs  [Zeta23.Poisson.PaperFT :149] theorem
+### Zeta23.RvM.Halving -- 6
+  Zeta23.ZeroConfig.N_le_two_mul_half  [Zeta23.RvM.Halving :58] theorem  TAKES-ZeroConfig
+  Zeta23.ZeroConfig.reflect_mem_window  [Zeta23.RvM.Halving :55] theorem  TAKES-ZeroConfig
+  Zeta23.reflect_im  [Zeta23.RvM.Halving :43] theorem
+  Zeta23.reflect_injective  [Zeta23.RvM.Halving :48] theorem
+  Zeta23.reflect_re  [Zeta23.RvM.Halving :42] theorem
+  Zeta23.reflect_reflect  [Zeta23.RvM.Halving :45] theorem
+### Zeta23.RvM.LocalCount -- 5
+  Zeta23.RvM.NhalfR  [Zeta23.RvM.LocalCount :108] def  BENEATH-b  BENEATH-a
+  Zeta23.RvM.gfun  [Zeta23.RvM.LocalCount :63] def
+  Zeta23.RvM.gfun.eq_1  [Zeta23.RvM.LocalCount :None] theorem
+  Zeta23.RvM.gfun_analyticAt  [Zeta23.RvM.LocalCount :72] theorem  BENEATH-a
+  Zeta23.RvM.half_count_large  [Zeta23.RvM.LocalCount :111] theorem  BENEATH-b  BENEATH-a
+### Zeta23.RvM.ZetaGrowth -- 1
+  Zeta23.RvM.one_third_lt_two_sub_pi_sq_div_six  [Zeta23.RvM.ZetaGrowth :226] theorem
+### Zeta23.Statement.Seam -- 1
+  Zeta23.isConnected_compl_one  [Zeta23.Statement.Seam :51] theorem
+### Zeta23.Tail -- 1
+  Zeta23.Tail.LocalCount.ofWindowCount  [Zeta23.Tail :132] theorem  TAKES-ZeroConfig
+### Zeta23.Tail.Basic -- 5
+  Zeta23.Tail.LocalCount  [Zeta23.Tail.Basic :73] inductive
+  Zeta23.Tail.LocalCount.A₀_pos  [Zeta23.Tail.Basic :87] theorem
+  Zeta23.Tail.LocalCount.mk  [Zeta23.Tail.Basic :82] ctor
+  Zeta23.Tail.LocalCount.one_le  [Zeta23.Tail.Basic :83] theorem
+  Zeta23.Tail.LocalCount.window  [Zeta23.Tail.Basic :84] theorem
+### Zeta23.Tail.Count -- 1
+  Zeta23.Tail.sum_mult_le_of_windows  [Zeta23.Tail.Count :409] theorem
+### Zeta23.WeilEF.FullLine -- 9
+  Zeta23.WeilEF.Fline  [Zeta23.WeilEF.FullLine :337] def
+  Zeta23.WeilEF.Hfn_apply  [Zeta23.WeilEF.FullLine :45] theorem
+  Zeta23.WeilEF.continuous_Hfn_line  [Zeta23.WeilEF.FullLine :99] theorem
+  Zeta23.WeilEF.continuous_Hfn_reflect  [Zeta23.WeilEF.FullLine :344] theorem
+  Zeta23.WeilEF.integrable_Fline  [Zeta23.WeilEF.FullLine :361] theorem  BENEATH-b  BENEATH-a
+  Zeta23.WeilEF.log_two_add_le  [Zeta23.WeilEF.FullLine :172] theorem
+  Zeta23.WeilEF.norm_Hfn_le  [Zeta23.WeilEF.FullLine :52] theorem
+  Zeta23.WeilEF.one_sub_cast  [Zeta23.WeilEF.FullLine :341] theorem
+  Zeta23.WeilEF.tendsto_interval_Fline  [Zeta23.WeilEF.FullLine :430] theorem  BENEATH-b  BENEATH-a
+### Zeta23.WeilEF.FullLineAssembly -- 2
+  Zeta23.WeilEF.corner_re_im  [Zeta23.WeilEF.FullLineAssembly :38] theorem
+  Zeta23.WeilEF.inv_two_pi_I_mul_I  [Zeta23.WeilEF.FullLineAssembly :44] theorem
+### Zeta23.WeilEF.GoodHeights -- 3
+  Zeta23.WeilEF.abs_im_sub_le_norm_sub  [Zeta23.WeilEF.GoodHeights :95] theorem
+  Zeta23.WeilEF.exists_far_point  [Zeta23.WeilEF.GoodHeights :44] theorem
+  Zeta23.WeilEF.im_mem_of_mem_closedBall  [Zeta23.WeilEF.GoodHeights :109] theorem
+### Zeta23.WeilEF.Landau -- 8
+  Zeta23.WeilEF.Cf_ne_zero  [Zeta23.WeilEF.Landau :45] theorem
+  Zeta23.WeilEF.f_eq_prod_mul_Cf  [Zeta23.WeilEF.Landau :75] theorem
+  Zeta23.WeilEF.finite_SetOfZeros  [Zeta23.WeilEF.Landau :329] theorem
+  Zeta23.WeilEF.logDeriv_partial_fraction_disk  [Zeta23.WeilEF.Landau :360] theorem
+  Zeta23.WeilEF.logDeriv_partial_fraction_unit  [Zeta23.WeilEF.Landau :312] theorem
+  Zeta23.WeilEF.logDeriv_split  [Zeta23.WeilEF.Landau :102] theorem
+  Zeta23.WeilEF.logDeriv_zero_prod  [Zeta23.WeilEF.Landau :91] theorem
+  Zeta23.WeilEF.norm_logDeriv_Cf_le  [Zeta23.WeilEF.Landau :142] theorem
+### Zeta23.WeilEF.Main -- 1
+  Zeta23.WeilEF.Hfn_mirror  [Zeta23.WeilEF.Main :37] theorem
+### Zeta23.WeilEF.VerticalLine -- 14
+  Zeta23.WeilEF.Hfn  [Zeta23.WeilEF.VerticalLine :53] def
+  Zeta23.WeilEF.Hfn_line  [Zeta23.WeilEF.VerticalLine :69] theorem
+  Zeta23.WeilEF.differentiable_paperFT  [Zeta23.WeilEF.VerticalLine :511] theorem
+  Zeta23.WeilEF.digamma_growth_strip  [Zeta23.WeilEF.VerticalLine :258] theorem  BENEATH-b
+  Zeta23.WeilEF.integrable_line  [Zeta23.WeilEF.VerticalLine :429] theorem
+  Zeta23.WeilEF.line_integral_swap  [Zeta23.WeilEF.VerticalLine :176] theorem
+  Zeta23.WeilEF.log_two_add_div_le  [Zeta23.WeilEF.VerticalLine :567] theorem
+  Zeta23.WeilEF.norm_paperFT_le_uniform  [Zeta23.WeilEF.VerticalLine :593] theorem
+  Zeta23.WeilEF.per_n_line_integral  [Zeta23.WeilEF.VerticalLine :113] theorem
+  Zeta23.WeilEF.tilt  [Zeta23.WeilEF.VerticalLine :56] def
+  Zeta23.WeilEF.tilt_contDiff  [Zeta23.WeilEF.VerticalLine :59] theorem
+  Zeta23.WeilEF.tilt_hasCompactSupport  [Zeta23.WeilEF.VerticalLine :65] theorem
+  Zeta23.WeilEF.tilted_inversion  [Zeta23.WeilEF.VerticalLine :83] theorem
+  Zeta23.WeilEF.vertical_line_shift  [Zeta23.WeilEF.VerticalLine :440] theorem
+### Zeta23.WeilEF.ZeroSummability -- 13
+  Zeta23.WeilEF.EF_zero_sum_summable_gen  [Zeta23.WeilEF.ZeroSummability :177] theorem  TAKES-ZeroConfig
+  Zeta23.WeilEF.abs_gammaOf_im_le  [Zeta23.WeilEF.ZeroSummability :49] theorem
+  Zeta23.WeilEF.abs_im_le_norm_gammaOf  [Zeta23.WeilEF.ZeroSummability :42] theorem
+  Zeta23.WeilEF.gammaOf_im  [Zeta23.WeilEF.ZeroSummability :39] theorem
+  Zeta23.WeilEF.gammaOf_re  [Zeta23.WeilEF.ZeroSummability :36] theorem
+  Zeta23.WeilEF.key  [Zeta23.WeilEF.ZeroSummability :97] def
+  Zeta23.WeilEF.key_lt  [Zeta23.WeilEF.ZeroSummability :100] theorem
+  Zeta23.WeilEF.le_key_add_one  [Zeta23.WeilEF.ZeroSummability :103] theorem
+  Zeta23.WeilEF.one_add_sq_ge  [Zeta23.WeilEF.ZeroSummability :106] theorem
+  Zeta23.WeilEF.summable_weight  [Zeta23.WeilEF.ZeroSummability :82] theorem
+  Zeta23.WeilEF.totalWeight  [Zeta23.WeilEF.ZeroSummability :92] def
+  Zeta23.WeilEF.weight_le  [Zeta23.WeilEF.ZeroSummability :55] theorem
+  Zeta23.WeilEF.zero_sum_inv_sq_gen  [Zeta23.WeilEF.ZeroSummability :119] theorem  TAKES-ZeroConfig
+### Zeta23.ZetaReflect -- 11
+  Zeta23.analyticOrderAt_conj_conj  [Zeta23.ZetaReflect :131] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.Efac  [Zeta23.ZetaReflect :178] def
+  _private.Zeta23.ZetaReflect.0.Zeta23.Efac._proof_1  [Zeta23.ZetaReflect :None] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.Efac_ne_zero  [Zeta23.ZetaReflect :186] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.Efac_ne_zero._proof_1_1  [Zeta23.ZetaReflect :None] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.analyticAt_Efac  [Zeta23.ZetaReflect :215] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.analyticAt_conj_conj  [Zeta23.ZetaReflect :123] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.tendsto_conj_nhds  [Zeta23.ZetaReflect :118] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.two_pi_ne_zero'  [Zeta23.ZetaReflect :182] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.two_pi_ne_zero'._simp_1_1  [Zeta23.ZetaReflect :None] theorem
+  _private.Zeta23.ZetaReflect.0.Zeta23.two_pi_ne_zero'._simp_1_2  [Zeta23.ZetaReflect :None] theorem
+
+### ### **THE CLOSURE 383 PROGRAMME CONSTANTS: (a) 64 ; (b) 92 ; (d) 227, COMPILED ; AND LEXICALLY (a) 11, (b) 7, (c) 1069 ; CONTROLS 7 OF 7.**
