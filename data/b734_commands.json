@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T08:24:52Z",
+ "at": "2026-11-02T08:59:21Z",
  "anchor": "RULING (R344) BEGIN",
  "rows": [
   {
@@ -1072,6 +1072,198 @@
    "src": "seat",
    "cmd": "python -X utf8 tools/standing/actmodule.py render b734 HEAD --write && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/shift734.py\" && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/standing/fold.py record guard",
    "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:24:59.651Z",
+   "src": "seat",
+   "cmd": "git add tools/standing/fold/checks.tpl",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:25:02.145Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b734 standing: the space v1.14.0 dropped at checks.tpl :126, a syntax error in every suite part, defect (p); tools/standing/ stays v1.14.0\"",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:25:04.391Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:25:06.866Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 1\" 21a94e81 && python -X utf8 -u tools/standing/fold.py record findings dry",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:26:06.492Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/ent734.py\" && python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py report dry && python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:26:14.259Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py report dry && python -X utf8 -u tools/standing/fold.py closing dry",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:27:09.068Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_address_scan.py scan --bank && git status --short -- data tools && git add data/b734_address_scan.txt data/b734_bank_hashes.json data/b734_commands.json data/b734_commands.txt data/b734_defects.txt data/b734_guard_dry.json data/b734_guard_dry.txt data/b734_hook_refusals.txt data/b734_kernels_face.json data/b734_reproduce.json data/b734_reproduce.txt data/b734_standing_figures.json data/b734_standing_figures.txt data/b734_steps.json data/b734_touch.txt data/b734_pathrefusal.txt tools/acts/b734.py tools/b734_face.py tools/b734_face_blocks.txt tools/b734_prepaths.py tools/b734_sections.txt tools/b734_worklist.py",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:27:18.426Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b734 gate: the act's sections, the face tool and its blocks, the probe-path refusal, the reproduction, the standing figures, the kernels face, the guard's dry run, the touch read; defects to (r)\"",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:27:22.496Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD && python -X utf8 tools/standing/actmodule.py render b734 HEAD && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/free734.py\"",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:27:25.353Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 6c5a7423 && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:29:13.095Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"G-R[0-9⟪A-Z⟫]*-ENTERED|def receipt_ok|def r329|def entered_ok|def listings\" -- tools/standing/fold/checks.tpl tools/acts/b734.py",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:29:19.481Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"G-R[0-9]+-ENTERED|ENTERED'|_entered|NAMED_PUSH =|first_listing_ts=|first_delete_ts=\" -- tools/standing/fold/checks.tpl tools/b734_worklist.py",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:30:08.581Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^def (deletes_read|kept_clause|words_of|delete_clauses|_kept|read_kept)\" -- tools/standing/allow.py && git grep -n -E \"def (delete_shape|chained_after)\" -- tools/standing/fold/record.tpl tools/standing tools/b641_record.py tools/b633_record.py",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:30:16.446Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/del734.py\"",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:30:58.073Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734.py\" && python -X utf8 -u tools/b734_face.py && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/free734.py\"",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:31:02.330Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:36:01.027Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --prev b733_arms_prerun_standing-b1.txt",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:38:35.873Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b1",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:41:08.407Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2a",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:46:46.916Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b2b",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:53:35.078Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-b3",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:57:02.432Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-c",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:58:58.226Z",
+   "src": "seat",
+   "cmd": "git log --oneline 05d53af9..HEAD -- tools/act_root.py tools/b378_lockgate.py && git diff -U0 05d53af9 HEAD -- tools/act_root.py",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:59:10.147Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b734_address_scan.py scan --bank --quiet-none && git add data/b734_address_scan.txt data/b734_bank_hashes.json data/b734_commands.json data/b734_commands.txt data/b734_defects.txt data/b734_hook_refusals.txt data/b734_steps.json tools/acts/b734.py tools/b734_face_blocks.txt tools/b734_sections.txt tools/b734_worklist.py",
+   "n": 158,
    "bg": false
   }
  ],

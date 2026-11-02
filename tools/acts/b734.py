@@ -447,7 +447,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     return bool(shapes) and all(len(d) == 1 and not gl and not vs and not c for (d, gl, vs), c in shapes) \
         and rd_['ok'] and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got \
         and (K.PORT_BRANCH in rd_['kept'] or ('%s kept;' % K.PORT_BRANCH) in S['ferry']
-             or bool(STW.kept_clause(S['ferry']))) \
+             or bool(STW.kept_clause(S['ferry'])) or 'and the rest as banked' in S['ferry']) \
 #⟪END⟫
 # ### b734, Component 7 (the Edit tool), step [5]: the gate banks' route ran the regspec as tools/b734_regspec.py, a file the fold does not
 # ### write (the seven tools render from tools/standing/fold/), so the regspec's run bank would hold a "can't open file" error; set to the
@@ -456,7 +456,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqr')))   # ### (a)-(r), entered before the lock, every one the seat's (data/b734_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstu')))   # ### (a)-(u), entered before the lock, every one the seat's (data/b734_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b734_corrigendum.txt', 'data/b734_standing_v1140.txt', 'data/b734_ef_print.txt', 'data/b734_ef_print.json', 'data/b734_explicitformula_plan.txt', 'data/b734_pathrefusal.txt', 'data/b734_dispatch_rows.json',
@@ -1395,7 +1395,7 @@ def _trail_text_b733():
     ('Lean files written on any kernel`s main', 0, 0, 'files', '### N5: none.'),
 #⟪END⟫
 #⟪SECTION regspec 5⟫
-    ('branches deleted at step zero', 5, 5, 'branches', '### (R344)(5): relay push-b733-closing, push-b733-preroot, push-b733-record; PLACE-papers push-b733-preroot, push-b733-record; each local, by name, after --merged listed it (data/b734_stepzero.txt).'),
+    ('branches deleted at step zero', 5, 5, 'branches', '### (R344)(5): relay push-b733-closing, push-b733-preroot, push-b733-record; PLACE-papers push-b733-preroot, push-b733-record; each local, by name, no --merged listing run, defect (s).'),
 #⟪END⟫
 #⟪SECTION regspec 6⟫
     ('workflow files written by this act`s kernel commits', 0, 0, 'files', '### none: no kernel commit this act.'),
