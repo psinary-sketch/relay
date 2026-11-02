@@ -1,7 +1,7 @@
-b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T09:04:49Z)
+b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T09:12:26Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R344) BEGIN', with its subagents` transcripts
-### commands read: 168
+### commands read: 189
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -21,11 +21,13 @@ b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
   NONE
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (2):
   #38 2026-11-02T07:36:41.949Z git -C /d/relay ls-files "data/b733_*" --with-tree=754e419f -- 2>/dev/null; date -u +%H:%M:%SZ
+  #183 2026-11-02T09:09:49.562Z python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt > /dev/null; echo done
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
   #38 2026-11-02T07:36:41.949Z git -C /d/relay ls-files "data/b733_*" --with-tree=754e419f -- 2>/dev/null; date -u +%H:%M:%SZ
+  #183 2026-11-02T09:09:49.562Z python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt > /dev/null; echo done
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
   #35 2026-11-02T07:32:33.489Z git grep -n -E "next act of|def classes_line|runs of three|repeating three" -- tools/standing tools/acts/b734.py; git grep -n -E "def gate|def stands|form=|checks_%s|'%s_checks" -- tools/standing/prel
@@ -38,7 +40,7 @@ b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (1):
   #4 2026-11-02T07:23:47.273Z python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/bank734.py" && python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5
 
-### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
   #22 2026-11-02T07:27:58.231Z Bash
       git branch -d push-b733-closing
   #23 2026-11-02T07:27:59.860Z Bash
@@ -49,6 +51,8 @@ b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
       cd /d/MY-DOwnloads/PLACE-papers && git branch -d push-b733-preroot; cd /d/relay
   #26 2026-11-02T07:28:08.910Z Bash
       cd /d/MY-DOwnloads/PLACE-papers && git branch -d push-b733-record; cd /d/relay
+  #178 2026-11-02T09:09:32.571Z Bash
+      python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734w.py" && rm -- "/d/relay/data/b734_prevrun_standing-b1.txt" "/d/relay/data/b734_prevrun_standing-b1.json" "/d/relay/data/b734_prevrun_exercise_standing-b1.json" && git -C /d/relay add tools/standing/fold/record.tpl
 
 ### THE BRANCH DELETES BY SHAPE ((R344)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #22 deletes ['push-b733-closing'], halves 1, globs none, variables none, chained after False; #23 deletes ['push-b733-preroot'], halves 1, globs none, variables none, chained after False; #24 deletes ['push-b733-record'], halves 1, globs none, variables none, chained after False; #25 deletes ['push-b733-preroot'], halves 3, globs none, variables none, chained after False; #26 deletes ['push-b733-record'], halves 3, globs none, variables none, chained after False
 
@@ -224,5 +228,26 @@ b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #166 | 2026-11-02T09:03:06.729Z | seat | Bash | git ls-files --error-unmatch data/b734_reg_gate.txt; wc -l data/b734_reg_gate.txt
   #167 | 2026-11-02T09:03:25.701Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734b.py" && python -X utf8 -u tools/b73
   #168 | 2026-11-02T09:03:52.276Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks
+  #169 | 2026-11-02T09:05:01.968Z | seat | Bash | git status --short -uno && git ls-files -- "data/b734_*" "data/audit_b734*"
+  #170 | 2026-11-02T09:05:02.541Z | seat | Bash | git show --name-only --format= eb9b34da
+  #171 | 2026-11-02T09:05:11.510Z | seat | Bash | python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/audit_b734_reg_satisfiable.txt data/b734_address_scan.txt data/b734_bank_hashes.json da
+  #172 | 2026-11-02T09:05:19.871Z | seat | Bash | git commit -q -m "b734 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the pre-lock comparison and the probe-path 
+  #173 | 2026-11-02T09:05:22.802Z | seat | Bash | git rev-parse --short=8 HEAD && git rev-parse --short=8 HEAD~1
+  #174 | 2026-11-02T09:05:26.827Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate a5fe1cda && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/s
+  #175 | 2026-11-02T09:07:23.405Z | seat | Bash | git show --stat --format="%h %s" 754e419f
+  #176 | 2026-11-02T09:08:39.615Z | seat | Bash | git -C /d/relay ls-tree --name-only HEAD data/ --format=%(path) --abbrev=8 -- data/b733_prevrun_act.txt data/b733_prevrun_standing-a.txt data/b733_prevrun_stand
+  #177 | 2026-11-02T09:08:43.702Z | seat | Bash | git -C /d/relay ls-files -- data/b733_prevrun_act.txt data/b733_prevrun_standing-a.txt data/b733_prevrun_standing-a.json data/b733_prevrun_exercise_act.json dat
+  #178 | 2026-11-02T09:09:32.571Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734w.py" && rm -- "/d/relay/data/b734_p
+  #179 | 2026-11-02T09:09:37.735Z | seat | Bash | git -C /d/relay commit -q -m "b734 component 3: the root route's exclusion takes the probes' own paths, the second half of v1.14.0's repair (probes), defect (w)
+  #180 | 2026-11-02T09:09:40.282Z | seat | Bash | git -C /d/relay rev-parse --short=8 HEAD
+  #181 | 2026-11-02T09:09:43.213Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "component 3" 117ab5bc
+  #182 | 2026-11-02T09:09:43.837Z | seat | Bash | python -X utf8 -u tools/b734_face.py
+  #183 | 2026-11-02T09:09:49.562Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt > /dev/null; echo done
+  #184 | 2026-11-02T09:09:52.499Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt
+  #185 | 2026-11-02T09:10:44.729Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #186 | 2026-11-02T09:11:07.097Z | seat | Bash | git -C /d/relay status --short -uno
+  #187 | 2026-11-02T09:11:18.621Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734x.py" && cd /d/relay && python -X ut
+  #188 | 2026-11-02T09:11:25.606Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt
+  #189 | 2026-11-02T09:12:14.935Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
 
-### ### **COMMANDS 168 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 189 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

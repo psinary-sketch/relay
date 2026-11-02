@@ -210,7 +210,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
         and "_explicitformula_plan.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuv')))   # ### (a)-(v), entered before the lock, every one the seat's (data/b734_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwx')))   # ### (a)-(x), entered before the lock, every one the seat's (data/b734_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b734_corrigendum.txt', 'data/b734_standing_v1140.txt', 'data/b734_ef_print.txt', 'data/b734_ef_print.json', 'data/b734_explicitformula_plan.txt', 'data/b734_pathrefusal.txt', 'data/b734_dispatch_rows.json',

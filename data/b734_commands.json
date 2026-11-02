@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T09:04:49Z",
+ "at": "2026-11-02T09:12:26Z",
  "anchor": "RULING (R344) BEGIN",
  "rows": [
   {
@@ -1345,6 +1345,174 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 168,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:01.968Z",
+   "src": "seat",
+   "cmd": "git status --short -uno && git ls-files -- \"data/b734_*\" \"data/audit_b734*\"",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:02.541Z",
+   "src": "seat",
+   "cmd": "git show --name-only --format= eb9b34da",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:11.510Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/audit_b734_reg_satisfiable.txt data/b734_address_scan.txt data/b734_bank_hashes.json data/b734_census_stepzero.txt data/b734_closing_dry.txt data/b734_commands.json data/b734_commands.txt data/b734_defects.txt data/b734_faces_census_stepzero.txt data/b734_hook_refusals.txt data/b734_pins_stepzero.txt data/b734_prelock.txt data/b734_reg_gate.txt data/b734_reg_termscan.txt data/b734_registration_2026-11-02.txt data/b734_regspec_run.txt data/b734_report_dry.txt data/b734_root_banks_dry.json data/b734_root_banks_dry.txt data/b734_satisfiable.json data/b734_scanfile_c1.md data/b734_scanfile_corrigendum.md data/b734_scores_dry.txt data/b734_steps.json tools/acts/b734.py tools/b734_face_blocks.txt tools/b734_sections.txt",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:19.871Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b734 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the pre-lock comparison and the probe-path refusal, the defects to (v)\"",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:22.802Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD && git rev-parse --short=8 HEAD~1",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:05:26.827Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate a5fe1cda && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:07:23.405Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=\"%h %s\" 754e419f",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:08:39.615Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-tree --name-only HEAD data/ --format=%(path) --abbrev=8 -- data/b733_prevrun_act.txt data/b733_prevrun_standing-a.txt data/b733_prevrun_standing-a.json data/b733_mid_exercise_act.json data/b733_arms_prerun_act.txt",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:08:43.702Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay ls-files -- data/b733_prevrun_act.txt data/b733_prevrun_standing-a.txt data/b733_prevrun_standing-a.json data/b733_prevrun_exercise_act.json data/b733_mid_exercise_act.json data/b733_probe_act.txt",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:32.571Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734w.py\" && rm -- \"/d/relay/data/b734_prevrun_standing-b1.txt\" \"/d/relay/data/b734_prevrun_standing-b1.json\" \"/d/relay/data/b734_prevrun_exercise_standing-b1.json\" && git -C /d/relay add tools/standing/fold/record.tpl",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:37.735Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b734 component 3: the root route's exclusion takes the probes' own paths, the second half of v1.14.0's repair (probes), defect (w), by a commit of its own\"",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:40.282Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:43.213Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" 117ab5bc",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:43.837Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_face.py",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:49.562Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt > /dev/null; echo done",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:09:52.499Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:10:44.729Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:11:07.097Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -uno",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:11:18.621Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734x.py\" && cd /d/relay && python -X utf8 -u tools/b734_face.py",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:11:25.606Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:14.935Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 189,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1363,10 +1531,12 @@
  ],
  "seds": [],
  "null_redirects": [
-  38
+  38,
+  183
  ],
  "redirects": [
-  38
+  38,
+  183
  ],
  "pipes": [
   35,
@@ -1384,7 +1554,8 @@
   23,
   24,
   25,
-  26
+  26,
+  178
  ],
  "delete_shapes": [
   {
