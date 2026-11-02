@@ -1336,7 +1336,7 @@ def _finding_text_b735():
                  f['rp_rep'], f['rp_rows'], f['rp_diff'], f['rp_notrun'], ', '.join(f['rp_notruns']) or 'none'), '',
              '**The author’s name and address:** PREVIOUS ADDRESS: %s, the ORCID %s (relay data/b736_address_scan.txt).' % (f['addr'], f['orcid']), '',
              '**The standing line:** relay data/standing_clauses_v9.txt from `%s`; the touch read relay data/b736_touch.txt; the act’s counter '
-             'CLAIM %d, CLOSE %d; REPEAT %d of %d; %s.' % (K.STANDING_COMMIT[:8], f['claim'], f['close'], rep, tot, _runs3_line()), '',
+             'CLAIM %d, CLOSE %d; REPEAT %d of %d, the closing carries the last figure; %s.' % (K.STANDING_COMMIT[:8], f['claim'], f['close'], rep, tot, _runs3_line()), '',
              '**Act root:** b736 `%s` (previous `%s`, b735’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
              'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
              '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b736_author_answers.txt).' % (

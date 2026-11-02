@@ -1,0 +1,117 @@
+b736 -- THE CONTROLS OF tools/standing/ v1.16.0, (R346)(3)(i)-(viii): THE VACUOUS PASS AT THE HEAD, THE LEXICON, THE REFUSED READ, THE CLONE`S FSCK, THE REAPED WATCH, THE SCORE ROUTES` DRY FORM, THE COUNTER (2026-11-02T22:38:13Z)
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2449 lines
+  citation render          OK    451 lines
+  closing render           OK    614 lines
+  record render            OK    4437 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    150 lines
+  tools/b736_worklist.py   OK    332 lines
+### THE COMPILE CONTROL : b736 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes
+
+### (vacuous) (R346)(3)(i), data/b735_explicitformula.txt :211: THE CLAUSE "no hypothesis that is the claim" READS THE PROOF TERM, EpsteinZQ.lean :153 READ AS FAIL AND Main.lean :194 AS PASS
+      zq_count                           FAIL  projection   the proof is h.count, a projection of the hypothesis h: the claim is inside the hypothesis
+      zq_explicit_formula                FAIL  projection   the proof is h.explicitFormula.ef k hk hs he, a projection of the hypothesis h: the claim is inside the hypoth
+      zq_li_nonneg_imp_online            PASS  elimination  h.count.elim opens a field of h and the body applies further work to it: fun _ hc => Wide.li_nonneg_cfg_imp_on
+      zq_count_instance                  PASS  compiled     the head zq_count is no projection of a bound hypothesis (binders none)
+      zq_explicit_formula_instance       PASS  compiled     the head zq_explicit_formula is no projection of a bound hypothesis (binders ['k', 'hk', 'hs', 'he'])
+      zq_li_nonneg_imp_online_instance   PASS  compiled     the head zq_li_nonneg_imp_online is no projection of a bound hypothesis (binders none)
+  (vacuous) EpsteinZQ.lean :153, zq_count, its proof h.count
+      BEFORE (v1.15.0): the text arm read PASS at b735 on every row (6 rows PASS of 6 read) -> FAILS
+      AFTER  (v1.16.0): the proof-head arm reads FAIL, head h.count -> PASSES
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: Main.lean :194, zq_count_instance, its proof zq_count zq_premises, reads PASS
+      AFTER  (v1.16.0): PASS, head zq_count -> HOLDS
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: :157, h.explicitFormula.ef k hk hs he, a projection applied, FAILS
+      AFTER  (v1.16.0): FAIL, head h.explicitFormula.ef -> HOLDS
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: :164 is NO PROJECTION: h.count.elim opens a field and the body applies Wide.li_nonneg_cfg_imp_online_ne_zero, so the arm prints elimination and PASS; (R346)(3)(i) says three projections and the term is two and one
+      AFTER  (v1.16.0): PASS, elimination -> HOLDS
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: the other two premise-free forms read PASS, compiled heads
+      AFTER  (v1.16.0): zq_explicit_formula ; zq_li_nonneg_imp_online -> HOLDS
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: a bare hypothesis as the proof is no projection and this arm does not read it; the E0 rule`s ENCODES-CONCLUSION does
+      AFTER  (v1.16.0): PASS, compiled -> HOLDS
+      AS WANTED
+
+### (lexicon) (R346)(3)(ii): THE EXTENSION IN THE SHARED RULE BY A COMMIT OF ITS OWN, data/b736_e0_landing.txt
+  (lexicon) the landed lines through the shared rule
+      BEFORE (v1.15.0): at d4e0ea02 the rule raises BinderUnclassed on WideConfig, the extension private: True -> FAILS
+      AFTER  (v1.16.0): the bank`s foot: ['### ### **THE EXTENSION LANDED: 3 ENTRIES ; CONTROLS ALL AS WANTED.**'] -> PASSES
+      AS WANTED
+  (lexicon) GUARD, NO FAILING SIDE: the rule moved at one commit since d4e0ea02, carrying no file of tools/standing/
+      AFTER  (v1.16.0): ['3afd2697 b736 corrigendum: the E0 extension landed in the shared rule, three entries, by a commit of its own: the three forms and the five zeta and Dirichlet rows unchanged, the landed lines INTERFACES where the rule raised; 57 of 57'] ; ['data/act_current.json', 'data/b736_address_scan.txt', 'data/b736_e0_landing.txt', 'tools/b736_e0landing.py', 'tools/e0_rule.py'] -> HOLDS
+      AS WANTED
+  (lexicon) GUARD, NO FAILING SIDE: the three forms and the five zeta and Dirichlet rows unchanged
+      AFTER  (v1.16.0): unchanged rows 8 -> HOLDS
+      AS WANTED
+
+### (refused) (R346)(3)(iii): THE READ REFUSED AFTER b735`S CLOSING WAS COMPOSED, ITS ROW AND ITS RULE
+  (refused) the Read of 2026-11-02T20:49:14Z, data/b735_closing.txt
+      BEFORE (v1.15.0): data/b735_events.txt rows carry it: False; data/b735_hook_refusals.txt carries it: False -> FAILS
+      AFTER  (v1.16.0): data/b736_hook_refusals.txt :1: 2026-11-02T20:49:14Z | READ | Read | "D:\\relay\\data\\b735_closing.tx -> PASSES
+      AS WANTED
+  (refused) GUARD, NO FAILING SIDE: the hook routes a refusal past a composed closing to the next act
+      AFTER  (v1.16.0): the route in tools/standing/hook.py: True ; the commit of the closing 2026-11-02T15:49:45-05:00 -> HOLDS
+      AS WANTED
+  (refused) GUARD, NO FAILING SIDE: the rule written
+      AFTER  (v1.16.0): data/b736_rules.txt row (1): True -> HOLDS
+      AS WANTED
+
+### (fsck) (R346)(3)(iv), DEFECT (p): THE SCRATCH CLONE`S FSCK, zqwork2`S TWO READS THE RULED CONTROL, A SECOND LOSS; zqwork THE FIRST; zqwork3, A FRESH CLONE, THE CLEAN ARM ADDED AND DECLARED
+  (fsck) GUARD, NO FAILING SIDE: a read row naming a clone, no fsck, refused before anything is written
+      AFTER  (v1.16.0): a read of zqwork2 without its fsck before and after -> HOLDS
+      AS WANTED
+  (fsck) GUARD, NO FAILING SIDE: the row carrying both reads stands
+      AFTER  (v1.16.0): None -> HOLDS
+      AS WANTED
+  (fsck) GUARD, NO FAILING SIDE: zqwork2`s two reads, as ruled: NOT clean, both, the pack directory gone at 2026-11-02T21:44:22Z, a second instance of (p)
+      AFTER  (v1.16.0): fsck zqwork2 exit 2 ; ['broken link from  commit 6ee19e5966b66dcf9fc569d024cd7d8f4e595f2d' ; fsck zqwork2 exit 2 ; ['broken link from  commit 6ee19e5966b66dcf9fc569d024cd7d8f4e595f2d' -> HOLDS
+      AS WANTED
+  (fsck) GUARD, NO FAILING SIDE: zqwork3, cut fresh from the kernel at this act, two reads clean: the reader`s clean arm, added, not in the ruling
+      AFTER  (v1.16.0): fsck zqwork3 exit 0 ; fsck zqwork3 exit 0 -> HOLDS
+      AS WANTED
+  (fsck) GUARD, NO FAILING SIDE: the kernel itself, clean
+      AFTER  (v1.16.0): fsck SIDE-explicit-formula exit 0 -> HOLDS
+      AS WANTED
+  (fsck) GUARD, NO FAILING SIDE: the damaged clone zqwork, left in place, reads not clean
+      AFTER  (v1.16.0): fsck zqwork exit 2 ; ['error: refs/tags/v0.1: invalid sha1 pointer 44af277422b14970cbac2c3c3cc96ca4ffbf6f0e'] -> HOLDS
+      AS WANTED
+
+### (watch) (R346)(3)(v), DEFECT (n): A REAPED WATCH CARRIES ITS CHOICE IN THE ROW
+  (watch) a dispatch row with its watch reaped and no choice
+      BEFORE (v1.15.0): b735`s rows for n = 5 (2) carry a watch field: False -> FAILS
+      AFTER  (v1.16.0): the writer refuses: a reaped watch with no choice printed, restarted or foreground -> PASSES
+      AS WANTED
+  (watch) GUARD, NO FAILING SIDE: either choice stands
+      AFTER  (v1.16.0): None ; None -> HOLDS
+      AS WANTED
+  (watch) GUARD, NO FAILING SIDE: b735`s banked rows stand under the writer, no row carrying the new fields
+      AFTER  (v1.16.0): [] -> HOLDS
+      AS WANTED
+
+### (dry) (R346)(3)(vi), EVENT (1): THE SCORE ROUTES` DRY FORM BEFORE THE LOCK, THE FACE`S ORDER AND THE TOOL`S ONE
+  (dry) b735`s late run
+      BEFORE (v1.15.0): the arm G-RULE-SCORES-BEFORE-SEAL passed it, the bank at f95ff91f after the lock 0fed13c1 -> FAILS
+      AFTER  (v1.16.0): the order read: OUT OF ORDER ; b734`s IN ORDER -> PASSES
+      AS WANTED
+  (dry) GUARD, NO FAILING SIDE: the gate reads NOT CLEAR while the bank is absent
+      AFTER  (v1.16.0): prelock.gate carries the condition: True -> HOLDS
+      AS WANTED
+
+### (counter) (R346)(3)(vii), (R345)(2)(vii), READ AGAINST b735: THE HAND SECTION AND THE CLOSING
+  (counter) OPEN_TRAILS :17305 against data/b735_closing.txt :5, the rule of (R345)(2)(vii) not met at b735
+      BEFORE (v1.15.0): hand (1, 25, 10, 26), closing (2, 32, 12, 34), equal False, names the closing False -> FAILS
+      AFTER  (v1.16.0): with b736`s dated note: names the closing True -> PASSES
+      AS WANTED
+  (counter) GUARD, NO FAILING SIDE: b736`s own trail names the closing as the last figure, its section carrying the words
+      AFTER  (v1.16.0): the closing carries the last figure in tools/acts/b736.py: True -> HOLDS
+      AS WANTED
+
+### ### **v1.16.0: CONTROLS (vacuous), (lexicon), (refused), (fsck), (watch), (dry), (counter) ; CASES 25 ; AS WANTED 25 ; ALL AS WANTED.**

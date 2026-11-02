@@ -32,6 +32,12 @@ def why(r):
         return 'no free_mb and free_at from the read before it'
     if r['free_mb'] < HOLD:
         return 'free_mb %d under the hold %d' % (r['free_mb'], HOLD)
+    # ### v1.16.0, (R346)(3)(iv), b735 defect (p): a read row naming a scratch clone carries its fsck before and after
+    if r['kind'] == 'read' and r.get('clone') and not (r.get('fsck_before') and r.get('fsck_after')):
+        return 'a read of %s without its fsck before and after' % r['clone']
+    # ### v1.16.0, (R346)(3)(v), b735 defect (n): a watch killed is restarted or the run read in the foreground, the choice in the row
+    if r.get('reaped') and r.get('watch') not in ('restarted', 'foreground'):
+        return 'a reaped watch with no choice printed, restarted or foreground'
     return None
 
 

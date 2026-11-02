@@ -12,6 +12,7 @@ not named on the face. A ruling's own arm (G-R343-ENTERED against G-R342-ENTERED
 import json
 import os
 import re
+import subprocess
 import sys
 
 T = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,11 +91,25 @@ def gate(act, face):
     """the gate's step: clear where every bank reads and every arm newly failing is on the face; the bank written either way, its foot the verdict."""
     c = compare(act)
     L, undecl = lines(c, face)
-    clear = not c['missing'] and not undecl
+    dry = os.path.exists(os.path.join(D, '%s_scores_dry.txt' % act))   # ### v1.16.0, (R346)(3)(vi), b735 event (1): the score routes' dry form before the gate clears, the face's order the tool's
+    L.append('  the score routes` dry form, data/%s_scores_dry.txt: %s' % (act, 'STANDS' if dry else '### ABSENT: `record scores dry` runs before the gate'))
+    clear = not c['missing'] and not undecl and dry
     L.append('### ### **THE PRE-LOCK COMPARISON : %s** (arms not on the face: %s)' % ('CLEAR' if clear else 'NOT CLEAR', undecl or 'NONE'))
     with open(os.path.join(D, '%s_prelock.txt' % act), 'w', encoding='utf-8', newline='\n') as f:
         f.write(NL.join(L) + NL)
     return clear, L
+
+
+def scores_dry_order(act):
+    """v1.16.0, (R346)(3)(vi): the commit first carrying data/<act>_scores_dry.txt against the act's lock commit, by ancestry. (first, lock, 'IN ORDER' or 'OUT OF ORDER' or 'NOT READ')."""
+    def g(*a):
+        return subprocess.run(['git', '-C', RELAY] + list(a), capture_output=True, text=True, encoding='utf-8').stdout.strip()
+    add = g('log', '--format=%h', '--diff-filter=A', '--', 'data/%s_scores_dry.txt' % act).split('\n')[-1]
+    lock = g('log', '--format=%h', '--grep=^%s lock: ' % act, '-1')
+    if not add or not lock:
+        return add, lock, 'NOT READ'
+    r = subprocess.run(['git', '-C', RELAY, 'merge-base', '--is-ancestor', add, lock + '~1'])
+    return add, lock, 'IN ORDER' if r.returncode == 0 else 'OUT OF ORDER'
 
 
 def stands(act):

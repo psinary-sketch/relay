@@ -3,3 +3,6 @@
 2026-11-02T22:21:13Z | PIPE | Bash | "git log --format='%h %s' -12 && git status --short | wc -l" | a Bash command carrying a pipe outside quotes
 2026-11-02T22:22:40Z | READ | Read | "D:\\relay\\tools\\b735_carry.py" | a Read call with a limit and no offset on a file of 234 lines
 2026-11-02T22:22:40Z | READ | Read | "D:\\relay\\data\\b735_carry_worklist.txt" | a Read call with a limit and no offset on a file of 244 lines
+2026-11-02T22:29:15Z | READ | Read | "D:\\relay\\tools\\standing\\dispatchrows.py" | a Read call with no limit
+2026-11-02T22:35:58Z | PIPE | PowerShell | "Get-WinEvent -FilterHashtable @{LogName='Application'; StartTime='2026-11-02T16:40:00'; EndTime='2026-11-02T16:48:00'} -MaxEvents 15 -ErrorAction SilentlyContinue | Select-Object TimeCreated, ProviderName, Id | Format-Table -AutoSize" | a PowerShell command carrying a pipe outside quotes
+2026-11-02T22:35:58Z | PIPE | PowerShell | "(Get-ItemProperty 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy' -ErrorAction SilentlyContinue | Select-Object '01','04','256','512','2048' | Format-List | Out-String)" | a PowerShell command carrying a pipe outside quotes

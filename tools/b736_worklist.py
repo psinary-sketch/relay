@@ -222,8 +222,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None
-STEPZERO_BANK_COMMIT = None
+STEPZERO_BANKS = '606e866a'
+STEPZERO_BANK_COMMIT = '606e866a'
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -237,10 +237,10 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b736.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.15.0'            # ### entering the act; (R346)(3)'s repairs land the next version by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.16.0'            # ### entering the act; (R346)(3)'s repairs land the next version by a commit of their own (C1_STANDING)
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'b25fd82c'),)   # ### the tree the ruling's Lean paths are read against, zq-b730's tip
-STANDING_CHANGED = ()
-STANDING_NEW = ()
+STANDING_CHANGED = ('standing/VERSION', 'standing/dispatchrows.py', 'standing/prelock.py')
+STANDING_NEW = ('standing/salthead.py', 'standing/scratchfsck.py', 'standing/v1160.py')
 # ### b735's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = 'd4e0ea02'    # ### b735's closing, the act's relay base
 B714_RECORD = 'd20a7119'     # ### b735's record commit (relay, the head line's)
