@@ -168,6 +168,7 @@ def bank():
           '## WHAT THE PRINT SETTLES',
           '  The closure is %d programme constants: (a) %d, (b) %d, (d) %d. (c) and the library members of (b) are LEXICAL, %d and %d, read from the closure`s own text; no compiled library closure was printed, so neither figure is a compiled count.' % (len(pr['a']) + len(pr['b']) + len(pr['d']), len(pr['a']), len(pr['b']), len(pr['d']), len(pr['c']), len(pr['b_library'])),
           '  Of the (b) 92, 52 are Gamma facts the ruling names, each standing as it is for Q0 (row E1): the ruling`s list is applied as it stands and the row says what those 52 cost, nothing. %d of the 92 want an analogue, and they fall into %d rows.' % (sum(len(r['b']) for r in rows[2:]), len([r for r in rows if r['lines']])),
+          '  THE RULING`S QUESTION, (R344)(3) and (6): ZETA SITS IN THE JOINTS. WeilEF is not a contour chain over four inputs the fields supply: the %d constants above carry zeta or its completed function in their own statements, the partial fraction, the good heights, the rectangle, the horizontals, the two lines, the prime side, the bracket and the main theorem among them, and none is a hypothesis to instantiate. The closed fields answer the chain`s inputs, the continuation, the series, the zeros and the count; the joints are the analogues below. So the field is a build at the price below, not an instantiation, and the instance`s DERIVES is not an act away.' % sum(len(r['b']) for r in rows[2:]),
           '  The nearest compiled neighbour is not WeilEF. The kernel holds a second compiled run of this chain, SIDEExplicitFormula.Chi, EF_lit_chi_holds at Chi/Main.lean :269, whose conductor term (conductor_line_shift, :194), signed coefficients and wide digamma are what Q0 asks; zeta`s poles and self-duality are the rest. No row is reached by Q0 that neither run compiled except the wide windows and the edge c = 3/2.', '']
     m = measured()
     rate = sorted(m[f][2] / m[f][3] for f in RATIO_NAMES)
@@ -222,7 +223,7 @@ def bank():
 
 def main():
     t, ok = bank()
-    print(t)
+    print(t if '--bank' not in sys.argv else t.rstrip().split('\n')[-1])
     if '--bank' in sys.argv and ok:
         with open(os.path.join(ROOT, BANK), 'w', encoding='utf-8', newline='\n') as f:
             f.write(t)
