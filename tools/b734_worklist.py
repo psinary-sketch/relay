@@ -222,8 +222,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### the step-zero banks and tools, committed together by explicit list (step 4)
-STEPZERO_BANK_COMMIT = None       # ### the step-zero bank itself (data/b734_stepzero.txt), with the price table, in that commit
+STEPZERO_BANKS = '15f2bd8b'             # ### the step-zero banks and tools, committed together by explicit list (step 4)
+STEPZERO_BANK_COMMIT = '15f2bd8b'       # ### the step-zero bank itself (data/b734_stepzero.txt), with the price table, in that commit
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -237,10 +237,10 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b734.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.13.0'            # ### entering the act; (R344)(2)'s repairs land the next version by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.14.0'            # ### entering at v1.13.0; (R344)(2)'s repairs landed this version by a commit of their own (C1_STANDING)
 LEAN_TREES = (('D:/SIDE-explicit-formula', '09053d3b'),)   # ### (R344)(3): the tree the ruling's Lean paths are read against, zq-b730's tip
-STANDING_CHANGED = ('standing/VERSION', 'standing/allow.py', 'standing/carry.py', 'standing/close.py', 'standing/fold/reg_gate.tpl', 'standing/hook.py')
-STANDING_NEW = ('standing/dispatchrows.py', 'standing/prelock.py', 'standing/v1130.py')
+STANDING_CHANGED = ('standing/VERSION', 'standing/cites.py', 'standing/close.py', 'standing/fold/checks.tpl', 'standing/gitwrite.py', 'standing/prelock.py', 'standing/rootprompt.py')
+STANDING_NEW = ('standing/defectids.py', 'standing/probes.py', 'standing/subjects.py', 'standing/v1140.py')
 # ### b733's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '05d53af9'    # ### b733's closing, the act's relay base
 B714_RECORD = 'da240250'     # ### b733's record commit (relay, the head line's)

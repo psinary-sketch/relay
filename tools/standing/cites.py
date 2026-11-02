@@ -101,6 +101,14 @@ def lean_rows(text, trees, near=110):
     return rows
 
 
+def next_clause(text):
+    """v1.14.0, (R344)(2)(viii), b733 event (8): the clause of a ruling that names the next act, read from the ruling's text: the last numbered item carrying the words. Pure in its argument."""
+    r = RUL.search(text or '')
+    body = (text or '').split('RULING %s END' % (r.group(1) if r else ''))[0]
+    hits = [m.group(1) for m in re.finditer(r'(?m)^\((\d+)\) .*$', body) if re.search(r'\bb\d{3}\b.*\bthen\b|[Tt]he act after this one|next act', m.group(0))]
+    return '%s(%s)' % (r.group(1), hits[-1]) if r and hits else None
+
+
 def ferry_cite(act, needle):
     """the ruling's own number and the top-level item (n) of the act's ferry whose text carries `needle`; None where none does."""
     t = A.rd('%s_ferry.txt' % act)

@@ -1,0 +1,140 @@
+b734 -- THE CONTROLS OF tools/standing/ v1.14.0, (R344)(2)(i)-(ix): THE PROBE-BANK CLASS AT THE HEAD, THE PROMPT`S CEILING, GIT_WRITE ON THE COMMAND, ONE DATE SOURCE, SUBJECTS FROM THE BANK, THE RETIRED PRINT, THE EMPTY READ, CLAUSES FROM THE RULING, DEFECT IDS FROM THE LOG (2026-11-02T07:40:21Z)
+
+### the instances read at their commits; each case through both routes; the route before the repair read at relay 15f2bd8b
+
+### (probes) (R344)(2)(i), THE CLASS AT ITS HEAD, b729 trap 4, b731`S NAME, b733 EVENT (11): b733`S TREE REPLAYED AGAINST THE GATE WITH NO EDIT, AND b732`S CLEAN LOCK
+  (probes) b733`s tree at 754e419f, the commit before its lock, 76 tracked act banks
+      BEFORE (v1.13.0): the gate at BASE reads no tracked path (a refusal in tools/b378_lockgate.py: False); it permitted the lock -> FAILS
+      AFTER  (v1.14.0): the gate refuses, 24 paths printed -> PASSES
+      AS WANTED
+          ### ### **24 TRACKED PATH(S) ARE PROBE OUTPUTS -- THE LOCK WOULD COUNT THE SUITE`S OWN RUN AS AN EDIT:**
+              data/b733_chain_half_a1_checks.json
+              data/b733_chain_half_a2_checks.json
+              data/b733_chain_half_b_checks.json
+              data/b733_checks_act.txt
+              data/b733_checks_standing-a.txt
+              data/b733_checks_standing-b1.txt
+              data/b733_checks_standing-b2a.txt
+              data/b733_checks_standing-b2b.txt
+              data/b733_checks_standing-b3.txt
+              data/b733_checks_standing-c.txt
+              data/b733_exercise_act.json
+              data/b733_exercise_standing-a.json
+              data/b733_exercise_standing-b1.json
+              data/b733_exercise_standing-b2a.json
+              data/b733_exercise_standing-b2b.json
+              data/b733_exercise_standing-b3.json
+              data/b733_exercise_standing-c.json
+              data/b733_lsr_act.json
+              data/b733_lsr_standing-a.json
+              data/b733_lsr_standing-b1.json
+              data/b733_lsr_standing-b2a.json
+              data/b733_lsr_standing-b2b.json
+              data/b733_lsr_standing-b3.json
+              data/b733_lsr_standing-c.json
+  (probes) GUARD, NO FAILING SIDE: the count: b733 event (11) named seventeen, every one rewritten by the pre-push suite; the gate reads 24, the seven ls-remote banks beside them, tracked at the lock too and rewritten by no later commit
+      AFTER  (v1.14.0): the seventeen among the refused: 17 ; the others 7, moved after the lock: 0 (the event`s seventeen stands for what N4 read; the class is the wider) -> HOLDS
+      AS WANTED
+  (probes) GUARD, NO FAILING SIDE: b732`s lock at b33ffcc1 passes: the gate refuses no clean tree
+      AFTER  (v1.14.0): 59 tracked act banks ; ### no tracked path is a probe output (59 tracked paths read) -> HOLDS
+      AS WANTED
+  (probes) GUARD, NO FAILING SIDE: a suite part before the lock writes the probe path: b734 has no permitting gate, b733 has one
+      AFTER  (v1.14.0): auto(b734) True ; auto(b733) False ; the base b734_probe.txt ; part b734_probe_act.txt -> HOLDS
+      AS WANTED
+  (probes) GUARD, NO FAILING SIDE: a tracked probe path is refused too, an untracked one is nothing to the gate ((N4): no tracked path is a probe output)
+      AFTER  (v1.14.0): refused True ; on an empty list False -> HOLDS
+      AS WANTED
+  (probes) GUARD, NO FAILING SIDE: the pre-lock comparison reads the probes` banks
+      AFTER  (v1.14.0): the default form %s_probe_%s.txt -> HOLDS
+      AS WANTED
+
+### (ceiling) (R344)(2)(ii), b733 EVENT (11): THE PROMPT`S CEILING A DRY SCORE, NOT A TYPED LINE; b733`S PROMPT REGENERATED
+  (ceiling) b733`s prompt, scores at prompt time, its lock commit`s tree
+      BEFORE (v1.13.0): the typed line "at most 7 of 8", the seat`s; the close read 6 -> FAILS
+      AFTER  (v1.14.0): at most 6 of 8 (N4, N5 REFUTED, by the banks at prompt time) -> PASSES
+      AS WANTED
+  (ceiling) GUARD, NO FAILING SIDE: a clean lock loses nothing to the rule
+      AFTER  (v1.14.0): at most 7 of 8 (N5 REFUTED, by the banks at prompt time) -> HOLDS
+      AS WANTED
+  (ceiling) GUARD, NO FAILING SIDE: a tracked bank edited after the lock loses N4 at the prompt
+      AFTER  (v1.14.0): at most 6 of 8 (N4, N5 REFUTED, by the banks at prompt time) -> HOLDS
+      AS WANTED
+
+### (gitwrite) (R344)(2)(iii), b733 EVENT (10): GIT_WRITE MATCHES THE COMMAND, NOT THE PATH; b733`S EIGHTH MESSAGE
+  (gitwrite) the message at 04:37:54Z, the commit ca9c2162 chained to a read of the path
+      BEFORE (v1.13.0): writes 2 -> FAILS
+      AFTER  (v1.14.0): writes 1 -> PASSES
+      AS WANTED
+  (gitwrite) GUARD, NO FAILING SIDE: the arm`s count over b733`s window falls from 8 to the real 7
+      AFTER  (v1.14.0): 7 messages over the row -> HOLDS
+      AS WANTED
+  (gitwrite) GUARD, NO FAILING SIDE: the gated push itself stays a write
+      AFTER  (v1.14.0): bash tools/push_gated.sh: 1 ; a read naming it: 0 -> HOLDS
+      AS WANTED
+
+### (date) (R344)(2)(iv), b733 EVENT (3): ONE DATE SOURCE; "THE FACE IS NOT LOCKED" REPLAYED, close.py SEAL WITH NO SCRATCH CALLER
+  (date) b733 at its lock: act_current`s field 2026-11-01, the worklist`s DATE 2026-11-02
+      BEFORE (v1.13.0): close.py built the face from the field: no face, "THE FACE IS NOT LOCKED" -> FAILS
+      AFTER  (v1.14.0): the face read, locked at 2026-11-02T03:20:50Z -> PASSES
+      AS WANTED
+  (date) GUARD, NO FAILING SIDE: close.py`s main reads no date field of act_current
+      AFTER  (v1.14.0): cur['date'] in close.py: 0 -> HOLDS
+      AS WANTED
+
+### (subjects) (R344)(2)(v), b733 EVENTS (2), (5): THE SUBJECT COMPOSED FROM THE BANK
+  (subjects) the seal subject
+      BEFORE (v1.13.0): "b733 seal: the sealed tools` hashes, 62 files" typed, the commit took it -> FAILS
+      AFTER  (v1.14.0): ['the subject says 62 files, the seal bank 63'] ; composed "b733 seal: the sealed tools` hashes, 63 files" -> PASSES
+      AS WANTED
+  (subjects) the lock commit`s subject
+      BEFORE (v1.13.0): "b733 seal: face locked, lock gate's eigh..." typed, the commit took it -> FAILS
+      AFTER  (v1.14.0): ["the subject opens 'b733 seal:', the phase`s head 'b733 lock:'"] -> PASSES
+      AS WANTED
+  (subjects) GUARD, NO FAILING SIDE: b732`s lock subject reads clean
+      AFTER  (v1.14.0): "b732 lock: the face locked at d01aab06, ..." -> NO DIFFERENCE -> HOLDS
+      AS WANTED
+
+### (retired) (R344)(2)(vi): THE PRINTED NAME G-READ-RULE-STANDING, ON NO ARM OF THE 116 AT b732 AND b733; THE CHOICE: THE PRINT REMOVED, THE ARM STANDING RETIRED
+  (retired) the suite`s template
+      BEFORE (v1.13.0): prints the retired arm`s reading 1 time(s), an arm`s name with no row -> FAILS
+      AFTER  (v1.14.0): prints it 0 time(s) -> PASSES
+      AS WANTED
+  (retired) GUARD, NO FAILING SIDE: the name stands on the retired list, so no row is owed
+      AFTER  (v1.14.0): in tools/standing/arms.py`s retired list: True -> HOLDS
+      AS WANTED
+
+### (emptyread) (R344)(2)(vii), b733 (o): AN EMPTY REMOTE READ IS ITS OWN WORD; b733`S READ REPLAYED OVER A STAND-IN _verify, NO REMOTE TOUCHED
+  (emptyread) three repositories read empty, others answered
+      BEFORE (v1.13.0): the row reads DISAGREE -> FAILS
+      AFTER  (v1.14.0): the row reads UNREAD -> PASSES
+      AS WANTED
+  (emptyread) GUARD, NO FAILING SIDE: a row with a reason of its own stays DISAGREE, an AGREE stays
+      AFTER  (v1.14.0): DISAGREE ; AGREE -> HOLDS
+      AS WANTED
+
+### (clauses) (R344)(2)(viii), b733 EVENT (8): THE CLAUSE READ FROM THE RULING`S TEXT; b733`S ENTRY LINE REGENERATED
+  (clauses) b733`s touch-read line
+      BEFORE (v1.13.0): the composer printed "the next act of (R343)(9)", a clause the ruling has not: (R343) has six -> FAILS
+      AFTER  (v1.14.0): "the next act of (R343)(6)" -> PASSES
+      AS WANTED
+  (clauses) GUARD, NO FAILING SIDE: b734`s own ruling reads (R344)(6)
+      AFTER  (v1.14.0): (R344)(6) -> HOLDS
+      AS WANTED
+  (clauses) GUARD, NO FAILING SIDE: the freeze line prints no typed clause number
+      AFTER  (v1.14.0): typed: False -> HOLDS
+      AS WANTED
+
+### (defectids) (R344)(2)(ix), b733 EVENT (9): A DEFECT`S COMMIT IDS READ FROM THE LOG
+      2026-11-02T01:06:39.363Z 0f47615d relay
+      2026-11-02T01:09:11.105Z f42eb0d3 relay
+      2026-11-02T01:15:27.907Z 00a0f586 relay
+      2026-11-02T01:16:35.769Z 834f6ac SIDE-explicit-formula
+      2026-11-02T02:24:45.153Z 1f48b857 relay
+      2026-11-02T03:01:50.380Z 50b2ae29 relay
+      2026-11-02T03:07:18.379Z 6a4e3066 relay
+  (defectids) b733 defect (q)`s seven
+      BEFORE (v1.13.0): the hand list named relay 3471c14b -> FAILS
+      AFTER  (v1.14.0): the log`s ids: 7 rows; 3471c14b among them: False ; 834f6ac among them: True -> PASSES
+      AS WANTED
+
+### ### **v1.14.0: CONTROLS (probes), (ceiling), (gitwrite), (date), (subjects), (retired), (emptyread), (clauses), (defectids) ; CASES 25 ; AS WANTED 25 ; ALL AS WANTED.**

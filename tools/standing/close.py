@@ -357,6 +357,13 @@ def worklist_sealed(act):
     return sorted(importlib.import_module('%s_worklist' % act).SEALED)
 
 
+def act_date(act):
+    import importlib
+    if A.T not in sys.path:
+        sys.path.insert(0, A.T)
+    return importlib.import_module('%s_worklist' % act).DATE
+
+
 def lock_of(act, date):
     """the lock's time on the act's registration face (data/<act>_registration_<date>.txt, its "locked at (UTC)" line), or None."""
     m = re.search(r'locked at \(UTC\)\s*:\s*(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', A.rd('%s_registration_%s.txt' % (act, date)))
@@ -445,7 +452,8 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
 def main(route):
     """`seal` writes the act's seal record (step [8]); `dry` runs every refusal and prints, writing nothing."""
     cur = A.current()
-    code, L = seal_write(cur['act'], cur['parts'], cur['date'], cur.get('withheld'), cur.get('prev'), write=(route == 'seal'))
+    # ### v1.14.0, (R344)(2)(iv), b733 event (3): the date where the face and the worklist read it, the one source; data/act_current.json's field no longer read
+    code, L = seal_write(cur['act'], cur['parts'], act_date(cur['act']), cur.get('withheld'), cur.get('prev'), write=(route == 'seal'))
     print(NL.join(L))
     if route != 'seal':
         p = os.path.join(A.D, '%s_close_dry.txt' % cur['act'])

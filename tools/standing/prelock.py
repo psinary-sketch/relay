@@ -52,7 +52,7 @@ def norm(name):
     return RULING_ARM.sub('G-R<ruling>-', name)
 
 
-def compare(act, prev=None, form='%s_checks_%s.txt'):
+def compare(act, prev=None, form='%s_probe_%s.txt'):
     """dict(act, prev, missing parts, failing and previous failing, each whole-suite, newly [(part, arm, verdict)]). `form` the act's banks: the probes by default."""
     prev = prev or prev_of(act)
     mine, theirs, missing, arms, part_of = {}, {}, [], 0, {}

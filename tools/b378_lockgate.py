@@ -21,6 +21,7 @@ import io
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 
@@ -215,7 +216,15 @@ def main(argv=None):
             rec('        subject      : not the face; no digest required')
         if not g['passed']:
             rec('        ### ### **%s**' % (g['why'] or 'the phrase is not there'))
-    v = verdict(gates)
+    # ### v1.14.0, (R344)(2)(i): THE LOCK REFUSES WHILE A TRACKED PATH IS A PROBE OUTPUT, the paths printed; b733's seventeen went through this gate
+    import probes as STANDING_PROBES
+    tracked = [x for x in subprocess.run(['git', '-C', ROOT, 'ls-files', '--', 'data/%s_*' % act], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout.split(chr(10)) if x.strip()]
+    probe_refused, probe_lines = STANDING_PROBES.refusal(act, tracked)
+    rec('')
+    rec('  ### THE PROBE-PATH REFUSAL ((R344)(2)(i)):')
+    for ln in probe_lines:
+        rec(ln)
+    v = verdict(gates) and not probe_refused
     nface = sum(1 for g in gates if g['subject_is_face'])
     rec('')
     rec('    ### ### **GATES READ : %d. ### PASSING : %d. ### FACE-SUBJECT GATES CHECKED BY DIGEST : '

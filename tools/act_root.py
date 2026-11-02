@@ -356,6 +356,11 @@ def verify(remote=ls_remote, worktree=None, acts=None):
         reads[p] = bool(r)
         return r
     out = _verify(tracked, worktree, acts)
+    # ### v1.14.0, (R344)(2)(vii), b733 (o): a repository read empty while others answered is no disagreement of that repository: a row resting only on an empty read reads UNREAD, its own word, the repositories printed
+    empty = sorted(p for p, ok in reads.items() if not ok)
+    if empty and any(reads.values()):
+        print('### THE EMPTY REMOTE READ: %s ANSWERED NOTHING, THE OTHERS ANSWERED -- NOT A STATE OF THE CHAIN; ROWS RESTING ON IT READ UNREAD' % ', '.join(p.replace(chr(92), '/').split('/')[-1] for p in empty), flush=True)
+        out = unread_rows(out, empty)
     if reads and not any(reads.values()) and any(v == 'DISAGREE' for _a, v, _w in out):
         print('### THE CONNECTIVITY READING: THE REMOTE READ EMPTY FOR EVERY REPOSITORY (%d) -- NOT A STATE OF THE CHAIN; RE-RUN ONCE BEFORE ANY DISAGREE' % len(reads), flush=True)
         _REMOTE.clear()
@@ -366,6 +371,12 @@ def verify(remote=ls_remote, worktree=None, acts=None):
             print('### THE CONNECTIVITY READING STANDS AFTER THE RE-RUN: EVERY REPOSITORY EMPTY TWICE -- THE ROWS READ UNREAD', flush=True)
             out = [(a, 'UNREAD' if v == 'DISAGREE' else v, w) for a, v, w in out]
     return out
+
+
+def unread_rows(out, empty):
+    """rows whose every reason is a remote reading of an empty repository read UNREAD. Pure in its arguments."""
+    of = lambda w: w.split()[0] in ('tag', 'head') and path_of(w.split()[1]) in empty
+    return [(a, 'UNREAD' if v == 'DISAGREE' and w and all(of(x) for x in w) else v, w) for a, v, w in out]
 
 
 def _verify(remote=ls_remote, worktree=None, acts=None):

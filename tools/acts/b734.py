@@ -1240,7 +1240,7 @@ def _runs3_line():
     for l, c in r:
         by.setdefault(c.split(' -> ')[0], []).append(l)
     return ('the classes repeating three acts running, by the tags (v9 row (83), each the next act’s opening component, printed for the '
-            'author beside the next act of (R344)(9)): %d rows in %d classes -- %s' % (len(r), len(by), '; '.join(
+            'author beside the next act of %s): %d rows in %d classes -- %s' % (__import__('standing.cites', fromlist=['next_clause']).next_clause(rd('%s_ferry.txt' % ACT)), len(r), len(by), '; '.join(
                 '%s as %s' % (k, ', '.join('(%s)' % x for x in v)) for k, v in sorted(by.items())) or 'none'))
 
 

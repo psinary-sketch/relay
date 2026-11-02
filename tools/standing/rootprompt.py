@@ -7,6 +7,8 @@ composer prints the token only when the token stands on that line of that bank, 
   data/<act>_rootprompt_rows.json = {"questions": [{"header": ..., "rows": [[part, ...], ...]}]}
   compose(rows, read) -> text        read(bank, line) -> the line's text, or None; a row's parts joined, the rows joined by one space; SystemExit naming every stale cite
   stale(rows, read) -> [(bank, line, token)]
+  ceiling(scores, tracked_at_lock, act, modified) -> (held, of, line)   v1.14.0, (R344)(2)(ii): the ceiling computed as a dry score, never typed: every score that reads REFUTED now, and N4 when a path the suite writes
+                                     stood tracked at the lock (the suite's run will read as an edit) or a tracked bank differs from the lock's; PENDING counted as it may yet hold
   rows_from(text, read) -> rows      a text as put, split into rows at its sentences, every number before a cite on the sentence, found on the cited line, turned into a cite
 Pure in its arguments; nothing written.
 """
@@ -14,6 +16,16 @@ import re
 
 CITE = re.compile(r'\((?:relay )?(data/[\w.\-]+) :(\d+)(?:[,)\- ])')
 TOKEN = re.compile(r'\d[\d,.]*\d|\d')
+
+
+def ceiling(scores, tracked_at_lock, act, modified=()):
+    """`modified`: the banks tracked at the lock whose blobs differ from the lock's at prompt time, less the banks the lock excludes by name."""
+    import probes as PB
+    v = dict((k, (x[0] if isinstance(x, (list, tuple)) else x)) for k, x in scores.items())
+    lost = sorted(k for k, x in v.items() if str(x).startswith('REFUTED'))
+    if (PB.outputs(act, tracked_at_lock) or modified) and 'N4' in v and 'N4' not in lost:
+        lost = sorted(lost + ['N4'])
+    return len(v) - len(lost), len(v), 'at most %d of %d (%s REFUTED, by the banks at prompt time)' % (len(v) - len(lost), len(v), ', '.join(lost) or 'none')
 
 
 def _cites(rows):

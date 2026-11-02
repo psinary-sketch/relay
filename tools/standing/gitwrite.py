@@ -25,6 +25,8 @@ import rule_arms as RA   # noqa: E402
 SPLIT = re.compile(r';|&&|\|\||\n')
 LIST_FLAGS = r'(?:\s+(?:--list|-l|-a|-r|-v|-vv|--all|--remotes|--merged|--no-merged|--contains|--show-current|--points-at)\b(?:\s+[^\s-]\S*)?)*'
 LISTING = re.compile(r'^\s*git\s+(?:-C\s+\S+\s+)*(?:branch|tag)' + LIST_FLAGS + r'\s*$')
+# ### v1.14.0, (R344)(2)(iii), b733 event (10): the gated push is a write where the command runs it; a read naming its path is no write
+RUNS_GATED = re.compile(r'^\s*(?:(?:bash|sh)\s+)?\S*push_gated\.sh\b')
 
 
 def commands(cmd):
@@ -35,8 +37,13 @@ def is_listing(c):
     return bool(LISTING.match(c))
 
 
+def is_write(c):
+    hits = [m.group(0) for m in RA.GIT_WRITE.finditer(c)]
+    return bool(hits) and not is_listing(c) and (any(h != 'push_gated.sh' for h in hits) or bool(RUNS_GATED.match(c)))
+
+
 def writes(cmd):
-    return [c for c in commands(cmd) if RA.GIT_WRITE.search(c) and not is_listing(c)]
+    return [c for c in commands(cmd) if is_write(c)]
 
 
 def per_message(calls):

@@ -122,6 +122,9 @@ PRERUN = '--prerun' in sys.argv
 SEAL = '--seal' in sys.argv
 COMBINE = '--combine' in sys.argv
 GUARD_DRY = '--guard-dry' in sys.argv
+# ### v1.14.0, (⟪RUL⟫)(2)(i): a part with no mode named before the lock gate has permitted the lock is a probe, written to the probe paths, never a name the pre-push suite writes
+PROBE = not (MID or RERUN or PRERUN or GUARD_DRY or '--prev' in sys.argv) and__import__('standing.probes', fromlist=['auto']).auto('⟪ACT⟫', D)
+MID = MID or PROBE
 # ### (⟪RUL⟫)(2)(iii), standing clauses v2 row (54): `--prev --part <p>` runs every arm of the part on the PREVIOUS ACT'S banks before the seal --
 # ### the banks' act prefix, the face, the worklist and the pre-act heads read as ⟪PREV⟫'s (_prev_rebind, at the foot) -- and banks each arm's
 # ### verdict beside ⟪PREV⟫'s own (data/⟪PREV⟫_exercise.json): an arm passes there unless ⟪PREV⟫ failed it. ACTN is the act whose banks the run reads.
@@ -1916,6 +1919,8 @@ def _base_name(pushed):
         return '⟪ACT⟫_prevrun.txt'
     if PRERUN:
         return '⟪ACT⟫_arms_prerun.txt'
+    if PROBE:
+        return __import__('standing.probes', fromlist=['BASE']).BASE % '⟪ACT⟫'
     if MID and len(sys.argv) > sys.argv.index('--mid') + 1:
         return sys.argv[sys.argv.index('--mid') + 1]
     if RERUN and len(sys.argv) > sys.argv.index('--rerun-postpush') + 1:
@@ -2095,7 +2100,7 @@ def main():
     if set(names) != set(declared):
         rec('  ### declared not run : %s' % sorted(set(declared) - set(names)))
         rec('  ### run not declared : %s' % sorted(set(names) - set(declared)))
-    rec('  ### (R264)(2) THE FREEZE: the standing arms (⟪PREV⟫`s face less its own arms and the arms (⟪RUL⟫)(10) retired; none added) %d ; '
+    rec('  ### (R264)(2) THE FREEZE: the standing arms (⟪PREV⟫`s face less its own arms and the arms tools/standing/arms.py retires; none added) %d ; '
         'carried here %d ; the act`s arms over its own banks %s ; arms beyond both %s' % (
             len(S['standing']), len(set(names) & set(S['standing'])), sorted(set(names) - set(S['standing'])),
             sorted(set(names) - set(S['standing']) - set(KS.ACT_ARMS)) or 'NONE'))
@@ -2104,9 +2109,6 @@ def main():
         rec('  ### THE FOUR STANDING FIGURES, each against the previous act`s (%s):' % S['fig_prev_name'])
         for k in ('correspondence', 'readme', 'partners', 'pins'):
             rec('  ###   %-15s live %s ; previous %s' % (k, (S['fig'].get(k) or {}).get('figure'), (S['fig_prev'].get(k) or {}).get('figure')))
-        ok_, n_, off_, pre_, form_ = RDA.reading_text(S['reads_bank'])
-        rec('  ### G-READ-RULE-STANDING`S READING (relay data/⟪ACT⟫_read_calls.txt): %s ; rows %d ; offences %d %s ; the cap`s precursors %d' % (
-            'PASS' if ok_ else 'FAIL', n_, len(off_), [RDA._show(r) for r in off_], len(pre_)))
     if 'rules' in NEED[PART]:
         rec('  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace %d calls:' % len(
             S['ra'].get('calls') or []))
