@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T09:12:26Z",
+ "at": "2026-11-02T09:21:31Z",
  "anchor": "RULING (R344) BEGIN",
  "rows": [
   {
@@ -1512,6 +1512,166 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:40.251Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/audit_b734_reg_satisfiable.txt data/b734_closing_dry.txt data/b734_commands.json data/b734_commands.txt data/b734_defects.txt data/b734_hook_refusals.txt data/b734_pins_stepzero.txt data/b734_prelock.txt data/b734_reg_gate.txt data/b734_reg_termscan.txt data/b734_registration_2026-11-02.txt data/b734_regspec_run.txt data/b734_report_dry.txt data/b734_root_banks_dry.json data/b734_root_banks_dry.txt data/b734_satisfiable.json data/b734_steps.json data/b734_address_scan.txt tools/acts/b734.py tools/b734_face_blocks.txt tools/b734_sections.txt",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:48.933Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b734 gate: GATE VERDICT CLEAR after the root route's repair, defects (w) and (x) entered, the stamped banks and the face\"",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:51.100Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:52.947Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 3cdea589",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:12:58.509Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:13:10.515Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/free734.py\"",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:13:16.485Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:17:52.951Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:17:56.008Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log -3 --format=%h%x20%s --name-status --grep=\"b733 seal: face locked\"",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:17:56.758Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay log --format=%h%x20%s --grep=\"^b733 lock:\" --name-status",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:19:39.966Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/b734_address_scan.txt data/b734_root_banks_dry.json data/b734_root_banks_dry.txt data/b734_steps.json data/b734_commands.json data/b734_commands.txt",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:19:51.477Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b734 gate: the root route's dry run READY over 41 banks, the step row\"",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:19:53.774Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:19:56.760Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 3abfb6a2",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:20:08.450Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:20:19.011Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/actmodule.py render b734 HEAD",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:20:19.642Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py report dry",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:20:26.778Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:21:16.603Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:21:17.985Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay status --short -uno",
+   "n": 209,
    "bg": false
   }
  ],

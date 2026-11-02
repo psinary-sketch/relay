@@ -1,7 +1,7 @@
-b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T09:12:26Z)
+b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T09:21:31Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R344) BEGIN', with its subagents` transcripts
-### commands read: 189
+### commands read: 209
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -249,5 +249,25 @@ b734 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #187 | 2026-11-02T09:11:18.621Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734x.py" && cd /d/relay && python -X ut
   #188 | 2026-11-02T09:11:25.606Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt
   #189 | 2026-11-02T09:12:14.935Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #190 | 2026-11-02T09:12:40.251Z | seat | Bash | python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/audit_b734_reg_satisfiable.txt data/b734_closing_dry.txt data/b734_commands.json data/b
+  #191 | 2026-11-02T09:12:48.933Z | seat | Bash | git -C /d/relay commit -q -m "b734 gate: GATE VERDICT CLEAR after the root route's repair, defects (w) and (x) entered, the stamped banks and the face"
+  #192 | 2026-11-02T09:12:51.100Z | seat | Bash | git -C /d/relay rev-parse --short=8 HEAD
+  #193 | 2026-11-02T09:12:52.947Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 3cdea589
+  #194 | 2026-11-02T09:12:58.509Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rootdry
+  #195 | 2026-11-02T09:13:10.515Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/free734.py"
+  #196 | 2026-11-02T09:13:16.485Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-a
+  #197 | 2026-11-02T09:17:52.951Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act
+  #198 | 2026-11-02T09:17:56.008Z | seat | Bash | git -C /d/relay log -3 --format=%h%x20%s --name-status --grep="b733 seal: face locked"
+  #199 | 2026-11-02T09:17:56.758Z | seat | Bash | git -C /d/relay log --format=%h%x20%s --grep="^b733 lock:" --name-status
+  #200 | 2026-11-02T09:19:39.966Z | seat | Bash | python -X utf8 -u tools/b734_address_scan.py scan --bank && git add data/b734_address_scan.txt data/b734_root_banks_dry.json data/b734_root_banks_dry.txt data/b
+  #201 | 2026-11-02T09:19:51.477Z | seat | Bash | git -C /d/relay commit -q -m "b734 gate: the root route's dry run READY over 41 banks, the step row"
+  #202 | 2026-11-02T09:19:53.774Z | seat | Bash | git -C /d/relay rev-parse --short=8 HEAD
+  #203 | 2026-11-02T09:19:56.760Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate 3abfb6a2
+  #204 | 2026-11-02T09:20:08.450Z | seat | Bash | python -X utf8 -u tools/standing/prelock.py print
+  #205 | 2026-11-02T09:20:19.011Z | seat | Bash | python -X utf8 -u tools/standing/actmodule.py render b734 HEAD
+  #206 | 2026-11-02T09:20:19.642Z | seat | Bash | python -X utf8 -u tools/standing/fold.py report dry
+  #207 | 2026-11-02T09:20:26.778Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt
+  #208 | 2026-11-02T09:21:16.603Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #209 | 2026-11-02T09:21:17.985Z | seat | Bash | git -C /d/relay status --short -uno
 
-### ### **COMMANDS 189 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 209 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 1 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
