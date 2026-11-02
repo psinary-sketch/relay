@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T08:59:21Z",
+ "at": "2026-11-02T09:04:49Z",
  "anchor": "RULING (R344) BEGIN",
  "rows": [
   {
@@ -1264,6 +1264,86 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b734_address_scan.py scan --bank --quiet-none && git add data/b734_address_scan.txt data/b734_bank_hashes.json data/b734_commands.json data/b734_commands.txt data/b734_defects.txt data/b734_hook_refusals.txt data/b734_steps.json tools/acts/b734.py tools/b734_face_blocks.txt tools/b734_sections.txt tools/b734_worklist.py",
    "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:59:29.741Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b734 gate: the arm's reading of the kept clause as (R344)(4) writes it, the (W) rows of v1.14.0's two tools, defects (s)-(u)\"",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:59:33.514Z",
+   "src": "seat",
+   "cmd": "git rev-parse --short=8 HEAD",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T08:59:36.422Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate f5684f8e && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py closing dry --quiet && python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:01:01.419Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:01:12.042Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -- data/b733_registration_2026-11-02.txt && git log --format=\"%h %s\" --reverse 05d53af9~40..05d53af9 --grep=\"b733 gate\\|b733 lock\\|b733 seal\\|b733 pre-root\" ",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:01:22.202Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:02:15.455Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py reg_gate --bank-only",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:03:06.729Z",
+   "src": "seat",
+   "cmd": "git ls-files --error-unmatch data/b734_reg_gate.txt; wc -l data/b734_reg_gate.txt",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:03:25.701Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/fix734b.py\" && python -X utf8 -u tools/b734_face.py && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T09:03:52.276Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 168,
    "bg": false
   }
  ],
