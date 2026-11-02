@@ -80,6 +80,7 @@ def main():
         parts += [B[k]] + [shift(l) for l in G.get(k, [])]
     t = '\n'.join(parts) + '\n'
     t = t.replace('@@PREFACE@@', PRE_FACE_TITLE + ' ' + pre_face())
+    t = t.replace('b733_registration_2026-11-01', 'b733_registration_2026-11-02')
     left = re.findall(r'@@\w+@@', t)
     if left:
         print('REFUSED: unfilled', sorted(set(left)))
