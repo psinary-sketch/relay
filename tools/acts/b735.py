@@ -26,19 +26,19 @@
 #⟪PENDING regspec ⟫
 #⟪PENDING report ⟫
 # ### b735, Component 1 (the Edit tool): THE c1 ROUTE FOR b734'S WEIGHT LINE AND ITS CORRIGENDUM, (R345)(1)-(2). Carried from b734's
-# ### override and rewritten here against b734's own banks: the closing's lines by needle, the events (11), the defects (18), the refusals
-# ### (12), the v1.14.0 controls. `c1 weight|corrigendum [dry|write]`;
+# ### override and rewritten here against b734's own banks: the closing's lines by needle, the events (10), the defects (24), the refusals
+# ### (9), the v1.15.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
-C1_PREV_CLOSE = '05d53af9'          # ### b734's closing commit
-C1_REFUSAL_AT = '05d53af9'          # ### its refusal bank read at its closing commit
+C1_PREV_CLOSE = '5609d5fd'          # ### b734's closing commit
+C1_REFUSAL_AT = '5609d5fd'          # ### its refusal bank read at its closing commit
 C1_NOTED = '2026-11-02'
-C1_CORRIGENDA_LAST = 53
-C1_V170 = 'b735_standing_v1140.txt'
+C1_CORRIGENDA_LAST = 54
+C1_V170 = 'b735_standing_v1150.txt'
 C1_WEIGHT_HEAD = '*Appended 2026-11-02 by b735 to b734’s entry (:%d), under `(R345)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## W-ORD-ZQ-DERIVES: the count field CLOSED'
-C1_TRAIL_NEEDLE = '### b734 — lane two, act one hundred and sixty, the count act under (R344)'
-C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
+C1_ENTRY_NEEDLE = '## W-ORD-ZQ-DERIVES: the explicitFormula field planned'
+C1_TRAIL_NEEDLE = '### b734 — lane two, act one hundred and sixty-one, the plan act under (R344)'
+C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
 def _c1_rd(name, base=None):
@@ -103,35 +103,34 @@ def _c1_weight():
     sc = json.load(open(os.path.join(D, 'b734_scores_close.json'), encoding='utf-8'))
     sc = sc.get('scores') or sc
     held = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'HELD']
-    if held != ['N1', 'N2', 'N3', 'S1', 'S2', 'S3']:
+    if len(held) != 8:
         sys.exit('### data/b734_scores_close.json: HELD %s -- NOTHING COMPOSED' % held)
     ar = json.load(open(os.path.join(D, 'b734_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
         sys.exit('### data/b734_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
     ev, dr = _c1_events(), _c1_defects()
-    if sorted(ev) != list(range(1, 12)) or len(dr) != 18:
+    if sorted(ev) != list(range(1, 11)) or len(dr) != 24:
         sys.exit('### EVENTS %s ; DEFECTS %d -- NOTHING COMPOSED' % (sorted(ev), len(dr)))
+    pr = _c1_rd('b734_ef_print.txt').split(NL)[1557]
+    pl = _c1_rd('b734_explicitformula_plan.txt').split(NL)[175]
     return (C1_WEIGHT_HEAD + ' -- b734 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b734_closing.txt):* “%s” (data/b734_closing.txt :1, the public relay at %s); its '
-            'relay commit the record’s %s, the closing’s %s (data/b734_steps.json, the record and closing rows). As its rows read: the count field CLOSED, zq_count_holds on zq-b730 at 09053d3b, run 41374814817, axioms propext, Classical.choice, Quot.sound, no sorry, 5 of 14 dispatches, 883 lines against 800-2000, '
-            'C3 compiled, C4 the compiled zq_three_halves_lt; four of five fields closed, the instance not DERIVES (data/b734_count.txt :58). '
-            'The sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push, NOT CLEAN both (:%d, :%d), G-AXIOM-CLAIM declared on the face; the counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d). '
-            'The root %s over %s banks, chained from %s (data/b734_act_root.json; :%d), the chain AGREE b624-b734; the mirror CLEAN at mirror-refresh-2026-11-02-b734; %s questions banked as put by the seat (:%d), in one call; %d events in data/b734_events.txt, rows (1)-(%d); %d defects, (a)–(r) '
+            'relay commit the record’s %s, the closing’s %s (data/b734_steps.json, the record and closing rows). As its rows read: the explicitFormula field PLANNED, no build, no Lean file written; “%s” (data/b734_ef_print.txt :1558), the bins LEXICAL where the bank says so; “%s” (data/b734_explicitformula_plan.txt :176); '
+            'the author’s word at the root: the build, the sitting after it. Standing tools v1.14.0, 25 of 25; the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), G-AXIOM-CLAIM and G-LISTINGS-BEFORE-CLAUSES declared on the face; the counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d), the OPEN_TRAILS hand section’s CLOSE 31, REPEAT 16 of 33 the earlier figure, event (10) having landed after the record’s push. '
+            'The root %s over %s banks, chained from %s (data/b734_act_root.json; :%d), the chain AGREE b624-b734; the mirror CLEAN at mirror-refresh-2026-11-02-b734; %s questions banked as put by the seat (:%d), in one call; %d events in data/b734_events.txt, rows (1)-(%d); %d defects, (a)–(x) '
             '(data/b734_defects.txt). '
-            'SCORES 6 OF 8: N4 REFUTED, seventeen suite probe banks tracked by the gate commit before the lock and rewritten by the pre-push suite, no restore made, the seat’s choice standing, a restore hiding the run; N5 REFUTED on the scorer’s one-git-write clause, 8 messages counted, one a false count on a path. '
-            'THE ROOT PROMPT’S CEILING “at most 7 of 8” was wrong when put and the author’s two answers rest on it, as events row (11) says; `(R345)`(1) reads them as answers to the readings, not to the figure. '
-            'THE NAVIGATOR’S OMISSION, `(R345)`(1): the ferry’s N5 at data/b734_ferry.txt :39 did not name the one-git-write clause the scorer carries; `(R345)`’s N5 names it. '
+            'SCORES 8 OF 8, the ceiling computed and not typed. Four of five fields closed, the instance not DERIVES. '
             'Nothing deposited, no draft published; the corrigendum for these rows follows, under `(R345)`(1)-(2).' % (
-                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
+                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, pr.strip('#* '), pl.strip('#* '), sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
                 cc, cd, rp, rn, l_cn, K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, np_, l_an, len(ev), max(ev), len(dr)))
 
 
 # ### the refusals: b734's bank at C1_REFUSAL_AT, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(k_, 'READ', '00:48:06Z', 'defect (b)') for k_ in (1, 2, 3)] + [(4, 'PIPE', '01:19:12Z', 'defect (i)'), (5, 'REDIR', '02:11:00Z', 'defect (k)'), (6, 'READ', '02:19:15Z', 'defect (l)'), (7, 'READ', '02:22:38Z', 'defect (m)'), (8, 'PIPE', '03:15:28Z', 'defect (r)'), (9, 'PIPE', '04:23:23Z', 'event (4)')]
-# ### three lines no row of b734 records: the memory Reads of its close, 05:33Z, after the events bank's last row; entered here and at b735's defects
-C1_UNROWED = [(10, 'READ', '05:33:01Z'), (11, 'READ', '05:33:01Z'), (12, 'READ', '05:33:02Z')]
-C1_CORR_TITLE = ('## Corrigendum to b734’s record (relay data/b734_events.txt rows (1)-(11) and data/b734_defects.txt): eleven events and eighteen defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT; the probe-bank class at its head, the lock gate refusing to lock over a tracked probe output; the prompt’s ceiling a dry score, GIT_WRITE on the command, one date source, subjects from the bank, the retired print removed, the empty read its own word, clauses from the ruling, defect ids from the log, '
-                 'at tools/standing/ v1.14.0, each controlled, under (R345)(1)-(2)')
+C1_REFUSALS = [(1, 'READ', '07:22:30Z', 'defect (b)'), (2, 'PIPE', '07:32:33Z', 'defect (e)'), (3, 'REDIR', '07:36:42Z', 'defect (f)'), (4, 'READ', '07:56:09Z', 'defect (j)'), (5, 'PIPE', '08:09:22Z', 'defect (o)'),
+               (6, 'REDIR', '09:09:49Z', 'defect (x)'), (7, 'PIPE', '12:40:33Z', 'event (6)'), (8, 'PIPE', '12:47:07Z', 'event (8)'), (9, 'REDIR', '13:46:14Z', 'event (10)')]
+C1_UNROWED = []
+C1_CORR_TITLE = ('## Corrigendum to b734’s record (relay data/b734_events.txt rows (1)-(10) and data/b734_defects.txt): ten events and twenty-four defects, each CLAIM or CLOSE and NEW or '
+                 'REPEAT; the compile control at its head, every rendered suite part and act module compiled before a version’s figures print; overrides keyed to a marker, the kept clause in the standing reader, a repair moving VERSION, the entry naming every repair, the delete step’s listing, the counter’s rule, the exercise bank’s carry, '
+                 'at tools/standing/ v1.15.0, each controlled, under (R345)(1)-(2)')
 
 
 def _c1_q(s):
@@ -164,13 +163,13 @@ def _c1_state():
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
     (cc, cd), _l = _c1_fl('b734_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V170)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.14.0: CONTROLS')]
-    s = dict(events=ev, tags=tags, defects=dr, notes=[])
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.15.0: CONTROLS')]
+    s = dict(events=ev, tags=tags, defects=dr, notes=list(C1_NOTES))
     nc, nl_, _rep, _n = _c1_counts(s)
-    bad = [k_ for k_, ok_ in (('the event rows (1)-(11)', sorted(ev) == list(range(1, 12))), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 18', len(dr) == 18), ('the refusals 12, nine answered as listed, three unrowed', len(rl) == 12 and not bad_ref and all(rl[ln_ - 1].startswith('2026-11-02T' + at_) and ('| %s |' % kd_) in rl[ln_ - 1] for ln_, kd_, at_ in C1_UNROWED)),
+    bad = [k_ for k_, ok_ in (('the event rows (1)-(10)', sorted(ev) == list(range(1, 11))), ('each event`s bracket', all(t[0] for t in tags.values())),
+                              ('the defect rows 24', len(dr) == 24), ('the refusals 9, each answered as listed', len(rl) == 9 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.14.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the v1.15.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
                               ('the counter the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
@@ -195,21 +194,20 @@ def _c1_col(c):
     return 'NEW' if c == 'NEW' else c.replace('REPEAT ', 'REPEAT of ', 1).replace("'", '’').replace('`', '’')
 
 
-# ### the repairs each event is met by at v1.14.0
-C1_EV_EXTRA = {1: '; the row corrected before any commit; the phase the arm reads', 2: '; repair (subjects)', 3: '; repair (date)', 4: '; nothing ran',
-               5: '; repair (subjects)', 6: '; `(R345)`(1): the navigator’s omission, the clause named in this act’s N5; the add and the commit separate messages since', 7: '; `(R345)`(1): read as answers to the readings, not to the figure', 8: '; repair (clauses)',
-               9: '; repair (defectids)', 10: '; repair (gitwrite)', 11: '; repairs (probes) and (ceiling); the class wider than the row, seven ls-remote banks beside the seventeen'}
-C1_DF_EXTRA = {'n': '; repair (clauses)', 'o': '; repair (emptyread)', 'q': '; the name 3471c14b corrected by event (9), repair (defectids)'}
+# ### the repairs each event is met by at v1.15.0
+C1_EV_EXTRA = {5: '; repair (entry); the dated note below', 10: '; rule (2) of data/b735_rules.txt; repair (counter); the dated note below'}
+C1_DF_EXTRA = {'p': '; repair (compile)', 'q': '; repair (marks)', 's': '; repair (deletes)', 'u': '; repair (kept)', 'w': '; repair (commits), its commit outside the version'}
+C1_NOTES = ('Dated note, b735, to FINDINGS :12751 (`(R345)`(2)(v)): the entry stands as landed; it names `21a94e81` for defect (p) and not `117ab5bc`, the second repair, defect (w). The repair commits b734’s banks name are `21a94e81` and `117ab5bc`, with the version’s `59e3efa8` and the print’s `dad59fe6`.',
+            'Dated note, b735, to OPEN_TRAILS :17273 (`(R345)`(2)(vii)): the closing carries the last figure, CLAIM 2, CLOSE 32, REPEAT 17 of 34; the hand section’s CLOSE 31, REPEAT 16 of 33 read the banks before event (10), which landed after the record’s push.')
 C1_CLASSES = (
-    ('probes', 'the probe-bank class at its head (`(R345)`(2)(i), event (11); CLAIM ; REPEAT b729 trap 4)', 'standing.probes: before the lock gate permits, a plain suite part writes data/<act>_probe_<part>.txt and its mid exercise, never a name the pre-push suite writes; the comparison reads those banks; tools/b378_lockgate.py refuses while any tracked path is a probe output, printing the paths, the verdict and the exit code carrying it; the probe paths stay untracked, so the lock’s hash and N4’s read never meet them. b734’s tree at the commit before its lock, replayed with no edit: REFUSED, 24 paths, event (11)’s seventeen and seven ls-remote banks tracked beside them and moved by no later commit, so the class is wider than the row and the row’s seventeen stands for what N4 read. b732’s lock passes'),
-    ('ceiling', 'the root prompt’s ceiling a dry score (`(R345)`(2)(ii), event (11); CLAIM ; NEW)', 'standing.rootprompt.ceiling reads every score REFUTED at prompt time, and takes N4 where a path the suite writes stood tracked at the lock or a tracked bank differs from the lock’s; no ceiling is typed. b734’s prompt regenerated reads at most 6 of 8, N4 and N5, where the typed line read 7'),
-    ('gitwrite', 'GIT_WRITE matches the command, not the path (`(R345)`(2)(iii), event (10); CLOSE ; NEW)', 'standing.gitwrite.is_write counts the gated push only where a command runs it. b734’s eighth message reads as one write, the arm’s count over its window falling from 8 to the real 7; the gated push stays a write'),
-    ('date', 'one date source (`(R345)`(2)(iv), event (3); CLOSE ; NEW)', 'standing.close.act_date reads the worklist’s DATE where the face and the worklist read it; close.py reads no date field of act_current. “THE FACE IS NOT LOCKED” replayed clean on b734, and close.py’s main runs as the face names it, no scratch caller; data/act_current.json keeps the field, stamped from the clock and read by nothing here'),
-    ('subjects', 'commit subjects composed from the bank (`(R345)`(2)(v), events (2), (5); CLAIM ; NEW)', 'standing.subjects.compose prints the head from the act and the step’s phase and any figure from its bank; check refuses a typed subject that differs. “62 files” against 63 and “b734 seal:” against the phase lock both read; b732’s lock subject reads clean'),
-    ('retired', 'the printed name G-READ-RULE-STANDING (`(R345)`(2)(vi); CLOSE ; NEW)', 'THE EVENT: the name printed at b732 and b734 with no arm among the 116, the arm standing on tools/standing/arms.py’s retired list. THE CHOICE PRINTED: the print removed from the suite’s template, no arm row given, a retired arm owing no row'),
-    ('emptyread', 'act_root’s empty remote read its own word (`(R345)`(2)(vii), defect (o); CLOSE ; NEW)', 'tools/act_root.py verify: where a repository reads empty and others answer, the empty repositories print and a row resting only on them reads UNREAD, not DISAGREE; a row with a reason of its own stays DISAGREE. b734’s three-repository read replayed over a stand-in, no remote touched'),
-    ('clauses', 'clause numbers read from the ruling’s text (`(R345)`(2)(viii), event (8), defect (n); CLOSE ; REPEAT b734 (n))', 'standing.cites.next_clause reads the clause naming the next act from the ruling; the entry’s touch-read line calls it and the suite’s freeze line prints no typed clause. b734’s line regenerates as (R344)(6); b735’s ruling reads (R345)(6)'),
-    ('defectids', 'a defect’s commit ids read from the log (`(R345)`(2)(ix), event (9); CLAIM ; NEW)', 'standing.defectids traces each message over the one-write row through its commit subject to the logs. b734’s seven read with the kernel’s 834f6ac and without relay 3471c14b'),
+    ('compile', 'the compile control at its head (`(R345)`(2)(i), defect (p); CLOSE ; NEW)', 'standing.compilecontrol compiles the seven tools rendered with the act’s sections and overrides, the checks render standing for every suite part, and the act’s worklist; every version’s bank prints its foot before any figure and tools/b378_lockgate.py refuses over a render that does not compile. v1.14.0’s checks render at 59e3efa8 reads invalid syntax at line 126, the tool’s row FAIL there; b734’s closing and this act’s tree read clear'),
+    ('marks', 'overrides keyed to a marker (`(R345)`(2)(ii), defect (q); CLOSE ; NEW)', 'an act’s override names a mark of the template’s lines, found by render wherever they stand, the same bytes exactly once or refused; a number is refused from b735. b734’s three markers, with every override of checks, render equal with one line inserted above them, where the line-keyed route refuses; a replaced line edited refuses too'),
+    ('kept', 'the kept clause in the standing reader (`(R345)`(2)(iii), defect (u); CLOSE ; NEW)', 'standing.allow.kept_clause and kept_names read “kept: ...” and “the kept branches ...”; (R344)(4)’s clause and (R345)(4)’s read the same four names; the template’s line reads it and the act’s override is retired'),
+    ('commits', 'a repair moves VERSION (`(R345)`(2)(iv), defects (p), (w); CLOSE ; NEW)', 'standing.repaircommits.outside lists the commits after a version’s commit that touch tools/standing/ and leave VERSION unmoved; the lock refuses while one stands. b734’s 21a94e81 and 117ab5bc read as uncontrolled against v1.14.0’s bank'),
+    ('entry', 'the entry names every repair commit (`(R345)`(2)(v), event (5); CLAIM ; NEW)', 'standing.repaircommits.named reads the commits the act’s banks call repairs, and clause composes the entry’s sentence from them, no id typed. b734’s entry omits 117ab5bc; regenerated it names both'),
+    ('deletes', 'the delete step’s listing (`(R345)`(2)(vi), defect (s), G-LISTINGS-BEFORE-CLAUSES; CLAIM ; NEW)', 'standing.deletes list prints --merged and banks it, and delete refuses a branch outside the bank’s last listing. b734’s five deletes replayed over a stand-in: a delete before the listing refused, the deletes after it clean, a name outside it refused. This act’s deletes ran before the tool landed, the listing printed first, by hand, in the transcript; the tool is the next act’s'),
+    ('counter', 'the counter’s rule (`(R345)`(2)(vii), event (10); CLOSE ; NEW)', 'rule (2) of data/b735_rules.txt; standing.counterline.read takes the hand figure equal to the closing’s or naming the closing as the last figure. b734’s two figures read unequal, and pass with the dated note below'),
+    ('exercise', 'the exercise bank’s carry (`(R345)`(2)(viii); CLOSE ; NEW)', 'rule (1) of data/b735_rules.txt: data/bNNN_exercise.json is committed at every closing. b733’s closing did not carry its counterpart, its last commit the record, noted and not rewritten; b734’s did'),
 )
 
 
@@ -217,19 +215,19 @@ def _c1_lines(s):
     nc, nl_, rep, n = _c1_counts(s)
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v170_foot'])
-    L = ['*b734’s events bank (relay data/b734_events.txt) carries eleven rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank eighteen lettered rows, (a)-(r), each tagged in its own bracket (%s); its refusal bank twelve lines at %s, '
-         'nine recorded by a row, the last three by none and entered below. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
+    L = ['*b734’s events bank (relay data/b734_events.txt) carries ten rows, entered after its lock and not lettered, each tagged in its '
+         'own bracket (%s); its defects bank twenty-four lettered rows, (a)-(x), each tagged in its own bracket (%s); its refusal bank nine lines at %s, '
+         'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*' % (
              _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
-    L += ['**The repairs of `(R345)`(2), at tools/standing/ v1.14.0, each with a control on b734’s banks, failing on the route before the repair '
+    L += ['**The repairs of `(R345)`(2), at tools/standing/ v1.15.0, each with a control on b734’s banks, failing on the route before the repair '
           'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v170_line('### (%s) ' % k_)), '']
-    L += ['**b734’s events (1)-(11):**', '']
+    L += ['**b734’s events (1)-(10):**', '']
     for k_ in sorted(s['events']):
         t, r, o = s['tags'][k_]
-        h = re.sub(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_])
+        h = re.sub(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_])
         h = re.sub(r'^(AFTER )?((about |read at )?\d\d:\d\d(:\d\d)?Z( to \d\d:\d\dZ)?( put and \d\d:\d\dZ answered)?( from [^:]*)?|post-push|pre-push and post-push)[:,] ', '', h)
         h = (h[:120].rsplit(' ', 1)[0] + ' …') if len(h) > 120 else h
         L += ['**(%d)** %s (relay data/b734_events.txt, row (%d); %s; %s; %s%s).' % (
@@ -238,11 +236,12 @@ def _c1_lines(s):
     for x, o, t, c, _tx in s['defects']:
         L += ['**(%s)** (relay data/b734_defects.txt; %s; %s; %s%s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _c1_col(c), C1_DF_EXTRA.get(x, ''))]
     L += ['', '**b734’s refusals** (relay data/b734_hook_refusals.txt at %s, one a line): ' % C1_REFUSAL_AT + '; '.join(
-        ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '; ' + '; '.join(':%d %s %s, no row, entered here' % r_ for r_ in C1_UNROWED) + '.', '',
-          '**The counter:** CLAIM %d, CLOSE %d over the %d items (eleven events, eighteen defects), as b734’s closing prints it (relay data/b734_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
+        ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
+          '**Dated notes:**', '', s['notes'][0], '', s['notes'][1], '',
+          '**The counter:** CLAIM %d, CLOSE %d over the %d items (ten events, twenty-four defects), as b734’s closing prints it (relay data/b734_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
               nc, nl_, n, rep, n, ', '.join(claims)), '',
           '*Filed at b735 on the author’s ruling `(R345)`(1)-(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b735.py) from '
-          'b734’s events and defects banks read unedited, its refusal bank, and the v1.14.0 controls bank; banked as relay `data/b735_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
+          'b734’s events and defects banks read unedited, its refusal bank, and the v1.15.0 controls bank; banked as relay `data/b735_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b734’s record; no sealed tool, face, trail or root-named bank of b734 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
 
@@ -250,11 +249,11 @@ def _c1_lines(s):
 def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
     return (['b735 -- THE CORRIGENDUM FOR b734, (R345)(1)-(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b734_events.txt rows (1)-(11), data/b734_defects.txt 18 rows, data/b734_hook_refusals.txt 12 '
-             'lines at %s; data/%s (the v1.14.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
+             '### the banks read unedited: data/b734_events.txt rows (1)-(10), data/b734_defects.txt 24 rows, data/b734_hook_refusals.txt 9 '
+             'lines at %s; data/%s (the v1.15.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 11, DEFECTS 18 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.14.0: THE PROBE PATHS AND THE LOCK GATE`S REFUSAL, THE PROMPT`S CEILING, GIT_WRITE ON THE COMMAND, ONE DATE SOURCE, '
-               'SUBJECTS FROM THE BANK, THE RETIRED PRINT, THE EMPTY READ, CLAUSES FROM THE RULING, DEFECT IDS FROM THE LOG ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
+            + ['', '### ### **ITEMS %d: EVENTS 10, DEFECTS 24 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.15.0: THE COMPILE CONTROL, OVERRIDES BY MARK, THE KEPT CLAUSE, A REPAIR MOVES VERSION, THE ENTRY NAMES EVERY REPAIR, '
+               'THE DELETE STEP`S LISTING, THE COUNTER`S RULE, THE EXERCISE BANK`S CARRY ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
 
 
 def c1(*a):
@@ -282,7 +281,7 @@ def c1(*a):
                                                    events=[dict(row=k_, owner=s['tags'][k_][2], tag=s['tags'][k_][0], column=s['tags'][k_][1]) for k_ in sorted(s['events'])],
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.14.0', bank='data/' + C1_V170),
+                                                   notes=s['notes'], repairs=dict(version='v1.15.0', bank='data/' + C1_V170),
                                                    row=C1_CORRIGENDA_LAST + 1))
         print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(s['notes']), ln))
         return

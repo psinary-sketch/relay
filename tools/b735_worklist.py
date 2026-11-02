@@ -222,8 +222,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None
-STEPZERO_BANK_COMMIT = None
+STEPZERO_BANKS = '556868c3'
+STEPZERO_BANK_COMMIT = '556868c3'
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -247,12 +247,12 @@ B714_RECORD = 'd768ca35'     # ### b734's record commit (relay, the head line's)
 B714_ROOT = '30fc573f3862c3f6cf3d9af1ba832252d1027e69b4496f4a47b2776b4146a1cb'   # ### b734's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'efb643c7'  # ### b734's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
+C1_STANDING = 'deac7a43'
 C1_STANDING_REPAIR = None
 C1_RELAY = None
 C1_CORR = None
 C1_PP = None
-WEIGHT_LINE, CORR_LINE = None, None
+WEIGHT_LINE, CORR_LINE = 12791, 12793
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_RELAY = None
