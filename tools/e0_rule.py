@@ -754,12 +754,15 @@ LEXICON = {
     'TailInputs': ('prop', 'SIDE-explicit-formula Zeta23/Assembly/Inputs.lean :73'),
     'TypeIIParams': ('data', 'SIDE-lv-conservation SIDELvConservation/Genus5.lean :46'),
     'WeilConfig': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Config.lean :24'),
+    'WideConfig': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/Wide/Config.lean :28 (b736, (R346)(3)(ii), from b703`s and b735`s private E0_EXTENSION)'),
     # ### b643, (R253)(3)(a): two Type formers, so a binder whose type applies one (n : WithTop ℕ∞, contDiff_riemannZeta₀'s smoothness order)
     # ### is data and not an application of a name no lexicon lists; WithTop is WithBot's order dual, made by @[to_dual] at the same place.
     'WithBot': ('data', ML_ + 'Order/TypeTags.lean :22'),
     'WithTop': ('data', ML_ + 'Order/TypeTags.lean :21-:22 (WithBot`s @[to_dual])'),
     'ZeroActingPairing': ('prop', 'SIDE-lv-conservation SIDELvConservation/ZeroActingPairing.lean :41'),
     'ZeroConfig': ('data', 'SIDE-explicit-formula Zeta23/Defs.lean :136'),
+    'ZQPremises': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean :137 (b736, (R346)(3)(ii), from the private E0_EXTENSION)'),
+    'ZQZeros': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean :99 (b736, (R346)(3)(ii), from the private E0_EXTENSION)'),
 }
 MATHLIB_PROP = {}     # ### folded into LEXICON
 MATHLIB_DATA = {}

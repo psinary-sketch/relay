@@ -1,0 +1,40 @@
+b736 -- (R346)(3)(ii): THE E0 EXTENSION LANDED IN THE SHARED RULE (2026-11-02T22:31:49Z)
+
+### through the rule at relay d4e0ea02 and at this tree; the statements read at SIDE-explicit-formula b25fd82c, the header to its `:=`.
+
+## THE CONTROLS, BEFORE ANY FIGURE
+  the rule`s own self_test at this tree, both polarities                     AS WANTED
+  the entries added are the three and no other: ['WideConfig', 'ZQPremises', 'ZQZeros'] AS WANTED
+  no entry of the rule moved: none                                           AS WANTED
+  MET unchanged                                                              AS WANTED
+
+## THE ROWS (the declaration | the rule at d4e0ea02 | the rule at this tree)
+  THE THREE PREMISE-FREE FORMS, THE CONTROL
+    zq_count_instance                      DERIVES      DERIVES      no hypothesis binder
+  zq_count_instance unchanged                                                AS WANTED
+    zq_explicit_formula_instance           DERIVES      DERIVES      domain conditions only: hk : ContDiff ℝ 2 k, hs : HasCompactSupport k, he : ∀ x : ℝ, k (-x
+  zq_explicit_formula_instance unchanged                                     AS WANTED
+    zq_li_nonneg_imp_online_instance       DERIVES      DERIVES      no hypothesis binder
+  zq_li_nonneg_imp_online_instance unchanged                                 AS WANTED
+  THE ζ AND DIRICHLET INSTANCES
+    EF_lit_zeta                            INTERFACES   INTERFACES   hs : ZetaSeam
+  EF_lit_zeta unchanged                                                      AS WANTED
+    EF_lit_zetaZeroConfig                  DERIVES      DERIVES      no hypothesis binder
+  EF_lit_zetaZeroConfig unchanged                                            AS WANTED
+    EF_lit_chi_holds                       DERIVES      DERIVES      domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1
+  EF_lit_chi_holds unchanged                                                 AS WANTED
+    EF_zero_sum_summable_chi               DERIVES      DERIVES      domain conditions only: hχ : χ.IsPrimitive, h1 : χ ≠ 1, hk : ContDiff ℝ 2 k, hkc : HasComp
+  EF_zero_sum_summable_chi unchanged                                         AS WANTED
+    LFunction_zeros_finite_of_isCompact    DERIVES      DERIVES      domain conditions only: h1 : χ ≠ 1, hK : IsCompact K
+  LFunction_zeros_finite_of_isCompact unchanged                              AS WANTED
+  THE LANDED LINES
+    zq_count                               RAISED       INTERFACES   h : ZQPremises zq Z c
+  zq_count raised before and reads INTERFACES on h                           AS WANTED
+    zq_explicit_formula                    RAISED       INTERFACES   h : ZQPremises zq Z c
+  zq_explicit_formula raised before and reads INTERFACES on h                AS WANTED
+    zq_li_nonneg_imp_online                RAISED       INTERFACES   h : ZQPremises zq Z c
+  zq_li_nonneg_imp_online raised before and reads INTERFACES on h            AS WANTED
+
+### THE THREE FORMS READ DERIVES UNDER THE RULE AS IT STOOD: THE GRADE AT b735 DID NOT REST ON THE EXTENSION; THE LANDED LINES DID, THE RULE AS IT STOOD RAISING ON WideConfig.
+
+### ### **THE EXTENSION LANDED: 3 ENTRIES ; CONTROLS ALL AS WANTED.**
