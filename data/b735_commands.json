@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T18:02:33Z",
+ "at": "2026-11-02T18:23:52Z",
  "anchor": "RULING (R345) BEGIN",
  "rows": [
   {
@@ -2472,6 +2472,110 @@
    "src": "seat",
    "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face735.py\" && python -X utf8 -u tools/b735_face.py && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:02:50.740Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git add data/audit_b735_reg_satisfiable.txt data/b735_address_scan.txt data/b735_bank_hashes.json data/b735_census_stepzero.txt data/b735_closing_dry.txt data/b735_commands.json data/b735_commands.txt data/b735_defects.txt data/b735_faces_census_stepzero.txt data/b735_pins_stepzero.txt data/b735_prelock.txt data/b735_reg_gate.txt data/b735_reg_termscan.txt data/b735_registration_2026-11-02.txt data/b735_regspec_run.txt data/b735_report_dry.txt data/b735_root_banks_dry.json data/b735_root_banks_dry.txt data/b735_satisfiable.json data/b735_scanfile_c1.md data/b735_scanfile_corrigendum.md data/b735_steps.json tools/acts/b735.py tools/b735_face_blocks.txt tools/b735_sections.txt",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:02:59.735Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b735 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the pre-lock comparison; the cell screen's and the prediction counter's wording, defects (u)-(z)\"",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:03:02.374Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 312,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:03:06.762Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate 82615a82 && python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:13:04.257Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/mem734.py\"",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:14:23.230Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/face735.py\" && python -X utf8 -u tools/b735_face.py",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:14:25.175Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/free734.py\"",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:14:29.210Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-a",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:21:38.207Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/tail734.py\"",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:21:45.308Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:22:00.211Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"HEAD THE REMOTE MAIN|DRY RUN READY|'ready'\" -- tools/standing/fold/record.tpl tools/standing/rootbanks.py",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:22:06.972Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u -I \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/lock734.py\"",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:22:08.386Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt --bank-only && python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && git status --short -uno",
+   "n": 322,
    "bg": false
   }
  ],
