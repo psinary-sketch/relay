@@ -1,1 +1,3 @@
 2026-11-02T07:22:30Z | READ | Read | "D:\\relay\\data\\b733_steps.json" | a Read call with a limit and no offset on a file of 221 lines
+2026-11-02T07:32:33Z | PIPE | Bash | "git grep -n -E \"next act of|def classes_line|runs of three|repeating three\" -- tools/standing tools/acts/b734.py; git grep -n -E \"def gate|def stands|form=|checks_%s|'%s_checks\" -- tools/standing/prelock.py; git log --format=\"%h %s\" -5 --grep=\"b732 lock\" ; git log --format=\"%h %s\" --all - | a Bash command carrying a pipe outside quotes
+2026-11-02T07:36:42Z | REDIR | Bash | "git -C /d/relay ls-files \"data/b733_*\" --with-tree=754e419f -- 2>/dev/null; date -u +%H:%M:%SZ" | a Bash command carrying a redirect outside quotes
