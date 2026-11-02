@@ -4,3 +4,5 @@
 2026-11-02T07:56:09Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\7c29db99-62df-4f5e-a436-7e99b58f5dbf\\scratchpad\\ef734.py" | a Read call with no limit
 2026-11-02T08:09:22Z | PIPE | Bash | "python -X utf8 -u tools/standing/actmodule.py 2>&1 | head -n 12; git grep -n -E \"^def (render|parse|load)|argv\" -- tools/standing/actmodule.py" | a Bash command carrying a pipe outside quotes
 2026-11-02T09:09:49Z | REDIR | Bash | "python -X utf8 -u tools/standing/fold.py reg_gate data/b734_registration_2026-11-02.txt > /dev/null; echo done" | a Bash command carrying a redirect outside quotes
+2026-11-02T12:40:33Z | PIPE | Bash | "until [ -s \"/c/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/tasks/bkv1zloz2.output\" ] || [ -f /d/relay/data/b734_act_root.json ]; do sleep 5; done; echo ready" | a Bash command carrying a pipe outside quotes
+2026-11-02T12:47:07Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 8 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, StartTime" | a PowerShell command carrying a pipe outside quotes
