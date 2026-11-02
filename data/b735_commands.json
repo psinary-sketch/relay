@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T18:23:52Z",
+ "at": "2026-11-02T18:25:17Z",
  "anchor": "RULING (R345) BEGIN",
  "rows": [
   {
@@ -2577,6 +2577,62 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt --bank-only && python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && git status --short -uno",
    "n": 322,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:00.686Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git add data/audit_b735_reg_satisfiable.txt data/b735_address_scan.txt data/b735_closing_dry.txt data/b735_commands.json data/b735_commands.txt data/b735_pins_stepzero.txt data/b735_prelock.txt data/b735_reg_gate.txt data/b735_reg_termscan.txt data/b735_registration_2026-11-02.txt data/b735_regspec_run.txt data/b735_report_dry.txt data/b735_satisfiable.json data/b735_steps.json tools/b735_face_blocks.txt",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:09.128Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay commit -q -m \"b735 gate: the gate's banks at the last probes, the pre-lock comparison CLEAR, report dry and the render dry, G-LISTINGS-BEFORE-CLAUSES no longer carried\"",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:11.715Z",
+   "src": "seat",
+   "cmd": "git -C /d/relay rev-parse --short=8 HEAD",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:14.352Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate e56b26b8 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:43.059Z",
+   "src": "seat",
+   "cmd": "git ls-files --error-unmatch data/b735_prevrun_standing-b1.txt ; ls /d/relay/data/b735_prevrun_standing-b1.txt /d/relay/data/b735_prevrun_standing-b1.json /d/relay/data/b735_prevrun_exercise_standing-b1.json",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:24:46.203Z",
+   "src": "seat",
+   "cmd": "rm -- \"/d/relay/data/b735_prevrun_standing-b1.txt\" \"/d/relay/data/b735_prevrun_standing-b1.json\" \"/d/relay/data/b735_prevrun_exercise_standing-b1.json\" && cd /d/relay && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-02T18:25:04.704Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git add data/b735_address_scan.txt data/b735_root_banks_dry.json data/b735_root_banks_dry.txt data/b735_steps.json data/b735_commands.json data/b735_commands.txt && git status --short -uno",
+   "n": 329,
+   "bg": false
   }
  ],
  "offences": [],
@@ -2626,7 +2682,8 @@
   21,
   22,
   23,
-  24
+  24,
+  328
  ],
  "delete_shapes": [
   {

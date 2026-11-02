@@ -1,7 +1,7 @@
-b735 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T18:23:52Z)
+b735 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-02T18:25:17Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R345) BEGIN', with its subagents` transcripts
-### commands read: 322
+### commands read: 329
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -54,7 +54,7 @@ b735 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (0):
   NONE
 
-### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
   #20 2026-11-02T14:30:33.096Z Bash
       git -C /d/relay branch -d push-b734-closing
   #21 2026-11-02T14:30:35.206Z Bash
@@ -65,6 +65,8 @@ b735 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
       git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b734-preroot
   #24 2026-11-02T14:30:42.625Z Bash
       git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b734-record
+  #328 2026-11-02T18:24:46.203Z Bash
+      rm -- "/d/relay/data/b735_prevrun_standing-b1.txt" "/d/relay/data/b735_prevrun_standing-b1.json" "/d/relay/data/b735_prevrun_exercise_standing-b1.json" && cd /d/relay && python -X utf8 -u tools/standing/fold.py record rootdry
 
 ### THE BRANCH DELETES BY SHAPE ((R345)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #20 deletes ['push-b734-closing'], halves 1, globs none, variables none, chained after False; #21 deletes ['push-b734-preroot'], halves 1, globs none, variables none, chained after False; #22 deletes ['push-b734-record'], halves 1, globs none, variables none, chained after False; #23 deletes ['push-b734-preroot'], halves 1, globs none, variables none, chained after False; #24 deletes ['push-b734-record'], halves 1, globs none, variables none, chained after False
 
@@ -394,5 +396,12 @@ b735 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #320 | 2026-11-02T18:22:00.211Z | seat | Bash | git grep -n -E "HEAD THE REMOTE MAIN|DRY RUN READY|'ready'" -- tools/standing/fold/record.tpl tools/standing/rootbanks.py
   #321 | 2026-11-02T18:22:06.972Z | seat | Bash | python -X utf8 -u -I "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/lock734.py"
   #322 | 2026-11-02T18:22:08.386Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b735_registration_2026-11-02.txt --bank-only && python -X utf8 -u tools/standing/fold.py record gatebanks
+  #323 | 2026-11-02T18:24:00.686Z | seat | Bash | python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git add data/audit_b735_reg_satisfiable.txt data/b735_address_scan.txt data/b735_closing_dry
+  #324 | 2026-11-02T18:24:09.128Z | seat | Bash | git -C /d/relay commit -q -m "b735 gate: the gate's banks at the last probes, the pre-lock comparison CLEAR, report dry and the render dry, G-LISTINGS-BEFORE-CL
+  #325 | 2026-11-02T18:24:11.715Z | seat | Bash | git -C /d/relay rev-parse --short=8 HEAD
+  #326 | 2026-11-02T18:24:14.352Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate e56b26b8 && python -X utf8 -u tools/standing/fold.py record rootdry
+  #327 | 2026-11-02T18:24:43.059Z | seat | Bash | git ls-files --error-unmatch data/b735_prevrun_standing-b1.txt ; ls /d/relay/data/b735_prevrun_standing-b1.txt /d/relay/data/b735_prevrun_standing-b1.json /d/re
+  #328 | 2026-11-02T18:24:46.203Z | seat | Bash | rm -- "/d/relay/data/b735_prevrun_standing-b1.txt" "/d/relay/data/b735_prevrun_standing-b1.json" "/d/relay/data/b735_prevrun_exercise_standing-b1.json" && cd /d
+  #329 | 2026-11-02T18:25:04.704Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b735_address_scan.py scan --bank --quiet && git add data/b735_address_scan.t
 
-### ### **COMMANDS 322 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 24 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 3 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 329 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 24 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 5 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 3 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
