@@ -480,7 +480,7 @@ def _finding_text_b732():
     _r, _n, sh = seal_hashes()
     f = _figs()
     rep, tot = _repeats()
-    two = ['**`W-ORD-ZQ-DERIVES` CARRIED at b733, (R343)(3):** the count field CLOSED on zq-b730 at `%s`, `zq_count_holds`, run %s, axioms %s; four of five fields closed, explicitFormula open at b735; the instance’s grade unchanged.' % (K.ZQ_TIP[:8], f['ct_run'], f['ct_axioms'])]
+    two = ['**`W-ORD-ZQ-DERIVES` CARRIED at b733, (R343)(3):** the count field closed with the standard three at zq-b730 `%s`, run %s, axioms %s; four of five fields closed, explicitFormula open at b735; the instance’s grade unchanged.' % (K.ZQ_TIP[:8], f['ct_run'], f['ct_axioms'])]
     op = ORD.report(ORD.read(ORD.trail('HEAD') + two), 'HEAD')[1]
     if 'W-ORD-ZQ-DERIVES' not in op:
         sys.exit('### THE TRAIL: AN ANNOTATED ORDER NOT READ OPEN BY THE GENERATOR`S RULE -- NOTHING COMPOSED')
