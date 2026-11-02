@@ -26,6 +26,7 @@ carried to b736 (data/b736_carry_address_scan.txt), its carry-time repairs and t
                   address or the name. THE CONTROLS FIRST: a planted line carrying each, counted 1 each, and a clean line counted 0.
                   --bank writes data/b736_address_scan.txt.
 """
+import json
 import os
 import re
 import subprocess
@@ -100,6 +101,8 @@ def added(diff):
 
 
 SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R346)(3): the act's one kernel branch, by its ref; b735 defect (p): its commits land in this repository, so the scan reads each at the commit
+if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b736_kernel_bases.json')):   # ### (R346)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b736_kernel_bases.json'), encoding='utf-8')).items()))
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b736, (R346)(3) and (5): item [46]'s byline and two self-citations, under I-23
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
