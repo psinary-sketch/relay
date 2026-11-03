@@ -26,18 +26,18 @@
 #⟪PENDING regspec ⟫
 #⟪PENDING report ⟫
 # ### b738, Component 1 (the Edit tool): THE c1 ROUTE FOR b737'S WEIGHT LINE AND ITS CORRIGENDUM, (R348)(1)-(2). Carried from b737's
-# ### override and rewritten here against b737's own banks: the closing's lines by needle, the events (10), the defects (38), the refusals
-# ### (15), the v1.17.0 controls. `c1 weight|corrigendum [dry|write]`;
+# ### override and rewritten here against b737's own banks: the closing's lines by needle, the events (9), the defects (23), the refusals
+# ### (11), the v1.18.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
-C1_PREV_CLOSE = '58f2c295'          # ### b737's closing commit
-C1_REFUSAL_AT = '58f2c295'          # ### its refusal bank read at its closing commit
+C1_PREV_CLOSE = '54cd4f92'          # ### b737's closing commit
+C1_REFUSAL_AT = '54cd4f92'          # ### its refusal bank read at its closing commit
 C1_NOTED = '2026-11-03'
-C1_CORRIGENDA_LAST = 56
-C1_V170 = 'b738_standing_v1170.txt'
+C1_CORRIGENDA_LAST = 57
+C1_V170 = 'b738_standing_v1180.txt'
 C1_WEIGHT_HEAD = '*Appended 2026-11-03 by b738 to b737’s entry (:%d), under `(R348)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## W-ORD-ZQ-DERIVES discharged on the three premise-free forms'
-C1_TRAIL_NEEDLE = '### b737 — lane two, act one hundred and sixty-three, the second sitting under (R347)'
+C1_ENTRY_NEEDLE = '## W-ORD-ZQ-OFFLINE-ZERO planned, no build: candidate off0'
+C1_TRAIL_NEEDLE = '### b737 — lane two, act one hundred and sixty-four, the plan act under (R347)'
 C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
@@ -103,39 +103,46 @@ def _c1_weight():
     sc = json.load(open(os.path.join(D, 'b737_scores_close.json'), encoding='utf-8'))
     sc = sc.get('scores') or sc
     held = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'HELD']
-    if len(held) != 7 or 'N5' in held or 'scores %d of 8 HELD' % len(held) not in head:
+    if len(held) != 7 or 'N2' in held or 'scores %d of 8 HELD' % len(held) not in head:
         sys.exit('### data/b737_scores_close.json: HELD %s -- NOTHING COMPOSED' % held)
     ar = json.load(open(os.path.join(D, 'b737_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
         sys.exit('### data/b737_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
-    (s_r, s_c, s_p, s_rp, s_s), l_st = _c1_fl('b737_sitting.txt', r'^### ### \*\*THE SITTING: (\d+) ROWS ; CARRIED (\d+) ; PASS (\d+) ; REPLACED (\d+) ; STRUCK (\d+)\.\*\*$', 'the sitting')
+    (s_r, s_p, s_s, s_c), l_st = _c1_fl('b737_sitting.txt', r'^### ### \*\*THE SITTING OF ONE KERNEL: (\d+) ROWS ; PASS (\d+) \(\[76\], \[77\], \[25\]-\[29\]\) ; STRUCK (\d+) ; CARRIED (\d+) ; WRITES: README\.md 2 \(21b6328c, db0575c6\), the description 1 ;', 'the sitting')
+    pl, l_pl = _c1_fl('b737_offlinezero_plan.txt', r'^### ### \*\*THE PLAN: CANDIDATE off0 AT beta - 1/2 = (0\.4532604748), gamma = (16\.29021572) ; BOX A, MARGIN (0\.357096) SAMPLED ; (3) ROUTES PRICED \(R1, R2, R4\), R3 NOT A ROUTE ; R4 RECOMMENDED AT (1496)-(3820) LINES, (9)-(22) DISPATCHES ; (7) MATHLIB OBJECTS ABSENT ; (0) DISPATCHES THIS ACT\.\*\*$', 'the plan')
+    _bx, l_bx = _c1_fl('b737_offlinezero_box.txt', r'^  ## BOX A .*: \[0\.853260, 1\.053260\] x \[16\.190216, 16\.390216\]$', 'box A')
+    (va, vb), l_v = _c1_fl('b737_standing_v1170.txt', r'^### ### \*\*v1\.17\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*$', 'the v1.17.0 foot')
+    _mv, l_mv = _c1_fl('b737_mirror_verify.txt', r'^  ### VERDICT: (CLEAN ON ALL THREE CLAUSES)$', 'the mirror')
+    (mz,), l_mz = _c1_fl(c, r'(mirror-refresh-2026-11-03-b737)\.zip', 'the mirror`s archive')
     ev, dr = _c1_events(), _c1_defects()
-    if sorted(ev) != list(range(1, 11)) or len(dr) != 38:
+    if sorted(ev) != list(range(1, 10)) or len(dr) != 23:
         sys.exit('### EVENTS %s ; DEFECTS %d -- NOTHING COMPOSED' % (sorted(ev), len(dr)))
     dt = [x[2] for x in dr]
     dn = sum(1 for x in dr if x[3] != 'NEW')
     return (C1_WEIGHT_HEAD + ' -- b737 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b737_closing.txt):* “%s” (data/b737_closing.txt :1, the public relay at %s); its '
-            'relay commit the record’s %s, the closing’s %s (data/b737_steps.json, the record and closing rows). As its rows read: `W-ORD-ZQ-DERIVES` DISCHARGED on the three premise-free forms at PLACE-papers 89393bca; '
-            'the second sitting %s rows, PASS %s, CARRIED %s ([76], [77], [25]-[29]), REPLACED %s ([111] by (A1)), STRUCK %s ([19]) (data/b737_sitting.txt :%d); the five Zenodo currency notes [104]-[108] banked for a Tier 3 act on the author’s record numbers; '
-            '`W-ORD-ZQ-OFFLINE-ZERO` ENTERED in OPEN_TRAILS, priced at the act that takes it. Standing tools v1.16.0, 25 of 25; the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), '
-            'G-AXIOM-CLAIM declared on the face, G-RULE-POSTSEAL-READ on a refused read, G-RUNNER-GATE vacuous with no dispatch; SCORES %d OF 8 HELD, N5 REFUTED on two clauses as the author accepted at the root: the face’s (W) row not naming the three files the author’s amendment of `(R347)`(4) widened, '
-            'and two messages carrying add and commit together (22:22Z; 05:22Z as parallel calls). '
-            'The root %s over %s banks, chained from %s (data/b737_act_root.json; :%d), the chain AGREE b624-b737; the mirror CLEAN; %s prompts banked as put by the seat (:%d); %d events in data/b737_events.txt, rows (1)-(%d); %d defects, (a)–(z) and (a’)–(l’) '
-            '(data/b737_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d); over the defects alone, as the ruling quotes it, CLAIM %d, CLOSE %d, REPEAT %d of %d. '
+            'relay commit the record’s %s, the closing’s %s (data/b737_steps.json, the record and closing rows). As its rows read: `W-ORD-ZQ-OFFLINE-ZERO` PLANNED, no build (relay data/b737_offlinezero_plan.txt :%d): '
+            'the candidate off0 at β − 1/2 = %s, γ = %s; box A the square [0.853260, 1.053260] × [16.190216, 16.390216] (data/b737_offlinezero_box.txt :%d), margin %s sampled; %s routes priced (R1, R2, R4), R3 not a route; '
+            'R4, the minimum modulus on Complex.norm_le_of_forall_mem_frontier_norm_le (AbsMax.lean :405) applied to zqFn⁻¹, recommended at %s-%s lines and %s-%s dispatches; %s Mathlib objects absent at the pin; '
+            'four stop points SP1-SP4; %s dispatches, no Lean file. The sitting of one kernel %s rows, PASS %s ([76], [77], [25]-[29]), STRUCK %s, CARRIED %s, README.md written twice and the description once at SIDE-effects main (data/b737_sitting.txt :%d). '
+            'Standing tools v1.17.0, %s of %s (data/b737_standing_v1170.txt :%d); the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), '
+            'G-AXIOM-CLAIM and G-BRANCHES-BANKED declared on the face, G-RUNNER-GATE vacuous with no dispatch; SCORES %d OF 8 HELD, N2 REFUTED on defect (q), the two plan banks printing their figures before their controls, as the author accepted at the root. '
+            'The root %s over %s banks, chained from %s (data/b737_act_root.json; :%d); the mirror %s at %s (data/b737_mirror_verify.txt :%d; :%d); %s prompts banked as put by the seat (:%d); %d events in data/b737_events.txt, rows (1)-(%d); %d defects, (a)–(w) '
+            '(data/b737_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d); over the defects alone CLAIM %d, CLOSE %d, REPEAT %d of %d. '
             'The draft at v5; nothing deposited, no Zenodo description edited; the corrigendum for these rows follows, under `(R348)`(2).' % (
-                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, s_r, s_p, s_c, s_rp, s_s, l_st, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
-                len(held), K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, np_, l_an, len(ev), max(ev), len(dr),
+                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, l_pl, pl[0], pl[1], l_bx, pl[2], pl[3], '{:,}'.format(int(pl[4])), '{:,}'.format(int(pl[5])), pl[6], pl[7], pl[8], pl[9],
+                s_r, s_p, s_s, s_c, l_st, vb, va, l_v, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
+                len(held), K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, _mv[0], mz, l_mv, l_mz, np_, l_an, len(ev), max(ev), len(dr),
                 cc, cd, rp, rn, l_cn, dt.count('CLAIM'), dt.count('CLOSE'), dn, len(dr)))
 
 
 # ### the refusals: b737's bank at C1_REFUSAL_AT, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(1, 'READ', '20:49:14Z', 'b737 corrigendum'), (2, 'READ', '22:21:11Z', "defect (c)"), (3, 'PIPE', '22:21:13Z', 'defect (d)'), (4, 'READ', '22:22:40Z', 'defect (e)'), (5, 'READ', '22:22:40Z', 'defect (e)'),
-               (6, 'READ', '22:29:15Z', 'defect (f)'), (7, 'PIPE', '22:35:58Z', 'defect (n)'), (8, 'PIPE', '22:35:58Z', 'defect (n)'), (9, 'READ', '22:40:51Z', 'defect (o)'), (10, 'PIPE', '23:07:53Z', 'defect (u)'),
-               (11, 'PIPE', '02:04:56Z', "defect (d')"), (12, 'READ', '02:06:16Z', "defect (e')"), (13, 'PIPE', '02:19:17Z', "defect (g')"), (14, 'REDIR', '02:25:42Z', "defect (g')"), (15, 'POSTSEAL', '05:20:50Z', 'event (8)')]
+C1_REFUSALS = [(1, 'READ', '14:28:39Z', 'defect (b)'), (2, 'READ', '14:28:39Z', 'defect (b)'), (3, 'READ', '14:29:14Z', 'defect (b)'), (4, 'ORDER', '14:32:32Z', 'defect (d)'), (5, 'PIPE', '14:46:26Z', 'defect (j)'),
+               (6, 'READ', '14:50:10Z', 'defect (k)'), (7, 'READ', '14:51:39Z', 'defect (k)'), (8, 'READ', '15:33:20Z', 'defect (m)'), (9, 'PIPE', '15:38:24Z', 'defect (p)'), (10, 'REDIR', '16:07:30Z', 'defect (s)'),
+               (11, 'PIPE', '20:01:09Z', 'event (8)')]
 C1_UNROWED = []
-C1_CORR_TITLE = ('## Corrigendum to b737’s record (relay data/b737_events.txt rows (1)-(10) and data/b737_defects.txt): ten events and thirty-eight defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT; the face that did not follow the amendment at its head; the parallel add and commit, the locked bank, the clone’s snapshot, the root prompt’s promise, the post-seal list and the empty remote read, '
-                 'at tools/standing/ v1.17.0, each controlled, under (R348)(2)')
+C1_CORR_TITLE = ('## Corrigendum to b737’s record (relay data/b737_events.txt rows (1)-(9) and data/b737_defects.txt): nine events and twenty-three defects, each CLAIM or CLOSE and NEW or '
+                 'REPEAT; the figures before their controls at its head; the sentence against its own table, the in-place edit, the delete before the check, the dry route after the lock, the long chain phases, the vacuous runner gate, '
+                 'at tools/standing/ v1.18.0, each controlled, under (R348)(2)')
 
 
 def _c1_q(s):
@@ -161,10 +168,6 @@ def _c1_state():
         if ln > len(rl) or ('| %s |' % kind) not in rl[ln - 1] or at not in rl[ln - 1]:
             bad_ref.append(ln)
             continue
-        if row == 'b737 corrigendum':
-            if at not in _c1_rd('b737_corrigendum.txt'):
-                bad_ref.append(ln)
-            continue
         k = row.split('(', 1)[1].rstrip(')')
         src = dtext.get(k, '') if row.startswith('defect') else ev.get(int(k), '')
         if at[:5] not in src and at not in src and ('REFUSED BY THE HOOK (%s' % kind) not in src and 'refused by the hook' not in src:
@@ -172,13 +175,13 @@ def _c1_state():
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
     (cc, cd), _l = _c1_fl('b737_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V170)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.17.0: CONTROLS')]
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.18.0: CONTROLS')]
     s = dict(events=ev, tags=tags, defects=dr, notes=list(C1_NOTES))
     nc, nl_, _rep, _n = _c1_counts(s)
-    bad = [k_ for k_, ok_ in (('the event rows (1)-(10)', sorted(ev) == list(range(1, 11))), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 38', len(dr) == 38), ('the refusals 15, each answered as listed', len(rl) == 15 and not bad_ref),
+    bad = [k_ for k_, ok_ in (('the event rows (1)-(9)', sorted(ev) == list(range(1, 10))), ('each event`s bracket', all(t[0] for t in tags.values())),
+                              ('the defect rows 23', len(dr) == 23), ('the refusals 11, each answered as listed', len(rl) == 11 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.17.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the v1.18.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
                               ('the counter the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
@@ -203,23 +206,23 @@ def _c1_col(c):
     return 'NEW' if c == 'NEW' else c.replace('REPEAT ', 'REPEAT of ', 1).replace("'", '’').replace('`', '’')
 
 
-# ### the repairs each event is met by at v1.16.0
-C1_EV_EXTRA = {1: '; repair (amend); rule (1) of data/b738_rules.txt', 2: '; repair (gitwrite); rule (2)', 3: '; repair (locked); rule (3)', 5: '; repair (promise); rule (5)',
-               7: '; repair (gitwrite); rule (2)', 8: '; carried here as REPEAT of b732 event (11), the arm’s second failure, as `(R348)`(2)(vi) orders; repair (postseal); rule (6)',
-               9: '; repair (emptyread), a guard; rule (7)'}
-C1_DF_EXTRA = {'b': '; repair (gitwrite); rule (2) of data/b738_rules.txt', 'm': '; repair (snapshot); rule (4) of data/b738_rules.txt; the cause not established, and a third loss at this act'}
+# ### the repairs each event is met by at v1.18.0
+C1_EV_EXTRA = {1: '; repair (order); rule (5) of data/b738_rules.txt, a REPEAT of (R346)(3)(vi)', 2: '; repair (split); rule (6)', 5: '; repair (split); rule (6)', 7: '; repair (split); rule (6)', 9: '; repair (split); rule (6)'}
+C1_DF_EXTRA = {'d': '; repair (deletes); rule (4) of data/b738_rules.txt', 'q': '; repair (figbank); rule (1) of data/b738_rules.txt; N2 REFUTED on it',
+               'u': '; repair (inplace); rule (3) of data/b738_rules.txt', 'v': '; repair (comparative); rule (2) of data/b738_rules.txt'}
 C1_REFUSED_LATE = None
-C1_NOTES = ('Dated note, b738, to the counter (`(R348)`(1)): the ruling’s “CLAIM 5, CLOSE 33, REPEAT 18 of 38” counts the thirty-eight defects alone; relay data/b737_closing.txt :5 prints CLAIM 7, CLOSE 41, REPEAT 22 OF 48 over the ten events and the defects together. Both read from the same tags; this entry prints both and edits neither.',
-            'Dated note, b738, to OPEN_TRAILS :17361: the hand section’s CLAIM 6, CLOSE 38; REPEAT 20 of 44 is an earlier figure, read before the last four items landed; the closing’s :5 is the last figure.',
-            'Dated note, b738, to relay data/b737_hook_refusals.txt :1: the refusal at 2026-11-02T20:49:14Z is b735’s late Read, entered at b737 as b735’s event (relay data/b737_corrigendum.txt); it is no item of b737’s 48.')
+C1_NOTES = ('Dated note, b738, to the counter (`(R348)`(1)): the ruling’s “CLAIM 4, CLOSE 28, REPEAT 17 of 32” is relay data/b737_closing.txt :5, over the nine events and the twenty-three defects together; over the defects alone the tags give CLAIM 4, CLOSE 19, REPEAT 12 of 23. Both read from the same tags; this entry prints both and edits neither.',
+            'Dated note, b738, to b737’s defect (r): the (W) regeneration’s reach, “carried to the next standing version” there, is not among `(R348)`(2)’s repairs and v1.18.0 does not repair it; it stays carried.',
+            'Dated note, b738, to b737’s defect (h): the third pack loss has no repair in `(R348)`(2); zqwork, zqwork2 and zqwork3 stand in place and no figure of b738 rests on a read of any of them.')
 C1_CLASSES = (
-    ('amend', 'the face that did not follow the amendment (`(R348)`(2)(i), event (1); CLAIM ; NEW)', 'rule (1) of data/b738_rules.txt; standing.amend regenerates the (W) row and N5’s write clause from the ruling plus the act’s amendment rows (data/<act>_amendments.json), read through the scorer’s own reader. b737’s amendment of `(R347)`(4) replayed: the route before read the ruling alone and found the face lacking nothing; the route after names the three doors with their repository, and a face carrying the regenerated row lacks none'),
-    ('gitwrite', 'the parallel add and commit (`(R348)`(2)(ii), events (2), (7), defect (b); CLAIM ; REPEAT of b737 (b))', 'rule (2) of data/b738_rules.txt; the hook counts git writes per message from the session’s transcript, across parallel calls, and refuses the second. b737’s 05:22:31Z message replayed: the route before judged each call alone and refused none; the route after refuses the commit, the add standing; the chained form of 22:22Z refused by the command alone'),
-    ('locked', 'the post-lock letter written and removed (`(R348)`(2)(iii), event (3); CLOSE ; NEW)', 'rule (3) of data/b738_rules.txt; the hook judges the Edit, Write and NotebookEdit tools and refuses a write to a tracked bank or tool of the act after its lock and before its closing, the events bank and the post-lock banks exempt. The 04:03:27Z Edit replayed: the matcher before never saw it; the route after refuses it'),
-    ('snapshot', 'the pack loss (`(R348)`(2)(iv), defect (m); CLAIM ; REPEAT of b735 (p))', 'rule (4) of data/b738_rules.txt; standing.scratchfsck snapshot prints the fsck, the disk’s free space and the process listing, and standing.dispatchrows refuses a read, dispatch or clone row naming a clone without one before and after. The cause is not established. THE CONTROL DOES NOT READ CLEAN: zqwork3, clean at b737, lost its pack and info directories, objects/ last written 2026-11-03T03:54:09Z, about six hours after zqwork2’s loss as zqwork2’s was after zqwork’s; C: read 4389 MB free; a third instance, found by this reader and lettered in this act’s defects. zqwork, zqwork2 and zqwork3 stand in place'),
-    ('promise', 'the root prompt’s promise (`(R348)`(2)(v), event (5); CLOSE ; NEW)', 'rule (5) of data/b738_rules.txt; standing.rootprompt compose_checked lets a clause about the entry stand only as a span the sealed composer’s entry carries or as procedure. b737’s recommended option replayed: passed before, refused after on “named in the entry and the events bank;”, and composing once regenerated without it'),
-    ('postseal', 'the post-seal shell read of FINDINGS.md (`(R348)`(2)(vi), event (8); CLOSE ; REPEAT of b732 event (11))', 'rule (6) of data/b738_rules.txt; `hook.py excludes` prints the rule as the arm holds it, read first after the seal; b737’s 05:20:50Z `git grep` is a read the arm counts. A guard: no failing side'),
-    ('emptyread', 'the chain part that got no answer (`(R348)`(2)(vii), event (9); CLOSE ; NEW)', 'rule (7) of data/b738_rules.txt; three repositories read empty make the row UNREAD, not AGREE. A guard: the route stood at b737, its part re-run alone and banked AGREE, and the instance shows it held'),
+    ('figbank', 'figures before their controls (`(R348)`(2)(i), defect (q); CLOSE ; NEW)', 'rule (1) of data/b738_rules.txt; tools/standing/figbank.py reads a bank’s order and its writer refuses a figure bank whose controls block is absent or follows its figures, writing nothing. b737’s two plan banks, data/b737_offlinezero_criteria.txt and data/b737_offlinezero_box.txt, replayed: no reader before, REFUSED after (the first figure at :6 and :5, no controls block); b736’s sitting bank holds, no figure line'),
+    ('comparative', 'the sentence against its own table (`(R348)`(2)(ii), defect (v); CLAIM ; NEW)', 'rule (2) of data/b738_rules.txt; the citation check reads each comparative sentence an act names against the table it cites and prints AGREES or CONTRADICTS, a CONTRADICTS or an unread word halting the check. The plan’s :23 “trails off12” replayed: no read before, CONTRADICTS after (off0 0.57396, off12 0.50702); `(R347)`(3)(a)’s “at the lowest height” AGREES on b725’s 69 rows'),
+    ('inplace', 'the in-place edit by the shell (`(R348)`(2)(iii), defect (u); CLOSE ; REPEAT of class (18))', 'rule (3) of data/b738_rules.txt; the hook refuses sed and perl with -i or --in-place, and Set-Content, Add-Content and Clear-Content, kind INPLACE. b737’s 16:08:45Z `sed -i` replayed: passed before, INPLACE after; Set-Content read first as REDIR, its earlier kind'),
+    ('deletes', 'the branch delete before the citation check (`(R348)`(2)(iv), defect (d); CLOSE ; NEW)', 'rule (4) of data/b738_rules.txt; the citation check banks `clean`, and the hook’s ORDER and tools/standing/deletes.py each refuse a delete until it stands CLEAN. A check banked HALTED, in a constructed relay: let the delete by before, held after; b737’s 14:32Z order, the delete before any check, held by both, a guard'),
+    ('order', 'the dry route after the lock (`(R348)`(2)(v), event (1); CLOSE ; NEW)', 'rule (5) of data/b738_rules.txt; a close step before the lock [6] refuses, writing nothing, once data/<act>_lockgate.json stands. b737’s 17:22:02Z `record rootdry` replayed: the step guard before did not read the lock, the membrane refusing alone; REFUSED by the step after; a step before the lock runs'),
+    ('split', 'the long chain phases (`(R348)`(2)(vi), events (2), (5), (7), (9); CLOSE ; (2) NEW, the three after it REPEAT of b737 (2) and (4))', 'rule (6) of data/b738_rules.txt; under b675’s rules row (2) the suite runs ten parts: standing-a in two (G-NO-SORRY-MAIN’s first half banked, then joined) and the chain’s first half in four quarters. The four phases over 450 s (471, 656, 462, 456 s) replayed under the new parts at 119, 201, 155, 165, 183 and 249 s, the longest 249 (data/b738_split_replay.txt); the pre-lock comparison reads each act by its own parts'),
+    ('vacuous', 'G-RUNNER-GATE with no dispatch (`(R348)`(2)(vii), b736, b737; CLOSE)', 'rule (7) of data/b738_rules.txt, the rule written; the arm prints VACUOUS by name and is counted neither way, b737’s combined bank naming it on its VACUOUS line. A guard: no failing side'),
+    ('leanpath', 'the Lean-path reader (`(R348)`(2)(viii), b738’s step-zero defect (e))', 'rule (8) of data/b738_rules.txt; the reader’s window ends at a closed parenthesis and cites the nearest identifier, Mathlib at its pin among the trees. The ruling’s paths replayed: 4 halts before, 0 after; v1.12.0’s control 5 of 5; tools/standing/VERSION v1.18.0'),
 )
 
 
@@ -227,16 +230,16 @@ def _c1_lines(s):
     nc, nl_, rep, n = _c1_counts(s)
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v170_foot'])
-    L = ['*b737’s events bank (relay data/b737_events.txt) carries ten rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank thirty-eight lettered rows, (a)-(z) and (a’)-(l’), each tagged in its own bracket (%s); its refusal bank fifteen lines at %s, '
-         'each recorded by a row, the first b735’s. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
+    L = ['*b737’s events bank (relay data/b737_events.txt) carries nine rows, entered after its lock and not lettered, each tagged in its '
+         'own bracket (%s); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (%s); its refusal bank eleven lines at %s, '
+         'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*' % (
              _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
-    L += ['**The repairs of `(R348)`(2), at tools/standing/ v1.17.0, each with a control on b737’s banks, failing on the route before the repair '
+    L += ['**The repairs of `(R348)`(2), at tools/standing/ v1.18.0, each with a control on b737’s banks, failing on the route before the repair '
           'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v170_line('### (%s) ' % k_)), '']
-    L += ['**b737’s events (1)-(10):**', '']
+    L += ['**b737’s events (1)-(9):**', '']
     for k_ in sorted(s['events']):
         t, r, o = s['tags'][k_]
         h = re.sub(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_])
@@ -250,10 +253,10 @@ def _c1_lines(s):
     L += ['', '**b737’s refusals** (relay data/b737_hook_refusals.txt at %s, one a line): ' % C1_REFUSAL_AT + '; '.join(
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
           '**Dated notes:**', ''] + [x_ for nt_ in s['notes'] for x_ in (nt_, '')] + [
-          '**The counter:** CLAIM %d, CLOSE %d over the %d items (ten events, thirty-eight defects), as b737’s closing prints it (relay data/b737_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
+          '**The counter:** CLAIM %d, CLOSE %d over the %d items (nine events, twenty-three defects), as b737’s closing prints it (relay data/b737_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
               nc, nl_, n, rep, n, ', '.join(claims)), '',
           '*Filed at b738 on the author’s ruling `(R348)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b738.py) from '
-          'b737’s events and defects banks read unedited, its refusal bank, and the v1.17.0 controls bank; banked as relay `data/b738_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
+          'b737’s events and defects banks read unedited, its refusal bank, and the v1.18.0 controls bank; banked as relay `data/b738_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b737’s record; no sealed tool, face, trail or root-named bank of b737 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
 
@@ -261,33 +264,15 @@ def _c1_lines(s):
 def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
     return (['b738 -- THE CORRIGENDUM FOR b737, (R348)(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b737_events.txt rows (1)-(10), data/b737_defects.txt 38 rows, data/b737_hook_refusals.txt 15 '
-             'lines at %s; data/%s (the v1.17.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
+             '### the banks read unedited: data/b737_events.txt rows (1)-(9), data/b737_defects.txt 23 rows, data/b737_hook_refusals.txt 11 '
+             'lines at %s; data/%s (the v1.18.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 10, DEFECTS 38 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.17.0: THE AMENDMENT REGENERATION, THE PARALLEL GIT WRITE, THE LOCKED BANK, THE CLONE`S SNAPSHOT, THE ENTRY`S PROMISE, '
-               'THE POST-SEAL LIST, THE EMPTY REMOTE READ ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
-
-
-C1_DISCHARGE_HEAD = '**`W-ORD-ZQ-DERIVES` DISCHARGED at b738, `(R348)`(2), on the navigator’s read:**'
-C1_DISCHARGE = (C1_DISCHARGE_HEAD + ' the three premise-free forms are the instance’s theorems in the sense the order’s line meant (relay data/b730_ferry.txt :13), the bundle’s h filled by zq_premises: zq_count_instance at '
-                'SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :194, zq_explicit_formula_instance at :198, zq_li_nonneg_imp_online_instance at :205, branch zq-b730 at b25fd82c, run 41483457057.' + NL + NL
-                + '**Two conditions beside the read:** (a) what zqZeroConfig’s carrier is, is fixed by the compiled zeros field of zq_premises and by nothing in the ruling, and the sentence “the zeros of Z_Q0” means that carrier; '
-                '(b) the grade is a reading of binders and confers nothing: no deposit, no tag, no line on any main; the branch zq-b730 stays a branch until the author’s word on a merge, which the ruling does not give.' + NL + NL
-                + '**What did not compile:** no declaration locates a zero of Z_Q0 off the line, and no declaration states that Li nonnegativity fails for zqZeroConfig (relay data/b737_explicitformula.txt :212). The off-line zeros stand HELD at b725’s 69 to height 445 '
-                'and the positivity failure HELD at b726’s two windows. The supportable sentence: “the count and the explicit formula compiled premise-free for an object whose off-line zeros are numerically located.”' + NL + NL
-                + 'Dated note, b738, to `(R347)`(6): its sentence is withdrawn by `(R348)`(2), the sentence above standing in its place.')
-
-
-C1_OFFZERO_HEAD = '**`W-ORD-ZQ-OFFLINE-ZERO` PRICED at b738, `(R348)`(3), planned and not built:**'
-C1_OFFZERO = (C1_OFFZERO_HEAD + ' the candidate off0, β − 1/2 = 0.4532604748, γ = 16.29021572, chosen by the criteria printed at relay data/b738_offlinezero_plan.txt (a); box A, the square of half-side 0.1 centred on it, '
-              'its least sampled |Z_Q0| on the boundary 0.357 (b). Routes R1 (the argument principle with a Lipschitz bound), R2 (Rouché) and R4 (the minimum modulus through Mathlib’s Complex.norm_le_of_forall_mem_frontier_norm_le, AbsMax.lean :405) priced; R3 (a sign change) not a route, no off-line segment carrying a real-valued restriction. '
-              'R4 recommended: 1,635-4,175 lines from statements, 1,496-3,820 by explicitFormula’s measured ratio 0.915, the envelope of the five measured ratios 455-16,408; 9-22 dispatches; seven Mathlib objects absent at the pin (the argument principle, Rouché, the winding number, the incomplete gamma, complex Stirling with explicit error, the K-Bessel function, certified interval evaluation), three of them on R4’s path. '
-              'The price driver every route shares: zqFn certified on the box to 0.1, Λ₀ to some 5e-12 at that height. Four stop points, the first a conditional theorem with no numeric step. '
-              'No dispatch at b738; no Lean file. Until a build compiles the condition, no sentence says a zero is located in Lean or that positivity fails as a theorem.')
+            + ['', '### ### **ITEMS %d: EVENTS 9, DEFECTS 23 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.18.0: FIGURES BEFORE CONTROLS, THE SENTENCE AGAINST ITS TABLE, THE IN-PLACE EDIT, THE DELETE AFTER A CLEAN CHECK, '
+               'THE CLOSE`S ORDER, THE SPLIT, THE VACUOUS GATE, THE LEAN READER ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
 
 
 def c1(*a):
-    """`c1 weight|corrigendum|discharge|offzero [dry|write]`: b737 at its weight after its entry, and the corrigendum for b737, landed through b698's guarded
+    """`c1 weight|corrigendum [dry|write]`: b737 at its weight after its entry, and the corrigendum for b737, landed through b698's guarded
     landing; dry prints and writes nothing."""
     route = a[0] if a else ''
     dry = 'write' not in a
@@ -311,17 +296,11 @@ def c1(*a):
                                                    events=[dict(row=k_, owner=s['tags'][k_][2], tag=s['tags'][k_][0], column=s['tags'][k_][1]) for k_ in sorted(s['events'])],
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.17.0', bank='data/' + C1_V170),
+                                                   notes=s['notes'], repairs=dict(version='v1.18.0', bank='data/' + C1_V170),
                                                    row=C1_CORRIGENDA_LAST + 1))
         print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(s['notes']), ln))
         return
-    if route == 'discharge':
-        land([('OPEN_TRAILS.md', C1_DISCHARGE_HEAD, NL + C1_DISCHARGE + NL)], '%s_discharge_landing.json' % ACT, 'discharge', entry=None, dry=dry)
-        return
-    if route == 'offzero':
-        land([('OPEN_TRAILS.md', C1_OFFZERO_HEAD, NL + C1_OFFZERO + NL)], '%s_offzero_landing.json' % ACT, 'offzero', entry=None, dry=dry)
-        return
-    sys.exit('usage: fold.py record c1 weight | corrigendum | discharge | offzero  [dry | write]')
+    sys.exit('usage: fold.py record c1 weight | corrigendum  [dry | write]')
 #⟪END⟫
 # ### b738, Component 4 (the Edit tool, before the lock): THE STANDING RUNNER ARMS OVER THIS ACT'S THREE DISPATCHES. The template's three
 # ### runner functions carry b721's rebuild in their text (six runs, its bank's head and foot, SIDE-frobenius's halt); b738 ran three

@@ -1,0 +1,77 @@
+b738 -- THE CORRIGENDUM FOR b737, (R348)(2) (2026-11-03T22:29:11Z)
+
+### the banks read unedited: data/b737_events.txt rows (1)-(9), data/b737_defects.txt 23 rows, data/b737_hook_refusals.txt 11 lines at 54cd4f92; data/b738_standing_v1180.txt (the v1.18.0 controls); the corrigenda bank`s last row (57).
+
+  *b737’s events bank (relay data/b737_events.txt) carries nine rows, entered after its lock and not lettered, each tagged in its own bracket (5 the host, 4 the seat’s); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (23 the seat’s); its refusal bank eleven lines at 54cd4f92, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R348)`(2), at tools/standing/ v1.18.0, each with a control on b737’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b738_standing_v1180.txt, 26 cases, AS WANTED 26):
+  
+  **(figbank) figures before their controls (`(R348)`(2)(i), defect (q); CLOSE ; NEW)** -- rule (1) of data/b738_rules.txt; tools/standing/figbank.py reads a bank’s order and its writer refuses a figure bank whose controls block is absent or follows its figures, writing nothing. b737’s two plan banks, data/b737_offlinezero_criteria.txt and data/b737_offlinezero_box.txt, replayed: no reader before, REFUSED after (the first figure at :6 and :5, no controls block); b736’s sitting bank holds, no figure line (:19).
+  
+  **(comparative) the sentence against its own table (`(R348)`(2)(ii), defect (v); CLAIM ; NEW)** -- rule (2) of data/b738_rules.txt; the citation check reads each comparative sentence an act names against the table it cites and prints AGREES or CONTRADICTS, a CONTRADICTS or an unread word halting the check. The plan’s :23 “trails off12” replayed: no read before, CONTRADICTS after (off0 0.57396, off12 0.50702); `(R347)`(3)(a)’s “at the lowest height” AGREES on b725’s 69 rows (:38).
+  
+  **(inplace) the in-place edit by the shell (`(R348)`(2)(iii), defect (u); CLOSE ; REPEAT of class (18))** -- rule (3) of data/b738_rules.txt; the hook refuses sed and perl with -i or --in-place, and Set-Content, Add-Content and Clear-Content, kind INPLACE. b737’s 16:08:45Z `sed -i` replayed: passed before, INPLACE after; Set-Content read first as REDIR, its earlier kind (:53).
+  
+  **(deletes) the branch delete before the citation check (`(R348)`(2)(iv), defect (d); CLOSE ; NEW)** -- rule (4) of data/b738_rules.txt; the citation check banks `clean`, and the hook’s ORDER and tools/standing/deletes.py each refuse a delete until it stands CLEAN. A check banked HALTED, in a constructed relay: let the delete by before, held after; b737’s 14:32Z order, the delete before any check, held by both, a guard (:62).
+  
+  **(order) the dry route after the lock (`(R348)`(2)(v), event (1); CLOSE ; NEW)** -- rule (5) of data/b738_rules.txt; a close step before the lock [6] refuses, writing nothing, once data/<act>_lockgate.json stands. b737’s 17:22:02Z `record rootdry` replayed: the step guard before did not read the lock, the membrane refusing alone; REFUSED by the step after; a step before the lock runs (:74).
+  
+  **(split) the long chain phases (`(R348)`(2)(vi), events (2), (5), (7), (9); CLOSE ; (2) NEW, the three after it REPEAT of b737 (2) and (4))** -- rule (6) of data/b738_rules.txt; under b675’s rules row (2) the suite runs ten parts: standing-a in two (G-NO-SORRY-MAIN’s first half banked, then joined) and the chain’s first half in four quarters. The four phases over 450 s (471, 656, 462, 456 s) replayed under the new parts at 119, 201, 155, 165, 183 and 249 s, the longest 249 (data/b738_split_replay.txt); the pre-lock comparison reads each act by its own parts (:83).
+  
+  **(vacuous) G-RUNNER-GATE with no dispatch (`(R348)`(2)(vii), b736, b737; CLOSE)** -- rule (7) of data/b738_rules.txt, the rule written; the arm prints VACUOUS by name and is counted neither way, b737’s combined bank naming it on its VACUOUS line. A guard: no failing side (:103).
+  
+  **(leanpath) the Lean-path reader (`(R348)`(2)(viii), b738’s step-zero defect (e))** -- rule (8) of data/b738_rules.txt; the reader’s window ends at a closed parenthesis and cites the nearest identifier, Mathlib at its pin among the trees. The ruling’s paths replayed: 4 halts before, 0 after; v1.12.0’s control 5 of 5; tools/standing/VERSION v1.18.0 (:111).
+  
+  **b737’s events (1)-(9):**
+  
+  **(1)** ’record rootdry’ chained after the lock’s step row, where b736 ran it after its second gate commit and before its lock … (relay data/b737_events.txt, row (1); the seat’s; CLOSE; NEW; repair (order); rule (5) of data/b738_rules.txt, a REPEAT of (R346)(3)(vi)).
+  **(2)** the pre-run’s part standing-b2b (the act-root chain b632-b658, 38 remote reads, b632-b658 AGREE 27 of 27): its longest … (relay data/b737_events.txt, row (2); the host; CLOSE; NEW; repair (split); rule (6)).
+  **(3)** ’close.py dry’ [7a] exit 3: "1 SEALED TOOL(S) NOT AS COMMITTED AT HEAD", tools/mirror\_prevbuild.json, working … (relay data/b737_events.txt, row (3); the seat’s; CLOSE; NEW).
+  **(4)** the run of part standing-a on b736’s banks ((R347)(2)(iii)), from about 18:12Z: "the three arms at HEAD" 567 s against … (relay data/b737_events.txt, row (4); the host; CLOSE; NEW).
+  **(5)** the run of part standing-b2b on b736’s banks: the chain’s phase 656 s, "above 450 s: True", the run 773 s, moved to the … (relay data/b737_events.txt, row (5); the host; CLOSE; REPEAT of b737 (4); repair (split); rule (6)).
+  **(6)** the root’s prompt put in one call carrying two questions, the close and the next act of (R347)(7), where b735’s trap … (relay data/b737_events.txt, row (6); the seat’s; CLOSE; REPEAT of b735 class).
+  **(7)** the pre-push suite’s part standing-b2a: the chain’s phase 462 s, "above 450 s: True", the run 518 s under the 590 s … (relay data/b737_events.txt, row (7); the host; CLOSE; REPEAT of b737 (2); repair (split); rule (6)).
+  **(8)** a PowerShell listing of data/ carrying a pipe into Where-Object, refused by the hook, PIPE; nothing ran; recorded at … (relay data/b737_events.txt, row (8); the seat’s; CLOSE; REPEAT of class (14)).
+  **(9)** the post-push suite’s part standing-a: its longest phase 456 s, "above 450 s: True", the part 544 s under the 590 s … (relay data/b737_events.txt, row (9); the host; CLOSE; REPEAT of b737 (2); repair (split); rule (6)).
+  
+  **b737’s defects:**
+  
+  **(a)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of b736 (a)).
+  **(b)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(c)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of b736 (g)).
+  **(d)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW; repair (deletes); rule (4) of data/b738_rules.txt).
+  **(e)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of b736 (p)).
+  **(h)** (relay data/b737_defects.txt; the seat’s; CLAIM; REPEAT of b736 (m)).
+  **(i)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(k)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(l)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of b735 (l)).
+  **(m)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(n)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  **(o)** (relay data/b737_defects.txt; the seat’s; CLAIM; NEW).
+  **(p)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of b737 (j)).
+  **(q)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW; repair (figbank); rule (1) of data/b738_rules.txt; N2 REFUTED on it).
+  **(r)** (relay data/b737_defects.txt; the seat’s; CLAIM; NEW).
+  **(s)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(t)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b737_defects.txt; the seat’s; CLOSE; REPEAT of class (18); repair (inplace); rule (3) of data/b738_rules.txt).
+  **(v)** (relay data/b737_defects.txt; the seat’s; CLAIM; NEW; repair (comparative); rule (2) of data/b738_rules.txt).
+  **(w)** (relay data/b737_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b737’s refusals** (relay data/b737_hook_refusals.txt at 54cd4f92, one a line): :1 READ 14:28:39Z, recorded at defect (b); :2 READ 14:28:39Z, recorded at defect (b); :3 READ 14:29:14Z, recorded at defect (b); :4 ORDER 14:32:32Z, recorded at defect (d); :5 PIPE 14:46:26Z, recorded at defect (j); :6 READ 14:50:10Z, recorded at defect (k); :7 READ 14:51:39Z, recorded at defect (k); :8 READ 15:33:20Z, recorded at defect (m); :9 PIPE 15:38:24Z, recorded at defect (p); :10 REDIR 16:07:30Z, recorded at defect (s); :11 PIPE 20:01:09Z, recorded at event (8).
+  
+  **Dated notes:**
+  
+  Dated note, b738, to the counter (`(R348)`(1)): the ruling’s “CLAIM 4, CLOSE 28, REPEAT 17 of 32” is relay data/b737_closing.txt :5, over the nine events and the twenty-three defects together; over the defects alone the tags give CLAIM 4, CLOSE 19, REPEAT 12 of 23. Both read from the same tags; this entry prints both and edits neither.
+  
+  Dated note, b738, to b737’s defect (r): the (W) regeneration’s reach, “carried to the next standing version” there, is not among `(R348)`(2)’s repairs and v1.18.0 does not repair it; it stays carried.
+  
+  Dated note, b738, to b737’s defect (h): the third pack loss has no repair in `(R348)`(2); zqwork, zqwork2 and zqwork3 stand in place and no figure of b738 rests on a read of any of them.
+  
+  **The counter:** CLAIM 4, CLOSE 28 over the 32 items (nine events, twenty-three defects), as b737’s closing prints it (relay data/b737_closing.txt :5); REPEAT 17 of 32; the CLAIM items (h), (o), (r), (v).
+  
+  *Filed at b738 on the author’s ruling `(R348)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b738.py) from b737’s events and defects banks read unedited, its refusal bank, and the v1.18.0 controls bank; banked as relay `data/b738_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (58). It answers b737’s record; no sealed tool, face, trail or root-named bank of b737 is edited.*
+
+### ### **ITEMS 32: EVENTS 9, DEFECTS 23 ; CLAIM 4, CLOSE 28 ; REPEAT 17 ; DATED NOTES 3 ; v1.18.0: FIGURES BEFORE CONTROLS, THE SENTENCE AGAINST ITS TABLE, THE IN-PLACE EDIT, THE DELETE AFTER A CLEAN CHECK, THE CLOSE`S ORDER, THE SPLIT, THE VACUOUS GATE, THE LEAN READER ; THE ENTRY AT FINDINGS :13167.**

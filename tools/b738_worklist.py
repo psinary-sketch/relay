@@ -226,8 +226,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b737: its LF form equal to HEAD's (2d637131), nothing to commit
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None
-STEPZERO_BANK_COMMIT = None
+STEPZERO_BANKS = 'ee04041c'       # ### step zero's banks and carried tools, one commit (data/b738_stepzero.txt among them)
+STEPZERO_BANK_COMMIT = 'ee04041c'
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -257,8 +257,8 @@ B714_RECORD = 'b87c1e24'     # ### b737's record commit (relay, the head line's)
 B714_ROOT = '706d369cad76e1fd359f9c1db7fb6ef47f2ba6f6d28c659fe066e0dc79becc2e'   # ### b737's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '78289695'  # ### b737's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
-C1_STANDING_REPAIR = None
+C1_STANDING = 'b2d3afc0'           # ### tools/standing/ v1.18.0 by a commit of its own, its controls bank data/b738_standing_v1180.txt ((R348)(2)(viii))
+C1_STANDING_REPAIR = 'c73ff77f'    # ### the act's own data the split changes: data/act_current.json's parts and quarters, the worklist ((R348)(2)(vi))
 C1_RELAY = None
 C1_CORR = C1_RELAY
 C1_PP = None
