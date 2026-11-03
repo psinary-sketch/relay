@@ -17,7 +17,7 @@ if T not in sys.path:
     sys.path.insert(0, T)
 
 HOLD = 2560
-KINDS = ('commit', 'push', 'push2', 'dispatch', 'dispatch_refused', 'read')
+KINDS = ('commit', 'push', 'push2', 'dispatch', 'dispatch_refused', 'read', 'clone')   # ### v1.17.0: a clone operation is a row of its own
 
 
 def free():
@@ -35,6 +35,11 @@ def why(r):
     # ### v1.16.0, (R346)(3)(iv), b735 defect (p): a read row naming a scratch clone carries its fsck before and after
     if r['kind'] == 'read' and r.get('clone') and not (r.get('fsck_before') and r.get('fsck_after')):
         return 'a read of %s without its fsck before and after' % r['clone']
+    # ### v1.17.0, (R347)(2)(iv), b736 defect (m): a row naming a clone, a read, a dispatch or a clone operation, carries scratchfsck.snapshot
+    # ### before and after it: the fsck, the disk's free space and the process listing, so a third loss has its cause's place printed
+    if r['kind'] in ('read', 'dispatch', 'clone') and r.get('clone') and not all(isinstance(r.get(k), dict) and 'disk_free_mb' in r[k] and 'procs' in r[k]
+                                                                                for k in ('snap_before', 'snap_after')):
+        return 'a %s naming %s without its snapshots before and after (fsck, disk free, processes)' % (r['kind'], r['clone'])
     # ### v1.16.0, (R346)(3)(v), b735 defect (n): a watch killed is restarted or the run read in the foreground, the choice in the row
     if r.get('reaped') and r.get('watch') not in ('restarted', 'foreground'):
         return 'a reaped watch with no choice printed, restarted or foreground'

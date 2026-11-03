@@ -10,9 +10,17 @@ composer prints the token only when the token stands on that line of that bank, 
   ceiling(scores, tracked_at_lock, act, modified) -> (held, of, line)   v1.14.0, (R344)(2)(ii): the ceiling computed as a dry score, never typed: every score that reads REFUTED now, and N4 when a path the suite writes
                                      stood tracked at the lock (the suite's run will read as an edit) or a tracked bank differs from the lock's; PENDING counted as it may yet hold
   rows_from(text, read) -> rows      a text as put, split into rows at its sentences, every number before a cite on the sentence, found on the cited line, turned into a cite
+  entry_unbacked(text, entry) -> [sentences]   v1.17.0, (R347)(2)(v), b736 events (5): a sentence of the prompt about the entry stands only as the sealed composer's
+                                     own words (a quoted span found in the composed entry) or as procedure ("as composed"); a sentence promising what the entry
+                                     names, written ahead of the composer, is returned, and compose_checked refuses the prompt on it
+  compose_checked(rows, read, entry) -> text   compose(), then entry_unbacked() on its text, SystemExit naming each unbacked sentence
 Pure in its arguments; nothing written.
 """
 import re
+
+ENTRY_WORD = re.compile(r'\bentry\b', re.I)
+PROCEDURE = re.compile(r'\bas composed\b|\bthe entry and (?:the )?trail\b(?![^.]*\bnam)', re.I)
+QUOTED = re.compile(r'[“"]([^”"]{8,})[”"]')
 
 CITE = re.compile(r'\((?:relay )?(data/[\w.\-]+) :(\d+)(?:[,)\- ])')
 TOKEN = re.compile(r'\d[\d,.]*\d|\d')
@@ -44,6 +52,36 @@ def compose(rows, read):
     if bad:
         raise SystemExit('### THE PROMPT NOT COMPOSED: %d FIGURE(S) NOT ON THEIR BANK LINES: %s' % (len(bad), bad))
     return ' '.join(''.join(str(p[2]) if isinstance(p, (list, tuple)) else p for p in row) for row in rows)
+
+
+def _norm(s):
+    return ' '.join((s or '').replace('`', '').replace('’', "'").split())
+
+
+def entry_unbacked(text, entry):
+    """the prompt's sentences about the entry that the composed entry does not back: each sentence naming the entry, less those whose every
+    quoted span stands in the entry and those that are procedure alone (a clause carrying "as composed" and naming nothing the entry holds)."""
+    ent = _norm(entry)
+    out = []
+    for sent in re.split(r'(?<=[.;:]) (?=\S)', text or ''):
+        for cl in re.split(r'(?<=,) |; ', sent):
+            if not ENTRY_WORD.search(cl):
+                continue
+            q = QUOTED.findall(cl)
+            if q and all(_norm(x) in ent for x in q):
+                continue
+            if PROCEDURE.search(cl) and not re.search(r'\bnamed in the entry\b|\bthe entry (?:names|prints|carries|says|will)\b', cl, re.I):
+                continue
+            out.append(cl.strip())
+    return out
+
+
+def compose_checked(rows, read, entry):
+    t = compose(rows, read)
+    bad = entry_unbacked(t, entry)
+    if bad:
+        raise SystemExit('### THE PROMPT NOT COMPOSED: %d SENTENCE(S) ABOUT THE ENTRY NOT FROM THE SEALED COMPOSER: %s' % (len(bad), bad))
+    return t
 
 
 def rows_from(text, read):

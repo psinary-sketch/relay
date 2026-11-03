@@ -48,7 +48,13 @@ ROWS = {
     'SUITE': ROW77 + ' ; one suite part or combine per call, each its own message',
     'ORDER': ROW77 + ' ; the suite`s G-BRANCHES-BANKED clause, the citation check before the first delete',
     'POSTSEAL': ROW77 + ' ; the suite`s G-RULE-POSTSEAL-READ, after the seal no shell filter or redirect over the entry or the trail, its list read from tools/rule_arms.py',
+    'GITWRITE': ROW77 + ' ; (12) one git write per message across every repository, add and commit counted as two, across parallel calls ((R347)(2)(ii))',
+    'LOCKED': ROW77 + ' ; (65) a bank written before the lock refuses to be rewritten after it, refused before it lands ((R347)(2)(iii))',
 }
+
+# ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
+EDIT_TOOLS = ('Edit', 'Write', 'NotebookEdit')
+TAIL_BYTES = 4 * 1024 * 1024
 
 SUITE_RUN = r'(?:_checks\.py\b|\bstanding/fold\.py\s+checks\b)'   # ### v1.11.0: tools/rule_arms.py :155-:157's two calls
 SUITE_PART = re.compile(SUITE_RUN + r'[^|;&]*?--part\s+(\S+)')
@@ -121,6 +127,105 @@ def postseal_read(cmd, relay=RELAY):
     return any(x in cmd for x in names) and not any(x in cmd for x in excl) and bool(filt.search(quoted.sub('""', cmd)))
 
 
+def _gitwrite():
+    """standing.gitwrite, its writes() the suite's own reading (tools/rule_arms.py GIT_WRITE); None where it does not import."""
+    try:
+        d = os.path.dirname(os.path.abspath(__file__))
+        for p_ in (d, os.path.dirname(d)):
+            if p_ not in sys.path:
+                sys.path.insert(0, p_)
+        import gitwrite as GW
+        return GW
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def message_calls(transcript, tool_use_id=None, inp=None):
+    """v1.17.0: the shell calls of the assistant message carrying this call, in their order, and this call's index among them: ([cmd], index);
+    ([], None) where the transcript does not show it. Claude Code writes each block of a message as its own line under one message id, every
+    block before any tool runs, so a parallel call's siblings stand in the transcript when the hook reads it."""
+    try:
+        with open(transcript, 'rb') as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - TAIL_BYTES))
+            raw = f.read().decode('utf-8', errors='replace').split('\n')
+    except (OSError, TypeError):
+        return [], None
+    blocks = []
+    for l in raw:
+        if '"tool_use"' not in l:
+            continue
+        try:
+            j = json.loads(l)
+        except ValueError:
+            continue
+        if j.get('type') != 'assistant':
+            continue
+        m = j.get('message') or {}
+        for b in m.get('content') or []:
+            if isinstance(b, dict) and b.get('type') == 'tool_use':
+                blocks.append((m.get('id'), b.get('id'), b.get('name'), b.get('input') or {}))
+    mine = None
+    for k in range(len(blocks) - 1, -1, -1):
+        _mid, bid, name, binp = blocks[k]
+        if (tool_use_id and bid == tool_use_id) or (not tool_use_id and inp is not None and binp == inp):
+            mine = k
+            break
+    if mine is None:
+        return [], None
+    mid = blocks[mine][0]
+    same = [(i, b) for i, b in enumerate(blocks) if b[0] == mid and b[2] in ('Bash', 'PowerShell')]
+    cmds = [b[3].get('command') or '' for _i, b in same]
+    idx = next((n for n, (i, _b) in enumerate(same) if i == mine), None)
+    return cmds, idx
+
+
+def over_one_write(cmds, idx, GW=None):
+    """v1.17.0, (R347)(2)(ii): this call's git writes and those of the calls before it in its message; True where this call carries one and
+    the sum passes one. The first write of a message stands; the second, in a parallel call or chained in the same command, is refused."""
+    GW = GW or _gitwrite()
+    if GW is None or idx is None:
+        return False
+    mine = len(GW.writes(cmds[idx]))
+    before = sum(len(GW.writes(c)) for c in cmds[:idx])
+    return mine > 0 and before + mine > 1
+
+
+def locked(relay=RELAY):
+    """v1.17.0: the open act's lock recorded (data/<act>_lockgate.json) and its closing not written."""
+    act = bank_act(relay)
+    return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_lockgate.json' % act)) and not os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act))
+
+
+def lock_exempt(act):
+    """the banks written after the lock by design (standing.act.post_lock_appended) and the events bank, appended by the Edit tool after the lock."""
+    try:
+        import act as A_
+        base = tuple(A_.post_lock_appended(act))
+    except Exception:  # noqa: BLE001
+        base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'tools/mirror_prevbuild.json')
+    return base + ('data/%s_events.txt' % act,)
+
+
+def locked_bank(path, relay=RELAY, act=None):
+    """v1.17.0, (R347)(2)(iii), b736 events (3): the path is one of the act's banks or tools, tracked at the relay, and not exempt: a write to it
+    after the lock is refused before it lands. A file the lock never saw (untracked) is a new bank and passes."""
+    act = act or bank_act(relay)
+    if not act or not path:
+        return False
+    try:
+        rel = os.path.relpath(os.path.abspath(path), relay).replace(os.sep, '/')
+    except ValueError:
+        return False
+    ours = rel.startswith(('data/%s_' % act, 'tools/%s_' % act)) or rel == 'tools/acts/%s.py' % act
+    if not ours or rel in lock_exempt(act):
+        return False
+    import subprocess
+    r = subprocess.run(['git', '-C', relay, 'ls-files', '--error-unmatch', '--', rel], capture_output=True, text=True)
+    return r.returncode == 0
+
+
 def refusals_path(relay=RELAY):
     act = bank_act(relay)
     return os.path.join(relay, 'data', '%s_%s.txt' % (act, EXCLUDED_KIND) if act else 'act_unread_%s.txt' % EXCLUDED_KIND)
@@ -184,8 +289,12 @@ def lines_of(path):
     return b.count(b'\n') + (1 if b and not b.endswith(b'\n') else 0)
 
 
-def judge(tool, inp, relay=RELAY):
-    """(kind, detail) for a refusal, or None for an allowed call."""
+def judge(tool, inp, relay=RELAY, ctx=None):
+    """(kind, detail) for a refusal, or None for an allowed call. v1.17.0: `ctx` the hook's whole input (its transcript_path and tool_use_id)."""
+    if tool in EDIT_TOOLS:
+        if locked(relay) and locked_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay):
+            return 'LOCKED', 'a %s of a bank written before the lock, after the lock' % tool
+        return None
     if tool == 'Read':
         lim = inp.get('limit')
         if lim is None:
@@ -226,6 +335,13 @@ def judge(tool, inp, relay=RELAY):
         for seg in re.split(r'&&|;|\n', bare):
             if ASSIGN.match(seg) or PS_ENV.match(seg):
                 return 'ENV', 'a %s command prefixed by an environment-variable assignment' % tool
+        GW = _gitwrite()
+        if GW is not None and len(GW.writes(cmd)) > 1:   # ### v1.17.0, (R347)(2)(ii): add and commit chained count two
+            return 'GITWRITE', 'a %s command carrying %d git writes' % (tool, len(GW.writes(cmd)))
+        if ctx and GW is not None:
+            cmds, idx = message_calls(ctx.get('transcript_path'), ctx.get('tool_use_id'), inp)
+            if over_one_write(cmds, idx, GW):
+                return 'GITWRITE', 'a second git write in one message, across its parallel calls'
         return None
     return None
 
@@ -251,7 +367,10 @@ def hook():
         sys.exit(2)
     tool = data.get('tool_name', '')
     inp = data.get('tool_input') or {}
-    verdict = judge(tool, inp)
+    try:
+        verdict = judge(tool, inp, ctx=data)
+    except Exception:  # noqa: BLE001  ### v1.17.0: a fault in the message read is no refusal; the suite's arms stand behind the hook
+        verdict = judge(tool, inp)
     if verdict is None:
         sys.exit(0)
     reason = refuse(verdict[0], verdict[1], tool, inp)
@@ -390,7 +509,22 @@ def control():
     print('bank', bank)
 
 
+def excludes():
+    """v1.17.0, (R347)(2)(vi), b736 events (8): the post-seal read rule printed before any read after the seal, as the arm holds it (tools/rule_arms.py):
+    the ledger names, the exclude list, and the one route allowed (the Read tool)."""
+    rule = ledger_rule()
+    if rule is None:
+        print('### THE POST-SEAL RULE NOT READ from tools/rule_arms.py')
+        return 1
+    names, excl, _f, _q = rule
+    print('### THE POST-SEAL READ RULE (G-RULE-POSTSEAL-READ, tools/rule_arms.py): after the seal no shell filter or redirect over %s ; the commands it excludes, by their text: %s ; the entry and the trail read by the Read tool alone'
+          % (', '.join(names), ', '.join(excl) or 'none'))
+    return 0
+
+
 if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] == 'excludes':
+        sys.exit(excludes())
     if len(sys.argv) > 1 and sys.argv[1] == 'control':
         control()
     else:

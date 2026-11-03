@@ -1,0 +1,19 @@
+b737 -- THE RULES OF (R347)(2), EACH A ROW, FOR THE AUTHOR'S STRIKE; tools/standing/ v1.17.0 (2026-11-03)
+
+### rows are rules, each with the instance it answers, its route and its control (data/b737_standing_v1170.txt); a rule is the seat's reading of the ruling's words, struck or kept by the author.
+
+(1) THE AMENDMENT ROW ((R347)(2)(i), b736 events (1)): an author's word at a prompt that widens or narrows a ruling clause is banked as a row of data/<act>_amendments.json (its time, the clause, the words verbatim, the paths it widens and narrows); before the lock the face's (W) row and N5's write clause are regenerated from the ruling plus those rows by tools/standing/amend.py, read through the scorer's own reader (tools/act_close.py w_patterns and w_allows), and the regeneration printed. b736's row named the three doors bare (`phase2/method/...`), a form w_patterns does not read; a regenerated row carries each path with its repository. Control: (amend).
+
+(2) ONE GIT WRITE PER MESSAGE, ENFORCED BEFORE IT RUNS ((R347)(2)(ii), b736 events (2), (7), defect (b)): the hook refuses a command carrying more than one git write (add and commit chained count two) and a call whose message, read from the session's transcript, already carries a git write in an earlier parallel call; the first write of a message stands. Control: (gitwrite), b736's 05:22:31Z message replayed.
+
+(3) THE LOCK REFUSES A HAND WRITE ((R347)(2)(iii), b736 events (3)): the hook judges the Edit, Write and NotebookEdit tools; after data/<act>_lockgate.json stands and before the closing, a write to one of the act's tracked banks or tools (data/<act>_*, tools/<act>_*, tools/acts/<act>.py) is refused before it lands, the banks written after the lock by design (standing.act.post_lock_appended) and the events bank exempt; the hook's matcher in D:/.claude/settings.json widened to Read|Bash|PowerShell|Edit|Write|NotebookEdit. Control: (locked), the 04:03:27Z letter replayed.
+
+(4) THE CLONE'S SNAPSHOT ((R347)(2)(iv), b735 (p), b736 (m)): every read, dispatch or clone operation naming a scratch clone carries tools/standing/scratchfsck.py snapshot before and after it (the fsck, the disk's free space, the process counts), and tools/standing/dispatchrows.py refuses a row without both. The two damaged clones zqwork and zqwork2 stay in place until the cause is named or the author orders their deletion by name; zqwork3 now reads not clean too (defect (h) of data/b737_defects.txt), and stays in place with them. Control: (snapshot).
+
+(5) THE ROOT PROMPT'S SENTENCES ABOUT THE ENTRY ((R347)(2)(v), b736 events (5)): the prompt is composed by tools/standing/rootprompt.py compose_checked against the sealed composer's entry; a clause naming the entry stands only as a quoted span the entry carries or as procedure ("as composed"); a clause promising what the entry names is refused. Control: (promise), b736's recommended option replayed and regenerated.
+
+(6) THE POST-SEAL LIST READ FIRST ((R347)(2)(vi), b736 events (8), b732 events (11)): after the seal, before any read, `python -X utf8 tools/standing/hook.py excludes` prints the rule as the arm holds it; the entry and the trail read by the Read tool alone. The arm's failure at b736 is its second (b732's the first): REPEAT. Control: (postseal).
+
+(7) THE EMPTY REMOTE READ ((R347)(2)(vii), b736 events (9), (R344)(2)(vii)): a chain row resting on repositories that answered nothing reads UNREAD, never AGREE; one direct read, then the part re-run alone, the first read's UNREAD entered in the events bank. Read against b736's three repositories. Control: (emptyread), a guard: the route stood at b736 and the instance shows it held.
+
+(8) THE VERSION ((R347)(2)(viii)): tools/standing/VERSION v1.17.0, landed by a commit of its own with data/b737_standing_v1170.txt.
