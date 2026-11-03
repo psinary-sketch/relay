@@ -1,0 +1,142 @@
+b737 -- W-ORD-ZQ-OFFLINE-ZERO, THE PLAN, (R347)(3)(a)-(e): NO BUILD, NO LEAN FILE, NO LEAN PROCESS ON THIS HOST (2026-11-03)
+
+### the figures: relay data/b737_offlinezero_criteria.txt and data/b737_offlinezero_box.txt, printed by tools/b737_offlinezero.py (Z_Q0 by tools/b667_epstein_certify.py
+### zq_point, Z_Q1 by tools/b725_interference.py zq_form, both imported unedited; 200 bits; free memory printed before each computation, MET).
+### The kernel read at SIDE-explicit-formula zq-b730 (b25fd82c), Mathlib at its pin de5ce8a9 (2026-08-11), by git grep and git show; no runner dispatch
+### this act (0 of the 2 allowed): every name below was read in its source at the pin, none compiled here. Every sampled figure is a float of a sample,
+### not a bound; every line count is the seat's estimate from statements, priced against the measured ratios in (d).
+
+## (a) THE CANDIDATE, BY PRINTED CRITERIA (data/b725_interference.txt :32-:34, the three leading rows in decreasing beta - 1/2)
+
+  criterion                                        off0                 off12                off52
+  beta - 1/2                                       0.4532604748         0.4515046580         0.4109585427
+  gamma                                            16.29021572          107.3992911          355.5319572
+  bits b725 took for Z_Q1 (:32-:34)                200                  400                  800
+  the nearest other zero of Z_Q0 (b711's list)     ref0, 0.906521       on92, 0.561379       on416, 0.579303
+  the nearest zero of zeta_K on the line           0.573960             0.507020             0.575992
+  the nearest zero of L(psi) on the line           0.498714             0.559635             0.415123
+  |Z_Q0'(rho)| (central difference)                3.9135252            3.8173411            3.8339298
+  seconds for the row (criteria and line zeros)    11.7                 44.7                 444.8
+
+  THE CANDIDATE: off0, confirmed. It leads on beta - 1/2, on the distance to the nearest other zero of Z_Q0 (its own reflection ref0 at 1 - beta;
+  no zero on the line within 0.9065), on the evaluation's cost (its height is the least of the 69, the cost of a point grows with gamma: 11.7 s
+  against 444.8 s for off52), and on the bits b725 needed; it trails off12 on the distance to zeta_K's zeros (0.574 against 0.507, both clear of any
+  box below) and off12 on the distance to L(psi)'s (0.499 against 0.560). |Z_Q0'| is near 3.9 at all three, a simple zero at each sample. The
+  zeta_K and L(psi) zeros are the sign changes of each function's real form on the line in |t - gamma| <= 8 (the reality check |Im|/|Re| below
+  1e-38 at every grid point); zeta_K's list holds zeta's 14.134725 and 21.022040 as a control.
+
+## (b) THE BOX, ITS MARGIN AND ITS CORNERS (data/b737_offlinezero_box.txt)
+
+  BOX A, recommended: the square [0.853260, 1.053260] x [16.190216, 16.390216], half-side 0.1 centred on off0's banked centre.
+    corners (0.853260, 16.190216) (1.053260, 16.190216) (1.053260, 16.390216) (0.853260, 16.390216)
+    the list's zeros inside: off0 alone; the nearest listed zero to the boundary 0.100000 (off0 itself, at the centre)
+    THE MARGIN: the least |Z_Q0| on 160 boundary samples 0.357096; the largest sampled |Z_Q0'| on them 4.9545; |Z_Q0| at the centre 1.6e-24
+    the sample's winding 1.000000 (a float of a sample, not a count)
+    every point of A has Re s in [0.853, 1.053], so a zero in A has re != 1/2, is not 0, 1 or -(n+1) (Im s > 16), and lies away from s = 1
+  BOX B, the right edge where absolute convergence helps: [0.75, 1.5] x [15.290216, 17.290216].
+    corners (0.75, 15.290216) (1.5, 15.290216) (1.5, 17.290216) (0.75, 17.290216)
+    the list's zeros inside: off0 alone; the nearest listed zero to the boundary 0.203260
+    THE MARGIN: the least |Z_Q0| on 320 boundary samples 0.950145; the largest sampled |Z_Q0'| 13.3300; the sample's winding 1.000000
+    the right edge at Re s = 3/2 is the region of Growth.lean :37 zq_sub_two_le, ‖zqFn s - 2‖ <= totQ - 2 with totQ < 4 (Bound.lean :319
+    zq_three_halves_lt): there zqFn lies in the disc of radius 2 about 2, its argument in (-pi/2, pi/2), the edge's argument change read from its
+    two corners (b667's half_path_3c form, tools/b667_epstein_certify.py :337). Box B pays for that edge with three edges in the strip of length
+    5.5 in all against A's 0.8, and a derivative near 13 against A's 5; the right edge removes no evaluation the route below needs.
+
+## (c) THE ROUTES
+
+  R1, THE ARGUMENT PRINCIPLE WITH A LIPSCHITZ BOUND. The count of zeros of zqFn in the box is (1/2 pi i) of the contour integral of zqFn'/zqFn;
+    the integral read from the boundary values through a Lipschitz bound L on zqFn there: steps of length delta with L delta < m keep each step's
+    argument change below pi/2, so the winding is the sum of the principal arguments of the ratios. At A's sampled L 4.9545 and m 0.357096 the
+    steps wanted number perimeter L / m + 1 = 13; at B's, 79. It proves the count (one), more than the order needs.
+  R2, ROUCHE. |zqFn - g| < |g| on the boundary with g = Z_Q0'(rho)(s - rho) on A: the largest sampled |Z_Q0''| on |s - rho| = 0.05 is 7.9250, the
+    admissible radius of the linear model 2|Z'|/max|Z''| = 0.9876 against A's inscribed 0.1 (sampled). It needs the argument principle for both
+    functions or a homotopy argument, and a second-derivative bound; it proves the count.
+  R3, THE SIGN CHANGE, AND WHY NOT. The intermediate value theorem finds a zero of a real-valued continuous function on a real segment. zqFn has a
+    real-valued restriction on the real axis (Schwarz reflection, Zeros.lean zq_conj) and its completed form one on the line Re s = 1/2 (the
+    functional equation): each finds only zeros on those lines. An off-line zero lies on no line where zqFn or its completion is real; no segment
+    through off0 carries a real-valued restriction, so no sign change locates it. Not a route; not priced.
+  R4, THE MINIMUM MODULUS, A MATHLIB ROUTE BY NAME: Complex.norm_le_of_forall_mem_frontier_norm_le (Mathlib/Analysis/Complex/AbsMax.lean :405,
+    the maximum modulus principle on a bounded set for a function DiffContOnCl there). Applied to (zqFn)^-1 on the open box U: were zqFn nonzero on
+    the closure of U, ‖zqFn^-1 c‖ <= 1/m at the centre c from ‖zqFn^-1‖ <= 1/m on the frontier, so |zqFn c| >= m; hence |zqFn c| < m <= |zqFn| on
+    the frontier gives a zero in the closure of U. It proves existence, which is what the order's condition asks, and nothing about the count. It
+    wants the boundary lower bound and one point's upper bound, and no argument, no winding, no integral.
+
+  THE SHARED COST. Every route needs zqFn's values on the boundary of a box in the strip, certified: an explicit P with ‖zqFn - P‖ <= eps on the
+  closed box. On A, eps = 0.1 leaves the margin 0.357 - 0.1 = 0.257 on the frontier and 0.1 at the centre. The kernel's zqFn
+  (Continuation.lean :122) is qBase^s ((Gamma s)^-1 (zqPair.Lambda0 s - 1/(1-s)) - (Gamma(s+1))^-1); at s = 0.95 + 16.3 i, |Gamma s| is near
+  7e-11, so Lambda0 is wanted to an absolute 5e-12 and its pieces to some 1e-14: the conditioning is the price driver. The kernel's bounds near it
+  are existential (Growth.lean :190 inv_Gamma_strip, :227 Lam0_bounded: an unnamed constant) and serve no numeric step.
+
+## (d) THE PLAN, LEMMA BY LEMMA (R4, recommended), EACH WITH ITS NEAREST COMPILED NEIGHBOUR OR ABSENT
+
+  S1  the box: U = Ioo x0 x1 ×ℂ Ioo y0 y1 with rational corners, bounded, its frontier and closure described                 40-80 lines
+        neighbour: Mathlib frontier_reProdIm, closure_reProdIm, interior_reProdIm (Analysis/Complex/ReImTopology.lean :192-:199)
+  S2  zqFn DiffContOnCl ℂ on U (1 ∉ closure U)                                                                                 20-40
+        neighbour: Continuation.lean :147 zqFn_holomorphic; Zeros.lean zq_differentiableAt
+  S3  min_modulus_zero: f DiffContOnCl on bounded U, ‖f c‖ < m <= ‖f z‖ on frontier U, c ∈ U ⊢ ∃ z ∈ closure U, f z = 0          40-80
+        neighbour: Mathlib Complex.norm_le_of_forall_mem_frontier_norm_le (AbsMax.lean :405), applied to f⁻¹
+  S4  carrier_of_box: z ∈ closure U, zqFn z = 0 ⊢ z ∈ zqZeroConfig.carrier ∧ z.re ≠ 1/2                                        30-60
+        neighbour: Zeros.lean mem_C (the carrier LambdaQZeros zqFn: ρ ≠ 0, ρ ≠ 1, ρ ≠ -(n+1), zqFn ρ = 0), zqZeroConfig (:319)
+  S5  EVAL: ‖zqFn s - P s‖ <= eps on closure U, P explicit                                                                  1200-3100
+    S5a Lambda0 split at t = 1 as integrals over [1, ∞) of the theta kernel against t^(s-1) and t^(-s)                         150-300
+        neighbour: FEPair.lean thetaC_feq, zqPair : WeakFEPair; Mathlib WeakFEPair.Λ₀ = mellin P.f_modif (NumberTheory/LSeries/AbstractFuncEq.lean :376)
+    S5b the lattice truncation of theta - 1 at Q(v) <= N with a tail bound below 1e-14                                         150-300
+        neighbour: Theta.lean thetaU_eq, thetaU_inversion; Bound.lean :319 zq_three_halves_lt (a lattice tail summed)
+    S5c each term's integral ∫_1^∞ e^(-a t) t^(w-1) dt, w = s or 1 - s, to 1e-14: the upper incomplete gamma                   400-1000
+        ABSENT in Mathlib (no incomplete gamma at the pin); by quadrature with an explicit remainder or a series, built here
+    S5d the elementary values (exp, cos, sin, log, cpow at rationals) and |Gamma s|^-1 to the precision S5c wants                500-1500
+        ABSENT: no certified interval evaluation in Mathlib; complex Stirling with explicit error ABSENT (Analysis/SpecialFunctions/Stirling.lean
+        is the factorial's); the Taylor remainders Real.exp_bound and the trigonometric bounds by hand
+  S6  P's bounds: |P| >= m' + eps at the frontier's points with P's own Lipschitz figure between them, |P c| <= m' - eps        300-800
+        neighbour: b667's half_path_segments and square_count (tools/b667_epstein_certify.py :301, :323), Python, not Lean; in Lean ABSENT
+  (e) the corollary: S3-S6 ⊢ ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2; with Main.lean :205 zq_li_nonneg_imp_online_instance,
+      (∀ n, 0 <= Wide.liCoeff zqZeroConfig n) → ∀ ρ ∈ zqZeroConfig.carrier, ρ.re = 1/2, its contrapositive                       5-15
+  R4 IN ALL: 1635-4175 lines
+
+  R1: S1, S2, S4 (90-180) ; S5 (1200-3100) ; the boundary's rigorous Lipschitz bound by a Cauchy estimate on a wider box (400-1000) ; the argument
+      principle on a rectangle, zeros counted with multiplicity by the contour integral of the logarithmic derivative (600-1500; ABSENT in Mathlib,
+      the kernel's LogDeriv.lean the neighbour, Mathlib integral_boundary_rect_eq_zero_of_differentiableOn at CauchyIntegral.lean :295) ; the
+      discrete winding read as the integral, a branch of the logarithm along the path (300-700; winding number ABSENT) ; (e) 5-15 -- 2595-6495
+  R2: S1, S2, S4 (90-180) ; S5 (1200-3100) ; Rouche from the argument principle for both functions with a branch of log(f/g) (800-2000; ABSENT)
+      ; the model's second-derivative bound (300-800) ; (e) 5-15 -- 2395-6095
+  R3: not a route.
+
+  THE PRICE AGAINST THE MEASURED RATIOS (measured lines over the plan's estimate, data/b731_price_measured.txt :17-:19 and b736's bank):
+    continuation 835 / 1,500-3,000 = 0.278-0.557 ; logDeriv 786 / 200-400 = 1.965-3.930 ; zeros 340 / 300-600 = 0.567-1.133 ;
+    count 883 / 800-2,000 = 0.442-1.104 ; explicitFormula 1,949 / 2,130 = 0.915
+    R4 1635-4175 : by explicitFormula's 0.915, 1496-3820 lines ; the envelope of the five ratios, 455-16,408
+    R1 2595-6495 : by 0.915, 2374-5943 ; the envelope, 722-25,525
+    R2 2395-6095 : by 0.915, 2191-5577 ; the envelope, 667-23,953
+    dispatches, at explicitFormula's 1,949 lines over 11 dispatches (177 lines a dispatch): R4 9-22, R1 14-34, R2 13-32
+    the ratio named for the point figure: explicitFormula's, the last field built and the one nearest in kind (an analytic statement over the
+    compiled continuation); logDeriv's 1.965-3.930 is the ratio that would carry R4 to 3,213-16,408 if S5c-S5d run as logDeriv's estimate ran
+
+  THE MATHLIB OBJECTS ABSENT AT THE PIN, NAMED (each read by git grep over Mathlib with a positive control, circleIntegral, logDeriv and
+  meromorphicOrderAt found in 43 files): (1) the argument principle; (2) Rouche's theorem; (3) the winding number of a closed curve; (4) the
+  incomplete gamma function; (5) complex Stirling with explicit error; (6) the modified Bessel function K; (7) certified interval evaluation of the
+  elementary functions. R4 wants (4), (5), (7); R1 wants (1), (3), (4), (5), (7); R2 wants (1), (2), (4), (5), (7); the Chowla-Selberg route
+  for P (b725's zq_form) would want (6) and the zeta function's values in the strip besides, and is not taken.
+
+  THE RECOMMENDATION: R4 on box A, at 1496-3820 lines by explicitFormula's ratio, 9-22 dispatches. THE REASON: the order's condition is an
+  existence, ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2; R4 proves exactly that with the one complex-analytic step Mathlib carries by name (AbsMax.lean
+  :405), where R1 and R2 prove a count and want the argument principle Mathlib lacks; every route shares S5, so R4's lead is the 960-2320 lines
+  of topology it does not build. Box A over box B: A's perimeter is 0.8 against 5.5 and its sampled derivative 5 against 13, and R4 needs no edge
+  where the Dirichlet series converges.
+
+  THE STOP POINTS:
+    SP1 after S1-S4 and (e): the conditional theorem, compiled, with no numeric step: ∀ c m, |zqFn c| < m → (∀ z ∈ frontier U, m <= |zqFn z|) →
+        ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2 (est. 135-275 lines). A stop here leaves the numerics as the one open hypothesis, named.
+    SP2 after S5a-S5b: the representation and the truncation compiled; the remainder of S5 priced again from them.
+    SP3 after S5c-S5d at the centre alone: one point's certified value; the lines it took against 900-2500 for S5c-S5d. If they exceed three times
+        the estimate, STOP and re-price before the frontier.
+    SP4 after S6: the order's condition, with the axioms printed.
+
+## (e) THE CONSEQUENCE, RESTATED AND PRICED, NOT STATED
+
+  The order's condition: a declaration of ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2, with the axioms propext, Classical.choice, Quot.sound. With
+  zq_li_nonneg_imp_online_instance (SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :205, zq-b730 at b25fd82c), it would give
+  ¬ (∀ n, 0 <= Wide.liCoeff zqZeroConfig n) by contraposition, at the 5-15 lines of (e) above. This bank prices that sentence; it does not state it.
+  Until a build compiles it, no sentence says a zero of Z_Q0 is located in Lean or that Li nonnegativity fails as a theorem; the off-line zeros
+  stand at b725's numerical location, HELD.
+
+### ### **THE PLAN: CANDIDATE off0 AT beta - 1/2 = 0.4532604748, gamma = 16.29021572 ; BOX A, MARGIN 0.357096 SAMPLED ; 3 ROUTES PRICED (R1, R2, R4), R3 NOT A ROUTE ; R4 RECOMMENDED AT 1496-3820 LINES, 9-22 DISPATCHES ; 7 MATHLIB OBJECTS ABSENT ; 0 DISPATCHES THIS ACT.**
