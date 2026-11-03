@@ -9,7 +9,7 @@ writes; the lock gate refuses while any path the pre-push suite writes is tracke
   is_probe(act, name)    a bank of the probes' own, outside the lock's hash set and N4's read
   auto(act, directory)   a plain suite part runs as a probe: no lock gate has permitted the lock
   refusal(act, names)    (refused, lines): the lock gate's reading of a tracked list
-Pure in its arguments but auto, which reads the gate's record; nothing written.
+Pure in its arguments but auto, which reads the gate's record, and the part names, read from data/act_current.json (v1.18.0); nothing written.
 """
 import json
 import os
@@ -19,8 +19,18 @@ PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2
 BASE = '%s_probe.txt'
 
 
+def _parts():
+    """### v1.18.0, (R348)(2)(vi): the carried seven and data/act_current.json's own list (the parts split under b675 rules row (2)), one alternation."""
+    try:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'data', 'act_current.json'), encoding='utf-8') as f:
+            cur = tuple(json.load(f).get('parts') or ())
+    except (OSError, ValueError):
+        cur = ()
+    return tuple(dict.fromkeys(PARTS + cur))
+
+
 def _alt():
-    return '|'.join(re.escape(p) for p in PARTS)
+    return '|'.join(re.escape(p) for p in sorted(_parts(), key=len, reverse=True))
 
 
 def outputs(act, names):

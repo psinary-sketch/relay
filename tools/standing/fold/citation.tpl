@@ -186,7 +186,7 @@ def standing_rows(text, add):
             add('ferry (standing clauses)', 'the standing clauses v%d: data/standing_clauses_v%d.txt' % (v, v), bool(ver) and ver.group(1) == str(v), 'present ; VERSION %s' % (ver.group(1) if ver else 'NONE'), '0')
 
 
-def _write(L, R, miss):
+def _write(L, R, miss, clean=False):
     for n_ in ('⟪ACT⟫_citation_check.txt', '⟪ACT⟫_citation_check.json'):
         MEM.guard('⟪ACT⟫', n_, _root_exclude())
     now_ = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
@@ -196,7 +196,7 @@ def _write(L, R, miss):
     first_ = STANDING_ACT.first_stamp(_jl('⟪ACT⟫_citation_check.json'), now_)
     for name, data in (('⟪ACT⟫_citation_check.txt', (NL.join(L) + NL).encode('utf-8')),
                        ('⟪ACT⟫_citation_check.json', (json.dumps(dict(at=now_, first_at=first_, rows=R,
-                                                                       misses=[r[1] for r in miss]), indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
+                                                                       misses=[r[1] for r in miss], clean=clean), indent=1, ensure_ascii=False) + NL).encode('utf-8'))):
         q = os.path.join(D, name)
         with open(q + '.tmp', 'wb') as fh:
             fh.write(data)
@@ -219,13 +219,30 @@ def check(*a):
     hl = SN.halts(getattr(K, 'NOUN_ROWS', ()), lambda n: rd(os.path.join(D, n)) or '') + [r[:3] for r in LN if not r[3]]
     L += ['', '### THE TYPED COUNTS AND NOUNS AGAINST THEIR BANKS: rows %d ; THE LEAN PATHS AND THE DECLARATIONS BESIDE THEM AGAINST THE TREE: rows %d ; differing %d' % (len(getattr(K, 'NOUN_ROWS', ())), len(LN), len(hl))]
     L += ['  HALT | %s | typed %r | the bank reads %r' % h for h in hl]
+    # ### v1.18.0, (⟪RUL⟫)(2)(ii): the act's banks' comparative sentences against the tables they cite (K.COMPARATIVE_BANKS, K.COMPARATIVE_ROWS); a
+    # ### CONTRADICTS or an UNREAD word halts the check, before the lock
+    CT = __import__('standing.cites', fromlist=['comparative_rows'])
+    _rd_ = lambda n: rd(os.path.join(D, n.split('/', 1)[1] if n.startswith('data/') else n)) or ''
+    crows = CT.comparative_rows(getattr(K, 'COMPARATIVE_ROWS', ()), _rd_)
+    chits = [h for n in getattr(K, 'COMPARATIVE_BANKS', ()) for h in CT.comparative_hits(n, _rd_(n))]
+    cun = CT.comparative_unread(chits, crows)
+    chalt = [r for r in crows if r[5] != 'AGREES'] + [(b, l, w, '-', {}, 'UNREAD', 'no reading row') for b, l, w in cun]
+    L += ['', '### THE COMPARATIVE SENTENCES AGAINST THE TABLES THEY CITE ((⟪RUL⟫)(2)(ii)): banks %d, words %d, rows %d ; AGREES %d, CONTRADICTS %d, UNREAD %d' % (
+        len(getattr(K, 'COMPARATIVE_BANKS', ())), len(chits), len(crows), sum(1 for r in crows if r[5] == 'AGREES'), sum(1 for r in crows if r[5] == 'CONTRADICTS'),
+        sum(1 for r in chalt if r[5] == 'UNREAD'))]
+    L += ['  %-11s | %s :%d | %r | %s | %s%s' % (r[5], r[0], r[1], r[2], r[3], ', '.join('%s %g' % kv for kv in list(r[4].items())[:6]) + (' ...' if len(r[4]) > 6 else ''),
+                                             (' | ' + r[6]) if r[6] else '') for r in crows]
+    L += ['  %-11s | %s :%d | %r | no reading row' % ('UNREAD', b, l, w) for b, l, w in cun]
     L += ['', '### ### **CITES CHECKED %d ; OK %d ; MISSES %d.**' % (len(R), len(R) - len(miss), len(miss))]
+    clean = not hl and not chalt
+    L += ['### ### **THE CHECK %s** (halts %d: Lean paths and nouns %d, comparatives %d) -- the branch deletes wait on CLEAN ((⟪RUL⟫)(2)(iv))' % (
+        'CLEAN' if clean else 'HALTED', len(hl) + len(chalt), len(hl), len(chalt))]
     if 'dry' in a:
         print(NL.join(L))
         return
-    _write(L, R, miss)
-    print(NL.join(L[-(len(miss) + len(hl) + 6):]))
-    if hl:
+    _write(L, R, miss, clean)
+    print(NL.join(L[-(len(miss) + len(hl) + len(crows) + len(cun) + 10):]))
+    if hl or chalt:
         sys.exit(3)
 
 

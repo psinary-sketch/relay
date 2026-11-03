@@ -9,6 +9,7 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   ENV    a command prefixed by an environment-variable assignment     -- rows (77) and (20)
   REMOTE a Bash or PowerShell command carrying more than one ls-remote outside quotes -- row (77), (R338)(2)(iv)(d)
   POSTSEAL a shell command the arm G-RULE-POSTSEAL-READ would count, the seal recorded -- v1.13.0, (R343)(2)(vi); the arm's own lists read from tools/rule_arms.py at the call
+  INPLACE a shell command editing a file in place (sed or perl -i, Set-Content) -- row (18), v1.18.0, (R348)(2)(iii)
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -50,6 +51,7 @@ ROWS = {
     'POSTSEAL': ROW77 + ' ; the suite`s G-RULE-POSTSEAL-READ, after the seal no shell filter or redirect over the entry or the trail, its list read from tools/rule_arms.py',
     'GITWRITE': ROW77 + ' ; (12) one git write per message across every repository, add and commit counted as two, across parallel calls ((R347)(2)(ii))',
     'LOCKED': ROW77 + ' ; (65) a bank written before the lock refuses to be rewritten after it, refused before it lands ((R347)(2)(iii))',
+    'INPLACE': ROW77 + ' ; (18) every file the seat writes written by the Edit or Write tool, a rendered file by its render re-run ((R348)(2)(iii))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -60,6 +62,9 @@ SUITE_RUN = r'(?:_checks\.py\b|\bstanding/fold\.py\s+checks\b)'   # ### v1.11.0:
 SUITE_PART = re.compile(SUITE_RUN + r'[^|;&]*?--part\s+(\S+)')
 SUITE_COMBINE = re.compile(SUITE_RUN + r'[^|;&]*--combine')
 BRANCH_DEL = re.compile(r'\bbranch\s+(?:-[dD]|--delete)(?![\w-])')
+# ### v1.18.0, (R348)(2)(iii): sed or perl with an in-place flag (-i, -i.bak, -pi, --in-place) and the PowerShell cmdlets that rewrite a file
+INPLACE = re.compile(r'(?<![\w-])(?i:sed|perl)(?:\.exe)?\s(?:[^;&\n]*?\s)?(?:-[a-hj-zA-Z]*i[a-zA-Z]*(?:\.\S*)?|--in-place\S*)(?=\s|$)'
+                     r'|(?<![\w-])(?i:Set-Content|Add-Content|Clear-Content)(?![\w-])')
 ASSIGN = re.compile(r'^\s*(?:env\s+)?[A-Za-z_][A-Za-z0-9_]*=')
 PS_ENV = re.compile(r'(?i)^\s*\$env:[A-Za-z_][A-Za-z0-9_]*\s*=')
 
@@ -92,9 +97,17 @@ def bank_act(relay=RELAY):
 
 
 def citation_done(relay=RELAY):
-    """v1.11.0: the act's citation check has run: its bank's json stands."""
+    """v1.11.0: the act's citation check has run: its bank's json stands. v1.18.0, (R348)(2)(iv), b737 (d): and it ran CLEAN -- its json's `clean`
+    True (no halt: no differing Lean path or noun, no comparative sentence CONTRADICTS or UNREAD); a halted check's json stood before and let a delete by."""
     act = bank_act(relay)
-    return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_citation_check.json' % act))
+    p = os.path.join(relay, 'data', '%s_citation_check.json' % act) if act else ''
+    if not (act and os.path.exists(p)):
+        return False
+    try:
+        with open(p, encoding='utf-8') as f:
+            return json.load(f).get('clean') is True
+    except (OSError, ValueError):
+        return False
 
 
 def sealed(relay=RELAY):
@@ -320,6 +333,8 @@ def judge(tool, inp, relay=RELAY, ctx=None):
             return 'REDIR', 'a %s command carrying a redirect outside quotes' % tool
         if REDIR_CMDLET.search(bare):   # ### v1.9.0, (R339)(2)(i): a redirect that carries no `>`
             return 'REDIR', 'a %s command carrying a redirect by cmdlet' % tool
+        if INPLACE.search(bare):   # ### v1.18.0, (R348)(2)(iii), b737 (u): an in-place edit by the shell, the render re-run instead
+            return 'INPLACE', 'a %s command editing a file in place (%s)' % (tool, INPLACE.search(bare).group(0).strip()[:60])
         for inner in inner_shell_args(cmd):   # ### v1.9.0, (R339)(2)(i): strip_quotes blanks an inner shell's argument, the one place a redirect passed the test above
             ibare, _c = strip_quotes(inner)
             if '|' in ibare or '>' in ibare or '<' in ibare:

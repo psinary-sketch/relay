@@ -1,0 +1,26 @@
+b738 -- (R348)(2)(vi): THE LONG PHASES SPLIT UNDER b675 RULES ROW (2), EACH NEW PART'S PHASE REPLAYED ALONE AND TIMED (2026-11-03)
+
+### rows are phases: the four b737 phases above 450 s (data/b737_events.txt (2), (5), (7), (9)), then each new part's phase as replayed at b738, one per
+### command, by the scratch phase738.py through the rendered suite's own functions (live_half, quarter_verify; the remote reads the suite's own,
+### KC0.remote_refs), on the working templates of v1.18.0; nothing written by the replays. The part's other phases (the banks and the state, 52-111 s
+### at b737) are not in these figures; each part's whole time prints at the act's pre-run, its first full run.
+
+## THE CONTROLS
+  the old phases, read from b737's banks: standing-b2b pre-run 471 s (data/b737_arms_prerun_standing-b2b.txt :7), standing-b2b on b736's banks 656 s (data/b737_prevrun_standing-b2b.txt :6), standing-b2a pre-push 462 s (data/b737_checks_standing-b2a.txt :6), standing-a post-push "the three arms at HEAD" 456 s (data/b737_checks_postpush_standing-a.txt :6), its G-NO-SORRY-MAIN 367 s (:40)
+  the walks at commit, timed alone by the scratch walktime738.py (no remote): b624-b627 116 s, b628-b631 129 s, b632-b635 157 s, b636-b658 146 s
+
+## THE SPLIT
+  standing-a  -> standing-a1 (G-NO-SORRY-MAIN over the first half of tools/no_sorry_main.py's kernels, banked, NO ARM) and standing-a2 (the rest, G-AXIOM-CLAIM, the module headers, the rule arms; the arms)
+  standing-b2a, standing-b2b (b624-b631, b632-b658) -> standing-b2a, b2b, b2c, b2d (b624-b627, b628-b631, b632-b635, b636-b658), each banked, NO ARM
+  the parts 7 -> 10: standing-a1, standing-a2, standing-c, standing-b1, standing-b2a, standing-b2b, standing-b2c, standing-b2d, standing-b3, act
+
+## THE REPLAYS, AS PRINTED
+  21:47:43Z free 5098 MB: the full part standing-a1 stopped at the act's carried sources (tools/acts/b738.py, b737's sitting keys unset at b738), before any phase; the phases replayed alone after it
+  a1 : free memory 5115 MB ; kernels 23 (SIDE-archimedean .. SIDE-grh-transfer), nsm rows 23, unequal 0, hits 0 ; seconds 119 ; THE PHASE a1 : 119 s ; above 450 s: False
+  a2 : free memory 5011 MB ; kernels 45 (SIDE-archimedean .. SIDE-yang-mills-formation), nsm rows 22, unequal 0, hits 0 ; ac rows 208 ; mh rows 0 ; seconds 64, 93, 45 ; THE PHASE a2 : 201 s ; above 450 s: False
+  q1 : free memory 4974 MB ; b624-b627: acts 4, AGREE 4 ; remote reads 38 repositories, at most 1 each ; THE PHASE q1 : 155 s ; above 450 s: False
+  q2 : free memory 5040 MB ; b628-b631: acts 4, AGREE 4 ; remote reads 38 repositories, at most 1 each ; THE PHASE q2 : 165 s ; above 450 s: False
+  q3 : free memory 4828 MB ; b632-b635: acts 4, AGREE 4 ; remote reads 38 repositories, at most 1 each ; THE PHASE q3 : 183 s ; above 450 s: False
+  q4 : free memory 4993 MB ; b636-b658: acts 23, AGREE 23 ; remote reads 38 repositories, at most 1 each ; THE PHASE q4 : 249 s ; above 450 s: False
+
+### ### **THE SIX PHASES 119, 201, 155, 165, 183, 249 s ; THE LONGEST 249 s ; ABOVE 450 s: NONE ; the chain b624-b658 35 acts AGREE 35.**

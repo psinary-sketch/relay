@@ -5,7 +5,8 @@ about the listing can be written ahead of it. b734's five deletes ran with no li
   python -X utf8 -u tools/standing/deletes.py list <repo> <pattern>
         prints `git branch --merged main --list <pattern>` and appends the listing to data/<act>_merged_listing.txt, its time beside it; the listing's line is the sentence
   python -X utf8 -u tools/standing/deletes.py delete <repo> <branch>
-        one branch: refused unless the branch stands in the bank's last listing of that repository; `git branch -d`, one per command
+        one branch: refused unless the branch stands in the bank's last listing of that repository; `git branch -d`, one per command;
+        v1.18.0, (R348)(2)(iv): refused first unless the act's citation check stands CLEAN
 
   listing(text) -> [(repo, names)]   allowed(text, repo, branch) -> bool
 """
@@ -34,6 +35,19 @@ def allowed(text, repo, branch):
     return bool(rows) and branch in rows[-1]
 
 
+def act():
+    with open(os.path.join(RELAY, 'data', 'act_current.json'), encoding='utf-8') as f:
+        return json.load(f)['act']
+
+
+def citation_clean(relay=RELAY):
+    """v1.18.0, (R348)(2)(iv), b737 (d): the delete step after the citation check by the tool -- the act's check banked and CLEAN, the hook's
+    own reading (tools/standing/hook.py citation_done), so the order holds where the hook is not installed."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import hook
+    return hook.citation_done(relay)
+
+
 def rd():
     p = bank()
     return open(p, encoding='utf-8').read() if os.path.exists(p) else ''
@@ -51,6 +65,9 @@ def main(argv):
             f.write(row + '\n')
         print(row)
         return 0
+    if not citation_clean():
+        print('### REFUSED: the act`s citation check has not run CLEAN (data/%s_citation_check.json, its `clean`); nothing deleted ((R348)(2)(iv))' % act())
+        return 4
     if not allowed(rd(), repo, arg):
         print('### REFUSED: %s stands in no --merged listing of %s in %s; nothing deleted' % (arg, repo, os.path.basename(bank())))
         return 3

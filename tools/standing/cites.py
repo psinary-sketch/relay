@@ -12,6 +12,8 @@ ruling's top-level item whose clause carries that name (b725: (R335)(5)); where 
 "(### NOT IN THE FERRY)", never a carried number.
 
   cite(key, act=None) -> '(Rnnn)(n)...'     check(text, act) -> [(key, cited, wanted)] the table's keys whose citation the text misplaces
+  v1.18.0: comparative_hits(bank, text), comparative_rows(rows, read), comparative_unread(hits, rows) -- a bank's comparative sentences
+  against the figures of the table they cite, AGREES / CONTRADICTS / UNREAD ((R348)(2)(ii))
 """
 import os
 import re
@@ -88,7 +90,7 @@ def lean_rows(text, trees, near=110):
         if not hits:
             continue
         w = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
-        w = re.split(r'\.lean\b|[.;:] ', w)[-1]
+        w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]   # ### v1.18.0, (R348)(4), b738 step zero: a closed parenthesis ends the window, its names the path before it's ("Zeros.lean (..., zqZeroConfig :319), Continuation.lean")
         for name in reversed(LEAN_NAME.findall(w)):      # ### the nearest declaration before the path is the one it is cited for; a dotted name is a field and no declaration
             if '.' in name:
                 continue
@@ -97,8 +99,86 @@ def lean_rows(text, trees, near=110):
             at = cache[name]
             if at:
                 rows.append((':%d' % line, '%s beside %s' % (name, p), 'declared at %s' % ', '.join(at), bool(set(at) & set(hits))))
-                break
+            break   # ### v1.18.0, (R348)(4), b738 step zero: the nearest identifier is the one cited, declared or not; one no tree declares (a name the act builds,
+            #   ### "S3 min_modulus_zero on AbsMax.lean :405") takes no row and stops the read, where before it passed to S2's DiffContOnCl
     return rows
+
+
+# ### v1.18.0, (R348)(2)(ii), b737 (v): THE SENTENCE AGAINST ITS OWN TABLE. A bank's comparative sentence ("leads", "trails", "largest", "lowest" and
+# ### their kin) is read against the figures of the table it cites, each AGREES or CONTRADICTS, before the lock; a comparative word in a bank the act
+# ### names with no reading row is UNREAD. The rows name the figures by bank and line, never by the sentence's own numbers.
+COMPARATIVE = re.compile(r'(?<!\bat )\b(leads?|trails?|largest|highest|greatest|lowest|least|smallest)\b(?!\s+to\b)', re.I)   # ### "at least" and "leads to" no comparison
+_ABOVE = ('lead', 'leads', 'largest', 'highest', 'greatest')
+_BELOW = ('trail', 'trails', 'lowest', 'least', 'smallest')
+
+
+def comparative_hits(name, text):
+    """[(bank, line, word)]: every comparative word of a bank's text, by the line it stands on."""
+    return [(name, i, m.group(1).lower()) for i, l in enumerate((text or '').split('\n'), 1) for m in COMPARATIVE.finditer(l)]
+
+
+def figure(spec, read):
+    """one figure, ('line', bank, line, regex) -> float(group 1) on that line; or a column, ('table', bank, first line, regex) -> {group 1: float(group 2)}
+    over the consecutive lines from the first that match. read(bank) -> text."""
+    kind, bank, line, pat = spec
+    L = (read(bank) or '').split('\n')
+    if kind == 'line':
+        m = re.search(pat, L[line - 1]) if 0 < line <= len(L) else None
+        if not m:
+            raise ValueError('%s :%d does not read %r' % (bank, line, pat))
+        return float(m.group(1))
+    out = {}
+    for l in L[line - 1:]:
+        m = re.search(pat, l)
+        if not m:
+            break
+        out[m.group(1)] = float(m.group(2))
+    if not out:
+        raise ValueError('%s :%d opens no row of %r' % (bank, line, pat))
+    return out
+
+
+def verdict(word, subject, values, better='higher'):
+    """AGREES or CONTRADICTS: the subject's figure against every other figure given. "leads"/"largest" kin hold where the subject's figure is the best
+    of them, "trails"/"lowest" kin where it is the worst; best is the higher figure (better='higher') or the lower ('lower'). A superlative of size
+    ("largest", "lowest") reads the figure itself, better ignored."""
+    w = word.lower()
+    s, others = values[subject], [v for k, v in values.items() if k != subject]
+    if not others:
+        raise ValueError('no figure beside the subject`s')
+    if w in ('largest', 'highest', 'greatest'):
+        ok = all(s > o for o in others)
+    elif w in ('lowest', 'least', 'smallest'):
+        ok = all(s < o for o in others)
+    else:
+        hi = better == 'higher'
+        above = all((s > o) if hi else (s < o) for o in others)
+        below = all((s < o) if hi else (s > o) for o in others)
+        ok = above if w in _ABOVE else below
+    return 'AGREES' if ok else 'CONTRADICTS'
+
+
+def comparative_rows(rows, read):
+    """each row dict(at=(bank, line), word, subject, figures=[(name, spec)] or a ('table', ...) spec, better) read:
+    [(bank, line, word, subject, {name: figure}, AGREES | CONTRADICTS | UNREAD, why)]."""
+    out = []
+    for r in rows:
+        bank, line = r['at']
+        try:
+            f = r['figures']
+            vals = figure(f, read) if isinstance(f, tuple) else dict((n, figure(s, read)) for n, s in f)
+            if r['subject'] not in vals:
+                raise ValueError('the subject %s has no figure' % r['subject'])
+            out.append((bank, line, r['word'], r['subject'], vals, verdict(r['word'], r['subject'], vals, r.get('better', 'higher')), r.get('note', '')))
+        except (ValueError, IndexError, KeyError) as e:
+            out.append((bank, line, r.get('word'), r.get('subject'), {}, 'UNREAD', str(e)))
+    return out
+
+
+def comparative_unread(hits, rows):
+    """the hits no reading row covers, by bank, line and word."""
+    have = set((b, l, (w or '').lower()) for b, l, w, *_r in rows)
+    return [h for h in hits if h not in have]
 
 
 def next_clause(text):

@@ -1,0 +1,123 @@
+b738 -- THE CONTROLS OF tools/standing/ v1.18.0, (R348)(2)(i)-(viii): FIGURES BEFORE CONTROLS, THE SENTENCE AGAINST ITS TABLE, THE IN-PLACE EDIT, THE DELETE AFTER A CLEAN CHECK, THE CLOSE`S ORDER, THE SPLIT, THE VACUOUS GATE, THE LEAN READER (2026-11-03T22:20:43Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; written through tools/standing/figbank.py ((R348)(2)(i))
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2561 lines
+  citation render          OK    507 lines
+  closing render           OK    614 lines
+  record render            OK    4501 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    152 lines
+  tools/b738_worklist.py   OK    352 lines
+### THE COMPILE CONTROL : b738 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from 54cd4f92
+
+### (figbank) (R348)(2)(i), b737 DEFECT (q): A FIGURE BANK OPENS WITH ITS CONTROLS BLOCK; THE RENDER REFUSES ONE WHOSE BLOCK IS ABSENT OR FOLLOWS ITS FIGURES
+  (figbank) b737`s plan bank data/b737_offlinezero_criteria.txt, as committed
+      BEFORE (v1.17.0): no reader of the order of controls and figures at 54cd4f92 (tools/standing/figbank.py absent: True) -> FAILS
+      AFTER  (v1.18.0): figbank.reading: REFUSED ; no controls block; the first figure at :6 -> PASSES
+      AS WANTED
+  (figbank) b737`s plan bank data/b737_offlinezero_box.txt, as committed
+      BEFORE (v1.17.0): no reader of the order of controls and figures at 54cd4f92 (tools/standing/figbank.py absent: True) -> FAILS
+      AFTER  (v1.18.0): figbank.reading: REFUSED ; no controls block; the first figure at :5 -> PASSES
+      AS WANTED
+  (figbank) GUARD, NO FAILING SIDE: b736`s sitting bank data/b736_sitting.txt passes
+      AFTER  (v1.18.0): PASSES ; figures 0 ; no figure line: no figure bank -> HOLDS
+      AS WANTED
+  (figbank) GUARD, NO FAILING SIDE: b737`s plan bank data/b737_offlinezero_plan.txt read beside them (its figures in prose, no block)
+      AFTER  (v1.18.0): REFUSED ; figures 31 ; no controls block; the first figure at :12 -> HOLDS
+      AS WANTED
+  (figbank) GUARD, NO FAILING SIDE: a constructed pair in C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1180-fig-h4sxuf7h: the controls first written, the controls after refused and nothing written
+      AFTER  (v1.18.0): good written True ; bad refused True, its file absent True -> HOLDS
+      AS WANTED
+
+### (comparative) (R348)(2)(ii), b737 DEFECT (v): A BANK`S COMPARATIVE SENTENCE READ AGAINST THE TABLE IT CITES, AGREES OR CONTRADICTS, BEFORE THE LOCK
+  (comparative) b737`s plan :23 "it trails off12 on the distance to zeta_K`s zeros", against data/b737_offlinezero_criteria.txt :8 and :13
+      BEFORE (v1.17.0): the v1.17.0 citation reader carries no comparative read: True -> FAILS
+      AFTER  (v1.18.0): CONTRADICTS ; off0 0.57396, off12 0.50702 -> PASSES
+      AS WANTED
+  (comparative) GUARD, NO FAILING SIDE: (R347)(3)(a)`s "at the lowest height" against data/b725_interference.txt`s table from :32 (the off-line rows)
+      AFTER  (v1.18.0): AGREES ; rows 69 ; off0 16.290216, the next least 29.551761 -> HOLDS
+      AS WANTED
+  (comparative) GUARD, NO FAILING SIDE: b737`s plan bank whole: its comparative words, each needing a reading row, the one row above covering :23 alone (the check would halt on the rest UNREAD)
+      AFTER  (v1.18.0): words 9 (:21 leads, :22 least, :23 trails, :33 least, :33 largest, :39 least, :39 largest, :53 largest, :128 lead) ; unread 8 -> HOLDS
+      AS WANTED
+  (comparative) GUARD, NO FAILING SIDE: "at least" and "leads to" are no comparison
+      AFTER  (v1.18.0): [('x', 3, 'leads')] -> HOLDS
+      AS WANTED
+
+### (inplace) (R348)(2)(iii), b737 DEFECT (u): THE HOOK REFUSES AN IN-PLACE EDIT BY THE SHELL; b737`S 16:08:45Z COMMAND REPLAYED (data/b737_commands.json :1641)
+  (inplace) b737`s `sed -i` on tools/b737_face_blocks.txt (in the command bank: True)
+      BEFORE (v1.17.0): judge -> None -> FAILS
+      AFTER  (v1.18.0): judge -> INPLACE -> PASSES
+      AS WANTED
+  (inplace) GUARD, NO FAILING SIDE: three reads pass (sed -n, a grep for the words, a suite part); the three sed and perl in-place forms refused INPLACE, Set-Content refused (REDIR by cmdlet, its v1.9.0 kind, read first)
+      AFTER  (v1.18.0): [None, None, None] ; ['INPLACE', 'INPLACE', 'INPLACE', 'REDIR'] -> HOLDS
+      AS WANTED
+
+### (deletes) (R348)(2)(iv), b737 DEFECT (d): THE DELETE STEP AFTER A CLEAN CITATION CHECK, BY THE TOOL; b737`S SEQUENCE REPLAYED WITH THE DELETE HELD
+  (deletes) GUARD, NO FAILING SIDE: b737`s 14:32Z order: the delete before any citation check, in a constructed relay C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1180-qh4okhsj: the hook and the tool hold it
+      AFTER  (v1.18.0): hook ('ORDER', 'a branch delete before the act`s citation check') ; deletes.citation_clean False -> HOLDS
+      AS WANTED
+  (deletes) a citation check banked HALTED (its json standing, no `clean`), the delete sent after it (C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1180-nuk4sy87)
+      BEFORE (v1.17.0): citation_done -> True -> FAILS
+      AFTER  (v1.18.0): citation_done -> False ; deletes.citation_clean -> False -> PASSES
+      AS WANTED
+  (deletes) GUARD, NO FAILING SIDE: the check banked CLEAN: the delete may run (C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1180-ipy6ejod)
+      AFTER  (v1.18.0): hook None ; deletes.citation_clean True -> HOLDS
+      AS WANTED
+
+### (order) (R348)(2)(v), b737 EVENTS (1), A REPEAT OF (R346)(3)(vi): A CLOSE STEP BEFORE THE LOCK REFUSES ONCE THE LOCK`S EVIDENCE STANDS
+  (order) b737`s 17:22:02Z `record rootdry` after its lock (events (1): True)
+      BEFORE (v1.17.0): the step guard at 54cd4f92 reads the lock: False (the bank`s membrane refused, exit 4) -> FAILS
+      AFTER  (v1.18.0): step [2] with the lock`s evidence in C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1180-order-vq7mi4ul: REFUSED 5 -- ### STEP [2] COMES BEFORE THE LOCK [6], WHOSE EVIDENCE STANDS (data/b738_lockgate.json): THE BANK WRITTEN BEFORE THE LOCK STANDS -- NOTHING RUN (v1.18.0, (R348) -> PASSES
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: step [2] before the lock runs
+      AFTER  (v1.18.0): RUNS -- ### THE CLOSE IN ONE ORDER: STEP [2] MAY RUN -- EVERY LOWER STEP`S EVIDENCE STANDS -> HOLDS
+      AS WANTED
+
+### (split) (R348)(2)(vi), b737 EVENTS (2), (5), (7), (9): THE LONG PHASES SPLIT UNDER b675 RULES ROW (2); EACH NEW PART`S PHASE REPLAYED (data/b738_split_replay.txt)
+  (split) b737`s four phases over 450 s (471, 656, 462, 456 s) under its seven parts, replayed under the ten
+      BEFORE (v1.17.0): the parts at 54cd4f92: 7 ['standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act'] -> FAILS
+      AFTER  (v1.18.0): the six new phases [119, 201, 155, 165, 183, 249] s, the longest 249 -> PASSES
+      AS WANTED
+  (split) GUARD, NO FAILING SIDE: the quarters cover the first half once, in order, and data/act_current.json`s parts are the worklist`s
+      AFTER  (v1.18.0): [('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658')] ; act_current ['standing-a1', 'standing-a2', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d', 'standing-b3', 'act'] -> HOLDS
+      AS WANTED
+  (split) GUARD, NO FAILING SIDE: G-NO-SORRY-MAIN`s halves partition the kernels (the suite`s nsm_split)
+      AFTER  (v1.18.0): kernels 45 ; first 23 ; rest 22 -> HOLDS
+      AS WANTED
+  (split) the pre-lock comparison reads each act by its own parts
+      BEFORE (v1.17.0): v1.17.0 PARTS 7, fixed -> FAILS
+      AFTER  (v1.18.0): parts_of(b738) 10 ; parts_of(b737) 7 -> PASSES
+      AS WANTED
+  (split) a new part`s probe bank is a probe path
+      BEFORE (v1.17.0): is_probe(b738_probe_standing-b2c.txt) -> False -> FAILS
+      AFTER  (v1.18.0): is_probe -> True -> PASSES
+      AS WANTED
+
+### (vacuous) (R348)(2)(vii), b736, b737: G-RUNNER-GATE WITH NO DISPATCH PRINTS VACUOUS BY NAME AND COUNTS NEITHER WAY; THE RULE WRITTEN
+  (vacuous) GUARD, NO FAILING SIDE: b737`s combined bank names G-RUNNER-GATE on its VACUOUS line, counted neither passing nor failing
+      AFTER  (v1.18.0): ### ### **VACUOUS, THE PLANT MUTATED NOTHING, COUNTED NEITHER PASSING NOR FAILING : 1 ['G-RUNNER-GATE'].** -> HOLDS
+      AS WANTED
+  (vacuous) GUARD, NO FAILING SIDE: the rule written: data/b738_rules.txt row (7)
+      AFTER  (v1.18.0): True -> HOLDS
+      AS WANTED
+
+### (leanpath) b738 STEP-ZERO DEFECT (e): THE LEAN-PATH READER -- A CLOSED PARENTHESIS ENDS THE WINDOW; THE NEAREST IDENTIFIER IS THE ONE CITED; MATHLIB AT ITS PIN AMONG THE TREES
+  (leanpath) the ferry of (R348), its Lean paths against zq-b730 and Mathlib at de5ce8a9
+      BEFORE (v1.17.0): rows 19, halts 4: :13 DiffContOnCl beside AbsMax.lean; :29 zqZeroConfig beside Continuation.lean; :29 zqPair beside Theta.lean; :29 thetaU_inversion beside Bound.lean -> FAILS
+      AFTER  (v1.18.0): rows 15, halts 0 -> PASSES
+      AS WANTED
+  (leanpath) GUARD, NO FAILING SIDE: v1.12.0`s (leanpath) control under the repaired reader
+      AFTER  (v1.18.0): 5 of 5 as wanted -> HOLDS
+      AS WANTED
+  (leanpath) GUARD, NO FAILING SIDE: tools/standing/VERSION
+      AFTER  (v1.18.0): v1.18.0 -> HOLDS
+      AS WANTED
+
+### ### **v1.18.0: CONTROLS (figbank), (comparative), (inplace), (deletes), (order), (split), (vacuous), (leanpath) ; CASES 26 ; AS WANTED 26 ; ALL AS WANTED.**

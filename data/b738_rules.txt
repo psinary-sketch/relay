@@ -1,0 +1,19 @@
+b738 -- THE RULES OF (R348)(2), EACH A ROW, FOR THE AUTHOR'S STRIKE; tools/standing/ v1.18.0 (2026-11-03)
+
+### rows are rules, each with the instance it answers, its route and its control (data/b738_standing_v1180.txt); a rule is the seat's reading of the ruling's words, struck or kept by the author.
+
+(1) FIGURES BEFORE CONTROLS ((R348)(2)(i), b737 defect (q)): a bank that prints a figure (a decimal of three places or more) opens with its controls block, a heading `## THE CONTROLS` with its lines under it, before its first figure; tools/standing/figbank.py write is the render, and refuses a figure bank whose block is absent, empty or after its first figure, writing nothing. A bank with no figure line is no figure bank. Control: (figbank), b737's criteria and box banks refused and b736's sitting bank passing.
+
+(2) THE SENTENCE AGAINST ITS OWN TABLE ((R348)(2)(ii), b737 defect (v)): the citation check reads every comparative word ("leads", "trails", "largest", "lowest" and their kin, "at least" and "leads to" excepted) of the banks the act names (K.COMPARATIVE_BANKS) against the figures of the table it cites, named by bank and line in a reading row (K.COMPARATIVE_ROWS), never by the sentence's own numbers; each prints AGREES or CONTRADICTS, a word with no row UNREAD; a CONTRADICTS or an UNREAD halts the check, before the lock. Control: (comparative), b737's plan :23 CONTRADICTS and (R347)(3)(a)'s "the lowest" AGREES.
+
+(3) NO IN-PLACE EDIT BY THE SHELL ((R348)(2)(iii), b737 defect (u), row (18), the class's third act): the hook refuses a shell command editing a file in place (sed or perl with -i, -i.bak, -pi or --in-place; Set-Content, Add-Content, Clear-Content), kind INPLACE; a rendered file is changed by its render re-run, any other by the Edit or Write tool. Control: (inplace), b737's 16:08:45Z command refused on replay.
+
+(4) THE DELETE AFTER A CLEAN CITATION CHECK, BY THE TOOL ((R348)(2)(iv), b737 defect (d)): the citation check banks `clean` (no halt of any reader) in data/<act>_citation_check.json; the hook's ORDER refusal and tools/standing/deletes.py's delete route each refuse a branch delete until the act's check stands CLEAN, a halted check's bank no longer letting a delete by. Control: (deletes), b737's sequence replayed in a constructed relay with the delete held.
+
+(5) THE DRY ROUTES IN THE CLOSE'S ORDER ((R348)(2)(v), b737 events (1), a REPEAT of (R346)(3)(vi)): a close step before the lock [6] -- the standing figures, the root's dry run, the closing's and the scores' dry forms, the gate -- refuses, writing nothing, once data/<act>_lockgate.json stands; its bank written before the lock stands as committed. Control: (order).
+
+(6) THE LONG PHASES SPLIT ((R348)(2)(vi), b737 events (2), (5), (7), (9), under data/b675_rules.txt row (2)): the suite runs in ten foreground parts -- the family standing-a in two numbered halves (G-NO-SORRY-MAIN's kernels halved, the first half banked with no arm), standing-b's second numbered half in four lettered quarters (b2a-b2d over b624-b627, b628-b631, b632-b635, b636-b658, each banked with no arm), standing-c and the act part as they were; the parts read from data/act_current.json by the pre-lock comparison and the probe paths, an earlier act's from its own banks. Each new part's phase replayed alone: 119, 201, 155, 165, 183, 249 s (data/b738_split_replay.txt). Control: (split).
+
+(7) A VACUOUS RUNNER GATE ((R348)(2)(vii), b736, b737): where an act makes no dispatch, G-RUNNER-GATE's plant mutates nothing; the arm prints VACUOUS by name in the combine's VACUOUS line and is counted neither passing nor failing; an act with dispatches reads its rows. Control: (vacuous).
+
+(8) THE VERSION ((R348)(2)(viii)): tools/standing/VERSION v1.18.0, landed by a commit of its own with data/b738_standing_v1180.txt, the step-zero repair of tools/standing/cites.py's Lean reader (data/b738_stepzero.txt defect (e)) among its controls. Control: (leanpath).

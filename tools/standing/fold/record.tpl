@@ -3017,7 +3017,7 @@ def _trail_text_⟪PREV⟫():
 def _close_step(n):
     """(⟪RUL⟫)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
     while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at ⟪ACT⟫, banked by diff)."""
-    r = AC.close_refuses(ACT, n)
+    r = AC.close_refuses(ACT, n) or (n < 6 and os.path.exists(os.path.join(D, '%s_lockgate.json' % ACT)) and '### STEP [%d] COMES BEFORE THE LOCK [6], WHOSE EVIDENCE STANDS (data/%s_lockgate.json): THE BANK WRITTEN BEFORE THE LOCK STANDS -- NOTHING RUN (v1.18.0, (⟪RUL⟫)(2)(v), b737 events (1), a REPEAT of (R346)(3)(vi))' % (n, ACT)) or None   # ### one line: the older acts' line-keyed overrides unmoved
     if r:
         print(r, flush=True)
         sys.exit(5)

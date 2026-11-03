@@ -19,7 +19,22 @@ T = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RELAY = os.path.dirname(T)
 D = os.path.join(RELAY, 'data')
 NL = '\n'
-PARTS = ('act', 'standing-a', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'standing-c')
+PARTS = ('act', 'standing-a', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'standing-c')   # ### the seven b706 split, where an act's own list cannot be read
+
+
+def parts_of(act):
+    """### v1.18.0, (R348)(2)(vi): an act's parts -- the current act's from data/act_current.json, an earlier act's from its own pre-run part banks
+    (data/<act>_arms_prerun_<part>.txt); the parts split, the lists read by arm name across them (whole-suite)."""
+    try:
+        with open(os.path.join(D, 'act_current.json'), encoding='utf-8') as f:
+            cur = json.load(f)
+        if cur.get('act') == act and cur.get('parts'):
+            return tuple(cur['parts'])
+    except (OSError, ValueError):
+        pass
+    pre = '%s_arms_prerun_' % act
+    got = tuple(sorted(n[len(pre):-4] for n in os.listdir(D) if n.startswith(pre) and n.endswith('.txt')))
+    return got or PARTS
 ROW = re.compile(r'^  (G-[A-Z0-9-]+)\s+(?:PASS|FAIL|[A-Z]+)\s+(?:PASS|FAIL|[A-Z]+)\s+(?:PASS|FAIL|[A-Z]+)\s+[0-9.]+\s+(.*)$')
 RULING_ARM = re.compile(r'^G-R[0-9]+-')
 if hasattr(sys.stdout, 'reconfigure'):
@@ -57,18 +72,17 @@ def compare(act, prev=None, form='%s_probe_%s.txt'):
     """dict(act, prev, missing parts, failing and previous failing, each whole-suite, newly [(part, arm, verdict)]). `form` the act's banks: the probes by default."""
     prev = prev or prev_of(act)
     mine, theirs, missing, arms, part_of = {}, {}, [], 0, {}
-    for q in PARTS:
-        pa, pb = form % (act, q), '%s_arms_prerun_%s.txt' % (prev, q)
-        for name, sink in ((pa, mine), (pb, theirs)):
-            if not os.path.exists(os.path.join(D, name)):
-                missing.append(name)
-                continue
-            t = rd(name)
-            f = failing(t)
-            sink.update(f)
-            if sink is mine:
-                arms += len(rows_of(t))
-                part_of.update((a, q) for a in f)
+    pairs = [(form % (act, q), mine, q) for q in parts_of(act)] + [('%s_arms_prerun_%s.txt' % (prev, q), theirs, q) for q in parts_of(prev)]
+    for name, sink, q in pairs:
+        if not os.path.exists(os.path.join(D, name)):
+            missing.append(name)
+            continue
+        t = rd(name)
+        f = failing(t)
+        sink.update(f)
+        if sink is mine:
+            arms += len(rows_of(t))
+            part_of.update((a, q) for a in f)
     was = set(norm(a) for a in theirs)
     newly = [(part_of[a], a, mine[a]) for a in sorted(mine) if norm(a) not in was]
     return dict(act=act, prev=prev, missing=missing, arms=arms, mine=mine, theirs=theirs, newly=newly)

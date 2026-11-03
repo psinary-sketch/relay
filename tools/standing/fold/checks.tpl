@@ -15,9 +15,10 @@ READ; SEVEN PARTS AS b706 SPLIT THEM.
 ### ### The arm set is the sealed face's (G2) block (G-ARMS-DECLARED-EQ-RUN). `--prerun` (R202)(3): every arm run at HEAD before the face is
 ### sealed. `--seal`: the sealed tools' sha256 recorded. Every remote read once per run (OPEN_TRAILS :12703). THE SUITE CALLS NO PLATFORM.
 ### ### data/b684_rules.txt row (1) and b706's split, carried: every run in SEVEN foreground parts, each its own call in its own message --
-### `--part standing-a`, `--part standing-c` (G-PRIORBANK-UNCHANGED, G-NODISCLOSURE-PUBLIC, G-WRITELIST-KINDS, the four standing figures and
-### G-READ-RULE-STANDING), `--part standing-b1` (the shared additive files), `--part standing-b2a` (the act-root chain over b624-b641, its
-### verdicts banked, NO ARM), `--part standing-b2b` (b642-b658, banked, NO ARM), `--part standing-b3` (the second half, b659-⟪ACT⟫, and
+### `--part standing-a1` (G-NO-SORRY-MAIN's first half of kernels, banked, NO ARM; v1.18.0), `--part standing-a2` (the rest of the live arms),
+### `--part standing-c` (G-PRIORBANK-UNCHANGED, G-NODISCLOSURE-PUBLIC, G-WRITELIST-KINDS, the four standing figures and
+### G-READ-RULE-STANDING), `--part standing-b1` (the shared additive files), `--part standing-b2a` .. `standing-b2d` (the act-root chain's first
+### half in KS.CHAIN_QUARTERS, each banked, NO ARM; four from v1.18.0), `--part standing-b3` (the second half, b659-⟪ACT⟫, and
 ### G-ACTROOT-VERIFY once over every banked verdict), `--part act` (the act's arms over this act's banks, the table regenerated in a closing run);
 ### each under the 590 s guard, NOT RUN beneath the 2,560 MB hold; `--combine <bank>` writes the bank. The chain halves as b693 drew them with
 ### ⟪ACT⟫ added to the second (the ferry's Component 5).
@@ -178,8 +179,13 @@ B2_ARMS = ()
 B3_ARMS = ('G-ACTROOT-VERIFY',)
 C_ARMS = ('G-PRIORBANK-UNCHANGED', 'G-NODISCLOSURE-PUBLIC', 'G-WRITELIST-KINDS', 'G-CORRESPONDENCE-CURRENCY', 'G-README-CURRENCY', 'G-PARTNER-COPIES',
           'G-SISTER-PINS', 'G-READ-RULE-STANDING')
-NEED = {'standing-a': ('live', 'rules'), 'standing-c': ('written', 'figures'), 'standing-b1': ('additive',), 'standing-b2a': ('chain_a1',),
-        'standing-b2b': ('chain_a2',), 'standing-b3': ('chain_b',), 'act': ('efremote', 'lvremote')}
+# ### v1.18.0, (⟪RUL⟫)(2)(vi), b737 events (2), (5), (7), (9): b675 rules row (2)'s split -- standing-a in two (G-NO-SORRY-MAIN's kernels halved,
+# ### standing-a1 the first half banked, NO ARM), the chain's first half in four quarters (standing-b2a-b2d, KS.CHAIN_QUARTERS, each banked, NO ARM)
+NEED = {'standing-a1': ('live_a',), 'standing-a2': ('live', 'rules'), 'standing-c': ('written', 'figures'), 'standing-b1': ('additive',),
+        'standing-b3': ('chain_b',), 'act': ('efremote', 'lvremote')}
+QUARTER_PARTS = tuple('standing-b2' + chr(97 + q) for q in range(len(KS.CHAIN_QUARTERS)))
+NEED.update((p, ('chain_a%d' % (q + 1),)) for q, p in enumerate(QUARTER_PARTS))
+CHAIN_KEYS = tuple('chain_a%d' % (q + 1) for q in range(len(KS.CHAIN_QUARTERS))) + ('chain_b',)
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 SESSION = '%s/%s.jsonl' % (PROJ, K.SESSION_ID)
 STD3 = ('Classical.choice', 'Quot.sound', 'propext')
@@ -252,7 +258,7 @@ def ra_sources(lock):
         R_['calls'] = list(R_.get('calls') or []) + RA.transcript('%s/%s.jsonl' % (PROJ, sid), anc)
     # ### (⟪RUL⟫)(4)(i): G-RULE-LONG-PHASE-SPLIT's figures from the previous act's part banks, each read against its root's sha256 (the
     # ### combined bank rule_arms.py :305 reads is one no act writes); a refused bank is counted apart and never read
-    pl = STA.prev_longest(PREV_ACT, KS.PARTS)
+    pl = STA.prev_longest(PREV_ACT, __import__('standing.prelock', fromlist=['parts_of']).parts_of(PREV_ACT))   # ### v1.18.0: the previous act's own parts, its banks' names
     R_['prev_longest'], R_['prev_parts'], R_['prev_refused'] = pl['longest'], pl['parts_read'], pl['refused']
     return R_
 
@@ -373,6 +379,34 @@ def half_verify(i):
 
 def quarter_verify(q):
     return _verify(quarter_acts(q))
+
+
+def nsm_split():
+    """### v1.18.0, (⟪RUL⟫)(2)(vi): tools/no_sorry_main.py's kernels in its own order, (all, the first half standing-a1 reads, the rest standing-a2 reads)."""
+    import no_sorry_main as NSM
+    names = NSM.kernels()
+    h = (len(names) + 1) // 2
+    return names, names[:h], names[h:]
+
+
+def live_half(i):
+    """### v1.18.0: i 0, standing-a1: G-NO-SORRY-MAIN over the first half alone; i 1, standing-a2: over the rest, G-AXIOM-CLAIM and the module
+    headers over every kernel; standing-a2's main joins standing-a1's banked rows before the arms (C3.live_arms' reading, halved)."""
+    import no_sorry_main as NSM
+    import axiom_claim as AC
+    import module_header as MH
+    names, first, rest = nsm_split()
+    t0 = time.time()
+    nsm = NSM.run(rest if i else first, KC0.remote_refs)
+    t1 = time.time()
+    if not i:
+        return dict(names=first, nsm=nsm, ac=[], ac_counts={}, mh=[], mh_per={}, secs=(t1 - t0, 0, 0))
+    idx, counts = AC.index()
+    ac_rows, _ac_per = AC.run(names, idx)
+    t2 = time.time()
+    mh_per, mh_rows = MH.run(names)
+    t3 = time.time()
+    return dict(names=names, nsm=nsm, ac=ac_rows, ac_counts=counts, mh=mh_rows, mh_per=mh_per, secs=(t1 - t0, t2 - t1, t3 - t2))
 
 
 def _run_key(base):
@@ -583,8 +617,8 @@ def sources(need=()):
     S['phase_secs'] = {'the banks and the state': time.time() - t0}
     S['pp_allowed'] = sorted(set(K.PP_WRITTEN))
     t1 = time.time()
-    S['live'] = live_arms() if 'live' in need else dict(names=[], nsm=[], ac=[], ac_counts={}, mh=[], mh_per={}, secs=(0, 0, 0))
-    S['phase_secs']['the three arms at HEAD' + ('' if 'live' in need else ' (not in this part)')] = time.time() - t1
+    S['live'] = live_half(1) if 'live' in need else live_half(0) if 'live_a' in need else dict(names=[], nsm=[], ac=[], ac_counts={}, mh=[], mh_per={}, secs=(0, 0, 0))
+    S['phase_secs']['the three arms at HEAD' + (' (G-NO-SORRY-MAIN`s first half alone)' if 'live_a' in need else '' if 'live' in need else ' (not in this part)')] = time.time() - t1
     t1 = time.time()
     S['ra'] = ra_sources(S['lock_epoch']) if 'rules' in need else {}
     S['phase_secs']['the rule arms` trace' + ('' if 'rules' in need else ' (not in this part)')] = time.time() - t1
@@ -646,13 +680,12 @@ def sources(need=()):
     S['order_slack'] = AR.ORDER_SLACK
     S['boundary'] = boundary()
     S['ar_verify'], S['ar_reads'], S['half_a'] = [], {}, {}
-    if 'chain_a1' in need:
-        S['ar_verify'], S['ar_reads'] = quarter_verify(0)
-    if 'chain_a2' in need:
-        S['ar_verify'], S['ar_reads'] = quarter_verify(1)
+    for q in range(len(KS.CHAIN_QUARTERS)):
+        if 'chain_a%d' % (q + 1) in need:
+            S['ar_verify'], S['ar_reads'] = quarter_verify(q)
     if 'chain_b' in need:
         S['ar_verify'], S['ar_reads'] = half_verify(1)
-    S['phase_secs']['the act-root chain`s part' + ('' if any(x in need for x in ('chain_a1', 'chain_a2', 'chain_b')) else ' (not in this part)')] = time.time() - t1
+    S['phase_secs']['the act-root chain`s part' + ('' if any(x in need for x in CHAIN_KEYS) else ' (not in this part)')] = time.time() - t1
     t1 = time.time()
     if 'additive' in need:
         try:
@@ -1294,7 +1327,7 @@ def root_last_ok(S):
 
 
 def verify_ok(S):
-    """the chain recomputed at commit in three parts: standing-b2a's and standing-b2b's banked quarters (b624-b641, b642-b658) and
+    """the chain recomputed at commit in parts: the first half's banked quarters (QUARTER_PARTS over KS.CHAIN_QUARTERS) and
     standing-b3's second half (b659-⟪ACT⟫), every act AGREE, the boundary link equal, b680 read through its corrigendum row, ⟪ACT⟫ written LF."""
     ha = S['half_a'] or {}
     v = [tuple(x[:2]) for x in (ha.get('acts') or [])] + [tuple(x[:2]) for x in (S['ar_verify'] or [])]
@@ -1420,7 +1453,10 @@ def act_current_ok(S):
         z = json.loads(S['act_cur_z'] or '{}')
     except ValueError:
         z = {}
-    keep = ('act', 'prev', 'next', 'ruling', 'prev_ruling', 'pre_relay', 'pre_pp', 'chain_row', 'prev_root', 'parts', 'withheld', 'replay')
+    # ### v1.18.0, (⟪RUL⟫)(2)(vi): the parts as step zero committed them read against KS.PARTS_AT_STEP_ZERO where a component split them (b675 rules row (2)), the working list against KS.PARTS
+    keep = ('act', 'prev', 'next', 'ruling', 'prev_ruling', 'pre_relay', 'pre_pp', 'chain_row', 'prev_root', 'withheld', 'replay')
+    if list(z.get('parts') or []) != list(getattr(KS, 'PARTS_AT_STEP_ZERO', KS.PARTS)):
+        return False
     # ### b727, (R337)(2): shared_edits, the one hand list (the worklist's REPAIRED_TOOLS is read from it), against the shared tools git shows changed
     shared = STANDING_ACT.shared_tools_changed(ROOT, K.PRE_RELAY, ACTN)
     return j.get('act') == ACTN and j.get('prev') == PREV_ACT and j.get('next') == K.NEXT_ACT and j.get('ruling') == '⟪RUL⟫' \
@@ -1764,7 +1800,7 @@ ARMS_ALL = [
      lambda S: root_banks_committed_ok(S), lambda S: put(S, 'rootbanks', dict(S['rootbanks'], pushed=False))),
     ('G-ACTROOT-LAST', 'every bank the root names, its write time against the root`s', lambda S: root_last_ok(S),
      lambda S: put(S, 'bank_mtimes', dict(S['bank_mtimes'], **{'data/x': 10 ** 12}))),
-    ('G-ACTROOT-VERIFY', 'the chain recomputed at commit in three parts by act with the suite`s own remote reads: standing-b2a`s banked b624-b641, standing-b2b`s b642-b658 and standing-b3`s b659-⟪ACT⟫ all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), ⟪ACT⟫ written LF',
+    ('G-ACTROOT-VERIFY', 'the chain recomputed at commit in parts by act with the suite`s own remote reads: ' + ', '.join('%s`s banked %s-%s' % (p, a, b) for p, (a, b) in zip(QUARTER_PARTS, KS.CHAIN_QUARTERS)) + ' and standing-b3`s b659-⟪ACT⟫ all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), ⟪ACT⟫ written LF',
      lambda S: verify_ok(S), lambda S: put(S, 'ar_verify', (S['ar_verify'] or [])[:-1])),
     ('G-FINDINGS-ENTRY', 'FINDINGS at the findings bank`s line, its title the record tool`s through conv, and its parts, the corrigendum, the standing toolset, the replay, the class repairs, the roster, the pins census and the census rows among them', lambda S: finding_ok(S),
      lambda S: put(S, 'fj', dict(S['fj'], entry_line=1))),
@@ -1821,7 +1857,7 @@ def _part_of(name):
         return 'standing-b3'
     if name in C_ARMS:
         return 'standing-c'
-    return 'standing-a'
+    return 'standing-a2'
 
 
 def regenerate():
@@ -2011,7 +2047,7 @@ def combine():
     deq = all(m.group(9) == 'True' for _p, m, _t in parts)
     carried = [f for f in fails if f in CARRIED_FAILING]
     ok = lf == len(carried) and pc == 0 and ng == 0 and deq
-    out = ['=' * 104, heads[0].replace('PART standing-a', 'SEVEN PARTS SUMMED'), '=' * 104] + [
+    out = ['=' * 104, heads[0].replace('PART %s ' % KS.PARTS[0], '%d PARTS SUMMED ' % len(KS.PARTS)), '=' * 104] + [
         '  ### PART %s : ARMS %s ; %s s' % (p, m.group(2), m.group(10)) for p, m, _t in parts] + [
         '  ### the parts` seconds summed %d ; the longest part %s s, under the 590 s guard %s' % (
             sum(int(m.group(10)) for _p, m, _t in parts), max(int(m.group(10)) for _p, m, _t in parts),
@@ -2060,7 +2096,7 @@ def main():
     if GUARD_DRY:
         return guard_dry()
     if PART not in KS.PARTS:
-        print('### every run in seven foreground parts -- give `--part %s`' % ' | '.join(KS.PARTS))
+        print('### every run in %d foreground parts -- give `--part %s`' % (len(KS.PARTS), ' | '.join(KS.PARTS)))
         return 2
     fm = free_mb()
     if fm < KS.HOLD:
@@ -2083,9 +2119,21 @@ def main():
     S['pushed'] = pushed
     if PART == 'standing-b3':
         jh = _JL_OWN or jl
-        a1, a2 = jh(half_bank('a1', _run_key(base))), jh(half_bank('a2', _run_key(base)))
-        S['half_a'] = dict(head=a1.get('head') if a1.get('head') == a2.get('head') else None, acts=(a1.get('acts') or []) + (a2.get('acts') or []),
-                           reads=dict(a1.get('reads') or {}, **(a2.get('reads') or {})), boundary=a2.get('boundary') or a1.get('boundary') or {})
+        qs = [jh(half_bank('a%d' % (q + 1), _run_key(base))) for q in range(len(KS.CHAIN_QUARTERS))]
+        heads = set(x.get('head') for x in qs)
+        reads = {}
+        for x in qs:
+            reads.update(x.get('reads') or {})
+        S['half_a'] = dict(head=qs[0].get('head') if len(heads) == 1 else None, acts=[a for x in qs for a in (x.get('acts') or [])],
+                           reads=reads, boundary=next((x.get('boundary') for x in reversed(qs) if x.get('boundary')), {}))
+    if PART == 'standing-a2':
+        # ### v1.18.0, (⟪RUL⟫)(2)(vi): standing-a1's banked first half joined before the arms, at this HEAD and over the first half's kernels, or not at all (G-NO-SORRY-MAIN then reads too few rows and FAILS)
+        a1 = (_JL_OWN or jl)(half_bank('nsm1', _run_key(base)))
+        _all, first, _rest = nsm_split()
+        got = [r.get('kernel') for r in (a1.get('acts') or [])]
+        S['live']['a1'] = dict(head=a1.get('head'), at=a1.get('at'), kernels=len(got), joined=a1.get('head') == gs(ROOT, 'rev-parse', 'HEAD') and got == first)
+        if S['live']['a1']['joined']:
+            S['live']['nsm'] = list(a1['acts']) + list(S['live']['nsm'])
     t1 = time.time()
     regen = PART == 'act' and not (RERUN or PRERUN or MID or PREV)
     rc_gen, gen_diff = regenerate() if regen else (0, dict(rerun=True))
@@ -2115,9 +2163,9 @@ def main():
         for nm in RA.NAMES:
             ok_, n_, b_, note = RA.reading(nm, S['ra'])
             rec('  ###   %-28s %-4s read %d ; failing %d ; %s' % (nm, 'PASS' if ok_ else 'FAIL', n_, b_, note[:260]))
-    chain_part = next((x for x in ('chain_a1', 'chain_a2', 'chain_b') if x in NEED[PART]), None)
+    chain_part = next((x for x in CHAIN_KEYS if x in NEED[PART]), None)
     if chain_part:
-        key, span = {'chain_a1': ('a1', KS.CHAIN_QUARTERS[0]), 'chain_a2': ('a2', KS.CHAIN_QUARTERS[1]), 'chain_b': ('b', KS.CHAIN_HALVES[1])}[chain_part]
+        key, span = ('b', KS.CHAIN_HALVES[1]) if chain_part == 'chain_b' else (chain_part[6:], KS.CHAIN_QUARTERS[int(chain_part[7:]) - 1])
         av = S['ar_verify']
         bd = S['boundary']
         rec('  ### THE ACT-ROOT CHAIN`S PART %s, %s-%s, recomputed at commit: %s' % (key.upper(), span[0], span[1],
@@ -2129,8 +2177,9 @@ def main():
         else:
             ha = S['half_a'] or {}
             rec('  ### the reads at commit, b680: %s ; %s: %s' % (S['ar_reads'].get('b680'), ACT_NOW, S['ar_reads'].get(ACT_NOW)))
-            rec('  ### THE FIRST HALF AS standing-b2a AND standing-b2b BANKED IT (relay data/%s, data/%s): %d acts, AGREE %d, at HEAD %s (now %s), its boundary equal %s' % (
-                half_bank('a1', _run_key(base)), half_bank('a2', _run_key(base)), len(ha.get('acts') or []), sum(1 for x in ha.get('acts') or [] if x[1] == 'AGREE'),
+            rec('  ### THE FIRST HALF AS %s BANKED IT (relay %s): %d acts, AGREE %d, at HEAD %s (now %s), its boundary equal %s' % (
+                ', '.join(QUARTER_PARTS), ', '.join('data/' + half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(QUARTER_PARTS))),
+                len(ha.get('acts') or []), sum(1 for x in ha.get('acts') or [] if x[1] == 'AGREE'),
                 (ha.get('head') or '-')[:12], gs(ROOT, 'rev-parse', 'HEAD')[:12], (ha.get('boundary') or {}).get('equal')))
         write_half(key, _run_key(base), av, S['ar_reads'], span)
     sj = S['sealj'].get('tools') or {}
@@ -2149,6 +2198,15 @@ def main():
     if 'live' in NEED[PART]:
         lv = S['live']
         rec('  ### THE THREE ARMS AT HEAD (seconds %s):' % ', '.join('%.0f' % x for x in lv['secs']))
+        a1 = lv.get('a1') or {}
+        rec('  ###   G-NO-SORRY-MAIN`s first half as standing-a1 banked it (relay data/%s): %d kernels, at HEAD %s (now %s), at %s, joined %s' % (
+            half_bank('nsm1', _run_key(base)), a1.get('kernels') or 0, (a1.get('head') or '-')[:12], gs(ROOT, 'rev-parse', 'HEAD')[:12], a1.get('at') or '-', a1.get('joined')))
+    if 'live_a' in NEED[PART]:
+        lv = S['live']
+        rec('  ### G-NO-SORRY-MAIN`S FIRST HALF AT HEAD (%.0f s): %d kernels, pairs unequal %d, sorry in code %d ; %s .. %s' % (
+            lv['secs'][0], len(lv['nsm']), sum(1 for r in lv['nsm'] if not r['equal']), len(nsm_hits(S)), lv['names'][0] if lv['names'] else '-', lv['names'][-1] if lv['names'] else '-'))
+        rec('  ### PART %s CARRIES NO ARM: its rows banked for standing-a2 in relay data/%s' % (PART, half_bank('nsm1', _run_key(base))))
+        write_half('nsm1', _run_key(base), lv['nsm'], {}, (lv['names'][0] if lv['names'] else '-', lv['names'][-1] if lv['names'] else '-'))
         rec('  ###   G-NO-SORRY-MAIN read %d kernels` mains, pairs unequal %d; sorry in code %d: %s' % (
             len(lv['nsm']), sum(1 for r in lv['nsm'] if not r['equal']), len(nsm_hits(S)), '; '.join('%s %s:%d' % h for h in nsm_hits(S)) or 'none'))
         rec('  ###   G-AXIOM-CLAIM read %d claims: CONTRADICTED %d, UNVERIFIABLE %d, VERIFIED %d, UNBOUND %d, MENTION %d' % (
