@@ -1,0 +1,39 @@
+b737 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b736_face.py -> tools/b737_face.py (2026-11-03T15:34:11Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b736 -> b737, b735 -> b736, R346 -> R347, R345 -> R346); 106 lines, 11 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b736_tool_repairs.txt AND data/b736_repairdiff_face.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b736; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b736_face.py
+  +++ tools/b737_face.py
+  @@ -2,4 +2,4 @@
+  -"""b736_face.py -- THE ACT'S FACE, COMPOSED: b735's sealed face (lines above its lock block) read unedited, the standing paragraphs between b735's blocks carried by the
+  -act shift, the act's own blocks from tools/b736_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  -written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b735's own blocks' first and last lines in b735's face, no line number kept.
+  -Writes data/b736_registration_2026-11-02.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool, carried from tools/b735_face.py, its MAP, PAT and LOGS set by hand.
+  +"""b737_face.py -- THE ACT'S FACE, COMPOSED: b736's sealed face (lines above its lock block) read unedited, the standing paragraphs between b736's blocks carried by the
+  +act shift, the act's own blocks from tools/b737_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  +written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b736's own blocks' first and last lines in b736's face, no line number kept.
+  +Writes data/b737_registration_2026-11-02.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool, carried from tools/b736_face.py, its MAP, PAT and LOGS set by hand.
+  @@ -18,3 +18,3 @@
+  -OLD, NEW = os.path.join(D, 'b735_registration_2026-11-02.txt'), os.path.join(D, 'b736_registration_2026-11-02.txt')
+  -OLD_BLOCKS, BLOCKS = os.path.join(T, 'b735_face_blocks.txt'), os.path.join(T, 'b736_face_blocks.txt')
+  -FERRY = os.path.join(D, 'b736_ferry.txt')
+  +OLD, NEW = os.path.join(D, 'b736_registration_2026-11-02.txt'), os.path.join(D, 'b737_registration_2026-11-02.txt')
+  +OLD_BLOCKS, BLOCKS = os.path.join(T, 'b736_face_blocks.txt'), os.path.join(T, 'b737_face_blocks.txt')
+  +FERRY = os.path.join(D, 'b737_ferry.txt')
+  @@ -23,2 +23,2 @@
+  -MAP = {'b735': 'b736', 'b734': 'b735', 'b736': 'b737', '(R345)(4)': '(R346)(5)', '(R345)': '(R346)', 'R345': 'R346', 'v1.15.0': 'v1.16.0'}
+  -PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('(R345)(4)', '(R345)', 'R345', 'v1.15.0', 'b736', 'b735', 'b734')))
+  +MAP = {'b736': 'b737', 'b734': 'b736', 'b737': 'b737', '(R346)(4)': '(R347)(5)', '(R346)': '(R347)', 'R346': 'R347', 'v1.15.0': 'v1.16.0'}
+  +PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('(R346)(4)', '(R346)', 'R346', 'v1.15.0', 'b737', 'b736', 'b734')))
+  @@ -46,1 +46,1 @@
+  -    """the paragraphs of b735's face standing between its blocks: gap[k], the lines after block k up to the next, blank edges cut; the lines found by each block's own last
+  +    """the paragraphs of b736's face standing between its blocks: gap[k], the lines after block k up to the next, blank edges cut; the lines found by each block's own last
+  @@ -87,1 +87,1 @@
+  -    stale = sorted(set(re.findall(r'b736_registration_(?!2026-11-02)[\d-]+', t)))
+  +    stale = sorted(set(re.findall(r'b737_registration_(?!2026-11-02)[\d-]+', t)))
+
+### ### **CARRIED tools/b737_face.py ; LINES 106 ; CHANGED BY THE SUBSTITUTION 11 ; REPAIR SPANS AT b736 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

@@ -139,7 +139,8 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-REGISTRATIONS = 'data/b732_phase2_frontdoors.txt'    # ### (R347)(4): the agenda as committed at b732
+PLAN_BANK = 'data/b737_offlinezero_plan.txt'          # ### (R347)(3)(d): the plan bank, b737's registration
+REGISTRATIONS = PLAN_BANK                             # ### (carried name) the act's registration: the plan, first committed at C2_PLAN_FIRST
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b736's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
@@ -222,8 +223,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = '2d637131'   # ### tools/mirror_prevbuild.json of b736, committed alone ((R347)(2))
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None
-STEPZERO_BANK_COMMIT = None
+STEPZERO_BANKS = '18cb5f7788eb27fd8752bf8e00f22a5635838fd4'   # ### b737's step-zero banks and its bank in one commit
+STEPZERO_BANK_COMMIT = '18cb5f7788eb27fd8752bf8e00f22a5635838fd4'   # ### the ferry, the carried tools, the citation check, the readfirst bank, rowgen, the scan, the price table
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -237,7 +238,8 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b737.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.16.0'            # ### entering the act; (R347)(2)'s repairs land the next version by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.17.0'            # ### landed by (R347)(2)'s repairs at C1_STANDING, v1.16.0 entering the act
+STANDING_VERSION_ENTERING = 'v1.16.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'b25fd82c'),)   # ### the tree the ruling's Lean paths are read against, zq-b730's tip
 STANDING_CHANGED = ()
 STANDING_NEW = ()
@@ -247,34 +249,37 @@ B714_RECORD = '68e793fa'     # ### b736's record commit (relay, the head line's)
 B714_ROOT = '0c6cc62f2193ba6ade53893d180acd143453264edd424f5438ab32ff27a76d47'   # ### b736's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '7448449a'  # ### b736's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None
+C1_STANDING = 'b3bad7b6f990c70261cb4c184cd057a517bb5fdb'   # ### tools/standing/ v1.17.0 by a commit of its own ((R347)(2)(viii))
 C1_STANDING_REPAIR = None
-C1_RELAY = None
-C1_CORR = None
-C1_PP = None
-C1_DISCHARGE_PP = None
-C2_TOOL = None
-WEIGHT_LINE, CORR_LINE = 12909, 12911   # ### FINDINGS: b736's weight line and the corrigendum for b736 (Component 1, dadfdf07)
+C1_RELAY = 'ad42bde1529146d5fef05baa5f9f558d4b692ac8'      # ### the corrigendum banks, the landing rows and the corrigenda row (57)
+C1_CORR = C1_RELAY
+C1_PP = '9842f1d3d28c0b2f3b7648bff5f881e4d1c8faad'         # ### PLACE-papers: b736 at its weight (FINDINGS :13031) and the corrigendum (:13033)
+C1_DISCHARGE_PP = None   # ### (R347) orders no discharge
+C2_TOOL = 'tools/b737_offlinezero.py'
+WEIGHT_LINE, CORR_LINE = 13031, 13033   # ### FINDINGS: b736's weight line and the corrigendum for b736 (Component 1, 9842f1d3)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None
+C2_PLAN_FIRST = '310a681fe3aa4c1e6132e22f2006bdae59a7d65e'   # ### (R347)(3)(d): the plan bank with the criteria and box prints it cites, first commit
+C2_RELAY = '3dab6492e948e79243a5ebeba7dffb575712a4be'        # ### the plan bank's second commit (R2 as ruled, each route's statement) and the price line's landing row
+C2_PP = '9a8140a5cf5cab9bb5bd95efe23525f71799c098'           # ### PLACE-papers: the price line in OPEN_TRAILS (:17400) by a commit of its own
+PRICE_LINE = 17400
 DOORS_COMMIT = None
 MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
-PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: the sitting's
+PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: the plan's
 PLAN_MD5 = None
 C2_AMEND = ()
-C2_PP = C1_DISCHARGE_PP  # ### N2: the discharge stands before any sitting item
 SITTING_PP = ()
-C3_RELAY = ()
+C3_RELAY = ('0ee86e5249dbf029686eeb67f91cf71775993e5f',)   # ### the sitting's bank and the push capture ((R347)(4))
+SITTING_COMMITS = ('21b6328c445e5bff02a029f56b987ee1e0ad61c7', 'db0575c6a0cdfd543789bfb9b5dc80eed244171e')   # ### SIDE-effects: [76] + Milestones, then [28]
 C3_PP = None
 C4_LV = None
 C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = '2822aa73'    # ### the agenda's commit, b732's
+REG_COMMIT = C2_PLAN_FIRST    # ### the plan's first commit, with the prints it cites
 ZEROS_REG_COMMIT = REG_COMMIT
 ORDERS = (142, 60, 42, 12, 28)          # ### b736's (R346)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b729_orders_triage.txt'
@@ -331,12 +336,9 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### the kernels' README writes by the author's word amending (R347)(4): name to main's tip after the push, README.md alone, no tag; SIDE-effects drafted, not written
-SITTING_TIPS = {'SIDE-bijection': '909836d0', 'SIDE-bsd-formation-transfer': '1eb78bad', 'SIDE-class-coupling': '406e05f3', 'SIDE-compression': '8e9c578b', 'SIDE-cosmo': 'a1847d66',
-                'SIDE-coupling': 'cbe66d9c', 'SIDE-cubit-axis': 'e2f3b3bd', 'SIDE-dark-interface': '1b69d7f3', 'SIDE-formation-arithmetic': 'cd64a5c2', 'SIDE-interfaces': 'd7a6c64e',
-                'SIDE-kernel': 'f8534ef2', 'SIDE-local-cosmic-interface': '4a7e75f1', 'SIDE-meta': 'a80bc3a5', 'SIDE-omega-b': 'f44b98a1', 'SIDE-quaternionic-dark-sector': 'ec4557b7',
-                'SIDE-residual-bridge': '0936c872', 'SIDE-silence-principle': 'e7ee890e', 'SIDE-structural-error-correction': '5eabc6cf', 'SIDE-substrate-cluster': 'd6aaac34',
-                'SIDE-trivium': '18a351a1', 'SIDE-yang-mills-formation': '1bfc716b'}
+# ### the sitting of one kernel ((R347)(4)): SIDE-effects' main at its tip after the second push, README.md alone, no tag
+SITTING_TIPS = {'SIDE-effects': 'db0575c6'}
+SITTING_BASE = '78bbcff533b7273b2d26accd0726b126c961e401'   # ### SIDE-effects' main read at the sitting's start
 SITTING_REPOS = tuple(sorted(SITTING_TIPS))
 SITTING_BRANCH = 'push-b737-sitting'   # ### left local on each kernel
 KERNEL_BASES = 'data/b737_kernel_bases.json'

@@ -115,7 +115,7 @@ SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', '
 if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b737_kernel_bases.json')):   # ### (R347)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
     SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b737_kernel_bases.json'), encoding='utf-8')).items()))
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b737, (R347)(3) and (5): item [46]'s byline and two self-citations, under I-23
-BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md')   # ### b737 defect (r): the (A1) edition carries v0.6's byline at :15 and, until its repair commit, v0.6's quotation of it; named at the bank's exception line
+BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md')   # ### b736 defect (r) (the carry had shifted it to b737's, b737 defect (n)): the (A1) edition carries v0.6's byline at :15 and, until its repair commit, v0.6's quotation of it; named at the bank's exception line
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
 
@@ -199,7 +199,7 @@ def scan(*a):
     L += ['  %-28s %4d ; %d ; %d ; %d ; %d' % (k, v[0], v[1], v[2], v[3], v[4]) for k, v in sorted(by.items())]
     hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if kind != BYLINE_KIND and (count(text, addr) or count(text, name) or count(text, uname) or count(text, orcid))))
     L += ['', '## THE PLACES WITH AN OCCURRENCE (by place, never the text): %s' % ('; '.join(hits) if hits else 'NONE')]
-    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R347)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b737 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R347)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, 'THE ORCID: %d' % no, '',
           '### ### **PREVIOUS ADDRESS: %d ; THE AUTHOR`S NAME: %d ; PREVIOUS NAME: %d ; THE ORCID: %d ; PLACES %d ; CONTROLS %d OF %d AS WANTED ; %d s.**' % (
               na, nn, nu, no, len(P), len(ctl), len(ctl), int(time.time() - t0))]

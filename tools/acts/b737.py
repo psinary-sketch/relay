@@ -351,9 +351,9 @@ def rebuild_wf_ok(S):
 #⟪END⟫
 #⟪OVERRIDE checks MARK aed8852d751b 16⟫
 def runner_ok(S):
-    """(R347), N1, b737: no dispatch this act; no row and no run; VACUOUS on the read of a run, the plant a planted row refused."""
+    """(R347)(3), N1, b737: two print dispatches allowed, none made; no row and no run; VACUOUS on the read of a run, the plant a planted row refused."""
     rows = S['drows'] or []
-    return not rows and not K.EF_RUNS and K.MAX_DISPATCHES == 0
+    return not rows and not K.EF_RUNS and K.MAX_DISPATCHES == 2
 #⟪END⟫
 #⟪OVERRIDE checks MARK 066da78426c2 4⟫
     for d_ in [r for r in rows if r.get('kind') == 'dispatch']:
@@ -367,11 +367,11 @@ def runner_ok(S):
         and cr0(blob(ROOT, '%s:tools/standing/hook.py' % K.C1_STANDING)) == cr0(raw(os.path.join(T, 'standing', 'hook.py'))) \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 9e6d0f5720f3 1⟫
-    ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell naming tools/standing/hook.py, unedited this act (its blob at 59e3efa8 the working tree`s); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
+    ('G-HOOK-WIRED', 'v5 row (77): the PreToolUse hook in D:/.claude/settings.json on Read|Bash|PowerShell, widened to Edit|Write|NotebookEdit by (R347)(2)(iii), naming tools/standing/hook.py, edited this act by v1.17.0`s commit alone (its blob at b3bad7b6 the working tree`s); b715`s offline control 16 of 16 (data/b715_hook_control.txt); this act`s refusals in its own bank',
 #⟪END⟫
 # ### b737, Component 6 (the Edit tool): the corrigendum arm's event rows, written into the template as b722's fifteen; b736's record has twelve
 #⟪OVERRIDE checks MARK bcd4d281b141 1⟫
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('row') for x in evs] == list(range(1, 9)) \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and [x.get('row') for x in evs] == list(range(1, 11)) \
 #⟪END⟫
 # ### b737, Component 4 (the Edit tool): b737's step-zero bank landed in the step-zero commit after the banks' (7afce313, STEPZERO_BANK_COMMIT),
 # ### not in STEPZERO_BANKS (afea78a4); the arm reads it there. (b736's override of checks 526 -- no registration commit -- removed: b737
@@ -442,7 +442,7 @@ def runner_ok(S):
 # ### b737, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b737's orders are those orders.py reads open,
 # ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output
 #⟪OVERRIDE closing MARK 92495058e2fb 2⟫
-    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-DERIVES discharged at b737, W-ORD-ZQ-OFFLINE-ZERO entered at b737,',
+    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-OFFLINE-ZERO priced at b737 and open,',
     '        and W-ORD-CHAIN-PAGE-LLM-LINE, W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
 #⟪END⟫
 # ### b737, Component 7 (the Edit tool), the v1.3.0 fold defect's third instance: the regspec and reg_gate templates name the face by
@@ -480,10 +480,11 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxyz') + ("a'", "b'", "c'", "d'", "e'", "f'", "g'", "h'", "i'", "j'", "k'", "l'")))   # ### (a)-(z) and (a')-(l'), entered before the lock, every one the seat's (data/b737_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuv')))   # ### (a)-(v), entered before the lock, every one the seat's (data/b737_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
-REQUIRED_BANKS = ('data/b737_corrigendum.txt', 'data/b737_standing_v1160.txt', 'data/b737_discharge.txt', 'data/b737_sitting.txt', 'data/b737_sitting.json', 'data/b737_author_words.txt', 'data/b737_pathrefusal.txt',
+REQUIRED_BANKS = ('data/b737_corrigendum.txt', 'data/b737_standing_v1170.txt', 'data/b737_offlinezero_plan.txt', 'data/b737_offlinezero_criteria.txt', 'data/b737_offlinezero_box.txt',
+                  'data/b737_sitting.txt', 'data/b737_amendments.json', 'data/b737_pathrefusal.txt',
                   'data/b737_reproduce.txt', 'data/b737_reproduce.json', 'data/b737_address_scan.txt', 'data/b737_touch.txt',
 #⟪END⟫
 #⟪SECTION checks 3⟫
@@ -499,20 +500,45 @@ def _addr_live():
     return dict(rc=p.returncode, addr=int(m.group(1)) if m else None, name=int(m.group(2)) if m else None, out=p.stdout)
 
 
+def _sitting_rows(t):
+    """(R347)(4): the sitting bank's rows by number -- a row opens `[n] STATE` at column 0, its fields indented two spaces as `KEY: value`;
+    returned {n: {'state', 'word', 'at', 'confirm', 'file', 'draft'}}. Pure in its argument."""
+    out, cur = {}, None
+    for l in (t or '').split(NL):
+        m = re.match(r'^\[(\d+)\] (.+)$', l)
+        if m:
+            cur = out.setdefault(m.group(1), dict(state=m.group(2).strip()))
+            continue
+        f = re.match(r'^  ([A-Z][A-Z` ]+): (.*)$', l)
+        if cur is not None and f:
+            k = {'THE AUTHOR`S WORD': 'word', 'AT': 'at', 'CONFIRMATION': 'confirm', 'FILE': 'file', 'DRAFT WRITTEN': 'draft'}.get(f.group(1))
+            if k:
+                cur[k] = f.group(2).strip()
+        elif not l.strip():
+            cur = None
+    return out
+
+
 #⟪END⟫
 #⟪SECTION checks 5⟫
-        # ### (R347)(2)-(3) (b737's keys over b737's objects): the order by time and ancestry; v1.15.0's controls; the build's bank, the plan and the dispatch rows;
-        # ### the branches; v8 and v9; the address scan; the reproduction under the standing arm
+        # ### (R347)(2)-(4) (b737's keys over b737's objects): the order by time and ancestry; v1.17.0's controls; the plan, its prints and the price line;
+        # ### the sitting of one kernel; the branches; v8 and v9; the address scan; the reproduction under the standing arm
 #⟪END⟫
 #⟪SECTION checks 6⟫
-        reg_now=(_s(blob(ROOT, '%s:%s' % (K.REG_COMMIT, K.REGISTRATIONS))) or None, _s(blob(ROOT, 'HEAD:' + K.REGISTRATIONS)) or None),   # ### the plan at its commit and at HEAD
+        reg_now=(_s(blob(ROOT, '%s:%s' % (K.C2_RELAY, K.PLAN_BANK))) or None, _s(blob(ROOT, 'HEAD:' + K.PLAN_BANK)) or None),   # ### the plan at its last commit and at HEAD
 #⟪END⟫
 #⟪SECTION checks 7⟫
-                 for k, a, b in (('v9_v1130', K.STANDING_COMMIT, K.C1_STANDING), ('plan_standing', K.REG_COMMIT, K.C1_STANDING), ('standing_corr', K.C1_STANDING, K.C1_CORR), ('corr_print', K.C1_CORR, K.PRINT_COMMIT))),
-        v1130=rd('b737_standing_v1160.txt'), plan=rd('b732_phase2_frontdoors.txt'), print_=rd('b737_sitting.txt'), rows_bank=rd('b737_discharge.txt'), sittingj=jl('b737_sitting.json'),
+                 for k, a, b in (('v9_v1130', K.STANDING_COMMIT, K.C1_STANDING), ('standing_corr', K.C1_STANDING, K.C1_CORR), ('corr_plan', K.C1_CORR, K.C2_PLAN_FIRST),
+                                 ('plan_last', K.C2_PLAN_FIRST, K.C2_RELAY), ('plan_sitting', K.C2_RELAY, K.C3_RELAY[0]))),
+        v1130=rd('b737_standing_v1170.txt'), plan=rd('b737_offlinezero_plan.txt'), print_=rd('b737_sitting.txt'), rows_bank=rd('b737_offlinezero_plan.txt'),
+        sittingj=_sitting_rows(rd('b737_sitting.txt')), amendj=jl('b737_amendments.json'),
+        plan_first_files=files_of(ROOT, K.C2_PLAN_FIRST), plan_files=files_of(ROOT, K.C2_RELAY), price_files=files_of(PP, K.C2_PP),
         zq_files=gs(EF, 'diff', '--name-only', K.ZQ_ENTERING, K.ZQ_TIP).split(),
-        sit_files=dict((k_, gs('D:/' + k_, 'diff', '--name-only', jl('b737_kernel_bases.json').get(k_), K.SITTING_TIPS[k_]).split()) for k_ in K.SITTING_TIPS),
+        sit_files=dict((k_, gs('D:/' + k_, 'diff', '--name-only', K.SITTING_BASE, K.SITTING_TIPS[k_]).split()) for k_ in K.SITTING_TIPS),
         sit_main=dict((k_, gs('D:/' + k_, 'rev-parse', 'refs/heads/main').strip()) for k_ in K.SITTING_TIPS),
+        sit_origin=dict((k_, gs('D:/' + k_, 'rev-parse', 'refs/remotes/origin/main').strip()) for k_ in K.SITTING_TIPS),
+        sit_log=dict((k_, [l for l in gs('D:/' + k_, 'rev-list', '--reverse', '%s..%s' % (K.SITTING_BASE, K.SITTING_TIPS[k_])).split() if l.strip()]) for k_ in K.SITTING_TIPS),
+        sit_tags=dict((k_, [t for t in gs('D:/' + k_, 'tag', '--contains', K.SITTING_COMMITS[0]).split(NL) if t.strip()]) for k_ in K.SITTING_TIPS),
         ef_tips=dict((b_, (gs(EF, 'rev-parse', 'refs/heads/' + b_).strip(), gs(EF, 'rev-parse', 'refs/remotes/origin/' + b_).strip())) for b_, _t in K.EF_BRANCHES),
         drows=json.loads(rd('b737_dispatch_rows.json') or '[]'), reproduce=rd('b737_reproduce.txt'), reproducej=jl('b737_reproduce.json'),
         v9=read(os.path.join(ROOT, *K.DATA_STANDING_V9.split('/'))), v8=read(os.path.join(ROOT, *K.DATA_STANDING_V8.split('/'))),
@@ -525,69 +551,72 @@ def _addr_live():
 #⟪END⟫
 #⟪SECTION checks 8⟫
         t=dict(c1=_ct(ROOT, K.C1_RELAY), c1pp=_ct(PP, K.C1_PP), standing=_ct(ROOT, K.C1_STANDING), corr=_ct(ROOT, K.C1_CORR),
-               print=_ct(ROOT, K.PRINT_COMMIT), plan=_ct(ROOT, K.REG_COMMIT), discharge=_ct(PP, K.C1_DISCHARGE_PP), first_item=_ct(PP, K.SITTING_PP[0]),
+               print=_ct(ROOT, K.PRINT_COMMIT), plan=_ct(ROOT, K.C2_PLAN_FIRST), price=_ct(PP, K.C2_PP), first_item=_ct('D:/SIDE-effects', K.SITTING_COMMITS[0]),
+               second_item=_ct('D:/SIDE-effects', K.SITTING_COMMITS[1]), sitting=_ct(ROOT, K.C3_RELAY[0]),
                v9=_ct(ROOT, K.STANDING_COMMIT), stepzero=_ct(ROOT, K.STEPZERO_BANKS), actcur=_ct(ROOT, K.ACT_CURRENT_COMMIT)),
 #⟪END⟫
 #⟪SECTION checks 9⟫
                    corr=files_of(ROOT, K.C1_CORR), standing=files_of(ROOT, K.C1_STANDING), c2=files_of(ROOT, K.PRINT_COMMIT),
-                   count=files_of(ROOT, K.PRINT_COMMIT), v9=files_of(ROOT, K.STANDING_COMMIT),
+                   count=files_of(ROOT, K.C2_PLAN_FIRST), sitting=files_of(ROOT, K.C3_RELAY[0]), v9=files_of(ROOT, K.STANDING_COMMIT),
 #⟪END⟫
 #⟪SECTION checks 10⟫
 # ### b737's read-first bank's items by path, as its step zero wrote them (data/b737_readfirst.txt)
-READFIRST_NEEDLES = ('relay data/b736_closing.txt |', 'relay data/b736_events.txt |', 'relay data/b736_defects.txt |', 'relay data/b736_explicitformula.txt |', 'relay data/b730_ferry.txt |', 'relay data/b732_phase2_frontdoors.txt |',
-                     'relay data/b732_phase2_doors.txt |', 'relay data/b725_interference.txt |', 'relay data/b726_frontdoors.txt |', 'relay data/b727_sitting.txt |', 'relay tools/e0_rule.py |', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/EpsteinZQ.lean |')
+READFIRST_NEEDLES = ('relay data/b736_closing.txt |', 'relay data/b736_events.txt |', 'relay data/b736_defects.txt |', 'relay data/b736_sitting.txt |', 'relay data/b725_interference.txt |',
+                     'relay data/b725_registration_2026-10-30.txt |', 'relay data/b730_continuation_plan.txt |', 'relay data/b730_continuation.txt |', 'relay data/b731_price_measured.txt |',
+                     'relay data/b735_explicitformula.txt |', 'PLACE-papers OPEN_TRAILS.md |', 'SIDE-explicit-formula SIDEExplicitFormula/Schema/ZQ/EF/Main.lean |')
 #⟪END⟫
 #⟪SECTION checks 11⟫
-CLOSING_SECTIONS = ('CORRIGENDUM ((R347)(1)-(2))', 'DISCHARGE AND THE SITTING ((R347)(2), (4))', 'NAME AND ADDRESS (N5)', 'TOUCH READ (standing clauses v9)')
+CLOSING_SECTIONS = ('CORRIGENDUM ((R347)(1)-(2))', 'PLAN AND THE SITTING ((R347)(3)-(4))', 'NAME AND ADDRESS (N5)', 'TOUCH READ (standing clauses v9)')
 #⟪END⟫
 #⟪SECTION checks 12⟫
-    """the citation check's bank: every cite checked, OK and misses summing (85 = 85 + 0, data/b737_citation_check.txt); the bank
+    """the citation check's bank: every cite checked, OK and misses summing (77 = 77 + 0, data/b737_citation_check.txt); the bank
     written before the step-zero banks' commit and that commit before Component 1's."""
 #⟪END⟫
 #⟪SECTION checks 13⟫
-        and int(m.group(3)) == len(S['cit_misses']) == 0 and int(m.group(1)) == 85 \
+        and int(m.group(3)) == len(S['cit_misses']) == 0 and int(m.group(1)) == 77 \
 #⟪END⟫
 #⟪SECTION checks 14⟫
-    # ### b736's figures, read at FINDINGS :12909 as Component 1 landed them
-    return landed(S, 0, ['b736 AT ITS WEIGHT', 'suite 115 of 116', 'relay d20a7119', '26 defects'])
+    # ### b736's figures, read at FINDINGS :13031 as Component 1 landed them
+    return landed(S, 0, ['b736 AT ITS WEIGHT', 'suite 113 of 116', 'relay 68e793fa', '38 defects'])
 #⟪END⟫
 #⟪SECTION checks 15⟫
 # ### b737's title in the ferry's Component 3 form (the record tool's _title over the banks)
-TITLE_NEEDLES = ('## W-ORD-ZQ-DERIVES discharged on the three premise-free forms, the landed lines INTERFACES; the second sitting: ', ' carried of 111; W-ORD-ZQ-OFFLINE-ZERO entered, priced at the act that takes it; ', 'the vacuous-pass arm and ', ' repairs landed')
+TITLE_NEEDLES = ('## W-ORD-ZQ-OFFLINE-ZERO planned, no build: candidate off0 at β − 1/2 = 0.4532604748, γ = 16.29021572; ', ' routes priced, R4 recommended at ', ' Mathlib objects absent; [76], [77] passed at SIDE-effects main; ', 'the amendment regeneration and ', ' repairs landed')
 #⟪END⟫
 #⟪SECTION checks 16⟫
                       r"(?: \(\([a-z][`'’]?\)(?:, \([a-z][`'’]?\))*\))? and the seat’s (\w+) defects? as lettered\.$", re.M)   # ### a primed letter read (defect (e`))
 #⟪END⟫
 #⟪SECTION checks 17⟫
-    """(R347)(1)-(3): the generated entry for b736's eight events and twenty-six defects landed (its line in the bank, the title at that
-    line through conv): the events by row (1)-(8), the defects by the one lettering; every item tagged CLAIM or
-    CLOSE and NEW or REPEAT, the tags summing (CLAIM 2, CLOSE 32 over 34, REPEAT 12); the repairs at tools/standing/ v1.16.0 by their controls
-    bank; the corrigenda bank appended at row (56) and nothing before it changed; in Component 1's commits (the figures read from
+    """(R347)(1)-(2): the generated entry for b736's ten events and thirty-eight defects landed (its line in the bank, the title at that
+    line through conv): the events by row (1)-(10), the defects by the one lettering; every item tagged CLAIM or
+    CLOSE and NEW or REPEAT, the tags summing (CLAIM 7, CLOSE 41 over 48, REPEAT 22); the repairs at tools/standing/ v1.17.0 by their controls
+    bank; the corrigenda bank appended at row (57) and nothing before it changed; in Component 1's commits (the figures read from
     data/b737_corrigendum.json as Component 1 landed it)."""
 #⟪END⟫
 #⟪SECTION checks 18⟫
-        and len(lets) == len(dfs) == 26 and len(items) == j.get('items') == 34 and j.get('row') == 56 \
-        and all(x.get('tag') in ('CLAIM', 'CLOSE') for x in items) and j.get('claim') + j.get('close') == 34 \
-        and sum(1 for x in items if x.get('tag') == 'CLAIM') == j.get('claim') == 2 == len(claims) \
-        and sum(1 for x in items if (x.get('column') or '').startswith('REPEAT')) == j.get('repeat') == 12 \
+        and len(lets) == len(dfs) == 38 and len(items) == j.get('items') == 48 and j.get('row') == 57 \
+        and all(x.get('tag') in ('CLAIM', 'CLOSE') for x in items) and j.get('claim') + j.get('close') == 48 \
+        and sum(1 for x in items if x.get('tag') == 'CLAIM') == j.get('claim') == 7 == len(claims) \
+        and sum(1 for x in items if (x.get('column') or '').startswith('REPEAT')) == j.get('repeat') == 22 \
 #⟪END⟫
 #⟪SECTION checks 19⟫
-        and 'v1.16.0: CONTROLS ' in (S['v1130'] or '') and 'ALL AS WANTED' in (S['v1130'] or '') \
-        and len(j.get('notes') or []) == 4 \
-        and '  (56) ' in S['corrigenda'] and '  (57) ' not in S['corrigenda'] \
+        and 'v1.17.0: CONTROLS ' in (S['v1130'] or '') and 'ALL AS WANTED' in (S['v1130'] or '') \
+        and len(j.get('notes') or []) == 3 \
+        and '  (57) ' in S['corrigenda'] and '  (58) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
-    worklist's SEALED naming no report tool. This act's rules bank data/b737_rules.txt carries (R347)(3)'s five rules; data/b737_rules.txt (by form in (R347)(5)'s (W)) is
+    worklist's SEALED naming no report tool. This act's rules bank data/b737_rules.txt carries (R347)(2)'s eight rules, in v1.17.0's commit; data/b738_rules.txt (by form in (R347)(5)'s (W)) is
 #⟪END⟫
 #⟪SECTION checks 21⟫
     (the line above is b736's form, its names b737's); no author's word of b737 orders a row of the next act's, so that bank does not exist."""
 #⟪END⟫
 #⟪SECTION checks 22⟫
-        and 'THE SCORE ROUTES` DRY FORM RUNS BEFORE THE GATE CLEARS' in r1.replace("'", '`') and 'READS THE PROOF TERM' in r1 and not os.path.exists(os.path.join(D, 'b737_rules.txt')) \
+        and '(1) THE AMENDMENT ROW' in r1 and '(8) THE VERSION' in r1 and 'data/b737_rules.txt' in S['files']['standing'] \
+        and not os.path.exists(os.path.join(D, 'b738_rules.txt')) \
 #⟪END⟫
 #⟪SECTION checks 23⟫
 # ### b737's keys, the report sections' own heads
-REPORT_KEYS = ('KERNEL -- W-ORD-ZQ-DERIVES DISCHARGED', 'CERTIFIED -- tools/standing/ v1.16.0', 'REGISTERED -- THE SITTING',
+REPORT_KEYS = ('KERNEL -- W-ORD-ZQ-OFFLINE-ZERO PLANNED', 'CERTIFIED -- tools/standing/ v1.17.0', 'REGISTERED -- THE PLAN',
 #⟪END⟫
 #⟪SECTION checks 24⟫
     """N1, N4, b737: no dispatch this act -- no dispatch command in the capture, no row; VACUOUS on every row's read; no earlier act's rebuild, axiom or lv route at all."""
@@ -603,7 +632,7 @@ REPORT_KEYS = ('KERNEL -- W-ORD-ZQ-DERIVES DISCHARGED', 'CERTIFIED -- tools/stan
 #⟪SECTION checks 26⟫
         and len([r for r in rows if r.get('kind') == 'dispatch']) == len(K.EF_RUNS) == len(cmds) <= K.MAX_DISPATCHES \
         and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])] \
-        or (not rows and not mem and not seq_ and not cmds and not K.EF_RUNS and K.MAX_DISPATCHES == 0
+        or (not rows and not mem and not seq_ and not cmds and not K.EF_RUNS and K.MAX_DISPATCHES == 2
             and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])])   # ### b737, N1: no row, no dispatch, no route; the memory and order reads VACUOUS, the carried form's bool(mem) asking a row this act has none of
 #⟪END⟫
 #⟪SECTION checks 27⟫
@@ -612,14 +641,15 @@ REPORT_KEYS = ('KERNEL -- W-ORD-ZQ-DERIVES DISCHARGED', 'CERTIFIED -- tools/stan
         and set(st['SIDE-frobenius']['author'].split(NL)[1:]) == {'b721 rebuild seat <b721-rebuild@relay.invalid>'} \
 #⟪END⟫
 #⟪SECTION checks 28⟫
-    """N5: PLACE-papers' changed files on main within K.PP_WRITTEN (the ledgers and the doors the passed items name), the ledgers changed; no rename."""
+    """N5: PLACE-papers' changed files on main within K.PP_WRITTEN (the ledgers, FINDINGS and OPEN_TRAILS), the ledgers changed; no rename."""
 #⟪END⟫
 #⟪SECTION checks 29⟫
 # ### b737's headings and banks, as its _finding_text writes them
-ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of the act**', '**The discharge**', '**The sitting**', '**The doors at main**', '**The order entered**', '**The Zenodo drafts**', '**What this act is not**',
+ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of the act**', '**The candidate**', '**The box and the routes**', '**The price and the recommendation**',
+                 '**The consequence, priced and not stated**', '**The sitting of one kernel**', '**The amendment rows**', '**What this act is not**',
                  '**The research instruments reproduced**', '**The author’s name and address**', '**The touch read**', '**The standing arms**', '**The citation check**', '**The scores.**',
                  '**Read in mutual light**', '**Carried to:**', '**Next.**',
-                 'data/b737_corrigendum.txt', 'data/b737_standing_v1160.txt', 'data/b737_discharge.txt', 'data/b737_sitting.txt', 'data/b737_author_words.txt',
+                 'data/b737_corrigendum.txt', 'data/b737_standing_v1170.txt', 'data/b737_offlinezero_plan.txt', 'data/b737_sitting.txt', 'data/b737_amendments.json',
                  'data/b737_reproduce.txt', 'data/b737_address_scan.txt', 'data/b737_touch.txt',
                  'The act’s counter CLAIM ')
 #⟪END⟫
@@ -627,12 +657,17 @@ ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of th
 NAV_LETTERS = ()      # ### b737: no row of the defects bank the navigator's, every row the seat's
 #⟪END⟫
 #⟪SECTION checks 31⟫
-    """(R347)(3)-(4), N2 (the name the frozen run list carries): the agenda's commit first, then v1.16.0's, the corrigendum's and the sitting's bank, in that order by time and by ancestry within the relay;
-    the agenda at HEAD its text at its commit; the earlier acts' registrations at HEAD their blobs."""
+    """(R347)(3), N2 (the name the frozen run list carries): the plan bank commits with the prints it cites (the criteria and the box banks
+    in its first commit, none later), after v1.17.0's and the corrigendum's commits and before the sitting's bank, in that order by time and
+    by ancestry within the relay; the plan at HEAD its text at its last commit, the prints at HEAD their blobs at the first; the earlier acts'
+    registrations at HEAD their blobs."""
     reg, head = S['reg_now']
     t_ = S['t']
-    keys_ = ('plan', 'standing', 'corr', 'print')
-    return K.REGISTRATIONS in S['files']['reg'] and bool(reg) and reg == head \
+    keys_ = ('standing', 'corr', 'plan', 'print', 'sitting')
+    prints_ = ('data/b737_offlinezero_criteria.txt', 'data/b737_offlinezero_box.txt')
+    return all(p_ in S['plan_first_files'] for p_ in prints_ + (K.PLAN_BANK,)) and K.PLAN_BANK in S['plan_files'] and bool(reg) and reg == head \
+        and not [p_ for p_ in prints_ if p_ in S['plan_files']] \
+        and all(_s(blob(ROOT, '%s:%s' % (K.C2_PLAN_FIRST, p_))) == _s(blob(ROOT, 'HEAD:' + p_)) for p_ in prints_) \
         and all(bool(t_.get(k_)) for k_ in keys_) and [t_[k_] for k_ in keys_] == sorted(t_[k_] for k_ in keys_) \
         and bool(S['anc']) and all(v is True for v in S['anc'].values()) \
         and bool(S['reg_blobs']) and all(a is not None and a == b for a, b in S['reg_blobs'].values())
@@ -646,29 +681,41 @@ NAV_LETTERS = ()      # ### b737: no row of the defects bank the navigator's, ev
         and re.search(r'\*\*PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ;', S['address'] or '') is not None
 #⟪END⟫
 #⟪SECTION checks 33⟫
-    """(R347)(3)-(5), N2 (the name the frozen run list carries): the weight and corrigendum, then the discharge by a commit of its own, before the first sitting item on PLACE-papers by the commits' times; v1.16.0 before that item ((3) whole before (4)); the sitting's bank after it."""
+    """(R347)(2)-(5), N2 (the name the frozen run list carries): (2) whole before (3) -- v1.17.0, the weight and corrigendum on PLACE-papers
+    and the corrigendum banks before the plan's first commit; the price line on PLACE-papers by a commit of its own, OPEN_TRAILS alone, after
+    the plan's first commit; the two SIDE-effects writes after the plan's last commit and before the sitting's bank, by the commits' times."""
     t_ = S['t']
-    return K.REGISTRATIONS in S['files']['reg'] and all(t_.get(k_) for k_ in ('c1pp', 'discharge', 'first_item', 'standing', 'print')) \
-        and t_['c1pp'] < t_['discharge'] < t_['first_item'] and t_['standing'] < t_['first_item'] < t_['print'] and S['anc'].get('corr_print') is True
+    return K.REGISTRATIONS in S['files']['reg'] and all(t_.get(k_) for k_ in ('c1pp', 'c1', 'standing', 'plan', 'price', 'print', 'first_item', 'second_item', 'sitting')) \
+        and max(t_['standing'], t_['c1pp'], t_['c1']) < t_['plan'] < t_['price'] and t_['plan'] <= t_['print'] < t_['first_item'] < t_['second_item'] < t_['sitting'] \
+        and S['price_files'] == ['OPEN_TRAILS.md'] and S['anc'].get('corr_plan') is True
 #⟪END⟫
 #⟪SECTION checks 34⟫
-    """(R347)(4), N3 (the name the frozen run list carries): every item of the agenda, 1 to 111, and (A1), (A2), (B), (C) a row of the sitting's bank with the author's word beside it; no PASS without its confirmation or its banked state; [19] STRUCK; [25]-[29], [76], [77] CARRIED; the bank's foot the rows'; the words the bank names."""
+    """(R347)(4), N3 (the name the frozen run list carries): the sitting of one kernel -- [76], [77] and [25]-[29] each a row of the sitting's
+    bank with the author's word and its time beside it, no other row; no PASS without its confirmation; the writes README.md twice
+    (21b6328c, [76]; db0575c6, [28]) and the description once ([77]); the bank's foot the rows'; [28]'s words verbatim; the amendment rows
+    the words of [76] and [28], each in the sitting's row by its time."""
     R = S['sittingj'] or {}
-    want = [str(n) for n in range(1, 112)] + ['A1', 'A2', 'B', 'C']
-    miss = [k for k in want if k not in R or not (R[k].get('word') or '').strip()]
+    want = ['76', '77', '25', '26', '27', '28', '29']
+    miss = [k for k in want if k not in R or not (R[k].get('word') or '').strip() or not (R[k].get('at') or '').strip()]
     st = lambda k: (R.get(k) or {}).get('state') or ''
     v = _vlast(S['print_'] or '')
-    return not miss and st('19').startswith('STRUCK') and all(st(str(n)).startswith('CARRIED') for n in (25, 26, 27, 28, 29, 76, 77)) \
-        and st('111').startswith('REPLACED') and ('THE SITTING: %d ROWS' % len(R)) in v and len(R) == 117 \
-        and all(r.get('confirm') or not r.get('state', '').startswith('PASS') for r in R.values()) \
-        and 'BEGINPass [78]' in (rd('b737_author_words.txt') or '') and 'BEGINPass [109]' in (rd('b737_author_words.txt') or '')
+    am = (S['amendj'] or {}).get('rows') or []
+    return not miss and sorted(R) == sorted(want) and all(st(k).startswith('PASS') for k in want) \
+        and all(r.get('confirm') for r in R.values()) \
+        and (R['76'].get('confirm') or '').startswith('SIDE-effects ' + K.SITTING_COMMITS[0]) and (R['28'].get('confirm') or '').startswith('SIDE-effects ' + K.SITTING_COMMITS[1]) \
+        and (R['77'].get('confirm') or '').startswith('gh read back') \
+        and 'THE SITTING OF ONE KERNEL: 7 ROWS ; PASS 7' in v and 'STRUCK 0 ; CARRIED 0' in v \
+        and R['28'].get('word', '').startswith('Pass [28] with one write: at main :50 and :57, “Genuine content, 0 sorry.” becomes “0 sorry at 78bbcff.”') \
+        and len(am) == 2 and all(any(a.get('words') == r.get('word') and a.get('at') == r.get('at') for r in R.values()) for a in am)
 #⟪END⟫
 #⟪SECTION checks 35⟫
-    """N5 as amended (the name the frozen run list carries): SIDE-explicit-formula's main at its base and the four branches each at the worklist's tip locally and at origin; zq-b730's diff against its entering tip empty, no Lean file this act;
-    each of the 21 kernels the sitting wrote at its main's tip, its diff from its base README.md alone."""
+    """N5 (the name the frozen run list carries): SIDE-explicit-formula's main at its base and the four branches each at the worklist's tip locally and at origin; zq-b730's diff against its entering tip empty, no Lean file this act;
+    SIDE-effects, the one kernel (4) names, at its main's tip locally and at origin, its two commits since 78bbcff the sitting's, its diff README.md alone, no tag on either."""
     tp = S['ef_tips'] or {}
     return S['ef_main'] == K.EF_MAIN and bool(K.EF_BRANCHES) and all(tp.get(b, ('', ''))[0] == h == tp.get(b, ('', ''))[1] for b, h in K.EF_BRANCHES) \
-        and not S['zq_files'] and len(K.SITTING_TIPS) == 21 and all(S['sit_files'].get(k_) == ['README.md'] and S['sit_main'].get(k_, '').startswith(h_) for k_, h_ in K.SITTING_TIPS.items())
+        and not S['zq_files'] and sorted(K.SITTING_TIPS) == ['SIDE-effects'] \
+        and all(S['sit_files'].get(k_) == ['README.md'] and S['sit_main'].get(k_, '').startswith(h_) and S['sit_origin'].get(k_) == S['sit_main'].get(k_)
+                and S['sit_log'].get(k_) == list(K.SITTING_COMMITS) and not S['sit_tags'].get(k_) for k_, h_ in K.SITTING_TIPS.items())
 
 def _vlast(t):
     """a bank's LAST verdict line, the `### ### **` prefix and the closing `**` cut."""
@@ -677,7 +724,7 @@ def _vlast(t):
 #⟪END⟫
 #⟪SECTION checks 36⟫
     """the name the frozen run list carries: standing clauses v9 binding the act whole as b723 landed it -- the working tree's text its blob at
-    STANDING_COMMIT and at the act's base, VERSION 9; v8 at HEAD its blob at the act's base; no v10 written; v9's commit an ancestor of v1.16.0's."""
+    STANDING_COMMIT and at the act's base, VERSION 9; v8 at HEAD its blob at the act's base; no v10 written; v9's commit an ancestor of v1.17.0's."""
     v9 = S['v9'] or ''
     return 'VERSION: 9' in v9.replace('\r', '').split(NL)[:4] and bool(S['v9_at']) and v9 == S['v9_at'] == S['v9_pre'] \
         and S['v10'] is False and S['files']['v9'] == [K.DATA_STANDING_V9] \
@@ -696,11 +743,22 @@ def _vlast(t):
         and K.STANDING_ADDED == () and 'G-READFIRST-DIFF-BANKED' not in names and names.count('G-RESEARCH-REPRODUCES') == 1
 #⟪END⟫
 #⟪SECTION checks 40⟫
-    """(R347)(2), (4)(C), N2, N3 (the name the frozen run list carries): the agenda unmoved at its commit's md5; the discharge's bank at its foot; W-ORD-ZQ-OFFLINE-ZERO entered in OPEN_TRAILS, priced and not built, its price the plan act's, no sentence of its entry a location."""
+    """(R347)(3), N2, N3 (the name the frozen run list carries): the plan bank's foot -- the candidate off0, box A, three routes priced, R3 not
+    a route, R4 recommended at its lines and dispatches, seven Mathlib objects absent, no dispatch; its (a)-(e) present, the criteria
+    printed before the candidate's name; the price line in OPEN_TRAILS at :17400, planned and not built; no sentence of the plan, its prints
+    or the price line a location or a failure stated as a theorem."""
     n_ = S['rows_bank'] or ''
-    import hashlib as _hl
-    return _hl.md5(raw(os.path.join(ROOT, *K.REGISTRATIONS.split('/')))).hexdigest() == K.PLAN_MD5 and 'W-ORD-ZQ-DERIVES DISCHARGED BY A COMMIT OF ITS OWN' in _vlast(n_) \
-        and 'ENTERED at b737, `(R347)`(4)(C), priced and not built' in S['ot'] and 'The price: the seat’s estimate from statements in a plan bank at the act that takes it, not this one.' in S['ot']
+    v = _vlast(n_)
+    heads = [h for h in ('## (a) ', '## (b) ', '## (c) ', '## (d) ', '## (e) ') if h in n_]
+    a_ = n_.find('## (a) ')
+    crit_first = a_ >= 0 and 0 <= n_.find('  criterion ', a_) < n_.find('  the nearest other zero of Z_Q0', a_) < n_.find('THE CANDIDATE: off0', a_)
+    pl = [l for l in (S['ot'] or '').split(NL) if l.startswith('**`W-ORD-ZQ-OFFLINE-ZERO` PRICED at b737, `(R347)`(3), planned and not built:**')]
+    neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None)\b'
+    sents = [s_ for t_ in (n_, rd('b737_offlinezero_criteria.txt') or '', rd('b737_offlinezero_box.txt') or '') + tuple(pl) for s_ in re.split(r'(?<=[.;])\s+', t_)]
+    loc_ = [s_ for s_ in sents if re.search(r'located in Lean|positivity fails|nonnegativity fails', s_) and not re.search(neg_, s_)]
+    return v.startswith('THE PLAN: CANDIDATE off0 AT beta - 1/2 = 0.4532604748, gamma = 16.29021572') and '3 ROUTES PRICED (R1, R2, R4), R3 NOT A ROUTE' in v \
+        and 'R4 RECOMMENDED AT 1496-3820 LINES, 9-22 DISPATCHES' in v and '7 MATHLIB OBJECTS ABSENT' in v and '0 DISPATCHES THIS ACT' in v \
+        and len(heads) == 5 and crit_first and len(pl) == 1 and oline(S, K.PRICE_LINE) == pl[0] and not loc_
 
 
 def research_reproduces_ok(S):
@@ -748,64 +806,64 @@ def research_reproduces_ok(S):
      lambda S: research_reproduces_ok(S), lambda S: _mut(S, 'reproducej', lambda d: (d.get('rows') or [{}])[0].update(planted_as_wanted='False'))),
 #⟪END⟫
 #⟪SECTION checks 47⟫
-    ('G-CITATION-CHECKED', 'the citation bank: every cite checked at step zero, 85 = 85 OK + 0 misses, the bank before the step-zero commit and that before Component 1`s',
+    ('G-CITATION-CHECKED', 'the citation bank: every cite checked at step zero, 77 = 77 OK + 0 misses, the bank before the step-zero commit and that before Component 1`s',
 #⟪END⟫
 #⟪SECTION checks 48⟫
      lambda S: branches_banked_ok(S), lambda S: put(S, 'stepz', re.sub(r'(push-b736-\w+) \([0-9a-f]{7,8}\)', r'\1', S['stepz']))),
 #⟪END⟫
 #⟪SECTION checks 49⟫
-    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects, the ferry`s Component 3 form: W-ORD-ZQ-DERIVES discharged, the landed lines INTERFACES, the sitting`s counts of 111, W-ORD-ZQ-OFFLINE-ZERO entered, the vacuous-pass arm and the repairs',
+    ('G-ENTRY-TITLE-FORM', 'the landed entry`s title by its objects, the ferry`s Component 4 form: W-ORD-ZQ-OFFLINE-ZERO planned, no build, the candidate off0 with its figures, the routes priced and R4 recommended with its lines, dispatches and absent objects, [76] and [77] passed at SIDE-effects main, the amendment regeneration and the repairs',
 #⟪END⟫
 #⟪SECTION checks 50⟫
-    ('G-CORRIGENDUM-ENTERED', '(R347)(1)-(3): the generated corrigendum for b736`s record, landed at FINDINGS :12911: its eight events and twenty-six defects, 34 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 2 CLOSE 32, REPEAT 12; v1.16.0`s repairs by data/b737_standing_v1160.txt; the corrigenda bank appended at row (56)',
+    ('G-CORRIGENDUM-ENTERED', '(R347)(1)-(2): the generated corrigendum for b736`s record, landed at FINDINGS :13033: its ten events and thirty-eight defects, 48 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 7 CLOSE 41, REPEAT 22; v1.17.0`s repairs by data/b737_standing_v1170.txt; the corrigenda bank appended at row (57)',
 #⟪END⟫
 #⟪SECTION checks 51⟫
-    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); data/b737_rules.txt carrying (R347)(3)`s five rules, no data/b737_rules.txt',
+    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); data/b737_rules.txt carrying (R347)(2)`s eight rules in v1.17.0`s commit, no data/b738_rules.txt',
 #⟪END⟫
 #⟪SECTION checks 52⟫
     # ### the act arms' names frozen with the run list; each description, predicate and plant over b737's objects
-    ('G-REGISTRATIONS-FIRST', '(R347)(3)-(4), N2: the agenda`s commit, v1.16.0`s, the corrigendum`s and the sitting bank`s in that order by time and ancestry; the agenda at HEAD its text at 2822aa73; the earlier acts` registrations at HEAD their blobs',
-     lambda S: registrations_first_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update(corr_print=False))),
+    ('G-REGISTRATIONS-FIRST', '(R347)(3), N2: the plan bank`s first commit carrying the criteria and box prints it cites, none later; v1.17.0`s, the corrigendum`s, the plan`s, its second and the sitting bank`s in that order by time and ancestry; the plan at HEAD its text at 3dab6492, the prints at 310a681f; the earlier acts` registrations at HEAD their blobs',
+     lambda S: registrations_first_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update(plan_sitting=False))),
     ('G-PREDICTION-FIRST', 'N5, the scan arm: tools/b737_address_scan.py run live over every commit of the act in the relay, PLACE-papers and the kernels the sitting wrote, the working trees` added lines and the untracked banks -- PREVIOUS ADDRESS 0, the author`s name 0, the previous name 0, the ORCID 0, seven controls as wanted; none printed',
      lambda S: prediction_first_ok(S), lambda S: _mut(S, 'addr_live', lambda d: d.update(addr=1))),
-    ('G-COEFFS-LAW', '(R347)(3)-(5), N2: the weight and corrigendum, then the discharge by a commit of its own, before the first sitting item by time; v1.16.0 before that item; the sitting`s bank after it',
-     lambda S: coeffs_law_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update(corr_print=False))),
-    ('G-DERIVATION-GRADED', '(R347)(4), N3: every item 1-111 and (A1), (A2), (B), (C) a row with the author`s word; [19] STRUCK, [25]-[29], [76], [77] CARRIED, [111] REPLACED; the bank`s foot the rows`; the author`s words at [78] and [109] verbatim',
-     lambda S: derivation_graded_ok(S), lambda S: _mut(S, 'sittingj', lambda d: d.pop('19', None))),
-    ('G-OFFSET-POST-HOC', 'N5 as amended: SIDE-explicit-formula`s main at its base, the four branches each at the worklist`s tip locally and at origin; zq-b730`s diff against its entering tip empty, no Lean file this act; each of the 21 kernels at its main`s tip, its diff from its base README.md alone',
+    ('G-COEFFS-LAW', '(R347)(2)-(5), N2: (2) whole before (3) -- v1.17.0, the weight and corrigendum and their banks before the plan`s first commit; the price line by a commit of its own, OPEN_TRAILS alone, after it; the two SIDE-effects writes after the plan`s last commit and before the sitting`s bank',
+     lambda S: coeffs_law_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update(corr_plan=False))),
+    ('G-DERIVATION-GRADED', '(R347)(4), N3: the sitting of one kernel -- [76], [77], [25]-[29] each a row with the author`s word and its time, PASS 7, no other row; [76]`s write 21b6328c, [28]`s db0575c6, [77] read back by gh; the foot the rows`; [28]`s words verbatim; the two amendment rows the words of [76] and [28]',
+     lambda S: derivation_graded_ok(S), lambda S: _mut(S, 'sittingj', lambda d: d.pop('28', None))),
+    ('G-OFFSET-POST-HOC', 'N5: SIDE-explicit-formula`s main at its base, the four branches each at the worklist`s tip locally and at origin; zq-b730`s diff against its entering tip empty, no Lean file this act; SIDE-effects at db0575c6 locally and at origin, its two commits since 78bbcff the sitting`s, README.md alone, no tag',
      lambda S: offset_post_hoc_ok(S), lambda S: _mut(S, 'zq_files', lambda d: d.append('SIDEExplicitFormula/Planted.lean'))),
-    ('G-SURGERY-CARRIED', 'standing clauses v9 binding the act whole as b723 landed it: the text its blob at d9739558 and at d4e0ea02, VERSION 9; v8 at HEAD its blob at d4e0ea02; no v10; v9`s commit an ancestor of v1.16.0`s',
+    ('G-SURGERY-CARRIED', 'standing clauses v9 binding the act whole as b723 landed it: the text its blob at d9739558 and at 58f2c295, VERSION 9; v8 at HEAD its blob at 58f2c295; no v10; v9`s commit an ancestor of v1.17.0`s',
      lambda S: surgery_carried_ok(S), lambda S: put(S, 'v9', (S['v9'] or '').replace('  (83) ', '  (84) '))),
     ('G-ARMS-RETIRED', 'no arm retired through tools/standing/arms.py this act -- its RETIRED equal to arm_tags.json`s retired record, none a guard; G-READFIRST-DIFF-BANKED out of the arm list since v1.3.0; this suite`s run list 116 arms, no standing arm added',
 #⟪END⟫
 #⟪SECTION checks 53⟫
-    ('G-COUNT-ROUTE-PRICED', '(R347)(2), (4)(C), N2, N3: the agenda unmoved at its commit`s md5; the discharge`s bank at its foot; W-ORD-ZQ-OFFLINE-ZERO entered in OPEN_TRAILS, priced and not built, its price the plan act`s',
-     lambda S: count_route_priced_ok(S), lambda S: put(S, 'rows_bank', (S['rows_bank'] or '').replace('W-ORD-ZQ-DERIVES DISCHARGED', 'W-ORD-ZQ-DERIVES CARRIED'))),
-    ('G-DIFFERS-ERRATA', '(R347): no ERRATA entry ordered; ERRATA.md byte-equal to its blob at the act`s base, no id; no DIFFERS entry; the weight line and the corrigendum in dadfdf07, FINDINGS the one file there',
+    ('G-COUNT-ROUTE-PRICED', '(R347)(3), N2, N3: the plan bank`s foot -- candidate off0, three routes priced, R3 not a route, R4 at 1496-3820 lines and 9-22 dispatches, 7 Mathlib objects absent, 0 dispatches; (a)-(e) present, the criteria before the name; the price line at OPEN_TRAILS :17400; no sentence a location',
+     lambda S: count_route_priced_ok(S), lambda S: put(S, 'rows_bank', (S['rows_bank'] or '').replace('R4 RECOMMENDED AT', 'R1 RECOMMENDED AT'))),
+    ('G-DIFFERS-ERRATA', '(R347): no ERRATA entry ordered; ERRATA.md byte-equal to its blob at the act`s base, no id; no DIFFERS entry; the weight line and the corrigendum in 9842f1d3, FINDINGS the one file there',
 #⟪END⟫
 #⟪SECTION checks 54⟫
     ('G-TOUCH-READ', 'standing clauses v9, N4: data/b737_touch.txt by hand before the root, every row AGREES or DIFFERS; no touch tool built',
 #⟪END⟫
 #⟪SECTION checks 55⟫
-    ('G-ARM-TAGS', 'the tags read: data/arm_tags.json tagging every arm of the suite CLAIM or CLOSE but the act shift (G-R347-ENTERED in the suite, G-R329-ENTERED CLOSE in the file) and b736`s G-RESEARCH-REPRODUCES, untagged; G-READFIRST-DIFF-BANKED CLOSE in the file, out of the list; the claim arms thirty-eight; the file byte-equal at d4e0ea02 (outside the (W) list)',
+    ('G-ARM-TAGS', 'the tags read: data/arm_tags.json tagging every arm of the suite CLAIM or CLOSE but the act shift (G-R347-ENTERED in the suite, G-R329-ENTERED CLOSE in the file) and b736`s G-RESEARCH-REPRODUCES, untagged; G-READFIRST-DIFF-BANKED CLOSE in the file, out of the list; the claim arms thirty-eight; the file byte-equal at 58f2c295 (outside the (W) list)',
 #⟪END⟫
 #⟪SECTION checks 56⟫
-    ('G-RUNNER-READ', 'N1: no dispatch this act, no row and no run; VACUOUS on the rows` read, the plant a planted dispatch refused',
+    ('G-RUNNER-READ', 'N1: two print dispatches allowed by (R347)(3), none made, no row and no run; VACUOUS on the rows` read, the plant a planted dispatch refused',
 #⟪END⟫
 #⟪SECTION checks 57⟫
-    ('G-RUNNER-GATE', 'N1, N4: no dispatch command in the capture and no row, the order and memory reads VACUOUS; no b721-b736 rebuild or axiom route this act',
+    ('G-RUNNER-GATE', 'N1, N4: no dispatch command in the capture and no row, the order and memory reads VACUOUS; no b721-b737 rebuild or axiom route this act',
 #⟪END⟫
 #⟪SECTION checks 58⟫
-    ('G-MERGES-ON-GATE', 'no kernel merge and no tag this act: each repaired wave 1 kernel`s rebuild-b721 as b736 left it, beyond its pin by b723`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at badaccc and v0.37 unmoved; SIDE-lv-conservation`s deposit, port-b707 and v0.14.0 unmoved, its main at b736`s [41] tip; the join kernel`s main and its one tag v0.1.0; the 21 kernels` README commits read at G-OFFSET-POST-HOC',
+    ('G-MERGES-ON-GATE', 'no kernel merge and no tag this act: each repaired wave 1 kernel`s rebuild-b721 as b736 left it, beyond its pin by b723`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at badaccc and v0.37 unmoved; SIDE-lv-conservation`s deposit, port-b707 and v0.14.0 unmoved, its main at b736`s [41] tip; the join kernel`s main and its one tag v0.1.0; SIDE-effects` two README commits read at G-OFFSET-POST-HOC',
 #⟪END⟫
 #⟪SECTION checks 59⟫
-    ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (the ledgers and the doors the passed items name); no rename (N5)',
+    ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (the ledgers, FINDINGS and OPEN_TRAILS); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    ('G-PRIOR-CLOSED-PUSHED', 'b736`s trail record on OPEN_TRAILS (:17283) and its root in the chain', lambda S: '### b736 — lane two, act one hundred and sixty-two, the build act under (R346)' in S['ot']
+    ('G-PRIOR-CLOSED-PUSHED', 'b736`s trail record on OPEN_TRAILS (:17341) and its root in the chain', lambda S: '### b736 — lane two, act one hundred and sixty-three, the second sitting under (R346)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
-    rec('  ### PLACE-papers` changed files on main %d against the allowed %d (the ledgers and the doors the passed items name): beyond %s' % (
+    rec('  ### PLACE-papers` changed files on main %d against the allowed %d (the ledgers, FINDINGS and OPEN_TRAILS): beyond %s' % (
 #⟪END⟫
 #⟪SECTION checks 62⟫
     rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b736`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches in the command bank %d (N1: none; -1 the command bank not yet written)' % (
@@ -930,14 +988,14 @@ def research_reproduces_ok(S):
             add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- ABSENT, not ordered written at this act' % (v, v), True, 'absent, as ordered', '0')
 #⟪END⟫
 #⟪SECTION closing 1⟫
-tool, Component 3) are the corrigendum with v1.16.0's controls, the discharge and the sitting, the name and address scan, the reproduction run, the touch read of v9 and
+tool, Component 4) are the corrigendum with v1.17.0's controls, the plan and the sitting of one kernel, the name and address scan, the reproduction run, the touch read of v9 and
 the standing arms, each row by its bank's verdict line or by the line its pattern names (section_reading); (R347)'s counter line beneath
 the title, the repeat count beside it, and the claim arms' figure beside the suite's in the commits section; the author's word after the
 seal printed from its bank (tools/act_close.py author_words_section, v5 row (74)); the carried items for the next act ((R347)(6)). The
 standing report prints its lines in footing order (KERNEL,
 #⟪END⟫
 #⟪SECTION closing 2⟫
-tool's scores route and written nowhere. Kernels written this act: README.md alone on the 21 kernels the passed numbers name, by the author's word amending (R347)(4); no Lean file, no main's code, no tag.
+tool's scores route and written nowhere. Kernels written this act: README.md alone on SIDE-effects, twice, on the author's numbers under (R347)(4); no Lean file, no main's code, no tag.
 #⟪END⟫
 #⟪SECTION closing 3⟫
     """the carried items for b737 ((R347)(6)); the open orders by tools/standing/orders.py's output over the trail, not a hand list."""
@@ -945,20 +1003,20 @@ tool's scores route and written nowhere. Kernels written this act: README.md alo
 #⟪END⟫
 #⟪SECTION closing 4⟫
 import standing.faceform as FF   # ### v1.8.0, (R346)(2)(iv)(c): the outbound sentence from the one clause
-TITLE_LINE = ('b737 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SIXTY-THREE, THE SECOND SITTING: b736 AT ITS WEIGHT; W-ORD-ZQ-DERIVES DISCHARGED ON THE NAVIGATOR`S READ; THE CORRIGENDUM OPENING ON THE VACUOUS PASS AND THE PRIVATE LEXICON; '
-              'THE SITTING OVER data/b732_phase2_frontdoors.txt WITH THREE ITEMS AT ITS HEAD, UNDER (R347).**')
+TITLE_LINE = ('b737 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SIXTY-FOUR, THE PLAN ACT: b736 AT ITS WEIGHT; THE CORRIGENDUM OPENING ON THE FACE THAT DID NOT FOLLOW THE AMENDMENT; '
+              'W-ORD-ZQ-OFFLINE-ZERO`S CANDIDATE, BOX, ROUTES AND PRICE, NO BUILD; [76] AND [77] REDRAFTED AT MAIN, UNDER (R347).**')
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b736's sections over b736's objects not carried). A row of two reads its bank's verdict line by
     vtail; a row of three reads the line its pattern names."""
 #⟪END⟫
 #⟪SECTION closing 6⟫
-                ('tools/standing/ at v1.16.0: the proof-head arm at the head, the private lexicon landed, the refused read, the clone`s fsck, the reaped watch, the score routes` dry form, the counter, each case failing before its repair and passing after', 'b737_standing_v1160.txt'),
+                ('tools/standing/ at v1.17.0: the amendment regeneration at the head, the parallel git write, the locked bank, the clone`s snapshot, the root prompt`s promise, the post-seal list, the empty remote read, each case failing before its repair and passing after', 'b737_standing_v1170.txt'),
 #⟪END⟫
 #⟪SECTION closing 7⟫
-            ('THE DISCHARGE AND THE SITTING ((R347)(2), (4))', [
-                ('W-ORD-ZQ-DERIVES discharged by a commit of its own, its two conditions and what did not compile beside it', 'b737_discharge.txt'),
-                ('one row per item of the agenda and the three at its head, the author`s word beside each', 'b737_sitting.txt'),
+            ('THE PLAN AND THE SITTING ((R347)(3)-(4))', [
+                ('W-ORD-ZQ-OFFLINE-ZERO`s plan: the candidate by printed criteria, the box, the routes priced from statements, the recommendation with its reason, the stop points; no build', 'b737_offlinezero_plan.txt'),
+                ('the sitting of one kernel: [76], [77], [25]-[29] at SIDE-effects main, the author`s word beside each', 'b737_sitting.txt'),
                 ('the probe-path refusal printed before the lock gate', 'b737_pathrefusal.txt')]),
             ('THE NAME AND ADDRESS (N5)', [
                 ('the scan over every commit and bank of the act, the counts alone', 'b737_address_scan.txt')]),
@@ -968,25 +1026,25 @@ TITLE_LINE = ('b737 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
 #⟪END⟫
 #⟪SECTION closing 8⟫
     '    kernels written, N5`s clause as the ferry words it: ' + FF.n5_clause_of(rd('%s_ferry.txt' % ACT)) + ' ;',   # ### v1.10.0, (R346)(2)(vi): composed, not carried
-    '    SIDE-explicit-formula`s main at badaccc and v0.37 unmoved ; zq-b730 at ' + WL.ZQ_TIP[:8] + ', unmoved, no branch moved ; README.md alone on ' + str(len(WL.SITTING_TIPS)) + ' kernels` mains by the author`s word amending (R347)(4), push-b737-sitting left local on each, no tag ;',
-    '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches (N1: none) ; the rebuild-b721 branches of the wave 1 kernels as b736 left them ;',
+    '    SIDE-explicit-formula`s main at badaccc and v0.37 unmoved ; zq-b730 at ' + WL.ZQ_TIP[:8] + ', unmoved, no branch moved ; README.md alone on SIDE-effects` main, two commits ending at ' + WL.SITTING_TIPS['SIDE-effects'] + ', on the author`s numbers under (R347)(4), push-b737-sitting left local, no tag ;',
+    '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches (N1: none of the two prints (R347)(3) allows) ; the rebuild-b721 branches of the wave 1 kernels as b736 left them ;',
     '    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;',
     '    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each suite part and computation ;',
-    '    the push-b736-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the discharge committed before any sitting item, the tools` controls before their figures, the pre-lock comparison and the probe-path refusal before the lock gate ;',
-    '    N3: no sitting item written without the author`s number printed in the bank ; no sentence says an off-line zero is located in Lean or positivity fails as a theorem ; N5: no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b737_address_scan.txt, data/b737_address_scan_postlock.txt) ;',
-    '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads and the description writes under the GitHub login') + ' ;',
-    '    nothing deposited ; no new Zenodo version ; the deposit route untouched, publish never called, the draft held at v5 ; no Zenodo description written, the 8 records` drafts banked for a Tier 3 act on the author`s number ; GitHub descriptions written by the route b727 used, each read back ;',
-    '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry), OPEN_TRAILS (the discharge, (C), the trail) and the doors the passed items name written ; no paper moved or renamed, THE_FINDINGS_AS_THEY_STAND at a new v0.7 beside v0.6 ;',
+    '    the push-b736-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the plan committed with the prints it cites, its order printed by ancestry, the (W) regeneration, the pre-lock comparison and the probe-path refusal before the lock gate, the plan tool`s banks carrying no controls block before their figures (defect (q)) ;',
+    '    N3: the candidate`s criteria printed before its name ; no sentence says a zero of Z_Q0 is located in Lean or that Li nonnegativity fails as a theorem ; the entry`s nouns the banks` ; N5: no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b737_address_scan.txt, data/b737_address_scan_postlock.txt) ;',
+    '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads and the description write under the GitHub login') + ' ;',
+    '    nothing deposited ; no new Zenodo version ; the deposit route untouched, publish never called, the draft held at v5 ; no Zenodo description written, [104]-[108] waiting on the author`s record numbers ; SIDE-effects` GitHub description written by the route b727 used, read back ;',
+    '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry) and OPEN_TRAILS (the price line, the trail) written ; no paper moved or renamed ;',
     '    no FOUNDATIONS, REGISTRY or faces page byte ; data/act_roots.txt (b737`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;',
-    '    tools/standing/ at v1.16.0 and tools/e0_rule.py by (R347)(3) ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b736 unedited ; the mirror zip written outside every repository over the',
+    '    tools/standing/ at v1.17.0 by (R347)(2) ; the hook in D:/.claude/settings.json widened to Edit|Write|NotebookEdit by (R347)(2)(iii) ; the per-act tools of b698-b736 unedited ; the mirror zip written outside every repository over the',
     '    roster read from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
 #⟪END⟫
 #⟪SECTION closing 9⟫
     '    (a) ### **THE NEXT, (R347)(7)**: ' + WL.NEXT + '.',
 #⟪END⟫
 #⟪SECTION closing 10⟫
-    '    (c) For the next act, each from its bank: W-ORD-ZQ-OFFLINE-ZERO (OPEN_TRAILS), the plan bank at its price, the note that the plan may pick a better-isolated zero than the lowest ; the items carried by number, relay data/b737_sitting.txt ; the reproduction`s NOT RUN rows, each with its price',
-    '        (relay data/b737_reproduce.txt); W-ORD-VISIBILITY, CARRIED NOT CLEAN ; the draft held at v5.',
+    '    (c) For the next act, each from its bank: W-ORD-ZQ-OFFLINE-ZERO OPEN at its price (OPEN_TRAILS :17400), the plan bank relay data/b737_offlinezero_plan.txt with R4 and its four stop points ; [104]-[108] for a Tier 3 act on the author`s record numbers ; the reproduction`s NOT RUN rows, each with its price',
+    '        (relay data/b737_reproduce.txt); W-ORD-VISIBILITY, CARRIED NOT CLEAN ; the damaged clones zqwork, zqwork2 and zqwork3 in place, the cause not established ; the draft held at v5.',
 #⟪END⟫
 #⟪SECTION closing 11⟫
     '        units files, b714`s rectangle units file (declared in their tools` heads), the zero-byte `=` and records.json at relay`s root',
@@ -995,22 +1053,22 @@ TITLE_LINE = ('b737 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
 #⟪SECTION closing 12⟫
     '        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); keiper-b725 at ' + WL.EF_BRANCHES[0][1][:8] + ', c2-b725 at ' + WL.EF_BRANCHES[1][1][:8] + ', detect-b729 at ' + WL.EF_BRANCHES[2][1][:8] + ' and zq-b730 at ' + WL.EF_BRANCHES[3][1][:8] + ' of',
     '        SIDE-explicit-formula, off main, untagged; scratch-b724 of SIDE-lv-conservation; corrigendum-b723 of relay;',
-    '        challenge-b720-h2-sign-iff-rh of SIDE-explicit-formula; the pin-b718-de5ce8a9 branches; the rebuild-b721 branches of the wave 1 kernels as b736 left them.',
+    '        challenge-b720-h2-sign-iff-rh of SIDE-explicit-formula; the pin-b718-de5ce8a9 branches; the rebuild-b721 branches of the wave 1 kernels as b736 left them; push-b736-sitting on b736`s 21 kernels and push-b737-sitting on SIDE-effects, local.',
     '    (g) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
 #⟪END⟫
 #⟪SECTION closing 13⟫
-          'written on main but the sitting`s README.md commits, no Lean file on a main, no tag cut ; '
+          'written on main but SIDE-effects` two README.md commits, no Lean file on a main, no tag cut ; '
           'SIDE-explicit-formula main %s (unmoved), v0.37 %s, v0.17 %s, the challenge branch '
           + WL.CHALLENGE_BRANCH + ' at ' + WL.CHALLENGE_TIP[:12] + ' standing ; SIDE-lv-conservation main %s (b736`s [41]), '
 #⟪END⟫
 #⟪SECTION closing 14⟫
-    # ### b737: the standing repairs are v1.16.0's ((R347)(3), relay data/b737_standing_v1160.txt, read in the corrigendum section); the
+    # ### b737: the standing repairs are v1.17.0's ((R347)(2), relay data/b737_standing_v1170.txt, read in the corrigendum section); the
     # ### carry's diffs here (b737 carried at step zero before the fold; its tools since are the templates and tools/acts/b737.py)
 #⟪END⟫
 #⟪SECTION record 1⟫
-    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; README.md alone on the sitting`s 21 kernels` mains; '
+    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; README.md alone on SIDE-effects` main at %s, the sitting of one kernel; '
           'no Lean file on a main; the %s branches of the wave 1 kernels as b736 left them; port-b707 at b712`s tip %s)' % (
-              len(ks), K.JOIN_NEW_TIP[:8], K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8]))
+              len(ks), K.JOIN_NEW_TIP[:8], K.SITTING_TIPS['SIDE-effects'], K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8]))
 #⟪END⟫
 #⟪SECTION record 2⟫
 def _trail_resolved(text):
@@ -1021,17 +1079,17 @@ def _trail_resolved(text):
     return (m.group(2), m.group(3)) if m else None
 #⟪END⟫
 #⟪SECTION record 3⟫
-    b737's form over b737's objects (b736's form in git at b736's record tool): the corrigendum's foot and v1.16.0's controls; the discharge's and the sitting's feet;
+    b737's form over b737's objects (b736's form in git at b736's record tool): the corrigendum's foot and v1.17.0's controls; the plan's and the sitting's feet, the amendment rows;
     the citation check; the reproduction run; the address scan; each by its own lines through _bfig, which refuses where a bank does not carry its figure; the counter
     from the act's defects and events banks; nothing typed."""
 #⟪END⟫
 #⟪SECTION record 4⟫
-    v5 = _bfig('%s_standing_v1160.txt' % ACT, r'\*\*v1\.16\.0: CONTROLS ([^;]+?) ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*', 'v1.16.0`s controls')
-    _bfig('%s_discharge.txt' % ACT, r'\*\*(W-ORD-ZQ-DERIVES DISCHARGED BY A COMMIT OF ITS OWN) ;', 'the discharge`s foot')
-    sf = _bfig('%s_sitting.txt' % ACT, r'\*\*THE SITTING: (\d+) ROWS ; CARRIED (\d+) ; PASS (\d+) ; REPLACED (\d+) ; STRUCK (\d+)\.\*\*', 'the sitting`s foot')
-    sj = jl('%s_sitting.json' % ACT)
-    sn = [v_ for k_, v_ in sj.items() if k_.isdigit()]
-    sc_ = lambda w_: sum(1 for v_ in sn if v_['state'].startswith(w_))
+    v5 = _bfig('%s_standing_v1170.txt' % ACT, r'\*\*v1\.17\.0: CONTROLS ([^;]+?) ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*', 'v1.17.0`s controls')
+    pl = _bfig('%s_offlinezero_plan.txt' % ACT, r'\*\*THE PLAN: CANDIDATE (\w+) AT beta - 1/2 = ([\d.]+), gamma = ([\d.]+) ; BOX (\w), MARGIN ([\d.]+) SAMPLED ; (\d+) ROUTES PRICED '
+               r'\(([^)]*)\), R3 NOT A ROUTE ; (R\d) RECOMMENDED AT (\d+)-(\d+) LINES, (\d+-\d+) DISPATCHES ; (\d+) MATHLIB OBJECTS ABSENT ; (\d+) DISPATCHES THIS ACT\.\*\*', 'the plan`s foot')
+    sf = _bfig('%s_sitting.txt' % ACT, r'\*\*THE SITTING OF ONE KERNEL: (\d+) ROWS ; PASS (\d+) \(([^)]*)\) ; STRUCK (\d+) ; CARRIED (\d+) ; WRITES: README\.md (\d+) \(([^)]*)\), '
+               r'the description (\d+) ; SIDE-effects main ([0-9a-f]+)\.\*\*', 'the sitting`s foot')
+    am = jl('%s_amendments.json' % ACT).get('rows') or []
     cit = _bfig(K.CITATION_BANK, r'\*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', 'the citation check')
     rp = _bfig('%s_reproduce.txt' % ACT, r'\*\*ROWS (\d+) ; REPRODUCES (\d+) ; DIFFERS (\d+) ; NOT RUN (\d+) ; PLANTED CONTROLS AS WANTED (\d+) OF (\d+) ;',
                'the reproduction run`s foot')
@@ -1042,9 +1100,10 @@ def _trail_resolved(text):
 #⟪SECTION record 5⟫
                 corr_repeat=ci[5], corr_row=co.get('row'),
                 v1130_ctl=v5[0], v1130_cases=v5[1], v1130_wanted=v5[2], repairs=len(v5[0].split(', ')),
-                sit_rows=int(sf[0]), sit_n=len(sn), sit_p=sc_('PASS'), sit_r=sc_('REPLACED'), sit_s=sc_('STRUCK'), sit_c=sc_('CARRIED'),
-                sit_bank=sum(1 for v_ in sn if 'BANKED ONLY' in v_['state'] or re.search(r'as \[10[4-8]\]', v_['state'])), sit_desc=sum(1 for v_ in sj.values() if (v_.get('confirm') or '').startswith('gh ')),
-                sit_kc=sum(1 for v_ in sj.values() if (v_.get('confirm') or '').startswith('SIDE-')), sit_pp=sum(1 for v_ in sj.values() if (v_.get('confirm') or '').startswith('PLACE-papers')),
+                pl_name=pl[0], pl_d=pl[1], pl_g=pl[2], pl_box=pl[3], pl_margin=pl[4], pl_n=int(pl[5]), pl_routes=pl[6], pl_route=pl[7],
+                pl_lo='{:,}'.format(int(pl[8])), pl_hi='{:,}'.format(int(pl[9])), pl_disp=pl[10], pl_absent=int(pl[11]), pl_disp_act=int(pl[12]),
+                sit_rows=int(sf[0]), sit_p=int(sf[1]), sit_pass=sf[2], sit_s=int(sf[3]), sit_c=int(sf[4]), sit_readme=int(sf[5]), sit_commits=sf[6],
+                sit_desc=int(sf[7]), sit_main=sf[8], sit_word=('passed' if int(sf[1]) == int(sf[0]) else 'carried' if int(sf[4]) else 'struck'), amend_n=len(am),
                 cit_n=cit[0], cit_ok=cit[1], cit_miss=cit[2],
                 rp_rows=rp[0], rp_rep=int(rp[1]), rp_diff=rp[2], rp_notrun=rp[3], rp_pw=rp[4], rp_pr=rp[5],
                 rp_differs=[r['id'] for r in rpj if r.get('grade') == 'DIFFERS'], rp_notruns=[r['id'] for r in rpj if r.get('grade') == 'NOT RUN'],
@@ -1056,8 +1115,9 @@ def _ef_kind(rows, kind):
     return [r for r in rows or [] if r.get('kind') == kind]
 #⟪END⟫
 #⟪SECTION record 7⟫
-    """N1 (R347): no lean process runs on this host and no dispatch is made. From the command bank (the seat's commands, read live from the
-    capture by the `commands` route) and the worklist's EF_RUNS, empty."""
+    """N1 (R347): no lean process runs on this host; the runner dispatches those of (R347)(3), two at most, each a print, each read by its
+    run id, each row carrying free_mb -- none made. From the command bank (the seat's commands, read live from the capture by the `commands`
+    route) and the worklist's EF_RUNS, empty."""
 #⟪END⟫
 #⟪SECTION record 8⟫
     rows_ = jl('%s_dispatch_rows.json' % ACT) or []
@@ -1065,13 +1125,16 @@ def _ef_kind(rows, kind):
     ok = bool(cm) and not seat_lean and len(disp or []) == len(K.EF_RUNS) <= K.MAX_DISPATCHES and reads_ == sorted(str(x[1]) for x in K.EF_RUNS)
 #⟪END⟫
 #⟪SECTION record 9⟫
-        'the seat`s commands running lean or lake on this host (relay data/b737_commands.json): %s; dispatch commands in the capture: %s, the worklist`s runs %d, rows read %s, VACUOUS on a row`s free memory: no dispatch row exists' % (
-            (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', len(K.EF_RUNS), reads_))
+        'the seat`s commands running lean or lake on this host (relay data/b737_commands.json): %s; dispatch commands in the capture: %s of the %d (R347)(3) allows, the worklist`s runs %d, rows read %s, VACUOUS on a row`s free memory: no dispatch row exists' % (
+            (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', K.MAX_DISPATCHES, len(K.EF_RUNS), reads_))
 #⟪END⟫
 #⟪SECTION record 10⟫
 # ### N2 (over b737's objects): the tools' controls before their figures banked this act, (bank, the controls' line, the first figure's line)
 N2_CONTROLS = (('data/b737_address_scan.txt', '## THE CONTROLS FIRST', '## THE PLACES READ'),
-               ('data/b737_pathrefusal.txt', '## THE CONTROLS FIRST', '## THE PATHS READ'))
+               ('data/b737_pathrefusal.txt', '## THE CONTROLS FIRST', '## THE PATHS READ'),
+               ('data/b737_offlinezero_criteria.txt', '## THE CONTROLS FIRST', '## (a) THE CANDIDATES'),   # ### defect (q): no controls block, read as it stands
+               ('data/b737_offlinezero_box.txt', '## THE CONTROLS FIRST', '## (b) THE BOX'))
+N2_REGEN = '### THE (W) REGENERATION ((R347)(2)(i))'   # ### the regeneration printed in the face, before the lock gate
 
 
 def _first_add(path):
@@ -1080,27 +1143,33 @@ def _first_add(path):
     return hs[-1] if hs else None
 #⟪END⟫
 #⟪SECTION record 11⟫
-    """N2 (R347): the discharge commits before any sitting item, controls before figures: the agenda's commit, v1.16.0's, the weight and corrigendum's, the discharge's, the first item's and the sitting bank's in that order by time;
-    the pre-lock comparison and the probe-path refusal printed before the lock gate; each tool's controls before its figures."""
-    chain_ = [(ROOT, K.REG_COMMIT), (ROOT, K.C1_STANDING), (PP, K.C1_PP), (PP, K.C1_DISCHARGE_PP), (PP, K.SITTING_PP[0]), (ROOT, K.PRINT_COMMIT)]
+    """N2 (R347): the plan bank commits after the prints it cites, the order printed by ancestry; each tool's controls print before its
+    figures; the (W) regeneration, the pre-lock comparison and the probe-path refusal print before the lock gate. v1.17.0's, the weight and
+    corrigendum's, the plan's with its prints, the price line's, the plan's second, the two SIDE-effects writes and the sitting bank's in
+    that order by time; the prints in the plan's first commit and none after it; the plan's first commit an ancestor of its second."""
+    chain_ = [(ROOT, K.C1_STANDING), (PP, K.C1_PP), (ROOT, K.C1_RELAY), (ROOT, K.C2_PLAN_FIRST), (PP, K.C2_PP), (ROOT, K.C2_RELAY),
+              ('D:/SIDE-effects', K.SITTING_COMMITS[0]), ('D:/SIDE-effects', K.SITTING_COMMITS[1]), (ROOT, K.C3_RELAY[0])]
     tm_ = [int((g(r_, 'log', '-1', '--format=%ct', h_) or '0').strip() or 0) for r_, h_ in chain_]
     order_ = all(tm_) and tm_ == sorted(tm_)
-    anc_ = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.REG_COMMIT, K.PRINT_COMMIT], capture_output=True).returncode == 0
-    plan_ = K.REGISTRATIONS[len('data/'):]
-    same_ = _s_md5(os.path.join(ROOT, *K.REGISTRATIONS.split('/'))) == K.PLAN_MD5 and rdn(plan_) == g(ROOT, 'show', '%s:%s' % (K.REG_COMMIT, K.REGISTRATIONS)).replace(chr(13), '')
+    anc_ = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.C2_PLAN_FIRST, K.C2_RELAY], capture_output=True).returncode == 0
+    prints_ = ('data/b737_offlinezero_criteria.txt', 'data/b737_offlinezero_box.txt')
+    first_ = g(ROOT, 'show', '--name-only', '--format=', K.C2_PLAN_FIRST).split()
+    later_ = [h_ for h_ in g(ROOT, 'log', '--format=%H', '%s..HEAD' % K.C2_PLAN_FIRST, '--', *prints_).split() if h_.strip()]
+    same_ = all(p_ in first_ for p_ in prints_ + (K.PLAN_BANK,)) and not later_
+    regen_ = N2_REGEN in (rd(FACE) or '')
     tz = rdn('%s_prelock.txt' % ACT)
     fg_ = rdn('%s_pathrefusal.txt' % ACT)
 #⟪END⟫
 #⟪SECTION record 12⟫
-    ok = same_ and bool(tz) and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
+    ok = same_ and regen_ and bool(tz) and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
 #⟪END⟫
 #⟪SECTION record 13⟫
-        'the agenda its md5 %s and its blob at %s: %s; the pre-lock comparison banked: %s; the probe-path refusal banked and clear: %s; the agenda, v1.16.0, the weight and corrigendum, the discharge, the first sitting item and the sitting`s bank in that order by time: %s (%s), the agenda an ancestor of the bank: %s; the tools` controls before their figures: %s' % (
-            K.PLAN_MD5[:8], K.REG_COMMIT, same_, bool(tz), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_, order_, ' '.join('%s@%d' % (h_[:8], c_) for (_r, h_), c_ in zip(chain_, tm_)), anc_, ', '.join('%s %s' % (os.path.basename(p), o) for p, o in ctl)))
+        'the plan bank and the prints it cites (%s) in its first commit %s, a commit touching the prints after it: %s -- %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked: %s; the probe-path refusal banked and clear: %s; v1.17.0, the weight and corrigendum, their banks, the plan, the price line, the plan`s second commit, the two SIDE-effects writes and the sitting`s bank in that order by time: %s (%s), the plan`s first commit an ancestor of its second: %s; the tools` controls before their figures: %s' % (
+            ', '.join(os.path.basename(p_) for p_ in prints_), K.C2_PLAN_FIRST[:8], later_ or 'NONE', same_, regen_, bool(tz), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_, order_, ' '.join('%s@%d' % (h_[:8], c_) for (_r, h_), c_ in zip(chain_, tm_)), anc_, ', '.join('%s %s' % (os.path.basename(p), o) for p, o in ctl)))
 #⟪END⟫
 #⟪SECTION record 14⟫
 # ### N3 (over b737's objects; b736's in git at b736's record tool): the banks whose grade prints at their end, (bank, the words the foot carries)
-N3_GRADED = (('b737_standing_v1160.txt', ('ALL AS WANTED',)), ('b737_discharge.txt', ('W-ORD-ZQ-DERIVES DISCHARGED',)), ('b737_sitting.txt', ('THE SITTING:',)),
+N3_GRADED = (('b737_standing_v1170.txt', ('ALL AS WANTED',)), ('b737_offlinezero_plan.txt', ('THE PLAN: CANDIDATE off0',)), ('b737_sitting.txt', ('THE SITTING OF ONE KERNEL:',)),
              ('b737_corrigendum.txt', ('ITEMS',)), ('b737_citation_check.txt', ('CITES CHECKED',)), ('b737_reproduce.txt', ('REPRODUCES',)), ('b737_address_scan.txt', ('PREVIOUS ADDRESS',)))
 
 
@@ -1109,8 +1178,9 @@ def _s_md5(path):
     return _hl.md5(open(path, 'rb').read()).hexdigest()
 #⟪END⟫
 #⟪SECTION record 15⟫
-    """N3 (R347): no sitting item written without the author's number printed in the bank; no sentence says an off-line zero is located in Lean or positivity fails as a theorem; no sentence calls the instance more than DERIVES on the three forms. From the banks' last
-    lines, the sitting's rows and the entry's sentences."""
+    """N3 (R347): the candidate's criteria print before its name; no sentence says a zero of Z_Q0 is located in Lean or that Li nonnegativity
+    fails as a theorem; the entry's nouns are the banks'; the root prompt's sentences about the entry are the composer's. From the banks' last
+    lines, the plan's (a), the entry's sentences and the root prompt in the answers bank (standing.rootprompt.entry_unbacked)."""
 #⟪END⟫
 #⟪SECTION record 16⟫
     for n, words in N3_GRADED:
@@ -1124,16 +1194,20 @@ def _s_md5(path):
     rules = ()
 #⟪END⟫
 #⟪SECTION record 20⟫
-    rows_ = jl('%s_sitting.json' % ACT)
-    no_word = [k_ for k_, v_ in rows_.items() if not (v_.get('word') or '').strip()]
-    neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None)\b'   # ### defect (k'): "Nothing here ... locates any zero" read as a location
-    loc_ = [s_ for s_ in sents if re.search(r'located in Lean|locates? (?:a|any|one) zero|positivity fails|nonnegativity fails', s_) and not re.search(neg_, s_)]
-    more_ = [s_ for s_ in sents if re.search(r'\binstance\b[^.;]*\b(?:PROVED|proved|CLOSED|VERIFIED|verified)\b', s_) and not re.search(neg_, s_)]
-    ok = all(o for _n, o in graded) and bool(rows_) and not no_word and not loc_ and not more_
+    pt_ = rdn('%s_offlinezero_plan.txt' % ACT)
+    a_ = pt_.find('## (a) ')
+    crit_ = a_ >= 0 and 0 <= pt_.find('  criterion ', a_) < pt_.find('  the nearest other zero of Z_Q0', a_) < pt_.find('THE CANDIDATE: off0', a_)
+    neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None)\b'   # ### b736 defect (k'): "Nothing here ... locates any zero" read as a location
+    loc_ = [s_ for s_ in sents if re.search(r'located in Lean|locates? (?:a|any|one|the) zero|positivity fails|nonnegativity fails', s_) and not re.search(neg_, s_)]
+    nouns_ = [w_ for w_ in (f['pl_name'], f['pl_d'], f['pl_g'], f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], 'data/%s_offlinezero_plan.txt' % ACT) if w_ not in text]
+    ans_ = rdn('%s_author_answers.txt' % ACT)
+    pr_ = [l_.split('): ', 1)[1] for l_ in ans_.split(NL) if l_.startswith('### PROMPT ') and '): ' in l_][-1:]
+    unb_ = __import__('standing.rootprompt', fromlist=['entry_unbacked']).entry_unbacked(pr_[0], text) if pr_ else None
+    ok = all(o for _n, o in graded) and crit_ and not loc_ and not nouns_ and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the sitting`s %d rows, a row without the author`s word: %s; read from %s, a sentence saying an off-line zero is located in Lean or positivity fails as a theorem: %s; a sentence calling the instance more than DERIVES on the three forms: %s' % (
-            ', '.join('%s %s' % g_ for g_ in graded), len(rows_), no_word or 'NONE', src, loc_ or 'NONE', more_ or 'NONE'))
+        'each bank`s foot its last line carrying its grade: %s; the candidate`s criteria printed before its name (relay data/b737_offlinezero_plan.txt (a)): %s; read from %s, a sentence saying a zero of Z_Q0 is located in Lean or that Li nonnegativity fails as a theorem: %s; the plan`s nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+            ', '.join('%s %s' % g_ for g_ in graded), crit_, src, loc_ or 'NONE', nouns_ or 'NONE', 'UNREAD (no root prompt banked yet)' if unb_ is None else (unb_ or 'NONE')))
 #⟪END⟫
 #⟪SECTION record 22⟫
 
@@ -1189,7 +1263,7 @@ def _post_lock_edits():
             ', '.join(N4_APPENDED)) +
 #⟪END⟫
 #⟪SECTION record 25⟫
-    # ### (R347)(4)-(5), N5 as amended: every ref of every kernel carrying a commit made after the act's opening commit is a sitting kernel's main or its push-b737-sitting; no .lean file changed or untracked in a kernel's tree; the rebuild-b721
+    # ### (R347)(4)-(6), N5: every ref of every kernel carrying a commit made after the act's opening commit is SIDE-effects' main or its push-b737-sitting at db0575c6; no .lean file changed or untracked in a kernel's tree; the rebuild-b721
     # ### branches kept as b736 left them; the address scan's count from its bank (relay data/b737_address_scan.txt), the suite's arm recounting it live
     start = int((g(ROOT, 'log', '-1', '--format=%ct', K.ACT_CURRENT_COMMIT) or '0').strip() or 0)
     lean_w = []
@@ -1220,22 +1294,24 @@ def _post_lock_edits():
                 addr.group(1) if addr else 'UNREAD', len(K.KERNEL_PATHS), lean_w or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1)) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    return ('### b737 — lane two, act one hundred and sixty-three, the second sitting under (R347): b736 at its weight and its corrigendum; v1.16.0; '
-            'W-ORD-ZQ-DERIVES discharged on the navigator’s read; the agenda of 111 items by the author’s number')
+    return ('### b737 — lane two, act one hundred and sixty-four, the plan act under (R347): b736 at its weight and its corrigendum; v1.17.0; '
+            'W-ORD-ZQ-OFFLINE-ZERO planned, no build; [76] and [77] at SIDE-effects main')
 #⟪END⟫
 #⟪SECTION record 29⟫
 #⟪END⟫
 #⟪SECTION record 30⟫
-    """the entry's title by its objects, the ferry's Component 5 form; every figure from the banks."""
+    """the entry's title by its objects, the ferry's Component 4 form; every figure from the banks (the plan's and the sitting's feet,
+    v1.17.0's controls less the amendment regeneration's own)."""
 #⟪END⟫
 #⟪SECTION record 31⟫
-    return ('## W-ORD-ZQ-DERIVES discharged on the three premise-free forms, the landed lines INTERFACES; the second sitting: %d items passed, %d replaced, %d struck, %d carried of %d; W-ORD-ZQ-OFFLINE-ZERO entered, priced at the act that takes it; the vacuous-pass arm and %d repairs landed' % (
-        f['sit_p'], f['sit_r'], f['sit_s'], f['sit_c'], f['sit_n'], f['repairs'] - 1))
+    return ('## W-ORD-ZQ-OFFLINE-ZERO planned, no build: candidate %s at β − 1/2 = %s, γ = %s; %d routes priced, %s recommended at %s-%s lines, %s dispatches, '
+            '%d Mathlib objects absent; [76], [77] %s at SIDE-effects main; the amendment regeneration and %d repairs landed' % (
+                f['pl_name'], f['pl_d'], f['pl_g'], f['pl_n'], f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], f['pl_absent'], f['sit_word'], f['repairs'] - 1))
 #⟪END⟫
 #⟪SECTION record 32⟫
     # ### the navigator's letters, primed where they are: the reader takes a letter with its prime
     letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
-    return ('(1) Part A’s followers read as passing with the Part B paragraph they name, each row printing “as [n]”, the author’s number being the Part B item’s; (2) a README’s removals taken at whole sentences, whole list items and whole italic lines, a fence or table emptied falling whole and a head emptied falling, each diff in relay data/b737_sitting_diffs/; (3) the descriptions’ route read as gh repo edit, b727’s, each read back; [101] no write, the draft equal to the line; (4) SIDE-effects drafted and not written, no passed row naming a change to it; '
+    return ('(1) the candidate read from b725’s table by the printed criteria, off0 confirmed where the navigator named it, the order’s “the lowest” not the reason; (2) R3 read as not a route, no off-line segment carrying a real-valued restriction whose sign change marks the zero, and R4 the route the seat found in Mathlib at the pin (AbsMax.lean :405); (3) the line prices read from statements against the measured ratios of b730-b735, every sampled figure a float of a sample and not a bound; (4) “Pass [76] + Milestones” read as widening [76] to the Milestones section of the same README.md, and [28] as one write the author’s words name, each banked as an amendment row with no new path (relay data/b737_amendments.json); '
             +
             '(5) %s and the seat’s %s defect%s as lettered' % (
 #⟪END⟫
@@ -1288,25 +1364,30 @@ def _runs3_line():
     cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R346)(2)(v)
     e = ['', _title(), '',
-         'W-ORD-ZQ-DERIVES is discharged by `(R347)`(2) on the navigator’s read of three premise-free forms, the landed lines at Schema/EpsteinZQ.lean :153, :157 and :164 reading INTERFACES on h as they stood. The second sitting exhausted its agenda: of %d items %d passed, %d replaced by (A1), %d struck unread and %d carried by number, each on the author’s word printed in the bank; the writes %d README commits over 21 kernels, %d GitHub descriptions and %d PLACE-papers items, one git write to each, and (A1)’s :685 repaired forward by a commit of its own (defect (r)). W-ORD-ZQ-OFFLINE-ZERO is entered and priced at the act that takes it. The draft stands at v5, HELD.' % (
-             f['sit_n'], f['sit_p'], f['sit_r'], f['sit_s'], f['sit_c'], f['sit_kc'], f['sit_desc'], f['sit_pp']), '',
-         '*Filed at b737 on the author’s ruling `(R347)`, amended at (4) by the author’s word; %d question%s put before the root. Banks: relay '
-         '`data/b737_corrigendum.txt`, `data/b737_standing_v1160.txt`, `data/b737_discharge.txt`, `data/b737_sitting.txt`, `data/b737_author_words.txt`, `data/b737_prelock.txt`, `data/b737_pathrefusal.txt`, '
-         '`data/b737_reproduce.txt`, `data/b737_address_scan.txt`, `data/b737_touch.txt`, `data/b737_standing_figures.txt`, `data/b737_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
-         '**The corrigendum and the carried items** ((R347)(1), (3), %s, %s, %s): b736 entered at its weight (FINDINGS :%s); '
+         'W-ORD-ZQ-OFFLINE-ZERO is planned and not built: the candidate %s, β − 1/2 = %s and γ = %s, chosen from b725’s table by printed criteria; box %s around it, its least sampled |Z_Q0| on the boundary %s; %d routes priced from statements (%s), R3 not a route; %s recommended at %s-%s lines and %s dispatches, %d Mathlib objects absent at the pin. No dispatch was made (%d of the 2 allowed) and no Lean file written. [76] and [77] were redrafted at SIDE-effects main and passed on the author’s word, with [25]-[29] after them: %d rows, PASS %d; README.md written twice (%s), the description once. The draft stands at v5, HELD.' % (
+             f['pl_name'], f['pl_d'], f['pl_g'], f['pl_box'], f['pl_margin'], f['pl_n'], f['pl_routes'], f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], f['pl_absent'],
+             f['pl_disp_act'], f['sit_rows'], f['sit_p'], f['sit_commits']), '',
+         '*Filed at b737 on the author’s ruling `(R347)`, its (4) read with %d amendment row%s from the author’s words; %d question%s put before the root. Banks: relay '
+         '`data/b737_corrigendum.txt`, `data/b737_standing_v1170.txt`, `data/b737_offlinezero_plan.txt`, `data/b737_offlinezero_criteria.txt`, `data/b737_offlinezero_box.txt`, `data/b737_sitting.txt`, `data/b737_amendments.json`, `data/b737_prelock.txt`, `data/b737_pathrefusal.txt`, '
+         '`data/b737_reproduce.txt`, `data/b737_address_scan.txt`, `data/b737_touch.txt`, `data/b737_standing_figures.txt`, `data/b737_report.txt`.*' % (f['amend_n'], '' if f['amend_n'] == 1 else 's', n_ans, '' if n_ans == 1 else 's'), '',
+         '**The corrigendum and the carried items** ((R347)(1)-(2), %s, %s, %s): b736 entered at its weight (FINDINGS :%s); '
          'the corrigendum of b736’s %s events and %s defects, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats '
          '-- at FINDINGS :%s, the corrigenda bank appended at row (%s) (relay data/b737_corrigendum.txt); tools/standing/ at %s, its controls '
-         '%s -- %s cases, %s as wanted, each failing before its repair and passing after (relay data/b737_standing_v1160.txt), the proof-head arm at their head.' % (
+         '%s -- %s cases, %s as wanted, each failing before its repair and passing after (relay data/b737_standing_v1170.txt), the amendment regeneration at their head.' % (
              K.C1_STANDING[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'],
              f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_line'], f['corr_row'], f['ver'], f['v1130_ctl'], f['v1130_cases'],
              f['v1130_wanted']), '',
-         '**The order of the act** (N2): v1.16.0 at %s, then the weight and the corrigendum at PLACE-papers %s, then the discharge by a commit of its own at %s, all before the first sitting item at %s; the agenda’s md5 %s equal to its blob at %s; the sitting’s bank at %s; the pre-lock comparison and the probe-path refusal printed before the lock gate (relay data/b737_prelock.txt, data/b737_pathrefusal.txt). No lean process on this host and no dispatch: the runner arms read VACUOUS, no row existing to read.' % (K.C1_STANDING[:8], K.C1_PP[:8], K.C1_DISCHARGE_PP[:8], K.SITTING_PP[0][:8], K.PLAN_MD5[:8], K.REG_COMMIT[:8], K.PRINT_COMMIT[:8]), '',
-         '**The discharge** ((R347)(2), N3): the three forms are zq_count_instance, zq_explicit_formula_instance and zq_li_nonneg_imp_online_instance at Schema/ZQ/EF/Main.lean :194, :198 and :205, branch zq-b730 at b25fd82c, run %s, the order’s meaning read by the navigator at relay data/b730_ferry.txt :13. Two conditions stand beside it: what zqZeroConfig’s carrier is, is fixed by the compiled zeros field of zq_premises; the grade is a reading of binders and confers nothing, the branch stays a branch. No declaration locates a zero of Z_Q0 off the line and none states that Li nonnegativity fails for zqZeroConfig; the off-line zeros stand HELD at b725’s 69 to height 445 and the positivity failure HELD at b726’s two windows. (R346)(6)’s sentence is withdrawn, its dated note in the trail (OPEN_TRAILS at PLACE-papers %s; relay data/b737_discharge.txt).' % (K.ZQ_RUN, K.C1_DISCHARGE_PP[:8]), '',
-         '**The sitting** ((R347)(4) as amended, N3): (A1), (A2), (B) and (C) put before the agenda, then its items in their order, each with current words and drafted words, its file, line and grade; the author’s number read before any write and printed in the row; one git write per passed item. [19], the private kernel, struck unread; [111] replaced by (A1) by the author’s word; [76] and [77] carried for a redraft at main, [25]-[29] with them. [68], [92], [98] and [109] amended by the author’s words, and six further lines out by the author’s word at [72], [78], [80], [82], [92] and [96] (relay data/b737_sitting.txt, the words at data/b737_author_words.txt, each README’s removals at data/b737_sitting_diffs/).', '',
-         '**The doors at main** (N5 as amended): the agenda’s drafts were read at the census pin and each was checked at main before it was put, the drafts standing wrong or short there amended or carried. README.md alone on the 21 kernels, no Lean file and no main’s code, no tag; two repairs by further commits on the author’s numbers, [60R] and [66R], the plan’s fragments and an empty fence, each found before its kernel’s push and each in the seat’s defects. PLACE-papers: (A1) and (A2), the findings paper at v0.7 by the repair the author passed, (B) at Which_Structure_Confines v2.4.0, (C), [109] and [110] at STORMER.md.', '',
-         '**The order entered** ((R347)(4)(C)): W-ORD-ZQ-OFFLINE-ZERO in OPEN_TRAILS at PLACE-papers %s, priced and not built: its object, condition, consequence, price and trigger as (C) words them. The price is the plan act’s. Until a declaration compiles, no sentence says a zero is located in Lean or that positivity fails as a theorem.' % K.SITTING_PP[4][:8], '',
-         '**The Zenodo drafts**: %d records’ drafts ruled by number and banked only, carried to a Tier 3 act on the author’s number; no Zenodo description edited.' % f['sit_bank'], '',
-         '**What this act is not**: no deposit, no tag, no draft published, no Lean file written, no merge. A README sentence removed removes a claim from a door; it proves nothing. Nothing here proves RH or GRH or locates any zero.', '',
+         '**The order of the act** (N2): tools/standing/ v1.17.0 at %s, the weight and the corrigendum at PLACE-papers %s and their banks at %s, all before the plan’s first commit %s, which carries the criteria and box prints it cites; the price line at PLACE-papers %s by a commit of its own, OPEN_TRAILS alone; the plan’s second commit %s; then SIDE-effects %s and %s; the sitting’s bank at %s. The (W) regeneration printed in the face, and the pre-lock comparison and the probe-path refusal banked, before the lock gate (relay data/b737_prelock.txt, data/b737_pathrefusal.txt). The plan’s two figure banks open on their figures with no controls block before them, the controls standing inside the rows (defect (q)). No lean process on this host and no dispatch: the runner arms read VACUOUS, no row existing to read.' % (
+             K.C1_STANDING[:8], K.C1_PP[:8], K.C1_RELAY[:8], K.C2_PLAN_FIRST[:8], K.C2_PP[:8], K.C2_RELAY[:8], K.SITTING_COMMITS[0][:8], K.SITTING_COMMITS[1][:8], K.C3_RELAY[0][:8]), '',
+         '**The candidate** ((R347)(3)(a), N3): the three leading rows of relay data/b725_interference.txt :32-:34, off0, off12 and off52, each printed on β − 1/2, γ, the bits b725 took, the nearest other zero of Z_Q0, the nearest zero of ζ_K and of L(ψ) on the line and |Z_Q0′| before the name; %s leads on β − 1/2 (%s), on the distance to its nearest other zero (its reflection, 0.906521), on the evaluation’s cost at the least height (γ = %s) and on the bits; it trails off52 on the distance to ζ_K’s zeros (0.573960 against 0.575992) and off12 on the distance to L(ψ)’s (0.498714 against 0.559635), each clear of box A (relay data/b737_offlinezero_criteria.txt :8-:9, :13-:14, :18-:19). The plan’s (a) reads “trails off12 on the distance to zeta_K’s zeros (0.574 against 0.507)”, its own figures saying off0 leads off12 there (defect (v)).' % (f['pl_name'], f['pl_d'], f['pl_g']), '',
+         '**The box and the routes** ((R347)(3)(b)-(c)): box %s, the square of half-side 0.1 centred on %s, [0.853260, 1.053260] × [16.190216, 16.390216], off0 the one listed zero inside, its least |Z_Q0| on 160 boundary samples %s (sampled, not a bound); box B, its right edge at Re s = 3/2, priced and not taken (relay data/b737_offlinezero_box.txt). R1, the argument principle with a Lipschitz bound, and R2, Rouché with f the finite truncation, each compile the count; R4, the minimum modulus through Complex.norm_le_of_forall_mem_frontier_norm_le (Mathlib AbsMax.lean :405) applied to the reciprocal, compiles the existence the order asks; R3, a sign change, is not a route, no segment through an off-line zero carrying a real-valued restriction. Every route shares the certified evaluation of zqFn on the box, Λ₀ wanted to some 5e-12 where |Γ(s)| is near 7e-11.' % (f['pl_box'], f['pl_name'], f['pl_margin']), '',
+         '**The price and the recommendation** ((R347)(3)(d)): %s at 1,635-4,175 lines from statements, %s-%s by explicitFormula’s measured ratio 0.915, the envelope of the five measured ratios 455-16,408, %s dispatches; R1 2,374-5,943 and R2 2,191-5,577 by the same ratio; the %d Mathlib objects absent at the pin named (the argument principle, Rouché, the winding number, the incomplete gamma function, complex Stirling with explicit error, the K-Bessel function, certified interval evaluation), three on R4’s path. The reason: the order’s condition is an existence and R4 proves exactly that with the one complex-analytic step Mathlib carries by name. Four stop points, the first a conditional theorem with no numeric step (relay data/b737_offlinezero_plan.txt (d)). The price line at OPEN_TRAILS :%d.' % (
+             f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], f['pl_absent'], K.PRICE_LINE), '',
+         '**The consequence, priced and not stated** ((R347)(3)(e)): a declaration of ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2 with the standard three axioms would give, through zq_li_nonneg_imp_online_instance (Schema/ZQ/EF/Main.lean :205, zq-b730 at b25fd82c), the negation of ∀ n, 0 ≤ Wide.liCoeff zqZeroConfig n, at 5-15 lines. The plan prices that sentence and does not state it. Until a build compiles the condition, no sentence says a zero of Z_Q0 is located in Lean or that Li nonnegativity fails as a theorem; the off-line zeros stand at b725’s numerical location, HELD.', '',
+         '**The sitting of one kernel** ((R347)(4), N3): SIDE-effects read at main 78bbcff, the statements standing there listed and side_exclusion named retired in Structural.lean’s ledger; the door paragraph and the description redrafted from that read and put one item at a time with current and drafted words, file, line and grade. [76] passed with the Milestones section by the author’s word and written at %s; [77] passed and written by gh, read back; [25] and [29] fell with [76] and [77]; [26] and [27] stand, true at main; [28] passed with the author’s own words, “0 sorry at 78bbcff.” at :50 and :57, written at %s, the second write of this act to README.md. %d rows, PASS %d, STRUCK %d, CARRIED %d; the open-premise paragraph and the retirement record kept whole; README.md alone on the kernel, no Lean file, no tag (relay data/b737_sitting.txt). The Milestones line written at %s dropped “0 axioms”, a fact true at main and still printed in the README’s Status section (defect (o)).' % (
+             K.SITTING_COMMITS[0][:8], K.SITTING_COMMITS[1][:8], f['sit_rows'], f['sit_p'], f['sit_s'], f['sit_c'], K.SITTING_COMMITS[0][:8]), '',
+         '**The amendment rows** ((R347)(2)(i), N5): %d rows, the words of [76] and [28], each widening (4)’s door paragraph within the README.md it names and adding no path; the face’s (W) row and N5’s write clause regenerated from the ruling and the rows before the lock, the regeneration printed in the face (relay data/b737_amendments.json).' % f['amend_n'], '',
+         '**What this act is not**: no deposit, no tag, no draft published, no Lean file written, no merge, no dispatch. A plan prices a build and proves nothing; a README sentence removed removes a claim from a door. Nothing here proves RH or GRH or locates any zero.', '',
          '**The research instruments reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py over the entered '
          'instruments, %s rows: %d REPRODUCES, %s DIFFERS, %s NOT RUN (%s, each with its reason and price), the planted controls as wanted at '
          '%s of %s (relay data/b737_reproduce.txt).' % (
@@ -1324,8 +1405,8 @@ def _runs3_line():
          '**The citation check** (the gate step from b662): %s cites checked at step zero, %s OK, %s missed, each printed; %d answer check%s before the root.' % (
              cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
-         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the discharge and the sitting read one way: the grade says what the statements bind, and the doors now say what compiled and no further, so the kernels’ front pages and the ledger are counted off one reading.', '',
-         '**Carried to:** %s, (R347)(7): W-ORD-ZQ-OFFLINE-ZERO’s plan bank; items [76], [77] and [25]-[29], by number; the Zenodo drafts, to a Tier 3 act on the author’s number; W-ORD-VISIBILITY, CARRIED NOT CLEAN; the instruments NOT RUN, each with its price; the draft held at v5.' % K.NEXT_ACT, '',
+         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the plan and the sitting read one way: the plan prices the one declaration that would turn two HELD rows into a kernel and states neither, and SIDE-effects’ door now says what compiles at its main and no further; a grade word is out of both.', '',
+         '**Carried to:** %s, (R347)(7): W-ORD-ZQ-OFFLINE-ZERO OPEN at its price, the build on the plan’s route by the author’s word; the five Zenodo currency notes [104]-[108], to a Tier 3 act on the author’s record numbers; W-ORD-VISIBILITY, CARRIED NOT CLEAN; the instruments NOT RUN, each with its price; the damaged clones zqwork, zqwork2 and zqwork3 in place, the cause not established; the draft held at v5.' % K.NEXT_ACT, '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '']
     return _title(), NL.join(e)
@@ -1336,7 +1417,7 @@ def _finding_text_b736():
 #⟪END⟫
 #⟪SECTION record 35⟫
     """the trail record (over b737's objects; b736's composer in git at b736's record tool): the open-orders line written from
-    tools/standing/orders.py's output over the trail at HEAD, W-ORD-ZQ-DERIVES closed by its own commit and W-ORD-ZQ-OFFLINE-ZERO entered by (C)."""
+    tools/standing/orders.py's output over the trail at HEAD, W-ORD-ZQ-DERIVES closed at b736 and W-ORD-ZQ-OFFLINE-ZERO open at its price (:17400)."""
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
@@ -1352,15 +1433,17 @@ def _finding_text_b736():
              '**(R347) ratified.** Its components as the ferry orders them (relay data/b737_ferry.txt), each read below from its bank.', '',
              '**Entered:** FINDINGS.md:%s (b736’s weight), :%s (the corrigendum), :%s (the entry); this record.' % (
                  f['weight'], f['corr_line'], fj.get('entry_line')), '',
-             '**The orders:** the discharge of W-ORD-ZQ-DERIVES at PLACE-papers %s, the entry of W-ORD-ZQ-OFFLINE-ZERO at %s, each by its own commit, read above.' % (K.C1_DISCHARGE_PP[:8], K.SITTING_PP[4][:8]), '']
+             '**The orders:** W-ORD-ZQ-OFFLINE-ZERO priced at OPEN_TRAILS :%d by PLACE-papers %s, a commit of its own, planned and not built; it stays OPEN at its price.' % (K.PRICE_LINE, K.C2_PP[:8]), '']
     rows_ += [
              ORD.open_line(op), '',
              '**The orders by the tool:** %d of %s open at PLACE-papers main with the lines above, the open-orders line from tools/standing/orders.py`s output.' % (
                  len(op), len(ORD.read(ORD.trail('HEAD') + two))), '',
-             '**The carried items:** tools/standing/ at %s, its controls %s cases, %s as wanted (relay data/b737_standing_v1160.txt).' % (
+             '**The carried items:** tools/standing/ at %s, its controls %s cases, %s as wanted (relay data/b737_standing_v1170.txt).' % (
                  f['ver'], f['v1130_cases'], f['v1130_wanted']), '',
-             '**The sitting:** of %d items %d passed, %d replaced by (A1), %d struck unread, %d carried by number; %d rows with (A1), (A2), (B), (C), [60R] and [66R]; %d README commits over 21 kernels, %d descriptions read back, %d PLACE-papers items (relay data/b737_sitting.txt, data/b737_author_words.txt).' % (
-                 f['sit_n'], f['sit_p'], f['sit_r'], f['sit_s'], f['sit_c'], f['sit_rows'], f['sit_kc'], f['sit_desc'], f['sit_pp']), '',
+             '**The plan:** candidate %s (β − 1/2 = %s, γ = %s), box %s, margin %s sampled; %d routes priced, %s recommended at %s-%s lines, %s dispatches, %d Mathlib objects absent; %d dispatches this act (relay data/b737_offlinezero_plan.txt).' % (
+                 f['pl_name'], f['pl_d'], f['pl_g'], f['pl_box'], f['pl_margin'], f['pl_n'], f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], f['pl_absent'], f['pl_disp_act']), '',
+             '**The sitting:** SIDE-effects at main, %d rows, PASS %d, STRUCK %d, CARRIED %d; README.md %d writes (%s), the description %d; %d amendment rows (relay data/b737_sitting.txt, data/b737_amendments.json).' % (
+                 f['sit_rows'], f['sit_p'], f['sit_s'], f['sit_c'], f['sit_readme'], f['sit_commits'], f['sit_desc'], f['amend_n']), '',
              '**The instruments reproduced:** %d of %s, DIFFERS %s, NOT RUN %s (%s) (relay data/b737_reproduce.txt).' % (
                  f['rp_rep'], f['rp_rows'], f['rp_diff'], f['rp_notrun'], ', '.join(f['rp_notruns']) or 'none'), '',
              '**The author’s name and address:** PREVIOUS ADDRESS: %s, the ORCID %s (relay data/b737_address_scan.txt).' % (f['addr'], f['orcid']), '',
@@ -1370,13 +1453,13 @@ def _finding_text_b736():
              'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
              '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b737_author_answers.txt).' % (
                  n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
-             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b737_standing_v1160.txt); the standing '
+             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b737_standing_v1170.txt); the standing '
              'report tool (relay data/b737_report.txt).' % f['ver'], '']
     aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
-    rows_ += ['**The kernels:** README.md alone on the 21 kernels’ mains, no Lean file and no main’s code, no tag; push-b737-sitting left local on each; zq-b730 of SIDE-explicit-formula unmoved at %s; %d dispatches; the %s branches as b736 left them; port-b707 at %s, kept, '
+    rows_ += ['**The kernels:** README.md alone on SIDE-effects’ main at %s, two commits, no Lean file and no main’s code, no tag; push-b737-sitting left local; zq-b730 of SIDE-explicit-formula unmoved at %s; %d dispatches; the %s branches as b736 left them; port-b707 at %s, kept, '
               'its tag %s at it; SIDE-faces-join at %s with its one tag %s; no lean process on this host.' % (
-                  K.ZQ_TIP[:8], len(K.EF_RUNS), K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
+                  K.SITTING_TIPS['SIDE-effects'], K.ZQ_TIP[:8], len(K.EF_RUNS), K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
               '**The mirror:** the export made after this root in the b670 form over the roster read from PLACE-papers main, its name in the '
               'closing (relay data/b737_closing.txt).', '',
               '**The standing arms:** the four figures %s, %s, %s, %s against b736’s %s, %s, %s, %s (relay data/b737_standing_figures.txt).' % (
@@ -1394,7 +1477,7 @@ def _trail_text_b736():
     """b736's trail record over b736's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION regspec 1⟫
-    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: none; MEASURED off the command bank (each dispatch command at a command`s head).'),
+    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: none of the two prints (R347)(3) allows; MEASURED off the command bank (each dispatch command at a command`s head).'),
     ('runner runs read by their ids', 'EFRUNS', 'EFRUNS', 'runs', '### N1; MEASURED off the worklist`s EF_RUNS.'),
 #⟪END⟫
 #⟪SECTION regspec 2⟫
@@ -1410,7 +1493,7 @@ def _trail_text_b736():
 #⟪END⟫
 #⟪SECTION regspec 4⟫
     ('Lean files written on a rebuild branch', 'RBLEAN', 'RBLEAN', 'files', '### beyond the pins, b721`s and b723`s; MEASURED off each branch against its pin.'),
-    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b736`s, none this act; MEASURED off each branch against main.'),
+    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b735`s, none at b736 or this act; MEASURED off each branch against main.'),
     ('Lean files written on any kernel`s main', 0, 0, 'files', '### N5: none.'),
 #⟪END⟫
 #⟪SECTION regspec 5⟫
@@ -1422,26 +1505,26 @@ def _trail_text_b736():
 #⟪END⟫
 #⟪SECTION regspec 7⟫
     ('REGISTRY rows added', 0, 0, 'rows', '### none this act, (R347) ordering no REGISTRY write.'),
-    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none; MEASURED off git diff --numstat from the act`s first PLACE-papers head (e28e6ed9) to HEAD -- REGISTRY.md.'),
+    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none; MEASURED off git diff --numstat from the act`s first PLACE-papers head (9b12ec5a) to HEAD -- REGISTRY.md.'),
 #⟪END⟫
 #⟪SECTION regspec 8⟫
-    ('generated corrigendum entries', 1, 1, 'entries', '### (R347)(3): FINDINGS :12911.'),
-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R347)(3): row (56).'),
+    ('generated corrigendum entries', 1, 1, 'entries', '### (R347)(2): FINDINGS :13033.'),
+    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R347)(2): row (57).'),
     ('ERRATA entries filed', 0, 0, 'entries', '### none ordered.'),
-    ('orders entered with the trail', 0, 0, 'orders', '### none: W-ORD-ZQ-OFFLINE-ZERO entered by (R347)(4)(C)`s own commit, W-ORD-ZQ-DERIVES discharged by its own.'),
+    ('orders entered with the trail', 0, 0, 'orders', '### none: W-ORD-ZQ-OFFLINE-ZERO priced by (R347)(3)`s own commit (OPEN_TRAILS :17400), entered at b736.'),
     ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: tools/research/reproduce.py; MEASURED off data/b737_reproduce.json.'),
 #⟪END⟫
 #⟪SECTION regspec 9⟫
-    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### v1.16.0`s controls, the sitting`s bank, the probe-path refusal, the reproduction, the address scan; MEASURED off the banks present.'),
-    ('registrations committed alone', 0, 0, 'commits', '### none: the agenda committed at b732, its md5 read here.'),
-    ('figure banks of a registered object first committed after the registrations', 'REGS', 'REGS', 'banks', '### none: the agenda registers no figure; MEASURED.'),
-    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none: the agenda precedes the sitting`s bank by (N2).'),
+    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### v1.17.0`s controls, the plan`s criteria and box prints, the plan, the sitting`s bank, the probe-path refusal, the reproduction, the address scan; MEASURED off the banks present.'),
+    ('registrations committed alone', 0, 0, 'commits', '### none: the plan committed with the prints it cites (310a681f), (R347)(3)(d) ordering the plan after its prints, not alone.'),
+    ('figure banks of a registered object first committed after the registrations', 'REGS', 'REGS', 'banks', '### none: the plan registers no figure beyond its prints; MEASURED.'),
+    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none: the prints commit with the plan (N2).'),
 #⟪END⟫
 #⟪SECTION regspec 10⟫
     ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### none, N5; MEASURED off each branch`s tip against its tip entering the act.'),
 #⟪END⟫
 #⟪SECTION regspec 11⟫
-    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R347)(3): tools/standing/ to v1.16.0, each repair with its control; MEASURED off the worklist`s lists.'),
+    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R347)(2): tools/standing/ to v1.17.0, each repair with its control; MEASURED off the worklist`s lists.'),
     ('arms out of the suite`s run list by retirement', 'RETIRED', 'RETIRED', 'arms', '### tools/standing/arms.py RETIRED, unchanged; MEASURED off it.'),
     ('arms left the arm list this act', 0, 0, 'arms', '### none: the run list 116.'),
 #⟪END⟫
@@ -1478,7 +1561,7 @@ def _trail_text_b736():
                     EFNEW=sum(1 for (_b, t), p_ in zip(K.EF_BRANCHES, K.EF_BRANCHES_ENTERING) for f_ in _git(K.EF_DIR, 'diff', '--name-only', p_, t).split() if f_.endswith('.lean')),
 #⟪END⟫
 #⟪SECTION regspec 18⟫
-                    COMPUTE=len([n_ for n_ in ('standing_v1160', 'sitting', 'pathrefusal', 'reproduce', 'address_scan')
+                    COMPUTE=len([n_ for n_ in ('standing_v1170', 'offlinezero_criteria', 'offlinezero_box', 'offlinezero_plan', 'sitting', 'pathrefusal', 'reproduce', 'address_scan')
                                  if os.path.exists(os.path.join(ROOT, 'data', 'b737_%s.txt' % n_))]),
 #⟪END⟫
 #⟪SECTION regspec 19⟫
@@ -1486,31 +1569,33 @@ def _trail_text_b736():
               'CHBRANCH', 'REGREMOVED',
 #⟪END⟫
 #⟪SECTION regspec 20⟫
-    spec = {"registration": ("data/b737_registration_%s.txt -- b737, THE SECOND SITTING: b736 AT ITS WEIGHT AND ITS CORRIGENDUM; v1.16.0; W-ORD-ZQ-DERIVES DISCHARGED; THE AGENDA OF 111 ITEMS BY THE AUTHOR`S NUMBER; "
+    spec = {"registration": ("data/b737_registration_%s.txt -- b737, THE PLAN ACT: b736 AT ITS WEIGHT AND ITS CORRIGENDUM; v1.17.0; W-ORD-ZQ-OFFLINE-ZERO PLANNED, NO BUILD; [76] AND [77] AT SIDE-effects MAIN; "
                              "NO DEPOSIT, NO TAG, UNDER (R347)" % K.DATE),
 #⟪END⟫
 #⟪SECTION report 1⟫
 Carried from b736's standing report by the fold (tools/standing/fold/report.tpl) and its lines rewritten for b737: b736's lines read banks this
-act does not write, and are not carried; the lines are b737's: the discharge (KERNEL), tools/standing/ v1.16.0 by its controls (CERTIFIED), the sitting
-(REGISTERED), and the draft (HELD).
+act does not write, and are not carried; the lines are b737's: the plan (KERNEL, its price at the pin; nothing built), tools/standing/ v1.17.0 by
+its controls (CERTIFIED), the plan's candidate and the sitting of one kernel (REGISTERED), and the draft (HELD).
 #⟪END⟫
 #⟪SECTION report 2⟫
     # ### b737's lines, each from the record tool's figures over b737's banks
-    # ------------------------------------------------------------------ KERNEL: (R347)(2), the discharge
-    sz = seat('%s_discharge.txt' % ACT, '**W-ORD-ZQ-DERIVES DISCHARGED')
+    # ------------------------------------------------------------------ KERNEL: (R347)(3), the plan's price at the pin, nothing built
+    sz = seat('%s_offlinezero_plan.txt' % ACT, '**THE PLAN: CANDIDATE ')
     sk = sz   # ### (R346)(2)(ii): the name the template appends
-    keys['ZQ'] = ('KERNEL -- W-ORD-ZQ-DERIVES DISCHARGED on the three premise-free forms at Main.lean :194, :198, :205 on zq-b730 at %s, run %s, the landed lines INTERFACES; no Lean file this act. SOURCE %s.' % (K.ZQ_TIP[:8], K.ZQ_RUN, sz['text']))
+    keys['ZQ'] = ('KERNEL -- W-ORD-ZQ-OFFLINE-ZERO PLANNED, NO BUILD: %s recommended at %s-%s lines and %s dispatches over zq-b730 at %s, %d Mathlib objects absent at the pin; no Lean file and no dispatch this act. SOURCE %s.' % (
+        f['pl_route'], f['pl_lo'], f['pl_hi'], f['pl_disp'], K.ZQ_TIP[:8], f['pl_absent'], sz['text']))
 #⟪END⟫
 #⟪SECTION report 3⟫
-    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.16.0 ((R347)(3)), by its controls
-    sw = seat('%s_standing_v1160.txt' % ACT, '**v1.16.0: CONTROLS ')   # ### appended by the template after this section
-    keys['V1120'] = ('CERTIFIED -- tools/standing/ v1.16.0: controls %s -- %s cases, %s as wanted, each failing before its repair and passing after. SOURCE %s.' % (
+    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.17.0 ((R347)(2)), by its controls
+    sw = seat('%s_standing_v1170.txt' % ACT, '**v1.17.0: CONTROLS ')   # ### appended by the template after this section
+    keys['V1120'] = ('CERTIFIED -- tools/standing/ v1.17.0: controls %s -- %s cases, %s as wanted, each failing before its repair and passing after. SOURCE %s.' % (
                         f['v1130_ctl'], f['v1130_cases'], f['v1130_wanted'], sw['text']))
 #⟪END⟫
 #⟪SECTION report 4⟫
-    # ------------------------------------------------------------------ REGISTERED: the sitting, read from its bank
-    so = seat('%s_sitting.txt' % ACT, '**THE SITTING: ')
-    keys['ORD'] = ('REGISTERED -- THE SITTING: of %d items %d passed, %d replaced, %d struck, %d carried, each on the author`s word; the agenda committed at b732, md5 %s. SOURCE %s.' % (f['sit_n'], f['sit_p'], f['sit_r'], f['sit_s'], f['sit_c'], K.PLAN_MD5[:8], so['text']))
+    # ------------------------------------------------------------------ REGISTERED: the plan's candidate and the sitting, read from their banks
+    so = seat('%s_sitting.txt' % ACT, '**THE SITTING OF ONE KERNEL: ')
+    keys['ORD'] = ('REGISTERED -- THE PLAN`S CANDIDATE %s at beta - 1/2 = %s, gamma = %s, box %s, margin %s sampled, not a bound; THE SITTING OF ONE KERNEL: %d rows, PASS %d, STRUCK %d, CARRIED %d, each on the author`s word, SIDE-effects main %s. SOURCE %s.' % (
+        f['pl_name'], f['pl_d'], f['pl_g'], f['pl_box'], f['pl_margin'], f['sit_rows'], f['sit_p'], f['sit_s'], f['sit_c'], f['sit_main'], so['text']))
     # ------------------------------------------------------------------ HELD: THE DRAFT ((R347)(6))
     sh = seat('%s_ferry.txt' % ACT, 'v5')
     keys['HELD'] = ('HELD -- the draft at v5 (%s), unpublished, nothing deposits. SOURCE %s.' % (K.DRAFT, sh['text']))
