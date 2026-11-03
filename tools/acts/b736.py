@@ -467,7 +467,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxyz') + ("a'", "b'", "c'", "d'", "e'", "f'", "g'", "h'", "i'", "j'")))   # ### (a)-(z) and (a')-(j'), entered before the lock, every one the seat's (data/b736_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxyz') + ("a'", "b'", "c'", "d'", "e'", "f'", "g'", "h'", "i'", "j'", "k'", "l'")))   # ### (a)-(z) and (a')-(l'), entered before the lock, every one the seat's (data/b736_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b736_corrigendum.txt', 'data/b736_standing_v1160.txt', 'data/b736_discharge.txt', 'data/b736_sitting.txt', 'data/b736_sitting.json', 'data/b736_author_words.txt', 'data/b736_pathrefusal.txt',
@@ -1119,7 +1119,7 @@ def _s_md5(path):
 #⟪SECTION record 20⟫
     rows_ = jl('%s_sitting.json' % ACT)
     no_word = [k_ for k_, v_ in rows_.items() if not (v_.get('word') or '').strip()]
-    neg_ = r'\b(?:NOT|not|no|No|never|until|Until)\b'
+    neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None)\b'   # ### defect (k'): "Nothing here ... locates any zero" read as a location
     loc_ = [s_ for s_ in sents if re.search(r'located in Lean|locates? (?:a|any|one) zero|positivity fails|nonnegativity fails', s_) and not re.search(neg_, s_)]
     more_ = [s_ for s_ in sents if re.search(r'\binstance\b[^.;]*\b(?:PROVED|proved|CLOSED|VERIFIED|verified)\b', s_) and not re.search(neg_, s_)]
     ok = all(o for _n, o in graded) and bool(rows_) and not no_word and not loc_ and not more_

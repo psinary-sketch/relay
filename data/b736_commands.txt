@@ -1,7 +1,7 @@
-b736 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T02:38:05Z)
+b736 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T03:23:36Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R346) BEGIN', with its subagents` transcripts
-### commands read: 346
+### commands read: 425
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (7):
   #11 2026-11-02T22:22:37.904Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -78,7 +78,7 @@ print(hashlib.md5
   #298 2026-11-03T02:04:56.445Z cd /d/relay && python -X utf8 -u tools/standing/fold.py 2>&1 ; grep -n -E "b735_probe|--part|--probe|probe" /d/relay/tools/standing/close.py | head -30
   #315 2026-11-03T02:19:17.453Z ls tools/standing/ && ls "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/" | grep -i -E "wait|mem|free"
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (37):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (41):
   #10 2026-11-02T22:22:29.770Z python -X utf8 -u -c "print(1)"
   #82 2026-11-02T22:35:48.174Z python -X utf8 -c " import re s=open('D:/relay/data/b736_ferry.txt',encoding='utf-8').read() for m in re.finditer('zqwork2',s): print(s[max(0,m.start()-500):m.end()+350]); print('---') "
   #83 2026-11-02T22:35:52.278Z python -X utf8 -c " import os,time R='C:/Users/echo chamber/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/' f=lambda t: time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime(t)) for c in ('zqwork
@@ -116,6 +116,10 @@ print(hashlib.md5
   #307 2026-11-03T02:07:43.477Z git show 2822aa73:data/b732_phase2_frontdoors.txt --format= --no-patch ; python -X utf8 -c " import hashlib,subprocess,json b=subprocess.run(['git','show','HEAD:data/b732_phase2_frontdoors.txt'],capture_output=True).stdo
   #312 2026-11-03T02:16:14.656Z python -X utf8 -c " import io,re t=io.open('data/b735_registration_2026-11-02.txt',encoding='utf-8').read().split('\n') print(len(t)) for i,l in enumerate(t,1): if l.startswith('### THE REGISTRATION LOCK') or l.startswit
   #313 2026-11-03T02:16:31.870Z python -X utf8 -c " import io t=io.open('data/b736_defects.txt',encoding='utf-8').read() L=t.split('\n'); print(len(L)); [print(i+1,l[:160]) for i,l in enumerate(L) if l.strip()][:0] for i,l in enumerate(L[-6:]): print(l
+  #385 2026-11-03T03:14:18.793Z python -X utf8 -c "import re;t=open('tools/b736_checks.py',encoding='utf-8').read().split('\n');i=[n for n,l in enumerate(t) if l.startswith('def runner_ok')][0];print('\n'.join('%d %s'%(n+1,t[n]) for n in range(i,i+40))
+  #395 2026-11-03T03:15:43.335Z git grep -c "" -- tools/b735_face.py && python -X utf8 -c "print(open('tools/b736_face.py',encoding='utf-8').read()[:1500])"
+  #403 2026-11-03T03:16:35.730Z python -X utf8 -c "import json;J=json.load(open('data/b735_commands.json',encoding='utf-8'));R=J['rows'] if isinstance(J,dict) else J;[print('#%s %s'%(r.get('n'),r['cmd'].split(chr(10))[0][:300])) for r in R if 330<=int(
+  #405 2026-11-03T03:16:45.570Z python -X utf8 -c "import json;J=json.load(open('data/b735_steps.json',encoding='utf-8'));R=J.get('rows',J) if isinstance(J,dict) else J;[print(r.get('n'),r.get('repo'),r.get('phase'),(r.get('shas') or r.get('sha')),r.ge
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (6):
   #39 2026-11-02T22:26:35.174Z Bash
@@ -483,5 +487,84 @@ print(hashlib.md5
   #344 | 2026-11-03T02:37:38.413Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -i "weight" dadfdf07 -- FINDINGS.md
   #345 | 2026-11-03T02:37:45.086Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wl736.py
   #346 | 2026-11-03T02:37:50.905Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record commands --act b736
+  #347 | 2026-11-03T02:38:14.622Z | seat | Bash | git grep -n -A12 "def touch_read_ok" -- tools/acts/b735.py
+  #348 | 2026-11-03T02:38:21.128Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record findings dry --act b736
+  #349 | 2026-11-03T02:39:01.853Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/touch736.py
+  #350 | 2026-11-03T02:39:15.032Z | seat | Bash | git grep -n -F "(57)" -- data/b675_corrigenda.txt
+  #351 | 2026-11-03T02:39:39.099Z | seat | Bash | ls data/b736_sitting_diffs
+  #352 | 2026-11-03T02:39:41.966Z | seat | Bash | git grep -n -o -E ".{0,200}one git write to each.{0,200}" -- tools/acts/b736.py
+  #353 | 2026-11-03T02:40:01.331Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/touch736b.py
+  #354 | 2026-11-03T02:40:10.090Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -o -i -E ".{0,120}(positivity|Li coefficient)[^|]{0,40}HELD.{0,120}" HEAD -- OPEN_TRAILS.md
+  #355 | 2026-11-03T02:40:15.174Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -o -E "^## .{0,40}b726.{0,200}|^### b726.{0,300}" HEAD -- FINDINGS.md OPEN_TRAILS.md
+  #356 | 2026-11-03T02:40:17.821Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers grep -n -o -i -E ".{0,160}(window).{0,160}" HEAD -- OPEN_TRAILS.md
+  #357 | 2026-11-03T02:40:24.421Z | seat | Bash | git grep -n -o -E ".{0,200}two windows.{0,120}" -- data/b736_ferry.txt data/b726_ferry.txt data/b735_explicitformula.txt
+  #358 | 2026-11-03T02:40:28.957Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #359 | 2026-11-03T02:40:31.200Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record figures --act b736
+  #360 | 2026-11-03T02:40:43.093Z | seat | Bash | git grep -n -E "'guard'|\"guard\"" -- tools/standing/fold.py tools/standing/record.py
+  #361 | 2026-11-03T02:40:46.067Z | seat | Bash | git grep -n -i "guard" -- data/b735_commands.txt
+  #362 | 2026-11-03T02:40:48.253Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record guard --act b736
+  #363 | 2026-11-03T02:41:00.504Z | seat | Bash | git grep -n -A8 "^def _title" -- tools/acts/b736.py
+  #364 | 2026-11-03T02:41:36.708Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #365 | 2026-11-03T02:41:38.902Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act --act b736
+  #366 | 2026-11-03T02:43:42.227Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #367 | 2026-11-03T02:43:44.646Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-a --act b736
+  #368 | 2026-11-03T02:49:09.293Z | seat | Bash | git grep -h -o -E "PART standing-a : ARMS.*" -- data/b735_probe_standing-a.txt data/b735_prelock.txt
+  #369 | 2026-11-03T02:49:11.417Z | seat | Bash | ls data/b735_probe_standing-a.txt data/b735_prelock.txt data/b734_prelock.txt
+  #370 | 2026-11-03T02:49:18.678Z | seat | Bash | git log -1 --format=%h --name-only -- data/b735_prelock.txt
+  #371 | 2026-11-03T02:49:21.030Z | seat | Bash | git grep -l "PRE-LOCK FAILING-LIST COMPARISON" -- tools
+  #372 | 2026-11-03T02:49:23.703Z | seat | Bash | git grep -n -E "argv|def main|__main__|ON THE FACE" -- tools/standing/prelock.py
+  #373 | 2026-11-03T02:49:29.727Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #374 | 2026-11-03T02:49:31.998Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-c --act b736
+  #375 | 2026-11-03T02:51:42.739Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #376 | 2026-11-03T02:51:44.994Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --act b736
+  #377 | 2026-11-03T02:54:54.743Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #378 | 2026-11-03T02:54:56.985Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b2a --act b736
+  #379 | 2026-11-03T03:01:18.920Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #380 | 2026-11-03T03:01:21.207Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b2b --act b736
+  #381 | 2026-11-03T03:09:15.138Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #382 | 2026-11-03T03:09:17.313Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-b3 --act b736
+  #383 | 2026-11-03T03:14:04.975Z | seat | Bash | python -X utf8 -u tools/standing/prelock.py x b736
+  #384 | 2026-11-03T03:14:12.116Z | seat | Bash | git grep -n -E "G-KERNELS-UNTOUCHED'|G-RUNNER-GATE'" -- tools/acts/b736.py tools/standing/fold/checks.tpl
+  #385 | 2026-11-03T03:14:18.793Z | seat | Bash | python -X utf8 -c "import re;t=open('tools/b736_checks.py',encoding='utf-8').read().split('\n');i=[n for n,l in enumerate(t) if l.startswith('def runner_ok')][0
+  #386 | 2026-11-03T03:14:31.505Z | seat | Bash | git grep -n -A12 "SECTION checks 25⟫" -- tools/acts/b734.py
+  #387 | 2026-11-03T03:14:39.196Z | seat | Bash | git grep -n -A2 "('G-RUNNER-GATE'" -- tools/standing/fold/checks.tpl
+  #388 | 2026-11-03T03:14:48.029Z | seat | Bash | git grep -n "G-RUNNER-GATE  " -- data/b734_checks_postpush_standing-a.txt data/b735_checks_postpush_standing-a.txt data/b733_checks_postpush_standing-a.txt
+  #389 | 2026-11-03T03:14:50.387Z | seat | Bash | git grep -n -E "^(EF_RUNS|MAX_DISPATCHES|EF_ROWS|REBUILD_ROWS)" -- tools/b734_worklist.py tools/b736_worklist.py
+  #390 | 2026-11-03T03:14:51.196Z | seat | Bash | git grep -n "rebuild_rows" -- tools/acts/b734.py tools/acts/b736.py
+  #391 | 2026-11-03T03:15:16.416Z | seat | Bash | git grep -n -A16 "^def kernels_untouched" -- tools/standing/fold/checks.tpl tools/standing/*.py
+  #392 | 2026-11-03T03:15:18.568Z | seat | Bash | git grep -n "kernels_untouched\|kern_face\b\|kernels_face" -- tools/standing tools/acts/b736.py tools/acts/b735.py
+  #393 | 2026-11-03T03:15:24.103Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record kernels --act b736
+  #394 | 2026-11-03T03:15:37.553Z | seat | Bash | python -X utf8 -u tools/b736_prepaths.py --bank
+  #395 | 2026-11-03T03:15:43.335Z | seat | Bash | git grep -c "" -- tools/b735_face.py && python -X utf8 -c "print(open('tools/b736_face.py',encoding='utf-8').read()[:1500])"
+  #396 | 2026-11-03T03:15:47.510Z | seat | Bash | python -X utf8 -u tools/b736_face.py
+  #397 | 2026-11-03T03:15:52.533Z | seat | Bash | git status --short -- data/b736_*.txt data/b736_*.json data/b735_steps.json data/act_current.json tools/acts/b736.py tools/b736_*.py tools/b736_face_blocks.txt
+  #398 | 2026-11-03T03:15:56.561Z | seat | Bash | python -X utf8 -u tools/b736_address_scan.py scan --bank
+  #399 | 2026-11-03T03:16:11.997Z | seat | Bash | git add -- data/b736_author_words.txt data/b736_bank_hashes.json data/b736_defects.txt data/b736_hook_refusals.txt data/b736_steps.json tools/acts/b736.py tools
+  #400 | 2026-11-03T03:16:16.327Z | seat | Bash | git commit -q -m "b736 face: the registration composed, the touch read by hand, the guard's dry run, the four figures, the kernels face, the probe-path refusal,
+  #401 | 2026-11-03T03:16:21.856Z | seat | Bash | git grep -h -o -E "#(2[89][0-9]|3[0-9][0-9]) \| [^|]+\| seat \| Bash \| (cd /d/relay && )?python -X utf8 -u tools/(standing/fold.py|b735_[a-z_]+.py)[^|]{0,90}" 
+  #402 | 2026-11-03T03:16:29.809Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/seq735.py
+  #403 | 2026-11-03T03:16:35.730Z | seat | Bash | python -X utf8 -c "import json;J=json.load(open('data/b735_commands.json',encoding='utf-8'));R=J['rows'] if isinstance(J,dict) else J;[print('#%s %s'%(r.get('n'
+  #404 | 2026-11-03T03:16:37.970Z | seat | Bash | git grep -n -E "scores dry|closing dry|lockgate|reg_seal|record seal|--prerun" -- data/b735_commands.txt
+  #405 | 2026-11-03T03:16:45.570Z | seat | Bash | python -X utf8 -c "import json;J=json.load(open('data/b735_steps.json',encoding='utf-8'));R=J.get('rows',J) if isinstance(J,dict) else J;[print(r.get('n'),r.get
+  #406 | 2026-11-03T03:16:49.189Z | seat | Bash | git log --format="%h %ad %s" --date=format:%H:%M:%S -22 d4e0ea02
+  #407 | 2026-11-03T03:16:57.600Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/lockseq.py
+  #408 | 2026-11-03T03:17:06.911Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/lockseq.py
+  #409 | 2026-11-03T03:17:15.128Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate df7c3188 && python -X utf8 -u tools/standing/fold.py record rootdry
+  #410 | 2026-11-03T03:17:30.310Z | seat | Bash | python -X utf8 tools/standing/actmodule.py render b736 HEAD --write && python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt
+  #411 | 2026-11-03T03:17:35.033Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt
+  #412 | 2026-11-03T03:18:40.132Z | seat | Bash | git grep -n -E "PRE-FACE COMMITS|multi-arm|MULTI" -- data/b735_registration_2026-11-02.txt data/b735_reg_gate.txt
+  #413 | 2026-11-03T03:18:43.679Z | seat | Bash | git grep -n -i "multi-arm\|ARM MISSES" -- tools/standing/fold/reg_gate.tpl tools/*.py
+  #414 | 2026-11-03T03:18:45.711Z | seat | Bash | git grep -n -i "ARM MISSES" -- "tools/standing/fold/*.tpl" "tools/b3*.py" "tools/b2*.py"
+  #415 | 2026-11-03T03:18:49.637Z | seat | Bash | git grep -n -E "^(import|from) .* RG\b|as RG$|RG *=" -- tools/standing/fold/reg_gate.tpl
+  #416 | 2026-11-03T03:18:51.888Z | seat | Bash | git grep -n -A30 "^def bar_floor_check" -- tools/registration_gate.py
+  #417 | 2026-11-03T03:18:54.486Z | seat | Bash | git grep -n -E "^(MULTIARM|ARMWORD) *=" -A3 -- tools/registration_gate.py
+  #418 | 2026-11-03T03:18:57.975Z | seat | Bash | git grep -n -E "^(MULTIARM|ARMWORD) *=" -- tools/registration_gate.py
+  #419 | 2026-11-03T03:19:07.651Z | seat | Bash | git grep -n -o -E ".{0,60}\([AaBbUu][0-9]\).{0,60}" -- tools/b736_face_blocks.txt
+  #420 | 2026-11-03T03:19:21.971Z | seat | Bash | python -X utf8 -u tools/b736_face.py && python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt --bank-only
+  #421 | 2026-11-03T03:20:24.036Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record scores dry
+  #422 | 2026-11-03T03:21:13.334Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record scores dry && python -X utf8 -u tools/b736_face.py && python -X utf8 -u tools/standing/fold.py record dry && pyt
+  #423 | 2026-11-03T03:21:45.084Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record trail dry
+  #424 | 2026-11-03T03:21:54.418Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt --bank-only
+  #425 | 2026-11-03T03:22:55.057Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands
 
-### ### **COMMANDS 346 ; G-EDIT-ROUTE OFFENCES 7 (SED IN ANY FORM AMONG THEM 7) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 7 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 37 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 425 ; G-EDIT-ROUTE OFFENCES 7 (SED IN ANY FORM AMONG THEM 7) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 7 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 41 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
