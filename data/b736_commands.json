@@ -1,5 +1,5 @@
 {
- "at": "2026-11-03T03:32:50Z",
+ "at": "2026-11-03T03:33:40Z",
  "anchor": "RULING (R346) BEGIN",
  "rows": [
   {
@@ -3472,6 +3472,38 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b736_address_scan.py scan --bank --quiet && git status --short -uno",
    "n": 434,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:33:02.343Z",
+   "src": "seat",
+   "cmd": "git add -- data/b736_address_scan.txt data/b736_closing_dry.txt data/b736_commands.json data/b736_commands.txt data/b736_pins_stepzero.txt data/b736_prelock.txt data/b736_reg_gate.txt data/b736_regspec_run.txt data/b736_report_dry.txt data/b736_steps.json",
+   "n": 435,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:33:05.848Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b736 gate: the gate's banks at the last probes, the pre-lock comparison CLEAR with 5 newly failing, each on the face; the runner gate VACUOUS and the kernels face read\" && git log -1 --format=%h",
+   "n": 436,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:33:08.995Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate be79dd27 && python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:33:26.148Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b736_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- data/b736_root_banks_dry.json data/b736_root_banks_dry.txt",
+   "n": 438,
    "bg": false
   }
  ],
