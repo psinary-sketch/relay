@@ -1,0 +1,49 @@
+--- main README.md
++++ b736 [96]
+@@ -3 +3,5 @@
+-Kernel verification of the **Formation Distance Theorem** for the Trivium under the formation-block error model. Backs *STRUCTURAL_ERROR_CORRECTION_DRAFT.md*.
++SIDE-structural-error-correction compiles natural-number constants and their relations. Statements at 6bf19ab:
++
++    theorem d_eff_formula : d_eff = 2 * S - 1 (SIDEStructuralErrorCorrection/Basic.lean :103)
++
++d_eff is defined as 2 * S - 1, and the statement unfolds that definition. No statement names a code, an error model, a distance or Knill-Laflamme equivalence.
+@@ -20,2 +23,0 @@
+-**Formation Distance Theorem.** Under the formation-block error model, the effective code distance satisfies
+-
+@@ -27,2 +28,0 @@
+-
+-Contrast with the standard per-component model from SIDE-steane-arithmetic where d = 3 (Steane [[7, 1, 3]]). The formation-block model gives stronger protection on the same cubit substrate.
+@@ -57,2 +56,0 @@
+-- `max_correctable_two` — formation-block model corrects up to 2 stage-weight errors
+-- `max_correctable_standard` — standard model corrects 1 per-component error
+@@ -61 +58,0 @@
+-- `complementarity_weight_2` — weight-2 ↔ weight-1 under K-L equivalence
+@@ -63,2 +59,0 @@
+-- `complementarity_weight_0` — vacuum ↔ full corruption
+-- `full_corruption_complement` — weight-S complement is vacuum
+@@ -67 +61,0 @@
+-- `rank_one` — k = 1 logical qubit
+@@ -69,6 +62,0 @@
+-- `d_eff_tight` — Trivium achieves d_eff = 2S − 1 exactly
+-
+-### §7 — Programme universality
+-- `S_within_universal_max` — Trivium S = 3 within the universal max
+-- `d_eff_universal_max_eq_five` — universal d_eff bound is 5
+-- `trivium_saturates_universal_max` — Trivium saturates the bound
+@@ -77 +64,0 @@
+-- `spectral_volume_eq_twelve` — λ = 12 (same as SIDE-spinor-calibration, SIDE-cubit-axis)
+@@ -79,6 +65,0 @@
+-- `dark_subspace_eq_six` — dark subspace dimension = formation_total − 1
+-- `cubit_substrate_connection` — links to the cubit federation
+-
+-### §9 — Silence-as-Protection
+-- `compartment_count_three` — independent error compartments = S = 3
+-- `silence_yields_protection` — d_eff = 2 · compartments − 1, the Silence Principle applied
+@@ -90 +70,0 @@
+-- The Tightness proof (k = 1 ⇒ rank-1 codespace ⇒ complementarity ⇒ d_eff exact) — kernel verifies the conclusion, not the proof structure
+@@ -103,3 +82,0 @@
+-- **SIDE-structural-error-correction** — **formation-block d_eff = 5**
+-
+-Same cubit substrate; formation-block error model adds the structured-error reading complementary to the per-component Steane reading.
+@@ -117 +93,0 @@
+-*Silence between stages is protection across the substrate.*

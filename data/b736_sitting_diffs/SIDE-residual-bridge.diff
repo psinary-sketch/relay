@@ -1,0 +1,34 @@
+--- main README.md
++++ b736 [92]
+@@ -3,2 +3 @@
+-**Trace 6 of the matter-as-remainder spiral**: the 1/12 weight-3 residual
+-equals exactly Ω_b/12.
++SIDE-residual-bridge compiles decide-closed fraction arithmetic. Statements at cf8a619:
+@@ -6 +5 @@
+-## What is verified
++    theorem residual_eq_omegaB_div_12 : fracEq residual (fdiv omegaB twelve) = true (SIDEResidualBridge/Bridge.lean :104)
+@@ -8,16 +7 @@
+-Given:
+-* Class A baryon density Ω_b = 4/81
+-* DE-mode contribution per weight-1 element: 14/3
+-* DM-mode contribution per weight-2 element: 16/9
+-
+-This kernel proves:
+-1. Sum of three weight-1 contributions = 14
+-2. Sum of three weight-2 contributions = 16/3
+-3. Total dark/visible = 58/3
+-4. Total cosmic = Ω_b · (1 + 58/3) = 244/243
+-5. Deviation from flatness = 244/243 − 1 = 1/243
+-6. **THE BRIDGE**: 1/243 = (4/81)/12 = Ω_b/12
+-
+-The final bridge is the falsifiable sub-percent numerical prediction tying
+-the structural orbit obstruction (SIDE-substrate-cluster v0.4) to a
+-direct cosmological observable.
++Here residual is the fraction (1, 243) and omegaB is (4, 81). The readings as a weight-3 residual, as Ω_b and as a total cosmic quantity are the papers'; no statement carries a bridge from 1/12: at main two statements each compute a 1/12, and the file has them coincide by construction.
+@@ -47 +30,0 @@
+-## Modules
+@@ -49,4 +31,0 @@
+-* `SIDEResidualBridge.Bridge` — Nat-pair fractions, `fracEq` cross-multiplication,
+-  the chain of `decide`-closed numerical theorems landing the 1/12 ↔ Ω_b/12
+-  bridge.
+-

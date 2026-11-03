@@ -1,0 +1,28 @@
+--- main README.md
++++ b736 [64]
+@@ -3,3 +3,5 @@
+-**Trace 7 of the matter-as-remainder spiral**: a concrete instantiation
+-of the SIDE-coupling framework with explicit substrates and a faithful
+-coupling between them.
++SIDE-class-coupling compiles a faithful coupling between two concrete finite substrates. Statements at b6a6e86:
++
++    def SmallA_to_SmallB : FaithfulCoupling SmallA SmallB (SIDEClassCoupling/Concrete.lean :105)
++
++"Trace 7" and the matter-as-remainder spiral are the papers' words for it; no statement names either, and the class of this kernel is a substrate class, with no class number or anomaly in it.
+@@ -34,3 +35,0 @@
+-Plus two derived corollaries witnessing the matter-as-remainder reading
+-concretely:
+-
+@@ -46,5 +44,0 @@
+-This kernel constructs such an instance at the smallest carrier sizes
+-where the structure is non-trivial (Fin 4 / Fin 9 rather than the
+-full-size Fin 81 / Fin 243).  The framework operates identically at
+-any size; the small carriers make every theorem decidable in a single
+-`omega` or `decide` step.
+@@ -56,3 +49,0 @@
+-- **Self-contained**: Re-implements the SIDE-coupling framework with
+-  attribution rather than declaring a Lake dependency (federation
+-  discipline: no Lake cross-deps; sister-kernel content vendored).
+@@ -79,2 +69,0 @@
+-- `SIDEClassCoupling.Framework` — re-implementation of the abstract framework
+-  from SIDE-coupling v0.1 (with attribution comment).

@@ -1,0 +1,44 @@
+--- main README.md
++++ b736 [86]
+@@ -9,5 +9,5 @@
+-`SIDE-meta` formalizes structural architecture that runs across the
+-PLACE TO STAND programme's other kernels and manuscripts — the
+-parametric shape that proof-stack and patent-stack instances both
+-inhabit, the canonical mechanism-class enumeration of ξ(s), and the κ
+-predicate through which conservation strength is recorded.
++SIDE-meta compiles a parametric template, the structure SIDESystem, with the statement that any such system carries its conservation. Statements at 6bb7b23:
++
++    theorem conservation_from_SIDE (S : SIDESystem) : conservation S (SIDEMeta/Meta/SIDESystem.lean :142)
++
++SIDESystem has no inhabitant at this pin, so neither the proof stack nor the patent stack is an instance of it here; MechanismClass has no ξ in any binder, and kappa is a Prop, not a strength.
+@@ -37,4 +37 @@
+-Exhaustiveness.  The parametric theorem
+-`conservation_from_SIDE : ∀ S : SIDESystem, conservation S` is the
+-load-bearing structural template shared between proof-stack and
+-patent-stack instances.
++Exhaustiveness.
+@@ -51,13 +47,0 @@
+-- `TriviumDisc` — inductive type with seven Trivium quadratic
+-  discriminants from generators {2, 3, −1}: `dn1`, `d2`, `dn2`, `d3`,
+-  `dn3`, `d6`, `dn6` corresponding to fields ℚ(√d) for
+-  d ∈ {−1, 2, −2, 3, −3, 6, −6}
+-- `mechanism_class_count`, `trivium_disc_count` — cardinality
+-  theorems, content-bearing as emergent counts from underlying
+-  certifications (the count is consequence, not foundation)
+-
+-The file explicitly documents the §216 obstruction: no canonical
+-partition-preserving bijection between MechanismClass and TriviumDisc
+-exists, because the formation-stage decomposition (2, 3, 2) on the
+-mechanism side doesn't align with the Hamming-weight decomposition
+-(3, 3, 1) on the discriminant side.
+@@ -118,6 +101,0 @@
+-- `conservation_from_SIDE` — parametric SIDESystem template proves
+-  conservation from I+D+S+E (in `SIDESystem.lean`)
+-- `mechanism_class_count = 7` — content-bearing enumeration of CATALOGOS
+-  canonical classes (in `MechanismClasses.lean`)
+-- `trivium_disc_count = 7` — content-bearing enumeration of Trivium
+-  discriminants from {2, 3, −1} generators (in `MechanismClasses.lean`)
+@@ -168,2 +146 @@
+-MIT.  The Conservation Theorem structure formalized here is the
+-load-bearing member of the P-IDENT provisional (USPTO 64/038,311).
++MIT.

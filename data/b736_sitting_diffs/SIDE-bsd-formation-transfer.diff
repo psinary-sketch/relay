@@ -1,0 +1,70 @@
+--- main README.md
++++ b736 [62]
+@@ -5 +5,7 @@
+-Kernel verification of the **BSD Formation Transfer**: the elliptic curve L-function Λ(E, s) inherits ξ(s)'s formation architecture — same tuple (2, 3, 2, 0) = 7, all seven mechanism classes transferring (some via Hasse), architecture fully closed, location of zeros delivered (Re(s) = 1), multiplicity at s = 1 remaining as BSD-specific content.
++SIDE-bsd-formation-transfer is the placement skeleton its banner says it is: arithmetic over the literal tuple (2, 3, 2, 0) and conjunctions of Bool values set by definition. Statements at 3491766:
++
++    theorem formation_transfer_xi_to_bsd : formation_total_BSD = 7 ∧ formation_total_BSD = n1_xi + n2_xi + n3_xi + n4_xi ∧ (∀ c : MechanismClass, transfers c = true) ∧ fully_closed bsd_closure = true ∧ location_transferred = true (SIDEBSDFormationTransfer/Basic.lean :299)
++    theorem bsd_fully_closed : fully_closed bsd_closure = true (SIDEBSDFormationTransfer/Basic.lean :201)
++    theorem Sha_finite : Sha_finite_via_SIDE = true (SIDEBSDFormationTransfer/Basic.lean :285)
++
++Each of these certifies a stipulation only. No statement names L(E, s), a zero, Re(s) = 1, a functional equation in s, a Hasse bound or Ш as a group; the location of zeros, Ш finiteness and the closure of the architecture are where the thesis places them, and nothing here delivers them. BSD stays open.
+@@ -22,6 +27,0 @@
+-The formation tuple (2, 3, 2, 0) = 7 is preserved under transfer from ξ to L(E, s). All seven mechanism classes transfer; four (sqrt, reality, cauchy_riemann, spectral) unconditionally, three (balance, modular, hadamard) via Hasse's bound |a_p| ≤ 2√p in the role |χ(p)|² = 1 played for ξ. The critical line shifts from Re(s) = 1/2 to Re(s) = 1 (Inversion Analyzer). The architecture is fully closed (Closure Certifier).
+-
+-What the transfer delivers:
+-- **LOCATION**: all nontrivial zeros of L(E, s) lie on Re(s) = 1 (elliptic GRH analogue)
+-- **Ш finiteness**: via SIDE catalogue exhaustion (six frameworks all bound, none grow)
+-
+@@ -29 +29 @@
+-- **MULTIPLICITY**: ord_{s=1} L(E, s) = rank(E(ℚ)). The multiplicity at s = 1 is a question INSIDE the closed system, addressable by SIDE on the multiplicity content but not by the transfer itself.
++- **MULTIPLICITY**: ord_{s=1} L(E, s) = rank(E(ℚ)).
+@@ -34,3 +33,0 @@
+-- L(E, s) tuple (2, 3, 2, 0), total 7 (`formation_total_seven`)
+-- Same as ξ tuple coordinate-by-coordinate (`same_n1` … `same_n4`)
+-- Joint preservation (`formation_preserved`)
+@@ -39,5 +35,0 @@
+-### §3 — Seven mechanism classes
+-- All transfer: `all_seven_transfer`
+-- Hasse-independent: C1 sqrt, C2 reality, C3 cauchy_riemann, C6 spectral
+-- Hasse-dependent: C4 balance, C5 modular, C7 hadamard
+-
+@@ -45,2 +36,0 @@
+-- ξ's critical line at 1/2, L(E,s)'s critical line at 1 (`critical_lines_distinct`)
+-- Functional equations s → 1 − s vs s → 2 − s (`functional_equations_shift`)
+@@ -48,26 +37,0 @@
+-
+-### §5 — Closure Finding
+-- All four specification stages closed (`bsd_fully_closed`)
+-- BSD is architecturally complete — sorry is about multiplicity, not architecture
+-
+-### §6 — Location vs Multiplicity decomposition
+-- `location_transferred` = true (delivered)
+-- `multiplicity_specific_not_transferred` = true (recognized as separate content)
+-- `bsd_decomposition`: the two facts hold simultaneously
+-
+-### §7 — Parity prediction (bonus from C₂)
+-- Root number w_E = +1 → no forced zero (`parity_positive_no_forced`)
+-- Root number w_E = −1 → forced zero at s = 1 (`parity_negative_forced`)
+-- Agrees with BSD parity conjecture (odd rank when w_E = −1)
+-
+-### §8 — Ш Finiteness via SIDE
+-- Six frameworks each bound Ш (Kolyvagin, Iwasawa, Brauer-Manin, descent/Selmer, modularity, p-adic)
+-- `all_frameworks_bound`: every framework bounds
+-- SIDE Exclusion → Ш finite (`Sha_finite`)
+-
+-### §9 — Headline Theorem
+-- `formation_transfer_xi_to_bsd`: tuple total 7 ∧ same as ξ ∧ all seven transfer ∧ closed ∧ location delivered
+-
+-### §10 — Programme kernel connections
+-- Chain length under Compression Theorem = 7 (matches `SIDE-compression`)
+-- Silent interface κ × 100 = 0 (matches `SIDE-silence-principle`)
+@@ -82 +46 @@
+-The kernel verifies the **structural architecture** of the BSD reduction. The mathematical content of each transfer step lives in the corpus and in the existing mathematical literature.
++The mathematical content of each transfer step lives in the corpus and in the existing mathematical literature.
+@@ -99,3 +62,0 @@
+-| **SIDE-bsd-formation-transfer** | **Architecture inherited; location delivered; multiplicity isolated** |
+-
+-This kernel makes BSD's reduction status independently auditable: the Closure Finding (architecture complete) and the location/multiplicity decomposition are kernel-verified, separating what the programme HAS delivered (location, Ш finiteness, architecture closure) from what remains (multiplicity at s = 1).
+@@ -113 +73,0 @@
+-*The formation (2, 3, 2, 0) = 7 is the same in both. Hasse moves what χ moves.*

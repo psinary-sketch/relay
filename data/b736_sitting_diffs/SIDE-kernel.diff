@@ -1,0 +1,36 @@
+--- main README.md
++++ b736 [82]
+@@ -3 +3,8 @@
+-Lean 4 formalization of the SIDE proof of the Riemann Hypothesis.
++SIDE-kernel compiles, over Mathlib, the logical structure of a two-leg approach to the Riemann Hypothesis. It holds no unconditional term of type RiemannHypothesis. Statements at 2957e7d:
++
++    theorem riemann_hypothesis (h_cons : ConservationHypothesis) : RiemannHypothesis (Bridge/ConservationBridge.lean :53)
++    theorem structural_exhaustiveness_iff_rh : StructuralExhaustiveness ↔ RiemannHypothesis (Kernel/Integration.lean :252)
++    theorem spectral_cannon (t : ℝ) : (deriv completedRiemannZeta₀ ⟨1/2, t⟩).re = 0 (Kernel/SpectralCannonFull.lean :65)
++    theorem silence_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero (Kernel/SilenceTheorem.lean :74)
++
++The premise ConservationHypothesis is the Riemann Hypothesis restated (ERRATA E-2026-09-25-1), and the second statement is an equivalence, so neither proves it. spectral_cannon speaks of Mathlib's completedRiemannZeta₀; silence_universal holds over an abstract interface, and no statement uses Tate's thesis. The default target lean_lib Kernel does not reach Bridge/. The Riemann Hypothesis stays open.
+@@ -55,16 +61,0 @@
+-Running `lake build` verifies the Riemann Hypothesis theorem end-to-end against Mathlib, with zero `sorry` and zero custom axioms.
+-
+-**Three load-bearing theorems:**
+-
+-- `RiemannHypothesis` in `Kernel/Integration.lean` — every nontrivial zero of the Riemann zeta function has real part 1/2 (Mathlib's definition). The headline theorem. Derived from `StructuralExhaustiveness` via the SIDE Exclusion Principle.
+-- `structural_exhaustiveness_proved` in `Bridge/TheBridgeComplete.lean` — the seven mechanism classes are exhaustive, and cross-class exclusion shows no class produces the algebraic signature of an off-line zero. Proved unconditionally.
+-- `silence_universal` in `Kernel/SilenceTheorem.lean` — the Universal Silence Theorem: the product formula is spectrally silent, proved from Tate's thesis.
+-
+-`produces_offline` is defined as a meaningful proposition for each of the seven mechanism classes — what it would mean for that class to produce a zero off the critical line — and then refuted by a named Voice theorem. No wildcard. No definitional `False`. Seven derivations from seven compiled Voice theorems.
+-
+-**Three independent routes reach the conclusion:**
+-
+-1. Seven mechanism classes (`Bridge/TheBridgeComplete`) with cross-class exclusion forbidding off-line zeros.
+-2. Codimension / Spectral Cannon (`Kernel/SchwarzDischarge` + `Kernel/Voice3b` + `Kernel/PerpendicularCrossing`) via perpendicular crossing of ξ'(1/2+it) = 0 combined with Schwarz reflection.
+-3. Conservation of Spectra via Tate's thesis, closing from spectral silence of the product formula to the Riemann Hypothesis.
+-
+@@ -86 +76,0 @@
+-- Per-component declaration count: Kernel/ 409, Bridge/ 97, MetaKernel.lean 54
+@@ -97,2 +86,0 @@
+-- `TheBridgeComplete.lean` — SE proved, 7 derived exclusions, Ostrowski from Mathlib
+-- `CSSThreshold.lean` — Steane [[7,1,3]] threshold verified by `decide` (`native_decide` eliminated corpus-wide at `v1.2`)
+@@ -104 +91,0 @@
+-- `Bridge/` — Files compiling against Mathlib, grounding abstract types in Mathlib API

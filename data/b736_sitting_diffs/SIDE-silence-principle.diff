@@ -1,0 +1,52 @@
+--- main README.md
++++ b736 [94]
+@@ -3 +3,6 @@
+-Kernel verification of the **Silence Principle** in load-bearing form. Standalone audit of the four-step chain, load-bearing instances, tested panel, falsification scope, the six consequences from *Silence and Emergence*, and the bridge to Structural Error Correction.
++SIDE-silence-principle compiles a chain over Bool fields and an abstract statement on interfaces. Statements at 667c254:
++
++    theorem silence_principle (I : Interface) : chain_holds I = true → I.essential = true → isSilent I = true (SIDESilencePrinciple/Basic.lean :118)
++    theorem silence_universal {C : ConfigurationSpace} {R : Type} (I : Interface C R) (h_univ : I.is_universal) : I.kappa_zero (SIDESilencePrinciple/Basic.lean :181)
++
++The chain's step implications enter as hypotheses through chain_holds, so no statement proves that essential implies universal or that universal implies constant action. The tested systems are bare constructors. Of the six consequences, A, D and F appear as aliases or arithmetic; B, C and E were removed as vacuous at this pin and are manuscript-resident.
+@@ -18,2 +22,0 @@
+-**Silence Principle.** In a coupled system with independent structures, an interface I that is essential carries zero information about behavioral parameters: κ(P, I) = 0.
+-
+@@ -21,6 +23,0 @@
+-
+-```
+-essential  ⇒  universal  ⇒  constant action  ⇒  silent (κ = 0)
+-```
+-
+-Each step is a structural implication. The chain is verified at the propositional level by Lean's `decide`.
+@@ -35 +31,0 @@
+-- `step1` through `step4` as Bool implications
+@@ -42,2 +37,0 @@
+-- `product_formula` (∏_v |x|_v = 1): essential, universal, constant, κ = 0
+-- `distributive_law` (a(b+c) = ab+ac): essential, universal, constant, κ = 0
+@@ -47 +40,0 @@
+-- Ten essential interfaces from number theory, physics, biology, linguistics, computation, law
+@@ -54,9 +46,0 @@
+-- The principle's scope is structurally defined, not stipulated
+-
+-### §7 — The six consequences
+-- **A. Firewall**: silent interfaces isolate behavioral perturbations
+-- **B. Independence derived**: I-axiom of SIDE follows from silence
+-- **C. SIDE Exclusion applicable**: sealed darkness enables exhaustive enumeration
+-- **D. Resolution floor**: 1/(N · p_min); verified for Trivium (1/14), Ω_b (1/243), cubit (1/16)
+-- **E. Structural-zero dynamics**: silent interfaces produce structural zeros
+-- **F. Emergence at dark joints**: essential ∧ silent supports emergence
+@@ -66 +49,0 @@
+-- `silence_yields_protection`: d_eff = 2 · (silent compartments) − 1
+@@ -70 +52,0 @@
+-- Verified classifications for the load-bearing instances and the panel
+@@ -75,2 +56,0 @@
+-- The "non-local propagation" claim of Consequence E (encoded structurally as "produces a structural zero," but the speed-of-propagation comparison requires dynamical analysis beyond the kernel's scope)
+-- The mathematical derivation of κ = 0 for the product formula (load-bearing for RH, formally proved in SIDE-kernel via Conservation of Spectra; the result is restated here)
+@@ -78 +58 @@
+-The kernel verifies the **logical architecture** of the Silence Principle and its **structural consequences**. The empirical κ measurements and the analytic derivation of κ = 0 for specific cases live elsewhere (Interfacets tool; SIDE-kernel Conservation of Spectra chapter).
++The empirical κ measurements and the analytic derivation of κ = 0 for specific cases live elsewhere (Interfacets tool; SIDE-kernel Conservation of Spectra chapter).
+@@ -91 +70,0 @@
+-- **SIDE-silence-principle** — **standalone formal architecture: four-step chain, six consequences, falsification scope**
+@@ -93,2 +71,0 @@
+-
+-The three kernels triangulate the Silence Principle: the existing SIDE-kernel anchors the load-bearing instances within the RH proof, this kernel formalizes the architecture standalone, and the SEC kernel shows the principle's consequence for error correction.

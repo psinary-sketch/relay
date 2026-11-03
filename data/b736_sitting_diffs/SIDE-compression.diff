@@ -1,0 +1,41 @@
+--- main README.md
++++ b736 [66]
+@@ -3 +3 @@
+-Kernel verification of the **Compression Theorem**: when a determined system satisfies (a) exhaustive mechanism catalogue, (b) dark interfaces (κ = 0, Silence Principle), and (c) finite check per class, the derivation chain length equals N, the formation total — regardless of how many objects (finite or infinite) are being certified.
++SIDE-compression compiles a statement on finite catalogues and a statement on a record of flags. Statements at e9a5a36:
+@@ -5 +5,4 @@
+-For ξ(s): seven mechanism classes certify infinitely many zeros. Compression factor ∞/7.
++    theorem compression {α : Type} {N : Nat} (C : Catalogue α N) (violates : α → Prop) (hex : Exhaustive C violates) (hchecks : ∀ i, ClassClear C i) : ∀ x, ¬ violates x (SIDECompression/ChainLength.lean :39)
++    theorem silence_yields_compression (X : SIDEInstance) : allConditionsMet X.conditions = true → X.chainLength = X.formationTotal → compressionHolds X = true (SIDECompression/Basic.lean :245)
++
++The first says that an exhaustive catalogue cleared class by class clears every object, with no interface hypothesis. The second takes X.chainLength = X.formationTotal as a hypothesis, chainLength being a hand-set field, so no statement concludes that chain length equals N from the conditions. No statement names ξ(s), a zero or the Silence Principle.
+@@ -23 +25,0 @@
+-chain length = N   when (a) exhaustive ∧ (b) dark interfaces ∧ (c) finite check
+@@ -25,2 +26,0 @@
+-
+-Condition (b) is the Silence Principle's κ = 0. The Compression Theorem is Consequence A of Silence applied to information content: dark interfaces isolate behavioral perturbations, so one check per mechanism class certifies all objects simultaneously.
+@@ -45,5 +44,0 @@
+-### §5 — Specific chain lengths and object counts
+-- ξ(s) chain length = 7, objects infinite
+-- Platonic chain length = 3, objects = 5
+-- Hurwitz chain length = 2, objects = 4
+-
+@@ -52 +46,0 @@
+-- ξ(s) in compression regime; finite SIDE instances in protection regime
+@@ -57,5 +50,0 @@
+-- `infinitely_unsaturated`: |objects| = ∞ (ξ(s))
+-
+-### §8 — Bridge to Silence Principle
+-- `silence_implies_compression_eligible`: condition (b) = κ = 0
+-- `silence_yields_compression`: structural implication theorem
+@@ -74,2 +63 @@
+-- The general Compression Theorem proof — requires model-theoretic content (every "off-target behavior" traces to some mechanism class given exhaustive catalogue + dark interfaces) that lives in `COMPRESSION_THEOREM_DRAFT.md` §2. The kernel verifies the **conclusion** at each instance.
+-- The Difficulty = chain_length × interface_brightness equation — kernelized only at the bound level (`maxChainLength`), not as a general continuous-κ formula.
++- The general Compression Theorem proof — requires model-theoretic content (every "off-target behavior" traces to some mechanism class given exhaustive catalogue + dark interfaces) that lives in `COMPRESSION_THEOREM_DRAFT.md` §2.
+@@ -91 +78,0 @@
+-| **SIDE-compression** | **Chain length = N when conditions hold** |
+@@ -94,2 +80,0 @@
+-
+-The Compression Theorem and the Formation Distance Theorem are complementary: Compression governs the chain length (information bandwidth) under dark interfaces; Formation Distance governs the d_eff (error-correction capacity) of those same dark compartments.
+@@ -107 +91,0 @@
+-*Seven checks for infinitely many zeros. Compression is what dark interfaces do.*

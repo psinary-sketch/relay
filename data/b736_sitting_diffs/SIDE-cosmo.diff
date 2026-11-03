@@ -1,0 +1,40 @@
+--- main README.md
++++ b736 [68]
+@@ -3 +3 @@
+-Cosmological extension of the SIDE Exclusion Principle.
++SIDE-cosmo compiles natural-number arithmetic on a four-component tuple: slot counts for the tuple xi, a wall-squared identity, a strict inequality between visible and total slots, and Fano-incidence arithmetic. Statements at 95d2540:
+@@ -5,2 +5,7 @@
+-Lean 4 formalization of formation phase space and Fano incidence,
+-with the dark sector theorem and the prediction Ω_b = 4/81.
++    theorem xi_total : total_slots xi = 81 (SIDECosmo/FormationPhaseSpace.lean :59)
++    theorem xi_visible : visible_slots xi = 4 (SIDECosmo/FormationPhaseSpace.lean :60)
++    theorem xi_dark : dark_slots xi = 77 (SIDECosmo/FormationPhaseSpace.lean :61)
++    theorem xi_wall_sq : total_slots xi = (stormer_wall xi) ^ 2 (SIDECosmo/FormationPhaseSpace.lean :63)
++    theorem dark_sector_exists (f : FormationTuple) (h : f.prim < f.trans) (h3 : f.output > 0) : visible_slots f < total_slots f (SIDECosmo/FormationPhaseSpace.lean :36)
++
++These compute naturals; no ratio is formed, and no statement names a cosmological object, Ω_b, a prediction, the SIDE Exclusion Principle or GL(3,𝔽₂), whose 168 = 24 × 7 stands here as a product of naturals. At this pin the xi statements close by native_decide; at main they close by decide.
+@@ -10,3 +14,0 @@
+-- `SIDECosmo/FormationPhaseSpace.lean` — 14 theorems
+-  - Dark sector theorem (`prim < trans → dark > 0`)
+-  - Silence at the formation boundary
+@@ -14 +15,0 @@
+-  - Ω_b = 4/81 = 0.04938 (machine-verified for the (2,3,2,0) tuple)
+@@ -17 +17,0 @@
+-  - Propositional logic decidable
+@@ -23,3 +22,0 @@
+-  - Formation total = Fano point count
+-  - |GL(3,𝔽₂)| = 168 = 24 × 7
+-  - Characteristic 2 (orientation reversal)
+@@ -31 +27,0 @@
+-- 0 axioms (beyond ZFC)
+@@ -33,10 +28,0 @@
+-
+-## Empirical predictions
+-
+-| Quantity | Predicted | Measured | Status |
+-|:---------|:----------|:---------|:-------|
+-| Ω_b (baryon density) | 0.04938 | 0.04930 ± 0.00059 (Planck 2018) | 0.14σ ✓ |
+-| ΔH₀ (Hubble tension) | 6.65 km/s/Mpc | 6.14 ± 0.97 (H0DN) | 0.53σ ✓ |
+-| w (dark energy EoS) | -1 | -0.996 ± 0.046 (DESI DR2) | 0.07σ ✓ |
+-| Dark matter direct | null | null (LZ, XENON, PandaX) | ✓ |
+-| Cosmic topology | 𝕋₇ (7 matched arcs) | unmeasured | Pending |

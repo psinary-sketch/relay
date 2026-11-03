@@ -1,0 +1,46 @@
+--- main README.md
++++ b736 [88]
+@@ -3 +3,7 @@
+-**The PLACE TO STAND Research Programme — Ω_b Derivation Kernel**
++SIDE-omega-b compiles a pair of naturals computed from a tuple the file defines. Statements at 9c80279:
++
++    theorem omega_b_equals_4_over_81 : arithmeticSubstrate.omega = ⟨4, 81⟩ (SIDEOmegaB/Theorem.lean :130)
++    def arithmeticSubstrate : Formation (SIDEOmegaB/Theorem.lean :114)
++    def Formation.omega (f : Formation) : OmegaPrediction (SIDEOmegaB/Theorem.lean :100)
++
++The pair is ⟨4, 81⟩. Its reading as Ω_b and as the last step of a derivation chain is the paper's: no statement names Ω_b or a chain.
+@@ -8,20 +13,0 @@
+-
+-This kernel formalizes the **final arithmetic step** of the Ω_b
+-derivation chain in vanilla Lean 4 with no Mathlib dependency, no
+-`sorry`, and no axioms.
+-
+-The derivation chain:
+-
+-```
+-  ℤ as base algebra
+-  → {2, 3} as the smallest primes
+-  → Størmer's theorem (1897) on consecutive {2, 3}-smooth integers
+-  → formation tuple (n₁, n₂, n₃, n₄) = (2, 3, 2, 0)
+-  → Ω formula Ω = n₁^{n₃} / n₂^{n₁ + n₃}
+-  → Ω = 4 / 81 ≈ 0.04938
+-```
+-
+-Empirical confirmation: Planck 2018 measures Ω_b = 0.04930 ± 0.00066,
+-selecting the arithmetic-substrate class at 0.13σ and excluding
+-alternative substrate classes (Gravitational, Gauge, Information) at
+-18.6σ to 351σ.
+@@ -42 +27,0 @@
+-- **`SIDE-omega-b`** — *this kernel*: Ω_b = 4/81 forward derivation
+@@ -77,2 +62 @@
+-What this kernel does is close the **final arithmetic step** of the
+-derivation chain in machine-verified form.  Previously,
++Previously,
+@@ -91 +75 @@
+-Class A is formalized here.  The specific formation tuples for
++The specific formation tuples for
+@@ -107,3 +91 @@
+-MIT.  The Ω_b derivation structure is an empirical prediction from
+-the SIDE methodology applied to cosmology; no patent claims are
+-encoded in this kernel.
++MIT.

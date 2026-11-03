@@ -1,0 +1,32 @@
+--- main README.md
++++ b736 [60]
+@@ -9 +9,5 @@
+-This kernel formalizes the **corpus-level Identity-Formation Bijection
++SIDE-bijection compiles a structure, IDSSystem, and the statement that its identity map is bijective at each of four stages. Statements at a26f6f1:
++
++    theorem identity_formation_bijection (S : IDSSystem) : ∀ stage : Fin 4, Bijective (S.identityOf stage) (SIDEBijection/Theorem.lean :134)
++
++The proof pairs the structure's own fields distinctness and noOrphans, so the statement restates what an IDSSystem is assumed to carry: the paper's Lemmas 3.1 and 4.1 enter as those fields, and no corpus-level object is compiled.
+@@ -41,2 +44,0 @@
+-- **`SIDE-bijection`** — *this kernel*: corpus-level Identity-Formation
+-                         Bijection
+@@ -71 +72,0 @@
+-- `statement_a_existence_uniqueness` — Lemma 2.1 restated
+@@ -74,2 +75 @@
+-- `identity_formation_bijection` — **statement (d)**: the
+-  identity-assignment is a bijection at each formation stage.  Proved
++    Proved
+@@ -85,6 +85 @@
+-requires `Fintype` instances.  Statement (e) is named in the file as a
+-proposition that becomes a theorem when Fintype-compatibility is
+-added.  No structural content is lost at the skeleton level —
+-`Bijective` is the categorical condition for cardinality equality, and
+-the Fintype-instantiated version follows automatically when those
+-instances exist.
++requires `Fintype` instances.
+@@ -119,5 +113,0 @@
+-2. The paper-only-to-kernel-verified asymmetry for one of the
+-   load-bearing structural results — Identity-Formation Bijection at
+-   corpus level is now machine-verified at the structural-skeleton
+-   level.
+-

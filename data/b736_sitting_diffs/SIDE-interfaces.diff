@@ -1,0 +1,44 @@
+--- main README.md
++++ b736 [80]
+@@ -3 +3 @@
+-Lean 4 kernel for the **interface vocabulary** of the PLACE TO STAND research programme: per-parameter conservation strength κ, conservation profiles, and the existence theorems that say *connection requires structure*.
++SIDE-interfaces compiles a ConservationProfile structure over a finite parameter type, and three statements. Statements at 1728796:
+@@ -5 +5,5 @@
+-This kernel is one of several composing the formal infrastructure for a proof of the Riemann Hypothesis via the SIDE Exclusion Principle. It sits between the foundational [SIDE-kernel](https://github.com/psinary-sketch/SIDE-kernel) (formation primitives, ξ structure, mechanism theorem) and the downstream domain kernels (SIDE-trivium, SIDE-cosmo, SIDE-effects), giving them a shared vocabulary for talking about what an interface transmits and what it conserves.
++    theorem connection_requires_structure {params : Type} [Fintype params] (P : ConservationProfile params) (h_nontrivial : NontrivialInterface P) (h_bimodality : ∀ x, P.kvec x < (45 : Real) / 100 ∨ (75 : Real) / 100 <= P.kvec x) : ∃ x : params, StructuralWitness P x (Interfaces/ConnectionRequiresStructure.lean :22)
++    theorem parametric_mechanism_theorem {A B : Type} [Fintype A] (P : B -> Real) (f : A -> B) (a0 : A) (h_no_mechanism : ∀ a : A, P (f a) = P (f a0)) : kappa P f a0 = 0 (Interfaces/ConnectionRequiresStructure.lean :41)
++    theorem rank_decomposition (P : ConservationProfile params) : structuralRank P + splitRank P + continuousRank P = dim P (Interfaces/ConservationProfile.lean :38)
++
++connection_requires_structure concludes one witness and only under its bimodality premise, and it alone concludes an existential. The profile's field kvec is tied by no statement to a measured conservation strength.
+@@ -33,2 +36,0 @@
+-with `κ = 0` meaning the interface is P-dark (no perturbation is detected) and `κ > 0` meaning the interface transmits some P-information.
+-
+@@ -43,12 +44,0 @@
+-### `Interfaces.ConservationProfile`
+-
+-A `ConservationProfile params` is a vector of κ values, one per parameter in a finite parameter space. It comes with three rank classifications:
+-
+-- `structuralRank` — count of parameters with κ ≥ 0.75 (transmitted, stable)
+-- `splitRank` — count of parameters with κ < 0.45 (dark, content-side)
+-- `continuousRank` — count of parameters with 0.45 ≤ κ < 0.75 (gradient-bearing)
+-
+-These lift INTERFACETS Definition 7.3 (rank of an interface) and the Structure-Content Decomposition (§7.5) to the kernel level.
+-
+-The threshold partition cardinality theorem `rank_decomposition` (proved at v0.1.3) establishes that these three ranks sum to the total parameter count — the three threshold-defined subsets partition `Finset.univ`.
+-
+@@ -57,2 +46,0 @@
+-Two existence theorems:
+-
+@@ -60 +47,0 @@
+-- `parametric_mechanism_theorem` — The kernel-level Parametric Mechanism Theorem: per-parameter, κ = 0 if and only if no A-side perturbation affects the B-side observable for that parameter. Delegates to `kappa_zero_of_no_mechanism`.
+@@ -65,5 +51,0 @@
+-
+-This kernel uses **Reading 1 (transmission)** as canonical, for two reasons established by direct test against settled instances:
+-
+-- **Product formula**: typed κ = 0 in `MetaKernel.lean`. Reading 1 (transmission) gives κ = 0 (correct). Reading 2 (instantiation invariance) gives κ = 1 (incorrect).
+-- **Dark cosmological sector**: cited κ = 0 in published synthesis. Reading 1 gives κ = 0 (correct).
+@@ -94 +75,0 @@
+-| Lines of Lean | ~510 |
+@@ -98 +79 @@
+-- **SIDE-kernel** (https://github.com/psinary-sketch/SIDE-kernel) — provides Formation primitives, ξ structure, Mechanism Theorem foundations. SIDE-interfaces consumes and re-exports. Zenodo DOI 10.5281/zenodo.19674313.
++- **SIDE-kernel** (https://github.com/psinary-sketch/SIDE-kernel) — provides Formation primitives, ξ structure, Mechanism Theorem foundations. Zenodo DOI 10.5281/zenodo.19674313.

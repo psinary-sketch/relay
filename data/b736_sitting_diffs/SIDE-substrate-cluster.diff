@@ -1,0 +1,29 @@
+--- main README.md
++++ b736 [98]
+@@ -9,4 +9,5 @@
+-This kernel formalizes the {2,3}-substrate — the nontrivial elements
+-of (ℤ/2)³ — and its four canonical realizations in the PLACE TO STAND
+-corpus, with the Hamming-weight partition (3, 3, 1) preserved across
+-all four labelings.
++SIDE-substrate-cluster compiles seven-constructor labelings and the agreement of their weight tables. Statements at 06b61c3:
++
++    theorem cluster_bijection_family : (∀ s : Substrate, s.toTrivium.weight  = s.weight) ∧ (∀ s : Substrate, s.toFano.weight     = s.weight) ∧ (∀ s : Substrate, s.toSteane.columnWeight = s.weight) ∧ (∀ s : Substrate, s.toT7.weight       = s.weight) (SIDESubstrateCluster/Cluster.lean :50)
++
++At this pin no statement names (ℤ/2)³ \ {0} as a group or says any labeling realizes it; main adds a list of 168 invertible Boolean matrices acting on Bool triples, tied to no labeling.
+@@ -16,11 +16,0 @@
+-| Labeling | Context | Source |
+-|---|---|---|
+-| **Trivium** | Quadratic discriminants from generators {2, 3, −1} | TRIVIUM_The_Third_Identity_Element §3 |
+-| **Fano** | Points of PG(2, 𝔽₂) | FANO_PLANE_OF_ARITHMETIC |
+-| **Steane** | Physical qubits of the [[7, 1, 3]] Steane code | ARITHMETIC_ORIGIN_STEANE_CODE_v3 |
+-| **𝕋₇** | Möbius strips of the Klein-bottle topology | klein_trivium.pdf |
+-
+-Each is a canonical realization of the same (ℤ/2)³ \ {0} substrate.
+-Pairwise bijections between any two labelings exist via composition
+-through substrate, and all are partition-preserving.
+-
+@@ -28,2 +17,0 @@
+-- `SIDESubstrateCluster.cluster_bijection_family` — the packaged
+-  four-way Test 1 theorem
+@@ -53 +40,0 @@
+-- `cluster_bijection_family` — the four-way Test 1 packaged

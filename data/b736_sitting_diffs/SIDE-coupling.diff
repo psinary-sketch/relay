@@ -1,0 +1,33 @@
+--- main README.md
++++ b736 [70]
+@@ -3 +3 @@
+-Formalises the two open formalization targets of MATTER_AS_ARITHMETIC §V.2 Item 7:
++SIDE-coupling compiles a Coupling structure between arbitrary abstract substrates, its faithful form and a local observer, with two statements on primitive accessibility. Statements at 42b5e4e:
+@@ -5,3 +5,2 @@
+-**(i) Class A ↔ Class C coupling map.** The `Coupling` structure between
+-abstract substrates, with the `primitive_preserving` axiom and the proven
+-`coupling_preserves_accessibility` theorem.
++    theorem coupling_preserves_accessibility {A B : AbstractSubstrate} (coup : Coupling A B) (c : A.Config) : primitiveAccessible A c → primitiveAccessible B (coup.map c) (SIDECoupling/Coupling.lean :39)
++    theorem faithful_detected_image_iff_primitive_source {A B : AbstractSubstrate} (coup : FaithfulCoupling A B) (obs : LocalObserver B) (c : A.Config) : obs.detected (coup.toCoupling.map c) ↔ primitiveAccessible A c (SIDECoupling/Projection.lean :90)
+@@ -9,3 +8 @@
+-**(ii) Local-α projection theorem.** The `LocalObserver` structure with the
+-`primitiveOnly` axiom and the proven `local_alpha_is_primitive_projection`
+-theorem.
++Both hold over arbitrary substrates. The readings as the Class A and Class C coupling and as local alpha are the paper's targets: no statement names them.
+@@ -19 +15,0 @@
+-theorem local_alpha_is_primitive_projection
+@@ -21 +16,0 @@
+-theorem coupling_preserves_accessibility
+@@ -28,2 +22,0 @@
+-Plus the `Coupling.id` and `Coupling.comp` constructors (functorial structure).
+-
+@@ -31,9 +23,0 @@
+-
+-If Class A (ℤ-arithmetic substrate) is coupled to Class C (gauge substrate)
+-through a faithful coupling, then local-α observation on Class C detects
+-exactly the images of Class A's primitive-accessible configurations. The
+-visible/dark partition in Class A maps to the detected/undetected partition
+-in Class C via the faithful coupling.
+-
+-This is the abstract formalisation of the matter-as-remainder reading
+-(MATTER_AS_ARITHMETIC v0.4 §V.2):

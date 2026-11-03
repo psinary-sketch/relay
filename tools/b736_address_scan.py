@@ -97,13 +97,25 @@ def count(text, needle):
 
 
 def added(diff):
-    return NL.join(l[1:] for l in diff.split(NL) if l.startswith('+') and not l.startswith('+++'))
+    """the lines a diff adds, less any it removes verbatim: a line the diff shows moved is no new occurrence (b736 [88]: a byline standing once at HEAD and once after, shown - and +)."""
+    gone, out = {}, []
+    for l in diff.split(NL):
+        if l.startswith('-') and not l.startswith('---'):
+            gone[l[1:]] = gone.get(l[1:], 0) + 1
+    for l in diff.split(NL):
+        if l.startswith('+') and not l.startswith('+++'):
+            if gone.get(l[1:], 0):
+                gone[l[1:]] -= 1
+            else:
+                out.append(l[1:])
+    return NL.join(out)
 
 
 SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R346)(3): the act's one kernel branch, by its ref; b735 defect (p): its commits land in this repository, so the scan reads each at the commit
 if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b736_kernel_bases.json')):   # ### (R346)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
     SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b736_kernel_bases.json'), encoding='utf-8')).items()))
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b736, (R346)(3) and (5): item [46]'s byline and two self-citations, under I-23
+BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md')   # ### b736 defect (r): the (A1) edition carries v0.6's byline at :15 and, until its repair commit, v0.6's quotation of it; named at the bank's exception line
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
 
@@ -117,7 +129,7 @@ def split_byline(diff):
     """### b736: the diff less BYLINE_FILE's section, and that section's added lines."""
     rest, by = [], []
     for sec in ('\n' + diff).split('\ndiff --git '):
-        (by if sec.split(NL, 1)[0].endswith('/' + BYLINE_FILE) else rest).append(sec)
+        (by if sec.split(NL, 1)[0].endswith(tuple('/' + f_ for f_ in BYLINE_FILES)) else rest).append(sec)
     return '\ndiff --git '.join(rest), added(NL.join(by))
 
 
@@ -154,6 +166,7 @@ def scan(*a):
     s = 'control %s between %s end %s' % (addr, uname, orcid)   # ### b736: the author's word's control, one string built and dropped in memory
     ctl.append(('the address and the previous user.name, once each', count(s, addr) == 1 and count(s, uname) == 1))
     ctl.append(('a planted line carrying the ORCID', count('x %s y' % orcid, orcid) == 1 and count('x %s y' % orcid, addr) == 0 and count('the noreply form ' + NOREPLY, orcid) == 0))
+    ctl.append(('a moved line is not added, a new line and a second copy are', added('-a\n+a\n+b') == 'b' and added('-a\n+a\n+a') == 'a'))
     ctl.append(('the ORCID excepted in the byline alone', all(excepted(k, 0, 0, 0, count(s, orcid)) == (k == BYLINE_KIND)
                                                              for k in (BYLINE_KIND, 'commit added lines', 'commit message', 'untracked bank'))))
     del s
@@ -186,7 +199,7 @@ def scan(*a):
     L += ['  %-28s %4d ; %d ; %d ; %d ; %d' % (k, v[0], v[1], v[2], v[3], v[4]) for k, v in sorted(by.items())]
     hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if kind != BYLINE_KIND and (count(text, addr) or count(text, name) or count(text, uname) or count(text, orcid))))
     L += ['', '## THE PLACES WITH AN OCCURRENCE (by place, never the text): %s' % ('; '.join(hits) if hits else 'NONE')]
-    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R346)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R346)(5), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, 'THE ORCID: %d' % no, '',
           '### ### **PREVIOUS ADDRESS: %d ; THE AUTHOR`S NAME: %d ; PREVIOUS NAME: %d ; THE ORCID: %d ; PLACES %d ; CONTROLS %d OF %d AS WANTED ; %d s.**' % (
               na, nn, nu, no, len(P), len(ctl), len(ctl), int(time.time() - t0))]

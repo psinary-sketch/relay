@@ -1,0 +1,62 @@
+--- main README.md
++++ b736 [78]
+@@ -3,2 +3 @@
+-**Radial trace kernel** covering Traces 2 and 3 of the matter-as-remainder
+-spiral (see SPIRAL_MAP §3.2):
++SIDE-formation-arithmetic compiles natural-number arithmetic over a formation tuple. Statements at ef0fcf1:
+@@ -6,2 +5,2 @@
+-- **Trace 2**: formation tuple (2, 3, 2, 0) → 81 substrate configurations
+-- **Trace 3**: 81 = wall² → primitive 4 + remainder 77
++    theorem classA_total : totalCount classA = 81 (SIDEFormationArithmetic/Classes.lean :43)
++    theorem wall_squared_when_n1_eq_n3 (t : FormationTuple) (h : t.n1 = t.n3) : totalCount t = wall t * wall t (SIDEFormationArithmetic/Core.lean :57)
+@@ -9,4 +8 @@
+-This is the **first radial-trace kernel** in the federation.  Unlike peer
+-composites (which combine multiple sister kernels), this kernel stands on
+-its own — it converts corpus-side narrative about formation arithmetic
+-into kernel-verified Lean theorems.
++"Traces 2 and 3" of the matter-as-remainder spiral are comments and the papers' words: no statement names a trace or a spiral.
+@@ -27,44 +22,0 @@
+-
+-### Classes (`SIDEFormationArithmetic/Classes.lean`)
+-
+-Four substrate classes (A, B, C, D) with their specific arithmetic:
+-
+-- **Class A** (Arithmetic, ℤ via {2,3}): tuple (2,3,2,0), total=81, primitive=4, remainder=77, wall=9, Wall² ✓
+-- **Class B** (Gravitational, diffeomorphism): tuple (3,2,2,0), total=32, primitive=9, remainder=23, Wall² ✗
+-- **Class C** (Gauge, SU(N)): tuple (3,3,2,0), total=243, primitive=9, remainder=234, Wall² ✗
+-- **Class D** (Information, σ-algebras): tuple (2,2,2,0), total=16, primitive=4, remainder=12, Wall² ✓
+-
+-Class A and Class D both satisfy Wall² (n₁ = n₃ = 2 for both); Classes B
+-and C do not.
+-
+-Cosmic flatness identity for Class A: `primitive + remainder = total`
+-(4 + 77 = 81).
+-
+-The four (primitive, total) pairs are mutually distinct — the substrate
+-classes give different Ω predictions.
+-
+-## Federation position
+-
+-```
+-Phase 1 / Day 1 deposit
+-        ↓
+-        ... (Trace 1: Conservation of Spectra, product formula — corpus)
+-        ↓
+-ξ(s) formation tuple (2, 3, 2, 0)
+-        ↓ Trace 2: KERNEL-VERIFIED here (totalCount classA = 81)
+-81 substrate configurations
+-        ↓ Trace 3: KERNEL-VERIFIED here (Wall² identity, primitive/remainder)
+-Primitive 4 + remainder 77
+-        ↓
+-        ... (Trace 4: (ℤ/2)³ embedding → PairingObstruction — kernel-verified separately)
+-        ↓
+-        ... (Spiraling theorem — SIDE-orchestrator v0.1)
+-        ↓
+-        ... (Trace 6: 1/12 ↔ Ω_b/12 — corpus)
+-        ↓
+-Falsifiable cosmological prediction
+-```
+-
+-After this kernel lands, Traces 2 and 3 move from corpus-side narrative
+-into kernel-verified theorems.  Traces 1 and 6 remain corpus-side; Trace 4
+-is kernel-verified separately in SIDE-substrate-cluster v0.4 PairingObstruction.

@@ -1,0 +1,28 @@
+--- main README.md
++++ b736 [90]
+@@ -3 +3,7 @@
+-Kernel verification of the dark-to-visible ratio decomposition under the (ℤ/2)³ Hamming-weight partition.
++SIDE-quaternionic-dark-sector compiles natural-number and fraction arithmetic over literals. Statements at e860142:
++
++    theorem residual_eq_1_over_12 : eq_frac decomp_difference ⟨1, 12⟩ = true (SIDEQuaternionicDarkSector/Basic.lean :110)
++    theorem cubit_total : weight_0 + weight_1 + weight_2 + weight_3 = 8 (SIDEQuaternionicDarkSector/Basic.lean :64)
++    theorem omega_arithmetic_eq_4_over_81 : eq_frac omega_arithmetic ⟨4, 81⟩ = true (SIDEQuaternionicDarkSector/Basic.lean :152)
++
++The weights are literal definitions, computed from no group. No statement names (ℤ/2)³, a Hamming weight function or a dark-to-visible ratio.
+@@ -18,2 +23,0 @@
+-(ℤ/2)³ has 8 elements partitioned by Hamming weight (1, 3, 3, 1). The non-zero count is 7 — the Fano plane PG(2, 𝔽₂).
+-
+@@ -26,6 +29,0 @@
+-
+-Decomposition B: Total dark / visible = DM + DE = 16/3 + 14 = 58/3
+-Decomposition A: Total dark / visible = 77/4 = 7 × 11/4 = (Fano count) × (necessity ceiling) / 4
+-Difference: 58/3 − 77/4 = 1/12
+-
+-Cosmic flatness identity: visible 4/81 + dark 77/81 = 1.
+@@ -41,2 +38,0 @@
+-
+-Planck 2018 selects the Arithmetic class at 0.13σ, excluding the others by 18.6σ to 351σ.
+@@ -94 +89,0 @@
+-| **SIDE-quaternionic-dark-sector** | **Dark/visible ratio decomposition under (ℤ/2)³ Hamming partition** |
+@@ -108 +102,0 @@
+-*Visible 4 of 81. Dark 77 of 81. Whole 81 of 81.*
