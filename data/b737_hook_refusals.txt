@@ -8,3 +8,4 @@
 2026-11-03T15:33:20Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\c6c3fbf2-d7af-4287-b739-0cca197d161f\\scratchpad\\cmds736.py" | a Read call with no limit
 2026-11-03T15:38:24Z | PIPE | Bash | "cd /d/relay/tools/standing/fold && grep -n \"⟪SECTION\" checks.tpl | head -80; wc -l *.tpl" | a Bash command carrying a pipe outside quotes
 2026-11-03T16:07:30Z | REDIR | Bash | "git -C D:/relay grep -n -A6 \"^STEP_PHASES\" -- tools/standing/fold/record.tpl; git -C D:/relay show 58f2c295:data/b736_steps.json --format= -- 2>/dev/null; git -C D:/relay grep -c \"phase\" -- data/b736_steps.json" | a Bash command carrying a redirect outside quotes
+2026-11-03T20:01:09Z | PIPE | PowerShell | "Get-ChildItem -Path D:\\relay\\data -Filter \"b737_*\" -Name | Where-Object { $_ -match 'checks|components|record|desk|lsr_b|chain_half_.*_checks|exercise' }" | a PowerShell command carrying a pipe outside quotes
