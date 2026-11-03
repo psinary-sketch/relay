@@ -278,10 +278,12 @@ C1_DISCHARGE = (C1_DISCHARGE_HEAD + ' the three premise-free forms are the insta
                 + 'Dated note, b737, to `(R346)`(6): its sentence is withdrawn by `(R347)`(2), the sentence above standing in its place.')
 
 
-C1_OFFZERO_HEAD = '**`W-ORD-ZQ-OFFLINE-ZERO` ENTERED at b737, `(R347)`(4)(C), priced and not built:**'
-C1_OFFZERO = (C1_OFFZERO_HEAD + ' the object, one zero of Z_Q0 off the line located in Lean, the lowest of b725’s bank, by a rigorous count on a box using the theta representation of b730 and an argument-principle or Rouché bound. '
-              'The condition: a declaration ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2 with the standard three. The consequence, by zq_li_nonneg_imp_online_instance: ¬ (∀ n, 0 ≤ liCoeff zqZeroConfig n) as a theorem. '
-              'The price: the seat’s estimate from statements in a plan bank at the act that takes it, not this one. The trigger: the author’s word after the sitting. Until then no sentence says a zero is located in Lean or that positivity fails as a theorem.')
+C1_OFFZERO_HEAD = '**`W-ORD-ZQ-OFFLINE-ZERO` PRICED at b737, `(R347)`(3), planned and not built:**'
+C1_OFFZERO = (C1_OFFZERO_HEAD + ' the candidate off0, β − 1/2 = 0.4532604748, γ = 16.29021572, chosen by the criteria printed at relay data/b737_offlinezero_plan.txt (a); box A, the square of half-side 0.1 centred on it, '
+              'its least sampled |Z_Q0| on the boundary 0.357 (b). Routes R1 (the argument principle with a Lipschitz bound), R2 (Rouché) and R4 (the minimum modulus through Mathlib’s Complex.norm_le_of_forall_mem_frontier_norm_le, AbsMax.lean :405) priced; R3 (a sign change) not a route, no off-line segment carrying a real-valued restriction. '
+              'R4 recommended: 1,635-4,175 lines from statements, 1,496-3,820 by explicitFormula’s measured ratio 0.915, the envelope of the five measured ratios 455-16,408; 9-22 dispatches; seven Mathlib objects absent at the pin (the argument principle, Rouché, the winding number, the incomplete gamma, complex Stirling with explicit error, the K-Bessel function, certified interval evaluation), three of them on R4’s path. '
+              'The price driver every route shares: zqFn certified on the box to 0.1, Λ₀ to some 5e-12 at that height. Four stop points, the first a conditional theorem with no numeric step. '
+              'No dispatch at b737; no Lean file. Until a build compiles the condition, no sentence says a zero is located in Lean or that positivity fails as a theorem.')
 
 
 def c1(*a):

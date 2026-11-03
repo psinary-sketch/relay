@@ -48,9 +48,15 @@ b737 -- W-ORD-ZQ-OFFLINE-ZERO, THE PLAN, (R347)(3)(a)-(e): NO BUILD, NO LEAN FIL
     the integral read from the boundary values through a Lipschitz bound L on zqFn there: steps of length delta with L delta < m keep each step's
     argument change below pi/2, so the winding is the sum of the principal arguments of the ratios. At A's sampled L 4.9545 and m 0.357096 the
     steps wanted number perimeter L / m + 1 = 13; at B's, 79. It proves the count (one), more than the order needs.
-  R2, ROUCHE. |zqFn - g| < |g| on the boundary with g = Z_Q0'(rho)(s - rho) on A: the largest sampled |Z_Q0''| on |s - rho| = 0.05 is 7.9250, the
-    admissible radius of the linear model 2|Z'|/max|Z''| = 0.9876 against A's inscribed 0.1 (sampled). It needs the argument principle for both
-    functions or a homotopy argument, and a second-derivative bound; it proves the count.
+  R2, ROUCHE. As the ruling names it: zqFn = f + g with f the finite truncation P of S5 below, f's single zero in the box certified, and
+    |g| = |zqFn - P| <= eps < |P| on the boundary by the same evaluations; f's own zero count wants the argument principle (or R4 and a
+    uniqueness step) for P. The linear model g = Z_Q0'(rho)(s - rho) in its place: the largest sampled |Z_Q0''| on |s - rho| = 0.05 is 7.9250,
+    the admissible radius 2|Z'|/max|Z''| = 0.9876 against A's inscribed 0.1 (sampled). Either form needs the argument principle for both
+    functions or a homotopy argument; it proves the count.
+
+  THE STATEMENT EACH WOULD COMPILE: R1 and R2, the count of zqZeroConfig.carrier in box A with multiplicity equal to 1; R4, ∃ ρ ∈ closure U,
+    zqFn ρ = 0, hence ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2. R1's Lipschitz bound by b731's growth lemmas: those at the pin are existential
+    (Growth.lean :190, :227) and bound nothing numerically; an explicit constant is built in S5 for every route.
   R3, THE SIGN CHANGE, AND WHY NOT. The intermediate value theorem finds a zero of a real-valued continuous function on a real segment. zqFn has a
     real-valued restriction on the real axis (Schwarz reflection, Zeros.lean zq_conj) and its completed form one on the line Re s = 1/2 (the
     functional equation): each finds only zeros on those lines. An off-line zero lies on no line where zqFn or its completion is real; no segment
