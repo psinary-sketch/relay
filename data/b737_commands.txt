@@ -1,7 +1,7 @@
-b737 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T16:15:41Z)
+b737 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T17:13:40Z)
 
 ### the source: the seat`s session c6c3fbf2-d7af-4287-b739-0cca197d161f from its first user line carrying 'RULING (R347) BEGIN', with its subagents` transcripts
-### commands read: 229
+### commands read: 278
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #205 2026-11-03T16:08:45.877Z seat Bash -- S sed -i
@@ -287,5 +287,54 @@ b737 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #227 | 2026-11-03T16:15:15.939Z | seat | Bash | git -C D:/relay grep -n -A16 "def shared_tools_changed" -- tools/standing/act.py
   #228 | 2026-11-03T16:15:19.825Z | seat | Bash | git -C D:/relay diff --name-only 58f2c295 HEAD -- tools/
   #229 | 2026-11-03T16:15:34.574Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b737
+  #230 | 2026-11-03T16:15:47.387Z | seat | Bash | git -C D:/relay status --short -- data/act_current.json data/b737_* tools/b737_*
+  #231 | 2026-11-03T16:15:52.411Z | seat | Bash | python -X utf8 -u D:/relay/tools/b737_address_scan.py scan
+  #232 | 2026-11-03T16:16:02.109Z | seat | Bash | git -C D:/relay commit -q -m "b737 component 4, before the face: data/act_current.json's shared_edits names tools/mirror_prevbuild.json, the shared tool step ze
+  #233 | 2026-11-03T16:16:07.416Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #234 | 2026-11-03T16:16:12.073Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part act --act b737
+  #235 | 2026-11-03T16:18:28.661Z | seat | Bash | git -C D:/relay show --name-only --format=%ci 18cb5f77 -- data/b737_stepzero.txt data/b737_citation_check.txt; git -C D:/relay grep -n --no-index -e "branch -D"
+  #236 | 2026-11-03T16:18:33.432Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #237 | 2026-11-03T16:18:38.895Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-a --act b737
+  #238 | 2026-11-03T16:27:37.316Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #239 | 2026-11-03T16:27:41.877Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-c --act b737
+  #240 | 2026-11-03T16:35:12.616Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #241 | 2026-11-03T16:35:16.679Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-b1 --act b737
+  #242 | 2026-11-03T16:38:25.971Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #243 | 2026-11-03T16:38:30.503Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-b2a --act b737
+  #244 | 2026-11-03T16:45:42.982Z | seat | Bash | git -C D:/relay ls-remote origin refs/heads/main
+  #245 | 2026-11-03T16:45:48.302Z | seat | Bash | git -C D:/relay grep -n --no-index -o -e "EMPTY REMOTE READ[^;]*" -e "b631 [A-Z]*" -e "ls-remote calls this part[^;]*" -- data/b736_arms_prerun_standing-b2a.txt
+  #246 | 2026-11-03T16:45:54.151Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #247 | 2026-11-03T16:45:58.451Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-b2a --act b737
+  #248 | 2026-11-03T16:52:38.676Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #249 | 2026-11-03T16:52:43.442Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-b2b --act b737
+  #250 | 2026-11-03T17:01:02.598Z | seat | PowerShell | [math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)
+  #251 | 2026-11-03T17:01:06.658Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part standing-b3 --act b737
+  #252 | 2026-11-03T17:06:02.292Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/prelock.py print b737
+  #253 | 2026-11-03T17:06:09.214Z | seat | Bash | git -C D:/relay grep -n --no-index -e "NOTHING-RAN-AHEAD" -e "ran ahead" -e "RAN AHEAD" -- data/b737_probe_standing-a.txt
+  #254 | 2026-11-03T17:06:10.053Z | seat | Bash | git -C D:/relay grep -n -A22 "^def nothing_ran_ahead_ok" -- tools/standing/fold/checks.tpl
+  #255 | 2026-11-03T17:06:13.988Z | seat | Bash | git -C D:/relay grep -n -e "'G-NOTHING-RAN-AHEAD'" -e "def nothing_ran" -e "def ran_ahead" -- tools/standing/fold/checks.tpl tools/acts/b737.py
+  #256 | 2026-11-03T17:06:32.601Z | seat | Bash | python -X utf8 -u D:/relay/tools/b737_face.py
+  #257 | 2026-11-03T17:06:41.558Z | seat | Bash | git -C D:/relay grep -n --no-index -e "\"phase\"" -e "\"subject\"" -- data/b736_steps.json
+  #258 | 2026-11-03T17:06:46.967Z | seat | Bash | git -C D:/relay grep -n -e "^PRE_SEAL_PHASES" -e "^POST_SEAL_PHASES" -- tools/standing/fold/record.tpl
+  #259 | 2026-11-03T17:06:50.892Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay component 4 1a76f02e 72fd6499 --act b737
+  #260 | 2026-11-03T17:07:01.496Z | seat | Bash | python -X utf8 -u D:/relay/tools/b737_address_scan.py scan
+  #261 | 2026-11-03T17:07:10.244Z | seat | Bash | git -C D:/relay add -- data/b737_registration_2026-11-03.txt data/b737_commands.txt data/b737_commands.json
+  #262 | 2026-11-03T17:07:15.771Z | seat | Bash | git -C D:/relay commit -q -m "b737 face: the registration composed from b736's sealed face and the act's blocks, the (W) row and N5's write clause regenerated f
+  #263 | 2026-11-03T17:07:20.461Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b737
+  #264 | 2026-11-03T17:07:34.200Z | seat | Bash | git -C D:/relay grep -n -e "sys.argv" -- tools/standing/fold/closing.tpl
+  #265 | 2026-11-03T17:07:37.779Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b737
+  #266 | 2026-11-03T17:09:12.495Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b737
+  #267 | 2026-11-03T17:10:43.894Z | seat | Bash | git -C D:/relay grep -n --no-index -o -e "False[^;]*" -e "two messages[^;]*" -e "more than one[^;]*" -- data/b737_scores_dry.txt
+  #268 | 2026-11-03T17:10:48.298Z | seat | Bash | git -C D:/relay grep -n --no-index -o -e "N5 .\{0,40\}" -e "[^;]\{0,160\}: \(NONE\|True\|False\|[0-9]*\)[^;]\{0,20\}OUTSIDE[^;]*" -e "beyond the (W)[^;]*" -e "n
+  #269 | 2026-11-03T17:11:00.881Z | seat | Bash | git -C D:/relay grep -n -e "mirror_prevbuild" -- tools/standing/close.py tools/standing/sealcheck.py tools/standing/fold/checks.tpl tools/standing/fold/record.t
+  #270 | 2026-11-03T17:11:06.598Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b737_registration_2026-11-03.txt --act b737
+  #271 | 2026-11-03T17:12:29.040Z | seat | Bash | git -C D:/relay grep -n --no-index -e "VERDICT" -e "NOT CLEAR" -e "REFUS" -e "FAIL" -e "NEWLY FAILING" -e "^### ###" -- "C:/Users/echo chamber/.claude/projects/
+  #272 | 2026-11-03T17:12:43.461Z | seat | Bash | git -C D:/relay grep -n --no-index -e "regspec" -e "reg_satisfiable" -e "banned_terms" -e "gate_hash" -e "lockgate" -e "reg_seal" -e "record gatebanks" -e "root
+  #273 | 2026-11-03T17:12:52.111Z | seat | Bash | git -C D:/relay log --oneline -3
+  #274 | 2026-11-03T17:12:55.538Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate dd4106de --act b737
+  #275 | 2026-11-03T17:12:56.053Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b737
+  #276 | 2026-11-03T17:13:31.375Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b737
+  #277 | 2026-11-03T17:13:32.151Z | seat | Bash | python -X utf8 -u D:/relay/tools/b737_address_scan.py scan --bank --quiet
+  #278 | 2026-11-03T17:13:32.866Z | seat | Bash | git -C D:/relay status --short -- data/b737_* data/audit_b737_* tools/b737_* tools/acts/b737.py data/act_current.json
 
-### ### **COMMANDS 229 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 278 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 2 ; ONE-LINE PROGRAMS 1 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
