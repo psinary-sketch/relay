@@ -1,0 +1,91 @@
+b737 -- THE CORRIGENDUM FOR b736, (R347)(2) (2026-11-03T14:53:25Z)
+
+### the banks read unedited: data/b736_events.txt rows (1)-(10), data/b736_defects.txt 38 rows, data/b736_hook_refusals.txt 15 lines at 58f2c295; data/b737_standing_v1170.txt (the v1.17.0 controls); the corrigenda bank`s last row (56).
+
+  *b736’s events bank (relay data/b736_events.txt) carries ten rows, entered after its lock and not lettered, each tagged in its own bracket (9 the seat’s, 1 the host); its defects bank thirty-eight lettered rows, (a)-(z) and (a’)-(l’), each tagged in its own bracket (38 the seat’s); its refusal bank fifteen lines at 58f2c295, each recorded by a row, the first b735’s. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R347)`(2), at tools/standing/ v1.17.0, each with a control on b736’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b737_standing_v1170.txt, 25 cases, AS WANTED 25):
+  
+  **(amend) the face that did not follow the amendment (`(R347)`(2)(i), event (1); CLAIM ; NEW)** -- rule (1) of data/b737_rules.txt; standing.amend regenerates the (W) row and N5’s write clause from the ruling plus the act’s amendment rows (data/<act>_amendments.json), read through the scorer’s own reader. b736’s amendment of `(R346)`(4) replayed: the route before read the ruling alone and found the face lacking nothing; the route after names the three doors with their repository, and a face carrying the regenerated row lacks none (:16).
+  
+  **(gitwrite) the parallel add and commit (`(R347)`(2)(ii), events (2), (7), defect (b); CLAIM ; REPEAT of b736 (b))** -- rule (2) of data/b737_rules.txt; the hook counts git writes per message from the session’s transcript, across parallel calls, and refuses the second. b736’s 05:22:31Z message replayed: the route before judged each call alone and refused none; the route after refuses the commit, the add standing; the chained form of 22:22Z refused by the command alone (:31).
+  
+  **(locked) the post-lock letter written and removed (`(R347)`(2)(iii), event (3); CLOSE ; NEW)** -- rule (3) of data/b737_rules.txt; the hook judges the Edit, Write and NotebookEdit tools and refuses a write to a tracked bank or tool of the act after its lock and before its closing, the events bank and the post-lock banks exempt. The 04:03:27Z Edit replayed: the matcher before never saw it; the route after refuses it (:46).
+  
+  **(snapshot) the pack loss (`(R347)`(2)(iv), defect (m); CLAIM ; REPEAT of b735 (p))** -- rule (4) of data/b737_rules.txt; standing.scratchfsck snapshot prints the fsck, the disk’s free space and the process listing, and standing.dispatchrows refuses a read, dispatch or clone row naming a clone without one before and after. The cause is not established. THE CONTROL DOES NOT READ CLEAN: zqwork3, clean at b736, lost its pack and info directories, objects/ last written 2026-11-03T03:54:09Z, about six hours after zqwork2’s loss as zqwork2’s was after zqwork’s; C: read 4389 MB free; a third instance, found by this reader and lettered in this act’s defects. zqwork, zqwork2 and zqwork3 stand in place (:61).
+  
+  **(promise) the root prompt’s promise (`(R347)`(2)(v), event (5); CLOSE ; NEW)** -- rule (5) of data/b737_rules.txt; standing.rootprompt compose_checked lets a clause about the entry stand only as a span the sealed composer’s entry carries or as procedure. b736’s recommended option replayed: passed before, refused after on “named in the entry and the events bank;”, and composing once regenerated without it (:79).
+  
+  **(postseal) the post-seal shell read of FINDINGS.md (`(R347)`(2)(vi), event (8); CLOSE ; REPEAT of b732 event (11))** -- rule (6) of data/b737_rules.txt; `hook.py excludes` prints the rule as the arm holds it, read first after the seal; b736’s 05:20:50Z `git grep` is a read the arm counts. A guard: no failing side (:91).
+  
+  **(emptyread) the chain part that got no answer (`(R347)`(2)(vii), event (9); CLOSE ; NEW)** -- rule (7) of data/b737_rules.txt; three repositories read empty make the row UNREAD, not AGREE. A guard: the route stood at b736, its part re-run alone and banked AGREE, and the instance shows it held (:102).
+  
+  **b736’s events (1)-(10):**
+  
+  **(1)** found before the lock in standing-c’s print and entered here: the face’s (W) row, composed from the ruling’s clauses, … (relay data/b736_events.txt, row (1); the seat’s; CLAIM; NEW; repair (amend); rule (1) of data/b737_rules.txt).
+  **(2)** N5’s one-git-write clause reads one message carrying two git writes, 2026-11-02T22:22:23Z: act\_current’s add and commit … (relay data/b736_events.txt, row (2); the seat’s; CLOSE; REPEAT of b736 (b); repair (gitwrite); rule (2)).
+  **(3)** the row of (1) was written into data/b736\_defects.txt as a letter (m’) after the lock, against the order that a finding … (relay data/b736_events.txt, row (3); the seat’s; CLOSE; NEW; repair (locked); rule (3)).
+  **(4)** the seal’s subject was first put to subjects.py as a whole line with "79 files", the seat’s own count of the hashes … (relay data/b736_events.txt, row (4); the seat’s; CLOSE; NEW).
+  **(5)** at the root’s prompt: its recommendation said the entry would name N5’s two clauses. The entry, composed by the record … (relay data/b736_events.txt, row (5); the seat’s; CLOSE; NEW; repair (promise); rule (5)).
+  **(6)** the relay pre-root commit 09ef29cb chained to a ’git log -1’ read in one command, against b733’s trap, no read chained … (relay data/b736_events.txt, row (6); the seat’s; CLOSE; REPEAT of b733 class).
+  **(7)** the ’git add’ of data/b736\_steps.json and the commit 97d5de93 sent as two calls in one message, two git writes where … (relay data/b736_events.txt, row (7); the seat’s; CLAIM; REPEAT of b736 (b); repair (gitwrite); rule (2)).
+  **(8)** a shell command naming FINDINGS.md after the seal, ’git grep -c’ and ’git diff --stat’ over the entry, refused by the … (relay data/b736_events.txt, row (8); the seat’s; CLOSE; NEW; carried here as REPEAT of b732 event (11), the arm’s second failure, as ’(R347)’(2)(vi) orders; repair (postseal); rule (6)).
+  **(9)** the pre-push part standing-b2b’s remote reads of SIDE-structural-error-correction, SIDE-substrate-cluster and … (relay data/b736_events.txt, row (9); the host; CLOSE; NEW; repair (emptyread), a guard; rule (7)).
+  **(10)** a ’git status --short -- data tools’ for the record commit printed the tree’s untracked history, some 600 lines, into … (relay data/b736_events.txt, row (10); the seat’s; CLOSE; REPEAT of b736 (b’)).
+  
+  **b736’s defects:**
+  
+  **(a)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b735 (a)).
+  **(b)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW; repair (gitwrite); rule (2) of data/b737_rules.txt).
+  **(c)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(d)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(e)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(f)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(g)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b735 (c)).
+  **(h)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b735 (t)).
+  **(m)** (relay data/b736_defects.txt; the seat’s; CLAIM; REPEAT of b735 (p); repair (snapshot); rule (4) of data/b737_rules.txt; the cause not established, and a third loss at this act).
+  **(n)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(o)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(p)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b735 (l)).
+  **(r)** (relay data/b736_defects.txt; the seat’s; CLAIM; NEW).
+  **(s)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b736 (p)).
+  **(t)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(v)** (relay data/b736_defects.txt; the seat’s; CLAIM; NEW).
+  **(w)** (relay data/b736_defects.txt; the seat’s; CLAIM; NEW).
+  **(x)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(y)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(z)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(a’)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b735 (c)).
+  **(b’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(c’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(d’)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(e’)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(f’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(g’)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(h’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(i’)** (relay data/b736_defects.txt; the seat’s; CLAIM; NEW).
+  **(j’)** (relay data/b736_defects.txt; the seat’s; CLOSE; REPEAT of b736 (h)).
+  **(k’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  **(l’)** (relay data/b736_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b736’s refusals** (relay data/b736_hook_refusals.txt at 58f2c295, one a line): :1 READ 20:49:14Z, recorded at b736 corrigendum; :2 READ 22:21:11Z, recorded at defect (c); :3 PIPE 22:21:13Z, recorded at defect (d); :4 READ 22:22:40Z, recorded at defect (e); :5 READ 22:22:40Z, recorded at defect (e); :6 READ 22:29:15Z, recorded at defect (f); :7 PIPE 22:35:58Z, recorded at defect (n); :8 PIPE 22:35:58Z, recorded at defect (n); :9 READ 22:40:51Z, recorded at defect (o); :10 PIPE 23:07:53Z, recorded at defect (u); :11 PIPE 02:04:56Z, recorded at defect (d’); :12 READ 02:06:16Z, recorded at defect (e’); :13 PIPE 02:19:17Z, recorded at defect (g’); :14 REDIR 02:25:42Z, recorded at defect (g’); :15 POSTSEAL 05:20:50Z, recorded at event (8).
+  
+  **Dated notes:**
+  
+  Dated note, b737, to the counter (`(R347)`(1)): the ruling’s “CLAIM 5, CLOSE 33, REPEAT 18 of 38” counts the thirty-eight defects alone; relay data/b736_closing.txt :5 prints CLAIM 7, CLOSE 41, REPEAT 22 OF 48 over the ten events and the defects together. Both read from the same tags; this entry prints both and edits neither.
+  
+  Dated note, b737, to OPEN_TRAILS :17361: the hand section’s CLAIM 6, CLOSE 38; REPEAT 20 of 44 is an earlier figure, read before the last four items landed; the closing’s :5 is the last figure.
+  
+  Dated note, b737, to relay data/b736_hook_refusals.txt :1: the refusal at 2026-11-02T20:49:14Z is b735’s late Read, entered at b736 as b735’s event (relay data/b736_corrigendum.txt); it is no item of b736’s 48.
+  
+  **The counter:** CLAIM 7, CLOSE 41 over the 48 items (ten events, thirty-eight defects), as b736’s closing prints it (relay data/b736_closing.txt :5); REPEAT 22 of 48; the CLAIM items (1), (7), (m), (r), (v), (w), (i’).
+  
+  *Filed at b737 on the author’s ruling `(R347)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b737.py) from b736’s events and defects banks read unedited, its refusal bank, and the v1.17.0 controls bank; banked as relay `data/b737_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (57). It answers b736’s record; no sealed tool, face, trail or root-named bank of b736 is edited.*
+
+### ### **ITEMS 48: EVENTS 10, DEFECTS 38 ; CLAIM 7, CLOSE 41 ; REPEAT 22 ; DATED NOTES 3 ; v1.17.0: THE AMENDMENT REGENERATION, THE PARALLEL GIT WRITE, THE LOCKED BANK, THE CLONE`S SNAPSHOT, THE ENTRY`S PROMISE, THE POST-SEAL LIST, THE EMPTY REMOTE READ ; THE ENTRY AT FINDINGS :13033.**
