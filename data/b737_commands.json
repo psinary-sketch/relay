@@ -1,5 +1,5 @@
 {
- "at": "2026-11-03T17:13:40Z",
+ "at": "2026-11-03T17:19:18Z",
  "anchor": "RULING (R347) BEGIN",
  "rows": [
   {
@@ -2224,6 +2224,118 @@
    "src": "seat",
    "cmd": "git -C D:/relay status --short -- data/b737_* data/audit_b737_* tools/b737_* tools/acts/b737.py data/act_current.json",
    "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:13:52.279Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/audit_b737_reg_satisfiable.txt data/b737_census_stepzero.txt data/b737_closing_dry.txt data/b737_faces_census_stepzero.txt data/b737_pins_stepzero.txt data/b737_prelock.txt data/b737_reg_gate.txt data/b737_reg_termscan.txt data/b737_regspec_run.txt data/b737_report_dry.txt data/b737_root_banks_dry.json data/b737_root_banks_dry.txt data/b737_satisfiable.json data/b737_scores_dry.txt",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:13:58.198Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b737 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the score routes' dry form, the pre-lock comparison CLEAR with 9 newly failing, each on the face; the root route's dry run READY over 36 banks; the face's defect range (a)-(w), the floors\" -- data/audit_b737_reg_satisfiable.txt data/b737_census_stepzero.txt data/b737_closing_dry.txt data/b737_faces_census_stepzero.txt data/b737_pins_stepzero.txt data/b737_prelock.txt data/b737_reg_gate.txt data/b737_reg_termscan.txt data/b737_regspec_run.txt data/b737_report_dry.txt data/b737_root_banks_dry.json data/b737_root_banks_dry.txt data/b737_satisfiable.json data/b737_scores_dry.txt data/b737_address_scan.txt data/b737_commands.json data/b737_commands.txt data/b737_registration_2026-11-03.txt data/b737_steps.json tools/acts/b737.py tools/b737_face_blocks.txt",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:14:03.140Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --oneline -1",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:14:07.005Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate 64a61dc9 --act b737",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-03T17:14:17.296Z",
+   "src": "seat",
+   "cmd": "[math]::Round((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:14:21.717Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py checks --part act --act b737 --quiet",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:16:20.786Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -A8 -e \"^def closing_dry_step_ok\" -e \"^def rootdry_ready_ok\" -- tools/standing/fold/checks.tpl",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:16:24.014Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -A3 -e \"('G-CLOSING-DRY-STEP'\" -e \"('G-ROOTDRY-READY'\" -- tools/standing/fold/checks.tpl tools/acts/b737.py",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:16:27.660Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -A14 -e \"^def closing_dry_ok\" -e \"^def rootdry_ok\" -- tools/standing/fold/checks.tpl",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:16:33.097Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b737_registration_2026-11-03.txt --bank-only --act b737",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:18:41.049Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b737",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:18:41.779Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b737",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:18:42.431Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b737_address_scan.py scan --bank --quiet",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T17:18:43.047Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short -uno -- data/ tools/",
+   "n": 292,
    "bg": false
   }
  ],
