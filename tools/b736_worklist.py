@@ -172,7 +172,7 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R346)(2): the corrigend
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the ledgers alone (N5, the (W) list of (R346)(9))
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', 'day1/Which_Structure_Confines_v2_4_0.md', 'phase2/physics/STORMER.md')   # ### the ledgers and the doors the passed items name (N5, the (W) list of (R346)(5))
 PP_WRITTEN = PP_EDITED
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
@@ -180,7 +180,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('per (R346)(7): the act after this one is named by the author at the sitting`s end: W-ORD-ZQ-OFFLINE-ZERO`s plan act, the wave 1 deposit on the author`s word, or the carried orders (the ledger split, the legacy imports, the lab identity, the outside reader)')
+NEXT = ('per (R346)(7), named by the author at the sitting`s end: the OFFLINE-ZERO plan act, W-ORD-ZQ-OFFLINE-ZERO`s plan bank at its price; the items [76], [77] and [25]-[29] carried by number; the drafts of the 8 Zenodo records banked, carried to a Tier 3 act on the author`s number')
 NEXT_ACT = 'b737'
 
 
@@ -249,21 +249,24 @@ B723_ROOT_BANKS = '30761f2f'  # ### b735's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '86d86ef6'
 C1_STANDING_REPAIR = None
-C1_RELAY = None
-C1_CORR = None
+C1_RELAY = 'b65d9ee3'
+C1_CORR = 'b65d9ee3'     # ### the corrigendum bank and the corrigenda row rode in Component 1's relay commit
 C1_PP = 'dadfdf07'
-WEIGHT_LINE, CORR_LINE = None, None
+C1_DISCHARGE_PP = '89393bca'   # ### (R346)(2): W-ORD-ZQ-DERIVES discharged by a commit of its own
+C2_TOOL = '6993912d'     # ### the sitting's tool and the author's word amending (R346)(4), before any kernel commit
+WEIGHT_LINE, CORR_LINE = 12909, 12911   # ### FINDINGS: b735's weight line and the corrigendum for b735 (Component 1, dadfdf07)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_RELAY = None
+C2_RELAY = '4ae378ba'    # ### the sitting's banks
 DOORS_COMMIT = None
 MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
-PRINT_COMMIT = None
-PLAN_MD5 = None
+PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: the sitting's
+PLAN_MD5 = 'ee7dd373256da9b55271538f277431ef'   # ### (carried name) the agenda's md5, read at its commit
 C2_AMEND = ()
-C2_PP = C1_PP            # ### (R346)(5): (2) whole before (3); b736 enters no order, the corrigendum's commit stands first in N2's chain
+C2_PP = C1_DISCHARGE_PP  # ### N2: the discharge stands before any sitting item
+SITTING_PP = ('55fd5ff0', 'cd6159db', '314908ae', '354f9751', '621a617b', 'b8a8626e', '2fbef758')   # ### (A1), (A2), the plan repair v0.7, (B), (C), [109], [110]
 C3_RELAY = ()
 C3_PP = None
 C4_LV = None
@@ -299,7 +302,7 @@ ZQ_ENTERING = 'b25fd82c0f216505d67c4c72c70f6e1b3f307d03'   # ### b735's tip, unm
 ZQ_FIRST = None   # ### no Lean commit this act (N5)
 ZQ_TIP = ZQ_ENTERING    # ### unmoved
 ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Lines', 'Main')   # ### the build's eight, under Schema/ZQ/EF
-ZQ_FILES = tuple('SIDEExplicitFormula/Schema/ZQ/EF/%s.lean' % m for m in ZQ_MODULES) + ('print_targets.txt',)   # ### zq-b730's diff against its entering tip
+ZQ_FILES = ()   # ### zq-b730's diff against its entering tip: none (N5)
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
 ZQ_LOGDERIV_MODULES, ZQ_ZEROS_MODULES = (), ()
@@ -310,6 +313,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R346)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
 EF_RUNS = ()   # ### N1: no dispatch
+ZQ_RUN = 41483457057   # ### b735's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b735's five, read not re-run
 DISPATCH_ROWS = 'data/b736_dispatch_rows.json'
 ERRATA_ID = None   # ### (R346) orders no ERRATA entry
@@ -327,6 +331,12 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### the three kernels' README writes (name, path, head before the write), their tips (carried names, b735's sitting's)
-SITTING_REPOS = ()     # ### b736 writes no kernel's main (N5): no sitting
-SITTING_TIPS = {}
+# ### the kernels' README writes by the author's word amending (R346)(4): name to main's tip after the push, README.md alone, no tag; SIDE-effects drafted, not written
+SITTING_TIPS = {'SIDE-bijection': '909836d0', 'SIDE-bsd-formation-transfer': '1eb78bad', 'SIDE-class-coupling': '406e05f3', 'SIDE-compression': '8e9c578b', 'SIDE-cosmo': 'a1847d66',
+                'SIDE-coupling': 'cbe66d9c', 'SIDE-cubit-axis': 'e2f3b3bd', 'SIDE-dark-interface': '1b69d7f3', 'SIDE-formation-arithmetic': 'cd64a5c2', 'SIDE-interfaces': 'd7a6c64e',
+                'SIDE-kernel': 'f8534ef2', 'SIDE-local-cosmic-interface': '4a7e75f1', 'SIDE-meta': 'a80bc3a5', 'SIDE-omega-b': 'f44b98a1', 'SIDE-quaternionic-dark-sector': 'ec4557b7',
+                'SIDE-residual-bridge': '0936c872', 'SIDE-silence-principle': 'e7ee890e', 'SIDE-structural-error-correction': '5eabc6cf', 'SIDE-substrate-cluster': 'd6aaac34',
+                'SIDE-trivium': '18a351a1', 'SIDE-yang-mills-formation': '1bfc716b'}
+SITTING_REPOS = tuple(sorted(SITTING_TIPS))
+SITTING_BRANCH = 'push-b736-sitting'   # ### left local on each kernel
+KERNEL_BASES = 'data/b736_kernel_bases.json'
