@@ -1,0 +1,19 @@
+b738 -- NOTES BESIDE THE PLAN BANK data/b737_offlinezero_plan.txt ((R348)(3): no plan row rewritten; a row found wrong noted here with the reason) (2026-11-03)
+
+### the plan bank as committed, md5 3d61f519917a3ee20ac4d7c5fab197ef, equal to its blob at 3dab6492 (data/b738_stepzero.txt :18; printed again by
+### tools/b738_offlinezero.py planmd5 at 22:36Z, before any Lean file). Each note names the plan's line, what it says, what was built, and why.
+
+  (1) data/b737_offlinezero_plan.txt :133-:134, SP1's form "∀ c m, |zqFn c| < m → (∀ z ∈ frontier U, m <= |zqFn z|) → ∃ ρ ∈ zqZeroConfig.carrier,
+      ρ.re ≠ 1/2", carried into (R348)(3)(a) word for word: as written it binds c over all of ℂ, and the minimum modulus says nothing of a point
+      outside U; the form is not provable as it stands. The plan's own S3 (:82) carries "c ∈ U". Built: zq_offline_of_box with the hypothesis
+      hc : c ∈ boxA beside hcm and hfr, the norm ‖·‖ for |·| (Mathlib's norm on ℂ). The hypothesis hc is no numeric step: a point of box A is
+      named by its coordinates and checked by norm_num.
+  (2) the plan's (d) prices S1-S4 and (e) as groups and names no file. Built: one module a group, under SIDEExplicitFormula/Schema/ZQ/OffZero/
+      (Box, Diff, MinModulus, Carrier, Main), so each group's dispatch builds that group's module and what it imports, and S1 and S3 import Mathlib
+      alone. The lines are counted per module against each group's estimate.
+  (4) not a plan row: the runner's axioms step stops at Lean's hundred errors; run 41732882564's list (S1's second dispatch; the first broke
+      before the step ran) named the new theorems after the carried 174 names, most unknown under a target importing Mathlib alone, so none of the
+      new names printed. From S2 the
+      OffZero names stand at the head of print_targets.txt; the carried names follow unchanged.
+  (3) not a plan row: the working clone of zq-b730 is D:/zq-b738, outside the Temp tree where zqwork, zqwork2 and zqwork3 lost their packs
+      (b737 defect (h)); the three stand in place, unread by this act.

@@ -1,0 +1,44 @@
+b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)), BUILT ON zq-b730 FROM b25fd82c BY THE RUNNER (2026-11-03T23:17:06Z)
+
+## THE CONTROLS
+  the axioms reader on a constructed standard line: True ; on a constructed axiom-free line: True ; on an absent name, None: True
+  the figure-bank reader: the controls first passes, the controls after refused: True
+  the plan bank`s md5 equal to step zero`s 3d61f519917a3ee20ac4d7c5fab197ef: True
+  free memory at this bank: 4628 MB at 2026-11-03T23:17:06Z, the hold 2560
+  the dispatch rows refused by standing.dispatchrows: NONE
+
+## THE DISPATCHES: 6 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb
+  1 | group S1  | Box | sha 98d24d32 | run 41732413170 | free 4519 MB | BREAKS, exit 1, 3 errors, sorry warnings 0, sorryAx False, runner low 14825 MB, read at free 4454 MB
+  2 | group S1  | Box | sha 9ef8a7f6 | run 41732882564 | free 4607 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 14886 MB, read at free 4702 MB
+  3 | group S2  | Diff | sha 6d1d02ab | run 41733411736 | free 4758 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13154 MB, read at free 4569 MB
+  4 | group S3  | MinModulus | sha ef56ba0d | run 41734667160 | free 4536 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 14671 MB, read at free 4565 MB
+  5 | group S4  | Carrier | sha c7296f11 | run 41735082430 | free 4536 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13057 MB, read at free 4592 MB
+  6 | group e   | Main | sha e2a8c3f4 | run 41736472780 | free 4526 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13200 MB, read at free 4644 MB
+
+## THE LINES, MEASURED AGAINST THE PLAN`S ESTIMATES (I-10`s form)
+  S1  SIDEExplicitFormula/Schema/ZQ/OffZero/Box.lean measured 47 ; the estimate 40-80 ; within
+  S2  SIDEExplicitFormula/Schema/ZQ/OffZero/Diff.lean measured 32 ; the estimate 20-40 ; within
+  S3  SIDEExplicitFormula/Schema/ZQ/OffZero/MinModulus.lean measured 41 ; the estimate 40-80 ; within
+  S4  SIDEExplicitFormula/Schema/ZQ/OffZero/Carrier.lean measured 45 ; the estimate 30-60 ; within
+  e   SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean measured 41 ; the estimate 5-15 ; ABOVE
+  SP1 IN ALL: measured 206 ; the estimate 135-275 (data/b737_offlinezero_plan.txt :134) ; the ratio 0.749-1.526
+
+## THE AXIOMS AT THE LAST READ (run 41736472780, the artifact`s axioms.txt)
+  S1  boxA                               NOT PRINTED
+  S1  boxA_isBounded                     propext, Classical.choice, Quot.sound
+  S1  closure_boxA                       propext, Classical.choice, Quot.sound
+  S1  mem_closure_boxA                   propext, Classical.choice, Quot.sound
+  S2  ne_one_of_mem_closure_boxA         propext, Classical.choice, Quot.sound
+  S2  zqFn_diffContOnCl_boxA             propext, Classical.choice, Quot.sound
+  S3  min_modulus_zero                   propext, Classical.choice, Quot.sound
+  S4  carrier_of_box                     propext, Classical.choice, Quot.sound
+  e   zq_offline_of_box                  propext, Classical.choice, Quot.sound
+  e   zq_li_not_nonneg_of_box            propext, Classical.choice, Quot.sound
+
+## THE STATEMENT AT SP1 (SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean)
+  zq_offline_of_box (c : ℂ) (hc : c ∈ boxA) (m : ℝ) (hcm : ‖zqFn c‖ < m) (hfr : ∀ z ∈ frontier boxA, m ≤ ‖zqFn z‖) : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1 / 2
+  THE OPEN HYPOTHESES, NAMED: hcm and hfr, the numerics of S5-S6 (zqFn certified at a point of box A below m, and at least m on its frontier); hc the point`s place,
+  which the ruling`s form leaves out (data/b738_offlinezero_notes.txt (1)). No sentence here says a zero is located in Lean or that Li nonnegativity fails as a theorem:
+  zq_li_not_nonneg_of_box carries the same two hypotheses.
+
+### ### **SP1 REACHED ; DISPATCHES 6 OF 12 ; LINES 206 AGAINST 135-275 ; zq_offline_of_box AXIOMS propext, Classical.choice, Quot.sound ; THE CONTRAPOSITIVE AXIOMS propext, Classical.choice, Quot.sound ; SP2 NOT BEGUN ; THE ORDER OPEN AT SP1.**
