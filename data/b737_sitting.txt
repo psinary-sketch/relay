@@ -1,0 +1,95 @@
+b737 -- THE SITTING OF ONE KERNEL, (R347)(4): [76] AND [77] AT MAIN, THEN [25]-[29], SIDE-effects (2026-11-03)
+
+### read at main: SIDE-effects origin/main 78bbcff533b7273b2d26accd0726b126c961e401 (ls-remote, equal to the local main), 2026-10-13, b664's merge; the census
+### pin afb196e stands 24 commits behind it, README.md 154 lines changed between them, so every draft below is from main and none from the pin.
+### the statements standing at main (git grep over the .lean files at 78bbcff):
+###   SIDEEffects/Phase15/SIDEFramework.lean : SIDE_exclusion (:45), determination_collapse (:60), side_bridge (:81)
+###   SIDEEffects/Phase15/Module1.lean       : StructuralCoupling.period_pos (:53), periodic_lift (:69), StructuralCoupling.eval_periodic (:75), ofPeriodic_eval (:119),
+###                                            to_modular_correct (:142), crt_exhaustiveness (:146), no_type_d_conspiracies : IsEmpty TypeD (:154)
+###   SIDEEffects/ExhaustivenessLicense.lean : Grade.le_refl (:56), Grade.le_trans (:59), theorem_is_top (:63), none_is_bottom (:67), ladder_strict (:71), RH_grade (:114),
+###                                            Hodge_grade (:115), T7_grade (:116), classNumberDiagonal_grade (:117), instances_ordered (:122), RH_typeI_of_top (:140) on the
+###                                            premise EDifficultyTop (:133), open and never proved
+###   SIDEEffects/Structural.lean            : formation_seven (:41), AddMult.no_type_d (:54)
+###   SIDEEffects/Milestones.lean            : twin_primes_infinite (:27), goldbach (:37), sophie_germain_infinite (:45), each a def of a Prop, proved nowhere; 0 sorry
+### THE RETIRED ONE: side_exclusion (¬P → ¬P), the draft's citation at the pin (Structural.lean :23), stands RETIRED in Structural.lean's ledger at main ("Retired as a
+### trivial identity; the genuine exclusion engine is Phase15/SIDEFramework.lean : SIDE_exclusion"); the nine framework-consequence skeletons retired with it.
+### KEPT WHOLE: the open-premise paragraph (README :42-:44 after the write, EDifficultyTop a named premise) and the retirement record (the Structural section's
+### retirement paragraph and "What this kernel does and does not claim"); the byline and ORCID lines untouched. The writes: README.md alone on the kernel, by
+### two commits, each pushed by tools/push_gated.sh from push-b737-sitting and read back; the description by `gh repo edit`, read back by `gh repo view`.
+
+[76] PASS, with the Milestones section
+  FILE: SIDE-effects README.md
+  LINE: :3-:7 (the door paragraph under the title); the Milestones section :69, :71, :77-:81 and "How to close a milestone" step 2, at 78bbcff's numbering
+  PAPER: the door of SIDE-effects (cited at PLACE-papers phase1.5/spectral/GRH_CASCADE.md, phase1.5/method/THE_LOAD_BEARING_MAP.md, per data/b732_phase2_frontdoors.txt :185-:218)
+  GRADE REPAIRED: EXCEEDS (the title row)
+  CURRENT READ: Lean 4 kernel for the SIDE Exclusion method: the abstract exclusion engine, a genuine Type-D exclusion via CRT exhaustiveness, the graded ladder of exhaustiveness licenses, the open additive-prime milestones, and an honest record of retired framework-consequence skeletons.
+  COMPARED TO THE AGENDA: the agenda's CURRENT is the pin's first line; main's paragraph read whole, the draft made from main
+  DRAFT WRITTEN: At main (78bbcff), SIDE-effects compiles an exclusion engine whose catalogue's exhaustiveness is a premise, a periodicity result over its own residue couplings, and a ladder of grades computed from evidence flags set by hand. Statements at 78bbcff: theorem SIDE_exclusion (cat : ExhaustiveCatalogue X P) (h_none : NoneProduces X P cat.classes x) : ¬ (P x) (SIDEEffects/Phase15/SIDEFramework.lean :45); theorem no_type_d_conspiracies : IsEmpty TypeD (SIDEEffects/Phase15/Module1.lean :154); theorem RH_grade : grade RH_evidence = Grade.theorem_ (SIDEEffects/ExhaustivenessLicense.lean :114). The first takes covers_all as its premise; the second ranges over the file's own StructuralCoupling; the third reads RH_evidence := ⟨true, true, true⟩ (:100), set by hand. Milestones.lean states three open conjectures as Props and proves none; side_exclusion (¬P → ¬P) stands retired in Structural.lean's ledger.
+                 the Milestones section: "3 theorems, 3 sorrys (each at a marked analytic boundary), 0 axioms." -> "3 definitions, each a `Prop` stating an open conjecture; 0 sorry (restated from `theorem ... := by sorry` at b648)."; the table's head "Theorem" -> "Definition"; "Each `sorry` sits at ... for the existence statement." -> "Each definition carries a comment naming the Mathlib infrastructure a proof would need. No milestone uses `Module1.no_type_d_conspiracies` or `AddMult.no_type_d`, and none of the three conjectures follows from either in Lean (`Milestones.lean`, its status note)."; "Replace the `sorry` with the proof using those lemmas" -> "Add a theorem concluding the milestone's `Prop`, proved with those lemmas"
+  CONFIRMATION: SIDE-effects 21b6328c445e5bff02a029f56b987ee1e0ad61c7, pushed 78bbcff..21b6328 and read back (relay data/b737_SIDE-effects_push-b737-sitting_push_out.txt); 22 lines in, 12 out, README.md alone
+  THE AUTHOR`S WORD: Pass [76] + Milestones
+  AT: 2026-11-03T15:24:38Z
+
+[77] PASS
+  FILE: SIDE-effects GitHub description
+  LINE: the one line
+  PAPER: the door of SIDE-effects (cited at PLACE-papers README.md, phase1.5/method/THE_LOAD_BEARING_MAP.md, phase2/method/ADDITIVE_MULTIPLICATIVE_CONSPIRACY.md)
+  GRADE REPAIRED: EXCEEDS
+  CURRENT READ: SIDE Exclusion method in Lean 4: the abstract exclusion engine, genuine Type-D exclusion via CRT exhaustiveness, and the graded exhaustiveness-license ladder (EDifficultyTop carried as a named open premise)
+  COMPARED TO THE AGENDA: EQUAL (gh repo view)
+  DRAFT WRITTEN: Lean 4 kernel: an exclusion engine taking exhaustiveness as a premise, a CRT result over its own couplings, and a grade ladder on hand-set flags (EDifficultyTop an open premise)
+  CONFIRMATION: gh read back after the write, equal
+  THE AUTHOR`S WORD: Pass [77]
+  AT: 2026-11-03T15:27:29Z
+
+[25] PASS, as [76]
+  FILE: SIDE-effects README.md
+  LINE: :5.1 at the pin (relay data/b732_phase2_doors.txt), in the door paragraph at main
+  CURRENT READ: ladder of exhaustiveness licenses, the open additive-prime milestones,
+  COMPARED TO THE AGENDA: EQUAL, at main :5
+  DRAFT WRITTEN: none; the row fell with [76]'s paragraph at 21b6328
+  CONFIRMATION: absent from README.md at 21b6328
+  THE AUTHOR`S WORD: Pass [25] as [76]
+  AT: 2026-11-03T15:29:44Z
+
+[26] PASS, stands at main
+  FILE: SIDE-effects README.md
+  LINE: :43.1 at the pin, :54 at 21b6328
+  CURRENT READ: `crt_exhaustiveness` (every structural residue coupling is realized by
+  COMPARED TO THE AGENDA: EQUAL; the agenda's reason ("absent at pin afb196e") does not hold at main: crt_exhaustiveness (sc : StructuralCoupling) : ∃ m : ModularCoupling, ∀ n : ℕ, sc.eval n ↔ m.eval n compiles at Module1.lean :146
+  DRAFT WRITTEN: none; the row stands
+  CONFIRMATION: no write
+  THE AUTHOR`S WORD: Pass [26], stands
+  AT: 2026-11-03T15:29:44Z
+
+[27] PASS, stands at main
+  FILE: SIDE-effects README.md
+  LINE: :44.1 at the pin, :55 at 21b6328
+  CURRENT READ: a modular coupling, via periodic lift) and
+  COMPARED TO THE AGENDA: EQUAL; at main periodic_lift (Module1.lean :69) and to_modular_correct (:142) compile beside crt_exhaustiveness (:146)
+  DRAFT WRITTEN: none; the row stands
+  CONFIRMATION: no write
+  THE AUTHOR`S WORD: Pass [27], stands
+  AT: 2026-11-03T15:29:44Z
+
+[28] PASS, with one write (the second of this act to README.md)
+  FILE: SIDE-effects README.md
+  LINE: :46.2 at the pin; :50 and :57 at 21b6328 (the SIDEFramework and Module1 sections)
+  CURRENT READ: Genuine content, 0 sorry.
+  COMPARED TO THE AGENDA: EQUAL; at main no .lean file carries a sorry outside comments (git grep at 78bbcff), so "0 sorry" reads true and "Genuine content" is a grade the kernel does not compile
+  DRAFT WRITTEN: the author's words: "0 sorry at 78bbcff." at :50 and :57, the grade word out, the checked fact kept with its commit
+  CONFIRMATION: SIDE-effects db0575c6a0cdfd543789bfb9b5dc80eed244171e, pushed 21b6328..db0575c and read back (relay data/b737_SIDE-effects_push-b737-sitting_push_out.txt); 2 lines in, 2 out
+  THE AUTHOR`S WORD: Pass [28] with one write: at main :50 and :57, “Genuine content, 0 sorry.” becomes “0 sorry at 78bbcff.” — the grade word out, the checked fact kept with its commit. One git write to README.md on SIDE-effects, the second of this act on that file, recorded as such.
+  AT: 2026-11-03T15:29:44Z
+
+[29] PASS, as [77]
+  FILE: SIDE-effects GitHub description
+  LINE: :description (relay data/b732_phase2_doors.txt)
+  CURRENT READ: the old line, replaced by [77]
+  COMPARED TO THE AGENDA: EQUAL before [77]'s write
+  DRAFT WRITTEN: none; the row fell with [77]
+  CONFIRMATION: gh read back after [77], the new line
+  THE AUTHOR`S WORD: Pass [29] as [77]
+  AT: 2026-11-03T15:31:42Z
+
+### ### **THE SITTING OF ONE KERNEL: 7 ROWS ; PASS 7 ([76], [77], [25]-[29]) ; STRUCK 0 ; CARRIED 0 ; WRITES: README.md 2 (21b6328c, db0575c6), the description 1 ; SIDE-effects main db0575c6.**
