@@ -1,7 +1,7 @@
-b736 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T03:23:36Z)
+b736 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-03T03:32:50Z)
 
 ### the source: the seat`s session 7c29db99-62df-4f5e-a436-7e99b58f5dbf from its first user line carrying 'RULING (R346) BEGIN', with its subagents` transcripts
-### commands read: 425
+### commands read: 434
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (7):
   #11 2026-11-02T22:22:37.904Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -566,5 +566,14 @@ print(hashlib.md5
   #423 | 2026-11-03T03:21:45.084Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record trail dry
   #424 | 2026-11-03T03:21:54.418Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt --bank-only
   #425 | 2026-11-03T03:22:55.057Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands
+  #426 | 2026-11-03T03:23:38.394Z | seat | Bash | python -X utf8 -u tools/b736_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- "data/b736_*" data/audit_b736_reg_satisfiab
+  #427 | 2026-11-03T03:23:53.539Z | seat | Bash | git add -- data/b736_address_scan.txt data/b736_commands.json data/b736_commands.txt data/b736_defects.txt data/b736_registration_2026-11-02.txt data/b736_steps
+  #428 | 2026-11-03T03:23:56.931Z | seat | Bash | git commit -q -m "b736 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the score routes' dry form, the pre-lock co
+  #429 | 2026-11-03T03:24:02.907Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay gate a05b0079 && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e
+  #430 | 2026-11-03T03:24:09.172Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part standing-a --act b736
+  #431 | 2026-11-03T03:29:11.963Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py
+  #432 | 2026-11-03T03:29:14.126Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act --act b736
+  #433 | 2026-11-03T03:31:12.266Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt --bank-only
+  #434 | 2026-11-03T03:32:09.451Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b736_address_sc
 
-### ### **COMMANDS 425 ; G-EDIT-ROUTE OFFENCES 7 (SED IN ANY FORM AMONG THEM 7) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 7 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 41 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 434 ; G-EDIT-ROUTE OFFENCES 7 (SED IN ANY FORM AMONG THEM 7) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 15 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 7 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 41 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

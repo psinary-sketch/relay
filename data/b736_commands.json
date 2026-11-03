@@ -1,5 +1,5 @@
 {
- "at": "2026-11-03T03:23:36Z",
+ "at": "2026-11-03T03:32:50Z",
  "anchor": "RULING (R346) BEGIN",
  "rows": [
   {
@@ -3400,6 +3400,78 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands",
    "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:23:38.394Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b736_address_scan.py scan --bank --quiet && git status --short -uno && git status --short -- \"data/b736_*\" data/audit_b736_reg_satisfiable.txt",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:23:53.539Z",
+   "src": "seat",
+   "cmd": "git add -- data/b736_address_scan.txt data/b736_commands.json data/b736_commands.txt data/b736_defects.txt data/b736_registration_2026-11-02.txt data/b736_steps.json tools/acts/b736.py tools/b736_face_blocks.txt data/audit_b736_reg_satisfiable.txt data/b736_census_stepzero.txt data/b736_closing_dry.txt data/b736_faces_census_stepzero.txt data/b736_pins_stepzero.txt data/b736_prelock.txt data/b736_reg_gate.txt data/b736_reg_termscan.txt data/b736_regspec_run.txt data/b736_report_dry.txt data/b736_root_banks_dry.json data/b736_root_banks_dry.txt data/b736_satisfiable.json data/b736_scores_dry.txt",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:23:56.931Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b736 gate: GATE VERDICT CLEAR, the banks stamped, the dry step, the closing's dry run, report dry, the score routes' dry form, the pre-lock comparison; the N3 negation screen and the face's two gate tokens, defects (k') and (l')\" && git log -1 --format=%h",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:24:02.907Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay gate a05b0079 && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:24:09.172Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part standing-a --act b736",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:29:11.963Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/7c29db99-62df-4f5e-a436-7e99b58f5dbf/scratchpad/wait734.py",
+   "n": 431,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:29:14.126Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py checks --part act --act b736",
+   "n": 432,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:31:12.266Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b736_registration_2026-11-02.txt --bank-only",
+   "n": 433,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-03T03:32:09.451Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks && python -X utf8 -u tools/standing/fold.py record commands && python -X utf8 -u tools/b736_address_scan.py scan --bank --quiet && git status --short -uno",
+   "n": 434,
    "bg": false
   }
  ],
