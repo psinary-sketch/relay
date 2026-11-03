@@ -162,10 +162,13 @@ READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b737_read_calls.txt', 'data/b738_read_calls.txt')
 
-# ### THE SUITE'S PARTS: seven, as b706 split them and b707-b737 carried them
-PARTS = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act')
+# ### THE SUITE'S PARTS: seven as b706 split them and b707-b737 carried them (PARTS_AT_STEP_ZERO, data/act_current.json at 26c57096); ten from
+# ### (R348)(2)(vi) under b675 rules row (2) (b737 events (2), (5), (7), (9)): standing-a in two (G-NO-SORRY-MAIN's kernels halved) and the chain's
+# ### first half in four (b2a-b2d), split where the walks timed at b738 (scratch walktime738.py) fall nearest a quarter each
+PARTS_AT_STEP_ZERO = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act')
+PARTS = ('standing-a1', 'standing-a2', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d', 'standing-b3', 'act')
 CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b738'))
-CHAIN_QUARTERS = (('b624', 'b631'), ('b632', 'b658'))   # ### (R348)(2)(vi): b2a split where b737's banked walks halve (repeat.quarters; b2a's run 575 s at b737)
+CHAIN_QUARTERS = (('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658'))   # ### walks 116, 129, 157, 146 s at b738
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'
 STANDING_ADDED = ()          # ### set by the Edit tool when a component adds a standing arm
@@ -238,9 +241,13 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b738.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.17.0'            # ### entering the act; (R348)(2)'s repairs land the next version by a commit of their own (C1_STANDING)
+STANDING_VERSION = 'v1.18.0'            # ### (R348)(2)'s repairs, landed by a commit of their own (C1_STANDING) with data/b738_standing_v1180.txt
 STANDING_VERSION_ENTERING = 'v1.17.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'b25fd82c'), ('D:/SIDE-explicit-formula/.lake/packages/mathlib', 'de5ce8a9'))
+# ### v1.18.0, (R348)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
+# ### comparative_rows); set by the Edit tool as Components 2-4 write the banks, before the lock
+COMPARATIVE_BANKS = ()
+COMPARATIVE_ROWS = ()
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
 STANDING_CHANGED = ()
 STANDING_NEW = ()
