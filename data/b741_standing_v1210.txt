@@ -1,0 +1,89 @@
+b741 -- THE CONTROLS OF tools/standing/ v1.21.0, (R351)(2)(i)-(vii): THE ONE-CALL COMMIT TOOL, THE HAND EDIT OF A TOOL`S BANK, THE CHAINED WRITE COUNT, THE POST-SEAL READ, THE TOUCH READ`S DIFFERS, THE CARRIED NEXT ACT, THE VERSION (2026-11-04T22:53:56Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then the one-call commit tool at the head, then each repair`s instances through both routes; written through tools/standing/figbank.py ((R348)(2)(i))
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2570 lines
+  citation render          OK    520 lines
+  closing render           OK    621 lines
+  record render            OK    4498 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    154 lines
+  tools/b741_worklist.py   OK    380 lines
+### THE COMPILE CONTROL : b741 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from fe2150b3
+
+### (commit) (R351)(2)(i), b740 EVENTS (1), (2), (4): THE ONE-CALL COMMIT TOOL -- THE SUBJECT COMPOSED FROM THE BANK, THE COMMIT, THE ROW, IN THAT ORDER, NO SHELL BETWEEN
+  ### the scratch repository C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1210-kcqi6nih\repo (outside data/ and tools/); the composed subject of b740`s lock, from data/b740_lockgate.json: "b740 lock: face locked, the lock gate`s 8 gates"
+  (commit) event (1): b740`s lock subject carrying a backtick (relay 15b587de landed "b740 lock: face locked, the lock gates 8 gates")
+      BEFORE (v1.20.0): a PowerShell double-quoted git commit -m, read back "b740 lock: face locked, the lock gates 8 gates" -> FAILS
+      AFTER  (v1.21.0): tools/standing/commit.py by argument list, read back "b740 lock: face locked, the lock gate`s 8 gates" -> PASSES
+      AS WANTED
+  (commit) event (2): the lock and two gate commits rowed after the lock (relay data/b740_steps.json row 10 the lock, a gate row after it for 1ec8ab8b, 0459d8c9)
+      BEFORE (v1.20.0): the step bank`s rows: gate rows after the lock row ['1ec8ab8b', '0459d8c9'] -> FAILS
+      AFTER  (v1.21.0): three calls, gate, gate, lock: rows ['gate', 'gate', 'lock'], each written in its call, the gates` before the lock`s True -> PASSES
+      AS WANTED
+  (commit) GUARD, NO FAILING SIDE: event (4): a seal commit before data/b740_seal_hashes.json exists (the hook refused the shell`s at 20:23Z; the tool refuses before git runs)
+      AFTER  (v1.21.0): refused "THE RECORD THE SUBJECT NAMES DOES NOT EXIST: data/b740_seal_hashes.jso" ; HEAD unmoved True -> HOLDS
+      AS WANTED
+  (commit) event (4): the commit after the lock and before the seal (relay 3f13ca05): its subject`s head and its row`s phase
+      BEFORE (v1.20.0): subject head `lock`, row phase `seal` -> FAILS
+      AFTER  (v1.21.0): a second `lock` refused before the commit: "A LOCK ROW STANDS: the commit after the lock takes phase `se" ; HEAD unmoved True -> PASSES
+      AS WANTED
+  (commit) the shell route: b740`s lock subject and a gate subject typed into git commit -m
+      BEFORE (v1.20.0): the hook at fe2150b3 on the gate subject: ALLOWED -> FAILS
+      AFTER  (v1.21.0): the hook: lock SUBJECT ; gate SUBJECT -> PASSES
+      AS WANTED
+  ### the scratch repositories stay in place: C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1210-kcqi6nih, C:\Users\ECHOCH~1\AppData\Local\Temp\standing-v1210-4q7uydpc
+
+### (hashed) (R351)(2)(ii), b740 (m), N4: THE HAND EDIT OF A JSON BANK -- AN EDIT OR WRITE OF A BANK ITS TOOL WROTE, REFUSED BY THE HOOK
+  (hashed) b740 (m): an Edit of data/b740_corrigendum.json (named in data/b740_bank_hashes.json) at Component 1, before the lock
+      BEFORE (v1.20.0): the hook at fe2150b3: LOCKED wants the lock, the bank committed 14:53:00Z and the lock gate 18:29:09Z, the lock not come (locked_bank True) -> ALLOWED -> FAILS
+      AFTER  (v1.21.0): hashed_bank -> b740_corrigendum.json -> HASHED -> PASSES
+      AS WANTED
+  (hashed) GUARD, NO FAILING SIDE: the exclusion read (lock_exempt, (R343)(2)(vi)): the events bank, the step bank and a hand-written bank pass
+      AFTER  (v1.21.0): events None ; steps None ; stepzero None -> HOLDS
+      AS WANTED
+
+### (writes) (R351)(2)(iii), b740 (b), N5, REPEAT b738 (m), b736 (b): THE GIT-WRITE COUNT READS A CHAINED COMMAND AS ITS WRITES
+  (writes) GUARD, NO FAILING SIDE: b740 (b), data/b740_hook_refusals.txt :2, the chained add and commit: its writes, and the hook`s verdict
+      AFTER  (v1.21.0): writes 2 ; the hook GITWRITE -> HOLDS
+      AS WANTED
+  (writes) the one-call commit tool`s run, alone and chained after an add
+      BEFORE (v1.20.0): gitwrite at fe2150b3: 0 and 1 -> FAILS
+      AFTER  (v1.21.0): gitwrite: 1 and 2, the hook on the chained GITWRITE -> PASSES
+      AS WANTED
+
+### (postseal) (R351)(2)(iv), b740 EVENTS (5), REPEAT b736 (8): THE EXCLUDE LIST BEFORE ANY READ AFTER THE SEAL; THE ARM`S FAILURE PRINTED AS SUCH
+  (postseal) b740`s failing reading of G-RULE-POSTSEAL-READ (data/b740_checks.txt :16 lists it failing), read with its ordinal
+      BEFORE (v1.20.0): checks.tpl at fe2150b3: the arm`s predicate unwrapped (True), its failure printed without an ordinal -> FAILS
+      AFTER  (v1.21.0): checks.tpl wraps it (True); b740`s reading: "THE ARM`S EIGHTH FAILURE BY THE SUITE BANKS (LIVE FAILING before at b720, b723, b725, b726, b727, b732, b736)" -> PASSES
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the exclude list the commit tool prints after a seal commit (hook.py excludes, read from tools/rule_arms.py)
+      AFTER  (v1.21.0): ### THE POST-SEAL READ RULE (G-RULE-POSTSEAL-READ, tools/rule_arms.py): after the seal no shell filter or redirect over FINDINGS.md, OPEN_TRAILS.md, _ -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the ordinal from the suite banks, not typed: the acts listing the arm LIVE FAILING before b741 (the ruling`s "third" counts the REPEAT rows b736 (8) and b740 (5))
+      AFTER  (v1.21.0): 8 acts: b720, b723, b725, b726, b727, b732, b736, b740 -> HOLDS
+      AS WANTED
+
+### (touch) (R351)(2)(v): THE TOUCH READ`S TWO DIFFERS ROWS NAMED WITH THEIR CAUSE
+  (touch) GUARD, NO FAILING SIDE: data/b740_touch.txt :38 "DIFFERS 2", rows (19) and (26) read with the defect each names as its cause
+      AFTER  (v1.21.0): (19) DIFFERS True cause defect (b') ; (26) DIFFERS True cause defect (a') -> HOLDS
+      AS WANTED
+
+### (next) (R351)(2)(vi): THE CLOSING`S CARRIED ITEM FROM THE AUTHOR`S ANSWERS BANK
+  (next) b740`s closing regenerated: item (a) against data/b740_author_answers.txt :17
+      BEFORE (v1.20.0): data/b740_closing.txt :332 "(a) ### **THE NEXT, (R350)(7)**: per (R350)(6), named by the author: S..." -> FAILS
+      AFTER  (v1.21.0): "(a) ### **THE NEXT, BY THE AUTHOR`S WORD (relay data/b740_author_answers.txt :17)**: The author’s word: b741 is (c7), the certified incomple..." -> PASSES
+      AS WANTED
+
+### (version) (R351)(2)(vii): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.20.0): v1.20.0 -> FAILS
+      AFTER  (v1.21.0): v1.21.0 -> PASSES
+      AS WANTED
+
+### ### **v1.21.0: CONTROLS (commit), (hashed), (writes), (postseal), (touch), (next), (version) ; CASES 15 ; AS WANTED 15 ; ALL AS WANTED.**

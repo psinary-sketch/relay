@@ -98,6 +98,7 @@ import act_close as AC        # noqa: E402  ### (⟪RUL⟫)(4): the close's shar
 import act_letters as AL      # noqa: E402  ### (⟪RUL⟫)(6)(v), v5 row (78): the one lettering, the corrigendum tool's and this suite's
 from standing import arms as STA    # noqa: E402  ### (⟪RUL⟫)(4)(i): the previous act's longest phase from its root-named part banks
 from standing import close as STC   # noqa: E402  ### (⟪RUL⟫)(4)(ii), (vi): the withheld field from the ruling, neg_shown's three lists
+from standing import postseal as PSL   # noqa: E402  ### v1.21.0, (R351)(2)(iv)
 
 
 def _owners(rows):
@@ -1842,7 +1843,7 @@ ARMS_ALL = [
     ('G-READ-RULE-STANDING', 'tools/b704_read_arm.py over the read bank at HEAD (the author`s word at b704`s sort; from b705 every call counts): no Read call of a file of two hundred lines or more without an offset, without a limit or with a limit above two hundred',
      lambda S: read_rule_standing_ok(S), lambda S: _read_plant(S)),
 ] + [(nm, 'tools/rule_arms.py (the author`s word on (R293)(6); (R301)(6) for four; G-RULE-SUITE-PARTS as repaired under (R302)(2) and (⟪RUL⟫)(2); G-RULE-BINARY-HASHES as repaired under (R306)(2); G-RULE-RECUT-QUOTE`s sources as repaired under (R313)(2)) -- ' + reads,
-      (lambda p: lambda S: p(S['ra']))(pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]
+      (lambda p: lambda S: p(S['ra']))(PSL.wrap(pred, '⟪ACT⟫') if nm == PSL.ARM else pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]   # ### v1.21.0, (R351)(2)(iv): the post-seal arm's failure carries its ordinal
 # ### (⟪RUL⟫)(10): the run list -- the whole list less tools/standing/arms.py RETIRED; every part, the (G2) block, the seal and the tallies read
 # ### ARMS; G-ARM-TAGS reads the whole list (the retired keep their tags)
 ARMS = STA.run_list(ARMS_ALL)

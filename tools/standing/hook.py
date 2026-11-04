@@ -16,6 +16,8 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   SUBJECT a seal or lock commit whose subject tools/standing/subjects.py check() faults -- v1.19.0, (R349)(2)(iii)
   BACKGROUND a suite part or combine sent with run_in_background -- v1.19.0, (R349)(2)(v), the standing clauses' foreground rule
   SED    sed in any form (data/b685_rules.txt row (2)), the reader of (R343)'s tools in its place -- v1.19.0, (R349)(2)(vi)
+  HASHED an Edit or Write of a bank its tool wrote (data/<act>_bank_hashes.json names it), before the lock or after -- v1.21.0, (R351)(2)(ii)
+  SUBJECT (v1.21.0, (R351)(2)(i)) a gate, lock or seal commit made by the shell at all: tools/standing/commit.py is the one route
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -61,6 +63,7 @@ ROWS = {
     'SUBJECT': ROW77 + ' ; a seal or lock commit`s subject composed from its bank by tools/standing/subjects.py ((R349)(2)(iii))',
     'BACKGROUND': ROW77 + ' ; no suite part in the background, each in the foreground with its 600 s limit ((R349)(2)(v))',
     'SED': ROW77 + ' ; data/b685_rules.txt row (2), sed in any form, a line read by the Read tool or tools/standing/peek.py ((R349)(2)(vi))',
+    'HASHED': ROW77 + ' ; (18) a bank a tool wrote (named in data/<act>_bank_hashes.json) rewritten by its tool and never by hand ((R351)(2)(ii))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -273,14 +276,17 @@ def ledger_over(transcript, n, path=None):
 
 def subject_faults(cmd, relay=RELAY):
     """v1.19.0, (R349)(2)(iii): a seal or lock commit's subject read by tools/standing/subjects.py check() against the relay's banks; [] where
-    the command carries no such subject."""
+    the command carries no such subject. v1.21.0, (R351)(2)(i), b740 events (1): a gate, lock or seal commit typed into a shell is refused
+    whatever its subject -- the shell stands between the subject and the commit (PowerShell's backtick); tools/standing/commit.py is the one route."""
     m = COMMIT_SUBJECT.search(cmd)
     if not m:
         return []
     subj = m.group(1) if m.group(1) is not None else m.group(2)
-    s = re.match(r'^(b\d+) (seal|lock):', subj)
+    s = re.match(r'^(b\d+) (seal|lock|gate):', subj)
     if not s:
         return []
+    if s.group(2) == 'gate':
+        return ['a gate commit by the shell: tools/standing/commit.py makes it, its subject and its row']
     d = os.path.dirname(os.path.abspath(__file__))
     if d not in sys.path:
         sys.path.insert(0, d)
@@ -292,7 +298,7 @@ def subject_faults(cmd, relay=RELAY):
             return None
         with open(p, encoding='utf-8') as f:
             return json.load(f) if name.endswith('.json') else f.read()
-    return SJ.check(s.group(1), s.group(2), subj, read)
+    return SJ.check(s.group(1), s.group(2), subj, read) + ['a %s commit by the shell: tools/standing/commit.py makes it, its subject and its row' % s.group(2)]
 
 
 def locked(relay=RELAY):
@@ -327,6 +333,28 @@ def locked_bank(path, relay=RELAY, act=None):
     import subprocess
     r = subprocess.run(['git', '-C', relay, 'ls-files', '--error-unmatch', '--', rel], capture_output=True, text=True)
     return r.returncode == 0
+
+
+def hashed_bank(path, relay=RELAY, act=None):
+    """v1.21.0, (R351)(2)(ii), b740 (m), N4: the bank's name where the path is a file of relay data/ that the act's hashes bank names (a bank its tool
+    wrote and hashed), else None. b740's data/b740_corrigendum.json, written by the c1 route and set by hand before the commit, is the instance; the
+    lock never entered it (Component 1), so the LOCKED rule of v1.17.0 could not reach it. The exclusion of (R343)(2)(vi) is read through lock_exempt:
+    the step bank, the hashes bank itself, the refusals, the post-lock scan and the events bank stay writable by their routes."""
+    act = act or bank_act(relay)
+    if not act or not path:
+        return None
+    try:
+        rel = os.path.relpath(os.path.abspath(path), relay).replace(os.sep, '/')
+    except ValueError:
+        return None
+    if not rel.startswith('data/') or '/' in rel[5:] or rel in lock_exempt(act):
+        return None
+    try:
+        with open(os.path.join(relay, 'data', '%s_bank_hashes.json' % act), encoding='utf-8') as f:
+            names = json.load(f)
+    except (OSError, ValueError):
+        return None
+    return rel[5:] if isinstance(names, dict) and rel[5:] in names else None
 
 
 def refusals_path(relay=RELAY):
@@ -397,6 +425,9 @@ def judge(tool, inp, relay=RELAY, ctx=None):
     if tool in EDIT_TOOLS:
         if locked(relay) and locked_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay):
             return 'LOCKED', 'a %s of a bank written before the lock, after the lock' % tool
+        hb = hashed_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay)
+        if hb:   # ### v1.21.0, (R351)(2)(ii), b740 (m)
+            return 'HASHED', 'a %s of data/%s, a bank its tool wrote (data/%s_bank_hashes.json), by hand' % (tool, hb, bank_act(relay))
         return None
     if tool == 'Read':
         lim = inp.get('limit')

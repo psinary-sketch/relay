@@ -30,6 +30,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 sys.path.insert(0, T)
 import ⟪ACT⟫_worklist as WL   # noqa: E402
+from standing import nextact as NXA   # noqa: E402  ### v1.21.0, (R351)(2)(vi): the carried item (a) from the author's answers bank
 
 OUTD = WL.SP if DRY else D
 
@@ -137,6 +138,11 @@ def defects_row(act, item='i'):
 
 
 def carried():
+    """v1.21.0, (R351)(2)(vi): the act module's items, (a) composed from the author's answers bank where an answer names the next act."""
+    return NXA.carried('⟪ACT⟫', _carried_items(), D)
+
+
+def _carried_items():
 ⟪SLOT 3⟫
 
 

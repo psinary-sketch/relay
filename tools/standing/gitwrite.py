@@ -27,6 +27,8 @@ LIST_FLAGS = r'(?:\s+(?:--list|-l|-a|-r|-v|-vv|--all|--remotes|--merged|--no-mer
 LISTING = re.compile(r'^\s*git\s+(?:-C\s+\S+\s+)*(?:branch|tag)' + LIST_FLAGS + r'\s*$')
 # ### v1.14.0, (R344)(2)(iii), b733 event (10): the gated push is a write where the command runs it; a read naming its path is no write
 RUNS_GATED = re.compile(r'^\s*(?:(?:bash|sh)\s+)?\S*push_gated\.sh\b')
+# ### v1.21.0, (R351)(2)(i), (iii): the one-call commit tool runs a git commit; a command running it is one write, so its message carries no other
+RUNS_COMMIT = re.compile(r'^\s*(?:&\s*)?(?:\S*python\S*\s+(?:\S+\s+)*?)?\S*standing[/\\]commit\.py(?:\s|$)')
 
 
 def commands(cmd):
@@ -38,6 +40,8 @@ def is_listing(c):
 
 
 def is_write(c):
+    if RUNS_COMMIT.match(c):
+        return True
     hits = [m.group(0) for m in RA.GIT_WRITE.finditer(c)]
     return bool(hits) and not is_listing(c) and (any(h != 'push_gated.sh' for h in hits) or bool(RUNS_GATED.match(c)))
 
