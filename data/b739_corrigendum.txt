@@ -1,0 +1,71 @@
+b739 -- THE CORRIGENDUM FOR b738, (R349)(2) (2026-11-04T06:22:51Z)
+
+### the banks read unedited: data/b738_events.txt rows (1)-(7), data/b738_defects.txt 19 rows, data/b738_hook_refusals.txt 2 lines at 3f45857d; data/b739_standing_v1190.txt (the v1.19.0 controls); the corrigenda bank`s last row (58).
+
+  *b738’s events bank (relay data/b738_events.txt) carries seven rows, entered after its lock and not lettered, each tagged in its own bracket (6 the seat’s, 1 the host’s); its defects bank nineteen lettered rows, (a)-(s), each tagged in its own bracket (19 the seat’s); its refusal bank two lines at 3f45857d, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R349)`(2), at tools/standing/ v1.19.0, each with a control on b738’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b739_standing_v1190.txt, 17 cases, AS WANTED 17):
+  
+  **(gitwrite) the parallel git write the hook did not refuse (`(R349)`(2)(i), defect (m), N5; CLOSE ; NEW, the class of b736’s 05:22Z pair)** -- rule (1) of data/b739_rules.txt; Claude Code writes a message’s tool blocks to the transcript only after its tools have run, so v1.17.0’s sibling read had nothing to count; the hook now keys each allowed git write to the transcript’s last api-request line, written before the tools run, in a per-session ledger, and refuses a second write under the same request in any repository, kernel clones included, kind GITWRITE. b738’s 23:22:55Z pair on the kernel clone replayed: the commit passed before, GITWRITE after; a single add and the next message’s commit pass. The count over the session: b738 95 messages carrying a git write, one with two; b739 one write per message (:23).
+  
+  **(phases) the post-push chain phases against the pre-push (`(R349)`(2)(ii), events (5); CLOSE ; REPEAT of b737 events (2))** -- rule (2) of data/b739_rules.txt; tools/standing/phases.py puts each part’s two banks side by side. The finding, printed before any guard moves: the post-push read did the pre-push read’s work in 5 of 5 parts, one remote read in each of 38 repositories and the same reads at commit; the time grew in standing-b2b and standing-b2c alone and in every phase of both (ratios 1.80-3.33), the slowdown the host’s while those parts ran; `(R348)`(2)(vi)’s split landed, every pre-push chain phase under 450 s. No guard moved (:35).
+  
+  **(subjects) the seal subject against its bank (`(R349)`(2)(iii), events (4); CLOSE ; NEW)** -- rule (3) of data/b739_rules.txt; tools/standing/subjects.py reads the count before “files” in a seal subject against the seal bank and before “gates” in a lock subject against the lock gate, and composes both; the hook refuses a subject the check faults, kind SUBJECT. b738’s “85 files” replayed: passed before, SUBJECT after; regenerated reading 80; the lock subject’s “eight gates” passing, “seven” planted faulting (:52).
+  
+  **(runs) G-DERIVATION-GRADED’s last row on an empty run list (`(R349)`(2)(iv), events (2); CLOSE ; NEW)** -- rule (4) of data/b739_rules.txt; tools/standing/runs.py reads the last row behind a guard and names NO RUNS where the table and the worklist’s runs are both empty. b738’s predicate on b737’s state replayed: IndexError before, NO RUNS after; a matching table RUNS, a differing one DIFFERS (:64).
+  
+  **(background) the host’s stop of a background part (`(R349)`(2)(v), events (6); CLOSE ; REPEAT of b735’s reaped watch)** -- rule (5) of data/b739_rules.txt; the hook refuses a suite part or combine sent with run_in_background, kind BACKGROUND. b738’s 04:51Z standing-b2d call replayed: passed before, BACKGROUND after; the same in the foreground passing (:73).
+  
+  **(sed) sed and the Read with no offset (`(R349)`(2)(vi), defect (p), events (3); CLOSE ; REPEAT of classes (18) and (19))** -- rule (6) of data/b739_rules.txt; the hook refuses sed as a command word in any form, kind SED; a line is read by the Read tool with an offset and a limit or by tools/standing/peek.py search --lines. b738’s #354 lookup replayed: passed before, SED after; a grep and the reader passing; events (3)’s Read refused READ as v1.4.0 orders (:82).
+  
+  **(exercise) the exercise bank at closing (`(R349)`(2)(vii), `(R345)`(2)(viii))** -- rule (7) of data/b739_rules.txt; read against b738, whose closing commit 3f45857d carries data/b738_exercise.json and its ten part banks; the rule stands as ruled. A guard: no failing side (:94).
+  
+  **(version) the version (`(R349)`(2)(viii))** -- rule (8) of data/b739_rules.txt; tools/standing/VERSION v1.19.0, landed by a commit of its own (3c92170b) with its controls bank (:99).
+  
+  **b738’s events (1)-(7):**
+  
+  **(1)** the pre-run’s part standing-a2: G-SEALED-AFTER-COMPONENTS read "relay 62c920c0 has no row" (relay … (relay data/b738_events.txt, row (1); the seat’s; CLOSE; NEW).
+  **(2)** the run of part act on b737’s banks ((R348)(2)(iii)): G-DERIVATION-GRADED raised IndexError (list index out of range) … (relay data/b738_events.txt, row (2); the seat’s; CLOSE; NEW; repair (runs); rule (4) of data/b739_rules.txt).
+  **(3)** gathering the root prompt’s figures: a Read of data/b738\_arms\_prerun.txt sent with a limit of 20 and no offset on a … (relay data/b738_events.txt, row (3); the seat’s; CLOSE; REPEAT of class (19); repair (sed); rule (6) of data/b739_rules.txt, the instance REPEAT of class (19)).
+  **(4)** the seal’s third commit 65a2e5d8 carries the subject "the sealed tools’ hashes, 85 files", where the bank it commits … (relay data/b738_events.txt, row (4); the seat’s; CLOSE; NEW; repair (subjects); rule (3) of data/b739_rules.txt).
+  **(5)** the post-push run of part standing-b2c ran 678 s, its act-root chain phase 493 s, above b675 rules row (2)’s 450 s, … (relay data/b738_events.txt, row (5); the seat’s; CLOSE; REPEAT of b737 events (2); repair (phases); rule (2) of data/b739_rules.txt, the finding printed and no guard moved).
+  **(6)** the post-push run of part standing-b2d, sent to the background after a free-memory read of 4,344 MB, was stopped by the … (relay data/b738_events.txt, row (6); the host’s; CLOSE; NEW; repair (background); rule (5) of data/b739_rules.txt, REPEAT of b735’s reaped watch).
+  **(7)** the re-run of (6), on the author’s word delivered between BEGIN and END in the session after the stop ("run part … (relay data/b738_events.txt, row (7); the seat’s; CLOSE; NEW).
+  
+  **b738’s defects:**
+  
+  **(a)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of b737 (f)).
+  **(b)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of b737 events (3)).
+  **(c)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of b737 (c)).
+  **(d)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(e)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of b737 (n)).
+  **(g)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(l)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW; repair (gitwrite); rule (1) of data/b739_rules.txt; N5 REFUTED on it).
+  **(n)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(o)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(p)** (relay data/b738_defects.txt; the seat’s; CLOSE; REPEAT of class (18); repair (sed); rule (6) of data/b739_rules.txt).
+  **(q)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(r)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  **(s)** (relay data/b738_defects.txt; the seat’s; CLOSE; NEW).
+  
+  **b738’s refusals** (relay data/b738_hook_refusals.txt at 3f45857d, one a line): :1 READ 00:19:27Z, recorded at defect (o); :2 READ 03:29:42Z, recorded at event (3).
+  
+  **Dated notes:**
+  
+  Dated note, b739, to the counter (`(R349)`(1)): “CLAIM 0, CLOSE 26, REPEAT 9 OF 26” is relay data/b738_closing.txt :5, over the seven events and the nineteen defects together; over the defects alone the tags give CLAIM 0, CLOSE 19, REPEAT 7 of 19, the root prompt’s figure (data/b738_author_answers.txt :4). Both read from the same tags; this entry prints both and edits neither.
+  
+  Dated note, b739, to b738’s score line: relay data/b738_closing.txt :137 and its record print N3 REFUTED, the reading at the record, when the root prompt was not yet banked; the scores bank read at the close (data/b738_scores_close.json) holds N3 HELD, and the closing’s head line its “scores 7 of 8 HELD”. Both are b738’s; neither is edited.
+  
+  Dated note, b739, to b738’s defects (h) and (i): the line-keyed overrides moved by a template insert and b734’s checks render broken by b2d3afc0 have no repair in `(R349)`(2); no load path of b739 imports a past act’s checks render; they stay carried.
+  
+  **The counter:** CLAIM 0, CLOSE 26 over the 26 items (seven events, nineteen defects), as b738’s closing prints it (relay data/b738_closing.txt :5); REPEAT 9 of 26; the CLAIM items none.
+  
+  *Filed at b739 on the author’s ruling `(R349)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b739.py) from b738’s events and defects banks read unedited, its refusal bank, and the v1.19.0 controls bank; banked as relay `data/b739_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (59). It answers b738’s record; no sealed tool, face, trail or root-named bank of b738 is edited.*
+
+### ### **ITEMS 26: EVENTS 7, DEFECTS 19 ; CLAIM 0, CLOSE 26 ; REPEAT 9 ; DATED NOTES 3 ; v1.19.0: THE GIT WRITE BY THE MESSAGE`S REQUEST, THE POST-PUSH PHASES, THE SEAL AND LOCK SUBJECTS, THE GUARDED LAST ROW, NO BACKGROUND PART, NO SED, THE EXERCISE BANK, THE VERSION ; THE ENTRY AT FINDINGS :13283.**

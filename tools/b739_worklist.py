@@ -235,8 +235,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b738: its LF form equal to HEAD's (2d637131), nothing to commit
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = 'ee04041c'       # ### step zero's banks and carried tools, one commit (data/b739_stepzero.txt among them)
-STEPZERO_BANK_COMMIT = 'ee04041c'
+STEPZERO_BANKS = '8f6811dc'       # ### step zero's banks and carried tools, one commit (data/b739_stepzero.txt among them)
+STEPZERO_BANK_COMMIT = '8f6811dc'
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -250,8 +250,8 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b739.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.18.0'            # ### (R349)(2)'s repairs, landed by a commit of their own (C1_STANDING) with data/b739_standing_v1180.txt
-STANDING_VERSION_ENTERING = 'v1.17.0'
+STANDING_VERSION = 'v1.19.0'            # ### (R349)(2)'s repairs, landed by a commit of their own (C1_STANDING) with data/b739_standing_v1190.txt
+STANDING_VERSION_ENTERING = 'v1.18.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '602cd401'), ('D:/SIDE-explicit-formula/.lake/packages/mathlib', 'de5ce8a9'))   # ### zq-b730 at b738's tip
 # ### v1.18.0, (R349)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
 # ### comparative_rows); set by the Edit tool as Components 2-4 write the banks, before the lock
@@ -261,16 +261,16 @@ COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by t
 STANDING_CHANGED = ()
 STANDING_NEW = ()
 # ### b738's commits the act reads (the names kept for the carried arms: the previous act's)
-B714_CLOSING = '54cd4f92'    # ### b738's closing, the act's relay base
-B714_RECORD = 'b87c1e24'     # ### b738's record commit (relay, the head line's)
-B714_ROOT = '706d369cad76e1fd359f9c1db7fb6ef47f2ba6f6d28c659fe066e0dc79becc2e'   # ### b738's root, data/act_roots.txt's last row
-B723_ROOT_BANKS = '78289695'  # ### b738's root commit, the banks its root rode with
+B714_CLOSING = '3f45857d'    # ### b738's closing, the act's relay base
+B714_RECORD = 'ab6d923f'     # ### b738's record commit (relay, the head line's)
+B714_ROOT = 'f28b18c138ef6a635a847143c93942653bee4dd9f27cbc28f61d4cbf3c59df49'   # ### b738's root, data/act_roots.txt's last row
+B723_ROOT_BANKS = 'ce0042c2'  # ### b738's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = 'b2d3afc0'           # ### tools/standing/ v1.18.0 by a commit of its own, its controls bank data/b739_standing_v1180.txt ((R349)(2)(viii))
-C1_STANDING_REPAIR = 'c73ff77f'    # ### the act's own data the split changes: data/act_current.json's parts and quarters, the worklist ((R349)(2)(vi))
-C1_RELAY = 'f6193cb8'
+C1_STANDING = '3c92170b'           # ### tools/standing/ v1.19.0 by a commit of its own, its controls bank data/b739_standing_v1190.txt ((R349)(2)(viii))
+C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
+C1_RELAY = None
 C1_CORR = C1_RELAY
-C1_PP = '0cfc46e'
+C1_PP = '3c983dc'
 C1_DISCHARGE_PP = None
 C2_TOOL = 'tools/b739_offlinezero.py'
 WEIGHT_LINE, CORR_LINE = 13165, 13167   # ### FINDINGS: b738's weight line and the corrigendum for b738 (Component 1, PP 0cfc46e)
