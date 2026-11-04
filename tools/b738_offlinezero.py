@@ -53,6 +53,12 @@ GROUPS = (('S1', 'Box', (40, 80), ('boxA', 'boxA_isBounded', 'closure_boxA', 'me
 NS = 'SIDEExplicitFormula.Schema.ZQ.OffZero.'
 SP1 = NS + 'zq_offline_of_box'
 SP1_LINES = (135, 275)
+# ### (R348)(3)(b): S5a-S5b past SP1, each its own module and dispatch; the plan's estimates :87, :89, SP2 at :135
+GROUPS2 = (('S5a', 'Split', (150, 300), ('f_modif_eq', 'lamM_eq', 'thA_conv', 'thB_eq', 'thB_conv', 'zq_lambda0_split')),
+           ('S5b', 'Tail', (150, 300), ('tail_qR', 'thetaU_anti', 'thetaU_half', 'thetaU_half_le', 'tail_le', 'zq_theta_tail', 'zq_thetaC_tail')))
+SP2 = (NS + 'zq_lambda0_split', NS + 'zq_thetaC_tail')   # ### zq_Λ₀_split's ASCII name: the print step refuses a non-ASCII target
+SP2_LINES = (300, 600)
+S5CD = (900, 2500)       # ### S5c-S5d's estimate, data/b737_offlinezero_plan.txt :91, :93, :136
 STANDARD = ('propext', 'Classical.choice', 'Quot.sound')
 
 
@@ -183,19 +189,31 @@ def _lines(mod):
     return len(io.open(p, encoding='utf-8').read().rstrip(NL).split(NL)) if os.path.exists(p) else None
 
 
-def lines_table():
+def lines_table(groups=GROUPS, est=SP1_LINES, label='SP1', at=':134'):
     out, tot = [], 0
-    for g, mod, (lo, hi), _names in GROUPS:
+    for g, mod, (lo, hi), _names in groups:
         n = _lines(mod)
         tot += n or 0
         out.append('  %-3s %-28s measured %s ; the estimate %d-%d ; %s' % (g, ZQ + mod + '.lean', n, lo, hi,
                                                                           'NOT WRITTEN' if n is None else 'within' if lo <= n <= hi else 'BELOW' if n < lo else 'ABOVE'))
-    out.append('  SP1 IN ALL: measured %d ; the estimate %d-%d (data/b737_offlinezero_plan.txt :134) ; the ratio %.3f-%.3f' % (tot, SP1_LINES[0], SP1_LINES[1], tot / SP1_LINES[1], tot / SP1_LINES[0]))
+    out.append('  %s IN ALL: measured %d ; the estimate %d-%d (data/b737_offlinezero_plan.txt %s) ; the ratio %.3f-%.3f' % (label, tot, est[0], est[1], at, tot / est[1], tot / est[0]))
     return out, tot
 
 
 def cmd_lines():
     print(NL.join(lines_table()[0]))
+    print(NL.join(lines_table(GROUPS2, SP2_LINES, 'S5a-S5b', ':87, :89')[0]))
+
+
+def _ax_any(reads, name):
+    """the axioms line of `name` from the latest KERNEL read whose artifact prints it: (list or None, run)."""
+    for n in sorted(reads, reverse=True):
+        r = reads[n]
+        if r.get('build_exit') == '0' and r.get('artifact'):
+            a = _ax_of(_art(r['artifact'], 'axioms.txt'), name)
+            if a is not None:
+                return a, r['run']
+    return None, None
 
 
 def _ax_of(axtext, name):
@@ -219,11 +237,12 @@ def cmd_bank(art):
     ctl_fig = FB.reading('## THE CONTROLS\n  a\n\n0.123') ['ok'] and not FB.reading('0.123\n## THE CONTROLS\n  a')['ok']
     free = DR.free()
     tab, tot = lines_table()
-    sp1 = _ax_of(axt, SP1)
-    cor = _ax_of(axt, NS + 'zq_li_not_nonneg_of_box')
+    sp1, sp1_run = _ax_any(reads, SP1)
+    cor = _ax_any(reads, NS + 'zq_li_not_nonneg_of_box')[0]
     last = reads.get(max(reads)) if reads else None
-    reached = bool(last) and last['build_exit'] == '0' and not last['sorryAx'] and last['sorry_warnings'] == 0 and sp1 is not None and set(sp1) <= set(STANDARD)
-    L = ['b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)), BUILT ON zq-b730 FROM b25fd82c BY THE RUNNER (%s)' % _now(), '',
+    sp1_read = [r for r in reads.values() if r['run'] == sp1_run]
+    reached = bool(sp1_read) and not sp1_read[0]['sorryAx'] and sp1_read[0]['sorry_warnings'] == 0 and set(sp1) <= set(STANDARD)
+    L = ['b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)(a)) AND PAST IT TO SP2 ((R348)(3)(b)), BUILT ON zq-b730 FROM b25fd82c BY THE RUNNER (%s)' % _now(), '',
          '## THE CONTROLS',
          '  the axioms reader on a constructed standard line: %s ; on a constructed axiom-free line: %s ; on an absent name, None: %s' % (ctl_std, ctl_none, ctl_miss),
          '  the figure-bank reader: the controls first passes, the controls after refused: %s' % ctl_fig,
@@ -237,20 +256,49 @@ def cmd_bank(art):
             r['n'], r['item'], r['target'].split('.')[-1], r['sha'][:8], r['run'], r['free_mb'], rd.get('verdict', 'UNREAD'), rd.get('build_exit'), len(rd.get('errors') or []),
             rd.get('sorry_warnings'), rd.get('sorryAx'), rd.get('runner_low_mb'), rd.get('free_mb')))
     L += ['', '## THE LINES, MEASURED AGAINST THE PLAN`S ESTIMATES (I-10`s form)'] + tab + ['',
-          '## THE AXIOMS AT THE LAST READ (run %s, the artifact`s axioms.txt)' % (last['run'] if last else None)]
+          '## THE AXIOMS OF S1-S4 AND (e), EACH FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT (the last read run %s; SP1 from run %s)' % (
+              last['run'] if last else None, sp1_run)]
     for g, mod, _e, names in GROUPS:
         for nm in names:
-            a = _ax_of(axt, NS + nm)
-            L.append('  %-3s %-34s %s' % (g, nm, 'NOT PRINTED' if a is None else (', '.join(a) or 'none')))
+            a, run = _ax_any(reads, NS + nm)
+            L.append('  %-3s %-34s %s (run %s)' % (g, nm, 'NOT PRINTED' if a is None else (', '.join(a) or 'none'), run))
     L += ['',
           '## THE STATEMENT AT SP1 (SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean)',
           '  zq_offline_of_box (c : ℂ) (hc : c ∈ boxA) (m : ℝ) (hcm : ‖zqFn c‖ < m) (hfr : ∀ z ∈ frontier boxA, m ≤ ‖zqFn z‖) : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1 / 2',
           '  THE OPEN HYPOTHESES, NAMED: hcm and hfr, the numerics of S5-S6 (zqFn certified at a point of box A below m, and at least m on its frontier); hc the point`s place,',
           '  which the ruling`s form leaves out (data/b738_offlinezero_notes.txt (1)). No sentence here says a zero is located in Lean or that Li nonnegativity fails as a theorem:',
-          '  zq_li_not_nonneg_of_box carries the same two hypotheses.', '',
-          '### ### **SP1 %s ; DISPATCHES %d OF %d ; LINES %d AGAINST %d-%d ; zq_offline_of_box AXIOMS %s ; THE CONTRAPOSITIVE AXIOMS %s ; SP2 NOT BEGUN ; THE ORDER OPEN AT SP1.**' % (
-              'REACHED' if reached else 'NOT REACHED', len(disp), K.MAX_DISPATCHES, tot, SP1_LINES[0], SP1_LINES[1],
-              'NOT PRINTED' if sp1 is None else ', '.join(sp1) or 'none', 'NOT PRINTED' if cor is None else ', '.join(cor) or 'none')]
+          '  zq_li_not_nonneg_of_box carries the same two hypotheses.', '']
+    tab2, tot2 = lines_table(GROUPS2, SP2_LINES, 'S5a-S5b', ':87, :89')
+    L += ['## S5a-S5b PAST SP1 ((R348)(3)(b)): THE LINES, MEASURED AGAINST THE PLAN`S ESTIMATES (I-10`s form)'] + tab2 + ['',
+          '## THE AXIOMS OF S5a-S5b, EACH FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT']
+    sp2_ok = True
+    for g, mod, _e, names in GROUPS2:
+        for nm in names:
+            a, run = _ax_any(reads, NS + nm)
+            L.append('  %-3s %-34s %s (run %s)' % (g, nm, 'NOT PRINTED' if a is None else (', '.join(a) or 'none'), run))
+    sp2ax = [_ax_any(reads, x)[0] for x in SP2]
+    for x, a in zip(SP2, sp2ax):
+        if a is None or not set(a) <= set(STANDARD):
+            sp2_ok = False
+    built = [r for r in reads.values() if r.get('build_exit') == '0']
+    sp2 = reached and sp2_ok and all(_lines(m) for _g, m, _e, _n in GROUPS2) and not any(r.get('sorryAx') or r.get('sorry_warnings') for r in built)
+    r_lo, r_hi = tot2 / SP2_LINES[1], tot2 / SP2_LINES[0]
+    L += ['',
+          '## THE STATEMENTS AT SP2 (SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean, Tail.lean)',
+          '  zq_Λ₀_split (s : ℂ) : zqPair.Λ₀ s = lamM s + lamM (1 - s), lamM w = ∫ t in Ioi 1, (t : ℂ) ^ (w - 1) * (thetaC t - 1) (lamM_eq)',
+          '  zq_thetaC_tail {t : ℝ} (ht : 1 ≤ t) : ‖(thetaC t - 1) - ((thetaTr (cc * t) - 1 : ℝ) : ℂ)‖ < 1e-14, thetaTr the box |m|, |n| ≤ 14',
+          '  (data/b738_offlinezero_notes.txt (5): the box holds every Q ≤ 112; the plan`s Q(v) ≤ N form is not the one built). No integral is evaluated,',
+          '  no value of zqFn is computed, no zero is located in Lean, and Li nonnegativity is not refuted as a theorem.', '',
+          '## THE REMAINDER OF S5 PRICED AGAIN FROM S5a-S5b ((R348)(3)(b))',
+          '  S5a-S5b`s ratio, measured over the estimate: %d / %d-%d = %.3f-%.3f' % (tot2, SP2_LINES[0], SP2_LINES[1], r_lo, r_hi),
+          '  S5c-S5d at %d-%d (the plan :136): by that ratio %d-%d lines ; by the midpoint ratio %.3f, %d-%d' % (
+              S5CD[0], S5CD[1], round(S5CD[0] * r_lo), round(S5CD[1] * r_hi), tot2 / 450, round(S5CD[0] * tot2 / 450), round(S5CD[1] * tot2 / 450)),
+          '  S5c and S5d NOT BEGUN ((R348)(3)(c)); the incomplete gamma, complex Stirling and certified elementary values stay ABSENT at the pin (the plan :120-:123)', '',
+          '### ### **SP1 %s ; SP2 %s ; DISPATCHES %d OF %d ; LINES SP1 %d AGAINST %d-%d, S5a-S5b %d AGAINST %d-%d ; zq_offline_of_box AXIOMS %s ; THE CONTRAPOSITIVE AXIOMS %s ; THE ORDER OPEN AT %s.**' % (
+              'REACHED' if reached else 'NOT REACHED', 'REACHED' if sp2 else 'NOT REACHED', len(disp), K.MAX_DISPATCHES, tot, SP1_LINES[0], SP1_LINES[1],
+              tot2, SP2_LINES[0], SP2_LINES[1],
+              'NOT PRINTED' if sp1 is None else ', '.join(sp1) or 'none', 'NOT PRINTED' if cor is None else ', '.join(cor) or 'none',
+              'SP2' if sp2 else 'SP1' if reached else 'S1')]
     r = FB.write(BANK, NL.join(L))
     print(NL.join(L))
     print('written data/b738_offlinezero.txt ; figbank: %s' % r['why'])

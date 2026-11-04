@@ -17,3 +17,8 @@ b738 -- NOTES BESIDE THE PLAN BANK data/b737_offlinezero_plan.txt ((R348)(3): no
       OffZero names stand at the head of print_targets.txt; the carried names follow unchanged.
   (3) not a plan row: the working clone of zq-b730 is D:/zq-b738, outside the Temp tree where zqwork, zqwork2 and zqwork3 lost their packs
       (b737 defect (h)); the three stand in place, unread by this act.
+  (5) data/b737_offlinezero_plan.txt :89, S5b "the lattice truncation of theta - 1 at Q(v) <= N": built as the box |m|, |n| <= 14 (trBox), not
+      the set Q <= N. The box holds every lattice point with Q <= 112 (Q >= (m^2 + n^2)/2, half_le_qR) and the tail off it has Q >= 225/2
+      (tail_qR), which is what the bound uses; a box is a Finset the kernel names in one line, the set Q <= N wants its finiteness proved.
+      The bound's constant theta(cc/2) <= 10 comes from the functional equation at x = 2 and thetaU_sub_one, not from Bound.lean :319, the
+      plan's named neighbour.

@@ -1,19 +1,24 @@
-b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)), BUILT ON zq-b730 FROM b25fd82c BY THE RUNNER (2026-11-03T23:17:06Z)
+b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)(a)) AND PAST IT TO SP2 ((R348)(3)(b)), BUILT ON zq-b730 FROM b25fd82c BY THE RUNNER (2026-11-04T00:05:21Z)
 
 ## THE CONTROLS
   the axioms reader on a constructed standard line: True ; on a constructed axiom-free line: True ; on an absent name, None: True
   the figure-bank reader: the controls first passes, the controls after refused: True
   the plan bank`s md5 equal to step zero`s 3d61f519917a3ee20ac4d7c5fab197ef: True
-  free memory at this bank: 4628 MB at 2026-11-03T23:17:06Z, the hold 2560
+  free memory at this bank: 4489 MB at 2026-11-04T00:05:21Z, the hold 2560
   the dispatch rows refused by standing.dispatchrows: NONE
 
-## THE DISPATCHES: 6 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb
+## THE DISPATCHES: 11 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb
   1 | group S1  | Box | sha 98d24d32 | run 41732413170 | free 4519 MB | BREAKS, exit 1, 3 errors, sorry warnings 0, sorryAx False, runner low 14825 MB, read at free 4454 MB
   2 | group S1  | Box | sha 9ef8a7f6 | run 41732882564 | free 4607 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 14886 MB, read at free 4702 MB
   3 | group S2  | Diff | sha 6d1d02ab | run 41733411736 | free 4758 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13154 MB, read at free 4569 MB
   4 | group S3  | MinModulus | sha ef56ba0d | run 41734667160 | free 4536 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 14671 MB, read at free 4565 MB
   5 | group S4  | Carrier | sha c7296f11 | run 41735082430 | free 4536 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13057 MB, read at free 4592 MB
   6 | group e   | Main | sha e2a8c3f4 | run 41736472780 | free 4526 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13200 MB, read at free 4644 MB
+  7 | group S5a | Split | sha a2cc3dd6 | run 41738781219 | free 4106 MB | BREAKS, exit 1, 4 errors, sorry warnings 0, sorryAx False, runner low 13220 MB, read at free 4285 MB
+  8 | group S5b | Tail | sha 27c8742c | run 41739698677 | free 4132 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13121 MB, read at free 4406 MB
+  9 | group S5a | Split | sha 7a008900 | run 41740855598 | free 4385 MB | BREAKS, exit 1, 2 errors, sorry warnings 0, sorryAx False, runner low 13264 MB, read at free 4416 MB
+  10 | group S5a | Split | sha 9124d3ef | run 41741988143 | free 4378 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13252 MB, read at free 4365 MB
+  11 | group S5a | Split | sha 602cd401 | run 41743136382 | free 4385 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13076 MB, read at free 4483 MB
 
 ## THE LINES, MEASURED AGAINST THE PLAN`S ESTIMATES (I-10`s form)
   S1  SIDEExplicitFormula/Schema/ZQ/OffZero/Box.lean measured 47 ; the estimate 40-80 ; within
@@ -23,17 +28,17 @@ b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)), BUILT ON zq-b730
   e   SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean measured 41 ; the estimate 5-15 ; ABOVE
   SP1 IN ALL: measured 206 ; the estimate 135-275 (data/b737_offlinezero_plan.txt :134) ; the ratio 0.749-1.526
 
-## THE AXIOMS AT THE LAST READ (run 41736472780, the artifact`s axioms.txt)
-  S1  boxA                               NOT PRINTED
-  S1  boxA_isBounded                     propext, Classical.choice, Quot.sound
-  S1  closure_boxA                       propext, Classical.choice, Quot.sound
-  S1  mem_closure_boxA                   propext, Classical.choice, Quot.sound
-  S2  ne_one_of_mem_closure_boxA         propext, Classical.choice, Quot.sound
-  S2  zqFn_diffContOnCl_boxA             propext, Classical.choice, Quot.sound
-  S3  min_modulus_zero                   propext, Classical.choice, Quot.sound
-  S4  carrier_of_box                     propext, Classical.choice, Quot.sound
-  e   zq_offline_of_box                  propext, Classical.choice, Quot.sound
-  e   zq_li_not_nonneg_of_box            propext, Classical.choice, Quot.sound
+## THE AXIOMS OF S1-S4 AND (e), EACH FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT (the last read run 41743136382; SP1 from run 41736472780)
+  S1  boxA                               NOT PRINTED (run None)
+  S1  boxA_isBounded                     propext, Classical.choice, Quot.sound (run 41736472780)
+  S1  closure_boxA                       propext, Classical.choice, Quot.sound (run 41736472780)
+  S1  mem_closure_boxA                   propext, Classical.choice, Quot.sound (run 41736472780)
+  S2  ne_one_of_mem_closure_boxA         propext, Classical.choice, Quot.sound (run 41736472780)
+  S2  zqFn_diffContOnCl_boxA             propext, Classical.choice, Quot.sound (run 41736472780)
+  S3  min_modulus_zero                   propext, Classical.choice, Quot.sound (run 41736472780)
+  S4  carrier_of_box                     propext, Classical.choice, Quot.sound (run 41736472780)
+  e   zq_offline_of_box                  propext, Classical.choice, Quot.sound (run 41736472780)
+  e   zq_li_not_nonneg_of_box            propext, Classical.choice, Quot.sound (run 41736472780)
 
 ## THE STATEMENT AT SP1 (SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean)
   zq_offline_of_box (c : ℂ) (hc : c ∈ boxA) (m : ℝ) (hcm : ‖zqFn c‖ < m) (hfr : ∀ z ∈ frontier boxA, m ≤ ‖zqFn z‖) : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1 / 2
@@ -41,4 +46,35 @@ b738 -- W-ORD-ZQ-OFFLINE-ZERO ON R4, BOX A, TO SP1 ((R348)(3)), BUILT ON zq-b730
   which the ruling`s form leaves out (data/b738_offlinezero_notes.txt (1)). No sentence here says a zero is located in Lean or that Li nonnegativity fails as a theorem:
   zq_li_not_nonneg_of_box carries the same two hypotheses.
 
-### ### **SP1 REACHED ; DISPATCHES 6 OF 12 ; LINES 206 AGAINST 135-275 ; zq_offline_of_box AXIOMS propext, Classical.choice, Quot.sound ; THE CONTRAPOSITIVE AXIOMS propext, Classical.choice, Quot.sound ; SP2 NOT BEGUN ; THE ORDER OPEN AT SP1.**
+## S5a-S5b PAST SP1 ((R348)(3)(b)): THE LINES, MEASURED AGAINST THE PLAN`S ESTIMATES (I-10`s form)
+  S5a SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean measured 122 ; the estimate 150-300 ; BELOW
+  S5b SIDEExplicitFormula/Schema/ZQ/OffZero/Tail.lean measured 199 ; the estimate 150-300 ; within
+  S5a-S5b IN ALL: measured 321 ; the estimate 300-600 (data/b737_offlinezero_plan.txt :87, :89) ; the ratio 0.535-1.070
+
+## THE AXIOMS OF S5a-S5b, EACH FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT
+  S5a f_modif_eq                         propext, Classical.choice, Quot.sound (run 41743136382)
+  S5a lamM_eq                            propext, Classical.choice, Quot.sound (run 41743136382)
+  S5a thA_conv                           propext, Classical.choice, Quot.sound (run 41743136382)
+  S5a thB_eq                             propext, Classical.choice, Quot.sound (run 41743136382)
+  S5a thB_conv                           propext, Classical.choice, Quot.sound (run 41743136382)
+  S5a zq_lambda0_split                   propext, Classical.choice, Quot.sound (run 41743136382)
+  S5b tail_qR                            propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b thetaU_anti                        propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b thetaU_half                        propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b thetaU_half_le                     propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b tail_le                            propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b zq_theta_tail                      propext, Classical.choice, Quot.sound (run 41739698677)
+  S5b zq_thetaC_tail                     propext, Classical.choice, Quot.sound (run 41739698677)
+
+## THE STATEMENTS AT SP2 (SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean, Tail.lean)
+  zq_Λ₀_split (s : ℂ) : zqPair.Λ₀ s = lamM s + lamM (1 - s), lamM w = ∫ t in Ioi 1, (t : ℂ) ^ (w - 1) * (thetaC t - 1) (lamM_eq)
+  zq_thetaC_tail {t : ℝ} (ht : 1 ≤ t) : ‖(thetaC t - 1) - ((thetaTr (cc * t) - 1 : ℝ) : ℂ)‖ < 1e-14, thetaTr the box |m|, |n| ≤ 14
+  (data/b738_offlinezero_notes.txt (5): the box holds every Q ≤ 112; the plan`s Q(v) ≤ N form is not the one built). No integral is evaluated,
+  no value of zqFn is computed, no zero is located in Lean, and Li nonnegativity is not refuted as a theorem.
+
+## THE REMAINDER OF S5 PRICED AGAIN FROM S5a-S5b ((R348)(3)(b))
+  S5a-S5b`s ratio, measured over the estimate: 321 / 300-600 = 0.535-1.070
+  S5c-S5d at 900-2500 (the plan :136): by that ratio 482-2675 lines ; by the midpoint ratio 0.713, 642-1783
+  S5c and S5d NOT BEGUN ((R348)(3)(c)); the incomplete gamma, complex Stirling and certified elementary values stay ABSENT at the pin (the plan :120-:123)
+
+### ### **SP1 REACHED ; SP2 REACHED ; DISPATCHES 11 OF 12 ; LINES SP1 206 AGAINST 135-275, S5a-S5b 321 AGAINST 300-600 ; zq_offline_of_box AXIOMS propext, Classical.choice, Quot.sound ; THE CONTRAPOSITIVE AXIOMS propext, Classical.choice, Quot.sound ; THE ORDER OPEN AT SP2.**
