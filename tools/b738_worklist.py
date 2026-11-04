@@ -246,8 +246,8 @@ STANDING_VERSION_ENTERING = 'v1.17.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'b25fd82c'), ('D:/SIDE-explicit-formula/.lake/packages/mathlib', 'de5ce8a9'))
 # ### v1.18.0, (R348)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
 # ### comparative_rows); set by the Edit tool as Components 2-4 write the banks, before the lock
-COMPARATIVE_BANKS = ()
-COMPARATIVE_ROWS = ()
+COMPARATIVE_BANKS = ('data/b738_offlinezero.txt', 'data/b738_offlinezero_notes.txt', 'data/b738_defects.txt')   # ### Components 2-3's banks: no
+COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
 STANDING_CHANGED = ()
 STANDING_NEW = ()
@@ -259,16 +259,16 @@ B723_ROOT_BANKS = '78289695'  # ### b737's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'b2d3afc0'           # ### tools/standing/ v1.18.0 by a commit of its own, its controls bank data/b738_standing_v1180.txt ((R348)(2)(viii))
 C1_STANDING_REPAIR = 'c73ff77f'    # ### the act's own data the split changes: data/act_current.json's parts and quarters, the worklist ((R348)(2)(vi))
-C1_RELAY = None
+C1_RELAY = 'f6193cb8'
 C1_CORR = C1_RELAY
-C1_PP = None
+C1_PP = '0cfc46e'
 C1_DISCHARGE_PP = None
 C2_TOOL = 'tools/b738_offlinezero.py'
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b737's weight line and the corrigendum for b737 (Component 1)
+WEIGHT_LINE, CORR_LINE = 13165, 13167   # ### FINDINGS: b737's weight line and the corrigendum for b737 (Component 1, PP 0cfc46e)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = None
-C2_RELAY = None
+C2_RELAY = 'bf69677c'   # ### Component 2, SP1 REACHED: the build tool, its bank, the notes, the dispatch rows
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
@@ -279,7 +279,7 @@ PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's resu
 PLAN_MD5 = None
 C2_AMEND = ()
 SITTING_PP = ()
-C3_RELAY = ()
+C3_RELAY = ('a31dc7a0',)   # ### Component 3, SP2 REACHED ((R348)(3)(b))
 SITTING_COMMITS = ()
 C3_PP = None
 C4_LV = None
@@ -312,10 +312,16 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = 'b25fd82c0f216505d67c4c72c70f6e1b3f307d03'   # ### b735's tip, unmoved by b736-b737: the build's base ((R348)(3))
-ZQ_FIRST = None   # ### no Lean commit this act (N5)
-ZQ_TIP = ZQ_ENTERING    # ### unmoved
+ZQ_FIRST = '98d24d32eeff72f43c2fc45f40c01a67d520c644'   # ### (R348)(3): S1, the act's first Lean commit on zq-b730
+ZQ_TIP = '602cd401468f9f7bfa9b131dcd0e3302402ba939'     # ### the act's last: S5a's ASCII terminal (defect (n)); eleven commits from ZQ_ENTERING
+ZQ_COMMITS = ('98d24d32eeff72f43c2fc45f40c01a67d520c644', '9ef8a7f6100b311f2895a6f29132ef56ae1696a8', '6d1d02ab873a86ca653cbbd8810d3e83073a49e0',
+              'ef56ba0dee8365f990fd8072d9ec7124b1a58649', 'c7296f1151d87e7117d6272ff10e6340cee5ad2f', 'e2a8c3f4fcce7d8f189c61cfbb3b10fe6973c211',
+              'a2cc3dd634beb1d641c57507e2d8ff670035c317', '27c8742c37a5e4f111b08e9b079c1a3a8368050f', '7a0089005a26ca017adb3fa01a097286df12057f',
+              '9124d3ef2ee78648a460738ab5241d8fda5d065c', '602cd401468f9f7bfa9b131dcd0e3302402ba939')
+ZQ_SP1 = 'e2a8c3f4fcce7d8f189c61cfbb3b10fe6973c211'     # ### SP1 reached here (run 41736472780)
 ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Lines', 'Main')   # ### the build's eight, under Schema/ZQ/EF
-ZQ_FILES = ()   # ### zq-b730's diff against its entering tip: none (N5)
+ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail')   # ### under Schema/ZQ/OffZero, one a group
+ZQ_FILES = tuple('SIDEExplicitFormula/Schema/ZQ/OffZero/%s.lean' % m for m in ZQ_OFFZERO_MODULES) + ('print_targets.txt',)   # ### zq-b730's diff against its entering tip
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
 ZQ_LOGDERIV_MODULES, ZQ_ZEROS_MODULES = (), ()
@@ -325,7 +331,8 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R348)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: no dispatch
+EF_RUNS = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430, 41736472780,
+           41738781219, 41739698677, 41740855598, 41741988143, 41743136382)   # ### N1: eleven of twelve, each read by its id (data/b738_dispatch_rows.json)
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b737's five, read not re-run
 DISPATCH_ROWS = 'data/b738_dispatch_rows.json'
