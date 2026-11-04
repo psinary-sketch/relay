@@ -968,10 +968,11 @@ def _fold_article(t):
 
 
 def entry_title_ok(S):
+    # ### v1.20.0, (R350)(2)(i), b739 events (3): the needles read under the fold the title gets (tools/standing/armnorm.py), not unfolded
+    import armnorm as AN
     e = S['fj'].get('entry_line')
     t = S['REC']._title()
-    f = _fold_article(t)
-    return bool(e) and fline(S, e) == conv(t) and t.startswith('## ') and all(n in f for n in TITLE_NEEDLES)
+    return bool(e) and fline(S, e) == conv(t) and AN.title_ok(t, TITLE_NEEDLES)
 
 
 def trail_tail(S):
@@ -1771,7 +1772,8 @@ ARMS_ALL = [
     ('G-OUTSIDE-NAMED-NOWHERE', 'the ledger lines appended', lambda S: S['outside'] == [], lambda S: put(S, 'outside', ['x'])),
     ('G-DELETE-FREE', 'the act`s tools` code, prose stripped', lambda S: no_delete(S),
      lambda S: put(S, 'tooltext', dict(S['tooltext'], x='os' + '.remove(p)'))),
-    ('G-PUBLISH-UNCALLED', 'the act`s tools` code: no publish call', lambda S: publish_uncalled(S),
+    ('G-PUBLISH-UNCALLED', 'the act`s tools` code read by the deposit route`s state (tools/standing/publishstate.py, v1.20.0, (R350)(2)(iv)): UNCALLED or METADATA EDIT, NO NEW VERSION, no PUBLISH',
+     lambda S: __import__('publishstate').ok(S['tooltext']),
      lambda S: put(S, 'tooltext', dict(S['tooltext'], x='z_' + 'publish()'))),
     ('G-SEALED-AFTER-COMPONENTS', 'the lock time against every relay and PLACE-papers commit of the act by its row in the act`s step bank, data/⟪ACT⟫_steps.json ((⟪RUL⟫)(2); not by its subject)', lambda S: sealed_after_ok(S),
      lambda S: put(S, 'plog', S['plog'] + [('deadbee', '⟪ACT⟫ record', 1)])),

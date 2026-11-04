@@ -6,6 +6,8 @@ the composition would not print. The words after the colon stay the seat's where
 ### v1.19.0, (R349)(2)(iii), b738 events (4): the seal subject "85 files" where the bank held 80, typed by hand; the lock's "eight gates" read
 ### the same way. A count before "files" (seal) or "gates" (lock), in figures or in words, is read against its bank, and tools/standing/hook.py
 ### refuses a seal or lock commit whose subject check() faults (kind SUBJECT), so the subject is the composition's or the commit does not run.
+### v1.20.0, (R350)(2)(ii), b739 events (1): the count was read and the typing was not -- b739's "the sealed tools' hashes, 85 files" was
+### refused for its 85, and the same words with 83 would have run. check() now refuses any seal or lock subject not opening with compose()'s text.
 
   python -X utf8 -u tools/standing/subjects.py <phase> [words]      prints the subject; nothing written
   compose(act, phase, words, read)   -> the subject; read(name) -> the bank's json or text
@@ -57,6 +59,14 @@ def check(act, phase, subject, read):
     want = '%s %s:' % (act, phase)
     if not subject.startswith(want):
         out.append('the subject opens %r, the phase`s head %r' % (subject.split(':')[0] + ':', want))
+    # ### v1.20.0, (R350)(2)(ii), b739 events (1): at the seal and the lock the composer is the one route -- the subject opens with compose()'s
+    # ### own words for the phase, read from the bank, or it is a typed subject and refused (a typed one carrying the right count included)
+    if phase in ('seal', 'lock'):
+        head = compose(act, phase, '', read)
+        if head.rstrip() == want:
+            out.append('no bank composes the %s subject (data/%s_%s)' % (phase, act, 'seal_hashes.json' if phase == 'seal' else 'lockgate.json'))
+        elif not subject.startswith(head):
+            out.append('a typed %s subject: it does not open with the composer`s %r' % (phase, head[len(want) + 1:][:60]))
     alt = '|'.join(WORDS)
     sealed = phase == 'seal' and bool(read('%s_seal_hashes.json' % act))
     for noun, banked, mine in (('files', seal_files(act, read) if sealed else None, phase == 'seal'), ('gates', lock_gates(act, read), phase == 'lock')):
