@@ -1,0 +1,83 @@
+b741 -- THE CORRIGENDUM FOR b740, (R351)(2) (2026-11-04T22:58:30Z)
+
+### the banks read unedited: data/b740_events.txt rows (1)-(5), data/b740_defects.txt 31 rows, data/b740_hook_refusals.txt 16 lines at fe2150b3; data/b741_standing_v1210.txt (the v1.21.0 controls); the corrigenda bank`s last row (60).
+
+  *b740’s events bank (relay data/b740_events.txt) carries five rows, entered after its lock and not lettered, each tagged in its own bracket (5 the seat’s); its defects bank thirty-one lettered rows, (a)-(z) and (a’)-(e’), each tagged in its own bracket (31 the seat’s); its refusal bank sixteen lines at fe2150b3, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R351)`(2), at tools/standing/ v1.21.0, each with a control on b740’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b741_standing_v1210.txt, 15 cases, AS WANTED 15):
+  
+  **(commit) the subject and the row that must travel with their commit (`(R351)`(2)(i), events (1), (2), (4); CLAIM ; NEW)** -- rule (1) of data/b741_rules.txt; tools/standing/commit.py makes the gate, lock and seal commits in one call: the subject composed from the bank, the commit by argument list with no shell between, the step row by the record tool’s step route, in that order; it refuses before git runs where the record the subject names does not exist, where a lock row stands (a second lock or a gate after it), where the subject faults or nothing is staged; the hook refuses a gate, lock or seal commit typed into a shell (SUBJECT). b740’s four events replayed in a scratch repository: the backtick dropped by PowerShell before, kept after; the gate rows after the lock before, gate, gate, lock each rowed in its call after; the seal before its record refused; the commit after the lock whose head and row disagreed refused before it ran (:19).
+  
+  **(hashed) the hand edit of a tool’s bank (`(R351)`(2)(ii), defect (m), N4; CLOSE ; REPEAT of b739 (j))** -- rule (2) of data/b741_rules.txt; the hook refuses an Edit or Write of a bank named in the act’s hashes bank (HASHED), the exclusion of (R343)(2)(vi) read through lock_exempt (the events bank, the step bank and the scans stay writable by their routes). b740’s edit replayed: allowed before (the lock not come), HASHED after (:42).
+  
+  **(writes) the chained add and commit (`(R351)`(2)(iii), defect (b), N5; CLOSE ; REPEAT of b738 (m) and b736 (b))** -- rule (3) of data/b741_rules.txt; the count read a chained command as its writes from v1.2.1 (b740’s chained call, two writes, refused GITWRITE, nothing written), and N5 counted the refused message; the commit tool’s run is now one write, so an add chained before it counts two and is refused (:51).
+  
+  **(postseal) the git grep over OPEN\_TRAILS after the seal (`(R351)`(2)(iv), events (5); CLOSE ; REPEAT of b736 (8))** -- rule (4) of data/b741_rules.txt; the exclude list is printed by the commit tool after the seal commit, before any read; the arm’s failure carries its ordinal from the suite banks (tools/standing/postseal.py, checks.tpl); b740’s reading printed as the arm’s eighth failure by the banks (:60).
+  
+  **(touch) the touch read’s two differs rows (`(R351)`(2)(v), data/b740_touch.txt :38)** -- rule (5) of data/b741_rules.txt; rows (19) and (26) named with their causes, defects (b’) and (a’), in the dated note below. A guard: no failing side (:72).
+  
+  **(next) the closing’s carried item (`(R351)`(2)(vi), data/b740_closing.txt :332)** -- rule (6) of data/b741_rules.txt; tools/standing/nextact.py composes item (a) from the author’s answers bank where an answer names the next act, the closing template’s carried() through it; b740’s closing regenerated: (R350)(7)’s three choices before, the author’s word “b741 is (c7) … to SP3” after (:77).
+  
+  **(version) the version (`(R351)`(2)(vii))** -- rule (7) of data/b741_rules.txt; tools/standing/VERSION v1.21.0, landed by a commit of its own (eb01e80a) with its controls bank (:83).
+  
+  **b740’s events (1)-(5):**
+  
+  **(1)** the lock commit: tools/standing/subjects.py composed "b740 lock: face locked, the lock gate’s 8 gates" and the seat … (relay data/b740_events.txt, row (1); the seat’s; CLAIM; NEW; repair (commit); rule (1) of data/b741_rules.txt).
+  **(2)** 18:30-19:27Z, the pre-run: the part standing-a2 (18:33:58Z) failed G-SEALED-AFTER-COMPONENTS ("lock rows 0") and … (relay data/b740_events.txt, row (2); the seat’s; CLAIM; NEW; repair (commit); rule (1) of data/b741_rules.txt).
+  **(3)** the part act run with --prev (data/b740\_prevrun\_act.txt): G-DERIVATION-GRADED raised IndexError (tuple index out of … (relay data/b740_events.txt, row (3); the seat’s; CLAIM; NEW; no repair ordered: an arm that raises on the previous act’s banks reads its subject’s absence as a failure, named here).
+  **(4)** the pre-run’s commit, which b739 headed "b739 seal: the pre-run in ten parts ..." (relay 06f53a11): the subject … (relay data/b740_events.txt, row (4); the seat’s; CLAIM; NEW; repair (commit); rule (1) of data/b741_rules.txt).
+  **(5)** after ’record trail’: a Bash ’git grep -n’ over OPEN\_TRAILS.md in PLACE-papers, to find the trail record’s end for the … (relay data/b740_events.txt, row (5); the seat’s; CLOSE; REPEAT of b736 (8); repair (postseal); rule (4) of data/b741_rules.txt, REPEAT, the class b736 (8)).
+  
+  **b740’s defects:**
+  
+  **(a)** (relay data/b740_defects.txt; the seat’s; CLOSE; NEW).
+  **(b)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (12); repair (writes); rule (3) of data/b741_rules.txt, REPEAT, b738 (m) and b736 (b)).
+  **(c)** (relay data/b740_defects.txt; the seat’s; CLAIM; REPEAT of b739 (e)).
+  **(d)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(e)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(f)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of b739 (i)).
+  **(g)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(h)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(i)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of b739 (f)).
+  **(j)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(k)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(l)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(m)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of b739 (j); repair (hashed); rule (2) of data/b741_rules.txt, N4).
+  **(n)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(o)** (relay data/b740_defects.txt; the seat’s; CLOSE; NEW).
+  **(p)** (relay data/b740_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(r)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(s)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(t)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(u)** (relay data/b740_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(w)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(x)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(y)** (relay data/b740_defects.txt; the seat’s; CLOSE; NEW).
+  **(z)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(a’)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(b’)** (relay data/b740_defects.txt; the seat’s; CLAIM; NEW).
+  **(c’)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(d’)** (relay data/b740_defects.txt; the seat’s; CLAIM; REPEAT of b740 (c)).
+  **(e’)** (relay data/b740_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  
+  **b740’s refusals** (relay data/b740_hook_refusals.txt at fe2150b3, one a line): :1 PIPE 14:09:36Z, recorded at defect (a); :2 GITWRITE 14:11:12Z, recorded at defect (b); :3 REDIR 14:11:50Z, recorded at defect (e); :4 READ 14:13:02Z, recorded at defect (h); :5 ENV 14:25:19Z, recorded at defect (f); :6 PIPE 14:26:29Z, recorded at defect (g); :7 READ 14:34:57Z, recorded at defect (j); :8 REDIR 14:39:14Z, recorded at defect (k); :9 PIPE 15:16:21Z, recorded at defect (q); :10 READ 15:19:18Z, recorded at defect (s); :11 READ 15:46:21Z, recorded at defect (w); :12 PIPE 15:49:00Z, recorded at defect (x); :13 REDIR 17:54:14Z, recorded at defect (c’); :14 PIPE 18:17:33Z, recorded at defect (e’); :15 SUBJECT 20:22:31Z, recorded at event (4); :16 POSTSEAL 20:56:04Z, recorded at event (5).
+  
+  **Dated notes:**
+  
+  Dated note, b741, to the counter (`(R351)`(1)): “CLAIM 15, CLOSE 21, REPEAT 18 OF 36” is relay data/b740_closing.txt :5, over the five events and the thirty-one defects together; over the defects alone the tags give CLAIM 11, CLOSE 20, REPEAT 17 of 31, the ruling’s figure. Both read from the same tags; this entry prints both and edits neither.
+  
+  Dated note, b741, to b740’s score line: relay data/b740_closing.txt :144 prints N3 REFUTED with N4 and N5, the reading at the record, when the root prompt was not yet banked; the scores bank read at the close (data/b740_scores_close.json) holds N3 HELD and 6 of 8, and the closing’s head line its “scores 6 of 8 HELD”. The class of b739’s score line (b740’s corrigendum, its second dated note); neither is edited.
+  
+  Dated note, b741, to the touch read (`(R351)`(2)(v)): relay data/b740_touch.txt :38 prints DIFFERS 2. Row (19), the entry’s statements sentence, read “each with its route, its reason and its Mathlib or kernel neighbour” where the statements bank’s row (d7) carries no reason; its cause defect (b’), the composer set before the lock to name (d7). Row (26), the entry’s citation figures, read the first match in data/b740_citation_check.txt (:34, the seat’s row quoting b739’s foot) where b740’s foot is :136; its cause defect (a’), the reader set to the bank’s foot before the lock. b740’s events bank carries no row for either; this note is their row.
+  
+  Dated note, b741, to the post-seal arm (`(R351)`(2)(iv)): the ruling counts this the arm’s third failure, b736’s event (8) and b740’s event (5) the REPEAT rows of its class; the suite banks list G-RULE-POSTSEAL-READ LIVE FAILING at eight acts before b741 (b720, b723, b725, b726, b727, b732, b736, b740), read by tools/standing/postseal.py; the arm now prints its ordinal from those banks.
+  
+  Dated note, b741, to N4 (`(R351)`(2)(ii)): the ruling names b740’s hand edit of data/b740_corrigendum.json as an edit after the lock; the bank was committed at 14:53:00Z (Component 1, relay d50a86be) and the lock gate at 18:29:09Z, so the edit came before the lock, and the LOCKED rule of v1.17.0 could not reach it. N4 read it through the hashes bank (“edited by hand since: [’b740_corrigendum.json’]”). The repair refuses an Edit or Write of any bank the act’s hashes bank names, before the lock or after; the post-lock rule stands beside it.
+  
+  **The counter:** CLAIM 15, CLOSE 21 over the 36 items (five events, thirty-one defects), as b740’s closing prints it (relay data/b740_closing.txt :5); REPEAT 18 of 36; the CLAIM items (1), (2), (3), (4), (c), (d), (l), (n), (r), (t), (v), (z), (a’), (b’), (d’).
+  
+  *Filed at b741 on the author’s ruling `(R351)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b741.py) from b740’s events and defects banks read unedited, its refusal bank, and the v1.21.0 controls bank; banked as relay `data/b741_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (61). It answers b740’s record; no sealed tool, face, trail or root-named bank of b740 is edited.*
+
+### ### **ITEMS 36: EVENTS 5, DEFECTS 31 ; CLAIM 15, CLOSE 21 ; REPEAT 18 ; DATED NOTES 5 ; v1.21.0: THE ONE-CALL COMMIT TOOL, THE HAND EDIT OF A TOOL`S BANK, THE CHAINED WRITE COUNT, THE POST-SEAL READ, THE TOUCH READ`S DIFFERS, THE CARRIED NEXT ACT, THE VERSION ; THE ENTRY AT FINDINGS :13495.**
