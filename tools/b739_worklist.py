@@ -268,12 +268,12 @@ B723_ROOT_BANKS = 'ce0042c2'  # ### b738's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '3c92170b'           # ### tools/standing/ v1.19.0 by a commit of its own, its controls bank data/b739_standing_v1190.txt ((R349)(2)(viii))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
-C1_RELAY = None
+C1_RELAY = 'cff11405'
 C1_CORR = C1_RELAY
 C1_PP = '3c983dc'
 C1_DISCHARGE_PP = None
-C2_TOOL = 'tools/b739_offlinezero.py'
-WEIGHT_LINE, CORR_LINE = 13165, 13167   # ### FINDINGS: b738's weight line and the corrigendum for b738 (Component 1, PP 0cfc46e)
+C2_TOOL = 'tools/b739_tier3.py'
+WEIGHT_LINE, CORR_LINE = 13281, 13283   # ### FINDINGS: b738's weight line and the corrigendum for b738 (Component 1, PP 3c983dc)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = '3dab6492e948e79243a5ebeba7dffb575712a4be'   # ### the plan bank's last commit (b738's), the blob the build reads
