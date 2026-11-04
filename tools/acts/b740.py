@@ -565,6 +565,13 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R350)(1)-(2))', 'BUILD TO SP3 ((R350)(3))', '
 #⟪SECTION checks 13⟫
         and int(m.group(3)) == len(S['cit_misses']) == 0 and int(m.group(1)) == 123 and '### ### **THE CHECK CLEAN**' in c \
 #⟪END⟫
+# ### b740, defect (a'): the bank's foot read, not its first match -- the seat's row :34 quotes b739's foot "CITES CHECKED 91 ; OK 90 ; MISSES 1"
+#⟪OVERRIDE checks MARK f9d9b85e75e0 1⟫
+    m = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', c)
+#⟪END⟫
+#⟪OVERRIDE checks MARK fd5fb7d1f3b1 1⟫
+    mc = re.search(r'(?m)(?<=^### ### \*\*)CITES CHECKED \d+ ; OK \d+ ; MISSES \d+(?=\.\*\*)', S['citation'])
+#⟪END⟫
 #⟪SECTION checks 14⟫
     # ### b739's figures, read at FINDINGS :13387 as Component 1 landed them
     return landed(S, 0, ['b739 AT ITS WEIGHT', 'suite 112 of 116', 'relay a5b5f216', '21 defects'])
@@ -1138,7 +1145,7 @@ def _trail_resolved(text):
     if len(gl_) != 2:
         sys.exit('### THE BUILD BANK CARRIES NOT TWO GROUP LINES -- NOTHING COMPOSED')
     am = []
-    cit = _bfig(K.CITATION_BANK, r'\*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', 'the citation check')
+    cit = _bfig(K.CITATION_BANK, r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', 'the citation check')
     rp = _bfig('%s_reproduce.txt' % ACT, r'\*\*ROWS (\d+) ; REPRODUCES (\d+) ; DIFFERS (\d+) ; NOT RUN (\d+) ; PLANTED CONTROLS AS WANTED (\d+) OF (\d+) ;',
                'the reproduction run`s foot')
     rpj = jl('%s_reproduce.json' % ACT).get('rows') or []
@@ -1426,7 +1433,7 @@ def _runs3_line():
     f = _figs()
     rep, tot = _repeats()
     n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
-    cc = re.search(r'(?<!ANSWER )CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)', rdn(K.CITATION_BANK))
+    cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))   # ### the bank's foot, not the seat's row quoting b739's (defect (a'))
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R349)(2)(v)
     e = ['', _title(), '',
          'S5c and S5d of W-ORD-ZQ-OFFLINE-ZERO are stated and built on zq-b730 of SIDE-explicit-formula at %s, off main and untagged, three commits from %s, at the centre of box A, cA = 95326/100000 + (16290216/1000000)i. %s of %s rows of the statements bank compile, %s of %s printed names, each with propext, Classical.choice and Quot.sound (run %d); the last, zqFn_centre_le, bounds ‖zqFn cA‖ by 13103/10000 · 16012218800 · δ for any δ bounding ‖lamM cA + lamM (1 − cA) − 1/(cA (1 − cA))‖. That one enclosure, (c7) lamM_centre_encl, is not built, and (c4) with it, so SP3 is NOT REACHED at (c7): no value of zqFn cA is certified and no ε is printed as reached. %s lines against %s by the measured ratio, within the three-times ceiling of %s; %s of the %s dispatches spent, each read by its run id. The order stays OPEN at %s; S6 is not begun. The draft stands at v5, HELD.' % (
@@ -1444,7 +1451,7 @@ def _runs3_line():
              f['v1130_wanted']), '',
          '**The order of the act** (N2): the plan bank’s md5 %s printed at step zero before any Lean file and again among the build bank’s controls, equal to its blob at %s; tools/standing/ v1.20.0 at %s, the weight and the corrigendum at PLACE-papers %s and their banks at %s, (2) whole before (3); the statements at %s before the first Lean commit %s on %s; the last Lean commit %s, then the build bank at %s. The build bank opens with its controls before its figures. The (W) regeneration printed in the face, and the pre-lock comparison and the probe-path refusal banked, before the lock gate (relay data/b740_prelock.txt, data/b740_pathrefusal.txt). No lean process on this host; %s dispatches, each row carrying free_mb, each read by its run id, the first read twice, a void row at the download root standing before its read at the artifact (defect (t); relay data/b740_dispatch_rows.json).' % (
              K.PLAN_MD5[:8], K.C2_PLAN_FIRST[:8], K.C1_STANDING[:8], K.C1_PP[:8], K.C1_RELAY[:8], K.C2_RELAY[:8], K.ZQ_FIRST[:8], K.ZQ_ENTERING[:8], K.ZQ_TIP[:8], K.C3_RELAY[0][:8], f['bd_disp']), '',
-         '**The statements before any Lean** ((R350)(3)(a)): fifteen rows, (c1)-(c7) for S5c and (d1)-(d8) for S5d, nine general and six at the centre, each with its route, its reason and its Mathlib or kernel neighbour, ABSENT twice ((c1)’s object, its nearest named; (c7)’s route); row (d6) carries its route in a clause without the word (defect (z)). The precision taken there: ε = 1/10 with P = 0, so δ ≤ 1/(10 K). Its forecast of K, about ninefold high by (d5) at N = 64, stands as committed; the constants computed after give 16012218800, 1.096 times the true 1/|Gamma(cA)| (notes (4), defect (r)), so δ ≤ 4.77e-12 is the figure (notes (3)).', '',
+         '**The statements before any Lean** ((R350)(3)(a)): fifteen rows, (c1)-(c7) for S5c and (d1)-(d8) for S5d, nine general and six at the centre, each with its route and its Mathlib or kernel neighbour, ABSENT twice ((c1)’s object, its nearest named; (c7)’s route), and fourteen with a reason: row (d7) carries none (defect (b’)), and row (d6) carries its route in a clause without the word (defect (z)). The precision taken there: ε = 1/10 with P = 0, so δ ≤ 1/(10 K). Its forecast of K, about ninefold high by (d5) at N = 64, stands as committed; the constants computed after give 16012218800, 1.096 times the true 1/|Gamma(cA)| (notes (4), defect (r)), so δ ≤ 4.77e-12 is the figure (notes (3)).', '',
          '**The build to SP3** ((R350)(3)(b)-(d), N1, N3): S5c in IncGamma.lean, 227 lines against 400-1000: incGamma1 on [1, ∞), its integrability (c2) and norm bound (c3), the truncation remainder of lamM (c5) and the shell bound (c6), the tail by tail_le (notes (2)); its first dispatch BREAKS on one congr goal at :153, fixed at :155. S5d in Elem.lean, 351 lines against 500-1500: certified exp, cos, sin and log on rational intervals (d1)-(d3), the real-base power (d4), the upper bound on ‖(Gamma c)⁻¹‖ by GammaSeq at N (d5) and at the centre, 16012218800 (d6), the base power at the centre (d7), and zqFn_centre_le (d8); its first dispatch BREAKS on two trailing ring calls after the goal closed, its second KERNEL. %s lines in all against %s, the ceiling %s; ROWS COMPILED %s OF %s, NAMES %s OF %s (relay data/b740_offlinezero.txt). No integral is evaluated and no value of zqFn computed in Lean.' % (
              f['bd_lines'], f['bd_est'], f['bd_ceil'], f['bd_rows'], f['bd_rowsof'], f['bd_names'], f['bd_namesof']), '',
          '**The order left open** ((R350)(3)(b)-(c)): (c7) lamM_centre_encl, the one enclosure SP3 wants, needs each incomplete gamma at small a and |Im w| about 16.3 certified to about 1e-13; its quadrature route has no neighbour at the pin and the series route needs Gamma(cA) and π past twenty digits; it is not built within the twelve (notes (6)), nor (c4), its one use (notes (5)). S6 is not begun.', '',
