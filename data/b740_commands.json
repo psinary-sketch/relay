@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T18:16:33Z",
+ "at": "2026-11-04T18:22:27Z",
  "anchor": "RULING (R350) BEGIN",
  "rows": [
   {
@@ -3249,6 +3249,110 @@
    "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740; python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank",
    "n": 406,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:16:44.134Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short --untracked-files=no",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:16:47.759Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b740_address_scan.txt data/b740_closing_dry.txt data/b740_commands.json data/b740_commands.txt data/b740_pins_stepzero.txt data/b740_prelock.txt data/b740_reg_gate.txt data/b740_regspec_run.txt data/b740_report_dry.txt data/b740_root_banks_dry.json data/b740_root_banks_dry.txt data/b740_steps.json",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:16:51.898Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b740 gate: step row 8 for 3da98519; rootdry READY True, 42 banks; act part 25 of 31 live passing, 6 failing pending the lock, the root and the entry or declared; closing dry READ; GATE VERDICT CLEAR; scan 0, controls 7 of 7\"",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:17:33.368Z",
+   "src": "seat",
+   "cmd": "Select-String -Path \"C:\\Users\\echo chamber\\.claude\\projects\\D--\\c6c3fbf2-d7af-4287-b739-0cca197d161f.jsonl\" -Pattern '\"command\":\"[^\"]*(reg_seal|lockgate|--prerun|--combine|armsecs|close\\.py|record scores)[^\"]*\"' -AllMatches -List:$false -Encoding UTF8 -Raw:$false | ForEach-Object { $_.Matches.Value }",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:17:42.639Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmds739.py \"C:/Users/echo chamber/.claude/projects/D--/c6c3fbf2-d7af-4287-b739-0cca197d161f.jsonl\" \"reg_seal|lockgate|--prerun|--combine|armsecs|close\\.py|record scores|postlock\"",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:17:48.041Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -e \"REFUSED\" -e \"^###\" -- data/b740_hook_refusals.txt; (Get-Content D:/relay/data/b740_hook_refusals.txt).Count; (Get-Content D:/relay/data/b740_defects.txt).Count",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:19:15.669Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -e \"(d')\" -e \"OF 30\" -e \"REPEAT 16\" -- tools/b740_face_blocks.txt tools/b740_face.py tools/acts/b740.py",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:19:22.989Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -e \"b740_face.py\" -- data/b740_commands.txt",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:19:30.023Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b740_face.py; python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b740",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:19:33.970Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet; python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b740",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:20:53.735Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --act b740 --quiet",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:21:54.792Z",
+   "src": "seat",
+   "cmd": "Select-String -Path \"C:\\Users\\echo chamber\\.claude\\projects\\D--\\352ad3f4-37c5-4360-b9c6-cb7368f5f805\\tool-results\\bflhzz94y.txt\" -Pattern 'GATE VERDICT','HARD FAIL','PRE-LOCK','NEWLY'",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:21:58.011Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740; python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank",
+   "n": 419,
+   "bg": false
   }
  ],
  "offences": [],
@@ -3287,7 +3391,8 @@
   2,
   58,
   176,
-  233
+  233,
+  410
  ],
  "py_programs": [
   6,

@@ -1,8 +1,8 @@
-b740 closed: relay c961e9d7, PLACE-papers 5b89b86; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 30 defects
+b740 closed: relay c961e9d7, PLACE-papers 5b89b86; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 31 defects
 ========================================================================================================
 b740 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SIXTY-SEVEN, THE NUMERICS ACT: b739 AT ITS WEIGHT; THE CORRIGENDUM OPENING ON THE ARM THAT COULD NOT PASS; W-ORD-ZQ-OFFLINE-ZERO, S5c-S5d STATED AND BUILT IN THE TREE AT THE CENTRE OF BOX A TO SP3, UNDER (R350).**
 ========================================================================================================
-### THE COUNTER ((R350) Component 5, the act`s events and defects together; relay data/b740_defects.txt, data/b740_events.txt): CLAIM 11, CLOSE 19, REPEAT 16 OF 30
+### THE COUNTER ((R350) Component 5, the act`s events and defects together; relay data/b740_defects.txt, data/b740_events.txt): CLAIM 11, CLOSE 20, REPEAT 17 OF 31
 
 ### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b740_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):
       b740_address_scan.py           seal - ; close 9d9e3a75c2810e0a ; ABSENT
@@ -111,7 +111,7 @@ b740 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SIXTY-SEVEN, THE
     the probe-path refusal printed before the lock gate (relay data/b740_pathrefusal.txt): THE PROBE-PATH REFUSAL : CLEAR ; 34247 TRACKED PATHS READ ; CONTROLS 4 OF 4
 
 ### THE NAME AND ADDRESS (N5):
-    the scan over every commit and bank of the act, the counts alone (relay data/b740_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 216 ; CONTROLS 7 OF 7 AS WANTED ; 8 s
+    the scan over every commit and bank of the act, the counts alone (relay data/b740_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 206 ; CONTROLS 7 OF 7 AS WANTED ; 9 s
 
 ### THE RESEARCH INSTRUMENTS REPRODUCED (b739`s standing arm G-RESEARCH-REPRODUCES):
     tools/research/reproduce.py`s full run, one row per instrument I-41 to I-108, a planted wrong figure per run row (relay data/b740_reproduce.txt): ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 362 s
@@ -152,7 +152,7 @@ b740 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SIXTY-SEVEN, THE
 b740 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)(2), v9 row (80)) AND NEW OR REPEAT WITH THE ACT AND LETTER OF ITS CLASS (2026-11-04)
 
 ### rows are defects, each opening four spaces: (letter) THE SEAT'S [TAG ; NEW | REPEAT <act> (<letter>) | REPEAT class (<n>)]: what was done, when,
-### and what the standing rows say. Rows (a)-(i) are step zero's, as data/b740_stepzero.txt prints them; (j)-(p) Component 1's; (q)-(x) the build's (Component 3); (y)-(z) and (a')-(d') Component 4's before the lock; the hook's refusals are rows of data/b740_hook_refusals.txt.
+### and what the standing rows say. Rows (a)-(i) are step zero's, as data/b740_stepzero.txt prints them; (j)-(p) Component 1's; (q)-(x) the build's (Component 3); (y)-(z) and (a')-(e') Component 4's before the lock; the hook's refusals are rows of data/b740_hook_refusals.txt.
 
     (a) THE SEAT'S [CLOSE ; NEW]: 14:09-14:11Z: before data/act_current.json was committed the seat ran read-only commands (git status, git log, cat, git rev-parse), where (R350)(4) orders the commit before any other command; nothing written (b739 ran only Reads and Greps before its commit); one of them REFUSED BY THE HOOK (PIPE), nothing run (data/b740_hook_refusals.txt :1).
     (b) THE SEAT'S [CLOSE ; REPEAT class (12)]: 14:11:12Z: the act_current add and commit sent as one chained Bash call; REFUSED BY THE HOOK (GITWRITE), nothing written (data/b740_hook_refusals.txt :2); re-sent as two messages.
@@ -184,6 +184,7 @@ b740 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
     (b') THE SEAT'S [CLAIM ; NEW]: Component 4, the act part's probe (17:18Z): the statements bank (committed a9c206b9) row (d7) norm_qBase_cpow_centre_le carries its route and its neighbour and no reason, where (R350)(3)(a) asks each statement to carry its reason; Component 2's commit message says "each with route, reason and neighbour or ABSENT"; G-REGISTRATIONS-FIRST reads every row for its reason and neighbour and FAILS on (d7) alone (scratch armdiag.py: the fourteen other rows carry both); the bank stands as committed, the arm declared on the face as failing on real state, the entry's sentence set to name it before the lock.
     (c') THE SEAT'S [CLOSE ; REPEAT class (14)]: 17:54:14Z, Component 4, after the face's commit: a PowerShell diagnostic carrying a stray `Read-Host -? 2>$null` fragment; REFUSED BY THE HOOK (REDIR), nothing run (data/b740_hook_refusals.txt :13); re-sent without it; the third of its class this act after (q) and (x).
     (d') THE SEAT'S [CLAIM ; REPEAT b740 (c)]: Component 4, the closing's dry run (17:53Z): the act module's closing override for item (b), carried from b739, read "W-ORD-ZQ-OFFLINE-ZERO open at SP2 as b739 left it, S5c-S5d re-priced at b739, not touched this act", where b740 built S5c-S5d; and two of its closing rows read their banks with a `^` needle where the template's reader searches without re.M, both printing NOT FOUND (the statements' SP3 heading, the notes' (6)); the line set to the order's state at b740 and the needles given (?m), by the Edit tool before the lock.
+    (e') THE SEAT'S [CLOSE ; REPEAT class (14)]: 18:17:33Z, Component 4, after the second gate commit (1ec8ab8b) and before the lock: a PowerShell Select-String over b739's session transcript piped to ForEach-Object; REFUSED BY THE HOOK (PIPE), nothing run (data/b740_hook_refusals.txt :14); re-sent as a scratch script; the fourth of its class this act after (q), (x) and (c').
 
 ### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/b740_events.txt, unlettered, for the next act`s corrigendum):
     NONE ENTERED IN THE EVENTS BANK
@@ -196,7 +197,7 @@ b740 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
     pre-push : ### NOT FOUND
     post-push : ### NOT FOUND
     post-push : ### NOT FOUND
-      relay                            main 3da985192cae ; remote c961e9d768fa ; ### DIFFER
+      relay                            main 1ec8ab8b2a2e ; remote c961e9d768fa ; ### DIFFER
       PLACE-papers                     main 454f21679d81 ; remote 5b89b86b0ec2 ; ### DIFFER
       SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
       SIDE-explicit-formula            main badacccb867e ; remote badacccb867e ; AGREE

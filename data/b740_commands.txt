@@ -1,7 +1,7 @@
-b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T18:16:33Z)
+b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T18:22:27Z)
 
 ### the source: the seat`s session 352ad3f4-37c5-4360-b9c6-cb7368f5f805 from its first user line carrying 'RULING (R350) BEGIN', with its subagents` transcripts
-### commands read: 406
+### commands read: 419
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -38,11 +38,12 @@ b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #2 2026-11-04T14:09:36.504Z cd /d/relay && git status --short | head -30 && git log --oneline -5 && cat data/act_current.json && ls tools/ | head -80
   #176 2026-11-04T15:16:21.411Z cd D:/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -E "(theorem|lemma|alias) (pow_le_pow_iff_left|pow_le_pow_iff_left₀|Filter\.Tendsto\.inv₀|Tendsto\.inv₀|sq_le_sq'|pow_le_pow_left_iff|
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (4):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (5):
   #2 2026-11-04T14:09:36.504Z cd /d/relay && git status --short | head -30 && git log --oneline -5 && cat data/act_current.json && ls tools/ | head -80
   #58 2026-11-04T14:26:28.015Z $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024)) total_mb=$([int]($os.TotalVisibleMemorySize/1024)) at $((Get-Date).ToUniversalTime().ToString('HH:mm:ssZ'))"
   #176 2026-11-04T15:16:21.411Z cd D:/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -E "(theorem|lemma|alias) (pow_le_pow_iff_left|pow_le_pow_iff_left₀|Filter\.Tendsto\.inv₀|Tendsto\.inv₀|sq_le_sq'|pow_le_pow_left_iff|
   #233 2026-11-04T15:49:00.465Z Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name, Id, @{n='MB';e={[math]::Round($_.WorkingSet64/1MB)}}
+  #410 2026-11-04T18:17:33.368Z Select-String -Path "C:\Users\echo chamber\.claude\projects\D--\c6c3fbf2-d7af-4287-b739-0cca197d161f.jsonl" -Pattern '"command":"[^"]*(reg_seal|lockgate|--prerun|--combine|armsecs|close\.py|record sco
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (25):
   #6 2026-11-04T14:11:01.928Z python -X utf8 -c "import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],d['prev_root'][:8],list(d['replay'])[:2])" && git log --format="%h %s" -3 -- data/act_current.json
@@ -497,5 +498,18 @@ b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #404 | 2026-11-04T18:14:49.726Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --bank-only --act b740 --quiet
   #405 | 2026-11-04T18:16:00.104Z | seat | PowerShell | Select-String -Path "C:\Users\echo chamber\.claude\projects\D--\352ad3f4-37c5-4360-b9c6-cb7368f5f805\tool-results\bmy66p375.txt" -Pattern 'VERDICT'
   #406 | 2026-11-04T18:16:03.628Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740; python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; pyt
+  #407 | 2026-11-04T18:16:44.134Z | seat | PowerShell | git -C D:/relay status --short --untracked-files=no
+  #408 | 2026-11-04T18:16:47.759Z | seat | PowerShell | git -C D:/relay add data/b740_address_scan.txt data/b740_closing_dry.txt data/b740_commands.json data/b740_commands.txt data/b740_pins_stepzero.txt data/b740_pr
+  #409 | 2026-11-04T18:16:51.898Z | seat | PowerShell | git -C D:/relay commit -m "b740 gate: step row 8 for 3da98519; rootdry READY True, 42 banks; act part 25 of 31 live passing, 6 failing pending the lock, the roo
+  #410 | 2026-11-04T18:17:33.368Z | seat | PowerShell | Select-String -Path "C:\Users\echo chamber\.claude\projects\D--\c6c3fbf2-d7af-4287-b739-0cca197d161f.jsonl" -Pattern '"command":"[^"]*(reg_seal|lockgate|--preru
+  #411 | 2026-11-04T18:17:42.639Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmds739.py "C:/Users/echo chamber/.claude/project
+  #412 | 2026-11-04T18:17:48.041Z | seat | PowerShell | git -C D:/relay grep -n -I -e "REFUSED" -e "^###" -- data/b740_hook_refusals.txt; (Get-Content D:/relay/data/b740_hook_refusals.txt).Count; (Get-Content D:/rela
+  #413 | 2026-11-04T18:19:15.669Z | seat | PowerShell | git -C D:/relay grep -n -I -e "(d')" -e "OF 30" -e "REPEAT 16" -- tools/b740_face_blocks.txt tools/b740_face.py tools/acts/b740.py
+  #414 | 2026-11-04T18:19:22.989Z | seat | PowerShell | git -C D:/relay grep -n -I -e "b740_face.py" -- data/b740_commands.txt
+  #415 | 2026-11-04T18:19:30.023Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py; python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b740
+  #416 | 2026-11-04T18:19:33.970Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet; python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b740
+  #417 | 2026-11-04T18:20:53.735Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --act b740 --quiet
+  #418 | 2026-11-04T18:21:54.792Z | seat | PowerShell | Select-String -Path "C:\Users\echo chamber\.claude\projects\D--\352ad3f4-37c5-4360-b9c6-cb7368f5f805\tool-results\bflhzz94y.txt" -Pattern 'GATE VERDICT','HARD F
+  #419 | 2026-11-04T18:21:58.011Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740; python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; pyt
 
-### ### **COMMANDS 406 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 3 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 25 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 419 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 3 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 25 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
