@@ -1,0 +1,105 @@
+b739 -- THE CONTROLS OF tools/standing/ v1.19.0, (R349)(2)(i)-(viii): THE GIT WRITE BY THE MESSAGE`S REQUEST, THE POST-PUSH PHASES, THE SEAL AND LOCK SUBJECTS, THE GUARDED LAST ROW, NO BACKGROUND PART, NO SED, THE EXERCISE BANK, THE VERSION (2026-11-04T06:15:41Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then the cross-repository write count, then each repair`s instances through both routes; written through tools/standing/figbank.py ((R348)(2)(i))
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2554 lines
+  citation render          OK    497 lines
+  closing render           OK    614 lines
+  record render            OK    4479 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    152 lines
+  tools/b739_worklist.py   OK    369 lines
+### THE COMPILE CONTROL : b739 COMPILES WHOLE, 8 OF 8
+
+### THE CROSS-REPOSITORY WRITE COUNT ((R349) Component 1`s head; standing.gitwrite over the session`s shell calls, every repository named):
+  b738 (2026-11-03T21:10:47Z to 2026-11-04T05:48:09Z): shell calls 638 ; messages carrying a git write 95 ; with more than one [('2026-11-03T23:22:55.781Z', 2)] ; the repositories written 3: PLACE-papers, relay, zq-b738 ; OVER ONE IN 1
+  b739 (2026-11-04T05:48:09Z to this run): shell calls 105 ; messages carrying a git write 15 ; with more than one NONE ; the repositories written 2: PLACE-papers, relay ; ONE WRITE PER MESSAGE
+
+### the instances read at their commits; each case through both routes, the route before read from 3f45857d
+
+### (gitwrite) (R349)(2)(i), b738 DEFECT (m), N5: ONE GIT WRITE PER MESSAGE ACROSS EVERY REPOSITORY, THE MESSAGE READ BY ITS API REQUEST
+  (gitwrite) b738`s 23:22:55Z pair on D:/zq-b738 (`git -C D:/zq-b738 add SIDEExplicitFormula/Schema/ZQ/OffZero/` ; `git -C D:/zq-b738 commit -m "b738 (R348)`), the transcript cut at line 9563, where both blocks stood unwritten when their hooks ran (the last api-request 2026-11-03T23:22:52.826Z)
+      BEFORE (v1.18.0): the commit judged -> None -> FAILS
+      AFTER  (v1.19.0): the add -> None ; the commit -> GITWRITE -> PASSES
+      AS WANTED
+  (gitwrite) GUARD, NO FAILING SIDE: a single add in one message passes; the commit in the next message (a later api-request) passes
+      AFTER  (v1.19.0): single add -> None ; next message`s commit -> None -> HOLDS
+      AS WANTED
+  (gitwrite) GUARD, NO FAILING SIDE: b739`s live probe at 06:06:56Z: the first of two parallel calls finds neither its own block nor its sibling`s at run time, so v1.17.0`s sibling read had no block to count
+      AFTER  (v1.19.0): own False ; sibling False -> HOLDS
+      AS WANTED
+
+### (phases) (R349)(2)(ii), b738 EVENTS (5): THE POST-PUSH READ AGAINST THE PRE-PUSH READ, PART BY PART; THE FINDING BEFORE ANY GUARD MOVES
+  b738`s five chain parts, pre-push (data/b738_checks_<part>.txt) beside post-push (data/b738_checks_postpush_<part>.txt):
+    part           | pre-push state/files/chain | post-push state/files/chain | ratio s/f/c        | free MB pre, post ; remote reads equal ; reads at commit equal
+    standing-b2a   | 53/3/139                   | 54/4/135                   | 1.02/1.33/0.97     | 4312, 4311 ; True (38 repositories) ; True
+    standing-b2b   | 54/3/139                   | 97/9/275                   | 1.80/3.00/1.98     | 4229, 4241 ; True (38 repositories) ; True
+    standing-b2c   | 54/3/171                   | 172/10/493                 | 3.19/3.33/2.88     | 4342, 4095 ; True (38 repositories) ; True
+    standing-b2d   | 53/3/187                   | 55/3/188                   | 1.04/1.00/1.01     | 4334, 3635 ; True (38 repositories) ; True
+    standing-b3    | 53/3/162                   | 55/3/169                   | 1.04/1.00/1.04     | 4293, 3991 ; True (38 repositories) ; True
+  ### THE POST-PUSH READ DID THE PRE-PUSH READ`S WORK: the same remote reads per repository and the same reads at commit in 5 of 5 parts ; THE TIME GREW IN standing-b2b, standing-b2c ; EVERY PHASE OF standing-b2b, standing-b2c, the local phases with the chain: the slowdown the host`s while those parts ran, not the post-push route ; THE OTHER PARTS AT THEIR PRE-PUSH TIMES ; NO GUARD MOVED
+  (phases) b2c`s two runs, 171 s and 493 s in the chain phase, read beside each other
+      BEFORE (v1.18.0): a reader of the two tables at 3f45857d: False -> FAILS
+      AFTER  (v1.19.0): the finding: THE POST-PUSH READ DID THE PRE-PUSH READ`S WORK: the same remote reads per repository and the same reads at commit in 5 of 5 parts ; THE TIME GREW IN standing-b -> PASSES
+      AS WANTED
+  (phases) GUARD, NO FAILING SIDE: (R348)(2)(vi)`s split read against the chain halves: each first-half quarter one part, b659 on in standing-b3, every pre-push chain phase under 450 s
+      AFTER  (v1.19.0): 4 quarters ; pre-push chain phases [139, 139, 171, 187] -> HOLDS
+      AS WANTED
+
+### (subjects) (R349)(2)(iii), b738 EVENTS (4): THE SEAL AND LOCK SUBJECTS COMPOSED FROM THEIR BANKS; THE HOOK REFUSES A SUBJECT THE BANK DOES NOT PRINT
+  (subjects) b738`s third seal commit 65a2e5d8, "b738 seal: the sealed tools' hashes, 85 files, at 37f4c8d4, 116 of 116 NEG contr"
+      BEFORE (v1.18.0): judge -> None -> FAILS
+      AFTER  (v1.19.0): judge -> SUBJECT -> PASSES
+      AS WANTED
+  (subjects) GUARD, NO FAILING SIDE: b738`s seal subject regenerated from data/b738_seal_hashes.json
+      AFTER  (v1.19.0): b738 seal: the sealed tools` hashes, 80 files -> HOLDS
+      AS WANTED
+  (subjects) GUARD, NO FAILING SIDE: b738`s lock subject b1c498e7 "b738 lock: face locked, lock gate's eight gates" against data/b738_lockgate.json gates_read 8; the same with "seven gates" planted
+      AFTER  (v1.19.0): faults [] ; planted ['the subject says seven gates, the bank 8'] -> HOLDS
+      AS WANTED
+
+### (runs) (R349)(2)(iv), b738 EVENTS (2): G-DERIVATION-GRADED`S LAST-ROW READ GUARDED, AN EMPTY TABLE NO RUNS BY NAME; b737`S BANKS REPLAYED
+  (runs) b738`s predicate (tools/acts/b738.py slot 34 at 3f45857d) on b737`s state: EF_RUNS ()   # ### N1: no dispatch (tools/b737_worklist.py), no build bank
+      BEFORE (v1.18.0): raised IndexError (list index out of range) -> FAILS
+      AFTER  (v1.19.0): runs.reading -> NO RUNS (no dispatch row in the bank and none in the worklist) ; runs.last -> NO RUNS -> PASSES
+      AS WANTED
+  (runs) GUARD, NO FAILING SIDE: a table whose runs are the worklist`s reads RUNS, one that differs DIFFERS
+      AFTER  (v1.19.0): RUNS ; DIFFERS -> HOLDS
+      AS WANTED
+
+### (background) (R349)(2)(v), b738 EVENTS (6), REPEAT OF b735`S REAPED WATCH: NO SUITE PART IN THE BACKGROUND, REFUSED BY THE HOOK
+  (background) b738`s post-push standing-b2d sent with run_in_background at 2026-11-04T04:51:21.697Z (task bm42n3gyy, stopped by the host)
+      BEFORE (v1.18.0): judge -> None -> FAILS
+      AFTER  (v1.19.0): judge -> BACKGROUND -> PASSES
+      AS WANTED
+  (background) GUARD, NO FAILING SIDE: the same part in the foreground passes
+      AFTER  (v1.19.0): judge -> None -> HOLDS
+      AS WANTED
+
+### (sed) (R349)(2)(vi), b738 DEFECT (p) AND EVENTS (3), REPEAT OF CLASSES (18) AND (19): SED IN ANY FORM REFUSED; THE READER OF (R343)`S TOOLS IN ITS PLACE
+  (sed) b738`s touch-read lookup carrying `sed -n` (data/b738_commands.json, the #354 row)
+      BEFORE (v1.18.0): judge -> None -> FAILS
+      AFTER  (v1.19.0): judge -> SED -> PASSES
+      AS WANTED
+  (sed) GUARD, NO FAILING SIDE: a grep for the words, the reader`s line read (peek.py search --lines) and a path holding the letters pass
+      AFTER  (v1.19.0): [None, None, None] -> HOLDS
+      AS WANTED
+  (sed) GUARD, NO FAILING SIDE: b738 events (3)`s Read, a limit and no offset on 451 lines, refused READ as v1.4.0 orders (the instance REPEAT of class (19))
+      AFTER  (v1.19.0): READ -> HOLDS
+      AS WANTED
+
+### (exercise) (R349)(2)(vii), (R345)(2)(viii): THE EXERCISE BANK COMMITTED AT CLOSING, READ AGAINST b738
+  (exercise) GUARD, NO FAILING SIDE: b738`s closing commit 3f45857d carries data/b738_exercise.json and its ten part banks
+      AFTER  (v1.19.0): 11 banks: b738_exercise.json, b738_exercise_act.json, b738_exercise_standing-a1.json, b738_exercise_standing-a2.json, b738_exercise_standing-b1.json, b738_exercise_standing-b2a.json, b738_exercise_standing-b2b. -> HOLDS
+      AS WANTED
+
+### (version) (R349)(2)(viii): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.18.0): v1.18.0 -> FAILS
+      AFTER  (v1.19.0): v1.19.0 -> PASSES
+      AS WANTED
+
+### ### **v1.19.0: CONTROLS (gitwrite), (phases), (subjects), (runs), (background), (sed), (exercise), (version) ; CASES 17 ; AS WANTED 17 ; ALL AS WANTED.**

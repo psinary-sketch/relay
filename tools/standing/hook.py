@@ -10,6 +10,12 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   REMOTE a Bash or PowerShell command carrying more than one ls-remote outside quotes -- row (77), (R338)(2)(iv)(d)
   POSTSEAL a shell command the arm G-RULE-POSTSEAL-READ would count, the seal recorded -- v1.13.0, (R343)(2)(vi); the arm's own lists read from tools/rule_arms.py at the call
   INPLACE a shell command editing a file in place (sed or perl -i, Set-Content) -- row (18), v1.18.0, (R348)(2)(iii)
+  GITWRITE a second git write in one message, any repository, kernel clones included -- row (12); v1.19.0, (R349)(2)(i): the message
+         read by its API request (the transcript's last api-request line, written before the message's tools run), a per-session
+         ledger in the temporary directory, where v1.17.0's sibling read found no block (the call's own block not yet written)
+  SUBJECT a seal or lock commit whose subject tools/standing/subjects.py check() faults -- v1.19.0, (R349)(2)(iii)
+  BACKGROUND a suite part or combine sent with run_in_background -- v1.19.0, (R349)(2)(v), the standing clauses' foreground rule
+  SED    sed in any form (data/b685_rules.txt row (2)), the reader of (R343)'s tools in its place -- v1.19.0, (R349)(2)(vi)
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -52,6 +58,9 @@ ROWS = {
     'GITWRITE': ROW77 + ' ; (12) one git write per message across every repository, add and commit counted as two, across parallel calls ((R347)(2)(ii))',
     'LOCKED': ROW77 + ' ; (65) a bank written before the lock refuses to be rewritten after it, refused before it lands ((R347)(2)(iii))',
     'INPLACE': ROW77 + ' ; (18) every file the seat writes written by the Edit or Write tool, a rendered file by its render re-run ((R348)(2)(iii))',
+    'SUBJECT': ROW77 + ' ; a seal or lock commit`s subject composed from its bank by tools/standing/subjects.py ((R349)(2)(iii))',
+    'BACKGROUND': ROW77 + ' ; no suite part in the background, each in the foreground with its 600 s limit ((R349)(2)(v))',
+    'SED': ROW77 + ' ; data/b685_rules.txt row (2), sed in any form, a line read by the Read tool or tools/standing/peek.py ((R349)(2)(vi))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -65,6 +74,10 @@ BRANCH_DEL = re.compile(r'\bbranch\s+(?:-[dD]|--delete)(?![\w-])')
 # ### v1.18.0, (R348)(2)(iii): sed or perl with an in-place flag (-i, -i.bak, -pi, --in-place) and the PowerShell cmdlets that rewrite a file
 INPLACE = re.compile(r'(?<![\w-])(?i:sed|perl)(?:\.exe)?\s(?:[^;&\n]*?\s)?(?:-[a-hj-zA-Z]*i[a-zA-Z]*(?:\.\S*)?|--in-place\S*)(?=\s|$)'
                      r'|(?<![\w-])(?i:Set-Content|Add-Content|Clear-Content)(?![\w-])')
+# ### v1.19.0, (R349)(2)(vi): sed as a command word in any form, quoted text blanked first (a grep for the words passes)
+SED = re.compile(r'(?<![\w./\\-])(?i:sed)(?:\.exe)?(?=\s|$)')
+# ### v1.19.0, (R349)(2)(iii): a commit's first -m subject naming the seal or lock phase
+COMMIT_SUBJECT = re.compile(r'\bgit\s+(?:-C\s+\S+\s+)*commit\b[^\n]*?\s-m\s+(?:"((?:[^"\\]|\\.)*)"|\'([^\']*)\')')
 ASSIGN = re.compile(r'^\s*(?:env\s+)?[A-Za-z_][A-Za-z0-9_]*=')
 PS_ENV = re.compile(r'(?i)^\s*\$env:[A-Za-z_][A-Za-z0-9_]*\s*=')
 
@@ -205,6 +218,83 @@ def over_one_write(cmds, idx, GW=None):
     return mine > 0 and before + mine > 1
 
 
+def last_request(transcript):
+    """v1.19.0, (R349)(2)(i): the stamp of the transcript's last api-request line, the message the next tool calls belong to; None where
+    unread. Claude Code writes a message's api-request line before the message's tools run, and the message's own blocks after them
+    (b738's 23:22:55Z pair: both blocks written after the second tool's result; b739's two probes: the first found neither block)."""
+    try:
+        with open(transcript, 'rb') as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - TAIL_BYTES))
+            raw = f.read().decode('utf-8', errors='replace').split('\n')
+    except (OSError, TypeError):
+        return None
+    for l in reversed(raw):
+        if '"api-request"' not in l:
+            continue
+        try:
+            j = json.loads(l)
+        except ValueError:
+            continue
+        if j.get('type') == 'api-request':
+            return j.get('timestamp') or None
+    return None
+
+
+def ledger_path(transcript):
+    return os.path.join(tempfile.gettempdir(), 'standing-gitwrite-%s.json' % hashlib.sha256(str(transcript).encode('utf-8')).hexdigest()[:16])
+
+
+def ledger_over(transcript, n, path=None):
+    """v1.19.0, (R349)(2)(i): True where this call's n git writes follow a write already allowed in the same message, the message read as
+    the transcript's last api-request; an allowed write is recorded in the ledger (path, or the session's file in the temporary directory)."""
+    if n <= 0:
+        return False
+    key = last_request(transcript)
+    if key is None:
+        return False
+    p = path or ledger_path(transcript)
+    try:
+        with open(p, encoding='utf-8') as f:
+            j = json.load(f)
+    except (OSError, ValueError):
+        j = {}
+    had = int(j.get('writes') or 0) if j.get('request') == key else 0
+    if had >= 1:
+        return True
+    try:
+        with open(p, 'w', encoding='utf-8', newline='\n') as f:
+            json.dump(dict(request=key, writes=had + n), f)
+    except OSError:
+        pass
+    return False
+
+
+def subject_faults(cmd, relay=RELAY):
+    """v1.19.0, (R349)(2)(iii): a seal or lock commit's subject read by tools/standing/subjects.py check() against the relay's banks; [] where
+    the command carries no such subject."""
+    m = COMMIT_SUBJECT.search(cmd)
+    if not m:
+        return []
+    subj = m.group(1) if m.group(1) is not None else m.group(2)
+    s = re.match(r'^(b\d+) (seal|lock):', subj)
+    if not s:
+        return []
+    d = os.path.dirname(os.path.abspath(__file__))
+    if d not in sys.path:
+        sys.path.insert(0, d)
+    import subjects as SJ
+
+    def read(name):
+        p = os.path.join(relay, 'data', name)
+        if not os.path.exists(p):
+            return None
+        with open(p, encoding='utf-8') as f:
+            return json.load(f) if name.endswith('.json') else f.read()
+    return SJ.check(s.group(1), s.group(2), subj, read)
+
+
 def locked(relay=RELAY):
     """v1.17.0: the open act's lock recorded (data/<act>_lockgate.json) and its closing not written."""
     act = bank_act(relay)
@@ -335,6 +425,10 @@ def judge(tool, inp, relay=RELAY, ctx=None):
             return 'REDIR', 'a %s command carrying a redirect by cmdlet' % tool
         if INPLACE.search(bare):   # ### v1.18.0, (R348)(2)(iii), b737 (u): an in-place edit by the shell, the render re-run instead
             return 'INPLACE', 'a %s command editing a file in place (%s)' % (tool, INPLACE.search(bare).group(0).strip()[:60])
+        if SED.search(bare):   # ### v1.19.0, (R349)(2)(vi), b738 (p): sed in any form, b685 rules row (2)
+            return 'SED', 'a %s command running sed' % tool
+        if inp.get('run_in_background') and (SUITE_PART.search(bare) or SUITE_COMBINE.search(bare)):   # ### v1.19.0, (R349)(2)(v), b738 events (6)
+            return 'BACKGROUND', 'a suite part or combine sent to the background'
         for inner in inner_shell_args(cmd):   # ### v1.9.0, (R339)(2)(i): strip_quotes blanks an inner shell's argument, the one place a redirect passed the test above
             ibare, _c = strip_quotes(inner)
             if '|' in ibare or '>' in ibare or '<' in ibare:
@@ -353,10 +447,15 @@ def judge(tool, inp, relay=RELAY, ctx=None):
         GW = _gitwrite()
         if GW is not None and len(GW.writes(cmd)) > 1:   # ### v1.17.0, (R347)(2)(ii): add and commit chained count two
             return 'GITWRITE', 'a %s command carrying %d git writes' % (tool, len(GW.writes(cmd)))
+        sf = subject_faults(cmd, relay)
+        if sf:   # ### v1.19.0, (R349)(2)(iii), b738 events (4)
+            return 'SUBJECT', 'a seal or lock commit whose subject differs from its bank: %s' % '; '.join(sf)[:200]
         if ctx and GW is not None:
             cmds, idx = message_calls(ctx.get('transcript_path'), ctx.get('tool_use_id'), inp)
             if over_one_write(cmds, idx, GW):
                 return 'GITWRITE', 'a second git write in one message, across its parallel calls'
+            if ledger_over(ctx.get('transcript_path'), len(GW.writes(cmd)), ctx.get('ledger')):   # ### v1.19.0, (R349)(2)(i), b738 (m)
+                return 'GITWRITE', 'a second git write in one message, read by the message`s API request'
         return None
     return None
 
