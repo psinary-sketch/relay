@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T18:07:11Z",
+ "at": "2026-11-04T18:16:33Z",
  "anchor": "RULING (R350) BEGIN",
  "rows": [
   {
@@ -3136,6 +3136,118 @@
    "src": "seat",
    "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank",
    "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:23.152Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:28.581Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/audit_b740_reg_satisfiable.txt data/b740_address_scan.txt data/b740_census_stepzero.txt data/b740_closing_dry.txt data/b740_commands.json data/b740_commands.txt data/b740_defects.txt data/b740_faces_census_stepzero.txt data/b740_pins_stepzero.txt data/b740_prelock.txt data/b740_reg_gate.txt data/b740_reg_termscan.txt data/b740_registration_2026-11-04.txt data/b740_regspec_run.txt data/b740_report_dry.txt data/b740_root_banks_dry.json data/b740_root_banks_dry.txt data/b740_satisfiable.json data/b740_scores_dry.txt data/b740_steps.json data/b740_hook_refusals.txt tools/acts/b740.py tools/b740_face_blocks.txt",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:32.892Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b740 gate: GATE VERDICT CLEAR; face recomposed; defects (c') REDIR refusal and (d') closing (b) line and two ^ needles; the seven citation readers anchored to the foot; scan 0, controls 7 of 7\"",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:37.054Z",
+   "src": "seat",
+   "cmd": "Select-String -Path D:/relay/data/b739_commands.txt -Pattern 'record step|record rootdry|lockgate|reg_seal' -SimpleMatch:$false",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:42.090Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate 3da98519 --act b740",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:43.039Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b740",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:08:43.646Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024)",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:10:07.910Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py checks --part act --act b740 --quiet",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:12:44.634Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -e \"G-ROOTDRY-READY\" -- tools/standing/fold/checks.tpl tools/acts/b740.py",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:12:48.911Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -A 14 -e \"def rootdry_ok\" -- tools/standing/fold/checks.tpl",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:12:53.159Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:14:49.726Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --bank-only --act b740 --quiet",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:16:00.104Z",
+   "src": "seat",
+   "cmd": "Select-String -Path \"C:\\Users\\echo chamber\\.claude\\projects\\D--\\352ad3f4-37c5-4360-b9c6-cb7368f5f805\\tool-results\\bmy66p375.txt\" -Pattern 'VERDICT'",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T18:16:03.628Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740; python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank",
+   "n": 406,
    "bg": false
   }
  ],
