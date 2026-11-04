@@ -1,0 +1,15 @@
+b740 -- THE RULES OF (R350)(2), EACH A ROW, FOR THE AUTHOR'S STRIKE; tools/standing/ v1.20.0 (2026-11-04)
+
+### rows are rules, each with the instance it answers, its route and its control (data/b740_standing_v1200.txt); a rule is the seat's reading of the ruling's words, struck or kept by the author.
+
+(1) AN ARM'S SEARCH PHRASE IS READ UNDER THE NORMALISATION THE ARM APPLIES TO ITS TARGET ((R350)(2)(i), b739 events (3), the class of b727 events (14)): G-ENTRY-TITLE-FORM folds the title's opening article and searched for its needles unfolded, so a first needle "## The ..." could not stand in any folded title. tools/standing/armnorm.py folds needle and target alike (title_ok), and cannot_pass names, before the lock, every needle the fold would change; `armnorm.py title <act>` runs the act's needles against the title its record tool composes, the positive control at the pre-lock dry. Control: b739's entry (FINDINGS :13351) FAIL under the arm as it stood, PASS under the repaired arm; its old phrase CANNOT PASS by the normalisation check; b740's needles CANNOT PASS NONE.
+
+(2) THE COMPOSER IS THE ONE ROUTE TO A SEAL OR LOCK SUBJECT ((R350)(2)(ii), b739 events (1), b738 events (4) again): tools/standing/subjects.py check() refuses any seal or lock subject not opening with compose()'s own words for the phase, read from the bank, and refuses where no bank composes one; the hook's SUBJECT kind enforces it before the commit runs. Control: b739's typed "85 files" refused at v1.19.0 and v1.20.0; the same typed words with the bank's 83 ran at v1.19.0 and are refused now; b739's composed subject c1776793 passes.
+
+(3) NO SHELL ASSIGNMENT AT THE HEAD OF A COMMAND ((R350)(2)(iii), b739 events (2)): row (20); free memory is read in its own PowerShell call and the push sent alone; REPEAT, the class banked at b739 (i) and met again at b740 step zero (f). Control: every ENV refusal of b739 and b740 printed by instance, each nothing run; b739 events (2)'s command judged ENV now.
+
+(4) THE DEPOSIT ROUTE IS READ BY ITS STATE ((R350)(2)(iv), (R338)'s "publish not called" repair, b727 events (3)): tools/standing/publishstate.py reads each tool's text as UNCALLED, METADATA EDIT, NO NEW VERSION (every publish call after an actions/edit, no new version, no deposit created) or PUBLISH; G-PUBLISH-UNCALLED passes on the first two and prints the state by name. Control: b739's tools/b739_tier3.py and b727's tools/b727_sitting.py FAIL at v1.19.0 and read METADATA EDIT, NO NEW VERSION now; b733's tools UNCALLED; a planted new-version call and a planted publish with no edit route PUBLISH.
+
+(5) A CITATION MISS IS NAMED IN THE EVENTS BANK WITH WHY THE CHECK STAYED CLEAN ((R350)(2)(v), data/b739_citation_check.txt :104): CLEAN counts halts (Lean paths, nouns, comparatives) alone; a miss of a quoted word entered by the fact clause is no halt. Control: b739's one miss, the ruling's quoted word, entered at data/b739_stepzero.txt :15-:17, halts 0.
+
+(6) THE VERSION ((R350)(2)(vi)): tools/standing/VERSION v1.20.0, landed by a commit of its own (63424433) with its controls bank, 14 cases, 14 as wanted.
