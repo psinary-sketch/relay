@@ -1,0 +1,57 @@
+b740 -- W-ORD-ZQ-OFFLINE-ZERO, S5c-S5d IN THE TREE AT THE CENTRE OF BOX A, TO SP3 ((R350)(3)(b)-(d)), BUILT ON zq-b730 FROM 602cd401 BY THE RUNNER (2026-11-04T15:43:47Z)
+
+## THE CONTROLS
+  the axioms reader on a constructed standard line: True ; on a constructed axiom-free line: True ; on an absent name, None: True
+  the figure-bank reader: the controls first passes, the controls after refused: True
+  data/b737_offlinezero_plan.txt md5 3d61f519917a3ee20ac4d7c5fab197ef ; step zero`s 3d61f519917a3ee20ac4d7c5fab197ef ; equal True
+  data/b738_offlinezero.txt md5 3b66d5df07b0c59061b21b2cf7418b91 ; step zero`s 3b66d5df07b0c59061b21b2cf7418b91 ; equal True
+  the statements bank committed at relay a9c206b9, 1793804403 ; b740`s Lean commits on zq-b730 3, the first at 1793804955 ; the bank before them True
+  free memory at this bank: 2942 MB at 2026-11-04T15:43:47Z, the hold 2560
+  the dispatch rows refused by standing.dispatchrows: NONE
+
+## THE DISPATCHES: 3 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb
+  1 | group S5c | IncGamma | sha 8c6ec8d1 | run 41854903335 | free 3183 MB | BREAKS, exit 1, 2 errors, sorry warnings 0, sorryAx False, runner low 13209 MB, read at free 3332 MB
+  2 | group S5d | Elem | sha 6b068a0d | run 41857376723 | free 3249 MB | BREAKS, exit 1, 3 errors, sorry warnings 0, sorryAx False, runner low 13246 MB, read at free 3281 MB
+  3 | group S5d | Elem | sha ba318a0b | run 41859346843 | free 2624 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13313 MB, read at free 3084 MB
+
+## THE LINES, MEASURED AGAINST THE ESTIMATES (I-10`s form), AND SP3`S THREE-TIMES RULE
+  S5c SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean measured 227 ; the estimate 400-1000 ; BELOW
+  S5d SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean measured 351 ; the estimate 500-1500 ; BELOW
+  S5c-S5d IN ALL: measured 578 ; the estimate 900-2500 (data/b737_offlinezero_plan.txt :136) ; by the measured ratio 482-2675 ; the ratio 0.231-0.642
+  SP3`S RULE: three times the estimate, 7500 lines ; measured 578 ; within, the build goes on
+
+## THE AXIOMS OF EACH ROW OF data/b740_s5cd_statements.txt, FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT
+  S5c (c2) incGamma1_integrableOn       propext, Classical.choice, Quot.sound (run 41859346843)
+  S5c (c3) norm_incGamma1_le            propext, Classical.choice, Quot.sound (run 41859346843)
+  S5c (c4) incGamma1_add_one            NOT BUILT (run None)
+  S5c (c5) lamM_sub_trunc               propext, Classical.choice, Quot.sound (run 41859346843)
+  S5c (c6) norm_shell_le                propext, Classical.choice, Quot.sound (run 41859346843)
+  S5c (c7) lamM_centre_encl             NOT BUILT (run None)
+  S5d (d1) exp_mem_Icc                  propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d2) cos_sub_sum_le               propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d2) sin_sub_sum_le               propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d3) log_mem_Icc                  propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d4) ofReal_cpow_eq               propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d5) norm_inv_Gamma_le            propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d6) norm_inv_Gamma_centre_le     propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d7) norm_qBase_cpow_centre_le    propext, Classical.choice, Quot.sound (run 41859346843)
+  S5d (d8) zqFn_centre_le               propext, Classical.choice, Quot.sound (run 41859346843)
+
+## THE NOTES (data/b740_offlinezero_notes.txt)
+  (1) the clone D:/zq-b738 reused, not cloned afresh: its row in data/b740_dispatch_rows.json carries the snapshot before and after, the remote equal and the tree clean.
+  (2) S5c's tail is bounded by the decaying tail_le (Tail.lean :99), not by zq_thetaC_tail: the latter's bound is not integrable on [1, oo) against t^(w-1) for Re w <= 1.
+  (3) the plan's per-term figure of 1e-14 is not the figure that binds: with K = 1.3103 x 16012218800 (rows (d6), (d7)), epsilon = 1/10 at P = 0 needs delta <= 4.77e-12 on the one enclosure (c7) wants.
+  (4) the statements bank forecast K inflated about ninefold by (d5) at N = 64; the constants computed after its commit give 16012218800 = 1.096 x the true 1/|Gamma(cA)| (1.4608e10); the bank's sentence stands as committed (defect (r)).
+  (5) (c4) incGamma1_add_one is NOT BUILT: (c7) alone would use it, and (c7) is not built.
+  (6) (c7) lamM_centre_encl is NOT BUILT: it needs each incomplete gamma at small a and |Im w| about 16.3 certified to about 1e-13; the series route needs Gamma(cA) and pi past twenty digits, the quadrature route is ABSENT in the statements bank and past the act's dispatches; no value of zqFn cA is certified, so no enclosure with P and epsilon is printed as reached.
+  (7) dispatch 1 (run 41854903335) broke at IncGamma.lean :153 on one congr goal (the pointwise product of functions not unfolded); fixed at :155 by Pi.mul_apply and Pi.sub_apply and rebuilt inside dispatch 2, whose target Elem imports IncGamma.
+  (8) dispatch 2 (run 41857376723) built IncGamma and broke at Elem.lean :132 and :165, two trailing ring calls after field_simp had closed the goal ("No goals to be solved"); both dropped at ba318a0b; dispatch 3 (run 41859346843) built Elem and IncGamma at exit 0, every one of the act's seventeen printed names on the standard three; its axioms file names thirty older targets Unknown, the kernel's other modules Elem does not import.
+  (9) dispatch 3 left at 2624 MB free against the 2560 hold, within it; its watcher (gh run watch) exited 1 though the run concluded success and the build exited 0: the read is by the run id and its artifact, not by the watcher's exit.
+
+## THE GRADE
+  printed names compiled with the standard three: 13 of 15 (c2, c3, c5, c6, d1, d2, d2, d3, d4, d5, d6, d7, d8)
+  printed names not compiled: (c4) incGamma1_add_one, (c7) lamM_centre_encl
+  rows of the statements bank: 14 carry a printed name, 12 compiled (every name of the row on the standard three), not compiled (c4), (c7); (c1) is the definition incGamma1, compiled in IncGamma.lean, no axioms line of its own
+  no sentence here says a zero is located in Lean or that Li nonnegativity fails as a theorem; a certified value at one point is a value.
+
+### ### **SP3 NOT REACHED AT (c7) lamM_centre_encl ; DISPATCHES 3 OF 12 ; LINES 578 AGAINST 482-2,675 (THE CEILING 7500) ; ROWS COMPILED 12 OF 14, NAMES 13 OF 15 ; THE ORDER OPEN AT SP2.**

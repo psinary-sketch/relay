@@ -328,13 +328,13 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '602cd401468f9f7bfa9b131dcd0e3302402ba939'   # ### b738's tip (S5a's ASCII terminal), unmoved by b739: the build's base ((R350)(3))
-ZQ_TIP = ZQ_ENTERING         # ### the act's last Lean commit on zq-b730, set when made
-ZQ_FIRST = None              # ### (R350)(3)(b): the act's first Lean commit, after the statements bank
-ZQ_COMMITS = ()
+ZQ_TIP = 'ba318a0b67fd95164623e4fdf109eb5d042697fa'   # ### the act's last Lean commit on zq-b730 (S5d's fix), pushed, remote equal 15:35:17Z
+ZQ_FIRST = '8c6ec8d12d97bece1de8dab10511add9d97382d0'   # ### (R350)(3)(b): the act's first Lean commit (S5c), after the statements bank a9c206b9
+ZQ_COMMITS = (ZQ_FIRST, '6b068a0db2ff1451e9da7bff82fe8fd66a8dad38', ZQ_TIP)   # ### S5c ; S5d with S5c's fix ; S5d's fix
 ZQ_SP1 = None
 ZQ_SP3 = None                # ### SP3 reached here, if reached
 ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Lines', 'Main')   # ### the build's eight, under Schema/ZQ/EF
-ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail')   # ### under Schema/ZQ/OffZero, one a group
+ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail', 'IncGamma', 'Elem')   # ### under Schema/ZQ/OffZero, one a group; b740 adds S5c IncGamma, S5d Elem
 ZQ_FILES = ()   # ### zq-b730's diff against its entering tip, set as the build writes
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
@@ -345,7 +345,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R350)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### (R350)(3)(b): the act's dispatches, each read by its run id, set as made
+EF_RUNS = (41854903335, 41857376723, 41859346843)   # ### (R350)(3)(b): the act's dispatches, each read by its run id: BREAKS, BREAKS, KERNEL
 EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430, 41736472780)   # ### b738's first six (of eleven), read not re-run
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
