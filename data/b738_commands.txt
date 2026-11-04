@@ -1,7 +1,7 @@
-b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T01:39:45Z)
+b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T01:49:04Z)
 
 ### the source: the seat`s session c6c3fbf2-d7af-4287-b739-0cca197d161f from its first user line carrying 'RULING (R348) BEGIN', with its subagents` transcripts
-### commands read: 398
+### commands read: 419
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #354 2026-11-04T00:38:37.078Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -473,5 +473,26 @@ b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #396 | 2026-11-04T01:39:30.849Z | seat | Bash | git -C D:/relay add data/act_current.json
   #397 | 2026-11-04T01:39:33.882Z | seat | Bash | git -C D:/relay commit -m "b738 component 4, before the face: data/act_current.json's shared_edits emptied, no shared tool changed this act (G-ACT-CURRENT read 
   #398 | 2026-11-04T01:39:39.197Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738
+  #399 | 2026-11-04T01:39:48.357Z | seat | Bash | python -X utf8 -u D:/relay/tools/b738_address_scan.py scan --bank --quiet
+  #400 | 2026-11-04T01:39:59.031Z | seat | Bash | git -C D:/relay add data/b738_registration_2026-11-03.txt data/b738_commands.json data/b738_commands.txt data/b738_address_scan.txt
+  #401 | 2026-11-04T01:40:02.888Z | seat | Bash | git -C D:/relay commit -m "b738 face: the registration composed from b737's sealed face and the act's blocks, the (W) row and N5's write clause regenerated from
+  #402 | 2026-11-04T01:40:06.364Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay "component 4" c435ed5b --act b738
+  #403 | 2026-11-04T01:40:16.032Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b738
+  #404 | 2026-11-04T01:40:34.794Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738
+  #405 | 2026-11-04T01:41:41.273Z | seat | Bash | wc -l D:/relay/data/b738_offlinezero_notes.txt
+  #406 | 2026-11-04T01:42:17.800Z | seat | Bash | git -C D:/relay log --format=%h --diff-filter=A -- data/b738_offlinezero_notes.txt
+  #407 | 2026-11-04T01:42:28.340Z | seat | Bash | python -X utf8 -u D:/relay/tools/b738_face.py
+  #408 | 2026-11-04T01:42:31.540Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738 --quiet
+  #409 | 2026-11-04T01:43:23.393Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b738
+  #410 | 2026-11-04T01:44:02.857Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --act b738
+  #411 | 2026-11-04T01:45:00.671Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate c435ed5b --act b738
+  #412 | 2026-11-04T01:45:08.958Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738
+  #413 | 2026-11-04T01:45:52.471Z | seat | Bash | python -X utf8 -u D:/relay/tools/b738_face.py
+  #414 | 2026-11-04T01:46:16.236Z | seat | Bash | python -X utf8 -u D:/relay/tools/b738_face.py
+  #415 | 2026-11-04T01:46:20.137Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738 --quiet
+  #416 | 2026-11-04T01:47:09.297Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b738
+  #417 | 2026-11-04T01:47:33.938Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --bank-only --act b738
+  #418 | 2026-11-04T01:48:34.269Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738
+  #419 | 2026-11-04T01:48:57.827Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738
 
-### ### **COMMANDS 398 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 11 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 419 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 11 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T01:39:45Z",
+ "at": "2026-11-04T01:49:04Z",
  "anchor": "RULING (R348) BEGIN",
  "rows": [
   {
@@ -3184,6 +3184,174 @@
    "src": "seat",
    "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738",
    "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:39:48.357Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b738_address_scan.py scan --bank --quiet",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:39:59.031Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b738_registration_2026-11-03.txt data/b738_commands.json data/b738_commands.txt data/b738_address_scan.txt",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:40:02.888Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b738 face: the registration composed from b737's sealed face and the act's blocks, the (W) row and N5's write clause regenerated from (R348) and 0 amendment rows; the ten parts probed, the pre-lock comparison's eleven newly failing named, G-AXIOM-CLAIM declared (CONTRADICTED 1, carried); the command bank (398, 11 dispatches); scan 0, 7/7\"",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:40:06.364Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay \"component 4\" c435ed5b --act b738",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:40:16.032Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b738",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:40:34.794Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:41:41.273Z",
+   "src": "seat",
+   "cmd": "wc -l D:/relay/data/b738_offlinezero_notes.txt",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:42:17.800Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --format=%h --diff-filter=A -- data/b738_offlinezero_notes.txt",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:42:28.340Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b738_face.py",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:42:31.540Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738 --quiet",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:43:23.393Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b738",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:44:02.857Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --act b738",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:45:00.671Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate c435ed5b --act b738",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:45:08.958Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:45:52.471Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b738_face.py",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:46:16.236Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b738_face.py",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:46:20.137Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738 --quiet",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:47:09.297Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b738",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:47:33.938Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --bank-only --act b738",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:48:34.269Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-04T01:48:57.827Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738",
+   "n": 419,
    "bg": false
   }
  ],
