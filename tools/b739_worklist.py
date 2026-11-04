@@ -165,17 +165,17 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b738 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b739_standing_v1180.txt', 'data/b739_offlinezero.txt', 'data/b739_offlinezero_notes.txt', 'data/b739_address_scan.txt')
+COMPUTE_BANKS = ('data/b739_standing_v1190.txt', 'data/b739_tier3.txt', 'data/b739_address_scan.txt')
 #   ### the banks of (R349)(2)-(3), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b738_read_calls.txt', 'data/b739_read_calls.txt')
 
-# ### THE SUITE'S PARTS: seven as b706 split them and b707-b738 carried them (PARTS_AT_STEP_ZERO, data/act_current.json at 26c57096); ten from
-# ### (R349)(2)(vi) under b675 rules row (2) (b738 events (2), (5), (7), (9)): standing-a in two (G-NO-SORRY-MAIN's kernels halved) and the chain's
-# ### first half in four (b2a-b2d), split where the walks timed at b739 (scratch walktime738.py) fall nearest a quarter each
-PARTS_AT_STEP_ZERO = ('standing-a', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b3', 'act')
+# ### THE SUITE'S PARTS: ten, as b738 split them under (R348)(2)(vi) and b675 rules row (2) (standing-a in two, G-NO-SORRY-MAIN's kernels
+# ### halved, and the chain's first half in four, b2a-b2d); data/act_current.json committed them ten at b739's step zero (e0ce12d2), no
+# ### component splitting them this act, so PARTS_AT_STEP_ZERO is PARTS (b738's seven-part tuple carried under it, b739 defect (o))
 PARTS = ('standing-a1', 'standing-a2', 'standing-c', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d', 'standing-b3', 'act')
+PARTS_AT_STEP_ZERO = PARTS
 CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b739'))
 CHAIN_QUARTERS = (('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658'))   # ### walks 116, 129, 157, 146 s at b739
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
@@ -193,8 +193,8 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('per (R349)(6), named by the author: S5a-S5b if not reached, the Tier 3 act for [104]-[108] on the five record numbers, the wave 1 deposit, or the carried orders; S5c-S5d on the author`s word about where the absent objects are built')
-NEXT_ACT = 'b739'
+NEXT = ('per (R349)(6), named by the author: S5c-S5d of W-ORD-ZQ-OFFLINE-ZERO (built in SIDE-explicit-formula`s tree on zq-b730, or proposed to Mathlib ahead of the build), the wave 1 deposit, or the carried orders')
+NEXT_ACT = 'b740'
 
 
 def orders_naming(ot_text, act):
@@ -277,7 +277,7 @@ WEIGHT_LINE, CORR_LINE = 13281, 13283   # ### FINDINGS: b738's weight line and t
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = '3dab6492e948e79243a5ebeba7dffb575712a4be'   # ### the plan bank's last commit (b738's), the blob the build reads
-C2_RELAY = 'bf69677c'   # ### Component 2, SP1 REACHED: the build tool, its bank, the notes, the dispatch rows
+C2_RELAY = '2bc66174'   # ### Component 2, the Tier 3 act: the tool, the tier3 and read-back banks, the amendment rows
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
@@ -288,7 +288,7 @@ PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's resu
 PLAN_MD5 = '3d61f519917a3ee20ac4d7c5fab197ef'   # ### printed at step zero (data/b739_citation_check.txt) before any Lean file
 C2_AMEND = ()
 SITTING_PP = ()
-C3_RELAY = ('a31dc7a0',)   # ### Component 3, SP2 REACHED ((R349)(3)(b))
+C3_RELAY = (C2_RELAY,)   # ### (carried name) the act's result commit: the Tier 3 commit
 SITTING_COMMITS = ()
 C3_PP = None
 C4_LV = None
@@ -315,22 +315,19 @@ PIN_BUILDS = ('SIDE-simplicity',)
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
-MAX_DISPATCHES = 12        # ### N1: at most twelve runner dispatches ((R349)(3)(d))
+MAX_DISPATCHES = 0         # ### N1: no runner dispatch this act ((R349)(3)-(5): no kernel touched)
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
-ZQ_ENTERING = 'b25fd82c0f216505d67c4c72c70f6e1b3f307d03'   # ### b735's tip, unmoved by b736-b738: the build's base ((R349)(3))
-ZQ_FIRST = '98d24d32eeff72f43c2fc45f40c01a67d520c644'   # ### (R349)(3): S1, the act's first Lean commit on zq-b730
-ZQ_TIP = '602cd401468f9f7bfa9b131dcd0e3302402ba939'     # ### the act's last: S5a's ASCII terminal (defect (n)); eleven commits from ZQ_ENTERING
-ZQ_COMMITS = ('98d24d32eeff72f43c2fc45f40c01a67d520c644', '9ef8a7f6100b311f2895a6f29132ef56ae1696a8', '6d1d02ab873a86ca653cbbd8810d3e83073a49e0',
-              'ef56ba0dee8365f990fd8072d9ec7124b1a58649', 'c7296f1151d87e7117d6272ff10e6340cee5ad2f', 'e2a8c3f4fcce7d8f189c61cfbb3b10fe6973c211',
-              'a2cc3dd634beb1d641c57507e2d8ff670035c317', '27c8742c37a5e4f111b08e9b079c1a3a8368050f', '7a0089005a26ca017adb3fa01a097286df12057f',
-              '9124d3ef2ee78648a460738ab5241d8fda5d065c', '602cd401468f9f7bfa9b131dcd0e3302402ba939')
-ZQ_SP1 = 'e2a8c3f4fcce7d8f189c61cfbb3b10fe6973c211'     # ### SP1 reached here (run 41736472780)
+ZQ_TIP = '602cd401468f9f7bfa9b131dcd0e3302402ba939'     # ### b738's tip (S5a's ASCII terminal), unmoved by b739: no kernel touched ((R349)(3), N5)
+ZQ_ENTERING = ZQ_TIP
+ZQ_FIRST = None              # ### no Lean commit this act
+ZQ_COMMITS = ()
+ZQ_SP1 = None
 ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Lines', 'Main')   # ### the build's eight, under Schema/ZQ/EF
 ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail')   # ### under Schema/ZQ/OffZero, one a group
-ZQ_FILES = tuple('SIDEExplicitFormula/Schema/ZQ/OffZero/%s.lean' % m for m in ZQ_OFFZERO_MODULES) + ('print_targets.txt',)   # ### zq-b730's diff against its entering tip
+ZQ_FILES = ()   # ### zq-b730's diff against its entering tip: none this act
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
 ZQ_LOGDERIV_MODULES, ZQ_ZEROS_MODULES = (), ()
@@ -340,8 +337,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R349)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430, 41736472780,
-           41738781219, 41739698677, 41740855598, 41741988143, 41743136382)   # ### N1: eleven of twelve, each read by its id (data/b739_dispatch_rows.json)
+EF_RUNS = ()   # ### N1: no dispatch this act; the run table read NO RUNS (tools/standing/runs.py)
 ZQ_RUN = 41483457057   # ### b738's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b738's five, read not re-run
 DISPATCH_ROWS = 'data/b739_dispatch_rows.json'
@@ -360,10 +356,10 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### b739 has no sitting: the one kernel written is SIDE-explicit-formula, on zq-b730 alone ((R349)(3)), fast-forwarded locally to the
-# ### pushed tip from the remote before the lock; the carried names read it (b738's SIDE-effects db0575c6 sitting before the act's start)
-SITTING_TIPS = {'SIDE-explicit-formula': ZQ_TIP[:8]}
-SITTING_BASE = ZQ_ENTERING
-SITTING_REPOS = tuple(sorted(SITTING_TIPS))
-SITTING_BRANCH = ZQ_BRANCH   # ### the act's one written branch
+# ### b739 writes no kernel: the five Zenodo descriptions alone ((R349)(3)); no sitting tip
+SITTING_TIPS = {}
+SITTING_BASE = None
+SITTING_REPOS = ()
+SITTING_BRANCH = None
+SITTING_BANK = 'data/b736_sitting.txt'   # ### the notes' rows [104]-[108], read unedited ((R349)(3)(a))
 KERNEL_BASES = 'data/b739_kernel_bases.json'

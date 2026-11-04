@@ -1,0 +1,7 @@
+2026-11-04T05:49:30Z | READ | Read | "D:\\relay\\data\\act_current.json" | a Read call with no limit
+2026-11-04T06:03:22Z | READ | Read | "D:\\relay\\data\\b739_hook_refusals.txt" | a Read call with no limit
+2026-11-04T06:14:39Z | READ | Read | "D:\\relay\\tools\\standing\\VERSION" | a Read call with no limit
+2026-11-04T06:21:26Z | ENV | Bash | "PYTHONIOENCODING=utf-8 python -X utf8 -u D:/relay/tools/standing/fold.py record c1 weight dry --act b739" | a Bash command prefixed by an environment-variable assignment
+2026-11-04T06:52:09Z | READ | Read | "D:\\relay\\tools\\b738_face_blocks.txt" | a Read call with a limit and no offset on a file of 262 lines
+2026-11-04T07:49:24Z | PIPE | PowerShell | "git -C D:/relay show e0ce12d2:data/act_current.json --format= -- 2>$null | Select-Object -First 0; git -C D:/relay grep -c -e \"standing-a1\" e0ce12d2 -- data/act_current.json" | a PowerShell command carrying a pipe outside quotes
+2026-11-04T08:09:06Z | REDIR | PowerShell | "git -C D:/relay log --format=\"%h %s\" --name-only 4ed6b0f4~0..3f45857d -- 2>$null" | a PowerShell command carrying a redirect outside quotes
