@@ -1,0 +1,49 @@
+b738 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b737_face.py -> tools/b738_face.py (2026-11-04T00:09:33Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b737 -> b738, b736 -> b737, R347 -> R348, R346 -> R347); 119 lines, 15 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b737_tool_repairs.txt AND data/b737_repairdiff_face.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b737; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b737_face.py
+  +++ tools/b738_face.py
+  @@ -2,5 +2,5 @@
+  -"""b737_face.py -- THE ACT'S FACE, COMPOSED: b736's sealed face (lines above its lock block) read unedited, the standing paragraphs between b736's blocks carried by the
+  -act shift, the act's own blocks from tools/b737_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  -written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b736's own blocks' first and last lines in b736's face, no line number kept.
+  -Writes data/b737_registration_2026-11-03.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool, carried from tools/b736_face.py, its MAP, PAT and LOGS set by hand.
+  -### b737, (R347)(2)(i): the (W) row and N5's write clause regenerated from the ruling plus the amendment rows (data/b737_amendments.json) by
+  +"""b738_face.py -- THE ACT'S FACE, COMPOSED: b737's sealed face (lines above its lock block) read unedited, the standing paragraphs between b737's blocks carried by the
+  +act shift, the act's own blocks from tools/b738_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  +written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b737's own blocks' first and last lines in b737's face, no line number kept.
+  +Writes data/b738_registration_2026-11-03.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool, carried from tools/b737_face.py, its MAP, PAT and LOGS set by hand.
+  +### b738, (R348)(2)(i): the (W) row and N5's write clause regenerated from the ruling plus the amendment rows (data/b738_amendments.json) by
+  @@ -21,4 +21,4 @@
+  -import b737_worklist as K   # noqa: E402
+  -OLD, NEW = os.path.join(D, 'b736_registration_2026-11-02.txt'), os.path.join(D, 'b737_registration_%s.txt' % K.DATE)
+  -OLD_BLOCKS, BLOCKS = os.path.join(T, 'b736_face_blocks.txt'), os.path.join(T, 'b737_face_blocks.txt')
+  -FERRY = os.path.join(D, 'b737_ferry.txt')
+  +import b738_worklist as K   # noqa: E402
+  +OLD, NEW = os.path.join(D, 'b737_registration_2026-11-02.txt'), os.path.join(D, 'b738_registration_%s.txt' % K.DATE)
+  +OLD_BLOCKS, BLOCKS = os.path.join(T, 'b737_face_blocks.txt'), os.path.join(T, 'b738_face_blocks.txt')
+  +FERRY = os.path.join(D, 'b738_ferry.txt')
+  @@ -27,2 +27,2 @@
+  -MAP = {'b736_registration_2026-11-02': 'b737_registration_%s' % K.DATE, 'b736': 'b737', 'b735': 'b736', '(R346)': '(R347)', 'R346': 'R347', 'v1.16.0': 'v1.17.0'}
+  -PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b736_registration_2026-11-02', '(R346)', 'R346', 'v1.16.0', 'b736', 'b735')))
+  +MAP = {'b737_registration_2026-11-02': 'b738_registration_%s' % K.DATE, 'b737': 'b738', 'b735': 'b737', '(R347)': '(R348)', 'R347': 'R348', 'v1.16.0': 'v1.17.0'}
+  +PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b737_registration_2026-11-02', '(R347)', 'R347', 'v1.16.0', 'b737', 'b735')))
+  @@ -50,1 +50,1 @@
+  -    """the paragraphs of b736's face standing between its blocks: gap[k], the lines after block k up to the next, blank edges cut; the lines found by each block's own last
+  +    """the paragraphs of b737's face standing between its blocks: gap[k], the lines after block k up to the next, blank edges cut; the lines found by each block's own last
+  @@ -91,1 +91,1 @@
+  -    stale = sorted(set(re.findall(r'b737_registration_(?!%s)[\d-]+' % K.DATE, t)))
+  +    stale = sorted(set(re.findall(r'b738_registration_(?!%s)[\d-]+' % K.DATE, t)))
+  @@ -96,1 +96,1 @@
+  -    rows = AM.rows_of('b737')
+  +    rows = AM.rows_of('b738')
+  @@ -103,1 +103,1 @@
+  -    regen = AM.regenerate('b737', ferry, t, rows)
+  +    regen = AM.regenerate('b738', ferry, t, rows)
+
+### ### **CARRIED tools/b738_face.py ; LINES 119 ; CHANGED BY THE SUBSTITUTION 15 ; REPAIR SPANS AT b737 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

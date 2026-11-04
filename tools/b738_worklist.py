@@ -139,8 +139,10 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-PLAN_BANK = 'data/b738_offlinezero_plan.txt'          # ### (R348)(3)(d): the plan bank, b738's registration
-REGISTRATIONS = PLAN_BANK                             # ### (carried name) the act's registration: the plan, first committed at C2_PLAN_FIRST
+PLAN_BANK = 'data/b737_offlinezero_plan.txt'          # ### (R348)(3): the plan the build reads, b737's, as committed at 3dab6492 (no plan row rewritten)
+REGISTRATIONS = PLAN_BANK                             # ### (carried name) the act's registration: b737's plan, its last commit C2_PLAN_FIRST
+BUILD_BANK = 'data/b738_offlinezero.txt'              # ### (R348)(3)(a)-(b): the build's bank, its grade at its foot
+NOTES_BANK = 'data/b738_offlinezero_notes.txt'        # ### (R348)(3): a row found wrong noted beside it, with the reason
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b737's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
@@ -267,7 +269,7 @@ C2_TOOL = 'tools/b738_offlinezero.py'
 WEIGHT_LINE, CORR_LINE = 13165, 13167   # ### FINDINGS: b737's weight line and the corrigendum for b737 (Component 1, PP 0cfc46e)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None
+C2_PLAN_FIRST = '3dab6492e948e79243a5ebeba7dffb575712a4be'   # ### the plan bank's last commit (b737's), the blob the build reads
 C2_RELAY = 'bf69677c'   # ### Component 2, SP1 REACHED: the build tool, its bank, the notes, the dispatch rows
 C2_PP = None
 PRICE_LINE = 17400
@@ -276,7 +278,7 @@ MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
 PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: the plan's
-PLAN_MD5 = None
+PLAN_MD5 = '3d61f519917a3ee20ac4d7c5fab197ef'   # ### printed at step zero (data/b738_citation_check.txt) before any Lean file
 C2_AMEND = ()
 SITTING_PP = ()
 C3_RELAY = ('a31dc7a0',)   # ### Component 3, SP2 REACHED ((R348)(3)(b))
@@ -351,9 +353,10 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### the sitting of one kernel ((R348)(4)): SIDE-effects' main at its tip after the second push, README.md alone, no tag
-SITTING_TIPS = {'SIDE-effects': 'db0575c6'}
-SITTING_BASE = '78bbcff533b7273b2d26accd0726b126c961e401'   # ### SIDE-effects' main read at the sitting's start
+# ### b738 has no sitting: the one kernel written is SIDE-explicit-formula, on zq-b730 alone ((R348)(3)), fast-forwarded locally to the
+# ### pushed tip from the remote before the lock; the carried names read it (b737's SIDE-effects db0575c6 sitting before the act's start)
+SITTING_TIPS = {'SIDE-explicit-formula': ZQ_TIP[:8]}
+SITTING_BASE = ZQ_ENTERING
 SITTING_REPOS = tuple(sorted(SITTING_TIPS))
-SITTING_BRANCH = 'push-b738-sitting'   # ### left local on each kernel
+SITTING_BRANCH = ZQ_BRANCH   # ### the act's one written branch
 KERNEL_BASES = 'data/b738_kernel_bases.json'
