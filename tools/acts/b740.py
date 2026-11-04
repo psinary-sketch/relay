@@ -430,11 +430,15 @@ def runner_ok(S):
         c['claim'], c['close'], rep, len(rows), (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
 #⟪END⟫
 # ### b739, carried (the Edit tool): the template's item (b) names an old order list by hand; the act's orders are those orders.py reads open,
-# ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output; b740 (defect (t)): the order's
-# ### state set to b739's, the carry having shifted "priced at b739" to b740, which priced nothing
+# ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output; b740 (defect (d')): the order's
+# ### state as b740 leaves it -- the carry from b739 said "as b739 left it ... not touched this act", where b740 built S5c-S5d
 #⟪OVERRIDE closing MARK 92495058e2fb 2⟫
-    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-OFFLINE-ZERO open at SP2 as b739 left it, S5c-S5d re-priced at b739, not touched this act,',
+    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-OFFLINE-ZERO open at SP2, S5c-S5d built this act to (d8) zqFn_centre_le, SP3 NOT REACHED at (c7) lamM_centre_encl,',
     '        and W-ORD-CHAIN-PAGE-LLM-LINE, W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
+#⟪END⟫
+# ### b740, defect (a'), its fourth reader (found at the closing's dry run): the bank's foot read, not its first match -- the seat's row :34 quotes b739's foot
+#⟪OVERRIDE closing MARK f8654f00c2e2 1⟫
+    head = verdict(cc, r'(?m)(?<=^### ### \*\*)CITES CHECKED \d+ ; OK \d+ ; MISSES \d+(?=\.\*\*)')
 #⟪END⟫
 # ### b740, Component 7 (the Edit tool), the v1.3.0 fold defect's third instance: the regspec and reg_gate templates name the face by
 # ### b739's date (2026-10-28) where the record and checks templates read the worklist's DATE; the face named by K.DATE in both
@@ -572,6 +576,21 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R350)(1)-(2))', 'BUILD TO SP3 ((R350)(3))', '
 #⟪OVERRIDE checks MARK fd5fb7d1f3b1 1⟫
     mc = re.search(r'(?m)(?<=^### ### \*\*)CITES CHECKED \d+ ; OK \d+ ; MISSES \d+(?=\.\*\*)', S['citation'])
 #⟪END⟫
+# ### b740, defect (a'), its fifth to seventh readers (found sweeping the templates after the closing's dry run): the record tool's two entry
+# ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386)
+#⟪OVERRIDE record MARK 02b19df735c8 3⟫
+    f = _figs()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
+#⟪END⟫
+#⟪OVERRIDE record MARK 1c3af0435e5b 3⟫
+    f = _figs_b739()
+    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 6767229683fc 1⟫
+                    MISSES=tfirst('b740_citation_check.txt', r'(?m)^### ### \*\*CITES CHECKED \d+ ; OK \d+ ; MISSES (\d+)\.\*\*'),
+#⟪END⟫
 #⟪SECTION checks 14⟫
     # ### b739's figures, read at FINDINGS :13387 as Component 1 landed them
     return landed(S, 0, ['b739 AT ITS WEIGHT', 'suite 112 of 116', 'relay a5b5f216', '21 defects'])
@@ -645,7 +664,7 @@ REPORT_KEYS = ('KERNEL -- W-ORD-ZQ-OFFLINE-ZERO S5c-S5d AT BOX A`S CENTRE', 'CER
 #⟪END⟫
 #⟪SECTION checks 29⟫
 # ### b740's headings and banks, as its _finding_text writes them
-ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of the act**', '**The statements before any Lean**', '**The build to SP3**', '**The order left open**',
+ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of the act**', '**The statements before any Lean**', '**The build to SP3**', '**The enclosure not built**',
                  '**The git writes**', '**What this act is not**',
                  '**The research instruments reproduced**', '**The author’s name and address**', '**The touch read**', '**The standing arms**', '**The citation check**', '**The scores.**',
                  '**Read in mutual light**', '**Carried to:**', '**Next.**',
@@ -1068,9 +1087,9 @@ TITLE_LINE = ('b740 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
 #⟪END⟫
 #⟪SECTION closing 7⟫
             ('THE BUILD TO SP3 ((R350)(3))', [
-                ('the statements of S5c and S5d, each with its route, reason and neighbour or ABSENT, committed before any Lean file', 'b740_s5cd_statements.txt', r'^## SP3 AS THESE ROWS DEFINE IT'),
+                ('the statements of S5c and S5d, each with its route, reason and neighbour or ABSENT, committed before any Lean file', 'b740_s5cd_statements.txt', r'(?m)^## SP3 AS THESE ROWS DEFINE IT.*'),
                 ('W-ORD-ZQ-OFFLINE-ZERO, S5c-S5d at the centre of box A: the dispatches, the lines against 482-2,675 and the three-times rule, the axioms of every row, the grade', 'b740_offlinezero.txt'),
-                ('the notes beside the build bank, each with its reason', 'b740_offlinezero_notes.txt', r'^\(6\) \(c7\) lamM_centre_encl is NOT BUILT'),
+                ('the notes beside the build bank, each with its reason', 'b740_offlinezero_notes.txt', r'(?m)^\(6\) \(c7\) lamM_centre_encl is NOT BUILT[^\n]*'),
                 ('the probe-path refusal printed before the lock gate', 'b740_pathrefusal.txt')]),
             ('THE NAME AND ADDRESS (N5)', [
                 ('the scan over every commit and bank of the act, the counts alone', 'b740_address_scan.txt')]),
@@ -1454,7 +1473,7 @@ def _runs3_line():
          '**The statements before any Lean** ((R350)(3)(a)): fifteen rows, (c1)-(c7) for S5c and (d1)-(d8) for S5d, nine general and six at the centre, each with its route and its Mathlib or kernel neighbour, ABSENT twice ((c1)’s object, its nearest named; (c7)’s route), and fourteen with a reason: row (d7) carries none (defect (b’)), and row (d6) carries its route in a clause without the word (defect (z)). The precision taken there: ε = 1/10 with P = 0, so δ ≤ 1/(10 K). Its forecast of K, about ninefold high by (d5) at N = 64, stands as committed; the constants computed after give 16012218800, 1.096 times the true 1/|Gamma(cA)| (notes (4), defect (r)), so δ ≤ 4.77e-12 is the figure (notes (3)).', '',
          '**The build to SP3** ((R350)(3)(b)-(d), N1, N3): S5c in IncGamma.lean, 227 lines against 400-1000: incGamma1 on [1, ∞), its integrability (c2) and norm bound (c3), the truncation remainder of lamM (c5) and the shell bound (c6), the tail by tail_le (notes (2)); its first dispatch BREAKS on one congr goal at :153, fixed at :155. S5d in Elem.lean, 351 lines against 500-1500: certified exp, cos, sin and log on rational intervals (d1)-(d3), the real-base power (d4), the upper bound on ‖(Gamma c)⁻¹‖ by GammaSeq at N (d5) and at the centre, 16012218800 (d6), the base power at the centre (d7), and zqFn_centre_le (d8); its first dispatch BREAKS on two trailing ring calls after the goal closed, its second KERNEL. %s lines in all against %s, the ceiling %s; ROWS COMPILED %s OF %s, NAMES %s OF %s (relay data/b740_offlinezero.txt). No integral is evaluated and no value of zqFn computed in Lean.' % (
              f['bd_lines'], f['bd_est'], f['bd_ceil'], f['bd_rows'], f['bd_rowsof'], f['bd_names'], f['bd_namesof']), '',
-         '**The order left open** ((R350)(3)(b)-(c)): (c7) lamM_centre_encl, the one enclosure SP3 wants, needs each incomplete gamma at small a and |Im w| about 16.3 certified to about 1e-13; its quadrature route has no neighbour at the pin and the series route needs Gamma(cA) and π past twenty digits; it is not built within the twelve (notes (6)), nor (c4), its one use (notes (5)). S6 is not begun.', '',
+         '**The enclosure not built** ((R350)(3)(b)-(c)): (c7) lamM_centre_encl, the one enclosure SP3 wants, needs each incomplete gamma at small a and |Im w| about 16.3 certified to about 1e-13; its quadrature route has no neighbour at the pin and the series route needs Gamma(cA) and π past twenty digits; it is not built within the twelve (notes (6)), nor (c4), its one use (notes (5)). S6 is not begun.', '',
          '**The git writes** (N5): one git write per message, add and commit in separate messages, across the relay, PLACE-papers and the kernel clone D:/zq-b738; the act read by the suite’s arm over the capture.', '',
          '**What this act is not**: no deposit, no new version, no Zenodo field, no GitHub description; no tag, no draft published, no merge, no kernel’s main touched; every Lean file of the act on zq-b730 alone. SP3 is not reached: zqFn_centre_le reduces SP3’s value to one enclosure, and no value of zqFn at the centre is certified. Nothing here proves RH or GRH, and no zero of Z_Q0 is located in Lean.', '',
          '**The research instruments reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py over the entered '

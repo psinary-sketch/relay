@@ -1,7 +1,7 @@
-b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T17:38:48Z)
+b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T18:07:11Z)
 
 ### the source: the seat`s session 352ad3f4-37c5-4360-b9c6-cb7368f5f805 from its first user line carrying 'RULING (R350) BEGIN', with its subagents` transcripts
-### commands read: 327
+### commands read: 392
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -29,9 +29,10 @@ b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #13 2026-11-04T14:11:50.692Z git diff --no-ext-diff --numstat tools/mirror_prevbuild.json && git hash-object tools/mirror_prevbuild.json && git rev-parse HEAD:tools/mirror_prevbuild.json && git show --stat --format="%h %s" b739-c
   #90 2026-11-04T14:39:14.262Z printf 'v1.20.0\n' > /dev/null; python -X utf8 -c "open('D:/relay/tools/standing/VERSION','w',newline='\n').write('v1.20.0\n')" && python -X utf8 -u tools/standing/v1200.py control
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (3):
   #13 2026-11-04T14:11:50.692Z git diff --no-ext-diff --numstat tools/mirror_prevbuild.json && git hash-object tools/mirror_prevbuild.json && git rev-parse HEAD:tools/mirror_prevbuild.json && git show --stat --format="%h %s" b739-c
   #90 2026-11-04T14:39:14.262Z printf 'v1.20.0\n' > /dev/null; python -X utf8 -c "open('D:/relay/tools/standing/VERSION','w',newline='\n').write('v1.20.0\n')" && python -X utf8 -u tools/standing/v1200.py control
+  #359 2026-11-04T17:54:14.804Z Select-String -Path D:/relay/data/b740_s5cd_statements.txt -Pattern "^## " ; Select-String -Path D:/relay/data/b740_offlinezero_notes.txt -Pattern "^\(6\)"; Read-Host -? 2>$null; git -C D:/relay grep 
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
   #2 2026-11-04T14:09:36.504Z cd /d/relay && git status --short | head -30 && git log --oneline -5 && cat data/act_current.json && ls tools/ | head -80
@@ -417,5 +418,70 @@ b740 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #325 | 2026-11-04T17:38:19.372Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/needlechk.py
   #326 | 2026-11-04T17:38:31.665Z | seat | PowerShell | Select-String -Path D:/relay/data/b740_probe_standing-a2.txt -Pattern "CONTRADICTED","G-AXIOM-CLAIM ","G-PUBLISH-UNCALLED","G-RUNNER-READ ","G-RUNNER-GATE ","G-
   #327 | 2026-11-04T17:38:41.107Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"; python -X utf8 -u D:/relay/tools/standing/fold.py record commands 
+  #328 | 2026-11-04T17:38:53.712Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"; python -X utf8 -u D:/relay/tools/standing/fold.py checks --part st
+  #329 | 2026-11-04T17:45:30.301Z | seat | PowerShell | Select-String -Path D:/relay/data/b740_probe_standing-a2.txt -Pattern "RUNNER","dispatch row","41854903335" -SimpleMatch
+  #330 | 2026-11-04T17:47:55.277Z | seat | PowerShell | git -C D:/relay grep -l -e "(a')" -- "data/b7*_registration_*.txt"; git -C D:/relay grep -l -e "(a``)" -- "data/b7*_registration_*.txt"
+  #331 | 2026-11-04T17:47:58.553Z | seat | PowerShell | git -C D:/relay grep -n -e "(a')" -- data/b736_registration_2026-11-02.txt; git -C D:/relay grep -n -e "(a``)" -- data/b732_registration_2026-11-01.txt
+  #332 | 2026-11-04T17:48:07.914Z | seat | PowerShell | git -C D:/relay grep -n -e "sys.argv" -e "usage" -- tools/standing/prelock.py tools/b740_prepaths.py
+  #333 | 2026-11-04T17:48:11.378Z | seat | PowerShell | Select-String -Path D:/relay/tools/b740_prepaths.py -Pattern "argv","--bank","def main"
+  #334 | 2026-11-04T17:48:16.267Z | seat | PowerShell | git -C D:/relay grep -n -e "_prelock.txt" -e "'prelock'" -- tools/standing/fold/record.tpl tools/standing/fold.py tools/standing/prelock.py tools/b739_worklist.
+  #335 | 2026-11-04T17:48:19.604Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_prepaths.py --bank
+  #336 | 2026-11-04T17:50:14.973Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py --dry
+  #337 | 2026-11-04T17:50:19.371Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py
+  #338 | 2026-11-04T17:50:39.790Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py
+  #339 | 2026-11-04T17:50:46.022Z | seat | PowerShell | git -C D:/relay log --format="%h %s" --grep "face" -i -n 3 c961e9d7; git -C D:/relay status --short
+  #340 | 2026-11-04T17:50:52.958Z | seat | PowerShell | git -C D:/relay log --format="%h %s" 3f45857d..c961e9d7 --grep "face" -i; git -C D:/relay log --format="%h %s" -n 14 --reverse 3f45857d..e24516db
+  #341 | 2026-11-04T17:50:59.690Z | seat | PowerShell | git -C D:/relay grep -n -e "5e5c4349" -- data/b739_registration_2026-11-04.txt
+  #342 | 2026-11-04T17:51:10.515Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank
+  #343 | 2026-11-04T17:51:23.717Z | seat | PowerShell | git -C D:/relay add -- tools/acts/b740.py data/b740_defects.txt data/b740_touch.txt tools/b740_face.py tools/b740_face_blocks.txt tools/b740_prepaths.py data/b7
+  #344 | 2026-11-04T17:51:27.302Z | seat | PowerShell | git -C D:/relay diff --cached --stat
+  #345 | 2026-11-04T17:51:32.341Z | seat | PowerShell | git -C D:/relay commit -q -m "b740 component 4, before the face: the face tool and its blocks (the (W) regeneration, 0 amendment rows), the probe-path tool and 
+  #346 | 2026-11-04T17:51:36.480Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py; git -C D:/relay log -1 --format="%h %s"
+  #347 | 2026-11-04T17:51:43.144Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py
+  #348 | 2026-11-04T17:51:46.911Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank
+  #349 | 2026-11-04T17:51:59.090Z | seat | PowerShell | git -C D:/relay add -- data/b740_registration_2026-11-04.txt tools/b740_face_blocks.txt data/b740_commands.txt data/b740_commands.json data/b740_address_scan.tx
+  #350 | 2026-11-04T17:52:03.779Z | seat | PowerShell | git -C D:/relay commit -q -m "b740 face: the registration composed from b739's sealed face and the act's blocks, one carried sentence set ((W) the list of (R350
+  #351 | 2026-11-04T17:52:18.040Z | seat | PowerShell | Select-String -Path D:/relay/data/b739_commands.txt -Pattern "record rootdry","closing dry","scores dry","reg_gate","regspec","reg_satisfiable","banned_terms","
+  #352 | 2026-11-04T17:52:22.131Z | seat | PowerShell | git -C D:/relay grep -n -e "\"step\"" -e "\"commits\"" -e "\"repo\"" -- data/b740_steps.json
+  #353 | 2026-11-04T17:52:30.586Z | seat | PowerShell | git -C D:/relay log -3 --format="%h %s"
+  #354 | 2026-11-04T17:52:33.499Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay "component 4" d5a12694 cb34bce6 427f4cf6 --act b740
+  #355 | 2026-11-04T17:52:41.324Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740
+  #356 | 2026-11-04T17:52:49.970Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b740
+  #357 | 2026-11-04T17:53:02.915Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet
+  #358 | 2026-11-04T17:54:09.827Z | seat | PowerShell | Select-String -Path D:/relay/tools/acts/b740.py -Pattern "as b739 left it","s5cd_statements","offlinezero_notes","not touched this act" -SimpleMatch; git -C D:/
+  #359 | 2026-11-04T17:54:14.804Z | seat | PowerShell | Select-String -Path D:/relay/data/b740_s5cd_statements.txt -Pattern "^## " ; Select-String -Path D:/relay/data/b740_offlinezero_notes.txt -Pattern "^\(6\)"; Rea
+  #360 | 2026-11-04T17:54:19.115Z | seat | PowerShell | Select-String -Path D:/relay/data/b740_s5cd_statements.txt -Pattern "^## "; Select-String -Path D:/relay/data/b740_offlinezero_notes.txt -Pattern "^\(6\)"; git 
+  #361 | 2026-11-04T17:54:29.819Z | seat | PowerShell | git -C D:/relay grep -n -e "len(row) == 3" -e "len(r_) == 3" -e "def foot" -e "def bank_line" -e "for row in rows" -e "for r_ in rows" -- tools/standing/fold/cl
+  #362 | 2026-11-04T17:54:32.622Z | seat | PowerShell | git -C D:/relay grep -n -A16 "def section_reading" -- tools/standing/fold/closing.tpl
+  #363 | 2026-11-04T17:54:58.332Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/markof.py closing 276 277 278 279 280 281
+  #364 | 2026-11-04T17:55:08.238Z | seat | PowerShell | git -C D:/relay grep -n -e "CITES CHECKED" -- tools/standing/fold tools/standing/*.py
+  #365 | 2026-11-04T17:55:14.987Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/renderout.py record; python -X utf8 C:/Users/ECHO
+  #366 | 2026-11-04T17:55:24.233Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/markof.py record 2667 2878; python -X utf8 C:/Use
+  #367 | 2026-11-04T17:55:29.773Z | seat | PowerShell | git -C D:/relay grep -n -B2 -A22 "def _overrides\|def apply_overrides\|def overrides" -- tools/standing/fold.py
+  #368 | 2026-11-04T17:55:43.467Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/spanmark.py record 2665 2667; python -X utf8 C:/U
+  #369 | 2026-11-04T17:56:08.433Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/rendercheck.py; python -X utf8 C:/Users/ECHOCH~1/
+  #370 | 2026-11-04T17:56:21.005Z | seat | PowerShell | (Get-Content D:/relay/data/b740_hook_refusals.txt).Count; Get-Content D:/relay/data/b740_hook_refusals.txt -Tail 2
+  #371 | 2026-11-04T17:56:47.827Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py; python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet
+  #372 | 2026-11-04T17:57:45.135Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b740
+  #373 | 2026-11-04T17:58:16.284Z | seat | PowerShell | Select-String -Path D:/relay/data/b740_scores_dry.txt -Pattern "^  N3","^  N5"
+  #374 | 2026-11-04T17:58:41.153Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"; python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b7
+  #375 | 2026-11-04T17:59:58.016Z | seat | PowerShell | git -C D:/relay grep -n -e "INDEX-QUERY GATE" -e "NAVIGATOR-ASSERTED" -- tools
+  #376 | 2026-11-04T18:00:07.456Z | seat | PowerShell | Select-String -Path D:/relay/tools/acts/b740.py,D:/relay/tools/b740_face_blocks.txt -Pattern "left open" -SimpleMatch
+  #377 | 2026-11-04T18:00:26.497Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b740_face.py; python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --act b740 --qui
+  #378 | 2026-11-04T18:01:43.944Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b740 --quiet; python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b740
+  #379 | 2026-11-04T18:03:16.452Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --bank-only --act b740 --quiet
+  #380 | 2026-11-04T18:04:23.061Z | seat | PowerShell | Select-String -Path "C:\Users\echo chamber\.claude\projects\D--\352ad3f4-37c5-4360-b9c6-cb7368f5f805\tool-results\b6680v4bo.txt" -Pattern "GATE VERDICT","SATISF
+  #381 | 2026-11-04T18:04:28.322Z | seat | PowerShell | git -C D:/relay status --short -- "data/b740_*" "data/audit_b740_*" "tools/b740_*" tools/acts/b740.py data/b675_corrigenda.txt data/act_current.json
+  #382 | 2026-11-04T18:04:32.241Z | seat | PowerShell | git -C D:/relay show --stat --format="%h" 29a74747; git -C D:/relay show --stat --format="%h" 92abd0ef
+  #383 | 2026-11-04T18:04:42.485Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b740_registration_2026-11-04.txt --act b740
+  #384 | 2026-11-04T18:05:48.442Z | seat | PowerShell | git -C D:/relay status --short -- "data/audit_b740_*" data/b740_census_stepzero.txt data/b740_faces_census_stepzero.txt data/b740_pins_stepzero.txt data/b740_re
+  #385 | 2026-11-04T18:05:53.897Z | seat | PowerShell | Select-String -Path D:/relay/data/b739_commands.txt -Pattern "satisf","termscan","census","pins_stepzero","gate_hash","banned","lockgate","reg_seal" -SimpleMatc
+  #386 | 2026-11-04T18:06:02.827Z | seat | PowerShell | git -C D:/relay grep -n -e "satisf" -e "regspec" -e "gate_hash" -e "banned" -e "bank-only" -e "census" -- tools/standing/fold/reg_gate.tpl
+  #387 | 2026-11-04T18:06:06.088Z | seat | PowerShell | git -C D:/relay grep -n -l -e "_satisfiable.json" -e "reg_termscan" -- tools/standing tools/acts/b739.py tools/b739_worklist.py tools/reg_satisfiable.py tools/b
+  #388 | 2026-11-04T18:06:09.404Z | seat | PowerShell | git -C D:/relay grep -n -e "_satisfiable.json" -e "reg_termscan" -e "census_stepzero" -e "def main" -e "--bank-only" -- tools/standing/fold/regspec.tpl
+  #389 | 2026-11-04T18:06:17.395Z | seat | PowerShell | git -C D:/relay grep -n -i -e "spec" -e "stamp" -e "subprocess" -- tools/standing/fold/reg_gate.tpl
+  #390 | 2026-11-04T18:06:28.360Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b740
+  #391 | 2026-11-04T18:06:32.049Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b740
+  #392 | 2026-11-04T18:07:03.603Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b740; python -X utf8 -u D:/relay/tools/b740_address_scan.py scan --bank
 
-### ### **COMMANDS 327 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 3 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 25 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 392 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 22 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 3 ; DETACHED RUNS 3 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 25 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
