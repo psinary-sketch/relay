@@ -1,7 +1,7 @@
-b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T01:49:04Z)
+b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-04T01:54:48Z)
 
 ### the source: the seat`s session c6c3fbf2-d7af-4287-b739-0cca197d161f from its first user line carrying 'RULING (R348) BEGIN', with its subagents` transcripts
-### commands read: 419
+### commands read: 433
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #354 2026-11-04T00:38:37.078Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -494,5 +494,19 @@ b738 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #417 | 2026-11-04T01:47:33.938Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --bank-only --act b738
   #418 | 2026-11-04T01:48:34.269Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738
   #419 | 2026-11-04T01:48:57.827Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738
+  #420 | 2026-11-04T01:49:05.935Z | seat | Bash | python -X utf8 -u D:/relay/tools/b738_address_scan.py scan --bank --quiet
+  #421 | 2026-11-04T01:49:15.701Z | seat | Bash | git -C D:/relay status --short -uall -- data/b738_* data/audit_b738_* tools/b738_* tools/acts/b738.py data/act_current.json
+  #422 | 2026-11-04T01:49:17.994Z | seat | Bash | git -C D:/relay show --stat=200 --format=%h 64a61dc9
+  #423 | 2026-11-04T01:49:24.343Z | seat | Bash | git -C D:/relay add -- data/audit_b738_reg_satisfiable.txt data/b738_address_scan.txt data/b738_census_stepzero.txt data/b738_closing_dry.txt data/b738_commands
+  #424 | 2026-11-04T01:49:28.205Z | seat | Bash | git -C D:/relay commit -q -m "b738 gate: GATE VERDICT CLEAR, the banks stamped (jointly satisfiable after the face's two numerals reworded, defect (s)), the dry
+  #425 | 2026-11-04T01:49:30.553Z | seat | Bash | git -C D:/relay log --oneline -1
+  #426 | 2026-11-04T01:49:33.005Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record step relay gate 503fa948 --act b738
+  #427 | 2026-11-04T01:49:39.846Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b738
+  #428 | 2026-11-04T01:49:51.620Z | seat | PowerShell | (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory / 1024
+  #429 | 2026-11-04T01:49:54.926Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py checks --part act --act b738 --quiet
+  #430 | 2026-11-04T01:52:26.411Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b738 --quiet
+  #431 | 2026-11-04T01:53:18.302Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b738_registration_2026-11-03.txt --bank-only --act b738 --quiet
+  #432 | 2026-11-04T01:54:19.196Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b738
+  #433 | 2026-11-04T01:54:42.382Z | seat | Bash | python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b738
 
-### ### **COMMANDS 419 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 11 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 433 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 17 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 11 ; DETACHED RUNS 11 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 0 ; PIPES OF ANY KIND 0 ; ONE-LINE PROGRAMS 0 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
