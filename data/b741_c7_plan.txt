@@ -1,0 +1,109 @@
+b741 -- W-ORD-ZQ-OFFLINE-ZERO, (c7), THE RE-PRICE AND THE CHOICE, (R351)(3)(a): COMMITTED BEFORE ANY LEAN OF b741 (2026-11-04)
+
+### the figures: mpmath at 40-60 digits and exact Fractions in scratch, free memory read first (4515 MB against the 2560 MB hold); the Lean objects read at
+### SIDE-explicit-formula zq-b730 ba318a0b by git show (OffZero/IncGamma.lean, Elem.lean, Split.lean, Tail.lean, Lattice.lean, EpsteinZQ.lean :45);
+### the neighbours read at the kernel's Mathlib pin de5ce8a9 (D:/SIDE-explicit-formula/.lake/packages/mathlib) by git grep. Every float below is a
+### float of a computation, not a bound; every line count is the seat's estimate; the kernel-check cost is read from the one timing dispatch (T).
+
+## (1) THE ENCLOSURE TO BE CERTIFIED (data/b740_s5cd_statements.txt :60), RESTATED WITH ITS TERMS
+
+  the row: ‖lamM cA + lamM (1 − cA) − 1/(cA (1 − cA))‖ ≤ δ, δ a rational; then (d8) zqFn_centre_le gives ‖zqFn cA‖ ≤ K δ, K = 1.3103 × 16012218800 = 2.098081e10.
+  δ: the statements' 6e-13 is planned to (statements :16, :19); (d6)-(d7) as built give δ ≤ 1/(10 K) = 4.766e-12 for ε = 1/10 (b740 closing :179, defect (r));
+     a certificate at 6e-13 serves both, ε = K · 6e-13 = 0.0126 ≤ 1/10.
+  the sum: lamM w = Σ_{p ∈ trBox, p ≠ 0} incGamma1 w (lam · qR p) within 1e-30 (c5, lamM_sub_trunc), qR p = m² + mn + 6n², lam = 2π/√23 = 1.31013470;
+     trBox = Icc(−14, 14)², 840 points off 0, 237 distinct values of qR, the largest 1568.
+  the evaluated shells, per half (w = cA and w = 1 − cA), 8 values of Q = qR p, 24 points:
+     Q    points   a = lam·Q     |incGamma1 cA a|   |incGamma1 (1−cA) a|   e^{−a}/a (c6)
+     1    2        1.3101        1.6640e-02         1.6594e-02             2.0592e-01
+     4    2        5.2405        3.2002e-04         3.1478e-04             1.0109e-03
+     6    4        7.8608        2.2206e-05         2.1688e-05             4.9049e-05
+     8    4        10.4811       1.5090e-06         1.4677e-06             2.6774e-06
+     9    2        11.7912       3.9141e-07         3.8027e-07             6.4207e-07
+     12   4        15.7216       6.7709e-09         6.5733e-09             9.4557e-09
+     16   2        20.9622       3.0274e-11         2.9444e-11             3.7568e-11
+     18   4        23.5824       2.0330e-12         1.9797e-12             2.4305e-12
+     the trBox sums: lamM cA = 0.00093410881 + 0.03397639730 i, lamM (1 − cA) = 0.00282193842 − 0.03376741540 i; the largest single point-term
+       0.016640 (0.0333 per shell of two points, the statements' figure :63).
+  the (c6) remainder: the shells Q = 23, 24, 25, 26, 27 (16 points per half) each by norm_shell_le, both halves 1.77e-14; the 800 points with Q ≥ 32
+     each by e^{−32 lam}/(32 lam) (Q in 28..31 carries no point), both halves 2.37e-17; (c5) both halves 2e-30.
+  the check: the trBox sums against 1/(cA (1 − cA)) = 0.00375604724 + 0.00020898190 i differ by 1.14e-16 (statements :13's agreement): the enclosed
+     quantity is 1.14e-16 in modulus, far beneath δ.
+  THE NUMBER OF RATIONAL ENCLOSURES AND THE PRECISION EACH NEEDS:
+     16 shell enclosures (8 values of Q × 2 halves), 48 point-terms; left for them at δ = 6e-13: 5.823e-13, 1.21e-14 absolute per point-term,
+     7.3e-13 relative to the largest term (at δ = 4.766e-12: 9.9e-14 absolute, 5.95e-12 relative).
+     THE RULING'S "about 1e-16" AGAINST THE NUMBERS: the 1e-16 of statements :13 is the agreement of the two sides (the enclosed quantity's own size),
+     not a precision each term needs; each point-term needs about 1e-14 absolute, 7e-13 relative. Printed as the seat's reading; the ruling's figure stands as quoted.
+
+## (2) THE ROUTES, EACH PRICED (lines by the seat's estimate; kernel cost in units of T, the timing dispatch's one-term figure)
+
+  (R-S) THE SERIES ROUTE, RE-PRICED -- RECOMMENDED.
+     incGamma1 w a = a^{−w} Γ(w) − Σ_k (−a)^k/(k!(w + k)), Re w > 0 (Re (1 − cA) = 0.04674). The statements refused it (:64-:66) on two reasons;
+     the numbers move both:
+     (i) Γ(cA) and Γ(1 − cA) are wanted as values to relative about 1e-3, not 1e-12: the Γ pieces summed with their counts are 2.554e-10 (cA) and
+         1.174e-10 (1 − cA) against 2.9e-13 per half, so relative 1.1e-3 and 2.5e-3 suffice (1e-5 planned). Γ(w) itself from the same identity at
+         a = 40: Γ(w) = 40^w (S(w, 40) + incGamma1 w 40), |incGamma1 w 40| ≤ e^{−40}/40 = 1.1e-19 by (c3); S(w, 40) exact, 140 terms.
+         No special-function value enters but exp, log, cos and sin at rationals ((d1)-(d4)).
+     (ii) π past twenty digits is not wanted: each shell is evaluated at a rational r_Q (lam·Q rounded to 16 decimals, |r_Q − lam Q| ≤ 3.6e-17, from
+         Real.pi_gt_d20 / pi_lt_d20 and √23 by norm_num) where S(w, r_Q) is EXACT in ℚ(i) -- the cancellation (a^k/k! peaks at 1.4e9 for Q = 18)
+         costs numeral size, not precision -- and moved to lam·Q by a Lipschitz bound read off the integral itself,
+         ‖incGamma1 w a − incGamma1 w b‖ ≤ |a − b| e^{−m}(1/m + 1/m²), m = min a b, Re w ≤ 1: 1.3e-17 at Q = 1.
+         The Γ factor at r_Q enters as (40/r_Q)^w at relative 1e-5: exp, cos and sin of (Re w, Im w)·log(40/r_Q) by (d1)-(d3).
+     the enclosures: 18 exact sums (16 at r_Q, 19-92 terms, numerators of 555-2,575 digits; 2 at 40, 140 terms, 1,966 digits), real and imaginary
+         parts, 36 heavy checks; 18 cpow factors (about 72 elementary enclosures, light); 16 Lipschitz transfers; 5 (c6) shells and 1 crude rest; 18 tails.
+     the lemmas, lines: (c4') the series identity, by Gamma_eq_integral (Gamma/Basic.lean :319), mellin_comp_mul_left (MellinTransform.lean :133) and
+         integral_tsum (DominatedConvergence.lean :88) termwise on (0, 1) -- 250-600; the partial-sum tail 60-150; the Lipschitz bound 80-200; the ℚ
+         evaluator and its cast to ℂ 100-250; Γ at 40 60-150; the cpow factors 300-900; the trBox split (the 40 points with Q ≤ 27 by decide over the
+         841, the rest by qR ≥ 32) 80-250; the (c6) numerics 80-200; (c7) lamM_centre_encl and SP3's assembly 100-250. TOTAL 1,110-3,350.
+     kernel cost: about 40 T (36 heavy checks plus the four at 40, each at most the timed term) plus the light checks.
+     neighbours at the pin: Gamma_eq_integral, GammaIntegral_eq_mellin (Gamma/Deriv.lean :45), mellin_comp_mul_left, integral_tsum, pi_gt_d20 (Pi/Bounds.lean :190);
+         ABSENT: the lower incomplete gamma series (no lemma at the pin), written as (c4').
+
+  (R-Q) QUADRATURE WITH AN EXPLICIT REMAINDER (the statements' choice, :62; its neighbour ABSENT, :68).
+     no certified Gauss or Simpson rule with a remainder at the pin; the remainder wants derivative bounds of t^{w−1} e^{−at} to order about 20 with
+     |w − 1| ≈ 16.3 and an integrand oscillating (t^{16.3 i}, about 8 turns on [1, 26]); 16 integrals × about 30 nodes, each node a cpow (d4) and an exp.
+     lines 3,000-8,000 (the remainder theory is the bulk); enclosures about 1,000; kernel cost about 500 T at the timed term's size class. Not recommended.
+
+  (R-B) THE BINOMIAL SERIES PER SUBINTERVAL (statements :63).
+     t ∈ [t_i, (5/4) t_i] from 1 to about 26, 16 subintervals per integral; (1 + u)^{w−1} by its binomial series (|u| ≤ 1/4, about 30 terms, the
+     complex binomial remainder ABSENT at the pin), e^{−at} expanded at each node, ∫ u^j e^{−bu} closed; the nodes' cpow as powers of (5/4)^{w−1}
+     (one log, one cos/sin pair, held to 1e-17 for 16 powers). 16 integrals × 16 subintervals = 256 subinterval enclosures, 128 exps.
+     lines 2,000-5,000; kernel cost about 256 T. Not recommended.
+
+  THE RECOMMENDATION: (R-S), the series route re-priced. Its reason: the statements refused it on Γ to 1e-12 and π past 20 digits; the figures above
+     put Γ at relative 1e-3 (got from the identity itself at a = 40) and π at the 20 digits Mathlib carries (the evaluation at rationals, moved by a
+     Lipschitz bound); it then has the fewest lines (1,110-3,350 against 2,000-5,000 and 3,000-8,000), the fewest heavy checks (40 T against 256 T and
+     500 T), and one ABSENT lemma (the series identity) against a remainder theory. Its risk, printed: the exact sums' numerals (up to 2,575 digits)
+     are the kernel's whole cost; the timing dispatch measures exactly that term.
+
+## (3) THE CHECKING ROUTE, PUT TO THE AUTHOR
+
+  (K) THE KERNEL ROUTE: decide (+kernel) over ℚ with explicit error terms, the axiom line kept at the standard three (propext, Classical.choice,
+      Quot.sound), as the C2 certificates kept it (data/b729_c2.txt :45, 18 of 18 by decide and the kernel). Its cost: about 40 T of kernel checking
+      for the heavy sums, spread over the build's dispatches; T read from the timing dispatch below.
+  (N) native_decide: fast (compiled evaluation); adds Lean.ofReduceBool to (c7)'s axiom line, from there to zqFn_centre_le's use at the centre, to the
+      located zero's sentence, to ¬ Li-nonnegativity and to every sentence downstream, which every bank, entry and door that names the result would
+      then carry by name.
+  THE NAVIGATOR'S LEAN, printed as the navigator's: (K), the kernel route, because the programme's register sentence is "machine-verified" at the
+      standard three and the C2 certificates set the precedent. THE AUTHOR'S WORD DECIDES.
+
+## (4) THE TIMING DISPATCH (the plan's one dispatch, read by its run id)
+
+  module SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean on zq-b730, imported by no module, its one term the heaviest of (R-S): the real part of
+  S(cA, r_18) = Σ_{k<92} (−r)^k/(k!(cA + k)), r = 2358242464929431/10^16, an exact ℚ sum of 2,563/2,575-digit numerator/denominator, bracketed within
+  1/10^20 of −48041779/10^20 (the float −4.80417790486614e-12) by decide +kernel; set_option profiler true printing its checking time; Lake's own
+  per-module figure the second reading. T is that time. If the term does not reduce, the dispatch prints it and (K)'s price is carried as UNMEASURED.
+
+## (5) THE BUILD, ON THE AUTHOR'S WORD ((R351)(3)(b))
+
+  groups, each one module and one dispatch, read by its run id, free memory in every row: G1 (c4') the series identity, its tail, the Lipschitz bound
+  (and (c4) incGamma1_add_one only if the route uses it; (R-S) does not); G2 the ℚ evaluator and the 18 exact sums; G3 Γ at 40 and the 18 cpow
+  factors; G4 the trBox split and the (c6) numerics; G5 (c7) lamM_centre_encl and SP3. Five dispatches nominal, the timing dispatch the act's first,
+  twelve in all at most (six for repairs).
+  SP3 REACHED when (c7) and (d8) compile with ‖zqFn cA‖ ≤ ε, ε ≤ 1/10 a printed rational, and the axiom line printed in full.
+  SP3's THREE-TIMES RULE on this plan's figure: 3 × 3,350 = 10,050 lines for the build; a stop prints the lemma reached.
+  If the author's word does not come, the act closes here with this plan committed and the choice carried to b742.
+
+## (6) THE QUESTION, IN THE PLAN'S WORDS
+
+  "(c7)'s checking route: (K) the kernel route -- decide over ℚ, the standard three kept, about 40 T of kernel checking, T read from the timing
+  dispatch -- or (N) native_decide -- fast, Lean.ofReduceBool added to (c7)'s axiom line and every sentence downstream? The navigator leans (K)."
