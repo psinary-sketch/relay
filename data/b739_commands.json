@@ -1,5 +1,5 @@
 {
- "at": "2026-11-04T08:10:34Z",
+ "at": "2026-11-04T08:20:57Z",
  "anchor": "RULING (R349) BEGIN",
  "rows": [
   {
@@ -2464,6 +2464,182 @@
    "src": "seat",
    "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b739",
    "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:10:39.051Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b739_address_scan.py scan --bank",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:10:52.459Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b739_address_scan.txt data/b739_commands.json data/b739_commands.txt data/b739_registration_2026-11-04.txt data/b739_steps.json",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:10:57.498Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -m \"b739 face: the registration composed from b738's sealed face and the act's blocks, the carried seven-part sentences set to ten, the (W) row and N5's write clause regenerated from (R349) and 2 amendment rows; the ten parts probed, the pre-lock comparison's eight newly failing named, G-AXIOM-CLAIM and G-PUBLISH-UNCALLED declared on real state; the command bank (308, 0 dispatches); scan 0, 7/7\"",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:11:02.191Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay \"component 3\" 557a463a --act b739",
+   "n": 312,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:11:11.709Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record closeorder --act b739",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:11:28.934Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b739",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:11:42.442Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b739",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:13:19.667Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -I -e \"priced at\" -- tools/acts/b739.py tools/standing tools/b739_worklist.py",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:13:46.555Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b739",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:13:47.186Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b739_face.py",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:13:52.340Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b739 --quiet",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:13:53.041Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b739",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:15:30.022Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b739_registration_2026-11-04.txt --act b739",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:16:39.953Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b739",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:17:40.691Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b739_face.py",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:17:41.284Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b739",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:17:47.820Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b739 --quiet",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:18:40.721Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b739",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:19:10.200Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b739_registration_2026-11-04.txt --bank-only --act b739 --quiet",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:20:15.355Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record gatebanks --act b739",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:20:43.737Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay show --stat=200 --format=%h 503fa948 d5134327",
+   "n": 329,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-04T08:20:50.235Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b739",
+   "n": 330,
    "bg": false
   }
  ],

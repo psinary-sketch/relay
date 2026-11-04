@@ -424,10 +424,11 @@ def runner_ok(S):
     return '### THE COUNTER ((R349) Component 5, the act`s events and defects together; relay data/b739_defects.txt, data/b739_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d%s' % (
         c['claim'], c['close'], rep, len(rows), (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
 #⟪END⟫
-# ### b739, Component 4 (the Edit tool): the template's item (b) names an old order list by hand; b739's orders are those orders.py reads open,
-# ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output
+# ### b738, carried (the Edit tool): the template's item (b) names an old order list by hand; the act's orders are those orders.py reads open,
+# ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output; b739 (defect (t)): the order's
+# ### state set to b738's, the carry having shifted "priced at b738" to b739, which priced nothing
 #⟪OVERRIDE closing MARK 92495058e2fb 2⟫
-    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-OFFLINE-ZERO priced at b739 and open,',
+    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-ZQ-OFFLINE-ZERO open at SP2 as b738 left it, S5c-S5d re-priced at b738, not touched this act,',
     '        and W-ORD-CHAIN-PAGE-LLM-LINE, W-ORD-MECHANISM-TABLE, W-ORD-VISIBILITY, W-ORD-ADMISSIBLE-CONE, W-ORD-DETECTION-DUAL and W-ORD-SIDE-DIAGNOSTIC as they stand.',
 #⟪END⟫
 # ### b739, Component 7 (the Edit tool), the v1.3.0 fold defect's third instance: the regspec and reg_gate templates name the face by
@@ -465,7 +466,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrs')))   # ### (a)-(s) as entered before the lock, every one the seat's (data/b739_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstu')))   # ### (a)-(u) as entered before the lock, every one the seat's (data/b739_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b739_corrigendum.txt', 'data/b739_standing_v1190.txt', 'data/b739_rules.txt', 'data/b739_tier3.txt', 'data/b739_tier3.json', 'data/b739_zenodo_readback.json',
