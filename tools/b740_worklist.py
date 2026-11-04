@@ -274,7 +274,7 @@ B723_ROOT_BANKS = '64e3e5e8'  # ### b739's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '63424433'               # ### tools/standing/ v1.20.0 by a commit of its own, its controls bank data/b740_standing_v1200.txt ((R350)(2)(vi))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
-C1_RELAY = None
+C1_RELAY = 'd50a86be'              # ### the c1 route, the corrigendum banks, the corrigenda row (60)
 C1_CORR = C1_RELAY
 C1_RULES = '744cb044'              # ### the rules bank of (R350)(2), data/b740_rules.txt, by a commit of its own
 C1_PP = '454f2167'                 # ### PLACE-papers: FINDINGS :13387 (b739 at its weight), :13389 (the corrigendum)

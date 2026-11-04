@@ -1,0 +1,129 @@
+b740 -- THE STATEMENTS OF S5c AND S5d, BEFORE ANY LEAN ((R350)(3)(a)); SIDE-explicit-formula on zq-b730 at 602cd401468f9f7bfa9b131dcd0e3302402ba939 (2026-11-04)
+
+### Each row: its name, its Lean statement, its route, the route's reason, and its nearest compiled neighbour (path :line, read from the tree
+### before this bank) or ABSENT. Rows marked GENERAL carry no programme constant in their binders, so a Mathlib proposal can be cut from them;
+### rows marked CENTRE name box A's centre and the kernel's objects. Nothing here is proved; the build (Component 3) proves what it proves and
+### prints the rest NOT BUILT. No row says a zero is located in Lean or that Li nonnegativity fails as a theorem: a certified value at one point is a value.
+
+## THE PRECISION S6 WILL WANT AT THE CENTRE, PRINTED AND TAKEN ((R350)(3)(a); data/b740_stepzero.txt, the precision analysis)
+  c = cA = 95326/100000 + (16290216/1000000) i, box A's centre (OffZero/Box.lean :21-:24, the corners' midpoints).
+  The identity (Continuation.lean :122-:123, Gamma (s + 1) = s Gamma s): zqFn c = qBase^c * (Gamma c)⁻¹ * (Λ₀ c − 1/(c(1 − c))), with
+  Λ₀ c = lamM c + lamM (1 − c) (Split.lean :99).
+  mpmath at 50 digits: zqFn c ≈ −2.0609e-6 + 6.346e-7 i; the frontier's sampled minimum of ‖zqFn‖ ≈ 0.357; ‖qBase^c / Gamma c‖ ≈ 1.89e10;
+  Λ₀ c and 1/(c(1 − c)) agree to about 1e-16 (0.00375604723712156 + 0.000208981903920516 i against ...167 + ...521 i).
+  SP3's form ‖zqFn c − P‖ ≤ ε is taken with P = 0, and S6 needs ε well below 0.357, so ε = 1/10. Then
+    ‖zqFn c‖ ≤ K · δ, K an upper bound for ‖qBase^c · (Gamma c)⁻¹‖, δ an upper bound for ‖Λ₀ c − 1/(c(1 − c))‖,
+  and ε = 1/10 wants δ ≤ 1/(10 K): about 5.3e-12 with K at its true 1.89e10, about 6e-13 with K inflated ninefold by the bound of (d5) below.
+  The plan's per-term 1e-14 (data/b737_offlinezero_plan.txt :91) is not the figure: trBox holds 840 points off 0 (29 x 29 − 1) in each half,
+  so δ is the sum of the evaluated terms' errors (the 2 x 8 shells above 1e-14, each times its count of points) and of (c6) over the rest;
+  δ ≤ 6e-13 is the figure taken, the per-term error set from it at the build; noted in data/b740_offlinezero_notes.txt, the plan row not rewritten.
+  Only an UPPER bound on ‖(Gamma c)⁻¹‖ is wanted: P = 0 removes Gamma's value from P, and K multiplies δ alone.
+
+## S5c -- THE UPPER INCOMPLETE GAMMA ON [1, ∞) (module SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean; estimate 400-1000, the plan :91)
+
+(c1) GENERAL  def incGamma1 (w : ℂ) (a : ℝ) : ℂ := ∫ t in Set.Ioi (1 : ℝ), (t : ℂ) ^ (w - 1) * (Real.exp (-(a * t)) : ℂ)
+     route: a definition. reason: the plan's S5c object, ∫_1^∞ e^{−at} t^{w−1} dt, as the programme states it; a > 0 any real, w any complex.
+     neighbour: ABSENT (no incomplete gamma at the pin, the plan :92, :123 (4)); nearest, Complex.GammaIntegral (Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean, on Ioi 0).
+
+(c2) GENERAL  theorem incGamma1_integrableOn (w : ℂ) {a : ℝ} (ha : 0 < a) :
+       MeasureTheory.IntegrableOn (fun t : ℝ => (t : ℂ) ^ (w - 1) * (Real.exp (-(a * t)) : ℂ)) (Set.Ioi 1)
+     route: ‖(t : ℂ) ^ (w − 1)‖ = t ^ (w.re − 1) (norm_cpow_eq_rpow_re_of_pos); on t ≥ 1 that is at most t ^ k, k = max (w.re − 1) 0; t ^ k · e^{−at}
+     integrable on Ioi 0 (integrableOn_rpow_mul_exp_neg_mul_rpow with p = 1), restricted to Ioi 1. reason: every w, not only Re w > 0 as Gamma's integral wants.
+     neighbour: Mathlib integrableOn_rpow_mul_exp_neg_mul_rpow (Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean :74);
+     norm_cpow_eq_rpow_re_of_pos (Mathlib/Analysis/SpecialFunctions/Pow/Real.lean :337); Complex.GammaIntegral_convergent (Gamma/Basic.lean :87).
+
+(c3) GENERAL  theorem norm_incGamma1_le {w : ℂ} (hw : w.re ≤ 1) {a : ℝ} (ha : 0 < a) : ‖incGamma1 w a‖ ≤ Real.exp (-a) / a
+     route: norm_integral_le_of_norm_le with ‖t ^ (w − 1)‖ ≤ 1 on t ≥ 1, and ∫_{Ioi 1} e^{−at} = e^{−a}/a (integral_exp_mul_Ioi at −a < 0, c = 1).
+     reason: the certified enclosure of S5c for the shells with a large (radius e^{−a}/a about 0); w = c and w = 1 − c both have re ≤ 1.
+     neighbour: Mathlib integral_exp_mul_Ioi (Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean :102); exp_neg_integrableOn_Ioi
+     (Mathlib/MeasureTheory/Integral/ExpDecay.lean :31).
+
+(c4) GENERAL  theorem incGamma1_add_one (w : ℂ) {a : ℝ} (ha : 0 < a) : a * incGamma1 (w + 1) a = Real.exp (-a) + w * incGamma1 w a
+     route: integration by parts on Ioi 1 (integral_Ioi_mul_deriv_eq_deriv_mul), t^w e^{−at} → 0 at ∞ from (c2)'s bound.
+     reason: the recurrence a series route would run on; stated for the record of the route, built if the budget allows, else printed NOT BUILT.
+     neighbour: Mathlib Complex.GammaIntegral_add_one (Gamma/Basic.lean, the recurrence on Ioi 0); MeasureTheory.integral_Ioi_mul_deriv_eq_deriv_mul.
+
+(c5) CENTRE   theorem lamM_sub_trunc {w : ℂ} (hw : w.re ≤ 1) :
+       ‖lamM w - ∑ p ∈ trBox.erase 0, incGamma1 w (lam * qR p)‖ ≤ 1 / 10 ^ 30
+     route: ∑_{p ∈ trBox.erase 0} incGamma1 w (lam · qR p) = ∫_{Ioi 1} t^{w−1} (thetaTr (cc t) − 1) (MeasureTheory.integral_finsetSum, Mathlib/MeasureTheory/Integral/Bochner/Basic.lean; pi_mul_cc, Continuation.lean :27; qR 0 = 0);
+     the difference is ∫_{Ioi 1} t^{w−1} (thetaU (cc t) − thetaTr (cc t)), bounded by the DECAYING tail_le (Tail.lean :99),
+     10 · e^{−π(cc t − cc/2)·225/2}, integrated in closed form: 10 · e^{−lam·225/4} / (lam·225/2) < 1e-30.
+     reason: zq_thetaC_tail (Tail.lean :186), uniform 1e-14 in t, is not integrable on [1, ∞): ∫_1^∞ of a constant diverges, so S5b's
+     statement cannot carry the truncation through the integral; tail_le, which decays in t, can (noted in data/b740_offlinezero_notes.txt).
+     neighbour: lamM_eq (Split.lean :31); tail_le (Tail.lean :99); thetaU_half_le (Tail.lean :83).
+
+(c6) CENTRE   theorem norm_shell_le {w : ℂ} (hw : w.re ≤ 1) {p : ℤ × ℤ} (hp : p ≠ 0) :
+       ‖incGamma1 w (lam * qR p)‖ ≤ Real.exp (-(lam * qR p)) / (lam * qR p)
+     route: (c3) at a = lam · qR p > 0 (qR p ≥ 1 off 0, half_le_qR). reason: the shells beyond the evaluated ones, each bounded.
+     neighbour: half_le_qR (Lattice.lean :34); (c3).
+
+(c7) CENTRE, THE EVALUATION ROW OF S5c   an enclosure of lamM cA + lamM (1 − cA) − 1/(cA (1 − cA)) within δ ≤ 6e-13 (5.3e-12 at K's true value):
+       ‖lamM cA + lamM (1 - cA) - 1 / (cA * (1 - cA))‖ ≤ δ, δ a rational.
+     route, the choice printed: QUADRATURE WITH AN EXPLICIT REMAINDER over [1, T] for the shells with lam·Q below about 30 (8 per half carry a
+     term above 1e-14 at k ≤ 18, 13 above 1e-18 at k ≤ 27; the largest 0.0333), each subinterval by the binomial series of (1 + u)^{w−1} with its
+     tail and e^{−at} by Real.exp_bound, cpow of each node by (d4); the [T, ∞) piece by (c3). THE SERIES ROUTE IS REFUSED, with its reason:
+     incGamma1 w a = a^{−w} Gamma w − Σ_k (−a)^k/(k!(w + k)) needs Gamma c and Gamma (1 − c) as VALUES (not bounds) to relative 1e-12, and its
+     terms reach e^{a} before cancelling, so lam = 2π/√23 would be wanted past the 20 digits of Real.pi_gt_d20 / pi_lt_d20 (Mathlib/Analysis/Real/Pi/Bounds.lean :190, :206).
+     reason: SP3's value at the centre rests on this row alone once (d5)-(d7) stand.
+     neighbour: ABSENT (no certified quadrature and no complex binomial series remainder at the pin; the plan :92, :120-:123 (4), (7)).
+     The seat's forecast, printed before the build: this row is the one SP3 is likeliest NOT REACHED at, inside twelve dispatches.
+
+## S5d -- THE ELEMENTARY VALUES AND |Γ(s)|⁻¹ (module SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean; estimate 500-1500, the plan :93)
+
+(d1) GENERAL  theorem exp_mem_Icc {x : ℝ} (hx : |x| ≤ 1) {n : ℕ} (hn : 0 < n) :
+       Real.exp x ∈ Set.Icc (∑ k ∈ Finset.range n, x ^ k / k.factorial - |x| ^ n * (n.succ / (n.factorial * n)))
+                            (∑ k ∈ Finset.range n, x ^ k / k.factorial + |x| ^ n * (n.succ / (n.factorial * n)))
+     route: Real.exp_bound, abs_le. reason: exp at a rational with |x| ≤ 1; larger arguments by exp (2x) = (exp x)^2.
+     neighbour: Real.exp_bound (Mathlib/Analysis/Complex/Exponential.lean :517); Real.exp_one_near_20 (Mathlib/Analysis/Complex/ExponentialBounds.lean :29).
+
+(d2) GENERAL  theorem cos_sub_sum_le {x : ℝ} (hx : |x| ≤ 1) {n : ℕ} (hn : 0 < n) :
+       |Real.cos x - ∑ k ∈ Finset.range n, ((Complex.I * x) ^ k / k.factorial).re| ≤ |x| ^ n * (n.succ / (n.factorial * n))
+     and sin_sub_sum_le, the same with .im and Real.sin.
+     route: Complex.exp_bound at I·x, ‖I x‖ = |x|, cos x = (exp (I x)).re, sin x = (exp (I x)).im, |re z| ≤ ‖z‖. reason: Real.cos_bound and
+     Real.sin_bound (Mathlib/Analysis/Complex/Trigonometric.lean :873, :876) stop at order 4 and 5 (error 5/96 x^4, x^5/100), far above 1e-13;
+     the order-n form carries any precision.
+     neighbour: Complex.exp_bound (Mathlib/Analysis/Complex/Exponential.lean :377); Real.cos_bound, Real.sin_bound.
+
+(d3) GENERAL  theorem log_mem_Icc {x : ℝ} (hx : |x| < 1) (n : ℕ) :
+       |Real.log (1 - x) + ∑ i ∈ Finset.range n, x ^ (i + 1) / (i + 1)| ≤ |x| ^ (n + 1) / (1 - |x|)
+     route: Real.abs_log_sub_add_sum_range_le, restated. reason: log at a rational near 1; log 2 by Real.log_two_gt_d9 / log_two_lt_d9.
+     neighbour: Real.abs_log_sub_add_sum_range_le (Mathlib/Analysis/SpecialFunctions/Log/Deriv.lean :217); Real.log_two_near_10
+     (Mathlib/Analysis/Complex/ExponentialBounds.lean :71).
+
+(d4) GENERAL  theorem ofReal_cpow_eq {r : ℝ} (hr : 0 < r) (w : ℂ) :
+       (r : ℂ) ^ w = ((r ^ w.re : ℝ) : ℂ) * (Real.cos (w.im * Real.log r) + Real.sin (w.im * Real.log r) * Complex.I)
+     route: Complex.cpow_def_of_ne_zero, Complex.log_ofReal of r > 0, exp (x + y I) = exp x (cos y + sin y I). reason: cpow at a rational base
+     reduces to (d1)-(d3). neighbour: norm_cpow_eq_rpow_re_of_pos (Mathlib/Analysis/SpecialFunctions/Pow/Real.lean :337); Complex.cpow_def_of_ne_zero.
+
+(d5) GENERAL  theorem norm_inv_Gamma_le {s : ℂ} (hs : 0 ≤ s.re) {N : ℕ} (hN : 0 < N) :
+       ‖(Complex.Gamma s)⁻¹‖ ≤ ‖(Complex.GammaSeq s N)⁻¹‖ * Real.exp (‖s‖ ^ 2 / (2 * N))
+     route, the choice printed: A CERTIFIED PRODUCT. (GammaSeq s n)⁻¹ → (Gamma s)⁻¹ (GammaSeq_tendsto_Gamma, Gamma s ≠ 0 or the limit 0); for n ≥ N
+     the ratio of the norms is ∏_{j=N+1}^{n} ‖1 + s/j‖ · (N/n)^{re s}; log ‖1 + s/j‖ ≤ re s / j + ‖s‖²/(2j²) (log y ≤ y − 1 under the square
+     root), Σ_{j=N+1}^{n} 1/j ≤ log (n/N), Σ_{j>N} 1/j² ≤ 1/N; le_of_tendsto. reason: complex Stirling with explicit error is ABSENT at the pin
+     (Mathlib/Analysis/SpecialFunctions/Stirling.lean is the factorial's), and the reflection (Gamma_mul_Gamma_one_sub, Gamma/Beta.lean :398)
+     gives Gamma c · Gamma (1 − c), not Gamma c alone; the duplication formula needs Gamma at c/2, again not carried. The product needs only
+     GammaSeq's finite form and gives the upper bound P = 0 wants.
+     neighbour: Complex.GammaSeq (Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean :230), GammaSeq_tendsto_Gamma (:335); the kernel's
+     inv_gammaSeq_eq (Zeta23/GammaFacts/Series.lean :146) and inv_gamma_eq_prod (:225), the Weierstrass product, the same object.
+
+(d6) CENTRE   theorem norm_inv_Gamma_centre_le : ‖(Complex.Gamma cA)⁻¹‖ ≤ G
+     G a rational from (d5) at N = 64 (log 64 = 6 log 2, so N^{−re} by (d1) and Real.log_two_gt_d9), the factor exp (‖cA‖²/128) ≤ 8.1,
+     the finite product ∏_{j=1}^{64} ((j + re)² + im²)/j² read exactly as a rational. reason: K of the precision row.
+     neighbour: (d5).
+
+(d7) CENTRE   theorem norm_qBase_cpow_centre_le : ‖qBase ^ cA‖ ≤ 13103 / 10000
+     route: norm_cpow_eq_rpow_re_of_pos, lam ^ re ≤ lam for 1 ≤ lam and re ≤ 1, lam ≤ 1.3103 from Real.pi_lt_d6 and √23 ≥ 4.7958.
+     neighbour: qBase_eq, lam (Continuation.lean :23, :31); Real.pi_lt_d6 (Mathlib/Analysis/Real/Pi/Bounds.lean :184).
+
+(d8) CENTRE   theorem zqFn_centre_le {δ : ℝ} (hδ : ‖lamM cA + lamM (1 - cA) - 1 / (cA * (1 - cA))‖ ≤ δ) : ‖zqFn cA‖ ≤ K * δ, K = 13103/10000 · G
+     route: the identity of the precision row (Complex.Gamma_add_one, cA ≠ 0, Gamma cA ≠ 0 by Gamma_ne_zero_of_re_pos), zq_Λ₀_split, (d6), (d7).
+     reason: SP3's value reduced to (c7)'s one enclosure; with (c7) built, P = 0 and ε = K δ ≤ 1/10 are printed as rationals.
+     neighbour: zqFn (Continuation.lean :122), mul_zqFn_eq (:132), zq_Λ₀_split (Split.lean :99); Complex.Gamma_ne_zero_of_re_pos (Gamma/Beta.lean :454).
+
+## SP3 AS THESE ROWS DEFINE IT
+  SP3 REACHED: (c7) and (d8) compiled with the standard three, so that ‖zqFn cA − 0‖ ≤ ε, ε ≤ 1/10 a printed rational.
+  SP3 NOT REACHED at <row>: the first row of (c7), (d5)-(d8) not compiled, with every row that did compile and its axioms.
+  SP3 STOPPED: the lines of IncGamma.lean and Elem.lean past 3 x 2,500 = 7,500 (the plan :136-:137), checked after each group.
+  The dispatches: S5c's group one dispatch, then S5d's one dispatch, each read by its run id; repairs within twelve in all.
+
+### ### **ROWS 15: S5c (c1)-(c7), S5d (d1)-(d8) ; GENERAL 9, CENTRE 6 ; NEIGHBOUR NAMED 14, ABSENT 2 ((c1)'s object, its nearest named ; (c7)'s route) ; THE PRECISION TAKEN: ε = 1/10 WITH P = 0, δ ≤ 1/(10 K) ; COMMITTED BEFORE ANY LEAN FILE OF b740.**
