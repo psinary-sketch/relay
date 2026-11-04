@@ -240,8 +240,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b739: its LF form equal to HEAD's (2d637131, blob a94aa543), nothing to commit
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### step zero's banks and carried tools, one commit (data/b740_stepzero.txt among them)
-STEPZERO_BANK_COMMIT = None
+STEPZERO_BANKS = '3c731098'       # ### step zero's banks and carried tools, one commit (data/b740_stepzero.txt among them)
+STEPZERO_BANK_COMMIT = '3c731098'
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -272,11 +272,12 @@ B714_RECORD = 'a5b5f216'     # ### b739's record commit (relay, the head line's)
 B714_ROOT = '407e3f98c4ae10e82056fabe9ce87f192973fd90a963838064d458a9d09b11b7'   # ### b739's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '64e3e5e8'  # ### b739's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.20.0 by a commit of its own, its controls bank data/b740_standing_v1200.txt ((R350)(2)(vi))
+C1_STANDING = '63424433'               # ### tools/standing/ v1.20.0 by a commit of its own, its controls bank data/b740_standing_v1200.txt ((R350)(2)(vi))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
 C1_RELAY = None
 C1_CORR = C1_RELAY
-C1_PP = None
+C1_RULES = '744cb044'              # ### the rules bank of (R350)(2), data/b740_rules.txt, by a commit of its own
+C1_PP = '454f2167'                 # ### PLACE-papers: FINDINGS :13387 (b739 at its weight), :13389 (the corrigendum)
 C1_DISCHARGE_PP = None
 C2_TOOL = 'tools/b740_offlinezero.py'
 WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b739's weight line and the corrigendum for b739 (Component 1), set when written
