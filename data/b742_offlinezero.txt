@@ -1,0 +1,79 @@
+b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6 THE INTERPOLATION ROUTE ON Lambda_Q TO SP4 ((R352)(3)(b) AS AMENDED BY THE AUTHOR`S WORD), BUILT ON zq-b730 FROM 3329eaa1 BY THE RUNNER (2026-11-05T16:59:23Z)
+
+## THE CONTROLS
+  the axioms reader on a constructed standard line: True ; on a constructed axiom-free line: True ; on an absent name, None: True
+  the figure-bank reader: the controls first passes, the controls after refused: True
+  data/b742_s6_plan.txt md5 a1ca51d8d8504c1b5a169261f827b4cb ; step zero`s a1ca51d8d8504c1b5a169261f827b4cb ; equal True
+  the S6 plan bank committed at relay 6b282935, 1793891587 ; b742`s Lean commits on zq-b730 6, the first at 1793892288 ; the bank before them True
+  free memory at this bank: 4049 MB at 2026-11-05T16:59:23Z, the hold 2560
+  the dispatch rows refused by standing.dispatchrows: NONE
+  every dispatch row`s licence the author`s word at 1f96d4ea: True
+
+## THE DISPATCHES: 7 OF AT MOST 14, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb AND ITS LICENCE
+  1 | group G1    | Interp | sha 280b28b3 | run 42054839204 | free 4529 MB | licence 1f96d4ea | BREAKS, exit 1, 3 errors, sorry warnings 0, sorryAx False, runner low 14378 MB, read at free 4544 MB
+  2 | group G0-G3 | Interp Frame Strip Amplify | sha 11bb0125 | run 42056405331 | free 4500 MB | licence 1f96d4ea | BREAKS, exit 1, 7 errors, sorry warnings 0, sorryAx False, runner low 13163 MB, read at free 4236 MB
+  3 | group G2-G4h | Interp Frame Strip Amplify NodeBase | sha 5d3136a3 | run 42058361986 | free 4188 MB | licence 1f96d4ea | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 12935 MB, read at free 4137 MB
+  4 | group G4-G6 | Interp Frame Strip Amplify NodeBase Omega Nodes0 Nodes1 Nodes2 Nodes3 NodesF FrontierData Frontier SP4 | sha 4c04916c | run 42061332755 | free 4174 MB | licence 1f96d4ea | BREAKS, exit 1, 1 errors, sorry warnings 0, sorryAx False, runner low 14815 MB, read at free 4373 MB
+  5 | group G4-G6 | Interp Frame Strip Amplify NodeBase Omega Nodes0 Nodes1 Nodes2 Nodes3 NodesF FrontierData Frontier SP4 | sha 4c04916c | run 42062848400 | free 4335 MB | licence 1f96d4ea | BREAKS, exit 1, 9 errors, sorry warnings 0, sorryAx False, runner low 11022 MB, read at free 4330 MB
+  6 | group R5    | Interp Frame Strip Amplify NodeBase Omega Nodes0 Nodes1 Nodes2 Nodes3 NodesF FrontierData Frontier SP4 | sha c2d4f29c | run 42065597154 | free 4349 MB | licence 1f96d4ea | BREAKS, exit 1, 5 errors, sorry warnings 0, sorryAx False, runner low 11132 MB, read at free 4164 MB
+  7 | group R6    | Interp Frame Strip Amplify NodeBase Omega Nodes0 Nodes1 Nodes2 Nodes3 NodesF FrontierData Frontier SP4 | sha 14ca5725 | run 42068096322 | free 4104 MB | licence 1f96d4ea | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 10986 MB, read at free 3825 MB
+
+## THE LINES, MEASURED AGAINST THE ESTIMATES (I-10`s form), AND THE THREE-TIMES RULE
+  G0  SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean measured 102 ; the estimate 60-150 ; three times 450 ; within
+  G1  SIDEExplicitFormula/Schema/ZQ/OffZero/Interp.lean measured 252 ; the estimate 400-900 ; three times 2700 ; BELOW
+  G2  SIDEExplicitFormula/Schema/ZQ/OffZero/Amplify.lean measured 135 ; the estimate 150-400 ; three times 1200 ; BELOW
+  G3  SIDEExplicitFormula/Schema/ZQ/OffZero/Strip.lean measured 147 ; the estimate 270-660 ; three times 1980 ; BELOW
+  G4  SIDEExplicitFormula/Schema/ZQ/OffZero/NodeBase.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/Nodes0.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/Nodes1.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/Nodes2.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/Nodes3.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/NodesF.lean measured 2582 ; the estimate 2300-3000 ; three times 9000 ; within
+  G5  SIDEExplicitFormula/Schema/ZQ/OffZero/Omega.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/FrontierData.lean, SIDEExplicitFormula/Schema/ZQ/OffZero/Frontier.lean measured 837 ; the estimate 750-1600 ; three times 4800 ; within
+  G6  SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean measured 42 ; the estimate 40-100 ; three times 300 ; within
+  THE ROUTE IN ALL: measured 4097 ; the estimate 3970-6810 (data/b742_s6_plan.txt (4)) ; the ratio 0.602-1.032
+  THE THREE-TIMES RULE: the ceiling 20430 lines ; measured 4097 ; groups over their own figure NONE ; within, the build goes on
+
+## THE AXIOMS OF EACH PRINTED NAME OF THE BUILD (data/b742_s6_plan.txt (4)), FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT
+  G0  lamF                                       propext, Classical.choice, Quot.sound (run 42068096322)
+  G0  lamF_differentiableOn                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G0  lamF_diffContOnCl_ball                     propext, Classical.choice, Quot.sound (run 42068096322)
+  G0  zqFn_eq_lamF                               propext, Classical.choice, Quot.sound (run 42068096322)
+  G0  lamF_min_modulus_zero                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G0  lamF_li_not_nonneg                         propext, Classical.choice, Quot.sound (run 42068096322)
+  G1  rootSum_inv_pow_mul_pow                    propext, Classical.choice, Quot.sound (run 42068096322)
+  G1  kernel_eq                                  propext, Classical.choice, Quot.sound (run 42068096322)
+  G1  sub_discreteCauchy_eq                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G1  DiffContOnCl.norm_sub_discreteCauchy_le    propext, Classical.choice, Quot.sound (run 42068096322)
+  G2  norm_dcVec_sub_le                          propext, Classical.choice, Quot.sound (run 42068096322)
+  G2  norm_poly_sub_le                           propext, Classical.choice, Quot.sound (run 42068096322)
+  G2  DiffContOnCl.norm_sub_le_of_sphere         propext, Classical.choice, Quot.sound (run 42068096322)
+  G3  norm_lamM_le                               propext, Classical.choice, Quot.sound (run 42068096322)
+  G3  lamM_bound_numeric                         propext, Classical.choice, Quot.sound (run 42068096322)
+  G3  lamF_sphere_le                             propext, Classical.choice, Quot.sound (run 42068096322)
+  G3  lamM_conj                                  propext, Classical.choice, Quot.sound (run 42068096322)
+  G4  mid_sum_le                                 propext, Classical.choice, Quot.sound (run 42068096322)
+  G4  lamM_sub_shellSum_fine                     propext, Classical.choice, Quot.sound (run 42068096322)
+  G4  F_n0                                       propext, Classical.choice, Quot.sound (run 42068096322)
+  G4  F_n19                                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  omg_inD                                    propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  node_value_le                              propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  V_all                                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  coef_le                                    propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  lp_le                                      propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  margin                                     propext, Classical.choice, Quot.sound (run 42068096322)
+  G5  lamF_frontier_ge                           propext, Classical.choice, Quot.sound (run 42068096322)
+  G6  zq_offline_zero                            propext, Classical.choice, Quot.sound (run 42068096322)
+  G6  zq_li_nonneg_fails                         propext, Classical.choice, Quot.sound (run 42068096322)
+
+## THE NOTES (data/b742_offlinezero_notes.txt)
+  (1) The bound on the far circle: B = 120 (Strip.lean lamF_sphere_le, from norm_lamM_le_58 on lamM s and lamM (1 - s) and the pole term), in place of the plan's 7.8004; the aliasing remainder REM = 4.4989e-13 at B 120, R 3, M 20, rho 49/100, r 5623/10000. The cruder B is carried in the margin, not hidden: MARGIN 1.0725e-11 against 1e-12 (FrontierData.lean margin).
+  (2) The mid shells 23 <= Q <= 27 bounded shell by shell (NodeBase.lean mid_sum_le, lamM_sub_shellSum_fine): 1.2e-14 in place of mid_numeric's 5e-14, so every node disc has radius at most 2.4243e-14 and DELq = 279/10^16 (FrontierData.lean V_all).
+  (3) N3, the Lipschitz figure printed as a proved bound: L_P <= LPq = 6.098e-10, lemma lp_le (FrontierData.lean), used through Amplify.lean norm_poly_sub_le in Frontier.lean bound_at.
+  (4) N2: the generator tools/b742_s6gen.py was committed at relay 22f8d6b1, 6467c061 and 3194b6eb, each before the zq-b730 commit holding the modules it generated (4c04916c, c2d4f29c, 14ca5725). At 14ca5725 the md5 of each generated module equals the generator's output: FrontierData c8e320f9db1a12622cc147555496cf11, NodesF d37bbfbb8c81165521b77de16022069a, Nodes0 7cb04ecf..., Nodes1 a20f1f00..., Nodes2 efff8c97..., Nodes3 09de4381... (Nodes0-3 unchanged across all three generations).
+  (5) The dispatches: dispatch 4 was spent on a target of bare module names, so no Lean of G4-G6 was checked (data/b742_defects.txt (k)). Its first send, refused with HTTP 500 and creating no run, is rowed dispatch_refused and not counted ((j)).
+  (6) The centre: ||lamF cA|| <= 6e-13 < 1e-12 at cA = 0.95326 + 16.290216 i (Centre.lean lamM_centre_encl through Frame.lean lamF_eq_split; SP4.lean lamF_cA_lt).
+  (7) The frontier: 80 check points, 20 to an edge at spacing 1/100, each frontier point within 1/200 of one (Omega.lean exists_near_grid); |P^|^2 >= MLO^2 at each, MLO = 1.7e-11 against the least |P^| of 1.7480e-11, by decide +kernel (FrontierData.lean check_bottom, check_top, check_left, check_right).
+
+## THE GRADE
+  printed names compiled with the standard three: 30 of 30 (lamF, lamF_differentiableOn, lamF_diffContOnCl_ball, zqFn_eq_lamF, lamF_min_modulus_zero, lamF_li_not_nonneg, rootSum_inv_pow_mul_pow, kernel_eq, sub_discreteCauchy_eq, DiffContOnCl.norm_sub_discreteCauchy_le, norm_dcVec_sub_le, norm_poly_sub_le, DiffContOnCl.norm_sub_le_of_sphere, norm_lamM_le, lamM_bound_numeric, lamF_sphere_le, lamM_conj, mid_sum_le, lamM_sub_shellSum_fine, F_n0, F_n19, omg_inD, node_value_le, V_all, coef_le, lp_le, margin, lamF_frontier_ge, zq_offline_zero, zq_li_nonneg_fails)
+  printed names not compiled: none
+  SP4`s statements: zq_offline_zero COMPILED ; zq_li_nonneg_fails COMPILED
+  the axiom line, printed in full for each name above: propext, Classical.choice, Quot.sound
+
+### ### **SP4 REACHED ; DISPATCHES 7 OF 14 ; LINES 4097 AGAINST 3970-6810 (THE CEILING 20430) ; NAMES 30 OF 30.**
