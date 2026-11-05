@@ -1,5 +1,5 @@
 {
- "at": "2026-11-05T03:17:46Z",
+ "at": "2026-11-05T03:27:50Z",
  "anchor": "RULING (R351) BEGIN",
  "rows": [
   {
@@ -3209,6 +3209,246 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 401,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:18:23.528Z",
+   "src": "seat",
+   "cmd": "wc -l data/b741_defects.txt data/b741_touch.txt && head -n 3 data/b741_defects.txt && tail -n 2 data/b741_defects.txt",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:18:33.146Z",
+   "src": "seat",
+   "cmd": "ls -la data/b741_lockgate.json data/b741_lockgate_notes.txt; git log --oneline -1 -- data/b741_lockgate_notes.txt",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:18:49.510Z",
+   "src": "seat",
+   "cmd": "mkdir -p C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/refused_lockgate && mv D:/relay/data/b741_lockgate.json D:/relay/data/b741_lockgate_notes.txt C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/refused_lockgate/ && ls -la C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/refused_lockgate/",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:19:04.809Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"CLOSE 14\" -e \"(a)-(s)\" -e \"(p)-(s)\" -e \"OF 19\" -e \"of 19\" -- tools/acts/b741.py tools/b741_face_blocks.txt tools/b741_face.py data/b741_registration_2026-11-04.txt data/b741_touch.txt tools/b741_worklist.py",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:19:29.351Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py \"b378_lockgate.py b741\" 13000 100000",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:19:41.903Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_face.py --dry",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:19:50.590Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_face.py && git diff --stat -- data/b741_registration_2026-11-04.txt",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:20:02.733Z",
+   "src": "seat",
+   "cmd": "git diff -U0 -- data/b741_registration_2026-11-04.txt",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:20:08.919Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:20:12.556Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:20:34.484Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_address_scan.py scan --bank",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:20:51.147Z",
+   "src": "seat",
+   "cmd": "git add data/b741_defects.txt data/b741_touch.txt tools/b741_face_blocks.txt data/b741_registration_2026-11-04.txt data/b741_address_scan.txt data/b741_steps.json data/b741_root_banks_dry.json data/b741_root_banks_dry.txt data/b741_reg_gate.txt data/b741_reg_termscan.txt data/b741_regspec_run.txt data/audit_b741_reg_satisfiable.txt data/b741_census_stepzero.txt data/b741_faces_census_stepzero.txt data/b741_pins_stepzero.txt data/b741_satisfiable.json && git status --short -uno",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:21:00.834Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate 'defect (t) the lock gate run before gatebanks restamped the reg gate, LOCK REFUSED 7 of 8, its two outputs moved to the scratchpad (REPEAT b730 (w)); face recomposed (a)-(t), counter CLAIM 5, CLOSE 15, REPEAT 10 OF 20; gatebanks restamped 39dfe118; scan 0, controls 7 of 7'",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:21:15.607Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:21:33.138Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry --quiet",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:22:28.876Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:03.360Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import io,re;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read();[print(m.group(0)[:200]) for m in re.finditer(r'[^;(]{0,140}(False|NONE banked|UNREAD|NOT )[^;]{0,60}',t)]\"",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:11.468Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import io;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read().split(chr(10));l=[x for x in t if x.startswith('N5')][0];[print(l[i:i+300]) for i in range(0,len(l),300)]\"",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:20.771Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet > /dev/null; tail -n 3 data/b741_reg_gate.txt",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:32.502Z",
+   "src": "seat",
+   "cmd": "tail -n 2 data/b741_hook_refusals.txt",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:50.357Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_face.py",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:23:50.913Z",
+   "src": "seat",
+   "cmd": "git diff -U0 -- data/b741_registration_2026-11-04.txt",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:24:04.873Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_address_scan.py scan --bank",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:24:21.358Z",
+   "src": "seat",
+   "cmd": "git add data/b741_defects.txt data/b741_touch.txt tools/b741_face_blocks.txt data/b741_registration_2026-11-04.txt data/b741_address_scan.txt data/b741_steps.json data/b741_closing_dry.txt data/b741_scores_dry.txt data/b741_commands.json data/b741_commands.txt data/b741_hook_refusals.txt",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:24:29.124Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate 'defect (u) the REDIR refusal at 03:23:20Z entered before the lock; face recomposed (a)-(u), counter CLAIM 5, CLOSE 16, REPEAT 11 OF 21; step row 13 for 4ecef0c2; closing dry READ; scan 0, controls 7 of 7'",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:24:43.879Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:25:01.964Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry --quiet --act b741",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:25:56.719Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record scores dry",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:26:27.581Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:27:36.833Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 431,
+   "bg": false
   }
  ],
  "offences": [
@@ -3243,8 +3483,12 @@
   258
  ],
  "seds": [],
- "null_redirects": [],
- "redirects": [],
+ "null_redirects": [
+  420
+ ],
+ "redirects": [
+  420
+ ],
  "pipes": [
   282
  ],
@@ -3271,7 +3515,9 @@
   282,
   283,
   291,
-  294
+  294,
+  418,
+  419
  ],
  "moves_deletes": [
   39,

@@ -210,13 +210,13 @@ REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT C
       demand from : ### data/b685_rules.txt row (1).
   commands carrying sed              0                0                commands SATISFIABLE
       demand from : ### data/b685_rules.txt row (2), MEASURED off the command bank.
-  commands carrying a redirect       0                0                commands SATISFIABLE
+  commands carrying a redirect       1                1                commands SATISFIABLE
       demand from : ### the ferry, MEASURED off the command bank; each lettered in the defects bank.
   commands piping a read into a shel 1                1                commands SATISFIABLE
       demand from : ### the ferry, MEASURED off the command bank; each lettered in the defects bank.
   commands carrying a pipe of any ki 3                3                commands SATISFIABLE
       demand from : ### the ferry, MEASURED off the command bank; each lettered in the defects bank.
-  commands running an interpreter`s  18               18               commands SATISFIABLE
+  commands running an interpreter`s  20               20               commands SATISFIABLE
       demand from : ### the ferry, MEASURED off the command bank; each lettered in the defects bank.
   Read calls above the cap from the  0                0                reads  SATISFIABLE
       demand from : ### every call counts from b705, MEASURED off the read bank; each lettered in the defects bank.
@@ -358,4 +358,4 @@ REGISTRATION JOINT-SATISFIABILITY CHECK (reg_satisfiable.py, b265) -- RUN, NOT C
   ### audit compares COUNTS AGAINST CEILINGS; that defect is between a number a routine can reach
   ### and a number a bar demands. ### **THE TEXTUAL ARM AGAINST IT IS `registration_gate.py`'s
   ### bar-floor arms (b347); THE NUMERICAL ONE IS NOT BUILT, AND ITS PRICE IS BANKED AT b347.**
-### GATE SUBJECT SHA256 : 39dfe118215c1d85360f00c28b34925addac0988d82d53f1a16796b6beb94fee  (b741_registration_2026-11-04.txt)
+### GATE SUBJECT SHA256 : 3511b42bb89b6bd5d67da43fd58ec924c8f3fd09909d9a4da3d905e18e9c3bee  (b741_registration_2026-11-04.txt)

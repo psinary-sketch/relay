@@ -1,7 +1,7 @@
-b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T03:17:46Z)
+b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T03:27:50Z)
 
 ### the source: the seat`s session 352ad3f4-37c5-4360-b9c6-cb7368f5f805 from its first user line carrying 'RULING (R351) BEGIN', with its subagents` transcripts
-### commands read: 401
+### commands read: 431
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #276 2026-11-05T01:23:34.811Z seat Bash -- H write under tools/
@@ -32,11 +32,11 @@ b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
   NONE
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
-  NONE
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #420 2026-11-05T03:23:20.771Z python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet > /dev/null; tail -n 3 data/b741_reg_gate.txt
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
-  NONE
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #420 2026-11-05T03:23:20.771Z python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet > /dev/null; tail -n 3 data/b741_reg_gate.txt
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (1):
   #282 2026-11-05T01:24:52.305Z python -X utf8 -c "import json;r=json.load(open('D:/relay/data/b741_steps.json',encoding='utf-8'));print(list(r.keys()) if isinstance(r,dict) else 'list');rows=r['rows'] if isinstance(r,dict) else r;[
@@ -46,7 +46,7 @@ b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #282 2026-11-05T01:24:52.305Z python -X utf8 -c "import json;r=json.load(open('D:/relay/data/b741_steps.json',encoding='utf-8'));print(list(r.keys()) if isinstance(r,dict) else 'list');rows=r['rows'] if isinstance(r,dict) else r;[
   #350 2026-11-05T02:57:29.073Z Get-Item -LiteralPath 'D:/relay/=' | Select-Object Length, LastWriteTime; git -C D:/relay diff --stat -- data/b741_steps.json
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (18):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (20):
   #63 2026-11-04T22:48:13.311Z python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b740_bank_hashes.json',encoding='utf-8'));print(type(j).__name__, list(j)[:5] if isinstance(j,dict) else j[:2]); k=list(j)[0] if isinstance(j,dict) else None
   #64 2026-11-04T22:48:18.432Z python -X utf8 -c "import json;j=json.load(open('D:/relay/data/b740_bank_hashes.json',encoding='utf-8'));print(sorted(j))"
   #68 2026-11-04T22:50:07.601Z python -I -X utf8 -c "import sys,json; sys.path.insert(0,'D:/relay/tools/standing'); import hook as H; print(sorted(json.load(open('D:/relay/data/b741_bank_hashes.json',encoding='utf-8')))); print(H.hashed_bank('D:/relay
@@ -65,6 +65,8 @@ b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #283 2026-11-05T01:24:57.779Z python -X utf8 -c "import json;r=json.load(open('D:/relay/data/b741_steps.json',encoding='utf-8'));rows=r['rows'] if isinstance(r,dict) else r;[print(x) for x in rows[-4:]];print(len(rows))"; ls D:/relay/tools/b741_* D:/
   #291 2026-11-05T01:27:21.305Z cd D:/relay && git show --stat --format=%s cb34bce6 && python -X utf8 -c "import json;[print(r['phase'],'|',r['repo'],r['commit'][:8],'|',r['subject'][:110]) for r in json.load(open('data/b740_steps.json',encoding='utf-8
   #294 2026-11-05T01:29:14.787Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/b741_corrigendum.json',encoding='utf-8'));print({k:(v if not isinstance(v,list) else len(v)) for k,v in j.items()})"
+  #418 2026-11-05T03:23:03.360Z python -X utf8 -c "import io,re;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read();[print(m.group(0)[:200]) for m in re.finditer(r'[^;(]{0,140}(False|NONE banked|UNREAD|NOT )[^;]{0,60}',t)]"
+  #419 2026-11-05T03:23:11.468Z python -X utf8 -c "import io;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read().split(chr(10));l=[x for x in t if x.startswith('N5')][0];[print(l[i:i+300]) for i in range(0,len(l),300)]"
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #39 2026-11-04T22:44:05.941Z PowerShell
@@ -485,5 +487,35 @@ b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #399 | 2026-11-05T03:17:08.265Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate 'step row 11 for 0c6e9422; rootdry READY True, 42 banks; closing dry READ; GATE VERDICT CLEAR bank-only, p
   #400 | 2026-11-05T03:17:22.158Z | seat | Bash | python -X utf8 -u tools/b378_lockgate.py b741 D:/relay/data/b741_registration_2026-11-04.txt
   #401 | 2026-11-05T03:17:31.993Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #402 | 2026-11-05T03:18:23.528Z | seat | Bash | wc -l data/b741_defects.txt data/b741_touch.txt && head -n 3 data/b741_defects.txt && tail -n 2 data/b741_defects.txt
+  #403 | 2026-11-05T03:18:33.146Z | seat | Bash | ls -la data/b741_lockgate.json data/b741_lockgate_notes.txt; git log --oneline -1 -- data/b741_lockgate_notes.txt
+  #404 | 2026-11-05T03:18:49.510Z | seat | Bash | mkdir -p C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/refused_lockgate && mv D:/relay/data/b741_lockgate.json
+  #405 | 2026-11-05T03:19:04.809Z | seat | Bash | git grep -n -e "CLOSE 14" -e "(a)-(s)" -e "(p)-(s)" -e "OF 19" -e "of 19" -- tools/acts/b741.py tools/b741_face_blocks.txt tools/b741_face.py data/b741_registra
+  #406 | 2026-11-05T03:19:29.351Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py "b378_lockgate.py b741" 13000 100000
+  #407 | 2026-11-05T03:19:41.903Z | seat | Bash | python -X utf8 -u tools/b741_face.py --dry
+  #408 | 2026-11-05T03:19:50.590Z | seat | Bash | python -X utf8 -u tools/b741_face.py && git diff --stat -- data/b741_registration_2026-11-04.txt
+  #409 | 2026-11-05T03:20:02.733Z | seat | Bash | git diff -U0 -- data/b741_registration_2026-11-04.txt
+  #410 | 2026-11-05T03:20:08.919Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"
+  #411 | 2026-11-05T03:20:12.556Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rootdry
+  #412 | 2026-11-05T03:20:34.484Z | seat | Bash | python -X utf8 -u tools/b741_address_scan.py scan --bank
+  #413 | 2026-11-05T03:20:51.147Z | seat | Bash | git add data/b741_defects.txt data/b741_touch.txt tools/b741_face_blocks.txt data/b741_registration_2026-11-04.txt data/b741_address_scan.txt data/b741_steps.js
+  #414 | 2026-11-05T03:21:00.834Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate 'defect (t) the lock gate run before gatebanks restamped the reg gate, LOCK REFUSED 7 of 8, its two output
+  #415 | 2026-11-05T03:21:15.607Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rootdry
+  #416 | 2026-11-05T03:21:33.138Z | seat | Bash | python -X utf8 -u tools/standing/fold.py closing dry --quiet
+  #417 | 2026-11-05T03:22:28.876Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record scores dry
+  #418 | 2026-11-05T03:23:03.360Z | seat | Bash | python -X utf8 -c "import io,re;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read();[print(m.group(0)[:200]) for m in re.finditer(r'[^;(]{0,140}(False
+  #419 | 2026-11-05T03:23:11.468Z | seat | Bash | python -X utf8 -c "import io;t=io.open('data/b741_scores_dry.txt',encoding='utf-8').read().split(chr(10));l=[x for x in t if x.startswith('N5')][0];[print(l[i:i
+  #420 | 2026-11-05T03:23:20.771Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet > /dev/null; tail -n 3 data/b741_reg_gate
+  #421 | 2026-11-05T03:23:32.502Z | seat | Bash | tail -n 2 data/b741_hook_refusals.txt
+  #422 | 2026-11-05T03:23:50.357Z | seat | Bash | python -X utf8 -u tools/b741_face.py
+  #423 | 2026-11-05T03:23:50.913Z | seat | Bash | git diff -U0 -- data/b741_registration_2026-11-04.txt
+  #424 | 2026-11-05T03:24:04.873Z | seat | Bash | python -X utf8 -u tools/b741_address_scan.py scan --bank
+  #425 | 2026-11-05T03:24:21.358Z | seat | Bash | git add data/b741_defects.txt data/b741_touch.txt tools/b741_face_blocks.txt data/b741_registration_2026-11-04.txt data/b741_address_scan.txt data/b741_steps.js
+  #426 | 2026-11-05T03:24:29.124Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate 'defect (u) the REDIR refusal at 03:23:20Z entered before the lock; face recomposed (a)-(u), counter CLAIM
+  #427 | 2026-11-05T03:24:43.879Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rootdry
+  #428 | 2026-11-05T03:25:01.964Z | seat | Bash | python -X utf8 -u tools/standing/fold.py closing dry --quiet --act b741
+  #429 | 2026-11-05T03:25:56.719Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record scores dry
+  #430 | 2026-11-05T03:26:27.581Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet
+  #431 | 2026-11-05T03:27:36.833Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
 
-### ### **COMMANDS 401 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 6 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 18 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 431 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 6 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 20 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
