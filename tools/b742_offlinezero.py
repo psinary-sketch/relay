@@ -47,12 +47,14 @@ BANK = os.path.join(RELAY, K.BUILD_BANK)
 ZQ = 'SIDEExplicitFormula/Schema/ZQ/OffZero/'
 NS = 'SIDEExplicitFormula.Schema.ZQ.OffZero.'
 # ### the groups of data/b742_s6_plan.txt (4), in build order; each (group, modules, the estimate, the printed names); the estimates the plan's (4)
-GROUPS = (('G0', ('Frame',), (60, 150), ('lamF', 'lamF_differentiable', 'lamF_diffContOnCl_ball', 'zqFn_eq_zero_of_lamF', 'lamF_min_modulus_zero')),
+GROUPS = (('G0', ('Frame',), (60, 150), ('lamF', 'lamF_differentiableOn', 'lamF_diffContOnCl_ball', 'zqFn_eq_lamF', 'lamF_min_modulus_zero', 'lamF_li_not_nonneg')),
           ('G1', ('Interp',), (400, 900), ('rootSum_inv_pow_mul_pow', 'kernel_eq', 'sub_discreteCauchy_eq', 'DiffContOnCl.norm_sub_discreteCauchy_le')),
-          ('G2', ('Amplify',), (150, 400), ('norm_discreteCauchy_sub_le', 'norm_poly_sub_le')),
-          ('G3', ('Strip',), (270, 660), ('lamF_sphere_le', 'lamM_conj')),
-          ('G4', ('Nodes',), (2300, 3000), ('lamF_nodes_encl',)),
-          ('G5', ('Frontier',), (750, 1600), ('lamF_frontier_ge',)),
+          ('G2', ('Amplify',), (150, 400), ('norm_dcVec_sub_le', 'norm_poly_sub_le', 'DiffContOnCl.norm_sub_le_of_sphere')),
+          ('G3', ('Strip',), (270, 660), ('norm_lamM_le', 'lamM_bound_numeric', 'lamF_sphere_le', 'lamM_conj')),
+          ('G4', ('NodeBase', 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF'), (2300, 3000),
+           ('mid_sum_le', 'lamM_sub_shellSum_fine', 'F_n0', 'F_n19')),
+          ('G5', ('Omega', 'FrontierData', 'Frontier'), (750, 1600),
+           ('omg_inD', 'node_value_le', 'V_all', 'coef_le', 'lp_le', 'margin', 'lamF_frontier_ge')),
           ('G6', ('SP4',), (40, 100), ('zq_offline_zero', 'zq_li_nonneg_fails')))
 ROWS_OF = dict((n_, g_) for g_, _m, _e, ns_ in GROUPS for n_ in ns_)
 ROUTE = (3970, 6810)        # ### data/b742_s6_plan.txt (4) THE ROUTE IN ALL
