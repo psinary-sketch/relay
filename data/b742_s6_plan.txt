@@ -111,3 +111,24 @@ b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE PLAN, (R352)(3)(a) AS AMENDED BY THE AUTH
   THE GRADE: REACHED (SP4, both statements, axioms printed) ; NOT REACHED at the group (the cap of 14 dispatches met inside a group) ; or STOPPED
   (a group over three times its figure, or a margin that fails on a certified figure: the node δ above δ*, or a check point under its bound).
   Every Lean file on zq-b730 alone, from 3329eaa1; no kernel main touched, no merge, no tag.
+
+## (7) DATED NOTES, b742, AFTER THE PLAN'S COMMIT (f15c3a8d) AND BEFORE ANY LEAN
+
+  (7.1) 2026-11-05: THE ALIASING LEMMA'S FORM AS IT WILL BE BUILT. (3)(5)'s statement carries the series form of the right-hand side, its proof
+        through f's power series, the tsum split by residues mod M. The lemma is built through the Cauchy integral formula instead
+        (DiffContOnCl.two_pi_i_inv_smul_circleIntegral_sub_inv_smul, Analysis/Complex/CauchyIntegral.lean :552): f(c + u) − P(c + u) =
+        (2πi)⁻¹ ∮_{|w−c|=R} f(w) (u^M − ρ^M) / ((w − c − u)((w − c)^M − ρ^M)) dw, from the finite identity
+        (1/M) Σ_j ω^(−jk) / (v − ρ ω^j) = ρ^k v^(M−1−k) / (v^M − ρ^M) (geom_sum₂_mul, Algebra/Ring/GeomSum.lean :306; the root sums by
+        IsPrimitiveRoot.pow_eq_one_iff_dvd, RingTheory/RootsOfUnity/PrimitiveRoots.lean :122, and geom_sum_eq, Algebra/Field/GeomSum.lean :43);
+        no power series, no tsum. Its right-hand side: B R (r^M + ρ^M) / ((R − r)(R^M − ρ^M)), the r^M term the truncation and the ρ^M term the
+        aliasing, both. At the plan's numbers (R 3, M 20, r 5623/10000, ρ 49/100, B_3 7.8004) it is 2.9244e-14, equal to the series form's
+        2.9244e-14 to five figures (data/b742_s6_price.txt, THE CAUCHY-INTEGRAL FORM). The root of unity is a binder: ω with IsPrimitiveRoot ω M,
+        the nodes c + ρ ω^j, the weights ((ω^j)⁻¹)^k, in place of Complex.exp (2πi j/M); exp(2πi/M) is one instance (isPrimitiveRoot_exp,
+        RingTheory/RootsOfUnity/Complex.lean :92). The statement as built:
+
+      theorem DiffContOnCl.norm_sub_discreteCauchy_le {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E] [CompleteSpace E]
+          {f : ℂ → E} {c ω u : ℂ} {R ρ r B : ℝ} {M : ℕ} (hM : 0 < M) (hω : IsPrimitiveRoot ω M) (hρ : 0 < ρ) (hρR : ρ < R)
+          (hr : 0 ≤ r) (hrR : r < R) (hf : DiffContOnCl ℂ f (Metric.ball c R)) (hB : ∀ w ∈ Metric.sphere c R, ‖f w‖ ≤ B) (hu : ‖u‖ ≤ r) :
+          ‖f (c + u) - discreteCauchy f c ω ρ M u‖ ≤ B * R * (r ^ M + ρ ^ M) / ((R - r) * (R ^ M - ρ ^ M))
+      discreteCauchy f c ω ρ M u = Σ_{k<M} (u/ρ)^k • ((M : ℂ)⁻¹ • Σ_{j<M} ((ω^j)⁻¹)^k • f (c + ρ ω^j)).
+        No programme constant in the binders. G1's estimate stands (400-900); the seat's reading is that this form is the shorter.

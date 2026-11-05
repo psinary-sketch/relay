@@ -1,6 +1,6 @@
-b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE INTERPOLATION ROUTE ON LAMBDA_Q: THE PLAN`S FIGURES (2026-11-05T15:07:03Z)
+b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE INTERPOLATION ROUTE ON LAMBDA_Q: THE PLAN`S FIGURES (2026-11-05T15:12:14Z)
 
-### tools/b742_s6_price.py; free memory at start 4381 MB (the hold 2560 MB); python-flint 0.9.0, prec 200; Z_Q0 by tools/b667_epstein_certify.py zq_point
+### tools/b742_s6_price.py; free memory at start 4421 MB (the hold 2560 MB); python-flint 0.9.0, prec 200; Z_Q0 by tools/b667_epstein_certify.py zq_point
 ### imported unedited. B_R and the remainders are closed forms evaluated in arb (upper ends printed); the samples are samples, not bounds.
 
 ## (1) THE FRONTIER`S FARTHEST POINT FROM c = 1/2 + 16.290216 i
@@ -36,9 +36,15 @@ b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE INTERPOLATION ROUTE ON LAMBDA_Q: THE PLAN
     6     6  6  4.3454e+02      24   1.010e-22      3.714e-24      1.047e-22      177.55
     6     6  6  4.3454e+02      28   7.792e-27      1.652e-28      7.957e-27      312.87
   the tail past Q = 200 in B_R below 1.7e-114 at every R
+  THE CAUCHY-INTEGRAL FORM (the plan`s dated note (7.1)): |F - P| <= B_R R (r^M + rho^M) / ((R - r)(R^M - rho^M)), the r^M term the truncation, the
+  rho^M term the aliasing, from f - P = (2 pi i)^-1 \oint f(w) (u^M - rho^M) / ((w - c - u)((w - c)^M - rho^M)) dw:
+    R 3, M 20: 2.9244e-14 (the series form 2.9244e-14)
+    R 3, M 24: 3.5177e-17 (the series form 3.5177e-17)
+    R 4, M 20: 2.7669e-16 (the series form 2.7669e-16)
+    R 4, M 24: 1.0531e-19 (the series form 1.0531e-19)
 
 ## (1)-(2) THE CHOSEN NODES AND THE SAMPLES (python-flint balls: samples, not bounds)
-  free memory before the samples 4402 MB
+  free memory before the samples 4422 MB
   the frontier`s 160 samples: min |F| 1.7466e-11
   R 3, M 20: max |F - P| on the frontier`s samples 2.374e-25 (the bound 2.924e-14) ; min |P| there 1.7466e-11 ; L_P = sum k |c_k| r^(k-1) = 6.0965e-10 ; |F`| on the node circle <= B_R/(R - rho) = 3.108e+00
   R 3, M 24: max |F - P| on the frontier`s samples 1.961e-30 (the bound 3.518e-17) ; min |P| there 1.7466e-11 ; L_P = sum k |c_k| r^(k-1) = 6.0965e-10 ; |F`| on the node circle <= B_R/(R - rho) = 3.108e+00
@@ -81,4 +87,4 @@ b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE INTERPOLATION ROUTE ON LAMBDA_Q: THE PLAN
 ## (4) THE MARGINS, ONE LINE
   centre 6e-13 ; m_Lambda 1e-12 ; frontier minimum 1.747e-11 (samples) ; interpolation error 2.4e-25 (samples, R 3, M 20 ; bound 2.9e-14)
 
-### ### **r = 0.562225 AT THE RIGHT CORNERS ; FRONTIER MIN 1.747e-11 ; R 3, M 20: REMAINDER 2.92e-14, A 99.5, L_P 6.10e-10 ; Re z > 1 LENGTH 0.30652 OF 0.8 ; FREE 4381 -> 4389 MB ; 5 s.**
+### ### **r = 0.562225 AT THE RIGHT CORNERS ; FRONTIER MIN 1.747e-11 ; R 3, M 20: REMAINDER 2.92e-14, A 99.5, L_P 6.10e-10 ; Re z > 1 LENGTH 0.30652 OF 0.8 ; FREE 4421 -> 4401 MB ; 5 s.**

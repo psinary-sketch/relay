@@ -136,6 +136,14 @@ for R in (2, 3, 4, 6):
         grid.append((R, M, B, tr, al, tr + al, A))
         say('    %-5d %-2d %-2d %.4e      %-4d %.3e      %.3e      %.3e      %.2f' % (R, e1, e2, ff(B.mid() + B.rad()), M, ff(tr), ff(al), ff(tr + al), ff(A)))
 say('  the tail past Q = %d in B_R below %.1e at every R' % (KMAX, max(ff(v[3]) for v in BR.values())))
+say('  THE CAUCHY-INTEGRAL FORM (the plan`s dated note (7.1)): |F - P| <= B_R R (r^M + rho^M) / ((R - r)(R^M - rho^M)), the r^M term the truncation, the')
+say('  rho^M term the aliasing, from f - P = (2 pi i)^-1 \\oint f(w) (u^M - rho^M) / ((w - c - u)((w - c)^M - rho^M)) dw:')
+for R in (3, 4):
+    Rb = arb(R)
+    for M in (20, 24):
+        hb = BR[R][0] * Rb * (r ** M + rho ** M) / ((Rb - r) * (Rb ** M - rho ** M))
+        g = [x for x in grid if x[0] == R and x[1] == M][0]
+        say('    R %d, M %d: %.4e (the series form %.4e)' % (R, M, ff(hb.mid() + hb.rad()), ff(g[5])))
 say()
 
 # ---------------- samples at the chosen (M, R)
