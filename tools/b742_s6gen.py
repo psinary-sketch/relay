@@ -448,12 +448,12 @@ theorem lp_le : ∑ k ∈ Finset.range 20, ‖qc (ctab.getD k 0)‖ * ((k : ℝ)
 ''')
 emit('def MLO : ℚ := %s\n' % lq(MLO))
 emit('def cIq : ℚ × ℚ := ((1 : ℚ) / 2, (16290216 : ℚ) / 1000000)\n')
-PT = {'bottom': '((85326 : ℚ) / 100000 + 1 / 200 + (i : ℚ) * (1 / 100), (16190216 : ℚ) / 1000000)',
-      'top': '((85326 : ℚ) / 100000 + 1 / 200 + (i : ℚ) * (1 / 100), (16390216 : ℚ) / 1000000)',
-      'left': '((85326 : ℚ) / 100000, (16190216 : ℚ) / 1000000 + 1 / 200 + (i : ℚ) * (1 / 100))',
-      'right': '((105326 : ℚ) / 100000, (16190216 : ℚ) / 1000000 + 1 / 200 + (i : ℚ) * (1 / 100))'}
+PT = {'bottom': '((85326 : ℚ) / 100000 + 1 / 200 + ((i : ℕ) : ℚ) * (1 / 100), (16190216 : ℚ) / 1000000)',
+      'top': '((85326 : ℚ) / 100000 + 1 / 200 + ((i : ℕ) : ℚ) * (1 / 100), (16390216 : ℚ) / 1000000)',
+      'left': '((85326 : ℚ) / 100000, (16190216 : ℚ) / 1000000 + 1 / 200 + ((i : ℕ) : ℚ) * (1 / 100))',
+      'right': '((105326 : ℚ) / 100000, (16190216 : ℚ) / 1000000 + 1 / 200 + ((i : ℕ) : ℚ) * (1 / 100))'}
 for name, _pt in EDGES:
-    emit('theorem check_%s : ∀ i < 20, MLO ^ 2 ≤ normSqQ (polyQ ctab (qsub %s cIq)) := by\n  decide +kernel\n' % (name, PT[name]))
+    emit('theorem check_%s : ∀ i : ℕ, i < 20 → MLO ^ 2 ≤ normSqQ (polyQ ctab (qsub %s cIq)) := by\n  decide +kernel\n' % (name, PT[name]))
 emit('''/-- **G5, the margin**: `MLO − LPq/200 − REM − DELq·A − ECq ≥ 1/10^12`, REM the aliasing lemma's bound at `B 120, R 3, M 20, ρ 49/100,
 r 5623/10000`, A `Σ_{k<20} (r/ρ)^k`. -/
 theorem margin : (1 : ℝ) / 10 ^ 12 ≤ (MLO : ℝ) - (LPq : ℝ) * (1 / 200)
