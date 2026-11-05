@@ -30,14 +30,14 @@
 # ### (16), the build's grade, the v1.21.0 controls. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
-C1_PREV_CLOSE = 'fe2150b3'          # ### b741's closing commit
-C1_REFUSAL_AT = 'fe2150b3'          # ### its refusal bank read at its closing commit
-C1_NOTED = '2026-11-04'
-C1_CORRIGENDA_LAST = 60
-C1_V170 = 'b742_standing_v1210.txt'   # ### (carried name) the controls bank of the repairs this corrigendum lands
-C1_WEIGHT_HEAD = '*Appended 2026-11-04 by b742 to b741’s entry (:%d), under `(R352)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## W-ORD-ZQ-OFFLINE-ZERO, S5c-S5d in the tree'
-C1_TRAIL_NEEDLE = '### b741 — lane two, act one hundred and sixty-seven, the numerics act under (R351)'
+C1_PREV_CLOSE = '13498fd2'          # ### b741's closing commit
+C1_REFUSAL_AT = '13498fd2'          # ### its refusal bank read at its closing commit
+C1_NOTED = '2026-11-05'
+C1_CORRIGENDA_LAST = 61
+C1_V170 = 'b742_standing_v1220.txt'   # ### (carried name) the controls bank of the repairs this corrigendum lands
+C1_WEIGHT_HEAD = '*Appended 2026-11-05 by b742 to b741’s entry (:%d), under `(R352)`(1)' % K.B711_ENTRY
+C1_ENTRY_NEEDLE = '## W-ORD-ZQ-OFFLINE-ZERO, (c7): the route (R-S)'
+C1_TRAIL_NEEDLE = '### b741 — lane two, act one hundred and sixty-eight, the certificate act under (R351)'
 C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST'S|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
@@ -104,55 +104,56 @@ def _c1_weight():
     sc = sc.get('scores') or sc
     held = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'HELD']
     refd = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'REFUTED']
-    if len(held) != 6 or refd != ['N4', 'N5'] or 'scores %d of 8 HELD' % len(held) not in head:
+    if len(held) != 7 or refd != ['N2'] or 'scores %d of 8 HELD' % len(held) not in head:
         sys.exit('### data/b741_scores_close.json: HELD %s, REFUTED %s -- NOTHING COMPOSED' % (held, refd))
     ar = json.load(open(os.path.join(D, 'b741_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
         sys.exit('### data/b741_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
-    gr, l_gr = _c1_fl('b741_offlinezero.txt', r'^### ### \*\*SP3 (NOT REACHED) AT (\(c7\) \w+) ; DISPATCHES (\d+) OF (\d+) ; LINES (\d+) AGAINST ([\d,-]+) \(THE CEILING (\d+)\) ; ROWS COMPILED (\d+) OF (\d+), NAMES (\d+) OF (\d+) ; THE ORDER OPEN AT (SP\d)\.\*\*$', 'the build`s grade')
-    st, l_st = _c1_fl('b741_s5cd_statements.txt', r'^### ### \*\*ROWS (\d+): .* ; NEIGHBOUR NAMED (\d+), ABSENT (\d+) .* ; (COMMITTED BEFORE ANY LEAN FILE OF b741)\.\*\*$', 'the statements` foot')
-    (va, vb), l_v = _c1_fl('b741_standing_v1200.txt', r'^### ### \*\*v1\.20\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*$', 'the v1.20.0 foot')
+    gr, l_gr = _c1_fl('b741_offlinezero.txt', r'^### ### \*\*SP3 (REACHED) ; ε = (\S+) ≤ 1/10 ; DISPATCHES (\d+) OF (\d+) ; LINES (\d+) AGAINST ([\d,-]+) \(THE CEILING (\d+)\) ; NAMES (\d+) OF (\d+) ; THE ORDER OPEN AT (SP\d)\.\*\*$', 'the build`s grade')
+    (pl1,), l_pl1 = _c1_fl('b741_c7_plan.txt', r'^b741 -- W-ORD-ZQ-OFFLINE-ZERO, \(c7\), THE RE-PRICE AND THE CHOICE, \(R351\)\(3\)\(a\): (COMMITTED BEFORE ANY LEAN OF b741) ', 'the plan`s head')
+    (plr,), l_plr = _c1_fl('b741_c7_plan.txt', r'^  THE RECOMMENDATION: (\(R-S\)), the series route re-priced', 'the plan`s recommendation')
+    (va, vb), l_v = _c1_fl('b741_standing_v1210.txt', r'^### ### \*\*v1\.21\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*$', 'the v1.21.0 foot')
     _mv, l_mv = _c1_fl('b741_mirror_verify.txt', r'^  ### VERDICT: (CLEAN ON ALL THREE CLAUSES)$', 'the mirror')
     (mz,), l_mz = _c1_fl(c, r'(mirror-refresh-2026-11-04-b741)\.zip ; ', 'the mirror`s archive')
-    (n3r,), l_n3 = _c1_fl(c, r'^    \(N1\) HELD \(N2\) HELD \(N3\) (REFUTED) \(N4\) REFUTED \(N5\) REFUTED ;', 'the record-time scores')
+    (n2r, n3r), l_n3 = _c1_fl(c, r'^    \(N1\) HELD \(N2\) (REFUTED) \(N3\) (REFUTED) \(N4\) HELD \(N5\) HELD ;', 'the record-time scores')
     _aw, l_aw = _c1_fl('b741_author_answers.txt', r'="(Land as composed)"\. You can', 'the author`s answer')
-    _nx, l_nx = _c1_fl('b741_author_answers.txt', r'^The author’s word: b742 is (\(c7\)), the certified incomplete gamma .* (to SP3) — ', 'the next act')
-    (ca,), l_ca = _c1_fl(c, r'^    \(a\) ### \*\*THE NEXT, (\(R351\)\(7\))\*\*: ', 'the carried item (a)')
+    _nx, l_nx = _c1_fl('b741_author_answers.txt', r'^The author’s word: b742 is (S6), the frontier of box A (to SP4) and the corollary, on route \(K\)', 'the next act')
+    (ca,), l_ca = _c1_fl(c, r'^    \(a\) ### \*\*THE NEXT, (BY THE AUTHOR`S WORD) \(relay data/b741_author_answers\.txt :16\)\*\*: ', 'the carried item (a)')
     ev, dr = _c1_events(), _c1_defects()
-    if sorted(ev) != [1, 2, 3, 4, 5] or len(dr) != 31:
+    if sorted(ev) != [1, 2, 3, 4] or len(dr) != 21:
         sys.exit('### EVENTS %s ; DEFECTS %d -- NOTHING COMPOSED' % (sorted(ev), len(dr)))
     dt = [x[2] for x in dr]
     dn = sum(1 for x in dr if x[3] != 'NEW')
     return (C1_WEIGHT_HEAD + ' -- b741 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b741_closing.txt):* “%s” (data/b741_closing.txt :1, the public relay at %s); its '
-            'relay commit the record’s %s, the closing’s %s (data/b741_steps.json, the record and closing rows). As its rows read: S5c-S5d stated in relay data/b741_s5cd_statements.txt, '
-            '%s rows, %s with a neighbour named, %s ABSENT, %s (:%d); built on SIDE-explicit-formula’s zq-b730 to ba318a0b: SP3 %s at %s, %s of %s dispatches, %s lines against %s '
-            '(SP3’s ceiling %s not approached), rows compiled %s of %s, names %s of %s on the standard three, the order OPEN at %s (data/b741_offlinezero.txt :%d). '
-            'Standing tools v1.20.0, %s of %s (data/b741_standing_v1200.txt :%d); the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), '
-            'G-RULE-POSTSEAL-READ failing on the seat’s refused call (events (5)); SCORES %d OF 8 HELD, N4 and N5 REFUTED (data/b741_scores_close.json), the closing’s score line printing N3 %s at the record (:%d); '
+            'relay commit the record’s %s, the closing’s %s (data/b741_steps.json, the record and closing rows). As its rows read: (c7) re-priced in relay data/b741_c7_plan.txt, '
+            '%s (:%d), the recommendation %s (:%d), the checking route (K) by the author’s word; built on SIDE-explicit-formula’s zq-b730 to 3329eaa1: SP3 %s, ε = %s ≤ 1/10, %s of %s dispatches, %s lines against %s '
+            '(SP3’s ceiling %s not approached), names %s of %s on the standard three, the order OPEN at %s (data/b741_offlinezero.txt :%d). '
+            'Standing tools v1.21.0, %s of %s (data/b741_standing_v1210.txt :%d); the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), '
+            'G-AXIOM-CLAIM and G-RULE-POSTSEAL-READ failing, both declared on the face; SCORES %d OF 8 HELD, N2 REFUTED (data/b741_scores_close.json), the closing’s score line printing N2 %s and N3 %s at the record (:%d); '
             'the author landed it “%s” (data/b741_author_answers.txt :%d). '
             'The root %s over %s banks, chained from %s (data/b741_act_root.json; :%d); '
-            'the mirror %s at %s (data/b741_mirror_verify.txt :%d; :%d); %s prompts banked as put by the seat (:%d); the author’s word at the root: b742 is %s, %s (data/b741_author_answers.txt :%d), '
-            'where the closing’s carried item (a) printed %s’s three choices (:%d); '
-            '%d events in data/b741_events.txt, rows (1)-(%d); %d defects, (a)–(z) and (a’)–(e’) '
-            '(data/b741_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d); over the defects alone CLAIM %d, CLOSE %d, REPEAT %d of %d, the ruling’s figure. '
+            'the mirror %s at %s (data/b741_mirror_verify.txt :%d; :%d); %s prompts banked as put by the seat (:%d); the author’s word at the root: b742 is %s, the frontier of box A %s and the corollary, on route (K) (data/b741_author_answers.txt :%d), '
+            'the closing’s carried item (a) printed %s (:%d); '
+            '%d events in data/b741_events.txt, rows (1)-(%d); %d defects, (a)–(u) '
+            '(data/b741_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d); over the defects alone CLAIM %d, CLOSE %d, REPEAT %d of %d. '
             'The draft at v5; nothing deposited, no new Zenodo version; the corrigendum for these rows follows, under `(R352)`(2).' % (
-                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, st[0], st[1], st[2], 'committed before any Lean file of b741', l_st,
-                gr[0], gr[1], gr[2], gr[3], gr[4], gr[5], gr[6], gr[7], gr[8], gr[9], gr[10], gr[11], l_gr,
+                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_PREV_CLOSE, pl1.lower(), l_pl1, plr, l_plr,
+                gr[0], gr[1], gr[2], gr[3], gr[4], gr[5], gr[6], gr[7], gr[8], gr[9], l_gr,
                 vb, va, l_v, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
-                len(held), n3r, l_n3, _aw[0], l_aw,
-                K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, _mv[0], mz, l_mv, l_mz, np_, l_an, _nx[0], _nx[1], l_nx, ca, l_ca, len(ev), max(ev), len(dr),
+                len(held), n2r, n3r, l_n3, _aw[0], l_aw,
+                K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, _mv[0], mz, l_mv, l_mz, np_, l_an, _nx[0], _nx[1], l_nx, ca.lower(), l_ca, len(ev), max(ev), len(dr),
                 cc, cd, rp, rn, l_cn, dt.count('CLAIM'), dt.count('CLOSE'), dn, len(dr)))
 
 
 # ### the refusals: b741's bank at C1_REFUSAL_AT, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(1, 'PIPE', '14:09:36Z', 'defect (a)'), (2, 'GITWRITE', '14:11:12Z', 'defect (b)'), (3, 'REDIR', '14:11:50Z', 'defect (e)'), (4, 'READ', '14:13:02Z', 'defect (h)'),
-               (5, 'ENV', '14:25:19Z', 'defect (f)'), (6, 'PIPE', '14:26:29Z', 'defect (g)'), (7, 'READ', '14:34:57Z', 'defect (j)'), (8, 'REDIR', '14:39:14Z', 'defect (k)'),
-               (9, 'PIPE', '15:16:21Z', 'defect (q)'), (10, 'READ', '15:19:18Z', 'defect (s)'), (11, 'READ', '15:46:21Z', 'defect (w)'), (12, 'PIPE', '15:49:00Z', 'defect (x)'),
-               (13, 'REDIR', '17:54:14Z', "defect (c')"), (14, 'PIPE', '18:17:33Z', "defect (e')"), (15, 'SUBJECT', '20:22:31Z', 'event (4)'), (16, 'POSTSEAL', '20:56:04Z', 'event (5)')]
+C1_REFUSALS = [(1, 'READ', '22:54:56Z', 'defect (d)'), (2, 'PIPE', '23:02:01Z', 'defect (e)'), (3, 'PIPE', '01:24:52Z', 'defect (k)'), (4, 'READ', '01:27:33Z', 'defect (l)'),
+               (5, 'PIPE', '02:57:29Z', 'defect (s)'), (6, 'REDIR', '03:23:20Z', 'defect (u)'), (7, 'READ', '06:03:34Z', 'event (2)'), (8, 'PIPE', '06:05:48Z', 'event (3)')]
 C1_UNROWED = []
-C1_CORR_TITLE = ('## Corrigendum to b741’s record (relay data/b741_events.txt rows (1)-(5) and data/b741_defects.txt): five events and thirty-one defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT; the one-call commit tool at its head; the hand edit of a tool’s bank, the chained write count, the post-seal read, the touch read’s two differs, the carried next act, '
-                 'at tools/standing/ v1.21.0, each controlled, under (R352)(2)')
+# ### (R352)(2)(iv): b741's post-closing git write, entered here as b741's event; its events bank is not edited
+C1_ENTERED = [(5, "THE SEAT'S", 'CLOSE', 'REPEAT of b740 (b)', 'at the close, before its push (07:26:03Z): the closing commit sent in the message that carried its add; REFUSED BY THE HOOK (GITWRITE, “a second git write in one message”), nothing committed by that call (data/b742_hook_refusals.txt :2); the closing committed alone after it (13498fd2, 07:26:10Z); the one-git-write-per-message repair of (R347)(2)(ii) and (R349)(2)(i) at work')]
+C1_CORR_TITLE = ('## Corrigendum to b741’s record (relay data/b741_events.txt rows (1)-(4) and data/b741_defects.txt): four events and twenty-one defects, each CLAIM or CLOSE and NEW or '
+                 'REPEAT, and one post-closing event entered here; the dispatch’s licence at its head; the post-push chain’s cause and the run cache, the counter composed once, the two '
+                 'post-closing slips, the refusal as REPEAT, at tools/standing/ v1.22.0, each controlled, under (R352)(2)')
 
 
 def _c1_q(s):
@@ -163,7 +164,7 @@ def _c1_v170_line(needle):
     t = _c1_rd(C1_V170).split(NL)
     h = [i for i, l in enumerate(t, 1) if l.startswith(needle)]
     if len(h) != 1:
-        sys.exit('### THE v1.21.0 BANK: %d LINES OPEN %r, NOT ONE -- NOTHING COMPOSED' % (len(h), needle))
+        sys.exit('### THE v1.22.0 BANK: %d LINES OPEN %r, NOT ONE -- NOTHING COMPOSED' % (len(h), needle))
     return h[0]
 
 
@@ -180,18 +181,20 @@ def _c1_state():
             continue
         k = row.split('(', 1)[1].rstrip(')')
         src = dtext.get(k, '') if row.startswith('defect') else ev.get(int(k), '')
-        if at[:5] not in src and at not in src and ('REFUSED BY THE HOOK (%s' % kind) not in src and 'refused by the hook' not in src:
+        if at[:5] not in src and at not in src and ('REFUSED BY THE HOOK (%s' % kind) not in src and 'refused by the hook' not in src.lower():
             bad_ref.append(ln)
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
     (cc, cd), _l = _c1_fl('b741_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V170)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.21.0: CONTROLS')]
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.22.0: CONTROLS')]
+    hr = _c1_rd('b742_hook_refusals.txt').split(NL)
     s = dict(events=ev, tags=tags, defects=dr, notes=list(C1_NOTES))
     nc, nl_, _rep, _n = _c1_counts(s)
-    bad = [k_ for k_, ok_ in (('the event rows (1)-(5)', sorted(ev) == [1, 2, 3, 4, 5]), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 31', len(dr) == 31), ('the refusals 16, each answered as listed', len(rl) == 16 and not bad_ref),
+    bad = [k_ for k_, ok_ in (('the event rows (1)-(4)', sorted(ev) == [1, 2, 3, 4]), ('each event`s bracket', all(t[0] for t in tags.values())),
+                              ('the defect rows 21', len(dr) == 21), ('the refusals 8, each answered as listed', len(rl) == 8 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.21.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the v1.22.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the entered event`s refusal at data/b742_hook_refusals.txt :2', '| GITWRITE |' in hr[1] and hr[1].startswith('2026-11-05T07:26:03Z')),
                               ('the counter the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
@@ -205,6 +208,13 @@ def _c1_counts(s):
     return t.count('CLAIM'), t.count('CLOSE'), rep, len(t)
 
 
+def _c1_read_counts(s):
+    """the counter as this corrigendum reads the items: event (1) REPEAT of b740 event (4) ((R352)(2)(v)) and the entered event (5)."""
+    nc, nl_, rep, n = _c1_counts(s)
+    flip = 1 if s['tags'][1][1] == 'NEW' else 0
+    return nc + sum(1 for e in C1_ENTERED if e[2] == 'CLAIM'), nl_ + sum(1 for e in C1_ENTERED if e[2] == 'CLOSE'), rep + flip + sum(1 for e in C1_ENTERED if e[3] != 'NEW'), n + len(C1_ENTERED)
+
+
 def _c1_owners(rows):
     c = {}
     for o in rows:
@@ -216,42 +226,42 @@ def _c1_col(c):
     return 'NEW' if c == 'NEW' else c.replace('REPEAT ', 'REPEAT of ', 1).replace("'", '’').replace('`', '’')
 
 
-# ### the repairs each event is met by at v1.21.0
-C1_EV_EXTRA = {1: '; repair (commit); rule (1) of data/b742_rules.txt', 2: '; repair (commit); rule (1) of data/b742_rules.txt',
-               3: '; no repair ordered: an arm that raises on the previous act`s banks reads its subject`s absence as a failure, named here', 4: '; repair (commit); rule (1) of data/b742_rules.txt',
-               5: '; repair (postseal); rule (4) of data/b742_rules.txt, REPEAT, the class b736 (8)'}
-C1_DF_EXTRA = {'b': '; repair (writes); rule (3) of data/b742_rules.txt, REPEAT, b738 (m) and b736 (b)', 'm': '; repair (hashed); rule (2) of data/b742_rules.txt, N4'}
+# ### the repairs each event is met by at v1.22.0
+C1_EV_EXTRA = {1: '; repair (repeat); rule (5) of data/b742_rules.txt: by the commit tool’s class REPEAT of b740 event (4), read so in the counter below',
+               2: '; no repair ordered: the hook refused it before it ran, row (77) at work', 3: '; no repair ordered: the hook refused it before it ran, row (77) at work',
+               4: '; repair (remote); rule (2) of data/b742_rules.txt: the move to the background the harness’s act, not the seat’s; the cause as the banks allow it'}
+C1_DF_EXTRA = {'q': '; repair (dispatch); rule (1) of data/b742_rules.txt', 'n': '; not repaired by (R352): G-RULE-POSTSEAL-READ declared failing on b741’s face, the wrap’s repair carried'}
 C1_REFUSED_LATE = None
-C1_NOTES = ('Dated note, b742, to the counter (`(R352)`(1)): “CLAIM 15, CLOSE 21, REPEAT 18 OF 36” is relay data/b741_closing.txt :5, over the five events and the thirty-one defects together; over the defects alone the tags give CLAIM 11, CLOSE 20, REPEAT 17 of 31, the ruling’s figure. Both read from the same tags; this entry prints both and edits neither.',
-            'Dated note, b742, to b741’s score line: relay data/b741_closing.txt :144 prints N3 REFUTED with N4 and N5, the reading at the record, when the root prompt was not yet banked; the scores bank read at the close (data/b741_scores_close.json) holds N3 HELD and 6 of 8, and the closing’s head line its “scores 6 of 8 HELD”. The class of b739’s score line (b741’s corrigendum, its second dated note); neither is edited.',
-            'Dated note, b742, to the touch read (`(R352)`(2)(v)): relay data/b741_touch.txt :38 prints DIFFERS 2. Row (19), the entry’s statements sentence, read “each with its route, its reason and its Mathlib or kernel neighbour” where the statements bank’s row (d7) carries no reason; its cause defect (b’), the composer set before the lock to name (d7). Row (26), the entry’s citation figures, read the first match in data/b741_citation_check.txt (:34, the seat’s row quoting b739’s foot) where b741’s foot is :136; its cause defect (a’), the reader set to the bank’s foot before the lock. b741’s events bank carries no row for either; this note is their row.',
-            'Dated note, b742, to the post-seal arm (`(R352)`(2)(iv)): the ruling counts this the arm’s third failure, b736’s event (8) and b741’s event (5) the REPEAT rows of its class; the suite banks list G-RULE-POSTSEAL-READ LIVE FAILING at eight acts before b742 (b720, b723, b725, b726, b727, b732, b736, b741), read by tools/standing/postseal.py; the arm now prints its ordinal from those banks.',
-            'Dated note, b742, to N4 (`(R352)`(2)(ii)): the ruling names b741’s hand edit of data/b741_corrigendum.json as an edit after the lock; the bank was committed at 14:53:00Z (Component 1, relay d50a86be) and the lock gate at 18:29:09Z, so the edit came before the lock, and the LOCKED rule of v1.17.0 could not reach it. N4 read it through the hashes bank (“edited by hand since: [’b741_corrigendum.json’]”). The repair refuses an Edit or Write of any bank the act’s hashes bank names, before the lock or after; the post-lock rule stands beside it.')
+C1_NOTES = ('Dated note, b742, to the counter (`(R352)`(2)(iii)): “CLAIM 5, CLOSE 20, REPEAT 14 OF 25” is relay data/b741_closing.txt :5, over the four events and the twenty-one defects together; the touch read’s row (28) at the locked bank read CLAIM 5, CLOSE 16, REPEAT 11 of 21, the defects alone (data/b741_touch.txt :35), and FINDINGS :13601 at the record CLAIM 5, CLOSE 17, REPEAT 11 of 22, the defects and event (1). Each is the one composer’s figure at its printer’s moment (relay data/b742_standing_v1220.txt, the (counter) case): the lock’s set, then event (1) entered after the lock, then events (2)-(4) after the pre-root. This entry prints all three and edits none.',
+            'Dated note, b742, to b741’s score line: relay data/b741_closing.txt :149 prints N2 and N3 REFUTED, the reading at the record, when the root prompt was not yet banked; the scores bank read at the close (data/b741_scores_close.json) holds N3 HELD and 7 of 8, N2 REFUTED, and the closing’s head line its “scores 7 of 8 HELD”. The class of b739’s and b740’s score lines; neither is edited.',
+            'Dated note, b742, to event (4) (`(R352)`(2)(ii)): the row is tagged THE SEAT’S; the seat sent standing-b2c in the foreground and re-ran it in the foreground, and the move to the background at its 600 s timeout was the harness’s (task bh6cl8npl, read by tools/standing/harnessmoves.py from session 352ad3f4’s transcript). It is banked here as the harness’s act; b741’s events bank is not edited. The cause of the slow chain phase is not established by b741’s banks: the slow run’s remote-read bank was overwritten by its re-run, and no read was timed; under the repair the same part’s 38 reads took 16.6 s inside a 191 s chain phase.',
+            'Dated note, b742, to event (1) (`(R352)`(2)(v)): the row is tagged NEW; the commit tool now prints the refusal’s class, REPEAT of b740 event (4) (the pre-run’s commit after the lock, which b740 headed `lock`), and this corrigendum reads it so in its counter.',
+            'Dated note, b742, to the two post-closing slips (`(R352)`(2)(iv)): the Read of data/b741_closing.txt at 07:24:51Z, after the closing commit, is in the hook’s bank as b742’s first line (READ, refused, nothing read); the git write at 07:26:03Z is entered below as b741’s event (5), the hook’s refusal of it the one-git-write-per-message repair landing.')
 C1_CLASSES = (
-    ('commit', 'the subject and the row that must travel with their commit (`(R352)`(2)(i), events (1), (2), (4); CLAIM ; NEW)', 'rule (1) of data/b742_rules.txt; tools/standing/commit.py makes the gate, lock and seal commits in one call: the subject composed from the bank, the commit by argument list with no shell between, the step row by the record tool’s step route, in that order; it refuses before git runs where the record the subject names does not exist, where a lock row stands (a second lock or a gate after it), where the subject faults or nothing is staged; the hook refuses a gate, lock or seal commit typed into a shell (SUBJECT). b741’s four events replayed in a scratch repository: the backtick dropped by PowerShell before, kept after; the gate rows after the lock before, gate, gate, lock each rowed in its call after; the seal before its record refused; the commit after the lock whose head and row disagreed refused before it ran'),
-    ('hashed', 'the hand edit of a tool’s bank (`(R352)`(2)(ii), defect (m), N4; CLOSE ; REPEAT of b739 (j))', 'rule (2) of data/b742_rules.txt; the hook refuses an Edit or Write of a bank named in the act’s hashes bank (HASHED), the exclusion of (R343)(2)(vi) read through lock_exempt (the events bank, the step bank and the scans stay writable by their routes). b741’s edit replayed: allowed before (the lock not come), HASHED after'),
-    ('writes', 'the chained add and commit (`(R352)`(2)(iii), defect (b), N5; CLOSE ; REPEAT of b738 (m) and b736 (b))', 'rule (3) of data/b742_rules.txt; the count read a chained command as its writes from v1.2.1 (b741’s chained call, two writes, refused GITWRITE, nothing written), and N5 counted the refused message; the commit tool’s run is now one write, so an add chained before it counts two and is refused'),
-    ('postseal', 'the git grep over OPEN\\_TRAILS after the seal (`(R352)`(2)(iv), events (5); CLOSE ; REPEAT of b736 (8))', 'rule (4) of data/b742_rules.txt; the exclude list is printed by the commit tool after the seal commit, before any read; the arm’s failure carries its ordinal from the suite banks (tools/standing/postseal.py, checks.tpl); b741’s reading printed as the arm’s eighth failure by the banks'),
-    ('touch', 'the touch read’s two differs rows (`(R352)`(2)(v), data/b741_touch.txt :38)', 'rule (5) of data/b742_rules.txt; rows (19) and (26) named with their causes, defects (b’) and (a’), in the dated note below. A guard: no failing side'),
-    ('next', 'the closing’s carried item (`(R352)`(2)(vi), data/b741_closing.txt :332)', 'rule (6) of data/b742_rules.txt; tools/standing/nextact.py composes item (a) from the author’s answers bank where an answer names the next act, the closing template’s carried() through it; b741’s closing regenerated: (R351)(7)’s three choices before, the author’s word “b742 is (c7) … to SP3” after'),
-    ('version', 'the version (`(R352)`(2)(vii))', 'rule (7) of data/b742_rules.txt; tools/standing/VERSION v1.21.0, landed by a commit of its own (%s) with its controls bank' % K.C1_STANDING),
+    ('dispatch', 'the dispatch conditioned on the author’s word (`(R352)`(2)(i), defect (q); CLOSE ; NEW)', 'rule (1) of data/b742_rules.txt; tools/standing/dispatchrows.py licence() reads the earliest relay commit carrying the word in the answers bank, at or before the dispatch’s time, and a dispatch row without it is refused before anything is written, its hash in the row. b741’s dispatch 2 replayed: accepted with no licence before; refused at 23:38:52Z after (the word first committed at 1c74cfcf, 05:17:32Z), passing with 1c74cfcf after that commit'),
+    ('remote', 'the post-push chain’s 1970 s (`(R352)`(2)(ii), event (4); CLOSE ; REPEAT)', 'rule (2) of data/b742_rules.txt; tools/standing/remotecache.py, one remote read per repository per suite run, cached across its parts, each read timed; tools/standing/harnessmoves.py, the harness’s move read apart from the seat’s background calls. The three phase tables side by side, the excess wholly in the chain phase; under the repair the part re-run cold (38 reads, 16.6 s of reads, 263 s) and warm (38 cached, 239 s); the ruling’s named cause not established by the banks, named by its repository and seconds if it recurs'),
+    ('counter', 'the counter composed in three places (`(R352)`(2)(iii), data/b741_touch.txt :35)', 'rule (3) of data/b742_rules.txt; tools/standing/counter.py, one composer over the defects and events banks, its set named; b741’s three figures each the composer’s at its printer’s moment, the cause event (1) and then events (2)-(4)'),
+    ('slips', 'the two post-closing slips (`(R352)`(2)(iv))', 'rule (4) of data/b742_rules.txt; the Read refusal in the hook’s bank, the git write entered below as event (5). Guards'),
+    ('repeat', 'the commit tool’s refusal of the pre-run under the lock heading (`(R352)`(2)(v), event (1))', 'rule (5) of data/b742_rules.txt; tools/standing/commit.py repeat_of() prints the refusal’s class from the earlier acts’ events and defects banks: REPEAT of b740 event (4)'),
+    ('version', 'the version (`(R352)`(2)(vi))', 'rule (6) of data/b742_rules.txt; tools/standing/VERSION v1.22.0, landed by a commit of its own (%s) with its controls bank' % K.C1_STANDING),
 )
 
 
 def _c1_lines(s):
     nc, nl_, rep, n = _c1_counts(s)
+    rc, rl_, rr, rn = _c1_read_counts(s)
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v170_foot'])
-    L = ['*b741’s events bank (relay data/b741_events.txt) carries five rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank thirty-one lettered rows, (a)-(z) and (a’)-(e’), each tagged in its own bracket (%s); its refusal bank sixteen lines at %s, '
-         'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
+    L = ['*b741’s events bank (relay data/b741_events.txt) carries four rows, entered after its lock and not lettered, each tagged in its '
+         'own bracket (%s); its defects bank twenty-one lettered rows, (a)-(u), each tagged in its own bracket (%s); its refusal bank eight lines at %s, '
+         'each recorded by a row; one event after its closing is entered here. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*' % (
              _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
-    L += ['**The repairs of `(R352)`(2), at tools/standing/ v1.21.0, each with a control on b741’s banks, failing on the route before the repair '
+    L += ['**The repairs of `(R352)`(2), at tools/standing/ v1.22.0, each with a control on b741’s banks, failing on the route before the repair '
           'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v170_line('### (%s) ' % k_)), '']
-    L += ['**b741’s events (1)-(5):**', '']
+    L += ['**b741’s events (1)-(4):**', '']
     for k_ in sorted(s['events']):
         t, r, o = s['tags'][k_]
         h = re.sub(r"^(THE SEAT'S|THE TOOL'S|THE SCORE|THE RUNNER|THE HOST'S|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_])
@@ -259,28 +269,32 @@ def _c1_lines(s):
         h = (h[:120].rsplit(' ', 1)[0] + ' …') if len(h) > 120 else h
         L += ['**(%d)** %s (relay data/b741_events.txt, row (%d); %s; %s; %s%s).' % (
             k_, _c1_q(h).replace("'", '’'), k_, o.lower().replace("'s", '’s'), t, _c1_col(r), C1_EV_EXTRA.get(k_, '').replace('`', '’'))]
+    for k_, o, t, c, h in C1_ENTERED:
+        L += ['**(%d)**, entered here by `(R352)`(2)(iv): %s (%s; %s; %s).' % (k_, _c1_q(h), o.lower().replace("'s", '’s'), t, c)]
     L += ['', '**b741’s defects:**', '']
     for x, o, t, c, _tx in s['defects']:
         L += ['**(%s)** (relay data/b741_defects.txt; %s; %s; %s%s).' % (x.replace("'", '’'), o.lower().replace("'s", '’s'), t, _c1_col(c), C1_DF_EXTRA.get(x, ''))]
     L += ['', '**b741’s refusals** (relay data/b741_hook_refusals.txt at %s, one a line): ' % C1_REFUSAL_AT + '; '.join(
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
           '**Dated notes:**', ''] + [x_ for nt_ in s['notes'] for x_ in (nt_, '')] + [
-          '**The counter:** CLAIM %d, CLOSE %d over the %d items (five events, thirty-one defects), as b741’s closing prints it (relay data/b741_closing.txt :5); REPEAT %d of %d; the CLAIM items %s.' % (
-              nc, nl_, n, rep, n, ', '.join(claims) or 'none'), '',
+          '**The counter:** CLAIM %d, CLOSE %d, REPEAT %d of %d over the %d items as the banks tag them (four events, twenty-one defects), as b741’s closing prints it (relay data/b741_closing.txt :5); '
+          'as this corrigendum reads them, event (1) REPEAT of b740 event (4) and event (5) entered, CLAIM %d, CLOSE %d, REPEAT %d of %d; the CLAIM items %s.' % (
+              nc, nl_, rep, n, n, rc, rl_, rr, rn, ', '.join(claims) or 'none'), '',
           '*Filed at b742 on the author’s ruling `(R352)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b742.py) from '
-          'b741’s events and defects banks read unedited, its refusal bank, and the v1.21.0 controls bank; banked as relay `data/b742_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
+          'b741’s events and defects banks read unedited, its refusal bank, the hook’s bank of b742, and the v1.22.0 controls bank; banked as relay `data/b742_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b741’s record; no sealed tool, face, trail or root-named bank of b741 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
 
 
 def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
+    rc, rl_, rr, rn = _c1_read_counts(s)
     return (['b742 -- THE CORRIGENDUM FOR b741, (R352)(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b741_events.txt rows (1)-(5), data/b741_defects.txt 31 rows, data/b741_hook_refusals.txt 16 '
-             'lines at %s; data/%s (the v1.21.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
+             '### the banks read unedited: data/b741_events.txt rows (1)-(4), data/b741_defects.txt 21 rows, data/b741_hook_refusals.txt 8 '
+             'lines at %s; data/b742_hook_refusals.txt :1-:2 (the post-closing slips); data/%s (the v1.22.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 5, DEFECTS 31 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.21.0: THE ONE-CALL COMMIT TOOL, THE HAND EDIT OF A TOOL`S BANK, '
-               'THE CHAINED WRITE COUNT, THE POST-SEAL READ, THE TOUCH READ`S DIFFERS, THE CARRIED NEXT ACT, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, len(s['notes']), ln)])
+            + ['', '### ### **ITEMS %d: EVENTS 4, DEFECTS 21 ; CLAIM %d, CLOSE %d ; REPEAT %d ; AS READ HERE, WITH EVENT (5) ENTERED: CLAIM %d, CLOSE %d, REPEAT %d OF %d ; DATED NOTES %d ; v1.22.0: THE DISPATCH`S LICENCE, '
+               'THE RUN CACHE AND THE CHAIN`S CAUSE, THE COUNTER COMPOSED ONCE, THE TWO SLIPS, THE REFUSAL AS REPEAT, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, rc, rl_, rr, rn, len(s['notes']), ln)])
 
 
 def c1(*a):
@@ -303,14 +317,17 @@ def c1(*a):
             return
         ln = line_of(R.FIND, C1_CORR_TITLE)
         nc, nl_, rep, n = _c1_counts(s)
+        rc, rl_, rr, rn = _c1_read_counts(s)
         put_txt('%s_corrigendum.txt' % ACT, _c1_bank(s, ln))
         put_json('%s_corrigendum.json' % ACT, dict(at=utc(), entry_line=ln, title=C1_CORR_TITLE, claim=nc, close=nl_, repeat=rep, items=n,
+                                                   read_here=dict(claim=rc, close=rl_, repeat=rr, items=rn),
                                                    events=[dict(row=k_, owner=s['tags'][k_][2], tag=s['tags'][k_][0], column=s['tags'][k_][1]) for k_ in sorted(s['events'])],
+                                                   entered=[dict(row=e[0], owner=e[1], tag=e[2], column=e[3]) for e in C1_ENTERED],
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.21.0', bank='data/' + C1_V170),
+                                                   notes=s['notes'], repairs=dict(version='v1.22.0', bank='data/' + C1_V170),
                                                    row=C1_CORRIGENDA_LAST + 1))
-        print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(s['notes']), ln))
+        print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; AS READ HERE %d, %d, %d OF %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, rc, rl_, rr, rn, len(s['notes']), ln))
         return
     sys.exit('usage: fold.py record c1 weight | corrigendum  [dry | write]')
 #⟪END⟫
@@ -431,10 +448,10 @@ def runner_ok(S):
 # ### b742, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R352): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
 #⟪OVERRIDE closing MARK 176194092462 2⟫
-    rows = [l for n_ in ('b742_defects.txt', 'b742_events.txt') for l in (rd(n_) or '').split(NL) if re.match(r"^    \((?:[a-z]'?|\d+)\) ", l)]
-    rep = sum(1 for l in rows if re.search(r'\[(?:CLAIM|CLOSE) ; REPEAT\b', l))
-    return '### THE COUNTER ((R352) Component 5, the act`s events and defects together; relay data/b742_defects.txt, data/b742_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d%s' % (
-        c['claim'], c['close'], rep, len(rows), (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
+    from standing import counter as CNT   # ### v1.22.0, (R352)(2)(iii): the one composer, its set named
+    k_ = CNT.compose('b742')
+    return '### THE COUNTER ((R352) Component 5, the act`s events and defects together; relay data/b742_defects.txt, data/b742_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d ; THE SET: DEFECTS %d, EVENTS %d, THE LAST %s%s' % (
+        k_['claim'], k_['close'], k_['repeat'], k_['total'], k_['defects'], k_['events'], k_['last'], (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
 #⟪END⟫
 # ### b741, carried (the Edit tool): the template's item (b) names an old order list by hand; the act's orders are those orders.py reads open,
 # ### entered with the trail, and the trail's open-orders line written from tools/standing/orders.py's output; b742 (defect (d')): the order's

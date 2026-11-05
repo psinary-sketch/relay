@@ -1,0 +1,71 @@
+b742 -- THE CORRIGENDUM FOR b741, (R352)(2) (2026-11-05T14:53:18Z)
+
+### the banks read unedited: data/b741_events.txt rows (1)-(4), data/b741_defects.txt 21 rows, data/b741_hook_refusals.txt 8 lines at 13498fd2; data/b742_hook_refusals.txt :1-:2 (the post-closing slips); data/b742_standing_v1220.txt (the v1.22.0 controls); the corrigenda bank`s last row (61).
+
+  *b741’s events bank (relay data/b741_events.txt) carries four rows, entered after its lock and not lettered, each tagged in its own bracket (4 the seat’s); its defects bank twenty-one lettered rows, (a)-(u), each tagged in its own bracket (21 the seat’s); its refusal bank eight lines at 13498fd2, each recorded by a row; one event after its closing is entered here. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R352)`(2), at tools/standing/ v1.22.0, each with a control on b741’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b742_standing_v1220.txt, 13 cases, AS WANTED 13):
+  
+  **(dispatch) the dispatch conditioned on the author’s word (`(R352)`(2)(i), defect (q); CLOSE ; NEW)** -- rule (1) of data/b742_rules.txt; tools/standing/dispatchrows.py licence() reads the earliest relay commit carrying the word in the answers bank, at or before the dispatch’s time, and a dispatch row without it is refused before anything is written, its hash in the row. b741’s dispatch 2 replayed: accepted with no licence before; refused at 23:38:52Z after (the word first committed at 1c74cfcf, 05:17:32Z), passing with 1c74cfcf after that commit (:19).
+  
+  **(remote) the post-push chain’s 1970 s (`(R352)`(2)(ii), event (4); CLOSE ; REPEAT)** -- rule (2) of data/b742_rules.txt; tools/standing/remotecache.py, one remote read per repository per suite run, cached across its parts, each read timed; tools/standing/harnessmoves.py, the harness’s move read apart from the seat’s background calls. The three phase tables side by side, the excess wholly in the chain phase; under the repair the part re-run cold (38 reads, 16.6 s of reads, 263 s) and warm (38 cached, 239 s); the ruling’s named cause not established by the banks, named by its repository and seconds if it recurs (:31).
+  
+  **(counter) the counter composed in three places (`(R352)`(2)(iii), data/b741_touch.txt :35)** -- rule (3) of data/b742_rules.txt; tools/standing/counter.py, one composer over the defects and events banks, its set named; b741’s three figures each the composer’s at its printer’s moment, the cause event (1) and then events (2)-(4) (:66).
+  
+  **(slips) the two post-closing slips (`(R352)`(2)(iv))** -- rule (4) of data/b742_rules.txt; the Read refusal in the hook’s bank, the git write entered below as event (5). Guards (:76).
+  
+  **(repeat) the commit tool’s refusal of the pre-run under the lock heading (`(R352)`(2)(v), event (1))** -- rule (5) of data/b742_rules.txt; tools/standing/commit.py repeat_of() prints the refusal’s class from the earlier acts’ events and defects banks: REPEAT of b740 event (4) (:84).
+  
+  **(version) the version (`(R352)`(2)(vi))** -- rule (6) of data/b742_rules.txt; tools/standing/VERSION v1.22.0, landed by a commit of its own (147342a2) with its controls bank (:90).
+  
+  **b741’s events (1)-(4):**
+  
+  **(1)** the pre-run’s banks sent to ’tools/standing/commit.py relay lock’, after b740’s order (its pre-seal commits headed … (relay data/b741_events.txt, row (1); the seat’s; CLOSE; NEW; repair (repeat); rule (5) of data/b742_rules.txt: by the commit tool’s class REPEAT of b740 event (4), read so in the counter below).
+  **(2)** a scratch reader opened through the Read tool with no limit; the harness hook REFUSED (data/b741\_hook\_refusals.txt :7, … (relay data/b741_events.txt, row (2); the seat’s; CLOSE; REPEAT; no repair ordered: the hook refused it before it ran, row (77) at work).
+  **(3)** a PowerShell listing of b740’s untracked probe, mid-exercise and scan-file banks sent with pipes; the harness hook … (relay data/b741_events.txt, row (3); the seat’s; CLOSE; REPEAT; no repair ordered: the hook refused it before it ran, row (77) at work).
+  **(4)** the post-push part standing-b2c, sent in the foreground at the 600 s timeout, ran its act-root chain phase 1970 s (the … (relay data/b741_events.txt, row (4); the seat’s; CLOSE; REPEAT; repair (remote); rule (2) of data/b742_rules.txt: the move to the background the harness’s act, not the seat’s; the cause as the banks allow it).
+  **(5)**, entered here by `(R352)`(2)(iv): at the close, before its push (07:26:03Z): the closing commit sent in the message that carried its add; REFUSED BY THE HOOK (GITWRITE, “a second git write in one message”), nothing committed by that call (data/b742\_hook\_refusals.txt :2); the closing committed alone after it (13498fd2, 07:26:10Z); the one-git-write-per-message repair of (R347)(2)(ii) and (R349)(2)(i) at work (the seat’s; CLOSE; REPEAT of b740 (b)).
+  
+  **b741’s defects:**
+  
+  **(a)** (relay data/b741_defects.txt; the seat’s; CLAIM; REPEAT of b740 (c)).
+  **(b)** (relay data/b741_defects.txt; the seat’s; CLAIM; REPEAT of b740 (d)).
+  **(c)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW).
+  **(d)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(e)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(f)** (relay data/b741_defects.txt; the seat’s; CLAIM; NEW).
+  **(g)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b741_defects.txt; the seat’s; CLAIM; NEW).
+  **(i)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(l)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (19)).
+  **(m)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW; not repaired by (R352): G-RULE-POSTSEAL-READ declared failing on b741’s face, the wrap’s repair carried).
+  **(o)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of b740 (c)).
+  **(p)** (relay data/b741_defects.txt; the seat’s; CLAIM; NEW).
+  **(q)** (relay data/b741_defects.txt; the seat’s; CLOSE; NEW; repair (dispatch); rule (1) of data/b742_rules.txt).
+  **(r)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of b740 (c)).
+  **(s)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(t)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of b730 (w)).
+  **(u)** (relay data/b741_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  
+  **b741’s refusals** (relay data/b741_hook_refusals.txt at 13498fd2, one a line): :1 READ 22:54:56Z, recorded at defect (d); :2 PIPE 23:02:01Z, recorded at defect (e); :3 PIPE 01:24:52Z, recorded at defect (k); :4 READ 01:27:33Z, recorded at defect (l); :5 PIPE 02:57:29Z, recorded at defect (s); :6 REDIR 03:23:20Z, recorded at defect (u); :7 READ 06:03:34Z, recorded at event (2); :8 PIPE 06:05:48Z, recorded at event (3).
+  
+  **Dated notes:**
+  
+  Dated note, b742, to the counter (`(R352)`(2)(iii)): “CLAIM 5, CLOSE 20, REPEAT 14 OF 25” is relay data/b741_closing.txt :5, over the four events and the twenty-one defects together; the touch read’s row (28) at the locked bank read CLAIM 5, CLOSE 16, REPEAT 11 of 21, the defects alone (data/b741_touch.txt :35), and FINDINGS :13601 at the record CLAIM 5, CLOSE 17, REPEAT 11 of 22, the defects and event (1). Each is the one composer’s figure at its printer’s moment (relay data/b742_standing_v1220.txt, the (counter) case): the lock’s set, then event (1) entered after the lock, then events (2)-(4) after the pre-root. This entry prints all three and edits none.
+  
+  Dated note, b742, to b741’s score line: relay data/b741_closing.txt :149 prints N2 and N3 REFUTED, the reading at the record, when the root prompt was not yet banked; the scores bank read at the close (data/b741_scores_close.json) holds N3 HELD and 7 of 8, N2 REFUTED, and the closing’s head line its “scores 7 of 8 HELD”. The class of b739’s and b740’s score lines; neither is edited.
+  
+  Dated note, b742, to event (4) (`(R352)`(2)(ii)): the row is tagged THE SEAT’S; the seat sent standing-b2c in the foreground and re-ran it in the foreground, and the move to the background at its 600 s timeout was the harness’s (task bh6cl8npl, read by tools/standing/harnessmoves.py from session 352ad3f4’s transcript). It is banked here as the harness’s act; b741’s events bank is not edited. The cause of the slow chain phase is not established by b741’s banks: the slow run’s remote-read bank was overwritten by its re-run, and no read was timed; under the repair the same part’s 38 reads took 16.6 s inside a 191 s chain phase.
+  
+  Dated note, b742, to event (1) (`(R352)`(2)(v)): the row is tagged NEW; the commit tool now prints the refusal’s class, REPEAT of b740 event (4) (the pre-run’s commit after the lock, which b740 headed `lock`), and this corrigendum reads it so in its counter.
+  
+  Dated note, b742, to the two post-closing slips (`(R352)`(2)(iv)): the Read of data/b741_closing.txt at 07:24:51Z, after the closing commit, is in the hook’s bank as b742’s first line (READ, refused, nothing read); the git write at 07:26:03Z is entered below as b741’s event (5), the hook’s refusal of it the one-git-write-per-message repair landing.
+  
+  **The counter:** CLAIM 5, CLOSE 20, REPEAT 14 of 25 over the 25 items as the banks tag them (four events, twenty-one defects), as b741’s closing prints it (relay data/b741_closing.txt :5); as this corrigendum reads them, event (1) REPEAT of b740 event (4) and event (5) entered, CLAIM 5, CLOSE 21, REPEAT 16 of 26; the CLAIM items (a), (b), (f), (h), (p).
+  
+  *Filed at b742 on the author’s ruling `(R352)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b742.py) from b741’s events and defects banks read unedited, its refusal bank, the hook’s bank of b742, and the v1.22.0 controls bank; banked as relay `data/b742_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (62). It answers b741’s record; no sealed tool, face, trail or root-named bank of b741 is edited.*
+
+### ### **ITEMS 25: EVENTS 4, DEFECTS 21 ; CLAIM 5, CLOSE 20 ; REPEAT 14 ; AS READ HERE, WITH EVENT (5) ENTERED: CLAIM 5, CLOSE 21, REPEAT 16 OF 26 ; DATED NOTES 5 ; v1.22.0: THE DISPATCH`S LICENCE, THE RUN CACHE AND THE CHAIN`S CAUSE, THE COUNTER COMPOSED ONCE, THE TWO SLIPS, THE REFUSAL AS REPEAT, THE VERSION ; THE ENTRY AT FINDINGS :13619.**
