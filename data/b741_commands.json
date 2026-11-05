@@ -1,5 +1,5 @@
 {
- "at": "2026-11-05T03:13:03Z",
+ "at": "2026-11-05T03:17:46Z",
  "anchor": "RULING (R351) BEGIN",
  "rows": [
   {
@@ -3088,6 +3088,126 @@
    "src": "seat",
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 386,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:13:20.251Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 387,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:13:24.512Z",
+   "src": "seat",
+   "cmd": "git show --stat --format='%h %s' 3da98519 0459d8c9",
+   "n": 388,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:13:28.321Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_address_scan.py scan --bank",
+   "n": 389,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:13:44.660Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b741_reg_satisfiable.txt data/b741_address_scan.txt data/b741_census_stepzero.txt data/b741_closing_dry.txt data/b741_commands.json data/b741_commands.txt data/b741_faces_census_stepzero.txt data/b741_pins_stepzero.txt data/b741_prelock.txt data/b741_reg_gate.txt data/b741_reg_termscan.txt data/b741_regspec_run.txt data/b741_report_dry.txt data/b741_root_banks_dry.json data/b741_root_banks_dry.txt data/b741_satisfiable.json data/b741_scores_dry.txt data/b741_steps.json tools/acts/b741.py",
+   "n": 390,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:13:53.602Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate 'GATE VERDICT CLEAR; defects (p)-(s) entered, the N2 route read by ancestry and the (K) word by a relay commit before the dispatch; the six lock-gate banks by record gatebanks, termscan CLEAN, regspec 0, JOINTLY SATISFIABLE, census and faces MISSING 0, pins HARD-FAILING 0; scan 0, controls 7 of 7'",
+   "n": 391,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:14:11.306Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry",
+   "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:14:29.346Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py closing dry --quiet",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:15:25.523Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py \"bank-only|b378_lockgate|reg_seal\" 0 100000",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:15:33.654Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:16:37.213Z",
+   "src": "seat",
+   "cmd": "tail -n 4 data/b741_reg_gate.txt; git status --short -uno",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:16:46.489Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b741_address_scan.py scan --bank",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:17:01.655Z",
+   "src": "seat",
+   "cmd": "git add data/b741_closing_dry.txt data/b741_reg_gate.txt data/b741_report_dry.txt data/b741_root_banks_dry.json data/b741_root_banks_dry.txt data/b741_steps.json data/b741_address_scan.txt",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:17:08.265Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate 'step row 11 for 0c6e9422; rootdry READY True, 42 banks; closing dry READ; GATE VERDICT CLEAR bank-only, pre-lock comparison CLEAR; scan 0, controls 7 of 7'",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:17:22.158Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b378_lockgate.py b741 D:/relay/data/b741_registration_2026-11-04.txt",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:17:31.993Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 401,
    "bg": false
   }
  ],

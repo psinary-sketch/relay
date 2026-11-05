@@ -1,7 +1,7 @@
-b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T03:13:03Z)
+b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T03:17:46Z)
 
 ### the source: the seat`s session 352ad3f4-37c5-4360-b9c6-cb7368f5f805 from its first user line carrying 'RULING (R351) BEGIN', with its subagents` transcripts
-### commands read: 386
+### commands read: 401
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #276 2026-11-05T01:23:34.811Z seat Bash -- H write under tools/
@@ -470,5 +470,20 @@ b741 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #384 | 2026-11-05T03:12:37.081Z | seat | Bash | head -c 600 data/b740_regspec_run.txt; echo; echo ---; head -c 400 data/b740_satisfiable.json; echo; git grep -n -e "satisfiable.json" -e "def regspec" -- tools
   #385 | 2026-11-05T03:12:44.624Z | seat | PowerShell | $os = Get-CimInstance Win32_OperatingSystem; "free_mb=$([int]($os.FreePhysicalMemory/1024))"
   #386 | 2026-11-05T03:12:48.257Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
+  #387 | 2026-11-05T03:13:20.251Z | seat | Bash | git status --short
+  #388 | 2026-11-05T03:13:24.512Z | seat | Bash | git show --stat --format='%h %s' 3da98519 0459d8c9
+  #389 | 2026-11-05T03:13:28.321Z | seat | Bash | python -X utf8 -u tools/b741_address_scan.py scan --bank
+  #390 | 2026-11-05T03:13:44.660Z | seat | Bash | git add data/audit_b741_reg_satisfiable.txt data/b741_address_scan.txt data/b741_census_stepzero.txt data/b741_closing_dry.txt data/b741_commands.json data/b741
+  #391 | 2026-11-05T03:13:53.602Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate 'GATE VERDICT CLEAR; defects (p)-(s) entered, the N2 route read by ancestry and the (K) word by a relay co
+  #392 | 2026-11-05T03:14:11.306Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record rootdry
+  #393 | 2026-11-05T03:14:29.346Z | seat | Bash | python -X utf8 -u tools/standing/fold.py closing dry --quiet
+  #394 | 2026-11-05T03:15:25.523Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py "bank-only|b378_lockgate|reg_seal" 0 10
+  #395 | 2026-11-05T03:15:33.654Z | seat | Bash | python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet
+  #396 | 2026-11-05T03:16:37.213Z | seat | Bash | tail -n 4 data/b741_reg_gate.txt; git status --short -uno
+  #397 | 2026-11-05T03:16:46.489Z | seat | Bash | python -X utf8 -u tools/b741_address_scan.py scan --bank
+  #398 | 2026-11-05T03:17:01.655Z | seat | Bash | git add data/b741_closing_dry.txt data/b741_reg_gate.txt data/b741_report_dry.txt data/b741_root_banks_dry.json data/b741_root_banks_dry.txt data/b741_steps.jso
+  #399 | 2026-11-05T03:17:08.265Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate 'step row 11 for 0c6e9422; rootdry READY True, 42 banks; closing dry READ; GATE VERDICT CLEAR bank-only, p
+  #400 | 2026-11-05T03:17:22.158Z | seat | Bash | python -X utf8 -u tools/b378_lockgate.py b741 D:/relay/data/b741_registration_2026-11-04.txt
+  #401 | 2026-11-05T03:17:31.993Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record gatebanks
 
-### ### **COMMANDS 386 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 6 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 18 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 401 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 16 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 6 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 18 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
