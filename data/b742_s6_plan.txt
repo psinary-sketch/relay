@@ -1,0 +1,113 @@
+b742 -- W-ORD-ZQ-OFFLINE-ZERO, S6, THE PLAN, (R352)(3)(a) AS AMENDED BY THE AUTHOR'S WORD (relay data/b742_author_answers.txt :10, committed at 1f96d4ea): COMMITTED BEFORE ANY LEAN OF b742 (2026-11-05)
+
+### the figures: tools/b742_s6_price.py, banked at data/b742_s6_price.txt (python-flint 0.9.0 at 200 bits; b667's zq_point imported unedited; free memory
+### read first, 4381 MB against the 2560 MB hold, at 2026-11-05T15:07:03Z). Every float of a sample is a sample, not a bound; B_R and the remainders are closed forms evaluated
+### in arb. The Lean objects read at SIDE-explicit-formula zq-b730 3329eaa1 by git show (OffZero/Centre.lean, Split.lean, IncGamma.lean, Tail.lean,
+### Box.lean, MinModulus.lean, Main.lean); the Mathlib neighbours at the kernel's pin by git grep, each found by name. Every line count is the seat's estimate.
+
+## (0) THE OBJECT AND THE FRAME (S2', S4', SP1' restated on Lambda_Q)
+
+  F(z) = zqPair.Λ₀ z − 1/(z (1 − z)) = lamM z + lamM (1 − z) − 1/(z (1 − z))   (Split.lean :99 zq_Λ₀_split, for every z; Centre.lean :247's object)
+  m_Λ = 1e-12. zqFn z = qBase^z (Γ z)⁻¹ F z on closure boxA (Elem.lean :332 zqFn_eq_centre's identity, compiled at cA, restated at a general z in G0), so a zero of F in
+  closure boxA is a zero of zqFn there (qBase^z ≠ 0, (Γ z)⁻¹ finite), and Carrier.lean :21 carrier_of_box finishes S4'.
+  SP1' : ‖F cA‖ < m_Λ → (∀ z ∈ frontier boxA, m_Λ ≤ ‖F z‖) → ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2   (MinModulus.lean :23 applied to F)
+  the centre: ‖F cA‖ ≤ 6e-13 < m_Λ, Centre.lean :247 lamM_centre_encl, compiled at b741.
+
+## (1) THE TWO RULED ROUTES, PRICED: STOPPED BY THE THREE-TIMES RULE BEFORE ANY LEAN (data/b742_s6_price.txt, section (5))
+
+  the no-cancellation size of F on the frontier 0.674 to 0.692 against min |F| 1.747e-11: 10.6 orders of cancellation. A Lipschitz figure by
+  Cauchy's estimate from that size on a box widened by d:
+    F, m_Λ 1e-12:    d 0.10: L 7.05, spacing h 4.50e-12, 1.78e11 frontier points, 4.7e13 lines at b741's 265 lines a point (Centre.lean)
+                     (d 0.05: 3.5e11 points ; d 0.20: 9.1e10 points)
+    zqFn, m 1/10:    K = sup |lam^z / Γ(z)| 2.84e10 on the frontier; L 2.00e11, h 2.44e-12, 3.27e11 frontier points
+  against this plan's whole figure (section (4), 3,970-6,810 lines) each exceeds three times it by more than nine orders: STOPPED, both, before any Lean.
+  Besides: 0.30652 of the 0.8 perimeter has Re z > 1, where the compiled Series, GammaVal and Shells lemmas (0 < Re w ≤ 1) do not apply.
+
+## (2) THE ROUTE TAKEN: INTERPOLATION OF F FROM A CIRCLE INSIDE THE STRIP
+
+  c = 1/2 + 16.290216 i ; the sample circle |w − c| = ρ = 49/100, its real parts [1/100, 99/100], inside 0 < Re w < 1, so b741's Centre shape
+  (0 < Re w ≤ 1 for w and 1 − w) applies at every node ; M = 20 nodes c + ρ ω^j, ω = exp(2πi/20) ; the far circle |w − c| = R = 3.
+  P(c + u) = Σ_{k<20} c_k u^k, c_k = (1/20) Σ_j F(c + ρ ω^j) ω^(−jk) ρ^(−k), the discrete Cauchy formula.
+  the nodes are irrational for M ∉ {1, 2, 4}: each sample is taken at a rational ζ̂_j with |ζ̂_j − ζ_j| ≤ η (ω^j from Real.cos_bound and Real.sin_bound
+  at 2πj/20, π from Real.pi_gt_d20 and Real.pi_lt_d20), F(ζ_j) within |F'| η ≤ 3.108 η of F(ζ̂_j) (|F'| ≤ B_3/(R − ρ) on the node circle);
+  P's coefficients rounded to rationals ĉ_k from enclosures of ω^(−jk); P̂ = Σ ĉ_k u^k explicit. η and the coefficient rounding are set below 1e-16 each.
+  the symmetry F(1 − conj w) = conj F(w): node M/2 − j is the image of node j, and 1 − ζ_j = conj ζ_(M/2−j), so the 20 nodes want lamM at the
+  20 nodes alone (lamM (conj w) = conj (lamM w), new, 20-60 lines), not at 40 halves.
+
+## (3) THE AUTHOR'S FIVE ITEMS, PRINTED BEFORE THE BUILD
+
+  (1) THE FARTHEST POINT AND THE ERROR BOUND THERE. The frontier's farthest points from c are the two right corners (1.05326, 16.190216) and
+      (1.05326, 16.390216), |z − c| = sqrt(790241569/2500000000) = 0.562225, taken as r = 5623/10000. The word's "about 0.553 at the right edge" is the
+      right edge's midpoint (0.553260); the corners lie 0.009 farther, and every figure below is at the corners. Outside the sample radius 0.49: r/ρ = 1.14755.
+      The far-circle size, a closed form (not a sample): for Re w in [−5/2, 7/2], |t^(w−1)| ≤ t^3 and |t^(−w)| ≤ t^3 on t ≥ 1, so
+      |F(w)| ≤ Σ_{p ≠ 0} 2 ∫_1^∞ t^3 e^(−lam Q(p) t) dt + 1/|w(1 − w)|, every shell with Q ≤ 200 summed and the rest by a point count: B_3 = 7.8004.
+      At r: truncation B_3 (r/R)^M/(1 − r/R) = 2.749e-14 ; aliasing B_3 (ρ/R)^M/(1 − (ρ/R)^M) Σ_{k<M} (r/R)^k = 1.753e-15 ; THE BOUND 2.924e-14.
+      (the samples: max |F − P| on 160 frontier points 2.4e-25.) The far circle at R = 6, the prompt's "about 100": the closed form there is 434.5 (its
+      exponent 6), the remainder 1.39e-18; R = 3 is taken, its strip [−5/2, 7/2] the narrower to bound in Lean.
+  (2) THE AMPLIFICATION AND THE PER-SAMPLE δ IT FORCES. Each sample within δ moves P by at most A δ on |u| ≤ r, A = Σ_{k<20} (r/ρ)^k = 99.51, the
+      weights' size at the farthest points. The frontier holds |F| ≥ m_Λ when min_i |P̂(z_i)| − L_P h/2 − 2.924e-14 − A (δ + 3.108 η) − coef ≥ m_Λ,
+      L_P = Σ k |c_k| r^(k−1) = 6.097e-10, h = 0.8/N_c. The δ it forces: δ* = 4.27e-14 at N_c = 20, 1.039e-13 at N_c = 40, 1.345e-13 at N_c = 80.
+      b741's shape as built, at one rational point: the two halves' radii 3.186e-14 + 8.99e-15 plus 2 (1e-30 + 5e-14 + 1e-16), the mid shells
+      23 ≤ Q ≤ 31 by mid_numeric's 5e-14 a half: 1.41e-13 -- DOES NOT FIT at any N_c (A δ = 1.40e-11). With the shells 23 ≤ Q ≤ 27 by
+      norm_shell_le (IncGamma.lean :220; b741's plan :27, 1.77e-14 both halves): 5.9e-14 -- FITS at N_c = 40 and 80. TAKEN: N_c = 80, h = 0.01,
+      L_P h/2 = 3.05e-12, δ* = 1.345e-13 against δ = 5.9e-14 (a factor 2.3).
+  (3) THE FRONTIER'S Re z > 1 PART: the bottom and top edges from x = 1 to 1.05326 and the whole right edge, 0.30652 of 0.8. There the compiled
+      Series, GammaVal and Shells lemmas (0 < Re w ≤ 1) do not apply, and |F| is bounded below by P̂ alone: the check points and L_P, with F − P
+      bounded by the remainder from B_3, which rests on the strip bound (G3), not on the compiled lemmas.
+  (4) THE MARGINS, ONE LINE: centre 6e-13 ; m_Λ 1e-12 ; frontier minimum 1.747e-11 (samples) ; interpolation error 2.924e-14 (the bound at R 3, M 20; the samples 2.4e-25).
+  (5) THE ALIASING LEMMA, STATED GENERALLY (no programme constant in its binders; Mathlib-shaped; G1 below):
+
+      theorem DiffContOnCl.norm_sub_discreteCauchy_le {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E] [CompleteSpace E]
+          {f : ℂ → E} {c u : ℂ} {R ρ r B : ℝ} {M : ℕ} (hM : 0 < M) (hρ : 0 < ρ) (hρR : ρ < R) (hr : 0 ≤ r) (hrR : r < R)
+          (hf : DiffContOnCl ℂ f (Metric.ball c R)) (hB : ∀ w ∈ Metric.sphere c R, ‖f w‖ ≤ B) (hu : ‖u‖ ≤ r) :
+          ‖f (c + u) - ∑ k ∈ Finset.range M, (u / ρ) ^ k •
+              ((M : ℂ)⁻¹ • ∑ j ∈ Finset.range M, Complex.exp (-(2 * π * Complex.I * j * k / M)) • f (c + ρ * Complex.exp (2 * π * Complex.I * j / M)))‖
+            ≤ B * ((r / R) ^ M / (1 - r / R) + (ρ / R) ^ M / (1 - (ρ / R) ^ M) * ∑ k ∈ Finset.range M, (r / R) ^ k)
+
+      its proof: f's power series on the ball (Mathlib DiffContOnCl.hasFPowerSeriesOnBall, Analysis/Complex/CauchyIntegral.lean :607), the
+      coefficients by B / R^n (cauchyPowerSeries_apply, norm_cauchyPowerSeries_le, MeasureTheory/Integral/CircleIntegral.lean :627, :634), the
+      node sums Σ_j ω^(j(n−k)) = M [n ≡ k mod M] (isPrimitiveRoot_exp, RingTheory/RootsOfUnity/Complex.lean :92; IsPrimitiveRoot.geom_sum_eq_zero,
+      RingTheory/RootsOfUnity/PrimitiveRoots.lean :442), so c_k = a_k + Σ_{l≥1} a_(k+lM) ρ^(lM); the truncation and the aliasing summed. ABSENT
+      in Mathlib at the pin under any name the seat found.
+      Its companion (G2): ‖Σ_{k<M} (u/ρ)^k • ((M : ℂ)⁻¹ • Σ_{j<M} ω^(−jk) • (v j − v' j))‖ ≤ δ Σ_{k<M} (r/ρ)^k when ‖v j − v' j‖ ≤ δ and ‖u‖ ≤ r.
+
+## (4) THE GROUPS, IN BUILD ORDER, EACH WITH ITS NEAREST COMPILED NEIGHBOUR OR ABSENT (lines: the seat's estimate)
+
+  G0  the frame on F: F DiffContOnCl on boxA and on ball c 3 (Λ₀ entire, Mathlib WeakFEPair.differentiable_Λ₀, NumberTheory/LSeries/AbstractFuncEq.lean :389; 0, 1 ∉ closedBall c 3);
+      F z = 0 → zqFn z = 0 on closure boxA; SP1' from MinModulus.lean :23                                                        60-150
+  G1  the aliasing lemma, (3)(5) above, general                                                                                  400-900
+  G2  the amplification companion; the node enclosures ω^j (Real.cos_bound, Real.sin_bound, Real.pi_gt_d20, Real.pi_lt_d20); the
+      node-rounding and coefficient-rounding terms; P̂'s Lipschitz bound on a disc (general: Σ k ‖ĉ_k‖ r^(k−1))                    150-400
+  G3  the strip bound: ‖incGamma1 w a‖ ≤ ∫_1^∞ t^e e^(−a t) dt for w.re ≤ e + 1 (IncGamma.lean :59 norm_incGamma1_le generalised from e = 0),
+      its closed form; the trBox tail generalised (IncGamma.lean :126 norm_tail_le, :198 lamM_sub_trunc at w.re ≤ 1); B_3 ≤ 7.81 on the far
+      circle, Re w in [−5/2, 7/2]; lamM (conj w) = conj (lamM w)                                                                  270-660
+  --  THE GENERATOR (tools/b742_s6gen.py) COMMITTED BEFORE THE MODULES IT GENERATES
+  G4  the 20 node values: lamM at the 20 rational nodes, b741's Centre shape per half (96 lines a half, Centre.lean) with the shells 23 ≤ Q ≤ 27
+      by norm_shell_le (about 20 lines a half more), the node's F from its own half and its partner's conjugate (about 10 lines)  2,300-3,000 (generated)
+  G5  the frontier: P̂'s 20 rational coefficients with their enclosure of P_v; |P̂(z_i)| at 80 frontier points by Horner in the inD arithmetic;
+      every frontier point within h/2 = 0.005 of a check point (Box.lean's frontier description); the chain to |F| ≥ m_Λ       150-400 hand + 600-1,200 generated
+  G6  SP4: zq_offline_zero : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1/2, from SP1', the centre and G5; then (e) zq_li_nonneg_fails :
+      ¬ (∀ n : ℕ, 0 ≤ Wide.liCoeff zqZeroConfig n) by Main.lean :31 zq_li_not_nonneg_of_box restated on F (EF/Main.lean :205's contrapositive)   40-100
+  THE ROUTE IN ALL: 3,970-6,810 lines (hand-written 1,070-2,610 ; generated 2,900-4,200)
+
+## (5) THE DISPATCHES, THE CAP AND THE THREE-TIMES RULE
+
+  b741's measured rate: 1,161 lines in 6 dispatches, 194 lines a dispatch (data/b741_offlinezero.txt :72). The hand-written 1,070-2,610 lines at
+  that rate want 6-14 dispatches; the generated modules (Centre-shaped, decided by the kernel) 2-3 more: 8-17 against the cap of 14. The cap may bind
+  at the high end: if the fourteenth dispatch ends inside a group, the grade is NOT REACHED at that group, printed with the group's lines and the
+  next step named. The order above puts the general lemmas first, so a stop leaves each finished group a compiled, general result.
+  THE THREE-TIMES RULE ON THIS PLAN'S OWN FIGURE: at each group's close, its lines against three times its high estimate (G0 450, G1 2,700, G2 1,200,
+  G3 1,980, G4 9,000, G5 4,800, G6 300); a group over its figure is STOPPED, and the build stops before the next group with the re-price printed.
+  The whole route's ceiling: 3 × 6,810 = 20,430 lines.
+  THE LICENCE: every dispatch row carries the commit of the author's word (tools/standing/dispatchrows.py licence(), the needle "The author’s word
+  amending (R352)(3)" in data/b742_author_answers.txt, first committed at 1f96d4ea), read before `gh workflow run` is called.
+
+## (6) THE STOP POINTS AND THE GRADES
+
+  SP4a after G0-G1: the frame on F and the aliasing lemma, compiled; the build's figure re-read against the rest.
+  SP4b after G2-G3: every bound the frontier needs, compiled, with no node value; the generator then committed.
+  SP4c after G4: the 20 node values.
+  SP4  after G5-G6: zq_offline_zero and zq_li_nonneg_fails, each printed with its axiom line in full (the standard three: propext, Classical.choice, Quot.sound).
+  THE GRADE: REACHED (SP4, both statements, axioms printed) ; NOT REACHED at the group (the cap of 14 dispatches met inside a group) ; or STOPPED
+  (a group over three times its figure, or a margin that fails on a certified figure: the node δ above δ*, or a check point under its bound).
+  Every Lean file on zq-b730 alone, from 3329eaa1; no kernel main touched, no merge, no tag.
