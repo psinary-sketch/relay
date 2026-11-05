@@ -20,3 +20,5 @@
 2026-11-05T17:10:42Z | READ | Read | "D:\\relay\\tools\\acts\\b742.py" | a Read call with limit 220, above 200
 2026-11-05T17:20:16Z | PIPE | PowerShell | "git -C D:/relay show --stat --format=\"%h %s\" 147342a2 | Select-Object -First 30" | a PowerShell command carrying a pipe outside quotes
 2026-11-05T17:22:05Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\c66dda9f-cc02-473a-b740-111b6d66dec3\\scratchpad\\n2check.py" | a Read call with no limit
+2026-11-05T18:54:26Z | REDIR | PowerShell | "Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c \"import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.split('\\n');print(len(L),len(t));[print(i+1,l[:100]) for i,l in enumerate(L) if l.startswith('@@@')]\"; Grep-placeholder 2>$null; python -X u | a PowerShell command carrying a redirect outside quotes
+2026-11-05T18:56:13Z | PIPE | Bash | "git log --format='%h %s' bce5605d~12..HEAD && git log --format='%h %s' -12 d39fc8af && git -C /d/zq-b738 log --format='%h %ad %s' --date=iso -16 zq-b730 2>&1 | head -20" | a Bash command carrying a pipe outside quotes

@@ -866,7 +866,7 @@ def research_reproduces_ok(S):
     ('G-CORRIGENDUM-ENTERED', '(R352)(1)-(2): the generated corrigendum for b741`s record, landed at FINDINGS :13619: its four events and twenty-one defects, 25 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 5 CLOSE 20, REPEAT 14; v1.22.0`s repairs by data/b742_standing_v1220.txt; the corrigenda bank appended at row (62)',
 #⟪END⟫
 #⟪SECTION checks 51⟫
-    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); data/b742_rules.txt carrying (R352)(2)`s rules in its own commit bf63142d',
+    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); data/b742_rules.txt carrying (R352)(2)`s rules in its own commit ad371df2',
 #⟪END⟫
 #⟪SECTION checks 52⟫
     # ### the act arms' names frozen with the run list; each description, predicate and plant over b742's objects
@@ -887,7 +887,7 @@ def research_reproduces_ok(S):
 #⟪SECTION checks 53⟫
     ('G-COUNT-ROUTE-PRICED', '(R352)(3)(b) as amended, N3, N5: the three-times rule kept (4097 within 20,430), no OffZero module beyond the fourteen; N3`s Lipschitz figure a proved bound with its lemma (notes (3), lp_le); the far-circle deviation printed (notes (1), B = 120 against 7.8004, MARGIN 1.0725e-11 against 1e-12); the price line at OPEN_TRAILS :17400',
      lambda S: count_route_priced_ok(S), lambda S: put(S, 'notes', (S['notes'] or '').replace('lemma lp_le ', 'lemma planted '))),
-    ('G-DIFFERS-ERRATA', '(R352): no ERRATA entry ordered; ERRATA.md byte-equal to its blob at the act`s base, no id; no DIFFERS entry; the weight line and the corrigendum in 2c103c47, FINDINGS the one file there',
+    ('G-DIFFERS-ERRATA', '(R352): no ERRATA entry ordered; ERRATA.md byte-equal to its blob at the act`s base, no id; no DIFFERS entry; the weight line and the corrigendum in 6e86bd1e, FINDINGS the one file there',
 #⟪END⟫
 #⟪SECTION checks 54⟫
     ('G-TOUCH-READ', 'standing clauses v9, N4: data/b742_touch.txt by hand before the root, every row AGREES or DIFFERS; no touch tool built',
@@ -1682,7 +1682,7 @@ def _trail_text_b741():
 #⟪END⟫
 #⟪SECTION regspec 7⟫
     ('REGISTRY rows added', 0, 0, 'rows', '### none this act, (R352) ordering no REGISTRY write.'),
-    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none; MEASURED off git diff --numstat from the act`s first PLACE-papers head (2c103c47) to HEAD -- REGISTRY.md.'),
+    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none; MEASURED off git diff --numstat from PLACE-papers main before the act`s own commits (efce669f, b741`s record) to HEAD -- REGISTRY.md.'),
 #⟪END⟫
 #⟪SECTION regspec 8⟫
     ('generated corrigendum entries', 1, 1, 'entries', '### (R352)(2): FINDINGS :13619.'),
