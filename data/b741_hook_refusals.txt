@@ -4,3 +4,5 @@
 2026-11-05T01:27:33Z | READ | Read | "D:\\relay\\tools\\b740_face_blocks.txt" | a Read call with a limit and no offset on a file of 265 lines
 2026-11-05T02:57:29Z | PIPE | PowerShell | "Get-Item -LiteralPath 'D:/relay/=' | Select-Object Length, LastWriteTime; git -C D:/relay diff --stat -- data/b741_steps.json" | a PowerShell command carrying a pipe outside quotes
 2026-11-05T03:23:20Z | REDIR | Bash | "python -X utf8 -u tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --bank-only --act b741 --quiet > /dev/null; tail -n 3 data/b741_reg_gate.txt" | a Bash command carrying a redirect outside quotes
+2026-11-05T06:03:34Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\D--\\352ad3f4-37c5-4360-b9c6-cb7368f5f805\\scratchpad\\cmdsre.py" | a Read call with no limit
+2026-11-05T06:05:48Z | PIPE | PowerShell | "Get-ChildItem D:\\relay\\data -Filter \"b740_*\" | Where-Object { $_.Name -match 'probe|mid_exercise|scanfile' } | Select-Object -ExpandProperty Name" | a PowerShell command carrying a pipe outside quotes
