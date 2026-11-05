@@ -561,9 +561,10 @@ def _sitting_rows(t):
 #⟪END⟫
 #⟪SECTION checks 10⟫
 # ### b741's read-first bank's items by path, as its step zero wrote them (data/b741_readfirst.txt)
-READFIRST_NEEDLES = ('relay data/b740_closing.txt |', 'relay data/b740_events.txt |', 'relay data/b740_citation_check.txt |', 'relay data/b727_events.txt |',
-                     'relay data/b737_offlinezero_plan.txt |', 'relay data/b738_offlinezero.txt |', 'relay data/b738_offlinezero_notes.txt |', 'relay data/b731_price_measured.txt |',
-                     'SIDE-explicit-formula zq-b730 at 602cd401 |', 'relay data/b740_defects.txt |', 'relay data/b740_checks.txt |', 'PLACE-papers FINDINGS.md :13281-:13351',
+READFIRST_NEEDLES = ('relay data/b740_closing.txt |', 'relay data/b740_events.txt |', 'relay data/b740_defects.txt |', 'relay data/b740_touch.txt |',
+                     'relay data/b740_s5cd_statements.txt |', 'relay data/b740_offlinezero.txt |', 'relay data/b740_offlinezero_notes.txt |', 'relay data/b729_c2.txt |',
+                     'relay data/b737_offlinezero_plan.txt |', 'relay data/b740_author_answers.txt |', 'SIDE-explicit-formula zq-b730 at ba318a0b |', 'Mathlib at de5ce8a9 |',
+                     'relay data/b740_checks.txt |', 'relay data/b740_hook_refusals.txt |', 'PLACE-papers FINDINGS.md :13387, :13389, :13453',
                      'relay tools/b741_worklist.py whole;')
 #⟪END⟫
 #⟪SECTION checks 11⟫
@@ -629,14 +630,14 @@ TITLE_NEEDLES = ('## W-ORD-ZQ-OFFLINE-ZERO, (c7): the route ', ' by the author�
         and '  (61) ' in S['corrigenda'] and '  (62) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
-    worklist's SEALED naming no report tool. This act's rules bank data/b741_rules.txt carries (R351)(2)'s seven rules, in its own commit bf63142d; data/b741_rules.txt (by form in (R351)(4)'s (W)) is
+    worklist's SEALED naming no report tool. This act's rules bank data/b741_rules.txt carries (R351)(2)'s seven rules, in its own commit bf63142d; data/b742_rules.txt (by form in (R351)(4)'s (W)) is
 #⟪END⟫
 #⟪SECTION checks 21⟫
     (the line above is b740's form, its names b741's); no author's word of b741 orders a row of the next act's, so that bank does not exist."""
 #⟪END⟫
 #⟪SECTION checks 22⟫
-        and "(1) AN ARM'S SEARCH PHRASE IS READ UNDER THE NORMALISATION" in r1 and '(6) THE VERSION' in r1 and S['files']['rules'] == ['data/b741_rules.txt'] \
-        and not os.path.exists(os.path.join(D, 'b741_rules.txt')) \
+        and '(1) THE SUBJECT AND THE ROW TRAVEL WITH THEIR COMMIT' in r1 and '(7) THE VERSION' in r1 and S['files']['rules'] == ['data/b741_rules.txt'] \
+        and not os.path.exists(os.path.join(D, 'b742_rules.txt')) \
 #⟪END⟫
 #⟪SECTION checks 23⟫
 # ### b741's keys, the report sections' own heads
@@ -1245,18 +1246,23 @@ def _first_add(path):
     anc_ = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.C2_RELAY, K.PRINT_COMMIT], capture_output=True).returncode == 0
     md5_ = K.PLAN_MD5 in rdn(K.CITATION_BANK)
     later_ = [h_ for h_ in g(ROOT, 'log', '--format=%H', '%s..HEAD' % K.PRE_RELAY, '--', K.PLAN_BANK).split() if h_.strip()]
-    same_ = md5_ and _s_md5(os.path.join(ROOT, *K.PLAN_BANK.split('/'))) == K.PLAN_MD5 \
+    same_ = _s_md5(os.path.join(ROOT, *K.PLAN_BANK.split('/'))) == K.PLAN_MD5 \
         and rdn(K.PLAN_BANK[len('data/'):]) == g(ROOT, 'show', '%s:%s' % (K.C2_PLAN_FIRST, K.PLAN_BANK)).replace(chr(13), '') and not later_
+    # ### b741 (defects (p), (q)): the ferry's N2 asks no md5 at step zero; it asks the author's word on the checking route banked before any
+    # ### (c7) lemma is dispatched -- read as the word in a relay data/b741_* blob at the last relay commit before the first build commit
+    tb_ = int((g(K.EF_DIR, 'log', '-1', '--format=%ct', K.ZQ_COMMITS[1]) or '0').strip() or 0)
+    pre_ = (g(ROOT, 'rev-list', '-1', '--before=%d' % tb_, 'HEAD') or '').strip() if tb_ else ''
+    route_ = bool(pre_) and bool((g(ROOT, 'grep', '-F', '-l', '(K) kernel route', pre_, '--', 'data/%s_*' % ACT) or '').strip())
     regen_ = N2_REGEN in (rd(FACE) or '')
     tz = rdn('%s_prelock.txt' % ACT)
     fg_ = rdn('%s_pathrefusal.txt' % ACT)
 #⟪END⟫
 #⟪SECTION record 12⟫
-    ok = same_ and regen_ and bool(tz) and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
+    ok = route_ and regen_ and bool(tz) and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
 #⟪END⟫
 #⟪SECTION record 13⟫
-        'the plan bank`s md5 %s printed at step zero (relay %s): %s; the plan bank its md5 and its blob at %s, a commit of the act touching it: %s -- %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked: %s; the probe-path refusal banked and clear: %s; step zero, v1.21.0, the corrigendum, the plan, the first Lean commit, the last and the build bank in that order by time: %s (%s), the plan an ancestor of the build bank: %s; the tools` controls before their figures: %s' % (
-            K.PLAN_MD5[:8], K.CITATION_BANK, md5_, K.C2_PLAN_FIRST[:8], later_ or 'NONE', same_, regen_, bool(tz), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_, order_, ' '.join('%s@%d' % (h_[:8], c_) for (_r, h_), c_ in zip(chain_, tm_)), anc_, ', '.join('%s %s' % (os.path.basename(p), o) for p, o in ctl)))
+        'the author`s word on the checking route, "(K) kernel route", in a relay data/%s_* blob at %s, the last relay commit before the first build commit %s: %s (the worklist`s plan bank md5 %s, its blob at %s, a commit of the act touching it: %s -- %s; the md5 not asked by the ferry`s N2); the (W) regeneration printed in the face: %s; the pre-lock comparison banked: %s; the probe-path refusal banked and clear: %s; step zero, v1.21.0, the corrigendum, the plan, the first Lean commit, the last and the build bank in that order by time: %s (%s), the plan an ancestor of the build bank: %s; the tools` controls before their figures: %s' % (
+            ACT, pre_[:8] or 'NONE', K.ZQ_COMMITS[1][:8], route_, K.PLAN_MD5[:8], K.C2_PLAN_FIRST[:8], later_ or 'NONE', same_, regen_, bool(tz), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_, order_, ' '.join('%s@%d' % (h_[:8], c_) for (_r, h_), c_ in zip(chain_, tm_)), anc_, ', '.join('%s %s' % (os.path.basename(p), o) for p, o in ctl)))
 #⟪END⟫
 #⟪SECTION record 14⟫
 # ### N3 (over b741's objects; b740's in git at b740's record tool): the banks whose grade prints at their end, (bank, the words the foot carries)
@@ -1483,7 +1489,7 @@ def _runs3_line():
              K.C1_STANDING[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'],
              f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_line'], f['corr_row'], f['ver'], f['v1130_ctl'], f['v1130_cases'],
              f['v1130_wanted']), '',
-         '**The order of the act** (N2): the plan bank’s md5 %s printed at step zero before any Lean file and again among the build bank’s controls, equal to its blob at %s; tools/standing/ v1.21.0 at %s, the weight and the corrigendum at PLACE-papers %s and their banks at %s, (2) whole before (3); the (c7) plan at %s before the first Lean commit %s on %s; the last Lean commit %s, then the build bank at %s. The build bank opens with its controls before its figures. The (W) regeneration printed in the face, and the pre-lock comparison and the probe-path refusal banked, before the lock gate (relay data/b741_prelock.txt, data/b741_pathrefusal.txt). No lean process on this host; %s dispatches, each row carrying free_mb, each read once by its run id (relay data/b741_dispatch_rows.json).' % (
+         '**The order of the act** (N2): the build bank opens with its controls before its figures, the worklist’s plan bank (b737’s, data/b737_offlinezero_plan.txt) among them at md5 %s, equal to its blob at %s; no step-zero bank printed that md5 (defect (p)). tools/standing/ v1.21.0 at %s, the weight and the corrigendum at PLACE-papers %s and their banks at %s, (2) whole before (3); the (c7) plan at %s before the first Lean commit %s on %s; the last Lean commit %s, then the build bank at %s. The author’s word on the checking route, (K), was given in the session before the first build dispatch, and no relay commit banked it before that dispatch (defect (q)). The (W) regeneration printed in the face, and the pre-lock comparison and the probe-path refusal banked, before the lock gate (relay data/b741_prelock.txt, data/b741_pathrefusal.txt). No lean process on this host; %s dispatches, each row carrying free_mb, each read once by its run id (relay data/b741_dispatch_rows.json).' % (
              K.PLAN_MD5[:8], K.C2_PLAN_FIRST[:8], K.C1_STANDING[:8], K.C1_PP[:8], K.C1_RELAY[:8], K.C2_RELAY[:8], K.ZQ_FIRST[:8], K.ZQ_ENTERING[:8], K.ZQ_TIP[:8], K.PRINT_COMMIT[:8], f['bd_disp']), '',
          '**The plan before any Lean** ((R351)(3)(a)): the enclosure restated with its terms, eight shells per half evaluated and 48 point-terms, each wanting about 1e-14 absolute; three routes priced -- (R-S) the series re-priced at 1,110-3,350 lines and about 40 T, (R-B) the binomial series at 2,000-5,000 and about 256 T, (R-Q) quadrature at 3,000-8,000 and about 500 T -- and (R-S) recommended, Γ wanted to relative 1e-3 and π at the twenty digits Mathlib carries. Its dated notes (7.1)-(7.2) appended after the timing commit, no row rewritten; (4) stands with its slip, the timing term’s numerals printed over unreduced denominators and found before the Lean commit (defect (f); relay data/b741_c7_plan.txt).', '',
          '**The checking route** ((R351)(3)(a)-(b)): (K) the kernel route or (N) native_decide, put to the author once before the build; the author’s word, (K). The timing dispatch, the plan’s one, read by its run id %d: time_sRe_18 KERNEL, 158 ms of kernel checking for the heaviest exact sum (plan (7.2)). No axiom line of the act carries Lean.ofReduceBool.' % K.EF_RUNS[0], '',
