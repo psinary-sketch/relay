@@ -374,7 +374,7 @@ def runner_ok(S):
     for d_ in [r for r in rows if r.get('kind') == 'dispatch']:
         i_ = rows.index(d_)
         rd_ = [j for j, r in enumerate(rows) if r.get('kind') == 'read' and str(r.get('run')) == str(d_.get('run'))]
-        order = order and len(rd_) == 1 and i_ < rd_[0]   # ### b742: each dispatch read once after it by its run id (six this act)
+        order = order and len(rd_) == 1 and i_ < rd_[0]   # ### b742: each dispatch read once after it by its run id (seven this act)
 #⟪END⟫
 # ### b742, Component 4 (the Edit tool): v1.11.0 edited tools/standing/hook.py for (R352)(2)(iv); the arm read it unedited since the act's
 # ### base -- now its blob at HEAD, at v1.11.0's commit and in the working tree the same, edited by that commit alone (b724's override, carried)
@@ -650,7 +650,7 @@ TITLE_NEEDLES = ('## W-ORD-ZQ-OFFLINE-ZERO, S6: the route on Λ_Q by interpolati
         and '  (62) ' in S['corrigenda'] and '  (63) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
-    worklist's SEALED naming no report tool. This act's rules bank data/b742_rules.txt carries (R352)(2)'s six rules, in its own commit ad371df2; data/b742_rules.txt (by form in (R352)(4)'s (W)) is
+    worklist's SEALED naming no report tool. This act's rules bank data/b742_rules.txt carries (R352)(2)'s six rules, in its own commit ad371df2; data/b743_rules.txt (by form in (R352)(4)'s (W)) is
 #⟪END⟫
 #⟪SECTION checks 21⟫
     (the line above is b741's form, its names b742's); no author's word of b742 orders a row of the next act's, so that bank does not exist."""
@@ -1159,7 +1159,7 @@ TITLE_LINE = ('b742 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
     '    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each suite part and computation ;',
     '    the push-b741-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the S6 plan committed before any Lean file, the generator tools/b742_s6gen.py before the modules it generates, their md5s equal at the tip, the order printed by ancestry ; the author`s word amending (R352)(3) banked at 1f96d4ea before the first dispatch, every dispatch row carrying it ; the build bank`s controls before its figures, the (W) regeneration, the pre-lock comparison and the probe-path refusal before the lock gate ;',
     '    N3: SP4 graded REACHED with both statements` axiom lines printed in full ; the Lipschitz figure printed as a proved bound with its lemma`s name (lp_le) ; the far circle`s bound printed as built beside the plan`s ; the entry`s nouns the banks` ; one git write per message ; no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b742_address_scan.txt, data/b742_address_scan_postlock.txt) ;',
-    '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads, the six workflow dispatches and their artifact downloads under the GitHub login') + ' ;',
+    '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads, the seven workflow dispatches (and one send the host refused, no run) and their artifact downloads under the GitHub login') + ' ;',
     '    nothing deposited ; no new Zenodo version ; no Zenodo field touched ; the deposit route untouched, the draft held at v5 unpublished ; no GitHub description written ;',
     '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry) and OPEN_TRAILS (the price line, the trail) written ; no paper moved or renamed ;',
     '    no FOUNDATIONS, REGISTRY or faces page byte ; data/act_roots.txt (b742`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;',

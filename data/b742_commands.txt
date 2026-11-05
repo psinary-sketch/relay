@@ -1,7 +1,7 @@
-b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T18:50:33Z)
+b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T19:34:21Z)
 
 ### the source: the seat`s session c66dda9f-cc02-473a-b740-111b6d66dec3 from its first user line carrying 'RULING (R352) BEGIN', with its subagents` transcripts
-### commands read: 413
+### commands read: 474
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (2):
   #41 2026-11-05T13:59:33.765Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -39,22 +39,25 @@ b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #64 2026-11-05T14:15:52.571Z cd /d/PLACE-papers 2>/dev/null || cd "$(python -X utf8 -c "import sys; sys.path.insert(0,'D:/relay/tools'); import b742_worklist as K; print(K.PP)" 2>/dev/null)"; pwd; git grep -n -e '^## W-ORD-ZQ-OFF
   #236 2026-11-05T15:35:03.953Z ls tools/ | grep -i "b741\|gen" && grep -c "" tools/b741_c7gen.py 2>/dev/null
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (3):
   #64 2026-11-05T14:15:52.571Z cd /d/PLACE-papers 2>/dev/null || cd "$(python -X utf8 -c "import sys; sys.path.insert(0,'D:/relay/tools'); import b742_worklist as K; print(K.PP)" 2>/dev/null)"; pwd; git grep -n -e '^## W-ORD-ZQ-OFF
   #236 2026-11-05T15:35:03.953Z ls tools/ | grep -i "b741\|gen" && grep -c "" tools/b741_c7gen.py 2>/dev/null
+  #425 2026-11-05T18:54:26.143Z Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c "import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.split('\n');print(len(L),len(t));[print(i+1,
 
-### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
   #1 2026-11-05T13:50:44.186Z cd /d/relay && git log --oneline -5 && git status --short && ls tools | head -100
   #236 2026-11-05T15:35:03.953Z ls tools/ | grep -i "b741\|gen" && grep -c "" tools/b741_c7gen.py 2>/dev/null
+  #429 2026-11-05T18:56:13.621Z git log --format='%h %s' bce5605d~12..HEAD && git log --format='%h %s' -12 d39fc8af && git -C /d/zq-b738 log --format='%h %ad %s' --date=iso -16 zq-b730 2>&1 | head -20
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (5):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (6):
   #1 2026-11-05T13:50:44.186Z cd /d/relay && git log --oneline -5 && git status --short && ls tools | head -100
   #4 2026-11-05T13:52:10.240Z Get-CimInstance Win32_Process -Filter "Name='claude.exe' OR Name='lean.exe' OR Name='lake.exe' OR Name='python.exe' OR Name='bash.exe'" | Select-Object ProcessId,ParentProcessId,Name,CreationDate | Fo
   #41 2026-11-05T13:59:33.765Z git -C /d/SIDE-explicit-formula show 3329eaa1:SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean --format= -- | sed -n "286,360p"
   #236 2026-11-05T15:35:03.953Z ls tools/ | grep -i "b741\|gen" && grep -c "" tools/b741_c7gen.py 2>/dev/null
   #372 2026-11-05T17:20:16.481Z git -C D:/relay show --stat --format="%h %s" 147342a2 | Select-Object -First 30
+  #429 2026-11-05T18:56:13.621Z git log --format='%h %s' bce5605d~12..HEAD && git log --format='%h %s' -12 d39fc8af && git -C /d/zq-b738 log --format='%h %ad %s' --date=iso -16 zq-b730 2>&1 | head -20
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (42):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (54):
   #28 2026-11-05T13:56:41.370Z python -X utf8 -c "L=open('D:/MY-DOwnloads/PLACE-papers/OPEN_TRAILS.md',encoding='utf-8').read().split(chr(10)); print(len(L)); [print(i+1, L[i][:110]) for i in range(17559,len(L)) if L[i].strip()]"
   #30 2026-11-05T13:57:53.313Z python -X utf8 -c "import sys; sys.path.insert(0,'D:/relay/tools'); import b742_worklist as K; print(K.ACT_CURRENT_COMMIT, K.PRE_RELAY[:8], K.ZQ_ENTERING[:8], K.ZQ_COMMITS_B741[-1][:8], K.EF_RUNS_B741[-1], K.MAX_DISPATCH
   #47 2026-11-05T14:04:12.214Z python -X utf8 -c "from flint import acb, arb; print(acb(2).gamma_upper(acb(1))); print(acb(1).gamma_upper(acb(2))); import flint; print(flint.__version__)"
@@ -97,6 +100,18 @@ b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #393 2026-11-05T17:38:45.992Z python -X utf8 -c "import io;L=io.open('D:/relay/data/b742_rules.txt',encoding='utf-8').read().split('\n');print(L[4][:120])"; git -C D:/relay show --name-only --format=%h ad371df2
   #396 2026-11-05T17:40:14.291Z python -X utf8 -c " from fractions import Fraction as F import re t=open('D:/zq-b738/SIDEExplicitFormula/Schema/ZQ/OffZero/FrontierData.lean',encoding='utf-8').read() ec=re.search(r'def ECq : ℚ := \(([0-9]+) / ([0-9]+) :
   #400 2026-11-05T17:58:03.664Z python -X utf8 -c "import io,re;L=io.open('D:/relay/data/b741_probe_standing-a2.txt',encoding='utf-8').read().split('\n');l=L[129];print(l[:120]);print(re.findall(r'\"(G-[A-Z0-9-]+)\"',l))"
+  #423 2026-11-05T18:54:14.097Z python -X utf8 -c "import io;t=io.open('D:/relay/tools/b741_face.py',encoding='utf-8').read();L=t.split('\n');print(len(L));print('\n'.join(L[:60]))"
+  #424 2026-11-05T18:54:18.615Z python -X utf8 -c "import io;t=io.open('D:/relay/tools/b741_face.py',encoding='utf-8').read();L=t.split('\n');print('\n'.join(L[60:130]))"
+  #425 2026-11-05T18:54:26.143Z Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c "import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.split('\n');print(len(L),len(t));[print(i+1,l[:100]) for i,l in 
+  #426 2026-11-05T18:54:31.312Z Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c "import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.split('\n');print(len(L),len(t));[print(i+1,l[:100]) for i,l in 
+  #428 2026-11-05T18:56:04.112Z python -X utf8 -c " import json s=json.load(open('data/b742_steps.json',encoding='utf-8')) rows=s if isinstance(s,list) else s.get('rows',s) for r in rows: print(json.dumps(r,ensure_ascii=False)[:400]) "
+  #432 2026-11-05T18:58:08.458Z git -C /d/zq-b738 diff --stat 3329eaa 14ca572 && cd /d/relay && python -X utf8 -c " import json d=json.load(open('data/b742_dispatch_rows.json',encoding='utf-8')) rows=d if isinstance(d,list) else d.get('rows',d) for r i
+  #435 2026-11-05T18:59:00.508Z python -X utf8 -c " l=open('data/b742_probe_standing-a2.txt',encoding='utf-8').read().split('\n')[130] i=l.find('PART standing-a2'); print(l[i:i+400])"
+  #441 2026-11-05T19:18:58.320Z python -X utf8 -c " import re s=open('tools/acts/b742.py',encoding='utf-8').read() seen=[] for m in re.finditer(r'\*\*([^*\n]{3,60}?)\*\*',s): x=m.group(0) if x not in seen: seen.append(x) print(len(seen)) for x in seen:
+  #442 2026-11-05T19:19:07.972Z python -X utf8 -c " s=open('tools/acts/b742.py',encoding='utf-8').read() for p in ['data/b742_corrigendum.txt','data/b742_standing_v1220.txt','data/b742_s6_plan.txt','data/b742_offlinezero.txt','data/b742_offlinezero_not
+  #443 2026-11-05T19:19:29.596Z python -X utf8 -c " l=open('data/b742_hook_refusals.txt',encoding='utf-8').read().split('\n') for i,x in enumerate(l,1): if i>=20 and x.strip(): print(i, x[:200]) "
+  #444 2026-11-05T19:20:29.607Z python -X utf8 -c " s=open('tools/acts/b742.py',encoding='utf-8').read().split('\n') pats=['2c103c4','3f5b316a','1827edd6','eb01e80a','bf63142d','cd58c7c9','23034e5e','89720eac','13493','13495','41940815524','5de68eaf','
+  #445 2026-11-05T19:20:37.052Z python -X utf8 -c " s=open('tools/acts/b742.py',encoding='utf-8').read().split('\n') for n in [30,40,115,131,339,408,587,853,869,911,932,936,942,972,1065,1131,1155,1543,1762]: l=s[n-1] for p in ['bf63142d','13493','v1.21
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #75 2026-11-05T14:19:35.522Z Bash
@@ -529,5 +544,66 @@ b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #411 | 2026-11-05T18:48:45.533Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); cd D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742
   #412 | 2026-11-05T18:49:42.921Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-
   #413 | 2026-11-05T18:50:24.978Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); cd D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b742; python
+  #414 | 2026-11-05T18:52:39.207Z | seat | PowerShell | git -C D:/relay status --short -- "data/b742_*" tools/acts/b742.py tools/b742_worklist.py data/act_current.json data/b741_steps.json
+  #415 | 2026-11-05T18:52:43.931Z | seat | PowerShell | git -C D:/relay ls-files data/b741_scores_dry.txt data/b741_touch.txt data/b741_commands.txt data/b741_pathrefusal.txt data/b741_probe_act.txt
+  #416 | 2026-11-05T18:52:47.741Z | seat | PowerShell | git -C D:/relay add tools/acts/b742.py data/b742_defects.txt data/b742_steps.json data/b742_touch.txt data/b742_commands.txt data/b742_commands.json data/b742_p
+  #417 | 2026-11-05T18:52:52.633Z | seat | Bash | python -X utf8 -u tools/b742_address_scan.py scan
+  #418 | 2026-11-05T18:53:10.412Z | seat | PowerShell | git -C D:/relay commit -q -m "b742 component 4, the probes: the touch read of v9 by hand (33 rows, AGREES 33; the margin recomputed in exact rationals from Fron
+  #419 | 2026-11-05T18:53:15.388Z | seat | PowerShell | cd D:/relay; $h = (git rev-parse --short=8 HEAD); python -X utf8 -u tools/standing/fold.py record step relay "component 4" $h --act b742
+  #420 | 2026-11-05T18:53:27.704Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py "regspec|registration_
+  #421 | 2026-11-05T18:53:34.360Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py "fold\.py (record|regs
+  #422 | 2026-11-05T18:54:08.874Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py "." 1238 1272 260
+  #423 | 2026-11-05T18:54:14.097Z | seat | PowerShell | python -X utf8 -c "import io;t=io.open('D:/relay/tools/b741_face.py',encoding='utf-8').read();L=t.split('\n');print(len(L));print('\n'.join(L[:60]))"
+  #424 | 2026-11-05T18:54:18.615Z | seat | PowerShell | python -X utf8 -c "import io;t=io.open('D:/relay/tools/b741_face.py',encoding='utf-8').read();L=t.split('\n');print('\n'.join(L[60:130]))"
+  #425 | 2026-11-05T18:54:26.143Z | seat | PowerShell | Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c "import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.spli
+  #426 | 2026-11-05T18:54:31.312Z | seat | PowerShell | Get-ChildItem D:/relay/data/b742_amend* -Name; python -X utf8 -c "import io,re;t=io.open('D:/relay/tools/b741_face_blocks.txt',encoding='utf-8').read();L=t.spli
+  #427 | 2026-11-05T18:54:53.436Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/carryface.py
+  #428 | 2026-11-05T18:56:04.112Z | seat | Bash | python -X utf8 -c "
+  #429 | 2026-11-05T18:56:13.621Z | seat | Bash | git log --format='%h %s' bce5605d~12..HEAD && git log --format='%h %s' -12 d39fc8af && git -C /d/zq-b738 log --format='%h %ad %s' --date=iso -16 zq-b730 2>&1 | 
+  #430 | 2026-11-05T18:56:17.529Z | seat | Bash | git log --format='%h %ci %s' d39fc8af~3..HEAD
+  #431 | 2026-11-05T18:56:18.007Z | seat | Bash | git -C /d/zq-b738 log --format='%h %ci %s' -12 zq-b730
+  #432 | 2026-11-05T18:58:08.458Z | seat | Bash | git -C /d/zq-b738 diff --stat 3329eaa 14ca572 && cd /d/relay && python -X utf8 -c "
+  #433 | 2026-11-05T18:58:44.835Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py "prelock" 1100 1700 300
+  #434 | 2026-11-05T18:58:51.104Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u D:/relay/tools/standing/prelock.py print b742
+  #435 | 2026-11-05T18:59:00.508Z | seat | Bash | python -X utf8 -c "
+  #436 | 2026-11-05T18:59:08.368Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-
+  #437 | 2026-11-05T19:07:17.489Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-
+  #438 | 2026-11-05T19:11:44.766Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-
+  #439 | 2026-11-05T19:18:22.391Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmpfail.py standing-a2; python -X
+  #440 | 2026-11-05T19:18:46.872Z | seat | Bash | git show --stat --format='%h %s' 147342a2
+  #441 | 2026-11-05T19:18:58.320Z | seat | Bash | python -X utf8 -c "
+  #442 | 2026-11-05T19:19:07.972Z | seat | Bash | python -X utf8 -c "
+  #443 | 2026-11-05T19:19:29.596Z | seat | Bash | python -X utf8 -c "
+  #444 | 2026-11-05T19:20:29.607Z | seat | Bash | python -X utf8 -c "
+  #445 | 2026-11-05T19:20:37.052Z | seat | Bash | python -X utf8 -c "
+  #446 | 2026-11-05T19:23:40.717Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u D:/relay/tools/b742_face.py --dry
+  #447 | 2026-11-05T19:23:45.642Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b742_face.py
+  #448 | 2026-11-05T19:23:52.883Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/facegaps.py
+  #449 | 2026-11-05T19:24:04.373Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/facegaps.py
+  #450 | 2026-11-05T19:24:17.431Z | seat | Bash | git status --short
+  #451 | 2026-11-05T19:24:24.365Z | seat | Bash | python -X utf8 -u tools/b742_address_scan.py scan
+  #452 | 2026-11-05T19:24:47.445Z | seat | Bash | git add -- tools/acts/b742.py data/b742_defects.txt data/b742_hook_refusals.txt data/b742_steps.json tools/b742_face.py
+  #453 | 2026-11-05T19:24:56.068Z | seat | Bash | git commit -q -m "b742 component 4, before the face: the face tool tools/b742_face.py carried from b741's (b741's sealed face read unedited, the shift one act o
+  #454 | 2026-11-05T19:25:03.271Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record step relay "component 4" 49a179a15ea12b2414cbbe5b84a17bb34475ceb6 --act b742
+  #455 | 2026-11-05T19:25:12.874Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u D:/relay/tools/b742_face.py
+  #456 | 2026-11-05T19:25:24.366Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b742_face.py
+  #457 | 2026-11-05T19:25:30.223Z | seat | Bash | python -X utf8 -u tools/b742_address_scan.py scan --bank
+  #458 | 2026-11-05T19:25:47.373Z | seat | Bash | git add -- data/b742_registration_2026-11-05.txt tools/b742_face_blocks.txt data/b742_steps.json data/b742_address_scan.txt
+  #459 | 2026-11-05T19:25:55.578Z | seat | Bash | git commit -q -m "b742 face: the registration data/b742_registration_2026-11-05.txt composed by tools/b742_face.py from b741's sealed face and tools/b742_face_b
+  #460 | 2026-11-05T19:26:02.767Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record step relay "component 4" 441c0c1f0d732c61d2054550c326e01d98d6ac95 --act b742
+  #461 | 2026-11-05T19:26:15.233Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py "rootdry|scores dry|reg_g
+  #462 | 2026-11-05T19:26:28.171Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #463 | 2026-11-05T19:26:43.007Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742
+  #464 | 2026-11-05T19:27:19.539Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/scoreline.py N5
+  #465 | 2026-11-05T19:27:57.811Z | seat | PowerShell | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/bankline.py D:/relay/data/b742_score
+  #466 | 2026-11-05T19:28:03.288Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_regis
+  #467 | 2026-11-05T19:29:58.517Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u D:/relay/tools/b742_face.py
+  #468 | 2026-11-05T19:30:02.908Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #469 | 2026-11-05T19:30:20.234Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742
+  #470 | 2026-11-05T19:30:55.013Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_regis
+  #471 | 2026-11-05T19:32:05.010Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
+  #472 | 2026-11-05T19:32:50.974Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b742_face.py
+  #473 | 2026-11-05T19:32:57.492Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_regis
+  #474 | 2026-11-05T19:34:07.066Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
 
-### ### **COMMANDS 413 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 8 ; DETACHED RUNS 4 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 42 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 474 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 8 ; DETACHED RUNS 4 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 54 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
