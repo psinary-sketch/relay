@@ -43,14 +43,15 @@ BANK = os.path.join(RELAY, K.BUILD_BANK)
 ZQ = 'SIDEExplicitFormula/Schema/ZQ/OffZero/'
 NS = 'SIDEExplicitFormula.Schema.ZQ.OffZero.'
 # ### the groups of data/b741_c7_plan.txt (5), the timing term first; each its own module and its own dispatch; the estimates the plan's (2) (R-S)
+# ### b741, Component 4: the names as built and printed (print_targets.txt at 3329eaa1), in place of the plan's working names
 GROUPS = (('T', 'Time', (20, 40), ('time_sRe_18',)),
-          ('G1', 'Series', (390, 950), ('incGamma1_series', 'series_tail_le', 'incGamma1_lipschitz')),
-          ('G2', 'Sums', (100, 250), ('sums_centre',)),
-          ('G3', 'GammaVal', (360, 1050), ('Gamma_centre_encl', 'cpow_factors')),
-          ('G4', 'Shells', (160, 450), ('trBox_split', 'shells_rest_le')),
-          ('G5', 'Centre', (100, 250), ('lamM_centre_encl', 'zqFn_centre_value')))
-ROWS_OF = {'time_sRe_18': 'T', 'incGamma1_series': "c4'", 'series_tail_le': "c4'", 'incGamma1_lipschitz': "c4'", 'sums_centre': 'c7',
-           'Gamma_centre_encl': 'c7', 'cpow_factors': 'c7', 'trBox_split': 'c7', 'shells_rest_le': 'c6', 'lamM_centre_encl': 'c7', 'zqFn_centre_value': 'd8'}
+          ('G1', 'Series', (390, 950), ('Gamma_split', 'lowInt_sub_sum_le', 'incGamma1_sub_le', 'one_div_cpow_two_pow')),
+          ('G2', 'Sums', (100, 250), ('inD_mul', 'sum_eq_qc', 'qc_expS')),
+          ('G3', 'GammaVal', (360, 1050), ('lam_lo', 'lam_hi', 'incGamma1_split', 'GX_encl', 'two_cpow_encl', 'inD_transfer')),
+          ('G4', 'Shells', (160, 450), ('boxS_qN', 'boxM_card', 'boxB_card', 'lamM_sub_shellSum')),
+          ('G5', 'Centre', (100, 250), ('lamM_centre_encl', 'zqFn_centre_eps', 'zqFn_centre_small')))
+ROWS_OF = dict([(n_, 'c7') for _g, _m, _e, ns_ in GROUPS for n_ in ns_], time_sRe_18='T', zqFn_centre_eps='d8', zqFn_centre_small='d8')
+EPS = '1573560772023/125000000000000'   # ### zqFn_centre_eps's printed rational (Centre.lean), 13103/10000 x 16012218800 x 6/10^13
 S5CD = (1110, 3350)         # ### data/b741_c7_plan.txt (2) (R-S) TOTAL
 S5CD_MEASURED = S5CD
 SP3_CEILING = 3 * S5CD[1]   # ### the three-times rule on the plan's own figure, data/b741_c7_plan.txt (5): 10,050
@@ -206,7 +207,7 @@ def lines_table():
         tot += n or 0
         out.append('  %-3s %-34s measured %s ; the estimate %d-%d ; %s' % (g, ZQ + mod + '.lean', n, lo, hi,
                                                                           'NOT WRITTEN' if n is None else 'within' if lo <= n <= hi else 'BELOW' if n < lo else 'ABOVE'))
-    out.append('  S5c-S5d IN ALL: measured %d ; the estimate %d-%d (data/b737_offlinezero_plan.txt :136) ; by the measured ratio %d-%d ; the ratio %.3f-%.3f' % (
+    out.append('  (c7) IN ALL: measured %d ; the estimate %d-%d (data/b741_c7_plan.txt :56) ; by the measured ratio %d-%d ; the ratio %.3f-%.3f' % (
         tot, S5CD[0], S5CD[1], S5CD_MEASURED[0], S5CD_MEASURED[1], tot / S5CD[1], tot / S5CD[0]))
     out.append('  SP3`S RULE: three times the estimate, %d lines ; measured %d ; %s' % (SP3_CEILING, tot, 'PAST IT, STOP' if tot > SP3_CEILING else 'within, the build goes on'))
     return out, tot
@@ -251,7 +252,7 @@ def cmd_bank(*notes):
     free = DR.free()
     md5, md5_ok = md5_lines()
     tab, tot = lines_table()
-    L = ['b740 -- W-ORD-ZQ-OFFLINE-ZERO, S5c-S5d IN THE TREE AT THE CENTRE OF BOX A, TO SP3 ((R350)(3)(b)-(d)), BUILT ON zq-b730 FROM 602cd401 BY THE RUNNER (%s)' % _now(), '',
+    L = ['b741 -- W-ORD-ZQ-OFFLINE-ZERO, (c7) THE CERTIFICATE AT THE CENTRE OF BOX A, TO SP3 ((R351)(3)(b)), ROUTE (K) BY THE AUTHOR`S WORD, BUILT ON zq-b730 FROM ba318a0b BY THE RUNNER (%s)' % _now(), '',
          '## THE CONTROLS',
          '  the axioms reader on a constructed standard line: %s ; on a constructed axiom-free line: %s ; on an absent name, None: %s' % (ctl_std, ctl_none, ctl_miss),
          '  the figure-bank reader: the controls first passes, the controls after refused: %s' % ctl_fig] + md5 + [
@@ -264,7 +265,7 @@ def cmd_bank(*notes):
             r['n'], r['item'], r['target'].split('.')[-1], r['sha'][:8], r['run'], r['free_mb'], rd.get('verdict', 'UNREAD'), rd.get('build_exit'), len(rd.get('errors') or []),
             rd.get('sorry_warnings'), rd.get('sorryAx'), rd.get('runner_low_mb'), rd.get('free_mb')))
     L += ['', '## THE LINES, MEASURED AGAINST THE ESTIMATES (I-10`s form), AND SP3`S THREE-TIMES RULE'] + tab + ['',
-          '## THE AXIOMS OF EACH ROW OF data/b740_s5cd_statements.txt, FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT']
+          '## THE AXIOMS OF EACH PRINTED NAME OF THE BUILD (data/b741_c7_plan.txt (5)), FROM THE LATEST KERNEL READ WHOSE ARTIFACT PRINTS IT']
     built, unbuilt = [], []
     for g, mod, _e, names in GROUPS:
         for nm in names:
@@ -274,21 +275,22 @@ def cmd_bank(*notes):
             L.append('  %-3s (%s) %-28s %s (run %s)' % (g, ROWS_OF[nm], nm, 'NOT BUILT' if a is None else (', '.join(a) or 'none'), run))
     kernel = [r for r in reads.values() if r.get('build_exit') == '0']
     clean = not any(r.get('sorryAx') or r.get('sorry_warnings') for r in kernel)
-    first_open = next((nm for nm in ('lamM_centre_encl', 'norm_inv_Gamma_le', 'norm_inv_Gamma_centre_le', 'norm_qBase_cpow_centre_le', 'zqFn_centre_le') if nm in unbuilt), None)
+    first_open = next((nm for nm in ('lamM_centre_encl', 'zqFn_centre_eps', 'zqFn_centre_small') if nm in unbuilt), None)
     stopped = tot > SP3_CEILING
     reached = not stopped and first_open is None and clean
     rows_all = set(ROWS_OF[x] for x in built + unbuilt)
     rows_ok = rows_all - set(ROWS_OF[x] for x in unbuilt)
     grade = 'STOPPED BY THE THREE-TIMES RULE AT %d LINES' % tot if stopped else 'REACHED' if reached else 'NOT REACHED AT (%s) %s' % (ROWS_OF[first_open], first_open)
-    L += ['', '## THE NOTES (data/b740_offlinezero_notes.txt)'] + ['  ' + x for x in notes] + ['',
+    eps_ok = 'zqFn_centre_eps' in built and 'zqFn_centre_small' in built
+    L += ['', '## THE NOTES (data/b741_offlinezero_notes.txt)'] + ['  ' + x for x in notes] + ['',
           '## THE GRADE',
-          '  printed names compiled with the standard three: %d of %d (%s)' % (len(built), len(built) + len(unbuilt), ', '.join(ROWS_OF[x] for x in built) or 'none'),
+          '  printed names compiled with the standard three: %d of %d (%s)' % (len(built), len(built) + len(unbuilt), ', '.join(built) or 'none'),
           '  printed names not compiled: %s' % (', '.join('(%s) %s' % (ROWS_OF[x], x) for x in unbuilt) or 'none'),
-          '  rows of the statements bank: %d carry a printed name, %d compiled (every name of the row on the standard three), not compiled %s; (c1) is the definition incGamma1, compiled in IncGamma.lean, no axioms line of its own' % (
-              len(rows_all), len(rows_ok), ', '.join('(%s)' % x for x in sorted(rows_all - rows_ok)) or 'none'),
-          '  no sentence here says a zero is located in Lean or that Li nonnegativity fails as a theorem; a certified value at one point is a value.', '',
-          '### ### **SP3 %s ; DISPATCHES %d OF %d ; LINES %d AGAINST 482-2,675 (THE CEILING %d) ; ROWS COMPILED %d OF %d, NAMES %d OF %d ; THE ORDER OPEN AT %s.**' % (
-              grade, len(disp), K.MAX_DISPATCHES, tot, SP3_CEILING, len(rows_ok), len(rows_all), len(built), len(built) + len(unbuilt), 'SP3' if reached else 'SP2')]
+          '  the value at the centre: zqFn_centre_eps, ‖zqFn cA‖ ≤ ε = %s (about 0.0125885), and zqFn_centre_small, ‖zqFn cA‖ ≤ 1/10 ; both compiled %s' % (EPS, eps_ok),
+          '  the axiom line, printed in full for each name above: %s' % ', '.join(STANDARD),
+          '  no sentence here says a zero is located or that Li nonnegativity fails; a certified bound on |zqFn| at one point is a bound at that point.', '',
+          '### ### **SP3 %s ; ε = %s ≤ 1/10 ; DISPATCHES %d OF %d ; LINES %d AGAINST %d-%d (THE CEILING %d) ; NAMES %d OF %d ; THE ORDER OPEN AT %s.**' % (
+              grade, EPS, len(disp), K.MAX_DISPATCHES, tot, S5CD[0], S5CD[1], SP3_CEILING, len(built), len(built) + len(unbuilt), 'SP3' if reached and eps_ok else 'SP2')]
     r = FB.write(BANK, NL.join(L))
     print(NL.join(L))
     print('written %s ; figbank: %s' % (K.BUILD_BANK, r['why']))

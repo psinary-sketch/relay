@@ -1,0 +1,3 @@
+2026-11-04T22:54:56Z | READ | Read | "D:\\relay\\tools\\acts\\b741.py" | a Read call with limit 240, above 200
+2026-11-04T23:02:01Z | PIPE | PowerShell | "Get-CimInstance Win32_OperatingSystem | Select-Object FreePhysicalMemory" | a PowerShell command carrying a pipe outside quotes
+2026-11-05T01:24:52Z | PIPE | Bash | "python -X utf8 -c \"import json;r=json.load(open('D:/relay/data/b741_steps.json',encoding='utf-8'));print(list(r.keys()) if isinstance(r,dict) else 'list');rows=r['rows'] if isinstance(r,dict) else r;[print(x) for x in rows[-4:]];print(len(rows))\"; ls D:/relay/tools/ | grep -i -E \"b741_|rowgen\"" | a Bash command carrying a pipe outside quotes

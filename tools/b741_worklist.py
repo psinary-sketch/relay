@@ -201,7 +201,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('per (R351)(6), named by the author: S6 (the frontier) of W-ORD-ZQ-OFFLINE-ZERO on the measured price, the wave 1 deposit, or the carried orders')
+NEXT = ('per the author`s word at b741: b742 is S6, the frontier of box A to SP4 and the corollary, on route (K), the plan committed before any Lean')
 NEXT_ACT = 'b742'
 
 
@@ -287,7 +287,7 @@ WEIGHT_LINE, CORR_LINE = 13493, 13495   # ### FINDINGS: b740's weight line and t
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = '3dab6492e948e79243a5ebeba7dffb575712a4be'   # ### the plan bank's last commit (b737's), the blob the build reads
-C2_RELAY = None   # ### Component 2, the plan bank data/b741_c7_plan.txt, committed before any Lean file ((R351)(3)(a))
+C2_RELAY = '3f5b316a'   # ### Component 2, the plan bank data/b741_c7_plan.txt, committed before any Lean file ((R351)(3)(a))
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
@@ -298,7 +298,7 @@ PRINT_COMMIT = None  # ### (carried name) the commit carrying the act's result b
 PLAN_MD5 = '3d61f519917a3ee20ac4d7c5fab197ef'   # ### printed at step zero (data/b741_citation_check.txt) before any Lean file
 C2_AMEND = ()
 SITTING_PP = ()
-C3_RELAY = ()   # ### Component 3, the build to SP3 ((R351)(3)(b)): the tool, the dispatch rows, the build bank and its notes
+C3_RELAY = ('1827edd6', '5de68eaf', '783ec595')   # ### Component 3, the build to SP3 ((R351)(3)(b)): the tool, the dispatch rows; the build bank and its notes at Component 4
 SITTING_COMMITS = ()
 C3_PP = None
 C4_LV = None
@@ -331,15 +331,18 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = 'ba318a0b67fd95164623e4fdf109eb5d042697fa'   # ### b740's tip (S5d's fix): the build's base ((R351)(3))
-ZQ_TIP = ZQ_ENTERING   # ### the act's last Lean commit on zq-b730; set after each Lean commit
-ZQ_FIRST = None        # ### (R351)(3)(b): the act's first Lean commit, after the plan bank and the author's word
-ZQ_COMMITS = ()
+ZQ_TIP = '3329eaa106cc24891ed55374afcd4ca4f7fe33d8'   # ### the act's last Lean commit on zq-b730 (G5's generator repair, dispatch 6 KERNEL)
+ZQ_FIRST = 'f2de6efb669405b5e6ed270e4a82e3bc6effa500'        # ### (R351)(3)(b): the act's first Lean commit, after the plan bank and the author's word
+ZQ_COMMITS = ('f2de6efb669405b5e6ed270e4a82e3bc6effa500', 'de4810da5d3cfc524002630959b32e4ebc30ce66', '47f5afb3f1b40a8525ac45eba0f1bf04fe2ed155',
+              '42cb968b8ce35bb024bca8995a743a809c19409e', 'c9ad907454b785b75ad2142e1dcdf9a4797cfd0c', '3329eaa106cc24891ed55374afcd4ca4f7fe33d8')   # ### T ; G1+G2 ; repairs+G4 ; G3+G5 ; cast repair ; generator repair
 ZQ_COMMITS_B740 = ('8c6ec8d12d97bece1de8dab10511add9d97382d0', '6b068a0db2ff1451e9da7bff82fe8fd66a8dad38', 'ba318a0b67fd95164623e4fdf109eb5d042697fa')   # ### b740's S5c ; S5d with S5c's fix ; S5d's fix
 ZQ_SP1 = None
-ZQ_SP3 = None                # ### SP3 reached here, if reached
+ZQ_SP3 = '3329eaa106cc24891ed55374afcd4ca4f7fe33d8'   # ### SP3 REACHED here (dispatch 6, run 41940815524)
 ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Lines', 'Main')   # ### the build's eight, under Schema/ZQ/EF
-ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail', 'IncGamma', 'Elem')   # ### under Schema/ZQ/OffZero, one a group; b741 adds S5c IncGamma, S5d Elem
-ZQ_FILES = ()   # ### zq-b730's diff against ba318a0b; set after each Lean commit
+ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail', 'IncGamma', 'Elem', 'Time', 'Series', 'Sums', 'GammaVal', 'Shells', 'Centre')   # ### under Schema/ZQ/OffZero; b741 adds (c7)'s six
+ZQ_FILES = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/GammaVal.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Series.lean',
+            'SIDEExplicitFormula/Schema/ZQ/OffZero/Shells.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Sums.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean',
+            'print_targets.txt')   # ### zq-b730's diff against ba318a0b at 3329eaa1
 ZQ_FILES_B740 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean', 'print_targets.txt')   # ### b740's diff against 602cd401
 ZQ_MODULES_B730 = ('Lattice', 'Theta', 'FEPair', 'Continuation')   # ### the names the carried sections read, until each section is set for this act
 ZQ_ZEROS_FIRST, ZQ_LOGDERIV_TIP = None, None
@@ -350,7 +353,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R351)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### (R351)(3): the act's dispatches, each read by its run id; set after each
+EF_RUNS = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### (R351)(3): the act's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
 EF_RUNS_B740 = (41854903335, 41857376723, 41859346843)   # ### b740's three: BREAKS, BREAKS, KERNEL, read not re-run
 EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430, 41736472780)   # ### b738's first six (of eleven), read not re-run
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
