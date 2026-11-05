@@ -1115,7 +1115,7 @@ TITLE_LINE = ('b741 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
     '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches (N1: of the twelve (R351)(3)(d) allows, each read by its run id) ; the rebuild-b721 branches of the wave 1 kernels as b740 left them ;',
     '    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;',
     '    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each suite part and computation ;',
-    '    the push-b740-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the plan bank`s md5 printed at step zero before any Lean file, the (c7) plan committed before any Lean file, the build bank`s controls before its figures, the (W) regeneration, the pre-lock comparison and the probe-path refusal before the lock gate ;',
+    '    the push-b740-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the (c7) plan committed before any Lean file, the order printed by ancestry ; the author`s word on the checking route given before the first build dispatch and banked by no commit before it (defect (q)) ; the build bank`s controls before its figures, the (W) regeneration, the pre-lock comparison and the probe-path refusal before the lock gate ;',
     '    N3: SP3 graded REACHED at (c7) with ε printed and every printed name`s axioms ; no sentence says a zero of Z_Q0 is located or that Li nonnegativity fails ; a bound at one point is a bound at that point ; the entry`s nouns the banks` ; N5: S6 not begun ; one git write per message ; no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b741_address_scan.txt, data/b741_address_scan_postlock.txt) ;',
     '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads, the six workflow dispatches and their artifact downloads under the GitHub login') + ' ;',
     '    nothing deposited ; no new Zenodo version ; no Zenodo field touched ; the deposit route untouched, the draft held at v5 unpublished ; no GitHub description written ;',
@@ -1125,7 +1125,7 @@ TITLE_LINE = ('b741 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
     '    roster read from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
 #⟪END⟫
 #⟪SECTION closing 9⟫
-    '    (a) ### **THE NEXT, (R351)(7)**: ' + WL.NEXT + '.',
+    '    (a) ### **THE NEXT, (R351)(6)**: ' + WL.NEXT + '.',
 #⟪END⟫
 #⟪SECTION closing 10⟫
     '    (c) For the next act, each from its bank: W-ORD-ZQ-OFFLINE-ZERO OPEN at SP3 (relay data/b741_offlinezero.txt), SP3 REACHED, ‖zqFn cA‖ ≤ 1573560772023/125000000000000, S6 not begun ; the wave 1 deposit ; the reproduction`s NOT RUN rows, each with its price',

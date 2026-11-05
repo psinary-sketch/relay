@@ -1,5 +1,5 @@
 {
- "at": "2026-11-05T02:49:25Z",
+ "at": "2026-11-05T03:13:03Z",
  "anchor": "RULING (R351) BEGIN",
  "rows": [
   {
@@ -2729,6 +2729,366 @@
    "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record commands --act b741",
    "n": 341,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:49:30.360Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b741_prepaths.py --bank",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:51:53.031Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --reverse --format='%h %cI %s' fe2150b3..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format='%h %cI %s' 2c27d6d..HEAD",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:52:04.911Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/prelock.py print b741",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:52:22.752Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/showline.py D:/relay/data/b741_rules.txt 5 5",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:53:06.177Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b741",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:53:07.414Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"; python -X utf8 -u D:/relay/tools/standing/fold.py checks --part act --probe",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:56:37.923Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/prelock.py print b741",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:57:20.191Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:57:29.073Z",
+   "src": "seat",
+   "cmd": "Get-Item -LiteralPath 'D:/relay/=' | Select-Object Length, LastWriteTime; git -C D:/relay diff --stat -- data/b741_steps.json",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:57:34.387Z",
+   "src": "seat",
+   "cmd": "(Get-Item -LiteralPath 'D:/relay/=').LastWriteTime; (Get-Item -LiteralPath 'D:/relay/=').Length; git -C D:/relay diff --stat -- data/b741_steps.json",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:57:40.217Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay diff -- data/b741_steps.json",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:57:48.876Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b741_address_scan.py scan --bank",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:58:07.989Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/showline.py D:/relay/data/b741_hook_refusals.txt 5 5",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:58:28.183Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/acts/b741.py tools/b741_face.py data/b741_defects.txt data/b741_touch.txt data/b741_steps.json data/b741_commands.json data/b741_commands.txt data/b741_pathrefusal.txt data/b741_scores_dry.txt data/b741_address_scan.txt data/b741_hook_refusals.txt",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:58:35.579Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b741 component 4, before the face: the probes in ten parts and the pre-lock comparison; the act module's read-first needles, rules sections and N2 reader set to b741's ferry, the entry's order sentence rewritten (defects (o), (p), (q), (r)); v1.21.0's post-seal wrap read as a defect, not repaired (defect (n)); the generator's shell copy (defect (m)); the command bank (341, offence #276), the probe-path refusal (CLEAR, 4 of 4), the score routes' dry form; the face tool; the touch read 31 rows; defect (s); scan 0, 7/7\"",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:58:41.823Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log -1 --format='%H %cI'",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:58:47.424Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay \"component 4\" 89720eac",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T02:59:27.743Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/heads.py D:/relay/tools/acts/b741.py 1530 1620",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:02:00.872Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b741_face.py --dry",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:02:08.791Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b741_face.py",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:02:49.252Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py \"rootdry|reg_gate|closing dry|commit\\.py|record step|lockgate|b740_face\" 4300 6000",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:02:56.263Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py \"rootdry|reg_gate|closing dry|scores dry|commit|record step|lockgate|reg_seal|regspec|satisfiable|banned|gate_hash|face\\.py|prerun\" 6000 6600",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:07.797Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b741_address_scan.py scan --bank",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:22.596Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add -- data/b741_registration_2026-11-04.txt tools/b741_face_blocks.txt data/b741_steps.json data/b741_address_scan.txt",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:31.823Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b741 face: the registration composed from b740's sealed face and the act's blocks, no carried sentence to set; (W) regenerated from (R351)(4), none missing; G-AXIOM-CLAIM and G-RULE-POSTSEAL-READ declared on real state, the twelve newly failing named; step row 9 for 89720eac; scan 0, 7/7\"",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:37.598Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay \"component 4\" HEAD",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:47.310Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log -1 --format='%h'",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:03:56.650Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record step relay \"component 4\" 39e88bff",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:04:07.268Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"; python -X utf8 -u D:/relay/tools/standing/fold.py record rootdry --act b741",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:04:22.999Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b741 --quiet",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:06:02.961Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/compilecontrol.py check b741",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:06:04.105Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py closing dry --act b741 --quiet",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:06:04.644Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/standing/fold.py record scores dry --act b741",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:06:05.912Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"; python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --act b741 --quiet",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:08:35.112Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain -- data/b741_* data/audit_b741_* tools/acts/b741.py tools/b741_*",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:08:50.415Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/showline.py \"C:/Users/echo chamber/.claude/projects/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/tool-results/b0hfdanol.txt\" 24 25",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:09:00.162Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"; python -X utf8 -u D:/relay/tools/standing/fold.py reg_gate data/b741_registration_2026-11-04.txt --act b741",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:10:03.858Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --porcelain -- data/b741_* data/audit_b741_*",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:10:11.897Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/D--/352ad3f4-37c5-4360-b9c6-cb7368f5f805/scratchpad/cmdsre.py \"regspec|satisfiable|banned_terms|census|pins_stepzero|termscan\" 3000 6300",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:10:49.555Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay ls-files -- data/b741_census_stepzero.txt data/b741_faces_census_stepzero.txt data/b741_pins_stepzero.txt data/b741_reg_termscan.txt data/b741_regspec_run.txt data/audit_b741_reg_satisfiable.txt data/b741_ferry_scan.txt",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:12:19.873Z",
+   "src": "seat",
+   "cmd": "git log --format='%h %ad %s' --date=iso -3 -- data/b740_census_stepzero.txt data/b740_pins_stepzero.txt data/b740_reg_termscan.txt data/b740_regspec_run.txt data/audit_b740_reg_satisfiable.txt data/b740_faces_census_stepzero.txt",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:12:31.084Z",
+   "src": "seat",
+   "cmd": "ls -la data/b741_satisfiable.json data/b740_satisfiable.json tools/b741_regspec.py tools/b740_regspec.py; git log --format='%h %s' -2 -- data/b740_satisfiable.json tools/b740_regspec.py",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:12:37.081Z",
+   "src": "seat",
+   "cmd": "head -c 600 data/b740_regspec_run.txt; echo; echo ---; head -c 400 data/b740_satisfiable.json; echo; git grep -n -e \"satisfiable.json\" -e \"def regspec\" -- tools/standing/fold.py tools/standing/fold/record.tpl tools/reg_satisfiable.py",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T03:12:44.624Z",
+   "src": "seat",
+   "cmd": "$os = Get-CimInstance Win32_OperatingSystem; \"free_mb=$([int]($os.FreePhysicalMemory/1024))\"",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T03:12:48.257Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 386,
+   "bg": false
   }
  ],
  "offences": [
@@ -2770,7 +3130,8 @@
  ],
  "any_pipes": [
   112,
-  282
+  282,
+  350
  ],
  "py_programs": [
   63,
