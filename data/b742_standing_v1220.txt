@@ -1,0 +1,96 @@
+b742 -- THE CONTROLS OF tools/standing/ v1.22.0, (R352)(2)(i)-(vi): THE DISPATCH`S LICENCE, THE POST-PUSH CHAIN`S CAUSE AND THE RUN CACHE, THE COUNTER COMPOSED ONCE, THE TWO POST-CLOSING SLIPS, THE REFUSAL AS REPEAT, THE VERSION (2026-11-05T14:46:30Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then the dispatch`s licence at the head, then each repair`s instances through both routes; written through tools/standing/figbank.py ((R348)(2)(i))
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2581 lines
+  citation render          OK    540 lines
+  closing render           OK    621 lines
+  record render            OK    4515 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    154 lines
+  tools/b742_worklist.py   OK    389 lines
+### THE COMPILE CONTROL : b742 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from 13498fd2
+
+### (dispatch) (R352)(2)(i), b741 DEFECT (q): A DISPATCH CONDITIONED ON THE AUTHOR`S WORD WAITS ON THE COMMIT CARRYING THAT WORD, ITS HASH IN THE ROW
+  (dispatch) b741`s dispatch 2 replayed (run 41935365948, 23:38:52Z), riding on the word "(K) kernel route" (data/b741_author_answers.txt :7)
+      BEFORE (v1.21.0): dispatchrows at 13498fd2: the row ACCEPTED, no licence asked -> FAILS
+      AFTER  (v1.22.0): licence at 23:38:52Z: ### NOT DISPATCHED: no commit at or before 2026-11-04T23:38:52Z carries the author`s word '="(K) kernel route"' in data/b741_author_answers.txt (its commits on HEAD`s lin ; the row with no licence: ### THE ROW REFUSED, NOTHING WRITTEN: a dispatch with no licence: the commit carrying the author`s word it rides on (lic -> PASSES
+      AS WANTED
+  (dispatch) GUARD, NO FAILING SIDE: the same dispatch after the word`s commit: the licence read with no bound, the row carrying it accepted at the commit`s time
+      AFTER  (v1.22.0): licence 1c74cfcf (data/b741_author_answers.txt :7, committed 2026-11-05T05:17:32Z) ; the row`s licence 1c74cfcf -> HOLDS
+      AS WANTED
+  (dispatch) GUARD, NO FAILING SIDE: b742`s own word (data/b742_author_answers.txt :10), the licence every b742 dispatch row names
+      AFTER  (v1.22.0): licence 1f96d4ea (the word first met at :7, the RESULT line beside :10) committed 2026-11-05T14:12:12Z -> HOLDS
+      AS WANTED
+
+### (remote) (R352)(2)(ii), b741 EVENT (4): THE POST-PUSH CHAIN`S CAUSE; ONE REMOTE READ PER REPOSITORY PER SUITE RUN, CACHED, EACH READ TIMED; THE HARNESS`S MOVE ITS OWN ACT
+  THE PHASE TABLES OF standing-b2c, SIDE BY SIDE (seconds: the banks and the state | the prior banks | the act-root chain`s part | the run):
+      pre-push   (data/b741_checks_standing-b2c.txt :5)                 59 |     4 |   183 |   246
+      post-push  (the run moved to the background; transcript 2026-11-05T07:00:05.535Z)    72 |     4 |  1970 |  2047
+      post-push  re-run in the foreground (data/b741_checks_postpush_standing-b2c.txt :5)    75 |     5 |   183 |   264
+  THE REMOTE READS: the pre-push part 38 repositories, at most 1 each (data/b741_lsr_standing-b2c.json); the re-run 38, at most 1 (data/b741_lsr_postpush_standing-b2c.json);
+    the slow run`s own remote-read bank was overwritten by the re-run (the bank names the file, not the run), and v1.21.0 timed no read: its count is not banked
+    and no read`s time was recorded. THE CAUSE, AS THE BANKS ALLOW IT TO BE NAMED: the excess (1787 s over 183) sits wholly in the act-root chain`s phase, the phase that holds
+    the part`s remote reads (act_root.verify through b616_claims.remote_refs: the tags` peels and the heads against the remote mains, 38 repositories); the other phases
+    moved by at most 3 s; the seat`s reading at the time (python and git live, "probably slow ls-remote calls") is a process listing, not a measurement. The repair
+    reads each repository once per suite run and times every read, so a slow read is printed by its repository and its seconds the next time.
+  (remote) GUARD, NO FAILING SIDE: the three tables read; the chain phase the only one to move (the slow run`s chain phase over 5 times the re-run`s; the other phases within 15 s)
+      AFTER  (v1.22.0): pre (59, 4, 183, 246) ; slow (72, 4, 1970, 2047) ; re-run (75, 5, 183, 264) -> HOLDS
+      AS WANTED
+  (remote) two parts of one suite run over three repositories, each part its own process
+      BEFORE (v1.21.0): per-process memo (b616_claims.remote_refs): 6 reads -> FAILS
+      AFTER  (v1.22.0): the run cache: 3 reads, the second part`s relay cached, PLACE-papers cached, SIDE-explicit-formula cached -> PASSES
+      AS WANTED
+  THE PART RE-RUN UNDER THE REPAIR at 2026-11-05T14:41:09.981Z: phases (67, 4, 191, 263) ; read 38, cached 0, the reads` seconds 16.6, the slowest D:/SIDE-constants 1.29 s
+  THE PART RE-RUN UNDER THE REPAIR at 2026-11-05T14:45:28.566Z: phases (61, 3, 174, 239) ; read 0, cached 38, the reads` seconds 0.0, the slowest - 0.00 s
+  THE CAUSE, MEASURED: under the repair the part`s 38 remote reads took 16.6 s in all (the slowest 1.29 s) inside a 191 s chain phase, and the warm run with no read
+    at all still took 174 s there; the chain phase is local work (the banks read at their commits). The remote reads explain the slow run`s 1787 s excess only if
+    one read stalled for most of it, and no bank of b741 names a repository or a time: THE RULING`S NAMED CAUSE IS NOT ESTABLISHED BY THE BANKS. The repair lands
+    as ordered (one read per repository per suite run, cached) and times every read, so a stall is named by its repository and its seconds when it recurs.
+  (remote) GUARD, NO FAILING SIDE: the part re-run under the repair, cold then warm: the cold run reads 38 repositories once each and times them; the warm run reads none and takes them from the run cache
+      AFTER  (v1.22.0): 2 runs read from the transcript -> HOLDS
+      AS WANTED
+  (remote) GUARD, NO FAILING SIDE: the run key: a mode or a remote-tracking ref that moves gives another key, so the post-push run reads its own remotes
+      AFTER  (v1.22.0): b742_run_5f4519084c853970 ; b742_prerun_5f4519084c853970 -> HOLDS
+      AS WANTED
+  (remote) b741`s post-push standing-b2c, moved to the background by the harness at its 600 s timeout (task bh6cl8npl)
+      BEFORE (v1.21.0): N1`s figure (data/b741_closing.txt :152) "suite parts sent in the background: 0", the harness`s move named nowhere -> FAILS
+      AFTER  (v1.22.0): MOVED BY THE HARNESS 1 (bh6cl8npl, sent 2026-11-05T06:25:47.055Z, its notice 2026-11-05T06:57:44.011Z, the suite part standing-b2c) ; CALLS SENT IN THE BACKGROUND BY THE SEAT 9 ; the b2c post-push call the seat sent in the background: 0 -> PASSES
+      AS WANTED
+
+### (counter) (R352)(2)(iii), b741 TOUCH ROW (28): THE COUNTER COMPOSED ONCE FROM THE DEFECTS AND EVENTS BANKS, ITS SET NAMED; b741`S FIGURES WITH THEIR CAUSE
+  THE THREE FIGURES b741 PRINTED: the touch read`s row (28) (5, 16, 11, 21) (data/b741_touch.txt :35); FINDINGS :13601 (5, 17, 11, 22) (PLACE-papers efce669); the closing (5, 20, 14, 25) (data/b741_closing.txt :5)
+  THE EVENTS` OWN TIMES: event (1) 2026-11-05T05:08:38Z, event (2) 2026-11-05T06:03:34Z, event (3) 2026-11-05T06:05:48Z, event (4) 2026-11-05T06:25:48Z
+  THE ONE COMPOSER AT EACH PRINTER`S MOMENT: the touch read at the lock (relay 9d37eea8, 2026-11-05T03:30:12Z) CLAIM 5, CLOSE 16, REPEAT 11 of 21 (defects 21, events 0) ; the entry at the pre-root (PLACE-papers 0ff5443f, 2026-11-05T05:17:07Z) CLAIM 5, CLOSE 17, REPEAT 11 of 22 (defects 21, events 1) ; the closing (relay 13498fd2, 2026-11-05T07:26:10Z) CLAIM 5, CLOSE 20, REPEAT 14 of 25 (defects 21, events 4)
+  THE CAUSE: the touch read to the entry adds event (1) (entered after the lock, before the seal); the entry to the closing adds event (2), event (3), event (4)
+  (counter) b741`s three figures, each against the one composer at the commit of its moment
+      BEFORE (v1.21.0): three printers, no set named in any (none names its set) -> FAILS
+      AFTER  (v1.22.0): the composer at the lock, the entry and the closing equals each figure in turn: [True, True, True] -> PASSES
+      AS WANTED
+
+### (slips) (R352)(2)(iv): b741`S TWO POST-CLOSING SLIPS -- THE READ REFUSAL IN THE HOOK`S BANK; THE CHAINED GIT WRITE REFUSED, (R347)(2)(ii)/(R349)(2)(i) LANDING
+  (slips) GUARD, NO FAILING SIDE: data/b742_hook_refusals.txt :1, the Read of data/b741_closing.txt after b741`s closing commit, refused READ
+      AFTER  (v1.22.0): 2026-11-05T07:24:51Z | READ | Read | "D:\\relay\\data\\b741_closing.txt" | a Read call with a limit and no offset on a f -> HOLDS
+      AS WANTED
+  (slips) GUARD, NO FAILING SIDE: data/b742_hook_refusals.txt :2, b741`s closing commit sent in the message that carried its add, refused GITWRITE (one git write per message, the repair of (R347)(2)(ii) and (R349)(2)(i) at work); nothing committed by that call, the closing committed alone after it (13498fd2, 07:26:10Z)
+      AFTER  (v1.22.0): 2026-11-05T07:26:03Z | GITWRITE | Bash | "git -C /d/relay commit -m \"b741 closing: the post-push suite 114 of 116, the  -> HOLDS
+      AS WANTED
+
+### (repeat) (R352)(2)(v), b741 EVENT (1): THE COMMIT TOOL`S REFUSAL OF THE PRE-RUN SENT UNDER THE LOCK HEADING, PRINTED AS REPEAT
+  (repeat) b741`s event (1), the refusal "A LOCK ROW STANDS: the commit after the lock takes phase `se" at 05:08:38Z
+      BEFORE (v1.21.0): commit.py at 13498fd2: the refusal printed with no class (repeat_of defined: False) -> FAILS
+      AFTER  (v1.22.0): the refusal`s class: REPEAT of b740 event (4) -> PASSES
+      AS WANTED
+
+### (version) (R352)(2)(vi): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.21.0): v1.21.0 -> FAILS
+      AFTER  (v1.22.0): v1.22.0 -> PASSES
+      AS WANTED
+
+### ### **v1.22.0: CONTROLS (dispatch), (remote), (counter), (slips), (repeat), (version) ; CASES 13 ; AS WANTED 13 ; ALL AS WANTED.**

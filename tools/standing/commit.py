@@ -8,6 +8,7 @@ Everything that could refuse the row is read before the commit, so a commit and 
   - the composed subject must pass subjects.check(); something must be staged (the add is its own message, one git write per message).
 The commit's subject is read back from git and compared with the composed one; the row is written by the record tool's step route.
 After a seal commit the post-seal exclude list is printed (tools/standing/hook.py excludes), read before any read ((R351)(2)(iv)).
+v1.22.0, (R352)(2)(v): a refusal prints its class, REPEAT of the earlier act's row that carries its head words, or NEW (repeat_of).
 
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal> [words ...]
 """
@@ -99,6 +100,29 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
     return done
 
 
+def repeat_of(msg, act, data=None):
+    """v1.22.0, (R352)(2)(v), b741 event (1): a refusal printed with its class: the latest earlier act's events or defects row carrying the
+    refusal's head words (the text before its first colon), "REPEAT of <act> event (<n>)" / "defect (<x>)", or NEW where none does."""
+    import re
+    data = data or os.path.join(RELAY, 'data')
+    head = msg.split(':')[0].strip()
+    n = int(act[1:])
+    hits = []
+    for f in os.listdir(data):
+        m = re.match(r'^b(\d+)_(events|defects)\.txt$', f)
+        if not m or int(m.group(1)) >= n:
+            continue
+        with open(os.path.join(data, f), encoding='utf-8', errors='replace') as fh:
+            for l in fh.read().replace('\r', '').split('\n'):
+                r = re.match(r"^    \(((?:[a-z]'?)|\d+)\) ", l)
+                if r and head and head in l:
+                    hits.append((int(m.group(1)), m.group(2)[:-1], r.group(1)))
+    if not hits:
+        return 'NEW'
+    a, kind, x = max(hits)
+    return 'REPEAT of b%d %s (%s)' % (a, kind, x)
+
+
 def excludes():
     r = subprocess.run([sys.executable, '-I', '-X', 'utf8', os.path.join(S, 'hook.py'), 'excludes'], capture_output=True, text=True, encoding='utf-8', errors='replace')
     return (r.stdout or r.stderr).strip()
@@ -110,7 +134,8 @@ def main(argv):
     try:
         d = run(argv[0], argv[1], ' '.join(argv[2:]))
     except Refused as e:
-        sys.exit('### commit.py REFUSED, NOTHING COMMITTED, NO ROW WRITTEN: %s' % e)
+        import act as A
+        sys.exit('### commit.py REFUSED, NOTHING COMMITTED, NO ROW WRITTEN: %s ### THE CLASS: %s' % (e, repeat_of(str(e), A.current()['act'])))
     print('  commit %s %s' % (d['repo'], d['commit'][:8]))
     print('  subject   : %s' % d['subject'])
     print('  read back : %s -- %s' % (d['read_back'], 'EQUAL' if d['equal'] else '### NOT EQUAL'))

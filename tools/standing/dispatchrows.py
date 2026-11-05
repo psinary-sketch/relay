@@ -6,9 +6,17 @@ push, dispatch and read row, failed after the lock with the hold read and met. E
   row(kind, read, **f) a row, read the (mb, utc) pair; refuses a kind it does not know, a pair that is not one, a figure under the hold
   check(rows)          the rows that would be refused, [(index, kind, why)]
   write(path, rows)    the rows written, check() empty or nothing
+
+v1.22.0, (R352)(2)(i), b741 defect (q): A DISPATCH CONDITIONED ON THE AUTHOR'S WORD WAITS ON THE COMMIT THAT CARRIES THAT WORD. b741's dispatch 2
+(run 41935365948, 23:38:52Z) rode on the word "(K) kernel route", which no relay commit carried in the answers bank until 1c74cfcf (05:17:32Z).
+  licence(bank, needle, by=None)   the earliest relay commit on HEAD's line whose blob of `bank` carries `needle` on one line, committed at or
+                                   before `by` (a UTC time) when given: dict(commit, bank, line, committed_at), or Refused naming what is missing
+  row('dispatch', read, ...)       refused unless it carries licence=licence(...) re-read here, or unconditioned=True naming why no word is needed
 """
+import calendar
 import json
 import os
+import subprocess
 import sys
 import time
 
@@ -46,12 +54,50 @@ def why(r):
     return None
 
 
+RELAY = os.path.dirname(T)
+
+
+class Refused(ValueError):
+    pass
+
+
+def _epoch(utc):
+    return calendar.timegm(time.strptime(utc, '%Y-%m-%dT%H:%M:%SZ'))
+
+
+def licence(bank, needle, by=None, repo=RELAY):
+    """the earliest commit on HEAD's first-parent line whose blob of `bank` carries `needle` on one line (and, with `by`, committed at or before it)."""
+    log = subprocess.run(['git', '-C', repo, 'log', '--first-parent', '--reverse', '--format=%H %ct', 'HEAD', '--', bank], capture_output=True, text=True).stdout.split('\n')
+    limit = _epoch(by) if by else None
+    seen = []
+    for l in [x for x in log if x.strip()]:
+        sha, ct = l.split()[0], int(l.split()[1])
+        seen.append(sha[:8])
+        if limit is not None and ct > limit:
+            break
+        blob = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (sha, bank)], capture_output=True).stdout.decode('utf-8', 'replace').replace('\r', '').split('\n')
+        hit = [i for i, x in enumerate(blob, 1) if needle in x]
+        if hit:
+            return dict(commit=sha, bank=bank, line=hit[0], needle=needle, committed_at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(ct)))
+    raise Refused('### NOT DISPATCHED: no commit %scarries the author`s word %r in %s (its commits on HEAD`s line: %s) -- commit the word to the answers bank first' % (
+        ('at or before %s ' % by) if by else '', needle[:80], bank, ', '.join(seen) or 'NONE'))
+
+
 def row(kind, read, **f):
     r = dict(kind=kind, **f)
     r.update(free_mb=read[0], free_at=read[1])
     w = why(r)
+    # ### v1.22.0, (R352)(2)(i): a new dispatch row names the commit licensing it, re-read here at the row's time, or says it needs none
+    if not w and kind == 'dispatch':
+        lic = r.get('licence')
+        if not lic and not r.get('unconditioned'):
+            w = 'a dispatch with no licence: the commit carrying the author`s word it rides on (licence()), or unconditioned=<why>'
+        elif lic:
+            again = licence(lic['bank'], lic['needle'], by=r.get('at') or read[1])
+            if again['commit'] != lic['commit']:
+                w = 'the licence names %s where the bank`s first commit carrying the word is %s' % (lic['commit'][:8], again['commit'][:8])
     if w:
-        raise ValueError('### THE ROW REFUSED, NOTHING WRITTEN: %s' % w)
+        raise Refused('### THE ROW REFUSED, NOTHING WRITTEN: %s' % w)
     return r
 
 

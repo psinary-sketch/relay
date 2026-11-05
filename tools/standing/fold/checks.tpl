@@ -137,6 +137,12 @@ AF = AC.act_figures()
 ACT_NOW, NEXT_ACT, PREV_ACT = AF['act'], AF['next_act'], 'b%d' % (int(AF['act'][1:]) - 1)
 ACTN = PREV_ACT if PREV else ACT_NOW
 PART =sys.argv[sys.argv.index('--part') + 1] if '--part' in sys.argv and len(sys.argv) > sys.argv.index('--part') + 1 else None
+# ### v1.22.0, (R352)(2)(ii), b741 event (4): one remote read per repository per suite run, the parts after the first reading the run cache; each read timed
+from standing import remotecache as RCACHE   # noqa: E402
+RC_MODE = 'prev' if PREV else 'probe' if PROBE else 'prerun' if PRERUN else 'mid' if MID else 'seal' if SEAL else 'run'
+RC_KEY = RCACHE.run_key(ACTN, RC_MODE, (ROOT.replace('\\', '/'), PP, EF))
+RC_LOG = {}
+KC0.remote_refs = RCACHE.wrap(KC0.remote_refs, RC_KEY, RC_LOG)
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((⟪RUL⟫)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
@@ -1830,8 +1836,8 @@ ARMS_ALL = [
      lambda S: put(S, 'suite', '')),
     ('G-CLOSING-SENTENCE', 'tools/⟪ACT⟫_closing.py: the closing sentence in the rule`s words with the plain reads named; the citation check, the record lines, the dry run, the corrigendum, the derivation, the controls` ripe work, the two reads, the toolset at v1.2.0, the federation pin, the records, the touch read, the standing arms, the kernels, the author`s word from its bank, the mirror, the carry`s diffs',
      lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any', 'x').replace('FF.outbound_clause(', 'x'))),
-    ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703)',
-     lambda S: lsr_ok(S), lambda S: put(S, 'lsr', {PP: 2})),
+    ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703); v1.22.0: a repository read from the suite run`s cache counts as read, with no call',
+     lambda S: lsr_ok(S) if (S['lsr'] is not None or KC0.LSR or not RC_LOG) else all(v_.get('reads', 0) <= 1 for v_ in RC_LOG.values()), lambda S: put(S, 'lsr', {PP: 2})),
     ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b706_standing_figures.py (b703`s reading over b706`s roster at the unversioned names) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than ⟪PREV⟫`s figure',
      lambda S: fig_ok(S, 'correspondence'), lambda S: _raise_fig(S, 'correspondence')),
     ('G-README-CURRENCY', 'the PLACE-papers README`s currency rows against ls-remote by tools/b705_standing_figures.py through b706`s (the dated appends and the deposited versions excluded by their text): the stale lines no more than ⟪PREV⟫`s figure',
@@ -2265,6 +2271,9 @@ def main():
         rec('  ### G-PRIORBANK-UNCHANGED checked %d relay data banks tracked at %s by blob id; changed %s' % (S['prior_n'], PRE['relay'], S['prior_bad'] or 'NONE'))
     lsr = dict(KC0.LSR)
     rec('  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: %d repositories, at most %d each' % (len(lsr), max(lsr.values()) if lsr else 0))
+    rcs = RCACHE.summary(RC_LOG)
+    rec('  ### v1.22.0, (⟪RUL⟫)(2)(ii): THE REMOTE READS OF THIS SUITE RUN (key %s): repositories %d ; read by this part %d ; from the run cache %d ; the reads` seconds %.1f ; the slowest %s %.2f s' % (
+        RC_KEY, rcs[0], rcs[1], rcs[2], rcs[3], rcs[4][0], rcs[4][1]))
     if regen:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d %s' % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),
@@ -2286,7 +2295,7 @@ def main():
     rec('=' * 104)
     out = _write(_part_name(base, PART), L)
     lp = os.path.join(D, _part_name(base, PART).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json'))
-    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG), indent=1, ensure_ascii=False) + NL).encode('utf-8')
     _membrane(lp)
     with open(lp + '.tmp', 'wb') as fh:
         fh.write(lb)
