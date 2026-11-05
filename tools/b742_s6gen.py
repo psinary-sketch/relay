@@ -207,7 +207,9 @@ end ZQ
 end Schema
 end SIDEExplicitFormula
 """
-NS = 'SIDEExplicitFormula.Schema.ZQ.OffZero.'
+# A file that opens `noncomputable section` inside the namespace closes it before the namespaces (dispatch 5, NodesF.lean :284).
+FOOT_NC = '\nend\n' + FOOT
+NS ='SIDEExplicitFormula.Schema.ZQ.OffZero.'
 CY = F(16290216, 1000000)
 RHO = F(49, 100)
 M = 20
@@ -287,7 +289,7 @@ doc = ('G4, THE NODE VALUES: lamF at the twenty rational nodes, from the four pa
        'lamF at rational points; no zero is located by this file.')
 pre = 'open ComplexConjugate\n\nnoncomputable section\n'
 files['NodesF'] = (HEAD % ('NodesF', doc, '\nimport '.join(NS + 'Nodes%d' % p for p in range(4)))).replace(
-    'namespace OffZero\n', 'namespace OffZero\n\n' + pre, 1) + '\n'.join(out) + FOOT
+    'namespace OffZero\n', 'namespace OffZero\n\n' + pre, 1) + '\n'.join(out) + FOOT_NC
 
 # ---------------------------------------------------------------- G5: THE FRONTIER DATA (FrontierData.lean)
 from decimal import Decimal, getcontext
@@ -431,14 +433,18 @@ theorem coef_le : ∀ k ∈ Finset.range 20, ‖coefA k - qc (ctab.getD k 0)‖ 
 emit('def ECq : ℚ := %s\n' % lq(ECQ))
 emit('''theorem ecoef_le : ∑ k ∈ Finset.range 20, ((etab.getD k 0 : ℚ) : ℝ) * (5623 / 10000 : ℝ) ^ k ≤ (ECq : ℝ) := by
   have h : (∑ k ∈ Finset.range 20, etab.getD k 0 * (5623 / 10000 : ℚ) ^ k) ≤ ECq := by decide +kernel
-  exact_mod_cast h
+  have h' := (Rat.cast_le (K := ℝ)).mpr h
+  push_cast at h'
+  exact h'
 ''')
 emit('def LPq : ℚ := %s\n' % lq(LPQ))
 emit('''/-- **G5, L_P**, proved: `Σ_k ‖ĉ_k‖ k r^(k−1) ≤ LPq` (`norm_qc_le`, Sums.lean, and the table). -/
 theorem lp_le : ∑ k ∈ Finset.range 20, ‖qc (ctab.getD k 0)‖ * ((k : ℝ) * (5623 / 10000 : ℝ) ^ (k - 1)) ≤ (LPq : ℝ) := by
   refine (Finset.sum_le_sum fun k _ => mul_le_mul_of_nonneg_right (norm_qc_le _) (by positivity)).trans ?_
   have h : (∑ k ∈ Finset.range 20, qn (ctab.getD k 0) * ((k : ℚ) * (5623 / 10000 : ℚ) ^ (k - 1))) ≤ LPq := by decide +kernel
-  exact_mod_cast h
+  have h' := (Rat.cast_le (K := ℝ)).mpr h
+  push_cast at h'
+  exact h'
 ''')
 emit('def MLO : ℚ := %s\n' % lq(MLO))
 emit('def cIq : ℚ × ℚ := ((1 : ℚ) / 2, (16290216 : ℚ) / 1000000)\n')
@@ -460,7 +466,7 @@ doc = ('G5, THE FRONTIER DATA: omega in a disc from rational bounds on the squar
        'coefficients within etab of the table ctab; the rounding sum ECq; L_P proved at LPq; P^ at 80 frontier check points, each with\n'
        '|P^|^2 >= MLO^2, by decide +kernel; the margin. No zero is located by this file.')
 files['FrontierData'] = (HEAD % ('FrontierData', doc, NS + 'Omega\nimport ' + NS + 'NodesF')).replace(
-    'namespace OffZero\n', 'namespace OffZero\n\nopen Complex\n\nnoncomputable section\n', 1) + '\n'.join(out) + FOOT
+    'namespace OffZero\n', 'namespace OffZero\n\nopen Complex\n\nnoncomputable section\n', 1) + '\n'.join(out) + FOOT_NC
 print('G5: DELq %s (%.4e) ; ECq %.4e ; LPq %.6e ; MLO %.3e ; min |P^| %.4e ; A %.4f ; REM %.4e ; MARGIN %.4e against 1e-12' % (
     DELQ, float(DELQ), float(ECQ), float(LPQ), float(MLO), math.sqrt(float(min(ns))), float(A_), float(REM), float(MARGIN)))
 odir = sys.argv[1]
