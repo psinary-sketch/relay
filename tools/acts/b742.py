@@ -657,7 +657,7 @@ TITLE_NEEDLES = ('## W-ORD-ZQ-OFFLINE-ZERO, S6: the route on Λ_Q by interpolati
 #⟪END⟫
 #⟪SECTION checks 22⟫
         and "(1) A DISPATCH CONDITIONED ON THE AUTHOR'S WORD WAITS ON THE COMMIT" in r1 and '(6) THE VERSION' in r1 and '(7) ' not in r1 and S['files']['rules'] == ['data/b742_rules.txt'] \
-        and not os.path.exists(os.path.join(D, 'b742_rules.txt')) \
+        and not os.path.exists(os.path.join(D, 'b743_rules.txt')) \
 #⟪END⟫
 #⟪SECTION checks 23⟫
 # ### b742's keys, the report sections' own heads
@@ -804,8 +804,8 @@ def _vlast(t):
     n_ = S['notes'] or ''
     return 'THE THREE-TIMES RULE: the ceiling 20430 lines ; measured 4097 ; groups over their own figure NONE ; within' in t \
         and not [f_ for f_ in S['zq_files'] if f_ not in K.ZQ_FILES] and not [f_ for f_ in S['zq_files'] if '/Main' in f_] \
-        and re.search(r'(?m)^  \(3\) N3, the Lipschitz figure printed as a proved bound: L_P <= LPq = 6\.098e-10, lemma lp_le ', n_) is not None \
-        and re.search(r'(?m)^  \(1\) The bound on the far circle: B = 120 .* in place of the plan.s 7\.8004;.* MARGIN 1\.0725e-11 against 1e-12', n_) is not None \
+        and re.search(r'(?m)^\(3\) N3, the Lipschitz figure printed as a proved bound: L_P <= LPq = 6\.098e-10, lemma lp_le ', n_) is not None \
+        and re.search(r'(?m)^\(1\) The bound on the far circle: B = 120 .* in place of the plan.s 7\.8004;.* MARGIN 1\.0725e-11 against 1e-12', n_) is not None \
         and 'W-ORD-ZQ-OFFLINE-ZERO' in oline(S, K.PRICE_LINE)
 
 
@@ -908,13 +908,13 @@ def research_reproduces_ok(S):
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (the ledgers, FINDINGS and OPEN_TRAILS); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    ('G-PRIOR-CLOSED-PUSHED', 'b741`s trail record on OPEN_TRAILS (:17560) and its root in the chain', lambda S: '### b741 — lane two, act one hundred and sixty-seven, the numerics act under (R351)' in S['ot']
+    ('G-PRIOR-CLOSED-PUSHED', 'b741`s trail record on OPEN_TRAILS (:17612) and its root in the chain', lambda S: '### b741 — lane two, act one hundred and sixty-eight, the certificate act under (R351)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (the ledgers, FINDINGS and OPEN_TRAILS): beyond %s' % (
 #⟪END⟫
 #⟪SECTION checks 62⟫
-    rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b741`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches in the command bank %d (N1: six of the twelve; -1 the command bank not yet written)' % (
+    rec('  ### SIDE-explicit-formula: main %s ; v0.37 %s (unmoved) ; SIDE-lv-conservation main %s, v0.10.0 %s, port-b707 %s (b741`s tip, kept, no commit this act) ; the join kernel main %s ; runner dispatches in the command bank %d (N1: seven of the fourteen, and one send refused by the host; -1 the command bank not yet written)' % (
 #⟪END⟫
 # ### (carried; b742 moves no main): a main at a sitting tip, its tags unmoved, is not a move against b741's face
 #⟪OVERRIDE record MARK 8aa097f94edc 1⟫
@@ -1143,7 +1143,7 @@ TITLE_LINE = ('b742 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
             ('THE CERTIFICATE TO SP4 ((R352)(3))', [
                 ('the S6 plan, the two ruled routes STOPPED, the interpolation route taken, the author`s five items printed, committed before any Lean file', 'b742_s6_plan.txt', r'(?m)^## \(2\) THE ROUTE TAKEN[^\n]*'),
                 ('W-ORD-ZQ-OFFLINE-ZERO, S6 to SP4: the dispatches, the lines against 3970-6810 and the three-times rule, the axioms of every printed name, the grade', 'b742_offlinezero.txt'),
-                ('the notes beside the build bank, the far circle`s bound first', 'b742_offlinezero_notes.txt', r'(?m)^  \(1\) The bound on the far circle[^\n]*'),
+                ('the notes beside the build bank, the far circle`s bound first', 'b742_offlinezero_notes.txt', r'(?m)^\(1\) The bound on the far circle[^\n]*'),
                 ('the probe-path refusal printed before the lock gate', 'b742_pathrefusal.txt')]),
             ('THE NAME AND ADDRESS (N5)', [
                 ('the scan over every commit and bank of the act, the counts alone', 'b742_address_scan.txt')]),
@@ -1360,7 +1360,7 @@ def _s_md5(path):
     built_ = re.findall(r'^  (G\d)  ([\w.]+)\s+(propext.*)$', bt_, re.M)
     sp_ = len(built_) == 30 and all(a_.strip() == '%s (run %d)' % (ax_, K.EF_RUNS[-1]) for _g, _n, a_ in built_) \
         and re.search(r'\*\*SP4 (REACHED|NOT REACHED AT|STOPPED)', bt_) is not None \
-        and re.search(r'(?m)^  \(3\) N3, the Lipschitz figure printed as a proved bound: L_P <= LPq = %s, lemma %s ' % (re.escape(f['lp_fig']), f['lp_lemma']),
+        and re.search(r'(?m)^\(3\) N3, the Lipschitz figure printed as a proved bound: L_P <= LPq = %s, lemma %s ' % (re.escape(f['lp_fig']), f['lp_lemma']),
                       rdn('%s_offlinezero_notes.txt' % ACT)) is not None
     neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None|Nothing)\b'
     loc_ = [s_ for s_ in sents if re.search(r'\b(?:RH|GRH)\b.*\b(?:holds|fails|proved|refuted)\b', s_) and not re.search(neg_, s_)]
@@ -1562,7 +1562,7 @@ def _runs3_line():
          '**The plan before any Lean** ((R352)(3)(a) as amended): the two ruled routes priced and STOPPED before any Lean -- a Lipschitz cover of the frontier wanting 1.78e11 points for F and 3.27e11 for zqFn, each more than nine orders over three times the plan’s figure; the interpolation route taken, ρ = 49/100, M = 20, R = 3; the author’s five items printed: the farthest frontier point, r = 5623/10000 at the right corners, and the error bound there; the amplification A = 99.51 and the per-sample δ it forces; the frontier’s Re z > 1 part, bounded by the polynomial alone; the margins in one line; and the aliasing lemma stated generally; 3,970-6,810 lines and 8-17 dispatches against the cap of 14 (relay data/b742_s6_plan.txt, data/b742_s6_price.txt). Its dated note (7.1), the aliasing lemma built through the Cauchy integral formula in place of the power series, appended before any Lean, no row of (0)-(6) rewritten.', '',
          '**The certificate to SP4** ((R352)(3)(b) as amended, N1, N3): Frame.lean, F, its differentiability, zqFn written through F (zqFn_eq_lamF), the minimum-modulus and Li corollaries over F; Interp.lean, the discrete Cauchy identity and the aliasing bound over a primitive root of unity; Amplify.lean, the polynomial’s Lipschitz step; Strip.lean, the bound on the far circle; NodeBase.lean and Nodes0-3.lean, lamM at the 20 nodes, the mid shells bounded shell by shell; NodesF.lean and FrontierData.lean, generated by tools/b742_s6gen.py, the node values, the rounded coefficients, the Lipschitz figure L_P ≤ %s (lemma %s, N3: a proved bound) and 80 check points decided by the kernel; Omega.lean, the nodes and the grid; Frontier.lean, the frontier bound lamF_frontier_ge; SP4.lean, the two statements. %s lines in all against %s, the ceiling %s; per group %s; NAMES %s OF %s (relay data/b742_offlinezero.txt, notes (1)-(7)).' % (
              f['lp_fig'], f['lp_lemma'], f['bd_lines'], f['bd_est'], f['bd_ceil'], ', '.join('%s %d against %s' % g_ for g_ in f['bd_groups']), f['bd_names'], f['bd_namesof']), '',
-         '**The dispatches** (N1): %s of %s -- G1 BREAKS; G0-G3 BREAKS; G0-G4’s base KERNEL; the whole build sent with bare module names, stopped at an unknown target, a dispatch spent on the seat’s own string (defect (k)); BREAKS on nine errors (a simp that turned ofReal cos into Complex.cos, casts from ℚ, a generated section left open); BREAKS on a ∀ over ℚ the kernel cannot decide; KERNEL, SP4. One send before the fourth was refused by GitHub with HTTP 500, made no run and is not counted (defect (j)). Each row carries free_mb (relay data/b742_dispatch_rows.json, notes (5)).' % (f['bd_disp'], f['bd_max']), '',
+         '**The dispatches** (N1): %s of %s -- G1 BREAKS on three errors; G0-G3 BREAKS on seven; G2-G4h, through NodeBase, KERNEL; the whole build sent with bare module names, stopped at an unknown target, a dispatch spent on the seat’s own string (defect (k)); the whole build BREAKS on nine errors (a simp that turned ofReal cos into Complex.cos, casts from ℚ, a generated section left open); BREAKS on five (the check points’ bound variable read over ℚ, which no Decidable instance decides, and edge goals left open in Frontier.lean); KERNEL, SP4. One send before the fourth was refused by GitHub with HTTP 500, made no run and is not counted (defect (j)). Each row carries free_mb (relay data/b742_dispatch_rows.json, notes (5)).' % (f['bd_disp'], f['bd_max']), '',
          '**The git writes** (N5): one git write per message, add and commit in separate messages, across the relay, PLACE-papers, the kernel clone D:/zq-b738 and the kernel tree D:/SIDE-explicit-formula; the act read by the suite’s arm over the capture.', '',
          '**What this act is not**: no deposit, no new version, no Zenodo field, no GitHub description; no tag, no draft published, no merge, no kernel’s main touched; every Lean file of the act on zq-b730 alone. SP4 is a statement about zqZeroConfig, the zeros of Λ_Q with their orders as the kernel defines them (Zeros.lean): a zero of Λ_Q off the line, in box A, and Li nonnegativity failing for it; nothing is stated of ζ or of any L-function. Nothing here proves or refutes RH or GRH.', '',
          '**The research instruments reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py over the entered '
