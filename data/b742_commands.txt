@@ -1,7 +1,7 @@
-b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T19:38:25Z)
+b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-05T19:43:42Z)
 
 ### the source: the seat`s session c66dda9f-cc02-473a-b740-111b6d66dec3 from its first user line carrying 'RULING (R352) BEGIN', with its subagents` transcripts
-### commands read: 482
+### commands read: 496
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (2):
   #41 2026-11-05T13:59:33.765Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -613,5 +613,19 @@ b742 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #480 | 2026-11-05T19:35:50.675Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742
   #481 | 2026-11-05T19:36:24.130Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_regis
   #482 | 2026-11-05T19:38:10.857Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
+  #483 | 2026-11-05T19:38:42.535Z | seat | Bash | python -X utf8 -u tools/b742_address_scan.py scan --bank
+  #484 | 2026-11-05T19:38:42.971Z | seat | Bash | git status --short -uno
+  #485 | 2026-11-05T19:39:16.345Z | seat | Bash | git add -- data/b742_address_scan.txt data/b742_closing_dry.txt data/b742_commands.json data/b742_commands.txt data/b742_pins_stepzero.txt data/b742_reg_gate.tx
+  #486 | 2026-11-05T19:39:24.078Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b742; python -X utf8 -u tools/standing/commit.py relay gate 'step row 11 fo
+  #487 | 2026-11-05T19:39:53.849Z | seat | Bash | git status --short -uno
+  #488 | 2026-11-05T19:40:05.400Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #489 | 2026-11-05T19:40:37.249Z | seat | PowerShell | python -X utf8 -u D:/relay/tools/b742_face.py
+  #490 | 2026-11-05T19:40:41.450Z | seat | Bash | python -X utf8 -u tools/b742_address_scan.py scan --bank
+  #491 | 2026-11-05T19:40:58.850Z | seat | Bash | git add -- data/b742_defects.txt tools/b742_face_blocks.txt data/b742_registration_2026-11-05.txt data/b742_root_banks_dry.json data/b742_root_banks_dry.txt dat
+  #492 | 2026-11-05T19:41:14.119Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate 'defect (s) the second gate commit sent after rootdry in one call, rootdry reading 
+  #493 | 2026-11-05T19:41:26.889Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #494 | 2026-11-05T19:41:42.614Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742
+  #495 | 2026-11-05T19:42:17.984Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_regis
+  #496 | 2026-11-05T19:43:28.363Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
 
-### ### **COMMANDS 482 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 8 ; DETACHED RUNS 4 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 54 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 496 ; G-EDIT-ROUTE OFFENCES 2 (SED IN ANY FORM AMONG THEM 2) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 19 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 8 ; DETACHED RUNS 4 ; sed COMMANDS 2 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 6 ; ONE-LINE PROGRAMS 54 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

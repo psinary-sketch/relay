@@ -1,5 +1,5 @@
 {
- "at": "2026-11-05T19:38:25Z",
+ "at": "2026-11-05T19:43:42Z",
  "anchor": "RULING (R352) BEGIN",
  "rows": [
   {
@@ -3856,6 +3856,118 @@
    "src": "seat",
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b742",
    "n": 482,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:38:42.535Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b742_address_scan.py scan --bank",
+   "n": 483,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:38:42.971Z",
+   "src": "seat",
+   "cmd": "git status --short -uno",
+   "n": 484,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:39:16.345Z",
+   "src": "seat",
+   "cmd": "git add -- data/b742_address_scan.txt data/b742_closing_dry.txt data/b742_commands.json data/b742_commands.txt data/b742_pins_stepzero.txt data/b742_reg_gate.txt data/b742_regspec_run.txt data/b742_report_dry.txt data/b742_root_banks_dry.json data/b742_root_banks_dry.txt data/b742_scores_dry.txt data/b742_steps.json",
+   "n": 485,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:39:24.078Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b742; python -X utf8 -u tools/standing/commit.py relay gate 'step row 11 for 4c87d9c6; rootdry READY True, 46 banks; scores dry N1 N2 N3 HELD; GATE VERDICT CLEAR bank-only, pre-lock comparison CLEAR; gatebanks restamped 93016aaa, termscan CLEAN, regspec 0, JOINTLY SATISFIABLE; scan 0, controls 7 of 7'",
+   "n": 486,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:39:53.849Z",
+   "src": "seat",
+   "cmd": "git status --short -uno",
+   "n": 487,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:40:05.400Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b742",
+   "n": 488,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:40:37.249Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u D:/relay/tools/b742_face.py",
+   "n": 489,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:40:41.450Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b742_address_scan.py scan --bank",
+   "n": 490,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-05T19:40:58.850Z",
+   "src": "seat",
+   "cmd": "git add -- data/b742_defects.txt tools/b742_face_blocks.txt data/b742_registration_2026-11-05.txt data/b742_root_banks_dry.json data/b742_root_banks_dry.txt data/b742_steps.json data/b742_address_scan.txt",
+   "n": 491,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:41:14.119Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate 'defect (s) the second gate commit sent after rootdry in one call, rootdry reading staged banks (41 of 46, READY False) and rewriting its bank after the add (REPEAT b741 (t)); rootdry run alone on the committed tree, 46 of 46, READY True; face recomposed (a)-(s); step row 12 for 2714633e; scan 0, controls 7 of 7'",
+   "n": 492,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:41:26.889Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b742",
+   "n": 493,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:41:42.614Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b742",
+   "n": 494,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:42:17.984Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b742_registration_2026-11-05.txt --bank-only --act b742 --quiet",
+   "n": 495,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-05T19:43:28.363Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b742",
+   "n": 496,
    "bg": false
   }
  ],
