@@ -1,5 +1,5 @@
 {
- "at": "2026-11-06T05:27:43Z",
+ "at": "2026-11-06T07:10:28Z",
  "anchor": "RULING (R353) BEGIN",
  "rows": [
   {
@@ -2417,6 +2417,702 @@
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b743",
    "n": 302,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:27:52.469Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --act b743",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:31:07.932Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/where.py\" checks \"errata_pp_now=\" \"errata_pp_pre=\" \"errata=\" \"WEIGHT_LINE\"",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:31:19.823Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/dbg_errata.py\"",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:31:51.107Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmds_between.py\" 6399 6760 210",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:33:19.923Z",
+   "src": "seat",
+   "cmd": "Get-Content D:/relay/data/b743_hook_refusals.txt -Tail 4",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:33:30.012Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --act b743",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:36:38.505Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T05:36:46.365Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:17.057Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/act_current.json data/b743_defects.txt data/b743_steps.json tools/acts/b743.py tools/b743_worklist.py data/b743_touch.txt data/b743_commands.txt data/b743_commands.json data/b743_address_scan.txt",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:23.628Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay commit -q -m \"b743 component 3, the probes: the touch read of v9 by hand (32 rows, AGREES 32), the command bank (302 commands, 1 G-EDIT-ROUTE offence refused by the hook), act_current's shared_edits set to tools/push_gated.sh, WEIGHT_LINE and CORR_LINE 13729/13731 for G-DIFFERS-ERRATA, defect (s) entered (19, CLAIM 9, CLOSE 10, REPEAT 8 OF 19), the floor widened to (a)-(s), the address scan 0/0/0/0 over 257 places; act part 23 of 31, the 8 failing the close's own\"; git -C D:/relay log -1 --format=\"%h %ae\"",
+   "n": 312,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:28.939Z",
+   "src": "seat",
+   "cmd": "cd D:/relay; $h = (git rev-parse --short=8 HEAD); python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" $h --act b743",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:41.086Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmds_between.py\" 6757 7100 230",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:50.930Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import io;t=io.open('D:/relay/tools/b742_face.py',encoding='utf-8').read();L=t.split('\\n');print(len(L));print('\\n'.join(l[:240] for l in L[:140]))\"",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:37:58.774Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/relay/tools/b73*_face*, D:/relay/tools/b74*_face* -Name; python -X utf8 -c \"import io,re;t=io.open('D:/relay/tools/b742_face_blocks.txt',encoding='utf-8').read();L=t.split('\\n');print(len(L),len(t));[print(i+1,l[:120]) for i,l in enumerate(L) if l.startswith('@@@')]\"",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:38:18.028Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --reverse --format=\"%h %cI %s\" 16a36428..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format=\"%h %cI %s\" 3dc9c05d..HEAD",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:38:24.973Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import io;L=io.open('D:/relay/data/b743_ferry.txt',encoding='utf-8').read().split('\\n');print(len(L));[print(i+1,l[:150]) for i,l in enumerate(L) if l[:1] in '(#N' or l.startswith('  (') or 'W)' in l[:12]]\"",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:38:30.660Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/showlines.py\" ferry 1-44",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:38:43.316Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/relay/data/b743_amend* -Name; python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/peek742.py\" 2>$null; python -X utf8 -c \"import io,re;t=io.open('D:/relay/tools/standing/amend.py',encoding='utf-8').read();L=t.split('\\n');print(len(L));[print(i+1,l[:170]) for i,l in enumerate(L) if re.match(r'\\s*def |.*W\\) list|regenerated', l)]\"",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:38:49.826Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/relay/data/b743_amend* -Name; python -X utf8 -c \"import io,re;t=io.open('D:/relay/tools/standing/amend.py',encoding='utf-8').read();L=t.split('\\n');print(len(L));[print(i+1,l[:170]) for i,l in enumerate(L) if re.match(r'\\s*def ', l)]\"",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:39:00.705Z",
+   "src": "seat",
+   "cmd": "git -C D:/MY-DOwnloads/PLACE-papers diff --name-only 3dc9c05d HEAD; git -C D:/relay diff --name-only 16a36428 HEAD",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:39:20.866Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/needles743.py\" findings",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:39:34.005Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/needles743.py\" trail",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:39:58.537Z",
+   "src": "seat",
+   "cmd": "Get-Content D:/relay/data/b743_hook_refusals.txt -Tail 1; python -X utf8 -c \"import io;L=io.open('D:/relay/data/b742_registration_2026-11-05.txt',encoding='utf-8').read().split('\\n');print(len(L));[print(i+1,l[:110]) for i,l in enumerate(L) if l.startswith('### (') and len(l)<140 or l.startswith('### THE REGISTRATION LOCK')]\"",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:40:19.406Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/needlecheck.py\"",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:43:07.578Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/carryface743.py\"",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:43:12.752Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py --dry",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:43:25.041Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py",
+   "n": 329,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:43:40.789Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/gaps743.py\"",
+   "n": 330,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:43:54.119Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py",
+   "n": 331,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:44:05.562Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py\" \"rootdry|closing .*dry|reg_gate|regspec|reg_satisfiable|banned_terms|gate_hash|lockgate|reg_seal|commit\\.py|prelock|scores dry|report dry|termscan\" 6760 8200 260",
+   "n": 332,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:44:12.511Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdgrep.py\" \"rootdry|reg_gate|regspec|reg_satisfiable|banned_terms|gate_hash|lockgate|reg_seal|commit\\.py|prelock|report dry\" 0 1000000000 250",
+   "n": 333,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:44:39.250Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b743_registration_2026-11-06.txt --act b743 --quiet",
+   "n": 334,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:45:49.820Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/relay/data/b743_reg_gate*, D:/relay/data/b743_prelock*, D:/relay/data/b743_closing_dry*, D:/relay/data/b743_report_dry* -Name; python -X utf8 -c \"print(open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe1.py',encoding='utf-8').read())\"",
+   "n": 335,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:45:58.441Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short -- data/b743_* tools/b743_* tools/acts/b743.py data/audit_b743_* data/act_current.json",
+   "n": 336,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T05:46:04.035Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 337,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:46:25.772Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_defects.txt data/b743_hook_refusals.txt data/b743_steps.json tools/acts/b743.py data/b743_closing_dry.txt data/b743_prelock.txt data/b743_reg_gate.txt data/b743_registration_2026-11-06.txt data/b743_report_dry.txt tools/b743_face.py tools/b743_face_blocks.txt data/b743_address_scan.txt",
+   "n": 338,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:46:31.091Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 339,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:46:50.093Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-a1",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:50:38.620Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-a2",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:59:28.458Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/where.py\" checks \"pairs unequal\" \"def no_sorry_main\" \"unequal\"",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:59:34.817Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/showlines.py\" checks 2370-2395; python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/where.py\" checks \"nosorry_\" \"G-NO-SORRY-MAIN'\"",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T05:59:54.018Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nsm743.py\"",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:00:02.623Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nsm743.py\"",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:00:14.193Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nsm743.py\"",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:00:26.397Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T06:00:33.722Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:00:53.967Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_registration_2026-11-06.txt tools/b743_face_blocks.txt data/b743_steps.json data/b743_address_scan.txt",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:00:58.792Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:01:12.720Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-a1",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:05:05.672Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-a2",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:12:36.099Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-c",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:21:05.076Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b1",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:25:37.411Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b2a",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:30:53.631Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b2b",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:36:14.105Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b2c",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:42:08.387Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b2d",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:48:33.560Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" standing-b3",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:55:08.827Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/probe743.py\" act",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:58:11.632Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b743",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:58:39.437Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import subprocess;b=subprocess.run(['git','-C','D:/relay','show','HEAD:data/b743_a5_description.json'],capture_output=True).stdout;w=open('D:/relay/data/b743_a5_description.json','rb').read();print('blob CR',b.count(b'\\r'),'work CR',w.count(b'\\r'),len(b),len(w))\"; git -C D:/relay config --get core.autocrlf",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:58:50.826Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import subprocess;b=subprocess.run(['git','-C','D:/relay','show','HEAD:data/b743_a5_description.json'],capture_output=True).stdout;w=open('D:/relay/data/b743_a5_description.json','rb').read();print('equal',b==w,'work CR',w.count(b'\\r'))\"; git -C D:/relay status --short -- data/b743_a5_description.json",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:05.086Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import subprocess;b=subprocess.run(['git','-C','D:/relay','show','HEAD:data/b743_a5_description.json'],capture_output=True).stdout;w=open('D:/relay/data/b743_a5_description.json','rb').read();print('equal',b==w,'work CR',w.count(b'\\r'),len(b),len(w))\"; git -C D:/relay status --short -- data/b743_a5_description.json",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:13.096Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay diff --stat -- data/b743_a5_description.json; git -C D:/relay update-index --refresh -q; git -C D:/relay status --short -- data/b743_a5_description.json",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:22.490Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b743",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:39.538Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_a5_description.json",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:44.547Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short -uno; git -C D:/relay diff --cached --stat",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T06:59:50.418Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b743",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:00:31.008Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:00:38.226Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b743 --quiet",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:01:38.482Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b743",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:02:17.529Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/scoreline743.py\" N3 N5",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:02:28.253Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/where.py\" record \"no root prompt banked yet\" \"sealed tools not agreeing\" \"a row without the author\"",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:02:34.646Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/showlines.py\" record 2805-2840",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:02:42.889Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b743_registration_2026-11-06.txt --act b743 --quiet",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:03:49.205Z",
+   "src": "seat",
+   "cmd": "Get-Content D:/relay/data/b743_reg_gate.txt -Tail 40",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:04:05.749Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nonectx.py\"",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:04:58.194Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nonectx.py\"",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:05:13.472Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/nonectx.py\"",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:05:27.345Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b743_registration_2026-11-06.txt --act b743 --quiet",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:06:42.893Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short -- data/b743_* tools/b743_* tools/acts/b743.py data/audit_b743_*",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T07:06:47.668Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:07:21.419Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_closing_dry.txt data/b743_defects.txt data/b743_prelock.txt data/b743_reg_gate.txt data/b743_registration_2026-11-06.txt data/b743_report_dry.txt data/b743_steps.json tools/acts/b743.py tools/b743_face_blocks.txt data/b743_root_banks_dry.json data/b743_root_banks_dry.txt data/b743_scores_dry.txt data/b743_address_scan.txt",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:07:26.977Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:07:40.961Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b743",
+   "n": 386,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:07:57.837Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b743 --quiet",
+   "n": 387,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:08:59.557Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b743_registration_2026-11-06.txt --bank-only --act b743 --quiet",
+   "n": 388,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:10:13.903Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b743",
+   "n": 389,
+   "bg": false
   }
  ],
  "offences": [
@@ -2442,7 +3138,9 @@
   20
  ],
  "null_redirects": [],
- "redirects": [],
+ "redirects": [
+  320
+ ],
  "pipes": [
   12
  ],
@@ -2478,7 +3176,17 @@
   245,
   247,
   248,
-  254
+  254,
+  315,
+  316,
+  318,
+  320,
+  321,
+  325,
+  335,
+  362,
+  363,
+  364
  ],
  "moves_deletes": [
   84,
