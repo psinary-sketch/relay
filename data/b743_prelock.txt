@@ -1,9 +1,15 @@
 b743 -- THE PRE-LOCK FAILING-LIST COMPARISON, (R343)(2)(i): THE ACT`S PROBES AGAINST b742`S PRE-RUN LISTS, BY ARM NAME, A RULING`S OWN ARM THE SAME ARM ACROSS ACTS
-  arms read 31 ; failing here 8 ; failing at b742`s pre-run 21 ; banks absent ['b743_probe_standing-a1.txt', 'b743_probe_standing-a2.txt', 'b743_probe_standing-c.txt', 'b743_probe_standing-b1.txt', 'b743_probe_standing-b2a.txt', 'b743_probe_standing-b2b.txt', 'b743_probe_standing-b2c.txt', 'b743_probe_standing-b2d.txt', 'b743_probe_standing-b3.txt']
+  arms read 116 ; failing here 30 ; failing at b742`s pre-run 21 ; banks absent NONE
+  NEWLY FAILING  G-ARMS-PRERUN                      standing-a2  ### FAILS ; ON THE FACE
   NEWLY FAILING  G-CLOSING-DRY-STEP                 act          ### FAILS ; ON THE FACE
   NEWLY FAILING  G-DRY-STEP-CLEAN                   act          ### FAILS ; ON THE FACE
+  NEWLY FAILING  G-LOCKGATE-EIGHT                   standing-a2  ### FAILS ; ON THE FACE
+  NEWLY FAILING  G-NO-SORRY-MAIN                    standing-a2  ### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE ; ON THE FACE
+  NEWLY FAILING  G-NOTHING-RAN-AHEAD                standing-a2  ### FAILS ; ON THE FACE
   NEWLY FAILING  G-ROOTDRY-READY                    act          ### FAILS ; ON THE FACE
-  NEWLY FAILING  G-WRITELIST-MIRROR-STATE           act          ### FAILS ; ON THE FACE
-  ### NEWLY FAILING 4
-  the score routes` dry form, data/b743_scores_dry.txt: ### ABSENT: `record scores dry` runs before the gate
-### ### **THE PRE-LOCK COMPARISON : NOT CLEAR** (arms not on the face: NONE)
+  NEWLY FAILING  G-RULE-SCORES-BEFORE-SEAL          standing-a2  ### FAILS ; ON THE FACE
+  NEWLY FAILING  G-SEAL-VERIFIES                    standing-a2  ### FAILS ; ON THE FACE
+  NEWLY FAILING  G-SEALED-AFTER-COMPONENTS          standing-a2  ### FAILS ; ON THE FACE
+  ### NEWLY FAILING 10
+  the score routes` dry form, data/b743_scores_dry.txt: STANDS
+### ### **THE PRE-LOCK COMPARISON : CLEAR** (arms not on the face: NONE)
