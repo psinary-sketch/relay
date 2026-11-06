@@ -1,0 +1,18 @@
+b743 -- THE CONTROL OF tools/standing/ v1.23.1, (R345)(2)(iv) CARRIED: A REPAIR LANDED BY A COMMIT OF ITS OWN MOVES VERSION (2026-11-06)
+
+## THE CONTROL
+  the lock gate (tools/b378_lockgate.py, its call of tools/standing/repaircommits.py outside()) refused the lock at 2026-11-06T07:12Z, its eight gates passing:
+  dfc0b7d5, the correction of v1.23.0's (repeat) control (tools/standing/v1230.py and data/b743_standing_v1230.txt alone), touched tools/standing/ after
+  v1.23.0's commit 7c6648ac and left tools/standing/VERSION at v1.23.0. v1.23.1 moves VERSION by a commit of its own; no tool's code changes; the
+  (repeat) control dfc0b7d5 landed is v1.23.1's control, its two cases as banked in data/b743_standing_v1230.txt :85-:91, AS WANTED.
+
+### (version-move) (R345)(2)(iv): THE COMMITS TO tools/standing/ AFTER THE VERSION'S COMMIT LEAVING VERSION UNMOVED
+  (version-move) repaircommits.outside() from the last commit touching tools/standing/VERSION to HEAD, read at relay dc746a1d
+      BEFORE (v1.23.0, version commit 7c6648ac): [dfc0b7d5] -> FAILS (the lock gate refused; its two outputs moved to the scratchpad unread by any bank)
+      AFTER  (v1.23.1, the commit landing this bank): read at the lock gate after this commit (data/b743_lockgate_notes.txt) -> PASSES WHERE IT READS NONE
+      AS WANTED WHERE THE LOCK GATE READS NONE
+### (repeat) v1.23.0's (repeat) control as dfc0b7d5 corrected it, read from its bank unedited
+  (repeat) data/b743_standing_v1230.txt :86-:91: the hold, class REPEAT of b727 event (13); the pipe, class REPEAT of b741 defect (s) -> HOLDS, 2 cases
+      AS WANTED
+
+### ### **v1.23.1: CONTROLS (version-move), (repeat) ; CASES 3 ; THE (version-move) AFTER READ AT THE LOCK GATE ; NO TOOL'S CODE CHANGED.**
