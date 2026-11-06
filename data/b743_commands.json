@@ -1,5 +1,5 @@
 {
- "at": "2026-11-06T07:10:28Z",
+ "at": "2026-11-06T07:18:27Z",
  "anchor": "RULING (R353) BEGIN",
  "rows": [
   {
@@ -3113,6 +3113,206 @@
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b743",
    "n": 389,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:10:46.653Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short -uall -- data/b743_* data/audit_b743_* tools/b743_*",
+   "n": 390,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T07:10:53.097Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 391,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:11:14.580Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_closing_dry.txt data/b743_commands.json data/b743_commands.txt data/b743_reg_gate.txt data/b743_report_dry.txt data/b743_root_banks_dry.json data/b743_root_banks_dry.txt data/b743_steps.json data/audit_b743_reg_satisfiable.txt data/b743_census_stepzero.txt data/b743_faces_census_stepzero.txt data/b743_pins_stepzero.txt data/b743_reg_termscan.txt data/b743_regspec_run.txt data/b743_satisfiable.json data/b743_address_scan.txt",
+   "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:11:20.280Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:11:34.620Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/b378_lockgate.py b743 D:/relay/data/b743_registration_2026-11-06.txt",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:11:49.249Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:/relay/data/b743_lockgate* -Name; git -C D:/relay show --stat --format=\"%h %s\" dfc0b7d5",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:11:56.979Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -e \"LEAVING VERSION\" -e \"(R345)(2)(iv)\" -- tools",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:12:18.025Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --format=\"%h %ad %s\" --date=short -14 -- tools/standing/VERSION",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:12:39.967Z",
+   "src": "seat",
+   "cmd": "$d = 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\c66dda9f-cc02-473a-b740-111b6d66dec3\\scratchpad\\refused_lockgate'; New-Item -ItemType Directory -Force $d | Out-Null; if ((Test-Path 'D:\\relay\\data\\b743_lockgate.json') -and (Test-Path 'D:\\relay\\data\\b743_lockgate_notes.txt')) { Move-Item -LiteralPath 'D:\\relay\\data\\b743_lockgate.json' -Destination $d; Move-Item -LiteralPath 'D:\\relay\\data\\b743_lockgate_notes.txt' -Destination $d }; Get-ChildItem $d -Name; Get-ChildItem D:/relay/data/b743_lockgate* -Name",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:12:47.266Z",
+   "src": "seat",
+   "cmd": "$d = 'C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\c66dda9f-cc02-473a-b740-111b6d66dec3\\scratchpad\\refused_lockgate'; $null = New-Item -ItemType Directory -Force $d; if ((Test-Path 'D:\\relay\\data\\b743_lockgate.json') -and (Test-Path 'D:\\relay\\data\\b743_lockgate_notes.txt')) { Move-Item -LiteralPath 'D:\\relay\\data\\b743_lockgate.json' -Destination $d; Move-Item -LiteralPath 'D:\\relay\\data\\b743_lockgate_notes.txt' -Destination $d }; Get-ChildItem $d -Name; Get-ChildItem D:/relay/data/b743_lockgate* -Name",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:13:02.446Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -c -e \"v1\\.23\\.0\" -- tools/acts/b743.py tools/b743_worklist.py tools/b743_face_blocks.txt tools/standing/fold/record.tpl tools/standing/fold/checks.tpl tools/standing/fold/closing.tpl; git -C D:/relay grep -n -e \"VERSION'\" -e \"STANDING_VERSION\" -e \"\\\"VERSION\\\"\" -- tools/acts/b743.py tools/b743_worklist.py",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:13:24.166Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/where.py\" record \"ver=\" \"VERSION')\" \"standing', 'VERSION\"",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:13:33.374Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay grep -n -e \"1\\.23\" -e \"1230\" -- data/act_current.json; git -C D:/relay grep -n -l -e \"standing_v%s\" -e \"'standing_v' +\" -e \"VERSION')).*replace\" -- tools/standing tools/acts/b743.py",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:14:08.700Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;r=json.load(open('D:/relay/data/b743_steps.json',encoding='utf-8'));rows=r.get('rows',r) if isinstance(r,dict) else r;[print(x.get('step'),x.get('repo'),x.get('phase'),x.get('commit')) for x in rows]\"",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:14:22.346Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/outside743.py\"",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:14:51.746Z",
+   "src": "seat",
+   "cmd": "Get-Content D:/relay/data/b743_hook_refusals.txt -Tail 1",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:15:34.494Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b743_face.py",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T07:15:43.421Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b743_address_scan.py scan --bank",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:16:04.839Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add tools/standing/VERSION data/b743_standing_v1231.txt",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:16:11.031Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:16:24.842Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b743_registration_2026-11-06.txt tools/b743_face_blocks.txt data/b743_defects.txt tools/acts/b743.py data/b743_steps.json data/b743_address_scan.txt",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:16:30.279Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:16:44.042Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b743",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:17:02.002Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b743_registration_2026-11-06.txt --act b743 --quiet",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T07:18:13.134Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b743",
+   "n": 414,
+   "bg": false
   }
  ],
  "offences": [
@@ -3147,7 +3347,8 @@
  "any_pipes": [
   12,
   56,
-  258
+  258,
+  398
  ],
  "py_programs": [
   22,
@@ -3186,7 +3387,8 @@
   335,
   362,
   363,
-  364
+  364,
+  403
  ],
  "moves_deletes": [
   84,
