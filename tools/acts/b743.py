@@ -506,7 +506,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqr')))   # ### (a)-(r), entered before the lock, every one the seat's (data/b743_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrs')))   # ### (a)-(s), entered before the lock, every one the seat's (data/b743_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b743_corrigendum.txt', 'data/b743_standing_v1230.txt', 'data/b743_rules.txt', 'data/b743_sitting_agenda.txt', 'data/b743_sitting.txt',
@@ -536,11 +536,11 @@ def _sitting_rows(t):
         if m:
             cur = out.setdefault(m.group(1), dict(state=m.group(2).strip()))
             continue
-        f = re.match(r'^  ([A-Z][A-Z` ]+): (.*)$', l)
+        f = re.match(r'^  ([A-Z][A-Z` ]+?)(?: \(\d+\))?: (.*)$', l)   # ### a numbered field, [A5]'s "THE AUTHOR`S WORD (1)" and "(2)", read as the field, the words joined
         if cur is not None and f:
             k = {'THE AUTHOR`S WORD': 'word', 'AT': 'at', 'CONFIRMATION': 'confirm', 'FILE': 'file', 'DRAFT WRITTEN': 'draft'}.get(f.group(1))
             if k:
-                cur[k] = f.group(2).strip()
+                cur[k] = ((cur[k] + ' ; ') if cur.get(k) else '') + f.group(2).strip()
         elif not l.strip():
             cur = None
     return out
@@ -862,8 +862,8 @@ def research_reproduces_ok(S):
     ('G-DIFFERS-ERRATA', '(R353)(4)(B6): ERRATA.md at HEAD its blob at the act`s base with E-2026-11-06-1 appended at its end by 05624b9 and nothing before it changed; no DIFFERS entry; the weight line and the corrigendum in 78b38fff, FINDINGS the one file there',
 #⟪END⟫
 #⟪OVERRIDE checks MARK 8c615091b2db 3⟫
-    now_, pre_ = S['errata_pp_now'] or '', S['errata_pp_pre'] or ''   # ### b743, (R353)(4)(B6): the base's bytes kept whole, the one id appended after them
-    return bool(pre_) and now_.startswith(pre_) and K.ERRATA_ID == 'E-2026-11-06-1' and K.ERRATA_ID not in pre_ and now_[len(pre_):].count(K.ERRATA_ID) >= 1 \
+    now_, pre_, id_ = S['errata_pp_now'] or b'', S['errata_pp_pre'] or b'', K.ERRATA_ID.encode('utf-8')   # ### b743, (R353)(4)(B6): the base's bytes kept whole, the one id appended after them
+    return bool(pre_) and now_.startswith(pre_) and K.ERRATA_ID == 'E-2026-11-06-1' and id_ not in pre_ and now_[len(pre_):].count(id_) >= 1 \
         and not S['differs'] and not S['errata'] and K.DIFFERS_LINE is None and S['files']['c1pp'] == ['FINDINGS.md'] and 'weight' in fline(S, K.WEIGHT_LINE).lower()
 #⟪END⟫
 #⟪SECTION checks 54⟫
@@ -1262,7 +1262,7 @@ def _s_md5(path):
 #⟪SECTION record 20⟫
     st_ = rdn('%s_sitting.txt' % ACT)
     acted_ = [b_ for b_ in st_.split(NL + NL) if re.match(r'\[(?:[A-Z]\d*|\(\d+\))\] (?:PASS|DELETE|THE NEXT ACT)', b_)]
-    no_word = [b_.split(']', 1)[0] + ']' for b_ in acted_ if (NL + '  THE AUTHOR`S WORD: ') not in b_]
+    no_word = [b_.split(']', 1)[0] + ']' for b_ in acted_ if not re.search(r'\n  THE AUTHOR`S WORD(?: \(\d+\))?: \S', b_)]
     neg_ = r'\b(?:NOT|not|no|No|never|until|Until|nothing|Nothing|none|None)\b'
     beyond_ = [s_ for s_ in sents if re.search(r'\bmultiplicit|\bsimple zero\b|\b69(?:th)? zero|\bsixty-ninth\b|λ_\d+\s*\(|\bn\s*=\s*\d+', s_) and not re.search(neg_, s_)]
     loc_ = [s_ for s_ in sents if re.search(r'\b(?:RH|GRH|h2)\b.*\b(?:holds|fails|proved|refuted|moved)\b', s_) and not re.search(neg_, s_)]
