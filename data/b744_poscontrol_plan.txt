@@ -1,0 +1,137 @@
+b744 -- W-ORD-POSITIVE-CONTROL, THE PLAN, (R354)(3)(b): NO BUILD, NO LEAN FILE, NO LEAN PROCESS ON THIS HOST; COMMITTED AS ITS OWN BANK BEFORE ANY LEAN (2026-11-06)
+
+### the figures: exact Fractions and floats in scratch (plans744.py, the seat's; free memory read first, 3672 of 16178 MB against the 2560 MB hold, MET);
+### the kernel read at SIDE-explicit-formula zq-b730 14ca5725 by git show and git grep; Mathlib at the pin de5ce8a9 by git grep. No runner dispatch for
+### this plan (0 of the 2 allowed by (R354)(3)(c)): every name below was read in its source at the pin, none compiled here. Every line count is the
+### seat's estimate from statements, priced in (f) against the measured ratios.
+
+## THE CONTROLS (printed before any figure; each must come out as wanted before a figure below is read)
+
+  1 − ρ⁻¹ at ρ = 1/2 + i, against (3 + 4i)/5                                                   0.000e+00   AS WANTED
+  ‖1 − ρ⁻¹‖ = 1 on the line (LiWeil.lean :91 norm_one_sub_inv_of_re_half)                      0.000e+00   AS WANTED
+  an off-line point 0.4 + i, left of the line: ‖1 − ρ⁻¹‖ > 1 (the converse's dominant point)  1.082781    AS WANTED
+  its reflection 0.6 + i, right of the line: ‖1 − ρ⁻¹‖ < 1                                     0.923548    AS WANTED
+  λ_n of (b) in exact Fractions against 2(1 − cos nθ), θ = atan(4/3), n = 0..10                11 of 11    AS WANTED
+  THE ABSENCE READ'S POSITIVE CONTROL: git grep "online_imp" over SIDEExplicitFormula at 14ca5725 finds LiCfg.lean :86 online_imp_liCoeffCfg_nonneg
+    (the ZeroConfig form) and no WideConfig form: the Wide form of the forward half is ABSENT, its neighbour six lines.
+  THE SCRATCH'S FIRST RUN: two of its controls came out NOT AS WANTED, each the control's own design; the off-line probe was placed right of the
+    line (0.6 + i, where ‖1 − ρ⁻¹‖ < 1); the converse's dominant point lies left (0.4 + i); both now printed. The second run 13 of 13 AS WANTED
+    (the other nine are the zeta box's, data/b744_zetabox_plan.txt).
+
+## (a) [F2]'S CONDITION, READ AGAINST THE TREE
+
+  THE AUTHOR'S WORD AT b743 (data/b743_author_answers.txt :144): "the carrier must be one the schema's implication applies to -- a finite
+  configuration with the WideConfig fields it needs -- so that the on-line conclusion is drawn through the same theorem Epstein's was, not through a
+  separate finite-case lemma."
+  THE CHAIN EPSTEIN'S CONCLUSION IS DRAWN THROUGH, AS THE TREE PRINTS IT:
+    Schema/ZQ/EF/Main.lean :205 zq_li_nonneg_imp_online_instance := zq_li_nonneg_imp_online zq_premises                 (:207)
+    Schema/EpsteinZQ.lean :164 zq_li_nonneg_imp_online (h : ZQPremises zq Z c) :
+        (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2
+      := h.count.elim fun _ hc => Wide.li_nonneg_cfg_imp_online_ne_zero Z hc (zqZeros_ne_zero h.zeros)                 (:166)
+    Schema/Wide/StripFree.lean :157 Wide.li_nonneg_cfg_imp_online_ne_zero (Z : WideConfig) {A₀ : ℝ} (hc : HCount Z A₀)
+        (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) : (∀ n : ℕ, 0 ≤ liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2
+      its axioms [propext, Classical.choice, Quot.sound] (data/b689_landing.txt :11).
+  WHY THE CONTROL CANNOT ENTER AT zq_li_nonneg_imp_online: its hypothesis ZQPremises zq Z c (EpsteinZQ.lean :137-:142) binds the carrier to Z_Q.
+    Its field continuation.agrees (:82) makes zq the lattice sum of Q0 on Re s > 1, and zeros.carrier_eq (:100) makes Z.carrier = LambdaQZeros zq,
+    the zeros of Λ_Q. A finite carrier would need Λ_Q to have finitely many zeros: a premise no proof here discharges, and false by
+    Davenport-Heilbronn's infinitely many zeros with Re s > 1 (cited at EpsteinZQ.lean :18-:19). A control entered there would carry ZQPremises
+    as an open hypothesis: refused.
+  THE READING THIS PLAN TAKES: the theorem zq_li_nonneg_imp_online_instance instantiates draws its conclusion through
+    Wide.li_nonneg_cfg_imp_online_ne_zero at Z := zqZeroConfig (EpsteinZQ.lean :166). The control draws its conclusion through the same theorem at
+    Z := pcConfig, the term Wide.li_nonneg_cfg_imp_online_ne_zero pcConfig pc_count pc_ne_zero pc_li_nonneg, and through no lemma about finite
+    carriers. The schema's other two premises (the count, ρ ≠ 0) are proved for pcConfig as Epstein's are read off its bundle.
+  THE CHECK OF IT, IN [F3]'S FORM (data/b743_author_answers.txt :150: "read it off #print axioms-style dependency output rather than assert it"):
+    the build's closure step (CircuitClosure.lean at the kernel root, 14ca5725; the workflow's closure record, .github/workflows/build-module.yml
+    :8-:9, :117-:130) prints pc_online's constants. It must name SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero, and must not name
+    zqFn, zqZeroConfig, ZQPremises or any OffZero constant. Both printed, each a check.
+  This reading is put to the author in the root prompt with the recommendation (h); the author's word decides.
+
+## (b) THE CARRIER AND THE STATEMENT, AS LEAN PROPS
+
+  THE CARRIER: pcConfig : WideConfig (Schema/Wide/Config.lean :28-:38), its fields:
+    carrier := {⟨1/2, 1⟩, ⟨1/2, -1⟩}   (1/2 + i and 1/2 − i)   ; mult := fun _ => 1 ; one_le_mult by rfl
+    strip: Re ρ = 1/2 ∈ (−1/2, 3/2) ; reflect_mem and mult_reflect: reflect ρ = 1 − conj ρ (Zeta23/Defs.lean :124) fixes each point of the line
+    finite_window: a subset of a two-point set.
+  ON THE LINE BY CONSTRUCTION: both points have real part 1/2.
+  THE STATEMENTS, EACH A PROP WITH ITS BINDERS:
+    theorem pc_count : Wide.HCount pcConfig 2
+    theorem pc_ne_zero : ∀ ρ ∈ pcConfig.carrier, ρ ≠ 0
+    theorem pc_li_nonneg : ∀ n : ℕ, 0 ≤ Wide.liCoeff pcConfig n
+    theorem pc_online : ∀ ρ ∈ pcConfig.carrier, ρ.re = 1 / 2 :=
+      Wide.li_nonneg_cfg_imp_online_ne_zero pcConfig pc_count pc_ne_zero pc_li_nonneg
+  with the standard three: propext, Classical.choice, Quot.sound.
+  THE CARRIERS NOT TAKEN: the empty configuration makes the antecedent true (every liCoeff 0) and the conclusion vacuous, a VACUOUS control:
+    refused. The point 1/2 alone (1 − ρ⁻¹ = −1) is real, a zero at the centre with no ordinate; not chosen. 1/2 ± i: closed under conjugation
+    as a zeta-type carrier is, and 1 − ρ⁻¹ = (3 + 4i)/5 rational, so every λ_n is an exact rational.
+
+## (c) THE LI COEFFICIENTS: THE CHOICE, PRINTED
+
+  Wide.liCoeff Z n = (1/2) Σ' ρ ∈ Z, m_ρ Re (pairTerm n ρ) (Wide/Converse.lean :32); pairTerm n ρ = liTerm n ρ + liTerm n (conj ρ) (LiWeil.lean :63),
+  liTerm n ρ = 1 − (1 − ρ⁻¹)^n (:60). At pcConfig: λ_n = 2 (1 − Re ((3 + 4i)/5)^n) = 2 (1 − cos nθ), θ = atan(4/3):
+    λ_0 = 0 ; λ_1 = 4/5 ; λ_2 = 64/25 ; λ_3 = 484/125 ; λ_4 = 2304/625 ; λ_5 = 6724/3125 ; λ_6 = 7744/15625 ; λ_7 = 3364/78125 ;
+    λ_8 = 451584/390625 ; λ_9 = 5750404/1953125 ; λ_10 = 38837824/9765625   (exact; the smallest positive of these λ_7 = 0.0430592)
+  THE CHOICE: ALL n, BY THE PROVED BOUND. The schema's antecedent is ∀ n : ℕ, so a decision at named n cannot feed the theorem; the carrier allows
+    the bound: each term's real part is nonnegative on the line (LiWeil.lean :109 pairTerm_re_nonneg_of_re_half, algebra over ℂ), and tsum_nonneg
+    (Mathlib Topology/Algebra/InfiniteSum/Order.lean :167, the additive form of one_le_tprod) closes it with no summability. The values above are
+    printed as figures beside the bound and are not used by it.
+  WHAT THE BOUND USES: the carrier's points on the line. The control's antecedent is thus derived from the same construction its conclusion
+    returns (the forward half, then the converse). What is exercised is the converse's application, not new information about the carrier: (d).
+
+## (d) WHAT THE CONTROL SHOWS AND DOES NOT SHOW
+
+  IT SHOWS, once built: the schema's implication, the theorem zq_li_nonneg_imp_online_instance instantiates, applied with a true antecedent to a
+  nonempty configuration of the widened class. Its hypotheses (the local count, no point at 0, Li nonnegativity for every n) are jointly met there,
+  so the implication is exercised and not only refuted. Beside it stands Epstein's case, where the antecedent is false: OffZero/SP4.lean :36
+  zq_li_nonneg_fails, from the off-line zero :32 zq_offline_zero.
+  IT DOES NOT SHOW: anything of ζ or of Z_Q; that Li nonnegativity holds for any arithmetic configuration; anything new about pcConfig, whose
+  points are on the line by its definition. It touches no arithmetic side: no coefficient c, no explicit formula, no ZQPremises. [F3]'s note
+  (independence read off the dependency print) is carried as the check in (a), the one place this plan meets it.
+  Until a build compiles pc_online, no sentence says the schema's implication has been exercised with a true antecedent.
+
+## (e) THE PLAN, LEMMA BY LEMMA, EACH WITH ITS NEAREST COMPILED NEIGHBOUR OR ABSENT
+
+  P1  pcConfig and its six fields                                                                                          40-90 lines
+        neighbour: Schema/ZQ/Zeros.lean :319 zqZeroConfig (a WideConfig built field by field); Zeta23/Defs.lean :124 reflect
+  P2  pc_count: N pcConfig t (t + 1) ≤ 2 (a finsum over a subset of two points, each of multiplicity 1) and 2 ≤ 2 log(|t| + 3), log 3 > 1
+                                                                                                                            50-150
+        neighbour: Wide/Config.lean :46 N, :64 localCount_ofWindowCount (its finsum_mem_eq_finite_toFinset_sum at :73); Mathlib exp_one_lt_d9
+        (Analysis/Complex/ExponentialBounds.lean :38); Count.lean :338 zq_count_holds (the instance's count, of another order)
+  P3  pc_ne_zero: Re ρ = 1/2 ≠ 0                                                                                            5-15
+        neighbour: Wide/Config.lean :57 ne_zero_of_excl
+  P4  pc_li_nonneg: the Wide form of the forward half                                                                       8-20
+        neighbour: LiCfg.lean :86-:91 online_imp_liCoeffCfg_nonneg (six lines, the ZeroConfig form); the Wide form ABSENT
+  P5  pc_online, drawn through Wide.li_nonneg_cfg_imp_online_ne_zero (StripFree.lean :157)                                  5-15
+  P6  the dependency check of (a): print_targets.txt naming pc_online and the four theorems; the closure record read     0 Lean lines
+  IN ALL: 108-290 lines, in one module (SIDEExplicitFormula/Schema/Wide/PositiveControl.lean on a branch from zq-b730 at 14ca5725, importing
+  Schema.Wide.StripFree alone, so the closure has no route to Z_Q's modules).
+
+## (f) THE PRICE AGAINST THE MEASURED RATIOS OF b730-b742 (the rows of data/b744_zetabox_plan.txt (f), read again here)
+
+  continuation 0.278-0.557 ; logDeriv 1.965-3.930 ; zeros 0.567-1.133 ; explicitFormula 0.915 ; count 0.442-1.104 ; b738 SP1 0.749-1.526 ;
+  b738 S5a-S5b 0.535-1.070 ; b740 S5c-S5d 0.231-0.642 ; b741 (c7) 0.347-1.046 ; b742 S6 0.602-1.032
+  THE ESTIMATE 108-290 lines:
+    by b738's SP1 ratio (the nearest in kind, a short structural chain of definitions and one schema application): 81-443 lines
+    by b741's: 37-303 ; the envelope of the ten ratios (0.231 to 3.930): 25-1,140
+  DISPATCHES: 1 nominal (one module, at b741's 194 lines a dispatch), 4 at most (three for repairs), each read by its run id with free memory in
+    its row; its closure record read in the same dispatch.
+  THE THREE-TIMES RULE: 3 × 290 = 870 lines; a stop prints the lemma reached.
+
+## (g) THE STOP POINTS
+
+  SPP1 after P1-P3: pcConfig, its count and no point at 0 compiled, with the axioms printed.
+  SPP2 after P4-P6: pc_online compiled at the standard three, and the closure record read for (a)'s two checks.
+
+## (h) THE RECOMMENDATION AND ITS REASON; THE TWO PLANS TOGETHER
+
+  THE CARRIER AND THE ROUTE: pcConfig = {1/2 + i, 1/2 − i}, Li nonnegativity for all n by the proved bound, the conclusion drawn through
+  Wide.li_nonneg_cfg_imp_online_ne_zero, (a)'s reading of [F2].
+  THE REASON: ZQPremises cannot be met by any finite carrier, so the theorem the schema's implication instantiates, the one Epstein's
+  conclusion is drawn through at EpsteinZQ.lean :166, is the place where a carrier is a parameter. Entering there with the count and ρ ≠ 0
+  proved, as Epstein's bundle supplies them, is the same theorem and no finite-case lemma, and the closure print makes that checkable.
+  THE TWO PLANS, BESIDE EACH OTHER (for the root prompt's one question, (R354)(3)(c)):
+    POSITIVE-CONTROL 108-290 lines, 1 dispatch nominal (4 at most) ; ZETA-BOX 450-1,100 lines, 6 nominal (12 at most)
+    TOGETHER 558-1,390 lines, 7 dispatches nominal: within one act's measured reach (b741 built 1,161 lines in 6 dispatches, b742 4,097 in 7).
+  THE NAVIGATOR'S LEAN, printed as the seat's: BOTH IN ONE ACT, POSITIVE-CONTROL FIRST. Its one module and one dispatch settle (a)'s reading of
+  [F2] by its closure print before the larger build, and the zeta box's stop points (SPZ1-SPZ3) carry the rest. THE AUTHOR'S WORD DECIDES.
+
+### ### **THE PLAN: pcConfig = {1/2 + i, 1/2 − i} ; pc_online DRAWN THROUGH Wide.li_nonneg_cfg_imp_online_ne_zero (StripFree.lean :157), [F2]'S CONDITION READ AT EpsteinZQ.lean :166 ; Li NONNEGATIVE FOR ALL n BY THE PROVED BOUND ; 108-290 LINES ; 1 DISPATCH NOMINAL ; NO DISPATCH THIS ACT ; NOT BUILT.**
