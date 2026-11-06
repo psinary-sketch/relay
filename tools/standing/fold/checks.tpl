@@ -93,6 +93,11 @@ nsm_hits, no_sorry_main, ac_count, axiom_claim, module_header = C3.nsm_hits, C3.
 _fn_src, _entry_block, _owners, instruments_ok, table_final_ok, _chain_rows = C3._fn_src, C3._entry_block, C3._owners, C3.instruments_ok, C3.table_final_ok, C3._chain_rows
 root_banks_committed_ok, kernels_untouched, lsr_ok, g2_names, no_delete, publish_uncalled = (
     C3.root_banks_committed_ok, C3.kernels_untouched, C3.lsr_ok, C3.g2_names, C3.no_delete, C3.publish_uncalled)
+
+
+def kernels_untouched(S):   # ### v1.24.0, (R354)(2)(v), b743 events (11): the act's own listed push-* branches taken out before the face is compared
+    from standing import facebranches as FBR
+    return C3.kernels_untouched(dict(S, kern_now=FBR.strip(S['kern_now'], FBR.listed(ACTN))))
 _rl, _mut, _live, _planted, _raise_fig, fig_ok, sister_pins_ok = C3._rl, C3._mut, C3._live, C3._planted, C3._raise_fig, C3.fig_ok, C3.sister_pins_ok
 import act_close as AC        # noqa: E402  ### (⟪RUL⟫)(4): the close's shared functions, one form for every tool (a repair at ⟪ACT⟫)
 import act_letters as AL      # noqa: E402  ### (⟪RUL⟫)(6)(v), v5 row (78): the one lettering, the corrigendum tool's and this suite's

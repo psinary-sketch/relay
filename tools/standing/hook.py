@@ -314,7 +314,7 @@ def lock_exempt(act):
         base = tuple(A_.post_lock_appended(act))
     except Exception:  # noqa: BLE001
         base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'tools/mirror_prevbuild.json')
-    return base + ('data/%s_events.txt' % act,)
+    return base + ('data/%s_events.txt' % act, 'data/%s_face_branches.json' % act)   # ### v1.24.0, (R354)(2)(v): the face's branch list, appended by its tool
 
 
 def locked_bank(path, relay=RELAY, act=None):
@@ -327,7 +327,9 @@ def locked_bank(path, relay=RELAY, act=None):
         rel = os.path.relpath(os.path.abspath(path), relay).replace(os.sep, '/')
     except ValueError:
         return False
-    ours = rel.startswith(('data/%s_' % act, 'tools/%s_' % act)) or rel == 'tools/acts/%s.py' % act
+    # ### v1.24.0, (R354)(2)(iii), b743 events (4): the refusal binds banks and faces; the act module's post-lock edit is allowed, committed by
+    # ### commit.py's repair phase under its three conditions and scored N4 REFUTED (the N4 route reads every post-lock tool edit), so an act can always seal
+    ours = rel.startswith(('data/%s_' % act, 'tools/%s_' % act))
     if not ours or rel in lock_exempt(act):
         return False
     import subprocess

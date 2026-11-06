@@ -12,7 +12,14 @@ v1.22.0, (R352)(2)(v): a refusal prints its class, REPEAT of the earlier act's r
 v1.23.0, (R353)(3)(ii), b742 events (1)-(2): no subject text is taken for lock, gate and seal; words given refuse the commit. The gate subject
 is composed from the index and the banks (subjects.gate_words); the seal and lock subjects are the composer's whole (subjects.check).
 
+v1.24.0, (R354)(2)(ii)-(iii), b743 events (4), (7)-(9): THE REPAIR PHASE. `repair`, between the lock and the seal, for the act module alone, under
+three conditions printed in the row: an author's lift banked in the events with its time (a line naming THE LIFT and an HH:MM:SSZ); the hook
+restored, the settings file's sha256 now equal to the value the events bank names before the lift; the diff against HEAD confined to
+tools/acts/<act>.py and to the lines the events name (":<n>" in the events rows). The head "<act> repair:" (the author's at b743, events (9)),
+the seat's words after it naming the edits; the row written as phase `repair`. N4 reads such a commit as a post-lock edit and scores REFUTED.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
+  python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
 """
 import json
 import os
@@ -24,8 +31,9 @@ S = os.path.dirname(os.path.abspath(__file__))
 T = os.path.dirname(S)
 RELAY = os.path.dirname(T)
 REPOS = {'relay': RELAY, 'pp': 'D:/MY-DOwnloads/PLACE-papers'}
-PHASES = ('gate', 'lock', 'seal')
+PHASES = ('gate', 'lock', 'seal', 'repair')
 RECORD = {'seal': '%s_seal_hashes.json', 'lock': '%s_lockgate.json'}
+SETTINGS = 'D:/.claude/settings.json'   # ### the seat's project settings carrying the hook (b743 events (4): its sha256 read before and after each lift)
 if S not in sys.path:
     sys.path.insert(0, S)
 
@@ -50,10 +58,72 @@ def reader(data):
     return read
 
 
+def _hash_matches(banked, now):
+    """a banked sha256 in full or in the events' short form "1E22BFFE...68FBB2" against the hash now (case ignored)."""
+    b, n = banked.upper().replace('…', '...'), (now or '').upper()
+    if '...' in b:
+        a, z = b.split('...', 1)
+        return bool(a) and bool(z) and n.startswith(a) and n.endswith(z)
+    return bool(b) and n == b
+
+
+def repair_check(act, words, rows, events, settings_now, names, old_lines):
+    """v1.24.0, (R354)(2)(ii): the repair phase's three conditions, pure in its arguments -- the step rows, the events text, the settings file's
+    sha256 now, the staged names and the HEAD-side line numbers the staged diff touches. Returns (subject, the condition lines) or raises Refused."""
+    import re
+    ev = (events or '').replace('\r', '')
+    if not any(r.get('phase') == 'lock' for r in rows):
+        raise Refused('NO LOCK ROW: the repair phase stands between the lock and the seal')
+    if any(r.get('phase') == 'seal' for r in rows):
+        raise Refused('A SEAL ROW STANDS: the repair phase stands before the seal')
+    if not (words or '').strip():
+        raise Refused('THE REPAIR NAMES NO EDIT: the words after "%s repair:" name the edits and the lift' % act)
+    lines = ev.split('\n')
+    lifts = [i for i, l in enumerate(lines) if re.search(r'\bTHE LIFT\b', l) and re.search(r'\b\d\d:\d\d:\d\dZ\b', l)]
+    c1 = bool(lifts)
+    pre = [m.group(1) for l in lines[:lifts[0]] for m in re.finditer(r'settings\.json sha256 ([0-9A-Fa-f]{6,}(?:(?:\.\.\.|…)[0-9A-Fa-f]{4,})?)', l)] if c1 else []
+    c2 = bool(pre) and _hash_matches(pre[-1], settings_now)
+    named = sorted(set(int(m.group(1)) for l in lines for m in re.finditer(r'(?<![\w/.]):(\d{2,5})\b', l)))
+    mod = 'tools/acts/%s.py' % act
+    c3 = list(names) == [mod] and bool(old_lines) and set(old_lines) <= set(named)
+    conds = ['  (1) the author`s lift banked in the events with its time: %s' % (('%d LIFT row(s), the first: %s' % (len(lifts), lines[lifts[0]].strip()[:90])) if c1 else '### NONE'),
+             '  (2) the hook restored, %s now %s against the value banked before the lift %s: %s' % (SETTINGS, (settings_now or 'UNREAD')[:16], (pre[-1] if pre else 'NONE'), 'EQUAL' if c2 else '### NOT EQUAL'),
+             '  (3) the diff against HEAD: files %s ; lines %s ; the lines the events name %s: %s' % (list(names), sorted(old_lines), named[:12], 'CONFINED' if c3 else '### NOT CONFINED')]
+    if not (c1 and c2 and c3):
+        raise Refused('THE REPAIR`S CONDITIONS NOT MET: %s' % ' '.join(c.strip() for c in conds if '###' in c))
+    return '%s repair: %s' % (act, words.strip()), conds
+
+
+def staged_lines(repo):
+    """(names, the HEAD-side line numbers the staged diff touches), from `git diff --cached -U0`."""
+    import re
+    names = [p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p]
+    old = []
+    for m in re.finditer(r'^@@ -(\d+)(?:,(\d+))? \+\d+(?:,\d+)? @@', _git(repo, 'diff', '--cached', '-U0').stdout, re.M):
+        a, n = int(m.group(1)), int(m.group(2)) if m.group(2) is not None else 1
+        old += list(range(a, a + n)) if n else [a]
+    return names, old
+
+
+def settings_sha():
+    import hashlib
+    try:
+        return hashlib.sha256(open(SETTINGS, 'rb').read()).hexdigest().upper()
+    except OSError:
+        return None
+
+
 def preflight(act, phase, words, repo, rows, read):
     """the subject, or Refused before anything is written: the phase, the record it names, the step bank's lock row, the subject's check, the index."""
     if phase not in PHASES:
         raise Refused('the phase %r is not one of %s' % (phase, ' | '.join(PHASES)))
+    if phase == 'repair':   # ### v1.24.0, (R354)(2)(ii)
+        if os.path.abspath(repo) != os.path.abspath(RELAY):
+            raise Refused('the repair phase is the relay`s alone (the act module)')
+        names, old = staged_lines(repo)
+        subj, conds = repair_check(act, words, rows, read('%s_events.txt' % act) or '', settings_sha(), names, old)
+        print('\n'.join(['  THE REPAIR PHASE`S CONDITIONS ((R354)(2)(ii)):'] + conds))
+        return subj
     if phase in RECORD and not read(RECORD[phase] % act):
         raise Refused('THE RECORD THE SUBJECT NAMES DOES NOT EXIST: data/%s' % (RECORD[phase] % act))
     if phase in ('lock', 'gate') and any(r.get('phase') == 'lock' for r in rows):

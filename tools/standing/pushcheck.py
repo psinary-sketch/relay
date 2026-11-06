@@ -36,6 +36,35 @@ def faults(repo, branch, act, relay=RELAY):
         out.append('THE STEP BANK %s IS NOT TRACKED IN THE RELAY' % steps)
     elif _git(relay, 'diff', '--quiet', 'HEAD', '--', steps).returncode != 0:
         out.append('THE STEP BANK %s CARRIES AN UNCOMMITTED ROW (commit the step rows before the push)' % steps)
+    if top == os.path.normcase(os.path.abspath(relay)):   # ### v1.24.0, (R354)(2)(iv)
+        for p in rewritten(relay, act, 'refs/remotes/origin/main', 'refs/heads/%s' % branch):
+            out.append('A PUSHED BANK REWRITTEN: %s differs from its pushed form other than by an append (write the corrected form to a new bank at a '
+                       'suffixed path, data/%s_2.txt, with a dated note naming the pushed one)' % (p, p[5:-4]))
+    return out
+
+
+def rewritten(repo, act, base, head):
+    """v1.24.0, (R354)(2)(iv), b743 events (15): the act's text banks (data/<act>_*.txt) present at `base` (the remote's main as last pushed) whose
+    form at `head` is not the pushed form with lines appended -- a pushed bank is never rewritten. The banks appended by design after the lock
+    (standing.act.post_lock_appended) are read apart. A base or head that does not resolve reads nothing."""
+    if _git(repo, 'rev-parse', '-q', '--verify', base).returncode != 0 or _git(repo, 'rev-parse', '-q', '--verify', head).returncode != 0:
+        return []
+    try:
+        if S not in sys.path:
+            sys.path.insert(0, S)
+        import act as A
+        apart = set(A.post_lock_appended(act))
+    except Exception:  # noqa: BLE001
+        apart = set()
+    out = []
+    for l in _git(repo, 'diff', '--name-status', base, head, '--', 'data/%s_*.txt' % act).stdout.split('\n'):
+        x = l.split('\t')
+        if len(x) < 2 or x[0][:1] not in ('M', 'D') or x[1] in apart:
+            continue
+        old = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (base, x[1])], capture_output=True).stdout.replace(b'\r', b'')
+        new = subprocess.run(['git', '-C', repo, 'show', '%s:%s' % (head, x[1])], capture_output=True).stdout.replace(b'\r', b'')
+        if x[0][:1] == 'D' or not new.startswith(old):
+            out.append(x[1])
     return out
 
 

@@ -1,0 +1,146 @@
+b744 -- THE CONTROLS OF tools/standing/ v1.24.0, (R354)(2)(i)-(xi): THE PRE-LOCK DRY IN PREV MODE, THE REPAIR PHASE, THE HOOK`S SCOPE, NO PUSHED BANK REWRITTEN AND THE TAGS AT THE DRY, THE FACE`S BRANCH LIST, THE KERNEL PUSH BEFORE THE ROOT, THE REPEAT READINGS, THE VERSION (2026-11-06T20:28:37Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2550 lines
+  citation render          OK    520 lines
+  closing render           OK    619 lines
+  record render            OK    4521 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    150 lines
+  tools/b744_worklist.py   OK    413 lines
+### THE COMPILE CONTROL : b744 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from b41fa006
+
+  free 3221 MB at 2026-11-06T20:28:38Z, the hold 2560 MET
+### (prevdry) (R354)(2)(i), b743 events (3), (7): THE PRE-LOCK DRY RUNS PREV MODE; b743`S MODULE AT ITS LOCK (fc32ebd6) UNDER THE DRY
+  (prevdry) part act, tools/acts/b743.py at the lock (fc32ebd6) (blob c123ed0f), replayed as b743: the stop at b743`s :561
+      BEFORE (v1.23.1): the lock gate read no prev-mode run (prelock.py at b41fa006 names prevdry: False); the stop surfaced after the lock -> FAILS
+      AFTER  (v1.24.0): the dry run before the lock: FAILS, TypeError: expected str, bytes or os.PathLike object, not NoneType, at sit_files=dict((k_, gs('D:/' + k_, 'diff', '--name-only', jl('b743_kernel_bases.json').get (13.6 s) -> PASSES
+      AS WANTED
+  (prevdry) part standing-a1, tools/acts/b743.py with :561 repaired alone (the first lift`s edit) (blob 216c2b83), replayed as b743: the stop at b743`s :575
+      BEFORE (v1.23.1): the lock gate read no prev-mode run (prelock.py at b41fa006 names prevdry: False); the stop surfaced after the lock -> FAILS
+      AFTER  (v1.24.0): the dry run before the lock: FAILS, IndexError: tuple index out of range, at print=_ct(ROOT, K.PRINT_COMMIT), plan=_ct(ROOT, K.REG_COMMIT), discharge=_ct(PP, K.C1_DISC (38.3 s) -> PASSES
+      AS WANTED
+
+  free 3224 MB at 2026-11-06T20:29:31Z, the hold 2560 MET
+### (prevdry-ok) (R354)(2)(i): THE REPAIRED MODULE (bd968013) UNDER THE SAME DRY, THE SAME PARTS
+  (prevdry-ok) GUARD, NO FAILING SIDE: part act, tools/acts/b743.py at bd968013 (blob 791c3f6d)
+      AFTER  (v1.24.0): SOURCES OK (95.2 s) -> HOLDS
+      AS WANTED
+  (prevdry-ok) GUARD, NO FAILING SIDE: part standing-a1, tools/acts/b743.py at bd968013 (blob 791c3f6d)
+      AFTER  (v1.24.0): SOURCES OK (131.3 s) -> HOLDS
+      AS WANTED
+
+  free 3262 MB at 2026-11-06T20:33:18Z, the hold 2560 MET
+### (tags) (R354)(2)(iv), b743 events (15): THE CLOSING`S TAG REQUIREMENT READ AT THE PRE-LOCK DRY
+  (tags) data/b743_events.txt at 96d8e736 (the record`s form), read before the lock
+      BEFORE (v1.23.1): prelock.py at b41fa006 reads no tags (names counter: False); the closing refused after the record push -> FAILS
+      AFTER  (v1.24.0): THE TAGS ((R354)(2)(iv)): ### AN UNTAGGED EVENT ROW:     (6) THE LIFT (the author's hand): read by the seat 14:02:42Z, D:/.claude/set -- the closing would refuse it; tag it before the lock -> PASSES
+      AS WANTED
+  (tags) GUARD, NO FAILING SIDE: data/b743_events.txt at 7f41b079 (the tagged form)
+      AFTER  (v1.24.0): THE TAGS ((R354)(2)(iv)): every row tagged, 38 rows read -> HOLDS
+      AS WANTED
+
+  free 3269 MB at 2026-11-06T20:33:18Z, the hold 2560 MET
+### (repair) (R354)(2)(ii), b743 events (8)-(9): THE REPAIR PHASE; b743`S COMMIT bd968013 REPLAYED UNDER IT
+  (repair) bd968013: files ['tools/acts/b743.py'], the HEAD-side lines [561, 575], the rows before the seal 33 (a lock row among them True)
+      BEFORE (v1.23.1): commit.py at b41fa006: the phases ('gate', 'lock', 'seal'), no route between the lock and the seal (b743 events (8)); the seat`s shell commit refused, the head chosen by the author -> FAILS
+      AFTER  (v1.24.0): b743 repair: tools/acts/b743.py, two prev-mode repairs (:561 ; (1) the author`s lift banked in the events with it (2) the hook restored, D:/.claude/settings.json no (3) the diff against HEAD: files ['tools/acts/b743 -> PASSES
+      AS WANTED
+  (repair) GUARD, NO FAILING SIDE: the same commit with no lift banked (the events` LIFT rows taken out)
+      AFTER  (v1.24.0): REFUSED: THE REPAIR`S CONDITIONS NOT MET: (1) the author`s lift banked in the events with its time: ### NONE (2) the hook restored, D:/.claude/settin -> HOLDS
+      AS WANTED
+  (repair) GUARD, NO FAILING SIDE: the same commit with a line the events do not name (:600) in its diff
+      AFTER  (v1.24.0): REFUSED: THE REPAIR`S CONDITIONS NOT MET: (3) the diff against HEAD: files ['tools/acts/b743.py'] ; lines [561, 575, 600] ; the lines the events name -> HOLDS
+      AS WANTED
+
+  free 3272 MB at 2026-11-06T20:33:19Z, the hold 2560 MET
+### (hook) (R354)(2)(iii), b743 events (4): THE HOOK`S SCOPE, BANKS AND FACES; THE ACT MODULE`S EDIT ALLOWED AND REFUTED
+  (hook) the Edit of tools/acts/b743.py at 08:25:22Z, after the lock (events (4))
+      BEFORE (v1.23.1): locked_bank True: REFUSED (LOCKED) -> FAILS
+      AFTER  (v1.24.0): locked_bank False: allowed -> PASSES
+      AS WANTED
+  (hook) the Edit of tools/acts/b743.py at 08:33:45Z, after the lock (events (4))
+      BEFORE (v1.23.1): locked_bank True: REFUSED (LOCKED) -> FAILS
+      AFTER  (v1.24.0): locked_bank False: allowed -> PASSES
+      AS WANTED
+  (hook) GUARD, NO FAILING SIDE: a bank written before the lock, data/b743_sitting.txt, still refused after it
+      AFTER  (v1.24.0): locked_bank True -> HOLDS
+      AS WANTED
+  (hook) GUARD, NO FAILING SIDE: N4 scored on the act module`s post-lock edit (data/b743_scores_close.json)
+      AFTER  (v1.24.0): REFUTED: the lock at 2026-11-06T07:19:49Z, its commit fc32ebd6; the commits after it (relay) 7, touching the face, a tool or a ba -> HOLDS
+      AS WANTED
+
+  free 3263 MB at 2026-11-06T20:33:19Z, the hold 2560 MET
+### (rewrite) (R354)(2)(iv), b743 events (15): A PUSHED BANK IS NOT REWRITTEN; b743`S THREE PUSHES REPLAYED
+  (rewrite) the closing push, the remote at eca0f83c (the record), push-b743-closing at b41fa006
+      BEFORE (v1.23.1): pushcheck.py at b41fa006 reads no pushed bank (names rewritten: False); the events bank rewritten after its push went out -> FAILS
+      AFTER  (v1.24.0): refused: ['data/b743_events.txt'] -> PASSES
+      AS WANTED
+  (rewrite) GUARD, NO FAILING SIDE: the pre-root push, 16a36428..3c306e67: banks appended or new, none rewritten
+      AFTER  (v1.24.0): refused NONE -> HOLDS
+      AS WANTED
+  (rewrite) GUARD, NO FAILING SIDE: the record push, 3c306e67..eca0f83c: banks appended or new, none rewritten
+      AFTER  (v1.24.0): refused NONE -> HOLDS
+      AS WANTED
+  (rewrite) GUARD, NO FAILING SIDE: b743`s two forms read as distinct banks, the record`s at 96d8e736 standing
+      AFTER  (v1.24.0): equal False ; the record`s a prefix of the closing`s False -> HOLDS
+      AS WANTED
+
+  free 3258 MB at 2026-11-06T20:33:20Z, the hold 2560 MET
+### (branches) (R354)(2)(v), b743 events (11): THE FACE`S BRANCH LIST; push-b743-sitting REPLAYED AS LISTED
+  (branches) data/b743_kernels_face.json against the kernels with push-b743-sitting on SIDE-explicit-formula (the branch deleted at b744`s step zero; replayed)
+      BEFORE (v1.23.1): G-KERNELS-UNTOUCHED FAILS (the template reads no list: True) -> FAILS
+      AFTER  (v1.24.0): the branch listed by its tool: PASSES -> PASSES
+      AS WANTED
+  (branches) GUARD, NO FAILING SIDE: a branch the list does not name (push-b743-other) still fails the arm
+      AFTER  (v1.24.0): listed ['push-b743-sitting'] -> FAILS -> HOLDS
+      AS WANTED
+  (branches) GUARD, NO FAILING SIDE: the face read with no branch made and no list: the arm as before
+      AFTER  (v1.24.0): before True ; after True -> HOLDS
+      AS WANTED
+  (branches) GUARD, NO FAILING SIDE: the suite`s arm reads the list (fold/checks.tpl) and the hook leaves the list writable after the lock
+      AFTER  (v1.24.0): tpl True ; exempt True -> HOLDS
+      AS WANTED
+
+  free 3271 MB at 2026-11-06T20:33:20Z, the hold 2560 MET
+### (order) (R354)(2)(vi), b743 events (10): THE KERNEL PUSH ORDERED BEFORE THE ROOT; b743`S SEQUENCE REPLAYED
+  (order) SIDE-explicit-formula main 8fbab45d, the remote badacccb, at b743`s `record root` (about 17:05Z)
+      BEFORE (v1.23.1): no order printed (facebranches.py at b41fa006: ABSENT); `record root` refused, NO ROOT, and the push moved by hand -> FAILS
+      AFTER  (v1.24.0): THE ORDER ((R354)(2)(vi)): 1. push SIDE-explicit-formula push-b743-sitting (main 8fbab45d, the remote badacccb) ; 2. read the remote back ; 3. `record root` -> PASSES
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: after the push, main level with the remote: nothing waits
+      AFTER  (v1.24.0): SIDE-explicit-formula: main 8fbab45d level with its remote; the root waits on nothing here -> HOLDS
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: no branch of the act listed (b744: no kernel write): nothing ordered
+      AFTER  (v1.24.0): SIDE-explicit-formula: no branch of the act listed; nothing ordered before the root -> HOLDS
+      AS WANTED
+
+  free 3274 MB at 2026-11-06T20:33:20Z, the hold 2560 MET
+### (repeat) (R354)(2)(vii)-(x): THE REPEAT READINGS AND INSTANCES
+  (repeat) GUARD, NO FAILING SIDE: (vii) the record push sent with a step row uncommitted (events (13)): the push tool`s refusal of (R353)(3)(iii) working, its class
+      AFTER  (v1.24.0): REPEAT of b743 event (13) ; events (13) REPEAT True -> HOLDS
+      AS WANTED
+  (repeat) GUARD, NO FAILING SIDE: (viii) the post-push suite sent without its name (events (14)): the suite`s self-refusal working
+      AFTER  (v1.24.0): events (14) REPEAT True ; --rerun-postpush named True -> HOLDS
+      AS WANTED
+  (repeat) GUARD, NO FAILING SIDE: (ix) the chain class (events (12), standing-c 610 s): the phase table`s rows printed from b743`s post-push standing-c bank
+      AFTER  (v1.24.0): 3 phase rows ; the first: ### THE PHASES, IN SECONDS: the banks and the state 98; the three arms at HEAD (not in thi -> HOLDS
+      AS WANTED
+  (repeat) GUARD, NO FAILING SIDE: (x) the author`s call refused for an environment prefix (events (5)): the hook`s ENV row working; the lift scripts carry no prefix
+      AFTER  (v1.24.0): judged ENV -> HOLDS
+      AS WANTED
+
+  free 3267 MB at 2026-11-06T20:33:20Z, the hold 2560 MET
+### (version) (R354)(2)(xi): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.23.1): v1.23.1 -> FAILS
+      AFTER  (v1.24.0): v1.24.0 -> PASSES
+      AS WANTED
+
+### ### **v1.24.0: CONTROLS (prevdry), (prevdry-ok), (tags), (repair), (hook), (rewrite), (branches), (order), (repeat), (version) ; CASES 29 ; AS WANTED 29 ; ALL AS WANTED.**

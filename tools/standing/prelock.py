@@ -107,11 +107,41 @@ def gate(act, face):
     L, undecl = lines(c, face)
     dry = os.path.exists(os.path.join(D, '%s_scores_dry.txt' % act))   # ### v1.16.0, (R346)(3)(vi), b735 event (1): the score routes' dry form before the gate clears, the face's order the tool's
     L.append('  the score routes` dry form, data/%s_scores_dry.txt: %s' % (act, 'STANDS' if dry else '### ABSENT: `record scores dry` runs before the gate'))
-    clear = not c['missing'] and not undecl and dry
+    # ### v1.24.0, (R354)(2)(i), b743 events (3), (7): every part's sources() exercised in prev mode at the act module's present blob
+    S_ = os.path.dirname(os.path.abspath(__file__))
+    if S_ not in sys.path:
+        sys.path.insert(0, S_)
+    import prevdry as PD
+    pv_clear, pv = PD.gate(act)
+    L += pv
+    # ### v1.24.0, (R354)(2)(iv), b743 events (15): the closing's tag requirement read at the pre-lock dry, so an untagged row cannot reach the record
+    tag_ok, tag_line = tags(act)
+    L.append(tag_line)
+    clear = not c['missing'] and not undecl and dry and pv_clear and tag_ok
     L.append('### ### **THE PRE-LOCK COMPARISON : %s** (arms not on the face: %s)' % ('CLEAR' if clear else 'NOT CLEAR', undecl or 'NONE'))
     with open(os.path.join(D, '%s_prelock.txt' % act), 'w', encoding='utf-8', newline='\n') as f:
         f.write(NL.join(L) + NL)
     return clear, L
+
+
+def tags(act, events=None, defects=None):
+    """v1.24.0, (R354)(2)(iv): (ok, line) -- every row of the events and defects banks tagged as the closing's counter requires (standing.counter.items,
+    which raises on an untagged row); texts given are read in place of the banks (a blob read at its commit). A bank not yet written reads as empty."""
+    S_ = os.path.dirname(os.path.abspath(__file__))
+    if S_ not in sys.path:
+        sys.path.insert(0, S_)
+    import counter as CN
+
+    def rd_(n):
+        p = os.path.join(D, n)
+        return rd(n) if os.path.exists(p) else ''
+    ev = rd_('%s_events.txt' % act) if events is None else events.replace('\r', '')
+    df = rd_('%s_defects.txt' % act) if defects is None else defects.replace('\r', '')
+    try:
+        it = CN.items(df, ev)
+    except ValueError as e:
+        return False, '  THE TAGS ((R354)(2)(iv)): ### %s -- the closing would refuse it; tag it before the lock' % str(e).strip('# ')
+    return True, '  THE TAGS ((R354)(2)(iv)): every row tagged, %d rows read' % len(it)
 
 
 def scores_dry_order(act):
