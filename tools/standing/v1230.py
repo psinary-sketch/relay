@@ -264,10 +264,12 @@ def control_dispatch():
 def control_repeat():
     L, g, n = ['### (repeat) (R353)(3)(iv), b742 EVENTS (5)-(6): THE HOLD AND THE HOOK HELD; THE INSTANCES PRINTED AS REPEAT'], 0, 0
     ev = _lines('b742_events.txt')
-    for k, idx, head in (('the hold', 11, 'THE HOST`S FREE MEMORY'), ('the pipe', 14, 'a PowerShell read of the untracked zero-name file')):
-        cls = CM.repeat_of(head + ':', 'b743')
+    # ### the class read from the acts BEFORE b742 (repeat_of(..., 'b742')): the hold by its own words "BENEATH THE HOLD 2560 MB", the hook by its kind PIPE
+    for k, idx, head, own in (('the hold', 11, 'BENEATH THE HOLD 2560 MB', 'BENEATH THE HOLD 2560 MB'), ('the pipe', 14, 'PIPE', 'PIPE')):
+        cls = CM.repeat_of(head + ':', 'b742')
         n += 1
-        g += guard(L, 'repeat', '%s, data/b742_events.txt :%d' % (k, idx + 1), '"%s..." ; class %s' % (ev[idx].strip()[:110], cls), head in ev[idx] and cls.startswith('REPEAT of b742 event'))
+        g += guard(L, 'repeat', '%s, data/b742_events.txt :%d, its class read from the acts before b742 by the words %r' % (k, idx + 1, head),
+                   '"%s..." ; class %s' % (ev[idx].strip()[:110], cls), own in ev[idx] and cls.startswith('REPEAT of b7') and not cls.startswith('REPEAT of b742'))
     return L, g, n
 
 
