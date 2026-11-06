@@ -12,6 +12,10 @@ v1.22.0, (R352)(2)(i), b741 defect (q): A DISPATCH CONDITIONED ON THE AUTHOR'S W
   licence(bank, needle, by=None)   the earliest relay commit on HEAD's line whose blob of `bank` carries `needle` on one line, committed at or
                                    before `by` (a UTC time) when given: dict(commit, bank, line, committed_at), or Refused naming what is missing
   row('dispatch', read, ...)       refused unless it carries licence=licence(...) re-read here, or unconditioned=True naming why no word is needed
+
+v1.23.0, (R353)(3)(v), b742 defects (k), (l): targets_refused(targets, tree_files, modules) -- a target no .lean file of the tree, or not in the plan's
+module list; label(rows) -- the repair commit's label from the dispatch count; series(rows, repo) -- a commit already rowed, a label not the count's,
+a target not a module, for rows dated on or after LANDING; check() and write() read series() too.
 """
 import calendar
 import json
@@ -96,17 +100,78 @@ def row(kind, read, **f):
             again = licence(lic['bank'], lic['needle'], by=r.get('at') or read[1])
             if again['commit'] != lic['commit']:
                 w = 'the licence names %s where the bank`s first commit carrying the word is %s' % (lic['commit'][:8], again['commit'][:8])
+    # ### v1.23.0, (R353)(3)(v): a dispatch row carrying its tree (or its kernel path in `repo`) has its targets read against it before it is written
+    if not w and kind == 'dispatch' and (r.get('tree') or r.get('repo')):
+        files = r.pop('tree', None) or tree_files(r['repo'], r['sha'])
+        bad = targets_refused(r.get('target') or '', files, r.get('modules'))
+        if bad:
+            w = 'targets not modules of the tree at %s: %s' % (str(r.get('sha'))[:8], '; '.join(bad[:3]))
     if w:
         raise Refused('### THE ROW REFUSED, NOTHING WRITTEN: %s' % w)
     return r
 
 
-def check(rows):
-    return [(i, r.get('kind'), why(r)) for i, r in enumerate(rows) if why(r)]
+# ### v1.23.0, (R353)(3)(v), b742 defects (k), (l): dispatch 4 (run 42061332755) carried the bare names "Interp Frame Strip ... SP4" as its
+# ### targets, no module of the tree, and the commit 4c04916c was rowed twice, G4-G6 and again R5, beside the true R5 c2d4f29c. The targets
+# ### are now read from the plan's module list and each must name a .lean file in the tree at the dispatched commit; a repair commit's label
+# ### is composed from the dispatch count (the repair after dispatch n is Rn); a commit row whose sha is already rowed is refused. Enforced for
+# ### rows dated on or after the landing, so the rows of earlier acts read as they were banked.
+LANDING = '2026-11-06T00:00:00Z'
 
 
-def write(path, rows):
-    bad = check(rows)
+def targets_refused(targets, tree_files, modules=None):
+    """the target names that are no module of the tree (Dotted.Name -> Dotted/Name.lean in `tree_files`) or, `modules` given (the plan's list),
+    not in the plan's list."""
+    names = targets.split() if isinstance(targets, str) else list(targets or [])
+    files = set(tree_files or ())
+    out = []
+    for n in names:
+        if n.replace('.', '/') + '.lean' not in files:
+            out.append('%s: no file %s.lean in the tree' % (n, n.replace('.', '/')))
+        elif modules is not None and n not in modules:
+            out.append('%s: not in the plan`s module list' % n)
+    return out
+
+
+def tree_files(repo, sha):
+    r = subprocess.run(['git', '-C', repo, 'ls-tree', '-r', '--name-only', sha], capture_output=True, text=True)
+    return [x for x in r.stdout.split('\n') if x]
+
+
+def label(rows):
+    """the label of the next repair commit: 'R<n>' after n dispatch rows."""
+    return 'R%d' % sum(1 for r in rows if r.get('kind') == 'dispatch')
+
+
+def series(rows, repo=None, since=LANDING):
+    """[(index, kind, why)] for the rows dated on or after `since` (the landing; '' reads every row, the controls' replay of b742's bank): a
+    commit row's sha already rowed; an R-label not the dispatch count's; a dispatch target that is no module of the tree at its sha (the tree
+    read from `repo` when given, else from the row's `tree` list)."""
+    def _dated(r):
+        return (r.get('free_at') or r.get('at') or '') >= since
+    out, shas = [], set()
+    for i, r in enumerate(rows):
+        if r.get('kind') == 'commit':
+            if _dated(r) and r.get('sha') in shas:
+                out.append((i, 'commit', 'the commit %s already rowed' % str(r.get('sha'))[:8]))
+            elif _dated(r) and str(r.get('item') or '').startswith('R') and r.get('item') != label(rows[:i]):
+                out.append((i, 'commit', 'the label %s where the dispatch count composes %s' % (r.get('item'), label(rows[:i]))))
+            shas.add(r.get('sha'))
+        elif r.get('kind') == 'dispatch' and _dated(r):
+            files = r.get('tree') or (tree_files(repo, r['sha']) if repo and r.get('sha') else None)
+            if files is not None:
+                bad = targets_refused(r.get('target') or '', files, r.get('modules'))
+                if bad:
+                    out.append((i, 'dispatch', 'targets not modules of the tree: %s' % '; '.join(bad[:3])))
+    return out
+
+
+def check(rows, repo=None):
+    return [(i, r.get('kind'), why(r)) for i, r in enumerate(rows) if why(r)] + series(rows, repo)
+
+
+def write(path, rows, repo=None):
+    bad = check(rows, repo)
     if bad:
         raise ValueError('### THE ROWS REFUSED, NOTHING WRITTEN: %s' % bad)
     tmp = path + '.tmp'

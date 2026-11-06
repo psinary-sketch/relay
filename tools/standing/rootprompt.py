@@ -14,7 +14,9 @@ composer prints the token only when the token stands on that line of that bank, 
                                      own words (a quoted span found in the composed entry) or as procedure ("as composed"); a sentence promising what the entry
                                      names, written ahead of the composer, is returned, and compose_checked refuses the prompt on it
   compose_checked(rows, read, entry) -> text   compose(), then entry_unbacked() on its text, SystemExit naming each unbacked sentence
-Pure in its arguments; nothing written.
+  remote_clause / remote_unbacked / remote_read   v1.23.0, (R353)(3)(i), b742 events (3): the remote figures read from the remote by the composer's caller at prompt time
+                                     ("remote at <sha>; local <n> commits past it"); a clause naming a commit as pushed that is no remote head refuses the prompt
+Pure in its arguments; nothing written -- except remote_read (the CLI `remote`), which reads the remote once and banks data/<act>_rootprompt_remote.json.
 """
 import re
 
@@ -76,12 +78,82 @@ def entry_unbacked(text, entry):
     return out
 
 
-def compose_checked(rows, read, entry):
+REMOTE_WORD = re.compile(r'\b(?:pushed|remote|origin)\b', re.I)
+HEX = re.compile(r'\b(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}\b')   # a letter required: a run id or a count (42068096322) is no commit
+
+
+def remote_clause(name, remote, local, n):
+    """v1.23.0, (R353)(3)(i): the prompt's remote figure, composed and never typed: "<name> remote at <sha8>; local <n> commits past it"."""
+    if n == 0 or remote[:8] == local[:8]:
+        return '%s remote at %s; local level with it' % (name, remote[:8])
+    return '%s remote at %s; local %d commit%s past it' % (name, remote[:8], n, '' if n == 1 else 's')
+
+
+def remote_unbacked(text, remotes):
+    """v1.23.0, (R353)(3)(i), b742 events (3): every clause of the prompt naming the remote (pushed, remote, origin) and a commit that is not a
+    remote head read at prompt time. `remotes`: {name: full sha read from the remote}. b742's "nothing past bce5605d pushed" is returned:
+    bce5605d was a local commit, the relay's remote stood at 13498fd2."""
+    heads = [str(h).lower() for h in (remotes or {}).values() if h]
+    out = []
+    for sent in re.split(r'(?<=[.;:]) (?=\S)', text or ''):
+        for cl in re.split(r'(?<=,) |; ', sent):
+            if not REMOTE_WORD.search(cl):
+                continue
+            for h in HEX.findall(cl.lower()):
+                if not any(x.startswith(h) for x in heads):
+                    out.append(cl.strip())
+                    break
+    return out
+
+
+def compose_checked(rows, read, entry, remotes=None):
+    """v1.23.0: `remotes` given (the dict remote_read banks), a clause naming a commit as pushed that is no remote head refuses the prompt;
+    v1.17.0's callers, passing no remotes, are unchanged."""
     t = compose(rows, read)
     bad = entry_unbacked(t, entry)
     if bad:
         raise SystemExit('### THE PROMPT NOT COMPOSED: %d SENTENCE(S) ABOUT THE ENTRY NOT FROM THE SEALED COMPOSER: %s' % (len(bad), bad))
+    if remotes is not None:
+        bad = remote_unbacked(t, remotes)
+        if bad:
+            raise SystemExit('### THE PROMPT NOT COMPOSED: %d CLAUSE(S) NAMING A COMMIT AS ON THE REMOTE THAT NO REMOTE HEAD IS: %s' % (len(bad), bad))
     return t
+
+
+REPOS = {'relay': 'D:/relay', 'pp': 'D:/MY-DOwnloads/PLACE-papers'}
+
+
+def remote_read(repo, act):
+    """v1.23.0, (R353)(3)(i): ONE remote read (git ls-remote origin refs/heads/main), the local main and the count between, banked to
+    data/<act>_rootprompt_remote.json under the repo's key; returns the clause. The composer's caller passes the bank's heads as `remotes`."""
+    import json
+    import os
+    import subprocess
+    path = REPOS[repo]
+    out = subprocess.run(['git', '-C', path, 'ls-remote', 'origin', 'refs/heads/main'], capture_output=True, text=True)
+    if out.returncode != 0 or not out.stdout.strip():
+        raise SystemExit('### THE REMOTE NOT READ (%s): exit %d %s' % (repo, out.returncode, out.stderr.strip()))
+    remote = out.stdout.split()[0]
+    local = subprocess.run(['git', '-C', path, 'rev-parse', 'refs/heads/main'], capture_output=True, text=True).stdout.strip()
+    known = subprocess.run(['git', '-C', path, 'cat-file', '-e', remote + '^{commit}'], capture_output=True).returncode == 0
+    n = int(subprocess.run(['git', '-C', path, 'rev-list', '--count', '%s..%s' % (remote, local)], capture_output=True, text=True).stdout.strip()) if known else -1
+    name = 'relay' if repo == 'relay' else 'PLACE-papers'
+    clause = remote_clause(name, remote, local, n) if n >= 0 else '%s remote at %s; not in the local store' % (name, remote[:8])
+    bank = os.path.join('D:/relay', 'data', '%s_rootprompt_remote.json' % act)
+    have = json.load(open(bank, encoding='utf-8')) if os.path.exists(bank) else {}
+    have[repo] = {'remote': remote, 'local': local, 'past': n, 'clause': clause}
+    text = json.dumps(have, indent=1, ensure_ascii=False) + '\n'
+    with open(bank, 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write(text)
+    return clause
+
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 4 and sys.argv[1] == 'remote' and sys.argv[2] in REPOS:
+        print(remote_read(sys.argv[2], sys.argv[3]))
+    else:
+        raise SystemExit('usage: rootprompt.py remote <relay|pp> <act>   (one remote read per command)')
 
 
 def rows_from(text, read):

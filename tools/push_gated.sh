@@ -17,7 +17,8 @@
 # 6 a tag read-back unequal; 7 a tag argument refused before any push (the tag already exists, locally or at the
 # remote); 8 the tag could not be made; 9 (R179)(5) the table check refused a PLACE-papers push; 10 (the existing-tag
 # mode) the tag is not in the clone; 11 (the branch mode) the branch is not in the clone; 12 (the branch mode) the branch is
-# not merged into main and the call does not name it a scratch branch. In the branch mode 3 is the branch push refused and
+# not merged into main and the call does not name it a scratch branch; 13 (v1.23.0, the default mode) the branch absent or the act's step bank
+# uncommitted, refused by tools/standing/pushcheck.py before any ref is read. In the branch mode 3 is the branch push refused and
 # 4 the branch's read-back unequal. The script prints one line per step; it deletes nothing.
 #
 # ### THE TAG IS MADE HERE, (R178)(3), b567's defect (g): the seat made the annotated tag v0.10 by hand before main was
@@ -167,6 +168,18 @@ case "$branch" in
   push-*|repair-*) ;;
   *) echo "push_gated: REFUSED -- <push-branch> must be push-* or repair-* (Rule 4.10): $branch" >&2; exit 2;;
 esac
+
+# ### v1.23.0, (R353)(3)(iii), b742 events (4): the branch and the act's step row read BEFORE any ref is read; exit 13 at the tool, not 128 at
+# ### the ref. PUSHCHECK_ACT names the act for a test's fixture; unset, the act record's act is read.
+pc_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+set +e
+python -X utf8 "$pc_dir/standing/pushcheck.py" "$repo" "$branch" ${PUSHCHECK_ACT:-}
+pc=$?
+set -e
+if [ "$pc" -ne 0 ]; then
+  echo "push_gated: REFUSED AT THE TOOL (pushcheck exit $pc). NOTHING IS PUSHED" >&2
+  exit 13
+fi
 
 prev=$(git -C "$repo" symbolic-ref --short HEAD)
 tip=$(git -C "$repo" rev-parse "refs/heads/$branch")

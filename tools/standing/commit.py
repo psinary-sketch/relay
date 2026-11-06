@@ -9,8 +9,10 @@ Everything that could refuse the row is read before the commit, so a commit and 
 The commit's subject is read back from git and compared with the composed one; the row is written by the record tool's step route.
 After a seal commit the post-seal exclude list is printed (tools/standing/hook.py excludes), read before any read ((R351)(2)(iv)).
 v1.22.0, (R352)(2)(v): a refusal prints its class, REPEAT of the earlier act's row that carries its head words, or NEW (repeat_of).
+v1.23.0, (R353)(3)(ii), b742 events (1)-(2): no subject text is taken for lock, gate and seal; words given refuse the commit. The gate subject
+is composed from the index and the banks (subjects.gate_words); the seal and lock subjects are the composer's whole (subjects.check).
 
-  python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal> [words ...]
+  python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
 """
 import json
 import os
@@ -56,7 +58,11 @@ def preflight(act, phase, words, repo, rows, read):
         raise Refused('THE RECORD THE SUBJECT NAMES DOES NOT EXIST: data/%s' % (RECORD[phase] % act))
     if phase in ('lock', 'gate') and any(r.get('phase') == 'lock' for r in rows):
         raise Refused('A LOCK ROW STANDS: the commit after the lock takes phase `seal`, and the seal record must exist first')
-    subj = SJ.compose(act, phase, words, read)
+    # ### v1.23.0, (R353)(3)(ii), b742 events (1)-(2): the tool takes no subject text for lock, gate and seal; the subject is the composer's whole
+    if (words or '').strip():
+        raise Refused('SUBJECT TEXT GIVEN FOR %s: the commit tool composes the %s subject from the banks and takes no words (%r)' % (phase.upper(), phase, words.strip()[:60]))
+    staged = [p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p] if phase == 'gate' else None
+    subj = SJ.compose(act, phase, '', read, staged=staged)
     bad = SJ.check(act, phase, subj, read)
     if bad:
         raise Refused('the composed subject faults: %s' % '; '.join(bad))

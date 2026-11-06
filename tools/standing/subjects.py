@@ -44,9 +44,30 @@ def lock_gates(act, read):
     return j.get('gates_read') if isinstance(j, dict) else None
 
 
-def compose(act, phase, words, read):
+SCAN_FOOT = re.compile(r'PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ; PLACES \d+ ; CONTROLS (\d+) OF (\d+)')
+
+
+def gate_words(act, read, staged):
+    """v1.23.0, (R353)(3)(ii), b742 events (1)-(2): the gate subject composed by the tool from the index and the banks, no word of the seat's:
+    the staged paths (count and the first six by name), the root-dry bank's READY and row count, the scan bank's foot."""
+    staged = list(staged or [])
+    names = ', '.join(os.path.basename(p) for p in staged[:6]) + (', and %d more' % (len(staged) - 6) if len(staged) > 6 else '')
+    parts = ['%d file%s staged (%s)' % (len(staged), '' if len(staged) == 1 else 's', names)]
+    rd = read('%s_root_banks_dry.json' % act)
+    if isinstance(rd, dict):
+        parts.append('rootdry READY %s, %d banks at %s' % (bool(rd.get('ready')), len(rd.get('rows') or []), str(rd.get('head') or '')[:8]))
+    sc = read('%s_address_scan.txt' % act)
+    m = SCAN_FOOT.search(sc or '')
+    if m:
+        parts.append('scan %d, controls %s of %s' % (sum(int(m.group(i)) for i in range(1, 5)), m.group(5), m.group(6)))
+    return '; '.join(parts)
+
+
+def compose(act, phase, words, read, staged=None):
     if phase not in PHASES:
         raise SystemExit('### subjects: %r IS NO PHASE OF THE STEP BANK' % phase)
+    if phase == 'gate' and staged is not None:
+        return '%s %s: %s' % (act, phase, gate_words(act, read, staged))
     if phase == 'seal' and read('%s_seal_hashes.json' % act):
         words = 'the sealed tools` hashes, %d files%s' % (seal_files(act, read), (', ' + words) if words else '')
     if phase == 'lock' and lock_gates(act, read):
@@ -67,6 +88,11 @@ def check(act, phase, subject, read):
             out.append('no bank composes the %s subject (data/%s_%s)' % (phase, act, 'seal_hashes.json' if phase == 'seal' else 'lockgate.json'))
         elif not subject.startswith(head):
             out.append('a typed %s subject: it does not open with the composer`s %r' % (phase, head[len(want) + 1:][:60]))
+        elif subject != head:
+            # ### v1.23.0, (R353)(3)(ii), b742 events (1)-(2): the seal subject "b742 seal: the sealed tools` hashes, 96 files, b742 seal: the sealed
+            # ### tools` hashes, 96 files, the seal recorded, ..." opened with the composer's words and carried the seat's after them, the head twice;
+            # ### the seal and the lock subject is now the composer's whole, nothing after it
+            out.append('words after the composer`s %s subject: %r' % (phase, subject[len(head):][:60]))
     alt = '|'.join(WORDS)
     sealed = phase == 'seal' and bool(read('%s_seal_hashes.json' % act))
     for noun, banked, mine in (('files', seal_files(act, read) if sealed else None, phase == 'seal'), ('gates', lock_gates(act, read), phase == 'lock')):

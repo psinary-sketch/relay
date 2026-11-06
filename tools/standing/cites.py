@@ -63,6 +63,10 @@ def word_rows(word, read=None, act=None):
 LEAN_PATH = re.compile(r'(?<![\w/.-])[A-Za-z][\w./-]*\.lean\b')
 LEAN_NAME = re.compile(r'(?<![\w.-])[a-zA-Z]\w*(?:[A-Z_]\w*)(?:\.[A-Za-z_]\w*)*')
 LEAN_DECL = r'^\s*(private\s+)?(noncomputable\s+)?(theorem|lemma|def|structure|abbrev|instance)\s+%s(\s|$|:)'
+# ### v1.23.0, b743 step-zero defect (f): an item label (S4', SP1, G5, R4 ...) opening the parenthesis the path stands in, the label and a comma
+# ### the last words before the path: the path is the label's cite, and the reader's name pattern (which wants a capital or an underscore after
+# ### the first letter) would pass over the label to a declaration further back ("the zeros of zqFn there (S4', Carrier.lean :21)")
+LABEL_BEFORE = re.compile(r"\(\s*[A-Z]{1,3}\d+[a-z]?'*\s*,\s*$")
 
 
 def _tree(repo, rev):
@@ -91,7 +95,9 @@ def lean_rows(text, trees, near=110):
             continue
         w = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
         w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]   # ### v1.18.0, (R348)(4), b738 step zero: a closed parenthesis ends the window, its names the path before it's ("Zeros.lean (..., zqZeroConfig :319), Continuation.lean")
-        for name in reversed(LEAN_NAME.findall(w)):      # ### the nearest declaration before the path is the one it is cited for; a dotted name is a field and no declaration
+        if LABEL_BEFORE.search(w):   # ### v1.23.0, b743 step-zero defect (f): "(S4', Carrier.lean :21)" -- the path cited for the item label opening its parenthesis; no name before it is read
+            continue
+        for name in reversed(LEAN_NAME.findall(w)):     # ### the nearest declaration before the path is the one it is cited for; a dotted name is a field and no declaration
             if '.' in name:
                 continue
             if name not in cache:
