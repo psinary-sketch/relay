@@ -1,0 +1,48 @@
+b744 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b743_address_scan.py -> tools/b744_address_scan.py (2026-11-06T19:51:29Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b743 -> b744, b742 -> b743, R353 -> R354, R352 -> R353); 240 lines, 14 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b743_tool_repairs.txt AND data/b743_repairdiff_address_scan.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b743; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b743_address_scan.py
+  +++ tools/b744_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b743_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b743 (data/b743_carry_address_scan.txt), its carry-time repairs and the author's word at b743's Component 1 marked ### b743.
+  -### b743, the carry's note: this file is tools/b742_address_scan.py with the act names shifted on the functional lines alone (:2, :3, :35,
+  -### :51, :53, :123 before its comment mark, :124, :210, :235, numbered in b742's file; scratch scanfix743.py), every comment mark kept as
+  -### b742 wrote it; the carry tool's whole-file shift (data/b743_carry_address_scan.txt) overwritten by it before any run.
+  -### b742, the carry's note: this file is tools/b741_address_scan.py with the act names shifted on the functional lines alone (:2, :3, :32,
+  +"""b744_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b744 (data/b744_carry_address_scan.txt), its carry-time repairs and the author's word at b744's Component 1 marked ### b744.
+  +### b744, the carry's note: this file is tools/b743_address_scan.py with the act names shifted on the functional lines alone (:2, :3, :35,
+  +### :51, :53, :123 before its comment mark, :124, :210, :235, numbered in b743's file; scratch scanfix743.py), every comment mark kept as
+  +### b743 wrote it; the carry tool's whole-file shift (data/b744_carry_address_scan.txt) overwritten by it before any run.
+  +### b743, the carry's note: this file is tools/b741_address_scan.py with the act names shifted on the functional lines alone (:2, :3, :32,
+  @@ -9,1 +9,1 @@
+  -### kept as b741 wrote it; the carry tool's whole-file shift (data/b742_carry_address_scan.txt) overwritten by it before any run.
+  +### kept as b741 wrote it; the carry tool's whole-file shift (data/b743_carry_address_scan.txt) overwritten by it before any run.
+  @@ -38,1 +38,1 @@
+  -                  --bank writes data/b743_address_scan.txt.
+  +                  --bank writes data/b744_address_scan.txt.
+  @@ -54,1 +54,1 @@
+  -import b743_worklist as K   # noqa: E402
+  +import b744_worklist as K   # noqa: E402
+  @@ -56,1 +56,1 @@
+  -ACT = 'b743'
+  +ACT = 'b744'
+  @@ -126,2 +126,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b743_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b743_kernel_bases.json'), encoding='utf-8')).items()))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b744_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b744_kernel_bases.json'), encoding='utf-8')).items()))
+  @@ -213,1 +213,1 @@
+  -    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R353)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  +    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R354)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  @@ -238,1 +238,1 @@
+  -        sys.exit('usage: b743_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b744_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b744_address_scan.py ; LINES 240 ; CHANGED BY THE SUBSTITUTION 14 ; REPAIR SPANS AT b743 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
