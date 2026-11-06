@@ -106,7 +106,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R353)'s PATHS
-EF_MAIN = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'    # ### SIDE-explicit-formula's main, untouched (N5)
+EF_MAIN = '8fbab45d8a966dca53d42448e33927d885fd4ea3'    # ### SIDE-explicit-formula's main after [A4]: badacccb + README.md alone ((R353)(6))
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R353)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -148,16 +148,16 @@ DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739
 DATA_STANDING_V9 = 'data/standing_clauses_v9.txt'
 ARM_TAGS = 'data/arm_tags.json'
 REPO_VISIBILITY = 'data/repo_visibility.txt'
-PLAN_BANK = 'data/b743_s6_plan.txt'                  # ### (R353)(3)(a): S6's plan, committed before any Lean
-REGISTRATIONS = PLAN_BANK                             # ### (carried name) the act's registration: b737's plan, its last commit C2_PLAN_FIRST
+PLAN_BANK = 'data/b743_sitting_agenda.txt'            # ### (R353)(4): the sitting's agenda, every draft banked before its item was put (the F drafts at the question)
+REGISTRATIONS = PLAN_BANK                             # ### (carried name) the act's registration: the agenda, its one commit REG_COMMIT
 PREV_BUILD_BANK = 'data/b742_offlinezero.txt'         # ### (R353)(1): b742's build bank as committed at bca1d1ba
 PREV_BUILD_MD5 = None                                 # ### printed by the citation check at step zero
-PREV_STATEMENTS_BANK = 'data/b742_c7_plan.txt'        # ### (R353)(3)(a): b742's plan, read :14-:30, :48-:56, :72, :98
-STATEMENTS_BANK = 'data/b743_s6_plan.txt'             # ### (R353)(3)(a): the plan, committed before any Lean file (carried name)
+PREV_STATEMENTS_BANK = 'data/b742_c7_plan.txt'        # ### b742's plan (read by b742's arms; not this act's)
+STATEMENTS_BANK = 'data/b743_sitting_agenda.txt'      # ### (carried name) the agenda
 C7_PLAN = STATEMENTS_BANK
 S6_PLAN = STATEMENTS_BANK
-BUILD_BANK = 'data/b743_offlinezero.txt'              # ### (R353)(3)(b)-(d): the build's bank, its grade at its foot
-NOTES_BANK = 'data/b743_offlinezero_notes.txt'        # ### (R353)(3): a row found wrong noted beside it, with the reason
+BUILD_BANK = 'data/b743_sitting.txt'                  # ### (carried name) the act's result bank: the sitting's record, its foot the tally
+NOTES_BANK = None                                     # ### no notes bank this act
 REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b742's walk read under it)
 REG_COMMITS = (('data/b716_registrations.txt', 'dc5e808f'), ('data/b718_registrations.txt', '8146404b577dfee3e379d19e08e8595ab8824961'),
                ('data/b719_registrations.txt', '965cb8e84dc02192854512af53a29b1fbc2b80f5'), ('data/b720_registrations.txt', '54fc03d9'),
@@ -173,7 +173,7 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b742 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b743_standing_v1220.txt', 'data/b743_s6_plan.txt', 'data/b743_offlinezero.txt', 'data/b743_offlinezero_notes.txt',
+COMPUTE_BANKS = ('data/b743_standing_v1230.txt', 'data/b743_sitting_agenda.txt', 'data/b743_sitting.txt', 'data/b743_sitting_greps.txt',
                  'data/b743_address_scan.txt')
 #   ### the banks of (R353)(2)-(3), each written by its component
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
@@ -194,15 +194,22 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R353)(2): the corrigend
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### the ledgers ((R353)(4)'s (W) list)
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md', 'SPIRAL_MAP.md', 'ERRATA.md',
+             'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', 'day1/Which_Structure_Confines_v2_4_0.md', 'phase2/method/THE_EULER_SPECIFICATION.md',
+             'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', 'phase1.5/method/THE_METHOD_CANON.md',
+             'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'phase1.5/method/CERTIFIED_EVALUATION_IN_THE_STRIP_v0_1.md')
+#   ### the ledgers and the files the author's numbers passed under (R353)(4)(A)-(F) ((R353)(5)'s (W) list); two new (the skeletons)
 PP_WRITTEN = PP_EDITED
+PP_NEW = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'phase1.5/method/CERTIFIED_EVALUATION_IN_THE_STRIP_v0_1.md')
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = ('per (R353)(7), named by the author at the sitting`s end')   # ### set at the close from the author's word
+NEXT = ('per (R353)(7), named by the author at the sitting`s end (relay data/b743_sitting.txt, [(7)]): plan both controls -- b744 writes the plan '
+        'banks of W-ORD-ZETA-BOX and W-ORD-POSITIVE-CONTROL at their prices, no build, carrying the condition of [F2] (the on-line conclusion drawn '
+        'through the schema`s own theorem, not a separate finite-case lemma)')   # ### the author's word at the sitting's end
 NEXT_ACT = 'b744'
 
 
@@ -249,7 +256,7 @@ STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b742's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R353)(3), with its amendment row: the commit every dispatch row names ((R353)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
 # ### N2: each generator commit (relay) before the zq-b730 commit holding the modules it generated
-GEN_COMMITS = (('22f8d6b1', '4c04916c'), ('6467c061', 'c2d4f29c'), ('3194b6eb', '14ca5725'))
+GEN_COMMITS = ()   # ### b742's generator commits (22f8d6b1, 6467c061, 3194b6eb) are cited by the discharge, not this act's
 GEN_MD5 = {'FrontierData': 'c8e320f9db1a12622cc147555496cf11', 'Nodes0': '7cb04ecfd3649a1daf5633de691df670',   # ### the generator's output at 3194b6eb
            'Nodes1': 'a20f1f00a156e59e97f841beb8d89a76', 'Nodes2': 'efff8c97b5f9879bcf12e3f79628dc64',
            'Nodes3': '09de4381169541faf5f0066bf66905e7', 'NodesF': 'd37bbfbb8c81165521b77de16022069a'}
@@ -272,8 +279,8 @@ STANDING_VERSION_ENTERING = 'v1.22.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '14ca5725'), ('D:/SIDE-explicit-formula/.lake/packages/mathlib', 'de5ce8a9'))   # ### zq-b730 at b742's tip
 # ### v1.18.0, (R353)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
 # ### comparative_rows); set by the Edit tool as Components 2-4 write the banks, before the lock
-COMPARATIVE_BANKS = ('data/b743_corrigendum.txt', 'data/b743_s6_plan.txt', 'data/b743_offlinezero.txt', 'data/b743_offlinezero_notes.txt',
-                     'data/b743_defects.txt')   # ### Components 1-4's banks: no
+COMPARATIVE_BANKS = ('data/b743_corrigendum.txt', 'data/b743_sitting_agenda.txt', 'data/b743_sitting.txt',
+                     'data/b743_defects.txt')   # ### Components 1-3's banks: no
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
 STANDING_CHANGED = ('cites.py', 'commit.py', 'dispatchrows.py', 'rootprompt.py', 'subjects.py', 'VERSION')   # ### v1.23.0 at 7c6648ac (and tools/push_gated.sh)
@@ -286,27 +293,31 @@ B723_ROOT_BANKS = '11628c89'  # ### b742's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '7c6648ac'           # ### tools/standing/ v1.23.0 by a commit of its own, its controls bank data/b743_standing_v1230.txt ((R353)(3)(vii))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
-C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row
+C1_RELAY = '44268469'              # ### the c1 route, the corrigendum banks, the corrigenda row (63), the rules bank, the citation check CLEAN
 C1_CORR = C1_RELAY
-C1_RULES = None              # ### the rules bank of (R353)(2), data/b743_rules.txt, by a commit of its own
+C1_RULES = C1_RELAY          # ### data/b743_rules.txt rode in Component 1's relay commit, not a commit of its own (a defect of b743)
 C1_PP = '78b38fff'                      # ### PLACE-papers: FINDINGS (b742 at its weight), (the corrigendum); set after it lands
-C1_DISCHARGE_PP = None
+C1_DISCHARGE_PP = '4541d90d'   # ### W-ORD-ZQ-OFFLINE-ZERO discharged in OPEN_TRAILS by a commit of its own ((R353)(2))
 C2_TOOL = None
 WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b742's weight line and the corrigendum for b742 (Component 1), set after it lands
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None   # ### b742's: '6b28293511faab25d11d1717a7f212ac8d37c656'   # ### the S6 plan bank's last commit (the dated note (7.1)), the blob the build reads
-C2_RELAY = None   # ### Component 2, the plan bank data/b743_s6_plan.txt, committed before any Lean file ((R353)(3)(a)); its note (7.1) at 6b282935
+C2_PLAN_FIRST = 'f18360ae'   # ### the agenda's one commit (written before the first item was put, committed with the sitting's bank at the sitting's end: a defect of b743)
+C2_RELAY = 'f18360ae'   # ### Component 2, the sitting's banks: the record, the agenda, the greps tool and bank, the [A5] description, step rows 7-22
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
 MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
-PRINT_COMMIT = None  # ### (carried name) the commit carrying the act's result bank: data/b743_offlinezero.txt, Component 3's
-PLAN_MD5 = None   # ### the S6 plan's md5 at 6b282935 (the working file, LF), printed before any Lean file
+PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: data/b743_sitting.txt
+PLAN_MD5 = '9875a24319a66b15840629f1135894e0'   # ### the agenda's md5 at f18360ae (LF), equal to the working file's
 C2_AMEND = ()
-SITTING_PP = ()
+SITTING_PP = ('8ddc94a8', 'a790da0c', 'e7e9cbc1', '9b4af2c6', '1d941779', '488b4d09', '1fa7ddab', 'ca359d12', '05624b9d', 'e43a8a84',
+              '7c11c115', '5c365d1d', 'c6c39f38', '5641b41f', '276eecde', '5b3f3efc')   # ### [A1] [A2] [A3] [B1]-[B6] [C] [D] [E] [F1]-[F4], one git write per passed item
+SITTING_KERNEL = ('SIDE-explicit-formula', '8fbab45d8a966dca53d42448e33927d885fd4ea3')   # ### [A4]: README.md alone on its main ((R353)(6))
+SITTING_GH = ('psinary-sketch/SIDE-explicit-formula',)   # ### [A5]: the description by gh, the author's second wording after GitHub's 350-character refusal, read back
+SITTING_ITEMS = 44   # ### decided: A 5 + B 6 + C 8 + D 10 + E 10 + F 4 + G 1 (A6-A9 banked only); passed 43, G deleted, struck 0
 C3_RELAY = ()   # ### Component 3, the build to SP4 ((R353)(3)(b)): the tool, the dispatch rows; the build bank and its notes at Component 4
 SITTING_COMMITS = ()
 C3_PP = None
@@ -337,13 +348,15 @@ PIN_TO_NEXT = ()
 MAX_DISPATCHES = 0         # ### N1: no runner dispatch this act ((R353)(6))
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main, every branch cut from it, untouched (N5)
+EF_BASE = 'badacccb867e5c8bab8ec4ff240c30e7e9d7f3fe'   # ### SIDE-explicit-formula's main entering the act, every branch cut from it
+EF_MAIN_AFTER = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### main after [A4]: README.md alone beyond EF_BASE ((R353)(6), the author's number)
 ZQ_BRANCH = 'zq-b730'
-ZQ_ENTERING = '3329eaa106cc24891ed55374afcd4ca4f7fe33d8'   # ### b742's tip (SP3, dispatch 6 KERNEL): the build's base ((R353)(3)(b))
-ZQ_TIP = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### the act's last Lean commit on zq-b730: SP4 REACHED here (dispatch 7, run 42068096322)
-ZQ_FIRST = '280b28b3935854f8c71e37480ee9b88dfeb60922'  # ### (R353)(3)(b): the act's first Lean commit (G1), after the plan bank
-ZQ_COMMITS = ('280b28b3935854f8c71e37480ee9b88dfeb60922', '11bb0125fa08eccc78f6a1a6d415201438973f45', '5d3136a39ea9b671b60118e1424e645f89956ea7',
-              '4c04916c8541f1ee2267059a8fa0396364f1eb5c', 'c2d4f29ce84d321814b223a7e275e0653161b4d4', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### G1 ; G0-G3 ; repairs+G4h ; G4-G6 ; repairs after 5 ; repairs after 6
+ZQ_ENTERING = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b742's tip (SP4), unmoved: this act writes no Lean file ((R353)(6))
+ZQ_TIP = ZQ_ENTERING   # ### unmoved
+ZQ_FIRST = None   # ### no Lean commit this act
+ZQ_COMMITS = ()   # ### none this act
+ZQ_COMMITS_B742 = ('280b28b3935854f8c71e37480ee9b88dfeb60922', '11bb0125fa08eccc78f6a1a6d415201438973f45', '5d3136a39ea9b671b60118e1424e645f89956ea7',
+                   '4c04916c8541f1ee2267059a8fa0396364f1eb5c', 'c2d4f29ce84d321814b223a7e275e0653161b4d4', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### b742's six, read by the discharge
 ZQ_COMMITS_B741 = ('f2de6efb669405b5e6ed270e4a82e3bc6effa500', 'de4810da5d3cfc524002630959b32e4ebc30ce66', '47f5afb3f1b40a8525ac45eba0f1bf04fe2ed155',
               '42cb968b8ce35bb024bca8995a743a809c19409e', 'c9ad907454b785b75ad2142e1dcdf9a4797cfd0c', '3329eaa106cc24891ed55374afcd4ca4f7fe33d8')   # ### T ; G1+G2 ; repairs+G4 ; G3+G5 ; cast repair ; generator repair
 ZQ_COMMITS_B740 = ('8c6ec8d12d97bece1de8dab10511add9d97382d0', '6b068a0db2ff1451e9da7bff82fe8fd66a8dad38', 'ba318a0b67fd95164623e4fdf109eb5d042697fa')   # ### b742's S5c ; S5d with S5c's fix ; S5d's fix
@@ -354,8 +367,9 @@ ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Line
 ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail', 'IncGamma', 'Elem', 'Time', 'Series', 'Sums', 'GammaVal', 'Shells', 'Centre',
                       'Interp', 'Frame', 'Strip', 'Amplify', 'NodeBase', 'Omega', 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'FrontierData',
                       'Frontier', 'SP4')   # ### under Schema/ZQ/OffZero; b743 adds S6's fourteen
-ZQ_FILES = tuple('SIDEExplicitFormula/Schema/ZQ/OffZero/%s.lean' % m for m in ('Amplify', 'Frame', 'Frontier', 'FrontierData', 'Interp', 'NodeBase',
-                 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'Omega', 'SP4', 'Strip')) + ('print_targets.txt',)   # ### zq-b730's diff against 3329eaa1 at 14ca5725
+ZQ_FILES = ()   # ### zq-b730's diff against its entering tip: none (no Lean file this act)
+ZQ_FILES_B742 = tuple('SIDEExplicitFormula/Schema/ZQ/OffZero/%s.lean' % m for m in ('Amplify', 'Frame', 'Frontier', 'FrontierData', 'Interp', 'NodeBase',
+                 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'Omega', 'SP4', 'Strip')) + ('print_targets.txt',)   # ### b742's diff against 3329eaa1 at 14ca5725
 ZQ_FILES_B741 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/GammaVal.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Series.lean',
             'SIDEExplicitFormula/Schema/ZQ/OffZero/Shells.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Sums.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean',
             'print_targets.txt')   # ### zq-b730's diff against ba318a0b at 3329eaa1
@@ -369,15 +383,16 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R353)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### (R353)(3)(b): the act's seven: BREAKS, BREAKS, KERNEL, BREAKS (bare target), BREAKS, BREAKS, KERNEL (SP4)
+EF_RUNS = ()   # ### N1: no dispatch this act ((R353)(6))
+EF_RUNS_B742 = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### b742's seven, read not re-run; the last the SP4 grade run
 EF_RUNS_B741 = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### b742's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
 EF_RUNS_B740 = (41854903335, 41857376723, 41859346843)   # ### b742's three: BREAKS, BREAKS, KERNEL, read not re-run
 EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430, 41736472780)   # ### b738's first six (of eleven), read not re-run
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
 DISPATCH_ROWS = 'data/b743_dispatch_rows.json'
-ERRATA_ID = None   # ### (R353) orders no ERRATA entry
-ERRATA_IDS = ()
+ERRATA_ID = 'E-2026-11-06-1'   # ### (R353)(4)(B), [B6]: (R345)(6)'s sentence withdrawn by (R346)(2), appended at PLACE-papers 05624b9
+ERRATA_IDS = (ERRATA_ID,)
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
@@ -391,10 +406,10 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-REGISTRATIONS-FIRST', 'G-ROOTDRY-READY', 'G-ROWGEN-STEPZERO', 'G-RULES-ROW-ENTERED', 'G-SURGERY-CARRIED', 'G-TOUCH-READ',
             'G-WRITELIST-MIRROR-STATE')
 
-# ### b743 writes one kernel branch, zq-b730 of SIDE-explicit-formula ((R353)(3), (5)); its main untouched
-SITTING_TIPS = {'SIDE-explicit-formula': ZQ_TIP[:8]}
-SITTING_BASE = ZQ_ENTERING
+# ### b743 writes one kernel main, SIDE-explicit-formula's, README.md alone, on the author's number ((R353)(4)(A) [A4], (6)); no branch moved
+SITTING_TIPS = {'SIDE-explicit-formula': EF_MAIN_AFTER[:8]}
+SITTING_BASE = EF_BASE
 SITTING_REPOS = tuple(sorted(SITTING_TIPS))
-SITTING_BRANCH = ZQ_BRANCH   # ### the act's one written branch
-SITTING_BANK = 'data/b736_sitting.txt'   # ### the notes' rows [104]-[108], read unedited ((R353)(3)(a))
+SITTING_BRANCH = 'push-b743-sitting'   # ### the one kernel write, main's README.md (8fbab45d); push_gated.sh takes a push-* branch at main's tip (b736's form), made at the push stage
+SITTING_BANK = 'data/b743_sitting.txt'   # ### the record of the sitting, one row per item
 KERNEL_BASES = 'data/b743_kernel_bases.json'
