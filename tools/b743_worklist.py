@@ -244,7 +244,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b742: its LF form equal to HEAD's (2d637131, blob a94aa543), nothing to commit
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### step zero's banks and carried tools, one commit (data/b743_stepzero.txt among them); set after it is made
+STEPZERO_BANKS = '61fabf98'       # ### step zero's banks and carried tools, one commit (data/b743_stepzero.txt among them)
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b742's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R353)(3), with its amendment row: the commit every dispatch row names ((R353)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -276,20 +276,20 @@ COMPARATIVE_BANKS = ('data/b743_corrigendum.txt', 'data/b743_s6_plan.txt', 'data
                      'data/b743_defects.txt')   # ### Components 1-4's banks: no
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()
-STANDING_NEW = ()
+STANDING_CHANGED = ('cites.py', 'commit.py', 'dispatchrows.py', 'rootprompt.py', 'subjects.py', 'VERSION')   # ### v1.23.0 at 7c6648ac (and tools/push_gated.sh)
+STANDING_NEW = ('pushcheck.py', 'v1230.py')
 # ### b742's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '16a36428'    # ### b742's closing, the act's relay base
 B714_RECORD = 'ced30a77'     # ### b742's record commit (relay, the head line's)
 B714_ROOT = '9c9c6a90c282a4a41bc02f1e9af47f9a3f1b5191acdd48efb41a86e6d0fe3543'   # ### b742's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '11628c89'  # ### b742's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.23.0 by a commit of its own, its controls bank data/b743_standing_v1230.txt ((R353)(3)(vii))
+C1_STANDING = '7c6648ac'           # ### tools/standing/ v1.23.0 by a commit of its own, its controls bank data/b743_standing_v1230.txt ((R353)(3)(vii))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
 C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row
 C1_CORR = C1_RELAY
 C1_RULES = None              # ### the rules bank of (R353)(2), data/b743_rules.txt, by a commit of its own
-C1_PP = None                       # ### PLACE-papers: FINDINGS (b742 at its weight), (the corrigendum); set after it lands
+C1_PP = '78b38fff'                      # ### PLACE-papers: FINDINGS (b742 at its weight), (the corrigendum); set after it lands
 C1_DISCHARGE_PP = None
 C2_TOOL = None
 WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b742's weight line and the corrigendum for b742 (Component 1), set after it lands

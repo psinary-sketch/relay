@@ -1,0 +1,72 @@
+b743 -- THE CORRIGENDUM FOR b742, (R353)(3) (2026-11-06T03:05:53Z)
+
+### the banks read unedited: data/b742_events.txt rows (1)-(6), data/b742_defects.txt 19 rows, data/b742_hook_refusals.txt 25 lines at 16a36428; data/b743_standing_v1230.txt (the v1.23.0 controls); the corrigenda bank`s last row (62).
+
+  *b742’s events bank (relay data/b742_events.txt) carries six rows, entered after its lock and not lettered, each tagged in its own bracket (5 the seat’s, 1 the host’s); its defects bank nineteen lettered rows, (a)-(s), each tagged in its own bracket (17 the seat’s, 2 the host’s); its refusal bank twenty-five lines at 16a36428, each recorded by a row, the first two b741’s. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R353)`(3), at tools/standing/ v1.23.0, each with a control on b742’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b743_standing_v1230.txt, 19 cases, AS WANTED 19):
+  
+  **(cites) the citation reader’s item label (b743 step-zero defect (f))** -- rule (8) of data/b743_rules.txt; tools/standing/cites.py lean_rows skips the names before a path cited for an item label opening its parenthesis (“(S4’, Carrier.lean :21)”). b743’s ferry :11: a row zqFn beside Carrier.lean before, none after; b742’s ferry, eight rows before and after, equal (:20).
+  
+  **(remote) the root prompt’s remote figures (`(R353)`(3)(i), event (3); CLAIM ; NEW)** -- rule (1) of data/b743_rules.txt; tools/standing/rootprompt.py remote_read reads the remote once and banks the heads, remote_clause composes “remote at <sha>; local <n> commits past it”, and compose_checked given the heads refuses a clause naming a commit as pushed that no remote head is. b742’s prompt: put before, refused at “nothing past bce5605d pushed” after; regenerated, refusing nothing (:30).
+  
+  **(subjects) the commit tool and the seat’s subject text (`(R353)`(3)(ii), events (1)-(2))** -- rule (2) of data/b743_rules.txt; tools/standing/commit.py takes no words for lock, gate and seal; subjects.py composes the gate subject from the index and the banks and checks a seal or lock subject as the composer’s whole. b742’s “97 files” words refused for the count alone before, the same words with 96 accepted; refused as words after. 86f033a3’s doubled head composed and passed before, refused after (:40).
+  
+  **(push) the push tool’s pre-check (`(R353)`(3)(iii), event (4))** -- rule (3) of data/b743_rules.txt; tools/standing/pushcheck.py, called by tools/push_gated.sh before any ref is read: the branch must stand and the act’s step bank be committed, exit 13. b742’s 22:01:12Z send replayed with the branch absent: exit 128 at the ref before, exit 13 at the tool after (:58).
+  
+  **(dispatch) the dispatch’s targets and row labels (`(R353)`(3)(v), defects (k), (l))** -- rule (5) of data/b743_rules.txt; tools/standing/dispatchrows.py targets_refused, label, series: a target no .lean file of the tree or not in the plan’s module list refused, a repair commit labelled from the dispatch count, a commit already rowed refused. Dispatch 4’s fourteen names refused, dispatch 5’s full names passing; the second row of 4c04916c refused (:68).
+  
+  **(repeat) the hold and the hook (`(R353)`(3)(iv), events (5)-(6))** -- rule (4) of data/b743_rules.txt; guards: the hold, REPEAT of b727 event (13); the hook, REPEAT of b741 defect (s), each class read from the acts before b742 (:85).
+  
+  **(origin) the “=” file (`(R353)`(3)(vi), event (6))** -- rule (6) of data/b743_rules.txt; guards: the file’s time against b511’s defect (e), and the reproduction in an empty directory (:94).
+  
+  **(version) the version (`(R353)`(3)(vii))** -- rule (7) of data/b743_rules.txt; tools/standing/VERSION v1.23.0, landed by a commit of its own (7c6648ac) with its controls bank (:103).
+  
+  **b742’s events (1)-(6):**
+  
+  **(1)** the seal’s subject sent to ’tools/standing/commit.py relay seal’ saying "97 files" and "97 tools hashed", the seat’s … (relay data/b742_events.txt, row (1); the seat’s; CLAIM; NEW; repair (subjects); rule (2) of data/b743_rules.txt: the commit tool takes no subject text for the seal).
+  **(2)** the seal commit 86f033a3’s subject reads its head twice ("b742 seal: the sealed tools’ hashes, 96 files, b742 seal: the … (relay data/b742_events.txt, row (2); the seat’s; CLOSE; NEW; repair (subjects); rule (2) of data/b743_rules.txt: the seal and lock subject the composer’s whole, nothing after it).
+  **(3)** the root prompt put at the seal (data/b742\_author\_answers.txt, PROMPT 2) read "relay local at 86f033a3, twenty-five … (relay data/b742_events.txt, row (3); the seat’s; CLAIM; NEW; repair (remote); rule (1) of data/b743_rules.txt: the remote figures read from the remote by the composer).
+  **(4)** ’tools/push\_gated.sh /d/relay push-b742-preroot’ sent before the step rows’ commit and before the branch was made … (relay data/b742_events.txt, row (4); the seat’s; CLOSE; REPEAT; repair (push); rule (3) of data/b743_rules.txt: the push tool refuses at itself, exit 13, when its branch or step row is absent).
+  **(5)** the pre-push part standing-b1, sent after act, standing-a1 and standing-a2 (each run in the foreground, the free memory … (relay data/b742_events.txt, row (5); the host’s; CLOSE; NEW; rule (4) of data/b743_rules.txt: the hold held; printed REPEAT of b727 event (13), read so in the counter below).
+  **(6)** after the mirror’s bank (23:57:24Z): a PowerShell read of the untracked zero-name file ’=’ at the relay root sent with … (relay data/b742_events.txt, row (6); the seat’s; CLOSE; REPEAT; rule (4) of data/b743_rules.txt: the hook held, REPEAT of b741 defect (s); the file’s origin, rule (6), in the dated notes).
+  
+  **b742’s defects:**
+  
+  **(a)** (relay data/b742_defects.txt; the seat’s; CLAIM; REPEAT of b741 (a)).
+  **(b)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW).
+  **(c)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of b741 events (2)-(3)).
+  **(d)** (relay data/b742_defects.txt; the seat’s; CLAIM; NEW).
+  **(e)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(f)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b742_defects.txt; the seat’s; CLAIM; REPEAT of b740 (n)).
+  **(h)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(j)** (relay data/b742_defects.txt; the host’s; CLAIM; NEW).
+  **(k)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW; repair (dispatch); rule (5) of data/b743_rules.txt: a target no module of the tree refused).
+  **(l)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW; repair (dispatch); rule (5) of data/b743_rules.txt: a commit already rowed refused, the label from the dispatch count).
+  **(m)** (relay data/b742_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(o)** (relay data/b742_defects.txt; the host’s; CLOSE; REPEAT of b741 events (4)).
+  **(p)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of class (14)).
+  **(q)** (relay data/b742_defects.txt; the seat’s; CLAIM; REPEAT of b742 (a)).
+  **(r)** (relay data/b742_defects.txt; the seat’s; CLAIM; REPEAT of b742 (q)).
+  **(s)** (relay data/b742_defects.txt; the seat’s; CLOSE; REPEAT of b741 (t)).
+  
+  **b742’s refusals** (relay data/b742_hook_refusals.txt at 16a36428, one a line): :1 READ 07:24:51Z, recorded at b742’s corrigendum (b741’s post-closing slip, its rule (4)); :2 GITWRITE 07:26:03Z, recorded at b742’s corrigendum (b741’s event (5), entered there); :3 READ 13:50:36Z, recorded at defect (b); :4 READ 13:50:36Z, recorded at defect (b); :5 PIPE 13:50:44Z, recorded at defect (b); :6 PIPE 13:52:10Z, recorded at defect (c); :7 READ 13:55:12Z, recorded at defect (c); :8 PIPE 13:59:33Z, recorded at defect (c); :9 PIPE 14:15:52Z, recorded at defect (c); :10 READ 14:33:18Z, recorded at defect (e); :11 REDIR 14:51:48Z, recorded at defect (e); :12 READ 15:21:00Z, recorded at defect (i); :13 SED 15:21:18Z, recorded at defect (i); :14 READ 15:25:53Z, recorded at defect (i); :15 READ 15:25:53Z, recorded at defect (i); :16 READ 15:25:54Z, recorded at defect (i); :17 PIPE 15:35:04Z, recorded at defect (i); :18 READ 15:57:36Z, recorded at defect (i); :19 READ 16:04:33Z, recorded at defect (i); :20 READ 17:10:42Z, recorded at defect (n); :21 PIPE 17:20:16Z, recorded at defect (n); :22 READ 17:22:05Z, recorded at defect (n); :23 REDIR 18:54:26Z, recorded at defect (p); :24 PIPE 18:56:13Z, recorded at defect (p); :25 PIPE 23:57:29Z, recorded at event (6).
+  
+  **Dated notes:**
+  
+  Dated note, b743, to event (6) (`(R353)`(3)(vi)): the zero-byte file “=” at the relay root was created and last written 2026-09-24T18:18:38Z, inside b511 (its act commit fc9f9e9d at 18:21:02Z). b511’s defect (e) (relay data/b511_defects.txt) records that its defects bank was first written through a double-quoted shell string whose backtick possessives the shell ran as command substitution; defect (d)’s words “VACUOUS where B >= |m|” stand inside such a backtick span, and the shell read the “>=” there as a redirect to a file named “=”. Reproduced in an empty directory, the same words in a double-quoted string make one empty file “=” (relay data/b743_standing_v1230.txt, the (origin) case). No session transcript of that window survives. Delete or leave is the author’s word at the sitting (`(R353)`(4)(G)).
+  
+  Dated note, b743, to event (3) (`(R353)`(3)(i)): the clause “nothing past bce5605d pushed” came from the seat’s progress note, not from a remote read. Composed from the remote heads as they stood at prompt time it reads “relay remote at 13498fd2; local 25 commits past it; PLACE-papers remote at efce669f; local 1 commit past it” (the (remote) case). The author’s answer is carried as given.
+  
+  Dated note, b743, to event (5) (`(R353)`(3)(iv)): the row is tagged THE HOST’S, NEW; the hold refused the part beneath 2560 MB and nothing ran, the class of b727 event (13), and this corrigendum reads it REPEAT in its counter. Event (6) is tagged REPEAT in its own bracket, the class of b741 defect (s).
+  
+  Dated note, b743, to defects (k) and (l) (`(R353)`(3)(v)): dispatch 4 (run 42061332755) spent a dispatch on fourteen bare names, none a module of zq-b730 at 4c04916c; the commit 4c04916c was rowed G4-G6 and again R5, beside the true R5 c2d4f29c. Both replayed through the repaired writer, both refused; dispatch 5’s full names pass.
+  
+  **The counter:** CLAIM 8, CLOSE 17, REPEAT 13 of 25 over the 25 items as the banks tag them (six events, nineteen defects), as b742’s closing prints it (relay data/b742_closing.txt :5); as this corrigendum reads them, event (5) REPEAT of b727 event (13) by `(R353)`(3)(iv), CLAIM 8, CLOSE 17, REPEAT 14 of 25; the CLAIM items (1), (3), (a), (d), (g), (j), (q), (r).
+  
+  *Filed at b743 on the author’s ruling `(R353)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b743.py) from b742’s events and defects banks read unedited, its refusal bank, and the v1.23.0 controls bank; banked as relay `data/b743_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (63). It answers b742’s record; no sealed tool, face, trail or root-named bank of b742 is edited.*
+
+### ### **ITEMS 25: EVENTS 6, DEFECTS 19 ; CLAIM 8, CLOSE 17 ; REPEAT 13 ; AS READ HERE, EVENT (5) REPEAT: CLAIM 8, CLOSE 17, REPEAT 14 OF 25 ; DATED NOTES 4 ; v1.23.0: THE CITATION READER`S LABEL, THE ROOT PROMPT`S REMOTE FIGURES, NO SUBJECT TEXT, THE PUSH PRE-CHECK, THE DISPATCH TARGETS AND LABELS, THE HOLD AND THE HOOK AS REPEAT, THE "=" ORIGIN, THE VERSION ; THE ENTRY AT FINDINGS :13731.**
