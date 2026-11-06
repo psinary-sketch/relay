@@ -1,0 +1,85 @@
+b744 -- THE CORRIGENDUM FOR b743, (R354)(2) (2026-11-06T20:41:01Z)
+
+### the banks read unedited: data/b743_events.txt rows (1)-(15), data/b743_defects.txt 23 rows, data/b743_hook_refusals.txt 17 lines at b41fa006; data/b744_standing_v1240.txt (the v1.24.0 controls); the corrigenda bank`s last row (63).
+
+  *b743’s events bank (relay data/b743_events.txt) carries fifteen rows, entered after its lock and not lettered, each tagged in its own bracket (10 the seat’s, 3 the host’s, 1 the author’s, 1 the tools’); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (23 the seat’s); its refusal bank seventeen lines at b41fa006, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R354)`(2), at tools/standing/ v1.24.0, each with a control on b743’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b744_standing_v1240.txt, 29 cases, AS WANTED 29):
+  
+  **(prevdry) the pre-lock dry in prev mode (`(R354)`(2)(i), events (3), (7))** -- rule (1) of data/b744_rules.txt; tools/standing/prevdry.py exercises every part’s sources() with `--prev`, main() never called, banked per part with the act module’s blob; tools/standing/prelock.py gate reads every part OK at the present blob or is NOT CLEAR. b743’s module at its lock replayed: the act part stops at :561, the module with :561 alone repaired stops at :575 in standing-a1; the repaired module passes both (:20).
+  
+  **(prevdry-ok) the repaired module under the same dry** -- guards: bd968013’s module, the act part and standing-a1, SOURCES OK (:31).
+  
+  **(tags) the tags at the pre-lock dry (`(R354)`(2)(iv), event (15))** -- rule (4) of data/b744_rules.txt; prelock.tags reads the events and defects banks through the counter’s items at the lock gate. b743’s events at 96d8e736 refused there; at 7f41b079 every row tagged (:40).
+  
+  **(repair) the repair phase (`(R354)`(2)(ii), events (8)-(9))** -- rule (2) of data/b744_rules.txt; commit.py `repair`: a lock row and no seal row; the author’s lift banked with its time; the settings file’s sha256 equal to the value banked before the lift; the staged diff confined to tools/acts/<act>.py and to the lines the events name; the head “bNNN repair:”, the row written as phase repair. bd968013 replayed and accepted; with no lift banked, and with a line the events do not name, refused (:50).
+  
+  **(hook) the hook’s scope (`(R354)`(2)(iii), event (4))** -- rule (3) of data/b744_rules.txt; tools/standing/hook.py locked_bank no longer counts tools/acts/<act>.py; b743’s two refused Edits replayed as allowed; a bank still refused; N4 REFUTED on such an edit by the score route’s post-lock read (:63).
+  
+  **(rewrite) no pushed bank rewritten (`(R354)`(2)(iv), event (15))** -- rule (4) of data/b744_rules.txt; tools/standing/pushcheck.py rewritten: an act text bank on the remote’s main whose form at the branch is not the pushed form with lines appended refuses the push, exit 13. b743’s closing push refused on data/b743_events.txt; its pre-root and record pushes clear (:80).
+  
+  **(branches) the face’s branch list (`(R354)`(2)(v), event (11))** -- rule (5) of data/b744_rules.txt; tools/standing/facebranches.py make enters the act’s push-* branch in data/<act>_face_branches.json; fold/checks.tpl’s kernels_untouched takes the listed branches out before the face is compared. push-b743-sitting replayed as listed: the arm passes; an unlisted branch still fails (:96).
+  
+  **(order) the kernel push before the root (`(R354)`(2)(vi), event (10))** -- rule (6) of data/b744_rules.txt; facebranches order prints “push the kernel, read it back, then `record root`” where a listed kernel’s main is ahead of its remote. b743’s sequence replayed: the order printed; level, nothing waits (:112).
+  
+  **(repeat) the REPEAT readings (`(R354)`(2)(vii)-(x), events (5), (12)-(14))** -- rule (7) of data/b744_rules.txt; guards: the push tool’s refusal REPEAT of b743 event (13), the suite’s self-refusal, the phase table read, the hook’s ENV row (:125).
+  
+  **(version) the version (`(R354)`(2)(xi))** -- rule (8) of data/b744_rules.txt; tools/standing/VERSION v1.24.0, landed by a commit of its own (c9396ad0) with its controls bank (:140).
+  
+  **b743’s events (1)-(15):**
+  
+  **(1)** a Bash read of data/b743\_arms\_prerun\_standing-a2.txt sent as grep piped into grep; the harness hook REFUSED (PIPE), … (relay data/b743_events.txt, row (1); the seat’s; CLOSE; REPEAT; rule (7) of data/b744_rules.txt: the hook held, REPEAT (’(R354)’(2)(vii)-(x), the readings)).
+  **(2)** ’fold.py checks --prev --part standing-a1’ refused itself, the host’s free memory 2519 MB beneath the hold 2560 MB, … (relay data/b743_events.txt, row (2); the host’s; CLOSE; NEW; rule (7) of data/b744_rules.txt: the hold held).
+  **(3)** between about 08:10Z and 08:20Z: ’fold.py checks --prev’, part act and then standing-a1, stopped with a TypeError … (relay data/b743_events.txt, row (3); the seat’s; CLAIM; NEW; repair (prevdry); rule (1) of data/b744_rules.txt: every part’s sources() exercised in prev mode at the pre-lock dry).
+  **(4)** an Edit of tools/acts/b743.py sent; the harness hook REFUSED both (LOCKED, (R347)(2)(iii), row (65)); nothing landed. … (relay data/b743_events.txt, row (4); the seat’s; CLOSE; NEW; repair (hook); rule (3) of data/b744_rules.txt: the post-lock refusal binds banks and faces, the act module’s edit allowed and scored N4 REFUTED).
+  **(5)** the harness hook REFUSED the author’s own call (ENV) of the lifting script, an environment prefix before python; not … (relay data/b743_events.txt, row (5); the author’s; CLOSE; NEW; rule (7) of data/b744_rules.txt: the hook’s ENV row held on the author’s own call; the lift scripts carry no prefix).
+  **(6)** ’--prev --part standing-a1’ refused itself, free 2171 MB beneath the hold; waited 150 s to 3246 MB and re-sent. The … (relay data/b743_events.txt, row (6); the host’s; CLOSE; REPEAT; rule (7) of data/b744_rules.txt: the hold held, REPEAT of row (2)).
+  **(7)** ’--prev --part standing-a1’ stopped again, an IndexError at the generated checks’ line 615, which is tools/acts/b743.py … (relay data/b743_events.txt, row (7); the seat’s; CLAIM; NEW; repair (prevdry); rule (1) of data/b744_rules.txt: the second stop, found before the lock under the same dry).
+  **(8)** after the prev runs: close.py dry refused: "THE SEAL’S GUARD: 1 SEALED TOOL(S) NOT AS COMMITTED AT HEAD -- COMMIT THEM … (relay data/b743_events.txt, row (8); the tools’; CLOSE; NEW; repair (repair); rule (2) of data/b744_rules.txt: commit.py’s phase ’repair’ between the lock and the seal, under three conditions).
+  **(9)** 16:42:27Z the address scan CLEAN (400 places, 7 of 7) and tools/acts/b743.py added alone; about 16:43Z a plain git … (relay data/b743_events.txt, row (9); the seat’s; CLOSE; NEW; repair (repair); rule (2) of data/b744_rules.txt: the head “bNNN repair:” the tool’s own, the shell route no longer needed).
+  **(10)** ’record root’ refused: "SIDE-explicit-formula: main 8fbab45d8a96, the remote badacccb867e -- NO ROOT" (act\_root.py exit … (relay data/b743_events.txt, row (10); the seat’s; CLOSE; NEW; repair (order); rule (6) of data/b744_rules.txt: the kernel push ordered before the root, the order printed).
+  **(11)** the pre-push part standing-a2: G-KERNELS-UNTOUCHED FAILS, beyond the face’s declared failures. A read-only scratch … (relay data/b743_events.txt, row (11); the seat’s; CLAIM; NEW; repair (branches); rule (5) of data/b744_rules.txt: the act’s push-* branch entered in the face’s branch list by the tool that makes it).
+  **(12)** the pre-push part standing-c ran past the 600 s foreground limit and the harness moved it to the background (not … (relay data/b743_events.txt, row (12); the host’s; CLOSE; NEW; rule (7) of data/b744_rules.txt: the phase table read from the part’s bank (the dated note below)).
+  **(13)** ’tools/push\_gated.sh /d/relay push-b743-record’ sent with step row 40 (relay 96d8e736, record) uncommitted in … (relay data/b743_events.txt, row (13); the seat’s; CLOSE; REPEAT; rule (7) of data/b744_rules.txt: the push tool’s refusal of ’(R353)’(3)(iii) working, REPEAT of b742 event (4)).
+  **(14)** the post-push part standing-a1 sent as ’fold.py checks --part standing-a1 --act b743 --quiet’ without the post-push … (relay data/b743_events.txt, row (14); the seat’s; CLOSE; REPEAT; rule (7) of data/b744_rules.txt: the suite’s self-refusal working, REPEAT).
+  **(15)** after the mirror: ’fold.py closing --act b743’ stopped at the counter ("### AN UNTAGGED EVENT ROW: (6) THE LIFT (the … (relay data/b743_events.txt, row (15); the seat’s; CLOSE; NEW; repair (rewrite) and (tags); rule (4) of data/b744_rules.txt: a pushed bank never rewritten, a corrected form at a suffixed path; the tags read at the pre-lock dry).
+  
+  **b743’s defects:**
+  
+  **(a)** (relay data/b743_defects.txt; the seat’s; CLAIM; REPEAT of b742 (a)).
+  **(b)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (b)).
+  **(c)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (c)).
+  **(d)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(e)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(f)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(g)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(h)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (e)).
+  **(i)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(k)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(l)** (relay data/b743_defects.txt; the seat’s; CLAIM; REPEAT of b742 events (6)).
+  **(m)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 events (6)).
+  **(n)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(o)** (relay data/b743_defects.txt; the seat’s; CLAIM; NEW).
+  **(p)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(q)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (e)).
+  **(r)** (relay data/b743_defects.txt; the seat’s; CLAIM; REPEAT of b742 (a)).
+  **(s)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (e)).
+  **(u)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(v)** (relay data/b743_defects.txt; the seat’s; CLOSE; NEW).
+  **(w)** (relay data/b743_defects.txt; the seat’s; CLOSE; REPEAT of b742 (e)).
+  
+  **b743’s refusals** (relay data/b743_hook_refusals.txt at b41fa006, one a line): :1 PIPE 02:25:57Z, recorded at defect (c); :2 READ 02:26:08Z, recorded at defect (c); :3 READ 02:27:00Z, recorded at defect (c); :4 SED 02:29:21Z, recorded at defect (c); :5 REDIR 02:29:32Z, recorded at defect (c); :6 PIPE 02:41:35Z, recorded at defect (h); :7 READ 02:54:09Z, recorded at defect (h); :8 PIPE 04:50:27Z, recorded at defect (q); :9 READ 05:03:45Z, recorded at defect (q); :10 READ 05:03:45Z, recorded at defect (q); :11 REDIR 05:38:43Z, recorded at defect (t); :12 PIPE 07:12:40Z, recorded at defect (w); :13 PIPE 08:16:22Z, recorded at event (1); :14 LOCKED 08:25:22Z, recorded at event (4); :15 LOCKED 08:33:45Z, recorded at event (4); :16 ENV 13:59:13Z, recorded at event (5); :17 SUBJECT 16:42:47Z, recorded at event (9).
+  
+  **Dated notes:**
+  
+  Dated note, b744, to event (12) (`(R354)`(2)(ix)): the phase table of the pre-push part standing-c as its bank prints it (relay data/b743_checks_standing-c.txt :5-:6): the banks and the state 147 s, the four standing figures 12 s, the written files, the public bytes and the prior banks 450 s, the other phases not in this part; the longest phase 450 s, above 450 s False; the run 610 s (:33). The phase of the written files and the public bytes carries the part; the repair’s state is that no phase passed the 450 s line and the run passed the 600 s foreground limit by 10 s.
+  
+  Dated note, b744, to event (15) (`(R354)`(2)(iv)): the two forms stand as two banks: data/b743_events.txt at the record 96d8e736, untagged, and at the closing 7f41b079, tagged; neither is edited now. Under v1.24.0 the closing push of such a rewrite is refused at the push tool (pushcheck.rewritten, the (rewrite) case), and the corrected form goes to a new bank at a suffixed path.
+  
+  **The counter:** CLAIM 12, CLOSE 26, REPEAT 14 of 38 over the 38 items as the banks tag them (fifteen events, twenty-three defects), as b743’s closing prints it (relay data/b743_closing.txt :5); no tag is read otherwise here; the CLAIM items (3), (7), (11), (a), (d), (e), (g), (k), (l), (n), (o), (r).
+  
+  *Filed at b744 on the author’s ruling `(R354)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b744.py) from b743’s events and defects banks read unedited, its refusal bank, and the v1.24.0 controls bank; banked as relay `data/b744_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (64). It answers b743’s record; no sealed tool, face, trail or root-named bank of b743 is edited.*
+
+### ### **ITEMS 38: EVENTS 15, DEFECTS 23 ; CLAIM 12, CLOSE 26 ; REPEAT 14 ; DATED NOTES 2 ; v1.24.0: THE PRE-LOCK DRY IN PREV MODE, THE REPAIR PHASE, THE HOOK`S SCOPE, NO PUSHED BANK REWRITTEN AND THE TAGS AT THE DRY, THE FACE`S BRANCH LIST, THE KERNEL PUSH BEFORE THE ROOT, THE REPEAT READINGS, THE VERSION ; THE ENTRY AT FINDINGS :13840.**
