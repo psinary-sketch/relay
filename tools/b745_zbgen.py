@@ -160,7 +160,7 @@ def point(T, emit):
         emit('  rwa [show ((16 : ℚ) : ℝ) = 16 by norm_num] at h\n')
         emit('/-- **zeta_sign_16** (the plan\'s (a)). -/')
         emit('theorem zeta_sign_16 : 0 < (completedRiemannZeta (1 / 2 + 16 * Complex.I)).re := by')
-        emit('  rw [show (1 / 2 + 16 * Complex.I : ℂ) = lp 16 by unfold lp; norm_num, zeta_line, Complex.ofReal_re]')
+        emit('  rw [(show (1 / 2 + 16 * Complex.I : ℂ) = lp 16 by unfold lp; norm_num), zeta_line, Complex.ofReal_re]')
         emit('  exact zLam_16_pos\n')
     elif T == 12:
         lhs = (2 * cI[0] + 2 * rT + TAIL) * K4
@@ -172,7 +172,7 @@ def point(T, emit):
         emit('  rwa [show ((12 : ℚ) : ℝ) = 12 by norm_num] at h\n')
         emit('/-- **zeta_sign_12** (the plan\'s (a)). -/')
         emit('theorem zeta_sign_12 : (completedRiemannZeta (1 / 2 + 12 * Complex.I)).re < 0 := by')
-        emit('  rw [show (1 / 2 + 12 * Complex.I : ℂ) = lp 12 by unfold lp; norm_num, zeta_line, Complex.ofReal_re]')
+        emit('  rw [(show (1 / 2 + 12 * Complex.I : ℂ) = lp 12 by unfold lp; norm_num), zeta_line, Complex.ofReal_re]')
         emit('  exact zLam_12_neg\n')
     else:
         sys.exit('### t must be 12 or 16')
