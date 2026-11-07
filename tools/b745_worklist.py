@@ -254,7 +254,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b744: its LF form equal to HEAD's (blob a94aa543), nothing to commit; restored by checkout
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### step zero's banks and carried tools, one commit (data/b745_stepzero.txt among them); set when made
+STEPZERO_BANKS = 'bffde0bb'             # ### step zero's banks and carried tools, one commit (data/b745_stepzero.txt among them); set when made
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b744's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R355)(3), with its amendment row: the commit every dispatch row names ((R355)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -294,7 +294,7 @@ B714_RECORD = 'e4ab0a4b'     # ### b744's record commit (relay, the head line's)
 B714_ROOT = '3c30761bc54fbfd48138a3602f8faa0555e538703a9d8b432d7d42611b3f172c'   # ### b744's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'b01b6b03'  # ### b744's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.25.0 by a commit of its own, its controls bank data/b745_standing_v1250.txt ((R355)(2))
+C1_STANDING = '475a6f38'                 # ### tools/standing/ v1.25.0 by a commit of its own, its controls bank data/b745_standing_v1250.txt ((R355)(2))
 C1_STANDING_REPAIR = None
 C1_RELAY = None
 C1_CORR = C1_RELAY

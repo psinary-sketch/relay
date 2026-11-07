@@ -1,0 +1,64 @@
+b745 -- THE CORRIGENDUM FOR b744, (R355)(2) (2026-11-07T15:28:47Z)
+
+### the banks read unedited: data/b744_events.txt rows (1)-(6), data/b744_defects.txt 17 rows, data/b744_hook_refusals.txt 13 lines at 7d448774; data/b745_standing_v1250.txt (the v1.25.0 controls); the corrigenda bank`s last row (64).
+
+  *b744’s events bank (relay data/b744_events.txt) carries six rows, entered after its lock and not lettered, each tagged in its own bracket (5 the seat’s, 1 the tools’); its defects bank seventeen lettered rows, (a)-(q), each tagged in its own bracket (17 the seat’s); its refusal bank thirteen lines at 7d448774, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R355)`(2), at tools/standing/ v1.25.0, each with a control on b744’s or b743’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b745_standing_v1250.txt, 20 cases, AS WANTED 20):
+  
+  **(rowid) the row’s ID (`(R355)`(2)(i), b743’s [B1]-[B3])** -- rule (1) of data/b745_rules.txt; tools/standing/rowid.py allocates from the file’s maximum over every table carrying the prefix and refuses an added row whose ID the base file holds; tools/standing/hook.py refuses such a PLACE-papers commit (kind ROWID). b743’s three rows refused against their parents and through the hook on a scratch clone; b744’s renumbered rows accepted; the next 1.5c ID before b743’s sitting 1.5c-21 (:20).
+  
+  **(hold) the hold at the root and every record route (`(R355)`(2)(ii), event (3))** -- rule (2) of data/b745_rules.txt; the rendered record tool asks tools/standing/hold.py before any route. b744’s `record root_arm` at 2,360 MB refused; at 3,000 MB it runs; `record step` at 2,559 MB refused (:49).
+  
+  **(b3) standing-b3 after its four chain parts (`(R355)`(2)(iii), event (2))** -- rule (3) of data/b745_rules.txt; the checks tool’s part standing-b3 refuses itself while a half bank of its run is absent. b744’s sequence refused on four absent banks; with them present it runs (:62).
+  
+  **(exempt) the exempt set and every commit’s row or exemption (`(R355)`(2)(iv), event (4))** -- rule (4) of data/b745_rules.txt; tools/standing/repeat.py’s set takes the post-lock scan bank, row_or_exemption prints each commit. da9910f9 needing a row before, exempt after; b744’s relay commits printed, none NO ROW (:72).
+  
+  **(subject) the step-row subject (`(R355)`(2)(v), event (5))** -- rule (5) of data/b745_rules.txt; tools/standing/subjects.py composes the step-row subject from the rows the staged step bank adds, tools/standing/hook.py refuses another. f5ff3680’s subject faulted; regenerated as “b744 record: the step row for relay e4ab0a4b” (:106).
+  
+  **(repeat) the REPEAT instances (`(R355)`(2)(vi), events (1), (6))** -- rule (6) of data/b745_rules.txt; guards: the hook’s PIPE row, the suite’s self-refusal (:116).
+  
+  **(version) the version (`(R355)`(2)(vii))** -- rule (7) of data/b745_rules.txt; tools/standing/VERSION v1.25.0, landed by a commit of its own (475a6f38) with its controls bank (:125).
+  
+  **b744’s events (1)-(6):**
+  
+  **(1)** a PowerShell listing of data/b743\_prevrun\_\* and data/b743\_chain\_half\_\* sent with ’| Select-Object’; the harness hook … (relay data/b744_events.txt, row (1); the seat’s; CLOSE; REPEAT of b743 (c); rule (6) of data/b745_rules.txt: the hook’s PIPE row held, REPEAT ((R355)(2)(vi))).
+  **(2)** ’fold.py checks --prev --part standing-b3’ sent before the four parts standing-b2a to standing-b2d, whose act-root … (relay data/b744_events.txt, row (2); the seat’s; CLAIM; NEW; repair (b3); rule (3) of data/b745_rules.txt: standing-b3 refuses itself while a chain part’s bank is absent).
+  **(3)** ’fold.py record root\_arm --act b744’ sent with the host’s free memory read at 2360 MB in the same call (printed … (relay data/b744_events.txt, row (3); the tools’; CLAIM; NEW; repair (hold); rule (2) of data/b745_rules.txt: the hold binds the root route and every record route, the route refusing itself and printing the figure).
+  **(4)** the pre-push part standing-a2: G-SEALED-AFTER-COMPONENTS FAILED, "relay da9910f9 has no row". da9910f9 (04:07:43Z, the … (relay data/b744_events.txt, row (4); the seat’s; CLAIM; NEW; repair (exempt); rule (4) of data/b745_rules.txt: the post-lock scan bank in the exempt set, every commit printed with its row or its exemption).
+  **(5)** relay f5ff3680 committed with the subject "b744 record: the step rows for relay b01b6b03, PLACE-papers 5937961 and … (relay data/b744_events.txt, row (5); the seat’s; CLAIM; NEW; repair (subject); rule (5) of data/b745_rules.txt: the step-row subject composed from the rows the commit adds, a typed one refused by the hook).
+  **(6)** the post-push part standing-a1 sent as ’fold.py checks --part standing-a1 --act b744 --quiet’ without the post-push … (relay data/b744_events.txt, row (6); the seat’s; CLOSE; REPEAT of b743 (14); rule (6) of data/b745_rules.txt: the suite’s self-refusal working, REPEAT ((R355)(2)(vi))).
+  
+  **b744’s defects:**
+  
+  **(a)** (relay data/b744_defects.txt; the seat’s; CLAIM; REPEAT of b743 (a)).
+  **(b)** (relay data/b744_defects.txt; the seat’s; CLOSE; REPEAT of b743 (b)).
+  **(c)** (relay data/b744_defects.txt; the seat’s; CLOSE; REPEAT of b743 (c)).
+  **(d)** (relay data/b744_defects.txt; the seat’s; CLAIM; NEW).
+  **(e)** (relay data/b744_defects.txt; the seat’s; CLOSE; NEW).
+  **(f)** (relay data/b744_defects.txt; the seat’s; CLOSE; REPEAT of b743 (c)).
+  **(g)** (relay data/b744_defects.txt; the seat’s; CLOSE; NEW).
+  **(h)** (relay data/b744_defects.txt; the seat’s; CLAIM; NEW).
+  **(i)** (relay data/b744_defects.txt; the seat’s; CLOSE; NEW).
+  **(j)** (relay data/b744_defects.txt; the seat’s; CLOSE; REPEAT of b743 (c)).
+  **(k)** (relay data/b744_defects.txt; the seat’s; CLAIM; REPEAT of b743 (r)).
+  **(l)** (relay data/b744_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b744_defects.txt; the seat’s; CLOSE; NEW).
+  **(n)** (relay data/b744_defects.txt; the seat’s; CLAIM; NEW).
+  **(o)** (relay data/b744_defects.txt; the seat’s; CLAIM; NEW).
+  **(p)** (relay data/b744_defects.txt; the seat’s; CLAIM; NEW).
+  **(q)** (relay data/b744_defects.txt; the seat’s; CLAIM; REPEAT of b743 (r)).
+  
+  **b744’s refusals** (relay data/b744_hook_refusals.txt at 7d448774, one a line): :1 READ 19:35:11Z, recorded at defect (c); :2 READ 19:37:51Z, recorded at defect (c); :3 PIPE 20:07:36Z, recorded at defect (c); :4 PIPE 20:40:07Z, recorded at defect (f); :5 PIPE 20:51:53Z, recorded at defect (f); :6 PIPE 23:11:25Z, recorded at defect (j); :7 READ 23:11:35Z, recorded at defect (j); :8 REDIR 23:11:55Z, recorded at defect (j); :9 READ 23:12:11Z, recorded at defect (j); :10 READ 23:14:31Z, recorded at defect (j); :11 SED 23:48:29Z, recorded at defect (j); :12 PIPE 23:49:13Z, recorded at defect (j); :13 PIPE 03:17:12Z, recorded at event (1).
+  
+  **Dated notes:**
+  
+  Dated note, b745, to event (3) (`(R355)`(2)(ii)), tagged in its bank THE TOOLS’ [CLAIM ; NEW]: the free memory 2,360 MB read before `record root_arm`, beneath the hold 2,560 MB; the route ran, the record tool’s dispatch reading no hold before it; the root’s figures it computed stand as banked (data/b744_root_arm.json), the repair binding the route from v1.25.0.
+  
+  Dated note, b745, to the ID rule (`(R355)`(2)(i)): REGISTRY.md at PLACE-papers 5937961 holds seventeen IDs under two or three rows each (1.5a-5, 1.5a-6, 1.5a-7, 1.5a-8, 1.5b-6, 1.5c-16, 1.5d-4, 1.5f-4, 1.5g-4, 1.5h-3, 1.5h-7, 1.5h-8, 1.5h-9, d1-1, p2-16, p2-27, p2-4; relay data/b745_standing_v1250.txt, the (rowid) block); they are older than the rule, stand as found, and are not this act’s to repair; the rule binds the rows a commit adds.
+  
+  **The counter:** CLAIM 12, CLOSE 11, REPEAT 9 of 23 over the 23 items as the banks tag them (six events, seventeen defects), as b744’s closing prints it (relay data/b744_closing.txt :5); no tag is read otherwise here; the CLAIM items (2), (3), (4), (5), (a), (d), (h), (k), (n), (o), (p), (q).
+  
+  *Filed at b745 on the author’s ruling `(R355)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b745.py) from b744’s events and defects banks read unedited, its refusal bank, and the v1.25.0 controls bank; banked as relay `data/b745_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (65). It answers b744’s record; no sealed tool, face, trail or root-named bank of b744 is edited.*
+
+### ### **ITEMS 23: EVENTS 6, DEFECTS 17 ; CLAIM 12, CLOSE 11 ; REPEAT 9 ; DATED NOTES 2 ; v1.25.0: THE ROW`S ID, THE HOLD AT THE ROOT AND EVERY RECORD ROUTE, b3 AFTER ITS CHAIN PARTS, THE EXEMPT SET AND EVERY COMMIT`S ROW OR EXEMPTION, THE STEP-ROW SUBJECT, THE REPEAT INSTANCES, THE VERSION ; THE ENTRY AT FINDINGS :13966.**

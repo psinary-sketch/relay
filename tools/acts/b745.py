@@ -30,15 +30,15 @@
 # ### discharge and the sitting's foot, the v1.23.0 and v1.23.1 controls, and the v1.24.0 controls this corrigendum lands. `c1 weight|corrigendum [dry|write]`;
 # ### dry prints the text and the screens and writes nothing; any needle that does not meet its line once: nothing composed.
 #⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
-C1_PREV_CLOSE = 'b41fa006'          # ### b744's closing push tip (step row 41), the public relay's main
-C1_CLOSING_COMMIT = '7f41b079'      # ### b744's closing commit (its closing row)
-C1_REFUSAL_AT = 'b41fa006'          # ### its refusal bank read at its closing push tip
-C1_NOTED = '2026-11-06'
-C1_CORRIGENDA_LAST = 63
-C1_V170 = 'b745_standing_v1240.txt'   # ### the controls bank of the repairs this corrigendum lands (v1.24.0)
-C1_WEIGHT_HEAD = '*Appended 2026-11-06 by b745 to b744’s entry (:%d), under `(R355)`(1)' % K.B711_ENTRY
-C1_ENTRY_NEEDLE = '## W-ORD-ZQ-OFFLINE-ZERO discharged: one zero of Z'
-C1_TRAIL_NEEDLE = '### b744 — lane two, act one hundred and seventy,'
+C1_PREV_CLOSE = '7d448774'          # ### b744's closing push tip (its step row 21), the public relay's main
+C1_CLOSING_COMMIT = 'd75dffb7'      # ### b744's closing commit (its closing row)
+C1_REFUSAL_AT = '7d448774'          # ### its refusal bank read at its closing push tip
+C1_NOTED = '2026-11-07'
+C1_CORRIGENDA_LAST = 64
+C1_V170 = 'b745_standing_v1250.txt'   # ### the controls bank of the repairs this corrigendum lands (v1.25.0)
+C1_WEIGHT_HEAD = '*Appended 2026-11-07 by b745 to b744’s entry (:%d), under `(R355)`(1)' % K.B711_ENTRY
+C1_ENTRY_NEEDLE = '## W-ORD-ZETA-BOX and W-ORD-POSITIVE-CONTROL planned'
+C1_TRAIL_NEEDLE = '### b744 — lane two, act one hundred and seventy-one,'
 C1_BRACKET = re.compile(r"^(THE SEAT'S|THE TOOL'S|THE TOOLS'|THE SCORE|THE RUNNER|THE HOST'S|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
 
 
@@ -104,58 +104,56 @@ def _c1_weight():
     sc = json.load(open(os.path.join(D, 'b744_scores_close.json'), encoding='utf-8'))
     sc = sc.get('scores') or sc
     held = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'HELD']
-    refd = [k_ for k_ in ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3') if (sc.get(k_) or ['?'])[0] == 'REFUTED']
-    if len(held) != 6 or refd != ['N4', 'N5'] or 'scores %d of 8 HELD' % len(held) not in head:
-        sys.exit('### data/b744_scores_close.json: HELD %s, REFUTED %s -- NOTHING COMPOSED' % (held, refd))
-    (_sl,), l_sl = _c1_fl(c, r'^    \(N1\) (HELD) \(N2\) HELD \(N3\) REFUTED \(N4\) REFUTED \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD$', 'the record-time scores')
-    _scl, l_scl = _c1_fl('b744_events.txt', r"^     (THE SCORES' CLOSE): N1, N2, N3 HELD; N4 REFUTED \(row \(4\)\); N5 REFUTED \(row \(11\)\)", 'the scores` close')
+    if len(held) != 8 or 'scores %d of 8 HELD' % len(held) not in head:
+        sys.exit('### data/b744_scores_close.json: HELD %s -- NOTHING COMPOSED' % held)
+    (_sl,), l_sl = _c1_fl(c, r'^    \(N1\) (HELD) \(N2\) HELD \(N3\) REFUTED \(N4\) HELD \(N5\) HELD ; \(S1\) HELD \(S2\) HELD \(S3\) HELD$', 'the record-time scores')
     ar = json.load(open(os.path.join(D, 'b744_act_root.json'), encoding='utf-8'))
     if ar.get('root') != K.B714_ROOT:
         sys.exit('### data/b744_act_root.json`s root %s -- NOTHING COMPOSED' % ar.get('root'))
-    (it, ps, dl, st), l_it = _c1_fl('b744_sitting.txt', r'ITEMS DECIDED (\d+) .*PASSED (\d+) ; DELETE (\d+) \(G\) ; STRUCK (\d+)', 'the sitting`s foot')
-    _dis, l_dis = _c1_fl('b744_closing.txt', r'(W-ORD-ZQ-OFFLINE-ZERO discharged by a commit of its own \(PLACE-papers 4541d90d\))', 'the discharge')
-    (va, vb), l_v = _c1_fl('b744_standing_v1230.txt', r'^### ### \*\*v1\.23\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*$', 'the v1.23.0 foot')
-    (v1a,), l_v1 = _c1_fl('b744_standing_v1231.txt', r'^### ### \*\*v1\.23\.1: CONTROLS .* ; CASES (\d+) ', 'the v1.23.1 foot')
+    _zb, l_zb = _c1_fl(c, r'^    (W-ORD-ZETA-BOX): zeta_box at t₁ = 12, t₂ = 16', 'the ζ box plan`s row')
+    _pc, l_pc = _c1_fl(c, r'^    (W-ORD-POSITIVE-CONTROL): pcConfig', 'the positive control plan`s row')
+    (zl,), l_zl = _c1_fl('b744_zetabox_plan.txt', r'(450-1,100) LINES?.*6 DISPATCHES NOMINAL, 12 AT MOST', 'the ζ box price')
+    (pl,), l_pl = _c1_fl('b744_poscontrol_plan.txt', r'^.*?(108-290) lines.*1 dispatch nominal', 'the positive control price')
+    (va, vb), l_v = _c1_fl('b744_standing_v1240.txt', r'^### ### \*\*v1\.24\.0: CONTROLS .* ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*$', 'the v1.24.0 foot')
     _mv, l_mv = _c1_fl('b744_mirror_verify.txt', r'^  ### VERDICT: (CLEAN ON ALL THREE CLAUSES)$', 'the mirror')
     (mz,), l_mz = _c1_fl(c, r'^### THE MIRROR .*(mirror-refresh-2026-11-06-b744)\.zip ; ', 'the mirror`s archive')
-    _aw, l_aw = _c1_fl('b744_author_answers.txt', r'^  OPTION 1 \[RECOMMENDED\]: (Land as composed) \(Recommended\)', 'the author`s answer, as put')
-    (ca,), l_ca = _c1_fl(c, r'^    \(a\) ### \*\*THE NEXT, \(R354\)\(7\)\*\*: (per \(R354\)\(7\), named by the author at the sitting`s end)', 'the carried item (a)')
+    _aw1, l_aw1 = _c1_fl('b744_author_answers.txt', r'^RESULT .*="(Both, positive first \(Recommended\))"', 'the author`s first answer')
+    _aw2, l_aw2 = _c1_fl('b744_author_answers.txt', r'^RESULT .*="(the answer is yes — a tag on zq-b730 at 14ca5725, no merge, cut at b745’s step zero\.)"', 'the author`s second answer')
+    (ca,), l_ca = _c1_fl(c, r'^    \(a\) ### \*\*THE NEXT, \(R354\)\(6\)\*\*: (per \(R354\)\(6\), named by the author at the root)\.', 'the carried item (a)')
+    am = json.load(open(os.path.join(D, 'b744_amendments.json'), encoding='utf-8'))
     ev, dr = _c1_events(), _c1_defects()
-    if sorted(ev) != list(range(1, 16)) or len(dr) != 23 or (int(sd), int(se)) != (23, 15):
+    if sorted(ev) != list(range(1, 7)) or len(dr) != 17 or (int(sd), int(se)) != (17, 6):
         sys.exit('### EVENTS %s ; DEFECTS %d ; THE SET %s, %s -- NOTHING COMPOSED' % (sorted(ev), len(dr), sd, se))
     dt = [x[2] for x in dr]
     dn = sum(1 for x in dr if x[3] != 'NEW')
     return (C1_WEIGHT_HEAD + ' -- b744 AT ITS WEIGHT, AS ITS CLOSING PRINTS (relay data/b744_closing.txt):* “%s” (data/b744_closing.txt :1, the public relay at %s); its '
-            'relay commit the record’s %s, the closing’s %s (data/b744_steps.json, the record and closing rows). As its rows read: %s (:%d); the sitting %s items decided, %s passed, %s delete, '
-            '%s struck (data/b744_sitting.txt :%d). Standing tools v1.23.0, %s of %s (data/b744_standing_v1230.txt :%d), and v1.23.1 moving VERSION, %s cases (data/b744_standing_v1231.txt :%d); '
-            'the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), G-AXIOM-CLAIM and G-RULE-POSTSEAL-READ declared on the face and '
-            'G-KERNELS-UNTOUCHED failing on the seat’s local branch push-b744-sitting (data/b744_events.txt, row (11)); the record-time scores N3 and N4 REFUTED, the rest HELD (:%d), and at the scores’ close SCORES %d OF 8 HELD, '
-            'N4 REFUTED on the two post-lock edits of tools/acts/b744.py (:561, :575) under the author’s two lifts of the hook, each restored, and N5 REFUTED on the same branch '
-            '(data/b744_scores_close.json; data/b744_events.txt :%d); the option the author took at the root prompt “%s” (data/b744_author_answers.txt :%d). '
-            'The root %s over %s banks, chained from %s (data/b744_act_root.json; :%d); '
-            'the mirror %s at %s (data/b744_mirror_verify.txt :%d; :%d); %s prompts banked as put by the seat (:%d); the closing’s carried item (a): %s (:%d), the author naming this act by `(R355)`. '
-            '%d events in data/b744_events.txt, rows (1)-(%d), the bank rewritten after its push (row (15): the record at 96d8e736 carries the untagged form, the closing the tagged one); '
-            '%d defects, (a)–(w) (data/b744_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and defects together (:%d); over the defects alone CLAIM %d, CLOSE %d, REPEAT %d of %d. '
-            'The draft at v5; nothing deposited, no merge, no tag, no new Zenodo version; the corrigendum for these rows follows, under `(R355)`(2).' % (
-                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_CLOSING_COMMIT, _dis[0], l_dis, it, ps, dl, st, l_it,
-                vb, va, l_v, v1a, l_v1, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post,
-                l_sl, len(held), l_scl, _aw[0], l_aw,
-                K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, _mv[0], mz, l_mv, l_mz, np_, l_an, ca, l_ca, len(ev), max(ev), len(dr),
+            'relay commit the record’s %s, the closing’s %s (data/b744_steps.json, the record and closing rows). As its rows read: %s planned, no build, %s lines, 6 dispatches nominal and 12 at most '
+            '(:%d; data/b744_zetabox_plan.txt :%d); %s planned, no build, %s lines, 1 dispatch nominal (:%d; data/b744_poscontrol_plan.txt :%d); the author’s amendment to `(R354)`(4) carried out, '
+            'REGISTRY’s Epstein rows renumbered 1.5c-21, -22, -23 (PLACE-papers 0d51a02; relay data/b744_amendments.json, %d row). Standing tools v1.24.0, %s of %s (data/b744_standing_v1240.txt :%d); '
+            'the sealed tools AGREE %s of %s (:%d); the suite %s of %s pre-push and %s of %s post-push (:%d, :%d), G-AXIOM-CLAIM and G-RULE-POSTSEAL-READ declared on the face, G-RUNNER-GATE VACUOUS; '
+            'the record-time scores N3 REFUTED, the rest HELD (:%d), and at the scores’ close SCORES %d OF 8 HELD (data/b744_scores_close.json). '
+            'The root %s over %s banks, chained from %s (data/b744_act_root.json; :%d); the mirror %s at %s (data/b744_mirror_verify.txt :%d; :%d); %s prompts banked as put by the seat (:%d), '
+            'the author’s answers at the root “%s” (data/b744_author_answers.txt :%d) and “%s” (:%d); the closing’s carried item (a): %s (:%d), the author naming this act by `(R355)`. '
+            '%d events in data/b744_events.txt, rows (1)-(%d), entered after the lock; %d defects, (a)–(q) (data/b744_defects.txt). The counter CLAIM %s, CLOSE %s, REPEAT %s of %s over events and '
+            'defects together (:%d); over the defects alone CLAIM %d, CLOSE %d, REPEAT %d of %d. The draft at v5 (data/b744_report.txt :10, (4) HELD); nothing deposited, no merge, no tag at b744, no new Zenodo version; the corrigendum '
+            'for these rows follows, under `(R355)`(2).' % (
+                head, C1_PREV_CLOSE, K.B714_RECORD[:8], C1_CLOSING_COMMIT, _zb[0], zl, l_zb, l_zl, _pc[0], pl, l_pc, l_pl, len(am if isinstance(am, list) else am.get('rows') or [am]),
+                vb, va, l_v, sa, sb, l_sh, pre[1], pre[0], post[1], post[0], l_pre, l_post, l_sl, len(held),
+                K.B714_ROOT[:8], nbk, ar['previous'][:8], l_bk, _mv[0], mz, l_mv, l_mz, np_, l_an, _aw1[0], l_aw1, _aw2[0], l_aw2, ca, l_ca, len(ev), max(ev), len(dr),
                 cc, cd, rp, rn, l_cn, dt.count('CLAIM'), dt.count('CLOSE'), dn, len(dr)))
 
 
 # ### the refusals: b744's bank at C1_REFUSAL_AT, one a line, and the row recording each (line, kind, time, row)
-C1_REFUSALS = [(1, 'PIPE', '02:25:57Z', 'defect (c)'), (2, 'READ', '02:26:08Z', 'defect (c)'), (3, 'READ', '02:27:00Z', 'defect (c)'), (4, 'SED', '02:29:21Z', 'defect (c)'),
-               (5, 'REDIR', '02:29:32Z', 'defect (c)'), (6, 'PIPE', '02:41:35Z', 'defect (h)'), (7, 'READ', '02:54:09Z', 'defect (h)'), (8, 'PIPE', '04:50:27Z', 'defect (q)'),
-               (9, 'READ', '05:03:45Z', 'defect (q)'), (10, 'READ', '05:03:45Z', 'defect (q)'), (11, 'REDIR', '05:38:43Z', 'defect (t)'), (12, 'PIPE', '07:12:40Z', 'defect (w)'),
-               (13, 'PIPE', '08:16:22Z', 'event (1)'), (14, 'LOCKED', '08:25:22Z', 'event (4)'), (15, 'LOCKED', '08:33:45Z', 'event (4)'), (16, 'ENV', '13:59:13Z', 'event (5)'),
-               (17, 'SUBJECT', '16:42:47Z', 'event (9)')]
+C1_REFUSALS = [(1, 'READ', '19:35:11Z', 'defect (c)'), (2, 'READ', '19:37:51Z', 'defect (c)'), (3, 'PIPE', '20:07:36Z', 'defect (c)'), (4, 'PIPE', '20:40:07Z', 'defect (f)'),
+               (5, 'PIPE', '20:51:53Z', 'defect (f)'), (6, 'PIPE', '23:11:25Z', 'defect (j)'), (7, 'READ', '23:11:35Z', 'defect (j)'), (8, 'REDIR', '23:11:55Z', 'defect (j)'),
+               (9, 'READ', '23:12:11Z', 'defect (j)'), (10, 'READ', '23:14:31Z', 'defect (j)'), (11, 'SED', '23:48:29Z', 'defect (j)'), (12, 'PIPE', '23:49:13Z', 'defect (j)'),
+               (13, 'PIPE', '03:17:12Z', 'event (1)')]
 C1_UNROWED = []
-C1_ENTERED = []   # ### no post-closing refusal of b744's: b745's hook bank opens at 19:35:11Z, every line b745's own
+C1_ENTERED = []   # ### no post-closing refusal of b744's: b745's hook bank opens at 14:47:57Z, every line b745's own
 C1_FLIP = {}      # ### (R355)(2) flips no tag: each item read as its bank tags it
-C1_CORR_TITLE = ('## Corrigendum to b744’s record (relay data/b744_events.txt rows (1)-(15) and data/b744_defects.txt): fifteen events and twenty-three defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT; the pre-lock dry in prev mode, the repair phase, the hook’s scope, no pushed bank rewritten, the face’s branch list and the kernel push before the root, '
-                 'at tools/standing/ v1.24.0, each controlled, under (R355)(2)')
+C1_CORR_TITLE = ('## Corrigendum to b744’s record (relay data/b744_events.txt rows (1)-(6) and data/b744_defects.txt): six events and seventeen defects, each CLAIM or CLOSE and NEW or '
+                 'REPEAT; the row’s ID, the hold at the root and every record route, standing-b3 after its chain parts, the exempt set and every commit’s row or exemption, the step-row subject, '
+                 'at tools/standing/ v1.25.0, each controlled, under (R355)(2)')
 
 
 def _c1_q(s):
@@ -166,7 +164,7 @@ def _c1_v170_line(needle):
     t = _c1_rd(C1_V170).split(NL)
     h = [i for i, l in enumerate(t, 1) if l.startswith(needle)]
     if len(h) != 1:
-        sys.exit('### THE v1.24.0 BANK: %d LINES OPEN %r, NOT ONE -- NOTHING COMPOSED' % (len(h), needle))
+        sys.exit('### THE v1.25.0 BANK: %d LINES OPEN %r, NOT ONE -- NOTHING COMPOSED' % (len(h), needle))
     return h[0]
 
 
@@ -183,18 +181,18 @@ def _c1_state():
             continue
         k = row.split('(', 1)[1].rstrip(')')
         src = dtext.get(k, '') if row.startswith('defect') else ev.get(int(k), '')
-        if 'hook' not in src.lower() and at[:5] not in src:
+        if 'hook' not in src.lower() and 'refused' not in src.lower() and at[:5] not in src:
             bad_ref.append(ln)
     cr = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
     (cc, cd), _l = _c1_fl('b744_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT', 'the counter')
     v = _c1_rd(C1_V170)
-    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.24.0: CONTROLS')]
+    foot = [l for l in v.split(NL) if l.startswith('### ### **v1.25.0: CONTROLS')]
     s = dict(events=ev, tags=tags, defects=dr, notes=list(C1_NOTES))
     nc, nl_, _rep, _n = _c1_counts(s)
-    bad = [k_ for k_, ok_ in (('the event rows (1)-(15)', sorted(ev) == list(range(1, 16))), ('each event`s bracket', all(t[0] for t in tags.values())),
-                              ('the defect rows 23', len(dr) == 23), ('the refusals 17, each answered as listed', len(rl) == 17 and not bad_ref),
+    bad = [k_ for k_, ok_ in (('the event rows (1)-(6)', sorted(ev) == list(range(1, 7))), ('each event`s bracket', all(t[0] for t in tags.values())),
+                              ('the defect rows 17', len(dr) == 17), ('the refusals 13, each answered as listed', len(rl) == 13 and not bad_ref),
                               ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr) and max(cr) == C1_CORRIGENDA_LAST),
-                              ('the v1.24.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
+                              ('the v1.25.0 controls ALL AS WANTED', len(foot) == 1 and 'ALL AS WANTED' in foot[0]),
                               ('the counter the closing`s (CLAIM %s, CLOSE %s)' % (cc, cd), (nc, nl_) == (int(cc), int(cd)))) if not ok_]
     if bad:
         sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (refusals %s ; counter %d, %d)' % (bad, bad_ref, nc, nl_))
@@ -226,37 +224,28 @@ def _c1_col(c):
     return 'NEW' if c == 'NEW' else c.replace('REPEAT ', 'REPEAT of ', 1).replace("'", '’').replace('`', '’')
 
 
-# ### the repairs each item is met by at v1.24.0 (the rules bank data/b745_rules.txt)
-C1_EV_EXTRA = {1: '; rule (7) of data/b745_rules.txt: the hook held, REPEAT (`(R355)`(2)(vii)-(x), the readings)',
-               2: '; rule (7) of data/b745_rules.txt: the hold held',
-               3: '; repair (prevdry); rule (1) of data/b745_rules.txt: every part’s sources() exercised in prev mode at the pre-lock dry',
-               4: '; repair (hook); rule (3) of data/b745_rules.txt: the post-lock refusal binds banks and faces, the act module’s edit allowed and scored N4 REFUTED',
-               5: '; rule (7) of data/b745_rules.txt: the hook’s ENV row held on the author’s own call; the lift scripts carry no prefix',
-               6: '; rule (7) of data/b745_rules.txt: the hold held, REPEAT of row (2)',
-               7: '; repair (prevdry); rule (1) of data/b745_rules.txt: the second stop, found before the lock under the same dry',
-               8: '; repair (repair); rule (2) of data/b745_rules.txt: commit.py’s phase `repair` between the lock and the seal, under three conditions',
-               9: '; repair (repair); rule (2) of data/b745_rules.txt: the head “bNNN repair:” the tool’s own, the shell route no longer needed',
-               10: '; repair (order); rule (6) of data/b745_rules.txt: the kernel push ordered before the root, the order printed',
-               11: '; repair (branches); rule (5) of data/b745_rules.txt: the act’s push-* branch entered in the face’s branch list by the tool that makes it',
-               12: '; rule (7) of data/b745_rules.txt: the phase table read from the part`s bank (the dated note below)',
-               13: '; rule (7) of data/b745_rules.txt: the push tool’s refusal of `(R354)`(3)(iii) working, REPEAT of b742 event (4)',
-               14: '; rule (7) of data/b745_rules.txt: the suite’s self-refusal working, REPEAT',
-               15: '; repair (rewrite) and (tags); rule (4) of data/b745_rules.txt: a pushed bank never rewritten, a corrected form at a suffixed path; the tags read at the pre-lock dry'}
+# ### the repairs each item is met by at v1.25.0 (the rules bank data/b745_rules.txt)
+C1_EV_EXTRA = {1: '; rule (6) of data/b745_rules.txt: the hook’s PIPE row held, REPEAT ((R355)(2)(vi))',
+               2: '; repair (b3); rule (3) of data/b745_rules.txt: standing-b3 refuses itself while a chain part’s bank is absent',
+               3: '; repair (hold); rule (2) of data/b745_rules.txt: the hold binds the root route and every record route, the route refusing itself and printing the figure',
+               4: '; repair (exempt); rule (4) of data/b745_rules.txt: the post-lock scan bank in the exempt set, every commit printed with its row or its exemption',
+               5: '; repair (subject); rule (5) of data/b745_rules.txt: the step-row subject composed from the rows the commit adds, a typed one refused by the hook',
+               6: '; rule (6) of data/b745_rules.txt: the suite’s self-refusal working, REPEAT ((R355)(2)(vi))'}
 C1_DF_EXTRA = {}
 C1_REFUSED_LATE = None
-C1_NOTES = ('Dated note, b745, to event (12) (`(R355)`(2)(ix)): the phase table of the pre-push part standing-c as its bank prints it (relay data/b744_checks_standing-c.txt :5-:6): the banks and the state 147 s, the four standing figures 12 s, the written files, the public bytes and the prior banks 450 s, the other phases not in this part; the longest phase 450 s, above 450 s False; the run 610 s (:33). The phase of the written files and the public bytes carries the part; the repair’s state is that no phase passed the 450 s line and the run passed the 600 s foreground limit by 10 s.',
-            'Dated note, b745, to event (15) (`(R355)`(2)(iv)): the two forms stand as two banks: data/b744_events.txt at the record 96d8e736, untagged, and at the closing 7f41b079, tagged; neither is edited now. Under v1.24.0 the closing push of such a rewrite is refused at the push tool (pushcheck.rewritten, the (rewrite) case), and the corrected form goes to a new bank at a suffixed path.')
+C1_NOTES = ('Dated note, b745, to event (3) (`(R355)`(2)(ii)), tagged in its bank THE TOOLS’ [CLAIM ; NEW]: the free memory 2,360 MB read before `record root_arm`, beneath the hold 2,560 MB; '
+            'the route ran, the record tool’s dispatch reading no hold before it; the root’s figures it computed stand as banked (data/b744_root_arm.json), the repair binding the route from v1.25.0.',
+            'Dated note, b745, to the ID rule (`(R355)`(2)(i)): REGISTRY.md at PLACE-papers 5937961 holds seventeen IDs under two or three rows each (1.5a-5, 1.5a-6, 1.5a-7, 1.5a-8, 1.5b-6, 1.5c-16, '
+            '1.5d-4, 1.5f-4, 1.5g-4, 1.5h-3, 1.5h-7, 1.5h-8, 1.5h-9, d1-1, p2-16, p2-27, p2-4; relay data/b745_standing_v1250.txt, the (rowid) block); they are older than the rule, stand as found, '
+            'and are not this act’s to repair; the rule binds the rows a commit adds.')
 C1_CLASSES = (
-    ('prevdry', 'the pre-lock dry in prev mode (`(R355)`(2)(i), events (3), (7))', 'rule (1) of data/b745_rules.txt; tools/standing/prevdry.py exercises every part’s sources() with `--prev`, main() never called, banked per part with the act module’s blob; tools/standing/prelock.py gate reads every part OK at the present blob or is NOT CLEAR. b744’s module at its lock replayed: the act part stops at :561, the module with :561 alone repaired stops at :575 in standing-a1; the repaired module passes both'),
-    ('prevdry-ok', 'the repaired module under the same dry', 'guards: bd968013’s module, the act part and standing-a1, SOURCES OK'),
-    ('tags', 'the tags at the pre-lock dry (`(R355)`(2)(iv), event (15))', 'rule (4) of data/b745_rules.txt; prelock.tags reads the events and defects banks through the counter’s items at the lock gate. b744’s events at 96d8e736 refused there; at 7f41b079 every row tagged'),
-    ('repair', 'the repair phase (`(R355)`(2)(ii), events (8)-(9))', 'rule (2) of data/b745_rules.txt; commit.py `repair`: a lock row and no seal row; the author’s lift banked with its time; the settings file’s sha256 equal to the value banked before the lift; the staged diff confined to tools/acts/<act>.py and to the lines the events name; the head “bNNN repair:”, the row written as phase repair. bd968013 replayed and accepted; with no lift banked, and with a line the events do not name, refused'),
-    ('hook', 'the hook’s scope (`(R355)`(2)(iii), event (4))', 'rule (3) of data/b745_rules.txt; tools/standing/hook.py locked_bank no longer counts tools/acts/<act>.py; b744’s two refused Edits replayed as allowed; a bank still refused; N4 REFUTED on such an edit by the score route’s post-lock read'),
-    ('rewrite', 'no pushed bank rewritten (`(R355)`(2)(iv), event (15))', 'rule (4) of data/b745_rules.txt; tools/standing/pushcheck.py rewritten: an act text bank on the remote’s main whose form at the branch is not the pushed form with lines appended refuses the push, exit 13. b744’s closing push refused on data/b744_events.txt; its pre-root and record pushes clear'),
-    ('branches', 'the face’s branch list (`(R355)`(2)(v), event (11))', 'rule (5) of data/b745_rules.txt; tools/standing/facebranches.py make enters the act’s push-* branch in data/<act>_face_branches.json; fold/checks.tpl’s kernels_untouched takes the listed branches out before the face is compared. push-b744-sitting replayed as listed: the arm passes; an unlisted branch still fails'),
-    ('order', 'the kernel push before the root (`(R355)`(2)(vi), event (10))', 'rule (6) of data/b745_rules.txt; facebranches order prints “push the kernel, read it back, then `record root`” where a listed kernel’s main is ahead of its remote. b744’s sequence replayed: the order printed; level, nothing waits'),
-    ('repeat', 'the REPEAT readings (`(R355)`(2)(vii)-(x), events (5), (12)-(14))', 'rule (7) of data/b745_rules.txt; guards: the push tool’s refusal REPEAT of b744 event (13), the suite’s self-refusal, the phase table read, the hook’s ENV row'),
-    ('version', 'the version (`(R355)`(2)(xi))', 'rule (8) of data/b745_rules.txt; tools/standing/VERSION v1.24.0, landed by a commit of its own (%s) with its controls bank' % K.C1_STANDING),
+    ('rowid', 'the row’s ID (`(R355)`(2)(i), b743’s [B1]-[B3])', 'rule (1) of data/b745_rules.txt; tools/standing/rowid.py allocates from the file’s maximum over every table carrying the prefix and refuses an added row whose ID the base file holds; tools/standing/hook.py refuses such a PLACE-papers commit (kind ROWID). b743’s three rows refused against their parents and through the hook on a scratch clone; b744’s renumbered rows accepted; the next 1.5c ID before b743’s sitting 1.5c-21'),
+    ('hold', 'the hold at the root and every record route (`(R355)`(2)(ii), event (3))', 'rule (2) of data/b745_rules.txt; the rendered record tool asks tools/standing/hold.py before any route. b744’s `record root_arm` at 2,360 MB refused; at 3,000 MB it runs; `record step` at 2,559 MB refused'),
+    ('b3', 'standing-b3 after its four chain parts (`(R355)`(2)(iii), event (2))', 'rule (3) of data/b745_rules.txt; the checks tool’s part standing-b3 refuses itself while a half bank of its run is absent. b744’s sequence refused on four absent banks; with them present it runs'),
+    ('exempt', 'the exempt set and every commit’s row or exemption (`(R355)`(2)(iv), event (4))', 'rule (4) of data/b745_rules.txt; tools/standing/repeat.py’s set takes the post-lock scan bank, row_or_exemption prints each commit. da9910f9 needing a row before, exempt after; b744’s relay commits printed, none NO ROW'),
+    ('subject', 'the step-row subject (`(R355)`(2)(v), event (5))', 'rule (5) of data/b745_rules.txt; tools/standing/subjects.py composes the step-row subject from the rows the staged step bank adds, tools/standing/hook.py refuses another. f5ff3680’s subject faulted; regenerated as “b744 record: the step row for relay e4ab0a4b”'),
+    ('repeat', 'the REPEAT instances (`(R355)`(2)(vi), events (1), (6))', 'rule (6) of data/b745_rules.txt; guards: the hook’s PIPE row, the suite’s self-refusal'),
+    ('version', 'the version (`(R355)`(2)(vii))', 'rule (7) of data/b745_rules.txt; tools/standing/VERSION v1.25.0, landed by a commit of its own (%s) with its controls bank' % K.C1_STANDING),
 )
 
 
@@ -265,20 +254,20 @@ def _c1_lines(s):
     rc, rl_, rr, rn = _c1_read_counts(s)
     claims = [('(%d)' % k_) for k_ in sorted(s['events']) if s['tags'][k_][0] == 'CLAIM'] + [('(%s)' % x[0].replace("'", '’')) for x in s['defects'] if x[2] == 'CLAIM']
     m = re.search(r'CASES (\d+) ; AS WANTED (\d+)', s['v170_foot'])
-    L = ['*b744’s events bank (relay data/b744_events.txt) carries fifteen rows, entered after its lock and not lettered, each tagged in its '
-         'own bracket (%s); its defects bank twenty-three lettered rows, (a)-(w), each tagged in its own bracket (%s); its refusal bank seventeen lines at %s, '
+    L = ['*b744’s events bank (relay data/b744_events.txt) carries six rows, entered after its lock and not lettered, each tagged in its '
+         'own bracket (%s); its defects bank seventeen lettered rows, (a)-(q), each tagged in its own bracket (%s); its refusal bank thirteen lines at %s, '
          'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*' % (
              _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
-    L += ['**The repairs of `(R355)`(2), at tools/standing/ v1.24.0, each with a control on b744’s banks, failing on the route before the repair '
+    L += ['**The repairs of `(R355)`(2), at tools/standing/ v1.25.0, each with a control on b744’s or b743’s banks, failing on the route before the repair '
           'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what in C1_CLASSES:
         L += ['**(%s) %s** -- %s (:%d).' % (k_, name, what, _c1_v170_line('### (%s) ' % k_)), '']
-    L += ['**b744’s events (1)-(15):**', '']
+    L += ['**b744’s events (1)-(6):**', '']
     for k_ in sorted(s['events']):
         t, r, o = s['tags'][k_]
         h = re.sub(r"^(THE SEAT'S|THE TOOL'S|THE TOOLS'|THE SCORE|THE RUNNER|THE HOST'S|THE HOST|THE NAVIGATOR'S|THE AUTHOR'S WORD|THE AUTHOR'S) \[[^\]]*\](, )?:? ?", '', s['events'][k_])
-        h = re.sub(r'^(AFTER )?((about |read at |between )?\d\d:\d\d(:\d\d)?Z( to \d\d:\d\dZ)?( and (again )?\d\d:\d\d(:\d\d)?Z)?(, before the lift of row \(4\))?)[:,] ', '', h)
+        h = re.sub(r'^(AFTER )?((about |read at |between )?\d\d:\d\d(:\d\d)?Z( to \d\d:\d\dZ)?( and (again )?\d\d:\d\d(:\d\d)?Z)?)[:,] ', '', h)
         h = (h[:120].rsplit(' ', 1)[0] + ' …') if len(h) > 120 else h
         L += ['**(%d)** %s (relay data/b744_events.txt, row (%d); %s; %s; %s%s).' % (
             k_, _c1_q(h).replace("'", '’'), k_, o.lower().replace("'s", '’s').replace("'", '’'), t, _c1_col(r), C1_EV_EXTRA.get(k_, '').replace('`', '’'))]
@@ -288,10 +277,10 @@ def _c1_lines(s):
     L += ['', '**b744’s refusals** (relay data/b744_hook_refusals.txt at %s, one a line): ' % C1_REFUSAL_AT + '; '.join(
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
           '**Dated notes:**', ''] + [x_ for nt_ in s['notes'] for x_ in (nt_, '')] + [
-          '**The counter:** CLAIM %d, CLOSE %d, REPEAT %d of %d over the %d items as the banks tag them (fifteen events, twenty-three defects), as b744’s closing prints it (relay data/b744_closing.txt :5); '
+          '**The counter:** CLAIM %d, CLOSE %d, REPEAT %d of %d over the %d items as the banks tag them (six events, seventeen defects), as b744’s closing prints it (relay data/b744_closing.txt :5); '
           'no tag is read otherwise here; the CLAIM items %s.' % (nc, nl_, rep, n, n, ', '.join(claims) or 'none'), '',
           '*Filed at b745 on the author’s ruling `(R355)`(2): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b745.py) from '
-          'b744’s events and defects banks read unedited, its refusal bank, and the v1.24.0 controls bank; banked as relay `data/b745_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
+          'b744’s events and defects banks read unedited, its refusal bank, and the v1.25.0 controls bank; banked as relay `data/b745_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b744’s record; no sealed tool, face, trail or root-named bank of b744 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
     return L
 
@@ -300,11 +289,11 @@ def _c1_bank(s, ln):
     nc, nl_, rep, n = _c1_counts(s)
     rc, rl_, rr, rn = _c1_read_counts(s)
     return (['b745 -- THE CORRIGENDUM FOR b744, (R355)(2) (%s)' % utc(), '',
-             '### the banks read unedited: data/b744_events.txt rows (1)-(15), data/b744_defects.txt 23 rows, data/b744_hook_refusals.txt 17 '
-             'lines at %s; data/%s (the v1.24.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
+             '### the banks read unedited: data/b744_events.txt rows (1)-(6), data/b744_defects.txt 17 rows, data/b744_hook_refusals.txt 13 '
+             'lines at %s; data/%s (the v1.25.0 controls); the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 15, DEFECTS 23 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.24.0: THE PRE-LOCK DRY IN PREV MODE, THE REPAIR PHASE, '
-               'THE HOOK`S SCOPE, NO PUSHED BANK REWRITTEN AND THE TAGS AT THE DRY, THE FACE`S BRANCH LIST, THE KERNEL PUSH BEFORE THE ROOT, THE REPEAT READINGS, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (
+            + ['', '### ### **ITEMS %d: EVENTS 6, DEFECTS 17 ; CLAIM %d, CLOSE %d ; REPEAT %d ; DATED NOTES %d ; v1.25.0: THE ROW`S ID, THE HOLD AT THE ROOT AND EVERY RECORD ROUTE, '
+               'b3 AFTER ITS CHAIN PARTS, THE EXEMPT SET AND EVERY COMMIT`S ROW OR EXEMPTION, THE STEP-ROW SUBJECT, THE REPEAT INSTANCES, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (
                    n, nc, nl_, rep, len(s['notes']), ln)])
 
 
@@ -336,7 +325,7 @@ def c1(*a):
                                                    entered=[], flipped=dict((str(k_), v_) for k_, v_ in C1_FLIP.items()),
                                                    defects=[dict(letter=x, owner=o, tag=t, column=c) for x, o, t, c, _tx in s['defects']],
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
-                                                   notes=s['notes'], repairs=dict(version='v1.24.0', bank='data/' + C1_V170),
+                                                   notes=s['notes'], repairs=dict(version='v1.25.0', bank='data/' + C1_V170),
                                                    row=C1_CORRIGENDA_LAST + 1))
         print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; AS READ HERE %d, %d, %d OF %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, rc, rl_, rr, rn, len(s['notes']), ln))
         return
