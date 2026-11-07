@@ -198,8 +198,9 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R354)(2): the corrigend
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')
-#   ### (R354)(4) and the ferry's (N5): the corrigendum entry, the trail and the FINDINGS entry alone; no paper written
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md')
+#   ### (R354)(4) and the ferry's (N5): the corrigendum entry, the trail and the FINDINGS entry; REGISTRY by the author's word amending
+#   ### (R354)(4) (data/b744_amendments.json: the three Epstein rows renumbered, the dated notes); no paper written
 PP_WRITTEN = PP_EDITED
 PP_NEW = ()
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
@@ -250,7 +251,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b743: its LF form equal to HEAD's (blob a94aa543), nothing to commit; restored by checkout
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None             # ### step zero's banks and carried tools, one commit (data/b744_stepzero.txt among them); set after it is made
+STEPZERO_BANKS = '678338f3'       # ### step zero's banks and carried tools, one commit (data/b744_stepzero.txt among them)
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b743's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R354)(3), with its amendment row: the commit every dispatch row names ((R354)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -292,7 +293,7 @@ B723_ROOT_BANKS = 'bdd946b3'  # ### b743's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'c9396ad0'           # ### tools/standing/ v1.24.0 by a commit of its own, its controls bank data/b744_standing_v1240.txt ((R354)(2))
 C1_STANDING_REPAIR = None          # ### no act data changed by the repairs
-C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row, the rules bank; set after it is made
+C1_RELAY = 'e810c5ba'              # ### the c1 route, the corrigendum banks, the corrigenda row (64), the rules bank; step 4
 C1_CORR = C1_RELAY
 C1_RULES = C1_RELAY
 C1_PP = 'f697b010'                 # ### PLACE-papers: FINDINGS (b743 at its weight :13838), (the corrigendum :13840); step 3
@@ -301,8 +302,10 @@ C2_TOOL = None
 WEIGHT_LINE, CORR_LINE = 13838, 13840   # ### FINDINGS: b743's weight line and the corrigendum for b743 (Component 1, PLACE-papers f697b010)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None   # ### the first plan bank's commit ((R354)(3), before any Lean); set after it is made
-C2_RELAY = None        # ### Component 2, the two plan banks and the print dispatches' rows; set after it is made
+C2_PLAN_FIRST = '2e1caea2'   # ### the first plan bank's commit ((R354)(3)(a), W-ORD-ZETA-BOX), step 5; no Lean
+C2_RELAY = '28a554eb'        # ### Component 2's last commit, the second plan bank ((R354)(3)(b), W-ORD-POSITIVE-CONTROL), step 6; no print dispatch (0 of 2)
+C2_AMEND_RELAY = '1d16849b'  # ### the author's word amending (R354)(4): the amendment row (data/b744_amendments.json), step 10
+C2_AMEND_PP = ('0d51a02', '1ead4e5', '93dcbaa')   # ### PLACE-papers: REGISTRY renumbered + note, OPEN_TRAILS note to :17716, FINDINGS note to :13812; steps 7-9
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
@@ -310,7 +313,7 @@ MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
 PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: data/b744_sitting.txt
-PLAN_MD5 = None   # ### the first plan bank's md5 at its commit (LF), set after it is made
+PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b744_zetabox_plan.txt's md5 at 2e1caea2 (LF), the working tree's the same
 C2_AMEND = ()
 SITTING_PP = ()       # ### no sitting this act
 SITTING_KERNEL = None # ### no kernel written this act ((R354)(5))
@@ -389,8 +392,8 @@ EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430,
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
 DISPATCH_ROWS = 'data/b744_dispatch_rows.json'
-ERRATA_ID = 'E-2026-11-06-1'   # ### (R354)(4)(B), [B6]: (R345)(6)'s sentence withdrawn by (R346)(2), appended at PLACE-papers 05624b9
-ERRATA_IDS = (ERRATA_ID,)
+ERRATA_ID = None   # ### b744 files no ERRATA entry ((R354) orders none); b743's E-2026-11-06-1 at PLACE-papers 05624b9 is b743's
+ERRATA_IDS = ()
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
