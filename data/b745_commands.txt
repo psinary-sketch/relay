@@ -1,7 +1,7 @@
-b745 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-07T21:20:32Z)
+b745 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-07T21:26:44Z)
 
 ### the source: the seat`s session 161ec306-dcdf-48bc-85b2-f457190f55f8 from its first user line carrying 'RULING (R355) BEGIN', with its subagents` transcripts
-### commands read: 484
+### commands read: 495
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (4):
   #12 2026-11-07T14:50:30.621Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -700,5 +700,16 @@ b745 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #482 | 2026-11-07T21:17:28.442Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b745_face.py
   #483 | 2026-11-07T21:17:35.598Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_regis
   #484 | 2026-11-07T21:20:18.186Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
+  #485 | 2026-11-07T21:21:04.264Z | seat | Bash | git log --reverse --format="%h %s" 8c0f7568~1..7d448774 -14
+  #486 | 2026-11-07T21:21:15.603Z | seat | Bash | git status --short --untracked-files=no && git status --short -- "data/*b745*"
+  #487 | 2026-11-07T21:21:20.160Z | seat | Bash | git show --name-only --format= cbf90ed2
+  #488 | 2026-11-07T21:21:26.545Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b745_address_scan.py scan --bank
+  #489 | 2026-11-07T21:21:47.875Z | seat | Bash | git add data/audit_b745_reg_satisfiable.txt data/b745_address_scan.txt data/b745_census_stepzero.txt data/b745_closing_dry.txt data/b745_commands.json data/b745
+  #490 | 2026-11-07T21:21:52.871Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate
+  #491 | 2026-11-07T21:22:06.567Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #492 | 2026-11-07T21:22:07.752Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b745 -
+  #493 | 2026-11-07T21:23:26.152Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_regis
+  #494 | 2026-11-07T21:25:52.519Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
+  #495 | 2026-11-07T21:26:36.856Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b7
 
-### ### **COMMANDS 484 ; G-EDIT-ROUTE OFFENCES 4 (SED IN ANY FORM AMONG THEM 3) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 21 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 0 ; sed COMMANDS 3 ; REDIRECTS ONTO /dev/null 3 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 5 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 131 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 495 ; G-EDIT-ROUTE OFFENCES 4 (SED IN ANY FORM AMONG THEM 3) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 21 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 6 ; DETACHED RUNS 0 ; sed COMMANDS 3 ; REDIRECTS ONTO /dev/null 3 ; REDIRECTS OF ANY STREAM 3 ; PIPES INTO A SHELL FILTER 5 ; PIPES OF ANY KIND 7 ; ONE-LINE PROGRAMS 131 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

@@ -1,5 +1,5 @@
 {
- "at": "2026-11-07T21:20:32Z",
+ "at": "2026-11-07T21:26:44Z",
  "anchor": "RULING (R355) BEGIN",
  "rows": [
   {
@@ -3872,6 +3872,94 @@
    "src": "seat",
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b745",
    "n": 484,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:21:04.264Z",
+   "src": "seat",
+   "cmd": "git log --reverse --format=\"%h %s\" 8c0f7568~1..7d448774 -14",
+   "n": 485,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:21:15.603Z",
+   "src": "seat",
+   "cmd": "git status --short --untracked-files=no && git status --short -- \"data/*b745*\"",
+   "n": 486,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:21:20.160Z",
+   "src": "seat",
+   "cmd": "git show --name-only --format= cbf90ed2",
+   "n": 487,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:21:26.545Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_address_scan.py scan --bank",
+   "n": 488,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:21:47.875Z",
+   "src": "seat",
+   "cmd": "git add data/audit_b745_reg_satisfiable.txt data/b745_address_scan.txt data/b745_census_stepzero.txt data/b745_closing_dry.txt data/b745_commands.json data/b745_commands.txt data/b745_defects.txt data/b745_faces_census_stepzero.txt data/b745_pins_stepzero.txt data/b745_prelock.txt data/b745_reg_gate.txt data/b745_reg_termscan.txt data/b745_regspec_run.txt data/b745_registration_2026-11-07.txt data/b745_report_dry.txt data/b745_satisfiable.json data/b745_steps.json tools/b745_face_blocks.txt && git diff --cached --shortstat",
+   "n": 489,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:21:52.871Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 490,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:22:06.567Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b745",
+   "n": 491,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:22:07.752Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b745 --quiet",
+   "n": 492,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:23:26.152Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_registration_2026-11-07.txt --act b745 --quiet --bank-only",
+   "n": 493,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:25:52.519Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b745",
+   "n": 494,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:26:36.856Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b745",
+   "n": 495,
    "bg": false
   }
  ],
