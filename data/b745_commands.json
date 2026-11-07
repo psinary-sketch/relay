@@ -1,5 +1,5 @@
 {
- "at": "2026-11-07T18:06:54Z",
+ "at": "2026-11-07T21:20:32Z",
  "anchor": "RULING (R355) BEGIN",
  "rows": [
   {
@@ -2769,6 +2769,1110 @@
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b745",
    "n": 346,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:07:39.514Z",
+   "src": "seat",
+   "cmd": "git grep -n \"rm without\" -- tools/standing tools/*.py",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:07:43.974Z",
+   "src": "seat",
+   "cmd": "git grep -n \"rm without\" -- tools/standing",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:07:48.256Z",
+   "src": "seat",
+   "cmd": "git grep -n -l \"rm without\" -- data/b685_rules.txt data/b686_rules.txt data/b698_rules.txt data/b705_rules.txt tools/rule_arms.py tools/b703_checks.py tools/act_close.py",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:07:52.552Z",
+   "src": "seat",
+   "cmd": "git grep -n \"rm without an\" HEAD -- \"tools/*.py\" \"tools/standing/*\" \"data/*_rules.txt\"",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:07.115Z",
+   "src": "seat",
+   "cmd": "git grep -n \"EDIT-ROUTE\" -- tools/standing/fold tools/acts/b745.py",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:14.330Z",
+   "src": "seat",
+   "cmd": "git grep -n \"'G-EDIT-ROUTE'\" -- tools/standing/fold/checks.tpl tools/acts/b745.py tools/acts/b744.py",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:23.038Z",
+   "src": "seat",
+   "cmd": "git grep -n -A14 \"^def edit_route_ok\" -- tools/standing/fold/checks.tpl",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:27.069Z",
+   "src": "seat",
+   "cmd": "git grep -n \"def edit_route_ok\" -- tools/standing/fold tools/acts/b745.py tools/standing",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:38.363Z",
+   "src": "seat",
+   "cmd": "git grep -n \"^C3 \\|import .* as C3\\|C3 =\" -- tools/standing/fold/checks.tpl",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:42.499Z",
+   "src": "seat",
+   "cmd": "git grep -n -A14 \"def edit_route_ok\" -- tools/b703_checks.py",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:08:58.491Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b745_defects.txt',encoding='utf-8').read().split('\\n');print(len(t));[print(i+1,l[:260]) for i,l in enumerate(t)]\"",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:09:37.619Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record figures --act b745",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:09:58.963Z",
+   "src": "seat",
+   "cmd": "git grep -n -A30 \"^def readme\" -- tools/b705_standing_figures.py",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:10:06.029Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;j=json.load(open('data/b745_standing_figures.json',encoding='utf-8'));r=j.get('readme') or j;print(type(r));print([x for x in (r.get('rows') if isinstance(r,dict) else []) if x.get('state') not in ('EXCLUDED','CURRENT')] if isinstance(r,dict) else list(j)[:20])\"",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:10:12.713Z",
+   "src": "seat",
+   "cmd": "git grep -n \"('G-[A-Z-]*README[A-Z-]*'\\|('G-[A-Z-]*FIGURE[A-Z-]*'\" -- tools/standing/fold/checks.tpl tools/acts/b745.py",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:10:21.884Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;t=open('data/b745_ferry.txt',encoding='utf-8').read().split('\\n')[12];[print(repr(t[max(0,m.start()-500):m.end()+400])) for m in re.finditer('README|currency',t)]\"",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:10:33.891Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record guard --act b745",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:10:56.076Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/b745_prepaths.py --bank",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:13:01.187Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:13:13.488Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b745_registration_2026-11-07.txt',encoding='utf-8').read().split('\\n');print(t[62][:1500])\"",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:13:18.935Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:15:55.171Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:16:37.414Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('tools/standing/prevdry.py',encoding='utf-8').read().split('\\n');print(len(t));[print(i+1,l[:220]) for i,l in enumerate(t[:120])]\"",
+   "n": 369,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:16:42.598Z",
+   "src": "seat",
+   "cmd": "git grep -n \"'--prev'\" -- tools/standing/fold/checks.tpl",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:16:46.773Z",
+   "src": "seat",
+   "cmd": "git grep -n \"if PREV\\b\\|PREV:\\|PREV else\\|PREV and\" -- tools/standing/fold/checks.tpl tools/acts/b744.py",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:16:55.874Z",
+   "src": "seat",
+   "cmd": "git grep -n -A30 \"^def _prev_rebind\" -- tools/standing/fold/checks.tpl",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:17:05.448Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b744_worklist as P;[print(n,repr(getattr(P,n,'<ABSENT>'))[:120]) for n in ('ZQ_FIRST','ZQ_COMMITS','ZQ_TIP','GEN_COMMITS','GEN_MD5','PLAN_MD5S','STEPZERO_BANKS','C1_TAG_PP','C1_STANDING','C1_RELAY','PRINT_COMMIT','GENERATOR','MAX_DISPATCHES','EF_RUNS','ZQ_FILES','PLAN_BANK','POSCONTROL_PLAN','REG_COMMIT')]\"",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:17:20.511Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:20:57.201Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2",
+   "n": 375,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:29:05.836Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:36:14.106Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:39:43.082Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:44:31.442Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:49:25.392Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:54:54.076Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:01:05.131Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:06:46.412Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:09:27.998Z",
+   "src": "seat",
+   "cmd": "git grep -n \"FLOORS\" -- tools/standing/fold tools/standing/*.py",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:09:37.503Z",
+   "src": "seat",
+   "cmd": "git grep -n \"defects_ok(S)\" -- tools/standing/fold/checks.tpl tools/acts/b745.py && git grep -c \"THE TOOLS'\" -- data/b744_defects.txt data/b743_defects.txt data/b745_defects.txt",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:10:16.303Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record closeorder --act b745",
+   "n": 386,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:10:29.174Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b745",
+   "n": 387,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:11:11.166Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b745_scores_dry.txt',encoding='utf-8').read().split('\\n');l=[x for x in t if x.lstrip().startswith('N5')][0];print(l[1400:])\"",
+   "n": 388,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:11:16.796Z",
+   "src": "seat",
+   "cmd": "git grep -n \"face read them\" -- tools/standing/fold/record.tpl tools/acts/b745.py",
+   "n": 389,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:11:39.392Z",
+   "src": "seat",
+   "cmd": "git grep -n \"SECTION record 2[4-7]\\|OVERRIDE record\" -- tools/acts/b745.py",
+   "n": 390,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:11:54.800Z",
+   "src": "seat",
+   "cmd": "git grep -n -A8 \"def mark_of\" -- tools/standing/fold.py",
+   "n": 391,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:12:00.544Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');import fold;t=open('tools/standing/fold/record.tpl',encoding='utf-8').read().split('\\n');s=t[2562:2564];print(s);print(fold.mark_of(s));print(sum(1 for i in range(len(t)-1) if fold.mark_of(t[i:i+2])==fold.mark_of(s)))\"",
+   "n": 392,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:12:05.328Z",
+   "src": "seat",
+   "cmd": "git grep -n \"82a559f5c96c\" -- tools/acts",
+   "n": 393,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:12:14.881Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;a=json.load(open('data/b744_kernels_face.json',encoding='utf-8'))['kernels']['SIDE-explicit-formula'];b=json.load(open('data/b745_kernels_face.json',encoding='utf-8'))['kernels']['SIDE-explicit-formula'];print(len(a));[print(i,repr(x)[:300]) for i,x in enumerate(a)];print('---');[print(i,repr(x)[:300]) for i,x in enumerate(b)]\"",
+   "n": 394,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:12:24.941Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;b=json.load(open('data/b745_kernels_face.json',encoding='utf-8'))['kernels']['SIDE-explicit-formula'][1];a=json.load(open('data/b744_kernels_face.json',encoding='utf-8'))['kernels']['SIDE-explicit-formula'][1];print({k:v for k,v in b.items() if a.get(k)!=v}, [k for k in a if k not in b])\" && git -C /d/SIDE-explicit-formula tag --contains v0.37",
+   "n": 395,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:12:39.133Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b745",
+   "n": 396,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:13:15.325Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b745_scores_dry.txt',encoding='utf-8').read().split('\\n');l=[x for x in t if x.lstrip().startswith('N5')][0];i=l.find('moved: NONE');print(l[i:i+900])\"",
+   "n": 397,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:13:23.781Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');import fold;t=open('tools/standing/fold/record.tpl',encoding='utf-8').read().split('\\n');s=t[2609:2610];print(s);m=fold.mark_of(s);print(m, sum(1 for i in range(len(t)) if fold.mark_of(t[i:i+1])==m))\"",
+   "n": 398,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:13:38.862Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b745",
+   "n": 399,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:14:20.289Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;r=json.load(open('data/b744_commands.json',encoding='utf-8'))['rows'];[print(x['n'],x['cmd'][:400]) for x in r if 'reg_gate' in x['cmd'] or 'trail dry' in x['cmd'] or 'closing dry' in x['cmd'] or 'rootdry' in x['cmd'] or 'gatebanks' in x['cmd'] or 'lockgate' in x['cmd'] or 'commit.py' in x['cmd']]\"",
+   "n": 400,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:14:25.219Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_registration_2026-11-07.txt --act b745 --quiet",
+   "n": 401,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:17.654Z",
+   "src": "seat",
+   "cmd": "git grep -n \"ARM MISSES\" -- tools/standing/fold/reg_gate.tpl tools/*.py",
+   "n": 402,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:21.610Z",
+   "src": "seat",
+   "cmd": "git grep -n \"ARM MISSES\" -- tools/standing/fold/reg_gate.tpl \"tools/reg_*.py\" \"tools/b6*.py\"",
+   "n": 403,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:36.182Z",
+   "src": "seat",
+   "cmd": "git grep -n \"as RG\" -- tools/standing/fold/reg_gate.tpl",
+   "n": 404,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:40.361Z",
+   "src": "seat",
+   "cmd": "git grep -n -A30 \"def bar_floor_check\" -- tools/registration_gate.py",
+   "n": 405,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:44.692Z",
+   "src": "seat",
+   "cmd": "git grep -n \"^MULTIARM\\|^ARMWORD\" -- tools/registration_gate.py",
+   "n": 406,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:16:55.234Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys,re;sys.path.insert(0,'tools');import registration_gate as RG;t=open('data/b745_registration_2026-11-07.txt',encoding='utf-8').read();[print(s,[m.group(0) for m in RG.MULTIARM.finditer(p)]) for s,p in RG._paragraphs(t) if RG.MULTIARM.search(p) and not RG.ARMWORD.search(p)]\"",
+   "n": 407,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:17:14.848Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record trail dry --act b745",
+   "n": 408,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:17:46.819Z",
+   "src": "seat",
+   "cmd": "git grep -n \"standin\" -- tools/standing/fold/record.tpl",
+   "n": 409,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:17:57.889Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re,glob;fs=glob.glob('data/b745_scanfile_dry_trail*')+glob.glob('C:/Users/ECHOCH~1/AppData/Local/Temp/**/b745_scanfile_dry_trail*',recursive=False);print(fs);t=open(fs[0],encoding='utf-8').read();[print(repr(t[max(0,m.start()-200):m.end()+60])) for m in re.finditer(r'None',t)]\"",
+   "n": 410,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:18:04.959Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record drycheck data/b745_registration_2026-11-07.txt standin --act b745",
+   "n": 411,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:18:23.903Z",
+   "src": "seat",
+   "cmd": "git grep -n -A28 \"^def drycheck\" -- tools/standing/fold/record.tpl",
+   "n": 412,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:18:33.292Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\161ec306-dcdf-48bc-85b2-f457190f55f8\\scratchpad\\trailnone745.py",
+   "n": 413,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:18:54.344Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;t=open('data/b745_ferry.txt',encoding='utf-8').read();[print(repr(t[m.start():m.start()+300])) for m in re.finditer(r'\\((?:5|6|7)\\) ',t)]\"",
+   "n": 414,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:19:11.621Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 415,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:19:12.906Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record drycheck data/b745_registration_2026-11-07.txt standin --act b745 --quiet",
+   "n": 416,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:19:29.836Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b745 --quiet",
+   "n": 417,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:20:36.909Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a1 --quiet",
+   "n": 418,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:24:05.069Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --quiet",
+   "n": 419,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:30:17.683Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re\nfor f in ('data/b744_probe_standing-a2.txt','data/b744_arms_prerun_standing-a2.txt','data/b745_probe_standing-a2.txt'):\n    l=[x for x in open(f,encoding='utf-8').read().split(chr(10)) if 'LIVE FAILING' in x][0]\n    print(f, sorted(re.findall(r'\\\"(G-[A-Z0-9-]+)\\\"', l)))\n\"",
+   "n": 420,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:30:25.423Z",
+   "src": "seat",
+   "cmd": "git grep -n -A3 \"('G-NO-SORRY-MAIN',\\|('G-PP-SCOPE',\\|('G-PRIOR-CLOSED-PUSHED',\\|('G-READFIRST-CITED',\" -- tools/standing/fold/checks.tpl tools/acts/b745.py",
+   "n": 421,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:30:30.872Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git grep -n \"^### b744 —\" HEAD -- OPEN_TRAILS.md",
+   "n": 422,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:30:45.284Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git grep -n -A4 \"SLOT 59⟫\" -- tools/standing/fold/checks.tpl && git grep -n \"pp_allowed=\\|'pp_allowed'\\|pp_changed=\" -- tools/standing/fold/checks.tpl tools/acts/b745.py",
+   "n": 423,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:30:55.732Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;j=json.load(open('data/b745_chain_half_nsm1_probe.json',encoding='utf-8'));print(list(j)[:20])\nrows=j.get('rows') or j.get('nsm') or []\nprint(type(rows), len(rows))\nfor r in rows:\n    if isinstance(r,dict) and not r.get('equal',True): print({k:(v if not isinstance(v,list) else v[:3]) for k,v in r.items()})\n\"",
+   "n": 424,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:01.195Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;j=json.load(open('data/b745_chain_half_nsm1_probe.json',encoding='utf-8'));h=j['half'];print(type(h), list(h)[:10] if isinstance(h,dict) else len(h))\nx=h if isinstance(h,list) else h.get('rows') or list(h.values())\nprint(json.dumps(x)[:2500])\n\"",
+   "n": 425,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:06.555Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;j=json.load(open('data/b745_chain_half_nsm1_probe.json',encoding='utf-8'));print(j['half'][:60]);print(json.dumps(j['acts'])[:3000])\n\"",
+   "n": 426,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:17.482Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-archimedean ls-remote origin refs/heads/main",
+   "n": 427,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:23.649Z",
+   "src": "seat",
+   "cmd": "git grep -n -A12 \"^def readfirst_ok\" -- tools/standing/fold/checks.tpl tools/b703_checks.py",
+   "n": 428,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:28.656Z",
+   "src": "seat",
+   "cmd": "git grep -n \"READFIRST_NEEDLES\" -- tools/acts/b745.py tools/standing/fold/checks.tpl tools/b745_worklist.py",
+   "n": 429,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:35.157Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re,sys;sys.path.insert(0,'tools');import b703_checks as C\nz=C.unwrap(open('data/b745_readfirst.txt',encoding='utf-8').read())\nprint(len(z), \\\"THE FERRY'S READ-FIRST LIST\\\" in z, \\\"THE ACT'S OWN BEYOND THE LIST\\\" in z)\nprint(sorted(set(re.findall(r'(?:relay|PLACE-papers|SIDE-[a-z-]+) [^ |]+ \\|', z))))\n\"",
+   "n": 430,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:42.485Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools');import b703_checks as C\nz=C.unwrap(open('data/b745_readfirst.txt',encoding='utf-8').read())\nN=('relay data/b744_closing.txt |', 'relay data/b744_events.txt |', 'relay data/b744_defects.txt |', 'relay data/b744_sitting.txt |','PLACE-papers OPEN_TRAILS.md at d79ecaf |', 'relay data/b737_offlinezero_plan.txt (149 lines) and data/b741_c7_plan.txt (122 lines) |','relay data/b742_offlinezero.txt |', 'relay data/b735_explicitformula.txt |', 'SIDE-explicit-formula at zq-b730 14ca5725 |','Mathlib at the pin de5ce8a9 |', 'relay tools/b745_worklist.py whole;')\nprint([n for n in N if n not in z])\nimport re;print([l[:150] for l in z.split(chr(10)) if ' | ' in l or '|' in l][:30])\n\"",
+   "n": 431,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:47.891Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re,sys;sys.path.insert(0,'tools');import b703_checks as C\nz=C.unwrap(open('data/b745_readfirst.txt',encoding='utf-8').read())\nfor m in re.finditer(r'\\(\\d+\\) ([^|]{0,120}\\|)', z): print(repr(m.group(1)))\n\"",
+   "n": 432,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:31:53.475Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re,sys;sys.path.insert(0,'tools');import b703_checks as C\nz=C.unwrap(open('data/b745_readfirst.txt',encoding='utf-8').read())\nfor m in re.finditer(r'\\|', z): print(repr(z[max(0,m.start()-110):m.start()+2]))\n\"",
+   "n": 433,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T19:32:18.074Z",
+   "src": "seat",
+   "cmd": "ls data/b744_sitting.txt data/b743_sitting.txt",
+   "n": 434,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:32:49.844Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-c --quiet",
+   "n": 435,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:35:38.572Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --quiet",
+   "n": 436,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:39:01.339Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2a --quiet",
+   "n": 437,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:43:48.988Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2b --quiet",
+   "n": 438,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:48:40.610Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2c --quiet",
+   "n": 439,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:54:12.372Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2d --quiet",
+   "n": 440,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T19:59:56.471Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b3 --quiet",
+   "n": 441,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:05:40.757Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --quiet",
+   "n": 442,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T20:08:27.899Z",
+   "src": "seat",
+   "cmd": "git grep -n -A14 \"def coeffs_law_ok\" -- tools/standing/fold/checks.tpl",
+   "n": 443,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:08:49.082Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\161ec306-dcdf-48bc-85b2-f457190f55f8\\scratchpad\\diagcoef745.py",
+   "n": 444,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:11:38.639Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --quiet",
+   "n": 445,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:14:13.542Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --quiet",
+   "n": 446,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:20:07.208Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a1 --quiet",
+   "n": 447,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:24:20.765Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 448,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:24:27.162Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 449,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:27:42.605Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2",
+   "n": 450,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:33:23.692Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 451,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:33:31.454Z",
+   "src": "seat",
+   "cmd": "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Id, ProcessName, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, StartTime",
+   "n": 452,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:33:39.468Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import subprocess,csv,io; r=list(csv.reader(io.StringIO(subprocess.run(['tasklist','/fo','csv','/nh'],capture_output=True,text=True).stdout))); r=[(int(x[4].replace(',','').replace('.','').split()[0]),x[0],x[1]) for x in r if len(x)>4]; r.sort(reverse=True); [print(k//1024,'MB',n,p) for k,n,p in r[:12]]\"",
+   "n": 453,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:33:49.000Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import subprocess,csv,io; r=list(csv.reader(io.StringIO(subprocess.run(['tasklist','/fo','csv','/nh'],capture_output=True,text=True).stdout))); [print(x[0],x[1],x[4]) for x in r if len(x)>4 and x[0].lower().split('.')[0] in ('python','lean','lake','git','bash','pwsh','powershell')]; import ctypes\"; [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024)",
+   "n": 454,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:34:13.298Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 455,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:40:02.241Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1",
+   "n": 456,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:43:14.944Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a",
+   "n": 457,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:47:39.584Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b",
+   "n": 458,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:52:10.423Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c",
+   "n": 459,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T20:57:28.507Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d",
+   "n": 460,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:02:55.557Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3",
+   "n": 461,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:08:03.718Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act",
+   "n": 462,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:10:29.670Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -c \"L=open('data/b745_hook_refusals.txt',encoding='utf-8').read().splitlines(); print(len(L)); [print(i+1, l[:230]) for i,l in enumerate(L[-4:], len(L)-4)]\"",
+   "n": 463,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:10:45.540Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 464,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:10:51.684Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_registration_2026-11-07.txt --act b745 --quiet",
+   "n": 465,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:12:01.990Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 466,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:12:02.738Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_address_scan.py scan --bank",
+   "n": 467,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:12:29.244Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -c \"import json; d=json.load(open('data/b744_commands.json',encoding='utf-8')); c=d['commands'] if isinstance(d,dict) else d; x=[r for r in c if 'git add' in str(r.get('command',r) if isinstance(r,dict) else r)]; [print(str(r.get('command',r) if isinstance(r,dict) else r)[:3000]) for r in x[-3:]]\"",
+   "n": 468,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:12:39.835Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=%h%n%s HEAD~0 -- . && git log --format=\"%h %s\" -12",
+   "n": 469,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:12:43.890Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" --grep=\"b744 component 4\" -6",
+   "n": 470,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:12:47.887Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -1 --diff-filter=A -- data/b744_prevdry_act.json",
+   "n": 471,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:12:51.650Z",
+   "src": "seat",
+   "cmd": "git show --name-only --format= 8c0f7568",
+   "n": 472,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:13:02.994Z",
+   "src": "seat",
+   "cmd": "git add data/b745_address_scan.txt data/b745_bank_hashes.json data/b745_closing_dry.txt data/b745_commands.json data/b745_commands.txt data/b745_defects.txt data/b745_guard_dry.json data/b745_guard_dry.txt data/b745_hook_refusals.txt data/b745_kernels_face.json data/b745_pathrefusal.txt data/b745_prelock.txt data/b745_prevdry_act.json data/b745_prevdry_standing-a1.json data/b745_prevdry_standing-a2.json data/b745_prevdry_standing-b1.json data/b745_prevdry_standing-b2a.json data/b745_prevdry_standing-b2b.json data/b745_prevdry_standing-b2c.json data/b745_prevdry_standing-b2d.json data/b745_prevdry_standing-b3.json data/b745_prevdry_standing-c.json data/b745_reg_gate.txt data/b745_registration_2026-11-07.txt data/b745_report_dry.txt data/b745_scores_dry.txt data/b745_standing_figures.json data/b745_standing_figures.txt data/b745_touch.txt tools/acts/b745.py tools/b745_face.py tools/b745_face_blocks.txt tools/b745_prepaths.py && git diff --cached --stat --shortstat",
+   "n": 473,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:13:09.736Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 474,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:13:22.642Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b745",
+   "n": 475,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:13:40.662Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b745 --quiet",
+   "n": 476,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:14:40.626Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_registration_2026-11-07.txt --act b745 --quiet --bank-only",
+   "n": 477,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:15:52.329Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b745",
+   "n": 478,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:16:50.027Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -c \"L=open('data/b745_registration_2026-11-07.txt',encoding='utf-8').read().splitlines(); [print(i, L[i-1]) for i in (74,241)]\"; python -X utf8 -c \"import re; t=open('tools/b745_face_blocks.txt',encoding='utf-8').read().splitlines(); [print(i+1,l) for i,l in enumerate(t) if 'seven modules' in l]\"",
+   "n": 479,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:17:12.415Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 480,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T21:17:19.523Z",
+   "src": "seat",
+   "cmd": "git grep -n -i \"artifact-count\\|count_predictions\\|ARTIFACT-COUNT\" -- \"data/b7*_defects.txt\"",
+   "n": 481,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:17:28.442Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b745_face.py",
+   "n": 482,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:17:35.598Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b745_registration_2026-11-07.txt --act b745 --quiet",
+   "n": 483,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T21:20:18.186Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b745",
+   "n": 484,
+   "bg": false
   }
  ],
  "offences": [
@@ -2842,7 +3946,8 @@
   85,
   126,
   195,
-  303
+  303,
+  452
  ],
  "py_programs": [
   5,
@@ -2946,7 +4051,36 @@
   339,
   342,
   343,
-  344
+  344,
+  357,
+  360,
+  362,
+  366,
+  369,
+  373,
+  388,
+  392,
+  394,
+  395,
+  397,
+  398,
+  400,
+  407,
+  410,
+  414,
+  420,
+  424,
+  425,
+  426,
+  430,
+  431,
+  432,
+  433,
+  453,
+  454,
+  463,
+  468,
+  479
  ],
  "moves_deletes": [
   43,
