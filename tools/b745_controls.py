@@ -51,12 +51,28 @@ NS_PC = 'SIDEExplicitFormula.Schema.Wide.'
 PC_FILE = 'SIDEExplicitFormula/Schema/Wide/PositiveControl.lean'
 PC_MODULE = 'SIDEExplicitFormula.Schema.Wide.PositiveControl'
 # ### the orders, in build order ((R355)(4)(c): the positive control's before any of the box's); each section (marker, the plan's estimate, names)
-ORDERS = (('W-ORD-POSITIVE-CONTROL', K.POSCONTROL_PLAN, PC_FILE, (108, 290),
+NS_ZB = 'SIDEExplicitFormula.Schema.ZetaBox.'
+ZB_FILES = tuple('SIDEExplicitFormula/Schema/ZetaBox/%s.lean' % m for m in ('Split', 'Tail', 'Line', 'Instr', 'Signs', 'Box'))
+ZB_ALIAS = {'SPZ1': 'Z5'}   # ### Line.lean's section SPZ1 (the conditional theorem, the intermediate value step) is Z5's in the plan's rows
+# ### each order: (name, plan, files, namespace, the plan's estimate in all, sections (marker, the plan's estimate, names))
+ORDERS = (('W-ORD-POSITIVE-CONTROL', K.POSCONTROL_PLAN, (PC_FILE,), NS_PC, (108, 290),
            (('P1', (40, 90), ('pcCarrier', 'pc_re', 'pc_reflect', 'pcCarrier_finite', 'pcConfig')),
             ('P2', (50, 150), ('pcCarrier_ncard_le', 'pc_N_le', 'pc_one_le_log', 'pc_count')),
             ('P3', (5, 15), ('pc_ne_zero',)),
             ('P4', (8, 20), ('online_imp_liCoeff_nonneg', 'pc_li_nonneg')),
-            ('P5', (5, 15), ('pc_online',)))),)
+            ('P5', (5, 15), ('pc_online',)))),
+          ('W-ORD-ZETA-BOX', K.PLAN_BANK, ZB_FILES, NS_ZB, (450, 1100),
+           (('Z1', (150, 300), ('zA', 'zB', 'zM', 'zM_eq', 'zf0', 'zf_modif_eq', 'zA_locInt', 'zA_top', 'zA_bot', 'zA_conv', 'zK_feq', 'zB_eq',
+                                'zB_conv', 'zLam0_split', 'zeta0_split')),
+            ('Z2', (50, 150), ('zK_hasSum', 'zE', 'zE_hasSum', 'zE_nonneg', 'zexp12', 'zE_le', 'zE_cont', 'zBnd', 'zBnd_int', 'norm_zR_le', 'zR_int',
+                               'zTail_numeric', 'zM_sub_le')),
+            ('Z3', (40, 100), ('lp', 'lp_re', 'lp_im', 'lp_ne_zero', 'lp_ne_one', 'one_sub_lp_ne_zero', 'lp_conj', 'zM_conj', 'zeta0_line', 'zLam',
+                               'lp_mul_one_sub', 'zeta_line', 'zeta_line_real')),
+            ('Z4', (150, 400), ('inD_transfer_pi', 'lp_half', 'zM_re_bounds', 'zLam_neg_of', 'zLam_pos_of', 'zw16', 'zw16_re_pos', 'zw16_re_le',
+                                'two_zw16', 'G_zw16', 'I_zw16', 'P_zw16', 'zLam_16_pos', 'zeta_sign_16', 'zw12', 'zw12_re_pos', 'zw12_re_le',
+                                'two_zw12', 'G_zw12', 'I_zw12', 'P_zw12', 'zLam_12_neg', 'zeta_sign_12')),
+            ('Z5', (60, 150), ('zf', 'zf_eq', 'zf_cont', 'zeta_box_of_signs', 'zeta_box')))))
+ZB_STOPS = (('SPZ1', ('zeta0_split', 'zeta_line_real', 'zeta_box_of_signs')), ('SPZ2', ('zeta_sign_16',)), ('SPZ3', ('zeta_sign_12', 'zeta_box')))
 PC_STATEMENTS = ('pc_count', 'pc_ne_zero', 'pc_li_nonneg', 'pc_online')   # ### the four statements (R355)(4)(a) prints with their axiom lines
 GENERIC = 'SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero'
 FORBIDDEN = ('zqFn', 'zqZeroConfig', 'ZQPremises', '.OffZero.', '.Schema.ZQ.', 'EpsteinZQ', 'LambdaQZeros')
@@ -188,7 +204,7 @@ def _ax_of(axtext, name):
 
 
 def _names():
-    return [NS_PC + n for _o, _p, _f, _e, secs in ORDERS for _s, _e2, ns in secs for n in ns]
+    return [ns_ + n for _o, _p, _f, ns_, _e, secs in ORDERS for _s, _e2, ns in secs for n in ns]
 
 
 def cmd_read(n, run, art):
@@ -281,14 +297,24 @@ def _section_lines(path):
 
 def lines_table():
     out, res = [], {}
-    for order, _plan, f, (lo, hi), secs in ORDERS:
-        sl, tot = _section_lines(os.path.join(CLONE, f))
-        out.append('  %s, %s:' % (order, f))
-        if sl is None:
+    for order, _plan, files, _ns, (lo, hi), secs in ORDERS:
+        sl, tot, hdr, seen = {}, 0, 0, []
+        for f in files:
+            s1, t1 = _section_lines(os.path.join(CLONE, f))
+            if s1 is None:
+                continue
+            seen.append('%s %d' % (f.split('/')[-1], t1))
+            tot += t1
+            hdr += s1.pop('header')
+            for k_, v_ in s1.items():
+                k_ = ZB_ALIAS.get(k_, k_)
+                sl[k_] = sl.get(k_, 0) + v_
+        out.append('  %s, %s:' % (order, ' ; '.join(seen) or 'NO FILE WRITTEN'))
+        if not seen:
             out.append('    NOT WRITTEN')
             res[order] = (None, False)
             continue
-        out.append('    the header (doc comment, imports, namespaces) %d lines' % sl['header'])
+        out.append('    the headers (doc comments, imports, namespaces) %d lines' % hdr)
         for s, (a, b), _ns in secs:
             n = sl.get(s)
             out.append('    %-3s measured %s ; the estimate %d-%d ; %s' % (s, n, a, b, 'NOT WRITTEN' if n is None else 'within' if a <= n <= b else 'BELOW' if n < a else 'ABOVE'))
@@ -335,29 +361,46 @@ def cmd_bank(*notes):
     L += ['', '## THE LINES, MEASURED AGAINST THE PLANS` ESTIMATES (I-10`S FORM), AND THE THREE-TIMES RULE'] + tab + ['',
           '## THE AXIOMS OF EACH PRINTED NAME, IN FULL, FROM THE LAST KERNEL READ (run %s)' % (last['run'] if last else 'NONE')]
     built = []
-    for order, _p, _f, _e, secs in ORDERS:
+    for order, _p, _f, ns_, _e, secs in ORDERS:
         for s, _e2, ns in secs:
             for nm in ns:
-                a = (last or {}).get('axioms', {}).get(nm)
-                ok = a is not None and set(a) <= set(STANDARD) and not (last or {}).get('sorryAx')
+                # ### each name read at the last kernel read that printed it (a later dispatch's target may leave an earlier module out)
+                a, src = None, None
+                for rd in reversed(kern):
+                    a = rd.get('axioms', {}).get(nm)
+                    if a is not None and not rd.get('sorryAx'):
+                        src = rd['run']
+                        break
+                    a = None
+                ok = a is not None and set(a) <= set(STANDARD)
                 if ok:
                     built.append(nm)
-                L.append('  %-3s %-58s %s' % (s, NS_PC + nm, 'NOT BUILT' if a is None else '[%s]' % (', '.join(a) or 'none')))
-    clo, cf = (closure_lines(last['artifact'], NS_PC + 'pc_online') if last else (['  NO KERNEL READ'], None))
-    L += ['', '## P6: THE DEPENDENCY PRINT OF pc_online`S CLOSURE (the closure step`s out/closure.jsonl.gz, run %s)' % (last['run'] if last else 'NONE')] + clo
+                L.append('  %-3s %-58s %s' % (s, ns_ + nm, 'NOT BUILT' if a is None else '[%s] (run %s)' % (', '.join(a) or 'none', src)))
+    pcr = next((rd for rd in reversed(kern) if rd.get('axioms', {}).get('pc_online') is not None), None)   # ### the control's kernel read
+    clo, cf = (closure_lines(pcr['artifact'], NS_PC + 'pc_online') if pcr else (['  NO KERNEL READ'], None))
+    L += ['', '## P6: THE DEPENDENCY PRINT OF pc_online`S CLOSURE (the closure step`s out/closure.jsonl.gz, run %s)' % (pcr['run'] if pcr else 'NONE')] + clo
     pc_built = all(x in built for x in PC_STATEMENTS)
     p6 = bool(cf) and cf['generic'] and not cf['forbidden']
     pc_over = res.get('W-ORD-POSITIVE-CONTROL', (None, False))[1]
     grade_pc = 'STOPPED BY THE THREE-TIMES RULE' if pc_over else 'BUILT' if pc_built and p6 else 'NOT BUILT AT %s' % next(
-        (s for _o, _p, _f, _e, secs in ORDERS[:1] for s, _e2, ns in secs if any(n not in built for n in ns)), 'P6')
+        (s for _o, _p, _f, _n, _e, secs in ORDERS[:1] for s, _e2, ns in secs if any(n not in built for n in ns)), 'P6')
+    zb_over = res.get('W-ORD-ZETA-BOX', (None, False))[1]
+    stops = [(sp, all(x in built for x in ns)) for sp, ns in ZB_STOPS]
+    reached = [sp for sp, ok in stops if ok]
+    grade_zb = ('STOPPED BY THE THREE-TIMES RULE' if zb_over else 'BUILT' if all(ok for _s, ok in stops)
+                else ('%s REACHED' % reached[-1]) if reached else 'NOT BUILT')
+    zb_unbuilt = [n for _o, _p, _f, _n, _e, secs in ORDERS[1:] for _s, _e2, ns in secs for n in ns if n not in built]
     L += ['', '## THE NOTES (%s)' % K.CONTROLS_NOTES] + ['  ' + x for x in notes] + ['',
           '## THE GRADE, EACH ORDER ITS OWN',
           '  W-ORD-POSITIVE-CONTROL: the four statements %s ; the dependency print: the generic theorem by name %s, constants of Z_Q %s ; %s' % (
               ' ; '.join('%s %s' % (x, 'COMPILED' if x in built else 'NOT COMPILED') for x in PC_STATEMENTS), cf['generic'] if cf else 'UNREAD',
               (cf['forbidden'] or 'NONE') if cf else 'UNREAD', grade_pc),
+          '  W-ORD-ZETA-BOX: the stop points %s ; names not built %s ; %s' % (
+              ' ; '.join('%s %s' % (sp, 'REACHED' if ok else 'NOT REACHED') for sp, ok in stops), zb_unbuilt or 'NONE', grade_zb),
           '  the axiom line, printed in full for each compiled name above: %s' % ', '.join(STANDARD), '',
-          '### ### **W-ORD-POSITIVE-CONTROL %s ; DISPATCHES %d OF %d ; LINES %s AGAINST 108-290 ; NAMES COMPILED %d OF %d.**' % (
-              grade_pc, len(disp), K.MAX_DISPATCHES, res.get('W-ORD-POSITIVE-CONTROL', (None,))[0], len(built), len(_names()))]
+          '### ### **W-ORD-POSITIVE-CONTROL %s ; W-ORD-ZETA-BOX %s ; DISPATCHES %d OF %d ; LINES %s AGAINST 108-290 AND %s AGAINST 450-1100 ; NAMES COMPILED %d OF %d.**' % (
+              grade_pc, grade_zb, len(disp), K.MAX_DISPATCHES, res.get('W-ORD-POSITIVE-CONTROL', (None,))[0], res.get('W-ORD-ZETA-BOX', (None,))[0],
+              len(built), len(_names()))]
     r = FB.write(BANK, NL.join(L))
     print(NL.join(L))
     print('written %s ; figbank: %s' % (K.CONTROLS_BANK, r['why']))
