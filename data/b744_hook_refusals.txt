@@ -10,3 +10,4 @@
 2026-11-06T23:14:31Z | READ | Read | "D:\\relay\\data\\b744_ferry.txt" | a Read call with no limit
 2026-11-06T23:48:29Z | SED | Bash | "sed -n '1425,1428p;1486,1487p;1501,1502p;1706,1709p' tools/acts/b744.py" | a Bash command running sed
 2026-11-06T23:49:13Z | PIPE | Bash | "cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80" | a Bash command carrying a pipe outside quotes
+2026-11-07T03:17:12Z | PIPE | PowerShell | "Get-ChildItem D:/relay/data -Filter \"b743_prevrun_*\" | Select-Object Name, Length, LastWriteTime; Get-ChildItem D:/relay/data -Filter \"b743_chain_half_*\" | Select-Object Name, Length" | a PowerShell command carrying a pipe outside quotes
