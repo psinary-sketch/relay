@@ -1,0 +1,152 @@
+b745 -- (R355)(4): THE TWO CONTROLS ON ROUTE (K), BUILT ON zq-b730 PAST THE TAG v0.38 (14ca5725) BY THE RUNNER (2026-11-07T16:01:07Z)
+
+## THE CONTROLS
+  the axioms reader on a constructed standard line (wrapped): True ; on a constructed axiom-free line: True ; on an absent name, None: True
+  the figure-bank reader: the controls first passes, the controls after refused: True
+  data/b744_poscontrol_plan.txt md5 b72ad7bbe28693a1192cfa60329fc607 ; step zero`s b72ad7bbe28693a1192cfa60329fc607 ; equal True ; committed 1793998899 ; before b745`s first Lean commit (1794066341) True
+  data/b744_zetabox_plan.txt md5 ef777cc24752911990d56d2214fe38b6 ; step zero`s ef777cc24752911990d56d2214fe38b6 ; equal True ; committed 1793998708 ; before b745`s first Lean commit (1794066341) True
+  b745`s Lean commits on zq-b730 past 14ca5725: 2
+  free memory at this bank: 3665 MB at 2026-11-07T16:01:06Z, the hold 2560
+  the dispatch rows refused by standing.dispatchrows: NONE
+  every dispatch row`s licence (R355)(4) at the ferry bank: True
+
+## THE DISPATCHES: 2 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb AND ITS LICENCE
+  1 | P1-P5  | PositiveControl | sha eb097190 | run 42388001562 | free 4023 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13322 MB, read at free 4110 MB
+  2 | R1     | PositiveControl | sha 3639d984 | run 42388609600 | free 4025 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13188 MB, read at free 3587 MB
+
+## THE LINES, MEASURED AGAINST THE PLANS` ESTIMATES (I-10`S FORM), AND THE THREE-TIMES RULE
+  W-ORD-POSITIVE-CONTROL, SIDEExplicitFormula/Schema/Wide/PositiveControl.lean:
+    the header (doc comment, imports, namespaces) 30 lines
+    P1  measured 33 ; the estimate 40-90 ; BELOW
+    P2  measured 33 ; the estimate 50-150 ; BELOW
+    P3  measured 9 ; the estimate 5-15 ; within
+    P4  measured 15 ; the estimate 8-20 ; within
+    P5  measured 9 ; the estimate 5-15 ; within
+    IN ALL: measured 129 (the file, every line) ; the estimate 108-290 ; the ratio 0.445-1.194 ; three times 870 ; within the three-times rule
+
+## THE AXIOMS OF EACH PRINTED NAME, IN FULL, FROM THE LAST KERNEL READ (run 42388609600)
+  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier                  [propext, Classical.choice, Quot.sound]
+  P1  SIDEExplicitFormula.Schema.Wide.pc_re                      [propext, Classical.choice, Quot.sound]
+  P1  SIDEExplicitFormula.Schema.Wide.pc_reflect                 [propext, Classical.choice, Quot.sound]
+  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier_finite           [propext, Classical.choice, Quot.sound]
+  P1  SIDEExplicitFormula.Schema.Wide.pcConfig                   [propext, Classical.choice, Quot.sound]
+  P2  SIDEExplicitFormula.Schema.Wide.pcCarrier_ncard_le         [propext, Classical.choice, Quot.sound]
+  P2  SIDEExplicitFormula.Schema.Wide.pc_N_le                    [propext, Classical.choice, Quot.sound]
+  P2  SIDEExplicitFormula.Schema.Wide.pc_one_le_log              [propext, Classical.choice, Quot.sound]
+  P2  SIDEExplicitFormula.Schema.Wide.pc_count                   [propext, Classical.choice, Quot.sound]
+  P3  SIDEExplicitFormula.Schema.Wide.pc_ne_zero                 [propext, Classical.choice, Quot.sound]
+  P4  SIDEExplicitFormula.Schema.Wide.online_imp_liCoeff_nonneg  [propext, Classical.choice, Quot.sound]
+  P4  SIDEExplicitFormula.Schema.Wide.pc_li_nonneg               [propext, Classical.choice, Quot.sound]
+  P5  SIDEExplicitFormula.Schema.Wide.pc_online                  [propext, Classical.choice, Quot.sound]
+
+## P6: THE DEPENDENCY PRINT OF pc_online`S CLOSURE (the closure step`s out/closure.jsonl.gz, run 42388609600)
+  the record of SIDEExplicitFormula.Schema.Wide.pc_online: module SIDEExplicitFormula.Schema.Wide.PositiveControl ; kind theorem ; line 123 ; axioms [propext, Classical.choice, Quot.sound] ; programme constants reached 92
+  the generic theorem SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero by name in the closure: True
+  constants of Z_Q, its zeros or OffZero (zqFn, zqZeroConfig, ZQPremises, .OffZero., .Schema.ZQ., EpsteinZQ, LambdaQZeros): NONE
+  constants whose names speak of finiteness, cardinality or the control (each read by hand below): ['SIDEExplicitFormula.Schema.Wide.dominant_finite', 'SIDEExplicitFormula.Schema.Wide.pcCarrier', 'SIDEExplicitFormula.Schema.Wide.pcCarrier_finite', 'SIDEExplicitFormula.Schema.Wide.pcCarrier_ncard_le', 'SIDEExplicitFormula.Schema.Wide.pcConfig', 'SIDEExplicitFormula.Schema.Wide.pc_N_le', 'SIDEExplicitFormula.Schema.Wide.pc_count', 'SIDEExplicitFormula.Schema.Wide.pc_li_nonneg', 'SIDEExplicitFormula.Schema.Wide.pc_ne_zero', 'SIDEExplicitFormula.Schema.Wide.pc_one_le_log', 'SIDEExplicitFormula.Schema.Wide.pc_re', 'SIDEExplicitFormula.Schema.Wide.pc_reflect', 'SIDEExplicitFormula.Schema.WideConfig.finite_window', 'SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely']
+  every programme constant reached, one a line:
+    SIDEExplicitFormula.LiWeil.liTerm
+    SIDEExplicitFormula.LiWeil.liTerm.eq_1
+    SIDEExplicitFormula.LiWeil.liTerm_conj
+    SIDEExplicitFormula.LiWeil.liTerm_re_nonneg_of_re_half
+    SIDEExplicitFormula.LiWeil.norm_one_sub_inv_of_re_half
+    SIDEExplicitFormula.LiWeil.norm_sub_one_of_re_half
+    SIDEExplicitFormula.LiWeil.pairTerm
+    SIDEExplicitFormula.LiWeil.pairTerm.eq_1
+    SIDEExplicitFormula.LiWeil.pairTerm_eq
+    SIDEExplicitFormula.LiWeil.pairTerm_re
+    SIDEExplicitFormula.LiWeil.pairTerm_re_nonneg_of_re_half
+    SIDEExplicitFormula.Schema.Wide.HCount
+    SIDEExplicitFormula.Schema.Wide.N
+    SIDEExplicitFormula.Schema.Wide.domSet
+    SIDEExplicitFormula.Schema.Wide.dominant_finite
+    SIDEExplicitFormula.Schema.Wide.exists_dominant_point_ne_zero
+    SIDEExplicitFormula.Schema.Wide.gL
+    SIDEExplicitFormula.Schema.Wide.gL.eq_1
+    SIDEExplicitFormula.Schema.Wide.liCoeff
+    SIDEExplicitFormula.Schema.Wide.liCoeff.eq_1
+    SIDEExplicitFormula.Schema.Wide.liCoeff_eq_indicator
+    SIDEExplicitFormula.Schema.Wide.liCoeff_summable
+    SIDEExplicitFormula.Schema.Wide.liTerm_re_abs_le_pow
+    SIDEExplicitFormula.Schema.Wide.li_nonneg_cfg_imp_online_ne_zero
+    SIDEExplicitFormula.Schema.Wide.localCount_ofWindowCount
+    SIDEExplicitFormula.Schema.Wide.mem_domSet
+    SIDEExplicitFormula.Schema.Wide.mem_restSet
+    SIDEExplicitFormula.Schema.Wide.online_imp_liCoeff_nonneg
+    SIDEExplicitFormula.Schema.Wide.pcCarrier
+    SIDEExplicitFormula.Schema.Wide.pcCarrier_finite
+    SIDEExplicitFormula.Schema.Wide.pcCarrier_ncard_le
+    SIDEExplicitFormula.Schema.Wide.pcConfig
+    SIDEExplicitFormula.Schema.Wide.pc_N_le
+    SIDEExplicitFormula.Schema.Wide.pc_count
+    SIDEExplicitFormula.Schema.Wide.pc_li_nonneg
+    SIDEExplicitFormula.Schema.Wide.pc_ne_zero
+    SIDEExplicitFormula.Schema.Wide.pc_one_le_log
+    SIDEExplicitFormula.Schema.Wide.pc_re
+    SIDEExplicitFormula.Schema.Wide.pc_reflect
+    SIDEExplicitFormula.Schema.Wide.powerSum_re_ge_split
+    SIDEExplicitFormula.Schema.Wide.remainder_le_ne_zero
+    SIDEExplicitFormula.Schema.Wide.restSet
+    SIDEExplicitFormula.Schema.Wide.rest_term_le_ne_zero
+    SIDEExplicitFormula.Schema.Wide.sum_gL_dom
+    SIDEExplicitFormula.Schema.Wide.summable_indicator_gL
+    SIDEExplicitFormula.Schema.Wide.summable_rest
+    SIDEExplicitFormula.Schema.Wide.window
+    SIDEExplicitFormula.Schema.Wide.zero_sum_inv_sq_wide
+    SIDEExplicitFormula.Schema.WideConfig
+    SIDEExplicitFormula.Schema.WideConfig.carrier
+    SIDEExplicitFormula.Schema.WideConfig.finite_window
+    SIDEExplicitFormula.Schema.WideConfig.mk
+    SIDEExplicitFormula.Schema.WideConfig.mult
+    SIDEExplicitFormula.Schema.WideConfig.one_le_mult
+    SIDEExplicitFormula.Schema.WideConfig.reflect_mem
+    SIDEExplicitFormula.Schema.WideConfig.strip
+    SIDEExplicitFormula.Schema.eW
+    SIDEExplicitFormula.Schema.exists_ge_of_mean_sq
+    SIDEExplicitFormula.Schema.norm_double_geom_le
+    SIDEExplicitFormula.Schema.norm_geom_sum_le
+    SIDEExplicitFormula.Schema.norm_lt_norm_sub_one_of_re_lt_half
+    SIDEExplicitFormula.Schema.norm_window_le
+    SIDEExplicitFormula.Schema.one_lt_norm_one_sub_inv
+    SIDEExplicitFormula.Schema.one_sub_pow_expand
+    SIDEExplicitFormula.Schema.powerSumErr
+    SIDEExplicitFormula.Schema.powerSumErr.eq_1
+    SIDEExplicitFormula.Schema.powerSum_consts
+    SIDEExplicitFormula.Schema.powerSum_facts
+    SIDEExplicitFormula.Schema.powerSum_mul_conj
+    SIDEExplicitFormula.Schema.powerSum_re_ge_infinitely
+    SIDEExplicitFormula.Schema.powerSum_sq
+    SIDEExplicitFormula.Schema.powerSum_window_sq_ge
+    SIDEExplicitFormula.Schema.re_one_sub_pow_abs_le
+    SIDEExplicitFormula.Schema.re_window_double
+    SIDEExplicitFormula.Schema.re_window_ge
+    SIDEExplicitFormula.Schema.two_re_sq
+    SIDEExplicitFormula.Schema.wD
+    SIDEExplicitFormula.Schema.wD.eq_1
+    Zeta23.Tail.LocalCount
+    Zeta23.Tail.LocalCount.mk
+    Zeta23.Tail.LocalCount.window
+    Zeta23.WeilEF.gammaOf_im
+    Zeta23.WeilEF.gammaOf_re
+    Zeta23.WeilEF.key
+    Zeta23.WeilEF.key_lt
+    Zeta23.WeilEF.le_key_add_one
+    Zeta23.WeilEF.one_add_sq_ge
+    Zeta23.WeilEF.summable_weight
+    Zeta23.WeilEF.totalWeight
+    Zeta23.WeilEF.weight_le
+    Zeta23.gammaOf
+    Zeta23.reflect
+
+## THE NOTES (data/b745_controls_notes.txt)
+  (1) W-ORD-POSITIVE-CONTROL, data/b744_poscontrol_plan.txt :105-:106 ("in one module ... importing Schema.Wide.StripFree alone, so the closure has no route to Z_Q's modules"): the module imports Schema.Wide.StripFree and, beside it, two Mathlib modules, Mathlib.Data.Set.Card.Arithmetic (finsum_one, the count's form at Schema/SaltCheckEpstein.lean :74, which imports the same module at :19) and Mathlib.Analysis.Complex.ExponentialBounds (exp_one_lt_d9); of this programme's modules it imports StripFree alone. The plan's reason holds as read at P6: pc_online's closure reaches no constant of Z_Q, its zeros or OffZero (run 42388609600).
+  (2) W-ORD-POSITIVE-CONTROL, dispatch 1 (run 42388001562, eb09719, KERNEL): the print step stopped at Lean's maxErrors 100 on print_targets.txt's earlier names (modules outside the one-module target, "Unknown constant"), before the control's thirteen names at the list's foot; none printed. The repair R1 (3639d98) moved the thirteen to the list's head, no other line changed; dispatch 2 (run 42388609600) printed each. The seat's defect, the list's order not read against the target before dispatch 1.
+  (3) W-ORD-POSITIVE-CONTROL, P4 (:101-:102, "the Wide form ABSENT"): written as the general theorem online_imp_liCoeff_nonneg (LiCfg.lean :86-:91's proof over WideConfig), pc_li_nonneg its application at pcConfig; the bound uses only that both points lie on the line, as (c) of the plan reads it.
+  (4) W-ORD-POSITIVE-CONTROL, (e)'s estimates: P1 and P2 measured below their ranges (the count's form taken whole from a compiled precedent, Schema/SaltCheckEpstein.lean :70-:85); the module in all within 108-290.
+  (5) W-ORD-POSITIVE-CONTROL, P6 read by hand: the closure's constants whose names speak of finiteness or cardinality are the control's own facts about its carrier (pcCarrier_finite, feeding pcConfig's finite_window field; pcCarrier_ncard_le and pc_N_le, feeding pc_count), WideConfig.finite_window (the class's field), and two lemmas inside the generic theorem's own proof (Wide.dominant_finite, powerSum_re_ge_infinitely); none draws the on-line conclusion from finiteness, and pc_online's value is the term Wide.li_nonneg_cfg_imp_online_ne_zero pcConfig pc_count pc_ne_zero pc_li_nonneg.
+
+## THE GRADE, EACH ORDER ITS OWN
+  W-ORD-POSITIVE-CONTROL: the four statements pc_count COMPILED ; pc_ne_zero COMPILED ; pc_li_nonneg COMPILED ; pc_online COMPILED ; the dependency print: the generic theorem by name True, constants of Z_Q NONE ; BUILT
+  the axiom line, printed in full for each compiled name above: propext, Classical.choice, Quot.sound
+
+### ### **W-ORD-POSITIVE-CONTROL BUILT ; DISPATCHES 2 OF 12 ; LINES 129 AGAINST 108-290 ; NAMES COMPILED 13 OF 13.**
