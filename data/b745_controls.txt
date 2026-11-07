@@ -1,43 +1,124 @@
-b745 -- (R355)(4): THE TWO CONTROLS ON ROUTE (K), BUILT ON zq-b730 PAST THE TAG v0.38 (14ca5725) BY THE RUNNER (2026-11-07T16:01:07Z)
+b745 -- (R355)(4): THE TWO CONTROLS ON ROUTE (K), BUILT ON zq-b730 PAST THE TAG v0.38 (14ca5725) BY THE RUNNER (2026-11-07T17:09:15Z)
 
 ## THE CONTROLS
   the axioms reader on a constructed standard line (wrapped): True ; on a constructed axiom-free line: True ; on an absent name, None: True
   the figure-bank reader: the controls first passes, the controls after refused: True
   data/b744_poscontrol_plan.txt md5 b72ad7bbe28693a1192cfa60329fc607 ; step zero`s b72ad7bbe28693a1192cfa60329fc607 ; equal True ; committed 1793998899 ; before b745`s first Lean commit (1794066341) True
   data/b744_zetabox_plan.txt md5 ef777cc24752911990d56d2214fe38b6 ; step zero`s ef777cc24752911990d56d2214fe38b6 ; equal True ; committed 1793998708 ; before b745`s first Lean commit (1794066341) True
-  b745`s Lean commits on zq-b730 past 14ca5725: 2
-  free memory at this bank: 3665 MB at 2026-11-07T16:01:06Z, the hold 2560
+  b745`s Lean commits on zq-b730 past 14ca5725: 6
+  free memory at this bank: 3896 MB at 2026-11-07T17:09:14Z, the hold 2560
   the dispatch rows refused by standing.dispatchrows: NONE
   every dispatch row`s licence (R355)(4) at the ferry bank: True
 
-## THE DISPATCHES: 2 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb AND ITS LICENCE
+## THE DISPATCHES: 6 OF AT MOST 12, EACH READ BY ITS RUN ID, EACH ROW CARRYING free_mb AND ITS LICENCE
   1 | P1-P5  | PositiveControl | sha eb097190 | run 42388001562 | free 4023 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13322 MB, read at free 4110 MB
   2 | R1     | PositiveControl | sha 3639d984 | run 42388609600 | free 4025 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13188 MB, read at free 3587 MB
+  3 | W-ORD-ZETA-BOX | Split Tail Line | sha ae959ded | run 42391254295 | free 3708 MB | licence bffde0bb | BREAKS, exit 1, 2 errors, sorry warnings 0, sorryAx False, runner low 13341 MB, read at free 3911 MB
+  4 | W-ORD-ZETA-BOX | Line Instr | sha ef862974 | run 42392017104 | free 3780 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13195 MB, read at free 3860 MB
+  5 | W-ORD-ZETA-BOX | Signs | sha 32bad89a | run 42393018408 | free 3555 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 13307 MB, read at free 3911 MB
+  6 | W-ORD-ZETA-BOX | Box | sha 1e658870 | run 42393914259 | free 3902 MB | licence bffde0bb | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, runner low 12986 MB, read at free 3933 MB
 
 ## THE LINES, MEASURED AGAINST THE PLANS` ESTIMATES (I-10`S FORM), AND THE THREE-TIMES RULE
-  W-ORD-POSITIVE-CONTROL, SIDEExplicitFormula/Schema/Wide/PositiveControl.lean:
-    the header (doc comment, imports, namespaces) 30 lines
+  W-ORD-POSITIVE-CONTROL, PositiveControl.lean 129:
+    the headers (doc comments, imports, namespaces) 30 lines
     P1  measured 33 ; the estimate 40-90 ; BELOW
     P2  measured 33 ; the estimate 50-150 ; BELOW
     P3  measured 9 ; the estimate 5-15 ; within
     P4  measured 15 ; the estimate 8-20 ; within
     P5  measured 9 ; the estimate 5-15 ; within
     IN ALL: measured 129 (the file, every line) ; the estimate 108-290 ; the ratio 0.445-1.194 ; three times 870 ; within the three-times rule
+  W-ORD-ZETA-BOX, Split.lean 142 ; Tail.lean 146 ; Line.lean 132 ; Instr.lean 122 ; Signs.lean 95 ; Box.lean 26:
+    the headers (doc comments, imports, namespaces) 123 lines
+    Z1  measured 121 ; the estimate 150-300 ; BELOW
+    Z2  measured 123 ; the estimate 50-150 ; within
+    Z3  measured 71 ; the estimate 40-100 ; within
+    Z4  measured 175 ; the estimate 150-400 ; within
+    Z5  measured 50 ; the estimate 60-150 ; BELOW
+    IN ALL: measured 663 (the file, every line) ; the estimate 450-1100 ; the ratio 0.603-1.473 ; three times 3300 ; within the three-times rule
 
-## THE AXIOMS OF EACH PRINTED NAME, IN FULL, FROM THE LAST KERNEL READ (run 42388609600)
-  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier                  [propext, Classical.choice, Quot.sound]
-  P1  SIDEExplicitFormula.Schema.Wide.pc_re                      [propext, Classical.choice, Quot.sound]
-  P1  SIDEExplicitFormula.Schema.Wide.pc_reflect                 [propext, Classical.choice, Quot.sound]
-  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier_finite           [propext, Classical.choice, Quot.sound]
-  P1  SIDEExplicitFormula.Schema.Wide.pcConfig                   [propext, Classical.choice, Quot.sound]
-  P2  SIDEExplicitFormula.Schema.Wide.pcCarrier_ncard_le         [propext, Classical.choice, Quot.sound]
-  P2  SIDEExplicitFormula.Schema.Wide.pc_N_le                    [propext, Classical.choice, Quot.sound]
-  P2  SIDEExplicitFormula.Schema.Wide.pc_one_le_log              [propext, Classical.choice, Quot.sound]
-  P2  SIDEExplicitFormula.Schema.Wide.pc_count                   [propext, Classical.choice, Quot.sound]
-  P3  SIDEExplicitFormula.Schema.Wide.pc_ne_zero                 [propext, Classical.choice, Quot.sound]
-  P4  SIDEExplicitFormula.Schema.Wide.online_imp_liCoeff_nonneg  [propext, Classical.choice, Quot.sound]
-  P4  SIDEExplicitFormula.Schema.Wide.pc_li_nonneg               [propext, Classical.choice, Quot.sound]
-  P5  SIDEExplicitFormula.Schema.Wide.pc_online                  [propext, Classical.choice, Quot.sound]
+## THE AXIOMS OF EACH PRINTED NAME, IN FULL, FROM THE LAST KERNEL READ (run 42393914259)
+  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier                  [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P1  SIDEExplicitFormula.Schema.Wide.pc_re                      [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P1  SIDEExplicitFormula.Schema.Wide.pc_reflect                 [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P1  SIDEExplicitFormula.Schema.Wide.pcCarrier_finite           [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P1  SIDEExplicitFormula.Schema.Wide.pcConfig                   [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P2  SIDEExplicitFormula.Schema.Wide.pcCarrier_ncard_le         [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P2  SIDEExplicitFormula.Schema.Wide.pc_N_le                    [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P2  SIDEExplicitFormula.Schema.Wide.pc_one_le_log              [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P2  SIDEExplicitFormula.Schema.Wide.pc_count                   [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P3  SIDEExplicitFormula.Schema.Wide.pc_ne_zero                 [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P4  SIDEExplicitFormula.Schema.Wide.online_imp_liCoeff_nonneg  [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P4  SIDEExplicitFormula.Schema.Wide.pc_li_nonneg               [propext, Classical.choice, Quot.sound] (run 42388609600)
+  P5  SIDEExplicitFormula.Schema.Wide.pc_online                  [propext, Classical.choice, Quot.sound] (run 42388609600)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zA                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zB                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zM                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zM_eq                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zf0                     [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zf_modif_eq             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zA_locInt               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zA_top                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zA_bot                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zA_conv                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zK_feq                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zB_eq                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zB_conv                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zLam0_split             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z1  SIDEExplicitFormula.Schema.ZetaBox.zeta0_split             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zK_hasSum               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zE                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zE_hasSum               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zE_nonneg               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zexp12                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zE_le                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zE_cont                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zBnd                    [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zBnd_int                [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.norm_zR_le              [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zR_int                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zTail_numeric           [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z2  SIDEExplicitFormula.Schema.ZetaBox.zM_sub_le               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_re                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_im                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_ne_zero              [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_ne_one               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.one_sub_lp_ne_zero      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_conj                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.zM_conj                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.zeta0_line              [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.zLam                    [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.lp_mul_one_sub          [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.zeta_line               [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z3  SIDEExplicitFormula.Schema.ZetaBox.zeta_line_real          [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.inD_transfer_pi         [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.lp_half                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zM_re_bounds            [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zLam_neg_of             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zLam_pos_of             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw16                    [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw16_re_pos             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw16_re_le              [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.two_zw16                [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.G_zw16                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.I_zw16                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.P_zw16                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zLam_16_pos             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zeta_sign_16            [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw12                    [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw12_re_pos             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zw12_re_le              [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.two_zw12                [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.G_zw12                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.I_zw12                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.P_zw12                  [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zLam_12_neg             [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z4  SIDEExplicitFormula.Schema.ZetaBox.zeta_sign_12            [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z5  SIDEExplicitFormula.Schema.ZetaBox.zf                      [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z5  SIDEExplicitFormula.Schema.ZetaBox.zf_eq                   [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z5  SIDEExplicitFormula.Schema.ZetaBox.zf_cont                 [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z5  SIDEExplicitFormula.Schema.ZetaBox.zeta_box_of_signs       [propext, Classical.choice, Quot.sound] (run 42393914259)
+  Z5  SIDEExplicitFormula.Schema.ZetaBox.zeta_box                [propext, Classical.choice, Quot.sound] (run 42393914259)
 
 ## P6: THE DEPENDENCY PRINT OF pc_online`S CLOSURE (the closure step`s out/closure.jsonl.gz, run 42388609600)
   the record of SIDEExplicitFormula.Schema.Wide.pc_online: module SIDEExplicitFormula.Schema.Wide.PositiveControl ; kind theorem ; line 123 ; axioms [propext, Classical.choice, Quot.sound] ; programme constants reached 92
@@ -144,9 +225,17 @@ b745 -- (R355)(4): THE TWO CONTROLS ON ROUTE (K), BUILT ON zq-b730 PAST THE TAG 
   (3) W-ORD-POSITIVE-CONTROL, P4 (:101-:102, "the Wide form ABSENT"): written as the general theorem online_imp_liCoeff_nonneg (LiCfg.lean :86-:91's proof over WideConfig), pc_li_nonneg its application at pcConfig; the bound uses only that both points lie on the line, as (c) of the plan reads it.
   (4) W-ORD-POSITIVE-CONTROL, (e)'s estimates: P1 and P2 measured below their ranges (the count's form taken whole from a compiled precedent, Schema/SaltCheckEpstein.lean :70-:85); the module in all within 108-290.
   (5) W-ORD-POSITIVE-CONTROL, P6 read by hand: the closure's constants whose names speak of finiteness or cardinality are the control's own facts about its carrier (pcCarrier_finite, feeding pcConfig's finite_window field; pcCarrier_ncard_le and pc_N_le, feeding pc_count), WideConfig.finite_window (the class's field), and two lemmas inside the generic theorem's own proof (Wide.dominant_finite, powerSum_re_ge_infinitely); none draws the on-line conclusion from finiteness, and pc_online's value is the term Wide.li_nonneg_cfg_imp_online_ne_zero pcConfig pc_count pc_ne_zero pc_li_nonneg.
+  (6) W-ORD-ZETA-BOX, Z1 (data/b744_zetabox_plan.txt :104-:105, "completedRiemannZeta₀ s = Σ_{n ≥ 1} (incGamma1 (s/2) (π n²) + incGamma1 ((1-s)/2) (π n²)) ... the integral and the sum exchanged on (1, ∞)"): built as the split alone, zeta0_split (completedRiemannZeta₀ s = (M (s/2) + M (1/2 − s/2)) / 2, M the Mellin transform of θ − 1 on (1, ∞); Split.lean, OffZero/Split.lean's form), with no exchange over all n; the first shell is separated in Z2 under the integral, the zq form the plan names as the fallback (:173-:174, IncGamma.lean :198). The reason: a sign needs the first shell and a bound on the rest, not the series; Z1 measured below its 150-300, the risk priced at 300 lines not met.
+  (7) W-ORD-ZETA-BOX, Z2 (:108, "‖Σ_{n ≥ 2} (…)‖ ≤ Σ_{n ≥ 2} 2 e^(-π n²)/(π n²) ≤ 5.6e-07", the shells bounded one by one by norm_incGamma1_le, :96): built as one pointwise bound under the integral, θ(t) − 1 − 2 e^(−π t) ≤ 2 e^(−12 t)/(1 − e^(−12)) for t ≥ 1 (π (n + 2)² ≥ 12 (n + 1) from π > 3, a geometric series; Tail.lean zE_le), giving zM_sub_le at 11/10^7 (2 e^(−12)/(12 (1 − e^(−12))) ≈ 1.024e-06), about twice the plan's 5.6e-07. The reason: one bound needs neither the exchange nor a sum of shell bounds; the coarser figure is inside the plan's budget at t₂ (:123-:124), the sign at t = 16 holding with 4.5e-06 to spare (the generator's side condition, 4.0046 > 4 on the scale 1 + 4t² = 1025).
+  (8) W-ORD-ZETA-BOX, Z3 (:110, "by conjugation of each incGamma1 under the integral"): built by conjugation of the half M under the integral (zM_conj: integral_conj, and Complex.cpow_conj at a positive real), not shell by shell; the same reality, the kernel θ − 1 real.
+  (9) W-ORD-ZETA-BOX, Z5 (:115-:117): the intermediate value step written as intermediate_value_Ioo (IntermediateValue.lean :643) where the plan names intermediate_value_Icc' (:565), the open interval giving 12 < Im ρ < 16 directly; Gammaℝ_ne_zero_of_re_pos (:117) not used, a zero of Λ being a zero of ζ = Λ/Gammaℝ (riemannZeta_def_of_ne_zero) whatever Gammaℝ's value. The step is built in Line.lean's section SPZ1 (zf, zf_eq, zf_cont, zeta_box_of_signs, the conditional theorem of (g) :160-:161), counted under Z5 by the driver.
+  (10) W-ORD-ZETA-BOX, dispatch 3 (run 42391254295, ae959de, BREAKS): Split and Tail built; Line.lean one error, lp_conj, its first alternative's norm_num moving conj through the division before conj_re applied and its second's ring left with conj 2. The repair R2 (ef86297) rewrites by conj_re and conj_im first; dispatch 4 (run 42392017104, KERNEL) printed every printed name at the standard three, SPZ1 REACHED. The seat's defect, the lemma written without a compiled neighbour.
+  (11) W-ORD-ZETA-BOX, Z4 (:126-:127, "lowInt w r by its series at a 16-decimal r near π: 23 terms for 1e-12, 27 for 1e-16"; "Γ(w) through the anchor X = 16 r ≈ 50.3 ... about 100 terms"): r taken as pi_gt_d20's 20-decimal literal 3.14159265358979323846 (the carry's d = 1e-20), the lower series at 37 terms and the anchor's at 182, each to the generator's tolerance 1e-26 (b741's); the discs' radii 1.38e-13 at t = 16 and 2.17e-12 at t = 12 against the plan's budget 2.4e-06 (:124); the side conditions 4.0046 > 4 at t = 16 and 3.9298 < 4 at t = 12 on the scale 1 + 4t². Z4 is two modules, Instr.lean by hand (the carry to π and the two sign lemmas) and Signs.lean GENERATED by tools/b745_zbgen.py (relay 32a5c72a, md5 ac82341c; the module at 1e65887 md5 4ef0a0f5, its output); the generator prints its control first, mpmath's 50-digit quadrature of the shell inside each disc, AS WANTED at both points.
+  (12) W-ORD-ZETA-BOX, the stop points of (g) :160-:163, each read at its dispatch: SPZ1 at dispatch 4 (run 42392017104, zeta0_split, zeta_line_real, zeta_box_of_signs at the standard three); SPZ2 at dispatch 5 (run 42393018408, zeta_sign_16; Z4 to that point Instr.lean's section and Signs.lean at t = 16, within three times Z4's 400); SPZ3 at dispatch 6 (run 42393914259, zeta_sign_12 and zeta_box, every one of the box's 69 names at the standard three, counted in that run's axioms.txt; an earlier draft of this note said 84, the seat's miscount, corrected before commit). The Z1 STOP at 300 lines not met (Z1 measured 121). zeta_box's closure (run 42393914259's out/closure.jsonl.gz, read by hand): 142 programme constants, 73 of them OffZero's instrument (incGamma1, lowInt, Gfac, the discs inD and qc, the exact sums, two_cpow_encl, incGamma1_sub_le, exp_neg_nat_le) as the plan's route (h) :168 asks, the rest ZetaBox's own; no constant of Z_Q itself (zqFn, zqPair, lam, thetaC, thetaU, zqZeroConfig, ZQPremises), no Wide or Epstein constant.
 
 ## THE GRADE, EACH ORDER ITS OWN
   W-ORD-POSITIVE-CONTROL: the four statements pc_count COMPILED ; pc_ne_zero COMPILED ; pc_li_nonneg COMPILED ; pc_online COMPILED ; the dependency print: the generic theorem by name True, constants of Z_Q NONE ; BUILT
+  W-ORD-ZETA-BOX: the stop points SPZ1 REACHED ; SPZ2 REACHED ; SPZ3 REACHED ; names not built NONE ; BUILT
   the axiom line, printed in full for each compiled name above: propext, Classical.choice, Quot.sound
 
-### ### **W-ORD-POSITIVE-CONTROL BUILT ; DISPATCHES 2 OF 12 ; LINES 129 AGAINST 108-290 ; NAMES COMPILED 13 OF 13.**
+### ### **W-ORD-POSITIVE-CONTROL BUILT ; W-ORD-ZETA-BOX BUILT ; DISPATCHES 6 OF 12 ; LINES 129 AGAINST 108-290 AND 663 AGAINST 450-1100 ; NAMES COMPILED 82 OF 82.**
