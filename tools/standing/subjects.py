@@ -8,6 +8,8 @@ the composition would not print. The words after the colon stay the seat's where
 ### refuses a seal or lock commit whose subject check() faults (kind SUBJECT), so the subject is the composition's or the commit does not run.
 ### v1.20.0, (R350)(2)(ii), b739 events (1): the count was read and the typing was not -- b739's "the sealed tools' hashes, 85 files" was
 ### refused for its 85, and the same words with 83 would have run. check() now refuses any seal or lock subject not opening with compose()'s text.
+### v1.25.0, (R355)(2)(v), b744 events (5): the step-row subject composed from the staged step bank (step_rows_words) and checked against it
+### (step_rows_check); `python tools/standing/subjects.py steprows` prints the composition for the index as it stands.
 
   python -X utf8 -u tools/standing/subjects.py <phase> [words]      prints the subject; nothing written
   compose(act, phase, words, read)   -> the subject; read(name) -> the bank's json or text
@@ -106,6 +108,51 @@ def check(act, phase, subject, read):
     return out
 
 
+# ### v1.25.0, (R355)(2)(v), b744 events (5): relay f5ff3680's subject "the step rows for relay b01b6b03, PLACE-papers 5937961 and relay
+# ### e4ab0a4b" named three step rows where the commit added one, the subject typed. A step-row commit's subject is now composed from the rows
+# ### the staged step bank adds over HEAD's, and tools/standing/hook.py refuses a step-row subject naming any other commits (kind SUBJECT).
+STEP_SUBJECT = re.compile(r'^(b\d+) ([a-z0-9 -]+): the step rows? for ')
+NAMES = dict(relay='relay', pp='PLACE-papers')
+
+
+def step_rows_added(head, staged):
+    """the rows of the staged step bank (a dict with `rows`) that HEAD's does not carry, by (repo, commit, phase)."""
+    key = lambda r: (r.get('repo'), r.get('commit'), r.get('phase'))   # noqa: E731
+    have = set(key(r) for r in ((head or {}).get('rows') or []))
+    return [r for r in ((staged or {}).get('rows') or []) if key(r) not in have]
+
+
+def step_rows_words(added):
+    """'the step row for relay e4ab0a4b' / 'the step rows for relay b01b6b03, PLACE-papers 5937961 and relay e4ab0a4b', from the added rows."""
+    names = ['%s %s' % (NAMES.get(r.get('repo'), r.get('repo')), (r.get('commit') or '')[:8 if r.get('repo') == 'relay' else 7]) for r in added]
+    if not names:
+        return ''
+    joined = names[0] if len(names) == 1 else ', '.join(names[:-1]) + ' and ' + names[-1]
+    return 'the step row%s for %s' % ('' if len(names) == 1 else 's', joined)
+
+
+def step_rows_check(subject, added):
+    """[what differs] between a step-row subject and the rows the commit adds: the commits it names (seven or more hex) against theirs."""
+    m = STEP_SUBJECT.match(subject or '')
+    if not m:
+        return []
+    want = step_rows_words(added)
+    if not want:
+        return ['a step-row subject on a commit that adds no step row']
+    named = re.findall(r'\b[0-9a-f]{7,40}\b', subject[m.end():])
+    have = [(r.get('commit') or '') for r in added]
+    out = []
+    for h in named:
+        if not any(c and c.startswith(h) for c in have):
+            out.append('the subject names %s, a row the commit does not add' % h)
+    for c in have:
+        if not any(c.startswith(h) for h in named):
+            out.append('the commit adds the row for %s, the subject does not name it' % c[:8])
+    if out:
+        out.append('the composer`s words: %r' % want)
+    return out
+
+
 def _read(name):
     p = os.path.join(D, name)
     if not os.path.exists(p):
@@ -117,4 +164,12 @@ def _read(name):
 if __name__ == '__main__':
     sys.path.insert(0, os.path.join(T, 'standing'))
     import act as A
+    if sys.argv[1:2] == ['steprows']:
+        import subprocess
+        act_ = A.current()['act']
+        rel = 'data/%s_steps.json' % act_
+        g = lambda ref: subprocess.run(['git', '-C', os.path.dirname(T), 'show', '%s:%s' % (ref, rel)], capture_output=True, text=True, encoding='utf-8').stdout   # noqa: E731
+        h, s = g('HEAD'), g('')
+        print(step_rows_words(step_rows_added(json.loads(h) if h.strip() else {}, json.loads(s) if s.strip() else {})) or '### NO STEP ROW STAGED')
+        sys.exit(0)
     print(compose(A.current()['act'], sys.argv[1], ' '.join(sys.argv[2:]), _read))

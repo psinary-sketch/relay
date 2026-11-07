@@ -2120,6 +2120,13 @@ def main():
     t_start = time.time()
     pushed = RERUN or (not PRERUN and not MID and not PREV and is_pushed())
     base = __import__('standing.repeat', fromlist=['part_guards']).part_guards(PART, '⟪ACT⟫', ROOT, pushed, bool(RERUN or PRERUN or MID or PREV)) or _base_name(pushed)   # ### v1.4.0 (vii), (iii)
+    if PART == 'standing-b3':   # ### v1.25.0, (⟪RUL⟫)(2)(iii), b744 events (2): the four chain parts' banks before b3, or b3 does not run
+        _hb = [half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(KS.CHAIN_QUARTERS))]
+        _ab = __import__('standing.repeat', fromlist=['b3_absent']).b3_absent(_hb, lambda n: os.path.exists(os.path.join(D, n)))
+        if _ab:
+            print('%s  ### PART standing-b3 NOT RUN: THE CHAIN PARTS` BANKS ABSENT FOR THIS RUN (%s): %s -- run standing-b2a to standing-b2d first ((⟪RUL⟫)(2)(iii))' % (
+                time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), _run_key(base), ', '.join(_ab)))
+            return 4
     rec('=' * 104)
     rec('⟪ACT⟫ -- THE SUITE. ### **%s READING.** ### PART %s ### every arm exercised on both controls.' % (
         'ON ⟪PREV⟫`S BANKS ((⟪RUL⟫)(2)(iii))' if PREV else 'PRE-SEAL (R202)(3)' if PRERUN else 'MID-ACT' if MID else 'POST-PUSH' if pushed else 'PRE-PUSH', PART))

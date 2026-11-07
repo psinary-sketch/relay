@@ -3909,4 +3909,6 @@ if __name__ == '__main__':
     if fn is None:
         print('usage: ⟪ACT⟫_record.py <%s> [args]' % '|'.join(sorted(ROUTES)))
         sys.exit(2)
+    if __import__('standing.hold', fromlist=['refuses']).refuses('record ' + sys.argv[1]):   # ### v1.25.0, (⟪RUL⟫)(2)(ii), b744 events (3): the hold binds every record route, the root's included
+        sys.exit(3)
     fn(*sys.argv[2:])

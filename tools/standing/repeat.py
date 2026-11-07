@@ -129,9 +129,34 @@ def phases(root, current=None):
 
 def bookkeeping_only(files, act):
     """True for a commit whose files are all the act's bookkeeping banks -- its step bank, its hashes bank, its hook's refusals -- which a
-    step row cannot carry for itself (its row is written after it and committed by a later commit): b723's 2be0135c and 14bf5ec5."""
-    keep = {'data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act}
+    step row cannot carry for itself (its row is written after it and committed by a later commit): b723's 2be0135c and 14bf5ec5.
+    v1.25.0, (R355)(2)(iv), b744 events (4): the post-lock scan bank joins the set -- the scan runs at every commit after the lock and writes
+    data/<act>_address_scan_postlock.txt, which a step-row commit then carries beside the step bank (relay da9910f9), and the set at :133 left it
+    out, so da9910f9 read as a commit with no row."""
+    keep = {'data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act,
+            'data/%s_address_scan_postlock.txt' % act}
     return bool(files) and set(files) <= keep
+
+
+def row_or_exemption(rows, logs, files_of, act):
+    """v1.25.0, (R355)(2)(iv): every commit of the act printed with its step row's phase or its exemption: [(repo, hash, 'ROW <phase>' |
+    'EXEMPT <files>' | 'NO ROW <files>')]; logs = [(repo, [(hash, subject, time)])]."""
+    out = []
+    for repo, log in logs:
+        for h, _s, _t in log:
+            p = _phase_of(rows, repo, h)
+            if p is not None:
+                out.append((repo, h, 'ROW %s' % p))
+                continue
+            fs = files_of(repo, h)
+            out.append((repo, h, '%s %s' % ('EXEMPT' if bookkeeping_only(fs, act) else 'NO ROW', ' '.join(fs)[:120])))
+    return out
+
+
+def b3_absent(names, exists):
+    """v1.25.0, (R355)(2)(iii), b744 events (2): standing-b3 joins the four chain parts' half banks (b2a-b2d); sent before them, it read empty
+    halves and G-ACTROOT-VERIFY failed on them. The names of the half banks absent for this run's key; the part refuses itself while any is."""
+    return [n for n in names if not exists(n)]
 
 
 def files_of(root, pp):

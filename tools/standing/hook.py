@@ -18,6 +18,8 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   SED    sed in any form (data/b685_rules.txt row (2)), the reader of (R343)'s tools in its place -- v1.19.0, (R349)(2)(vi)
   HASHED an Edit or Write of a bank its tool wrote (data/<act>_bank_hashes.json names it), before the lock or after -- v1.21.0, (R351)(2)(ii)
   SUBJECT (v1.21.0, (R351)(2)(i)) a gate, lock or seal commit made by the shell at all: tools/standing/commit.py is the one route
+  SUBJECT (v1.25.0, (R355)(2)(v)) a step-row commit whose subject names other rows than the staged step bank adds
+  ROWID  (v1.25.0, (R355)(2)(i)) a PLACE-papers commit adding a ledger row whose ID the file already holds (tools/standing/rowid.py)
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -64,6 +66,7 @@ ROWS = {
     'BACKGROUND': ROW77 + ' ; no suite part in the background, each in the foreground with its 600 s limit ((R349)(2)(v))',
     'SED': ROW77 + ' ; data/b685_rules.txt row (2), sed in any form, a line read by the Read tool or tools/standing/peek.py ((R349)(2)(vi))',
     'HASHED': ROW77 + ' ; (18) a bank a tool wrote (named in data/<act>_bank_hashes.json) rewritten by its tool and never by hand ((R351)(2)(ii))',
+    'ROWID': ROW77 + ' ; a ledger row`s ID allocated from the file`s maximum over every table carrying the prefix, a held ID refused ((R355)(2)(i))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -284,7 +287,52 @@ def subject_faults(cmd, relay=RELAY):
     subj = m.group(1) if m.group(1) is not None else m.group(2)
     s = re.match(r'^(b\d+) (seal|lock|gate):', subj)
     if not s:
+        return step_subject_faults(subj, relay)
+    return _seal_lock_faults(s, subj, relay)
+
+
+def step_subject_faults(subj, relay=RELAY):
+    """v1.25.0, (R355)(2)(v), b744 events (5): a step-row commit's subject ("bNNN <phase>: the step row(s) for ...") read against the rows the
+    staged step bank adds over HEAD's (tools/standing/subjects.py step_rows_check); [] for any other subject."""
+    d = os.path.dirname(os.path.abspath(__file__))
+    if d not in sys.path:
+        sys.path.insert(0, d)
+    import subjects as SJ
+    sm = SJ.STEP_SUBJECT.match(subj or '')
+    if not sm:
         return []
+    import subprocess
+    rel = 'data/%s_steps.json' % sm.group(1)
+
+    def g(ref):
+        r = subprocess.run(['git', '-C', relay, 'show', '%s:%s' % (ref, rel)], capture_output=True)
+        t = r.stdout.decode('utf-8', 'replace') if r.returncode == 0 else ''
+        return json.loads(t) if t.strip() else {}
+    return SJ.step_rows_check(subj, SJ.step_rows_added(g('HEAD'), g('')))
+
+
+ROWID_COMMIT = re.compile(r'(?:\bcd\s+(?:"([^"]+)"|(\S+))\s*&&\s*)?\bgit\s+(?:-C\s+(?:"([^"]+)"|(\S+))\s+)*commit\b')
+
+
+def rowid_faults(cmd, ctx=None):
+    """v1.25.0, (R355)(2)(i), b743's [B1]-[B3]: a commit in PLACE-papers whose staged ledger files add a row whose ID the file already holds
+    (tools/standing/rowid.py staged_refusals); the repository read from the command's -C or cd, else the hook input's cwd; [] otherwise."""
+    m = ROWID_COMMIT.search(cmd or '')
+    if not m:
+        return []
+    path = next((x for x in (m.group(3), m.group(4), m.group(1), m.group(2)) if x), None) or ((ctx or {}).get('cwd') or '')
+    norm = path.replace('\\', '/').rstrip('/')
+    if not norm.lower().endswith('place-papers'):
+        return []
+    repo = re.sub(r'^/([a-zA-Z])/', lambda k: k.group(1).upper() + ':/', norm)
+    d = os.path.dirname(os.path.abspath(__file__))
+    if d not in sys.path:
+        sys.path.insert(0, d)
+    import rowid as RI
+    return ['%s :%d %s -- %s' % r for r in RI.staged_refusals(repo)]
+
+
+def _seal_lock_faults(s, subj, relay=RELAY):
     if s.group(2) == 'gate':
         return ['a gate commit by the shell: tools/standing/commit.py makes it, its subject and its row']
     d = os.path.dirname(os.path.abspath(__file__))
@@ -481,8 +529,14 @@ def judge(tool, inp, relay=RELAY, ctx=None):
         if GW is not None and len(GW.writes(cmd)) > 1:   # ### v1.17.0, (R347)(2)(ii): add and commit chained count two
             return 'GITWRITE', 'a %s command carrying %d git writes' % (tool, len(GW.writes(cmd)))
         sf = subject_faults(cmd, relay)
-        if sf:   # ### v1.19.0, (R349)(2)(iii), b738 events (4)
-            return 'SUBJECT', 'a seal or lock commit whose subject differs from its bank: %s' % '; '.join(sf)[:200]
+        if sf:   # ### v1.19.0, (R349)(2)(iii), b738 events (4); v1.25.0, (R355)(2)(v): the step-row subject too
+            return 'SUBJECT', 'a seal, lock or step-row commit whose subject differs from its bank: %s' % '; '.join(sf)[:200]
+        try:
+            rf = rowid_faults(cmd, ctx)
+        except Exception as e:   # ### the reader's own failure refuses nothing silently: printed as the refusal's detail
+            rf = ['the ID reader failed (%s)' % e]
+        if rf:   # ### v1.25.0, (R355)(2)(i), b743's [B1]-[B3]
+            return 'ROWID', 'a PLACE-papers commit adding a ledger row whose ID the file already holds: %s' % '; '.join(rf)[:200]
         if ctx and GW is not None:
             cmds, idx = message_calls(ctx.get('transcript_path'), ctx.get('tool_use_id'), inp)
             if over_one_write(cmds, idx, GW):

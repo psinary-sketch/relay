@@ -1,0 +1,131 @@
+b745 -- THE CONTROLS OF tools/standing/ v1.25.0, (R355)(2)(i)-(vii): THE ROW`S ID, THE HOLD AT THE ROOT AND EVERY RECORD ROUTE, b3 AFTER ITS CHAIN PARTS, THE EXEMPT SET AND EVERY COMMIT`S ROW OR EXEMPTION, THE STEP-ROW SUBJECT, THE REPEAT INSTANCES, THE VERSION (2026-11-07T15:20:53Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2581 lines
+  citation render          OK    513 lines
+  closing render           OK    621 lines
+  record render            OK    4537 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    151 lines
+  tools/b745_worklist.py   OK    421 lines
+### THE COMPILE CONTROL : b745 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from 7d448774
+
+  free 4272 MB at 2026-11-07T15:20:54Z, the hold 2560 MET
+### (rowid) (R355)(2)(i), b743`s [B1]-[B3] (PLACE-papers 9b4af2c, 1d94177, 488b4d0), repaired by the author`s amendment at b744 (0d51a02): THE ROW`S ID
+  (rowid) b743`s row at 9b4af2c (1.5c-16), replayed against REGISTRY at its parent
+      BEFORE (v1.24.0): the hook at 7d448774 names no ID rule (ROWID False, rowid False): the row committed and pushed -> FAILS
+      AFTER  (v1.25.0): refused: 1.5c-16 -- the file already holds 1.5c-16 (base :479, :992) -> PASSES
+      AS WANTED
+  (rowid) b743`s row at 1d94177 (1.5c-17), replayed against REGISTRY at its parent
+      BEFORE (v1.24.0): the hook at 7d448774 names no ID rule (ROWID False, rowid False): the row committed and pushed -> FAILS
+      AFTER  (v1.25.0): refused: 1.5c-17 -- the file already holds 1.5c-17 (base :520) -> PASSES
+      AS WANTED
+  (rowid) b743`s row at 488b4d0 (1.5c-18), replayed against REGISTRY at its parent
+      BEFORE (v1.24.0): the hook at 7d448774 names no ID rule (ROWID False, rowid False): the row committed and pushed -> FAILS
+      AFTER  (v1.25.0): refused: 1.5c-18 -- the file already holds 1.5c-18 (base :1090) -> PASSES
+      AS WANTED
+  (rowid) GUARD, NO FAILING SIDE: b744`s renumbered rows at 0d51a02 (1.5c-21, 1.5c-22, 1.5c-23), against REGISTRY at its parent
+      AFTER  (v1.25.0): refused 0 -> HOLDS
+      AS WANTED
+  (rowid) GUARD, NO FAILING SIDE: the next 1.5c ID before b743`s sitting, from the file`s maximum over every table (the table the rows joined ended at 1.5c-15)
+      AFTER  (v1.25.0): 1.5c-21 -> HOLDS
+      AS WANTED
+  (rowid) the hook on a PLACE-papers commit command, b743`s [B1] form staged over REGISTRY at 9b4af2c^ (a scratch clone, removed after)
+      BEFORE (v1.24.0): the hook at 7d448774: no ROWID kind, the commit allowed -> FAILS
+      AFTER  (v1.25.0): judged ROWID: a PLACE-papers commit adding a ledger row whose ID the file already holds: REGISTRY.md :177 1.5c-16 -- the fil -> PASSES
+      AS WANTED
+  (rowid) GUARD, NO FAILING SIDE: the same hook, REGISTRY at 0d51a02 (1.5c-16 to -18 renumbered 1.5c-21 to -23) staged instead
+      AFTER  (v1.25.0): judged ALLOWED -> HOLDS
+      AS WANTED
+  (rowid) FOUND, NOT A CASE: REGISTRY.md at PLACE-papers HEAD holds 17 IDs more than once, older than the rule and not this act`s to repair: 1.5a-5, 1.5a-6, 1.5a-7, 1.5a-8, 1.5b-6, 1.5c-16, 1.5d-4, 1.5f-4, 1.5g-4, 1.5h-3, 1.5h-7, 1.5h-8, 1.5h-9, d1-1, p2-16, p2-27, p2-4
+
+  free 4263 MB at 2026-11-07T15:20:55Z, the hold 2560 MET
+### (hold) (R355)(2)(ii), b744 events (3), THE TOOLS` [CLAIM ; NEW]: THE HOLD AT THE ROOT AND EVERY RECORD ROUTE
+  (hold) b744`s `record root_arm` replayed at its free memory, 2,360 MB (data/b744_events.txt (3) carries the figure: True), the hold 2,560 MB
+      BEFORE (v1.24.0): record.tpl at 7d448774: its dispatch reads no free memory (standing.hold False, free_mb False); the route ran -> FAILS
+      AFTER  (v1.25.0): hold.refuses: REFUSED, exit 3; the template`s dispatch asks it before every route (True) -> PASSES
+      AS WANTED
+  (hold) GUARD, NO FAILING SIDE: the same route at 3,000 MB, above the hold
+      AFTER  (v1.25.0): hold.refuses: RUNS -> HOLDS
+      AS WANTED
+  (hold) GUARD, NO FAILING SIDE: a record route other than the root`s (`record step`) at 2,559 MB, one beneath the hold
+      AFTER  (v1.25.0): hold.refuses: REFUSED -> HOLDS
+      AS WANTED
+
+  free 4263 MB at 2026-11-07T15:20:55Z, the hold 2560 MET
+### (b3) (R355)(2)(iii), b744 events (2): STANDING-b3 AFTER ITS FOUR CHAIN PARTS
+  (b3) b744`s sequence replayed: `--prev --part standing-b3` with the four prev-run half banks unwritten (b744_chain_half_a1_prevrun.json, b744_chain_half_a2_prevrun.json, b744_chain_half_a3_prevrun.json, b744_chain_half_a4_prevrun.json)
+      BEFORE (v1.24.0): checks.tpl at 7d448774: b3 joins whatever it reads (b3_absent False); the halves empty, G-ACTROOT-VERIFY failed -> FAILS
+      AFTER  (v1.25.0): b3 refuses itself, exit 4: absent 4 of 4 (the template calls b3_absent: True) -> PASSES
+      AS WANTED
+  (b3) GUARD, NO FAILING SIDE: the same four banks as b744`s re-run wrote them (present in data/ now)
+      AFTER  (v1.25.0): absent 0: b3 runs -> HOLDS
+      AS WANTED
+
+  free 4257 MB at 2026-11-07T15:20:55Z, the hold 2560 MET
+### (exempt) (R355)(2)(iv), b744 events (4): THE EXEMPT SET OF repeat.py :133 AND EVERY COMMIT`S ROW OR EXEMPTION PRINTED
+  (exempt) relay da9910f9 replayed before its own row was written (it carries data/b744_address_scan_postlock.txt, data/b744_steps.json)
+      BEFORE (v1.24.0): bookkeeping_only at 7d448774: False -- a commit needing a row, none written: G-SEALED-AFTER-COMPONENTS FAILED at standing-a2 -> FAILS
+      AFTER  (v1.25.0): bookkeeping_only: True -- exempt, printed as EXEMPT -> PASSES
+      AS WANTED
+  (exempt) GUARD, NO FAILING SIDE: the same files with a bank of the act`s beside them
+      AFTER  (v1.25.0): bookkeeping_only: False -- needs its row -> HOLDS
+      AS WANTED
+  (exempt) THE PRINT, b744`s relay commits against its step rows less da9910f9`s (the state the event read):
+      relay 7d448774 EXEMPT data/b744_steps.json
+      relay d75dffb7 ROW closing
+      relay f5ff3680 EXEMPT data/b744_steps.json
+      relay e4ab0a4b ROW record
+      relay b01b6b03 ROW root
+      relay da9910f9 EXEMPT data/b744_address_scan_postlock.txt data/b744_steps.json
+      relay b45224c9 ROW pre-root
+      relay 79bb27a0 ROW seal
+      relay ae688949 ROW lock
+      relay cbf90ed2 ROW gate
+      relay 8c0f7568 ROW gate
+      relay 1d16849b ROW component 3
+      relay 28a554eb ROW component 2
+      relay 2e1caea2 ROW component 2
+      relay e810c5ba ROW component 1
+      relay c9396ad0 ROW component 1
+      relay 678338f3 ROW step zero
+      relay f2f0cc72 ROW step zero
+      relay 3384659f ROW step zero
+      relay dfe1e405 ROW step zero
+  (exempt) GUARD, NO FAILING SIDE: every b744 relay commit printed with its row or its exemption, none NO ROW
+      AFTER  (v1.25.0): rows 17 ; EXEMPT 3 ; NO ROW 0 -> HOLDS
+      AS WANTED
+
+  free 4239 MB at 2026-11-07T15:20:56Z, the hold 2560 MET
+### (subject) (R355)(2)(v), b744 events (5): THE STEP-ROW SUBJECT COMPOSED FROM THE STAGED STEP BANK
+  (subject) relay f5ff3680`s subject "b744 record: the step rows for relay b01b6b03, PLACE-papers 5937961 and relay e4ab0a4b"
+      BEFORE (v1.24.0): the hook at 7d448774 reads seal, lock and gate subjects alone (step_subject_faults False): the subject ran -> FAILS
+      AFTER  (v1.25.0): step_rows_check: the subject names b01b6b03, a row the commit does not add; the subject names 5937961, a row the commit does not add; the composer`s words: 'the step row for relay e4ab0a4b' -> PASSES
+      AS WANTED
+  (subject) GUARD, NO FAILING SIDE: f5ff3680`s subject regenerated by the composer from the rows it adds (1)
+      AFTER  (v1.25.0): "b744 record: the step row for relay e4ab0a4b" ; check: NO FAULT -> HOLDS
+      AS WANTED
+
+  free 4246 MB at 2026-11-07T15:20:56Z, the hold 2560 MET
+### (repeat) (R355)(2)(vi): THE REPEAT INSTANCES OF b744 EVENTS (1) AND (6)
+  (repeat) GUARD, NO FAILING SIDE: (1) a PowerShell listing carrying a pipe (events (1), REPEAT b743 (c)): the hook`s PIPE row working
+      AFTER  (v1.25.0): judged PIPE ; events (1) REPEAT True -> HOLDS
+      AS WANTED
+  (repeat) GUARD, NO FAILING SIDE: (6) the post-push part sent without --rerun-postpush (events (6), REPEAT b743 (14)): the suite`s self-refusal working, the instance printed
+      AFTER  (v1.25.0): events (6) REPEAT True ; carries --rerun-postpush True -> HOLDS
+      AS WANTED
+
+  free 4246 MB at 2026-11-07T15:20:56Z, the hold 2560 MET
+### (version) (R355)(2)(vii): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.24.0): v1.24.0 -> FAILS
+      AFTER  (v1.25.0): v1.25.0 -> PASSES
+      AS WANTED
+
+### ### **v1.25.0: CONTROLS (rowid), (hold), (b3), (exempt), (subject), (repeat), (version) ; CASES 20 ; AS WANTED 20 ; ALL AS WANTED.**
