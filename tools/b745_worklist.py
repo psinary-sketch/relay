@@ -259,11 +259,12 @@ STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b744's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R355)(3), with its amendment row: the commit every dispatch row names ((R355)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
 # ### N2: each generator commit (relay) before the zq-b730 commit holding the modules it generated
-GEN_COMMITS = ()   # ### b744's generator commits (22f8d6b1, 6467c061, 3194b6eb) are cited by the discharge, not this act's
-GEN_MD5 = {'FrontierData': 'c8e320f9db1a12622cc147555496cf11', 'Nodes0': '7cb04ecfd3649a1daf5633de691df670',   # ### the generator's output at 3194b6eb
-           'Nodes1': 'a20f1f00a156e59e97f841beb8d89a76', 'Nodes2': 'efff8c97b5f9879bcf12e3f79628dc64',
-           'Nodes3': '09de4381169541faf5f0066bf66905e7', 'NodesF': 'd37bbfbb8c81165521b77de16022069a'}
-GENERATOR = 'tools/b744_s6gen.py'   # ### b744's, read not run
+GEN_COMMITS = (('04e7f854', '32bad89a'), ('32a5c72a', '32bad89a'), ('32a5c72a', '1e658870'))   # ### (R355)(4)(c): the Z4 generator's relay commits, each before the zq-b730 commit it fed (Signs.lean at t = 16, then 16 and 12)
+GEN_MD5 = {'Signs': '4ef0a0f5606052abf21c797a9aba64a2'}   # ### the generator's output at 32a5c72a (`<out> 16 12`), Signs.lean at zq-b730's tip by md5
+GEN_MD5_PREV = {'FrontierData': 'c8e320f9db1a12622cc147555496cf11', 'Nodes0': '7cb04ecfd3649a1daf5633de691df670',   # ### b742's generator's output at 3194b6eb (carried name, read not run)
+                'Nodes1': 'a20f1f00a156e59e97f841beb8d89a76', 'Nodes2': 'efff8c97b5f9879bcf12e3f79628dc64',
+                'Nodes3': '09de4381169541faf5f0066bf66905e7', 'NodesF': 'd37bbfbb8c81165521b77de16022069a'}
+GENERATOR = 'tools/b745_zbgen.py'   # ### this act's: Signs.lean generated from it ((R355)(4)(c), md5 ac82341c at 32a5c72a)
 VISIBILITY_COMMIT = None
 COMPUTE_TOOLS = ()                      # ### set by the Edit tool when a component seals a compute tool
 REPAIRED_TOOLS = tuple(p[len('tools/'):] for p in json.load(io.open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['shared_edits'])
@@ -296,33 +297,34 @@ B723_ROOT_BANKS = 'b01b6b03'  # ### b744's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '475a6f38'                 # ### tools/standing/ v1.25.0 by a commit of its own, its controls bank data/b745_standing_v1250.txt ((R355)(2))
 C1_STANDING_REPAIR = None
-C1_RELAY = None
+C1_RELAY = '58ac7751'              # ### the c1 route, the corrigendum banks, the corrigenda row (65), the rules bank; step 4
 C1_CORR = C1_RELAY
 C1_RULES = C1_RELAY
-C1_PP = None
+C1_PP = '5b0b1b70'                 # ### PLACE-papers: FINDINGS (b744 at its weight :13964), (the corrigendum :13966); step 3
+C1_TAG_PP = ('a0aeab55', '82c8e977')   # ### PLACE-papers: the tag's dated notes, REGISTRY (its foot) and SPIRAL_MAP (the 2D block), each its own write ((R355)(3)); steps 5-6
 C1_DISCHARGE_PP = None             # ### no discharge this act
-C2_TOOL = None
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b744's weight line and the corrigendum for b744 (Component 1), set when written
+C2_TOOL = '5f0d596a'               # ### the two controls' driver tools/b745_controls.py, its first commit, with dispatch 1's row; step 7
+WEIGHT_LINE, CORR_LINE = 13964, 13966   # ### FINDINGS: b744's weight line and the corrigendum for b744 (Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None
-C2_RELAY = None
-C2_AMEND_RELAY = None
-C2_AMEND_PP = ()
+C2_PLAN_FIRST = '5f0d596a'   # ### (carried name) Component 2's first commit: the driver, the positive control's first dispatch row; the plan banks b744's, read at their step-zero md5s
+C2_RELAY = '8db09a32'        # ### Component 2's last commit: W-ORD-POSITIVE-CONTROL BUILT, the controls bank and notes (1)-(5); step 8
+C2_AMEND_RELAY = None        # ### no amendment this act
+C2_AMEND_PP = C1_TAG_PP      # ### (carried name) the PLACE-papers writes beside the corrigendum: the tag's two dated notes
 C2_PP = None
 PRICE_LINE = 17400
 DOORS_COMMIT = None
 MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
-PRINT_COMMIT = C2_RELAY  # ### (carried name) the commit carrying the act's result bank: data/b745_sitting.txt
-PLAN_MD5 = None   # ### data/b744_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S)
+PRINT_COMMIT = 'bdf37dae'  # ### (carried name) the commit carrying the act's result bank: data/b745_controls.txt, both orders BUILT; step 11
+PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b744_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S), unedited
 C2_AMEND = ()
 SITTING_PP = ()       # ### no sitting this act
 SITTING_KERNEL = None # ### no kernel written this act ((R355)(5))
 SITTING_GH = ()       # ### no description written
 SITTING_ITEMS = 0
-C3_RELAY = ()   # ### Component 3, the build to SP4 ((R355)(3)(b)): the tool, the dispatch rows; the build bank and its notes at Component 4
+C3_RELAY = ('04e7f854', '32a5c72a', 'bdf37dae')   # ### Component 3, W-ORD-ZETA-BOX ((R355)(4)(b)): the generator and the driver's box orders ; the generator's fix ; BUILT, the bank and notes (11)-(12); steps 9-11
 SITTING_COMMITS = ()
 C3_PP = None
 C4_LV = None
