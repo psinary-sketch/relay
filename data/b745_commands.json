@@ -1,0 +1,3011 @@
+{
+ "at": "2026-11-07T18:06:54Z",
+ "anchor": "RULING (R355) BEGIN",
+ "rows": [
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:47:56.809Z",
+   "src": "seat",
+   "cmd": "cd \"/c/Users/echo chamber/.claude/projects/D--/memory\" && cat project_b744_progress.md && echo ===== && ls -t | head -30",
+   "n": 1,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:48:05.806Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short && git log --oneline -5 && ls data/b744_stepzero.txt data/act_current.json tools/acts",
+   "n": 2,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:48:18.171Z",
+   "src": "seat",
+   "cmd": "git log --oneline -12 && ls tools/standing/ && cat data/act_current.json && cat data/b744_stepzero.txt",
+   "n": 3,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:48:30.042Z",
+   "src": "seat",
+   "cmd": "git rev-parse HEAD origin/main && git -C /d/MY-DOwnloads/PLACE-papers rev-parse HEAD origin/main && git -C /d/MY-DOwnloads/PLACE-papers status --short --branch && tail -n 3 data/act_roots.txt && git branch --list",
+   "n": 4,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:49:31.958Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],len(d['components']),sorted(d['replay'])[-2:])\" && git add data/act_current.json",
+   "n": 5,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:49:40.189Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 step zero: data/act_current.json for b745 under (R355), committed alone before any other write of the act\"",
+   "n": 6,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:49:47.917Z",
+   "src": "seat",
+   "cmd": "git status --short -- data/b744_relay_push-b744-closing_push_out.txt tools/mirror_prevbuild.json && git diff --stat -- tools/mirror_prevbuild.json && cat data/b744_relay_push-b744-closing_push_out.txt",
+   "n": 7,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:49:52.884Z",
+   "src": "seat",
+   "cmd": "git hash-object tools/mirror_prevbuild.json && git rev-parse HEAD:tools/mirror_prevbuild.json && git add data/b744_relay_push-b744-closing_push_out.txt",
+   "n": 8,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:50:01.184Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 step zero: b744's closing push capture (data/b744_relay_push-b744-closing_push_out.txt), carried, committed alone\"",
+   "n": 9,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:50:08.237Z",
+   "src": "seat",
+   "cmd": "git checkout -- tools/mirror_prevbuild.json && git status --short -- tools/mirror_prevbuild.json && git show --stat d75dffb7 -- tools/mirror_prevbuild.json",
+   "n": 10,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:50:21.931Z",
+   "src": "seat",
+   "cmd": "git log --oneline -3 -- tools/mirror_prevbuild.json && python -X utf8 -c \"import json;print(json.load(open('tools/mirror_prevbuild.json',encoding='utf-8')))\"",
+   "n": 11,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:50:30.621Z",
+   "src": "seat",
+   "cmd": "ls tools/b744_* tools/acts/b744.py && sed -n 1,60p tools/b744_carry.py",
+   "n": 12,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:50:33.993Z",
+   "src": "seat",
+   "cmd": "ls tools/b744_* tools/acts/b744.py data/b744_carry_*",
+   "n": 13,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:51:01.684Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/carrycarry745.py\"",
+   "n": 14,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:51:30.204Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_carry.py carry worklist && python -X utf8 tools/b745_carry.py acts",
+   "n": 15,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:51:45.333Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_carry.py carry address_scan",
+   "n": 16,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:52:21.862Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/scanfix745.py\" && python -X utf8 -m py_compile tools/b745_address_scan.py tools/b745_carry.py tools/b745_worklist.py tools/acts/b745.py && echo COMPILED",
+   "n": 17,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:52:29.880Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -m py_compile tools/acts/b744.py && echo B744_COMPILES",
+   "n": 18,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:52:38.114Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -m py_compile tools/b745_address_scan.py tools/b745_carry.py tools/b745_worklist.py && echo COMPILED && ls data/b745_*",
+   "n": 19,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:53:09.523Z",
+   "src": "seat",
+   "cmd": "ls data/b744_*.txt data/b744_*.json && git -C /d/MY-DOwnloads/PLACE-papers grep -n -e \"^## b744\" -e \"b744 at its weight\" -e \"the corrigendum for b744\" -e \"^### b744\" -- FINDINGS.md OPEN_TRAILS.md",
+   "n": 20,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:53:21.779Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e \"b744\" -- FINDINGS.md && python -X utf8 -c \"\nL=open('OPEN_TRAILS.md',encoding='utf-8-sig').read().split('\\n')\nfor i in range(17717,17830):\n  if i<len(L) and L[i-1].strip(): print(i, L[i-1][:110])\n\"",
+   "n": 21,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:56:28.277Z",
+   "src": "seat",
+   "cmd": "cd /d/relay/tools && python -X utf8 -c \"import b745_worklist as K;print(K.PRE_RELAY,K.DELETE,K.PLAN_BANKS,K.MAX_DISPATCHES,len(K.SEALED))\"",
+   "n": 22,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:57:03.664Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/cites745.py\"",
+   "n": 23,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:57:18.993Z",
+   "src": "seat",
+   "cmd": "grep -n -o -E \"^ *\\(([a-q])\\) THE [A-Z' ]+\\[[A-Z]+ ; [A-Z0-9 ()a-z]+\\]\" data/b744_defects.txt",
+   "n": 24,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:57:32.793Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"CASES 29|AS WANTED 29\" data/b744_standing_v1240.txt ; grep -n \"ARMS RUN\" data/b744_checks.txt ; grep -n -o -E \"\\b115\\b banks|banks 115|115 banks\" data/b744_root_banks.txt ; grep -c -E \"b744 AGREE\" data/b744_checks_postpush_standing-b3.txt ; grep -n -o -E \"450-1,100|450-1100|108-290|SPZ[123]|DISPATCHES[^;]{0,30}\" data/b744_zetabox_plan.txt data/b744_poscontrol_plan.txt",
+   "n": 25,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:57:49.681Z",
+   "src": "seat",
+   "cmd": "grep -n -o -E \"[0-9]+ banks\" data/b744_root_banks.txt data/b744_act_root.txt",
+   "n": 26,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:57:54.017Z",
+   "src": "seat",
+   "cmd": "grep -n -i -E \"banks|count\" data/b744_act_root.txt",
+   "n": 27,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:58:03.994Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;d=json.load(open('data/b744_root_banks.json',encoding='utf-8-sig'));print(type(d).__name__, list(d)[:8] if isinstance(d,dict) else len(d)); print({k:(len(v) if hasattr(v,'__len__') else v) for k,v in d.items()} if isinstance(d,dict) else '')\"",
+   "n": 28,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:58:21.264Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nL=open('tools/acts/b745.py',encoding='utf-8').read().split('\\n')\ns=L.index('#⟪SECTION citation 1⟫'); e=L.index('#⟪END⟫',s); print(s+1,e+1)\ns4=L.index('#⟪SECTION citation 4⟫'); e4=L.index('#⟪END⟫',s4); print(s4+1,e4+1); print(repr(L[e4-1][:80]))\n\"",
+   "n": 29,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:58:38.843Z",
+   "src": "seat",
+   "cmd": "grep -rn -B3 -A3 \"citation 4\" tools/standing/fold/",
+   "n": 30,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T14:58:43.539Z",
+   "src": "seat",
+   "cmd": "grep -rln \"SECTION\" tools/standing/fold.py tools/standing/actmodule.py && grep -n \"citation\" tools/standing/fold.py | head -n 1",
+   "n": 31,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:00:32.414Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/splice745.py\"",
+   "n": 32,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:01:03.182Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/ferry745.py\"",
+   "n": 33,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:01:23.689Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py citation ferry --act b745",
+   "n": 34,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:01:49.540Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py citation check dry --act b745",
+   "n": 35,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:02:28.170Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py citation check --act b745",
+   "n": 36,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:03:27.229Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/readfirst.py write b745",
+   "n": 37,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:04:12.116Z",
+   "src": "seat",
+   "cmd": "git grep -l \"ROWGEN DIFF AND CONSTELLATION\" -- tools",
+   "n": 38,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:04:33.693Z",
+   "src": "seat",
+   "cmd": "git grep -n -B2 -A2 \"def rowgen\\|'rowgen'\" -- tools/standing/fold/record.tpl",
+   "n": 39,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:04:48.713Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record rowgen --act b745",
+   "n": 40,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:05:56.267Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/proclist745.py\"",
+   "n": 41,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:06:14.162Z",
+   "src": "seat",
+   "cmd": "git branch --merged main --list \"push-b744-*\" -v && git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list \"push-b744-*\" -v && git -C /d/SIDE-explicit-formula branch --list \"push-*\" -v",
+   "n": 42,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:06:34.371Z",
+   "src": "seat",
+   "cmd": "git branch -d push-b744-closing",
+   "n": 43,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:06:58.131Z",
+   "src": "seat",
+   "cmd": "git branch -d push-b744-preroot",
+   "n": 44,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:07:13.869Z",
+   "src": "seat",
+   "cmd": "git branch -d push-b744-record",
+   "n": 45,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:07:28.631Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b744-preroot",
+   "n": 46,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:07:45.255Z",
+   "src": "seat",
+   "cmd": "git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b744-record",
+   "n": 47,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:07:54.511Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-remote --tags origin",
+   "n": 48,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:08:09.731Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula tag --list \"v0.38*\" && grep -n -o -E \"\\(2\\) [^\\n]{0,1600}\" data/b743_ferry.txt",
+   "n": 49,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:08:19.401Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nt=open('data/b743_ferry.txt',encoding='utf-8').read()\ni=t.find('(2) THE NAVIGATOR'); j=t.find('(3) ',i); print(t[i:j])\n\"",
+   "n": 50,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:08:40.405Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula config --show-origin --get-all user.email ; git -C /d/SIDE-explicit-formula config --get user.name ; git -C /d/SIDE-explicit-formula status --short --branch ; git -C /d/SIDE-explicit-formula rev-parse zq-b730 ; cd /d/relay && grep -n -i \"tag\" tools/push_gated.sh",
+   "n": 51,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:09:00.899Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-remote origin refs/heads/zq-b730",
+   "n": 52,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:09:15.461Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula tag -a v0.38 -F \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/tagmsg745.txt\" 14ca572560f50378a6e4715e35cba0351e5f105d",
+   "n": 53,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:09:33.029Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula cat-file -p v0.38 && git -C /d/SIDE-explicit-formula rev-parse v0.38 \"v0.38^{}\"",
+   "n": 54,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:09:44.303Z",
+   "src": "seat",
+   "cmd": "bash tools/push_gated.sh /d/SIDE-explicit-formula --existing-tag v0.38",
+   "n": 55,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:10:07.501Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula ls-remote origin refs/tags/v0.38 \"refs/tags/v0.38^{}\" refs/heads/main refs/heads/zq-b730",
+   "n": 56,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:10:56.550Z",
+   "src": "seat",
+   "cmd": "git log -3 --format=\"%h %cI %s\" && git status --short --untracked-files=all -- data/b745_* tools/b745_* tools/acts/b745.py && git -C /d/MY-DOwnloads/PLACE-papers status --short",
+   "n": 57,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:11:50.175Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 58,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:12:13.288Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=\"%h %s\" 678338f3",
+   "n": 59,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:12:21.059Z",
+   "src": "seat",
+   "cmd": "git add data/b745_address_scan.txt data/b745_bank_hashes.json data/b745_carry_acts.txt data/b745_carry_address_scan.txt data/b745_carry_worklist.txt data/b745_citation_check.json data/b745_citation_check.txt data/b745_ferry.txt data/b745_ferry_scan.txt data/b745_readfirst.txt data/b745_readfirst_rows.json data/b745_rowgen_stepzero.txt data/b745_stepzero.txt data/b745_SIDE-explicit-formula_v0.38_push_out.txt tools/acts/b745.py tools/b745_address_scan.py tools/b745_carry.py tools/b745_worklist.py && git diff --cached --stat",
+   "n": 60,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:12:28.725Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 step zero: the ferry, the citation check (118 of 118 OK, THE CHECK CLEAN; the comparative read VACUOUS), the readfirst bank by the tool, rowgen and constellation, the carried tools, the --merged listing and the five push-b744-* deletes, the tag v0.38 on SIDE-explicit-formula at 14ca5725 (no merge, its peel read back), the price table and the step-zero defects (a)-(e); the scan 0/0/0/0\"",
+   "n": 61,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:12:45.810Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay \"step zero\" --act b745",
+   "n": 62,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:13:28.795Z",
+   "src": "seat",
+   "cmd": "wc -l tools/standing/v1240.py tools/standing/repeat.py tools/standing/subjects.py tools/standing/runs.py && git grep -n \"^def \\|^    def \" -- tools/standing/v1240.py",
+   "n": 63,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:13:42.527Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"beneath the hold|below the hold|HOLD_MB|hold_mb|def free_mb|free_mb\\(\" -- tools/standing tools/b703_checks.py",
+   "n": 64,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:13:58.399Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^def main|^if __name__|ROUTES = |fn = \\{|\\.get\\(sys\\.argv\\[1\\]|def root\\(|def root_arm|def step\\(\" -- tools/standing/fold/record.tpl tools/standing/fold.py",
+   "n": 65,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:14:15.038Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git log --format=\"%h %s\" -6 -- REGISTRY.md && cd /d/relay && git grep -l -E \"1\\.5c-1[678]\" -- \"tools/b743_*.py\" tools/standing",
+   "n": 66,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:14:42.715Z",
+   "src": "seat",
+   "cmd": "git show --name-only --format=\"%h %s\" da9910f9 && git show --name-only --format=\"%h %s\" f5ff3680 && python -X utf8 -c \"\nimport json;r=json.load(open('data/b744_steps.json',encoding='utf-8'))['rows'];[print(x.get('n'),x.get('repo'),(x.get('commit') or '')[:8],x.get('phase'),(x.get('what') or '')[:60]) for x in r]\"",
+   "n": 67,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:15:16.584Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"SUBJECT|subjects|def \" -- tools/standing/hook.py",
+   "n": 68,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:15:43.287Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 -c \"\nimport re,collections\nfor f in ('REGISTRY.md','ERRATA.md','phase1.5/method/INSTRUMENTS.md'):\n  t=open(f,encoding='utf-8-sig').read().replace('\\r','')\n  ids=[(i,m.group(1)) for i,l in enumerate(t.split('\\n'),1) for m in [re.match(r'^\\|\\s*([A-Za-z0-9.]+-\\d+[A-Za-z]?)\\s*\\|',l)] if m]\n  c=collections.Counter(x for _,x in ids); d={k:v for k,v in c.items() if v>1}\n  pre=collections.Counter(re.sub(r'-\\d+[A-Za-z]?$','',x) for _,x in ids)\n  print(f,len(ids),'dups',len(d),list(d.items())[:12]); print('  prefixes',pre.most_common(12))\n\"",
+   "n": 69,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:16:23.388Z",
+   "src": "seat",
+   "cmd": "python -X utf8 \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/rowidtry745.py\"",
+   "n": 70,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:17:48.342Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 -m py_compile tools/standing/hook.py tools/standing/subjects.py tools/standing/rowid.py && python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools/standing');import hook as H\nprint(H.judge('Bash',{'command':'git status'}))\nprint(H.judge('Bash',{'command':'git -C /d/MY-DOwnloads/PLACE-papers commit -m \\\"x\\\"'}))\nprint(H.judge('Bash',{'command':'git commit -m \\\"b745 step zero: the step row for relay bffde0bb\\\"'}))\nprint(H.judge('Bash',{'command':'git commit -m \\\"b745 step zero: the step rows for relay bffde0bb and relay 12345678\\\"'}))\n\"",
+   "n": 71,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:18:06.886Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"^_JL_OWN|_JL_OWN =|def half_bank|def _run_key|^def jl\\b|^D = |^D, \" -- tools/standing/fold/checks.tpl",
+   "n": 72,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:18:47.501Z",
+   "src": "seat",
+   "cmd": "git grep -c \"__import__('standing\\.\" -- tools/standing/fold/record.tpl && python -X utf8 -m py_compile tools/standing/repeat.py tools/standing/hold.py && python -X utf8 tools/standing/fold.py record step --act b745",
+   "n": 73,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:20:27.205Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/v1250.py control",
+   "n": 74,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:20:43.481Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/v1250.py control --bank",
+   "n": 75,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:21:04.254Z",
+   "src": "seat",
+   "cmd": "git add tools/standing/VERSION tools/standing/hook.py tools/standing/subjects.py tools/standing/repeat.py tools/standing/rowid.py tools/standing/hold.py tools/standing/v1250.py tools/standing/fold/checks.tpl tools/standing/fold/record.tpl data/b745_standing_v1250.txt && git diff --cached --stat",
+   "n": 76,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:21:14.566Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: tools/standing/ v1.25.0 under (R355)(2)(i)-(vii) -- the row's ID from the file's maximum and a held ID refused (rowid.py, the hook's ROWID), the hold binding every record route (hold.py), standing-b3 after its four chain parts, the exempt set with the post-lock scan bank and every commit's row or exemption printed, the step-row subject composed and checked, the REPEAT instances, the version; controls 20 of 20 AS WANTED (data/b745_standing_v1250.txt)\"",
+   "n": 77,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:21:23.802Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay \"component 1\" 475a6f38 --act b745",
+   "n": 78,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:21:41.583Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nL=open('tools/acts/b745.py',encoding='utf-8').read().split('\\n')\nfor i,l in enumerate(L,1):\n  if l.startswith('#⟪SECTION'): print(i,l)\n\"",
+   "n": 79,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:22:10.347Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nL=open('data/b744_closing.txt',encoding='utf-8').read().replace('\\r','').split('\\n')\nprint(len(L))\nimport re\nfor i,l in enumerate(L,1):\n  if re.search(r'THE COUNTER|AGREE \\d+ of|ARMS RUN|THE ROOT.S BANKS|THE AUTHOR.S ANSWERS|THE MIRROR|\\(N1\\)|\\(a\\) ###|W-ORD-|VERDICT|prompt', l): print(i, l[:170])\n\"",
+   "n": 80,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:22:21.529Z",
+   "src": "seat",
+   "cmd": "git show 7d448774:data/b744_hook_refusals.txt && python -X utf8 -c \"\nimport re\nt=open('data/b744_defects.txt',encoding='utf-8').read().replace('\\r','')\nfor m in re.finditer(r\\\"(?m)^    \\(([a-q])\\) (.{0,230})\\\",t): print(m.group(1), m.group(2))\n\"",
+   "n": 81,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:22:39.682Z",
+   "src": "seat",
+   "cmd": "grep -n -E \"ANSWER|answer:|Both|yes\" data/b744_author_answers.txt && grep -n -E \"^  \\(6[0-9]\\) \" data/b675_corrigenda.txt && grep -n \"VERDICT\" data/b744_mirror_verify.txt",
+   "n": 82,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:26:06.933Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py'; s=open(p,encoding='utf-8',newline='').read()\nnl='\\r\\n' if '\\r\\n' in s else '\\n'\nL=s.split(nl)\nassert L[31].startswith('#⟪OVERRIDE record MARK 8b04c0573f40'), L[31]\nassert L[310].startswith('def c1('), L[310]\nbody=open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/c1_745.txt',encoding='utf-8').read().replace('\\r','').rstrip('\\n').split('\\n')\nnew=L[:32]+body+['','']+L[310:]\nt=nl.join(new)\nassert t.count(\\\"repairs=dict(version='v1.24.0'\\\")==1\nt=t.replace(\\\"repairs=dict(version='v1.24.0'\\\",\\\"repairs=dict(version='v1.25.0'\\\")\nopen(p,'w',encoding='utf-8',newline='').write(t)\nprint(len(L),len(new))\n\"",
+   "n": 83,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:26:18.266Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/b745_worklist.py'; s=open(p,encoding='utf-8',newline='').read()\na=\\\"C1_STANDING = None  \\\"; b=\\\"STEPZERO_BANKS = None  \\\"\nassert s.count(a)==1 and s.count(b)==1\ns=s.replace(a,\\\"C1_STANDING = '475a6f38'  \\\").replace(b,\\\"STEPZERO_BANKS = 'bffde0bb'  \\\")\nopen(p,'w',encoding='utf-8',newline='').write(s)\n\" && python -X utf8 -c \"import ctypes,psutil;print(psutil.virtual_memory().available//2**20)\"",
+   "n": 84,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:26:24.500Z",
+   "src": "seat",
+   "cmd": "grep -n \"^C1_STANDING =\\|^STEPZERO_BANKS =\" tools/b745_worklist.py && python -X utf8 tools/standing/hold.py 2>&1 | head -5; ls tools/standing/ | grep -i mem",
+   "n": 85,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:26:29.611Z",
+   "src": "seat",
+   "cmd": "grep -n \"^C1_STANDING =\\|^STEPZERO_BANKS =\" tools/b745_worklist.py && grep -n \"def free\\|free_mb\" tools/standing/hold.py",
+   "n": 86,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:26:33.962Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/standing/fold.py record c1 weight dry --act b745",
+   "n": 87,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:01.510Z",
+   "src": "seat",
+   "cmd": "grep -n \"LIVE FAILING\\|VACUOUS\\|DECLARED\" data/b744_closing.txt && grep -rln \"v5\" data/b744_closing.txt",
+   "n": 88,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:05.987Z",
+   "src": "seat",
+   "cmd": "grep -n \"G-RUNNER-GATE\" data/b744_checks_prepush.txt data/b744_closing.txt && grep -n \"draft\\|v5\" data/b744_closing.txt",
+   "n": 89,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:10.440Z",
+   "src": "seat",
+   "cmd": "grep -ln \"G-RUNNER-GATE\" data/b744_checks*.txt; grep -n \"VACUOUS ->\\|G-RUNNER-GATE.*VACUOUS\\|VACUOUS PASS\" data/b744_checks.txt; grep -n \"draft at\\|DRAFT\" data/b744_closing.txt",
+   "n": 90,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:15.315Z",
+   "src": "seat",
+   "cmd": "grep -ln \"draft at v5\\|the draft at v5\\|DRAFT v5\" data/b744_*.txt data/b743_*.txt",
+   "n": 91,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:21.389Z",
+   "src": "seat",
+   "cmd": "grep -n -o \".\\{80\\}draft at v5.\\{60\\}\" data/b744_report.txt data/b744_ferry.txt",
+   "n": 92,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:28.568Z",
+   "src": "seat",
+   "cmd": "grep -n -i \"draft at v5\\|DRAFT v5\" data/b744_report.txt data/b744_ferry.txt",
+   "n": 93,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:27:37.024Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/standing/fold.py record c1 corrigendum dry --act b745",
+   "n": 94,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:28:06.610Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py'; s=open(p,encoding='utf-8',newline='').read()\na='REPEAT (\\`(R355)\\`(2)(vi))'; assert s.count(a)==2, s.count(a)\ns=s.replace(a,'REPEAT ((R355)(2)(vi))')\nb='the author’s word that it is THE TOOLS’ [CLAIM ; NEW]: '; assert s.count(b)==1\ns=s.replace(b,'tagged in its bank THE TOOLS’ [CLAIM ; NEW]: ')\nc='the route ran because the record tool’s dispatch read no free memory;'; assert s.count(c)==1\ns=s.replace(c,'the route ran, the record tool’s dispatch reading no hold before it;')\nopen(p,'w',encoding='utf-8',newline='').write(s)\nprint('ok')\"",
+   "n": 95,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:28:14.933Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/standing/fold.py record c1 weight write --act b745",
+   "n": 96,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:28:37.804Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/standing/fold.py record c1 corrigendum write --act b745",
+   "n": 97,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:28:56.147Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git status --short && git diff --stat && grep -n \"^## \\|^\\*Appended 2026-11-07\" FINDINGS.md --max-count=100000 -c; grep -n \"^  (64) \" /d/relay/data/b675_corrigenda.txt",
+   "n": 98,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:04.753Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && sed -n '423,440p' data/b675_corrigenda.txt && wc -l data/b675_corrigenda.txt && cd /d/MY-DOwnloads/PLACE-papers && sed -n '13960,13968p' FINDINGS.md",
+   "n": 99,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:19.856Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 100,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:31.908Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git log --oneline -8",
+   "n": 101,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:40.243Z",
+   "src": "seat",
+   "cmd": "git add FINDINGS.md",
+   "n": 102,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:45.451Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: FINDINGS -- b744 at its weight (:13964), under (R355)(1), and the corrigendum for b744's record (:13966), under (R355)(2): six events and seventeen defects, CLAIM 12, CLOSE 11, REPEAT 9 of 23 as tagged and as read here; tools/standing/ v1.25.0, 20 cases as wanted\"",
+   "n": 103,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:49.627Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --short",
+   "n": 104,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:29:57.171Z",
+   "src": "seat",
+   "cmd": "git ls-files data/b744_scanfile_c1.md data/b744_corrigendum.txt data/b744_corrigendum.json data/b744_corrigendum_landing.json data/b744_record_lines.json data/b744_rules.txt data/b744_steps.json data/b744_hook_refusals.txt data/b744_bank_hashes.json && git log --oneline -6",
+   "n": 105,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:30:16.384Z",
+   "src": "seat",
+   "cmd": "git add data/b675_corrigenda.txt data/b745_address_scan.txt data/b745_bank_hashes.json tools/acts/b745.py tools/b745_worklist.py data/b745_corrigendum.txt data/b745_corrigendum.json data/b745_corrigendum_landing.json data/b745_record_lines.json data/b745_rules.txt data/b745_hook_refusals.txt",
+   "n": 106,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:30:26.524Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: b744 at its weight (FINDINGS :13964) under (R355)(1) and the corrigendum for b744's record (FINDINGS :13966, PLACE-papers 5b0b1b7) under (R355)(2): six events, seventeen defects, thirteen refusals each recorded by a row; CLAIM 12, CLOSE 11, REPEAT 9 of 23; the rules bank (seven rules), the corrigenda bank row (65); the c1 route rewritten for b744's banks; the scan 0/0/0/0\"",
+   "n": 107,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:30:36.126Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step pp \"component 1\" 5b0b1b7 --act b745 && python -X utf8 tools/standing/fold.py record step relay \"component 1\" 58ac7751 --act b745",
+   "n": 108,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:30:58.977Z",
+   "src": "seat",
+   "cmd": "git add data/b745_steps.json && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 109,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:31:08.865Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: the step rows for relay bffde0bb, relay 475a6f38, PLACE-papers 5b0b1b7 and relay 58ac7751\"",
+   "n": 110,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:31:23.867Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && wc -l REGISTRY.md SPIRAL_MAP.md",
+   "n": 111,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:31:39.201Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='REGISTRY.md'; s=open(p,encoding='utf-8',newline='').read()\nnl='\\r\\n' if '\\r\\n' in s else '\\n'\nassert s.endswith('carry dated notes of their own: OPEN_TRAILS :17716 ([F4], W-ORD-ZQ-FAMILY) and FINDINGS :13812 (b743\\'s entry, item (B)).*'+nl) or s.endswith('(B)).*'), repr(s[-60:])\nnote='*Dated note, b745, 2026-11-07, under the author\\'s ruling \\`(R355)\\`(3), to the rows 1.5c-21, 1.5c-22 and 1.5c-23 (:177-:179): SIDE-explicit-formula now carries the annotated tag \\`v0.38\\` (tag object \\`21c6edaf\\`) whose peel reads \\`14ca572560f50378a6e4715e35cba0351e5f105d\\`, the head of branch zq-b730, read back from the remote (relay data/b745_SIDE-explicit-formula_v0.38_push_out.txt); its message the sentence of \\`(R353)\\`(2) and nothing beyond it. No merge; the kernel\\'s main unmoved at \\`8fbab45\\`. The rows\\' pin cells read as they stand (b25fd82c for 1.5c-21 and 1.5c-22, an ancestor of the tagged commit; 14ca5725 for 1.5c-23); no cell of the three rows and no other row is edited. The tag confers no grade.*'\nt=s.rstrip('\\r\\n')+nl+nl+note+nl\nopen(p,'w',encoding='utf-8',newline='').write(t); print('ok', nl=='\\r\\n')\n\" && git -C /d/SIDE-explicit-formula merge-base --is-ancestor b25fd82c 14ca5725 && echo ANCESTOR",
+   "n": 112,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:31:45.498Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_address_scan.py scan --bank && python -X utf8 tools/standing/rowid.py check /d/MY-DOwnloads/PLACE-papers/REGISTRY.md",
+   "n": 113,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:31:59.989Z",
+   "src": "seat",
+   "cmd": "git add REGISTRY.md",
+   "n": 114,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:06.369Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: REGISTRY dated note at its foot, under (R355)(3), to rows 1.5c-21, -22, -23 (:177-:179): the annotated tag v0.38 on SIDE-explicit-formula, its peel 14ca5725 read back from the remote; no merge, main unmoved at 8fbab45; no cell edited\"",
+   "n": 115,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:13.710Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='SPIRAL_MAP.md'; s=open(p,encoding='utf-8',newline='').read()\nnl='\\r\\n' if '\\r\\n' in s else '\\n'\nassert s.rstrip('\\r\\n').endswith('*Filed by b743. No byte above this block changes.*')\nnote='*Dated note, b745, 2026-11-07, under the author\\'s ruling \\`(R355)\\`(3), to the 2D row above (pin \\`14ca5725\\`, \\\"a branch head, no tag\\\"): the commit now carries the annotated tag \\`v0.38\\` on SIDE-explicit-formula (tag object \\`21c6edaf\\`; its peel read back from the remote), its message the sentence of \\`(R353)\\`(2) and nothing beyond it; no merge, the kernel\\'s main unmoved at \\`8fbab45\\`. The row is not edited; the tag confers no grade. (REGISTRY, the dated note at its foot)*'\nopen(p,'w',encoding='utf-8',newline='').write(s.rstrip('\\r\\n')+nl+nl+note+nl); print('ok')\n\" && cd /d/relay && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 116,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:26.337Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git add SPIRAL_MAP.md",
+   "n": 117,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:33.216Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: SPIRAL_MAP dated note to the 2D block, under (R355)(3): the pin 14ca5725 now carries the annotated tag v0.38 on SIDE-explicit-formula; no merge, main unmoved at 8fbab45; the row not edited\"",
+   "n": 118,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:38.119Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/standing/fold.py record step pp \"component 1\" a0aeab5 --act b745 && python -X utf8 tools/standing/fold.py record step pp \"component 1\" 82c8e97 --act b745",
+   "n": 119,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:32:55.663Z",
+   "src": "seat",
+   "cmd": "git add data/b745_steps.json && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 120,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:33:11.290Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 1: the step rows for PLACE-papers a0aeab5 and PLACE-papers 82c8e97\"",
+   "n": 121,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:33:38.645Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git status --short --branch && git log --oneline -3 zq-b730 && git show zq-b730:SIDEExplicitFormula/Schema/Wide/Config.lean",
+   "n": 122,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:33:50.264Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \"def dispatch\\|def runstatus\\|def runwait\\|def runread\\|def runlog\\|EF_RUNS\\|ZQ_TIP\\|ZQ_COMMITS\\|MAX_DISPATCHES\" tools/standing/fold/record.tpl tools/b742_worklist.py tools/acts/b742.py",
+   "n": 123,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:34:01.401Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def \\|^#⟪OVERRIDE record\" tools/acts/b742.py && python -X utf8 -c \"\nimport json;r=json.load(open('data/b742_dispatches.json',encoding='utf-8'))['rows'];print(len(r));print(json.dumps(r[-1],ensure_ascii=False)[:1500])\"",
+   "n": 124,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:34:15.203Z",
+   "src": "seat",
+   "cmd": "ls data/ --format=single-column -t --hide=\"*probe*\" --hide=\"*mid_exercise*\" --hide=\"*scanfile*\" -I \"b74[0135]*\" -I \"b73*\" -I \"b72*\" -I \"audit*\" --color=never -d data/b742_*disp* data/b742_*run* data/b742_*ef* data/b742_*zq* data/b742_*axiom* data/b742_*print* 2>/dev/null; ls -d data/b742_* --color=never",
+   "n": 125,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T15:34:43.321Z",
+   "src": "seat",
+   "cmd": "Get-ChildItem D:\\relay\\data -Filter \"b742_*\" -Name | Where-Object { $_ -match 'disp|run|ef_|zq|axiom|print|build|s6|dispatch' }",
+   "n": 126,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:34:51.767Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport os,re\nprint([f for f in sorted(os.listdir('data')) if f.startswith('b742_') and re.search('disp|run|zq|axiom|print|build|s6',f)])\"",
+   "n": 127,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:34:58.532Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;r=json.load(open('data/b742_dispatch_rows.json',encoding='utf-8'));r=r.get('rows',r)\nprint(len(r));print(json.dumps(r[0],ensure_ascii=False)[:1200]);print();print(json.dumps(r[-1],ensure_ascii=False)[:2500])\"",
+   "n": 128,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:35:11.325Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;r=json.load(open('data/b742_dispatch_rows.json',encoding='utf-8'))\nprint(len(r));print(json.dumps(r[0],ensure_ascii=False)[:1200]);print();print(json.dumps(r[-1],ensure_ascii=False)[:2500])\"",
+   "n": 129,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:35:21.443Z",
+   "src": "seat",
+   "cmd": "grep -n \"kind='clone'\\|kind=\\\"clone\\\"\\|'kind': 'clone'\\|dispatch_rows.json\\|^def ef\\|^def zq\" tools/standing/fold/record.tpl tools/standing/*.py tools/acts/b742.py tools/acts/b745.py",
+   "n": 130,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:35:31.097Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport os\nprint([f for f in sorted(os.listdir('tools')) if f.startswith(('b742_','b741_','b744_','b745_','zq'))])\nprint(os.path.isdir('D:/zq-b738'))\"",
+   "n": 131,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:35:38.865Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def \\|^    \\\"\\\"\\\"\\|sys.argv\\|^if __name__\" tools/b742_offlinezero.py",
+   "n": 132,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:35:54.450Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git show main:.github/workflows/build-module.yml",
+   "n": 133,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:36:13.037Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && git status --short --branch && git rev-parse HEAD && git ls-tree --name-only HEAD && git show HEAD:print_targets.txt",
+   "n": 134,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:36:29.827Z",
+   "src": "seat",
+   "cmd": "grep -n \"def liTerm\\|def pairTerm\\|theorem pairTerm_re_nonneg_of_re_half\\|theorem norm_one_sub_inv_of_re_half\" -A8 SIDEExplicitFormula/LiWeil.lean && grep -n \"def reflect\" -A3 Zeta23/Defs.lean",
+   "n": 135,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:36:31.957Z",
+   "src": "seat",
+   "cmd": "grep -n \"^def liCoeff\\|^noncomputable def liCoeff\" -B2 -A6 SIDEExplicitFormula/Schema/Wide/Converse.lean && grep -n \"^import\\|^namespace\\|^open\\|^theorem li_nonneg_cfg_imp_online_ne_zero\" -A3 SIDEExplicitFormula/Schema/Wide/StripFree.lean && grep -n \"theorem online_imp_liCoeffCfg_nonneg\" -B1 -A7 SIDEExplicitFormula/Schema/LiCfg.lean",
+   "n": 136,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:38:38.387Z",
+   "src": "seat",
+   "cmd": "cat lakefile.toml && ls .lake/packages/ && git -C .lake/packages/mathlib rev-parse HEAD",
+   "n": 137,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:38:44.558Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git rev-parse HEAD && git grep -n \"theorem finsum_mem_one\\|theorem ncard_insert_le\\|theorem ncard_le_ncard \\|theorem exp_one_lt_d9\\|theorem lt_log_iff_exp_lt\\|theorem log_le_log \\|theorem inter_subset_left\\|theorem Finite.subset\\|theorem tsum_nonneg\\|theorem ncard_singleton\\|theorem Finite.insert\\|theorem conj_re\" -- Mathlib",
+   "n": 138,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:39:24.154Z",
+   "src": "seat",
+   "cmd": "git grep -n \"finsum_mem_one\\b\\|theorem log_le_log\\b\\|lemma log_le_log\\b\\|theorem tsum_nonneg\\b\\|finite_singleton (a\" -- Mathlib",
+   "n": 139,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:39:29.504Z",
+   "src": "seat",
+   "cmd": "git grep -n \"ncard\" -- Mathlib/Algebra/BigOperators/Finprod.lean Mathlib/Data/Set/Card.lean -e \"finsum\" && git grep -n \"tsum_nonneg\" -- Mathlib/Topology/Algebra/InfiniteSum/Order.lean",
+   "n": 140,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:39:35.101Z",
+   "src": "seat",
+   "cmd": "git grep -n \"theorem finsum_mem_.*ncard\\|ncard_eq_.*finsum\\|finsum_mem_one\\|theorem finsum_mem_const\\|theorem tsum_nonneg\\|lemma tsum_nonneg\" -- Mathlib",
+   "n": 141,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:39:59.658Z",
+   "src": "seat",
+   "cmd": "git grep -n \"theorem ncard_eq_toFinset_card\\b\\|theorem ncard_eq_toFinset_card \" -A1 -- Mathlib/Data/Set/Card.lean && git grep -n \"pcConfig\\|pcCarrier\\|online_imp_liCoeff_nonneg\\|pc_online\" -- . ; cd /d/zq-b738 && git grep -n \"online_imp_liCoeff_nonneg\\|pcConfig\\|pcCarrier\\|pc_re\\b\\|pc_count\" -- SIDEExplicitFormula Zeta23",
+   "n": 142,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:40:07.574Z",
+   "src": "seat",
+   "cmd": "git grep -n -A1 \"theorem ncard_eq_toFinset_card\" -- Mathlib/Data/Set/Card.lean",
+   "n": 143,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:40:08.702Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && git grep -n -e \"online_imp_liCoeff_nonneg\" -e \"pcConfig\" -e \"pcCarrier\" -e \"pc_count\" -e \"PositiveControl\" -- SIDEExplicitFormula Zeta23 print_targets.txt",
+   "n": 144,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:40:14.814Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && grep -n \"^namespace\\|^end\\|^open\" SIDEExplicitFormula/LiWeil.lean && grep -n \"^namespace\\|^end\\|^open\\|^import\" SIDEExplicitFormula/Schema/Wide/Converse.lean && head -c 1500 CircuitClosure.lean",
+   "n": 145,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:41:18.550Z",
+   "src": "seat",
+   "cmd": "git grep -n -A4 \"HCount [a-zA-Z]* [0-9(]\" -- SIDEExplicitFormula/Schema/Wide SIDEExplicitFormula/Schema/ZQ/Count.lean",
+   "n": 146,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:41:22.580Z",
+   "src": "seat",
+   "cmd": "git grep -n -B1 -A3 \": HCount\\|: Wide.HCount\" -- SIDEExplicitFormula",
+   "n": 147,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:42:06.329Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -A1 \"theorem finsum_one\\b\\|lemma finsum_one\\b\\|theorem finsum_one \" -- Mathlib && cd /d/zq-b738 && git log -1 --format=\"%h %cs\" -- lakefile.toml lake-manifest.json && git log -1 --format=\"%h %cs\" -- SIDEExplicitFormula/Schema/SaltCheckEpstein.lean",
+   "n": 148,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:42:17.328Z",
+   "src": "seat",
+   "cmd": "head -30 SIDEExplicitFormula/Schema/SaltCheckEpstein.lean && git grep -n \"import Mathlib.Data.Set.Card\\|import Mathlib.Analysis.Complex.ExponentialBounds\\|import Mathlib$\" -- SIDEExplicitFormula Zeta23",
+   "n": 149,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:42:35.203Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \"POSITIVE-CONTROL\\|ZETA-BOX\\|12 dispatches\\|at most 12\\|twelve\" data/b745_ferry.txt",
+   "n": 150,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:42:45.609Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"\np='print_targets.txt'; b=open(p,'rb').read(); nl=b'\\r\\n' if b'\\r\\n' in b else b'\\n'\nassert b.endswith(nl), repr(b[-20:])\nns=['pcCarrier','pc_re','pc_reflect','pcCarrier_finite','pcConfig','pcCarrier_ncard_le','pc_N_le','pc_one_le_log','pc_count','pc_ne_zero','online_imp_liCoeff_nonneg','pc_li_nonneg','pc_online']\nadd=b''.join(('SIDEExplicitFormula.Schema.Wide.'+n).encode()+nl for n in ns)\nopen(p,'wb').write(b+add); print(len(ns), nl)\n\" && git status --short && git diff --stat",
+   "n": 151,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:42:53.128Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && grep -n \"^ZQ_\\|^EF_\\|^BUILD_BANK\\|^CONTROLS\\|^PLAN\\|^POSCONTROL\\|^MAX_DISP\\|^STEPZERO_ANSWERS\\|^C2_\\|^C3_\\|^GENERATOR\\|^HOLD\" tools/b745_worklist.py",
+   "n": 152,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:43:04.302Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;r=json.load(open('data/b742_dispatch_rows.json',encoding='utf-8'))\nfor x in r:\n  print(x['kind'], x.get('n'), x.get('item'), x.get('target','')[:120], x.get('artifact'), x.get('free_mb'))\n\" && git log -1 --format=\"%h %cI\" -- data/b744_poscontrol_plan.txt && git log -1 --format=\"%h %cI\" -- data/b744_zetabox_plan.txt",
+   "n": 153,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:44:51.960Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py md5s && python -X utf8 tools/b745_controls.py lines",
+   "n": 154,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:13.326Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_controls.py reuse && grep -rn \"push_gated.sh /d/zq-b738\\|push_gated.sh D:/zq-b738\\|zq-b738 --branch\\|--branch zq-b730\" data/b742_*.txt data/b741_*.txt tools/push_gated.sh",
+   "n": 155,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:26.239Z",
+   "src": "seat",
+   "cmd": "grep -n \"usage\\|--branch\\|^# \" tools/push_gated.sh",
+   "n": 156,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:33.185Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && git add SIDEExplicitFormula/Schema/Wide/PositiveControl.lean print_targets.txt",
+   "n": 157,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:40.155Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 W-ORD-POSITIVE-CONTROL P1-P5 under (R355)(4)(a): Schema/Wide/PositiveControl.lean -- pcConfig {1/2 + i, 1/2 - i}, pc_count, pc_ne_zero, pc_li_nonneg by the proved bound, pc_online drawn through Wide.li_nonneg_cfg_imp_online_ne_zero; print_targets.txt carries its thirteen names\"",
+   "n": 158,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:44.780Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py commit eb09719 P1-P5",
+   "n": 159,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:45:50.947Z",
+   "src": "seat",
+   "cmd": "bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 160,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:46:11.065Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push eb09719 && python -X utf8 tools/b745_controls.py dispatch eb09719 1 P1-P5 SIDEExplicitFormula.Schema.Wide.PositiveControl",
+   "n": 161,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:46:47.261Z",
+   "src": "seat",
+   "cmd": "git add tools/b745_controls.py data/b745_dispatch_rows.json data/b745_zq-b738_zq-b730_push_out.txt",
+   "n": 162,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:46:55.711Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 2: tools/b745_controls.py (the two controls' driver, carried from b742's; licence (R355)(4) at the ferry bank, ferry :15), the dispatch rows (clone, commit eb09719 P1-P5, push read back, dispatch 1 run 42388001562, free_mb in each) and the zq-b730 push capture\"",
+   "n": 163,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:47:04.931Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42388001562 540 --act b745",
+   "n": 164,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:52:29.115Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && gh run download 42388001562 -R psinary-sketch/SIDE-explicit-formula -n build-module-42388001562 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run1 && python -X utf8 tools/b745_controls.py read 1 42388001562 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run1",
+   "n": 165,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:52:50.491Z",
+   "src": "seat",
+   "cmd": "cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run1 && ls && wc -l axioms.txt && grep -n -A2 \"pc_\\|pcC\\|online_imp_liCoeff\" axioms.txt",
+   "n": 166,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:52:58.303Z",
+   "src": "seat",
+   "cmd": "cd C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run1 && wc -l Axioms.lean axioms_refused.txt && tail -5 Axioms.lean && cat axioms_refused.txt",
+   "n": 167,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:12.060Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py closure C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run1 SIDEExplicitFormula.Schema.Wide.pc_online",
+   "n": 168,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:27.427Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"\np='print_targets.txt'; L=open(p,'rb').read().decode('utf-8').split('\\n')\nassert L[-1]=='', 'no final newline'\nmine=[l for l in L if l.startswith('SIDEExplicitFormula.Schema.Wide.') and l.split('.')[-1] in ('pcCarrier','pc_re','pc_reflect','pcCarrier_finite','pcConfig','pcCarrier_ncard_le','pc_N_le','pc_one_le_log','pc_count','pc_ne_zero','online_imp_liCoeff_nonneg','pc_li_nonneg','pc_online')]\nassert len(mine)==13, len(mine)\nrest=[l for l in L[:-1] if l not in mine]\nopen(p,'wb').write(('\\n'.join(mine+rest)+'\\n').encode('utf-8'))\nprint(len(mine), len(rest))\" && git diff --stat",
+   "n": 169,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:36.157Z",
+   "src": "seat",
+   "cmd": "git add print_targets.txt",
+   "n": 170,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:41.218Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 W-ORD-POSITIVE-CONTROL R1 after dispatch 1 (run 42388001562, KERNEL): print_targets.txt carries the control's thirteen names at its head; the print step stopped at maxErrors 100 on names of modules outside the target before reaching them\"",
+   "n": 171,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:47.252Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py commit 3639d98 R1 && bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 172,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:53:58.382Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push 3639d98 && python -X utf8 tools/b745_controls.py dispatch 3639d98 2 R1 SIDEExplicitFormula.Schema.Wide.PositiveControl",
+   "n": 173,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T15:54:23.789Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42388609600 540 --act b745",
+   "n": 174,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:00:24.703Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && gh run download 42388609600 -R psinary-sketch/SIDE-explicit-formula -n build-module-42388609600 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run2 && python -X utf8 tools/b745_controls.py read 2 42388609600 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run2",
+   "n": 175,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:00:56.192Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py bank",
+   "n": 176,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:01:22.575Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/b745_worklist.py'; s=open(p,encoding='utf-8',newline='').read()\nR=[(\\\"ZQ_TIP = ZQ_ENTERING   # ### set by the Edit tool after each build commit\\\", \\\"ZQ_TIP = '3639d984d76f724cd4406b5e166d75d7b15fe13b'   # ### the act's last Lean commit on zq-b730: W-ORD-POSITIVE-CONTROL BUILT (dispatch 2, run 42388609600)\\\"),\n   (\\\"ZQ_FIRST = None   # ### the first Lean commit of this act\\\", \\\"ZQ_FIRST = 'eb097190ffab325cd7ee8da5f9879210cfcc7eb1'   # ### the first Lean commit of this act (P1-P5)\\\"),\n   (\\\"ZQ_COMMITS = ()   # ### this act's, set after each\\\", \\\"ZQ_COMMITS = ('eb097190ffab325cd7ee8da5f9879210cfcc7eb1', '3639d984d76f724cd4406b5e166d75d7b15fe13b')   # ### this act's: P1-P5 ; R1 (the print list's order)\\\"),\n   (\\\"EF_RUNS = ()   # ### N1: this act's dispatches, each read by its run id, set after each ((R355)(4)(c))\\\", \\\"EF_RUNS = (42388001562, 42388609600)   # ### N1: this act's dispatches, each read by its run id ((R355)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed)\\\"),\n   (\\\"ZQ_FILES = ()   # ### zq-b730's diff against its entering tip: none (no Lean file this act)\\\", \\\"ZQ_FILES = ('SIDEExplicitFormula/Schema/Wide/PositiveControl.lean', 'print_targets.txt')   # ### zq-b730's diff against its entering tip\\\")]\nfor a,b in R:\n    assert s.count(a)==1, a\n    s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s); print('ok')\n\" && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 177,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:01:42.419Z",
+   "src": "seat",
+   "cmd": "grep -n \"EF_DIR\\|zq-b738\\|zq-b730\\|SIDE-explicit\\|TARGETS\\|targets\" tools/b745_address_scan.py",
+   "n": 178,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:01:55.229Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula && git rev-parse zq-b730 && git fetch origin zq-b730:zq-b730",
+   "n": 179,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:02:04.552Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 180,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:02:21.420Z",
+   "src": "seat",
+   "cmd": "git status --short data/b745_* tools/b745_* data/b675_corrigenda.txt",
+   "n": 181,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:02:36.507Z",
+   "src": "seat",
+   "cmd": "git add data/b745_address_scan.txt data/b745_dispatch_rows.json data/b745_hook_refusals.txt data/b745_zq-b738_zq-b730_push_out.txt tools/b745_worklist.py data/b745_controls.txt data/b745_controls_notes.txt",
+   "n": 182,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:02:46.231Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 2: W-ORD-POSITIVE-CONTROL BUILT under (R355)(4)(a) -- pc_online and twelve more names each with [propext, Classical.choice, Quot.sound] (run 42388609600), the dependency print naming Wide.li_nonneg_cfg_imp_online_ne_zero and no constant of Z_Q; 2 dispatches of 12, 129 lines against 108-290; the controls bank, its notes (1)-(5), the rows, the worklist's zq-b730 fields; the scan 0/0/0/0\"",
+   "n": 183,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:03:08.787Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/fold.py record step relay \"component 2\" 5f0d596a --act b745 && python -X utf8 tools/standing/fold.py record step relay \"component 2\" 8db09a32 --act b745",
+   "n": 184,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:03:29.989Z",
+   "src": "seat",
+   "cmd": "git add data/b745_steps.json && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 185,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:03:38.905Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 2: the step rows for relay 5f0d596a and relay 8db09a32\"",
+   "n": 186,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:04:12.861Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && for f in Split IncGamma Series GammaVal Sums Centre Elem Time Shells Main; do echo \"== $f $(wc -l < SIDEExplicitFormula/Schema/ZQ/OffZero/$f.lean)\"; grep -n \"^theorem\\|^def\\|^noncomputable def\\|^lemma\\|^import\\|^structure\\|^abbrev\" SIDEExplicitFormula/Schema/ZQ/OffZero/$f.lean; done",
+   "n": 187,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:05:23.513Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula/.lake/packages/mathlib && sed -n '240,262p;370,392p' Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean",
+   "n": 188,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:05:35.750Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula/.lake/packages/mathlib && grep -n \"def f_modif\\|def g_modif\\|def Λ₀\\|def Λ \\|theorem Λ₀_eq\\|lemma Λ₀_eq\\|lemma f_modif\\|theorem f_modif\" Mathlib/NumberTheory/LSeries/AbstractFuncEq.lean && grep -n \"def hurwitzEvenFEPair\\|hurwitzEvenFEPair_zero_symm\\|def completedHurwitzZetaEven\\b\\|def completedHurwitzZetaEven₀\\|theorem hasSum_int_evenKernel\\|lemma hasSum_int_evenKernel\\|evenKernel_def\\|def evenKernel\\|cosKernel_zero\\|evenKernel_zero\\|continuousOn_evenKernel\\|continuous_evenKernel\\|evenKernel_functional_equation\\|lemma hasSum_nat_evenKernel\\|hasSum_evenKernel\\b\" Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean && grep -n \"def completedRiemannZeta\\|def completedRiemannZeta₀\\|def riemannZeta\\|theorem completedRiemannZeta_eq\\|lemma completedRiemannZeta_eq\\|completedRiemannZeta_one_sub\\|differentiableAt_completedZeta\\|riemannZeta_def_of_ne_zero\\|completedRiemannZeta₀_one_sub\\|differentiable_completedZeta₀\" Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+   "n": 189,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:07:54.365Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && wc -l SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean SIDEExplicitFormula/Schema/ZQ/OffZero/Sums.lean SIDEExplicitFormula/Schema/ZQ/OffZero/Series.lean SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean SIDEExplicitFormula/Schema/ZQ/OffZero/Shells.lean /d/relay/tools/b741_g5gen.py",
+   "n": 190,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:11:41.949Z",
+   "src": "seat",
+   "cmd": "cd /d/SIDE-explicit-formula/.lake/packages/mathlib && git grep -n -E \"theorem (div_ofNat_re|div_ofNat_im|cpow_conj|arg_ofReal_of_nonneg|add_conj|inv_anti₀|exp_nat_mul|hasSum_geometric_of_lt_one|hasSum_nat_add_iff'|hasSum_le|integral_conj|mellin_cpow_smul|mellin_comp_inv|intermediate_value_Ioo|exp_neg_integrableOn_Ioi|integral_exp_mul_Ioi)\\b\" -- Mathlib",
+   "n": 191,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:11:49.620Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"(lemma|theorem) (div_ofNat_re|inv_anti₀|hasProd_nat_mul_iff'|hasProd_le|tprod_le|hasSum_le|hasSum_nat_add_iff'|HasSum.nonneg|hasSum_ofReal|intermediate_value_Ioo)\\b|hasSum_nat_add_iff'|to_additive.*hasSum_le\\b\" -- Mathlib",
+   "n": 192,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:11:58.206Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"(lemma|theorem) (inv_le_inv₀|inv_anti₀|inv_le_inv_of_le|div_le_div_of_nonneg_left|exp_le_exp|hasSum_geometric_of_lt_one)\\b\" -- Mathlib",
+   "n": 193,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:12:02.871Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"inv_le_inv₀|inv_anti₀\" -- Mathlib/Algebra/Order/Field/Basic.lean Mathlib/Algebra/Order/GroupWithZero/Unbundled/Basic.lean Mathlib/Algebra/Order/GroupWithZero/Unbundled/OrderIso.lean",
+   "n": 194,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:13:54.646Z",
+   "src": "seat",
+   "cmd": "git grep -n -E \"(lemma|theorem) (HasProd.one_le|one_le_of_hasProd|hasProd_one_le|div_le_div_iff₀|pi_gt_three|MellinConvergent.cpow_smul|MellinConvergent.comp_rpow|HasProd.congr_fun|cpow_smul|comp_rpow)\\b|alias HasSum.nonneg|HasSum.nonneg\" -- Mathlib | head -20",
+   "n": 195,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:23:55.719Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"import glob;[print(f, sum(1 for _ in open(f,encoding='utf-8'))) for f in sorted(glob.glob('SIDEExplicitFormula/Schema/ZetaBox/*.lean'))]\" && git status --short && git log --oneline -3",
+   "n": 196,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:24:19.206Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='print_targets.txt';b=open(p,'rb').read();nl=b'\\r\\n' if b'\\r\\n' in b else b'\\n'\nnames='zA zB zM zM_eq zf0 zf_modif_eq zA_conv zK_feq zB_eq zB_conv zLam0_split zeta0_split zK_hasSum zE zE_hasSum zE_nonneg zexp12 zE_le zBnd_int norm_zR_le zR_int zTail_numeric zM_sub_le lp lp_re lp_im lp_conj zM_conj zeta0_line zLam lp_mul_one_sub zeta_line zeta_line_real zf_eq zf_cont zeta_box_of_signs'.split()\nhead=nl.join(('SIDEExplicitFormula.Schema.ZetaBox.'+n).encode() for n in names)+nl\nopen(p,'wb').write(head+b);print(len(names),'names prepended; newline',repr(nl))\"",
+   "n": 197,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:24:30.962Z",
+   "src": "seat",
+   "cmd": "git add SIDEExplicitFormula/Schema/ZetaBox/Split.lean SIDEExplicitFormula/Schema/ZetaBox/Tail.lean SIDEExplicitFormula/Schema/ZetaBox/Line.lean print_targets.txt",
+   "n": 198,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:24:36.136Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX Z1-Z3 and SPZ1 under (R355)(4)(b): Schema/ZetaBox/Split.lean (Lambda0 of hurwitzEvenFEPair 0 split at t = 1, zeta0_split), Tail.lean (the shells n >= 2 under the integral, zM_sub_le at 11/10^7), Line.lean (zM_conj, zeta_line, zeta_line_real, zeta_box_of_signs); print_targets.txt carries their 36 names at its head\" && git log --oneline -1",
+   "n": 199,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:24:41.667Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py commit ae959de W-ORD-ZETA-BOX",
+   "n": 200,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:24:46.895Z",
+   "src": "seat",
+   "cmd": "bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 201,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:25:01.973Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula fetch origin zq-b730:zq-b730",
+   "n": 202,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:25:02.407Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push ae959de",
+   "n": 203,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:25:16.504Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 204,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:25:34.996Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py dispatch ae959de 3 W-ORD-ZETA-BOX \"SIDEExplicitFormula.Schema.ZetaBox.Split SIDEExplicitFormula.Schema.ZetaBox.Tail SIDEExplicitFormula.Schema.ZetaBox.Line\"",
+   "n": 205,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:26:38.144Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import mpmath;print(mpmath.__version__)\"",
+   "n": 206,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:27:34.843Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_zbgen.py C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/Signs_test.lean 16 12",
+   "n": 207,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:28:24.476Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42391254295 540 --act b745",
+   "n": 208,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:31:43.814Z",
+   "src": "seat",
+   "cmd": "gh run download 42391254295 -R psinary-sketch/SIDE-explicit-formula -n build-module-42391254295 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run3",
+   "n": 209,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:31:54.717Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py errors C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run3",
+   "n": 210,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:32:22.733Z",
+   "src": "seat",
+   "cmd": "cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run3 && python -X utf8 -c \"\nimport os;print(sorted(os.listdir('.')))\nt=open('axioms.txt',encoding='utf-8',errors='replace').read() if os.path.exists('axioms.txt') else ''\nprint(len(t));[print(l[:240]) for l in t.splitlines() if 'ZetaBox' in l][:60]\"",
+   "n": 211,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:32:52.959Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"\np='print_targets.txt';b=open(p,'rb').read();nl=b'\\n'\nnames='inD_transfer_pi lp_half zM_re_bounds zLam_neg_of zLam_pos_of'.split()\nhead=nl.join(('SIDEExplicitFormula.Schema.ZetaBox.'+n).encode() for n in names)+nl\nopen(p,'wb').write(head+b);print(len(names),'names prepended')\" && git add SIDEExplicitFormula/Schema/ZetaBox/Line.lean SIDEExplicitFormula/Schema/ZetaBox/Instr.lean print_targets.txt",
+   "n": 212,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:33:00.129Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX R2 after dispatch 3 (run 42391254295: Split and Tail BUILT, Line one error): lp_conj by conj_re and conj_im before norm_num (simp had moved conj through the division); Instr.lean (inD_transfer_pi, lp_half, zM_re_bounds, zLam_neg_of, zLam_pos_of); print_targets.txt carries its five names at its head\" && git log --oneline -1",
+   "n": 213,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:33:06.210Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py read 3 42391254295 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run3",
+   "n": 214,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:33:13.630Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py commit ef86297 W-ORD-ZETA-BOX && bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 215,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:33:31.033Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula fetch origin zq-b730:zq-b730",
+   "n": 216,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:33:31.583Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push ef86297 && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 217,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:34:47.898Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py dispatch ef86297 4 W-ORD-ZETA-BOX \"SIDEExplicitFormula.Schema.ZetaBox.Line SIDEExplicitFormula.Schema.ZetaBox.Instr\"",
+   "n": 218,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:35:55.647Z",
+   "src": "seat",
+   "cmd": "python -X utf8 - <<'EOF'\nimport io\np='tools/b745_controls.py'\ns=io.open(p,encoding='utf-8').read()\nreps=[\n(\"('W-ORD-ZETA-BOX', K.ZETABOX_PLAN,\",\"('W-ORD-ZETA-BOX', K.PLAN_BANK,\"),\n(\"\"\"def _names():\n    return [NS_PC + n for _o, _p, _f, _e, secs in ORDERS for _s, _e2, ns in secs for n in ns]\"\"\",\n\"\"\"def _names():\n    return [ns_ + n for _o, _p, _f, ns_, _e, secs in ORDERS for _s, _e2, ns in secs for n in ns]\"\"\"),\n(\"\"\"def lines_table():\n    out, res = [], {}\n    for order, _plan, f, (lo, hi), secs in ORDERS:\n        sl, tot = _section_lines(os.path.join(CLONE, f))\n        out.append('  %s, %s:' % (order, f))\n        if sl is None:\n            out.append('    NOT WRITTEN')\n            res[order] = (None, False)\n            continue\n        out.append('    the header (doc comment, imports, namespaces) %d lines' % sl['header'])\n        for s, (a, b), _ns in secs:\n            n = sl.get(s)\"\"\",\n\"\"\"def lines_table():\n    out, res = [], {}\n    for order, _plan, files, _ns, (lo, hi), secs in ORDERS:\n        sl, tot, hdr, seen = {}, 0, 0, []\n        for f in files:\n            s1, t1 = _section_lines(os.path.join(CLONE, f))\n            if s1 is None:\n                continue\n            seen.append('%s %d' % (f.split('/')[-1], t1))\n            tot += t1\n            hdr += s1.pop('header')\n            for k_, v_ in s1.items():\n                k_ = ZB_ALIAS.get(k_, k_)\n                sl[k_] = sl.get(k_, 0) + v_\n        out.append('  %s, %s:' % (order, ' ; '.join(seen) or 'NO FILE WRITTEN'))\n        if not seen:\n            out.append('    NOT WRITTEN')\n            res[order] = (None, False)\n            continue\n        out.append('    the headers (doc comments, imports, namespaces) %d lines' % hdr)\n        for s, (a, b), _ns in secs:\n            n = sl.get(s)\"\"\"),\n]\nfor a,b in reps:\n    assert s.count(a)==1,(a[:60],s.count(a))\n    s=s.replace(a,b)\nio.open(p,'w',encoding='utf-8',newline='\\n').write(s)\nprint('ok')\nEOF",
+   "n": 219,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:36:33.909Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py lines",
+   "n": 220,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:36:54.303Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42392017104 540 --act b745",
+   "n": 221,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:43:20.216Z",
+   "src": "seat",
+   "cmd": "gh run download 42392017104 -R psinary-sketch/SIDE-explicit-formula -n build-module-42392017104 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run4",
+   "n": 222,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:43:30.550Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py read 4 42392017104 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run4",
+   "n": 223,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:44:16.592Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 224,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:44:21.654Z",
+   "src": "seat",
+   "cmd": "git add tools/b745_zbgen.py tools/b745_controls.py data/b745_controls_notes.txt data/b745_dispatch_rows.json data/b745_hook_refusals.txt data/b745_address_scan.txt data/b745_zq-b738_zq-b730_push_out.txt",
+   "n": 225,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:44:37.994Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX: the Z4 generator tools/b745_zbgen.py committed before its module (Signs.lean); the driver reads and banks the box (orders by files and namespace, the stop points SPZ1-SPZ3); dispatches 3-4 rowed and read (run 42391254295 BREAKS, run 42392017104 KERNEL, SPZ1 REACHED); notes (6)-(10); the hook refusals to 13\" && git log --oneline -1",
+   "n": 226,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:44:49.159Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_zbgen.py D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean 16 && python -X utf8 -c \"\nimport hashlib\nfor p in ('tools/b745_zbgen.py','D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean'):\n    print(hashlib.md5(open(p,'rb').read()).hexdigest(), p)\"",
+   "n": 227,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:45:14.532Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport io\np='tools/b745_zbgen.py';s=io.open(p,encoding='utf-8').read()\nfor T in ('16','12'):\n    a=\\\"  rw [show (1 / 2 + %s * Complex.I : ℂ) = lp %s by unfold lp; norm_num, zeta_line, Complex.ofReal_re]\\\" % (T,T)\n    b=\\\"  rw [(show (1 / 2 + %s * Complex.I : ℂ) = lp %s by unfold lp; norm_num), zeta_line, Complex.ofReal_re]\\\" % (T,T)\n    assert s.count(a)==1, T\n    s=s.replace(a,b)\nio.open(p,'w',encoding='utf-8',newline='\\n').write(s);print('ok')\"",
+   "n": 228,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:45:23.324Z",
+   "src": "seat",
+   "cmd": "git add tools/b745_zbgen.py",
+   "n": 229,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:45:32.555Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX: tools/b745_zbgen.py, the sign theorem's rewrite term parenthesised (show ... by unfold lp; norm_num) before the module is generated\" && git log --oneline -1 && python -X utf8 tools/b745_zbgen.py D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean 16 && python -X utf8 -c \"\nimport hashlib\nfor p in ('tools/b745_zbgen.py','D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean'):\n    print(hashlib.md5(open(p,'rb').read()).hexdigest(), p)\"",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:45:45.746Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"\np='print_targets.txt';b=open(p,'rb').read();nl=b'\\n'\nnames='zw16 zw16_re_pos zw16_re_le two_zw16 G_zw16 I_zw16 P_zw16 zLam_16_pos zeta_sign_16 zA_locInt zA_top zA_bot zE_cont zBnd lp_ne_zero lp_ne_one one_sub_lp_ne_zero zf'.split()\nhave=set(b.decode().split())\nnew=[n for n in names if 'SIDEExplicitFormula.Schema.ZetaBox.'+n not in have]\nhead=nl.join(('SIDEExplicitFormula.Schema.ZetaBox.'+n).encode() for n in new)+nl\nopen(p,'wb').write(head+b);print(len(new),'names prepended')\" && git add SIDEExplicitFormula/Schema/ZetaBox/Signs.lean print_targets.txt",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:45:56.602Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX Z4 at t = 16 (SPZ2) under (R355)(4)(b): Schema/ZetaBox/Signs.lean GENERATED by relay tools/b745_zbgen.py at 32a5c72a (md5 853a9f2c, equal to the generator's output) -- the shell incGamma1 (1/4 + 8i) at rho = 3.14159265358979323846 through the anchor X = 16 rho, carried to pi, zLam_16_pos and zeta_sign_16; print_targets.txt carries 18 more names at its head\" && git log --oneline -1",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:46:02.623Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py commit 32bad89 W-ORD-ZETA-BOX && bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:46:13.721Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula fetch origin zq-b730:zq-b730",
+   "n": 234,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:46:14.078Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push 32bad89 && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 235,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:46:42.956Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py dispatch 32bad89 5 W-ORD-ZETA-BOX \"SIDEExplicitFormula.Schema.ZetaBox.Signs\"",
+   "n": 236,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:47:27.876Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42393018408 540 --act b745",
+   "n": 237,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:56:07.686Z",
+   "src": "seat",
+   "cmd": "gh run download 42393018408 -R psinary-sketch/SIDE-explicit-formula -n build-module-42393018408 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run5",
+   "n": 238,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:56:29.108Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py read 5 42393018408 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run5",
+   "n": 239,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:56:44.611Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && git log -1 --format=%h -- tools/b745_zbgen.py && python -X utf8 tools/b745_zbgen.py D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean 16 12 && python -X utf8 -c \"\nimport hashlib\nfor p in ('tools/b745_zbgen.py','D:/zq-b738/SIDEExplicitFormula/Schema/ZetaBox/Signs.lean'):\n    print(hashlib.md5(open(p,'rb').read()).hexdigest(), p)\"",
+   "n": 240,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:56:52.214Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && python -X utf8 -c \"\np='print_targets.txt';b=open(p,'rb').read();nl=b'\\n'\nnames='zeta_box zw12 zw12_re_pos zw12_re_le two_zw12 G_zw12 I_zw12 P_zw12 zLam_12_neg zeta_sign_12'.split()\nhave=set(b.decode().split())\nnew=[n for n in names if 'SIDEExplicitFormula.Schema.ZetaBox.'+n not in have]\nhead=nl.join(('SIDEExplicitFormula.Schema.ZetaBox.'+n).encode() for n in new)+nl\nopen(p,'wb').write(head+b);print(len(new),'names prepended')\" && git add SIDEExplicitFormula/Schema/ZetaBox/Signs.lean SIDEExplicitFormula/Schema/ZetaBox/Box.lean print_targets.txt",
+   "n": 241,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:57:00.025Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 W-ORD-ZETA-BOX Z4 at t = 12 and Z5 (SPZ3) under (R355)(4)(b): Signs.lean regenerated by relay tools/b745_zbgen.py at 32a5c72a for t = 16, 12 (md5 4ef0a0f5, equal to the generator's output; the t = 16 part unchanged), zLam_12_neg and zeta_sign_12; Box.lean, zeta_box := zeta_box_of_signs zeta_sign_12 zeta_sign_16; print_targets.txt carries ten more names at its head\" && git log --oneline -1",
+   "n": 242,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:57:07.997Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 tools/b745_controls.py commit 1e65887 W-ORD-ZETA-BOX && bash tools/push_gated.sh /d/zq-b738 --branch zq-b730 --scratch",
+   "n": 243,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:57:21.695Z",
+   "src": "seat",
+   "cmd": "git -C /d/SIDE-explicit-formula fetch origin zq-b730:zq-b730",
+   "n": 244,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:57:22.062Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py push 1e65887 && python -X utf8 tools/b745_address_scan.py scan --bank",
+   "n": 245,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:57:44.914Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py dispatch 1e65887 6 W-ORD-ZETA-BOX \"SIDEExplicitFormula.Schema.ZetaBox.Box\"",
+   "n": 246,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T16:58:09.505Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record runwait SIDE-explicit-formula 42393914259 540 --act b745",
+   "n": 247,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:07:11.097Z",
+   "src": "seat",
+   "cmd": "gh run download 42393914259 -R psinary-sketch/SIDE-explicit-formula -n build-module-42393914259 -D C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run6",
+   "n": 248,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:07:19.019Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py read 6 42393914259 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run6",
+   "n": 249,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:07:39.198Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_controls.py closure C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/run6 SIDEExplicitFormula.Schema.ZetaBox.zeta_box",
+   "n": 250,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:07:49.889Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_controls.py bank",
+   "n": 251,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:09:07.971Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_controls.py bank > /dev/null; python -X utf8 -c \"t=open('data/b745_controls.txt',encoding='utf-8').read();print(t.count('69 names'));print([l for l in t.splitlines() if l.startswith('###')][-1])\"",
+   "n": 252,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:09:13.209Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -c \"import subprocess,sys;r=subprocess.run([sys.executable,'-X','utf8','tools/b745_controls.py','bank'],capture_output=True,text=True,encoding='utf-8');print('exit',r.returncode);t=open('data/b745_controls.txt',encoding='utf-8').read();print('69 names:',t.count('69 names'));print([l for l in t.splitlines() if l.startswith('###')][-1]);print(r.stdout.splitlines()[-1])\"",
+   "n": 253,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:09:23.581Z",
+   "src": "seat",
+   "cmd": "cd /d/zq-b738 && git log --format=%H -6 zq-b730 && git diff --name-only 14ca5725 zq-b730",
+   "n": 254,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:10:40.602Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 -c \"import ast;ast.parse(open('tools/b745_worklist.py',encoding='utf-8').read());print('worklist parses')\" && python -X utf8 tools/b745_address_scan.py scan --bank && git status --short",
+   "n": 255,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:10:53.386Z",
+   "src": "seat",
+   "cmd": "git status --short",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:10:59.619Z",
+   "src": "seat",
+   "cmd": "git log --format=%s -4 && git add data/b745_address_scan.txt data/b745_controls.txt data/b745_controls_notes.txt data/b745_dispatch_rows.json data/b745_hook_refusals.txt data/b745_zq-b738_zq-b730_push_out.txt tools/b745_worklist.py",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:11:05.578Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 3: W-ORD-ZETA-BOX BUILT under (R355)(4)(b) -- zeta_box and 68 more names each with [propext, Classical.choice, Quot.sound] (run 42393914259), SPZ1 at dispatch 4, SPZ2 at 5, SPZ3 at 6; 6 dispatches of 12, 663 lines against 450-1100; the controls bank, notes (11)-(12), the rows, the worklist's zq-b730 fields; the scan 0/0/0/0\"",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:11:10.329Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/subjects.py steprows 2>&1; python -X utf8 tools/standing/fold.py record step relay \"component 3\" bdf37dae --act b745",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:11:21.095Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/subjects.py steprows",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:11:26.570Z",
+   "src": "seat",
+   "cmd": "git show --stat --format=%s 3c334483 && git grep -n \"def .*step\" -- tools/standing/fold.py tools/standing/record.py",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:11:33.996Z",
+   "src": "seat",
+   "cmd": "git grep -n -l \"_steps.json\" -- tools && git show 3c334483 -- data/b745_steps.json",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:04.023Z",
+   "src": "seat",
+   "cmd": "git grep -n \"steps.json\" -- tools/standing/*.py tools/act_close.py tools/acts/b745.py",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:33.067Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" bdf37dae6c && git diff --stat",
+   "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:44.096Z",
+   "src": "seat",
+   "cmd": "git rev-parse HEAD",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:48.644Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;r=json.load(open('data/b745_steps.json',encoding='utf-8'))['rows'];[print(x['commit'][:8],x['phase']) for x in r]\"",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:54.145Z",
+   "src": "seat",
+   "cmd": "for c in $(git rev-parse 04e7f854 32a5c72a bdf37dae); do python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" $c || break; done && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 267,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:12:58.668Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" 04e7f8545 && git rev-parse 04e7f854 32a5c72a",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:13:09.874Z",
+   "src": "seat",
+   "cmd": "git rev-parse 04e7f854 32a5c72a",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:13:14.430Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" 04e7f85415e8e064d20c57420b85dface57fe6a1 && python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" 32a5c72a526c0b1ae5a6f601b623ccc4a68fdc41 && python -X utf8 -u tools/standing/fold.py record step relay \"component 3\" bdf37daec6c23e3e9d574d826c4dcb6de79002b8 && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 270,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:13:37.850Z",
+   "src": "seat",
+   "cmd": "git add data/b745_steps.json && python -X utf8 tools/standing/subjects.py steprows",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:13:42.629Z",
+   "src": "seat",
+   "cmd": "git commit -m \"b745 component 3: the step rows for relay 04e7f854, relay 32a5c72a and relay bdf37dae\"",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:15:01.723Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"L=open('data/b745_ferry.txt',encoding='utf-8').read().splitlines();print(len(L));[print(i+1,l) for i,l in enumerate(L) if i>=29]\"",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:15:13.713Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"L=open('tools/acts/b745.py',encoding='utf-8').read().splitlines();print(len(L));[print(i+1,l[:150]) for i,l in enumerate(L) if l.startswith(('def ','class ','# ###','###','ACT','TITLE','C1_','ERRATA','CHECK','ARM')) or l[:1].isupper()]\"",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:15:34.003Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %ad %s\" --date=format:%H:%M --stat -- tools/acts/b744.py",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:15:45.442Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;L=open('tools/b745_worklist.py',encoding='utf-8').read().splitlines();[print(i+1,l[:170]) for i,l in enumerate(L) if re.match(r'^[A-Z][A-Z0-9_]+ *=',l)]\"",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:15:55.087Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;L=open('tools/b744_worklist.py',encoding='utf-8').read().splitlines();[print(i+1,l[:200]) for i,l in enumerate(L) if re.match(r'^(C\\d_|C1|PRINT_|REG_COMMIT|PLAN_MD5|STANDING_CHANGED|STANDING_NEW|COMPUTE_|COMPARATIVE|ACT_ARMS|STEPZERO_ANSWERS|NEXT|ERRATA|DIFFERS|SITTING_BANK|REQUIRED)',l)]\"",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:16:06.975Z",
+   "src": "seat",
+   "cmd": "git ls-files \"data/b745_*\" && ls data/b745_* && ls tools/b745_* tools/acts/b745*",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:16:13.331Z",
+   "src": "seat",
+   "cmd": "git show --name-status --format= 8c0f7568 && git show --name-status --format=%s cbf90ed2 && git show --name-status --format=%s ae688949",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:16:19.920Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b744_face.py tools/b744_face_blocks.txt tools/b744_prepaths.py tools/b743_face.py && git log --format=\"%h %s\" -3 -- tools/b744_face.py tools/b743_face.py && python -X utf8 -c \"L=open('tools/b744_face.py',encoding='utf-8').read().splitlines();print(*L[:60],sep=chr(10))\"",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:16:42.817Z",
+   "src": "seat",
+   "cmd": "wc -l data/b744_defects.txt data/b745_stepzero.txt data/b745_hook_refusals.txt && python -X utf8 -c \"L=open('data/b744_defects.txt',encoding='utf-8').read().splitlines();print(*[l[:400] for l in L[:30]],sep=chr(10))\"",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:16:55.024Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"L=open('data/b745_stepzero.txt',encoding='utf-8').read().splitlines();[print(i+1,l[:600]) for i,l in enumerate(L) if i>=60]\" && python -X utf8 -c \"print(open('data/b745_hook_refusals.txt',encoding='utf-8').read())\" && git grep -n \"REPEAT\" -- tools/standing/counter.py",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:17:45.981Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re,collections;t=open('tools/acts/b745.py',encoding='utf-8').read();c=collections.Counter(re.findall(r'\\bK\\.([A-Z][A-Z0-9_]+)',t));import b745_worklist\" 2>/dev/null; python -X utf8 -c \"import re,sys,collections;sys.path.insert(0,'tools');import b745_worklist as K;t=open('tools/acts/b745.py',encoding='utf-8').read();c=collections.Counter(re.findall(r'\\bK\\.([A-Z][A-Z0-9_]+)',t));print(' '.join('%s=%r'%(k,getattr(K,k,'MISSING'))[:60] for k in sorted(c) if getattr(K,k,'MISSING') in (None,(),'MISSING')))\"",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:17:51.150Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re,sys,collections;sys.path.insert(0,'tools');import b745_worklist as K;t=open('tools/acts/b745.py',encoding='utf-8').read();c=collections.Counter(re.findall(r'\\bK\\.([A-Z][A-Z0-9_]+)',t));print(' '.join('%s=%r'%(k,getattr(K,k,'MISSING'))[:60] for k in sorted(c) if getattr(K,k,'MISSING') in (None,(),'MISSING')))\"",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:17:56.484Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" e9c339ed..HEAD && cd /d/MY-DOwnloads/PLACE-papers && git log --format=\"%h %s\" 5937961f..HEAD",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:18:21.679Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && python -X utf8 -c \"L=open('tools/standing/fold.py',encoding='utf-8').read().splitlines();print(*L[:60],sep=chr(10))\"",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:18:33.976Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:18:59.553Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold;L=fold.render('b745','checks').splitlines();[print(i+1,l[:220]) for i,l in enumerate(L) if 555<=i<=575]\"",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:20:13.072Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;r=json.load(open('data/b745_dispatch_rows.json',encoding='utf-8'));print(type(r),len(r));[print({k:(str(v)[:60]) for k,v in x.items()}) for x in r[:4]];print(sorted(set(x.get('kind') for x in r)))\"",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:20:14.584Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold;L=fold.render('b745','checks').splitlines();[print(i+1,l[:230]) for i,l in enumerate(L) if any(s in l for s in ('def runner_read_ok','def runner_gate_ok','def merges_on_gate_ok','def differs_errata_ok','def pp_scope_ok','def kernels_untouched','G-RUNNER-READ','G-RUNNER-GATE'))]\"",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:20:19.563Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold;L=fold.render('b745','checks').splitlines();[print(i+1,l[:250]) for i,l in enumerate(L) if 1936<=i<=1945 or 1700<=i<=1730]\"",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:20:33.200Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;L=open('tools/acts/b742.py',encoding='utf-8').read().splitlines();print(len(L));[print(i+1,l[:200]) for i,l in enumerate(L) if re.search(r'def (runner_ok|registrations_first_ok|coeffs_law_ok|derivation_graded_ok|offset_post_hoc_ok|count_route_priced_ok|gate_ok)|DISPATCH_CMD|SECTION checks (2[4-9]|3[0-9]|40)⟫',l)]\"",
+   "n": 292,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:21:04.027Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;t=open('tools/standing/fold/checks.tpl',encoding='utf-8').read();ks=['plan','print_','rows_bank','sittingj','amendj','plan_at','print_at','reg_pp','reg_now_pp','reg_pre_pp','zq_files','sit_files','sit_main','ef_tips','drows','reproduce','reproducej','v1130','notes','anc','t','files','reg_now','reg_blobs'];[print(k,len(re.findall(r\\\"S\\['%s'\\]\\\"%re.escape(k),t)),len(re.findall(r\\\"'%s'\\\"%re.escape(k),t))) for k in ks]\"",
+   "n": 293,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:21:10.341Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;t=open('tools/standing/fold/checks.tpl',encoding='utf-8').read();print(sorted(set(re.findall(r\\\"S\\['(?:t|files)'\\]\\[?'?\\]?(?:\\['(\\w+)'\\]|\\.get\\('(\\w+)')\\\",t))))\" && python -X utf8 -c \"import re;t=open('tools/acts/b745.py',encoding='utf-8').read();print(sorted(set(re.findall(r\\\"S\\['files'\\]\\['(\\w+)'\\]\\\",t))), sorted(set(re.findall(r\\\"t_\\['(\\w+)'\\]|t_\\.get\\('(\\w+)'\\\",t))))\"",
+   "n": 294,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:24:28.962Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 295,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:27:01.706Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;j=json.load(open('data/b745_corrigendum.json',encoding='utf-8'));print({k:(v if not isinstance(v,list) else len(v)) for k,v in j.items()});import re;r=open('data/b745_rules.txt',encoding='utf-8').read();print(re.findall(r'(?m)^\\(\\d+\\) [A-Z ,\\'-]{0,60}',r));print(open('data/b675_corrigenda.txt',encoding='utf-8').read().count('  (65) '))\" && python -X utf8 -c \"import re;t=open('D:/MY-DOwnloads/PLACE-papers/FINDINGS.md',encoding='utf-8-sig').read().split(chr(10));print(t[13963][:300]);print(t[13965][:200])\"",
+   "n": 296,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:27:14.274Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold;L=fold.render('b745','checks').splitlines();i=[n for n,l in enumerate(L) if 'THE PRE-LOCK DRY RUNS EVERY PART' in l][0];print(*['%d %s'%(n+1,L[n][:200]) for n in range(i-22,i+3)],sep=chr(10))\"",
+   "n": 297,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:27:56.541Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;L=open('tools/acts/b742.py',encoding='utf-8').read().splitlines();[print(i+1,l[:150]) for i,l in enumerate(L) if re.search(r'SECTION (record|closing|report|regspec|reg_gate) \\d+⟫|^def ',l)]\"",
+   "n": 298,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:28:34.725Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re,glob;ks=set();[ks.update(re.findall(r\\\"\\bf\\['(\\w+)'\\]\\\",open(p,encoding='utf-8').read())) for p in glob.glob('tools/standing/fold/*.tpl')];print(sorted(ks))\" && python -X utf8 -c \"import re;t=open('tools/acts/b745.py',encoding='utf-8').read();print(sorted(set(re.findall(r\\\"\\bf\\['(\\w+)'\\]\\\",t))))\"",
+   "n": 299,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:28:41.880Z",
+   "src": "seat",
+   "cmd": "git log -1 --format=\"%h %ct\" 04e7f854 && git log -1 --format=\"%h %ct\" 32a5c72a && git -C /d/SIDE-explicit-formula log --format=\"%h %ct %s\" 14ca5725..zq-b730 && python -X utf8 -c \"import subprocess,hashlib;[print(m,hashlib.md5(subprocess.run(['git','-C','D:/SIDE-explicit-formula','show','%s:SIDEExplicitFormula/Schema/ZetaBox/Signs.lean'%c],capture_output=True).stdout).hexdigest()) for m,c in (('tip','1e65887'),('32bad89','32bad89'))]\"",
+   "n": 300,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:30:55.820Z",
+   "src": "seat",
+   "cmd": "wc -l data/b745_controls.txt data/b745_standing_v1250.txt && grep -n \"^##\\|^### ###\\|measured\\|IN ALL\\|^  [0-9] |\" data/b745_controls.txt && tail -3 data/b745_standing_v1250.txt",
+   "n": 301,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:31:01.925Z",
+   "src": "seat",
+   "cmd": "awk 'NR>=39 && NR<=44 || NR>=118 && NR<=128 || NR>=214 && NR<=222 || NR>=236' data/b745_controls.txt",
+   "n": 302,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:31:07.481Z",
+   "src": "seat",
+   "cmd": "ls tools/standing/fold/ && grep -on \"f\\['[a-z0-9_]*'\\]\\|f\\.get('[a-z0-9_]*'\" tools/standing/fold/record.tpl tools/standing/fold/report.tpl tools/standing/fold/closing.tpl tools/standing/fold/regspec.tpl | sort -t: -k3 -u",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:31:54.575Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;r=json.load(open('data/b745_dispatch_rows.json',encoding='utf-8'));r=r.get('rows',r) if isinstance(r,dict) else r;print(type(r),len(r));[print(x) for x in r[:4]];print(sorted(set(x.get('kind') for x in r)))\"",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:33:38.088Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import re;t=open('data/b745_ferry.txt',encoding='utf-8').read().split(chr(10))[14];[print(repr(t[max(0,m.start()-200):m.end()+250])) for m in re.finditer('located in Lean|true antecedent at a two-point',t)]\"",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:35:37.941Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\na=s.index(\\\"    e = ['', _title(), '',\\\");b=s.index('    return _title(), NL.join(e)',a)+len('    return _title(), NL.join(e)')\nnew=open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/entry745.py',encoding='utf-8').read().rstrip(chr(10))\nprint(s.count(\\\"    e = ['', _title(), '',\\\"),a,b,s[a:b].count(chr(10)))\nopen(p,'w',encoding='utf-8',newline='').write(s[:a]+new+s[b:])\"",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:38:30.810Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\nR=[('len(tips) >= len(NAMED_PUSH) == 6','len(tips) >= len(NAMED_PUSH) == 5'),\n('len(left) == 3 and len(NAMED_PUSH) == 6','len(left) == 2 and len(NAMED_PUSH) == 5'),\n('# ### six push-b744-* refs deleted at step zero (relay three, PLACE-papers two, SIDE-explicit-formula push-b744-sitting by (R355)(2)(v)), each with its tip','# ### five push-b744-* refs deleted at step zero (relay three, PLACE-papers two; SIDE-explicit-formula carrying none, data/b745_stepzero.txt :30), each with its tip'),\n('G-BRANCHES-DELETED over b745\\'s three repositories (relay, PLACE-papers, SIDE-explicit-formula) and six','G-BRANCHES-DELETED over b745\\'s two repositories (relay, PLACE-papers) and five')]\nfor a,b in R:\n  print(s.count(a));s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:38:44.580Z",
+   "src": "seat",
+   "cmd": "wc -l data/b745_hook_refusals.txt && tail -n 5 data/b745_hook_refusals.txt",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:39:07.530Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\nR=[(\\\"edited by v1.24.0 alone (the LOCKED scope, (R355)(2)(iii); its blob at c9396ad0 the working tree\\`s)\\\",\\\"edited by v1.25.0 alone (the ROWID kind, (R355)(2)(i); its blob at 475a6f38 the working tree\\`s)\\\"),\n(\\\"W-ORD-ZETA-BOX and W-ORD-POSITIVE-CONTROL, entered at b744, priced this act in their plan banks and not built;\\\",\\\"W-ORD-POSITIVE-CONTROL and W-ORD-ZETA-BOX, entered at b744, built this act on zq-b730 (relay data/b745_controls.txt);\\\"),\n(\\\"REQUIRED_BANKS = ('data/b745_corrigendum.txt', 'data/b745_standing_v1240.txt', 'data/b745_rules.txt', 'data/b745_zetabox_plan.txt', 'data/b745_poscontrol_plan.txt',\\n                  'data/b745_amendments.json', 'data/b745_pathrefusal.txt',\\\",\\\"REQUIRED_BANKS = ('data/b745_corrigendum.txt', 'data/b745_standing_v1250.txt', 'data/b745_rules.txt', 'data/b745_controls.txt', 'data/b745_controls_notes.txt',\\n                  'data/b745_dispatch_rows.json', 'data/b745_pathrefusal.txt',\\\"),\n(\\\"'TWO PLANS AND THE AMENDMENT ((R355)(3), (4))'\\\",\\\"'TWO CONTROLS ((R355)(4))'\\\"),\n(\\\"REPORT_KEYS = ('KERNEL -- NO LEAN FILE THIS ACT', 'CERTIFIED -- tools/standing/ v1.24.0', 'REGISTERED -- THE TWO PLANS',\\\",\\\"REPORT_KEYS = ('KERNEL -- THE TWO CONTROLS ON zq-b730', 'CERTIFIED -- tools/standing/ v1.25.0', 'REGISTERED -- THE TAG v0.38',\\\"),\n(\\\"ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The order of the act**', '**The ζ box**', '**The positive control**', '**The recommendation**',\\n                 '**The amendment to (R355)(4)**', '**What this act is not**',\\\",\\\"ENTRY_NEEDLES = ('**The corrigendum and the carried items**', '**The tag**', '**The positive control**', '**The ζ box**', '**The lines against the estimates**',\\n                 '**The order of the act**', '**What this act is not**',\\\"),\n(\\\"'data/b745_corrigendum.txt', 'data/b745_standing_v1240.txt', 'data/b745_rules.txt', 'data/b745_zetabox_plan.txt', 'data/b745_poscontrol_plan.txt', 'data/b745_amendments.json',\\n                 'data/b745_reproduce.txt'\\\",\\\"'data/b745_corrigendum.txt', 'data/b745_standing_v1250.txt', 'data/b745_rules.txt', 'data/b745_controls.txt', 'data/b745_controls_notes.txt', 'data/b745_dispatch_rows.json',\\n                 'data/b745_reproduce.txt'\\\"),\n]\nfor a,b in R:\n  print(s.count(a));s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:39:31.458Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\nR=[(\\\"'the landed entry\\`s title by its objects, the ferry\\`s Component 3 form: the two controls planned, no build, each at its lines and dispatches by its route or carrier, the recommendation, v1.24.0\\`s repairs'\\\",\\\"'the landed entry\\`s title by its objects, the ferry\\`s :41 form: the tag on zq-b730 at 14ca5725, no merge; each control with its axiom line and its lines against its estimate, P6\\`s finding, SPZ3; the dispatches in all; the ID rule, the hold at the root and v1.25.0\\`s further repairs'\\\"),\n(\\\"landed at FINDINGS :13840: its fifteen events and twenty-three defects, 38 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 12 CLOSE 26, REPEAT 14; v1.24.0\\`s repairs by data/b745_standing_v1240.txt; the corrigenda bank appended at row (64)\\\",\\\"landed at FINDINGS :13966: its six events and seventeen defects, 23 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 12 CLOSE 11, REPEAT 9; v1.25.0\\`s repairs by data/b745_standing_v1250.txt; the corrigenda bank appended at row (65)\\\"),\n(\\\"data/b745_rules.txt carrying (R355)(2)\\`s eight rules in Component 1\\`s commit, no data/b745_rules.txt (the amendment\\`s rule carried to (R355))\\\",\\\"data/b745_rules.txt carrying (R355)(2)\\`s seven rules in Component 1\\`s commit, no data/b746_rules.txt\\\"),\n(\\\"('G-MERGES-ON-GATE', 'no kernel merge and no tag this act:\\\",\\\"('G-MERGES-ON-GATE', 'no kernel merge and the one tag v0.38 at 14ca5725 this act:\\\"),\n]\nfor a,b in R:\n  print(s.count(a));s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:39:40.195Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\nR=[(\\\"(FINDINGS and OPEN_TRAILS, REGISTRY by the author\\`s word amending (R355)(4)); no rename (N5)'\\\",\\\"(FINDINGS and OPEN_TRAILS; REGISTRY and SPIRAL_MAP by the tag\\`s dated notes, (R355)(3)); no rename (N5)'\\\"),\n(\\\"(FINDINGS, OPEN_TRAILS, REGISTRY by the amendment): beyond %s\\\",\\\"(FINDINGS, OPEN_TRAILS, REGISTRY and SPIRAL_MAP by the tag\\`s notes): beyond %s\\\"),\n(\\\"runner dispatches in the command bank %d (N1: none; -1 the command bank not yet written)'\\\",\\\"runner dispatches in the command bank %d (N1: six of twelve; -1 the command bank not yet written)'\\\"),\n]\nfor a,b in R:\n  print(s.count(a));s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:39:46.132Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\na='the two controls priced and open, no order closed or entered this act.'\nprint(s.count(a));s=s.replace(a,'the two controls built on zq-b730, no order entered this act.')\nopen(p,'w',encoding='utf-8',newline='').write(s)\nimport py_compile;py_compile.compile(p,doraise=True);print('compiled')\" && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\"",
+   "n": 312,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:39:52.388Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:42:19.111Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/research/reproduce.py run --bank data/b745_reproduce",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:48:40.039Z",
+   "src": "seat",
+   "cmd": "tail -n 4 data/b745_reproduce.txt && git status --short",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:48:46.981Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part act",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:51:35.859Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/render745.py checks record",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:52:29.913Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold\nL=open('tools/standing/fold/checks.tpl',encoding='utf-8').read().split(chr(10))\ni=next(k for k,l in enumerate(L) if 'list(range(1, 16))' in l)\nprint(i+1, fold.mark_of([L[i]+chr(10)]));print(repr(L[i]))\"",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:52:46.274Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\nR=[('(141 = 141 + 0, data/b745_citation_check.txt)','(118 = 118 + 0, data/b745_citation_check.txt)'),\n('int(m.group(1)) == 141 and','int(m.group(1)) == 118 and'),\n('every cite checked at step zero, 141 = 141 OK + 0 misses','every cite checked at step zero, 118 = 118 OK + 0 misses')]\nfor a,b in R:\n  print(s.count(a));s=s.replace(a,b)\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:53:07.176Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/diag745.py",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:53:27.511Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/diag745.py",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:55:59.769Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\na=\\\"defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopq')))   # ### (a)-(q),\\\"\nprint(s.count(a));s=s.replace(a,\\\"defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqr')))   # ### (a)-(r),\\\")\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:08.595Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;r=json.load(open('data/b745_commands.json',encoding='utf-8'))['rows']\ns=[x['cmd'] for x in r if 'address_scan.py' in (x.get('cmd') or '')];print(len(s));[print(repr(c[:300])) for c in s[-3:]]\"",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:15.598Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nL=[json.loads(l) for l in open(r'C:/Users/echo chamber/.claude/projects/D--/161ec306-dcdf-48bc-85b2-f457190f55f8.jsonl',encoding='utf-8')]\nout=[]\nfor e in L:\n  m=e.get('message') or {}\n  c=m.get('content')\n  if isinstance(c,list):\n    for b in c:\n      if isinstance(b,dict) and b.get('type')=='tool_use':\n        cmd=(b.get('input') or {}).get('command') or ''\n        if 'address_scan' in cmd: out.append(cmd)\nprint(len(out));[print(repr(x[:400])) for x in out[-3:]]\"",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:22.891Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json\nL=[json.loads(l) for l in open(r'C:/Users/echo chamber/.claude/projects/D--/161ec306-dcdf-48bc-85b2-f457190f55f8.jsonl',encoding='utf-8')]\nout=[]\nfor e in L:\n  m=e.get('message') or {}\n  c=m.get('content')\n  if isinstance(c,list):\n    for b in c:\n      if isinstance(b,dict) and b.get('type')=='tool_use':\n        cmd=(b.get('input') or {}).get('command') or ''\n        if 'b745_address_scan.py' in cmd and 'json.loads' not in cmd: out.append(cmd)\nprint(len(out));[print(repr(x[:300])) for x in out[-4:]]\"",
+   "n": 325,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:30.396Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 tools/b745_address_scan.py scan --bank && git status --short -- data/b745* tools/b745* tools/acts/b745.py",
+   "n": 326,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:48.783Z",
+   "src": "seat",
+   "cmd": "git add tools/acts/b745.py tools/b745_worklist.py data/b745_defects.txt data/b745_reproduce.json data/b745_reproduce.txt data/b745_address_scan.txt data/b745_hook_refusals.txt",
+   "n": 327,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:56:54.343Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"b745 component 4: the act module over b745's objects (the record, closing, regspec and report sections in b742's build form; the controls bank, v1.25.0, the tag), the worklist's generator fields, the reproduction run, defects (a)-(r)\" && git log -1 --format=%H",
+   "n": 328,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:00.554Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record step relay \"component 4\" aefe3c682458309169c676b5904086fca1b1a7e7",
+   "n": 329,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:11.259Z",
+   "src": "seat",
+   "cmd": "git add data/b745_steps.json",
+   "n": 330,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:16.660Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/standing/subjects.py steprows",
+   "n": 331,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:22.283Z",
+   "src": "seat",
+   "cmd": "git commit -q -m \"the step row for relay aefe3c68\" && git log -1 --format=%H",
+   "n": 332,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:39.690Z",
+   "src": "seat",
+   "cmd": "wc -l data/b744_touch.txt data/b742_touch.txt && cat data/b742_touch.txt",
+   "n": 333,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:57:45.903Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import standing.hold as h;print('free_mb',h.free_mb())\" && python -X utf8 -u tools/standing/fold.py record findings dry",
+   "n": 334,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:58:06.996Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\np='tools/acts/b745.py';s=open(p,encoding='utf-8',newline='').read()\na=\\\".next_clause(rd('%s_ferry.txt' % ACT)) or '(R355)(6)'\\\"\nprint(s.count(a));s=s.replace(a,\\\".next_clause(rd('%s_ferry.txt' % ACT)) or '(R355)(7)'\\\")\nopen(p,'w',encoding='utf-8',newline='').write(s)\"",
+   "n": 335,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:58:29.666Z",
+   "src": "seat",
+   "cmd": "python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/touch745.py",
+   "n": 336,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T17:59:40.068Z",
+   "src": "seat",
+   "cmd": "wc -l tools/b744_face.py tools/b744_face_blocks.txt tools/b744_prepaths.py && grep -n \"b744\\|b743\\|R354\\|R353\\|v1\\.24\\|7d448774\\|5937961\\|d79ecaf\\|b41fa006\\|2026-11-06\\|LOCATES\\|ZETA\" tools/b744_face.py tools/b744_prepaths.py",
+   "n": 337,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:00:13.393Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport re;t=open('data/b745_ferry.txt',encoding='utf-8').read()\nfor m in re.finditer(r'\\(W\\)',t): print(repr(t[max(0,m.start()-160):m.end()+120]));print('--')\n\" && grep -c \"\" data/b744_registration_2026-11-06.txt && grep -n \"(R354)(4)\\`s (W)\\|G-RULES-ROW-ENTERED\\` read\\|allow.py at v1\" data/b744_registration_2026-11-06.txt",
+   "n": 338,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:00:36.467Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"\nimport json;j=json.load(open('data/b745_steps.json',encoding='utf-8'))\nfor r in j.get('rows') or []: print(r.get('n'),r.get('repo'),(r.get('commit') or '')[:8],r.get('at'),r.get('phase'),'|',(r.get('subject') or '')[:110])\" && git log --format=\"%h %cI %s\" e9c339ed^..HEAD",
+   "n": 339,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:01:11.034Z",
+   "src": "seat",
+   "cmd": "git show --name-status --format= 475a6f38 && grep -n \"FAILING\\|NOT CLEAN\\|LIVE FAILING\" data/b744_arms_prerun.txt",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:05:52.343Z",
+   "src": "seat",
+   "cmd": "python -X utf8 tools/b745_face.py --dry",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:05:59.697Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import json;d=json.load(open('data/b744_steps.json',encoding='utf-8'));rows=d if isinstance(d,list) else d.get('rows',d);[print(r.get('row'),r.get('phase'),r.get('repo'),str(r.get('sha'))[:8],r.get('subject','')[:70]) for r in rows]\"",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:06:14.271Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b744_commands.txt',encoding='utf-8').read().split('\\n');print(len(t));[print(i+1,l[:200]) for i,l in enumerate(t[:80])]\"",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-07T18:06:19.419Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open('data/b744_commands.txt',encoding='utf-8').read().split('\\n');[print(l[4:240]) for l in t[330:404]]\"",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:06:25.612Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record kernels --act b745",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T18:06:45.238Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b745",
+   "n": 346,
+   "bg": false
+  }
+ ],
+ "offences": [
+  {
+   "n": 12,
+   "kinds": [
+    "R sed in any form (data/b685_rules.txt row (2))"
+   ]
+  },
+  {
+   "n": 99,
+   "kinds": [
+    "R sed in any form (data/b685_rules.txt row (2))"
+   ]
+  },
+  {
+   "n": 188,
+   "kinds": [
+    "R sed in any form (data/b685_rules.txt row (2))"
+   ]
+  },
+  {
+   "n": 335,
+   "kinds": [
+    "R rm without an explicit absolute path",
+    "R rm without an explicit absolute path"
+   ]
+  }
+ ],
+ "prev": {
+  "act": "b744",
+  "session": "c66dda9f-cc02-473a-b740-111b6d66dec3",
+  "rows": 21,
+  "offences": []
+ },
+ "local_lean": [],
+ "dispatches": [
+  161,
+  173,
+  205,
+  218,
+  236,
+  246
+ ],
+ "detached": [],
+ "seds": [
+  12,
+  99,
+  188
+ ],
+ "null_redirects": [
+  125,
+  252,
+  283
+ ],
+ "redirects": [
+  125,
+  252,
+  283
+ ],
+ "pipes": [
+  1,
+  31,
+  85,
+  195,
+  303
+ ],
+ "any_pipes": [
+  1,
+  31,
+  85,
+  126,
+  195,
+  303
+ ],
+ "py_programs": [
+  5,
+  11,
+  21,
+  22,
+  28,
+  29,
+  50,
+  67,
+  69,
+  71,
+  79,
+  80,
+  81,
+  83,
+  84,
+  87,
+  94,
+  95,
+  96,
+  97,
+  112,
+  116,
+  124,
+  127,
+  128,
+  129,
+  131,
+  151,
+  153,
+  155,
+  165,
+  169,
+  175,
+  177,
+  196,
+  197,
+  206,
+  207,
+  211,
+  212,
+  227,
+  228,
+  230,
+  231,
+  240,
+  241,
+  251,
+  252,
+  253,
+  255,
+  266,
+  273,
+  274,
+  276,
+  277,
+  280,
+  281,
+  282,
+  283,
+  284,
+  286,
+  287,
+  288,
+  289,
+  290,
+  291,
+  292,
+  293,
+  294,
+  295,
+  296,
+  297,
+  298,
+  299,
+  300,
+  304,
+  305,
+  306,
+  307,
+  309,
+  310,
+  311,
+  312,
+  313,
+  314,
+  316,
+  318,
+  319,
+  320,
+  321,
+  322,
+  323,
+  324,
+  325,
+  326,
+  334,
+  335,
+  338,
+  339,
+  342,
+  343,
+  344
+ ],
+ "moves_deletes": [
+  43,
+  44,
+  45,
+  46,
+  47
+ ],
+ "delete_shapes": [
+  {
+   "n": 43,
+   "deletes": [
+    "push-b744-closing"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 44,
+   "deletes": [
+    "push-b744-preroot"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 45,
+   "deletes": [
+    "push-b744-record"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 46,
+   "deletes": [
+    "push-b744-preroot"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  },
+  {
+   "n": 47,
+   "deletes": [
+    "push-b744-record"
+   ],
+   "globs": [],
+   "variables": [],
+   "halves": 1,
+   "chained": false
+  }
+ ],
+ "outbound": []
+}
