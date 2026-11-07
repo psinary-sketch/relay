@@ -1,10 +1,11 @@
-b744 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-06T23:47:20Z)
+b744 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-07T02:15:40Z)
 
 ### the source: the seat`s session c66dda9f-cc02-473a-b740-111b6d66dec3 from its first user line carrying 'RULING (R354) BEGIN', with its subagents` transcripts
-### commands read: 255
+### commands read: 325
 
-### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
-  NONE
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #260 2026-11-06T23:48:29.745Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '1425,1428p;1486,1487p;1501,1502p;1706,1709p' tools/acts/b744.py
 
 ### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b743, its own session c66dda9f, from its post-push combine to that session`s end): 20 commands from 2026-11-06T19:29:07.227Z, its offences printed whole (0):
   NONE
@@ -18,24 +19,26 @@ b744 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
   NONE
 
-### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (0):
-  NONE
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (1):
+  #260 sed -n '1425,1428p;1486,1487p;1501,1502p;1706,1709p' tools/acts/b744.py
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
-  NONE
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+  #262 2026-11-06T23:49:13.598Z cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
-  NONE
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+  #262 2026-11-06T23:49:13.598Z cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80
 
-### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (3):
   #177 2026-11-06T20:51:53.123Z cd D:/SIDE-explicit-formula/.lake/packages/mathlib; git grep -n -E "^(noncomputable )?(def|theorem|lemma) (Gammaℝ|Gammaℝ_ne_zero_of_re_pos|Gammaℝ_def|intermediate_value_Icc|intermediate_value_Icc'|int
   #229 2026-11-06T23:11:25.002Z git status --short | head -30; git log --oneline -3; wc -l tools/acts/b744.py tools/acts/b743.py
+  #262 2026-11-06T23:49:13.598Z cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80
 
-### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (4):
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (5):
   #52 2026-11-06T20:07:36.557Z $os = Get-CimInstance Win32_OperatingSystem; $n = @('claude','python','lean','lake','node','bash') | ForEach-Object { "$_ " + @(Get-Process -Name $_ -ErrorAction SilentlyContinue).Count }; "$((Get-Dat
   #122 2026-11-06T20:40:07.530Z cd D:/relay; python -X utf8 -u tools/standing/fold.py record c1 corrigendum dry 2>&1 | Select-Object -Last 40
   #177 2026-11-06T20:51:53.123Z cd D:/SIDE-explicit-formula/.lake/packages/mathlib; git grep -n -E "^(noncomputable )?(def|theorem|lemma) (Gammaℝ|Gammaℝ_ne_zero_of_re_pos|Gammaℝ_def|intermediate_value_Icc|intermediate_value_Icc'|int
   #229 2026-11-06T23:11:25.002Z git status --short | head -30; git log --oneline -3; wc -l tools/acts/b744.py tools/acts/b743.py
+  #262 2026-11-06T23:49:13.598Z cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80
 
 ### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (13):
   #137 2026-11-06T20:43:53.716Z python -X utf8 -c "p=r'C:\Users\ECHOCH~1\AppData\Local\Temp\claude\0fa2f3b7e932577a\c66dda9f-cc02-473a-b740-111b6d66dec3\scratchpad\defects744_notes.txt'; open(p,'a',encoding='utf-8').write('\n(e?) 2026-11-06 20:42:50Z C
@@ -327,5 +330,75 @@ b744 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #253 | 2026-11-06T23:43:58.763Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --act 
   #254 | 2026-11-06T23:46:54.080Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record kernels --act b74
   #255 | 2026-11-06T23:47:09.137Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b7
+  #256 | 2026-11-06T23:47:24.207Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record figures --act b74
+  #257 | 2026-11-06T23:47:41.713Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record guard --act b744
+  #258 | 2026-11-06T23:48:00.315Z | seat | Bash | wc -l data/b743_touch.txt && cat data/b743_touch.txt
+  #259 | 2026-11-06T23:48:07.312Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record findings dry --ac
+  #260 | 2026-11-06T23:48:29.745Z | seat | Bash | sed -n '1425,1428p;1486,1487p;1501,1502p;1706,1709p' tools/acts/b744.py
+  #261 | 2026-11-06T23:48:53.978Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record findings dry --ac
+  #262 | 2026-11-06T23:49:13.598Z | seat | Bash | cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80
+  #263 | 2026-11-06T23:49:44.004Z | seat | PowerShell | Set-Location D:/relay; (Get-ChildItem data -Filter 'b744_*').Name; Test-Path D:/PLACE-papers/FINDINGS.md; Test-Path D:/SIDE-explicit-formula; (Get-ChildItem D:/
+  #264 | 2026-11-06T23:50:24.357Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-
+  #265 | 2026-11-06T23:50:47.418Z | seat | PowerShell | Set-Location D:/relay; Get-Content data/b744_hook_refusals.txt -Encoding utf8; Select-String -Path data/b744_defects.txt -Pattern '^\s+\(j\)' -Encoding utf8
+  #266 | 2026-11-06T23:52:35.331Z | seat | PowerShell | Set-Location D:/relay; (Get-Content tools/b743_face.py -Encoding utf8).Count; (Get-Content tools/b743_face_blocks.txt -Encoding utf8).Count; (Get-Content data/b
+  #267 | 2026-11-06T23:52:52.911Z | seat | PowerShell | Set-Location D:/relay; (Get-Content data/b744_ferry.txt -Encoding utf8).Count
+  #268 | 2026-11-06T23:53:43.107Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/gaps744.py
+  #269 | 2026-11-06T23:53:56.640Z | seat | PowerShell | git -C D:/relay log --reverse --format='%h %cI %s' b41fa006..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format='%h %cI %s' d79ecaf..HEAD
+  #270 | 2026-11-06T23:54:46.608Z | seat | PowerShell | git -C D:/relay show --format= --diff-filter=A --name-only c9396ad0; git -C D:/relay show --format= --diff-filter=M --name-only c9396ad0 -- tools
+  #271 | 2026-11-06T23:55:10.346Z | seat | PowerShell | git -C D:/relay show --format= --name-only 3384659f f2f0cc72 dfe1e405
+  #272 | 2026-11-06T23:57:41.478Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/b744_face.py --dry
+  #273 | 2026-11-06T23:57:51.467Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b744_face.py
+  #274 | 2026-11-06T23:57:58.072Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a
+  #275 | 2026-11-07T00:01:04.606Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a
+  #276 | 2026-11-07T00:06:51.287Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-c
+  #277 | 2026-11-07T00:09:50.598Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #278 | 2026-11-07T00:12:56.277Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #279 | 2026-11-07T00:17:20.653Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #280 | 2026-11-07T00:21:46.078Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #281 | 2026-11-07T00:26:52.323Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #282 | 2026-11-07T00:32:05.020Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b
+  #283 | 2026-11-07T00:37:17.607Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --act 
+  #284 | 2026-11-07T00:39:41.979Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1
+  #285 | 2026-11-07T00:42:47.720Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2
+  #286 | 2026-11-07T00:47:59.306Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #287 | 2026-11-07T00:50:36.859Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1
+  #288 | 2026-11-07T00:53:47.373Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a
+  #289 | 2026-11-07T00:58:17.824Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b
+  #290 | 2026-11-07T01:02:49.688Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c
+  #291 | 2026-11-07T01:08:14.290Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d
+  #292 | 2026-11-07T01:14:18.108Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3
+  #293 | 2026-11-07T01:19:54.748Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act
+  #294 | 2026-11-07T01:22:34.078Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record closeorder --act b744
+  #295 | 2026-11-07T01:22:51.541Z | seat | PowerShell | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdshow744.py -r "rootdry|closing
+  #296 | 2026-11-07T01:23:00.410Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act 
+  #297 | 2026-11-07T01:23:49.708Z | seat | PowerShell | Set-Location D:/relay; $l = (Get-Content data/b744_scores_dry.txt -Encoding utf8)[9]; $i = $l.IndexOf('badaccc'); $l.Substring([Math]::Max(0,$i-1200), [Math]::M
+  #298 | 2026-11-07T01:24:51.826Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b744_face.py
+  #299 | 2026-11-07T01:24:52.913Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act 
+  #300 | 2026-11-07T01:25:52.150Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act 
+  #301 | 2026-11-07T01:26:27.411Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_regis
+  #302 | 2026-11-07T01:27:36.527Z | seat | PowerShell | Set-Location D:/relay; Get-Content data/b744_reg_gate.txt -Encoding utf8 -Tail 45
+  #303 | 2026-11-07T01:27:49.951Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record trail dry --act b
+  #304 | 2026-11-07T01:29:00.699Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b744 -
+  #305 | 2026-11-07T01:30:05.621Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b744_face.py
+  #306 | 2026-11-07T01:30:06.757Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1
+  #307 | 2026-11-07T01:33:03.856Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2
+  #308 | 2026-11-07T01:38:04.232Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #309 | 2026-11-07T01:40:38.423Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1
+  #310 | 2026-11-07T01:43:43.600Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a
+  #311 | 2026-11-07T01:48:02.595Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b
+  #312 | 2026-11-07T01:52:29.667Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c
+  #313 | 2026-11-07T01:57:29.637Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d
+  #314 | 2026-11-07T02:02:48.536Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3
+  #315 | 2026-11-07T02:07:54.559Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act
+  #316 | 2026-11-07T02:10:19.774Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_regis
+  #317 | 2026-11-07T02:11:33.120Z | seat | PowerShell | git -C D:/relay status --short
+  #318 | 2026-11-07T02:11:49.294Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/b744_address_scan.py scan --bank
+  #319 | 2026-11-07T02:12:07.497Z | seat | PowerShell | git -C D:/relay add data/b744_bank_hashes.json data/b744_steps.json tools/acts/b744.py tools/b744_worklist.py data/b744_closing_dry.txt data/b744_commands.json 
+  #320 | 2026-11-07T02:12:14.585Z | seat | PowerShell | Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate
+  #321 | 2026-11-07T02:12:28.069Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b74
+  #322 | 2026-11-07T02:12:47.723Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b744 -
+  #323 | 2026-11-07T02:13:47.375Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_regis
+  #324 | 2026-11-07T02:14:56.521Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b
+  #325 | 2026-11-07T02:15:31.399Z | seat | PowerShell | [int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b7
 
-### ### **COMMANDS 255 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 4 ; ONE-LINE PROGRAMS 13 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 325 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 3 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 13 ; MOVE OR DELETE COMMANDS 6 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 6 OF 6 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

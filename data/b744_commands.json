@@ -1,5 +1,5 @@
 {
- "at": "2026-11-06T23:47:20Z",
+ "at": "2026-11-07T02:15:40Z",
  "anchor": "RULING (R354) BEGIN",
  "rows": [
   {
@@ -2041,9 +2041,576 @@
    "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b744",
    "n": 255,
    "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:47:24.207Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record figures --act b744",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:47:41.713Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record guard --act b744",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T23:48:00.315Z",
+   "src": "seat",
+   "cmd": "wc -l data/b743_touch.txt && cat data/b743_touch.txt",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:48:07.312Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record findings dry --act b744",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T23:48:29.745Z",
+   "src": "seat",
+   "cmd": "sed -n '1425,1428p;1486,1487p;1501,1502p;1706,1709p' tools/acts/b744.py",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:48:53.978Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record findings dry --act b744",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-06T23:49:13.598Z",
+   "src": "seat",
+   "cmd": "cd /d && ls -d PLACE-papers SIDE-explicit-formula 2>/dev/null; cd /d/relay && git log -1 --format=%H%n%s && ls data/b744_* | head -80",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:49:44.004Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; (Get-ChildItem data -Filter 'b744_*').Name; Test-Path D:/PLACE-papers/FINDINGS.md; Test-Path D:/SIDE-explicit-formula; (Get-ChildItem D:/ -Directory -Filter 'SIDE-explicit*').FullName",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:50:24.357Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/touch744.py",
+   "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:50:47.418Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; Get-Content data/b744_hook_refusals.txt -Encoding utf8; Select-String -Path data/b744_defects.txt -Pattern '^\\s+\\(j\\)' -Encoding utf8",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:52:35.331Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; (Get-Content tools/b743_face.py -Encoding utf8).Count; (Get-Content tools/b743_face_blocks.txt -Encoding utf8).Count; (Get-Content data/b743_registration_2026-11-06.txt -Encoding utf8).Count",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:52:52.911Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; (Get-Content data/b744_ferry.txt -Encoding utf8).Count",
+   "n": 267,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:53:43.107Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/gaps744.py",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:53:56.640Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay log --reverse --format='%h %cI %s' b41fa006..HEAD; git -C D:/MY-DOwnloads/PLACE-papers log --reverse --format='%h %cI %s' d79ecaf..HEAD",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:54:46.608Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay show --format= --diff-filter=A --name-only c9396ad0; git -C D:/relay show --format= --diff-filter=M --name-only c9396ad0 -- tools",
+   "n": 270,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:55:10.346Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay show --format= --name-only 3384659f f2f0cc72 dfe1e405",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:57:41.478Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/b744_face.py --dry",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:57:51.467Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b744_face.py",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-06T23:57:58.072Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a1 --act b744 --quiet",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:01:04.606Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --act b744 --quiet",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:06:51.287Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-c --act b744 --quiet",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:09:50.598Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --act b744 --quiet",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:12:56.277Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2a --act b744 --quiet",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:17:20.653Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2b --act b744 --quiet",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:21:46.078Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2c --act b744 --quiet",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:26:52.323Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b2d --act b744 --quiet",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:32:05.020Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part standing-b3 --act b744 --quiet",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:37:17.607Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py checks --part act --act b744 --quiet",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:39:41.979Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:42:47.720Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:47:59.306Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:50:36.859Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1",
+   "n": 287,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:53:47.373Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T00:58:17.824Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:02:49.688Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:08:14.290Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:14:18.108Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3",
+   "n": 292,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:19:54.748Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act",
+   "n": 293,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:22:34.078Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record closeorder --act b744",
+   "n": 294,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:22:51.541Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/c66dda9f-cc02-473a-b740-111b6d66dec3/scratchpad/cmdshow744.py -r \"rootdry|closing.*dry|scores dry|reg_gate|regspec|gatebanks|commit\\.py|lockgate|reg_seal|gate_hash|banned_terms|reg_satisfiable|report dry|b743_face\"",
+   "n": 295,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:23:00.410Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b744",
+   "n": 296,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:23:49.708Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; $l = (Get-Content data/b744_scores_dry.txt -Encoding utf8)[9]; $i = $l.IndexOf('badaccc'); $l.Substring([Math]::Max(0,$i-1200), [Math]::Min(2400, $l.Length - [Math]::Max(0,$i-1200)))",
+   "n": 297,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:24:51.826Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b744_face.py",
+   "n": 298,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:24:52.913Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b744",
+   "n": 299,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:25:52.150Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record scores dry --act b744",
+   "n": 300,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:26:27.411Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_registration_2026-11-06.txt --act b744 --quiet",
+   "n": 301,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:27:36.527Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; Get-Content data/b744_reg_gate.txt -Encoding utf8 -Tail 45",
+   "n": 302,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:27:49.951Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record trail dry --act b744",
+   "n": 303,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:29:00.699Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b744 --quiet",
+   "n": 304,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:30:05.621Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b744_face.py",
+   "n": 305,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:30:06.757Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 306,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:33:03.856Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-a2",
+   "n": 307,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:38:04.232Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 308,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:40:38.423Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b1",
+   "n": 309,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:43:43.600Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2a",
+   "n": 310,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:48:02.595Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2b",
+   "n": 311,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:52:29.667Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2c",
+   "n": 312,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T01:57:29.637Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b2d",
+   "n": 313,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:02:48.536Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run standing-b3",
+   "n": 314,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:07:54.559Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/prevdry.py run act",
+   "n": 315,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:10:19.774Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_registration_2026-11-06.txt --act b744 --quiet",
+   "n": 316,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:11:33.120Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay status --short",
+   "n": 317,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:11:49.294Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/b744_address_scan.py scan --bank",
+   "n": 318,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:12:07.497Z",
+   "src": "seat",
+   "cmd": "git -C D:/relay add data/b744_bank_hashes.json data/b744_steps.json tools/acts/b744.py tools/b744_worklist.py data/b744_closing_dry.txt data/b744_commands.json data/b744_commands.txt data/b744_defects.txt data/b744_guard_dry.json data/b744_guard_dry.txt data/b744_hook_refusals.txt data/b744_kernels_face.json data/b744_pathrefusal.txt data/b744_prelock.txt data/b744_prevdry_act.json data/b744_prevdry_standing-a1.json data/b744_prevdry_standing-a2.json data/b744_prevdry_standing-b1.json data/b744_prevdry_standing-b2a.json data/b744_prevdry_standing-b2b.json data/b744_prevdry_standing-b2c.json data/b744_prevdry_standing-b2d.json data/b744_prevdry_standing-b3.json data/b744_prevdry_standing-c.json data/b744_reg_gate.txt data/b744_registration_2026-11-06.txt data/b744_report_dry.txt data/b744_reproduce.json data/b744_reproduce.txt data/b744_scores_dry.txt data/b744_standing_figures.json data/b744_standing_figures.txt data/b744_touch.txt tools/b744_face.py tools/b744_face_blocks.txt tools/b744_prepaths.py data/b744_address_scan.txt",
+   "n": 319,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:12:14.585Z",
+   "src": "seat",
+   "cmd": "Set-Location D:/relay; python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 320,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:12:28.069Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record rootdry --act b744",
+   "n": 321,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:12:47.723Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py closing dry --act b744 --quiet",
+   "n": 322,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:13:47.375Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py reg_gate data/b744_registration_2026-11-06.txt --bank-only --act b744 --quiet",
+   "n": 323,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:14:56.521Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record gatebanks --act b744",
+   "n": 324,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-07T02:15:31.399Z",
+   "src": "seat",
+   "cmd": "[int]((Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory/1024); Set-Location D:/relay; python -X utf8 -u tools/standing/fold.py record commands --act b744",
+   "n": 325,
+   "bg": false
   }
  ],
- "offences": [],
+ "offences": [
+  {
+   "n": 260,
+   "kinds": [
+    "R sed in any form (data/b685_rules.txt row (2))"
+   ]
+  }
+ ],
  "prev": {
   "act": "b743",
   "session": "c66dda9f-cc02-473a-b740-111b6d66dec3",
@@ -2053,18 +2620,26 @@
  "local_lean": [],
  "dispatches": [],
  "detached": [],
- "seds": [],
- "null_redirects": [],
- "redirects": [],
+ "seds": [
+  260
+ ],
+ "null_redirects": [
+  262
+ ],
+ "redirects": [
+  262
+ ],
  "pipes": [
   177,
-  229
+  229,
+  262
  ],
  "any_pipes": [
   52,
   122,
   177,
-  229
+  229,
+  262
  ],
  "py_programs": [
   137,
