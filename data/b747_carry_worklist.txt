@@ -1,0 +1,363 @@
+b747 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b746_worklist.py -> tools/b747_worklist.py (2026-11-08T12:13:59Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b746 -> b747, b745 -> b746, R356 -> R357, R355 -> R356); 434 lines, 136 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b746_tool_repairs.txt AND data/b746_repairdiff_worklist.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b746; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b746_worklist.py
+  +++ tools/b747_worklist.py
+  @@ -2,1 +2,1 @@
+  -"""b746_worklist.py -- THE ACT'S DATA, UNDER (R356). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  +"""b747_worklist.py -- THE ACT'S DATA, UNDER (R357). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  @@ -4,1 +4,1 @@
+  -### ### b746: LANE TWO, ACT ONE HUNDRED AND SEVENTY-THREE, THE OBJECT -- b745 AT ITS WEIGHT; THE TWO CONTROLS DISCHARGED ON THE
+  +### ### b747: LANE TWO, ACT ONE HUNDRED AND SEVENTY-THREE, THE OBJECT -- b746 AT ITS WEIGHT; THE TWO CONTROLS DISCHARGED ON THE
+  @@ -7,5 +7,5 @@
+  -### Carried by diff from b745_worklist.py (data/b746_carry_worklist.txt); its stage one set by the Edit tool at step zero with this act's
+  -### figures (the carried text named b745's objects under b746's names); later stages by the Edit tool.
+  -### The act runs in a new session (4fe446f7), one seat; b745 ran in 161ec306.
+  -### b745 closed and pushed itself whole (relay 946cc80a, PLACE-papers 1967382), its closing step row committed before its closing push; its
+  -### closing push capture and tools/mirror_prevbuild.json are this act's carried files ((R356)(3)), committed at step zero, each alone.
+  +### Carried by diff from b746_worklist.py (data/b747_carry_worklist.txt); its stage one set by the Edit tool at step zero with this act's
+  +### figures (the carried text named b746's objects under b747's names); later stages by the Edit tool.
+  +### The act runs in a new session (4fe446f7), one seat; b746 ran in 161ec306.
+  +### b746 closed and pushed itself whole (relay 946cc80a, PLACE-papers 1967382), its closing step row committed before its closing push; its
+  +### closing push capture and tools/mirror_prevbuild.json are this act's carried files ((R357)(3)), committed at step zero, each alone.
+  @@ -24,2 +24,2 @@
+  -PRE_PP = '19673829bb58d7e92ea6023f3adc27e07d661f90'    # ### PLACE-papers main before the act's own commits: b745's record
+  -PRE_RELAY = '946cc80abf9cd9a60dd57fd58ea160765f86581d'  # ### relay main before the act's own commits: b745's closing step row
+  +PRE_PP = '19673829bb58d7e92ea6023f3adc27e07d661f90'    # ### PLACE-papers main before the act's own commits: b746's record
+  +PRE_RELAY = '946cc80abf9cd9a60dd57fd58ea160765f86581d'  # ### relay main before the act's own commits: b746's closing step row
+  @@ -28,2 +28,2 @@
+  -B718_RELAY_HEAD = '946cc80'  # ### the names kept for the carried readers: the previous act's last relay head (b745's closing)
+  -B718_PP_HEAD = '1967382'     # ### the previous act's last PLACE-papers head (b745's record)
+  +B718_RELAY_HEAD = '946cc80'  # ### the names kept for the carried readers: the previous act's last relay head (b746's closing)
+  +B718_PP_HEAD = '1967382'     # ### the previous act's last PLACE-papers head (b746's record)
+  @@ -34,2 +34,2 @@
+  -ANCHOR = 'RULING (R356) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  -RULING_ANCHOR = 'RULING (R356) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  +ANCHOR = 'RULING (R357) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  +RULING_ANCHOR = 'RULING (R357) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  @@ -38,2 +38,2 @@
+  -PREV_SESSION = '161ec306-dcdf-48bc-85b2-f457190f55f8'   # ### b745 ran in this session (from 'RULING (R355) BEGIN' to its closing)
+  -PREV_ANCHOR = 'RULING (R355) BEGIN'
+  +PREV_SESSION = '161ec306-dcdf-48bc-85b2-f457190f55f8'   # ### b746 ran in this session (from 'RULING (R356) BEGIN' to its closing)
+  +PREV_ANCHOR = 'RULING (R356) BEGIN'
+  @@ -44,1 +44,1 @@
+  -CITATION_BANK = 'b746_citation_check.txt'
+  +CITATION_BANK = 'b747_citation_check.txt'
+  @@ -47,3 +47,3 @@
+  -B711_ENTRY = 14027          # ### FINDINGS: b745's entry head (carried at 1967382)
+  -B711_WEIGHT = 13964         # ### FINDINGS: b744's weight line (b745's Component 1)
+  -B711_CORRIGENDUM = 13966    # ### FINDINGS: b745's corrigendum for b744
+  +B711_ENTRY = 14027          # ### FINDINGS: b746's entry head (carried at 1967382)
+  +B711_WEIGHT = 13964         # ### FINDINGS: b744's weight line (b746's Component 1)
+  +B711_CORRIGENDUM = 13966    # ### FINDINGS: b746's corrigendum for b744
+  @@ -51,3 +51,3 @@
+  -B711_TRAIL = 17820          # ### OPEN_TRAILS: b745's trail record (PLACE-papers 1967382)
+  -B711_FACE = 'data/b745_registration_2026-11-07.txt'
+  -MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-11-07-b745.zip'   # ### b745's export, built after b745's last PLACE-papers push, CLEAN 3/3
+  +B711_TRAIL = 17820          # ### OPEN_TRAILS: b746's trail record (PLACE-papers 1967382)
+  +B711_FACE = 'data/b746_registration_2026-11-07.txt'
+  +MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-11-07-b746.zip'   # ### b746's export, built after b746's last PLACE-papers push, CLEAN 3/3
+  @@ -59,5 +59,5 @@
+  -ORDER_LEDGER_SPLIT = 14680  # ### OPEN_TRAILS: W-ORD-LEDGER-SPLIT-RESOLVER (b680), (R356)(3)
+  -TRAIL_ORDERS = 17828        # ### OPEN_TRAILS: the last open-orders line, b745's, written from the generator's output
+  -TRAIL_RESOLVED = 17858      # ### OPEN_TRAILS: b745's items for the author's strike, in its trail
+  -TRAIL_RETIRED = 17844       # ### OPEN_TRAILS: b745's count line of the author's prompts
+  -#   ### b746 step zero: the carry brought b744's lines (17774/17804/17790) under these names; set to b745's here, each read from OPEN_TRAILS at 1967382
+  +ORDER_LEDGER_SPLIT = 14680  # ### OPEN_TRAILS: W-ORD-LEDGER-SPLIT-RESOLVER (b680), (R357)(3)
+  +TRAIL_ORDERS = 17828        # ### OPEN_TRAILS: the last open-orders line, b746's, written from the generator's output
+  +TRAIL_RESOLVED = 17858      # ### OPEN_TRAILS: b746's items for the author's strike, in its trail
+  +TRAIL_RETIRED = 17844       # ### OPEN_TRAILS: b746's count line of the author's prompts
+  +#   ### b747 step zero: the carry brought b744's lines (17774/17804/17790) under these names; set to b746's here, each read from OPEN_TRAILS at 1967382
+  @@ -68,1 +68,1 @@
+  -INSTRUMENTS = 'phase1.5/method/INSTRUMENTS.md'   # ### PLACE-papers' instruments document, its last entry I-108 (b745)
+  +INSTRUMENTS = 'phase1.5/method/INSTRUMENTS.md'   # ### PLACE-papers' instruments document, its last entry I-108 (b746)
+  @@ -71,1 +71,1 @@
+  -# ### (R356)(3): the five records, in the order the ruling names them: (row, kernel, Zenodo record, the sitting row's line in data/b736_sitting.txt)
+  +# ### (R357)(3): the five records, in the order the ruling names them: (row, kernel, Zenodo record, the sitting row's line in data/b736_sitting.txt)
+  @@ -74,1 +74,1 @@
+  -TIER3_BANK = 'data/b739_tier3.txt'                  # ### b746: b739's, read not written (no Zenodo field touched, (R356)(5)); the carry shifted it to b745's, which does not exist
+  +TIER3_BANK = 'data/b739_tier3.txt'                  # ### b747: b739's, read not written (no Zenodo field touched, (R357)(5)); the carry shifted it to b746's, which does not exist
+  @@ -77,1 +77,1 @@
+  -# ### the branches step zero deletes ((R356)(5)): the push-b745-* branches b745's close made, by name, each read from the listings and
+  +# ### the branches step zero deletes ((R357)(5)): the push-b746-* branches b746's close made, by name, each read from the listings and
+  @@ -79,2 +79,2 @@
+  -DELETE = (('D:/relay', ('push-b745-closing', 'push-b745-preroot', 'push-b745-record')),
+  -          ('D:/MY-DOwnloads/PLACE-papers', ('push-b745-preroot', 'push-b745-record')))   # ### (R356)(2): the five; b745 made no kernel branch
+  +DELETE = (('D:/relay', ('push-b746-closing', 'push-b746-preroot', 'push-b746-record')),
+  +          ('D:/MY-DOwnloads/PLACE-papers', ('push-b746-preroot', 'push-b746-record')))   # ### (R357)(2): the five; b746 made no kernel branch
+  @@ -87,1 +87,1 @@
+  -                 ('D:/SIDE-explicit-formula', 'detect-b729'), ('D:/SIDE-explicit-formula', 'zq-b730'))   # ### (R356)(4) names c2-b725, keiper-b725, detect-b729, zq-b730
+  +                 ('D:/SIDE-explicit-formula', 'detect-b729'), ('D:/SIDE-explicit-formula', 'zq-b730'))   # ### (R357)(4) names c2-b725, keiper-b725, detect-b729, zq-b730
+  @@ -89,1 +89,1 @@
+  -# ### the kernels: read; written only on the rebuild-b721 branches by (R356)(7) and the author's word (4)
+  +# ### the kernels: read; written only on the rebuild-b721 branches by (R357)(7) and the author's word (4)
+  @@ -101,1 +101,1 @@
+  -    """the kernels of data/b716_federation_pin_price.txt (1), as D:/<name>, read at import ((R356) PATHS)."""
+  +    """the kernels of data/b716_federation_pin_price.txt (1), as D:/<name>, read at import ((R357) PATHS)."""
+  @@ -108,3 +108,3 @@
+  -PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R356)'s PATHS
+  -EF_MAIN = '8fbab45d8a966dca53d42448e33927d885fd4ea3'    # ### SIDE-explicit-formula's main after [A4]: badacccb + README.md alone ((R356)(6))
+  -LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R356)(3))
+  +PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R357)'s PATHS
+  +EF_MAIN = '8fbab45d8a966dca53d42448e33927d885fd4ea3'    # ### SIDE-explicit-formula's main after [A4]: badacccb + README.md alone ((R357)(6))
+  +LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R357)(3))
+  @@ -123,1 +123,1 @@
+  -# ### the wave 1 kernels at their own pins, (name, tag, the short commit) -- b721's (R331)(7), b745's (R355)(10)
+  +# ### the wave 1 kernels at their own pins, (name, tag, the short commit) -- b721's (R331)(7), b746's (R356)(10)
+  @@ -128,1 +128,1 @@
+  -REBUILD_BRANCH = 'rebuild-b721'          # ### b721's branches, kept, (R356)(7)'s repair made on them alone
+  +REBUILD_BRANCH = 'rebuild-b721'          # ### b721's branches, kept, (R357)(7)'s repair made on them alone
+  @@ -132,2 +132,2 @@
+  -              ('SIDE-spinor', 40706542282), ('SIDE-rcurve', 40706645404))   # ### b745's (R355)(10): the five whose axiom step was diagnosed
+  -AXIOM_DIAG = 'data/b729_axiom_diag.txt'  # ### the routes (R356)(7) and the author's word (4) take
+  +              ('SIDE-spinor', 40706542282), ('SIDE-rcurve', 40706645404))   # ### b746's (R356)(10): the five whose axiom step was diagnosed
+  +AXIOM_DIAG = 'data/b729_axiom_diag.txt'  # ### the routes (R357)(7) and the author's word (4) take
+  @@ -147,1 +147,1 @@
+  -DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739558; v9 from that commit, which landed it at Component 1 ((R356)(2)(v))
+  +DATA_STANDING = 'data/standing_clauses_v9.txt'   # ### v8 bound the act to d9739558; v9 from that commit, which landed it at Component 1 ((R357)(2)(v))
+  @@ -151,2 +151,2 @@
+  -PLAN_BANK = 'data/b744_zetabox_plan.txt'              # ### (R356)(2): W-ORD-ZETA-BOX's plan bank (b744's), read for the navigator's read, its md5 printed at step zero, no row rewritten
+  -POSCONTROL_PLAN = 'data/b744_poscontrol_plan.txt'     # ### (R356)(2): W-ORD-POSITIVE-CONTROL's plan bank (b744's), read the same way
+  +PLAN_BANK = 'data/b744_zetabox_plan.txt'              # ### (R357)(2): W-ORD-ZETA-BOX's plan bank (b744's), read for the navigator's read, its md5 printed at step zero, no row rewritten
+  +POSCONTROL_PLAN = 'data/b744_poscontrol_plan.txt'     # ### (R357)(2): W-ORD-POSITIVE-CONTROL's plan bank (b744's), read the same way
+  @@ -154,1 +154,1 @@
+  -PLAN_MD5S = {'data/b744_poscontrol_plan.txt': 'b72ad7bbe28693a1192cfa60329fc607',   # ### b745's step-zero print, LF, 137 lines; re-printed by this act's citation check
+  +PLAN_MD5S = {'data/b744_poscontrol_plan.txt': 'b72ad7bbe28693a1192cfa60329fc607',   # ### b746's step-zero print, LF, 137 lines; re-printed by this act's citation check
+  @@ -156,5 +156,5 @@
+  -CONTROLS_BANK = 'data/b745_controls.txt'              # ### (R356)(2): b745's result bank, both orders, read not written
+  -CONTROLS_NOTES = 'data/b745_controls_notes.txt'       # ### b745's notes, read not written
+  -SECTION_FILE = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md'   # ### (R356)(4): the paper's skeleton, section 1 written by one PLACE-papers write on the author's pass
+  -SECTION_BANK = 'data/b746_section1.txt'               # ### (R356)(4): the definitions printed from the tree at v0.38 and the drafted section, before the sitting item
+  -INTEGRATION_DRAFT = 'data/b746_integration_draft.txt' # ### (R356)(6): the canon text for the stages, drafted for the next sitting, not written to the canon
+  +CONTROLS_BANK = 'data/b746_controls.txt'              # ### (R357)(2): b746's result bank, both orders, read not written
+  +CONTROLS_NOTES = 'data/b746_controls_notes.txt'       # ### b746's notes, read not written
+  +SECTION_FILE = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md'   # ### (R357)(4): the paper's skeleton, section 1 written by one PLACE-papers write on the author's pass
+  +SECTION_BANK = 'data/b747_section1.txt'               # ### (R357)(4): the definitions printed from the tree at v0.38 and the drafted section, before the sitting item
+  +INTEGRATION_DRAFT = 'data/b747_integration_draft.txt' # ### (R357)(6): the canon text for the stages, drafted for the next sitting, not written to the canon
+  @@ -162,1 +162,1 @@
+  -PREV_BUILD_BANK = 'data/b745_controls.txt'            # ### (R356)(1): b745's result bank
+  +PREV_BUILD_BANK = 'data/b746_controls.txt'            # ### (R357)(1): b746's result bank
+  @@ -170,1 +170,1 @@
+  -REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b745's walk read under it)
+  +REG_WALK_COMMIT = '15cb6cc4'                     # ### b721's H-C2-WALK commit (carried name; b746's walk read under it)
+  @@ -184,4 +184,4 @@
+  -#   ### read not written (carried name); b745 wrote no coefficient bank
+  -COMPUTE_BANKS = ('data/b746_standing_v1260.txt', 'data/b746_section1.txt', 'data/b746_integration_draft.txt',
+  -                 'data/b746_address_scan.txt')
+  -#   ### the banks of (R356)(2)-(4), each written by its component
+  +#   ### read not written (carried name); b746 wrote no coefficient bank
+  +COMPUTE_BANKS = ('data/b747_standing_v1260.txt', 'data/b747_section1.txt', 'data/b747_integration_draft.txt',
+  +                 'data/b747_address_scan.txt')
+  +#   ### the banks of (R357)(2)-(4), each written by its component
+  @@ -190,1 +190,1 @@
+  -              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b745_read_calls.txt', 'data/b746_read_calls.txt')
+  +              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b746_read_calls.txt', 'data/b747_read_calls.txt')
+  @@ -192,2 +192,2 @@
+  -# ### THE SUITE'S PARTS: ten, as b745 split them under (R355)(2)(vi) and b675 rules row (2) (standing-a in two, G-NO-SORRY-MAIN's kernels
+  -# ### halved, and the chain's first half in four, b2a-b2d); data/act_current.json committed them ten at b746's step zero (e9c339ed), no
+  +# ### THE SUITE'S PARTS: ten, as b746 split them under (R356)(2)(vi) and b675 rules row (2) (standing-a in two, G-NO-SORRY-MAIN's kernels
+  +# ### halved, and the chain's first half in four, b2a-b2d); data/act_current.json committed them ten at b747's step zero (e9c339ed), no
+  @@ -197,2 +197,2 @@
+  -CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b746'))
+  -CHAIN_QUARTERS = (('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658'))   # ### carried from b745
+  +CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b747'))
+  +CHAIN_QUARTERS = (('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658'))   # ### carried from b746
+  @@ -202,1 +202,1 @@
+  -SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R356)(2): the corrigenda row
+  +SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R357)(2): the corrigenda row
+  @@ -207,2 +207,2 @@
+  -#   ### (R356)(2)-(6) and the ferry's (N5): the weight line, the corrigendum entry and the FINDINGS entry; OPEN_TRAILS for the two discharges,
+  -#   ### the order of (5) and the trail; the paper's skeleton for section 1 on the author's pass ((R356)(4)); no door or record edited
+  +#   ### (R357)(2)-(6) and the ferry's (N5): the weight line, the corrigendum entry and the FINDINGS entry; OPEN_TRAILS for the two discharges,
+  +#   ### the order of (5) and the trail; the paper's skeleton for section 1 on the author's pass ((R357)(4)); no door or record edited
+  @@ -217,1 +217,1 @@
+  -NEXT = 'per (R356)(9), named by the author'   # ### the author's answer added by the Edit tool before the record
+  +NEXT = 'per (R357)(9), named by the author'   # ### the author's answer added by the Edit tool before the record
+  @@ -251,4 +251,4 @@
+  -ACT_CURRENT_COMMIT = 'e2f36a5f'         # ### data/act_current.json for b746 committed alone ((R356)(7)), before any other write; its row step 1
+  -STEPZERO = '2dc2b3fd'             # ### b745's closing push capture, committed alone ((R356)(3)); its row step 2, in the commit's call
+  -STEPZERO_STEPS = None             # ### b745's closing step row was committed by b745 itself (946cc80a) before its closing push: nothing carried
+  -STEPZERO_TABLE = None             # ### b745 left no terminal table uncommitted
+  +ACT_CURRENT_COMMIT = 'e2f36a5f'         # ### data/act_current.json for b747 committed alone ((R357)(7)), before any other write; its row step 1
+  +STEPZERO = '2dc2b3fd'             # ### b746's closing push capture, committed alone ((R357)(3)); its row step 2, in the commit's call
+  +STEPZERO_STEPS = None             # ### b746's closing step row was committed by b746 itself (946cc80a) before its closing push: nothing carried
+  +STEPZERO_TABLE = None             # ### b746 left no terminal table uncommitted
+  @@ -257,1 +257,1 @@
+  -STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b745: a CRLF-only difference from HEAD's blob a94aa543, restored by checkout, nothing to commit
+  +STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b746: a CRLF-only difference from HEAD's blob a94aa543, restored by checkout, nothing to commit
+  @@ -259,1 +259,1 @@
+  -STEPZERO_BANKS = 'b15bfdf4'             # ### step zero's banks and carried tools, one commit (data/b746_stepzero.txt among them); row step 3
+  +STEPZERO_BANKS = 'b15bfdf4'             # ### step zero's banks and carried tools, one commit (data/b747_stepzero.txt among them); row step 3
+  @@ -261,1 +261,1 @@
+  -STEPZERO_ANSWERS = None   # ### b745's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R356)(3), with its amendment row: the commit every dispatch row names ((R356)(2)(i))
+  +STEPZERO_ANSWERS = None   # ### b746's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R357)(3), with its amendment row: the commit every dispatch row names ((R357)(2)(i))
+  @@ -264,2 +264,2 @@
+  -GEN_COMMITS = ()   # ### b746: no generator run, no Lean file written ((R356)(8))
+  -GEN_COMMITS_B745 = (('04e7f854', '32bad89a'), ('32a5c72a', '32bad89a'), ('32a5c72a', '1e658870'))   # ### (R356)(4)(c): the Z4 generator's relay commits, each before the zq-b730 commit it fed (Signs.lean at t = 16, then 16 and 12)
+  +GEN_COMMITS = ()   # ### b747: no generator run, no Lean file written ((R357)(8))
+  +GEN_COMMITS_B745 = (('04e7f854', '32bad89a'), ('32a5c72a', '32bad89a'), ('32a5c72a', '1e658870'))   # ### (R357)(4)(c): the Z4 generator's relay commits, each before the zq-b730 commit it fed (Signs.lean at t = 16, then 16 and 12)
+  @@ -270,1 +270,1 @@
+  -GENERATOR = 'tools/b746_zbgen.py'   # ### this act's: Signs.lean generated from it ((R356)(4)(c), md5 ac82341c at 32a5c72a)
+  +GENERATOR = 'tools/b747_zbgen.py'   # ### this act's: Signs.lean generated from it ((R357)(4)(c), md5 ac82341c at 32a5c72a)
+  @@ -274,1 +274,1 @@
+  -#   ### (R356)(2), b745 event (2): read from data/act_current.json, the one hand list, which G-ACT-CURRENT reads against git; sealed before the suite runs (b696's form)
+  +#   ### (R357)(2), b746 event (2): read from data/act_current.json, the one hand list, which G-ACT-CURRENT reads against git; sealed before the suite runs (b696's form)
+  @@ -280,1 +280,1 @@
+  -# ### (tools/acts/b746.py) -- every byte a render reads sealed beside the act's tools; report.tpl left out of the seal (b708's report row)
+  +# ### (tools/acts/b747.py) -- every byte a render reads sealed beside the act's tools; report.tpl left out of the seal (b708's report row)
+  @@ -282,1 +282,1 @@
+  -                          and f != 'report.tpl')) + ('acts/b746.py',)
+  +                          and f != 'report.tpl')) + ('acts/b747.py',)
+  @@ -284,1 +284,1 @@
+  -STANDING_VERSION = 'v1.26.0'            # ### (R356)(3)'s repairs, landed by a commit of their own (C1_STANDING) with data/b746_standing_v1260.txt
+  +STANDING_VERSION = 'v1.26.0'            # ### (R357)(3)'s repairs, landed by a commit of their own (C1_STANDING) with data/b747_standing_v1260.txt
+  @@ -287,1 +287,1 @@
+  -# ### v1.18.0, (R356)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
+  +# ### v1.18.0, (R357)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
+  @@ -289,2 +289,2 @@
+  -COMPARATIVE_BANKS = ('data/b746_corrigendum.txt', 'data/b746_section1.txt', 'data/b746_integration_draft.txt',
+  -                     'data/b746_defects.txt')   # ### Components 1-3's banks: no
+  +COMPARATIVE_BANKS = ('data/b747_corrigendum.txt', 'data/b747_section1.txt', 'data/b747_integration_draft.txt',
+  +                     'data/b747_defects.txt')   # ### Components 1-3's banks: no
+  @@ -296,5 +296,5 @@
+  -# ### b745's commits the act reads (the names kept for the carried arms: the previous act's)
+  -B714_CLOSING = '946cc80a'    # ### b745's closing (its step row), the act's relay base
+  -B714_RECORD = '8e67907e'     # ### b745's record commit (relay)
+  -B714_ROOT = 'c831a2103261ed738346cd7f8a6fd0e2813bef11af89300e86db50a7aaa92447'   # ### b745's root, data/act_roots.txt's last row
+  -B723_ROOT_BANKS = 'fa4a4d4b'  # ### b745's root-banks commit, the banks its root rode with
+  +# ### b746's commits the act reads (the names kept for the carried arms: the previous act's)
+  +B714_CLOSING = '946cc80a'    # ### b746's closing (its step row), the act's relay base
+  +B714_RECORD = '8e67907e'     # ### b746's record commit (relay)
+  +B714_ROOT = 'c831a2103261ed738346cd7f8a6fd0e2813bef11af89300e86db50a7aaa92447'   # ### b746's root, data/act_roots.txt's last row
+  +B723_ROOT_BANKS = 'fa4a4d4b'  # ### b746's root-banks commit, the banks its root rode with
+  @@ -302,1 +302,1 @@
+  -C1_STANDING = '0c6d9c5c'                 # ### tools/standing/ v1.26.0 by a commit of its own, its controls bank data/b746_standing_v1260.txt ((R356)(3)), step row 6
+  +C1_STANDING = '0c6d9c5c'                 # ### tools/standing/ v1.26.0 by a commit of its own, its controls bank data/b747_standing_v1260.txt ((R357)(3)), step row 6
+  @@ -307,1 +307,1 @@
+  -C1_PP = '32ce8322'                 # ### PLACE-papers: FINDINGS (b745 at its weight :14067), (the corrigendum :14069), step row 7
+  +C1_PP = '32ce8322'                 # ### PLACE-papers: FINDINGS (b746 at its weight :14067), (the corrigendum :14069), step row 7
+  @@ -309,1 +309,1 @@
+  -C1_DISCHARGE_PP = ('99b0a40c', 'c45db731')   # ### (R356)(2): OPEN_TRAILS, W-ORD-POSITIVE-CONTROL then W-ORD-ZETA-BOX discharged, each a commit of its own (step rows 4, 5)
+  +C1_DISCHARGE_PP = ('99b0a40c', 'c45db731')   # ### (R357)(2): OPEN_TRAILS, W-ORD-POSITIVE-CONTROL then W-ORD-ZETA-BOX discharged, each a commit of its own (step rows 4, 5)
+  @@ -311,1 +311,1 @@
+  -WEIGHT_LINE, CORR_LINE = 14067, 14069   # ### FINDINGS: b745's weight line and the corrigendum for b745 (Component 1), PLACE-papers 32ce8322
+  +WEIGHT_LINE, CORR_LINE = 14067, 14069   # ### FINDINGS: b746's weight line and the corrigendum for b746 (Component 1), PLACE-papers 32ce8322
+  @@ -318,1 +318,1 @@
+  -C2_PP = 'f66467a8'           # ### (R356)(4): the one PLACE-papers write of section 1, on the author's pass ([S1] with the author's clause), step row 9
+  +C2_PP = 'f66467a8'           # ### (R357)(4): the one PLACE-papers write of section 1, on the author's pass ([S1] with the author's clause), step row 9
+  @@ -325,1 +325,1 @@
+  -PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b745_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S), unedited
+  +PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b746_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S), unedited
+  @@ -328,1 +328,1 @@
+  -SITTING_KERNEL = None # ### no kernel written this act ((R356)(5))
+  +SITTING_KERNEL = None # ### no kernel written this act ((R357)(5))
+  @@ -331,2 +331,2 @@
+  -C3_RELAY = ('c4d044f3', '37bb57e8')   # ### Component 3 ((R356)(5)-(6)): the integration and order drafts, defects (step 12); defect (j) and the scan (step 13)
+  -C3_ORDER_PP = None # ### (R356)(5): OPEN_TRAILS, W-ORD-MECHANISM-ATTRIBUTION entered on the author's number, a commit of its own (None if carried)
+  +C3_RELAY = ('c4d044f3', '37bb57e8')   # ### Component 3 ((R357)(5)-(6)): the integration and order drafts, defects (step 12); defect (j) and the scan (step 13)
+  +C3_ORDER_PP = None # ### (R357)(5): OPEN_TRAILS, W-ORD-MECHANISM-ATTRIBUTION entered on the author's number, a commit of its own (None if carried)
+  @@ -334,1 +334,1 @@
+  -C3_PP = 'b7544123'   # ### (R356)(6): FINDINGS, b745's INTEGRATION line (:14145), step row 11
+  +C3_PP = 'b7544123'   # ### (R357)(6): FINDINGS, b746's INTEGRATION line (:14145), step row 11
+  @@ -340,1 +340,1 @@
+  -REG_COMMIT = C2_RELAY    # ### b746: the section bank's commit, with the prints it cites
+  +REG_COMMIT = C2_RELAY    # ### b747: the section bank's commit, with the prints it cites
+  @@ -342,1 +342,1 @@
+  -ORDERS = (142, 60, 42, 12, 28)          # ### b745's (R355)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
+  +ORDERS = (142, 60, 42, 12, 28)          # ### b746's (R356)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
+  @@ -344,3 +344,3 @@
+  -LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R356)(8))
+  -LV_RUNS = (('SIDE-lv-conservation', 40964150574),)   # ### b745's one dispatch, read by its id (carried, not re-run)
+  -LV_ROWS = 'data/b746_lv_rows.json'
+  +LV_SCRATCH_BRANCH = 'scratch-b724'      # ### b724's scratch branch of SIDE-lv-conservation, kept ((R357)(8))
+  +LV_RUNS = (('SIDE-lv-conservation', 40964150574),)   # ### b746's one dispatch, read by its id (carried, not re-run)
+  +LV_ROWS = 'data/b747_lv_rows.json'
+  @@ -352,1 +352,1 @@
+  -PIN_BRANCH = 'pin-b718-de5ce8a9'   # ### b718's pin branches, left as banked ((R356)(8))
+  +PIN_BRANCH = 'pin-b718-de5ce8a9'   # ### b718's pin branches, left as banked ((R357)(8))
+  @@ -363,1 +363,1 @@
+  -EF_MAIN_AFTER = EF_BASE   # ### unmoved: no kernel's main is touched ((R356)(6))
+  +EF_MAIN_AFTER = EF_BASE   # ### unmoved: no kernel's main is touched ((R357)(6))
+  @@ -365,5 +365,5 @@
+  -ZQ_ENTERING = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b746: zq-b730 entering at b745's tip (SPZ3), unmoved this act ((R356)(8))
+  -ZQ_ENTERING_B745 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b745's entering tip, the tag's commit
+  -ZQ_TAG = ('v0.38', '21c6edafa047635112c9ccd4fad14c56d5a2fa4f', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### (R356)(3): name, tag object, peel read back
+  -#   ### at the remote 2026-11-07T15:09:55Z (data/b746_SIDE-explicit-formula_v0.38_push_out.txt); the series v0.1-v0.37 read by ls-remote --tags, the next v0.38
+  -ZQ_TIP = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b746: unmoved, b745's last Lean commit on zq-b730 (W-ORD-ZETA-BOX BUILT, SPZ3); no Lean commit this act
+  +ZQ_ENTERING = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b747: zq-b730 entering at b746's tip (SPZ3), unmoved this act ((R357)(8))
+  +ZQ_ENTERING_B745 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b746's entering tip, the tag's commit
+  +ZQ_TAG = ('v0.38', '21c6edafa047635112c9ccd4fad14c56d5a2fa4f', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### (R357)(3): name, tag object, peel read back
+  +#   ### at the remote 2026-11-07T15:09:55Z (data/b747_SIDE-explicit-formula_v0.38_push_out.txt); the series v0.1-v0.37 read by ls-remote --tags, the next v0.38
+  +ZQ_TIP = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b747: unmoved, b746's last Lean commit on zq-b730 (W-ORD-ZETA-BOX BUILT, SPZ3); no Lean commit this act
+  @@ -371,1 +371,1 @@
+  -ZQ_COMMITS = ()   # ### b746: none
+  +ZQ_COMMITS = ()   # ### b747: none
+  @@ -375,1 +375,1 @@
+  -                   '4c04916c8541f1ee2267059a8fa0396364f1eb5c', 'c2d4f29ce84d321814b223a7e275e0653161b4d4', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### b745's six, read by the discharge
+  +                   '4c04916c8541f1ee2267059a8fa0396364f1eb5c', 'c2d4f29ce84d321814b223a7e275e0653161b4d4', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### b746's six, read by the discharge
+  @@ -378,1 +378,1 @@
+  -ZQ_COMMITS_B740 = ('8c6ec8d12d97bece1de8dab10511add9d97382d0', '6b068a0db2ff1451e9da7bff82fe8fd66a8dad38', 'ba318a0b67fd95164623e4fdf109eb5d042697fa')   # ### b745's S5c ; S5d with S5c's fix ; S5d's fix
+  +ZQ_COMMITS_B740 = ('8c6ec8d12d97bece1de8dab10511add9d97382d0', '6b068a0db2ff1451e9da7bff82fe8fd66a8dad38', 'ba318a0b67fd95164623e4fdf109eb5d042697fa')   # ### b746's S5c ; S5d with S5c's fix ; S5d's fix
+  @@ -380,2 +380,2 @@
+  -ZQ_SP3 = '3329eaa106cc24891ed55374afcd4ca4f7fe33d8'   # ### b745: SP3 REACHED here (dispatch 6, run 41940815524)
+  -ZQ_SP4 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b746: SP4 REACHED here (dispatch 7, run 42068096322)
+  +ZQ_SP3 = '3329eaa106cc24891ed55374afcd4ca4f7fe33d8'   # ### b746: SP3 REACHED here (dispatch 6, run 41940815524)
+  +ZQ_SP4 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b747: SP4 REACHED here (dispatch 7, run 42068096322)
+  @@ -385,2 +385,2 @@
+  -                      'Frontier', 'SP4')   # ### under Schema/ZQ/OffZero; b746 adds S6's fourteen
+  -ZQ_FILES = ()   # ### b746: none
+  +                      'Frontier', 'SP4')   # ### under Schema/ZQ/OffZero; b747 adds S6's fourteen
+  +ZQ_FILES = ()   # ### b747: none
+  @@ -389,1 +389,1 @@
+  -                 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'Omega', 'SP4', 'Strip')) + ('print_targets.txt',)   # ### b745's diff against 3329eaa1 at 14ca5725
+  +                 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'Omega', 'SP4', 'Strip')) + ('print_targets.txt',)   # ### b746's diff against 3329eaa1 at 14ca5725
+  @@ -393,1 +393,1 @@
+  -ZQ_FILES_B740 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean', 'print_targets.txt')   # ### b745's diff against 602cd401
+  +ZQ_FILES_B740 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean', 'print_targets.txt')   # ### b746's diff against 602cd401
+  @@ -398,2 +398,2 @@
+  -EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # ### (R356)(4): the gamma_1 bound
+  -               ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'),       # ### (R356)(3): the theorem, built whole at this tip
+  +EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # ### (R357)(4): the gamma_1 bound
+  +               ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'),       # ### (R357)(3): the theorem, built whole at this tip
+  @@ -401,1 +401,1 @@
+  -               (ZQ_BRANCH, ZQ_TIP))                                           # ### (R356)(3)-(4): the fields
+  +               (ZQ_BRANCH, ZQ_TIP))                                           # ### (R357)(3)-(4): the fields
+  @@ -404,4 +404,4 @@
+  -EF_RUNS_B745 = (42388001562, 42388609600, 42391254295, 42392017104, 42393018408, 42393914259)   # ### N1: this act's dispatches, each read by its run id ((R356)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed), BREAKS (lp_conj), KERNEL (SPZ1), KERNEL (SPZ2), KERNEL (SPZ3)
+  -EF_RUNS_B742 = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### b745's seven, read not re-run; the last the SP4 grade run
+  -EF_RUNS_B741 = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### b745's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
+  -EF_RUNS_B740 = (41854903335, 41857376723, 41859346843)   # ### b745's three: BREAKS, BREAKS, KERNEL, read not re-run
+  +EF_RUNS_B745 = (42388001562, 42388609600, 42391254295, 42392017104, 42393018408, 42393914259)   # ### N1: this act's dispatches, each read by its run id ((R357)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed), BREAKS (lp_conj), KERNEL (SPZ1), KERNEL (SPZ2), KERNEL (SPZ3)
+  +EF_RUNS_B742 = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### b746's seven, read not re-run; the last the SP4 grade run
+  +EF_RUNS_B741 = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### b746's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
+  +EF_RUNS_B740 = (41854903335, 41857376723, 41859346843)   # ### b746's three: BREAKS, BREAKS, KERNEL, read not re-run
+  @@ -411,2 +411,2 @@
+  -DISPATCH_ROWS = 'data/b746_dispatch_rows.json'
+  -ERRATA_ID = None   # ### b746 files no ERRATA entry ((R356) orders none); b745's E-2026-11-06-1 at PLACE-papers 05624b9 is b745's
+  +DISPATCH_ROWS = 'data/b747_dispatch_rows.json'
+  +ERRATA_ID = None   # ### b747 files no ERRATA entry ((R357) orders none); b746's E-2026-11-06-1 at PLACE-papers 05624b9 is b746's
+  @@ -417,3 +417,3 @@
+  -SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b746_') and f.endswith('.py') and f != 'b746_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  -# ### the act's arms over its own banks: set before the lock by the Edit tool -- b745's list, the act shift G-R355-ENTERED to G-R356-ENTERED,
+  -# ### G-READFIRST-DIFF-BANKED out of the arm list at v1.3.0 ((R356)(2)(iv))
+  +SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b747_') and f.endswith('.py') and f != 'b747_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  +# ### the act's arms over its own banks: set before the lock by the Edit tool -- b746's list, the act shift G-R356-ENTERED to G-R357-ENTERED,
+  +# ### G-READFIRST-DIFF-BANKED out of the arm list at v1.3.0 ((R357)(2)(iv))
+  @@ -423,1 +423,1 @@
+  -            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R356-ENTERED',
+  +            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R357-ENTERED',
+  @@ -427,1 +427,1 @@
+  -# ### b746 writes no kernel ((R356)(5)): no main touched, no branch made on a kernel
+  +# ### b747 writes no kernel ((R357)(5)): no main touched, no branch made on a kernel
+  @@ -432,2 +432,2 @@
+  -SITTING_BANK = 'data/b746_sitting.txt'   # ### the record of the sitting, one row per item
+  -KERNEL_BASES = 'data/b746_kernel_bases.json'
+  +SITTING_BANK = 'data/b747_sitting.txt'   # ### the record of the sitting, one row per item
+  +KERNEL_BASES = 'data/b747_kernel_bases.json'
+
+### ### **CARRIED tools/b747_worklist.py ; LINES 434 ; CHANGED BY THE SUBSTITUTION 136 ; REPAIR SPANS AT b746 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
