@@ -1,7 +1,7 @@
-b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-08T17:16:32Z)
+b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-08T17:22:44Z)
 
 ### the source: the seat`s session 4fe446f7-cbef-42cd-9f79-d5164f63b12d from its first user line carrying 'RULING (R357) BEGIN', with its subagents` transcripts
-### commands read: 342
+### commands read: 369
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #8 2026-11-08T12:12:59.284Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -34,7 +34,7 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
   #203 2026-11-08T13:33:26.759Z git show HEAD:data/b747_zenodo_readback.txt --format= -- | head -n 3
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (139):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (143):
   #2 2026-11-08T12:11:44.632Z python -X utf8 -c "import json;json.load(open('data/act_current.json',encoding='utf-8'));print('json ok')" && git add data/act_current.json
   #10 2026-11-08T12:13:33.374Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164
   #11 2026-11-08T12:13:57.826Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 tools/b747_carry.py carry worklist && python -X utf8 tools/b747_carry.py acts && python -X 
@@ -174,6 +174,10 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #335 2026-11-08T17:12:45.988Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --q
   #336 2026-11-08T17:13:49.634Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --b
   #342 2026-11-08T17:16:10.529Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing
+  #349 2026-11-08T17:17:26.042Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b378_lockgate.py b747 data/b747_registration_2026-11-08.txt
+  #350 2026-11-08T17:18:02.349Z cd D:/relay && python -X utf8 -c "import re;t=open('tools/standing/repaircommits.py',encoding='utf-8').read();print(t[:6000])"
+  #362 2026-11-08T17:19:50.761Z cd D:/relay && python -X utf8 -c "L=open('data/b747_hook_refusals.txt',encoding='utf-8').read().split('\n');[print(i+1,'|',l[:300]) for i,l in enumerate(L) if i>=len(L)-4]"
+  #369 2026-11-08T17:21:32.085Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --b
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #34 2026-11-08T12:25:47.464Z Bash
@@ -535,5 +539,32 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #340 | 2026-11-08T17:15:53.319Z | seat | Bash | cd D:/relay && git add data/b747_address_scan.txt
   #341 | 2026-11-08T17:15:57.629Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate
   #342 | 2026-11-08T17:16:10.529Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #343 | 2026-11-08T17:16:36.184Z | seat | Bash | cd D:/relay && git status --short data/b747_* data/audit_b747_* tools/b747_* tools/acts/b747.py data/act_roots.txt
+  #344 | 2026-11-08T17:16:40.013Z | seat | Bash | cd D:/relay && git add data/b747_commands.json data/b747_commands.txt data/b747_steps.json data/b747_root_banks_dry.json data/b747_root_banks_dry.txt
+  #345 | 2026-11-08T17:16:45.895Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank
+  #346 | 2026-11-08T17:16:58.323Z | seat | Bash | cd D:/relay && git add data/b747_address_scan.txt
+  #347 | 2026-11-08T17:17:02.838Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate
+  #348 | 2026-11-08T17:17:22.032Z | seat | Bash | cd D:/relay && git show --name-status --format=%h%x20%s bd4401df
+  #349 | 2026-11-08T17:17:26.042Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b378_lo
+  #350 | 2026-11-08T17:18:02.349Z | seat | Bash | cd D:/relay && python -X utf8 -c "import re;t=open('tools/standing/repaircommits.py',encoding='utf-8').read();print(t[:6000])"
+  #351 | 2026-11-08T17:18:12.300Z | seat | Bash | cd D:/relay && git grep -n -l -e "VERSION UNMOVED" -e "R345)(2)(iv)" -- "data/b7*_defects.txt" "data/b7*_events.txt" "data/b7*_rules.txt"
+  #352 | 2026-11-08T17:18:18.912Z | seat | Bash | cd D:/relay && git grep -n -e "VERSION UNMOVED" -e "R345)(2)(iv)" -- data/b743_defects.txt
+  #353 | 2026-11-08T17:18:25.666Z | seat | Bash | cd D:/relay && git log --format=%h%x20%s -n 3 -- data/b743_standing_v1231.txt
+  #354 | 2026-11-08T17:18:39.451Z | seat | Bash | cd D:/relay && git show --stat --format=%h%x20%s bbd9573a && git show bbd9573a:data/b743_standing_v1231.txt && git show bbd9573a -- tools/standing/VERSION
+  #355 | 2026-11-08T17:18:48.774Z | seat | Bash | cd D:/relay && git grep -n -e "VERSION" -e "1\.27\.0'" -- tools/acts/b747.py tools/b747_worklist.py
+  #356 | 2026-11-08T17:18:55.042Z | seat | Bash | cd D:/relay && git grep -n "STANDING_VERSION\b" -- tools/standing/ tools/b743_worklist.py && git log --format=%h%x20%s -n 4 bbd9573a.. -- tools/b743_worklist.py
+  #357 | 2026-11-08T17:19:05.812Z | seat | Bash | ls -la D:/relay/data/b747_lockgate.json D:/relay/data/b747_lockgate_notes.txt
+  #358 | 2026-11-08T17:19:11.504Z | seat | Bash | mv D:/relay/data/b747_lockgate.json "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747_lockgate_
+  #359 | 2026-11-08T17:19:23.386Z | seat | Bash | cd D:/relay && git grep -n -m1 -e "^    (aa) " -- "data/b7*_defects.txt"
+  #360 | 2026-11-08T17:19:28.647Z | seat | Bash | cd D:/relay && git grep -n -m1 -E "^ *\((aa|a2|z2|za)\) " -- "data/*_defects.txt"
+  #361 | 2026-11-08T17:19:41.354Z | seat | Bash | cd D:/relay && git grep -n -m1 -e "    (a') THE" -- "data/*_defects.txt" && git grep -n "DEFECT_ROW = " -- tools/standing/fold/record.tpl
+  #362 | 2026-11-08T17:19:50.761Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b747_hook_refusals.txt',encoding='utf-8').read().split('\n');[print(i+1,'|',l[:300]) for i,l in enumerate(L) if i
+  #363 | 2026-11-08T17:20:08.486Z | seat | Bash | cd D:/relay && git show --name-only --format= 0c118109
+  #364 | 2026-11-08T17:20:50.052Z | seat | Bash | cd D:/relay && git add tools/standing/VERSION data/b747_standing_v1271.txt
+  #365 | 2026-11-08T17:20:55.035Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank
+  #366 | 2026-11-08T17:21:08.103Z | seat | Bash | cd D:/relay && git add data/b747_address_scan.txt
+  #367 | 2026-11-08T17:21:13.469Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate
+  #368 | 2026-11-08T17:21:26.533Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_face.py
+  #369 | 2026-11-08T17:21:32.085Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
 
-### ### **COMMANDS 342 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 25 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 139 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 369 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 25 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 143 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

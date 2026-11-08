@@ -1,5 +1,5 @@
 {
- "at": "2026-11-08T17:16:32Z",
+ "at": "2026-11-08T17:22:44Z",
  "anchor": "RULING (R357) BEGIN",
  "rows": [
   {
@@ -2737,6 +2737,222 @@
    "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
    "n": 342,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:16:36.184Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git status --short data/b747_* data/audit_b747_* tools/b747_* tools/acts/b747.py data/act_roots.txt",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:16:40.013Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add data/b747_commands.json data/b747_commands.txt data/b747_steps.json data/b747_root_banks_dry.json data/b747_root_banks_dry.txt",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:16:45.895Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:16:58.323Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add data/b747_address_scan.txt",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:17:02.838Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:17:22.032Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git show --name-status --format=%h%x20%s bd4401df",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:17:26.042Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/b378_lockgate.py b747 data/b747_registration_2026-11-08.txt",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:02.349Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import re;t=open('tools/standing/repaircommits.py',encoding='utf-8').read();print(t[:6000])\"",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:12.300Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -l -e \"VERSION UNMOVED\" -e \"R345)(2)(iv)\" -- \"data/b7*_defects.txt\" \"data/b7*_events.txt\" \"data/b7*_rules.txt\"",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:18.912Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"VERSION UNMOVED\" -e \"R345)(2)(iv)\" -- data/b743_defects.txt",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:25.666Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git log --format=%h%x20%s -n 3 -- data/b743_standing_v1231.txt",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:39.451Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git show --stat --format=%h%x20%s bbd9573a && git show bbd9573a:data/b743_standing_v1231.txt && git show bbd9573a -- tools/standing/VERSION",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:48.774Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -e \"VERSION\" -e \"1\\.27\\.0'\" -- tools/acts/b747.py tools/b747_worklist.py",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:18:55.042Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n \"STANDING_VERSION\\b\" -- tools/standing/ tools/b743_worklist.py && git log --format=%h%x20%s -n 4 bbd9573a.. -- tools/b743_worklist.py tools/acts/b743.py",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:05.812Z",
+   "src": "seat",
+   "cmd": "ls -la D:/relay/data/b747_lockgate.json D:/relay/data/b747_lockgate_notes.txt",
+   "n": 357,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:11.504Z",
+   "src": "seat",
+   "cmd": "mv D:/relay/data/b747_lockgate.json \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747_lockgate_refused.json\" && mv D:/relay/data/b747_lockgate_notes.txt \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747_lockgate_notes_refused.txt\"",
+   "n": 358,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:23.386Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -m1 -e \"^    (aa) \" -- \"data/b7*_defects.txt\"",
+   "n": 359,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:28.647Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -m1 -E \"^ *\\((aa|a2|z2|za)\\) \" -- \"data/*_defects.txt\"",
+   "n": 360,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:41.354Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git grep -n -m1 -e \"    (a') THE\" -- \"data/*_defects.txt\" && git grep -n \"DEFECT_ROW = \" -- tools/standing/fold/record.tpl",
+   "n": 361,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:19:50.761Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"L=open('data/b747_hook_refusals.txt',encoding='utf-8').read().split('\\n');[print(i+1,'|',l[:300]) for i,l in enumerate(L) if i>=len(L)-4]\"",
+   "n": 362,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:20:08.486Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git show --name-only --format= 0c118109",
+   "n": 363,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:20:50.052Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add tools/standing/VERSION data/b747_standing_v1271.txt",
+   "n": 364,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:20:55.035Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank",
+   "n": 365,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:21:08.103Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add data/b747_address_scan.txt",
+   "n": 366,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:21:13.469Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 367,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:21:26.533Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b747_face.py",
+   "n": 368,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:21:32.085Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 369,
+   "bg": false
   }
  ],
  "offences": [
@@ -2910,7 +3126,11 @@
   333,
   335,
   336,
-  342
+  342,
+  349,
+  350,
+  362,
+  369
  ],
  "moves_deletes": [
   34,
