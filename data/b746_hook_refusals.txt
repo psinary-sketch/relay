@@ -1,0 +1,5 @@
+2026-11-08T01:41:45Z | PIPE | Bash | "git show --stat --format='%H %s' e9c339ed | head -20; echo ---; cat data/act_current.json; echo ---; git status --short | grep -v '^??'" | a Bash command carrying a pipe outside quotes
+2026-11-08T01:43:43Z | ENV | Bash | "S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad && python -X utf8 $S/carrycarry746.py && python -X utf8 $S/ferry746.py" | a Bash command prefixed by an environment-variable assignment
+2026-11-08T01:44:49Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name,Id,@{n='MB';e={[int]($_.WorkingSet64/1MB)}}" | a PowerShell command carrying a pipe outside quotes
+2026-11-08T01:48:52Z | SED | Bash | "sed -n '150,215p' data/b745_closing.txt" | a Bash command running sed
+2026-11-08T01:56:30Z | REDIR | Bash | "cat data/b745_readfirst_rows.json && python -X utf8 tools/standing/readfirst.py 2>&1 ; head -c 1500 tools/standing/readfirst.py" | a Bash command carrying a redirect outside quotes
