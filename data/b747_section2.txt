@@ -1,0 +1,210 @@
+b747 -- (R357)(2): THE PAPER`S §2, THE SCHEMA AND ITS FIVE PREMISES AS ZQPremises STATES THEM, DRAFTED FOR THE SITTING (2026-11-08T13:13:08Z)
+
+### the target: PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, under its heading :46 ("## 2. The schema and its five premises as
+### ZQPremises states them"), the headings :48-:60 standing empty; the version line :3 kept at v0.1, a dated note after the §1 note :5, which is kept.
+### Every Lean name cited at SIDE-explicit-formula v0.38 (14ca5725) but pc_online, cited on zq-b730 at 1e658870 (past v0.38; not in the tag`s tree);
+### every figure at its relay bank line; each cite printed below from its source before the sitting. No sentence claims a result (results are §3-§6).
+
+### THE SECTION AS DRAFTED (written verbatim under :46 on a pass) BEGIN
+The schema the kernel builds for Z_Q0 is one Lean structure, `ZQPremises` (SIDEExplicitFormula/Schema/EpsteinZQ.lean :137-:142 at the tag v0.38, 14ca5725), a proposition in three arguments: a function zq : ℂ → ℂ, a configuration Z of the widened class `WideConfig` (Schema/Wide/Config.lean :28), and a sequence c : ℕ → ℝ. Printed whole:
+
+```lean
+structure ZQPremises (zq : ℂ → ℂ) (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+  continuation : ZQContinuation zq
+  zeros : ZQZeros zq Z
+  logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+  explicitFormula : ZQExplicitFormula Z c
+  count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+```
+
+Its docstring calls each field "stated, not proved" (:133-:136). The five fields are the schema's premises. This section says what each states and which classical statement it corresponds to; what holds at Z_Q0, and where, is §3's. Each field below is quoted as the tree writes it, read as one sentence (its object, its hypothesis, its conclusion), and set beside a classical theorem. The classical theorem names what the field corresponds to, not how the field is proved.
+
+**(1) continuation.** `continuation : ZQContinuation zq`, the structure of :80-:86:
+
+```lean
+  summable : ∀ s : ℂ, 1 < s.re → LSeriesSummable (fun k => (rQ k : ℂ)) s
+  agrees : ∀ s : ℂ, 1 < s.re → zq s = ZQ s
+  holomorphic : DifferentiableOn ℂ zq {s : ℂ | s ≠ 1}
+  functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+    qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+  real_on_real : ∀ x : ℝ, x ≠ 1 → (zq (x : ℂ)).im = 0
+```
+
+Read classically: for the function zq, with no hypothesis beyond its type, the lattice sum Σ r_Q0(k) k^(−s) converges absolutely on Re s > 1 and equals zq there, zq is holomorphic off s = 1, Λ_Q(s) = Λ_Q(1 − s) on 0 < Re s < 1, and zq is real on the real axis off 1. It corresponds to Epstein's continuation and functional equation for the zeta function of a positive definite quadratic form (Epstein, 1903), the route through the theta function of the form and Poisson summation that §1's `thetaU` and `zqPair` follow.
+
+**(2) zeros.** `zeros : ZQZeros zq Z`, the structure of :99-:101:
+
+```lean
+  carrier_eq : Z.carrier = LambdaQZeros zq
+  mult_order : ∀ ρ ∈ Z.carrier, ∃ g : ℂ → ℂ, AnalyticAt ℂ g ρ ∧ g ρ ≠ 0 ∧ ∀ᶠ z in nhds ρ, zq z = (z - ρ) ^ Z.mult ρ * g z
+```
+
+Read classically: for zq and a configuration Z, the points of Z are exactly the zeros of zq other than 0, 1 and −1, −2, … (`LambdaQZeros`, :92-:93), and the multiplicity of each point is its order as a zero, zq being (z − ρ)^m times a function analytic and nonzero at ρ. Because Z is a `WideConfig`, the field also carries the fields of Z as facts about those zeros: they lie in the open strip −1/2 < Re s < 3/2, they are closed under ρ ↦ 1 − ρ̄, and any window of ordinates holds finitely many of them (Config.lean :28-:38). It corresponds to the isolated-zeros theorem for a holomorphic function not identically zero, each zero of finite order. It is joined to Davenport and Heilbronn's theorem (1936) that an Epstein zeta of class number above 1 has zeros with Re s > 1, which is why the strip is the widened one (§1).
+
+**(3) logDeriv.** `logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)` (:140).
+
+Read classically: for zq and the sequence c, on the half-plane Re s ≥ 3/2 the Dirichlet series Σ c(n) n^(−s) equals −zq′(s)/zq(s). It corresponds to von Mangoldt's identity −ζ′(s)/ζ(s) = Σ Λ(n) n^(−s) on Re s > 1, with Λ replaced by the coefficients that the series of −Z_Q0′/Z_Q0 determines. The docstring notes that the field does not write their recursion from r_Q0 (:134); §3's instance takes c to be `cQ` (ZQ/LogDeriv.lean :63-:65), defined by that recursion. The absence of an Euler product bears on this field. ζ_K and L(s, ψ) have Euler products; Z_Q0 does not (§1; relay data/b725_interference.txt :11). For ζ the coefficients of −ζ′/ζ are von Mangoldt's, carried by the prime powers because ζ is a product over primes. For Z_Q0 no product stands behind the series, and the field names c by the series it sums to, not by primes.
+
+**(4) explicitFormula.** `explicitFormula : ZQExplicitFormula Z c`, the structure of :127-:129:
+
+```lean
+  ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+    zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+```
+
+Read classically: for the configuration Z and the coefficients c, take any test function k that is even, twice continuously differentiable and compactly supported. The sum over the points of Z, with multiplicity, of k̂ at their ordinates (`zeroSideQ`, :107-:108) then equals the pole term, less Σ_n c(n) n^(−1/2) · 2k(log n) (`primeTermQ`, :112-:113), plus the archimedean integral of k̂ against 2 Re ψ(1/2 + ir) − 2 log(2π/√23) (`archTermQ`, :121-:122; `bracketQ`, :117-:118). It corresponds to Weil's explicit formula (Weil 1952; Bombieri and Lagarias 1999, as the kernel's docstring cites them at :124-:126). As §1 set out, the formula is written here over Λ_Q's own zeros and with c in place of von Mangoldt's Λ.
+
+**(5) count.** `count : ∃ A₀ : ℝ, Wide.HCount Z A₀` (:142), with `HCount` (Config.lean :49-:50):
+
+```lean
+def HCount (Z : WideConfig) (A₀ : ℝ) : Prop :=
+  1 ≤ A₀ ∧ ∀ t : ℝ, (N Z t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+```
+
+Read classically: for the configuration Z, some constant A₀ ≥ 1 bounds, for every real t, the number of points of Z with ordinate in (t, t + 1], counted with multiplicity (`N`, Config.lean :46), by A₀ log(|t| + 3). It corresponds to the local form of the Riemann–von Mangoldt count, N(T + 1) − N(T) = O(log T) for ζ. Here the count is asked of a configuration whose points need not lie in the critical strip.
+
+**The schema's conclusion and its instance.** Of the theorems that compile from the bundle (EpsteinZQ.lean :144-:166), `zq_count` and `zq_explicit_formula` read a field back. The schema's conclusion is `zq_li_nonneg_imp_online` (:164-:166): under `ZQPremises zq Z c`, if every Li coefficient of Z is nonnegative, then every point of Z has real part 1/2. Its proof is one line, `h.count.elim fun _ hc => Wide.li_nonneg_cfg_imp_online_ne_zero Z hc (zqZeros_ne_zero h.zeros)` (:166). That line reads two of the five fields: the count, and the exclusion of 0 by the zeros field, through `zqZeros_ne_zero` (:145). It passes them to the strip-free converse `Wide.li_nonneg_cfg_imp_online_ne_zero` (SIDEExplicitFormula/Schema/Wide/StripFree.lean :157), a theorem about any widened configuration and not about Z_Q0. The implication is the schema's. Its antecedent, Li-nonnegativity at Z_Q0's configuration, is a hypothesis that nothing here proves; what v0.38 states of it at Z_Q0 is §5’s and §6’s. b745 exercised the same theorem with a true antecedent: `pc_online` (Schema/Wide/PositiveControl.lean :124-:125, on the branch zq-b730 at 1e658870, past the tag v0.38) draws it at the two-point configuration {1/2 + i, 1/2 − i}, with all three hypotheses met, and says nothing of Z_Q0. The instance of the schema at Z_Q0 is `zq_premises` (ZQ/EF/Main.lean :190): `ZQPremises` at zq = `zqFn`, Z = `zqZeroConfig` and c = `cQ`. What it carries, field by field, is §3's.
+### THE SECTION AS DRAFTED END
+
+### EVERY CITE, PRINTED FROM ITS SOURCE (Lean by git show <rev>:<path>; the bank from the relay working file), in the order the section makes them:
+  (1) EpsteinZQ.lean :137-:142 at 14ca5725  -- the text: :137-:142
+        137  structure ZQPremises (zq : ℂ → ℂ) (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        138    continuation : ZQContinuation zq
+        139    zeros : ZQZeros zq Z
+        140    logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+        141    explicitFormula : ZQExplicitFormula Z c
+        142    count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  (2) Wide/Config.lean :28 at 14ca5725  -- the text: Config.lean :28)
+         28  structure WideConfig where
+  (3) EpsteinZQ.lean :133-:136 at 14ca5725  -- the text: :133-:136
+        133  /-- **THE Z_Q PREMISES**: (Z1) the continuation and functional equation; (Z2) the zeros of Λ_Q as the configuration `Z`; the
+        134  logarithmic derivative's series on Re s ≥ 3/2 with coefficients `c` (their recursion from `a = r_Q` not written: the series determines
+        135  them); the explicit formula; and the local count `∃ A₀, Wide.HCount Z A₀` (the form `WeilConfig.count` asks, Schema/Config.lean :31; the
+        136  named `A0Q = 10` stands at Schema/EpsteinQ0.lean :104) on the same configuration. Each stated, not proved; open. -/
+  (4) EpsteinZQ.lean :80-:86 at 14ca5725  -- the text: :80-:86
+         80  structure ZQContinuation (zq : ℂ → ℂ) : Prop where
+         81    summable : ∀ s : ℂ, 1 < s.re → LSeriesSummable (fun k => (rQ k : ℂ)) s
+         82    agrees : ∀ s : ℂ, 1 < s.re → zq s = ZQ s
+         83    holomorphic : DifferentiableOn ℂ zq {s : ℂ | s ≠ 1}
+         84    functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+         85      qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+         86    real_on_real : ∀ x : ℝ, x ≠ 1 → (zq (x : ℂ)).im = 0
+  (5) EpsteinZQ.lean :99-:101 at 14ca5725  -- the text: :99-:101
+         99  structure ZQZeros (zq : ℂ → ℂ) (Z : WideConfig) : Prop where
+        100    carrier_eq : Z.carrier = LambdaQZeros zq
+        101    mult_order : ∀ ρ ∈ Z.carrier, ∃ g : ℂ → ℂ, AnalyticAt ℂ g ρ ∧ g ρ ≠ 0 ∧ ∀ᶠ z in nhds ρ, zq z = (z - ρ) ^ Z.mult ρ * g z
+  (6) EpsteinZQ.lean :92-:93 at 14ca5725  -- the text: :92-:93
+         92  def LambdaQZeros (zq : ℂ → ℂ) : Set ℂ :=
+         93    {ρ : ℂ | ρ ≠ 0 ∧ ρ ≠ 1 ∧ (∀ n : ℕ, ρ ≠ -((n : ℂ) + 1)) ∧ zq ρ = 0}
+  (7) Wide/Config.lean :28-:38 at 14ca5725  -- the text: Config.lean :28-:38
+         28  structure WideConfig where
+         29    /-- the set of distinct points -/
+         30    carrier : Set ℂ
+         31    /-- multiplicity (value irrelevant off carrier) -/
+         32    mult : ℂ → ℕ
+         33    one_le_mult : ∀ ρ ∈ carrier, 1 ≤ mult ρ
+         34    strip : ∀ ρ ∈ carrier, -1 / 2 < ρ.re ∧ ρ.re < 3 / 2
+         35    reflect_mem : ∀ ρ ∈ carrier, reflect ρ ∈ carrier
+         36    mult_reflect : ∀ ρ ∈ carrier, mult (reflect ρ) = mult ρ
+         37    /-- local finiteness in the ordinate -/
+         38    finite_window : ∀ T₁ T₂ : ℝ, (carrier ∩ {ρ | T₁ < ρ.im ∧ ρ.im ≤ T₂}).Finite
+  (8) EpsteinZQ.lean :140 at 14ca5725  -- the text: (:140)
+        140    logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+  (9) EpsteinZQ.lean :134 at 14ca5725  -- the text: (:134)
+        134  logarithmic derivative's series on Re s ≥ 3/2 with coefficients `c` (their recursion from `a = r_Q` not written: the series determines
+  (10) ZQ/LogDeriv.lean :63-:65 at 14ca5725  -- the text: LogDeriv.lean :63-:65
+         63  def cQ (n : ℕ) : ℝ :=
+         64    if _h : n ≤ 1 then 0
+         65    else ((rQ n : ℝ) * Real.log n - ∑ d ∈ n.properDivisors, if _h' : d < n then cQ d * (rQ (n / d) : ℝ) else 0) / 2
+  (11) data/b725_interference.txt :11  -- the text: b725_interference.txt :11
+         11    (C1) the first coefficients (n: r_Q0, r_Q1, ideal count, L`s): 1: 2 0 1 1 ; 2: 0 2 2 -1 ; 3: 0 2 2 -1 ; 4: 2 2 3 0 ; 5: 0 0 0 0 ; 6: 4 2 4 1 ; 7: 0 0 0 0 ; 8: 4 2 4 1 ;
+  (12) EpsteinZQ.lean :127-:129 at 14ca5725  -- the text: :127-:129
+        127  structure ZQExplicitFormula (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        128    ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+        129      zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+  (13) EpsteinZQ.lean :107-:108 at 14ca5725  -- the text: :107-:108
+        107  def zeroSideQ (Z : WideConfig) (k : ℝ → ℂ) : ℂ :=
+        108    ∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+  (14) EpsteinZQ.lean :112-:113 at 14ca5725  -- the text: :112-:113
+        112  def primeTermQ (c : ℕ → ℝ) (k : ℝ → ℂ) : ℂ :=
+        113    ∑' n : ℕ, ((c n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))
+  (15) EpsteinZQ.lean :121-:122 at 14ca5725  -- the text: :121-:122
+        121  def archTermQ (k : ℝ → ℂ) : ℂ :=
+        122    ((1 / (2 * Real.pi) : ℝ) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (bracketQ r : ℂ)
+  (16) EpsteinZQ.lean :117-:118 at 14ca5725  -- the text: :117-:118
+        117  def bracketQ (r : ℝ) : ℝ :=
+        118    2 * (Complex.digamma (1 / 2 + Complex.I * (r : ℂ))).re - 2 * Real.log (2 * Real.pi / Real.sqrt 23)
+  (17) EpsteinZQ.lean :124-:126 at 14ca5725  -- the text: :124-:126
+        124  /-- **THE EXPLICIT FORMULA FOR Z_Q** -- stated, not proved; open in this kernel. T1-lit (Weil 1952; Bombieri-Lagarias 1999, as
+        125  Schema/Epstein.lean :10-:12 cites them) instantiated: for every even `C²` compactly supported `k`, the zero sum over Λ_Q's zeros equals
+        126  the pole term less the prime-power side plus the archimedean term. Its proof would re-run Zeta23/WeilEF's contour chain for Λ_Q, absent. -/
+  (18) EpsteinZQ.lean :142 at 14ca5725  -- the text: (:142)
+        142    count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  (19) Wide/Config.lean :49-:50 at 14ca5725  -- the text: Config.lean :49-:50
+         49  def HCount (Z : WideConfig) (A₀ : ℝ) : Prop :=
+         50    1 ≤ A₀ ∧ ∀ t : ℝ, (N Z t (t + 1) : ℝ) ≤ A₀ * Real.log (|t| + 3)
+  (20) Wide/Config.lean :46 at 14ca5725  -- the text: Config.lean :46
+         46  def N (Z : WideConfig) (T₁ T₂ : ℝ) : ℕ := ∑ᶠ ρ ∈ window Z T₁ T₂, Z.mult ρ
+  (21) EpsteinZQ.lean :144-:166 at 14ca5725  -- the text: :144-:166
+        144  /-- No point of Λ_Q's zero configuration is `0`, from (Z2): the carrier excludes the pole. -/
+        145  theorem zqZeros_ne_zero {zq : ℂ → ℂ} {Z : WideConfig} (h : ZQZeros zq Z) : ∀ ρ ∈ Z.carrier, ρ ≠ 0 := by
+        146    intro ρ hρ
+        147    rw [h.carrier_eq] at hρ
+        148    first
+        149      | exact hρ.1
+        150      | (simp only [LambdaQZeros, Set.mem_setOf_eq] at hρ; exact hρ.1)
+        151  
+        152  /-- **The local count on Λ_Q's zeros**, read off the bundle. -/
+        153  theorem zq_count {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) : ∃ A₀ : ℝ, Wide.HCount Z A₀ :=
+        154    h.count
+        155  
+        156  /-- **The explicit formula for Z_Q**, read off the bundle. -/
+        157  theorem zq_explicit_formula {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) (k : ℝ → ℂ)
+        158      (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k) (he : ∀ x : ℝ, k (-x) = k x) :
+        159      zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k :=
+        160    h.explicitFormula.ef k hk hs he
+        161  
+        162  /-- **The strip-free converse read at Z_Q** (Schema/Wide/StripFree.lean :157): under the Z_Q premises, Li positivity of the configuration
+        163  of Λ_Q's zeros would put every one on the line -- the kernel's theorem at this configuration, its count and `ρ ≠ 0` from the bundle. -/
+        164  theorem zq_li_nonneg_imp_online {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) :
+        165      (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2 :=
+        166    h.count.elim fun _ hc => Wide.li_nonneg_cfg_imp_online_ne_zero Z hc (zqZeros_ne_zero h.zeros)
+  (22) EpsteinZQ.lean :164-:166 at 14ca5725  -- the text: (:164-:166)
+        164  theorem zq_li_nonneg_imp_online {zq : ℂ → ℂ} {Z : WideConfig} {c : ℕ → ℝ} (h : ZQPremises zq Z c) :
+        165      (∀ n : ℕ, 0 ≤ Wide.liCoeff Z n) → ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2 :=
+        166    h.count.elim fun _ hc => Wide.li_nonneg_cfg_imp_online_ne_zero Z hc (zqZeros_ne_zero h.zeros)
+  (23) EpsteinZQ.lean :166 at 14ca5725  -- the text: (:166)
+        166    h.count.elim fun _ hc => Wide.li_nonneg_cfg_imp_online_ne_zero Z hc (zqZeros_ne_zero h.zeros)
+  (24) EpsteinZQ.lean :145 at 14ca5725  -- the text: (:145)
+        145  theorem zqZeros_ne_zero {zq : ℂ → ℂ} {Z : WideConfig} (h : ZQZeros zq Z) : ∀ ρ ∈ Z.carrier, ρ ≠ 0 := by
+  (25) Wide/StripFree.lean :157 at 14ca5725  -- the text: StripFree.lean :157
+        157  theorem li_nonneg_cfg_imp_online_ne_zero (Z : WideConfig) {A₀ : ℝ} (hc : HCount Z A₀) (hnz : ∀ ρ ∈ Z.carrier, ρ ≠ 0) :
+  (26) Wide/PositiveControl.lean :124-:125 at 1e658870  -- the text: PositiveControl.lean :124-:125
+        124  theorem pc_online : ∀ ρ ∈ pcConfig.carrier, ρ.re = 1 / 2 :=
+        125    Wide.li_nonneg_cfg_imp_online_ne_zero pcConfig pc_count pc_ne_zero pc_li_nonneg
+  (27) ZQ/EF/Main.lean :190 at 14ca5725  -- the text: Main.lean :190
+        190  theorem zq_premises : ZQPremises zqFn zqZeroConfig (fun n => cQ n) :=
+
+### THE CHECKS: needles each once YES ; quoted Lean lines 18, each equal to a line of the tree at 14ca5725: YES ; inline quotes 6 equal to their lines: YES ;
+###   the N3 screen (discharg, proved, earliest, first of its kind, RH, h2, moved): NONE
+### the body`s md5 d1adcb98efc9
+
+### ### **§2 DRAFTED: CITES 27 ; WORDS 1310 (whitespace-separated) ; ITS PLACE :46 ; THE VERSION LINE v0.1 KEPT ; PUT TO THE AUTHOR AS ONE SITTING ITEM [S2].**
+
+### THE SITTING (b736`s form), one item:
+
+[S2] PASS, the author`s clause
+  FILE: phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md
+  LINE: under the heading :46 (at :48 after the dated note, the body :50-:107, the heading of §3 at :109); the version line :3 unchanged, the §1 note :5 kept, the dated note at :7
+  CURRENT READ: the heading with no body, at PLACE-papers 98327e2d
+  COMPARED TO THE AGENDA: (R357)(2)`s section, the headings §3-§9 empty
+  DRAFT WRITTEN: the section between BEGIN and END above, with the author`s clause applied: in the closing paragraph, the sentence ending
+    "is a hypothesis that nothing here proves" gains before its full stop "; what v0.38 states of it at Z_Q0 is §5’s and §6’s"; nothing else
+    changed (the body as first put: md5 c0c317a2a472, 1,299 words; as written: md5 d1adcb98efc9, 1,310 words, read back equal)
+  CONFIRMATION: PLACE-papers 0e6ab6f2 (scan 0 ; 0 ; 0 ; 0), step row 9
+  THE AUTHOR`S WORD: Pass [S2] with one clause: in the closing paragraph, the sentence ending “is a hypothesis that nothing here proves” gains,
+    before its full stop, the words “; what v0.38 states of it at Z_Q0 is §5’s and §6’s”. Nothing else changed; written verbatim under :46 as one
+    PLACE-papers write; the version line v0.1 with its dated note after the §1 note, which is kept.
+  AT: 2026-11-08, the answer before 13:13Z
+
+### ### **[S2] PASSED WITH THE AUTHOR`S CLAUSE: §2 WRITTEN, 1,310 WORDS, 27 CITES, PLACE-papers 0e6ab6f2.**
