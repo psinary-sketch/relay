@@ -531,7 +531,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'gho' else 'SEAT') for c in tuple('abcdefghijklmnopqrst')))   # ### (a)-(t), entered before the lock, the navigator's (g), (h), (o), the rest the seat's (data/b747_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'gho' else 'SEAT') for c in tuple('abcdefghijklmnopqrstuvwxy')))   # ### (a)-(y), entered before the lock, the navigator's (g), (h), (o), the rest the seat's (data/b747_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b747_corrigendum.txt', 'data/b747_standing_v1270.txt', 'data/b747_section2.txt', 'data/b747_zenodo_readback.txt', 'data/b747_zenodo_routes.txt',
@@ -1418,7 +1418,7 @@ def _first_add(path):
     route_ = disch_ and sect_ and zord_
     same_ = True
     regen_ = N2_REGEN in (rd(FACE) or '')
-    tz = rdn('%s_prelock.txt' % ACT)
+    tz = rdn('%s_prelock.txt' % ACT, optional=True)   # ### b747, defect (v): the gate writes the pre-lock bank after the score routes' dry form (close order [4] before [5]); read absent as empty, as v1.26.0's reader did, N2 then printing it unread
     fg_ = rdn('%s_pathrefusal.txt' % ACT)
 #⟪END⟫
 #⟪SECTION record 12⟫
