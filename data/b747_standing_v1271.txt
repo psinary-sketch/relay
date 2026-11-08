@@ -1,0 +1,19 @@
+b747 -- THE CONTROL OF tools/standing/ v1.27.1, (R345)(2)(iv) CARRIED: A REPAIR LANDED BY A COMMIT OF ITS OWN MOVES VERSION (2026-11-08)
+
+## THE CONTROL
+  the lock gate (tools/b378_lockgate.py, its call of tools/standing/repaircommits.py outside()) refused the lock at 2026-11-08T17:17Z, its eight gates passing:
+  0c118109, the repair of tools/standing/fold/record.tpl after v1.27.0 (the standing reader's binding moved onto :40, the line count kept for the line-keyed
+  overrides before b735; defect (j)), touched tools/standing/ after v1.27.0's commit f4c286c0 and left tools/standing/VERSION at v1.27.0. v1.27.1 moves VERSION
+  by a commit of its own; no tool's code changes; the repair 0c118109 landed is v1.27.1's control, its reading the render of b734's record tool that had failed
+  and the step row it had refused, both as defect (j) of data/b747_defects.txt records them. The form is b743's (data/b743_standing_v1231.txt, defect (v)).
+
+### (version-move) (R345)(2)(iv): THE COMMITS TO tools/standing/ AFTER THE VERSION'S COMMIT LEAVING VERSION UNMOVED
+  (version-move) repaircommits.outside() from the last commit touching tools/standing/VERSION to HEAD, read at relay c19fde00
+      BEFORE (v1.27.0, version commit f4c286c0): [0c118109] -> FAILS (the lock gate refused; its two outputs moved to the scratchpad by their absolute paths, unread by any bank)
+      AFTER  (v1.27.1, the commit landing this bank): read at the lock gate after this commit (data/b747_lockgate_notes.txt) -> PASSES WHERE IT READS NONE
+      AS WANTED WHERE THE LOCK GATE READS NONE
+### (repair) the record template's repair as 0c118109 landed it, read from defect (j) of data/b747_defects.txt unedited
+  (repair) 0c118109 touching tools/standing/fold/record.tpl alone among the standing files, with the step rows 3-4, the defects (g)-(j) and the hook refusals :5-:6 -> HOLDS, 1 case
+      AS WANTED
+
+### ### **v1.27.1: CONTROLS (version-move), (repair) ; CASES 2 ; THE (version-move) AFTER READ AT THE LOCK GATE ; NO TOOL'S CODE CHANGED.**
