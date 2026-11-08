@@ -1,0 +1,77 @@
+b746 -- THE CORRIGENDUM FOR b745, (R356)(3) (2026-11-08T02:20:39Z)
+
+### the banks read unedited: data/b745_events.txt rows (1)-(9), data/b745_defects.txt 25 rows, data/b745_hook_refusals.txt 24 lines at 946cc80a; data/b746_standing_v1260.txt (the v1.26.0 controls); the corrigenda bank`s last row (65).
+
+  *b745’s events bank (relay data/b745_events.txt) carries nine rows, entered after its lock and not lettered, each tagged in its own bracket (7 the seat’s, 2 the tools’); its defects bank twenty-five lettered rows, (a)-(y), each tagged in its own bracket (23 the seat’s, 2 the tools’); its refusal bank twenty-four lines at 946cc80a, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R356)`(3), at tools/standing/ v1.26.0, each with a control on b745’s or b744’s banks, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b746_standing_v1260.txt, 21 cases, AS WANTED 21):
+  
+  **(lock) the lock block written after the lock (`(R356)`(3)(i), event (1), N4)** -- tools/standing/commit.py’s lock phase runs reg_seal.py --lock on the face its gate record names, adds the face and reads the staged blob through lock_check. b745’s face at af0330bb refused; b744’s at ae688949 accepted (:20).
+  
+  **(lockdate) the two readers of one date (`(R356)`(3)(ii))** -- tools/standing/lockdate.py, the lock row of data/<act>_steps.json, read by the act module’s N4 and by rootprompt.ceiling_at_lock. b745’s readings 2959bc55 and af0330bb replayed as af0330bb (:33).
+  
+  **(rows) the row for every act commit (`(R356)`(3)(iii), event (2), REPEAT b744 (4))** -- tools/standing/commit.py’s act phases (step zero, component N, pre-root, record, closing) take the seat’s words and write the row in the same call. eaca4c35 and e9c339ed refused by the old tool, rowed by the new (:46).
+  
+  **(membrane) the membrane’s “nothing written” that wrote one file (`(R356)`(3)(iv), events (5)-(6))** -- tools/act_membrane.py composes its line from the working tree: an untracked bank written by the refused route since it began is named and deleted by its verified absolute path. b745’s stray replayed, named and deleted (:60).
+  
+  **(lsr) the remote read retried and the cached pass (`(R356)`(3)(v), event (8))** -- tools/standing/lsrread.py classes each repository READ, RETRIED, CACHED or OVER; the suite’s arm passes a retry as an event with its two timings and counts a wholly cached part as VACUOUS, no pass. b745’s two runs read RETRIED and CACHED (:73).
+  
+  **(readme) G-README-CURRENCY declared on the face (`(R356)`(3)(vi))** -- the reason printed from its bank (README 1 at relay data/b745_standing_figures.txt :58; PLACE-papers README.md :164 at v0.37), the line carried to a sitting (:93).
+  
+  **(repeat) the hook’s refusals (`(R356)`(3)(vii), events (3), (4), (7), (9))** -- guards: the hook’s PIPE and REDIR rows; b746’s own refusals printed from its bank (:101).
+  
+  **(version) the version (`(R356)`(3)(viii))** -- tools/standing/VERSION v1.26.0, landed by a commit of its own (0c6d9c5c) with its controls bank (:111).
+  
+  **b745’s events (1)-(9):**
+  
+  **(1)** ’tools/reg\_seal.py --lock data/b745\_registration\_2026-11-07.txt’ was not run between the lock gate and the lock commit … (relay data/b745_events.txt, row (1); the seat’s; CLAIM; NEW; repair (lock), ’(R356)’(3)(i): reg_seal.py --lock runs inside the lock tool, the lock block in the lock commit or nothing committed).
+  **(2)** after 21:40:20Z, before the seal: the step-zero commits relay eaca4c35 (14:50:03Z, b744’s closing push capture) and … (relay data/b745_events.txt, row (2); the seat’s; CLAIM; REPEAT of b744 (4); repair (rows), ’(R356)’(3)(iii): every act commit through the commit tool, its row in the same call).
+  **(3)** two Read calls with no limit, of b744’s root-prompt driver and its question file (rootprompt744.py, … (relay data/b745_events.txt, row (3); the seat’s; CLOSE; REPEAT of b744 (c); ’(R356)’(3)(vii): the hook’s READ row held, REPEAT).
+  **(4)** ’git add’ of the record banks and ’git commit’ sent in one message, two git writes across parallel calls; the harness … (relay data/b745_events.txt, row (4); the seat’s; CLOSE; NEW; ’(R356)’(3)(vii): the hook’s GITWRITE row held, the add and the commit one message each; the N5 cause).
+  **(5)** the post-push part standing-a1 sent as ’fold.py checks --part standing-a1 --rerun-postpush --quiet’; the flag took … (relay data/b745_events.txt, row (5); the seat’s; CLOSE; REPEAT of b744 (6); repair (membrane), ’(R356)’(3)(iv), for its consequence in (6); the flag’s misreading REPEAT).
+  **(6)** the membrane’s line in (5) says NOTHING WRITTEN, but the part had written relay data/b745\_chain\_half\_nsm1\_--quiet.json … (relay data/b745_events.txt, row (6); the tools’; CLAIM; NEW; repair (membrane), ’(R356)’(3)(iv): the membrane’s line composed from the working tree, a stray named and deleted by the tool that refused).
+  **(7)** a Bash ’git grep ... | head -20’ sent with a pipe; the harness hook REFUSED (PIPE; data/b745\_hook\_refusals.txt :23), … (relay data/b745_events.txt, row (7); the seat’s; CLOSE; REPEAT of b744 (c); ’(R356)’(3)(vii): the hook’s PIPE row held, REPEAT).
+  **(8)** the post-push part standing-a2 failed G-LSREMOTE-ONE-PER-REPO: D:/SIDE-simplicity took two ls-remote calls … (relay data/b745_events.txt, row (8); the tools’; CLAIM; NEW; repair (lsr), ’(R356)’(3)(v): a retried read an event with its two timings, a wholly cached part CACHED and no pass; the attempt1 bank kept as the run of record).
+  **(9)** a PowerShell listing of data/b745\_scores\* sent with ’| Select-Object’; the harness hook REFUSED (PIPE; … (relay data/b745_events.txt, row (9); the seat’s; CLOSE; REPEAT of b744 (c); ’(R356)’(3)(vii): the hook’s PIPE row held, REPEAT).
+  
+  **b745’s defects:**
+  
+  **(a)** (relay data/b745_defects.txt; the seat’s; CLAIM; REPEAT of b744 (a)).
+  **(b)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (b)).
+  **(c)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(d)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(e)** (relay data/b745_defects.txt; the tools'; CLAIM; NEW).
+  **(f)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(g)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(h)** (relay data/b745_defects.txt; the seat’s; CLOSE; NEW).
+  **(i)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(j)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(k)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(l)** (relay data/b745_defects.txt; the seat’s; CLOSE; NEW).
+  **(m)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(n)** (relay data/b745_defects.txt; the seat’s; CLAIM; REPEAT of b744 (k)).
+  **(o)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (l)).
+  **(p)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(q)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(r)** (relay data/b745_defects.txt; the seat’s; CLAIM; NEW).
+  **(s)** (relay data/b745_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b745_defects.txt; the tools'; CLAIM; NEW).
+  **(u)** (relay data/b745_defects.txt; the seat’s; CLAIM; REPEAT of b743 (7)).
+  **(v)** (relay data/b745_defects.txt; the seat’s; CLAIM; REPEAT of b745 (r)).
+  **(w)** (relay data/b745_defects.txt; the seat’s; CLAIM; REPEAT of b745 (n)).
+  **(x)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b744 (c)).
+  **(y)** (relay data/b745_defects.txt; the seat’s; CLOSE; REPEAT of b738 (s)).
+  
+  **b745’s refusals** (relay data/b745_hook_refusals.txt at 946cc80a, one a line): :1 PIPE 14:47:57Z, recorded at defect (c); :2 SED 14:50:30Z, recorded at defect (c); :3 PIPE 14:58:43Z, recorded at defect (c); :4 PIPE 15:26:24Z, recorded at defect (f); :5 SED 15:29:04Z, recorded at defect (f); :6 READ 15:30:03Z, recorded at defect (f); :7 REDIR 15:34:15Z, recorded at defect (f); :8 PIPE 15:34:43Z, recorded at defect (f); :9 SED 16:05:23Z, recorded at defect (g); :10 READ 16:07:40Z, recorded at defect (g); :11 PIPE 16:13:54Z, recorded at defect (g); :12 READ 16:32:30Z, recorded at defect (g); :13 REDIR 16:35:55Z, recorded at defect (g); :14 REDIR 17:09:08Z, recorded at defect (m); :15 REDIR 17:11:10Z, recorded at defect (m); :16 PIPE 17:12:54Z, recorded at defect (m); :17 REDIR 17:17:46Z, recorded at defect (p); :18 PIPE 17:31:07Z, recorded at defect (p); :19 PIPE 20:33:31Z, recorded at defect (x); :20 READ 23:16:18Z, recorded at event (3); :21 READ 23:16:19Z, recorded at event (3); :22 GITWRITE 00:16:23Z, recorded at event (4); :23 PIPE 00:29:57Z, recorded at event (7); :24 PIPE 01:06:39Z, recorded at event (9).
+  
+  **Dated notes:**
+  
+  Dated note, b746, to G-README-CURRENCY declared on b745’s face (`(R356)`(3)(vi)): the arm’s reason read from its bank, README 1 against b744’s 0 (relay data/b745_standing_figures.txt :58); the line it names, PLACE-papers README.md :164, cites the kernel at v0.37 where its tag is v0.38 (relay data/b746_standing_v1260.txt, the (readme) block); carried to a sitting on the author’s number, not brought current by this act’s hand.
+  
+  Dated note, b746, to event (2) and to N4 (`(R356)`(3)(ii)): b745 dated its lock twice, N4 by the face’s lock block (2959bc55, the seal commit) and the root prompt’s ceiling by hand (af0330bb); from v1.26.0 both read the lock row of data/<act>_steps.json through tools/standing/lockdate.py, and b745’s two readings replayed read af0330bb once (the (lockdate) block).
+  
+  **The counter:** CLAIM 17, CLOSE 17, REPEAT 19 of 34 over the 34 items as the banks tag them (nine events, twenty-five defects), as b745’s closing prints it (relay data/b745_closing.txt :5); no tag is read otherwise here; the CLAIM items (1), (2), (6), (8), (a), (d), (e), (i), (j), (k), (n), (q), (r), (t), (u), (v), (w).
+  
+  *Filed at b746 on the author’s ruling `(R356)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b746.py) from b745’s events and defects banks read unedited, its refusal bank, and the v1.26.0 controls bank; banked as relay `data/b746_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (66). It answers b745’s record; no sealed tool, face, trail or root-named bank of b745 is edited.*
+
+### ### **ITEMS 34: EVENTS 9, DEFECTS 25 ; CLAIM 17, CLOSE 17 ; REPEAT 19 ; DATED NOTES 2 ; v1.26.0: THE LOCK BLOCK IN THE LOCK COMMIT, THE ONE READER OF THE LOCK DATE, THE ROW FOR EVERY ACT COMMIT, THE MEMBRANE`S LINE FROM THE WORKING TREE, THE RETRIED AND THE CACHED REMOTE READ, G-README-CURRENCY`S REASON, THE REPEAT REFUSALS, THE VERSION ; THE ENTRY AT FINDINGS :14069.**

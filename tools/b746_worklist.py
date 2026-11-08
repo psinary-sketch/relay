@@ -256,7 +256,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b745: a CRLF-only difference from HEAD's blob a94aa543, restored by checkout, nothing to commit
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None                   # ### step zero's banks and carried tools, one commit (data/b746_stepzero.txt among them); set when made
+STEPZERO_BANKS = 'b15bfdf4'             # ### step zero's banks and carried tools, one commit (data/b746_stepzero.txt among them); row step 3
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b745's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R356)(3), with its amendment row: the commit every dispatch row names ((R356)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -289,22 +289,23 @@ COMPARATIVE_BANKS = ('data/b746_corrigendum.txt', 'data/b746_section1.txt', 'dat
                      'data/b746_defects.txt')   # ### Components 1-3's banks: no
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()   # ### v1.24.0's changed files, set by the Edit tool at Component 1
-STANDING_NEW = ()
+STANDING_CHANGED = ('tools/standing/VERSION', 'tools/standing/commit.py', 'tools/standing/fold/checks.tpl', 'tools/standing/remotecache.py',
+                    'tools/standing/rootprompt.py', 'tools/act_membrane.py', 'tools/b616_claims.py')   # ### v1.26.0's changed files (0c6d9c5c)
+STANDING_NEW = ('tools/standing/lockdate.py', 'tools/standing/lsrread.py', 'tools/standing/v1260.py')
 # ### b745's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '946cc80a'    # ### b745's closing (its step row), the act's relay base
 B714_RECORD = '8e67907e'     # ### b745's record commit (relay)
 B714_ROOT = 'c831a2103261ed738346cd7f8a6fd0e2813bef11af89300e86db50a7aaa92447'   # ### b745's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'fa4a4d4b'  # ### b745's root-banks commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                       # ### tools/standing/ v1.26.0 by a commit of its own, its controls bank data/b746_standing_v1260.txt ((R356)(3))
+C1_STANDING = '0c6d9c5c'                 # ### tools/standing/ v1.26.0 by a commit of its own, its controls bank data/b746_standing_v1260.txt ((R356)(3)), step row 6
 C1_STANDING_REPAIR = None
 C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row, the rules bank
 C1_CORR = C1_RELAY
 C1_RULES = C1_RELAY
 C1_PP = None                       # ### PLACE-papers: FINDINGS (b745 at its weight), (the corrigendum)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
-C1_DISCHARGE_PP = ()               # ### (R356)(2): OPEN_TRAILS, W-ORD-POSITIVE-CONTROL then W-ORD-ZETA-BOX discharged, each a commit of its own
+C1_DISCHARGE_PP = ('99b0a40c', 'c45db731')   # ### (R356)(2): OPEN_TRAILS, W-ORD-POSITIVE-CONTROL then W-ORD-ZETA-BOX discharged, each a commit of its own (step rows 4, 5)
 C2_TOOL = None                     # ### (carried name) no driver this act
 WEIGHT_LINE, CORR_LINE = None, None     # ### FINDINGS: b745's weight line and the corrigendum for b745 (Component 1), set when written
 DIFFERS_LINE = None
