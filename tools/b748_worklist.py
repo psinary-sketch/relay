@@ -304,12 +304,12 @@ B714_RECORD = '27ce2fe2'     # ### b747's record commit (relay)
 B714_ROOT = '59db3794b7ae4cf7f698451beee4269a95d6f7cfb5ede81e4c490ddac9021db1'   # ### b747's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '66915db5'  # ### b747's root-banks commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.28.0 by a commit of its own, its controls bank data/b748_standing_v1280.txt ((R358)(3)); set after it is made
+C1_STANDING = 'bf83b65b'           # ### tools/standing/ v1.28.0 by a commit of its own, its controls bank data/b748_standing_v1280.txt ((R358)(3))
 C1_STANDING_REPAIR = None          # ### none yet
 C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the rules; set after it is made
 C1_CORR = C1_RELAY
 C1_RULES = C1_STANDING             # ### data/b748_rules.txt committed with v1.28.0
-C1_PP = None                       # ### PLACE-papers: FINDINGS -- b747 at its weight and the corrigendum for b747; set after it is made
+C1_PP = '20dba111'                 # ### PLACE-papers: FINDINGS -- b747 at its weight (:14301) and the corrigendum for b747 (:14303)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act

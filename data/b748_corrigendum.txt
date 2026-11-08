@@ -1,0 +1,87 @@
+b748 -- THE CORRIGENDUM FOR b747, (R358)(3) (2026-11-08T22:14:44Z)
+
+### the banks read unedited: data/b747_events.txt rows (1)-(4), data/b747_defects.txt 28 rows, data/b747_hook_refusals.txt 14 lines at 7d34b587; the carried item (c′) of (R358)(3)(ii); data/b748_standing_v1280.txt (the v1.28.0 controls); the corrigenda bank`s last row (67).
+
+  *b747’s events bank (relay data/b747_events.txt) carries four rows, entered after its lock and not lettered, each tagged in its own bracket (4 the seat’s); its defects bank twenty-eight lettered rows, (a)-(b′), each tagged in its own bracket (25 the seat’s, 3 the navigator’s); its refusal bank fourteen lines at 7d34b587, each recorded by a row; and `(R358)`(3)(ii) letters one carried item, (c′). Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R358)`(3), at tools/standing/ v1.28.0, each with a control on b747’s banks or the trail as it stands, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b748_standing_v1280.txt, 36 cases, AS WANTED 36):
+  
+  **(one) one reading of a score (`(R358)`(3)(i), event (4))** -- tools/standing/onereader.py gives PENDING where every clause but the root prompt’s is clean and no root prompt is banked; the record template’s N3 verdict line reads through it, its line count kept. b747’s N3, REFUTED in the record and HELD at the close, reads PENDING and then HELD (:20).
+  
+  **(scan) the scan over the staged set (`(R358)`(3)(ii), the carried item (c′))** -- the act’s scan reads the staged set as a kind of its own and the act’s untracked tools; tools/standing/commit.py runs it before every commit and refuses a count above 0. The planted staged token found before (inside the working tree) and after (staged); a token in an untracked act tool found only after (:42).
+  
+  **(gate) no standing change at the gate (`(R358)`(3)(iii), defects (j), (a′))** -- the lock gate refuses a commit at or after the act’s first gate commit touching tools/standing/, and the commit tool’s gate phase refuses a staged standing path. b747’s 88f39b22 permitted before, refused after (:59).
+  
+  **(write) every write through the one-call tool (`(R358)`(3)(iv), defects (f), (k), (n))** -- commit.py takes add, restore and delete beside its phases, every write under one write mark, a second refused with the open one printed. b747’s (k) replayed, the commit refused while the add held the mark (:76).
+  
+  **(carry) the carry first (`(R358)`(3)(v), defects (d), (e))** -- the step-zero phase refuses while the act’s module, worklist or scan tool is not carried. b747’s 22f59d27 refused; b748’s carried tools read on disk accepted (:92).
+  
+  **(row) a row by its letter and tag (`(R358)`(3)(vi), defects (u), (x), (l))** -- tools/standing/defectrow.py reads a row to its first full stop outside a backtick pair and not of an ellipsis; the unread-figure screen reads the landing less its Defects lines. b747’s rows as first committed read 20 of 20, against 3 of 20 (:102).
+  
+  **(sat) the satisfiability read before the gate (`(R358)`(3)(vii), defect (z))** -- the gate phase refuses unless the satisfiability audit reads JOINTLY SATISFIABLE and is stamped against the face; the contradictory clause printed by name (:119).
+  
+  **(dry) a standing repair with its dry (`(R358)`(3)(viii), defects (r), (v))** -- tools/standing/standingdry.py runs the record’s dry over the standing tools and banks each file’s sha256; the commit tool refuses a standing commit without it. v1.27.0’s f4c286c0 refused, its halt NOT CLEAN (:132).
+  
+  **(rules) the navigator’s defects (`(R358)`(3)(ix), (g), (h), (o))** -- entered as the navigator’s; the rule from (o) written in relay data/b748_rules.txt (9) (:145).
+  
+  **(refusals) the hook’s refusals (`(R358)`(3)(x), REPEAT)** -- the instances printed from b747’s and b748’s refusal banks; the prev-mode guard’s timeout prints that the dry is lettered when it happens (:154).
+  
+  **(cite) the whole cite line (`(R358)`(3)(xi), defect (w))** -- tools/standing/citeprint.py prints each cited line whole and refuses a cut. data/b725_interference.txt :11 cut at 170 of 223 before, whole after (:183).
+  
+  **(version) the version (`(R358)`(3)(xii))** -- tools/standing/VERSION v1.28.0, landed by a commit of its own (bf83b65b) with its controls bank and the record’s dry over it, before the gate (:193).
+  
+  **b747’s events (1)-(4):**
+  
+  **(1)** before the gate’s commit (relay f2dd38e0, 17:09:10Z): the prev-mode dry of the part standing-c, run after the act … (relay data/b747_events.txt, row (1); the seat’s; CLOSE; NEW; repair (refusals), ’(R358)’(3)(x): the prev-mode guard’s timeout prints that a dry hitting it is lettered when it happens).
+  **(2)** a Bash command reading b746’s pre-root subject and the staged stat carried a pipe through tail; the harness hook … (relay data/b747_events.txt, row (2); the seat’s; CLOSE; REPEAT of b747 (q); repair (refusals), ’(R358)’(3)(x), REPEAT, the instance printed).
+  **(3)** a PowerShell listing of the desk’s notes carried a pipe through Select-Object; the harness hook REFUSED (PIPE; … (relay data/b747_events.txt, row (3); the seat’s; CLOSE; REPEAT of b747 (q); repair (refusals), ’(R358)’(3)(x), REPEAT, the instance printed).
+  **(4)** the scores written before the root (data/b747\_scores.json :10-:12) read N3 REFUTED on its last clause alone, "the root … (relay data/b747_events.txt, row (4); the seat’s; CLAIM; NEW; repair (one), ’(R358)’(3)(i): a score reading the root prompt reads PENDING in the record while the prompt is unbanked, the close’s reading the one entered).
+  
+  **b747’s defects:**
+  
+  **(a)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b746 (a)).
+  **(b)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b746 (b)).
+  **(c)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b746 (c); repair (refusals), `(R358)`(3)(x), REPEAT).
+  **(d)** (relay data/b747_defects.txt; the seat’s; CLAIM; REPEAT of b746 (d); repair (carry), `(R358)`(3)(v): the step-zero phase refuses while the act’s module, worklist or scan tool is not carried).
+  **(e)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW; repair (carry), `(R358)`(3)(v)).
+  **(f)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW; repair (write), `(R358)`(3)(iv): every git write through the one-call tool under one write mark).
+  **(g)** (relay data/b747_defects.txt; the navigator’s; CLAIM; NEW; the navigator’s, `(R358)`(3)(ix)).
+  **(h)** (relay data/b747_defects.txt; the navigator’s; CLAIM; NEW; the navigator’s, `(R358)`(3)(ix)).
+  **(i)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (c); repair (refusals), `(R358)`(3)(x), REPEAT).
+  **(j)** (relay data/b747_defects.txt; the seat’s; CLAIM; NEW; repair (gate), `(R358)`(3)(iii): no standing change at or after the first gate commit).
+  **(k)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (f); repair (write), `(R358)`(3)(iv)).
+  **(l)** (relay data/b747_defects.txt; the seat’s; CLAIM; NEW; repair (row), `(R358)`(3)(vi): the screens read the landing less its Defects lines).
+  **(m)** (relay data/b747_defects.txt; the seat’s; CLAIM; NEW).
+  **(n)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW; repair (write), `(R358)`(3)(iv)).
+  **(o)** (relay data/b747_defects.txt; the navigator’s; CLAIM; NEW; the navigator’s, `(R358)`(3)(ix): the rule, a ruling cites a bank line or names the thing as unbanked, and conversation is unbanked (relay data/b748_rules.txt (9))).
+  **(p)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (i); repair (refusals), `(R358)`(3)(x), REPEAT).
+  **(q)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (p); repair (refusals), `(R358)`(3)(x), REPEAT).
+  **(r)** (relay data/b747_defects.txt; the seat’s; CLAIM; NEW; repair (dry), `(R358)`(3)(viii): a standing repair lands with the record’s dry run over it).
+  **(s)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW).
+  **(t)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW).
+  **(u)** (relay data/b747_defects.txt; the seat’s; CLOSE; NEW; repair (row), `(R358)`(3)(vi): a row read by its letter and tag).
+  **(v)** (relay data/b747_defects.txt; the seat’s; CLAIM; REPEAT of b747 (r); repair (dry), `(R358)`(3)(viii)).
+  **(w)** (relay data/b747_defects.txt; the seat’s; CLAIM; NEW; repair (cite), `(R358)`(3)(xi): a printed source line is the whole line).
+  **(x)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (l); repair (row), `(R358)`(3)(vi)).
+  **(y)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (p); repair (refusals), `(R358)`(3)(x), REPEAT).
+  **(z)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b745 (y); repair (sat), `(R358)`(3)(vii): the satisfiability read before the gate commit).
+  **(a’)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b743 (v); repair (gate), `(R358)`(3)(iii)).
+  **(b’)** (relay data/b747_defects.txt; the seat’s; CLOSE; REPEAT of b747 (y); repair (refusals), `(R358)`(3)(x), REPEAT).
+  
+  **The carried item, lettered by `(R358)`(3)(ii):**
+  
+  **(c′)** the seat’s finding after b747’s close, unbanked there by the closing’s rule, that the address scan read no staged file; REFUTED by the control: the route before the repair found a planted token staged and not committed, inside the working tree’s one place per repository (one ’git diff HEAD’), whose place count does not move as files are staged, and the finding read the count, not the text; what stood: no kind of its own for the staged set, no read of an untracked act tool, and no scan run by the commit tool (unbanked at b747’s close; the seat’s; CLOSE; NEW; repair (scan), `(R358)`(3)(ii)).
+  
+  **b747’s refusals** (relay data/b747_hook_refusals.txt at 7d34b587, one a line): :1 READ 12:09:45Z, recorded at defect (c); :2 READ 12:10:10Z, recorded at defect (c); :3 SED 12:12:59Z, recorded at defect (c); :4 ENV 12:19:11Z, recorded at defect (c); :5 REDIR 12:36:23Z, recorded at defect (i); :6 READ 12:43:24Z, recorded at defect (i); :7 GITWRITE 13:01:22Z, recorded at defect (k); :8 READ 13:21:02Z, recorded at defect (p); :9 READ 13:21:03Z, recorded at defect (p); :10 PIPE 13:33:26Z, recorded at defect (q); :11 READ 16:02:27Z, recorded at defect (y); :12 READ 17:19:16Z, recorded at defect (b’); :13 PIPE 19:21:49Z, recorded at event (2); :14 PIPE 19:32:50Z, recorded at event (3).
+  
+  **Dated notes:**
+  
+  Dated note, b748, to `(R358)`(3)(ii) and the carried item (c′): the clause’s premise, the seat’s finding that the scan read no staged file, is refuted by its own control (relay data/b748_standing_v1280.txt, the (scan) block); the clause’s routes landed as written, the staged set read as a kind of its own and the commit tool running the scan before every commit.
+  
+  Dated note, b748, to `(R358)`(3)(iii): b747 carried six gate commits (relay f2dd38e0 to 6295b920) and moved VERSION in the fourth, 88f39b22; the lock gate’s new read takes the act’s first gate row, a read from the last having passed the move as standing before the gate (relay data/b748_standing_v1280.txt, the (gate) block).
+  
+  **The counter:** CLAIM 11, CLOSE 21, REPEAT 16 of 32 over the 32 items as the banks tag them (four events, twenty-eight defects), as b747’s closing prints it (relay data/b747_closing.txt :5); with the carried item (c′), CLAIM 11, CLOSE 22, REPEAT 16 of 33; no tag is read otherwise here; the CLAIM items (4), (d), (g), (h), (j), (l), (m), (o), (r), (v), (w).
+  
+  *Filed at b748 on the author’s ruling `(R358)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b748.py) from b747’s events and defects banks read unedited, its refusal bank, and the v1.28.0 controls bank; banked as relay `data/b748_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (68). It answers b747’s record; no sealed tool, face, trail or root-named bank of b747 is edited.*
+
+### ### **ITEMS 32: EVENTS 4, DEFECTS 28 ; CLAIM 11, CLOSE 21 ; REPEAT 16 ; WITH THE CARRIED ITEM 33: CLAIM 11, CLOSE 22, REPEAT 16 ; DATED NOTES 2 ; v1.28.0: THE ONE READER OF A SCORE, THE SCAN OVER THE STAGED SET, NO STANDING CHANGE AT THE GATE, EVERY WRITE THROUGH THE ONE-CALL TOOL, THE CARRY FIRST, A ROW BY ITS LETTER AND TAG, THE SATISFIABILITY READ BEFORE THE GATE, A STANDING REPAIR WITH ITS DRY, THE NAVIGATOR`S DEFECTS, THE REFUSALS, THE WHOLE CITE LINE, THE VERSION ; THE ENTRY AT FINDINGS :14303.**
