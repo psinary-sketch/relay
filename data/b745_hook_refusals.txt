@@ -19,3 +19,6 @@
 2026-11-07T20:33:31Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Id, ProcessName, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, StartTime" | a PowerShell command carrying a pipe outside quotes
 2026-11-07T23:16:18Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\c66dda9f-cc02-473a-b740-111b6d66dec3\\scratchpad\\rootprompt744.py" | a Read call with no limit
 2026-11-07T23:16:19Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\c66dda9f-cc02-473a-b740-111b6d66dec3\\scratchpad\\rootprompt744_q1.txt" | a Read call with no limit
+2026-11-08T00:16:23Z | GITWRITE | PowerShell | "Set-Location D:/relay; git commit -q -m \"b745 record: the pre-push suite 113 of 116, the components, the desk and the trail's bank\"; git log -1 --format=\"%h %s\"" | a second git write in one message, across its parallel calls
+2026-11-08T00:29:57Z | PIPE | Bash | "git grep -n \"LSREMOTE-ONE-PER-REPO\" -- tools/*.py tools/standing/*.py | head -20" | a Bash command carrying a pipe outside quotes
+2026-11-08T01:06:39Z | PIPE | PowerShell | "Set-Location D:/relay; Get-ChildItem data -Filter \"b745_scores*\" | Select-Object Name, LastWriteTime, Length" | a PowerShell command carrying a pipe outside quotes
