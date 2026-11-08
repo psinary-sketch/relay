@@ -1,0 +1,99 @@
+b746 -- (R356)(4): THE PAPER`S §1, THE OBJECT, DRAFTED FOR THE SITTING (2026-11-08T03:35:17Z)
+
+### the target: PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, under its heading :5 ("## 1. The object: ..."), the other headings
+### standing empty; the version line :3 unchanged at v0.1, a dated note after it. Every Lean name cited at SIDE-explicit-formula v0.38 (14ca5725),
+### every figure at its relay bank line; each cite printed below from its source before the sitting. No sentence claims a result (results are §3-§6).
+### No Lean definition of Q1, the class group, ζ_K or L(s, ψ) stands at v0.38: they enter as relay data/b725_interference.txt reads them.
+
+### THE SECTION AS DRAFTED (written verbatim under :5 on a pass) BEGIN
+The object of this paper is one Epstein zeta function, that of the binary quadratic form
+
+  Q0(x, y) = x² + xy + 6y²,
+
+of discriminant 1 − 24 = −23. It is defined in the kernel SIDE-explicit-formula as `Q0form` (SIDEExplicitFormula/Schema/EpsteinZQ.lean :45 at the tag v0.38, 14ca5725); `four_mul_Q0form` (:48) writes 4·Q0 = (2x + y)² + 23y², so the form is positive definite. Every citation of a Lean name below is to that tag, by path and line; every figure is to a relay bank line.
+
+**The class group.** The reduced positive definite forms of discriminant −23 are Q0 and the pair
+
+  Q1(x, y) = 2x² + xy + 3y²,  Q1⁻¹(x, y) = 2x² − xy + 3y²,
+
+so the form class group is cyclic of order 3 (the class number the kernel's module states, EpsteinZQ.lean :8), with Q0 its identity and Q1, Q1⁻¹ the two classes of order 3. The substitution (x, y) ↦ (x, −y) carries Q1 to Q1⁻¹, so the two take the same values with the same multiplicities. The kernel at v0.38 defines Q0 alone; Q1, the class group and the two L-functions below carry no Lean definition, and enter here as relay data/b725_interference.txt reads them.
+
+**The Epstein zeta.** For a form Q of discriminant −23 let r_Q(k) be the number of integer pairs (m, n) with Q(m, n) = k, the origin excluded. Then
+
+  Z_Q(s) = Σ′_{(m,n) ≠ (0,0)} Q(m, n)^(−s) = Σ_{k ≥ 1} r_Q(k) k^(−s),  Re s > 1,
+
+the lattice sum over nonzero pairs. For Q0 the kernel defines the coefficients as `rQ` (EpsteinZQ.lean :59-:62, with r_Q(1) = 2: the pairs (±1, 0)) and the sum as `ZQ`, Mathlib's `LSeries` of `rQ` (:69); `ZQ` is Z_Q0 where the series converges. Since Q1 and Q1⁻¹ have the same values, Z_{Q1⁻¹} = Z_{Q1}, and the three classes give two functions, Z_Q0 and Z_Q1.
+
+**The completion.** The gamma factor's base is `qBase` = 2π/√23 (EpsteinZQ.lean :72), and the completed function is
+
+  Λ_Q(s) = (√23/2π)^s Γ(s) Z_Q(s) = qBase^(−s) Γ(s) Z_Q(s),
+
+the form the kernel's named premise `ZQContinuation` states its functional equation Λ_Q(s) = Λ_Q(1 − s) in (EpsteinZQ.lean :80, :84-:85). In the tree Λ_Q is built from the theta of the form rather than from the sum: `thetaU` u = Σ_{(m,n)} exp(−π u Q0(m, n)) (SIDEExplicitFormula/Schema/ZQ/Theta.lean :20), rescaled by `cc` = 2/√23 (ZQ/FEPair.lean :22) into `thetaC` (:37), the pair `zqPair` (:158), and `lamQ` := `zqPair`.Λ, its Mellin transform (ZQ/EF/Xi.lean :26). The half of that Mellin integral over t > 1, M(w) = ∫_{t>1} t^(w−1)(θ(t) − 1) dt, is `lamM` (ZQ/OffZero/Split.lean :29). The continuation of Z_Q0 to s ≠ 1 is `zqFn` (ZQ/Continuation.lean :122-:123), written from Λ₀ with the pole at 0 absorbed by Γ(s + 1)⁻¹. The statements tying these together — the Mellin transform equal to qBase^(−s) Γ(s) Z_Q on Re s > 1 (ZQ/Continuation.lean :76-:77), and the continuation's properties — are discharges, and are §3's.
+
+**The zeros.** The zeros of Λ_Q, with their orders, form the configuration `zqZeroConfig` (ZQ/Zeros.lean :319), whose carrier is `LambdaQZeros` `zqFn` (:320; `LambdaQZeros`, EpsteinZQ.lean :92): the zeros of the continuation off 0, 1 and the trivial zeros −1, −2, …. The configuration is not confined to the critical strip. The kernel's reason, stated where Z_Q is defined, is that an Epstein zeta of class number above 1 has infinitely many zeros with Re s > 1 (Davenport–Heilbronn, as EpsteinZQ.lean :18-:20 cites it), so the carrier is of the widened class `WideConfig`.
+
+**ζ_K and L(s, ψ).** Let K = ℚ(√−23), whose class group the three forms represent, and let ψ be a character of order 3 of that group, ψ(Q1) = ω = e^(2πi/3). With w = 2 units, the Dedekind zeta and the class-group L-function are sums of the Epstein zetas over the classes, divided by w:
+
+  ζ_K(s) = (Z_Q0(s) + 2 Z_Q1(s))/2,
+  L(s, ψ) = (Z_Q0(s) + (ω + ω²) Z_Q1(s))/2 = (Z_Q0(s) − Z_Q1(s))/2,
+
+and ψ̄ gives the same L. On the coefficients the first identity reads r_Q0(n) + 2 r_Q1(n) = 2 Σ_{d|n} (−23/d), a classical identity (the count of ideals of norm n in K, times the two units), corroborated exactly for n ≤ 3000 (relay data/b725_interference.txt :8); the second gives the coefficients (r_Q0(n) − r_Q1(n))/2, Hecke’s, the q-expansion of η(z)η(23z), corroborated for n ≤ 3000 (:9). Solving the two identities for the principal form,
+
+  Z_Q0(s) = (2/3)(ζ_K(s) + 2 L(s, ψ)).
+
+**No Euler product.** ζ_K and L(s, ψ) have Euler products; Z_Q0 does not. Its normalised coefficients r_Q0(n)/2 are not multiplicative: r_Q0(2) = r_Q0(3) = 0 while r_Q0(6) = 4 (relay data/b725_interference.txt :11). Z_Q0 is a sum of two Euler products, not a product of them. Two things follow for what is built on it. Its zeros are neither the zeros of ζ_K nor those of L(s, ψ); at a zero ρ of Z_Q0 the identities force ζ_K(ρ) = Z_Q1(ρ) = −2 L(ρ, ψ) (the column of :31). And because the logarithmic derivative of a sum is not the sum of the logarithmic derivatives, the zero side of an explicit formula for Z_Q0 is not linear in the decomposition: it is not ζ_K's zero side plus twice L(s, ψ)'s. The explicit formula the kernel names for Z_Q0 (`ZQExplicitFormula`, EpsteinZQ.lean :127-:128) is written over Λ_Q's own zeros, with the coefficients of −Z_Q′/Z_Q in place of von Mangoldt's (`primeTermQ`, :112-:113). The schema it enters and its premises are §2.
+### THE SECTION AS DRAFTED END
+
+### EVERY CITE, PRINTED FROM ITS SOURCE (Lean by git show 14ca5725:<path>; banks from the relay working file):
+  EpsteinZQ.lean               :45   def Q0form (m n : ℤ) : ℤ := m ^ 2 + m * n + 6 * n ^ 2
+  EpsteinZQ.lean               :48   theorem four_mul_Q0form (m n : ℤ) : 4 * Q0form m n = (2 * m + n) ^ 2 + 23 * n ^ 2 := by
+  EpsteinZQ.lean               :8    discriminant `−23`, class number 3. DEFINED HERE: the form `Q0form`, its coefficients `rQ` (the representation count over the box
+  EpsteinZQ.lean               :59   def rQ (k : ℕ) : ℕ :=
+  EpsteinZQ.lean               :60     if k = 0 then 0 else
+  EpsteinZQ.lean               :61       ((Finset.Icc (-(2 * (k : ℤ))) (2 * (k : ℤ)) ×ˢ Finset.Icc (-(k : ℤ)) (k : ℤ)).filter
+  EpsteinZQ.lean               :62         (fun p : ℤ × ℤ => Q0form p.1 p.2 = (k : ℤ))).card
+  EpsteinZQ.lean               :69   def ZQ (s : ℂ) : ℂ := LSeries (fun k => (rQ k : ℂ)) s
+  EpsteinZQ.lean               :72   def qBase : ℂ := ((2 * Real.pi / Real.sqrt 23 : ℝ) : ℂ)
+  EpsteinZQ.lean               :80   structure ZQContinuation (zq : ℂ → ℂ) : Prop where
+  EpsteinZQ.lean               :84     functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+  EpsteinZQ.lean               :85       qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+  ZQ/Theta.lean                :20   def thetaU (u : ℝ) : ℝ := ∑' p : ℤ × ℤ, Real.exp (-(Real.pi * u) * qR p)
+  ZQ/FEPair.lean               :22   def cc : ℝ := 2 / Real.sqrt 23
+  ZQ/FEPair.lean               :37   def thetaC (t : ℝ) : ℂ := ((thetaU (cc * t) : ℝ) : ℂ)
+  ZQ/FEPair.lean               :158  def zqPair : WeakFEPair ℂ where
+  ZQ/EF/Xi.lean                :26   def lamQ : ℂ → ℂ := zqPair.Λ
+  ZQ/OffZero/Split.lean        :29   def lamM (w : ℂ) : ℂ := mellin thA w
+  ZQ/Continuation.lean         :122  def zqFn (s : ℂ) : ℂ :=
+  ZQ/Continuation.lean         :123    qBase ^ s * ((Complex.Gamma s)⁻¹ * (zqPair.Λ₀ s - 1 / (1 - s)) - (Complex.Gamma (s + 1))⁻¹)
+  ZQ/Continuation.lean         :76   theorem zqPair_Λ_eq_of_re {s : ℂ} (hs : 1 < s.re) :
+  ZQ/Continuation.lean         :77       zqPair.Λ s = Complex.Gamma s * qBase ^ (-s) * ZQ s := by
+  ZQ/Zeros.lean                :319  def zqZeroConfig : WideConfig where
+  ZQ/Zeros.lean                :320    carrier := LambdaQZeros zqFn
+  EpsteinZQ.lean               :92   def LambdaQZeros (zq : ℂ → ℂ) : Set ℂ :=
+  EpsteinZQ.lean               :18   set of zeros. THE CARRIER IS STRIP-FREE (the author's word at b703): an Epstein zeta of class number above 1 has infinitely many zeros with
+  EpsteinZQ.lean               :19   Re s > 1 (Davenport-Heilbronn, cited at PLACE-papers OPEN_TRAILS-archive-2 :2089), so a closed-strip `Zeta23.ZeroConfig` cannot carry its
+  EpsteinZQ.lean               :20   zeros; `WideConfig` (Schema/Wide/Config.lean :28-:38, the open strip (−1/2, 3/2)) can, Z_Q having no zero on Re s ≥ 3/2
+  data/b725_interference.txt   :8      (C1) n = 1..3000, exact: r_Q0 + 2 r_Q1 = 2 SUM_{d|n} (-23/d): mismatches 0 []
+  data/b725_interference.txt   :9      (C1) (r_Q0 - r_Q1)/2 integral at every n: odd differences 0 ; equal to eta(z) eta(23z)`s q^n coefficient: mismatches 0 [] ; nonzero coeffi
+  data/b725_interference.txt   :11     (C1) the first coefficients (n: r_Q0, r_Q1, ideal count, L`s): 1: 2 0 1 1 ; 2: 0 2 2 -1 ; 3: 0 2 2 -1 ; 4: 2 2 3 0 ; 5: 0 0 0 0 ; 6: 4 2 4
+  data/b725_interference.txt   :31     name    beta - 1/2     gamma         |Z_Q1(rho)|                    bits  Z_Q1 ball   Z_Q0 ball   zeta_K(rho) = Z_Q1(rho) = -2 L(rho, psi)
+  EpsteinZQ.lean               :127  structure ZQExplicitFormula (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+  EpsteinZQ.lean               :128    ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+  EpsteinZQ.lean               :112  def primeTermQ (c : ℕ → ℝ) (k : ℝ → ℂ) : ℂ :=
+  EpsteinZQ.lean               :113    ∑' n : ℕ, ((c n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))
+
+### ### **§1 DRAFTED: CITES 26 ; WORDS 893 (whitespace-separated) ; ITS PLACE :5 ; THE VERSION LINE v0.1 KEPT ; PUT TO THE AUTHOR AS ONE SITTING ITEM.**
+
+### THE SITTING (b736's form), one item:
+
+[S1] PASS, the author's clause
+  FILE: phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md
+  LINE: under the heading :5 (at :7 after the dated note, the body :9-:44); the version line :3 unchanged, the dated note at :5
+  CURRENT READ: the heading with no body, at PLACE-papers 32ce8322
+  COMPARED TO THE AGENDA: (R356)(4)'s section, the other headings empty
+  DRAFT WRITTEN: the section between BEGIN and END above, with the author's clause applied: after the first identity, "a classical identity (the count of ideals of norm n in K, times the two units), corroborated exactly for n ≤ 3000 (relay data/b725_interference.txt :8)" in place of "checked exactly for n ≤ 3000 with no mismatch (...)"; the second identity's coefficients "Hecke’s, the q-expansion of η(z)η(23z), corroborated for n ≤ 3000 (:9)" in place of "integral at every n and equal to the q-expansion coefficients of η(z)η(23z) for n ≤ 3000 (:9)"; nothing else changed
+  CONFIRMATION: PLACE-papers f66467a8 (scan 0 ; 0 ; 0 ; 0), step row 9
+  THE AUTHOR'S WORD: first put: Pass [S1], with the note "Print data/b746_section1.txt in full in the conversation, not in the dialog, then put [S1] again." (printed in full; put again); second put: Pass [S1] with one clause (as above), "Nothing else changed; written verbatim under :5 as one PLACE-papers write; the version line v0.1 with its dated note."
+  AT: 2026-11-08, the second answer before 03:36Z
+
+### ### **[S1] PASSED WITH THE AUTHOR'S CLAUSE: §1 WRITTEN, 893 WORDS, 26 CITES, PLACE-papers f66467a8.**
