@@ -35,7 +35,13 @@ v1.28.0, (R358)(3)(ii), (iii), (iv), (v), (vii), (viii), b747 defects (b), (d)-(
   (viii) A STANDING REPAIR WITH THE RECORD'S DRY: a commit staging tools/standing/ files refuses unless data/<act>_standing_dry.txt is staged
        beside them, CLEAN or PENDING, naming each staged standing file at its staged sha256 (tools/standing/standingdry.py).
 
+v1.28.1, (R358)(3)(iv), b748 defect (k): THE CLOSE'S WRITES THROUGH THE SAME TOOL: `root` among the act phases (the root banks commit);
+  `branch <name>`, the act's push branch alone (push-<act>-preroot|record|closing) at HEAD, under the write mark; a relay act commit whose
+  staged set is the step bank alone (with the scan's banks) is a step-rows commit: its words must be the rows' own composition
+  (subjects.step_rows_words) and it writes no row of its own, so the step bank is clean before the push.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
+  python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
   python -X utf8 -u tools/standing/commit.py <relay|pp> "component 1" <the words>
   python -X utf8 -u tools/standing/commit.py <relay|pp> add <path> [<path> ...]
@@ -177,8 +183,8 @@ def lock_face(repo, act, read, data, run_seal=True):
     return conds
 
 
-ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pre-root', 'record', 'closing')
-WRITES = ('add', 'restore', 'delete')
+ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root
+WRITES = ('add', 'restore', 'delete', 'branch')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
 
@@ -414,6 +420,26 @@ def standing_dry_refusal(repo, act, names):
     return SD.check(names, dry, sha)
 
 
+STAGES = ('preroot', 'record', 'closing')
+
+
+def branch_refusal(act, verb, name):
+    """v1.28.1: None, or the refusal, for a branch create -- the act's push branch alone, push-<act>-<preroot|record|closing>. Pure."""
+    if verb != 'branch':
+        return None
+    if name not in ['push-%s-%s' % (act, s) for s in STAGES]:
+        return 'NOT THE ACT`S PUSH BRANCH: %r -- the branch write makes push-%s-<%s> alone' % (name, act, '|'.join(STAGES))
+    return None
+
+
+def rows_only(act, names):
+    """v1.28.1: True where the staged set is the step bank alone (with the scan's banks): a step-rows commit, which carries rows and writes
+    none of its own (b747's practice), so the step bank is clean before the push. Pure."""
+    steps = 'data/%s_steps.json' % act
+    beside = {steps, 'data/%s_address_scan.txt' % act, 'data/%s_address_scan_postlock.txt' % act}
+    return steps in names and set(names) <= beside
+
+
 def write_route(key, verb, args, act=None):
     """v1.28.0 (iv): an add, a restore or a branch delete, under the act's write mark; Refused where nothing was written."""
     import act as A
@@ -425,9 +451,13 @@ def write_route(key, verb, args, act=None):
         raise Refused('THE %s NAMES NOTHING' % verb.upper())
     if any(ch in a for a in args for ch in '*?['):
         raise Refused('A GLOB IN THE %s: name each path (%s)' % (verb.upper(), ' '.join(args)[:80]))
-    if verb in ('restore', 'delete') and len(args) != 1:
+    if verb in ('restore', 'delete', 'branch') and len(args) != 1:
         raise Refused('ONE %s PER CALL' % verb.upper())
-    cmd = {'add': ['add', '--'] + list(args), 'restore': ['checkout', '--', args[0]], 'delete': ['branch', '-d', args[0]]}[verb]
+    bad = branch_refusal(act, verb, args[0])   # ### v1.28.1
+    if bad:
+        raise Refused(bad)
+    cmd = {'add': ['add', '--'] + list(args), 'restore': ['checkout', '--', args[0]], 'delete': ['branch', '-d', args[0]],
+           'branch': ['branch', '--', args[0]]}[verb]
     mark = open_mark('%s %s in %s: %s' % (act, verb, key, ' '.join(args)[:120]))
     try:
         r = _git(repo, *cmd)
@@ -454,13 +484,23 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         bad = standing_dry_refusal(repo, act, names)   # ### v1.28.0 (viii)
         if bad:
             raise Refused(bad)
+        only = phase in ACT_PHASES and os.path.abspath(repo) == os.path.abspath(RELAY) and rows_only(act, names)   # ### v1.28.1
+        if only:
+            head = json.loads(_git(repo, 'show', 'HEAD:data/%s_steps.json' % act).stdout or '{}')
+            staged = json.loads(_git(repo, 'show', ':data/%s_steps.json' % act).stdout or '{}')
+            want = SJ.step_rows_words(SJ.step_rows_added(head, staged))
+            if not want or words.strip() != want:
+                raise Refused('A STEP-ROWS COMMIT NAMES ITS ROWS: the words must read %r, given %r' % (want or '(no row staged)', words.strip()))
         if scanner is not False:
             (scanner or run_scan)(act)   # ### v1.28.0 (ii): the scan over the staged set before the commit
         full, back = commit(repo, subj)
     finally:
         if mark:
             close_mark(mark)
-    rc, out = (row_writer or record_row)(key, phase, full)
+    if only:
+        rc, out = 0, 'NONE WRITTEN: a step-rows commit carries the rows and writes none of its own (v1.28.1)'
+    else:
+        rc, out = (row_writer or record_row)(key, phase, full)
     done = dict(act=act, repo=key, phase=phase, commit=full, subject=subj, read_back=back, equal=back == subj, row_exit=rc, row=out,
                 rowed=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
     if phase == 'seal':

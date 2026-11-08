@@ -1,0 +1,95 @@
+b748 -- THE CONTROLS OF tools/standing/ v1.28.1, (R358)(3)(iv), b748 defect (k): THE ROOT BANKS COMMIT, THE PUSH BRANCH AND THE STEP-ROWS COMMIT THROUGH THE ONE-CALL TOOL (2026-11-08T23:29:33Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2641 lines
+  citation render          OK    585 lines
+  closing render           OK    625 lines
+  record render            OK    4647 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    158 lines
+  tools/b748_worklist.py   OK    442 lines
+### THE COMPILE CONTROL : b748 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from bf83b65b
+
+  free 4110 MB at 2026-11-08T23:29:34Z, the hold 2560 MET
+### (root) (R358)(3)(iv), b748 defect (k): THE ROOT BANKS COMMIT AN ACT PHASE OF THE ONE-CALL TOOL (b747 committed it by plain git, 66915db5)
+  (root) act_check(b748, root, <words>)
+      BEFORE (v1.28.0): REFUSED: the act phase 'root' is not one of step zero | component 1 | component 2 | component 3 | component 4 | pre-roo -> FAILS
+      AFTER  (v1.28.1): b748 root: the act root chained, the banks and the pre-root push captures -> PASSES
+      AS WANTED
+  (root) GUARD, NO FAILING SIDE: the phase list in the subject composer`s order (pre-root, root, record)
+      AFTER  (v1.28.1): step zero component 1 component 2 component 3 component 4 pre-root root record closing -> HOLDS
+      AS WANTED
+  (root) GUARD, NO FAILING SIDE: a phase not in the list still refused
+      AFTER  (v1.28.1): REFUSED: the act phase 'roots' is not one of step zero | component 1 | component 2 | component 3 | component 4 | pre-ro -> HOLDS
+      AS WANTED
+
+  free 4108 MB at 2026-11-08T23:29:34Z, the hold 2560 MET
+### (branch) (R358)(3)(iv), b748 defect (k): THE PUSH BRANCH MADE BY THE ONE-CALL TOOL UNDER THE WRITE MARK (b747 made push-b747-preroot, -record, -closing by plain git)
+  (branch) write_route(<scratch repository>, branch, push-b999-preroot) and the branch list after
+      BEFORE (v1.28.0): REFUSED: the write 'branch' is not one of add | restore | delete ; branch made NO -> FAILS
+      AFTER  (v1.28.1): WRITTEN ; branch made YES -> PASSES
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: the write mark released after the branch
+      AFTER  (v1.28.1): mark ABSENT -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: branch_refusal(b999, main): refused
+      AFTER  (v1.28.1): NOT THE ACT`S PUSH BRANCH: 'main' -- the branch write makes push-b999-<preroot|record|closing> alone -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: branch_refusal(b999, push-b747-record): refused
+      AFTER  (v1.28.1): NOT THE ACT`S PUSH BRANCH: 'push-b747-record' -- the branch write makes push-b999-<preroot|record|closing> alone -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: branch_refusal(b999, push-b999-x): refused
+      AFTER  (v1.28.1): NOT THE ACT`S PUSH BRANCH: 'push-b999-x' -- the branch write makes push-b999-<preroot|record|closing> alone -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: branch_refusal(b999, push-b999-record): accepted
+      AFTER  (v1.28.1): ACCEPTED -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: branch_refusal(b999, push-b999-closing): accepted
+      AFTER  (v1.28.1): ACCEPTED -> HOLDS
+      AS WANTED
+  (branch) GUARD, NO FAILING SIDE: two branches in one call refused
+      AFTER  (v1.28.1): REFUSED: ONE BRANCH PER CALL -> HOLDS
+      AS WANTED
+
+  free 4120 MB at 2026-11-08T23:29:34Z, the hold 2560 MET
+### (rows) (R358)(3)(iv), b748 defect (k): A STEP-ROWS COMMIT THROUGH THE TOOL CARRIES ITS ROWS AND WRITES NONE, SO THE STEP BANK IS CLEAN BEFORE THE PUSH
+  (rows) GUARD, NO FAILING SIDE: b747`s step-rows commits read (the control: the instances found, not none)
+      AFTER  (v1.28.1): d784fd66 15746802 7d34b587 -> HOLDS
+      AS WANTED
+  (rows) d784fd66 "b747 pre-root: the step rows for PLACE-papers bd17059 and relay af091b", staged data/b747_address_scan_postlock.txt, data/b747_steps.json
+      BEFORE (v1.28.0): rows_only UNDEFINED ; a row written after the commit (record_row always called), the step bank dirty before the push -> FAILS
+      AFTER  (v1.28.1): rows_only True ; the words against the rows` composition EQUAL -> PASSES
+      AS WANTED
+  (rows) 15746802 "b747 record: the step rows for relay 66915db5, PLACE-papers ea29289 an", staged data/b747_address_scan_postlock.txt, data/b747_steps.json
+      BEFORE (v1.28.0): rows_only UNDEFINED ; a row written after the commit (record_row always called), the step bank dirty before the push -> FAILS
+      AFTER  (v1.28.1): rows_only True ; the words against the rows` composition EQUAL -> PASSES
+      AS WANTED
+  (rows) 7d34b587 "b747 closing: the step row for relay bc1feeb5", staged data/b747_address_scan_postlock.txt, data/b747_steps.json
+      BEFORE (v1.28.0): rows_only UNDEFINED ; a row written after the commit (record_row always called), the step bank dirty before the push -> FAILS
+      AFTER  (v1.28.1): rows_only True ; the words against the rows` composition EQUAL -> PASSES
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: the pre-root commit af091b12`s set (the scores and the step bank) is not a step-rows commit
+      AFTER  (v1.28.1): rows_only False -> HOLDS
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: the scan bank alone is not a step-rows commit
+      AFTER  (v1.28.1): rows_only False -> HOLDS
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: another act`s step bank is not this act`s
+      AFTER  (v1.28.1): rows_only False -> HOLDS
+      AS WANTED
+
+  free 4116 MB at 2026-11-08T23:29:36Z, the hold 2560 MET
+### (version) (R358)(3)(iv): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.28.0): v1.28.0 -> FAILS
+      AFTER  (v1.28.1): v1.28.1 -> PASSES
+      AS WANTED
+
+### per repair: (root) 3 of 3 ; (branch) 8 of 8 ; (rows) 7 of 7 ; (version) 1 of 1
+### ### **v1.28.1: CONTROLS (root), (branch), (rows), (version) ; CASES 19 ; AS WANTED 19 ; ALL AS WANTED.**
