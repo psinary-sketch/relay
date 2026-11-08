@@ -38,6 +38,17 @@ def ceiling(scores, tracked_at_lock, act, modified=()):
     return len(v) - len(lost), len(v), 'at most %d of %d (%s REFUTED, by the banks at prompt time)' % (len(v) - len(lost), len(v), ', '.join(lost) or 'none')
 
 
+def ceiling_at_lock(scores, act, data=None, modified=()):
+    """v1.26.0, (R356)(3)(ii): the ceiling with its lock read by the one reader (tools/standing/lockdate.py, the lock row's commit), not given by
+    hand; returns (held, of, line, the lock commit)."""
+    import lockdate as LD
+    lc = LD.lock_of(act, data)
+    if lc is None:
+        raise SystemExit('### THE CEILING NOT COMPUTED: no lock row in data/%s_steps.json' % act)
+    h, of, line = ceiling(scores, LD.tracked_at(lc, prefix='data/%s_' % act), act, modified)
+    return h, of, line + ' ; the lock %s by the one reader' % lc[:8], lc
+
+
 def _cites(rows):
     for row in rows:
         for part in row:

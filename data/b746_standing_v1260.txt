@@ -1,0 +1,117 @@
+b746 -- THE CONTROLS OF tools/standing/ v1.26.0, (R356)(3)(i)-(viii): THE LOCK BLOCK IN THE LOCK COMMIT, THE ONE READER OF THE LOCK DATE, THE ROW FOR EVERY ACT COMMIT, THE MEMBRANE`S LINE FROM THE WORKING TREE, THE RETRIED AND THE CACHED REMOTE READ, G-README-CURRENCY`S REASON, THE REPEAT REFUSALS, THE VERSION (2026-11-08T02:14:37Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2634 lines
+  citation render          OK    536 lines
+  closing render           OK    620 lines
+  record render            OK    4567 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    152 lines
+  tools/b746_worklist.py   OK    427 lines
+### THE COMPILE CONTROL : b746 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from 946cc80a
+
+  free 3911 MB at 2026-11-08T02:14:37Z, the hold 2560 MET
+### (lock) (R356)(3)(i), b745 events (1), N4: THE LOCK BLOCK WRITTEN AFTER THE LOCK -- reg_seal.py --lock inside the lock tool
+  (lock) b745`s sequence replayed: the face b745_registration_2026-11-07.txt as it stood in the lock commit af0330bb (no lock block; reg_seal --lock ran after, its block first committed in 2959bc55)
+      BEFORE (v1.25.0): commit.py at 946cc80a reads no face (lock_check ABSENT): the lock commit made without the block -> FAILS
+      AFTER  (v1.26.0): lock_check: REFUSED (THE LOCK BLOCK IS NOT IN THE LOCK COMMIT: (1) the face b745_registration_2026-11-07.txt carries the lock block in the commit: ### NO (2) the digest of) -> PASSES
+      AS WANTED
+  (lock) GUARD, NO FAILING SIDE: b744`s sequence replayed: the face b744_registration_2026-11-06.txt in its lock commit ae688949, the block in the commit
+      AFTER  (v1.26.0): lock_check: ACCEPTED ((1) the face b744_registration_2026-11-06.txt carries the lock block in the commit: YES ; (2) the digest of the bytes above it 3e3788b52116e27e against the gate record`s face_sha 3e3788b52116e27e: EQUAL) -> HOLDS
+      AS WANTED
+  (lock) GUARD, NO FAILING SIDE: the lock phase of run() calls lock_face (reg_seal --lock, the add, the staged blob through lock_check) before the commit
+      AFTER  (v1.26.0): lock_runner in preflight True ; lock_face in run True -> HOLDS
+      AS WANTED
+
+  free 3917 MB at 2026-11-08T02:14:37Z, the hold 2560 MET
+### (lockdate) (R356)(3)(ii): THE TWO READERS OF ONE DATE -- one reader, the lock row`s commit in data/<act>_steps.json
+  (lockdate) b745`s two readings replayed: N4 by the face`s block (locked at 2026-11-07T21:40:20Z) and the ceiling by hand
+      BEFORE (v1.25.0): N4 2959bc55 ; the ceiling af0330bb -> FAILS
+      AFTER  (v1.26.0): N4 and the ceiling both by lockdate.lock_commit: af0330bb -> PASSES
+      AS WANTED
+  (lockdate) GUARD, NO FAILING SIDE: both readers call the one: the act module`s _post_lock_edits and rootprompt.ceiling_at_lock
+      AFTER  (v1.26.0): LD.lock_of in the act module True ; in rootprompt True ; the face`s `locked at` read by N4 False -> HOLDS
+      AS WANTED
+  (lockdate) GUARD, NO FAILING SIDE: two lock rows in one step bank
+      AFTER  (v1.26.0): REFUSED (TWO LOCK ROWS STAND in the step bank: ['aaaaaaaa', 'bbbbbbbb']) -> HOLDS
+      AS WANTED
+
+  free 3915 MB at 2026-11-08T02:14:37Z, the hold 2560 MET
+### (rows) (R356)(3)(iii), b745 events (2), REPEAT b744 (4): THE ROW IN THE COMMIT`S CALL FOR EVERY ACT COMMIT
+  (rows) relay eaca4c35 replayed through the commit tool ("b745 step zero: b744's closing push capture (data/b744_relay_push-b744-closing_p")
+      BEFORE (v1.25.0): commit.py at 946cc80a: REFUSED (the phase 'step zero' is not one of gate | lock | seal | repair) -- the commit made by hand, its row written after the lock -> FAILS
+      AFTER  (v1.26.0): "b745 step zero: b744's closing push capture (data/b744_relay_push-b744" ; row relay step zero eaca4c35 (exit 0) in the same call -> PASSES
+      AS WANTED
+  (rows) relay e9c339ed replayed through the commit tool ("b745 step zero: data/act_current.json for b745 under (R355), committed alone bef")
+      BEFORE (v1.25.0): commit.py at 946cc80a: REFUSED (the phase 'step zero' is not one of gate | lock | seal | repair) -- the commit made by hand, its row written after the lock -> FAILS
+      AFTER  (v1.26.0): "b745 step zero: data/act_current.json for b745 under (R355), committed" ; row relay step zero e9c339ed (exit 0) in the same call -> PASSES
+      AS WANTED
+  (rows) GUARD, NO FAILING SIDE: an act commit with no words
+      AFTER  (v1.26.0): REFUSED (THE ACT COMMIT NAMES NOTHING: the words after "b746 component 1:" name what the ) -> HOLDS
+      AS WANTED
+
+  free 3923 MB at 2026-11-08T02:14:38Z, the hold 2560 MET
+### (membrane) (R356)(3)(iv), b745 events (5)-(6): THE MEMBRANE`S "NOTHING WRITTEN" THAT WROTE ONE FILE
+  (membrane) b745`s stray replayed: data/b745_chain_half_nsm1_--quiet.json planted untracked in a test tree, the bank name `--quiet` refused
+      BEFORE (v1.25.0): "...) AND --quiet IS A BANK THE ROOT NAMES -- NOTHING WRITTEN" with the stray standing -- NOTHING WRITTEN asserted -> FAILS
+      AFTER  (v1.26.0): "quiet IS A BANK THE ROOT NAMES -- THE BANK NOT WRITTEN; THE ROUTE WROTE 1 STRAY(S) BEFORE THE REFUSAL: data/b745_chain_half_nsm1_--quiet.json DELETED BY ITS ABSOLUTE PATH" ; the stray now GONE -> PASSES
+      AS WANTED
+  (membrane) GUARD, NO FAILING SIDE: the same refusal with no stray
+      AFTER  (v1.26.0): "et IS A BANK THE ROOT NAMES -- NOTHING WRITTEN (the working tree read: no stray)" -> HOLDS
+      AS WANTED
+  (membrane) GUARD, NO FAILING SIDE: an untracked file carrying the name but written before the route began (an hour old)
+      AFTER  (v1.26.0): the file STANDING, not taken for a stray -> HOLDS
+      AS WANTED
+
+  free 3913 MB at 2026-11-08T02:14:38Z, the hold 2560 MET
+### (lsr) (R356)(3)(v), b745 events (8): THE REMOTE READ RETRIED AND THE CACHED PASS
+  (lsr) relay data/b745_lsr_postpush_standing-a2_attempt1.json (the run of record): SIDE-simplicity 2 calls in one read
+      BEFORE (v1.25.0): lsr_ok: False -- G-LSREMOTE-ONE-PER-REPO failed on a retry -> FAILS
+      AFTER  (v1.26.0): verdict PASS ; RETRIED D:/SIDE-simplicity: the two timings not recorded; the read`s total 32.06 s (an event) -> PASSES
+      AS WANTED
+  (lsr) relay data/b745_lsr_postpush_standing-a2.json (the re-run): 22 repositories, every one from the run cache
+      BEFORE (v1.25.0): the arm read PASS -- a PASS on no read -> FAILS
+      AFTER  (v1.26.0): verdict CACHED ; CACHED: every one of 22 repositories read from the run cache, no ls-remote call -- VACUOUS, NO PASS -> PASSES
+      AS WANTED
+  (lsr) GUARD, NO FAILING SIDE: three calls on one repository (the arm`s plant)
+      AFTER  (v1.26.0): verdict FAIL ; ['OVER D:/X: 3 calls'] -> HOLDS
+      AS WANTED
+  (lsr) GUARD, NO FAILING SIDE: a retry with its two timings recorded (b616_claims.ATTEMPTS through remotecache.wrap)
+      AFTER  (v1.26.0): verdict PASS ; ['RETRIED D:/X: the two timings 6.50 s and 2.50 s (an event)'] -> HOLDS
+      AS WANTED
+  (lsr) GUARD, NO FAILING SIDE: the suite`s arm and table read lsrread (the predicate, the CACHED verdict counted vacuous, the bank`s class)
+      AFTER  (v1.26.0): LSRD.ok True ; cached -> vac True ; classed in the bank True -> HOLDS
+      AS WANTED
+
+  free 3914 MB at 2026-11-08T02:14:38Z, the hold 2560 MET
+### (readme) (R356)(3)(vi): G-README-CURRENCY`S REASON PRINTED FROM ITS BANK; THE README LINE CARRIED TO A SITTING ON THE AUTHOR`S NUMBER
+  relay data/b745_standing_figures.txt :58: ### ### **FIGURES AT b745: CORRESPONDENCE 1 ; README 1 ; PARTNERS 0 (ONE COPY 20 OF 20 TABLES) ; PINS 0 -- AGAINST b744`S 1, 0, 0, 0 ; THE ROSTER b706`S, 20 TABLES.**
+  PLACE-papers README.md :164 at HEAD: **Deposit note (`day1/`).** Citable deposits: the monograph at manuscript **v5.10.2** / Zenodo **v1.1.2** ([10.5281/zenodo.21539167](https://doi.org/10.5281/zenodo.21539167); concept [10.5281/zenodo.1
+  (readme) GUARD, NO FAILING SIDE: the reason: README 1 against b744`s 0 at :58; the line it names cites v0.37 where the tag is v0.38; brought current by no hand of this act
+      AFTER  (v1.26.0): README 1 at :58 True ; v0.37 on :164 True -> HOLDS
+      AS WANTED
+
+  free 3915 MB at 2026-11-08T02:14:38Z, the hold 2560 MET
+### (repeat) (R356)(3)(vii): THE HOOK`S REFUSALS, REPEAT, THE INSTANCES PRINTED
+  relay data/b746_hook_refusals.txt: 7 refusal(s) by the hook at b746 so far: ENV 1, PIPE 2, READ 1, REDIR 2, SED 1
+  (repeat) GUARD, NO FAILING SIDE: a Bash command of the refused kind PIPE (an instance this act repeated)
+      AFTER  (v1.26.0): judged PIPE -> HOLDS
+      AS WANTED
+  (repeat) GUARD, NO FAILING SIDE: a Bash command of the refused kind REDIR (an instance this act repeated)
+      AFTER  (v1.26.0): judged REDIR -> HOLDS
+      AS WANTED
+
+  free 3915 MB at 2026-11-08T02:14:38Z, the hold 2560 MET
+### (version) (R356)(3)(viii): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.25.0): v1.25.0 -> FAILS
+      AFTER  (v1.26.0): v1.26.0 -> PASSES
+      AS WANTED
+
+### ### **v1.26.0: CONTROLS (lock), (lockdate), (rows), (membrane), (lsr), (readme), (repeat), (version) ; CASES 21 ; AS WANTED 21 ; ALL AS WANTED.**

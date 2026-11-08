@@ -18,8 +18,13 @@ restored, the settings file's sha256 now equal to the value the events bank name
 tools/acts/<act>.py and to the lines the events name (":<n>" in the events rows). The head "<act> repair:" (the author's at b743, events (9)),
 the seat's words after it naming the edits; the row written as phase `repair`. N4 reads such a commit as a post-lock edit and scores REFUTED.
 
+v1.26.0, (R356)(3)(i), (iii), b745 events (1), N4: the lock phase runs reg_seal.py --lock on the face its gate record names, adds the face and
+reads the staged blob back (lock_face, lock_check): the lock block stands in the lock commit or nothing is committed. The act phases (ACT_PHASES:
+step zero, component N, pre-root, record, closing) take the seat's words; the subject "<act> <phase>: <words>", the row in the same call.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
+  python -X utf8 -u tools/standing/commit.py <relay|pp> "component 1" <the words>
 """
 import json
 import os
@@ -36,6 +41,8 @@ RECORD = {'seal': '%s_seal_hashes.json', 'lock': '%s_lockgate.json'}
 SETTINGS = 'D:/.claude/settings.json'   # ### the seat's project settings carrying the hook (b743 events (4): its sha256 read before and after each lift)
 if S not in sys.path:
     sys.path.insert(0, S)
+if T not in sys.path:
+    sys.path.append(T)   # ### v1.26.0: reg_seal.py for lock_check
 
 import subjects as SJ   # noqa: E402
 
@@ -94,6 +101,66 @@ def repair_check(act, words, rows, events, settings_now, names, old_lines):
     return '%s repair: %s' % (act, words.strip()), conds
 
 
+def lock_check(face_text, rec):
+    """v1.26.0, (R356)(3)(i), b745 events (1), N4: THE LOCK BLOCK IN THE LOCK COMMIT. Pure in its arguments -- the face's text as it stands in
+    the commit (the staged blob, or a commit's blob in the controls) and the lock gate's record. The face must carry reg_seal's lock block, and
+    the digest of the bytes above it must equal the record's face_sha. Returns the condition lines or raises Refused."""
+    import reg_seal as RS
+    t = (face_text or '').replace('\r\n', '\n')
+    body, banked = RS.split_body(t)
+    has = RS.LOCKMARK in t and banked is not None
+    dig = RS.digest(body)
+    eq = has and dig == (rec or {}).get('face_sha') and banked == dig
+    conds = ['  (1) the face %s carries the lock block in the commit: %s' % ((rec or {}).get('face'), 'YES' if has else '### NO'),
+             '  (2) the digest of the bytes above it %s against the gate record`s face_sha %s: %s' % (dig[:16], str((rec or {}).get('face_sha'))[:16],
+                                                                                                 'EQUAL' if eq else '### NOT EQUAL')]
+    if not (has and eq):
+        raise Refused('THE LOCK BLOCK IS NOT IN THE LOCK COMMIT: %s' % ' '.join(c.strip() for c in conds if '###' in c))
+    return conds
+
+
+def lock_face(repo, act, read, data, run_seal=True):
+    """v1.26.0, (R356)(3)(i): inside the lock tool, between the gate and the lock commit -- reg_seal.py --lock on the face the gate record names,
+    where the face carries no lock block yet, the face added to the index, and the staged blob read back through lock_check."""
+    rec = read('%s_lockgate.json' % act) or {}
+    face = rec.get('face')
+    if not face:
+        raise Refused('THE GATE RECORD NAMES NO FACE: data/%s_lockgate.json' % act)
+    p = os.path.join(data, face)
+    with open(p, encoding='utf-8') as f:
+        has = (f.read().find('THE REGISTRATION LOCK') >= 0)
+    if not has and run_seal:
+        r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'reg_seal.py'), '--lock', p], capture_output=True, text=True,
+                           encoding='utf-8', errors='replace')
+        print((r.stdout + r.stderr).rstrip())
+        if r.returncode != 0:
+            raise Refused('reg_seal.py --lock exit %d on data/%s: the face is not locked' % (r.returncode, face))
+    rel = os.path.relpath(p, repo).replace(os.sep, '/')
+    a = _git(repo, 'add', '--', rel)
+    if a.returncode != 0:
+        raise Refused('git add of data/%s exit %d' % (face, a.returncode))
+    blob = _git(repo, 'show', ':' + rel).stdout
+    conds = lock_check(blob, rec)
+    print('\n'.join(['  THE LOCK BLOCK IN THE LOCK COMMIT ((R356)(3)(i)):'] + conds))
+    return conds
+
+
+ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pre-root', 'record', 'closing')
+
+
+def act_check(act, phase, words):
+    """v1.26.0, (R356)(3)(iii), b745 events: every act commit through the tool, its row in the same call. The subject is "<act> <phase>: <words>"
+    with words given; the phase one of ACT_PHASES."""
+    if phase not in ACT_PHASES:
+        raise Refused('the act phase %r is not one of %s' % (phase, ' | '.join(ACT_PHASES)))
+    w = (words or '').strip()
+    if not w:
+        raise Refused('THE ACT COMMIT NAMES NOTHING: the words after "%s %s:" name what the commit carries' % (act, phase))
+    if w.startswith('%s ' % act):
+        raise Refused('THE WORDS REPEAT THE HEAD: give the words after "%s %s:" only' % (act, phase))
+    return '%s %s: %s' % (act, phase, w)
+
+
 def staged_lines(repo):
     """(names, the HEAD-side line numbers the staged diff touches), from `git diff --cached -U0`."""
     import re
@@ -113,10 +180,15 @@ def settings_sha():
         return None
 
 
-def preflight(act, phase, words, repo, rows, read):
+def preflight(act, phase, words, repo, rows, read, lock_runner=None):
     """the subject, or Refused before anything is written: the phase, the record it names, the step bank's lock row, the subject's check, the index."""
+    if phase in ACT_PHASES:   # ### v1.26.0, (R356)(3)(iii)
+        subj = act_check(act, phase, words)
+        if _git(repo, 'diff', '--cached', '--quiet').returncode == 0:
+            raise Refused('nothing staged in %s (the add is its own message)' % repo)
+        return subj
     if phase not in PHASES:
-        raise Refused('the phase %r is not one of %s' % (phase, ' | '.join(PHASES)))
+        raise Refused('the phase %r is not one of %s' % (phase, ' | '.join(PHASES + ACT_PHASES)))
     if phase == 'repair':   # ### v1.24.0, (R354)(2)(ii)
         if os.path.abspath(repo) != os.path.abspath(RELAY):
             raise Refused('the repair phase is the relay`s alone (the act module)')
@@ -136,6 +208,8 @@ def preflight(act, phase, words, repo, rows, read):
     bad = SJ.check(act, phase, subj, read)
     if bad:
         raise Refused('the composed subject faults: %s' % '; '.join(bad))
+    if phase == 'lock' and lock_runner is not None:   # ### v1.26.0, (R356)(3)(i): the lock block written and staged inside the tool
+        lock_runner()
     if _git(repo, 'diff', '--cached', '--quiet').returncode == 0:
         raise Refused('nothing staged in %s (the add is its own message)' % repo)
     return subj
@@ -166,7 +240,8 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
     repo = REPOS[key] if key in REPOS else key
     read = reader(data)
     rows = (read('%s_steps.json' % act) or {}).get('rows') or []
-    subj = preflight(act, phase, words, repo, rows, read)
+    lr = (lambda: lock_face(repo, act, read, data)) if (phase == 'lock' and key == 'relay') else None
+    subj = preflight(act, phase, words, repo, rows, read, lock_runner=lr)
     full, back = commit(repo, subj)
     rc, out = (row_writer or record_row)(key, phase, full)
     done = dict(act=act, repo=key, phase=phase, commit=full, subject=subj, read_back=back, equal=back == subj, row_exit=rc, row=out,

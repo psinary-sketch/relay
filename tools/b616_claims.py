@@ -480,11 +480,19 @@ def remote_refs(path):
     """### one `git ls-remote origin` per repository per run, its refs reused across arms; a failed read is retried once alone, and a
     ### read that fails twice is kept as failed for the run: {ref: sha}"""
     if path not in _REMOTE:
+        import time as _t
+        t0 = _t.time()
         out = g(path, 'ls-remote', 'origin')
         if 'refs/heads/' not in out:
+            t1 = _t.time()
             out = g(path, 'ls-remote', 'origin')
+            ATTEMPTS[path] = [round(t1 - t0, 2), round(_t.time() - t1, 2)]   # ### v1.26.0, (R356)(3)(v): the retry's two timings
         _REMOTE[path] = dict((l.split('\t')[1].strip(), l.split('\t')[0].strip()) for l in out.split(NL) if '\t' in l)
     return _REMOTE[path]
+
+
+ATTEMPTS = {}   # ### v1.26.0, (R356)(3)(v): {path: [first secs, second secs]} for each retried read, read by tools/standing/remotecache.py wrap
+remote_refs.attempts = ATTEMPTS
 
 
 def pin_state(key):

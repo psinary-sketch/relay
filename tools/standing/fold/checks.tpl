@@ -148,6 +148,7 @@ RC_MODE = 'prev' if PREV else 'probe' if PROBE else 'prerun' if PRERUN else 'mid
 RC_KEY = RCACHE.run_key(ACTN, RC_MODE, (ROOT.replace('\\', '/'), PP, EF))
 RC_LOG = {}
 KC0.remote_refs = RCACHE.wrap(KC0.remote_refs, RC_KEY, RC_LOG)
+from standing import lsrread as LSRD   # noqa: E402  ### v1.26.0, (⟪RUL⟫)(3)(v): RETRIED an event with its two timings, CACHED no pass
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((⟪RUL⟫)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
@@ -1841,8 +1842,8 @@ ARMS_ALL = [
      lambda S: put(S, 'suite', '')),
     ('G-CLOSING-SENTENCE', 'tools/⟪ACT⟫_closing.py: the closing sentence in the rule`s words with the plain reads named; the citation check, the record lines, the dry run, the corrigendum, the derivation, the controls` ripe work, the two reads, the toolset at v1.2.0, the federation pin, the records, the touch read, the standing arms, the kernels, the author`s word from its bank, the mirror, the carry`s diffs',
      lambda S: closing_sentence_ok(S), lambda S: put(S, 'closing_src', S['closing_src'].replace('no identifier of the author ' + 'in any', 'x').replace('FF.outbound_clause(', 'x'))),
-    ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703); v1.22.0: a repository read from the suite run`s cache counts as read, with no call',
-     lambda S: lsr_ok(S) if (S['lsr'] is not None or KC0.LSR or not RC_LOG) else all(v_.get('reads', 0) <= 1 for v_ in RC_LOG.values()), lambda S: put(S, 'lsr', {PP: 2})),
+    ('G-LSREMOTE-ONE-PER-REPO', 'the part`s ls-remote calls per repository, read after every other arm of the part has run (OPEN_TRAILS :12703); v1.22.0: a repository read from the suite run`s cache counts as read, with no call; v1.26.0, (⟪RUL⟫)(3)(v): a retried read (two calls in one read) passes as an EVENT with its two timings, and a part read wholly from the cache is CACHED: VACUOUS, counted as no pass (tools/standing/lsrread.py)',
+     lambda S: LSRD.ok(S['lsr'] if S['lsr'] is not None else dict(KC0.LSR), RC_LOG), lambda S: put(S, 'lsr', {PP: 3})),
     ('G-CORRESPONDENCE-CURRENCY', 'every roster paper`s Correspondence rows by tools/b706_standing_figures.py (b703`s reading over b706`s roster at the unversioned names) against the kernel`s current tag and the statement at the cited tag: the changed-statement rows no more than ⟪PREV⟫`s figure',
      lambda S: fig_ok(S, 'correspondence'), lambda S: _raise_fig(S, 'correspondence')),
     ('G-README-CURRENCY', 'the PLACE-papers README`s currency rows against ls-remote by tools/b705_standing_figures.py through b706`s (the dated appends and the deposited versions excluded by their text): the stale lines no more than ⟪PREV⟫`s figure',
@@ -2267,10 +2268,12 @@ def main():
         if neg != live:
             negfail += 1
         vac = STC.plant_vacuous(S, m, posv)   # ### v1.8.0, (⟪RUL⟫)(2)(ii): the plant mutated nothing: neither a pass nor a failure of the arm
+        cached = name == 'G-LSREMOTE-ONE-PER-REPO' and LSRD.verdict(S['lsr'] if S['lsr'] is not None else dict(KC0.LSR), RC_LOG)[0] == 'CACHED'
+        vac = vac or cached   # ### v1.26.0, (⟪RUL⟫)(3)(v): a part read wholly from the run cache: CACHED, counted as no pass
         defective.append(name) if (posv and not vac) else None
         EX[name] = dict(live=live, neg=neg, pos=posv and not vac, vacuous=vac, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])
         rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'VAC' if vac else 'PASS' if posv else 'FAIL', SECS[name],
-                                                 'WITHHELD, NOT EXERCISABLE' if name in W else 'VACUOUS: THE PLANT MUTATED NOTHING' if vac else
+                                                 'WITHHELD, NOT EXERCISABLE' if name in W else 'CACHED: EVERY REMOTE FROM THE RUN CACHE, VACUOUS, NO PASS' if cached else 'VACUOUS: THE PLANT MUTATED NOTHING' if vac else
                                                  'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else
                                                                                            '### FAILS -- THE CARRIED FAILURE DECLARED ON THE FACE' if name in CARRIED_FAILING else '### FAILS')))
     if not arms:
@@ -2286,6 +2289,8 @@ def main():
     rcs = RCACHE.summary(RC_LOG)
     rec('  ### v1.22.0, (⟪RUL⟫)(2)(ii): THE REMOTE READS OF THIS SUITE RUN (key %s): repositories %d ; read by this part %d ; from the run cache %d ; the reads` seconds %.1f ; the slowest %s %.2f s' % (
         RC_KEY, rcs[0], rcs[1], rcs[2], rcs[3], rcs[4][0], rcs[4][1]))
+    lsv = LSRD.verdict(lsr, RC_LOG)   # ### v1.26.0, (⟪RUL⟫)(3)(v)
+    rec('  ### v1.26.0, (⟪RUL⟫)(3)(v): THE REMOTE READS CLASSED: %s ; %s' % (lsv[0], ' ; '.join(lsv[1]) or 'no retry'))
     if regen:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d %s' % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),
@@ -2307,7 +2312,7 @@ def main():
     rec('=' * 104)
     out = _write(_part_name(base, PART), L)
     lp = os.path.join(D, _part_name(base, PART).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json'))
-    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG, classed=lsv[0], events=lsv[1]), indent=1, ensure_ascii=False) + NL).encode('utf-8')
     _membrane(lp)
     with open(lp + '.tmp', 'wb') as fh:
         fh.write(lb)

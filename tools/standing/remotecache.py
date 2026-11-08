@@ -85,6 +85,9 @@ def wrap(reader, key, log):
         refs = reader(path)
         dt = round(time.time() - t0, 2)
         log[path] = dict(reads=1, secs=dt, cached=False, at=_utc())
+        att = (getattr(reader, 'attempts', None) or {}).get(path)   # ### v1.26.0, (R356)(3)(v): a retried read's two timings
+        if att:
+            log[path]['attempts'] = list(att)
         memo[path] = refs
         if any(k.startswith('refs/heads/') for k in refs):
             c = _load(key)

@@ -1418,21 +1418,18 @@ N4_APPENDED = STANDING_ACT.post_lock_appended(ACT)
 
 
 def _post_lock_edits():
-    """the lock's time from the face (its `locked at (UTC)` line), the lock commit (the first relay commit at or after it, carrying the face),
-    the relay commits after that one, and among the files they touch, and the working tree's changes, those that are the face, under tools/, or
+    """the lock commit by the one reader (the step bank's lock row) and its commit time, the relay commits after that one, and among the files they touch, and the working tree's changes, those that are the face, under tools/, or
     an act bank tracked at the lock commit -- less N4_APPENDED."""
-    face = rd(FACE) or ''
-    m = re.search(r'locked at \(UTC\) : (\S+)', face)
-    lock = _iso_epoch(m.group(1)) if m else None
-    out = dict(lock=lock, lock_iso=m.group(1) if m else None, lock_commit=None, after=[], edited=[], dirty=[])
-    if lock is None:
+    # ### v1.26.0, (R356)(3)(ii): the lock commit by the one reader (tools/standing/lockdate.py, the lock row of data/<act>_steps.json), the
+    # ### same reader the ceiling takes; the face's `locked at (UTC)` line no longer dates it
+    import lockdate as LD
+    lc = LD.lock_of(ACT, os.path.join(ROOT, 'data'))
+    lock = LD.lock_epoch(lc, ROOT) if lc else None
+    out = dict(lock=lock, lock_iso=None, lock_commit=lc, after=[], edited=[], dirty=[])
+    if lc is None or lock is None:
         return out
     rows = [l.split(' ', 1) for l in g(ROOT, 'log', '--reverse', '--format=%H %ct', '%s..HEAD' % K.PRE_RELAY).split(NL) if l.strip()]
     face_rel = os.path.relpath(FACE, ROOT).replace(os.sep, '/')
-    lc = next((h for h, ct in rows if int(ct) >= lock and face_rel in g(ROOT, 'show', '--name-only', '--format=', h).split()), None)
-    out['lock_commit'] = lc
-    if lc is None:
-        return out
     tracked = set(x for x in g(ROOT, 'ls-tree', '-r', '--name-only', lc).split(NL) if x.strip())
     guard = lambda p: p not in N4_APPENDED and (p == face_rel or p.startswith('tools/') or (p.startswith('data/%s_' % ACT) and p in tracked))
     hs = [h for h, _ct in rows]
