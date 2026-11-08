@@ -37,9 +37,7 @@ ACT, PREV = '⟪ACT⟫', '⟪PREV⟫'
 R.K, R.ACT, R.PREV, R.SP = K, ACT, PREV, K.SP
 conv = R.conv                      # ### (R262)(2): the one conversion, b652's, through b698's module
 PP, FIND, OT = R.PP, R.FIND, R.OT
-utc, rd, rdn, put_json, put_txt, jl, g, grc, land, _show = R.utc, R.rd, R.rdn, R.put_json, R.put_txt, R.jl, R.g, R.grc, R.land, R._show
-from standing import relaypath as RPATH   # noqa: E402  ### v1.27.0, (⟪RUL⟫)(3)(vii): the readers take a relay path once and refuse a path
-rd, rdn = RPATH.rd, RPATH.rdn            # ### resolving to no file, printing it; a read that may find none says optional=True at its call
+utc, rd, rdn, put_json, put_txt, jl, g, grc, land, _show = R.utc, R.rd, R.rdn, R.put_json, R.put_txt, R.jl, R.g, R.grc, R.land, R._show; from standing import relaypath as RPATH; rd, rdn = RPATH.rd, RPATH.rdn   # noqa: E402,E702  ### v1.27.0, (⟪RUL⟫)(3)(vii): the readers take a path once and refuse one resolving to no file (optional=True at a call that may find none); on line 40, the line count kept for the line-keyed overrides before b735
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 
 # ================================================================================ THE IMPORT-TIME CONSTANTS, REBOUND (b699's traps 2 and 4)
