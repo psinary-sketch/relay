@@ -22,9 +22,25 @@ v1.26.0, (R356)(3)(i), (iii), b745 events (1), N4: the lock phase runs reg_seal.
 reads the staged blob back (lock_face, lock_check): the lock block stands in the lock commit or nothing is committed. The act phases (ACT_PHASES:
 step zero, component N, pre-root, record, closing) take the seat's words; the subject "<act> <phase>: <words>", the row in the same call.
 
+v1.28.0, (R358)(3)(ii), (iii), (iv), (v), (vii), (viii), b747 defects (b), (d)-(f), (k), (n), (r), (v), (z), (a'):
+  (iv) EVERY GIT WRITE THROUGH THE ONE-CALL TOOL: `add <paths>`, `restore <path>` and `delete <branch>` beside the commit phases; every write takes
+       the act's write mark (an exclusive file under the relay's .git), and a call made while another write of the act holds it is refused, the
+       open one printed (b747 (k): an add and a commit in one message).
+  (ii) THE SCAN OVER THE STAGED SET BEFORE EVERY COMMIT: the act's tools/<act>_address_scan.py run before the commit, its four counts printed;
+       a count above 0, a control not as wanted, or no foot refuses the commit.
+  (v)  THE CARRY BEFORE THE ACT'S FIRST COMMIT: `step zero` refuses while the act's module, worklist or scan tool is not carried.
+  (iii) NO STANDING CHANGE AT THE GATE: the gate refuses a staged tools/standing/ path (the repair lands with its version before the gate).
+  (vii) THE SATISFIABILITY READ BEFORE THE GATE COMMIT: the gate refuses unless data/audit_<act>_reg_satisfiable.txt reads JOINTLY SATISFIABLE
+       stamped against the face; a contradictory clause is printed by name.
+  (viii) A STANDING REPAIR WITH THE RECORD'S DRY: a commit staging tools/standing/ files refuses unless data/<act>_standing_dry.txt is staged
+       beside them, CLEAN or PENDING, naming each staged standing file at its staged sha256 (tools/standing/standingdry.py).
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
   python -X utf8 -u tools/standing/commit.py <relay|pp> "component 1" <the words>
+  python -X utf8 -u tools/standing/commit.py <relay|pp> add <path> [<path> ...]
+  python -X utf8 -u tools/standing/commit.py <relay|pp> restore <path>
+  python -X utf8 -u tools/standing/commit.py <relay|pp> delete <branch>
 """
 import json
 import os
@@ -62,7 +78,23 @@ def reader(data):
             return None
         with open(p, encoding='utf-8') as f:
             return json.load(f) if name.endswith('.json') else f.read()
+    read.data = data   # ### v1.28.0: the gate's satisfiability read finds the audit and the face beside the banks
     return read
+
+
+def data_dir(read):
+    return getattr(read, 'data', os.path.join(RELAY, 'data'))
+
+
+def face_stamped(act, data):
+    """the satisfiability audit stamped against the act's registration face as it stands (gate_hash.matches), False where either is absent."""
+    import glob
+    import gate_hash as G
+    faces = sorted(glob.glob(os.path.join(data, '%s_registration_*.txt' % act)))
+    audit = os.path.join(data, 'audit_%s_reg_satisfiable.txt' % act)
+    if not faces or not os.path.isfile(audit):
+        return False
+    return G.matches(audit, faces[-1])[0] is True
 
 
 def _hash_matches(banked, now):
@@ -146,6 +178,132 @@ def lock_face(repo, act, read, data, run_seal=True):
 
 
 ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pre-root', 'record', 'closing')
+WRITES = ('add', 'restore', 'delete')
+MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
+
+
+# ================================================================================ v1.28.0 (iv): THE WRITE MARK
+def _alive(pid):
+    """the process `pid` still running (Windows: OpenProcess and its exit code; elsewhere signal 0)."""
+    try:
+        pid = int(pid)
+    except (TypeError, ValueError):
+        return False
+    if os.name == 'nt':
+        import ctypes
+        k = ctypes.windll.kernel32
+        h = k.OpenProcess(0x1000, False, pid)
+        if not h:
+            return False
+        code = ctypes.c_ulong()
+        ok = k.GetExitCodeProcess(h, ctypes.byref(code))
+        k.CloseHandle(h)
+        return bool(ok) and code.value == 259
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
+def mark_refusal(mark, alive):
+    """None, or the refusal, for a write while the mark `mark` (its dict, or None) stands and its holder is `alive`. Pure."""
+    if not mark:
+        return None
+    if alive:
+        return 'ANOTHER WRITE OF THE ACT IS OPEN: %s (pid %s, since %s) -- one git write per message, every write through this tool' % (
+            mark.get('what'), mark.get('pid'), mark.get('at'))
+    return None
+
+
+def open_mark(what, path=MARK):
+    """take the act's write mark, exclusively; a mark whose holder has exited is removed and named; a live one refuses."""
+    for _ in range(2):
+        try:
+            fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            try:
+                with open(path, encoding='utf-8') as f:
+                    m = json.load(f)
+            except (OSError, ValueError):
+                m = dict(what='unreadable mark', pid=None, at='?')
+            bad = mark_refusal(m, _alive(m.get('pid')))
+            if bad:
+                raise Refused(bad)
+            print('  a stale write mark removed: %s (pid %s, exited)' % (m.get('what'), m.get('pid')))
+            os.remove(path)
+            continue
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(dict(what=what, pid=os.getpid(), at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), f)
+        return path
+    raise Refused('THE WRITE MARK COULD NOT BE TAKEN: %s' % path)
+
+
+def close_mark(path=MARK):
+    try:
+        os.remove(path)
+    except OSError:
+        pass
+
+
+# ================================================================================ v1.28.0 (ii), (v), (iii), (vii): THE CHECKS BEFORE A COMMIT
+def scan_counts(text):
+    """(counts dict, controls ok) from the scan's foot, or (None, False) where it carries none. Pure."""
+    import re
+    m = re.search(r'PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ; PLACES (\d+) ; CONTROLS (\d+) OF (\d+) AS WANTED', text or '')
+    if not m:
+        return None, False
+    c = dict(address=int(m.group(1)), name=int(m.group(2)), previous=int(m.group(3)), orcid=int(m.group(4)), places=int(m.group(5)))
+    return c, m.group(6) == m.group(7)
+
+
+def scan_refusal(text, rc):
+    c, ctl = scan_counts(text)
+    if rc != 0 or c is None:
+        return 'THE SCAN DID NOT RUN TO ITS FOOT (exit %d)' % rc
+    if not ctl:
+        return 'THE SCAN`S CONTROLS NOT AS WANTED'
+    if c['address'] or c['name'] or c['previous'] or c['orcid']:
+        return 'THE SCAN FOUND AN OCCURRENCE: address %d, name %d, previous name %d, ORCID %d' % (c['address'], c['name'], c['previous'], c['orcid'])
+    return None
+
+
+def run_scan(act):
+    p = os.path.join(T, '%s_address_scan.py' % act)
+    if not os.path.isfile(p):
+        raise Refused('THE ACT`S SCAN TOOL IS NOT CARRIED: tools/%s_address_scan.py' % act)
+    r = subprocess.run([sys.executable, '-X', 'utf8', '-u', p, 'scan', '--bank'], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=RELAY)
+    out = (r.stdout or '') + (r.stderr or '')
+    bad = scan_refusal(out, r.returncode)
+    foot = [l for l in out.split('\n') if 'PREVIOUS ADDRESS:' in l and '**' in l]
+    print('  THE SCAN OVER THE STAGED SET ((R358)(3)(ii)): %s' % (foot[-1].strip() if foot else '### NO FOOT'))
+    if bad:
+        raise Refused(bad)
+
+
+def carry_check(act, exists):
+    """None, or the refusal, for the act's first commit: its module, worklist and scan tool carried (exists: rel path -> bool). Pure."""
+    need = ('tools/acts/%s.py' % act, 'tools/%s_worklist.py' % act, 'tools/%s_address_scan.py' % act)
+    miss = [n for n in need if not exists(n)]
+    return ('THE CARRY HAS NOT RUN: %s not carried -- the carry runs before the act`s first commit and its scan' % ', '.join(miss)) if miss else None
+
+
+def gate_standing_refusal(staged):
+    std = [n for n in (staged or []) if n.startswith('tools/standing/')]
+    return ('A STANDING CHANGE AT THE GATE: %s staged -- a standing repair lands with its version before the gate' % ', '.join(std[:4])) if std else None
+
+
+def satisfiable_refusal(audit, stamped):
+    """None, or the refusal, from the satisfiability audit's text and whether it is stamped against the face as it stands. Pure."""
+    if not audit:
+        return 'THE SATISFIABILITY READ HAS NOT RUN: data/audit_<act>_reg_satisfiable.txt absent (record gatebanks before the gate commit)'
+    v = [l for l in audit.split('\n') if 'VERDICT' in l]
+    if not v or 'JOINTLY SATISFIABLE' not in v[-1]:
+        bad = [l.strip() for l in audit.split('\n') if 'CONTRADICTORY' in l and 'VERDICT' not in l]
+        return 'NOT SATISFIABLE: %s' % ('; '.join(b[:120] for b in bad[:3]) or (v[-1].strip() if v else 'no verdict'))
+    if not stamped:
+        return 'THE SATISFIABILITY READ IS NOT STAMPED AGAINST THE FACE AS IT STANDS: run record gatebanks again'
+    return None
 
 
 def act_check(act, phase, words):
@@ -184,6 +342,10 @@ def preflight(act, phase, words, repo, rows, read, lock_runner=None):
     """the subject, or Refused before anything is written: the phase, the record it names, the step bank's lock row, the subject's check, the index."""
     if phase in ACT_PHASES:   # ### v1.26.0, (R356)(3)(iii)
         subj = act_check(act, phase, words)
+        if phase == 'step zero':   # ### v1.28.0, (R358)(3)(v)
+            bad = carry_check(act, lambda n: os.path.isfile(os.path.join(RELAY, n)))
+            if bad:
+                raise Refused(bad)
         if _git(repo, 'diff', '--cached', '--quiet').returncode == 0:
             raise Refused('nothing staged in %s (the add is its own message)' % repo)
         return subj
@@ -204,6 +366,10 @@ def preflight(act, phase, words, repo, rows, read, lock_runner=None):
     if (words or '').strip():
         raise Refused('SUBJECT TEXT GIVEN FOR %s: the commit tool composes the %s subject from the banks and takes no words (%r)' % (phase.upper(), phase, words.strip()[:60]))
     staged = [p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p] if phase == 'gate' else None
+    if phase == 'gate':   # ### v1.28.0, (R358)(3)(iii), (vii)
+        bad = gate_standing_refusal(staged) or satisfiable_refusal(read('audit_%s_reg_satisfiable.txt' % act), face_stamped(act, data_dir(read)))
+        if bad:
+            raise Refused(bad)
     subj = SJ.compose(act, phase, '', read, staged=staged)
     bad = SJ.check(act, phase, subj, read)
     if bad:
@@ -232,7 +398,47 @@ def record_row(key, phase, full):
     return r.returncode, (r.stdout + r.stderr).strip()
 
 
-def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None):
+def standing_dry_refusal(repo, act, names):
+    """v1.28.0 (viii): None, or the refusal, for the staged `names` -- tools/standing/ staged with the record's dry over it (standingdry.check)."""
+    import hashlib
+    import standingdry as SD
+    if not any(n.startswith('tools/standing/') for n in names):
+        return None
+    dry_rel = 'data/%s_standing_dry.txt' % act
+    dry = _git(repo, 'show', ':' + dry_rel).stdout if dry_rel in names else ''
+    sha = {}
+    for n in names:
+        if n.startswith('tools/standing/'):
+            b = subprocess.run(['git', '-C', repo, 'show', ':' + n], capture_output=True).stdout
+            sha[n] = hashlib.sha256(b.replace(b'\r\n', b'\n')).hexdigest()
+    return SD.check(names, dry, sha)
+
+
+def write_route(key, verb, args, act=None):
+    """v1.28.0 (iv): an add, a restore or a branch delete, under the act's write mark; Refused where nothing was written."""
+    import act as A
+    act = act or A.current()['act']
+    repo = REPOS[key] if key in REPOS else key
+    if verb not in WRITES:
+        raise Refused('the write %r is not one of %s' % (verb, ' | '.join(WRITES)))
+    if not args:
+        raise Refused('THE %s NAMES NOTHING' % verb.upper())
+    if any(ch in a for a in args for ch in '*?['):
+        raise Refused('A GLOB IN THE %s: name each path (%s)' % (verb.upper(), ' '.join(args)[:80]))
+    if verb in ('restore', 'delete') and len(args) != 1:
+        raise Refused('ONE %s PER CALL' % verb.upper())
+    cmd = {'add': ['add', '--'] + list(args), 'restore': ['checkout', '--', args[0]], 'delete': ['branch', '-d', args[0]]}[verb]
+    mark = open_mark('%s %s in %s: %s' % (act, verb, key, ' '.join(args)[:120]))
+    try:
+        r = _git(repo, *cmd)
+    finally:
+        close_mark(mark)
+    if r.returncode != 0:
+        raise Refused('git %s exit %d: %s' % (' '.join(cmd[:2]), r.returncode, (r.stderr or r.stdout).strip()[:200]))
+    return (r.stdout + r.stderr).strip()
+
+
+def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None, scanner=None):
     """one call: preflight, commit, read back, row. Returns a dict of what was done; Refused where nothing was."""
     import act as A
     act = act or A.current()['act']
@@ -241,8 +447,19 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
     read = reader(data)
     rows = (read('%s_steps.json' % act) or {}).get('rows') or []
     lr = (lambda: lock_face(repo, act, read, data)) if (phase == 'lock' and key == 'relay') else None
-    subj = preflight(act, phase, words, repo, rows, read, lock_runner=lr)
-    full, back = commit(repo, subj)
+    mark = open_mark('%s commit %s in %s' % (act, phase, key)) if row_writer is None else None   # ### v1.28.0 (iv): the act's write mark
+    try:
+        subj = preflight(act, phase, words, repo, rows, read, lock_runner=lr)
+        names = [p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p]
+        bad = standing_dry_refusal(repo, act, names)   # ### v1.28.0 (viii)
+        if bad:
+            raise Refused(bad)
+        if scanner is not False:
+            (scanner or run_scan)(act)   # ### v1.28.0 (ii): the scan over the staged set before the commit
+        full, back = commit(repo, subj)
+    finally:
+        if mark:
+            close_mark(mark)
     rc, out = (row_writer or record_row)(key, phase, full)
     done = dict(act=act, repo=key, phase=phase, commit=full, subject=subj, read_back=back, equal=back == subj, row_exit=rc, row=out,
                 rowed=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
@@ -282,6 +499,14 @@ def excludes():
 def main(argv):
     if len(argv) < 2 or argv[0] not in REPOS:
         sys.exit(__doc__)
+    if argv[1] in WRITES:   # ### v1.28.0 (iv)
+        try:
+            out = write_route(argv[0], argv[1], argv[2:])
+        except Refused as e:
+            import act as A
+            sys.exit('### commit.py REFUSED, NOTHING WRITTEN: %s ### THE CLASS: %s' % (e, repeat_of(str(e), A.current()['act'])))
+        print('  %s %s: %s%s' % (argv[1], argv[0], ' '.join(argv[2:]), ('\n  ' + out) if out else ''))
+        return
     try:
         d = run(argv[0], argv[1], ' '.join(argv[2:]))
     except Refused as e:

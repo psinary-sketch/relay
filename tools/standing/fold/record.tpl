@@ -2446,7 +2446,7 @@ def _n3():
         text, src = _finding_text()[1], 'the composer`s text (no entry landed yet)'
     sents = [s for s in re.split(r'(?<=[.;])\s+', text) if 'Nothing here is a statement' not in s]
 ⟪SLOT 20⟫
-    return ('HELD' if ok else 'REFUTED'), (
+    return __import__('standing.onereader', fromlist=['verdict']).verdict(ok, locals()), (   # ### v1.28.0, (R358)(3)(i): PENDING where only the root prompt is unread
 ⟪SLOT 21⟫
 
 

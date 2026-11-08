@@ -117,7 +117,7 @@ def screens(items, tag, dry):
     sc = R3._scan(p)
     clean = R3._clean(sc)
     ticks = odd_lines(allt)
-    unread = [x for x in ('### NOT', 'None', ' ? ', '`?`') if x in allt]
+    unread = [x for x in ('### NOT', 'None', ' ? ', '`?`') if x in __import__('standing.defectrow', fromlist=['figures_text']).figures_text(allt)]   # ### v1.28.0, (R358)(3)(vi), b747 (x): figures, not a Defects line's row prose
     outside = [n for n in R41.OAI_NEEDLES if n in allt]
     stems = [s for s in ('gap', 'blind') if re.search(r'\b' + s, allt, re.I)]
     print('  table cells: %s ; no-disclosure hits: %s ; scanner %s ; odd backticks by line: %s ; unread figures: %s ; outside names: %s ; '

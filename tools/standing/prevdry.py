@@ -109,7 +109,7 @@ def exercise(act, part, module_text=None, timeout=590):
         got = [l for l in r.stdout.split(NL) if l.startswith('PREVDRY ')]
         out = json.loads(got[-1][8:]) if got else dict(ok=False, part=part, err='no verdict (exit %d): %s' % (r.returncode, (r.stderr or r.stdout).strip()[-300:]), line=None)
     except subprocess.TimeoutExpired:
-        out = dict(ok=False, part=part, err='TIMEOUT after %d s' % timeout, line=None)
+        out = dict(ok=False, part=part, err='TIMEOUT after %d s -- THE %d s GUARD HIT: LETTER IT AS A DEFECT WHEN IT HAPPENS ((R358)(3)(x))' % (timeout, timeout), line=None)
     finally:
         if mp:
             os.remove(mp)

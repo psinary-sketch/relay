@@ -1531,7 +1531,8 @@ def _section2_body():
     ans_ = rdn('%s_author_answers.txt' % ACT)
     pr_ = [l_.split('): ', 1)[1] for l_ in ans_.split(NL) if l_.startswith('### PROMPT ') and '): ' in l_][-1:]
     unb_ = __import__('standing.rootprompt', fromlist=['entry_unbacked']).entry_unbacked(pr_[0], text) if pr_ else None
-    ok = all(o for _n, o in graded) and sp_ and not first_ and not loc_ and integ_ and not nouns_ and unb_ == []
+    ok_rest = all(o for _n, o in graded) and sp_ and not first_ and not loc_ and integ_ and not nouns_   # ### v1.28.0, (R358)(3)(i): every clause but the root prompt's
+    ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
         'each bank`s foot its last line carrying its grade: %s; section 2 at PLACE-papers HEAD present, its bank printing %d cites (%d source lines) for the %s its foot names, each line re-read against its source (Lean at its revision, banks in the relay), not as printed: %s, [S2] %s, a sentence of it claiming a result or a premise discharged outside a negation: %s (relay data/b748_section2.txt): %s; read from %s, a sentence of section 2 or the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or h2 holds, fails or moved outside a negation: %s; the entry`s last line the INTEGRATION line, REGISTRY 1.5c-21 to 1.5c-23 and SPIRAL_MAP`s 2D read: %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (

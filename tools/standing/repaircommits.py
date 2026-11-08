@@ -35,6 +35,38 @@ def outside(version_commit, tip='HEAD'):
     return out
 
 
+def late(commits, gate):
+    """v1.28.0, (R358)(3)(iii), b747 defects (j), (a'): the commits at or after the gate, in order, that touch tools/standing/ -- a standing
+    repair lands with its version before the gate, not between the gate and the lock. Pure: commits [(hash8, subject, touches_standing)] in
+    order, gate the gate commit's hash8 (or None: nothing is late before the gate)."""
+    if not gate:
+        return []
+    hs = [c[0] for c in commits]
+    if gate not in hs:
+        return []
+    return [(h, 'AT OR AFTER THE GATE: ' + s) for h, s, t in commits[hs.index(gate):] if t]
+
+
+def after_gate(act, tip='HEAD'):
+    """late() over the act's step bank (its FIRST gate row: b747 carried six gate commits, f2dd38e0 to 6295b920, and its VERSION moved in the
+    fourth, 88f39b22; read from the last, the move stood before the gate and passed) and the relay's log from the gate commit to `tip`."""
+    import json
+    try:
+        rows = json.load(open(os.path.join(RELAY, 'data', '%s_steps.json' % act), encoding='utf-8')).get('rows') or []
+    except (OSError, ValueError):
+        return []
+    gates = [r for r in rows if r.get('phase') == 'gate' and r.get('repo') == 'relay']
+    if not gates:
+        return []
+    g8 = gates[0]['commit'][:8]
+    commits = []
+    for row in _git('log', '--reverse', '--format=%h %s', '--abbrev=8', '%s^..%s' % (g8, tip)).split('\n'):
+        if row.strip():
+            h, sub = row.split(' ', 1)
+            commits.append((h, sub, any(n.startswith('tools/standing/') for n in _git('show', '--name-only', '--format=', h).split())))
+    return late(commits, g8)
+
+
 def named(events, defects=''):
     """the eight-hex ids of the rows that call themselves repairs, each row of a bank a line, the commit known to the repository; in order, each once."""
     out = []

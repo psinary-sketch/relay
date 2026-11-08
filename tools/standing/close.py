@@ -257,12 +257,10 @@ def arms_of(banks, parts):
 
 # ======================================================================== THE LETTERS AND THE SEAL'S RECORD
 def read_defect_row(L, i):
-    """one lettered defect row of a defects bank, its continuation lines joined: '(x) HEAD', the row's text to its first full stop."""
-    j = i + 1
-    while j < len(L) and L[j].startswith('    ') and not DEFECT_ROW.match(L[j]) and not L[j].startswith('    ###'):
-        j += 1
-    m = re.match(r"^\(([a-z]'?)\) (.*?)\.(?= |$)", ' '.join(x.strip() for x in L[i:j]))
-    return m.group(0)[:-1] if m else None
+    """one lettered defect row of a defects bank, its continuation lines joined: '(x) HEAD', read by its letter and tag (defectrow.py, v1.28.0,
+    (R358)(3)(vi)): to its first full stop outside a backtick pair and not of an ellipsis, or whole where it has none."""
+    import defectrow as DR
+    return DR.read_defect_row(L, i, DEFECT_ROW)
 
 
 def letters_of(text):

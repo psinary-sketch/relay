@@ -170,7 +170,13 @@ def places():
             out.append(('commit added lines', '%s %s' % (name, h[:8]), added(rest)))
             if by:
                 out.append((BYLINE_KIND, '%s %s' % (name, h[:8]), by))
-        rest, by = split_byline(git(repo, 'diff', '--no-color', '--no-ext-diff', 'HEAD'))
+        # ### b748, (R358)(3)(ii): the index read as its own kind (the staged set, HEAD to the index) and the working tree apart (the index to the
+        # ### working tree); before, one `git diff HEAD` read both under the working tree's one place per repository, so a staged file moved no count
+        rest, by = split_byline(git(repo, 'diff', '--cached', '--no-color', '--no-ext-diff'))
+        out.append(('staged added lines', name, added(rest)))
+        if by:
+            out.append((BYLINE_KIND, name + ' staged', by))
+        rest, by = split_byline(git(repo, 'diff', '--no-color', '--no-ext-diff'))
         out.append(('working tree added lines', name, added(rest)))
         if by:
             out.append((BYLINE_KIND, name + ' working tree', by))
@@ -179,6 +185,11 @@ def places():
         p = 'data/' + f
         if f.startswith(ACT + '_') and os.path.isfile(os.path.join(D, f)) and p not in tracked and not f.endswith(('.gz', '.png')):
             out.append(('untracked bank', p, open(os.path.join(D, f), encoding='utf-8', errors='replace').read()))
+    # ### b748, (R358)(3)(ii): the act's untracked tools (its own under tools/, its module, a new standing tool), which no kind read before their add
+    for p in sorted(x for x in git(ROOT, 'ls-files', '--others', '--exclude-standard', '--', 'tools/').split(NL) if x.strip()):
+        b_ = p.split('/')[-1]
+        if (b_.startswith(ACT + '_') or p == 'tools/acts/%s.py' % ACT or p.startswith('tools/standing/')) and os.path.isfile(os.path.join(ROOT, *p.split('/'))):
+            out.append(('untracked tool', p, open(os.path.join(ROOT, *p.split('/')), encoding='utf-8', errors='replace').read()))
     return out
 
 
@@ -199,7 +210,7 @@ def scan(*a):
     L = ['%s -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR`S NAME OR E-MAIL ADDRESS (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
          '', '### the previous address read from relay`s history to %s (author and committer e-mails less the noreply form: one address), the' % K.PRE_RELAY[:8],
          '### name from the monograph`s byline at run time, the previous user.name from 30c0b3c8`s author field, the ORCID from the monograph`s head (b739); all held in memory, none printed. New text only: the commits from relay %s and' % K.PRE_RELAY[:8],
-         '### PLACE-papers %s to HEAD (fields, messages, added lines), the uncommitted added lines, the untracked banks of %s.' % (K.PRE_PP[:8], ACT), '',
+         '### PLACE-papers %s to HEAD (fields, messages, added lines), the staged set (HEAD to the index), the working tree`s added lines (the index to the tree), the untracked banks and tools of %s.' % (K.PRE_PP[:8], ACT), '',
          '## THE CONTROLS FIRST']
     L += ['  %-40s %s' % (w, 'AS WANTED' if ok else 'NOT AS WANTED') for w, ok in ctl]
     if not all(ok for _w, ok in ctl):

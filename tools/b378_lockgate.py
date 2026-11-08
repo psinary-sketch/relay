@@ -233,7 +233,7 @@ def main(argv=None):
     for ln in STANDING_COMPILE.lines(compiled):
         rec(ln)
     ver_commit = subprocess.run(['git', '-C', ROOT, 'log', '-1', '--format=%h', '--', 'tools/standing/VERSION'], capture_output=True, text=True, encoding='utf-8', errors='replace').stdout.strip()
-    stray = STANDING_REPAIRS.outside(ver_commit)
+    stray = STANDING_REPAIRS.outside(ver_commit) + (STANDING_REPAIRS.after_gate(act) if hasattr(STANDING_REPAIRS, 'after_gate') else [])   # ### v1.28.0, (R358)(3)(iii): and none at or after the gate
     rec('  ### THE COMMITS TO tools/standing/ AFTER THE VERSION`S %s LEAVING VERSION UNMOVED ((R345)(2)(iv)): %s' % (ver_commit, stray or 'NONE'))
     v = verdict(gates) and not probe_refused and compiled['ok'] and not stray
     nface = sum(1 for g in gates if g['subject_is_face'])

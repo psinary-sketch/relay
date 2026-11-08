@@ -1,0 +1,200 @@
+b748 -- THE CONTROLS OF tools/standing/ v1.28.0, (R358)(3)(i)-(xii): THE ONE READER OF A SCORE, THE SCAN OVER THE STAGED SET, NO STANDING CHANGE AT THE GATE, EVERY WRITE THROUGH THE ONE-CALL TOOL, THE CARRY FIRST, A ROW BY ITS LETTER AND TAG, THE SATISFIABILITY READ BEFORE THE GATE, A STANDING REPAIR WITH ITS DRY, THE NAVIGATOR`S DEFECTS AND THE RULE, THE REFUSALS, THE WHOLE CITE LINE, THE VERSION (2026-11-08T22:08:00Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2641 lines
+  citation render          OK    585 lines
+  closing render           OK    625 lines
+  record render            OK    4641 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    158 lines
+  tools/b748_worklist.py   OK    442 lines
+### THE COMPILE CONTROL : b748 COMPILES WHOLE, 8 OF 8
+
+### the instances read at their commits; each case through both routes, the route before read from 7d34b587
+
+  free 3045 MB at 2026-11-08T22:08:00Z, the hold 2560 MET
+### (one) (R358)(3)(i), b747 events (4), N3: A SCORE READING THE ROOT PROMPT READ ONCE; PENDING IN THE RECORD WHILE THE PROMPT IS UNBANKED
+  (one) b747`s N3 replayed: the pre-root bank read REFUTED with the root-prompt clause UNREAD, every other clause clean (events (4)); the close read HELD
+      BEFORE (v1.27.1): verdict REFUTED ; TWO READINGS: the record REFUTED, the close HELD -> FAILS
+      AFTER  (v1.28.0): verdict PENDING ; the record reads PENDING, the close`s HELD the one entered -> PASSES
+      AS WANTED
+  (one) GUARD, NO FAILING SIDE: the root prompt banked and clean
+      AFTER  (v1.28.0): verdict HELD -> HOLDS
+      AS WANTED
+  (one) GUARD, NO FAILING SIDE: the root prompt banked with a fault
+      AFTER  (v1.28.0): verdict REFUTED -> HOLDS
+      AS WANTED
+  (one) GUARD, NO FAILING SIDE: another clause failing while the prompt is unread
+      AFTER  (v1.28.0): verdict REFUTED -> HOLDS
+      AS WANTED
+  (one) GUARD, NO FAILING SIDE: an act module before b748 (no ok_rest in its route)
+      AFTER  (v1.28.0): verdict REFUTED -> HOLDS
+      AS WANTED
+  (one) GUARD, NO FAILING SIDE: the record template`s N3 verdict line through the one reader, its line count kept (b747 (j): acts before b735 key overrides by line)
+      AFTER  (v1.28.0): onereader calls 1 ; lines 3914 against 3914 at 7d34b587 -> HOLDS
+      AS WANTED
+
+  free 3046 MB at 2026-11-08T22:08:00Z, the hold 2560 MET
+### (scan) (R358)(3)(ii): THE SCAN READS THE WORKING TREE, THE INDEX AND THE COMMITTED BLOBS; THE COMMIT TOOL RUNS IT OVER THE STAGED SET
+  (scan) GUARD, NO FAILING SIDE: a planted address staged and not committed (a synthetic token in a scratch repository); THE FINDING AFTER b747`S CLOSE, "the scan read no staged file", REFUTED by this control: the route before the repair found it too, inside the working tree`s one place per repository, whose count does not move
+      AFTER  (v1.28.0): BEFORE found at [('working tree added lines', 'relay')] ; AFTER found at [('staged added lines', 'relay')] -> HOLDS
+      AS WANTED
+  (scan) a planted address in the act`s untracked tool (tools/b999_new.py, never added)
+      BEFORE (v1.27.1): found at NONE -> FAILS
+      AFTER  (v1.28.0): found at [('untracked tool', 'tools/b999_new.py')] -> PASSES
+      AS WANTED
+  (scan) the commit tool runs the scan before every commit and refuses a count above 0 (a planted foot carrying an occurrence)
+      BEFORE (v1.27.1): run_scan in commit.py at 7d34b587: False -> FAILS
+      AFTER  (v1.28.0): scan_refusal on a foot reading address 1: THE SCAN FOUND AN OCCURRENCE: address 1, name 0, previous name 0, ORCID 0 -> PASSES
+      AS WANTED
+  (scan) GUARD, NO FAILING SIDE: a commit whose scan finds an occurrence, through run(): refused before git commit
+      AFTER  (v1.28.0): refused True ; HEAD unmoved True -> HOLDS
+      AS WANTED
+
+  free 3078 MB at 2026-11-08T22:08:02Z, the hold 2560 MET
+### (gate) (R358)(3)(iii), b747 defects (j), (a`): A STANDING TEMPLATE`S REPAIR LANDS WITH ITS VERSION BEFORE THE GATE
+  (gate) b747`s sequence replayed: v1.27.0 f4c286c0, the template repair 0c118109, the first gate commit f2dd38e0, VERSION moved alone in the fourth gate commit 88f39b22, the lock 8b73b2a8
+      BEFORE (v1.27.1): outside(VERSION`s 88f39b22) NONE -> the lock permitted -> FAILS
+      AFTER  (v1.28.0): late(first gate f2dd38e0) ['88f39b22'] -> refused -> PASSES
+      AS WANTED
+  (gate) GUARD, NO FAILING SIDE: after_gate over b747`s own step bank (six gate rows, the first read), to the lock 8b73b2a8
+      AFTER  (v1.28.0): after_gate ['88f39b22'] -> HOLDS
+      AS WANTED
+  (gate) the gate commit 88f39b22`s staged set at the commit tool
+      BEFORE (v1.27.1): the gate at 7d34b587: no staged-standing read -> FAILS
+      AFTER  (v1.28.0): gate_standing_refusal: A STANDING CHANGE AT THE GATE: tools/standing/VERSION staged -- a standing repair lands with its version befor -> PASSES
+      AS WANTED
+  (gate) GUARD, NO FAILING SIDE: the same change landed with the version before the gate (VERSION`s commit placed before a gate carrying no standing file)
+      AFTER  (v1.28.0): late(gate 9e9e9e9e) NONE -> HOLDS
+      AS WANTED
+
+  free 3064 MB at 2026-11-08T22:08:03Z, the hold 2560 MET
+### (write) (R358)(3)(iv), b747 defects (f), (k), (n), N5: ONE WRITE AT A TIME, EVERY WRITE THROUGH THE TOOL, THE OPEN ONE PRINTED
+  (write) b747`s (k) replayed: the add holding the write mark, the commit sent in the same message
+      BEFORE (v1.27.1): commit.py at 7d34b587: a write mark absent -> the commit proceeds -> FAILS
+      AFTER  (v1.28.0): refused True: ANOTHER WRITE OF THE ACT IS OPEN: b747 add data/b747_address_scan.txt in relay (k`s first call) (pid 35280, since 2026-1 -> PASSES
+      AS WANTED
+  (write) GUARD, NO FAILING SIDE: a stale mark (its holder exited) removed and named, the write proceeding
+      AFTER  (v1.28.0): mark removed after True -> HOLDS
+      AS WANTED
+  (write) GUARD, NO FAILING SIDE: an add through the tool in a scratch repository, the mark released
+      AFTER  (v1.28.0): staged ['a.txt'] ; mark left False -> HOLDS
+      AS WANTED
+  (write) GUARD, NO FAILING SIDE: a glob, two branches in one delete, a restore naming nothing: each refused
+      AFTER  (v1.28.0): not refused: NONE -> HOLDS
+      AS WANTED
+
+  free 3068 MB at 2026-11-08T22:08:03Z, the hold 2560 MET
+### (carry) (R358)(3)(v), b747 defects (d), (e): THE CARRY RUNS BEFORE THE ACT_CURRENT COMMIT AND ITS SCAN
+  (carry) b747`s step-zero order replayed: its act_current commit 22f59d27, the tree at that commit
+      BEFORE (v1.27.1): commit.py at 7d34b587: carry check absent -> committed -> FAILS
+      AFTER  (v1.28.0): carry_check: THE CARRY HAS NOT RUN: tools/acts/b747.py, tools/b747_worklist.py, tools/b747_address_scan.py not carried -- the carry r -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: b748`s carried tools on disk, the carry run before e80f7d60 (data/b748_stepzero.txt), read as commit.py reads them
+      AFTER  (v1.28.0): carry_check: NONE -> HOLDS
+      AS WANTED
+
+  free 3088 MB at 2026-11-08T22:08:03Z, the hold 2560 MET
+### (row) (R358)(3)(vi), b747 defects (u), (x), (l): A DEFECT ROW READ BY ITS LETTER AND TAG; THE SCREENS` FIGURES NOT A ROW`S PROSE
+  (row) b747`s rows as committed at e2941c88, before each took a closing full stop (the trail`s dry read 3 of 20, (u))
+      BEFORE (v1.27.1): rows read 3 of 20 -> FAILS
+      AFTER  (v1.28.0): rows read 20 of 20, each by its letter and tag (20 tagged) -> PASSES
+      AS WANTED
+  (row) GUARD, NO FAILING SIDE: every row the old reader read, over b740-b747`s banks: read the same, or differing only where the old cut fell in a backtick pair or an ellipsis
+      AFTER  (v1.28.0): same 178 ; differing 3 ['b742 (k) ', 'b742 (q) ', 'b744 (o) '] -> HOLDS
+      AS WANTED
+  (row) b747`s (x) replayed: the trail`s Defects line quoting row (l)`s null constant (the row as first written, (l))
+      BEFORE (v1.27.1): the unread-figure screen over the whole text: fires True -> FAILS
+      AFTER  (v1.28.0): over figures_text: fires False -> PASSES
+      AS WANTED
+  (row) GUARD, NO FAILING SIDE: the null constant outside a Defects line still fires the screen
+      AFTER  (v1.28.0): fires True -> HOLDS
+      AS WANTED
+
+  free 3108 MB at 2026-11-08T22:08:10Z, the hold 2560 MET
+### (sat) (R358)(3)(vii), b747 defect (z), REPEAT b745 (y): THE GATE`S BANKS READ BEFORE THE GATE COMMIT, THE CONTRADICTORY CLAUSE BY NAME
+  (sat) b747`s gate replayed: the audit as it read after f2dd38e0 (NOT SATISFIABLE, one contradictory clause: the face`s "three banks" against a ceiling of 0, (z)); rewritten before any commit, so planted here in reg_satisfiable.py`s own format strings (:61, :67)
+      BEFORE (v1.27.1): commit.py at 7d34b587: a satisfiability read absent -> the gate committed -> FAILS
+      AFTER  (v1.28.0): satisfiable_refusal: NOT SATISFIABLE: artifacts predicted by the face    0                3                banks  ### CONTRADICTORY ### -> PASSES
+      AS WANTED
+  (sat) GUARD, NO FAILING SIDE: b747`s audit as committed at 932b6a1d (JOINTLY SATISFIABLE), stamped against the face
+      AFTER  (v1.28.0): satisfiable_refusal: NONE -> HOLDS
+      AS WANTED
+  (sat) GUARD, NO FAILING SIDE: the same audit not stamped against the face as it stands
+      AFTER  (v1.28.0): refused True -> HOLDS
+      AS WANTED
+
+  free 3112 MB at 2026-11-08T22:08:11Z, the hold 2560 MET
+### (dry) (R358)(3)(viii), b747 defects (r), (v): A STANDING REPAIR LANDS WITH THE RECORD`S DRY COMPOSITION RUN OVER IT
+  (dry) v1.27.0`s (7) replayed: f4c286c0 staging tools/standing/ with no dry; the dry`s halt as (r) printed it (the events bank, written at the close)
+      BEFORE (v1.27.1): commit.py at 7d34b587: no dry read -> committed -> FAILS
+      AFTER  (v1.28.0): check: tools/standing/ staged (tools/standing/VERSION, tools/standing/carry.py, tools/s ; the halt classified NOT CLEAN (a strict read of b747_events.txt, a bank the root or the close writes:) -> PASSES
+      AS WANTED
+  (dry) GUARD, NO FAILING SIDE: a halt on a bank a component writes before the record (b748`s corrigendum)
+      AFTER  (v1.28.0): classified PENDING -> HOLDS
+      AS WANTED
+  (dry) GUARD, NO FAILING SIDE: a dry bank naming the staged file at its sha256 accepted; at another sha256 refused
+      AFTER  (v1.28.0): same None ; other True -> HOLDS
+      AS WANTED
+
+  free 3107 MB at 2026-11-08T22:08:11Z, the hold 2560 MET
+### (rules) (R358)(3)(ix): THE NAVIGATOR`S (g), (h), (o) ENTERED AS THE NAVIGATOR`S; THE RULE FROM (o) IN data/b748_rules.txt
+  (rules) GUARD, NO FAILING SIDE: b747`s rows tagged THE NAVIGATOR`S
+      AFTER  (v1.28.0): (g) (h) (o) -> HOLDS
+      AS WANTED
+  (rules) GUARD, NO FAILING SIDE: data/b748_rules.txt carries the rule from (o)
+      AFTER  (v1.28.0): present True -> HOLDS
+      AS WANTED
+
+  free 3107 MB at 2026-11-08T22:08:11Z, the hold 2560 MET
+### (refusals) (R358)(3)(x), b747 defects (c), (i), (p), (q), (y), (b`), events (1)-(3), REPEAT: THE INSTANCES PRINTED; THE GUARD`S MESSAGE
+  REPEAT: data/b747_hook_refusals.txt, 14 refusal(s): ENV 1, GITWRITE 1, PIPE 3, READ 7, REDIR 1, SED 1
+    2026-11-08T12:09:45Z | READ | Read | "D:\\relay\\data\\act_current.json" | a Read call with no limit
+    2026-11-08T12:10:10Z | READ | Read | "D:\\relay\\data\\b746_steps.json" | a Read call with a limit and no offset on a file of 205 lines
+    2026-11-08T12:12:59Z | SED | Bash | "sed -n 1,60p tools/standing/carry.py && sed -n 1,40p tools/standing/actmodule.py" | a Bash command running sed
+    2026-11-08T12:19:11Z | ENV | Bash | "cd /d/relay && S=\"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/blobp
+    2026-11-08T12:36:23Z | REDIR | Bash | "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 
+    2026-11-08T12:43:24Z | READ | Read | "D:\\relay\\data\\b747_hook_refusals.txt" | a Read call with no limit
+    2026-11-08T13:01:22Z | GITWRITE | Bash | "python -X utf8 -u tools/standing/commit.py pp \"component 1\" \"b747 component 1: b746 at its weight (FINDINGS :14189) and the c
+    2026-11-08T13:21:02Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\project_b746_progress.md" | a Read call with no limit
+    2026-11-08T13:21:03Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b746_traps.md" | a Read call with no limit
+    2026-11-08T13:33:26Z | PIPE | Bash | "git show HEAD:data/b747_zenodo_readback.txt --format= -- | head -n 3" | a Bash command carrying a pipe outside quotes
+    2026-11-08T16:02:27Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\4fe446f7-cbef-42cd-9f79-d5164f63b12d\\scratchpad\\compile747.py
+    2026-11-08T17:19:16Z | READ | Read | "D:\\relay\\tools\\standing\\VERSION" | a Read call with no limit
+    2026-11-08T19:21:49Z | PIPE | Bash | "cd D:/relay && git log -1 --format=%s d392d3cb && git diff --cached --stat | tail -2" | a Bash command carrying a pipe outside quote
+    2026-11-08T19:32:50Z | PIPE | PowerShell | "Get-ChildItem D:\\relay\\data\\b747_desk* | Select-Object Name,Length,LastWriteTime" | a PowerShell command carrying a pipe ou
+  REPEAT: data/b748_hook_refusals.txt, 6 refusal(s): PIPE 1, READ 4, REDIR 1
+    2026-11-08T21:25:10Z | READ | Read | "D:\\relay\\tools\\standing\\carry.py" | a Read call with a limit and no offset on a file of 215 lines
+    2026-11-08T21:25:42Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\4fe446f7-cbef-42cd-9f79-d5164f63b12d\\scratchpad\\carrycarry747
+    2026-11-08T21:25:43Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\4fe446f7-cbef-42cd-9f79-d5164f63b12d\\scratchpad\\ferry747.py" 
+    2026-11-08T21:53:58Z | READ | Read | "D:\\relay\\tools\\standing\\commit.py" | a Read call with limit 242, above 200
+    2026-11-08T21:56:03Z | PIPE | Bash | "cd D:/relay && git grep -n -E \"^def screens|^def _unread|UNREAD FIGURE|unread figure\" -- \"tools/*.py\" \":!tools/acts\" | head -n
+    2026-11-08T21:56:41Z | REDIR | Bash | "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && 
+  (refusals) the prev-mode guard`s timeout message (events (1): a dry that hit the 590 s guard went unlettered)
+      BEFORE (v1.27.1): at 7d34b587: False -> FAILS
+      AFTER  (v1.28.0): now: LETTER IT True -> PASSES
+      AS WANTED
+
+  free 3110 MB at 2026-11-08T22:08:11Z, the hold 2560 MET
+### (cite) (R358)(3)(xi), b747 defect (w): A PRINTED SOURCE LINE IS THE WHOLE LINE
+  (cite) data/b725_interference.txt :11 replayed (223 characters)
+      BEFORE (v1.27.1): the [:170] print: CUT at character 170 of 223 -> FAILS
+      AFTER  (v1.28.0): citeprint.lines: WHOLE -> PASSES
+      AS WANTED
+  (cite) GUARD, NO FAILING SIDE: a line outside the source refused
+      AFTER  (v1.28.0): check :112 -> line :112 outside the source`s 107 lines -> HOLDS
+      AS WANTED
+
+  free 3110 MB at 2026-11-08T22:08:11Z, the hold 2560 MET
+### (version) (R358)(3)(xii): THE STANDING VERSION PRINTED, ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.27.1): v1.27.1 -> FAILS
+      AFTER  (v1.28.0): v1.28.0 -> PASSES
+      AS WANTED
+
+### per repair: (one) 6 of 6 ; (scan) 4 of 4 ; (gate) 4 of 4 ; (write) 4 of 4 ; (carry) 2 of 2 ; (row) 4 of 4 ; (sat) 3 of 3 ; (dry) 3 of 3 ; (rules) 2 of 2 ; (refusals) 1 of 1 ; (cite) 2 of 2 ; (version) 1 of 1
+### ### **v1.28.0: CONTROLS (one), (scan), (gate), (write), (carry), (row), (sat), (dry), (rules), (refusals), (cite), (version) ; CASES 36 ; AS WANTED 36 ; ALL AS WANTED.**
