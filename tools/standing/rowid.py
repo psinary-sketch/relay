@@ -39,6 +39,28 @@ def next_id(text, prefix):
     return '%s-%d' % (prefix, (max(ns) if ns else 0) + 1)
 
 
+RULE_355 = ('THE (R355) RULE BINDS THE LEDGERS ALONE: rows of REGISTRY.md, ERRATA.md and phase1.5/method/INSTRUMENTS.md take an ID one past the '
+            'file`s maximum; an order is entered by its W-ORD name and takes no number (v1.27.0, (R357)(3)(iv))')
+
+
+def ledger_of(path):
+    """v1.27.0, (R357)(3)(iv), b746 events (3): the LEDGERS entry the path names, or None. A path is matched on its PLACE-papers-relative
+    form (the separators normalised, the PLACE-papers root stripped where it stands)."""
+    p = path.replace('\\', '/')
+    for f in LEDGERS:
+        if p == f or p.endswith('/' + f):
+            return f
+    return None
+
+
+def next_refusal(path, prefix):
+    """the refusal, by name, of `next` over a file outside LEDGERS -- printing no ID -- or None for a ledger."""
+    if ledger_of(path):
+        return None
+    return ('### REFUSED: %s is not a ledger of the (R355) rule (LEDGERS: %s); no ID printed for prefix %s. %s' % (
+        path, ', '.join(LEDGERS), prefix, RULE_355))
+
+
 def added(base, new):
     """the rows of <new> not in <base> as lines (a moved line is not added): [(line, id, prefix, n)], by multiset of line text."""
     have = collections.Counter(l for l in (base or '').replace('\r', '').split(NL))
@@ -94,6 +116,10 @@ def _rd(p):
 if __name__ == '__main__':
     a = sys.argv[1:]
     if a[:1] == ['next'] and len(a) == 3:
+        ref = next_refusal(a[1], a[2])
+        if ref:
+            print(ref)
+            sys.exit(14)
         print(next_id(_rd(a[1]), a[2]))
     elif a[:1] == ['check'] and len(a) == 3:
         r = refusals(_rd(a[1]), _rd(a[2]))

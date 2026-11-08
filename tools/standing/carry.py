@@ -9,6 +9,8 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 ###   destination's act (the second name of the first pair); `--shifted` writes a refused carry, the shifted names printed in its bank
 ### carry.py check <src_rel> <dst_rel>
 ###   a print only: the shifted names between two files already written; exit 1 where there are any
+### carry.py ruled <act> <prev> <ferry bank>
+###   v1.27.0, (R357)(3)(viii): every carried figure and section printed beside the ruling; R1-R3 refused (exit 13), before the citation check
 """
 import difflib
 import io
@@ -106,9 +108,101 @@ def check(src_rel, dst_rel):
     return 1 if shifted else 0
 
 
+# ================================================================================ v1.27.0, (R357)(3)(viii): THE CARRY BESIDE THE RULING
+# ### b746 defects (d) and (o): the carried worklist held b745's figures (PRE_PP at 5937961, b745's start) and checks sections 25-26 kept
+# ### b745's six-dispatch form (a dispatch row, a read by run id) where (R356) ordered none. Here every carried figure and section is printed
+# ### beside the ruling, and two kinds are REFUSED before the citation check:
+# ###   R1 a worklist figure carried unchanged that names the previous act's own start (its PRE_PP or PRE_RELAY), the ruling not naming it
+# ###   R2 a section carried unchanged (equal to the previous act's after the substitution) that reads a figure the ruling sets (RULED) whose
+# ###      value moved between the two worklists, or that R3 refused: the section's form was written for the previous ruling's figure
+# ###   R3 a ruled figure carried unchanged and non-empty with an element the ruling does not name
+RULED = ('MAX_DISPATCHES', 'EF_RUNS')
+HEXV = re.compile(r'\b(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}\b')
+KNAME = re.compile(r'\b(?:K|WL)\.([A-Z_][A-Z0-9_]*)\b')
+
+
+def literals(text):
+    """{name: value} for every top-level assignment of a literal in a worklist's text (ast; a non-literal skipped)."""
+    import ast
+    out = {}
+    for node in ast.parse(text).body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
+            try:
+                out[node.targets[0].id] = ast.literal_eval(node.value)
+            except (ValueError, SyntaxError, TypeError):
+                pass
+    return out
+
+
+def _empty(v):
+    return v is None or v == 0 or v == '' or (isinstance(v, (tuple, list, dict, set)) and not v)
+
+
+def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
+    """pure: (lines, refused) -- every carried figure and section printed beside the ruling; R1 and R2 refused."""
+    import actmodule as AM
+    W, P = literals(wl_text), literals(prev_wl_text)
+    starts = [str(P.get(k) or '')[:7] for k in ('PRE_PP', 'PRE_RELAY') if P.get(k)]
+    rl = ruling_text.replace('\r', '').split(NL)
+
+    def named(tok):
+        return next((i for i, l in enumerate(rl, 1) if tok in l), None)
+    L, refused = ['## THE CARRIED FIGURES (worklist constants equal to the previous act`s after the substitution, non-empty), each beside the ruling'], []
+    for k in sorted(set(W) & set(P)):
+        v, pv = W[k], P[k]
+        if _empty(v) or repr(v) != substitute(repr(pv), subs):
+            continue
+        hx = HEXV.findall(repr(v))
+        at = [named(h[:7]) for h in hx]
+        bad = [h for h in hx if h[:7] in starts and not named(h[:7])]
+        L.append('  %-28s %-60s %s%s' % (k, repr(v)[:60], ('hex %s ; ' % ', '.join('%s %s' % (h[:8], (':%d' % a) if a else 'NOT NAMED') for h, a in zip(hx, at))) if hx else '',
+                                         '### REFUSED (R1): names the previous act`s start %s' % ', '.join(bad) if bad else 'carried'))
+        if bad:
+            refused.append(('R1', k, 'the previous act`s start %s carried as this act`s figure, the ruling not naming it' % ', '.join(bad)))
+    # ### R3: a ruled figure carried unchanged and non-empty, an element the ruling does not name: the previous ruling's figure as this act's
+    for k in RULED:
+        if k in W and k in P and not _empty(W[k]) and repr(W[k]) == repr(P[k]):
+            el = list(W[k]) if isinstance(W[k], (tuple, list)) else [W[k]]
+            un = [x for x in el if not named(str(x))]
+            L.append('  %-28s %-60s %s' % (k, repr(W[k])[:60], ('### REFUSED (R3): a ruled figure carried unchanged, not named in the ruling: %s' % ', '.join(map(str, un))) if un else 'named in the ruling'))
+            if un:
+                refused.append(('R3', k, 'the previous act`s ruled figure carried unchanged, %d element(s) the ruling does not name' % len(un)))
+    moved = [k for k in RULED if k in W and k in P and repr(W[k]) != repr(P[k])] + [r[1] for r in refused if r[0] == 'R3']
+    L += ['', '## THE CARRIED SECTIONS (equal to the previous act`s after the substitution); the ruled figures %s, moved: %s' % (
+        ', '.join('%s %r -> %r' % (k, P.get(k), W.get(k)) for k in RULED), ', '.join(moved) or 'NONE')]
+    pb = dict((key, prev_text[s:e]) for key, s, e in AM.blocks(prev_text))
+    n = 0
+    for key, s, e in AM.blocks(act_text):
+        if key not in pb or act_text[s:e] != substitute(pb[key], subs):
+            continue
+        n += 1
+        reads = sorted(set(KNAME.findall(act_text[s:e])) & set(moved))
+        if reads:
+            L.append('  %s ### REFUSED (R2): carried unchanged, reads %s, a ruled figure that moved' % (' '.join(map(str, key)), ', '.join(reads)))
+            refused.append(('R2', ' '.join(map(str, key)), 'carried unchanged and reads %s, moved %s' % (
+                ', '.join(reads), '; '.join('%r -> %r' % (P[r], W[r]) for r in reads))))
+    L.append('  carried sections %d ; refused %d' % (n, sum(1 for r in refused if r[0] == 'R2')))
+    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d)%s.**' % (
+        len(refused), sum(1 for r in refused if r[0] == 'R1'), sum(1 for r in refused if r[0] == 'R2'), sum(1 for r in refused if r[0] == 'R3'),
+        ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
+    return L, refused
+
+
 def main(argv):
     if argv[:1] == ['check'] and len(argv) == 3:
         return check(argv[1], argv[2])
+    if argv[:1] == ['ruled'] and len(argv) == 4:
+        # ### carry.py ruled <act> <prev> <ferry bank>: the act's module and worklist beside the previous act's, at the working tree
+        a, p, fb = argv[1], argv[2], argv[3]
+        texts = [rd(_path(x)) for x in ('tools/acts/%s.py' % a, 'tools/acts/%s.py' % p, 'tools/%s_worklist.py' % a, 'tools/%s_worklist.py' % p, fb)]
+        for x, t in zip(('tools/acts/%s.py' % a, 'tools/acts/%s.py' % p, 'tools/%s_worklist.py' % a, 'tools/%s_worklist.py' % p, fb), texts):
+            if not t:
+                sys.exit('### REFUSED: %s resolves to no file' % x)
+        pn, an = int(p[1:]), int(a[1:])
+        subs = (('b%d' % pn, 'b%d' % an), ('b%d' % (pn - 1), 'b%d' % (an - 1)))
+        L, refused = ruled(texts[0], texts[1], texts[2], texts[3], texts[4], subs)
+        print(NL.join(L))
+        return 13 if refused else 0
     if len(argv) < 5 or '--subs' not in argv:
         sys.exit(__doc__)
     i = argv.index('--subs')

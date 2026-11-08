@@ -2268,7 +2268,7 @@ def main():
         if neg != live:
             negfail += 1
         vac = STC.plant_vacuous(S, m, posv)   # ### v1.8.0, (⟪RUL⟫)(2)(ii): the plant mutated nothing: neither a pass nor a failure of the arm
-        cached = name == 'G-LSREMOTE-ONE-PER-REPO' and LSRD.verdict(S['lsr'] if S['lsr'] is not None else dict(KC0.LSR), RC_LOG)[0] == 'CACHED'
+        cached = name == 'G-LSREMOTE-ONE-PER-REPO' and LSRD.verdict(S['lsr'] if S['lsr'] is not None else dict(KC0.LSR), RC_LOG)[0] in ('CACHED', 'NONE')   # ### v1.27.0, (⟪RUL⟫)(3)(vi): NONE vacuous too
         vac = vac or cached   # ### v1.26.0, (⟪RUL⟫)(3)(v): a part read wholly from the run cache: CACHED, counted as no pass
         defective.append(name) if (posv and not vac) else None
         EX[name] = dict(live=live, neg=neg, pos=posv and not vac, vacuous=vac, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])

@@ -14,7 +14,8 @@ the run cache's log (remotecache.wrap) -- and the part's verdict read from the c
   OVER     any other count: more than one read of one repository -- the arm's failure
 
   classify(lsr, times) -> {path: (class, detail)}
-  verdict(lsr, times) -> ('PASS' | 'FAIL' | 'CACHED', [event lines])   CACHED where every repository is CACHED: VACUOUS, counted as no pass
+  verdict(lsr, times) -> ('PASS' | 'FAIL' | 'CACHED' | 'NONE', [event lines])   CACHED where every repository is CACHED: VACUOUS, counted as no pass;
+                                                                        NONE (v1.27.0) over zero repositories: VACUOUS, never FAIL
   ok(lsr, times) -> bool                                                the arm's predicate: True on PASS and on CACHED (not a failure); the
                                                                         suite reads CACHED as VACUOUS and counts it as no pass
 """
@@ -42,8 +43,12 @@ def classify(lsr, times):
 
 def verdict(lsr, times):
     c = classify(lsr, times)
+    if not c:
+        # ### v1.27.0, (R357)(3)(vi), b746 defect (m): a part that reads no repository is NONE, not FAIL -- nothing was read, nothing failed;
+        # ### VACUOUS where an arm reads it, counted as no pass
+        return 'NONE', ['NONE: zero repositories read']
     ev = ['RETRIED %s: %s (an event)' % (p, d) for p, (k, d) in sorted(c.items()) if k == 'RETRIED']
-    if any(k == 'OVER' for k, _d in c.values()) or not c:
+    if any(k == 'OVER' for k, _d in c.values()):
         return 'FAIL', ev + ['OVER %s: %s' % (p, d) for p, (k, d) in sorted(c.items()) if k == 'OVER']
     if all(k == 'CACHED' for k, _d in c.values()):
         return 'CACHED', ev + ['CACHED: every one of %d repositories read from the run cache, no ls-remote call -- VACUOUS, NO PASS' % len(c)]

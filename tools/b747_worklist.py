@@ -260,7 +260,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b746: set after its commit, or None if it differs from HEAD by CRLF alone
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None                   # ### step zero's banks and carried tools, one commit (data/b747_stepzero.txt among them); set after it
+STEPZERO_BANKS = '5426d371'             # ### step zero's banks and carried tools, one commit (data/b747_stepzero.txt among them)
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b746's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R357)(3), with its amendment row: the commit every dispatch row names ((R357)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -294,9 +294,9 @@ COMPARATIVE_BANKS = ('data/b747_corrigendum.txt', 'data/b747_section2.txt', 'dat
                      'data/b747_defects.txt')   # ### Components 1-3's banks: no
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('tools/standing/VERSION', 'tools/standing/commit.py', 'tools/standing/fold/checks.tpl', 'tools/standing/remotecache.py',
-                    'tools/standing/rootprompt.py', 'tools/act_membrane.py', 'tools/b616_claims.py')   # ### v1.26.0's changed files (0c6d9c5c)
-STANDING_NEW = ('tools/standing/lockdate.py', 'tools/standing/lsrread.py', 'tools/standing/v1260.py')
+STANDING_CHANGED = ('tools/standing/VERSION', 'tools/standing/carry.py', 'tools/standing/fold/checks.tpl', 'tools/standing/fold/record.tpl',
+                    'tools/standing/lsrread.py', 'tools/standing/orders.py', 'tools/standing/rootprompt.py', 'tools/standing/rowid.py')   # ### v1.27.0's changed files
+STANDING_NEW = ('tools/standing/orderstate.py', 'tools/standing/relaypath.py', 'tools/standing/sectionput.py', 'tools/standing/v1270.py')
 # ### b746's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '3f5a33bb'    # ### b746's closing (its step row), the act's relay base
 B714_RECORD = '3e828b6f'     # ### b746's record commit (relay)

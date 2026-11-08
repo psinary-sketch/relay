@@ -38,6 +38,8 @@ R.K, R.ACT, R.PREV, R.SP = K, ACT, PREV, K.SP
 conv = R.conv                      # ### (R262)(2): the one conversion, b652's, through b698's module
 PP, FIND, OT = R.PP, R.FIND, R.OT
 utc, rd, rdn, put_json, put_txt, jl, g, grc, land, _show = R.utc, R.rd, R.rdn, R.put_json, R.put_txt, R.jl, R.g, R.grc, R.land, R._show
+from standing import relaypath as RPATH   # noqa: E402  ### v1.27.0, (⟪RUL⟫)(3)(vii): the readers take a relay path once and refuse a path
+rd, rdn = RPATH.rd, RPATH.rdn            # ### resolving to no file, printing it; a read that may find none says optional=True at its call
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 
 # ================================================================================ THE IMPORT-TIME CONSTANTS, REBOUND (b699's traps 2 and 4)
@@ -2576,7 +2578,7 @@ def _n5():
     # ### (⟪RUL⟫)(4)(i), standing clauses v4 row (62), ONE LIST OF WRITES: every write read against the face's (W) table through
     # ### tools/act_close.py w_patterns, the scorer keeping no list of its own (⟪PREV⟫'s N5_RELAY_DATA omitted data/b711_steps.json, which its
     # ### (W) named, and refuted N5 on it; a repair at ⟪ACT⟫, banked by diff)
-    W = AC.w_patterns(rd(FACE) or '')
+    W = AC.w_patterns(rd(FACE, optional=True) or '')
     pp_ch = sorted(set(x for x in (g(PP, 'diff', '--name-only', K.PRE_PP) + NL + g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD')).split(NL) if x.strip()))
     pp_beyond = [x for x in pp_ch if not AC.w_allows(x, W, 'PLACE-papers')]
     renames = [l for l in g(PP, 'diff', '--name-status', '-M', K.PRE_PP, 'HEAD').split(NL) if l[:1] in ('R', 'D')]
@@ -2588,7 +2590,7 @@ def _n5():
     differ = [t for t, v in sh if v != 'agree']
     added = sorted(set(R._g2_of(FACE)) - set(R._g2_of(os.path.join(ROOT, *K.B711_FACE.split('/')))) - set(K.ACT_ARMS))
     arms_ok = added == sorted(K.STANDING_ADDED)
-    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE) or '') or [None, ''])[1])
+    lock = _iso_epoch((re.search(r'locked at \(UTC\) : (\S+)', rd(FACE, optional=True) or '') or [None, ''])[1])
     amended = (_amended_after(ROOT, lock) + _amended_after(PP, lock) + _amended_after(LV, lock) + _amended_after(K.EF_DIR, lock)) if lock else []
     cj = jl('%s_commands.json' % ACT)
     ob = cj.get('outbound') or []
@@ -3698,10 +3700,10 @@ def rootprompt(*a):
     import standing.rootprompt as RPM
 
     def line(bank, n):
-        t = (rdn(bank[len('data/'):]) or '').split(NL)
+        t = (rdn(bank[len('data/'):], optional=True) or '').split(NL)
         return t[n - 1] if 0 < n <= len(t) else None
 
-    j = json.loads(rdn('%s_rootprompt_rows.json' % ACT) or '{}')
+    j = json.loads(rdn('%s_rootprompt_rows.json' % ACT, optional=True) or '{}')
     if not j.get('questions'):
         sys.exit('### data/%s_rootprompt_rows.json CARRIES NO QUESTION -- NOTHING PRINTED' % ACT)
     for q in j['questions']:
@@ -3786,7 +3788,7 @@ def _chain_axioms(ax, sha):
     """(text, source) of a row's axioms: a probe bank counts only when its head names the pin's commit and reads no DIFF."""
     if ax[0] == 'none':
         return 'axioms not read at this pin', ax[1]
-    t = (rdn(ax[1]) or '').split(NL)
+    t = (rdn(ax[1], optional=True) or '').split(NL)
     if ax[0] == 'probe':
         head = t[:4]
         if not head or sha not in head[0] or any('DIFF' in h for h in head[1:3]):
@@ -3810,7 +3812,7 @@ def chainrows(*a):
     grades = {}
     for pl, name, repo, pin, path, line, kind, ax in CHAIN:
         if kind == 'mathlib':
-            t = (rdn('b704_probe_out_zeta.txt') or '').split(NL)
+            t = (rdn('b704_probe_out_zeta.txt', optional=True) or '').split(NL)
             sha, st, k, e, sl = 'de5ce8a', NL.join(t[3:5]), 'def', None, []
             where = 'Mathlib de5ce8a9 (SIDE-explicit-formula v0.37 = 38e2734`s lake-manifest.json :10) %s :%d -- the elaborated statement of relay data/b704_probe_out_zeta.txt :4-:5 (run 39721668586 at v0.37; no Mathlib clone at the pin)' % (path, line)
         else:

@@ -1224,7 +1224,7 @@ TITLE_LINE = ('b747 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
     '    N3: section 1 claims no result, every object cited to a definition at v0.38 or a bank line ; nothing new of ζ, nothing of RH or h2 ; the entry`s INTEGRATION line read from REGISTRY and SPIRAL_MAP ; N5: no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b747_address_scan.txt, data/b747_address_scan_postlock.txt) ;',
     '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads under the GitHub login') + ' ;',
     '    nothing deposited ; no new Zenodo version ; no Zenodo field touched ; the deposit route untouched, publish never called, the draft held at v5 ; no GitHub description written ; no door or record edited ;',
-    '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, b746`s INTEGRATION line, the entry), OPEN_TRAILS (the two discharges, the trail' + (', the order' if WL.C3_ORDER_PP else '') + '), the paper`s §1 (' + WL.SECTION_FILE + ') ; no paper moved or renamed ;',
+    '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, b746`s INTEGRATION line, the entry), OPEN_TRAILS (the two discharges, the trail' + (', the order' if __import__('standing.orderstate', fromlist=['entry_commit']).entry_commit('W-ORD-MECHANISM-ATTRIBUTION', WL.PRE_PP, 'HEAD') else '') + '), the paper`s §1 (' + WL.SECTION_FILE + ') ; no paper moved or renamed ;',
     '    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b747`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;',
     '    tools/standing/ at v1.26.0 by (R357)(3) ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b746 unedited ; the mirror zip written outside every repository over the',
     '    roster read from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
@@ -1289,6 +1289,12 @@ def _trail_resolved(text):
     rpj = jl('%s_reproduce.json' % ACT).get('rows') or []
     ad = _bfig('%s_address_scan.txt' % ACT, r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ; PLACES (\d+) ; CONTROLS 7 OF 7 '
                r'AS WANTED ;', 'the address scan`s foot')
+    # ### v1.27.0, (R357)(3)(i): the order's word read from its entry commit's presence in PLACE-papers PRE_PP..HEAD; (iii): the sentence from the
+    # ### answers bank's reason and the events bank's row (optional reads: before the root neither bank need stand, and the sentence says so)
+    _OS = __import__('standing.orderstate', fromlist=['entry_commit'])
+    _sha_ = _OS.entry_commit('W-ORD-MECHANISM-ATTRIBUTION', K.PRE_PP, 'HEAD')
+    _ord_ = (_OS.state(_sha_), _sha_, _OS.reason_from('W-ORD-MECHANISM-ATTRIBUTION', _sha_, rdn('%s_author_answers.txt' % ACT, optional=True),
+                                                         rdn('%s_events.txt' % ACT, optional=True), 'data/%s_author_answers.txt' % ACT, 'data/%s_events.txt' % ACT))
 #⟪END⟫
 #⟪SECTION record 5⟫
                 corr_repeat=ci[5], corr_row=co.get('row'),
@@ -1296,7 +1302,7 @@ def _trail_resolved(text):
                 s1_cites=int(s1d_[0]), s1_words=int(s1d_[1]), s1_place=int(s1d_[2]), s1_version=s1d_[3],
                 s1_state=('passed' if s1v_[0].startswith('PASSED') else 'struck'), s1_clause=(s1v_[0] == "PASSED WITH THE AUTHOR'S CLAUSE"), s1_pp=s1v_[3],
                 ig_stages=ig_[0], ig_b746=ig_[2], ig_b747=ig_[3], ig_keystone=ig_[4],
-                order_state=('entered' if K.C3_ORDER_PP else 'carried'), order_pp=K.C3_ORDER_PP,
+                order_state=_ord_[0], order_pp=_ord_[1], order_reason=_ord_[2],   # ### v1.27.0, (R357)(3)(i), (iii): read from the git log and the banks, no constant
                 amend_n=len(am_),
                 cit_n=cit[0], cit_ok=cit[1], cit_miss=cit[2],
                 rp_rows=rp[0], rp_rep=int(rp[1]), rp_diff=rp[2], rp_notrun=rp[3], rp_pw=rp[4], rp_pr=rp[5],
@@ -1569,7 +1575,7 @@ def _post_lock_edits():
     """the entry's title by its objects in the ferry's Component 4 form ("W-ORD-POSITIVE-CONTROL and W-ORD-ZETA-BOX discharged on pc_online
     and zeta_box at v0.38; THE_EPSTEIN_CONTROL_OBJECT §1 <passed | struck>, <w> words, <c> cites; W-ORD-MECHANISM-ATTRIBUTION <entered |
     carried>; the lock tool, the one reader and <r> repairs landed"); every figure from the banks (section 1's foot and its sitting verdict,
-    v1.26.0's controls) and the order's state from the worklist's C3_ORDER_PP (set on the author's number alone)."""
+    v1.26.0's controls) and the order's state from its entry commit's presence in the git log (v1.27.0, (R357)(3)(i); no constant)."""
 #⟪END⟫
 #⟪SECTION record 31⟫
     reps_ = [r_.strip('()') for r_ in f['v1130_ctl'].split(', ')]

@@ -131,6 +131,49 @@ def compose_checked(rows, read, entry, remotes=None):
     return t
 
 
+def rows_from(text, read):
+    rows = []
+    for sent in re.split(r'(?<=[.:]) (?=[A-Z(`])', text):
+        cites = [(m.group(1), int(m.group(2)), m.start()) for m in CITE.finditer(sent)]
+        parts, at = [], 0
+        for bank, line, end in cites:
+            on = read(bank, line) or ''
+            for m in TOKEN.finditer(sent, at, end):
+                if m.group(0) in on:
+                    parts += [sent[at:m.start()], [bank, line, m.group(0)]]
+                    at = m.end()
+        rows.append([p for p in parts + [sent[at:]] if p != ''])
+    return rows
+
+
+def check_hand(text, read, entry, remotes=None):
+    """v1.27.0, (R357)(3)(ii), b746 events (7): a question written after the seal -- a halt's text, a conflict, any prompt beside the root's
+    own -- run through compose_checked as the root's prompt is: its rows taken from its text (rows_from, every figure before a cite turned
+    into a cite), composed and checked against the entry; SystemExit on any unbacked sentence or stale figure. The composed text must equal
+    the text as written, or the question is refused: the check is of the words put, not of a reworded copy."""
+    t = compose_checked(rows_from(text, read), read, entry, remotes)
+    if ' '.join(t.split()) != ' '.join(text.split()):
+        raise SystemExit('### THE QUESTION NOT COMPOSED: THE COMPOSED TEXT DIFFERS FROM THE TEXT AS WRITTEN')
+    return t
+
+
+def relay_reader(root='D:/relay'):
+    """read(bank, line) over relay-relative paths ('data/...'), the path taken once; None for a line past the file's end. A bank that
+    resolves to no file refuses, printing it (v1.27.0, (R357)(3)(vii))."""
+    import os
+    cache = {}
+
+    def read(bank, line):
+        p = os.path.join(root, bank)
+        if p not in cache:
+            if not os.path.isfile(p):
+                raise SystemExit('### REFUSED: %s resolves to no file (%s)' % (bank, p))
+            cache[p] = open(p, encoding='utf-8').read().replace('\r', '').split('\n')
+        L = cache[p]
+        return L[line - 1] if 1 <= line <= len(L) else None
+    return read
+
+
 REPOS = {'relay': 'D:/relay', 'pp': 'D:/MY-DOwnloads/PLACE-papers'}
 
 
@@ -163,20 +206,17 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) == 4 and sys.argv[1] == 'remote' and sys.argv[2] in REPOS:
         print(remote_read(sys.argv[2], sys.argv[3]))
+    elif len(sys.argv) == 4 and sys.argv[1] == 'hand':
+        # ### v1.27.0: rootprompt.py hand <question file> <entry file>, both relay paths; prints the composed question or refuses
+        import os
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        for p in sys.argv[2:4]:
+            if not os.path.isfile(os.path.join('D:/relay', p)):
+                raise SystemExit('### REFUSED: %s resolves to no file (%s)' % (p, os.path.join('D:/relay', p)))
+        q = open(os.path.join('D:/relay', sys.argv[2]), encoding='utf-8').read().strip()
+        e = open(os.path.join('D:/relay', sys.argv[3]), encoding='utf-8').read()
+        print('THE QUESTION COMPOSED AND CHECKED:\n' + check_hand(q, relay_reader(), e))
     else:
-        raise SystemExit('usage: rootprompt.py remote <relay|pp> <act>   (one remote read per command)')
-
-
-def rows_from(text, read):
-    rows = []
-    for sent in re.split(r'(?<=[.:]) (?=[A-Z(`])', text):
-        cites = [(m.group(1), int(m.group(2)), m.start()) for m in CITE.finditer(sent)]
-        parts, at = [], 0
-        for bank, line, end in cites:
-            on = read(bank, line) or ''
-            for m in TOKEN.finditer(sent, at, end):
-                if m.group(0) in on:
-                    parts += [sent[at:m.start()], [bank, line, m.group(0)]]
-                    at = m.end()
-        rows.append([p for p in parts + [sent[at:]] if p != ''])
-    return rows
+        raise SystemExit('usage: rootprompt.py remote <relay|pp> <act>   (one remote read per command)\n'
+                         '       rootprompt.py hand <question file> <entry file>   (v1.27.0: a question after the seal through compose_checked)')

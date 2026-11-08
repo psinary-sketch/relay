@@ -51,7 +51,9 @@ RULE = ('THE RULE (amended at b723 by the author`s ruling, data/b723_author_word
         'standing directly before the name), not negated (not, no, never, nor, unless, un- within 14 characters before the word), the '
         'last in reading order deciding where a line carries several; the words read as a status in capitals (not a hyphenated compound, '
         'not "CLOSED FORM"). PRINTED BESIDE, NOT A STATUS: the roll lines carrying a CLOSED order after its closing line, and the lines '
-        'carrying an entry word in lower or mixed case in a clause naming an order')
+        'carrying an entry word in lower or mixed case in a clause naming an order. AMENDED AT v1.27.0, (R357)(3)(v): a token in a '
+        'quotation (“...” or "..." on one line) gives no entry and no status; no entry is read from a hand section (the lines from the '
+        'sentence "the lines above are the composer`s" to the next heading) or from a roll line; an order`s entry is its first mention so read')
 
 
 def act():
@@ -138,21 +140,67 @@ def _closer(line, name):
     return st[1] if st and st[0] == 'CLOSED' else None
 
 
+QUOTE = re.compile(r'“[^”]*”|"[^"\n]*"')   # ### v1.27.0, (R357)(3)(v): a quotation, curly or straight, on one line
+HAND_OPEN = 'the lines above are the composer'      # ### the hand section's own opening sentence (b723 onward), to the next heading
+ENTRYFORM = re.compile(r'^\*Appended[^\n]*?THE ORDER \*\*`(W-ORD-[A-Z0-9]+(?:-[A-Z0-9]+)*)`')   # ### the entry form of an order's own commit
+
+
+def mask(line):
+    """the line with every quotation blanked to spaces, its length kept: a token in a quotation is not read (v1.27.0)."""
+    return QUOTE.sub(lambda m: ' ' * len(m.group(0)), line)
+
+
+def hand_flags(lines):
+    """[bool] per line: True inside a hand section -- from a line carrying the hand section's opening sentence to the next heading."""
+    out, on = [], False
+    for l in lines:
+        if l.startswith('### ') or l.startswith('## '):
+            on = False
+        if HAND_OPEN in l:
+            on = True
+        out.append(on)
+    return out
+
+
+def unread_mentions(lines):
+    """the mentions the rule does not read for an entry, printed beside: (in a quotation, in a hand section, on a roll line)."""
+    hf, q, h, r = hand_flags(lines), 0, 0, 0
+    for i, l in enumerate(lines):
+        n_raw, n_mask = len(NAME.findall(l)), len(NAME.findall(mask(l)))
+        if l.lstrip().startswith(ROLL):
+            r += n_raw
+        elif hf[i]:
+            h += n_raw
+        else:
+            q += n_raw - n_mask
+    return q, h, r
+
+
 def read(lines):
     """{name: dict(entry, status, decided_at, why, closed_at, reopened_at, named, rolls_after)} over every order the trail names, in entry
     order: the status from the latest line giving one (decided_at, why); closed_at the latest closing line; reopened_at the first line
-    reading OPEN after a closing line."""
+    reading OPEN after a closing line. v1.27.0 ((R357)(3)(v)): the entry is the order's first mention outside a quotation, a hand section
+    and a roll line; a token in a quotation gives no entry and no status. (The entry-form line as the entry wherever one stands was tried
+    and moved two statuses at PLACE-papers f62d997e, closing lines falling before a later entry-form line; not taken.)"""
+    M, hf = [mask(l) for l in lines], hand_flags(lines)
     orders, order = {}, []
-    for i, l in enumerate(lines, 1):
-        for n in set(NAME.findall(l)):
+    for i, l in enumerate(M, 1):
+        if l.lstrip().startswith(ROLL) or hf[i - 1]:
+            continue
+        for n in NAME.findall(l):   # ### in reading order, not a set's: names entering on one line keep the line's order
             if n not in orders:
                 orders[n] = dict(entry=i, status='OPEN', decided_at=None, why=None, closed_at=None, reopened_at=None, named=0)
-                order.append(n)
-            orders[n]['named'] += 1
-    for i, l in enumerate(lines, 1):
+    order = sorted(orders, key=lambda n: orders[n]['entry'])
+    for l in lines:
+        for n in set(NAME.findall(l)):
+            if n in orders:
+                orders[n]['named'] += 1
+    for i, l in enumerate(M, 1):
         if l.lstrip().startswith(ROLL):
             continue
         for n in set(NAME.findall(l)):
+            if n not in orders:
+                continue
             o = orders[n]
             if i <= o['entry']:
                 continue
@@ -261,8 +309,10 @@ def report(rows, rev):
                                                             (':%d %s' % (o['decided_at'], o['why'])) if o['decided_at'] else '-', o['named'], beside))
     conflict = [n for n, o in rows if o['status'] == 'CLOSED' and o['rolls_after']]
     reopened = [n for n, o in rows if o['reopened_at']]
+    uq, uh, ur = unread_mentions(trail(rev))
     L += ['', '### PRINTED BESIDE, NOT READ: lines carrying an entry word in lower or mixed case in a clause naming an order: %d' % anycase_yield(
               trail(rev)),
+          '### PRINTED BESIDE, NOT READ FOR AN ENTRY (v1.27.0): mentions in a quotation %d ; in a hand section %d ; on a roll line %d' % (uq, uh, ur),
           '', '### ### **ORDERS %d ; OPEN %d ; CLOSED %d ; OPEN AGAIN AFTER A CLOSING LINE %d%s ; CLOSED AND ON A ROLL AFTER %d%s.**' % (
               len(rows), len(op), len(rows) - len(op), len(reopened), (': ' + ', '.join(reopened)) if reopened else '',
               len(conflict), (': ' + ', '.join(conflict)) if conflict else '')]
