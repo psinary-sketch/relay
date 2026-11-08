@@ -1,0 +1,487 @@
+b746 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-08T05:25:52Z)
+
+### the source: the seat`s session 4fe446f7-cbef-42cd-9f79-d5164f63b12d from its first user line carrying 'RULING (R356) BEGIN', with its subagents` transcripts
+### commands read: 347
+
+### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
+  #32 2026-11-08T01:48:52.063Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
+      sed -n '150,215p' data/b745_closing.txt
+
+### THE PREVIOUS ACT`S CAPTURE AFTER ITS POST-PUSH SUITE (b745, its own session 161ec306, from its post-push combine to that session`s end): 30 commands from 2026-11-08T01:04:12.252Z, its offences printed whole (0):
+  NONE
+
+### THE COMMANDS THAT RUN lean OR lake ON THIS HOST (0):
+  NONE
+
+### THE RUNNER DISPATCHES ((R356)(7)(iii) and N1: the rebuild`s one per wave 1 kernel through tools/b746_rebuild.py dispatch, SIDE-frobenius`s run on push through push_run) (0):
+  NONE
+
+### THE COMMANDS THAT START A DETACHED RUN, BY THEIR TEXT OR THE TOOL`S run_in_background PARAMETER (0):
+  NONE
+
+### THE COMMANDS CARRYING sed IN ANY FORM (data/b685_rules.txt row (2)) (1):
+  #32 sed -n '150,215p' data/b745_closing.txt
+
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (0):
+  NONE
+
+### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
+  #3 2026-11-08T01:41:45.856Z git show --stat --format='%H %s' e9c339ed | head -20; echo ---; cat data/act_current.json; echo ---; git status --short | grep -v '^??'
+  #336 2026-11-08T05:20:54.411Z grep -n "^DATE\|^NEXT_ACT\|^PORT_BRANCH\|^ZQ_TIP\|^ZQ_TAG" tools/b746_worklist.py && git show --stat --format= 0c6d9c5c && git show --stat --format= e2f36a5f 2dc2b3fd b15bfdf4 37bb57e8 | tail -n 60
+
+### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (3):
+  #3 2026-11-08T01:41:45.856Z git show --stat --format='%H %s' e9c339ed | head -20; echo ---; cat data/act_current.json; echo ---; git status --short | grep -v '^??'
+  #23 2026-11-08T01:44:49.184Z Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name,Id,@{n='MB';e={[int]($_.WorkingSet64/1MB)}}
+  #336 2026-11-08T05:20:54.411Z grep -n "^DATE\|^NEXT_ACT\|^PORT_BRANCH\|^ZQ_TIP\|^ZQ_TAG" tools/b746_worklist.py && git show --stat --format= 0c6d9c5c && git show --stat --format= e2f36a5f 2dc2b3fd b15bfdf4 37bb57e8 | tail -n 60
+
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (79):
+  #7 2026-11-08T01:42:13.079Z python -X utf8 -c " import json,re p='data/act_current.json'; s=open(p,encoding='utf-8').read() d=json.loads(s) print(len(d['replay']), list(d['replay'])[:2]) print(s.count('\r\n')) "
+  #8 2026-11-08T01:42:38.533Z python -X utf8 -c "import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],len(d['replay']))" && git add data/act_current.json
+  #34 2026-11-08T01:51:06.998Z cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/ && cat splice745.py && wc -l sec1_745.txt sec4_745.txt && python -X utf8 -c "import sys;sys.path.insert(0,'
+  #42 2026-11-08T01:52:54.502Z grep -n "CASES\|AS WANTED" data/b745_standing_v1250.txt ; grep -n "ARMS RUN" data/b745_checks.txt data/b745_checks_postpush.txt ; grep -n "b745 AGREE\|DISAGREE" data/b745_checks_postpush_standing-b3.txt ; grep -c "CLEAN 
+  #53 2026-11-08T01:56:29.956Z cat data/b745_readfirst_rows.json && python -X utf8 tools/standing/readfirst.py 2>&1 ; head -c 1500 tools/standing/readfirst.py
+  #68 2026-11-08T02:00:37.062Z python -X utf8 -c " import json d=json.load(open('data/b745_commands.json',encoding='utf-8')) rows=d['rows'] if isinstance(d,dict) and 'rows' in d else d for r in rows: n=r.get('n') if isinstance(r,dict) else None if n i
+  #72 2026-11-08T02:01:10.864Z grep -n "W-ORD-POSITIVE-CONTROL\|W-ORD-ZETA-BOX" OPEN_TRAILS.md -o ; python -X utf8 -c " L=open('OPEN_TRAILS.md',encoding='utf-8').read().split('\n') for n in (17331,17704): print(n, L[n-1][:1500]); print() "
+  #74 2026-11-08T02:01:40.903Z cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 -c " b=open('OPEN_TRAILS.md','rb').read(); print('crlf',b.count(b'\r\n'),'lf',b.count(b'\n'),'tail',repr(b[-60:]))" && git status --short
+  #83 2026-11-08T02:03:35.643Z python -X utf8 -c " import subprocess o=subprocess.run(['python','-X','utf8','tools/standing/orders.py','read'],capture_output=True,text=True,encoding='utf-8').stdout for l in o.split('\n'): if 'POSITIVE-CONTROL' in l or
+  #85 2026-11-08T02:04:08.305Z head -c 3000 tools/reg_seal.py ; echo ; grep -n "def \|LOCK\|argv" tools/reg_seal.py ; python -X utf8 -c "import json;d=json.load(open('data/b745_lockgate.json',encoding='utf-8'));print({k:(v if len(str(v))<120 else str(
+  #104 2026-11-08T02:11:02.878Z ls data/ --color=never -1 -d data/b745_lsr_* && python -X utf8 -c "import json;[print(f, json.dumps(json.load(open('data/'+f,encoding='utf-8')))[:900]) for f in ('b745_lsr_postpush_standing-a2_attempt1.json','b745_lsr_po
+  #105 2026-11-08T02:11:09.673Z python -X utf8 -c "import json;d=json.load(open('data/b745_lsr_postpush_standing-a2_attempt1.json',encoding='utf-8'));print(d['times'].get('D:/SIDE-simplicity'))"
+  #112 2026-11-08T02:14:30.756Z python -X utf8 -c "import io;p='tools/standing/VERSION';t=io.open(p,encoding='utf-8',newline='').read();print(repr(t));assert t.strip()=='v1.25.0';io.open(p,'w',encoding='utf-8',newline='').write(t.replace('v1.25.0','v1.
+  #127 2026-11-08T02:16:36.732Z python -X utf8 -c "import io;l=io.open('D:/relay/data/b745_author_answers.txt',encoding='utf-8').read().split('\n')[8];print(len(l));print(l[-700:])"
+  #128 2026-11-08T02:16:41.137Z python -X utf8 -c "import io;l=io.open('D:/relay/data/b745_author_answers.txt',encoding='utf-8').read().split('\n')[8];i=l.find('The user answered');j=l.find('=',i);print(l[1300:2500])"
+  #134 2026-11-08T02:17:16.578Z python -X utf8 -c "import json;d=json.load(open('data/b745_scores_close.json',encoding='utf-8'));s=d.get('scores') or d;print({k:(v[0] if isinstance(v,list) else v) for k,v in s.items()});a=json.load(open('data/b745_act_
+  #142 2026-11-08T02:20:19.531Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record c1 weight write
+  #143 2026-11-08T02:20:30.996Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record c1 corrigendum write
+  #146 2026-11-08T02:21:06.746Z python -X utf8 -c "import io;p='data/b675_corrigenda.txt';t=io.open(p,encoding='utf-8',newline='').read();a=io.open('C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scrat
+  #189 2026-11-08T03:40:22.163Z cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 -c "b=open('FINDINGS.md','rb').read();print('CR',b.count(b'\r'),'LF',b.count(b'\n'))" && git diff --stat
+  #196 2026-11-08T03:41:53.211Z python -X utf8 -c "import io;p='data/b746_defects.txt';t=io.open(p,encoding='utf-8',newline='').read();a=' (j) THE SEAT\'S [CLOSE ; NEW]: Component 3: relay c4d044f3 was committed with no scan run after PLACE-papers b754
+  #204 2026-11-08T03:43:57.792Z python -X utf8 -c " import io;L=io.open('tools/acts/b746.py',encoding='utf-8').read().split('\n');print(len(L)) import re for i,l in enumerate(L,1): if re.match(r'(def |[A-Z_][A-Z_0-9]* *=|# \#\#\# ===|class )',l) and i>
+  #209 2026-11-08T03:44:27.355Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #213 2026-11-08T03:45:04.397Z python -X utf8 -c " import sys,io;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold t=fold.render('b746','checks');io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-
+  #216 2026-11-08T03:45:26.852Z python -X utf8 -c " import io,re L=io.open('tools/b746_worklist.py',encoding='utf-8').read().split('\n');print(len(L)) for i,l in enumerate(L,1): m=re.match(r'([A-Z_][A-Z_0-9]*) *= *(.*)',l) if m: print(i,m.group(1),'=',
+  #220 2026-11-08T03:46:14.696Z python -X utf8 -c " import re,io t=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_checks746.py',encoding='utf-8').read() print(sorted(set(re.finda
+  #221 2026-11-08T03:46:22.487Z python -X utf8 -c " import re,io L=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_checks746.py',encoding='utf-8').read().split(chr(10)) for i,l in
+  #225 2026-11-08T03:47:02.248Z python -X utf8 -c " import re,io L=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_checks746.py',encoding='utf-8').read().split(chr(10)) for i,l in
+  #231 2026-11-08T03:48:44.565Z python -X utf8 -c " import io p='tools/b746_worklist.py';t=io.open(p,encoding='utf-8',newline='').read() R=[ (\"PRINT_COMMIT = None # ### (carried name) the commit carrying the act's section bank\",\"PRINT_COMMIT = '4f57
+  #232 2026-11-08T03:48:49.664Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #233 2026-11-08T03:51:07.338Z python -X utf8 -c " import io,re L=io.open('tools/acts/b746.py',encoding='utf-8').read().split(chr(10)) for i,l in enumerate(L,1): if re.search(r'v1250|v1\.25\.0|V1250',l): print(i,l.strip()[:200]) "
+  #238 2026-11-08T03:51:49.170Z python -X utf8 -c " import sys,io,re;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold secs=fold.sections('b746') for tool in ('record','closing','regspec','report'): t=fold.render('b746',tool);i
+  #241 2026-11-08T03:52:30.172Z python -X utf8 -c " import io p='tools/acts/b746.py';t=io.open(p,encoding='utf-8',newline='').read() def rep(a,b): global t assert t.count(a)==1,a[:80]; t=t.replace(a,b) s=t.index('#⟪SECTION record 3⟫\n'); e=t.index('#⟪E
+  #244 2026-11-08T03:53:27.053Z python -X utf8 -c " import io for f in ('data/b746_section1.txt','data/b746_standing_v1260.txt'): L=io.open(f,encoding='utf-8').read().split(chr(10)) for i,l in enumerate(L,1): if i<12 or l.startswith('#') or l.startswit
+  #248 2026-11-08T03:55:05.074Z python -X utf8 -c " import io,re,subprocess t=io.open('data/b746_section1.txt',encoding='utf-8').read() reg=t[t.find('### EVERY CITE'):t.find('### ### **§1 DRAFTED')] rows=re.findall(r'(?m)^ (\S+)\s+:(\d+)\s+(.*)$',reg) 
+  #251 2026-11-08T03:56:00.193Z python -X utf8 -c " import io L=io.open('tools/acts/b746.py',encoding='utf-8').read().split(chr(10)) s=[i for i,l in enumerate(L) if l.startswith('#⟪SECTION record 32⟫')][0] for i in range(s,s+8): print(i+1,L[i][:2000]) 
+  #252 2026-11-08T03:57:19.789Z python -X utf8 -c " import io L=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_record746.py',encoding='utf-8').read().split(chr(10)) for k in ('de
+  #257 2026-11-08T03:59:53.452Z python -X utf8 -c " import io L=io.open('tools/acts/b746.py',encoding='utf-8').read().split(chr(10)) s=[i for i,l in enumerate(L) if l.startswith('#⟪SECTION regspec 16⟫')][0] e=[i for i,l in enumerate(L) if l.startswith(
+  #259 2026-11-08T04:00:06.916Z python -X utf8 -c " import io L=io.open('tools/b746_worklist.py',encoding='utf-8').read().split(chr(10)) for i in range(397,404): print(i+1,L[i][:300]) "
+  #261 2026-11-08T04:00:45.931Z python -X utf8 -c " import sys,io;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold t=fold.render('b746','checks');io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-
+  #263 2026-11-08T04:01:03.226Z python -X utf8 -c " import os,glob for p in sorted(glob.glob('data/b746_*')): print(p, os.path.getsize(p)) " && git show --stat --format=%s c28ea406
+  #264 2026-11-08T04:01:28.957Z python -X utf8 -c " import io,json L=io.open('D:/MY-DOwnloads/PLACE-papers/FINDINGS.md',encoding='utf-8').read().split(chr(10)) print(L[14066][:600]) j=json.load(io.open('data/b746_corrigendum.json',encoding='utf-8')) pr
+  #268 2026-11-08T04:03:45.681Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #270 2026-11-08T04:06:10.205Z python -X utf8 -c " import io t=io.open('data/b745_reproduce.txt',encoding='utf-8').read().split(chr(10)) print(t[0][:200]);print([l for l in t if l.startswith('### ### **')]) "
+  #271 2026-11-08T04:06:16.566Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/research/reproduce.py run --bank data/b746_reproduce
+  #272 2026-11-08T04:12:16.766Z python -X utf8 -c " import io t=io.open('data/b746_reproduce.txt',encoding='utf-8').read().split(chr(10)) print([l for l in t if l.startswith('### ### **')]); print([l[:100] for l in t if 'NOT RUN ' in l[:40] or ' DIFFER
+  #273 2026-11-08T04:12:23.263Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #274 2026-11-08T04:14:43.356Z python -X utf8 -c " import sys,io,re;sys.path.insert(0,'tools/standing');sys.path.insert(0,'tools');import fold t=fold.render('b746','record') io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446
+  #275 2026-11-08T04:14:53.380Z python -X utf8 -c " import io,re t=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_record746.py',encoding='utf-8').read().split(chr(10)) for i,l in
+  #280 2026-11-08T04:15:49.172Z python -X utf8 -c " import io L=io.open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/r_checks746.py',encoding='utf-8').read().split(chr(10)) for a,b in ((
+  #281 2026-11-08T04:16:17.752Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d51
+  #282 2026-11-08T04:19:47.798Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d51
+  #284 2026-11-08T04:22:06.100Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d51
+  #285 2026-11-08T04:24:39.898Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet ; grep -n "FAIL\|VERDICT\|PASS [0-9]\|O
+  #286 2026-11-08T04:27:00.482Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d51
+  #292 2026-11-08T04:29:53.647Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #297 2026-11-08T04:30:48.788Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record findings dry
+  #304 2026-11-08T04:32:33.009Z cd /d/relay && python -X utf8 -c "import json,io;j=json.load(io.open('data/b746_corrigendum.json',encoding='utf-8'));print([(d['letter'],d.get('tag'),d.get('column')) for d in j['defects'][:4]])" && ls data/b745_defect* 
+  #310 2026-11-08T04:34:34.074Z head -n 30 tools/standing/prevdry.py && head -n 25 tools/standing/prelock.py && python -X utf8 -c "import json;s=json.load(open('data/b746_steps.json',encoding='utf-8'));print([(r.get('step'),r.get('repo'),r.get('sha',''
+  #311 2026-11-08T04:34:39.523Z grep -n "_checks_\|_probe_\|def gate\|def parts_of" -A2 tools/standing/prelock.py && python -X utf8 -c "import json;s=json.load(open('data/b746_steps.json',encoding='utf-8'));r=(s.get('rows') if isinstance(s,dict) else s
+  #313 2026-11-08T04:34:51.652Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-a1 --quiet
+  #314 2026-11-08T04:37:36.173Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --quiet && grep -n "^ G-.*FAIL \|PART s
+  #315 2026-11-08T04:43:19.925Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b1 --quiet && grep -n "^ G-\|PART standing
+  #316 2026-11-08T04:46:24.090Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2a --quiet && grep -n "CARRIES NO ARM\|CL
+  #317 2026-11-08T04:50:34.202Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2b --quiet && grep -n "CHAIN`S PART\|CLAS
+  #318 2026-11-08T04:50:41.579Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2b --quiet && grep -n "CHAIN.S PART\|CLAS
+  #319 2026-11-08T04:54:59.035Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2c --quiet && grep -n "CHAIN.S PART\|CLAS
+  #320 2026-11-08T04:59:50.103Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b2d --quiet && grep -n "CHAIN.S PART\|CLAS
+  #321 2026-11-08T05:04:49.771Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-b3 --quiet && grep -n "^ G-\|DISAGREE\|CLA
+  #322 2026-11-08T05:09:13.336Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-c --quiet && grep -n "^ G-\|FIGURE\|README
+  #328 2026-11-08T05:17:17.658Z python -X utf8 -c " import json,re j=json.load(open('data/b745_commands.json',encoding='utf-8')) rows=j.get('rows') if isinstance(j,dict) else j pat=re.compile(r'fold\.py (record|reg_gate|regspec|checks --(prerun|combine
+  #329 2026-11-08T05:17:24.600Z python -X utf8 -c " import json,re j=json.load(open('data/b745_commands.json',encoding='utf-8')) rows=j.get('rows') if isinstance(j,dict) else j pat=re.compile(r'fold\.py|prevdry\.py|b745_face\.py|reg_satisfiable|banned_
+  #330 2026-11-08T05:17:29.605Z python -X utf8 -c " import json j=json.load(open('data/b745_commands.json',encoding='utf-8')) rows=j.get('rows') if isinstance(j,dict) else j print(len(rows)) for i,r in enumerate(rows[494:]): print(494+i, (r.get('cmd') 
+  #332 2026-11-08T05:17:54.215Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record kernels --act b746
+  #333 2026-11-08T05:18:10.185Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record figures --act b746
+  #334 2026-11-08T05:18:25.662Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record guard --act b746
+  #335 2026-11-08T05:18:44.307Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b746_prepaths.py --bank && tail -n 12 data/b746_pathrefusal.txt
+  #339 2026-11-08T05:21:32.835Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record trail dry --act b746
+  #347 2026-11-08T05:25:45.320Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record commands --act b746
+
+### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
+  #59 2026-11-08T01:58:08.812Z Bash
+      git branch -d push-b745-closing
+  #60 2026-11-08T01:58:13.878Z Bash
+      git branch -d push-b745-preroot
+  #61 2026-11-08T01:58:19.258Z Bash
+      git branch -d push-b745-record
+  #62 2026-11-08T01:58:24.166Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b745-preroot
+  #63 2026-11-08T01:58:28.711Z Bash
+      git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b745-record
+
+### THE BRANCH DELETES BY SHAPE ((R356)(8) and data/b694_rules.txt row (1): one branch per command, no glob and no variable in any half, nothing chained after): #59 deletes ['push-b745-closing'], halves 1, globs none, variables none, chained after False; #60 deletes ['push-b745-preroot'], halves 1, globs none, variables none, chained after False; #61 deletes ['push-b745-record'], halves 1, globs none, variables none, chained after False; #62 deletes ['push-b745-preroot'], halves 1, globs none, variables none, chained after False; #63 deletes ['push-b745-record'], halves 1, globs none, variables none, chained after False
+
+### THE OUTBOUND REQUESTS OTHER THAN git AND gh (web searches, subagent prompts and fetches), each with the author`s identifiers found in it (0):
+  NONE
+
+### EVERY COMMAND (n | time | source | tool | first line, 160 characters):
+  #1 | 2026-11-08T01:41:36.717Z | seat | Bash | cd "/c/Users/echo chamber/.claude/projects/D--/memory/" && cat project_b745_progress.md feedback_b745_traps.md
+  #2 | 2026-11-08T01:41:41.850Z | seat | Bash | cd /d/relay && git log --oneline -3 && git status --short && git show --stat e9c339ed && cat data/act_current.json
+  #3 | 2026-11-08T01:41:45.856Z | seat | Bash | git show --stat --format='%H %s' e9c339ed | head -20; echo ---; cat data/act_current.json; echo ---; git status --short | grep -v '^??'
+  #4 | 2026-11-08T01:41:49.926Z | seat | Bash | git show --stat --format='%H %s' e9c339ed && cat data/act_current.json
+  #5 | 2026-11-08T01:41:59.676Z | seat | Bash | tail -n 2 data/act_roots.txt && git rev-parse HEAD origin/main && git -C /d/MY-DOwnloads/PLACE-papers rev-parse HEAD origin/main && ls tools/standing/ && date -
+  #6 | 2026-11-08T01:42:04.054Z | seat | Bash | python -X utf8 tools/standing/commit.py --help; grep -n "def main\|argv\|phase" tools/standing/commit.py
+  #7 | 2026-11-08T01:42:13.079Z | seat | Bash | python -X utf8 -c "
+  #8 | 2026-11-08T01:42:38.533Z | seat | Bash | python -X utf8 -c "import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['chain_row'],len(d['replay']))" && git add data/act_
+  #9 | 2026-11-08T01:42:42.819Z | seat | Bash | git commit -q -m "b746 step zero: data/act_current.json for b746 under (R356), committed alone before any other write of the act" && python -X utf8 -u tools/sta
+  #10 | 2026-11-08T01:42:49.481Z | seat | Bash | git log --oneline -2 && git log --diff-filter=A --format='%h %s' -- tools/acts/b745.py
+  #11 | 2026-11-08T01:42:56.583Z | seat | Bash | wc -l data/b745_stepzero.txt && head -c 6000 data/b745_stepzero.txt
+  #12 | 2026-11-08T01:43:00.852Z | seat | Bash | tail -c +6000 data/b745_stepzero.txt
+  #13 | 2026-11-08T01:43:06.173Z | seat | Bash | head -c 2500 tools/b745_carry.py && echo && echo ===== && head -c 1500 data/b745_carry_acts.txt && ls /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e93257
+  #14 | 2026-11-08T01:43:11.097Z | seat | Bash | ls /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/
+  #15 | 2026-11-08T01:43:16.193Z | seat | Bash | cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/ && cat carrycarry745.py ferry745.py scanfix745.
+  #16 | 2026-11-08T01:43:24.563Z | seat | Bash | cd /d/relay && grep -n "b745\|R355\|b744\|R354" tools/b745_address_scan.py
+  #17 | 2026-11-08T01:43:43.600Z | seat | Bash | S=/c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad && python -X utf8 $S/carrycarry746.py && python -
+  #18 | 2026-11-08T01:43:51.085Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/carrycarry746.py && python -X utf8 /
+  #19 | 2026-11-08T01:44:09.531Z | seat | Bash | grep -n "^def \|sys.argv\|usage" tools/b746_carry.py
+  #20 | 2026-11-08T01:44:14.395Z | seat | Bash | python -X utf8 -u tools/b746_carry.py acts && python -X utf8 -u tools/b746_carry.py carry worklist && python -X utf8 -u tools/b746_carry.py carry address_scan &
+  #21 | 2026-11-08T01:44:21.975Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "step zero" e2f36a5f8 ; python -X utf8 -u tools/standing/fold.py record step relay "step zero" $(git 
+  #22 | 2026-11-08T01:44:42.565Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/proclist745.py && tasklist /fo csv /
+  #23 | 2026-11-08T01:44:49.184Z | seat | PowerShell | Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name,Id,@{n='MB';e={[int]($_.WorkingSet64/1MB)}}
+  #24 | 2026-11-08T01:45:02.114Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/topmem746.py
+  #25 | 2026-11-08T01:45:12.604Z | seat | Bash | grep -n "^[A-Z_][A-Z_0-9]* *=" tools/b746_worklist.py
+  #26 | 2026-11-08T01:45:19.346Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/topmem746.py
+  #27 | 2026-11-08T01:48:08.952Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/topmem746.py
+  #28 | 2026-11-08T01:48:14.373Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "step zero" e2f36a5fd0000000000000000000000000000000 ; git rev-parse e2f36a5f
+  #29 | 2026-11-08T01:48:25.795Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record step relay "step zero" e2f36a5f19bf809bb248751e8669d1046ad07346
+  #30 | 2026-11-08T01:48:41.149Z | seat | Bash | cat data/b745_closing.txt
+  #31 | 2026-11-08T01:48:48.690Z | seat | Bash | grep -n -o "OPEN_TRAILS[^;]\{0,80\}:1[0-9]\{4\}[^;]\{0,60\}" data/b745_closing.txt data/b745_record.txt data/b745_trail.txt
+  #32 | 2026-11-08T01:48:52.063Z | seat | Bash | sed -n '150,215p' data/b745_closing.txt
+  #33 | 2026-11-08T01:49:09.545Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && wc -l OPEN_TRAILS.md FINDINGS.md REGISTRY.md SPIRAL_MAP.md && grep -n "b745" OPEN_TRAILS.md && grep -n "^#.*b745\|^## .*b745"
+  #34 | 2026-11-08T01:51:06.998Z | seat | Bash | cd /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/ && cat splice745.py && wc -l sec1_745.txt sec4_
+  #35 | 2026-11-08T01:51:11.353Z | seat | Bash | cd /d/relay && grep -n "SECTION citation" tools/acts/b746.py
+  #36 | 2026-11-08T01:51:40.710Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/cites746.py relay
+  #37 | 2026-11-08T01:51:47.805Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/cites746.py pp && python -X utf8 /c/
+  #38 | 2026-11-08T01:51:55.449Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "^(noncomputable )?(def|abbrev|theorem|lemma) (zqFn|lamM|qBase|zq_offline_zero|zqTheta|lamQ|LambdaQ|zQ0|zQ1|gammaQ
+  #39 | 2026-11-08T01:52:12.296Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/defs746.py 0
+  #40 | 2026-11-08T01:52:21.549Z | seat | Bash | git grep -n -E "^(noncomputable )?(def|abbrev|structure|theorem) (Q0form|Q1form|q1form|thetaC|thetaU|zqPair|cc|rQ|sqrt23_pos|zetaK|Lpsi|classGroup)\b" v0.38 -- 
+  #41 | 2026-11-08T01:52:31.313Z | seat | Bash | cd /d/relay && grep -n -E "^\s*(starts|letters|cl|flat|ev_|df_)\s*=|def (add|at|lines_of|_blob|gr|_jl|_remote_heads|p)\(|SECTION citation" tools/standing/fold/c
+  #42 | 2026-11-08T01:52:54.502Z | seat | Bash | grep -n "CASES\|AS WANTED" data/b745_standing_v1250.txt ; grep -n "ARMS RUN" data/b745_checks.txt data/b745_checks_postpush.txt ; grep -n "b745 AGREE\|DISAGREE"
+  #43 | 2026-11-08T01:53:37.014Z | seat | Bash | grep -n -o "^    ([0-9]) THE [A-Z']* \[[A-Z]* ; [A-Z0-9 ()a-z]*\]" data/b745_events.txt ; grep -c "" data/b745_defects.txt ; grep -n -i "\[D\]\|heading\|## [1-9
+  #44 | 2026-11-08T01:54:36.721Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/splice746.py
+  #45 | 2026-11-08T01:54:47.992Z | seat | Bash | git diff --stat -- tools/mirror_prevbuild.json && git diff --ignore-cr-at-eol --stat -- tools/mirror_prevbuild.json && git status --short -- data/b745_relay_pus
+  #46 | 2026-11-08T01:54:54.731Z | seat | Bash | git checkout -- tools/mirror_prevbuild.json && git status --short -- tools/mirror_prevbuild.json && git hash-object tools/mirror_prevbuild.json && git rev-parse
+  #47 | 2026-11-08T01:55:00.533Z | seat | Bash | git add data/b745_relay_push-b745-closing_push_out.txt
+  #48 | 2026-11-08T01:55:06.850Z | seat | Bash | git commit -q -m "b746 step zero: b745's closing push capture data/b745_relay_push-b745-closing_push_out.txt, committed alone ((R356)(3))" && python -X utf8 -u 
+  #49 | 2026-11-08T01:55:32.685Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation ferry
+  #50 | 2026-11-08T01:55:44.172Z | seat | Bash | grep -n "usage\|argv\[" tools/standing/fold/citation.tpl
+  #51 | 2026-11-08T01:55:48.790Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation check dry
+  #52 | 2026-11-08T01:56:09.663Z | seat | Bash | python -X utf8 -u tools/standing/fold.py citation check
+  #53 | 2026-11-08T01:56:29.956Z | seat | Bash | cat data/b745_readfirst_rows.json && python -X utf8 tools/standing/readfirst.py 2>&1 ; head -c 1500 tools/standing/readfirst.py
+  #54 | 2026-11-08T01:56:35.282Z | seat | Bash | cat data/b745_readfirst_rows.json ; head -c 2500 tools/standing/readfirst.py
+  #55 | 2026-11-08T01:57:09.107Z | seat | Bash | python -X utf8 tools/standing/readfirst.py write b746 && grep -n "README" data/b745_standing_figures.txt
+  #56 | 2026-11-08T01:57:20.330Z | seat | Bash | python -X utf8 tools/standing/fold.py record rowgen --act b746
+  #57 | 2026-11-08T01:57:57.725Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/proclist745.py
+  #58 | 2026-11-08T01:58:04.468Z | seat | Bash | git branch --merged main --list "push-b745-*" -v && git -C /d/MY-DOwnloads/PLACE-papers branch --merged main --list "push-b745-*" -v && git -C /d/SIDE-explicit-
+  #59 | 2026-11-08T01:58:08.812Z | seat | Bash | git branch -d push-b745-closing
+  #60 | 2026-11-08T01:58:13.878Z | seat | Bash | git branch -d push-b745-preroot
+  #61 | 2026-11-08T01:58:19.258Z | seat | Bash | git branch -d push-b745-record
+  #62 | 2026-11-08T01:58:24.166Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b745-preroot
+  #63 | 2026-11-08T01:58:28.711Z | seat | Bash | git -C /d/MY-DOwnloads/PLACE-papers branch -d push-b745-record
+  #64 | 2026-11-08T01:58:39.944Z | seat | Bash | cat data/b746_hook_refusals.txt ; git status --short --untracked-files=all -- data/b746* tools/b746* tools/acts/b746.py data/act_current.json
+  #65 | 2026-11-08T01:59:33.446Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #66 | 2026-11-08T01:59:48.457Z | seat | Bash | git add data/b746_bank_hashes.json data/b746_carry_acts.txt data/b746_carry_address_scan.txt data/b746_carry_worklist.txt data/b746_citation_check.json data/b74
+  #67 | 2026-11-08T01:59:54.224Z | seat | Bash | git commit -q -m "b746 step zero: the ferry, the citation check (150 of 150 OK, THE CHECK CLEAN; the comparative read VACUOUS), the readfirst bank by the tool, 
+  #68 | 2026-11-08T02:00:37.062Z | seat | Bash | python -X utf8 -c "
+  #69 | 2026-11-08T02:00:45.838Z | seat | Bash | wc -l /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/c1_745.txt && grep -n "SECTION record\|def c1
+  #70 | 2026-11-08T02:00:58.366Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && grep -n "DISCHARGED" OPEN_TRAILS.md --max-count=400 -o -b ; grep -n "^\*Appended.*DISCHARGED\|^\*Appended .*discharged" OPEN_
+  #71 | 2026-11-08T02:01:04.664Z | seat | Bash | grep -n "THE ORDER \*\*\`W-ORD-POSITIVE-CONTROL\|THE ORDER \*\*\`W-ORD-ZETA-BOX\|DISCHARGED.*W-ORD-\|W-ORD-[A-Z0-9-]*\` DISCHARGED" OPEN_TRAILS.md -o
+  #72 | 2026-11-08T02:01:10.864Z | seat | Bash | grep -n "W-ORD-POSITIVE-CONTROL\|W-ORD-ZETA-BOX" OPEN_TRAILS.md -o ; python -X utf8 -c "
+  #73 | 2026-11-08T02:01:33.361Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -E "^theorem (pc_online|pc_li_nonneg|pc_count|pc_ne_zero|zeta_box|zeta_box_of_signs|zeta_sign_12|zeta_sign_16|zeta_li
+  #74 | 2026-11-08T02:01:40.903Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 -c "
+  #75 | 2026-11-08T02:02:11.249Z | seat | Bash | python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/append746.py OPEN_TRAILS.md disch_pc
+  #76 | 2026-11-08T02:02:18.968Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #77 | 2026-11-08T02:02:31.887Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md
+  #78 | 2026-11-08T02:02:37.836Z | seat | Bash | git commit -q -m "b746 component 1: OPEN_TRAILS -- W-ORD-POSITIVE-CONTROL DISCHARGED on the navigator's read under (R356)(2): pc_online at SIDEExplicitFormula/S
+  #79 | 2026-11-08T02:02:57.756Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/a
+  #80 | 2026-11-08T02:03:09.963Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add OPEN_TRAILS.md
+  #81 | 2026-11-08T02:03:15.814Z | seat | Bash | git commit -q -m "b746 component 1: OPEN_TRAILS -- W-ORD-ZETA-BOX DISCHARGED on the navigator's read under (R356)(2): zeta_box at SIDEExplicitFormula/Schema/Zet
+  #82 | 2026-11-08T02:03:29.520Z | seat | Bash | python -X utf8 tools/standing/orders.py ; grep -n "usage\|def main\|sys.argv" tools/standing/orders.py
+  #83 | 2026-11-08T02:03:35.643Z | seat | Bash | python -X utf8 -c "
+  #84 | 2026-11-08T02:03:55.699Z | seat | Bash | wc -l tools/standing/v1250.py tools/standing/commit.py tools/standing/rootprompt.py tools/standing/hold.py && head -c 5000 tools/standing/v1250.py
+  #85 | 2026-11-08T02:04:08.305Z | seat | Bash | head -c 3000 tools/reg_seal.py ; echo ; grep -n "def \|LOCK\|argv" tools/reg_seal.py ; python -X utf8 -c "import json;d=json.load(open('data/b745_lockgate.json'
+  #86 | 2026-11-08T02:04:17.349Z | seat | Bash | git grep -n -E "lock_epoch|lock_at|def _lock_time|LOCKMARK|lock block|the lock at" -- tools/standing/fold/record.tpl tools/standing/rootprompt.py tools/standing
+  #87 | 2026-11-08T02:04:32.447Z | seat | Bash | git grep -n -i -E "ceiling|N4|lock" -- tools/standing/rootprompt.py ; git grep -n -i -E "def ceiling|ceiling\(" -- tools/standing tools/acts/b746.py tools/*.py
+  #88 | 2026-11-08T02:04:39.427Z | seat | Bash | grep -n -i "lock\|ceiling" /c/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/161ec306-dcdf-48bc-85b2-f457190f55f8/scratchpad/rootprompt745.py ; grep 
+  #89 | 2026-11-08T02:04:53.000Z | seat | Bash | git grep -n "THE ROOT NAMES" -- tools/standing tools/standing/fold ; git grep -n "def guard" -- tools/standing tools/*.py
+  #90 | 2026-11-08T02:05:27.193Z | seat | Bash | grep -n "as MEM\|import.*MEM" tools/standing/fold/citation.tpl tools/standing/fold/checks.tpl
+  #91 | 2026-11-08T02:05:32.446Z | seat | Bash | wc -l tools/act_membrane.py && grep -n "def \|NOTHING WRITTEN\|ROOT NAMES" tools/act_membrane.py && grep -n "MEM\.\|--rerun-postpush\|rerun_postpush\|side bank\
+  #92 | 2026-11-08T02:05:48.346Z | seat | Bash | grep -n -E "^(T0|START|_T0|t0|STARTED)\s*=|time\.time\(\)" tools/standing/fold/checks.tpl
+  #93 | 2026-11-08T02:06:00.195Z | seat | Bash | grep -n "LSREMOTE-ONE-PER-REPO\|def remote_refs\|lsr\b\|_lsr\|from_cache\|cache" tools/standing/fold/checks.tpl tools/b616_claims.py tools/standing/remotecache.
+  #94 | 2026-11-08T02:06:05.991Z | seat | Bash | grep -n "def lsr_ok" -A 12 tools/standing/fold/checks.tpl
+  #95 | 2026-11-08T02:06:10.967Z | seat | Bash | grep -rn "def lsr_ok\|LSR\[\|LSR =\|LSR\b.*+=" tools/standing/fold/checks.tpl tools/b616_claims.py tools/b703_checks.py tools/standing/*.py
+  #96 | 2026-11-08T02:06:40.531Z | seat | Bash | grep -n "VACUOUS" tools/standing/fold/checks.tpl
+  #97 | 2026-11-08T02:08:19.455Z | seat | Bash | git status --short && git log --oneline -6 && ls tools/standing
+  #98 | 2026-11-08T02:08:23.886Z | seat | Bash | git log --oneline -6 && ls tools/standing && git -C /d/MY-DOwnloads/PLACE-papers log --oneline -3
+  #99 | 2026-11-08T02:09:26.259Z | seat | Bash | git grep -n -e "def _post_lock_edits" -e "locked at" -e "def ceiling" -e "tracked_at_lock" -- tools/acts/b746.py tools/standing/rootprompt.py tools/standing/fol
+  #100 | 2026-11-08T02:09:34.653Z | seat | Bash | git grep -n -e "ceiling(" -e "PB.outputs" -- tools/standing tools/acts/b746.py tools/b746_worklist.py
+  #101 | 2026-11-08T02:10:15.103Z | seat | Bash | git grep -n -i -e "stray" -- data/b745_events.txt data/b745_defects.txt
+  #102 | 2026-11-08T02:10:18.682Z | seat | Bash | git grep -n -i -e "membrane" -e "quiet" -- data/b745_events.txt data/b745_defects.txt data/b746_ferry.txt
+  #103 | 2026-11-08T02:10:49.355Z | seat | Bash | python -X utf8 - <<'EOF'
+  #104 | 2026-11-08T02:11:02.878Z | seat | Bash | ls data/ --color=never -1 -d data/b745_lsr_* && python -X utf8 -c "import json;[print(f, json.dumps(json.load(open('data/'+f,encoding='utf-8')))[:900]) for f in
+  #105 | 2026-11-08T02:11:09.673Z | seat | Bash | python -X utf8 -c "import json;d=json.load(open('data/b745_lsr_postpush_standing-a2_attempt1.json',encoding='utf-8'));print(d['times'].get('D:/SIDE-simplicity')
+  #106 | 2026-11-08T02:12:01.709Z | seat | Bash | git grep -n -e "RCACHE.wrap" -e "^import.*RCACHE" -e "RC_LOG =" -e "import lsr" -- tools/standing/fold/checks.tpl
+  #107 | 2026-11-08T02:12:10.222Z | seat | Bash | git grep -n -e "as KC0" -e "as STC" -- tools/standing/fold/checks.tpl
+  #108 | 2026-11-08T02:12:33.708Z | seat | Bash | wc -l tools/standing/v1250.py && git grep -n -e "^def " -e "^BASE" -e "^VERSION" -e "^CONTROLS" -e "AS WANTED" -- tools/standing/v1250.py
+  #109 | 2026-11-08T02:12:43.367Z | seat | Bash | git log -1 --format="%h %s" eaca4c35 && git log -1 --format="%h %s" e9c339ed && git show --name-only --format="%h %s" ae688949 && git show 7d448774:data/b744_lo
+  #110 | 2026-11-08T02:14:15.924Z | seat | Bash | python -X utf8 tools/standing/hold.py
+  #111 | 2026-11-08T02:14:20.672Z | seat | Bash | python -X utf8 -u tools/standing/v1260.py control lock lockdate rows membrane lsr readme repeat
+  #112 | 2026-11-08T02:14:30.756Z | seat | Bash | python -X utf8 -c "import io;p='tools/standing/VERSION';t=io.open(p,encoding='utf-8',newline='').read();print(repr(t));assert t.strip()=='v1.25.0';io.open(p,'w'
+  #113 | 2026-11-08T02:14:34.607Z | seat | Bash | python -X utf8 -u tools/standing/v1260.py control --bank
+  #114 | 2026-11-08T02:14:45.388Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #115 | 2026-11-08T02:14:59.817Z | seat | Bash | git add tools/standing/commit.py tools/standing/lockdate.py tools/standing/lsrread.py tools/standing/rootprompt.py tools/standing/remotecache.py tools/standing/
+  #116 | 2026-11-08T02:15:03.882Z | seat | Bash | git diff --cached --stat
+  #117 | 2026-11-08T02:15:10.612Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 1" "tools/standing/ v1.26.0 under (R356)(3)(i)-(viii), landed alone: the lock block in the lock comm
+  #118 | 2026-11-08T02:15:58.359Z | seat | Bash | S=x; python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLA
+  #119 | 2026-11-08T02:16:03.609Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #120 | 2026-11-08T02:16:09.035Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #121 | 2026-11-08T02:16:11.381Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b675_corri
+  #122 | 2026-11-08T02:16:13.676Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_closi
+  #123 | 2026-11-08T02:16:20.334Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_closi
+  #124 | 2026-11-08T02:16:27.196Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_closi
+  #125 | 2026-11-08T02:16:29.391Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_closi
+  #126 | 2026-11-08T02:16:31.275Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_autho
+  #127 | 2026-11-08T02:16:36.732Z | seat | Bash | python -X utf8 -c "import io;l=io.open('D:/relay/data/b745_author_answers.txt',encoding='utf-8').read().split('\n')[8];print(len(l));print(l[-700:])"
+  #128 | 2026-11-08T02:16:41.137Z | seat | Bash | python -X utf8 -c "import io;l=io.open('D:/relay/data/b745_author_answers.txt',encoding='utf-8').read().split('\n')[8];i=l.find('The user answered');j=l.find('=
+  #129 | 2026-11-08T02:16:49.890Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_event
+  #130 | 2026-11-08T02:16:50.584Z | seat | Bash | git show 946cc80a:data/b745_hook_refusals.txt
+  #131 | 2026-11-08T02:16:52.399Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_defec
+  #132 | 2026-11-08T02:17:00.178Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_defec
+  #133 | 2026-11-08T02:17:01.986Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_event
+  #134 | 2026-11-08T02:17:16.578Z | seat | Bash | python -X utf8 -c "import json;d=json.load(open('data/b745_scores_close.json',encoding='utf-8'));s=d.get('scores') or d;print({k:(v[0] if isinstance(v,list) els
+  #135 | 2026-11-08T02:18:07.894Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/splicefn746.py D:/relay/tools/acts/b
+  #136 | 2026-11-08T02:18:23.395Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/splicefn746.py D:/relay/tools/acts/b
+  #137 | 2026-11-08T02:19:02.433Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/splicefn746.py D:/relay/tools/acts/b
+  #138 | 2026-11-08T02:19:07.390Z | seat | Bash | git grep -n -e "^C1_" -e "^STANDING" -- tools/b746_worklist.py
+  #139 | 2026-11-08T02:19:24.222Z | seat | Bash | git grep -n -e "^def _c1_lines" -e "^def _c1_bank" -e "^def c1(" -- tools/acts/b746.py
+  #140 | 2026-11-08T02:19:52.616Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record c1 weight dry
+  #141 | 2026-11-08T02:20:06.688Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record c1 corrigendum dry
+  #142 | 2026-11-08T02:20:19.531Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #143 | 2026-11-08T02:20:30.996Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #144 | 2026-11-08T02:20:45.234Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b675_corri
+  #145 | 2026-11-08T02:20:58.912Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b675_corri
+  #146 | 2026-11-08T02:21:06.746Z | seat | Bash | python -X utf8 -c "import io;p='data/b675_corrigenda.txt';t=io.open(p,encoding='utf-8',newline='').read();a=io.open('C:/Users/ECHOCH~1/AppData/Local/Temp/claude
+  #147 | 2026-11-08T02:21:12.863Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #148 | 2026-11-08T02:21:25.780Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md
+  #149 | 2026-11-08T02:21:31.192Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/standing/commit.py pp "component 1" "FINDINGS -- b745 at its weight after its entry (:14067) and the corrigendum for b745
+  #150 | 2026-11-08T02:21:47.184Z | seat | Bash | git status --short -- data/b746_* data/b675_corrigenda.txt tools/
+  #151 | 2026-11-08T02:21:51.790Z | seat | Bash | git ls-files data/b745_scanfile* data/b745_record_lines.json data/b745_corrigendum_landing.json
+  #152 | 2026-11-08T02:21:56.784Z | seat | Bash | git add data/b675_corrigenda.txt data/b746_address_scan.txt data/b746_bank_hashes.json data/b746_hook_refusals.txt data/b746_steps.json tools/acts/b746.py tools
+  #153 | 2026-11-08T02:22:02.239Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 1" "the c1 route rewritten for b745's banks, b745 at its weight and the corrigendum for b745 compose
+  #154 | 2026-11-08T02:22:30.221Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b746_ferry
+  #155 | 2026-11-08T02:22:38.975Z | seat | Bash | cd /d/SIDE-explicit-formula && git ls-tree -r --name-only 14ca5725 -- SIDEExplicitFormula/Schema/EpsteinZQ.lean SIDEExplicitFormula/Schema/ZQ/Continuation.lean 
+  #156 | 2026-11-08T02:22:51.195Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/defs746.py
+  #157 | 2026-11-08T02:23:08.914Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/defs746.py
+  #158 | 2026-11-08T02:23:17.012Z | seat | Bash | git show 14ca5725:SIDEExplicitFormula/Schema/EpsteinZQ.lean --format= -s && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7
+  #159 | 2026-11-08T02:23:40.923Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b729_c2.tx
+  #160 | 2026-11-08T02:23:47.704Z | seat | Bash | cd /d/relay && git ls-files data/b736_sitting* data/b743_sitting* tools/b736_sitting* && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932
+  #161 | 2026-11-08T02:24:54.122Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/cites746.py
+  #162 | 2026-11-08T02:25:10.113Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec1cites746.py
+  #163 | 2026-11-08T02:25:16.755Z | seat | Bash | cd /d/SIDE-explicit-formula && git grep -n -e "structure ZQContinuation" -e "functional_equation :" -e "structure ZQExplicitFormula" -e "  ef :" -e "def primeTe
+  #164 | 2026-11-08T02:25:30.921Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec1cites746.py
+  #165 | 2026-11-08T02:25:39.861Z | seat | Bash | git grep -n -e "class number 3" 14ca5725 -- SIDEExplicitFormula/Schema/EpsteinZQ.lean
+  #166 | 2026-11-08T02:25:48.142Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec1cites746.py
+  #167 | 2026-11-08T02:26:07.715Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/banks1_746.py
+  #168 | 2026-11-08T03:35:17.035Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/banks1_746.py
+  #169 | 2026-11-08T03:35:36.718Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/writes1_746.py && cd /d/MY-DOwnloads
+  #170 | 2026-11-08T03:35:46.834Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/writes1_746.py && cd /d/MY-DOwnloads
+  #171 | 2026-11-08T03:35:59.216Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #172 | 2026-11-08T03:36:13.354Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md
+  #173 | 2026-11-08T03:36:19.528Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/standing/commit.py pp "component 2" "THE_EPSTEIN_CONTROL_OBJECT_v0_1.md -- the paper's section 1, the object, written ver
+  #174 | 2026-11-08T03:36:41.597Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/append746.py data/b746_section1.txt 
+  #175 | 2026-11-08T03:36:47.686Z | seat | Bash | git grep -n -e "^C2_" -e "^C3_" -e "^SECTION" -e "^INTEGRATION" -e "^C4_" -- tools/b746_worklist.py
+  #176 | 2026-11-08T03:36:53.286Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #177 | 2026-11-08T03:37:07.532Z | seat | Bash | git add data/b746_section1.txt data/b746_address_scan.txt data/b746_steps.json data/b746_bank_hashes.json data/b746_hook_refusals.txt tools/b746_worklist.py
+  #178 | 2026-11-08T03:37:13.947Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 2" "the section bank data/b746_section1.txt: the paper's section 1 as drafted and as passed, every c
+  #179 | 2026-11-08T03:37:36.440Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #180 | 2026-11-08T03:37:39.168Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #181 | 2026-11-08T03:37:45.490Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #182 | 2026-11-08T03:37:47.912Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #183 | 2026-11-08T03:37:56.075Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -e "EPSTEIN_CONTROL_OBJECT" -e "pc_online" -e "zeta_box" -e "Epstein instance" -- REGISTRY.md SPIRAL_MAP.md
+  #184 | 2026-11-08T03:38:29.794Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/MY-DOwnloads/PLACE-pa
+  #185 | 2026-11-08T03:38:39.686Z | seat | Bash | cd /d/SIDE-kernel && git rev-parse "v1.5^{commit}" && git grep -n -e "inductive MechanismClass" -e "theorem seven_classes" -e "| C[1-7]_" v1.5 -- Bridge/TheBrid
+  #186 | 2026-11-08T03:39:28.092Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py D:/relay/data/b745_defec
+  #187 | 2026-11-08T03:39:33.550Z | seat | Bash | cd /d/relay && git grep -n -e "(a) THE" -e "(b) THE" -e "(c) THE" -e "(d) THE" -e "DEFECTS" -- data/b746_stepzero.txt
+  #188 | 2026-11-08T03:40:16.398Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/append746.py D:/MY-DOwnloads/PLACE-p
+  #189 | 2026-11-08T03:40:22.163Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && python -X utf8 -c "b=open('FINDINGS.md','rb').read();print('CR',b.count(b'\r'),'LF',b.count(b'\n'))" && git diff --stat
+  #190 | 2026-11-08T03:40:27.422Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #191 | 2026-11-08T03:40:45.506Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git add FINDINGS.md
+  #192 | 2026-11-08T03:40:52.663Z | seat | Bash | cd /d/relay && python -X utf8 -u tools/standing/commit.py pp "component 3" "FINDINGS -- b745's INTEGRATION line at the foot of its material (:14145): cluster th
+  #193 | 2026-11-08T03:41:16.033Z | seat | Bash | git add data/b746_integration_draft.txt data/b746_order_draft.txt data/b746_defects.txt data/b746_address_scan.txt data/b746_steps.json data/b746_bank_hashes.js
+  #194 | 2026-11-08T03:41:22.501Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 3" "the integration draft (the line, four stages and the synthesis sitting as canon text for the nex
+  #195 | 2026-11-08T03:41:38.473Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank
+  #196 | 2026-11-08T03:41:53.211Z | seat | Bash | python -X utf8 -c "import io;p='data/b746_defects.txt';t=io.open(p,encoding='utf-8',newline='').read();a='    (j) THE SEAT\'S [CLOSE ; NEW]: Component 3: relay 
+  #197 | 2026-11-08T03:43:08.631Z | seat | Bash | python -X utf8 -u tools/b746_address_scan.py scan --bank && git status --short
+  #198 | 2026-11-08T03:43:20.875Z | seat | Bash | git status --short
+  #199 | 2026-11-08T03:43:24.500Z | seat | Bash | git add data/b746_address_scan.txt data/b746_defects.txt data/b746_steps.json
+  #200 | 2026-11-08T03:43:28.831Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 3" "defect (j), the missed scan; the scan 0/0/0/0 over 218 places; step row 12"
+  #201 | 2026-11-08T03:43:41.821Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py data/b746_ferry.txt --gr
+  #202 | 2026-11-08T03:43:47.077Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py data/b746_ferry.txt 45 6
+  #203 | 2026-11-08T03:43:52.565Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py --gre
+  #204 | 2026-11-08T03:43:57.792Z | seat | Bash | python -X utf8 -c "
+  #205 | 2026-11-08T03:44:03.197Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 1 44 
+  #206 | 2026-11-08T03:44:11.512Z | seat | Bash | python -X utf8 -u tools/standing/fold.py 2>&1; python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/
+  #207 | 2026-11-08T03:44:16.711Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/standing/fold.py -
+  #208 | 2026-11-08T03:44:22.820Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/standing/fold/chec
+  #209 | 2026-11-08T03:44:27.355Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #210 | 2026-11-08T03:44:31.220Z | seat | Bash | python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #211 | 2026-11-08T03:44:52.656Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/b746_checks.py 560
+  #212 | 2026-11-08T03:44:58.897Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/standing/fold.py -
+  #213 | 2026-11-08T03:45:04.397Z | seat | Bash | python -X utf8 -c "
+  #214 | 2026-11-08T03:45:13.229Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py --gre
+  #215 | 2026-11-08T03:45:20.060Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 345 5
+  #216 | 2026-11-08T03:45:26.852Z | seat | Bash | python -X utf8 -c "
+  #217 | 2026-11-08T03:45:34.462Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 520 7
+  #218 | 2026-11-08T03:45:43.897Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 720 9
+  #219 | 2026-11-08T03:46:04.232Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #220 | 2026-11-08T03:46:14.696Z | seat | Bash | python -X utf8 -c "
+  #221 | 2026-11-08T03:46:22.487Z | seat | Bash | python -X utf8 -c "
+  #222 | 2026-11-08T03:46:40.834Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #223 | 2026-11-08T03:46:49.338Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #224 | 2026-11-08T03:46:55.615Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #225 | 2026-11-08T03:47:02.248Z | seat | Bash | python -X utf8 -c "
+  #226 | 2026-11-08T03:47:07.895Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #227 | 2026-11-08T03:47:17.217Z | seat | Bash | git grep -n -E "def (_ct|files_of)\(" -- tools
+  #228 | 2026-11-08T03:47:36.000Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/b703_checks.py 185
+  #229 | 2026-11-08T03:48:18.093Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/b746_worklist.py 3
+  #230 | 2026-11-08T03:48:30.221Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/b746_worklist.py 2
+  #231 | 2026-11-08T03:48:44.565Z | seat | Bash | python -X utf8 -c "
+  #232 | 2026-11-08T03:48:49.664Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #233 | 2026-11-08T03:51:07.338Z | seat | Bash | python -X utf8 -c "
+  #234 | 2026-11-08T03:51:14.165Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 960 1
+  #235 | 2026-11-08T03:51:20.429Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 1170 
+  #236 | 2026-11-08T03:51:27.431Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 1400 
+  #237 | 2026-11-08T03:51:33.809Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 1600 
+  #238 | 2026-11-08T03:51:49.170Z | seat | Bash | python -X utf8 -c "
+  #239 | 2026-11-08T03:51:58.149Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #240 | 2026-11-08T03:52:05.560Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #241 | 2026-11-08T03:52:30.172Z | seat | Bash | python -X utf8 -c "
+  #242 | 2026-11-08T03:52:39.052Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/acts/b746.py 1245 
+  #243 | 2026-11-08T03:53:05.147Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec746.py tools/acts/b746.py '#⟪SECT
+  #244 | 2026-11-08T03:53:27.053Z | seat | Bash | python -X utf8 -c "
+  #245 | 2026-11-08T03:54:09.859Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #246 | 2026-11-08T03:54:15.475Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #247 | 2026-11-08T03:54:52.006Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py data/b746_section1.txt 4
+  #248 | 2026-11-08T03:55:05.074Z | seat | Bash | python -X utf8 -c "
+  #249 | 2026-11-08T03:55:31.358Z | seat | Bash | S=C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad; for n in 10 11 13 14 15 20 21; do python -X utf8
+  #250 | 2026-11-08T03:55:46.091Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec746.py tools/acts/b746.py "#⟪SECT
+  #251 | 2026-11-08T03:56:00.193Z | seat | Bash | python -X utf8 -c "
+  #252 | 2026-11-08T03:57:19.789Z | seat | Bash | python -X utf8 -c "
+  #253 | 2026-11-08T03:57:54.027Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/sec746.py tools/acts/b746.py "#⟪SECT
+  #254 | 2026-11-08T03:58:53.401Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/place746.py closing 4=c4_746.txt 6=c
+  #255 | 2026-11-08T03:59:10.454Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #256 | 2026-11-08T03:59:41.014Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/place746.py report 1=p1_746.txt 2=p2
+  #257 | 2026-11-08T03:59:53.452Z | seat | Bash | python -X utf8 -c "
+  #258 | 2026-11-08T04:00:01.457Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/b746_worklist.py -
+  #259 | 2026-11-08T04:00:06.916Z | seat | Bash | python -X utf8 -c "
+  #260 | 2026-11-08T04:00:33.661Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/g_746.py && python -X utf8 C:/Users/
+  #261 | 2026-11-08T04:00:45.931Z | seat | Bash | python -X utf8 -c "
+  #262 | 2026-11-08T04:00:54.831Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #263 | 2026-11-08T04:01:03.226Z | seat | Bash | python -X utf8 -c "
+  #264 | 2026-11-08T04:01:28.957Z | seat | Bash | python -X utf8 -c "
+  #265 | 2026-11-08T04:01:37.699Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #266 | 2026-11-08T04:03:21.399Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/k_746.py && python -X utf8 C:/Users/
+  #267 | 2026-11-08T04:03:37.043Z | seat | Bash | git log --format=%h -1 -- tools/standing/hook.py && git show --stat --format=%s 0c6d9c5c
+  #268 | 2026-11-08T04:03:45.681Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #269 | 2026-11-08T04:06:03.150Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py tools/research/reproduce
+  #270 | 2026-11-08T04:06:10.205Z | seat | Bash | python -X utf8 -c "
+  #271 | 2026-11-08T04:06:16.566Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/research/reproduce.py 
+  #272 | 2026-11-08T04:12:16.766Z | seat | Bash | python -X utf8 -c "
+  #273 | 2026-11-08T04:12:23.263Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #274 | 2026-11-08T04:14:43.356Z | seat | Bash | python -X utf8 -c "
+  #275 | 2026-11-08T04:14:53.380Z | seat | Bash | python -X utf8 -c "
+  #276 | 2026-11-08T04:15:09.313Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #277 | 2026-11-08T04:15:27.190Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/fixread746.py && python -X utf8 C:/U
+  #278 | 2026-11-08T04:15:32.572Z | seat | Bash | git grep -n -A3 -E "^def (rd|_show)\(" -- tools/b698_record.py
+  #279 | 2026-11-08T04:15:42.914Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/lines746.py C:/Users/ECHOCH~1/AppDat
+  #280 | 2026-11-08T04:15:49.172Z | seat | Bash | python -X utf8 -c "
+  #281 | 2026-11-08T04:16:17.752Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Lo
+  #282 | 2026-11-08T04:19:47.798Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Lo
+  #283 | 2026-11-08T04:22:03.419Z | seat | Bash | git log --oneline 946cc80a..HEAD -- tools/act_membrane.py tools/b616_claims.py && git diff --stat 946cc80a -- tools/act_membrane.py tools/b616_claims.py && grep
+  #284 | 2026-11-08T04:22:06.100Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Lo
+  #285 | 2026-11-08T04:24:39.898Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #286 | 2026-11-08T04:27:00.482Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u C:/Users/ECHOCH~1/AppData/Lo
+  #287 | 2026-11-08T04:29:12.949Z | seat | Bash | wc -l data/b746_defects.txt data/b746_hook_refusals.txt && tail -n 30 data/b746_defects.txt && tail -n 12 data/b746_hook_refusals.txt && grep -n "FLOORS" tools/
+  #288 | 2026-11-08T04:29:21.106Z | seat | Bash | grep -l "G-EDIT-ROUTE read" data/b74[0-5]_*.txt && grep -h -o "G-EDIT-ROUTE read [^#]*offences [0-9]*[^\"]\{0,200\}" data/b745_arms_prerun.txt data/b744_arms_pr
+  #289 | 2026-11-08T04:29:38.303Z | seat | Bash | grep -n "abcdefghij\|(a)-(k)\|eleven defects\|11 defects\|DEFECTS_N" tools/acts/b746.py tools/b746_worklist.py && git status --short && git -C /d/MY-DOwnloads/P
+  #290 | 2026-11-08T04:29:42.420Z | seat | Bash | git status --short --untracked-files=all -- "data/b746_*" "tools/b746_*" "tools/acts/*" && git -C /d/MY-DOwnloads/PLACE-papers status --short --untracked-files=
+  #291 | 2026-11-08T04:29:48.946Z | seat | Bash | git ls-files data/b745_probe_act.txt data/b745_probe_act.json data/b745_mid_exercise_act.json data/b745_reproduce.txt data/b745_reproduce.json data/b745_scanfil
+  #292 | 2026-11-08T04:29:53.647Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b746_address_scan.py s
+  #293 | 2026-11-08T04:30:06.899Z | seat | Bash | git add tools/acts/b746.py tools/b746_worklist.py data/act_current.json data/b746_defects.txt data/b746_hook_refusals.txt data/b746_steps.json data/b746_reprodu
+  #294 | 2026-11-08T04:30:13.076Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 4" "b746 component 4: the act module's checks and record sections rewritten over b746's objects (the
+  #295 | 2026-11-08T04:30:21.337Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay "component 4" "the act module's checks and record sections rewritten over b746's objects (the discharges, secti
+  #296 | 2026-11-08T04:30:43.279Z | seat | Bash | wc -l data/b745_touch.txt && head -c 3500 data/b745_touch.txt && grep -n "def touch_ok" -A 14 tools/acts/b746.py tools/standing/fold/checks.tpl
+  #297 | 2026-11-08T04:30:48.788Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #298 | 2026-11-08T04:31:06.984Z | seat | Bash | grep -n "held at v5" tools/acts/b746.py tools/standing/fold/record.tpl tools/acts/b745.py && grep -n "held at v5" /d/MY-DOwnloads/PLACE-papers/FINDINGS.md
+  #299 | 2026-11-08T04:31:20.637Z | seat | Bash | grep -n "def touch_read_ok\|def touch_ok\|b746_touch\|TOUCH_" tools/acts/b746.py tools/standing/fold/checks.tpl
+  #300 | 2026-11-08T04:31:56.342Z | seat | Bash | python -X utf8 -u C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/touch746.py
+  #301 | 2026-11-08T04:32:23.548Z | seat | Bash | cd /d/SIDE-explicit-formula && git merge-base --is-ancestor 14ca5725 1e6588703732 && echo "v0.38 IS ancestor of zq-b730 tip" ; git ls-tree -r --name-only v0.38 
+  #302 | 2026-11-08T04:32:24.397Z | seat | PowerShell | try { Get-Process -Name lean,lake -ErrorAction Stop } catch { 'no lean or lake process' }
+  #303 | 2026-11-08T04:32:25.532Z | seat | Bash | grep -n "^    (a)\|^    (b)\|^    (c)" data/b745_defects.txt && grep -c "workflow run\|gh workflow\|runner" data/b746_hook_refusals.txt
+  #304 | 2026-11-08T04:32:33.009Z | seat | Bash | cd /d/relay && python -X utf8 -c "import json,io;j=json.load(io.open('data/b746_corrigendum.json',encoding='utf-8'));print([(d['letter'],d.get('tag'),d.get('col
+  #305 | 2026-11-08T04:33:27.050Z | seat | Bash | wc -l tools/b745_face.py && head -n 40 tools/b745_face.py && grep -n "b745" tools/b745_face.py
+  #306 | 2026-11-08T04:33:33.352Z | seat | Bash | wc -l tools/b745_face_blocks.txt data/b745_registration_*.txt && grep -n "^#⟪\|^⟪\|^### BLOCK\|^@@" tools/b745_face_blocks.txt
+  #307 | 2026-11-08T04:33:39.526Z | seat | Bash | ls tools/b746_* && grep -n "face" tools/b746_carry.py tools/b746_worklist.py
+  #308 | 2026-11-08T04:33:55.312Z | seat | Bash | grep -n -o ".\{0,160\}(W).\{0,160\}" data/b746_ferry.txt && grep -n "(R355)(5)\|(R355)(4)\|(R355)(7)\|(R355)(2)\|(R355)(3)" data/b745_registration_2026-11-07.tx
+  #309 | 2026-11-08T04:34:08.976Z | seat | Bash | python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/gaps746.py
+  #310 | 2026-11-08T04:34:34.074Z | seat | Bash | head -n 30 tools/standing/prevdry.py && head -n 25 tools/standing/prelock.py && python -X utf8 -c "import json;s=json.load(open('data/b746_steps.json',encoding=
+  #311 | 2026-11-08T04:34:39.523Z | seat | Bash | grep -n "_checks_\|_probe_\|def gate\|def parts_of" -A2 tools/standing/prelock.py && python -X utf8 -c "import json;s=json.load(open('data/b746_steps.json',enco
+  #312 | 2026-11-08T04:34:45.960Z | seat | Bash | grep -H "the run took\|PART standing" data/b745_probe_standing-*.txt
+  #313 | 2026-11-08T04:34:51.652Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #314 | 2026-11-08T04:37:36.173Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #315 | 2026-11-08T04:43:19.925Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #316 | 2026-11-08T04:46:24.090Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #317 | 2026-11-08T04:50:34.202Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #318 | 2026-11-08T04:50:41.579Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #319 | 2026-11-08T04:54:59.035Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #320 | 2026-11-08T04:59:50.103Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #321 | 2026-11-08T05:04:49.771Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #322 | 2026-11-08T05:09:13.336Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #323 | 2026-11-08T05:16:07.644Z | seat | Bash | python -X utf8 -u tools/standing/prelock.py print b746
+  #324 | 2026-11-08T05:16:17.304Z | seat | Bash | grep -n "def classify" -A 30 tools/standing/lsrread.py
+  #325 | 2026-11-08T05:16:25.685Z | seat | Bash | grep -n "LSR\.\|lsrread" tools/standing/fold/checks.tpl tools/standing/close.py tools/standing/fold/closing.tpl tools/standing/fold/record.tpl && grep -n "def o
+  #326 | 2026-11-08T05:16:29.665Z | seat | Bash | grep -n "LSRD\." tools/standing/fold/checks.tpl
+  #327 | 2026-11-08T05:17:11.208Z | seat | Bash | ls data/b745_command* data/b745_calls* && grep -n -o "python[^|]\{0,40\}\(fold.py record [a-z_]*[^\"]\{0,60\}\|prepaths[^\"]\{0,60\}\|prevdry.py [^\"]\{0,40\}\|
+  #328 | 2026-11-08T05:17:17.658Z | seat | Bash | python -X utf8 -c "
+  #329 | 2026-11-08T05:17:24.600Z | seat | Bash | python -X utf8 -c "
+  #330 | 2026-11-08T05:17:29.605Z | seat | Bash | python -X utf8 -c "
+  #331 | 2026-11-08T05:17:36.034Z | seat | Bash | wc -l tools/b745_prepaths.py && grep -n "b745\|b744\|R355\|v1.25" tools/b745_prepaths.py
+  #332 | 2026-11-08T05:17:54.215Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #333 | 2026-11-08T05:18:10.185Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #334 | 2026-11-08T05:18:25.662Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #335 | 2026-11-08T05:18:44.307Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b746_prepaths.py --ban
+  #336 | 2026-11-08T05:20:54.411Z | seat | Bash | grep -n "^DATE\|^NEXT_ACT\|^PORT_BRANCH\|^ZQ_TIP\|^ZQ_TAG" tools/b746_worklist.py && git show --stat --format= 0c6d9c5c && git show --stat --format= e2f36a5f 2d
+  #337 | 2026-11-08T05:20:59.088Z | seat | Bash | grep -n "^DATE\|^NEXT_ACT\|^PORT_BRANCH\|^ZQ_TIP\|^ZQ_TAG" tools/b746_worklist.py && git show --stat=200 --format=%h:%s 0c6d9c5c b15bfdf4
+  #338 | 2026-11-08T05:21:24.878Z | seat | Bash | grep -n "TRAIL_NEEDLES\|ENTRY_NEEDLES\|TITLE_NEEDLES" tools/acts/b746.py tools/standing/fold/*.tpl
+  #339 | 2026-11-08T05:21:32.835Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #340 | 2026-11-08T05:21:50.041Z | seat | Bash | grep -n -o ".\{0,200\}none navi.\{0,200\}" tools/acts/b746.py tools/standing/fold/record.tpl
+  #341 | 2026-11-08T05:21:55.425Z | seat | Bash | grep -n "Resolved by the seat" tools/acts/b746.py tools/standing/fold/record.tpl && grep -n -o "(5) the .\{0,160\}" tools/acts/b746.py
+  #342 | 2026-11-08T05:21:59.814Z | seat | Bash | grep -n "def _for_author" -A 22 tools/acts/b746.py && sed_n=0 && grep -n "navigator miss" tools/acts/b746.py tools/standing/fold/record.tpl
+  #343 | 2026-11-08T05:22:04.420Z | seat | Bash | grep -n "def _for_author" -A 22 tools/acts/b746.py
+  #344 | 2026-11-08T05:22:24.483Z | seat | Bash | wc -l data/b746_hook_refusals.txt && grep -n -o "^[0-9T:-]*Z | [A-Z]* | [A-Za-z]*" data/b746_hook_refusals.txt
+  #345 | 2026-11-08T05:25:32.583Z | seat | Bash | python -X utf8 -u tools/b746_face.py --dry
+  #346 | 2026-11-08T05:25:39.110Z | seat | Bash | python -X utf8 -u tools/b746_face.py
+  #347 | 2026-11-08T05:25:45.320Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+
+### ### **COMMANDS 347 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 30 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 0 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 79 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

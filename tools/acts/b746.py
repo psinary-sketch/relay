@@ -506,7 +506,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijkl')))   # ### (a)-(l), entered before the lock, every one the seat's (data/b746_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnop')))   # ### (a)-(p), entered before the lock, every one the seat's but (e), the tools' (data/b746_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b746_corrigendum.txt', 'data/b746_standing_v1260.txt', 'data/b746_section1.txt', 'data/b746_integration_draft.txt', 'data/b746_order_draft.txt',
@@ -691,10 +691,7 @@ REPORT_KEYS = ('CERTIFIED -- tools/standing/ v1.26.0', 'REGISTERED -- THE PAPER`
 #⟪END⟫
 #⟪SECTION checks 25⟫
     seq_ = [r for r in rows if r.get('kind') in ('dispatch', 'read')]   # ### the wave 1 order above reads no row of this act's: read here over the act's own rows, by run id
-    order = bool(seq_) and all(
-        sum(1 for x in seq_ if x.get('kind') == 'read' and str(x.get('run')) == str(d.get('run'))) == 1
-        and seq_.index(d) < next(i for i, x in enumerate(seq_) if x.get('kind') == 'read' and str(x.get('run')) == str(d.get('run')))
-        for d in seq_ if d.get('kind') == 'dispatch')   # ### N1: each dispatch read once after it by its run id
+    order = not seq_   # ### b746, N1 (b744's form): no dispatch and no read row; the order the carried form read is VACUOUS here
     route = re.compile(r'(?:^|&&\s*|;\s*)gh workflow run\b|b746_controls\.py"? dispatch\b(?![^\n]*\bdry\b)', re.M)
     cmds = [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and route.search(r['cmd'])]
     old = re.compile(r'(?:^|&&\s*|;\s*)python(?:\s+-[A-Za-z]+(?:\s+utf8)?)*\s+\S*(?:tools/b72[1-4]_(?:rebuild|axiom)|lv724)\.py '
@@ -702,7 +699,9 @@ REPORT_KEYS = ('CERTIFIED -- tools/standing/ v1.26.0', 'REGISTERED -- THE PAPER`
 #⟪END⟫
 #⟪SECTION checks 26⟫
         and len([r for r in rows if r.get('kind') == 'dispatch']) == len(K.EF_RUNS) == len(cmds) <= K.MAX_DISPATCHES \
-        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])]   # ### b746, N1: six rows, six dispatch commands
+        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])] \
+        or (not rows and not mem and not seq_ and not cmds and not K.EF_RUNS and K.MAX_DISPATCHES == 0
+            and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])])   # ### b746, N1 (b744's form): no row, no dispatch, no route; the memory and order reads VACUOUS, the carried form's bool(mem) asking a row this act has none of
 #⟪END⟫
 #⟪SECTION checks 27⟫
         and beyond == {'SIDE-archimedean': '1', 'SIDE-rcurve': '1', 'SIDE-spinor': '1', 'SIDE-frobenius': '3', 'SIDE-kernel': '1'} \
@@ -1326,7 +1325,7 @@ def _first_add(path):
     anc_ = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', K.C1_STANDING, K.C2_RELAY], capture_output=True).returncode == 0
     dfiles_ = [sorted(x for x in g(PP, 'show', '--name-only', '--format=', h_).split() if x.strip()) for h_ in K.C1_DISCHARGE_PP]
     disch_ = dfiles_ == [['OPEN_TRAILS.md'], ['OPEN_TRAILS.md']]
-    sb_ = rdn(N2_SECTION[0])
+    sb_ = rd(os.path.join(ROOT, N2_SECTION[0]))   # ### b746, defect (p): the path is relay-relative ('data/...'); rdn joined data/ to it again and read nothing
     ix_ = [sb_.find(w_) for w_ in N2_SECTION[1:]]
     sect_ = all(i_ >= 0 for i_ in ix_) and ix_ == sorted(ix_) and "[S1] PASS" in sb_[ix_[2]:]
     route_ = disch_ and sect_
@@ -1658,7 +1657,7 @@ def _runs3_line():
              cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the discharges and section 1 read one way: the two controls closed on the instrument where the answer is known, and section 1 names the one object the instrument is pointed at, each object by its compiled definition, so the paper’s later sections have their object fixed before any result is stated.', '',
-         '**Carried to:** %s, per (R356)(9), as the author names it; W-ORD-MECHANISM-ATTRIBUTION %s; orders.py’s reading of a quotation as an open order (defect (e)); the README line carried to a sitting; the instruments NOT RUN, each with its price; the draft held at v5.' % (
+         '**Carried to:** %s, per (R356)(9), as the author names it; W-ORD-MECHANISM-ATTRIBUTION %s; orders.py’s reading of a quotation as an open order (defect (e)); the README line carried to a sitting; W-ORD-VISIBILITY, CARRIED NOT CLEAN; the instruments NOT RUN, each with its price; the draft held at v5.' % (
              K.NEXT_ACT, 'entered' if f['order_state'] == 'entered' else 'carried'), '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds, and nothing here is new of ζ.*', '',
