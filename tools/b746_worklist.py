@@ -261,7 +261,8 @@ STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None   # ### b745's: '1f96d4ea'     # ### the author's word at PROMPT 1 amending (R356)(3), with its amendment row: the commit every dispatch row names ((R356)(2)(i))
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
 # ### N2: each generator commit (relay) before the zq-b730 commit holding the modules it generated
-GEN_COMMITS = (('04e7f854', '32bad89a'), ('32a5c72a', '32bad89a'), ('32a5c72a', '1e658870'))   # ### (R356)(4)(c): the Z4 generator's relay commits, each before the zq-b730 commit it fed (Signs.lean at t = 16, then 16 and 12)
+GEN_COMMITS = ()   # ### b746: no generator run, no Lean file written ((R356)(8))
+GEN_COMMITS_B745 = (('04e7f854', '32bad89a'), ('32a5c72a', '32bad89a'), ('32a5c72a', '1e658870'))   # ### (R356)(4)(c): the Z4 generator's relay commits, each before the zq-b730 commit it fed (Signs.lean at t = 16, then 16 and 12)
 GEN_MD5 = {'Signs': '4ef0a0f5606052abf21c797a9aba64a2'}   # ### the generator's output at 32a5c72a (`<out> 16 12`), Signs.lean at zq-b730's tip by md5
 GEN_MD5_PREV = {'FrontierData': 'c8e320f9db1a12622cc147555496cf11', 'Nodes0': '7cb04ecfd3649a1daf5633de691df670',   # ### b742's generator's output at 3194b6eb (carried name, read not run)
                 'Nodes1': 'a20f1f00a156e59e97f841beb8d89a76', 'Nodes2': 'efff8c97b5f9879bcf12e3f79628dc64',
@@ -320,14 +321,14 @@ DOORS_COMMIT = None
 MECH_COMMIT = None
 FRONTDOORS_COMMIT = None
 COUNT_BANK = None
-PRINT_COMMIT = None        # ### (carried name) the commit carrying the act's section bank
+PRINT_COMMIT = '4f5796cb'  # ### (carried name) the commit carrying the act's section bank (C2_RELAY)
 PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b745_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S), unedited
 C2_AMEND = ()
 SITTING_PP = ()       # ### no sitting this act
 SITTING_KERNEL = None # ### no kernel written this act ((R356)(5))
 SITTING_GH = ()       # ### no description written
 SITTING_ITEMS = 0
-C3_RELAY = ()      # ### Component 3 ((R356)(5)-(6)): the integration draft bank; set when made
+C3_RELAY = ('c4d044f3', '37bb57e8')   # ### Component 3 ((R356)(5)-(6)): the integration and order drafts, defects (step 12); defect (j) and the scan (step 13)
 C3_ORDER_PP = None # ### (R356)(5): OPEN_TRAILS, W-ORD-MECHANISM-ATTRIBUTION entered on the author's number, a commit of its own (None if carried)
 SITTING_COMMITS = ()
 C3_PP = 'b7544123'   # ### (R356)(6): FINDINGS, b745's INTEGRATION line (:14145), step row 11
@@ -336,7 +337,7 @@ C4_RUN = None
 C4_PP = None
 C4_RELAY = None
 C5_RELAY = None
-REG_COMMIT = C2_PLAN_FIRST    # ### the plan's first commit, with the prints it cites
+REG_COMMIT = C2_RELAY    # ### b746: the section bank's commit, with the prints it cites
 ZEROS_REG_COMMIT = REG_COMMIT
 ORDERS = (142, 60, 42, 12, 28)          # ### b745's (R355)(4) triage, carried as read (data/b729_orders_triage.txt): DONE, NOT MET, MET, AUTHOR'S WORD
 TRIAGE = 'data/b729_orders_triage.txt'
@@ -361,12 +362,14 @@ EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### SIDE-explicit-formula's main entering the act (b743's [A4], README alone)
 EF_MAIN_AFTER = EF_BASE   # ### unmoved: no kernel's main is touched ((R356)(6))
 ZQ_BRANCH = 'zq-b730'
-ZQ_ENTERING = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b742's tip (SP4), the tag's commit ((R356)(3)); the branch moves past it ((R356)(4))
+ZQ_ENTERING = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b746: zq-b730 entering at b745's tip (SPZ3), unmoved this act ((R356)(8))
+ZQ_ENTERING_B745 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b745's entering tip, the tag's commit
 ZQ_TAG = ('v0.38', '21c6edafa047635112c9ccd4fad14c56d5a2fa4f', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### (R356)(3): name, tag object, peel read back
 #   ### at the remote 2026-11-07T15:09:55Z (data/b746_SIDE-explicit-formula_v0.38_push_out.txt); the series v0.1-v0.37 read by ls-remote --tags, the next v0.38
-ZQ_TIP = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### the act's last Lean commit on zq-b730: W-ORD-ZETA-BOX BUILT, SPZ3 (dispatch 6, run 42393914259)
+ZQ_TIP = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b746: unmoved, b745's last Lean commit on zq-b730 (W-ORD-ZETA-BOX BUILT, SPZ3); no Lean commit this act
 ZQ_FIRST = 'eb097190ffab325cd7ee8da5f9879210cfcc7eb1'   # ### the first Lean commit of this act (P1-P5)
-ZQ_COMMITS = ('eb097190ffab325cd7ee8da5f9879210cfcc7eb1', '3639d984d76f724cd4406b5e166d75d7b15fe13b', 'ae959dedcaa19c63fdbac71b871989567aca91f5',
+ZQ_COMMITS = ()   # ### b746: none
+ZQ_COMMITS_B745 = ('eb097190ffab325cd7ee8da5f9879210cfcc7eb1', '3639d984d76f724cd4406b5e166d75d7b15fe13b', 'ae959dedcaa19c63fdbac71b871989567aca91f5',
               'ef86297462f6b90218ee4ee665b1d7f4a3fdfa0f', '32bad89a81f6051f7c4e4dd56d800d9861a0922f', '1e6588703732435b34d840bbbb840225932c9b6b')   # ### this act's: P1-P5 ; R1 (the print list's order) ; Z1-Z3 ; R2 + Instr ; Signs t=16 ; Signs 16+12 + Box
 ZQ_COMMITS_B742 = ('280b28b3935854f8c71e37480ee9b88dfeb60922', '11bb0125fa08eccc78f6a1a6d415201438973f45', '5d3136a39ea9b671b60118e1424e645f89956ea7',
                    '4c04916c8541f1ee2267059a8fa0396364f1eb5c', 'c2d4f29ce84d321814b223a7e275e0653161b4d4', '14ca572560f50378a6e4715e35cba0351e5f105d')   # ### b745's six, read by the discharge
@@ -380,7 +383,8 @@ ZQ_MODULES = ('Xi', 'Landau', 'Heights', 'Contour', 'ZeroSum', 'FullLine', 'Line
 ZQ_OFFZERO_MODULES = ('Box', 'Diff', 'MinModulus', 'Carrier', 'Main', 'Split', 'Tail', 'IncGamma', 'Elem', 'Time', 'Series', 'Sums', 'GammaVal', 'Shells', 'Centre',
                       'Interp', 'Frame', 'Strip', 'Amplify', 'NodeBase', 'Omega', 'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'FrontierData',
                       'Frontier', 'SP4')   # ### under Schema/ZQ/OffZero; b746 adds S6's fourteen
-ZQ_FILES = ('SIDEExplicitFormula/Schema/Wide/PositiveControl.lean',) + tuple('SIDEExplicitFormula/Schema/ZetaBox/%s.lean' % m for m in ('Box', 'Instr', 'Line', 'Signs', 'Split', 'Tail')) + ('print_targets.txt',)   # ### zq-b730's diff against its entering tip
+ZQ_FILES = ()   # ### b746: none
+ZQ_FILES_B745 = ('SIDEExplicitFormula/Schema/Wide/PositiveControl.lean',) + tuple('SIDEExplicitFormula/Schema/ZetaBox/%s.lean' % m for m in ('Box', 'Instr', 'Line', 'Signs', 'Split', 'Tail')) + ('print_targets.txt',)   # ### zq-b730's diff against its entering tip
 ZQ_FILES_B742 = tuple('SIDEExplicitFormula/Schema/ZQ/OffZero/%s.lean' % m for m in ('Amplify', 'Frame', 'Frontier', 'FrontierData', 'Interp', 'NodeBase',
                  'Nodes0', 'Nodes1', 'Nodes2', 'Nodes3', 'NodesF', 'Omega', 'SP4', 'Strip')) + ('print_targets.txt',)   # ### b745's diff against 3329eaa1 at 14ca5725
 ZQ_FILES_B741 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/GammaVal.lean', 'SIDEExplicitFormula/Schema/ZQ/OffZero/Series.lean',
@@ -396,7 +400,8 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R356)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (42388001562, 42388609600, 42391254295, 42392017104, 42393018408, 42393914259)   # ### N1: this act's dispatches, each read by its run id ((R356)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed), BREAKS (lp_conj), KERNEL (SPZ1), KERNEL (SPZ2), KERNEL (SPZ3)
+EF_RUNS = ()   # ### N1: no runner dispatch this act
+EF_RUNS_B745 = (42388001562, 42388609600, 42391254295, 42392017104, 42393018408, 42393914259)   # ### N1: this act's dispatches, each read by its run id ((R356)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed), BREAKS (lp_conj), KERNEL (SPZ1), KERNEL (SPZ2), KERNEL (SPZ3)
 EF_RUNS_B742 = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### b745's seven, read not re-run; the last the SP4 grade run
 EF_RUNS_B741 = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### b745's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
 EF_RUNS_B740 = (41854903335, 41857376723, 41859346843)   # ### b745's three: BREAKS, BREAKS, KERNEL, read not re-run
