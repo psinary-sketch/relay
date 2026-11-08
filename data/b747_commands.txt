@@ -1,7 +1,7 @@
-b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-08T15:11:02Z)
+b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-08T17:14:58Z)
 
 ### the source: the seat`s session 4fe446f7-cbef-42cd-9f79-d5164f63b12d from its first user line carrying 'RULING (R357) BEGIN', with its subagents` transcripts
-### commands read: 274
+### commands read: 336
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #8 2026-11-08T12:12:59.284Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -34,7 +34,7 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 ### THE COMMANDS CARRYING A PIPE OF ANY KIND, read outside quoted strings (1):
   #203 2026-11-08T13:33:26.759Z git show HEAD:data/b747_zenodo_readback.txt --format= -- | head -n 3
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (97):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (138):
   #2 2026-11-08T12:11:44.632Z python -X utf8 -c "import json;json.load(open('data/act_current.json',encoding='utf-8'));print('json ok')" && git add data/act_current.json
   #10 2026-11-08T12:13:33.374Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164
   #11 2026-11-08T12:13:57.826Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 tools/b747_carry.py carry worklist && python -X utf8 tools/b747_carry.py acts && python -X 
@@ -132,6 +132,47 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #268 2026-11-08T15:05:21.358Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record trail dry --act b747
   #270 2026-11-08T15:05:42.373Z cd D:/relay && python -X utf8 -c "print(sum(1 for l in open('data/b747_hook_refusals.txt',encoding='utf-8') if l.strip()))"
   #274 2026-11-08T15:10:54.747Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record commands --act b747
+  #275 2026-11-08T15:11:08.170Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #276 2026-11-08T15:13:46.303Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run act
+  #277 2026-11-08T15:16:11.815Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a1
+  #278 2026-11-08T15:16:12.754Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a2
+  #279 2026-11-08T15:25:14.946Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b1
+  #280 2026-11-08T15:28:34.697Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2a
+  #281 2026-11-08T15:33:01.656Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2b
+  #282 2026-11-08T15:37:34.713Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2c
+  #283 2026-11-08T15:42:42.864Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2d
+  #284 2026-11-08T15:47:59.556Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b3
+  #285 2026-11-08T15:52:41.217Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #287 2026-11-08T15:57:37.828Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record scores dry --act b747
+  #291 2026-11-08T15:58:30.965Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record scores dry --act b747
+  #292 2026-11-08T15:59:13.843Z cd D:/relay && python -X utf8 -c "L=open('data/b747_scores_dry.txt',encoding='utf-8').read().split(chr(10));import textwrap;[print(n+1, textwrap.fill(L[n],220)) for n in (7,9)]"
+  #293 2026-11-08T15:59:51.828Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record scores dry --act b747
+  #294 2026-11-08T16:00:29.300Z cd D:/relay && python -X utf8 -c "L=open('data/b747_scores_dry.txt',encoding='utf-8').read().split(chr(10));print(L[7][-700:])"
+  #295 2026-11-08T16:00:39.891Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --q
+  #301 2026-11-08T16:02:57.025Z cd D:/relay && python -X utf8 -c "L=[l for l in open('data/b747_hook_refusals.txt',encoding='utf-8') if l.strip()];print(len(L));print(L[-1][:300])"
+  #303 2026-11-08T16:03:38.183Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --q
+  #304 2026-11-08T16:05:56.900Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a1
+  #305 2026-11-08T16:08:47.685Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a2
+  #306 2026-11-08T16:18:05.614Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #307 2026-11-08T16:28:09.135Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #308 2026-11-08T16:31:53.190Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b1
+  #309 2026-11-08T16:35:16.368Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2a
+  #310 2026-11-08T16:39:51.169Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2b
+  #311 2026-11-08T16:45:30.608Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2c
+  #312 2026-11-08T16:50:41.644Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2d
+  #313 2026-11-08T16:56:06.864Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b3
+  #314 2026-11-08T17:02:15.602Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run act
+  #315 2026-11-08T17:04:44.037Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --q
+  #319 2026-11-08T17:06:56.860Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record findings dry
+  #327 2026-11-08T17:09:23.236Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry
+  #328 2026-11-08T17:09:42.758Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --b
+  #329 2026-11-08T17:10:46.265Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record gatebanks
+  #330 2026-11-08T17:11:28.237Z cd D:/relay && python -X utf8 -c "L=open('data/b747_registration_2026-11-08.txt',encoding='utf-8').read().split('\n');[print(n,'|',L[n-1][:900]) for n in (61,164)]"
+  #331 2026-11-08T17:11:53.065Z cd D:/relay && python -X utf8 -c "L=open('data/b745_defects.txt',encoding='utf-8').read().split('\n');print(L[30][:700])"
+  #332 2026-11-08T17:12:16.354Z cd D:/relay && python -X utf8 -c "L=open('tools/b747_face_blocks.txt',encoding='utf-8').read().split('\n');print(L[61])"
+  #333 2026-11-08T17:12:24.730Z cd D:/relay && python -X utf8 -c "L=open('data/b747_defects.txt',encoding='utf-8').read().split('\n');print(len(L));[print(i+1,'|',l[:260]) for i,l in enumerate(L) if i>=len(L)-6]"
+  #335 2026-11-08T17:12:45.988Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --q
+  #336 2026-11-08T17:13:49.634Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --b
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #34 2026-11-08T12:25:47.464Z Bash
@@ -425,5 +466,67 @@ b747 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #272 | 2026-11-08T15:10:23.104Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_face.py --dry
   #273 | 2026-11-08T15:10:28.595Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_face.py
   #274 | 2026-11-08T15:10:54.747Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #275 | 2026-11-08T15:11:08.170Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #276 | 2026-11-08T15:13:46.303Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #277 | 2026-11-08T15:16:11.815Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #278 | 2026-11-08T15:16:12.754Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #279 | 2026-11-08T15:25:14.946Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #280 | 2026-11-08T15:28:34.697Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #281 | 2026-11-08T15:33:01.656Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #282 | 2026-11-08T15:37:34.713Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #283 | 2026-11-08T15:42:42.864Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #284 | 2026-11-08T15:47:59.556Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #285 | 2026-11-08T15:52:41.217Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #286 | 2026-11-08T15:57:25.745Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/fold.py record closeorder --act b747
+  #287 | 2026-11-08T15:57:37.828Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #288 | 2026-11-08T15:57:52.242Z | seat | Bash | cd D:/relay && git grep -n "_prelock.txt" -- tools/standing tools/acts/b747.py
+  #289 | 2026-11-08T15:58:04.584Z | seat | Bash | cd D:/relay && git grep -n "scores_dry" -- tools/standing/fold/reg_gate.tpl tools/standing/close.py tools/standing/fold/checks.tpl
+  #290 | 2026-11-08T15:58:09.833Z | seat | Bash | cd D:/relay && git grep -n -i "scores dry\|scores_dry\|SCORES-BEFORE-SEAL" -- tools/standing tools/rule_arms.py
+  #291 | 2026-11-08T15:58:30.965Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #292 | 2026-11-08T15:59:13.843Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b747_scores_dry.txt',encoding='utf-8').read().split(chr(10));import textwrap;[print(n+1, textwrap.fill(L[n],220))
+  #293 | 2026-11-08T15:59:51.828Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #294 | 2026-11-08T16:00:29.300Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b747_scores_dry.txt',encoding='utf-8').read().split(chr(10));print(L[7][-700:])"
+  #295 | 2026-11-08T16:00:39.891Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #296 | 2026-11-08T16:01:45.669Z | seat | Bash | cd D:/relay && git grep -n "previous \`%s\`" -- tools/standing/fold/record.tpl tools/acts/b747.py
+  #297 | 2026-11-08T16:01:55.943Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/fold.py record drycheck data/b747_registration_2026-11-08.txt standin --act b747 --quiet
+  #298 | 2026-11-08T16:02:09.800Z | seat | Bash | cd D:/relay && git grep -n -i "standin" -- tools/standing/fold/record.tpl
+  #299 | 2026-11-08T16:02:25.853Z | seat | Bash | cd D:/relay && git grep -n "^def \|^    def " -- tools/standing/fold.py
+  #300 | 2026-11-08T16:02:37.905Z | seat | Bash | cd D:/relay && python -X utf8 C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/trailnone.py
+  #301 | 2026-11-08T16:02:57.025Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=[l for l in open('data/b747_hook_refusals.txt',encoding='utf-8') if l.strip()];print(len(L));print(L[-1][:300])"
+  #302 | 2026-11-08T16:03:21.666Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_face.py && python -X utf8 -u tools/standing/fold.py record drycheck data/b747_registration_2026-11-08.txt standin --
+  #303 | 2026-11-08T16:03:38.183Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #304 | 2026-11-08T16:05:56.900Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #305 | 2026-11-08T16:08:47.685Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #306 | 2026-11-08T16:18:05.614Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #307 | 2026-11-08T16:28:09.135Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #308 | 2026-11-08T16:31:53.190Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #309 | 2026-11-08T16:35:16.368Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #310 | 2026-11-08T16:39:51.169Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #311 | 2026-11-08T16:45:30.608Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #312 | 2026-11-08T16:50:41.644Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #313 | 2026-11-08T16:56:06.864Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #314 | 2026-11-08T17:02:15.602Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #315 | 2026-11-08T17:04:44.037Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #316 | 2026-11-08T17:06:02.627Z | seat | Bash | cd D:/relay && git status --short
+  #317 | 2026-11-08T17:06:11.514Z | seat | Bash | cd D:/relay && git log --format=%h%x20%s --grep=b746 -n 40
+  #318 | 2026-11-08T17:06:15.916Z | seat | Bash | cd D:/relay && git show --name-status --format=%h aa41bb9e a8d9dbb9 3b226f7e
+  #319 | 2026-11-08T17:06:56.860Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #320 | 2026-11-08T17:08:19.942Z | seat | Bash | cd D:/relay && ls data/b747_touch.txt data/b747_reproduce.txt data/b747_author_answers.txt data/b747_events.txt
+  #321 | 2026-11-08T17:08:32.684Z | seat | Bash | cd D:/relay && git diff --stat data/b747_steps.json data/b747_bank_hashes.json data/b747_section2.txt data/b747_hook_refusals.txt
+  #322 | 2026-11-08T17:08:35.959Z | seat | Bash | cd D:/relay && git diff data/b747_steps.json
+  #323 | 2026-11-08T17:08:44.147Z | seat | Bash | cd D:/relay && git add data/b747_bank_hashes.json data/b747_closing_dry.txt data/b747_commands.json data/b747_commands.txt data/b747_defects.txt data/b747_guard
+  #324 | 2026-11-08T17:08:49.763Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank
+  #325 | 2026-11-08T17:09:04.449Z | seat | Bash | cd D:/relay && git add data/b747_address_scan.txt
+  #326 | 2026-11-08T17:09:08.816Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate
+  #327 | 2026-11-08T17:09:23.236Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #328 | 2026-11-08T17:09:42.758Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #329 | 2026-11-08T17:10:46.265Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #330 | 2026-11-08T17:11:28.237Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b747_registration_2026-11-08.txt',encoding='utf-8').read().split('\n');[print(n,'|',L[n-1][:900]) for n in (61,16
+  #331 | 2026-11-08T17:11:53.065Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b745_defects.txt',encoding='utf-8').read().split('\n');print(L[30][:700])"
+  #332 | 2026-11-08T17:12:16.354Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('tools/b747_face_blocks.txt',encoding='utf-8').read().split('\n');print(L[61])"
+  #333 | 2026-11-08T17:12:24.730Z | seat | Bash | cd D:/relay && python -X utf8 -c "L=open('data/b747_defects.txt',encoding='utf-8').read().split('\n');print(len(L));[print(i+1,'|',l[:260]) for i,l in enumerate
+  #334 | 2026-11-08T17:12:40.426Z | seat | Bash | cd D:/relay && python -X utf8 -u tools/b747_face.py
+  #335 | 2026-11-08T17:12:45.988Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
+  #336 | 2026-11-08T17:13:49.634Z | seat | Bash | cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standin
 
-### ### **COMMANDS 274 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 25 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 97 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 336 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 25 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 1 ; ONE-LINE PROGRAMS 138 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
