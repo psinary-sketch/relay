@@ -1,5 +1,5 @@
 {
- "at": "2026-11-08T17:22:44Z",
+ "at": "2026-11-08T17:24:10Z",
  "anchor": "RULING (R357) BEGIN",
  "rows": [
   {
@@ -2953,6 +2953,54 @@
    "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b747_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 369,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:07.108Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git status --short --untracked-files=no data/ tools/ && git status --short data/audit_b747_reg_satisfiable.txt data/b747_satisfiable.json",
+   "n": 370,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:12.276Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add data/audit_b747_reg_satisfiable.txt data/b747_closing_dry.txt data/b747_commands.json data/b747_commands.txt data/b747_defects.txt data/b747_hook_refusals.txt data/b747_pins_stepzero.txt data/b747_prelock.txt data/b747_reg_gate.txt data/b747_reg_termscan.txt data/b747_registration_2026-11-08.txt data/b747_regspec_run.txt data/b747_report_dry.txt data/b747_satisfiable.json data/b747_steps.json tools/b747_face_blocks.txt",
+   "n": 371,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:16.981Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/b747_address_scan.py scan --bank",
+   "n": 372,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:30.903Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && git add data/b747_address_scan.txt",
+   "n": 373,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:35.457Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 374,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-08T17:23:48.168Z",
+   "src": "seat",
+   "cmd": "cd D:/relay && python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
+   "n": 375,
+   "bg": false
   }
  ],
  "offences": [
@@ -3130,7 +3178,8 @@
   349,
   350,
   362,
-  369
+  369,
+  375
  ],
  "moves_deletes": [
   34,
