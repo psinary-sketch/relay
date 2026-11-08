@@ -1,0 +1,197 @@
+b748 -- (R358)(2): THE PAPER`S §3, THE FIVE DISCHARGES, DRAFTED FOR THE SITTING, PASSED WITH THE AUTHOR`S CLAUSE AND WRITTEN (2026-11-08T23:20:00Z)
+
+### the target: PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, under its heading :111 at PLACE-papers HEAD (the heading read from the tree); the version line :3 kept at v0.1,
+### the one dated note for §3 and §4 after the §2 note :7, which is kept. Every Lean name cited at SIDE-explicit-formula v0.38 (14ca5725); every figure
+### at its relay bank line; each cite printed below whole from its source (tools/standing/citeprint.py, (R358)(3)(xi)). No sentence names the located
+### zero, its figures, the 68 zeros, zeta, RH or h2.
+
+### THE SECTION AS WRITTEN (read back from PLACE-papers HEAD) BEGIN
+Each field of `ZQPremises` (SIDEExplicitFormula/Schema/EpsteinZQ.lean :137-:142, at the tag v0.38, commit 14ca5725) was closed by a theorem compiled on the branch zq-b730 of SIDE-explicit-formula, in its own act, by a run of the kernel's build whose axiom print the act banked. This section gives each field as the tag states it, the act and the bank line that closed it, the run, the axiom line and the line count, one sentence of what the theorem says classically, and the route by its plan bank. The five are then assembled into one term at the instance. Every axiom line below reads `[propext, Classical.choice, Quot.sound]`, the three axioms of Lean's standard library, with no `sorryAx`.
+
+**(1) continuation.** `continuation : ZQContinuation zq` (EpsteinZQ.lean :138), the structure of :80-:86. Closed at b730 by `zq_continuation` (relay data/b730_continuation.txt :55). Branch tip 5688816e (:3); run 41295546328 (:43); its axiom line `'SIDEExplicitFormula.Schema.ZQ.zq_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]` (:46); 835 Lean lines (:32). Classically: the lattice sum of Q0 converges on Re s > 1 and agrees there with a function holomorphic off s = 1, real on the real line off 1, whose completion (2π/√23)^(−s) Γ(s) Z_Q(s) is unchanged by s ↦ 1 − s on the critical strip. The route is Mathlib's even and cosine kernels with its `WeakFEPair` (relay data/b730_continuation_plan.txt :48; its one difference from the price bank's words, :10-:11).
+
+**(2) zeros.** `zeros : ZQZeros zq Z` (:139), the structure of :99-:101. Closed at b731 by `zq_zeros` (relay data/b731_zeros.txt :42). Branch tip 23b006df (:3); run 41318856071 (:31); its axiom line `'SIDEExplicitFormula.Schema.ZQ.zq_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]` (:34); 340 lines (:21). Classically: the configuration `zqZeroConfig` is exactly the set of zeros of Λ_Q, each counted with its order as a zero, so the strip, the reflection and the local finiteness that a `WideConfig` carries are facts proved about those zeros. The route is the half-plane of the logDeriv field, the full functional equation, Schwarz reflection and an entire function nonvanishing at 1 (relay data/b731_zeros_plan.txt :49).
+
+**(3) logDeriv.** `logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)` (:140). Closed at b731 by `zq_logDeriv` (relay data/b731_logderiv.txt :49). Branch tip 5eb1d014 (:3); run 41317771708 (:38); its axiom line `'SIDEExplicitFormula.Schema.ZQ.zq_logDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]` (:42); 786 lines (:49). Classically: on Re s ≥ 3/2 the Dirichlet series of the coefficients `cQ` equals −Z_Q′(s)/Z_Q(s). The route takes the coefficients through the convolution identity c ⋆ a = log · a and bounds the value of Z_Q at 3/2 by rows (relay data/b731_logderiv_plan.txt :47).
+
+**(4) explicitFormula.** `explicitFormula : ZQExplicitFormula Z c` (:141), the structure of :127-:129. Closed at b735 by `zq_explicitFormula` (relay data/b735_explicitformula.txt :220). Tip b25fd82c (:45); run 41483457057 (:45); its axiom line, in run 41483457057, `[propext, Classical.choice, Quot.sound]` (:77, the theorem at ZQ/EF/Main.lean :25); 1949 lines in eight modules (:201). Classically: for every even, compactly supported test function k of class C², the sum of k̂ over the zeros of Λ_Q with multiplicity equals the pole term, less the sum over n of the coefficients against k at log n, plus the archimedean integral. The route is a fresh build over Q0 rather than an abstraction over a structure, at the seat's price of 2130 lines (relay data/b734_explicitformula_plan.txt :148; the plan's foot, :176).
+
+**(5) count.** `count : ∃ A₀ : ℝ, Wide.HCount Z A₀` (:142). Closed at b733 by `zq_count_holds` (relay data/b733_count.txt :58). Commit 09053d3b, run 41374814817 (:26); its axiom line `C6 | zq_count_holds | compiled | axioms [propext, Classical.choice, Quot.sound]` (:39); 883 lines (:58). Classically: some constant A₀ ≥ 1 bounds the number of zeros of Λ_Q with ordinate in (t, t + 1], with multiplicity, by A₀ log(|t| + 3) at every real t. The route is the plan's seven rows, a disc count on the half Re s ≥ 1/2, growth on the strip, a lower bound at the centre, and the halving over the reflection (relay data/b733_count_plan.txt :25-:49; its foot, :104). The constant has no figure in the banks, and the field asks none: since b732 the field is existential (relay data/b732_a0_restatement.txt :8-:9). Its witness is the term `max 1 (2 * A₁)` built at Schema/ZQ/Count.lean :340 from the compiled disc count (relay data/b735_explicitformula.txt :158). The named value `A0Q` of SIDEExplicitFormula/Schema/EpsteinQ0.lean is a separate definition and not the field (relay data/b732_a0_restatement.txt :29-:30).
+
+**The five together.** The instance is one term (SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :190-:191, at v0.38):
+
+```lean
+theorem zq_premises : ZQPremises zqFn zqZeroConfig (fun n => cQ n) :=
+  ⟨zq_continuation, zq_zeros, zq_logDeriv, zq_explicitFormula, zq_count_holds⟩
+```
+
+Each field is its compiled theorem, and its axiom line reads `its axioms: [propext, Classical.choice, Quot.sound]` (relay data/b735_explicitformula.txt :96, in the one run 41483457057 with the five fields' rows, :88-:93). The bundle is a theorem at Z_Q0, not a hypothesis. What it supplies to the three forms the schema reads off it is §4's.
+### THE SECTION AS WRITTEN END
+
+### EVERY CITE, PRINTED WHOLE FROM ITS SOURCE (Lean by git show 14ca5725:<path>; the ledger by git show HEAD:<path> in PLACE-papers; the bank from the relay working file), in the order the section makes them:
+  (1) EpsteinZQ.lean at 14ca5725 :137-:142
+        137  structure ZQPremises (zq : ℂ → ℂ) (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        138    continuation : ZQContinuation zq
+        139    zeros : ZQZeros zq Z
+        140    logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+        141    explicitFormula : ZQExplicitFormula Z c
+        142    count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  (2) EpsteinZQ.lean at 14ca5725 :138
+        138    continuation : ZQContinuation zq
+  (3) EpsteinZQ.lean at 14ca5725 :80-:86
+         80  structure ZQContinuation (zq : ℂ → ℂ) : Prop where
+         81    summable : ∀ s : ℂ, 1 < s.re → LSeriesSummable (fun k => (rQ k : ℂ)) s
+         82    agrees : ∀ s : ℂ, 1 < s.re → zq s = ZQ s
+         83    holomorphic : DifferentiableOn ℂ zq {s : ℂ | s ≠ 1}
+         84    functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+         85      qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+         86    real_on_real : ∀ x : ℝ, x ≠ 1 → (zq (x : ℂ)).im = 0
+  (4) relay data/b730_continuation.txt :55
+         55  ### ### **THE continuation FIELD CLOSED: zq_continuation AND exists_zq_continuation COMPILED ; AXIOMS propext, Classical.choice, Quot.sound ; NO sorry ; DISPATCHES 6 OF AT MOST 12 ; LINES 835 ; ONE FIELD OF FIVE, FOUR OPEN.**
+  (5) relay data/b730_continuation.txt :3
+          3  ### The statement: ZQContinuation at Schema/EpsteinZQ.lean :80-:86, the field `continuation` of ZQPremises at :138. Branch zq-b730 of SIDE-explicit-formula, cut from main badacccb, tip 5688816e, read back at origin True.
+  (6) relay data/b730_continuation.txt :43
+         43  ## THE AXIOM PRINT OF THE TERMINALS, THE ARTIFACT`S OWN LINES (run 41295546328, out/axioms.txt)
+  (7) relay data/b730_continuation.txt :46
+         46    'SIDEExplicitFormula.Schema.ZQ.zq_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+  (8) relay data/b730_continuation.txt :32
+         32    THE SUM 835 LEAN LINES ; print_targets.txt 11 lines beside them
+  (9) relay data/b730_continuation_plan.txt :48
+         48  ### ### **THE FIELD STATED ; ROUTE evenKernel/cosKernel + WeakFEPair ; 4 GROUPS, ABOUT 715 LINES, 5-12 DISPATCHES (THE SEAT'S) ; THE CAP TWELVE ; NOTHING BUILT AT THIS BANK'S COMMIT.**
+  (10) relay data/b730_continuation_plan.txt :10-:11
+         10  ## (2) THE ROUTE, AND ITS ONE DIFFERENCE FROM THE BANK'S WORDS
+         11    (R340)(4) and data/b729_count_price.txt (5) name jacobiTheta2_functional_equation and WeakFEPair. The route uses WeakFEPair directly and the first through Mathlib's kernels: evenKernel_functional_equation
+  (11) EpsteinZQ.lean at 14ca5725 :139
+        139    zeros : ZQZeros zq Z
+  (12) EpsteinZQ.lean at 14ca5725 :99-:101
+         99  structure ZQZeros (zq : ℂ → ℂ) (Z : WideConfig) : Prop where
+        100    carrier_eq : Z.carrier = LambdaQZeros zq
+        101    mult_order : ∀ ρ ∈ Z.carrier, ∃ g : ℂ → ℂ, AnalyticAt ℂ g ρ ∧ g ρ ≠ 0 ∧ ∀ᶠ z in nhds ρ, zq z = (z - ρ) ^ Z.mult ρ * g z
+  (13) relay data/b731_zeros.txt :42
+         42  ### ### **THE zeros FIELD CLOSED: zq_zeros COMPILED ; AXIOMS propext, Classical.choice, Quot.sound ; NO sorry ; DISPATCHES 1 OF AT MOST 6 ; LINES 340.**
+  (14) relay data/b731_zeros.txt :3
+          3  ### The statement: ZQPremises.zeros at Schema/EpsteinZQ.lean :139, ZQZeros at :99-:101. Branch zq-b730 of SIDE-explicit-formula, entering at 5688816e, tip 23b006df, read back at origin True.
+  (15) relay data/b731_zeros.txt :31
+         31  ## THE AXIOM PRINT OF THE TERMINALS, THE ARTIFACT`S OWN LINES (run 41318856071, out/axioms.txt)
+  (16) relay data/b731_zeros.txt :34
+         34    'SIDEExplicitFormula.Schema.ZQ.zq_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+  (17) relay data/b731_zeros.txt :21
+         21    Zeros          340 lines
+  (18) relay data/b731_zeros_plan.txt :49
+         49  ### ### **THE FIELD STATED ; ROUTE (3)'S HALF-PLANE, THE FULL FE, SCHWARZ REFLECTION, AN ENTIRE aE WITH aE 1 != 0, THE ORDER OF Λ ; 1 MODULE, ABOUT 340 LINES, 2-6 DISPATCHES (THE SEAT'S) ; THE CAP SIX ; NOTHING OF THE FIELD ON THE BRANCH AT THIS BANK'S COMMIT.**
+  (19) EpsteinZQ.lean at 14ca5725 :140
+        140    logDeriv : ∀ s : ℂ, 3 / 2 ≤ s.re → LSeries (fun n => (c n : ℂ)) s = -(deriv zq s / zq s)
+  (20) relay data/b731_logderiv.txt :49
+         49  ### ### **THE logDeriv FIELD CLOSED: zq_logDeriv COMPILED ; AXIOMS propext, Classical.choice, Quot.sound ; NO sorry ; DISPATCHES 3 OF AT MOST 6 ; LINES 786.**
+  (21) relay data/b731_logderiv.txt :3
+          3  ### The statement: ZQPremises.logDeriv at Schema/EpsteinZQ.lean :140. Branch zq-b730 of SIDE-explicit-formula, entering at 5688816e, tip 5eb1d014, read back at origin True.
+  (22) relay data/b731_logderiv.txt :38
+         38  ## THE AXIOM PRINT OF THE TERMINALS, THE ARTIFACT`S OWN LINES (run 41317771708, out/axioms.txt)
+  (23) relay data/b731_logderiv.txt :42
+         42    'SIDEExplicitFormula.Schema.ZQ.zq_logDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+  (24) relay data/b731_logderiv_plan.txt :47
+         47  ### ### **THE FIELD STATED ; ROUTE c ⍟ a = logMul a, THE HYPOTHESIS Z_Q(3/2) < 4 BOUNDED BY ROWS ; 3 GROUPS, ABOUT 430 LINES, 3-6 DISPATCHES (THE SEAT'S) ; THE CAP SIX ; NOTHING BUILT AT THIS BANK'S COMMIT.**
+  (25) EpsteinZQ.lean at 14ca5725 :141
+        141    explicitFormula : ZQExplicitFormula Z c
+  (26) EpsteinZQ.lean at 14ca5725 :127-:129
+        127  structure ZQExplicitFormula (Z : WideConfig) (c : ℕ → ℝ) : Prop where
+        128    ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+        129      zeroSideQ Z k = poleTerm k - primeTermQ c k + archTermQ k
+  (27) relay data/b735_explicitformula.txt :220
+        220  ### ### **THE explicitFormula FIELD CLOSED: zq_explicitFormula, RUN 41483457057, TIP b25fd82c, BUILD EXIT 0, NO sorryAx, AXIOMS propext, Classical.choice, Quot.sound ; 11 OF 16 DISPATCHES, 3 REPAIRS ; 1949 LINES AGAINST 2,130 ; FIVE OF FIVE FIELDS ; THE INSTANCE DERIVES ON THE THREE PREMISE-FREE FORMS, THE LANDED LINES INTERFACES.**
+  (28) relay data/b735_explicitformula.txt :45
+         45    11 | group H-repair1 | Main | sha b25fd82c | run 41483457057 | free 4844 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, read at free 4569 MB
+  (29) relay data/b735_explicitformula.txt :77
+         77    its axioms, run 41483457057: [propext, Classical.choice, Quot.sound]
+  (30) ZQ/EF/Main.lean at 14ca5725 :25
+         25  theorem zq_explicitFormula : ZQExplicitFormula zqZeroConfig (fun n => cQ n) := by
+  (31) relay data/b735_explicitformula.txt :201
+        201    the measured: 1949 lines in eight modules, 11 dispatches, 3 of them repairs ; 0.915 of the 2130 ; against the range 0.696-1.146 in lines, 0.688-1.833 in dispatches.
+  (32) relay data/b734_explicitformula_plan.txt :148
+        148    THE FRESH ROUTE, at 2130 lines and 6-16 dispatches. The reason: the abstraction pays for a generality with one consumer left, zeta and chi being compiled and closed; the fresh route is the path the chain has already taken once at 0.645 of its length, and it leaves every compiled theorem`s closure as it stands. What would reverse this: a second Epstein instance named for the programme; then the structure has a consumer and the comparison reopens.
+  (33) relay data/b734_explicitformula_plan.txt :176
+        176  ### ### **THE PLAN: 17 ROWS, 15 TO BUILD, 2 COMPILED ; EVERY (b) CONSTANT ANSWERED, 92 OF 92 ; THE FRESH ROUTE RECOMMENDED AT 2130 LINES, 6-16 DISPATCHES ; ABSTRACTION 2680-3390 LINES, 7-25 DISPATCHES ; EIGHT GROUPS ; NOTHING BUILT ; CONTROLS 8 OF 8.**
+  (34) EpsteinZQ.lean at 14ca5725 :142
+        142    count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  (35) relay data/b733_count.txt :58
+         58  ### ### **THE count FIELD CLOSED: zq_count_holds, RUN 41374814817, BUILD EXIT 0, NO sorryAx, AXIOMS propext, Classical.choice, Quot.sound ; 5 OF 14 DISPATCHES ; 883 LINES ; C3 COMPILED, C4 THE COMPILED THEOREM ; FOUR OF FIVE FIELDS ; THE INSTANCE NOT DERIVES.**
+  (36) relay data/b733_count.txt :26
+         26    5 | group C        | Count | sha 09053d3b | run 41374814817 | free 4559 MB | KERNEL, exit 0, 0 errors, sorry warnings 0, sorryAx False, read at free 5002 MB
+  (37) relay data/b733_count.txt :39
+         39    C6 | zq_count_holds | compiled | axioms [propext, Classical.choice, Quot.sound]
+  (38) relay data/b733_count_plan.txt :25-:49
+         25    C1  the disc: for every t, the zeros with Re >= 1/2 in (t, t+1], with multiplicity, number at most A1 log(|t| + 3) (halfQ_count)
+         26        neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :81 half_count_large_chi, 125 lines
+         27        price      share 0.245 of the envelope: 54-1926 lines, 0.2-8.6 dispatches ; the seat`s on this route: 150 lines ; module Count
+         28  
+         29    C2  growth on the strip: exists M, for Re s >= -1/2, |a(s)| <= M |s + 2|^3 (aE_growth)
+         30        neighbour  Zeta23/RvM/ZetaGrowth.lean :1 (the module), 253 lines
+         31        price      share 0.496 of the envelope: 110-3899 lines, 0.5-17.4 dispatches ; the seat`s on this route: 230 lines ; module Growth
+         32  
+         33    C3  the lower bound at the centre: for Re s >= 3/2, |Z_Q(s)| >= 4 - Z_Q(3/2) (zq_norm_ge)
+         34        neighbour  SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :341 zq_ne_zero_of_three_halves_le, 46 lines
+         35        price      share 0.090 of the envelope: 20-709 lines, 0.1-3.2 dispatches ; the seat`s on this route: 45 lines ; module Growth
+         36  
+         37    C4  Z_Q(3/2) < 4: TAKEN AS COMPILED, zq_three_halves_tsum_lt, the sum over k of r_Q(k) / k^(3/2) < 4, no line of this act
+         38        neighbour  SIDEExplicitFormula/Schema/ZQ/Bound.lean :370 zq_three_halves_tsum_lt, 7 lines
+         39        price      share 0.014 of the envelope: 3-108 lines, 0.0-0.5 dispatches ; the seat`s on this route: 0 lines ; module Bound, compiled
+         40  
+         41    C5  the small heights: ABSORBED. a has no pole, so the disc of C1 holds at every t and no finite constant is needed; no Lean declaration, the row kept so the seven stay seven
+         42        neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :207 count_small_chi, 9 lines
+         43        price      share 0.018 of the envelope: 4-139 lines, 0.0-0.6 dispatches ; the seat`s on this route: 0 lines ; module none
+         44  
+         45    C6  the assembly: zq_count_holds : exists A0, Wide.HCount zqZeroConfig A0
+         46        neighbour  SIDEExplicitFormula/Chi/LocalCount.lean :218 chiZeroConfig_local_count, 27 lines
+         47        price      share 0.053 of the envelope: 12-416 lines, 0.1-1.9 dispatches ; the seat`s on this route: 30 lines ; module Count
+         48  
+         49    C7  the halving: N(T1, T2) <= 2 times the sum over the window with Re >= 1/2, over WideConfig (wide_N_le_two_mul_half)
+  (39) relay data/b733_count_plan.txt :104
+        104  ### ### **THE PLAN: SEVEN ROWS, C4 TAKEN AS COMPILED, C5 ABSORBED, FIVE TO BUILD ; C3 AND C4 IN FULL ; THREE GROUPS ; AT MOST FOURTEEN DISPATCHES ; NOTHING BUILT.**
+  (40) relay data/b732_a0_restatement.txt :8-:9
+          8    before | count : Wide.HCount Z A0Q
+          9    after  | count : ∃ A₀ : ℝ, Wide.HCount Z A₀
+  (41) ZQ/Count.lean at 14ca5725 :340
+        340    refine ⟨max 1 (2 * A₁), le_max_left _ _, fun t => ?_⟩
+  (42) relay data/b735_explicitformula.txt :158
+        158      no fabricated witness                                   PASS -- the arm fires on the existential; read by hand: the witness is max 1 (2 * A₁), built at Schema/ZQ/Count.lean :340 from the compiled halfQ_count, under Wide.HCount, 1 ≤ A₀ and N Z t (t + 1) ≤ A₀ log(|t| + 3) at every t; a compiled bound, not a fabricated witness
+  (43) relay data/b732_a0_restatement.txt :29-:30
+         29  ## THE A0Q ROW, (R342)(3)'s LAST CLAUSE: the named value stays a separate definition and is not a field
+         30    def A0Q : ℝ := 10 | SIDEExplicitFormula/Schema/EpsteinQ0.lean
+  (44) ZQ/EF/Main.lean at 14ca5725 :190-:191
+        190  theorem zq_premises : ZQPremises zqFn zqZeroConfig (fun n => cQ n) :=
+        191    ⟨zq_continuation, zq_zeros, zq_logDeriv, zq_explicitFormula, zq_count_holds⟩
+  (45) relay data/b735_explicitformula.txt :96
+         96      its axioms: [propext, Classical.choice, Quot.sound]
+  (46) relay data/b735_explicitformula.txt :88-:93
+         88  ## THE FIVE FIELDS, EACH ITS AXIOM ROW IN THE ONE RUN 41483457057, AND THE BUNDLE
+         89    continuation     zq_continuation                                [propext, Classical.choice, Quot.sound]
+         90    zeros            zq_zeros                                       [propext, Classical.choice, Quot.sound]
+         91    logDeriv         zq_logDeriv                                    [propext, Classical.choice, Quot.sound]
+         92    explicitFormula  zq_explicitFormula                             [propext, Classical.choice, Quot.sound]
+         93    count            zq_count_holds                                 [propext, Classical.choice, Quot.sound]
+
+### THE CHECKS: cites 46, each printed whole and read back by citeprint.check: YES ; Lean lines in the body`s blocks 2, each a line of the tree at 14ca5725: YES ;
+###   double-quoted quotations 0, each inside a cited line: YES ; the N3 screen (zeta, RH, h2, the 68 zeros, the located zero, earliest, first of its kind): NONE
+### the body`s md5 332149fedc0d
+
+### ### **§3 DRAFTED: CITES 46 ; WORDS 812 (whitespace-separated, as written) ; PUT TO THE AUTHOR AS ONE SITTING ITEM [S3].**
+
+### THE SITTING (b736`s form), one item:
+
+[S3] PASS, the author`s clause
+  FILE: phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md
+  LINE: under the heading :109 as put (at :111 after the dated note); the version line :3 unchanged, the notes :5 and :7 kept, the dated note at :9
+  CURRENT READ: the heading with no body, at PLACE-papers 20dba111
+  COMPARED TO THE AGENDA: (R358)(2)`s §3, each field at v0.38 with its act, bank line, run, axiom line and line count, a classical sentence, then zq_premises
+  DRAFT WRITTEN: with the author`s clause applied: in each of (1)-(5) the bank foot quoted between double quotes replaced by a cite to its line; in (3)
+    "converges and equals" made "equals"; in (4) "its axiom line its axioms, run 41483457057:" made "its axiom line, in run 41483457057,"; the A0 handling as
+    drafted (the body as first put: 985 words; as written: md5 332149fedc0d, 812 words, read back equal at the write)
+  CONFIRMATION: PLACE-papers 3b701058 (the commit tool`s scan 0 ; 0 ; 0 ; 0), step row 7
+  THE AUTHOR`S WORD: Pass [S3] with a clause: in each of (1)-(5), the bank foot line quoted between double quotes is replaced by a cite to its line (the run,
+    tip or commit, axiom line and line count staying as the paragraph already states them in its own words), so no programme shorthand (dispatches, repairs,
+    fields open, the grade words) appears in the body; in (3), “converges and equals” becomes “equals”; in (4), “its axiom line its axioms, run 41483457057:”
+    becomes “its axiom line, in run 41483457057,”; the A₀ handling stands as drafted. The changed text printed in full before the write; one PLACE-papers
+    write under :109.
+  AT: 2026-11-08, the answer before 23:18Z
+
+### ### **[S3] PASSED WITH THE AUTHOR`S CLAUSE: §3 WRITTEN, 812 WORDS, 46 CITES, PLACE-papers 3b701058.**
