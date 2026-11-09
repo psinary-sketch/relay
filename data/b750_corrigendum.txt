@@ -1,0 +1,92 @@
+b750 -- THE CORRIGENDUM FOR b749, (R360)(3) (2026-11-09T23:53:50Z)
+
+### the banks read unedited: data/b749_events.txt rows (1)-(12), data/b749_defects.txt 22 rows, data/b749_hook_refusals.txt 18 lines at 8ce7e3ab; data/b750_standing_v1300.txt (the v1.30.0 controls); data/b750_rules.txt; the corrigenda bank`s last row (69).
+
+  *b749’s events bank (relay data/b749_events.txt) carries twelve rows, entered after its lock and not lettered, each tagged in its own bracket (8 the seat’s, 3 the host’s, 1 the author’s); its defects bank twenty-two lettered rows, (a)-(v), each tagged in its own bracket (22 the seat’s); its refusal bank eighteen lines at 8ce7e3ab, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them. The navigator’s two of `(R360)`(3)(iii) and (ix), in no b749 bank, are entered below as the navigator’s.*
+  
+  **The repairs of `(R360)`(3), at tools/standing/ v1.30.0, each with a control on b749’s banks or the trail as it stands, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b750_standing_v1300.txt, 39 cases, AS WANTED 39; the rules relay data/b750_rules.txt):
+  
+  **(answers) the answers route appends (`(R360)`(3)(i), events (4))** -- `record answers` writes through standing.act.answers_append: the bank kept line for line, new lines appended beneath one head, no line rewritten, moved or dropped. b749’s route replayed over the bank at relay 1858213d dropped the [Z1] sitting block before, kept it after; run again, nothing appended (relay data/b750_standing_v1300.txt :20; data/b750_rules.txt (1), :5).
+  
+  **(hook) the hook’s row (65) and the design list (`(R360)`(3)(ii), events (4)-(6))** -- standing.act.by_design names the answers pair and the answer check, the author-words banks and the post-lock scan banks; after the lock the hook refuses a hand Edit or Write of them (BYDESIGN) and leaves the tool’s append; N4 reads the same list. b749’s hand Edit replayed under -I: LOCKED with the exception unread before, BYDESIGN with the list read after (relay data/b750_standing_v1300.txt :36; data/b750_rules.txt (2), :7).
+  
+  **(halt) a halt question names every score it costs (`(R360)`(3)(iii), events (5), (6), (12))** -- rootprompt.costs_unnamed reads the ruling’s score clauses and check_hand refuses a question whose option leaves a cost unnamed. b749’s second halt replayed: N4 unnamed, refused; N4 named, passed (relay data/b750_standing_v1300.txt :52; data/b750_rules.txt (3), :9).
+  
+  **(words) the author’s words composed at the close (`(R360)`(3)(iv), events (9))** -- the author-words bank appended after the root by tools/standing/append.py and read apart; before the root the sentence reads “not yet composed”, never NONE RECEIVED. b749’s word on the halt replayed into the bank, printed verbatim (relay data/b750_standing_v1300.txt :65; data/b750_rules.txt (4), :11).
+  
+  **(closingdry) the closing dry reads the design list (`(R360)`(3)(v), events (10))** -- a bank of the design list standing without its route’s head printed NOT YET WRITTEN BY ITS ROUTE; the predicate refuses a NOT FOUND row only outside the list. b749’s gate record refused before, PASS after; a planted NOT FOUND row on a root bank still refused (relay data/b750_standing_v1300.txt :78; data/b750_rules.txt (5), :13).
+  
+  **(n5) the N5 matcher on the Zenodo banks alone (`(R360)`(3)(vi), defects (l), (q), (t))** -- standing.act.zenodo_requests reads release, version, publish, repository-edit and write requests from data/<act>_zenodo*.txt alone; the template’s sentence prints what those banks hold. b749’s capture row 65 read as a release before, unread after (relay data/b750_standing_v1300.txt :91; data/b750_rules.txt (6), :15).
+  
+  **(count) the question count (`(R360)`(3)(vii), defect (u))** -- standing.act.question_count counts the PROMPT rows under a CALL, the sitting rows read apart. b749’s bank 3 by its module, 2 prompts and 1 sitting row after (relay data/b750_standing_v1300.txt :102; data/b750_rules.txt (7), :17).
+  
+  **(lock) the lock print (`(R360)`(3)(viii), events (12))** -- the N4 sentence prints the lock’s time from the one reader’s epoch. b749’s sentence NOT LOCKED before, the lock commit’s time after (relay data/b750_standing_v1300.txt :112; data/b750_rules.txt (8), :19).
+  
+  **(permit) a ruling’s narrow permission (`(R360)`(3)(ix), defect (j))** -- a permission for a dated note names the facts it must carry and lets it carry the act’s cited facts beside them; the navigator’s, CLAIM, NEW, beside the seat’s (relay data/b750_standing_v1300.txt :119; data/b750_rules.txt (9), :21).
+  
+  **(carry) the carry refuses rows the ruling does not name (`(R360)`(3)(x), defects (b), (d), (g), (k))** -- carry.py ruled sets the ruling numbers aside and refuses (R5) a carried citation row or c1 line citing a bank the ruling does not name; `carry.py shared` writes shared_edits from the act’s own commits. b749’s and b750’s modules refused 0 before, by R5 after; b749’s shared_edits [] from its own commits (relay data/b750_standing_v1300.txt :128; data/b750_rules.txt (10), :23).
+  
+  **(retries) the host’s retries and the background move (`(R360)`(3)(xi), events (1), (2), (11))** -- each retry an event with its timings, the reader run alone in the foreground; a command moved to the background sent again with the tool’s limit, the move an event (relay data/b750_standing_v1300.txt :145; data/b750_rules.txt (11), :25).
+  
+  **(instances) the delete reader and the instances (`(R360)`(3)(xii))** -- tools/standing/delread.py reads `commit.py <repo> delete <branch>` as one branch and an interpreter program as none. b749’s five tool deletes 0 names before, 5 after; the ferry route, the range moved after the face, the step-rows words, the gate’s words and b749’s eighteen refusals printed (relay data/b750_standing_v1300.txt :157; data/b750_rules.txt (12), :27).
+  
+  **(version) the version (`(R360)`(3)(xiii))** -- tools/standing/VERSION v1.30.0, landed by a commit of its own (relay 66efee55) with its controls bank and the record’s dry over it, before the gate (relay data/b750_standing_v1300.txt :186; data/b750_rules.txt (13), :29).
+  
+  **b749’s events (1)-(12):**
+  
+  **(1)** 2026-11-09T15:22:11Z: the probe of standing-a1 retried the remote reads of SIDE-bsd-formation-transfer (21.81 s, 19.46 … (relay data/b749_events.txt, row (1); the host’s; CLOSE; REPEAT of b748 (3); repair (retries), `(R360)`(3)(xi), REPEAT: each retry an event with its timings, the reader run alone in the foreground).
+  **(2)** ’python -X utf8 -u tools/b749\_prepaths.py --bank’ was sent with the host’s default 120 s limit and moved to the … (relay data/b749_events.txt, row (2); the host’s; CLOSE; NEW; repair (retries), `(R360)`(3)(xi): a command the host moves to the background sent again with the limit the tool prints, the move an event).
+  **(3)** the hook refused a Bash listing carrying a pipe (data/b749\_hook\_refusals.txt, its last row before the root); refused … (relay data/b749_events.txt, row (3); the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusal printed (data/b749_hook_refusals.txt :16)).
+  **(4)** ’fold.py record answers --act b749’ rewrote data/b749\_author\_answers.txt whole (two PROMPT rows, [Z1] now as PROMPT 1) … (relay data/b749_events.txt, row (4); the seat’s; CLAIM; NEW; repairs (answers) and (hook), `(R360)`(3)(i), (ii): `record answers` appends and rewrites no line; the refusal at :17 caused by the hook’s `python -I` path, the design list now read).
+  **(5)** the author’s word on the halt, verbatim: "Repair-phase edit of the act module: one repair commit after the seal, under … (relay data/b749_events.txt, row (5); the seat’s; CLOSE; NEW; repair (halt), `(R360)`(3)(iii): a halt question names every score its routes would cost).
+  **(6)** the author’s word on the second halt, verbatim: "Lift the hook for one Edit: the committed [Z1] sitting block (relay … (relay data/b749_events.txt, row (6); the author’s; CLOSE; NEW; repairs (halt) and (hook), `(R360)`(3)(ii), (iii): the lift not needed for a bank of the design list again; the navigator’s misreading entered below as the navigator’s).
+  **(7)** the hook refused a Read of a memory note with no limit; refused before it ran, sent again with offset 1 and limit 60. … (relay data/b749_events.txt, row (7); the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusal printed (data/b749_hook_refusals.txt :18)).
+  **(8)** ’commit.py relay pre-root’ refused the step-rows commit, NOTHING COMMITTED, NO ROW WRITTEN: "A STEP-ROWS COMMIT NAMES … (relay data/b749_events.txt, row (8); the seat’s; CLOSE; NEW; repair (instances), `(R360)`(3)(xii): the step-rows words, the instance printed).
+  **(9)** the record (FINDINGS :14496) and the trail (OPEN\_TRAILS :18066) print "THE AUTHOR’S WORD AFTER THE SEAL … (relay data/b749_events.txt, row (9); the seat’s; CLAIM; NEW; repair (words), `(R360)`(3)(iv): the sentence composed at the close from the bank, “not yet composed” before the root).
+  **(10)** the pre-push suite read 116 run, 111 passing, 4 failing (data/b749\_checks.txt): the 3 declared (G-AXIOM-CLAIM, … (relay data/b749_events.txt, row (10); the seat’s; CLAIM; NEW; repair (closingdry), `(R360)`(3)(v): a bank of the design list read as “not yet written”, the predicate reading the list).
+  **(11)** 21:11-21:14Z: the post-push standing-a1 (’--rerun-postpush b749\_checks\_postpush.txt --part standing-a1’; the plain form … (relay data/b749_events.txt, row (11); the host’s; CLOSE; REPEAT of b749 (1); repair (retries), `(R360)`(3)(xi), REPEAT).
+  **(12)** the scores written before the root (data/b749\_scores.json) read N3 REFUTED, N1, N2, N4, N5 and S3 HELD, S1 and S2 … (relay data/b749_events.txt, row (12); the seat’s; CLAIM; NEW; repairs (lock) and (halt), `(R360)`(3)(iii), (viii): the lock printed from the one reader; the N4 cost named in a halt question).
+  
+  **b749’s defects:**
+  
+  **(a)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b748 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusals printed).
+  **(b)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (carry), `(R360)`(3)(x)).
+  **(c)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; no item of `(R360)`(3) names it; the post-lock scan bank now on the design list (hook)).
+  **(d)** (relay data/b749_defects.txt; the seat’s; CLAIM; REPEAT of b748 (c); repair (carry), `(R360)`(3)(x), REPEAT).
+  **(e)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusals printed).
+  **(f)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; no item of `(R360)`(3) names it; the v1.29.0 controls’ own runs, their last write 29 of 29).
+  **(g)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b748 (c); repair (carry), `(R360)`(3)(x), REPEAT: R5 refuses a carried c1 line citing a bank the ruling does not name).
+  **(h)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; no item of `(R360)`(3) names it; the tool’s own refusal as designed).
+  **(i)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusals printed).
+  **(j)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (permit), `(R360)`(3)(ix): the seat’s, beside the navigator’s entered below).
+  **(k)** (relay data/b749_defects.txt; the seat’s; CLAIM; REPEAT of b749 (d); repair (carry), `(R360)`(3)(x), REPEAT: shared_edits written from the act’s own list (`carry.py shared`)).
+  **(l)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (n5), `(R360)`(3)(vi): “the draft held at v5” names no Zenodo object).
+  **(m)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b748 (o); no item of `(R360)`(3) names it; the KEPT row by the tool since v1.29.0).
+  **(n)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; repair (instances), `(R360)`(3)(xii): the capture’s delete reader taught the tool’s route (tools/standing/delread.py)).
+  **(o)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; repair (instances), `(R360)`(3)(xii): the instance printed).
+  **(p)** (relay data/b749_defects.txt; the seat’s; CLOSE; NEW; repair (instances), `(R360)`(3)(xii): the instance printed).
+  **(q)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (n5), `(R360)`(3)(vi): N5 read from the Zenodo banks alone).
+  **(r)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusal printed).
+  **(s)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R360)`(3)(xii), REPEAT: the refusal printed).
+  **(t)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (n5), `(R360)`(3)(vi): the template’s N5 sentence printing what the Zenodo banks hold).
+  **(u)** (relay data/b749_defects.txt; the seat’s; CLAIM; NEW; repair (count), `(R360)`(3)(vii): questions counted from the composed prompts’ rows).
+  **(v)** (relay data/b749_defects.txt; the seat’s; CLOSE; REPEAT of b746 (q); repair (instances), `(R360)`(3)(xii): the gate’s words, the instance printed).
+  
+  **The navigator’s, entered by this corrigendum (`(R360)`(3)(iii), (ix)):**
+  
+  **The navigator’s (iii)** the navigator’s misreading of N4’s clause at b749’s second halt: the answers pair “excluded” read as licence for a hand edit, where the clause reads “edited by hand after its tool wrote it”; the lift recommended on that reading cost N4 (data/b749_events.txt (6), (12)); `(R360)`(3)(iii), the rule relay data/b750_rules.txt (3) (the navigator’s; CLAIM; NEW).
+  **The navigator’s (ix)** the navigator’s narrow permission in `(R359)`(2)(v) for REGISTRY d1-1’s dated note: it named the three facts the note must carry and was read as a cap on the act’s cited facts, so the note’s further true and cited sentences refuted N3 (data/b749_defects.txt (j), beside the seat’s); `(R360)`(3)(ix), the rule relay data/b750_rules.txt (9) (the navigator’s; CLAIM; NEW).
+  
+  **b749’s refusals** (relay data/b749_hook_refusals.txt at 8ce7e3ab, one a line): :1 PIPE 13:50:43Z, recorded at defect (a); :2 PIPE 13:50:44Z, recorded at defect (a); :3 READ 13:51:08Z, recorded at defect (a); :4 READ 13:56:33Z, recorded at defect (a); :5 READ 14:03:56Z, recorded at defect (a); :6 SED 14:09:05Z, recorded at defect (e); :7 PIPE 14:09:49Z, recorded at defect (e); :8 REDIR 14:16:02Z, recorded at defect (e); :9 REDIR 14:25:23Z, recorded at defect (e); :10 PIPE 14:42:15Z, recorded at defect (i); :11 REDIR 15:04:08Z, recorded at defect (i); :12 READ 15:09:48Z, recorded at defect (i); :13 PIPE 15:13:59Z, recorded at defect (i); :14 READ 16:46:54Z, recorded at defect (r); :15 SED 17:34:58Z, recorded at defect (s); :16 PIPE 19:58:43Z, recorded at event (3); :17 LOCKED 20:09:26Z, recorded at event (4); :18 READ 20:20:16Z, recorded at event (7).
+  
+  **Dated notes:**
+  
+  Dated note, b750, to `(R360)`(3)(ii): the cause of b749’s LOCKED refusal at 20:09:26Z (data/b749_hook_refusals.txt :17) was the hook’s own path: run as `python -I`, its lock exemption’s `import act` failed and fell to a list without the answers pair; from relay 66efee55 the hook puts its own directory on the path first and its fallback carries the design list (relay data/b750_standing_v1300.txt, the (hook) block).
+  
+  Dated note, b750, to `(R360)`(3)(x): b750’s own step zero repeated the carry’s class (relay data/b750_stepzero.txt, defect (d)): carry.py ruled compared rows with the act-name substitutions alone while the carry also shifted the ruling’s number; from relay 66efee55 the comparison sets the ruling numbers aside and R5 refuses a carried row citing a bank the ruling does not name. This route, carried with b749’s route for b748’s banks, refused its first weight dry, nothing composed, and was rewritten against b749’s banks before either write.
+  
+  **The counter:** CLAIM 12, CLOSE 22, REPEAT 14 of 34 over the 34 items as the banks tag them (twelve events, twenty-two defects), as b749’s closing prints it (relay data/b749_closing.txt :5); no tag is read otherwise here; the CLAIM items (4), (9), (10), (12), (b), (d), (j), (k), (l), (q), (t), (u). With the navigator’s two, CLAIM 14, CLOSE 22, REPEAT 14 of 36.
+  
+  *Filed at b750 on the author’s ruling `(R360)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b750.py) from b749’s events and defects banks read unedited, its refusal bank, the v1.30.0 controls bank and the rules; banked as relay `data/b750_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (70). It answers b749’s record; no sealed tool, face, trail or root-named bank of b749 is edited.*
+
+### ### **ITEMS 34: EVENTS 12, DEFECTS 22 ; CLAIM 12, CLOSE 22 ; REPEAT 14 ; THE NAVIGATOR`S 2, ENTERED (CLAIM 14, CLOSE 22, REPEAT 14 OF 36 WITH THEM) ; DATED NOTES 2 ; v1.30.0: THE ANSWERS ROUTE APPENDING, THE DESIGN LIST IN THE HOOK AND IN N4, THE HALT QUESTION NAMING EVERY SCORE IT COSTS, THE AUTHOR`S WORDS COMPOSED AT THE CLOSE, THE CLOSING DRY READING THE DESIGN LIST, THE N5 MATCHER ON THE ZENODO BANKS, THE QUESTION COUNT, THE LOCK PRINT, THE PERMISSION, THE CARRY REFUSING UNNAMED ROWS, THE RETRIES, THE DELETE READER AND THE INSTANCES, THE VERSION ; THE ENTRY AT FINDINGS :14538.**
