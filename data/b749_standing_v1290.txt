@@ -1,0 +1,139 @@
+b749 -- THE CONTROLS OF tools/standing/ v1.29.0, (R359)(3)(i)-(vi), (xi): ONE CALL OF THE TOOL PER MESSAGE, THE PER-COMMIT SCAN`S OWN BANK, NO COMMIT WITHOUT THE SCAN, THE RECORD`S READERS REFUSING A MISSING PATH, THE CARRY ROW BY ROW AND THE KEPT ROW BY THE TOOL, A PRIOR ACT`S LOG BY STEP ROWS (2026-11-09T14:20:18Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2650 lines
+  citation render          OK    534 lines
+  closing render           OK    625 lines
+  record render            OK    4658 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    162 lines
+  tools/b749_worklist.py   OK    443 lines
+### THE COMPILE CONTROL : b749 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 791341fd
+
+  free 2833 MB at 2026-11-09T14:20:18Z, the hold 2560 MET
+### (calls) (R359)(3)(i), b748 events (2): THE ONE-CALL TOOL REFUSES A CALL WHILE ANOTHER GIT WRITE LANDED IN THE SAME MESSAGE, READING THE REQUEST STAMP THE HOOK RECORDS
+  (calls) GUARD, NO FAILING SIDE: b748`s calls read from its session 4fe446f7, 04:12:00Z-04:12:30Z (the control: the instance found, not none)
+      AFTER  (v1.29.0): 04:12:08.032 Pfa6mByxwL git status --porcelain --untracked-files=all -- data/b748_ro; 04:12:14.236 uM4oJVYk1r python -X utf8 -u tools/standing/commit.py relay add data/ac; 04:12:15.173 uM4oJVYk1r python -X utf8 -u tools/standing/commit.py relay root "the a; 04:12:23.670 aifrfH1QEv python -X utf8 -u tools/standing/commit.py relay root "the a -> HOLDS
+      AS WANTED
+  (calls) b748`s root message uM4oJVYk1r: `commit.py relay add <the root banks>` then `commit.py relay root ...`, the second call through the tool
+      BEFORE (v1.28.1): message_refusal UNDEFINED ; the tool wrote under its write mark, each call alone in its process (b748: the hook refused the second, the tool nothing) -> FAILS
+      AFTER  (v1.29.0): ANOTHER GIT WRITE LANDED IN THIS MESSAGE (request msg_011Cgrhf5c4diguM4oJVYk1r): python -X utf8 -u tools/standing/commit.py relay add data/act_roots.t -> PASSES
+      AS WANTED
+  (calls) GUARD, NO FAILING SIDE: the root commit re-sent alone in its own message (aifrfH1QEv) is not refused
+      AFTER  (v1.29.0): the message msg_011CgrhfgVY51YaifrfH1QEv carries this call alone among git writes -> HOLDS
+      AS WANTED
+  (calls) GUARD, NO FAILING SIDE: a sibling the hook refused (nothing ran) is not counted
+      AFTER  (v1.29.0): the message msg_011Cgrhf5c4diguM4oJVYk1r carries this call alone among git writes -> HOLDS
+      AS WANTED
+  (calls) GUARD, NO FAILING SIDE: a read beside the commit in its message is not a write
+      AFTER  (v1.29.0): the message m1 carries this call alone among git writes -> HOLDS
+      AS WANTED
+  (calls) GUARD, NO FAILING SIDE: the bare `git add` beside the commit in its message is a git write: the commit refused
+      AFTER  (v1.29.0): ANOTHER GIT WRITE LANDED IN THIS MESSAGE (request m2): cd D:/relay && git add data/x.txt at t -- one call of the tool pe -> HOLDS
+      AS WANTED
+  (calls) GUARD, NO FAILING SIDE: the hook`s record_call writes one record carrying the message`s request stamp (this session`s transcript)
+      AFTER  (v1.29.0): {"request": "2026-11-09T14:20:09.937Z", "id": "control", "at": "2026-11-09T14:20:19.253616Z", "cmd": "git status", "refused": null} -> HOLDS
+      AS WANTED
+
+  free 2820 MB at 2026-11-09T14:20:19Z, the hold 2560 MET
+### (scanbank) (R359)(3)(ii), b748 defect (r): THE SCAN BEFORE EACH COMMIT APPENDS TO data/<act>_address_scan_commits.txt; THE ACT`S SCAN BANK, WHICH THE ROOT ROUTE NAMES, IS NOT REWRITTEN
+  (scanbank) GUARD, NO FAILING SIDE: b748`s gate commits read by their step rows (the instances: 6)
+      AFTER  (v1.29.0): cdb0d404 09d77445 0b8ad609 5fa49fbc 2b64edeb 0d31fe21 -> HOLDS
+      AS WANTED
+  (scanbank) the scan before a commit (run_scan), and the act`s scan bank data/b749_address_scan.txt across it
+      BEFORE (v1.28.1): run_scan passes --bank (True): the root-named bank rewritten at every commit; b748`s gate commits carrying it: cdb0d404 09d77445 0b8ad609 5fa49fbc; rootdry READY False 51 of 53 at 0b8ad609 till restored (defect (r)) -> FAILS
+      AFTER  (v1.29.0): run CLEAN ; the act`s scan bank UNCHANGED ; the per-commit bank runs 1 -> PASSES
+      AS WANTED
+  (scanbank) GUARD, NO FAILING SIDE: the per-commit bank an excluded kind of the root route (record.tpl EXCLUDE_KINDS), after the lock by design (post_lock_appended), a bookkeeping file (repeat.bookkeeping_only)
+      AFTER  (v1.29.0): excluded True ; post-lock True ; bookkeeping True -> HOLDS
+      AS WANTED
+  (scanbank) GUARD, NO FAILING SIDE: the act`s scan bank and the post-lock bank keep their names (written at the scan`s step and after the lock)
+      AFTER  (v1.29.0): b749_address_scan.txt ; b749_address_scan_postlock.txt -> HOLDS
+      AS WANTED
+
+  free 2762 MB at 2026-11-09T14:20:27Z, the hold 2560 MET
+### (plain) (R359)(3)(iii), b748 defects (b), (d): THE COMMIT TOOL RUNS THE SCAN ITSELF AND A COMMIT WITHOUT IT IS REFUSED -- BY THE TOOL (no scanner=False) AND BY THE HOOK (a plain git write)
+  (plain) GUARD, NO FAILING SIDE: be4a5a0d`s sequence read from b748`s session (the instances: the add and the commit)
+      AFTER  (v1.29.0): 21:32:26.606 cd D:/relay && git add data/b747_relay_push-b747-closing_push_out.txt; 21:32:31.790 cd D:/relay && python -X utf8 -u tools/standing/commit.py relay "step  -> HOLDS
+      AS WANTED
+  (plain) be4a5a0d`s add, by plain git (b748 21:32:26Z): cd D:/relay && git add data/b747_relay_push-b747-closing_push_out.txt
+      BEFORE (v1.28.1): judge -> ALLOWED -> FAILS
+      AFTER  (v1.29.0): judge -> PLAINGIT -> PASSES
+      AS WANTED
+  (plain) b747`s step-zero commit by plain git, the row chained after it (b746`s form, its session 01:55:06Z): git commit -q -m "b746 step zero: x" && python -X utf8 -u tools/standing/fold.py record st
+      BEFORE (v1.28.1): judge -> ALLOWED -> FAILS
+      AFTER  (v1.29.0): judge -> PLAINGIT -> PASSES
+      AS WANTED
+  (plain) GUARD, NO FAILING SIDE: a branch delete by plain git (b748 #56: git -C D:/relay branch -d push-b747-closing) refused as PLAINGIT; v1.28.1 read it as ORDER
+      AFTER  (v1.29.0): judge -> PLAINGIT -> HOLDS
+      AS WANTED
+  (plain) run(<scratch repository>, component 1, scanner=False): a commit with the scan skipped
+      BEFORE (v1.28.1): COMMITTED ; commits now 2 -> FAILS
+      AFTER  (v1.29.0): REFUSED: A COMMIT WITHOUT THE SCAN: the tool runs the act`s scan over the staged set before every commit ; commits now 2 -> PASSES
+      AS WANTED
+  (plain) GUARD, NO FAILING SIDE: the one-call tool`s add is not a plain git write: python -X utf8 -u tools/standing/commit.py relay add data/b749_rules.t
+      AFTER  (v1.29.0): judge -> ALLOWED -> HOLDS
+      AS WANTED
+  (plain) GUARD, NO FAILING SIDE: a status read is not a plain git write: git -C D:/relay status --porcelain
+      AFTER  (v1.29.0): judge -> ALLOWED -> HOLDS
+      AS WANTED
+  (plain) GUARD, NO FAILING SIDE: a branch listing is not a plain git write: git -C D:/relay branch --merged main --list "push-b748-*"
+      AFTER  (v1.29.0): judge -> ALLOWED -> HOLDS
+      AS WANTED
+
+  free 2763 MB at 2026-11-09T14:20:28Z, the hold 2560 MET
+### (reader) (R359)(3)(iv), b748 defect (j): EVERY READER OF THE RECORD REFUSES A PATH THE REPOSITORY DOES NOT HOLD AND PRINTS IT (relaypath.rows_of, grep_of)
+  (reader) b748`s first line-bank dry: the cluster table read by a grep of PLACE-papers CLUSTERS.md for the instance
+      BEFORE (v1.28.1): git grep -> '', printed NONE (a vacuous read; grep_of UNDEFINED) -> FAILS
+      AFTER  (v1.29.0): REFUSED: ### REFUSED: CLUSTERS.md in D:/MY-DOwnloads/PLACE-papers resolves to no file (D:/MY-DOwnloads/PLACE-papers\CLUSTERS.md) -- the rec -> PASSES
+      AS WANTED
+  (reader) GUARD, NO FAILING SIDE: SPIRAL_MAP.md :264-:286 read with its row count (the cluster table b748 read after the catch: 8 cluster rows, none naming the instance)
+      AFTER  (v1.29.0): READ SPIRAL_MAP.md :264-:286 of D:/MY-DOwnloads/PLACE-papers, 23 rows ; table rows 9 (header included) ; a row naming the instance: False -> HOLDS
+      AS WANTED
+  (reader) GUARD, NO FAILING SIDE: rows_of a file the repository does not hold refuses, printing the path
+      AFTER  (v1.29.0): REFUSED: ### REFUSED: NO_SUCH_FILE.md in D:/MY-DOwnloads/PLACE-papers resolves to no file (D:/MY-DOwnloads/PLACE-papers\NO_SUCH_FILE.md) -- -> HOLDS
+      AS WANTED
+
+  free 2768 MB at 2026-11-09T14:20:28Z, the hold 2560 MET
+### (carry) (R359)(3)(v), b748 defects (c), (o): THE CARRY PRINTS EVERY CARRIED CITATION ROW BESIDE THE RULING AND REFUSES A COMMIT IT DOES NOT NAME; THE STEP-ZERO KEPT ROW WRITTEN BY THE TOOL
+  (carry) b748`s module with its 12 citation sections as carried from b747 (before b748 rewrote 1 and 4), beside data/b748_ferry.txt
+      BEFORE (v1.28.1): REFUSED 0 (none) -> FAILS
+      AFTER  (v1.29.0): REFUSED 3, R4 3: SECTION citation 1; SECTION citation 4; SECTION citation 8 -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: every carried citation section printed with its rows and commits beside the ruling
+      AFTER  (v1.29.0): 12 sections printed, e.g. SECTION citation 1: rows 38 ; commits 3f5a33bb NOT NAMED, 99108e06 NOT NAMED, f62d997 NOT  -> HOLDS
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: b749`s module and worklist as they stand, beside data/b749_ferry.txt: none refused
+      AFTER  (v1.29.0): ### ### **THE CARRY BESIDE THE RULING: REFUSED 0 (R1 0, R2 0, R3 0, R4 0) ; NONE REFUSED.** -> HOLDS
+      AS WANTED
+  (carry) the step-zero row "KEPT as banked:" (b748`s :46, by hand) against the tool`s row from the branch listing
+      BEFORE (v1.28.1): KEPT as banked: zq-b730 (1e658870, past v0.38) and the kept branches the citation check's rows name -> FAILS
+      AFTER  (v1.29.0): KEPT as banked (the tool`s row, tools/standing/carry.py kept ... port-b707 NAMED (cb0aea56) -> PASSES
+      AS WANTED
+
+  free 2754 MB at 2026-11-09T14:20:31Z, the hold 2560 MET
+### (log) (R359)(3)(vi), b748 defects (g), (l): A CONTROL READING A PRIOR ACT`S LOG READS IT TO THAT ACT`S LOCK AND CHOOSES COMMITS BY STEP ROWS (actlog.py), NOT BY GREP
+  (log) the (gate) case: b747`s gate commits (b748 (g): the replay read to c19fde00 and missed 88f39b22)
+      BEFORE (v1.28.1): 3 by grep to c19fde00: c19fde00 932b6a1d f2dd38e0 ; 88f39b22 ABSENT -> FAILS
+      AFTER  (v1.29.0): 6 by step rows, to the lock 8b73b2a8: f2dd38e0 932b6a1d c19fde00 88f39b22 083f6a72 6295b920 ; 88f39b22 PRESENT -> PASSES
+      AS WANTED
+  (log) the (rows) case: b747`s step-rows commits (b748 (l): `--grep=the step row` took 0c118109, a component commit)
+      BEFORE (v1.28.1): 7 by grep: 7d34b587 15746802 d784fd66 0c118109 3f5a33bb 99108e06 a847f4bb ; 0c118109 TAKEN -> FAILS
+      AFTER  (v1.29.0): 3 by step rows (commits no row names, touching the step bank alone): d784fd66 15746802 7d34b587 ; 0c118109 NOT TAKEN -> PASSES
+      AS WANTED
+
+  free 2752 MB at 2026-11-09T14:20:32Z, the hold 2560 MET
+### (version) (R359)(3)(xi): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.28.1): v1.28.1 -> FAILS
+      AFTER  (v1.29.0): v1.29.0 -> PASSES
+      AS WANTED
+
+### per repair: (calls) 7 of 7 ; (scanbank) 4 of 4 ; (plain) 8 of 8 ; (reader) 3 of 3 ; (carry) 4 of 4 ; (log) 2 of 2 ; (version) 1 of 1
+### ### **v1.29.0: CONTROLS (calls), (scanbank), (plain), (reader), (carry), (log), (version) ; CASES 29 ; AS WANTED 29 ; ALL AS WANTED.**

@@ -40,6 +40,17 @@ v1.28.1, (R358)(3)(iv), b748 defect (k): THE CLOSE'S WRITES THROUGH THE SAME TOO
   staged set is the step bank alone (with the scan's banks) is a step-rows commit: its words must be the rows' own composition
   (subjects.step_rows_words) and it writes no row of its own, so the step bank is clean before the push.
 
+v1.29.0, (R359)(3)(i)-(iii), b748 events (2), defects (b), (d), (k), (r):
+  (i)   ONE CALL OF THE TOOL PER MESSAGE: the hook records every shell call with its message's request stamp (hook.py record_call, the calls
+        ledger in the temporary directory); the tool reads that ledger before it writes and refuses where another git write was allowed in the
+        same message, the bare `git add` counted as a write (message_refusal; b748's root message: an add and the root commit in one message).
+  (ii)  THE SCAN BEFORE A COMMIT WRITES ITS OWN BANK: run_scan runs the act's scan without --bank and appends its run to
+        data/<act>_address_scan_commits.txt (standing.act.scan_commits_name); the act's scan bank is written once at its step and the
+        post-lock bank after the lock, so a commit leaves the root-named banks as committed and the root's dry run reads READY with no restore.
+  (iii) NO COMMIT WITHOUT THE SCAN: run() takes no scanner=False; the hook refuses a git write by plain git (PLAINGIT), so every add, commit,
+        restore, branch and delete runs through this tool and its scan (b747's closing push capture be4a5a0d: a plain add, then a commit
+        with no scan).
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -274,17 +285,81 @@ def scan_refusal(text, rc):
     return None
 
 
-def run_scan(act):
+def run_scan(act, what='a commit', bank_dir=None):
+    """v1.28.0 (ii), v1.29.0 (R359)(3)(ii): the act's scan over the staged set, run WITHOUT --bank; its run appended to the per-commit bank
+    data/<act>_address_scan_commits.txt (bank_dir for a control), never to the act's scan bank or the post-lock bank."""
+    import act as A
     p = os.path.join(T, '%s_address_scan.py' % act)
     if not os.path.isfile(p):
         raise Refused('THE ACT`S SCAN TOOL IS NOT CARRIED: tools/%s_address_scan.py' % act)
-    r = subprocess.run([sys.executable, '-X', 'utf8', '-u', p, 'scan', '--bank'], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=RELAY)
+    r = subprocess.run([sys.executable, '-X', 'utf8', '-u', p, 'scan'], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=RELAY)
     out = (r.stdout or '') + (r.stderr or '')
     bad = scan_refusal(out, r.returncode)
     foot = [l for l in out.split('\n') if 'PREVIOUS ADDRESS:' in l and '**' in l]
     print('  THE SCAN OVER THE STAGED SET ((R358)(3)(ii)): %s' % (foot[-1].strip() if foot else '### NO FOOT'))
+    if r.returncode == 0 and foot:   # ### a refused or footless run is printed above, not banked as a run
+        bp = os.path.join(bank_dir or os.path.join(RELAY, 'data'), A.scan_commits_name(act))
+        prior = open(bp, encoding='utf-8').read() if os.path.exists(bp) else ''
+        body = A.scan_commits_append(prior, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), what, out.replace('\r', ''))
+        with open(bp + '.tmp', 'wb') as fh:
+            fh.write(body.encode('utf-8'))
+        os.replace(bp + '.tmp', bp)
+        shown = bp.replace(os.sep, '/')
+        if shown.lower().startswith(RELAY.replace(os.sep, '/').lower() + '/'):
+            shown = shown[len(RELAY) + 1:]
+        print('  appended to %s (the per-commit bank, v1.29.0 (ii))' % shown)
     if bad:
         raise Refused(bad)
+
+
+# ================================================================================ v1.29.0 (i): ONE CALL OF THE TOOL PER MESSAGE
+CALLS = os.path.join(__import__('tempfile').gettempdir(), 'standing-calls.jsonl')
+
+
+def calls_tail(path=CALLS, n=400):
+    """the calls ledger's last n records (hook.py record_call writes one per shell call: request, id, at, cmd, refused)."""
+    try:
+        with open(path, 'rb') as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - 400000))
+            raw = f.read().decode('utf-8', errors='replace').split('\n')
+    except OSError:
+        return []
+    out = []
+    for l in raw[-n:]:
+        try:
+            out.append(json.loads(l))
+        except ValueError:
+            continue
+    return out
+
+
+def _runs_me(cmd, argv):
+    """the command runs this tool (a command of it matching gitwrite.RUNS_COMMIT) with these first two arguments."""
+    import gitwrite as GW
+    raw = (cmd or '').replace('\\', '/')
+    return any(GW.RUNS_COMMIT.match(c) for c in GW.commands(raw)) and all(a in raw for a in argv[:2])
+
+
+def message_refusal(records, argv, GW=None):
+    """(refusal or None, note). Pure over the ledger's records. This call's record is the latest allowed one running this tool with these
+    arguments; another allowed record of the same message (the same request stamp) carrying a git write -- a call of this tool or a bare
+    git add -- refuses this one. No record found: no refusal, the note says so (the hook stands in front)."""
+    if GW is None:
+        import gitwrite as GW
+    mine = next((k for k in range(len(records) - 1, -1, -1) if not records[k].get('refused') and _runs_me(records[k].get('cmd'), argv)), None)
+    if mine is None:
+        return None, 'no ledger record of this call (run outside the hook)'
+    req = records[mine].get('request')
+    if not req:
+        return None, 'this call`s record carries no request stamp'
+    others = [r for k, r in enumerate(records) if k != mine and r.get('request') == req and not r.get('refused') and GW.writes(r.get('cmd') or '')]
+    if others:
+        o = others[0]
+        return ('ANOTHER GIT WRITE LANDED IN THIS MESSAGE (request %s): %s at %s -- one call of the tool per message, the add its own message' % (
+            req, ' '.join((o.get('cmd') or '').split())[:90], o.get('at'))), 'refused'
+    return None, 'the message %s carries this call alone among git writes' % req
 
 
 def carry_check(act, exists):
@@ -436,7 +511,7 @@ def rows_only(act, names):
     """v1.28.1: True where the staged set is the step bank alone (with the scan's banks): a step-rows commit, which carries rows and writes
     none of its own (b747's practice), so the step bank is clean before the push. Pure."""
     steps = 'data/%s_steps.json' % act
-    beside = {steps, 'data/%s_address_scan.txt' % act, 'data/%s_address_scan_postlock.txt' % act}
+    beside = {steps, 'data/%s_address_scan.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'data/%s_address_scan_commits.txt' % act}
     return steps in names and set(names) <= beside
 
 
@@ -491,8 +566,9 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
             want = SJ.step_rows_words(SJ.step_rows_added(head, staged))
             if not want or words.strip() != want:
                 raise Refused('A STEP-ROWS COMMIT NAMES ITS ROWS: the words must read %r, given %r' % (want or '(no row staged)', words.strip()))
-        if scanner is not False:
-            (scanner or run_scan)(act)   # ### v1.28.0 (ii): the scan over the staged set before the commit
+        if scanner is False:   # ### v1.29.0 (iii): no commit without the scan
+            raise Refused('A COMMIT WITHOUT THE SCAN: the tool runs the act`s scan over the staged set before every commit')
+        (scanner or (lambda a: run_scan(a, '%s commit %s in %s' % (a, phase, key))))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
         full, back = commit(repo, subj)
     finally:
         if mark:
@@ -539,6 +615,11 @@ def excludes():
 def main(argv):
     if len(argv) < 2 or argv[0] not in REPOS:
         sys.exit(__doc__)
+    bad, note = message_refusal(calls_tail(), argv)   # ### v1.29.0 (i)
+    print('  ONE CALL PER MESSAGE ((R359)(3)(i)): %s' % note)
+    if bad:
+        import act as A
+        sys.exit('### commit.py REFUSED, NOTHING WRITTEN: %s ### THE CLASS: %s' % (bad, repeat_of(bad, A.current()['act'])))
     if argv[1] in WRITES:   # ### v1.28.0 (iv)
         try:
             out = write_route(argv[0], argv[1], argv[2:])

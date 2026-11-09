@@ -134,7 +134,7 @@ def bookkeeping_only(files, act):
     data/<act>_address_scan_postlock.txt, which a step-row commit then carries beside the step bank (relay da9910f9), and the set at :133 left it
     out, so da9910f9 read as a commit with no row."""
     keep = {'data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act,
-            'data/%s_address_scan_postlock.txt' % act}
+            'data/%s_address_scan_postlock.txt' % act, 'data/%s_address_scan_commits.txt' % act}   # ### v1.29.0, (R359)(3)(ii): the per-commit scan's bank
     return bool(files) and set(files) <= keep
 
 

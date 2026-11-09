@@ -20,6 +20,9 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   SUBJECT (v1.21.0, (R351)(2)(i)) a gate, lock or seal commit made by the shell at all: tools/standing/commit.py is the one route
   SUBJECT (v1.25.0, (R355)(2)(v)) a step-row commit whose subject names other rows than the staged step bank adds
   ROWID  (v1.25.0, (R355)(2)(i)) a PLACE-papers commit adding a ledger row whose ID the file already holds (tools/standing/rowid.py)
+  PLAINGIT (v1.29.0, (R359)(3)(iii)) a git write by plain git (add, commit, checkout, branch, ...), not a run of tools/standing/commit.py
+  v1.29.0, (R359)(3)(i): every shell call recorded in the calls ledger (record_call), its message's request stamp beside it, for the
+         one-call tool's own refusal of a second git write in one message
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
 argument such as "a|b" is not read as a pipe.
 
@@ -67,6 +70,7 @@ ROWS = {
     'SED': ROW77 + ' ; data/b685_rules.txt row (2), sed in any form, a line read by the Read tool or tools/standing/peek.py ((R349)(2)(vi))',
     'HASHED': ROW77 + ' ; (18) a bank a tool wrote (named in data/<act>_bank_hashes.json) rewritten by its tool and never by hand ((R351)(2)(ii))',
     'ROWID': ROW77 + ' ; a ledger row`s ID allocated from the file`s maximum over every table carrying the prefix, a held ID refused ((R355)(2)(i))',
+    'PLAINGIT': ROW77 + ' ; every git write through the one-call tool tools/standing/commit.py, the scan over the staged set before every commit ((R358)(6), (R359)(3)(iii))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -248,6 +252,41 @@ def last_request(transcript):
     return None
 
 
+def plain_git(cmd, GW=None):
+    """v1.29.0, (R359)(3)(iii): the first git write of the command that is not a run of the one-call tool or of the gated push; '' where none."""
+    GW = GW or _gitwrite()
+    if GW is None:
+        return ''
+    for c in GW.writes(cmd):
+        if GW.RUNS_COMMIT.match(c) or GW.RUNS_GATED.match(c):
+            continue
+        return ' '.join(c.split())
+    return ''
+
+
+CALLS = os.path.join(tempfile.gettempdir(), 'standing-calls.jsonl')
+
+
+def record_call(ctx, tool, inp, verdict, path=CALLS):
+    """v1.29.0, (R359)(3)(i): one record per shell call in the calls ledger -- the message's request stamp (last_request), the call's id, its
+    time, its command and the hook's verdict -- read by tools/standing/commit.py (message_refusal) before it writes. Kept to its last 2000 lines."""
+    if tool not in ('Bash', 'PowerShell'):
+        return
+    rec = dict(request=last_request((ctx or {}).get('transcript_path')), id=(ctx or {}).get('tool_use_id'),
+               at=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%fZ'), cmd=(inp.get('command') or '')[:4000],
+               refused=verdict[0] if verdict else None)
+    try:
+        if os.path.exists(path) and os.path.getsize(path) > 4000000:
+            with open(path, encoding='utf-8', errors='replace') as f:
+                keep = f.read().split('\n')[-2000:]
+            with open(path, 'w', encoding='utf-8', newline='\n') as f:
+                f.write('\n'.join(l for l in keep if l.strip()) + '\n')
+        with open(path, 'a', encoding='utf-8', newline='\n') as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + '\n')
+    except OSError:
+        pass
+
+
 def ledger_path(transcript):
     return os.path.join(tempfile.gettempdir(), 'standing-gitwrite-%s.json' % hashlib.sha256(str(transcript).encode('utf-8')).hexdigest()[:16])
 
@@ -361,7 +400,8 @@ def lock_exempt(act):
         import act as A_
         base = tuple(A_.post_lock_appended(act))
     except Exception:  # noqa: BLE001
-        base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'tools/mirror_prevbuild.json')
+        base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'tools/mirror_prevbuild.json',
+                'data/%s_address_scan_commits.txt' % act)   # ### v1.29.0, (R359)(3)(ii)
     return base + ('data/%s_events.txt' % act, 'data/%s_face_branches.json' % act)   # ### v1.24.0, (R354)(2)(v): the face's branch list, appended by its tool
 
 
@@ -528,6 +568,9 @@ def judge(tool, inp, relay=RELAY, ctx=None):
         GW = _gitwrite()
         if GW is not None and len(GW.writes(cmd)) > 1:   # ### v1.17.0, (R347)(2)(ii): add and commit chained count two
             return 'GITWRITE', 'a %s command carrying %d git writes' % (tool, len(GW.writes(cmd)))
+        pg = plain_git(cmd, GW)
+        if pg:   # ### v1.29.0, (R359)(3)(iii), b748 defects (b), (d): every git write through the one-call tool, its scan before every commit
+            return 'PLAINGIT', 'a %s command running a git write by plain git (%s) -- tools/standing/commit.py carries add, restore, delete, branch and every commit' % (tool, pg[:80])
         sf = subject_faults(cmd, relay)
         if sf:   # ### v1.19.0, (R349)(2)(iii), b738 events (4); v1.25.0, (R355)(2)(v): the step-row subject too
             return 'SUBJECT', 'a seal, lock or step-row commit whose subject differs from its bank: %s' % '; '.join(sf)[:200]
@@ -572,6 +615,10 @@ def hook():
         verdict = judge(tool, inp, ctx=data)
     except Exception:  # noqa: BLE001  ### v1.17.0: a fault in the message read is no refusal; the suite's arms stand behind the hook
         verdict = judge(tool, inp)
+    try:
+        record_call(data, tool, inp, verdict)   # ### v1.29.0, (R359)(3)(i)
+    except Exception:  # noqa: BLE001
+        pass
     if verdict is None:
         sys.exit(0)
     reason = refuse(verdict[0], verdict[1], tool, inp)

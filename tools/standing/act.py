@@ -143,7 +143,19 @@ def answer_banks(act):
 def post_lock_appended(act):
     """the banks written after the lock by design, outside the lock's hash set and N4's read; the lock gate prints them by name."""
     return ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act,
-            'tools/mirror_prevbuild.json') + answer_banks(act)
+            'tools/mirror_prevbuild.json', 'data/%s' % scan_commits_name(act)) + answer_banks(act)
+
+
+def scan_commits_name(act):
+    """v1.29.0, (R359)(3)(ii), b748 defect (r): the per-commit scan's own appended bank. The one-call tool's scan before each commit is written
+    here, every run beneath the earlier, so the act's scan bank (written once at its step) and the post-lock bank (after the lock) are not
+    rewritten by a commit and the root's dry run reads them as committed."""
+    return '%s_address_scan_commits.txt' % act
+
+
+def scan_commits_append(prior, stamp, what, text):
+    """the commits bank's text: each scan beneath the earlier, headed by its time and the commit it stood before."""
+    return (prior or '') + ('' if not prior else '\n') + '## THE SCAN BEFORE THE COMMIT, %s, %s\n' % (stamp, what) + text.rstrip('\n') + '\n'
 
 
 def scan_bank_name(act, locked):

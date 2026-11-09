@@ -11,6 +11,10 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 ###   a print only: the shifted names between two files already written; exit 1 where there are any
 ### carry.py ruled <act> <prev> <ferry bank>
 ###   v1.27.0, (R357)(3)(viii): every carried figure and section printed beside the ruling; R1-R3 refused (exit 13), before the citation check
+###   v1.29.0, (R359)(3)(v): R4, a citation section carried unchanged naming a commit the ruling does not name, each of its rows printed
+### carry.py kept <act>
+###   v1.29.0, (R359)(3)(v): the step-zero bank's "KEPT as banked:" row, written from the branch listing of the relay, PLACE-papers and
+###   SIDE-explicit-formula (every branch but main and the act's own push branches, by name and tip)
 """
 import difflib
 import io
@@ -118,6 +122,7 @@ def check(src_rel, dst_rel):
 # ###   R3 a ruled figure carried unchanged and non-empty with an element the ruling does not name
 RULED = ('MAX_DISPATCHES', 'EF_RUNS')
 HEXV = re.compile(r'\b(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}\b')
+HEXC = re.compile(r'(?<![\w-])(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}(?![\w-])')   # ### v1.29.0 R4: a commit, not a branch name's tail (pin-b718-de5ce8a9)
 KNAME = re.compile(r'\b(?:K|WL)\.([A-Z_][A-Z0-9_]*)\b')
 
 
@@ -182,13 +187,64 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
             refused.append(('R2', ' '.join(map(str, key)), 'carried unchanged and reads %s, moved %s' % (
                 ', '.join(reads), '; '.join('%r -> %r' % (P[r], W[r]) for r in reads))))
     L.append('  carried sections %d ; refused %d' % (n, sum(1 for r in refused if r[0] == 'R2')))
-    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d)%s.**' % (
+    # ### v1.29.0, (R359)(3)(v), b748 defect (c): R4, every row of a citation section carried unchanged printed beside the ruling: a
+    # ### citation row carries the ferry's figures, so a carried row naming a commit the ruling does not name is the previous act's row
+    # ### under this act's name (b748's sections 1 and 4 held b747's and b746's rows: b746's closing head 3f5a33bb, C1_STANDING f4c286c0)
+    L += ['', '## THE CARRIED CITATION ROWS (a citation section equal to the previous act`s after the substitution), each commit beside the ruling']
+    nr = 0
+    for key, s, e in AM.blocks(act_text):
+        if key[:2] != ('SECTION', 'citation') or key not in pb or act_text[s:e] != substitute(pb[key], subs):
+            continue
+        rows_ = [l for l in act_text[s:e].split(NL) if l.strip().startswith('add(')]
+        hx = sorted(set(HEXC.findall(act_text[s:e])), key=act_text[s:e].index)
+        un = [h for h in hx if not named(h[:7])]
+        nr += len(rows_)
+        L.append('  %s: rows %d ; commits %s%s' % (' '.join(map(str, key)), len(rows_), ', '.join('%s %s' % (h[:8], (':%d' % named(h[:7])) if named(h[:7]) else 'NOT NAMED') for h in hx) or 'none',
+                                                   ' ### REFUSED (R4): %d commit(s) the ruling does not name' % len(un) if un else ''))
+        if un:
+            refused.append(('R4', ' '.join(map(str, key)), 'a citation section carried unchanged naming %s, which the ruling does not name' % ', '.join(h[:8] for h in un)))
+    L.append('  carried citation rows %d ; refused sections %d' % (nr, sum(1 for r in refused if r[0] == 'R4')))
+    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d)%s.**' % (
         len(refused), sum(1 for r in refused if r[0] == 'R1'), sum(1 for r in refused if r[0] == 'R2'), sum(1 for r in refused if r[0] == 'R3'),
+        sum(1 for r in refused if r[0] == 'R4'),
         ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
     return L, refused
 
 
+def kept_repos():
+    """the relay, PLACE-papers and every D:/SIDE-* repository on disk."""
+    out = [('relay', ROOT), ('PLACE-papers', 'D:/MY-DOwnloads/PLACE-papers')]
+    try:
+        out += [(n, 'D:/' + n) for n in sorted(os.listdir('D:/')) if n.startswith('SIDE-') and os.path.isdir(os.path.join('D:/', n, '.git'))]
+    except OSError:
+        pass
+    return out
+
+
+def kept_row(act, repos=None, lister=None):
+    """v1.29.0, (R359)(3)(v), b748 defect (o): the step-zero bank's "KEPT as banked:" row written from the branch listing, after the deletes:
+    every kept branch (KEPT_BRANCH's families: zq, detect, keiper, c2, rebuild, port, scratch, pin, recut, challenge, corrigendum) of each
+    repository by name and tip, the repository named; the act's own push branches and main never in it; the other branches counted."""
+    import subprocess
+
+    def lst(repo):
+        r = subprocess.run(['git', '-C', repo, 'branch', '--list', '--format=%(refname:short) %(objectname:short=8)'], capture_output=True, text=True, encoding='utf-8', errors='replace')
+        return [l.split() for l in r.stdout.split(NL) if len(l.split()) == 2]
+    parts, other = [], 0
+    for name, repo in (repos or kept_repos()):
+        bs = (lister or lst)(repo)
+        kept = [(b, t) for b, t in bs if KEPT_BRANCH.match(b) and not b.startswith('push-%s-' % act)]
+        other += sum(1 for b, _t in bs if b != 'main' and not KEPT_BRANCH.match(b))
+        if kept:
+            parts.append('%s: %s' % (name, ', '.join('%s (%s)' % (b, t) for b, t in kept)))
+    return 'KEPT as banked (the tool`s row, tools/standing/carry.py kept %s, from each repository`s branch listing): %s ; other branches, none of the kept families, %d' % (
+        act, ' ; '.join(parts) or 'none', other)
+
+
 def main(argv):
+    if argv[:1] == ['kept'] and len(argv) == 2:
+        print(kept_row(argv[1]))
+        return 0
     if argv[:1] == ['check'] and len(argv) == 3:
         return check(argv[1], argv[2])
     if argv[:1] == ['ruled'] and len(argv) == 4:
