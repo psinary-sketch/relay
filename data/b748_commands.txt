@@ -1,7 +1,7 @@
-b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-09T02:22:16Z)
+b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-09T02:26:46Z)
 
 ### the source: the seat`s session 4fe446f7-cbef-42cd-9f79-d5164f63b12d from its first user line carrying 'RULING (R358) BEGIN', with its subagents` transcripts
-### commands read: 270
+### commands read: 287
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -35,7 +35,7 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #175 2026-11-08T23:34:25.268Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/b748_citation_check.json',encoding='utf-8'));print(list(j));print(len(j.get('misses') or []), str(j.get('misses'))[:300])" && git g
   #208 2026-11-09T00:47:50.692Z Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (134):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (137):
   #6 2026-11-08T21:26:21.770Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b748_carry.py acts
   #18 2026-11-08T21:30:09.811Z cd D:/relay && python -X utf8 -c "import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['prev_root'][:8],d['chain_row'],len(d['replay']))" && git log -3 --format="%h %s" 22f59d27 && git
   #20 2026-11-08T21:31:44.011Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b748_address_scan.py scan --bank
@@ -170,6 +170,9 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #265 2026-11-09T02:19:08.086Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record
   #267 2026-11-09T02:19:44.279Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quie
   #270 2026-11-09T02:21:53.394Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record
+  #273 2026-11-09T02:22:51.680Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -c "[print(l.rstrip()[:220]) for
+  #286 2026-11-09T02:24:57.423Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record
+  #287 2026-11-09T02:25:33.552Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quie
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #56 2026-11-08T21:46:25.284Z Bash
@@ -459,5 +462,22 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #268 | 2026-11-09T02:21:26.402Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay add data/audit_b748_reg_satisfiable.txt data/b748_address_scan.txt data/b748_census_stepzero.txt data/b748_clos
   #269 | 2026-11-09T02:21:32.038Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate
   #270 | 2026-11-09T02:21:53.394Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #271 | 2026-11-09T02:22:22.279Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay add data/b748_address_scan.txt data/b748_commands.json data/b748_commands.txt data/b748_root_banks_dry.json dat
+  #272 | 2026-11-09T02:22:27.789Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate
+  #273 | 2026-11-09T02:22:51.680Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #274 | 2026-11-09T02:23:14.423Z | seat | Bash | git grep -n -e "address_scan" -e "def scanner" -e "def staged_scan" -- tools/standing/commit.py tools/standing/scan.py
+  #275 | 2026-11-09T02:23:19.244Z | seat | Bash | git grep -n -e "ready" -e "READY" -- tools/standing/rootbanks.py
+  #276 | 2026-11-09T02:23:23.664Z | seat | Bash | git grep -n -e "THE DRY RUN READY" -e "'ready'" -- tools/standing tools/b703_record.py tools/b698_record.py
+  #277 | 2026-11-09T02:23:37.467Z | seat | Bash | git diff --stat -- data/b748_address_scan.txt data/b748_prelock.txt && git diff -U0 -- data/b748_address_scan.txt
+  #278 | 2026-11-09T02:23:43.448Z | seat | Bash | git grep -n -e "root_banks_dry" -e "ready" -- tools/standing/close.py tools/standing/sealcheck.py tools/standing/classes.py
+  #279 | 2026-11-09T02:23:47.227Z | seat | Bash | git grep -n -i -e "rootdry" -e "root_banks" -e "step(2" -e "\[2\]" -- tools/standing/close.py
+  #280 | 2026-11-09T02:23:51.954Z | seat | Bash | git grep -n -e "def seal" -e "evidence" -e "_close_step" -- tools/standing/close.py tools/standing/fold/record.tpl
+  #281 | 2026-11-09T02:23:56.165Z | seat | Bash | git grep -n -e "def close_refuses" -e "ready" -- tools/act_close.py
+  #282 | 2026-11-09T02:24:11.638Z | seat | Bash | git grep -n -o -e "root route.s dry run READY [A-Za-z]*" -e "root route run dry once.\{0,80\}" -- data/b748_registration_2026-11-08.txt data/b747_registration_2
+  #283 | 2026-11-09T02:24:24.307Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay add data/b748_prelock.txt data/b748_address_scan.txt data/b748_root_banks_dry.json data/b748_root_banks_dry.txt
+  #284 | 2026-11-09T02:24:29.503Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate
+  #285 | 2026-11-09T02:24:51.267Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay restore data/b748_address_scan.txt
+  #286 | 2026-11-09T02:24:57.423Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #287 | 2026-11-09T02:25:33.552Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_g
 
-### ### **COMMANDS 270 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 134 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 287 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 137 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**

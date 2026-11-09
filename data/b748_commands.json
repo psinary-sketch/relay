@@ -1,5 +1,5 @@
 {
- "at": "2026-11-09T02:22:16Z",
+ "at": "2026-11-09T02:26:46Z",
  "anchor": "RULING (R358) BEGIN",
  "rows": [
   {
@@ -2161,6 +2161,142 @@
    "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
    "n": 270,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:22:22.279Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/b748_address_scan.txt data/b748_commands.json data/b748_commands.txt data/b748_root_banks_dry.json data/b748_root_banks_dry.txt data/b748_steps.json",
+   "n": 271,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:22:27.789Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 272,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:22:51.680Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -c \"[print(l.rstrip()[:220]) for l in open('data/b748_root_banks_dry.txt',encoding='utf-8') if ('NOT' in l or 'DIRTY' in l or 'False' in l or 'MISSING' in l) ]\"",
+   "n": 273,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:14.423Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"address_scan\" -e \"def scanner\" -e \"def staged_scan\" -- tools/standing/commit.py tools/standing/scan.py",
+   "n": 274,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:19.244Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"ready\" -e \"READY\" -- tools/standing/rootbanks.py",
+   "n": 275,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:23.664Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"THE DRY RUN READY\" -e \"'ready'\" -- tools/standing tools/b703_record.py tools/b698_record.py",
+   "n": 276,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:37.467Z",
+   "src": "seat",
+   "cmd": "git diff --stat -- data/b748_address_scan.txt data/b748_prelock.txt && git diff -U0 -- data/b748_address_scan.txt",
+   "n": 277,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:43.448Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"root_banks_dry\" -e \"ready\" -- tools/standing/close.py tools/standing/sealcheck.py tools/standing/classes.py",
+   "n": 278,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:47.227Z",
+   "src": "seat",
+   "cmd": "git grep -n -i -e \"rootdry\" -e \"root_banks\" -e \"step(2\" -e \"\\[2\\]\" -- tools/standing/close.py",
+   "n": 279,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:51.954Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"def seal\" -e \"evidence\" -e \"_close_step\" -- tools/standing/close.py tools/standing/fold/record.tpl",
+   "n": 280,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:23:56.165Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"def close_refuses\" -e \"ready\" -- tools/act_close.py",
+   "n": 281,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:24:11.638Z",
+   "src": "seat",
+   "cmd": "git grep -n -o -e \"root route.s dry run READY [A-Za-z]*\" -e \"root route run dry once.\\{0,80\\}\" -- data/b748_registration_2026-11-08.txt data/b747_registration_2026-11-08.txt",
+   "n": 282,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:24:24.307Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/b748_prelock.txt data/b748_address_scan.txt data/b748_root_banks_dry.json data/b748_root_banks_dry.txt data/b748_steps.json",
+   "n": 283,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:24:29.503Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 284,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:24:51.267Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay restore data/b748_address_scan.txt",
+   "n": 285,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:24:57.423Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
+   "n": 286,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:25:33.552Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 287,
+   "bg": false
   }
  ],
  "offences": [],
@@ -2322,7 +2458,10 @@
   263,
   265,
   267,
-  270
+  270,
+  273,
+  286,
+  287
  ],
  "moves_deletes": [
   56,
