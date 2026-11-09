@@ -869,7 +869,7 @@ def closing_dry_ok(S):
     g = S['gate']
     return '--- THE CLOSING DRY-RUN STEP (b675 rules row 1)' in g and '### ### **THE CLOSING DRY-RUN STEP : CLEAN**' in g \
         and ('%s closed:' % ACT_NOW) in g and all(('THE %s' % s) in g for s in CLOSING_SECTIONS) and 'THE STANDING REPORT' in g \
-        and '): ### NOT FOUND' not in g \
+        and not_found_outside_design(g, ACT_NOW) == [] \
         and '### THE STANDING ARMS' in g and '### THE KERNELS' in g and 'CLAIM ' in g and no_verdict_line_ok(g)
 
 
@@ -2101,6 +2101,20 @@ def combine():
 _FACE_TEXT = open(FACE, encoding='utf-8').read() if os.path.exists(FACE) else ''
 CARRIED_FAILING = __import__('standing.repeat', fromlist=['carried_failing']).carried_failing(_FACE_TEXT)
 
+
+# ### v1.30.0: placed below every line-keyed override (the acts before b735 key checks overrides to :2042), so the lines above keep their numbers
+def not_found_outside_design(g, act):
+    """v1.30.0, (⟪RUL⟫)(3)(v), b749 events (10): the gate record's "): ### NOT FOUND" rows, less those naming a file written after the lock by
+    design (standing.act.by_design): such a bank is "not yet written" by its route at the gate, not a needle missed. b749's gate record
+    (data/b749_reg_gate.txt) carried one, on data/b749_author_answers.txt, and the arm failed though every other clause held."""
+    bd = __import__('standing.act', fromlist=['by_design']).by_design('b%s' % str(act).lstrip('b'))
+    out = []
+    for l in (g or '').split(NL):
+        if '): ### NOT FOUND' in l:
+            m = re.search(r'\((?:relay )?(data/\S+?)(?:,[^)]*)?\): ### NOT FOUND', l)
+            if not (m and m.group(1) in bd):
+                out.append(l.strip()[:120])
+    return out
 
 
 def main():

@@ -21,6 +21,9 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   SUBJECT (v1.25.0, (R355)(2)(v)) a step-row commit whose subject names other rows than the staged step bank adds
   ROWID  (v1.25.0, (R355)(2)(i)) a PLACE-papers commit adding a ledger row whose ID the file already holds (tools/standing/rowid.py)
   PLAINGIT (v1.29.0, (R359)(3)(iii)) a git write by plain git (add, commit, checkout, branch, ...), not a run of tools/standing/commit.py
+  BYDESIGN (v1.30.0, (R360)(3)(ii)) an Edit or Write, after the lock, of a file written after the lock by design (standing.act.by_design: the
+         answers pair, the author-words banks, the post-lock scan banks): each is appended by its tool alone; lock_exempt imports the list
+         with the hook's own directory on the path (the hook runs as `python -I`)
   v1.29.0, (R359)(3)(i): every shell call recorded in the calls ledger (record_call), its message's request stamp beside it, for the
          one-call tool's own refusal of a second git write in one message
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
@@ -71,6 +74,8 @@ ROWS = {
     'HASHED': ROW77 + ' ; (18) a bank a tool wrote (named in data/<act>_bank_hashes.json) rewritten by its tool and never by hand ((R351)(2)(ii))',
     'ROWID': ROW77 + ' ; a ledger row`s ID allocated from the file`s maximum over every table carrying the prefix, a held ID refused ((R355)(2)(i))',
     'PLAINGIT': ROW77 + ' ; every git write through the one-call tool tools/standing/commit.py, the scan over the staged set before every commit ((R358)(6), (R359)(3)(iii))',
+    'BYDESIGN': ROW77 + ' ; (65) the files written after the lock by design -- the answers pair, the author-words banks and the post-lock scan banks (standing.act.by_design) -- '
+                        'each appended by its tool (`record answers`, tools/standing/append.py, the one-call tool`s scan) and none edited by hand ((R360)(3)(ii))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -394,15 +399,51 @@ def locked(relay=RELAY):
     return bool(act) and os.path.exists(os.path.join(relay, 'data', '%s_lockgate.json' % act)) and not os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act))
 
 
+def _standing_act():
+    """v1.30.0, (R360)(3)(ii), b749 events (4): the hook runs as `python -I`, which leaves the script's directory off sys.path, so v1.29.0's bare
+    `import act` failed on every Edit and lock_exempt fell to a list without the answers pair: b749's restoring Edit of its answers bank was
+    refused LOCKED (data/b749_hook_refusals.txt :17), the design's exception unread. The directory is put on the path first; None where the
+    module still does not import (the fallback below is then the design list written out)."""
+    try:
+        d = os.path.dirname(os.path.abspath(__file__))
+        if d not in sys.path:
+            sys.path.insert(0, d)
+        import act as A_
+        return A_
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def by_design(act):
+    """v1.30.0, (R360)(3)(ii): standing.act.by_design, the files written after the lock by design and appended by their tools alone."""
+    A_ = _standing_act()
+    if A_ is not None and hasattr(A_, 'by_design'):
+        return tuple(A_.by_design(act))
+    return ('data/%s_author_answers.txt' % act, 'data/%s_author_answers.json' % act, 'data/%s_answer_check.txt' % act, 'data/%s_author_words.txt' % act,
+            'data/%s_author_words_preseal.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'data/%s_address_scan_commits.txt' % act)
+
+
 def lock_exempt(act):
     """the banks written after the lock by design (standing.act.post_lock_appended) and the events bank, appended by the Edit tool after the lock."""
-    try:
-        import act as A_
+    A_ = _standing_act()
+    if A_ is not None:
         base = tuple(A_.post_lock_appended(act))
-    except Exception:  # noqa: BLE001
-        base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'tools/mirror_prevbuild.json',
-                'data/%s_address_scan_commits.txt' % act)   # ### v1.29.0, (R359)(3)(ii)
+    else:
+        base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'tools/mirror_prevbuild.json') + \
+            tuple(p for p in by_design(act))   # ### v1.30.0: the fallback carries the design list whole
     return base + ('data/%s_events.txt' % act, 'data/%s_face_branches.json' % act)   # ### v1.24.0, (R354)(2)(v): the face's branch list, appended by its tool
+
+
+def by_design_bank(path, relay=RELAY, act=None):
+    """v1.30.0, (R360)(3)(ii): the path's relay-relative name where it is one of the act's files written after the lock by design, else None."""
+    act = act or bank_act(relay)
+    if not act or not path:
+        return None
+    try:
+        rel = os.path.relpath(os.path.abspath(path), relay).replace(os.sep, '/')
+    except ValueError:
+        return None
+    return rel if rel in by_design(act) else None
 
 
 def locked_bank(path, relay=RELAY, act=None):
@@ -513,6 +554,9 @@ def lines_of(path):
 def judge(tool, inp, relay=RELAY, ctx=None):
     """(kind, detail) for a refusal, or None for an allowed call. v1.17.0: `ctx` the hook's whole input (its transcript_path and tool_use_id)."""
     if tool in EDIT_TOOLS:
+        bd = by_design_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay) if locked(relay) else None
+        if bd:   # ### v1.30.0, (R360)(3)(ii): appended by its tool, never by hand, after the lock
+            return 'BYDESIGN', 'a %s by hand of %s, a file written after the lock by design and appended by its tool alone' % (tool, bd)
         if locked(relay) and locked_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay):
             return 'LOCKED', 'a %s of a bank written before the lock, after the lock' % tool
         hb = hashed_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay)

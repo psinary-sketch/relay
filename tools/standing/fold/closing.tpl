@@ -522,12 +522,15 @@ def main():
           '    the remote reads this run: %d repositories, one call each in sequence ; empty reads re-read alone: %s' % (
               len(_REMOTE), '; '.join(REREAD) or 'NONE'), '']
     import act_close as AC0
-    L += AC0.author_words_section(ACT) + ['']   # ### (⟪RUL⟫)(6)(i), v5 row (74): the author's word after the seal, from its bank
+    L += __import__('standing.act', fromlist=['author_words_section']).author_words_section(ACT) + ['']   # ### v1.30.0, (⟪RUL⟫)(3)(iv): the author's word after the seal, composed at the close from its bank
     # ### the answers bank is written after the seal (the root's prompt); before it the dry run prints it as not yet written, not as a
     # ### needle missed (⟪PREV⟫'s G-CLOSING-DRY-STEP failed on this row's NOT FOUND in its gate record; a repair of this tool's dry print)
+    # ### v1.30.0, (⟪RUL⟫)(3)(v), b749 events (10): a bank of the design list (written after the lock by design) standing without the route's
+    # ### head -- b749's held the [Z1] sitting block alone before the lock -- reads "not yet written" by its route, not NOT FOUND
+    _aq = __import__('standing.act', fromlist=['question_count']).question_count(rd('⟪ACT⟫_author_answers.txt') if os.path.exists(os.path.join(D, '⟪ACT⟫_author_answers.txt')) else '')
     L += ['### THE AUTHOR`S ANSWERS AND WORDS (relay data/⟪ACT⟫_author_answers.txt): ' + (
-        verdict(rd('⟪ACT⟫_author_answers.txt'), r'\d+ prompt\(s\)[^;]*') if os.path.exists(os.path.join(D, '⟪ACT⟫_author_answers.txt'))
-        else '### NOT YET WRITTEN (the root`s prompt, after the seal)')]
+        verdict(rd('⟪ACT⟫_author_answers.txt'), r'\d+ prompt\(s\)[^;]*') if os.path.exists(os.path.join(D, '⟪ACT⟫_author_answers.txt')) and re.search(r'\d+ prompt\(s\)', rd('⟪ACT⟫_author_answers.txt'))
+        else '### NOT YET WRITTEN BY ITS ROUTE (written after the lock by design; the root`s prompt, after the seal; prompts %d, sitting rows %d read apart)' % (_aq['prompts'], _aq['sitting']))]
     L += ['    ' + l for l in rd('⟪ACT⟫_components.txt').split(NL)[2:] if l.strip()]
     L += ['    ' + ' ; '.join(' '.join('(%s) %s' % (k, SC[k][0][0]) for k in ks) for ks in SCORE_KEYS), '']
     L += ['### THE SCORES IN FULL (relay data/⟪ACT⟫_scores.json, written once before the entry; a reading that waited, from relay '

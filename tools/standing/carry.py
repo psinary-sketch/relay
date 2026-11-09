@@ -12,6 +12,9 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 ### carry.py ruled <act> <prev> <ferry bank>
 ###   v1.27.0, (R357)(3)(viii): every carried figure and section printed beside the ruling; R1-R3 refused (exit 13), before the citation check
 ###   v1.29.0, (R359)(3)(v): R4, a citation section carried unchanged naming a commit the ruling does not name, each of its rows printed
+###   v1.30.0, (R360)(3)(x): R5, a row of a carried citation section or of the carried c1 route citing a bank the ruling does not name
+### carry.py shared <act> <entering relay head>
+###   v1.30.0, (R360)(3)(x): act_current's shared_edits from this act's own commits (standing.act.shared_edits), never carried
 ### carry.py kept <act>
 ###   v1.29.0, (R359)(3)(v): the step-zero bank's "KEPT as banked:" row, written from the branch listing of the relay, PLACE-papers and
 ###   SIDE-explicit-formula (every branch but main and the act's own push branches, by name and tip)
@@ -124,6 +127,15 @@ RULED = ('MAX_DISPATCHES', 'EF_RUNS')
 HEXV = re.compile(r'\b(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}\b')
 HEXC = re.compile(r'(?<![\w-])(?=[0-9a-f]*[a-f])[0-9a-f]{7,40}(?![\w-])')   # ### v1.29.0 R4: a commit, not a branch name's tail (pin-b718-de5ce8a9)
 KNAME = re.compile(r'\b(?:K|WL)\.([A-Z_][A-Z0-9_]*)\b')
+DATAP = re.compile(r'\bdata/b\d{3}_[\w.\-]+?\.(?:txt|json)\b')   # ### v1.30.0 R5: a bank an act wrote, cited by a carried row
+RNUM = re.compile(r'\bR\d{3}\b')
+
+
+def same(a, b):
+    """v1.30.0, (R360)(3)(x), b750 step-zero (d): a section carried unchanged reads equal with the ruling numbers set aside. The carry shifts
+    the ruling's number with the act's (b750's table: R359 -> R360, R358 -> R359), and v1.29.0 compared after the act names alone, so every
+    carried section read as written anew and b750's ruled printed REFUSED 0 over b749's citation sections and c1 route."""
+    return RNUM.sub('R###', a) == RNUM.sub('R###', b)
 
 
 def literals(text):
@@ -178,7 +190,7 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
     pb = dict((key, prev_text[s:e]) for key, s, e in AM.blocks(prev_text))
     n = 0
     for key, s, e in AM.blocks(act_text):
-        if key not in pb or act_text[s:e] != substitute(pb[key], subs):
+        if key not in pb or not same(act_text[s:e], substitute(pb[key], subs)):
             continue
         n += 1
         reads = sorted(set(KNAME.findall(act_text[s:e])) & set(moved))
@@ -193,7 +205,7 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
     L += ['', '## THE CARRIED CITATION ROWS (a citation section equal to the previous act`s after the substitution), each commit beside the ruling']
     nr = 0
     for key, s, e in AM.blocks(act_text):
-        if key[:2] != ('SECTION', 'citation') or key not in pb or act_text[s:e] != substitute(pb[key], subs):
+        if key[:2] != ('SECTION', 'citation') or key not in pb or not same(act_text[s:e], substitute(pb[key], subs)):
             continue
         rows_ = [l for l in act_text[s:e].split(NL) if l.strip().startswith('add(')]
         hx = sorted(set(HEXC.findall(act_text[s:e])), key=act_text[s:e].index)
@@ -204,9 +216,37 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
         if un:
             refused.append(('R4', ' '.join(map(str, key)), 'a citation section carried unchanged naming %s, which the ruling does not name' % ', '.join(h[:8] for h in un)))
     L.append('  carried citation rows %d ; refused sections %d' % (nr, sum(1 for r in refused if r[0] == 'R4')))
-    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d)%s.**' % (
+    # ### v1.30.0, (R360)(3)(x), b749 defects (b), (d), (g), (k), b750 step-zero (d): R5, EVERY ROW THE CARRY BRINGS PRINTED BESIDE THE RULING AND
+    # ### REFUSED WHERE THE RULING DOES NOT NAME IT. R4 reads commits alone, and a ruling names the previous act's commits (b750's names b749's),
+    # ### so b749's sections 1 and 4 and its c1 route, carried under b750's names, passed it. Each row of a carried citation section, and each
+    # ### line of the carried c1 route citing a bank, is read by the banks it cites: a bank the ruling does not name refuses the row.
+    L += ['', '## THE CARRIED ROWS BY THEIR BANKS (a citation section or the c1 route equal to the previous act`s after the substitution), each bank beside the ruling']
+    nr5 = 0
+    for key, s, e in AM.blocks(act_text):
+        body = act_text[s:e]
+        if key not in pb or not same(body, substitute(pb[key], subs)):
+            continue
+        if key[:2] == ('SECTION', 'citation'):
+            rows_ = [l for l in body.split(NL) if l.strip().startswith('add(')]
+        elif '_c1_' in body or 'def c1' in body:
+            rows_ = [l for l in body.split(NL) if DATAP.search(l)]
+        else:
+            continue
+        bad_rows = []
+        for l in rows_:
+            nr5 += 1
+            un = [p for p in sorted(set(DATAP.findall(l))) if not named(p)]
+            if un:
+                bad_rows.append((l.strip()[:70], un))
+        L.append('  %s: rows %d ; rows citing a bank the ruling does not name %d%s' % (' '.join(map(str, key)), len(rows_), len(bad_rows),
+                                                                                       (' ### REFUSED (R5): ' + ' | '.join('%s -> %s' % (r, ', '.join(u)) for r, u in bad_rows[:4])) if bad_rows else ''))
+        if bad_rows:
+            refused.append(('R5', ' '.join(map(str, key)), '%d carried row(s) citing banks the ruling does not name: %s' % (
+                len(bad_rows), ', '.join(sorted(set(p for _r, u in bad_rows for p in u)))[:200])))
+    L.append('  carried rows read by their banks %d ; refused sections %d' % (nr5, sum(1 for r in refused if r[0] == 'R5')))
+    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d, R5 %d)%s.**' % (
         len(refused), sum(1 for r in refused if r[0] == 'R1'), sum(1 for r in refused if r[0] == 'R2'), sum(1 for r in refused if r[0] == 'R3'),
-        sum(1 for r in refused if r[0] == 'R4'),
+        sum(1 for r in refused if r[0] == 'R4'), sum(1 for r in refused if r[0] == 'R5'),
         ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
     return L, refused
 
@@ -244,6 +284,13 @@ def kept_row(act, repos=None, lister=None):
 def main(argv):
     if argv[:1] == ['kept'] and len(argv) == 2:
         print(kept_row(argv[1]))
+        return 0
+    if argv[:1] == ['shared'] and len(argv) == 3:
+        # ### v1.30.0, (R360)(3)(x), b749 defect (k): act_current's shared_edits from this act's own list, never the previous act's
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import act as A_
+        se = A_.shared_edits(argv[1], argv[2])
+        print('THE SHARED EDITS OF %s (git diff %s..HEAD over tools/, less tools/%s_*, tools/acts/, tools/standing/): %s' % (argv[1], argv[2][:8], argv[1], se or '[]'))
         return 0
     if argv[:1] == ['check'] and len(argv) == 3:
         return check(argv[1], argv[2])

@@ -1,0 +1,193 @@
+b750 -- THE CONTROLS OF tools/standing/ v1.30.0, (R360)(3)(i)-(xiii): THE ANSWERS ROUTE APPENDING, THE HOOK`S ROW (65) AND THE DESIGN LIST, A HALT QUESTION NAMING ITS COSTS, THE AUTHOR`S WORDS COMPOSED AT THE CLOSE, THE CLOSING DRY`S DESIGN BANKS, N5 ON THE ZENODO BANKS, THE QUESTION COUNT, THE LOCK PRINT, THE PERMISSION RULE, THE CARRY`S R5 AND SHARED_EDITS, THE RETRIES RULE, THE DELETE READER AND THE INSTANCES, THE VERSION (2026-11-09T23:42:39Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2679 lines
+  citation render          OK    586 lines
+  closing render           OK    627 lines
+  record render            OK    4707 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    485 lines
+  report render            OK    159 lines
+  tools/b750_worklist.py   OK    445 lines
+### THE COMPILE CONTROL : b750 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 8ce7e3ab
+
+  free 3154 MB at 2026-11-09T23:42:39Z, the hold 2560 MET
+### (answers) (R360)(3)(i), b749 events (4): `record answers` APPENDS TO data/<act>_author_answers.txt AND REWRITES NO LINE ALREADY IN IT; THE SITTING BLOCK STAYS WHERE IT WAS COMMITTED
+  (answers) GUARD, NO FAILING SIDE: the instance found: b749`s bank at 1858213d carries the sitting row; the route`s rewrite (rows :1-:20 of the bank as it stands) does not
+      AFTER  (v1.30.0): sitting row at 1858213d :6 ; in the rewrite False -> HOLDS
+      AS WANTED
+  (answers) b749`s route replayed over the bank committed at 1858213d (the root`s prompt and answer composed beside the [Z1] block)
+      BEFORE (v1.29.0): b698`s route writes the composed lines whole: [Z1] PASS row DROPPED, PROMPT rows 2 -> FAILS
+      AFTER  (v1.30.0): answers_append: the bank`s 18 lines kept in place True, [Z1] PASS at :6, appended 13, PROMPT rows 2 -> PASSES
+      AS WANTED
+  (answers) GUARD, NO FAILING SIDE: the route run again over its own output appends nothing and leaves the bank`s bytes as they stand
+      AFTER  (v1.30.0): appended 0, bytes equal True -> HOLDS
+      AS WANTED
+  (answers) GUARD, NO FAILING SIDE: the record template`s `answers` route, as ROUTES takes it, is the appending wrapper over b698`s composer (`answers = R.answers` kept at :214 for the line-keyed overrides, rebound below)
+      AFTER  (v1.30.0): the wrapper at offset 312745, b698`s binding at 14197, ROUTES at 315698 ; answers_append called True -> HOLDS
+      AS WANTED
+
+  free 3154 MB at 2026-11-09T23:42:39Z, the hold 2560 MET
+### (hook) (R360)(3)(ii), b749 events (4)-(6): THE HOOK`S ROW (65) NAMES THE ANSWERS PAIR, THE AUTHOR-WORDS BANKS AND THE POST-LOCK SCAN BANKS AS WRITTEN AFTER THE LOCK BY DESIGN, REFUSES A HAND EDIT OF THEM AND LEAVES THE TOOL`S APPEND; N4 READS THE SAME LIST
+  (hook) GUARD, NO FAILING SIDE: the instance: b749`s restoring Edit of its answers bank refused LOCKED at 20:09:26Z (data/b749_hook_refusals.txt :17)
+      AFTER  (v1.30.0): 2026-11-09T20:09:26Z | LOCKED | Edit | null | a Edit of a bank written before the lock, af -> HOLDS
+      AS WANTED
+  (hook) b749`s hand Edit of data/b749_author_answers.txt replayed as the hook runs it (`python -I`): the design list read, the refusal its own
+      BEFORE (v1.29.0): v1.29.0 under -I: lock_exempt names the answers bank False ; locked_bank True (refused LOCKED, the design`s exception unread: `import act` failing under -I) -> FAILS
+      AFTER  (v1.30.0): v1.30.0 under -I: lock_exempt names it True ; by_design_bank data/b749_author_answers.txt (refused BYDESIGN, row (65) naming the design list) -> PASSES
+      AS WANTED
+  (hook) GUARD, NO FAILING SIDE: the author-words bank and the post-lock scan bank refused by hand the same way; the events bank, appended by the Edit tool by design, not in the list
+      AFTER  (v1.30.0): words data/b749_author_words.txt ; scan data/b749_address_scan_postlock.txt ; events None -> HOLDS
+      AS WANTED
+  (hook) GUARD, NO FAILING SIDE: the tool`s append accepted: the record`s writer refuses no bank of the design list after the lock (act_close.lock_refuses), and N4`s list (post_lock_appended) carries the whole design list
+      AFTER  (v1.30.0): lock_refuses(answers) '' ; design list in N4`s list True -> HOLDS
+      AS WANTED
+
+  free 3151 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (halt) (R360)(3)(iii), b749 events (5), (6), (12): A HALT QUESTION NAMES EVERY SCORE ITS ROUTES WOULD COST, READ FROM THE RULING`S CLAUSES BY THE COMPOSER (rootprompt.costs_unnamed, check_hand)
+  (halt) GUARD, NO FAILING SIDE: the instance read from b749`s transcript line 5873 and b749`s clauses from data/b749_ferry.txt
+      AFTER  (v1.30.0): question 738 chars ; options ['Lift the hook for one Edit', 'Restore the committed file', 'Close without the record route'] ; clauses ['N1', 'N2', 'N3', 'N4', 'N5'] -> HOLDS
+      AS WANTED
+  (halt) b749`s second halt replayed: option 1 "Lift the hook for one Edit", its cost named by the seat the overcount alone
+      BEFORE (v1.29.0): check_hand reads no option and no clause (costs_unnamed UNDEFINED): the question passes with N4 unnamed -> FAILS
+      AFTER  (v1.30.0): costs_unnamed: option 1 N4 on "edited after the lock" -> PASSES
+      AS WANTED
+  (halt) GUARD, NO FAILING SIDE: the same option with N4 named in it carries no unnamed cost
+      AFTER  (v1.30.0): NONE -> HOLDS
+      AS WANTED
+
+  free 3152 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (words) (R360)(3)(iv), b749 events (9): THE AUTHOR-WORDS BANK IS APPENDED AFTER THE ROOT BY DESIGN AND READ APART; THE RECORD`S SENTENCE IS COMPOSED AT THE CLOSE FROM THE BANK
+  (words) GUARD, NO FAILING SIDE: the instance: b749`s events (5) carries the author`s word on the halt verbatim, and no data/b749_author_words.txt stands
+      AFTER  (v1.30.0): word in events True ; bank False -> HOLDS
+      AS WANTED
+  (words) before the root, no bank (b749`s record and trail, composed before the root)
+      BEFORE (v1.29.0): ### THE AUTHOR'S WORD AFTER THE SEAL (data/b749_author_words.txt): NONE RECEIVED -> FAILS
+      AFTER  (v1.30.0): ### THE AUTHOR'S WORD AFTER THE SEAL (data/b749_author_words.txt): COMPOSED AT THE CLOSE FROM ITS BANK, which  -> PASSES
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: at the close, b749`s word replayed into the bank by the appending route (standing.act.words_append): the sentence prints it verbatim
+      AFTER  (v1.30.0): ### THE AUTHOR'S WORD AFTER THE SEAL (data/b749_author_words.txt, 2 li ... 3 lines -> HOLDS
+      AS WANTED
+
+  free 3152 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (closingdry) (R360)(3)(v), b749 events (10): THE GATE RECORD`S CLOSING DRY READS A BANK WRITTEN AFTER THE LOCK BY DESIGN AS "NOT YET WRITTEN", AND THE ARM`S PREDICATE READS THE DESIGN LIST
+  (closingdry) b749`s gate record (data/b749_reg_gate.txt at 8ce7e3ab) through the arm`s clause; its NOT FOUND rows 1: ### THE AUTHOR`S ANSWERS AND WORDS (relay data/b749_author_answers.txt): ### NOT
+      BEFORE (v1.29.0): closing_dry_ok wants "): ### NOT FOUND" nowhere in the record: False -> FAILS
+      AFTER  (v1.30.0): not_found_outside_design (the template`s, read from its text True): NONE -> PASSES
+      AS WANTED
+  (closingdry) GUARD, NO FAILING SIDE: a NOT FOUND row naming a bank outside the design list still refuses (planted: the root`s banks)
+      AFTER  (v1.30.0): ['### THE ROOT`S BANKS (relay data/b749_root_banks.txt): ### NOT FOUND'] -> HOLDS
+      AS WANTED
+  (closingdry) GUARD, NO FAILING SIDE: the closing template prints a design-list bank standing without its route`s head as "NOT YET WRITTEN BY ITS ROUTE", not NOT FOUND
+      AFTER  (v1.30.0): the print True -> HOLDS
+      AS WANTED
+
+  free 3151 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (n5) (R360)(3)(vi), b749 defects (l), (q), (t): N5 READS A RELEASE, A NEW VERSION, A PUBLISH OR A REPOSITORY EDIT FROM THE ZENODO BANKS ALONE; "THE DRAFT HELD AT v5" NAMES NO ZENODO OBJECT
+  (n5) b749`s entry`s "Carried to" line (PLACE-papers 91929f75 FINDINGS :14528, "...the draft held at v5.") and the N5 sentence the template composes beside it
+      BEFORE (v1.29.0): record.tpl`s N5 sentence joins the worklist`s DRAFT to the monograph`s: "the deposit route untouched (draft %s, v5, unpublished)" True -> FAILS
+      AFTER  (v1.30.0): zenodo_requests over the line: writes 0, releases 0; the template`s sentence reads the Zenodo banks (True) -> PASSES
+      AS WANTED
+  (n5) b749`s capture row 65 (a read-only git grep for "zenodo.org/api", 14:04:03Z) beside b749`s Zenodo banks
+      BEFORE (v1.29.0): the seat`s matcher over every captured command: row 65 READ AS A RELEASE -> FAILS
+      AFTER  (v1.30.0): the Zenodo banks alone (b749_zenodo_call.txt): write requests b749_zenodo_call.txt :14 DELETE ; releases 0 ; row 65 unread -> PASSES
+      AS WANTED
+
+  free 3148 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (count) (R360)(3)(vii), b749 defect (u), events (6): QUESTIONS COUNTED FROM THE COMPOSED PROMPTS` ROWS, THE SITTING ROWS READ APART
+  (count) b749`s answers bank as it stands (two prompts put, the [Z1] block at the foot)
+      BEFORE (v1.29.0): b749`s module (tools/acts/b749.py :669): 3 -> FAILS
+      AFTER  (v1.30.0): question_count: prompts 2 (counted), calls 2, sitting rows 1 (read apart) -> PASSES
+      AS WANTED
+  (count) GUARD, NO FAILING SIDE: the act module`s four counters read the standing count
+      AFTER  (v1.30.0): question_count calls 4 ; the old regex 0 -> HOLDS
+      AS WANTED
+
+  free 3142 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (lock) (R360)(3)(viii), b749 events (12): THE SEALED MODULE`S N4 SENTENCE PRINTS THE LOCK FROM THE ONE READER (lockdate), NOT "NOT LOCKED"
+  (lock) b749`s N4 sentence (data/b749_scores_close.json) and its lock by the one reader (62ddcb27)
+      BEFORE (v1.29.0): lock_iso=None in _post_lock_edits True ; the sentence prints "the lock at NOT LOCKED" -> FAILS
+      AFTER  (v1.30.0): lock_iso from the reader`s epoch True ; b749`s lock reads 2026-11-09T18:26:21Z (the commit`s own time 2026-11-09T13:26:21-05:00) -> PASSES
+      AS WANTED
+
+  free 3147 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (permit) (R360)(3)(ix), b749 defect (j): A RULING`S PERMISSION FOR A DATED NOTE NAMES THE FACTS THE NOTE MUST CARRY AND LETS IT CARRY THE ACT`S CITED FACTS BESIDE THEM (THE NAVIGATOR`S, CLAIM, NEW)
+  (permit) GUARD, NO FAILING SIDE: the instance: b749`s (j), the d1-1 note longer than (R359)(2)(v) permitted
+      AFTER  (v1.30.0):     (j) THE SEAT'S [CLAIM ; NEW]: Component 2: the dated note on REGISTRY d1-1 (PLACE-papers 55cd38b -> HOLDS
+      AS WANTED
+  (permit) GUARD, NO FAILING SIDE: the rule banked (data/b750_rules.txt (9)), the navigator`s beside the seat`s
+      AFTER  (v1.30.0): A RULING'S NARROW PERMISSION ((R360)(3)(ix), b749 defect (j)): the navigator's, CLAIM, NEW, beside the seat's: -> HOLDS
+      AS WANTED
+
+  free 3147 MB at 2026-11-09T23:42:40Z, the hold 2560 MET
+### (carry) (R360)(3)(x), b749 defects (b), (d), (g), (k), b750 step-zero (d): THE CARRY PRINTS EVERY ROW IT BRINGS BESIDE THE RULING AND REFUSES THE ONES IT DOES NOT NAME (R5); SHARED_EDITS FROM THE ACT`S OWN LIST
+  (carry) b749`s module as `carry acts` wrote it (tools/acts/b748.py at 71bc497a, the act names substituted) beside b749`s ruling
+      BEFORE (v1.29.0): v1.29.0`s ruled: refused 1 (R4 SECTION citation 4) -> FAILS
+      AFTER  (v1.30.0): v1.30.0`s ruled: refused 7, R4 3, R5 4 (OVERRIDE record 8b04c0573f40: 15 carried row(s) citing banks the ruling does not name: data/b675_corrigenda.txt, data/b7; SECTION citation 1: 13 carried row(s) citing banks the ruling does not name: data/b748_corrigendum.txt, data/b; SECTION citation 4: 5 carried row(s) citing banks the ruling does not name: data/b725_interference.txt, data/b; SECTION citation 5: 1 carried row(s) citing banks the ruling does not name: data/b716_federation_pin_price.txt) -> PASSES
+      AS WANTED
+      let through by v1.29.0 and refused by v1.30.0: OVERRIDE record 8b04c0573f40, SECTION citation 1, SECTION citation 5
+  (carry) b750`s module as `carry acts` wrote it (tools/acts/b749.py at 8ce7e3ab, the act names substituted) beside b750`s ruling
+      BEFORE (v1.29.0): v1.29.0`s ruled: refused 0 (NONE) -> FAILS
+      AFTER  (v1.30.0): v1.30.0`s ruled: refused 7, R4 3, R5 4 (OVERRIDE record 8b04c0573f40: 14 carried row(s) citing banks the ruling does not name: data/b675_corrigenda.txt, data/b7; SECTION citation 1: 16 carried row(s) citing banks the ruling does not name: data/b747_author_answers.txt, dat; SECTION citation 4: 1 carried row(s) citing banks the ruling does not name: data/b749_hook_refusals.txt; SECTION citation 5: 1 carried row(s) citing banks the ruling does not name: data/b716_federation_pin_price.txt) -> PASSES
+      AS WANTED
+      let through by v1.29.0 and refused by v1.30.0: OVERRIDE record 8b04c0573f40, SECTION citation 1, SECTION citation 4, SECTION citation 5
+  (carry) b749`s data/act_current.json shared_edits (defect (k))
+      BEFORE (v1.29.0): carried from b748`s file at 1178e7e3: ['tools/b378_lockgate.py', 'tools/b698_record.py', 'tools/b703_record.py'] -> FAILS
+      AFTER  (v1.30.0): shared_edits(b749, 71bc497a..8ce7e3ab): [] -> PASSES
+      AS WANTED
+
+  free 3151 MB at 2026-11-09T23:42:41Z, the hold 2560 MET
+### (retries) (R360)(3)(xi), b749 events (1), (2), (11), REPEAT: EACH RETRY AN EVENT WITH ITS TIMINGS; A COMMAND THE HOST MOVES TO THE BACKGROUND SENT WITH THE LIMIT THE TOOL PRINTS, THE MOVE AN EVENT
+  (retries) GUARD, NO FAILING SIDE: the instances: b749 events (1), (2), (11)
+      AFTER  (v1.30.0):     (1) THE HOST'S [CLOSE ; REPEAT b748 (3)]: 2026-11-09T15:22:11Z: the probe of standing- |     (2) THE HOST'S [CLOSE ; NEW]: about 15:20Z: `python -X utf8 -u tools/b749_prepaths.py  |     (11) THE HOST'S [CLOSE ; REPEAT b749 (1)]: 21:11-21:14Z: the post-push standing-a1 (`- -> HOLDS
+      AS WANTED
+  (retries) GUARD, NO FAILING SIDE: the rule banked (data/b750_rules.txt (11))
+      AFTER  (v1.30.0): THE HOST'S RETRIES AND THE BACKGROUND MOVE ((R360)(3)(xi), b749 events (1), (2), (11), REPEAT): each retry is  -> HOLDS
+      AS WANTED
+  (retries) GUARD, NO FAILING SIDE: the halt rule banked beside it (data/b750_rules.txt (3), (R360)(3)(iii))
+      AFTER  (v1.30.0): A HALT QUESTION NAMES EVERY SCORE ITS ROUTES WOULD COST ((R360)(3)(iii), b749 events (5), (6), (12)): every qu -> HOLDS
+      AS WANTED
+
+  free 3151 MB at 2026-11-09T23:42:41Z, the hold 2560 MET
+### (instances) (R360)(3)(xii), b749 defects (n), (o), (p), (v), events (3), (7), (8), refusals (a), (e), (i), (r), (s): THE CAPTURE`S DELETE READER TAUGHT THE TOOL`S ROUTE; THE INSTANCES PRINTED
+  (instances) b749`s five step-zero deletes through the tool (capture rows 68, 69, 70, 71, 72)
+      BEFORE (v1.29.0): b698`s delete_shape: 0 names -> FAILS
+      AFTER  (v1.30.0): delread.delete_shape: 5 names (push-b748-closing, push-b748-preroot, push-b748-record, push-b748-preroot, push-b748-record), chained after [False, False, False, False, False] -> PASSES
+      AS WANTED
+  (instances) b749`s one-line programs quoting a delete in their test strings (capture rows 109)
+      BEFORE (v1.29.0): b698`s delete_shape reads deletes in them: ['109 (["push-b747-closing\')):\'\'\'", "b=\'\'\'", "(\'b747\\\\x60s", \'step-zero\', \'commit\', \'by\', \'plain\', \'git,\', \'the\', \'row\', \'chained\', \'after\', \'it\', \'(b746\\\\x60s\', \'form,\', \'its\', \'session\', "01:55:06Z)\',", "\'git", \'commit\', \'-q\', \'-m\', \'\\\\"b746\', \'step\', \'zero:\', \'x\\\\"\', "push-b747-closing\'", \'o,\', \'w\', \'=\', "OH.judge(\'Bash\',", \'dict(command=cmd)),\', "H.judge(\'Bash\',", \'dict(command=cmd))\', \'n\', \'+=\', \'1\', \'g\', \'+=\', \'guard(L,\', "\'plain\',", "\'a", \'branch\', \'delete\', \'by\', \'plain\', \'git\', \'(b748\', \'#56:\', \'%s)\', \'refused\', \'as\', \'PLAINGIT\'], [\'[\'])'] -> FAILS
+      AFTER  (v1.30.0): delread.delete_shape: ['109 []'] -> PASSES
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: a plain `git branch -d` and `git push origin --delete` still read, quoted names unquoted
+      AFTER  (v1.30.0): ['push-x'] ; ['push-y'] -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b749 (o) the ferry route
+      AFTER  (v1.30.0): (o) THE SEAT'S [CLOSE ; NEW]: step zero: the ferry was banked by the Write tool but the citation tool's ferry  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b749 (p) the range moved after the face
+      AFTER  (v1.30.0): (p) THE SEAT'S [CLOSE ; NEW]: Component 4, after the face: the range "(a)-(n)" moved to "(a)-(o)" in tools/b74 -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b749 (v) the gate`s words
+      AFTER  (v1.30.0): (v) THE SEAT'S [CLOSE ; REPEAT b746 (q)]: Component 4: the gate commit was first sent with words ("43 files st -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b749 events (8) the step-rows words
+      AFTER  (v1.30.0): (8) THE SEAT'S [CLOSE ; NEW]: 20:23:03Z: `commit.py relay pre-root` refused the step-rows commit, NOTHING COMM -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b749`s hook refusals, data/b749_hook_refusals.txt, by kind
+      AFTER  (v1.30.0): 18 rows: PIPE 6, READ 6, SED 2, REDIR 3, LOCKED 1 -> HOLDS
+      AS WANTED
+
+  free 3154 MB at 2026-11-09T23:42:41Z, the hold 2560 MET
+### (version) (R360)(3)(xiii): THE STANDING VERSION PRINTED AND ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.29.0): v1.29.0 -> FAILS
+      AFTER  (v1.30.0): v1.30.0 -> PASSES
+      AS WANTED
+
+### per repair: (answers) 4 of 4 ; (hook) 4 of 4 ; (halt) 3 of 3 ; (words) 3 of 3 ; (closingdry) 3 of 3 ; (n5) 2 of 2 ; (count) 2 of 2 ; (lock) 1 of 1 ; (permit) 2 of 2 ; (carry) 3 of 3 ; (retries) 3 of 3 ; (instances) 8 of 8 ; (version) 1 of 1
+### ### **v1.30.0: CONTROLS (answers), (hook), (halt), (words), (closingdry), (n5), (count), (lock), (permit), (carry), (retries), (instances), (version) ; CASES 39 ; AS WANTED 39 ; ALL AS WANTED.**

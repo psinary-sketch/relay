@@ -146,15 +146,71 @@ def rows_from(text, read):
     return rows
 
 
-def check_hand(text, read, entry, remotes=None):
+def check_hand(text, read, entry, remotes=None, options=None, clauses=None):
     """v1.27.0, (R357)(3)(ii), b746 events (7): a question written after the seal -- a halt's text, a conflict, any prompt beside the root's
     own -- run through compose_checked as the root's prompt is: its rows taken from its text (rows_from, every figure before a cite turned
     into a cite), composed and checked against the entry; SystemExit on any unbacked sentence or stale figure. The composed text must equal
-    the text as written, or the question is refused: the check is of the words put, not of a reworded copy."""
+    the text as written, or the question is refused: the check is of the words put, not of a reworded copy.
+    v1.30.0, (R360)(3)(iii): `options` [(label, description)] and `clauses` {score: clause text} given (score_clauses of the ruling), every
+    score an option's route would cost is named in the question or in that option, or the question is refused (costs_unnamed)."""
     t = compose_checked(rows_from(text, read), read, entry, remotes)
     if ' '.join(t.split()) != ' '.join(text.split()):
         raise SystemExit('### THE QUESTION NOT COMPOSED: THE COMPOSED TEXT DIFFERS FROM THE TEXT AS WRITTEN')
+    if options is not None and clauses is not None:
+        bad = costs_unnamed(text, options, clauses)
+        if bad:
+            raise SystemExit('### THE QUESTION NOT COMPOSED: %d COST(S) OF ITS ROUTES NOT NAMED: %s' % (
+                len(bad), '; '.join('option %d (%s) costs %s on its clause "%s"' % (k, lab[:40], s, w) for k, lab, s, w in bad)))
     return t
+
+
+# ================================================================================ v1.30.0, (R360)(3)(iii): A HALT QUESTION NAMES EVERY SCORE ITS ROUTES WOULD COST
+# ### b749 events (5), (6): the second halt's first option (one Edit of the answers bank past row (65)) named the question count's overcount as
+# ### its only cost, and N4 read REFUTED on its clause "edited by hand since" -- the seat's omission. The composer reads each option's route
+# ### against the ruling's own score clauses: a route word (left) and the clause words it falls under (right); a score whose clause carries
+# ### those words is a cost of the route, and must be named.
+ROUTE_COSTS = (
+    (r'(?i)\b(?:an?|one|the)\s+Edit\b|\bby hand\b|\blift(?:ed|s)?\s+the\s+hook\b|\bhand[- ]edit', r'(?i)\bby hand\b|\bedited after the lock\b'),
+    (r'(?i)\brepair[- ]phase\b|\brepair commit\b', r'(?i)\brepair phase\b|\bedited after the lock\b'),
+    (r'(?i)\bplain git\b|\bgit (?:commit|add|push)\b', r'(?i)\bone-call tool\b'),
+    (r'(?i)\bdeposit|\bpublish|\bnew version\b|\bZenodo (?:call|request|write)', r'(?i)\bnothing deposits\b|\bno Zenodo call\b|\bno draft published\b'),
+    (r'(?i)\bmerge\b', r'(?i)\bno branch merged\b'),
+    (r'(?i)\btag (?:v\d|beyond|past)', r'(?i)\bno tag beyond\b'),
+    (r'(?i)\bafter the root\b', r'(?i)\bafter the root\b'),
+)
+SCORE_HEAD = re.compile(r'\((N\d|S\d)\)\s')
+
+
+def score_clauses(ruling):
+    """{score: its clause text} from the ruling's NAVIGATOR'S EXPECTATIONS, each "(Nk) ..." to the next head."""
+    t = ruling or ''
+    i = t.find("THE NAVIGATOR'S EXPECTATIONS")
+    t = t[i:] if i >= 0 else t
+    heads = list(SCORE_HEAD.finditer(t))
+    return dict((m.group(1), t[m.end():(heads[k + 1].start() if k + 1 < len(heads) else len(t))].split('FERRY END')[0].strip())
+                for k, m in enumerate(heads))
+
+
+def route_costs(route, clauses):
+    """[(score, the clause words matched)] the route's words would cost, by ROUTE_COSTS against the clauses."""
+    out = []
+    for rw, cw in ROUTE_COSTS:
+        if re.search(rw, route or ''):
+            for s, c in sorted(clauses.items()):
+                m = re.search(cw, c)
+                if m and s not in [x[0] for x in out]:
+                    out.append((s, m.group(0)))
+    return out
+
+
+def costs_unnamed(question, options, clauses):
+    """[(option number, label, score, clause words)]: each cost of an option's route named neither in the question nor in that option."""
+    out = []
+    for k, (lab, desc) in enumerate(options, 1):
+        for s, w in route_costs('%s %s' % (lab, desc), clauses):
+            if not re.search(r'\b%s\b' % s, '%s %s %s' % (question, lab, desc)):
+                out.append((k, lab, s, w))
+    return out
 
 
 def relay_reader(root='D:/relay'):

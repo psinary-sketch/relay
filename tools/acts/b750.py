@@ -666,12 +666,12 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R360)(1)-(2))',   # ### the template's headin
 # ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386)
 #⟪OVERRIDE record MARK 02b19df735c8 3⟫
     f = _figs()
-    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE record MARK 1c3af0435e5b 3⟫
     f = _figs_b749()
-    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 6767229683fc 1⟫
@@ -1603,7 +1603,9 @@ def _post_lock_edits():
     import lockdate as LD
     lc = LD.lock_of(ACT, os.path.join(ROOT, 'data'))
     lock = LD.lock_epoch(lc, ROOT) if lc else None
-    out = dict(lock=lock, lock_iso=None, lock_commit=lc, after=[], edited=[], dirty=[])
+    # ### v1.30.0, (R360)(3)(viii), b749 events (12): the lock's time printed from the one reader's epoch; b749's module left lock_iso unset and
+    # ### its N4 sentence printed "the lock at NOT LOCKED" at every reading while lock_ok held
+    out = dict(lock=lock, lock_iso=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(lock)) if lock else None, lock_commit=lc, after=[], edited=[], dirty=[])
     if lc is None or lock is None:
         return out
     rows = [l.split(' ', 1) for l in g(ROOT, 'log', '--reverse', '--format=%H %ct', '%s..HEAD' % K.PRE_RELAY).split(NL) if l.strip()]
@@ -1673,20 +1675,21 @@ def _post_lock_edits():
     # ### (R360)(6), N5: no release, no new version, no publish, no repository edit in the capture
     cmr_ = jl('%s_commands.json' % ACT).get('rows') or []
     ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', r_.get('cmd') or '')]
-    # ### defect (q): a search's own pattern is not a request: the segment of a grep (git grep, grep, rg) up to the next && is cut before the match
-    ghe_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+release\b|/actions/newversion|/actions/publish|zenodo\.org/api|\bgh\s+repo\s+edit\b',
-                                                 re.sub(r'\b(?:git\s+grep|grep|rg)\b(?:(?!&&).)*', '', r_.get('cmd') or ''))]
-    # ### (R360)(2)(iii), N5: the one DELETE of 23228113 through tools/b750_zenodo.py, sent once and not --dry
-    zdel_ = [r_['n'] for r_ in cmr_ if re.search(r'b750_zenodo\.py"?\s+delete\b', r_.get('cmd') or '') and '--dry' not in (r_.get('cmd') or '')]
+    # ### v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
+    # ### banks alone (standing.act.zenodo_requests), not from captured commands nor from "the draft held at v5", the monograph's draft
+    zr_ = __import__('standing.act', fromlist=['zenodo_requests']).zenodo_requests(ACT)
+    ghe_ = ['%s :%d' % (b_, i_) for b_, i_, _t in zr_['releases']]
+    # ### (R360)(6), N5: no Zenodo call this act -- no write request in any Zenodo bank, and no Zenodo bank written
+    zdel_ = ['%s :%d %s' % (b_, i_, m_) for b_, i_, m_, _t in zr_['writes']] + list(zr_['banks'])
 #⟪END⟫
 #⟪SECTION record 26⟫
         and not differ and arms_ok and not amended and not ident and not chained and not kept and gw_ok and gl and not lean_w \
-        and len(rb_kept) == len(K.WAVE1) and addr_ok and not ghe_ and not ghr_ and len(zdel_) == 1
+        and len(rb_kept) == len(K.WAVE1) and addr_ok and not ghe_ and not ghr_ and not zdel_
 #⟪END⟫
 #⟪SECTION record 27⟫
             'the address scan (relay data/b750_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of a '
             'kernel other than SIDE-explicit-formula`s zq-b730 at its tip (no kernel`s main touched; a push-* branch of the face`s list excepted, none this act), or a .lean file in a kernel`s tree (%d kernels read): %s; the %s branch kept on the wave 1 '
-            'kernels: %d of %d; gh repo edit in the capture: %s; release, a new version, a publish or a repository`s edit in the capture: %s; the DELETE of 23228113 by tools/b750_zenodo.py in the capture, not --dry (once): %s; ' % (
+            'kernels: %d of %d; gh repo edit in the capture: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
                 (addr.groups() if addr else ('UNREAD',) * 4) + (len(K.KERNEL_PATHS), lean_w or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
                 ghr_ or 'NONE', ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
@@ -1769,7 +1772,7 @@ def _runs3_line():
     S = jl('%s_scores.json' % ACT)
     f = _figs()
     rep, tot = _repeats()
-    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))   # ### the bank's foot
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R359)(2)(v)
     rg_ = (rd(os.path.join(PP, 'REGISTRY.md')) or '').replace(chr(13), '').split(NL)
@@ -1836,7 +1839,7 @@ def _finding_text_b749():
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
-    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     _r, _n, sh = seal_hashes()
     f = _figs()
     rep, tot = _repeats()

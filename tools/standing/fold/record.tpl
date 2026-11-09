@@ -65,7 +65,7 @@ R.N5_RELAY_TOOLS = ('mirror_prevbuild.json',)   # ### (⟪RUL⟫)(2): the mirror
 # ### ⟪ACT⟫_*.py tool declares in its own head, read at import. A tool declares one by a line `### UNTRACKED WRITE: data/⟪ACT⟫_<name>`.
 # ### (⟪RUL⟫)(2): the events bank (row (52): a finding after the seal, written after the seal and after the root) and the step bank (G-SEALED-AFTER-
 # ### COMPONENTS, a row per commit written after the commit, the record's and the closing's among them) are the defects bank's kind: not root items
-EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals|address_scan_postlock|address_scan_commits|rowgen_\w+_rerun\d+|probe_.*|mid_exercise_.*'   # ### (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind; v1.11.0: the post-lock scan and a stamped route's re-run beside it; v1.14.0's repair: the probes' own paths, untracked by rule, no root item (the chain halves' probes already under chain_half_.*)
+EXCLUDE_KINDS = P7.EXCLUDE_KINDS + r'|events|steps|hook_refusals|address_scan_postlock|address_scan_commits|author_words|rowgen_\w+_rerun\d+|probe_.*|mid_exercise_.*'   # ### v1.30.0, (⟪RUL⟫)(3)(iv): the author-words bank, appended after the root by design, read apart; (⟪RUL⟫)(4)(iii): the standing hook's bank, an excluded kind; v1.11.0: the post-lock scan and a stamped route's re-run beside it; v1.14.0's repair: the probes' own paths, untracked by rule, no root item (the chain halves' probes already under chain_half_.*)
 # ### b707's kind `chain_.*` (the suite's chain parts, `<act>_chain_half_<i>_<key>.json`) read as wide as every bank whose name opens `chain_`, so
 # ### (⟪RUL⟫)(7)'s data/⟪ACT⟫_chain_rows.txt was excluded from the root (the suite's import check refused REQUIRED_BANKS on it); narrowed to the
 # ### suite's own kind, `chain_half_.*`, the chain parts still excluded. A carry-time repair, banked by diff (data/⟪ACT⟫_tool_repairs.txt).
@@ -2537,7 +2537,7 @@ def _n4():
         'since: %s; the closing`s head line carrying commits read from the remotes: %s; the clauses that wait read again at `scores close`' % (
             len(seal or []), len(now), late or 'NONE', len(after), not wrong, 'present' if ev else 'not written (none found)',
             ('late %s' % ra.get('late')) if ra else 'waits on the root', len(pushes), uncaptured or 'every one', unseen or 'every one',
-            ('%d lines' % len(aw.rstrip(NL).split(NL))) if aw is not None else 'none received', len(hb or {}),
+            ('%d lines' % len(aw.rstrip(NL).split(NL))) if aw is not None else ('none received' if os.path.exists(os.path.join(D, '%s_act_root.json' % ACT)) else 'not yet composed (appended after the root by design, v1.30.0)'), len(hb or {}),
             [os.path.basename(p) for p, _w, _n in hand] or 'NONE', head_ok if head else 'waits on the closing'))
 
 
@@ -2605,7 +2605,7 @@ def _n5():
 ⟪SLOT 26⟫
     return (('HELD' if ok else 'REFUTED'),
 ⟪SLOT 27⟫
-            'nothing deposits or publishes: the deposit route untouched (draft %s, v5, unpublished); no release route in the act`s tools: %s; every kernel '
+            'nothing deposits or publishes: the deposit route untouched (the Zenodo banks read, standing.act.zenodo_requests: %s); no release route in the act`s tools: %s; every kernel '
             'as the face read it: %s; every kernel`s main and tags as ⟪PREV⟫`s face read them (relay data/⟪PREV⟫_kernels_face.json), moved: %s; the '
             'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main at badaccc, no tag past v0.37, the challenge branch %s at %s with no tag and '
             'off main (%s): %s; SIDE-lv-conservation`s main and deposit '
@@ -2616,7 +2616,7 @@ def _n5():
             '(port-b707): %s; one git write per message (%s): %s; PLACE-papers beyond the face`s (W) list: %s; papers moved or renamed: '
             '%s; relay files beyond the face`s (W) list: %s; the glossary unchanged: %s; outbound requests other than git and gh %d, an identifier of the '
             'author in %s; the clauses that wait (the hashes at the close, no bank after the root) read again at `scores close`' % (
-                K.DRAFT, no_release, k_ok, moved or 'NONE', pins_on_main or 'NONE', K.CHALLENGE_BRANCH, K.CHALLENGE_TIP[:8], ch_ok, ef_ok,
+                _zenodo_note(), no_release, k_ok, moved or 'NONE', pins_on_main or 'NONE', K.CHALLENGE_BRANCH, K.CHALLENGE_TIP[:8], ch_ok, ef_ok,
                 K.PORT_NEW_TIP[:8], K.LV_TAG, lv_ok, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0], join_ok,
                 K.RECUT_MERGE[:8], recut_ok, added or 'NONE', arms_ok, sorted(ruled), shared_tools or 'NONE', differ or 'NONE',
                 amended or 'NONE', chained or 'NONE', kept or 'NONE', gw_note, gw_ok, pp_beyond or 'NONE', renames or 'NONE', kinds_beyond or 'NONE', gl,
@@ -2804,7 +2804,7 @@ def _trail_text():
                  n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
              '**The standing clauses:** relay data/standing_clauses_v7.txt at VERSION 7; tools/standing/ at %s (relay data/⟪ACT⟫_standing_v121.txt); '
              'the standing report tool (relay data/⟪ACT⟫_report.txt).' % f['ver'], '']
-    aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
+    aw = __import__('standing.act', fromlist=['author_words_section']).author_words_section(ACT)   # ### v1.30.0, (⟪RUL⟫)(3)(iv): composed at the close from its bank
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
     rows_ += ['**The kernels:** no kernel’s main written and no tag cut; the branch `%s` pushed on the six wave 1 kernels, five at their pins '
               'and SIDE-frobenius at the author’s two workflow lines (`%s`); port-b707 at %s, kept, its tag %s at it; SIDE-faces-join at %s with '
@@ -2993,7 +2993,7 @@ def _trail_text_⟪PREV⟫():
              'line.' % (n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
              '**The standing clauses and the repairs:** relay data/standing_clauses_v5.txt at VERSION 5, unchanged this act; every change diffed in '
              'relay data/⟪ACT⟫_tool_repairs.txt; the standing report tool (relay data/⟪ACT⟫_report.txt).', '']
-    aw = AC.author_words_section(ACT)   # ### (⟪RUL⟫)(6)(i), v5 row (74): the author's word after the seal, from its bank, verbatim
+    aw = __import__('standing.act', fromlist=['author_words_section']).author_words_section(ACT)   # ### v1.30.0, (⟪RUL⟫)(3)(iv): composed at the close from its bank, verbatim
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
     rows_ += ['**The kernels:** port-b707 at b712’s tip %s, kept local and remote, no commit this act, b714’s tag %s at it; SIDE-faces-join at %s with '
              'its one tag %s; SIDE-explicit-formula and SIDE-lv-conservation’s main and deposit unmoved; no runner dispatch; no lean process on this host.' % (
@@ -3891,6 +3891,56 @@ def censusscreen(*a):
     print('### the screens over the %d lines v0.8.2 adds:' % len(add))
     cells, fired = R.screens([(_C82, 'v0.8.2', NL.join(add) + NL)], 'census82', True)
     print('### table cells %d (the rows table, expected) ; FIRED %s' % (len(cells), fired))
+
+
+# ================================================================================ v1.30.0, (⟪RUL⟫)(3): THE REPAIRS PLACED BELOW EVERY LINE-KEYED OVERRIDE
+# ### the acts before b735 key their overrides by line number (record.tpl :40; the last at :3434, b723), and b750's import chain renders them from this
+# ### template; the repairs' new lines therefore stand here, above ROUTES, and the lines above keep their numbers.
+def answers(*a):
+    """v1.30.0, (⟪RUL⟫)(3)(i), b749 events (4): THE ANSWERS ROUTE APPENDS. b698's route composes the answers pair from the session (its lines
+    caught here, nothing written by it); the bank standing is kept line for line and the composed lines not already in it are appended
+    beneath one head (standing.act.answers_append), so a sitting block committed in it stays where it was committed; the json pair's calls
+    merged by id, none dropped. `dry` prints what would be appended and writes nothing."""
+    from standing import act as SA
+    cap = {}
+    o_txt, o_json = R.put_txt, R.put_json
+    R.put_txt = lambda n, L: cap.__setitem__(n, list(L))
+    R.put_json = lambda n, j: cap.__setitem__(n, j)
+    try:
+        R.answers(*[x for x in a if x != 'dry'])
+    finally:
+        R.put_txt, R.put_json = o_txt, o_json
+    tn, jn = '%s_author_answers.txt' % ACT, '%s_author_answers.json' % ACT
+    if tn not in cap:
+        sys.exit('### THE ROUTE COMPOSED NO ANSWERS BANK -- NOTHING WRITTEN')
+    prior = rdn(tn, optional=True) or ''
+    text, n = SA.answers_append(prior, cap[tn], utc())
+    pj = jl(jn) or {}
+    have = set(c.get('id') for c in pj.get('calls') or [])
+    calls = list(pj.get('calls') or []) + [c for c in (cap.get(jn) or {}).get('calls') or [] if c.get('id') not in have]
+    print('  the bank standing: %d line(s) ; the route composed %d ; appended %d (no line already in the bank rewritten) ; calls %d' % (
+        len(prior.rstrip(NL).split(NL)) if prior.strip() else 0, len(cap[tn]), n, len(calls)))
+    if 'dry' in a or (n == 0 and prior.strip()):
+        print('  %s: nothing written' % ('dry' if 'dry' in a else 'nothing to append'))
+        return
+    put_txt(tn, text.rstrip(NL).split(NL))
+    put_json(jn, dict(at=utc(), calls=calls))
+
+
+def _zenodo_note():
+    """v1.30.0, (⟪RUL⟫)(3)(vi), b749 defect (t): N5's deposit clause read from the act's Zenodo banks alone; "the draft held at v5" is the
+    monograph's manuscript draft and names no Zenodo object, so no draft id or version is printed from the worklist."""
+    from standing import act as SA
+    z = SA.zenodo_requests(ACT)
+    return 'banks %s ; write requests %s ; releases, new versions, publishes or repository edits %s' % (
+        ', '.join(z['banks']) or 'NONE', ', '.join('%s :%d %s' % (b, i, m) for b, i, m, _t in z['writes']) or 'NONE',
+        ', '.join('%s :%d' % (b, i) for b, i, _t in z['releases']) or 'NONE')
+
+
+# ### v1.30.0, (⟪RUL⟫)(3)(xii), b749 defect (n): the capture's delete reader taught the one-call tool's route (tools/standing/delread.py); bound on
+# ### R too, so the suite's REC.delete_shape reads the same
+from standing import delread as DELR   # noqa: E402
+delete_shape, chained_after = R.delete_shape, R.chained_after = DELR.delete_shape, DELR.chained_after
 
 
 # ### stage one (step zero): ⟪PREV⟫'s Component routes over its own objects pruned (data/⟪ACT⟫_prune_record.txt); this act's are added by the Edit tool

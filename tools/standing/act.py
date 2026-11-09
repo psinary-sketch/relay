@@ -140,10 +140,132 @@ def answer_banks(act):
     return ('data/%s_author_answers.txt' % act, 'data/%s_author_answers.json' % act, 'data/%s_answer_check.txt' % act)
 
 
+def by_design(act):
+    """v1.30.0, (R360)(3)(ii), b749 events (4)-(6): THE FILES WRITTEN AFTER THE LOCK BY DESIGN, each appended by its tool and none edited by
+    hand -- the answers pair and the answer check's output (`record answers`), the author-words banks (tools/standing/append.py) and the post-lock
+    scan banks (the one-call tool's scan). The hook's row (65) refuses an Edit or Write of them after the lock; N4's clause reads the same list
+    through post_lock_appended."""
+    return answer_banks(act) + ('data/%s_author_words.txt' % act, 'data/%s_author_words_preseal.txt' % act,
+                                'data/%s_address_scan_postlock.txt' % act, 'data/%s' % scan_commits_name(act))
+
+
 def post_lock_appended(act):
-    """the banks written after the lock by design, outside the lock's hash set and N4's read; the lock gate prints them by name."""
-    return ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act,
+    """the banks written after the lock by design, outside the lock's hash set and N4's read; the lock gate prints them by name. v1.30.0: the
+    design list (by_design) whole, the author-words banks with it."""
+    base = ('data/%s_steps.json' % act, 'data/%s_bank_hashes.json' % act, 'data/%s_hook_refusals.txt' % act, 'data/%s_address_scan_postlock.txt' % act,
             'tools/mirror_prevbuild.json', 'data/%s' % scan_commits_name(act)) + answer_banks(act)
+    return base + tuple(p for p in by_design(act) if p not in base)
+
+
+APPEND_HEAD = '## APPENDED BY %s AT %s: %d LINE(S); NO LINE ALREADY IN THE BANK REWRITTEN'
+
+
+def answers_append(prior, lines, stamp, tool='`record answers`'):
+    """v1.30.0, (R360)(3)(i), b749 events (4): the answers route appends. `prior` the bank's text as it stands ('' where none), `lines` the route's
+    composed lines. Where no bank stands the composed lines are the bank. Otherwise every line of the bank is kept where it stands, and the
+    composed lines not already in it are appended beneath one head; a line already in the bank is never rewritten, moved or dropped (the [Z1]
+    sitting block committed at relay 1858213d stays at its rows). Returns (text, appended): the text ends with one newline, appended the
+    count of lines added (0: the bank stands unchanged, nothing to write)."""
+    lines = [l.replace('\r', '') for l in lines]
+    if not (prior or '').strip():
+        return NL.join(lines).rstrip(NL) + NL, len([l for l in lines if l.strip()])
+    P = prior.replace('\r', '').rstrip(NL).split(NL)
+    have = set(l for l in P if l.strip())
+    new, blank = [], False
+    for l in lines:
+        if l.strip() and l in have:
+            continue
+        if not l.strip():
+            if new and not blank:
+                new.append('')
+            blank = True
+            continue
+        new.append(l)
+        blank = False
+    while new and not new[-1].strip():
+        new.pop()
+    if not new:
+        return NL.join(P) + NL, 0
+    n = len([l for l in new if l.strip()])
+    return NL.join(P + ['', APPEND_HEAD % (tool, stamp, n)] + new) + NL, n
+
+
+def words_append(prior, text, stamp, src):
+    """v1.30.0, (R360)(3)(ii), (iv): an author-words bank appended by its tool (tools/standing/append.py): the bank as it stands, then one head
+    naming the source and its sha256, then the words verbatim. Nothing in the bank is rewritten. Returns the new text."""
+    body = (text or '').replace('\r', '').rstrip(NL)
+    head = '## APPENDED BY tools/standing/append.py AT %s FROM %s (sha256 %s), VERBATIM:' % (
+        stamp, src, hashlib.sha256(body.encode('utf-8')).hexdigest()[:16])
+    pre = (prior or '').replace('\r', '').rstrip(NL)
+    return (pre + NL + NL if pre else '') + head + NL + body + NL
+
+
+def author_words_section(act, dd=None):
+    """v1.30.0, (R360)(3)(iv), b749 events (9): the section the closing, record and trail tools print for the author's words after the seal,
+    composed from its bank. The bank is appended after the root by design (by_design, tools/standing/append.py) and read apart: before the
+    root, with no bank, the sentence says it is composed at the close and not yet composed -- never NONE RECEIVED, which b749's record and
+    trail printed before the root while the words were being received; after the root, the shared reader (tools/act_close.py) as before."""
+    import sys
+    if T not in sys.path:
+        sys.path.insert(0, T)
+    import act_close as AC_
+    dd = dd or D
+    if AC_.author_words(act, dd) is None and not os.path.exists(os.path.join(dd, '%s_act_root.json' % act)):
+        return [AC_.AUTHOR_WORDS_HEAD + ' (data/%s_author_words.txt): COMPOSED AT THE CLOSE FROM ITS BANK, which is appended after the root by '
+                                        'design and read apart; not yet composed' % act]
+    return AC_.author_words_section(act, dd)
+
+
+SITTING_ROW = re.compile(r'^\[(?:[A-Z]\d*|\(\d+\))\] (?:PASS|STRIKE|PASSED|STRUCK)\b', re.M)
+
+
+def question_count(text):
+    """v1.30.0, (R360)(3)(vii), b749 defect (u), events (6): the questions put, counted from the composed prompts' rows (`### PROMPT n` under a
+    `### CALL` of the answers bank), the sitting rows (`[Z1] PASS ...`, b736's form) read apart and not added. Returns dict(prompts, calls,
+    sitting). b749's file at its close: prompts 2, sitting 1 (the count of b749's module read 3)."""
+    t = (text or '').replace('\r', '')
+    return dict(prompts=len(re.findall(r'(?m)^### PROMPT \d+ ', t)), calls=len(re.findall(r'(?m)^### CALL ', t)), sitting=len(SITTING_ROW.findall(t)))
+
+
+ZENODO_WRITE = re.compile(r'(?im)^(?:[^\n]*?\b)?(POST|PUT|PATCH|DELETE)\b[^\n]*?(?:zenodo|deposit|/records?/|/actions/)[^\n]*$')
+ZENODO_RELEASE = re.compile(r'(?i)/actions/(?:publish|newversion|edit)\b|\bgh\s+release\s+create\b|\bgh\s+repo\s+edit\b')
+
+
+def zenodo_banks(act, dd=None):
+    """v1.30.0, (R360)(3)(vi): the act's Zenodo banks, data/<act>_zenodo*.txt, by name (none where the act wrote none)."""
+    dd = dd or D
+    try:
+        return sorted(f for f in os.listdir(dd) if f.startswith('%s_zenodo' % act) and f.endswith('.txt'))
+    except OSError:
+        return []
+
+
+def zenodo_requests(act, dd=None, texts=None):
+    """v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): N5's matcher reads a release, a new version, a publish or a repository edit from the
+    act's Zenodo banks alone -- the request lines they bank -- and from no other text: "the draft held at v5" is the monograph's manuscript
+    draft and names no Zenodo object; a search's own pattern in a captured command is no request. `texts` {name: text} given, those are read
+    in place of the files. Returns dict(banks, writes [(bank, line, method, text)], releases [(bank, line, text)])."""
+    dd = dd or D
+    if texts is None:
+        texts = dict((f, rd_path(os.path.join(dd, f))) for f in zenodo_banks(act, dd))
+    writes, releases = [], []
+    for f in sorted(texts):
+        for i, l in enumerate((texts[f] or '').replace('\r', '').split(NL), 1):
+            m = ZENODO_WRITE.match(l)
+            if m:
+                writes.append((f, i, m.group(1).upper(), l.strip()[:160]))
+            if ZENODO_RELEASE.search(l):
+                releases.append((f, i, l.strip()[:160]))
+    return dict(banks=sorted(texts), writes=writes, releases=releases)
+
+
+def shared_edits(act, base, head='HEAD', root=None):
+    """v1.30.0, (R360)(3)(x), b749 defect (k): data/act_current.json's shared_edits written from this act's own list -- the tools this act's
+    commits changed between `base` (the act's entering relay head) and `head`, under tools/ and outside the act's own (tools/<act>_*), the
+    act modules (tools/acts/) and the standing tools (tools/standing/); never carried from the previous act's file."""
+    root = root or RELAY
+    r = subprocess.run(['git', '-C', root, 'diff', '--name-only', '%s..%s' % (base, head), '--', 'tools/'], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    return sorted(p for p in r.stdout.split(NL) if p.strip() and not p.startswith(('tools/%s_' % act, 'tools/acts/', 'tools/standing/')))
 
 
 def scan_commits_name(act):
