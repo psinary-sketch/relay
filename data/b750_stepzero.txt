@@ -1,0 +1,103 @@
+b750 -- STEP ZERO, (R360)(5) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, THE PRICE TABLE AND THE STEP-ZERO DEFECTS (2026-11-09)
+
+## IN ORDER
+  the ruling and the ferry received in full (RULING (R360) BEGIN to END + FERRY, part 1 of 1, BEGIN to END), confirmed before acting; the same session
+    as b749 (6151c0de), after a context summary
+  THE PROCESS LISTING FIRST: 22:59:45Z claude 1 (29972, this seat), python 1 (the listing's own), lean 0, lake 0, node 0, bash 3 (the seat's shells);
+    free 2968 MB against the hold 2560 MET (no pipe; scratch proclist750.py)
+  THE CARRY, before any write of the relay ((R360)(5)): tools/b750_carry.py from tools/b749_carry.py by the scratch carrycarry750.py; the shift chained
+    its own table to (b749 -> b750, b747 -> b749, R359 -> R360, R357 -> R359), and the SUBS line at :31 and the docstring's :7, :12, :13 were set by hand
+    to (b749 -> b750, b748 -> b749, R359 -> R360, R358 -> R359), as the tool's own docstring orders, BEFORE the tool ran once (b749's defect (b) not
+    repeated: nothing was carried through the chained table); tools/b750_worklist.py carried (data/b750_carry_worklist.txt, 445 lines, 137 changed);
+    tools/b750_address_scan.py by tools/standing/carry.py with b750's four pairs and --shifted (data/b750_carry_address_scan.txt), its shifted notes
+    (b749's and b748's carry notes, b748's two (R358)(3)(ii) marks at :179, :194) set back and a three-line b750 note written; tools/acts/b750.py
+    carried (data/b750_carry_acts.txt, 1985 lines, 463 changed)
+  THE WORKLIST'S STAGE ONE (scratch wl750.py, 58 constants replaced whole by name): PRE_* heads 8ce7e3ab and 91929f7; b749's ledger lines FINDINGS
+    :14496/:14429/:14431 and OPEN_TRAILS :18038/:18050/:18062/:18076; b749's closing 8ce7e3ab, record 98c3986c, root cd0d867c and root commit 8f2413af;
+    NEXT_ACT b751; the standing version v1.29.0 entering, v1.30.0 to land; PP_EDITED the nine files of (R360)(2); the component commits cleared; the
+    session and scratchpad names
+  data/b750_ferry.txt from the transcript (scratch ferry750.py, 24,005 characters, 'RULING (R360) BEGIN' to 'FERRY END (part 1 of 1)')
+  `carry.py ruled b750 b749 data/b750_ferry.txt`: REFUSED 0 (R1 0, R2 0, R3 0, R4 0) over 130 carried sections and 6 carried citation rows; the
+    carried figures printed beside the ruling (the first call sent with --quiet, which the route does not take: its usage printed, nothing run)
+  data/act_current.json for b750 (act b750, prev b749, next b751, R360, chain row 127 from 126 rows, prev root cd0d867c, verify b624-b749, five
+    components as the ferry orders them, b749 added to the replay, shared_edits written from this act's own list: none at step zero ((R360)(3)(x)))
+    committed alone through the one-call tool, the add its own message: relay 0c2b6b38 (23:04:50Z), the scan in the commit's call 0 ; 0 ; 0 ; 0
+    over 192 places, CONTROLS 7 OF 7; row step 1
+  THE CARRIED FILES, each alone through the one-call tool: b749's closing push capture data/b749_relay_push-b749-closing_push_out.txt: relay 35d6c3fb
+    (23:05:28Z), the scan in the call 0 ; 0 ; 0 ; 0 over 197 places; row step 2. tools/mirror_prevbuild.json: a CRLF-only difference from HEAD's blob
+    (git diff --ignore-cr-at-eol empty), nothing a commit could carry; restored through the tool (`commit.py relay restore`)
+  A THIRD UNCOMMITTED FILE OF b749, NOT NAMED BY (R360)(3): data/b749_address_scan_commits.txt carried a 35-line run appended after its pushed blob
+    (733 lines at 8ce7e3ab): "## THE SCAN BEFORE THE COMMIT, 2026-11-09T21:53:25Z, b749 commit closing in relay", the scan of b749's closing step-row
+    commit 8ce7e3ab, its foot "PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 307 ; CONTROLS 7 OF 7 AS WANTED ;
+    11 s.", places by kind: commit added lines, fields and messages 83 each, staged added lines 3, untracked banks 52, working tree added lines 3, none
+    with an occurrence. The bank is pushed at 8ce7e3ab; committing the append would rewrite a pushed bank (N4), and (R360)(3) names two carried files.
+    The run copied whole to the scratch b749_scan_tail_8ce7e3ab.txt (md5 a00ff6bca0654a0829e80167beb3dcc2, 35 lines), quoted here, and the file restored to
+    its pushed blob through the tool (defect (c) below)
+  THE CITATION SECTIONS 1 AND 4 rewritten for (R360) by the scratch splice750.py before the check (defect (d) below): 112 and 71 lines
+  THE CITATION CHECK, BEFORE ANY DELETE: dry, 180 cites, 179 OK, 1 MISS (the seat's own window, defect (e) below); widened and banked: 180 cites, 180 OK,
+    0 MISSES; Lean-path rows 2, differing 0; THE COMPARATIVE READ VACUOUS: banks 4, words 0, rows 0 (a vacuous pass, not evidence: none of the four
+    banks exists yet); THE CHECK CLEAN (data/b750_citation_check.txt). Among its rows, printed as read: the path wave1/day1/Which_Structure_Confines.md
+    ABSENT; day1/Which_Structure_Confines.md with no b743 dated note; the b743 note at day1/Which_Structure_Confines_v2_4_0.md :95 (defect (f) below)
+  THE READFIRST BANK BY THE TOOL: tools/standing/readfirst.py write b750, ferry rows 23, own rows 5 (data/b750_readfirst_rows.json written by the Write tool
+    first); every path in it printed from the tree by the citation check's rows or the seat's readers before the bank cites it
+  ROWGEN DIFF AND CONSTELLATION: data/b750_rowgen_stepzero.txt, constellation exit 0, rowgen diff exit 0, tables 19, re-pointed 8, STALE 0; run once
+  THE --MERGED LISTING, PRINTED BEFORE THE DELETES, in the arm's form (`git -C <repo> branch --merged main --list "push-b749-*"`): relay: push-b749-closing,
+    push-b749-preroot, push-b749-record; PLACE-papers: push-b749-preroot, push-b749-record
+  THE DELETES, AFTER THE CHECK CLEAN, ONE PER MESSAGE, through the one-call tool's delete route (`commit.py <repo> delete <branch>`, `git branch -d`):
+    relay push-b749-closing (was 8ce7e3ab), push-b749-preroot (was c5a07d25), push-b749-record (was 20ebea8c); PLACE-papers push-b749-preroot (was 7db8b8b),
+    push-b749-record (was 91929f7); five deleted, none forced
+  KEPT as banked (the tool`s row, tools/standing/carry.py kept b750, from each repository`s branch listing): relay: corrigendum-b723 (16caad10) ; SIDE-archimedean: pin-b718-de5ce8a9 (fda6055a), rebuild-b721 (610cbdf9) ; SIDE-effects: pin-b718-de5ce8a9 (57a23535) ; SIDE-explicit-formula: c2-b725 (0395f15d), challenge-b720-h2-sign-iff-rh (33916475), detect-b729 (1023301c), keiper-b725 (01fd33c2), zq-b730 (1e658870) ; SIDE-frobenius: rebuild-b721 (b4ef3958) ; SIDE-grh-transfer: pin-b718-de5ce8a9 (684ed8ae) ; SIDE-interfaces: pin-b718-de5ce8a9 (c9328e6c) ; SIDE-kernel: pin-b718-de5ce8a9 (fe85c518), rebuild-b721 (c683fcd7) ; SIDE-lv-conservation: pin-b718-de5ce8a9 (9e2bd31e), port-b707 (cb0aea56), rebuild-b721 (93c27ec2), scratch-b724 (c9cd1ea9) ; SIDE-rcurve: pin-b718-de5ce8a9 (648f3f5f), rebuild-b721 (f3a5ae54) ; SIDE-simplicity: pin-b718-de5ce8a9 (4ba55671) ; SIDE-spinor: pin-b718-de5ce8a9 (5a906a62), rebuild-b721 (526727ef) ; SIDE-trivium: pin-b718-de5ce8a9 (ece94ca8) ; other branches, none of the kept families, 638
+
+## GIT STATUS AND THE SCAN
+  relay: no tracked change; the b750 banks and tools untracked as listed in the commit below; the carried untracked residue of earlier acts (not this act's, not touched)
+  PLACE-papers: no tracked change; its two untracked strays of earlier acts (.githooks/pre-push.b304-backup, internal/BLOB_SENSITIVITY_2026-08-29.md) untouched
+  THE SCAN, three targets and the ORCID: run over the staged set by the commit tool at the commit below
+  NO BUILD on this host; no lean process; no dispatch this act. The hook's settings file at sha256 1E22BFFE905185EF... (the citation check's row)
+
+## THE PRICE TABLE ((R360)(5), clause | the work | the price | its source)
+  Each price is the seat's estimate, a range. Act begun 22:59Z (the listing); this table about 23:15Z, 0.3 h spent.
+  (1)          the weight line | 0.1-0.2 h | b749's Component 1
+  (3)(i)       the answers route appending and refusing to rewrite a line already in the bank; control b749's file replayed with the block kept | 0.4-0.8 h | events (4)
+  (3)(ii)      hook row (65) and the N4 clause reading one design list (the answers pair, the author-words bank, the post-lock scan banks); a hand Edit of
+               them refused, the tool's append accepted; control b749's Edit replayed to a refusal | 0.5-1.0 h | events (4)-(6)
+  (3)(iii)     the halt-question rule in data/b750_rules.txt, the composer naming every score its routes would cost from the clauses; control b749's halt
+               question replayed with N4 named | 0.4-0.8 h | events (5), (6)
+  (3)(iv)      the author-words sentence composed at the close from the bank; control b749's words replayed into it | 0.3-0.6 h | events (9)
+  (3)(v)       the closing dry reading a design-list bank as "not yet written"; control b749's gate record replayed to PASS | 0.3-0.6 h | events (10)
+  (3)(vi)      the N5 matcher reading the Zenodo banks alone; control b749's entry replayed to no match | 0.3-0.6 h | (l), (q), (t)
+  (3)(vii)     the question count from the composed prompts' rows; control b749's file to 2 | 0.2-0.4 h | (u)
+  (3)(viii)    the lock print from the one reader; control b749's N4 sentence to the lock's hash | 0.2-0.4 h | events (12)
+  (3)(ix)      the rule on a ruling's permission for a dated note, in data/b750_rules.txt | 0.1 h | (j)
+  (3)(x)       the carry refusing unnamed carried rows before the citation check; shared_edits from the act's list; control b749's carried sections | 0.4-0.8 h | (b), (d), (g), (k)
+  (3)(xi)      the retries and the background move: the clause and the instances | 0.1-0.2 h | events (1), (2), (11)
+  (3)(xii)     the instances printed; the capture's delete reader taught the tool's route | 0.3-0.6 h | (n), (o), (p), events (8), (v), the refusals
+  (3)(xiii)    the standing version v1.30.0 landed by a commit of its own with its controls bank, tallied | 0.3-0.6 h
+  (3) SUM      3.9-7.7 h
+  (2)          the agenda with every draft banked 1.0-2.0 h; [E] the generator, its controls and the figure 0.5-1.0 h; the items put and passed or struck (the
+               author's time); one git write per passed item, scanned, 0.8-1.6 h | 2.3-4.6 h | data/b736_sitting.txt, data/b743_sitting.txt
+  (4)          the INTEGRATION line for this act's entry after the sitting's writes | 0.2-0.4 h
+  THE CLOSE    2.5-5.0 h | b749's run, the parts one at a time in the foreground and the post-push suite
+  THE SUM      step zero 0.3 + (1) 0.1-0.2 + (3) 3.9-7.7 + (2) 2.3-4.6 + (4) 0.2-0.4 + the close 2.5-5.0 = 9.3-18.2 h
+
+## WHAT RUNS AND WHAT IS CARRIED
+  (3) whole before (2); within (2), [E]'s generator committed and its controls printed before its figure, and no item cites the figure; no Lean file, no
+  dispatch, no lean process on this host (N1); no Zenodo call (N5).
+
+## THE STEP-ZERO DEFECTS
+  (a) THE SEAT'S [CLOSE ; REPEAT b749 (a)]: the hook refused the seat's own calls three times at step zero (data/b750_hook_refusals.txt :1-:3): a Bash
+      listing of PLACE-papers' files carrying a pipe through grep (23:02:12Z); a Bash reading carrying a redirect to /dev/null (23:07:42Z); a Bash call
+      opening with a shell-variable assignment (23:11:28Z); each refused before it ran, each re-sent in the permitted form
+  (b) THE SEAT'S [CLOSE ; NEW]: the first `carry.py ruled` call was sent with --quiet, a flag the route does not take; it printed its usage and ran nothing;
+      sent again without it
+  (c) THE SEAT'S [CLOSE ; REPEAT b749 (c)]: b749's close ran the scan of its closing step-row commit at 21:53:25Z and appended it to
+      data/b749_address_scan_commits.txt after that bank's last commit, so a pushed bank stood modified and uncommitted; b749's progress note named two
+      carried files and not this one. Quoted above, copied to scratch, and restored to the pushed blob through the tool; v1.29.0's per-commit bank
+      (b749 (3)(ii)) did not reach the step-rows commit's own scan
+  (d) THE SEAT'S [CLAIM ; REPEAT b749 (d)]: tools/acts/b750.py's citation sections 1 and 4 came from the carry holding b749's rows for (R359) under b750's
+      names (b748's closing at 71bc497a, the Zenodo rows, v1.28.1 entering); rewritten for (R360) before the citation check
+  (e) THE SEAT'S [CLOSE ; NEW]: the citation row for data/b735_explicitformula.txt :118 read the landed line EpsteinZQ.lean :157 in a window of the four
+      lines above :118 where the bank prints it five lines above (:114); the dry check read it MISS; the window widened to five before the banked run
+  (f) THE NAVIGATOR'S [CLAIM ; NEW]: (R360)(2)[F1] and [F2] name wave1/day1/Which_Structure_Confines.md "(its b743 dated note by line)"; PLACE-papers has
+      no wave1/; day1/Which_Structure_Confines.md carries no b743 note (last commit b727, 4d976ef); the b743 note the ruling describes is at
+      day1/Which_Structure_Confines_v2_4_0.md :95 (a790da0), and (R360)(5)'s (W) list names "Which_Structure_Confines.md". The seat chooses neither file;
+      [F2]'s draft puts the file to the author at the sitting
