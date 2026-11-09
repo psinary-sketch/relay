@@ -1,5 +1,5 @@
 {
- "at": "2026-11-09T18:22:57Z",
+ "at": "2026-11-09T18:25:10Z",
  "anchor": "RULING (R359) BEGIN",
  "rows": [
   {
@@ -3001,6 +3001,94 @@
    "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b749_registration_2026-11-09.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks --act b749",
    "n": 375,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:14.245Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"t=open(r'C:\\Users\\echo chamber\\.claude\\projects\\D--\\6151c0de-d2ec-42cf-a477-c48b99346e01\\tool-results\\bxra0v1jr.txt',encoding='utf-8').read();print(t[-2500:])\"",
+   "n": 376,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:18.075Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- \"data/b749_*\" \"data/audit_b749_*\" \"tools/b749_*\" tools/acts/b749.py data/act_current.json tools/mirror_prevbuild.json",
+   "n": 377,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:20.694Z",
+   "src": "seat",
+   "cmd": "git show --name-only --format= cdb0d404",
+   "n": 378,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:25.076Z",
+   "src": "seat",
+   "cmd": "git log --format=\"%h %s\" -- data/b748_reg_termscan.txt data/audit_b748_reg_satisfiable.txt data/b748_ferry_scan.txt data/b748_touch.txt data/b748_census_stepzero.txt data/b748_scanfile_c1.md data/b748_address_scan_commits.txt",
+   "n": 379,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:48.922Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/b749_address_scan_commits.txt data/b749_bank_hashes.json data/b749_defects.txt data/b749_hook_refusals.txt data/b749_steps.json data/b749_stepzero.txt data/b749_touch.txt tools/acts/b749.py data/audit_b749_reg_satisfiable.txt data/b749_census_stepzero.txt data/b749_closing_dry.txt data/b749_commands.json data/b749_commands.txt data/b749_faces_census_stepzero.txt data/b749_ferry_scan.txt data/b749_guard_dry.json data/b749_guard_dry.txt data/b749_kernels_face.json data/b749_pathrefusal.txt data/b749_pins_stepzero.txt data/b749_prelock.txt data/b749_prevdry_act.json data/b749_prevdry_standing-a1.json data/b749_prevdry_standing-a2.json data/b749_prevdry_standing-b1.json data/b749_prevdry_standing-b2a.json data/b749_prevdry_standing-b2b.json data/b749_prevdry_standing-b2c.json data/b749_prevdry_standing-b2d.json data/b749_prevdry_standing-b3.json data/b749_prevdry_standing-c.json data/b749_reg_gate.txt data/b749_reg_termscan.txt data/b749_registration_2026-11-09.txt data/b749_regspec_run.txt data/b749_report_dry.txt data/b749_satisfiable.json data/b749_scores_dry.txt data/b749_standing_figures.json data/b749_standing_figures.txt tools/b749_face.py tools/b749_face_blocks.txt tools/b749_prepaths.py",
+   "n": 380,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:54.499Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay \"gate\" \"43 files staged: the face (60036 chars), the gate CLEAR (prev-mode dry 10 of 10 on the act module 9c674281, the pre-lock comparison 8 newly failing, each on the face), the gate banks, the scores dry, the ferry scan banked late (0 hits), the touch and the defects (l)-(u)\"",
+   "n": 381,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:23:58.498Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 382,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:24:35.261Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/ tools/ && git log --oneline -1",
+   "n": 383,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:24:39.112Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry --act b749",
+   "n": 384,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:24:58.096Z",
+   "src": "seat",
+   "cmd": "grep -n -e \"'--bank'\" -e \"argv\" tools/b749_address_scan.py",
+   "n": 385,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T18:25:00.788Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record commands --act b749 && python -X utf8 -u tools/b749_address_scan.py scan --bank",
+   "n": 386,
+   "bg": false
   }
  ],
  "offences": [
@@ -3204,7 +3292,10 @@
   372,
   373,
   374,
-  375
+  375,
+  376,
+  384,
+  386
  ],
  "moves_deletes": [],
  "delete_shapes": [],
