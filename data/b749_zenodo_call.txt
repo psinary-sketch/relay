@@ -1,0 +1,43 @@
+## THE RE-READ BEFORE THE DELETE, (R359)(2)(iii) (2026-11-09T14:35:54Z)
+  GET https://zenodo.org/api/deposit/depositions/23228113 : HTTP 200 ; 19892 bytes ; 1.03 s ; the token from the environment, in the Authorization header alone, printed nowhere
+  the creators: 1 ; author`s fields present
+  the comparison with data/b747_zenodo_readback.txt (:8-:11, :17-:30), row by row:
+    state                                        AGREES   the read-back: unsubmitted ; now: unsubmitted
+    submitted                                    AGREES   the read-back: False ; now: False
+    version                                      AGREES   the read-back: v1.2.0 ; now: v1.2.0
+    title                                        AGREES   the read-back: A Place To Stand: the SIDE reduction of the Riemann Hypothesis to a single located clause ; now: A Place To Stand: the SIDE reduction of the Riemann Hypothesis to a single located clause
+    the file list (name ; size ; md5), 14 files  AGREES   the read-back: 14 files ; now: 14 files
+  ### ### **THE RE-READ: HTTP 200 ; ROWS 5: 5 AGREE, 0 DIFFER ; THE DELETE MAY RUN ON THE AUTHOR`S PASS.**
+
+## THE DELETE, (R359)(2)(iii) (2026-11-09T14:36:06Z)
+  on the author`s PASS at [Z1] (data/b749_author_answers.txt, 2026-11-09T14:35:05.439Z) and the re-read with no DIFFERS above
+  DELETE https://zenodo.org/api/deposit/depositions/23228113 : HTTP 204 ; 0 bytes in the response ; 1.30 s ; the token from the environment, in the Authorization header alone, printed nowhere
+  ### ### **THE DELETE: HTTP 204 ; DONE (204 No Content).**
+
+## THE READ-BACK OF THE DRAFT`S ID AFTER THE DELETE, (R359)(2)(iv) (2026-11-09T14:36:11Z)
+  GET https://zenodo.org/api/deposit/depositions/23228113 : HTTP 404 ; 71 bytes ; 0.51 s ; the token in the Authorization header alone
+  ### ### **THE DRAFT 23228113: HTTP 404 ; NOT FOUND, AS EXPECTED.**
+
+## THE READ-BACK OF THE CONCEPT`S PUBLIC RECORD AFTER THE DELETE, NO TOKEN, (R359)(2)(iv) (2026-11-09T14:36:14Z)
+  GET https://zenodo.org/api/records/21539167/versions/latest : HTTP 200 ; 13091 bytes ; 1.11 s ; no token sent
+  the record id: 21539167 ; the concept: 19675355 ; the latest version: v1.1.2 ; the publication date: 2026-07-24
+  the creators: 1 ; author`s fields present
+  the files (11), name ; size in bytes ; md5:
+    A_Place_to_Stand.md                                              224080  e90e2d06d5cadc059c62c29a849e9f8c
+    ERRATA.md                                                         13951  8fa2ea2839199583d24119680d31c23f
+    Exhaustive_Enumeration.md                                         11994  218d290942dbfb7d150088d7c6dfe811
+    FORMATION_ARCHITECTURE.html                                        6909  5d8cf664416d4311c34a5b2c95a13dc9
+    ONE_PAGE_PROOF.md                                                  5174  0c727f16277beb41b62ec29254d0aebc
+    PAPER_DEPENDENCIES.svg                                             3376  14ad53eabbc775280ac1808639498346
+    Seven_Mechanism_Classes.md                                        22228  6caa6e80300584c037cf48882941ad00
+    Silence_of_Foundations.md                                         20853  c6e1593165449e004e0791239cac149f
+    Spectral_Inertness.md                                             12234  db5ab3d3d231cb83a243338c4aa35f76
+    Third_Identity_Element.md                                         17819  ae918605afbd706faf54aa8474a30eb3
+    Which_Structure_Confines.md                                       13125  6b18d69bcf9e619d3b2fb22376ccc432
+  the comparison with REGISTRY d1-1 (:83), README :164 and the deposit`s copies, at PLACE-papers HEAD:
+    the latest version is v1.1.2                                 AGREES   the line: Zenodo v1.1.2 (REGISTRY :83; README :164) ; the record: v1.1.2
+    the latest record is the deposit 21539167                    AGREES   the line: DOI 10.5281/zenodo.21539167 (REGISTRY :83; README :164) ; the record: 21539167
+    the concept                                                  AGREES   the line: concept 19675355 (REGISTRY :83; README :164) ; the record: 19675355
+    the publication date                                         AGREES   the line: PUBLISHED 2026-07-24 (REGISTRY :83) ; the record: 2026-07-24
+    the file list unchanged: md5s against the 11 deposited copies AGREES   the line: 11 files at PLACE-papers outputs/DEPOSITED-v1.1.2/ (REGISTRY :83) ; the record: 11 files
+  ### ### **THE CONCEPT`S RECORD: HTTP 200 ; LATEST v1.1.2, RECORD 21539167, 11 FILES ; ROWS 5: 5 AGREE, 0 DIFFER ; UNCHANGED YES.**

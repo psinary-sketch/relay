@@ -213,7 +213,7 @@ def z1_pass():
     if not os.path.exists(ANSWERS):
         return None
     t = io.open(ANSWERS, encoding='utf-8').read()
-    m = re.search(r'^\[Z1\] (PASS) .*?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z)', t, re.M)
+    m = re.search(r'^\[Z1\] (PASS)\b.*?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z)', t, re.M)
     return m.group(2) if m else None
 
 
