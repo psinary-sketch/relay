@@ -542,7 +542,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'i' else 'SEAT') for c in tuple('abcdefghijklmn')))   # ### (a)-(n), entered before the lock, the navigator's (i), the rest the seat's (data/b748_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'i' else 'SEAT') for c in tuple('abcdefghijklmnop')))   # ### (a)-(p), entered before the lock, the navigator's (i), the rest the seat's (data/b748_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b748_corrigendum.txt', 'data/b748_standing_v1280.txt', 'data/b748_standing_v1281.txt', 'data/b748_section3.txt', 'data/b748_section4.txt',
