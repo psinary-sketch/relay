@@ -1,5 +1,5 @@
 {
- "at": "2026-11-09T02:26:46Z",
+ "at": "2026-11-09T02:28:06Z",
  "anchor": "RULING (R358) BEGIN",
  "rows": [
   {
@@ -2297,6 +2297,46 @@
    "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 287,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:27:05.561Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/b748_* data/audit_b748_* tools/b748_* tools/acts/b748.py",
+   "n": 288,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:27:11.738Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/audit_b748_reg_satisfiable.txt data/b748_closing_dry.txt data/b748_commands.json data/b748_commands.txt data/b748_defects.txt data/b748_pins_stepzero.txt data/b748_prelock.txt data/b748_reg_gate.txt data/b748_regspec_run.txt data/b748_report_dry.txt data/b748_root_banks_dry.json data/b748_root_banks_dry.txt data/b748_satisfiable.json data/b748_steps.json",
+   "n": 289,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:27:18.791Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 290,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:27:41.501Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay restore data/b748_address_scan.txt",
+   "n": 291,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:27:42.740Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
+   "n": 292,
+   "bg": false
   }
  ],
  "offences": [],
@@ -2461,7 +2501,8 @@
   270,
   273,
   286,
-  287
+  287,
+  292
  ],
  "moves_deletes": [
   56,
