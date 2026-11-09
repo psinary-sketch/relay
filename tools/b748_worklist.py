@@ -219,7 +219,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'per (R358)(9), named by the author'   # ### the author's answer added by the Edit tool before the record
+NEXT = 'the Tier 3 act over the held v1.2.0 draft 23228113 per (R358)(4), on the author`s word at b747`s root; the act after it per (R358)(8), named by the author at this act`s root'   # ### the author's answer added by the Edit tool before the record
 NEXT_ACT = 'b749'
 
 
@@ -286,7 +286,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b748.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.28.0'            # ### (R358)(3)'s repairs, landed by a commit of their own (C1_STANDING) with data/b748_standing_v1280.txt
+STANDING_VERSION = 'v1.28.1'            # ### (R358)(3)'s repairs, v1.28.0 landed by a commit of its own (C1_STANDING) with data/b748_standing_v1280.txt, v1.28.1 (C4_STANDING) with data/b748_standing_v1281.txt
 STANDING_VERSION_ENTERING = 'v1.27.1'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '14ca5725'), ('D:/SIDE-explicit-formula/.lake/packages/mathlib', 'de5ce8a9'))   # ### zq-b730 at the tag's commit
 # ### v1.18.0, (R358)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -295,9 +295,10 @@ COMPARATIVE_BANKS = ('data/b748_corrigendum.txt', 'data/b748_section3.txt', 'dat
                      'data/b748_defects.txt')   # ### Components 1-3's banks: no
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('tools/standing/VERSION', 'tools/standing/carry.py', 'tools/standing/fold/checks.tpl', 'tools/standing/fold/record.tpl',
-                    'tools/standing/lsrread.py', 'tools/standing/orders.py', 'tools/standing/rootprompt.py', 'tools/standing/rowid.py')   # ### v1.27.0's changed files
-STANDING_NEW = ('tools/standing/orderstate.py', 'tools/standing/relaypath.py', 'tools/standing/sectionput.py', 'tools/standing/v1270.py')
+STANDING_CHANGED = ('tools/standing/VERSION', 'tools/standing/close.py', 'tools/standing/commit.py', 'tools/standing/fold/record.tpl',
+                    'tools/standing/prevdry.py', 'tools/standing/repaircommits.py')   # ### v1.28.0's and v1.28.1's changed files (git diff 7d34b587..791341fd)
+STANDING_NEW = ('tools/standing/citeprint.py', 'tools/standing/defectrow.py', 'tools/standing/onereader.py', 'tools/standing/standingdry.py',
+                'tools/standing/v1280.py', 'tools/standing/v1281.py')
 # ### b747's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '7d34b587'    # ### b747's closing (its step row), the act's relay base
 B714_RECORD = '27ce2fe2'     # ### b747's record commit (relay)
@@ -305,19 +306,20 @@ B714_ROOT = '59db3794b7ae4cf7f698451beee4269a95d6f7cfb5ede81e4c490ddac9021db1'  
 B723_ROOT_BANKS = '66915db5'  # ### b747's root-banks commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'bf83b65b'           # ### tools/standing/ v1.28.0 by a commit of its own, its controls bank data/b748_standing_v1280.txt ((R358)(3))
-C1_STANDING_REPAIR = None          # ### none yet
-C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the rules; set after it is made
+C1_STANDING_REPAIR = None          # ### none in Component 1
+C4_STANDING = '791341fd'           # ### tools/standing/ v1.28.1 by a commit of its own at Component 4, before the gate, its controls bank data/b748_standing_v1281.txt (rules row (13), defect (k))
+C1_RELAY = 'afc40e31'              # ### the c1 route, the corrigendum banks, the corrigenda row, defects (e)-(h)
 C1_CORR = C1_RELAY
 C1_RULES = C1_STANDING             # ### data/b748_rules.txt committed with v1.28.0
 C1_PP = '20dba111'                 # ### PLACE-papers: FINDINGS -- b747 at its weight (:14301) and the corrigendum for b747 (:14303)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b747's weight line and the corrigendum for b747 (Component 1); set after it is made
+WEIGHT_LINE, CORR_LINE = 14301, 14303   # ### FINDINGS: b747's weight line and the corrigendum for b747 (Component 1, PLACE-papers 20dba111)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = None         # ### (carried name) Component 2's first commit: the section bank (definitions printed from the tree)
-C2_RELAY = None             # ### Component 2's relay commit(s): the section banks and the [S3], [S4] sitting records; set after made
+C2_RELAY = '806c7ede'       # ### Component 2's relay commit: the section banks and the [S3], [S4] sitting records, defect (i)
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
 C2_PP = '3b701058'          # ### (R358)(2): §3 under :109, §4 under :132 (one write each) and the dated note after :7, committed together
@@ -333,7 +335,7 @@ SITTING_PP = ()       # ### no sitting this act
 SITTING_KERNEL = None # ### no kernel written this act ((R358)(5))
 SITTING_GH = ()       # ### no description written
 SITTING_ITEMS = 0
-C3_RELAY = ()              # ### Component 3 ((R358)(5)): the line's bank; set after made
+C3_RELAY = ('92263630',)   # ### Component 3 ((R358)(4)-(5)): the line's bank data/b748_line.txt, defect (j)
 ZENODO_BANK = 'data/b748_zenodo_readback.txt'   # ### (R358)(5): the one GET's bank
 ROUTES_BANK = 'data/b748_zenodo_routes.txt'     # ### (R358)(5)-(6): the route question's sources by their lines, the lean not found, the draft and the README item carried
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### (R358)(5): data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)
