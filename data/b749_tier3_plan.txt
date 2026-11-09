@@ -1,0 +1,41 @@
+b749 -- (R359)(2)(i): THE PLAN OF THE TIER 3 ACT OVER THE HELD ZENODO DRAFT 23228113 AT v1.2.0, BANKED AND COMMITTED BEFORE ANY REQUEST TO THE API (2026-11-09T14:28:41Z)
+
+### composed by tools/b749_zenodo.py plan from the banks and lines named beside each row; no request sent by this route.
+
+## (1) THE THREE DIFFER ROWS OF data/b747_zenodo_readback.txt, VERBATIM WITH THEIR LINE NUMBERS
+  :38   the version string                           DIFFERS  the line: the deposited version v1.1.2 (REGISTRY :83; README :164) ; the draft: v1.2.0
+  :39   the monograph edition against the deposit    DIFFERS  the line: manuscript v5.10.2 (REGISTRY :83; README :164) ; the draft: v5.18
+  :41   the title                                    DIFFERS  the line: A Place to Stand (REGISTRY :83) ; the draft: A Place To Stand: the SIDE reduction of the Riemann Hypothesis to a single located clause
+
+## (2) THE THREE AGREE ROWS OF data/b747_zenodo_readback.txt, VERBATIM WITH THEIR LINE NUMBERS
+  :36   the record`s concept                         AGREES   the line: concept 10.5281/zenodo.19675355 (REGISTRY :83 "concept 19675355"; README :164) ; the draft: 19675355
+  :37   the deposit stands at v1.1.2                 AGREES   the line: Zenodo v1.1.2 deposited, "Nothing deposits" (REGISTRY :83; README :164) ; the draft: state unsubmitted, submitted False
+  :40   the monograph edition against the live line  AGREES   the line: the live monograph v5.18 (REGISTRY :83 "v5.18"; README :164) ; the draft: v5.18
+
+## (3) THE DRAFT, AS THE READ-BACK CARRIES IT
+  the title, verbatim (data/b747_zenodo_readback.txt :11; the DIFFER row :41): A Place To Stand: the SIDE reduction of the Riemann Hypothesis to a single located clause
+  the id: 23228113 (:6) ; the state: unsubmitted (:8) ; submitted: False (:9) ; the row :37 reads "the draft: state unsubmitted, submitted False"
+  the version v1.2.0 (:10) ; files 14 (:16-:30) ; the related identifier isSupplementTo 10.5281/zenodo.19674312 (:33)
+
+## (4) THE RECORDS THIS ACT DOES NOT TOUCH, NAMED BY LINE
+  the deposited record 21539167 at Zenodo v1.1.2 (manuscript v5.10.2) and the concept 19675355: PLACE-papers REGISTRY.md :83 (row d1-1, "PUBLISHED 2026-07-24: Zenodo v1.1.2 (ms v5.10.2), DOI 10.5281/zenodo.21539167 (concept 19675355)")
+  the same row`s version table: REGISTRY.md :983 (d1-1 | `REGISTRY.md:83`)
+  README.md :164, the deposit note ("the monograph at manuscript v5.10.2 / Zenodo v1.1.2 ([10.5281/zenodo.21539167] ...; concept [10.5281/zenodo.19675355] ...)")
+  no field of either record is read for writing, sent, or changed by this act; the README is not edited (it goes to b750`s sitting, (R359)(2)(v))
+
+## (5) THE ONE CALL, BY METHOD AND PATH
+  DELETE https://zenodo.org/api/deposit/depositions/23228113 -- the delete of the unpublished deposition 23228113 by its id; the token from the environment, in the Authorization header alone
+  before it, on the author`s PASS at [Z1] alone: GET https://zenodo.org/api/deposit/depositions/23228113, compared row by row with data/b747_zenodo_readback.txt (state, version, title, file list); a DIFFERS on any halts the act with no delete
+  no other method is reachable from tools/b749_zenodo.py: GET and this one DELETE; no POST, PUT or publish action
+
+## (6) THE EXPECTED READ-BACK AFTER IT
+  GET https://zenodo.org/api/deposit/depositions/23228113 (the token): not found (HTTP 404 or 410 expected), its status printed
+  GET https://zenodo.org/api/records/21539167/versions/latest (no token, the public record): the latest version still v1.1.2, the record 21539167, its file list unchanged -- the 11 files whose md5s match the deposit`s copies at PLACE-papers outputs/DEPOSITED-v1.1.2/ (REGISTRY :83, "every file`s md5 matched Zenodo`s published checksum"); the creators field printed as a count, "author`s fields present"
+  each compared with REGISTRY d1-1 (:83) and README :164 as rows AGREES or DIFFERS
+
+## (7) THE REASON, AS THE AUTHOR GAVE IT, AND THE NAVIGATOR`S READING BESIDE IT
+  the author, at b747`s root (data/b747_author_answers.txt :29, verbatim): Discard (Tier 3 act): the v1.2.0 draft 23228113 discarded in a Tier 3 act of its own on the author’s word, its plan printing the three DIFFER rows and the draft’s title verbatim before any call; nothing touched in this act.
+  the navigator`s reading, in this ruling (data/b749_ferry.txt :5, :11 and :19, (R359) and (2)(v)): the held draft at v1.2.0 discarded, the deposit at v1.1.2 and the concept unchanged, "a fresh draft to be opened when the 1.5C paper reaches the rubric`s stage"; the one Zenodo write the delete of the unpublished deposition on the author`s word at [Z1]
+  the conversation of 2026-11-07: UNBANKED -- the lean toward discarding and the pros and cons were found in no bank line (data/b747_zenodo_routes.txt :9-:19, :29); this plan cites neither
+
+### ### **THE PLAN: DIFFER 3 (:38, :39, :41), AGREE 3 (:36, :37, :40) ; THE TITLE VERBATIM ; THE DRAFT 23228113, STATE unsubmitted, SUBMITTED False ; THE RECORDS NOT TOUCHED 21539167 AND 19675355 (REGISTRY :83, :983 ; README :164) ; THE ONE CALL DELETE 23228113 ; NO REQUEST SENT.**
