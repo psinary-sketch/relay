@@ -13,3 +13,6 @@
 2026-11-09T15:13:59Z | PIPE | Bash | "git show 71bc497a:tools/b748_worklist.py --format= -- | python -X utf8 -c \"pass\"" | a Bash command carrying a pipe outside quotes
 2026-11-09T16:46:54Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b748_traps.md" | a Read call with no limit
 2026-11-09T17:34:58Z | SED | Bash | "sed -n 2614,2640p tools/standing/fold/record.tpl" | a Bash command running sed
+2026-11-09T19:58:43Z | PIPE | Bash | "ls data/ --sort=time | head -c 0; python -X utf8 -c \"import os,glob;fs=sorted(glob.glob('data/b749_*'),key=os.path.getmtime)[-25:];print(chr(10).join(fs))\"" | a Bash command carrying a pipe outside quotes
+2026-11-09T20:09:26Z | LOCKED | Edit | null | a Edit of a bank written before the lock, after the lock
+2026-11-09T20:20:16Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b748_traps.md" | a Read call with no limit
