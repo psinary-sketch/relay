@@ -430,12 +430,13 @@ def runner_ok(S):
 # ### b749, Component 4 (the Edit tool): b748's override of checks 1476-1482 (one ERRATA entry at b748's (R358)(5)) removed -- (R359)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b749 as it stands
 # ### b749, Component 3 (the Edit tool): G-BRANCHES-DELETED over b749's two repositories (relay, PLACE-papers) and five
-# ### refs; the step-zero bank writes "KEPT as banked:" (data/b749_stepzero.txt :33), read in its own wording
+# ### refs; b749, Component 4, defect (m): the step-zero bank writes "KEPT as banked (" -- the seat's row at data/b749_stepzero.txt :43 and the
+# ### tool's row (tools/standing/carry.py kept b749) in its dated note -- read in its own wording, the tool's row asked by its own head
 #⟪OVERRIDE checks MARK 6381bcfb3cc2 1⟫
     return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and 'port-b707' in z and 'KEPT as banked:' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and 'port-b707' in z and 'KEPT as banked (the tool`s row, tools/standing/carry.py kept b749' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
 # ### b749, Component 4 (the Edit tool): G-RUNNER-READ's plant on b749's dispatch rows -- run 2's axiom lines carrying sorryAx (b748's
 # ### plant read the lv rows' closure log, which b749 does not write)
@@ -539,7 +540,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
     rc2, t2 = runb([os.path.join(T, 'standing', 'fold.py'), 'regspec'], '%s_regspec_run.txt' % ACT)
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijk')))   # ### (a)-(k), entered before the lock, every one the seat's (data/b749_defects.txt); a letter entered after them read beyond this floor
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in tuple('abcdefghijklmnopqrstu')))   # ### (a)-(u), entered before the lock, every one the seat's (data/b749_defects.txt); a letter entered after them read beyond this floor
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b749_corrigendum.txt', 'data/b749_standing_v1290.txt', 'data/b749_tier3_plan.txt', 'data/b749_zenodo_call.txt',
@@ -665,12 +666,12 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R359)(1)-(2))',   # ### the template's headin
 # ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386)
 #⟪OVERRIDE record MARK 02b19df735c8 3⟫
     f = _figs()
-    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE record MARK 1c3af0435e5b 3⟫
     f = _figs_b748()
-    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 6767229683fc 1⟫
@@ -847,7 +848,7 @@ def _call_ok(S):
         and bool(head_) and (_iso_epoch(z_.group(2)) or 9e18) <= (_iso_epoch(head_.group(1)) or 0) <= t_['s2'] and not tok_
 #⟪END⟫
 #⟪SECTION checks 35⟫
-    """N5, (R359)(8) (the name the frozen run list carries): no kernel's main touched and no Lean file written -- SIDE-explicit-formula's
+    """N5, (R359)(6) (the name the frozen run list carries): no kernel's main touched and no Lean file written -- SIDE-explicit-formula's
     main at the worklist's EF_MAIN (8fbab45d, as b748 left it), the four branches each at the worklist's tip locally and at origin, zq-b730
     at b748's tip 1e658870 with nothing past it; no commit on any of its refs since the act opened; the one tag v0.38, its object the
     worklist's and its peel 14ca5725, the only tag at that commit and no tag added this act; no sitting kernel."""
@@ -980,7 +981,7 @@ def research_reproduces_ok(S):
      lambda S: coeffs_law_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update(plan_z1=False))),
     ('G-DERIVATION-GRADED', '(R359)(2)(i)-(iv), N2, N5: the plan bank`s foot (DIFFER 3, AGREE 3, the title, NO REQUEST SENT) at ec5eb768; [Z1] PASS with its time at 1858213d; the call bank at d7e52526 -- the re-read 5 AGREE 0 DIFFER, the DELETE HTTP 204 on 23228113, the draft`s id HTTP 404, the concept UNCHANGED YES, in that order, GET, DELETE, GET, GET and no other method; the plan before [Z1], [Z1] before the call; no token in a bank',
      lambda S: derivation_graded_ok(S), lambda S: put(S, 'controls', (S['controls'] or '').replace('THE DELETE: HTTP 204', 'THE DELETE: HTTP 500'))),
-    ('G-OFFSET-POST-HOC', 'N5, (R359)(8): no kernel`s main touched and no Lean file written -- SIDE-explicit-formula`s main at 8fbab45d, the four branches at the worklist`s tips locally and at origin, zq-b730 at 1e658870 with nothing past it, no commit on any ref since the act opened; the one tag v0.38, peel 14ca5725, no tag beyond it',
+    ('G-OFFSET-POST-HOC', 'N5, (R359)(6): no kernel`s main touched and no Lean file written -- SIDE-explicit-formula`s main at 8fbab45d, the four branches at the worklist`s tips locally and at origin, zq-b730 at 1e658870 with nothing past it, no commit on any ref since the act opened; the one tag v0.38, peel 14ca5725, no tag beyond it',
      lambda S: offset_post_hoc_ok(S), lambda S: _mut(S, 'zq_files', lambda d: d.append('SIDEExplicitFormula/Planted.lean'))),
     ('G-SURGERY-CARRIED', 'standing clauses v9 binding the act whole as b723 landed it: the text its blob at d9739558 and at 71bc497a, VERSION 9; v8 at HEAD its blob at 71bc497a; no v10; v9`s commit an ancestor of v1.29.0`s',
      lambda S: surgery_carried_ok(S), lambda S: put(S, 'v9', (S['v9'] or '').replace('  (83) ', '  (84) '))),
@@ -1217,7 +1218,7 @@ commits section; the author's word after the seal printed from its bank (tools/a
 items for the next act ((R359)(7)). The standing report prints its lines in footing order (KERNEL,
 #⟪END⟫
 #⟪SECTION closing 2⟫
-tool's scores route and written nowhere. Kernels written this act: none ((R359)(8): no kernel's main touched, no Lean file, no tag beyond v0.38).
+tool's scores route and written nowhere. Kernels written this act: none ((R359)(6): no kernel's main touched, no Lean file, no tag beyond v0.38).
 #⟪END⟫
 #⟪SECTION closing 3⟫
     """the carried items for b749 ((R359)(7)); the open orders by tools/standing/orders.py's output over the trail, not a hand list."""
@@ -1251,14 +1252,14 @@ TITLE_LINE = ('b749 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
 #⟪END⟫
 #⟪SECTION closing 8⟫
     '    kernels written, N5`s clause as the ferry words it: ' + FF.n5_clause_of(rd('%s_ferry.txt' % ACT)) + ' ;',   # ### v1.10.0, (R358)(2)(vi): composed, not carried
-    '    no kernel`s main touched ((R359)(8)) ; SIDE-explicit-formula`s main at ' + WL.EF_MAIN[:8] + ' and v0.37 unmoved ; no tag beyond v0.38 ; zq-b730 at ' + WL.ZQ_TIP[:8] + ', unmoved, no Lean file written, no merge ;',
+    '    no kernel`s main touched ((R359)(6)) ; SIDE-explicit-formula`s main at ' + WL.EF_MAIN[:8] + ' and v0.37 unmoved ; no tag beyond v0.38 ; zq-b730 at ' + WL.ZQ_TIP[:8] + ', unmoved, no Lean file written, no merge ;',
     '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches (N1: none this act) ; the rebuild-b721 branches of the wave 1 kernels as b748 left them ;',
     '    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;',
     '    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each suite part and computation ;',
     '    the push-b748-* branches of relay and PLACE-papers deleted at step zero by name, each after its --merged listing, one per command and each its own message ; N2: the plan banked and committed before any API call, [Z1]`s answer banked before the delete, the re-read printed and compared before it and the read-backs after it, the tools` controls before their figures, the (W) regeneration, the pre-lock dry in both modes, the pre-lock comparison and the probe-path refusal before the lock gate, the lock block in the lock commit, the scan over the staged set before every commit to its own bank ;',
     '    N3: REGISTRY d1-1`s dated note read for discarded, unchanged and a fresh draft and for any further sentence ; no sentence saying a thing was deposited, published or versioned ; the entry`s INTEGRATION line read from REGISTRY and SPIRAL_MAP ; N5: no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed (relay data/b749_address_scan.txt, data/b749_address_scan_postlock.txt, data/b749_address_scan_commits.txt) ;',
     '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads under the GitHub login') + ' ;',
-    '    nothing deposited ; no new Zenodo version ; no field of a published record touched ; the API calls three GETs and the one DELETE of the unpublished deposition 23228113 on the author`s word at [Z1], the token in the request header alone ; publish never called, the draft at v1.2.0 deleted unpublished ; no GitHub description written ; no door edited ;',
+    '    nothing deposited ; no new Zenodo version ; no field of a published record touched ; the API calls three GETs and the one DELETE of the unpublished deposition 23228113 on the author`s word at [Z1], the token in the request header alone ; publish never called, the draft held at v5 ; no GitHub description written ; no door edited ;',
     '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry), OPEN_TRAILS (the trail), REGISTRY.md (one dated note to row d1-1) ; no paper moved or renamed ;',
     '    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b749`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;',
     '    tools/standing/ at v1.29.0 by (R359)(3) ; the hook in D:/.claude/settings.json unedited ; the per-act tools of b698-b748 unedited, act_current`s shared_edits empty ; the mirror zip written outside every repository over the',
@@ -1270,7 +1271,7 @@ TITLE_LINE = ('b749 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND S
 #⟪SECTION closing 10⟫
     '    (c) For the next act, each from its bank: the README :164 item, the 1.5c-21 dated note and the canon text of the stages carried to the synthesis sitting at b750 (relay data/b749_line.txt (C), data/b746_integration_draft.txt) ;',
     '        the root`s question, whether the sign of cQ(n) over n <= 3000 is computed at b750`s sitting as a banked instrument row or waits for the plan act, its answer in relay data/b749_author_answers.txt ; the d1-1 note`s further words for the author`s keep or strike (defect (j)) ;',
-    '        the reproduction`s NOT RUN rows, each with its price (relay data/b749_reproduce.txt) ; W-ORD-VISIBILITY, CARRIED NOT CLEAN.',
+    '        the reproduction`s NOT RUN rows, each with its price (relay data/b749_reproduce.txt) ; W-ORD-VISIBILITY, CARRIED NOT CLEAN ; the draft held at v5.',
 #⟪END⟫
 #⟪SECTION closing 11⟫
     '        units files, b714`s rectangle units file (declared in their tools` heads) and records.json at relay`s root',
@@ -1620,7 +1621,9 @@ def _post_lock_edits():
     # ### (R359)(6), N5: no release, no new version, no publish, no repository edit in the capture
     cmr_ = jl('%s_commands.json' % ACT).get('rows') or []
     ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', r_.get('cmd') or '')]
-    ghe_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+release\b|/actions/newversion|/actions/publish|zenodo\.org/api|\bgh\s+repo\s+edit\b', r_.get('cmd') or '')]
+    # ### defect (q): a search's own pattern is not a request: the segment of a grep (git grep, grep, rg) up to the next && is cut before the match
+    ghe_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+release\b|/actions/newversion|/actions/publish|zenodo\.org/api|\bgh\s+repo\s+edit\b',
+                                                 re.sub(r'\b(?:git\s+grep|grep|rg)\b(?:(?!&&).)*', '', r_.get('cmd') or ''))]
     # ### (R359)(2)(iii), N5: the one DELETE of 23228113 through tools/b749_zenodo.py, sent once and not --dry
     zdel_ = [r_['n'] for r_ in cmr_ if re.search(r'b749_zenodo\.py"?\s+delete\b', r_.get('cmd') or '') and '--dry' not in (r_.get('cmd') or '')]
 #⟪END⟫
@@ -1665,7 +1668,7 @@ def _post_lock_edits():
 #⟪SECTION record 32⟫
     # ### the navigator's letters, primed where they are: the reader takes a letter with its prime
     letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
-    return ('(1) REGISTRY d1-1`s dated note (PLACE-papers 55cd38b3) says discarded, unchanged and a fresh draft at the rubric`s stage, and says more: the call`s read-back, the README note untouched, no cell edited and "Nothing deposits", where N3 reads "and no more" (defect (j)); the further words for the author to keep or strike, no second ledger write made; (2) the eleven rules of relay data/b749_rules.txt, the seat`s reading of (R359)(3), each for the author`s strike; (3) the README :164 item, the 1.5c-21 dated note and the stages` canon text carried to b750 (relay data/b749_line.txt (C)); '
+    return ('(1) REGISTRY d1-1`s dated note (PLACE-papers 55cd38b3) says discarded, unchanged and a fresh draft at the rubric`s stage, and says more: the call`s read-back, the README note untouched, no cell edited and "Nothing deposits", where N3 reads "and no more" (defect (j)); the further words for the author to keep or strike, no second ledger write made; (2) the eleven rules of relay data/b749_rules.txt, the seat`s reading of (R359)(3), each for the author`s strike; (3) the README :164 item, the 1.5c-21 dated note and the canon text of the stages carried to b750 (relay data/b749_line.txt (C)); '
             +
             '(4) %s and the seat’s %s defect%s as lettered' % (
 #⟪END⟫
@@ -1714,7 +1717,7 @@ def _runs3_line():
     S = jl('%s_scores.json' % ACT)
     f = _figs()
     rep, tot = _repeats()
-    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))   # ### the bank's foot
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R358)(2)(v)
     rg_ = (rd(os.path.join(PP, 'REGISTRY.md')) or '').replace(chr(13), '').split(NL)
@@ -1764,7 +1767,7 @@ def _runs3_line():
              cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the plan and the call read one way: the plan printed what the draft was and what the one call would do before any request, and the call’s bank prints what the record is after it -- the draft’s id not found, the deposit and the concept as REGISTRY d1-1 names them.', '',
-         '**Carried to:** %s, the synthesis sitting, per (R359)(7): the README :164 item, the 1.5c-21 dated note and the stages’ canon text; the root’s question on the sign of cQ(n) over n ≤ 3000, put once and answered in relay data/b749_author_answers.txt; the dated note’s further words for the author’s keep or strike; W-ORD-VISIBILITY, CARRIED NOT CLEAN; the instruments NOT RUN, each with its price.' % (
+         '**Carried to:** %s, the synthesis sitting, per (R359)(7): the README :164 item, the 1.5c-21 dated note and the stages’ canon text; the root’s question on the sign of cQ(n) over n ≤ 3000, put once and answered in relay data/b749_author_answers.txt; the dated note’s further words for the author’s keep or strike; W-ORD-VISIBILITY, CARRIED NOT CLEAN; the instruments NOT RUN, each with its price; the draft held at v5.' % (
              K.NEXT_ACT), '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds or locates any zero.*', '',
@@ -1781,7 +1784,7 @@ def _finding_text_b748():
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
-    n_ans = len(re.findall(r'^### PROMPT ', rdn('%s_author_answers.txt' % ACT), re.M))
+    n_ans = len(re.findall(r'^### PROMPT |^\[Z\d+\] ', rdn('%s_author_answers.txt' % ACT), re.M))   # ### defect (u): the sitting item [Z1] counted with the prompts
     _r, _n, sh = seal_hashes()
     f = _figs()
     rep, tot = _repeats()
@@ -1879,7 +1882,7 @@ def _trail_text_b748():
     ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none (N2).'),
 #⟪END⟫
 #⟪SECTION regspec 10⟫
-    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### none: no Lean file written ((R359)(8)); MEASURED off each branch`s tip against its tip entering the act.'),
+    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### none: no Lean file written ((R359)(6)); MEASURED off each branch`s tip against its tip entering the act.'),
 #⟪END⟫
 #⟪SECTION regspec 11⟫
     ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R359)(3): tools/standing/ to v1.29.0, each repair with its control; MEASURED off the worklist`s lists.'),
