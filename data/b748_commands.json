@@ -1,5 +1,5 @@
 {
- "at": "2026-11-09T01:17:18Z",
+ "at": "2026-11-09T02:21:00Z",
  "anchor": "RULING (R358) BEGIN",
  "rows": [
   {
@@ -1833,6 +1833,310 @@
    "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record commands --act b748",
    "n": 229,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:17:24.438Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --quiet",
+   "n": 230,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:22:32.767Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet",
+   "n": 231,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:26:34.761Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/prelock.py print b748",
+   "n": 232,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:26:40.273Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run act",
+   "n": 233,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:29:19.688Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-a1",
+   "n": 234,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:32:36.021Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-a2",
+   "n": 235,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:37:55.785Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b1",
+   "n": 236,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:41:50.304Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b2a",
+   "n": 237,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:46:40.968Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b2b",
+   "n": 238,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:51:27.201Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b2c",
+   "n": 239,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T01:56:40.682Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b2d",
+   "n": 240,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:02:03.046Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-b3",
+   "n": 241,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:06:50.060Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/prevdry.py run standing-c",
+   "n": 242,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:12:33.815Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record closeorder --act b748",
+   "n": 243,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:12:56.779Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record scores dry --act b748",
+   "n": 244,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:13:36.111Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import textwrap;[print(textwrap.fill(l.rstrip(),200),'\\n') for l in open('data/b748_scores_dry.txt',encoding='utf-8') if l.lstrip().startswith(('N2','N5'))]\"",
+   "n": 245,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:13:43.431Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"sys.argv\" -e \"def main\" -e \"prelock.txt\" -- tools/standing/prelock.py",
+   "n": 246,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:13:48.762Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --quiet",
+   "n": 247,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:03.227Z",
+   "src": "seat",
+   "cmd": "git grep -n -c \"\" -- data/b748_rules.txt data/b747_rules.txt && git grep -n -i -e \"VERDICT\" -e \"^THE RULES\" -- data/b747_rules.txt data/b748_rules.txt",
+   "n": 248,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:07.312Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"_rules.txt): \" -- data/b747_reg_gate.txt data/b746_reg_gate.txt",
+   "n": 249,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:12.320Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record drycheck data/b748_registration_2026-11-08.txt standin --act b748 --quiet",
+   "n": 250,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:25.315Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record findings dry",
+   "n": 251,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:43.887Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"questions put before the root\" -- tools/standing/fold/record.tpl tools/acts/b748.py tools/acts/b747.py",
+   "n": 252,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:47.790Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"questions put\" -- tools/standing tools/acts/b748.py tools/acts/b747.py",
+   "n": 253,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:15:52.701Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"put before the root\" -e \"before the root'\" -- tools/standing/fold/record.tpl && git grep -n \"questions put before\" -- data/FINDINGS.md data/b747_findings.json",
+   "n": 254,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:02.310Z",
+   "src": "seat",
+   "cmd": "cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E \"Filed at b74[67] on the author.{0,60}\" -- FINDINGS.md",
+   "n": 255,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:07.771Z",
+   "src": "seat",
+   "cmd": "cd /d/relay && git status --porcelain --untracked-files=all",
+   "n": 256,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:19.754Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"L=open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747c4cmds.txt',encoding='utf-8').read().split(chr(10));print(L[119]);print(L[32][:3000])\"",
+   "n": 257,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:24.228Z",
+   "src": "seat",
+   "cmd": "git log --format=%h%x20%s -n 12 --grep=\"^b747 gate\" 7d34b587",
+   "n": 258,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:27.944Z",
+   "src": "seat",
+   "cmd": "git show --name-status --format=%h f2dd38e0",
+   "n": 259,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:34.981Z",
+   "src": "seat",
+   "cmd": "git grep -n -e \"'add'\" -e \"usage\" -e \"Usage\" -- tools/standing/commit.py",
+   "n": 260,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:45.956Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/b748_address_scan.txt data/b748_bank_hashes.json data/b748_closing_dry.txt data/b748_commands.json data/b748_commands.txt data/b748_defects.txt data/b748_guard_dry.json data/b748_guard_dry.txt data/b748_hook_refusals.txt data/b748_kernels_face.json data/b748_pathrefusal.txt data/b748_prelock.txt data/b748_prevdry_act.json data/b748_prevdry_standing-a1.json data/b748_prevdry_standing-a2.json data/b748_prevdry_standing-b1.json data/b748_prevdry_standing-b2a.json data/b748_prevdry_standing-b2b.json data/b748_prevdry_standing-b2c.json data/b748_prevdry_standing-b2d.json data/b748_prevdry_standing-b3.json data/b748_prevdry_standing-c.json data/b748_reg_gate.txt data/b748_registration_2026-11-08.txt data/b748_report_dry.txt data/b748_scores_dry.txt data/b748_standing_figures.json data/b748_standing_figures.txt data/b748_steps.json data/b748_stepzero.txt tools/acts/b748.py tools/b748_face.py tools/b748_face_blocks.txt tools/b748_prepaths.py",
+   "n": 261,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:52.460Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 262,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:16:59.799Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 263,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:18:42.532Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 264,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:19:08.086Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
+   "n": 265,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:19:38.144Z",
+   "src": "seat",
+   "cmd": "git status --porcelain --untracked-files=all -- data/b748_* data/audit_b748_* tools/b748_* tools/acts/b748.py tools/standing",
+   "n": 266,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:19:44.279Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
+   "n": 267,
+   "bg": false
   }
  ],
  "offences": [],
@@ -1973,7 +2277,27 @@
   226,
   227,
   228,
-  229
+  229,
+  230,
+  231,
+  233,
+  234,
+  235,
+  236,
+  237,
+  238,
+  239,
+  240,
+  241,
+  242,
+  244,
+  245,
+  247,
+  251,
+  257,
+  263,
+  265,
+  267
  ],
  "moves_deletes": [
   56,

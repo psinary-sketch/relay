@@ -1,7 +1,7 @@
-b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-09T01:17:18Z)
+b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-09T02:21:00Z)
 
 ### the source: the seat`s session 4fe446f7-cbef-42cd-9f79-d5164f63b12d from its first user line carrying 'RULING (R358) BEGIN', with its subagents` transcripts
-### commands read: 229
+### commands read: 267
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (0):
   NONE
@@ -35,7 +35,7 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #175 2026-11-08T23:34:25.268Z cd D:/relay && python -X utf8 -c "import json;j=json.load(open('data/b748_citation_check.json',encoding='utf-8'));print(list(j));print(len(j.get('misses') or []), str(j.get('misses'))[:300])" && git g
   #208 2026-11-09T00:47:50.692Z Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (113):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (133):
   #6 2026-11-08T21:26:21.770Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b748_carry.py acts
   #18 2026-11-08T21:30:09.811Z cd D:/relay && python -X utf8 -c "import json;d=json.load(open('data/act_current.json',encoding='utf-8'));print(d['act'],d['prev_root'][:8],d['chain_row'],len(d['replay']))" && git log -3 --format="%h %s" 22f59d27 && git
   #20 2026-11-08T21:31:44.011Z cd D:/relay && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/b748_address_scan.py scan --bank
@@ -149,6 +149,26 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #227 2026-11-09T01:16:31.922Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record guard --act b748
   #228 2026-11-09T01:16:52.326Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record trail dry --act b748
   #229 2026-11-09T01:17:08.735Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record commands --act b748
+  #230 2026-11-09T01:17:24.438Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part standing-a2 --quiet
+  #231 2026-11-09T01:22:32.767Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py checks --part act --quiet
+  #233 2026-11-09T01:26:40.273Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run act
+  #234 2026-11-09T01:29:19.688Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a1
+  #235 2026-11-09T01:32:36.021Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-a2
+  #236 2026-11-09T01:37:55.785Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b1
+  #237 2026-11-09T01:41:50.304Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2a
+  #238 2026-11-09T01:46:40.968Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2b
+  #239 2026-11-09T01:51:27.201Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2c
+  #240 2026-11-09T01:56:40.682Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b2d
+  #241 2026-11-09T02:02:03.046Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-b3
+  #242 2026-11-09T02:06:50.060Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py run standing-c
+  #244 2026-11-09T02:12:56.779Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record scores dry --act b748
+  #245 2026-11-09T02:13:36.111Z python -X utf8 -c "import textwrap;[print(textwrap.fill(l.rstrip(),200),'\n') for l in open('data/b748_scores_dry.txt',encoding='utf-8') if l.lstrip().startswith(('N2','N5'))]"
+  #247 2026-11-09T02:13:48.762Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --quiet
+  #251 2026-11-09T02:15:25.315Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record findings dry
+  #257 2026-11-09T02:16:19.754Z python -X utf8 -c "L=open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747c4cmds.txt',encoding='utf-8').read().split(chr(10));print(L[119]);print(L[32][:
+  #263 2026-11-09T02:16:59.799Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quie
+  #265 2026-11-09T02:19:08.086Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record
+  #267 2026-11-09T02:19:44.279Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quie
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (5):
   #56 2026-11-08T21:46:25.284Z Bash
@@ -397,5 +417,43 @@ b748 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
   #227 | 2026-11-09T01:16:31.922Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
   #228 | 2026-11-09T01:16:52.326Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
   #229 | 2026-11-09T01:17:08.735Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #230 | 2026-11-09T01:17:24.438Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #231 | 2026-11-09T01:22:32.767Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py check
+  #232 | 2026-11-09T01:26:34.761Z | seat | Bash | python -X utf8 -u tools/standing/prelock.py print b748
+  #233 | 2026-11-09T01:26:40.273Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #234 | 2026-11-09T01:29:19.688Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #235 | 2026-11-09T01:32:36.021Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #236 | 2026-11-09T01:37:55.785Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #237 | 2026-11-09T01:41:50.304Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #238 | 2026-11-09T01:46:40.968Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #239 | 2026-11-09T01:51:27.201Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #240 | 2026-11-09T01:56:40.682Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #241 | 2026-11-09T02:02:03.046Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #242 | 2026-11-09T02:06:50.060Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/prevdry.py ru
+  #243 | 2026-11-09T02:12:33.815Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record closeorder --act b748
+  #244 | 2026-11-09T02:12:56.779Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #245 | 2026-11-09T02:13:36.111Z | seat | Bash | python -X utf8 -c "import textwrap;[print(textwrap.fill(l.rstrip(),200),'\n') for l in open('data/b748_scores_dry.txt',encoding='utf-8') if l.lstrip().startswit
+  #246 | 2026-11-09T02:13:43.431Z | seat | Bash | git grep -n -e "sys.argv" -e "def main" -e "prelock.txt" -- tools/standing/prelock.py
+  #247 | 2026-11-09T02:13:48.762Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_g
+  #248 | 2026-11-09T02:15:03.227Z | seat | Bash | git grep -n -c "" -- data/b748_rules.txt data/b747_rules.txt && git grep -n -i -e "VERDICT" -e "^THE RULES" -- data/b747_rules.txt data/b748_rules.txt
+  #249 | 2026-11-09T02:15:07.312Z | seat | Bash | git grep -n -e "_rules.txt): " -- data/b747_reg_gate.txt data/b746_reg_gate.txt
+  #250 | 2026-11-09T02:15:12.320Z | seat | Bash | python -X utf8 -u tools/standing/fold.py record drycheck data/b748_registration_2026-11-08.txt standin --act b748 --quiet
+  #251 | 2026-11-09T02:15:25.315Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #252 | 2026-11-09T02:15:43.887Z | seat | Bash | git grep -n -e "questions put before the root" -- tools/standing/fold/record.tpl tools/acts/b748.py tools/acts/b747.py
+  #253 | 2026-11-09T02:15:47.790Z | seat | Bash | git grep -n -e "questions put" -- tools/standing tools/acts/b748.py tools/acts/b747.py
+  #254 | 2026-11-09T02:15:52.701Z | seat | Bash | git grep -n -e "put before the root" -e "before the root'" -- tools/standing/fold/record.tpl && git grep -n "questions put before" -- data/FINDINGS.md data/b747
+  #255 | 2026-11-09T02:16:02.310Z | seat | Bash | cd /d/MY-DOwnloads/PLACE-papers && git grep -n -o -E "Filed at b74[67] on the author.{0,60}" -- FINDINGS.md
+  #256 | 2026-11-09T02:16:07.771Z | seat | Bash | cd /d/relay && git status --porcelain --untracked-files=all
+  #257 | 2026-11-09T02:16:19.754Z | seat | Bash | python -X utf8 -c "L=open(r'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/4fe446f7-cbef-42cd-9f79-d5164f63b12d/scratchpad/b747c4cmds.txt',encodin
+  #258 | 2026-11-09T02:16:24.228Z | seat | Bash | git log --format=%h%x20%s -n 12 --grep="^b747 gate" 7d34b587
+  #259 | 2026-11-09T02:16:27.944Z | seat | Bash | git show --name-status --format=%h f2dd38e0
+  #260 | 2026-11-09T02:16:34.981Z | seat | Bash | git grep -n -e "'add'" -e "usage" -e "Usage" -- tools/standing/commit.py
+  #261 | 2026-11-09T02:16:45.956Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay add data/b748_address_scan.txt data/b748_bank_hashes.json data/b748_closing_dry.txt data/b748_commands.json dat
+  #262 | 2026-11-09T02:16:52.460Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate
+  #263 | 2026-11-09T02:16:59.799Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_g
+  #264 | 2026-11-09T02:18:42.532Z | seat | Bash | python -X utf8 -u tools/standing/commit.py relay gate
+  #265 | 2026-11-09T02:19:08.086Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py recor
+  #266 | 2026-11-09T02:19:38.144Z | seat | Bash | git status --porcelain --untracked-files=all -- data/b748_* data/audit_b748_* tools/b748_* tools/acts/b748.py tools/standing
+  #267 | 2026-11-09T02:19:44.279Z | seat | Bash | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())" && python -X utf8 -u tools/standing/fold.py reg_g
 
-### ### **COMMANDS 229 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 113 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 267 ; G-EDIT-ROUTE OFFENCES 0 (SED IN ANY FORM AMONG THEM 0) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 26 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 1 ; sed COMMANDS 0 ; REDIRECTS ONTO /dev/null 0 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 1 ; PIPES OF ANY KIND 3 ; ONE-LINE PROGRAMS 133 ; MOVE OR DELETE COMMANDS 5 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 5 OF 5 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
