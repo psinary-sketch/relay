@@ -220,7 +220,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'b750, the synthesis sitting as the author named it at b748`s root ((R359)(7)): the front-door items, the 1.5c-21 dated note and the stages` canon text; then the paper`s section 5; then the attribution order`s plan act'
+NEXT = 'b750, the synthesis sitting as the author named it at b748`s root ((R359)(7)): the front-door items, the 1.5c-21 dated note and the canon text of the stages; then the paper`s section 5; then the attribution order`s plan act'
 NEXT_ACT = 'b750'
 
 
@@ -335,7 +335,7 @@ SITTING_PP = ()       # ### no sitting this act
 SITTING_KERNEL = None # ### no kernel written this act ((R359)(5))
 SITTING_GH = ()       # ### no description written
 SITTING_ITEMS = 0
-C3_RELAY = ()              # ### Component 3 ((R359)(4)): the line's bank data/b749_line.txt; set after made
+C3_RELAY = ('d23bd721',)   # ### Component 3 ((R359)(4)): the line's bank data/b749_line.txt by tools/b749_line.py; step row 11
 ZENODO_BANK = 'data/b749_zenodo_readback.txt'   # ### (R359)(5): the one GET's bank
 ROUTES_BANK = 'data/b747_zenodo_routes.txt'     # ### b747's routes bank, read not written
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### (R359)(4): data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)
