@@ -1,0 +1,190 @@
+{
+ "at": "2026-11-09T14:25:08Z",
+ "entry_line": 14431,
+ "title": "## Corrigendum to b748’s record (relay data/b748_events.txt rows (1)-(5) and data/b748_defects.txt): five events and eighteen defects, each CLAIM or CLOSE and NEW or REPEAT; one call of the tool per message, the per-commit scan’s own bank, no commit without the scan, the record’s readers refusing a missing path, the carry row by row and the kept row by the tool, a prior act’s log by its step rows, the retry rule, the refusals, at tools/standing/ v1.29.0, each controlled, under (R359)(3)",
+ "claim": 3,
+ "close": 20,
+ "repeat": 11,
+ "items": 23,
+ "events": [
+  {
+   "row": 1,
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (READ rows :1-:4, :8, :10)"
+  },
+  {
+   "row": 2,
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "row": 3,
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b745 (transient ls-remote)"
+  },
+  {
+   "row": 4,
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b745 (transient ls-remote)"
+  },
+  {
+   "row": 5,
+   "owner": "THE SEAT'S",
+   "tag": "CLAIM",
+   "column": "NEW"
+  }
+ ],
+ "entered": [],
+ "flipped": {},
+ "defects": [
+  {
+   "letter": "a",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b747 (c)"
+  },
+  {
+   "letter": "b",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "c",
+   "owner": "THE SEAT'S",
+   "tag": "CLAIM",
+   "column": "REPEAT b747 (d)"
+  },
+  {
+   "letter": "d",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "e",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (a)"
+  },
+  {
+   "letter": "f",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (e)"
+  },
+  {
+   "letter": "g",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "h",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b747 (k)"
+  },
+  {
+   "letter": "i",
+   "owner": "THE NAVIGATOR'S",
+   "tag": "CLAIM",
+   "column": "NEW"
+  },
+  {
+   "letter": "j",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "k",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "l",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (g)"
+  },
+  {
+   "letter": "m",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (e)"
+  },
+  {
+   "letter": "n",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "o",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "p",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "REPEAT b748 (m)"
+  },
+  {
+   "letter": "q",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  },
+  {
+   "letter": "r",
+   "owner": "THE SEAT'S",
+   "tag": "CLOSE",
+   "column": "NEW"
+  }
+ ],
+ "lettered": [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r"
+ ],
+ "records": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "notes": [
+  "Dated note, b749, to `(R359)`(3)(i) and (iii): from relay 921ac933 the hook refuses a git write by plain git (PLAINGIT) and records every shell call with its message’s request stamp, and the one-call tool reads that record before it writes; b749’s own writes after that commit run through the tool alone (relay data/b749_standing_v1290.txt, the (calls) and (plain) blocks).",
+  "Dated note, b749, to `(R359)`(3)(ii): the act’s scan bank is written once at its step and the post-lock bank after the lock; the scan before each commit lands in data/b749_address_scan_commits.txt, an excluded kind of the root route, so the root’s dry run reads the committed banks with no restore (relay data/b749_standing_v1290.txt, the (scanbank) block)."
+ ],
+ "repairs": {
+  "version": "v1.29.0",
+  "bank": "data/b749_standing_v1290.txt",
+  "rules": "data/b749_rules.txt"
+ },
+ "row": 69
+}

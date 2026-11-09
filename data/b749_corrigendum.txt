@@ -1,0 +1,68 @@
+b749 -- THE CORRIGENDUM FOR b748, (R359)(3) (2026-11-09T14:25:08Z)
+
+### the banks read unedited: data/b748_events.txt rows (1)-(5), data/b748_defects.txt 18 rows, data/b748_hook_refusals.txt 13 lines at 71bc497a; data/b749_standing_v1290.txt (the v1.29.0 controls); data/b749_rules.txt; the corrigenda bank`s last row (68).
+
+  *b748’s events bank (relay data/b748_events.txt) carries five rows, entered after its lock and not lettered, each tagged in its own bracket (5 the seat’s); its defects bank eighteen lettered rows, (a)-(r), each tagged in its own bracket (17 the seat’s, 1 the navigator’s), (i) the navigator’s; its refusal bank thirteen lines at 71bc497a, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them.*
+  
+  **The repairs of `(R359)`(3), at tools/standing/ v1.29.0, each with a control on b748’s banks or the trail as it stands, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b749_standing_v1290.txt, 29 cases, AS WANTED 29; the rules relay data/b749_rules.txt):
+  
+  **(calls) one call of the tool per message (`(R359)`(3)(i), event (2), defects (d), (k))** -- the hook records each shell call with its message’s request stamp; commit.py refuses a call while another git write was allowed in the same message, the bare add counted. b748’s root message replayed, the second call refused after and not before (relay data/b749_standing_v1290.txt :20).
+  
+  **(scanbank) the per-commit scan’s own bank (`(R359)`(3)(ii), defect (r))** -- the scan before each commit runs without --bank and appends to data/<act>_address_scan_commits.txt; the act’s scan bank, which the root names, unchanged across a commit. The route before passed --bank and b748’s gate commits carried the rewritten bank (relay data/b749_standing_v1290.txt :45).
+  
+  **(plain) no commit without the scan (`(R359)`(3)(iii), defects (b), (d))** -- run() takes no scanner=False and the hook refuses a git write by plain git. be4a5a0d’s plain add and a plain commit allowed before, refused after; a scratch commit with the scan skipped committed before, refused after (relay data/b749_standing_v1290.txt :61).
+  
+  **(reader) the record’s readers refuse a missing path (`(R359)`(3)(iv), defect (j))** -- relaypath.rows_of and grep_of refuse a file the repository does not hold, printing it, and print each read’s rows and count. The grep of CLUSTERS.md read NONE before, refused after; SPIRAL_MAP :264-:286 read with its 23 rows (relay data/b749_standing_v1290.txt :91).
+  
+  **(carry) the carry row by row, the kept row by the tool (`(R359)`(3)(v), defects (c), (n), (o))** -- carry.py ruled prints each carried citation row and refuses (R4) a commit the ruling does not name; carry.py kept writes the KEPT row from the branch listing. b748’s carried sections refused 0 before, 3 after; port-b707 absent from the hand row, named in the tool’s (relay data/b749_standing_v1290.txt :104).
+  
+  **(log) a prior act’s log by its step rows (`(R359)`(3)(vi), defects (g), (l))** -- tools/standing/actlog.py takes a prior act’s commits from its step bank, to its lock. b747’s gate commits 3 by grep (88f39b22 absent) before, 6 after; its step-rows commits 7 by grep with 0c118109 before, 3 without it after (relay data/b749_standing_v1290.txt :121).
+  
+  **(retry) the remote-read retry (`(R359)`(3)(viii), events (3), (4))** -- each retry an event with two timings; a reader failing twice on one repository runs alone before the part is re-run (relay data/b749_rules.txt (8), :19).
+  
+  **(refusals) the hook’s refusals and the gate before its bank (`(R359)`(3)(vii), (x), REPEAT)** -- the instances printed from b748’s refusal bank, thirteen lines, each recorded by a row; (q) printed (relay data/b749_rules.txt (10), :23).
+  
+  **(version) the version (`(R359)`(3)(xi))** -- tools/standing/VERSION v1.29.0, landed by a commit of its own (921ac933) with its controls bank and the record’s dry over it, before the gate (relay data/b749_standing_v1290.txt :132).
+  
+  **b748’s events (1)-(5):**
+  
+  **(1)** a Read of the scratch reader rootprompt747.py was sent with no limit; the harness hook REFUSED (READ; … (relay data/b748_events.txt, row (1); the seat’s; CLOSE; REPEAT of b748 (READ rows :1-:4, :8, :10); repair (refusals), `(R359)`(3)(x), REPEAT, the instance printed).
+  **(2)** the relay add of the root banks and the root commit were sent in one message as two parallel calls; the add ran, and … (relay data/b748_events.txt, row (2); the seat’s; CLOSE; NEW; repair (calls), `(R359)`(3)(i): the one-call tool refuses a call while another git write landed in the same message, the bare add counted).
+  **(3)** the part standing-a1 retried the remote read of SIDE-faces-join (32.60 s, then 7.39 s); the tool classed the retry as … (relay data/b748_events.txt, row (3); the seat’s; CLOSE; REPEAT of b745 (transient ls-remote); the retry rule, `(R359)`(3)(viii): each retry an event with two timings (relay data/b749_rules.txt (8))).
+  **(4)** the first run of the part standing-a2 retried the remote reads of SIDE-interfaces (11.14 s, 0.17 s), SIDE-kernel (0.07 … (relay data/b748_events.txt, row (4); the seat’s; CLOSE; REPEAT of b745 (transient ls-remote); the retry rule, `(R359)`(3)(viii): a reader failing twice on one repository runs alone before the part is re-run).
+  **(5)** the scores written before the root (data/b748\_scores.json) read N3, S1 and S2 PENDING (N3 waiting on the root prompt, … (relay data/b748_events.txt, row (5); the seat’s; CLAIM; NEW; `(R359)`(3)(ix): no change, the close reads once).
+  
+  **b748’s defects:**
+  
+  **(a)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b747 (c); repair (refusals), `(R359)`(3)(x), REPEAT).
+  **(b)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (plain), `(R359)`(3)(iii): the commit tool runs the scan itself, a commit without it refused).
+  **(c)** (relay data/b748_defects.txt; the seat’s; CLAIM; REPEAT of b747 (d); repair (carry), `(R359)`(3)(v): the carry prints every carried row beside the ruling and refuses an unnamed one).
+  **(d)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (calls), `(R359)`(3)(i): the bare add is a git write).
+  **(e)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b748 (a); repair (refusals), `(R359)`(3)(x), REPEAT).
+  **(f)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b748 (e); repair (refusals), `(R359)`(3)(x), REPEAT).
+  **(g)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (log), `(R359)`(3)(vi): a prior act’s log read to its lock, its commits by step rows).
+  **(h)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b747 (k); the tool’s own refusal as designed, no repair).
+  **(i)** (relay data/b748_defects.txt; the navigator’s; CLAIM; NEW; the navigator’s, entered as the navigator’s).
+  **(j)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (reader), `(R359)`(3)(iv): every reader of the record refuses a nonexistent path and prints it).
+  **(k)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (calls), `(R359)`(3)(i)).
+  **(l)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b748 (g); repair (log), `(R359)`(3)(vi)).
+  **(m)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b748 (e); repair (refusals), `(R359)`(3)(x), REPEAT).
+  **(n)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (carry), `(R359)`(3)(v)).
+  **(o)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (carry), `(R359)`(3)(v): the step-zero KEPT row written by the tool from the branch listing).
+  **(p)** (relay data/b748_defects.txt; the seat’s; CLOSE; REPEAT of b748 (m); repair (refusals), `(R359)`(3)(x), REPEAT).
+  **(q)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; `(R359)`(3)(vii): the gate sent before its bank, the instance printed (REPEAT)).
+  **(r)** (relay data/b748_defects.txt; the seat’s; CLOSE; NEW; repair (scanbank), `(R359)`(3)(ii): the per-commit scan writes its own appended bank).
+  
+  **b748’s refusals** (relay data/b748_hook_refusals.txt at 71bc497a, one a line): :1 READ 21:25:10Z, recorded at defect (a); :2 READ 21:25:42Z, recorded at defect (a); :3 READ 21:25:43Z, recorded at defect (a); :4 READ 21:53:58Z, recorded at defect (e); :5 PIPE 21:56:03Z, recorded at defect (e); :6 REDIR 21:56:41Z, recorded at defect (e); :7 ENV 22:13:36Z, recorded at defect (f); :8 READ 23:33:24Z, recorded at defect (m); :9 PIPE 23:34:25Z, recorded at defect (m); :10 READ 00:15:50Z, recorded at defect (p); :11 PIPE 00:47:50Z, recorded at defect (p); :12 READ 03:56:06Z, recorded at event (1); :13 GITWRITE 04:12:16Z, recorded at event (2).
+  
+  **Dated notes:**
+  
+  Dated note, b749, to `(R359)`(3)(i) and (iii): from relay 921ac933 the hook refuses a git write by plain git (PLAINGIT) and records every shell call with its message’s request stamp, and the one-call tool reads that record before it writes; b749’s own writes after that commit run through the tool alone (relay data/b749_standing_v1290.txt, the (calls) and (plain) blocks).
+  
+  Dated note, b749, to `(R359)`(3)(ii): the act’s scan bank is written once at its step and the post-lock bank after the lock; the scan before each commit lands in data/b749_address_scan_commits.txt, an excluded kind of the root route, so the root’s dry run reads the committed banks with no restore (relay data/b749_standing_v1290.txt, the (scanbank) block).
+  
+  **The counter:** CLAIM 3, CLOSE 20, REPEAT 11 of 23 over the 23 items as the banks tag them (five events, eighteen defects), as b748’s closing prints it (relay data/b748_closing.txt :5); no tag is read otherwise here; the CLAIM items (5), (c), (i).
+  
+  *Filed at b749 on the author’s ruling `(R359)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b749.py) from b748’s events and defects banks read unedited, its refusal bank, the v1.29.0 controls bank and the rules; banked as relay `data/b749_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (69). It answers b748’s record; no sealed tool, face, trail or root-named bank of b748 is edited.*
+
+### ### **ITEMS 23: EVENTS 5, DEFECTS 18 ; CLAIM 3, CLOSE 20 ; REPEAT 11 ; THE NAVIGATOR`S 1 ; DATED NOTES 2 ; v1.29.0: ONE CALL OF THE TOOL PER MESSAGE, THE PER-COMMIT SCAN`S OWN BANK, NO COMMIT WITHOUT THE SCAN, THE RECORD`S READERS REFUSING A MISSING PATH, THE CARRY ROW BY ROW AND THE KEPT ROW BY THE TOOL, A PRIOR ACT`S LOG BY STEP ROWS, THE RETRY RULE, THE REFUSALS, THE VERSION ; THE ENTRY AT FINDINGS :14431.**
