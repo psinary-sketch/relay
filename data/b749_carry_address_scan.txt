@@ -1,0 +1,49 @@
+b749 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b748_address_scan.py -> tools/b749_address_scan.py (2026-11-09T13:52:31Z)
+
+### the substitution alone (b748 -> b749, b747 -> b748, R358 -> R359, R357 -> R358); 266 lines, 15 changed
+### SHIFTED PAST WHAT EXISTS: :2 b749_address_scan; :264 b749_address_scan
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b748_address_scan.py
+  +++ tools/b749_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b748_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b748 (data/b748_carry_address_scan.txt), its carry-time repairs and the author's word at b748's Component 1 marked ### b748.
+  -### b748, the carry's note: this file is tools/b747_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b748_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :50, :66, :68, :138-:139, :225, :250, numbered in b747's file) kept; the two comment notes it shifted
+  -### (b747's and b746's, here :7-:12) set back by the Edit tool to b747's text before any run.
+  -### b747, the carry's note: this file is tools/b746_address_scan.py carried by tools/b747_carry.py's whole-file shift (data/b747_carry_address_scan.txt);
+  +"""b749_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b749 (data/b749_carry_address_scan.txt), its carry-time repairs and the author's word at b749's Component 1 marked ### b749.
+  +### b749, the carry's note: this file is tools/b748_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b749_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :50, :66, :68, :138-:139, :225, :250, numbered in b748's file) kept; the two comment notes it shifted
+  +### (b748's and b746's, here :7-:12) set back by the Edit tool to b748's text before any run.
+  +### b748, the carry's note: this file is tools/b746_address_scan.py carried by tools/b748_carry.py's whole-file shift (data/b748_carry_address_scan.txt);
+  @@ -53,1 +53,1 @@
+  -                  --bank writes data/b748_address_scan.txt.
+  +                  --bank writes data/b749_address_scan.txt.
+  @@ -69,1 +69,1 @@
+  -import b748_worklist as K   # noqa: E402
+  +import b749_worklist as K   # noqa: E402
+  @@ -71,1 +71,1 @@
+  -ACT = 'b748'
+  +ACT = 'b749'
+  @@ -141,2 +141,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b748_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b748_kernel_bases.json'), encoding='utf-8')).items()))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b749_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b749_kernel_bases.json'), encoding='utf-8')).items()))
+  @@ -173,1 +173,1 @@
+  -        # ### b748, (R358)(3)(ii): the index read as its own kind (the staged set, HEAD to the index) and the working tree apart (the index to the
+  +        # ### b749, (R359)(3)(ii): the index read as its own kind (the staged set, HEAD to the index) and the working tree apart (the index to the
+  @@ -188,1 +188,1 @@
+  -    # ### b748, (R358)(3)(ii): the act's untracked tools (its own under tools/, its module, a new standing tool), which no kind read before their add
+  +    # ### b749, (R359)(3)(ii): the act's untracked tools (its own under tools/, its module, a new standing tool), which no kind read before their add
+  @@ -239,1 +239,1 @@
+  -    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R358)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  +    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R359)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  @@ -264,1 +264,1 @@
+  -        sys.exit('usage: b748_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b749_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b749_address_scan.py ; LINES 266 ; CHANGED 15 ; SHIFTED 2 (WRITTEN BY --shifted)**

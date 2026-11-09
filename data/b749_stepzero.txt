@@ -1,0 +1,102 @@
+b749 -- STEP ZERO, (R359)(5) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, THE PRICE TABLE AND THE STEP-ZERO DEFECTS (2026-11-09)
+
+## IN ORDER
+  the ruling and the ferry received in full (RULING (R359) BEGIN to END + FERRY, part 1 of 1, BEGIN to END), confirmed before acting; a new session
+    (6151c0de) after the author cleared the context; b748 ran in 4fe446f7
+  THE PROCESS LISTING FIRST: 13:52:01Z claude 1 (29972, this seat), python 1 (the listing's own), lean 0, lake 0, node 0, bash 3 (the seat's shells);
+    free 2698 MB against the hold 2560 MET (no pipe; scratch proclist749.py)
+  THE CARRY, before any write of the relay ((R359)(5)): tools/b749_carry.py from tools/b748_carry.py by the scratch carrycarry749.py; tools/acts/b749.py
+    and tools/b749_worklist.py carried (data/b749_carry_acts.txt, data/b749_carry_worklist.txt) -- FIRST WITH A DEFECTIVE SUBS LINE and carried again
+    (defect (b) below); tools/b749_address_scan.py carried by tools/standing/carry.py with b749's four pairs and --shifted (data/b749_carry_address_scan.txt),
+    its two shifted self-notes and b748's two repair-note comments (:173, :188 of b748's file) set back, a three-line b749 note added, the functional lines
+    :2, :3, :53, :69, :71, :141-:142, :239, :264 (b748's numbering) shifted
+  data/b749_ferry.txt from the transcript (scratch ferry749.py, 19,986 characters, 'RULING (R359) BEGIN' to 'FERRY END (part 1 of 1)')
+  `carry.py ruled b749 b748 data/b749_ferry.txt`: REFUSED 7 on R1 (B714_CLOSING, B718_PP_HEAD, B718_RELAY_HEAD, PRE_PP, PRE_PP_REMOTE_AT_START, PRE_RELAY,
+    PRE_RELAY_REMOTE_AT_START, each naming b748's start) until the worklist's stage one was set; on the corrected carry, REFUSED 0 over 130 carried sections
+  THE WORKLIST'S STAGE ONE (scratch wl749b.py, 55 constants replaced whole by name): PRE_* heads 71bc497a and 7c4b8d2; b748's ledger lines FINDINGS
+    :14387/:14301/:14303 and OPEN_TRAILS :17990/:18002/:18016/:18030; b748's closing 71bc497a, record 7a8fe14f, root d5c6554c and root commit bace7cfd;
+    NEXT_ACT b750; the standing version v1.28.1 entering, v1.29.0 to land; the step-zero commits 1178e7e3 and 103d3e67; the section banks b748's, read not
+    written; the integration draft b746's (md5 9e760351); the component commits cleared to None; the session and scratchpad names
+  data/act_current.json for b749 (act b749, prev b748, next b750, R359, chain row 126 from 125 rows, prev root d5c6554c, verify b624-b748, five components
+    as the ferry orders them, b748 added to the replay) committed alone through the one-call tool, the add its own message: relay 1178e7e3 (13:57:09Z), the
+    scan in the commit's call 0 ; 0 ; 0 ; 0 over 192 places, CONTROLS 7 OF 7; row step 1
+  THE CARRIED FILES, each alone through the one-call tool: b748's closing push capture data/b748_relay_push-b748-closing_push_out.txt: relay 103d3e67
+    (13:57:59Z), the scan in the call 0 ; 0 ; 0 ; 0 over 197 places; row step 2. tools/mirror_prevbuild.json: its working copy equal to HEAD's blob with
+    its 80 CRs removed (3963 bytes against 3883), nothing a commit could carry; restored through the tool (`commit.py relay restore`)
+  A THIRD UNCOMMITTED FILE OF b748, NOT NAMED BY (R359)(3): data/b748_address_scan_postlock.txt carried a 35-line run appended after its pushed blob
+    (349 lines at 71bc497a): "## THE RUN AFTER THE LOCK, 2026-11-09T05:33:22Z", the scan of b748's closing step-row commit, its foot
+    "PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 304 ; CONTROLS 7 OF 7 AS WANTED ; 10 s.", places by kind:
+    commit added lines, fields and messages 86 each, staged added lines 3, untracked banks 40, working tree added lines 3, none with an occurrence.
+    The bank is pushed at 71bc497a; committing the append would rewrite a pushed bank (N4), and (R359)(3) names two carried files, not this one. The run is
+    quoted here and the file restored to its pushed blob through the tool (defect (c) below)
+  THE CITATION SECTIONS 1 AND 4 rewritten for (R359) by the scratch splice749.py before the check (defect (d) below): 90 and 41 lines
+  THE CITATION CHECK, BEFORE ANY DELETE: dry, then banked: 142 cites, 142 OK, 0 MISSES; Lean-path rows 0; THE COMPARATIVE READ VACUOUS: banks 4, words 0,
+    rows 0 (a vacuous pass, not evidence: none of the four banks exists yet); THE CHECK CLEAN (data/b749_citation_check.txt)
+  THE READFIRST BANK BY THE TOOL: tools/standing/readfirst.py write b749, ferry rows 11, own rows 6 (data/b749_readfirst_rows.json written by the Write tool
+    first); every path in it printed from the tree by the citation check's rows or the seat's readers before the bank cites it
+  ROWGEN DIFF AND CONSTELLATION: data/b749_rowgen_stepzero.txt, constellation exit 0, rowgen diff exit 0, tables 19, re-pointed 8, STALE 0; run once
+  THE --MERGED LISTING, PRINTED BEFORE THE DELETES, in the arm's form (`git -C <repo> branch --merged main --list "push-b748-*"`): relay: push-b748-closing,
+    push-b748-preroot, push-b748-record; PLACE-papers: push-b748-preroot, push-b748-record
+  THE DELETES, AFTER THE CHECK CLEAN, ONE PER MESSAGE, through the one-call tool's delete route (`commit.py <repo> delete <branch>`, `git branch -d`):
+    relay push-b748-closing (was 71bc497a), push-b748-preroot (was 57cf7f55), push-b748-record (was 9475a886); PLACE-papers push-b748-preroot (was aa6736a),
+    push-b748-record (was 7c4b8d2); five deleted, none forced
+    KEPT as banked (read by the seat's reader from each repository's branch listing, rev-parse by name; the tool's form of this row lands with (R359)(3)(v)):
+    port-b707 of SIDE-lv-conservation (cb0aea56); challenge-b720-h2-sign-iff-rh (33916475), keiper-b725 (01fd33c2), c2-b725 (0395f15d), detect-b729
+    (1023301c), zq-b730 (1e658870, past v0.38) of SIDE-explicit-formula; scratch-b724 of SIDE-lv-conservation (c9cd1ea9); rebuild-b721 on SIDE-kernel
+    (c683fcd7), SIDE-lv-conservation (93c27ec2), SIDE-archimedean (610cbdf9), SIDE-frobenius (b4ef3958), SIDE-spinor (526727ef), SIDE-rcurve (f3a5ae54);
+    pin-b718-de5ce8a9 on SIDE-archimedean (fda6055a), SIDE-grh-transfer (684ed8ae), SIDE-interfaces (c9328e6c), SIDE-kernel (fe85c518), SIDE-lv-conservation
+    (9e2bd31e), SIDE-rcurve (648f3f5f), SIDE-simplicity (4ba55671), SIDE-spinor (5a906a62), SIDE-trivium (ece94ca8); none deleted
+
+## GIT STATUS AND THE SCAN
+  relay: no tracked change; the b749 banks and tools untracked as listed in the commit below; the carried untracked residue of earlier acts (not this act's, not touched)
+  PLACE-papers: no tracked change; its two untracked strays of earlier acts (.githooks/pre-push.b304-backup, internal/BLOB_SENSITIVITY_2026-08-29.md) untouched
+  THE SCAN, three targets and the ORCID: run over the staged set by the commit tool at the commit below
+  NO BUILD on this host; no lean process; no dispatch this act.
+
+## THE PRICE TABLE ((R359)(5), clause | the work | the price | its source)
+  Each price is the seat's estimate, a range. Act begun 13:52Z (the listing); this table about 14:12Z, 0.35 h spent.
+  (1)          the weight line | 0.1-0.2 h | b748's Component 1
+  (3)(i)       the one-call tool refusing a call while another call of it landed in the same message, reading the message id the hook records; the
+               add a git write in data/b749_rules.txt; control b748's root message replayed to a refusal of the second call | 0.6-1.2 h | data/b748_events.txt (2)
+  (3)(ii)      the per-commit scan to its own appended bank (data/b749_address_scan_commits.txt), the step's bank written once, the post-lock bank after the
+               lock; control b748's gate commits replayed with the root dry reading ready | 0.5-1.0 h | data/b748_defects.txt (r)
+  (3)(iii)     the commit tool running the scan itself, a commit without it refused; control be4a5a0d's sequence replayed to a refusal | 0.2-0.4 h | (b)
+  (3)(iv)      every reader of the record refusing a path that resolves to no file; control CLUSTERS.md replayed to a refusal, SPIRAL_MAP :264-:286 with its
+               row count | 0.3-0.6 h | data/b748_defects.txt (j)
+  (3)(v)       the carry printing every carried row and figure and refusing those the ruling does not name; the KEPT row written by the tool from the
+               branch listing; control b748's carried sections replayed to a refusal | 0.4-0.8 h | (c), (n), (o)
+  (3)(vi)      a control reading a prior act's log to that act's lock and choosing commits by step rows; control the (gate) and (rows) cases replayed | 0.3-0.6 h | (g), (l)
+  (3)(vii)     the gate sent before its bank: as refused by v1.28.0, the instance printed | 0.1 h | (q)
+  (3)(viii)    each remote-read retry an event with two timings; the standing clause in data/b749_rules.txt | 0.1-0.2 h | events (3), (4)
+  (3)(ix)      the record's PENDING readings: no change | 0.0-0.1 h | events (5)
+  (3)(x)       the hook's refusals printed | 0.1 h | (a), (e), (f), (m), (p), events (1)
+  (3)(xi)      the standing version v1.29.0 landed by a commit of its own with its controls bank, tallied | 0.3-0.6 h
+  (3) SUM      2.9-5.9 h
+  (2)          the plan bank (rows verbatim, the title, the records not touched, the one call, the expected read-back, the reason) 0.3-0.5 h; [Z1] put, the
+               author's word banked (the author's time); on the pass the re-read GET compared row by row, the one DELETE, the two read-back GETs, each bank
+               scanned and committed 0.4-0.8 h; REGISTRY d1-1's dated note by the one-call tool 0.2-0.4 h | 0.9-1.7 h | data/b747_zenodo_readback.txt, tools/b747_zenodo.py
+  (4)          the INTEGRATION line for this act's entry from REGISTRY d1-1 and SPIRAL_MAP; the carried items named to b750 | 0.2-0.4 h
+  THE CLOSE    2.5-5.0 h | b748's run, the parts one at a time in the foreground and the post-push suite
+  THE SUM      step zero 0.35 + (1) 0.1-0.2 + (3) 2.9-5.9 + (2) 0.9-1.7 + (4) 0.2-0.4 + the close 2.5-5.0 = 7.0-13.6 h
+
+## WHAT RUNS AND WHAT IS CARRIED
+  (3) whole before (2); the plan bank committed before any API call; [Z1]'s answer banked before the delete; no Lean file, no dispatch, no lean process on
+  this host (N1); the Zenodo calls the GETs and, on the author's pass at [Z1], the one DELETE of the unpublished deposition 23228113 (N5).
+
+## THE STEP-ZERO DEFECTS
+  (a) THE SEAT'S [CLOSE ; REPEAT b748 (a)]: the hook refused the seat's own calls five times at step zero (data/b749_hook_refusals.txt :1-:5): two Bash
+      readings of the memory notes and the relay's listings carrying a pipe through head (13:50:43Z, 13:50:44Z); a Read of data/b748_commands.txt with a
+      limit and no offset on 489 lines (13:51:08Z); a Read of tools/standing/commit.py with limit 311 (13:56:33Z); a Read of data/b747_zenodo_readback.txt
+      with no limit (14:03:56Z); each refused before it ran, each re-sent in the permitted form
+  (b) THE SEAT'S [CLAIM ; NEW]: the scratch carrycarry749.py shifted tools/b748_carry.py with three-step pairs that left its own SUBS table at
+      (b748 -> b749, b746 -> b748, R358 -> R359, R356 -> R358); the act module and the worklist carried through it kept b747's names unshifted and moved
+      b746's to b748 (330 and 96 lines changed against 467 and 143 on the corrected carry); act_current's commit 1178e7e3 says "the carry run before it
+      (REFUSED 0 beside the ruling)", read against that faulty carry. Found reading citation section 8 before either file was committed; the four
+      untracked files (tools/acts/b749.py, tools/b749_worklist.py, data/b749_carry_acts.txt, data/b749_carry_worklist.txt) deleted by absolute path,
+      the SUBS line and its header notes set by hand to (b748 -> b749, b747 -> b748, R358 -> R359, R357 -> R358), both carried again, the stage one set
+      again by name, and the ruled carry run again: REFUSED 0 over 130 carried sections. The commit's words stand as written; this row is their correction
+  (c) THE SEAT'S [CLOSE ; NEW]: b748's close ran the scan of its closing step-row commit at 05:33:22Z and appended it to data/b748_address_scan_postlock.txt
+      after the bank's last commit, so a pushed bank stood modified and uncommitted; b748's progress note named two carried files and not this one.
+      Quoted above and restored to the pushed blob through the tool; the repair (R359)(3)(ii) orders gives every per-commit scan its own appended bank
+  (d) THE SEAT'S [CLAIM ; REPEAT b748 (c)]: tools/acts/b749.py's citation sections 1 and 4 came from the carry holding b748's rows for (R358) under b749's
+      names (b747's closing at 7d34b587, §3 and §4 rows, v1.27.1 entering); rewritten for (R359) before the citation check
