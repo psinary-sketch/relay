@@ -1,5 +1,5 @@
 {
- "at": "2026-11-09T02:21:00Z",
+ "at": "2026-11-09T02:22:16Z",
  "anchor": "RULING (R358) BEGIN",
  "rows": [
   {
@@ -2137,6 +2137,30 @@
    "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py reg_gate data/b748_registration_2026-11-08.txt --bank-only --quiet && python -X utf8 -u tools/standing/fold.py record gatebanks",
    "n": 267,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:21:26.402Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/audit_b748_reg_satisfiable.txt data/b748_address_scan.txt data/b748_census_stepzero.txt data/b748_closing_dry.txt data/b748_commands.json data/b748_commands.txt data/b748_defects.txt data/b748_faces_census_stepzero.txt data/b748_pins_stepzero.txt data/b748_reg_gate.txt data/b748_reg_termscan.txt data/b748_regspec_run.txt data/b748_report_dry.txt data/b748_satisfiable.json data/b748_steps.json",
+   "n": 268,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:21:32.038Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 269,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-09T02:21:53.394Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\" && python -X utf8 -u tools/standing/fold.py record rootdry && python -X utf8 -u tools/standing/fold.py record commands",
+   "n": 270,
+   "bg": false
   }
  ],
  "offences": [],
@@ -2297,7 +2321,8 @@
   257,
   263,
   265,
-  267
+  267,
+  270
  ],
  "moves_deletes": [
   56,
