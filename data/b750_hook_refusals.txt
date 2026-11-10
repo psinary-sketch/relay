@@ -13,3 +13,7 @@
 2026-11-10T02:07:33Z | READ | Read | "D:\\relay\\tools\\b749_prepaths.py" | a Read call with no limit
 2026-11-10T03:31:16Z | PIPE | PowerShell | "Get-ChildItem data/b750_prevdry_*, data/b750_scores_dry*, data/b750_report_dry*, tools/acts/b750.py -ErrorAction SilentlyContinue | Format-Table Name, LastWriteTime, Length -AutoSize" | a PowerShell command carrying a pipe outside quotes
 2026-11-10T04:32:16Z | REDIR | Bash | "git show 046df3a4 --stat --format=\"%h %s\" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n \"address_scan.txt\\|READY\" 046df3a4 -- data/b749_root_banks_dry.txt" | a Bash command carrying a redirect outside quotes
+2026-11-10T04:36:58Z | LOCKED | Edit | null | a Edit of a bank written before the lock, after the lock
+2026-11-10T06:32:58Z | REDIR | Bash | "ls data/ --ignore=\"*\" ; git ls-files \"data/b749_rootprompt*\" \"data/b749_scanfile*\" \"data/b749_question*\" \"data/b749_halt*\" \"data/b749_*prompt*\"; ls data/b749_scanfile* data/b750_scanfile* data/b749_root_question* 2>&1" | a Bash command carrying a redirect outside quotes
+2026-11-10T08:35:19Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\project_b749_progress.md" | a Read call with no limit
+2026-11-10T08:35:19Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\feedback_b749_traps.md" | a Read call with no limit
