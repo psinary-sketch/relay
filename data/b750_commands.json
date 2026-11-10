@@ -1,5 +1,5 @@
 {
- "at": "2026-11-10T04:30:38Z",
+ "at": "2026-11-10T04:35:06Z",
  "anchor": "RULING (R360) BEGIN",
  "rows": [
   {
@@ -2729,6 +2729,134 @@
    "cmd": "python -X utf8 -u tools/standing/fold.py record gatebanks --act b750",
    "n": 341,
    "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T04:31:03.883Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- data/b750_census_stepzero.txt data/b750_faces_census_stepzero.txt data/b750_pins_stepzero.txt data/b750_stepzero.txt data/b750_touch.txt data/b750_address_scan_commits.txt data/b750_reproduce.txt data/b750_reproduce.json tools/b750_worklist.py",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:31:11.663Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/audit_b750_reg_satisfiable.txt data/b750_address_scan_commits.txt data/b750_bank_hashes.json data/b750_census_stepzero.txt data/b750_closing_dry.txt data/b750_commands.json data/b750_commands.txt data/b750_defects.txt data/b750_faces_census_stepzero.txt data/b750_ferry_scan.txt data/b750_guard_dry.json data/b750_guard_dry.txt data/b750_hook_refusals.txt data/b750_kernels_face.json data/b750_pathrefusal.txt data/b750_pins_stepzero.txt data/b750_prelock.txt data/b750_prevdry_act.json data/b750_prevdry_standing-a1.json data/b750_prevdry_standing-a2.json data/b750_prevdry_standing-b1.json data/b750_prevdry_standing-b2a.json data/b750_prevdry_standing-b2b.json data/b750_prevdry_standing-b2c.json data/b750_prevdry_standing-b2d.json data/b750_prevdry_standing-b3.json data/b750_prevdry_standing-c.json data/b750_reg_gate.txt data/b750_reg_termscan.txt data/b750_registration_2026-11-09.txt data/b750_regspec_run.txt data/b750_report_dry.txt data/b750_satisfiable.json data/b750_scores_dry.txt data/b750_standing_figures.json data/b750_standing_figures.txt data/b750_steps.json tools/acts/b750.py tools/b750_face.py tools/b750_face_blocks.txt tools/b750_prepaths.py",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:31:18.140Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:31:44.152Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\"",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:31:49.039Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry --act b750",
+   "n": 346,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T04:32:16.385Z",
+   "src": "seat",
+   "cmd": "git show 046df3a4 --stat --format=\"%h %s\" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n \"address_scan.txt\\|READY\" 046df3a4 -- data/b749_root_banks_dry.txt",
+   "n": 347,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T04:32:20.252Z",
+   "src": "seat",
+   "cmd": "git show 046df3a4 --stat --format=\"%h %s\" && git grep -n \"address_scan.txt\\|READY\" 046df3a4 -- data/b749_root_banks_dry.txt",
+   "n": 348,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T04:33:14.583Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- tools/ data/b750_registration_2026-11-09.txt",
+   "n": 349,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:33:19.716Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/b750_address_scan.py scan --bank",
+   "n": 350,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T04:33:39.272Z",
+   "src": "seat",
+   "cmd": "git status --porcelain -- \"data/b750_*\" \"data/audit_b750_*\" \"tools/*b750*\"",
+   "n": 351,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:33:44.028Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/b750_address_scan.txt data/b750_address_scan_commits.txt data/b750_defects.txt data/b750_hook_refusals.txt data/b750_steps.json",
+   "n": 352,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:33:50.158Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate \"the act's address scan run again over the tree after ac800f3d and committed (data/b750_address_scan.txt: 0 ; 0 ; 0 ; 0 over 294 places, controls 7 of 7), left out of cc1fc182 and of ac800f3d (defect (x)); defects (w)-(x); the root route's dry run follows\"",
+   "n": 353,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:33:57.451Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 354,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:34:27.096Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -c \"import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())\"",
+   "n": 355,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:34:36.322Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record rootdry --act b750",
+   "n": 356,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T04:34:57.199Z",
+   "src": "seat",
+   "cmd": "python -X utf8 -u tools/standing/fold.py record commands --act b750 --quiet",
+   "n": 357,
+   "bg": false
   }
  ],
  "offences": [
@@ -2752,10 +2880,12 @@
   86
  ],
  "null_redirects": [
-  44
+  44,
+  347
  ],
  "redirects": [
-  44
+  44,
+  347
  ],
  "pipes": [
   17,
@@ -2907,7 +3037,9 @@
   329,
   331,
   333,
-  335
+  335,
+  345,
+  355
  ],
  "moves_deletes": [],
  "delete_shapes": [],

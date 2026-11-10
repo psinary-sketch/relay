@@ -1,7 +1,7 @@
-b750 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-10T04:30:38Z)
+b750 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (N1), THE DISPATCHES, THE MOVES AND DELETES, THE OUTBOUND REQUESTS (2026-11-10T04:35:06Z)
 
 ### the source: the seat`s session 6151c0de-d2ec-42cf-a477-c48b99346e01 from its first user line carrying 'RULING (R360) BEGIN', with its subagents` transcripts
-### commands read: 341
+### commands read: 357
 
 ### THE OFFENDING COMMANDS, EACH PRINTED WHOLE (1):
   #86 2026-11-09T23:21:41.113Z seat Bash -- R sed in any form (data/b685_rules.txt row (2))
@@ -26,11 +26,13 @@ b750 -- THE ACT`S COMMAND BANK, G-EDIT-ROUTE`S READING, THE LOCAL LEAN READING (
 import json;j=json.load(open('D:/.claude/settings.json',encoding='utf-8'));print(json.dumps(j.get('hooks'),indent=1)[:1500])
 " && sed -n 160,180p tools/standing/hook.py && sed -n 330,385p tools/standing/hook.py
 
-### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT ONTO /dev/null, read outside quoted strings (2):
   #44 2026-11-09T23:07:42.709Z cd /d/SIDE-explicit-formula && git show 14ca5725:SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean > /dev/null; git grep -n -E "cQ|def |theorem " 14ca5725 -- SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean
+  #347 2026-11-10T04:32:16.385Z git show 046df3a4 --stat --format="%h %s" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n "address_scan.txt\|READY" 046df3a4 -- data/b749_root_banks_dry.txt
 
-### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (1):
+### THE COMMANDS CARRYING A REDIRECT OF ANY STREAM, read outside quoted strings (2):
   #44 2026-11-09T23:07:42.709Z cd /d/SIDE-explicit-formula && git show 14ca5725:SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean > /dev/null; git grep -n -E "cQ|def |theorem " 14ca5725 -- SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean
+  #347 2026-11-10T04:32:16.385Z git show 046df3a4 --stat --format="%h %s" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n "address_scan.txt\|READY" 046df3a4 -- data/b749_root_banks_dry.txt
 
 ### THE COMMANDS PIPING INTO A SHELL FILTER (head, tail, wc, grep and the like), read outside quoted strings (2):
   #17 2026-11-09T23:02:12.860Z cd /d/MY-DOwnloads/PLACE-papers && git ls-files | grep -E "(THE_METHOD_CANON|^README.md|SPIRAL_MAP|Which_Structure_Confines|ERRATA|INSTRUMENTS|THE_EPSTEIN_CONTROL)"
@@ -43,7 +45,7 @@ import json;j=json.load(open('D:/.claude/settings.json',encoding='utf-8'));print
   #216 2026-11-10T01:30:01.036Z python -X utf8 -u tools/standing/fold.py regspec --act b750 2>&1 | Select-Object -First 5
   #310 2026-11-10T03:31:16.305Z Get-ChildItem data/b750_prevdry_*, data/b750_scores_dry*, data/b750_report_dry*, tools/acts/b750.py -ErrorAction SilentlyContinue | Format-Table Name, LastWriteTime, Length -AutoSize
 
-### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (139):
+### THE COMMANDS THAT RUN AN INTERPRETER`S ONE-LINE PROGRAM (python -c), each its first line (141):
   #15 2026-11-09T23:01:54.437Z cd /d/MY-DOwnloads/PLACE-papers && git grep -c "" -- OPEN_TRAILS.md FINDINGS.md && python -X utf8 -c " L=open('OPEN_TRAILS.md',encoding='utf-8').read().split(chr(10)) [print(i,L[i-1][:130]) for i in range(18038,len(L)+1)
   #16 2026-11-09T23:02:05.018Z cd /d/relay && python -X utf8 -c " L=open('tools/b750_worklist.py',encoding='utf-8').read().split(chr(10)) for i in list(range(1,21))+list(range(45,48))+list(range(70,92))+list(range(189,202))+list(range(212,255))+list(r
   #19 2026-11-09T23:03:01.109Z cd /d/relay && python -X utf8 "C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/6151c0de-d2ec-42cf-a477-c48b99346e01/scratchpad/wl750.py" && python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b75
@@ -183,6 +185,8 @@ import json;j=json.load(open('D:/.claude/settings.json',encoding='utf-8'));print
   #331 2026-11-10T04:21:56.488Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
   #333 2026-11-10T04:25:17.214Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
   #335 2026-11-10T04:27:08.791Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #345 2026-11-10T04:31:44.152Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #355 2026-11-10T04:34:27.096Z python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
 
 ### THE COMMANDS THAT MOVE OR DELETE A FILE OR A BRANCH, EACH PRINTED WHOLE (0):
   NONE
@@ -534,5 +538,21 @@ import json;j=json.load(open('D:/.claude/settings.json',encoding='utf-8'));print
   #339 | 2026-11-10T04:29:46.747Z | seat | Bash | git status --porcelain --untracked-files=all
   #340 | 2026-11-10T04:30:11.782Z | seat | Bash | git ls-files data/audit_b750_reg_satisfiable.txt data/b750_reg_termscan.txt data/b750_regspec_run.txt data/b750_touch.txt data/b750_stepzero.txt && ls data/audi
   #341 | 2026-11-10T04:30:21.190Z | seat | PowerShell | python -X utf8 -u tools/standing/fold.py record gatebanks --act b750
+  #342 | 2026-11-10T04:31:03.883Z | seat | Bash | git status --porcelain -- data/b750_census_stepzero.txt data/b750_faces_census_stepzero.txt data/b750_pins_stepzero.txt data/b750_stepzero.txt data/b750_touch.t
+  #343 | 2026-11-10T04:31:11.663Z | seat | PowerShell | python -X utf8 -u tools/standing/commit.py relay add data/audit_b750_reg_satisfiable.txt data/b750_address_scan_commits.txt data/b750_bank_hashes.json data/b750
+  #344 | 2026-11-10T04:31:18.140Z | seat | PowerShell | python -X utf8 -u tools/standing/commit.py relay gate
+  #345 | 2026-11-10T04:31:44.152Z | seat | PowerShell | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #346 | 2026-11-10T04:31:49.039Z | seat | PowerShell | python -X utf8 -u tools/standing/fold.py record rootdry --act b750
+  #347 | 2026-11-10T04:32:16.385Z | seat | Bash | git show 046df3a4 --stat --format="%h %s" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n "address_scan.txt\|READY" 046d
+  #348 | 2026-11-10T04:32:20.252Z | seat | Bash | git show 046df3a4 --stat --format="%h %s" && git grep -n "address_scan.txt\|READY" 046df3a4 -- data/b749_root_banks_dry.txt
+  #349 | 2026-11-10T04:33:14.583Z | seat | Bash | git status --porcelain -- tools/ data/b750_registration_2026-11-09.txt
+  #350 | 2026-11-10T04:33:19.716Z | seat | PowerShell | python -X utf8 -u tools/b750_address_scan.py scan --bank
+  #351 | 2026-11-10T04:33:39.272Z | seat | Bash | git status --porcelain -- "data/b750_*" "data/audit_b750_*" "tools/*b750*"
+  #352 | 2026-11-10T04:33:44.028Z | seat | PowerShell | python -X utf8 -u tools/standing/commit.py relay add data/b750_address_scan.txt data/b750_address_scan_commits.txt data/b750_defects.txt data/b750_hook_refusals
+  #353 | 2026-11-10T04:33:50.158Z | seat | PowerShell | python -X utf8 -u tools/standing/commit.py relay gate "the act's address scan run again over the tree after ac800f3d and committed (data/b750_address_scan.txt: 
+  #354 | 2026-11-10T04:33:57.451Z | seat | PowerShell | python -X utf8 -u tools/standing/commit.py relay gate
+  #355 | 2026-11-10T04:34:27.096Z | seat | PowerShell | python -X utf8 -c "import sys;sys.path.insert(0,'tools');import b703_checks as C;print('free MB',C.free_mb())"
+  #356 | 2026-11-10T04:34:36.322Z | seat | PowerShell | python -X utf8 -u tools/standing/fold.py record rootdry --act b750
+  #357 | 2026-11-10T04:34:57.199Z | seat | PowerShell | python -X utf8 -u tools/standing/fold.py record commands --act b750 --quiet
 
-### ### **COMMANDS 341 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 1 ; REDIRECTS OF ANY STREAM 1 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 139 ; MOVE OR DELETE COMMANDS 0 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 0 OF 0 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
+### ### **COMMANDS 357 ; G-EDIT-ROUTE OFFENCES 1 (SED IN ANY FORM AMONG THEM 1) ; THE PREVIOUS ACT AFTER ITS POST-PUSH SUITE 20 COMMANDS, OFFENCES 0 ; LOCAL lean OR lake COMMANDS 0 ; DISPATCHES 0 ; DETACHED RUNS 0 ; sed COMMANDS 1 ; REDIRECTS ONTO /dev/null 2 ; REDIRECTS OF ANY STREAM 2 ; PIPES INTO A SHELL FILTER 2 ; PIPES OF ANY KIND 5 ; ONE-LINE PROGRAMS 141 ; MOVE OR DELETE COMMANDS 0 ; BRANCH DELETES OF ONE BRANCH, NO GLOB, NO VARIABLE AND NOTHING CHAINED AFTER 0 OF 0 ; OUTBOUND REQUESTS 0, AN IDENTIFIER IN 0.**
