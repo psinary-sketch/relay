@@ -16,7 +16,10 @@ composer prints the token only when the token stands on that line of that bank, 
   compose_checked(rows, read, entry) -> text   compose(), then entry_unbacked() on its text, SystemExit naming each unbacked sentence
   remote_clause / remote_unbacked / remote_read   v1.23.0, (R353)(3)(i), b742 events (3): the remote figures read from the remote by the composer's caller at prompt time
                                      ("remote at <sha>; local <n> commits past it"); a clause naming a commit as pushed that is no remote head refuses the prompt
-Pure in its arguments; nothing written -- except remote_read (the CLI `remote`), which reads the remote once and banks data/<act>_rootprompt_remote.json.
+  put / put_check / put_fault   v1.31.0, (R361)(3)(iii): every prompt (sitting items, halts, root) through check_hand before it is put, banked once as
+                                     data/<act>_put_<k>.json; the hook refuses an AskUserQuestion no such bank carries
+Pure in its arguments; nothing written -- except remote_read (the CLI `remote`), which reads the remote once and banks data/<act>_rootprompt_remote.json,
+and put (the CLI `put`), which writes its one new bank.
 """
 import re
 
@@ -230,6 +233,81 @@ def relay_reader(root='D:/relay'):
     return read
 
 
+# ================================================================================ v1.31.0, (R361)(3)(iii): EVERY PROMPT THROUGH THE COMPOSER
+# ### b750's N3 read before the root: the sitting's third prompt carried "FINDINGS :14149, b746's entry, says ..." -- a sentence about an entry
+# ### outside the composer -- because the sitting items were put by hand, the composer's check bound the root's prompt and the halts alone.
+# ### Every prompt the act puts -- the sitting items, the halts and the root -- now runs through check_hand (compose_checked, every figure before
+# ### a cite on its line, the costs of each option's route named) before it is put: `put` composes each question and each option's words, and
+# ### banks the questions once as data/<act>_put_<k>.json (k the next free number, never rewritten); the hook refuses an AskUserQuestion whose
+# ### questions no such bank carries (put_fault).
+def _qnorm(q):
+    opts = [(_norm(o.get('label')), _norm(o.get('description'))) for o in (q.get('options') or [])]
+    return (_norm(q.get('question')), _norm(q.get('header')), tuple(opts))
+
+
+def put_check(questions, read, entry, ruling, remotes=None):
+    """each question checked as check_hand checks a hand question, its options' costs read against the ruling's score clauses; each option's
+    words through entry_unbacked as well. Returns the composed question texts; SystemExit on the first fault, naming the question."""
+    clauses = score_clauses(ruling)
+    out = []
+    for k, q in enumerate(questions, 1):
+        opts = [(o.get('label') or '', o.get('description') or '') for o in (q.get('options') or [])]
+        try:
+            t = check_hand(q.get('question') or '', read, entry, remotes, opts, clauses)
+        except SystemExit as e:
+            raise SystemExit('### QUESTION %d (%s) REFUSED: %s' % (k, q.get('header') or '', e))
+        for lab, desc in opts:
+            bad = entry_unbacked('%s. %s' % (lab, desc), entry)
+            if bad:
+                raise SystemExit('### QUESTION %d (%s) REFUSED: AN OPTION`S WORDS ABOUT THE ENTRY NOT FROM THE SEALED COMPOSER: %s' % (k, q.get('header') or '', bad))
+        out.append(t)
+    return out
+
+
+def put(act, questions, entry='', remotes=None, relay='D:/relay'):
+    """check every question (put_check) and bank them as data/<act>_put_<k>.json; returns the bank's relay path."""
+    import json
+    import os
+    import time
+    fp = os.path.join(relay, 'data', '%s_ferry.txt' % act)
+    ruling = open(fp, encoding='utf-8').read() if os.path.isfile(fp) else ''
+    put_check(questions, relay_reader(relay), entry, ruling, remotes)
+    k = 1
+    while os.path.exists(os.path.join(relay, 'data', '%s_put_%d.json' % (act, k))):
+        k += 1
+    rel = 'data/%s_put_%d.json' % (act, k)
+    j = dict(act=act, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), composed='check_hand over each question, entry_unbacked over each option',
+             questions=questions)
+    with open(os.path.join(relay, rel), 'x', encoding='utf-8', newline='\n') as fh:
+        fh.write(json.dumps(j, indent=1, ensure_ascii=False) + '\n')
+    return rel
+
+
+def put_banks(act, relay='D:/relay'):
+    import glob
+    import json
+    import os
+    out = []
+    for p in sorted(glob.glob(os.path.join(relay, 'data', '%s_put_*.json' % act))):
+        try:
+            out.append(json.load(open(p, encoding='utf-8')))
+        except (OSError, ValueError):
+            pass
+    return out
+
+
+def put_fault(act, questions, relay='D:/relay'):
+    """None where every question of the call stands, as put (question, header and options), in one of the act's put banks; else the detail."""
+    if not act:
+        return None
+    have = set(_qnorm(q) for b in put_banks(act, relay) for q in (b.get('questions') or []))
+    miss = [q.get('header') or (q.get('question') or '')[:40] for q in (questions or []) if _qnorm(q) not in have]
+    if miss:
+        return ('a question put without the composer: %s -- compose and bank it first (python -X utf8 -u tools/standing/rootprompt.py put <act> <questions json> [<entry file>])'
+                % ', '.join(miss))
+    return None
+
+
 REPOS = {'relay': 'D:/relay', 'pp': 'D:/MY-DOwnloads/PLACE-papers'}
 
 
@@ -273,6 +351,22 @@ if __name__ == '__main__':
         q = open(os.path.join('D:/relay', sys.argv[2]), encoding='utf-8').read().strip()
         e = open(os.path.join('D:/relay', sys.argv[3]), encoding='utf-8').read()
         print('THE QUESTION COMPOSED AND CHECKED:\n' + check_hand(q, relay_reader(), e))
+    elif len(sys.argv) in (4, 5) and sys.argv[1] == 'put':
+        # ### v1.31.0, (R361)(3)(iii): rootprompt.py put <act> <questions json> [<entry file, a relay path>]: every question composed, checked and banked
+        import json
+        import os
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        qs = json.load(open(sys.argv[3], encoding='utf-8'))
+        qs = qs.get('questions') if isinstance(qs, dict) else qs
+        e = ''
+        if len(sys.argv) == 5:
+            if not os.path.isfile(os.path.join('D:/relay', sys.argv[4])):
+                raise SystemExit('### REFUSED: %s resolves to no file' % sys.argv[4])
+            e = open(os.path.join('D:/relay', sys.argv[4]), encoding='utf-8').read()
+        rel = put(sys.argv[2], qs, e)
+        print('THE QUESTIONS COMPOSED, CHECKED AND BANKED: %s (%d question%s)' % (rel, len(qs), '' if len(qs) == 1 else 's'))
     else:
         raise SystemExit('usage: rootprompt.py remote <relay|pp> <act>   (one remote read per command)\n'
-                         '       rootprompt.py hand <question file> <entry file>   (v1.27.0: a question after the seal through compose_checked)')
+                         '       rootprompt.py hand <question file> <entry file>   (v1.27.0: a question after the seal through compose_checked)\n'
+                         '       rootprompt.py put <act> <questions json> [<entry file>]   (v1.31.0: every prompt composed, checked and banked before it is put)')

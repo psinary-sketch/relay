@@ -1,0 +1,236 @@
+b751 -- THE CONTROLS OF tools/standing/ v1.31.0, (R361)(3)(i)-(xi): THE PART-ORDER GUARD, THE (W) REFUSAL IN THE HOOK, THE COMPOSER ON EVERY PROMPT, THE LINE READER`S MATCH, THE SCAN AT THE GATE, THE COMPILED RENDER, THE CARRY, THE TOOL`S WORDS AND PHASES, THE HOST`S LIMIT, THE HOOK`S REFUSALS, THE VERSION (2026-11-10T12:47:23Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2702 lines
+  citation render          OK    586 lines
+  closing render           OK    627 lines
+  record render            OK    4768 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    486 lines
+  report render            OK    157 lines
+  tools/b751_worklist.py   OK    457 lines
+### THE COMPILE CONTROL : b751 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 467a1968
+
+  free 2796 MB at 2026-11-10T12:47:23Z, the hold 2560 MET
+### (order) (R361)(3)(i), b750 events (3), (7), REPEAT b717 (3): THE PART RUNNER REFUSES A PART WHOSE PREDECESSOR HAS NO BANK IN THE MODE ASKED, AND PRINTS THE ORDER
+  (order) GUARD, NO FAILING SIDE: the instance found: b750 events (3) (data/b750_events.txt :12-:15)
+      AFTER  (v1.31.0): (3) THE SEAT'S [CLOSE ; NEW]: the prev runs (`fold.py checks --prev --part P --act b750`) were sent out of their order twice. standing-a2 at -> HOLDS
+      AS WANTED
+  (order) b750`s standing-a2 on b750`s banks (`--prev`) at 05:34:36Z, standing-a1`s bank not yet written
+      BEFORE (v1.30.0): checks.tpl at 467a1968: no order guard (order_refusal absent); the part ran and read G-NO-SORRY-MAIN DIVERGE -> FAILS
+      AFTER  (v1.31.0): PART standing-a2 NOT RUN: ITS PREDECESSOR standing-a1 HAS NO BANK IN THIS MODE (b750_prevrun_standing-a1.txt) -- THE ORDER: standing-a1 -> standing-a2 -> standing-c -> standing-b1 -> standing-b2a -> standing-b2b -> standing-b2c -> standing-b2d -> standing-b3 -> act ((R361)(3)(i)) -> PASSES
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: b750`s standing-b3 at 05:45:05Z, before standing-b2a-d (refused at the time by b3`s own guard, exit 4): refused by the order guard too
+      AFTER  (v1.31.0): PART standing-b3 NOT RUN: ITS PREDECESSOR standing-b2d HAS NO BANK IN THIS MODE (b750_prevrun_standing-b2d.txt) -- THE ORDER: standing-a1 -> standing-a2 -> standing-c -> standing-b1 -> standing-b2a -> standing-b2b -> standing-b2c -> standing-b2d -> standing-b3 -> act ((R361)(3)(i)) -> HOLDS
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: the first part, and standing-a2 after standing-a1`s bank (b750`s banks as they stand), not refused
+      AFTER  (v1.31.0): None ; None -> HOLDS
+      AS WANTED
+  (order) GUARD, NO FAILING SIDE: the act`s rendered suite carries the guard before b3`s and compiles
+      AFTER  (v1.31.0): 2702 lines ; order_refusal True -> HOLDS
+      AS WANTED
+
+  free 2793 MB at 2026-11-10T12:47:23Z, the hold 2560 MET
+### (wlist) (R361)(3)(ii), b750 defects (h), (i): A WRITE OR EDIT OF A TRACKED PATH OUTSIDE THE (W) LIST REFUSED BY THE HOOK BEFORE IT LANDS, THE LIST READ FROM THE REGENERATED BANK
+  (wlist) b750`s Edit of tools/act_close.py (defect (i)), replayed against b751`s regenerated list (data/b751_wlist.json)
+      BEFORE (v1.30.0): hook.py at 467a1968: let through -> FAILS
+      AFTER  (v1.31.0): ('WLIST', 'a Edit: a write of relay/tools/act_close.py, a tracked path outside the act`s (W) list (data/b751_wlist.json, kinds)') -> PASSES
+      AS WANTED
+  (wlist) GUARD, NO FAILING SIDE: the bank read: data/b751_wlist.json, source kinds, 20 patterns, sources data/b751_ferry.txt 43635260, data/b751_amendments.json ABSENT, tools/b751_worklist.py#PP_EDITED c1fcc351, data/b751_face.txt ABSENT, tools/b751_face_blocks.txt ABSENT
+      AFTER  (v1.31.0): current (not stale); its reading of tools/act_close.py: a write of relay/tools/act_close.py, a tracked path outside the act`s (W) list (data/b751_wlist.json, kinds) -> HOLDS
+      AS WANTED
+  (wlist) GUARD, NO FAILING SIDE: paths the list covers or no repository tracks let through: a standing tool, the act`s events bank, the paper, a scratch file
+      AFTER  (v1.31.0): [('D:/relay/tools/standing/hook.py', None), ('D:/relay/data/b751_events.txt', None), ('-papers/phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', None), ('C:/Users/ECHOCH~1/AppData/Local/Temp/not_tracked.txt', None)] -> HOLDS
+      AS WANTED
+  (wlist) GUARD, NO FAILING SIDE: tracked paths outside the list refused: PLACE-papers README.md (no passed item names it), b750`s module and closing
+      AFTER  (v1.31.0): [('D:/MY-DOwnloads/PLACE-papers/README.md', 'WLIST'), ('D:/relay/tools/acts/b750.py', 'WLIST'), ('D:/relay/data/b750_closing.txt', 'WLIST')] -> HOLDS
+      AS WANTED
+  (wlist) GUARD, NO FAILING SIDE: a stale bank (the ferry`s digest planted) refuses every tracked write until the list is regenerated
+      AFTER  (v1.31.0): the (W) bank data/b751_wlist.json is stale (data/b751_ferry.txt changed since it was written) -- regenerate the list (python -X utf8 -u tools/standing/wlist.py bank) -> HOLDS
+      AS WANTED
+  (wlist) GUARD, NO FAILING SIDE: defect (h) read: tools/standing/deletes.py stands inside the list (tools/standing/*); its fault was the unread overwrite, which the Write tool itself refuses
+      AFTER  (v1.31.0): (h) THE SEAT'S [CLOSE ; NEW]: Component 1: the seat wrote a new delete reader over the tracked tools/standing/deletes.py ; judged now: None -> HOLDS
+      AS WANTED
+
+  free 2799 MB at 2026-11-10T12:47:24Z, the hold 2560 MET
+### (composer) (R361)(3)(iii), N3 BEFORE b750`S ROOT: EVERY PROMPT -- THE SITTING ITEMS, THE HALTS AND THE ROOT -- THROUGH compose_checked BEFORE IT IS PUT, BANKED BY `rootprompt.py put`
+  (composer) GUARD, NO FAILING SIDE: the instance found: b750`s third sitting prompt (data/b750_author_answers.txt :51), its clause "b746`s entry,"
+      AFTER  (v1.31.0): [G2], (R360)(2)[G]: ERRATA gains E-2026-11-09-2 after [G1]. FINDINGS :14149, b746's entry, says 'W-ORD-MECHANI -> HOLDS
+      AS WANTED
+  (composer) b750`s sitting prompt 3 replayed through the route every prompt now takes (entry not yet composed, as before b750`s root)
+      BEFORE (v1.30.0): rootprompt.py at 467a1968: no put route (put_check absent); the sitting items put by hand, unchecked -> FAILS
+      AFTER  (v1.31.0): ### QUESTION 1 ([G2] errata) REFUSED: ### THE PROMPT NOT COMPOSED: 1 SENTENCE(S) ABOUT THE ENTRY NOT FROM THE SEALED COMPOSER: ["b746's entry,"] -> PASSES
+      AS WANTED
+  (composer) the same prompt sent by AskUserQuestion with no put bank holding it
+      BEFORE (v1.30.0): hook.py at 467a1968: let through -> FAILS
+      AFTER  (v1.31.0): ('COMPOSER', 'a question put without the composer: [G2] errata -- compose and bank it first (python -X utf8 -u tools/standing/rootprompt.py put <act> <questions json> [<entry file>])') -> PASSES
+      AS WANTED
+  (composer) GUARD, NO FAILING SIDE: a question composed and banked by put passes the hook`s read; the same question reworded after the bank is refused
+      AFTER  (v1.31.0): data/b751_put_1.json ; as banked None ; reworded a question put without the composer: [S5] -- compose and ban -> HOLDS
+      AS WANTED
+  (composer) GUARD, NO FAILING SIDE: the matcher in the seat`s settings carries AskUserQuestion
+      AFTER  (v1.31.0): Read|Bash|PowerShell|Edit|Write|NotebookEdit|AskUserQuestion -> HOLDS
+      AS WANTED
+
+  free 2804 MB at 2026-11-10T12:47:24Z, the hold 2560 MET
+### (linematch) (R361)(3)(iv), data/b750_line.txt :31-:32: THE LINE READER MATCHES EACH ENTRY`S FINDINGS AGAINST THE NAMES THE KEYSTONE`S NOTE CARRIES BEFORE IT READS SYNTHESISED
+  (linematch) GUARD, NO FAILING SIDE: [F2]`s note read (Which_Structure_Confines_v2_4_0.md :97), its names
+      AFTER  (v1.31.0): ['zq_offline_zero', 'zq_li_nonneg_fails', 'b742_offlinezero', 'pc_online', 'zeta_box', 'b745_controls', 'zq_premises', 'b735_explicitformula'] -> HOLDS
+      AS WANTED
+  (linematch) GUARD, NO FAILING SIDE: b745 (FINDINGS :14145), its heading :14027 names ['pc_online', 'li_nonneg_cfg_imp_online_ne_zero', 'zeta_box']
+      AFTER  (v1.31.0): b750 by the cluster SYNTHESISED ; by the match SYNTHESISED (pc_online, zeta_box matched) -> HOLDS
+      AS WANTED
+  (linematch) GUARD, NO FAILING SIDE: b746 (FINDINGS :14187), its heading :14147 names ['pc_online', 'zeta_box']
+      AFTER  (v1.31.0): b750 by the cluster SYNTHESISED ; by the match SYNTHESISED (pc_online, zeta_box matched) -> HOLDS
+      AS WANTED
+  (linematch) b747 (FINDINGS :14299), its heading :14259 naming no finding the note carries (names none)
+      BEFORE (v1.30.0): tools/b750_line.py by the cluster (data/b750_line.txt): SYNTHESISED -> FAILS
+      AFTER  (v1.31.0): by the match: CLUSTERED -> PASSES
+      AS WANTED
+  (linematch) b748 (FINDINGS :14427), its heading :14387 naming no finding the note carries (names none)
+      BEFORE (v1.30.0): tools/b750_line.py by the cluster (data/b750_line.txt): SYNTHESISED -> FAILS
+      AFTER  (v1.31.0): by the match: CLUSTERED -> PASSES
+      AS WANTED
+  (linematch) a planted entry whose finding the note does not name (planted_unnamed_finding)
+      BEFORE (v1.30.0): by the cluster: SYNTHESISED (the note stands in a file the cluster names) -> FAILS
+      AFTER  (v1.31.0): by the match: CLUSTERED, names ['planted_unnamed_finding'], matched none -> PASSES
+      AS WANTED
+
+  free 2801 MB at 2026-11-10T12:47:25Z, the hold 2560 MET
+### (gatescan) (R361)(3)(v), b750 defect (x), REPEAT b749 (c): NO COMMIT, THE GATE`S AMONG THEM, LEAVES THE ACT`S SCAN BANK WRITTEN AND UNTRACKED
+  (gatescan) GUARD, NO FAILING SIDE: the instance found: b750 defect (x) (data/b750_defects.txt :30); the scan bank first committed at 8e267be7 2026-11-09T23:34:12-05:00
+      AFTER  (v1.31.0): (x) THE SEAT'S [CLOSE ; NEW]: Component 4: the act's address scan (data/b750_address_scan.txt, written 02:02:49Z) was left out of relay cc1f -> HOLDS
+      AS WANTED
+  (gatescan) relay cc1fc182 replayed: 7 files staged, data/b750_address_scan.txt written and untracked, not among them
+      BEFORE (v1.30.0): commit.py at 467a1968: no such refusal; the commit made, the scan`s own run 0 printed -> FAILS
+      AFTER  (v1.31.0): THE SCAN LEFT OUT OF A COMMIT: data/b750_address_scan.txt written and untracked, not staged -- stage it in this commit (the add is its own message) -> PASSES
+      AS WANTED
+  (gatescan) relay ac800f3d replayed: 41 files staged, data/b750_address_scan.txt written and untracked, not among them
+      BEFORE (v1.30.0): commit.py at 467a1968: no such refusal; the commit made, the scan`s own run 0 printed -> FAILS
+      AFTER  (v1.31.0): THE SCAN LEFT OUT OF A COMMIT: data/b750_address_scan.txt written and untracked, not staged -- stage it in this commit (the add is its own message) -> PASSES
+      AS WANTED
+  (gatescan) GUARD, NO FAILING SIDE: the bank staged (8e267be7`s case) and no scan bank yet (b751 now) not refused
+      AFTER  (v1.31.0): None ; None -> HOLDS
+      AS WANTED
+  (gatescan) GUARD, NO FAILING SIDE: run() reads the relay`s untracked paths after the standing dry`s refusal and before the scan, every phase the gate`s among them
+      AFTER  (v1.31.0): scan_left_out called in run: True -> HOLDS
+      AS WANTED
+
+  free 2792 MB at 2026-11-10T12:47:33Z, the hold 2560 MET
+### (compile) (R361)(3)(vi), b750 defect (j): THE STANDING DRY COMPILES EVERY RENDERED MODULE AND PRINTS THE EARLIEST ERROR WITH ITS LINE
+  (compile) v1.30.0`s opening render replayed: record.tpl with one line planted above the overrides, every act module rendered
+      BEFORE (v1.30.0): standingdry.py at 467a1968 (renders not compiled): the act`s own record render compiles; the dry`s one composition (`record findings dry`) reads nothing of the older acts -> FAILS
+      AFTER  (v1.31.0): NOT CLEAN ; 12 new failure(s), the earliest: NEW   b723 record: IndentationError line 541: r'|(^|&&\s*|;\s*)python(?:\s+-[A-Za-z]+(?:\s+utf8)?)*\s+\S*tools -> PASSES
+      AS WANTED
+  (compile) GUARD, NO FAILING SIDE: the working templates over every act module against HEAD`s: no new failure (the carried ones printed in the dry)
+      AFTER  (v1.31.0): CLEAN ; renders 217 over 31 act modules ; compiling 193 ; failing 24: new 0, carried from HEAD`s templates 24 -> HOLDS
+      AS WANTED
+
+  free 2763 MB at 2026-11-10T12:48:00Z, the hold 2560 MET
+### (carry) (R361)(3)(vii), b750 defects (d), (m), (s), REPEAT: THE CARRY PRINTS EVERY ROW AND FIGURE IT BRINGS BESIDE THIS RULING AND REFUSES WHAT IT DOES NOT NAME; THE FERRY BANKED BY THE CITATION ROUTE
+  (carry) GUARD, NO FAILING SIDE: b750`s module and worklist as `carry acts` brings them under b751`s names, read beside (R361): refused by both routes (R4, R5)
+      AFTER  (v1.31.0): before R4 3 R5 4 ; after R4 3 R5 4 -> HOLDS
+      AS WANTED
+  (carry) the same carry at b750`s step zero, its ferry banked by the Write tool alone (data/b750_ferry_scan.txt first written at Component 4, defect (s))
+      BEFORE (v1.30.0): carry.py at 467a1968: R6 0, the ferry`s route not read -> FAILS
+      AFTER  (v1.31.0): R6 1: the ferry not banked by the citation tool`s route: data/<act>_ferry_scan.txt absent -> PASSES
+      AS WANTED
+  (carry) every carried row printed with its banks beside the ruling
+      BEFORE (v1.30.0): rows printed 0 (the counts and the refused rows alone) -> FAILS
+      AFTER  (v1.31.0): rows printed 143, each bank with the ruling`s line or NOT NAMED -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: b751`s module and worklist as rewritten at step zero, its ferry banked by the citation route: refused 0
+      AFTER  (v1.31.0): refused 0 [] -> HOLDS
+      AS WANTED
+
+  free 2773 MB at 2026-11-10T12:48:01Z, the hold 2560 MET
+### (words) (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y), REPEAT: THE INSTANCES PRINTED; THE ONE-CALL TOOL`S USAGE PRINTED BY THE CARRY AT STEP ZERO
+  (words) GUARD, NO FAILING SIDE: printed: b750 defect (b), data/b750_defects.txt :8
+      AFTER  (v1.31.0): (b) THE SEAT'S [CLOSE ; NEW]: the first `carry.py ruled` call was sent with --quiet, a flag the route does not take; it printed its usage and ran noth -> HOLDS
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: printed: b750 defect (k), data/b750_defects.txt :17
+      AFTER  (v1.31.0): (k) THE SEAT'S [CLOSE ; NEW]: Component 1: the first v1.30.0 commit was refused by the one-call tool, nothing committed, no row written: "tools/standi -> HOLDS
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: printed: b750 defect (o), data/b750_defects.txt :21
+      AFTER  (v1.31.0): (o) THE SEAT'S [CLOSE ; NEW]: Component 2: the sitting record's commit was refused twice by the one-call tool, nothing committed, no row written: firs -> HOLDS
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: printed: b750 defect (u), data/b750_defects.txt :27
+      AFTER  (v1.31.0): (u) THE SEAT'S [CLOSE ; REPEAT b750 (o)]: Component 4: the first commit of the act module's sections was sent as `commit.py relay commit "component 4" -> HOLDS
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: printed: b750 defect (y), data/b750_defects.txt :31
+      AFTER  (v1.31.0): (y) THE SEAT'S [CLOSE ; REPEAT b749 (v)]: Component 4: the gate commit of the address scan was first sent with words, which the gate phase does not ta -> HOLDS
+      AS WANTED
+  (words) `carry.py ruled` at step zero prints the tool`s usage, its phases and its word form
+      BEFORE (v1.30.0): carry.py at 467a1968: usage printed False -> FAILS
+      AFTER  (v1.31.0): usage printed True: 10 lines, the phases: gate | lock | seal (no words) ; step zero | component 1 | component 2 | compon -> PASSES
+      AS WANTED
+
+  free 2769 MB at 2026-11-10T12:48:01Z, the hold 2560 MET
+### (limit) (R361)(3)(ix), b750 defect (t), events (6): A RUN THAT MAY EXCEED THE HOST`S DEFAULT SENT WITH THE LIMIT THE TOOL PRINTS
+  (limit) GUARD, NO FAILING SIDE: the instance found: b750 defect (t) (data/b750_defects.txt :26)
+      AFTER  (v1.31.0): (t) THE SEAT'S [CLOSE ; NEW]: Component 4: the seat sent the probe-path tool's run (`tools/b750_prepaths.py --bank`) in the foreground witho -> HOLDS
+      AS WANTED
+  (limit) b750`s probe-path run sent in the foreground with no limit
+      BEFORE (v1.30.0): hook.py at 467a1968: let through; the host moved it to the background at 120 s -> FAILS
+      AFTER  (v1.31.0): ('LIMIT', 'the probe-path tool (tools/<act>_prepaths.py) sent with no timeout, beneath the limit the tool prints (600000 ms; the host`s default 120000 ms) -- send it again with timeout 600000') -> PASSES
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: the same run with timeout 600000, in the background, and a quoted mention of the route: let through
+      AFTER  (v1.31.0): [None, None, None] -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: the table the tool prints (tools/standing/limits.py)
+      AFTER  (v1.31.0): 9 routes, each [600000] ms -> HOLDS
+      AS WANTED
+
+  free 2773 MB at 2026-11-10T12:48:01Z, the hold 2560 MET
+### (instances) (R361)(3)(x), b750 defects (a), (g), (n), (q), (r), (v), (w), events (2), (4), (5), REPEAT: THE HOOK`S REFUSALS, THE INSTANCES PRINTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750`s hook refusals, data/b750_hook_refusals.txt, by kind
+      AFTER  (v1.31.0): 19 rows: PIPE 5, READ 7, SED 1, REDIR 4, ENV 1, LOCKED 1 -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751`s hook refusals, data/b751_hook_refusals.txt, by kind
+      AFTER  (v1.31.0): 7 rows: PIPE 2, READ 4, LIMIT 1 -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (a), :7
+      AFTER  (v1.31.0): (a) THE SEAT'S [CLOSE ; REPEAT b749 (a)]: the hook refused the seat's own calls three times at step zero (data/b750_hook_refusals. -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (g), :13
+      AFTER  (v1.31.0): (g) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: Component 1: the hook refused five more (data/b750_hook_refusals.txt :4-:8): a git grep  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (n), :20
+      AFTER  (v1.31.0): (n) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: Component 2: the hook refused a PowerShell listing carrying pipes through Where-Object a -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (q), :23
+      AFTER  (v1.31.0): (q) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: Component 4: the hook refused a PowerShell command carrying a pipe into Select-Object -F -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (r), :24
+      AFTER  (v1.31.0): (r) THE SEAT'S [CLOSE ; REPEAT b750 (g)]: Component 4: the hook refused three Read calls (data/b750_hook_refusals.txt :11-:13): da -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (v), :28
+      AFTER  (v1.31.0): (v) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: Component 4: the hook refused a PowerShell listing of the prevdry and dry banks carrying -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 defect (w), :29
+      AFTER  (v1.31.0): (w) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: Component 4: the hook refused a Bash reading of b749's second gate commit carrying a red -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 events (2)
+      AFTER  (v1.31.0): (2) THE SEAT'S [CLOSE ; NEW]: 04:36:58Z: the seat's Edit of data/b750_defects.txt to letter row (1) was refused by the hook's row  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 events (4)
+      AFTER  (v1.31.0): (4) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: 06:32:58Z: the hook refused a Bash listing of b749's root-prompt and scanfile banks carr -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b750 events (5)
+      AFTER  (v1.31.0): (5) THE SEAT'S [CLOSE ; REPEAT b750 (g)]: 08:35:19Z: the hook refused two Read calls with no limit, of two of the seat's memory no -> HOLDS
+      AS WANTED
+
+  free 2773 MB at 2026-11-10T12:48:01Z, the hold 2560 MET
+### (version) (R361)(3)(xi): THE STANDING VERSION PRINTED AND ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.30.0): v1.30.0 -> FAILS
+      AFTER  (v1.31.0): v1.31.0 -> PASSES
+      AS WANTED
+
+### per repair: (order) 5 of 5 ; (wlist) 6 of 6 ; (composer) 5 of 5 ; (linematch) 6 of 6 ; (gatescan) 5 of 5 ; (compile) 2 of 2 ; (carry) 4 of 4 ; (words) 6 of 6 ; (limit) 4 of 4 ; (instances) 12 of 12 ; (version) 1 of 1
+### ### **v1.31.0: CONTROLS (order), (wlist), (composer), (linematch), (gatescan), (compile), (carry), (words), (limit), (instances), (version) ; CASES 56 ; AS WANTED 56 ; ALL AS WANTED.**

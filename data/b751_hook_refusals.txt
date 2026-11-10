@@ -1,3 +1,7 @@
 2026-11-10T12:03:22Z | PIPE | Bash | "ls tools/standing/ && ls tools/acts/ | tail -5 && git log --oneline -3 && git status --short" | a Bash command carrying a pipe outside quotes
 2026-11-10T12:04:21Z | READ | Read | "D:\\relay\\tools\\b750_carry.py" | a Read call with a limit and no offset on a file of 234 lines
 2026-11-10T12:21:57Z | READ | Read | "D:\\relay\\data\\b750_readfirst_rows.json" | a Read call with no limit
+2026-11-10T12:27:48Z | READ | Read | "D:\\relay\\data\\b750_rules.txt" | a Read call with no limit
+2026-11-10T12:29:37Z | PIPE | Bash | "ls data/ | grep -E '^b750_(prevrun|checks|arms_prerun)' " | a Bash command carrying a pipe outside quotes
+2026-11-10T12:34:39Z | READ | Read | "D:\\relay\\tools\\standing\\commit.py" | a Read call with limit 215, above 200
+2026-11-10T12:43:03Z | LIMIT | Bash | "python -X utf8 -c \"\nimport sys;sys.path.insert(0,'tools/standing')\nimport hook as H\nprint(H.judge('Edit',{'file_path':'D:/relay/tools/act_close.py'}))\nprint(H.judge('Edit',{'file_path':'D:/relay/tools/standing/hook.py'}))\nprint(H.judge('Write',{'file_path':'C:/Users/ECHOCH~1/AppData/Local/Tem | the probe-path tool (tools/<act>_prepaths.py) sent with no timeout, beneath the limit the tool prints (600000 ms; the host`s default 120000 ms) -- send it again with timeout 600000

@@ -10,6 +10,9 @@ before the record (its corrigendum, its section banks) is PENDING, named; a halt
 Traceback, is NOT CLEAN. tools/standing/commit.py refuses a commit staging tools/standing/ files unless this bank is staged beside them, reads
 CLEAN or PENDING, and names each staged standing file at its staged blob's sha256.
 
+v1.31.0, (R361)(3)(vi), b750 defect (j): the dry also renders every act module through every template and compiles each render (renders,
+compile_reading), the earliest error printed with its line; a render that compiled at HEAD's templates and fails now is NOT CLEAN.
+
   python -X utf8 -u tools/standing/standingdry.py run          data/<act>_standing_dry.txt
 """
 import hashlib
@@ -59,6 +62,61 @@ def changed_standing():
     return [(n, hashlib.sha256(open(os.path.join(RELAY, n), 'rb').read().replace(b'\r\n', b'\n')).hexdigest()) for n in names if os.path.isfile(os.path.join(RELAY, n))]
 
 
+# ================================================================================ v1.31.0, (R361)(3)(vi): EVERY RENDERED MODULE COMPILED
+# ### b750 defect (j): the first standing dry over v1.30.0 read NOT CLEAN only through the record dry's own run, where the rendered
+# ### tools/b734_record.py raised IndentationError: the acts before b735 key their overrides by line, and lines added above them in record.tpl
+# ### and checks.tpl moved the keys. The dry now renders every act module (tools/acts/b*.py) through every template and compiles each render,
+# ### printing the earliest error with its line; a render that compiles at HEAD's templates and fails at the working ones is NOT CLEAN, a render
+# ### failing at both is printed as carried (the old acts' checks and closing renders, which their own commits render).
+def acts_rendered():
+    import glob
+    return sorted(os.path.basename(p)[:-3] for p in glob.glob(os.path.join(T, 'acts', 'b*.py')))
+
+
+def head_templates(at='HEAD'):
+    import fold as F
+    return dict((t, _git('show', '%s:tools/standing/fold/%s.tpl' % (at, t)).stdout) for t in F.TOOLS)
+
+
+def renders(acts=None, tpls=None):
+    """{(act, tool): (ok, detail)}: each act module rendered through each template (tpls {tool: text} in place of the working template) and
+    compiled; detail the earliest error with its line."""
+    for p_ in (S, T):
+        if p_ not in sys.path:
+            sys.path.insert(0, p_)
+    import fold as F
+    out = {}
+    for a in (acts or acts_rendered()):
+        try:
+            secs, ovs = F._parse(a)
+        except Exception as e:  # noqa: BLE001
+            for t in F.TOOLS:
+                out[(a, t)] = (False, 'the module not parsed: %s' % str(e)[:120])
+            continue
+        for t in F.TOOLS:
+            try:
+                text = F.render(a, t, secs=secs, ovs=ovs, tpl=(tpls or {}).get(t))
+                compile(text, '%s_%s.py' % (a, t), 'exec')
+                out[(a, t)] = (True, '%d lines' % text.count(NL))
+            except SyntaxError as e:
+                out[(a, t)] = (False, '%s line %s: %s' % (type(e).__name__, e.lineno, (e.text or '').strip()[:80]))
+            except F.FoldRefused as e:
+                out[(a, t)] = (False, 'refused: %s' % str(e)[:120])
+    return out
+
+
+def compile_reading(now, head):
+    """(verdict, lines): the renders failing now that compiled at HEAD's templates are NOT CLEAN, each with its earliest error; those failing at
+    both are carried. Pure."""
+    new = sorted(k for k, v in now.items() if not v[0] and head.get(k, (False,))[0])
+    carried = sorted(k for k, v in now.items() if not v[0] and not head.get(k, (False,))[0])
+    L = ['  renders %d over %d act modules ; compiling %d ; failing %d: new %d, carried from HEAD`s templates %d' % (
+        len(now), len(set(a for a, _t in now)), sum(1 for v in now.values() if v[0]), len(new) + len(carried), len(new), len(carried))]
+    L += ['  NEW   %s %s: %s' % (a, t, now[(a, t)][1]) for a, t in new]
+    L += ['  carried %s %s: %s' % (a, t, now[(a, t)][1][:90]) for a, t in carried]
+    return ('NOT CLEAN' if new else 'CLEAN'), L
+
+
 def run(act=None):
     sys.path.insert(0, S)
     import act as A
@@ -70,6 +128,9 @@ def run(act=None):
     files = changed_standing()
     L += ['  %s sha256 %s' % (n, h) for n, h in files] or ['  NONE']
     verdicts = []
+    cv, cl = compile_reading(renders(), renders(tpls=head_templates()))   # ### v1.31.0, (R361)(3)(vi)
+    verdicts.append(cv)
+    L += ['', '## EVERY RENDERED MODULE COMPILED ((R361)(3)(vi)): each act module through each template, at the working templates and at HEAD`s -> %s' % cv] + cl
     for args in (['record', 'findings', 'dry'],):
         r = subprocess.run([sys.executable, '-X', 'utf8', '-u', os.path.join(S, 'fold.py')] + args, capture_output=True, text=True, encoding='utf-8',
                            errors='replace', cwd=RELAY, timeout=590)
@@ -77,7 +138,7 @@ def run(act=None):
         verdicts.append(v)
         L += ['', '## `fold.py %s`: exit %d -> %s' % (' '.join(args), r.returncode, v)] + ['  ' + w for w in why]
     final = 'NOT CLEAN' if 'NOT CLEAN' in verdicts else ('PENDING' if 'PENDING' in verdicts else 'CLEAN')
-    L += ['', '### ### **THE STANDING DRY: %s ; FILES %d ; COMPOSITIONS %d.**' % (final, len(files), len(verdicts))]
+    L += ['', '### ### **THE STANDING DRY: %s ; FILES %d ; COMPOSITIONS %d (the compile of every render among them).**' % (final, len(files), len(verdicts))]
     b = (NL.join(L) + NL).encode('utf-8')
     p = os.path.join(D, '%s_standing_dry.txt' % act)
     with open(p + '.tmp', 'wb') as f:

@@ -365,3 +365,21 @@ def grade(ok, yes, no):
     if ok is False:
         return no
     raise SystemExit('### A GRADE SENTENCE ASKED BEFORE ITS CHECK (the check read %r) -- NOTHING PRINTED' % (ok,))
+
+
+# ================================================================================ v1.31.0, (R361)(3)(i): THE SUITE PARTS IN THEIR ORDER
+# ### b750 events (3), (7), REPEAT b717 (3): standing-a2 run on b750's banks at 05:34:36Z before standing-a1 had banked its half (06:20:06Z)
+# ### read G-NO-SORRY-MAIN DIVERGE; standing-b3 was refused by its own guard (exit 4). Every part now refuses while its predecessor in the
+# ### standing order has no bank for the act in the mode asked, and prints the order.
+def order_refusal(part, parts, banks_of, exists):
+    """None, or the refusal: `part`'s predecessor in `parts` (the standing order) has none of the banks `banks_of(pred)` names for this run's
+    mode (`exists(name)` reads data/). The first part has no predecessor. Pure in its arguments."""
+    parts = list(parts or ())
+    if part not in parts or parts.index(part) == 0:
+        return None
+    pred = parts[parts.index(part) - 1]
+    names = list(banks_of(pred))
+    if any(exists(n) for n in names):
+        return None
+    return 'PART %s NOT RUN: ITS PREDECESSOR %s HAS NO BANK IN THIS MODE (%s) -- THE ORDER: %s ((R361)(3)(i))' % (
+        part, pred, ' or '.join(names), ' -> '.join(parts))

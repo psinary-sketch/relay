@@ -515,6 +515,25 @@ def rows_only(act, names):
     return steps in names and set(names) <= beside
 
 
+def scan_left_out(act, names, untracked):
+    """v1.31.0, (R361)(3)(v), b750 defect (x), REPEAT b749 (c): None, or the refusal, for a relay commit staging `names` while the act's scan bank
+    (data/<act>_address_scan.txt, or its post-lock bank) stands written and untracked (`untracked`, the relay's untracked paths) and is not staged.
+    b750's scan bank, written 02:02:49Z, was left out of relay cc1fc182 and of the gate commit ac800f3d, and the root route's dry read 54 of 55
+    banks; the gate route now runs the staged-set scan as the commit route does, and no commit leaves the scan's own bank behind. Pure."""
+    left = [b for b in ('data/%s_address_scan.txt' % act, 'data/%s_address_scan_postlock.txt' % act) if b in set(untracked or ()) and b not in set(names or ())]
+    return ('THE SCAN LEFT OUT OF A COMMIT: %s written and untracked, not staged -- stage it in this commit (the add is its own message)' % ', '.join(left)) if left else None
+
+
+def usage_lines():
+    """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
+    zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
+    use = [l.strip() for l in (__doc__ or '').split('\n') if l.strip().startswith('python -X utf8 -u tools/standing/commit.py')]
+    return ['THE ONE-CALL TOOL`S USAGE ((R361)(3)(viii)), read before the opening call:'] + ['  ' + u for u in use] + [
+        '  the phases: %s (no words) ; %s (words after "<act> <phase>: ", never opening "<act> ") ; the writes: %s' % (
+            ' | '.join(PHASES[:3]), ' | '.join(ACT_PHASES), ' | '.join(WRITES)),
+        '  repair takes the words naming the edits; a step-rows commit takes the tool`s words: "the step row for relay <sha8>"']
+
+
 def write_route(key, verb, args, act=None):
     """v1.28.0 (iv): an add, a restore or a branch delete, under the act's write mark; Refused where nothing was written."""
     import act as A
@@ -559,6 +578,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         bad = standing_dry_refusal(repo, act, names)   # ### v1.28.0 (viii)
         if bad:
             raise Refused(bad)
+        if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)
+            bad = scan_left_out(act, names, [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p])
+            if bad:
+                raise Refused(bad)
         only = phase in ACT_PHASES and os.path.abspath(repo) == os.path.abspath(RELAY) and rows_only(act, names)   # ### v1.28.1
         if only:
             head = json.loads(_git(repo, 'show', 'HEAD:data/%s_steps.json' % act).stdout or '{}')

@@ -13,6 +13,8 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 ###   v1.27.0, (R357)(3)(viii): every carried figure and section printed beside the ruling; R1-R3 refused (exit 13), before the citation check
 ###   v1.29.0, (R359)(3)(v): R4, a citation section carried unchanged naming a commit the ruling does not name, each of its rows printed
 ###   v1.30.0, (R360)(3)(x): R5, a row of a carried citation section or of the carried c1 route citing a bank the ruling does not name
+###   v1.31.0, (R361)(3)(vii), (viii): every carried row printed with its banks beside the ruling; R6, the ferry not banked by the citation
+###   route (data/<act>_ferry_scan.txt absent); the one-call tool's usage, phases and word form printed at the foot
 ### carry.py shared <act> <entering relay head>
 ###   v1.30.0, (R360)(3)(x): act_current's shared_edits from this act's own commits (standing.act.shared_edits), never carried
 ### carry.py kept <act>
@@ -155,7 +157,7 @@ def _empty(v):
     return v is None or v == 0 or v == '' or (isinstance(v, (tuple, list, dict, set)) and not v)
 
 
-def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
+def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_routed=None):
     """pure: (lines, refused) -- every carried figure and section printed beside the ruling; R1 and R2 refused."""
     import actmodule as AM
     W, P = literals(wl_text), literals(prev_wl_text)
@@ -232,21 +234,32 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs):
             rows_ = [l for l in body.split(NL) if DATAP.search(l)]
         else:
             continue
-        bad_rows = []
+        bad_rows, row_lines = [], []
         for l in rows_:
             nr5 += 1
             un = [p for p in sorted(set(DATAP.findall(l))) if not named(p)]
             if un:
                 bad_rows.append((l.strip()[:70], un))
+            # ### v1.31.0, (R361)(3)(vii): every row the carry brings printed beside the ruling, each bank it cites with the ruling's line or NOT NAMED
+            row_lines.append('    %s | %s' % (l.strip()[:90], ', '.join('%s %s' % (p, (':%d' % named(p)) if named(p) else 'NOT NAMED') for p in sorted(set(DATAP.findall(l)))) or 'no bank'))
         L.append('  %s: rows %d ; rows citing a bank the ruling does not name %d%s' % (' '.join(map(str, key)), len(rows_), len(bad_rows),
                                                                                        (' ### REFUSED (R5): ' + ' | '.join('%s -> %s' % (r, ', '.join(u)) for r, u in bad_rows[:4])) if bad_rows else ''))
+        L += row_lines
         if bad_rows:
             refused.append(('R5', ' '.join(map(str, key)), '%d carried row(s) citing banks the ruling does not name: %s' % (
                 len(bad_rows), ', '.join(sorted(set(p for _r, u in bad_rows for p in u)))[:200])))
     L.append('  carried rows read by their banks %d ; refused sections %d' % (nr5, sum(1 for r in refused if r[0] == 'R5')))
-    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d, R5 %d)%s.**' % (
+    # ### v1.31.0, (R361)(3)(vii), b750 defect (s), REPEAT b749 (o): R6, the ferry banked by the citation tool's route (`fold.py citation ferry`,
+    # ### which runs tools/ferry_scan.py and banks data/<act>_ferry_scan.txt) before the carry is read beside it; b750's ferry was banked by the
+    # ### Write tool alone and the route found absent at Component 4. `ferry_routed` None: not read (a caller of v1.30.0's form).
+    if ferry_routed is not None:
+        L += ['', '## THE FERRY`S ROUTE: data/<act>_ferry_scan.txt %s' % ('PRESENT, the ferry banked by the citation route' if ferry_routed else
+                                                                           'ABSENT ### REFUSED (R6): the ferry not banked by the citation route (`fold.py citation ferry --act <act>`)')]
+        if not ferry_routed:
+            refused.append(('R6', 'ferry', 'the ferry not banked by the citation tool`s route: data/<act>_ferry_scan.txt absent'))
+    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d, R5 %d, R6 %d)%s.**' % (
         len(refused), sum(1 for r in refused if r[0] == 'R1'), sum(1 for r in refused if r[0] == 'R2'), sum(1 for r in refused if r[0] == 'R3'),
-        sum(1 for r in refused if r[0] == 'R4'), sum(1 for r in refused if r[0] == 'R5'),
+        sum(1 for r in refused if r[0] == 'R4'), sum(1 for r in refused if r[0] == 'R5'), sum(1 for r in refused if r[0] == 'R6'),
         ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
     return L, refused
 
@@ -303,8 +316,12 @@ def main(argv):
                 sys.exit('### REFUSED: %s resolves to no file' % x)
         pn, an = int(p[1:]), int(a[1:])
         subs = (('b%d' % pn, 'b%d' % an), ('b%d' % (pn - 1), 'b%d' % (an - 1)))
-        L, refused = ruled(texts[0], texts[1], texts[2], texts[3], texts[4], subs)
+        L, refused = ruled(texts[0], texts[1], texts[2], texts[3], texts[4], subs, ferry_routed=os.path.isfile(_path('data/%s_ferry_scan.txt' % a)))
         print(NL.join(L))
+        # ### v1.31.0, (R361)(3)(viii): the one-call tool's usage, phases and word form, printed before the seat's opening call
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import commit as CM
+        print(NL.join([''] + CM.usage_lines()))
         return 13 if refused else 0
     if len(argv) < 5 or '--subs' not in argv:
         sys.exit(__doc__)

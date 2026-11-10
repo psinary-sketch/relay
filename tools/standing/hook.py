@@ -24,6 +24,11 @@ Reads the hook's JSON from stdin and refuses, each refusal printed with the v5 r
   BYDESIGN (v1.30.0, (R360)(3)(ii)) an Edit or Write, after the lock, of a file written after the lock by design (standing.act.by_design: the
          answers pair, the author-words banks, the post-lock scan banks): each is appended by its tool alone; lock_exempt imports the list
          with the hook's own directory on the path (the hook runs as `python -I`)
+  WLIST  (v1.31.0, (R361)(3)(ii)) a Write or Edit of a tracked path outside the act's (W) list as regenerated (data/<act>_wlist.json,
+         tools/standing/wlist.py), or of any tracked path while that bank is absent or stale
+  COMPOSER (v1.31.0, (R361)(3)(iii)) an AskUserQuestion whose questions `tools/standing/rootprompt.py put` did not compose and bank
+         (data/<act>_put_<k>.json); the matcher in the seat's settings carries AskUserQuestion
+  LIMIT  (v1.31.0, (R361)(3)(ix)) a route of tools/standing/limits.py's table sent in the foreground with no timeout or one beneath its limit
   v1.29.0, (R359)(3)(i): every shell call recorded in the calls ledger (record_call), its message's request stamp beside it, for the
          one-call tool's own refusal of a second git write in one message
 Quoted strings (single, double, PowerShell here-strings) are stripped before the scan, so a regex
@@ -76,6 +81,11 @@ ROWS = {
     'PLAINGIT': ROW77 + ' ; every git write through the one-call tool tools/standing/commit.py, the scan over the staged set before every commit ((R358)(6), (R359)(3)(iii))',
     'BYDESIGN': ROW77 + ' ; (65) the files written after the lock by design -- the answers pair, the author-words banks and the post-lock scan banks (standing.act.by_design) -- '
                         'each appended by its tool (`record answers`, tools/standing/append.py, the one-call tool`s scan) and none edited by hand ((R360)(3)(ii))',
+    'WLIST': ROW77 + ' ; (N5) no file written beyond the (W) list as regenerated: a Write or Edit of a tracked path outside it refused before it lands, the list read from '
+                     'data/<act>_wlist.json (tools/standing/wlist.py bank) ((R361)(3)(ii))',
+    'COMPOSER': ROW77 + ' ; every prompt the act puts to the author -- the sitting items, the halts and the root -- through compose_checked before it is put, '
+                        'banked by `tools/standing/rootprompt.py put` as data/<act>_put_<k>.json ((R361)(3)(iii))',
+    'LIMIT': ROW77 + ' ; a run that may exceed the host`s default sent with the limit the tool prints (tools/standing/limits.py) ((R361)(3)(ix))',
 }
 
 # ### v1.17.0, (R347)(2)(ii)-(iii): the hook reads the message a call belongs to, and judges the Edit and Write tools against the lock
@@ -488,6 +498,51 @@ def hashed_bank(path, relay=RELAY, act=None):
     return rel[5:] if isinstance(names, dict) and rel[5:] in names else None
 
 
+def _mod(name):
+    """v1.31.0: a standing module imported with the hook's own directory on the path (the hook runs as `python -I`); None where it does not import."""
+    try:
+        d = os.path.dirname(os.path.abspath(__file__))
+        if d not in sys.path:
+            sys.path.insert(0, d)
+        return __import__(name)
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def wlist_fault(path, relay=RELAY):
+    """v1.31.0, (R361)(3)(ii), b750 defects (h), (i): the detail where a Write or Edit of a tracked path falls outside the act's regenerated (W)
+    list (tools/standing/wlist.py fault, reading data/<act>_wlist.json), else None. A fault in the reader refuses nothing (the suite stands behind)."""
+    W = _mod('wlist')
+    if W is None or not path:
+        return None
+    try:
+        return W.fault(path, bank_act(relay))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def composer_fault(inp, relay=RELAY):
+    """v1.31.0, (R361)(3)(iii): the detail where a question put by AskUserQuestion is not one `rootprompt.py put` composed and banked, else None."""
+    R_ = _mod('rootprompt')
+    if R_ is None or not hasattr(R_, 'put_fault'):
+        return None
+    try:
+        return R_.put_fault(bank_act(relay), inp.get('questions') or [], relay)
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def limit_fault(cmd, inp):
+    """v1.31.0, (R361)(3)(ix), b750 defect (t): the detail where a route of tools/standing/limits.py's table is sent in the foreground beneath its limit."""
+    L_ = _mod('limits')
+    if L_ is None:
+        return None
+    try:
+        return L_.fault(cmd, inp.get('timeout'), bool(inp.get('run_in_background')))
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def refusals_path(relay=RELAY):
     act = bank_act(relay)
     return os.path.join(relay, 'data', '%s_%s.txt' % (act, EXCLUDED_KIND) if act else 'act_unread_%s.txt' % EXCLUDED_KIND)
@@ -562,7 +617,13 @@ def judge(tool, inp, relay=RELAY, ctx=None):
         hb = hashed_bank(inp.get('file_path') or inp.get('notebook_path') or '', relay)
         if hb:   # ### v1.21.0, (R351)(2)(ii), b740 (m)
             return 'HASHED', 'a %s of data/%s, a bank its tool wrote (data/%s_bank_hashes.json), by hand' % (tool, hb, bank_act(relay))
+        wf = wlist_fault(inp.get('file_path') or inp.get('notebook_path') or '', relay)
+        if wf:   # ### v1.31.0, (R361)(3)(ii)
+            return 'WLIST', 'a %s: %s' % (tool, wf)
         return None
+    if tool == 'AskUserQuestion':   # ### v1.31.0, (R361)(3)(iii)
+        cf = composer_fault(inp, relay)
+        return ('COMPOSER', cf) if cf else None
     if tool == 'Read':
         lim = inp.get('limit')
         if lim is None:
@@ -594,6 +655,9 @@ def judge(tool, inp, relay=RELAY, ctx=None):
             return 'SED', 'a %s command running sed' % tool
         if inp.get('run_in_background') and (SUITE_PART.search(bare) or SUITE_COMBINE.search(bare)):   # ### v1.19.0, (R349)(2)(v), b738 events (6)
             return 'BACKGROUND', 'a suite part or combine sent to the background'
+        lf = limit_fault(bare, inp)   # ### the route read outside quotes: a test string naming a route runs nothing
+        if lf:   # ### v1.31.0, (R361)(3)(ix)
+            return 'LIMIT', lf
         for inner in inner_shell_args(cmd):   # ### v1.9.0, (R339)(2)(i): strip_quotes blanks an inner shell's argument, the one place a redirect passed the test above
             ibare, _c = strip_quotes(inner)
             if '|' in ibare or '>' in ibare or '<' in ibare:
