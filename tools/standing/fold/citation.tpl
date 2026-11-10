@@ -233,7 +233,14 @@ def check(*a):
     L += ['  %-11s | %s :%d | %r | %s | %s%s' % (r[5], r[0], r[1], r[2], r[3], ', '.join('%s %g' % kv for kv in list(r[4].items())[:6]) + (' ...' if len(r[4]) > 6 else ''),
                                              (' | ' + r[6]) if r[6] else '') for r in crows]
     L += ['  %-11s | %s :%d | %r | no reading row' % ('UNREAD', b, l, w) for b, l, w in cun]
+    # ### v1.32.0, (⟪RUL⟫)(7)(i): every path the ruling and the ferry name, OK or NONE at HEAD, by the text alone (standing.cites.ferry_paths)
+    FP = __import__('standing.cites', fromlist=['ferry_paths']).ferry_paths(text, '⟪ACT⟫', ROOT, PP)
+    fn = [x for x in FP if x[2] == 'NONE']
+    L += ['', '### EVERY PATH THE RULING AND THE FERRY NAME, AT HEAD ((⟪RUL⟫)(7)(i)): paths %d ; OK %d ; NONE %d ; the act`s own, to be written %d' % (
+        len(FP), sum(1 for x in FP if x[2] == 'OK'), len(fn), sum(1 for x in FP if x[2].startswith('THE ACT')))]
+    L += ['  %-4s | %s %s' % ('OK' if s == 'OK' else ('NONE' if s == 'NONE' else 'OWN'), r, p) for p, r, s in FP]
     L += ['', '### ### **CITES CHECKED %d ; OK %d ; MISSES %d.**' % (len(R), len(R) - len(miss), len(miss))]
+    L += ['### ### **THE FERRY`S PATHS %d ; OK %d ; NONE %d%s.**' % (len(FP), sum(1 for x in FP if x[2] == 'OK'), len(fn), (' -- ' + ', '.join(p for p, _r, _s in fn)) if fn else '')]
     clean = not hl and not chalt
     L += ['### ### **THE CHECK %s** (halts %d: Lean paths and nouns %d, comparatives %d) -- the branch deletes wait on CLEAN ((⟪RUL⟫)(2)(iv))' % (
         'CLEAN' if clean else 'HALTED', len(hl) + len(chalt), len(hl), len(chalt))]

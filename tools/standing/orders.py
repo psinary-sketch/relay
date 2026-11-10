@@ -143,6 +143,14 @@ def _closer(line, name):
 QUOTE = re.compile(r'“[^”]*”|"[^"\n]*"')   # ### v1.27.0, (R357)(3)(v): a quotation, curly or straight, on one line
 HAND_OPEN = 'the lines above are the composer'      # ### the hand section's own opening sentence (b723 onward), to the next heading
 ENTRYFORM = re.compile(r'^\*Appended[^\n]*?THE ORDER \*\*`(W-ORD-[A-Z0-9]+(?:-[A-Z0-9]+)*)`')   # ### the entry form of an order's own commit
+# ### v1.32.0, (R362)(7)(v): THE ORDER THAT IS NO ORDER. `W-ORD-1` is the text tools/standing/rowid.py printed over a row of b746 (b746 events (3)),
+# ### a row ID's form, W-ORD-<digits>; read as a name it entered at OPEN_TRAILS :17978 and has stood on the open-orders line since b748's trail
+# ### (:18002, :18048, :18096, :18144), the count 73 of 208 where b747 read 72 of 207. A name whose tail is digits alone is no order and is
+# ### printed beside. The ruling's words, "reads an order from its entry form alone", were tried at HEAD 2a94bf8 before this repair and not
+# ### taken (data/b752_standing_v1320.txt, (orders)): an entry only where an entry word stands in the clause naming the order, or the entry
+# ### form of an order's own commit, leaves 85 of 208 orders and removes 37 OPEN ones (W-ORD-MECHANISM-ATTRIBUTION, this act's order, among them);
+# ### an entry only at the name's code form (`W-ORD-...`) removes 24 OPEN ones. The narrower reading is the seat's, carried to the author.
+ROWID_FORM = re.compile(r'^W-ORD-\d+$')
 
 
 def mask(line):
@@ -159,6 +167,16 @@ def hand_flags(lines):
         if HAND_OPEN in l:
             on = True
         out.append(on)
+    return out
+
+
+def rowid_mentions(lines):
+    """v1.32.0, (R362)(7)(v): {token: [lines]} for every W-ORD-<digits> token the trail carries, printed beside and read as no order."""
+    out = {}
+    for i, l in enumerate(lines, 1):
+        for n in NAME.findall(l):
+            if ROWID_FORM.match(n):
+                out.setdefault(n, []).append(i)
     return out
 
 
@@ -188,6 +206,8 @@ def read(lines):
         if l.lstrip().startswith(ROLL) or hf[i - 1]:
             continue
         for n in NAME.findall(l):   # ### in reading order, not a set's: names entering on one line keep the line's order
+            if ROWID_FORM.match(n):   # ### v1.32.0, (R362)(7)(v): a row ID's form is no order
+                continue
             if n not in orders:
                 orders[n] = dict(entry=i, status='OPEN', decided_at=None, why=None, closed_at=None, reopened_at=None, named=0)
     order = sorted(orders, key=lambda n: orders[n]['entry'])
@@ -310,8 +330,11 @@ def report(rows, rev):
     conflict = [n for n, o in rows if o['status'] == 'CLOSED' and o['rolls_after']]
     reopened = [n for n, o in rows if o['reopened_at']]
     uq, uh, ur = unread_mentions(trail(rev))
+    rid = rowid_mentions(trail(rev))
     L += ['', '### PRINTED BESIDE, NOT READ: lines carrying an entry word in lower or mixed case in a clause naming an order: %d' % anycase_yield(
               trail(rev)),
+          '### PRINTED BESIDE, NOT AN ORDER (v1.32.0, (R362)(7)(v)): a row ID`s form W-ORD-<digits>: %d mention(s) %s' % (
+              sum(len(v) for v in rid.values()), ', '.join('%s at %s' % (k, ' '.join(':%d' % i for i in v)) for k, v in rid.items()) or 'NONE'),
           '### PRINTED BESIDE, NOT READ FOR AN ENTRY (v1.27.0): mentions in a quotation %d ; in a hand section %d ; on a roll line %d' % (uq, uh, ur),
           '', '### ### **ORDERS %d ; OPEN %d ; CLOSED %d ; OPEN AGAIN AFTER A CLOSING LINE %d%s ; CLOSED AND ON A ROLL AFTER %d%s.**' % (
               len(rows), len(op), len(rows) - len(op), len(reopened), (': ' + ', '.join(reopened)) if reopened else '',

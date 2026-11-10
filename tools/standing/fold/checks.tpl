@@ -104,6 +104,7 @@ import act_letters as AL      # noqa: E402  ### (⟪RUL⟫)(6)(v), v5 row (78): 
 from standing import arms as STA    # noqa: E402  ### (⟪RUL⟫)(4)(i): the previous act's longest phase from its root-named part banks
 from standing import close as STC   # noqa: E402  ### (⟪RUL⟫)(4)(ii), (vi): the withheld field from the ruling, neg_shown's three lists
 from standing import postseal as PSL   # noqa: E402  ### v1.21.0, (R351)(2)(iv)
+from standing import refused as RFC    # noqa: E402  ### v1.32.0, (R362)(7)(ii): G-RULE-REMOTE-REREAD over the calls that ran
 
 
 def _owners(rows):
@@ -182,7 +183,20 @@ def _renamed():
 
 
 # ### the corpus documents this act does not write: b703's list at the files of record after (R316)(3); no document is cut this act
-CURRENTS = tuple(p for p in dict.fromkeys(_renamed().get(p, p) for p in C3.CURRENTS) if p not in K.PP_EDITED)   # ### less the files (⟪RUL⟫)(5)(iii)-(iv) edits on main
+def currents_for(*ks):
+    """v1.32.0, (R362)(7)(iii), b751 events (3): the corpus documents less every file written on main by an act whose writes lie in the span read
+    (each worklist's PP_EDITED); returns (CURRENTS, {act's worklist name: the files excluded})."""
+    ex = {}
+    for k_ in ks:
+        ex[getattr(k_, '__name__', str(k_))] = tuple(getattr(k_, 'PP_EDITED', ()) or ())
+    every = set(p for v in ex.values() for p in v)
+    return tuple(p for p in dict.fromkeys(_renamed().get(p, p) for p in C3.CURRENTS) if p not in every), ex
+
+
+# ### v1.32.0, (R362)(7)(iii): a `--prev` run reads the span from ⟪PREV⟫'s pre-act head to HEAD, so ⟪PREV⟫'s writes and this act's both lie in it;
+# ### before this repair the list was computed here, at import, from this act's PP_EDITED alone, and `--prev` rebound K after it (b751's run on
+# ### b750's banks read b750's sitting writes -- ERRATA, SPIRAL_MAP, REGISTRY, INSTRUMENTS, README -- as edits). _prev_rebind recomputes it.
+CURRENTS, CURRENTS_EXCLUDED = currents_for(KS)   # ### less the files (⟪RUL⟫)(5)(iii)-(iv) edits on main
 TABLE_FILES = K.TABLE_FILES
 WF, PT = '.github/workflows/build-module.yml', 'print_targets.txt'
 PORT_LABEL = KR.PORT_LABEL    # ### b712's runs, read as banked by the standing runner arms (no dispatch at ⟪PREV⟫ or this act)
@@ -1357,6 +1371,19 @@ def unedited_all(S):
     return all(a is not None and a == b == c for a, b, c in S['currents'].values()) and len(S['currents']) == len(CURRENTS)
 
 
+def currents_detail(S):
+    """v1.32.0, (R362)(7)(iii): G-CURRENTS-UNEDITED's detail line -- the documents read, the files excluded and the act whose writes excluded them,
+    each differing document with the side that differs (working tree, the pre-act head, HEAD)."""
+    cu = S.get('currents') or {}
+    dif = []
+    for p, (a, b, c) in sorted(cu.items()):
+        if not (a is not None and a == b == c):
+            dif.append('%s (%s)' % (p, ', '.join(w for w, x in (('working tree ABSENT', a is None), ('the pre-act head %s ABSENT' % PRE['pp'][:7], b is None),
+                                                                 ('working tree != HEAD', a is not None and a != c), ('the pre-act head != HEAD', b is not None and b != c)) if x) or 'HEAD ABSENT'))
+    return 'G-CURRENTS-UNEDITED: read %d against the pre-act head %s ; excluded as written on main %s ; differing %d %s' % (
+        len(cu), PRE['pp'][:7], '; '.join('%s %s' % (k_, list(v) or 'none') for k_, v in CURRENTS_EXCLUDED.items()), len(dif), dif or 'NONE')
+
+
 def corpus_scope_ok(S):
 ⟪SLOT 28⟫
     ch = S['pp_changed']
@@ -1855,7 +1882,7 @@ ARMS_ALL = [
     ('G-READ-RULE-STANDING', 'tools/b704_read_arm.py over the read bank at HEAD (the author`s word at b704`s sort; from b705 every call counts): no Read call of a file of two hundred lines or more without an offset, without a limit or with a limit above two hundred',
      lambda S: read_rule_standing_ok(S), lambda S: _read_plant(S)),
 ] + [(nm, 'tools/rule_arms.py (the author`s word on (R293)(6); (R301)(6) for four; G-RULE-SUITE-PARTS as repaired under (R302)(2) and (⟪RUL⟫)(2); G-RULE-BINARY-HASHES as repaired under (R306)(2); G-RULE-RECUT-QUOTE`s sources as repaired under (R313)(2)) -- ' + reads,
-      (lambda p: lambda S: p(S['ra']))(PSL.wrap(pred, '⟪ACT⟫') if nm == PSL.ARM else pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]   # ### v1.21.0, (R351)(2)(iv): the post-seal arm's failure carries its ordinal
+      (lambda p: lambda S: p(S['ra']))(PSL.wrap(pred, '⟪ACT⟫') if nm == PSL.ARM else (lambda R: RFC.reading(RA, R)[0]) if nm == RFC.ARM else pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]   # ### v1.21.0, (R351)(2)(iv): the post-seal arm's failure carries its ordinal
 # ### (⟪RUL⟫)(10): the run list -- the whole list less tools/standing/arms.py RETIRED; every part, the (G2) block, the seal and the tallies read
 # ### ARMS; G-ARM-TAGS reads the whole list (the retired keep their tags)
 ARMS = STA.run_list(ARMS_ALL)
@@ -2200,11 +2227,13 @@ def main():
         rec('  ### THE FOUR STANDING FIGURES, each against the previous act`s (%s):' % S['fig_prev_name'])
         for k in ('correspondence', 'readme', 'partners', 'pins'):
             rec('  ###   %-15s live %s ; previous %s' % (k, (S['fig'].get(k) or {}).get('figure'), (S['fig_prev'].get(k) or {}).get('figure')))
+    if S.get('currents'):
+        rec('  ### ' + currents_detail(S))   # ### v1.32.0, (R362)(7)(iii): G-CURRENTS-UNEDITED's detail line
     if 'rules' in NEED[PART]:
         rec('  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace %d calls:' % len(
             S['ra'].get('calls') or []))
         for nm in RA.NAMES:
-            ok_, n_, b_, note = RA.reading(nm, S['ra'])
+            ok_, n_, b_, note = RFC.reading(RA, S['ra']) if nm == RFC.ARM else RA.reading(nm, S['ra'])   # ### v1.32.0, (R362)(7)(ii)
             rec('  ###   %-28s %-4s read %d ; failing %d ; %s' % (nm, 'PASS' if ok_ else 'FAIL', n_, b_, note[:260]))
     chain_part = next((x for x in CHAIN_KEYS if x in NEED[PART]), None)
     if chain_part:
@@ -2389,7 +2418,7 @@ def _prev_rebind():
     data/⟪PREV⟫_<x>), the face ⟪PREV⟫'s, the worklist through _PrevWorklist, the pre-act heads ⟪PREV⟫'s. The tools stay this act's; the banks alone are
     the previous act's. An arm whose source the rebinding does not reach (a literal path, a ⟪ACT⟫-only bank) reads this act's and is printed as it
     falls, beside ⟪PREV⟫'s own verdict."""
-    global rd, jl, FACE, K, PRE, _JL_OWN
+    global rd, jl, FACE, K, PRE, _JL_OWN, CURRENTS, CURRENTS_EXCLUDED
 
     def pv(n):
         return ('⟪PREV⟫_' + n[5:]) if isinstance(n, str) and n.startswith('⟪ACT⟫_') else n
@@ -2401,6 +2430,7 @@ def _prev_rebind():
     FACE = B707_FACE
     K = _PrevWorklist(K, K707)
     PRE = dict(relay=K707.PRE_RELAY, pp=K707.PRE_PP)
+    CURRENTS, CURRENTS_EXCLUDED = currents_for(K707, KS)   # ### v1.32.0, (R362)(7)(iii): both acts' writes lie in the span read
 
 
 if PREV:

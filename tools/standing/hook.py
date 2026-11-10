@@ -655,7 +655,7 @@ def judge(tool, inp, relay=RELAY, ctx=None):
             return 'SED', 'a %s command running sed' % tool
         if inp.get('run_in_background') and (SUITE_PART.search(bare) or SUITE_COMBINE.search(bare)):   # ### v1.19.0, (R349)(2)(v), b738 events (6)
             return 'BACKGROUND', 'a suite part or combine sent to the background'
-        lf = limit_fault(bare, inp)   # ### the route read outside quotes: a test string naming a route runs nothing
+        lf = limit_fault(cmd, inp)   # ### v1.32.0, (R362)(7)(viii): the route read from the command's own arguments (limits.runs), its quoting parsed
         if lf:   # ### v1.31.0, (R361)(3)(ix)
             return 'LIMIT', lf
         for inner in inner_shell_args(cmd):   # ### v1.9.0, (R339)(2)(i): strip_quotes blanks an inner shell's argument, the one place a redirect passed the test above

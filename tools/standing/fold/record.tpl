@@ -3913,6 +3913,12 @@ def answers(*a):
     tn, jn = '%s_author_answers.txt' % ACT, '%s_author_answers.json' % ACT
     if tn not in cap:
         sys.exit('### THE ROUTE COMPOSED NO ANSWERS BANK -- NOTHING WRITTEN')
+    # ### v1.32.0, (⟪RUL⟫)(7)(iv), b751 events (4): the word rows re-keyed by place (standing.authorwords), a word word for word an earlier one kept as
+    # ### its own row; the rows b698's text-keyed reading dropped printed by their place
+    from standing import authorwords as AW
+    ws = AW.author_words(R._session_rows(), K.SESSION_ID, K.ANCHOR)
+    cap[tn], restored = AW.rekey(cap[tn], ws)
+    print('  the words by place: %d ; restored where b698`s reading kept one row for identical words: %d %s' % (len(ws), len(restored), restored or 'NONE'))
     prior = rdn(tn, optional=True) or ''
     text, n = SA.answers_append(prior, cap[tn], utc())
     pj = jl(jn) or {}
@@ -3920,6 +3926,9 @@ def answers(*a):
     calls = list(pj.get('calls') or []) + [c for c in (cap.get(jn) or {}).get('calls') or [] if c.get('id') not in have]
     print('  the bank standing: %d line(s) ; the route composed %d ; appended %d (no line already in the bank rewritten) ; calls %d' % (
         len(prior.rstrip(NL).split(NL)) if prior.strip() else 0, len(cap[tn]), n, len(calls)))
+    added = text[len(prior.replace('\r', '').rstrip(NL)):].strip(NL).split(NL) if prior.strip() else text.rstrip(NL).split(NL)
+    for l in added if n else []:   # ### v1.32.0, (⟪RUL⟫)(7)(iv): the lines the route adds, printed
+        print('    + ' + l[:200])
     if 'dry' in a or (n == 0 and prior.strip()):
         print('  %s: nothing written' % ('dry' if 'dry' in a else 'nothing to append'))
         return

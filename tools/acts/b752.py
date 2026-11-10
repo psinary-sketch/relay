@@ -677,13 +677,17 @@ def _draft_of(t):
 #⟪END⟫
 #⟪SECTION checks 10⟫
 # ### b752's read-first bank's items by path, as its step zero wrote them (data/b752_readfirst.txt)
-READFIRST_NEEDLES = ('relay data/b751_closing.txt |', 'relay data/b751_events.txt |', 'relay data/b751_defects.txt |', 'relay data/b751_author_answers.txt, data/b751_author_words.txt |',
-                     'relay data/b751_sitting.txt |', 'relay data/b751_cq_sign.txt |', 'relay data/b751_line.txt |', 'relay data/b743_sitting_agenda.txt |',
-                     'PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md at 88942b4 |', 'PLACE-papers phase1.5/method/CERTIFIED_EVALUATION_IN_THE_STRIP_v0_1.md |',
-                     'relay data/b738_sp1.txt | ABSENT |', 'relay data/b740_s5.txt | ABSENT |', 'relay data/b741_c7_plan.txt |', 'relay data/b741_c7.txt | ABSENT |',
-                     'relay data/b742_s6_plan.txt |', 'relay data/b742_offlinezero.txt |', 'relay data/b742_offlinezero_notes.txt |', 'relay data/b743_discharge.txt | ABSENT |',
-                     'SIDE-explicit-formula at 14ca5725 (v0.38) |', 'relay tools/b741_g5gen.py, tools/b742_s6gen.py |', 'Mathlib at de5ce8a9 ',
-                     'relay data/b751_ferry.txt |', 'relay data/b751_stepzero.txt |', 'relay data/b751_standing_v1300.txt |', 'relay data/b736_sitting.txt |')   # ### data/b752_readfirst.txt :15-:42 (b752 Component 4: the carried b751 needles replaced, defect (q))
+READFIRST_NEEDLES = ('relay data/b751_closing.txt |', 'relay data/b751_events.txt |', 'relay data/b751_defects.txt |',
+                     'relay data/b751_prevrun_standing-a2.txt :70, data/b751_arms_prerun_standing-a2.txt :26, :69 |',
+                     'relay data/b751_author_answers.txt :7, :34, :37; data/b751_author_words.txt |',
+                     'relay data/b751_section5.txt, data/b751_literature.txt, data/b751_line.txt, data/b751_rules.txt |',
+                     'PLACE-papers PATHS_TO_THE_CRITICAL_LINE.md |', 'PLACE-papers OPEN_TRAILS.md |', 'PLACE-papers day1/Which_Structure_Confines.md v2.3.1 |',
+                     'PLACE-papers day1/Which_Structure_Confines_v2_4_0.md v2.4.0 |', 'PLACE-papers day1/Seven_Mechanism_Classes.md v3.3.1 |',
+                     'PLACE-papers INSTRUMENTS.md |', 'relay data/b750_cq_sign.txt, tools/b750_cq_sign.py (a1655706) |', 'relay data/b725_interference.txt |',
+                     'relay data/b746_order_draft.txt, data/b747_order_entry.txt, data/b747_rules.txt, data/b723_dial_price.txt, data/b723_registrations.txt, data/b736_sitting.txt |',
+                     'SIDE-kernel at 0e5233f0 (v1.5) |', 'SIDE-explicit-formula at 14ca5725 (v0.38) |', 'D:/.claude/settings.json |',
+                     'relay data/b751_ferry.txt |', 'relay data/b751_stepzero.txt |', 'relay data/b751_standing_v1310.txt |', 'relay data/b750_cq_sign.txt |',
+                     'relay data/b736_sitting.txt |')   # ### b752 Component 1, (R362)(7)(vi): the 23 rows of data/b752_readfirst_rows.json by their paths, the carried b751 needles (refused by R7) replaced
 #⟪END⟫
 #⟪SECTION checks 11⟫
 CLOSING_SECTIONS = ('CORRIGENDUM ((R362)(1)-(2))',   # ### the template's heading (closing.tpl :386), not the ferry's numbering
@@ -1067,7 +1071,7 @@ def research_reproduces_ok(S):
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (FINDINGS, OPEN_TRAILS and THE_EPSTEIN_CONTROL_OBJECT_v0_1, (R362)(1)-(2), (6)); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    ('G-PRIOR-CLOSED-PUSHED', 'b751`s trail record on OPEN_TRAILS (:18084) and its root in the chain', lambda S: '### b751 — lane two, act one hundred and seventy-seven, the synthesis sitting under (R361)' in S['ot']
+    ('G-PRIOR-CLOSED-PUSHED', 'b751`s trail record on OPEN_TRAILS (:18134) and its root in the chain', lambda S: '### b751 — lane two, act one hundred and seventy-eight, the located zero under (R361)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (FINDINGS, OPEN_TRAILS and the paper`s §5): beyond %s' % (
@@ -1299,8 +1303,9 @@ tool's scores route and written nowhere. Kernels written this act: none ((R362)(
 #⟪END⟫
 #⟪SECTION closing 4⟫
 import standing.faceform as FF   # ### v1.8.0, (R361)(2)(iv)(c): the outbound sentence from the one clause
-TITLE_LINE = ('b752 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SEVENTY-SEVEN, THE LOCATED ZERO: b751 AT ITS WEIGHT AND ITS CORRIGENDUM; '
-              'v1.31.0; THE LITERATURE READ FROM ITS SOURCE; §5 OF THE_EPSTEIN_CONTROL_OBJECT PUT AS [S5] AND PASSED; THE INTEGRATION LINE, UNDER (R362).**')
+TITLE_LINE = ('b752 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND SEVENTY-NINE, THE ATTRIBUTION PLAN: b751 AT ITS WEIGHT; THE CORRIGENDUM OPENING ON '
+              'THE NAVIGATOR`S RULINGS FROM RECALL AND THE ARM THAT READ A REFUSED CALL; THE CROSS-REFERENCE BANKED; THE CLASS-GROUP SIGNATURE OF THE NEGATIVE n '
+              'COMPUTED; THE KERNEL`S CLASSES READ AS STATEMENTS; THE PLAN PUT AS [P1]; NOTHING BUILT, UNDER (R362).**')   # ### b752 Component 1: the ferry`s ACT line (:35); R7 refused the carried title
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b751's sections over b751's objects not carried). A row of two reads its bank's verdict line by
@@ -1728,10 +1733,10 @@ def _post_lock_edits():
                 ghr_ or 'NONE', ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    f_ = _figs()
-    return ('### b752 — lane two, act one hundred and seventy-eight, the located zero under (R362): b751 at its weight and its corrigendum; '
-            'v1.31.0; the literature read from its source; §5 of THE_EPSTEIN_CONTROL_OBJECT %s at [S5], %d words; the integration line' % (
-                f_['s5_state'].lower(), f_['s5_words']))
+    # ### b752 Component 1, (R362)(7)(vi): R7 refused the carried head (b751's ordinal and its §5 figures); the ruling's ordinal and title, the
+    # ### act's own figures added by Component 4 when its banks stand
+    return ('### b752 — lane two, act one hundred and seventy-nine, the attribution plan under (R362): b751 at its weight and its corrigendum; '
+            'v1.32.0; the cross-reference, the class-group signature of the negative n and the kernel`s classes read as statements; the plan put as [P1]; nothing built')
 #⟪END⟫
 #⟪SECTION record 29⟫
 #⟪END⟫

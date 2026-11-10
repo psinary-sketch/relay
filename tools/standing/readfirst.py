@@ -84,4 +84,5 @@ def hand_ok(act, closure_dir=None):
 if __name__ == '__main__':
     if len(sys.argv) != 3 or sys.argv[1] != 'write':
         raise SystemExit('usage: readfirst.py write <act>')
+    A.act_name(sys.argv[2], 'readfirst.py write', 'usage: readfirst.py write <act>')   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     write(sys.argv[2])

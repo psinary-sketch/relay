@@ -26,10 +26,52 @@ LONG = (
 )
 
 
+# ### v1.32.0, (R362)(7)(viii), b751 defects (g), (p): THE LIMIT ROW READS THE COMMAND'S OWN ARGUMENTS. v1.31.0 matched a route's name anywhere in
+# ### the command (with quoted text blanked after (g)): a line count over the tool (b751 (p), `wc -l tools/b750_prepaths.py ...`) and a search
+# ### naming a suite's module (b752, `git grep ... -- tools/b703_checks.py`, refused twice at 22:1xZ) read as runs. A route is read in the
+# ### interpreter's place alone: for each simple command (split at &&, ||, ; and line ends), the script a python interpreter runs with the
+# ### arguments after it (its options skipped; `-c` runs code and no script; `-m` a module, not read), or a .ps1 file in the run position.
+import shlex   # noqa: E402
+
+SEP = re.compile(r'&&|\|\||;|\n')
+PY = re.compile(r'(?i)^(?:.*/)?(?:python(?:3(?:\.\d+)?)?|py)(?:\.exe)?$')
+PY_TAKES = ('-X', '-W', '--check-hash-based-pycs')
+
+
+def _tokens(seg):
+    try:
+        return shlex.split(seg, posix=True)
+    except ValueError:
+        return seg.split()
+
+
+def runs(cmd):
+    """[the run's text]: each script an interpreter runs, with its arguments, and each .ps1 run, read from the command's own arguments."""
+    out = []
+    for seg in SEP.split((cmd or '').replace('\\', '/')):
+        t = _tokens(seg)
+        for i, tok in enumerate(t):
+            if PY.match(tok):
+                j = i + 1
+                while j is not None and j < len(t) and t[j].startswith('-'):
+                    if t[j] in ('-c', '-m'):
+                        j = None
+                        break
+                    j += 2 if t[j] in PY_TAKES else 1
+                if j is not None and j < len(t):
+                    out.append(' '.join(t[j:]))
+                break
+            if tok.lower().endswith('.ps1') and (i == 0 or t[i - 1] in ('&', '.', '-File', '-file')):
+                out.append(' '.join(t[i:]))
+                break
+    return out
+
+
 def limit_of(cmd):
-    for what, rx, ms in LONG:
-        if rx.search((cmd or '').replace('\\', '/')):
-            return what, ms
+    for r in runs(cmd):
+        for what, rx, ms in LONG:
+            if rx.search(r):
+                return what, ms
     return None
 
 

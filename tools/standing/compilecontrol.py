@@ -78,6 +78,7 @@ if __name__ == '__main__':
         a = a[:i] + a[i + 2:]
     with open(os.path.join(RELAY, 'data', 'act_current.json'), encoding='utf-8') as f_:
         act_ = a[0] if a else json.load(f_)['act']
+    __import__('act').act_name(act_, 'compilecontrol.py check', __doc__)   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     c_ = check(act_, at_)
     print('\n'.join(lines(c_)))
     sys.exit(0 if c_['ok'] else 1)

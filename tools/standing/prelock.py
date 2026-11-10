@@ -163,4 +163,5 @@ def stands(act):
 
 if __name__ == '__main__':
     a_ = sys.argv[2] if len(sys.argv) > 2 else json.load(open(os.path.join(D, 'act_current.json'), encoding='utf-8'))['act']
+    __import__('act').act_name(a_, 'prelock.py print', __doc__)   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     print(NL.join(lines(compare(a_))[0]))

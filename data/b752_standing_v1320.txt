@@ -1,0 +1,211 @@
+b752 -- THE CONTROLS OF tools/standing/ v1.32.0, (R362)(7)(i)-(xi): EVERY PATH AT HEAD, A REFUSED CALL NO REMOTE READ, THE CURRENTS ON THE PREVIOUS ACT`S BANKS, THE ANSWERS APPEND BY PLACE, A ROW ID NO ORDER, THE CARRY`S ORDINALS AND NEEDLES, A FLAG NO ACT, THE LIMIT ROW`S PLACE, THE DECLARATION READER, THE INSTANCES, THE SESSION RULE, THE VERSION (2026-11-10T22:35:08Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2743 lines
+  citation render          OK    558 lines
+  closing render           OK    630 lines
+  record render            OK    4758 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    486 lines
+  report render            OK    157 lines
+  tools/b752_worklist.py   OK    459 lines
+### THE COMPILE CONTROL : b752 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from d921bceb
+
+  free 6476 MB at 2026-11-10T22:35:08Z, the hold 2560 MET
+### (paths) (R362)(7)(i), b751 defect (e), REPEAT b750 (f): THE CITATION CHECK READS EVERY PATH THE RULING AND THE FERRY NAME AT HEAD: OK, NONE, OR THE ACT`S OWN TO BE WRITTEN
+  (paths) b751`s ferry: the four read-first banks that do not exist (defect (e)) printed NONE by the check itself
+      BEFORE (v1.31.0): cites.py at d921bceb: ferry_paths absent; the absences found by the seat`s reading of the readfirst rows -> FAILS
+      AFTER  (v1.32.0): paths 32 ; NONE 4 ['data/b738_sp1.txt', 'data/b740_s5.txt', 'data/b741_c7.txt', 'data/b743_discharge.txt'] -> PASSES
+      AS WANTED
+  (paths) GUARD, NO FAILING SIDE: b752`s ferry at HEAD: NONE 0, the next act`s rules named by form in the (W) list read as the act`s own
+      AFTER  (v1.32.0): paths 37 ; OK 28 ; NONE 0 ; OWN 9 -> HOLDS
+      AS WANTED
+  (paths) GUARD, NO FAILING SIDE: a planted relay path and a planted PLACE-papers path that stand nowhere: each NONE
+      AFTER  (v1.32.0): [('data/b999_planted_absent.txt', 'relay', 'NONE'), ('day1/Planted_Absent_v0.md', 'PLACE-papers', 'NONE')] -> HOLDS
+      AS WANTED
+
+  free 6477 MB at 2026-11-10T22:35:08Z, the hold 2560 MET
+### (recall) (R362)(7)(ii), b751 events (1), defect (v): A CALL THE HOOK REFUSED BEFORE IT RAN IS NO REMOTE READ; G-RULE-REMOTE-REREAD COUNTS IT APART AND PRINTS IT
+  (recall) b751`s calls (two sessions, cut at (R362)`s first line): the PowerShell command of 17:54:13.904Z carrying three ls-remote reads, refused by the hook
+      BEFORE (v1.31.0): rule_arms at d921bceb: (False, 5, 1, "ls-remote calls 5 ; naming more than one ['2026-11-10T17:54:13.904Z'] ; an empty read not re-read alone NONE") -> FAILS
+      AFTER  (v1.32.0): (True, 4, 0, "ls-remote calls 4 ; naming more than one NONE ; an empty read not re-read alone NONE ; refused by the hook before they ran, counted apart 1 ['2026-11-10T17:54:13.904Z']") -> PASSES
+      AS WANTED
+  (recall) GUARD, NO FAILING SIDE: a planted command carrying two remote reads that RAN (no refusal in its output): still failing
+      AFTER  (v1.32.0): (False, 5, 2, "ls-remote calls 5 ; naming more than one ['2026-11-10T23:59:59Z'] ; an empty read not re-read alone ['2026-11-10T23:59:59Z'] ; refused by the hoo -> HOLDS
+      AS WANTED
+
+  free 6477 MB at 2026-11-10T22:35:09Z, the hold 2560 MET
+### (currents) (R362)(7)(iii), b751 events (3): A `--prev` RUN EXCLUDES THE FILES BOTH ACTS WROTE ON MAIN; THE DETAIL LINE NAMES THE READ, THE EXCLUDED AND THE SIDE THAT DIFFERS
+  (currents) b751`s `--prev` run of standing-a2 on b750`s banks (data/b751_prevrun_standing-a2.txt :70): b750`s sitting writes on main ['ERRATA.md', 'README.md', 'REGISTRY.md', 'SPIRAL_MAP.md', 'phase1.5/method/INSTRUMENTS.md']
+      BEFORE (v1.31.0): checks.tpl at d921bceb (currents_for absent): read 28, b750`s writes read as edits ['ERRATA.md', 'README.md', 'REGISTRY.md', 'SPIRAL_MAP.md', 'phase1.5/method/INSTRUMENTS.md'] -> FAILS
+      AFTER  (v1.32.0): read 20, excluded {'b750_worklist': 9, 'b751_worklist': 3} -> PASSES
+      AS WANTED
+  (currents) GUARD, NO FAILING SIDE: the act`s rendered suite: _prev_rebind recomputes the list from both acts, the detail line recorded, and it compiles
+      AFTER  (v1.32.0): currents_for(K707, KS) True ; currents_detail True -> HOLDS
+      AS WANTED
+
+  free 6479 MB at 2026-11-10T22:35:09Z, the hold 2560 MET
+### (append) (R362)(7)(iv), b751 events (4), defect (m): THE AUTHOR`S WORDS KEYED BY PLACE, NOT TEXT; A NEW HEADING`S BLOCK APPENDED WHOLE; THE DRY PRINTS THE LINES
+  (append) b751`s author words over both sessions: the second identical go word (43048615, 16:47:23.712Z)
+      BEFORE (v1.31.0): by text (b698`s set): 5 words -> FAILS
+      AFTER  (v1.32.0): by place: 6 words [('43048615:6', '2026-11-10T16:47:23.712Z'), ('43048615:903', '2026-11-10T18:10:50.194Z')] -> PASSES
+      AS WANTED
+  (append) the re-keyed block appended to b751`s answers bank: rows of the go word
+      BEFORE (v1.31.0): act.py at d921bceb: appended 2, the go word 1 time(s) -> FAILS
+      AFTER  (v1.32.0): appended 3, the go word 2 time(s) ; restored ['43048615:6'] -> PASSES
+      AS WANTED
+  (append) GUARD, NO FAILING SIDE: the append re-run over its own output: appends 0, the bank unchanged
+      AFTER  (v1.32.0): appended 0 ; equal True -> HOLDS
+      AS WANTED
+  (append) GUARD, NO FAILING SIDE: record.tpl`s answers route re-keys by place and prints the added lines
+      AFTER  (v1.32.0): AW.author_words True ; AW.rekey True -> HOLDS
+      AS WANTED
+
+  free 6463 MB at 2026-11-10T22:35:10Z, the hold 2560 MET
+### (orders) (R362)(7)(v): A TOKEN OF A ROW ID`S FORM (W-ORD-<digits>) READ AS NO ORDER, ITS MENTIONS PRINTED BESIDE; THE SEAT`S NARROWER READING, CARRIED TO THE AUTHOR
+  (orders) the trail at PLACE-papers HEAD: W-ORD-1 (b751`s open-orders line, OPEN_TRAILS :18144)
+      BEFORE (v1.31.0): orders.py at d921bceb: 208 orders, 73 open, W-ORD-1 AN ORDER -> FAILS
+      AFTER  (v1.32.0): 207 orders, 72 open, W-ORD-1 no order ; printed beside {'W-ORD-1': [17978, 18002, 18048, 18096, 18144]} -> PASSES
+      AS WANTED
+  (orders) GUARD, NO FAILING SIDE: the change is the row-ID token alone: every other order and its status as before
+      AFTER  (v1.32.0): differing ['W-ORD-1'] -> HOLDS
+      AS WANTED
+  (orders) GUARD, NO FAILING SIDE: W-ORD-MECHANISM-ATTRIBUTION, the order this act plans, still an order and OPEN
+      AFTER  (v1.32.0): OPEN -> HOLDS
+      AS WANTED
+
+  free 6467 MB at 2026-11-10T22:35:10Z, the hold 2560 MET
+### (carry) (R362)(7)(vi), b751 defects (b), (q), REPEAT: THE CARRY READS EVERY ACT ORDINAL AND READ-FIRST NEEDLE BESIDE THE RULING (R7)
+  (carry) b751`s module as `carry acts` brings it under b752`s names, beside (R362) (the first carry of b752`s step zero)
+      BEFORE (v1.31.0): carry.py at d921bceb: refused 12, R7 none (ordinals and needles unread) -> FAILS
+      AFTER  (v1.32.0): refused 31, R7 19: ['ordinal :41', 'ordinal :1062', 'ordinal :1329', 'ordinal :1759', 'needle relay data/b751_sitting.txt |'] -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: b752`s module and worklist as set at Component 1 (needles, :1074 prior head, :1306 title, :1738 trail head): refused 0
+      AFTER  (v1.32.0): refused 0 [] ; ordinals {'b752': 'SEVENTY-NINE', 'b751': 'SEVENTY-EIGHT'} -> HOLDS
+      AS WANTED
+
+  free 6496 MB at 2026-11-10T22:35:11Z, the hold 2560 MET
+### (flag) (R362)(7)(vii), b751 defect (t): A TOOL THAT TAKES AN ACT REFUSES A NAME BEGINNING WITH A HYPHEN BEFORE IT READS OR WRITES
+  (flag) `wlist.py bank --quiet` (15:22:46Z), which wrote data/--quiet_wlist.json
+      BEFORE (v1.31.0): wlist.py at d921bceb: act_name False; the flag taken as the act -> FAILS
+      AFTER  (v1.32.0): ### REFUSED (v1.32.0, (R362)(7)(vii)): wlist.py bank took '--quiet' in the act`s place -- a name beginning with a hyphen is a flag, not an act; nothin -> PASSES
+      AS WANTED
+  (flag) GUARD, NO FAILING SIDE: each tool that takes an act name reads it through act.act_name
+      AFTER  (v1.32.0): {'wlist.py': True, 'carry.py': True, 'readfirst.py': True, 'armnorm.py': True, 'prelock.py': True, 'compilecontrol.py': True} -> HOLDS
+      AS WANTED
+  (flag) GUARD, NO FAILING SIDE: an act name passes; no data/--quiet_wlist.json stands
+      AFTER  (v1.32.0): b752 ; False -> HOLDS
+      AS WANTED
+
+  free 6496 MB at 2026-11-10T22:35:11Z, the hold 2560 MET
+### (limit) (R362)(7)(viii), b751 defects (g), (p), b752`s 22:11:47Z and 22:11:48Z: THE LIMIT ROW READS A ROUTE IN THE INTERPRETER`S PLACE ALONE, ITS QUOTING PARSED
+  (limit) b751 (p), 14:05:00Z: a route`s name as an argument, refused as a run
+      BEFORE (v1.31.0): hook.py at d921bceb: LIMIT -> FAILS
+      AFTER  (v1.32.0): let through -> PASSES
+      AS WANTED
+  (limit) b752, 22:11:47Z: a route`s name as an argument, refused as a run
+      BEFORE (v1.31.0): hook.py at d921bceb: LIMIT -> FAILS
+      AFTER  (v1.32.0): let through -> PASSES
+      AS WANTED
+  (limit) b752, 22:11:48Z: a route`s name as an argument, refused as a run
+      BEFORE (v1.31.0): hook.py at d921bceb: LIMIT -> FAILS
+      AFTER  (v1.32.0): let through -> PASSES
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: b751 (g), 12:43:03Z: a route named inside a quoted program, let through
+      AFTER  (v1.32.0): let through -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: a suite part sent with no timeout: still refused; with timeout 600000 let through
+      AFTER  (v1.32.0): LIMIT ; let through -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: the probe-path tool sent with no timeout: still refused; with timeout 600000 let through
+      AFTER  (v1.32.0): LIMIT ; let through -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: the root route sent with no timeout: still refused; with timeout 600000 let through
+      AFTER  (v1.32.0): LIMIT ; let through -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: the mirror build sent with no timeout: still refused; with timeout 600000 let through
+      AFTER  (v1.32.0): LIMIT ; let through -> HOLDS
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: these controls sent with no timeout: still refused; with timeout 600000 let through
+      AFTER  (v1.32.0): LIMIT ; let through -> HOLDS
+      AS WANTED
+
+  free 6493 MB at 2026-11-10T22:35:11Z, the hold 2560 MET
+### (cites) (R362)(7)(ix), b751 defect (d), REPEAT b736 (e), b752`s step-zero HALT :17: THE READER TAKES inductive, class, axiom, opaque, protected AND A NAMESPACED DOTTED NAME
+  (cites) b752`s ferry :17: MechanismClass at Bridge/TheBridgeComplete.lean :20, an inductive
+      BEFORE (v1.31.0): cites.py at d921bceb: rows 10, failing 1 -> FAILS
+      AFTER  (v1.32.0): rows 10, failing 0 -> PASSES
+      AS WANTED
+  (cites) b751`s ferry :11: the dotted name at AbsMax.lean :405
+      BEFORE (v1.31.0): cites.py at d921bceb: the dotted name read False -> FAILS
+      AFTER  (v1.32.0): the dotted name read True -> PASSES
+      AS WANTED
+  (cites) GUARD, NO FAILING SIDE: the wider replay over the earlier ferries with Lean trees (b736, b737, b738, b739, b740, b741, b742, b743, b744, b745, b746, b747, b748, b749, b750, b751, b752): no failing row the old reader did not fail, b751 and b752`s instances apart
+      AFTER  (v1.32.0): b736 0->0; b737 0->0; b738 0->0; b739 0->0; b740 0->0; b741 0->0; b742 0->0; b743 0->0; b744 0->0; b745 0->0; b746 0->0; b747 0->0; b748 0->0; b749 0->0; b750 0->0; b751 1->0; b752 1->0 ; new failing rows NONE -> HOLDS
+      AS WANTED
+  (cites) GUARD, NO FAILING SIDE: b740 :29`s shape planted beside the joined shape: the listed name passed over, the joined name read and failing (declared at Complex/Exponential.lean)
+      AFTER  (v1.32.0): [('Real.exp_bound beside Analysis/SpecialFunctions/Stirling.lean', False)] -> HOLDS
+      AS WANTED
+
+  free 6500 MB at 2026-11-10T22:35:26Z, the hold 2560 MET
+### (instances) (R362)(7)(ix), b751 defects (a), (d), (f), (n), (r), (u), (v), events (5), REPEAT: THE HOOK`S REFUSALS, THE TRANSIENT REMOTE READS AND THE HOST`S REFUSAL, THE INSTANCES PRINTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751`s hook refusals, data/b751_hook_refusals.txt, by kind
+      AFTER  (v1.32.0): 19 rows: PIPE 4, READ 9, REDIR 1, WLIST 2, LIMIT 2, REMOTE 1 -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b752`s hook refusals, data/b752_hook_refusals.txt, by kind
+      AFTER  (v1.32.0): 7 rows: SED 1, ENV 1, WLIST 3, LIMIT 2 -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (a)
+      AFTER  (v1.32.0): (a) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: the hook refused three of the seat's calls at step zero (data/b751_hook_refusals.txt :1-:3): a Bash listing  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (d)
+      AFTER  (v1.32.0): (d) THE SEAT'S [CLOSE ; REPEAT b736 (e)]: the citation check halted on one Lean-path row, standing.cites passing over the dotted name the ruling cites -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (f)
+      AFTER  (v1.32.0): (f) THE SEAT'S [CLOSE ; REPEAT b751 (a)]: Component 1: the hook refused three more of the seat's calls (data/b751_hook_refusals.txt :4-:6): a Read of  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (n)
+      AFTER  (v1.32.0): (n) THE SEAT'S [CLOSE ; REPEAT b751 (f)]: Component 4: the hook refused three more of the seat's calls (data/b751_hook_refusals.txt, 13:19:59Z, 13:22: -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (r)
+      AFTER  (v1.32.0): (r) THE SEAT'S [CLOSE ; REPEAT b751 (n)]: Component 4: the hook refused two Edits (data/b751_hook_refusals.txt :12-:13, 14:25:19Z and 14:25:23Z): the  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (u)
+      AFTER  (v1.32.0): (u) THE SEAT'S [CLOSE ; REPEAT b751 (n)]: Component 4, the continuation seat (session 43048615, from 16:47:23Z): the hook refused three of the seat's  -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 defect (v)
+      AFTER  (v1.32.0): (v) THE SEAT'S [CLOSE ; REPEAT b751 (u)]: Component 4, the gate banks: the first gatebanks run (17:5xZ) wrote data/b751_pins_stepzero.txt with REPOS H -> HOLDS
+      AS WANTED
+  (instances) GUARD, NO FAILING SIDE: printed: b751 events (5), the host`s refusal at the network and the one re-send
+      AFTER  (v1.32.0): (5) THE HOST'S [CLOSE ; NEW]: 19:56:15Z: the pre-root push of PLACE-papers (`tools/push_gated.sh D:/MY-DOwnloads/PLACE-papers -> HOLDS
+      AS WANTED
+
+  free 6499 MB at 2026-11-10T22:35:26Z, the hold 2560 MET
+### (session) (R362)(7)(x): b751`s SESSION CHANGE AT 16:47:23Z (THE FACE`S SENTENCE) READ THROUGH THE STANDING RULE (b671`s form, K.SESSIONS_AFTER): THE RULE WORKING
+  (session) GUARD, NO FAILING SIDE: the face`s sentence (tools/b751_face_blocks.txt)
+      AFTER  (v1.32.0): From 16:47:23Z the act continues in session 43048615 (SESSIONS_AFTER, b671 form), one seat: the process listing at 16:49Z showed one claude. -> HOLDS
+      AS WANTED
+  (session) GUARD, NO FAILING SIDE: b751`s worklist carries the continuation in SESSIONS_AFTER, its first user line the anchor
+      AFTER  (v1.32.0): SESSIONS_AFTER 43048615 True -> HOLDS
+      AS WANTED
+  (session) GUARD, NO FAILING SIDE: the record, suite and citation routes each read the continuation sessions
+      AFTER  (v1.32.0): {'record': True, 'checks': True, 'citation': True} -> HOLDS
+      AS WANTED
+  (session) GUARD, NO FAILING SIDE: b751`s banks read the continuation: the answers bank carries a word of session 43048615
+      AFTER  (v1.32.0): 43048615 in the answers bank True -> HOLDS
+      AS WANTED
+
+  free 6499 MB at 2026-11-10T22:35:26Z, the hold 2560 MET
+### (version) (R362)(7)(xi): THE STANDING VERSION PRINTED AND ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.31.0): v1.31.0 -> FAILS
+      AFTER  (v1.32.0): v1.32.0 -> PASSES
+      AS WANTED
+
+### per repair: (paths) 3 of 3 ; (recall) 2 of 2 ; (currents) 2 of 2 ; (append) 4 of 4 ; (orders) 3 of 3 ; (carry) 2 of 2 ; (flag) 3 of 3 ; (limit) 9 of 9 ; (cites) 4 of 4 ; (instances) 10 of 10 ; (session) 4 of 4 ; (version) 1 of 1
+### ### **v1.32.0: CONTROLS (paths), (recall), (currents), (append), (orders), (carry), (flag), (limit), (cites), (instances), (session), (version) ; CASES 47 ; AS WANTED 47 ; ALL AS WANTED.**

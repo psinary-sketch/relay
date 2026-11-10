@@ -200,4 +200,6 @@ if __name__ == '__main__':
     a = sys.argv[1:]
     if not a or a[0] not in ('bank', 'show'):
         sys.exit(__doc__)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    __import__('act').act_name(a[1] if len(a) > 1 else None, 'wlist.py', __doc__)   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     print(NL.join(regenerate(a[1] if len(a) > 1 else None, write=(a[0] == 'bank'))))

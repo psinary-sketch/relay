@@ -24,6 +24,16 @@ CHAIN = os.path.join(D, 'act_roots.txt')
 ACT_NAME = re.compile(r'^b\d{3}$')
 
 
+def act_name(name, tool, usage=''):
+    """v1.32.0, (R362)(7)(vii), b751 defect (t): A FLAG READ AS AN ACT. `wlist.py bank --quiet` took `--quiet` as its act and wrote
+    data/--quiet_wlist.json. A tool that takes an act name refuses one that begins with a hyphen, before it reads or writes anything; the usage
+    printed. Returns the name where it stands."""
+    if isinstance(name, str) and name.startswith('-'):
+        raise SystemExit('### REFUSED (v1.32.0, (R362)(7)(vii)): %s took %r in the act`s place -- a name beginning with a hyphen is a flag, not an act; '
+                         'nothing read or written.%s' % (tool, name, ('\n' + usage) if usage else ''))
+    return name
+
+
 def current():
     """data/act_current.json, read now."""
     with open(os.path.join(D, 'act_current.json'), encoding='utf-8') as f:
@@ -160,6 +170,13 @@ def post_lock_appended(act):
 APPEND_HEAD = '## APPENDED BY %s AT %s: %d LINE(S); NO LINE ALREADY IN THE BANK REWRITTEN'
 
 
+# ### v1.32.0, (R362)(7)(iv), b751 events (4): THE APPEND KEYED ON PLACE AND WORDS. A row of the answers bank opens on a heading that names its place
+# ### (a word's or a message's transcript line; a call's tool-use id, line and time); a block whose heading is not in the bank is a new row and is
+# ### appended whole, its text lines included even where an earlier row carries the same words (b751's go of 16:47:23Z, word for word line 20339's).
+# ### A block whose heading stands keeps the line-keyed append of v1.30.0: its lines not already in the bank appended, none rewritten.
+KEYED_HEADS = ('### THE AUTHOR`S WORD (transcript line ', '### THE AUTHOR`S MESSAGE (transcript line ', '### CALL tool-use id ')
+
+
 def answers_append(prior, lines, stamp, tool='`record answers`'):
     """v1.30.0, (R360)(3)(i), b749 events (4): the answers route appends. `prior` the bank's text as it stands ('' where none), `lines` the route's
     composed lines. Where no bank stands the composed lines are the bank. Otherwise every line of the bank is kept where it stands, and the
@@ -172,10 +189,14 @@ def answers_append(prior, lines, stamp, tool='`record answers`'):
     P = prior.replace('\r', '').rstrip(NL).split(NL)
     have = set(l for l in P if l.strip())
     new, blank = [], False
+    whole = False   # ### v1.32.0, (R362)(7)(iv), b751 events (4): inside a block whose keyed heading is new, every line is appended
     for l in lines:
-        if l.strip() and l in have:
+        if l.strip() and l.startswith(KEYED_HEADS):
+            whole = l not in have
+        if l.strip() and l in have and not whole:
             continue
         if not l.strip():
+            whole = False
             if new and not blank:
                 new.append('')
             blank = True

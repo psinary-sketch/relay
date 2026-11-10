@@ -23,6 +23,7 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 """
 import difflib
 import io
+import json
 import os
 import re
 import sys
@@ -157,7 +158,51 @@ def _empty(v):
     return v is None or v == 0 or v == '' or (isinstance(v, (tuple, list, dict, set)) and not v)
 
 
-def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_routed=None):
+ACT_LINE = re.compile(r'(?m)^ACT (b\d{3}) - LANE [A-Z]+, ACT ONE HUNDRED AND ([A-Z][A-Z-]*)')
+ORDINAL = re.compile(r'\b(b\d{3})\b[^\n\'"]{0,80}?\b[Aa][Cc][Tt] [Oo][Nn][Ee] [Hh][Uu][Nn][Dd][Rr][Ee][Dd] [Aa][Nn][Dd] ([A-Za-z][A-Za-z-]*)')
+NEEDLE_PATH = re.compile(r'(?:data|tools)/[\w.\-/]+\.(?:txt|json|py|md)|phase[\w.\-/]+\.md|day1/[\w.\-]+\.md|[A-Z][A-Z_]+\.md')
+
+
+def act_name_of(ruling_text):
+    m = ACT_LINE.search(ruling_text or '')
+    return m.group(1) if m else None
+
+
+def ordinal_of(ruling_text):
+    """(act, ORDINAL) from a ferry's ACT line ("ACT b752 - LANE TWO, ACT ONE HUNDRED AND SEVENTY-NINE, ..."), or None."""
+    m = ACT_LINE.search(ruling_text or '')
+    return (m.group(1), m.group(2)) if m else None
+
+
+def ordinal_mentions(text):
+    """[(line, act, ordinal word)] for every "act one hundred and <n>" standing after an act's name on one line."""
+    out = []
+    for i, l in enumerate(text.split(NL), 1):
+        for m in ORDINAL.finditer(l):
+            out.append((i, m.group(1), m.group(2)))
+    return out
+
+
+def readfirst_needles(text):
+    """the READFIRST_NEEDLES tuple, read by parsing its assignment line by line until it closes (a comment after it read as one)."""
+    import ast
+    ls = text.split(NL)
+    i = next((k for k, l in enumerate(ls) if l.startswith('READFIRST_NEEDLES = ')), None)
+    if i is None:
+        return None
+    for j in range(i + 1, min(i + 80, len(ls)) + 1):
+        try:
+            node = ast.parse(NL.join(ls[i:j])).body[0]
+        except SyntaxError:
+            continue
+        try:
+            return list(ast.literal_eval(node.value))
+        except ValueError:
+            return None
+    return None
+
+
+def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_routed=None, ordinals=None, own_rows=None):
     """pure: (lines, refused) -- every carried figure and section printed beside the ruling; R1 and R2 refused."""
     import actmodule as AM
     W, P = literals(wl_text), literals(prev_wl_text)
@@ -252,14 +297,44 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
     # ### v1.31.0, (R361)(3)(vii), b750 defect (s), REPEAT b749 (o): R6, the ferry banked by the citation tool's route (`fold.py citation ferry`,
     # ### which runs tools/ferry_scan.py and banks data/<act>_ferry_scan.txt) before the carry is read beside it; b750's ferry was banked by the
     # ### Write tool alone and the route found absent at Component 4. `ferry_routed` None: not read (a caller of v1.30.0's form).
+    # ### v1.32.0, (R362)(7)(vi), b751 defects (b), (q), REPEAT: R7, THE ROWS R1-R6 DID NOT READ. Every act ordinal the module carries ("act one
+    # ### hundred and <n>" after an act's name) beside the ordinal the ruling gives that act (this act's from the ruling's ACT line, the previous
+    # ### act's from its own ferry): a different ordinal refused. Every read-first needle (READFIRST_NEEDLES) beside the ruling: a needle naming a
+    # ### path the ruling does not name refused. b751's module carried b750's needles and numbered its trail head and the prior act's "seventy-seven".
+    if ordinals is not None:
+        n7 = len([r for r in refused if r[0] == 'R7'])
+        L += ['', '## THE ACT ORDINALS THE MODULE CARRIES, each beside the ruling`s (read from each act`s ferry: %s)' % (
+            ', '.join('%s %s' % kv for kv in ordinals.items()) or 'NONE READ')]
+        for ln_, who, word in ordinal_mentions(act_text):
+            want = ordinals.get(who)
+            ok_ = want is None or word.upper() == want.upper()
+            L.append('  :%-6d %s act one hundred and %-16s %s' % (ln_, who, word, 'the ruling`s' if want and ok_ else ('not an act the ruling numbers' if want is None else
+                                                                                                             '### REFUSED (R7): the ruling numbers %s %s' % (who, want))))
+            if not ok_:
+                refused.append(('R7', 'ordinal :%d' % ln_, '%s numbered %s, the ruling`s %s' % (who, word, want)))
+        nds = readfirst_needles(act_text)
+        L += ['', '## THE READ-FIRST NEEDLES (READFIRST_NEEDLES), each path beside the ruling: %s' % (
+            'NONE IN THE MODULE' if nds is None else '%d read' % len(nds))]
+        if nds is not None and not nds:
+            refused.append(('R7', 'needles', 'READFIRST_NEEDLES stands and none was read from it: a check that cannot fire'))
+        for nd in nds or []:
+            ps = NEEDLE_PATH.findall(nd)
+            un = [p for p in ps if not named(p) and not named(os.path.splitext(os.path.basename(p))[0]) and p not in (own_rows or '')]
+            L.append('  %-70s %s' % (nd[:70], ('### REFUSED (R7): not named in the ruling: ' + ', '.join(un)) if un else
+                                     ', '.join('%s %s' % (p, (lambda k: ':%d' % k if k else 'the act`s own read-first row')(
+                                         named(p) or named(os.path.splitext(os.path.basename(p))[0]))) for p in ps) or 'no path'))
+            if un:
+                refused.append(('R7', 'needle %s' % nd[:40], 'a read-first needle naming %s, which the ruling does not name' % ', '.join(un)))
+        L.append('  ordinals and needles refused %d' % (len([r for r in refused if r[0] == 'R7']) - n7))
     if ferry_routed is not None:
         L += ['', '## THE FERRY`S ROUTE: data/<act>_ferry_scan.txt %s' % ('PRESENT, the ferry banked by the citation route' if ferry_routed else
                                                                            'ABSENT ### REFUSED (R6): the ferry not banked by the citation route (`fold.py citation ferry --act <act>`)')]
         if not ferry_routed:
             refused.append(('R6', 'ferry', 'the ferry not banked by the citation tool`s route: data/<act>_ferry_scan.txt absent'))
-    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d, R5 %d, R6 %d)%s.**' % (
+    L += ['', '### ### **THE CARRY BESIDE THE RULING: REFUSED %d (R1 %d, R2 %d, R3 %d, R4 %d, R5 %d, R6 %d, R7 %d)%s.**' % (
         len(refused), sum(1 for r in refused if r[0] == 'R1'), sum(1 for r in refused if r[0] == 'R2'), sum(1 for r in refused if r[0] == 'R3'),
         sum(1 for r in refused if r[0] == 'R4'), sum(1 for r in refused if r[0] == 'R5'), sum(1 for r in refused if r[0] == 'R6'),
+        sum(1 for r in refused if r[0] == 'R7'),
         ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
     return L, refused
 
@@ -295,6 +370,9 @@ def kept_row(act, repos=None, lister=None):
 
 
 def main(argv):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    if argv[:1] in (['kept'], ['shared'], ['check'], ['ruled']) and len(argv) > 1:
+        __import__('act').act_name(argv[1], 'carry.py %s' % argv[0], __doc__)   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     if argv[:1] == ['kept'] and len(argv) == 2:
         print(kept_row(argv[1]))
         return 0
@@ -316,7 +394,10 @@ def main(argv):
                 sys.exit('### REFUSED: %s resolves to no file' % x)
         pn, an = int(p[1:]), int(a[1:])
         subs = (('b%d' % pn, 'b%d' % an), ('b%d' % (pn - 1), 'b%d' % (an - 1)))
-        L, refused = ruled(texts[0], texts[1], texts[2], texts[3], texts[4], subs, ferry_routed=os.path.isfile(_path('data/%s_ferry_scan.txt' % a)))
+        # ### v1.32.0, (R362)(7)(vi): R7 reads each act's ordinal from its own ferry's ACT line
+        ords = dict(x for x in (ordinal_of(texts[4]), ordinal_of(rd(_path('data/%s_ferry.txt' % p)))) if x)
+        L, refused = ruled(texts[0], texts[1], texts[2], texts[3], texts[4], subs, ferry_routed=os.path.isfile(_path('data/%s_ferry.txt' % a).replace('_ferry.txt', '_ferry_scan.txt')),
+                           ordinals=ords, own_rows=NL.join(json.loads(rd(_path('data/%s_readfirst_rows.json' % a)) or '{}').get('own') or []))   # ### the act's own read-first rows, once written
         print(NL.join(L))
         # ### v1.31.0, (R361)(3)(viii): the one-call tool's usage, phases and word form, printed before the seat's opening call
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

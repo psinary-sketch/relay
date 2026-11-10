@@ -48,7 +48,7 @@ def _act_module(act):
 def main(argv):
     if len(argv) < 3 or argv[1] != 'title':
         sys.exit('usage: armnorm.py title <act>')
-    act = argv[2]
+    act = __import__('act').act_name(argv[2], 'armnorm.py title', 'usage: armnorm.py title <act>')   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     m = _act_module(act)
     needles = tuple(getattr(m, 'TITLE_NEEDLES', ()) or ())
     cp = cannot_pass(needles)

@@ -61,12 +61,60 @@ def word_rows(word, read=None, act=None):
 
 
 LEAN_PATH = re.compile(r'(?<![\w/.-])[A-Za-z][\w./-]*\.lean\b')
-LEAN_NAME = re.compile(r'(?<![\w.-])[a-zA-Z]\w*(?:[A-Z_]\w*)(?:\.[A-Za-z_]\w*)*')
-LEAN_DECL = r'^\s*(private\s+)?(noncomputable\s+)?(theorem|lemma|def|structure|abbrev|instance)\s+%s(\s|$|:)'
+LEAN_NAME = re.compile(r'(?<![\w.-])(?:(?:[A-Z]\w*\.)+[a-z_]\w*[A-Z_]\w*|[a-zA-Z]\w*(?:[A-Z_]\w*)(?:\.[A-Za-z_]\w*)*)')   # ### v1.32.0, (R362)(7)(ix): a namespaced name (Complex.norm_le_...) read whole
+# ### v1.32.0, (R362)(7)(ix), b752 step-zero defect (d), REPEAT b751 (d): `inductive` (and class, axiom, opaque) declare a name too; without them the
+# ### reader passed over SIDE-kernel's `inductive MechanismClass` (Bridge/TheBridgeComplete.lean :20) and found Layer1's `structure MechanismClass`
+LEAN_DECL = r'^\s*(private\s+)?(protected\s+)?(noncomputable\s+)?(theorem|lemma|def|structure|abbrev|instance|inductive|class|axiom|opaque)\s+%s(\s|$|:)'
+# ### v1.32.0, (R362)(7)(ix), b751 (d), REPEAT b736 (e): a dotted name whose leading parts are namespaces (each opening on a capital) names the
+# ### declaration of its last part (Complex.norm_le_of_forall_mem_frontier_norm_le); a dotted name with a lower-case leading part is a field
+NAMESPACED = re.compile(r'^(?:[A-Z]\w*\.)+[A-Za-z_]\w*$')
 # ### v1.23.0, b743 step-zero defect (f): an item label (S4', SP1, G5, R4 ...) opening the parenthesis the path stands in, the label and a comma
 # ### the last words before the path: the path is the label's cite, and the reader's name pattern (which wants a capital or an underscore after
 # ### the first letter) would pass over the label to a declaration further back ("the zeros of zqFn there (S4', Carrier.lean :21)")
 LABEL_BEFORE = re.compile(r"\(\s*[A-Z]{1,3}\d+[a-z]?'*\s*,\s*$")
+
+
+# ### v1.32.0, (R362)(7)(i), b751 defects (e), (h)-(l), REPEAT b750 (f): THE NAVIGATOR'S RULINGS FROM RECALL. b751's ferry named four relay banks
+# ### that do not exist (data/b738_sp1.txt, data/b740_s5.txt, data/b741_c7.txt, data/b743_discharge.txt), found only as the act module's rows
+# ### happened to name them. Every path the ruling and the ferry name is printed OK or NONE at HEAD, by the text alone: the relay's data/ and tools/
+# ### paths and PLACE-papers' document paths; a path of the act's own (data/<act>_*, tools/<act>_*) not yet written printed as such.
+FERRY_PATH = re.compile(r'(?<![\w/.-])(?:(?:data|tools)/[\w.\-/]*\w\.(?:txt|json|py|md|tpl|ps1|csv)|(?:phase[\w.]+|day1|internal|archive)/[\w.\-/]*\w\.md|[A-Z][A-Z0-9_]+\.md)\b')
+
+
+def _pp_tree(pp, rev='HEAD'):
+    return [l for l in _tree(pp, rev) if l]
+
+
+def _wlist_relay(act, relay):
+    """the act's (W) list relay patterns (data/<act>_wlist.json), relay/ prefix dropped; [] if the list is not yet written."""
+    import json, os
+    try:
+        pats = json.load(open(os.path.join(relay, 'data', '%s_wlist.json' % act), encoding='utf-8')).get('patterns', [])
+    except (OSError, ValueError):
+        return []
+    return [p[len('relay/'):] for p in pats if p.startswith('relay/')]
+
+
+def ferry_paths(text, act, relay, pp):
+    """[(path, repo, state)] for every path the text names, once each in order: state OK (present at HEAD), NONE, or THE ACT'S OWN, TO BE WRITTEN
+    (the act's own prefix, or a path the act's (W) list covers -- e.g. the next act's rules named by form)."""
+    import fnmatch
+    rt, pt = set(_pp_tree(relay)), _pp_tree(pp)
+    pset = set(pt)
+    wl = _wlist_relay(act, relay)
+    out, seen = [], set()
+    for m in FERRY_PATH.finditer(text or ''):
+        p = m.group(0)
+        if p in seen:
+            continue
+        seen.add(p)
+        if p.startswith(('data/', 'tools/')):
+            own = p.startswith(('data/%s_' % act, 'tools/%s_' % act, 'tools/acts/%s.' % act)) or any(fnmatch.fnmatchcase(p, w) for w in wl)
+            out.append((p, 'relay', 'OK' if p in rt else ('THE ACT`S OWN, TO BE WRITTEN' if own else 'NONE')))
+        else:
+            hit = p in pset or any(f.endswith('/' + p) for f in pt)
+            out.append((p, 'PLACE-papers', 'OK' if hit else 'NONE'))
+    return out
 
 
 def _tree(repo, rev):
@@ -98,7 +146,12 @@ def lean_rows(text, trees, near=110):
         if LABEL_BEFORE.search(w):   # ### v1.23.0, b743 step-zero defect (f): "(S4', Carrier.lean :21)" -- the path cited for the item label opening its parenthesis; no name before it is read
             continue
         for name in reversed(LEAN_NAME.findall(w)):     # ### the nearest declaration before the path is the one it is cited for; a dotted name is a field and no declaration
-            if '.' in name:
+            if '.' in name and not NAMESPACED.match(name):
+                continue
+            # ### v1.32.0, (R362)(7)(ix): a namespaced name is read only where it is joined to the path ("Complex.norm_le_... at Mathlib's AbsMax.lean
+            # ### :405", b751 :11); one a comma parts from the path is an item of a list (b740 :29, "Real.exp_bound and the trigonometric bounds by
+            # ### name, Analysis/SpecialFunctions/Stirling.lean") and is passed over as v1.31.0 passed over every dotted name.
+            if '.' in name and ',' in w[w.rfind(name) + len(name):]:
                 continue
             if name not in cache:
                 cache[name] = sorted(set(f for repo, rev in trees for f in _decl(repo, rev, name)))
