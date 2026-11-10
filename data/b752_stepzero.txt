@@ -1,0 +1,130 @@
+b752 -- STEP ZERO, (R362)(9) AND THE FERRY'S COMPONENT 0: WHAT WAS DONE, IN ORDER, THE PRICE TABLE AND THE STEP-ZERO DEFECTS (2026-11-10)
+
+## IN ORDER
+  the ruling and the ferry received in full (RULING (R362) BEGIN to END + FERRY, part 1 of 1, BEGIN to END), confirmed before acting; the same session
+    as b751's close (43048615), after a context summary; b751's ruling stands in session 6151c0de
+  THE PROCESS LISTING FIRST: claude 1 (20364, this seat), lean 0, lake 0; free 6427 MB against the hold 2560 MET (no pipe; scratch proclist752.py);
+    read again before the rowgen route at 22:03:59Z: claude 1 (20364), python 1 (the listing's own), lean 0, lake 0, node 0, bash 3; free 6164 MB, MET
+  THE CARRY, before any write of the relay ((R362)(9)): tools/b752_carry.py from tools/b751_carry.py by the scratch carrycarry752.py; the SUBS line at
+    :31 and the docstring's :7, :12, :13 set by hand to (b751 -> b752, b750 -> b751, R361 -> R362, R360 -> R361) BEFORE the tool ran once;
+    tools/b752_worklist.py carried (data/b752_carry_worklist.txt: LINES 459 ; CHANGED BY THE SUBSTITUTION 143 ; REPAIR SPANS AT b751 0);
+    tools/b752_address_scan.py by tools/standing/carry.py with b752's four pairs and --shifted (data/b752_carry_address_scan.txt: LINES 275 ;
+    CHANGED 13 ; SHIFTED 2), its shifted carry notes set back and a b752 note written; tools/acts/b752.py carried (data/b752_carry_acts.txt:
+    LINES 2100 ; CHANGED BY THE SUBSTITUTION 509 ; REPAIR SPANS AT b751 0)
+  THE WORKLIST'S STAGE ONE (scratch wl752.py, 55 constants replaced whole by name): PRE_* heads d921bceb and 2a94bf8; b751's ledger lines FINDINGS
+    :14747/:14667/:14669 and OPEN_TRAILS :18134/:18144/:18160/:18176; b751's closing d921bceb, record d0d963dd, root 4dcfc17a; NEXT_ACT b753; the
+    standing version v1.31.0 entering, v1.32.0 to land with data/b752_standing_v1320.txt; PP_EDITED FINDINGS.md, OPEN_TRAILS.md; the component
+    commits cleared; SITTING_ITEMS 1 ([P1]); the session and scratchpad names. The carry had shifted b750's cQ paths (CQ_GEN, CQ_BANK) under b751's
+    names: set back to tools/b750_cq_sign.py and data/b750_cq_sign.txt, b750's objects read and not written. Set after: ACT_CURRENT_COMMIT 7b2a39d7,
+    STEPZERO 786b63dc, STEPZERO_PREVBUILD None (CRLF-only), and LEAN_TREES gaining SIDE-kernel at 0e5233f0 (defect (e) below)
+  data/b752_ferry.txt from the transcript (scratch ferry752.py, 27,960 characters, 'RULING (R362) BEGIN' to 'FERRY END (part 1 of 1)'); the citation
+    tool's ferry route run after it (`fold.py citation ferry --act b752`): the banked ferry equal to the transcript's text, 27960 characters, ferry_scan
+    exit 0 (data/b752_ferry_scan.txt)
+  `carry.py ruled b752 b751 data/b752_ferry.txt`, first run: REFUSED 6: R4 the carried citation sections 1 and 4; R5 the carried c1 route (the
+    override) and citation sections 1 and 4 citing banks the ruling does not name; R6 the ferry -- b751's rows for (R361) under b752's names (defect
+    (b) below). Citation section 1 (112 lines) and section 4 (33 lines) rewritten for (R362) and the c1 route rewritten against b751's banks (349
+    lines: the weight from b751's closing lines, its 5 events and 22 defects as their banks tag them, its 19 refusal rows, the classes of
+    (R362)(7)(i)-(xi), the refusal of 21:20:10Z and the navigator's (R362)(2) carried) by the scratch splice752.py; R6 discharged by the ferry
+    route above; run again: REFUSED 0
+  THE COMMIT TOOL'S USAGE LINE printed at step zero ((R362)(7)(xi) carried from (R361)(3)(viii)): `commit.py` read before the opening call (gate,
+    lock, seal take no words; the act phases take the seat's words; add, restore, delete, branch each a message of its own; the repository named
+    relay or pp)
+  data/act_current.json for b752 (act b752, prev b751, next b753, R362, chain row 129 from 128 rows, prev root 4dcfc17a, verify b624-b751, five
+    components as the ferry orders them, b751 added to the replay, shared_edits none at step zero) written by the scratch actcur752.py, added alone
+    and committed alone through the one-call tool, the add its own message: relay 7b2a39d7 (21:58:15Z), the scan in the commit's call 0 ; 0 ; 0 ; 0
+    over 192 places, CONTROLS 7 OF 7; row step 1
+  THE CARRIED FILES, each alone through the one-call tool: b751's closing push capture data/b751_relay_push-b751-closing_push_out.txt: relay 786b63dc
+    (21:58:50Z), the scan in the call 0 ; 0 ; 0 ; 0 over 197 places, CONTROLS 7 OF 7; row step 2. tools/mirror_prevbuild.json: a CRLF-only difference
+    from HEAD's blob a94aa543, nothing a commit could carry; restored through the tool (`commit.py relay restore`)
+  A THIRD UNCOMMITTED FILE OF b751, NOT NAMED BY (R362)(7): data/b751_address_scan_commits.txt carried a 36-line run appended after its pushed blob at
+    d921bceb: the scan of b751's closing step-row commit d921bceb (21:20:57Z), its foot 0 ; 0 ; 0 ; 0, PLACES 307, the places with an occurrence NONE.
+    The bank is pushed at d921bceb; committing the append would rewrite a pushed bank (N4). The run copied whole to the scratch
+    b751_scan_tail_d921bceb.txt (md5 d6f07bb416dbdec7b0ea1e38817ea210, 36 lines) and the file restored to its pushed blob through the tool (defect (c))
+  THE CITATION CHECK, AFTER THE act_current COMMIT AND BEFORE ANY DELETE: dry twice, then banked (22:01:50Z): 156 cites, 156 OK, 0 MISSES; Lean-path
+    rows 10, differing 1 (the HALT below); THE COMPARATIVE READ VACUOUS: banks 6, words 0, rows 0 (a vacuous pass, not evidence: none of the six banks
+    exists yet); the check exits 3 on the one halt (data/b752_citation_check.txt). The first dry run halted on :17 and :39, Bridge/TheBridgeComplete.lean
+    absent at its pin: the worklist's LEAN_TREES did not carry SIDE-kernel at 0e5233f0 (defect (e)); added, the second dry run left the one halt read
+    below
+  THE READFIRST BANK BY THE TOOL: tools/standing/readfirst.py write b752, ferry rows 18, own rows 5 (data/b752_readfirst_rows.json written by the Write
+    tool first); every path in it printed from the tree by the citation check's rows or the seat's readers before the bank cites it. Written once, then
+    found short of two lines the ferry names (data/b751_author_answers.txt :34; data/b725_interference.txt :8-:10); both read, the rows corrected, the
+    untracked bank removed by its verified absolute path and written again (defect (g))
+  ROWGEN DIFF AND CONSTELLATION: data/b752_rowgen_stepzero.txt, constellation exit 0, rowgen diff exit 0, tables 19, re-pointed 8, STALE 0 (checked 153,
+    present 153, unmapped 175); free 6164 MB before it; run once
+  THE --MERGED LISTING, PRINTED BEFORE THE DELETES, in the arm's form (`git -C <repo> branch --merged main --list "push-b751-*"`): relay: push-b751-closing,
+    push-b751-preroot, push-b751-record; PLACE-papers: push-b751-preroot, push-b751-record
+  THE DELETES, AFTER THE CHECK AND THE HALT READ, ONE PER MESSAGE, through the one-call tool's delete route (`commit.py <relay|pp> delete <branch>`,
+    `git branch -d`): relay push-b751-closing (was d921bceb, 22:04:42Z), push-b751-preroot (was e45dffbf), push-b751-record (was 4282ecd2);
+    PLACE-papers push-b751-preroot (was 7e042f4), push-b751-record (was 2a94bf8); five deleted, none forced (b736's form: the halt row read, the
+    deletes after). The first delete call named the repository by its path and the tool printed its usage and wrote nothing (defect (f))
+  KEPT as banked (the tool`s row, tools/standing/carry.py kept b752, from each repository`s branch listing): relay: corrigendum-b723 (16caad10) ; SIDE-archimedean: pin-b718-de5ce8a9 (fda6055a), rebuild-b721 (610cbdf9) ; SIDE-effects: pin-b718-de5ce8a9 (57a23535) ; SIDE-explicit-formula: c2-b725 (0395f15d), challenge-b720-h2-sign-iff-rh (33916475), detect-b729 (1023301c), keiper-b725 (01fd33c2), zq-b730 (1e658870) ; SIDE-frobenius: rebuild-b721 (b4ef3958) ; SIDE-grh-transfer: pin-b718-de5ce8a9 (684ed8ae) ; SIDE-interfaces: pin-b718-de5ce8a9 (c9328e6c) ; SIDE-kernel: pin-b718-de5ce8a9 (fe85c518), rebuild-b721 (c683fcd7) ; SIDE-lv-conservation: pin-b718-de5ce8a9 (9e2bd31e), port-b707 (cb0aea56), rebuild-b721 (93c27ec2), scratch-b724 (c9cd1ea9) ; SIDE-rcurve: pin-b718-de5ce8a9 (648f3f5f), rebuild-b721 (f3a5ae54) ; SIDE-simplicity: pin-b718-de5ce8a9 (4ba55671) ; SIDE-spinor: pin-b718-de5ce8a9 (5a906a62), rebuild-b721 (526727ef) ; SIDE-trivium: pin-b718-de5ce8a9 (ece94ca8) ; other branches, none of the kept families, 638
+    (zq-b730 at 1e658870, past v0.38, kept as (R362)(9) orders)
+
+## THE ONE HALT ROW OF THE CITATION CHECK, READ
+  :17 'MechanismClass beside Bridge/TheBridgeComplete.lean': the ruling cites "MechanismClass (Bridge/TheBridgeComplete.lean :20-:22), seven_classes
+    (:25)" at SIDE-kernel v1.5 (0e5233f0). Read by `git grep` at 0e5233f0: Bridge/TheBridgeComplete.lean :20 `inductive MechanismClass where`, its seven
+    constructors C1_schwarz .. C7_hadamard through :23 with `deriving DecidableEq, Fintype`, :25 `theorem seven_classes : Fintype.card MechanismClass = 7
+    := by decide` -- the ruling's cite stands at its lines. The tree carries a second, distinct declaration of the same name: Kernel/Layer1.lean :4
+    `structure MechanismClass (X : Type u) (P : X -> Prop)`, a parametric structure (its users Bridge/SIDEBridge.lean :21-:35, C1, C2, C_simple as
+    `MechanismClass ℂ OffLineOrNonSimple`); and MetaKernel.lean :60 `inductive RH_MechanismClass`, a third. The reader's declaration pattern takes
+    theorem, lemma, def, structure, abbrev and instance and has no `inductive` arm, so it passed over :20 and took Layer1's structure. No word of the
+    ruling is wrong at the row; a reader's limit, REPEAT of b751 (d) and b736 (e) (defect (d) below). (5)(i)'s question -- does the kernel give a
+    class a predicate on functions, or is the type an enumeration with a count -- is to be answered with BOTH declarations printed whole, the
+    parametric structure of Layer1 being the one that carries a `produces` field; recorded here so Component 2 does not read one for the other
+
+## GIT STATUS AND THE SCAN
+  relay: no tracked change; the b752 banks and tools untracked as listed in the commit below; b751's untracked residue (the chain-half, probe and
+    mid-exercise files, untracked by rule, and the four scanfiles) and the carried untracked residue of earlier acts (not this act's, not touched)
+  PLACE-papers: no tracked change; its two untracked strays of earlier acts (.githooks/pre-push.b304-backup, internal/BLOB_SENSITIVITY_2026-08-29.md) untouched
+  THE SCAN, three targets and the ORCID: run over the staged set by the commit tool at the commit below
+  NO BUILD on this host; no lean process; no dispatch this act. The hook's settings file at sha256 98D5E3067366B7B1... (the citation check's row)
+
+## THE PRICE TABLE ((R362)(9), clause | the work | the price | its source)
+  Each price is the seat's estimate, a range. This table about 22:10Z; step zero about 0.6 h spent.
+  (7)          THE CORRIGENDUM for b751 and the v1.32.0 repairs, whole before (3):
+  (7) record   the weight line and the corrigendum by the c1 route (22 defects, 5 events, the 21:20:10Z refusal, the navigator's seven) | 0.2-0.4 h | b751's Component 1
+  (7)(i)       the citation check printing every ferry path OK or NONE before step zero's commit; control this act's check | 0.2-0.4 h | (e), (h)-(l)
+  (7)(ii)      G-RULE-REMOTE-REREAD counting a refused call apart; control b751's call record replayed to PASS | 0.4-0.8 h | events (1)
+  (7)(iii)     G-CURRENTS-UNEDITED run alone on b750's banks, its cause printed, a detail line; declared for sitting acts if so | 0.4-0.8 h | events (3)
+  (7)(iv)      the append keyed on time and words; control b751's two go words replayed to two rows | 0.3-0.6 h | events (4)
+  (7)(v)       orders.py reading an order from its entry form alone, W-ORD-1 absent and the count regenerated; control at HEAD | 0.4-0.8 h | :18002-:18146
+  (7)(vi)      the carry printing every row beside the ruling, refusing the unnamed, the readfirst needles and the trail head's ordinal | 0.3-0.6 h | (b), (q)
+  (7)(vii)     a tool refusing an act name that begins with a hyphen; control `--quiet` | 0.1-0.2 h | (t)
+  (7)(viii)    the LIMIT row reading the command's own arguments; controls (g) and (p) replayed | 0.2-0.4 h | (g), (p)
+  (7)(ix)      the instances printed: the dotted name (d), now with the missing `inductive` arm beside it; (v), events (5); the hook's refusals | 0.2-0.4 h | (a), (d), (f), (n), (r), (u), (v)
+  (7)(x)       the session change entered as the standing rule working | 0.1 h | the face's sentence
+  (7)(xi)      the standing version v1.32.0 landed by a commit of its own with its controls bank, tallied | 0.3-0.6 h
+  (7) SUM      3.1-6.1 h
+  (3)          the cross-reference, six questions, every corpus line re-read at HEAD, orders.py's state per order; banked and committed | 0.6-1.2 h
+  (4)          tools/b752_cq_signature.py committed before its run; cQ recomputed against data/b750_cq_sign.txt :39; the prime types two ways; the
+               four-cell table, the statement and its reverse, the observations; banked and committed | 1.0-2.0 h
+  (5)          the statements read and graded: SIDE-kernel v1.5 (both MechanismClass declarations and every declaration naming one), SIDE-explicit-formula
+               v0.38, Mathlib's vonMangoldt_nonneg and ζ's non-vanishing on Re s = 1 at the kernel's pin; PATHS A9, B3, C1; banked and committed | 1.0-2.0 h
+  (6)          the plan [P1], T0-T3 each with statement, grade, order, price in I-10's form, controls and what it does not say; printed in full and put | 1.0-2.0 h
+  (8)          the INTEGRATION line with the match; the b760 carried items named in the trail | 0.2-0.4 h
+  THE CLOSE    2.5-5.0 h | b751's run, the parts one at a time in the foreground and the post-push suite
+  THE SUM      step zero 0.6 + (7) 3.1-6.1 + (3) 0.6-1.2 + (4) 1.0-2.0 + (5) 1.0-2.0 + (6) 1.0-2.0 + (8) 0.2-0.4 + the close 2.5-5.0 = 10.0-19.3 h
+  ORDER        (7) whole before (3); (3), (4) and (5) each banked and committed before (6) is drafted ((R362)(9))
+
+## THE STEP-ZERO DEFECTS (to be lettered in data/b752_defects.txt in this order)
+  (a) THE SEAT'S [CLOSE ; REPEAT b751 (a)]: the hook refused two of the seat's calls at step zero (data/b752_hook_refusals.txt :1-:2): a Bash chain
+      carrying a sed (21:45:49Z, SED) and a Bash command opening with a variable assignment (21:50:57Z, ENV); each refused before it ran, each re-sent
+      in the permitted form
+  (b) THE SEAT'S [CLAIM ; REPEAT b751 (b)]: tools/acts/b752.py's citation sections 1 and 4 and its c1 route came from the carry holding b751's rows for
+      (R361) under b752's names; `carry.py ruled` refused them (R4, R5; R6 the ferry not yet banked) before the citation check, nothing composed by
+      them; rewritten for (R362) and against b751's banks, then REFUSED 0
+  (c) THE SEAT'S [CLOSE ; REPEAT b751 (c)]: b751's close appended the scan of its closing step-row commit (21:20:57Z) to data/b751_address_scan_commits.txt
+      after that bank's last commit, so a pushed bank stood modified and uncommitted at b752's step zero; copied to scratch and restored to the pushed
+      blob through the tool. The third act running (b750 (c), b751 (c)): the close's last commit writes the scan bank its own commit cannot carry
+  (d) THE SEAT'S [CLOSE ; REPEAT b751 (d)]: the citation check halted on one Lean-path row, the reader's declaration pattern carrying no `inductive` arm
+      and the tree carrying two declarations named MechanismClass; read above, no word of the ruling wrong; the deletes after the halt read, in b736's form
+  (e) THE SEAT'S [CLOSE ; NEW]: the worklist's stage one did not carry SIDE-kernel at 0e5233f0 into LEAN_TREES although (R362)(5)(i) cites that tree;
+      the first dry run of the citation check halted on :17 and :39 as absent at the pin; the tree added by name, nothing banked from the first run
+  (f) THE SEAT'S [CLOSE ; NEW]: the first delete was sent as `commit.py D:/relay delete push-b751-closing`, the repository named by its path where the
+      tool takes relay or pp; the tool printed its usage and exited 1, no write and no write mark taken; re-sent in the tool's form in its own message
+  (g) THE SEAT'S [CLOSE ; NEW]: data/b752_readfirst_rows.json first written short of two lines the ferry's read-first list names (data/b751_author_answers.txt
+      :34, data/b725_interference.txt :8-:10); the bank written from it, then the two lines read, the rows corrected, the untracked bank removed by its
+      verified absolute path (readfirst.py refuses to overwrite its own bank) and written again; nothing committed from the first writing
+  (h) THE SEAT'S [CLOSE ; NEW]: two calls failed in the seat's own forms and wrote nothing, unbanked by the hook: a Bash pattern with a backtick inside its
+      quotes (a shell error before the command ran), and the scratch actcur752.py's own assertion refusing before its write (its guard as meant); named
+      here so the set is whole
