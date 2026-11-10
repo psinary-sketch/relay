@@ -1918,6 +1918,7 @@ def _finding_text_b750():
              ORD.open_line(op), '',
              '**The orders by the tool:** %d of %s open at PLACE-papers main with the lines above, the open-orders line from tools/standing/orders.py`s output (its entry read outside quotations and hand sections, v1.27.0).' % (
                  len(op), len(ORD.read(ORD.trail('HEAD') + two))), '',
+             '**A candidate order beside W-ORD-ZQ-FAMILY, named and not entered:** the tighter box, half-side under 0.046 about the same centre, certifying Re ρ < 1; no entry written (the author’s word, 2026-11-10T16:29:22Z).', '',
              '**The carried items:** tools/standing/ at %s, its controls %s cases, %s as wanted (relay data/b751_standing_v1310.txt); the answers route`s dry printing counts alone (defect (m)) for the next corrigendum.' % (
                  f['ver'], f['v1130_cases'], f['v1130_wanted']), '',
              '**The instruments reproduced:** %d of %s, DIFFERS %s, NOT RUN %s (%s) (relay data/b751_reproduce.txt).' % (

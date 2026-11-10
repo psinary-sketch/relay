@@ -6,7 +6,8 @@
 ### No runner dispatch, no Lean file, no lean process on this host (N1); no Zenodo call (N5).
 ### Carried by diff from b750_worklist.py (data/b751_carry_worklist.txt); its stage one set at step zero with this act's figures by the
 ### seat's script (scratch wl751.py, each constant replaced whole by its name); later stages by the Edit tool.
-### The act runs in the same session as b750 (6151c0de), one seat, after a context summary.
+### The act runs in the same session as b750 (6151c0de), one seat, after a context summary; from 16:47:23Z it continues in session 43048615
+### (SESSIONS_AFTER), one seat, the author's go read there, the old seat's process gone at the listing.
 ### b750 closed and pushed itself whole (relay 467a1968, PLACE-papers 88942b4), its closing step row committed before its closing push; its
 ### closing push capture and tools/mirror_prevbuild.json are this act's carried files ((R361)(3)), committed at step zero, each alone.
 ### ANCHOR is the act's capture anchor (data/act_current.json, the ruling's first line); RULING_ANCHOR the same line, the citation tool's
@@ -34,7 +35,7 @@ HOLD = 2560
 ANCHOR = 'RULING (R361) BEGIN'           # ### the act's capture anchor, as data/act_current.json
 RULING_ANCHOR = 'RULING (R361) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
 TAIL = 'FERRY END (part 1 of 1)'
-SESSIONS_AFTER = ()         # ### one session so far (b671's form holds a continuation here if one comes)
+SESSIONS_AFTER = (('43048615-75cd-4480-bfa6-362a3c13092b', 'Go: read free memory in the foreground; at or above 2,750 MB, proceed in the order you listed'),)   # ### b671's form: the continuation seat from 16:47:23Z (its first user line), the old seat's process gone (listing 16:49Z: one claude.exe, PID 20364, started 16:44:16Z)
 PREV_SESSION = '6151c0de-d2ec-42cf-a477-c48b99346e01'   # ### b750 ran in this session (from 'RULING (R360) BEGIN' to its closing); b751 follows it in the same session after a context summary
 PREV_ANCHOR = 'RULING (R360) BEGIN'
 DRAFT = '23228113'
