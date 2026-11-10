@@ -1,5 +1,5 @@
 {
- "at": "2026-11-10T17:55:04Z",
+ "at": "2026-11-10T17:57:28Z",
  "anchor": "RULING (R361) BEGIN",
  "rows": [
   {
@@ -2712,6 +2712,62 @@
    "src": "seat 43048615",
    "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/run_keep.py\" \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/gatebanks2.txt\" \".\" python -X utf8 -u tools/standing/fold.py record gatebanks --act b751",
    "n": 339,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T17:55:39.848Z",
+   "src": "seat 43048615",
+   "cmd": "git -C D:\\relay status --porcelain --untracked-files=all -- \"data/b751_*\" \"data/audit_b751_*\" \"tools/*b751*\" \"tools/acts/b751.py\" \"data/act_current.json\" \"tools/mirror_prevbuild.json\"",
+   "n": 340,
+   "bg": false
+  },
+  {
+   "tool": "PowerShell",
+   "ts": "2026-11-10T17:55:47.731Z",
+   "src": "seat 43048615",
+   "cmd": "git -C D:\\relay ls-files -- \"data/b750_probe_*\" \"data/b750_mid_exercise_*\" \"data/b750_chain_half_*\" \"data/b750_scanfile_*\" \"data/b749_probe_act.txt\" \"data/b749_scanfile_*\"",
+   "n": 341,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T17:56:01.583Z",
+   "src": "seat 43048615",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/run_keep.py\" \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/addrscan.txt\" \"PREVIOUS|NAME|ORCID|PLACES|CONTROLS|written|wrote|Traceback|VERDICT\" python -X utf8 -u tools/b751_address_scan.py scan --bank",
+   "n": 342,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T17:56:20.118Z",
+   "src": "seat 43048615",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay add data/audit_b751_reg_satisfiable.txt data/b751_address_scan.txt data/b751_address_scan_commits.txt data/b751_bank_hashes.json data/b751_census_stepzero.txt data/b751_closing_dry.txt data/b751_commands.json data/b751_commands.txt data/b751_defects.txt data/b751_faces_census_stepzero.txt data/b751_guard_dry.json data/b751_guard_dry.txt data/b751_hook_refusals.txt data/b751_kernels_face.json data/b751_pathrefusal.txt data/b751_pins_stepzero.txt data/b751_prelock.txt data/b751_prevdry_act.json data/b751_prevdry_standing-a1.json data/b751_prevdry_standing-a2.json data/b751_prevdry_standing-b1.json data/b751_prevdry_standing-b2a.json data/b751_prevdry_standing-b2b.json data/b751_prevdry_standing-b2c.json data/b751_prevdry_standing-b2d.json data/b751_prevdry_standing-b3.json data/b751_prevdry_standing-c.json data/b751_reg_gate.txt data/b751_reg_termscan.txt data/b751_registration_2026-11-10.txt data/b751_regspec_run.txt data/b751_report_dry.txt data/b751_satisfiable.json data/b751_scores_dry.txt data/b751_standing_figures.json data/b751_standing_figures.txt data/b751_steps.json data/b751_wlist.json tools/acts/b751.py tools/b751_worklist.py tools/b751_face.py tools/b751_face_blocks.txt tools/b751_prepaths.py",
+   "n": 343,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T17:56:27.535Z",
+   "src": "seat 43048615",
+   "cmd": "python -X utf8 -u tools/standing/commit.py relay gate",
+   "n": 344,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T17:56:52.736Z",
+   "src": "seat 43048615",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/run_keep.py\" \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/rootdry.txt\" \"READY|NOT|MISSING|UNCOMMITTED|DIRTY|banks|written|Traceback|free\" python -X utf8 -u tools/standing/fold.py record rootdry --act b751",
+   "n": 345,
+   "bg": false
+  },
+  {
+   "tool": "Bash",
+   "ts": "2026-11-10T17:57:16.941Z",
+   "src": "seat 43048615",
+   "cmd": "python -X utf8 -u \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/run_keep.py\" \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/43048615-75cd-4480-bfa6-362a3c13092b/scratchpad/commands2.txt\" \".\" python -X utf8 -u tools/standing/fold.py record commands --act b751 --quiet",
+   "n": 346,
    "bg": false
   }
  ],
