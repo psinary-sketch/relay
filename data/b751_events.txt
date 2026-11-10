@@ -1,0 +1,28 @@
+b751 -- THE EVENTS AFTER THE LOCK GATE, THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay eb81ada2) and the seal (relay 129a8ca7), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for the next act's corrigendum. A finding after the lock gate's record takes no letter in data/b751_defects.txt; no locked bank is rewritten by the seat's hand. Each row carries its time, read from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+AFTER THE LOCK, BEFORE THE SEAL (relay 129a8ca7, 19:43:27Z):
+    (1) THE SEAT'S [CLOSE ; NEW]: the pre-run of standing-a2 (data/b751_arms_prerun_standing-a2.txt) read G-RULE-REMOTE-REREAD failing, 19 live
+     failing where b750's part read 18, the one arm not among the eight the face names: "naming more than one ['2026-11-10T17:54:13.904Z']",
+     the seat's three ls-remote reads in one PowerShell command, refused by the hook before it ran (data/b751_hook_refusals.txt :18; defect (v));
+     the arm reads the call trace of the continuation session (SESSIONS_AFTER) and counts the refused call; the face locked before the reading,
+     the arm stands failing and is entered here. The combined pre-run: ARMS RUN 116, LIVE PASSING 91, LIVE FAILING 24 (data/b751_arms_prerun.txt).
+    (2) THE SEAT'S [CLOSE ; REPEAT b750 (3)]: 18:56:00Z: the prev run of part act was sent first, before standing-a1; v1.31.0's part-order guard
+     refused it ("ITS PREDECESSOR standing-b3 HAS NO BANK IN THIS MODE"), nothing ran; the seat's read of the refusal's scratch output went as a
+     Read with no limit and the hook refused it (data/b751_hook_refusals.txt :19, 18:56:03Z), re-sent with a limit; the ten prev runs then sent in
+     the guard's order, standing-a1 to act, each after its predecessor's bank.
+    (3) THE SEAT'S [CLAIM ; NEW]: the prev run of standing-a2 on b750's banks (data/b751_prevrun_standing-a2.txt) read DIVERGE 18 where b750's
+     on b749's read 16: the two beyond b750's list are G-RULE-REMOTE-REREAD (row (1)) and G-CURRENTS-UNEDITED, which passes in b751's own
+     pre-run and fails on b750's banks alone; not read further before the seal; the act part on b750's banks PASS 15, DIVERGE 14 (b750's on
+     b749's: PASS 16, DIVERGE 12).
+
+AFTER THE SEAL (relay 129a8ca7):
+    (4) THE SEAT'S [CLAIM ; NEW]: the answers route (`fold.py record answers --act b751`, 19:44:05Z), at the author's word (transcript
+     43048615:903), its printed counts: "prompts banked: 1 ; words banked: 5" ; "the bank standing: 13 line(s) ; the route composed 23 ; appended 7
+     (no line already in the bank rewritten) ; calls 1" (the dry before it printed the same). The author's go of 16:47:23Z, the first user line
+     of the continuation session 43048615, is word for word the go of 6151c0de transcript line 20339 (16:33:20Z); the bank carries line 20339's
+     row (data/b751_author_answers.txt :21-:22) and no row for the 16:47:23Z word: six words were delivered between BEGIN and END, five banked;
+     the possible collapse of two identical words into one row, banked as the route banks them, no hand edit.
+    (5) THE HOST'S [CLOSE ; NEW]: 19:56:15Z: the pre-root push of PLACE-papers (`tools/push_gated.sh D:/MY-DOwnloads/PLACE-papers
+     push-b751-preroot`) was refused at the network, "fatal: unable to access 'https://github.com/psinary-sketch/PLACE-papers.git/': Could not
+     resolve host: github.com", MAIN PUSH REFUSED (exit 128), nothing pushed and no tag; the seat read the remote once alone (ls-remote, main
+     at 88942b42, unmoved) and sent the push once more at 19:57:12Z: pushed and read back at 7e042f4d; the retry is this row.
