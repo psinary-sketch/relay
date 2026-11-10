@@ -11,3 +11,4 @@
 2026-11-10T01:52:48Z | READ | Read | "D:\\relay\\data\\b749_reproduce.txt" | a Read call with a limit and no offset on a file of 275 lines
 2026-11-10T02:07:32Z | READ | Read | "D:\\relay\\tools\\b749_face.py" | a Read call with no limit
 2026-11-10T02:07:33Z | READ | Read | "D:\\relay\\tools\\b749_prepaths.py" | a Read call with no limit
+2026-11-10T03:31:16Z | PIPE | PowerShell | "Get-ChildItem data/b750_prevdry_*, data/b750_scores_dry*, data/b750_report_dry*, tools/acts/b750.py -ErrorAction SilentlyContinue | Format-Table Name, LastWriteTime, Length -AutoSize" | a PowerShell command carrying a pipe outside quotes

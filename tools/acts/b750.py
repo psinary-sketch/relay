@@ -599,7 +599,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
         and 'weight' in fline(S, K.WEIGHT_LINE).lower()
 #⟪END⟫
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'f' else 'SEAT') for c in tuple('abcdefghijklmnopqrst')))   # ### (a)-(t) so far, the navigator's (f) (the ruling's path), the rest the seat's (data/b750_defects.txt); reset to the letters entered before the lock
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'NAVIGATOR' if c in 'f' else 'SEAT') for c in tuple('abcdefghijklmnopqrstuv')))   # ### (a)-(v) so far, the navigator's (f) (the ruling's path), the rest the seat's (data/b750_defects.txt); reset to the letters entered before the lock
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b750_corrigendum.txt', 'data/b750_standing_v1300.txt', 'data/b750_sitting_agenda.txt', 'data/b750_sitting.txt',
