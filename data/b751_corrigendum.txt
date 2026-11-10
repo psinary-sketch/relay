@@ -1,0 +1,81 @@
+b751 -- THE CORRIGENDUM FOR b750, (R361)(3) (2026-11-10T12:52:34Z)
+
+### the banks read unedited: data/b750_events.txt rows (1)-(7), data/b750_defects.txt 25 rows, data/b750_hook_refusals.txt 19 lines at 467a1968; data/b751_standing_v1310.txt (the v1.31.0 controls); data/b751_rules.txt; the corrigenda bank`s last row (70).
+
+  *b750’s events bank (relay data/b750_events.txt) carries seven rows, entered after its lock gate and not lettered, each tagged in its own bracket (7 the seat’s); its defects bank twenty-five lettered rows, (a)-(y), each tagged in its own bracket (24 the seat’s, 1 the navigator’s); its refusal bank nineteen lines at 467a1968, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them. The navigator’s one, (f), is lettered in the defects bank as the navigator’s.*
+  
+  **The repairs of `(R361)`(3), at tools/standing/ v1.31.0, each with a control on b750’s banks or the trail as it stands, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b751_standing_v1310.txt, 56 cases, AS WANTED 56; the rules relay data/b751_rules.txt):
+  
+  **(order) the suite parts run out of their order (`(R361)`(3)(i), events (3), (7), REPEAT b717 (3))** -- the part runner refuses a part whose predecessor in the standing order has no bank for the act in the mode asked, and prints the order. b750’s standing-a2 replayed before a1: run before, refused after (relay data/b751_standing_v1310.txt :20; data/b751_rules.txt (1), :5).
+  
+  **(wlist) the writes outside the (W) list (`(R361)`(3)(ii), defects (h), (i))** -- a Write or Edit of a tracked path not in the act’s (W) list refused by the hook before it lands, the list read from the regenerated bank. b750’s edit of tools/act_close.py replayed: let through before, refused after (relay data/b751_standing_v1310.txt :39; data/b751_rules.txt (2), :7).
+  
+  **(composer) every prompt through the composer (`(R361)`(3)(iii), N3 before the root)** -- every prompt the act puts, the sitting items and the halts as well as the root, runs through compose_checked before it is put. b750’s sitting prompt replayed: put before, refused on “b746’s entry,” after (relay data/b751_standing_v1310.txt :61; data/b751_rules.txt (3), :9).
+  
+  **(linematch) the line reader’s match (`(R361)`(3)(iv), data/b750_line.txt’s note)** -- the line reader matches each entry’s findings against the names a keystone’s note carries before it reads SYNTHESISED, and reads CLUSTERED where no name matches. b745-b748 replayed with their findings named; a planted entry with an unnamed finding read CLUSTERED (relay data/b751_standing_v1310.txt :81; data/b751_rules.txt (4), :11).
+  
+  **(gatescan) the scan left out of a commit (`(R361)`(3)(v), defect (x), REPEAT b749 (c))** -- the gate route runs the staged-set scan as the commit route does. cc1fc182’s sequence replayed: committed before, refused after (relay data/b751_standing_v1310.txt :105; data/b751_rules.txt (5), :13).
+  
+  **(compile) the rendered module’s indentation (`(R361)`(3)(vi), defect (j))** -- the standing dry compiles every rendered module and prints the earliest error with its line. v1.30.0’s opening render replayed: the error printed with its line (relay data/b751_standing_v1310.txt :125; data/b751_rules.txt (6), :15).
+  
+  **(carry) the carry (`(R361)`(3)(vii), defects (d), (m), (s), REPEAT)** -- the carry prints every row and figure it brings beside the ruling and refuses the ones it does not name; the ferry banked by the citation tool’s route. b750’s carried sections replayed to a refusal (relay data/b751_standing_v1310.txt :135; data/b751_rules.txt (7), :17).
+  
+  **(words) the tool’s words and phases (`(R361)`(3)(viii), defects (b), (k), (o), (u), (y), REPEAT)** -- the instances printed; the commit tool’s usage line printed by the carry at step zero (relay data/b751_standing_v1310.txt :152; data/b751_rules.txt (8), :19).
+  
+  **(limit) the host’s limit (`(R361)`(3)(ix), defect (t), events (6))** -- a run that may exceed the host’s default sent with the limit the tool prints (relay data/b751_standing_v1310.txt :174; data/b751_rules.txt (9), :21).
+  
+  **(instances) the hook’s refusals (`(R361)`(3)(x), defects (a), (g), (n), (q), (r), (v), (w), events (2), (4), (5), REPEAT)** -- the instances printed, b750’s nineteen refusals each by its line (relay data/b751_standing_v1310.txt :190; data/b751_rules.txt (10), :23).
+  
+  **(version) the version (`(R361)`(3)(xi))** -- tools/standing/VERSION v1.31.0, landed by a commit of its own (relay e46f9e9d) with its controls bank and the record’s dry over it, before the gate (relay data/b751_standing_v1310.txt :229; data/b751_rules.txt (11), :25).
+  
+  **b750’s events (1)-(7):**
+  
+  **(1)** the lock gate was first sent as ’tools/b378\_lockgate.py b750’ without its face; the tool read its default face … (relay data/b750_events.txt, row (1); the seat’s; CLOSE; NEW; no item of `(R361)`(3) names it; the tool’s own refusal, nothing written).
+  **(2)** the seat’s Edit of data/b750\_defects.txt to letter row (1) was refused by the hook’s row (65), "a Edit of a bank … (relay data/b750_events.txt, row (2); the seat’s; CLOSE; NEW; repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed (data/b750_hook_refusals.txt :16)).
+  **(3)** the prev runs (’fold.py checks --prev --part P --act b750’) were sent out of their order twice. standing-a2 at … (relay data/b750_events.txt, row (3); the seat’s; CLOSE; NEW; repair (order), `(R361)`(3)(i): the part runner refuses a part whose predecessor has no bank for the act in the mode asked).
+  **(4)** the hook refused a Bash listing of b749’s root-prompt and scanfile banks carrying a 2>&1 redirect … (relay data/b750_events.txt, row (4); the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed (data/b750_hook_refusals.txt :17)).
+  **(5)** the hook refused two Read calls with no limit, of two of the seat’s memory notes (data/b750\_hook\_refusals.txt, its two … (relay data/b750_events.txt, row (5); the seat’s; CLOSE; REPEAT of b750 (g); repair (instances), `(R361)`(3)(x), REPEAT: the refusals printed (data/b750_hook_refusals.txt :18, :19)).
+  **(6)** ’bash tools/push\_gated.sh D:/MY-DOwnloads/PLACE-papers push-b750-preroot’ was refused at the tool, NOTHING PUSHED: "THE … (relay data/b750_events.txt, row (6); the seat’s; CLOSE; NEW; repair (limit), `(R361)`(3)(ix): the push sent after the step-rows commit, the instance printed).
+  **(7)** the pre-push standing-a2 (data/b750\_checks\_standing-a2.txt :67), and again the post-push standing-a2 … (relay data/b750_events.txt, row (7); the seat’s; CLAIM; REPEAT of b717 (3); repair (order), `(R361)`(3)(i), REPEAT: the positive control read with the part order kept; the plant’s own fault printed).
+  
+  **b750’s defects:**
+  
+  **(a)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusals printed).
+  **(b)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (words), `(R361)`(3)(viii): the instance printed).
+  **(c)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (c); no item of `(R361)`(3) names it; a pushed bank restored to its blob at step zero).
+  **(d)** (relay data/b750_defects.txt; the seat’s; CLAIM; REPEAT of b749 (d); repair (carry), `(R361)`(3)(vii), REPEAT).
+  **(e)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; no item of `(R361)`(3) names it; the window widened before the banked run).
+  **(f)** (relay data/b750_defects.txt; the navigator’s; CLAIM; NEW; the navigator’s, lettered as the navigator’s ((R361)(3))).
+  **(g)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusals printed).
+  **(h)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (wlist), `(R361)`(3)(ii): a Write or Edit of a tracked path outside the (W) list refused by the hook before it lands).
+  **(i)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (wlist), `(R361)`(3)(ii): the same refusal, tools/act_close.py replayed).
+  **(j)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (compile), `(R361)`(3)(vi): the standing dry compiles every rendered module and prints the earliest error).
+  **(k)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (words), `(R361)`(3)(viii): the instance printed).
+  **(l)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (f); no item of `(R361)`(3) names it; the v1.30.0 controls’ own runs, their last write 39 of 39).
+  **(m)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (g); repair (carry), `(R361)`(3)(vii), REPEAT).
+  **(n)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed).
+  **(o)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (words), `(R361)`(3)(viii): the instance printed).
+  **(p)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; no item of `(R361)`(3) names it; a reading defect, nothing written).
+  **(q)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed).
+  **(r)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (g); repair (instances), `(R361)`(3)(x), REPEAT: the refusals printed).
+  **(s)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (o); repair (carry), `(R361)`(3)(vii), REPEAT: the ferry banked by the citation tool’s route).
+  **(t)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (limit), `(R361)`(3)(ix): the run sent with the limit the tool prints).
+  **(u)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (o); repair (words), `(R361)`(3)(viii): the instance printed).
+  **(v)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed).
+  **(w)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R361)`(3)(x), REPEAT: the refusal printed).
+  **(x)** (relay data/b750_defects.txt; the seat’s; CLOSE; NEW; repair (gatescan), `(R361)`(3)(v): the gate route runs the staged-set scan).
+  **(y)** (relay data/b750_defects.txt; the seat’s; CLOSE; REPEAT of b749 (v); repair (words), `(R361)`(3)(viii), REPEAT: the instance printed).
+  
+  **b750’s refusals** (relay data/b750_hook_refusals.txt at 467a1968, one a line): :1 PIPE 23:02:12Z, recorded at defect (a); :2 REDIR 23:07:42Z, recorded at defect (a); :3 ENV 23:11:28Z, recorded at defect (a); :4 PIPE 23:18:47Z, recorded at defect (g); :5 SED 23:21:41Z, recorded at defect (g); :6 REDIR 23:28:44Z, recorded at defect (g); :7 READ 23:33:36Z, recorded at defect (g); :8 READ 23:37:13Z, recorded at defect (g); :9 PIPE 23:56:58Z, recorded at defect (n); :10 PIPE 01:30:01Z, recorded at defect (q); :11 READ 01:52:48Z, recorded at defect (r); :12 READ 02:07:32Z, recorded at defect (r); :13 READ 02:07:33Z, recorded at defect (r); :14 PIPE 03:31:16Z, recorded at defect (v); :15 REDIR 04:32:16Z, recorded at defect (w); :16 LOCKED 04:36:58Z, recorded at event (2); :17 REDIR 06:32:58Z, recorded at event (4); :18 READ 08:35:19Z, recorded at event (5); :19 READ 08:35:19Z, recorded at event (5).
+  
+  **Dated notes:**
+  
+  Dated note, b751, to `(R361)`(3)(iii): before b750’s root, N3 read REFUTED on its last clause alone, the root prompt’s sentences about the entry not the composer’s: ["b746’s entry,"] (relay data/b750_scores_dry.txt); the act module read the last PROMPT row of the answers bank, then the sitting’s prompt, put without the composer; once the root prompt was banked N3 read HELD (relay data/b750_scores_close.json). The repair (composer) runs every prompt through compose_checked before it is put.
+  
+  Dated note, b751, to `(R361)`(3)(iv): b750’s line bank read b745-b748’s INTEGRATION lines SYNTHESISED by the cluster without matching each entry’s own finding against the note’s names, and said so (relay data/b750_line.txt :26-:31); the repair (linematch) matches each finding before it reads SYNTHESISED and reads CLUSTERED where no name matches.
+  
+  **The counter:** CLAIM 3, CLOSE 29, REPEAT 17 of 32 over the 32 items as the banks tag them (seven events, twenty-five defects), as b750’s closing prints it (relay data/b750_closing.txt :5); no tag is read otherwise here; the CLAIM items (7), (d), (f).
+  
+  *Filed at b751 on the author’s ruling `(R361)`(3): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b751.py) from b750’s events and defects banks read unedited, its refusal bank, the v1.31.0 controls bank and the rules; banked as relay `data/b751_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (71). It answers b750’s record; no sealed tool, face, trail or root-named bank of b750 is edited.*
+
+### ### **ITEMS 32: EVENTS 7, DEFECTS 25 ; CLAIM 3, CLOSE 29 ; REPEAT 17 ; THE NAVIGATOR`S 1, LETTERED (f) ; DATED NOTES 2 ; v1.31.0: THE PART-ORDER GUARD, THE (W) REFUSAL, THE COMPOSER ON EVERY PROMPT, THE LINE READER`S MATCH, THE SCAN AT THE GATE, THE COMPILED RENDER, THE CARRY, THE WORDS AND PHASES, THE HOST`S LIMIT, THE REFUSALS PRINTED, THE VERSION ; THE ENTRY AT FINDINGS :14669.**

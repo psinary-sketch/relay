@@ -295,21 +295,21 @@ COMPARATIVE_BANKS = ('data/b751_corrigendum.txt', 'data/b751_literature.txt', 'd
                      'data/b751_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()   # ### v1.31.0's changed files, set after it lands
-STANDING_NEW = ()       # ### v1.31.0's new files, set after it lands
+STANDING_CHANGED = ('VERSION', 'carry.py', 'commit.py', 'fold/checks.tpl', 'hook.py', 'repeat.py', 'rootprompt.py', 'standingdry.py')   # ### v1.31.0's changed files (e46f9e9d)
+STANDING_NEW = ('limits.py', 'linematch.py', 'v1310.py', 'wlist.py')       # ### v1.31.0's new files (e46f9e9d)
 # ### b750's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '467a1968'    # ### b750's closing (its step row), the act's relay base
 B714_RECORD = 'cb732c95'     # ### b750's record commit (relay)
 B714_ROOT = 'fbd3c1d6dd1a0bc1887bd67cc5f4c3adcdeea62c48a16cbf7e41e075704fcad3'   # ### b750's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'c671c4cf'  # ### b750's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.31.0 by a commit of its own, its controls bank data/b751_standing_v1310.txt ((R361)(3)); set after it is made
+C1_STANDING = 'e46f9e9d'           # ### tools/standing/ v1.31.0 by a commit of its own, its controls bank data/b751_standing_v1310.txt ((R361)(3)); step row 4
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none yet
 C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row; set after it is made
 C1_CORR = C1_RELAY
 C1_RULES = C1_STANDING             # ### data/b751_rules.txt committed with v1.31.0
-C1_PP = None                       # ### PLACE-papers: FINDINGS -- b750 at its weight and the corrigendum for b750; set after it is made
+C1_PP = '42206b44'                 # ### PLACE-papers: FINDINGS -- b750 at its weight (:14667) and the corrigendum for b750 (:14669); step row 5
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
