@@ -1,0 +1,103 @@
+b752 -- (R362)(6): THE ATTRIBUTION PLAN FOR W-ORD-MECHANISM-ATTRIBUTION, PUT AS ONE SITTING ITEM [P1] (2026-11-10). NOTHING BUILT BY THIS BANK.
+
+### Written by the Write tool after Component 2's commits (signature relay 8c0b6206; statements relay acce556a; defects relay ae9edaec). Every line below cites the bank and line it
+### reads; the seat's readings are marked as the seat's; the prices are the seat's estimates in I-10's form (data/b731_price_measured.txt :3: "a lower bound on a specified
+### implementation, re-measured after the build"), with the three-times rule (data/b740_offlinezero.txt :21: three times the estimate the ceiling past which the build stops).
+
+[P1] THE ATTRIBUTION PLAN
+  FILE:    data/b752_attribution_plan.txt (this bank)
+  ORDER:   W-ORD-MECHANISM-ATTRIBUTION, PLACE-papers OPEN_TRAILS :17932, entered at b747 by name, priced and not built
+  ASKED:   PASS -- the build of section (4)'s recommendation becomes an act the author names, placed as section (5) says; STRIKE -- the order stays as entered
+  ON EITHER WORD: nothing built this act; no Lean file written; no dispatch; no kernel's main touched
+
+## (1) WHAT THE TWO RECORDS ALREADY ESTABLISH, BEFORE ANY PRICE (amendment row 1, data/b752_amendments.json)
+  (1a) WHAT A CLASS IS, AS THE KERNEL STATES IT. SIDE-kernel v1.5 (0e5233f0) MechanismClass is an inductive of seven constructors carrying no data (Bridge/TheBridgeComplete.lean
+       :20-:23), counted by seven_classes :25 (decide). Its per-class predicate produces_offline :157-:165 is, case by case, a Prop about a real sigma alone; no case takes a
+       function, an L-series, zeta or a zero. The general structure Kernel/Layer1.lean :4-:6 gives a predicate on POINTS of a type, instanced only at points s of C
+       (Bridge/SIDEBridge.lean :21-:33), where C1's predicate is the off-line property itself (:23). NO CLASS OF THE SEVEN IS GIVEN A PREDICATE ON FUNCTIONS
+       (data/b752_statements.txt, THE ANSWER TO (5)(i)). The census (FINDINGS :4885-:4922) stands at the tree for all seven (the same bank, THE CENSUS ... CLASS BY CLASS).
+  (1b) WHAT MECHANISM THE RECORD NAMES FOR THE ZEROS OF Z_Q0. CLASS-GROUP AVERAGING: "Z_Q averages over the class group, and its zeros are where the averaged terms cancel"
+       (data/b726_mechanisms.txt :10); at h = 3, "at a zero of Z_Q0, zeta_K = Z_Q1 = -2 L(s, psi)", H-INTERFERENCE HELD 69 of 69 (:10); the ingredient dropped is THE EULER
+       PRODUCT, the functional equation, Ramanujan size and additive structure kept (:9). The kernel's own docstring at C7 says the same of Epstein: "Completed Epstein zeta
+       functions ALSO have Hadamard factorizations and DO have off-line zeros; the product is present in systems that violate RH" (TheBridgeComplete.lean :129-:133, v1.5),
+       refiled as W-ORD-C7-WITNESS.
+  (1c) THE SIGNATURE THIS ACT COMPUTED, BESIDE b723. Over n <= 3000 every negative cQ(n) sits on an n whose primes are all of type N (split, outside the principal class): 0 of
+       102 carry a prime of type P, I or R; no nonzero cQ(n) sits on an n mixing a type-N prime with another type; no negative at Omega_N <= 3 (data/b752_statements.txt, THE
+       SIGNATURE BANK READ BESIDE b723; data/b752_cq_signature.txt (o1)). These are the shapes b723's h = 2 closed form derives (data/b723_c2_closed_form.txt :41-:55), read at
+       h = 3 POST HOC; no h = 3 closed form is written. The table's TRUE (102 of 102) reads no finer than "divisible by 2 or 3" ((o4)), and is not the reading used.
+
+## (2) WHAT THE ORDER AS ENTERED ASKS THAT THE RECORDS DO NOT ALREADY ANSWER (the seat's reading of OPEN_TRAILS :17932 against (1))
+  The order asks (i) a theorem naming a class of the seven and the property of Z_Q0 that puts the located zero in it, (ii) the exclusion of that class at xi by a named premise xi
+  has and Z_Q0 lacks -- or the printed finding that no class of the type admits the zero, either one a result.
+  (i) IS ANSWERED BY (1a), NEGATIVELY AND WITHOUT A BUILD: a class of the type carries no predicate on functions, so no theorem in the kernel's present vocabulary can say that a
+      zero of Z_Q0 -- or of any function -- falls in a class. The kernel's exclusion none_produce (:198-:207) is a statement about real sigma and holds whatever function has
+      zeros where; the located zero (zq_offline_zero, SIDE-explicit-formula v0.38 Schema/ZQ/OffZero/SP4.lean :32, at cA = 0.95326 + 16.290216 i) and none_produce are both
+      compiled and do not meet. The finding the order counts as a result is therefore printable now, from data/b752_statements.txt.
+  (ii) IS NAMED BY (1b) IN PROSE AND NOT COMPILED: the premise zeta has and Z_Q0 lacks is the Euler product (b726 :9), and its arithmetic shadow, the sign of the log-derivative's
+      coefficients (Lambda >= 0 at zeta; cQ(48) < 0 at Z_Q0, data/b750_cq_sign.txt :39). Neither is a theorem in the tree: LogDeriv.lean :6 says "Z_Q has no Euler product" in its
+      module comment; no declaration states it (data/b752_statements.txt (ii)).
+  WHAT IS LEFT FOR A BUILD: (ii)'s two premises as theorems about Z_Q0 (T0, T1). An exclusion of a class "at xi" in the sense of a statement about the zeros of xi on the centre
+  line is not offered by any candidate: B3 stands -- "Lambda>=0 yields the edge, never the center; the distance is the clause" (PATHS_TO_THE_CRITICAL_LINE.md :396).
+
+## (3) THE CANDIDATES, EACH PRICED OR DISMISSED WITH ITS REASON
+  (T0) NO EULER PRODUCT, COMPILED -- RECOMMENDED, FIRST
+    STATEMENT (the tree's vocabulary, SIDE-explicit-formula, Schema/ZQ/): theorem zq_coeff_not_multiplicative :
+        ¬ ArithmeticFunction.IsMultiplicative (⟨fun n => (rQ n : ℝ) / 2, by simp [rQ_zero]⟩ : ArithmeticFunction ℝ)
+      with its witness theorem rQ_six_ne : (rQ 6 : ℝ) / 2 ≠ ((rQ 2 : ℝ) / 2) * ((rQ 3 : ℝ) / 2), from rQ 2 = 0, rQ 3 = 0, rQ 6 = 4 (data/b725_interference.txt :11).
+      WHAT AN EULER PRODUCT WOULD FORCE: Mathlib's Euler-product theorems take multiplicativity as their hypothesis (Mathlib/NumberTheory/EulerProduct/Basic.lean :80, hf1 : f 1 = 1
+      and hmul on coprime arguments; :242-:245 ArithmeticFunction.IsMultiplicative.eulerProduct_hasProd; read at e960b841, and at SIDE-explicit-formula's pin de5ce8a9 the same
+      theorem at :243); the converse -- a product over the primes of local series forces multiplicative coefficients -- is standard and not compiled here. T0 says the tree's
+      normalised coefficients rQ n / 2 (f 1 = 1 by rQ_one) fail hmul at 6 = 2 . 3.
+    GRADE ITS STATEMENT WOULD EARN: DERIVES (a finite computation and the definition of IsMultiplicative; no premise).
+    PRICE: 40-120 lines, 1-2 dispatches (the seat's; nearest compiled neighbours boxF_one and rQ_one, LogDeriv.lean :23-:60); THE THREE-TIMES CEILING 360 lines.
+    CONTROLS: positive -- the function's value at 1 is 1 (rQ_one, compiled, LogDeriv.lean :56), so the failure sits at 6 and not at the unit; negative -- Mathlib's
+      ArithmeticFunction.isMultiplicative_zeta (zeta's coefficient 1) meets the hypothesis T0 denies, so the statement's shape separates zeta from Z_Q0 (Zeta.lean :194 at
+      de5ce8a9, :193 at e960b841).
+    WHAT IT DOES NOT SAY: nothing about a zero of Z_Q0 or of zeta; not that Z_Q0 has no product formula of another kind (it is a combination of Euler products, b723 (1)).
+  (T1) THE SEPARATION -- RECOMMENDED, SECOND
+    STATEMENT: theorem cQ_not_nonneg : ¬ (∀ n : ℕ, 0 ≤ cQ n), by theorem cQ_forty_eight : cQ 48 = -(8 * Real.log 2) - 2 * Real.log 3, the recursion cQ_eq (LogDeriv.lean
+      :71-:81) unfolded over the divisors of 48 (cQ at 2, 3, 4, 6, 8, 12, 16, 24 and rQ at the divisors), beside Mathlib's ArithmeticFunction.vonMangoldt_nonneg (VonMangoldt.lean
+      :80): A9's hypothesis held by zeta, and absent at Z_Q0 as a compiled theorem.
+    GRADE: DERIVES.
+    PRICE: 150-450 lines, 1-4 dispatches (the seat's; the cost is the rQ values at the divisors of 48, each a card over a box of up to 193 x 97 points at k = 48 -- decide may not close and
+      a characterisation lemma per value may be needed); THE THREE-TIMES CEILING 1350 lines.
+    CONTROLS: the same unfolding at n = 4 and n = 6, positive: cQ 4 = 2 log 2 = 1.386294 and cQ 6 = 2 log 6 = 3.583519 (data/b752_cq_signature.txt, the cells 4 and 6), and
+      cQ 48 = -7.742402 against the bank (data/b750_cq_sign.txt :39).
+    WHAT IT DOES NOT SAY: nothing about where a zero of Z_Q0 lies; not that cQ's negativity causes the off-line zero; the 3-4-1 argument does not run on cQ (T2).
+  (T2) THE EDGE -- DISMISSED, PRINTED INSTEAD: "DOES NOT ABSTRACT AT THE PIN"
+    (5)(iii) FOUND: Mathlib's route to zeta's zero-free line at e960b841 is for Dirichlet characters through their Euler products (chi : DirichletCharacter C N, Nonvanishing.lean
+      :216; the binding lemmas norm_LSeries_product_ge_one :285-:303 and re_log_comb_nonneg :241-:265), not for a Dirichlet series with nonnegative coefficients; Nonvanishing.lean
+      does not call vonMangoldt_nonneg (data/b752_statements.txt (iii)).
+    A GENERAL A9 (a series with an Euler product and nonnegative log-coefficients, nonvanishing on Re s = 1) would be new to the pin: 600-1500 lines, 5-12 dispatches (the seat's).
+      DISMISSED: with T0 and T1, Z_Q0 fails the hypothesis twice over, and Davenport-Heilbronn's theorem as Lee states it (cited, not compiled: "Earlier, Davenport and
+      Heilbronn [5] had shown that when h(D) > 1, E(s, Q) has infinitely many zeros in Re s > 1", data/b751_literature.txt :42-:43, Lee arXiv 1204.6297 p.4) says the conclusion
+      fails for Z_Q0 (h(-23) = 3); the general theorem would add no fact about Z_Q0. The located zero itself lies in Voronin's region, not Davenport-Heilbronn's half-plane
+      (data/b751_literature.txt :86). A9's Mathlib name in PATHS (:389) is carried as a
+      finding, not edited (data/b752_statements.txt (iv)).
+  (T3) THE ATTRIBUTION PROPER -- THE PRINTED FINDING RECOMMENDED; THE THEOREM FORMS DISMISSED
+    (T3-f) THE FINDING, NO BUILD: "No class of SIDE-kernel v1.5's MechanismClass admits the located zero of Z_Q0 as a theorem in the kernel's present vocabulary: each class carries a
+      predicate on a real sigma (TheBridgeComplete.lean :157-:165) and none a predicate on functions; none_produce (:198-:207) and zq_offline_zero (SP4.lean :32) are both
+      compiled and do not meet." The order's condition counts this as a result (OPEN_TRAILS :17932). PRICE: a bank and an order-discharge line.
+    (T3-a) A CONJUNCTION THEOREM (zq_offline_zero together with none_produce in one statement): DISMISSED -- the two trees pin different Mathlibs (SIDE-kernel e960b841,
+      SIDE-explicit-formula de5ce8a9, data/b752_statements.txt (iii)), so no one tree imports both at present pins; and the theorem would DERIVE only the conjunction (1a) already reads.
+    (T3-b) A NEW VOCABULARY (a class given a predicate on functions -- e.g. C2_euler as "has an Euler product" -- then "Z_Q0 lacks C2's predicate, zeta has it"): DISMISSED for this
+      order -- it is a kernel change, outside "the kernel's present vocabulary" the order names; its theorem would be T0 under a class's name, and its grade would turn on the new
+      definition (the shape xi_catalogue already shows, ENCODES-CONCLUSION/SHELL, data/b752_statements.txt (i)). A route the author may enter as an order of its own.
+
+## (4) THE RECOMMENDATION, THE ORDER OF THE BUILD, AND WHAT THE DISCHARGE WOULD READ
+  BUILD T0 THEN T1, in SIDE-explicit-formula on a branch past v0.38, each read by its run, standard three, the three-times ceiling binding (T0 360 lines, T1 1350); IN ALL 190-570
+  lines, 2-6 dispatches (the seat's). PRINT T2's "does not abstract at the pin" and T3-f as the order's finding. Nothing about the centre.
+  THE ORDER'S DISCHARGE WOULD THEN READ: "W-ORD-MECHANISM-ATTRIBUTION discharged by its second clause: no class of the type admits the zero as a theorem in the kernel's present
+  vocabulary (the classes carry predicates on a real sigma, none on functions); the premise zeta has and Z_Q0 lacks is compiled twice -- its coefficients not multiplicative (T0),
+  its log-derivative's coefficients not nonnegative (T1) -- beside vonMangoldt_nonneg; the edge does not abstract at the pin (T2); B3 stands."
+  STOPS: T0 not closing within 360 lines -- the order reads T3-f alone, T0 OPEN with its lines spent; T1 not closing within 1350 -- T0 stands, T1 OPEN.
+
+## (5) WHERE THE BUILD FALLS (amendment row 3, data/b752_amendments.json, superseding row 2's order)
+  FIRST the system refresh (the keystone census cluster table re-read live, the kernel list reconciled, the shelves listed, HANDOFF.md, the mirror export route); THEN the sitting
+  as banked; THEN sections 6, 7 and 8 of the Epstein document; THEN, IF [P1] PASSED, the build of (4) -- fourth.
+
+## (6) THE NAVIGATOR'S SEARCH RULE OVER THIS BANK'S OWN STATEMENTS ((R362)(2), data/b752_rules.txt (12))
+  Each sentence above cites what it read. Wider than its reads and so narrowed: "no class of the seven" is SIDE-kernel v1.5's seven, the federation's other kernels not searched
+  for another catalogue; "Nonvanishing.lean does not call" is that file and Mathlib/NumberTheory/LSeries; the prices are estimates on routes not yet written.
+
+### ### **[P1] THE ATTRIBUTION PLAN: (i) ANSWERED BY THE RECORD, NO CLASS OF THE TYPE TAKES A FUNCTION -- THE FINDING PRINTABLE (T3-f) ; (ii) THE PREMISE NAMED, NOT COMPILED ; RECOMMENDED: BUILD T0 (40-120 LINES) THEN T1 (150-450), PRINT T2 AND T3-f ; T2's GENERAL FORM AND T3's THEOREM FORMS DISMISSED WITH REASONS ; THE BUILD FOURTH, AFTER THE REFRESH, THE SITTING AND SECTIONS 6-8 ; B3 STANDS ; NOTHING BUILT.**
