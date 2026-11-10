@@ -1,0 +1,36 @@
+b750 -- THE EVENTS AFTER THE LOCK GATE, THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay 40418579), the seal (relay 8fbe7305) and the root (fbd3c1d6), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for the next act's corrigendum. A finding after the lock gate's record takes no letter in data/b750_defects.txt (the hook's row (65) refuses an Edit of that bank once data/b750_lockgate.json exists); no locked bank is rewritten by the seat's hand. Each row carries its time, read from the bank it cites or from the session's transcript; a time given as "about" is read from the order of the calls, not from a stamp. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+BETWEEN THE LOCK GATE AND THE LOCK (relay 40418579, 04:37:29Z), FOUND UNLETTERED:
+    (1) THE SEAT'S [CLOSE ; NEW]: 2026-11-10T04:36:39Z: the lock gate was first sent as `tools/b378_lockgate.py b750` without its face; the tool
+     read its default face data/b750_registration_2026-09-08.txt, absent, and refused (exit 2), nothing written. Sent again at 04:36:45Z with the
+     face (`tools/b378_lockgate.py b750 data/b750_registration_2026-11-09.txt`): LOCK PERMITTED, 8 of 8 (data/b750_lockgate.json).
+    (2) THE SEAT'S [CLOSE ; NEW]: 04:36:58Z: the seat's Edit of data/b750_defects.txt to letter row (1) was refused by the hook's row (65), "a Edit
+     of a bank written before the lock, after the lock" (data/b750_hook_refusals.txt, its LOCKED row); nothing landed; the defects bank stands at
+     (a)-(y), the letters the seal records (data/b750_seal_hashes.json, 25), and row (1) is entered here.
+
+AFTER THE LOCK, BEFORE THE SEAL (relay 8fbe7305, 06:31:34Z):
+    (3) THE SEAT'S [CLOSE ; NEW]: the prev runs (`fold.py checks --prev --part P --act b750`) were sent out of their order twice. standing-a2 at
+     05:34:36Z, before standing-a1 had banked its half (06:20:06Z), read G-NO-SORRY-MAIN DIVERGE; run again at 06:23:51Z after standing-a1, PASS,
+     the arms 60. standing-b3 at 05:45:05Z, before standing-b2a-d, was refused by the tool (exit 4), nothing run; run again at 06:08:35Z after
+     standing-b2d (06:02:13Z). The banks the seal hashed are the re-runs' (data/b750_prevrun_standing-a2.json, data/b750_prevrun_standing-b3.json).
+
+AFTER THE SEAL, BEFORE THE ROOT (fbd3c1d6, relay c671c4cf, 08:51:11Z):
+    (4) THE SEAT'S [CLOSE ; REPEAT b750 (a)]: 06:32:58Z: the hook refused a Bash listing of b749's root-prompt and scanfile banks carrying a 2>&1
+     redirect (data/b750_hook_refusals.txt, its REDIR row of 06:32:58Z); refused before it ran, sent again without the redirect.
+    (5) THE SEAT'S [CLOSE ; REPEAT b750 (g)]: 08:35:19Z: the hook refused two Read calls with no limit, of two of the seat's memory notes
+     (data/b750_hook_refusals.txt, its two READ rows of 08:35:19Z); nothing read by them; each read again with offset 1 and a limit of 120. Not banks.
+    (6) THE SEAT'S [CLOSE ; NEW]: 08:41:01Z: `bash tools/push_gated.sh D:/MY-DOwnloads/PLACE-papers push-b750-preroot` was refused at the tool,
+     NOTHING PUSHED: "THE STEP BANK data/b750_steps.json CARRIES AN UNCOMMITTED ROW (commit the step rows before the push)" (pushcheck exit 13;
+     data/b750_PLACE-papers_push-b750-preroot_push_out.txt), step 30's row (relay 8dd4288e) standing uncommitted. The step-rows commit made with the
+     composed words "the step row for relay 8dd4288e" (relay bae2df6d, no row written), and the push sent again at 08:41:46Z: pushed and read back
+     at c26a71e9.
+
+IN THE PRE-PUSH AND POST-PUSH SUITES:
+    (7) THE SEAT'S [CLAIM ; REPEAT b717 (3)]: about 09:00Z, the pre-push standing-a2 (data/b750_checks_standing-a2.txt :67), and again the
+     post-push standing-a2 (data/b750_checks_postpush_standing-a2.txt): G-PP-SCOPE PASS PASS PASS, "POS PASSES -- DEFECTIVE". Its positive control
+     (tools/standing/fold/checks.tpl :1768) adds README.md to PLACE-papers' changed files, a file the sitting's passed items [B1] and [B2] wrote
+     (PLACE-papers fd842c0f, c7bf1443) and the act's allowed list therefore holds, so the plant does not move the arm. The live reading stands
+     (changed files on main 9 against the allowed 9, beyond NONE; FINDINGS.md and OPEN_TRAILS.md among them; no rename) and the combine counts the
+     arm among the 112 passing; its control proves nothing at this act. At the pre-run (data/b750_arms_prerun.txt :123) the arm read FAIL FAIL FAIL,
+     OPEN_TRAILS.md not yet changed, so the plant's fault could not show before the trail landed. The act module carried the template's plant for
+     section checks 59 without setting one outside its own list; sealed, not repaired (the repair phase stands before the seal).
