@@ -12,3 +12,4 @@
 2026-11-10T02:07:32Z | READ | Read | "D:\\relay\\tools\\b749_face.py" | a Read call with no limit
 2026-11-10T02:07:33Z | READ | Read | "D:\\relay\\tools\\b749_prepaths.py" | a Read call with no limit
 2026-11-10T03:31:16Z | PIPE | PowerShell | "Get-ChildItem data/b750_prevdry_*, data/b750_scores_dry*, data/b750_report_dry*, tools/acts/b750.py -ErrorAction SilentlyContinue | Format-Table Name, LastWriteTime, Length -AutoSize" | a PowerShell command carrying a pipe outside quotes
+2026-11-10T04:32:16Z | REDIR | Bash | "git show 046df3a4 --stat --format=\"%h %s\" && git show 046df3a4:data/b749_root_banks_dry.txt --format= -- 2>/dev/null; git grep -n \"address_scan.txt\\|READY\" 046df3a4 -- data/b749_root_banks_dry.txt" | a Bash command carrying a redirect outside quotes
