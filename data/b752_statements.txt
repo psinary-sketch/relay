@@ -1,0 +1,1431 @@
+b752 -- (R362)(5): THE STATEMENTS (2026-11-10T23:39:41Z)
+
+## (i)
+---- SIDE-kernel v1.5:Bridge/TheBridgeComplete.lean :1-:60 (commit 0e5233f0, blob f585c5eb, 269 lines)
+      1  import Mathlib.NumberTheory.Ostrowski
+      2  import Mathlib.NumberTheory.LSeries.RiemannZeta
+      3  import Kernel.Core
+      4  import Kernel.Voice3b
+      5  import Bridge.OstrowskiBridge
+      6  
+      7  /-! THE BRIDGE (Complete): Connecting abstract SIDE logic
+      8      to Mathlib's riemannZeta.
+      9  
+     10      Seven mechanism classes. Each grounded in Mathlib API.
+     11      Ostrowski proves exhaustiveness. None produces off-line zeros.
+     12      StructuralExhaustiveness is a theorem. -/
+     13  
+     14  open Complex
+     15  
+     16  -- ============================================================
+     17  -- MECHANISM CLASSES
+     18  -- ============================================================
+     19  
+     20  inductive MechanismClass where
+     21    | C1_schwarz | C2_euler | C3_functional_eq
+     22    | C4_modular | C5_spectral | C6_cauchy_riemann | C7_hadamard
+     23    deriving DecidableEq, Fintype
+     24  
+     25  theorem seven_classes : Fintype.card MechanismClass = 7 := by decide
+     26  
+     27  -- ============================================================
+     28  -- GROUNDING EACH VOICE IN MATHLIB
+     29  -- ============================================================
+     30  
+     31  -- Voice 1 (C2): Balance. The exponent equation.
+     32  theorem voice1_balance (sigma : Real) :
+     33      -sigma = -(1 - sigma) ↔ sigma = 1 / 2 := by
+     34    constructor
+     35    · intro h; linarith
+     36    · intro h; rw [h]; ring
+     37  
+     38  -- Voice 2 (C1): Schwarz reflection. PR #36324 proves
+     39  -- completedRiemannZeta₀_conj for Mathlib. Here: the FE.
+     40  theorem voice2_schwarz_symmetry (s : Complex) :
+     41      completedRiemannZeta₀ (1 - s) = completedRiemannZeta₀ s :=
+     42    completedRiemannZeta₀_one_sub s
+     43  
+     44  -- Voice 3 (C3): Functional equation. Zeros are symmetric.
+     45  theorem voice3_fe_zeros (s : Complex)
+     46      (h : completedRiemannZeta₀ s = 0) :
+     47      completedRiemannZeta₀ (1 - s) = 0 := by
+     48    rw [completedRiemannZeta₀_one_sub]; exact h
+     49  
+     50  -- Voice 4 (C4): Modular. The theta-zeta connection
+     51  -- is built into completedRiemannZeta₀ via the Mellin transform.
+     52  -- Mathlib defines it through HurwitzZeta which uses this.
+     53  theorem voice4_modular :
+     54      completedRiemannZeta₀ = completedRiemannZeta₀ := rfl
+     55  
+     56  -- Voice 5 (C5): Spectral. Self-adjointness forces real
+     57  -- eigenvalues, hence real values on the critical line.
+     58  -- Connected via the functional equation symmetry.
+     59  theorem voice5_spectral_real_on_half (t : Real) :
+     60      completedRiemannZeta₀ (1 - (1/2 + t * I)) =
+
+## (i)
+---- SIDE-kernel v1.5:Bridge/TheBridgeComplete.lean :150-:262 (commit 0e5233f0, blob f585c5eb, 269 lines)
+    150  
+    151  -- C₆ codimension model: the SINGLE de-encoded model at
+    152  -- `Kernel/Voice3b.lean` (`zero_codimension`, a COUNT of active real
+    153  -- constraints), consumed here by import. The former Bridge-local
+    154  -- `zero_codim := if σ = 1/2 then 1 else 2` literal is deleted
+    155  -- (W-ORD-ROUTE1-A, C₆; unified per the K1 ruling).
+    156  
+    157  noncomputable def produces_offline : MechanismClass -> Prop
+    158    | .C1_schwarz => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ = 1 - σ
+    159    | .C2_euler => ∃ σ : Real, σ ≠ 1 / 2 ∧ -σ = -(1 - σ)
+    160    | .C3_functional_eq => ∃ σ : Real, σ ≠ 1 / 2 ∧ (1 - σ) = σ
+    161    | .C4_modular => ∃ σ : Real, σ ≠ 1 / 2 ∧ 1 - σ = σ
+    162    | .C5_spectral => ∃ σ : Real, σ ≠ 1 / 2 ∧ σ - 1 / 2 = 0
+    163    | .C6_cauchy_riemann =>
+    164        ∃ σ : Real, σ ≠ 1 / 2 ∧ techne_kernel_voice3b.zero_codimension σ = 1
+    165    | .C7_hadamard => ∃ σ : Real, hadamard_contrib σ ≠ hadamard_contrib (1 / 2)
+    166  
+    167  theorem c1_exclusion : ¬ produces_offline .C1_schwarz := by
+    168    intro ⟨σ, hne, hconj⟩
+    169    exact hne ((voice2_conjugation σ).mp hconj)
+    170  
+    171  theorem c2_exclusion : ¬ produces_offline .C2_euler := by
+    172    intro ⟨σ, hne, hbal⟩
+    173    exact hne ((voice1_balance σ).mp hbal)
+    174  
+    175  theorem c3_exclusion : ¬ produces_offline .C3_functional_eq := by
+    176    intro ⟨σ, hne, hfix⟩
+    177    exact hne ((voice3_reflect_fixed σ).mp hfix)
+    178  
+    179  theorem c4_exclusion : ¬ produces_offline .C4_modular := by
+    180    intro ⟨σ, hne, hmod⟩
+    181    exact hne ((voice4_S_fixed σ).mp hmod)
+    182  
+    183  theorem c5_exclusion : ¬ produces_offline .C5_spectral := by
+    184    intro ⟨σ, hne, hspec⟩
+    185    exact hne ((voice5_spectral_offset σ).mp hspec)
+    186  
+    187  theorem c6_exclusion : ¬ produces_offline .C6_cauchy_riemann := by
+    188    intro ⟨σ, hne, hcodim⟩
+    189    -- `hcodim : zero_codimension σ = 1` is (def-eq) `cr_minimal_codim σ`;
+    190    -- `cr_forces_half` DERIVES σ = 1/2 from the reflection identity, not
+    191    -- from a literal. The σ ≠ 1/2 hypothesis then contradicts it.
+    192    exact hne (techne_kernel_voice3b.cr_forces_half σ hcodim)
+    193  
+    194  theorem c7_exclusion : ¬ produces_offline .C7_hadamard := by
+    195    intro ⟨σ, h⟩
+    196    exact h (voice7_sigma_neutral σ)
+    197  
+    198  theorem none_produce :
+    199      forall c : MechanismClass, ¬(produces_offline c) := by
+    200    intro c; cases c
+    201    · exact c1_exclusion
+    202    · exact c2_exclusion
+    203    · exact c3_exclusion
+    204    · exact c4_exclusion
+    205    · exact c5_exclusion
+    206    · exact c6_exclusion
+    207    · exact c7_exclusion
+    208  
+    209  -- ============================================================
+    210  -- THE BRIDGE
+    211  -- ============================================================
+    212  
+    213  theorem formation : 2 + 3 + 2 + 0 = 7 := SIDEKernel.formation
+    214  
+    215  def StructuralExhaustiveness : Prop :=
+    216    (Fintype.card MechanismClass = 7) ∧
+    217    (forall c : MechanismClass, ¬(produces_offline c)) ∧
+    218    (forall (f : AbsoluteValue Rat Real), f.IsNontrivial ->
+    219      f.IsEquiv Rat.AbsoluteValue.real ∨
+    220      ∃ p : Nat, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),
+    221        f.IsEquiv (Rat.AbsoluteValue.padic p))
+    222  
+    223  /-- **What each conjunct is (per-conjunct honesty; W-ORD-ROUTE1 Fork B, 2026-07-21).**
+    224  The terminal is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`,
+    225  and it DERIVES exactly what it literally states. Read conjunct by conjunct:
+    226  
+    227  * **Catalogue completeness** `Fintype.card MechanismClass = 7` — `decide` over the
+    228    seven-constructor inductive. The finite catalogue is genuinely complete.
+    229  * **Ostrowski exhaustiveness** — genuine Mathlib (`Rat.AbsoluteValue.equiv_real_or_padic`):
+    230    every nontrivial place of ℚ is the real place or a `p`-adic place. This is the covering
+    231    ingredient (all places at once).
+    232  * **Seven-class exclusion** `none_produce` — a per-class conjunction. **C₁–C₅ DERIVE** from the
+    233    voice-theorems (`voice1..5`): thin but genuine real algebra — the σ = 1/2 fixed points of
+    234    conjugation, balance, reflection, the S-action, and the spectral offset. **C₆ DERIVES AT MODEL
+    235    LEVEL** (W-ORD-ROUTE1-A, C₆, 2026-07-22): the codimension is now the de-encoded COUNT
+    236    `zero_codimension σ = (activeConstraints σ).card` at `Kernel/Voice3b.lean` (consumed here by
+    237    import; the former Bridge-local `if σ = 1/2 then 1 else 2` literal is deleted), and
+    238    `c6_exclusion` closes through `cr_forces_half`, which DERIVES σ = 1/2 from the reflection
+    239    identity `1 - σ = σ ↔ σ = 1/2` — not from a literal. **The residue is NAMED**: ξ-faithfulness
+    240    (that ξ(σ+it) = 0 imposes exactly {Re ξ = 0, Im ξ = 0}, Im dropping on the real line) is the
+    241    Cauchy-Riemann identification of A_Place_to_Stand §18.2 (corrected reading), MANUSCRIPT-RESIDENT,
+    242    and lands INTERFACES-with-named-premise when tied to ξ in Lean. **C₇ is STILL DEFINITION-ENCODED**:
+    243    `hadamard_contrib _ := 0` makes σ-neutrality hold by `rfl` (so `voice7_sigma_neutral` is `rfl`);
+    244    its de-encoding (genus-1 Hadamard factorization) is the queued C₇ sitting of W-ORD-ROUTE1-A.
+    245  
+    246  Loom Correspondence row-note: DERIVES for what it literally states; C₆ now derived-at-model-level
+    247  with the INTERFACES residue named, C₇ still definition-encoded (`VERIFICATION_LOOM.md:1199`).
+    248  Tracked as research work-order **W-ORD-ROUTE1-A** (C₆ done at model level; C₇ sitting queued). -/
+    249  theorem structural_exhaustiveness_proved :
+    250      StructuralExhaustiveness :=
+    251    ⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩
+    252  
+    253  -- ============================================================
+    254  -- TRANSFORMATION STAGE → MECHANISM CLASS (explicit map)
+    255  -- ============================================================
+    256  
+    257  def transformation_class : TransformationStage → MechanismClass
+    258    | .archimedean_sqrt => .C3_functional_eq
+    259    | .multiplicative_euler => .C5_spectral
+    260    | .functional_equation => .C4_modular
+    261  
+    262  theorem transformation_injective :
+
+## (i)
+---- SIDE-kernel v1.5:Kernel/Layer1.lean :1-:40 (commit 0e5233f0, blob c07501b4, 68 lines)
+      1  namespace techne_kernel
+      2  universe u
+      3  
+      4  structure MechanismClass (X : Type u) (P : X -> Prop) where
+      5    name : String
+      6    produces : X -> Prop
+      7  
+      8  structure HasSymmetry (X : Type u) where
+      9    T : X -> X
+     10    T_involution : forall x : X, T (T x) = x
+     11  
+     12  structure Constraint (X : Type u) where
+     13    name : String
+     14    source : String
+     15    machinery : String
+     16  
+     17  structure IndependentConstraints (X : Type u) where
+     18    constraints : List (Constraint X)
+     19    has_two : constraints.length >= 2
+     20  
+     21  structure ExhaustiveCatalogue (X : Type u) (P : X -> Prop) where
+     22    classes : List (MechanismClass X P)
+     23    covers_all : forall (x : X), P x ->
+     24      Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))
+     25  
+     26  def NoneProduces (X : Type u) (P : X -> Prop)
+     27      (classes : List (MechanismClass X P)) (x : X) : Prop :=
+     28    forall C : MechanismClass X P, List.Mem C classes -> Not (C.produces x)
+     29  
+     30  theorem SIDE_exclusion
+     31      {X : Type u} {P : X -> Prop} {x : X}
+     32      (cat : ExhaustiveCatalogue X P)
+     33      (h_none : NoneProduces X P cat.classes x) :
+     34      Not (P x) := by
+     35    intro h_Px
+     36    have h := cat.covers_all x h_Px
+     37    match h with
+     38    | ⟨C, h_in, h_produces⟩ => exact h_none C h_in h_produces
+     39  
+     40  structure KernelCertificate
+
+## (i)
+---- SIDE-kernel v1.5:Bridge/SIDEBridge.lean :1-:60 (commit 0e5233f0, blob b9d914d2, 100 lines)
+      1  import Mathlib.NumberTheory.LSeries.RiemannZeta
+      2  import Kernel.Layer1
+      3  import Kernel.Voice1
+      4  import Kernel.Voice2
+      5  import Kernel.Voice3
+      6  import Kernel.AnalyticBridge
+      7  import Kernel.SpectralCannonFull
+      8  import Kernel.PerpendicularCrossing
+      9  
+     10  open Complex techne_kernel
+     11  open techne_kernel_voice1 techne_kernel_voice2 techne_kernel_voice3
+     12  
+     13  namespace SIDEBridge
+     14  
+     15  def OffLineOrNonSimple (s : ℂ) : Prop :=
+     16    completedRiemannZeta₀ s = 0 ∧ 0 < s.re ∧ s.re < 1 ∧
+     17    (s.re ≠ 1 / 2 ∨ deriv completedRiemannZeta₀ s = 0)
+     18  
+     19  -- C₁: Balance. Voice1 proves p^{-σ} = p^{-(1-σ)} ↔ σ=1/2
+     20  -- produces := the zero is off-line (balance is violated)
+     21  def C1 : MechanismClass ℂ OffLineOrNonSimple :=
+     22    { name := "Balance"
+     23      produces := fun s => s.re ≠ 1 / 2 }
+     24  
+     25  -- C₂: Conjugation. Voice2 proves symmetries agree iff σ=1/2
+     26  def C2 : MechanismClass ℂ OffLineOrNonSimple :=
+     27    { name := "Conjugation"
+     28      produces := fun s => s.re ≠ 1 / 2 }
+     29  
+     30  -- Simplicity class: the zero has deriv = 0 (on the line)
+     31  def C_simple : MechanismClass ℂ OffLineOrNonSimple :=
+     32    { name := "Simplicity"
+     33      produces := fun s => s.re = 1 / 2 ∧ deriv completedRiemannZeta₀ s = 0 }
+     34  
+     35  def voice_classes : List (MechanismClass ℂ OffLineOrNonSimple) := [C1, C2, C_simple]
+     36  
+     37  def xi_catalogue : ExhaustiveCatalogue ℂ OffLineOrNonSimple :=
+     38    { classes := voice_classes
+     39      covers_all := by
+     40        intro s hs
+     41        obtain ⟨hz, hlo, hhi, h_bad⟩ := hs
+     42        rcases h_bad with h_off | h_deriv
+     43        -- Case 1: off-line zero. C1 produces it.
+     44        · exact ⟨C1, List.Mem.head _, h_off⟩
+     45        -- Case 2: deriv = 0 on the line. Need s.re = 1/2.
+     46        · by_cases h12 : s.re = 1 / 2
+     47          · exact ⟨C_simple, List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _)),
+     48              ⟨h12, h_deriv⟩⟩
+     49          · exact ⟨C1, List.Mem.head _, h12⟩ }
+     50  
+     51  /-! ## Named Hypotheses (ξ pattern) -/
+     52  
+     53  /-- RH hypothesis: all critical-strip zeros are on the line. -/
+     54  def RHHypothesis : Prop :=
+     55    ∀ (s : ℂ), completedRiemannZeta₀ s = 0 →
+     56    0 < s.re → s.re < 1 → s.re = 1 / 2
+     57  
+     58  /-- Simplicity hypothesis: zeros on the critical line are simple. -/
+     59  def SimplicityHypothesis : Prop :=
+     60    ∀ (s : ℂ), completedRiemannZeta₀ s = 0 →
+
+## (i)
+---- SIDE-kernel v1.5:Bridge/CrossClassExclusion.lean :40-:85 (commit 0e5233f0, blob 5cafc5c8, 85 lines)
+     40  def channel_kappa : CouplingChannel → ConservationStrength
+     41    | .product_formula => kappa_product_formula
+     42    | .distributive_law => kappa_distributive
+     43  
+     44  theorem channel_kappa_silent (ch : CouplingChannel) :
+     45      (channel_kappa ch).isSilent := by
+     46    cases ch <;> rfl
+     47  
+     48  /-- Coupling strength between any pair of mechanism classes is the
+     49  sum of `κ` over the channels mediating the coupling. Because the
+     50  only channels are the product formula and the distributive law —
+     51  both with `κ = 0` — this sum is identically zero. -/
+     52  def coupling_strength (_c1 _c2 : MechanismClass) : ℝ :=
+     53    kappa_product_formula.val + kappa_distributive.val
+     54  
+     55  theorem coupling_strength_zero (c1 c2 : MechanismClass) :
+     56      coupling_strength c1 c2 = 0 := by
+     57    unfold coupling_strength kappa_product_formula kappa_distributive
+     58    norm_num
+     59  
+     60  /-- A pair of classes produces an off-line zero only if either class
+     61  does individually, or there is a non-vanishing coupling channel
+     62  between them. With κ = 0 channels, the third disjunct is impossible
+     63  (see `cross_class_exclusion`). -/
+     64  def cross_class_produces_offline (c1 c2 : MechanismClass) : Prop :=
+     65    produces_offline c1 ∨ produces_offline c2 ∨ coupling_strength c1 c2 > 0
+     66  
+     67  /-- **Cross-class exclusion.** No pair of mechanism classes produces
+     68  off-line zeros: neither class does individually (`none_produce`) and
+     69  the coupling strength between them is zero (`coupling_strength_zero`),
+     70  so an s-independent channel cannot manufacture an s-dependent
+     71  coincidence. -/
+     72  theorem cross_class_exclusion (c1 c2 : MechanismClass) :
+     73      ¬ cross_class_produces_offline c1 c2 := by
+     74    rintro (h1 | h2 | hcoup)
+     75    · exact none_produce c1 h1
+     76    · exact none_produce c2 h2
+     77    · exact (lt_irrefl (0 : ℝ)) (by rw [coupling_strength_zero c1 c2] at hcoup; exact hcoup)
+     78  
+     79  /-- All pairs are excluded (final form, ∀-quantified). -/
+     80  theorem all_pairs_excluded :
+     81      ∀ c1 c2 : MechanismClass, ¬ cross_class_produces_offline c1 c2 :=
+     82    cross_class_exclusion
+     83  
+     84  end techne_kernel_cross_exclusion
+     85  
+
+## (i)
+---- SIDE-kernel v1.5:MetaKernel.lean :55-:100 (commit 0e5233f0, blob e1020551, 489 lines)
+     55    none_produces : ∀ d : Domain, ¬(produces d)
+     56    /-- Therefore: target does not hold -/
+     57    exclusion : ¬target
+     58  
+     59  /-- The SIDE proof of RH instantiates this structure. -/
+     60  inductive RH_MechanismClass where
+     61    | schwarz           -- C₁: Schwarz reflection
+     62    | euler_balance     -- C₂: Euler product balance
+     63    | functional_eq     -- C₃: Functional equation
+     64    | psl2_modular      -- C₄: PSL₂(ℤ) action
+     65    | spectral          -- C₅: Spectral structure
+     66    | cauchy_riemann    -- C₆: Cauchy-Riemann (local)
+     67    | hadamard          -- C₇: Hadamard product (global)
+     68    deriving DecidableEq
+     69  
+     70  /-- The formation count. -/
+     71  theorem formation_count : 2 + 3 + 2 + 0 = 7 := by decide
+     72  
+     73  -- [M1 retired] produces_offline (:= False for all 7) and rh_none_produces (proved
+     74  -- not-False). The real per-class exclusion is conditional; see Bridge/SIDEBridge.lean.
+     75  
+     76  /-- Seven classes exhaust all possibilities (completeness). -/
+     77  theorem rh_classes_complete : ∀ c : RH_MechanismClass,
+     78      c = .schwarz ∨ c = .euler_balance ∨ c = .functional_eq ∨
+     79      c = .psl2_modular ∨ c = .spectral ∨ c = .cauchy_riemann ∨
+     80      c = .hadamard := by
+     81    intro c; cases c
+     82    · left; rfl
+     83    · right; left; rfl
+     84    · right; right; left; rfl
+     85    · right; right; right; left; rfl
+     86    · right; right; right; right; left; rfl
+     87    · right; right; right; right; right; left; rfl
+     88    · right; right; right; right; right; right; rfl
+     89  
+     90  -- [M1 retired] OffLineZero / rh_exclusion / rh_ostrowski (the hollow Ostrowski instance:
+     91  -- its target was the internal proposition (exists c, False), NOT a statement about zeta,
+     92  -- so rh_exclusion proved (not False) and said nothing about the zeros). The canonical RH
+     93  -- proof is conditional: Bridge/ConservationBridge.lean (riemann_hypothesis) and
+     94  -- Bridge/SIDEBridge.lean. RH_MechanismClass + its Fintype instance below certify the
+     95  -- catalogue (exactly seven classes), not the exclusion.
+     96  
+     97  -- ============================================================
+     98  -- PART 1b: YANG-MILLS AS OSTROWSKI INSTANCE (LT-3.2)
+     99  -- Same structure, different domain
+    100  -- ============================================================
+
+## (i)
+---- SIDE-kernel v1.5:MetaKernel.lean :150-:165 (commit 0e5233f0, blob e1020551, 489 lines)
+    150    intro ht
+    151    obtain ⟨d, hd⟩ := h_target ht
+    152    exact h_none d hd
+    153  
+    154  /-- RH satisfies E (the formation count terminates the search). -/
+    155  instance : Fintype DomainOstrowski.RH_MechanismClass := {
+    156    elems := {.schwarz, .euler_balance, .functional_eq, .psl2_modular,
+    157              .spectral, .cauchy_riemann, .hadamard},
+    158    complete := by intro c; cases c <;> simp [Finset.mem_insert, Finset.mem_singleton]
+    159  }
+    160  
+    161  -- [M1 retired] rh_is_type_I was (TypeClass.type_I = TypeClass.type_I := rfl) -- a vacuous
+    162  -- tautology (X = X) that certified nothing about RH.
+    163  
+    164  /-- The formation count 7 terminates the search; proved by `decide`. -/
+    165  theorem formation_terminates : (2 + 3 + 2 + 0 : Nat) = 7 := by decide
+
+## (ii)
+---- SIDE-explicit-formula v0.38:SIDEExplicitFormula/Schema/EpsteinZQ.lean :1-:90 (commit 14ca5725, blob e1905709, 170 lines)
+      1  /-
+      2  SIDE-explicit-formula -- SIDEExplicitFormula/Schema/EpsteinZQ.lean
+      3  THIS PROGRAMME'S WORK (act b703, ruling (R313)(4) and the author's words at its two prompts; the Epstein count's opening step M1 of relay
+      4  data/b701_epstein_plan.txt) -- NOT VENDORED.
+      5  SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+      6  
+      7  Z_Q AS A LEAN OBJECT, ITS FACTS NAMED AS PREMISES. `Z_Q` is the Epstein zeta function of the form `Q0 = x² + xy + 6y²`,
+      8  discriminant `−23`, class number 3. DEFINED HERE: the form `Q0form`, its coefficients `rQ` (the representation count over the box
+      9  `|m| ≤ 2k, |n| ≤ k`, b326's normalisation `r_Q(1) = 2`), `ZQ` its lattice sum as Mathlib's `LSeries` (Z_Q itself where the series
+     10  converges), the gamma factor's base `qBase = 2π/√23`, and the three terms of its explicit formula -- the zero sum `zeroSideQ`, the
+     11  prime-power side `primeTermQ` (the coefficients `c` of −Z_Q′/Z_Q, a(1) = 2 so c(1) = 0), the archimedean term `archTermQ` with Z_Q's
+     12  bracket `2 Re ψ(1/2 + ir) − 2 log(2π/√23)` (relay tools/b326_windows.py :220-:228) -- beside b321's pole term `poleTerm`.
+     13  NAMED PREMISES, EACH STATED AND NOT PROVED: `ZQContinuation` (the continuation off s = 1, the functional equation of
+     14  Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s) on the critical strip, reality on the real line, the lattice sum's convergence on Re s > 1);
+     15  `ZQZeros` (a configuration of the widened class `WideConfig` whose carrier is the set of zeros of Λ_Q off its poles 0, 1 and its
+     16  trivial zeros −1, −2, ..., anywhere in ℂ, its multiplicities each zero's order); the logarithmic derivative's series; the explicit
+     17  formula `ZQExplicitFormula`; and the local count `∃ A₀, Wide.HCount Z A₀` on the same configuration, so the count and the sum range over one
+     18  set of zeros. THE CARRIER IS STRIP-FREE (the author's word at b703): an Epstein zeta of class number above 1 has infinitely many zeros with
+     19  Re s > 1 (Davenport-Heilbronn, cited at PLACE-papers OPEN_TRAILS-archive-2 :2089), so a closed-strip `Zeta23.ZeroConfig` cannot carry its
+     20  zeros; `WideConfig` (Schema/Wide/Config.lean :28-:38, the open strip (−1/2, 3/2)) can, Z_Q having no zero on Re s ≥ 3/2
+     21  (|Z_Q(s) − 2| ≤ Z_Q(3/2) − 2 < 2, relay data/b685_count_plan.txt :26-:27) and none on Re s ≤ −1/2 by the reflection.
+     22  A RESIDUE, NOT STATED: b590's `EpsteinPremises` (Schema/Epstein.lean :41-:44) sums its explicit formula over a closed-strip
+     23  configuration, which Davenport-Heilbronn makes false for Z_Q; no link to it is written here.
+     24  COMPILED: integer facts of the form; `rQ 0 = 0`; and the premises' consequences -- no point of the carrier is 0, the count and the
+     25  explicit formula read off the bundle, and the strip-free converse `Wide.li_nonneg_cfg_imp_online_ne_zero` read at the configuration.
+     26  Nothing here states a zero of Z_Q as proved; the certified zeros of relay data/b681_findings.json stay a premise. Nothing here proves
+     27  RH or GRH or locates any zero.
+     28  -/
+     29  import SIDEExplicitFormula.Schema.EpsteinQ0
+     30  import SIDEExplicitFormula.Schema.Wide.StripFree
+     31  import Mathlib.NumberTheory.LSeries.Basic
+     32  
+     33  open Complex MeasureTheory
+     34  
+     35  noncomputable section
+     36  
+     37  namespace SIDEExplicitFormula
+     38  namespace Schema
+     39  
+     40  open B321
+     41  
+     42  /-! ### The form and its lattice sum -/
+     43  
+     44  /-- **The form** `Q0 = x² + xy + 6y²`, discriminant `−23`. -/
+     45  def Q0form (m n : ℤ) : ℤ := m ^ 2 + m * n + 6 * n ^ 2
+     46  
+     47  /-- `4 Q0 = (2m + n)² + 23 n²`: the form is positive definite. -/
+     48  theorem four_mul_Q0form (m n : ℤ) : 4 * Q0form m n = (2 * m + n) ^ 2 + 23 * n ^ 2 := by
+     49    unfold Q0form
+     50    ring
+     51  
+     52  /-- The form takes no negative value. -/
+     53  theorem Q0form_nonneg (m n : ℤ) : 0 ≤ Q0form m n := by
+     54    nlinarith [sq_nonneg (2 * m + n), sq_nonneg n, four_mul_Q0form m n]
+     55  
+     56  /-- **The coefficients** `r_Q(k)`: for `k ≥ 1` the number of `(m, n)` in the box `|m| ≤ 2k, |n| ≤ k` with `Q0(m, n) = k` (every solution
+     57  lies in the box by `four_mul_Q0form`, a fact no statement here depends on); `r_Q(0) := 0`, the origin excluded. b326's normalisation:
+     58  `r_Q(1) = 2`. -/
+     59  def rQ (k : ℕ) : ℕ :=
+     60    if k = 0 then 0 else
+     61      ((Finset.Icc (-(2 * (k : ℤ))) (2 * (k : ℤ)) ×ˢ Finset.Icc (-(k : ℤ)) (k : ℤ)).filter
+     62        (fun p : ℤ × ℤ => Q0form p.1 p.2 = (k : ℤ))).card
+     63  
+     64  theorem rQ_zero : rQ 0 = 0 := by
+     65    simp [rQ]
+     66  
+     67  /-- **Z_Q as its lattice sum**: the L-series `∑ r_Q(k) k^{−s}` -- Z_Q itself where the series converges (Re s > 1); Mathlib's `LSeries`
+     68  reads 0 where it does not. -/
+     69  def ZQ (s : ℂ) : ℂ := LSeries (fun k => (rQ k : ℂ)) s
+     70  
+     71  /-- The gamma factor's base `2π/√23` (b685's (5.1) at `d_K = 23`, relay data/b685_count_plan.txt :45-:47). -/
+     72  def qBase : ℂ := ((2 * Real.pi / Real.sqrt 23 : ℝ) : ℂ)
+     73  
+     74  /-! ### (Z1) the continuation and the functional equation, named premises -/
+     75  
+     76  /-- **(Z1) THE CONTINUATION AND THE FUNCTIONAL EQUATION** -- stated, not proved; open in this kernel. `zq` agrees with the lattice sum on
+     77  Re s > 1, where the sum converges; it is holomorphic off `s = 1`; `Λ_Q(s) = (2π/√23)^{−s} Γ(s) Z_Q(s)` satisfies `Λ_Q(s) = Λ_Q(1 − s)` on
+     78  the critical strip; `zq` is real on the real line off `1`. The Poisson route (the theta of Q0 and its Mellin transform) is absent at
+     79  Mathlib de5ce8a9. -/
+     80  structure ZQContinuation (zq : ℂ → ℂ) : Prop where
+     81    summable : ∀ s : ℂ, 1 < s.re → LSeriesSummable (fun k => (rQ k : ℂ)) s
+     82    agrees : ∀ s : ℂ, 1 < s.re → zq s = ZQ s
+     83    holomorphic : DifferentiableOn ℂ zq {s : ℂ | s ≠ 1}
+     84    functional_equation : ∀ s : ℂ, 0 < s.re → s.re < 1 →
+     85      qBase ^ (-s) * Complex.Gamma s * zq s = qBase ^ (-(1 - s)) * Complex.Gamma (1 - s) * zq (1 - s)
+     86    real_on_real : ∀ x : ℝ, x ≠ 1 → (zq (x : ℂ)).im = 0
+     87  
+     88  /-! ### (Z2) the zeros of Λ_Q, a named premise on the strip-free configuration -/
+     89  
+     90  /-- The zeros of `Λ_Q`: the zeros of `zq` off the poles `0` and `1` of `Λ_Q` and off the trivial zeros `−1, −2, ...` (the poles of `Γ`),
+
+## (ii)
+---- SIDE-explicit-formula v0.38:SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :1-:120 (commit 14ca5725, blob 227d8e0e, 408 lines)
+      1  /-
+      2  SIDE-explicit-formula -- SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean
+      3  THIS PROGRAMME'S WORK (act b731, ruling (R341)(3), groups B and C of relay data/b731_logderiv_plan.txt) -- NOT VENDORED.
+      4  SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+      5  
+      6  THE LOGARITHMIC DERIVATIVE'S SERIES. `Z_Q` has no Euler product; `c` solves `c ⍟ r_Q = log · r_Q` by recursion, `r_Q(1) = 2`, and `Z_Q(3/2) < 4` bounds
+      7  its absolute series on the line `Re s = 3/2` itself. The same bound keeps `|Z_Q − 2| < 2` there, so `Z_Q` has no zero in `Re s ≥ 3/2`. Nothing here proves
+      8  RH or GRH or locates any zero.
+      9  -/
+     10  import SIDEExplicitFormula.Schema.ZQ.Bound
+     11  import Mathlib.NumberTheory.LSeries.Deriv
+     12  import Mathlib.NumberTheory.LSeries.Convolution
+     13  
+     14  open scoped LSeries.notation
+     15  
+     16  noncomputable section
+     17  
+     18  namespace SIDEExplicitFormula
+     19  namespace Schema
+     20  namespace ZQ
+     21  
+     22  /-- The two vectors of norm one. -/
+     23  theorem boxF_one : boxF 1 = {(1, 0), (-1, 0)} := by
+     24    ext ⟨m, n⟩
+     25    constructor
+     26    · intro h
+     27      have hq : Q0form m n = ((1 : ℕ) : ℤ) := (Finset.mem_filter.mp h).2
+     28      have hq' : Q0form m n = 1 := by simpa using hq
+     29      have h4 := four_mul_Q0form m n
+     30      rw [hq'] at h4
+     31      have h5 : 23 * n ^ 2 ≤ 4 := by nlinarith [sq_nonneg (2 * m + n)]
+     32      have h6 : n ^ 2 < 1 := by linarith
+     33      have h7 : n ^ 2 = 0 := le_antisymm (by linarith) (sq_nonneg n)
+     34      have hn : n = 0 := (pow_eq_zero_iff two_ne_zero).mp h7
+     35      subst hn
+     36      have hm : (m - 1) * (m + 1) = 0 := by nlinarith
+     37      rcases mul_eq_zero.mp hm with h8 | h8
+     38      · have h9 : m = 1 := by omega
+     39        subst h9
+     40        simp
+     41      · have h9 : m = -1 := by omega
+     42        subst h9
+     43        simp
+     44    · intro h
+     45      rw [Finset.mem_insert, Finset.mem_singleton] at h
+     46      unfold boxF
+     47      rcases h with h | h
+     48      · obtain ⟨rfl, rfl⟩ := Prod.mk.inj h
+     49        exact Finset.mem_filter.mpr ⟨Finset.mem_product.mpr ⟨Finset.mem_Icc.mpr ⟨by norm_num, by norm_num⟩,
+     50          Finset.mem_Icc.mpr ⟨by norm_num, by norm_num⟩⟩, by norm_num [Q0form]⟩
+     51      · obtain ⟨rfl, rfl⟩ := Prod.mk.inj h
+     52        exact Finset.mem_filter.mpr ⟨Finset.mem_product.mpr ⟨Finset.mem_Icc.mpr ⟨by norm_num, by norm_num⟩,
+     53          Finset.mem_Icc.mpr ⟨by norm_num, by norm_num⟩⟩, by norm_num [Q0form]⟩
+     54  
+     55  /-- `r_Q(1) = 2`, the value the recursion divides by. -/
+     56  theorem rQ_one : rQ 1 = 2 := by
+     57    rw [rQ_eq_card one_ne_zero, boxF_one]
+     58    refine Finset.card_pair (fun h => ?_)
+     59    have h1 := congrArg Prod.fst h
+     60    norm_num at h1
+     61  
+     62  /-- **The coefficients of `−Z_Q'/Z_Q`**, by recursion from `r_Q`. -/
+     63  def cQ (n : ℕ) : ℝ :=
+     64    if _h : n ≤ 1 then 0
+     65    else ((rQ n : ℝ) * Real.log n - ∑ d ∈ n.properDivisors, if _h' : d < n then cQ d * (rQ (n / d) : ℝ) else 0) / 2
+     66  termination_by n
+     67  
+     68  theorem cQ_le_one {n : ℕ} (h : n ≤ 1) : cQ n = 0 := by
+     69    rw [cQ.eq_def, dif_pos h]
+     70  
+     71  theorem cQ_eq {n : ℕ} (hn : 2 ≤ n) :
+     72      2 * cQ n = (rQ n : ℝ) * Real.log n - ∑ d ∈ n.properDivisors, cQ d * (rQ (n / d) : ℝ) := by
+     73    have h0 : ¬ n ≤ 1 := by omega
+     74    have e := cQ.eq_def n
+     75    rw [dif_neg h0] at e
+     76    have es : ∑ d ∈ n.properDivisors, (if _h' : d < n then cQ d * (rQ (n / d) : ℝ) else 0)
+     77        = ∑ d ∈ n.properDivisors, cQ d * (rQ (n / d) : ℝ) :=
+     78      Finset.sum_congr rfl (fun d hd => dif_pos (Nat.mem_properDivisors.mp hd).2)
+     79    rw [es] at e
+     80    rw [e]
+     81    ring
+     82  
+     83  /-- **`c ⍟ r_Q = log · r_Q`** off `0`. -/
+     84  theorem cQ_conv {n : ℕ} (hn : n ≠ 0) :
+     85      ∑ p ∈ n.divisorsAntidiagonal, cQ p.1 * (rQ p.2 : ℝ) = (rQ n : ℝ) * Real.log n := by
+     86    have e : ∑ p ∈ n.divisorsAntidiagonal, cQ p.1 * (rQ p.2 : ℝ) = ∑ d ∈ n.divisors, cQ d * (rQ (n / d) : ℝ) :=
+     87      Nat.sum_divisorsAntidiagonal (fun a b => cQ a * (rQ b : ℝ))
+     88    rw [e]
+     89    rcases (by omega : n = 1 ∨ 2 ≤ n) with rfl | h2
+     90    · rw [Nat.divisors_one, Finset.sum_singleton, cQ_le_one le_rfl, Nat.cast_one, Real.log_one]
+     91      ring
+     92    · have h3 := cQ_eq h2
+     93      rw [← Nat.insert_self_properDivisors hn, Finset.sum_insert Nat.self_notMem_properDivisors,
+     94        Nat.div_self (by omega), rQ_one]
+     95      push_cast
+     96      linarith
+     97  
+     98  /-- The term of `Z_Q(3/2)`. -/
+     99  def wQ (k : ℕ) : ℝ := (rQ k : ℝ) / (k : ℝ) ^ (3 / 2 : ℝ)
+    100  
+    101  /-- The term of the absolute series of `c` at `3/2`. -/
+    102  def uQ (k : ℕ) : ℝ := |cQ k| / (k : ℝ) ^ (3 / 2 : ℝ)
+    103  
+    104  /-- The term of `−Z_Q'(3/2)`. -/
+    105  def vQ (k : ℕ) : ℝ := (rQ k : ℝ) * Real.log k / (k : ℝ) ^ (3 / 2 : ℝ)
+    106  
+    107  theorem wQ_nonneg (k : ℕ) : 0 ≤ wQ k :=
+    108    div_nonneg (Nat.cast_nonneg _) (Real.rpow_nonneg (Nat.cast_nonneg _) _)
+    109  
+    110  theorem uQ_nonneg (k : ℕ) : 0 ≤ uQ k :=
+    111    div_nonneg (abs_nonneg _) (Real.rpow_nonneg (Nat.cast_nonneg _) _)
+    112  
+    113  theorem vQ_nonneg (k : ℕ) : 0 ≤ vQ k :=
+    114    div_nonneg (mul_nonneg (Nat.cast_nonneg _) (Real.log_natCast_nonneg k)) (Real.rpow_nonneg (Nat.cast_nonneg _) _)
+    115  
+    116  theorem wQ_one : wQ 1 = 2 := by
+    117    unfold wQ
+    118    rw [rQ_one, Nat.cast_one, Real.one_rpow]
+    119    norm_num
+    120  
+
+## (ii)
+---- SIDE-explicit-formula v0.38:SIDEExplicitFormula/Schema/Config.lean :1-:60 (commit 14ca5725, blob cce635db, 78 lines)
+      1  /-
+      2  SIDE-explicit-formula -- SIDEExplicitFormula/Schema/Config.lean
+      3  THIS PROGRAMME'S WORK (act b573, ruling (R183)(4)(a)-(b); W-ORD-GRH-WEIL, act eight) -- NOT VENDORED.
+      4  SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+      5  
+      6  THE GENERIC SCHEMA, ITS STRUCTURE AND ITS FORWARD HALF. `WeilConfig` extends Zeta23's `ZeroConfig` by the three fields the
+      7  b572 lemma list names (relay data/b572_lemmas.txt; the types read off the consuming lemmas, relay data/b573_fields.txt):
+      8  EF -- an arithmetic side `rhs` equal to the zero side on even `k ∈ C_c²` (b321_identity's type); COUNT -- the local count
+      9  `HCount` (as `dominant_summable` consumes it); TARGET -- a Prop equivalent to the strip form (the seam left to the instance).
+     10  Weil positivity on classK over the structure is `h2_sign_cfg`; the forward half `online → h2_sign_cfg` is RHChain's argument.
+     11  Nothing here proves RH or GRH or locates any zero.
+     12  -/
+     13  import SIDEExplicitFormula.PowerLimit
+     14  
+     15  open Complex
+     16  open scoped ComplexOrder ComplexConjugate
+     17  
+     18  noncomputable section
+     19  
+     20  namespace SIDEExplicitFormula
+     21  namespace Schema
+     22  
+     23  /-- **A configuration with an explicit formula and a local count**: Zeta23's `ZeroConfig` and three fields. -/
+     24  structure WeilConfig extends Zeta23.ZeroConfig where
+     25    /-- EF: the arithmetic side of the explicit formula -/
+     26    rhs : (ℝ → ℂ) → ℂ
+     27    /-- EF: the zero side equals it on even `k ∈ C_c²` (b321_identity's type at its consuming site) -/
+     28    ef : ∀ k : ℝ → ℂ, ContDiff ℝ 2 k → HasCompactSupport k → (∀ x : ℝ, k (-x) = k x) →
+     29      (∑' ρ : carrier, (mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)) = rhs k
+     30    /-- COUNT: the local count, as dominant_summable consumes it (HCount, RestBound.lean :44) -/
+     31    count : ∃ A₀ : ℝ, B321.HCount ⟨carrier, mult, one_le_mult, strip, reflect_mem, mult_reflect, finite_window⟩ A₀
+     32    /-- TARGET: the instance's statement of the zeros' location, equivalent to the strip form (the seam left to the instance) -/
+     33    target : Prop
+     34    target_iff : target ↔ ∀ ρ ∈ carrier, ρ.re = 1 / 2
+     35  
+     36  /-- The zero side over the structure. -/
+     37  def zeroSide_cfg (C : WeilConfig) (k : ℝ → ℂ) : ℂ :=
+     38    ∑' ρ : C.carrier, (C.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+     39  
+     40  /-- **Weil positivity on classK over the structure.** -/
+     41  def h2_sign_cfg (C : WeilConfig) : Prop := ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ C.rhs k
+     42  
+     43  /-- The strip form over the structure: every point of the configuration is on the line. -/
+     44  def online (C : WeilConfig) : Prop := ∀ ρ ∈ C.carrier, ρ.re = 1 / 2
+     45  
+     46  /-- b321's identity over the structure, for `k` in classK. -/
+     47  theorem zeroSide_cfg_eq (C : WeilConfig) {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)
+     48      (he : ∀ x : ℝ, k (-x) = k x) : zeroSide_cfg C k = C.rhs k :=
+     49    C.ef k hk hs he
+     50  
+     51  /-- **The forward half over the structure**: `online C → h2_sign_cfg C`, RHChain's argument. -/
+     52  theorem online_imp_h2_sign_cfg (C : WeilConfig) : online C → h2_sign_cfg C := by
+     53    intro hstrip k hk
+     54    obtain ⟨he, hc, hs, h, hh, hhs, rfl⟩ := hk
+     55    rw [← zeroSide_cfg_eq C hc hs he]
+     56    unfold zeroSide_cfg
+     57    refine tsum_nonneg fun ρ => ?_
+     58    have hre : (ρ : ℂ).re = 1 / 2 := hstrip (ρ : ℂ) ρ.2
+     59    have him : (Zeta23.gammaOf (ρ : ℂ)).im = 0 := by
+     60      unfold Zeta23.gammaOf
+
+## (ii)
+---- SIDE-explicit-formula v0.38:SIDEExplicitFormula/B321Identity.lean :1-:40 (commit 14ca5725, blob 4d3bdea2, 62 lines)
+      1  /-
+      2  SIDE-explicit-formula -- SIDEExplicitFormula/B321Identity.lean
+      3  THIS PROGRAMME'S WORK (act b509, ruling (R118)(4), (R104)'s act 3) -- NOT VENDORED.
+      4  SPIRAL_MAP section 7 rule 9 applies here in full: `theorem`, never `lemma`.
+      5  
+      6  b321's four-channel identity  Z = P - PR + A  (relay `tools/b321_window.py`, `channels`), stated for
+      7  the zeros of zeta in this kernel's own objects and DERIVED from the vendored `EF_lit_zetaZeroConfig`
+      8  as its even case. The four channels are written in the kernel's objects (`paperFT`, `gammaOf`,
+      9  `EF.gammaBracket`, `vonMangoldt`); the prime channel is written in b321's EVEN form
+     10  `2 * k (log n)`, which is where the evenness hypothesis is used. The normalization constant between
+     11  EF_lit's form and b321's is the definition `b321Norm`, carried in the statement and not absorbed.
+     12  -/
+     13  import Zeta23.WeilEF.Main
+     14  
+     15  open Complex MeasureTheory
+     16  open scoped Real ArithmeticFunction
+     17  
+     18  noncomputable section
+     19  
+     20  namespace SIDEExplicitFormula
+     21  namespace B321
+     22  
+     23  /-- b321's `Z`: the zero side, over the canonical zeta zero configuration, with multiplicity. -/
+     24  def zeroSide (k : ℝ → ℂ) : ℂ :=
+     25    ∑' ρ : Zeta23.zetaZeroConfig.carrier,
+     26      (Zeta23.zetaZeroConfig.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)
+     27  
+     28  /-- b321's `P`: the pole term, `h(i/2) + h(-i/2)`. -/
+     29  def poleTerm (k : ℝ → ℂ) : ℂ :=
+     30    Zeta23.paperFT k (I / 2) + Zeta23.paperFT k (-I / 2)
+     31  
+     32  /-- b321's `PR`, in its even form: `SUM_n Lambda(n) n^{-1/2} * 2 k(log n)`. -/
+     33  def primeSum (k : ℝ → ℂ) : ℂ :=
+     34    ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))
+     35  
+     36  /-- b321's `A`: `(1/2pi) INT h(r) [Re psi(1/4 + i r/2) - log pi] dr`. -/
+     37  def archTerm (k : ℝ → ℂ) : ℂ :=
+     38    (1 / (2 * π) : ℂ) * ∫ r : ℝ, Zeta23.paperFT k r * (Zeta23.EF.gammaBracket r : ℂ)
+     39  
+     40  /-- The normalization constant between EF_lit's form and b321's, as a definition. -/
+
+## (ii)
+---- SIDE-explicit-formula v0.38:Zeta23/WeilEF/VerticalLine.lean :98-:115 (commit 14ca5725, blob 016f4707, 805 lines)
+     98  /-- Step 1 (pointwise on the line): the integrand is the tsum of tilted-transform × L-series
+     99  terms.  −ζ'/ζ = LSeries ↗Λ on Re s > 1 (Mathlib), then distribute paperFT (tilt k b) t. -/
+    100  theorem integrand_eq_tsum {k : ℝ → ℂ} {c : ℝ} (hc1 : 1 < c) (t : ℝ) :
+    101      Hfn k (c + t * I) * (-logDeriv riemannZeta (c + t * I))
+    102        = ∑' n : ℕ, paperFT (tilt k (c - 1/2)) t * LSeries.term (fun n => (Λ n : ℂ)) (c + t * I) n := by
+    103    have hre : 1 < ((c : ℂ) + t * I).re := by
+    104      simp only [Complex.add_re, Complex.ofReal_re, Complex.mul_re, Complex.ofReal_im,
+    105        Complex.I_re, Complex.I_im]
+    106      simpa using hc1
+    107    have h1 : -logDeriv riemannZeta ((c : ℂ) + t * I) = LSeries (fun n => (Λ n : ℂ)) ((c:ℂ) + t * I) := by
+    108      have h2 := ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hre
+    109      rw [logDeriv, Pi.div_apply, h2]
+    110      ring
+    111    rw [Hfn_line, h1, LSeries, ← tsum_mul_left]
+    112  
+    113  /-- Step 2 (per-n line integral): (1/2π)∫ paperFT(tilt k b) t · term_n(c+it) dt
+    114    = Λ(n) n^{−1/2} k(log n). -/
+    115  theorem per_n_line_integral {k : ℝ → ℂ} (hk : ContDiff ℝ 2 k) (hkc : HasCompactSupport k)
+
+## (i)
+---- SIDE-lv-conservation 2f71068:SIDELvConservation/T3_StepNineBridge.lean :1-:110 (commit 2f71068a, blob 948498c9, 200 lines)
+      1  import Mathlib.Analysis.MellinTransform
+      2  import Mathlib.NumberTheory.LSeries.Dirichlet
+      3  import SIDELvConservation.T1_MellinFactorization
+      4  import SIDELvConservation.T2_SDarkness
+      5  
+      6  /-!
+      7  # T3 — the step-(9) bridge (per-class exclusion ⟹ all-combinations exclusion)
+      8  
+      9  The load-bearing target of the LV-Conservation programme.  Formalization
+     10  plan (per work order):
+     11  
+     12  1. Define "coupling contributes only through `Φ`".
+     13  2. Prove that the zero set of `s ↦ mellin Φ (s / 2)` is a function of
+     14     `Φ` (T3a) — trivial via T1, elevated to a named theorem.
+     15  3. Show that a *joint* witness `Φ` satisfying every coupling and having
+     16     `mellin Φ (s / 2) ≠ 0` at `s` immediately gives combined exclusion
+     17     (T3b) — trivial existential extraction.
+     18  4. Attempt the main bridge (T3_main): per-class exclusion at `s`
+     19     ⟹ combined exclusion at `s`.
+     20  
+     21  The manuscript argument is: zero locations are spectral (s-side) data;
+     22  inter-class couplings contribute only to `Φ` (s-independent side); hence
+     23  combinations of classes cannot produce s-side effects no single class
+     24  produces.
+     25  
+     26  At the level of quantifiers this asks
+     27  `(∀ C ∈ 𝒞, ∃ Φ, C Φ ∧ mellin Φ (s/2) ≠ 0) → ∃ Φ, (∀ C ∈ 𝒞, C Φ) ∧ …`.
+     28  The move from `∀∃` to `∃∀` is not free without a witness-selection or
+     29  cofinality assumption on the class family in `Φ`-space.  This is exactly
+     30  the **emergent-totality question** flagged in FINDINGS F.2026-07-09-b.
+     31  Per work-order T3 rules, we STOP at this step with one pinned `sorry`
+     32  and no weakened statement.
+     33  -/
+     34  
+     35  namespace SIDELvConservation
+     36  namespace T3
+     37  
+     38  open Complex MeasureTheory
+     39  
+     40  /-- A **coupling** is a constraint on the fixed Mellin integrand `Φ`
+     41  supplied by T1.  Physical realizations of interest include the product
+     42  formula and the distributive law — but the theorem is about the
+     43  propositional shape, not the specific coupling. -/
+     44  abbrev Coupling := (ℝ → ℂ) → Prop
+     45  
+     46  /-- The zero-location set of `s ↦ mellin Φ (s / 2)`.  Manifestly a
+     47  function of `Φ`. -/
+     48  def ZeroLoc (Φ : ℝ → ℂ) : Set ℂ := {s | mellin Φ (s / 2) = 0}
+     49  
+     50  /-- Per-class exclusion at `s`: coupling `C` is consistent with a `Φ`
+     51  whose Mellin factor has *no* zero at `s`. -/
+     52  def PerClassExcludes (C : Coupling) (s : ℂ) : Prop :=
+     53    ∃ Φ : ℝ → ℂ, C Φ ∧ mellin Φ (s / 2) ≠ 0
+     54  
+     55  /-- Combinations exclude at `s`: the joint constraint over a family of
+     56  couplings is consistent with a `Φ` whose Mellin factor has no zero at `s`. -/
+     57  def CombinationsExclude (𝒞 : Set Coupling) (s : ℂ) : Prop :=
+     58    ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+     59  
+     60  /-- **T3a.**  The zero-location set is a function of `Φ`.  Restatement of
+     61  Mathlib's `mellin` definition: `Φ` is the sole input to
+     62  `s ↦ mellin Φ (s / 2)`; therefore its zero-set is determined by `Φ`. -/
+     63  theorem T3a_zeroLoc_is_function_of_Phi
+     64      (Φ₁ Φ₂ : ℝ → ℂ) (h : Φ₁ = Φ₂) :
+     65      ZeroLoc Φ₁ = ZeroLoc Φ₂ := by
+     66    subst h; rfl
+     67  
+     68  /-- **T3b.**  If a single `Φ` satisfies every coupling in `𝒞` and has no
+     69  zero at `s`, then combined exclusion at `s` holds.  Trivial existential
+     70  extraction — the substantive content is *finding* such a `Φ`. -/
+     71  theorem T3b_joint_witness_gives_combinations_exclude
+     72      (𝒞 : Set Coupling) (s : ℂ) (Φ : ℝ → ℂ)
+     73      (hJoint : ∀ C ∈ 𝒞, C Φ) (hNonzero : mellin Φ (s / 2) ≠ 0) :
+     74      CombinationsExclude 𝒞 s :=
+     75    ⟨Φ, hJoint, hNonzero⟩
+     76  
+     77  /-- **T3 main — step-(9) bridge.**  Per-class exclusion at `s`
+     78  ⟹ combined exclusion at `s`.
+     79  
+     80  Manuscript reading: because the couplings contribute only to `Φ` and
+     81  `s` enters only through the kernel `t ^ (s / 2 - 1)` in `mellin Φ`,
+     82  combinations of couplings cannot manufacture an s-side effect (a forced
+     83  zero at `s`) that no single coupling can.
+     84  
+     85  Formal reading: the hypothesis is
+     86  `∀ C ∈ 𝒞, ∃ Φ_C, C Φ_C ∧ mellin Φ_C (s / 2) ≠ 0`,
+     87  and the conclusion asks for a *single* `Φ` witnessing every `C ∈ 𝒞`
+     88  simultaneously with `mellin Φ (s / 2) ≠ 0`.  This is a `∀∃ ⟹ ∃∀`
+     89  commutation that has no free witness — the emergent-totality gap of
+     90  FINDINGS F.2026-07-09-b.
+     91  -/
+     92  theorem T3_perClass_to_combinations
+     93      (𝒞 : Set Coupling) (s : ℂ)
+     94      (h : ∀ C ∈ 𝒞, PerClassExcludes C s) :
+     95      CombinationsExclude 𝒞 s := by
+     96    -- Unfold `CombinationsExclude` so the pinned goal is exact.
+     97    show ∃ Φ : ℝ → ℂ, (∀ C ∈ 𝒞, C Φ) ∧ mellin Φ (s / 2) ≠ 0
+     98    -- The hypothesis `h` gives, for each `C ∈ 𝒞`, a witness `Φ_C` with
+     99    -- `C Φ_C ∧ mellin Φ_C (s/2) ≠ 0`.  A choice function
+    100    --   `f : {C // C ∈ 𝒞} → ℝ → ℂ`
+    101    -- extracting these witnesses exists (classically), but there is in
+    102    -- general no `Φ` satisfying every `C ∈ 𝒞` simultaneously; the
+    103    -- family `{Φ_C}` need not have a common intersection point in
+    104    -- `Φ`-space.  This is the ∀∃ ⟹ ∃∀ swap, and it is precisely the
+    105    -- content of FINDINGS F.2026-07-09-b (emergent-totality question).
+    106    -- STOP per work-order T3 rules — one `sorry`, no weakened statement,
+    107    -- no `native_decide`, no new axiom.
+    108    sorry -- F.2026-07-09-b: ∀∃ ⟹ ∃∀ needs a joint-witness / cofinality assumption
+    109  
+    110  /-- **T3′ — the bridge closes under Determination's shared witness.**
+
+## (census)
+---- SIDE-kernel v1.5:Bridge/TheBridgeComplete.lean :60-:149 (commit 0e5233f0, blob f585c5eb, 269 lines)
+     60      completedRiemannZeta₀ (1 - (1/2 + t * I)) =
+     61      completedRiemannZeta₀ (1/2 + t * I) :=
+     62    completedRiemannZeta₀_one_sub _
+     63  
+     64  -- Voice 6 (C6): Cauchy-Riemann. Differentiability.
+     65  theorem voice6_differentiable (s : Complex) (hs : s ≠ 1) :
+     66      DifferentiableAt Complex riemannZeta s :=
+     67    differentiableAt_riemannZeta hs
+     68  
+     69  -- Voice 7 (C7): Hadamard. Zero symmetry (global).
+     70  theorem voice7_zero_symmetry (s : Complex)
+     71      (h : completedRiemannZeta₀ s = 0) :
+     72      completedRiemannZeta₀ (1 - s) = 0 := by
+     73    rw [completedRiemannZeta₀_one_sub]; exact h
+     74  
+     75  -- ============================================================
+     76  -- EXHAUSTIVENESS FROM OSTROWSKI
+     77  -- ============================================================
+     78  
+     79  theorem ostrowski_exhaustive_prime
+     80      (f : AbsoluteValue Rat Real) (hf : f.IsNontrivial) :
+     81      f.IsEquiv Rat.AbsoluteValue.real ∨
+     82      ∃ p : Nat, Nat.Prime p ∧ ∃ _ : Fact (Nat.Prime p),
+     83        f.IsEquiv (Rat.AbsoluteValue.padic p) := by
+     84    rcases Rat.AbsoluteValue.equiv_real_or_padic f hf with h | ⟨p, ⟨hp, hpv⟩, _⟩
+     85    · left; exact h
+     86    · right; exact ⟨p, hp.out, hp, hpv⟩
+     87  
+     88  -- ============================================================
+     89  -- VOICE EXCLUSION THEOREMS (Bridge-local)
+     90  -- ============================================================
+     91  
+     92  -- Voice 2 (C₁ Schwarz): conjugation agrees with reflection only at 1/2
+     93  theorem voice2_conjugation (σ : Real) :
+     94      σ = 1 - σ ↔ σ = 1 / 2 := by
+     95    constructor <;> intro h <;> linarith
+     96  
+     97  -- Voice 3 (C₃ FE): reflection fixed point at 1/2
+     98  theorem voice3_reflect_fixed (σ : Real) :
+     99      (1 - σ) = σ ↔ σ = 1 / 2 := by
+    100    constructor <;> intro h <;> linarith
+    101  
+    102  -- Voice 5 (C₄ Modular): PSL₂(ℤ) S-action fixed point at 1/2
+    103  theorem voice4_S_fixed (σ : Real) :
+    104      1 - σ = σ ↔ σ = 1 / 2 := by
+    105    constructor <;> intro h <;> linarith
+    106  
+    107  -- Voice 6 (C₅ Spectral): self-adjoint offset vanishes at 1/2
+    108  theorem voice5_spectral_offset (σ : Real) :
+    109      σ - 1 / 2 = 0 ↔ σ = 1 / 2 := by
+    110    constructor <;> intro h <;> linarith
+    111  
+    112  -- Voice 7 (C₇ Hadamard): topological contribution is σ-neutral.
+    113  /-- **σ-neutral stand-in (DEFINITION-ENCODED; W-ORD-ROUTE1-A, C₇; honest relabel
+    114      2026-07-22).** `hadamard_contrib := 0` ASSIGNS σ-neutrality; it does not derive
+    115      it. Unlike C₆ (a genuine constraint-count that derives σ = 1/2, W-ORD-ROUTE1-A),
+    116      C₇'s neutrality shape `∀σ, g σ = g(1/2)` is satisfied only by a σ-constant `g`,
+    117      so no non-vacuous model-level de-encode of THIS shape exists; the `:= 0` is a
+    118      faithful stand-in for a σ-non-selective contribution, with its real content
+    119      manuscript-resident:
+    120  
+    121      * **Encodes-not-produces (FE-symmetric).** The Hadamard product
+    122        ξ(s) = ξ(0)∏_ρ(1 − s/ρ) encodes the zero set and is invariant under the
+    123        functional-equation reflection s ↦ 1−s (zeros symmetric under ρ ↦ 1−ρ). It
+    124        records where the zeros are; it exerts no σ-selective force. Mathlib at the
+    125        pin `e960b84` carries the FE (`completedRiemannZeta₀_one_sub`) but **NOT** the
+    126        genus-1 Hadamard/Weierstrass factorization (`Analysis/Complex/Hadamard.lean`
+    127        is the three-lines theorem; no product-over-zeros, no order-of-growth theory)
+    128        — the genus-1 factorization premise is **named Mathlib-absent** at this pin.
+    129      * **Presence in RH-violators (the manuscript's actual argument, §917/§933/§1845).**
+    130        Completed Epstein zeta functions ALSO have Hadamard factorizations and DO have
+    131        off-line zeros; the product is present in systems that violate RH, so its
+    132        presence cannot enforce on-line placement. This is a model-theoretic
+    133        (necessary-not-sufficient) argument, **unmodeled at this pin**.
+    134  
+    135      Faithful de-encode is refiled as research work-order **W-ORD-C7-WITNESS** (a
+    136      two-point Epstein-vs-ideal countermodel, kin to `SieveCeilingWitness`/`dh_witness`;
+    137      cross-linked to W-6-EXT-A, same Epstein datum). Loom Correspondence row-note. -/
+    138  def hadamard_contrib (_ : Real) : Real := 0
+    139  
+    140  /-- σ-neutrality of the stand-in, by `rfl` (the contribution is the constant 0).
+    141      True OF THE STAND-IN and now says so: this asserts nothing about ξ's actual
+    142      Hadamard product beyond the σ-neutrality the stand-in assigns. See
+    143      `hadamard_contrib`; faithful witness = W-ORD-C7-WITNESS. -/
+    144  theorem voice7_sigma_neutral (σ : Real) :
+    145      hadamard_contrib σ = hadamard_contrib (1 / 2 : Real) := rfl
+    146  
+    147  -- ============================================================
+    148  -- SIDE EXCLUSION (all 7 derived from Voice theorems)
+    149  -- ============================================================
+
+## (census)
+---- SIDE-kernel v1.5:Kernel/ThomBridge.lean :37-:45 (commit 0e5233f0, blob 922c6af9, 53 lines)
+     37    linarith
+     38  
+     39  theorem c1_closing : ∀ t : Real,
+     40      (completedRiemannZeta₀ ⟨1/2, t⟩).im = 0 :=
+     41    focus_from_antisymmetry
+     42  
+     43  theorem c4_closing : ∀ s : ℂ, 1 ≤ s.re → riemannZeta s ≠ 0 :=
+     44    fun _ hs => riemannZeta_ne_zero_of_one_le_re hs
+     45  
+
+## (census)
+---- SIDE-kernel v1.5:Bridge/ConservationBridge.lean :26-:56 (commit 0e5233f0, blob 6113f00c, 58 lines)
+     26  def ConservationHypothesis : Prop :=
+     27    ∀ (σ : ℝ), is_xi_zero σ →
+     28    ∃ (p : Nat) (hp : Nat.Prime p),
+     29    (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ))
+     30  
+     31  /-- Conservation of Spectra: at any nontrivial zero of ζ,
+     32      the Euler product structure is active at some prime. Conditional on
+     33      ConservationHypothesis (ξ pattern, existential form). Zero sorry. -/
+     34  theorem conservation_activates_balance
+     35      (h_cons : ConservationHypothesis) (σ : ℝ) (h : is_xi_zero σ) :
+     36      ∃ (p : Nat) (hp : Nat.Prime p),
+     37      (prime_as_real p hp) ^ (-σ) = (prime_as_real p hp) ^ (-(1 - σ)) :=
+     38    h_cons σ h
+     39  
+     40  /-- The structural exhaustiveness follows from Conservation + Voice1.
+     41      Conditional on ConservationHypothesis. Zero sorry.
+     42  
+     43      The balance at a SINGLE prime already forces σ = 1/2: `balance_theorem` is
+     44      prime-generic, so the existential witness `⟨p, hp, hbal⟩` discharges the
+     45      goal exactly as the former `p = 2` instance did. -/
+     46  theorem structural_exhaustiveness_proved
+     47      (h_cons : ConservationHypothesis) : StructuralExhaustiveness := by
+     48    intro σ h_zero
+     49    obtain ⟨p, hp, hbal⟩ := conservation_activates_balance h_cons σ h_zero
+     50    exact (balance_theorem p hp σ).mp hbal
+     51  
+     52  /-- The Riemann Hypothesis, conditional on Conservation. Zero sorry. -/
+     53  theorem riemann_hypothesis
+     54      (h_cons : ConservationHypothesis) : RiemannHypothesis :=
+     55    rh_from_structural_exhaustiveness (structural_exhaustiveness_proved h_cons)
+     56  
+
+## (dh)
+---- SIDE-kernel v1.8:Kernel/Cascade/SieveCeilingSemantic.lean :50-:78 (commit 70aba3cd, blob f98eeffb, 78 lines)
+     50    rintro ⟨D, hD_inv, hD_eq⟩
+     51    apply h_not_inv
+     52    intro x y hxy
+     53    exact ((hD_eq x).symm.trans (hD_inv x y hxy)).trans (hD_eq y)
+     54  
+     55  /-- The shape of a non-invariance witness: a pair of
+     56      I-indistinguishable configurations that disagree on the property
+     57      -- r x y, onLine x, not onLine y. This is the abstract slot the
+     58      Epstein witness fills (ideal vs Davenport-Heilbronn). -/
+     59  def NonInvarianceWitness (onLine : U → Prop) : Prop :=
+     60    ∃ x y, r x y ∧ onLine x ∧ ¬ onLine y
+     61  
+     62  /-- A non-invariance witness makes the property not r-invariant. -/
+     63  theorem not_respectsI_of_witness {onLine : U → Prop}
+     64      (h : NonInvarianceWitness r onLine) : ¬ RespectsI r onLine := by
+     65    intro hinv
+     66    obtain ⟨x, y, hxy, hx, hy⟩ := h
+     67    exact hy ((hinv x y hxy).mp hx)
+     68  
+     69  /-- Sieve ceiling from a concrete witness: given an
+     70      I-indistinguishable pair disagreeing on the universal property,
+     71      no dark-factored certificate captures it. Sieve ceiling from a witness: given an I-indistinguishable pair disagreeing on the universal property, no dark-factored certificate captures it. Slot 3 instantiates this in a two-point model whose Davenport-Heilbronn point is off the line by a cited datum. -/
+     72  theorem sieve_ceiling_of_witness {onLine : U → Prop}
+     73      (h : NonInvarianceWitness r onLine) :
+     74      ¬ ∃ D : U → Prop, RespectsI r D ∧ ∀ z, D z ↔ onLine z :=
+     75    sieve_ceiling_semantic r (not_respectsI_of_witness r h)
+     76  
+     77  end SieveCeilingSemantic
+     78  
+
+## (dh)
+---- SIDE-kernel v1.8:Kernel/Cascade/SieveCeilingWitness.lean :40-:103 (commit 70aba3cd, blob 03baeb08, 105 lines)
+     40  import Kernel.Cascade.SieveCeilingSemantic
+     41  
+     42  namespace SieveCeilingWitness
+     43  
+     44  open SieveCeilingSemantic
+     45  
+     46  /-- Two configurations: the arithmetic ideal (RH holds) and the
+     47      Davenport-Heilbronn function (density one on the line, yet
+     48      off-line zeros). -/
+     49  inductive Config where
+     50    | ideal : Config
+     51    | dh    : Config
+     52  deriving DecidableEq
+     53  
+     54  /-- The observable a dark (kappa = 0) interface reads off a
+     55      configuration: its functional-equation type together with its
+     56      density-one-on-line statistics, collapsed to the two-valued token
+     57      the two-point model needs. The arithmetic ideal and the
+     58      Davenport-Heilbronn function present the SAME observable
+     59      (Davenport-Heilbronn 1936: identical functional equation, density
+     60      one on the line) -- this is the honest modeling stipulation, the
+     61      analogue of the cited datum `allOnLine .dh = False`. -/
+     62  def darkObs : Config → Bool
+     63    | Config.ideal => true
+     64    | Config.dh    => true
+     65  
+     66  /-- I-indistinguishability is the KERNEL of the dark reading: two
+     67      configurations are indistinguishable exactly when the dark
+     68      interface reads the same observable off them. This READS ITS
+     69      ARGUMENTS -- it is the equality `darkObs x = darkObs y`, not the
+     70      total relation `True`. -/
+     71  def iIndist (x y : Config) : Prop := darkObs x = darkObs y
+     72  
+     73  /-- Non-totality witness for the two-sided screen: the reading-kernel
+     74      schema is genuinely a reading, not the total relation -- distinct
+     75      observables are NOT related. (Its codomain `Bool` has distinct
+     76      inhabitants; a configuration presenting the observable `false`
+     77      would be distinguished from `ideal`. The two-point Config presents
+     78      no such pair only because `ideal` and `dh` share the dark
+     79      observable by stipulation -- that shared observable IS the
+     80      kappa = 0 darkness, cf. `dh_witness`.) -/
+     81  theorem darkReading_capable_of_falsity : ¬ (∀ b c : Bool, b = c) :=
+     82    fun h => Bool.noConfusion (h true false)
+     83  
+     84  /-- The universal property: all zeros on the critical line. True for
+     85      the ideal; FALSE for Davenport-Heilbronn, whose off-line zeros
+     86      are classical (Davenport-Heilbronn 1936) -- cited, not reproved. -/
+     87  def allOnLine : Config → Prop
+     88    | Config.ideal => True
+     89    | Config.dh    => False
+     90  
+     91  /-- The Davenport-Heilbronn witness: ideal ~ dh (they share the dark
+     92      observable, so `iIndist ideal dh` holds by `rfl` on `darkObs`, not
+     93      by `trivial` on `True`), onLine ideal, not onLine dh. -/
+     94  theorem dh_witness : NonInvarianceWitness iIndist allOnLine :=
+     95    ⟨Config.ideal, Config.dh, rfl, trivial, fun h => h⟩
+     96  
+     97  /-- The sieve ceiling fires concretely on the Davenport-Heilbronn
+     98      example: no dark-factored (I-respecting) certificate is
+     99      extensionally equal to "all zeros on the critical line." -/
+    100  theorem dh_sieve_ceiling :
+    101      ¬ ∃ D : Config → Prop, RespectsI iIndist D ∧ ∀ z, D z ↔ allOnLine z :=
+    102    sieve_ceiling_of_witness iIndist dh_witness
+    103  
+
+## (iii)
+---- mathlib e960b841:Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean :76-:84 (commit e960b841, blob 354482b0, 159 lines)
+     76  @[simp]
+     77  theorem vonMangoldt_apply_one : Λ 1 = 0 := by simp [vonMangoldt_apply]
+     78  
+     79  @[simp]
+     80  theorem vonMangoldt_nonneg {n : ℕ} : 0 ≤ Λ n := by
+     81    rw [vonMangoldt_apply]
+     82    split_ifs
+     83    · exact Real.log_nonneg (one_le_cast.2 (Nat.minFac_pos n))
+     84    rfl
+
+## (iii)
+---- mathlib e960b841:Mathlib/NumberTheory/LSeries/Nonvanishing.lean :1-:40 (commit e960b841, blob 73fe1bde, 420 lines)
+      1  /-
+      2  Copyright (c) 2024 Michael Stoll. All rights reserved.
+      3  Released under Apache 2.0 license as described in the file LICENSE.
+      4  Authors: Michael Stoll, David Loeffler
+      5  -/
+      6  module
+      7  
+      8  public import Mathlib.Analysis.SpecialFunctions.Complex.LogBounds
+      9  public import Mathlib.NumberTheory.Harmonic.ZetaAsymp
+     10  public import Mathlib.NumberTheory.LSeries.Dirichlet
+     11  public import Mathlib.NumberTheory.LSeries.DirichletContinuation
+     12  public import Mathlib.NumberTheory.LSeries.Positivity
+     13  
+     14  /-!
+     15  # The L-function of a Dirichlet character does not vanish on Re(s) ≥ 1
+     16  
+     17  The main result in this file is `DirichletCharacter.LFunction_ne_zero_of_one_le_re`:
+     18  if `χ` is a Dirichlet character, `s ∈ ℂ` with `1 ≤ s.re`, and either `χ` is nontrivial or `s ≠ 1`,
+     19  then the L-function of `χ` does not vanish at `s`.
+     20  
+     21  As a consequence, we have the corresponding statement for the Riemann ζ function:
+     22  `riemannZeta_ne_zero_of_one_le_re` (which does not require `s ≠ 1`, since the junk value at `s = 1`
+     23  happens to be non-zero).
+     24  
+     25  These results are prerequisites for the **Prime Number Theorem** and
+     26  **Dirichlet's Theorem** on primes in arithmetic progressions.
+     27  
+     28  ## Outline of proofs
+     29  
+     30  We split into two cases: first, the special case of (non-trivial) quadratic characters at `s = 1`;
+     31  then the remaining case when either `s ≠ 1` or `χ ^ 2 ≠ 1`.
+     32  
+     33  The first case is handled using a positivity argument applied to the series `L χ s * ζ s`: we show
+     34  that this function has non-negative Dirichlet coefficients, is strictly positive for `s ≫ 0`, but
+     35  vanishes at `s = -2`, so it must have a pole somewhere in between.
+     36  
+     37  The second case is dealt with using the product
+     38  `L(χ^0, 1 + x)^3 L(χ, 1 + x + I * y)^4 L(χ^2, 1 + x + 2 * I * y)`, which
+     39  we show has absolute value `≥ 1` for all positive `x` and real `y`; if `L(χ, 1 + I * y) = 0` then
+     40  this product would have to tend to 0 as `x → 0`, which is a contradiction.
+
+## (iii)
+---- mathlib e960b841:Mathlib/NumberTheory/LSeries/Nonvanishing.lean :215-:315 (commit e960b841, blob 73fe1bde, 420 lines)
+    215  
+    216  variable (χ : DirichletCharacter ℂ N)
+    217  
+    218  -- This is the key positivity lemma that is used to show that the L-function
+    219  -- of a Dirichlet character `χ` does not vanish for `s.re ≥ 1` (unless `χ^2 = 1` and `s = 1`).
+    220  private lemma re_log_comb_nonneg' {a : ℝ} (ha₀ : 0 ≤ a) (ha₁ : a < 1) {z : ℂ} (hz : ‖z‖ = 1) :
+    221        0 ≤ 3 * (-log (1 - a)).re + 4 * (-log (1 - a * z)).re + (-log (1 - a * z ^ 2)).re := by
+    222    have hac₀ : ‖(a : ℂ)‖ < 1 := by
+    223      simp only [Complex.norm_of_nonneg ha₀, ha₁]
+    224    have hac₁ : ‖a * z‖ < 1 := by rwa [norm_mul, hz, mul_one]
+    225    have hac₂ : ‖a * z ^ 2‖ < 1 := by rwa [norm_mul, norm_pow, hz, one_pow, mul_one]
+    226    rw [← ((hasSum_re <| hasSum_taylorSeries_neg_log hac₀).mul_left 3).add
+    227      ((hasSum_re <| hasSum_taylorSeries_neg_log hac₁).mul_left 4) |>.add
+    228      (hasSum_re <| hasSum_taylorSeries_neg_log hac₂) |>.tsum_eq]
+    229    refine tsum_nonneg fun n ↦ ?_
+    230    simp only [← ofReal_pow, div_natCast_re, ofReal_re, mul_pow, mul_re, ofReal_im, zero_mul,
+    231      sub_zero]
+    232    rcases n.eq_zero_or_pos with rfl | hn
+    233    · simp
+    234    · simp only [← mul_div_assoc, ← add_div]
+    235      refine div_nonneg ?_ n.cast_nonneg
+    236      rw [← pow_mul, pow_mul', sq, mul_re, ← sq, ← sq, ← sq_norm_sub_sq_re, norm_pow, hz]
+    237      convert (show 0 ≤ 2 * a ^ n * ((z ^ n).re + 1) ^ 2 by positivity) using 1
+    238      ring
+    239  
+    240  -- This is the version of the technical positivity lemma for logarithms of Euler factors.
+    241  private lemma re_log_comb_nonneg {n : ℕ} (hn : 2 ≤ n) {x : ℝ} (hx : 1 < x) (y : ℝ) :
+    242      0 ≤ 3 * (-log (1 - (1 : DirichletCharacter ℂ N) n * n ^ (-x : ℂ))).re +
+    243            4 * (-log (1 - χ n * n ^ (-(x + I * y)))).re +
+    244            (-log (1 - (χ n ^ 2) * n ^ (-(x + 2 * I * y)))).re := by
+    245    by_cases hn' : IsUnit (n : ZMod N)
+    246    · have ha₀ : 0 ≤ (n : ℝ) ^ (-x) := Real.rpow_nonneg n.cast_nonneg _
+    247      have ha₁ : (n : ℝ) ^ (-x) < 1 := by
+    248        rw [Real.rpow_neg (Nat.cast_nonneg n), inv_lt_one_iff₀]
+    249        exact .inr <| Real.one_lt_rpow (mod_cast one_lt_two.trans_le hn) <| zero_lt_one.trans hx
+    250      have hz : ‖χ n * (n : ℂ) ^ (-(I * y))‖ = 1 := by
+    251        rw [norm_mul, ← hn'.unit_spec, DirichletCharacter.unit_norm_eq_one χ hn'.unit,
+    252          ← ofReal_natCast, norm_cpow_eq_rpow_re_of_pos (mod_cast by lia)]
+    253        simp only [neg_re, mul_re, I_re, ofReal_re, zero_mul, I_im, ofReal_im, mul_zero, sub_self,
+    254          neg_zero, Real.rpow_zero, one_mul]
+    255      rw [MulChar.one_apply hn', one_mul]
+    256      convert re_log_comb_nonneg' ha₀ ha₁ hz using 6
+    257      · simp only [ofReal_cpow n.cast_nonneg (-x), ofReal_natCast, ofReal_neg]
+    258      · congr 2
+    259        rw [neg_add, cpow_add _ _ <| mod_cast by lia, ← ofReal_neg, ofReal_cpow n.cast_nonneg (-x),
+    260          ofReal_natCast, mul_left_comm]
+    261      · rw [neg_add, cpow_add _ _ <| mod_cast by lia, ← ofReal_neg, ofReal_cpow n.cast_nonneg (-x),
+    262          ofReal_natCast, show -(2 * I * y) = (2 : ℕ) * -(I * y) by ring, cpow_nat_mul, mul_pow,
+    263          mul_left_comm]
+    264    · simp only [MulChar.map_nonunit _ hn', zero_mul, sub_zero, log_one, neg_zero, zero_re, mul_zero,
+    265        neg_add_rev, add_zero, pow_two, le_refl]
+    266  
+    267  /-- The logarithms of the Euler factors of a Dirichlet L-series form a summable sequence. -/
+    268  lemma summable_neg_log_one_sub_mul_prime_cpow {s : ℂ} (hs : 1 < s.re) :
+    269      Summable fun p : Nat.Primes ↦ -log (1 - χ p * (p : ℂ) ^ (-s)) := by
+    270    have (p : Nat.Primes) : ‖χ p * (p : ℂ) ^ (-s)‖ ≤ (p : ℝ) ^ (-s).re := by
+    271      simpa only [norm_mul, norm_natCast_cpow_of_re_ne_zero _ <| re_neg_ne_zero_of_one_lt_re hs]
+    272        using mul_le_of_le_one_left (by positivity) (χ.norm_le_one _)
+    273    refine (Nat.Primes.summable_rpow.mpr ?_).of_nonneg_of_le (fun _ ↦ norm_nonneg _) this
+    274      |>.of_norm.clog_one_sub.neg
+    275    simp only [neg_re, neg_lt_neg_iff, hs]
+    276  
+    277  private lemma one_lt_re_one_add {x : ℝ} (hx : 0 < x) (y : ℝ) :
+    278      1 < (1 + x : ℂ).re ∧ 1 < (1 + x + I * y).re ∧ 1 < (1 + x + 2 * I * y).re := by
+    279    simp only [add_re, one_re, ofReal_re, lt_add_iff_pos_right, hx, mul_re, I_re, zero_mul, I_im,
+    280      ofReal_im, mul_zero, sub_self, add_zero, re_ofNat, im_ofNat, mul_one, mul_im, and_self]
+    281  
+    282  open scoped LSeries.notation in
+    283  /-- For positive `x` and nonzero `y` and a Dirichlet character `χ` we have
+    284  `|L(χ^0, 1 + x)^3 * L(χ, 1 + x + I * y)^4 * L(χ^2, 1 + x + 2 * I * y)| ≥ 1`. -/
+    285  lemma norm_LSeries_product_ge_one {x : ℝ} (hx : 0 < x) (y : ℝ) :
+    286      ‖L ↗(1 : DirichletCharacter ℂ N) (1 + x) ^ 3 * L ↗χ (1 + x + I * y) ^ 4 *
+    287        L ↗(χ ^ 2 :) (1 + x + 2 * I * y)‖ ≥ 1 := by
+    288    have ⟨h₀, h₁, h₂⟩ := one_lt_re_one_add hx y
+    289    have H₀ := summable_neg_log_one_sub_mul_prime_cpow (N := N) 1 h₀
+    290    have H₁ := summable_neg_log_one_sub_mul_prime_cpow χ h₁
+    291    have H₂ := summable_neg_log_one_sub_mul_prime_cpow (χ ^ 2) h₂
+    292    have hsum₀ := (hasSum_re H₀.hasSum).summable.mul_left 3
+    293    have hsum₁ := (hasSum_re H₁.hasSum).summable.mul_left 4
+    294    have hsum₂ := (hasSum_re H₂.hasSum).summable
+    295    rw [← LSeries_eulerProduct_exp_log _ h₀, ← LSeries_eulerProduct_exp_log χ h₁,
+    296      ← LSeries_eulerProduct_exp_log _ h₂]
+    297    simp only [← exp_nat_mul, Nat.cast_ofNat, ← exp_add, norm_exp, add_re, mul_re,
+    298      re_ofNat, im_ofNat, zero_mul, sub_zero, Real.one_le_exp_iff]
+    299    rw [re_tsum H₀, re_tsum H₁, re_tsum H₂, ← tsum_mul_left, ← tsum_mul_left,
+    300      ← hsum₀.tsum_add hsum₁, ← (hsum₀.add hsum₁).tsum_add hsum₂]
+    301    simpa only [neg_add_rev, neg_re, mul_neg, χ.pow_apply' two_ne_zero, ge_iff_le, add_re, one_re,
+    302      ofReal_re, ofReal_add, ofReal_one] using
+    303        tsum_nonneg fun (p : Nat.Primes) ↦ χ.re_log_comb_nonneg p.prop.two_le h₀ y
+    304  
+    305  variable [NeZero N]
+    306  
+    307  /-- A variant of `DirichletCharacter.norm_LSeries_product_ge_one` in terms of the L-functions. -/
+    308  lemma norm_LFunction_product_ge_one {x : ℝ} (hx : 0 < x) (y : ℝ) :
+    309      ‖LFunctionTrivChar N (1 + x) ^ 3 * LFunction χ (1 + x + I * y) ^ 4 *
+    310        LFunction (χ ^ 2) (1 + x + 2 * I * y)‖ ≥ 1 := by
+    311    have ⟨h₀, h₁, h₂⟩ := one_lt_re_one_add hx y
+    312    rw [LFunctionTrivChar, DirichletCharacter.LFunction_eq_LSeries 1 h₀,
+    313      χ.LFunction_eq_LSeries h₁, (χ ^ 2).LFunction_eq_LSeries h₂]
+    314    exact norm_LSeries_product_ge_one χ hx y
+    315  
+
+## (iii)
+---- mathlib e960b841:Mathlib/NumberTheory/LSeries/Nonvanishing.lean :380-:420 (commit e960b841, blob 73fe1bde, 420 lines)
+    380    exact isLittleO_irrefl (.of_forall (fun _ ↦ one_ne_zero)) <|
+    381      H.of_norm_right.trans_isLittleO <| isLittleO_id_one.mono nhdsWithin_le_nhds
+    382  
+    383  /-- If `χ` is a Dirichlet character, then `L(χ, s)` does not vanish when `s.re = 1`
+    384  except when `χ` is trivial and `s = 1` (then `L(χ, s)` has a simple pole at `s = 1`). -/
+    385  theorem LFunction_ne_zero_of_re_eq_one {s : ℂ} (hs : s.re = 1) (hχs : χ ≠ 1 ∨ s ≠ 1) :
+    386      LFunction χ s ≠ 0 := by
+    387    by_cases h : χ ^ 2 = 1 ∧ s = 1
+    388    · exact h.2 ▸ LFunction_apply_one_ne_zero_of_quadratic h.1 <| hχs.neg_resolve_right h.2
+    389    · have hs' : s = 1 + I * s.im := by
+    390        conv_lhs => rw [← re_add_im s, hs, ofReal_one, mul_comm]
+    391      rw [not_and_or, ← ne_eq, ← ne_eq, hs', add_ne_left] at h
+    392      replace h : χ ^ 2 ≠ 1 ∨ s.im ≠ 0 :=
+    393        h.imp_right (fun H ↦ by exact_mod_cast right_ne_zero_of_mul H)
+    394      exact hs'.symm ▸ χ.LFunction_ne_zero_of_not_quadratic_or_ne_one h
+    395  
+    396  /-- If `χ` is a Dirichlet character, then `L(χ, s)` does not vanish for `s.re ≥ 1`
+    397  except when `χ` is trivial and `s = 1` (then `L(χ, s)` has a simple pole at `s = 1`). -/
+    398  theorem LFunction_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hχs : χ ≠ 1 ∨ s ≠ 1) (hs : 1 ≤ s.re) :
+    399      LFunction χ s ≠ 0 :=
+    400    hs.eq_or_lt.casesOn (fun hs ↦ LFunction_ne_zero_of_re_eq_one χ hs.symm hχs)
+    401      fun hs ↦ LFunction_eq_LSeries χ hs ▸ LSeries_ne_zero_of_one_lt_re χ hs
+    402  
+    403  -- Interesting special case:
+    404  variable {χ} in
+    405  /-- The L-function of a nontrivial Dirichlet character does not vanish at `s = 1`. -/
+    406  theorem LFunction_apply_one_ne_zero (hχ : χ ≠ 1) : LFunction χ 1 ≠ 0 :=
+    407    LFunction_ne_zero_of_one_le_re χ (.inl hχ) <| one_re ▸ le_rfl
+    408  
+    409  /-- The Riemann Zeta Function does not vanish on the closed half-plane `re s ≥ 1`.
+    410  (Note that the value at `s = 1` is a junk value, which happens to be nonzero.) -/
+    411  lemma _root_.riemannZeta_ne_zero_of_one_le_re ⦃s : ℂ⦄ (hs : 1 ≤ s.re) :
+    412      riemannZeta s ≠ 0 := by
+    413    rcases eq_or_ne s 1 with rfl | hs₀
+    414    · exact riemannZeta_one_ne_zero
+    415    · exact LFunction_modOne_eq (χ := 1) ▸ LFunction_ne_zero_of_one_le_re _ (.inr hs₀) hs
+    416  
+    417  end nonvanishing
+    418  
+    419  end DirichletCharacter
+    420  
+
+## (iii)
+---- mathlib e960b841:Mathlib/NumberTheory/LSeries/Dirichlet.lean :322-:330 (commit e960b841, blob adc4d5b6, 445 lines)
+    322  lemma LSeries_one_ne_zero_of_one_lt_re {s : ℂ} (hs : 1 < s.re) : L 1 s ≠ 0 :=
+    323    LSeries_zeta_eq ▸ LSeries_zeta_ne_zero_of_one_lt_re hs
+    324  
+    325  /-- The Riemann Zeta Function does not vanish on the half-plane `re s > 1`. -/
+    326  lemma riemannZeta_ne_zero_of_one_lt_re {s : ℂ} (hs : 1 < s.re) : riemannZeta s ≠ 0 :=
+    327    LSeries_one_eq_riemannZeta hs ▸ LSeries_one_ne_zero_of_one_lt_re hs
+    328  
+    329  section ComplexOrderLemmas
+    330  
+
+## (i) git grep -n -E "MechanismClass|seven_classes|PerClass|ClassExcludes" at v1.5 in SIDE-kernel: 31 rows
+  v1.5:Bridge/CartanBBridge.lean:209:The bridge is type-level. The kernel's `MechanismClass.output_stage`
+  v1.5:Bridge/CrossClassExclusion.lean:52:def coupling_strength (_c1 _c2 : MechanismClass) : ℝ :=
+  v1.5:Bridge/CrossClassExclusion.lean:55:theorem coupling_strength_zero (c1 c2 : MechanismClass) :
+  v1.5:Bridge/CrossClassExclusion.lean:64:def cross_class_produces_offline (c1 c2 : MechanismClass) : Prop :=
+  v1.5:Bridge/CrossClassExclusion.lean:72:theorem cross_class_exclusion (c1 c2 : MechanismClass) :
+  v1.5:Bridge/CrossClassExclusion.lean:81:    ∀ c1 c2 : MechanismClass, ¬ cross_class_produces_offline c1 c2 :=
+  v1.5:Bridge/SIDEBridge.lean:21:def C1 : MechanismClass ℂ OffLineOrNonSimple :=
+  v1.5:Bridge/SIDEBridge.lean:26:def C2 : MechanismClass ℂ OffLineOrNonSimple :=
+  v1.5:Bridge/SIDEBridge.lean:31:def C_simple : MechanismClass ℂ OffLineOrNonSimple :=
+  v1.5:Bridge/SIDEBridge.lean:35:def voice_classes : List (MechanismClass ℂ OffLineOrNonSimple) := [C1, C2, C_simple]
+  v1.5:Bridge/TheBridgeComplete.lean:20:inductive MechanismClass where
+  v1.5:Bridge/TheBridgeComplete.lean:25:theorem seven_classes : Fintype.card MechanismClass = 7 := by decide
+  v1.5:Bridge/TheBridgeComplete.lean:157:noncomputable def produces_offline : MechanismClass -> Prop
+  v1.5:Bridge/TheBridgeComplete.lean:199:    forall c : MechanismClass, ¬(produces_offline c) := by
+  v1.5:Bridge/TheBridgeComplete.lean:216:  (Fintype.card MechanismClass = 7) ∧
+  v1.5:Bridge/TheBridgeComplete.lean:217:  (forall c : MechanismClass, ¬(produces_offline c)) ∧
+  v1.5:Bridge/TheBridgeComplete.lean:224:The terminal is the conjunction `⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩`,
+  v1.5:Bridge/TheBridgeComplete.lean:227:* **Catalogue completeness** `Fintype.card MechanismClass = 7` — `decide` over the
+  v1.5:Bridge/TheBridgeComplete.lean:251:  ⟨seven_classes, none_produce, ostrowski_exhaustive_prime⟩
+  v1.5:Bridge/TheBridgeComplete.lean:257:def transformation_class : TransformationStage → MechanismClass
+  v1.5:Kernel/Formation.lean:12:    forces property P. (Contrast with MechanismClass which says what
+  v1.5:Kernel/Layer1.lean:4:structure MechanismClass (X : Type u) (P : X -> Prop) where
+  v1.5:Kernel/Layer1.lean:22:  classes : List (MechanismClass X P)
+  v1.5:Kernel/Layer1.lean:24:    Exists (fun C : MechanismClass X P => And (List.Mem C classes) (C.produces x))
+  v1.5:Kernel/Layer1.lean:27:    (classes : List (MechanismClass X P)) (x : X) : Prop :=
+  v1.5:Kernel/Layer1.lean:28:  forall C : MechanismClass X P, List.Mem C classes -> Not (C.produces x)
+  v1.5:MetaKernel.lean:60:inductive RH_MechanismClass where
+  v1.5:MetaKernel.lean:77:theorem rh_classes_complete : ∀ c : RH_MechanismClass,
+  v1.5:MetaKernel.lean:94:-- Bridge/SIDEBridge.lean. RH_MechanismClass + its Fintype instance below certify the
+  v1.5:MetaKernel.lean:155:instance : Fintype DomainOstrowski.RH_MechanismClass := {
+  v1.5:MetaKernel.lean:471:    RH_MechanismClass: 7 classes, none produces off-line zeros
+
+## (ii) git grep -n -E "def cQ|def rQ|vonMangoldt|ArithmeticFunction\.Λ" at v0.38 in SIDE-explicit-formula: 33 rows
+  v0.38:AxiomCheckChiAct5.lean:28:#print axioms DirichletCharacter.LSeries_twist_vonMangoldt_eq
+  v0.38:AxiomCheckChiAct5.lean:29:#print axioms DirichletCharacter.LSeriesSummable_twist_vonMangoldt
+  v0.38:SIDEExplicitFormula/B321Identity.lean:9:`EF.gammaBracket`, `vonMangoldt`); the prime channel is written in b321's EVEN form
+  v0.38:SIDEExplicitFormula/B321Identity.lean:34:  ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) * (2 * k (Real.log n))
+  v0.38:SIDEExplicitFormula/B321Identity.lean:48:  have hp : (fun n : ℕ => ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+  v0.38:SIDEExplicitFormula/B321Identity.lean:50:      = fun n : ℕ => ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+  v0.38:SIDEExplicitFormula/Chi/FullLine.lean:47:    summable_norm_iff.mpr (LSeriesSummable_twist_vonMangoldt χ (s := (c : ℂ)) (by simpa using hc1))
+  v0.38:SIDEExplicitFormula/Chi/VerticalLine.lean:56:/-- On `1 < Re s`: `−L'/L(s, χ) = L(χΛ, s)` (Mathlib's `LSeries_twist_vonMangoldt_eq`, with `LFunction χ = L ↗χ` on the open
+  v0.38:SIDEExplicitFormula/Chi/VerticalLine.lean:64:  rw [LSeries_twist_vonMangoldt_eq χ hs, logDeriv_apply, hev.deriv_eq, hev.eq_of_nhds]
+  v0.38:SIDEExplicitFormula/Chi/VerticalLine.lean:179:    have hs : LSeriesSummable (↗χ * ↗Λ) (c : ℂ) := LSeriesSummable_twist_vonMangoldt χ (by simpa using hc1)
+  v0.38:SIDEExplicitFormula/GRHWeil.lean:62:  ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ) *
+  v0.38:SIDEExplicitFormula/Schema/EpsteinZQ.lean:59:def rQ (k : ℕ) : ℕ :=
+  v0.38:SIDEExplicitFormula/Schema/FamilyPremises.lean:88:  have hvan : ∀ n : ℕ, (ArithmeticFunction.vonMangoldt n = 0) ∨ (k (Real.log n) = 0 ∧ k (-Real.log n) = 0) := by
+  v0.38:SIDEExplicitFormula/Schema/FamilyPremises.lean:243:      ((ArithmeticFunction.vonMangoldt 2 / Real.sqrt 2 : ℝ) : ℂ) * ψ 2 := by
+  v0.38:SIDEExplicitFormula/Schema/FamilyPremises.lean:259:  have hΛ : ArithmeticFunction.vonMangoldt 2 = Real.log 2 := ArithmeticFunction.vonMangoldt_apply_prime Nat.prime_two
+  v0.38:SIDEExplicitFormula/Schema/FamilyPremises.lean:262:  have hc : ((ArithmeticFunction.vonMangoldt 2 / Real.sqrt 2 : ℝ) : ℂ) ≠ 0 := by
+  v0.38:SIDEExplicitFormula/Schema/FamilyPremises.lean:264:  have : ((ArithmeticFunction.vonMangoldt 2 / Real.sqrt 2 : ℝ) : ℂ) * ψ 2 = 0 := by linear_combination this
+  v0.38:SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean:63:def cQ (n : ℕ) : ℝ :=
+  v0.38:Zeta23/ExplicitFormula.lean:88:  - ∑' n : ℕ, ((ArithmeticFunction.vonMangoldt n / Real.sqrt n : ℝ) : ℂ)
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2787:open ArithmeticFunction (vonMangoldt)
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2788:local notation (name := zb_Lambda) "Λ" => vonMangoldt
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2808:  rw [← (ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div s₁_re_geq_one)]
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2812:    exact ArithmeticFunction.LSeriesSummable_vonMangoldt σ₀_gt_one
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2821:    exact ArithmeticFunction.LSeriesSummable_vonMangoldt s₁_re_geq_one
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2823:  rw [← norm_neg, ← neg_div, ← ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div s₀_gt_one]
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2832:      exact_mod_cast ArithmeticFunction.vonMangoldt_nonneg
+  v0.38:Zeta23/FromPNTPlus/ZetaBounds.lean:2837:    exact_mod_cast ArithmeticFunction.vonMangoldt_nonneg
+  v0.38:Zeta23/Hypotheses.lean:96:(Mathlib's Chebyshev.psi indexing); Λ = ArithmeticFunction.vonMangoldt; the n = 1 terms vanish
+  v0.38:Zeta23/WeilEF/FullLine.lean:112:    have h := ArithmeticFunction.LSeriesSummable_vonMangoldt (s := (c : ℂ)) (by simpa using hc1)
+  v0.38:Zeta23/WeilEF/FullLine.lean:119:    have h2 := ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hre1
+  v0.38:Zeta23/WeilEF/VerticalLine.lean:108:    have h2 := ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hre
+  v0.38:Zeta23/WeilEF/VerticalLine.lean:195:      abs_of_nonneg ArithmeticFunction.vonMangoldt_nonneg, Real.rpow_neg (Nat.cast_nonneg n),
+  v0.38:Zeta23/WeilEF/VerticalLine.lean:225:      ArithmeticFunction.LSeriesSummable_vonMangoldt (by simpa using hc1)
+
+## THE GRADES
+  ### THE SEAT`S GRADES, FROM EACH STATEMENT AS PRINTED ABOVE; the grade words are (R362)(5)`s: DERIVES ; INTERFACES ; ENCODES-CONCLUSION/SHELL. A definition is described, not graded. Each row names the lines it reads.
+  
+  ## (i) SIDE-kernel v1.5 (0e5233f0): WHAT A CLASS IS
+    MechanismClass, Bridge/TheBridgeComplete.lean :20-:23 -- a DEFINITION: an inductive of seven constructors carrying no data (no argument, no field); DecidableEq, Fintype.
+    seven_classes :25 -- DERIVES what it states, Fintype.card MechanismClass = 7, by decide: a COUNT of constructors.
+    produces_offline :157-:165 -- a DEFINITION by cases on the class; each case a Prop about a real sigma alone (C1-C5 an equation in sigma with sigma != 1/2; C6 zero_codimension sigma = 1; C7 hadamard_contrib sigma != hadamard_contrib (1/2)). No case takes a function, an L-series, zeta or a zero as argument.
+    c1_exclusion .. c6_exclusion :167-:192 -- DERIVES what each states (real algebra about sigma, C6 through cr_forces_half). c7_exclusion :194-:196 -- ENCODES-CONCLUSION/SHELL: hadamard_contrib := 0 (:138), so voice7_sigma_neutral (:144-:145) is rfl, as the docstring :113-:118 says.
+    none_produce :198-:207 -- DERIVES, the case split of the seven; its strength is the weakest of its cases (C7`s, SHELL).
+    StructuralExhaustiveness :215-:221 and structural_exhaustiveness_proved :249-:251 -- DERIVES the literal conjunction (card = 7 ; the seven sigma-predicates false ; Ostrowski over Q); as a statement about the zeros of zeta, ENCODES-CONCLUSION/SHELL: no conjunct names a zero; v1.8`s docstring (the diff v1.5..v1.8, docstrings only) says it does not state exhaustiveness.
+    transformation_class :257-:260 -- a DEFINITION: three stages to three classes.
+    Kernel/Layer1.lean :4-:6, structure MechanismClass (X) (P) -- a DEFINITION: a name and produces : X -> Prop, a predicate on POINTS of X. ExhaustiveCatalogue :21-:24; NoneProduces :26-:28; SIDE_exclusion :30-:38 DERIVES (pure logic: a covering catalogue none of whose classes produces x gives not P x).
+    Bridge/SIDEBridge.lean :21-:35, its one instance, X = C (a point s): C1 and C2 both produce := s.re != 1/2 (:23, :28), C_simple := s.re = 1/2 and deriv = 0 (:33); xi_catalogue :37-:49 -- ENCODES-CONCLUSION/SHELL: its covering holds because C1`s predicate IS the off-line disjunct of OffLineOrNonSimple (:15-:17).
+    MetaKernel.lean :60-:68 RH_MechanismClass -- a DEFINITION, seven constructors; rh_classes_complete :77-:88 DERIVES the enumeration; the Fintype instance :155-:159 certifies the catalogue, and :94-:95 say so ("certify the catalogue (exactly seven classes), not the exclusion").
+    Bridge/CrossClassExclusion.lean :52-:53 coupling_strength _c1 _c2 -- a DEFINITION ignoring both arguments (a constant, 0 + 0); cross_class_exclusion :72-:77 and all_pairs_excluded :80-:82 DERIVE from none_produce and that constant: ENCODES-CONCLUSION/SHELL as a statement about couplings.
+    THE SIBLING, W-ORD-PREMISE-PERCLASSEXCLUDES (OPEN_TRAILS :13445): SIDE-lv-conservation 2f71068 T3_StepNineBridge.lean :44 Coupling := (R -> C) -> Prop, :52-:53 PerClassExcludes C s := exists Phi, C Phi and mellin Phi (s/2) != 0 -- a DEFINITION whose class IS a predicate on FUNCTIONS (Mellin integrands); T3_perClass_to_combinations :92-:108 is pinned by one sorry (:108), the forall-exists to exists-forall swap of FINDINGS F.2026-07-09-b. It is not linked to the seven constructors: no declaration printed above maps a Coupling to a MechanismClass.
+    THE ANSWER TO (5)(i): SIDE-kernel v1.5 gives a class AN ENUMERATION WITH A COUNT (TheBridgeComplete :20-:25; MetaKernel :60-:88), with per-class predicates on a real sigma (:157-:165); its general structure (Layer1 :4-:6) gives a predicate on points, instanced only at points s of C (SIDEBridge :21-:33). NO CLASS OF THE SEVEN IS GIVEN A PREDICATE ON FUNCTIONS. A predicate on functions is found, in what this bank read, only at SIDE-lv-conservation`s Coupling (2f71068 :44), outside the seven; the federation was not searched for others.
+    THE CENSUS (FINDINGS :4885-:4922, read at HEAD), CLASS BY CLASS AT THE v1.5 TREE: C1 c1_closing (Kernel/ThomBridge.lean :39-:41, a value statement on completedRiemannZeta0) and c1_exclusion :167 -- STANDS. C2 conservation_activates_balance (ConservationBridge.lean :34-:38) under ConservationHypothesis (:26-:29) and c2_exclusion :171 -- STANDS; its ch_iff_rh is SIDE-explicit-formula`s (H2Bridge.lean :71, FINDINGS :4756), absent from SIDE-kernel`s history (git log -S, every ref: none). C3 voice3_fe_zeros :45-:48 on completedRiemannZeta0 and c3_exclusion :175 -- STANDS. C4 c4_closing (ThomBridge.lean :43-:44, Mathlib`s riemannZeta_ne_zero_of_one_le_re, a zero-free half-plane) and c4_exclusion :179 -- STANDS. C5 c5_exclusion :183 -- STANDS; Register5_output_HilbertPolya is SIDE-explicit-formula`s (RegisterDepth.lean, FINDINGS :4833), not in this tree. C6 the docstring :239-:242 naming xi-faithfulness MANUSCRIPT-RESIDENT and c6_exclusion :187 -- STANDS. C7 voice7_zero_symmetry :70-:73 (C3`s reflection under C7`s name) and hadamard_contrib := 0 :138 -- STANDS. The census`s reading stands at the tree for all seven; the table is not rebuilt.
+    THE RECORD`S OWN WORD ON EPSTEIN AT C7 (TheBridgeComplete.lean :129-:136, v1.5): "Completed Epstein zeta functions ALSO have Hadamard factorizations and DO have off-line zeros; the product is present in systems that violate RH, so its presence cannot enforce on-line placement" -- unmodeled at the pin; refiled as W-ORD-C7-WITNESS, "a two-point Epstein-vs-ideal countermodel, kin to SieveCeilingWitness/dh_witness".
+  
+  ## (ii) SIDE-explicit-formula v0.38 (14ca5725)
+    rQ, Schema/EpsteinZQ.lean :59-:62 -- a DEFINITION: the lattice count of Q0form m n = k over the box |m| <= 2k, |n| <= k; rQ 0 = 0 (:64-:65, DERIVES). ZQ :69 the LSeries of rQ.
+    cQ, Schema/ZQ/LogDeriv.lean :63-:66 -- a DEFINITION by the recursion 2 cQ(n) = rQ(n) log n - SUM over proper divisors cQ(d) rQ(n/d); cQ_eq :71-:81 and cQ_conv :84-:96 (c conv rQ = log . rQ off 0) DERIVE. :6 states "Z_Q has no Euler product".
+    THE DECLARATION TAKING c TO BE VON MANGOLDT AT zeta: NONE AS A NAMED DECLARATION OF A GENERIC c. The generic schema WeilConfig (Schema/Config.lean :24-:34) carries the arithmetic side as rhs : (R -> C) -> C, with no coefficient field. At zeta, Lambda enters by name: B321.primeSum (B321Identity.lean :33-:34) writes the prime channel with ArithmeticFunction.vonMangoldt, a DEFINITION; integrand_eq_tsum (Zeta23/WeilEF/VerticalLine.lean :100-:111) DERIVES -logDeriv riemannZeta = LSeries Lambda on Re s > 1 through Mathlib`s ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div (:108), as a local have. No declaration of the tree relates cQ to Lambda (the grep above: cQ and vonMangoldt share no file).
+  
+  ## (iii) MATHLIB AT THE KERNEL`S PIN (e960b841, SIDE-kernel lake-manifest :8; SIDE-explicit-formula pins de5ce8a9)
+    ArithmeticFunction.vonMangoldt_nonneg, VonMangoldt.lean :80-:84 -- DERIVES 0 <= Lambda n, for Lambda alone.
+    riemannZeta_ne_zero_of_one_le_re, Nonvanishing.lean :411-:415 -- DERIVES, from LFunction_ne_zero_of_one_le_re (:398-:401) at chi = 1 (LFunction_modOne_eq), and riemannZeta_one_ne_zero at s = 1.
+    THE ROUTE (the file`s outline :28-:40 and the lemmas :220-:314): the 3-4-1 product L(chi^0, 1+x)^3 L(chi, 1+x+iy)^4 L(chi^2, 1+x+2iy) has norm >= 1 (norm_LSeries_product_ge_one :285-:303), through LSeries_eulerProduct_exp_log (:295-:296) and re_log_comb_nonneg (:241-:265), which reads each EULER FACTOR -log(1 - chi(p) p^-s) with |chi(p) p^-iy| = 1 at units (:250-:254) and the Taylor series of -log(1 - a z) (re_log_comb_nonneg` :220-:238).
+    THE ANSWER TO (5)(iii): THE HYPOTHESES ARE FOR DIRICHLET CHARACTERS (chi : DirichletCharacter C N, :216), through their Euler products, with zeta as chi = 1 -- NOT for a Dirichlet series with nonnegative coefficients. vonMangoldt_nonneg is not called in Nonvanishing.lean (git grep of Mathlib/NumberTheory/LSeries at e960b841: Dirichlet.lean :385 and PrimesInAP.lean :136, :139, :206 only; the Euler-product files outside that directory not grepped). The general positivity lemmas for nonnegative coefficients exist (LSeries/Positivity.lean :59 positive, :99 LSeries_positive: an LSeries with a >= 0, a 1 > 0 is positive on the real axis right of its abscissa) and serve the quadratic case at s = 1 (:33-:35), not the 3-4-1 product.
+  
+  ## (iv) PATHS (PLACE-papers phase1.5/proofs/PATHS_TO_THE_CRITICAL_LINE.md, read at HEAD) AND THE TABLE ORDER
+    A9 :389: "Lambda(n) >= 0 (von Mangoldt) => zero-free region near sigma=1 | proven classically | de la Vallee Poussin 1896, via 3+4cos+cos2 >= 0 (3-4-1); ArithmeticFunction.vonMangoldt_nonneg (Mathlib)". READ AGAINST (iii): the classical citation stands; the Mathlib name it gives is the nonnegativity lemma, which Mathlib`s Nonvanishing.lean at e960b841 does not call (that proof runs on unimodular Euler-factor coefficients chi(p), :241-:265). A finding of this bank, to carry, not an edit.
+    B3 :396: "Lambda>=0 yields the edge, never the center" -- a classical boundary, cited; no declaration to grade. C1 :410: positivity -> the sigma = 1 edge, universally, for families whose ledger -L`/L is positive -- cited; no declaration to grade. :402: "EPSTEIN-SIGN takes B3 as its exact statement (Epstein loses Lambda>=0 -> loses even the edge)".
+    W-ORD-MECHANISM-TABLE (OPEN_TRAILS :16589): its object a table of the mechanisms by which a function with some of {Euler product, functional equation, Ramanujan size, additive structure} has off-line zeros, the Epstein zetas and Davenport-Heilbronn "under class-group averaging"; built at b726 (data/b726_mechanisms.txt, three rows) and left open for a fourth row (:28, :42).
+  
+  ## THE AMENDMENT`S SOURCES (row 1), READ WHOLE
+    data/b726_mechanisms.txt (42 lines): ROW 1 :7-:12 CLASS-GROUP AVERAGING -- "Z_Q averages over the class group, and its zeros are where the averaged terms cancel" (:10); h = 2 by the closed form log(Z_Q/2) = log zeta_K - S + log cosh S (b723, NOT COMPILED, checked POST HOC 19 of 19); h = 3 "at a zero of Z_Q0, zeta_K = Z_Q1 = -2 L(s, psi)" (b725 :31), H-INTERFERENCE HELD 69 of 69; INSTANCE the 69 certified off-line zeros of Z_Q0 to height 445 (:11) and dh_witness. INGREDIENTS kept: functional equation, Ramanujan size, additive structure; dropped: the Euler product (:9). ROW 2 size, ROW 3 Beurling (no instance with a functional equation, :25, :39-:42). Asserts nothing about zeta (:4).
+    data/b723_c2_closed_form.txt (70 lines): h(D) = 2; the four steps :23-:33 (genus character psi; L(psi)/zeta_K = e^(-2S) over the NON-PRINCIPAL primes, :26-:30); consequences :35-:60 -- (a) b(n) = 0 at every n with two distinct primes one principal; (b) no negative at Omega(n) <= 3; (c) Omega(n) = 4 the first place a negative can sit (-S^4/12); (d) a non-principal ramified prime at every such field. A derivation, NOT COMPILED, NOT NEW (genus theory, :3-:4); checked POST HOC (:62-:68).
+    data/b732_beurling_read.txt (28 lines): no Beurling system with a functional equation and a zero off its centre line found in the sources read (:26); a search is not a survey (:5).
+    dh_witness, SIDE-kernel v1.8 (70aba3cd) Kernel/Cascade/SieveCeilingWitness.lean :94-:95 (unchanged since v1.5: git diff --stat v1.5 v1.8 -- Kernel/Cascade/ lists four other files and not this one), with the definitions its statement names: Config :49-:52 (two constructors, ideal and dh), darkObs :62-:64 (true at both), iIndist :71, allOnLine :87-:89 (True at ideal, FALSE at dh, by definition), NonInvarianceWitness (SieveCeilingSemantic.lean :59-:60). GRADE: ENCODES-CONCLUSION/SHELL -- the off-line zeros of Davenport-Heilbronn are the definitional datum allOnLine .dh = False, "cited, not reproved" (:84-:86), and the indistinguishability is darkObs constant by stipulation (:54-:61); the witness is then rfl, trivial and id (:95). dh_sieve_ceiling :100-:102 DERIVES from it through sieve_ceiling_of_witness.
+  
+  ## THE SIGNATURE BANK READ BESIDE b723 (data/b752_cq_signature.txt, committed 8c0b6206; this bank counts its cells, it computes no cQ)
+  cells read: 501 (negative 102, positive 399); the bank`s own count of n with cQ(n) != 0 is 501
+  negative n carrying a prime of type P, I or R: 0 of 102 -- every negative n is a product of type-N primes alone (b723 (c)`s "no listed negative carrying a principal prime", read at h = 3 over n <= 3000)
+  n with cQ(n) != 0 carrying both a type-N prime and a prime of type P, I or R: 0 -- every nonzero cQ(n) sits on an n whose primes are all N or none N (the shape of b723 (a) at h = 3, over n <= 3000)
+  the bank`s (o1): no negative at Omega_N <= 3; the first negatives at Omega_N = 4 (b723 (b)-(c)`s shape at h = 3). The table`s TRUE (102 of 102) is carried in every case by 2 or 3 ((o4): the pair (0, 0) holds no negative), so it reads no finer than "every negative n is divisible by 2 or 3"; the all-N count above is the finer reading.
+  POST HOC: these readings were made after the bank was printed, knowing b723; nothing here is claimed beyond n <= 3000; no closed form for h = 3 is written or compiled.
+
+### ### **THE STATEMENTS: (i) A CLASS OF SIDE-kernel v1.5 IS AN ENUMERATED CONSTRUCTOR WITH A COUNT (7) AND A PREDICATE ON A REAL sigma; NONE OF THE SEVEN HAS A PREDICATE ON FUNCTIONS (the one such predicate found in what was read: SIDE-lv-conservation`s Coupling, outside the seven) ; THE CENSUS STANDS AT THE TREE FOR ALL SEVEN ; (ii) NO GENERIC c IS INSTANCED AS LAMBDA, LAMBDA ENTERS AT zeta BY NAME, NO DECLARATION RELATES cQ TO LAMBDA ; (iii) MATHLIB`S 3-4-1 ROUTE IS FOR DIRICHLET CHARACTERS THROUGH EULER PRODUCTS, NOT FOR NONNEGATIVE COEFFICIENTS, AND Nonvanishing.lean DOES NOT CALL vonMangoldt_nonneg ; (iv) PATHS A9`s MATHLIB NAME IS NOT THAT ROUTE`S LEMMA (carried) ; dh_witness SHELL ; 2.0 s.**
