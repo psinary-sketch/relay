@@ -305,13 +305,13 @@ B714_RECORD = 'd0d963dd'     # ### b751's record commit (relay)
 B714_ROOT = '4dcfc17a6883a7b6f65596b7f640ef78520d5842f8798c21430a2189fc10104a'   # ### b751's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'fbe4cc81'  # ### b751's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None                 # ### tools/standing/ v1.32.0 by a commit of its own, its controls bank data/b752_standing_v1320.txt ((R362)(7)); set after it is made
+C1_STANDING = '7b20ff6b'           # ### tools/standing/ v1.32.0 by a commit of its own, its controls bank data/b752_standing_v1320.txt ((R362)(7)), 47 of 47 (step 4, 22:37:18Z)
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none yet
 C1_RELAY = None                    # ### the c1 route, the corrigendum banks, the corrigenda row; set after it is made
 C1_CORR = C1_RELAY
 C1_RULES = C1_STANDING             # ### data/b752_rules.txt committed with v1.32.0
-C1_PP = None                       # ### PLACE-papers: FINDINGS -- b751 at its weight, the navigator's correction and the corrigendum for b751; set after it is made
+C1_PP = '0732cb56'                 # ### PLACE-papers: FINDINGS -- b751 at its weight (:14785) and the corrigendum for b751 (:14787) (step 5, 22:41:53Z)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act

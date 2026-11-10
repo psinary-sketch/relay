@@ -165,11 +165,13 @@ C1_FLIP = {}      # ### (R362)(7) flips no tag: each item read as its bank tags 
 C1_CARRIED = [("the refusal of 21:20:10Z", "THE SEAT'S", 'CLOSE', 'REPEAT b749 (h)',
                'the closing commit sent with its words beginning "b751 closing:", refused by commit.py ("THE WORDS REPEAT THE HEAD"), nothing committed and no row written; re-sent with the words alone, relay 2c422414; unbanked by the closing`s rule, entered here as an event'),
               ("(R362)(2)", "THE NAVIGATOR'S", 'CLAIM', 'NEW',
-               'on 2026-11-10 the navigator put to the author as new four things the corpus already holds (A9 with B3 and C1; W-ORD-MECHANISM-TABLE`s row; Which_Structure_Confines v2.3.1 :40, :117, :176; W-ORD-PLATT-RUNG), reasoning from recall and not from the export')]
+               'on 2026-11-10 the navigator put to the author as new four things the corpus already holds (A9 with B3 and C1; W-ORD-MECHANISM-TABLE`s row; Which_Structure_Confines v2.3.1 :40, :117, :176; W-ORD-PLATT-RUNG), reasoning from recall and not from the export'),
+              ("the amendment of 22:20:58Z", "THE NAVIGATOR'S", 'CLAIM', 'NEW',
+               'the order W-ORD-MECHANISM-ATTRIBUTION was proposed at b746, and (R362)(5)-(6) were written, with neither the FINDINGS inheritance census (the b751 mirror`s :4885, its table of the seven classes :4908-:4918) nor relay data/b726_mechanisms.txt read; lettered on the author`s amendment to (R362) (data/b752_amendments.json, row 1)')]
 C1_CORR_TITLE = ('## Corrigendum to b751’s record (relay data/b751_events.txt rows (1)-(5) and data/b751_defects.txt (a)-(v)): five events and twenty-two defects, each CLAIM or CLOSE and NEW or '
-                 'REPEAT, the navigator’s six among them, with the unbanked refusal of 21:20:10Z and the navigator’s correction of `(R362)`(2); the rulings from recall, the refused call counted apart, '
-                 'the arm on the prior act’s banks, the append keyed on time and words, the order that is no order, the carry, the flag read as an act, the limit row, the instances, '
-                 'the session change, at tools/standing/ v1.32.0, each controlled, under (R362)(7)')
+                 'REPEAT, the navigator’s six among them, with the unbanked refusal of 21:20:10Z, the navigator’s correction of `(R362)`(2) and the navigator’s defect of the author’s amendment; '
+                 'every path at HEAD, the refused call counted apart, the arm on the prior act’s banks, the append keyed by place, the order that is no order, the carry, the flag read as an act, '
+                 'the limit row, the declaration reader, the instances, the session change, at tools/standing/ v1.32.0, each controlled, under (R362)(7)')
 
 
 def _c1_q(s):
@@ -252,18 +254,18 @@ def _c1_col(c):
 # ### the repairs each item is met by at v1.32.0 (the controls bank data/b752_standing_v1320.txt, the rules data/b752_rules.txt)
 C1_EV_EXTRA = {1: '; repair (refused), `(R362)`(7)(ii): the arm reads the calls that ran, a refused call counted apart and printed',
                2: '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusal printed (data/b751_hook_refusals.txt :19)',
-               3: '; repair (currents), `(R362)`(7)(iii): the arm run alone on b750’s banks, its cause printed, a detail line given',
-               4: '; repair (append), `(R362)`(7)(iv): a line standing when its time and its words both match, the lines added printed',
+               3: '; repair (currents), `(R362)`(7)(iii): the cause the list computed at import before the `--prev` rebind, recomputed from both acts’ writes, a detail line given',
+               4: '; repair (append), `(R362)`(7)(iv): the words keyed by their place, a new heading’s block appended whole, the lines added printed',
                5: '; repair (instances), `(R362)`(7)(ix): the transient remote read and the host’s refusal printed'}
 C1_DF_EXTRA = {'a': '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed', 'b': '; repair (carry), `(R362)`(7)(vi), REPEAT',
                'c': '; no item of `(R362)`(7) names it; a pushed bank restored to its blob at step zero',
-               'd': '; repair (instances), `(R362)`(7)(ix), REPEAT b736 (e): the dotted name printed',
-               'e': '; repair (recall), `(R362)`(7)(i): the navigator’s, lettered as the navigator’s',
+               'd': '; repair (cites), `(R362)`(7)(ix), REPEAT b736 (e): the namespaced dotted name read',
+               'e': '; repair (paths), `(R362)`(7)(i): the navigator’s, lettered as the navigator’s; the four absent paths printed NONE by the check',
                'f': '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed',
                'g': '; repair (limit), `(R362)`(7)(viii): the row reads the command’s own arguments',
-               'h': '; repair (recall), `(R362)`(7)(i): the navigator’s', 'i': '; repair (recall), `(R362)`(7)(i): the navigator’s',
-               'j': '; repair (recall), `(R362)`(7)(i): the navigator’s', 'k': '; repair (recall), `(R362)`(7)(i): the navigator’s',
-               'l': '; repair (recall), `(R362)`(7)(i): the navigator’s',
+               'h': '; `(R362)`(7)(i), `(R362)`(2): the navigator’s', 'i': '; `(R362)`(7)(i), `(R362)`(2): the navigator’s',
+               'j': '; `(R362)`(7)(i), `(R362)`(2): the navigator’s', 'k': '; `(R362)`(7)(i), `(R362)`(2): the navigator’s',
+               'l': '; `(R362)`(7)(i), `(R362)`(2): the navigator’s',
                'm': '; no item of `(R362)`(7) names it; the dry`s counts alone, carried', 'n': '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed',
                'o': '; no item of `(R362)`(7) names it; two arms of the rewrite read and repaired before the gate',
                'p': '; repair (limit), `(R362)`(7)(viii), REPEAT: the row reads the command’s own arguments',
@@ -274,21 +276,24 @@ C1_DF_EXTRA = {'a': '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusals
                'u': '; repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed',
                'v': '; repair (instances), `(R362)`(7)(ix): the transient remote reads and the refusal printed'}
 C1_REFUSED_LATE = None
-C1_NOTES = ('Dated note, b752, to `(R362)`(7)(v): the open-orders line has carried `W-ORD-1` since b748’s trail (OPEN_TRAILS :18002, :18048, :18096, :18144), the count 73 of 208 '
-            'where b747 read 72 of 207; the token is the row-ID halt’s text of b746, read by tools/standing/orders.py as an order; no line of a landed trail is rewritten, the correction by this act’s trail.',
+C1_NOTES = ('Dated note, b752, to `(R362)`(7)(v): the open-orders line has carried `W-ORD-1` since b748’s trail (OPEN_TRAILS :17978, :18002, :18048, :18096, :18144), the count 73 of 208 '
+            'where b747 read 72 of 207; the token is the row-ID halt’s text of b746, read by tools/standing/orders.py as an order; no line of a landed trail is rewritten, the correction by this act’s trail. '
+            'The repair is the seat’s narrower reading, put to the author: a token of a row ID’s form (W-ORD-<digits>) is no order, 207 orders and 72 open after. The ruling’s words, '
+            '“from its entry form alone”, read literally leave 85 orders and remove 37 open, W-ORD-MECHANISM-ATTRIBUTION among them; a reading by the code form removes 24 open; neither was taken.',
             'Dated note, b752, to `(R362)`(7)(x): the session change of b751 (16:47:23Z, session 43048615) entered as the standing rule working: the face’s sentence, the listing of one claude process, '
             'the continuation read by K.SESSIONS_AFTER.')
 C1_CLASSES = (
-    ('recall', 'the navigator’s rulings from recall (`(R362)`(7)(i), defects (e), (h)-(l), REPEAT b750 (f); `(R362)`(2))', 'the citation check prints every path of the ferry with OK or NONE before step zero’s commit. b751’s four absent paths replayed: printed NONE', 1),
-    ('refused', 'the arm that read a refused call (`(R362)`(7)(ii), events (1))', 'G-RULE-REMOTE-REREAD reads the calls that ran, a call the hook refused before it ran counted apart and printed. b751’s call record replayed: FAIL before, PASS after with the refused call printed', 2),
-    ('currents', 'G-CURRENTS-UNEDITED on the prior act’s banks (`(R362)`(7)(iii), events (3))', 'the arm run alone on b750’s banks, its cause printed, and the arm given a detail line', 3),
-    ('append', 'the append keyed on words alone (`(R362)`(7)(iv), events (4))', 'the route treats a line as standing when its time and its words both match, and prints the lines it adds. b751’s two go words replayed: one row before, two after', 4),
-    ('orders', 'the order that is no order (`(R362)`(7)(v), OPEN_TRAILS :18002-:18144)', 'tools/standing/orders.py reads an order from its entry form alone; the line and the count regenerated. The reader replayed over OPEN_TRAILS at HEAD: W-ORD-1 read before, absent after, the count printed', 5),
-    ('carry', 'the carry (`(R362)`(7)(vi), defects (b), (q), REPEAT)', 'the carry prints every row it brings beside the ruling and refuses the ones it does not name, the readfirst needles and the trail head’s ordinal among them', 6),
-    ('flag', 'a flag read as an act (`(R362)`(7)(vii), defect (t))', 'a tool refuses an act name that begins with a hyphen. `wlist.py bank --quiet` replayed: a bank written before, refused after', 7),
-    ('limit', 'the limit row’s false refusals (`(R362)`(7)(viii), defects (g), (p))', 'the row reads the command’s own arguments and not a quoted string or a line count; both instances replayed: refused before, passed after', 8),
-    ('instances', 'the dotted name, the transient reads and the hook’s refusals (`(R362)`(7)(ix), defects (a), (d), (f), (n), (r), (u), (v), events (2), (5), REPEAT)', 'the instances printed, b751’s nineteen refusals each by its line', 9),
-    ('session', 'the session change (`(R362)`(7)(x))', 'entered as the standing rule working: the face’s sentence and the listing', 10),
+    ('paths', 'the rulings from recall (`(R362)`(7)(i), defect (e), REPEAT b750 (f); `(R362)`(2))', 'the citation check prints every path the ruling and the ferry name at HEAD, OK, NONE or the act’s own to be written (its prefix, or its (W) list). b751’s four absent read-first banks replayed: found by the seat’s reading before, printed NONE by the check after; b752’s ferry 37 paths, NONE 0', 1),
+    ('recall', 'the arm that read a refused call (`(R362)`(7)(ii), events (1), defect (v))', 'G-RULE-REMOTE-REREAD reads the calls that ran, a call the hook refused before it ran counted apart and printed. b751’s calls replayed: FAIL (read 5, failing 1) before, PASS (read 4, refused 1 printed) after', 2),
+    ('currents', 'G-CURRENTS-UNEDITED on the prior act’s banks (`(R362)`(7)(iii), events (3))', 'the cause: the list computed at import from the running act’s writes, before `--prev` rebound the worklist; a `--prev` run now excludes both acts’ writes on main, and the arm prints a detail line. b750’s five sitting writes read as edits before, excluded after; the conditional for sitting acts not needed', 3),
+    ('append', 'the append keyed on words alone (`(R362)`(7)(iv), events (4), defect (m))', 'the author’s words keyed by their place (session and line), a new heading’s block appended whole, the lines added printed. b751’s words replayed: 5 by text, 6 by place; the go word one row before, two after; a re-run appends 0', 4),
+    ('orders', 'the order that is no order (`(R362)`(7)(v), OPEN_TRAILS :17978-:18144)', 'tools/standing/orders.py reads a token of a row ID’s form, W-ORD-<digits>, as no order and prints its mentions beside; the seat’s narrower reading, put to the author in the dated note. Replayed over OPEN_TRAILS at HEAD: 208 orders and 73 open before, 207 and 72 after, no other status moved', 5),
+    ('carry', 'the carry (`(R362)`(7)(vi), defects (b), (q), REPEAT)', 'the carry reads every act ordinal the module carries beside each act’s own ferry, and every read-first needle beside the ruling and the act’s own rows, refusing a difference (R7). b751’s module carried under b752’s names: R7 none before, 19 after; b752’s module refused 0', 6),
+    ('flag', 'a flag read as an act (`(R362)`(7)(vii), defect (t))', 'six tools refuse an act name that begins with a hyphen before they read or write. `wlist.py bank --quiet` replayed: taken as the act before, refused after', 7),
+    ('limit', 'the limit row’s false refusals (`(R362)`(7)(viii), defects (g), (p))', 'the row reads a route only in the interpreter’s place, the command split at its separators and its quoting parsed. b751 (p) and b752’s two git greps refused before, let through after; the long routes still refused with no limit', 8),
+    ('cites', 'the declaration reader (`(R362)`(7)(ix), defect (d), REPEAT b736 (e); b752’s step-zero halt)', 'the reader takes protected, inductive, class, axiom and opaque, and a namespaced dotted name joined to its path. b752’s :17 and b751’s :11 failing or unread before, read after; the replay over b736-b752’s ferries moves no passing row', 9),
+    ('instances', 'the transient reads and the hook’s refusals (`(R362)`(7)(ix), defects (a), (f), (n), (r), (u), (v), events (2), (5), REPEAT)', 'the instances printed, b751’s nineteen refusals each by its line and kind', 9),
+    ('session', 'the session change (`(R362)`(7)(x))', 'entered as the standing rule working: the face’s sentence, the worklist’s continuation, the three routes reading it', 10),
     ('version', 'the version (`(R362)`(7)(xi))', 'tools/standing/VERSION v1.32.0, landed by a commit of its own (relay %s) with its controls bank and the record’s dry over it, before the gate' % (K.C1_STANDING or '')[:8], 11),
 )
 
@@ -302,8 +307,9 @@ def _c1_lines(s):
          'own bracket (%s); its defects bank twenty-two lettered rows, (a)-(v), each tagged in its own bracket (%s); its refusal bank nineteen lines at %s, '
          'each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, '
          'where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them. '
-         'The navigator’s six, (e) and (h)-(l), are lettered in the defects bank as the navigator’s; two items are entered beside the banks below.*' % (
-             _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT), '']
+         'The navigator’s six, (e) and (h)-(l), are lettered in the defects bank as the navigator’s; %s items are entered beside the banks below.*' % (
+             _c1_owners([s['tags'][k_][2] for k_ in s['events']]), _c1_owners([x[1] for x in s['defects']]), C1_REFUSAL_AT,
+             {2: 'two', 3: 'three', 4: 'four'}.get(len(C1_CARRIED), str(len(C1_CARRIED)))), '']
     L += ['**The repairs of `(R362)`(7), at tools/standing/ v1.32.0, each with a control on b751’s banks or the trail as it stands, failing on the route before the repair '
           'and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/%s, %s cases, AS WANTED %s; the rules relay data/b752_rules.txt):' % (C1_V170, m.group(1), m.group(2)), '']
     for k_, name, what, rule_ in C1_CLASSES:
@@ -327,7 +333,7 @@ def _c1_lines(s):
         ':%d %s %s, recorded at %s' % (ln, kind, at, row.replace("'", '’')) for ln, kind, at, row in C1_REFUSALS) + '.', '',
           '**Dated notes:**', ''] + [x_ for nt_ in s['notes'] for x_ in (nt_, '')] + [
           '**The counter:** CLAIM %d, CLOSE %d, REPEAT %d of %d over the %d items as the banks tag them (five events, twenty-two defects), as b751’s closing prints it (relay data/b751_closing.txt :5); '
-          'with the two entered beside them CLAIM %d, CLOSE %d, REPEAT %d of %d; no tag is read otherwise here; the CLAIM items of the banks %s.' % (nc, nl_, rep, n, n, rc, rl_, rr_, rn, ', '.join(claims) or 'none'), '',
+          'with the %d entered beside them CLAIM %d, CLOSE %d, REPEAT %d of %d; no tag is read otherwise here; the CLAIM items of the banks %s.' % (nc, nl_, rep, n, n, len(C1_CARRIED), rc, rl_, rr_, rn, ', '.join(claims) or 'none'), '',
           '*Filed at b752 on the author’s ruling `(R362)`(7): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b752.py) from '
           'b751’s events and defects banks read unedited, its refusal bank, the v1.32.0 controls bank and the rules; banked as relay `data/b752_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at '
           'row (%d). It answers b751’s record; no sealed tool, face, trail or root-named bank of b751 is edited.*' % (C1_CORRIGENDA_LAST + 1)]
@@ -341,9 +347,10 @@ def _c1_bank(s, ln):
              '### the banks read unedited: data/b751_events.txt rows (1)-(5), data/b751_defects.txt 22 rows, data/b751_hook_refusals.txt 19 '
              'lines at %s; data/%s (the v1.32.0 controls); data/b752_rules.txt; the corrigenda bank`s last row (%d).' % (C1_REFUSAL_AT, C1_V170, C1_CORRIGENDA_LAST), '']
             + ['  ' + l for l in _c1_lines(s)]
-            + ['', '### ### **ITEMS %d: EVENTS 5, DEFECTS 22 ; CLAIM %d, CLOSE %d ; REPEAT %d ; WITH THE TWO ENTERED %d: CLAIM %d, CLOSE %d ; REPEAT %d ; THE NAVIGATOR`S 7, LETTERED (e), (h)-(l) AND (R362)(2) ; DATED NOTES %d ; '
-               'v1.32.0: THE RULINGS FROM RECALL, THE REFUSED CALL, THE ARM ON THE PRIOR BANKS, THE APPEND, THE ORDER THAT IS NO ORDER, THE CARRY, THE FLAG, THE LIMIT ROW, '
-               'THE INSTANCES, THE SESSION CHANGE, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (n, nc, nl_, rep, rn, rc, rl_, rr_, len(s['notes']), ln)])
+            + ['', '### ### **ITEMS %d: EVENTS 5, DEFECTS 22 ; CLAIM %d, CLOSE %d ; REPEAT %d ; WITH THE %d ENTERED %d: CLAIM %d, CLOSE %d ; REPEAT %d ; THE NAVIGATOR`S %d, LETTERED (e), (h)-(l), (R362)(2) AND THE AMENDMENT`S ; DATED NOTES %d ; '
+               'v1.32.0: EVERY PATH AT HEAD, THE REFUSED CALL, THE ARM ON THE PRIOR BANKS, THE APPEND BY PLACE, THE ORDER THAT IS NO ORDER, THE CARRY, THE FLAG, THE LIMIT ROW, '
+               'THE DECLARATION READER, THE INSTANCES, THE SESSION CHANGE, THE VERSION ; THE ENTRY AT FINDINGS :%s.**' % (
+                   n, nc, nl_, rep, len(C1_CARRIED), rn, rc, rl_, rr_, 6 + sum(1 for x in C1_CARRIED if x[1] == "THE NAVIGATOR'S"), len(s['notes']), ln)])
 
 
 def c1(*a):
@@ -376,7 +383,7 @@ def c1(*a):
                                                    lettered=[x[0] for x in s['defects']], records=[k_ for k_ in sorted(s['events'])],
                                                    notes=s['notes'], repairs=dict(version='v1.32.0', bank='data/' + C1_V170, rules='data/b752_rules.txt'),
                                                    row=C1_CORRIGENDA_LAST + 1))
-        print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; WITH THE TWO ENTERED %d, %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, rc, rl_, rn, rr_, len(s['notes']), ln))
+        print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; WITH THE %d ENTERED %d, %d over %d ; REPEAT %d ; NOTES %d ; FINDINGS :%s' % (nc, nl_, n, rep, len(C1_CARRIED), rc, rl_, rn, rr_, len(s['notes']), ln))
         return
     sys.exit('usage: fold.py record c1 weight | corrigendum  [dry | write]')
 #⟪END⟫

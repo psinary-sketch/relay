@@ -1,0 +1,81 @@
+
+## Corrigendum to b751’s record (relay data/b751_events.txt rows (1)-(5) and data/b751_defects.txt (a)-(v)): five events and twenty-two defects, each CLAIM or CLOSE and NEW or REPEAT, the navigator’s six among them, with the unbanked refusal of 21:20:10Z, the navigator’s correction of `(R362)`(2) and the navigator’s defect of the author’s amendment; every path at HEAD, the refused call counted apart, the arm on the prior act’s banks, the append keyed by place, the order that is no order, the carry, the flag read as an act, the limit row, the declaration reader, the instances, the session change, at tools/standing/ v1.32.0, each controlled, under (R362)(7)
+
+*b751’s events bank (relay data/b751_events.txt) carries five rows, entered after its lock gate and not lettered, each tagged in its own bracket (4 the seat’s, 1 the host’s); its defects bank twenty-two lettered rows, (a)-(v), each tagged in its own bracket (16 the seat’s, 6 the navigator’s); its refusal bank nineteen lines at d921bceb, each recorded by a row. Each item is tagged CLAIM, where it touches a statement, a pin, a grade, a registration, a computed figure, or a sentence a reader of the corpus meets, or CLOSE, where it touches the close’s own record of itself; and NEW or REPEAT with the act and letter of its class. The tags are the banks’ own; this entry edits none of them. The navigator’s six, (e) and (h)-(l), are lettered in the defects bank as the navigator’s; three items are entered beside the banks below.*
+
+**The repairs of `(R362)`(7), at tools/standing/ v1.32.0, each with a control on b751’s banks or the trail as it stands, failing on the route before the repair and passing after, both instances printed; a case with no failing side printed as a guard** (relay data/b752_standing_v1320.txt, 47 cases, AS WANTED 47; the rules relay data/b752_rules.txt):
+
+**(paths) the rulings from recall (`(R362)`(7)(i), defect (e), REPEAT b750 (f); `(R362)`(2))** -- the citation check prints every path the ruling and the ferry name at HEAD, OK, NONE or the act’s own to be written (its prefix, or its (W) list). b751’s four absent read-first banks replayed: found by the seat’s reading before, printed NONE by the check after; b752’s ferry 37 paths, NONE 0 (relay data/b752_standing_v1320.txt :20; data/b752_rules.txt (1), :5).
+
+**(recall) the arm that read a refused call (`(R362)`(7)(ii), events (1), defect (v))** -- G-RULE-REMOTE-REREAD reads the calls that ran, a call the hook refused before it ran counted apart and printed. b751’s calls replayed: FAIL (read 5, failing 1) before, PASS (read 4, refused 1 printed) after (relay data/b752_standing_v1320.txt :33; data/b752_rules.txt (2), :7).
+
+**(currents) G-CURRENTS-UNEDITED on the prior act’s banks (`(R362)`(7)(iii), events (3))** -- the cause: the list computed at import from the running act’s writes, before `--prev` rebound the worklist; a `--prev` run now excludes both acts’ writes on main, and the arm prints a detail line. b750’s five sitting writes read as edits before, excluded after; the conditional for sitting acts not needed (relay data/b752_standing_v1320.txt :43; data/b752_rules.txt (3), :9).
+
+**(append) the append keyed on words alone (`(R362)`(7)(iv), events (4), defect (m))** -- the author’s words keyed by their place (session and line), a new heading’s block appended whole, the lines added printed. b751’s words replayed: 5 by text, 6 by place; the go word one row before, two after; a re-run appends 0 (relay data/b752_standing_v1320.txt :53; data/b752_rules.txt (4), :11).
+
+**(orders) the order that is no order (`(R362)`(7)(v), OPEN_TRAILS :17978-:18144)** -- tools/standing/orders.py reads a token of a row ID’s form, W-ORD-<digits>, as no order and prints its mentions beside; the seat’s narrower reading, put to the author in the dated note. Replayed over OPEN_TRAILS at HEAD: 208 orders and 73 open before, 207 and 72 after, no other status moved (relay data/b752_standing_v1320.txt :70; data/b752_rules.txt (5), :13).
+
+**(carry) the carry (`(R362)`(7)(vi), defects (b), (q), REPEAT)** -- the carry reads every act ordinal the module carries beside each act’s own ferry, and every read-first needle beside the ruling and the act’s own rows, refusing a difference (R7). b751’s module carried under b752’s names: R7 none before, 19 after; b752’s module refused 0 (relay data/b752_standing_v1320.txt :83; data/b752_rules.txt (6), :15).
+
+**(flag) a flag read as an act (`(R362)`(7)(vii), defect (t))** -- six tools refuse an act name that begins with a hyphen before they read or write. `wlist.py bank --quiet` replayed: taken as the act before, refused after (relay data/b752_standing_v1320.txt :93; data/b752_rules.txt (7), :17).
+
+**(limit) the limit row’s false refusals (`(R362)`(7)(viii), defects (g), (p))** -- the row reads a route only in the interpreter’s place, the command split at its separators and its quoting parsed. b751 (p) and b752’s two git greps refused before, let through after; the long routes still refused with no limit (relay data/b752_standing_v1320.txt :106; data/b752_rules.txt (8), :19).
+
+**(cites) the declaration reader (`(R362)`(7)(ix), defect (d), REPEAT b736 (e); b752’s step-zero halt)** -- the reader takes protected, inductive, class, axiom and opaque, and a namespaced dotted name joined to its path. b752’s :17 and b751’s :11 failing or unread before, read after; the replay over b736-b752’s ferries moves no passing row (relay data/b752_standing_v1320.txt :139; data/b752_rules.txt (9), :21).
+
+**(instances) the transient reads and the hook’s refusals (`(R362)`(7)(ix), defects (a), (f), (n), (r), (u), (v), events (2), (5), REPEAT)** -- the instances printed, b751’s nineteen refusals each by its line and kind (relay data/b752_standing_v1320.txt :156; data/b752_rules.txt (9), :21).
+
+**(session) the session change (`(R362)`(7)(x))** -- entered as the standing rule working: the face’s sentence, the worklist’s continuation, the three routes reading it (relay data/b752_standing_v1320.txt :189; data/b752_rules.txt (10), :23).
+
+**(version) the version (`(R362)`(7)(xi))** -- tools/standing/VERSION v1.32.0, landed by a commit of its own (relay 7b20ff6b) with its controls bank and the record’s dry over it, before the gate (relay data/b752_standing_v1320.txt :204; data/b752_rules.txt (11), :25).
+
+**b751’s events (1)-(5):**
+
+**(1)** the pre-run of standing-a2 (data/b751\_arms\_prerun\_standing-a2.txt) read G-RULE-REMOTE-REREAD failing, 19 live failing … (relay data/b751_events.txt, row (1); the seat’s; CLOSE; NEW; repair (refused), `(R362)`(7)(ii): the arm reads the calls that ran, a refused call counted apart and printed).
+**(2)** the prev run of part act was sent first, before standing-a1; v1.31.0’s part-order guard refused it ("ITS PREDECESSOR … (relay data/b751_events.txt, row (2); the seat’s; CLOSE; REPEAT of b750 (3); repair (instances), `(R362)`(7)(ix), REPEAT: the refusal printed (data/b751_hook_refusals.txt :19)).
+**(3)** the prev run of standing-a2 on b750’s banks (data/b751\_prevrun\_standing-a2.txt) read DIVERGE 18 where b750’s on b749’s … (relay data/b751_events.txt, row (3); the seat’s; CLAIM; NEW; repair (currents), `(R362)`(7)(iii): the cause the list computed at import before the `--prev` rebind, recomputed from both acts’ writes, a detail line given).
+**(4)** the answers route (’fold.py record answers --act b751’, 19:44:05Z), at the author’s word (transcript 43048615:903), its … (relay data/b751_events.txt, row (4); the seat’s; CLAIM; NEW; repair (append), `(R362)`(7)(iv): the words keyed by their place, a new heading’s block appended whole, the lines added printed).
+**(5)** the pre-root push of PLACE-papers (’tools/push\_gated.sh D:/MY-DOwnloads/PLACE-papers push-b751-preroot’) was refused at … (relay data/b751_events.txt, row (5); the host’s; CLOSE; NEW; repair (instances), `(R362)`(7)(ix): the transient remote read and the host’s refusal printed).
+
+**b751’s defects:**
+
+**(a)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b750 (a); repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed).
+**(b)** (relay data/b751_defects.txt; the seat’s; CLAIM; REPEAT of b750 (d); repair (carry), `(R362)`(7)(vi), REPEAT).
+**(c)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b750 (c); no item of `(R362)`(7) names it; a pushed bank restored to its blob at step zero).
+**(d)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b736 (e); repair (cites), `(R362)`(7)(ix), REPEAT b736 (e): the namespaced dotted name read).
+**(e)** (relay data/b751_defects.txt; the navigator’s; CLAIM; REPEAT of b750 (f); repair (paths), `(R362)`(7)(i): the navigator’s, lettered as the navigator’s; the four absent paths printed NONE by the check).
+**(f)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (a); repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed).
+**(g)** (relay data/b751_defects.txt; the seat’s; CLOSE; NEW; repair (limit), `(R362)`(7)(viii): the row reads the command’s own arguments).
+**(h)** (relay data/b751_defects.txt; the navigator’s; CLAIM; NEW; `(R362)`(7)(i), `(R362)`(2): the navigator’s).
+**(i)** (relay data/b751_defects.txt; the navigator’s; CLAIM; NEW; `(R362)`(7)(i), `(R362)`(2): the navigator’s).
+**(j)** (relay data/b751_defects.txt; the navigator’s; CLAIM; NEW; `(R362)`(7)(i), `(R362)`(2): the navigator’s).
+**(k)** (relay data/b751_defects.txt; the navigator’s; CLAIM; NEW; `(R362)`(7)(i), `(R362)`(2): the navigator’s).
+**(l)** (relay data/b751_defects.txt; the navigator’s; CLAIM; NEW; `(R362)`(7)(i), `(R362)`(2): the navigator’s).
+**(m)** (relay data/b751_defects.txt; the seat’s; CLOSE; NEW; no item of `(R362)`(7) names it; the dry’s counts alone, carried).
+**(n)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (f); repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed).
+**(o)** (relay data/b751_defects.txt; the seat’s; CLOSE; NEW; no item of `(R362)`(7) names it; two arms of the rewrite read and repaired before the gate).
+**(p)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (g); repair (limit), `(R362)`(7)(viii), REPEAT: the row reads the command’s own arguments).
+**(q)** (relay data/b751_defects.txt; the seat’s; CLAIM; REPEAT of b751 (b); repair (carry), `(R362)`(7)(vi), REPEAT: the readfirst needles and the trail head’s ordinal printed beside the ruling).
+**(r)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (n); repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed).
+**(s)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b750 (x); no item of `(R362)`(7) names it; v1.31.0’s guard holding on its first live instance).
+**(t)** (relay data/b751_defects.txt; the seat’s; CLOSE; NEW; repair (flag), `(R362)`(7)(vii): a tool refuses an act name that begins with a hyphen).
+**(u)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (n); repair (instances), `(R362)`(7)(ix), REPEAT: the refusals printed).
+**(v)** (relay data/b751_defects.txt; the seat’s; CLOSE; REPEAT of b751 (u); repair (instances), `(R362)`(7)(ix): the transient remote reads and the refusal printed).
+
+**Entered beside the banks by `(R362)`(7):**
+
+**the refusal of 21:20:10Z** the closing commit sent with its words beginning "b751 closing:", refused by commit.py ("THE WORDS REPEAT THE HEAD"), nothing committed and no row written; re-sent with the words alone, relay 2c422414; unbanked by the closing’s rule, entered here as an event (the seat’s; CLOSE; REPEAT of b749 (h)).
+**(R362)(2)** on 2026-11-10 the navigator put to the author as new four things the corpus already holds (A9 with B3 and C1; W-ORD-MECHANISM-TABLE’s row; Which\_Structure\_Confines v2.3.1 :40, :117, :176; W-ORD-PLATT-RUNG), reasoning from recall and not from the export (the navigator’s; CLAIM; NEW).
+**the amendment of 22:20:58Z** the order W-ORD-MECHANISM-ATTRIBUTION was proposed at b746, and (R362)(5)-(6) were written, with neither the FINDINGS inheritance census (the b751 mirror’s :4885, its table of the seven classes :4908-:4918) nor relay data/b726\_mechanisms.txt read; lettered on the author’s amendment to (R362) (data/b752\_amendments.json, row 1) (the navigator’s; CLAIM; NEW).
+
+**b751’s refusals** (relay data/b751_hook_refusals.txt at d921bceb, one a line): :1 PIPE 12:03:22Z, recorded at defect (a); :2 READ 12:04:21Z, recorded at defect (a); :3 READ 12:21:57Z, recorded at defect (a); :4 READ 12:27:48Z, recorded at defect (f); :5 PIPE 12:29:37Z, recorded at defect (f); :6 READ 12:34:39Z, recorded at defect (f); :7 LIMIT 12:43:03Z, recorded at defect (g); :8 READ 13:19:59Z, recorded at defect (n); :9 REDIR 13:22:46Z, recorded at defect (n); :10 READ 13:24:08Z, recorded at defect (n); :11 LIMIT 14:05:00Z, recorded at defect (p); :12 WLIST 14:25:19Z, recorded at defect (r); :13 WLIST 14:25:23Z, recorded at defect (r); :14 PIPE 15:22:51Z, recorded at defect (t); :15 READ 16:47:53Z, recorded at defect (u); :16 PIPE 16:47:59Z, recorded at defect (u); :17 READ 16:50:42Z, recorded at defect (u); :18 REMOTE 17:54:14Z, recorded at defect (v); :19 READ 18:56:03Z, recorded at event (2).
+
+**Dated notes:**
+
+Dated note, b752, to `(R362)`(7)(v): the open-orders line has carried `W-ORD-1` since b748’s trail (OPEN_TRAILS :17978, :18002, :18048, :18096, :18144), the count 73 of 208 where b747 read 72 of 207; the token is the row-ID halt’s text of b746, read by tools/standing/orders.py as an order; no line of a landed trail is rewritten, the correction by this act’s trail. The repair is the seat’s narrower reading, put to the author: a token of a row ID’s form (W-ORD-<digits>) is no order, 207 orders and 72 open after. The ruling’s words, “from its entry form alone”, read literally leave 85 orders and remove 37 open, W-ORD-MECHANISM-ATTRIBUTION among them; a reading by the code form removes 24 open; neither was taken.
+
+Dated note, b752, to `(R362)`(7)(x): the session change of b751 (16:47:23Z, session 43048615) entered as the standing rule working: the face’s sentence, the listing of one claude process, the continuation read by K.SESSIONS_AFTER.
+
+**The counter:** CLAIM 10, CLOSE 17, REPEAT 14 of 27 over the 27 items as the banks tag them (five events, twenty-two defects), as b751’s closing prints it (relay data/b751_closing.txt :5); with the 3 entered beside them CLAIM 12, CLOSE 18, REPEAT 15 of 30; no tag is read otherwise here; the CLAIM items of the banks (3), (4), (b), (e), (h), (i), (j), (k), (l), (q).
+
+*Filed at b752 on the author’s ruling `(R362)`(7): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the act’s override in relay tools/acts/b752.py) from b751’s events and defects banks read unedited, its refusal bank, the v1.32.0 controls bank and the rules; banked as relay `data/b752_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (72). It answers b751’s record; no sealed tool, face, trail or root-named bank of b751 is edited.*
