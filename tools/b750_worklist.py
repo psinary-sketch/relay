@@ -210,7 +210,7 @@ CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
 PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md', 'phase1.5/method/THE_METHOD_CANON.md', 'README.md', 'SPIRAL_MAP.md',
-             'day1/Which_Structure_Confines.md', 'ERRATA.md', 'phase1.5/method/INSTRUMENTS.md')
+             'day1/Which_Structure_Confines_v2_4_0.md', 'ERRATA.md', 'phase1.5/method/INSTRUMENTS.md')   # ### b750: the file [F1]/[F2] passed, v2_4_0 (the ruling's path the navigator's defect, step-zero (f))
 #   ### (R360)(1)-(6) and the ferry's (N5): the weight line, the corrigendum entry and the FINDINGS entry; OPEN_TRAILS for the order of (4)
 #   ### and the trail; the paper for section 2 on the author's pass ((R360)(2)); no door or record edited
 PP_WRITTEN = PP_EDITED
@@ -221,7 +221,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'section 5 of the paper, as the author named it at b748`s root ((R360)(7)), confirmed or renamed at this act`s root; then the attribution order`s plan act, opening on [E]`s figure'
+NEXT = 'section 5 of the paper, as the author named it at b748`s root ((R360)(7)), confirmed or renamed at this act`s root; then the attribution order`s plan act, opening on the figure of [E]'
 NEXT_ACT = 'b751'
 
 
@@ -263,7 +263,7 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b749: set after its commit, or None if it differs from HEAD by CRLF alone
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None            # ### step zero's banks and carried tools, one commit (data/b750_stepzero.txt among them); set after it is made
+STEPZERO_BANKS = '7ac459d7'      # ### step zero's banks and carried tools, one commit (data/b750_stepzero.txt among them; step row 3)
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -297,8 +297,8 @@ COMPARATIVE_BANKS = ('data/b750_corrigendum.txt', 'data/b750_sitting_agenda.txt'
                      'data/b750_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()   # ### v1.30.0's changed files, set after it lands
-STANDING_NEW = ()       # ### v1.30.0's new files, set after it lands
+STANDING_CHANGED = ('VERSION', 'act.py', 'carry.py', 'fold/checks.tpl', 'fold/closing.tpl', 'fold/record.tpl', 'hook.py', 'rootprompt.py')   # ### v1.30.0's changed files under tools/standing/ (git show --name-status 66efee55, M)
+STANDING_NEW = ('append.py', 'delread.py', 'v1300.py')       # ### v1.30.0's new files under tools/standing/ (66efee55, A)
 # ### b749's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '8ce7e3ab'    # ### b749's closing (its step row), the act's relay base
 B714_RECORD = '98c3986c'     # ### b749's record commit (relay)
@@ -336,7 +336,21 @@ SITTING_PP = C2_PP    # ### (R360)(2): the sitting's PLACE-papers writes
 SITTING_KERNEL = None # ### no kernel written this act ((R360)(5))
 SITTING_GH = ()       # ### no description written
 SITTING_ITEMS = 11         # ### (R360)(2): the sitting's items (data/b750_sitting_agenda.txt, relay 7ce3e6ea)
-C3_RELAY = ()              # ### Component 3 ((R360)(4)): the line's bank data/b750_line.txt; set after made
+# ### b750's own objects, (R360)(2) and (4), each by the commit that carries it (data/b750_steps.json rows 7-21)
+AGENDA_COMMIT = '7ce3e6ea'                       # ### the agenda, eleven items with every draft, before the first item (step row 7)
+CQ_GEN = ('a1655706', 'tools/b750_cq_sign.py', '789afca8211cb39b4cc890ce5cb9daae')   # ### [E]'s generator, committed before its run (step row 13)
+CQ_BANK = ('56ddafa5', 'data/b750_cq_sign.txt')   # ### [E]'s bank, its controls before its figure (step row 14)
+CQ_FOOT = ('NEGATIVE 102 ; THE SMALLEST NEGATIVE n = 48, cQ = -7.742402021816 ; WITHIN 1e-40 OF ZERO 2498 (EXACTLY ZERO 2498), COUNTED NEITHER WAY ; '
+           'NONNEGATIVE 399 ; THE LARGEST |cQ| 190.565466363 AT n = 2808 ; CONTROLS (K1)-(K4) ALL AS WANTED')
+SITTING_COMMIT = '00dc4267'                      # ### the sitting record with the answers pair (step row 20)
+# ### the passed items' PLACE-papers writes in order: (item, commit, the one file, lines added, lines removed), as git show --numstat printed them
+ITEM_PP = (('[A1]', '7fbaff0d', 'phase1.5/method/THE_METHOD_CANON.md', 38, 0), ('[A2]', 'c3def6fd', 'phase1.5/method/THE_METHOD_CANON.md', 4, 0),
+           ('[B1]', 'fd842c0f', 'README.md', 1, 1), ('[B2]', 'c7bf1443', 'README.md', 6, 0), ('[C]', '510eeea9', 'REGISTRY.md', 2, 0),
+           ('[E]', '90804717', 'phase1.5/method/INSTRUMENTS.md', 6, 0), ('[F1]', '6fc025a1', 'SPIRAL_MAP.md', 1, 0),
+           ('[F2]', '0dc0acb3', 'day1/Which_Structure_Confines_v2_4_0.md', 2, 0), ('[G1]', '00188c31', 'ERRATA.md', 14, 0), ('[G2]', '2d145638', 'ERRATA.md', 14, 0))
+SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[B1]': 'PASS', '[B2]': 'PASS', '[C]': 'PASS', '[D]': 'KEEP', '[E]': 'PASS',
+                  '[F1]': 'PASS', '[F2]': 'PASS', '[G1]': 'PASS', '[G2]': 'PASS'}
+C3_RELAY = ('118b12b6',)   # ### Component 3 ((R360)(4)): the line's bank data/b750_line.txt with tools/b750_line.py (step row 21)
 ZENODO_BANK = None   # ### no Zenodo call this act ((R360)(6))
 ROUTES_BANK = 'data/b747_zenodo_routes.txt'     # ### b747's routes bank, read not written
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### (R360)(2)[A]: data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)
@@ -421,8 +435,8 @@ EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430,
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
 DISPATCH_ROWS = 'data/b750_dispatch_rows.json'
-ERRATA_ID = None   # ### (R360)(2)[G]: E-2026-11-09-1 and E-2026-11-09-2 on the author's pass; set after made
-ERRATA_IDS = ()
+ERRATA_ID = None   # ### (R360)(2)[G]: two entries, named in ERRATA_IDS (the template's single-id name unused)
+ERRATA_IDS = (('E-2026-11-09-1', '00188c31'), ('E-2026-11-09-2', '2d145638'))   # ### [G1], [G2], each one write, 14 lines added, none removed
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))
