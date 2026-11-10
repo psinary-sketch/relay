@@ -1,0 +1,43 @@
+b751 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b750_address_scan.py -> tools/b751_address_scan.py (2026-11-10T12:05:05Z)
+
+### the substitution alone (b750 -> b751, b749 -> b750, R360 -> R361, R359 -> R360); 272 lines, 13 changed
+### SHIFTED PAST WHAT EXISTS: :2 b751_address_scan; :270 b751_address_scan
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b750_address_scan.py
+  +++ tools/b751_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b750_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b750 (data/b750_carry_address_scan.txt), its carry-time repairs and the author's word at b750's Component 1 marked ### b750.
+  -### b750, the carry's note: this file is tools/b749_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b750_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :56, :72, :74, :144-:145, :242, :267, numbered in b749's file) kept; the comment notes it
+  -### shifted (b749's and b748's carry notes, here :7-:12, and the two b748 marks at :179 and :194) set back by the Edit tool to b749's text before any run.
+  -### b749, the carry's note: this file is tools/b748_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b749_carry_address_scan.txt);
+  +"""b751_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b751 (data/b751_carry_address_scan.txt), its carry-time repairs and the author's word at b751's Component 1 marked ### b751.
+  +### b751, the carry's note: this file is tools/b750_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b751_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :56, :72, :74, :144-:145, :242, :267, numbered in b750's file) kept; the comment notes it
+  +### shifted (b750's and b748's carry notes, here :7-:12, and the two b748 marks at :179 and :194) set back by the Edit tool to b750's text before any run.
+  +### b750, the carry's note: this file is tools/b748_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b750_carry_address_scan.txt);
+  @@ -59,1 +59,1 @@
+  -                  --bank writes data/b750_address_scan.txt.
+  +                  --bank writes data/b751_address_scan.txt.
+  @@ -75,1 +75,1 @@
+  -import b750_worklist as K   # noqa: E402
+  +import b751_worklist as K   # noqa: E402
+  @@ -77,1 +77,1 @@
+  -ACT = 'b750'
+  +ACT = 'b751'
+  @@ -147,2 +147,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b750_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b750_kernel_bases.json'), encoding='utf-8')).items()))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b751_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b751_kernel_bases.json'), encoding='utf-8')).items()))
+  @@ -245,1 +245,1 @@
+  -    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R360)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  +    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R361)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  @@ -270,1 +270,1 @@
+  -        sys.exit('usage: b750_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b751_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b751_address_scan.py ; LINES 272 ; CHANGED 13 ; SHIFTED 2 (WRITTEN BY --shifted)**
