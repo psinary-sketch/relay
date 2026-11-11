@@ -15,15 +15,17 @@ THE RULE, printed in the bank:
                       (yyyy-mm-dd); its heading and its opening paragraph by the same reader. A README none of whose headings names an act
                       or a date has NO DATED SECTION, and its verdict rests on its head and its description.
   THE VERDICTS, every one that holds; AGREES where none does:
-    AN OLDER WORDING THE REGISTRY REWORDED    the head, the latest section or the description carries "two-leg" (REGISTRY :153, :188, :208,
-                                              :492-:496: reworded on 2026-07-23 to the criterion and its verified surround)
+    AN OLDER WORDING THE REGISTRY REWORDED    the head, the latest section, the description or the README's body carries "two-leg" (REGISTRY
+                                              :153, :188, :208, :492-:496: reworded on 2026-07-23 to the criterion and its verified
+                                              surround); the verdict says where
     THE HEAD DENIES A LATER SECTION           the head carries a denial of the repository's content (NOTHING IN THIS REPOSITORY; VENDORED;
                                               nothing here) and a dated section's heading or opening paragraph names content of its own
                                               (theorem, instance, schema, statement, criterion, proved, compiles)
     NO DESCRIPTION                            GitHub returns none
     THE DESCRIPTION DIFFERS FROM THE HEAD     the description shares fewer than two content words (five letters or more, the repository's
                                               name and a stop list apart) with the README's title and opening paragraph, or names a version
-                                              that neither the title nor the remote's latest tag carries
+                                              that neither the title nor the remote's latest tag carries. A rule on shared
+                                              words: it reads a paraphrase as DIFFERS; each row quotes both for the author's read
 
   python -X utf8 -u tools/b753_head_read.py control      the controls alone, no remote read
   python -X utf8 -u tools/b753_head_read.py run          the controls, the known instance, the one remote read, the bank
@@ -114,7 +116,7 @@ def cut(p, n=300):
     """the paragraph to the sentence end nearest beneath n characters; whole where it is shorter."""
     if len(p) <= n:
         return p
-    ends = [m.end() for m in re.finditer(r'[.!?:;](?=\s)', p[:n])]
+    ends = [m.end() for m in re.finditer(r'[.!?;](?=\s)', p[:n])]
     return (p[:ends[-1]] if ends else p[:n]) + ' [...]'
 
 
@@ -146,14 +148,20 @@ def latest_section(L):
 
 def words(s, name):
     own = set(x for x in re.split(r'[^a-z0-9]+', name.lower()) if x)
-    return set(w for w in re.findall(r"[a-z][a-z'-]{4,}", (s or '').lower()) if w not in STOP and w not in own)
+    toks = re.findall(r"[a-z][a-z'-]{4,}", (s or '').lower())
+    toks += [x for t in toks if '-' in t for x in t.split('-') if len(x) >= 5]     # ### a hyphened word counts whole and by its parts
+    return set(w for w in toks if w not in STOP and w not in own)
 
 
-def verdicts(name, title, head, latest_h, latest_p, dated_text, desc, latest_tag):
-    """(the verdicts, the shared content words)."""
+def verdicts(name, title, head, latest_h, latest_p, dated_text, desc, latest_tag, body=0):
+    """(the verdicts, the shared content words); body: the older wording's count anywhere in the README."""
     V = []
-    if any(OLD.search(x or '') for x in (head, latest_h, latest_p, desc)):
-        V.append('AN OLDER WORDING THE REGISTRY REWORDED')
+    where = [w for w, x in (('the head', head), ('the latest section', (latest_h or '') + ' ' + (latest_p or '')), ('the description', desc)) if OLD.search(x or '')]
+    inner = len(OLD.findall(head or '')) + len(OLD.findall((latest_h or '') + ' ' + (latest_p or '')))
+    if body > inner:
+        where.append('the README`s body, %d' % (body - inner))
+    if where:
+        V.append('AN OLDER WORDING THE REGISTRY REWORDED (%s)' % ' ; '.join(where))
     if DENY.search(head or '') and any(OWN.search(t) for t in dated_text):
         V.append('THE HEAD DENIES A LATER SECTION')
     shared = sorted(words(desc, name) & words((title or '') + ' ' + (head or ''), name))
@@ -245,8 +253,13 @@ def controls():
          v('SIDE-x', 'SIDE-x', 'It compiles fraction arithmetic over literals.', None, '', [], 'Compiles fraction arithmetic over literals', None), ['AGREES'])
     case('(a verdict) no description; an empty one', (v('SIDE-x', 'SIDE-x', 'Compiles arithmetic.', None, '', [], None, None), v('SIDE-x', 'SIDE-x', 'Compiles arithmetic.', None, '', [], ' ', None)),
          (['NO DESCRIPTION'], ['NO DESCRIPTION']))
-    case('(a verdict) the older wording in the head', v('SIDE-x', 'SIDE-x', 'The logical structure of a two-leg approach.', None, '', [], 'The logical structure of an approach', None),
-         ['AN OLDER WORDING THE REGISTRY REWORDED'])
+    case('(a verdict) the older wording in the head; in the README`s body alone, once',
+         (v('SIDE-x', 'SIDE-x', 'The logical structure of a two-leg approach.', None, '', [], 'The logical structure of an approach', None, 1),
+          v('SIDE-x', 'SIDE-x', 'The logical structure of an approach.', None, '', [], 'The logical structure of an approach', None, 1)),
+         (['AN OLDER WORDING THE REGISTRY REWORDED (the head)'], ['AN OLDER WORDING THE REGISTRY REWORDED (the README`s body, 1)']))
+    case('(the content words) a hyphened word shared by its parts: "fixed-point arithmetic" against "its only fixed point ... arithmetic"',
+         sorted(words('the fixed-point arithmetic', 'SIDE-x') & words('its only fixed point, rational arithmetic', 'SIDE-x')), ['arithmetic', 'fixed', 'point'])
+    case('(the cut) a colon is no sentence end', cut('Subject: ' + 'word ' * 80, 60).startswith('Subject: word'), True)
     case('(a verdict) a description sharing no content word; a description naming a version neither the title nor the latest tag carries',
          (v('SIDE-x', 'SIDE-x v0.2', 'It compiles fraction arithmetic.', None, '', [], 'Spectral cosmology engine', 'v0.2'),
           v('SIDE-x', 'SIDE-x v0.2', 'It compiles fraction arithmetic.', None, '', [], 'Compiles fraction arithmetic, v0.1', 'v0.2')),
@@ -289,7 +302,9 @@ def compose(state):
          '### reading AGREES is carried to the sitting. From a PRIVATE repository nothing is quoted and no verdict of its wording is printed (the README`s',
          '### size and hash, whether a description stands and its length), PLACE-papers apart, which (R363)(5)(iii) orders read by the same rule. The',
          '### ruling`s expectation that every verdict quote the two sentences it compares is not met on those rows: the two orders conflict there, and the',
-         '### rows say so. A quoted line carrying an identifier by form is withheld.', '', '## THE RULE'] + ['  ' + l for l in __doc__.split('THE RULE, printed in the bank:\n')[1].split('\n\n  python')[0].split('\n')]
+         '### rows say so. A quoted line carrying an identifier by form is withheld.'] + (
+             ['### RECOMPOSED %s by the generator at relay %s from the banked read (data/%s_head_read.json), no second remote read: %s' % (
+                 state['recomposed'][1], state['recomposed'][0], ACT, state['recomposed'][2])] if state.get('recomposed') else []) + ['', '## THE RULE'] + ['  ' + l for l in __doc__.split('THE RULE, printed in the bank:\n')[1].split('\n\n  python')[0].split('\n')]
     L += ['', '## THE CONTROLS, printed before any figure'] + CL + ['', '## THE KNOWN INSTANCE, printed before the table ((R363)(5)(iii))'] + KL + ['', '## THE TABLE']
     tally, doors, noreadme, unquoted, carried = {}, 0, [], [], []
     for n in K['order']:
@@ -314,7 +329,7 @@ def compose(state):
             for x in verdict:
                 tally[x] = tally.get(x, 0) + 1
             continue
-        V, shared = verdicts(n, r['title'], r['head'], r['sec_head'], r['sec_para'], r['dated_text'], desc, None if row.get('code') else latest_tag(row))
+        V, shared = verdicts(n, r['title'], r['head'], r['sec_head'], r['sec_para'], r['dated_text'], desc, None if row.get('code') else latest_tag(row), r['old_anywhere'])
         for x in V:
             tally[x.split(' (')[0]] = tally.get(x.split(' (')[0], 0) + 1
         if V != ['AGREES']:
@@ -328,7 +343,7 @@ def compose(state):
         else:
             L.append('      the latest section: NO DATED SECTION (no level-two heading names an act or a date)')
         L.append('      the description: %s%s%s' % (q(desc), '' if not desc else ' ; content words shared with the title and head: %d%s' % (
-            len(shared), (' (%s)' % ', '.join(shared[:6])) if shared else ''), (' ; "two-leg" in the README: %d' % r['old_anywhere']) if r['old_anywhere'] else ''))
+            len(shared), (' (%s)' % ', '.join(shared[:6])) if shared else ''), ''))
     L += ['', '## THE REPOSITORIES OF (5)(i) THAT CARRY NO README, OR WHOSE README WAS NOT READ'] + ['  ' + x for x in noreadme]
     not_agree = sum(1 for n in carried)
     L += ['', '## CARRIED TO THE SITTING ((R363)(5)(iii), (8)): every door not reading AGREES, its draft cut there from the kernel`s printed statements',
@@ -370,8 +385,14 @@ def main(argv):
         ok2, KL = known_instance(json.load(io.open(KERNELS, encoding='utf-8')))
         print('\n'.join(L + ['## THE KNOWN INSTANCE'] + KL))
         return 0 if ok and ok2 else 1
-    if argv[:1] == ['compose']:
-        print('\n'.join(bank(json.load(io.open(JSN, encoding='utf-8')))))
+    if argv[:1] == ['compose'] and len(argv) == 2:
+        done, head = committed()
+        if not done:
+            raise SystemExit('### REFUSED: tools/%s_head_read.py is not committed or differs from its commit' % ACT)
+        state = json.load(io.open(JSN, encoding='utf-8'))
+        state['recomposed'] = [head, stamp(), argv[1]]
+        L = bank(state)
+        print('\n'.join(L[:12] + L[L.index('## THE CONTROLS, printed before any figure'):L.index('## THE TABLE')] + [l for l in L[L.index('## THE TABLE'):] if not l.startswith('      ')]))
         return 0
     if argv[:1] != ['run']:
         raise SystemExit(__doc__)
