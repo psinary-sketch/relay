@@ -219,7 +219,7 @@ def control_absent():
     cur = A.current()
     ok, out = CH.store_read(cur.get('session'), cur.get('prev_session'))
     n += 1
-    g += guard(L, 'absent', 'the store read: the retention, the junction, the transcript by both paths, the version beside the previous', out[0][:220], ok)
+    g += guard(L, 'absent', 'the store read: the retention, the junction, the transcript by both paths, the version and the model beside the previous', out[0][:520], ok)
     return L, g, n
 
 

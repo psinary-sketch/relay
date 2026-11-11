@@ -126,6 +126,22 @@ def _version(path):
     return v
 
 
+def models(path):
+    """[(model, assistant rows, first line, first time)] in the order the transcript's assistant rows first name each: the seat's model beside
+    the harness's version (the author's word of 2026-11-11, b753 events (3)); a model beyond the ones an act expects is a fallback, an event."""
+    out, at = {}, []
+    for i, o in _rows(path):
+        if o and o.get('type') == 'assistant':
+            m = (o.get('message') or {}).get('model') or '?'
+            if m.startswith('<'):   # ### the harness's own synthetic rows name no model
+                continue
+            if m not in out:
+                out[m] = [0, i, o.get('timestamp')]
+                at.append(m)
+            out[m][0] += 1
+    return [(m, out[m][0], out[m][1], out[m][2]) for m in at]
+
+
 def store_read(sid, prev_sid=None, proj=PROJ, store='D:/claude-store/projects-D--', settings='C:/Users/echo chamber/.claude/settings.json'):
     """v1.33.0, (R363)(7)(viii), at step zero: the retention setting; the projects path, a junction or not, with its target; this session's
     transcript by both paths at one size; the harness's version beside the previous session's. (ok, lines): ok where the setting reads 3650,
@@ -139,10 +155,13 @@ def store_read(sid, prev_sid=None, proj=PROJ, store='D:/claude-store/projects-D-
     a, b = path_of(sid, proj), '%s/%s.jsonl' % (store, sid)
     sa, sb = os.path.getsize(a), (os.path.getsize(b) if os.path.isfile(b) else None)
     v, pv = _version(a), (_version(path_of(prev_sid, proj)) if prev_sid else '-')
+    ms = ', '.join('%s (%d rows from :%d, %s)' % x for x in models(a)) or '-'
+    pm = (', '.join('%s (%d rows)' % x[:2] for x in models(path_of(prev_sid, proj))) or '-') if prev_sid else '-'
     ok = ret == 3650 and junction and real.lower() == store.lower() and sa == sb
     return ok, ['### THE STORE READ ((R363)(7)(viii)): retention %s days ; the projects path %s%s ; session %s by both paths %s and %s bytes%s ; '
-                'the harness %s, the previous session %s ; %s' % (ret, 'A JUNCTION TO ' if junction else '### NOT A JUNCTION, ', real, sid[:8], sa, sb,
-                                                                  '' if sa == sb else ' ### DIFFERING', v, pv, 'AS WANTED' if ok else '### NOT AS WANTED')]
+                'the harness %s, the model %s ; the previous session the harness %s, the model %s ; %s' % (
+                    ret, 'A JUNCTION TO ' if junction else '### NOT A JUNCTION, ', real, sid[:8], sa, sb, '' if sa == sb else ' ### DIFFERING', v, ms, pv, pm,
+                    'AS WANTED' if ok else '### NOT AS WANTED')]
 
 
 def route_fill(lines_, sids, proj=PROJ):
