@@ -23,3 +23,4 @@
 2026-11-11T00:11:20Z | READ | Read | "D:\\relay\\tools\\standing\\linematch.py" | a Read call with no limit
 2026-11-11T01:48:27Z | PIPE | Bash | "grep -c \"\" data/b752_hook_refusals.txt && grep -o \"^  ([a-z]'*)\" data/b752_defects.txt | tr -d '\\n' ; echo; grep -n \"refusal\" data/b752_defects.txt | cut -c1-160" | a Bash command carrying a pipe outside quotes
 2026-11-11T02:57:00Z | REDIR | Bash | "git log --format=\"%h %s\" -12 d921bceb -- && git show --stat --format=\"%h %s\" 0 2>/dev/null; python -X utf8 -c \"\nimport json\ns=json.load(open('data/b751_steps.json',encoding='utf-8'))\nrows=s if isinstance(s,list) else s.get('rows',s.get('steps',[]))\nfor r in rows[-14:]: print({k:(str(v)[:11 | a Bash command carrying a redirect outside quotes
+2026-11-11T06:15:23Z | PIPE | Bash | "python -X utf8 -u tools/standing/commit.py 2>&1 | head -40" | a Bash command carrying a pipe outside quotes
