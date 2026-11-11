@@ -5,3 +5,19 @@
 2026-11-10T22:10:14Z | WLIST | Edit | null | a Edit: the (W) bank data/b752_wlist.json is absent or unreadable; relay/tools/rule_arms.py is tracked -- regenerate the list first (python -X utf8 -u tools/standing/wlist.py bank)
 2026-11-10T22:11:47Z | LIMIT | Bash | "git grep -n -E \"def tri\\b|tri = |^def tri\" -- tools/standing/fold/checks.tpl tools/b703_checks.py tools/standing/*.py" | a suite part or combine (fold.py checks --part / --combine) sent with no timeout, beneath the limit the tool prints (600000 ms; the host`s default 120000 ms) -- send it again with timeout 600000
 2026-11-10T22:11:48Z | LIMIT | Bash | "git grep -n -E \"^CURRENTS|^PP_EDITED\" -- tools/b703_checks.py tools/b750_worklist.py tools/b751_worklist.py tools/b752_worklist.py" | a suite part or combine (fold.py checks --part / --combine) sent with no timeout, beneath the limit the tool prints (600000 ms; the host`s default 120000 ms) -- send it again with timeout 600000
+2026-11-10T23:27:10Z | READ | Read | "D:\\relay\\tools\\b750_cq_sign.py" | a Read call with a limit and no offset on a file of 275 lines
+2026-11-10T23:31:48Z | PIPE | Bash | "cd /d && ls -d SIDE-kernel* SIDE-explicit-formula 2>&1; git -C /d/SIDE-kernel rev-parse --short 0e5233f0 v1.5 2>&1; git -C /d/SIDE-explicit-formula rev-parse --short v0.38 2>&1; git -C /d/SIDE-kernel tag --sort=-creatordate 2>&1 | head -3" | a Bash command carrying a pipe outside quotes
+2026-11-10T23:42:21Z | REDIR | Bash | "ls tools/standing/rootprompt.py tools/rootprompt.py 2>&1; python -X utf8 -u tools/standing/rootprompt.py --help" | a Bash command carrying a redirect outside quotes
+2026-11-10T23:42:45Z | READ | Read | "D:\\relay\\tools\\standing\\rootprompt.py" | a Read call with limit 242, above 200
+2026-11-10T23:44:08Z | SED | Bash | "sed -n \"11p\" data/b725_interference.txt; git -C /d/SIDE-explicit-formula show v0.38:SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean" | a Bash command running sed
+2026-11-11T00:05:42Z | READ | Read | "D:\\relay\\tools\\mirror_prevbuild.json" | a Read call with no limit
+2026-11-11T00:07:39Z | READ | Read | "D:\\relay\\HANDOFF.md" | a Read call with a limit and no offset on a file of 805 lines
+2026-11-11T00:07:40Z | READ | Read | "D:\\relay\\data\\b726_frontdoors.txt" | a Read call with a limit and no offset on a file of 425 lines
+2026-11-11T00:07:40Z | READ | Read | "D:\\relay\\data\\b732_phase2_frontdoors.txt" | a Read call with a limit and no offset on a file of 832 lines
+2026-11-11T00:07:41Z | READ | Read | "D:\\relay\\data\\b375_the_keystone_and_cluster_census.txt" | a Read call with a limit and no offset on a file of 282 lines
+2026-11-11T00:07:42Z | READ | Read | "D:\\relay\\data\\SIDE-meta_housekeeping.txt" | a Read call with no limit
+2026-11-11T00:07:42Z | READ | Read | "D:\\relay\\data\\b751_census_closing.txt" | a Read call with no limit
+2026-11-11T00:07:55Z | READ | Read | "D:\\relay\\data\\b751_kernels_face.json" | a Read call with a limit and no offset on a file of 555 lines
+2026-11-11T00:10:21Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\project_b751_progress.md" | a Read call with no limit
+2026-11-11T00:11:20Z | READ | Read | "D:\\relay\\tools\\b751_line.py" | a Read call with no limit
+2026-11-11T00:11:20Z | READ | Read | "D:\\relay\\tools\\standing\\linematch.py" | a Read call with no limit
