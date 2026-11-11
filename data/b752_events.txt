@@ -1,0 +1,44 @@
+b752 -- THE EVENTS AFTER THE LOCK GATE, THE LOCK AND THE SEAL (standing clauses v2 row (52), v9 rows (80) and (83)), entered after the lock (relay d7ca07dc) and the seal (relay a095b183), unlettered, each tagged CLAIM or CLOSE and NEW or REPEAT, for the next act's corrigendum; with one event before the lock that no bank carried. A finding after the lock gate's record takes no letter in data/b752_defects.txt; no locked bank is rewritten by the seat's hand. Each row carries its time, read from the bank it cites or from the session's transcript. Rows in the closing reader's form (a row at four spaces, its lines after at five); the section heads at column 0 are this bank's alone.
+
+BEFORE THE LOCK, CARRIED HERE (no bank of the act names it):
+    (1) THE AUTHOR'S [CLOSE ; NEW]: between relay cd433f1b (22:43:09Z) and relay 2dab3046 (23:23:56Z), on the author's word after a browser
+     sign-out, the seat made one remote read, `git -C PLACE-papers -c credential.interactive=never ls-remote origin refs/heads/main`, which
+     resolved 2a94bf80 (PLACE-papers' remote main unmoved, b751's tip); no retry, no login, logout or credential command, no token printed.
+     The repository is private, so the read shows the stored credential answering.
+
+AFTER THE LOCK, BEFORE THE SEAL (relay a095b183, 04:35:26Z):
+    (2) THE SEAT'S [CLOSE ; NEW]: the lock commit (relay d7ca07dc, 03:02:29Z) carried the face and its lock block but not the lock gate's two
+     banks, data/b752_lockgate.json and data/b752_lockgate_notes.txt, untracked when the lock was cut (b751's lock commit eb81ada2 carried
+     its own); the two were staged with the seal's files and ride in the seal commit a095b183. No bank rewritten.
+    (3) THE SEAT'S [CLOSE ; REPEAT b751 (2)]: 03:11:19Z: the pre-run of standing-b1 was sent before standing-c; v1.32.0's part-order guard
+     refused it ("ITS PREDECESSOR standing-c HAS NO BANK IN THIS MODE"), nothing ran; c then b1 sent in the guard's order.
+    (4) THE SEAT'S [CLOSE ; REPEAT b751 (2)]: 03:48:35Z: the prev run of standing-a2 was sent before standing-a1; the guard refused it
+     ("ITS PREDECESSOR standing-a1 HAS NO BANK IN THIS MODE"), nothing ran; the ten prev runs then sent in the guard's order.
+    (5) THE SEAT'S [CLOSE ; NEW]: the first send of the prev run of standing-c carried a backtick in the scratch runner's pattern, and the
+     shell refused the command line ("unexpected EOF while looking for matching ``'"), nothing ran; re-sent with the pattern changed.
+     The combined pre-run: ARMS RUN 116, LIVE PASSING 92, LIVE FAILING 23, G-RUNNER-GATE VACUOUS (data/b752_arms_prerun.txt :16).
+
+AFTER THE SEAL (relay a095b183):
+    (6) THE HOST'S [CLAIM ; NEW]: the root's prompt (data/b752_put_2.json, put 04:37:49.622Z, transcript line 10971) was answered by the
+     author at about 05:50Z; the harness wrote that answer to the transcript only as an api-request-blob row (line 11286) and wrote no ordinary
+     user row carrying its tool result, the one call of 1,483 in the session without one. The answers route (tools/b698_record.py :315) reads
+     ordinary user rows alone, so it appended the root's call with "RESULT (transcript line None, None): ### NO RESULT"
+     (data/b752_author_answers.txt :67) and banked no word from that answer. No route repairs it after the seal (the repair phase stands
+     between the lock and the seal, tools/standing/commit.py :132-:134), and no bank is written by hand: the answer is printed in the
+     closing message from the conversation and from blob row 11286, not banked.
+    (7) THE AUTHOR'S [CLOSE ; NEW]: put the routes at 05:53Z, the author ruled (data/b752_author_answers.txt :69, the word banked by the
+     route): route 2 once, the same composed question put again, unless a second put cost any arm or score beyond G-ANSWERS-BANKED, in which
+     case route 1; on a second missing row, route 1 and both missing rows entered here; no bank by hand on either path. The seat found that a
+     second put would measure 2 against the face's registered cap "questions asked of the author at the root", cap 1, measured off the
+     answers bank (data/b752_satisfiable.json; tools/standing/fold/regspec.tpl :168), read through the final table S1 waits on; route 1 was
+     taken and the question was not put again. One missing row, not two.
+    (8) THE SEAT'S [CLAIM ; NEW]: the seat's halt (05:53Z) priced routes 1 and 2 at the suite arm G-ANSWERS-BANKED; that arm is in no part's
+     exercise bank of this act's 116-arm run (data/b752_exercise_*.json), so neither route cost it. Corrected in the seat's next message,
+     before anything was put or written.
+    (9) THE SEAT'S [CLOSE ; NEW]: the first answers dry after the root's answer (05:50:02Z) ran before the harness wrote its next transcript
+     row (05:50:03.123Z); its second run (05:50Z) read the same NO RESULT, and the seat read the transcript row by row before the halt (row (6)).
+    (10) THE AUTHOR'S [CLOSE ; NEW]: before the root's prompt was put, a prepared BEGIN-END text was in the conversation for the root's
+     answer (the navigator's correction on b711-b729's record on the coefficients and three items for b753); the answer the author gave at the
+     prompt is a different text, which confirms the refresh as b753, changes the order after it (the sitting; the class-number-3 walk against
+     its registered predictions and the build of T0 and T1; then sections 6-8 written from the compiled statements) and puts the registration
+     table and the navigator's correction to the plan's (1c) into b753's ruling. Neither text is banked as the root's answer (row (6)).
