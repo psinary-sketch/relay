@@ -9,7 +9,8 @@ What it reads: the store's own listing (file names, sizes, last-write times; no 
 operating system's storage policy by a registry read. It changes nothing outside its bank.
 
 THE RULES, each printed in the bank before its figures:
-  (ID)   a session id is the 8-4-4-4-12 hexadecimal form. In tools/ every line carrying the form is a place. In data/ the form is also what
+  (ID)   a session id is the 8-4-4-4-12 hexadecimal form. In tools/ every line carrying the form is a place, this generator's own lines apart
+         (its controls plant ids of the form). In data/ the form is also what
          deposit manifests and other records use for things that are no session, so a bank's CITATION KEY is the form standing (K1) after the
          word "session", (K2) before ".jsonl", or (K3) after "projects/D--/" -- and the wide yield is printed beside the keys' yield.
   (NEAR) an id absent from the store that shares its leading eight characters with a present one is printed as A NEAR TWIN, apart from the absent.
@@ -45,6 +46,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 ACT = 'b753'
 BANK = os.path.join(RELAY, 'data', '%s_store.txt' % ACT)
+SELF = 'tools/%s_store.py' % ACT
 STORE = 'D:/claude-store/projects-D--'
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
 THIS = '5a4228ab-091d-4515-b5ab-95a5e34e1e18'
@@ -263,7 +265,12 @@ def compose(gen):
     have = set(s[0] for s in sess)
     _rc, tool_hits = gg(UUP, 'tools')
     _rc, data_hits = gg(UUP, 'data')
+    # ### this generator is itself a tracked tool once committed, and its controls plant ids: its own lines are no places (defect (d'))
+    own = [h for h in tool_hits if h[0] == SELF]
+    tool_hits = [h for h in tool_hits if h[0] != SELF]
     ok, C = controls(sess, tool_hits)
+    C.insert(-1, '  (the search) this generator`s own lines, which plant the controls` ids, are set apart from the tools` places: %d line-places set apart, %d left of it %s' % (
+        len(own), sum(1 for h in tool_hits if h[0] == SELF), 'AS WANTED' if not any(h[0] == SELF for h in tool_hits) else '### NOT AS WANTED'))
     tools, wide = group(tool_hits), group(data_hits)
     tools.pop(PLANTED, None)
     L = ['%s -- (R363)(5)(vii) THE TRANSCRIPT STORE READ (%s; generator tools/%s_store.py at relay %s)' % (ACT, stamp(), ACT, gen), '',
@@ -358,7 +365,7 @@ def compose(gen):
 
     # --- the scratch folders
     _rc, sh = gg('([A-Za-z]:[^\'" ]*)?[\\\\/]+' + UUP + '[\\\\/]+scratchpad', 'tools')
-    sc = scratch_of(sh)
+    sc = scratch_of([h for h in sh if h[0] != SELF])
     stand, gone, noroot = [], [], []
     for i, ps in sc.items():
         for p, pl in ps.items():
@@ -430,7 +437,7 @@ def committed():
 def main(argv):
     if argv[:1] == ['control']:
         sess = listing()[0]
-        ok, L = controls(sess, gg(UUP, 'tools')[1])
+        ok, L = controls(sess, [h for h in gg(UUP, 'tools')[1] if h[0] != SELF])
         print('\n'.join(L))
         return 0 if ok else 1
     if argv[:1] not in (['run'], ['dry']):
