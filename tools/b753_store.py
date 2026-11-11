@@ -271,6 +271,7 @@ def compose(gen):
     ok, C = controls(sess, tool_hits)
     C.insert(-1, '  (the search) this generator`s own lines, which plant the controls` ids, are set apart from the tools` places: %d line-places set apart, %d left of it %s' % (
         len(own), sum(1 for h in tool_hits if h[0] == SELF), 'AS WANTED' if not any(h[0] == SELF for h in tool_hits) else '### NOT AS WANTED'))
+    C[-1] = '  ### THE CONTROLS: %d ; %s' % (len(C) - 2, 'ALL AS WANTED' if ok else '### NOT ALL AS WANTED')   # the line above counted with the rest
     tools, wide = group(tool_hits), group(data_hits)
     tools.pop(PLANTED, None)
     L = ['%s -- (R363)(5)(vii) THE TRANSCRIPT STORE READ (%s; generator tools/%s_store.py at relay %s)' % (ACT, stamp(), ACT, gen), '',
