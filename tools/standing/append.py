@@ -41,6 +41,12 @@ def main(argv):
         fh.write(new)
     os.replace(p + '.tmp', p)
     print('appended to %s: %d line(s) beneath %d; nothing in the bank rewritten' % (rel, len(new.split('\n')) - len(prior.split('\n')), len(prior.split('\n')) - 1 if prior else 0))
+    # ### v1.33.0, (R363)(7)(iii): the chain read's count printed beside what the route banks (a row it finds after the act's opening row an event)
+    import chain as CHN
+    sid = (A.current() or {}).get('session')
+    if sid:
+        r = CHN.chain(CHN.path_of(sid))
+        print('  the chain read beside the bank ((R363)(7)(iii)): session %s, writes lost %d %s' % (sid[:8], len(r['lost']), [x[0] for x in r['lost']] or ''))
     return 0
 
 

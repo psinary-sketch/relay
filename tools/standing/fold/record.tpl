@@ -34,7 +34,7 @@ import ⟪PREV⟫_record as P7           # noqa: E402  ### ⟪PREV⟫'s tool, im
 R, P3, P4, P5, P6 = P7.R, P7.P3, P7.P4, P7.P5, P7.P6   # ### b698's routes, b703's to b706's repaired readers, through ⟪PREV⟫'s module
 
 ACT, PREV = '⟪ACT⟫', '⟪PREV⟫'
-R.K, R.ACT, R.PREV, R.SP = K, ACT, PREV, K.SP
+R.K, R.ACT, R.PREV, R.SP = K, ACT, PREV, K.SP; from standing import outbound as OUTB; OUTB.rebind(R); from standing import remoteread as RREAD; RREAD.rebind(R)   # noqa: E402,E702  ### v1.33.0, (R363)(7)(ii), b752 (h'): an identifier read by its form, not its label; (7)(ix), b752 events (13): a failed remote read FAILED, not an empty answer; on line 37, the line count kept
 conv = R.conv                      # ### (R262)(2): the one conversion, b652's, through b698's module
 PP, FIND, OT = R.PP, R.FIND, R.OT
 utc, rd, rdn, put_json, put_txt, jl, g, grc, land, _show = R.utc, R.rd, R.rdn, R.put_json, R.put_txt, R.jl, R.g, R.grc, R.land, R._show; from standing import relaypath as RPATH; rd, rdn = RPATH.rd, RPATH.rdn   # noqa: E402,E702  ### v1.27.0, (⟪RUL⟫)(3)(vii): the readers take a path once and refuse one resolving to no file (optional=True at a call that may find none); on line 40, the line count kept for the line-keyed overrides before b735
@@ -3917,7 +3917,7 @@ def answers(*a):
     # ### its own row; the rows b698's text-keyed reading dropped printed by their place
     from standing import authorwords as AW
     ws = AW.author_words(R._session_rows(), K.SESSION_ID, K.ANCHOR)
-    cap[tn], restored = AW.rekey(cap[tn], ws)
+    cap[tn], restored = AW.rekey(cap[tn], ws); from standing import chain as CHN; cap[tn], _chn = CHN.route_fill(cap[tn], (K.SESSION_ID,) + tuple(s_[0] for s_ in getattr(K, 'SESSIONS_AFTER', ()) or ())); print(_chn)   # noqa: E702  ### v1.33.0, (R363)(7)(iii)
     print('  the words by place: %d ; restored where b698`s reading kept one row for identical words: %d %s' % (len(ws), len(restored), restored or 'NONE'))
     prior = rdn(tn, optional=True) or ''
     text, n = SA.answers_append(prior, cap[tn], utc())

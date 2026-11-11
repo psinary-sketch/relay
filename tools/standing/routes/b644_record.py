@@ -98,10 +98,13 @@ def _scan_text(text, name):
 
 
 def act_from():
-    if os.path.exists(SESSION):
-        for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
-            if 'RULING (R254) BEGIN' in raw and '"type":"user"' in raw.replace(' ', ''):
-                return i
+    # ### v1.33.0, (R363)(7)(viii): a session absent prints ABSENT with its id and fails; it returned a line beyond any file (10 ** 9), so that the
+    # ### answers would bank no call and say nothing. Its ruling's line not found in a present file stays b644's reading.
+    if not os.path.exists(SESSION):
+        sys.exit('### ABSENT: the session %s -- no transcript at %s; NOTHING READ ((R363)(7)(viii))' % (os.path.basename(SESSION)[:-6], SESSION))
+    for i, raw in enumerate(io.open(SESSION, encoding='utf-8'), 1):
+        if 'RULING (R254) BEGIN' in raw and '"type":"user"' in raw.replace(' ', ''):
+            return i
     return 10 ** 9
 
 
