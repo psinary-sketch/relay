@@ -28,7 +28,10 @@ LISTING = re.compile(r'^\s*git\s+(?:-C\s+\S+\s+)*(?:branch|tag)' + LIST_FLAGS + 
 # ### v1.14.0, (R344)(2)(iii), b733 event (10): the gated push is a write where the command runs it; a read naming its path is no write
 RUNS_GATED = re.compile(r'^\s*(?:(?:bash|sh)\s+)?\S*push_gated\.sh\b')
 # ### v1.21.0, (R351)(2)(i), (iii): the one-call commit tool runs a git commit; a command running it is one write, so its message carries no other
-RUNS_COMMIT = re.compile(r'^\s*(?:&\s*)?(?:\S*python\S*\s+(?:\S+\s+)*?)?\S*standing[/\\]commit\.py(?:\s|$)')
+# ### b753 defect (i), (R363)-amendment (1): commands() blanks quoted strings, so PowerShell's `& "C:\...\python.exe" ... commit.py` reached
+# ### this matcher as `& "" ... commit.py` and was no run of the tool: every PowerShell-form call was no write to the hook (no ledger state
+# ### filed) and no record of itself to commit.py's one-call check (an older bare-python record or none). The blanked interpreter is admitted.
+RUNS_COMMIT = re.compile(r'^\s*(?:&\s*)?(?:(?:\S*python\S*|"")\s+(?:\S+\s+)*?)?\S*standing[/\\]commit\.py(?:\s|$)')
 
 
 def commands(cmd):
