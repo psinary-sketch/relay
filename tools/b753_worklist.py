@@ -189,9 +189,10 @@ REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b752 wrote no coefficient bank
 COMPUTE_BANKS = ('data/b753_standing_v1330.txt', 'data/b753_registrations.txt', 'data/b753_kernels.txt', 'data/b753_branch_map.txt',
-                 'data/b753_head_read.txt', 'data/b753_anchors.txt', 'data/b753_shelves.txt', 'data/b753_sweeps.txt', 'data/b753_store.txt',
-                 'data/b753_census.txt', 'data/b753_agenda.txt', 'data/b753_address_scan.txt')
-#   ### the banks of (R363)(4)-(7), each written by its component
+                 'data/b753_head_read.txt', 'data/b753_anchors.txt', 'data/b753_store.txt', 'data/b753_agenda.txt', 'data/b753_waiver.txt',
+                 'data/b753_line.txt', 'data/b753_address_scan.txt')
+#   ### the banks of (R363)(4)-(7) as written; (5)(v) and (5)(vi) (the shelves' listing, the sweeps and the census) carried to the sitting
+#   ### on the author's word, no bank of theirs written this act
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b752_read_calls.txt', 'data/b753_read_calls.txt')
@@ -255,15 +256,15 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.5.0 entering this act
 STANDING_COMMIT = 'd973955897'          # ### standing clauses v9 (b723's Component 1), binding this act whole (carried name)
-ACT_CURRENT_COMMIT = None         # ### data/act_current.json for b753 committed alone through the one-call tool ((R363)(9)), the scan in the call; its row step 1
-STEPZERO = None             # ### b752's closing push capture, committed alone ((R363)(9)); its row in the commit's call
+ACT_CURRENT_COMMIT = '94f47164'         # ### data/act_current.json for b753 committed alone through the one-call tool ((R363)(9)), the scan in the call; its row step 1
+STEPZERO = '1fb3125a'             # ### b752's closing push capture, committed alone ((R363)(9)); its row in the commit's call
 STEPZERO_STEPS = None             # ### b752's closing step row was committed by b752 itself (d921bceb) before its closing push: nothing carried
 STEPZERO_TABLE = None             # ### b752 left no terminal table uncommitted
 STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b752: read at step zero; committed alone if its difference is more than line ends, else restored
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None      # ### step zero's banks and carried tools, one commit (data/b753_stepzero.txt among them)
+STEPZERO_BANKS = '9fc39fef'      # ### step zero's banks and carried tools, one commit (data/b753_stepzero.txt among them)
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -288,7 +289,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b753.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.32.0'            # ### entering; (R363)(7)'s repairs land as v1.33.0 by a commit of its own (C1_STANDING) with data/b753_standing_v1330.txt
+STANDING_VERSION = 'v1.33.0'            # ### (R363)(7)'s repairs landed as v1.33.0 by a commit of its own (C1_STANDING, 7c91353a) with data/b753_standing_v1330.txt; the version stays v1.33.0 through C1_STANDING_LATER by the author's sixth word (4)
 STANDING_VERSION_ENTERING = 'v1.32.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '1e658870'), ('D:/SIDE-explicit-formula', '0395f15d'), ('D:/SIDE-explicit-formula', '8fbab45d'))   # ### zq-b730 at the tag's commit; b753: SIDE-kernel at v1.5, the tree (R363)(5)(i) names (Bridge/TheBridgeComplete.lean)
 # ### v1.18.0, (R363)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -297,8 +298,8 @@ COMPARATIVE_BANKS = ('data/b753_corrigendum.txt', 'data/b753_registrations.txt',
                      'data/b753_head_read.txt', 'data/b753_anchors.txt', 'data/b753_store.txt', 'data/b753_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()   # ### v1.32.0's changed files, set after it lands
-STANDING_NEW = ()       # ### v1.32.0's new files, set after it lands
+STANDING_CHANGED = ('VERSION', 'append.py', 'fold/record.tpl', 'gitwrite.py', 'hold.py', 'routes/b644_record.py', 'roster.py')   # ### v1.33.0's changed files, by git diff 0e855242..HEAD -- tools/standing
+STANDING_NEW = ('chain.py', 'haltprice.py', 'outbound.py', 'remoteread.py', 'subject.py', 'v1330.py')       # ### v1.33.0's new files, the same diff
 # ### b752's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '0e855242'    # ### b752's closing (its step row), the act's relay base
 B714_RECORD = 'dabb13c6'     # ### b752's record commit (relay)
@@ -308,9 +309,9 @@ B723_ROOT_BANKS = '0b63839c'  # ### b752's root commit, the banks its root rode 
 C1_STANDING = '7c91353a'     # ### tools/standing/ v1.33.0 by a commit of its own, its controls bank data/b753_standing_v1330.txt ((R363)(7))
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none yet
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
+C1_RELAY = 'fc2d220e'              # ### the c1 route, the corrigendum banks
 C1_CORR = C1_RELAY
-C1_RULES = C1_STANDING             # ### data/b753_rules.txt committed with v1.32.0
+C1_RULES = '0db31ce3'              # ### data/b753_rules.txt first committed at [M1]'s pass (its row (1)), its row (2) at [D1]'s (48b8ae2e)
 C1_PP = '80bf12c7'           # ### PLACE-papers: FINDINGS -- b752 at its weight and the corrigendum for b752
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
@@ -318,10 +319,10 @@ C2_TOOL = None                     # ### (carried name) no driver this act
 WEIGHT_LINE, CORR_LINE = 14910, 14912   # ### FINDINGS: b752's weight line and the corrigendum for b752 (Component 1)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None   # ### Component 2's first commit
-C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
-C2_RELAY = None   # ### the last of them
-C1_DEFECTS = ()   # ### the defects bank's commits
+C2_PLAN_FIRST = '340c6206'   # ### Component 2's first commit
+C2_RELAY_ALL = ('340c6206', 'db9ca425', 'fe935a7e', 'c275582f', '69434780', '2d085231', '9b7e67be', '65c5b5fe', '8db618bf', '81cac329', '821d06d7', '2544839e', 'c08b9887', '1322de66', 'e022e3a2', '08751eb1')   # ### Component 2's relay commits in order, set as each is made
+C2_RELAY = '08751eb1'   # ### the last of them
+C1_DEFECTS = ('c68fab6b',)   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
 C2_PP = ()               # ### no PLACE-papers write in Component 2 ((R363)(3)-(5): banks of this act alone)
@@ -351,8 +352,21 @@ ITEM_PP = (('[A1]', '7fbaff0d', 'phase1.5/method/THE_METHOD_CANON.md', 38, 0), (
            ('[F2]', '0dc0acb3', 'day1/Which_Structure_Confines_v2_4_0.md', 2, 0), ('[G1]', '00188c31', 'ERRATA.md', 14, 0), ('[G2]', '2d145638', 'ERRATA.md', 14, 0))
 SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[B1]': 'PASS', '[B2]': 'PASS', '[C]': 'PASS', '[D]': 'KEEP', '[E]': 'PASS',
                   '[F1]': 'PASS', '[F2]': 'PASS', '[G1]': 'PASS', '[G2]': 'PASS'}
-C3_RELAY = ()   # ### Component 3 ((R363)(6)): set as made
-C4_LINE = None       # ### Component 4: tools/b753_line.py and data/b753_line.txt
+C3_RELAY = ('0db31ce3', '48b8ae2e')   # ### Component 3 ((R363)(6)): set as made
+C4_LINE = '98bb4ae2'       # ### Component 4: tools/b753_line.py and data/b753_line.txt
+C4_ANSWERS = None          # ### Component 4: the answers pair by the record tool's route (data/b753_author_answers.txt/.json), set when committed
+C4_V1330 = ('768b4c9b', '3d82879a')   # ### Component 4, the author's sixth word (4): the v1.33.0 bank's composer (tools/b753_v1330_later.py), then the bank written again by it, naming C1_STANDING_LATER with the controls run after them
+# ### Component 4 (b753): the act's objects by their commits, read from the log 0e855242..HEAD
+REG_RULE = '4c86bf24'     # ### (R363)(4): the registration's rule alone
+REG_TABLE = '3f865479'    # ### its table, by a commit of its own
+# ### (R363)(5): each read as (name, the generator's commits in order, the bank's commit); a generator amended after a run whose bank was not committed
+C2_READS = (('kernels', ('db9ca425',), 'fe935a7e'), ('branch_map', ('c275582f', '69434780'), '2d085231'),
+            ('head_read', ('9b7e67be', '65c5b5fe'), '8db618bf'), ('anchors', ('81cac329', '821d06d7'), '2544839e'),
+            ('store', ('c08b9887', '1322de66', 'e022e3a2'), '08751eb1'))
+C3_AGENDA = ('8cf14179', '9b95fa00')   # ### (R363)(6): the agenda's generator, then its bank, before either item was put
+C3_ITEMS = (('[M1]', '0db31ce3', 'Passed'), ('[D1]', '48b8ae2e', 'Passed as (a)'))   # ### the two kept items, each with its commit and the author's word
+C3_WAIVER = '576255e0'    # ### the hold before Component 4 and the author's waiver (data/b753_events.txt (5); data/b753_waiver.txt)
+C1_STANDING_LATER = ('0f31d31d', '0db31ce3')   # ### the commits after v1.33.0's own at which a standing tool changed (the store read's model; [M1]'s roster reader), the version staying v1.33.0 by the author's sixth word (4)
 ZENODO_BANK = None   # ### no Zenodo call this act ((R363)(6))
 ROUTES_BANK = 'data/b747_zenodo_routes.txt'     # ### b747's routes bank, read not written
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)
