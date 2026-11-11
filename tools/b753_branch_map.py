@@ -253,18 +253,26 @@ def compose(heads, tags, at, gen):
     L.append('  branches whose tree holds %s: %s' % (c2w, ', '.join(b for b in sorted(has) if has[b][0]) or 'none'))
     L.append('  branches whose tree holds %s and %s: %s' % (zq1, zq2, ', '.join(b for b in sorted(has) if has[b][1] and has[b][2]) or 'none'))
     L.append('  branches whose tree holds all three: %s' % (', '.join(b for b in sorted(has) if all(has[b])) or 'none'))
-    hits = []
+    hits, homonyms = [], []
     for b in sorted(heads):
         for x, y in (('bL', 'cQ'), ('aQ', 'cQ')):
             for f in both(heads[b], x, y):
-                hits.append('%s: %s names both %s and %s' % (b, f, x, y))
+                # ### a name of the branch's own: where the tree does not hold C2Walk.lean and defines x itself, the x named beside cQ is that
+                # ### definition, another of the same name, and no relation to C2Walk's (the first run's one hit, read by hand, was this)
+                own = find_decl(x, heads[b])
+                if not has[b][0] and own:
+                    homonyms.append('%s: %s names both %s and %s -- %s is this branch`s own definition (%s), its tree holding no C2Walk.lean: '
+                                    'ANOTHER DEFINITION OF THE SAME NAME, NO RELATION' % (b, f, x, y, x, ' ; '.join('%s :%d `%s`' % o for o in own)))
+                else:
+                    hits.append('%s: %s names both %s and %s' % (b, f, x, y))
         for f in importers(heads[b], ('SIDEExplicitFormula.C2Walk', 'SIDEExplicitFormula.Schema.ZQ.LogDeriv')) + importers(
                 heads[b], ('SIDEExplicitFormula.C2Walk', 'SIDEExplicitFormula.Schema.EpsteinZQ')):
             hits.append('%s: %s imports both modules' % (b, f))
-    L += ['  ' + h for h in hits]
+    L += ['  ' + h for h in homonyms + hits]
     L.append('  THE LINE: %s' % (
-        'NO DECLARATION ON ANY BRANCH RELATES THEM, by this search: no .lean file of any of the %d heads names bL or aQ together with cQ, and none imports '
-        'C2Walk together with the instance`s modules; the two rQ are separate definitions on separate branches' % len(heads) if not hits else
+        'NO DECLARATION ON ANY BRANCH RELATES THEM, by this search: no .lean file of any of the %d heads names C2Walk`s bL or aQ together with cQ (%d file(s) '
+        'naming a same-named definition of the branch`s own, printed above), and none imports C2Walk together with the instance`s modules; the two rQ are '
+        'separate definitions on separate branches, no tree holding both files' % (len(heads), len(homonyms)) if not hits else
         '### %d FILE(S) NAME OR IMPORT BOTH, listed above; each to be read before a sentence says they are related' % len(hits)))
     L += ['', '### ### **THE CRITERION KERNEL`S BRANCHES MAPPED: %d ; OFF MAIN %d (%s) ; MERGED %d ; RESULTS OF RECORD OFF MAIN %d OF %d ; PAIRS OF THE FOUR SHARING A MODULE %d OF 6 ; '
           'THE TWIN READ: %s ; CONTROLS %s.**' % (len(heads), len(off), ', '.join(off), len(heads) - 1 - len(off), r_off, len(RECORD), npair,
