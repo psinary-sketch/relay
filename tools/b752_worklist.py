@@ -36,8 +36,8 @@ ANCHOR = 'RULING (R362) BEGIN'           # ### the act's capture anchor, as data
 RULING_ANCHOR = 'RULING (R362) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
 TAIL = 'FERRY END (part 1 of 1)'
 SESSIONS_AFTER = ()   # ### b752 runs in one session (43048615) from its ruling; no session change at its step zero
-PREV_SESSION = '6151c0de-d2ec-42cf-a477-c48b99346e01'   # ### b751's ruling ('RULING (R361) BEGIN') stands in this session; b751 continued in 43048615 from 16:47:23Z, where b752 runs
-PREV_ANCHOR = 'RULING (R361) BEGIN'
+PREV_SESSION = '43048615-75cd-4480-bfa6-362a3c13092b'   # ### b751's ruling ('RULING (R361) BEGIN') stands in 6151c0de; b751 continued here from 16:47:23Z, its post-push combine and closing here, where b752 runs
+PREV_ANCHOR = 'Go: read free memory in the foreground; at or above 2,750 MB, proceed in the order you listed'   # ### b751's continuation anchor (b751 worklist SESSIONS_AFTER); G-EDIT-ROUTE's window from b751's combine to (R362)'s anchor
 DRAFT = '23228113'
 LOCAL_BANK = 'data/b628_intake_crank_v0_5.txt'
 EXPORT = 'data/b647_navigator_memory.txt'
@@ -220,7 +220,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'section 6 of the paper, as the author named it at b751`s root ((R362)(11)), confirmed or renamed at this act`s root, and, if [P1] passed, where the build falls'
+NEXT = 'the system refresh (b753), as the author ordered at [P1]’s pass (relay data/b752_author_answers.txt); then the sitting, then sections 6-8 of the paper, then the build of T0 and T1 in an act the author names'
 NEXT_ACT = 'b753'
 
 
@@ -315,7 +315,7 @@ C1_PP = '0732cb56'                 # ### PLACE-papers: FINDINGS -- b751 at its w
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b751's weight line and the corrigendum for b751 (Component 1); set after it is made
+WEIGHT_LINE, CORR_LINE = 14785, 14787   # ### FINDINGS: b751's weight line and the corrigendum for b751 (Component 1, PLACE-papers 0732cb56)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = 'f72c243f'   # ### Component 2's first commit: the cross-reference bank ((R362)(3)); step row 8
@@ -352,7 +352,7 @@ ITEM_PP = (('[A1]', '7fbaff0d', 'phase1.5/method/THE_METHOD_CANON.md', 38, 0), (
 SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[B1]': 'PASS', '[B2]': 'PASS', '[C]': 'PASS', '[D]': 'KEEP', '[E]': 'PASS',
                   '[F1]': 'PASS', '[F2]': 'PASS', '[G1]': 'PASS', '[G2]': 'PASS'}
 C3_RELAY = ('b81002b8', '9218d7d3')   # ### Component 3 ((R362)(6)): the plan bank (step row 13), then the answers pair and the put bank on [P1]'s pass (step row 14)
-C4_LINE = None             # ### Component 4: the line tool and its bank, set after made
+C4_LINE = '49e3a3cd'       # ### Component 4: tools/b752_line.py and data/b752_line.txt (step 15)
 ZENODO_BANK = None   # ### no Zenodo call this act ((R362)(6))
 ROUTES_BANK = 'data/b747_zenodo_routes.txt'     # ### b747's routes bank, read not written
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)
