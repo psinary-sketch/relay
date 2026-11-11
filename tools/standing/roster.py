@@ -27,6 +27,7 @@ import act as A   # noqa: E402
 
 NL = '\n'
 BASE = os.path.join(A.T, 'mirror_roster.json')
+ADDED = os.path.join(A.T, 'mirror_roster_added.json')
 VER = re.compile(r'_v(\d+(?:_\d+)*)(\.md)$')
 
 
@@ -48,6 +49,15 @@ def base():
         return [norm(p) for p in json.load(f)['files']]
 
 
+def added():
+    """b753, (R363)(6)[M1], passed by the author 2026-11-11 (data/b753_rules.txt (1)): the families added by a ruling, a list of its own beside
+    the base roster, which stays unedited. [] where the list does not stand."""
+    if not os.path.isfile(ADDED):
+        return []
+    with open(ADDED, encoding='utf-8') as f:
+        return [norm(p) for p in json.load(f)['files']]
+
+
 def main_tree(rev='main'):
     """PLACE-papers' tree at `rev` (main, or the source head a build declared), its paths."""
     out = A.gs('pp', 'ls-tree', '-r', '--name-only', rev) or ''
@@ -57,7 +67,7 @@ def main_tree(rev='main'):
 def roster_at(rev='main'):
     """the roster the builder reads, from the base roster's families and PLACE-papers' tree at `rev` (the class repair (3)(iii): the
     mirror's verifier reads this roster, at the source head the build's MANIFEST declares, not the base roster alone)."""
-    return resolve(base(), main_tree(rev))[0]
+    return resolve(base(), main_tree(rev), added())[0]
 
 
 def build_joins(act):
@@ -66,9 +76,15 @@ def build_joins(act):
     return re.findall(r'^  JOINS (\S+)', j.get('out') or '', re.M), j.get('pp_head')
 
 
-def resolve(b, tree):
+def resolve(b, tree, add=None):
     """the roster from the b707 roster `b` and main's tree: (roster, joins [(path, family, reason)], leaves [(path, reason)], not joined
-    [(path, family, reason)])."""
+    [(path, family, reason)]). With `add` (the families added by a ruling, b753 [M1]): the base roster's entries and their joins keep their
+    slots, and each added family follows them in the list's order with its later editions, read by the same rule."""
+    if add:
+        r0, j0, l0, n0 = resolve(b, tree)
+        fresh = [p for p in add if p not in b and family(p) not in set(family(x) for x in b)]
+        r1, j1, l1, n1 = resolve(fresh, tree)
+        return r0 + [p for p in r1 if p not in r0], j0 + j1, l0 + l1, n0 + n1
     on = set(tree)
     kept = [p for p in b if p in on]
     leaves = [(p, 'absent on main') for p in b if p not in on]
@@ -98,17 +114,23 @@ def resolve(b, tree):
 def print_lines(b=None, tree=None):
     b = base() if b is None else b
     tree = main_tree() if tree is None else tree
-    r, joins, leaves, nj = resolve(b, tree)
+    ad = added()
+    r, joins, leaves, nj = resolve(b, tree, ad)
     head = A.gs('pp', 'rev-parse', '--short', 'main')
     L = ['### THE ROSTER READ FROM PLACE-papers MAIN %s BY FAMILY (the roster rule of the rules bank): the base roster (tools/mirror_roster.json) '
          '%d entries in %d families ; the roster %d entries' % (head, len(b), len(set(family(p) for p in b)), len(r))]
+    if ad:
+        L.append('### THE FAMILIES ADDED BY A RULING (tools/mirror_roster_added.json; b753, (R363)(6)[M1], data/b753_rules.txt (1)): %d listed ; in the roster %d, '
+                 'after the base roster`s entries and their joins' % (len(ad), sum(1 for p in ad if p in r)))
+        L += ['  FAMILY ADDED %s  (family %s ; %s)' % (p, family(p), 'in the roster at slot %d' % (r.index(p) + 1) if p in r else '### NOT IN THE ROSTER: absent on main, or its family already carried')
+              for p in ad]
     L += ['  JOINS %s  (family %s ; %s)' % (p, f, why) for p, f, why in joins] or ['  JOINS none']
     L += ['  LEAVES %s  (%s)' % (p, why) for p, why in leaves] or ['  LEAVES none']
     L += ['  NOT JOINED %s  (family %s ; %s)' % (p, f, why) for p, f, why in nj]
-    added, removed = sorted(set(r) - set(b)), sorted(set(b) - set(r))
+    plus, removed = sorted(set(r) - set(b)), sorted(set(b) - set(r))
     L.append('### THE DIFF AGAINST THE BASE ROSTER (tools/mirror_roster.json, lastChanged %s): added %d %s ; removed %d %s' % (
         json.load(open(BASE, encoding='utf-8')).get('lastChanged'),
-        len(added), added or '', len(removed), removed or ''))
+        len(plus), plus or '', len(removed), removed or ''))
     return L, r
 
 
@@ -127,7 +149,19 @@ def control_lines():
     prev = A.prev_of(A.current()['act'])
     bj, bhead = build_joins(prev)
     case('RECORD', '%s`s build at its source head: the joins as its build printed them' % prev,
-         ([j[0] for j in resolve(b, main_tree(bhead))[1]] if bhead else None), bj)
+         ([j[0] for j in resolve(b, main_tree(bhead), added())[1]] if bhead else None), bj)
+    # ### b753 [M1]: the families added by a ruling follow the base roster's entries and joins, in the list's order; the rule is otherwise b715's
+    ad = added()
+    if ad:
+        ra = resolve(b, tree, ad)[0]
+        case('RECORD', 'the families added by a ruling (%d): the base roster`s entries and joins keep their slots, the added follow in the list`s order' % len(ad),
+             (ra[:len(r)] == r, [p for p in ra[len(r):] if p in ad] == [p for p in ad if p in tree]), (True, True))
+    pl = ['phase9/x/PLANTED_FAMILY_v0_1.md']
+    rp = resolve(b, tree + pl + ['phase9/x/PLANTED_FAMILY_v0_2.md'], pl)
+    case('CONSTRUCTED', 'a planted added family with a later edition on the tree: both enter after every base slot, the later edition a join',
+         (rp[0][:len(r)] == r, rp[0][len(r):], [j[0] for j in rp[1] if 'PLANTED' in j[0]]), (True, pl + ['phase9/x/PLANTED_FAMILY_v0_2.md'], ['phase9/x/PLANTED_FAMILY_v0_2.md']))
+    case('CONSTRUCTED', 'a planted added family absent on the tree: it leaves, nothing enters ; one whose family the base roster carries: not taken twice',
+         (resolve(b, tree, pl)[0] == r, [x[0] for x in resolve(b, tree, pl)[2]], resolve(b, tree, [b[0]])[0] == r), (True, pl, True))
     case('RECORD', 'main`s tree: the census v0.8.1 and day1/Silence_of_Foundations.md in the roster', (census in r, 'day1/Silence_of_Foundations.md' in r), (True, True))
     case('RECORD', 'main`s tree: leaves ; families before and after', (len(leaves), len(set(family(p) for p in b)), len(set(family(p) for p in r))),
          (0, len(set(family(p) for p in b)), len(set(family(p) for p in b))))
