@@ -464,14 +464,15 @@ def runner_ok(S):
 #⟪END⟫
 # ### b753, Component 4 (the Edit tool): b752's override of checks 1476-1482 (one ERRATA entry at b752's (R362)(5)) removed -- (R363)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b753 as it stands
-# ### b753, Component 3 (the Edit tool): G-BRANCHES-DELETED over b753's two repositories (relay, PLACE-papers) and five
-# ### refs; b753, Component 4, defect (m): the step-zero bank writes "KEPT as banked (" -- the seat's row at data/b753_stepzero.txt :43 and the
-# ### tool's row (tools/standing/carry.py kept b753) in its dated note -- read in its own wording, the tool's row asked by its own head
+# ### G-BRANCHES-DELETED over b753's two repositories (relay, PLACE-papers) and five refs. b753, Component 4 (the Edit tool, defect
+# ### (t')): the needle carried from b752 asked b752's sentence ("KEPT as banked (the tool`s row, tools/standing/carry.py kept b752"); b753's
+# ### step zero wrote its kept row in its own words (data/b753_stepzero.txt :96, by a scratch reader after the hook's ENV refusal, defect (a)):
+# ### "KEPT as b752's carried list (f) names them, none moved ... 0 moved or absent", port-b707 cb0aea56 among them (:97); read in that wording
 #⟪OVERRIDE checks MARK 6381bcfb3cc2 1⟫
     return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and 'port-b707' in z and 'KEPT as banked (the tool`s row, tools/standing/carry.py kept b753' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and 'port-b707 cb0aea56' in z and "KEPT as b752's carried list (f) names them, none moved" in z and '0 moved or absent' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
 # ### b753, Component 4 (the Edit tool): G-RUNNER-READ's plant on b753's dispatch rows -- run 2's axiom lines carrying sorryAx (b752's
 # ### plant read the lv rows' closure log, which b753 does not write)
@@ -507,7 +508,7 @@ def runner_ok(S):
 # ### b753, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R363): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
 #⟪OVERRIDE closing MARK 176194092462 2⟫
-    from standing import counter as CNT   # ### v1.22.0, (R363)(2)(iii): the one composer, its set named
+    from standing import counter as CNT   # ### v1.22.0, (R352)(2)(iii): the one composer, its set named
     k_ = CNT.compose('b753')
     return '### THE COUNTER ((R363) Component 5, the act`s events and defects together; relay data/b753_defects.txt, data/b753_events.txt): CLAIM %d, CLOSE %d, REPEAT %d OF %d ; THE SET: DEFECTS %d, EVENTS %d, THE LAST %s%s' % (
         k_['claim'], k_['close'], k_['repeat'], k_['total'], k_['defects'], k_['events'], k_['last'], (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
@@ -777,12 +778,12 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R363)(1)-(2))',   # ### the template's headin
 # ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386)
 #⟪OVERRIDE record MARK 02b19df735c8 3⟫
     f = _figs()
-    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R363)(3)(vii): the composed prompts' rows, the sitting rows read apart
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE record MARK 1c3af0435e5b 3⟫
     f = _figs_b752()
-    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R363)(3)(vii): the composed prompts' rows, the sitting rows read apart
+    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 6767229683fc 1⟫
@@ -1457,7 +1458,7 @@ TITLE_LINE = ('b753 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND E
     '    nothing deposited ; no new Zenodo version ; no Zenodo call ; no draft published, the draft held at v5 ; no GitHub description written ; no README, description or anchor edited ;',
     '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry) and OPEN_TRAILS (the trail) ; no paper written ; no door or ledger row edited ; no paper moved or renamed ;',
     '    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b753`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ;',
-    '    tools/standing/ at v1.33.0 by (R363)(7), the commits after its own at which a standing tool changed named in its bank (relay data/b753_standing_v1330.txt) ; tools/mirror_roster_added.json written at [M1]`s pass ; the one settings key of [D1] written by the seat on the author`s pass (relay data/b753_rules.txt (2)) ; the per-act tools of b698-b752 unedited, act_current`s shared_edits empty ; the mirror zip written outside every repository over the',
+    '    tools/standing/ at v1.33.0 by (R363)(7), the commits after its own at which a standing tool changed named in its bank (relay data/b753_standing_v1330.txt) ; tools/mirror_roster_added.json written at [M1]`s pass ; the one settings key of [D1] written by the seat on the author`s pass (relay data/b753_rules.txt (2)) ; the per-act tools of b698-b752 unedited, act_current`s shared_edits naming [M1]`s list tools/mirror_roster_added.json alone (standing/carry.py shared) ; the mirror zip written outside every repository over the',
     '    roster read from PLACE-papers main, 75 entries and the seven of [M1], the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of TECHNE or any patent written',
 #⟪END⟫
 #⟪SECTION closing 9⟫
@@ -1831,12 +1832,12 @@ N4_APPENDED = STANDING_ACT.post_lock_appended(ACT)
 def _post_lock_edits():
     """the lock commit by the one reader (the step bank's lock row) and its commit time, the relay commits after that one, and among the files they touch, and the working tree's changes, those that are the face, under tools/, or
     an act bank tracked at the lock commit -- less N4_APPENDED."""
-    # ### v1.26.0, (R363)(3)(ii): the lock commit by the one reader (tools/standing/lockdate.py, the lock row of data/<act>_steps.json), the
+    # ### v1.26.0, (R356)(3)(ii): the lock commit by the one reader (tools/standing/lockdate.py, the lock row of data/<act>_steps.json), the
     # ### same reader the ceiling takes; the face's `locked at (UTC)` line no longer dates it
     import lockdate as LD
     lc = LD.lock_of(ACT, os.path.join(ROOT, 'data'))
     lock = LD.lock_epoch(lc, ROOT) if lc else None
-    # ### v1.30.0, (R363)(3)(viii), b752 events (12): the lock's time printed from the one reader's epoch; b752's module left lock_iso unset and
+    # ### v1.30.0, (R360)(3)(viii), b749 events (12): the lock's time printed from the one reader's epoch; b752's module left lock_iso unset and
     # ### its N4 sentence printed "the lock at NOT LOCKED" at every reading while lock_ok held
     out = dict(lock=lock, lock_iso=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(lock)) if lock else None, lock_commit=lc, after=[], edited=[], dirty=[])
     if lc is None or lock is None:
@@ -1887,7 +1888,7 @@ def _post_lock_edits():
     # ### listed push-* branch of the face's branch list excepted (none this act); no .lean file changed or untracked in a kernel's tree; the
     # ### rebuild-b721 branches kept as b752 left them; the address scan's count from its bank (relay data/b753_address_scan.txt), the suite's arm recounting it live
     start = int((g(ROOT, 'log', '-1', '--format=%ct', K.ACT_CURRENT_COMMIT) or '0').strip() or 0)
-    listed_ = [(r_.get('kernel'), r_.get('branch')) for r_ in __import__('standing.facebranches', fromlist=['listed']).listed(ACT)]   # ### v1.24.0, (R363)(2)(v): the face's branch list (none this act)
+    listed_ = [(r_.get('kernel'), r_.get('branch')) for r_ in __import__('standing.facebranches', fromlist=['listed']).listed(ACT)]   # ### v1.24.0, (R354)(2)(v): the face's branch list (none this act)
     lean_w = []
     for kp in K.KERNEL_PATHS:
         if not os.path.isdir(kp):
@@ -1908,7 +1909,7 @@ def _post_lock_edits():
     # ### (R363)(6), N5: no release, no new version, no publish, no repository edit in the capture
     cmr_ = jl('%s_commands.json' % ACT).get('rows') or []
     ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', r_.get('cmd') or '')]
-    # ### v1.30.0, (R363)(3)(vi), b752 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
+    # ### v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
     # ### banks alone (standing.act.zenodo_requests), not from captured commands nor from "the draft held at v5", the monograph's draft
     zr_ = __import__('standing.act', fromlist=['zenodo_requests']).zenodo_requests(ACT)
     ghe_ = ['%s :%d' % (b_, i_) for b_, i_, _t in zr_['releases']]
@@ -1931,7 +1932,7 @@ def _post_lock_edits():
     # ### TITLE_LINE reads it: (5)(v), (5)(vi) and the rest of (6) carried by the author's words, [M1] and [D1] passed, the hold lifted
     return ('### b753 — lane two, act one hundred and eighty, the system refresh under (R363): b752 at its weight; the author`s root answer entered with its order; '
             'the navigator`s correction on the coefficient record; the class-number-3 walk registered, not run; the hold of 2026-11-11 entered and the transcript store read; '
-            'the kernels reconciled, the criterion kernel`s branches mapped, the front doors` heads and the reference layer`s anchors read; [M1] and [D1] passed; '
+            'the kernels reconciled, the criterion kernel`s branches mapped, the front doors’ heads and the reference layer`s anchors read; [M1] and [D1] passed; '
             'the hold before Component 4 lifted by the author`s waiver; nothing built')
 #⟪END⟫
 #⟪SECTION record 29⟫
@@ -1965,7 +1966,7 @@ def _post_lock_edits():
     letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
     return ('(1) the line`s stages, the seat`s reading of canon XXIII (B): the registration CLUSTERED (the Epstein cluster names its keystone, which carries none of the registration`s names) and the five reads BANKED (no row or block of the maps names any of them), printed and entered in no map (relay data/b753_line.txt (B)); '
             '(2) the v1.33.0 bank`s later commits named by a per-act composer run after them (relay tools/b753_v1330_later.py), not by a change to a standing tool, the seat`s reading of the author`s sixth word (4) (relay data/b753_standing_v1330.txt); '
-            '(3) [D1]`s key taken as binding from the harness`s next start, the documentation read not saying when a change of it binds, its effect not tested by this act (relay data/b753_rules.txt (2)); '
+            '(3) [D1]’s key taken as binding from the harness`s next start, the documentation read not saying when a change of it binds, its effect not tested by this act (relay data/b753_rules.txt (2)); '
             '(4) the answers bank written by the route in its present form, each paragraph after a word`s first standing twice, the repair to tools/standing/authorwords.py carried to the sitting with its control and not made, no word of the author ordering a change to a standing tool after v1.33.0`s own commit (relay data/b753_defects.txt (q’)); '
             +
             '(5) %s and the seat’s %s defect%s as lettered' % (
@@ -2017,7 +2018,10 @@ def _runs3_line():
     if (f['m1'], f['d1']) != ('Passed', 'Passed as (a)'):
         sys.exit('### THE ANSWERS BANK DOES NOT CARRY THE AUTHOR`S WORDS ON [M1] AND [D1] AS READ -- NOTHING COMPOSED')
     rep, tot = _repeats()
-    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R363)(3)(vii): the composed prompts' rows, the sitting rows read apart
+    _qc_, _aa_ = __import__('standing.act', fromlist=['question_count']).question_count, rdn('%s_author_answers.txt' % ACT)
+    _rf_ = [b for b in re.split(r'(?m)^(?=### CALL )', _aa_) if b.startswith('### CALL ') and re.search(r'(?m)^RESULT [^\n]*hook error: REFUSED', b)]   # ### b753 touch row (2): a call the hook refused before it was shown
+    n_ref = sum(_qc_(b)['prompts'] for b in _rf_)
+    n_ans = _qc_(_aa_)['prompts'] - n_ref   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart; the refused call's read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))   # ### the bank's foot
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R362)(2)(v)
     co_ = jl('%s_corrigendum.json' % ACT)
@@ -2027,11 +2031,12 @@ def _runs3_line():
          'The class-number-3 walk is registered and not run. Its rule, H-C3-LAW, was committed alone (relay %s) before its table of %d rows -- %d controls and %d tests -- by a commit of its own (relay %s); the value the rule predicts is printed at every row; no form and no coefficient was read at an unused discriminant; the navigator’s candidate statements (a)-(%s) are carried beside it, none registered and none run (relay data/b753_registrations.txt). The system was read by five reads, each generator committed before its bank: %d repositories reconciled against the lists, %d local heads not their remote main (relay data/b753_kernels.txt); the criterion kernel’s %d remote branches mapped against main, %d off main (relay data/b753_branch_map.txt); %d front doors’ heads read against the registry and the descriptions, %d agreeing and %d not (relay data/b753_head_read.txt); the reference layer’s %d anchors read against the ledgers’ later lines, %d moved by a later line, none edited (relay data/b753_anchors.txt); the transcript store read by names, sizes and dates, %d sessions (relay data/b753_store.txt). [M1] and [D1] were put once and passed: the mirror’s roster gains seven families, %d entries to %d, and the harness’s background updating is switched off for the seat (relay data/b753_rules.txt).' % (
              f['rg_rule'], f['rg_rows'], f['rg_ctl'], f['rg_tests'], K.REG_TABLE, f['rg_cand'], f['kn_n'], f['kn_late'], f['bm_n'], f['bm_off'], f['hr_doors'],
              f['hr_agrees'], f['hr_notagree'], f['an_n'], f['an_moved'], f['sr_sessions'], f['ag_roster'][0], f['ag_roster'][1]), '',
-         '*Filed at b753 on the author’s ruling `(R363)`; %d question%s put before the root. Banks: relay '
+         '*Filed at b753 on the author’s ruling `(R363)`; %d question%s put before the root%s. Banks: relay '
          '`data/b753_corrigendum.txt`, `data/b753_standing_v1330.txt`, `data/b753_rules.txt`, `data/b753_registrations.txt`, `data/b753_kernels.txt`, `data/b753_branch_map.txt`, '
          '`data/b753_head_read.txt`, `data/b753_anchors.txt`, `data/b753_store.txt`, `data/b753_agenda.txt`, `data/b753_put_2.json`, `data/b753_author_answers.txt`, '
          '`data/b753_waiver.txt`, `data/b753_events.txt`, `data/b753_line.txt`, `data/b753_prelock.txt`, `data/b753_pathrefusal.txt`, '
-         '`data/b753_reproduce.txt`, `data/b753_address_scan.txt`, `data/b753_touch.txt`, `data/b753_standing_figures.txt`, `data/b753_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's'), '',
+         '`data/b753_reproduce.txt`, `data/b753_address_scan.txt`, `data/b753_touch.txt`, `data/b753_standing_figures.txt`, `data/b753_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's', (
+             ' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else ''), '',
          '**The corrigendum and the carried items** ((R363)(1), (2), (7); %s, %s, %s): b752 entered at its weight (FINDINGS :%s); '
          'the corrigendum of b752’s %s events and %s defects, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats -- with %d entered beside them, the author’s root answer and the navigator’s correction among them, '
          'at FINDINGS :%s, the corrigenda bank appended at row (%s) (relay data/b753_corrigendum.txt); tools/standing/ at %s by a commit of its own, its controls '
@@ -2046,7 +2051,7 @@ def _runs3_line():
          '(ii) The criterion kernel’s branches: %d at the remote, %d off main (%s), %d merged; the results of record off main %d of %d; the four branches of record pair by pair, %d of %d sharing a module; the twin read, no declaration on any branch found relating them (relay data/b753_branch_map.txt). '
          '(iii) The front doors’ heads: %d READMEs read, %d quoted, %d agreeing and %d not, %d private and not quoted, %d descriptions differing from their heads, %d with no README or not read; the known instance as wanted (relay data/b753_head_read.txt). '
          '(iv) The reference layer’s anchors: %d read against the ledgers’ later lines, %d moved by a later line, %d standing, %d with no later line found, none edited (relay data/b753_anchors.txt). '
-         '(v) The transcript store: %d sessions read by names, sizes and dates; of the %d session ids the tools name %d absent and %d a near twin; of the %d the banks’ keys name %d absent; %d readers of an absent file, %d guarded and going on; %d scratch folders named with a root, %d gone; the hold’s four reads reproduced; the temp directory read a candidate and no finding (relay data/b753_store.txt).' % (
+         '(v) The transcript store: %d sessions read by names, sizes and dates; of the %d session ids the tools name %d absent and %d a near twin; of the %d the banks’ keys name %d absent; %d readers of an absent file, %d guarded and going on; %d scratch folders named with a root, %d gone; the hold’s four reads reproduced, two of them naming fewer than this read finds (2 of the absent ids, 3 of the 6 gone folders whose transcripts stand); the temp directory read a candidate and no finding (relay data/b753_store.txt).' % (
              f['kn_n'], f['kn_ans'], f['kn_fail'], f['kn_d'], f['kn_absent'], f['kn_late'], f['bm_n'], f['bm_off'], f['bm_offnames'], f['bm_merged'], f['bm_rec'][0], f['bm_rec'][1],
              f['bm_pairs'][0], f['bm_pairs'][1], f['hr_doors'], f['hr_quoted'], f['hr_agrees'], f['hr_notagree'], f['hr_private'], f['hr_descdiff'], f['hr_noreadme'],
              f['an_n'], f['an_moved'], f['an_stands'], f['an_none'], f['sr_sessions'], f['sr_ids'], f['sr_absent'], f['sr_twin'], f['sr_keys'], f['sr_keys_absent'],
@@ -2096,7 +2101,10 @@ def _finding_text_b752():
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
-    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R363)(3)(vii): the composed prompts' rows, the sitting rows read apart
+    _qc_, _aa_ = __import__('standing.act', fromlist=['question_count']).question_count, rdn('%s_author_answers.txt' % ACT)
+    _rf_ = [b for b in re.split(r'(?m)^(?=### CALL )', _aa_) if b.startswith('### CALL ') and re.search(r'(?m)^RESULT [^\n]*hook error: REFUSED', b)]   # ### b753 touch row (2): a call the hook refused before it was shown
+    n_ref = sum(_qc_(b)['prompts'] for b in _rf_)
+    n_ans = _qc_(_aa_)['prompts'] - n_ref   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart; the refused call's read apart
     _r, _n, sh = seal_hashes()
     f = _figs()
     rep, tot = _repeats()
@@ -2129,8 +2137,9 @@ def _finding_text_b752():
              'CLAIM %d, CLOSE %d; REPEAT %d of %d, the closing carries the last figure; %s.' % (K.STANDING_COMMIT[:8], f['claim'], f['close'], rep, tot, _runs3_line()), '',
              '**Act root:** b753 `%s` (previous `%s`, b752’s; relay data/act_roots.txt), computed after the last bank it names, every one of them LF '
              'and committed and pushed at the commit it records (G-ROOT-BANKS-COMMITTED).' % (J.get('root'), J.get('previous')), '',
-             '**Prompts to the author:** %d question%s in %d call%s before the root (relay data/b753_author_answers.txt).' % (
-                 n_ans, '' if n_ans == 1 else 's', len(_calls()), '' if len(_calls()) == 1 else 's'), '',
+             '**Prompts to the author:** %d question%s in %d call%s before the root%s (relay data/b753_author_answers.txt).' % (
+                 n_ans, '' if n_ans == 1 else 's', len(_calls()) - len(_rf_), '' if len(_calls()) - len(_rf_) == 1 else 's', (
+                     ' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else ''), '',
              '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b753_standing_v1330.txt); the standing '
              'report tool (relay data/b753_report.txt).' % f['ver'], '']
     aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
