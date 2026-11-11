@@ -1,0 +1,95 @@
+b753 -- (R363)(5)(i): THE KERNELS RECONCILED -- every repository of data/repo_visibility.txt and every SIDE-* directory on D:, each remote read once by ls-remote (2026-11-11)
+
+### Written by tools/b753_kernels.py at relay db9ca425 (the generator committed before its run), the reads 2026-11-11T16:57:55Z to 2026-11-11T16:59:25Z. A bank of this act and no ledger;
+### nothing fetched, no repository changed. One `git ls-remote --heads --tags` per row; a read that fails prints FAILED and is not read again by
+### the run. From a PRIVATE repository: its name, as the map names it, counts and hashes alone.
+
+## THE CONTROLS, printed before any figure
+  (parser) a planted listing, two heads and four tags, one annotated: (branches, tags, latest, its commit, main): (2, 4, 'v0.10', '5555', '1111') AS WANTED
+  (parser) an error text and an empty answer are no listing: ({'heads': {}, 'tags': {}}, {'heads': {}, 'tags': {}}) AS WANTED
+  (version order) v0.9, v0.10, v0.19.1, v0.34.1, v0.38, v0.4: 'v0.38' AS WANTED
+  (version order) v1.5 beside v1.10, and a name of no version form alone: ('v1.10', None) AS WANTED
+  (a failed read) the kept reader against a remote name that does not resolve (no network): '### FAILED' AS WANTED
+  (a failed read) this tool`s own reader on the same: (output, exit code non-zero): ('', True) AS WANTED
+  (the map) data/repo_visibility.txt: (rows, PRIVATE, PUBLIC), its own closing line 52 ; 8 ; 44: (52, 8, 44) AS WANTED
+  (the lists) each reader reaches a known member: relay in pins, SIDE-kernel in root, SIDE-explicit-formula in face, SIDE-archimedean in census: (True, True, True, True) AS WANTED
+  (the lists) a planted name no list holds reads absent from each: ['pins', 'root', 'face', 'census'] AS WANTED
+  (the lists) SIDE-explicit-formula, held by all four, reads absent from none: [] AS WANTED
+  (no clone) the URL for a repository with no clone is the relay`s origin with its last segment replaced: True AS WANTED
+  ### THE CONTROLS: 11 ; ALL AS WANTED
+
+## THE LISTS READ
+  the pins roster read live (tools/b303_pins.py roster(), the texts on PLACE-papers main): 39 ; data/b752_pins_closing.txt`s rows: 39 ; THE SAME NAMES
+  the root`s repository list (tools/act_root.py repositories(), HEAD): 38 ; its census reader reads phase2/method/THE_KEYSTONE_CENSUS_v0_6.md
+  the face`s kernels (data/b752_kernels_face.json, banked 2026-11-11T00:55:15Z): 23
+  the census`s kernel table (phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md section 1A, first column, PLACE-papers HEAD): 38
+
+## THE ROWS: repository | visibility | on D: | local HEAD (its branch) | remote main | the two compared | latest tag by version order = its commit | branches ; tags at the remote | absent from
+  PLACE-papers | PRIVATE | on D: | 80bf12c7 (main) | 4db2fc1c | CLONE 1 AHEAD, 0 BEHIND | v1.0.1 = ca7178be | 9 ; 2 | face
+  relay | PUBLIC | on D: | db9ca425 (main) | 0e855242 | CLONE 14 AHEAD, 0 BEHIND | no tag | 7 ; 0 | face
+  PLACE-phase1.5 | PRIVATE | on D: | de621b16 (master) | de621b16 (master) | EQUAL | no tag | 1 ; 0 | pins, root, face, census
+  PLACE-phase2 | PRIVATE | on D: | a23ba237 (master) | a23ba237 (master) | EQUAL | no tag | 1 ; 0 | pins, root, face, census
+  SIDE-archimedean | PUBLIC | on D: | b71ffb8a (main) | b71ffb8a | EQUAL | v0.1.1 = fcecc454 | 2 ; 2 | none
+  SIDE-bijection | PUBLIC | on D: | 909836d0 (main) | 909836d0 | EQUAL | v0.2.1 = b8005043 | 1 ; 4 | none
+  SIDE-bsd-formation-transfer | PUBLIC | on D: | 1eb78bad (main) | 1eb78bad | EQUAL | v0.1.1 = 34917669 | 1 ; 2 | face
+  SIDE-bsd-multiplicity | PUBLIC | on D: | d77ce309 (main) | d77ce309 | EQUAL | v0.1.1 = d77ce309 | 1 ; 2 | pins, root, face, census
+  SIDE-carrier-spec | PRIVATE | on D: | dd54a616 (main) | dd54a616 | EQUAL | v0.4.2 = dd54a616 | 1 ; 5 | pins
+  SIDE-class-coupling | PUBLIC | on D: | 406e05f3 (main) | 406e05f3 | EQUAL | v0.1.0 = b6a6e869 | 1 ; 2 | face
+  SIDE-class-number-anomaly | PUBLIC | on D: | 68df58d4 (main) | 68df58d4 | EQUAL | v0.2.1 = 68df58d4 | 1 ; 2 | root, census
+  SIDE-compression | PUBLIC | on D: | 8e9c578b (main) | 8e9c578b | EQUAL | v0.2.0 = e9a5a368 | 1 ; 2 | face
+  SIDE-constants | PRIVATE | on D: | 545dde26 (main) | 545dde26 | EQUAL | no tag | 1 ; 0 | pins, face
+  SIDE-cosmo | PUBLIC | on D: | a1847d66 (main) | a1847d66 | EQUAL | v0.3.1 = ca04c8cf | 2 ; 3 | none
+  SIDE-coupling | PUBLIC | on D: | cbe66d9c (main) | cbe66d9c | EQUAL | v0.1.0 = 42b5e4e5 | 1 ; 2 | face
+  SIDE-cubit-axis | PUBLIC | on D: | e2f3b3bd (main) | e2f3b3bd | EQUAL | v0.1.0 = e0a2aec8 | 1 ; 1 | face
+  SIDE-dark-interface | PUBLIC | on D: | 1b69d7f3 (main) | 1b69d7f3 | EQUAL | v0.1.0 = f4a1ea61 | 1 ; 1 | face
+  SIDE-dirichlet-mod-24 | PUBLIC | on D: | 597b0869 (main) | 597b0869 | EQUAL | v0.1.0 = 597b0869 | 1 ; 1 | pins, root, face, census
+  SIDE-effects | PUBLIC | on D: | db0575c6 (main) | db0575c6 | EQUAL | v0.1.1 = 78bbcff5 | 4 ; 3 | none
+  SIDE-explicit-formula | PUBLIC | on D: | 8fbab45d (main) | 8fbab45d | EQUAL | v0.38 = 14ca5725 | 31 ; 40 | none
+  SIDE-faces-join | PUBLIC | on D: | 11a472b9 (main) | 11a472b9 | EQUAL | v0.1.0 = 11a472b9 | 1 ; 1 | root, census (read again once, an event: the first read at 2026-11-11T16:58:10Z FAILED exit 128 (fatal: unable to access 'https://github.com/psinary-sketch/SIDE-faces-join.git/': Failed to connect to github.com port 4); read again at 2026-11-11T16:59:25Z)
+  SIDE-fano-darkness | PUBLIC | on D: | 0f6ce5b1 (main) | 0f6ce5b1 | EQUAL | no tag | 1 ; 0 | none
+  SIDE-formation-arithmetic | PUBLIC | on D: | cd64a5c2 (main) | cd64a5c2 | EQUAL | v0.1.0 = ef0fcf1e | 1 ; 2 | face
+  SIDE-formation-procedure | PUBLIC | on D: | 65ace65a (main) | 65ace65a | EQUAL | v0.1.0 = 65ace65a | 1 ; 1 | pins, root, face, census
+  SIDE-frobenius | PUBLIC | on D: | 31ad3d5d (main) | 31ad3d5d | EQUAL | v0.1.0 = 2efe9f2f | 2 ; 1 | face
+  SIDE-global-section | PUBLIC | on D: | 504e146b (main) | 504e146b | EQUAL | v0.3.0 = 504e146b | 6 ; 3 | none
+  SIDE-grh-transfer | PUBLIC | on D: | 6e149db3 (main) | 6e149db3 | EQUAL | v0.5.1 = 6e149db3 | 2 ; 6 | none
+  SIDE-interfaces | PUBLIC | on D: | d7a6c64e (main) | d7a6c64e | EQUAL | v0.2.1 = c8bd217a | 2 ; 6 | none
+  SIDE-kernel | PUBLIC | on D: | f8534ef2 (main) | f8534ef2 | EQUAL | v1.8 = 70aba3cd | 6 ; 9 | none
+  SIDE-li-map | PUBLIC | on D: | 9e02bc00 (main) | 9e02bc00 | EQUAL | v0.1.1 = 9e02bc00 | 2 ; 1 | none
+  SIDE-local-cosmic-interface | PUBLIC | on D: | 4a7e75f1 (main) | 4a7e75f1 | EQUAL | v0.1.0 = 7a62cedb | 1 ; 1 | face
+  SIDE-lv-conservation | PUBLIC | on D: | 305a87c9 (main) | 305a87c9 | EQUAL | v0.14.0 = cb0aea56 | 9 ; 17 | none
+  SIDE-meta | PUBLIC | on D: | a80bc3a5 (main) | a80bc3a5 | EQUAL | v0.3 = 6bb7b23b | 1 ; 2 | face
+  SIDE-omega-b | PUBLIC | on D: | f44b98a1 (main) | f44b98a1 | EQUAL | v0.1.0 = 9c80279b | 1 ; 2 | face
+  SIDE-orchestrator | PUBLIC | on D: | 5d0a3410 (main) | 5d0a3410 | EQUAL | v0.1.0 = 5d0a3410 | 1 ; 2 | face
+  SIDE-quaternionic-dark-sector | PUBLIC | on D: | ec4557b7 (main) | ec4557b7 | EQUAL | v0.1.0 = e860142a | 1 ; 1 | face
+  SIDE-rcurve | PUBLIC | on D: | 0bcb6c1d (main) | 0bcb6c1d | EQUAL | v0.1.1 = 54c90407 | 2 ; 2 | none
+  SIDE-residual-bridge | PUBLIC | on D: | 0936c872 (main) | 0936c872 | EQUAL | v0.1.0 = cf8a619f | 1 ; 2 | face
+  SIDE-silence-principle | PUBLIC | on D: | e7ee890e (main) | e7ee890e | EQUAL | v0.2.2 = 716b686e | 1 ; 4 | none
+  SIDE-simplicity | PUBLIC | on D: | 967f747c (main) | 967f747c | EQUAL | v0.1.2 = 967f747c | 2 ; 3 | none
+  SIDE-spinor | PUBLIC | on D: | 25c76d8e (main) | 25c76d8e | EQUAL | v0.1.2 = 7e570eed | 4 ; 3 | none
+  SIDE-spinor-calibration | PUBLIC | on D: | 1d219d8a (main) | 1d219d8a | EQUAL | v0.2.0 = 1d219d8a | 1 ; 2 | pins, root, face, census
+  SIDE-spinor-calibration-mathlib | PRIVATE | on D: | 21b36aa9 (main) | 21b36aa9 | EQUAL | v0.1.0 = 21b36aa9 | 1 ; 1 | pins, root, face, census
+  SIDE-structural-error-correction | PUBLIC | on D: | 5eabc6cf (main) | 5eabc6cf | EQUAL | v0.2.3 = 5476ef35 | 1 ; 5 | none
+  SIDE-substrate-cluster | PUBLIC | on D: | d6aaac34 (main) | d6aaac34 | EQUAL | v0.4.1 = 0c98a9a2 | 1 ; 3 | none
+  SIDE-t7-topology-cmb | PUBLIC | on D: | 936cd65d (main) | 936cd65d | EQUAL | v0.3 = 8eb0d5ad | 1 ; 4 | pins, root, face, census
+  SIDE-trivium | PUBLIC | on D: | 18a351a1 (main) | 18a351a1 | EQUAL | v0.1.2 = 6ede9af6 | 2 ; 3 | none
+  SIDE-window | PUBLIC | on D: | b9055074 (main) | b9055074 | EQUAL | v0.5.2 = b9055074 | 1 ; 7 | root, census
+  SIDE-yang-mills-formation | PUBLIC | on D: | 1bfc716b (main) | 1bfc716b | EQUAL | v0.1.1 = 73e9e2c3 | 1 ; 2 | face
+  TECHNE-Core | PRIVATE | NO CLONE ON D: | - | 29208f63 | - | no tag | 2 ; 0 | pins, root, face, census
+  glassbead-game | PRIVATE | NO CLONE ON D: | - | 25b6ad72 | - | no tag | 1 ; 0 | pins, root, face, census
+  mathlib4 | PUBLIC | on D: | cecd0c4d (simple-zero-isolated) | 6e9770b3 (master) | CLONE 1184 AHEAD, 0 BEHIND | no tag | 8 ; 0 | pins, root, face, census
+
+## THE FIGURES TO REPRODUCE OR DIFFER
+  the navigator`s read of 2026-11-11, the 42 public SIDE repositories, every one answered: here PUBLIC SIDE-* 42, answered 42: REPRODUCED
+  SIDE-explicit-formula at 31 branches and 40 tags: here 31 ; 40: REPRODUCED (the face`s bank of 2026-11-11T00:55:15Z: 32 branches, 40 tags)
+  relay remote main 0e855242, the record`s 0e855242 (the remote main after b752`s closing push, nothing pushed since (data/b753_stepzero.txt)): EQUAL
+  PLACE-papers remote main 4db2fc1c, the record`s 4db2fc1c (the remote main after b752`s record push): EQUAL
+  SIDE-explicit-formula remote main 8fbab45d, the record`s 8fbab45d (main as (R363)(5)(iii) names it): EQUAL
+
+## READ BESIDE THE ROWS
+  local HEAD not the remote main: 3 -- PLACE-papers CLONE 1 AHEAD, 0 BEHIND ; relay CLONE 14 AHEAD, 0 BEHIND ; mathlib4 CLONE 1184 AHEAD, 0 BEHIND
+  a clone standing on a branch other than main: mathlib4 (simple-zero-isolated)
+  rows absent from a list, by list: pins 13 ; root 14 ; face 29 ; census 14
+  rows absent from no list: 19 ; from every list: 11 (PLACE-phase1.5, PLACE-phase2, SIDE-bsd-multiplicity, SIDE-dirichlet-mod-24, SIDE-formation-procedure, SIDE-spinor-calibration, SIDE-spinor-calibration-mathlib, SIDE-t7-topology-cmb, TECHNE-Core, glassbead-game, mathlib4)
+  names a list holds and no row carries: none
+
+### ### **THE KERNELS RECONCILED: 52 REPOSITORIES ; ANSWERED 52 ; FAILED 0 ; ON D: 50 ; ABSENT FROM A LIST 33 ; LOCAL HEAD NOT THE REMOTE MAIN 3 ; CONTROLS ALL AS WANTED.**
