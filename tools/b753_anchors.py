@@ -12,14 +12,17 @@ THE SEARCHES, over the ledgers outside the layer (FINDINGS before :762 and after
   (S3) a document the anchor's tag line names (a name in capitals with an underscore, its version apart), in a heading of FINDINGS or ERRATA
        or in a ceiling line
   (S4) a kernel the anchor names (SIDE-<name>), in a heading of ERRATA
-  (S5) every content word of the slug (four letters or more, a stop list apart; two words or more), in a heading of FINDINGS after :1094
+  (S5) every content word of the slug (five letters or more, a stop list apart; two words or more), each as a whole word, in a heading of
+       FINDINGS after :1094
   and the tier block of each document the anchor names, found in the tree by its name: its TIER line quoted by its tier alone.
 THE RULE, a lexical one: its verdicts are candidates for the sitting, each citing its line.
   MOVED BY A LATER LINE     (a) the anchor's own sentence says what a later ledger line names as not supportable or reworded: the phrases
                             REGISTRY's ceiling lines list after "Not supportable" (read from the lines), a proof of RH said complete, or the
                             wording "two-leg" (REGISTRY :153, :492-:496); or (b) a line found by (S1)-(S5) carries a moving word (RETIRED,
                             refuted, withdrawn, retracted, superseded, STIPULATION, not compiled, not proved, not supportable, named
-                            premise, open premise, equivalent to RH, restated)
+                            premise, open premise, equivalent to RH, restated) within 240 characters of the key found, an act's own
+                            score (a word standing straight after N1-N8) apart; a line found
+                            by (S4) alone moves only where it and the anchor's sentence share a named route or a backticked name
   STANDS                    later lines found, none of them moving by (a) or (b)
   NO LATER LINE FOUND       the searches found none
 
@@ -120,7 +123,11 @@ def kernels_named(a):
 
 
 def slug_words(slug):
-    return [w for w in slug.split('-') if len(w) >= 4 and w not in STOP]
+    out = []
+    for w in slug.split('-'):
+        if len(w) >= 5 and w not in STOP and w not in out:
+            out.append(w)
+    return out
 
 
 def wordre(s):
@@ -131,16 +138,19 @@ def search(a, F, E, R):
     """[(ledger, line, key, text)] by (S1)-(S5)."""
     hits, seen = [], set()
 
-    def add(ledger, n, key, text):
+    def add(ledger, n, key, text, pos):
         if (ledger, n) not in seen:
             seen.add((ledger, n))
-            hits.append((ledger, n, key, text))
+            hits.append((ledger, n, key, text, pos))
+
+    def at(rx_list, l):
+        return [m.start() for rx in rx_list for m in rx.finditer(l)]
     s1 = re.compile(r'(?<![A-Za-z0-9_-])%s(?![A-Za-z0-9_-])' % re.escape(a['slug']))
     ident = a['slug'].replace('-', '_')
     s2 = wordre(ident) if a['slug'].count('-') >= 1 else None
     docs = [re.compile(r'(?<![A-Za-z0-9])%s(?![A-Za-z])' % re.escape(d), re.I) for d in docs_named(a['tag'])]
     kern = [wordre(k) for k in kernels_named(a)]
-    sw = slug_words(a['slug'])
+    sw = [re.compile(r'(?<![A-Za-z0-9])%s(?![A-Za-z0-9])' % re.escape(w), re.I) for w in slug_words(a['slug'])]
     for name, L in (('FINDINGS', F), ('ERRATA', E), ('REGISTRY', R)):
         for i, l in enumerate(L):
             n = i + 1
@@ -152,16 +162,31 @@ def search(a, F, E, R):
                 continue
             head = l.startswith('#') or name == 'REGISTRY'
             if s1.search(l):
-                add(name, n, 'S1', l)
+                add(name, n, 'S1', l, at([s1], l))
             elif s2 is not None and s2.search(l):
-                add(name, n, 'S2', l)
+                add(name, n, 'S2', l, at([s2], l))
             elif head and any(d.search(l) for d in docs):
-                add(name, n, 'S3', l)
+                add(name, n, 'S3', l, at(docs, l))
             elif name == 'ERRATA' and l.startswith('#') and any(k.search(l) for k in kern):
-                add(name, n, 'S4', l)
-            elif name == 'FINDINGS' and n > RULE[1] and l.startswith('## ') and len(sw) >= 2 and all(re.search(r'(?<![A-Za-z])%s' % re.escape(w), l, re.I) for w in sw):
-                add(name, n, 'S5', l)
+                add(name, n, 'S4', l, at(kern, l))
+            elif name == 'FINDINGS' and n > RULE[1] and l.startswith('## ') and len(sw) >= 2 and all(w.search(l) for w in sw):
+                add(name, n, 'S5', l, at(sw, l))
     return hits
+
+
+NEAR = 240
+SHARED = re.compile(r'\bRoute \d\b|`[^`]{3,}`')
+SCORE = re.compile(r'\bN\d\s+$')
+
+
+def moving_near(text, pos):
+    """the moving word of the line standing within NEAR characters of a found key, or None."""
+    for m in MOVING.finditer(text):
+        if SCORE.search(text[:m.start()]):
+            continue  # an act's own score ("N4 REFUTED") is a word about the act, not about the anchor
+        if any(abs(m.start() - p) <= NEAR for p in pos):
+            return m.group(0)
+    return None
 
 
 def verdict(a, hits, NS):
@@ -174,10 +199,17 @@ def verdict(a, hits, NS):
         mv += [('REGISTRY', n, 'the sentence says RH proved or its proof complete; "%s" listed there as not supportable' % p) for n, p in NS if p.lower() == 'rh proved'][:1]
     if OLD.search(a['sentence']):
         mv.append(('REGISTRY', 153, 'the sentence carries "two-leg", reworded 2026-07-23 (REGISTRY :153, :492-:496)'))
-    for led, n, key, text in hits:
-        m = MOVING.search(text)
-        if m:
-            mv.append((led, n, '%s, the line carrying "%s"' % (key, m.group(0))))
+    for led, n, key, text, pos in hits:
+        w = moving_near(text, pos)
+        if not w:
+            continue
+        if key == 'S4':
+            share = sorted(set(SHARED.findall(a['sentence'])) & set(SHARED.findall(text)))
+            if not share:
+                continue
+            mv.append((led, n, 'S4, the line carrying "%s" and sharing %s with the sentence' % (w, ', '.join(share))))
+        else:
+            mv.append((led, n, '%s, the line carrying "%s" within %d characters of the key' % (key, w, NEAR)))
     if mv:
         return 'MOVED BY A LATER LINE', mv
     return ('STANDS', []) if hits else ('NO LATER LINE FOUND', [])
@@ -225,13 +257,24 @@ def controls(F, E, R):
     fa = dict(slug='planted-anchor-one', sentence='X is s-dark.', tag='*theorem-supported* — PLANTED_DOCUMENT v1.0. Kernel: SIDE-planted.', tags=['theorem-supported'])
     FF = [''] * 1100 + ['## A later heading on PLANTED_DOCUMENT', 'a body line naming planted-anchor-one, RETIRED there', 'a line naming planted_anchor_one alone']
     h = search(fa, FF, ['## E-1 -- SIDE-planted at v1'], [''] * 960)
-    case('(the searches) a planted anchor: S3 in a later heading, S1 and S2 in body lines, S4 in an ERRATA heading', sorted((x[0], x[1], x[2]) for x in h),
+    case('(the searches) a planted anchor: S3 in a later heading, S1 and S2 in body lines, S4 in an ERRATA heading', sorted(x[:3] for x in h),
          [('ERRATA', 1, 'S4'), ('FINDINGS', 1101, 'S3'), ('FINDINGS', 1102, 'S1'), ('FINDINGS', 1103, 'S2')])
     case('(the rule) the planted anchor with its RETIRED line; with that line removed; with no later line',
          (verdict(fa, h, [])[0], verdict(fa, [x for x in h if x[1] != 1102], [])[0], verdict(fa, [], [])[0]), ('MOVED BY A LATER LINE', 'STANDS', 'NO LATER LINE FOUND'))
     case('(the rule) a planted sentence saying RH proved, and one carrying the older wording, no later line beside either',
          (verdict(dict(fa, sentence='RH proved, scoped.'), [], [(955, 'RH proved')])[0], verdict(dict(fa, sentence='Complete in the two-leg sense.'), [], [])[0]),
          ('MOVED BY A LATER LINE', 'MOVED BY A LATER LINE'))
+    far = [''] * 1100 + ['a line naming planted-anchor-one ' + 'x' * 600 + ' and far along it something else RETIRED']
+    case('(the rule) a moving word 600 characters from the slug in one long line does not move it', verdict(fa, search(fa, far, [], [''] * 960), [])[0], 'STANDS')
+    sc = [''] * 1100 + ['a line naming planted-anchor-one beside an act`s score, N4 REFUTED -- four parts sent in one call']
+    case('(the rule) an act`s score beside the slug ("N4 REFUTED") does not move it; the slug of a repeated word has one content word',
+         (verdict(fa, search(fa, sc, [], [''] * 960), [])[0], slug_words('imo-ai-twelve-of-twelve')), ('STANDS', ['twelve']))
+    e4 = ['## E-2 -- Route 3 of SIDE-planted is equivalent to RH by a lemma']
+    case('(the rule) an erratum heading naming the anchor`s kernel alone; the same where the sentence names its route',
+         (verdict(fa, search(fa, [''] * 1100, e4, [''] * 960), [])[0], verdict(dict(fa, sentence='Route 3 closes.'), search(dict(fa, sentence='Route 3 closes.'), [''] * 1100, e4, [''] * 960), [])[0]),
+         ('STANDS', 'MOVED BY A LATER LINE'))
+    case('(the searches) (S5) takes whole words of five letters or more: side-kernel-v11-state against a heading saying "restated" and "kernels"',
+         [x[2] for x in search(dict(fa, slug='side-kernel-v11-state', tag='*x*'), [''] * 1100 + ['## The kernels restated at v0.26'], [], [''] * 960)], [])
     case('(the searches) the layer`s own lines are not later lines: the slug riemann-hypothesis is not found inside :762-:1094',
          [x for x in search(dict(fa, slug='riemann-hypothesis', tag='*x*'), F, [], [''] * 960) if LAYER[0] <= x[1] <= RULE[1]], [])
     case('(the documents) a tag line`s names, a version apart', docs_named('*kernel-verified* — STORMER_DERIVATION_OMEGA_B; MATTER_AS_ARITHMETIC v0.7; SIMPLICITY_OF_RIEMANN_ZEROS_v1_0.'),
