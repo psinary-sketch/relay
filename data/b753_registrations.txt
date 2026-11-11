@@ -21,3 +21,68 @@ pattern; data/b721_derivation.txt's table for C3 gives four minimal negative pat
 (3,2) at −4; a pattern containing none of the four is a prime power, (1,1), (2,1), (3,1), (2,2) or (1,1,1), each nonnegative by b718's
 steps 3 and 4 and that table, so the four are all the minimal negative patterns at every Ω; the least instance of (3,2), p1^3·p2^2, exceeds
 p1^4·p2, and the least instance of (1,1,1,1), p1·p2·p3·p4, exceeds p1^2·p2·p3.
+
+## (2) THE TABLE, THE RULE'S OUTPUT (added by a commit of its own after the rule's commit 4c86bf24; (R363)(4))
+Formed in the navigator's workspace from the kinds of the primes below 400 alone (the Kronecker symbol; representability by the principal
+form), with no representation number beyond the primes and no coefficient computed at any of the fourteen unused discriminants. Entered
+here from the ruling's words; the seat formed no row.
+  D      p1, p2, p3     n0      pattern    b(n0)
+  −23    2, 3, 13       48      (4,1)      −2     CONTROL, held by the record
+  −31    2, 5, 7        80      (4,1)      −2     CONTROL, held by the record
+  −59    3, 5, 7        315     (2,1,1)    −2
+  −83    3, 7, 11       567     (4,1)      −2
+  −107   3, 11, 13      891     (4,1)      −2
+  −139   5, 7, 11       1925    (2,1,1)    −2
+  −211   5, 11, 13      3575    (2,1,1)    −2
+  −283   7, 11, 13      7007    (2,1,1)    −2
+  −307   7, 11, 17      9163    (2,1,1)    −2
+  −331   5, 17, 19      8075    (2,1,1)    −2
+  −379   5, 19, 23      10925   (2,1,1)    −2
+  −499   5, 29, 31      18125   (4,1)      −2
+  −547   11, 13, 19     29887   (2,1,1)    −2
+  −643   7, 23, 29      32683   (2,1,1)    −2
+  −883   13, 17, 29     83317   (2,1,1)    −2
+  −907   13, 19, 23     73853   (2,1,1)    −2
+  the value −2 at every row; sixteen rows, two controls and fourteen tests.
+THE SEAT'S READ OF THE ROWS, arithmetic on the ruling's own figures and nothing else: at each of the sixteen rows min(p1^4·p2, p1^2·p2·p3)
+from the row's three primes is the row's n0, and the pattern named is the one that attains it. Whether the three primes are the three
+least non-principal split primes of each field is not read by the seat: that reading is a form's, and waits for the walk's act.
+THE CONTROLS: −23 and −31 are held by the record (data/b711_coeffs.txt :12; FINDINGS :11359) and the rule returns their banked 48 and 80;
+they are no test.
+THE TEST, at the walk's act: at each of the other fourteen, the least negative index and its value by the direct route of the record's
+coefficient banks.
+FALSIFIER: any of the fourteen where either differs from its row.
+FORCED, and no test: the group-ring model's reading of the same fields from decomposition types (tools/b718_abstract.py;
+tools/b720_predict.py), which the rule's reason says must agree with the table.
+THE LIST is the sixteen terms of OEIS A006203 as the navigator read that page on 2026-11-11, each row's class number recomputed in the
+navigator's workspace as a count of reduced forms; that the list is complete is not registered here and is read from its source (Arno,
+Robinson and Wheeler, Acta Arithmetica 83 (1998), as that page names it) before any sentence says every field of class number 3.
+A NOTE FOR THE BUILD'S PRICE: two rows read above 65536, the bound of (L2) in SIDEExplicitFormula/C2Walk.lean on c2-b725.
+NOT RUN THIS ACT. No tool of this act reads a form or a coefficient at an unused class-number-3 discriminant.
+
+## (3) CARRIED BESIDE IT: THE NAVIGATOR'S CANDIDATE STATEMENTS, NONE REGISTERED, NONE RUN
+Each derived from data/b718_derivation.txt's steps 1 to 5 or checked after the fact in the navigator's workspace at discriminants the
+record has used, none in any bank of figures, each to be reproduced with a planted error at the walk's act before a sentence leans on it.
+(a)-(d) as (R363)(4) words them:
+(a) at class number 3, log(Z_Q0/2) = log ζ_K + log((1 + 2·exp(−3T))/3) with T the sum of p^(−ks)/k over the non-principal primes p and the
+    k not divisible by 3, expanding as log ζ_K − 2T + T^2 + T^3/3 − T^4/4 − ...; against the direct b(n) at −23 for n ≤ 3000, mismatches 0,
+    after the direct route reproduced data/b750_cq_sign.txt :39; the sibling of data/b723_c2_closed_form.txt's form at class number 2;
+(b) at every class number, Z_Q/2 is ζ_K times the mean over the class group's characters χ of L(s, χ)/ζ_K(s), and in the logarithm of that
+    mean the term of order one taken with log ζ_K, the term of order two and the term of order three each have nonnegative coefficients,
+    the fourth being the earliest that can be negative, which is b718's step 4 read as a reason;
+(c) at a product of four distinct split primes whose prime ideals lie in one non-principal class and its inverse, b is −32, −4 or −6 as
+    that class has order 2, order 4 or another order: read at −15 (2·17·23·47) as −32, at −39 (2·5·11·41) as −4, at −23 (2·3·13·29) as −6;
+    with the theorem that each form class represents infinitely many primes (Cox, Primes of the form x^2 + ny^2, Theorem 9.12; de la
+    Vallée Poussin 1896 -- both met through secondary pages, neither read in the original) it gives a negative b(n) at every class number
+    above one;
+(d) along (ζ_K + t·L(s, ψ))/(1 + t) at class number 3, b at a single non-principal prime is (2 − t)/(1 + t), and a negative b can begin at
+    one prime factor for t > 2, at three for t < 1 and at four for 1 ≤ t ≤ 2, the Epstein function standing at t = 2: derived and not run,
+    a reading for question [3] of data/b752_crossref.txt, which is a candidate and no order.
+(e)-(h) as the author's later words give them, verbatim in relay data/b753_author_words_preseal.txt and named here by their heads alone:
+(e) THE ZERO CONDITION TO THE RIGHT OF Re s = 1; (f) THE HALF-PLANE STATEMENT, to be priced by the seat beside T0 and T1 at the build's
+    act; (g) THE CONTRAST, READ AFTER THE FACT, NO TEST; (h) THE ZERO LIST FROM THE PRIMES, with its two plants.
+A CANDIDATE FOR REGISTRATION AT THE WALK'S ACT, NOT REGISTERED HERE ((g) as (h) restates it): at a discriminant with no zero list, every
+off-line zero with real part at or above 0.85 up to a stated height, listed by the route of (h) before the certified engine runs; HELD if
+each certified zero in that range has a listed partner within 0.01 and no listed root lacks one.
+
+### ### **THE REGISTRATION: H-C3-LAW, THE RULE AT 4c86bf24 BEFORE ITS TABLE ; ROWS 16: CONTROLS 2, TESTS 14 ; THE VALUE −2 AT EVERY ROW ; NOT RUN ; NO FORM AND NO COEFFICIENT READ AT AN UNUSED DISCRIMINANT ; CANDIDATES CARRIED (a)-(h), NONE REGISTERED.**
