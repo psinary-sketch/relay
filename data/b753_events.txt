@@ -18,7 +18,7 @@ BEFORE THE ACT, ENTERED AS ITS OPENING EVENT ((R363)(7)(vii)):
      chain read on this session 310 rows, 0 naming an absent parent.
 
 STEP ZERO, ENTERED BY THE AUTHOR'S WORD ((R363)-amendment (1)):
-    (2) THE SEAT'S [CLOSE ; NEW]: THE COMMITS OF STEP ZERO WERE MADE WHILE THE ONE-CALL CHECK COULD NOT SEE THE SESSION. Defect (i) read
+    (2) THE SEAT'S [CLOSE ; NEW]: THE COMMITS OF STEP ZERO WERE MADE WHILE THE ONE-CALL CHECK WAS UNABLE TO SEE THE SESSION'S GIT WRITES. Defect (i) read
      at 15:18Z-15:20Z: the hook fired on every shell call of this session (117 calls ledger records from 14:20Z, each with this session's
      own request stamp); the transcript is one file by both paths (6,399,457 bytes; 209 api-request rows; the stamp read the same by
      both); the hook and the commit tool resolve one temp folder and one calls ledger. The cause is the matcher: tools/standing/gitwrite.py
@@ -26,11 +26,14 @@ STEP ZERO, ENTERED BY THE AUTHOR'S WORD ((R363)-amendment (1)):
      `& "" ... commit.py`, no run of the tool. So the hook counted no git write in any PowerShell-form run (no git-write state filed since
      07:47:41Z) and the commit tool found its own record nowhere: an `add` matched the one bare-interpreter record left in the ledger's
      tail (07:47:13.149Z, the earlier session's) and reported that message; every other subcommand reported "no ledger record". Affected,
-     each passed unchecked: the commits 94f47164 (14:46:27Z), 1fb3125a (15:04:36Z), 9fc39fef (15:11:08Z), their adds, four restores and
+     each made while the check was unable to see the session's git writes: the commits 94f47164 (14:46:27Z), 1fb3125a (15:04:36Z), 9fc39fef (15:11:08Z), their adds, four restores and
      five deletes; no message of them carried a second git write (the replay over the ledger: 15 tool runs since 14:20Z, each request
      stamp distinct). The commits stand. Repaired by admitting the blanked interpreter; the control over this session's 15:10:50Z record
      with a planted second write in its message (a bare git add; a second run of the tool) refused both under the repair and neither at
-     HEAD's matcher, the hook's two layers likewise: 4 of 4 AS WANTED; the repair committed next, relay ba46416f (15:21:58Z), the first
+     HEAD's matcher, the hook's two layers likewise: 4 of 4 AS WANTED. Its live form, once, by (R363)-amendment-2 (2): one message
+     (request 2026-11-11T15:43:54.252Z) carrying two runs of the tool, the earlier an add of data/b753_ferry.txt, tracked and not differing,
+     changing nothing; the later, planted, an add of tools/standing/gitwrite.py, refused by the hook before it ran ("REFUSED GITWRITE: a second
+     git write in one message, read by the message`s API request"; data/b753_hook_refusals.txt :19, 15:44:06Z): AS WANTED; the repair committed next, relay ba46416f (15:21:58Z), the first
      check to name its own message (15:20:40.366Z). Read beside it: data/b753_wlist.json, the bank the hook reads for tracked writes, was
      absent through step zero and written by its tool at 15:20:12Z, when the hook refused the repair's first edit.
      THE RULE THE AUTHOR SET WITH IT, for the step zero of every act from b754: after a change of session, of the harness's version or of
