@@ -354,7 +354,7 @@ SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[B1]': 'PASS', '[B2]': 'PASS'
                   '[F1]': 'PASS', '[F2]': 'PASS', '[G1]': 'PASS', '[G2]': 'PASS'}
 C3_RELAY = ('0db31ce3', '48b8ae2e')   # ### Component 3 ((R363)(6)): set as made
 C4_LINE = '98bb4ae2'       # ### Component 4: tools/b753_line.py and data/b753_line.txt
-C4_ANSWERS = None          # ### Component 4: the answers pair by the record tool's route (data/b753_author_answers.txt/.json), set when committed
+C4_ANSWERS = 'f7c1590c'    # ### Component 4: the answers pair by the record tool's route (data/b753_author_answers.txt/.json), committed with the module's rewrite
 C4_V1330 = ('768b4c9b', '3d82879a')   # ### Component 4, the author's sixth word (4): the v1.33.0 bank's composer (tools/b753_v1330_later.py), then the bank written again by it, naming C1_STANDING_LATER with the controls run after them
 # ### Component 4 (b753): the act's objects by their commits, read from the log 0e855242..HEAD
 REG_RULE = '4c86bf24'     # ### (R363)(4): the registration's rule alone
