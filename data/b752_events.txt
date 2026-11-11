@@ -48,3 +48,10 @@ AFTER THE SEAL (relay a095b183):
      then sections 6-8). The sealed module is not edited; the author's order is printed in the closing message and stands for b753's ruling.
     (12) THE AUTHOR'S [CLOSE ; NEW]: at 06:08Z the author sent, mid-turn, the same answer to paste "when the root question appears again";
      route 1 had been taken under the author's own condition (row (7)), and the question was not put again.
+
+AFTER THE ROOT (relay 0b63839c, 06:29:10Z):
+    (13) THE SEAT'S [CLOSE ; NEW]: the first run of the root route (about 06:19Z) read HEAD equal to the remote main c6de3790 in its first
+     reading (data/b752_root_banks.txt :3) and, in its second reading after its own writes (tools/standing/repeat.py :272-:274), printed
+     "HEAD NOT THE REMOTE MAIN -- NO ROOT" with 0 named banks not as committed: the route's second remote read did not return c6de3790, and
+     nothing was pushed between the two. No root was written. The seat retried the route once, with nothing committed or pushed between;
+     it read READY and wrote the root 38eb7652 (relay 0b63839c). One retry, this row its event.
