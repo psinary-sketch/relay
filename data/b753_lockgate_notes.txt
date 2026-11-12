@@ -1,0 +1,93 @@
+### run at (UTC) : 2026-11-12T00:37:13Z   ### NOT COVERED BY ANY HASH; it records when this run file was written.
+  ### THE AUTHOR`S LIFT AT THE LOCK (data/b753_events.txt (7); data/b753_put_3.json, option 1, 2026-11-12T00:14:58.306Z):
+  ### the (R345)(2)(iv) reading leaves out 0f31d31d and 0db31ce3, the two commits the v1.33.0 bank names (data/b753_standing_v1330.txt :107-:111);
+  ### b378`s gate otherwise unedited; the version commit read 7c91353a; the after-the-gate reading NONE.
+  ### THE CONTROLS OF THE AUTHOR`S WORD (2), BEFORE THE GATE:
+    (A) nothing left out: the reading refuses on ['0f31d31d', '0db31ce3'] ; wanted 0f31d31d and 0db31ce3 and no other ; AS WANTED
+    (B) the two left out, fe11ed00 planted: the reading refuses on ['fe11ed00'] ; wanted the planted one alone ; AS WANTED
+  ### ### **THE LIFT`S CONTROLS : 2 OF 2 AS WANTED**
+
+====================================================================================================
+b378 -- STEP ZERO: ### **THE LOCK READS EVERY GATE, AND CHECKS WHAT EACH ONE READ.**
+====================================================================================================
+
+  ### ### **`b376` PROVED EVERY GATE PASSED. ### IT COULD NOT PROVE WHAT ANY OF THEM PASSED
+  ### ### ON, AND SAID SO ON ITS OWN FACE.** ### `b377` hit that: a late rewrite of its
+  ### ### registration left three gate records stale and only the seat caught it.
+  ### ### ### **THIS GATE CLOSES IT: ### A FACE-SUBJECT GATE MUST CARRY THE SHA256 OF THE
+  ### ### ### BYTES IT READ, AND THAT DIGEST MUST EQUAL THE FACE ABOUT TO BE LOCKED.**
+
+  ### the face : b753_registration_2026-11-11.txt
+  ### its sha256 : b7ef6739c7c7f87b959539a2af97b6587c84e64ce5fd858ae3c23fd76d2d41b7
+  ### excluded from the lock`s hash set and N4`s read, by name : data/b753_steps.json, data/b753_bank_hashes.json, data/b753_hook_refusals.txt, data/b753_address_scan_postlock.txt, tools/mirror_prevbuild.json, data/b753_address_scan_commits.txt, data/b753_author_answers.txt, data/b753_author_answers.json, data/b753_answer_check.txt, data/b753_author_words.txt, data/b753_author_words_preseal.txt
+
+----------------------------------------------------------------------------------------------------
+  ### (1) THE HELPER`S OWN FIXTURES, BEFORE THE GATE USES IT.
+----------------------------------------------------------------------------------------------------
+    an unstamped record reads None, not True             ok
+    a stamp over unchanged bytes MATCHES                 ok
+    ### **A STAMP OVER REWRITTEN BYTES REFUSES**         ok
+    re-stamping after the rewrite matches again          ok
+    ### **AND EXACTLY ONE STAMP LINE SURVIVES**          ok
+    the gate's own output is untouched                   ok
+    ### ### **gate_hash SELF-TEST : HELD**
+
+----------------------------------------------------------------------------------------------------
+  ### (2) THE GATE`S FIXTURES -- FOUR POLARITIES, NOT TWO.
+----------------------------------------------------------------------------------------------------
+      all gates clean                            permits : True    failing : none
+      one gate`s phrase missing                  permits : False   failing : ['the banned-term scan on the face']
+      ### **one gate`s subject digest STALE**    permits : False   failing : ['the registration gate, all its own arms']
+      one gate carries no subject digest         permits : False   failing : ['the clause spec emitted from the face']
+    ### ### **FIXTURE VERDICT : CLEAN PERMITS AND EACH FAILURE MODE REFUSES FOR ITS OWN GATE**
+    ### **A GATE THAT HAS ONLY EVER SAID YES IS NOT A GATE**, and a gate that refuses for the
+    ### wrong reason is not one either.
+
+----------------------------------------------------------------------------------------------------
+  ### (3) EVERY PRE-LOCK GATE OF `b753`, ITS VERDICT, AND WHAT IT READ.
+----------------------------------------------------------------------------------------------------
+    the ferry scan (struck clauses and stems)      b753_ferry_scan.txt                    PASS
+        looked for   : ### VERDICT: ### **0 HIT(S) REPORTED.
+        subject      : not the face; no digest required
+    the handoff census                             b753_census_stepzero.txt               PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the faces census                               b753_faces_census_stepzero.txt         PASS
+        looked for   : TOTAL MISSING : 0
+        subject      : not the face; no digest required
+    the pins, by ls-remote through the roster      b753_pins_stepzero.txt                 PASS
+        looked for   : ### REPOS HARD-FAILING : 0
+        subject      : not the face; no digest required
+    the registration gate, all its own arms        b753_reg_gate.txt                      PASS
+        looked for   : GATE VERDICT : CLEAR
+        subject      : ### **THE FACE** ### -- recorded `b7ef6739c7c7f87b`
+    the banned-term scan on the face               b753_reg_termscan.txt                  PASS
+        looked for   : VERDICT          : CLEAN
+        subject      : ### **THE FACE** ### -- recorded `b7ef6739c7c7f87b`
+    the clause spec emitted from the face          b753_regspec_run.txt                   PASS
+        looked for   : ARTIFACT-COUNT PREDICTIONS FOUND : 0
+        subject      : ### **THE FACE** ### -- recorded `b7ef6739c7c7f87b`
+    the satisfiability audit                       audit_b753_reg_satisfiable.txt         PASS
+        looked for   : JOINTLY SATISFIABLE
+        subject      : ### **THE FACE** ### -- recorded `b7ef6739c7c7f87b`
+
+  ### THE PROBE-PATH REFUSAL ((R344)(2)(i)):
+    ### no tracked path is a probe output (81 tracked paths read)
+
+  ### THE COMPILE CONTROL ((R345)(2)(i)):
+  checks render            OK    2823 lines
+  citation render          OK    578 lines
+  closing render           OK    643 lines
+  record render            OK    4877 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    180 lines
+  tools/b753_worklist.py   OK    475 lines
+### THE COMPILE CONTROL : b753 COMPILES WHOLE, 8 OF 8
+  ### THE LIFT READ HERE: the reader returned ['0f31d31d', '0db31ce3'] ; left out ['0f31d31d', '0db31ce3'] ; kept NONE
+  ### THE COMMITS TO tools/standing/ AFTER THE VERSION`S 7c91353a LEAVING VERSION UNMOVED ((R345)(2)(iv)): NONE
+
+    ### ### **GATES READ : 8. ### PASSING : 8. ### FACE-SUBJECT GATES CHECKED BY DIGEST : 4.**
+    ### ### **VERDICT : LOCK PERMITTED**
+    ### ### **AND THE LOCK IS CHAINED ON THIS EXIT CODE, NOT ON ANY ONE GATE`S.**
+====================================================================================================
