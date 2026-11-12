@@ -1,0 +1,26 @@
+{
+ "act": "b753",
+ "at": "2026-11-12T03:09:04Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "header": "Post-seal",
+   "multiSelect": false,
+   "question": "A halt before the scores. The root's answer is banked (Confirmed: the sitting as b754) and the pre-root commit stands at relay 5cd193ef. Items met since the lock wait to be entered: the hook's refusals after the lock, 3, in the hook's own bank, one pipe before the seal and two redirects after it (data/b753_hook_refusals.txt :37); the hold's refusal of part standing-b2b at 01:04:57Z, run once after a read above the hold; and the one-call tool's refusal of the seal commit until the post-lock scan was staged, which the tool names a REPEAT of b751 defect (s). Findings after the seal stand as events, but this act's events bank was committed at the gate (relay ae214fb1), before the lock at dcc3116b, so it is tracked at the lock. N4's lock guard in the act module (tools/acts/b753.py :1848) reads every bank tracked at the lock and not on the by-design list as edited, and the by-design list is the ruling's own, without the events bank (data/b753_ferry.txt :51). A read-only check proved it: the events bank reads as an edit, the answers bank (by design) does not, a bank not tracked at the lock does not. b752 never met this, its events bank first committed after its lock. The scores stand at most 7 of 8 now (N5 REFUTED). Which route?",
+   "options": [
+    {
+     "label": "Own bank, no score lost (Recommended)",
+     "description": "The post-seal items written once as events (10) onward in a bank of their own, data/b753_events_postseal.txt, by the Write tool, untracked at the lock and inside the (W) list by its form, committed with the next pre-root banks; the events bank stands as at the lock. No score is lost. The counter and the trail read the events bank alone, so the closing and b754's corrigendum name these items beside the counter."
+    },
+    {
+     "label": "Append to the events bank",
+     "description": "Events (10) onward appended to data/b753_events.txt by an Edit, where findings after the seal stand. Costs N4: its lock guard reads the events bank as edited after the lock, so the ceiling falls to at most 6 of 8 (N4 and N5 REFUTED)."
+    },
+    {
+     "label": "Closing and b754 only",
+     "description": "No bank written for them now: the closing message prints the items and b754's corrigendum enters them beside the counter. No score is lost; the root and the record carry no event after the seal."
+    }
+   ]
+  }
+ ]
+}
