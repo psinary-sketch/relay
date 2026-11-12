@@ -77,16 +77,35 @@ def _user_texts(results=True):
                     yield ''.join(x.get('text', '') for x in t) if isinstance(t, list) else (t or '')
 
 
+def delivery(t):
+    """### b754, (R364)(3)(xxii), b754 defects (a): the ruling and the ferry in one user text, or None. The text is a delivery where one of its
+    lines is the ruling's opening marker and nothing else and a later line the ferry's closing marker and nothing else; a text quoting the
+    markers inside a sentence is no delivery. Taken from the first such opening line to the first such closing line after it."""
+    t = t.replace(chr(13), '')
+    L = t.split(NL)
+    at, pos = [], 0
+    for l in L:
+        at.append(pos)
+        pos += len(l) + 1
+    b = next((k for k, l in enumerate(L) if l.strip() == ANCHOR), None)
+    if b is None:
+        return None
+    e = next((k for k in range(b + 1, len(L)) if L[k].strip() == TAIL), None)
+    if e is None:
+        return None
+    return t[at[b] + L[b].find(ANCHOR):at[e] + L[e].find(TAIL) + len(TAIL)]
+
+
 def ferry_text():
-    """the ruling and the ferry as pasted: the last user line of the session carrying the anchor, from the anchor to the ferry's end."""
-    best = None
-    for t in _user_texts(results=False):
-        i, j = t.find(ANCHOR), t.find(TAIL)
-        if i >= 0 and j > i:
-            best = t[i:j + len(TAIL)].replace(chr(13), '')
-    if best is None:
-        sys.exit('### THE RULING IS NOT A USER LINE OF THIS SESSION -- NOTHING WRITTEN')
-    return best
+    """the ruling and the ferry as delivered: over the act's sessions in chain order (SESSION, then SESSIONS_AFTER), the last user text that
+    is a delivery (delivery() above), the count of the texts qualifying printed; none qualifying refused. ### b754, (R364)(3)(xxii): before
+    it, the last user text carrying both markers anywhere, a sentence quoting them included (b754 defects (a))."""
+    got = [d for d in (delivery(t) for t in _user_texts(results=False)) if d is not None]
+    print('  the ferry reader ((R364)(3)(xxii)): user texts that are a delivery %d over %d session(s) in chain order ; %s' % (
+        len(got), 1 + len(SESSIONS_AFTER), ('the last taken, %d characters' % len(got[-1])) if got else 'NONE'))
+    if not got:
+        sys.exit('### NO USER TEXT OF THE ACT`S SESSIONS IS A DELIVERY (the opening marker alone on a line, the closing marker alone on a later line) -- NOTHING WRITTEN')
+    return got[-1]
 
 
 def commit_in(repo, sha):
