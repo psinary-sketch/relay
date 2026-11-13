@@ -18,14 +18,17 @@
   (E) the act module's lines and the lines the carry changed, b744 to b753: the carry bank's head (data/<act>_carry_acts.txt :3) beside
       its diff body's own count, and the module's lines at the act's closing commit.
   (F) the relay's untracked residue by act and kind (git ls-files --others --exclude-standard --directory; a kind is a name less its act
-      prefix, each run of digits read as #), with the tracked tools whose text names the kind's stem (its writer, by that reading) and
-      whether a later act's tracked tool names one of its files by its whole name; nothing removed, no file name printed.
+      prefix, each run of digits read as #), with its writer candidates -- the tracked tools one of whose lines holds the kind's pieces in
+      order, the name cut at the act, each # and a suite part's name (amended from a reading by one stem, b754 (j')) -- and whether a later
+      act's tracked tool names one of its files by its whole name; nothing removed, no file name printed.
 
 Controls: (A) b753's component spans whose two ends are step rows, recomputed equal to data/b753_dayend.txt's; (B) b753's pre-run part
 seconds equal to data/b753_arm_seconds.txt :93; (C) the row reader agreeing with each part bank's own LIVE FAILING list, the summary
 matcher's yield (every line with a summary's head taken), a planted failing row counted, and a planted FAIL row in a bank whose summary
 prints NONE read as a disagreement; (D) a planted refusal line counted, b753's lines 39; (E) each carry head equal to its diff body; (F) a planted name
-classified. argv: control | run."""
+classified, root entries among them, and the writer reading on two kinds whose writers are read by line (tools/standing/repeat.py :99,
+tools/b709_pairs.py :133), a planted kind no tool names, this generator never its own candidate, and a short kind below the floor.
+argv: control | run."""
 import io, json, os, re, subprocess, sys, datetime
 R = r'D:\relay'
 D = os.path.join(R, 'data')
@@ -74,6 +77,7 @@ def spans(act):
         d['line_lock'] = H(line[0]['at'], lk['at'])
     d['open_lock'] = H(o['at'], lk['at'])
     d['lock_closing'] = H(lk['at'], clo[-1]['at'])
+    d['open_closing'] = H(o['at'], clo[-1]['at'])   # ### from the rows, not the sum of rounded spans (b754 (j'))
     return d
 
 
@@ -303,8 +307,46 @@ def classify(path):
     if m:
         rest = rest.replace(act, '<act>', 1)
     kind = re.sub(r'\d+(?:\.\d+)?', '#', rest) + ('/' if path.endswith('/') else '')
+    if '/' not in base:   # ### an entry at the repository's root: its own name, no folder doubled (b754 (j'))
+        return act, kind
     top = base.split('/')[0]
     return act, top + '/' + kind
+
+
+PARTNAME = re.compile(r'(?<=_)(?:act|standing-[a-z#]+)(?=[_.]|$)')   # ### a suite part's name inside a kind, cut as a builder's field
+SELF = 'tools/b754_yield.py'   # ### this generator, whose own controls name planted kinds: never a candidate (b754 (j'))
+
+
+def pieces(kind):
+    """the kind's literal pieces, in order: its name less the folder, cut at <act>, at each # and at a suite part's name; pieces under 3
+    characters dropped. A tool that builds the name puts these pieces on one line around its fields."""
+    name = kind.rstrip('/').split('/')[-1]
+    name = PARTNAME.sub('\0', name).replace('<act>', '\0').replace('#', '\0')   # ### the part first, its own # inside it
+    return [p for p in name.split('\0') if len(p) >= 3]
+
+
+def names_kind(text, ps):
+    """True where one line of the text holds every piece, in order."""
+    for l in text.split(NL):
+        i = 0
+        for p in ps:
+            j = l.find(p, i)
+            if j < 0:
+                break
+            i = j + len(p)
+        else:
+            return True
+    return False
+
+
+FLOOR = 5   # ### the longest piece under 5 characters names nothing: printed BELOW THE FLOOR, not NONE
+
+
+def candidates(kind, texts):
+    ps = pieces(kind)
+    if not ps or max(len(p) for p in ps) < FLOOR:
+        return ps, None
+    return ps, sorted(p for p, t in texts.items() if p != SELF and all(x in t for x in ps) and names_kind(t, ps))
 
 
 def control_f():
@@ -312,31 +354,63 @@ def control_f():
              ('data/audit_b999_reg_satisfiable.txt', ('b999', 'data/audit_<act>_reg_satisfiable.txt')),
              ('data/_b999_probe/', ('b999', 'data/_<act>_probe/')),
              ('data/b999_list_units_band_15.0_30.jsonl', ('b999', 'data/<act>_list_units_band_#_#.jsonl'))]
+    cases += [('records.json', ('none', 'records.json')), ('scratch/', ('none', 'scratch/'))]   # ### root entries (b754 (j'))
     out, ok = [], 0
     for p, want in cases:
         got = classify(p)
         ok += got == want
         out.append('  (F) a planted name classified %s -> %s : %s' % (want[1].replace('<act>', 'b999'), got, 'AS WANTED' if got == want else '### NOT AS WANTED'))
-    return out, ok, len(cases)
+    texts = tool_texts()
+    wcases = [   # ### (kind, a tool wanted among its candidates or None for none, a tool wanted absent): the writer reading's controls (b754 (j'))
+        ('data/<act>_mid_exercise_standing-b#a.json', 'tools/standing/repeat.py', None),   # ### repeat.py :99 builds the name from its part
+        ('data/<act>_pairs_units_band_#_#.jsonl', 'tools/b709_pairs.py', None),            # ### b709_pairs.py :133
+        ('data/<act>_zq_planted_nowhere.txt', None, None),                                 # ### a planted kind no tool names
+        ('data/<act>_scanfile_c#.md', '', SELF),                                           # ### this generator never its own candidate
+    ]
+    for kind, want, absent in wcases:
+        ps, cs = candidates(kind, texts)
+        if want is None:
+            good = cs == []
+        elif want == '':
+            good = cs is not None and absent not in cs
+        else:
+            good = cs is not None and want in cs
+        ok += good
+        out.append('  (F) the writer reading on %s, pieces %s: %s candidate(s)%s : %s' % (
+            kind, ps, 'BELOW THE FLOOR' if cs is None else len(cs),
+            (' ; %s among them %s' % (want, want in (cs or []))) if want else (' ; %s among them %s' % (absent, absent in (cs or []))) if absent else '',
+            'AS WANTED' if good else '### NOT AS WANTED'))
+    ps, cs = candidates('tools/_a#.txt', texts)
+    good = cs is None
+    ok += good
+    out.append('  (F) a kind whose longest piece is under %d characters (tools/_a#.txt, pieces %s) printed BELOW THE FLOOR %s : %s' % (
+        FLOOR, ps, cs is None, 'AS WANTED' if good else '### NOT AS WANTED'))
+    return out, ok, len(cases) + len(wcases) + 1
 
 
-def residue():
-    lines = [l for l in git('ls-files', '--others', '--exclude-standard', '--directory').split(NL) if l.strip()]
-    tools = [l for l in git('ls-files', '--', 'tools/').split(NL) if l.strip()]
+def tool_texts():
     texts = {}
-    for p in tools:
+    for p in [l for l in git('ls-files', '--', 'tools/').split(NL) if l.strip()]:
         try:
             texts[p] = io.open(os.path.join(R, p), encoding='utf-8', errors='replace').read()
         except OSError:
             pass
+    return texts
+
+
+def residue():
+    lines = [l for l in git('ls-files', '--others', '--exclude-standard', '--directory').split(NL) if l.strip()]
+    texts = tool_texts()
     by = {}
     for p in lines:
         act, kind = classify(p)
         by.setdefault((act, kind), []).append(p)
     rows = []
+    memo = {}
     for (act, kind), ps in sorted(by.items()):
-        stem = re.split(r'[#.]', kind.split('/', 1)[1].replace('<act>_', '').replace('<act>', '').lstrip('_'))[0].strip('_-')
-        writers = sorted(p for p, t in texts.items() if stem and len(stem) >= 4 and stem in t) if stem else []
+        if kind not in memo:
+            memo[kind] = candidates(kind, texts)
+        stem, writers = memo[kind]   # ### stem: the kind's pieces; writers: the candidates, or None below the floor (b754 (j'))
         n = int(act[1:]) if act != 'none' else None
         later = 0
         if n is not None:
@@ -369,10 +443,11 @@ def figures():
         if 'line' in s:
             L.append('  %s  open %s %s -> line %s %s : %5.2f h ; line -> lock %s : %5.2f h ; lock -> closing %s : %5.2f h ; open -> closing %5.2f h' % (
                 act, s['open'][0], s['open'][1], s['line'][0], s['line'][1], s['open_line'], s['lock'][0], s['line_lock'], s['closing'][0], s['lock_closing'],
-                round(s['open_line'] + s['line_lock'] + s['lock_closing'], 2)))
+                s['open_closing']))
         else:
             L.append('  %s  open %s %s -> lock %s %s : %5.2f h, the line`s commit NOT A ROW OF ITS OWN (no row before the lock names it) ; lock -> closing %s : %5.2f h ; open -> closing %5.2f h' % (
-                act, s['open'][0], s['open'][1], s['lock'][0], s['lock'][1], s['open_lock'], s['closing'][0], s['lock_closing'], round(s['open_lock'] + s['lock_closing'], 2)))
+                act, s['open'][0], s['open'][1], s['lock'][0], s['lock'][1], s['open_lock'], s['closing'][0], s['lock_closing'], s['open_closing']))
+    L.append('  (each span from its two rows, rounded to 0.01 h; open -> closing from its own two rows, so the three spans may sum 0.01 h apart from it)')
     L += ['', '## (B) b753`S PART SECONDS BY PASS (int() of each part`s seconds from its summary line, the arm-seconds banks` figure; the rounded "the run took" differs by 1 s at most)']
     allp = {}
     for pn, prefix in PASSES:
@@ -445,17 +520,32 @@ def figures():
             act, head[0], head[1], 100.0 * head[1] / head[0], clo, n_close))
     L += ['', '## (F) THE RELAY`S UNTRACKED RESIDUE BY ACT AND KIND (git ls-files --others --exclude-standard --directory, read %sZ; nothing removed)' %
           datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S'),
-          '## a kind: the name less its act, each run of digits read as #; WRITER: the tracked tools whose text names the kind`s stem (a reading by',
-          '## the stem, which does not see a tool that builds the name another way); READ LATER: of the kind`s entries, those a later act`s tracked',
-          '## tool names by their whole name']
+          '## a kind: the name less its act, each run of digits read as #; WRITER CANDIDATES: the tracked tools (this generator not among them) one',
+          '## of whose lines holds the kind`s pieces in order -- the name cut at the act, at each # and at a suite part`s name, as a tool that builds',
+          '## the name writes it around its fields; a line that names a kind does not tell its writer from a reader, and a name built across lines',
+          '## or from a table is not seen: NONE is no line found, not no writer; BELOW THE FLOOR where the longest piece is under %d characters;' % FLOOR,
+          '## READ LATER: of the kind`s entries, those a later act`s tracked tool names by their whole name']
     lines, rows = residue()
     tot = 0
     for act, kind, n, stem, writers, later in rows:
         tot += n
-        L.append('  %-6s %-48s %4d ; WRITER %s ; READ LATER %d of %d' % (
-            act, kind[:48], n, ('%d by the stem %r, e.g. %s' % (len(writers), stem, ', '.join(writers[:2]))) if writers else 'NONE FOUND by the stem %r' % stem, later, n))
+        if writers is None:
+            w = 'BELOW THE FLOOR, pieces %s' % (stem,)
+        elif writers:
+            w = '%d, e.g. %s' % (len(writers), ', '.join(writers[:2]))
+        else:
+            w = 'NONE, pieces %s' % (stem,)
+        L.append('  %-6s %-48s %4d ; WRITER CANDIDATES %s ; READ LATER %d of %d' % (act, kind[:48], n, w, later, n))
     acts_n = len(set(r[0] for r in rows))
-    L.append('  ### ### **UNTRACKED ENTRIES %d ; KINDS %d ; ACTS %d ; the table`s sum %d, equal %s**' % (len(lines), len(rows), acts_n, tot, tot == len(lines)))
+    kinds = {}
+    for r in rows:
+        kinds[r[1]] = r[4]
+    found = sum(1 for v in kinds.values() if v)
+    none = sum(1 for v in kinds.values() if v == [])
+    floor = sum(1 for v in kinds.values() if v is None)
+    L.append('  ### ### **UNTRACKED ENTRIES %d ; ROWS (act and kind) %d ; ACTS %d ; the table`s sum %d, equal %s**' % (len(lines), len(rows), acts_n, tot, tot == len(lines)))
+    L.append('  ### THE WRITER READING`S YIELD, by distinct kind: %d kinds ; with candidates %d ; NONE %d ; BELOW THE FLOOR %d ; sum equal %s' % (
+        len(kinds), found, none, floor, found + none + floor == len(kinds)))
     return L
 
 
