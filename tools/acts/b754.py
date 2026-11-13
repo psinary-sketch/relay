@@ -186,11 +186,9 @@ def runner_ok(S):
 #⟪OVERRIDE record MARK f9c2c0f429b0 0 REPAIR (reader)⟫
 _rdn_strict = rdn; rdn = lambda name, optional=False: _rdn_strict(name, optional=optional or name in ('b754_author_answers.txt', 'b754_answer_check.txt', 'b754_events.txt'))   # noqa: E731,E702
 #⟪END⟫
-# ### b754, Component 4's probe: v1.27.0's rdn (repair (7)) refuses a missing file, and _counter (record.tpl :2315) reads the events bank,
-# ### which the close writes after the seal; read optional for the events bank alone, the defects bank still refused if missing
-#⟪OVERRIDE record MARK 26666a71fb1e 1 REPAIR (reader)⟫
-        rows += [l for l in rdn(name, optional=name.endswith('_events.txt')).split(NL) if re.match(r"^    \((?:[a-z]'?|\d+)\) ", l)]
-#⟪END⟫
+# ### b754, Component 1 (the Edit tool), tools/standing/ v1.34.0, (R364)(3)(v) and (viii): b753's override of _counter's read (the events
+# ### bank optional) retired -- the template's line now carries it, with the post-seal events bank read beside it and a letter of any number
+# ### of primes (record.tpl's _counter)
 # ### b754, defect (a'), its fourth reader (found at the closing's dry run): the bank's foot read, not its first match -- the seat's row :34 quotes b753's foot
 #⟪OVERRIDE closing MARK f8654f00c2e2 1⟫
     head = verdict(cc, r'(?m)(?<=^### ### \*\*)CITES CHECKED \d+ ; OK \d+ ; MISSES \d+(?=\.\*\*)')
@@ -1116,7 +1114,7 @@ TITLE_LINE = ('b754 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND E
 #⟪SECTION closing 10⟫
     '    (c) For the next act, the sitting, each from its bank: the root`s question on the next act, its answer in relay data/b754_author_answers.txt ; the items of (R364)(6) the author`s word carried, [C1] with its census reads, [H1], [M2], [L1] and onward, and (5)(v) and (5)(vi), the shelves` listing and the cluster export (relay data/b754_author_words_preseal.txt, data/b754_stepzero.txt) ;',
     '        the quote-versus-digest line (relay data/b726_frontdoors.txt [12]; the citation check`s found-text column; the forms of the head read and the anchors read) ; the four anchors moved by a later line, FINDINGS :901 and :979 at the head of the list, and PLACE-papers` description with them (relay data/b754_anchors.txt, data/b754_waiver.txt) ; the doors not AGREES (relay data/b754_head_read.txt) ; I-109`s cross-reference to I-106, I-108 and relay data/b711_coeffs.txt ; the Epstein document`s section 8 ; the items (R363)(8) carried ;',
-    '        the navigator`s candidate statements (a)-(h), none registered, each to be reproduced with a planted error at the walk`s act (relay data/b754_registrations.txt (3)) ; the temp directory read, the hook`s ledger and git-write state beside it (tools/standing/hook.py :282, :306) ; the build of T0 then T1 in an act the author names (relay data/b753_attribution_plan.txt, b753`s [P1]) ; the answers route`s word rows, each paragraph after a word`s first written twice by tools/standing/authorwords.py`s rekey since v1.32.0, its repair and control (relay data/b754_defects.txt (q’)) ;',
+    '        the navigator`s candidate statements (a)-(h), none registered, each to be reproduced with a planted error at the walk`s act (relay data/b754_registrations.txt (3)) ; the temp directory read, the hook`s ledger and git-write state beside it (tools/standing/hook.py :282, :306) ; the build of T0 then T1 in an act the author names (relay data/b753_attribution_plan.txt, b753`s [P1]) ;',
     '        the reproduction`s NOT RUN rows, each with its price (relay data/b754_reproduce.txt) ; W-ORD-VISIBILITY, CARRIED NOT CLEAN ; the draft held at v5.',
 #⟪END⟫
 #⟪SECTION closing 11⟫
@@ -1447,7 +1445,7 @@ def _cite_src(where, path, rev, n):
     lines_ = [l for l in text.split(NL) if l.strip()]
     rg_ = _rl('REGISTRY.md')
     sm_ = rd(os.path.join(PP, 'SPIRAL_MAP.md')) or ''
-    integ_ = bool(lines_) and lines_[-1].strip() == INTEGRATION_LINE \
+    integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, INTEGRATION_LINE, conv) \
         and any(l.startswith('| 1.5c-21 |') for l in rg_) and '| **The Epstein instance** (seated 2026-11-09, b750) |' in sm_ and 'THE_EPSTEIN_CONTROL_OBJECT_v0_1.md' in sm_
     fixed_ = []
     nouns_ = [w_ for w_ in ('H-C3-LAW', '[M1]', '[D1]', 'v1.33.0', 'data/%s_registrations.txt' % ACT, 'data/%s_kernels.txt' % ACT, 'data/%s_branch_map.txt' % ACT,
@@ -1616,7 +1614,7 @@ def _post_lock_edits():
     return ('(1) the line`s stages, the seat`s reading of canon XXIII (B): the registration CLUSTERED (the Epstein cluster names its keystone, which carries none of the registration`s names) and the five reads BANKED (no row or block of the maps names any of them), printed and entered in no map (relay data/b754_line.txt (B)); '
             '(2) the v1.33.0 bank`s later commits named by a per-act composer run after them (relay tools/b754_v1330_later.py), not by a change to a standing tool, the seat`s reading of the author`s sixth word (4) (relay data/b754_standing_v1330.txt); '
             '(3) [D1]’s key taken as binding from the harness`s next start, the documentation read not saying when a change of it binds, its effect not tested by this act (relay data/b754_rules.txt (2)); '
-            '(4) the answers bank written by the route in its present form, each paragraph after a word`s first standing twice, the repair to tools/standing/authorwords.py carried to the sitting with its control and not made, no word of the author ordering a change to a standing tool after v1.33.0`s own commit (relay data/b754_defects.txt (q’)); '
+            '(4) the answers route`s word rows, each paragraph of a word written once by tools/standing/authorwords.py since v1.34.0 ((R364)(3)(xiv); its control in relay data/b754_standing_v1340.txt), b753`s pushed answers bank not rewritten; '
             +
             '(5) %s and the seat’s %s defect%s as lettered' % (
 #⟪END⟫

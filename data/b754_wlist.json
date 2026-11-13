@@ -1,6 +1,6 @@
 {
  "act": "b754",
- "at": "2026-11-13T15:46:15Z",
+ "at": "2026-11-13T18:16:03Z",
  "source": "kinds",
  "patterns": [
   "relay/data/b754_*",
@@ -18,23 +18,63 @@
   "relay/data/b753_anchors.txt",
   "relay/data/b753_registrations.txt",
   "relay/tools/b677_citation.py",
+  "relay/tools/standing/append.py",
   "relay/tools/standing/cites.py",
   "relay/tools/standing/hold.py",
   "relay/tools/standing/seatfile.py",
   "relay/tools/standing/subject.py",
+  "relay/tools/standing/v1330.py",
   "relay/data/b754_author_answers.txt",
   "relay/data/b754_author_answers.json",
   "relay/data/b754_answer_check.txt",
   "relay/data/b754_author_words.txt",
   "relay/data/b754_author_words_preseal.txt",
   "relay/data/b754_address_scan_postlock.txt",
-  "relay/data/b754_address_scan_commits.txt"
+  "relay/data/b754_address_scan_commits.txt",
+  "relay/data/b754_events_postseal.txt",
+  "relay/CLAUDE.md",
+  "relay/data/b753_address_scan_commits.txt",
+  "relay/data/terminal_table.json",
+  "relay/data/terminal_table_prior.json",
+  "relay/data/terminal_table_run.txt",
+  "relay/data/b755_address_scan_commits.txt"
  ],
  "sources": {
   "data/b754_ferry.txt": "343816ac58de542b1d84a0d36cea89aa11d5a036f1af53d808c364bfeaf9aea9",
-  "data/b754_amendments.json": "4615c601eb75cb9f3b172eacad8fd2b43ea4b0b6f171f9c03a019017c755b14e",
+  "data/b754_amendments.json": "fb65238d79ee273859389c15425afe6adf77e62133fe297377c0dd4c3910a67f",
   "tools/b754_worklist.py#PP_EDITED": "6af5cb14afabce75b55c4a51a066b1731477b00dcf174f0797bff7305b0fad13",
   "data/b754_face.txt": "ABSENT",
-  "tools/b754_face_blocks.txt": "ABSENT"
- }
+  "tools/b754_face_blocks.txt": "ABSENT",
+  "tools/b754_worklist.py#W_WORDS": "8b0546dd6c6d995a88a39389b370f88711f509ffc91dd3862459b7baf7634307"
+ },
+ "word_rows": [
+  {
+   "pattern": "relay/CLAUDE.md",
+   "clause": "(R364)(3)(i) and (8): the seat file at the relay`s root"
+  },
+  {
+   "pattern": "relay/data/b753_address_scan_commits.txt",
+   "clause": "(R364)(8): the four files of the step-zero restore"
+  },
+  {
+   "pattern": "relay/data/terminal_table.json",
+   "clause": "(R364)(8): the four files of the step-zero restore"
+  },
+  {
+   "pattern": "relay/data/terminal_table_prior.json",
+   "clause": "(R364)(8): the four files of the step-zero restore"
+  },
+  {
+   "pattern": "relay/data/terminal_table_run.txt",
+   "clause": "(R364)(8): the four files of the step-zero restore"
+  },
+  {
+   "pattern": "relay/data/b755_address_scan_commits.txt",
+   "clause": "(R364)(8) and (3)(iii): the next act`s per-commit scan bank"
+  },
+  {
+   "pattern": "relay/data/b755_rules.txt",
+   "clause": "(R364)(8): the next act`s rules bank by form"
+  }
+ ]
 }

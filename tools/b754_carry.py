@@ -104,7 +104,28 @@ def _carry(name, src_rel, dst_rel, *a):
         sys.exit('### %s IS NOT THERE -- NOTHING CARRIED' % src_rel)
     if os.path.exists(dst) and 'again' not in a:
         sys.exit('### %s EXISTS -- NOTHING WRITTEN (give `again` to rewrite the carried form)' % dst_rel)
-    new = substitute(old)
+    # ### b754, Component 1, (R364)(3)(ii), tools/standing/ v1.34.0: the act's module and its worklist carried by the standing route, which
+    # ### substitutes code alone (a cite in a comment or a docstring stands) and stubs what reads a ruling or an act's banks; every other
+    # ### tool by the substitution as before
+    sys.path.insert(0, T)
+    sys.path.insert(0, os.path.join(T, 'standing'))
+    import standing.carry as CR
+    stubbed = []
+    if name == 'acts':
+        rul = [b for a_, b in SUBS if a_.startswith('R')]
+        nm = {'⟪ACT⟫': ACT, '⟪PREV⟫': PREV, '⟪RUL⟫': rul[0] if rul else '', '⟪PRUL⟫': rul[1] if len(rul) > 1 else ''}
+        new, stubs = CR.carry_module(old, SUBS, ACT)
+        new, res = CR.stub_check(ACT, new, stubs, nm=nm)
+        bad = dict((k, v) for k, v in res.items() if v != 'COMPILES')
+        if bad:
+            sys.exit('### THE CARRIED MODULE`S TOOLS DO NOT ALL COMPILE WITH THE STUBS: %s -- NOTHING WRITTEN' % bad)
+        stubbed = CR.stubs_in(new)
+    elif name == 'worklist':
+        new, _names = CR.carry_worklist(old, SUBS, ACT)
+        compile(new, dst_rel, 'exec')
+        stubbed = CR.stubs_in(new)
+    else:
+        new = substitute(old)
     ol, nl_ = old.split(NL), new.split(NL)
     diff = udiff(ol, nl_, src_rel, dst_rel)
     spans = repair_spans(name)
@@ -118,6 +139,9 @@ def _carry(name, src_rel, dst_rel, *a):
          '### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.',
          '### THE SPANS data/%s_tool_repairs.txt AND data/%s_repairdiff_%s.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):' % (PREV, PREV, name)]
     L += ['  :%d ; %s' % s for s in spans] or ['  NONE: no repair of this tool at %s; the seat reads this diff`s hunks alone' % PREV]
+    if name in ('acts', 'worklist'):
+        L += ['', '### THE STUBS THE CARRY LEFT ((R364)(3)(ii), tools/standing/carry.py v1.34.0), each refusing itself when used until written for the act: %d' % len(stubbed)]
+        L += ['  :%d %s' % s for s in stubbed]
     L += ['', '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
     L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED BY THE SUBSTITUTION %d ; REPAIR SPANS AT %s %d ; THE SEAT READS THE SPANS, NOT THE WHOLE.**' % (
         dst_rel, len(nl_), changed, PREV, len(spans))]

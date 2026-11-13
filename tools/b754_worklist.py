@@ -221,6 +221,16 @@ PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### (R364)(1), (2), (7), (8): 
 #   ### and the trail; the paper for section 2 on the author's pass ((R364)(2)); no door or record edited
 PP_WRITTEN = PP_EDITED
 PP_NEW = ()
+# ### (R364) amendment row 3 (6): THE (W) ENTRIES (R364)(8) GIVES IN WORDS, each with the clause that gives it, read by tools/standing/wlist.py
+# ### (word_rows) into the (W) bank and by tools/standing/cites.py's ferry_paths for a name in no tree. The entries (8) gives "on its item's
+# ### pass and not otherwise" are not rows here: each enters by its item's route ((R364)(3)(xvi), `amend.py pass`) on the pass.
+W_WORDS = (('relay/CLAUDE.md', '(R364)(3)(i) and (8): the seat file at the relay`s root'),
+           ('relay/data/b753_address_scan_commits.txt', '(R364)(8): the four files of the step-zero restore'),
+           ('relay/data/terminal_table.json', '(R364)(8): the four files of the step-zero restore'),
+           ('relay/data/terminal_table_prior.json', '(R364)(8): the four files of the step-zero restore'),
+           ('relay/data/terminal_table_run.txt', '(R364)(8): the four files of the step-zero restore'),
+           ('relay/data/b755_address_scan_commits.txt', '(R364)(8) and (3)(iii): the next act`s per-commit scan bank'),
+           ('relay/data/b755_rules.txt', '(R364)(8): the next act`s rules bank by form'))
 RECUT_DOC = 'day1/Silence_of_Foundations.md'
 RECUT_BRANCH = 'recut-b712-silence'
 RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
