@@ -15,6 +15,12 @@ never printed). The tool commits nothing: each item's FINDINGS write is committe
 [A5]. PLACE-papers' description in the form of tools/b736_sitting.py :458-:472, each remote call its own command ((R364)(8)): `a5 read`
 (gh in PLACE-papers' clone, the repository named by no argument, captured to the state folder), `a5 write` (the capture of today compared
 with the agenda's CURRENT, then `gh repo edit --description <draft>`), `a5 back` (the read-back, compared with the draft, the row banked).
+[B2] [B4] [B6] [B7]. The four kernels' descriptions passed at the [B] put (data/b754_put_3.json), the word banked by the answers route
+at data/b754_author_answers.txt :88 (2026-11-13T21:20:15Z): [B1] and [B3] carried to a later sitting, [B2] and [B4] both passed, [B6]
+and [B7] both passed, the readings ruled with no write standing. Each by the route of [A5] in the door's own clone, the repository named
+by no argument: `b <item> read`, `b <item> write` (today's read equal to the agenda's CURRENT, then the draft cut from data/b754_ferry.txt
+at HEAD, :28, :30, :32 or :33, between `DRAFTED: "` and the line's closing quote), `b <item> back` (the read-back equal to the draft, the
+row banked). The READMEs of [B1] and [B3] are not written by this tool.
 
   python -X utf8 -u tools/b754_sitting.py control          the controls alone, nothing written and nothing read remotely
   python -X utf8 -u tools/b754_sitting.py dry <A1..A4>     the controls, the CURRENT against the agenda, the lines composed; nothing written
@@ -22,6 +28,7 @@ with the agenda's CURRENT, then `gh repo edit --description <draft>`), `a5 back`
   python -X utf8 -u tools/b754_sitting.py confirm <A1..A4> after the item's commit: PLACE-papers HEAD touching FINDINGS.md alone, its lines
                                                            the row's; the commit written to the row
   python -X utf8 -u tools/b754_sitting.py a5 <read|write|back>
+  python -X utf8 -u tools/b754_sitting.py b <B2|B4|B6|B7> <read|write|back>
 """
 import hashlib
 import io
@@ -73,6 +80,18 @@ TAGS = re.compile(r'^(\*[^*]+\* —) (?=\*\*)')
 LINE_CUR = re.compile(r'^    :(\d+) "(.*)"$')
 LINE_DIG = re.compile(r'^    :(\d+) BY LINE AND DIGEST ([0-9a-f]{16})')
 A5_CUR = re.compile(r'^  CURRENT \(by gh at ([0-9T:\-]+Z), data/b754_doors\.txt\): "(.*)"$')
+# ### [B]: the word on the [B] put (data/b754_put_3.json), banked by the answers route at data/b754_author_answers.txt :88
+B_ANSWERS_LINE = 88
+B_WORD_AT = '2026-11-13T21:20:15Z'
+B_WORD_CITE = '%s :%d' % (ANSWERS, B_ANSWERS_LINE)
+B_RESULT = 'RESULT (transcript line 11d67961:15385, %s' % B_WORD_AT[:-1]
+# ### each question of the put by its opening words, and the label the author chose there
+B_LABELS = {'[B1] and [B3]': 'Carried to a later sitting', '[B2] and [B4]': 'Both passed (Recommended)',
+            '[B6] and [B7]': 'Both passed (Recommended)', "[B]'s paragraph": 'They stand (Recommended)'}
+# ### each description item: its door, and the question that answered it
+B_ITEMS = {'[B2]': ('SIDE-explicit-formula', '[B2] and [B4]'), '[B4]': ('SIDE-kernel', '[B2] and [B4]'),
+           '[B6]': ('SIDE-bsd-multiplicity', '[B6] and [B7]'), '[B7]': ('SIDE-trivium', '[B6] and [B7]')}
+B_CUR = re.compile(r'^  CURRENT: (SIDE-[a-z0-9\-]+)`s description by gh at ([0-9T:\-]+Z): "(.*)"$')
 
 
 def stamp():
@@ -119,6 +138,31 @@ def word_ok(item, got):
     return got.get(q) == LABELS[q]
 
 
+def b_word_labels(line):
+    """{question: label} from the [B] RESULT line: each question named by the B_LABELS key it opens on, the label after its `"="`."""
+    out = {}
+    parts = line.split('"="')
+    for i in range(1, len(parts)):
+        q = parts[i - 1]
+        at = [(q.rfind('"' + k), k) for k in B_LABELS if q.rfind('"' + k) >= 0]
+        if at:
+            out[max(at)[1]] = parts[i].split('"', 1)[0]
+    return out
+
+
+def b_word():
+    L = AG.git(RELAY, 'show', 'HEAD:%s' % ANSWERS).replace('\r', '').split(NL)
+    line = L[B_ANSWERS_LINE - 1] if len(L) >= B_ANSWERS_LINE else ''
+    if not line.startswith(B_RESULT):
+        raise SystemExit('### THE [B] WORD NOT AT %s: the line opens %r -- NOTHING DONE' % (B_WORD_CITE, line[:80]))
+    return b_word_labels(line)
+
+
+def b_word_ok(item, got):
+    q = B_ITEMS[item][1]
+    return got.get(q) == B_LABELS[q] and B_LABELS[q].startswith('Both passed')
+
+
 # ---------------------------------------------------------------- the drafts
 def cut(text, a, b):
     """the words between needle a and needle b, each found once in text; None where either is not found once."""
@@ -149,12 +193,22 @@ def drafts(FL, a1_form=None):
     return out
 
 
-def a5_draft(FL):
-    s = AG.draft(FL, '[A5]')
+def a5_draft(FL, tag='[A5]'):
+    s = AG.draft(FL, tag)
     a = 'DRAFTED: "'
     if s.count(a) != 1 or not s.endswith('"'):
         return None
     return s[s.index(a) + len(a):-1]
+
+
+def b_current(A):
+    """{door: (time, words)} from the agenda's [B2], [B4], [B6] and [B7] CURRENT lines of a description by gh."""
+    out = {}
+    for l in A:
+        m = B_CUR.match(l)
+        if m:
+            out[m.group(1)] = (m.group(2), m.group(3))
+    return out
 
 
 # ---------------------------------------------------------------- the file, one line for one line
@@ -245,8 +299,9 @@ def rows():
 
 
 def bank(R):
-    j = {'what': '(R364)(5)[A] the passed items written by %s, one row an item; the word %s (%s); the drafts cut from data/b754_ferry.txt at '
-                 'HEAD; the lines cited by FINDINGS line and digest' % (SELF, WORD_CITE, WORD_AT), 'at': stamp(), 'rows': R}
+    j = {'what': '(R364)(5)[A] and [B] the passed items written by %s, one row an item; the words %s (%s) for [A] and %s (%s) for [B]; the '
+                 'drafts cut from data/b754_ferry.txt at HEAD; the lines cited by FINDINGS line and digest' % (SELF, WORD_CITE, WORD_AT, B_WORD_CITE,
+                                                                                                             B_WORD_AT), 'at': stamp(), 'rows': R}
     with open(BANK + '.tmp', 'wb') as f:
         f.write((json.dumps(j, indent=1, ensure_ascii=False, sort_keys=True) + NL).encode('utf-8'))
     os.replace(BANK + '.tmp', BANK)
@@ -312,6 +367,20 @@ def controls():
     acct = DOORS.account(PP)
     case('[A5]`s draft cut from data/b754_ferry.txt :24, withheld by no kind', bool(d5) and d5.endswith('correction).') and not DOORS.withheld(d5, acct, word),
          '%d characters, digest %s' % (len(d5), digest(d5)))
+    WB = b_word()
+    case('the [B] word read at %s: every question`s label the author chose (4)' % B_WORD_CITE, all(WB.get(q) == B_LABELS[q] for q in B_LABELS), WB)
+    case('[B2], [B4], [B6], [B7] read passed; [B1] and [B3] carried', all(b_word_ok(i, WB) for i in B_ITEMS)
+         and WB.get('[B1] and [B3]') == 'Carried to a later sitting', 'passed %s' % sorted(i for i in B_ITEMS if b_word_ok(i, WB)))
+    planted_b = dict(WB, **{'[B6] and [B7]': '[B6] only'})
+    case('a planted [B] word answering `[B6] only` reads [B7] not passed', not b_word_ok('[B7]', planted_b), 'b_word_ok %s' % b_word_ok('[B7]', planted_b))
+    bd = dict((i, a5_draft(FL, i) or '') for i in B_ITEMS)
+    bacct = dict((i, DOORS.account(DOORS.CLONES[B_ITEMS[i][0]])) for i in B_ITEMS)
+    case('the four [B] drafts cut from data/b754_ferry.txt :28, :30, :32, :33, withheld by no kind',
+         all(bd[i] and not DOORS.withheld(bd[i], bacct[i], word) for i in B_ITEMS),
+         ' ; '.join('%s %d characters, digest %s' % (i, len(bd[i]), digest(bd[i])) for i in sorted(B_ITEMS)))
+    bc = b_current(A)
+    case('the agenda`s CURRENT of a description by gh found for the four doors', all(B_ITEMS[i][0] in bc for i in B_ITEMS),
+         ' ; '.join('%s %s' % (d, bc[d][0]) for d in sorted(bc)))
     ok = sum(C)
     print('### CONTROLS %d OF %d %s' % (ok, len(C), 'AS WANTED' if ok == len(C) else 'NOT AS WANTED'))
     return ok == len(C)
@@ -474,6 +543,84 @@ def a5(step):
     raise SystemExit('usage: %s a5 <read|write|back>' % SELF)
 
 
+# ---------------------------------------------------------------- [B2] [B4] [B6] [B7]
+def b_cap(item, kind):
+    return os.path.join(CAP, '%s_%s.json' % (item.strip('[]'), kind))
+
+
+def b_save(item, kind, rec):
+    os.makedirs(CAP, exist_ok=True)
+    with io.open(b_cap(item, kind) + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
+        f.write(json.dumps(rec, ensure_ascii=False, indent=1) + NL)
+    os.replace(b_cap(item, kind) + '.tmp', b_cap(item, kind))
+
+
+def b_load(item, kind):
+    p = b_cap(item, kind)
+    return json.load(io.open(p, encoding='utf-8')) if os.path.exists(p) else None
+
+
+def b(item, step):
+    if item not in B_ITEMS:
+        raise SystemExit('usage: %s b <B2|B4|B6|B7> <read|write|back>' % SELF)
+    if not controls():
+        raise SystemExit('### THE CONTROLS NOT AS WANTED -- NOTHING DONE')
+    if not b_word_ok(item, b_word()):
+        raise SystemExit('### %s: THE WORD AT %s DOES NOT READ PASSED -- NOTHING DONE' % (item, B_WORD_CITE))
+    if item in rows():
+        raise SystemExit('### %s HAS ITS ROW ALREADY -- NOTHING DONE' % item)
+    door, q = B_ITEMS[item]
+    clone = DOORS.CLONES[door]
+    n = [x for x in AG.FERRY if x[0] == item][0][1]
+    d = a5_draft(AG.ferry_lines(), item)
+    if not d:
+        raise SystemExit('### %s: NO DRAFT CUT FROM data/b754_ferry.txt :%d -- NOTHING DONE' % (item, n))
+    A = AG.git(RELAY, 'show', 'HEAD:data/%s_agenda.txt' % ACT).replace('\r', '').split(NL)
+    bc = b_current(A).get(door)
+    if not bc:
+        raise SystemExit('### %s: NO CURRENT OF %s`s DESCRIPTION IN THE AGENDA -- NOTHING DONE' % (item, door))
+    today = stamp()[:10]
+    gh = ['gh', 'repo', 'view', '--json', 'description', '-q', '.description']
+    if step == 'read':
+        t0 = stamp()
+        rc, out, err = run(gh, cwd=clone)
+        b_save(item, 'read', dict(door=door, at=t0, rc=rc, out=out, err=err[:300]))
+        print('%s READ %s %s description: rc %d, %d characters ; the agenda`s CURRENT (%s) %s' % (t0, item, door, rc, len(out), bc[0],
+                                                                                                 'EQUAL' if out == bc[1] else 'DIFFERS'))
+        return
+    if step == 'write':
+        r = b_load(item, 'read')
+        if not r or r['rc'] or r['at'][:10] != today or r['out'] != bc[1]:
+            raise SystemExit('### %s: NO READ OF TODAY EQUAL TO THE AGENDA`S CURRENT (%s) -- NOTHING WRITTEN' % (item, r and (r['at'], r['rc'], r['out'] == bc[1])))
+        if b_load(item, 'write') and b_load(item, 'write')['at'][:10] == today:
+            raise SystemExit('### %s: WRITTEN ALREADY TODAY (%s) -- read it back' % (item, b_load(item, 'write')['at']))
+        t0 = stamp()
+        rc, out, err = run(['gh', 'repo', 'edit', '--description', d], cwd=clone)
+        b_save(item, 'write', dict(door=door, at=t0, rc=rc, out=out[:300], err=err[:300], draft_digest=digest(d)))
+        print('%s WRITE %s %s description by gh repo edit: rc %d%s ; the draft %d characters, digest %s' % (t0, item, door, rc,
+                                                                                                          (' ; ' + err[:200]) if rc else '', len(d), digest(d)))
+        return
+    if step == 'back':
+        w, r = b_load(item, 'write'), b_load(item, 'read')
+        if not w or w['rc'] or w.get('draft_digest') != digest(d):
+            raise SystemExit('### %s: NO WRITE OF THIS DRAFT TO READ BACK -- NOTHING DONE' % item)
+        t0 = stamp()
+        rc, out, err = run(gh, cwd=clone)
+        b_save(item, 'back', dict(door=door, at=t0, rc=rc, out=out, err=err[:300]))
+        eq = rc == 0 and out == d
+        print('%s READ BACK %s %s description: rc %d, %d characters ; the draft %s' % (t0, item, door, rc, len(out), 'EQUAL' if eq else 'DIFFERS'))
+        if not eq:
+            raise SystemExit('### %s: THE READ-BACK DIFFERS -- no row banked' % item)
+        R = rows()
+        R[item] = dict(form='passed', door=door, word_at=B_WORD_AT, word_cite=B_WORD_CITE, label=B_LABELS[q], state='PASS',
+                       read='by gh %s, digest %s, %d characters, the agenda`s CURRENT (by gh %s) EQUAL' % (r['at'], digest(r['out']), len(r['out']), bc[0]),
+                       compared='EQUAL', draft='data/b754_ferry.txt :%d, digest %s, %d characters' % (n, digest(d), len(d)),
+                       written_at=w['at'], confirm='gh read back %s, equal' % t0, findings_head=None)
+        bank(R)
+        return
+    raise SystemExit('usage: %s b <B2|B4|B6|B7> <read|write|back>' % SELF)
+
+
 def main(argv):
     if not argv:
         raise SystemExit(__doc__)
@@ -487,6 +634,8 @@ def main(argv):
         return item_write(item, cmd == 'write')
     if cmd == 'a5' and len(argv) == 2:
         return a5(argv[1])
+    if cmd == 'b' and len(argv) == 3:
+        return b('[%s]' % argv[1].strip('[]'), argv[2])
     raise SystemExit(__doc__)
 
 
