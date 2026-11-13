@@ -139,7 +139,7 @@ def rows():
     starts = [int(m.group(1)) for m in (re.match(r'^    \((\d+)\) ', l) for l in ev) if m]
 ⟪SLOT 3⟫
     dl = lines_of(p('data', '⟪PREV⟫_defects.txt'))
-    letters = [m.group(1) for m in (re.match(r"^    \(([a-z]'?)\) ", l) for l in dl) if m]
+    letters = [m.group(1) for m in (re.match(r"^    \(([a-z]'*)\) ", l) for l in dl) if m]   # ### v1.34.0, (R364)(3)(viii)
 ⟪SLOT 4⟫
         at(lines_of(p('tools', 'standing', 'VERSION')), 1), '1')
 ⟪SLOT 5⟫
@@ -227,22 +227,26 @@ def check(*a):
     chits = [h for n in getattr(K, 'COMPARATIVE_BANKS', ()) for h in CT.comparative_hits(n, _rd_(n))]
     cun = CT.comparative_unread(chits, crows)
     chalt = [r for r in crows if r[5] != 'AGREES'] + [(b, l, w, '-', {}, 'UNREAD', 'no reading row') for b, l, w in cun]
-    L += ['', '### THE COMPARATIVE SENTENCES AGAINST THE TABLES THEY CITE ((⟪RUL⟫)(2)(ii)): banks %d, words %d, rows %d ; AGREES %d, CONTRADICTS %d, UNREAD %d' % (
+    L += ['', '### THE COMPARATIVE SENTENCES AGAINST THE TABLES THEY CITE ((R348)(2)(ii)): banks %d, words %d, rows %d ; AGREES %d, CONTRADICTS %d, UNREAD %d' % (
         len(getattr(K, 'COMPARATIVE_BANKS', ())), len(chits), len(crows), sum(1 for r in crows if r[5] == 'AGREES'), sum(1 for r in crows if r[5] == 'CONTRADICTS'),
         sum(1 for r in chalt if r[5] == 'UNREAD'))]
     L += ['  %-11s | %s :%d | %r | %s | %s%s' % (r[5], r[0], r[1], r[2], r[3], ', '.join('%s %g' % kv for kv in list(r[4].items())[:6]) + (' ...' if len(r[4]) > 6 else ''),
                                              (' | ' + r[6]) if r[6] else '') for r in crows]
     L += ['  %-11s | %s :%d | %r | no reading row' % ('UNREAD', b, l, w) for b, l, w in cun]
-    # ### v1.32.0, (⟪RUL⟫)(7)(i): every path the ruling and the ferry name, OK or NONE at HEAD, by the text alone (standing.cites.ferry_paths)
+    cno = [h for n in getattr(K, 'COMPARATIVE_BANKS', ()) for h in getattr(CT, 'comparative_nouns', lambda *_a: [])(n, _rd_(n))]   # ### v1.34.0, b754 (k)
+    L += ['  the pattern`s words used as nouns, read apart and not halting (v1.34.0, b754 (k)): %d%s' % (len(cno), (' -- ' + ', '.join('%s :%d %r' % h for h in cno)) if cno else '')]
+    # ### v1.32.0, (R362)(7)(i): every path the ruling and the ferry name, OK or NONE at HEAD, by the text alone (standing.cites.ferry_paths)
     FP = __import__('standing.cites', fromlist=['ferry_paths']).ferry_paths(text, '⟪ACT⟫', ROOT, PP)
     fn = [x for x in FP if x[2] == 'NONE']
-    L += ['', '### EVERY PATH THE RULING AND THE FERRY NAME, AT HEAD ((⟪RUL⟫)(7)(i)): paths %d ; OK %d ; NONE %d ; the act`s own, to be written %d' % (
-        len(FP), sum(1 for x in FP if x[2] == 'OK'), len(fn), sum(1 for x in FP if x[2].startswith('THE ACT')))]
-    L += ['  %-4s | %s %s' % ('OK' if s == 'OK' else ('NONE' if s == 'NONE' else 'OWN'), r, p) for p, r, s in FP]
+    # ### v1.34.0, (R364) amendment row 3 (6): a bare name read by the trees (relay, PLACE-papers or both); one in neither that a (W) word row
+    # ### orders reads TO BE WRITTEN with the row's clause, counted with the act's own and its clause printed
+    L += ['', '### EVERY PATH THE RULING AND THE FERRY NAME, AT HEAD ((R362)(7)(i); a bare name by the trees, (R364) amendment row 3 (6)): paths %d ; OK %d ; NONE %d ; the act`s own, to be written %d ; to be written by a clause %d' % (
+        len(FP), sum(1 for x in FP if x[2] == 'OK'), len(fn), sum(1 for x in FP if x[2].startswith('THE ACT')), sum(1 for x in FP if x[2].startswith('TO BE WRITTEN, ')))]
+    L += ['  %-4s | %s %s%s' % ('OK' if s == 'OK' else ('NONE' if s == 'NONE' else 'OWN'), r, p, (' -- ' + s) if s.startswith('TO BE WRITTEN, ') else '') for p, r, s in FP]
     L += ['', '### ### **CITES CHECKED %d ; OK %d ; MISSES %d.**' % (len(R), len(R) - len(miss), len(miss))]
     L += ['### ### **THE FERRY`S PATHS %d ; OK %d ; NONE %d%s.**' % (len(FP), sum(1 for x in FP if x[2] == 'OK'), len(fn), (' -- ' + ', '.join(p for p, _r, _s in fn)) if fn else '')]
     clean = not hl and not chalt
-    L += ['### ### **THE CHECK %s** (halts %d: Lean paths and nouns %d, comparatives %d) -- the branch deletes wait on CLEAN ((⟪RUL⟫)(2)(iv))' % (
+    L += ['### ### **THE CHECK %s** (halts %d: Lean paths and nouns %d, comparatives %d) -- the branch deletes wait on CLEAN ((R348)(2)(iv))' % (   # ### v1.34.0, b754 (j): each printed clause by the ruling that made it
         'CLEAN' if clean else 'HALTED', len(hl) + len(chalt), len(hl), len(chalt))]
     if 'dry' in a:
         print(NL.join(L))

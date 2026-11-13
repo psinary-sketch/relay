@@ -1903,9 +1903,9 @@ def _part_of(name):
 
 
 def regenerate():
-    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'terminal_table.py')], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(T, 'standing', 'tablescratch.py'), '⟪ACT⟫'], capture_output=True, text=True, encoding='utf-8', errors='replace')   # ### v1.34.0, (R364)(3)(xi), b752 (d), b753 (d): the generator`s emit to the act`s scratch folder, nothing under the relay written; the tracked table moves by the record`s table_final at the close
     try:
-        diff = json.loads(rd('terminal_table_diff.json') or '{}')
+        diff = json.loads(open(os.path.join(__import__('standing.tablescratch', fromlist=['folder']).folder('⟪ACT⟫'), 'terminal_table_diff.json'), encoding='utf-8').read() or '{}')
     except Exception:
         diff = {}
     return r.returncode, diff
@@ -2159,6 +2159,9 @@ def main():
         print('%s  ### THE HOST`S FREE MEMORY %d MB, BENEATH THE HOLD %d MB: PART %s NOT RUN ((R294)(2))' % (
             time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), fm, KS.HOLD, PART))
         return 3
+    # ### v1.34.0, (R364)(3)(xxi): the part reads both volumes and the restart flag where it reads the memory, by tools/standing/hold.py
+    if __import__('standing.hold', fromlist=['refuses']).refuses('suite part %s' % PART, hold=KS.HOLD, free=fm):
+        return 3
     t_start = time.time()
     pushed = RERUN or (not PRERUN and not MID and not PREV and is_pushed())
     base = __import__('standing.repeat', fromlist=['part_guards']).part_guards(PART, '⟪ACT⟫', ROOT, pushed, bool(RERUN or PRERUN or MID or PREV)) or _base_name(pushed)   # ### v1.4.0 (vii), (iii)
@@ -2337,10 +2340,10 @@ def main():
     lsr = dict(KC0.LSR)
     rec('  ### OPEN_TRAILS :12703: ls-remote calls this part, per repository: %d repositories, at most %d each' % (len(lsr), max(lsr.values()) if lsr else 0))
     rcs = RCACHE.summary(RC_LOG)
-    rec('  ### v1.22.0, (⟪RUL⟫)(2)(ii): THE REMOTE READS OF THIS SUITE RUN (key %s): repositories %d ; read by this part %d ; from the run cache %d ; the reads` seconds %.1f ; the slowest %s %.2f s' % (
+    rec('  ### v1.22.0, (R352)(2)(ii): THE REMOTE READS OF THIS SUITE RUN (key %s): repositories %d ; read by this part %d ; from the run cache %d ; the reads` seconds %.1f ; the slowest %s %.2f s' % (
         RC_KEY, rcs[0], rcs[1], rcs[2], rcs[3], rcs[4][0], rcs[4][1]))
     lsv = LSRD.verdict(lsr, RC_LOG)   # ### v1.26.0, (⟪RUL⟫)(3)(v)
-    rec('  ### v1.26.0, (⟪RUL⟫)(3)(v): THE REMOTE READS CLASSED: %s ; %s' % (lsv[0], ' ; '.join(lsv[1]) or 'no retry'))
+    rec('  ### v1.26.0, (R356)(3)(v): THE REMOTE READS CLASSED: %s ; %s' % (lsv[0], ' ; '.join(lsv[1]) or 'no retry'))
     if regen:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d %s' % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),

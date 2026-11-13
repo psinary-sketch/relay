@@ -12,7 +12,7 @@ import re
 
 S = os.path.dirname(os.path.abspath(__file__))
 D = os.path.join(os.path.dirname(os.path.dirname(S)), 'data')
-ITEM = re.compile(r"^    \([a-z]'?\) ")
+ITEM = re.compile(r"^    \([a-z]'*\) ")   # ### v1.34.0, (R364)(3)(viii): any number of primes
 
 
 def _next(act):

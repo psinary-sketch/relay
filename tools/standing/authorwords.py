@@ -46,14 +46,29 @@ def author_words(rows, session_id, anchor):
     return out
 
 
-def _word_blocks(lines):
-    """the composed bank's word rows: [(start, end)] spans, each a heading through its last text line (the blank after it excluded)."""
+# ### v1.34.0, (R364)(3)(xiv), b753 defect (q'): A WORD OF SEVERAL PARAGRAPHS CUT WHOLE. v1.32.0 ended a word row at its first blank line, so of
+# ### a word of four paragraphs (b753's ninth, transcript row 7049) it cut the first and left three standing, and rekey then wrote the word whole:
+# ### each paragraph after the first stood twice (data/b753_author_answers.txt :132-:204; b752's bank 9 lines). A heading whose place names a
+# ### word of `words` is cut by that word's own lines, its blank lines inside it included, where the bank carries them; else as before.
+def _word_blocks(lines, words=None):
+    """the composed bank's word rows: [(start, end)] spans, each a heading through its last text line (the blank after it excluded). v1.34.0:
+    with `words`, a heading at a word's place spans the word's own lines where they follow it exactly."""
+    by = {}
+    for ln, w, _ts in words or ():
+        by.setdefault(str(ln), []).append(w.replace('\r', '').split(NL))
     spans, i = [], 0
     while i < len(lines):
-        if HEAD_RE.match(lines[i]):
-            j = i + 1
-            while j < len(lines) and lines[j] != '' and not lines[j].startswith('### '):
-                j += 1
+        m = HEAD_RE.match(lines[i])
+        if m:
+            j = None
+            for body in by.get(m.group(1), ()):
+                if lines[i + 1:i + 1 + len(body)] == body:
+                    j = i + 1 + len(body)
+                    break
+            if j is None:
+                j = i + 1
+                while j < len(lines) and lines[j] != '' and not lines[j].startswith('### '):
+                    j += 1
             spans.append((i, j))
             i = j
         else:
@@ -65,7 +80,7 @@ def rekey(lines, words):
     """the composed lines with every word row rebuilt from `words` in order, at the place of the first word row (or before the first NOTE or
     MESSAGE row, or at the end); the head's word count set to the rows written. Returns (lines, restored lines' places)."""
     lines = list(lines)
-    spans = _word_blocks(lines)
+    spans = _word_blocks(lines, words)
     had = [HEAD_RE.match(lines[s]).group(1) for s, _e in spans]
     keep, cut = [], set()
     for s, e in spans:

@@ -48,6 +48,9 @@ def _sha(p):
     if p.endswith('#PP_EDITED'):   # ### the worklist read for its PP_EDITED alone: its other constants move through the act and change no row
         act = os.path.basename(p).split('_worklist.py')[0]
         return hashlib.sha256(repr(_worklist_pp(act)).encode('utf-8')).hexdigest() if os.path.isfile(p[:-len('#PP_EDITED')]) else 'ABSENT'
+    if p.endswith('#W_WORDS'):   # ### v1.34.0, row 3 (6): the worklist read for its W_WORDS alone
+        act = os.path.basename(p).split('_worklist.py')[0]
+        return hashlib.sha256(repr(word_rows(act)).encode('utf-8')).hexdigest() if os.path.isfile(p[:-len('#W_WORDS')]) else 'ABSENT'
     try:
         with open(p, 'rb') as f:
             return hashlib.sha256(f.read().replace(b'\r\n', b'\n')).hexdigest()
@@ -58,7 +61,24 @@ def _sha(p):
 def source_paths(act):
     """the files the regeneration reads, relay-relative, each read for its digest."""
     return ['data/%s_ferry.txt' % act, 'data/%s_amendments.json' % act, 'tools/%s_worklist.py#PP_EDITED' % act, 'data/%s_face.txt' % act,
-            'tools/%s_face_blocks.txt' % act]
+            'tools/%s_face_blocks.txt' % act, 'tools/%s_worklist.py#W_WORDS' % act]
+
+
+# ### v1.34.0, (R364) amendment row 3 (6), data/b754_stepzero.txt THE READERS' LIMITS: THE (W) ENTRIES A RULING GIVES IN WORDS. The regeneration
+# ### reads the ruling's writes by their path forms alone; (R364)(8) names in words CLAUDE.md at the relay's root, the four files of the step-zero
+# ### restore and the next act's per-commit scan bank, which no path form carries. The seat enters each as a row of the worklist's W_WORDS,
+# ### (pattern, the clause that gives it); the bank carries them with their clauses, printed before the lock, and the citation check's path
+# ### reader names the clause where a path stands in no tree.
+def word_rows(act, relay=None):
+    """[(pattern, clause)] from tools/<act>_worklist.py's W_WORDS (of the relay given, else this one); () where absent."""
+    p = os.path.join(relay or RELAY, 'tools', '%s_worklist.py' % act)
+    if not os.path.isfile(p):
+        return ()
+    import carry as CA
+    try:
+        return tuple(tuple(x) for x in (CA.literals(io.open(p, encoding='utf-8').read()).get('W_WORDS') or ()))
+    except (SyntaxError, TypeError, ValueError):
+        return ()
 
 
 def _worklist_pp(act):
@@ -112,6 +132,9 @@ def patterns(act=None):
         q = 'relay/%s' % b
         if q not in pats:
             pats.append(q)
+    for q, _clause in word_rows(act):   # ### v1.34.0, row 3 (6)
+        if q not in pats:
+            pats.append(q)
     sources = dict((rel, _sha(os.path.join(RELAY, *rel.split('/')))) for rel in source_paths(act))
     return pats, src, sources
 
@@ -123,11 +146,14 @@ def bank_path(act):
 def regenerate(act=None, write=False):
     act = act or _cur()['act']
     pats, src, sources = patterns(act)
+    wr = word_rows(act)
     L = ['%s -- (R361)(3)(ii): THE (W) LIST REGENERATED FOR THE HOOK (%s)' % (act, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
          '  the source: %s ; patterns %d' % (src, len(pats))] + ['  %s' % p for p in pats] + \
+        ['  the entries the ruling gives in words, each with its clause (v1.34.0, row 3 (6)): %d' % len(wr)] + ['    %s -- %s' % r for r in wr] + \
         ['  the sources read (sha256 of the LF bytes, or ABSENT):'] + ['    %s %s' % (k, v[:16]) for k, v in sources.items()]
     if write:
-        j = dict(act=act, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), source=src, patterns=pats, sources=sources)
+        j = dict(act=act, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), source=src, patterns=pats, sources=sources,
+                 word_rows=[dict(pattern=q, clause=c) for q, c in wr])
         p = bank_path(act)
         with open(p + '.tmp', 'wb') as f:
             f.write((json.dumps(j, indent=1, ensure_ascii=False) + NL).encode('utf-8'))

@@ -279,7 +279,23 @@ def plain_git(cmd, GW=None):
     return ''
 
 
-CALLS = os.path.join(tempfile.gettempdir(), 'standing-calls.jsonl')
+# ### v1.34.0, (R364)(3)(xv): THE HOOK'S STATE OUT OF THE TEMP DIRECTORY. The calls ledger and the git-write state stood in the temp directory,
+# ### each path built here and the calls ledger's built again in tools/standing/commit.py; both read tools/standing/statedir.py, the one resolver
+# ### of the state folder on the data volume. Where the resolver does not import or its folder cannot be made, the hook and the tool fall back
+# ### to the temp directory alike, so the two still read one ledger and the hook still refuses; the control prints which place each reads.
+def _state():
+    """(statedir module or None, the calls ledger's path)."""
+    try:
+        d = os.path.dirname(os.path.abspath(__file__))
+        if d not in sys.path:
+            sys.path.insert(0, d)
+        import statedir as SD
+        return SD, SD.calls_path()
+    except Exception:  # noqa: BLE001
+        return None, os.path.join(tempfile.gettempdir(), 'standing-calls.jsonl')
+
+
+_SD, CALLS = _state()
 
 
 def record_call(ctx, tool, inp, verdict, path=CALLS):
@@ -303,6 +319,12 @@ def record_call(ctx, tool, inp, verdict, path=CALLS):
 
 
 def ledger_path(transcript):
+    """v1.34.0, (R364)(3)(xv): the session's git-write state in the state folder (statedir.ledger_path), the temp directory where it falls back."""
+    if _SD is not None:
+        try:
+            return _SD.ledger_path(transcript)
+        except Exception:  # noqa: BLE001
+            pass
     return os.path.join(tempfile.gettempdir(), 'standing-gitwrite-%s.json' % hashlib.sha256(str(transcript).encode('utf-8')).hexdigest()[:16])
 
 
@@ -430,7 +452,8 @@ def by_design(act):
     if A_ is not None and hasattr(A_, 'by_design'):
         return tuple(A_.by_design(act))
     return ('data/%s_author_answers.txt' % act, 'data/%s_author_answers.json' % act, 'data/%s_answer_check.txt' % act, 'data/%s_author_words.txt' % act,
-            'data/%s_author_words_preseal.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'data/%s_address_scan_commits.txt' % act)
+            'data/%s_author_words_preseal.txt' % act, 'data/%s_address_scan_postlock.txt' % act, 'data/%s_address_scan_commits.txt' % act,
+            'data/%s_events_postseal.txt' % act)   # ### v1.34.0, (R364)(3)(v): the post-seal events bank, the fallback carrying the design list whole
 
 
 def lock_exempt(act):
@@ -749,15 +772,15 @@ def cases(act):
         ('Bash', {'command': 'PYTHONIOENCODING=utf-8 python x.py'}, 'ENV'),
         ('Bash', {'command': 'cd /d/relay && FOO=1 python x.py'}, 'ENV'),
         ('Bash', {'command': 'cd /d/relay && python -I -X utf8 tools/locate.py data/x.txt "a|b>c"'}, None),
-        ('Bash', {'command': 'git -C /d/relay commit -m "%s: a -> b, x|y"' % act}, None),
+        ('Bash', {'command': 'git -C /d/relay commit -m "%s: a -> b, x|y"' % act}, 'PLAINGIT'),   # ### v1.34.0, b754 (e): PLAINGIT since v1.29.0
         ('Bash', {'command': 'git -C /d/a ls-remote origin ; git -C /d/b ls-remote origin'}, 'REMOTE'),   # ### v1.8.0, (2)(iv)(d)
         ('Bash', {'command': 'git -C /d/a ls-remote origin'}, None),
-        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --combine x.txt && python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, 'SUITE'),   # ### v1.11.0
-        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, None),
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --combine x.txt && python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, 'LIMIT'),   # ### v1.11.0; v1.34.0, b754 (e): LIMIT since v1.31.0, read before SUITE
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --prev --part act'}, 'LIMIT'),   # ### v1.34.0, b754 (e): LIMIT since v1.31.0
         ('PowerShell', {'command': 'Get-ChildItem D:/relay | Select-Object -First 3'}, 'PIPE'),
         ('PowerShell', {'command': 'git status > out.txt'}, 'REDIR'),
         ('PowerShell', {'command': '$env:PYTHONIOENCODING = "utf-8"; python x.py'}, 'ENV'),
-        ('PowerShell', {'command': "git commit -m @'\nline | with > marks\n'@"}, None),
+        ('PowerShell', {'command': "git commit -m @'\nline | with > marks\n'@"}, 'PLAINGIT'),   # ### v1.34.0, b754 (e): PLAINGIT since v1.29.0
         ('PowerShell', {'command': 'Get-PSDrive'}, None),
         ('PowerShell', {'command': 'git status > $null'}, 'REDIR'),   # ### v1.9.0, (R339)(2)(i), the two forms the ruling names
         ('Bash', {'command': 'python x.py 2>&1'}, 'REDIR'),
@@ -766,8 +789,15 @@ def cases(act):
         ('PowerShell', {'command': 'powershell -Command "git log 2>&1"'}, 'REDIR'),
         ('PowerShell', {'command': 'git status; Set-Content -Path a -Value b'}, 'REDIR'),
         ('Bash', {'command': "bash -c 'git status'"}, None),
-        ('Bash', {'command': 'git -C /d/relay commit -m "the Out-File rule"'}, None),
+        ('Bash', {'command': 'git -C /d/relay commit -m "the Out-File rule"'}, 'PLAINGIT'),   # ### v1.34.0, b754 (e): PLAINGIT since v1.29.0
         ('Grep', {'pattern': 'a|b'}, None),
+        # ### v1.34.0, (R364)(3)(xix), b754 defect (e): the five intents above in the forms the later rulings order -- every git write through
+        # ### the one-call tool ((R359)(3)(iii), v1.29.0), a suite route sent with the limit tools/standing/limits.py prints ((R361)(3)(ix), v1.31.0)
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/commit.py relay "component 1" "a -> b, x|y"'}, None),
+        ('PowerShell', {'command': 'python -X utf8 -u tools/standing/commit.py relay "component 1" "line | with > marks"'}, None),
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/commit.py relay "component 1" "the Out-File rule"'}, None),
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --combine x.txt && python -X utf8 -u tools/standing/fold.py checks --prev --part act', 'timeout': 600000}, 'SUITE'),
+        ('Bash', {'command': 'python -X utf8 -u tools/standing/fold.py checks --prev --part act', 'timeout': 600000}, None),
     ]
 
 
@@ -824,11 +854,26 @@ def instance_constructed(act):
 
 def control():
     act = act_of()
-    prev = None
-    try:
-        prev = json.load(open(os.path.join(RELAY, 'data', 'act_current.json'), encoding='utf-8')).get('prev')
-    except (OSError, ValueError):
-        pass
+    lines = control_lines(act)
+    bank = os.path.join(RELAY, 'data', '%s_hook_control.txt' % act)
+    with open(bank + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
+        f.write('\n'.join(lines) + '\n')
+    os.replace(bank + '.tmp', bank)
+    print('\n'.join(lines[-4:]))
+    print('bank', bank)
+
+
+# ### v1.34.0, (R364)(3)(xix), b754 defect (f): THE VERDICT READ FROM WHAT CAN FIRE. Instance 1 reads the previous act's refusals bank against
+# ### the sha256 its root names; since the repair it controls, refuse() writes to a bank no root names, so it read NOT SHOWN at every act after
+# ### it (b731's run, b754's) and THE REPAIR HOLDS read False whatever the hook did. The verdict is read from the table and the constructed
+# ### instance; the record's instance is printed, named not reachable since the repair where no root names the bank, and read apart.
+def control_lines(act, prev=None):
+    """the control's bank lines, nothing written but the constructed instance's scratch."""
+    if prev is None:
+        try:
+            prev = json.load(open(os.path.join(RELAY, 'data', 'act_current.json'), encoding='utf-8')).get('prev')
+        except (OSError, ValueError):
+            prev = None
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     lines = ['%s STANDING HOOK CONTROL -- v5 row (77) and the class repair (4)(iii), tools/standing/hook.py at %s' % (act, stamp),
              '### each case: tool | input | wanted | got | AS WANTED']
@@ -848,21 +893,16 @@ def control():
     con = instance_constructed(act)
     rec_class = bool(rec.get('named')) and rec.get('rooted') is not None and rec.get('now') != rec.get('rooted')
     con_ok = con['new_changed'] == [] and not con['new_bank_named'] and con['old_changed'] != []
+    reach = 'SHOWN' if rec_class else ('NOT REACHABLE SINCE THE REPAIR (no root names the bank refuse() writes)' if not rec.get('named') else 'NOT SHOWN')
     lines += ['', '### (4)(iii) INSTANCE 1, FROM THE RECORD: %s, named by %s: %s ; its sha256 at the root %s ; now %s ; the class (a refusal '
               'after the root changed a rooted bank) %s' % (rec['rel'], os.path.basename(rec['root']), rec.get('named'),
-                                                            (rec.get('rooted') or '-')[:16], (rec.get('now') or '-')[:16],
-                                                            'SHOWN' if rec_class else 'NOT SHOWN'),
-              '### (4)(iii) INSTANCE 2, CONSTRUCTED in %s: the standing refuse() wrote %s (named by the test root %s) and changed root-named '
-              'banks %s ; the old form (the refusal appended to a root-named bank) changed %s ; AS WANTED %s' % (
-                  con['scratch'], con['new_bank'], con['new_bank_named'], con['new_changed'] or 'none', con['old_changed'] or 'none', con_ok),
-              '### ### **(4)(iii) CONTROL: THE RECORD`S INSTANCE %s ; THE CONSTRUCTED %s ; THE REPAIR HOLDS %s.**' % (
-                  'SHOWN' if rec_class else 'NOT SHOWN', 'AS WANTED' if con_ok else 'NOT AS WANTED', rec_class and con_ok and ok == len(cs))]
-    bank = os.path.join(RELAY, 'data', '%s_hook_control.txt' % act)
-    with open(bank + '.tmp', 'w', encoding='utf-8', newline='\n') as f:
-        f.write('\n'.join(lines) + '\n')
-    os.replace(bank + '.tmp', bank)
-    print('\n'.join(lines[-4:]))
-    print('bank', bank)
+                                                            (rec.get('rooted') or '-')[:16], (rec.get('now') or '-')[:16], reach),
+              '### (4)(iii) INSTANCE 2, CONSTRUCTED in the temp directory: the standing refuse() wrote %s (named by the test root %s) and changed '
+              'root-named banks %s ; the old form (the refusal appended to a root-named bank) changed %s ; AS WANTED %s' % (
+                  con['new_bank'], con['new_bank_named'], con['new_changed'] or 'none', con['old_changed'] or 'none', con_ok),
+              '### ### **(4)(iii) CONTROL: THE RECORD`S INSTANCE %s, read apart ; THE CONSTRUCTED %s ; THE TABLE %d OF %d ; THE REPAIR HOLDS %s.**' % (
+                  reach, 'AS WANTED' if con_ok else 'NOT AS WANTED', ok, len(cs), con_ok and ok == len(cs))]
+    return lines
 
 
 def excludes():

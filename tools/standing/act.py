@@ -89,6 +89,15 @@ def landed_entry(act, fj, rev='HEAD'):
     return NL.join(lines[i:e]).strip() + NL
 
 
+def entry_ends_with(text, line, conv):
+    """v1.34.0, (R364)(3)(ix), b753's N3 at the close: whether the entry's last line not blank is the act module's line, BOTH SIDES THROUGH THE
+    RECORD TOOL'S OWN CONVERTER (`conv`, b652's one conversion, the landing's, passed by the record module), one function for the composer's text
+    and the landed entry. b753's module compared its constant raw: the composer's text before the lock read it equal (scores HELD) and the landed
+    line, where the landing had turned the constant's backtick, read it not (scores close REFUTED)."""
+    ls = [l for l in (text or '').split(NL) if l.strip()]
+    return bool(ls) and conv(ls[-1].strip()) == conv((line or '').strip())
+
+
 def blob(rev, rel, repo='relay'):
     """a file's bytes at a commit (None where the commit does not carry it)."""
     return git(repo, 'show', '%s:%s' % (rev, rel))
@@ -154,9 +163,11 @@ def by_design(act):
     """v1.30.0, (R360)(3)(ii), b749 events (4)-(6): THE FILES WRITTEN AFTER THE LOCK BY DESIGN, each appended by its tool and none edited by
     hand -- the answers pair and the answer check's output (`record answers`), the author-words banks (tools/standing/append.py) and the post-lock
     scan banks (the one-call tool's scan). The hook's row (65) refuses an Edit or Write of them after the lock; N4's clause reads the same list
-    through post_lock_appended."""
+    through post_lock_appended. v1.34.0, (R364)(3)(v): the post-seal events bank data/<act>_events_postseal.txt, which the close writes by
+    design (b751's refusal entered by data/b752_corrigendum.txt :68; b752's refusals :26, :27; b753's events (14)); the events bank itself is
+    not on the list, so N4 reads a hand edit of it after the lock as an edit."""
     return answer_banks(act) + ('data/%s_author_words.txt' % act, 'data/%s_author_words_preseal.txt' % act,
-                                'data/%s_address_scan_postlock.txt' % act, 'data/%s' % scan_commits_name(act))
+                                'data/%s_address_scan_postlock.txt' % act, 'data/%s' % scan_commits_name(act), 'data/%s_events_postseal.txt' % act)
 
 
 def post_lock_appended(act):

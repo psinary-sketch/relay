@@ -285,9 +285,11 @@ def scan_refusal(text, rc):
     return None
 
 
-def run_scan(act, what='a commit', bank_dir=None):
+def run_scan(act, what='a commit', bank_dir=None, bank_act=None):
     """v1.28.0 (ii), v1.29.0 (R359)(3)(ii): the act's scan over the staged set, run WITHOUT --bank; its run appended to the per-commit bank
-    data/<act>_address_scan_commits.txt (bank_dir for a control), never to the act's scan bank or the post-lock bank."""
+    data/<act>_address_scan_commits.txt (bank_dir for a control), never to the act's scan bank or the post-lock bank. v1.34.0, (R364)(3)(iii):
+    `bank_act` the act whose per-commit bank takes the run -- the next act's, for the closing step-row commit, whose own act's bank stands
+    committed and is pushed after it (the closes of b749 to b753 appended there after its last commit, five running)."""
     import act as A
     p = os.path.join(T, '%s_address_scan.py' % act)
     if not os.path.isfile(p):
@@ -298,7 +300,7 @@ def run_scan(act, what='a commit', bank_dir=None):
     foot = [l for l in out.split('\n') if 'PREVIOUS ADDRESS:' in l and '**' in l]
     print('  THE SCAN OVER THE STAGED SET ((R358)(3)(ii)): %s' % (foot[-1].strip() if foot else '### NO FOOT'))
     if r.returncode == 0 and foot:   # ### a refused or footless run is printed above, not banked as a run
-        bp = os.path.join(bank_dir or os.path.join(RELAY, 'data'), A.scan_commits_name(act))
+        bp = os.path.join(bank_dir or os.path.join(RELAY, 'data'), A.scan_commits_name(bank_act or act))
         prior = open(bp, encoding='utf-8').read() if os.path.exists(bp) else ''
         body = A.scan_commits_append(prior, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), what, out.replace('\r', ''))
         with open(bp + '.tmp', 'wb') as fh:
@@ -313,7 +315,17 @@ def run_scan(act, what='a commit', bank_dir=None):
 
 
 # ================================================================================ v1.29.0 (i): ONE CALL OF THE TOOL PER MESSAGE
-CALLS = os.path.join(__import__('tempfile').gettempdir(), 'standing-calls.jsonl')
+def _calls_path():
+    """v1.34.0, (R364)(3)(xv): the calls ledger by the one resolver (tools/standing/statedir.py), as the hook reads it; the temp directory where
+    the resolver does not import, as the hook falls back."""
+    try:
+        import statedir as SD
+        return SD.calls_path()
+    except Exception:  # noqa: BLE001
+        return os.path.join(__import__('tempfile').gettempdir(), 'standing-calls.jsonl')
+
+
+CALLS = _calls_path()
 
 
 def calls_tail(path=CALLS, n=400):
@@ -524,6 +536,30 @@ def scan_left_out(act, names, untracked):
     return ('THE SCAN LEFT OUT OF A COMMIT: %s written and untracked, not staged -- stage it in this commit (the add is its own message)' % ', '.join(left)) if left else None
 
 
+def version_refusal(names, head_version, staged_version):
+    """v1.34.0, (R364)(3)(vi), (R345)(2)(iv), b753 events (7), (8), (9): None, or the refusal, for a relay commit staging `names`: a path under
+    tools/standing/ staged without tools/standing/VERSION staged with it and moved (its staged text not its HEAD text; a patch number
+    suffices). Pure; the caller reads the two VERSION texts (HEAD's and the index's)."""
+    std = [n for n in names or () if n.startswith('tools/standing/') and n != 'tools/standing/VERSION']
+    if not std:
+        return None
+    if 'tools/standing/VERSION' not in set(names):
+        return ('A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): %d path(s) under tools/standing/ staged (%s) and tools/standing/VERSION '
+                'not staged with them -- move VERSION (a patch number suffices) and stage it in this commit' % (len(std), ', '.join(std[:4])))
+    if (head_version or '').strip() == (staged_version or '').strip():
+        return ('A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): tools/standing/VERSION staged unmoved (%s) beside %s' % (
+            (staged_version or '').strip(), ', '.join(std[:4])))
+    return None
+
+
+def staged_version_refusal(repo, names=None):
+    """v1.34.0, (R364)(3)(vi): version_refusal over `repo`'s staged set (read from the index where `names` is None), HEAD's VERSION against
+    the index's. The one reading run() and the controls' replay on a scratch clone both call."""
+    if names is None:
+        names = [p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p]
+    return version_refusal(names, _git(repo, 'show', 'HEAD:tools/standing/VERSION').stdout, _git(repo, 'show', ':tools/standing/VERSION').stdout)
+
+
 def usage_lines():
     """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
     zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
@@ -562,9 +598,25 @@ def write_route(key, verb, args, act=None):
     return (r.stdout + r.stderr).strip()
 
 
-def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None, scanner=None):
-    """one call: preflight, commit, read back, row. Returns a dict of what was done; Refused where nothing was."""
+def flag_read(flag=None):
+    """v1.34.0, (R364)(3)(xxi): (pending, why, times) by tools/standing/hold.py; `flag` a planted (pending, why, times)."""
+    if flag is not None:
+        return flag
+    import hold as HD
+    p, w = HD.restart_pending()
+    return p, w, (HD.restart_times() if p else {})
+
+
+def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None, scanner=None, scan_dir=None, flag=None):
+    """one call: preflight, commit, read back, row. Returns a dict of what was done; Refused where nothing was. `scan_dir`: the folder the
+    per-commit scan bank is written in (a control's scratch clone), the relay's data/ where None. v1.34.0, (R364)(3)(xxi): the restart flag read
+    before every commit; set, the lock is refused and any other commit is the boundary the seat stops at (printed)."""
     import act as A
+    import hold as HD
+    fp, fw, ft = flag_read(flag)
+    if fp and phase == 'lock':
+        raise Refused('THE RESTART FLAG SET (%s; the keys last written %s): THE LOCK NOT TAKEN -- an event of the act; the seat stops for the '
+                      'author`s word ((R364)(3)(xxi))' % (fw, ', '.join('%s %s' % kv for kv in sorted(ft.items())) or 'not read'))
     act = act or A.current()['act']
     data = data or os.path.join(RELAY, 'data')
     repo = REPOS[key] if key in REPOS else key
@@ -578,6 +630,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         bad = standing_dry_refusal(repo, act, names)   # ### v1.28.0 (viii)
         if bad:
             raise Refused(bad)
+        if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.34.0, (R364)(3)(vi): VERSION moves with every standing change
+            bad = staged_version_refusal(repo, names)
+            if bad:
+                raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)
             bad = scan_left_out(act, names, [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p])
             if bad:
@@ -591,7 +647,12 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
                 raise Refused('A STEP-ROWS COMMIT NAMES ITS ROWS: the words must read %r, given %r' % (want or '(no row staged)', words.strip()))
         if scanner is False:   # ### v1.29.0 (iii): no commit without the scan
             raise Refused('A COMMIT WITHOUT THE SCAN: the tool runs the act`s scan over the staged set before every commit')
-        (scanner or (lambda a: run_scan(a, '%s commit %s in %s' % (a, phase, key))))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
+        # ### v1.34.0, (R364)(3)(iii): the closing step-row commit's scan, taken over its staged set before it as every commit's is, is written to
+        # ### the next act's per-commit bank as that bank's opening rows; nothing is appended to the act's own bank, committed and then pushed
+        nxt = ('b%d' % (int(act[1:]) + 1)) if (only and phase == 'closing') else None
+        what = '%s commit %s in %s' % (act, phase, key) + ((', the closing step-row commit: its scan written to %s`s per-commit bank as its opening rows '
+                                                            '((R364)(3)(iii))' % nxt) if nxt else '')
+        (scanner or (lambda a: run_scan(a, what, bank_dir=scan_dir, bank_act=nxt)))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
         full, back = commit(repo, subj)
     finally:
         if mark:
@@ -601,7 +662,7 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
     else:
         rc, out = (row_writer or record_row)(key, phase, full)
     done = dict(act=act, repo=key, phase=phase, commit=full, subject=subj, read_back=back, equal=back == subj, row_exit=rc, row=out,
-                rowed=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+                rowed=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), flag=HD.boundary_line(fp, fw, ft))
     if phase == 'seal':
         done['excludes'] = (after_seal or excludes)()
     return done
@@ -621,7 +682,7 @@ def repeat_of(msg, act, data=None):
             continue
         with open(os.path.join(data, f), encoding='utf-8', errors='replace') as fh:
             for l in fh.read().replace('\r', '').split('\n'):
-                r = re.match(r"^    \(((?:[a-z]'?)|\d+)\) ", l)
+                r = re.match(r"^    \(((?:[a-z]'*)|\d+)\) ", l)   # ### v1.34.0, (R364)(3)(viii)
                 if r and head and head in l:
                     hits.append((int(m.group(1)), m.group(2)[:-1], r.group(1)))
     if not hits:
@@ -660,6 +721,7 @@ def main(argv):
     print('  subject   : %s' % d['subject'])
     print('  read back : %s -- %s' % (d['read_back'], 'EQUAL' if d['equal'] else '### NOT EQUAL'))
     print('  row       : %s (exit %d)' % (d['row'], d['row_exit']))
+    print('  %s' % d.get('flag'))   # ### v1.34.0, (R364)(3)(xxi)
     if 'excludes' in d:
         print(d['excludes'])
     if not d['equal'] or d['row_exit'] != 0:

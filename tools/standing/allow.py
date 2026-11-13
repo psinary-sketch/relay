@@ -117,11 +117,25 @@ def plant_kept(ruling, must):
     return flat.replace(c, DELETED.sub('kept', c, count=1), 1)
 
 
+# ### v1.34.0, (R364)(3)(xii): the ferries' three wordings of the kept clause. (1) "kept[ branches][:] <names>, and the rest as banked" (to b745);
+# ### (2) "the kept branches as banked, zq-b730 past v0.38" (b746 to b752); (3) "the kept branches as data/<act>_closing.txt's carried list (f)
+# ### names them, none moved" (b753 on). v1.33.0 read (1) alone, so G-DELETES-ONE-BRANCH failed b746 to b753 on this disjunct, each act
+# ### declaring the arm carried while its module's comment said the clause was read "in either wording".
+KEPT_FORMS = (re.compile(r'\bkept(?: branches)?:? [^.;]*?, and the rest as banked'),
+              re.compile(r'\bkept branches as banked\b[^.;]*'),
+              re.compile(r'\bkept branches as data/b\d{3}_closing\.txt[\'’]s carried list \(f\) names them\b[^.;]*'))
+
+
 def kept_clause(ruling):
     """v1.13.0, (R343)(2)(iii): the clause "kept: <names>, and the rest as banked" as the ruling writes it, whitespace collapsed; '' where it writes none. The arm's needle
-    is read here from the act's ferry, never typed into the act's override, where the carry shifted it (b732 event (2))."""
-    m = re.search(r'\bkept(?: branches)?:? [^.;]*?, and the rest as banked', re.sub(r'\s+', ' ', ruling or ''))   # ### v1.15.0, (R345)(2)(iii), b734 defect (u): "the kept branches ..." read beside "kept: ..."
-    return m.group(0) if m else ''
+    is read here from the act's ferry, never typed into the act's override, where the carry shifted it (b732 event (2)). v1.34.0: any of
+    KEPT_FORMS, the first that the ruling carries."""
+    flat = re.sub(r'\s+', ' ', ruling or '')   # ### v1.15.0, (R345)(2)(iii), b734 defect (u): "the kept branches ..." read beside "kept: ..."
+    for rx in KEPT_FORMS:
+        m = rx.search(flat)
+        if m:
+            return m.group(0)
+    return ''
 
 
 KEPT_NAME = re.compile(r'(?<![\w/.-])([a-z][a-z0-9]*(?:-[a-z0-9]+)*-b\d{3}(?:-[a-z0-9]+)*)(?![\w-])')

@@ -274,6 +274,7 @@ def committed_root(R):
                 len(bad), ', '.join(bad[:6]), '' if s['pushed'] else ' ; HEAD NOT THE REMOTE MAIN'))
             return False
         return True
+    rootbanks.first = first   # ### v1.34.0, (R364)(3)(x): the first reading named, so the root route in parts runs it as a part of its own
     R.rootbanks = rootbanks
     return rootbanks
 

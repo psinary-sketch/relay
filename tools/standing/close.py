@@ -32,7 +32,7 @@ import act as A   # noqa: E402
 
 NL = '\n'
 SCORE_KEYS = (('N1', 'N2', 'N3', 'N4', 'N5'), ('S1', 'S2', 'S3'))
-DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
+DEFECT_ROW = re.compile(r"^    \(([a-z]'*)\) ")   # ### v1.34.0, (R364)(3)(viii): any number of primes
 PART_FOOT = re.compile(r'### PART ([\w-]+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\]|NONE) ; NEGATIVE-CONTROL '
                        r'FAILURES (\d+) ; POSITIVE-CONTROL PASSES (\d+) (\[[^\]]*\]|NONE) ; DECLARED EQ RUN (\w+) ; (\d+) s')
 ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL|VAC)\s+[\d.]+\s+(.*)$', re.M)

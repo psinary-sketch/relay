@@ -45,8 +45,13 @@ def _tokens(seg):
         return seg.split()
 
 
-def runs(cmd):
-    """[the run's text]: each script an interpreter runs, with its arguments, and each .ps1 run, read from the command's own arguments."""
+# ### v1.34.0, (R364)(3)(xiii), b753 defect (s'): THE ROUTE READ AT THE PROGRAM. v1.32.0 searched each route's pattern over the run's whole text,
+# ### the script and every argument after it, so the commit of 20:35:41Z (`commit.py relay "component 4" "... tools/research/reproduce.py ..."`)
+# ### read as the reproduce run: a tool's path in a commit's words. A route is matched where its pattern begins in the program itself (the
+# ### script or the .ps1 file); words after the program are the program's arguments ("fold.py checks --part act" still reads, its match
+# ### opening in the program's path).
+def runs_split(cmd):
+    """[(the program, the run's text)]: each script an interpreter runs and each .ps1 run, with the program and its arguments joined."""
     out = []
     for seg in SEP.split((cmd or '').replace('\\', '/')):
         t = _tokens(seg)
@@ -59,18 +64,24 @@ def runs(cmd):
                         break
                     j += 2 if t[j] in PY_TAKES else 1
                 if j is not None and j < len(t):
-                    out.append(' '.join(t[j:]))
+                    out.append((t[j], ' '.join(t[j:])))
                 break
             if tok.lower().endswith('.ps1') and (i == 0 or t[i - 1] in ('&', '.', '-File', '-file')):
-                out.append(' '.join(t[i:]))
+                out.append((t[i], ' '.join(t[i:])))
                 break
     return out
 
 
+def runs(cmd):
+    """[the run's text]: each script an interpreter runs, with its arguments, and each .ps1 run, read from the command's own arguments."""
+    return [r for _p, r in runs_split(cmd)]
+
+
 def limit_of(cmd):
-    for r in runs(cmd):
+    for prog, r in runs_split(cmd):
         for what, rx, ms in LONG:
-            if rx.search(r):
+            m = rx.search(r)
+            if m and m.start() < len(prog):   # ### v1.34.0: the match opens in the program, not in its arguments
                 return what, ms
     return None
 

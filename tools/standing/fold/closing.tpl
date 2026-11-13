@@ -119,7 +119,7 @@ def _span(letters):
     return ', '.join('(%s)' % r[0] if len(r) == 1 else '(%s)–(%s)' % (r[0], r[-1]) for r in runs)
 
 
-DEFECT_ROW = re.compile(r"^    \(([a-z]'?)\) ")
+DEFECT_ROW = re.compile(r"^    \(([a-z]'*)\) ")   # ### v1.34.0, (R364)(3)(viii): any number of primes
 
 
 def defects_row(act, item='i'):
@@ -128,7 +128,7 @@ def defects_row(act, item='i'):
     if not rows:
         return '    (%s) The defects: ### NO LETTERED ROW IN relay data/%s_defects.txt.' % (item, act)
     ruled = [x for x, l in rows if 'A RULED EXCEPTION' in l]
-    nav = [x for x, l in rows if re.match(r"^    \([a-z]'?\) THE NAVIGATOR'S", l)]
+    nav = [x for x, l in rows if re.match(r"^    \([a-z]'*\) THE NAVIGATOR'S", l)]
     tail = []
     if ruled:
         tail.append('%s the ruled exception%s' % (_span(ruled), '' if len(ruled) == 1 else 's'))
@@ -271,11 +271,14 @@ def head_line(dd=None, act=ACT, events=None):
 def events_section(act=ACT, dd=None):
     """(⟪RUL⟫)(2)(i), standing clauses v2 row (52): a finding made after the seal is entered here and not lettered in the defects bank (the next
     act's corrigendum letters it) -- the rows of data/<act>_events.txt as the seat entered them (by the Write or the Edit tool; every line of
-    the bank from its third, indented), and the head-line builder's capture-name failures (HEAD_EVENTS)."""
-    p = os.path.join(dd or D, '%s_events.txt' % act)
-    t = io.open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
-    rows = [l for l in t.split(NL)[2:] if l.startswith('    ')]
-    return ['### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/%s_events.txt, unlettered, for the next act`s corrigendum):' % act] + (
+    the bank from its third, indented), and the head-line builder's capture-name failures (HEAD_EVENTS). v1.34.0, (R364)(3)(v): the rows of
+    the post-seal events bank data/<act>_events_postseal.txt read beneath them, the bank the close writes by design."""
+    rows = []
+    for nm_ in ('%s_events.txt' % act, '%s_events_postseal.txt' % act):
+        p = os.path.join(dd or D, nm_)
+        t = io.open(p, encoding='utf-8', errors='replace').read().replace(chr(13), '') if os.path.exists(p) else ''
+        rows += [l for l in t.split(NL)[2:] if l.startswith('    ')]
+    return ['### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/%s_events.txt and data/%s_events_postseal.txt, unlettered, for the next act`s corrigendum):' % (act, act)] + (
         rows or ['    NONE ENTERED IN THE EVENTS BANK']) + ['    THE HEAD LINE: ' + e for e in HEAD_EVENTS] + [
         '    ### EVENTS %d ; THE HEAD LINE`S %d' % (len([l for l in rows if not l.startswith('     ')]), len(HEAD_EVENTS))]
 
@@ -286,7 +289,7 @@ def citation_line():
     misses = cj.get('misses') or []
     needles = re.findall(r"^### \(R278\)\(4\) THE MID-ACT CHECK \([^)]*\): the (?:navigator`s )?answer carrying '([^']*)'", cc, re.M)
     figs = re.findall(r'(?m)^### ### \*\*(ANSWER CITES CHECKED \d+ ; OK \d+ ; MISSES \d+)', cc)   # ### the checks' own verdict lines (a cite row quoting ⟪PREV⟫'s figure at :20 not among them)
-    nav = re.findall(r"^    \(([a-z]'?)\) THE NAVIGATOR'S", dl, re.M)
+    nav = re.findall(r"^    \(([a-z]'*)\) THE NAVIGATOR'S", dl, re.M)
     return ('%s ; the misses as the bank lists them: %d (%s) ; the answers checked ((R278)(4)), by their needles: %s, the prints %s ; entered as '
             'the defects bank letters them: the navigator`s %s' % (
                 head, len(misses), '; '.join(str(m)[:60] for m in misses) or 'NONE', '; '.join(needles) or 'NONE', '; '.join(figs) or 'NONE',

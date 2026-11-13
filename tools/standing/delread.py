@@ -9,15 +9,39 @@ running git is read as b698 read it (its quoted names unquoted); a segment runni
 one branch after it; any other segment -- an interpreter program, an echo -- names nothing, its quoted text a string and not a command.
 (tools/standing/deletes.py is the --merged listing's route, v1.15.0; this module reads the capture.)
 
+v1.34.0, (R364)(3)(xii), b753 defect (u'): A RUN OF THE TOOL READ THROUGH THE ONE MATCHER. v1.30.0's TOOL_DEL took a segment opening on
+`python` alone, so PowerShell's quoted interpreter (`& "...python.exe" ... commit.py relay delete <branch>`) read as no delete: b753's five
+step-zero deletes, all in that form, read as none, and G-BRANCHES-BANKED, G-LISTINGS-BEFORE-CLAUSES and G-DELETES-ONE-BRANCH failed on it.
+The commit tool and the hook had taken that form since b753's (i) through tools/standing/gitwrite.py's RUNS_COMMIT; this reader now asks
+the same matcher, imported and not copied, whether a segment runs the tool (its quoted strings blanked as gitwrite blanks them), and reads
+`<repo> delete <branch>` after the tool's path from the segment's own text.
+
   delete_shape(cmd) -> (names, globs, variables)      chained_after(cmd) -> bool      b698's signatures
+  tool_delete(segment) -> (repo, branch) or None       a run of the one-call tool's delete route, by gitwrite's RUNS_COMMIT
 """
 import re
+
+try:
+    from standing import gitwrite as GW
+except ImportError:   # ### a caller with tools/standing/ itself on the path (the v1NNN controls tools)
+    import gitwrite as GW
 
 QUOTED = re.compile(r'"(?:[^"\\`]|[\\`].)*"|\'[^\']*\'')
 SHELL_VAR = re.compile(r'\$\{?\w+\}?|%\w+%')
 SPLIT = re.compile(r'&&|\|\||;')
 GIT_DEL = re.compile(r'^\s*git\s+(?:-C\s+\S+\s+)?(?:branch\s+(?:-[dD]|--delete)\s+((?:[^\s&;|]+\s*)+)|push\s+origin\s+--delete\s+((?:[^\s&;|]+\s*)+))')
-TOOL_DEL = re.compile(r'^\s*python\S*\s+(?:\S+\s+)*?\S*tools[/\\]standing[/\\]commit\.py\s+(\S+)\s+delete\s+(\S+)\s*$')
+# ### v1.34.0: the words after the tool's path; whether the segment runs the tool is gitwrite's RUNS_COMMIT's to say (tool_delete)
+TOOL_ARGS = re.compile(r'\bcommit\.py[\'"]?\s+(\S+)\s+delete\s+(\S+)\s*$')
+
+
+def tool_delete(seg):
+    """(repo, branch) where the segment runs the one-call tool -- gitwrite's RUNS_COMMIT over the segment's commands, quoted strings
+    blanked by gitwrite.commands -- with the words `<repo> delete <branch>` closing it; None otherwise. An interpreter program quoting
+    the route in a string, or an echo of it, runs no tool and reads None."""
+    if not any(GW.RUNS_COMMIT.match(c) for c in GW.commands(seg or '')):
+        return None
+    m = TOOL_ARGS.search((seg or '').rstrip())
+    return (m.group(1).strip('\'"'), m.group(2).strip('\'"')) if m else None
 
 
 def segments(cmd):
@@ -44,9 +68,9 @@ def segments(cmd):
 def delete_shape(cmd):
     names, globs, vs = [], [], []
     for seg in segments(cmd or ''):
-        t = TOOL_DEL.match(seg)
+        t = tool_delete(seg)
         if t:
-            b = t.group(2).strip('\'"')
+            b = t[1]
             names.append(b)
             globs += [ch for ch in '*?[' if ch in b]
             vs += SHELL_VAR.findall(b)

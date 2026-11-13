@@ -1,0 +1,450 @@
+b754 -- THE CONTROLS OF tools/standing/ v1.34.0, (R364)(3) AND THE AMENDMENT ROWS 1 TO 3 (2026-11-13T18:06:44Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2841 lines
+  citation render          OK    563 lines
+  closing render           OK    645 lines
+  record render            OK    4530 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    180 lines
+  tools/b754_worklist.py   OK    490 lines
+### THE COMPILE CONTROL : b754 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 34332a00
+
+  free 7529 MB at 2026-11-13T18:06:45Z, the hold 2560 MET
+### (seat) (R364)(3)(i), the amendment row 3 (5): THE SEAT`S FILE -- CLAUDE.md written by tools/standing/seatfile.py at the relay`s root and at the session`s project root, each kind of the hook`s table with its refused form and the form to send; the arm comparing the file`s kinds with the table and the two copies byte for byte
+      tools/standing/seatfile.py at BASE: ABSENT (a new tool; its cases have no failing side but their plants)
+      (1) every kind of the table (21) in the file at both places, the copies equal: AS WANTED
+          relay/CLAUDE.md: KINDS 21 OF THE TABLE`S 21 ; LACKING none ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- PASSES
+          .claude/CLAUDE.md: KINDS 21 OF THE TABLE`S 21 ; LACKING none ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- PASSES
+          THE COPIES: EQUAL (sha256 4248b5f66ce5, 4248b5f66ce5)
+      (2) a planted kind PLANTEDKIND in the table, absent from the file: the arm FAILS -- AS WANTED
+          relay/CLAUDE.md: KINDS 21 OF THE TABLE`S 22 ; LACKING ['PLANTEDKIND'] ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- FAILS
+          .claude/CLAUDE.md: KINDS 21 OF THE TABLE`S 22 ; LACKING ['PLANTEDKIND'] ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- FAILS
+          THE COPIES: EQUAL (sha256 4248b5f66ce5, 4248b5f66ce5)
+      (3) a planted difference between the copies (one space added in a scratch copy): the arm FAILS -- AS WANTED
+          a/CLAUDE.md: KINDS 21 OF THE TABLE`S 21 ; LACKING none ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- PASSES
+          b/CLAUDE.md: KINDS 21 OF THE TABLE`S 21 ; LACKING none ; NOT IN THE TABLE none ; LINES 58 (cap 200) -- PASSES
+          THE COPIES: DIFFERENT -- FAILS (sha256 4248b5f66ce5, 65b7f8a19be9)
+      ### THE SEAT`S FILE: CONTROLS 3 OF 3 AS WANTED
+
+  free 7530 MB at 2026-11-13T18:06:45Z, the hold 2560 MET
+### (carry) (R364)(3)(ii); b751 (b), b752 (b), b753 (b), (t`), (y`): THE ACT MODULE`S CARRIED ROWS -- every section that reads a ruling or an act`s banks carried as a stub refusing itself until written for the act; a cite inside a comment or a docstring left as it stands
+      b753`s module (2336 lines) and worklist (476 lines) from their blobs at 34332a00 ; the ruling data/b754_ferry.txt ; ordinals {'b754': 'EIGHTY-ONE', 'b753': 'EIGHTY'} ; the ferry routed, no own rows (the opening run`s inputs, R6 held apart)
+  (carry) b753`s module and worklist carried to b754, `carry.py ruled` on its opening run
+      BEFORE (v1.33.0): REFUSED 35 (R1 7, R4 1, R5 2, R7 25) -> FAILS
+      AFTER  (v1.34.0): REFUSED 0 (none) ; stubs in the module 21, in the worklist 49 -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: the carried worklist and every render of the carried module compile as carried, record among them; b753`s override MARK 26666a71fb1e found once in v1.34.0`s record.tpl (carried in the module 1 time(s))
+      AFTER  (v1.34.0): worklist True ; checks COMPILES, citation COMPILES, closing COMPILES, record COMPILES, reg_gate COMPILES, regspec COMPILES, report COMPILES ; the mark at (2315, 2315) -> HOLDS
+      AS WANTED
+  (carry) the nine comment cites of (y`) (tools/acts/b753.py :511, :781, :786, :1835, :1840, :1891, :1912, :2024, :2107)
+      BEFORE (v1.33.0): moved 1 (:1840) -> FAILS
+      AFTER  (v1.34.0): unmoved 9 of 9 -> PASSES
+      AS WANTED
+  (carry) GUARD, NO FAILING SIDE: `carry.py ruled` prints the carried stubs
+      AFTER  (v1.34.0): THE CARRIED STUBS section True -> HOLDS
+      AS WANTED
+
+  free 7529 MB at 2026-11-13T18:06:47Z, the hold 2560 MET
+### (closescan) (R364)(3)(iii); the closes of b749 to b753, five running: THE SCAN OF THE CLOSING STEP-ROW COMMIT -- taken over its staged set before the commit as every commit`s is, its rows written to the next act`s per-commit bank as that bank`s opening rows; nothing appended to a pushed bank
+      b753`s close replayed on a sparse clone in the state folder (tools/, data/b753_* and data/act_current.json checked out at 76c2c2ab, the closing commit; 34332a00`s data/b753_steps.json and data/b753_address_scan_commits.txt staged), the step-row commit made through run() in the clone
+      v1.33.0: subject 'b753 closing: the step row for relay 76c2c2ab' ; data/b753_address_scan_commits.txt after the commit: M data/b753_address_scan_commits.txt ; data/b754_address_scan_commits.txt: ABSENT ; appended to data/b753_address_scan_commits.txt (the per-commit bank, v1.29.0 (ii))
+      v1.34.0: subject 'b753 closing: the step row for relay 76c2c2ab' ; data/b753_address_scan_commits.txt after the commit: clean ; data/b754_address_scan_commits.txt: 34 lines ; appended to data/b754_address_scan_commits.txt (the per-commit bank, v1.29.0 (ii))
+  (closescan) the tree after the step-row commit, clean of data/b753_address_scan_commits.txt
+      BEFORE (v1.33.0): b753`s bank M data/b753_address_scan_commits.txt -> FAILS
+      AFTER  (v1.34.0): b753`s bank clean, b754`s bank written, 34 lines -> PASSES
+      AS WANTED
+  (closescan) GUARD, NO FAILING SIDE: the replayed commit`s subject is the one b753`s close committed (34332a00)
+      AFTER  (v1.34.0): 'b753 closing: the step row for relay 76c2c2ab' -> HOLDS
+      AS WANTED
+
+  free 7397 MB at 2026-11-13T18:07:51Z, the hold 2560 MET
+### (lean) (R364)(3)(iv); b751 (d), b752 (d), b753 (e): THE CITATION CHECK`S LEAN-PATH READER READS A CLAUSE OF SEVERAL PATHS -- paired in order where it carries as many declared names as paths, otherwise every name against every path, a halt where no path holds a name
+      (R363)`s clause, from data/b753_ferry.txt (2 line(s) carry both paths), b753`s LEAN_TREES SIDE-explicit-formula@1e658870, SIDE-explicit-formula@0395f15d, SIDE-explicit-formula@8fbab45d
+  (lean) the rQ and cQ of the instance (Schema/EpsteinZQ.lean :59; Schema/ZQ/LogDeriv.lean :63-:65)
+      BEFORE (v1.33.0): HALT (bL beside SIDEExplicitFormula/C2Walk.lean -> True ; cQ beside Schema/EpsteinZQ.lean -> False) -> FAILS
+      AFTER  (v1.34.0): OK (bL beside SIDEExplicitFormula/C2Walk.lean -> True ; rQ beside Schema/EpsteinZQ.lean (paired in order in a clause of 2 path -> True ; cQ beside Schema/ZQ/LogDeriv.lean (paired in order in a clause of 2 pa -> True) -> PASSES
+      AS WANTED
+  (lean) GUARD, NO FAILING SIDE: PLANTED: a third name, h2_sign, no path of the clause declaring it: every name read against every path (the clause changed True)
+      AFTER  (v1.34.0): HALT (bL beside SIDEExplicitFormula/C2Walk.lean -> True ; rQ against every path of a clause of 2 (Schema/EpsteinZQ.lean, Schema/ -> True ; h2_sign against every path of a clause of 2 (Schema/EpsteinZQ.lean, Sc -> False ; cQ against every path of a clause of 2 (Schema/EpsteinZQ.lean, Schema/ -> True) -> HOLDS
+      AS WANTED
+  (lean) GUARD, NO FAILING SIDE: PLANTED: h2_sign in cQ`s place, paired in order with LogDeriv.lean, which does not declare it (the clause changed True)
+      AFTER  (v1.34.0): HALT (bL beside SIDEExplicitFormula/C2Walk.lean -> True ; rQ beside Schema/EpsteinZQ.lean (paired in order in a clause of 2 path -> True ; h2_sign beside Schema/ZQ/LogDeriv.lean (paired in order in a clause of -> False) -> HOLDS
+      AS WANTED
+
+  free 7401 MB at 2026-11-13T18:07:56Z, the hold 2560 MET
+### (postseal) (R364)(3)(v); b752`s corrigendum :68, b752`s refusals :26, :27, b753 events (14): THE POST-SEAL EVENTS BANK -- on the by-design list of tools/standing/act.py, read by the counter and the trail beside the events bank, N4`s clause naming it
+  (postseal) b753`s banks at 34332a00 read by the counter: events (1)-(9) in data/b753_events.txt, (10)-(14) in data/b753_events_postseal.txt
+      BEFORE (v1.33.0): events 9, last event (9) ; CLAIM 16, CLOSE 45, REPEAT 32 of 61 (defects 52, events 9) -> FAILS
+      AFTER  (v1.34.0): events 14, last event (14) ; CLAIM 16, CLOSE 50, REPEAT 37 of 66 (defects 52, events 14) -> PASSES
+      AS WANTED
+  (postseal) N4`s lock guard reads the post-seal bank as written by design (post_lock_appended)
+      BEFORE (v1.33.0): data/b753_events_postseal.txt on the list False -> FAILS
+      AFTER  (v1.34.0): data/b753_events_postseal.txt on the list True -> PASSES
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: N4 reads a hand edit of the events bank after the lock as an edit: data/b753_events.txt off the design list
+      AFTER  (v1.34.0): on the list False -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the hook`s design list (its row (65), the fallback carrying the list whole) names the post-seal bank
+      AFTER  (v1.34.0): hook.by_design names it True -> HOLDS
+      AS WANTED
+  (postseal) GUARD, NO FAILING SIDE: the trail`s events section (closing.tpl) and the record`s counter (record.tpl) read the post-seal bank
+      AFTER  (v1.34.0): events_postseal in closing.tpl 3 time(s), in record.tpl 3 -> HOLDS
+      AS WANTED
+
+  free 7392 MB at 2026-11-13T18:07:56Z, the hold 2560 MET
+### (vmove) (R364)(3)(vi), (R345)(2)(iv); b753 events (7), (8), (9): THE VERSION MOVES WITH EVERY STANDING CHANGE -- the one-call tool refuses a relay commit staging a tools/standing/ path without VERSION staged and moved; `carry.py ruled` prints every list of writes in a ruling naming a standing path without VERSION
+  (vmove) b753`s commit 0f31d31d: 4 path(s), 2 under tools/standing/ (tools/standing/chain.py, tools/standing/v1330.py), VERSION v1.33.0 -> v1.33.0, BY THE PURE READING
+      BEFORE (v1.33.0): no version check at BASE -> FAILS
+      AFTER  (v1.34.0): A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): 2 path(s) under tools/standing/ staged (tools/standing/chain.py, tools/standing/v1330.py) and t -> PASSES
+      AS WANTED
+  (vmove) b753`s commit 0db31ce3: 7 path(s), 1 under tools/standing/ (tools/standing/roster.py), VERSION v1.33.0 -> v1.33.0, BY THE PURE READING
+      BEFORE (v1.33.0): no version check at BASE -> FAILS
+      AFTER  (v1.34.0): A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): 1 path(s) under tools/standing/ staged (tools/standing/roster.py) and tools/standing/VERSION no -> PASSES
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: the commit that landed v1.33.0 (7c91353a), VERSION moved beside its standing paths, accepted
+      AFTER  (v1.34.0): ACCEPTED -> HOLDS
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: the same commit 0f31d31d replayed on a scratch clone (HEAD its parent, the index its tree; staged 4, equal to its own list True) through staged_version_refusal, the reading run() calls: refused
+      AFTER  (v1.34.0): A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): 2 path(s) under tools/standing/ staged (tools/standing/chain.py, tools/standing/v1330.py) and t -> HOLDS
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: the same commit 0db31ce3 replayed on a scratch clone (HEAD its parent, the index its tree; staged 7, equal to its own list True) through staged_version_refusal, the reading run() calls: refused
+      AFTER  (v1.34.0): A STANDING CHANGE WITHOUT ITS VERSION ((R364)(3)(vi)): 1 path(s) under tools/standing/ staged (tools/standing/roster.py) and tools/standing/VERSION no -> HOLDS
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: the same commit 7c91353a replayed on a scratch clone (HEAD its parent, the index its tree; staged 13, equal to its own list True) through staged_version_refusal, the reading run() calls: accepted
+      AFTER  (v1.34.0): ACCEPTED -> HOLDS
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: run() calls staged_version_refusal over the staged names for the relay, before the scan
+      AFTER  (v1.34.0): in run(): True -> HOLDS
+      AS WANTED
+  (vmove) (R363)(9)`s list of writes replayed from data/b753_ferry.txt: tools/standing/roster.py named without VERSION
+      BEFORE (v1.33.0): writes_without_version at BASE False -> FAILS
+      AFTER  (v1.34.0): 2 list(s) printed, roster.py at :19, :25 -> PASSES
+      AS WANTED
+        :19   tools/standing/roster.py, tools/standing/v1170.py
+        :25   tools/standing/roster.py
+        THE MATCHER`S YIELD: lines naming a tools/standing/ path 6 (:3, :17, :19, :21, :25, :39) ; printed as lists of writes 2 ; not printed :3, :17, :21, :39
+  (vmove) GUARD, NO FAILING SIDE: `carry.py ruled` prints the lists before the citation check
+      AFTER  (v1.34.0): writes_without_version(ruling_text) in ruled() True -> HOLDS
+      AS WANTED
+  (vmove) GUARD, NO FAILING SIDE: a planted list naming VERSION beside its standing path prints nothing
+      AFTER  (v1.34.0): 0 printed -> HOLDS
+      AS WANTED
+
+  free 7504 MB at 2026-11-13T18:08:04Z, the hold 2560 MET
+### (subject) (R364)(3)(vii), the amendment row 3 (2); (R364)(2)(ii): THE SUBJECT READ`S CORPUS -- beside the `## ` headings and the entry heads, the reference layer`s `### ` headings with the bold line beneath each, the standing clauses, the rules banks, the lock gate`s rule lines and the head lines of the banks of four kinds; every hit printed by its place, no line quoted
+      the corpus: clauses 188 ; clauses files 1 ; entry heads 109 ; headings 342 ; heads 690 ; heads files 31 ; layer bold 76 ; layer headings 76 ; lockgate 8 ; lockgate files 1 ; rules 530 ; rules files 47
+  (subject) (R363) replayed with its (9)`s noun, the standing version: (R345)(2)(iv) where the relay holds it, data/b748_rules.txt :9 and tools/b378_lockgate.py :237, uncited hits
+      BEFORE (v1.33.0): ['NOT AMONG THE UNCITED', 'NOT AMONG THE UNCITED'] ; hits 3 -> FAILS
+      AFTER  (v1.34.0): ['HIT', 'HIT'] ; hits 44 -> PASSES
+      AS WANTED
+  (subject) the nouns minimal negative and class number 3: data/b721_derivation.txt a hit ((R364)(2)(ii))
+      BEFORE (v1.33.0): lines [] -> FAILS
+      AFTER  (v1.34.0): lines [12], cited by (R363) as a file True -> PASSES
+      AS WANTED
+  (subject) the amendment row 3 (2), two-leg: the anchors at :900 and :978 a hit by their bold lines :901 and :979
+      BEFORE (v1.33.0): the lines in the corpus read [False, False] ; hits 0 -> FAILS
+      AFTER  (v1.34.0): ['HIT, CITED', 'HIT, CITED'] ; hits 3 -> PASSES
+      AS WANTED
+  (subject) the amendment row 3 (2), simplicity: the anchor at :904 a hit
+      BEFORE (v1.33.0): the lines in the corpus read [False] ; hits 11 -> FAILS
+      AFTER  (v1.34.0): ['HIT, CITED'] ; hits 15 -> PASSES
+      AS WANTED
+  (subject) GUARD, NO FAILING SIDE: the amendment row 3 (2): a planted noun standing in no anchor (head:planted noun=qzxwvplanted) no hit, in the layer`s 156 items or the corpus`s 2019
+      AFTER  (v1.34.0): hits 0 and 0 -> HOLDS
+      AS WANTED
+  (subject) GUARD, NO FAILING SIDE: the layer`s `### ` headings in FINDINGS :762-:1096 as the amendment row 3 (2) counts them, 76, each with its bold line
+      AFTER  (v1.34.0): headings 76 ; bold lines 76 -> HOLDS
+      AS WANTED
+  (subject) GUARD, NO FAILING SIDE: the floor of (R362) over the corpus whole: FINDINGS :10858, :11072, :11178, :11359, INSTRUMENTS :750, :758 among the uncited
+      AFTER  (v1.34.0): 6 of 6 ; hits 124 -> HOLDS
+      AS WANTED
+  (subject) GUARD, NO FAILING SIDE: the print by place: quote off, no hit`s words in the print; quote on, every hit`s (the guard`s own control)
+      AFTER  (v1.34.0): off 0 of 3 ; on 3 of 3 -> HOLDS
+      AS WANTED
+
+  free 7434 MB at 2026-11-13T18:08:08Z, the hold 2560 MET
+### (letters) (R364)(3)(viii): THE LETTERS AFTER (z`) -- the defects bank`s rows read (a``), (b``) and on, the readers taking any number of primes
+      the planted bank: 80 rows, (a)  ... (b''')  ; the 53rd (a'') 
+  (letters) the planted bank of 80 rows read by counter.items
+      BEFORE (v1.33.0): 52 of 80 read -> FAILS
+      AFTER  (v1.34.0): 80 of 80 read -> PASSES
+      AS WANTED
+  (letters) the planted bank of 80 rows read by defectrow.tag_of
+      BEFORE (v1.33.0): 52 of 80 read -> FAILS
+      AFTER  (v1.34.0): 80 of 80 read -> PASSES
+      AS WANTED
+  (letters) the planted bank of 80 rows read by close.DEFECT_ROW
+      BEFORE (v1.33.0): 52 of 80 read -> FAILS
+      AFTER  (v1.34.0): 80 of 80 read -> PASSES
+      AS WANTED
+  (letters) the planted bank of 80 rows read by nextact.ITEM
+      BEFORE (v1.33.0): 52 of 80 read -> FAILS
+      AFTER  (v1.34.0): 80 of 80 read -> PASSES
+      AS WANTED
+  (letters) GUARD, NO FAILING SIDE: the counter`s ids in bank order, the 53rd (a``) and the last (b```)
+      AFTER  (v1.34.0): defect (a'') ; defect (b''') -> HOLDS
+      AS WANTED
+
+  free 7425 MB at 2026-11-13T18:08:09Z, the hold 2560 MET
+### (n3) (R364)(3)(ix); b753`s N3 at the close: THE ENTRY`S LAST LINE READ AGAINST THE ACT MODULE`S CONSTANT, BOTH THROUGH THE RECORD TOOL`S OWN CONVERTER (standing.act.entry_ends_with, conv passed by the record module; the composer`s text converted as it would land)
+      b753`s constant: tools/acts/b753.py :1689 at 34332a00, 336 characters, 1 backtick(s) ; the landed entry: FINDINGS :15009, 22 lines, its last line 0 backtick(s), 1 ’
+  (n3) b753`s landed entry`s last line against b753`s constant (the clause that refuted N3 at the close)
+      BEFORE (v1.33.0): raw comparison False -> FAILS
+      AFTER  (v1.34.0): entry_ends_with True -> PASSES
+      AS WANTED
+  (n3) b753`s N3 at the close replayed from data/b753_scores_close.json at 34332a00: its 13 clauses, the INTEGRATION clause read again by the repaired check, REGISTRY 1.5c-21 and SPIRAL_MAP`s Epstein row read at PLACE-papers HEAD
+      BEFORE (v1.33.0): REFUTED as banked ; the INTEGRATION clause [False] ; the other 12 holding 12 -> FAILS
+      AFTER  (v1.34.0): HELD ; the INTEGRATION clause True (the rows True) -> PASSES
+      AS WANTED
+  (n3) GUARD, NO FAILING SIDE: one function for both: the composer`s raw text ending on the constant, its backtick unturned, read equal; a planted last line read not equal
+      AFTER  (v1.34.0): raw text True ; planted False -> HOLDS
+      AS WANTED
+  (n3) GUARD, NO FAILING SIDE: the record template converts the composer`s text (`conv(_finding_text()[1])`) and the act module`s N3 reads entry_ends_with, no raw `lines_[-1].strip() == INTEGRATION_LINE`
+      AFTER  (v1.34.0): template True ; module entry_ends_with True, raw False -> HOLDS
+      AS WANTED
+
+  free 7433 MB at 2026-11-13T18:08:09Z, the hold 2560 MET
+### (rootparts) (R364)(3)(x): THE ROOT ROUTE`S LIMIT -- its expected seconds printed from the previous act`s run; at four fifths of the host`s limit or unread, the route in parts, each a foreground call under the limit, the root computed last from the parts` bank
+  (rootparts) b753`s root route (called 03:27:05Z, moved to the background by the host at its 600 s limit) read as the expectation
+      BEFORE (v1.33.0): tools/standing/rootparts.py at 34332a00: ABSENT ; the route whole, no expectation printed -> FAILS
+      AFTER  (v1.34.0): expected 560 s (AT LEAST: data/b753_root_banks.json`s time 2026-11-12T03:27:33Z (its first reading ended) to data/b753_act_root.json`s compute start 2026-11-12T03:36:) -> parts -> PASSES
+      AS WANTED
+      b753`s banks 135 at its recorded commit d1f58355991e ; the first reading`s HEAD d1f58355991e, the remote d1f58355991e ; repositories and tags 76 from its items
+  (rootparts) b753`s root replayed in parts: the second reading`s part from the blobs at its recorded commit, confirmed against the files` sha256s at its compute, the root computed from the parts` bank
+      BEFORE (v1.33.0): no parts route at 34332a00 -> FAILS
+      AFTER  (v1.34.0): confirm HOLDS ; root 696aa4eb0dc87fdf (banked 696aa4eb0dc87fdf) -> PASSES
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: PLANTED: one named bank`s file not its blob -- the compute refuses
+      AFTER  (v1.34.0): ['1 named bank(s) not their HEAD blob now: data/b675_corrigenda.txt'] -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: PLANTED: HEAD moved after the second reading -- the compute refuses
+      AFTER  (v1.34.0): ['HEAD ffffffffffff, the second reading`s d1f58355991e'] -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: PLANTED: the remote main not HEAD -- the compute refuses
+      AFTER  (v1.34.0): ['the remote main 000000000000, not HEAD'] -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: PLANTED: a bank named now that the reading did not name -- the compute refuses
+      AFTER  (v1.34.0): ['the banks named now differ from the second reading`s (136 against 135)'] -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: PLANTED: the second reading not banked -- the compute refuses
+      AFTER  (v1.34.0): ['the second reading not banked READY'] -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: the decision: unread -> parts ; 100 s -> whole ; 480 s (the margin) -> parts
+      AFTER  (v1.34.0): parts ; whole ; parts -> HOLDS
+      AS WANTED
+  (rootparts) GUARD, NO FAILING SIDE: the rendered record module routes `rootpart` and binds root through standing.rootparts; the parts` bank (b754_root_banks_parts.json) a kind the root excludes (b707`s EXCLUDE_KINDS, carried by every record module after it)
+      AFTER  (v1.34.0): route True ; binding True ; excluded True -> HOLDS
+      AS WANTED
+
+  free 7442 MB at 2026-11-13T18:08:16Z, the hold 2560 MET
+### (table) (R364)(3)(xi); b752 (d), b753 (d): THE TERMINAL TABLE -- the suite`s act part regenerates to the act`s scratch folder in the state folder (tools/standing/tablescratch.py, the generator`s build and emit imported) and compares; the tracked table moves by the record`s table_final in a commit of the close
+      a sparse scratch clone at relay HEAD (tools/ and the table`s data files), its tree clean before: True ; restored between the runs: True
+  (table) the act part`s regeneration step (checks.tpl regenerate()) run on a clean tree: the tracked table files clean after it
+      BEFORE (v1.33.0): exit 0 in 30 s ; the tree after:  M data/terminal_table.json ;  M data/terminal_table_run.txt -> FAILS
+      AFTER  (v1.34.0): exit 0 in 33 s ; the tree after: CLEAN ; the diff read from the scratch folder: added 0, gone 0, changed 0 -> PASSES
+      AS WANTED
+  (table) GUARD, NO FAILING SIDE: the repaired step on the relay itself: the five tracked files clean before and after; the scratch table compared with the tracked one
+      AFTER  (v1.34.0): before CLEAN ; after CLEAN ; exit 0 ; rows 2110 against 2110, added 0, gone 0, moved 0 -> HOLDS
+      AS WANTED
+
+  free 7139 MB at 2026-11-13T18:10:03Z, the hold 2560 MET
+### (delread) (R364)(3)(xii), b753 (u`): THE DELETE READER READS A RUN OF THE ONE-CALL TOOL THROUGH tools/standing/gitwrite.py`s RUNS_COMMIT, imported and not copied; the record`s command bank counts those deletes (record.tpl`s mv); the kept clause read in the ferries` three wordings (tools/standing/allow.py); b753`s capture and its three branch arms replayed
+  (delread) b753`s five step-zero deletes through the tool (capture rows 98, 99, 100, 101, 102, 5 of them in PowerShell`s quoted-interpreter form), the ruled five push-b752-closing, push-b752-preroot, push-b752-preroot, push-b752-record, push-b752-record
+      BEFORE (v1.33.0): v1.33.0`s delete_shape over the 603 shell commands: 0 names -> FAILS
+      AFTER  (v1.34.0): v1.34.0`s: 5 names (push-b752-closing, push-b752-preroot, push-b752-record, push-b752-preroot, push-b752-record), chained after none -> PASSES
+      AS WANTED
+  (delread) GUARD, NO FAILING SIDE: one matcher: delread.py carries no RUNS_COMMIT of its own and asks the pattern gitwrite.py holds
+      AFTER  (v1.34.0): a RUNS_COMMIT assignment in delread.py False ; the pattern it asks found in gitwrite.py True -> HOLDS
+      AS WANTED
+  (delread) GUARD, NO FAILING SIDE: seven planted forms: the quoted interpreter and the bare one each one branch; a delete chained before `git status` read chained; a program quoting the route, an echo of it and the tool`s add none; git`s own form as before
+      AFTER  (v1.34.0): ['push-x'] ; ['push-y'] ; ['push-v'] CHAINED ; [] ; [] ; [] ; ['push-u'] -> HOLDS
+      AS WANTED
+  (delread) the record`s command bank over b753`s capture: record.tpl`s own lines (mv, shapes, chained, good, each cut by its needle, one line each) with b698`s matchers read from its blob; the bank as committed reads AFTER 0 OF 0
+      BEFORE (v1.33.0): the template at 34332a00 with v1.33.0`s reader: 0 OF 0 -> FAILS
+      AFTER  (v1.34.0): the template now with v1.34.0`s reader: 5 OF 5 -> PASSES
+      AS WANTED
+  (delread) the kept clause of G-DELETES-ONE-BRANCH read from eleven ferries, b744 to b754, in their three wordings (names and "the rest as banked" to b745; "as banked" b746 to b752; the previous closing`s carried list (f) from b753)
+      BEFORE (v1.33.0): v1.33.0`s allow.kept_clause reads 2: b744, b745 -> FAILS
+      AFTER  (v1.34.0): v1.34.0`s reads 11: b744, b745, b746, b747, b748, b749, b750, b751, b752, b753, b754 -> PASSES
+      AS WANTED
+  (delread) GUARD, NO FAILING SIDE: three sentences carrying no kept clause read none, so the disjunct cannot pass on nothing
+      AFTER  (v1.34.0): '' ; '' ; '' -> HOLDS
+      AS WANTED
+      b753`s checks rendered from the template at 34332a00 with b753`s module at 34332a00 (functions cut: 4, the two first-time lines: 2); the capture`s rows as banked (603), not the suite`s live capture; port-b707 kept at cb0aea56; the citation check`s first time 2026-11-11T15:02:58Z
+  (delread) b753`s three branch arms over its capture: G-BRANCHES-BANKED, G-LISTINGS-BEFORE-CLAUSES, G-DELETES-ONE-BRANCH
+      BEFORE (v1.33.0): v1.33.0`s reader and kept clause and the bank as committed: G-BRANCHES-BANKED FAIL, G-LISTINGS-BEFORE-CLAUSES FAIL, G-DELETES-ONE-BRANCH FAIL ; the first delete None, the first listing 1794409526 -> FAILS
+      AFTER  (v1.34.0): v1.34.0`s reader and kept clause and the count line as the repaired route writes it: G-BRANCHES-BANKED PASS, G-LISTINGS-BEFORE-CLAUSES PASS, G-DELETES-ONE-BRANCH PASS ; the first delete 1794409533, the first listing 1794409526 -> PASSES
+      AS WANTED
+
+  free 7163 MB at 2026-11-13T18:10:05Z, the hold 2560 MET
+### (limit) (R364)(3)(xiii), b753 (s`): THE HOOK`S LIMIT MATCHER READS THE PROGRAM A COMMAND RUNS (tools/standing/limits.py runs_split and limit_of: a route`s pattern opening in the script or the .ps1 file), NOT A TOOL`S PATH INSIDE A COMMIT`S WORDS
+  (limit) b753`s commit of 20:35:41Z, sent with no timeout (capture row 475, 425 characters, the tool`s path in its words; its refusal at data/b753_hook_refusals.txt :30)
+      BEFORE (v1.33.0): v1.33.0`s limits.fault: the reproduce run (tools/research/reproduce.py) sent with no timeout, beneath the limit the tool prints (60000 -> FAILS
+      AFTER  (v1.34.0): v1.34.0, the hook`s own judge: ALLOWED -> PASSES
+      AS WANTED
+  (limit) GUARD, NO FAILING SIDE: seven planted calls through the hook`s judge: the reproduction tool run bare and by PowerShell`s quoted interpreter with no limit refused, with 600000 allowed; a suite part and a version`s controls still refused (their arguments read where the match opens in the program); a commit naming two routes in its words and a search naming the tool allowed
+      AFTER  (v1.34.0): LIMIT ; LIMIT ; ALLOWED ; LIMIT ; LIMIT ; ALLOWED ; ALLOWED -> HOLDS
+      AS WANTED
+
+  free 7169 MB at 2026-11-13T18:10:05Z, the hold 2560 MET
+### (words) (R364)(3)(xiv), b753 (q`): THE ANSWERS ROUTE WRITES EACH PARAGRAPH OF A WORD ONCE -- tools/standing/authorwords.py`s _word_blocks cuts a word row by the word`s own lines, its blank lines inside it included
+  (words) b753`s ninth word (its session`s row 7049, 7 lines, 4 paragraphs) and the word of row 11488 (one paragraph), composed as the route composes word rows and re-keyed; each paragraph`s count in the re-keyed bank
+      BEFORE (v1.33.0): v1.32.0`s rekey: [1, 2, 2, 2], 22 lines -> FAILS
+      AFTER  (v1.34.0): v1.34.0`s: [1, 1, 1, 1], 16 lines -> PASSES
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: the one-paragraph word and the planted NOTE row each stand once after the repair, the head`s count 2
+      AFTER  (v1.34.0): the word`s lines [1] ; the NOTE 1 ; the head 's) and 2 word(s) of the author' -> HOLDS
+      AS WANTED
+  (words) GUARD, NO FAILING SIDE: data/b753_author_answers.txt, a pushed bank, not rewritten: the tree`s file and HEAD`s blob each equal to its blob at 34332a00 (its lines :132-:204 standing, named in the corrigendum)
+      AFTER  (v1.34.0): the tree equal True ; HEAD equal True -> HOLDS
+      AS WANTED
+
+  free 7163 MB at 2026-11-13T18:10:06Z, the hold 2560 MET
+### (state) (R364)(3)(xv): THE HOOK`S STATE OUT OF THE TEMP DIRECTORY -- tools/standing/statedir.py the one resolver of the state folder on the data volume; the hook`s calls ledger and git-write state and the one-call tool`s calls ledger read through it (a place printed by its kind; no path under the temp directory printed)
+  (state) the calls ledger: the hook appends one record a shell call, the one-call tool reads its tail (message_refusal)
+      BEFORE (v1.33.0): the hook the temp directory ; the tool the temp directory (its own path, built again) -> FAILS
+      AFTER  (v1.34.0): the hook the state folder (relay-state/hook/standing-calls.jsonl) ; the tool the state folder (relay-state/hook/standing-calls.jsonl) ; one path True -> PASSES
+      AS WANTED
+  (state) the git-write state of a session`s transcript (the hook`s ledger_over), its name kept
+      BEFORE (v1.33.0): the hook the temp directory -> FAILS
+      AFTER  (v1.34.0): the hook the state folder (relay-state/hook/standing-gitwrite-66d747b58e6ed8d2.json) ; the resolver`s path True ; the name kept True -> PASSES
+      AS WANTED
+  (state) GUARD, NO FAILING SIDE: statedir.outside() reads (outside every repository, outside the temp directory): the state folder as it stands both; a planted folder inside the relay not outside a repository; a planted folder under the temp directory not outside it
+      AFTER  (v1.34.0): the state folder (True, True) ; planted in the relay (False, True) ; planted under the temp directory (True, False) -> HOLDS
+      AS WANTED
+  (state) GUARD, NO FAILING SIDE: the fallback alike: the resolver made unimportable, the hook and the tool each fall back to the temp directory and still read one ledger (the hook still refuses on it)
+      AFTER  (v1.34.0): the hook the temp directory (resolver none) ; the tool the temp directory ; one path True -> HOLDS
+      AS WANTED
+  (state) GUARD, NO FAILING SIDE: the carry: the temp directory`s calls ledger read whole into the state folder`s, its records first, and its git-write states copied by name; the temp directory`s files kept, none removed
+      AFTER  (v1.34.0): the temp ledger 3591 records, kept True ; its records in the state folder`s True, before the first record after the switch True ; the state folder`s 3707 records ; git-write states 10 of 10 by name -> HOLDS
+      AS WANTED
+  (state) GUARD, NO FAILING SIDE: THE LIVE FORM, once, after the switch (the form of data/b753_events.txt (2)): one message carrying two runs of the tool, the earlier an add of a tracked file not differing, the later planted, refused by the hook through the state folder`s ledger before it ran; its refusal in this act`s refusals bank
+      AFTER  (v1.34.0): 1 message(s) carrying two git writes since 2026-11-13T17:28:43Z: request 2026-11-13T17:31:30.370Z: 17:31:32 relay add data/b754_ferry.txt ALLOWED ; 17:31:34 relay add data/b754_events.txt GITWRITE ; the refusals bank`s GITWRITE rows since then :15 -> HOLDS
+      AS WANTED
+
+  free 7159 MB at 2026-11-13T18:10:06Z, the hold 2560 MET
+### (beyond) (R364)(3)(xvi), b753 (v`): A PASSED ITEM`S WRITE BEYOND THE (W) LIST -- tools/standing/amend.py`s item route banks the amendment row before the write, regenerates the (W) bank and writes act_current`s shared_edits in the same step
+  (beyond) b753`s [M1] pass (relay 0db31ce3: relay/tools/mirror_roster_added.json, relay/tools/standing/roster.py) replayed over b753`s banks at its parent: the (W) bank of 16:53:09Z (19 patterns), 0 amendment rows, act_current`s base 0e855242
+      BEFORE (v1.33.0): no route: the (W) bank covers the added list False ; a row widening to it in the pass`s commit False ; act_current`s shared_edits at the pass [], the committed list after it ['tools/mirror_roster_added.json'] -> FAILS
+      AFTER  (v1.34.0): the route: beyond ['relay/tools/mirror_roster_added.json'] ; a row widening ['relay/tools/mirror_roster_added.json'] ; covered after the row True ; shared_edits written ['tools/mirror_roster_added.json'], equal to the committed list after the pass True -> PASSES
+      AS WANTED
+      BESIDE: the row b753 banked later, at the face`s composition: 2026-11-11T17:55:38.033Z widens ['relay/tools/mirror_roster_added.json'] narrows ['relay/tools/mirror_roster.json']
+  (beyond) GUARD, NO FAILING SIDE: a pass the list covers (b754`s live (W) bank, [A1]`s write of PLACE-papers/FINDINGS.md): no row owed, the shared list the committed one
+      AFTER  (v1.34.0): beyond [] ; row None ; shared ['tools/b677_citation.py', 'tools/mirror_prevbuild.json'], the committed list ['tools/b677_citation.py', 'tools/mirror_prevbuild.json'] -> HOLDS
+      AS WANTED
+  (beyond) GUARD, NO FAILING SIDE: the refusal: a planted (W) list covering nothing; a path already written (data/b754_events.txt, differing from HEAD) refuses the route; one tracked and unchanged (data/b754_ferry.txt) and one absent and untracked do not
+      AFTER  (v1.34.0): beyond 3 ; written before the row ['relay/data/b754_events.txt'] ; refused True -> HOLDS
+      AS WANTED
+  (beyond) GUARD, NO FAILING SIDE: the field`s write: one line replaced, every other byte as it stands (a planted list in and the field back, in memory); the live field equal to the committed list after (c`)`s write
+      AFTER  (v1.34.0): lines replaced 1, 1 ; the text back equal True ; the planted list read ['tools/planted.json'] ; the live field equal True -> HOLDS
+      AS WANTED
+
+  free 7179 MB at 2026-11-13T18:10:07Z, the hold 2560 MET
+### (harness) (R364)(3)(xvii): THE STEP-ZERO PRINT OF THE HARNESS -- tools/standing/harness.py: the version with its install date, the model by the transcript`s rows, the effort level and the window for that model, the update channel and [D1]`s key; a change against an earlier record an event
+  (harness) the print as a standing route, with its planted settings, planted records and the live read of this session
+      BEFORE (v1.33.0): tools/standing/harness.py at 34332a00: ABSENT (step zero printed it by scratch readers, b753 and b754) -> FAILS
+      AFTER  (v1.34.0): planted settings: m-a xhigh/per model/400000 ; m-b None/none ; m-b under a top-level effort high/top level -> AS WANTED; planted records: a model changed [('model', 'm-a', 'm-b')] ; none changed [] -> AS WANTED; the live read: version 2.1.322, the transcript`s 2.1.322, installed 2026-11-10T16:44:56Z, model claude-opus-5-5 ; no path or folder name under the home folder in the print True -> AS WANTED; ### harness.py control: 3 OF 3 AS WANTED -> PASSES
+      AS WANTED
+  (harness) GUARD, NO FAILING SIDE: the comparison: the live read against step zero`s figures in this session (data/b754_events.txt (7)) no change; a planted record line read back from a bank with the model changed one change, the model; a line carrying no record none
+      AFTER  (v1.34.0): against step zero NO CHANGE ; against the planted record [('model', 'claude-fable-5-2', 'claude-opus-5-5')] ; the line with no record None -> HOLDS
+      AS WANTED
+
+  free 7198 MB at 2026-11-13T18:10:08Z, the hold 2560 MET
+### (hookctl) (R364)(3)(xix), b754 (e), (f): THE HOOK`S CONTROL AT STEP ZERO -- its table moved with PLAINGIT and LIMIT and the five intents added in their current forms; its verdict read from the table and the constructed instance, the record`s instance printed as not reachable since the repair
+  (hookctl) the control`s table judged by the hook as it stands (every kind of the table enforced)
+      BEFORE (v1.33.0): 25 of 30, not as wanted [('Bash', None, 'PLAINGIT'), ('Bash', 'SUITE', 'LIMIT'), ('Bash', None, 'LIMIT'), ('PowerShell', None, 'PLAINGIT'), ('Bash', None, 'PLAINGIT')] -> FAILS
+      AFTER  (v1.34.0): 35 of 35, not as wanted none -> PASSES
+      AS WANTED
+  (hookctl) the verdict: THE REPAIR HOLDS, and no path under the temp directory in the lines
+      BEFORE (v1.33.0): step zero`s bank (data/b754_hook_control.txt at HEAD, v1.33.0): HOWN ; THE CONSTRUCTED AS WANTED ; THE REPAIR HOLDS False.** -> FAILS
+      AFTER  (v1.34.0): control_lines now:  bank refuse() writes), read apart ; THE CONSTRUCTED AS WANTED ; THE TABLE 35 OF 35 ; THE REPAIR HOLDS True.** ; a path under the temp directory False -> PASSES
+      AS WANTED
+  (hookctl) GUARD, NO FAILING SIDE: a planted case wanting a piped command allowed: the table one short and the verdict False
+      AFTER  (v1.34.0): art ; THE CONSTRUCTED AS WANTED ; THE TABLE 35 OF 36 ; THE REPAIR HOLDS False.** -> HOLDS
+      AS WANTED
+
+  free 7186 MB at 2026-11-13T18:10:08Z, the hold 2560 MET
+### (flag) (R364)(3)(xxi): THE RESTART FLAG AFTER STEP ZERO -- tools/standing/hold.py`s refuses() reads it where it reads the memory and the volumes (each record route, each suite part, the lock); a flag set an event printed with the keys` last writes, the route not run, the one-call tool printing the stop at the next commit
+  (flag) a record route with the flag planted set after step zero (b754`s keys and times, events (5)), the memory and both volumes above their holds
+      BEFORE (v1.33.0): refuses False, printed 'nothing' -> FAILS
+      AFTER  (v1.34.0): refuses True, printed ### THE RESTART FLAG SET (RebootPending, RebootRequired; the keys last written RebootPending 2026-11-12T16:35:36Z, RebootRequired 2026-11-12T16:38:07Z): AN EVENT OF THE ACT -- re -> PASSES
+      AS WANTED
+  (flag) a suite part`s guard before it runs, read from the template`s text (checks.tpl main): the memory alone, or hold.refuses with the volumes and the flag
+      BEFORE (v1.33.0): standing.hold called False -> FAILS
+      AFTER  (v1.34.0): standing.hold called True, after the memory`s own line True -> PASSES
+      AS WANTED
+  (flag) the lock with the flag planted set (the one-call tool`s run, refused before any read or write)
+      BEFORE (v1.33.0): run() reads the flag False (read from its text at 34332a00; not run) -> FAILS
+      AFTER  (v1.34.0): REFUSED: THE RESTART FLAG SET (RebootPending, RebootRequired; the keys last written RebootPending 2026-11-12T16:35:36Z, RebootRequired 2026-11-12T16:38:07Z): T -> PASSES
+      AS WANTED
+  (flag) GUARD, NO FAILING SIDE: the stop at the boundary: the one-call tool`s line at a commit with the flag set names the commit the boundary; with none, none; a route with no flag set runs
+      AFTER  (v1.34.0): THE RESTART FLAG ((R364)(3)(xxi)): SET (RebootPending, RebootRequired; the keys last written RebootPending 2026-11-12T16:35:36Z, RebootRequired 2026-1 | THE RESTART FLAG ((R364)(3)(xxi)): none | the route refused False -> HOLDS
+      AS WANTED
+  (flag) GUARD, NO FAILING SIDE: hold.py`s own control, its planted flag among its cases
+      AFTER  (v1.34.0):  zero: the route REFUSED, THE EVENT PRINTED ; none set: RAN ; LIVE: free {'C:\\': 26482, 'D:\\': 616735}, floor 5000, restart pending False (none) ; THE CONTROL AS WANTED -> HOLDS
+      AS WANTED
+
+  free 7192 MB at 2026-11-13T18:10:08Z, the hold 2560 MET
+### (clauses) b754 defect (j): THE TEMPLATES NAME THE ACT`S OWN RULING FOR AN OLDER RULING`S CLAUSE -- each printed clause the seat repaired named by the ruling that made it; the form `(⟪RUL⟫)(` elsewhere carried with its count, no mechanical source naming their rulings
+  (clauses) the seven sites the seat repaired (four in the citation template, two in the checks template, one in the record template), each read on the line its needle stands on
+      BEFORE (v1.33.0): 7 of 7 carry `(⟪RUL⟫)(` -> FAILS
+      AFTER  (v1.34.0): 7 of 7 name their ruling -- citation.tpl 'THE COMPARATIVE SENTENCES AGAINST THE TA': before the act`s ruling, after (R348) named | citation.tpl 'OK or NONE at HEAD, by the text alone': before the act`s ruling, after (R362) named | citation.tpl 'EVERY PATH THE RULING AND THE FERRY NAME': before the act`s ruling, after (R362) named | citation.tpl 'the branch deletes wait on CLEAN': before the act`s ruling, after (R348) named | checks.tpl 'THE REMOTE READS OF THIS SUITE RUN': before the act`s ruling, after (R352) named | checks.tpl 'THE REMOTE READS CLASSED': before the act`s ruling, after (R356) named | record.tpl 'THE BANK WRITTEN BEFORE THE LOCK STANDS ': before the act`s ruling, after (R348) named -> PASSES
+      AS WANTED
+  (clauses) GUARD, NO FAILING SIDE: each ruling named is the ruling of the act whose version made the section (the version`s act`s ferry opening on that ruling`s marker, read at HEAD)
+      AFTER  (v1.34.0): v1.18.0 b738 R348 AGREES ; v1.22.0 b742 R352 AGREES ; v1.26.0 b746 R356 AGREES ; v1.32.0 b752 R362 AGREES -> HOLDS
+      AS WANTED
+  (clauses) GUARD, NO FAILING SIDE: the form`s count by template, before and after: lower by the seven repaired and by nothing else; the rest carried with the count
+      AFTER  (v1.34.0): checks.tpl 91 -> 89 ; closing.tpl 28 -> 28 ; citation.tpl 11 -> 7 ; regspec.tpl 11 -> 11 ; record.tpl 156 -> 155 ; report.tpl 2 -> 2 ; total 299 -> 292 -> HOLDS
+      AS WANTED
+
+  free 7193 MB at 2026-11-13T18:10:09Z, the hold 2560 MET
+### (nouns) b754 defect (k): THE COMPARATIVE READER TAKES A NOUN FOR A COMPARISON -- "lead" and "trail" after a determiner or a possessive read as nouns and printed apart; the comparisons still read
+  (nouns) a line naming b753`s record heading by the possessive and the noun, in the form of row (g) at the halt
+      BEFORE (v1.33.0): comparisons [('planted', 1, 'trail')] -> FAILS
+      AFTER  (v1.34.0): comparisons [] ; nouns apart [('planted', 1, 'trail')] -> PASSES
+      AS WANTED
+  (nouns) GUARD, NO FAILING SIDE: the comparisons still read (trails, leads, the least); "at least" and "leads to" none; "the trail" a noun
+      AFTER  (v1.34.0): comparisons ['trails', 'leads', 'least'] ; nouns ['trail'] -> HOLDS
+      AS WANTED
+  (nouns) the citation bank prints the nouns apart, not halting (read from the template`s text)
+      BEFORE (v1.33.0): comparative_nouns in the template False -> FAILS
+      AFTER  (v1.34.0): comparative_nouns in the template True -> PASSES
+      AS WANTED
+
+  free 7186 MB at 2026-11-13T18:10:09Z, the hold 2560 MET
+### (readers) (R364) amendment row 3 (6): THE TWO READERS -- tools/standing/cites.py`s ferry_paths resolves a bare name by the trees (the relay`s root, PLACE-papers, both; in neither and ordered by a clause, TO BE WRITTEN with the clause; otherwise NONE); the (W) entries a ruling gives in words entered as rows of the (W) bank, each with its clause, printed before the lock
+  (readers) CLAUDE.md and HANDOFF.md as b754`s ferry names them: the relay`s seat file ((3)(i)) and the relay`s handoff page
+      BEFORE (v1.33.0): CLAUDE.md PLACE-papers NONE ; HANDOFF.md PLACE-papers NONE -> FAILS
+      AFTER  (v1.34.0): CLAUDE.md relay TO BE WRITTEN, (R364)(3)(i) and (8): the seat file at the relay`s root ; HANDOFF.md relay OK -> PASSES
+      AS WANTED
+  (readers) the next act`s per-commit scan bank, named in (8)`s words: by the worklist`s W_WORDS row, TO BE WRITTEN with its clause
+      BEFORE (v1.33.0): relay NONE -> FAILS
+      AFTER  (v1.34.0): relay TO BE WRITTEN, (R364)(8) and (3)(iii): the next act`s per-commit scan bank -> PASSES
+      AS WANTED
+  (readers) GUARD, NO FAILING SIDE: a planted name in no tree and ordered by no clause reads NONE; the same name with a planted word row reads TO BE WRITTEN with that clause
+      AFTER  (v1.34.0): [('PLANTED_NOWHERE.md', 'neither', 'NONE')] | [('PLANTED_NOWHERE.md', 'relay', 'TO BE WRITTEN, (planted) a clause ordering it')] -> HOLDS
+      AS WANTED
+  (readers) GUARD, NO FAILING SIDE: b754`s ferry by the new reader: no path NONE
+      AFTER  (v1.34.0): paths 95 ; OK 80 ; NONE 0 ; the act`s own 12 ; by a clause 3 -> HOLDS
+      AS WANTED
+  (readers) the (W) list regenerated for b754: the entries (8) gives in words, as rows with their clauses
+      BEFORE (v1.33.0): patterns 27 ; relay/CLAUDE.md False -> FAILS
+      AFTER  (v1.34.0): patterns 33 ; word rows 7, each a pattern True and printed with its clause True ; the worklist`s W_WORDS a source True -> PASSES
+      AS WANTED
+
+  free 7198 MB at 2026-11-13T18:10:09Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED AND ITS CONTROLS TALLIED
+  (version) tools/standing/VERSION
+      BEFORE (v1.33.0): v1.33.0 -> FAILS
+      AFTER  (v1.34.0): v1.34.0 -> PASSES
+      AS WANTED
+
+### per repair: (seat) 3 of 3 ; (carry) 4 of 4 ; (closescan) 2 of 2 ; (lean) 3 of 3 ; (postseal) 5 of 5 ; (vmove) 10 of 10 ; (subject) 8 of 8 ; (letters) 5 of 5 ; (n3) 4 of 4 ; (rootparts) 9 of 9 ; (table) 2 of 2 ; (delread) 7 of 7 ; (limit) 2 of 2 ; (words) 3 of 3 ; (state) 6 of 6 ; (beyond) 4 of 4 ; (harness) 2 of 2 ; (hookctl) 3 of 3 ; (flag) 5 of 5 ; (clauses) 3 of 3 ; (nouns) 3 of 3 ; (readers) 5 of 5 ; (version) 1 of 1
+### ### **v1.34.0: CONTROLS (seat), (carry), (closescan), (lean), (postseal), (vmove), (subject), (letters), (n3), (rootparts), (table), (delread), (limit), (words), (state), (beyond), (harness), (hookctl), (flag), (clauses), (nouns), (readers), (version) ; CASES 99 ; AS WANTED 99 ; ALL AS WANTED.**

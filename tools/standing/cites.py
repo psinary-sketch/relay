@@ -95,13 +95,36 @@ def _wlist_relay(act, relay):
     return [p[len('relay/'):] for p in pats if p.startswith('relay/')]
 
 
-def ferry_paths(text, act, relay, pp):
-    """[(path, repo, state)] for every path the text names, once each in order: state OK (present at HEAD), NONE, or THE ACT'S OWN, TO BE WRITTEN
-    (the act's own prefix, or a path the act's (W) list covers -- e.g. the next act's rules named by form)."""
+def _word_clause(p, words):
+    """(repo, clause) of the first (W) word row whose pattern covers the path in the relay or in PLACE-papers, or None."""
+    import fnmatch
+    for pat, clause in words or ():
+        for repo in ('relay', 'PLACE-papers'):
+            if fnmatch.fnmatchcase('%s/%s' % (repo, p), pat):
+                return repo, clause
+    return None
+
+
+TO_BE_WRITTEN = 'TO BE WRITTEN, '
+
+
+def ferry_paths(text, act, relay, pp, words=None):
+    """[(path, repo, state)] for every path the text names, once each in order: state OK (present at HEAD), NONE, THE ACT'S OWN, TO BE WRITTEN
+    (the act's own prefix, or a path the act's (W) list covers -- e.g. the next act's rules named by form), or TO BE WRITTEN, <clause> (a path
+    a (W) word row orders and no tree holds).
+    v1.34.0, (R364) amendment row 3 (6), data/b754_stepzero.txt THE READERS' LIMITS: a bare name (no folder) is read by the trees, not taken for
+    PLACE-papers': standing at the relay's root, the relay's; standing in PLACE-papers, PLACE-papers'; in both, repo 'both'; in neither and
+    ordered written by a clause (the worklist's W_WORDS, `words` to plant them), TO BE WRITTEN with that clause; otherwise NONE."""
     import fnmatch
     rt, pt = set(_pp_tree(relay)), _pp_tree(pp)
     pset = set(pt)
     wl = _wlist_relay(act, relay)
+    if words is None:
+        import os, sys
+        s = os.path.dirname(os.path.abspath(__file__))
+        if s not in sys.path:
+            sys.path.insert(0, s)
+        words = __import__('wlist').word_rows(act, relay)
     out, seen = [], set()
     for m in FERRY_PATH.finditer(text or ''):
         p = m.group(0)
@@ -109,8 +132,26 @@ def ferry_paths(text, act, relay, pp):
             continue
         seen.add(p)
         if p.startswith(('data/', 'tools/')):
-            own = p.startswith(('data/%s_' % act, 'tools/%s_' % act, 'tools/acts/%s.' % act)) or any(fnmatch.fnmatchcase(p, w) for w in wl)
-            out.append((p, 'relay', 'OK' if p in rt else ('THE ACT`S OWN, TO BE WRITTEN' if own else 'NONE')))
+            own = p.startswith(('data/%s_' % act, 'tools/%s_' % act, 'tools/acts/%s.' % act))
+            wc = _word_clause(p, words)
+            if p in rt:
+                st = 'OK'
+            elif own:
+                st = 'THE ACT`S OWN, TO BE WRITTEN'
+            elif wc:
+                st = TO_BE_WRITTEN + wc[1]
+            elif any(fnmatch.fnmatchcase(p, w) for w in wl):
+                st = 'THE ACT`S OWN, TO BE WRITTEN'
+            else:
+                st = 'NONE'
+            out.append((p, 'relay', st))
+        elif '/' not in p:
+            in_r, in_p = p in rt, p in pset or any(f.endswith('/' + p) for f in pt)
+            if in_r or in_p:
+                out.append((p, 'both' if in_r and in_p else ('relay' if in_r else 'PLACE-papers'), 'OK'))
+            else:
+                wc = _word_clause(p, words)
+                out.append((p, wc[0] if wc else 'neither', (TO_BE_WRITTEN + wc[1]) if wc else 'NONE'))
         else:
             hit = p in pset or any(f.endswith('/' + p) for f in pt)
             out.append((p, 'PLACE-papers', 'OK' if hit else 'NONE'))
@@ -135,11 +176,18 @@ def lean_rows(text, trees, near=110):
     declared elsewhere is a failing row too. A word no tree declares is no declaration and takes no row. trees: [(repo, rev)]."""
     files = [(repo, rev, f) for repo, rev in trees for f in _tree(repo, rev)]
     cache, rows = {}, []
-    for m in LEAN_PATH.finditer(text or ''):
+    clauses = lean_clauses(text)
+    for k_, m in enumerate(LEAN_PATH.finditer(text or '')):
         p, line = m.group(0), text.count('\n', 0, m.start()) + 1
         hits = [f for _r, _v, f in files if f == p or f.endswith('/' + p)]
         rows.append((':%d' % line, p, 'in the tree at %s' % ', '.join(sorted(set(h for h in hits))) if hits else 'ABSENT FROM THE TREE AT ITS PIN', bool(hits)))
         if not hits:
+            continue
+        cl = clauses.get(k_)
+        if cl is not None and len(cl) > 1:
+            # ### v1.34.0, (R364)(3)(iv), b751 (d), b752 (d), b753 (e): a clause of several paths read as a clause, once, at its first path
+            if k_ == cl[0]:
+                rows += _clause_rows(text, cl, files, trees, cache, near)
             continue
         w = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
         w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]   # ### v1.18.0, (R348)(4), b738 step zero: a closed parenthesis ends the window, its names the path before it's ("Zeros.lean (..., zqZeroConfig :319), Continuation.lean")
@@ -163,6 +211,62 @@ def lean_rows(text, trees, near=110):
     return rows
 
 
+# ### v1.34.0, (R364)(3)(iv), b751 (d), b752 (d), b753 (e), three acts running: THE CLAUSE OF SEVERAL LEAN PATHS. The reader paired each path
+# ### with the nearest name before it, so "the rQ and cQ ... (EpsteinZQ.lean :59; LogDeriv.lean :63-:65)" paired cQ with the first path and
+# ### halted. A clause is a run of paths joined by line cites, semicolons, commas or "and" alone; where it carries as many declared names before
+# ### it as paths, the reader pairs them in order; otherwise it reads every name against every path of the clause and halts where no path
+# ### holds a name. A clause of one path is read as before.
+CLAUSE_JOIN = re.compile(r'^(?:\s*(?::\d+(?:\s*[-–]\s*:?\d+)?|[;,]|and))*\s*$')
+
+
+def lean_clauses(text):
+    """{path index: [indices of its clause]} over LEAN_PATH's matches in order: consecutive paths whose text between is CLAUSE_JOIN."""
+    ms = list(LEAN_PATH.finditer(text or ''))
+    out, cur = {}, []
+    for i, m in enumerate(ms):
+        if cur and CLAUSE_JOIN.match(text[ms[cur[-1]].end():m.start()]) and '\n' not in text[ms[cur[-1]].end():m.start()]:
+            cur.append(i)
+        else:
+            cur = [i]
+        for j in cur:
+            out[j] = cur
+    return out
+
+
+def _clause_rows(text, cl, files, trees, cache, near):
+    ms = list(LEAN_PATH.finditer(text or ''))
+    first = ms[cl[0]]
+    paths = [ms[i].group(0) for i in cl]
+    line = text.count('\n', 0, first.start()) + 1
+    held = dict((p, set(f for _r, _v, f in files if f == p or f.endswith('/' + p))) for p in paths)
+    w = text[max(text.rfind('\n', 0, first.start()) + 1, first.start() - near):first.start()]
+    w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]
+    if LABEL_BEFORE.search(w):
+        return []
+    names = []
+    for name in LEAN_NAME.findall(w):
+        if '.' in name and not NAMESPACED.match(name):
+            continue
+        if name not in cache:
+            cache[name] = sorted(set(f for repo, rev in trees for f in _decl(repo, rev, name)))
+        if cache[name] and name not in names:
+            names.append(name)
+    if not names:
+        return []
+    rows = []
+    if len(names) == len(paths):
+        for name, p in zip(names, paths):
+            at = cache[name]
+            rows.append((':%d' % line, '%s beside %s (paired in order in a clause of %d paths)' % (name, p, len(paths)), 'declared at %s' % ', '.join(at), bool(set(at) & held[p])))
+    else:
+        every = set().union(*held.values())
+        for name in names:
+            at = cache[name]
+            rows.append((':%d' % line, '%s against every path of a clause of %d (%s)' % (name, len(paths), ', '.join(paths)),
+                         'declared at %s' % ', '.join(at), bool(set(at) & every)))
+    return rows
+
+
 # ### v1.18.0, (R348)(2)(ii), b737 (v): THE SENTENCE AGAINST ITS OWN TABLE. A bank's comparative sentence ("leads", "trails", "largest", "lowest" and
 # ### their kin) is read against the figures of the table it cites, each AGREES or CONTRADICTS, before the lock; a comparative word in a bank the act
 # ### names with no reading row is UNREAD. The rows name the figures by bank and line, never by the sentence's own numbers.
@@ -171,9 +275,29 @@ _ABOVE = ('lead', 'leads', 'largest', 'highest', 'greatest')
 _BELOW = ('trail', 'trails', 'lowest', 'least', 'smallest')
 
 
+# ### v1.34.0, (R364)(3), b754 defect (k): A NOUN IS NOT A COMPARISON. v1.18.0 read the pattern's words in any sense; b754's defects row (g)
+# ### named b753's record heading by the noun "trail" and the citation check halted on it as an UNREAD comparison (17:09:30Z). "lead" and "trail"
+# ### after a determiner or a possessive ("the trail", "b753's trail", "its leads") are nouns, printed apart; the superlatives ("the least",
+# ### "the largest") stay comparisons, a determiner being their own form.
+NOUN = re.compile(r"(?:\b(?:the|a|an|its|their|this|that|each|every|whose|one)\s+|['`]s\s+)(leads?|trails?)\b", re.I)
+
+
+def _noun_spans(l):
+    return [m.span(1) for m in NOUN.finditer(l)]
+
+
 def comparative_hits(name, text):
-    """[(bank, line, word)]: every comparative word of a bank's text, by the line it stands on."""
-    return [(name, i, m.group(1).lower()) for i, l in enumerate((text or '').split('\n'), 1) for m in COMPARATIVE.finditer(l)]
+    """[(bank, line, word)]: every comparative word of a bank's text, by the line it stands on; v1.34.0: a noun use read apart."""
+    out = []
+    for i, l in enumerate((text or '').split('\n'), 1):
+        ns = _noun_spans(l)
+        out += [(name, i, m.group(1).lower()) for m in COMPARATIVE.finditer(l) if m.span(1) not in ns]
+    return out
+
+
+def comparative_nouns(name, text):
+    """[(bank, line, word)]: the pattern's words used as nouns, printed apart from the comparisons."""
+    return [(name, i, l[a:b].lower()) for i, l in enumerate((text or '').split('\n'), 1) for a, b in _noun_spans(l)]
 
 
 def figure(spec, read):

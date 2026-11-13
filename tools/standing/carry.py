@@ -235,9 +235,13 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
     L += ['', '## THE CARRIED SECTIONS (equal to the previous act`s after the substitution); the ruled figures %s, moved: %s' % (
         ', '.join('%s %r -> %r' % (k, P.get(k), W.get(k)) for k in RULED), ', '.join(moved) or 'NONE')]
     pb = dict((key, prev_text[s:e]) for key, s, e in AM.blocks(prev_text))
+
+    def carried_(key, body):
+        # ### v1.34.0, (R364)(3)(ii): carried by either substitution -- v1.33.0's over the whole text, or v1.34.0's over code alone
+        return key in pb and (same(body, substitute(pb[key], subs)) or same(body, substitute_code(pb[key], subs)))
     n = 0
     for key, s, e in AM.blocks(act_text):
-        if key not in pb or not same(act_text[s:e], substitute(pb[key], subs)):
+        if not carried_(key, act_text[s:e]):
             continue
         n += 1
         reads = sorted(set(KNAME.findall(act_text[s:e])) & set(moved))
@@ -252,7 +256,7 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
     L += ['', '## THE CARRIED CITATION ROWS (a citation section equal to the previous act`s after the substitution), each commit beside the ruling']
     nr = 0
     for key, s, e in AM.blocks(act_text):
-        if key[:2] != ('SECTION', 'citation') or key not in pb or not same(act_text[s:e], substitute(pb[key], subs)):
+        if key[:2] != ('SECTION', 'citation') or not carried_(key, act_text[s:e]):
             continue
         rows_ = [l for l in act_text[s:e].split(NL) if l.strip().startswith('add(')]
         hx = sorted(set(HEXC.findall(act_text[s:e])), key=act_text[s:e].index)
@@ -271,7 +275,7 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
     nr5 = 0
     for key, s, e in AM.blocks(act_text):
         body = act_text[s:e]
-        if key not in pb or not same(body, substitute(pb[key], subs)):
+        if not carried_(key, body):
             continue
         if key[:2] == ('SECTION', 'citation'):
             rows_ = [l for l in body.split(NL) if l.strip().startswith('add(')]
@@ -305,7 +309,10 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
         n7 = len([r for r in refused if r[0] == 'R7'])
         L += ['', '## THE ACT ORDINALS THE MODULE CARRIES, each beside the ruling`s (read from each act`s ferry: %s)' % (
             ', '.join('%s %s' % kv for kv in ordinals.items()) or 'NONE READ')]
+        unreached = stubbed_lines(act_text)   # ### v1.34.0, (R364)(3)(ii): a stub's kept code is unreached and read by no reader here
         for ln_, who, word in ordinal_mentions(act_text):
+            if ln_ in unreached:
+                continue
             want = ordinals.get(who)
             ok_ = want is None or word.upper() == want.upper()
             L.append('  :%-6d %s act one hundred and %-16s %s' % (ln_, who, word, 'the ruling`s' if want and ok_ else ('not an act the ruling numbers' if want is None else
@@ -326,6 +333,12 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
             if un:
                 refused.append(('R7', 'needle %s' % nd[:40], 'a read-first needle naming %s, which the ruling does not name' % ', '.join(un)))
         L.append('  ordinals and needles refused %d' % (len([r for r in refused if r[0] == 'R7']) - n7))
+    wv = writes_without_version(ruling_text)
+    L += ['', '## THE LISTS OF WRITES IN THE RULING NAMING A STANDING PATH WITHOUT VERSION (v1.34.0, (R364)(3)(vi)), printed before the citation '
+              'check: %d' % len(wv)] + ['  :%-5d %s ; %s' % (ln_, ', '.join(ps_), ex_) for ln_, ps_, ex_ in wv]
+    st = [(':%d' % i, l) for i, l in stubs_in(act_text)] + [('worklist :%d' % i, l) for i, l in stubs_in(wl_text)]
+    L += ['', '## THE CARRIED STUBS (v1.34.0, (R364)(3)(ii)): %d, each refusing itself when used until written for the act; none refused here' % len(st)]
+    L += ['  %-14s %s' % x for x in st]
     if ferry_routed is not None:
         L += ['', '## THE FERRY`S ROUTE: data/<act>_ferry_scan.txt %s' % ('PRESENT, the ferry banked by the citation route' if ferry_routed else
                                                                            'ABSENT ### REFUSED (R6): the ferry not banked by the citation route (`fold.py citation ferry --act <act>`)')]
@@ -337,6 +350,431 @@ def ruled(act_text, prev_text, wl_text, prev_wl_text, ruling_text, subs, ferry_r
         sum(1 for r in refused if r[0] == 'R7'),
         ' -- ' + '; '.join('%s %s' % r[:2] for r in refused) if refused else ' ; NONE REFUSED')]
     return L, refused
+
+
+# ================================================================================ v1.34.0, (R364)(3)(ii): THE CARRY'S STUBS
+# ### b751 (b), b752 (b), b753 (b) with (t') and (y'): the carry copied the previous act's module under the new act's name and the seat
+# ### rewrote what `ruled` refused (b754's first run REFUSED 28: R4 1, R5 2, R7 25). The half that lands at v1.34.0: the carry empties every
+# ### section that reads a ruling or an act's banks -- the citation sections, the record route of Component 1, the act ordinals, the read-first
+# ### needles, the worklist's stage-one values, the needles of the probes -- to a stub that refuses itself when used, until written for the
+# ### act; and it leaves a cite standing inside a comment or a docstring as it is (y'): the substitution reads code, and the file's own head
+# ### (its module docstring or its leading comment block) alone among the comments. The other half, a standing template with a per-act spec
+# ### in place of the carry, is the seat's price put at [U4].
+STUB_TAG = 'CARRIED STUB (tools/standing/carry.py v1.34.0)'
+STAGE_ONE = ('PRE_PP', 'PRE_RELAY', 'PRE_PP_REMOTE_AT_START', 'PRE_RELAY_REMOTE_AT_START', 'B718_RELAY_HEAD', 'B718_PP_HEAD', 'DATE', 'SESSION_ID',
+             'SP', 'SESSIONS_AFTER', 'PREV_SESSION', 'PREV_ANCHOR', 'B711_ENTRY', 'B711_WEIGHT', 'B711_CORRIGENDUM', 'B711_TRAIL', 'B711_FACE',
+             'MIRROR_ZIP', 'TRAIL_ORDERS', 'TRAIL_RESOLVED', 'TRAIL_RETIRED', 'SECTION_BANK', 'STANDING_VERSION', 'STANDING_VERSION_ENTERING',
+             'LEAN_TREES', 'B714_CLOSING', 'B714_RECORD', 'B714_ROOT', 'B723_ROOT_BANKS', 'ACT_CURRENT_COMMIT', 'STEPZERO', 'STEPZERO_PREVBUILD',
+             'STEPZERO_BANKS', 'C1_STANDING', 'C1_RELAY', 'C1_PP', 'WEIGHT_LINE', 'CORR_LINE', 'C2_PLAN_FIRST', 'C2_RELAY_ALL', 'C2_RELAY',
+             'C1_DEFECTS', 'SITTING_ITEMS', 'C3_RELAY', 'C4_LINE', 'NEXT', 'NEXT_ACT', 'COMPUTE_BANKS', 'COMPARATIVE_BANKS')
+# ### the worklist's stage one: the per-act figures b754's step zero set by its script (each constant replaced whole by its name)
+
+
+class Carried(object):
+    """a value the carry emptied: every use refuses, naming it; its repr alone answers (so a print of the worklist reads it)."""
+    __slots__ = ('_w',)
+
+    def __init__(self, what):
+        object.__setattr__(self, '_w', what)
+
+    def _refuse(self, *a, **k):
+        raise SystemExit('### %s IS A %s: written for the act before use -- NOTHING COMPOSED' % (object.__getattribute__(self, '_w'), STUB_TAG))
+    __getattr__ = __call__ = __iter__ = __len__ = __bool__ = __str__ = __getitem__ = __contains__ = _refuse
+    __add__ = __radd__ = __mod__ = __rmod__ = __format__ = __int__ = __index__ = __float__ = _refuse
+    __lt__ = __le__ = __gt__ = __ge__ = __eq__ = __ne__ = __fspath__ = _refuse
+    __hash__ = object.__hash__
+
+    def __repr__(self):
+        return 'Carried(%r)' % object.__getattribute__(self, '_w')
+
+
+def _docstring_at(text, i):
+    """True where the triple-quoted string at i opens a line and follows a line ending ':' or no code at all (a docstring)."""
+    ls = text.rfind(NL, 0, i) + 1
+    if text[ls:i].strip(' \t').lstrip('rRuU'):
+        return False
+    j = ls - 1
+    while j > 0:
+        ps = text.rfind(NL, 0, j) + 1
+        line = text[ps:j]
+        code = _code_of_line(line).rstrip()
+        if code:
+            return code.endswith(':')
+        j = ps - 1
+    return True
+
+
+def _code_of_line(line):
+    """the line up to a comment's '#' outside a one-line string."""
+    q, k = None, 0
+    while k < len(line):
+        c = line[k]
+        if q:
+            if c == '\\':
+                k += 2
+                continue
+            if c == q:
+                q = None
+        elif c in '\'"':
+            q = c
+        elif c == '#':
+            return line[:k]
+        k += 1
+    return line
+
+
+def held_spans(text):
+    """[(start, end, kind)]: every comment (from '#' outside a string to the line's end) and every docstring of a Python-like text. The scan
+    reads strings by their quotes alone (an act module is fragments, not one parseable file)."""
+    out, i, n = [], 0, len(text)
+    while i < n:
+        c = text[i]
+        if c == '#':
+            j = text.find(NL, i)
+            j = n if j < 0 else j
+            out.append((i, j, 'comment'))
+            i = j
+            continue
+        if c in '\'"':
+            q3 = text[i:i + 3]
+            if q3 in ('"""', "'''"):
+                j = i + 3
+                while True:
+                    k = text.find(q3, j)
+                    if k < 0:
+                        k = n
+                        break
+                    b, m = 0, k - 1
+                    while m >= i + 3 and text[m] == '\\':
+                        b, m = b + 1, m - 1
+                    if b % 2 == 0:
+                        break
+                    j = k + 1
+                e = min(k + 3, n)
+                if _docstring_at(text, i):
+                    out.append((i, e, 'docstring'))
+                i = e
+                continue
+            j = i + 1
+            while j < n and text[j] != c and text[j] != NL:
+                j += 2 if text[j] == '\\' else 1
+            i = j + 1
+            continue
+        i += 1
+    return out
+
+
+def head_end(text):
+    """the end of the file's own head: its module docstring, or its leading comment block up to the first block marker or code line."""
+    sp = held_spans(text)
+    k = 0
+    for s, e, kind in sp:
+        if text[k:s].strip():
+            break
+        if kind == 'comment' and text[s:].startswith('#⟪'):
+            break
+        k = e
+        if kind == 'docstring':
+            break
+    return k
+
+
+def substitute_code(text, subs):
+    """the act names' substitution over code alone: every comment and docstring held as it stands but the file's own head (y'); a kept
+    branch's name held as substitute() holds it."""
+    he = head_end(text)
+    held = []
+
+    def hold(s, e):
+        held.append(text[s:e])
+        return '\x01%d\x01' % (len(held) - 1)
+    parts, k = [], 0
+    for s, e, _kind in held_spans(text):
+        if e <= he:
+            continue
+        s = max(s, he)
+        parts += [text[k:s], hold(s, e)]
+        k = e
+    parts.append(text[k:])
+    out = substitute(''.join(parts), subs)
+    return re.sub('\x01([0-9]+)\x01', lambda m: held[int(m.group(1))], out)
+
+
+def _blank_held(text):
+    """the text with every comment and docstring blanked (for a needle that reads code alone)."""
+    out, k = [], 0
+    for s, e, _kind in held_spans(text):
+        out += [text[k:s], re.sub(r'[^\n]', ' ', text[s:e])]
+        k = e
+    out.append(text[k:])
+    return ''.join(out)
+
+
+def _stub_msg(act, what):
+    return '### %s`s %s IS A %s: written for the act before use -- NOTHING COMPOSED' % (act, what, STUB_TAG)
+
+
+def _stub_names(code):
+    """[(kind, name)] of the top-level statements of parseable code: a def or class, each assigned name; None where it does not parse."""
+    import ast
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return None
+    out = []
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            out.append(('def', node.name))
+        elif isinstance(node, ast.ClassDef):
+            out.append(('name', node.name))
+        elif isinstance(node, (ast.Assign, ast.AnnAssign, ast.AugAssign)):
+            tg = node.targets if isinstance(node, ast.Assign) else [node.target]
+            for t in tg:
+                for x in ast.walk(t):
+                    if isinstance(x, ast.Name) and ('name', x.id) not in out:
+                        out.append(('name', x.id))
+    return out
+
+
+def stub_forms(body, act, what):
+    """the stub bodies to try for a block's body, in order: the comment lines kept, the code replaced by a form that refuses when reached."""
+    ls = body.split(NL)
+    keep = [l for l in ls if l.lstrip().startswith('#')]
+    code = [l for l in ls if l.strip() and not l.lstrip().startswith('#')]
+    head = ['# ### %s: %s; the body carried, %d code lines, stands in the carry`s diff bank' % (STUB_TAG, what, len(code))]
+    msg = _stub_msg(act, what)
+    if not code:
+        return [NL.join(head + keep) + NL]
+    ind = code[0][:len(code[0]) - len(code[0].lstrip())]
+    cont = ' \\' if code[-1].rstrip().endswith('\\') else ''
+    thr = '(_ for _ in ()).throw(SystemExit(%r))' % msg
+    forms = []
+    if not ind:
+        nm = _stub_names(NL.join(code))
+        if nm is not None:
+            st = []
+            for kind, name in nm:
+                st += (['def %s(*a, **k):' % name, '    raise SystemExit(%r)' % msg] if kind == 'def' else
+                       ['%s = __import__(%r, fromlist=[%r]).Carried(%r)' % (name, 'standing.carry', 'Carried', '%s`s %s' % (act, name))])
+            forms.append(NL.join(head + keep + (st or ['pass'])) + NL)
+    first = code[0].lstrip()
+    # ### an indented block may continue its template's expression (a backslash before it), where no comment line may stand: its stub is
+    # ### one line, its tag inside the refusal's message, a trailing comment only where no continuation follows; the body's comments dropped
+    tail = '' if cont else '   # ### %s: the body carried, %d code lines, stands in the carry`s diff bank' % (STUB_TAG, len(code))
+    # ### the emptied forms first: the code replaced whole by a refusal
+    if first.startswith('and ') or first.startswith('or '):
+        forms.append('%s%s %s%s%s' % (ind, first.split(' ', 1)[0], thr, cont, tail) + NL)
+    forms.append('%sraise SystemExit(%r)%s' % (ind, msg, tail) + NL)
+    forms.append('%s%s,%s%s' % (ind, thr, cont, tail) + NL)
+    # ### where no emptied form compiles (the block shares an expression with its template's lines), the refusal stands before the carried
+    # ### code, kept behind it unreached; the refusal's message says so
+    kmsg = msg.replace(': written for the act', ', ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act')
+    kthr = '(_ for _ in ()).throw(SystemExit(%r))' % kmsg
+    body_kept = body if body.endswith(NL) else body + NL
+    if first.startswith('and ') or first.startswith('or '):
+        forms.append('%s%s %s \\' % (ind, first.split(' ', 1)[0], kthr) + NL + body_kept)
+    forms.append('%sraise SystemExit(%r)' % (ind, kmsg) + NL + body_kept)
+    forms.append('%s%s,' % (ind, kthr) + NL + body_kept)
+    return forms
+
+
+def _why_whole(key, marker, body):
+    if key[0] == 'SECTION' and key[1] == 'citation':
+        return 'a citation section (%s %s %s)' % key
+    if ' REPAIR (c1)' in marker or re.search(r'(?m)^def c1\(', body):
+        return 'the record route of Component 1 (%s)' % marker.strip('#⟪⟫ ')
+    if ' REPAIR (needle)' in marker:
+        return 'a probe`s needle (%s)' % marker.strip('#⟪⟫ ')
+    return None
+
+
+def _reads_ruling(code):
+    return bool(ORDINAL.search(code)) or bool(re.search(r'(?m)^\s*READFIRST_NEEDLES\s*=', code))
+
+
+def carry_module(old, subs, act):
+    """(text, stubs): the previous act's module carried by the code substitution, each block that reads a ruling or an act's banks stubbed.
+    A block is stubbed whole where it is a citation section, the c1 route or a probe's needle, or where its code (comments and docstrings
+    blanked) carries an act ordinal or the read-first needles and is not a top-level block; in a top-level block the statements carrying
+    them alone are stubbed. Each stub's form is the first that compiles in its tool's render (stub_check)."""
+    import actmodule as AM
+    text = substitute_code(old, subs)
+    out, stubs, k = [], [], 0
+    for key, s, e in AM.blocks(text):
+        ml = text.find(NL, s) + 1
+        marker = text[s:ml].rstrip(NL)
+        body = text[ml:e - len('#⟪END⟫\n')]
+        why = _why_whole(key, marker, body)
+        code = _blank_held(body)
+        new_body = None
+        if why is None and _reads_ruling(code):
+            cl = [l for l in body.split(NL) if l.strip() and not l.lstrip().startswith('#')]
+            top = bool(cl) and not cl[0][:1].isspace() and _stub_names(NL.join(cl)) is not None
+            if not top:
+                why = 'a block reading an act ordinal or the read-first needles (%s)' % marker.strip('#⟪⟫ ')
+            else:
+                new_body, part = _stub_statements(body, act)
+                if part:
+                    stubs.append((key, marker, 'statements %s' % ', '.join(part), None))
+        if why:
+            stubs.append((key, marker, why, stub_forms(body, act, why)))
+            new_body = stub_forms(body, act, why)[0]
+        out += [text[k:ml], new_body if new_body is not None else body]
+        k = ml + len(body)
+    out.append(text[k:])
+    return ''.join(out), stubs
+
+
+def _stub_statements(body, act):
+    """(body, names): a top-level block with each statement carrying an act ordinal or the read-first needles replaced by its stub."""
+    import ast
+    tree = ast.parse(body)
+    ls = body.split(NL)
+    repl, names = [], []
+    for node in tree.body:
+        seg = NL.join(ls[node.lineno - 1:node.end_lineno])
+        if not _reads_ruling(_blank_held(seg)):
+            continue
+        nm = _stub_names(seg) or []
+        msg = _stub_msg(act, 'statement %s' % ', '.join(n for _k, n in nm))
+        st = ['# ### %s: statement %s; it carried an act ordinal or the read-first needles' % (STUB_TAG, ', '.join(n for _k, n in nm))]
+        for kind, name in nm:
+            st += (['def %s(*a, **k):' % name, '    raise SystemExit(%r)' % msg] if kind == 'def' else
+                   ['%s = __import__(%r, fromlist=[%r]).Carried(%r)' % (name, 'standing.carry', 'Carried', '%s`s %s' % (act, name))])
+            names.append(name)
+        repl.append((node.lineno - 1, node.end_lineno, st))
+    for a, b, st in sorted(repl, reverse=True):
+        ls[a:b] = st
+    return NL.join(ls), names
+
+
+def stub_check(act, text, stubs, tools=None, nm=None):
+    """{tool: 'COMPILES' or the error}: each tool rendered from the carried module and compiled; where a whole-stubbed block's first form
+    fails, its later forms tried in order, the text returned with the forms that compile. Returns (text, results). `nm`: the template's
+    four names ({'⟪ACT⟫': .., '⟪PREV⟫': .., '⟪RUL⟫': .., '⟪PRUL⟫': ..}) where data/act_current.json does not yet name the act (the carry
+    runs before it is written)."""
+    import fold as F
+    if nm is not None:
+        _names = F.names
+        F.names = lambda a: dict(nm) if a == act else _names(a)
+    try:
+        return _stub_check(F, act, text, stubs, tools)
+    finally:
+        if nm is not None:
+            F.names = _names
+
+
+def _stub_check(F, act, text, stubs, tools):
+    res = {}
+    for tool in tools or F.TOOLS:
+        for _round in range(60):
+            secs, ovs = F._parse(act, text)
+            try:
+                src = F.render(act, tool, secs, ovs)
+                compile(src, '<%s_%s carried>' % (act, tool), 'exec')
+                res[tool] = 'COMPILES'
+                break
+            except SyntaxError as ex:
+                res[tool] = 'SyntaxError line %s: %s' % (ex.lineno, ex.msg)
+                bad = _block_at(src, ex.lineno, text, stubs)
+                if bad is None:
+                    break
+                text = bad
+            except F.FoldRefused as ex:
+                res[tool] = 'FoldRefused: %s' % ex
+                break
+    return text, res
+
+
+def _block_at(src, lineno, text, stubs):
+    """the module text with the next form of the nearest stub standing at or before the rendered error line (its head comment found by
+    scanning back at most 80 lines), or None where no stub stands there or its forms are spent."""
+    ls = src.split(NL)
+    for k in range(lineno - 1, max(-1, lineno - 81), -1):
+        l = ls[k] if k < len(ls) else ''
+        if STUB_TAG not in l:
+            continue
+        for i, (key, marker, why, forms) in enumerate(stubs):
+            if forms and len(forms) > 1 and why in l and forms[0] in text:
+                stubs[i] = (key, marker, why, forms[1:])
+                return text.replace(forms[0], forms[1], 1)
+        return None
+    return None
+
+
+def carry_worklist(old, subs, act):
+    """(text, names): the previous act's worklist carried by the code substitution, each stage-one value (STAGE_ONE) bound to a Carried stub
+    that refuses on use, its line's comment replaced by the stub's; a line `from standing.carry import Carried as _Carried` after the imports."""
+    import ast
+    text = substitute_code(old, subs)
+    tree = ast.parse(text)
+    ls = text.split(NL)
+    repl, names = [], []
+    for node in tree.body:
+        if not isinstance(node, ast.Assign):
+            continue
+        tg = [x.id for t in node.targets for x in ast.walk(t) if isinstance(x, ast.Name)]
+        if not tg or not all(t in STAGE_ONE for t in tg):
+            continue
+        lhs = ls[node.lineno - 1].split('=', 1)[0].rstrip()
+        rhs = ', '.join('_Carried(%r)' % ('%s`s %s' % (act, t)) for t in tg)
+        repl.append((node.lineno - 1, node.end_lineno, '%s = %s   # ### %s: the stage-one value, written for the act at step zero' % (lhs, rhs, STUB_TAG)))
+        names += tg
+    for a, b, l in sorted(repl, reverse=True):
+        ls[a:b] = [l]
+    imp = max([n.end_lineno for n in tree.body if isinstance(n, (ast.Import, ast.ImportFrom))] or [0])
+    shift = sum(1 - (b - a) for a, b, _l in repl if a < imp)
+    ls.insert(imp + shift, 'from standing.carry import Carried as _Carried   # ### %s: the stage-one values below refuse on use until written' % STUB_TAG)
+    return NL.join(ls), names
+
+
+STANDING_PATH = re.compile(r'tools/standing/[\w./-]*\w')
+WRITES_LIST = re.compile(r"\(W\)|\bWRITES\b|\bTHE WRITES\b")
+
+
+def writes_without_version(ruling_text):
+    """v1.34.0, (R364)(3)(vi), b753 events (7)-(9): [(line, standing paths, excerpt)] for every paragraph (a ruling's line) holding a list of writes
+    -- a (W) list or a heading of WRITES -- that names a path under tools/standing/ and does not name tools/standing/VERSION or VERSION."""
+    out = []
+    for i, l in enumerate((ruling_text or '').replace('\r', '').split(NL), 1):
+        if not WRITES_LIST.search(l):
+            continue
+        ps = sorted(set(p.rstrip('.') for p in STANDING_PATH.findall(l) if not p.rstrip('.').endswith('VERSION')))
+        if ps and 'VERSION' not in l:
+            k = l.find(ps[0])
+            out.append((i, ps, l[max(0, k - 90):k + 60].replace(NL, ' ')))
+    return out
+
+
+STUB_WHAT = re.compile(r"### b\d{3}`s (.+?)(?:, ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED)? IS A " + re.escape(STUB_TAG) + r"|^\s*# ### " + re.escape(STUB_TAG) + r": (.+?);")
+
+
+def stubs_in(text):
+    """[(line, what)]: every stub the carry left, once each -- a module block's or statement's (its head comment or its refusal's message,
+    the first line naming it), a worklist's stage-one value (its `_Carried(` line)."""
+    out, seen = [], set()
+    for i, l in enumerate((text or '').split(NL), 1):
+        if '= _Carried(' in l and STUB_TAG in l:
+            out.append((i, 'the stage-one value ' + l.split('=', 1)[0].strip()))
+            continue
+        m = STUB_WHAT.search(l)
+        if m:
+            w = m.group(1) or m.group(2)
+            if w not in seen:
+                seen.add(w)
+                out.append((i, w[:150]))
+    return out
+
+
+def stubbed_lines(text):
+    """the line numbers of every module block a stub stands in (its body read by no ordinal or needle reader: unreached code)."""
+    import actmodule as AM
+    out = set()
+    for _key, s, e in AM.blocks(text):
+        if STUB_TAG in text[s:e]:
+            a = text.count(NL, 0, s) + 1
+            out.update(range(a, a + text.count(NL, s, e) + 1))
+    return out
 
 
 def kept_repos():

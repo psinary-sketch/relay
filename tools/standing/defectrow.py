@@ -12,8 +12,8 @@ landing's text less its Defects lines; every other screen reads the whole.
 """
 import re
 
-ROW = re.compile(r"^\(([a-z]'?)\) ")
-TAG = re.compile(r"^\(([a-z]'?)\) THE [A-Z]+(?:'S|S') \[(CLAIM|CLOSE) ; (NEW|REPEAT [^\]]+)\]")
+ROW = re.compile(r"^\(([a-z]'*)\) ")   # ### v1.34.0, (R364)(3)(viii): a letter with any number of primes
+TAG = re.compile(r"^\(([a-z]'*)\) THE [A-Z]+(?:'S|S') \[(CLAIM|CLOSE) ; (NEW|REPEAT [^\]]+)\]")
 
 
 def _cut(s):

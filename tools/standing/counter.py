@@ -17,8 +17,8 @@ import subprocess
 
 S = os.path.dirname(os.path.abspath(__file__))
 RELAY = os.path.dirname(os.path.dirname(S))
-ROW = re.compile(r"^    \(((?:[a-z]'?)|\d+)\) (?:THE [A-Z' ]+?) \[(CLAIM|CLOSE) ; ([^\]]*)\]")
-ANY_ROW = re.compile(r"^    \(((?:[a-z]'?)|\d+)\) ")
+ROW = re.compile(r"^    \(((?:[a-z]'*)|\d+)\) (?:THE [A-Z' ]+?) \[(CLAIM|CLOSE) ; ([^\]]*)\]")   # ### v1.34.0, (R364)(3)(viii): any number of primes
+ANY_ROW = re.compile(r"^    \(((?:[a-z]'*)|\d+)\) ")
 
 
 def items(text_defects, text_events):
@@ -53,7 +53,11 @@ def tally(it, act=None, rev=None):
 
 
 def compose(act, data=None, rev=None):
-    return tally(items(_text(act, 'defects', data, rev), _text(act, 'events', data, rev)), act, rev)
+    """v1.34.0, (R364)(3)(v): the post-seal events bank (data/<act>_events_postseal.txt, written by the close by design) read beside the
+    events bank: b753's events (1)-(9) and (10)-(14), fourteen."""
+    ev = _text(act, 'events', data, rev)
+    ps = _text(act, 'events_postseal', data, rev)
+    return tally(items(_text(act, 'defects', data, rev), ev + ('\n' + ps if ps else '')), act, rev)
 
 
 def line(c):

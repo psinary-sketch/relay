@@ -254,7 +254,7 @@ def letters_of(text):
 
 
 def _letter(s):
-    m = re.match(r"^\(([a-z]'?)\)", s or '')
+    m = re.match(r"^\(([a-z]'*)\)", s or '')   # ### v1.34.0, (R364)(3)(viii): any number of primes
     return m.group(1) if m else None
 
 
@@ -514,7 +514,7 @@ edit_route_offences = R.edit_route_offences
 QUOTED, REDIRECT_NULL, REDIRECT_ANY, PIPE_FILTER, PY_PRINT_READ, MOVE_OR_DELETE, SED_KIND = (
     R.QUOTED, R.REDIRECT_NULL, R.REDIRECT_ANY, R.PIPE_FILTER, R.PY_PRINT_READ, R.MOVE_OR_DELETE, R.SED_KIND)
 local_lean, delete_shape, chained_after, seal_hashes, root_banks_state = R.local_lean, R.delete_shape, R.chained_after, R.seal_hashes, R.root_banks_state
-root_banks, rootbanks, root, root_arm, table_final = R.root_banks, __import__('standing.repeat', fromlist=['committed_root']).committed_root(R), R.root, R.root_arm, R.table_final   # ### v1.4.0 the root route
+root_banks, rootbanks, root, root_arm, table_final = R.root_banks, __import__('standing.repeat', fromlist=['committed_root']).committed_root(R), R.root, R.root_arm, R.table_final; root, rootpart = __import__('standing.rootparts', fromlist=['bind']).bind(R, ACT, PREV, D, ROOT, lambda n_, o_: put_json(n_, o_), utc)   # ### v1.4.0 the root route; v1.34.0, (R364)(3)(x): its expected seconds printed and the route in parts where they reach the host's limit (tools/standing/rootparts.py); on line 517, the line count kept
 # ### ⟪PREV⟫'s pattern read `_record.py dispatch`; this act's one dispatch ran through the `portdispatch` route, so the pattern takes the port prefix too
 # ### (a carry-time repair, banked by diff: the command bank's first write read DISPATCHES 0 against the dispatch bank's one row)
 # ### ⟪ACT⟫: the rebuild's dispatches run inside its tool (⟪ACT⟫_rebuild.py dispatch <k>, and push_run <k> for SIDE-frobenius's run on push, the
@@ -538,7 +538,7 @@ def commands(*a):
     phits = edit_route_offences(prev)
     sh_ = [r for r in rows if r['tool'] in ('Bash', 'PowerShell')]
     lean = [r for r in sh_ if local_lean(r['cmd'])]
-    mv = [r for r in sh_ if MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd']))]
+    mv = [r for r in sh_ if MOVE_OR_DELETE.search(QUOTED.sub('""', r['cmd'])) or delete_shape(r['cmd'])[0]]   # ### v1.34.0, (R364)(3)(xii), b753 (u'): a run of the one-call tool's delete route is a delete too, read through the delete reader (tools/standing/delread.py, gitwrite's RUNS_COMMIT); MOVE_OR_DELETE alone read git's own forms, so b750 to b753 banked "0 OF 0"; one line: the older acts' line-keyed overrides unmoved
     disp = [r for r in sh_ if DISPATCH_CMD.search(QUOTED.sub('""', r['cmd']))]
     detach = [r for r in sh_ if (r.get('bg') or re.search(r'Start-Process|\bnohup\b|run_in_background', QUOTED.sub('""', r['cmd'])))]
     seds = [r for r in sh_ if R.sed_cmd(r['cmd'])]
@@ -1576,7 +1576,7 @@ def repairctl(*a):
     s_let = [_letter(s) for s in seal7]
     now7 = [_letter(s) for s in letters_of(rdn('⟪PREV⟫_defects.txt'))]
     body7 = _trail_defects_body('⟪PREV⟫', K.B710_TRAIL) or ''
-    t_let = re.findall(r"(?:^|; )\(([a-z]'?)\) ", body7)
+    t_let = re.findall(r"(?:^|; )\(([a-z]'*)\) ", body7)
     late7 = [x for x in now7 if x not in s_let]
     notes += ['(i) ⟪PREV⟫`s seal: %s, its relay head %s ; the letters in its defects bank at that head %s ; in the bank now %s ; on its trail`s Defects line '
               '(OPEN_TRAILS from :%d) %s ; after the seal, under the repaired route events: %s' % (
@@ -2304,14 +2304,14 @@ def _figs():
                 figs10=dict((k, (f10.get(k) or {}).get('figure', '-')) for k in ('correspondence', 'readme', 'partners', 'pins')))
 
 
-TAG_ROW = re.compile(r"^    \((?:[a-z]'?|\d+)\) [^\[]*\[(CLAIM|CLOSE)\b", re.M)
+TAG_ROW = re.compile(r"^    \((?:[a-z]'*|\d+)\) [^\[]*\[(CLAIM|CLOSE)\b", re.M)   # ### v1.34.0, (R364)(3)(viii): a letter with any number of primes
 
 
 def _counter(act=ACT):
     """(⟪RUL⟫)(2): the counter CLAIM n, CLOSE m over the act's events and defects together -- every row of data/<act>_defects.txt and
-    data/<act>_events.txt opening four spaces and its letter or number, tagged by its first bracket; a row carrying no tag counted apart."""
+    data/<act>_events.txt opening four spaces and its letter or number, tagged by its first bracket; a row carrying no tag counted apart. v1.34.0, (R364)(3)(v): the post-seal events bank data/<act>_events_postseal.txt read beside the events bank, both read optional (the close writes them after the seal), the defects bank refused if missing; (3)(viii): a letter with any number of primes. The three are read on the `for` line; the line beneath it stands byte for byte as v1.33.0 left it, since b747 to b753 override that line by its mark (26666a71fb1e) and an edit of a marked line refuses their renders (data/b754_standing_dry.txt), and its loop runs over nothing. Every change on its own line: the older acts' line-keyed overrides unmoved."""
     rows = []
-    for name in ('%s_defects.txt' % act, '%s_events.txt' % act):
+    for name in ([] if rows.extend(l for n_ in ('%s_defects.txt' % act, '%s_events.txt' % act, '%s_events_postseal.txt' % act) for l in rdn(n_, optional=n_.endswith(('_events.txt', '_events_postseal.txt'))).split(NL) if re.match(r"^    \((?:[a-z]'*|\d+)\) ", l)) is None else []):
         rows += [l for l in rdn(name).split(NL) if re.match(r"^    \((?:[a-z]'?|\d+)\) ", l)]
     tags = [TAG_ROW.match(l) for l in rows]
     return dict(claim=sum(1 for m in tags if m and m.group(1) == 'CLAIM'), close=sum(1 for m in tags if m and m.group(1) == 'CLOSE'),
@@ -2443,7 +2443,7 @@ def _n3():
     text = __import__('standing.act', fromlist=['landed_entry']).landed_entry('⟪ACT⟫', fj) if fj.get('line') else ''   # ### v1.12.0, (R342)(2)(iv): the landed lines, keyed by the bank's line; a line that does not read as the entry raises
     src = 'the landed entry`s lines (PLACE-papers FINDINGS.md :%s at HEAD)' % fj.get('line')
     if not text:
-        text, src = _finding_text()[1], 'the composer`s text (no entry landed yet)'
+        text, src = conv(_finding_text()[1]), 'the composer`s text through conv, as it would land (no entry landed yet)'   # ### v1.34.0, (R364)(3)(ix): the landing's one conversion on both readings, b753's N3 HELD before the lock and REFUTED at the close
     sents = [s for s in re.split(r'(?<=[.;])\s+', text) if 'Nothing here is a statement' not in s]
 ⟪SLOT 20⟫
     return __import__('standing.onereader', fromlist=['verdict']).verdict(ok, locals()), (   # ### v1.28.0, (R358)(3)(i): PENDING where only the root prompt is unread
@@ -3017,7 +3017,7 @@ def _trail_text_⟪PREV⟫():
 def _close_step(n):
     """(⟪RUL⟫)(4)(vi), standing clauses v4 row (68), THE CLOSE IN ONE ORDER: the route is step [n] of the close and refuses, writing nothing,
     while a lower step's evidence is absent (tools/act_close.py close_refuses; a repair at ⟪ACT⟫, banked by diff)."""
-    r = AC.close_refuses(ACT, n) or (n < 6 and os.path.exists(os.path.join(D, '%s_lockgate.json' % ACT)) and '### STEP [%d] COMES BEFORE THE LOCK [6], WHOSE EVIDENCE STANDS (data/%s_lockgate.json): THE BANK WRITTEN BEFORE THE LOCK STANDS -- NOTHING RUN (v1.18.0, (⟪RUL⟫)(2)(v), b737 events (1), a REPEAT of (R346)(3)(vi))' % (n, ACT)) or None   # ### one line: the older acts' line-keyed overrides unmoved
+    r = AC.close_refuses(ACT, n) or (n < 6 and os.path.exists(os.path.join(D, '%s_lockgate.json' % ACT)) and '### STEP [%d] COMES BEFORE THE LOCK [6], WHOSE EVIDENCE STANDS (data/%s_lockgate.json): THE BANK WRITTEN BEFORE THE LOCK STANDS -- NOTHING RUN (v1.18.0, (R348)(2)(v), b737 events (1), a REPEAT of (R346)(3)(vi))' % (n, ACT)) or None   # ### one line: the older acts' line-keyed overrides unmoved
     if r:
         print(r, flush=True)
         sys.exit(5)
@@ -3955,7 +3955,7 @@ delete_shape, chained_after = R.delete_shape, R.chained_after = DELR.delete_shap
 # ### stage one (step zero): ⟪PREV⟫'s Component routes over its own objects pruned (data/⟪ACT⟫_prune_record.txt); this act's are added by the Edit tool
 ROUTES = dict(chainrows=chainrows, edition82=edition82, censusdiff=censusdiff, censusscreen=censusscreen,rootprompt=rootprompt,verdicts=verdicts, commands=commands, kernels=kernels, standing=standing, armsecs=armsecs, desk=desk, gatebanks=gatebanks,
               ksyms=ksyms, defs=defs, figures=figures, runner=runner,
-              mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, root_arm=root_arm, table_final=table_final,
+              mbuild=mbuild, mroot=mroot, mverify=mverify, rootbanks=rootbanks, root=root, rootpart=rootpart, root_arm=root_arm, table_final=table_final,
               names=names, defshort=defshort, rowgen=rowgen, answers=answers, defects=defects, branches=branches, dispatch=dispatch,
               runstatus=runstatus, runwait=runwait, reads=reads, rootexclude=rootexclude, rootdry=rootdry, linecheck=linecheck,
               step=step, c1=c1, repairctl=repairctl12, toolrepairs12=toolrepairs12, facerows=facerows, portedit=portedit, portdispatch=portdispatch, portrun=portrun, regpos=regpos, joingrade=joingrade, jointag=jointag,
