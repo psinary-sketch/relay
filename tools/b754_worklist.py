@@ -39,7 +39,8 @@ HOLD = 2560
 ANCHOR = 'RULING (R364) BEGIN'           # ### the act's capture anchor, as data/act_current.json
 RULING_ANCHOR = 'RULING (R364) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
 TAIL = 'FERRY END (part 1 of 1)'
-SESSIONS_AFTER = (('b4958cff-3703-4c32-abe9-89b823b777f9', 'Act b754 opens in this session after a restart of the machine'),)   # ### b671's form: the act runs in b4958cff from its first user line (15:57:07Z), after the restart of 15:50:15Z; the old seat's process gone (the listing of 15:59:06Z: one claude)
+SESSIONS_AFTER = (('b4958cff-3703-4c32-abe9-89b823b777f9', 'Act b754 opens in this session after a restart of the machine'),
+                  ('11d67961-2aa4-4353-bc12-a982038bfa55', 'The machine has now been restarted on my word'))   # ### b671's form: the act runs in b4958cff from its first user line (15:57:07Z), after the restart of 15:50:15Z; the old seat's process gone (the listing of 15:59:06Z: one claude). Then, after the restart of 2026-11-12T18:38:28Z ordered by the answer at b4958cff :3344 (data/b754_amendments.json row 3), in 11d67961 from its first user line (2026-11-13T15:27:49Z); b4958cff's process gone (the listing of 15:33:40Z: one claude) (data/b754_events.txt (7))
 PREV_SESSION = '5a4228ab-091d-4515-b5ab-95a5e34e1e18'   # ### b753 ran in this session (from 'RULING (R363) BEGIN' to its closing); (R364) was delivered in it after b753's close
 PREV_ANCHOR = 'RULING (R363) BEGIN'   # ### b753's ruling's first line in 5a4228ab; G-EDIT-ROUTE's window from b753's combine to (R364)'s anchor
 DRAFT = '23228113'

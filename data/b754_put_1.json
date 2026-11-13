@@ -1,0 +1,26 @@
+{
+ "act": "b754",
+ "at": "2026-11-12T17:20:17Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "question": "b754 step zero has stopped at its commit boundary, relay 0fe85cf9 (17:18:36Z), under (R364)(3)(xxi). The restart flag stood absent at step zero's reads (15:59:06Z) and is now set: RebootPending last written 16:35:36Z (data/b754_events.txt :51), RebootRequired 16:38:07Z (data/b754_events.txt :52), both read at 17:12:56Z. Between those writes and that read the seat made four commits, four restores and one record route without reading the flag. Not yet done: the --merged listing and the five branch deletes, git status, the price table. Nothing is pushed; step zero's banks are committed, the scan log and step row 5 not. How should the act go on?",
+   "header": "(xxi) flag",
+   "multiSelect": false,
+   "options": [
+    {
+     "label": "Restart now, then resume (Recommended)",
+     "description": "You restart the machine and open a new session with your word. The seat reads the flag, the volumes, memory and processes again, then does the rest of step zero (the listing, the five deletes, git status, the price table) and goes on to Component 1. The five local relay commits stay local until the act's push. Recommended: the act ahead has routes of 600 s and more, and 0fe85cf9 is the cleanest point to stop at."
+    },
+    {
+     "label": "Go on with the flag pending",
+     "description": "The seat goes on in this session: the rest of step zero, then Component 1, reading the flag before each route and commit until (xxi)'s repair to hold.py is written, and entering each read in the events. A restart the host forces during a route would cut that route."
+    },
+    {
+     "label": "Finish step zero, then stop again",
+     "description": "The seat does the rest of step zero in this session (the listing, the five deletes, git status, the price table), commits its row, and stops again before Component 1 for the restart."
+    }
+   ]
+  }
+ ]
+}

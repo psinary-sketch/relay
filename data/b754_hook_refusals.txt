@@ -4,3 +4,7 @@
 2026-11-12T16:54:54Z | REDIR | Bash | "git grep -n -E \"shared_tools_changed|shared_edits\" -- tools/acts/b754.py tools/standing/carry.py tools/standing/repairs.py tools/standing/arms*.py tools/standing/checks*.py && sed -n 0p /dev/null 2>/dev/null; true" | a Bash command carrying a redirect outside quotes
 2026-11-12T16:58:27Z | PIPE | PowerShell | "Get-ChildItem -Recurse D:\\relay-state | Select-Object FullName, Length, LastWriteTimeUtc" | a PowerShell command carrying a pipe outside quotes
 2026-11-12T17:10:57Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\b4958cff-3703-4c32-abe9-89b823b777f9\\scratchpad\\citebank754.txt" | a Read call with no limit
+2026-11-13T15:27:51Z | READ | Read | "C:\\Users\\echo chamber\\.claude\\projects\\D--\\memory\\project_b754_progress.md" | a Read call with no limit
+2026-11-13T15:28:45Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\11d67961-2aa4-4353-bc12-a982038bfa55\\scratchpad\\b4958cff_tail.txt" | a Read call with a limit and no offset on a file of 327 lines
+2026-11-13T15:30:39Z | PIPE | PowerShell | "Get-ChildItem D:\\relay\\data\\b754_* | Select-Object Name, Length, LastWriteTimeUtc | Format-Table -AutoSize | Out-String -Width 200" | a PowerShell command carrying a pipe outside quotes
+2026-11-13T15:45:49Z | WLIST | Edit | null | a Edit: the (W) bank data/b754_wlist.json is stale (data/b754_amendments.json changed since it was written) -- regenerate the list (python -X utf8 -u tools/standing/wlist.py bank)
