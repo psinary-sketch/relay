@@ -181,3 +181,20 @@ b754 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
      compiled it (closing render OK, 645 lines). The predicate's defect and not the template's: a raw placeholder read as a name does
      not give the fold's text. Found by reading that run's output by hand; nothing banked or committed with it. Amended before the
      bank: the case reads the closing render row of tools/standing/compilecontrol.py's check at BASE's blobs and on disk.
+    (s') THE SEAT'S [CLOSE ; REPEAT b754 (r')]: THE BUILDER CASE COMPARED A BLOB WITH ITS BYTE-ORDER MARK TO A DISK TEXT READ WITHOUT
+     IT. tools/standing/v1345.py as first written (uncommitted) read tools/mirror_build.ps1 at BASE (0c4cda98) through v1340.show,
+     which keeps the blob's byte-order mark at the head of its line 1, and on disk with utf-8-sig, which drops it; the run of
+     23:52:32Z (no bank) printed "lines of BASE not on disk 1", that case NOT AS WANTED. Both revisions carry the mark (EF BB BF, read
+     by a scratch reader writing nothing, bom754.py, before the second run), and no line of BASE stands absent on disk. The
+     predicate's defect and not the builder's. Found by reading that run's output by hand; nothing banked or committed with it.
+     Amended before the bank: the mark stripped from BASE's text; the second run (23:53:53Z) printed 0 lines absent.
+    (t') THE SEAT'S [CLOSE ; NEW]: THE ADDED LIST GREW WITH NO ACT OF ENTRY, AND THE REPLAY OF b753'S EXPORT READ b754'S THREE
+     FAMILIES. The edit of tools/mirror_roster_added.json (23:42:33Z) appended rule (17)'s three files to the list b753's [M1] route
+     reads whole, and tools/standing/roster.py's roster_at took no act for the list: b753's export at clause 3, at its source head
+     04fef04e, read the three families (on PLACE-papers at that head, absent from that export) and printed NOT CLEAN through
+     roster_at(<head>, act=b753) as through b754's roster, at v1.34.5's run of 23:52:32Z (no bank, that case NOT AS WANTED). The
+     (3iii) replay of tools/standing/controls.py (:279, :283) reads the same route, so the act part's standing controls would have
+     printed it at their next run. Found by the control; nothing banked or committed with it. Amended before the bank: the list
+     gains `added_at`, the act from whose mirror each entry is carried (the three b754's; an entry it does not name b753's), and
+     added(act) reads the entries of that act and those before it; the second run (23:53:53Z): b753's export CLEAN at act=b753 and
+     NOT CLEAN as b754's, the roster at main for b753 equal to BASE's route (82 entries).

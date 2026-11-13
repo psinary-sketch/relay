@@ -1,0 +1,109 @@
+b754 -- THE CONTROLS OF tools/standing/ v1.34.5, (R364)(5)[M2] PASSED, PARTS (a) TO (d) AND THE THREE FAMILIES (2026-11-13T23:54:50Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each change`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2841 lines
+  citation render          OK    563 lines
+  closing render           OK    645 lines
+  record render            OK    5057 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    180 lines
+  tools/b754_worklist.py   OK    490 lines
+### THE COMPILE CONTROL : b754 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 0c4cda98
+
+  free 7387 MB at 2026-11-13T23:54:51Z, the hold 2560 MET
+### (current): RULE (13), THE CURRENT EDITION ((R364)(5)[M2] (a))
+  (current) the roster at main: entries ; Which_Structure_Confines v2.4.0 in ; SPIRAL_MAP.md (v0.6) carried beside its v0.7
+      BEFORE (v1.34.4): BASE`s route and added list: 82 ; False ; True -> FAILS
+      AFTER  (v1.34.5): roster_at(main) on disk: 83 ; True ; False -> PASSES
+      AS WANTED
+  (current) the builder`s json route (print_lines) carries the roster roster_at reads, one edition a family where decided
+      BEFORE (v1.34.4): BASE`s print_lines: 82 entries, SPIRAL_MAP.md and its v0.7 both True -> FAILS
+      AFTER  (v1.34.5): print_lines on disk: 83 entries, equal to roster_at(main) True -> PASSES
+      AS WANTED
+  (current) a planted family whose filename edition v0.9 carries the line v0.3 beside an unversioned file carrying v0.5: the file of the line v0.5 carried alone, at the family`s first slot
+      BEFORE (v1.34.4): BASE`s resolve: ['a.md', 'x/FAM.md', 'b.md', 'x/FAM_v0_9.md'] -> FAILS
+      AFTER  (v1.34.5): apply_current: ['a.md', 'x/FAM.md', 'b.md'] -> PASSES
+      AS WANTED
+  (current) the same family with the later line in the later slot: the current edition takes the first slot, no other slot moves
+      AFTER  (v1.34.5): apply_current: ['a.md', 'x/FAM_v0_9.md', 'b.md'] -> AS WANTED
+  (current) a file of the family with no version line read: the family UNDECIDED, both editions carried as the rule of b715 carries them
+      AFTER  (v1.34.5): apply_current: ['a.md', 'x/FAM.md', 'b.md', 'x/FAM_v0_9.md'] ; undecided ['x/FAM.md'] -> AS WANTED
+  (current) two files of the family sharing the top line v0.5: UNDECIDED, both carried, the tie printed
+      AFTER  (v1.34.5): apply_current: ['a.md', 'x/FAM.md', 'b.md', 'x/FAM_v0_9.md'] ; ['a tie at v0.5: x/FAM.md, x/FAM_v0_9.md'] -> AS WANTED
+  (current) a file whose head carries no version line and whose edition note does (the [M2] put`s second shape): read by the note
+      AFTER  (v1.34.5): apply_current: ['a.md', 'x/FAM.md', 'b.md'] -> AS WANTED
+  (current) the act gate: a build of b753 read by the rule it was built under (b715 with b753`s [M1]) and the added list as b753 built it (the list`s added_at), of b754 by rule (13) with the three families
+      BEFORE (v1.34.4): BASE`s route at main: 82 entries -> (no gate at BASE; the rule of b715 for every act)
+      AFTER  (v1.34.5): roster_at(main, act=b753) 82 entries, equal to BASE`s route True, the three families in it [False, False, False] ; act=b754 83, equal to roster_at(main) True -> PASSES
+      AS WANTED
+  (current) b753`s export at clause 3 at its source head 04fef04ec5ad: through the roster it was built under CLEAN ; through b754`s roster (rule (13) and the three families) NOT CLEAN (the (3iii) replay of tools/standing/controls.py reads it at act=b753)
+      BEFORE (v1.34.4): roster_at(04fef04ec5ad) with no act, read as b754`s: CLEAN False -> FAILS
+      AFTER  (v1.34.5): roster_at(04fef04ec5ad, act=b753): CLEAN True -> PASSES
+      AS WANTED
+
+  free 7408 MB at 2026-11-13T23:54:56Z, the hold 2560 MET
+### (added): RULE (17), THE THREE FAMILIES ((R364)(5)[M2] with the amendment row 3 (7))
+  (added) m5-3, m5-4 and m5-2 in the added list and in the roster at main, in the list`s order at the roster`s foot
+      BEFORE (v1.34.4): BASE: in the list [False, False, False] ; in the roster [False, False, False] -> FAILS
+      AFTER  (v1.34.5): on disk: in the list [True, True, True] ; the roster`s foot True -> PASSES
+      AS WANTED
+
+  free 7407 MB at 2026-11-13T23:54:57Z, the hold 2560 MET
+### (project): RULES (14) AND (16), THE PROJECT SET ((R364)(5)[M2] (b), (d))
+  (project) the Project set at PLACE-papers 3020ac84: by (b) ; by (b) and (d), the cuts with the put`s three-line heads (data/b754_agenda.txt :556)
+      BEFORE (v1.34.4): tools/mirror_project_set.json at BASE: ABSENT, no route -> FAILS
+      AFTER  (v1.34.5): roster.py project: 5709698 ; 4027968 (with this tool`s heads 4028049) -> PASSES
+      AS WANTED
+  (project) at main: every file of the set in the archive, each family once (SPIRAL_MAP.md and its v0.7 one row)
+      AFTER  (v1.34.5): 32 files, not in the archive none, SPIRAL_MAP rows 1 -> AS WANTED
+
+  free 7404 MB at 2026-11-13T23:55:02Z, the hold 2560 MET
+### (cuts): RULE (16), THE PROJECT`S CUTS ((R364)(5)[M2] (d))
+      ### THE CUTS` CONTROLS ((R364)(5)[M2] (d))
+        CONSTRUCTED: FINDINGS` cut keeps the layer to its rule line whole, lists the two headings between it and the last acts by line, and keeps the last acts whole : got (True, ['FINDINGS :9 ## an old entry', 'FINDINGS :11 ## another old entry'], ['## Corrigendum to b734`s record', 'kept body', '## the next entry', 'kept too']) ; wanted (True, ['FINDINGS :9 ## an old entry', 'FINDINGS :11 ## another old entry'], ['## Corrigendum to b734`s record', 'kept body', '## the next entry', 'kept too']) ; AS WANTED
+        CONSTRUCTED: each listed heading read at its ledger line (listed, agreeing) : got (2, 2) ; wanted (2, 2) ; AS WANTED
+        CONSTRUCTED: OPEN_TRAILS` cut keeps the head and the standing items, lists the earlier trails by line, keeps the last ten acts whole : got (['# OPEN_TRAILS', 'head'], ['## Open trails (active)', 'O.1 standing'], ['OPEN_TRAILS :6 ### b724 — lane two, old', 'OPEN_TRAILS :8 ### b734 — lane two, older'], ['### b744 — lane two, kept', 'kept trail']) ; wanted (['# OPEN_TRAILS', 'head'], ['## Open trails (active)', 'O.1 standing'], ['OPEN_TRAILS :6 ### b724 — lane two, old', 'OPEN_TRAILS :8 ### b734 — lane two, older'], ['### b744 — lane two, kept', 'kept trail']) ; AS WANTED
+        CONSTRUCTED: each head says what it is, from which commit, and that a cite is a line of the ledger : got True ; wanted True ; AS WANTED
+        CONSTRUCTED: no `## How findings move` (`## How findings move` read 0 times in FINDINGS, once wanted) : got REFUSED ; wanted REFUSED ; AS WANTED
+        CONSTRUCTED: the last acts` corrigendum heading absent (`## Corrigendum to b734` read 0 times after the layer, once wanted) : got REFUSED ; wanted REFUSED ; AS WANTED
+        CONSTRUCTED: the standing items` heading twice (`## Open trails (active)` read 2 times in OPEN_TRAILS, once wanted) : got REFUSED ; wanted REFUSED ; AS WANTED
+        CONSTRUCTED: the last ten acts` trail heading absent (`### b744 — lane two` read 0 times in OPEN_TRAILS, once wanted) : got REFUSED ; wanted REFUSED ; AS WANTED
+        CONSTRUCTED: a folder inside the relay refused as the cuts` place : got False ; wanted False ; AS WANTED
+        RECORD: at PLACE-papers 3020ac84 for b754, the lines and bytes the [M2] put printed (its lines the cut`s body, its bytes with the put`s three-line head in place of this tool`s; data/b754_agenda.txt :558-:560) : got (3805, 646485, 2115, 423551) ; wanted (3805, 646485, 2115, 423551) ; AS WANTED
+        RECORD: every listed heading read at its ledger line (FINDINGS, OPEN_TRAILS: listed = agreeing) : got (True, True) ; wanted (True, True) ; AS WANTED
+      ### ### **CUTS CONTROLS 11 ; AS WANTED 11 ; ALL AS WANTED.**
+  (cuts) the two cuts written by one standing route from the ledgers at a commit, refusing where a needle is missing
+      BEFORE (v1.34.4): tools/standing/cuts.py at BASE: ABSENT, no route -> FAILS
+      AFTER  (v1.34.5): tools/standing/cuts.py on disk: CUTS CONTROLS 11 ; AS WANTED 11 ; ALL AS WANTED -> PASSES
+      AS WANTED
+
+  free 7406 MB at 2026-11-13T23:55:02Z, the hold 2560 MET
+### (builder): RULES (15) AND (16), THE BUILDER`S TWO CALLS (tools/mirror_build.ps1)
+  (builder) PowerShell`s own parser over the builder: errors
+      BEFORE (v1.34.4): at BASE: 0 -> (the same at both is wanted)
+      AFTER  (v1.34.5): on disk: 0 -> PASSES
+      AS WANTED
+  (builder) the Project set printed under MANIFEST`s table ; the two cuts written beside the archive
+      BEFORE (v1.34.4): at BASE: [False, False] -> FAILS
+      AFTER  (v1.34.5): on disk: [True, True] -> PASSES
+      AS WANTED
+  (builder) every line of the builder at BASE stands on disk (the change adds lines and removes none)
+      BEFORE (v1.34.4): lines at BASE 138 -> (the same at both is wanted)
+      AFTER  (v1.34.5): lines on disk 150 ; lines of BASE not on disk 0 -> PASSES
+      AS WANTED
+
+  free 7404 MB at 2026-11-13T23:55:02Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.4): v1.34.4 -> FAILS
+      AFTER  (v1.34.5): v1.34.5 -> PASSES
+      AS WANTED
+
+### per change: (current) 9 of 9 ; (added) 1 of 1 ; (project) 2 of 2 ; (cuts) 1 of 1 ; (builder) 3 of 3 ; (version) 1 of 1
+### ### **v1.34.5: CONTROLS (current), (added), (project), (cuts), (builder), (version) ; CASES 17 ; AS WANTED 17 ; ALL AS WANTED.**

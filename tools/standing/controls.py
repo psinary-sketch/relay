@@ -276,11 +276,11 @@ def lines_v11(L, case, cur, act, prev):
     if names is None:
         case('3iii', 'RECORD', '%s`s export %s' % (prev, zp), 'ABSENT', 'PRESENT')
     else:
-        c_new, _m = MV.clause3(names, paths=RO.roster_at(bhead), source='roster_at')
+        c_new, _m = MV.clause3(names, paths=RO.roster_at(bhead, act=prev), source='roster_at')
         c_old, _m = MV.clause3(names)
         case('3iii', 'RECORD', '%s`s export at clause 3: the builder`s roster from main at its source head CLEAN ; the base roster alone (the old route)' % prev,
              (c_new, c_old), (True, False))
-        c_bad, _m = MV.clause3(names + ['A_FILE_THE_ROSTER_LACKS.md'], paths=RO.roster_at(bhead), source='roster_at')
+        c_bad, _m = MV.clause3(names + ['A_FILE_THE_ROSTER_LACKS.md'], paths=RO.roster_at(bhead, act=prev), source='roster_at')
         case('3iii', 'CONSTRUCTED', 'the same export with a file the roster lacks: NOT CLEAN', c_bad, False)
     # (3iv) the answers route reads every word
     ws = WO.words(ans)

@@ -128,9 +128,21 @@ $man += "|:--|--:|:--|:--|:--|"
 foreach ($row in $rows) {
   $man += "| $($row.file) | $($row.bytes) | ``$($row.md5)`` | $($row.version) | $($row.commit) |"
 }
+# ### b754, (R364)(5)[M2] (c), rule (15) of relay data/b754_rules.txt: THE PROJECT SET printed under the table by
+# ### tools\standing\roster.py project at the build's source head, each file's bytes and both totals (rules (14) and (16)).
+# ### Its rows carry no md5 column, so the verifier's row matcher (tools\mirror_verify.py ROW) reads none of them.
+$projLines = & python -X utf8 $rosterTool project $head
+if ($LASTEXITCODE -ne 0) { throw "THE PROJECT SET WAS NOT READ ($rosterTool project $head, exit $LASTEXITCODE). Refusing to build." }
+$man += $projLines
 $man -join "`n" | Out-File (Join-Path $stage 'MANIFEST.md') -Encoding utf8
 
 $zip = "D:\MY-DOwnloads\mirror-refresh-$DateTag.zip"
+# ### b754, (R364)(5)[M2] (d), rule (16): THE PROJECT'S TWO CUTS of FINDINGS and OPEN_TRAILS, written beside the archive by
+# ### tools\standing\cuts.py from the ledgers at the build's source head, edited by no hand; the ledgers stand whole in the zip.
+$cutTool = Join-Path $PSScriptRoot 'standing\cuts.py'
+$cutDir = $zip -replace '\.zip$', '-cuts'
+& python -X utf8 $cutTool write $cutDir $head
+if ($LASTEXITCODE -ne 0) { throw "THE PROJECT'S CUTS WERE NOT WRITTEN ($cutTool write $cutDir $head, exit $LASTEXITCODE). Refusing to build." }
 if (Test-Path $zip) { Remove-Item $zip -Force }
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip -CompressionLevel Optimal
 Write-Host "built: $zip"

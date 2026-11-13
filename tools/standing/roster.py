@@ -15,6 +15,16 @@ for the author's ruling. The excluded archive kinds, the flat names and MANIFEST
   python -X utf8 tools/standing/roster.py json       the roster as JSON {files: [...]}, for the builder (tools/mirror_build.ps1)
   python -X utf8 tools/standing/roster.py control    the rule's controls, record and constructed; prints
   python -X utf8 tools/standing/roster.py bank       print's lines and the controls, banked as data/<act>_roster.txt
+  python -X utf8 tools/standing/roster.py project [<rev>]   the Project set's lines for the builder's MANIFEST (v1.34.5, rules (14)-(16))
+
+v1.34.5, (R364)(5)[M2], passed by the author 2026-11-13 at the put relay data/b754_put_7.json (data/b754_author_answers.txt :153; the
+rules data/b754_rules.txt (13)-(17)). (a) THE CURRENT EDITION, rule (13): from b754's mirror on, each family the roster carries is
+carried by its current edition alone, the file on main whose own version line is the highest in the family, whatever its filename; a
+family where a file's version line is not read, or two share the highest, stays as the rule above carries it, printed UNDECIDED. The
+current edition takes the slot of the family's first carried path, so no other slot moves. A build of an act before b754 is read as it
+was built (roster_at's `act`). (b) THE PROJECT SET, rule (14): tools/mirror_project_set.json, a list of its own, each path read as its
+family's current edition. (c) rule (15): the `project` route prints the set under the builder's MANIFEST table, each file's bytes and
+the total; by rule (16) the two cuts of tools/standing/cuts.py stand in place of FINDINGS.md whole, both totals printed.
 """
 import json
 import os
@@ -49,13 +59,18 @@ def base():
         return [norm(p) for p in json.load(f)['files']]
 
 
-def added():
+def added(act=None):
     """b753, (R363)(6)[M1], passed by the author 2026-11-11 (data/b753_rules.txt (1)): the families added by a ruling, a list of its own beside
-    the base roster, which stays unedited. [] where the list does not stand."""
+    the base roster, which stays unedited. [] where the list does not stand. v1.34.5: the entries carried from the mirror of `act` (default
+    the current act), each read by the list's `added_at` (an entry it does not name added at b753), so a replay of an earlier build reads the
+    list as that act built it."""
     if not os.path.isfile(ADDED):
         return []
     with open(ADDED, encoding='utf-8') as f:
-        return [norm(p) for p in json.load(f)['files']]
+        j = json.load(f)
+    at = j.get('added_at') or {}
+    n = act_number(act)
+    return [norm(p) for p in j['files'] if act_number(at.get(p, 'b753')) <= n]
 
 
 def main_tree(rev='main'):
@@ -64,10 +79,158 @@ def main_tree(rev='main'):
     return [p for p in out.split(NL) if p.strip()]
 
 
-def roster_at(rev='main'):
+def roster_at(rev='main', act=None):
     """the roster the builder reads, from the base roster's families and PLACE-papers' tree at `rev` (the class repair (3)(iii): the
-    mirror's verifier reads this roster, at the source head the build's MANIFEST declares, not the base roster alone)."""
-    return resolve(base(), main_tree(rev), added())[0]
+    mirror's verifier reads this roster, at the source head the build's MANIFEST declares, not the base roster alone). v1.34.5: for a
+    build of `act` (default the current act) from b754 on, the current edition of rule (13) applied."""
+    tree = main_tree(rev)
+    r = resolve(base(), tree, added(act))[0]
+    return apply_current(r, tree, rev)[0] if current_rule(act) else r
+
+
+# ================================================================================ v1.34.5, (R364)(5)[M2] (a) to (c), b754
+PROJECT = os.path.join(A.T, 'mirror_project_set.json')
+CURRENT_FROM = 754   # ### rule (13) of data/b754_rules.txt: in force from b754's mirror
+# ### a file's own version line, as the [M2] put read it (tools/b754_agenda.py :84-:88 at relay d6d6f88e): the first 40 lines' version
+# ### line, else the file's first edition note "*v<n>.<n>[.<n>], <date>" at any line
+VREAD = [re.compile(r'^\W{0,4}v(\d+(?:\.\d+)+)\b'), re.compile(r'(?i)^\W{0,4}version\W{0,6}v?(\d+(?:\.\d+)+)\b'),
+         re.compile(r'^#{1,3}\s.*?\bv(\d+(?:\.\d+)+)\b')]
+EDNOTE = re.compile(r'^\*v(\d+(?:\.\d+)+), 20\d\d-')
+
+
+def act_number(act=None):
+    a = act or A.current()['act']
+    m = re.match(r'^b(\d+)$', a)
+    if not m:
+        raise SystemExit('### THE ACT %r NOT READ AS b<N>' % a)
+    return int(m.group(1))
+
+
+def current_rule(act=None):
+    return act_number(act) >= CURRENT_FROM
+
+
+def version_of(text_lines):
+    """(line, version tuple) of a file's own version line, or (None, None)."""
+    for k, l in enumerate(text_lines[:40], 1):
+        for rx in VREAD:
+            m = rx.match(l)
+            if m:
+                return k, tuple(int(x) for x in m.group(1).split('.'))
+    for k, l in enumerate(text_lines, 1):
+        m = EDNOTE.match(l)
+        if m:
+            return k, tuple(int(x) for x in m.group(1).split('.'))
+    return None, None
+
+
+def text_at(rev, path):
+    b = A.blob(rev, path, 'pp')
+    return None if b is None else b.decode('utf-8', 'replace').replace('\r', '').split(NL)
+
+
+def current_editions(r, tree, rev, reader=None):
+    """for each family of the roster `r`: (family, candidates on the tree, carried, {path: (line, version)}, current or None, why). The
+    current edition is the one candidate where the family has one; else the candidate whose own version line is the highest, every
+    candidate's line read and no two sharing the highest; else None, the family undecided. `reader(path)` gives a file's lines (default
+    its blob at `rev`)."""
+    reader = reader or (lambda p: text_at(rev, p) or [])
+    fams = []
+    for p in r:
+        if family(p) not in fams:
+            fams.append(family(p))
+    md = [p for p in tree if p.endswith('.md')]
+    rows = []
+    for f in fams:
+        cands = sorted(p for p in md if family(p) == f)
+        present = [p for p in r if family(p) == f]
+        vers = dict((p, version_of(reader(p))) for p in cands) if len(cands) > 1 else {}
+        if len(cands) == 1:
+            cur, why = cands[0], 'one file'
+        elif cands and all(vers[p][1] for p in cands):
+            top = max(vers[p][1] for p in cands)
+            best = [p for p in cands if vers[p][1] == top]
+            cur, why = (best[0], 'its own version line above every other of the family') if len(best) == 1 else (
+                None, 'a tie at v%s: %s' % ('.'.join(map(str, top)), ', '.join(best)))
+        else:
+            cur, why = None, ('no version line read in %s' % ', '.join(p for p in cands if not vers[p][1])) if cands else 'no file on the tree'
+        rows.append((f, cands, present, vers, cur, why))
+    return rows
+
+
+def apply_current(r, tree, rev, reader=None):
+    """the roster `r` with rule (13) applied: each decided family carried by its current edition at its first slot; (roster, rows)."""
+    rows = current_editions(r, tree, rev, reader)
+    cur = dict((f, c) for f, _c, _p, _v, c, _w in rows if c)
+    out, seen = [], set()
+    for p in r:
+        f = family(p)
+        if f in cur:
+            if f not in seen:
+                seen.add(f)
+                out.append(cur[f])
+        else:
+            out.append(p)
+    return out, rows
+
+
+def project_list():
+    with open(PROJECT, encoding='utf-8') as f:
+        return [norm(p) for p in json.load(f)['files']]
+
+
+def size_at(rev, path):
+    s = A.gs('pp', 'cat-file', '-s', '%s:%s' % (rev, path))
+    return int(s) if s and s.isdigit() else None
+
+
+def project(rev='main', act=None, with_cuts=True):
+    """the Project set at `rev` (rules (14) and (16)): rows [(name, bytes, note)], the total by (b), the total by (b) and (d), the cuts`
+    figures and their meta."""
+    tree = main_tree(rev)
+    r0 = resolve(base(), tree, added())[0]
+    rr, rows_c = (apply_current(r0, tree, rev) if current_rule(act) else (r0, []))
+    cur = dict((f, c) for f, _c, _p, _v, c, _w in rows_c if c)
+    rows, seen = [], set()
+    for p in project_list():
+        if p == 'MANIFEST':
+            rows.append(('MANIFEST', None, 'the build`s own'))
+            continue
+        q = cur.get(family(p), p)
+        if q in seen:
+            continue
+        seen.add(q)
+        rows.append((q, size_at(rev, q), ('the current edition of %s' % p if q != p else 'in the archive') if q in rr else '### NOT IN THE ARCHIVE'))
+    by_b = sum(b for _n, b, _w in rows if b)
+    fig, meta, cut_rows = [], {}, []
+    if with_cuts:
+        import cuts as CU
+        cuts, fig, meta = CU.build(rev, act)
+        cut_rows = [(n, CU.nbytes(cuts[n]), 'rule (16), beside the archive') for n in CU.NAMES]
+    f_b = next((b for n, b, _w in rows if n == 'FINDINGS.md'), 0) or 0
+    by_bd = by_b - f_b + sum(b for _n, b, _w in cut_rows) if with_cuts else None
+    return rows, by_b, by_bd, cut_rows, fig, meta
+
+
+def project_lines(rev='main', act=None):
+    rows, by_b, by_bd, cut_rows, fig, _m = project(rev, act)
+    head = A.gs('pp', 'rev-parse', '--short=8', rev)
+    L = ['', '## THE PROJECT SET', '',
+         'Rules (14) to (16) of relay data/b754_rules.txt ((R364)(5)[M2]): tools/mirror_project_set.json read by tools/standing/roster.py at '
+         'PLACE-papers `%s`, each path as its family`s current edition; by rule (16) the two cuts stand in place of FINDINGS.md whole.' % head, '',
+         '| Project file | bytes | note |', '|:--|--:|:--|']
+    for n, b, w in rows:
+        if n == 'FINDINGS.md' and cut_rows:
+            w = 'in the archive whole; in the Project set by its cut (rule (16))'
+        L.append('| %s | %s | %s |' % (n, '-' if b is None else b, w))
+    for n, b, w in cut_rows:
+        L.append('| %s | %d | %s |' % (n, b, w))
+    L += ['', 'THE PROJECT SET`S TOTAL, MANIFEST apart: by rule (14) %d bytes ; by rules (14) and (16), the two cuts in place of FINDINGS.md whole, '
+          '%s bytes. Read beside the Project`s capacity by the navigator at every refresh (rule (15)).' % (by_b, by_bd if by_bd is not None else '-')]
+    miss = [n for n, _b, w in rows if w.startswith('###')]
+    if miss:
+        L.append('### NOT IN THE ARCHIVE: %s' % ', '.join(miss))
+    return L + [''] + ['    ' + x for x in fig]
 
 
 def build_joins(act):
@@ -111,12 +274,36 @@ def resolve(b, tree, add=None):
     return kept + [j[0] for j in joins], joins, leaves, nj
 
 
-def print_lines(b=None, tree=None):
+def vtxt(vers, p):
+    k, v = vers.get(p, (None, None))
+    return ('its own line v%s at :%d' % ('.'.join(map(str, v)), k)) if v else 'its own line not read'
+
+
+def current_lines(rows, r):
+    """v1.34.5: the lines rule (13) adds to the print, each family by its current edition or UNDECIDED."""
+    dec = [x for x in rows if x[4]]
+    und = [x for x in rows if not x[4] and len(x[1]) > 1]
+    L = ['### THE CURRENT EDITION (rule (13) of data/b754_rules.txt; (R364)(5)[M2] (a)), from b754`s mirror on: families %d ; decided %d '
+         '(one file %d) ; undecided %d ; the roster %d entries' % (len(rows), len(dec), sum(1 for x in dec if len(x[1]) == 1), len(und), len(r))]
+    for f, cands, present, vers, cur, why in dec:
+        if len(cands) < 2:
+            continue
+        if cur not in present:
+            L.append('  JOINS BY EDITION %s  (family %s ; %s ; %s)' % (cur, f, vtxt(vers, cur), why))
+        for p in present:
+            if p != cur:
+                L.append('  LEAVES BY EDITION %s  (family %s ; %s ; the current edition %s)' % (p, f, vtxt(vers, p), cur))
+    for f, cands, present, vers, cur, why in und:
+        L.append('  UNDECIDED %s  (%s ; carried as the rule of data/b715_rules.txt (1) carries it: %s)' % (f, why, ', '.join(present)))
+    return L
+
+
+def print_lines(b=None, tree=None, act=None, rev='main'):
     b = base() if b is None else b
-    tree = main_tree() if tree is None else tree
+    tree = main_tree(rev) if tree is None else tree
     ad = added()
     r, joins, leaves, nj = resolve(b, tree, ad)
-    head = A.gs('pp', 'rev-parse', '--short', 'main')
+    head = A.gs('pp', 'rev-parse', '--short', rev)
     L = ['### THE ROSTER READ FROM PLACE-papers MAIN %s BY FAMILY (the roster rule of the rules bank): the base roster (tools/mirror_roster.json) '
          '%d entries in %d families ; the roster %d entries' % (head, len(b), len(set(family(p) for p in b)), len(r))]
     if ad:
@@ -127,6 +314,9 @@ def print_lines(b=None, tree=None):
     L += ['  JOINS %s  (family %s ; %s)' % (p, f, why) for p, f, why in joins] or ['  JOINS none']
     L += ['  LEAVES %s  (%s)' % (p, why) for p, why in leaves] or ['  LEAVES none']
     L += ['  NOT JOINED %s  (family %s ; %s)' % (p, f, why) for p, f, why in nj]
+    if current_rule(act):
+        r, rows = apply_current(r, tree, rev)
+        L += current_lines(rows, r)
     plus, removed = sorted(set(r) - set(b)), sorted(set(b) - set(r))
     L.append('### THE DIFF AGAINST THE BASE ROSTER (tools/mirror_roster.json, lastChanged %s): added %d %s ; removed %d %s' % (
         json.load(open(BASE, encoding='utf-8')).get('lastChanged'),
@@ -181,7 +371,10 @@ def control_lines():
     return out, all(res)
 
 
-def main(route):
+def main(route, rev='main'):
+    if route == 'project':
+        print(NL.join(project_lines(rev)))
+        return 0
     if route == 'json':
         _L, r = print_lines()
         if not r:
@@ -206,4 +399,4 @@ def main(route):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'print'))
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else 'print', sys.argv[2] if len(sys.argv) > 2 else 'main'))
