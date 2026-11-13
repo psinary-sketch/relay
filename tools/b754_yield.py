@@ -7,7 +7,8 @@
       split NOT A ROW OF ITS OWN -- no figure estimated.
   (B) from the arm-seconds and suite banks of b753: each part's seconds by pass, int() of the run's seconds as each part bank's summary
       line prints it (tools/standing/fold/checks.tpl :2364), the figure the arm-seconds banks carry (:2388); amended after the opening
-      control run read the rounded "the run took N s" (:2360) against the floored :93 and printed NOT AS WANTED (data/b754_defects.txt (h')).
+      control run read the rounded "the run took N s" (:2360) against the floored :93 and printed NOT AS WANTED (data/b754_defects.txt (h'));
+      amended again after the second run read the int() for 2 parts of 10, the summary matcher taking a list and not NONE ((i')).
   (C) from the suite banks of b724 to b753, by pass -- the arms' pre-run (data/<act>_arms_prerun_<part>.txt), the run before the push
       (data/<act>_checks_<part>.txt), the run after it (data/<act>_checks_postpush_<part>.txt), the previous act's mode
       (data/<act>_prevrun_<part>.txt): an arm reads failing in a pass where its LIVE column reads FAIL in a part bank of that pass; for each
@@ -21,8 +22,9 @@
       whether a later act's tracked tool names one of its files by its whole name; nothing removed, no file name printed.
 
 Controls: (A) b753's component spans whose two ends are step rows, recomputed equal to data/b753_dayend.txt's; (B) b753's pre-run part
-seconds equal to data/b753_arm_seconds.txt :93; (C) the row reader agreeing with each part bank's own LIVE FAILING list, and a planted
-failing row counted; (D) a planted refusal line counted, b753's lines 39; (E) each carry head equal to its diff body; (F) a planted name
+seconds equal to data/b753_arm_seconds.txt :93; (C) the row reader agreeing with each part bank's own LIVE FAILING list, the summary
+matcher's yield (every line with a summary's head taken), a planted failing row counted, and a planted FAIL row in a bank whose summary
+prints NONE read as a disagreement; (D) a planted refusal line counted, b753's lines 39; (E) each carry head equal to its diff body; (F) a planted name
 classified. argv: control | run."""
 import io, json, os, re, subprocess, sys, datetime
 R = r'D:\relay'
@@ -34,7 +36,8 @@ ACTS_C = ['b%d' % n for n in range(724, 754)]
 PASSES = [('pre-run', 'arms_prerun'), ('pre-push', 'checks'), ('post-push', 'checks_postpush'), ('prev-mode', 'prevrun')]
 PART = re.compile(r'^(act|standing-[a-z0-9]+)$')
 ROW = re.compile(r'^  (G-[A-Z0-9-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+([0-9.]+)\s+(.*)$')
-SUMMARY = re.compile(r'^  ### PART (\S+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\])')
+SUMMARY = re.compile(r'^  ### PART (\S+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\]|NONE)')   # ### NONE where no arm fails (b754 (i'))
+SUMHEAD = re.compile(r'^  ### PART \S+ : ARMS ')   # ### a summary line's head, its yield beside SUMMARY's (b754 (i'))
 TOOK = re.compile(r'^  ### the run took (\d+) s')   # ### %.0f of the run's seconds (tools/standing/fold/checks.tpl :2360), printed beside
 INTSECS = re.compile(r'^  ### PART \S+ : .* ; (\d+) s ; WITHHELD')   # ### int() of the same seconds (checks.tpl :2364), as the arm-seconds banks (:2388)
 T = lambda s: datetime.datetime.strptime(s, '%Y-%m-%dT%H:%M:%SZ')   # noqa: E731
@@ -124,12 +127,12 @@ def read_part(text):
         if m:
             rows[m.group(1)] = m.group(2)
             continue
+        mi = INTSECS.match(l)   # ### read on every line, apart from SUMMARY (b754 (i'))
+        if mi:
+            isecs = int(mi.group(1))
         m = SUMMARY.match(l)
         if m:
-            summ = (m.group(1), int(m.group(4)), json.loads(m.group(5)))
-            mi = INTSECS.match(l)
-            if mi:
-                isecs = int(mi.group(1))
+            summ = (m.group(1), int(m.group(4)), [] if m.group(5) == 'NONE' else json.loads(m.group(5)))
             continue
         m = TOOK.match(l)
         if m:
@@ -137,9 +140,27 @@ def read_part(text):
     return rows, summ, (isecs, took)
 
 
+def summary_yield(text):
+    """(summary lines SUMMARY takes, lines with a summary's head it does not take): the matcher's yield, printed beside its count."""
+    heads = [l for l in text.split(NL) if SUMHEAD.match(l)]
+    taken = sum(1 for l in heads if SUMMARY.match(l))
+    return taken, len(heads) - taken
+
+
+def compare(text):
+    """one part bank: (summary read, agreeing, the arms where the rows and the summary's list differ)."""
+    rows, summ, _ = read_part(text)
+    f = set(a for a, live in rows.items() if live == 'FAIL')
+    if summ is None:
+        return False, False, []
+    ok = set(summ[2]) == f and summ[1] == len(f)
+    return True, ok, sorted(f ^ set(summ[2]))
+
+
 def read_pass(act, prefix):
     parts = parts_of(act, prefix)
     fails, secs, rounded, agree, disagree, raw = set(), {}, {}, 0, [], {}
+    taken, untaken, nosum = 0, 0, []
     for p in parts:
         name = '%s_%s_%s.txt' % (act, prefix, p)
         if not tracked('data/' + name):
@@ -151,12 +172,18 @@ def read_pass(act, prefix):
         fails |= f
         secs[p] = took[0]
         rounded[p] = took[1]
-        if summ is not None:
-            if set(summ[2]) == f and summ[1] == len(f):
-                agree += 1
-            else:
-                disagree.append((name, sorted(f ^ set(summ[2]))))
-    return dict(parts=sorted(raw), fails=fails, secs=secs, rounded=rounded, agree=agree, disagree=disagree, raw=raw)
+        y = summary_yield(t)
+        taken += y[0]
+        untaken += y[1]
+        read, ok, diff = compare(t)
+        if not read:
+            nosum.append(name)
+        elif ok:
+            agree += 1
+        else:
+            disagree.append((name, diff))
+    return dict(parts=sorted(raw), fails=fails, secs=secs, rounded=rounded, agree=agree, disagree=disagree, raw=raw,
+                taken=taken, untaken=untaken, nosum=nosum)
 
 
 def control_b():
@@ -173,17 +200,42 @@ def control_b():
 
 def control_c():
     out, ok, n = [], 0, 0
-    tot_agree, tot_dis = 0, []
+    tot_agree, tot_dis, banks, taken, untaken, nosum = 0, [], 0, 0, 0, []
     for act in ACTS_C:
         for _pn, prefix in PASSES:
             r = read_pass(act, prefix)
             tot_agree += r['agree']
             tot_dis += r['disagree']
+            banks += len(r['parts'])
+            taken += r['taken']
+            untaken += r['untaken']
+            nosum += r['nosum']
     n += 1
     good = not tot_dis
     ok += good
     out.append('  (C) the row reader against each part bank`s own LIVE FAILING list, b724 to b753, every pass: agreeing %d ; disagreeing %d %s : %s' % (
         tot_agree, len(tot_dis), tot_dis[:3], 'AS WANTED' if good else '### NOT AS WANTED'))
+    n += 1
+    good = untaken == 0
+    ok += good
+    out.append('  (C) THE SUMMARY MATCHER`S YIELD (b754 (i`)): part banks read %d ; summary lines taken %d ; lines with a summary`s head not taken %d (wanted 0) ; '
+               'banks compared %d ; banks with no summary line %d %s, printed for the hand read and no condition : %s' % (
+                   banks, taken, untaken, tot_agree + len(tot_dis), len(nosum), nosum[:3], 'AS WANTED' if good else '### NOT AS WANTED'))
+    t = rd('b753_arms_prerun_standing-c.txt')
+    m = re.search(r'(?m)^  (G-[A-Z0-9-]+\s+)PASS', t)
+    sm = re.search(r'(?m)^  ### PART standing-c : .*LIVE FAILING 0 NONE', t)
+    n += 1
+    if m and sm:
+        planted = t[:m.start()] + '  ' + m.group(1) + 'FAIL' + t[m.end():]
+        b, p = compare(t), compare(planted)
+        good = b[0] and b[1] and p[0] and not p[1] and p[2] == [m.group(1).strip()]
+        out.append('  (C) a planted FAIL row in a bank whose summary prints NONE (b753`s pre-run standing-c, %s): read %s, agreeing %s -> read %s, agreeing %s, '
+                   'differing %s : %s' % (m.group(1).strip(), b[0], b[1], p[0], p[1], p[2], 'AS WANTED' if good else '### NOT AS WANTED'))
+    else:
+        good = False
+        out.append('  (C) a planted FAIL row in a bank whose summary prints NONE: the bank`s row or its NONE summary not found (row %s, summary %s) : ### NOT AS WANTED' % (
+            bool(m), bool(sm)))
+    ok += good
     t = rd('b753_checks_act.txt')
     m = re.search(r'(?m)^  (G-DRY-STEP-CLEAN\s+)PASS', t)
     planted = t[:m.start()] + '  ' + m.group(1) + 'FAIL' + t[m.end():]
@@ -327,9 +379,21 @@ def figures():
         allp[pn] = read_pass('b753', prefix)
     parts = sorted(set(p for r in allp.values() for p in r['secs']))
     L.append('  %-14s %s' % ('part', '  '.join('%10s' % pn for pn, _ in PASSES)))
+    def cell(pn, p):   # ### int() from the summary line; where it carries none, the rounded "the run took" marked ~ (b754 (i'))
+        r = allp[pn]
+        if r['secs'].get(p) is not None:
+            return r['secs'][p], ''
+        if r['rounded'].get(p) is not None:
+            return r['rounded'][p], '~'
+        return None, '-'
     for p in parts:
-        L.append('  %-14s %s' % (p, '  '.join('%10s' % (allp[pn]['secs'].get(p) if allp[pn]['secs'].get(p) is not None else '-') for pn, _ in PASSES)))
-    L.append('  %-14s %s' % ('a pass', '  '.join('%10d' % sum(v for v in allp[pn]['secs'].values() if v) for pn, _ in PASSES)))
+        L.append('  %-14s %s' % (p, '  '.join('%10s' % (('%d%s' % c) if c[0] is not None else '-') for c in (cell(pn, p) for pn, _ in PASSES))))
+    sums = []
+    for pn, _ in PASSES:
+        cs = [cell(pn, p) for p in parts]
+        sums.append('%d%s' % (sum(c[0] for c in cs if c[0] is not None), '~' if any(c[1] == '~' for c in cs) else ''))
+    L.append('  %-14s %s' % ('a pass', '  '.join('%10s' % s for s in sums)))
+    L.append('  (a figure marked ~ is the rounded "the run took" of a part whose summary line carries no int(); a pass`s sum marked ~ holds one; - no bank)')
     L += ['', '## (C) THE PASSES` FAILURES, b724 TO b753 (an arm failing where its LIVE column reads FAIL in a part bank of the pass)',
           '## per act: each pass`s failing arms counted, and those no other pass of the act printed, by name']
     per = {}

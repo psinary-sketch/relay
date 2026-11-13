@@ -71,3 +71,14 @@ b754 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
      OF 22, (B) NOT AS WANTED, five parts 1 s apart, summed 3,119 against 3,114. No figure was printed or banked: the generator refuses its
      figures below its controls. Amended to read int() from each part's summary line (checks.tpl :2364), the rounded figure printed beside
      it as no control, and committed before the next run.
+    (i') THE SEAT'S [CLOSE ; REPEAT b754 (y)]: THE YIELD GENERATOR'S SUMMARY MATCHER TOOK ONE FORM OF TWO, AND (h')'S AMENDMENT READ THE
+     SECONDS ONLY THROUGH IT. tools/b754_yield.py's SUMMARY (:37, at a7c350b3 and at a4aedeef) takes a part bank's summary line only where
+     a list follows "LIVE FAILING n"; a part with no failing arm prints "LIVE FAILING 0 NONE" (data/b753_arms_prerun_standing-c.txt :37),
+     which it does not take. (h')'s amendment read INTSECS inside SUMMARY's branch, so the amended run (19:28:21Z) read int() seconds for
+     2 of b753's 10 pre-run parts (act and standing-a2, the two whose summary carries a list) and None for 8, and printed CONTROLS 21 OF
+     22, (B) NOT AS WANTED, no figure and nothing written. The same predicate narrowed (C)'s control from a7c350b3 on: its 228 agreeing are
+     the part banks whose summary carries a list; a bank printing NONE was never compared, and the count was printed without its yield.
+     Amended before the next run: SUMMARY taking the list or NONE (NONE read as no arm); INTSECS read on every line, apart from SUMMARY;
+     (C) printing the reader's yield (part banks read, summary lines taken, lines opening with a part's summary head not taken, wanted 0)
+     beside a planted bank printing NONE with one FAIL row, read as a disagreement; and the trailing "~" of read_part's docstring, for a
+     part with no int() figure, written into (B)'s table, which named it and did not print it.
