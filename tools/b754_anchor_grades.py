@@ -355,7 +355,7 @@ def compose(gen, head_pp):
     L += ['', '## THE 21 ROWS OF data/b753_anchors.txt NAMING A DOCUMENT IN NO TREE, AND THE SHELVES` LISTING OF (4)(iii)',
           '  the shelves` listing of (4)(iii) %s (data/%s_ceiling.txt %s): %s' % (
               'is CARRIED by the ceiling to an act after the walk and the build' if carried else '### is not read as carried',
-              ACT, ', '.join(':%d' % i for i in ci + ca) or 'no line',
+              ACT, ', '.join(':%d' % i for i in sorted(set(ci + ca))) or 'no line',
               'no listing stands to seek in and none is put in its place; each name below waits for that listing, NOT SOUGHT' if carried else 'the halt stands')]
     names_all = []
     heads = {}
