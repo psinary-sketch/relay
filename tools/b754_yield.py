@@ -5,7 +5,9 @@
       before the lock whose subject names the INTEGRATION line), from there to the lock (the row of phase lock), and from the lock to the
       closing (the row of phase closing); where no row before the lock names the line, the opening-to-lock span is printed whole and its
       split NOT A ROW OF ITS OWN -- no figure estimated.
-  (B) from the arm-seconds and suite banks of b753: each part's seconds by pass, read from each part bank's own line "the run took N s".
+  (B) from the arm-seconds and suite banks of b753: each part's seconds by pass, int() of the run's seconds as each part bank's summary
+      line prints it (tools/standing/fold/checks.tpl :2364), the figure the arm-seconds banks carry (:2388); amended after the opening
+      control run read the rounded "the run took N s" (:2360) against the floored :93 and printed NOT AS WANTED (data/b754_defects.txt (h')).
   (C) from the suite banks of b724 to b753, by pass -- the arms' pre-run (data/<act>_arms_prerun_<part>.txt), the run before the push
       (data/<act>_checks_<part>.txt), the run after it (data/<act>_checks_postpush_<part>.txt), the previous act's mode
       (data/<act>_prevrun_<part>.txt): an arm reads failing in a pass where its LIVE column reads FAIL in a part bank of that pass; for each
@@ -33,7 +35,8 @@ PASSES = [('pre-run', 'arms_prerun'), ('pre-push', 'checks'), ('post-push', 'che
 PART = re.compile(r'^(act|standing-[a-z0-9]+)$')
 ROW = re.compile(r'^  (G-[A-Z0-9-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+([0-9.]+)\s+(.*)$')
 SUMMARY = re.compile(r'^  ### PART (\S+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\])')
-TOOK = re.compile(r'^  ### the run took (\d+) s')
+TOOK = re.compile(r'^  ### the run took (\d+) s')   # ### %.0f of the run's seconds (tools/standing/fold/checks.tpl :2360), printed beside
+INTSECS = re.compile(r'^  ### PART \S+ : .* ; (\d+) s ; WITHHELD')   # ### int() of the same seconds (checks.tpl :2364), as the arm-seconds banks (:2388)
 T = lambda s: datetime.datetime.strptime(s, '%Y-%m-%dT%H:%M:%SZ')   # noqa: E731
 H = lambda a, b: round((T(b) - T(a)).total_seconds() / 3600, 2)   # noqa: E731
 
@@ -113,7 +116,9 @@ def tracked(path):
 
 
 def read_part(text):
-    rows, summ, took = {}, None, None
+    """the part bank's arm rows {arm: LIVE}, its summary (part, LIVE FAILING count, list) and its seconds: int() from the summary line, the
+    figure the arm-seconds banks carry, or where the summary carries none the rounded "the run took" (marked by a trailing ~)."""
+    rows, summ, took, isecs = {}, None, None, None
     for l in text.split(NL):
         m = ROW.match(l)
         if m:
@@ -122,16 +127,19 @@ def read_part(text):
         m = SUMMARY.match(l)
         if m:
             summ = (m.group(1), int(m.group(4)), json.loads(m.group(5)))
+            mi = INTSECS.match(l)
+            if mi:
+                isecs = int(mi.group(1))
             continue
         m = TOOK.match(l)
         if m:
             took = int(m.group(1))
-    return rows, summ, took
+    return rows, summ, (isecs, took)
 
 
 def read_pass(act, prefix):
     parts = parts_of(act, prefix)
-    fails, secs, agree, disagree, raw = set(), {}, 0, [], {}
+    fails, secs, rounded, agree, disagree, raw = set(), {}, {}, 0, [], {}
     for p in parts:
         name = '%s_%s_%s.txt' % (act, prefix, p)
         if not tracked('data/' + name):
@@ -141,22 +149,26 @@ def read_pass(act, prefix):
         rows, summ, took = read_part(t)
         f = set(a for a, live in rows.items() if live == 'FAIL')
         fails |= f
-        secs[p] = took
+        secs[p] = took[0]
+        rounded[p] = took[1]
         if summ is not None:
             if set(summ[2]) == f and summ[1] == len(f):
                 agree += 1
             else:
                 disagree.append((name, sorted(f ^ set(summ[2]))))
-    return dict(parts=sorted(raw), fails=fails, secs=secs, agree=agree, disagree=disagree, raw=raw)
+    return dict(parts=sorted(raw), fails=fails, secs=secs, rounded=rounded, agree=agree, disagree=disagree, raw=raw)
 
 
 def control_b():
     head = rd('b753_arm_seconds.txt').split(NL)[92]
     want = dict((p, int(s)) for p, s in re.findall(r'(act|standing-[a-z0-9]+) (\d+) s', head))
-    got = read_pass('b753', 'arms_prerun')['secs']
+    r = read_pass('b753', 'arms_prerun')
+    got = r['secs']
     ok = bool(want) and all(got.get(p) == s for p, s in want.items()) and set(got) == set(want)
-    return ['  (B) b753`s pre-run part seconds by this reader %s ; data/b753_arm_seconds.txt :93 %s ; summed %d and %d : %s' % (
-        sorted(got.items()), sorted(want.items()), sum(v for v in got.values() if v), sum(want.values()), 'AS WANTED' if ok else '### NOT AS WANTED')], int(ok), 1
+    return ['  (B) b753`s pre-run part seconds by this reader, int() from each part`s summary line, %s ; data/b753_arm_seconds.txt :93 %s ; summed %d and %d : %s' % (
+        sorted(got.items()), sorted(want.items()), sum(v for v in got.values() if v), sum(want.values()), 'AS WANTED' if ok else '### NOT AS WANTED'),
+            '  (B) beside it, not a control: the same seconds rounded, each part`s "the run took" line (checks.tpl :2360), %s, summed %d' % (
+                sorted(r['rounded'].items()), sum(v for v in r['rounded'].values() if v))], int(ok), 1
 
 
 def control_c():
@@ -309,7 +321,7 @@ def figures():
         else:
             L.append('  %s  open %s %s -> lock %s %s : %5.2f h, the line`s commit NOT A ROW OF ITS OWN (no row before the lock names it) ; lock -> closing %s : %5.2f h ; open -> closing %5.2f h' % (
                 act, s['open'][0], s['open'][1], s['lock'][0], s['lock'][1], s['open_lock'], s['closing'][0], s['lock_closing'], round(s['open_lock'] + s['lock_closing'], 2)))
-    L += ['', '## (B) b753`S PART SECONDS BY PASS (each part bank`s "the run took N s")']
+    L += ['', '## (B) b753`S PART SECONDS BY PASS (int() of each part`s seconds from its summary line, the arm-seconds banks` figure; the rounded "the run took" differs by 1 s at most)']
     allp = {}
     for pn, prefix in PASSES:
         allp[pn] = read_pass('b753', prefix)
