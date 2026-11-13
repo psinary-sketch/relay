@@ -385,7 +385,27 @@ def control_f():
     ok += good
     out.append('  (F) a kind whose longest piece is under %d characters (tools/_a#.txt, pieces %s) printed BELOW THE FLOOR %s : %s' % (
         FLOOR, ps, cs is None, 'AS WANTED' if good else '### NOT AS WANTED'))
-    return out, ok, len(cases) + len(wcases) + 1
+    stands = os.path.exists(OUT) and not tracked(OWN)
+    listed = OWN in residue_lines()
+    read = OWN in residue_read()
+    good = (not stands or listed) and not read
+    ok += good
+    out.append('  (F) this bank`s own path (%s): stands untracked %s, in git`s listing %s, read as residue %s (wanted False) : %s%s' % (
+        OWN, stands, listed, read, 'AS WANTED' if good else '### NOT AS WANTED',
+        '' if stands else ' -- VACUOUS, the bank not standing untracked, the exclusion not exercised'))
+    return out, ok, len(cases) + len(wcases) + 2
+
+
+OWN = 'data/b754_close_yield.txt'
+
+
+def residue_lines():
+    return [l for l in git('ls-files', '--others', '--exclude-standard', '--directory').split(NL) if l.strip()]
+
+
+def residue_read():
+    """the residue (F) reads: git's listing less this bank's own path, never its own residue (b754 (k'))."""
+    return [l for l in residue_lines() if l != OWN]
 
 
 def tool_texts():
@@ -399,7 +419,7 @@ def tool_texts():
 
 
 def residue():
-    lines = [l for l in git('ls-files', '--others', '--exclude-standard', '--directory').split(NL) if l.strip()]
+    lines = residue_read()
     texts = tool_texts()
     by = {}
     for p in lines:
@@ -524,7 +544,7 @@ def figures():
           '## of whose lines holds the kind`s pieces in order -- the name cut at the act, at each # and at a suite part`s name, as a tool that builds',
           '## the name writes it around its fields; a line that names a kind does not tell its writer from a reader, and a name built across lines',
           '## or from a table is not seen: NONE is no line found, not no writer; BELOW THE FLOOR where the longest piece is under %d characters;' % FLOOR,
-          '## READ LATER: of the kind`s entries, those a later act`s tracked tool names by their whole name']
+          '## READ LATER: of the kind`s entries, those a later act`s tracked tool names by their whole name; this bank`s own path is not read']
     lines, rows = residue()
     tot = 0
     for act, kind, n, stem, writers, later in rows:
