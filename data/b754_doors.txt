@@ -1,0 +1,64 @@
+b754 -- (R364)(4)(vi): EACH DOOR`S CURRENT FOR [B] AND [A5], read at its main or by gh on 2026-11-13
+
+### Written by tools/b754_doors.py at relay 7c0ac36f (the generator committed before its run) at 2026-11-13T20:07:34Z; the descriptions and the remote mains from the captures of
+### this act`s remote reads, one a command, each read in the door`s own clone; the READMEs by `git show main:README.md` in each clone. A bank
+### of this act and no ledger; nothing written to any door. A line naming the account, carrying [Q] row (3)`s word or an identifier is cited
+### by digest and not quoted.
+
+## THE CONTROLS, printed before any figure
+  (1) the remote reads captured, each read today (2026-11-13) with exit 0: 9 of 9 [PLACE-papers description 2026-11-13T20:07:11Z; SIDE-explicit-formula description 2026-11-13T20:07:12Z; SIDE-explicit-formula main 2026-11-13T20:07:14Z; SIDE-kernel description 2026-11-13T20:07:16Z; SIDE-kernel main 2026-11-13T20:07:18Z; SIDE-bsd-multiplicity description 2026-11-13T20:07:19Z; SIDE-bsd-multiplicity main 2026-11-13T20:07:21Z; SIDE-trivium description 2026-11-13T20:07:23Z; SIDE-trivium main 2026-11-13T20:07:25Z] : AS WANTED
+  (2) a planted capture read 2026-11-12T12:00:00Z read as not today: True : AS WANTED
+  (3) the account read from each clone`s remote at run time (not printed): READ ; one account for the five clones True : AS WANTED
+  (4) the withholding reader: a planted line carrying the account withheld by ['the account'] ; a plain line withheld by nothing ; a line carrying an ORCID`s form withheld by ['an identifier (ORCID)'] : AS WANTED
+  (5) [Q] row (3)`s word read from REGISTRY :373 at run time: READ, its length 6, not printed : AS WANTED
+  (6) the phrase [B3] replaces, read from data/b754_ferry.txt at run time: 69 characters : AS WANTED
+  (7) the main comparison: a planted remote main differing from the local main reads ### DIFFERS ; the same main EQUAL ; no remote read ### NOT READ : AS WANTED
+  (8) over this bank`s text: [Q] row (3)`s word 0, the account 0, identifiers by form none (wanted 0, 0, none) : AS WANTED
+
+## THE DOORS, by item
+  [A5] PLACE-papers
+      DESCRIPTION by gh at 2026-11-13T20:07:11Z: "Manuscripts and registry of the PLACE TO STAND programme — the two-leg proof of the Riemann Hypothesis and its cascade (GRH, cosmology Ω_b via Størmer, the Steane/quantum origin, the theory-space constant). The mathematics leg to the SIDE-kernel structure leg."
+  [B1] [B2] SIDE-explicit-formula
+      DESCRIPTION by gh at 2026-11-13T20:07:12Z: "Vendored Lean 4 kernel (PLACE TO STAND): the 57-module local import closure of Zeta23.WeilEF.Main from anthropics/formal-math at v1.0 = 3635e748, byte-identical bodies with per-file attribution headers, Apache 2.0. Branch zq-b730 (14ca5725) carries the Epstein instance, #print axioms-ed on the standard three; main unchanged; see README."
+      README.md at main 8fbab45d ; the remote main 8fbab45d (ls-remote at 2026-11-13T20:07:14Z) : EQUAL
+      the file 153 lines ; the lines [B1] names: :3, :5, :6, :7, :23, :24, :25, :26
+      :3 "**A VENDORED KERNEL. NOTHING IN THIS REPOSITORY IS THIS PROGRAMME'S MATHEMATICS.**"
+      :5 "Every `.lean` body here is a byte-identical copy of a file in `anthropics/formal-math`"
+      :6 "(the `zeta23` formalization) at the pin recorded below. Each carries a prepended"
+      :7 "attribution header and nothing else was changed."
+      :23 "**WHAT IS NOT CLAIMED.** This repository has **no profile**. Nothing here has been built or"
+      :24 "`#print axioms`'d by this programme at the time of its creation, and **no document of the"
+      :25 "corpus cites any terminal in it** until a profile is banked. A vendored copy is not a result,"
+      :26 "a push is not a verification, and a launched build is not a built build."
+  [B3] [B4] SIDE-kernel
+      DESCRIPTION by gh at 2026-11-13T20:07:16Z: "Lean 4 kernel of the PLACE TO STAND two-leg approach to the Riemann Hypothesis: it machine-checks the logical structure (route terminals such as ConservationBridge.riemann_hypothesis on its named premise, and the E-Difficulty SieveCeiling subsystem); the classical mathematics is carried by the companion manuscripts."
+      README.md at main f8534ef2 ; the remote main f8534ef2 (ls-remote at 2026-11-13T20:07:18Z) : EQUAL
+      the file 116 lines ; the lines [B3] names: :3
+      :3 "SIDE-kernel compiles, over Mathlib, the logical structure of a two-leg approach to the Riemann Hypothesis. It holds no unconditional term of type RiemannHypothesis. Statements at 2957e7d:"
+      the phrase [B3] replaces, read from the ferry bank: at :3 1 time(s) ; in the file 1 time(s)
+  [B5] SIDE-lv-conservation: HELD by the amendment row 3 (4) (data/b754_amendments.json row 3); nothing read for a write and nothing written
+  [B6] SIDE-bsd-multiplicity
+      DESCRIPTION by gh at 2026-11-13T20:07:19Z: "Lean 4 kernel for PLACE TO STAND programme. Topic: BSD multiplicity."
+      README.md at main d77ce309 ; the remote main d77ce309 (ls-remote at 2026-11-13T20:07:21Z) : EQUAL
+      the file 118 lines ; the lines [B6], its draft cut from the README`s own head names: :1, :2, :3, :4, :5, :6, :7, :8, :9, :10
+      :1 "# SIDE-bsd-multiplicity v0.1.1"
+      :2 ""
+      :3 "> **⚠ SCAFFOLDING — placement skeleton over stipulated constants (claim-bearing status withdrawn 2026-07-17, work-order W-5).** This kernel records the **shape** of the multiplicity argument; it **derives none of its conclusions**. The conclusion-named `Bool := true` fields (`BSD_stage*_closed`, `framework_bounds_sha`, `same_spec_determines_both`, `sha_finite`, `multiplicity_equals_rank`) are **stipulated placement values**, and each dependent `by decide` theorem certifies the stipulation only. The derive fork (proving BSD) was ruled out; the mathematics lives in the manuscript leg, scoped at `BSD_VIA_FORMATION_TRANSFER v0.1.1`."
+      :4 ""
+      :5 "Kernel verification of the SIDE multiplicity argument for the Birch–Swinnerton-Dyer conjecture, building on the Formation Transfer kernel."
+      :6 ""
+      :7 "## Status"
+      :8 ""
+      :9 "| | |"
+      :10 "|---|---|"
+  [B7] SIDE-trivium
+      DESCRIPTION by gh at 2026-11-13T20:07:23Z: "Lean 4 formalization of the Trivium count-bijection: seven mechanism classes and seven quadratic discriminants have equal count (trivium_theorem). Element-level pairing is convention, not canonical — basis-relative under GL(3,𝔽₂); see the §4 functorial-limit negative."
+      README.md at main 18a351a1 ; the remote main 18a351a1 (ls-remote at 2026-11-13T20:07:25Z) : EQUAL
+      the file 77 lines ; the lines [B7], its draft cut from README :3-:7 names: :3, :4, :5, :6, :7
+      :3 "SIDE-trivium compiles an equivalence between two seven-constructor enumerations. Statements at ec92d62:"
+      :4 ""
+      :5 "    theorem trivium_theorem : Nonempty (MechanismClass ≃ QuadraticDiscriminant) ∧ Fintype.card MechanismClass = 7 ∧ Fintype.card QuadraticDiscriminant = 7 (Trivium/Bijection.lean :256)"
+      :6 ""
+      :7 "Any two seven-element types carry such an equivalence. The enumerations are named for mechanism classes and discriminants; no statement names ξ, a zero, an exclusion or a field, so that they govern off-line zero exclusion is not compiled."
+
+### ### **THE DOORS READ: [A5] AND [B1] TO [B7], [B5] HELD ; REMOTE READS 9 OF 9 TODAY ; CONTROLS 8 OF 8.**
