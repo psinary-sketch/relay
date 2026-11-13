@@ -1,0 +1,89 @@
+b754 -- THE CONTROLS OF tools/standing/ v1.34.3, (R364)(5)[U3] PASSED (2026-11-13T23:01:04Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each change`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2841 lines
+  citation render          OK    563 lines
+  closing render           OK    645 lines
+  record render            OK    5057 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    180 lines
+  tools/b754_worklist.py   OK    490 lines
+### THE COMPILE CONTROL : b754 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 184da293
+
+  free 7401 MB at 2026-11-13T23:01:04Z, the hold 2560 MET
+### (refusals): [U3]`S REFUSALS BY KIND ((R364)(5)[U3])
+      Refusals by the hook before a call ran ([U3]): 16 -- GITWRITE 1, LIMIT 1, PIPE 5, READ 4, REDIR 3, SED 1, WLIST 1; kinds above b753’s count: READ 4 against 3, one event each (relay data/b754_hook_refusals.txt).
+  (refusals) b754`s refusals bank counted by kind, beside b753`s: the reader against an independent split of each row
+      BEFORE (v1.34.2): counter.py at BASE: NO READER, no count by kind -> FAILS
+      AFTER  (v1.34.3): refusal_kinds {'REDIR': 3, 'PIPE': 5, 'SED': 1, 'READ': 4, 'WLIST': 1, 'LIMIT': 1, 'GITWRITE': 1} ; the split {'REDIR': 3, 'PIPE': 5, 'SED': 1, 'READ': 4, 'WLIST': 1, 'LIMIT': 1, 'GITWRITE': 1} ; equal True -> PASSES
+      AS WANTED
+      Refusals by the hook before a call ran ([U3]): 16 -- GITWRITE 1, LIMIT 1, PIPE 5, READ 4, REDIR 3, SED 1, WLIST 1; lettered 14, (b), (g), (h), (i), (l), (m), (n), (o), (p), (q), (r), (u), (w), (g'); kinds above b753’s count: READ 4 against 3, one event each (relay data/b754_hook_refusals.txt).
+  (refusals) the line read from b754`s banks: its lettered clause equal to the defect rows citing the refusals bank
+      BEFORE (v1.34.2): counter.py at BASE: NO LINE -> FAILS
+      AFTER  (v1.34.3): rows citing the bank 14 ; the line prints "lettered 14" True ; "none lettered" printed False -> PASSES
+      AS WANTED
+      THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 1 -- PIPE 1; none lettered; kinds above b754’s count: PIPE 1 against 0, one event each (relay data/b755_hook_refusals.txt).
+      kinds above b754`s count, each named by an event row naming the kind and data/b755_hook_refusals.txt: 0 of 1 ; NOT NAMED: PIPE
+      defect rows citing data/b755_hook_refusals.txt (a refusal given a letter): NONE
+      the act module naming refusals_line( 2 time(s), wanted 2 or more (the entry and the trail)
+      ### [U3] IN FORCE AT b755: NOT CLEAR
+  (refusals) a planted b755: PIPE 1 above b754`s 0, no event naming it
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): the guard NOT CLEAR, wanted NOT CLEAR -> PASSES
+      AS WANTED
+      THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 1 -- PIPE 1; none lettered; kinds above b754’s count: PIPE 1 against 0, one event each (relay data/b755_hook_refusals.txt).
+      kinds above b754`s count, each named by an event row naming the kind and data/b755_hook_refusals.txt: 1 of 1
+      defect rows citing data/b755_hook_refusals.txt (a refusal given a letter): NONE
+      the act module naming refusals_line( 2 time(s), wanted 2 or more (the entry and the trail)
+      ### [U3] IN FORCE AT b755: CLEAR
+  (refusals) a planted b755: the same, an event row naming PIPE and the bank, no letter, the module naming the line twice
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): the guard CLEAR, wanted CLEAR -> PASSES
+      AS WANTED
+      THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 1 -- PIPE 1; lettered 1, (a); kinds above b754’s count: PIPE 1 against 0, one event each (relay data/b755_hook_refusals.txt).
+      kinds above b754`s count, each named by an event row naming the kind and data/b755_hook_refusals.txt: 1 of 1
+      defect rows citing data/b755_hook_refusals.txt (a refusal given a letter): (a)
+      the act module naming refusals_line( 2 time(s), wanted 2 or more (the entry and the trail)
+      ### [U3] IN FORCE AT b755: NOT CLEAR
+  (refusals) a planted b755: the same, the refusal lettered (a) in the defects bank
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): the guard NOT CLEAR, wanted NOT CLEAR -> PASSES
+      AS WANTED
+      THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 1 -- PIPE 1; none lettered; kinds above b754’s count: PIPE 1 against 0, one event each (relay data/b755_hook_refusals.txt).
+      kinds above b754`s count, each named by an event row naming the kind and data/b755_hook_refusals.txt: 1 of 1
+      defect rows citing data/b755_hook_refusals.txt (a refusal given a letter): NONE
+      the act module naming refusals_line( 1 time(s), wanted 2 or more (the entry and the trail)
+      ### [U3] IN FORCE AT b755: NOT CLEAR
+  (refusals) a planted b755: the same, no letter, the act module naming the line once
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): the guard NOT CLEAR, wanted NOT CLEAR -> PASSES
+      AS WANTED
+      THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 16 -- GITWRITE 1, LIMIT 1, PIPE 5, READ 4, REDIR 3, SED 1, WLIST 1; lettered 14, (b), (g), (h), (i), (l), (m), (n), (o), (p), (q), (r), (u), (w), (g'); kinds above b753’s count: READ 4 against 3, one event each (relay data/b754_hook_refusals.txt).
+      kinds above b753`s count, each named by an event row naming the kind and data/b754_hook_refusals.txt: 0 of 1 ; NOT NAMED: READ
+      defect rows citing data/b754_hook_refusals.txt (a refusal given a letter): (b), (g), (h), (i), (l), (m), (n), (o), (p), (q), (r), (u), (w), (g')
+      the act module naming refusals_line( 0 time(s), wanted 2 or more (the entry and the trail)
+      ### [U3] NOT IN FORCE AT b754 (from b755): read and printed, refusing nothing (NOT CLEAR by its clauses)
+  (refusals) b754 itself, its refusals lettered under the rule before it: read, printed and not refused
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): the gate True ; NOT IN FORCE printed True -> PASSES
+      AS WANTED
+  (refusals) tools/standing/prelock.py`s gate: the guard`s lines in its bank and its verdict in CLEAR
+      BEFORE (v1.34.2): tools/standing/prelock.py at BASE: NO GUARD, its gate clear on the instance -> FAILS
+      AFTER  (v1.34.3): refusals_gate called True ; rf_ok in the verdict True -> PASSES
+      AS WANTED
+
+  free 7405 MB at 2026-11-13T23:01:04Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.2): v1.34.2 -> FAILS
+      AFTER  (v1.34.3): v1.34.3 -> PASSES
+      AS WANTED
+
+### per change: (refusals) 8 of 8 ; (version) 1 of 1
+### ### **v1.34.3: CONTROLS (refusals), (version) ; CASES 9 ; AS WANTED 9 ; ALL AS WANTED.**

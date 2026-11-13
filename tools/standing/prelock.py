@@ -117,7 +117,12 @@ def gate(act, face):
     # ### v1.24.0, (R354)(2)(iv), b743 events (15): the closing's tag requirement read at the pre-lock dry, so an untagged row cannot reach the record
     tag_ok, tag_line = tags(act)
     L.append(tag_line)
-    clear = not c['missing'] and not undecl and dry and pv_clear and tag_ok
+    # ### v1.34.3, (R364)(5)[U3] (relay data/b754_rules.txt (12)): the refusals by kind, none lettered, each kind above the previous act's count an
+    # ### event, the act module naming the line in the entry and the trail -- refusing from b755, printed before it
+    import counter as CN
+    rf_ok, rf_lines = CN.refusals_gate(act)
+    L += rf_lines
+    clear = not c['missing'] and not undecl and dry and pv_clear and tag_ok and rf_ok
     L.append('### ### **THE PRE-LOCK COMPARISON : %s** (arms not on the face: %s)' % ('CLEAR' if clear else 'NOT CLEAR', undecl or 'NONE'))
     with open(os.path.join(D, '%s_prelock.txt' % act), 'w', encoding='utf-8', newline='\n') as f:
         f.write(NL.join(L) + NL)

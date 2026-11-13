@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """standing/v1342.py -- THE CONTROLS OF v1.34.2 ((R364)(5)[Q], passed whole on the author's word, relay data/b754_author_answers.txt
-:95, 2026-11-13T21:57:50Z), in v1341.py's form: each instance read through the route as it stood at BASE (relay c176c4ed, v1.34.1's own
+:98, 2026-11-13T21:57:50Z), in v1341.py's form: each instance read through the route as it stood at BASE (relay c176c4ed, v1.34.1's own
 commit, read from its blobs) and through the route on disk; AS WANTED where the old route fails the instance and the new passes it. THE
 COMPILE CONTROL RUNS FIRST. The free memory is printed before each control. No write reaches the relay or PLACE-papers. Written at b754
 by the Write tool; no identifier of the author is read into any string here.

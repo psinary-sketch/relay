@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """standing/originsearch.py -- THE ORIGIN SEARCH ((R364)(5)[Q], passed whole at b754 on the author's word, relay
-data/b754_author_answers.txt :95, 2026-11-13T21:57:50Z): does a line's words, or its figures and formulas, already stand in a
+data/b754_author_answers.txt :98, 2026-11-13T21:57:50Z): does a line's words, or its figures and formulas, already stand in a
 revision's tree. Built from the scripts of b753's waiver: tools/b753_waiver_inv6.py (the words arm, five-word shingles) and
 tools/b753_waiver_inv8.py (the figure and formula arm as widened after its control failed on a formula with a comma inside its
 left side). Written at b754 by the Write tool; no identifier of the author is read into any string here.
