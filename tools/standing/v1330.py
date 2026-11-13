@@ -146,7 +146,7 @@ def control_outbound():
 def control_chain():
     L, g, n = ['### (chain) (R363)(7)(iii), b752 EVENTS (6): THE ANSWERS ROUTE READS THE BLOB ROW; THE CHAIN READ'], 0, 0
     import chain as CH
-    ok, out = CH.control(A.current().get('session'))
+    ok, out = CH.control(CH.act_sessions())   # ### v1.34.1, b754 amendment row 4 (2): the act's sessions in chain order, not one session's id
     b752 = io.open(os.path.join(D, 'b752_author_answers.txt'), encoding='utf-8').read()
     oldno = 'toolu_01A9s3DAsTnrvU9nRikRpgjB' in b752 and 'RESULT (transcript line None, None): ### NO RESULT' in b752
     n += 1
@@ -217,9 +217,9 @@ def control_absent():
     n += 1
     g += guard(L, 'absent', 'the chain read and the answers fill open a session by its id through path_of, ABSENT on a planted id', 'ABSENT %s' % cab, cab)
     cur = A.current()
-    ok, out = CH.store_read(cur.get('session'), cur.get('prev_session'))
+    ok, out = CH.store_reads(CH.act_sessions(cur=cur), cur.get('prev_session'))   # ### v1.34.1, b754 amendment row 4 (2): the chain, not one id
     n += 1
-    g += guard(L, 'absent', 'the store read: the retention, the junction, the transcript by both paths, the version and the model beside the previous', out[0][:520], ok)
+    g += guard(L, 'absent', 'the store read: the retention, the junction, the transcript by both paths, the version and the model beside the previous', ' | '.join(x[:520] for x in out), ok)
     return L, g, n
 
 

@@ -1,0 +1,75 @@
+b754 -- THE CONTROLS OF tools/standing/ v1.34.1, b754 AMENDMENT ROW 4 (2) AND (3) (2026-11-13T18:27:38Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each repair`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2841 lines
+  citation render          OK    563 lines
+  closing render           OK    645 lines
+  record render            OK    4530 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    180 lines
+  tools/b754_worklist.py   OK    490 lines
+### THE COMPILE CONTROL : b754 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 5d671461
+
+  free 7351 MB at 2026-11-13T18:27:38Z, the hold 2560 MET
+### (sessions) b754 AMENDMENT ROW 4 (2): THE CLOSE`S READS TAKE THE ACT`S SESSIONS IN CHAIN ORDER
+  (sessions) a planted chain of three sessions with one row in each, the first holding the delivery (v1330.py :149, append.py :46)
+      BEFORE (v1.34.0): act_current`s one id: 1 of 3 read (22222222), rows [1] -> FAILS
+      AFTER  (v1.34.1): the chain: 3 of 3 read (11111111 from :1, 22222222 from :1, 33333333 from :1), rows [1, 1, 1] -> PASSES
+      AS WANTED
+  (sessions) the store read over the planted chain (v1330.py :220): every session read by both paths
+      BEFORE (v1.34.0): store_read of the one id: 1 session line(s) -> FAILS
+      AFTER  (v1.34.1): store_reads: 3 session line(s), the sessions named ['11111111', '22222222', '33333333'] -> PASSES
+      AS WANTED
+  (sessions) GUARD, NO FAILING SIDE: a planted worklist naming no SESSION_ID refuses the chain read
+      AFTER  (v1.34.1): ### NO SESSION_ID IN tools/b998_worklist.py -- THE ACT`S SESSIONS UNREAD -> HOLDS
+      AS WANTED
+  (sessions) GUARD, NO FAILING SIDE: the planted folder removed by its own absolute path
+      AFTER  (v1.34.1): removed True -> HOLDS
+      AS WANTED
+  (sessions) tools/standing/v1330.py :149 and :220 at BASE and on disk
+      BEFORE (v1.34.0): :149 "ok, out = CH.control(A.current().get('session'))" ; :220 "ok, out = CH.store_read(cur.get('session'), cur.get('prev_session'))" -> FAILS
+      AFTER  (v1.34.1): :149 'ok, out = CH.control(CH.act_sessions())   # ### v1.34.1, b75' ; :220 "ok, out = CH.store_reads(CH.act_sessions(cur=cur), cur.get('prev_sessi" -> PASSES
+      AS WANTED
+  (sessions) tools/standing/append.py: the chain read beside the bank
+      BEFORE (v1.34.0): :46 "sid = (A.current() or {}).get('session')" -> FAILS
+      AFTER  (v1.34.1): CHN.act_sessions() True ; each session from its line True -> PASSES
+      AS WANTED
+  (sessions) GUARD, NO FAILING SIDE: the live chain of b754, read from tools/b754_worklist.py and the delivery`s line
+      AFTER  (v1.34.1): 5a4228ab from :14072, b4958cff from :1, 11d67961 from :1 -> HOLDS
+      AS WANTED
+      ### THE ACT`S SESSIONS IN CHAIN ORDER (b754 amendment row 4 (2)): 3 -- 5a4228ab from :14072, b4958cff from :1, 11d67961 from :1
+      ### THE STORE READ ((R363)(7)(viii)): retention 3650 days ; the projects path A JUNCTION TO D:/claude-store/projects-D-- ; session 5a4228ab by both paths 43489330 and 43489330 bytes ; the harness 2.1.322, the model claude-opus-5-5 (2899 rows from :31, 2026-11-11T14:08:08.340Z), claude-fable-5-2 (855 rows from :3439, 2026-11-11T16:22:14.141Z) ; the previous session the harness -, the model - ; AS W
+      ### THE STORE READ ((R363)(7)(viii)): retention 3650 days ; the projects path A JUNCTION TO D:/claude-store/projects-D-- ; session b4958cff by both paths 11480736 and 11480736 bytes ; the harness 2.1.322, the model claude-fable-5-2 (173 rows from :30, 2026-11-12T15:57:10.728Z), claude-opus-5-5 (623 rows from :814, 2026-11-12T16:27:51.579Z) ; the previous session the harness 2.1.322, the model clau
+      ### THE STORE READ ((R363)(7)(viii)): retention 3650 days ; the projects path A JUNCTION TO D:/claude-store/projects-D-- ; session 11d67961 by both paths 26992121 and 26992121 bytes ; the harness 2.1.322, the model claude-opus-5-5 (2179 rows from :40, 2026-11-13T15:27:50.484Z) ; the previous session the harness 2.1.322, the model claude-fable-5-2 (173 rows), claude-opus-5-5 (623 rows) ; AS WANTED
+  (sessions) GUARD, NO FAILING SIDE: the store read over the live chain, each session by both paths at one size
+      AFTER  (v1.34.1): ok True over 3 session(s) -> HOLDS
+      AS WANTED
+
+  free 7366 MB at 2026-11-13T18:27:41Z, the hold 2560 MET
+### (seatrule) b754 AMENDMENT ROW 4 (3): THE SEAT FILE`S RULE LINE READS (3)(i) FOR THE FILE AND N5 FOR WHAT THE ACT WRITES
+  (seatrule) the seat file`s rule line on identifiers and paths
+      BEFORE (v1.34.0): at BASE the composer writes '- no identifier of the author, and no path under the user`s ': PRESENT -> FAILS
+      AFTER  (v1.34.1): the composer writes 3 line(s): (3)(i) True ; N5 True ; the old line ABSENT -> PASSES
+      AS WANTED
+  (seatfile) GUARD, NO FAILING SIDE: seatfile.py control after the change: the arm, the copies, the plants
+      AFTER  (v1.34.1):   ### THE SEAT`S FILE: CONTROLS 3 OF 3 AS WANTED -> HOLDS
+      AS WANTED
+  (seatrule) GUARD, NO FAILING SIDE: both written copies carry the composed block with the corrected line (seatfile.py write run before this bank)
+      AFTER  (v1.34.1): the copies equal to the composer: [True, True] -> HOLDS
+      AS WANTED
+
+  free 7366 MB at 2026-11-13T18:27:41Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.0): v1.34.0 -> FAILS
+      AFTER  (v1.34.1): v1.34.1 -> PASSES
+      AS WANTED
+
+### per repair: (sessions) 8 of 8 ; (seatrule) 3 of 3 ; (version) 1 of 1
+### ### **v1.34.1: CONTROLS (sessions), (seatrule), (version) ; CASES 12 ; AS WANTED 12 ; ALL AS WANTED.**

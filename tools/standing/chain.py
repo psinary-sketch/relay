@@ -19,6 +19,15 @@ answer, the answer in the blob row :11286. No past bank is rewritten by it.
 
   python -X utf8 -u tools/standing/chain.py read <session id> [<session id> ...]
   python -X utf8 -u tools/standing/chain.py control
+  python -X utf8 -u tools/standing/chain.py sessions          the act's sessions in chain order, each session's chain read from its line
+
+v1.34.1, b754 amendment row 4 (2): THE ACT'S SESSIONS IN CHAIN ORDER. The close's reads (tools/standing/v1330.py :149, :220;
+tools/standing/append.py :46) took data/act_current.json's one session id; b754 runs in three: 5a4228ab, where (R364) was delivered, then
+b4958cff and 11d67961. They read the chain (R364)(3)(xxii) orders for the ferry reader: the session the ruling was delivered in, from the
+delivery's line, then each session after it, as the act's worklist names them (SESSION_ID, SESSIONS_AFTER; b671's form), read by literal
+parse and never imported.
+  act_sessions(act=None) -> [(session id, from line)]      delivery_line(path, anchor, tail) -> line or None
+  store_reads(sessions, prev_sid) -> (ok, lines)          store_read over the chain, each session beside the one before it
 """
 import io
 import json
@@ -27,7 +36,8 @@ import re
 import sys
 
 PROJ = 'C:/Users/echo chamber/.claude/projects/D--'
-B752 = '43048615-75cd-4480-bfa6-362a3c13092b'
+RELAY = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+B752 ='43048615-75cd-4480-bfa6-362a3c13092b'
 B752_LOST = (10972, 12569, 12570, 12571, 12572, 12573, 12892, 12903, 12904)
 
 
@@ -176,6 +186,66 @@ def route_fill(lines_, sids, proj=PROJ):
     return out, '  the chain read beside the bank ((R363)(7)(iii)): ' + ' ; '.join(notes)
 
 
+# ### v1.34.1, b754 amendment row 4 (2): THE ACT'S SESSIONS IN CHAIN ORDER (the docstring above).
+def _consts(src, names):
+    """the module-level assignments of `names` in a worklist's source, by literal parse; the module is never imported."""
+    import ast
+    out = {}
+    for node in ast.parse(src).body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name) and node.targets[0].id in names:
+            out[node.targets[0].id] = ast.literal_eval(node.value)
+    return out
+
+
+def delivery_line(path, anchor, tail):
+    """the transcript line of the last user text one of whose lines is the anchor and nothing else and a later line the tail and nothing else
+    (tools/b677_citation.py delivery(), (R364)(3)(xxii)); None where no user text of the file is a delivery."""
+    last = None
+    for i, o in _rows(path):
+        if not o or o.get('type') != 'user' or o.get('isCompactSummary'):
+            continue
+        cs = (o.get('message') or {}).get('content')
+        for t in ([cs] if isinstance(cs, str) else [c.get('text', '') for c in (cs or []) if isinstance(c, dict) and c.get('type') == 'text']):
+            L = [x.strip() for x in (t or '').replace('\r', '').split('\n')]
+            if anchor in L and tail in L[L.index(anchor) + 1:]:
+                last = i
+    return last
+
+
+def act_sessions(act=None, relay=RELAY, proj=PROJ, cur=None):
+    """[(session id, from line)]: the act's sessions in chain order -- the worklist's SESSION_ID from the delivery's line (the anchor and the
+    tail data/act_current.json gives), then each of SESSIONS_AFTER from its first line. A worklist naming no SESSION_ID, or a first session
+    holding no delivery, refuses; a session absent prints ABSENT (path_of)."""
+    if cur is None:
+        cur = json.load(io.open(os.path.join(relay, 'data', 'act_current.json'), encoding='utf-8'))
+    act = act or cur.get('act')
+    wl = os.path.join(relay, 'tools', '%s_worklist.py' % act)
+    k = _consts(io.open(wl, encoding='utf-8').read(), ('SESSION_ID', 'SESSIONS_AFTER'))
+    first = k.get('SESSION_ID')
+    if not first:
+        raise SystemExit('### NO SESSION_ID IN tools/%s_worklist.py -- THE ACT`S SESSIONS UNREAD' % act)
+    at = delivery_line(path_of(first, proj), cur.get('anchor'), cur.get('tail'))
+    if at is None:
+        raise SystemExit('### NO DELIVERY OF %s IN SESSION %s -- THE ACT`S SESSIONS UNREAD' % (cur.get('anchor'), first[:8]))
+    after = [s if isinstance(s, str) else s[0] for s in (k.get('SESSIONS_AFTER') or ())]
+    for s in after:
+        path_of(s, proj)
+    return [(first, at)] + [(s, 1) for s in after]
+
+
+def store_reads(sessions, prev_sid=None, proj=PROJ, **kw):
+    """store_read over the act's sessions in chain order, each beside the session before it (the first beside prev_sid where that is another
+    session). (ok, lines): ok where every session's read is."""
+    oks, L, before = [], [], prev_sid
+    for sid, _at in sessions:
+        ok, l_ = store_read(sid, before if before != sid else None, proj, **kw)
+        oks.append(ok)
+        L += l_
+        before = sid
+    return bool(oks) and all(oks), ['### THE ACT`S SESSIONS IN CHAIN ORDER (b754 amendment row 4 (2)): %d -- %s' % (
+        len(sessions), ', '.join('%s from :%d' % (s[:8], a) for s, a in sessions))] + L
+
+
 def control(this=None):
     """(ok, lines): session 43048615 replayed, its nine lost rows; b752's unanswered put filled from the blob row, marked; a planted id that no
     file holds printing ABSENT; this act's session (when given) read."""
@@ -196,9 +266,9 @@ def control(this=None):
     ok = got == B752_LOST and len(un) == 1 and len(filled) == 1 and filled[0][1] == 11286 and absent
     L += ['### b752`s puts without an ordinary result: %d %s ; filled from the blob row: %s ; the bank line: %s' % (len(un), un, filled, f[1][:140]),
           '### a planted session id no file holds: %s' % ('ABSENT' if absent else '### READ AS PRESENT')]
-    if this:
-        rt = chain(path_of(this))
-        L += lines(this, rt)
+    # ### v1.34.1, b754 amendment row 4 (2): `this` a session id (the CLI's form) or the act's sessions in chain order [(id, from line)]
+    for sid, at in ([] if not this else [(this, None)] if isinstance(this, str) else list(this)):
+        L += lines(sid, chain(path_of(sid)), after=None if at is None else at - 1)
     L.append('### (chain) THE NINE ROWS %s ; THE BLOB ANSWER AT :11286 %s ; THE CONTROL %s' % ('REPRODUCED' if got == B752_LOST else '### NOT %s' % (got,),
              'BANKED WITH THE MARK' if filled else '### NOT FOUND', 'AS WANTED' if ok else 'NOT AS WANTED'))
     return ok, L
@@ -213,5 +283,11 @@ if __name__ == '__main__':
     if a[:1] == ['read'] and len(a) > 1:
         for s in a[1:]:
             print('\n'.join(lines(s, chain(path_of(s)))))
+        sys.exit(0)
+    if a[:1] == ['sessions']:
+        ss = act_sessions()
+        print('### THE ACT`S SESSIONS IN CHAIN ORDER (b754 amendment row 4 (2)): %d -- %s' % (len(ss), ', '.join('%s from :%d' % x for x in ss)))
+        for s, at in ss:
+            print('\n'.join(lines(s, chain(path_of(s)), after=at - 1)))
         sys.exit(0)
     sys.exit(__doc__)

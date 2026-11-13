@@ -43,10 +43,17 @@ def main(argv):
     print('appended to %s: %d line(s) beneath %d; nothing in the bank rewritten' % (rel, len(new.split('\n')) - len(prior.split('\n')), len(prior.split('\n')) - 1 if prior else 0))
     # ### v1.33.0, (R363)(7)(iii): the chain read's count printed beside what the route banks (a row it finds after the act's opening row an event)
     import chain as CHN
-    sid = (A.current() or {}).get('session')
-    if sid:
+    # ### v1.34.1, b754 amendment row 4 (2): the act's sessions in chain order (the delivery's session from its line, then each after it),
+    # ### not data/act_current.json's one session id; a refusal of the chain read printed after the append, which stands
+    try:
+        ss = CHN.act_sessions()
+    except SystemExit as e:
+        print('  the chain read beside the bank ((R363)(7)(iii)): %s' % e)
+        return 0
+    for sid, at in ss:
         r = CHN.chain(CHN.path_of(sid))
-        print('  the chain read beside the bank ((R363)(7)(iii)): session %s, writes lost %d %s' % (sid[:8], len(r['lost']), [x[0] for x in r['lost']] or ''))
+        late = [x[0] for x in r['lost'] if x[0] >= at]
+        print('  the chain read beside the bank ((R363)(7)(iii)): session %s from :%d, writes lost %d %s' % (sid[:8], at, len(late), late or ''))
     return 0
 
 
