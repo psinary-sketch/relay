@@ -1,0 +1,37 @@
+b755 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b754_lockgate.py -> tools/b755_lockgate.py (2026-11-14T19:52:22Z)
+
+### the substitution alone (b754 -> b755); 147 lines, 10 changed
+### SHIFTED PAST WHAT EXISTS: :2 b755_lockgate; :19 b755_lockgate; :20 b755_lockgate; :126 b755_lockgate
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b754_lockgate.py
+  +++ tools/b755_lockgate.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b754_lockgate.py -- b754: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED (data/b754_defects.txt (r''); data/b754_put_11.json,
+  -option 2, "Lock gate and census stopped", the author's answer at 2026-11-14T10:23:59.652Z, data/b754_author_answers.txt :192).
+  +"""tools/b755_lockgate.py -- b755: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED (data/b755_defects.txt (r''); data/b755_put_11.json,
+  +option 2, "Lock gate and census stopped", the author's answer at 2026-11-14T10:23:59.652Z, data/b755_author_answers.txt :192).
+  @@ -8,1 +8,1 @@
+  -the page stops" (data/b754_ferry.txt :42), and the census tool prints no total. The gate keeps its index, so b378's own fixtures, which plant
+  +the page stops" (data/b755_ferry.txt :42), and the census tool prints no total. The gate keeps its index, so b378's own fixtures, which plant
+  @@ -19,2 +19,2 @@
+  -  python -X utf8 -u tools/b754_lockgate.py controls b754 data/b754_registration_2026-11-12.txt
+  -  python -X utf8 -u tools/b754_lockgate.py b754 data/b754_registration_2026-11-12.txt
+  +  python -X utf8 -u tools/b755_lockgate.py controls b755 data/b755_registration_2026-11-12.txt
+  +  python -X utf8 -u tools/b755_lockgate.py b755 data/b755_registration_2026-11-12.txt
+  @@ -37,1 +37,1 @@
+  -ACT = 'b754'
+  +ACT = 'b755'
+  @@ -80,1 +80,1 @@
+  -    tmp = tempfile.mkdtemp(prefix='b754lg_')
+  +    tmp = tempfile.mkdtemp(prefix='b755lg_')
+  @@ -99,2 +99,2 @@
+  -    L = ['  ### THE AUTHOR`S ANSWER AT THE LOCK (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  -         '  ### data/b754_author_answers.txt :192): b378`s gate %d, %s (data/%s), takes "%s" as its pass in place of "%s";' % (
+  +    L = ['  ### THE AUTHOR`S ANSWER AT THE LOCK (data/b755_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  +         '  ### data/b755_author_answers.txt :192): b378`s gate %d, %s (data/%s), takes "%s" as its pass in place of "%s";' % (
+  @@ -126,1 +126,1 @@
+  -        print('usage: b754_lockgate.py [controls] b754 <face> -- this act`s tool, for b754 alone; nothing read, nothing written')
+  +        print('usage: b755_lockgate.py [controls] b755 <face> -- this act`s tool, for b755 alone; nothing read, nothing written')
+
+### ### **CARRIED tools/b755_lockgate.py ; LINES 147 ; CHANGED 10 ; SHIFTED 4 (WRITTEN BY --shifted)**
