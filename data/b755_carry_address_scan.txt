@@ -1,0 +1,43 @@
+b755 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b754_address_scan.py -> tools/b755_address_scan.py (2026-11-14T18:31:04Z)
+
+### the substitution alone (b754 -> b755, b753 -> b754, R364 -> R365, R363 -> R364); 278 lines, 13 changed
+### SHIFTED PAST WHAT EXISTS: :2 b755_address_scan; :276 b755_address_scan
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b754_address_scan.py
+  +++ tools/b755_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b754_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b754 (data/b754_carry_address_scan.txt), its carry-time repairs and the author's word at b754's Component 1 marked ### b754.
+  -### b754, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b754_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :62, :78, :80, :150-:151, :248, :273, numbered in b753's file) kept; the comment notes it shifted
+  -### (b753's carry note, here :7-:9) set back by the Edit tool to b753's text before any run.
+  -### b753, the carry's note: this file is tools/b750_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b753_carry_address_scan.txt);
+  +"""b755_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b755 (data/b755_carry_address_scan.txt), its carry-time repairs and the author's word at b755's Component 1 marked ### b755.
+  +### b755, the carry's note: this file is tools/b754_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b755_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :62, :78, :80, :150-:151, :248, :273, numbered in b754's file) kept; the comment notes it shifted
+  +### (b754's carry note, here :7-:9) set back by the Edit tool to b754's text before any run.
+  +### b754, the carry's note: this file is tools/b750_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b754_carry_address_scan.txt);
+  @@ -65,1 +65,1 @@
+  -                  --bank writes data/b754_address_scan.txt.
+  +                  --bank writes data/b755_address_scan.txt.
+  @@ -81,1 +81,1 @@
+  -import b754_worklist as K   # noqa: E402
+  +import b755_worklist as K   # noqa: E402
+  @@ -83,1 +83,1 @@
+  -ACT = 'b754'
+  +ACT = 'b755'
+  @@ -153,2 +153,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b754_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b754_kernel_bases.json'), encoding='utf-8')).items()))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b755_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b755_kernel_bases.json'), encoding='utf-8')).items()))
+  @@ -251,1 +251,1 @@
+  -    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R364)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  +    L += ['', '## THE EXCEPTION, NONE TAKEN UNDER (R365)`S N5 ("beyond a byline under I-23"), [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (BYLINE_FILE, 'none yet' if not exc else '')] + exc
+  @@ -276,1 +276,1 @@
+  -        sys.exit('usage: b754_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b755_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b755_address_scan.py ; LINES 278 ; CHANGED 13 ; SHIFTED 2 (WRITTEN BY --shifted)**

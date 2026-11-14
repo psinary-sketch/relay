@@ -1,0 +1,26 @@
+{
+ "act": "b755",
+ "at": "2026-11-14T19:28:20Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "question": "b755 step zero is written and not yet committed. The ferry orders Components 0 to 6, and tools/standing/commit.py :197 lists the act phases only to 'component 4', refusing any other before it writes (data/b755_defects.txt :11). So no commit of Component 5 or Component 6 can carry its own name. tools/standing/components.py :52 sorts the act's commits into components by their phase, and the record reads that bank. (R365)(2) orders three repairs and no other, and (2)(iii) asks for one standing change with VERSION moved. Which route should Components 5 and 6 take?",
+   "header": "C5-C6 phase",
+   "multiSelect": false,
+   "options": [
+    {
+     "label": "Add the two phases (Recommended)",
+     "description": "The commit tool's phase list gains 'component 5' and 'component 6' inside (2)(iii)'s one standing change: the same version commit (VERSION v1.34.6) and its control, with one case for each new phase, refused before and taken after. Each component's commits then carry its own name, and the components bank places them right. Cost: a second repair inside (2)(iii)'s change, which (2) does not order. N4 holds, VERSION moving with the change."
+    },
+    {
+     "label": "Commit under 'component 4'",
+     "description": "No tool change: Components 5 and 6 are committed under the phase 'component 4', their words opening 'Component 5:' or 'Component 6:'. Cost: the components bank lists those commits under Component 4 and none under 5 or 6, and the record carries that misplacement; it is lettered in the defects."
+    },
+    {
+     "label": "Stop for a ruling",
+     "description": "The seat commits step zero's banks and stops before Component 1 until you rule on the phase list. Components 1 to 4 do not start, since (2)(iii)'s standing change lands in Component 1."
+    }
+   ]
+  }
+ ]
+}
