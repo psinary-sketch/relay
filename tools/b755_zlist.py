@@ -26,6 +26,11 @@ MODES
                      bank data/b755_cand_h_scan_<|D|>.txt
   list -59 <H> <commit>   the route at -59: REFUSED unless <commit> is an ancestor of HEAD whose data/b755_registrations.txt holds the rule
                      H-ZEROS-FROM-PRIMES; bank data/b755_roots_59.txt and .json (the list of roots, committed before any value at -59 is read)
+  verdict -59 200    the rule's test, added after the list of roots was committed (relay e21b5c8c) and committed with tools/b755_list.py
+                     before the certified list at -59 exists: the band rows of data/b755_list_59.txt (b717's form, the -15 list's reader
+                     above), their off-line count equal to data/b755_list_59.json's, every band COMPLETE and reaching 200, against the roots
+                     of data/b755_roots_59.json by match() -- refused unless match()'s text equals its text at relay 1b84e4b1, the reading
+                     data/b755_registrations.txt (2) fixes; bank data/b755_zeros_from_primes_59.txt and .json
 """
 import json
 import math
@@ -46,6 +51,8 @@ SIG = [round(0.80 + 0.01 * j, 2) for j in range(51)]
 NAV = {-23: {'hi': (7, 0.00106), 'lo': (17, 0.00256), 'P': '3 x 10^5'}, -15: {'hi': (5, 0.00021), 'lo': (8, 0.00136), 'P': '2 x 10^6'}}
 NAV_WORDS = 'the navigator\'s workspace, in no bank ((R365)(4)(h), data/b755_ferry.txt :17)'
 RULE_HEAD = re.compile(r'^## \(\d+\) THE RULE \(H-ZEROS-FROM-PRIMES\)', re.M)
+BAND_ROW = re.compile(r"^  band \[([0-9.]+), ([0-9.]+)\] \| N (\d+) \| on-line (\d+) \| off-line (\d+)\s*(\[.*\])?\s*\| (\S+)")
+MATCH_AT = '1b84e4b1'   # ### the commit data/b755_registrations.txt (2) names for match()'s reading of "one to one"
 
 
 def sieve(n):
@@ -276,6 +283,17 @@ def match(zeros, roots, H):
             'root_without_partner': [[r.real, r.imag] for r in lone_r], 'held': not lone_z and not lone_r}
 
 
+def match_as_registered():
+    """match()'s text now against its text at relay MATCH_AT, the commit the rule (2) names: True where equal (the verdict mode refuses
+    otherwise)."""
+    import inspect
+    now = inspect.getsource(match)
+    blob = subprocess.run(['git', '-C', ROOT, 'show', '%s:tools/b755_zlist.py' % MATCH_AT], capture_output=True, text=True,
+                          encoding='utf-8').stdout
+    m = re.search(r'^def match\(.*?(?=^def )', blob, re.M | re.S)
+    return bool(m) and m.group(0).rstrip() == now.rstrip()
+
+
 def registered(commit):
     try:
         anc = subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', commit, 'HEAD'], capture_output=True).returncode == 0
@@ -375,6 +393,60 @@ def main(argv):
         print(text)
         write(os.path.join(ROOT, 'data', 'b755_roots_59.txt'), text)
         write(os.path.join(ROOT, 'data', 'b755_roots_59.json'), json.dumps(o, indent=1) + '\n')
+        return 0
+    if argv == ['verdict', '-59', '200']:
+        H, t0 = 200.0, time.time()
+        same = match_as_registered()
+        if not same:
+            raise SystemExit('### match() differs from its text at relay %s, the reading the rule fixes -- REFUSED' % MATCH_AT)
+        rj = json.load(open(os.path.join(ROOT, 'data', 'b755_roots_59.json'), encoding='utf-8'))
+        roots = [complex(*r) for r in rj['roots']]
+        bands, zs = [], []
+        for line in open(os.path.join(ROOT, 'data', 'b755_list_59.txt'), encoding='utf-8'):
+            if not line.startswith('  band ['):
+                continue
+            m = BAND_ROW.match(line)
+            if not m:
+                raise SystemExit('### a band row not read: %s -- REFUSED' % line.strip()[:100])
+            got = re.findall(r"\('([0-9.]+)', '([0-9.]+)'\)", m.group(6) or '')
+            if len(got) != int(m.group(5)):
+                raise SystemExit('### band [%s, %s]: %s off-line read, %d listed -- REFUSED' % (m.group(1), m.group(2), m.group(5), len(got)))
+            bands.append((float(m.group(1)), float(m.group(2)), m.group(7)))
+            zs += [complex(float(b), float(g)) for b, g in got]
+        lj = json.load(open(os.path.join(ROOT, 'data', 'b755_list_59.json'), encoding='utf-8'))
+        if len(lj['offline']) != len(zs):
+            raise SystemExit('### the band rows hold %d off-line zeros, the json %d -- REFUSED' % (len(zs), len(lj['offline'])))
+        complete = bool(bands) and all(b[2] == 'COMPLETE' for b in bands) and max(b[1] for b in bands) >= H - 1e-9
+        zs.sort(key=lambda z: z.imag)
+        o = {'stamp': stamp, 'H': H, 'bands': len(bands), 'complete': complete, 'offline': len(zs), 'roots_listed': len(roots),
+             'match_text_equal_at': [MATCH_AT, same], 'zeros': [[z.real, z.imag] for z in zs]}
+        L = ['  the certified list data/b755_list_59.txt: bands %d, every band COMPLETE and reaching %.0f: %s ; off-line zeros with beta > 1/2 %d'
+             ' (the json %d) ; the largest real part among them %s' % (len(bands), H, complete, len(zs), len(lj['offline']),
+                                                                    ('%.6f' % max(z.real for z in zs)) if zs else '-'),
+             '  the list of roots data/b755_roots_59.json (relay e21b5c8c): roots %d' % len(roots),
+             '  match() equal to its text at relay %s, the reading data/b755_registrations.txt (2) fixes: %s' % (MATCH_AT, same)]
+        if not complete:
+            verdict = 'NO VERDICT: THE LIST IS NOT COMPLETE TO H'
+            m = None
+        else:
+            m = match(zs, roots, H)
+            o['match'] = m
+            L.append('  THE MATCH in (5)(ii)\'s words: zeros with Re >= 0.85 and height 2..%.0f %d ; roots with Re >= 0.85 %d ; pairs within 0.01 %d,'
+                     ' the worst %s ; a zero without its partner %s ; a root without its partner %s' % (
+                         H, m['zeros_85'], m['roots_85'], m['pairs'], ('%.5f' % m['worst']) if m['worst'] is not None else '-',
+                         m['zero_without_partner'] or 'none', m['root_without_partner'] or 'none'))
+            verdict = 'HELD' if m['held'] else 'REFUTED'
+        L += ['    zero %.6f + %.6f i' % (z.real, z.imag) for z in zs if z.real >= 0.83 and 2 <= z.imag <= H]
+        L += ['    root %.6f + %.6f i' % (r.real, r.imag) for r in roots if r.real >= 0.83 and 2 <= r.imag <= H]
+        o['verdict'] = verdict
+        text = ('b755 -- (R365)(5)(ii): H-ZEROS-FROM-PRIMES AT -59, THE LIST OF ROOTS AGAINST THE CERTIFIED LIST (%s)\n\n'
+                '### by tools/b755_zlist.py verdict, committed before the certified list at -59 existed; read against the rule of\n'
+                '### data/b755_registrations.txt (2) and nothing written after it; no sentence says why.\n\n' % stamp) + '\n'.join(L) + (
+            '\n\n### ### **H-ZEROS-FROM-PRIMES AT -59 TO HEIGHT %.0f: %s ; ZEROS WITH Re >= 0.85 %s AGAINST ROOTS %s ; %.1f s.**\n' % (
+                H, verdict, m['zeros_85'] if m else '-', m['roots_85'] if m else '-', time.time() - t0))
+        print(text)
+        write(os.path.join(ROOT, 'data', 'b755_zeros_from_primes_59.txt'), text)
+        write(os.path.join(ROOT, 'data', 'b755_zeros_from_primes_59.json'), json.dumps(o, indent=1) + '\n')
         return 0
     sys.exit(__doc__)
 
