@@ -37,6 +37,12 @@ words with the head and two substitutions; [R3]'s headings cut from its draft, Â
 line and inserts a blank line and the note after :11, the file's last dated note, every other line moving by two and byte-equal. The
 CURRENT of each file read against the agenda's; no written line within two of the [Q] word's lines. `r <R1|R3> dry`, `r <R1|R3> write`
 (the row banked), `r <R1|R3> confirm` (after its PLACE-papers commit: HEAD touching the item's file alone, the numstat the row's).
+THE FOOT (data/b754_ferry.txt :54). `foot dry|write` renders data/b754_sitting.txt after the last put: one row per item of the agenda in
+its order, its state, the author's label read at its RESULT line and compared, what was written (the sitting bank's confirmation or the
+bank and commit that carry it) or why nothing was; the sitting's git writes from the step rows, each paired with its block of the
+per-commit scan bank and read 0 ; 0 ; 0 ; 0; the writes beyond git; the author's answers and word with their times and the appends of the
+route that banked them; and the foot line counting them. Refused where a label reads unequal, a cited commit is not among the steps, a
+scan block is missing or not zero, or a line is withheld by a kind.
 
   python -X utf8 -u tools/b754_sitting.py control          the controls alone, nothing written and nothing read remotely
   python -X utf8 -u tools/b754_sitting.py dry <A1..A4>     the controls, the CURRENT against the agenda, the lines composed; nothing written
@@ -47,6 +53,7 @@ CURRENT of each file read against the agenda's; no written line within two of th
   python -X utf8 -u tools/b754_sitting.py b <B2|B4|B6|B7> <read|write|back>
   python -X utf8 -u tools/b754_sitting.py l <dry|write|confirm>
   python -X utf8 -u tools/b754_sitting.py r <R1|R3> <dry|write|confirm>
+  python -X utf8 -u tools/b754_sitting.py foot <dry|write>
 """
 import hashlib
 import io
@@ -500,6 +507,28 @@ def controls():
     case('a planted change outside the item`s lines read by the check', bool(pbad2), 'differing %s' % pbad2)
     rlines = [TX['[R1]'] or '', TX[216] or '', TX[218] or '', TX['note'] or '']
     case('[R]`s four lines withheld by no kind', all(s and not withheld_l(s, acct, word) for s in rlines), 'lines %d' % len([s for s in rlines if s]))
+    # -------- the foot
+    AA = AG.git(RELAY, 'show', 'HEAD:%s' % ANSWERS).replace('\r', '').split(NL)
+    put_rows = [t for t in FOOT_ITEMS if t[1]]
+    feq = [t[0] for t in put_rows if len(AA) >= t[1] and foot_label(AA[t[1] - 1], t[2]) == t[3]]
+    case('the foot: every put row`s label read equal at its RESULT line (%d of %d)' % (len(feq), len(put_rows)), len(feq) == len(put_rows),
+         'unequal %s' % ([t[0] for t in put_rows if t[0] not in feq] or 'none'))
+    pf = 'RESULT (transcript line x, 2026-01-01T00:00:00.0Z): Your questions have been answered: "[X1] one q"="Passed", "[X2] two q"="Struck". You can'
+    case('the foot: a planted RESULT of two questions reads each label by its opening, an opening met in neither reads none',
+         foot_label(pf, '[X1]') == 'Passed' and foot_label(pf, '[X2]') == 'Struck' and foot_label(pf, '[X3]') is None,
+         '%r %r %r' % (foot_label(pf, '[X1]'), foot_label(pf, '[X2]'), foot_label(pf, '[X3]')))
+    pscan = ('## THE SCAN BEFORE THE COMMIT, 2026-01-01T00:00:00Z, b754 commit component 3 in relay\nx\n### ### **PREVIOUS ADDRESS: 0 ; THE AUTHOR`S '
+             'NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 9 ; CONTROLS 7 OF 7 AS WANTED ; 1 s.**\n## THE SCAN BEFORE THE COMMIT, '
+             '2026-01-01T00:01:00Z, b754 commit component 3 in pp\n### ### **PREVIOUS ADDRESS: 1 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; '
+             'THE ORCID: 0 ; PLACES 9 ; CONTROLS 7 OF 7 AS WANTED ; 1 s.**')
+    pb_ = scan_blocks(pscan)
+    case('the foot: two planted scan blocks read, the second`s address count 1 read not zero', len(pb_) == 2 and pb_[0]['foot'][:4] == (0, 0, 0, 0)
+         and pb_[1]['foot'][:4] == (1, 0, 0, 0) and pb_[1]['repo'] == 'pp', '%d blocks' % len(pb_))
+    stp = json.load(io.open(STEPS, encoding='utf-8'))['rows']
+    sh = set(s['commit'][:8] for s in stp)
+    cited = sorted(set(c for t in FOOT_ITEMS if t[6] for c in re.findall(r'\b(?:relay|PLACE-papers) ([0-9a-f]{8})\b', t[6])))
+    case('the foot: every commit a row cites among the act`s steps (%d)' % len(cited), cited and all(c in sh for c in cited),
+         'missing %s' % ([c for c in cited if c not in sh] or 'none'))
     ok = sum(C)
     print('### CONTROLS %d OF %d %s' % (ok, len(C), 'AS WANTED' if ok == len(C) else 'NOT AS WANTED'))
     return ok == len(C)
@@ -1134,6 +1163,231 @@ def r_confirm(item):
     bank(R)
 
 
+# ---------------------------------------------------------------- the sitting's foot ((R364)(5), data/b754_ferry.txt :54)
+STEXT = os.path.join(RELAY, 'data', '%s_sitting.txt' % ACT)
+SCANS = os.path.join(RELAY, 'data', '%s_address_scan_commits.txt' % ACT)
+STEPS = os.path.join(RELAY, 'data', '%s_steps.json' % ACT)
+FOOT_FROM = 'd6d6f88e'   # ### the sitting's first commit: the agenda generator, committed before the agenda (step 26)
+FOOT_PUTS = ((28, 2, '[A]'), (88, 3, '[B]'), (98, 4, '[Q]'), (118, 5, '[U]'), (131, 6, '[H1]'), (153, 7, '[M2]'), (162, 8, '[D2]'), (171, 9, '[L]'),
+             (182, 10, '[R]'))   # ### (the answers line of the RESULT, the put's number, the item)
+FOOT_WORD = ((120, 121), '11d67961:16399', '2026-11-13T22:51:31Z', 'on [U1] and [U2] as passed: their rows now, their tool changes in the act '
+             'after the walk, each rule in force from the act that follows its change (data/b754_events.txt (29))')
+# ### each item in the agenda's order: (row, the answers line or None, the question's opening in that RESULT line, the label the author
+# ### chose, the state, the sitting bank's row or None, what was written or why nothing was)
+_BT = 'carried to a later sitting on the author`s word; no README written'
+_RU = 'data/b754_rules.txt (%s) (relay %s)'
+FOOT_ITEMS = (
+    ('[A1]', 28, '[A1] riemann-hypothesis', '(a) edited in place (Recommended)', 'PASS', '[A1]', None),
+    ('[A2]', 28, '[A2] two-leg-completeness', '(b) retired (Recommended)', 'PASS', '[A2]', None),
+    ('[A3]', 28, '[A3] conservation-of-spectra', '(a) edited in place (Recommended)', 'PASS', '[A3]', None),
+    ('[A4]', 28, '[A4] simplicity-riemann-zeros', '[A4] (a), [A5] passed (Recommended)', 'PASS', '[A4]', None),
+    ('[A5]', 28, '[A4] simplicity-riemann-zeros', '[A4] (a), [A5] passed (Recommended)', 'PASS', '[A5]', None),
+    ('[B1]', 88, '[B1] and [B3]', 'Carried to a later sitting', 'CARRIED', None, _BT),
+    ('[B2]', 88, '[B2] and [B4]', 'Both passed (Recommended)', 'PASS', '[B2]', None),
+    ('[B3]', 88, '[B1] and [B3]', 'Carried to a later sitting', 'CARRIED', None, _BT),
+    ('[B4]', 88, '[B2] and [B4]', 'Both passed (Recommended)', 'PASS', '[B4]', None),
+    ('[B5]', None, None, None, 'HELD', None, 'held by the amendment row 3 (4) (data/b754_amendments.json row 3), not put; nothing written to its door; [L9] gains it'),
+    ('[B6]', 88, '[B6] and [B7]', 'Both passed (Recommended)', 'PASS', '[B6]', None),
+    ('[B7]', 88, '[B6] and [B7]', 'Both passed (Recommended)', 'PASS', '[B7]', None),
+    ("[B]'s readings", 88, "[B]'s paragraph", 'They stand (Recommended)', 'STANDS', None, 'the readings ruled with no write stand; nothing written'),
+    ('[Q]', 98, '[Q] THE QUOTING RULE', 'Passed whole (Recommended)', 'PASS', None,
+     _RU % ('6) to (9', 'd1d8303e') + '; tools/standing/ v1.34.2, the origin search (relay 184da293)'),
+    ('[U1]', 118, '[U1] THE CADENCE', 'Passed (Recommended)', 'PASS', None,
+     _RU % ('10', 'fb623a05') + '; its tool change in the act after the walk, on the author`s word at data/b754_author_answers.txt :120-:121'),
+    ('[U2]', 118, '[U2] THE LEDGERS', 'Passed (Recommended)', 'PASS', None,
+     _RU % ('11', 'fb623a05') + '; its tool change in the act after the walk, on the author`s word at data/b754_author_answers.txt :120-:121'),
+    ('[U3]', 118, '[U3] and [U5]', '[U3] only', 'PASS', None, _RU % ('12', 'fb623a05') + '; tools/standing/ v1.34.3, the refusals counted (relay 19aa6a12)'),
+    ('[U4]', 118, '[U4] THE ACT MODULE', 'Struck', 'STRUCK', None, 'nothing written'),
+    ('[U5]', 118, '[U3] and [U5]', '[U3] only', 'STRUCK', None, 'nothing written'),
+    ('[C1]', None, None, None, 'CARRIED', None, 'carried by (8)`s order (data/b754_ceiling.txt), not put'),
+    ('[H1]', 131, '[H1] THE HANDOFF PAGE', '(a) regenerated (Recommended)', 'PASS', None,
+     'tools/standing/ v1.34.4, the handoff tool (relay 0c4cda98); HANDOFF.md regenerated whole, with the amendment row 6 (relay ee03ebfa)'),
+    ("[H1]'s held part", 153, "[H1]'S HELD PART", 'Carried to a later sitting', 'CARRIED', None,
+     'the page in the archive`s roster and the Project set carried to a later sitting; nothing written'),
+    ('[M2] (a) to (c)', 153, '[M2] PARTS (a) TO (c)', 'Passed (Recommended)', 'PASS', None,
+     _RU % ('13) to (15', 'e94952cc') + '; tools/standing/ v1.34.5 with the amendment row 7 (relay 0b477b49)'),
+    ('[M2] (d)', 153, '[M2] PART (d)', 'Passed (Recommended)', 'PASS', None, _RU % ('16', 'e94952cc') + '; the cuts tool in v1.34.5 (relay 0b477b49)'),
+    ('[M2] rows m5-3, m5-4, m5-2', 153, '[M2] THE AMENDMENT ROW 3 (7)', 'All three join (Recommended)', 'PASS', None,
+     _RU % ('17', 'e94952cc') + '; the three families in the roster`s list (relay 0b477b49)'),
+    ('[D2]', 162, '[D2] THE UPDATE CHANNEL', 'Passed (Recommended)', 'PASS', None,
+     'the harness`s update channel written "stable" in its user settings, outside every repository, read back equal (data/b754_events.txt (37), relay b9809404)'),
+    ('[L1] to [L5]', 171, '[L] THE LINES FOR OPEN_TRAILS', 'Passed whole (Recommended)', 'HELD', None,
+     'held with the sweep of (R364)(4)(iv) and carried with it; nothing written'),
+    ('[L6], [L7], [L8], [L14], [L15]', 171, '[L] THE LINES FOR OPEN_TRAILS', 'Passed whole (Recommended)', 'PASS', '[L]', None),
+    ('[L9] to [L13]', None, None, None, 'CARRIED', None, 'carried by (8)`s order (data/b754_ceiling.txt), not put'),
+    ('[R1]', 182, '[R] THE RECORD LINES', 'Both passed (Recommended)', 'PASS', '[R1]', None),
+    ('[R2]', None, None, None, 'CARRIED', None, 'carried by (8)`s order (data/b754_ceiling.txt :36, :63), not put'),
+    ('[R3]', 182, '[R] THE RECORD LINES', 'Both passed (Recommended)', 'PASS', '[R3]', None),
+    ('THE CLUSTER EXPORT', None, None, None, 'CARRIED', None, 'carried by (8)`s order (data/b754_ceiling.txt :37, :63), not built'),
+)
+SCAN_HEAD = re.compile(r'^## THE SCAN BEFORE THE COMMIT, (\S+Z), b754 commit (.+) in (\S+)$')
+SCAN_FOOT = re.compile(r'^### ### \*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ; PLACES (\d+) ; '
+                       r'CONTROLS (\d+) OF (\d+) AS WANTED')
+RESULT_AT = re.compile(r'^RESULT \(transcript line (\S+), (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)')
+APPEND_HEAD = re.compile(r'^## APPENDED BY `record answers` AT (\S+Z): (\d+) LINE\(S\); NO LINE ALREADY IN THE BANK REWRITTEN$')
+
+
+def foot_labels(line):
+    """[(question, label)] of a RESULT line, each question from its opening quote, each label after its `"="`."""
+    parts = line.split('"="')
+    out = []
+    for i in range(1, len(parts)):
+        seg = parts[i - 1]
+        if i == 1:
+            j = seg.find('answered: "')
+            q = seg[j + len('answered: "'):] if j >= 0 else ''
+        else:
+            _prev, _s, rest = seg.partition('"')
+            q = rest[3:] if rest.startswith(', "') else ''
+        out.append((q, parts[i].split('"', 1)[0]))
+    return out
+
+
+def foot_label(line, opening):
+    got = [lab for q, lab in foot_labels(line) if q.startswith(opening)]
+    return got[0] if len(got) == 1 else None
+
+
+def scan_blocks(text):
+    out, cur = [], None
+    for l in text.replace('\r', '').split(NL):
+        m = SCAN_HEAD.match(l)
+        if m:
+            cur = dict(at=m.group(1), phase=m.group(2), repo=m.group(3), foot=None)
+            out.append(cur)
+            continue
+        m = SCAN_FOOT.match(l)
+        if m and cur is not None and cur['foot'] is None:
+            cur['foot'] = tuple(int(x) for x in m.groups())
+    return out
+
+
+def secs(t):
+    return time.mktime(time.strptime(t[:19], '%Y-%m-%dT%H:%M:%S'))
+
+
+def foot_compose(at):
+    """(the bank's lines, the problems): every row's label read at its RESULT line at relay HEAD, every sitting bank row PASS, every commit a
+    row cites among the act's steps, each step of the sitting paired with its scan block in order, each scan 0 ; 0 ; 0 ; 0."""
+    A = AG.git(RELAY, 'show', 'HEAD:%s' % ANSWERS).replace('\r', '').split(NL)
+    R = rows()
+    steps = json.load(io.open(STEPS, encoding='utf-8'))['rows']
+    k0 = [i for i, s in enumerate(steps) if s['commit'].startswith(FOOT_FROM)]
+    bad = []
+    if len(k0) != 1:
+        return [], ['the sitting`s first commit %s not once among the steps' % FOOT_FROM]
+    sit = [(i + 1, s) for i, s in enumerate(steps) if i >= k0[0]]
+    shorts = set(s['commit'][:8] for _n, s in sit)
+    L = ['b754 -- (R364)(5) AND ITS FOOT (data/b754_ferry.txt :54): THE RECORD OF THE SITTING, one row per item of the agenda (data/b754_agenda.txt) '
+         'in its order (%s)' % at, '',
+         '### By tools/b754_sitting.py `foot write`: each row`s label read at its RESULT line in data/b754_author_answers.txt at relay HEAD and '
+         'compared with the row; each written row`s confirmation from data/b754_sitting.json; the git writes from data/b754_steps.json, each '
+         'paired with its block in data/b754_address_scan_commits.txt. The seat`s word in this bank is each row`s state alone.', '']
+    count = {}
+    for tag, ln, opening, label, state, jrow, why in FOOT_ITEMS:
+        count[state] = count.get(state, 0) + 1
+        L.append('%s %s' % (tag, state))
+        if ln:
+            line = A[ln - 1] if len(A) >= ln else ''
+            m = RESULT_AT.match(line)
+            got = foot_label(line, opening)
+            if got != label or not m:
+                bad.append('%s: the label at :%d reads %r, not %r' % (tag, ln, got, label))
+            L.append('  THE AUTHOR`S WORD: %s :%d (%sZ, transcript line %s): "%s", %s' % (
+                ANSWERS, ln, m.group(2) if m else '?', m.group(1) if m else '?', got, 'read equal' if got == label else 'READ UNEQUAL'))
+        else:
+            L.append('  THE AUTHOR`S WORD: not put')
+        if jrow:
+            r_ = R.get(jrow) or {}
+            if r_.get('state') != 'PASS' or not r_.get('confirm'):
+                bad.append('%s: the sitting bank`s row %s reads %r' % (tag, jrow, r_.get('state')))
+            L.append('  WRITTEN: data/b754_sitting.json row %s, %s; %s' % (jrow, r_.get('state'), r_.get('confirm')))
+        else:
+            L.append('  WRITTEN: %s' % why)
+            for c in re.findall(r'\b(?:relay|PLACE-papers) ([0-9a-f]{8})\b', why):
+                if c not in shorts:
+                    bad.append('%s: the commit %s not among the sitting`s steps' % (tag, c))
+        L.append('')
+    blocks = [b for b in scan_blocks(io.open(SCANS, encoding='utf-8').read()) if b['phase'] == 'component 3']
+    n_rel = sum(1 for _n, s in sit if s['repo'] == 'relay')
+    n_pp = sum(1 for _n, s in sit if s['repo'] == 'pp')
+    L.append('## THE GIT WRITES OF THE SITTING: %d COMMITS (relay %d ; PLACE-papers %d), EACH THROUGH THE ONE-CALL TOOL AFTER ITS ADD IN A MESSAGE OF ITS OWN' % (
+        len(sit), n_rel, n_pp))
+    zero = 0
+    if len(blocks) != len(sit):
+        bad.append('scan blocks %d for %d commits' % (len(blocks), len(sit)))
+    for (n, s), b in zip(sit, blocks):
+        ok = (b['repo'] == s['repo'] and b['foot'] is not None and b['foot'][:4] == (0, 0, 0, 0) and b['foot'][5] == b['foot'][6]
+              and abs(secs(s['at']) - secs(b['at'])) <= 120 and s['phase'] == 'component 3')
+        zero += 1 if ok else 0
+        if not ok:
+            bad.append('step %d: the scan block %s' % (n, b))
+        L.append('  step %d: %s %s %s ; the scan %s: %s over %s places, controls %s of %s' % (
+            n, 'relay' if s['repo'] == 'relay' else 'PLACE-papers', s['commit'][:8], s['at'], b['at'],
+            ' ; '.join(str(x) for x in b['foot'][:4]) if b['foot'] else '?', b['foot'][4] if b['foot'] else '?',
+            b['foot'][5] if b['foot'] else '?', b['foot'][6] if b['foot'] else '?'))
+    L.append('')
+    gh = [(k, R[k]) for k in ('[A5]', '[B2]', '[B4]', '[B6]', '[B7]') if k in R]
+    L.append('## THE WRITES BEYOND GIT: %d' % (len(gh) + 1))
+    for k, r_ in gh:
+        L.append('  %s the description of %s by gh: %s' % (k, r_.get('door', 'PLACE-papers'), r_.get('confirm')))
+    L.append('  [D2] the harness`s user settings key, outside every repository (data/b754_events.txt (37))')
+    L.append('')
+    L.append('## THE AUTHOR`S WORDS OF THE SITTING, BANKED VERBATIM WITH THEIR TIMES BY `record answers` (tools/standing/fold.py), THE ROUTE THAT APPENDS')
+    for ln, pn, item in FOOT_PUTS:
+        line = A[ln - 1] if len(A) >= ln else ''
+        m = RESULT_AT.match(line)
+        if not m:
+            bad.append('no RESULT at :%d' % ln)
+        L.append('  :%d the RESULT of the %s put (data/b754_put_%d.json), %sZ, transcript line %s: %d question(s), %s' % (
+            ln, item, pn, m.group(2) if m else '?', m.group(1) if m else '?', len(foot_labels(line)),
+            ' ; '.join('"%s"' % lab for _q, lab in foot_labels(line))))
+    (w0, w1), wt, wat, wwhat = FOOT_WORD
+    whead = A[w0 - 1] if len(A) >= w0 else ''   # ### the word's head at :120, its words at :121
+    if not whead.startswith('### THE AUTHOR`S WORD (transcript line %s)' % wt):
+        bad.append('the word`s head at :%d reads %r' % (w0, whead[:80]))
+    L.append('  :%d-:%d the author`s word, transcript line %s, %s, %s' % (w0, w1, wt, wat, wwhat))
+    apps = [(k, APPEND_HEAD.match(l)) for k, l in enumerate(A, 1) if APPEND_HEAD.match(l)]
+    L.append('  the appends: %d, %s; each NO LINE ALREADY IN THE BANK REWRITTEN' % (
+        len(apps), ' ; '.join(':%d %s %s lines' % (k, m.group(1), m.group(2)) for k, m in apps)))
+    L.append('')
+    decided = sum(1 for t in FOOT_ITEMS if t[1])
+    L.append('### ### **THE SITTING: %d ROWS ; DECIDED BY THE AUTHOR`S ANSWERS %d, NOT PUT %d ; %s ; GIT WRITES %d COMMITS (relay %d ; PLACE-papers %d) ; '
+             'THE SCAN AT EVERY COMMIT 0 ; 0 ; 0 ; 0, %d OF %d ; WRITES BEYOND GIT %d ; THE AUTHOR`S ANSWERS %d RESULT ROWS AND %d WORD, BANKED BY '
+             '`record answers` IN %d APPENDS, NO LINE REWRITTEN.**' % (
+                 len(FOOT_ITEMS), decided, len(FOOT_ITEMS) - decided, ' ; '.join('%s %d' % (k, count[k]) for k in sorted(count)), len(sit), n_rel, n_pp,
+                 zero, len(sit), len(gh) + 1, len(FOOT_PUTS), 1, len(apps)))
+    return L, bad
+
+
+def foot(step):
+    if step not in ('dry', 'write'):
+        raise SystemExit('usage: %s foot <dry|write>' % SELF)
+    if not controls():
+        raise SystemExit('### THE CONTROLS NOT AS WANTED -- NOTHING DONE')
+    at = stamp()
+    L, bad = foot_compose(at)
+    word, acct = DOORS.q_word(), DOORS.account(PP)
+    wh = [k for k, l in enumerate(L, 1) if withheld_l(l, acct, word)]
+    for l in L:
+        print('  ' + l)
+    print('### THE FOOT: %d lines ; problems %s ; lines withheld by a kind %s' % (len(L), bad or 'none', wh or 'none'))
+    if bad or wh or not L:
+        raise SystemExit('### THE FOOT NOT AS COMPOSED -- NOTHING WRITTEN')
+    if step == 'dry':
+        print('  DRY: nothing written')
+        return
+    data = (NL.join(L) + NL).encode('utf-8')
+    with open(STEXT + '.tmp', 'wb') as f:
+        f.write(data)
+    os.replace(STEXT + '.tmp', STEXT)
+    back = open(STEXT, 'rb').read()
+    print('  WRITTEN %s at %s: %d lines, %d bytes, sha256 %s ; read back %s' % (os.path.relpath(STEXT, RELAY).replace('\\', '/'), at, len(L), len(data),
+                                                                             bdigest(data), 'EQUAL' if back == data else 'DIFFERS'))
+    if back != data:
+        raise SystemExit('### THE READ-BACK DIFFERS')
+
+
 def main(argv):
     if not argv:
         raise SystemExit(__doc__)
@@ -1153,6 +1407,8 @@ def main(argv):
         return l(argv[1])
     if cmd == 'r' and len(argv) == 3:
         return r('[%s]' % argv[1].strip('[]'), argv[2])
+    if cmd == 'foot' and len(argv) == 2:
+        return foot(argv[1])
     raise SystemExit(__doc__)
 
 
