@@ -1,0 +1,26 @@
+{
+ "act": "b754",
+ "at": "2026-11-14T17:39:00Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "header": "Closing",
+   "multiSelect": false,
+   "question": "THE CLOSING ROUTE REFUSED ON THE POST-SEAL BANK'S ROW (92). The closing route (tools/standing/fold.py closing --act b754) ran at 17:30Z on the flag read of 17:30:00Z and stopped before it wrote data/b754_closing.txt: ValueError, AN UNTAGGED EVENT ROW, row (92). The act module's closing override (tools/acts/b754.py :702-:707, MARK 176194092462) calls compose('b754') of tools/standing/counter.py, which reads the defects, events and post-seal banks together; its row reader (counter.py :20) takes a tag only where the tag closes on the row's first line. Row (92), written once by the scratch writer under your answer (data/b754_author_answers.txt :212), closes its tag on its second line (data/b754_events_postseal.txt :82-:83), the class of defect (c'') (data/b754_defects.txt :286), the seat's. Before it stopped the route wrote the faces census and the pins of the closing, untracked. Read by a scratch reader writing nothing: the defects bank 70 rows and the events bank 79, every tag taken; the post-seal bank 16 rows, 1 not taken; each row's lines joined, CLAIM 13, CLOSE 152, REPEAT 119 of 165, the joined reader equal to the plain one over the defects and events banks (the control). Every route that would mend it at its source is closed: the post-seal bank is pushed and written once by your answer, and the hook's BYDESIGN kind refuses a Write of it; counter.py and the act module are sealed (data/b754_seal_hashes.json :44, :5); the one-call tool's repair phase refuses after the seal (tools/standing/commit.py :134). How is the closing written?",
+   "options": [
+    {
+     "label": "Scratch runner, once (Recommended)",
+     "description": "A scratch script, run once on a flag read, loads the folded closing tool through tools/standing/fold.py and runs its main unchanged; for that run alone the counter's row reader takes a tag that closes on a row's continuation line, the rows joined and the control printed first (equal over the defects and events banks). It writes data/b754_closing.txt with the counter CLAIM 13, CLOSE 152, REPEAT 119 of 165; where the route refuses on anything else the seat stops there and reports. No tracked tool, template or bank is written beyond the closing route's own banks; the scores stand as data/b754_scores_close.json read them. The runner is named in the closing message and carried for b755's corrigendum."
+    },
+    {
+     "label": "Carried to b755",
+     "description": "No closing bank at b754. The closing commit carries the post-push banks, the mirror bank, the scores, the censuses, the pins and the push captures; the closing message prints the head line, the joined counter and the post-seal findings; b755's ruling places the closing, the counter's repair its opening component. The scores stand as data/b754_scores_close.json read them; the closing record stands in no bank of b754."
+    },
+    {
+     "label": "Held for a ruling",
+     "description": "Nothing committed or pushed after relay 18d335fa: the post-push banks, the mirror bank and the scores stay untracked until your ruling, and the act stands with no closing commit."
+    }
+   ]
+  }
+ ]
+}
