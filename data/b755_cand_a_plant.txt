@@ -1,0 +1,17 @@
+b755 -- (R365)(4)(a): THE CLOSED FORM AT CLASS NUMBER 3 AGAINST THE DIRECT COEFFICIENTS AT -23 AND -31, n <= 3000 -- THE PLANT (2026-11-14T20:59:26Z)
+
+### by tools/b755_closed.py (plant), written from the statement alone (data/b753_registrations.txt :67-:69) and committed before its run;
+### every value an exact rational. The navigator's h3check.py (sha256 opening fd6ce1ec81cc0e97) printed to the screen and kept no output:
+### its "mismatches 0" stands in no bank ((R365)(4)(a)), and no figure of it is printed here as a banked figure.
+
+## THE CONTROLS, BEFORE ANY ROW
+  (K1) the direct route at -23, n = 2..3000, against data/b750_cq_sign.txt :39: negative 102 (want 102), least negative n 48 with b = -2 (want 48), exactly zero 2498 (want 2498), positive 399 (want 399), the largest |b(n)| log n 190.565466363 at n = 2808 (want 190.565466363 at 2808): AS WANTED
+  (K2) the Taylor coefficients of log((1 + 2 exp(-3T))/3) at T^1..T^4, exact: -2, 1, 1/3, -1/4 (the statement: -2, 1, 1/3, -1/4): AS WANTED
+  (K3) the reduced forms: -23: (1,1,6), (2,-1,3), (2,1,3) ; -31: (1,1,8), (2,-1,4), (2,1,4): AS WANTED (three each, the principal form among them)
+### THE CONTROLS: ALL AS WANTED
+
+## THE ROWS -- THE PLANT: THE k DIVISIBLE BY 3 KEPT IN T
+  D = -23, x^2 + xy + 6y^2: the non-principal split primes <= 3000: 145, the first [2, 3, 13, 29, 31, 41, 47, 71] ; direct b(n) nonzero at 501 of n = 2..3000 ; closed against direct: MISMATCHES 134 (first [8, 16, 24, 27, 32, 48, 54, 64, 72, 81])
+  D = -31, x^2 + xy + 8y^2: the non-principal split primes <= 3000: 145, the first [2, 5, 7, 19, 41, 59, 71, 97] ; direct b(n) nonzero at 443 of n = 2..3000 ; closed against direct: MISMATCHES 104 (first [8, 16, 32, 40, 56, 64, 80, 112, 125, 128])
+
+### ### **THE CLOSED FORM (a) WITH ITS PLANT: THE PLANT BREAKS THE AGREEMENT AT BOTH FIELDS: AS WANTED ; CONTROLS ALL AS WANTED ; 0.1 s.**
