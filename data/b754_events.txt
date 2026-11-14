@@ -265,7 +265,11 @@ AFTER THE RESTART, ENTERED IN SESSION 11d67961:
      before the tool's write; 00:24:59Z and 00:25:04Z before the PLACE-papers add and commit (bd6fa92d); 00:25:29Z before the
      tool's confirm; 00:25:35Z before the tool's dry for [R3]; 00:25:43Z before the item route's write for [R3] (the amendment
      row 9) and 00:25:43Z before the tool's write; 00:25:48Z and 00:25:52Z before the PLACE-papers add and commit (dbf8e93c);
-     00:26:18Z before the tool's confirm; 00:26:35Z before these lines and (39); each none.
+     00:26:18Z before the tool's confirm; 00:26:35Z before these lines and (39); each none. 00:27:05Z and 00:27:12Z before the
+     add and commit of the sitting bank, the amendment rows 8 and 9, the (W) bank and (39) (093d8e03); 00:33:48Z before the
+     foot's dry (refused on its own check, nothing written, (40)); 00:34:08Z before the tool's controls ahead of its commit (41
+     of 41, nothing written); 00:34:15Z and 00:34:22Z before its add and commit (970926d4); 00:34:51Z before the foot's write;
+     00:35:13Z before these lines and (40); each none.
 
     (11) THE HOST'S [CLOSE ; REPEAT events (3)]: A SUMMARY OF THE SESSION AFTER STEP ZERO'S PRICE TABLE, read at 16:22:04Z by
      `tools/standing/chain.py read` on session 11d67961: the compaction boundary at transcript line 1038, 2026-11-13T15:56:31.756Z, its
@@ -666,3 +670,16 @@ AFTER THE RESTART, ENTERED IN SESSION 11d67961:
      (13b70141a72d3a3f), every other line moved by two and byte-equal, read back equal; PLACE-papers dbf8e93c (step 55, the scan
      0 ; 0 ; 0 ; 0 over 347 places); the confirm read the Epstein document alone at HEAD, numstat 4 and 2, the three lines the
      row's. data/b754_sitting.json gains the rows [R1] and [R3], each PASS. No body written to the Epstein document.
+
+    (40) THE SEAT'S [CLOSE ; NEW]: THE SITTING'S FOOT WRITTEN AFTER THE PUT OF [R] ((R364)(5); data/b754_ferry.txt :54).
+     tools/b754_sitting.py gained the route `foot dry|write` (the record in b736's form, data/b736_sitting.txt; four controls
+     added, 41 of 41). Its first dry (00:33:4xZ, before the route's commit) refused on its own check: the author's word's head
+     read at :119 for :120; mended, and the tool committed before its run (970926d4). The write (00:34:52Z): data/b754_sitting.txt
+     192 lines, sha256 opening 23b78ad9ef938dd4, read back equal, hand-read whole in the write's print. 33 rows in the agenda's
+     order, 28 decided by the author's answers and 5 not put; PASS 21, CARRIED 7, HELD 2, STRUCK 2, STANDS 1; every put row's
+     label read equal at its RESULT line (28 of 28), every written row's confirmation from data/b754_sitting.json, every commit a
+     row cites among the act's steps. The git writes of the sitting: 32 commits (relay 25, PLACE-papers 7), steps 26 to 57, each
+     through the one-call tool after its add in a message of its own, each paired with its block of the per-commit scan bank,
+     0 ; 0 ; 0 ; 0 at 32 of 32. The writes beyond git: 6 (five descriptions by gh, each read back equal, and the one settings
+     key). The author's answers of the sitting: 9 RESULT rows and 1 word (:120-:121, 22:51:31Z), banked verbatim with their times
+     by `record answers` in 8 appends, no line already in the bank rewritten. The commit carrying the bank is not listed in it.
