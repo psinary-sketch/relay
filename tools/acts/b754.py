@@ -646,14 +646,25 @@ def runner_ok(S):
 # ### b754, Component 4 (the Edit tool): b753's override of checks 1476-1482 (one ERRATA entry at b753's (R363)(5)) removed -- (R364)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b754 as it stands
 # ### G-BRANCHES-DELETED over b754's two repositories (relay, PLACE-papers) and five refs. b754, Component 4 (the Edit tool, defect
-# ### (t')): the needle carried from b753 asked b753's sentence ("KEPT as banked (the tool`s row, tools/standing/carry.py kept b753"); b754's
-# ### step zero wrote its kept row in its own words (data/b754_stepzero.txt :96, by a scratch reader after the hook's ENV refusal, defect (a)):
-# ### "KEPT as b753's carried list (f) names them, none moved ... 0 moved or absent", port-b707 cb0aea56 among them (:97); read in that wording
+# ### (a'')): b753's needle came through the carry with its act names shifted and asked b754's step-zero bank for b753's wording
+# ### ("... names them, none moved", "port-b707 cb0aea56"), which b754's bank does not carry; b754's step zero wrote its kept row as
+# ### "KEPT as b753's carried list (f) names them (data/b753_closing.txt :576-:579 ...): 24 branches at their banked tips, 0 moved or
+# ### absent" (data/b754_stepzero.txt :132-:133), naming port-b707 by the list it cites (data/b753_closing.txt :577); read in that wording,
+# ### port-b707 from the cited list and its tip from the tree
 #⟪OVERRIDE checks MARK 6381bcfb3cc2 1⟫
     return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and 'port-b707 cb0aea56' in z and "KEPT as b753's carried list (f) names them, none moved" in z and '0 moved or absent' in z and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and "KEPT as b753's carried list (f) names them" in z and '0 moved or absent' in z and 'port-b707 of SIDE-lv-conservation (at the remote at cb0aea56' in (rd('b753_closing.txt') or '') and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+#⟪END⟫
+# ### b754, Component 4 (the Edit tool, defect (b'')): (R364)(5)[A]'s four passes replaced seven lines of FINDINGS one for one, so the
+# ### template's appended() read '' for FINDINGS and G-FINDINGS-APPEND-ONLY failed; the arm reads the replacements by their passes'
+# ### commits (fi_append_ok754), and the ledger lines appended read FINDINGS past the base's count (fi_adds754)
+#⟪OVERRIDE checks MARK 6add2a0e3cf6 1⟫
+    S['ledger_adds'] = fi_adds754(S) + NL + appended(S['ot_pre'], S['ot_now'])
+#⟪END⟫
+#⟪OVERRIDE checks MARK bc28644c6741 1⟫
+    ('G-FINDINGS-APPEND-ONLY', 'FINDINGS before and now: appended only, but the lines (R364)(5)[A]`s passes replaced one for one, each equal to its line at its pass`s commit', lambda S: fi_append_ok754(S),
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): G-RUNNER-READ's plant on b754's dispatch rows -- run 2's axiom lines carrying sorryAx (b753's
 # ### plant read the lv rows' closure log, which b754 does not write)
@@ -1258,13 +1269,14 @@ def _vlast(t):
 
 def research_reproduces_ok(S):
     """the standing arm G-RESEARCH-REPRODUCES (b729's (R339)(7), carried in the run list): tools/research/reproduce.py's full run banked this
-    act -- one row per instrument, the rows' ids I-41 to I-109 in order (b753 entered I-109; [R2]'s I-110 carried); each row REPRODUCES,
+    act -- one row per instrument, the rows' ids I-41 to I-108 in order, the tool's own list at the act's base 34332a00 (I-109, entered at
+    b753, stands in no row of it, and this act changes no research tool: defect (z')); each row REPRODUCES,
     DIFFERS or NOT RUN; each run row's planted wrong figure graded DIFFERS (as wanted); each NOT RUN row with its reason and its price (more
     than 60 s or a dispatch or network read); the json's counts and the bank's foot the rows'; the tool at HEAD its blob at the act's base
     (unchanged this act) and the working tree's."""
     j = S['reproducej'] or {}
     R = j.get('rows') or []
-    ids = ['I-%d' % i for i in range(41, 110)]
+    ids = ['I-%d' % i for i in range(41, 109)]
     run = [r for r in R if r.get('grade') in ('REPRODUCES', 'DIFFERS')]
     nr = [r for r in R if r.get('grade') == 'NOT RUN']
     c = dict((g, sum(1 for r in R if r.get('grade') == g)) for g in ('REPRODUCES', 'DIFFERS', 'NOT RUN'))
@@ -1276,6 +1288,48 @@ def research_reproduces_ok(S):
         and all(re.match(r'(MORE THAN 60 s|A DISPATCH|A NETWORK READ): ', r.get('why') or '') and 'priced' in (r.get('why') or '') for r in nr) \
         and j.get('counts') == c and bool(f) and [int(x) for x in f.groups()] == [len(R), c['REPRODUCES'], c['DIFFERS'], c['NOT RUN'], len(run), len(run)] \
         and bool(src) and src == _s(blob(ROOT, '%s:%s' % (PRE['relay'], tool))) and src == (read(os.path.join(ROOT, *tool.split('/'))) or '')
+
+
+def fi_append_ok754(S):
+    """G-FINDINGS-APPEND-ONLY at b754 (defect (b'')): (R364)(5)[A] replaced lines of FINDINGS one for one, so the act's FINDINGS no longer
+    opens with its base's bytes. Appended only, but the lines [A]'s passes replaced: each pass of K.ITEM_PP on FINDINGS.md read against its
+    parent, its line count equal across it and its changed lines as many as its numstat's added and removed; every line of the base
+    (PRE_PP) that differs now is one of those lines, equal now to its line at its pass's commit; the base's other lines unchanged and the
+    lines past its count appended. A planted change of any other line, or of a replaced line, fails it."""
+    pre, now = S['fi_pre'], S['fi_now'] or b''
+    if pre is None or not pre.endswith(b'\n'):
+        return False
+    if now.startswith(pre):
+        return True
+    k = pre.count(b'\n')
+    if now.count(b'\n') < k:
+        return False
+    P_, N_ = pre.split(b'\n'), now.split(b'\n')
+    want = {}
+    for _item, c, f, a, r in K.ITEM_PP:
+        if f != 'FINDINGS.md':
+            continue
+        A_, B_ = cr0(blob(PP, c + '~1:FINDINGS.md')), cr0(blob(PP, c + ':FINDINGS.md'))
+        if A_ is None or B_ is None:
+            return False
+        a_, b_ = A_.split(b'\n'), B_.split(b'\n')
+        ch = [i for i in range(len(a_)) if len(a_) == len(b_) and a_[i] != b_[i]]
+        if len(a_) != len(b_) or not (len(ch) == a == r):
+            return False
+        want.update((i, b_[i]) for i in ch)
+    diff = [i for i in range(k) if P_[i] != N_[i]]
+    return bool(want) and sorted(want) == diff and all(N_[i] == want[i] for i in diff)
+
+
+def fi_adds754(S):
+    """the FINDINGS half of the ledger lines appended (defect (b'')): the template's appended() where the base opens the file; where it does
+    not and fi_append_ok754 reads the act's FINDINGS as [A]'s replacements and appends, the lines past the base's count, so that
+    G-OUTSIDE-NAMED-NOWHERE and the no-disclosure read see them; otherwise '' as the template reads it."""
+    pre, now = S['fi_pre'], S['fi_now']
+    a = appended(pre, now)
+    if a or not (pre and now) or not fi_append_ok754(S):
+        return a
+    return b'\n'.join(now.split(b'\n')[pre.count(b'\n'):]).decode('utf-8', 'replace')
 #⟪END⟫
 #⟪SECTION checks 41⟫
     """standing clauses v9 (Component 7 of (R364): "the touch read of v9 banked before the root"), N4: the touch read banked as data/b754_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
@@ -1298,7 +1352,7 @@ def research_reproduces_ok(S):
 #⟪END⟫
 #⟪SECTION checks 46⟫
     # ### b753's standing arm, carried in the run list of 116
-    ('G-RESEARCH-REPRODUCES', '(R363)(7), carried: tools/research/reproduce.py`s full run this act -- one row per instrument I-41 to I-109, each REPRODUCES, DIFFERS or NOT RUN, each run row`s planted wrong figure graded DIFFERS, each NOT RUN with its reason and price; the counts and the foot the rows`; the tool unchanged from the act`s base 0e855242',
+    ('G-RESEARCH-REPRODUCES', '(R363)(7), carried: tools/research/reproduce.py`s full run this act -- one row per instrument I-41 to I-108, each REPRODUCES, DIFFERS or NOT RUN, each run row`s planted wrong figure graded DIFFERS, each NOT RUN with its reason and price; the counts and the foot the rows`; the tool unchanged from the act`s base 34332a00',
      lambda S: research_reproduces_ok(S), lambda S: _mut(S, 'reproducej', lambda d: (d.get('rows') or [{}])[0].update(planted_as_wanted='False'))),
 #⟪END⟫
 #⟪SECTION checks 47⟫

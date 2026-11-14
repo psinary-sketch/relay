@@ -245,3 +245,51 @@ b754 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
      on the act module's PENDING lines for checks, record and report (tools/acts/b754.py :21, :24, :27; the loader prints them at
      every load and the seal wants every PENDING line empty), its rewrite to follow; the row then written by the step route
      (`tools/standing/fold.py record step relay "component 4" 65515f2e...`, 01:17:4xZ, on the flag read of 01:17:43Z): step 62.
+    (z') THE SEAT'S [CLOSE ; NEW]: G-RESEARCH-REPRODUCES ASKED A ROW THE TOOL DOES NOT CARRY. The act module's rewrite (relay
+     b5a81083) set the arm's ids to I-41 to I-109 (tools/acts/b754.py research_reproduces_ok, `range(41, 110)`), its docstring saying
+     that b753 entered I-109; tools/research/reproduce.py, unchanged from the act's base 34332a00 as the arm's own clause wants, carries
+     rows I-41 to I-108, and the run of 02:35:49Z banked 68 rows to I-108 (data/b754_reproduce.json). The probe of standing-a2 (flag
+     read 03:04:40Z) read the arm FAIL and the pre-lock comparison (`tools/standing/prelock.py print b754`, writing nothing) NEWLY
+     FAILING; read clause by clause by a scratch reader writing nothing (repro754.py, 03:5xZ): every clause held but the ids, I-109
+     missing. The rewrite took the instrument's entry in INSTRUMENTS for a row of the tool, not read against the tool. Repaired before
+     the gate: the range I-41 to I-108, the docstring naming the tool's own list, and the arm's label naming the act's base 34332a00
+     where b753's 0e855242 stood, carried.
+    (a'') THE SEAT'S [CLOSE ; REPEAT b753 (b)]: G-BRANCHES-DELETED'S NEEDLE CARRIED WITH ITS ACT NAMES SHIFTED (the class of
+     (R364)(3)(ii), the act module's carried rows). The override of checks :808 in tools/acts/b754.py (MARK 3feae0b5e0b8) came through
+     the carry from b753's module with b752 read as b753 and b753 as b754, and asked b754's step-zero bank for b753's sentence ("...
+     names them, none moved", "port-b707 cb0aea56"); its comment cited data/b754_stepzero.txt :96-:97, lines that carry those words in
+     b753's bank alone (data/b753_stepzero.txt :96-:97). b754's step zero wrote "KEPT as b753's carried list (f) names them
+     (data/b753_closing.txt :576-:579; ...): 24 branches at their banked tips, 0 moved or absent" (data/b754_stepzero.txt :132-:133),
+     naming port-b707 by the list it cites (data/b753_closing.txt :577). The probe of standing-a2 read the arm FAIL, NEWLY FAILING.
+     The carry's half that landed under (3)(ii) empties the sections that read a ruling or an act's banks; an OVERRIDE block reading a
+     bank is not among them, and the module's rewrite for b754's banks did not read this one. Repaired before the gate: the needle in
+     b754's wording, port-b707 read in the list the row cites and its tip from the tree; each clause read true by a scratch reader
+     writing nothing (branches754.py): both push-b753 lists empty, the five names in the bank, the row's two phrases, the list's
+     port-b707 at cb0aea56, the tip cb0aea56.
+    (b'') THE SEAT'S [CLOSE ; NEW]: TWO ARMS COULD NOT READ FINDINGS AFTER [A]'S PASSES IN PLACE, ONE OF THEM VACUOUS. (R364)(5)[A]'s
+     four passes (PLACE-papers 02db0b2f, 92bb8923, d57f0d6a, 2f5c9b35) replaced FINDINGS :897, :898, :901, :902, :905, :906 and :979
+     one line for one, the line count equal, so the act's FINDINGS no longer opens with its base's bytes (04fef04e). The template's
+     G-FINDINGS-APPEND-ONLY (checks :1806, the file opening with its base) read FAIL at the probe of standing-a2, NEWLY FAILING; and the
+     template's appended() (tools/b703_checks.py, '' where the base is not a prefix) gave the ledger lines appended (checks :667)
+     nothing of FINDINGS, so G-OUTSIDE-NAMED-NOWHERE and the no-disclosure read of the public text (checks :669, :673) read
+     OPEN_TRAILS' additions alone: their FINDINGS half VACUOUS at the probes, the 155 lines Component 1 appended (:15052-:15206)
+     unread by them. The ruling ordered the replacements and named no arm for them. Found reading the newly failing list against the
+     template (03:5xZ); the lines read by a scratch reader writing nothing (fidiff754.py): seven lines differ within the base's
+     15,051, each equal to its line at its pass's commit. Repaired in the act module before the gate and not declared on the face, a
+     declared failure of the arm hiding any second edit of a FINDINGS line: fi_append_ok754 reads each pass of the worklist's ITEM_PP
+     on FINDINGS.md against its parent and allows those lines alone, each equal now to its line at its pass; fi_adds754 reads FINDINGS
+     past the base's count where that holds (two overrides, checks :667 and :1806). Controls by a scratch reader cutting the two
+     functions from the module (ficontrol754.py, 04:0xZ): 10 of 10, the live file read true, a planted change of :500, a planted change
+     of :901, a line removed and the template's planted prefix each read false, the 155 lines read. The compile control after the
+     four repairs (04:03:57Z): 8 of 8. The template's reach, for the corrigendum after: appended() reads an act that edits a ledger in
+     place as having appended nothing.
+    (c'') THE SEAT'S [CLOSE ; NEW]: EVENT (5)'S TAG WRAPPED ACROSS TWO LINES, AND THE STANDING COUNTER REFUSED THE EVENTS BANK.
+     data/b754_events.txt (5), committed at step zero (relay 0fe85cf9), carried its tag's closing bracket on the row's second line;
+     tools/standing/counter.py's ROW (:20) takes a tag only where it closes on the row's first line, so compose('b754') raised "AN
+     UNTAGGED EVENT ROW" at the working tree and at relay 0fe85cf9, b5a81083 and c6253ed3 (scratch counter754.py, writing nothing,
+     04:05Z), and the readers that call it (tools/standing/prelock.py's tags, the act module's counter override of the closing, the
+     refusals gate) could not read the bank. tools/standing/fold/record.tpl's _counter, whose matcher takes any text before the
+     bracket, read the row as tagged. Found reading the counter's yield after (b''); a scratch reader writing nothing (tagscan754.py)
+     read 1 row of 55 events and 0 of 53 defects not taken. Mended before the gate: the row's first line carries its tag whole, no
+     word changed and the bank's line count unchanged (the answers bank cites :51 and :52 of it); the scan after it 0 of 56 events
+     and 0 of 53 defects not taken, compose at the working tree CLAIM 0, CLOSE 109, REPEAT 73 of 109.
