@@ -29,6 +29,14 @@ line before the head and between two lines, [L6], [L7], [L8] and [L14] each clos
 them in its own words, as the put said; the file's bytes before the write a prefix of its bytes after, the count before read against the
 agenda's CURRENT, the two lines the items bear on (:2691, :3384) read by the agenda's digests. `l dry`, `l write` (the row banked), `l
 confirm` (after the PLACE-papers commit: HEAD touching OPEN_TRAILS.md alone, its appended lines the row's).
+[R]. The record lines passed at the [R] put (data/b754_put_10.json), the word banked by the answers route at data/b754_author_answers.txt
+:182 (2026-11-14T00:17:39Z): both passed, [R2] carried by (8). The passed texts are cut from the word's RESULT line between needles met
+once, each read against its draft in data/b754_ferry.txt :50 (the draft's digest equal to the agenda's): [R1]'s line equal to its draft's
+words with the head and two substitutions; [R3]'s headings cut from its draft, §8's title the put's; the dated note with its cite set to
+:182 and dated the day of the write. [R1] appended at INSTRUMENTS.md's end after a blank line; [R3] replaces :216 and :218 one line for one
+line and inserts a blank line and the note after :11, the file's last dated note, every other line moving by two and byte-equal. The
+CURRENT of each file read against the agenda's; no written line within two of the [Q] word's lines. `r <R1|R3> dry`, `r <R1|R3> write`
+(the row banked), `r <R1|R3> confirm` (after its PLACE-papers commit: HEAD touching the item's file alone, the numstat the row's).
 
   python -X utf8 -u tools/b754_sitting.py control          the controls alone, nothing written and nothing read remotely
   python -X utf8 -u tools/b754_sitting.py dry <A1..A4>     the controls, the CURRENT against the agenda, the lines composed; nothing written
@@ -38,6 +46,7 @@ confirm` (after the PLACE-papers commit: HEAD touching OPEN_TRAILS.md alone, its
   python -X utf8 -u tools/b754_sitting.py a5 <read|write|back>
   python -X utf8 -u tools/b754_sitting.py b <B2|B4|B6|B7> <read|write|back>
   python -X utf8 -u tools/b754_sitting.py l <dry|write|confirm>
+  python -X utf8 -u tools/b754_sitting.py r <R1|R3> <dry|write|confirm>
 """
 import hashlib
 import io
@@ -114,6 +123,32 @@ OREL = 'OPEN_TRAILS.md'
 OPATH = os.path.join(PP, OREL)
 L_DRAFTED = re.compile(r'^(\[L\d+\]) DRAFTED.*digest ([0-9a-f]{16})\):$')
 L_CUR = re.compile(r'^  CURRENT: OPEN_TRAILS\.md at main, (\d+) lines; .*\(OPEN_TRAILS :2691 ([0-9a-f]{16}) ; :3384 ([0-9a-f]{16})\)$')
+# ### [R]: the word on the [R] put (data/b754_put_10.json), banked by the answers route at data/b754_author_answers.txt :182
+R_ANSWERS_LINE = 182
+R_WORD_AT = '2026-11-14T00:17:39Z'
+R_WORD_CITE = '%s :%d' % (ANSWERS, R_ANSWERS_LINE)
+R_QUESTION = '[R] THE RECORD LINES'
+R_LABEL = 'Both passed (Recommended)'
+IREL = 'phase1.5/method/INSTRUMENTS.md'
+EREL = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md'
+R_REL = {'[R1]': IREL, '[R3]': EREL}
+R_ITEMS = ('[R1]', '[R3]')
+# ### the passed texts cut from the word's RESULT line between needles, each met once
+R1_NEEDLES = ('appended at INSTRUMENTS\' end after a blank line, no line moving: "', '" [R3]:')
+R3_NOTE_NEEDLES = ('the two headings then at :218 and :220: "', '" No body written.')
+R3_TITLE8_NEEDLES = ('(§8 "', '"; §9 the back matter')
+R3_CITE = ('(relay data/b754_author_answers.txt, the line of this answer)', '(relay data/b754_author_answers.txt :%d)' % R_ANSWERS_LINE)
+# ### [R1]'s line read against its draft (data/b754_ferry.txt :50): the head, then the draft's words after R1_FROM with two substitutions
+R1_HEAD = "*Cross-reference (b754, ruling `(R364)`(5)[R1]).* To "
+R1_FROM = "gains its cross-reference by a line appended in the instruments' own form: to "
+R1_SUBS = (('data/', 'relay data/'), ('((R363)(3)(i);', '(`(R363)`(3)(i);'))
+# ### [R3]'s two headings cut from its draft between needles
+R3_HEAD_NEEDLES = {216: (':216 "', '"; :218 "'), 218: (':218 "', '"; one dated note')}
+R3_NOTE_AFTER = 11   # ### the file's last dated note, :11; the note goes after it with a blank line
+R_DRAFTED = re.compile(r'^(\[R\d\]) DRAFTED \(digest ([0-9a-f]{16})\):$')
+R_CUR_I = re.compile(r'^  CURRENT: INSTRUMENTS :764 "(.*)"$')
+R_CUR_E = re.compile(r'^  CURRENT: THE_EPSTEIN_CONTROL_OBJECT_v0_1\.md, (\d+) lines ; :216 "(.*)" ; :218 "(.*)" ; ')
+R_INSTRUMENTS_LINES = 768   # ### the count the put gave (data/b754_put_10.json), read at PLACE-papers a9087a6d
 
 
 def stamp():
@@ -321,9 +356,10 @@ def rows():
 
 
 def bank(R):
-    j = {'what': '(R364)(5)[A], [B] and [L] the passed items written by %s, one row an item; the words %s (%s) for [A], %s (%s) for [B] and '
-                 '%s (%s) for [L]; the drafts cut from data/b754_ferry.txt at HEAD and, for [L14] and [L15], from the amendment rows 3 and 4; the '
-                 'lines cited by line and digest' % (SELF, WORD_CITE, WORD_AT, B_WORD_CITE, B_WORD_AT, L_WORD_CITE, L_WORD_AT), 'at': stamp(), 'rows': R}
+    j = {'what': '(R364)(5)[A], [B], [L] and [R] the passed items written by %s, one row an item; the words %s (%s) for [A], %s (%s) for [B], '
+                 '%s (%s) for [L] and %s (%s) for [R]; the drafts cut from data/b754_ferry.txt at HEAD and, for [L14] and [L15], from the amendment '
+                 'rows 3 and 4, and [R]`s passed texts from the word`s RESULT line, each read against its draft; the lines cited by line and digest' % (
+                     SELF, WORD_CITE, WORD_AT, B_WORD_CITE, B_WORD_AT, L_WORD_CITE, L_WORD_AT, R_WORD_CITE, R_WORD_AT), 'at': stamp(), 'rows': R}
     with open(BANK + '.tmp', 'wb') as f:
         f.write((json.dumps(j, indent=1, ensure_ascii=False, sort_keys=True) + NL).encode('utf-8'))
     os.replace(BANK + '.tmp', BANK)
@@ -432,6 +468,38 @@ def controls():
          len(lmark) == 6 and all(not withheld_l(s, acct, word) for s in lmark)
          and all(lmark[1 + i].endswith(L_MARK) == (t in L_MARKED) for i, t in enumerate(L_ITEMS)) and "the navigator's" in lmark[5],
          'lines %d' % len(lmark))
+    # -------- [R]
+    rline = r_result()
+    case('the [R] word read at %s: %r' % (R_WORD_CITE, R_LABEL), r_word_label(rline) == R_LABEL, repr(r_word_label(rline)))
+    pr_line = 'RESULT (transcript line x): Your questions have been answered: "%s, planted. How does [R] go?"="[R1] only". You can' % R_QUESTION
+    case('a planted [R] word answering `[R1] only` reads not passed', r_word_label(pr_line) == '[R1] only', repr(r_word_label(pr_line)))
+    rs = r_drafts()
+    rdg, rcur = r_agenda(A)
+    ragree = [t for t in R_ITEMS if rs.get(t) and rdg.get(t) == digest(rs[t])]
+    case('the [R1] and [R3] drafts cut from data/b754_ferry.txt :50, each digest equal to the agenda`s (2 of 2)', len(ragree) == 2,
+         ' ; '.join('%s %s/%s' % (t, digest(rs.get(t) or ''), rdg.get(t)) for t in R_ITEMS))
+    TX = r_texts(rline, rs)
+    case('[R1]`s line cut from the word equal to its draft with the head and the two substitutions', TX['[R1]'] is not None
+         and TX['[R1]'] == TX['[R1] derived'], 'cut %s ; derived %s' % (digest(TX['[R1]'] or ''), digest(TX['[R1] derived'] or '')))
+    case('a planted [R1] draft one character apart derives a line unequal to the word`s', r1_derived((rs.get('[R1]') or '') + 'x') != TX['[R1]'], 'unequal')
+    case('[R3]: two headings cut from its draft, §8`s title the put`s; the note cut once, its cite :%d, no cite left unset' % R_ANSWERS_LINE,
+         TX[216] is not None and TX[218] is not None and TX['title8'] is not None and TX[216] == '## 8. ' + TX['title8'] and TX[218].startswith('## 9. ')
+         and TX['note'] is not None and TX['note'].count(R3_CITE[1]) == 1 and R3_CITE[0] not in TX['note'],
+         'headings %d, %d characters ; note %d characters' % (len(TX[216] or ''), len(TX[218] or ''), len(TX['note'] or '')))
+    case('the agenda`s [R] CURRENT found: INSTRUMENTS :764 and the Epstein document`s count, :216 and :218', rcur['I'] is not None and rcur['E'] is not None,
+         'E %s' % (rcur['E'][0] if rcur['E'] else None))
+    pd = b''.join(b'l%d\n' % k for k in range(1, 9))
+    prep = {6: 'six', 8: 'eight'}
+    pa = r_insert(put_lines(pd, prep), 2, ['', 'note'])
+    pbad = r3_check(pd, pa, 2, ['', 'note'], prep)
+    pp_ = pa.split(b'\n')
+    case('a planted file of 8 lines: :6 and :8 replaced, a blank and a note after :2; 10 lines, the two at :8 and :10, the rest equal',
+         not pbad and split_bytes(pa)[1] == 10 and pp_[2:4] == [b'', b'note'] and pp_[7] == b'six' and pp_[9] == b'eight' and pp_[4] == b'l3',
+         'differing %s' % (pbad or 'none'))
+    pbad2 = r3_check(pd, pa.replace(b'l4\n', b'l4x\n'), 2, ['', 'note'], prep)
+    case('a planted change outside the item`s lines read by the check', bool(pbad2), 'differing %s' % pbad2)
+    rlines = [TX['[R1]'] or '', TX[216] or '', TX[218] or '', TX['note'] or '']
+    case('[R]`s four lines withheld by no kind', all(s and not withheld_l(s, acct, word) for s in rlines), 'lines %d' % len([s for s in rlines if s]))
     ok = sum(C)
     print('### CONTROLS %d OF %d %s' % (ok, len(C), 'AS WANTED' if ok == len(C) else 'NOT AS WANTED'))
     return ok == len(C)
@@ -835,6 +903,237 @@ def l_confirm():
     bank(R)
 
 
+# ---------------------------------------------------------------- [R]
+def r_word_label(line):
+    """the label the author chose at the [R] question of a RESULT line; None where the line is no RESULT of that question."""
+    if not line.startswith('RESULT (transcript line') or ('"%s' % R_QUESTION) not in line:
+        return None
+    parts = line.split('"="')
+    return parts[1].split('"', 1)[0] if len(parts) == 2 else None
+
+
+def r_result():
+    L = AG.git(RELAY, 'show', 'HEAD:%s' % ANSWERS).replace('\r', '').split(NL)
+    return L[R_ANSWERS_LINE - 1] if len(L) >= R_ANSWERS_LINE else ''
+
+
+def r_drafts():
+    """{tag: words} of [R1], [R2], [R3] cut from data/b754_ferry.txt :50 by the agenda's reader."""
+    rs, _head = AG.split_sub(AG.draft(AG.ferry_lines(), '[R]'), 'R')
+    return dict(rs)
+
+
+def r1_derived(d):
+    """[R1]'s line as its draft gives it: R1_HEAD, then the draft's words after R1_FROM with R1_SUBS; None where R1_FROM is not met once."""
+    if not d or d.count(R1_FROM) != 1:
+        return None
+    body = d[d.index(R1_FROM) + len(R1_FROM):]
+    for a, b in R1_SUBS:
+        body = body.replace(a, b)
+    return R1_HEAD + body
+
+
+def r_texts(line, rs):
+    """{'[R1]': the line, '[R1] derived', 216, 218: the headings, 'title8': the put's §8 title, 'note': the dated note with its cite set}."""
+    out = {'[R1]': cut(line, *R1_NEEDLES), '[R1] derived': r1_derived(rs.get('[R1]')), 'title8': cut(line, *R3_TITLE8_NEEDLES)}
+    for k, (a, b) in R3_HEAD_NEEDLES.items():
+        out[k] = cut(rs.get('[R3]') or '', a, b)
+    n = cut(line, *R3_NOTE_NEEDLES)
+    out['note'] = n.replace(*R3_CITE) if n and n.count(R3_CITE[0]) == 1 else None
+    return out
+
+
+def r_agenda(A):
+    """({tag: digest} of the agenda's [R] drafts, {'I': INSTRUMENTS :764's words, 'E': (count, :216, :218)}), read in its [R] section."""
+    dg, cur, on = {}, {'I': None, 'E': None}, False
+    for l in A:
+        if l.startswith('## [R] '):
+            on = True
+            continue
+        if on and l.startswith('## '):
+            break
+        if on:
+            m = R_DRAFTED.match(l)
+            if m:
+                dg[m.group(1)] = m.group(2)
+            m = R_CUR_I.match(l)
+            if m:
+                cur['I'] = m.group(1)
+            m = R_CUR_E.match(l)
+            if m:
+                cur['E'] = (int(m.group(1)), m.group(2), m.group(3))
+    return dg, cur
+
+
+def r_insert(data, k, new):
+    """data with the lines `new` inserted after line k, each ending as line k ends; refused where k is not a line or a line carries a break."""
+    parts, n0 = split_bytes(data)
+    if not (0 < k < n0):
+        raise SystemExit('### NO LINE :%d TO INSERT AFTER -- NOTHING WRITTEN' % k)
+    for s in new:
+        if '\n' in s or '\r' in s:
+            raise SystemExit('### A LINE CARRIES A LINE BREAK -- NOTHING WRITTEN')
+    cr = b'\r' if parts[k - 1].endswith(b'\r') else b''
+    return b'\n'.join(parts[:k] + [s.encode('utf-8') + cr for s in new] + parts[k:])
+
+
+def r3_check(before, after, k, ins, repl):
+    """the lines differing from the plan: :1 to :k byte-equal, the inserted lines as composed, every later line moved by len(ins) and
+    byte-equal but the lines of `repl` (old numbers), each its new words with its ending kept."""
+    pb, nb = split_bytes(before)
+    pa, na = split_bytes(after)
+    m = len(ins)
+    if na != nb + m or len(pa) != len(pb) + m:
+        return ['count %d -> %d' % (nb, na)]
+    bad = ['old :%d' % (j + 1) for j in range(k) if pa[j] != pb[j]]
+    bad += ['new :%d' % (k + 1 + i) for i, s in enumerate(ins) if get_line(pa, k + 1 + i) != s]
+    for j in range(k, len(pb)):
+        o, n_ = pb[j], pa[j + m]
+        if (j + 1) in repl:
+            if get_line(pa, j + 1 + m) != repl[j + 1] or n_.endswith(b'\r') != o.endswith(b'\r'):
+                bad.append('old :%d as :%d' % (j + 1, j + 1 + m))
+        elif n_ != o:
+            bad.append('old :%d as :%d' % (j + 1, j + 1 + m))
+    return bad
+
+
+def r_near(X, word):
+    """the line numbers within two of a line carrying the [Q] word (the word never printed)."""
+    out = set()
+    if word:
+        rx = re.compile(r'\b%s\b' % re.escape(word), re.I)
+        for k, s in enumerate(X, 1):
+            if rx.search(s):
+                out |= set(range(max(1, k - 2), k + 3))
+    return out
+
+
+def r(item, step):
+    if item not in R_REL or step not in ('dry', 'write', 'confirm'):
+        raise SystemExit('usage: %s r <R1|R3> <dry|write|confirm>' % SELF)
+    if step == 'confirm':
+        return r_confirm(item)
+    if not controls():
+        raise SystemExit('### THE CONTROLS NOT AS WANTED -- NOTHING DONE')
+    if item in rows():
+        raise SystemExit('### %s HAS ITS ROW ALREADY -- NOTHING DONE' % item)
+    line = r_result()
+    lab = r_word_label(line)
+    if lab != R_LABEL:
+        raise SystemExit('### %s: THE WORD AT %s READS %r, NOT %r -- NOTHING DONE' % (item, R_WORD_CITE, lab, R_LABEL))
+    rs = r_drafts()
+    TX = r_texts(line, rs)
+    A = AG.git(RELAY, 'show', 'HEAD:data/%s_agenda.txt' % ACT).replace('\r', '').split(NL)
+    dg, cur = r_agenda(A)
+    rel = R_REL[item]
+    path = os.path.join(PP, rel)
+    head = AG.git(PP, 'rev-parse', 'HEAD').strip()
+    X = AG.lines(PP, 'HEAD', rel)
+    data = open(path, 'rb').read()
+    clean = AG.gitq(PP, 'diff', '--quiet', 'HEAD', '--', rel)[0] == 0
+    n0 = split_bytes(data)[1]
+    dd = digest(rs.get(item) or '')
+    agree = bool(rs.get(item)) and dg.get(item) == dd
+    print('### %s passed, the word %s (%s): label %r' % (item, R_WORD_AT, R_WORD_CITE, lab))
+    print('  PLACE-papers HEAD %s ; %s clean against HEAD %s ; %d bytes, %d lines' % (head[:8], rel, clean, len(data), n0))
+    print('  the draft (data/b754_ferry.txt :50) digest %s ; the agenda`s %s ; %s' % (dd, dg.get(item), 'AGREES' if agree else 'DIFFERS'))
+    if item == '[R1]':
+        heads_after = [k for k in range(765, n0 + 1) if X[k - 1].startswith('## ')]
+        cur_ok = cur['I'] is not None and n0 == R_INSTRUMENTS_LINES and X[763] == cur['I'] and not heads_after
+        print('  THE CURRENT: count %d / the put`s %d ; :764 %s the agenda`s ; a level-two head after :764 %s ; %s' % (
+            n0, R_INSTRUMENTS_LINES, 'EQUAL to' if cur['I'] is not None and X[763] == cur['I'] else 'NOT EQUAL to', heads_after or 'none',
+            'AGREES' if cur_ok else 'DIFFERS'))
+        derived = TX['[R1]'] is not None and TX['[R1]'] == TX['[R1] derived']
+        print('  the line cut from the word`s RESULT: %d characters, digest %s ; the draft`s words with the head and the two substitutions %s' % (
+            len(TX['[R1]'] or ''), digest(TX['[R1]'] or ''), 'EQUAL' if derived else 'DIFFER'))
+        new = [TX['[R1]'] or '']
+        after = l_append(data, new)
+        n1 = split_bytes(after)[1]
+        nums = [n0 + 2]
+        texts = [('[R1]', n0 + 2, new[0], None)]
+        bad = [] if (after.startswith(data) and n1 == n0 + 2) else ['the append']
+        numstat = [2, 0]
+    else:
+        e = cur['E']
+        last = [k for k in range(1, n0 + 1) if X[k - 1].startswith('*Dated note, ')]
+        cur_ok = (e is not None and n0 == e[0] and X[215] == e[1] and X[217] == e[2] and last and last[-1] == R3_NOTE_AFTER
+                  and X[R3_NOTE_AFTER - 1].endswith('the version stays v0.1.*') and X[R3_NOTE_AFTER] == '')
+        print('  THE CURRENT: count %d / the agenda`s %s ; :216 %s ; :218 %s ; the dated notes at %s, :%d blank %s ; %s' % (
+            n0, e and e[0], 'EQUAL' if e and X[215] == e[1] else 'NOT EQUAL', 'EQUAL' if e and X[217] == e[2] else 'NOT EQUAL', last,
+            R3_NOTE_AFTER + 1, X[R3_NOTE_AFTER] == '', 'AGREES' if cur_ok else 'DIFFERS'))
+        derived = (TX[216] is not None and TX[218] is not None and TX['note'] is not None and TX['title8'] is not None
+                   and TX[216] == '## 8. ' + TX['title8'] and TX[218].startswith('## 9. ') and ('Dated note, %s, b754:' % stamp()[:10]) in TX['note'])
+        print('  the headings cut from the draft (%d, %d characters) ; §8`s title equal to the put`s %s ; the note cut from the word`s RESULT, '
+              'its cite :%d, %d characters, dated today %s' % (len(TX[216] or ''), len(TX[218] or ''), TX[216] == '## 8. ' + (TX['title8'] or ''),
+                                                             R_ANSWERS_LINE, len(TX['note'] or ''), ('Dated note, %s,' % stamp()[:10]) in (TX['note'] or '')))
+        repl = {216: TX[216] or '', 218: TX[218] or ''}
+        ins = ['', TX['note'] or '']
+        mid = put_lines(data, repl)
+        after = r_insert(mid, R3_NOTE_AFTER, ins)
+        n1 = split_bytes(after)[1]
+        bad = r3_check(data, after, R3_NOTE_AFTER, ins, repl)
+        nums = [R3_NOTE_AFTER + 2, 218, 220]
+        texts = [('note', R3_NOTE_AFTER + 2, ins[1], None), ('§8', 218, repl[216], X[215]), ('§9', 220, repl[218], X[217])]
+        numstat = [4, 2]
+    word, acct = DOORS.q_word(), DOORS.account(PP)
+    Xa = after.decode('utf-8').replace('\r', '').split(NL)
+    near = r_near(Xa, word)
+    wh = [(t, withheld_l(s, acct, word)) for (t, _k, s, _o) in texts if withheld_l(s, acct, word)]
+    print('  withheld by a kind: %s ; a written line within two of the [Q] word`s lines: %s' % (
+        ['%s: %s' % (t, k) for t, k in wh] or 'none', [k for k in nums if k in near] or 'none'))
+    print('  THE LINE COUNT: before %d ; after %d ; lines differing from the plan %s' % (n0, n1, bad or 'none'))
+    for t, k, s, o in texts:
+        print('  %-4s :%d digest %s, %d characters%s' % (t, k, digest(s), len(s), '' if o is None else ' (was digest %s)' % digest(o)))
+        if not wh:
+            print('      NEW: %s' % s)
+    if not (clean and cur_ok and agree and derived) or wh or bad or [k for k in nums if k in near]:
+        raise SystemExit('### %s: %s -- NOTHING WRITTEN' % (item, 'NOT CLEAN' if not clean else 'THE CURRENT DIFFERS' if not cur_ok else
+                                                          'THE DRAFT DIFFERS FROM THE AGENDA' if not agree else
+                                                          'THE PASSED TEXT DOES NOT MEET ITS DRAFT' if not derived else
+                                                          'A LINE WITHHELD' if wh else 'NOT AS PLANNED' if bad else 'A LINE BY THE [Q] WORD'))
+    if step == 'dry':
+        print('  DRY: nothing written')
+        return
+    at = stamp()
+    with open(path + '.tmp', 'wb') as f:
+        f.write(after)
+    os.replace(path + '.tmp', path)
+    back = open(path, 'rb').read()
+    print('  WRITTEN %s at %s ; read back %s' % (rel, at, 'EQUAL to the composed' if back == after else 'DIFFERS'))
+    if back != after:
+        raise SystemExit('### %s: THE READ-BACK DIFFERS -- restore %s through the one-call tool' % (item, rel))
+    R = rows()
+    R[item] = dict(form='passed', word_at=R_WORD_AT, word_cite=R_WORD_CITE, label=R_LABEL, state='WRITTEN, the commit through the one-call tool',
+                   rel=rel, pp_head=head, written_at=at, count_before=n0, count_after=n1, sha_before=bdigest(data), sha_after=bdigest(after),
+                   draft_digest=dd, agenda=dg.get(item), numstat=numstat,
+                   lines=[dict(item=t, line=k, digest=digest(s), chars=len(s), old_digest=None if o is None else digest(o)) for (t, k, s, o) in texts],
+                   carried='[R2] by (R364)(8)', confirm=None)
+    bank(R)
+    print('  then: `commit.py pp add %s`, its commit, then `%s r %s confirm`' % (rel, SELF, item.strip('[]')))
+
+
+def r_confirm(item):
+    R = rows()
+    r_ = R.get(item)
+    if not r_ or r_.get('confirm'):
+        raise SystemExit('### %s: %s -- NOTHING DONE' % (item, 'NO ROW' if not r_ else 'CONFIRMED ALREADY'))
+    rel = r_['rel']
+    head = AG.git(PP, 'rev-parse', 'HEAD').strip()
+    files = AG.git(PP, 'show', '--format=', '--name-only', 'HEAD').strip()
+    num = AG.git(PP, 'show', '--format=', '--numstat', 'HEAD').strip()
+    X = AG.lines(PP, 'HEAD', rel)
+    have = [digest(X[x['line'] - 1]) == x['digest'] for x in r_['lines']]
+    want = [str(x) for x in r_['numstat']]
+    ok = files == rel and num.split()[:2] == want and all(have) and head != r_['pp_head']
+    print('### %s CONFIRM: PLACE-papers HEAD %s ; files %s ; numstat %s (the row`s %s) ; the row`s lines at HEAD %s ; %s' % (
+        item, head[:8], files, num.split()[:2], want, have, 'AS WANTED' if ok else 'NOT AS WANTED'))
+    if not ok:
+        raise SystemExit('### %s: THE COMMIT DOES NOT CARRY THE ROW -- NOTHING WRITTEN' % item)
+    r_['confirm'] = 'PLACE-papers %s, %s alone, %s line(s) added and %s removed' % (head[:8], rel, want[0], want[1])
+    r_['state'] = 'PASS'
+    bank(R)
+
+
 def main(argv):
     if not argv:
         raise SystemExit(__doc__)
@@ -852,6 +1151,8 @@ def main(argv):
         return b('[%s]' % argv[1].strip('[]'), argv[2])
     if cmd == 'l' and len(argv) == 2:
         return l(argv[1])
+    if cmd == 'r' and len(argv) == 3:
+        return r('[%s]' % argv[1].strip('[]'), argv[2])
     raise SystemExit(__doc__)
 
 
