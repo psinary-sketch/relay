@@ -27,6 +27,13 @@
 ### ### **(3) THE LISTS ARE THIS ACT'S.** ### They are declared here, in the tool, so a later reader
 ###     can disagree with the scope rather than with a number. ### **A CENSUS OVER A LIST NOBODY CAN
 ###     SEE IS NOT A CENSUS.**
+
+### ### **b754, (R364)(5)[H1] (a): THE COUNT STOPPED.** ### The page is regenerated whole by
+### tools/standing/handoff.py from banks alone, and "the close's count against the page stops"
+### (relay data/b754_ferry.txt :42); on the author's answer of 2026-11-14T10:23:59Z (relay
+### data/b754_author_answers.txt :192) main() prints the count STOPPED with no total and returns 0.
+### The lists above are those of the page of b307, which stands in the file's history. present(),
+### census() and self_test() stay: tools/b327_faces_census.py imports present().
 """
 import io
 import os
@@ -112,55 +119,31 @@ def self_test(verbose=True):
     return bad == 0
 
 
+# ### b754, (R364)(5)[H1] (a): the line a reader takes as the stopped count's mark (tools/b754_lockgate.py reads it in the step-zero bank).
+STOPPED = 'THE HANDOFF COUNT STOPPED by (R364)(5)[H1] (a)'
+
+
 def main(argv):
+    """### b754: THE COUNT STOPPED. ### The self-test still runs, its fixtures being present()'s and census()'s, which
+    tools/b327_faces_census.py reads; no name is counted against HANDOFF.md and no total is printed."""
     label = argv[0] if argv else 'CENSUS'
     print('=' * 100)
-    print('b307_handoff_census.py -- %s. ### WHAT IS MISSING FROM `HANDOFF.md`, COUNTED.' % label)
+    print('b307_handoff_census.py -- %s. ### THE COUNT AGAINST `HANDOFF.md`, STOPPED.' % label)
     print('=' * 100)
     ok = self_test()
     print('  self-test : %s' % ('PASS' if ok else '### FAIL ###'))
     if not ok:
-        print('  ### REFUSING TO REPORT A CENSUS FROM A SUITE THAT FAILS ITS OWN FIXTURES.')
+        print('  ### REFUSING TO REPORT FROM A SUITE THAT FAILS ITS OWN FIXTURES.')
         return 2
-    if not os.path.exists(HANDOFF):
-        print('  ### HARD FAILURE -- THE LEDGER IS NOT AT %s' % HANDOFF)
-        return 2
-
-    text = io.open(HANDOFF, encoding='utf-8', errors='replace').read()
-    ma, mo, ms = census(text)
     print()
-    print('  ledger        : %s' % os.path.basename(HANDOFF))
-    print('  bytes / lines : %d / %d' % (len(text.encode('utf-8')), len(text.splitlines())))
-    print()
-    print('  ### (1) THE ARC\'S ACTS  -- %d checked, %d MISSING' % (len(ACTS), len(ma)))
-    for a in ma:
-        print('        ### MISSING  %s' % a)
-    print('  ### (2) THE LIVE WORK-ORDERS -- %d checked, %d MISSING'
-          % (len(WORK_ORDERS), len(mo)))
-    for w in mo:
-        print('        ### MISSING  %s' % w)
-    print('  ### (3) THE ARC\'S FINDINGS SECTION -- %d checked, %d MISSING'
-          % (len(SECTIONS), len(ms)))
-    for s in ms:
-        print('        ### MISSING  %s' % s)
-
-    total = len(ma) + len(mo) + len(ms)
-    print()
-    print('  ### ### **TOTAL MISSING : %d**' % total)
-    if total == 0:
-        print('  ### ### **THE CENSUS HAS COUNTED WHAT IS MISSING AND FOUND NOTHING.**')
-        print('  ### ### **`U-2`\'s `SURVIVES` CLAUSE IS THEREFORE SATISFIED FOR THIS LEDGER, AND')
-        print('  ### ### THE PHRASE MAY BE USED OF `HANDOFF.md` -- OF THAT LEDGER AND NO OTHER.**')
-    else:
-        print('  ### ### **THE PHRASE IS NOT LICENSED. ### THE ACT STATES WHAT IT WROTE AND WHAT')
-        print('  ### ### IT DID NOT CHECK, WHICH IS THE AUTHOR\'S OWN REPLACEMENT.**')
-    print()
-    print('  ### **AND WHAT THIS LICENSES IS ONE PHRASE ABOUT ONE LEDGER.** ### It says nothing')
-    print('  ### about `FINDINGS.md`, `REGISTRY.md`, `OPEN_TRAILS.md` or the desk, and it counts')
-    print('  ### NAMES rather than understanding. ### **A LEDGER NAMING EVERY ACT IN ONE LINE EACH')
-    print('  ### PASSES THIS CENSUS AND MAY STILL BE A BAD HANDOFF.**')
+    print('  ### ### **%s**' % STOPPED)
+    print('  ### HANDOFF.md is regenerated whole by tools/standing/handoff.py from banks alone; the lists this tool')
+    print('  ### declares are those of the page of b307, which stands in the file`s history. No name is counted and')
+    print('  ### no total is printed.')
+    print('  ### ### **`U-2`\'s `SURVIVES` CLAUSE IS NOT MET BY A STOPPED COUNT: THIS TOOL LICENSES NO PHRASE')
+    print('  ### ### ABOUT `HANDOFF.md`.**')
     print('=' * 100)
-    return 0 if total == 0 else 1
+    return 0
 
 
 if __name__ == '__main__':

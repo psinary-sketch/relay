@@ -724,6 +724,13 @@ def runner_ok(S):
 #⟪OVERRIDE record MARK f9c2c0f429b0 0 REPAIR (reader)⟫
 _rdn_strict = rdn; rdn = lambda name, optional=False: _rdn_strict(name, optional=optional or name in ('b754_author_answers.txt', 'b754_answer_check.txt', 'b754_events.txt'))   # noqa: E731,E702
 #⟪END⟫
+# ### b754, defect (m''), Component 4 before the gate (the Edit tool): record.tpl :194 bound DEFECT_ROW to b698's matcher of at most one
+# ### prime, which v1.34.0's repair under (R364)(3)(viii) left; b754's letters run to (l''), and letters_of, the defects route, N4's count
+# ### and, through b703's module, read_defect_row and _defect_short read 51 of the bank's 63. The one line bound, with b698's, b703's and
+# ### b753's module bindings, to the matcher of any number of primes, as tools/standing/close.py :35 and closing.tpl :122 read
+#⟪OVERRIDE record MARK 7606fc9891fa 1 REPAIR (reader)⟫
+DEFECT_ROW = R.DEFECT_ROW = P3.DEFECT_ROW = P7.DEFECT_ROW = re.compile(r"^    \(([a-z]'*)\) ")   # ### b754 (m''): any number of primes
+#⟪END⟫
 # ### b754, Component 1 (the Edit tool), tools/standing/ v1.34.0, (R364)(3)(v) and (viii): b753's override of _counter's read (the events
 # ### bank optional) retired -- the template's line now carries it, with the post-seal events bank read beside it and a letter of any number
 # ### of primes (record.tpl's _counter)
@@ -1983,9 +1990,10 @@ def _cite_src(where, path, rev, n):
     return s_[int(n) - 1] if 0 < int(n) <= len(s_) else None
 #⟪END⟫
 #⟪SECTION record 15⟫
-    """N3 (R364): no sentence of the act says that anything of ζ, RH, GRH or h2 holds, fails or moved, outside a negation; no sentence says
-    anything was deposited, published or versioned outside a negation; no bank and no sentence of the entry calls a result new or the
-    earliest of its kind; the anchors' grades read summing to the anchors read, the bank's controls all as wanted; every write of [A] to
+    """N3 (R364): no sentence of the act says that anything of ζ, RH, GRH or h2 holds, fails or moved, outside a negation; no bank and no
+    sentence of the entry calls a result new or the earliest of its kind (b749's clause on a sentence saying anything was deposited,
+    published or versioned, data/b749_ferry.txt :11, carried in the modules of b749 to b753 under their N3 and no clause of (R364)'s N3,
+    read and printed and not counted: data/b754_defects.txt (o''); the act's deposit rules stand in (R364)(9) and N5, read by N5); the anchors' grades read summing to the anchors read, the bank's controls all as wanted; every write of [A] to
     FINDINGS one line for one line ([A1] to [A4], each commit's lines added equal to its lines removed) and FINDINGS' line count equal before
     the first and after the last; each matcher's control caught; the entry's INTEGRATION line its last line and the line bank's own; the
     banks' nouns in the entry; the root prompt's sentences about the entry the composer's. From the banks' last lines and own sentences, the
@@ -2027,12 +2035,12 @@ def _cite_src(where, path, rev, n):
     ans_ = rdn('%s_author_answers.txt' % ACT)
     pr_ = [l_.split('): ', 1)[1] for l_ in ans_.split(NL) if l_.startswith('### PROMPT ') and '): ' in l_][-1:]
     unb_ = __import__('standing.rootprompt', fromlist=['entry_unbacked']).entry_unbacked(pr_[0], text) if pr_ else None
-    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and ag_ and oneline_ and not more_ and not dep_ and not first_ and not loc_ \
-        and integ_ and not nouns_   # ### every clause but the root prompt's
+    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and ag_ and oneline_ and not more_ and not first_ and not loc_ \
+        and integ_ and not nouns_   # ### every clause but the root prompt's; dep_ printed and not counted, b749's clause and no clause of (R364)'s N3 (defect (o''))
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty, deposit and centre sentence each caught, a negation read): %s; the anchors` grades summing, %d on a terminal, %d over their terminals, %d citing no terminal, %d not tagged, %d with no verdict, summed %d, of %d read, the bank`s controls %d of %d: %s; the writes of [A] to FINDINGS one line for one line (%s): %s, FINDINGS` lines %d at %s before the first and %d after the last: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; a sentence saying a thing was deposited, published or versioned outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or h2 holds, fails or moved outside a negation: %s; the entry`s last line the INTEGRATION line and the line bank`s own: %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty, deposit and centre sentence each caught, a negation read): %s; the anchors` grades summing, %d on a terminal, %d over their terminals, %d citing no terminal, %d not tagged, %d with no verdict, summed %d, of %d read, the bank`s controls %d of %d: %s; the writes of [A] to FINDINGS one line for one line (%s): %s, FINDINGS` lines %d at %s before the first and %d after the last: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; b749`s clause, carried in the modules of b749 to b753 and no clause of (R364)`s N3 (data/b754_defects.txt (o\'\')), read and not counted, a sentence saying a thing was deposited, published or versioned outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or h2 holds, fails or moved outside a negation: %s; the entry`s last line the INTEGRATION line and the line bank`s own: %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
             f['ag_on'], f['ag_over'], f['ag_nocite'], f['ag_untagged'], f['ag_noverdict'], f['ag_sum'], f['ag_n'], f['ag_ctl'][0], f['ag_ctl'][1], ag_,
             ', '.join('%s %s +%s -%s' % (i_, c_[:8], a_, r_) for i_, c_, a_, r_ in fa_) or 'NONE', oneline_, lcs_[0], K.C1_PP[:8], lcs_[1],
@@ -2130,7 +2138,7 @@ def _post_lock_edits():
     addr_ok = bool(addr) and addr.groups() == ('0', '0', '0', '0')
     # ### (R364)(6), N5: no release, no new version, no publish, no repository edit in the capture
     cmr_ = jl('%s_commands.json' % ACT).get('rows') or []
-    ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', r_.get('cmd') or '')]
+    ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', re.sub(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'', '""', r_.get('cmd') or ''))]   # ### b754 (p''): a run of gh, not its words inside a quoted argument (a commit's words, the capture's row 1001)
     # ### v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
     # ### banks alone (standing.act.zenodo_requests), not from captured commands nor from "the draft held at v5", the monograph's draft
     zr_ = __import__('standing.act', fromlist=['zenodo_requests']).zenodo_requests(ACT)
@@ -2219,7 +2227,7 @@ def _guard(f):
     # ### the navigator's letters, primed where they are: the reader takes a letter with its prime
     letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
     return ('(1) the line`s stage, the seat`s reading of canon XXIII (B): the act`s three reads and its sitting`s record BANKED, no seat for them in the cluster table and no keystone line written, printed and entered in no map (relay data/b754_line.txt); '
-            '(2) [H1] (a) written once by its tool before the gate, the close`s write of the page after the lock waiting for the ruling that places it among the files written after the lock by design (N4), and record.tpl`s registration census still running tools/b307_handoff_census.py, gated by no reader, left as it stands (relay data/b754_events.txt (31)); '
+            '(2) [H1] (a) written once by its tool before the gate, the close`s write of the page after the lock waiting for the ruling that places it among the files written after the lock by design (N4), and the registration census of record.tpl`s step zero, tools/b307_handoff_census.py, printing its count STOPPED by (R364)(5)[H1] (a) with no total, the line this act`s lock gate, tools/b754_lockgate.py, reads as the handoff census`s pass, b378`s gate unedited and wanting its phrase at the next act`s lock until a ruling places it (relay data/b754_events.txt (76); data/b754_defects.txt (r\'\'), (s\'\')); '
             '(3) [D2]’s one key, outside every repository, written with no amendment row, the item route reading the repositories’ paths alone, as for [A5] and the four descriptions of [B] (relay data/b754_events.txt (37)); '
             '(4) b753`s carried files committed after the act_current commit as (R364)(8)`s text orders them, where the ferry`s Component 0 list places them after the process listing (relay data/b754_stepzero.txt :35-:38); and defects (b\'), (n\') and (o\') entered with no clause ordering their repair, open for the author (relay data/b754_defects.txt); '
             +
