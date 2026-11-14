@@ -71,4 +71,20 @@ THE SEAT'S READING OF "ONE TO ONE", fixed here before the test and computed by t
   1 - conj(rho)); the pairs within 0.01 taken nearest first, each zero and each root used once; HELD where no zero and no root of real part
   at least 0.85 is left without a partner, REFUTED where one is. The verdict is read against this rule and nothing written after it.
 
-### ### **THE PRIOR CLAUSE: SUBJECT READ HITS 305, -59 AND RECURRENCE 0 ; NO VALUE OF THE FUNCTION AT -59 IN ANY BANK ; THE BEARING LINES 8, ALL OPEN ; THE LITERATURE BANK 9 AT CONTENT, 10 NOT READ ; THE CANDIDATES BEHIND BOTH RULES REPRODUCED ; H-ZEROS-FROM-PRIMES REGISTERED, H = 200 ; NOT RUN AT -59.**
+## (3) THE RULE (H-RECURRENCE), committed alone beside H-ZEROS-FROM-PRIMES (relay 11fc3c93), with its null's generator and seed, before the
+## certified list at -59 exists
+THE RULE, in (R365)(5)(iii)'s words (data/b755_ferry.txt :24): tested on the same certified list at no further cost. With p1 = 3 and p2 = 5,
+the row's two least primes (data/b753_registrations.txt :32), and the heights of the located off-line zeros, one height for each pair, let S
+be the count of pairs of heights whose difference, times log p1 / 2 pi and times log p2 / 2 pi, lies within 1/18 of a whole number in both.
+THE NULL: 4,000 draws of as many heights uniform on [2, H], the generator and its seed committed with the rule. HELD where S is above the
+largest draw; REFUTED otherwise; NOT DECIDED where the list holds fewer than 15 heights. Its control is (4)(l), one field, said so in the bank.
+H = 200, as (2)'s.
+THE GENERATOR AND ITS SEED: tools/b755_recur.py, committed in this rule's commit; numpy's default generator, SEED = 59, DRAWS = 4000
+  (:29-:30 of the tool). Its control mode runs (4)(l) again by this tool's own code at -23 (data/b725_interference.txt, log 2 and log 3,
+  S = 168 wanted, data/b755_cand_l.txt), one field and a used one: THE CONTROL IS (4)(l), AT ONE FIELD.
+THE SEAT'S READING, fixed here before the list exists: the heights are those of the certified list's off-line zeros with beta > 1/2 (one of
+  each pair rho, 1 - conj(rho)) at heights in [2, H], read from data/b755_list_59.txt's band rows; every band must read COMPLETE and the bands
+  must reach H, else no verdict; "within 1/18" the distance to the nearest whole number at most 1/18. The verdict is read against this rule
+  and nothing written after it.
+
+### ### **THE PRIOR CLAUSE: SUBJECT READ HITS 305, -59 AND RECURRENCE 0 ; NO VALUE OF THE FUNCTION AT -59 IN ANY BANK ; THE BEARING LINES 8, ALL OPEN ; THE LITERATURE BANK 9 AT CONTENT, 10 NOT READ ; THE CANDIDATES BEHIND BOTH RULES REPRODUCED ; H-ZEROS-FROM-PRIMES AND H-RECURRENCE REGISTERED, H = 200, THE NULL'S SEED 59 ; NOT RUN AT -59.**
