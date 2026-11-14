@@ -3399,9 +3399,9 @@ def mbank(*a):
     build = g(PP, 'rev-parse', 'HEAD').strip()
     mc = MF.control_at_build(ZIP, build)
     man_ctl = [dict(path=p, member=mem, raw_equal=raw, lf_equal=lf, state=st) for p, mem, raw, lf, st in mc['rows']]
-    man_ok = mc['ok']
+    man_ok, ZIP = mc['ok'], os.path.basename(ZIP.replace('\\', '/'))   # ### v1.34.6, (⟪RUL⟫)(2)(iii): from here the export by its file name alone, its folder by role (MIRROR_FOLDER_ROLE); the reads above took its path
     L = ['%s -- THE MIRROR-REFRESH EXPORT, BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH BY THE REPAIRED BUILDER OVER THE ROSTER FROM MAIN, banked %s' % (ACT, utc()),
-         '### THE ZIP : %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
+         '### THE ZIP : %s, in %s ; %d bytes ; md5 %s ; sha256 %s' % (ZIP, MIRROR_FOLDER_ROLE, len(zb), _hl.md5(zb).hexdigest(), _hl.sha256(zb).hexdigest()),
          '### THE MANIFEST : md5 %s ; entries in the zip %d (files %d + MANIFEST)' % (_hl.md5(man).hexdigest(), len(names_), len(files_)),
          '### PLACE-papers HEAD AT THE BUILD : %s ; the last commit carried in MANIFEST`s rows %s' % (pp_head, pp_head in commits),
          '### THE ROSTER LINE : %s' % (' / '.join(rosterl) or '### NONE'), '### THE ROOT LINE : %s' % (rootl[0] if rootl else '### NONE'),
@@ -3420,7 +3420,7 @@ def mbank(*a):
     put_json('%s_mirror.json' % ACT, dict(at=utc(), zip=ZIP, zip_md5=_hl.md5(zb).hexdigest(), zip_sha256=_hl.sha256(zb).hexdigest(), bytes=len(zb),
                                          manifest_md5=_hl.md5(man).hexdigest(), entries=len(names_), files=len(files_), roster_line=rosterl,
                                          root_line=rootl[0] if rootl else '', clean=clean, nd=dict(nd), pp_head=pp_head, last_commit_in_manifest=pp_head in commits,
-                                         span=span_line(ACT), manifest_control=man_ctl, manifest_ok=man_ok))
+                                         span=span_line(ACT), manifest_control=man_ctl, manifest_ok=man_ok, folder=MIRROR_FOLDER_ROLE))
     for l in L[:16]:
         print(l[:240])
 
@@ -3962,6 +3962,18 @@ ROUTES = dict(chainrows=chainrows, edition82=edition82, censusdiff=censusdiff, c
               scores=scores, findings=findings, trail=trail, drycheck=drycheck, components=components, mbank=mbank, guard=guard,
               scorercheck=scorercheck, armnames=armnames, facesdiff=facesdiff, recutadd=recutadd, closeorder=closeorder,
               repaircontrols=repaircontrols, toolrepairs=toolrepairs13, counter=counter)
+
+# ### v1.34.6, (⟪RUL⟫)(2)(iii): THE MIRROR'S FOLDER BY ROLE. mbank's bank and json name the export by its file name and its folder by this role;
+# ### the span line names the last export the same way (b703's span_line, bound at the head, printed the path the last mirror bank held). Bound
+# ### here, after every route and above the main block alone, so no line an act's override keys moves (the acts before b735 key theirs by line).
+MIRROR_FOLDER_ROLE = 'the mirror`s folder (on the data volume, beside PLACE-papers)'
+
+
+def span_line(act):
+    last, z = _last_export(act)
+    return '### THE SPAN: every roster and ledger change of %s (the last export %s`s, %s)' % (
+        act, last or '### NONE', os.path.basename(z.replace('\\', '/')) if z else '### NONE')
+
 
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')

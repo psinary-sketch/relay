@@ -1,0 +1,81 @@
+b755 -- THE CONTROLS OF tools/standing/ v1.34.6, (R365)(2)(iii) THE MIRROR`S FOLDER BY ROLE, WITH THE AMENDMENT ROW 1`S TWO PHASES (2026-11-14T19:50:12Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each change`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2838 lines
+  citation render          OK    522 lines
+  closing render           OK    647 lines
+  record render            OK    4642 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    489 lines
+  report render            OK    189 lines
+  tools/b755_worklist.py   OK    493 lines
+### THE COMPILE CONTROL : b755 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from 0b477b49
+
+  free 8226 MB at 2026-11-14T19:50:13Z, the hold 2560 MET
+### (phases): THE ONE-CALL TOOL`S ACT PHASES (b755`s amendment row 1, inside (R365)(2)(iii)`s change; data/b755_defects.txt (c))
+  (phases) an act commit of b755 under the phase 'component 5': taken, its subject "b755 component 5: the words"
+      BEFORE (v1.34.5): BASE`s act_check: taken False -> FAILS
+      AFTER  (v1.34.6): act_check on disk: taken True -> PASSES
+      AS WANTED
+  (phases) an act commit of b755 under the phase 'component 6': taken, its subject "b755 component 6: the words"
+      BEFORE (v1.34.5): BASE`s act_check: taken False -> FAILS
+      AFTER  (v1.34.6): act_check on disk: taken True -> PASSES
+      AS WANTED
+  (phases) a phase no component names ('component 7'): refused on disk, as every phase outside the list
+      AFTER  (v1.34.6): act_check on disk: taken False -> AS WANTED
+  (phases) every phase of BASE`s list kept in its order (v1281`s reading: pre-root before root before record)
+      BEFORE (v1.34.5): BASE 9 phases -> (the same at both is wanted)
+      AFTER  (v1.34.6): on disk 11 phases ; BASE`s in order True ; pre-root < root < record True -> PASSES
+      AS WANTED
+  (phases) every phase data/act_current.json`s components name (9, gate, lock and seal apart: the tool`s subject routes) taken
+      BEFORE (v1.34.5): BASE`s act_check refuses ['component 5', 'component 6'] -> FAILS
+      AFTER  (v1.34.6): act_check on disk refuses none -> PASSES
+      AS WANTED
+
+  free 8226 MB at 2026-11-14T19:50:13Z, the hold 2560 MET
+### (mirror): (R365)(2)(iii), THE MIRROR`S FOLDER BY ROLE (the amendment row 2: the closing and the mirror bank)
+  (mirror) the mirror bank`s ZIP line over a planted export in a planted folder: the file`s name, its bytes and hashes, and no folder
+      BEFORE (v1.34.5): BASE`s mbank: the line names the folder True -> FAILS
+      AFTER  (v1.34.6): mbank on disk: names the folder False ; the file by name True ; bytes and sha256 True ; the role True -> PASSES
+      AS WANTED
+  (mirror) the mirror bank whole (every line) and its json (every value): no line or value names the folder
+      BEFORE (v1.34.5): BASE`s mbank: lines naming it 2 ; json values naming it ['span', 'zip'] -> FAILS
+      AFTER  (v1.34.6): mbank on disk: lines naming it 0 ; json values naming it none -> PASSES
+      AS WANTED
+  (mirror) the json`s zip the file`s name alone, and its folder by role
+      BEFORE (v1.34.5): BASE`s json: zip the name alone False ; folder False -> FAILS
+      AFTER  (v1.34.6): json on disk: zip the name alone True ; folder the role True -> PASSES
+      AS WANTED
+  (mirror) the reads above the binding take the export`s path: the build`s MANIFEST control handed the planted path
+      BEFORE (v1.34.5): BASE: handed it True -> (the same at both is wanted)
+      AFTER  (v1.34.6): on disk: handed it True -> PASSES
+      AS WANTED
+  (mirror) the span line, the last export planted in the same folder: its file by name, no folder
+      BEFORE (v1.34.5): BASE (b703`s span_line, bound at :198): names the folder True -> FAILS
+      AFTER  (v1.34.6): on disk (the template`s span_line): names the folder False ; the file by name True ; equal to the json`s span True -> PASSES
+      AS WANTED
+  (mirror) the span line with no earlier mirror bank: both parts NONE, as b703`s
+      AFTER  (v1.34.6): ### THE SPAN: every roster and ledger change of b755 (the last export ### NONE`s, ### NONE) -> AS WANTED
+  (mirror) the closing`s mirror line (closing.tpl, unchanged) over each bank: the file`s name, its bytes and hash, no folder
+      BEFORE (v1.34.5): over BASE`s json: names the folder True -> FAILS
+      AFTER  (v1.34.6): over the json on disk: names the folder False ; opens with the file`s name True ; bytes True -> PASSES
+      AS WANTED
+  (mirror) the planted folder removed after the cases
+      AFTER  (v1.34.6): removed True -> AS WANTED
+  (mirror) b755`s record render through the template on disk
+      AFTER  (v1.34.6): compiles, 4642 lines ; MIRROR_FOLDER_ROLE bound 1 ; def span_line 1 -> AS WANTED
+
+  free 8211 MB at 2026-11-14T19:50:13Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.5): v1.34.5 -> FAILS
+      AFTER  (v1.34.6): v1.34.6 -> PASSES
+      AS WANTED
+
+### per change: (phases) 5 of 5 ; (mirror) 9 of 9 ; (version) 1 of 1
+### ### **v1.34.6: CONTROLS (phases), (mirror), (version) ; CASES 15 ; AS WANTED 15 ; ALL AS WANTED.**

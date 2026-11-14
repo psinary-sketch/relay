@@ -194,7 +194,7 @@ def lock_face(repo, act, read, data, run_seal=True):
     return conds
 
 
-ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root
+ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'component 6', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root ; v1.34.6, (R365)(2)(iii) with b755's amendment row 1: components 5 and 6
 WRITES = ('add', 'restore', 'delete', 'branch')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
