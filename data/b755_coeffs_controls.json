@@ -1,0 +1,103 @@
+{
+ "at": "2026-11-14T20:19:52Z",
+ "bound": 90000,
+ "count_cut": 32532,
+ "tool_commit": "3bdb6561",
+ "c1": true,
+ "bad1": [],
+ "c2": {
+  "n": 48,
+  "value": "(-8) log 2 + (-2) log 3",
+  "count": 1066,
+  "count_bound": 2832,
+  "undecided": 0,
+  "n_want": 48,
+  "v_want": "(-8) log 2 + (-2) log 3",
+  "count_want": 1066,
+  "src": "data/b711_coeffs.txt :12, :14",
+  "reproduced": true,
+  "planted_r2": 0
+ },
+ "c31": {
+  "n": 80,
+  "value": "(-8) log 2 + (-2) log 5",
+  "b": "-2",
+  "n_want": 80,
+  "v_want": "(-8) log 2 + (-2) log 5",
+  "b_want": "-2",
+  "src": "data/b722_coeffs.txt :13",
+  "reproduced": true
+ },
+ "c3": {
+  "n": 16,
+  "value": "(-3) log 2",
+  "count": 1319,
+  "count_bound": 3552,
+  "undecided": 0,
+  "n_want": 48,
+  "v_want": "(-8) log 2 + (-2) log 3",
+  "count_want": 1066,
+  "src": "data/b711_coeffs.txt :12, :14",
+  "reproduced": false,
+  "planted_r2": 2
+ },
+ "cc": {
+  "cubic": "x^3 - x - 1",
+  "coeffs": [
+   0,
+   -1,
+   -1
+  ],
+  "disc": -23,
+  "compared": 2261,
+  "no_root": 762,
+  "split_nonprincipal": 762,
+  "mismatches": 0,
+  "first": []
+ },
+ "cp": {
+  "cubic": "x^3 - 2",
+  "coeffs": [
+   0,
+   0,
+   -2
+  ],
+  "disc": -108,
+  "compared": 2261,
+  "no_root": 756,
+  "split_nonprincipal": 762,
+  "mismatches": 1014,
+  "first": [
+   2,
+   3,
+   7,
+   19,
+   29,
+   31,
+   37,
+   41,
+   47,
+   61
+  ]
+ },
+ "cm": {
+  "n": 48,
+  "b": "-2",
+  "shape": "p2^4 . p1^1",
+  "nbad": 2894,
+  "axioms": true,
+  "cut": 90000
+ },
+ "cmp": {
+  "n": 1053,
+  "b": "-2",
+  "shape": "p1^4 . p1^1",
+  "nbad": 2893,
+  "axioms": true,
+  "cut": 90000
+ },
+ "seconds": 23,
+ "cc_ok": true,
+ "cm_ok": true,
+ "ok": true
+}
