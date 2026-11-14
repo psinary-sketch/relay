@@ -21,6 +21,14 @@ and [B7] both passed, the readings ruled with no write standing. Each by the rou
 by no argument: `b <item> read`, `b <item> write` (today's read equal to the agenda's CURRENT, then the draft cut from data/b754_ferry.txt
 at HEAD, :28, :30, :32 or :33, between `DRAFTED: "` and the line's closing quote), `b <item> back` (the read-back equal to the draft, the
 row banked). The READMEs of [B1] and [B3] are not written by this tool.
+[L]. The lines for OPEN_TRAILS passed whole at the [L] put (data/b754_put_9.json), the word banked by the answers route at
+data/b754_author_answers.txt :171 (2026-11-14T00:06:20Z): [L6], [L7] and [L8] cut from data/b754_ferry.txt :48 by the agenda's own reader
+(b754_agenda.split_sub), [L14] and [L15] from the amendment rows 3 and 4 by its cut_words, each read against the digest the agenda banked;
+[L1] to [L5] held with the sweep of (4)(iv), [L9] to [L13] carried by (8). Appended at OPEN_TRAILS.md's end under one dated head, a blank
+line before the head and between two lines, [L6], [L7], [L8] and [L14] each closing with the words "(the navigator's)" and [L15] carrying
+them in its own words, as the put said; the file's bytes before the write a prefix of its bytes after, the count before read against the
+agenda's CURRENT, the two lines the items bear on (:2691, :3384) read by the agenda's digests. `l dry`, `l write` (the row banked), `l
+confirm` (after the PLACE-papers commit: HEAD touching OPEN_TRAILS.md alone, its appended lines the row's).
 
   python -X utf8 -u tools/b754_sitting.py control          the controls alone, nothing written and nothing read remotely
   python -X utf8 -u tools/b754_sitting.py dry <A1..A4>     the controls, the CURRENT against the agenda, the lines composed; nothing written
@@ -29,6 +37,7 @@ row banked). The READMEs of [B1] and [B3] are not written by this tool.
                                                            the row's; the commit written to the row
   python -X utf8 -u tools/b754_sitting.py a5 <read|write|back>
   python -X utf8 -u tools/b754_sitting.py b <B2|B4|B6|B7> <read|write|back>
+  python -X utf8 -u tools/b754_sitting.py l <dry|write|confirm>
 """
 import hashlib
 import io
@@ -92,6 +101,19 @@ B_LABELS = {'[B1] and [B3]': 'Carried to a later sitting', '[B2] and [B4]': 'Bot
 B_ITEMS = {'[B2]': ('SIDE-explicit-formula', '[B2] and [B4]'), '[B4]': ('SIDE-kernel', '[B2] and [B4]'),
            '[B6]': ('SIDE-bsd-multiplicity', '[B6] and [B7]'), '[B7]': ('SIDE-trivium', '[B6] and [B7]')}
 B_CUR = re.compile(r'^  CURRENT: (SIDE-[a-z0-9\-]+)`s description by gh at ([0-9T:\-]+Z): "(.*)"$')
+# ### [L]: the word on the [L] put (data/b754_put_9.json), banked by the answers route at data/b754_author_answers.txt :171
+L_ANSWERS_LINE = 171
+L_WORD_AT = '2026-11-14T00:06:20Z'
+L_WORD_CITE = '%s :%d' % (ANSWERS, L_ANSWERS_LINE)
+L_QUESTION = '[L] THE LINES FOR OPEN_TRAILS'
+L_LABEL = 'Passed whole (Recommended)'
+L_ITEMS = ('[L6]', '[L7]', '[L8]', '[L14]', '[L15]')
+L_MARK = " (the navigator's)"
+L_MARKED = ('[L6]', '[L7]', '[L8]', '[L14]')   # ### [L15] carries the words in its own text
+OREL = 'OPEN_TRAILS.md'
+OPATH = os.path.join(PP, OREL)
+L_DRAFTED = re.compile(r'^(\[L\d+\]) DRAFTED.*digest ([0-9a-f]{16})\):$')
+L_CUR = re.compile(r'^  CURRENT: OPEN_TRAILS\.md at main, (\d+) lines; .*\(OPEN_TRAILS :2691 ([0-9a-f]{16}) ; :3384 ([0-9a-f]{16})\)$')
 
 
 def stamp():
@@ -299,9 +321,9 @@ def rows():
 
 
 def bank(R):
-    j = {'what': '(R364)(5)[A] and [B] the passed items written by %s, one row an item; the words %s (%s) for [A] and %s (%s) for [B]; the '
-                 'drafts cut from data/b754_ferry.txt at HEAD; the lines cited by FINDINGS line and digest' % (SELF, WORD_CITE, WORD_AT, B_WORD_CITE,
-                                                                                                             B_WORD_AT), 'at': stamp(), 'rows': R}
+    j = {'what': '(R364)(5)[A], [B] and [L] the passed items written by %s, one row an item; the words %s (%s) for [A], %s (%s) for [B] and '
+                 '%s (%s) for [L]; the drafts cut from data/b754_ferry.txt at HEAD and, for [L14] and [L15], from the amendment rows 3 and 4; the '
+                 'lines cited by line and digest' % (SELF, WORD_CITE, WORD_AT, B_WORD_CITE, B_WORD_AT, L_WORD_CITE, L_WORD_AT), 'at': stamp(), 'rows': R}
     with open(BANK + '.tmp', 'wb') as f:
         f.write((json.dumps(j, indent=1, ensure_ascii=False, sort_keys=True) + NL).encode('utf-8'))
     os.replace(BANK + '.tmp', BANK)
@@ -381,6 +403,35 @@ def controls():
     bc = b_current(A)
     case('the agenda`s CURRENT of a description by gh found for the four doors', all(B_ITEMS[i][0] in bc for i in B_ITEMS),
          ' ; '.join('%s %s' % (d, bc[d][0]) for d in sorted(bc)))
+    # -------- [L]
+    WL_ = l_word()
+    case('the [L] word read at %s: %r' % (L_WORD_CITE, L_LABEL), WL_ == L_LABEL, repr(WL_))
+    pl_line = 'RESULT (transcript line x): Your questions have been answered: "%s, planted. How does [L] go?"="Struck whole". You can' % L_QUESTION
+    case('a planted [L] word answering `Struck whole` reads not passed', l_word_label(pl_line) == 'Struck whole', repr(l_word_label(pl_line)))
+    LD = l_drafts()
+    ldg, lcur = l_agenda(A)
+    lagree = [t for t in L_ITEMS if LD.get(t) and ldg.get(t) == digest(LD[t])]
+    case('the five [L] drafts cut, each digest equal to the agenda`s (5 of 5)', len(lagree) == 5,
+         ' ; '.join('%s %s/%s' % (t, digest(LD[t] or ''), ldg.get(t)) for t in L_ITEMS))
+    case('a planted [L7] draft one character apart reads its digest unequal', bool(LD.get('[L7]')) and digest(LD['[L7]'] + 'x') != ldg.get('[L7]'), 'unequal')
+    case('the agenda`s [L] CURRENT found: the count and the digests of :2691 and :3384', lcur is not None, repr(lcur))
+    pdata = b'\xef\xbb\xbfa\nb\nc\n'
+    pl = ['H', 'one', 'two']
+    pafter = l_append(pdata, pl)
+    pn0, pn1 = split_bytes(pdata)[1], split_bytes(pafter)[1]
+    case('a planted file of 3 lines and 3 appended: its bytes a prefix, 3 + 6 = 9 lines, a blank before each', pafter.startswith(pdata) and pn0 == 3
+         and pn1 == 9 and pafter.split(b'\n')[3:9] == [b'', b'H', b'', b'one', b'', b'two'], 'count %d -> %d' % (pn0, pn1))
+    try:
+        l_append(b'a\nb', ['x'])
+        refused_l = False
+    except SystemExit:
+        refused_l = True
+    case('a planted file not ending in a newline refused', refused_l, 'refused %s' % refused_l)
+    lmark = l_compose(LD, '2026-01-01') if len(lagree) == 5 else []
+    case('the head and the five lines withheld by no kind; [L6], [L7], [L8], [L14] marked, [L15] in its own words',
+         len(lmark) == 6 and all(not withheld_l(s, acct, word) for s in lmark)
+         and all(lmark[1 + i].endswith(L_MARK) == (t in L_MARKED) for i, t in enumerate(L_ITEMS)) and "the navigator's" in lmark[5],
+         'lines %d' % len(lmark))
     ok = sum(C)
     print('### CONTROLS %d OF %d %s' % (ok, len(C), 'AS WANTED' if ok == len(C) else 'NOT AS WANTED'))
     return ok == len(C)
@@ -621,6 +672,169 @@ def b(item, step):
     raise SystemExit('usage: %s b <B2|B4|B6|B7> <read|write|back>' % SELF)
 
 
+# ---------------------------------------------------------------- [L]
+def withheld_l(text, acct, word):
+    return DOORS.withheld(text, acct, word)
+
+
+def l_word_label(line):
+    """the label the author chose at the [L] question of a RESULT line; None where the line is no RESULT of that question."""
+    if not line.startswith('RESULT (transcript line') or ('"%s' % L_QUESTION) not in line:
+        return None
+    parts = line.split('"="')
+    return parts[1].split('"', 1)[0] if len(parts) == 2 else None
+
+
+def l_word():
+    L = AG.git(RELAY, 'show', 'HEAD:%s' % ANSWERS).replace('\r', '').split(NL)
+    return l_word_label(L[L_ANSWERS_LINE - 1] if len(L) >= L_ANSWERS_LINE else '')
+
+
+def l_drafts():
+    """{tag: words}: [L6], [L7], [L8] cut from data/b754_ferry.txt :48 by the agenda's reader; [L14] and [L15] from the amendment rows 3, 4."""
+    ls_, _head = AG.split_sub(AG.draft(AG.ferry_lines(), '[L]'), 'L')
+    R = AG.amendments()
+    out = dict((t, ls_.get(t)) for t in ('[L6]', '[L7]', '[L8]'))
+    out['[L14]'] = AG.cut_words(R[2]['words'], '[L14] THE DIAGONAL FIELD', 'no sentence leans on them ((6)(S3)).')
+    out['[L15]'] = AG.cut_words(R[3]['words'], '[L] gains [L15]', 'a question for a later sitting.')
+    return out
+
+
+def l_agenda(A):
+    """({tag: digest} of the agenda's [L] drafts, (count, digest :2691, digest :3384) of its CURRENT or None), read in its [L] section."""
+    dg, cur, on = {}, None, False
+    for l in A:
+        if l.startswith('## [L] '):
+            on = True
+            continue
+        if on and l.startswith('## '):
+            break
+        if on:
+            m = L_DRAFTED.match(l)
+            if m:
+                dg[m.group(1)] = m.group(2)
+            m = L_CUR.match(l)
+            if m:
+                cur = (int(m.group(1)), m.group(2), m.group(3))
+    return dg, cur
+
+
+def l_head(date):
+    return ('**Dated head, %s, b754, `(R364)`(5)[L]: the lines passed whole at the sitting** (relay %s), appended at the end of the file so '
+            'that no line of the trail moves. [L1] to [L5] are held with the sweep of `(R364)`(4)(iv) and carried with it; [L9] to [L13] are '
+            'carried by `(R364)`(8). Each line below is the navigator\'s.' % (date, L_WORD_CITE))
+
+
+def l_compose(D, date):
+    """[head, [L6], [L7], [L8], [L14], [L15]]: each draft as cut, the four marked closing with L_MARK, [L15] as it reads."""
+    return [l_head(date)] + [D[t] + (L_MARK if t in L_MARKED else '') for t in L_ITEMS]
+
+
+def l_append(data, lines):
+    """data with a blank line before each line of `lines`, each ending as the file's lines end; refused where data does not end with a
+    newline or a line carries a break."""
+    if not data.endswith(b'\n'):
+        raise SystemExit('### THE FILE DOES NOT END WITH A NEWLINE -- NOTHING WRITTEN')
+    eol = b'\r\n' if data.endswith(b'\r\n') else b'\n'
+    for s in lines:
+        if '\n' in s or '\r' in s:
+            raise SystemExit('### A LINE CARRIES A LINE BREAK -- NOTHING WRITTEN')
+    return data + b''.join(eol + s.encode('utf-8') + eol for s in lines)
+
+
+def l(step):
+    if step not in ('dry', 'write', 'confirm'):
+        raise SystemExit('usage: %s l <dry|write|confirm>' % SELF)
+    if step == 'confirm':
+        return l_confirm()
+    if not controls():
+        raise SystemExit('### THE CONTROLS NOT AS WANTED -- NOTHING DONE')
+    if '[L]' in rows():
+        raise SystemExit('### [L] HAS ITS ROW ALREADY -- NOTHING DONE')
+    lab = l_word()
+    if lab != L_LABEL:
+        raise SystemExit('### [L]: THE WORD AT %s READS %r, NOT %r -- NOTHING DONE' % (L_WORD_CITE, lab, L_LABEL))
+    D = l_drafts()
+    A = AG.git(RELAY, 'show', 'HEAD:data/%s_agenda.txt' % ACT).replace('\r', '').split(NL)
+    dg, cur = l_agenda(A)
+    head = AG.git(PP, 'rev-parse', 'HEAD').strip()
+    O = AG.lines(PP, 'HEAD', OREL)
+    data = open(OPATH, 'rb').read()
+    clean = AG.gitq(PP, 'diff', '--quiet', 'HEAD', '--', OREL)[0] == 0
+    n0 = split_bytes(data)[1]
+    print('### [L] passed whole, the word %s (%s): label %r' % (L_WORD_AT, L_WORD_CITE, lab))
+    print('  PLACE-papers HEAD %s ; %s clean against HEAD %s ; %d bytes, %d lines' % (head[:8], OREL, clean, len(data), n0))
+    cur_ok = cur is not None and cur[0] == n0 and digest(O[2690]) == cur[1] and digest(O[3383]) == cur[2]
+    print('  THE CURRENT against the agenda`s: count %d / %s ; :2691 %s / %s ; :3384 %s / %s ; %s' % (
+        n0, cur and cur[0], digest(O[2690]), cur and cur[1], digest(O[3383]), cur and cur[2], 'AGREES' if cur_ok else 'DIFFERS'))
+    word, acct = DOORS.q_word(), DOORS.account(PP)
+    agree = True
+    for t in L_ITEMS:
+        d = D.get(t) or ''
+        a = bool(d) and dg.get(t) == digest(d)
+        agree = agree and a
+        print('  %-5s cut %d characters, digest %s ; the agenda`s %s ; %s ; %s' % (t, len(d), digest(d), dg.get(t), 'AGREES' if a else 'DIFFERS',
+                                                                           'marked' if t in L_MARKED else 'in its own words'))
+    date = stamp()[:10]
+    lines_ = l_compose(D, date) if agree else []
+    wh = [(i, withheld_l(s, acct, word)) for i, s in enumerate(lines_) if withheld_l(s, acct, word)]
+    print('  withheld by a kind: %s' % (['line %d: %s' % (i, k) for i, k in wh] or 'none'))
+    if not (clean and cur_ok and agree) or wh:
+        raise SystemExit('### [L]: %s -- NOTHING WRITTEN' % ('NOT CLEAN' if not clean else 'THE CURRENT DIFFERS' if not cur_ok else
+                                                           'A DRAFT DIFFERS FROM THE AGENDA' if not agree else 'A LINE WITHHELD'))
+    after = l_append(data, lines_)
+    n1 = split_bytes(after)[1]
+    nums = [n0 + 2 + 2 * i for i in range(len(lines_))]
+    print('  THE LINE COUNT: before %d ; after %d ; appended %d (a blank before each) ; the bytes before a prefix of the bytes after %s' % (
+        n0, n1, n1 - n0, after.startswith(data)))
+    for k, s in zip(nums, lines_):
+        print('  :%d digest %s, %d characters: %s' % (k, digest(s), len(s), s[:150] + (' ...' if len(s) > 150 else '')))
+    if n1 != n0 + 2 * len(lines_) or not after.startswith(data):
+        raise SystemExit('### [L]: THE APPEND NOT AS COMPOSED -- NOTHING WRITTEN')
+    if step == 'dry':
+        print('  DRY: nothing written')
+        return
+    at = stamp()
+    with open(OPATH + '.tmp', 'wb') as f:
+        f.write(after)
+    os.replace(OPATH + '.tmp', OPATH)
+    back = open(OPATH, 'rb').read()
+    print('  WRITTEN %s at %s ; read back %s' % (OREL, at, 'EQUAL to the composed' if back == after else 'DIFFERS'))
+    if back != after:
+        raise SystemExit('### [L]: THE READ-BACK DIFFERS -- restore OPEN_TRAILS.md through the one-call tool')
+    R = rows()
+    R['[L]'] = dict(form='passed whole', word_at=L_WORD_AT, word_cite=L_WORD_CITE, label=L_LABEL, state='WRITTEN, the commit through the one-call tool',
+                    ot_head=head, written_at=at, count_before=n0, count_after=n1, sha_before=bdigest(data), sha_after=bdigest(after),
+                    held='[L1] to [L5] held with the sweep of (R364)(4)(iv)', carried='[L9] to [L13] by (R364)(8)',
+                    lines=[dict(item=t, line=k, digest=digest(s), chars=len(s), draft_digest=digest(D[t] if t != 'head' else s),
+                                agenda=dg.get(t) if t != 'head' else None, marked=t in L_MARKED)
+                           for t, k, s in zip(('head',) + L_ITEMS, nums, lines_)],
+                    confirm=None)
+    bank(R)
+    print('  then: `commit.py pp add OPEN_TRAILS.md`, its commit, then `%s l confirm`' % SELF)
+
+
+def l_confirm():
+    R = rows()
+    r = R.get('[L]')
+    if not r or r.get('confirm'):
+        raise SystemExit('### [L]: %s -- NOTHING DONE' % ('NO ROW' if not r else 'CONFIRMED ALREADY'))
+    head = AG.git(PP, 'rev-parse', 'HEAD').strip()
+    files = AG.git(PP, 'show', '--format=', '--name-only', 'HEAD').strip()
+    num = AG.git(PP, 'show', '--format=', '--numstat', 'HEAD').strip()
+    O = AG.lines(PP, 'HEAD', OREL)
+    have = [digest(O[x['line'] - 1]) == x['digest'] for x in r['lines']]
+    add = r['count_after'] - r['count_before']
+    ok = files == OREL and num.split()[:2] == [str(add), '0'] and all(have) and head != r['ot_head']
+    print('### [L] CONFIRM: PLACE-papers HEAD %s ; files %s ; numstat %s ; the row`s lines at HEAD %s ; %s' % (
+        head[:8], files, num.split()[:2], have, 'AS WANTED' if ok else 'NOT AS WANTED'))
+    if not ok:
+        raise SystemExit('### [L]: THE COMMIT DOES NOT CARRY THE ROW -- NOTHING WRITTEN')
+    r['confirm'] = 'PLACE-papers %s, OPEN_TRAILS.md alone, %d line(s) appended, none removed' % (head[:8], add)
+    r['state'] = 'PASS'
+    bank(R)
+
+
 def main(argv):
     if not argv:
         raise SystemExit(__doc__)
@@ -636,6 +850,8 @@ def main(argv):
         return a5(argv[1])
     if cmd == 'b' and len(argv) == 3:
         return b('[%s]' % argv[1].strip('[]'), argv[2])
+    if cmd == 'l' and len(argv) == 2:
+        return l(argv[1])
     raise SystemExit(__doc__)
 
 
