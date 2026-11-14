@@ -1,0 +1,197 @@
+b755 -- (R365)(6): AFTER BOTH VERDICTS, EXPLORATORY AND MARKED SO -- THE CENSUS FROM THE PRIMES AT -23 TO HEIGHT 5,000 (2026-11-14T22:59:50Z)
+
+### by tools/b755_census.py, committed before its run, over tools/b755_zlist.py's route as committed; EXPLORATORY: no registered
+### prediction, nothing read as HELD or REFUTED, no sentence says why. No value of an Epstein zeta function computed: sums over primes.
+### The order (data/b755_ferry.txt :26): "at -23 the route's roots with real part at least 0.85 to height 5,000, counted; and the
+### least height at which the route finds a root with real part above 1, at three prime bounds." The seat's readings are the
+### tool's head: the scan at P = 10^4 on [2, 5000] in five segments; the count at the route's Newton bound 3 x 10^5; the three
+### bounds 10^5, 3 x 10^5 and 10^6, each refining the same minima.
+
+  segment [2, 1000]: grid 51 x 99801, minima 95 ; scan 323.4 s ; Newton 100000 2.7 s, 300000 6.0 s, 1000000 16.7 s
+  segment [1000, 2000]: grid 51 x 100001, minima 96 ; scan 324.2 s ; Newton 100000 5.3 s, 300000 10.4 s, 1000000 36.1 s
+  segment [2000, 3000]: grid 51 x 100001, minima 90 ; scan 322.2 s ; Newton 100000 5.0 s, 300000 11.4 s, 1000000 37.4 s
+  segment [3000, 4000]: grid 51 x 100001, minima 98 ; scan 322.3 s ; Newton 100000 7.3 s, 300000 15.6 s, 1000000 41.2 s
+  segment [4000, 5000]: grid 51 x 100001, minima 98 ; scan 323.0 s ; Newton 100000 6.2 s, 300000 13.4 s, 1000000 43.1 s
+
+  P = 100000: roots in [2, 5000] 477 ; with Re >= 0.85 169 ; with Re > 1 1 ; the least height of a root with Re > 1: 650.966213 (the root 1.015690 + 650.966213 i) ; the largest real part 1.015690
+  P = 300000: roots in [2, 5000] 477 ; with Re >= 0.85 171 ; with Re > 1 1 ; the least height of a root with Re > 1: 650.966413 (the root 1.015735 + 650.966413 i) ; the largest real part 1.015735
+  P = 1000000: roots in [2, 5000] 477 ; with Re >= 0.85 170 ; with Re > 1 1 ; the least height of a root with Re > 1: 650.966368 (the root 1.015715 + 650.966368 i) ; the largest real part 1.015715
+
+  THE CONTROL BESIDE IT (a used field, no test): the roots at P = 300000 on [2, 445] against the 69 banked off-line zeros of
+  data/b725_interference.txt (complete to 445) by match() in (5)(ii)'s words: zeros with Re >= 0.85 13 ; roots with Re >= 0.85 13 ;
+  pairs within 0.01 17, the worst 0.00106 ; a zero without its partner none ; a root without its partner none: ONE TO ONE
+
+### THE ROOTS AT P = 300000 WITH Re >= 0.85, BY HEIGHT:
+    root 0.953362 + 16.290141 i
+    root 0.951602 + 107.399371 i
+    root 0.874378 + 137.885886 i
+    root 0.910280 + 155.550909 i
+    root 0.879705 + 170.694367 i
+    root 0.906390 + 201.281154 i
+    root 0.910960 + 218.701183 i
+    root 0.850300 + 261.570762 i
+    root 0.865782 + 279.228329 i
+    root 0.909856 + 309.811315 i
+    root 0.880356 + 342.437936 i
+    root 0.910654 + 355.532093 i
+    root 0.885522 + 433.311015 i
+    root 0.916129 + 479.151726 i
+    root 0.873284 + 496.714692 i
+    root 0.895432 + 509.770117 i
+    root 0.916843 + 527.275216 i
+    root 1.015735 + 650.966413 i
+    root 0.933797 + 681.525663 i
+    root 0.900651 + 699.089585 i
+    root 0.862210 + 714.306507 i
+    root 0.959478 + 742.072285 i
+    root 0.954767 + 744.876296 i
+    root 0.939160 + 805.224279 i
+    root 0.918588 + 835.944038 i
+    root 0.875868 + 853.322615 i
+    root 0.852319 + 896.189573 i
+    root 0.871936 + 899.192575 i
+    root 0.859038 + 916.832412 i
+    root 0.869492 + 944.589129 i
+    root 0.894326 + 977.097125 i
+    root 0.866803 + 990.089592 i
+    root 0.879309 + 1040.423735 i
+    root 0.926302 + 1071.017484 i
+    root 0.908951 + 1113.822247 i
+    root 0.888366 + 1144.339324 i
+    root 0.894045 + 1207.728788 i
+    root 0.862184 + 1240.001560 i
+    root 0.951810 + 1285.609814 i
+    root 0.879388 + 1316.154612 i
+    root 0.953998 + 1379.479516 i
+    root 0.917352 + 1439.818706 i
+    root 0.887192 + 1470.587029 i
+    root 0.910098 + 1488.000838 i
+    root 0.914835 + 1503.277414 i
+    root 0.887401 + 1520.629852 i
+    root 0.891706 + 1533.761252 i
+    root 0.857872 + 1551.230689 i
+    root 0.955393 + 1611.767116 i
+    root 0.878936 + 1614.545085 i
+    root 0.905127 + 1642.266570 i
+    root 0.944412 + 1657.484285 i
+    root 0.895368 + 1675.027339 i
+    root 0.973916 + 1705.654504 i
+    root 0.871296 + 1751.344624 i
+    root 0.852540 + 1765.897085 i
+    root 0.883027 + 1783.444500 i
+    root 0.852160 + 1796.877921 i
+    root 0.875303 + 1811.598021 i
+    root 0.882850 + 1829.163966 i
+    root 0.868384 + 1842.447190 i
+    root 0.901408 + 1920.245301 i
+    root 0.857189 + 1950.840913 i
+    root 0.880884 + 1966.026969 i
+    root 0.877677 + 1983.472001 i
+    root 0.881078 + 1996.632968 i
+    root 0.898286 + 2014.077830 i
+    root 0.860154 + 2046.781687 i
+    root 0.892289 + 2074.493705 i
+    root 0.873198 + 2105.155842 i
+    root 0.905952 + 2137.831173 i
+    root 0.922094 + 2155.260261 i
+    root 0.901225 + 2168.477781 i
+    root 0.903009 + 2201.042816 i
+    root 0.861395 + 2231.783324 i
+    root 0.925062 + 2246.327292 i
+    root 0.948015 + 2249.231952 i
+    root 0.900586 + 2292.146765 i
+    root 0.889272 + 2309.545602 i
+    root 0.972815 + 2340.332568 i
+    root 0.868733 + 2372.882222 i
+    root 0.859431 + 2386.025513 i
+    root 0.861146 + 2400.570451 i
+    root 0.861698 + 2403.465042 i
+    root 0.871382 + 2448.847164 i
+    root 0.944027 + 2463.972596 i
+    root 0.958950 + 2494.460924 i
+    root 0.877879 + 2527.239722 i
+    root 0.876872 + 2540.101155 i
+    root 0.866919 + 2575.318583 i
+    root 0.879576 + 2635.670222 i
+    root 0.869817 + 2681.399277 i
+    root 0.909811 + 2712.107218 i
+    root 0.915903 + 2772.426795 i
+    root 0.937978 + 2789.913775 i
+    root 0.890115 + 2820.455341 i
+    root 0.912292 + 2835.682281 i
+    root 0.934911 + 2866.339542 i
+    root 0.901984 + 2883.838291 i
+    root 0.916505 + 2926.823489 i
+    root 0.902123 + 2974.877698 i
+    root 0.960504 + 3007.539131 i
+    root 0.862033 + 3035.233270 i
+    root 0.930014 + 3038.096655 i
+    root 0.879408 + 3098.643642 i
+    root 0.860747 + 3101.510729 i
+    root 0.869830 + 3179.228680 i
+    root 0.888503 + 3192.493752 i
+    root 0.864331 + 3207.312610 i
+    root 0.867979 + 3209.999784 i
+    root 0.869559 + 3252.808634 i
+    root 0.871598 + 3255.777481 i
+    root 0.890379 + 3301.120013 i
+    root 0.850097 + 3316.004738 i
+    root 0.937083 + 3346.694198 i
+    root 0.891333 + 3364.164502 i
+    root 0.949462 + 3407.047117 i
+    root 0.959486 + 3470.386639 i
+    root 0.994021 + 3500.923857 i
+    root 0.851258 + 3518.537466 i
+    root 0.870051 + 3551.020870 i
+    root 0.907624 + 3564.308883 i
+    root 0.893067 + 3578.782067 i
+    root 0.980899 + 3642.154677 i
+    root 0.944167 + 3672.718016 i
+    root 0.862416 + 3705.378698 i
+    root 0.933237 + 3736.084527 i
+    root 0.854707 + 3779.056246 i
+    root 0.982864 + 3796.474328 i
+    root 0.904247 + 3827.093652 i
+    root 0.924301 + 3844.595345 i
+    root 0.941094 + 3890.351806 i
+    root 0.856296 + 3950.651123 i
+    root 0.913172 + 3968.292379 i
+    root 0.906700 + 3998.790129 i
+    root 0.869326 + 4013.994460 i
+    root 0.862793 + 4041.586175 i
+    root 0.870858 + 4062.298913 i
+    root 0.892782 + 4104.922152 i
+    root 0.893666 + 4135.583776 i
+    root 0.855773 + 4185.781746 i
+    root 0.859596 + 4198.999029 i
+    root 0.864478 + 4216.379905 i
+    root 0.923187 + 4259.312682 i
+    root 0.857168 + 4276.861537 i
+    root 0.906037 + 4307.392014 i
+    root 0.956291 + 4322.613968 i
+    root 0.862500 + 4340.053430 i
+    root 0.863997 + 4353.218732 i
+    root 0.957485 + 4370.650896 i
+    root 0.898851 + 4431.021793 i
+    root 0.855729 + 4461.847361 i
+    root 0.893317 + 4511.837817 i
+    root 0.918263 + 4525.060173 i
+    root 0.865965 + 4585.276330 i
+    root 0.887771 + 4603.028455 i
+    root 0.877256 + 4633.509171 i
+    root 0.948405 + 4648.711464 i
+    root 0.862331 + 4666.191350 i
+    root 0.943186 + 4679.123032 i
+    root 0.859273 + 4694.358628 i
+    root 0.933245 + 4696.882819 i
+    root 0.870178 + 4770.219832 i
+    root 0.927505 + 4802.853409 i
+    root 0.884499 + 4820.500578 i
+    root 0.903828 + 4851.093218 i
+    root 0.909285 + 4866.156340 i
+    root 0.922219 + 4896.758171 i
+    root 0.871374 + 4911.407488 i
+    root 0.948198 + 4974.651298 i
+    root 0.928536 + 4987.930300 i
+
+### ### **(6), EXPLORATORY: AT -23 TO HEIGHT 5,000 THE ROUTE'S ROOTS WITH Re >= 0.85 AT P = 3 x 10^5: 171 ; THE LEAST HEIGHT OF A ROOT WITH Re > 1: P = 100000 650.97 ; P = 300000 650.97 ; P = 1000000 650.97 ; THE CONTROL TO 445 ONE TO ONE.**
