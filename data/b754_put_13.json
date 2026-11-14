@@ -1,0 +1,30 @@
+{
+ "act": "b754",
+ "at": "2026-11-14T14:46:50Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "header": "Post-seal bank",
+   "multiSelect": false,
+   "question": "THE POST-SEAL EVENTS BANK HAS NO ROUTE. (R364)(3)(v) makes data/b754_events_postseal.txt a file the close writes by design, on the by-design list of tools/standing/act.py (data/b754_ferry.txt :13), and N4 wants each such file written by its tool and none edited by hand (data/b754_ferry.txt :86). No standing tool writes it: tools/standing/append.py takes the kinds words and preseal alone, tools/standing/postseal.py is the post-seal read rule's helper, and of the thirty lines under tools/ naming the bank none opens it to write (a scratch reader writing nothing). The hook's BYDESIGN kind refuses a Write or Edit of it after the lock (tools/standing/hook.py :635-:637); the hook's own judge, called by a scratch reader writing nothing, refused the planned Write as BYDESIGN and allowed a Write to the scratch folder. The standing close order's step [21] appends an event found after the root to the events bank by the Edit tool (data/standing_clauses_v9.txt :186), and the hook allows that Edit by its lock exemption (tools/standing/hook.py :459-:467); but N4's lock guard in tools/acts/b754.py counts every bank tracked at the lock commit e8a26b18 less the by-design list, data/b754_events.txt is tracked there, and that Edit would read N4 REFUTED. tools/standing/append.py stands among the sealed tools (data/b754_seal_hashes.json :30). The findings since the lock wait to be entered: the flag reads, six summaries of the session, the seal guard's refusal and its two restores, the close dry's seconds refusal, the seal at relay 4141c495, the READ refusal (data/b754_hook_refusals.txt :21), the remote reads, the root prompt and your answer (data/b754_author_answers.txt :201), the first pre-root commit, the scores, the report, the record written to FINDINGS and the final table. Nothing is written for them until your word. How are they entered?",
+   "options": [
+    {
+     "label": "Scratch writer, once (Recommended)",
+     "description": "The seat writes data/b754_events_postseal.txt once, in b753's form, its rows numbered on from (80), by a scratch writer under your word, the hook's BYDESIGN kind not reached by a script; the bank's head names the writer and this answer, and it is committed in the second pre-root commit through the one-call tool with its scan. N4's lock guard reads the bank apart, the by-design list naming it, so the arms count no score lost; N4's words, written by its tool and none edited by hand, are read against a scratch writer in the scores' N4 line. The missing route is entered for b755's corrigendum."
+    },
+    {
+     "label": "Events bank by the Edit tool",
+     "description": "The rows from (80) appended to data/b754_events.txt by the Edit tool, the standing close order's step [21], which the hook allows. N4 reads REFUTED by the act module's lock guard, a bank tracked at the lock edited after it, and (R364)(3)(v)'s bank stands unwritten. The missing route is entered for b755's corrigendum."
+    },
+    {
+     "label": "A post-seal kind in append.py",
+     "description": "tools/standing/append.py gains a postseal kind by a version commit moving VERSION, its control banked, and the bank is written by it. A tool edited after the lock reads N4 REFUTED, and append.py, among the sealed tools, no longer agrees with the seal's hashes, which N5 reads at scores close: N5 REFUTED."
+    },
+    {
+     "label": "Carried to b755",
+     "description": "No post-seal bank at b754: the closing reads it as absent. The findings since the lock are printed with their times in the seat's closing message and carried for b755's ruling to place, the missing route entered for its corrigendum. No score is lost on this route; the findings stand in no bank of b754."
+    }
+   ]
+  }
+ ]
+}
