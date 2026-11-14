@@ -34,7 +34,7 @@ B718_RELAY_HEAD = '34332a0'  # ### the names kept for the carried readers: the p
 B718_PP_HEAD = '04fef04'     # ### the previous act's last PLACE-papers head (b753's record)
 DATE = '2026-11-12'
 SESSION_ID = '5a4228ab-091d-4515-b5ab-95a5e34e1e18'   # ### the transcript the ruling and the ferry stand in (line 14072, 2026-11-12T14:38:17Z); that session stopped at step zero on the pending restart, before any write of the act
-SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/b4958cff-3703-4c32-abe9-89b823b777f9/scratchpad'   # ### the seat's scratchpad as the harness names it (session b4958cff, the act's own)
+SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/11d67961-2aa4-4353-bc12-a982038bfa55/scratchpad'   # ### the seat's scratchpad as the harness names it (session 11d67961, the act's seat from Component 1 on; b4958cff's at step zero)
 HOLD = 2560
 ANCHOR = 'RULING (R364) BEGIN'           # ### the act's capture anchor, as data/act_current.json
 RULING_ANCHOR = 'RULING (R364) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
@@ -193,11 +193,12 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b753 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b754_standing_v1340.txt', 'data/b754_close_yield.txt', 'data/b754_anchor_grades.txt', 'data/b754_shelves.txt',
-                 'data/b754_sweeps.txt', 'data/b754_census.txt', 'data/b754_agenda.txt', 'data/b754_rules.txt', 'data/b754_sitting.txt',
-                 'data/b754_line.txt', 'data/b754_address_scan.txt')
-#   ### the banks of (R364)(3)-(7) as the ruling orders them, each written by its component; set by the Edit tool to the banks as written
-#   ### before the lock
+COMPUTE_BANKS = ('data/b754_corrigendum.txt', 'data/b754_standing_v1340.txt', 'data/b754_standing_v1341.txt', 'data/b754_rules.txt',
+                 'data/b754_ceiling.txt', 'data/b754_close_yield.txt', 'data/b754_anchor_grades.txt', 'data/b754_doors.txt', 'data/b754_ceiling_c2.txt',
+                 'data/b754_agenda.txt', 'data/b754_standing_v1342.txt', 'data/b754_standing_v1343.txt', 'data/b754_standing_v1344.txt',
+                 'data/b754_standing_v1345.txt', 'data/b754_sitting.txt', 'data/b754_line.txt', 'data/b754_address_scan.txt')
+#   ### the banks of (R364)(1)-(7) as written, in the act's order; (4)(iii), (iv) and (v) carried by (8) and the amendment row 5 (no shelves,
+#   ### sweeps or census bank); the address scan written before the lock
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b753_read_calls.txt', 'data/b754_read_calls.txt')
@@ -216,9 +217,9 @@ SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R364)(2): the corrigend
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
 COMPANION = 'day1/Silence_of_Foundations_CORRESPONDENCE.md'
-PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md')   # ### (R364)(1), (2), (7), (8): the weight line, the navigator's correction, the corrigendum entry, the FINDINGS entry and the trail; no paper, door or ledger row written
-#   ### (R364)(1)-(6) and the ferry's (N5): the weight line, the corrigendum entry and the FINDINGS entry; OPEN_TRAILS for the order of (4)
-#   ### and the trail; the paper for section 2 on the author's pass ((R364)(2)); no door or record edited
+PP_EDITED = ('FINDINGS.md', 'OPEN_TRAILS.md', 'phase1.5/method/INSTRUMENTS.md', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md')
+#   ### (R364)(1), (5), (7), N5: FINDINGS -- the weight line, the corrigendum, [A1]-[A4] one line for one line, the entry; OPEN_TRAILS -- [L]'s
+#   ### lines and the trail; INSTRUMENTS -- [R1]'s cross-reference; the Epstein document -- [R3]'s two headings and its dated note; nothing else
 PP_WRITTEN = PP_EDITED
 PP_NEW = ()
 # ### (R364) amendment row 3 (6): THE (W) ENTRIES (R364)(8) GIVES IN WORDS, each with the clause that gives it, read by tools/standing/wlist.py
@@ -271,15 +272,16 @@ def next_line(pp=PP, act=NEXT_ACT, text=None):
 ACT_CURRENT = 'data/act_current.json'
 STANDING_DIR = 'tools/standing'         # ### the standing close toolset, versioned by tools/standing/VERSION, at v1.5.0 entering this act
 STANDING_COMMIT = 'd973955897'          # ### standing clauses v9 (b723's Component 1), binding this act whole (carried name)
-ACT_CURRENT_COMMIT = None         # ### data/act_current.json for b754 committed alone through the one-call tool ((R364)(8)), the scan in the call; its row step 1
-STEPZERO = None             # ### b753's closing push capture, committed alone ((R364)(8)); its row in the commit's call
+ACT_CURRENT_COMMIT = 'bda4e4da'   # ### data/act_current.json for b754 committed alone through the one-call tool ((R364)(8)), the scan in the call; its row step 1
+STEPZERO = '0e4ec024'       # ### b753's closing push capture, committed alone ((R364)(8)); its row step 3
 STEPZERO_STEPS = None             # ### b753's closing step row was committed by b753 itself (d921bceb) before its closing push: nothing carried
 STEPZERO_TABLE = None             # ### b753 left no terminal table uncommitted
 STEPZERO_LATE = None
 STEPZERO_HASHES = None
-STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b753: committed through the tool, alone, with its row and scan ((R364)(8))
+STEPZERO_PREVBUILD = 'a50a224b'   # ### tools/mirror_prevbuild.json of b753: committed through the tool, alone, with its row and scan ((R364)(8)); row step 4
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None      # ### step zero's banks and carried tools, one commit (data/b754_stepzero.txt among them)
+STEPZERO_BANKS = '0fe85cf9'      # ### step zero's banks and carried tools, one commit (data/b754_stepzero.txt and the readfirst bank among them), step 5; after the restart 65972bf1 (step 6, STEPZERO_AFTER)
+STEPZERO_AFTER = '65972bf1'      # ### step zero after the restart in session 11d67961: the step-zero bank, events, defects, the put bank of the stop
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it
@@ -304,7 +306,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b754.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.33.0'            # ### entering; (R364)(3)'s repairs land as v1.34.0 by a commit of its own (C1_STANDING) with data/b754_standing_v1340.txt
+STANDING_VERSION = 'v1.34.5'            # ### (R364)(3)'s repairs landed as v1.34.0 (C1_STANDING, 5d671461) with data/b754_standing_v1340.txt; v1.34.1 to v1.34.5 by the amendment row 4 and the passed items (C1_STANDING_LATER)
 STANDING_VERSION_ENTERING = 'v1.33.0'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '8fbab45d'), ('D:/SIDE-explicit-formula', '1e658870'), ('D:/SIDE-kernel', 'f8534ef2'), ('D:/SIDE-lv-conservation', '305a87c9'))   # ### the trees (R364)(5) reads its declarations against: the criterion kernel's main ([B1]), zq-b730's tip, SIDE-kernel's and SIDE-lv-conservation's mains ([A3], [B3])
 # ### v1.18.0, (R364)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -313,30 +315,40 @@ COMPARATIVE_BANKS = ('data/b754_corrigendum.txt', 'data/b754_close_yield.txt', '
                      'data/b754_sweeps.txt', 'data/b754_census.txt', 'data/b754_agenda.txt', 'data/b754_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('VERSION', 'append.py', 'fold/record.tpl', 'gitwrite.py', 'hold.py', 'routes/b644_record.py', 'roster.py')   # ### v1.33.0's changed files, by git diff 0e855242..HEAD -- tools/standing
-STANDING_NEW = ('chain.py', 'haltprice.py', 'outbound.py', 'remoteread.py', 'subject.py', 'v1330.py')       # ### v1.33.0's new files, the same diff
+STANDING_CHANGED = ('VERSION', 'act.py', 'allow.py', 'amend.py', 'append.py', 'authorwords.py', 'carry.py', 'chain.py', 'cites.py', 'close.py',
+                    'commit.py', 'controls.py', 'counter.py', 'defectrow.py', 'delread.py', 'fold/checks.tpl', 'fold/citation.tpl', 'fold/closing.tpl',
+                    'fold/record.tpl', 'hold.py', 'hook.py', 'limits.py', 'nextact.py', 'prelock.py', 'repeat.py', 'roster.py', 'subject.py', 'v1330.py',
+                    'wlist.py')   # ### v1.34.0 to v1.34.5's changed files, by git diff --name-status 34332a00..HEAD -- tools/standing (29)
+STANDING_NEW = ('cuts.py', 'handoff.py', 'harness.py', 'originsearch.py', 'rootparts.py', 'seatfile.py', 'statedir.py', 'tablescratch.py',
+                'v1340.py', 'v1341.py', 'v1342.py', 'v1343.py', 'v1344.py', 'v1345.py')   # ### their new files, the same diff (14)
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '34332a00'    # ### b753's closing (its step row), the act's relay base
 B714_RECORD = '6ac270f4'     # ### b753's record commit (relay)
 B714_ROOT = '696aa4eb0dc87fdfee92cb1179e1a5e3a539bf5492ebbf8378750d5a5618d5d0'   # ### b753's root, data/act_roots.txt's last row (:133)
 B723_ROOT_BANKS = '3b17fb43'  # ### b753's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### tools/standing/ v1.34.0 by a commit of its own that moves VERSION, its controls bank data/b754_standing_v1340.txt ((R364)(3))
+C1_STANDING = '5d671461'     # ### tools/standing/ v1.34.0 by a commit of its own that moves VERSION, its controls bank data/b754_standing_v1340.txt ((R364)(3)); step 7
+C1_STANDING_LATER = (('v1.34.1', 'c176c4ed', 'data/b754_standing_v1341.txt'), ('v1.34.2', '184da293', 'data/b754_standing_v1342.txt'),
+                     ('v1.34.3', '19aa6a12', 'data/b754_standing_v1343.txt'), ('v1.34.4', '0c4cda98', 'data/b754_standing_v1344.txt'),
+                     ('v1.34.5', '0b477b49', 'data/b754_standing_v1345.txt'))   # ### each later version by a commit of its own moving VERSION, its controls bank in it
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none yet
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
+C1_RELAY = '99d9f4cc'        # ### the c1 route, the corrigendum banks (step 11)
 C1_CORR = C1_RELAY
-C1_RULES = '0db31ce3'              # ### data/b754_rules.txt first committed at [M1]'s pass (its row (1)), its row (2) at [D1]'s (48b8ae2e)
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- b753 at its weight and the corrigendum for b753
+C1_RULES = '63fca638'              # ### data/b754_rules.txt first committed with the sourcing rules (S1)-(S5) as rows (1)-(5) (step 12); rows (6)-(9) at [Q]'s pass (d1d8303e), (10)-(12) at [U]'s (fb623a05), (13)-(17) at [M2]'s (e94952cc)
+RULES_COMMITS = ('63fca638', 'd1d8303e', 'fb623a05', 'e94952cc')   # ### every commit of data/b754_rules.txt, in order
+C1_CEILING = 'eb508b6f'            # ### the ceiling read at the end of Component 1 (amendment rows 4 (1) and 5), data/b754_ceiling.txt
+C1_PP = '3020ac84'           # ### PLACE-papers: FINDINGS -- b753 at its weight (:15053) and the corrigendum for b753 (:15055), step 10
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b753's weight line and the corrigendum for b753 (Component 1)
+WEIGHT_LINE, CORR_LINE = 15053, 15055   # ### FINDINGS: b753's weight line and the corrigendum for b753 (Component 1, PLACE-papers 3020ac84)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None   # ### Component 2's first commit
-C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
-C2_RELAY = None   # ### the last of them
+C2_PLAN_FIRST = 'a7c350b3'   # ### Component 2's first commit (the yield generator, step 14)
+C2_RELAY_ALL = ('a7c350b3', 'a4aedeef', '336ce25f', 'b02ca5c8', '090a3f70', 'b7761aae', '85691e0d', '12537a63', 'fa7d3be8', '7c0ac36f', '32f082b5',
+                'd67cda05')   # ### Component 2's relay commits in order (steps 14-25)
+C2_RELAY = 'd67cda05'   # ### the last of them: the ceiling read at the end of Component 2 (data/b754_ceiling_c2.txt)
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
@@ -349,39 +361,41 @@ COUNT_BANK = None
 PRINT_COMMIT = None        # ### (carried name) the commit carrying the act's section bank (C2_RELAY)
 PLAN_MD5 = 'ef777cc24752911990d56d2214fe38b6'   # ### data/b753_zetabox_plan.txt's md5, printed at step zero (PLAN_MD5S), unedited
 C2_AMEND = ()
-SITTING_PP = C2_PP    # ### (R364)(2): the sitting's PLACE-papers writes
-SITTING_KERNEL = None # ### no kernel written this act ((R364)(5))
-SITTING_GH = ()       # ### no description written
-SITTING_ITEMS = None          # ### (R364)(5): ten puts, [A], [B], [Q], [U], [C1], [H1], [M2], [D2], [L], [R], in b736's form; the count set when the agenda is banked
-# ### b753's objects (its sitting, (R363)(2)), carried names, read not written at b754; b754 step zero: the carry's shift of the two paths set back to b753's
-AGENDA_COMMIT = '7ce3e6ea'                       # ### b753's agenda, eleven items with every draft, before the first item (b753 step row 7)
-CQ_GEN = ('a1655706', 'tools/b750_cq_sign.py', '789afca8211cb39b4cc890ce5cb9daae')   # ### b750 [E]'s generator, read not run here ((R364)(4)'s route); the carry's shift set back to b750's
-CQ_BANK = ('56ddafa5', 'data/b750_cq_sign.txt')   # ### b750 [E]'s bank, the control of (R364)(4) (:39); the carry's shift set back to b750's
-CQ_FOOT = ('NEGATIVE 102 ; THE SMALLEST NEGATIVE n = 48, cQ = -7.742402021816 ; WITHIN 1e-40 OF ZERO 2498 (EXACTLY ZERO 2498), COUNTED NEITHER WAY ; '
-           'NONNEGATIVE 399 ; THE LARGEST |cQ| 190.565466363 AT n = 2808 ; CONTROLS (K1)-(K4) ALL AS WANTED')
-SITTING_COMMIT = '00dc4267'                      # ### the sitting record with the answers pair (step row 20)
+SITTING_KERNEL = None # ### no kernel written this act: [B1] and [B3], the two README items, carried by the author's answer (data/b754_author_answers.txt :88)
+# ### (R364)(5), THE SITTING: b754's objects by their commits, read from data/b754_steps.json (steps 26-58)
+AGENDA_COMMIT = '0a88e176'   # ### the agenda with every draft, before the first put (step 27)
+C3_AGENDA = ('d6d6f88e', '0a88e176')   # ### the agenda's generator, then its bank (steps 26, 27)
+# ### the puts in their order: (item, the put bank, the commit of the answers pair with it, the RESULT line in data/b754_author_answers.txt)
+C3_PUTS = (('[A]', 'data/b754_put_2.json', '176e9374', 28), ('[B]', 'data/b754_put_3.json', '20c720de', 88), ('[Q]', 'data/b754_put_4.json', 'd1d8303e', 98),
+           ('[U]', 'data/b754_put_5.json', 'fb623a05', 118), ('[H1]', 'data/b754_put_6.json', '2ced383e', 131), ('[M2]', 'data/b754_put_7.json', 'e94952cc', 153),
+           ('[D2]', 'data/b754_put_8.json', 'b9809404', 162), ('[L]', 'data/b754_put_9.json', 'b3551b81', 171), ('[R]', 'data/b754_put_10.json', '70141a21', 182))
+C3_SITTING_TOOL = ('e4765480', '1710b2bd', 'be35d8cd', '16f60938', '970926d4')   # ### tools/b754_sitting.py's commits, each before its run
+C3_SITTING_BANK = ('cf344f9d', '53b7e147', '3ad4c7d5', '093d8e03')   # ### data/b754_sitting.json's commits, each after its item's writes
+SITTING_COMMIT = 'e66b9d4d'   # ### the sitting's foot, data/b754_sitting.txt (step 58)
+SITTING_BANK = 'data/b754_sitting.txt'
 # ### the passed items' PLACE-papers writes in order: (item, commit, the one file, lines added, lines removed), as git show --numstat printed them
-ITEM_PP = (('[A1]', '7fbaff0d', 'phase1.5/method/THE_METHOD_CANON.md', 38, 0), ('[A2]', 'c3def6fd', 'phase1.5/method/THE_METHOD_CANON.md', 4, 0),
-           ('[B1]', 'fd842c0f', 'README.md', 1, 1), ('[B2]', 'c7bf1443', 'README.md', 6, 0), ('[C]', '510eeea9', 'REGISTRY.md', 2, 0),
-           ('[E]', '90804717', 'phase1.5/method/INSTRUMENTS.md', 6, 0), ('[F1]', '6fc025a1', 'SPIRAL_MAP.md', 1, 0),
-           ('[F2]', '0dc0acb3', 'day1/Which_Structure_Confines_v2_4_0.md', 2, 0), ('[G1]', '00188c31', 'ERRATA.md', 14, 0), ('[G2]', '2d145638', 'ERRATA.md', 14, 0))
-SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[B1]': 'PASS', '[B2]': 'PASS', '[C]': 'PASS', '[D]': 'KEEP', '[E]': 'PASS',
-                  '[F1]': 'PASS', '[F2]': 'PASS', '[G1]': 'PASS', '[G2]': 'PASS'}
-C3_RELAY = ()   # ### Component 3 ((R364)(5)): set as made
-C4_LINE = None       # ### Component 4: tools/b754_line.py and data/b754_line.txt
-C4_ANSWERS = 'f7c1590c'    # ### Component 4: the answers pair by the record tool's route (data/b754_author_answers.txt/.json), committed with the module's rewrite
-C4_V1330 = ('768b4c9b', '3d82879a')   # ### Component 4, the author's sixth word (4): the v1.33.0 bank's composer (tools/b754_v1330_later.py), then the bank written again by it, naming C1_STANDING_LATER with the controls run after them
-# ### Component 4 (b754): the act's objects by their commits, read from the log 0e855242..HEAD
-REG_RULE = '4c86bf24'     # ### (R364)(4): the registration's rule alone
-REG_TABLE = '3f865479'    # ### its table, by a commit of its own
-# ### (R364)(5): each read as (name, the generator's commits in order, the bank's commit); a generator amended after a run whose bank was not committed
-C2_READS = (('kernels', ('db9ca425',), 'fe935a7e'), ('branch_map', ('c275582f', '69434780'), '2d085231'),
-            ('head_read', ('9b7e67be', '65c5b5fe'), '8db618bf'), ('anchors', ('81cac329', '821d06d7'), '2544839e'),
-            ('store', ('c08b9887', '1322de66', 'e022e3a2'), '08751eb1'))
-C3_AGENDA = ('8cf14179', '9b95fa00')   # ### (R364)(6): the agenda's generator, then its bank, before either item was put
-C3_ITEMS = (('[M1]', '0db31ce3', 'Passed'), ('[D1]', '48b8ae2e', 'Passed as (a)'))   # ### the two kept items, each with its commit and the author's word
-C3_WAIVER = '576255e0'    # ### the hold before Component 4 and the author's waiver (data/b754_events.txt (5); data/b754_waiver.txt)
-C1_STANDING_LATER = ('0f31d31d', '0db31ce3')   # ### the commits after v1.33.0's own at which a standing tool changed (the store read's model; [M1]'s roster reader), the version staying v1.33.0 by the author's sixth word (4)
+ITEM_PP = (('[A1]', '02db0b2f', 'FINDINGS.md', 2, 2), ('[A2]', '92bb8923', 'FINDINGS.md', 1, 1), ('[A3]', 'd57f0d6a', 'FINDINGS.md', 2, 2),
+           ('[A4]', '2f5c9b35', 'FINDINGS.md', 2, 2), ('[L]', 'a9087a6d', 'OPEN_TRAILS.md', 12, 0), ('[R1]', 'bd6fa92d', 'phase1.5/method/INSTRUMENTS.md', 2, 0),
+           ('[R3]', 'dbf8e93c', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 4, 2))
+SITTING_PP = tuple(c for _i, c, _f, _a, _r in ITEM_PP)
+SITTING_GH = (('[A5]', 'PLACE-papers'), ('[B2]', 'SIDE-explicit-formula'), ('[B4]', 'SIDE-kernel'), ('[B6]', 'SIDE-bsd-multiplicity'), ('[B7]', 'SIDE-trivium'))   # ### the five descriptions by the description route, each read back equal
+SITTING_SETTINGS = (('[D2]', 'autoUpdatesChannel', 'stable'),)   # ### the one key of the harness's user settings, outside every repository
+SITTING_ITEMS = 33   # ### the foot's rows: 28 decided by the author's answers and 5 not put
+SITTING_STATES = {'[A1]': 'PASS', '[A2]': 'PASS', '[A3]': 'PASS', '[A4]': 'PASS', '[A5]': 'PASS', '[B2]': 'PASS', '[B4]': 'PASS', '[B6]': 'PASS',
+                  '[B7]': 'PASS', '[L]': 'PASS', '[R1]': 'PASS', '[R3]': 'PASS'}   # ### data/b754_sitting.json's rows, each with its confirmation
+HANDOFF_COMMIT = 'ee03ebfa'   # ### [H1] (a): HANDOFF.md regenerated by tools/standing/handoff.py at 0c4cda98 (step 44)
+C3_RELAY = ('d6d6f88e', '0a88e176', '176e9374', 'e4765480', 'cf344f9d', '20c720de', '1710b2bd', '53b7e147', 'd1d8303e', '184da293', 'fb623a05',
+            '19aa6a12', '2ced383e', '0c4cda98', 'ee03ebfa', 'e94952cc', '0b477b49', 'b9809404', 'b3551b81', 'be35d8cd', '3ad4c7d5', '70141a21',
+            '16f60938', '093d8e03', '970926d4', 'e66b9d4d')   # ### Component 3's relay commits in order (25 with the foot)
+C4_LINE_GEN = '71d07059'   # ### Component 4: tools/b754_line.py committed before its run (step 59)
+C4_LINE = '7ed81c78'       # ### data/b754_line.txt written by it (step 60)
+C4_ANSWERS = '70141a21'    # ### the answers pair (data/b754_author_answers.txt/.json) at its last append, the [R] put's (step 52)
+ANSWERS_COMMITS = ('176e9374', '20c720de', 'd1d8303e', 'fb623a05', '2ced383e', 'e94952cc', 'b9809404', 'b3551b81', '70141a21')   # ### every commit of the pair, each appending
+# ### (R364)(4): the reads, each (name, generator, bank, the generator's commits in order, the bank's commit); a generator amended before its bank
+C2_READS = (('close_yield', 'tools/b754_yield.py', 'data/b754_close_yield.txt', ('a7c350b3', 'a4aedeef', '336ce25f', 'b02ca5c8', '090a3f70'), 'b7761aae'),
+            ('anchor_grades', 'tools/b754_anchor_grades.py', 'data/b754_anchor_grades.txt', ('85691e0d', '12537a63'), 'fa7d3be8'),
+            ('doors', 'tools/b754_doors.py', 'data/b754_doors.txt', ('7c0ac36f',), '32f082b5'))
+C2_CEILING = 'd67cda05'   # ### the ceiling read at the end of Component 2, data/b754_ceiling_c2.txt (21.51 h, no question by the amendment row 5)
 ZENODO_BANK = None   # ### no Zenodo call this act ((R364)(6))
 ROUTES_BANK = 'data/b747_zenodo_routes.txt'     # ### b747's routes bank, read not written
 INTEGRATION_DRAFT_MD5 = '9e760351971eab06b176176dc02643ab'   # ### data/b746_integration_draft.txt carried unchanged (its md5, last committed c4d044f3)

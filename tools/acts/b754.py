@@ -18,13 +18,13 @@
 #⟪DEAD report ⟫
 # Each "#⟪PENDING <tool> <names>⟫" line: names the act`s tool reads on routes carried from the act before that the act has
 # still to write for itself; printed at every load; the act`s suite holds them empty at its seal.
-#⟪PENDING checks ⟫
+#⟪PENDING checks C3_ITEMS,C3_WAIVER,C4_V1330,REG_RULE,REG_TABLE⟫
 #⟪PENDING citation ⟫
 #⟪PENDING closing ⟫
-#⟪PENDING record ⟫
+#⟪PENDING record C3_ITEMS,C3_WAIVER,C4_V1330,REG_RULE,REG_TABLE⟫
 #⟪PENDING reg_gate ⟫
 #⟪PENDING regspec ⟫
-#⟪PENDING report ⟫
+#⟪PENDING report C3_ITEMS,C3_WAIVER,C4_V1330,REG_RULE,REG_TABLE⟫
 # ### b754, Component 1: THE c1 ROUTE FOR b753'S WEIGHT LINE AND ITS CORRIGENDUM, (R364)(1)-(3), written by the Edit tool against b753's
 # ### banks (9 events, 5 post-seal events, 52 defects, 39 refusals at 34332a00) and tools/standing/ v1.34.0 (relay 5d671461) and v1.34.1
 # ### (relay c176c4ed), in b753's route's form. The carried route was removed at step zero (`carry.py ruled` R5); nothing composed by it.
