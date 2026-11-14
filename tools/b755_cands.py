@@ -181,7 +181,7 @@ def run_c(plant):
         swapped = None
         if plant:
             q = 2
-            while not (kron(D, q) == 1 and reps(Q, q) and q not in ps):
+            while not (factor(q) == {q: 1} and kron(D, q) == 1 and reps(Q, q) and q not in ps):  # a prime: defect (k), repaired
                 q += 1
             swapped = (max(ps), q)
             ps[ps.index(max(ps))] = q
