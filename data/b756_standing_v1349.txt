@@ -1,0 +1,173 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.34.9, (R366)(6)[U1]: THE CADENCE OF THE PASSES, IN FORCE FROM b757 (2026-11-15T16:28:50Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; the banks a held part writes go to a scratch folder of the run, removed after it
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2843 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4884 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    543 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the suite before read from 5b7aa91e
+
+  free 6460 MB at 2026-11-15T16:28:51Z, the hold 2560 MET
+### (fit): THE PARTS THAT KEEP THEIR PLACE, AGAINST THE FIT PRINTED BEFORE THE PUT (relay data/b754_agenda.txt :358-:380)
+  (fit) the mode prerun: relay data/b754_agenda.txt :361, the parts keeping their place 2
+      BEFORE (v1.34.8): no cadence: every part run in every mode -> FAILS
+      AFTER  (v1.34.9): KEEP ['act', 'standing-a1', 'standing-a2'] ; the fit ['act', 'standing-a2'] with ['standing-a1'] joined where standing-a2 keeps its place -> PASSES
+      AS WANTED
+  (fit) the mode post-push: relay data/b754_agenda.txt :367, the parts keeping their place 4
+      BEFORE (v1.34.8): no cadence: every part run in every mode -> FAILS
+      AFTER  (v1.34.9): KEEP ['act', 'standing-a1', 'standing-a2', 'standing-b2a'] ; the fit ['act', 'standing-a1', 'standing-a2', 'standing-b2a'] with ['standing-a1'] joined where standing-a2 keeps its place -> PASSES
+      AS WANTED
+  (fit) the mode prev: relay data/b754_agenda.txt :370, the parts keeping their place 2
+      BEFORE (v1.34.8): no cadence: every part run in every mode -> FAILS
+      AFTER  (v1.34.9): KEEP ['act', 'standing-a1', 'standing-a2'] ; the fit ['act', 'standing-a2'] with ['standing-a1'] joined where standing-a2 keeps its place -> PASSES
+      AS WANTED
+  (fit) standing-a1 joined to every mode where standing-a2 keeps its place (the a1 join, checks.tpl main)
+      BEFORE (v1.34.8): every part run -> FAILS
+      AFTER  (v1.34.9): standing-a1 in KEEP wherever standing-a2 is: True -> PASSES
+      AS WANTED
+
+  free 6460 MB at 2026-11-15T16:28:51Z, the hold 2560 MET
+### (prerun): THE PRE-RUN, OVER b755`S PRE-RUN BANKS AS COMMITTED, READ AS IF b756 WERE IN FORCE
+  (prerun) part act
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: act keeps its place in the mode prerun (relay data/b754_agenda.txt :358-:380) -> PASSES
+      AS WANTED
+  (prerun) part standing-a1
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: standing-a1 keeps its place in the mode prerun (relay data/b754_agenda.txt :358-:380; joined beside the fit: standing-a2 joins its half bank at the same HEAD) -> PASSES
+      AS WANTED
+  (prerun) part standing-a2
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: standing-a2 keeps its place in the mode prerun (relay data/b754_agenda.txt :358-:380) -> PASSES
+      AS WANTED
+  (prerun) part standing-b1, its last pre-run bank data/b755_arms_prerun_standing-b1.txt (read at relay 5009a5e9)
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: tools/standing/ moved since the run data/b755_arms_prerun_standing-b1.txt repeats (relay 066678da): tree 09d7752aea45 then, 16bbc33fecb3 now ; tracked changes ['tools/standing/VERSION', 'tools/standing/fold/checks.tpl'] -> PASSES
+      AS WANTED
+  (prerun) the working tree`s arm: the source run`s head read as HEAD, tools/standing/`s tracked changes now ['tools/standing/VERSION', 'tools/standing/fold/checks.tpl']
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): moved True ; tree 16bbc33fecb3 then and now ; tracked changes ['tools/standing/VERSION', 'tools/standing/fold/checks.tpl'] -> PASSES
+      AS WANTED
+  (prerun) PLANTED: part standing-b1 with tools/standing/ unmoved since the source run and no tracked change
+      BEFORE (v1.34.8): run (no cadence) -> FAILS
+      AFTER  (v1.34.9): read: tools/standing/ unmoved since the run data/b755_arms_prerun_standing-b1.txt repeats (relay 1e35bedd): tree 16bbc33fecb3 at both, no tracked change -> PASSES
+      AS WANTED
+  (prerun) held() given a decision that runs the part (standing-b1`s real decision)
+      BEFORE (v1.34.8): no held() -> (alike at both is wanted)
+      AFTER  (v1.34.9): refused True -> PASSES
+      AS WANTED
+  (prerun) the held part`s banks, written to a scratch folder: ['b756_arm_seconds_standing-b1.json', 'b756_arms_prerun_standing-b1.txt', 'b756_exercise_standing-b1.json', 'b756_lsr_prerun_standing-b1.json']
+      BEFORE (v1.34.8): none written by a cadence -> FAILS
+      AFTER  (v1.34.9): the footer read by PART_FOOT: part standing-b1, arms 1 (the source`s 1), 0 s (the source`s 224 s); the source named True -> PASSES
+      AS WANTED
+  (prerun) the exercise, seconds and remote-reads banks of the held part
+      BEFORE (v1.34.8): none written by a cadence -> FAILS
+      AFTER  (v1.34.9): exercise mode prerun, verdicts the source`s True, source data/b755_exercise_standing-b1.json ; seconds arms 1 at 0.0 True ; remote reads {} NONE ; exit 0 -> PASSES
+      AS WANTED
+  (prerun) NOT IN FORCE: the same decision at b756 as the cadence stands (FROM_ACT 757)
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: the cadence is in force from b757 -> PASSES
+      AS WANTED
+
+  free 6483 MB at 2026-11-15T16:28:53Z, the hold 2560 MET
+### (prev): THE PASS IN THE PREVIOUS ACT`S MODE AT SITTINGS
+  (prev) the sitting read from each ferry`s title (an act with no ferry: None, counted a sitting)
+      BEFORE (v1.34.8): no sitting read -> (alike at both is wanted)
+      AFTER  (v1.34.9): {'b750': True, 'b754': True, 'b755': False, 'b756': False, 'b999': None} -> PASSES
+      AS WANTED
+  (prev) standing-a2 keeps its place at a non-sitting act
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: standing-a2 keeps its place in the mode prev (relay data/b754_agenda.txt :358-:380) -> PASSES
+      AS WANTED
+  (prev) standing-c at b756, not a sitting
+      BEFORE (v1.34.8): run (no cadence) -> FAILS
+      AFTER  (v1.34.9): not run: not a sitting (data/b756_ferry.txt: its title carries no SITTING): the pass in the previous act`s mode held to the parts that keep their place -> PASSES
+      AS WANTED
+  (prev) PLANTED: standing-c at an act read as a sitting
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: a sitting (data/b756_ferry.txt: its title carries SITTING) -> PASSES
+      AS WANTED
+  (prev) the not-run part`s banks, written to a scratch folder: ['b756_prevrun_exercise_standing-c.json', 'b756_prevrun_standing-c.json', 'b756_prevrun_standing-c.txt']
+      BEFORE (v1.34.8): none written by a cadence -> FAILS
+      AFTER  (v1.34.9): footer part standing-c arms 0 declared NOTRUN ; exercise mode prev run 0, the seal`s keys ['diverge', 'fail_as_prev', 'not_run_by_prev', 'pass_on_prev'] ; exit 0 -> PASSES
+      AS WANTED
+
+  free 6483 MB at 2026-11-15T16:28:53Z, the hold 2560 MET
+### (postpush): THE PASS AFTER THE PUSH, OVER A SYNTHETIC PRE-PUSH RUN IN A SCRATCH FOLDER
+  (postpush) standing-c, its pre-push run with no read record
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: the pre-push run of standing-c left no read record -> PASSES
+      AS WANTED
+  (postpush) standing-c, its record of 1 file (['scratch|bank_one.txt']) unchanged
+      BEFORE (v1.34.8): run (no cadence) -> FAILS
+      AFTER  (v1.34.9): read: no read of standing-c changed since its pre-push run (1 files, 0 blobs, 0 listings) -> PASSES
+      AS WANTED
+  (postpush) the held part`s banks ['b756_checks_postpush_standing-c.txt', 'b756_exercise_standing-c.json', 'b756_lsr_postpush_standing-c.json']
+      BEFORE (v1.34.8): none written by a cadence -> FAILS
+      AFTER  (v1.34.9): footer part standing-c seconds 0 (the source 120) ; exercise mode post-push ; exit 0 -> PASSES
+      AS WANTED
+  (postpush) PLANTED: the file standing-c read changed after its pre-push run
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: 1 read(s) of standing-c changed since its pre-push run: file scratch|bank_one.txt -> PASSES
+      AS WANTED
+  (postpush) the chain parts: all four unchanged, then standing-b2c`s read changed
+      BEFORE (v1.34.8): run (no cadence) -> FAILS
+      AFTER  (v1.34.9): b3 read ; then b3 run, b2b run: 1 read(s) of standing-b2c changed since its pre-push run: file scratch|bank_one.txt (the chain parts run together) -> PASSES
+      AS WANTED
+  (postpush) standing-b2a keeps its place (it reads a remote)
+      BEFORE (v1.34.8): run -> (alike at both is wanted)
+      AFTER  (v1.34.9): run: standing-b2a keeps its place in the mode post-push (relay data/b754_agenda.txt :358-:380) -> PASSES
+      AS WANTED
+
+  free 6492 MB at 2026-11-15T16:28:53Z, the hold 2560 MET
+### (record): THE READ RECORD`S CLASSES ON REAL CALLS
+  (record) a file opened to read recorded, one opened to write not, the Python installation`s not
+      BEFORE (v1.34.8): no read record -> FAILS
+      AFTER  (v1.34.9): ['scratch|read_me.txt'] -> PASSES
+      AS WANTED
+  (record) `git show HEAD:<path>` a blob; `git show <hash>:<path>` none
+      BEFORE (v1.34.8): no read record -> FAILS
+      AFTER  (v1.34.9): ['relay|HEAD:tools/standing/VERSION'] -> PASSES
+      AS WANTED
+  (record) `git log -- <path>` the tree listing; `git status` the status; a bare `rev-parse HEAD` none
+      BEFORE (v1.34.8): no read record -> FAILS
+      AFTER  (v1.34.9): ['relay|status', 'relay|tree'] -> PASSES
+      AS WANTED
+  (record) the Windows command line the audit event carries, split back: 4 argument lists through subprocess.list2cmdline and back
+      BEFORE (v1.34.8): no split -> FAILS
+      AFTER  (v1.34.9): [True, True, True, True] -> PASSES
+      AS WANTED
+
+  free 6489 MB at 2026-11-15T16:28:53Z, the hold 2560 MET
+### (template): tools/standing/fold/checks.tpl CALLS THE CADENCE
+  (template) the decision after the order refusal and before standing-b3`s halves guard; the field before the exercise bank`s path
+      BEFORE (v1.34.8): the cadence named 0 times -> FAILS
+      AFTER  (v1.34.9): order :2170 < decision :2178 < b3 guard :2182 ; field :2384 < exercise path :2385 ; once each True -> PASSES
+      AS WANTED
+  (template) G-GUARD-HELD`s reading: the per-part seconds write`s own line, the line before it `if PRERUN:`
+      BEFORE (v1.34.8): line :2385, before it 'if PRERUN:' -> (alike at both is wanted)
+      AFTER  (v1.34.9): line :2393, before it 'if PRERUN:' ; the write`s line once in the template True -> PASSES
+      AS WANTED
+  (template) NOT IN FORCE: at b756 the decision RUN and the exercise bank`s field empty (no read recorded)
+      BEFORE (v1.34.8): every part run -> (alike at both is wanted)
+      AFTER  (v1.34.9): decision run (the cadence is in force from b757) ; field {} -> PASSES
+      AS WANTED
+
+  free 6492 MB at 2026-11-15T16:28:53Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.8): v1.34.8 -> FAILS
+      AFTER  (v1.34.9): v1.34.9 -> PASSES
+      AS WANTED
+
+### per change: (fit) 4 of 4 ; (prerun) 10 of 10 ; (prev) 5 of 5 ; (postpush) 6 of 6 ; (record) 4 of 4 ; (template) 3 of 3 ; (version) 1 of 1
+### ### **v1.34.9: CONTROLS (fit), (prerun), (prev), (postpush), (record), (template), (version) ; CASES 33 ; AS WANTED 33 ; ALL AS WANTED.**

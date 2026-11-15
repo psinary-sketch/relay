@@ -2172,6 +2172,13 @@ def main():
         if _ord:
             print('%s  ### %s' % (time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), _ord))
             return 4
+    # ### v1.34.9, (R366)(6)[U1], relay data/b754_rules.txt (10): THE CADENCE OF THE PASSES, in force from b757 (tools/standing/cadence.py): a part the
+    # ### cadence holds writes its banks from the bank it would repeat (or, not run, says so) under the mode's names; a part that runs records its reads
+    _CAD = __import__('standing.cadence', fromlist=['decide'])
+    _cd = _CAD.decide('⟪ACT⟫', PART, _CAD.mode_of(PREV, PRERUN, MID, PROBE, RERUN, pushed), ROOT, _CAD.roots(ROOT, PP, PROJ))
+    if not _cd['run']:
+        return _CAD.held(_cd, '⟪ACT⟫', ROOT, D, rc_key=RC_KEY, membrane=_membrane, t0=t_start, carried=CARRIED_FAILING)
+    _reads = _CAD.Reads(_CAD.roots(ROOT, PP, PROJ)).start() if _CAD.in_force('⟪ACT⟫') else None
     if PART == 'standing-b3':   # ### v1.25.0, (⟪RUL⟫)(2)(iii), b744 events (2): the four chain parts' banks before b3, or b3 does not run
         _hb = [half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(KS.CHAIN_QUARTERS))]
         _ab = __import__('standing.repeat', fromlist=['b3_absent']).b3_absent(_hb, lambda n: os.path.exists(os.path.join(D, n)))
@@ -2374,6 +2381,7 @@ def main():
               mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push',
               at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), relay_head=gs(ROOT, 'rev-parse', 'HEAD'))
     ex.update(pv)
+    ex.update(_CAD.run_fields(_cd, _reads))   # ### v1.34.9, [U1]: from b757, the cadence's decision and the part's read record
     ep = os.path.join(D, __import__('standing.repeat', fromlist=['exercise_name']).exercise_name('⟪ACT⟫', PART, ex['mode'], lambda n: bool(gs(ROOT, 'ls-files', 'data/' + n))))   # ### v1.10.0, (⟪RUL⟫)(2)(iii)
     _membrane(ep)
     with open(ep + '.tmp', 'wb') as fh:
