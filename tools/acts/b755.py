@@ -1511,7 +1511,9 @@ def _first_add(path):
     prior_ = ct_(ROOT, K.C3_LITERATURE) < ct_(ROOT, K.C3_CANDIDATES) < ct_(ROOT, K.C4_RULE_ZEROS) and _first_add('data/%s_registrations.txt' % ACT) == g(ROOT, 'rev-parse', K.C3_CANDIDATES).strip() \
         and '## (1) THE PRIOR CLAUSE' in r1_ and '## (2) THE RULE' not in r1_ and 'data/%s_literature.txt' % ACT in files_(K.C3_LITERATURE)
     alone_ = files_(K.C4_RULE_ZEROS) == ['data/%s_registrations.txt' % ACT] and sorted(files_(K.C4_RULE_RECUR)) == ['data/%s_registrations.txt' % ACT, 'tools/%s_recur.py' % ACT] \
-        and '## (2) THE RULE (H-ZEROS-FROM-PRIMES)' in r2_ and '## (3) THE RULE (H-RECURRENCE)' not in r2_ and '## (3) THE RULE (H-RECURRENCE)' in r3_ and r2_ and r3_.startswith(r2_.rstrip(NL))
+        and '## (2) THE RULE (H-ZEROS-FROM-PRIMES)' in r2_ and '## (3) THE RULE (H-RECURRENCE)' not in r2_ and '## (3) THE RULE (H-RECURRENCE)' in r3_ and bool(r2_) \
+        and r3_.startswith(NL.join(r2_.rstrip(NL).split(NL)[:-1]) + NL) and r2_.rstrip(NL).split(NL)[-1].startswith('### ### **THE PRIOR CLAUSE: ')
+    # ### b755 (r): the second rule's commit keeps the first rule's lines unmoved and rewrites the foot, as checks 40 reads it since (p)
     lc0_ = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ) ; ', (rdn('%s_list_59_controls.txt' % ACT).split(NL) or [''])[0])
     roots_ = ct_(ROOT, K.C4_RULE_RECUR) < ct_(ROOT, K.C4_ROOTS) < ct_(ROOT, K.C4_ENGINE) < ct_(ROOT, K.C4_LIST) and bool(lc0_) \
         and (_iso_epoch(lc0_.group(1)) or 0) > ct_(ROOT, K.C4_ROOTS) and 'The list of roots at -59 (data/%s_roots_59.txt) committed before any band ran.' % ACT in rdn('%s_list_59.txt' % ACT)
@@ -1585,12 +1587,27 @@ N3_NAV_FIGS = r'(?<![\d,.])1,?401(?![\d,])'
 
 
 def _own_sentences(t):
-    """the act's own sentences of a bank: the quote rows (`  :n "...`) and the quoted spans dropped, the `### ` lines dropped."""
-    ls = []
+    """the act's own sentences of a bank: the quote rows (`  :n "...`) and the quoted spans dropped, the `### ` lines dropped. A quotation
+    wrapped over lines is dropped to its closing mark: an opening mark left unmatched on its line opens it, and the lines after it are read
+    as the quotation's until a closing mark (data/b755_defects.txt (q): the line-at-a-time drop kept the literature bank's T7.a, a source's
+    own words wrapped over three lines, and N3 read them as the bank's)."""
+    ls, open_ = [], False
     for l in (t or '').replace(chr(13), '').split(NL):
-        if not l.strip() or l.startswith('### ') or re.match(r'^\s+:\d+(?:-:\d+)? ["“]', l):
+        if not l.strip() or l.startswith('### '):
             continue
-        ls.append(re.sub(r'“[^”\n]*”', '“…”', re.sub(r'"[^"\n]*"', '"…"', l)).strip())
+        s_ = l
+        if open_:
+            m_ = re.search(r'["”]', s_)
+            if not m_:
+                continue
+            s_, open_ = '\x00' + s_[m_.end():], False
+        s_ = re.sub(r'“[^”\n]*”', '\x00', re.sub(r'"[^"\n]*"', '\x00', s_))
+        m_ = re.search(r'["“]', s_)
+        if m_:
+            s_, open_ = s_[:m_.start()] + '\x00', True
+        if re.match(r'^\s+:\d+(?:-:\d+)? ["“]', l):
+            continue
+        ls.append(s_.replace('\x00', '"…"').strip())
     return [x for x in re.split(r'(?<=[.;])\s+', ' '.join(ls)) if x.strip()]
 
 
@@ -1664,7 +1681,9 @@ def _nav_rows():
     neg_ = N3_NEG
     ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The walk is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
-                 neg=bool(re.search(neg_, 'RH is not proved.')))
+                 neg=bool(re.search(neg_, 'RH is not proved.')),
+                 quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
+                 and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
@@ -1690,7 +1709,7 @@ def _nav_rows():
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence passed, a negation read): %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; each candidate`s sourcing line naming the prior work the ruling names, with its row in the literature bank (relay data/%s_candidates.txt, data/%s_literature.txt): %s, the reproduced candidates with no (S1) line: %s; the navigator`s workspace figures: %d of its scripts` paragraphs read, saying no bank holds their figures but %s, the walk`s banks printing the ruling`s 1,401: %s; the verdicts against the registered rows and rules and nothing written after them: data/b753_registrations.txt equal to its blob at %s %s, the walk naming that blob %s, data/%s_registrations.txt written after %s by %s, each verdict bank saying so %s: %s; the entry`s last line (R365)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence passed, a negation read, a quotation wrapped over two lines dropped and the text after it kept): %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; each candidate`s sourcing line naming the prior work the ruling names, with its row in the literature bank (relay data/%s_candidates.txt, data/%s_literature.txt): %s, the reproduced candidates with no (S1) line: %s; the navigator`s workspace figures: %d of its scripts` paragraphs read, saying no bank holds their figures but %s, the walk`s banks printing the ruling`s 1,401: %s; the verdicts against the registered rows and rules and nothing written after them: data/b753_registrations.txt equal to its blob at %s %s, the walk naming that blob %s, data/%s_registrations.txt written after %s by %s, each verdict bank saying so %s: %s; the entry`s last line (R365)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
             len(nsents_), more_ or 'NONE', src, first_ or 'NONE', loc_ or 'NONE', ACT, ACT, ', '.join('%s %s %s' % x_ for x_ in prior_), unsourced_ or 'NONE',
             navn_, navbad_ or 'NONE', navfig_ or 'NONE', K.REG_WALK[1], b753_, walkreg_, ACT, K.C4_RULE_RECUR, late_ or 'NONE', vsay_, verd_,
