@@ -91,15 +91,16 @@ def carry(src_rel, dst_rel, name, subs, shifted_ok=False, again=False):
                          + ['  :%d %s (tools/%s.py absent; the source line named a module that exists)' % (i, n, n) for i, n in shifted]
                          + ['### repair the carried form by hand after `--shifted`, or carry the name unshifted']))
     act = subs[0][1]
+    absent = shifted_absent(old, new, act, lambda p_: os.path.exists(_path(p_)))   # ### v1.35.1, (R366)(6), b755 (n)
     ol, nl_ = old.split(NL), new.split(NL)
     diff = udiff(ol, nl_, src_rel, dst_rel)
     changed = sum(1 for l in diff if l.startswith('+') and not l.startswith('+++'))
     L = ['%s -- THE CARRY BY DIFF (tools/standing/carry.py): %s -> %s (%s)' % (act, src_rel, dst_rel, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### the substitution alone (%s); %d lines, %d changed' % (', '.join('%s -> %s' % s for s in subs), len(nl_), changed),
-         '### SHIFTED PAST WHAT EXISTS: %s' % ('; '.join(':%d %s' % s for s in shifted) if shifted else 'NONE'), '',
-         '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
-    L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED %d ; SHIFTED %d%s**' % (dst_rel, len(nl_), changed, len(shifted),
-                                                                          ' (WRITTEN BY --shifted)' if shifted else '')]
+         '### SHIFTED PAST WHAT EXISTS: %s' % ('; '.join(':%d %s' % s for s in shifted) if shifted else 'NONE'), '']
+    L += absent_lines(absent) + ['', '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
+    L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED %d ; SHIFTED %d%s ; CITES OF AN ABSENT BANK %d**' % (
+        dst_rel, len(nl_), changed, len(shifted), ' (WRITTEN BY --shifted)' if shifted else '', len(absent))]
     p = os.path.join(D, '%s_carry_%s.txt' % (act, name))
     import act_membrane as MEM
     MEM.guard_path(act, p, None)
@@ -107,7 +108,7 @@ def carry(src_rel, dst_rel, name, subs, shifted_ok=False, again=False):
         with open(path + '.tmp', 'wb') as fh:
             fh.write(body.encode('utf-8'))
         os.replace(path + '.tmp', path)
-    print(NL.join(L[:4] + L[-1:]))
+    print(NL.join(L[:4] + absent_lines(absent) + L[-1:]))
 
 
 def check(src_rel, dst_rel):
@@ -115,7 +116,39 @@ def check(src_rel, dst_rel):
     for s in shifted:
         print('  :%d %s' % s)
     print('### SHIFTED PAST WHAT EXISTS: %d' % len(shifted))
+    m = re.search(r'b\d{3}', os.path.basename(dst_rel))
+    if m:
+        print(NL.join(absent_lines(shifted_absent(rd(_path(src_rel)), rd(_path(dst_rel)), m.group(0), lambda p_: os.path.exists(_path(p_))))))
     return 1 if shifted else 0
+
+
+# ================================================================================ v1.35.1, (R366)(6): b755 (n), 19 acts by data/b756_faults.txt
+# ### the carry shifts every cited act's name with the act's own, so a carried row citing an earlier act's bank comes to cite one act later:
+# ### b755's closing line read "b754`s [P1] (relay data/b754_attribution_plan.txt)", a bank no act wrote, the plan passed at b752; and a row
+# ### so shifted was read against its new act only when a probe or a reader reached it. Each such cite is printed at the carry, before any
+# ### write of the act: a print and not a refusal, for a module cites absent banks by design (b756's check that b755 kept no post-seal bank).
+def shifted_absent(src, dst, act, exists):
+    """[(line, the carried cite, the source line's cites)]: on a line the substitution changed, a bank of an act before `act` that the carried
+    text cites and the tree lacks. The act's own banks, still to be written, are not read."""
+    out, pair = [], {}
+    n = int(act[1:])
+    sl, dl = (src or '').split(NL), (dst or '').split(NL)
+    # ### the lines paired by the diff's opcodes and not by position: the module's carry stubs blocks, so its line counts move
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, sl, dl, autojunk=False).get_opcodes():
+        if tag != 'equal':
+            for k in range(j1, j2):
+                pair[k] = sl[i1 + k - j1] if tag == 'replace' and i1 + k - j1 < i2 else ''
+    for k in sorted(pair):
+        for m in DATAP.finditer(dl[k]):
+            p = m.group(0)
+            if int(p[6:9]) < n and not exists(p):
+                out.append((k + 1, p, sorted(set(DATAP.findall(pair[k])))))
+    return out
+
+
+def absent_lines(absent):
+    return (['### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: %d' % len(absent)]
+            + ['  :%d %s (the source line cited %s)' % (i, p, ', '.join(s) or 'none') for i, p, s in absent])
 
 
 # ================================================================================ v1.27.0, (R357)(3)(viii): THE CARRY BESIDE THE RULING

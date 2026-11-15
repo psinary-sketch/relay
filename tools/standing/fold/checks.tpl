@@ -1882,7 +1882,7 @@ ARMS_ALL = [
     ('G-READ-RULE-STANDING', 'tools/b704_read_arm.py over the read bank at HEAD (the author`s word at b704`s sort; from b705 every call counts): no Read call of a file of two hundred lines or more without an offset, without a limit or with a limit above two hundred',
      lambda S: read_rule_standing_ok(S), lambda S: _read_plant(S)),
 ] + [(nm, 'tools/rule_arms.py (the author`s word on (R293)(6); (R301)(6) for four; G-RULE-SUITE-PARTS as repaired under (R302)(2) and (⟪RUL⟫)(2); G-RULE-BINARY-HASHES as repaired under (R306)(2); G-RULE-RECUT-QUOTE`s sources as repaired under (R313)(2)) -- ' + reads,
-      (lambda p: lambda S: p(S['ra']))(PSL.wrap(pred, '⟪ACT⟫') if nm == PSL.ARM else (lambda R: RFC.reading(RA, R)[0]) if nm == RFC.ARM else pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]   # ### v1.21.0, (R351)(2)(iv): the post-seal arm's failure carries its ordinal
+      (lambda p: lambda S: p(S['ra']))((lambda R: PSL.reading(RA, R, '⟪ACT⟫')[0]) if nm == PSL.ARM else (lambda R: RFC.reading(RA, R)[0]) if nm == RFC.ARM else pred), (lambda pl: lambda S: put(S, 'ra', pl(S['ra'])))(plant)) for nm, reads, pred, plant in RA.ARMS]   # ### v1.21.0, (R351)(2)(iv); v1.35.1, (R366)(6): the post-seal arm through its reading, not a bool wrapped as a tuple
 # ### (⟪RUL⟫)(10): the run list -- the whole list less tools/standing/arms.py RETIRED; every part, the (G2) block, the seal and the tallies read
 # ### ARMS; G-ARM-TAGS reads the whole list (the retired keep their tags)
 ARMS = STA.run_list(ARMS_ALL)
@@ -2243,7 +2243,7 @@ def main():
         rec('  ### THE RULE ARMS, EACH WITH ITS COUNT (tools/rule_arms.py; rows read, rows failing, the reading); the call trace %d calls:' % len(
             S['ra'].get('calls') or []))
         for nm in RA.NAMES:
-            ok_, n_, b_, note = RFC.reading(RA, S['ra']) if nm == RFC.ARM else RA.reading(nm, S['ra'])   # ### v1.32.0, (R362)(7)(ii)
+            ok_, n_, b_, note = RFC.reading(RA, S['ra']) if nm == RFC.ARM else PSL.reading(RA, S['ra'], '⟪ACT⟫') if nm == PSL.ARM else RA.reading(nm, S['ra'])   # ### v1.32.0, (R362)(7)(ii); v1.35.1 the post-seal ordinal
             rec('  ###   %-28s %-4s read %d ; failing %d ; %s' % (nm, 'PASS' if ok_ else 'FAIL', n_, b_, note[:260]))
     chain_part = next((x for x in CHAIN_KEYS if x in NEED[PART]), None)
     if chain_part:

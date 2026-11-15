@@ -39,10 +39,18 @@ def note(act, data=D):
     return ' ; THE ARM`S %s FAILURE BY THE SUITE BANKS (LIVE FAILING before at %s)' % ((ORD[k - 1] if k <= len(ORD) else '%dth' % k).upper(), ', '.join(prior) or 'none')
 
 
+def reading(RA, R, act):
+    """### v1.35.1, (R366)(6), carried fault (8) (data/b755_carried_faults.txt): the arm's own reading (tools/rule_arms.py reading) with the
+    ordinal clause on a failure -- the one form the suite's predicate ([0]) and its reading line take. wrap() was handed the bool predicate of
+    RA.ARMS, so `r[0]` raised TypeError wherever the arm read True and the suite banked FAIL at 23 acts (data/b756_faults.txt)."""
+    ok, n, bad, txt = RA.reading(ARM, R)
+    return ok, n, bad, txt + ('' if ok else note(act))
+
+
 def wrap(pred, act):
     def p(*a):
         r = pred(*a)
-        if r and not r[0]:
+        if isinstance(r, tuple) and r and not r[0]:   # ### v1.35.1: a bool passes through as it came (the arms' predicates return one)
             r = tuple(r[:3]) + (r[3] + note(act),) + tuple(r[4:])
         return r
     return p

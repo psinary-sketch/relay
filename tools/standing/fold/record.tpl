@@ -4013,6 +4013,13 @@ if _trail_route_composed is not None:
     ROUTES['trail'] = _trail_route
 
 
+# ### v1.35.1, (⟪RUL⟫)(6), the carried faults (6) and (12) of relay data/b755_carried_faults.txt (b754 (m''); 17 acts by data/b756_faults.txt):
+# ### the record's defect row read with any number of primes. :194 binds b698's matcher of one prime and stays as it stands, for b754's override
+# ### (MARK 7606fc9891fa), carried by every act since, keys on its bytes; the binding is made here, the four modules' names with it, so every
+# ### reader of the row (letters_of, the defects route, b703's read_defect_row through P3) reads the one matcher at call time.
+DEFECT_ROW = R.DEFECT_ROW = P3.DEFECT_ROW = P7.DEFECT_ROW = re.compile(r"^    \(([a-z]'*)\) ")
+
+
 if __name__ == '__main__':
     fn = ROUTES.get(sys.argv[1] if len(sys.argv) > 1 else '')
     if fn is None:

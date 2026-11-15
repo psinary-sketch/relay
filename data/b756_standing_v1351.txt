@@ -1,0 +1,84 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.35.1, (R366)(6): THE FAULTS REPEATED IN TWO ACTS OR MORE, THE FIRST THREE BY COUNT (2026-11-15T16:55:32Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; no ledger line printed; the order and the counts from relay data/b756_faults.txt
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2843 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4916 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    543 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the tools before read from 2c3acfca
+
+  free 7103 MB at 2026-11-15T16:55:32Z, the hold 2560 MET
+### (postseal): G-RULE-POSTSEAL-READ THROUGH ITS READING, NOT A BOOL WRAPPED AS A TUPLE
+  (postseal) a passing trace (one post-seal read of the entry by the reader, no filter, no redirect): the arm`s own reading (True, 1, 0)
+      BEFORE (v1.35.0): BASE`s wrap over ARMS` predicate: raised TypeError: 'bool' object is not subscriptable -> FAILS
+      AFTER  (v1.35.1): the template`s form postseal.reading(...)[0]: True ; the reading shell calls after the seal 1 ; naming the entry, the dry entry or the trail 1 ; by a shell filter or a redirect NONE -> PASSES
+      AS WANTED
+  (postseal) PLANTED: a post-seal sed over the entry with a redirect
+      BEFORE (v1.35.0): the predicate False ; the reading line RA.reading`s alone, no ordinal: False -> FAILS
+      AFTER  (v1.35.1): the predicate False ; the reading line carries the ordinal:  ; THE ARM`S 24TH FAILURE BY THE SUITE BANKS (LIVE FAILING before at b720, b723, b725, b726, b727, b732, b736, -> PASSES
+      AS WANTED
+  (postseal) checks.tpl: the predicate and the reading line through postseal.reading; PSL.wrap no longer called
+      BEFORE (v1.35.0): PSL.wrap called 1 ; PSL.reading 0 -> FAILS
+      AFTER  (v1.35.1): PSL.wrap called 0 ; the predicate True ; the reading line True -> PASSES
+      AS WANTED
+  (postseal) checks.tpl`s line-keyed region (the acts before b735 key their overrides by line), to the part route`s main
+      BEFORE (v1.35.0): :2146 -> (alike at both is wanted)
+      AFTER  (v1.35.1): :2146 -> PASSES
+      AS WANTED
+
+  free 7100 MB at 2026-11-15T16:55:32Z, the hold 2560 MET
+### (carry): A CARRIED CITE SHIFTED TO A BANK ABSENT FROM THE TREE, PRINTED AT THE CARRY
+  (carry) b755`s carry of its module reproduced (tools/acts/b754.py at relay 28255aea, the code substitution b754 -> b755, b753 -> b754, R364 -> R365, R363 -> R364, the tree there, 33214 banks)
+      BEFORE (v1.35.0): BASE`s carry.py prints such cites: False -> FAILS
+      AFTER  (v1.35.1): printed 35 cites of 12 banks: ['data/b754_anchors.txt', 'data/b754_attribution_plan.txt', 'data/b754_author_words_preseal.txt', 'data/b754_branch_map.txt', 'data/b754_dayend.txt', 'data/b754_head_read.txt', 'data/b754_kernels.txt', 'data/b754_registrations.txt', 'data/b754_relay_push-b754-closing_push_out.txt', 'data/b754_standing_v1330.txt', 'data/b754_store.txt', 'data/b754_waiver.txt'] ; b755 (n)`s data/b754_attribution_plan.txt among them True -> PASSES
+      AS WANTED
+  (carry) b756`s carry of its module reproduced (tools/acts/b755.py at relay b19867ac, the tree there): every cite printed, each read against the act
+      BEFORE (v1.35.0): none printed -> (alike at both is wanted)
+      AFTER  (v1.35.1): printed 16 cites of 3 banks: ['data/b755_events_postseal.txt', 'data/b755_relay_push-b755-closing_push_out.txt', 'data/b755_rules.txt'] -> PASSES
+      AS WANTED
+  (carry) PLANTED: a cite shifted from b100`s bank to b101`s (absent), the act`s own bank (b102), an unchanged line citing an absent bank
+      BEFORE (v1.35.0): no print -> FAILS
+      AFTER  (v1.35.1): printed [(1, 'data/b101_plan.txt')] -> PASSES
+      AS WANTED
+  (carry) the act carry tool (tools/b756_carry.py, carried to the next act by the standing carry) and the standing carry`s own route call the print
+      BEFORE (v1.35.0): the act tool 0, 0 ; carry.py 0 -> FAILS
+      AFTER  (v1.35.1): the act tool shifted_absent 1, absent_lines 2 ; carry.py carry() 1, 3 -> PASSES
+      AS WANTED
+
+  free 7103 MB at 2026-11-15T16:55:33Z, the hold 2560 MET
+### (defectrow): THE RECORD`S DEFECT ROW WITH ANY NUMBER OF PRIMES, BOUND AT THE FOOT
+  (defectrow) b754`s defects bank, 70 rows by the tag scan (relay data/b754_defects.txt; b754 (m`` ) read 51 of 63)
+      BEFORE (v1.35.0): b698`s matcher (record.tpl :194, "^    \\(([a-z]'?)\\) "): 51 rows -> FAILS
+      AFTER  (v1.35.1): the foot`s binding ("^    \\(([a-z]'*)\\) "): 70 rows -> PASSES
+      AS WANTED
+  (defectrow) record.tpl :194 as at BASE, b754`s override (MARK 7606fc9891fa, carried in b755`s and b756`s modules) found once
+      BEFORE (v1.35.0): :194 'DEFECT_ROW = R.DEFECT_ROW' -> (alike at both is wanted)
+      AFTER  (v1.35.1): :194 equal True ; the mark at (194, 194) -> PASSES
+      AS WANTED
+  (defectrow) the record rendered for b754, b755 and b756 at the working template, the foot`s binding before the main guard in each
+      BEFORE (v1.35.0): BASE`s foot binds nothing: True -> FAILS
+      AFTER  (v1.35.1): [('b754', 'rendered', True), ('b755', 'rendered', True), ('b756', 'rendered', True)] -> PASSES
+      AS WANTED
+  (defectrow) record.tpl`s line-keyed region, to the foot`s first binding
+      BEFORE (v1.35.0): :3968 -> (alike at both is wanted)
+      AFTER  (v1.35.1): :3968 -> PASSES
+      AS WANTED
+
+  free 7098 MB at 2026-11-15T16:55:33Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.35.0): v1.35.0 -> FAILS
+      AFTER  (v1.35.1): v1.35.1 -> PASSES
+      AS WANTED
+
+### per change: (postseal) 4 of 4 ; (carry) 4 of 4 ; (defectrow) 4 of 4 ; (version) 1 of 1
+### ### **v1.35.1: CONTROLS (postseal), (carry), (defectrow), (version) ; CASES 13 ; AS WANTED 13 ; ALL AS WANTED.**
