@@ -3,3 +3,4 @@
 2026-11-15T13:42:11Z | PIPE | Bash | "python -X utf8 -u -c \"\nimport json\nj=json.load(open('data/act_current.json',encoding='utf-8'))\nprint(sorted(j.keys()))\nprint('shared_edits:',j.get('shared_edits'))\n\" && git show 77ae83fe:data/act_current.json --format= 2>nul || true" | a Bash command carrying a pipe outside quotes
 2026-11-15T17:55:15Z | LIMIT | Bash | "python -X utf8 -u tools/research/reproduce.py rows" | the reproduce run (tools/research/reproduce.py) sent with timeout 120000, beneath the limit the tool prints (600000 ms; the host`s default 120000 ms) -- send it again with timeout 600000
 2026-11-15T18:07:01Z | READ | Read | "D:\\relay\\tools\\acts\\b756.py" | a Read call with limit 240, above 200
+2026-11-15T20:28:38Z | WLIST | Edit | null | a Edit: the (W) bank data/b756_wlist.json is stale (tools/b756_face_blocks.txt changed since it was written) -- regenerate the list (python -X utf8 -u tools/standing/wlist.py bank)
