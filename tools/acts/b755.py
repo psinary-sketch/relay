@@ -468,7 +468,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abefghijklmn'))   # ### b755: the seat's rows of data/b755_defects.txt as the template's reader takes them (THE SEAT'S); (c) THE TOOL'S and (d) THE TOOLS' fall outside its three actors and are read by the counter, not by this floor; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abefghijklmnop'))   # ### b755: the seat's rows of data/b755_defects.txt as the template's reader takes them (THE SEAT'S); (c) THE TOOL'S and (d) THE TOOLS' fall outside its three actors and are read by the counter, not by this floor; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b755_corrigendum.txt', 'data/b755_standing_v1346.txt', 'data/b755_carried_faults.txt', 'data/b755_walk.txt', 'data/b755_literature.txt',
@@ -697,7 +697,7 @@ TITLE_NEEDLES = ('## The class-number-3 walk and two predictions at -59 under (R
     nothing before it changed; in Component 1's commits (the figures read from data/b755_corrigendum.json and the bank's foot)."""
 #⟪END⟫
 #⟪SECTION checks 18⟫
-        and j.get('row') == 75 and j.get('claim') == 13 == j.get('claims') and j.get('close') == 152 and j.get('repeat') == 119 \
+        and j.get('row') == 75 and j.get('claim') == 13 == len(j.get('claims') or []) and j.get('close') == 152 and j.get('repeat') == 119 \
         and '### ### **ITEMS 165: EVENTS 79, POST-SEAL 16, DEFECTS 70 ; CLAIM 13, CLOSE 152 ; REPEAT 119 ; THE CLAIM ITEMS IN FULL 13 ; THE REPAIRS 3: ' in (S['corrt'] or '') \
         and 'THE LOCK GATE AT 9a2e55b6, NO POST-SEAL EVENTS BANK, v1.34.6 AT eac02515 (15 OF 15 AS WANTED) ; THE CARRIED FAULTS 24 ROWS ; THE ENTRY AT FINDINGS :15252.**' in (S['corrt'] or '') \
 #⟪END⟫
@@ -913,7 +913,8 @@ def _vlast(t):
     """(R365)(5)(ii), (iii), (6), (7), (9), N2, N3 (the name the frozen run list carries): the two rules and their test, the census and
     (7)'s line -- the registrations bank at the two rules' commits: H-ZEROS-FROM-PRIMES added alone (its commit carrying the bank and
     nothing else beside the step row and the scan), H-RECURRENCE added with its null's generator and its seed (SEED = 59) and nothing else,
-    the bank at HEAD its blob at the second rule (nothing written after it); the list of roots at -59 committed after both rules and before
+    its bank the first rule's text less that text's foot line, the new section and the foot after it (the first rule's lines unmoved; the
+    foot alone rewritten, data/b755_defects.txt (p)), the bank at HEAD its blob at the second rule (nothing written after it); the list of roots at -59 committed after both rules and before
     the engine, at HEAD its blob there; the engine (tools/b755_list.py) committed after the roots and before the list, its controls run
     after the roots' commit by the controls bank's own time and AS WANTED; the list complete in every band, its head saying the roots came
     first, the list and both verdicts in one commit; each verdict bank reading its rule and nothing written after it, its foot a verdict the
@@ -925,7 +926,8 @@ def _vlast(t):
     rg_ = S['regs'] or {}
     rz_, rr_, rh_ = _txt(rg_.get('zeros')), _txt(rg_.get('recur')), _txt(rg_.get('head'))
     rules_ = '## (2) THE RULE (H-ZEROS-FROM-PRIMES)' in rz_ and '## (3) THE RULE (H-RECURRENCE)' not in rz_ and '## (3) THE RULE (H-RECURRENCE)' in rr_ \
-        and bool(rz_) and rr_.startswith(rz_.rstrip(NL)) and bool(rh_) and rh_ == rr_ == _txt(S['regs_now']) \
+        and bool(rz_) and rr_.startswith(NL.join(rz_.rstrip(NL).split(NL)[:-1]) + NL) and rz_.rstrip(NL).split(NL)[-1].startswith('### ### **THE PRIOR CLAUSE: ') \
+        and bool(rh_) and rh_ == rr_ == _txt(S['regs_now']) \
         and fs_.get('rule_zeros') == ['data/b755_registrations.txt'] and fs_.get('rule_recur') == ['data/b755_registrations.txt', 'tools/b755_recur.py'] \
         and 'SEED = 59' in _txt(blob(ROOT, '%s:tools/b755_recur.py' % K.C4_RULE_RECUR))
     ts_ = [t_.get(k_) for k_ in ('rule_zeros', 'rule_recur', 'roots', 'engine', 'list', 'census_gen', 'census')]
