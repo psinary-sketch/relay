@@ -3312,7 +3312,7 @@ def drycheck(*a):
         if which == 'TRAIL':
             m = re.search(r'^\*\*Defects\*\* \(relay data/%s_defects\.txt\): (.*)\.$' % ACT, text, re.M)
             got = m.group(1) if m else None
-            want = '; '.join(_letters_now()) or 'none'
+            want = LDG.defects_body(ACT, _letters_now())   # ### v1.35.0, [U2]: the one reading of the line (tools/standing/ledgers.py); before b757 the heads joined, as before
             eq = got == want
             print('  THE TRAIL`S DEFECTS LINE: %s' % got)
             print('  THE LETTERS THE TRAIL CARRIES (the seal`s record, else relay data/%s_defects.txt by the repaired reader): %s' % (ACT, want))
@@ -3986,6 +3986,31 @@ _finding_text_composed = _finding_text
 def _finding_text():
     t, e = _finding_text_composed()
     return t, NXA7.entry(ACT, e, D)
+
+
+# ### v1.35.0, (⟪RUL⟫)(6)[U2], relay data/b754_rules.txt (11): THE LEDGERS CARRY FINDINGS, in force from b757 (tools/standing/ledgers.py). The
+# ### act's trail composition is wrapped here, as the entry's is above, so no line an act's override keys moves: from b757 its Defects line, its
+# ### sealed tools' line and its open orders' roll line are put by count with their banks, every other line as composed; the trail route then
+# ### writes the rows those lines leave (the open orders by name, the sealed tools by verdict) into the trail bank beside its landing.
+from standing import ledgers as LDG   # noqa: E402
+_trail_text_composed = _trail_text
+
+
+def _trail_text():
+    return LDG.trail(ACT, _trail_text_composed(), _letters_now())
+
+
+_trail_route_composed = ROUTES.get('trail')
+
+
+def _trail_route(*a):
+    _trail_route_composed(*a)
+    if 'dry' not in a and LDG.rows(ACT):
+        put_json('%s_trail.json' % ACT, dict(jl('%s_trail.json' % ACT), **LDG.rows(ACT)))
+
+
+if _trail_route_composed is not None:
+    ROUTES['trail'] = _trail_route
 
 
 if __name__ == '__main__':

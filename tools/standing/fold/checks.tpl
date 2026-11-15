@@ -1016,7 +1016,7 @@ def trail_defects_ok(S):
     m = re.search(r'^\*\*Defects\*\* \(relay data/⟪ACT⟫_defects\.txt\): (.*)\.$', trail_tail(S), re.M)
     seal = S['letters_seal']
     return seal is not None and 'THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True' in S['gate'] and bool(m) \
-        and m.group(1) == conv('; '.join(seal) or 'none')
+        and m.group(1) == conv(__import__('standing.ledgers', fromlist=['defects_body']).defects_body(ACTN, seal))   # ### v1.35.0, [U2]: the one reading
 
 
 RESOLVED = re.compile(r'^\*\*Resolved by the seat, for the author’s strike:\*\* .*\((\d+)\) the (\w+) navigator (?:miss|misses)'
@@ -1144,8 +1144,8 @@ def trail_lines_equal_defects(S):
     want = _owners(S['letters_seal'] or [])   # ### (⟪RUL⟫)(4)(iii): the one counter (a repair at ⟪ACT⟫)
     if not dm or not rm or not bank:
         return False
-    got_d = KIND.findall(dm.group(1))
-    have_d = (sum(1 for _x, o in got_d if o == 'NAVIGATOR'), sum(1 for _x, o in got_d if o == 'SEAT'))
+    have_d = __import__('standing.ledgers', fromlist=['owners_of']).owners_of(ACTN, dm.group(1))   # ### v1.35.0, [U2]: the one reading of the line:
+    # ### before b757 the heads' owner words counted as KIND reads them, as before; from b757 the owners' counts the line prints (tools/standing/ledgers.py)
     have_r = (rm.group(2), rm.group(3))
     return have_d == want and have_r == (S['REC'].num_word(want[0]), S['REC'].num_word(want[1]))
 

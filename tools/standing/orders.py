@@ -297,7 +297,9 @@ def anycase_yield(lines):
 
 
 def last_roll(lines):
-    rows = [(i, l) for i, l in enumerate(lines, 1) if l.lstrip().startswith(ROLL)]
+    """the last roll line that names an order. v1.35.0, (R366)(6)[U2]: from b757 a trail's roll line gives the open orders by count, their
+    names in the act's trail bank (tools/standing/ledgers.py), and names none; the control reads the last roll line that names them."""
+    rows = [(i, l) for i, l in enumerate(lines, 1) if l.lstrip().startswith(ROLL) and NAME.search(l)]
     return rows[-1] if rows else (None, '')
 
 

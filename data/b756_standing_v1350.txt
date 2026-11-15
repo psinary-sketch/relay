@@ -1,0 +1,95 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.35.0, (R366)(6)[U2]: THE LEDGERS CARRY FINDINGS, IN FORCE FROM b757 (2026-11-15T16:38:09Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; no ledger line printed
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2843 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4909 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    543 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the tools before read from be3fc2b3
+
+  free 6584 MB at 2026-11-15T16:38:10Z, the hold 2560 MET
+### (trail): THE TRAIL`S THREE LONG LINES BY COUNT, FROM b757
+  (trail) NOT IN FORCE: at b756 the composed trail unchanged (FROM_ACT 757)
+      BEFORE (v1.34.9): the act`s composition -> (alike at both is wanted)
+      AFTER  (v1.35.0): unchanged True ; rows held {} -> PASSES
+      AS WANTED
+  (trail) the Defects line over b756`s 7 rows (relay data/b756_defects.txt)
+      BEFORE (v1.34.9): every row`s head, 1176 characters -> FAILS
+      AFTER  (v1.35.0): **Defects** (relay data/b756_defects.txt): 7 lettered; CLAIM 0; CLOSE 7; the navigator’s 0, the seat’s 5; each row in full in the bank. -> PASSES
+      AS WANTED
+  (trail) the sealed tools` line, four tools, one differing
+      BEFORE (v1.34.9): each tool by name -> FAILS
+      AFTER  (v1.35.0): **The sealed tools at the record:** 4, 3 of them agreeing with the hash recorded at the seal (relay data/b756_seal_hashes.json, each tool by name and sha256). -> PASSES
+      AS WANTED
+  (trail) the open orders` roll line, three named
+      BEFORE (v1.34.9): each order by name -> FAILS
+      AFTER  (v1.35.0): **The open orders:** 3 open at PLACE-papers main with this trail’s lines (tools/standing/orders.py’s output), each by name in relay data/b756_trail.json. ; the trail bank`s rows ['W-ORD-STORMER-CLASH', 'W-ORD-B518-FLOAT', 'W-ORD-ROOT-BINARY-BANK'] -> PASSES
+      AS WANTED
+  (trail) every other line as composed, the Next in full among them; the backticks of each line paired
+      BEFORE (v1.34.9): 13 lines -> (alike at both is wanted)
+      AFTER  (v1.35.0): lines 13 of 13 ; unchanged True ; odd-backtick lines [] -> PASSES
+      AS WANTED
+
+  free 6584 MB at 2026-11-15T16:38:10Z, the hold 2560 MET
+### (readers): THE ONE READING OF THE DEFECTS LINE
+  (readers) before b757: the body the heads joined, the owners as KIND counts them
+      BEFORE (v1.34.9): body 1132 chars ; owners (0, 5) -> (alike at both is wanted)
+      AFTER  (v1.35.0): body equal True ; owners (0, 5) -> PASSES
+      AS WANTED
+  (readers) from b757: the owners read from the counts the line prints, against the one counter (tools/act_close.py defect_owners)
+      BEFORE (v1.34.9): KIND over the count form reads 0 -> FAILS
+      AFTER  (v1.35.0): owners (0, 5) ; the counter (0, 5) -> PASSES
+      AS WANTED
+  (readers) PLANTED: the seat`s count raised by one in the line
+      BEFORE (v1.34.9): a mismatch -> (alike at both is wanted)
+      AFTER  (v1.35.0): owners (0, 6) against (0, 5) -> PASSES
+      AS WANTED
+  (readers) the record`s dry check and the suite`s two trail arms reading the line through tools/standing/ledgers.py
+      BEFORE (v1.34.9): ledgers named 0 and 0 times -> FAILS
+      AFTER  (v1.35.0): the dry check True ; trail_defects_ok True ; trail_lines_equal_defects True -> PASSES
+      AS WANTED
+  (readers) the line-keyed regions (the acts before b735 key their overrides by line) the same length as at BASE
+      BEFORE (v1.34.9): record.tpl, to the foot`s first binding :3968; checks.tpl, to the part route`s main :2146 -> (alike at both is wanted)
+      AFTER  (v1.35.0): record.tpl, to the foot`s first binding :3968; checks.tpl, to the part route`s main :2146 -> PASSES
+      AS WANTED
+
+  free 6588 MB at 2026-11-15T16:38:10Z, the hold 2560 MET
+### (orders): orders.py`s LAST ROLL LINE
+  (orders) OPEN_TRAILS at PLACE-papers HEAD (18421 lines): the last roll line read (its number and its names` count; no line printed)
+      BEFORE (v1.34.9): :18366, 72 names -> (alike at both is wanted)
+      AFTER  (v1.35.0): :18366, 72 names -> PASSES
+      AS WANTED
+  (orders) PLANTED: a roll line by count after the last
+      BEFORE (v1.34.9): :18423, 0 names -> FAILS
+      AFTER  (v1.35.0): :18366, 72 names -> PASSES
+      AS WANTED
+
+  free 6585 MB at 2026-11-15T16:38:10Z, the hold 2560 MET
+### (entry): THE CORRIGENDUM`S ENTRY, COMPOSED FROM b755`S BANKS
+  (entry) the counts by bank against b756`s landed corrigendum (relay data/b756_corrigendum.json)
+      BEFORE (v1.34.9): no composer: the act`s c1 alone -> FAILS
+      AFTER  (v1.35.0): composed {'defects': {'claim': 0, 'close': 19, 'total': 19}, 'events': {'claim': 0, 'close': 27, 'total': 27}} ; landed {'events': {'claim': 0, 'close': 27, 'total': 27}, 'defects': {'claim': 0, 'close': 19, 'total': 19}} -> PASSES
+      AS WANTED
+  (entry) the entry`s parts in the rule`s order
+      BEFORE (v1.34.9): no composer -> FAILS
+      AFTER  (v1.35.0): head first True ; CLAIM **The CLAIM items, in full:** none. ; repairs - tools/standing/ v1.34.7, (R366)(1)(i) and (ii), relay dc8319ea, its controls 16 of 16 as wanted (relay data/b756_standing_v1347.txt). ; CLOSE **The CLOSE items, by count:** 46, every row in full in relay data/b755_defects.txt and relay data/b755_events.txt. -> PASSES
+      AS WANTED
+
+  free 6584 MB at 2026-11-15T16:38:10Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.9): v1.34.9 -> FAILS
+      AFTER  (v1.35.0): v1.35.0 -> PASSES
+      AS WANTED
+
+### per change: (trail) 5 of 5 ; (readers) 5 of 5 ; (orders) 2 of 2 ; (entry) 2 of 2 ; (version) 1 of 1
+### ### **v1.35.0: CONTROLS (trail), (readers), (orders), (entry), (version) ; CASES 15 ; AS WANTED 15 ; ALL AS WANTED.**
