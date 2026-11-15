@@ -411,7 +411,7 @@ SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R366)); one put of at most four questions before the lock ((R366)(5)) and one question at the root ((R366)(7))
 SITTING_STATES = {}
 HANDOFF_COMMIT = '99e8a2c6'   # ### (R365)(8): HANDOFF.md regenerated once by tools/standing/handoff.py before the gate (step 34, 2026-11-15T02:10:50Z)
-C3_RELAY = ()   # ### Component 3 ((R366)(3)): set as made
+C3_RELAY = ('d8eaaa2b', '9518d3a0')   # ### Component 3 ((R366)(3)): the notes tool with events (20) (step 13), the worklist's C3 values (step 19)
 C3_NOTES_GEN = 'd8eaaa2b'   # ### Component 3: tools/b756_notes.py committed before its run, controls 11 of 11 and its dry over the five places (step 13)
 C3_NOTES_PP = (('(i)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'ed23042f'),
                ('(ii)', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'a680411c'),
@@ -419,6 +419,16 @@ C3_NOTES_PP = (('(i)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', '
                ('(iv)', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', '2cab7417'),
                ('(v)', 'OPEN_TRAILS.md', '6fb72eba'))   # ### (item, the file, the PLACE-papers commit), steps 14-18, each confirmed at HEAD by `tools/b756_notes.py confirm`
 C3_NOTES_WRITTEN = 9   # ### the notes of (3): four notes and five trail lines, 9 of 9, each the ruling's text between its quotation marks (data/b756_notes.json)
+# ### Component 4 ((R366)(5)): the put and the work its answers order, each value read from the step rows (data/b756_steps.json)
+C4_READ = ('tools/b756_orders.py', '5b3d5a60', ('data/b756_orders_read.txt', 'data/b756_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
+C4_PUT = ('data/b756_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
+C4_PASSED_GEN = '9aa5fe8c'   # ### tools/b756_passed.py committed before its run, with events (21) (step 23)
+C4_PASSED_PP = (('cp', 'OPEN_TRAILS.md', 'e50a394b'), ('instruments', 'phase1.5/method/INSTRUMENTS.md', '3b45826d'))   # ### steps 24, 25, each confirmed at HEAD (data/b756_passed.json)
+C4_HERE = ('v1.34.8', '5b7aa91e', 'data/b756_standing_v1348.txt')   # ### W-ORD-LABEL-READER's predicate and control, controls 11 of 11 (step 26)
+C4_MOVES = ('tools/b756_moves.py', '208eee6a', 'data/b756_orders_moves.txt', 'a26f30b9')   # ### the twelve status lines for this act's trail, controls 12 of 12 (steps 27, 28)
+C4_CEILING = ('tools/b756_ceiling.py', 'a26f30b9', 'data/b756_ceiling_c4.txt')   # ### the ceiling after Component 4: 17.53 h against 24 h, nothing carried
+C4_ORDERS = (1, 1, 5, 5)   # ### the orders: done, here, with the build, later (data/b756_orders_read.txt :87; data/b756_orders_moves.txt)
+C4_CP = 'passed'           # ### CP-6 and CP-7 (data/b756_author_answers.txt :18; OPEN_TRAILS at e50a394b)
 C4_LINE_GEN = None   # ### b755: no line bank; the entry's INTEGRATION line is (R365)'s, composed from the banks by the record module
 C4_LINE = None       # ### Component 6: the act's INTEGRATION line
 C4_ANSWERS = None    # ### no reader of this name at b755; the answers pair of the two puts written by its route and committed at relay 3a5f0d0f (step 31), the root's question appended to it

@@ -161,3 +161,10 @@ COMPONENT 4:
      and the refusals bank (data/b756_hook_refusals.txt :1-:3); data/b756_amendments.json stands absent, so no word of the author's since
      the delivery beyond the three answers at the put. The restatement was stated in the reply after those reads and before this row's
      write.
+
+    (22) THE TOOLS' [CLOSE ; NEW]: THE ORDERS READ'S CONTROL OF THE LABEL READER FLIPS AT v1.34.8, BY DESIGN. tools/b756_orders.py's read
+     of W-ORD-LABEL-READER (:143-:148 at relay 5b3d5a60) wants the planted heading "## The proof at SIDE-kernel v1.7" read as v1.7, the
+     predicate absent, and its controls refuse where that read fails; v1.34.8 (relay 5b7aa91e, 15:45:20Z) supplies the predicate, so the
+     planted heading now reads no label (data/b756_standing_v1348.txt, the case of the orders read's planted heading). The orders bank
+     stands as run at v1.34.7 (data/b756_orders_read.txt, relay f56557dd) and the tool is not run again; tools/b756_moves.py reads the
+     placements from that bank at relay HEAD and not through the orders read's controls. A reader's limit, entered as such.

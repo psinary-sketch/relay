@@ -1,0 +1,47 @@
+b756 -- (R366)(7): THE CEILING READ AGAIN AFTER COMPONENT 4 (2026-11-15T15:51:38Z)
+
+### by tools/b756_ceiling.py, committed before its run. The table is step zero`s (relay data/b756_stepzero.txt, its section "## THE PRICE TABLE"), each row
+### parsed and placed DONE, REMAINING or BESIDE; the spent time is the clock from the ruling`s delivery (2026-11-15T12:27:47Z) to this run, in place of
+### the DONE rows; the read is the spent time with the REMAINING rows` lower figures against 24 hours, the upper beside.
+### CONTROLS 4 OF 4 AS WANTED: step zero`s sum recomputed, 23.15-36.55 h, equal to its THE SUM line (:116).
+
+## THE ROWS
+  DONE      (1) weight       0.20-0.40 h      (data/b756_stepzero.txt :86, estimate)
+  DONE      (1) corrigendum  0.80-1.50 h      (data/b756_stepzero.txt :87, estimate)
+  DONE      (1)(i)+(ii)      0.50-1.00 h      (data/b756_stepzero.txt :88, estimate)
+  DONE      (1)(i) line      0.10-0.20 h      (data/b756_stepzero.txt :89, estimate)
+  DONE      (2)              0.20-0.40 h      (data/b756_stepzero.txt :90, estimate)
+  DONE      (4)(i) carry     0.80-1.50 h      (data/b756_stepzero.txt :91, estimate)
+  DONE      (4)(ii)          1.00-2.00 h      (data/b756_stepzero.txt :92, estimate)
+  DONE      (4)(iii)         0.20-0.40 h      (data/b756_stepzero.txt :93, estimate)
+  DONE      (3)(vi)          0.30-0.60 h      (data/b756_stepzero.txt :94, estimate)
+  DONE      (5)(i) read      1.00-2.00 h      (data/b756_stepzero.txt :95, estimate)
+  DONE      (5) put          0.30-0.60 h      (data/b756_stepzero.txt :96, estimate)
+  DONE      (5)(i) HERE      2.00-4.00 h      (data/b756_stepzero.txt :102, estimate)
+  DONE      (1) lock gate    0.03-0.03 h      (data/b756_stepzero.txt :103, READ)
+  DONE      (3)(i)-(v)       0.91-0.91 h      (data/b756_stepzero.txt :104, READ)
+  DONE      (4)(i) run       not priced       (data/b756_stepzero.txt :105, UNPRICED)
+  REMAINING (6)[U1]          1.00-2.50 h      (data/b756_stepzero.txt :97, estimate)
+  REMAINING (6)[U2]          1.00-2.50 h      (data/b756_stepzero.txt :98, estimate)
+  REMAINING (6) faults       2.00-4.00 h      (data/b756_stepzero.txt :99, estimate)
+  REMAINING (6)[H1]          0.50-1.00 h      (data/b756_stepzero.txt :100, estimate)
+  REMAINING (6) README       0.80-1.50 h      (data/b756_stepzero.txt :101, estimate)
+  REMAINING C6 act module    4.30-4.30 h      (data/b756_stepzero.txt :106, READ)
+  REMAINING gate             0.45-0.45 h      (data/b756_stepzero.txt :107, READ)
+  REMAINING lock             0.02-0.02 h      (data/b756_stepzero.txt :108, READ)
+  REMAINING seal             1.75-1.75 h      (data/b756_stepzero.txt :109, READ)
+  REMAINING pre-root         0.52-0.52 h      (data/b756_stepzero.txt :110, READ)
+  REMAINING root             0.35-0.35 h      (data/b756_stepzero.txt :111, READ)
+  REMAINING record           0.69-0.69 h      (data/b756_stepzero.txt :112, READ)
+  REMAINING closing          0.75-0.75 h      (data/b756_stepzero.txt :113, READ)
+  BESIDE    (1) standing     0.31-0.31 h      (data/b756_stepzero.txt :114, BESIDE)
+  BESIDE    (5)(i) HERE      7.00-7.00 h      (data/b756_stepzero.txt :115, BESIDE)
+
+## THE READ
+  SPENT, the ruling`s delivery to this run: 3.40 h
+  REMAINING, lower 14.13 h ; upper 20.33 h (13 rows: (6) 5.30-11.50 h ; Component 6 8.83-8.83 h)
+  THE LOWER READ 17.53 h <= 24 h: NOTHING CARRIED
+  BESIDE IT, NOT THE READ: the upper 23.73 h <= 24 h
+  NOT CARRIED BY THE RULING`S WORDS: (1), (2), (3), (4), (5)(ii); (5)(i)`s HERE work landed (relay 5b7aa91e)
+
+### ### **THE CEILING AFTER COMPONENT 4: SPENT 3.40 h + REMAINING LOWER 14.13 h = 17.53 h AGAINST 24 h ; NOTHING CARRIED ; THE UPPER 23.73 h BESIDE.**
