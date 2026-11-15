@@ -233,15 +233,18 @@ def terminal_names(row):
 
 
 _CACHE = {}
-# ### THE SEAT'S HAND-READ AT b589, carried unedited, of the backticked names a first run flagged MISSING that are not terminals (each row read whole):
+# ### THE SEAT'S HAND-READ AT b589, carried, of the backticked names a first run flagged MISSING that are not terminals (each row read whole):
 HAND_NOT_TERMINAL = {
     'm_k': 'a variable of the row`s formula (INDEX_ARITY :385)',
     'b_j': 'a variable of the row`s formula (INDEX_ARITY :385)',
     'field_simp': 'a tactic name (INDEX_ARITY :385)',
     'h_conserved': 'a hypothesis binder of `e_difficulty` (FOUNDATIONS :633)',
-    'no_conspiracy': 'the row itself reads "NONE -- OPEN ... no verification exists" (ADDITIVE_MULTIPLICATIVE :451)',
-    'padicFourierData_exists': 'the row names it "NOT compiled in Mathlib", the B-C debt (THE_IDENTITY_CHAIN :565)',
+    'no_conspiracy': 'the row itself marks it open, with no verification (ADDITIVE_MULTIPLICATIVE :451)',
+    'padicFourierData_exists': 'the row names it as not compiled in Mathlib, the B-C debt (THE_IDENTITY_CHAIN :565)',
 }
+# ### b756: the two readings above set into the seat's words, b589's quotation of each row withdrawn before this act's banks were committed:
+# ### the relay is public, and data/b754_rules.txt (7) quotes an edition of a PLACE-papers paper that is not deposited only where an item's
+# ### CURRENT or DRAFTED carries it at a sitting; the row stays cited by document and line. HAND_READ below is worded by the same rule.
 
 
 def find_decl(repo, rev, name):
@@ -571,17 +574,19 @@ def control(key):
 # ### moved and this table does not name prints NOT YET READ. The document banks stand as run; the summary prints both totals.
 HAND_READ = {
     ('ADDITIVE_MULTIPLICATIVE_CONSPIRACY', 412): (True, 'GONE AT MAIN, AS THE ROW SAYS',
-        'the three names stand at SIDE-effects c66f3c5 and are absent at its main db0575c; the row reads "Placeholder — retired from the claim structure"'),
+        'the three names stand at SIDE-effects c66f3c5 and are absent at its main db0575c; the row marks the three a placeholder retired from the '
+        'claim structure'),
     ('FACES_OF_H2_AT_FINITE_INSTANCE', 205): (True, 'SIG-MOVED',
         '`T3_perClass_to_combinations`, a theorem carrying its sorry at the row`s pin v0.10.0, is at SIDE-lv-conservation main 305a87c a def of type '
-        'Prop (SIDELvConservation/T3_StepNineBridge.lean :90); the row reads it OPEN and CARRIED'),
+        'Prop (SIDELvConservation/T3_StepNineBridge.lean :90); the row grades it open and carried'),
     ('FACES_LEDGER', 31): (True, 'SIG-MOVED', 'the same declaration at the row`s pin 93c27ec, the same def at main'),
     ('THE_UNCONDITIONAL_SURROUND', 227): (True, 'SIG-MOVED',
-        'the same declaration at the row`s pin v0.2.0, named twice in the row; the row reads "the pin ... carries sorryAx; the closure step has no terminal"'),
+        'the same declaration at the row`s pin v0.2.0, named twice in the row; the row says the pin carries sorryAx and the closure step has no '
+        'terminal'),
     ('THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3', 207): (True, 'GONE AT MAIN, READ MISSING BY THE FALL-BACK',
         '`all_gapped` stands at SIDE-effects c66f3c5 (SIDEEffects/Structural.lean :49) and is absent at a27415d and at main db0575c; b586 names no '
         'row for the document, so the defaults were searched, and the federation-wide fall-back indexes each repository at its main alone; the row '
-        'reads "retired at the later pin"'),
+        'says the name was retired at the later pin'),
     ('THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3', 259): (True, 'GONE AT MAIN, READ MISSING BY THE FALL-BACK',
         'the same name at the same pin c66f3c5'),
     ('THE_CLAUSE_AND_ITS_COMPILED_FACES', 267): (True, 'DEFINITION-ENCODED BY b589`S RULE',
@@ -591,15 +596,15 @@ HAND_READ = {
         '`h_at_one` is a hypothesis binder of simplicity_from_trace_structure (SIDE-kernel v1.2 Kernel/PerpendicularCrossing.lean :54), as b589 read '
         '`h_conserved`; the row`s three terminals read ok'),
     ('SIMPLICITY_OF_RIEMANN_ZEROS', 707): (False, 'NOT ON THE HOST, AS THE ROW SAYS',
-        '`Zeta23.thmB₀_mult` is named by the row in an upstream repository, "not vendored"; SIDE-explicit-formula names it in a docstring alone '
+        '`Zeta23.thmB₀_mult` is named by the row in an upstream repository the row says is not vendored; SIDE-explicit-formula names it in a docstring alone '
         '(SIDEExplicitFormula/Simplicity.lean :11 at main, and at 40 local refs)'),
     ('THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2', 52): (False, 'NOT A TERMINAL CELL',
-        '`native_decide` is a tactic name (the row: "by `decide`, not `native_decide`"), as b589 read `field_simp`'),
+        '`native_decide` is a tactic name (the row says the proof is by decide and not by native_decide), as b589 read `field_simp`'),
     ('THE_LOAD_BEARING_MAP', 54): (False, 'HELD ON A BRANCH, THE ROW CITING NO PIN',
         '`no_onLine_double_iff_transversal` stands in SIDE-kernel on the branch derivative-engine alone (01e5633, Kernel/DerivativeEngine.lean :81), '
         'at no tag and not at main, over the five kernels of SIMPLICITY`s row read at every local branch tip and tag; the row cites no pin'),
     ('THE_LOAD_BEARING_MAP', 162): (False, 'NOT A MOVE AT THE ROW`S LAST PIN',
-        'the tool read the row`s first tag v1.1; the row reads "v1.1 -> v1.4 (repaired) -> v1.7", and at v1.4, v1.7 and main the signature is one '
+        'the tool read the row`s first tag v1.1; the row traces it from v1.1 through v1.4, repaired, to v1.7, and at v1.4, v1.7 and main the signature is one '
         '(Kernel/Cascade/SieveCeiling.lean)'),
 }
 
