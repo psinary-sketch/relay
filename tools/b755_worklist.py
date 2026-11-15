@@ -358,7 +358,7 @@ C4_LIST = 'b03fc15e'         # ### the certified list, its controls and the two 
 C5_GEN = 'fa2b038e'          # ### Component 5, (R365)(6): tools/b755_census.py committed before its run (step 24)
 L16_GEN = '1c427045'         # ### Component 6, (R365)(7): tools/b755_l16.py committed before its run (step 26)
 L16_PP = 'f948f606'          # ### PLACE-papers: OPEN_TRAILS.md, the dated head and the [L16] line (step 27)
-L16_BANK = None              # ### the relay commit carrying data/b755_l16.json, (7)'s write and confirm bank; set by the Edit tool when made
+L16_BANK = 'f6daeed1'        # ### the relay commit carrying data/b755_l16.json, (7)'s write and confirm bank (step 28, 2026-11-15T00:34:03Z)
 # ### b755, Component 6: every generator of the act beside the bank it wrote -- (name, generator, the generator's commits before the bank, bank,
 # ### the bank's commit); read by the act module's N2 arms and the record's N2 (each generator committed before its run, its commits without
 # ### the bank and the bank's without the generator)
