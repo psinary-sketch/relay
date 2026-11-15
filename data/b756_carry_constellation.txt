@@ -1,0 +1,64 @@
+b756 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b589_constellation.py -> tools/b756_constellation.py (2026-11-15T13:48:13Z)
+
+### the substitution alone (b589 -> b756); 505 lines, 19 changed
+### SHIFTED PAST WHAT EXISTS: :2 b756_constellation; :503 b756_constellation
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b589_constellation.py
+  +++ tools/b756_constellation.py
+  @@ -2,1 +2,1 @@
+  -"""b589_constellation.py -- COMPONENT 2 OF b589, UNDER (R199)(3): W-ORD-CONSTELLATION-RERUN OVER THE ROSTER TABLES.
+  +"""b756_constellation.py -- COMPONENT 2 OF b756, UNDER (R199)(3): W-ORD-CONSTELLATION-RERUN OVER THE ROSTER TABLES.
+  @@ -12,1 +12,1 @@
+  -### `b454` re-searches b454's ledger table case-insensitively; `summary` writes one line per table. Writes only data/b589_constellation_*.
+  +### `b454` re-searches b454's ledger table case-insensitively; `summary` writes one line per table. Writes only data/b756_constellation_*.
+  @@ -152,1 +152,1 @@
+  -        # ### a structure field (b589 defect (c)): `  name : type` inside a structure of the file
+  +        # ### a structure field (b756 defect (c)): `  name : type` inside a structure of the file
+  @@ -189,1 +189,1 @@
+  -    ### that holds the pin (a branch-held terminal is current at its branch, never at main -- b589 defect (c))."""
+  +    ### that holds the pin (a branch-held terminal is current at its branch, never at main -- b756 defect (c))."""
+  @@ -249,1 +249,1 @@
+  -            # ### the federation-wide fall-back (b589 defect (c)): the repositories whose declaration index at main holds the
+  +            # ### the federation-wide fall-back (b756 defect (c)): the repositories whose declaration index at main holds the
+  @@ -278,1 +278,1 @@
+  -                # ### flag as a body that IS a literal constant or True -- printed, read, not counted (b589 defect (c))
+  +                # ### flag as a body that IS a literal constant or True -- printed, read, not counted (b756 defect (c))
+  @@ -301,1 +301,1 @@
+  -    L = ['b589 -- COMPONENT 2: THE CONSTELLATION RE-READ OF %s, (R199)(3). ### A BANK; NO KEYSTONE IS TOUCHED (the author`s answer).' % name, '',
+  +    L = ['b756 -- COMPONENT 2: THE CONSTELLATION RE-READ OF %s, (R199)(3). ### A BANK; NO KEYSTONE IS TOUCHED (the author`s answer).' % name, '',
+  @@ -352,1 +352,1 @@
+  -            sup = sup[:-1].rstrip() + ' *(superseded at b589: %s)* |' % '; '.join('%s -- %s' % (x['name'], x['flags'][0][:200]) for x in fl)
+  +            sup = sup[:-1].rstrip() + ' *(superseded at b756: %s)* |' % '; '.join('%s -- %s' % (x['name'], x['flags'][0][:200]) for x in fl)
+  @@ -360,2 +360,2 @@
+  -    put_txt('b589_constellation_%s.txt' % name, L)
+  -    put_json('b589_constellation_%s.json' % name, summ)
+  +    put_txt('b756_constellation_%s.txt' % name, L)
+  +    put_json('b756_constellation_%s.json' % name, summ)
+  @@ -428,1 +428,1 @@
+  -    L = ['b589 -- COMPONENT 2 (b): b454`S LEDGER TABLE RE-SEARCHED CASE-INSENSITIVELY, (R199)(3). ### b454`s shapes (relay '
+  +    L = ['b756 -- COMPONENT 2 (b): b454`S LEDGER TABLE RE-SEARCHED CASE-INSENSITIVELY, (R199)(3). ### b454`s shapes (relay '
+  @@ -463,2 +463,2 @@
+  -    put_txt('b589_constellation_b454.txt', L)
+  -    put_json('b589_constellation_b454.json', state)
+  +    put_txt('b756_constellation_b454.txt', L)
+  +    put_json('b756_constellation_b454.json', state)
+  @@ -471,1 +471,1 @@
+  -        p = os.path.join(D, 'b589_constellation_%s.json' % name)
+  +        p = os.path.join(D, 'b756_constellation_%s.json' % name)
+  @@ -482,1 +482,1 @@
+  -    b = json.load(io.open(os.path.join(D, 'b589_constellation_b454.json'), encoding='utf-8')) if os.path.exists(os.path.join(D, 'b589_constellation_b454.json')) else {}
+  +    b = json.load(io.open(os.path.join(D, 'b756_constellation_b454.json'), encoding='utf-8')) if os.path.exists(os.path.join(D, 'b756_constellation_b454.json')) else {}
+  @@ -484,1 +484,1 @@
+  -    L = ['b589 -- COMPONENT 2: THE CONSTELLATION RE-READ, ONE LINE PER TABLE. ### the banks data/b589_constellation_<doc>.txt.', '',
+  +    L = ['b756 -- COMPONENT 2: THE CONSTELLATION RE-READ, ONE LINE PER TABLE. ### the banks data/b756_constellation_<doc>.txt.', '',
+  @@ -488,2 +488,2 @@
+  -    put_txt('b589_constellation_summary.txt', L)
+  -    put_json('b589_constellation_summary.json', dict(tables=sum(1 for r in rows if 'NOT RUN' not in r), moved=tot, newly=newly))
+  +    put_txt('b756_constellation_summary.txt', L)
+  +    put_json('b756_constellation_summary.json', dict(tables=sum(1 for r in rows if 'NOT RUN' not in r), moved=tot, newly=newly))
+  @@ -503,1 +503,1 @@
+  -        print('usage: b589_constellation.py doc <KEY> | b454 [dry] | summary')
+  +        print('usage: b756_constellation.py doc <KEY> | b454 [dry] | summary')
+
+### ### **CARRIED tools/b756_constellation.py ; LINES 505 ; CHANGED 19 ; SHIFTED 2 (WRITTEN BY --shifted)**
