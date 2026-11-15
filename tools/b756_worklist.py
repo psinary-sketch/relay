@@ -304,7 +304,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b756.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.34.6'            # ### entering; (R366)(1)'s two repairs land as v1.34.7 by a commit of its own (C1_STANDING) with its control banked, before the gate
+STANDING_VERSION = 'v1.35.3'            # ### the version the close runs under: entering v1.34.6; (R366)(1)'s two repairs v1.34.7 (C1_STANDING), (5)(i)'s HERE v1.34.8 (C4_HERE), (6)'s five v1.34.9 to v1.35.3 (C1_STANDING_LATER), each a commit of its own with its control banked, before the gate
 STANDING_VERSION_ENTERING = 'v1.34.6'
 LEAN_TREES = ()   # ### (R366) writes no Lean tree: no kernel touched beyond a README under (6), no Lean file written ((R366)(8)); the constellation reads declarations by git and writes none
 # ### v1.18.0, (R364)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -313,8 +313,10 @@ COMPARATIVE_BANKS = ('data/b756_corrigendum.txt', 'data/b756_rules.txt', 'data/b
                      'data/b756_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('VERSION', 'commit.py', 'fold/record.tpl')   # ### v1.34.6's changed files, by git diff --name-status 28255aea..HEAD -- tools/standing (3; b755, Component 6, in place of b754's 29)
-STANDING_NEW = ('v1346.py',)   # ### its new file, the same diff (1)
+STANDING_CHANGED = ('VERSION', 'amend.py', 'carry.py', 'commit.py', 'fold/checks.tpl', 'fold/record.tpl', 'gitwrite.py', 'manifest.py', 'nextact.py',
+                    'orders.py', 'postseal.py', 'roster.py', 'subject.py')   # ### v1.34.7 to v1.35.3's changed files, by git diff --name-status b19867ac..ec63f53e -- tools/standing (13; b756, Component 6)
+STANDING_NEW = ('cadence.py', 'deletefree.py', 'ledgers.py', 'ranahead.py', 'v1347.py', 'v1348.py', 'v1349.py', 'v1350.py', 'v1351.py', 'v1352.py',
+                'v1353.py')   # ### their new files, the same diff (11)
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = 'b19867ac'    # ### b755's closing (its step row), the act's relay base
 B714_RECORD = '6a7120a4'     # ### b755's record commit (relay)
@@ -323,7 +325,11 @@ B723_ROOT_BANKS = '80422324'  # ### b755's root commit, the banks its root rode 
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'dc8319ea'     # ### tools/standing/ v1.34.7 by a commit of its own that moves VERSION, its control and the standing dry banked ((R366)(1)(i), (ii); step 4)
 C1_LOCKGATE = '5e37bf97'     # ### tools/b756_lockgate.py carried from tools/b755_lockgate.py and committed before it runs ((R366)(1); step 5)
-C1_STANDING_LATER = ()             # ### set at Component 5 where (R366)(6)'s tool changes land, each a version commit of its own
+C1_STANDING_LATER = (('[U1]', 'v1.34.9', 'be3fc2b3'), ('[U2]', 'v1.35.0', '2c3acfca'), ('the faults, first', 'v1.35.1', '7fae9822'),
+                     ('the faults, second', 'v1.35.2', '520777a8'), ('[H1]`s held part', 'v1.35.3', '47449d8b'))   # ### Component 5, (R366)(6): each a version commit of its own with its controls (steps 29, 31, 33, 34, 36)
+C5_FAULTS = ('tools/b756_faults.py', '21b0c76e', 'tools/b756_faults_placed.py', 'aadd9d2d')   # ### the count and the placing (16 rows; 11 landed, 1 carried, 4 no code)
+DOORS = ('tools/b756_doors.py', 'ec63f53e', 'data/b756_doors.txt')   # ### (6)'s README route: [B1] and [B3] HALTED, the two descriptions refused by the server at 350 characters, all four carried whole (step 37)
+C5_LANDED, C5_CARRIED = 5, 1   # ### the tool changes of (6): [U1], [U2], the two fault versions, [H1] landed; the README route carried whole ([B1], [B3], the two descriptions)
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
 C1_RELAY = '0a151012'        # ### the c1 route, the corrigendum banks, the corrigenda row (76), the rules bank (step 7)
@@ -372,15 +378,40 @@ L16_BANK = 'f6daeed1'        # ### the relay commit carrying data/b755_l16.json,
 # ### b755, Component 6: every generator of the act beside the bank it wrote -- (name, generator, the generator's commits before the bank, bank,
 # ### the bank's commit); read by the act module's N2 arms and the record's N2 (each generator committed before its run, its commits without
 # ### the bank and the bank's without the generator)
-GENS = (('the walk', 'tools/b756_coeffs.py', ('3bdb6561',), 'data/b756_walk.txt', '9a989df8'),) + tuple(
-    ('candidate %s' % l_, t_, g_, b_, c_) for l_, t_, g_, b_, c_ in C3_CANDS) + (
-    ('the roots at -59', 'tools/b756_zlist.py', ('1b84e4b1',), 'data/b756_roots_59.txt', 'e21b5c8c'),
-    ('the recurrence`s control', 'tools/b756_recur.py', ('a937fbb7',), 'data/b756_recur_control.txt', '2b4a3942'),
-    ('the certified list at -59', 'tools/b756_list.py', ('2b4a3942',), 'data/b756_list_59.txt', 'b03fc15e'),
-    ('H-ZEROS-FROM-PRIMES`s verdict', 'tools/b756_zlist.py', ('1b84e4b1', '2b4a3942'), 'data/b756_zeros_from_primes_59.txt', 'b03fc15e'),
-    ('H-RECURRENCE`s verdict', 'tools/b756_recur.py', ('a937fbb7',), 'data/b756_recur_59.txt', 'b03fc15e'),
-    ('the census from the primes', 'tools/b756_census.py', ('fa2b038e',), 'data/b756_census_from_primes.txt', '562707bb'))
-GENS = GENS + ((('[L16]`s line', 'tools/b756_l16.py', ('1c427045',), 'data/b756_l16.json', L16_BANK),) if L16_BANK else ())
+GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, the census, [L16]) stands in git at tools/b755_worklist.py
+# ### b756, Component 6: every tool of the act committed before the bank it wrote -- (name, tool, its commits before the bank, bank, the
+# ### bank's commit); (4)'s two ((R366)(4): each committed before its run) and the five of (3) to (5) committed so; the three of (6) (the
+# ### fault count, the placing, the README route) went in with their banks in one commit each, (6) ordering no commit before a run, and
+# ### stand apart in GENS_WITH_BANK
+GENS = (('the constellation rerun', 'tools/b756_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'), 'data/b756_constellation_summary.txt', '069271bb'),
+        ('the reverse read', 'tools/b756_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b756_reverse_read.txt', '069271bb'),
+        ('the notes of (3)', 'tools/b756_notes.py', ('d8eaaa2b',), 'data/b756_notes.json', '9518d3a0'),
+        ('the orders read', 'tools/b756_orders.py', ('5b3d5a60',), 'data/b756_orders_read.txt', 'f56557dd'),
+        ('the twelve status lines', 'tools/b756_moves.py', ('208eee6a',), 'data/b756_orders_moves.txt', 'a26f30b9'),
+        ('the ceiling after Component 4', 'tools/b756_ceiling.py', ('a26f30b9',), 'data/b756_ceiling_c4.txt', '1e35bedd'))
+PASSED_BANK = '0b87054f'   # ### data/b756_passed.json, the passed writes' bank (the two writes and their confirms), committed at Component 6 before the act module (step 38)
+GENS = GENS + ((('the two passed writes', 'tools/b756_passed.py', ('9aa5fe8c',), 'data/b756_passed.json', PASSED_BANK),) if PASSED_BANK else ())
+GENS_WITH_BANK = (('the faults counted', 'tools/b756_faults.py', 'data/b756_faults.txt', '21b0c76e'),
+                  ('the faults placed', 'tools/b756_faults_placed.py', 'data/b756_faults_placed.txt', 'aadd9d2d'),
+                  ('the README route', 'tools/b756_doors.py', 'data/b756_doors.txt', 'ec63f53e'))
+# ### b756, Component 6: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
+# ### module's N2 arms (the order by time and by ancestry); the handoff page appended where made
+CHAIN = (('standing', 'dc8319ea'), ('lockgate', '5e37bf97'), ('corr', '0a151012'), ('c2first', '3e112065'), ('c2_hand', 'd2f78fab'),
+         ('c2_reverse', '16ba8fbb'), ('c2_digest', 'e4701c5f'), ('map', '069271bb'), ('notes_gen', 'd8eaaa2b'), ('notes', '9518d3a0'),
+         ('orders_gen', '5b3d5a60'), ('orders', 'f56557dd'), ('put', '0803754c'), ('passed_gen', '9aa5fe8c'), ('v1348', '5b7aa91e'),
+         ('moves_gen', '208eee6a'), ('moves', 'a26f30b9'), ('ceiling', '1e35bedd'), ('v1349', 'be3fc2b3'), ('v1350', '2c3acfca'),
+         ('faults', '21b0c76e'), ('v1351', '7fae9822'), ('v1352', '520777a8'), ('placed', 'aadd9d2d'), ('v1353', '47449d8b'), ('doors', 'ec63f53e'))
+PP_CHAIN = (('c1pp', 'd1133807'), ('pp_i', 'ed23042f'), ('pp_ii', 'a680411c'), ('pp_iii', '1795559c'), ('pp_iv', '2cab7417'), ('pp_v', '6fb72eba'),
+            ('pp_cp', 'e50a394b'), ('pp_instruments', '3b45826d'))
+# ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
+TIME_ORDER = ('actcur', 'stepzero', 'standing', 'lockgate', 'c1pp', 'corr', 'c2first', 'c2_hand', 'c2_reverse', 'c2_digest', 'map', 'notes_gen',
+              'pp_i', 'pp_ii', 'pp_iii', 'pp_iv', 'pp_v', 'notes', 'orders_gen', 'orders', 'put', 'passed_gen', 'pp_cp', 'pp_instruments', 'v1348',
+              'moves_gen', 'moves', 'ceiling', 'v1349', 'v1350', 'faults', 'v1351', 'v1352', 'placed', 'v1353', 'doors')
+# ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
+STANDING_BANKS = (('v1.34.7', 'dc8319ea', 'data/b756_standing_v1347.txt', 16), ('v1.34.8', '5b7aa91e', 'data/b756_standing_v1348.txt', 11),
+                  ('v1.34.9', 'be3fc2b3', 'data/b756_standing_v1349.txt', 33), ('v1.35.0', '2c3acfca', 'data/b756_standing_v1350.txt', 15),
+                  ('v1.35.1', '7fae9822', 'data/b756_standing_v1351.txt', 13), ('v1.35.2', '520777a8', 'data/b756_standing_v1352.txt', 20),
+                  ('v1.35.3', '47449d8b', 'data/b756_standing_v1353.txt', 13))
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
@@ -410,7 +441,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R366)); one put of at most four questions before the lock ((R366)(5)) and one question at the root ((R366)(7))
 SITTING_STATES = {}
-HANDOFF_COMMIT = '99e8a2c6'   # ### (R365)(8): HANDOFF.md regenerated once by tools/standing/handoff.py before the gate (step 34, 2026-11-15T02:10:50Z)
+HANDOFF_COMMIT = None   # ### (R366)(7): HANDOFF.md regenerated once by tools/standing/handoff.py before the gate; set from its commit (b755's was 99e8a2c6)
 C3_RELAY = ('d8eaaa2b', '9518d3a0')   # ### Component 3 ((R366)(3)): the notes tool with events (20) (step 13), the worklist's C3 values (step 19)
 C3_NOTES_GEN = 'd8eaaa2b'   # ### Component 3: tools/b756_notes.py committed before its run, controls 11 of 11 and its dry over the five places (step 13)
 C3_NOTES_PP = (('(i)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'ed23042f'),
