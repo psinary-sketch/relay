@@ -339,9 +339,14 @@ WEIGHT_LINE, CORR_LINE = 15344, 15346   # ### FINDINGS: b755's weight line and t
 NEXT_TRAIL_LINE = 18402      # ### OPEN_TRAILS: (R366)(1)(i)'s dated line giving b755's answer (Component 1, PLACE-papers d1133807)
 DIFFERS_LINE = None
 ERRATA_LINE = None
-C2_PLAN_FIRST = None   # ### Component 2's first commit
-C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
-C2_RELAY = None   # ### the last of them
+C2_PLAN_FIRST = '3e112065'   # ### Component 2's first commit: tools/b756_constellation.py carried and repaired, committed before its run (step 8)
+C2_RELAY_ALL = ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f', '069271bb')   # ### Component 2's relay commits in order (steps 8, 9, 10, 11, 12)
+C2_RELAY = '069271bb'   # ### the last of them: the map's banks (step 12)
+# ### (R366)(4): each tool of the map beside its banks -- (name, generator, the generator's commits before the bank, bank, the bank's commit)
+C2_MAP = (('the constellation rerun', 'tools/b756_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
+           'data/b756_constellation_summary.txt', '069271bb'),
+          ('the reverse read', 'tools/b756_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b756_reverse_read.txt', '069271bb'),
+          ('what the two find beyond (3)', 'tools/b756_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b756_beyond_three.txt', '069271bb'))
 C2_WALK = ('tools/b756_coeffs.py', '3bdb6561', 'data/b756_walk.txt', '9a989df8')   # ### (generator, its commit, bank, the bank's commit)
 REG_WALK = ('data/b753_registrations.txt', '3f865479')   # ### H-C3-LAW's registration read at its blob ((R365)(3)), the commit data/b755_walk.txt names
 # ### Component 3 ((R365)(5)(i), (4)): the literature bank, the candidates' generators each committed before its run, the candidates bank with
