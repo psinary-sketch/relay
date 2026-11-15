@@ -1,14 +1,24 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.34.6) at relay `baeddef1` and PLACE-papers `f948f606`, 2026-11-15T02:10:23Z, from the banks: the closings and ferries of b743 to b754 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b755_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.35.3) at relay `a57909bd` and PLACE-papers `3b45826d`, 2026-11-15T20:15:41Z, from the banks: the closings and ferries of b744 to b755 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b756_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b755_ferry.txt :32:
+The last ruling`s clause on them, data/b756_ferry.txt :34:
 
-> (9) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched; no branch of any kernel merged, created, moved or deleted; no tag; no Lean file written and no dispatch; no README, description or anchor edited; no ledger row edited beyond the weight line, the corrigendum, the entry, the trail and (7)'s line; no order entered; data/b753_registrations.txt is not written again; nothing is computed at a field of class number 3 beyond what (3) and (5) order, and no value of the Epstein zeta function is read at -59 before the two rules and the list of roots are committed.
+> (8) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond (6)'s README; no branch of any kernel merged, created, moved or deleted; no tag; no Lean file written and no dispatch; no sentence of any paper edited, each write of (3) being a note beside the text; no anchor edited; nothing computed at any field.
 
 ## The last twelve acts, newest first
+
+### b755
+
+data/b755_closing.txt :1:
+
+> b755 closed: relay 93796794, PLACE-papers 9011a84; suite 111 of 116; root 0ed5cf5ded61ecf1…; 3 prompts answered; scores 7 of 8 HELD; 19 defects
+
+data/b755_ferry.txt :34, THE ACT`S PLACE:
+
+> (10) THE ACT'S PLACE. The coefficient law says at which index the logarithmic derivative of an Epstein zeta function turns negative, from the three least primes its principal form fails to represent. This act tests it at fourteen fields chosen before any was computed. The same primes steer the zeros: the act then asks, at one field whose function has not been evaluated, whether the zeros far from the line can be listed from those primes in advance and whether their heights recur as the two least of those primes predict. Each of the two answers is a result either way. What the act adds to the published work is the certified comparison; the equations it uses are credited where they stand in print. It says nothing of zeta.
 
 ### b754
 
@@ -120,25 +130,15 @@ data/b744_ferry.txt :19, THE ACT`S PLACE:
 
 > (6) THE ACT'S PLACE ON THE PAPER PATH: the two controls priced, so the deposit path has its cost; the record's tooling made able to seal an act without a lifted hook. The act after this one is named by the author at the root: the build of the control the plans price cheapest, the paper's §1, the Tier 3 act that reads back and discards the stale v1.2.0 draft, the front-door sitting (the README's current sentence and its history heading, the live line, the count), the sitting over the ten doors outside the census, or W-ORD-MECHANISM-ATTRIBUTION entered on the author's number (the located zero attributed to a class of the kernel's mechanism type by a theorem naming the class and the property of Z_Q0 that puts the zero in it, not by a label).
 
-### b743
-
-data/b743_closing.txt :1:
-
-> b743 closed: relay eca0f83c, PLACE-papers d79ecaf; suite 112 of 116; root 72f9741ca4148512…; 32 prompts answered; scores 6 of 8 HELD; 23 defects
-
-data/b743_ferry.txt :21, THE ACT`S PLACE:
-
-> (7) THE ACT'S PLACE ON THE PAPER PATH: the record layer's results moved into the paper layer's forms -- rows, sentences, two skeletons -- so that a reader outside the programme has a page to start from, and the control object's deposit has a rubric to pass. The act after this one is named by the author at the sitting's end: the paper's section 1 (one section per act), the plan act of whichever order the author numbers ahead of the others, the wave 1 deposit, or the carried orders (the ledger split -- FINDINGS at 13,700 lines, the resolver carried since 2026-08-24 -- the legacy imports, the lab identity, the outside reader).
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :18344, the trail of b754 headed at :18296:
+PLACE-papers OPEN_TRAILS.md :18400, the trail of b755 headed at :18350:
 
-> **Next:** the class-number-3 walk (b755), confirmed or renamed at this act’s root: the fourteen unused fields of class number 3 against their registered table (data/b753_registrations.txt), the navigator’s candidates (a) to (h) reproduced, each with its planted error; then the build of T0 and T1 (data/b752_attribution_plan.txt); then sections 6 to 8 of the Epstein document, written from the compiled statements ((R364)(7), (10)); the open orders whose status names b755 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, chosen at this act’s root ((R365)(8)): the clearing act as b756 (the twelve work-orders the triage of b724 read as ready; the tool changes of [U1] and [U2]; the README route with [B1] and [B3]; [H1]’s held part; the carried faults of (R365)(2); closing lines for checkpoints CP-6 and CP-7), or the build of T0 and T1 as b756 with the clearing act after it; the open orders whose status names b756 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-72 open of 207 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `f948f606`:
+72 open of 207 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `3b45826d`:
 
 `W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-E0-RANK-PROPAGATION`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-GW-IMPORT`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LABEL-READER`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-TABLE-SHAPE`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-LEDGER-SPLIT-RESOLVER`, `W-ORD-EPSTEIN-COUNT-LEAN`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-MECHANISM-ATTRIBUTION`
 
@@ -147,8 +147,8 @@ PLACE-papers OPEN_TRAILS.md :18344, the trail of b754 headed at :18296:
 - the registry`s phase tables: PLACE-papers REGISTRY.md :134 PHASE 1.5: RH-Adjacent ; :234 PHASE 2: Other Domains
 - the census`s cluster and kernel tables, at its newest edition: PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md :155 (the phases and clusters), :187 (the kernels)
 - the reference layer: PLACE-papers FINDINGS.md :762-:1096, 76 anchors, the rule for how an anchor moves at :1084
-- the instruments: PLACE-papers phase1.5/method/INSTRUMENTS.md, 109 entries, the newest I-109 at :764
+- the instruments: PLACE-papers phase1.5/method/INSTRUMENTS.md, 111 entries, the newest I-111 at :776
 - the standing clauses: relay data/standing_clauses_v9.txt (the newest of 9 editions)
-- the rules banks: relay data/<act>_rules.txt, 48 banks, data/b670_rules.txt to data/b754_rules.txt
+- the rules banks: relay data/<act>_rules.txt, 49 banks, data/b670_rules.txt to data/b756_rules.txt
 - the registrations banks: relay data/<act>_registrations.txt, 17 banks, data/b703_registrations.txt to data/b755_registrations.txt
 
