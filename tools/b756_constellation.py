@@ -39,6 +39,7 @@ before any run:
 ### `list` prints the population; `summary` writes one line per table. Writes only data/b756_constellation_*.
 ###   python -X utf8 -u tools/b756_constellation.py list | control <KEY> | doc <KEY> | docs <KEY> ... | summary
 """
+import hashlib
 import io
 import json
 import os
@@ -473,10 +474,11 @@ def doc(key):
         L.append('  ### rows naming a terminal %d ; names read %d ; cells moved %d' % (len(rows), nnames, len(moved)))
         for i, l, fl in moved:
             L.append('  ### MOVED :%d (%s)' % (i, which))
-            L.append('      the row      : %s' % l[:600])
-            sup = l.rstrip()
-            sup = sup[:-1].rstrip() + ' *(superseded at b756: %s)* |' % '; '.join('%s -- %s' % (x['name'], x['flags'][0][:200]) for x in fl)
-            L.append('      superseding  : %s' % sup[:900])
+            # ### b756: the row cited by its digest and the superseding note printed alone, where b589 printed both rows whole (the relay is
+            # ### public; data/b754_rules.txt (7) cites an edition not deposited by path, line and the opening sixteen characters of its sha256)
+            L.append('      the row      : sha256 %s (cited by line and digest, not quoted)' % hashlib.sha256(l.encode('utf-8')).hexdigest()[:16])
+            L.append('      superseding  : the row as it stands, the note *(superseded at b756: %s)* appended at its last cell' % (
+                '; '.join('%s -- %s' % (x['name'], x['flags'][0][:200]) for x in fl))[:900])
         summ['versions'][which] = dict(path=p, rows=len(rows), names=nnames, moved=[(i, [x['name'] for x in fl], [x['flags'] for x in fl]) for i, l, fl in moved],
                                        constellation=len(cflags), constellation_in_table=len(in_tab), kinds=kinds)
         summ['moved'] += len(moved)
