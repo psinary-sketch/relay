@@ -25,6 +25,12 @@ current edition takes the slot of the family's first carried path, so no other s
 was built (roster_at's `act`). (b) THE PROJECT SET, rule (14): tools/mirror_project_set.json, a list of its own, each path read as its
 family's current edition. (c) rule (15): the `project` route prints the set under the builder's MANIFEST table, each file's bytes and
 the total; by rule (16) the two cuts of tools/standing/cuts.py stand in place of FINDINGS.md whole, both totals printed.
+
+v1.34.8, W-ORD-LABEL-READER (OPEN_TRAILS :13605, entered at b644), placed HERE at b756 under (R366)(5)(i) and passed by the author at the
+put (relay data/b756_orders_read.txt (3); data/b756_author_answers.txt :4, :18): a version string is a document's label only where it sits
+on the document's own label line, never where it follows a kernel's name. version_of passes over a heading's version string that follows a
+kernel's name (after_kernel, label_on) for the next on the line; a heading with none other is not the version line and the read goes on.
+The other rules are unchanged. Its controls: tools/standing/v1348.py, ONE_PAGE_PROOF's kernel tag planted as a heading at its head.
 """
 import json
 import os
@@ -96,6 +102,28 @@ CURRENT_FROM = 754   # ### rule (13) of data/b754_rules.txt: in force from b754'
 VREAD = [re.compile(r'^\W{0,4}v(\d+(?:\.\d+)+)\b'), re.compile(r'(?i)^\W{0,4}version\W{0,6}v?(\d+(?:\.\d+)+)\b'),
          re.compile(r'^#{1,3}\s.*?\bv(\d+(?:\.\d+)+)\b')]
 EDNOTE = re.compile(r'^\*v(\d+(?:\.\d+)+), 20\d\d-')
+# ================================================================================ v1.34.8, W-ORD-LABEL-READER, b756 (R366)(5)(i)
+# ### VSTR: each version string on a line. KERNEL_BEFORE: a kernel's name (SIDE-<name>, the name of every kernel clone the worklist lists)
+# ### ending the text before a version string, parted from it by spaces, backticks, a possessive, a colon, "@", a comma or an opening
+# ### bracket, and at most one of the words at, tag, main.
+VSTR = re.compile(r'\bv(\d+(?:\.\d+)+)\b')
+KERNEL_BEFORE = re.compile(r"\bSIDE-[A-Za-z0-9][A-Za-z0-9-]*(?:[`’']s)?[\s`:@,(’']*(?:(?:at|tag|main)\s+)?`?$")
+
+
+def after_kernel(line, start):
+    """v1.34.8: True where the text of `line` before `start` ends with a kernel's name (KERNEL_BEFORE)."""
+    return bool(KERNEL_BEFORE.search(line[:start]))
+
+
+def label_on(line, m, rx):
+    """v1.34.8: the version tuple a VREAD match `m` gives as the document's label, or None. For the heading rule (VREAD[2]) the first
+    version string on the line that follows no kernel's name; for the other rules the match itself, as before."""
+    if rx is not VREAD[2]:
+        return tuple(int(x) for x in m.group(1).split('.'))
+    for mm in VSTR.finditer(line):
+        if not after_kernel(line, mm.start()):
+            return tuple(int(x) for x in mm.group(1).split('.'))
+    return None
 
 
 def act_number(act=None):
@@ -111,12 +139,16 @@ def current_rule(act=None):
 
 
 def version_of(text_lines):
-    """(line, version tuple) of a file's own version line, or (None, None)."""
+    """(line, version tuple) of a file's own version line, or (None, None). v1.34.8: a heading's version string after a kernel's name is
+    not the document's label (label_on); a heading carrying no other is passed over."""
     for k, l in enumerate(text_lines[:40], 1):
         for rx in VREAD:
             m = rx.match(l)
             if m:
-                return k, tuple(int(x) for x in m.group(1).split('.'))
+                v = label_on(l, m, rx)
+                if v:
+                    return k, v
+                break
     for k, l in enumerate(text_lines, 1):
         m = EDNOTE.match(l)
         if m:

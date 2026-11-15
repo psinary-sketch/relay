@@ -1,0 +1,70 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.34.8, W-ORD-LABEL-READER: A VERSION STRING AFTER A KERNEL`S NAME IS NOT THE DOCUMENT`S LABEL (2026-11-15T15:43:52Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each instance through both readers; the free memory read before each; written through tools/standing/figbank.py; a line of a paper by path, number and digest
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2835 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4884 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    533 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case through both readers, the reader before read from dc8319ea
+
+  free 6544 MB at 2026-11-15T15:43:53Z, the hold 2560 MET
+### (label): W-ORD-LABEL-READER, A VERSION STRING AFTER A KERNEL`S NAME IS NOT THE DOCUMENT`S LABEL (roster.version_of)
+  (label) THE ORDER`S CONTROL: day1/ONE_PAGE_PROOF.md at PLACE-papers 3b45826d, its kernel tag (its line :48, digest 0cc07bafaf0a4a0c, the first of the file carrying a version string after a kernel`s name) planted as a heading at the document`s head
+      BEFORE (v1.34.7): version_of (:1, v1.3), the kernel`s tag v1.3 read as the label -> FAILS
+      AFTER  (v1.34.8): version_of (:6, v1.0.1), the document`s own label line (:5 unplanted) one line down -> PASSES
+      AS WANTED
+  (label) day1/ONE_PAGE_PROOF.md as it stands at PLACE-papers 3b45826d: its own label line read alike
+      BEFORE (v1.34.7): version_of (:5, v1.0.1) -> (alike at both is wanted)
+      AFTER  (v1.34.8): version_of (:5, v1.0.1) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: the orders read`s planted heading (tools/b756_orders.py :145): no label on the heading, none read
+      BEFORE (v1.34.7): version_of (:3, v1.7) -> FAILS
+      AFTER  (v1.34.8): version_of (:None, None) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: a heading carrying a kernel`s tag first: the next version string read
+      BEFORE (v1.34.7): version_of (:1, v1.7) -> FAILS
+      AFTER  (v1.34.8): version_of (:1, v2.1) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: a kernel`s name in backticks before its tag
+      BEFORE (v1.34.7): version_of (:1, v0.38) -> FAILS
+      AFTER  (v1.34.8): version_of (:None, None) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: a kernel`s name, a possessive and the word tag before its tag
+      BEFORE (v1.34.7): version_of (:1, v1.7) -> FAILS
+      AFTER  (v1.34.8): version_of (:None, None) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: a kernel`s name and the word main before its tag: the read goes on to the label line below
+      BEFORE (v1.34.7): version_of (:1, v0.10.0) -> FAILS
+      AFTER  (v1.34.8): version_of (:3, v0.4) -> PASSES
+      AS WANTED
+  (label) CONSTRUCTED: b754`s version cases (tools/b754_agenda.py :455-:460) and two headings whose label comes first, read alike
+      BEFORE (v1.34.7): [(5, 18), (0, 8, 3), (1, 1, 3), None, (0, 8, 3), (0, 4), (2, 1), (1, 2)] -> (alike at both is wanted)
+      AFTER  (v1.34.8): [(5, 18), (0, 8, 3), (1, 1, 3), None, (0, 8, 3), (0, 4), (2, 1), (1, 2)] -> PASSES
+      AS WANTED
+  (label) RECORD: every .md file at PLACE-papers 3b45826d (407) read by both readers: the files where they differ
+      BEFORE (v1.34.7): 407 files read -> (alike at both is wanted)
+      AFTER  (v1.34.8): differ 0  -> PASSES
+      AS WANTED
+  (label) RECORD: the roster at main with rule (13) applied (roster_at, the act b756): its entries and their order
+      BEFORE (v1.34.7): 83 entries -> (alike at both is wanted)
+      AFTER  (v1.34.8): 83 entries ; equal True ; 2.4 s -> PASSES
+      AS WANTED
+
+  free 6663 MB at 2026-11-15T15:44:07Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.7): v1.34.7 -> FAILS
+      AFTER  (v1.34.8): v1.34.8 -> PASSES
+      AS WANTED
+
+### per change: (label) 10 of 10 ; (version) 1 of 1
+### ### **v1.34.8: CONTROLS (label), (version) ; CASES 11 ; AS WANTED 11 ; ALL AS WANTED.**
