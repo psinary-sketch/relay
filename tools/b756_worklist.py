@@ -412,6 +412,13 @@ SITTING_ITEMS = None          # ### no sitting this act ((R366)); one put of at 
 SITTING_STATES = {}
 HANDOFF_COMMIT = '99e8a2c6'   # ### (R365)(8): HANDOFF.md regenerated once by tools/standing/handoff.py before the gate (step 34, 2026-11-15T02:10:50Z)
 C3_RELAY = ()   # ### Component 3 ((R366)(3)): set as made
+C3_NOTES_GEN = 'd8eaaa2b'   # ### Component 3: tools/b756_notes.py committed before its run, controls 11 of 11 and its dry over the five places (step 13)
+C3_NOTES_PP = (('(i)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'ed23042f'),
+               ('(ii)', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'a680411c'),
+               ('(iii)', 'day1/Which_Structure_Confines_v2_4_0.md', '1795559c'),
+               ('(iv)', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', '2cab7417'),
+               ('(v)', 'OPEN_TRAILS.md', '6fb72eba'))   # ### (item, the file, the PLACE-papers commit), steps 14-18, each confirmed at HEAD by `tools/b756_notes.py confirm`
+C3_NOTES_WRITTEN = 9   # ### the notes of (3): four notes and five trail lines, 9 of 9, each the ruling's text between its quotation marks (data/b756_notes.json)
 C4_LINE_GEN = None   # ### b755: no line bank; the entry's INTEGRATION line is (R365)'s, composed from the banks by the record module
 C4_LINE = None       # ### Component 6: the act's INTEGRATION line
 C4_ANSWERS = None    # ### no reader of this name at b755; the answers pair of the two puts written by its route and committed at relay 3a5f0d0f (step 31), the root's question appended to it
