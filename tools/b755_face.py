@@ -35,15 +35,19 @@ FIXES = (   # ### b755: the lock gate is the act's own, (R365)(2)(i), where b754
     ('`b378_lockgate.py b755', '`tools/b755_lockgate.py b755'),
 )
 # ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
-DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-POSTSEAL-READ', 'G-DELETE-FREE')
+DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-POSTSEAL-READ', 'G-DELETE-FREE', 'G-DELETES-ONE-BRANCH')
 DECLARED_LINES = (
     "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :22); its predicate (tools/b649_checks.py :452, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b754 carried it.",
     "### `G-RULE-POSTSEAL-READ` raises TypeError at every reading (the probe of standing-a2 :124: \"'bool' object is not subscriptable\"): tools/standing/postseal.py wrap() reads the rule arm`s bool as a tuple (b741`s defect (n)), unrepaired at v1.34.6, outside (R365)(2)`s three repairs; the arm cannot pass and is carried, the repair a version`s.",
     "### `G-DELETE-FREE` reads the act`s tools` code, prose stripped, for a delete (tools/standing/fold/checks.tpl :1813; the probe of standing-a2 :78): tools/b755_lockgate.py :64 carries `shutil.rmtree` over the gate`s own temporary folder, carried from tools/b754_lockgate.py :61 by (R365)(2)(i); b754 failed the arm from its pre-run on and after its push (data/b755_carried_faults.txt (9)), its probe passing it only before its lock gate existed; (R365)(2) orders no other repair, so the arm is declared and carried.",
+    "### `G-DELETES-ONE-BRANCH` fails on one clause of its seven (the probe of the act part :25; tools/standing/fold/checks.tpl :833, read clause by clause): the ruling's kept clause, read by tools/standing/allow.py kept_clause in its three forms (:124-:126), none of which (R365) carries; its delete clause (data/b755_ferry.txt :30) names the push-b754-* branches and no kept branch, and its (9) (:32) keeps every kernel branch in words the reader does not read. The five deletes read each one branch, no glob, no variable, nothing chained after, each allowed, port-b707 not among them; widening the reader's forms is a version's change, outside (R365)(2)'s three repairs, so the arm is declared and carried.",
     "### An arm failing at step [7] on real state beyond these is an event, not a letter.",
 )
-NEWLY = ()
-# ### set from tools/standing/prelock.py print b755 after the record routes, the ten prev-mode dry parts and the probes
+NEWLY = ('G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-LOCKGATE-EIGHT', 'G-ROOTDRY-READY', 'G-SEAL-VERIFIES',
+         'G-SEALED-AFTER-COMPONENTS')
+# ### FINAL: tools/standing/prelock.py print b755 at 03:45:40Z (30 failing, 7 newly), after the record routes, the ten prev-mode dry
+# ### parts and the probes of standing-a1, standing-a2 and the act part at one HEAD (0b5ab44e); at 03:28:06Z, every part's probe taken
+# ### before the record routes (the act part's at 02:06:23Z), it read 34 failing and 11 newly
 
 
 def shift(s):
