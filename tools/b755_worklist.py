@@ -232,7 +232,7 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'the act after this one, chosen at this act`s root ((R365)(8)): the clearing act as b756 (the twelve work-orders the triage of b724 read as ready; the tool changes of [U1] and [U2]; the README route with [B1] and [B3]; [H1]`s held part; the carried faults of (R365)(2); closing lines for checkpoints CP-6 and CP-7), or the build of T0 and T1 as b756 with the clearing act after it'
+NEXT = 'the act after this one, chosen at this act`s root ((R365)(8)): the clearing act as b756 (the twelve work-orders the triage of b724 read as ready; the tool changes of [U1] and [U2]; the README route with [B1] and [B3]; [H1]’s held part; the carried faults of (R365)(2); closing lines for checkpoints CP-6 and CP-7), or the build of T0 and T1 as b756 with the clearing act after it'
 NEXT_ACT = 'b756'
 
 
