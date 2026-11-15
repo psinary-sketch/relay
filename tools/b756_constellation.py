@@ -566,6 +566,64 @@ def control(key):
     return n == len(cases)
 
 
+# ### THE SEAT'S HAND-READ AT b756 OF EVERY ROW THE FIRST RUN MOVED (b589's form: each row read whole, by the hand, after the run printed it;
+# ### the facts read by git at 14:14:47Z, scratch hand756.py, nothing fetched). (document, line): (counted, class, reading). A row the first run
+# ### moved and this table does not name prints NOT YET READ. The document banks stand as run; the summary prints both totals.
+HAND_READ = {
+    ('ADDITIVE_MULTIPLICATIVE_CONSPIRACY', 412): (True, 'GONE AT MAIN, AS THE ROW SAYS',
+        'the three names stand at SIDE-effects c66f3c5 and are absent at its main db0575c; the row reads "Placeholder — retired from the claim structure"'),
+    ('FACES_OF_H2_AT_FINITE_INSTANCE', 205): (True, 'SIG-MOVED',
+        '`T3_perClass_to_combinations`, a theorem carrying its sorry at the row`s pin v0.10.0, is at SIDE-lv-conservation main 305a87c a def of type '
+        'Prop (SIDELvConservation/T3_StepNineBridge.lean :90); the row reads it OPEN and CARRIED'),
+    ('FACES_LEDGER', 31): (True, 'SIG-MOVED', 'the same declaration at the row`s pin 93c27ec, the same def at main'),
+    ('THE_UNCONDITIONAL_SURROUND', 227): (True, 'SIG-MOVED',
+        'the same declaration at the row`s pin v0.2.0, named twice in the row; the row reads "the pin ... carries sorryAx; the closure step has no terminal"'),
+    ('THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3', 207): (True, 'GONE AT MAIN, READ MISSING BY THE FALL-BACK',
+        '`all_gapped` stands at SIDE-effects c66f3c5 (SIDEEffects/Structural.lean :49) and is absent at a27415d and at main db0575c; b586 names no '
+        'row for the document, so the defaults were searched, and the federation-wide fall-back indexes each repository at its main alone; the row '
+        'reads "retired at the later pin"'),
+    ('THE_BARYON_FRACTION_THE_DARK_SECTOR_AND_THE_CONSTANTS_v0_3', 259): (True, 'GONE AT MAIN, READ MISSING BY THE FALL-BACK',
+        'the same name at the same pin c66f3c5'),
+    ('THE_CLAUSE_AND_ITS_COMPILED_FACES', 267): (True, 'DEFINITION-ENCODED BY b589`S RULE',
+        'rowgen`s flag fires on `b321Norm := 1` (SIDEExplicitFormula/B321Identity.lean :41), a factor the statement carries by its own docstring (:11); '
+        'b589`s rule counts a literal body, and the flag stands by the rule`s words'),
+    ('SIMPLICITY_OF_RIEMANN_ZEROS', 446): (False, 'NOT A TERMINAL CELL',
+        '`h_at_one` is a hypothesis binder of simplicity_from_trace_structure (SIDE-kernel v1.2 Kernel/PerpendicularCrossing.lean :54), as b589 read '
+        '`h_conserved`; the row`s three terminals read ok'),
+    ('SIMPLICITY_OF_RIEMANN_ZEROS', 707): (False, 'NOT ON THE HOST, AS THE ROW SAYS',
+        '`Zeta23.thmB₀_mult` is named by the row in an upstream repository, "not vendored"; SIDE-explicit-formula names it in a docstring alone '
+        '(SIDEExplicitFormula/Simplicity.lean :11 at main, and at 40 local refs)'),
+    ('THE_FOUR_PRESENTATIONS_OF_THE_MECHANISM_EXCLUSION_v0_2', 52): (False, 'NOT A TERMINAL CELL',
+        '`native_decide` is a tactic name (the row: "by `decide`, not `native_decide`"), as b589 read `field_simp`'),
+    ('THE_LOAD_BEARING_MAP', 54): (False, 'HELD ON A BRANCH, THE ROW CITING NO PIN',
+        '`no_onLine_double_iff_transversal` stands in SIDE-kernel on the branch derivative-engine alone (01e5633, Kernel/DerivativeEngine.lean :81), '
+        'at no tag and not at main, over the five kernels of SIMPLICITY`s row read at every local branch tip and tag; the row cites no pin'),
+    ('THE_LOAD_BEARING_MAP', 162): (False, 'NOT A MOVE AT THE ROW`S LAST PIN',
+        'the tool read the row`s first tag v1.1; the row reads "v1.1 -> v1.4 (repaired) -> v1.7", and at v1.4, v1.7 and main the signature is one '
+        '(Kernel/Cascade/SieveCeiling.lean)'),
+}
+
+
+def hand_lines(pop):
+    """### the hand-read section of the summary: every row a document bank moved, with its reading; (lines, counted, unread)."""
+    out, counted, unread = [], 0, 0
+    for dd in [x for x in pop if x['rows']]:
+        p = os.path.join(D, 'b756_constellation_%s.json' % dd['key'])
+        if not os.path.exists(p):
+            continue
+        s = json.load(io.open(p, encoding='utf-8'))
+        for v in s['versions'].values():
+            for m in (v.get('moved') or []) if isinstance(v, dict) else []:
+                h = HAND_READ.get((dd['key'], m[0]))
+                if h is None:
+                    unread += 1
+                    out.append('  %s :%d -- ### NOT YET READ -- %s' % (dd['key'], m[0], m[2]))
+                    continue
+                counted += 1 if h[0] else 0
+                out.append('  %s :%d -- %s -- %s -- %s' % (dd['key'], m[0], 'COUNTED' if h[0] else 'NOT COUNTED', h[1], h[2]))
+    return out, counted, unread
+
+
 def summary():
     pop = population()
     rows, tot, kinds, secs = [], 0, {}, 0.0
@@ -589,16 +647,20 @@ def summary():
                                                      ' ; HELD: b586`s start line :%d not found once' % x['start589'] if x['held'] else '')
             for x in pop if not x['rows']]
     nread = sum(1 for r in rows if 'NOT RUN' not in r)
+    hl, hc, hu = hand_lines(pop)
     L = ['b756 -- COMPONENT 2: THE CONSTELLATION RE-READ, ONE LINE PER TABLE, (R366)(4)(i). ### the banks data/b756_constellation_<document>.txt;'
          ' the controls data/b756_constellation_control.txt.', '',
          '### the population: the roster`s current editions (tools/standing/roster.py json, %d files); with a table section %d; carrying a '
          'correspondence table (a row naming a terminal) %d.' % (len(roster_files()), len(pop), len([x for x in pop if x['rows']])), '',
          '| table | rows naming a terminal | names read | rows moved or gone | flags by kind | where |', '|:--|--:|--:|--:|:--|:--|'] + rows + [
         '', '### THE FILES WITH A TABLE SECTION AND NO ROW NAMING A TERMINAL, listed and not read further ((a)): %d' % len(rest)] + rest + [
-        '', '### ### **TABLES READ: %d OF %d. ### ROWS MOVED OR GONE: %d %s. ### SECONDS SUMMED %.1f.**' % (
-            nread, len([x for x in pop if x['rows']]), tot, kinds, secs)]
+        '', '### THE SEAT`S HAND-READ OF EVERY ROW THE RUN MOVED (HAND_READ, b589`s form; each row read whole): %d rows, %d counted, %d not yet read' % (
+            len(hl), hc, hu)] + hl + [
+        '', '### ### **TABLES READ: %d OF %d. ### ROWS MOVED OR GONE BY THE TOOL: %d %s ; AFTER THE HAND-READ: %d COUNTED, %d NOT, %d UNREAD. '
+            '### SECONDS SUMMED %.1f.**' % (nread, len([x for x in pop if x['rows']]), tot, kinds, hc, len(hl) - hc - hu, hu, secs)]
     put_txt('b756_constellation_summary.txt', L)
     put_json('b756_constellation_summary.json', dict(tables=nread, population=len([x for x in pop if x['rows']]), moved=tot, kinds=kinds,
+                                                     hand_counted=hc, hand_not=len(hl) - hc - hu, hand_unread=hu,
                                                      unread=[x['key'] for x in pop if not x['rows']], seconds=round(secs, 1)))
     for l in L[-3:]:
         print(l)
