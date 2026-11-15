@@ -907,9 +907,9 @@ def research_reproduces_ok(S):
     add('ruling (1)(i)', 'tools/b755_worklist.py :235 and tools/acts/b755.py :2009-:2010, the next act`s line printing both routes, written before the lock',
         'or the build of T0 and T1 as b756 with the clearing act after it' in at(wk5_, 235) and at(ac5_, 2009).lstrip().startswith("'**Carried to:** %s, per (R365)(8), as the author answers")
         and 'or the build of T0 and T1 as b756' in at(ac5_, 2009) and "'**Next.** %s.' % K.next_line()" in at(ac5_, 2010), '%d ; %d lines' % (len(wk5_), len(ac5_)), '1')
-    rt_ = lines_of(p('tools', 'standing', 'fold', 'record.tpl'))
+    rt_ = _blob(ROOT, 'eac02515', 'tools/standing/fold/record.tpl').replace('\r', '').split(NL)   # ### at v1.34.6's own commit: the wording (1)(ii) corrects, read where it stood (v1.34.7 rewrites :2533 in place)
     dk5_ = lines_of(p('data', 'b755_desk_notes.txt'))
-    add('ruling (1)(ii)', 'tools/standing/fold/record.tpl :2533 and data/b755_desk_notes.txt :8, the N4 wording naming an events bank for what is found after the seal',
+    add('ruling (1)(ii)', 'tools/standing/fold/record.tpl :2533 at v1.34.6 (relay eac02515) and data/b755_desk_notes.txt :8, the N4 wording naming an events bank for what is found after the seal',
         'the events bank for what is found after the seal %s' in at(rt_, 2533) and 'events bank for what is found after the seal' in at(dk5_, 8) and at(dk5_, 8).lstrip().startswith('**(N4)**'),
         '%d ; %d lines' % (len(rt_), len(dk5_)), '1')
     lg_ = lines_of(p('tools', 'b755_lockgate.py'))

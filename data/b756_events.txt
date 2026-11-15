@@ -21,7 +21,7 @@ STEP ZERO:
      a text written within a turn before a tool call stands nowhere in the session's file (data/b755_defects.txt (h)), so the transcript
      cannot show it.
 
-    (3) THE SEAT'S [CLOSE ; NEW]: b755'S CARRIED FILE tools/mirror_prevbuild.json HELD NO CHANGE OF CONTENT. `git status` at step zero
+    (3) THE SEAT'S [CLOSE ; REPEAT events (7), b755's closing message line 27]: b755'S CARRIED FILE tools/mirror_prevbuild.json HELD NO CHANGE OF CONTENT. `git status` at step zero
      (12:28:11Z, transcript line 69946) printed the file modified; its working copy carried 88 carriage returns, the line endings of the
      host's conversion, and was otherwise equal to HEAD's blob (last committed at 9171e0e2). Restored to HEAD's blob by
      `commit.py relay restore tools/mirror_prevbuild.json` (12:39:20Z), 4,316 bytes, 0 carriage returns; no commit owed, and the
@@ -33,3 +33,70 @@ STEP ZERO:
      beneath the limit 600000 ms that tools/standing/limits.py prints for it; sent again at 600000 ms (12:35:32Z). b755's refusals bank
      holds none of that kind (PIPE 1, ENV 1, READ 3, REDIR 1, WLIST 4); the act's PIPE refusal of 12:28:28Z (:1), a listing piped to a
      head, is 1 against b755's 1, no event. Neither refusal takes a letter.
+
+COMPONENT 1:
+    (5) THE HOST'S [CLOSE ; REPEAT events (2)]: A SECOND SUMMARY, AT COMPONENT 1'S OPENING, read at 13:15:04Z by tools/standing/chain.py's
+     boundary rule (`chain.py sessions`): the compaction boundary at transcript line 71932, 2026-11-15T13:14:48.459Z; the chain read 71,985
+     rows, 0 naming an absent parent and 0 after line 69884, 97 boundaries, each logical parent in the file. Under (R364)(3)(xviii), before
+     any write after it, the seat read whole by the Read tool the ruling and the ferry (data/b756_ferry.txt :1-:58), the step-zero bank
+     (data/b756_stepzero.txt :1-:146), this bank (:1-:36), the defects bank (data/b756_defects.txt :1-:15) and the refusals bank
+     (data/b756_hook_refusals.txt :1-:2); data/b756_amendments.json stands absent, so no word of the author's since the delivery. The
+     restatement was stated in the reply after those reads and before this row's write, the first write after the summary; as at (2), the
+     transcript cannot show a text written within a turn before a tool call.
+
+THE SEAT'S CLOSING MESSAGE FOR b755, ITS NINE FINDINGS ENTERED AS EVENTS ((R366)(1)), each from the message at transcript line 69850
+(2026-11-15T08:03:43.398Z, 3,729 characters), its line named; read by scratch close755msg.py at 13:2xZ:
+    (6) THE HOST'S [CLOSE ; REPEAT b755 events (2)]: b755'S SIXTEENTH SUMMARY, AFTER ITS LOCK (the message's line 26): the compaction
+     boundary at transcript line 68280, 2026-11-15T05:36:22.669Z, its logical parent in the file (`chain.py sessions`, 13:15:04Z).
+
+    (7) THE SEAT'S [CLOSE ; NEW]: b755'S CARRIED FILE tools/mirror_prevbuild.json WITH 88 CARRIAGE RETURNS BEFORE b755'S FIRST CLOSE DRY
+     (the message's line 27): the working copy carried 88 carriage returns, set right by the scratch eoltouch754 and
+     `commit.py relay restore`, no commit owed. The same file stood so again at this act's step zero (events (3)).
+
+    (8) THE SEAT'S [CLOSE ; REPEAT b755 (s)]: THE [U3] GATE MISS, LETTERED BEFORE b755'S LOCK (the message's line 28): banked as b755
+     defect (s) (data/b755_defects.txt :32), so it adds no count; entered here so that the message's nine findings stand whole.
+
+    (9) THE HOST'S [CLOSE ; REPEAT b751 events (5), its class]: b755'S ROOT, ITS FIRST PART REFUSED AT THE NETWORK (the message's line
+     29): at 06:16:42Z the first root part failed on "Could not resolve host: github.com"; the one retry, sent at 06:23:11Z, was READY,
+     its bank's time 06:33:11Z and 591.6 s (data/b755_root_banks_parts.json :7-:8), beneath the limit of 600 s with the margin 0.8 read
+     against it there. The class: b751 events (5) (data/b751_events.txt :25-:27), a push refused at the network on the same words.
+
+    (10) THE TOOLS' [CLAIM ; NEW]: b755'S FINDINGS ENTRY AND CLOSING READ BOTH ROUTES FOR THE NEXT ACT, NOT THE AUTHOR'S ANSWER (the
+     message's lines 30-34): the entry's "Carried to" and "Next." lines and the closing's CARRIED (a) (data/b755_closing.txt :640, "the
+     clearing act as b756 (...), or the build ...") read the two routes of the root question, where the author's answer, "Clearing act
+     as b756", stands in data/b755_author_answers.txt :35 (transcript line 68779, 06:08:01Z; banked at relay ffecfdec, 06:09:42Z). The
+     message's cause: the worklist's NEXT (tools/b755_worklist.py :235) and the act module (tools/acts/b755.py :2009-:2010) written
+     before the lock and sealed. The entry's bank list also leaves out put_3. A CLAIM item by v9 row (80): the entry is a statement a
+     reader of the corpus meets. Repaired at this act by (R366)(1)(i)'s standing change; (11) prints the seat's reading of the
+     closing's cause beside the ruling's.
+
+    (11) THE SEAT'S [CLOSE ; NEW]: A READING OF (10)'S CAUSE AT THE CLOSING THAT DIFFERS FROM (R366)(1)(i)'S, PRINTED FOR THE AUTHOR AND
+     CARRIED (v9 row (81)). (R366)(1)(i) reads: "an act's entry and closing are written before the lock and the root question is
+     answered after it". The entry's line is the worklist's NEXT through K.next_line() (tools/standing/fold/record.tpl :2748, :2823,
+     :2954, :3013), sealed before the answer: there the ruling's cause holds. The closing was committed after the answer (relay
+     863084c5, 08:01:40Z; the answer banked at ffecfdec, 06:09:42Z), and its CARRIED (a) passes through tools/standing/nextact.py's
+     carried() (tools/standing/fold/closing.tpl :142), which puts the answer in place of the module's item where word() finds one;
+     word() seeks a section of the author's word saying "b756 is" or a prompt headed "### PROMPT <n> (b756): " (nextact.py
+     :31-:46 at v1.34.6, relay eac02515), and b755's root prompt was headed "### PROMPT 1 (Next act): " (data/b755_author_answers.txt :32), so it found none. The
+     seat's reading: at the closing the cause was the matcher's miss of the header, not the order of writing. The seat chooses neither
+     reading; word() is not repaired ((R366)(1): "No other repair is ordered here"); the standing change of (1)(i) makes the closing's
+     line carry the ruling's words whether or not word() finds an answer.
+
+    (12) THE TOOLS' [CLOSE ; NEW]: N4'S WORDING NAMES A BANK NOT KEPT (the message's line 35): the desk and the scores close for b755
+     read "the events bank for what is found after the seal present", where (R365)(2)(ii) keeps no such bank. The wording stood at
+     tools/standing/fold/record.tpl :2533 and its value at :2538 (at v1.34.6, relay eac02515), 'present' wherever data/<act>_events.txt
+     stood (:2503), the act's own events bank and not a post-seal one, so it printed "present" at an act that kept none. Repaired at
+     this act by (R366)(1)(ii)'s standing change, v1.34.7, the three lines rewritten in place.
+
+    (13) THE HOST'S [CLOSE ; REPEAT b755 events (2)]: b755'S SEVENTEENTH SUMMARY (the message's line 36): the compaction boundary at
+     transcript line 69275, 2026-11-15T07:13:35.034Z, its logical parent in the file (`chain.py sessions`, 13:15:04Z).
+
+    (14) THE HOST'S [CLOSE ; REPEAT b748 events (3)]: A REMOTE READ RETRIED IN b755'S POST-PUSH STANDING-A1 PART (the message's line
+     37): 07:18-07:21Z, the remote read of SIDE-carrier-spec retried, 21.77 s and then 1.50 s, the tool classing the retry as an event
+     (data/b755_checks_postpush_standing-a1.txt :27; data/b755_lsr_postpush_standing-a1.json :175). The class: b748 events (3),
+     SIDE-faces-join retried in the same part (data/b748_events.txt :10).
+
+    (15) THE TOOLS' [CLOSE ; NEW]: TWO SUITE COUNTS THAT DO NOT AGREE IN b755'S CLOSING (the message's line 38): the closing's (R365)(2)
+     lines read "THE WHOLE SUITE PASSING 111 OF 115" pre-push and post-push (data/b755_closing.txt :621-:622), where its head line reads
+     "suite 111 of 116" (:1); both (R365)(2) lines name G-R365-ENTERED and G-RESEARCH-REPRODUCES as UNTAGGED. Not repaired at this act
+     ((R366)(1)); among (6)'s faults if it repeats.

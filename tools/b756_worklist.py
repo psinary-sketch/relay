@@ -236,8 +236,8 @@ RECUT_COMMIT = 'f5ea57cb77760a55a5b7903e920f53df4c3f19eb'
 RECUT_TIP = '0aeca8341ae45e5e6e1fe2555dda11d1ec2eed0f'
 RECUT_MERGE = 'a86c942941806b8f1895f7f82c2a6489946bc0a3'   # ### the re-cut's merge (kept for the kernel rows); the MANIFEST control's reference
 #   ### is the commit the mirror is built at from v1.2.1
-NEXT = 'the act after this one, as the author answers at the root (the answers bank) ((R366)(1)(i), (7)): the build as b757 (the four branches of the criterion kernel joined under a tag on main; T0 and T1; the criterion over the wider strip; the modulus-24 lemma; the written proofs of the class-number-3 law and of the closed form), or another the author names'
-NEXT_ACT = 'b757'
+NEXT = '((R366)(7)) the build as b757 (the four branches of the criterion kernel joined under a tag on main; T0 and T1; the criterion over the wider strip; the modulus-24 lemma; the written proofs of the class-number-3 law and of the closed form), or another the author names'
+NEXT_ACT = 'b757'   # ### NEXT above holds the act's own words for the question as put; from v1.34.7 tools/standing/nextact.py's line() heads the entry's and the closing's line with (R366)(1)(i)'s words and the answers bank
 
 
 def orders_naming(ot_text, act):
@@ -278,8 +278,8 @@ STEPZERO_LATE = None
 STEPZERO_HASHES = None
 STEPZERO_PREVBUILD = None   # ### tools/mirror_prevbuild.json of b755: NO COMMIT -- b755's mirror left its content equal to HEAD (9171e0e2's blob, 4,316 bytes, lastChanged 2026-11-12-b754) and its working copy carrying 88 CRs alone; restored to HEAD by `commit.py relay restore` (2026-11-15T12:39:20Z), nothing to commit ((R366)(7))
 STEPZERO_REFUSALS = ()
-STEPZERO_BANKS = None      # ### step zero's banks and carried tools, one commit (data/b756_stepzero.txt among them)
-STEPZERO_AFTER = STEPZERO_BANKS      # ### b755: no restart; the stop of events (5) ran no commit and step zero's banks rode after it; the name kept for the carried arms (b754's 65972bf1), each rewritten at Component 6
+STEPZERO_BANKS = '1ff55fec'      # ### step zero's banks and carried tools, one commit (data/b756_stepzero.txt among them), row step 3, 2026-11-15T13:09:46Z
+STEPZERO_AFTER = STEPZERO_BANKS      # ### b756: no restart and no stop at step zero; step zero's banks the last step-zero commit; the name kept for the carried arms (b754's 65972bf1), each rewritten at Component 6
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
 STEPZERO_ANSWERS_FULL = None   # ### the same, as each dispatch row's licence names it

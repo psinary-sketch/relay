@@ -1,0 +1,73 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.34.7, (R366)(1)(i) THE NEXT ACT`S LINE AND (1)(ii) THE WORDS THAT NAME A BANK NOT KEPT (2026-11-15T13:27:56Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each change`s instances through both routes; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2835 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4672 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    520 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case through both routes, the route before read from eac02515
+
+  free 4706 MB at 2026-11-15T13:27:56Z, the hold 2560 MET
+### (next): (R366)(1)(i), THE ENTRY`S AND THE CLOSING`S LINE FOR THE ACT THAT FOLLOWS
+  (next) the closing`s item (a) over b755`s own items (data/b755_closing.txt :640) and answers bank, word() finding no answer there (its root prompt headed "(Next act)", data/b755_author_answers.txt :32): the ruling`s words and the bank by its path
+      BEFORE (v1.34.6): BASE`s carried(): the item as the module wrote it ; PHRASE False ; the bank named False -> FAILS
+      AFTER  (v1.34.7): carried() on disk: PHRASE True ; the bank named True ; the module`s words kept as put True -> PASSES
+      AS WANTED
+  (next) the closing`s item (a) over a planted bank answering a prompt headed with the next act: the ruling`s words, the answer with its line, then the module`s words as put
+      BEFORE (v1.34.6): BASE`s carried(): the answer alone ; PHRASE False ; answer True ; the module`s words False -> FAILS
+      AFTER  (v1.34.7): carried() on disk: PHRASE True ; the answer with its line True ; the module`s words as put True -> PASSES
+      AS WANTED
+  (next) the planted items` other lines kept in their order (item (a)`s second line, item (b)), the count unchanged
+      AFTER  (v1.34.7): items in 3, out 3 ; second line kept True ; (b) kept True -> AS WANTED
+  (next) word() unchanged: over b755`s bank and over the planted bank, the same reading at both routes
+      BEFORE (v1.34.6): BASE: b755 None ; planted (7, 'the author chose: Planted build as b999') -> (the same at both is wanted)
+      AFTER  (v1.34.7): on disk: b755 None ; planted (7, 'the author chose: Planted build as b999') -> PASSES
+      AS WANTED
+  (next) the planted folder removed after the cases
+      AFTER  (v1.34.7): removed True -> AS WANTED
+  (next) the entry`s two forms of the line ("**Next.**" and "**Next:**") over b755`s worklist NEXT (tools/b755_worklist.py :235): the ruling`s words and the bank, the full stop kept, every other line as composed
+      BEFORE (v1.34.6): BASE: entry() absent, the lines as composed ; the lines carrying PHRASE 0 of 2 -> FAILS
+      AFTER  (v1.34.7): entry() on disk: the lines carrying PHRASE and the bank 2 of 2 ; each ending in a full stop True ; the other lines unchanged True -> PASSES
+      AS WANTED
+  (next) entry() read twice equals entry() read once
+      AFTER  (v1.34.7): equal True -> AS WANTED
+  (next) b756`s own line, its worklist`s NEXT read through line(): PHRASE once, its bank, the act`s words as put
+      AFTER  (v1.34.7): the act after this one, as the author answers at the root (the answers bank): relay data/b756_author_answers.txt; as put: ((R366)(7)) the build as b757 (the four branches of the criterion kernel joined under a tag on main; T0 and T1; the cr -> AS WANTED
+  (next) b756`s record render through the template on disk: the wrapper bound once, after the act`s composition and above the main block
+      AFTER  (v1.34.7): compiles, 4673 lines ; the composition`s def at :3176 ; the wrapper`s binding at :4657 ; the wrapper`s def at :4660 ; main at :4665 -> AS WANTED
+  (next) b756`s closing render through the template on disk (closing.tpl unchanged), its item (a) through nextact`s carried()
+      AFTER  (v1.34.7): compiles, 650 lines ; carried() through nextact 1 -> AS WANTED
+
+  free 4703 MB at 2026-11-15T13:27:57Z, the hold 2560 MET
+### (n4): (R366)(1)(ii), THE WORDS THAT NAME A BANK NOT KEPT (the desk`s and the scores` N4 line, record.tpl`s _n4)
+  (n4) the N4 words over a planted data folder holding an act`s events bank and no post-seal bank: no bank for what is found after the seal named as kept
+      BEFORE (v1.34.6): BASE`s _n4: "the events bank for what is found after the seal present" (b755`s desk printed it so, data/b755_desk_notes.txt :8 holding "the events bank for what is found after the seal present" True) -> FAILS
+      AFTER  (v1.34.7): _n4 on disk: "no events bank for what is found after the seal ((R365)(2)(ii), (R366)(1)(ii): what the seat finds after the lock is printed with its times in the closing message and carried to the next corrigendum), relay data/b999_events_postseal.txt absent" -> PASSES
+      AS WANTED
+  (n4) a post-seal bank planted beside it: printed PRESENT, as a bank the act does not keep
+      AFTER  (v1.34.7): ndum), relay data/b999_events_postseal.txt PRESENT, a bank the act does not keep -> AS WANTED
+  (n4) the predicate on disk reads the post-seal bank`s path, not the act`s events bank
+      AFTER  (v1.34.7): os.path.exists(os.path.join(D, '%s_events_postseal.txt' % ACT)) -> AS WANTED
+  (n4) the planted folder removed after the cases
+      AFTER  (v1.34.7): removed True -> AS WANTED
+  (n4) b756`s record render: the desk and the scores read one _n4, its words corrected once
+      AFTER  (v1.34.7): the corrected words 1 ; BASE`s words 0 -> AS WANTED
+
+  free 4700 MB at 2026-11-15T13:27:57Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.34.6): v1.34.6 -> FAILS
+      AFTER  (v1.34.7): v1.34.7 -> PASSES
+      AS WANTED
+
+### per change: (next) 10 of 10 ; (n4) 5 of 5 ; (version) 1 of 1
+### ### **v1.34.7: CONTROLS (next), (n4), (version) ; CASES 16 ; AS WANTED 16 ; ALL AS WANTED.**

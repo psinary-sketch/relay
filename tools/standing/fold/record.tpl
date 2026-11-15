@@ -2500,7 +2500,7 @@ def _n4():
     after = [r for r in steps if sealed_at is not None and r.get('ct', 0) > sealed_at]
     wrong = [r['commit'][:8] for r in after if r.get('phase') not in POST_SEAL_PHASES]
     ra = jl('%s_root_arm.json' % ACT)
-    ev = os.path.exists(os.path.join(D, '%s_events.txt' % ACT))
+    ev = os.path.exists(os.path.join(D, '%s_events_postseal.txt' % ACT))   # ### v1.34.7, (R366)(1)(ii): the post-seal bank, which the act does not keep (before: the act's own events bank, so 'present' at every act)
     # ### (⟪RUL⟫)(4)(v), N4: every push writes its capture -- each push_gated.sh call of the seat's capture names its repository and branch, and
     # ### the tool's capture for that pair stands (the relay's data/<act>_<repo>_<branch>_push_out.txt, or the per-command capture file named)
     pushes = []
@@ -2530,12 +2530,12 @@ def _n4():
     return ('HELD' if ok else ('PENDING' if seal is None else 'REFUTED')), (
 ⟪SLOT 24⟫
         'the letters the seal records (relay data/⟪ACT⟫_seal_hashes.json) %d, the defects bank`s letters now %d, letters after the seal %s; the step '
-        'bank`s commits after the seal (relay data/⟪ACT⟫_steps.json) %d, each with a post-seal phase: %s; the events bank for what is found after the seal %s; '
+        'bank`s commits after the seal (relay data/⟪ACT⟫_steps.json) %d, each with a post-seal phase: %s; no events bank for what is found after the seal ((R365)(2)(ii), (R366)(1)(ii): what the seat finds after the lock is printed with its times in the closing message and carried to the next corrigendum), relay data/⟪ACT⟫_events_postseal.txt %s; '
         'no bank after the root (relay data/⟪ACT⟫_root_arm.json) %s; the pushes through push_gated.sh in the capture %d, each with its capture: %s, each '
         'capture printing its repository`s visibility: %s; the author`s word after the seal (relay data/⟪ACT⟫_author_words.txt) %s, printed from its bank '
         'by the closing, record and trail tools; the banks this tool wrote, by its hashes bank (relay data/⟪ACT⟫_bank_hashes.json, %d), edited by hand '
         'since: %s; the closing`s head line carrying commits read from the remotes: %s; the clauses that wait read again at `scores close`' % (
-            len(seal or []), len(now), late or 'NONE', len(after), not wrong, 'present' if ev else 'not written (none found)',
+            len(seal or []), len(now), late or 'NONE', len(after), not wrong, 'PRESENT, a bank the act does not keep' if ev else 'absent',
             ('late %s' % ra.get('late')) if ra else 'waits on the root', len(pushes), uncaptured or 'every one', unseen or 'every one',
             ('%d lines' % len(aw.rstrip(NL).split(NL))) if aw is not None else ('none received' if os.path.exists(os.path.join(D, '%s_act_root.json' % ACT)) else 'not yet composed (appended after the root by design, v1.30.0)'), len(hb or {}),
             [os.path.basename(p) for p, _w, _n in hand] or 'NONE', head_ok if head else 'waits on the closing'))
@@ -3973,6 +3973,19 @@ def span_line(act):
     last, z = _last_export(act)
     return '### THE SPAN: every roster and ledger change of %s (the last export %s`s, %s)' % (
         act, last or '### NONE', os.path.basename(z.replace('\\', '/')) if z else '### NONE')
+
+
+# ### v1.34.7, (R366)(1)(i): THE ENTRY'S LINE FOR THE ACT THAT FOLLOWS READS "as the author answers at the root (the answers bank)". The act's
+# ### composition (its own _finding_text, an act section's or the template's) is wrapped here, after every route and above the main block, so
+# ### no line an act's override keys moves: each "**Next.**" or "**Next:**" line of the entry read through tools/standing/nextact.py's entry(),
+# ### for the findings route, its dry run and every reader of the composition alike.
+from standing import nextact as NXA7   # noqa: E402
+_finding_text_composed = _finding_text
+
+
+def _finding_text():
+    t, e = _finding_text_composed()
+    return t, NXA7.entry(ACT, e, D)
 
 
 if __name__ == '__main__':
