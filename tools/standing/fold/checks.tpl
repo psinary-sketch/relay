@@ -1810,7 +1810,7 @@ ARMS_ALL = [
     ('G-NODISCLOSURE-PUBLIC', 'TECHNE-Core`s needle sets over every public byte the act writes: the ledger lines, the banks, the tools, and the workflow and module at the port branch`s new tip beside them',
      lambda S: bool(S['nd_pub']) and not any(S['nd_pub'].values()), lambda S: put(S, 'nd_pub', {'method': 1})),
     ('G-OUTSIDE-NAMED-NOWHERE', 'the ledger lines appended', lambda S: S['outside'] == [], lambda S: put(S, 'outside', ['x'])),
-    ('G-DELETE-FREE', 'the act`s tools` code, prose stripped', lambda S: no_delete(S),
+    ('G-DELETE-FREE', 'the act`s tools` code, prose stripped', lambda S: __import__('deletefree').ok(S),   # ### v1.35.2, (⟪RUL⟫)(6), carried (9): a temporary folder's cleanup set apart by the code (tools/standing/deletefree.py)
      lambda S: put(S, 'tooltext', dict(S['tooltext'], x='os' + '.remove(p)'))),
     ('G-PUBLISH-UNCALLED', 'the act`s tools` code read by the deposit route`s state (tools/standing/publishstate.py, v1.20.0, (R350)(2)(iv)): UNCALLED or METADATA EDIT, NO NEW VERSION, no PUBLISH',
      lambda S: __import__('publishstate').ok(S['tooltext']),
@@ -2268,8 +2268,10 @@ def main():
     rec('  ### THE SEALED TOOLS, recorded at the seal %s : %s' % (S['sealj'].get('at', '### NOT RECORDED'), '; '.join(
         '%s %s' % (t, ('agree' if sj.get(t) == S['sealnow'].get(t) else 'DIFFER') if t in sj else 'not recorded') for t in K.SEALED)))
     off = S['REC'].edit_route_offences(S['cmds'] + S['prev_cmds'])
-    rec('  ### G-EDIT-ROUTE read %d captured commands of this act and %d of the previous act after its post-push suite; offences %d: %s' % (
+    rec('  ### G-EDIT-ROUTE%s read %d captured commands of this act and %d of the previous act after its post-push suite; offences %d: %s' % (' (RETIRED by tools/standing/arms.py since b719 and not run: the offences a reading, no failure; v1.35.2, (R366)(6), carried (11))' if 'G-EDIT-ROUTE' in STA.RETIRED else '',
         len(S['cmds']), len(S['prev_cmds']), len(off), ['#%s %s' % (r['n'], [k for k, _ in o]) for r, o in off] or 'none'))
+    if 'G-NOTHING-RAN-AHEAD' in names:   # ### v1.35.2, (⟪RUL⟫)(6), carried (10): the arm's failure names its commits
+        rec(__import__('ranahead').line(S, (gs(ROOT, 'log', '--diff-filter=A', '--format=%H', '--', 'data/' + os.path.basename(FACE)).split() or [''])[-1]))
     mc = re.search(r'(?<!ANSWER )CITES CHECKED \d+ ; OK \d+ ; MISSES \d+', S['citation'])
     rec('  ### THE CITATION CHECK: %s' % (mc.group(0) if mc else '### NOT READ'))
 ⟪SLOT 61⟫

@@ -219,6 +219,15 @@ def write_shared(shared, relay=RELAY):
     print('  WRITTEN data/act_current.json shared_edits %s' % shared)
 
 
+def staged_shared(act, relay=RELAY):
+    """v1.35.2: the relay's staged paths under tools/ outside the act's own files, the act modules and the standing tools (act.shared_edits'
+    reading, over the index)."""
+    import subprocess
+    out = subprocess.run(['git', '-C', relay, 'diff', '--cached', '--name-only', '--', 'tools/'], capture_output=True, text=True,
+                         encoding='utf-8', errors='replace').stdout.split('\n')
+    return sorted(p for p in out if p.strip() and not p.startswith(('tools/%s_' % act, 'tools/acts/', 'tools/standing/')))
+
+
 def _shared_main(argv):
     """`amend.py shared [--write]`: act_current's shared_edits against standing.act.shared_edits over the act's commits (a shared file committed
     by a route other than a pass, a carried file among them); with --write the field written to the committed list."""
@@ -226,6 +235,8 @@ def _shared_main(argv):
     import wlist as WL
     cur = WL._cur()
     committed = A_.shared_edits(cur['act'], cur['pre_relay'])
+    if '--staged' in argv:   # ### v1.35.2, (R366)(6), b755 (o): the staged shared tools with the committed, for the one-call tool's refusal before their commit
+        committed = sorted(set(committed) | set(staged_shared(cur['act'])))
     same = sorted(cur.get('shared_edits') or []) == committed
     print('### THE SHARED EDITS ((R364)(3)(xvi)): %s act_current %s ; the committed list %s ; %s' % (cur['act'], cur.get('shared_edits'), committed,
                                                                                                    'EQUAL' if same else 'DIFFER'))

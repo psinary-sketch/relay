@@ -283,10 +283,19 @@ def control_corpus(ferry753='D:/relay/data/b753_ferry.txt', ferry754='D:/relay/d
     return ok, L
 
 
+# ### v1.35.2, (R366)(6), b755 (b) REPEAT at b756 (d): the corpus controls name FINDINGS lines fixed when they were written (:901, :904, :979,
+# ### the layer :762-:1096), and b754's re-cut (PLACE-papers 02db0b2) moved the needle off :901, so the case read the live ledger and failed at
+# ### b755 and b756 alike. The controls test the reader, not the ledger as it now stands: they read PLACE-papers at the commit they were
+# ### written against, 04fef04e, where each of the eight holds (8 of 8 there; 7 of 8 at HEAD, the two-leg case alone). The act's own read
+# ### (`read`) reads HEAD as before.
+CORPUS_PIN = '04fef04e'
+
+
 def main(argv):
     if argv[:1] == ['control']:
         ok, L = control()
-        ok2, L2 = control_corpus()
+        ok2, L2 = control_corpus(ref=CORPUS_PIN)
+        L2 = L2[:1] + ['### THE CORPUS READ AT PLACE-papers %s, THE COMMIT THE CASES WERE WRITTEN AGAINST (v1.35.2)' % CORPUS_PIN] + L2[1:]
         print('\n'.join(L + L2))
         return 0 if ok and ok2 else 1
     if argv[:1] == ['read'] and len(argv) >= 5:

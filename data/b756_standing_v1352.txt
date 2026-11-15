@@ -1,0 +1,124 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.35.2, (R366)(6): THE FAULTS REPEATED IN TWO ACTS OR MORE, THE NEXT BY COUNT (2026-11-15T17:13:01Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; no ledger line printed; the order and the counts from relay data/b756_faults.txt
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2845 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4916 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    543 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the tools before read from 7fae9822
+
+  free 6879 MB at 2026-11-15T17:13:01Z, the hold 2560 MET
+### (editroute): G-EDIT-ROUTE`S DETAIL LINE WHERE THE ARM IS RETIRED
+  (editroute) the detail line of checks.tpl (the arm in tools/standing/arms.py RETIRED: True)
+      BEFORE (v1.35.1): the line says the arm is retired: False -> FAILS
+      AFTER  (v1.35.2): the line says the arm is retired where it is: True -> PASSES
+      AS WANTED
+  (editroute) checks.tpl`s line-keyed region, to the part route`s main (the three checks.tpl changes of this version among them)
+      BEFORE (v1.35.1): :2146 -> (alike at both is wanted)
+      AFTER  (v1.35.2): :2146 -> PASSES
+      AS WANTED
+
+  free 6880 MB at 2026-11-15T17:13:01Z, the hold 2560 MET
+### (ranahead): G-NOTHING-RAN-AHEAD`S FAILURE NAMING ITS COMMITS
+  (ranahead) four planted states: the arm`s bool beside the reading`s commits (None where the arm fails before reading any)
+      BEFORE (v1.35.1): the arm alone: [('no section (0)', False), ('every commit declared', True), ('one commit undeclared', False), ('no lock time', False)] ; tools/standing/ranahead.py at BASE: False -> FAILS
+      AFTER  (v1.35.2): the reading: [('no section (0)', None), ('every commit declared', []), ('one commit undeclared', [('ccccccc3', 'b999 component 2')]), ('no lock time', None)] -> PASSES
+      AS WANTED
+  (ranahead) the suite prints the reading beside the arm (checks.tpl, after the part route`s main)
+      BEFORE (v1.35.1): printed: False -> FAILS
+      AFTER  (v1.35.2): printed where the part runs the arm: True -> PASSES
+      AS WANTED
+
+  free 6887 MB at 2026-11-15T17:13:02Z, the hold 2560 MET
+### (deletefree): G-DELETE-FREE WITH A TEMPORARY FOLDER`S CLEANUP SET APART
+  (deletefree) b756`s tools (12, tools/b756_*.py, prose stripped as the suite strips it)
+      BEFORE (v1.35.1): tools/b703_checks.py no_delete False ; the tools with a delete word ['b756_lockgate.py'] -> FAILS
+      AFTER  (v1.35.2): deletefree.ok True ; the words left counting [] ; the lock gate`s cleanup set apart ['shutil.rmtree(path, onerror=onerr)'] -> PASSES
+      AS WANTED
+  (deletefree) PLANTED: removals of a tempfile path, a function`s parameter every call passes one, a TemporaryDirectory`s name; a parameter passed a data path, a data path
+      BEFORE (v1.35.1): no_delete False ; counted ['shutil.rmtree(tmp)', 'shutil.rmtree(path)', 'os.rmdir(d)', 'os.remove(p)', "os.remove('data/y.txt')"] -> FAILS
+      AFTER  (v1.35.2): set apart ['os.rmdir(d)', 'shutil.rmtree(path)', 'shutil.rmtree(tmp)'] ; counted ['os.remove(p)', "os.remove('data/y.txt')"] -> PASSES
+      AS WANTED
+  (deletefree) a shell delete in a tool still counts (a branch`s -D, a rm -rf)
+      BEFORE (v1.35.1): no_delete False ; counted ['x.py', 'y.py'] -> (alike at both is wanted)
+      AFTER  (v1.35.2): deletefree.ok False ; counted ['x.py', 'y.py'] -> PASSES
+      AS WANTED
+  (deletefree) the arm`s own plant (checks.tpl :1814, `x` holding os.remove(p))
+      BEFORE (v1.35.1): no_delete False -> (alike at both is wanted)
+      AFTER  (v1.35.2): deletefree.ok False -> PASSES
+      AS WANTED
+  (deletefree) checks.tpl :1813 reads the arm through deletefree.ok
+      BEFORE (v1.35.1): no_delete(S) True -> FAILS
+      AFTER  (v1.35.2): deletefree.ok True -> PASSES
+      AS WANTED
+
+  free 6886 MB at 2026-11-15T17:13:02Z, the hold 2560 MET
+### (shared): A SHARED TOOL STAGED WITH act_current`s shared_edits NAMING IT
+  (shared) b755`s step-zero commit replayed (relay 9171e0e2: ['tools/mirror_prevbuild.json'] ; act_current`s shared_edits there [])
+      BEFORE (v1.35.1): the one-call tool carries the clause: False (the commit landed) -> FAILS
+      AFTER  (v1.35.2): refused: A SHARED TOOL STAGED AND NOT IN act_current`s shared_edits ((R364)(3)(xvi), b755 (o)): tools/mirror_prevbuild.json -- run `python -X utf8 -u tools/sta -> PASSES
+      AS WANTED
+  (shared) PLANTED staged sets: a shared tool named, the act`s own files, a bank, a shared tool unnamed
+      BEFORE (v1.35.1): no clause -> (alike at both is wanted)
+      AFTER  (v1.35.2): refused [('named', False), ('the act`s own', False), ('a bank', False), ('unnamed', True)] -> PASSES
+      AS WANTED
+  (shared) amend.py `shared --staged` and the run`s call of the clause
+      BEFORE (v1.35.1): staged_shared False ; run() calls False -> FAILS
+      AFTER  (v1.35.2): staged_shared True ; --staged read True ; run() calls True -> PASSES
+      AS WANTED
+
+  free 6888 MB at 2026-11-15T17:13:02Z, the hold 2560 MET
+### (subject): THE CORPUS CONTROLS READ AT THE COMMIT THEY WERE WRITTEN AGAINST
+  (subject) the corpus controls of tools/standing/subject.py
+      BEFORE (v1.35.1): read at PLACE-papers HEAD: ### THE CORPUS`S CONTROLS: 7 OF 8 AS WANTED ; NOT AS WANTED -> FAILS
+      AFTER  (v1.35.2): read at 04fef04e: ### THE CORPUS`S CONTROLS: 8 OF 8 AS WANTED ; AS WANTED ; the control route reads the pin True -> PASSES
+      AS WANTED
+
+  free 6876 MB at 2026-11-15T17:13:10Z, the hold 2560 MET
+### (scanheading): THE ADDRESS SCAN`S EXCEPTION READ FROM THE ACT`S OWN FERRY
+  (scanheading) the heading and BYLINE_FILES: a constant the carry shifts, or the act`s own ruling read at run time
+      BEFORE (v1.35.1): the heading names a ruling in its code: True -> FAILS
+      AFTER  (v1.35.2): the heading names none in its code: True ; the three ferries read [('b754', ('R364', True)), ('b755', ('R365', False)), ('b756', ('R366', False))] -> PASSES
+      AS WANTED
+
+  free 6875 MB at 2026-11-15T17:13:10Z, the hold 2560 MET
+### (gitwrite): THE ONE-CALL TOOL`S RUN READ BY ITS INTERPRETER`S FLAGS, A POWERSHELL BLOCK READ PAST
+  (gitwrite) b754 (b`): a compile of the tool (data/b754_defects.txt :36)
+      BEFORE (v1.35.1): a run: True -> FAILS
+      AFTER  (v1.35.2): a run: False -> PASSES
+      AS WANTED
+  (gitwrite) b754 (n`): a run inside a PowerShell block (data/b754_defects.txt :135-:137)
+      BEFORE (v1.35.1): a run: False -> FAILS
+      AFTER  (v1.35.2): a run: True -> PASSES
+      AS WANTED
+  (gitwrite) the forms that are runs: bash after the flag read, PowerShell`s quoted interpreter, bare python, the delete route
+      BEFORE (v1.35.1): [True, True, True, True] -> (alike at both is wanted)
+      AFTER  (v1.35.2): [True, True, True, True] -> PASSES
+      AS WANTED
+  (gitwrite) a read naming the tool (peek.py over commit.py)
+      BEFORE (v1.35.1): a run: True -> FAILS
+      AFTER  (v1.35.2): a run: False -> PASSES
+      AS WANTED
+  (gitwrite) the pattern stands in gitwrite.py as written (tools/standing/v1340.py`s delread control asks it there)
+      BEFORE (v1.35.1): True -> (alike at both is wanted)
+      AFTER  (v1.35.2): True -> PASSES
+      AS WANTED
+
+  free 6875 MB at 2026-11-15T17:13:10Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.35.1): v1.35.1 -> FAILS
+      AFTER  (v1.35.2): v1.35.2 -> PASSES
+      AS WANTED
+
+### per change: (editroute) 2 of 2 ; (ranahead) 2 of 2 ; (deletefree) 5 of 5 ; (shared) 3 of 3 ; (subject) 1 of 1 ; (scanheading) 1 of 1 ; (gitwrite) 5 of 5 ; (version) 1 of 1
+### ### **v1.35.2: CONTROLS (editroute), (ranahead), (deletefree), (shared), (subject), (scanheading), (gitwrite), (version) ; CASES 20 ; AS WANTED 20 ; ALL AS WANTED.**

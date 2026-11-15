@@ -552,6 +552,28 @@ def version_refusal(names, head_version, staged_version):
     return None
 
 
+def shared_refusal(act, names, listed):
+    """v1.35.2, (R366)(6), b755 (o) REPEAT b754 (c') REPEAT b753 (v'), 3 acts by data/b756_faults.txt: None, or the refusal, for a relay commit
+    staging a shared tool (under tools/, outside tools/<act>_*, tools/acts/ and tools/standing/: standing.act.shared_edits' reading) that
+    data/act_current.json's shared_edits as staged (`listed`) does not name. b753, b754 and b755 each committed tools/mirror_prevbuild.json at
+    step zero and left the field unwritten, and G-ACT-CURRENT failed on that clause at the act part's probe. Pure; the caller reads the list."""
+    sh = [n for n in names or () if n.startswith('tools/') and not n.startswith(('tools/%s_' % act, 'tools/acts/', 'tools/standing/'))]
+    miss = [n for n in sh if n not in set(listed or ())]
+    if not miss:
+        return None
+    return ('A SHARED TOOL STAGED AND NOT IN act_current`s shared_edits ((R364)(3)(xvi), b755 (o)): %s -- run `python -X utf8 -u '
+            'tools/standing/amend.py shared --staged --write`, then stage data/act_current.json beside it (the add its own message)' % ', '.join(miss))
+
+
+def staged_shared_refusal(repo, act, names):
+    """v1.35.2: shared_refusal over the index, act_current's shared_edits read as staged (`git show :data/act_current.json`)."""
+    try:
+        listed = json.loads(_git(repo, 'show', ':data/act_current.json').stdout or '{}').get('shared_edits') or []
+    except ValueError:
+        listed = []
+    return shared_refusal(act, names, listed)
+
+
 def staged_version_refusal(repo, names=None):
     """v1.34.0, (R364)(3)(vi): version_refusal over `repo`'s staged set (read from the index where `names` is None), HEAD's VERSION against
     the index's. The one reading run() and the controls' replay on a scratch clone both call."""
@@ -632,6 +654,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
             raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.34.0, (R364)(3)(vi): VERSION moves with every standing change
             bad = staged_version_refusal(repo, names)
+            if bad:
+                raise Refused(bad)
+        if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.35.2, (R366)(6), b755 (o): a shared tool with act_current's shared_edits naming it
+            bad = staged_shared_refusal(repo, act, names)
             if bad:
                 raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)

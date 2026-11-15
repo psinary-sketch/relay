@@ -31,7 +31,14 @@ RUNS_GATED = re.compile(r'^\s*(?:(?:bash|sh)\s+)?\S*push_gated\.sh\b')
 # ### b753 defect (i), (R363)-amendment (1): commands() blanks quoted strings, so PowerShell's `& "C:\...\python.exe" ... commit.py` reached
 # ### this matcher as `& "" ... commit.py` and was no run of the tool: every PowerShell-form call was no write to the hook (no ledger state
 # ### filed) and no record of itself to commit.py's one-call check (an older bare-python record or none). The blanked interpreter is admitted.
-RUNS_COMMIT = re.compile(r'^\s*(?:&\s*)?(?:(?:\S*python\S*|"")\s+(?:\S+\s+)*?)?\S*standing[/\\]commit\.py(?:\s|$)')
+RUNS_COMMIT_V121 = re.compile(r'^\s*(?:&\s*)?(?:(?:\S*python\S*|"")\s+(?:\S+\s+)*?)?\S*standing[/\\]commit\.py(?:\s|$)')   # ### as it stood to v1.35.1, for the controls
+# ### v1.35.2, (R366)(6), the carried faults (1) and (2) of relay data/b755_carried_faults.txt (b754 (b') REPEAT the class of b753 (s'); b754 (n')
+# ### REPEAT b753 (i)): (1) the matcher took any argument before the tool's path for the interpreter's own, so `python -X utf8 -u -m py_compile
+# ### tools/standing/commit.py` (a compile, no write) and a reader's script naming the tool read as its run; now only the interpreter's flags may
+# ### stand between the interpreter and the path. (2) a run inside a PowerShell block, `if ($?) { python ... commit.py ... }`, opened its segment
+# ### with the block and was no write; a segment's leading block openers are read past.
+# ### one literal, so the pattern stands in this source as written (tools/standing/v1340.py's delread control asks it here)
+RUNS_COMMIT = re.compile(r'^\s*(?:(?:if|elseif|while)\s*\([^)]*\)\s*\{\s*|try\s*\{\s*|\{\s*|\}\s*)*(?:&\s*)?(?:(?:\S*python\S*|"")\s+(?:-[XW]\s*\S+\s+|-[uIBOEsSqbdv]+\s+)*)?\S*standing[/\\]commit\.py(?:\s|$)')
 
 
 def commands(cmd):
