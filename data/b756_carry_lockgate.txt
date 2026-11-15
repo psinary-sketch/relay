@@ -1,0 +1,50 @@
+b756 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b755_lockgate.py -> tools/b756_lockgate.py (2026-11-15T13:30:45Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b755 -> b756, b754 -> b755, R365 -> R366, R364 -> R365); 150 lines, 15 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b755_tool_repairs.txt AND data/b755_repairdiff_lockgate.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b755; the seat reads this diff`s hunks alone
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b755_lockgate.py
+  +++ tools/b756_lockgate.py
+  @@ -2,5 +2,5 @@
+  -"""tools/b755_lockgate.py -- b755: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, (R365)(2)(i) (data/b755_ferry.txt :11): carried from
+  -tools/b754_lockgate.py by tools/standing/carry.py (data/b755_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  -(r'') and the author's answer data/b754_put_11.json, option 2, "Lock gate and census stopped" (2026-11-14T10:23:59.652Z, data/b754_author_answers.txt
+  -:192). ### b755, the carry's note: the substitution b754 -> b755 alone; the citations of b754's banks it moved set back to b754 by the Edit tool
+  -before any run (:2-:5 here, the ferry's :42 at :11, the usage at :22-:23, the notes at :102-:103), and N2 named under (R365) (:20).
+  +"""tools/b756_lockgate.py -- b756: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, (R366)(2)(i) (data/b756_ferry.txt :11): carried from
+  +tools/b755_lockgate.py by tools/standing/carry.py (data/b756_carry_lockgate.txt) and committed before it runs. b755's lift, from b755's defect
+  +(r'') and the author's answer data/b755_put_11.json, option 2, "Lock gate and census stopped" (2026-11-14T10:23:59.652Z, data/b755_author_answers.txt
+  +:192). ### b756, the carry's note: the substitution b755 -> b756 alone; the citations of b755's banks it moved set back to b755 by the Edit tool
+  +before any run (:2-:5 here, the ferry's :42 at :11, the usage at :22-:23, the notes at :102-:103), and N2 named under (R366) (:20).
+  @@ -10,2 +10,2 @@
+  -"THE HANDOFF COUNT STOPPED by (R364)(5)[H1] (a)") in place of "TOTAL MISSING : 0": (R364)(5)[H1] passed as (a), "the close's count against
+  -the page stops" (data/b754_ferry.txt :42), and the census tool prints no total. The gate keeps its index, so b378's own fixtures, which plant
+  +"THE HANDOFF COUNT STOPPED by (R365)(5)[H1] (a)") in place of "TOTAL MISSING : 0": (R365)(5)[H1] passed as (a), "the close's count against
+  +the page stops" (data/b755_ferry.txt :42), and the census tool prints no total. The gate keeps its index, so b378's own fixtures, which plant
+  @@ -20,1 +20,1 @@
+  -committed before its run ((R365) N2, each generator commits before it runs).
+  +committed before its run ((R366) N2, each generator commits before it runs).
+  @@ -22,2 +22,2 @@
+  -  python -X utf8 -u tools/b755_lockgate.py controls b755 <face>
+  -  python -X utf8 -u tools/b755_lockgate.py b755 <face>
+  +  python -X utf8 -u tools/b756_lockgate.py controls b756 <face>
+  +  python -X utf8 -u tools/b756_lockgate.py b756 <face>
+  @@ -40,1 +40,1 @@
+  -ACT = 'b755'
+  +ACT = 'b756'
+  @@ -83,1 +83,1 @@
+  -    tmp = tempfile.mkdtemp(prefix='b755lg_')
+  +    tmp = tempfile.mkdtemp(prefix='b756lg_')
+  @@ -102,2 +102,2 @@
+  -    L = ['  ### (R365)(2)(i), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  -         '  ### data/b754_author_answers.txt :192): b378`s gate %d, %s (data/%s), takes "%s" as its pass in place of "%s";' % (
+  +    L = ['  ### (R366)(2)(i), b755`S LIFT CARRIED (data/b755_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  +         '  ### data/b755_author_answers.txt :192): b378`s gate %d, %s (data/%s), takes "%s" as its pass in place of "%s";' % (
+  @@ -129,1 +129,1 @@
+  -        print('usage: b755_lockgate.py [controls] b755 <face> -- this act`s tool, for b755 alone; nothing read, nothing written')
+  +        print('usage: b756_lockgate.py [controls] b756 <face> -- this act`s tool, for b756 alone; nothing read, nothing written')
+
+### ### **CARRIED tools/b756_lockgate.py ; LINES 150 ; CHANGED BY THE SUBSTITUTION 15 ; REPAIR SPANS AT b755 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
