@@ -67,4 +67,13 @@ def control_at_build(zip_path, build, repo='pp', files=None):
     the source head its MANIFEST declares -- read in the zip against its blob at `build`; never a carried reference and not only the files
     the act edited. The record tool's mirror bank calls this (its mbank route), so the repair reaches the route that writes the bank."""
     import roster as RO
-    return control(zip_path, None, build, repo, files=RO.roster_at(build) if files is None else files, ref=build)
+    c = control(zip_path, None, build, repo, files=RO.roster_at(build) if files is None else files, ref=build)
+    # ### v1.35.3, (R366)(6), [H1]'s held part: where the MANIFEST declares the second source, each of its entries read against the relay's
+    # ### blob at the commit the line names, as the roster's files are read against PLACE-papers' (an earlier build declares none: unchanged)
+    z = zipfile.ZipFile(zip_path)
+    man = z.read('MANIFEST.md').decode('utf-8-sig', 'replace') if 'MANIFEST.md' in z.namelist() else ''
+    m = RO.SECOND_LINE.search(man)
+    if files is None and m:
+        s = control(zip_path, None, m.group(1), 'relay', files=RO.second_paths(RO.second_declared(man)), ref=m.group(1))
+        c = dict(c, rows=c['rows'] + s['rows'], ok=c['ok'] and s['ok'])
+    return c

@@ -104,8 +104,9 @@ def regenerate(act, ruling, face, rows=None, relay=RELAY):
 # ### bank, and writes act_current's shared_edits line as standing.act.shared_edits will read it after the pass's commit -- all before the
 # ### write, in the step the commit closes. It refuses where a path beyond the list already stands written (the write before its row).
 #
-#   python -X utf8 -u tools/standing/amend.py pass <item> <word_at> <word_cite> <path> [<path> ...] [--write]
-#     <item> e.g. [M1]; <word_at> the author's word's UTC time; <word_cite> the bank and line holding it; a <path> as the (W) table writes it
+#   python -X utf8 -u tools/standing/amend.py pass <item> <word_at> <word_cite> <path> [<path> ...] [--under=<n>] [--write]
+#     <item> e.g. [M1]; <word_at> the author's word's UTC time; <word_cite> the bank and line holding it; a <path> as the (W) table writes it;
+#     --under the ruling's clause ordering the item (v1.35.3; 5 where it is not given)
 #     (relay/..., PLACE-papers/..., SIDE-x/..., a bare path the relay's). Dry without --write: the plan printed, nothing written.
 SHARED_LINE = re.compile(r'^ "shared_edits": \[[^\n]*\](,?)$', re.M)
 PP = 'D:/MY-DOwnloads/PLACE-papers'
@@ -122,10 +123,12 @@ def beyond(paths, pats):
     return out
 
 
-def pass_row(ruling, item, word_at, word_cite, widen, at):
-    """the amendment row the item's route banks: no words of its own (the author's word stands at word_cite), widening to `widen`."""
-    return dict(at=at, clause='(%s)(5)%s passed on the author`s word (%s, %s): the item`s writes beyond the (W) list, banked by the item`s route '
-                              'before the write ((R364)(3)(xvi))' % (ruling, item, word_at, word_cite),
+def pass_row(ruling, item, word_at, word_cite, widen, at, under='5'):
+    """the amendment row the item's route banks: no words of its own (the author's word stands at word_cite), widening to `widen`.
+    v1.35.3, b756: `under` the ruling's clause that orders the item (`--under=<n>`; 5 as before), so an item a ruling orders under another
+    clause (b756: [H1]'s held part under (R366)(6)) is not written into the row as (5)'s."""
+    return dict(at=at, clause='(%s)(%s)%s passed on the author`s word (%s, %s): the item`s writes beyond the (W) list, banked by the item`s route '
+                              'before the write ((R364)(3)(xvi))' % (ruling, under, item, word_at, word_cite),
                 session=None, transcript_line=None, words='', word_at=word_at, word_cite=word_cite, widens=list(widen), narrows=[],
                 by='tools/standing/amend.py pass')
 
@@ -155,11 +158,11 @@ def written(p, relay=RELAY, pp=PP):
     return os.path.exists(os.path.join(top, *rel.split('/')))
 
 
-def plan(act, ruling, item, word_at, word_cite, paths, pats, committed, at, landed=written):
+def plan(act, ruling, item, word_at, word_cite, paths, pats, committed, at, landed=written, under='5'):
     """the route's plan, pure but for `landed`: dict(beyond, landed, row or None, shared, refused)."""
     bey = beyond(paths, pats)
     lan = [p for p in bey if landed(p)]
-    return dict(beyond=bey, landed=lan, row=pass_row(ruling, item, word_at, word_cite, bey, at) if bey else None,
+    return dict(beyond=bey, landed=lan, row=pass_row(ruling, item, word_at, word_cite, bey, at, under) if bey else None,
                 shared=shared_after(act, committed, paths), refused=bool(lan))
 
 
@@ -168,17 +171,18 @@ def _pass_main(argv):
     import act as A_
     import wlist as WL
     write = '--write' in argv
-    a = [x for x in argv if x != '--write']
+    under = next((x.split('=', 1)[1] for x in argv if x.startswith('--under=')), '5')   # ### v1.35.3: the ruling's clause ordering the item
+    a = [x for x in argv if x != '--write' and not x.startswith('--under=')]
     if len(a) < 4:
-        sys.exit('usage: amend.py pass <item> <word_at> <word_cite> <path> [<path> ...] [--write]')
+        sys.exit('usage: amend.py pass <item> <word_at> <word_cite> <path> [<path> ...] [--under=<n>] [--write]')
     item, word_at, word_cite, paths = a[0], a[1], a[2], a[3:]
     cur = WL._cur()
     act, ruling = cur['act'], cur.get('ruling') or ''
     pats, src, _s = WL.patterns(act)
     committed = A_.shared_edits(act, cur['pre_relay'])
     at = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
-    P = plan(act, ruling, item, word_at, word_cite, paths, pats, committed, at)
-    print('### THE ITEM`S ROUTE ((R364)(3)(xvi)): %s %s, the author`s word %s (%s) ; %s' % (act, item, word_at, word_cite, 'WRITE' if write else 'DRY, nothing written'))
+    P = plan(act, ruling, item, word_at, word_cite, paths, pats, committed, at, under=under)
+    print('### THE ITEM`S ROUTE ((R364)(3)(xvi)): %s (%s)%s, the author`s word %s (%s) ; %s' % (act, under, item, word_at, word_cite, 'WRITE' if write else 'DRY, nothing written'))
     print('  the paths %d: %s' % (len(paths), ' '.join(paths)))
     print('  the (W) list (%s, %d patterns) covers all but: %s' % (src, len(pats), ', '.join(P['beyond']) or 'none'))
     print('  shared_edits: as it stands %s ; the committed list %s ; after the pass %s' % (cur.get('shared_edits'), committed, P['shared']))

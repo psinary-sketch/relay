@@ -209,8 +209,12 @@ def main(zpath, remote, branch='main'):
         print("  ### CLAUSE 3 : HARD FAILURE -- THE DECLARED SOURCE HEAD %s IS NOT A COMMIT OF PLACE-papers" % declared)
         c3, rmsg = False, []
     else:
-        c3, rmsg = clause3(names, paths=SR.roster_at(full),
-                           source='the builder`s roster, tools/standing/roster.py roster_at(%s), PLACE-papers by family' % full[:12])
+        # ### b756, v1.35.3, (R366)(6), [H1]'s held part: the second source read beside the roster where the MANIFEST declares it (an
+        # ### earlier build declares none and is read as it was built); a declared source that is not the roster tool's reads MISSING or EXTRA
+        sec = SR.second_declared(man)
+        c3, rmsg = clause3(names, paths=SR.roster_at(full) + SR.second_paths(sec),
+                           source='the builder`s roster, tools/standing/roster.py roster_at(%s), PLACE-papers by family%s' % (
+                               full[:12], '' if sec is None else ' ; the second source the MANIFEST declares, the relay`s %s' % ', '.join(SR.second_paths(sec))))
     for line in rmsg:
         print(line)
 

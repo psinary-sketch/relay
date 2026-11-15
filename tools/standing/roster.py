@@ -16,6 +16,8 @@ for the author's ruling. The excluded archive kinds, the flat names and MANIFEST
   python -X utf8 tools/standing/roster.py control    the rule's controls, record and constructed; prints
   python -X utf8 tools/standing/roster.py bank       print's lines and the controls, banked as data/<act>_roster.txt
   python -X utf8 tools/standing/roster.py project [<rev>]   the Project set's lines for the builder's MANIFEST (v1.34.5, rules (14)-(16))
+  python -X utf8 tools/standing/roster.py second <stage>    the second source copied into the builder's stage, its rows and line as JSON
+                                                            (v1.35.3, (R366)(6), [H1]'s held part: the relay's HANDOFF.md)
 
 v1.34.5, (R364)(5)[M2], passed by the author 2026-11-13 at the put relay data/b754_put_7.json (data/b754_author_answers.txt :153; the
 rules data/b754_rules.txt (13)-(17)). (a) THE CURRENT EDITION, rule (13): from b754's mirror on, each family the roster carries is
@@ -233,6 +235,9 @@ def project(rev='main', act=None, with_cuts=True):
             continue
         seen.add(q)
         rows.append((q, size_at(rev, q), ('the current edition of %s' % p if q != p else 'in the archive') if q in rr else '### NOT IN THE ARCHIVE'))
+    if act_number(act) >= SECOND_FROM:   # ### v1.35.3, (R366)(6), [H1]'s held part: the relay's page, by the second source
+        for p, b in second_rows():
+            rows.append((p, len(b), 'in the archive by the second source, the relay`s HEAD ([H1], (R366)(6))'))
     by_b = sum(b for _n, b, _w in rows if b)
     fig, meta, cut_rows = [], {}, []
     if with_cuts:
@@ -403,7 +408,75 @@ def control_lines():
     return out, all(res)
 
 
+# ================================================================================ v1.35.3, (R366)(6), [H1]'s held part, b756
+# ### [H1] passed as (a) at b754 (relay data/b754_author_answers.txt :131; data/b754_events.txt (31)): the handoff page joins the archive's
+# ### roster and the Project set. The roster is read from PLACE-papers' tree alone and the builder copied from PLACE-papers alone, so the
+# ### relay's page could not join: the part was held at the [M2] put and carried ("the relay's HANDOFF.md in the archive and the Project set
+# ### by a second source", data/b754_rules.txt :107-:108), and (R366)(6) orders it at b756. THE SECOND SOURCE: the relay paths below, each
+# ### read as the blob at the relay's HEAD (the committed page, LF, as tools/standing/handoff.py writes it, not a working copy the host may
+# ### convert), copied by the builder after the roster's files under the builder's own flat-name rule, declared on one MANIFEST line under
+# ### the source line, and read by the verifier's clause 3 beside the roster where the MANIFEST declares it; a build that declares none
+# ### (every build before b756's) is read as it was built. The Project set carries the page from b756's build on.
+SECOND = ('HANDOFF.md',)   # ### relay paths
+SECOND_FROM = 756
+SECOND_LINE = re.compile(r'^Second source: the relay at commit ([0-9a-f]{7,40}) \(its HEAD\): (.+?)\.\s*$', re.M)
+HEADVER = re.compile(r'\bv\d+(\.\d+)+')   # ### the builder's version read over a file's first 20 lines (tools/mirror_build.ps1 :72-:76)
+
+
+def second_rows(rev='HEAD'):
+    """[(path, bytes)] of the second source at the relay's `rev`; a path the relay does not hold there refuses, nothing copied."""
+    out = []
+    for p in SECOND:
+        b = A.git('relay', 'show', '%s:%s' % (rev, p))
+        if b is None:
+            raise SystemExit('### THE SECOND SOURCE`S %s IS NOT AT THE RELAY`S %s -- NOTHING COPIED' % (p, rev))
+        out.append((p, b))
+    return out
+
+
+def second_line(head, paths=SECOND):
+    return 'Second source: the relay at commit %s (its HEAD): %s.' % (head, ', '.join(paths))
+
+
+def second_declared(man):
+    """the paths a MANIFEST declares from the second source, or None where it declares none."""
+    m = SECOND_LINE.search(man or '')
+    return [x.strip() for x in m.group(2).split(',')] if m else None
+
+
+def second_paths(declared):
+    """the paths clause 3 reads beside the roster: the second source's where the MANIFEST declares one, else none (an earlier build)."""
+    return list(SECOND) if declared is not None else []
+
+
+def second_copy(stage, rev='HEAD'):
+    """copy the second source into the builder's stage, every name checked before any file is written; its MANIFEST rows and line."""
+    import hashlib
+    taken = set(os.listdir(stage))
+    rows, plan = [], []
+    for p, b in second_rows(rev):
+        leaf = p.split('/')[-1]
+        parent = p.split('/')[-2] if '/' in p else ''
+        if leaf in taken and parent:
+            leaf = parent + '__' + leaf
+        if leaf in taken:
+            raise SystemExit('### ROSTER COLLISION unresolved for the second source`s %s -> %s -- NOTHING COPIED' % (p, leaf))
+        taken.add(leaf)
+        text = b.decode('utf-8', 'replace').replace('\r', '').split(NL)[:20]
+        ver = next((m.group(0) for m in (HEADVER.search(l) for l in text) if m), '-')
+        plan.append((leaf, b, dict(file=leaf, bytes=len(b), md5=hashlib.md5(b).hexdigest().lower(), version=ver,
+                                   commit=A.gs('relay', 'log', '-1', '--format=%h %ad', '--date=short', rev, '--', p) or '-')))
+    for leaf, b, row in plan:
+        with open(os.path.join(stage, leaf), 'wb') as f:
+            f.write(b)
+        rows.append(row)
+    return dict(rows=rows, line=second_line(A.gs('relay', 'rev-parse', '--short', rev), SECOND))
+
+
 def main(route, rev='main'):
+    if route == 'second':   # ### v1.35.3: `roster.py second <stage>`, for the builder
+        print(json.dumps(second_copy(rev)))
+        return 0
     if route == 'project':
         print(NL.join(project_lines(rev)))
         return 0

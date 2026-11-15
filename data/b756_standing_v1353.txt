@@ -1,0 +1,93 @@
+b756 -- THE CONTROLS OF tools/standing/ v1.35.3, (R366)(6): [H1]`S HELD PART, THE HANDOFF PAGE IN THE ARCHIVE (2026-11-15T17:29:07Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; no ledger line printed; no build run and no zip written beside the mirror
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2845 lines
+  citation render          OK    563 lines
+  closing render           OK    650 lines
+  record render            OK    4916 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    492 lines
+  report render            OK    189 lines
+  tools/b756_worklist.py   OK    543 lines
+### THE COMPILE CONTROL : b756 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the tools before read from aadd9d2d
+
+  free 6893 MB at 2026-11-15T17:29:08Z, the hold 2560 MET
+### (second): THE RELAY`S PAGE COPIED INTO THE BUILDER`S STAGE BY tools/standing/roster.py
+  (second) a stage holding one roster file; the relay`s HANDOFF.md at HEAD aadd9d2d (16148 bytes, md5 4d14514dfde2)
+      BEFORE (v1.35.2): roster.py carries a second source: False -> FAILS
+      AFTER  (v1.35.3): staged equal to the blob True ; row {'file': 'HANDOFF.md', 'bytes': 16148, 'version': 'v1.34.6', 'commit': '99e8a2c6 2026-11-14'} ; line 'Second source: the relay at commit aadd9d2d (its HEAD): HANDOFF.md.' -> PASSES
+      AS WANTED
+  (second) a stage already holding HANDOFF.md at the root (no parent to disambiguate): refused, the planted file kept
+      BEFORE (v1.35.2): the builder`s own collision rule (tools/mirror_build.ps1 :65-:67) -> (alike at both is wanted)
+      AFTER  (v1.35.3): refused True (### ROSTER COLLISION unresolved for the second source`s HANDOFF.md -> HANDOFF.md -- NOTHIN) ; the planted file kept True -> PASSES
+      AS WANTED
+  (second) the line read back, and the verifier`s source-head matcher (tools/mirror_verify.py HEAD) over a MANIFEST carrying it
+      BEFORE (v1.35.2): no line -> (alike at both is wanted)
+      AFTER  (v1.35.3): declared ['HANDOFF.md'] ; the head matcher reads 1234abc ; over the line alone None -> PASSES
+      AS WANTED
+
+  free 6890 MB at 2026-11-15T17:29:08Z, the hold 2560 MET
+### (builder): THE BUILDER`S SECOND SOURCE (tools/mirror_build.ps1)
+  (builder) PowerShell`s own parser over the builder
+      BEFORE (v1.35.2): parse errors 0 -> (alike at both is wanted)
+      AFTER  (v1.35.3): parse errors 0 -> PASSES
+      AS WANTED
+  (builder) the new block run alone by PowerShell into a temporary stage (the lines from `$secondJson = ` to its loop`s close)
+      BEFORE (v1.35.2): the builder calls `roster.py second`: False -> FAILS
+      AFTER  (v1.35.3): block found True ; printed 'ROWS 1 HANDOFF.md 16148 4d14514dfde2f1132bdcd05182d63c34 | LINE Second source: the relay at commit aadd9d2d (its HEAD): HANDOFF.md.' ; the staged page equal to the blob True -> PASSES
+      AS WANTED
+  (builder) the line declared under the source line, the rows before the table
+      BEFORE (v1.35.2): declared: False -> FAILS
+      AFTER  (v1.35.3): declared after the source line: True -> PASSES
+      AS WANTED
+  (builder) the byte-order mark (PowerShell 5.1 reads a file without one in the host`s codepage)
+      BEFORE (v1.35.2): BOM True -> (alike at both is wanted)
+      AFTER  (v1.35.3): BOM True -> PASSES
+      AS WANTED
+
+  free 6893 MB at 2026-11-15T17:29:09Z, the hold 2560 MET
+### (verify): CLAUSE 3 WITH THE SECOND SOURCE DECLARED (tools/mirror_verify.py)
+  (verify) an export carrying the roster at main and the page (84 names)
+      BEFORE (v1.35.2): clause 3 over the roster alone: CLEAN False -> FAILS
+      AFTER  (v1.35.3): declared: CLEAN True ; declared, the page missing: CLEAN False ; not declared, the page carried: CLEAN False ; main reads the declaration True -> PASSES
+      AS WANTED
+  (verify) b755`s export (83 files) at its source head 9011a848e56b, read as it was built
+      BEFORE (v1.35.2): clause 3 CLEAN True -> (alike at both is wanted)
+      AFTER  (v1.35.3): the second source declared None ; clause 3 CLEAN True -> PASSES
+      AS WANTED
+
+  free 6877 MB at 2026-11-15T17:29:14Z, the hold 2560 MET
+### (manifest): THE MANIFEST CONTROL READS THE PAGE AGAINST THE RELAY`S BLOB (tools/standing/manifest.py control_at_build)
+  (manifest) planted exports of the roster at PLACE-papers HEAD 3b45826d (83 files, flat-named as the builder names them) with the page; the page equal, altered, or carried with no line declared
+      BEFORE (v1.35.2): BASE`s control over the export with the page altered: ok True, the page`s row NONE -> FAILS
+      AFTER  (v1.35.3): the roster`s rows AS WANTED 83 of 83 ; the page equal: row ['AS WANTED'], ok True ; altered: row ['NOT AS WANTED'], ok False ; not declared: the page`s row NONE, ok True -> PASSES
+      AS WANTED
+
+  free 6882 MB at 2026-11-15T17:29:32Z, the hold 2560 MET
+### (project): THE PROJECT SET CARRIES THE PAGE FROM b756
+  (project) roster.py project at main, for b756 and for b755 (the cuts apart)
+      BEFORE (v1.35.2): the set carries the page: False -> FAILS
+      AFTER  (v1.35.3): b756 row ('HANDOFF.md', 16148) ; b755 rows with the page 0 ; the totals 5792447 and 5776299, their difference 16148 against the blob`s 16148 -> PASSES
+      AS WANTED
+
+  free 6873 MB at 2026-11-15T17:29:36Z, the hold 2560 MET
+### (amend): THE ITEM ROUTE`S ROW NAMES THE CLAUSE ORDERING THE ITEM
+  (amend) pass_row and the banked row 1 of data/b756_amendments.json
+      BEFORE (v1.35.2): the clause fixed at (5): True -> FAILS
+      AFTER  (v1.35.3): under 6: '(R366)(6)[H1] passed on the ' ; by default: '(R366)(5)[X] passed on the ' ; row 1: '(R366)(6)[H1] passed on the ' widening ['relay/tools/mirror_build.ps1', 'relay/tools/mirror_verify.py'] -> PASSES
+      AS WANTED
+
+  free 6872 MB at 2026-11-15T17:29:37Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.35.2): v1.35.2 -> FAILS
+      AFTER  (v1.35.3): v1.35.3 -> PASSES
+      AS WANTED
+
+### per change: (second) 3 of 3 ; (builder) 4 of 4 ; (verify) 2 of 2 ; (manifest) 1 of 1 ; (project) 1 of 1 ; (amend) 1 of 1 ; (version) 1 of 1
+### ### **v1.35.3: CONTROLS (second), (builder), (verify), (manifest), (project), (amend), (version) ; CASES 13 ; AS WANTED 13 ; ALL AS WANTED.**

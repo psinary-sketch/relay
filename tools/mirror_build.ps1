@@ -77,11 +77,22 @@ foreach ($r in $rel) {
   $lc = (git -C $repo log -1 --format='%h %ad' --date=short -- $r).Trim()
   $rows += [pscustomobject]@{ file = $leaf; bytes = $bytes; md5 = $md5; version = $ver; commit = $lc }
 }
+# ### b756, v1.35.3, (R366)(6), [H1]'s held part (relay data/b754_rules.txt :107-:108): THE SECOND SOURCE, the relay's HANDOFF.md,
+# ### copied into the stage after the roster's files by tools\standing\roster.py second (the blob at the relay's HEAD, under this
+# ### builder's flat-name rule, every name checked before any file is written), its rows added to the table and its line declared
+# ### under the source line; tools\mirror_verify.py's clause 3 reads it beside the roster where the MANIFEST declares it.
+$secondJson = (& python -X utf8 $rosterTool second $stage) -join "`n"
+if ($LASTEXITCODE -ne 0) { throw "THE SECOND SOURCE WAS NOT COPIED ($rosterTool second $stage, exit $LASTEXITCODE). Refusing to build." }
+$second = $secondJson | ConvertFrom-Json
+foreach ($s in $second.rows) {
+  $rows += [pscustomobject]@{ file = $s.file; bytes = $s.bytes; md5 = $s.md5; version = $s.version; commit = $s.commit }
+}
 
 $man = @()
 $man += "# MANIFEST - mirror-refresh-$DateTag"
 $man += ""
 $man += "Source: PLACE-papers @ ``$head`` (main). Export $DateTag. $($rows.Count) files flat."
+$man += $second.line
 # ---- roster-CHANGE line, DERIVED at build time (never authored, never carried forward) ----
 # The PREVIOUS BUILD'S STAGED-NAME LIST is stored beside this script in
 # mirror_prevbuild.json; the line below diffs it against the staged names THIS build
