@@ -38,10 +38,17 @@ FIXES = (   # ### b756: the (W) list is (R366)(7)'s, where b755's was (R365)(8)'
 # ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
 DECLARED = ('G-AXIOM-CLAIM', 'G-RESEARCH-REPRODUCES', 'G-DELETES-ONE-BRANCH', 'G-LISTINGS-BEFORE-CLAUSES')
 DECLARED_LINES = (
-    "### PROVISIONAL: set from tools/standing/prelock.py print b756 before the face is written.",
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :21); its predicate (tools/b649_checks.py :452, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b755 carried it.",
+    "### `G-RESEARCH-REPRODUCES` reads tools/research/reproduce.py`s full run banked at the act (data/b756_reproduce.txt and .json), which stand absent: the run calls rows that compute at a field (the Epstein control`s I-54, I-80, I-81, I-82 and I-85, and the class groups of I-106), which (R366)(8) and N1 bar; neither the run nor a part of it was run, a part being no run the arm reads, so the arm fails on the absent bank (data/b756_events.txt (29); the probe of standing-a2 :56).",
+    "### `G-DELETES-ONE-BRANCH` fails on its kept clause (the probe of the act part :26, read clause by clause): tools/standing/allow.py kept_clause reads the ruling`s kept clause in its three forms (:124-:126), and (R366) carries none of them (kept_clause '' and kept_names [] at b756); its delete clause ((R366)(7), data/b756_ferry.txt :32) names the push-b755-* branches, read as allowed ['push-b755-*'], and its (8) (:34) keeps every kernel branch in words the reader does not read. The five deletes read each one branch, no glob, no variable, nothing chained after, each allowed, port-b707 not among them; widening the reader`s forms is a version`s change that (R366) does not order, and the arm is not among (R366)(6)`s faults by count (data/b756_faults.txt), so it is declared and carried, as at b755.",
+    "### `G-LISTINGS-BEFORE-CLAUSES` takes the time of the first captured shell command that carries `branch ... --merged` (tools/acts/b756.py :438, the needle carried from b754`s module) and reads none: step zero`s listing was printed at 12:56:04Z, before the first delete (12:56:11Z), by a scratch reader that called the git listing within itself (data/b756_stepzero.txt :62-:64); a listing run now would follow the deletes, and the needle is not widened to read a scratch file the capture does not hold (data/b756_defects.txt (i); the probe of the act part :27).",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter ((R366)(1)(ii)).",
 )
-NEWLY = ()
-# ### FINAL: set from tools/standing/prelock.py print b756 after the record routes and the ten prev-mode dry parts
+NEWLY = ('G-CLOSING-DRY-STEP', 'G-DRY-STEP-CLEAN', 'G-LISTINGS-BEFORE-CLAUSES', 'G-LOCKGATE-EIGHT', 'G-NOTHING-RAN-AHEAD', 'G-RESEARCH-REPRODUCES',
+         'G-ROOTDRY-READY', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS')
+# ### FINAL: tools/standing/prelock.py print b756 at 21:51:43Z (30 failing, 9 newly), after the record routes, the ten prev-mode dry
+# ### parts (the last, the act part, at 21:33:03Z) and the probes of standing-a1, standing-a2 and the act part at one HEAD (33aba1af); at
+# ### 21:36:17Z, the probes of standing-a2 and the act part taken before the record routes, it read 35 failing and 14 newly
 
 
 def shift(s):

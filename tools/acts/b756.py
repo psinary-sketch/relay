@@ -2061,7 +2061,9 @@ def _runs3_line():
 
 
 def _finding_text_b755_body():
-    """b755's paragraphs over b755's objects, kept for the record and not called (b756, Component 6)."""
+    """b755's paragraphs over b755's objects, kept for the record and not called (b756, Component 6): held as text, their names b755's
+    locals, which the gate's report dry (tools/standing/reportdry.py unbound) read as live unbound globals beside _finding_text's own (defect (j))."""
+    return r"""
     e = [
          'The coefficient law at class number 3, H-C3-LAW, read at its registration`s blob (relay data/b753_registrations.txt at `%s`), %s at %d of its %d fields, refuted at %d and not scorable at %d, its control rows -23 and -31 %s and %s, every row read through %d over exact rational arithmetic; the three least split primes the principal form does not represent stood as each row`s at %d of %d, and a cubic of the second route agreed with the form`s own enumeration at %d of %d with %d mismatches (relay data/b756_walk.txt). %s of the navigator`s candidates were reproduced from their statements alone, each by the seat`s generator committed before its run, and %s planted errors each failed as wanted (relay data/b756_candidates.txt). At -59, where no value of the Epstein zeta function had been read before the two rules and the list of roots were committed, the certified list to height %s located %d zeros on the line and %d off-line pairs, the largest real part among them %s (relay data/b756_list_59.txt): H-ZEROS-FROM-PRIMES %s, %d zeros of real part at least 0.85 against %d listed roots%s; H-RECURRENCE %s, S = %d of %d pairs against the largest of %d draws, %d (relay data/b756_zeros_from_primes_59.txt, data/b756_recur_59.txt). No sentence here says why either verdict fell as it did. Nothing was built.' % (
              K.REG_WALK[1], 'held' if f['wk_refuted'] == 0 and f['wk_unscorable'] == 0 else 'read', f['wk_held'], f['wk_of'], f['wk_refuted'], f['wk_unscorable'],
@@ -2133,6 +2135,7 @@ def _finding_text_b755_body():
          '*Nothing here is a statement that RH, GRH or Weil positivity on classK holds or fails, or about the zeros of zeta.*', '',
          _integ_line(f), '']
     return _title(), NL.join(e)
+"""
 
 
 def _finding_text_b755():
