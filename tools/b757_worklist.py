@@ -403,7 +403,7 @@ GENS = (('the controls tool', 'tools/b757_controls.py', ('f41d1af9', 'bdb1cb8a',
         ('the ceiling after Component 3', 'tools/b757_ceiling.py', ('7ed046aa',), 'data/b757_ceiling.txt', 'f75eee21'),
         ('REGISTRY`s header line', 'tools/b757_registry_line.py', ('676bc193',), 'data/b757_registry_line.txt', 'c98beed0'),
         ('the two descriptions', 'tools/b757_doors.py', ('2bc7eca8',), 'data/b757_doors.txt', 'c98beed0'),
-        ('the gh calls from inside a tool', 'tools/b757_ghcalls.py', ('7e678d5a',), 'data/b757_ghcalls.txt', 'c98beed0'),
+        ('the gh calls from inside a tool', 'tools/b757_ghcalls.py', ('7e678d5a', '983d3021'), 'data/b757_ghcalls.txt', '214cfd3c'),   # ### defect (z): repaired 983d3021, re-banked 214cfd3c
         ('the sweep of (9)', 'tools/b757_sweep.py', ('88f8e89b', '0004ac11'), 'data/b757_sweep.txt', '2bda8e8f'),
         ('the answers bank cut', 'tools/b757_cut.py', ('2bda8e8f',), 'data/b757_cut.txt', '31c53852'),
         ('the notes of (9)', 'tools/b757_notes.py', ('0243d123',), 'data/b757_notes.json', 'c92fca81'))
@@ -417,14 +417,14 @@ CHAIN = (('c1', 'a8a02f38'), ('corr', '858b906f'), ('standing', '26ac811e'), ('l
          ('controls', '7e30d538'), ('t0_rows', 'a7d8ceee'), ('t0_read', 'a1b36dbc'), ('mod24_rows', 'c3f73580'), ('ceiling_gen', '7ed046aa'),
          ('ceiling', 'f75eee21'), ('wide_gen', '9a8a2230'), ('registry_gen', '676bc193'), ('doors_gen', '2bc7eca8'), ('ghcalls_gen', '7e678d5a'),
          ('c5', 'c98beed0'), ('v1355', 'e0428564'), ('sweep_gen', '88f8e89b'), ('sweep_fix', '0004ac11'), ('sweep', '2bda8e8f'), ('cut', '31c53852'),
-         ('notes_gen', '0243d123'), ('notes', 'c92fca81'), ('c6', '0dcd941d'))
+         ('notes_gen', '0243d123'), ('notes', 'c92fca81'), ('c6', '0dcd941d'), ('ghcalls_fix', '983d3021'), ('ghcalls', '214cfd3c'))
 PP_CHAIN = (('c1pp', '810ec2da'), ('pp_registry', '3e85e952'), ('pp_a', 'e88282c4'), ('pp_b', 'c7dfe43c'), ('pp_c', '9c0896c5'), ('pp_d', 'c45be6e0'),
             ('pp_e', 'b14256c2'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
 TIME_ORDER = ('actcur', 'stepzero', 'c1', 'c1pp', 'corr', 'standing', 'live', 'controls_gen', 'join_gen', 'join_fix', 'readme_gen', 'join_fix2', 'join',
               'controls_fix', 'rows1', 'controls_fix2', 'outcomes_gen', 'outcomes1', 'controls', 't0_rows', 't0_read', 'mod24_rows', 'ceiling_gen', 'ceiling',
               'wide_gen', 'registry_gen', 'pp_registry', 'doors_gen', 'ghcalls_gen', 'c5', 'v1355', 'sweep_gen', 'sweep_fix', 'sweep', 'cut', 'notes_gen',
-              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes', 'c6')
+              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes', 'c6', 'ghcalls_fix', 'ghcalls')
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.35.4', '26ac811e', 'data/b757_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b757_standing_v1355.txt', 6))
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)

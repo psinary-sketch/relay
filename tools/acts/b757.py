@@ -558,7 +558,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxy'))   # ### b757: the seat's rows of data/b757_defects.txt as the template's reader takes them, (a) to (y), each THE SEAT'S, as the face's (xiii) reads them at the seal; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstuvwxyz'))   # ### b757: the seat's rows of data/b757_defects.txt as the template's reader takes them, (a) to (z), each THE SEAT'S, as the face's (xiii) reads them at the seal; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b757_corrigendum.txt', 'data/b757_price.txt', 'data/b757_standing_v1354.txt', 'data/b757_standing_v1354_live.txt',
@@ -2216,7 +2216,7 @@ def _guard(f):
             '(2) (4)`s test, an axioms line for each line of the joined print_targets.txt, not to be met as written at two lines whose names the workflow`s grammar refuses at any tip (relay data/b757_defects.txt (l), data/b730_defects.txt :23); '
             '(3) (9)`s words for W-ORD-KEIPER-FACE, written for the join compiled, quoted whole as the ruling`s with keiper-b725 standing unjoined at 01fd33c2 beside them; and W-ORD-SQUARES-AT-24 entered with its trigger, its price read as none banked, no bank pricing it and the ruling giving no figure (PLACE-papers OPEN_TRAILS.md :18493, :18503; relay data/b757_events.txt (26)); '
             '(4) Components 4 and 5 begun while Component 3`s runs stood on the runner, before the ceiling`s read after it, the read when banked carrying nothing (relay data/b757_defects.txt (n), data/b757_ceiling.txt); '
-            '(5) the taught reader of (8)(iii) reading this act`s own capture only at the close, its bank written before the commands route (relay data/b757_ghcalls.txt :15); and the 123 relay lines among the cites (9)(a)`s insertion moves not read by hand, their figure the reader`s, an upper bound (relay data/b757_notes_moved.txt, data/b757_events.txt (26)); '
+            '(5) the taught reader of (8)(iii), first banked before the commands route over b756`s banks alone, read this act`s own capture before the gate: as first written it took a path a command names as a run and its own planted words as a sender, and repaired it reads (8)(v)`s two sends alone (relay data/b757_defects.txt (z), data/b757_ghcalls.txt :16-:20); and the 123 relay lines among the cites (9)(a)`s insertion moves not read by hand, their figure the reader`s, an upper bound (relay data/b757_notes_moved.txt, data/b757_events.txt (26)); '
             +
             '(6) %s and the seat’s %s defect%s as lettered' % (
 #⟪END⟫
