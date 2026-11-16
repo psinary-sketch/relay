@@ -3,3 +3,4 @@
 2026-11-16T10:39:39Z | READ | Read | "D:\\relay\\tools\\acts\\b757.py" | a Read call with limit 207, above 200
 2026-11-16T10:55:07Z | READ | Read | "C:\\Users\\ECHOCH~1\\AppData\\Local\\Temp\\claude\\0fa2f3b7e932577a\\11d67961-2aa4-4353-bc12-a982038bfa55\\scratchpad\\render_b757_record.py" | a Read call with limit 205, above 200
 2026-11-16T11:17:26Z | PIPE | Bash | "git ls-files \"*chain.py\" && ls \"C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/11d67961-2aa4-4353-bc12-a982038bfa55/scratchpad/\" | grep -c . ; date -u +%FT%TZ" | a Bash command carrying a pipe outside quotes
+2026-11-16T19:35:51Z | PIPE | PowerShell | "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 12 Name, Id, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, StartTime | Format-Table -AutoSize | Out-String -Width 200; $os = Get-CimInstance Win32_OperatingSystem; \"free MB: \" + [int]($os.FreePhysicalMemory/1024)" | a PowerShell command carrying a pipe outside quotes
