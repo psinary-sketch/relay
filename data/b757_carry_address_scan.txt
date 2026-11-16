@@ -1,0 +1,58 @@
+b757 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b756_address_scan.py -> tools/b757_address_scan.py (2026-11-16T04:35:34Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b756 -> b757, b755 -> b756, R366 -> R367, R365 -> R366); 300 lines, 17 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b756_tool_repairs.txt AND data/b756_repairdiff_address_scan.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b756; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b756_address_scan.py
+  +++ tools/b757_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b756_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b756 (data/b756_carry_address_scan.txt), its carry-time repairs and the author's word at b756's Component 1 marked ### b756.
+  -### b756, the carry's note: this file is tools/b755_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b756_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b755's file) kept; the comment notes it shifted
+  -### (b755's and b753's carry notes, here :7-:12) set back by the Edit tool to b755's text before any run.
+  -### b755, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b755_carry_address_scan.txt);
+  +"""b757_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b757 (data/b757_carry_address_scan.txt), its carry-time repairs and the author's word at b757's Component 1 marked ### b757.
+  +### b757, the carry's note: this file is tools/b756_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b757_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b756's file) kept; the comment notes it shifted
+  +### (b756's and b753's carry notes, here :7-:12) set back by the Edit tool to b756's text before any run.
+  +### b756, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b756_carry_address_scan.txt);
+  @@ -68,1 +68,1 @@
+  -                  --bank writes data/b756_address_scan.txt.
+  +                  --bank writes data/b757_address_scan.txt.
+  @@ -84,1 +84,1 @@
+  -import b756_worklist as K   # noqa: E402
+  +import b757_worklist as K   # noqa: E402
+  @@ -86,1 +86,1 @@
+  -ACT = 'b756'
+  +ACT = 'b757'
+  @@ -156,2 +156,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b756_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b756_kernel_bases.json'), encoding='utf-8')).items()))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b757_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b757_kernel_bases.json'), encoding='utf-8')).items()))
+  @@ -161,2 +161,2 @@
+  -def ruling_byline(act='b756'):
+  -    """### b756, (R366)(6), b755 (e) REPEAT at b756 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  +def ruling_byline(act='b757'):
+  +    """### b757, (R367)(6), b756 (e) REPEAT at b757 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  @@ -165,1 +165,1 @@
+  -    exception under its own ruling's name until the seat set it by hand (b755 at 19:12:57Z, b756 at 13:02Z)."""
+  +    exception under its own ruling's name until the seat set it by hand (b756 at 19:12:57Z, b757 at 13:02Z)."""
+  @@ -174,1 +174,1 @@
+  -BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md') if BYLINE_HELD else ()   # ### b755's tuple where the act's N5 holds the exception; else none, each added line of the two files counted as any other (b756 defect (b))
+  +BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md') if BYLINE_HELD else ()   # ### b756's tuple where the act's N5 holds the exception; else none, each added line of the two files counted as any other (b757 defect (b))
+  @@ -272,1 +272,1 @@
+  -        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b755 (e), b756 (b))' % RULING_N5),
+  +        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b756 (e), b757 (b))' % RULING_N5),
+  @@ -298,1 +298,1 @@
+  -        sys.exit('usage: b756_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b757_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b757_address_scan.py ; LINES 300 ; CHANGED BY THE SUBSTITUTION 17 ; REPAIR SPANS AT b756 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
