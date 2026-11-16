@@ -27,7 +27,10 @@ THE PLACE-papers LINES are printed by path, line and the sha256 of the line (16 
 data/b754_rules.txt (7), (8)); a template's line, the relay's own, in its words.
 THE CONTROLS, printed before the figures: (i) each shape fires on its statement written as a constructed line; (ii) a planted needle in no
 file reads no hit over the scope; (iii) each statement found by its shapes at a line the seat read as carrying it; (iv) the four documents
-of (9) stand in the scope; (v) the docstrings of EpsteinZQ.lean read at the tag v0.38's peel and at (R367)(4)(i)'s commit on push-b757-join.
+of (9) stand in the scope; (v) the docstrings of EpsteinZQ.lean read at the tag v0.38's peel and at (R367)(4)(i)'s commit on push-b757-join:
+(4)(i)'s two sentences naming the theorems absent at the peel and present at the commit, the words "stated, not proved" equal at both ((4)(i):
+"no statement changing"), the commit no ancestor of main. Its first form wanted the words gone at the commit; the dry run of 10:10:43Z read 4
+and 4 and the control was corrected to (4)(i)'s own order before this tool's second commit.
 
   python -X utf8 -u tools/b757_sweep.py dry       the controls and every hit printed, nothing written
   python -X utf8 -u tools/b757_sweep.py run       the same, banked as data/b757_sweep.txt and .json
@@ -150,8 +153,8 @@ REST = {
 # ### LINES READ BY HAND BEYOND THE SHAPES: (path, line, statement, says it, reading)
 BEYOND = [
     (EPS, 69, '1', False, 'reports the docstring at the tag v0.38 calling each field of ZQPremises "stated, not proved" (EpsteinZQ.lean :133-:136) '
-                          'and gives section 3 for what holds at Z_Q0; true of the tag; (R367)(4)(i)`s edit of that docstring stands at 6f2d7e26 on '
-                          'push-b757-join, unmerged (control (v))'),
+                          'and gives section 3 for what holds at Z_Q0; true of the tag; (R367)(4)(i)`s sentence naming zq_premises, beside those words, '
+                          'stands at 6f2d7e26 on push-b757-join, unmerged (control (v))'),
 ]
 PLANTED = 'zz-b757-planted-needle-in-no-file'
 LEDGER_STEMS = ('FINDINGS', 'REGISTRY', 'OPEN_TRAILS', 'SPIRAL_MAP', 'VERIFICATION_LOOM', 'ERRATA', 'INSTRUMENTS', 'THE_KEYSTONE_CENSUS', 'README')
@@ -208,8 +211,12 @@ def digest(l):
     return hashlib.sha256(l.encode('utf-8')).hexdigest()[:16]
 
 
+NAMED = ('is proved by `zq_explicitFormula`', 'proved together by `zq_premises`')   # ### (4)(i)'s two sentences, as 6f2d7e26 writes them
+
+
 def docstrings():
-    """(v): "stated, not proved" counted in EpsteinZQ.lean at the tag v0.38's peel and at (R367)(4)(i)'s commit, read from the kernel's objects."""
+    """(v): in EpsteinZQ.lean, at the tag v0.38's peel and at (R367)(4)(i)'s commit, read from the kernel's objects: (4)(i)'s two sentences naming
+    the theorem that proves each field, and the words "stated, not proved", which (4)(i) keeps ("no statement changing"); the commit's place."""
     try:
         from standing import commit as NEW
         ef = NEW.KERNELS['SIDE-explicit-formula']
@@ -218,11 +225,13 @@ def docstrings():
     out = {}
     for c in (V038, EDIT_I):
         rc, txt = g(ef, 'show', '%s:%s' % (c, EZQ))
-        out[c] = txt.count('stated, not proved') if rc == 0 else None
+        out[c] = (sum(txt.count(s) for s in NAMED), txt.count('stated, not proved')) if rc == 0 else (None, None)
     br = g(ef, 'branch', '--contains', EDIT_I, '--format=%(refname:short)')[1].split()
     on_main = g(ef, 'merge-base', '--is-ancestor', EDIT_I, '8fbab45d')[0] == 0
-    return out, 'EpsteinZQ.lean "stated, not proved": at %s (v0.38`s peel) %s ; at %s ((4)(i) on push-b757-join) %s ; %s on the local branches %s ; an ancestor of main 8fbab45d %s' % (
-        V038, out.get(V038), EDIT_I, out.get(EDIT_I), EDIT_I, br or 'NONE', on_main)
+    out['main'] = on_main
+    return out, ('EpsteinZQ.lean, (4)(i)`s two sentences naming zq_explicitFormula and zq_premises / the words "stated, not proved": at %s (v0.38`s '
+                 'peel) %s / %s ; at %s ((4)(i) on push-b757-join) %s / %s ; %s on the local branches %s ; an ancestor of main 8fbab45d %s') % (
+        V038, out[V038][0], out[V038][1], EDIT_I, out[EDIT_I][0], out[EDIT_I][1], EDIT_I, br or 'NONE', on_main)
 
 
 def takes(r):
@@ -259,7 +268,8 @@ def read(write=False):
                   bool(got) and bool(HAND.get((p, k, st['id']), (False,))[0])))
     C.append(('(iv) the documents of (9)', 'standing in the scope: %s' % ', '.join('%s %s' % (v, p) for p, v in NINE.items()), all(p in by for p in NINE)))
     dv, dline = docstrings()
-    C.append(('(v) the docstrings', dline, bool(dv) and (dv.get(V038) or 0) > 0 and dv.get(EDIT_I) == 0))
+    C.append(('(v) the docstrings', dline, bool(dv) and dv[V038][0] == 0 and dv[EDIT_I][0] == 2 and (dv[V038][1] or 0) > 0
+              and dv[EDIT_I][1] == dv[V038][1] and dv['main'] is False))
     L = ['%s -- COMPONENT 6: (R367)(9)`S SWEEP BY (R366)(2)(b), THE THREE STATEMENTS THIS ACT NAMES (%s, tools/b757_sweep.py)' % (
              ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### the scope: the roster`s current editions (tools/standing/roster.py json) at PLACE-papers HEAD %s, tracked changes %d; every file under '
