@@ -1,0 +1,26 @@
+{
+ "act": "b757",
+ "at": "2026-11-16T16:13:25Z",
+ "composed": "check_hand over each question, entry_unbacked over each option",
+ "questions": [
+  {
+   "question": "b757 has stopped at its commit boundary, relay 093d17f8 (16:12:02Z), under (R364)(3)(xxi). The restart flag read absent at 16:06:56Z; RebootPending was written at 16:06:58Z (data/b757_events.txt :443) and read set at 16:08:18Z, and the (W) bank ran after that STOP because the seat's flag reader exited 0 on it (defect (y), the reader now repaired). The key then cleared with no restart: read absent at 16:10:34Z, the last boot unchanged at 2026-11-12T18:38:29Z (data/b757_events.txt :452). Done before the stop: the scores dry, the command bank, the trail dry, the ten prev-mode dry parts, the three probes and the pre-lock comparison, 9 arms newly failing, 2 of them declared on the face. Not yet done: one line of the face blocks, the face, reg_gate, the gate banks and commits, the root dry and the lock. The relay stands 49 commits and PLACE-papers 7 past their remotes, none pushed. How should the act go on?",
+   "header": "(xxi) flag",
+   "multiSelect": false,
+   "options": [
+    {
+     "label": "Go on in this session (Recommended)",
+     "description": "The key cleared on its own and no restart is pending. The seat goes on from relay 093d17f8: the face blocks' line and its (W) bank, the scores dry again from the committed module, the face, reg_gate, the gate banks and commits, the root dry and the lock, reading the flag before every route and commit; a STOP now halts the route chained after it, and a key set again stops the seat at the next commit boundary as here."
+    },
+    {
+     "label": "Restart now, then resume",
+     "description": "You restart the machine and open a new session with your word. The seat runs the controls owed after a change of session ((R364)(3)(xix)) and the restatement, then goes on from relay 093d17f8 as in the first option. Every bank of the act through the boundary is committed; the record banks not yet committed (the scores dry, the command bank, the prev-mode dry parts) stand on disk for the gate's commits."
+    },
+    {
+     "label": "Go on through the lock, then restart",
+     "description": "The seat goes on in this session through the gate and the lock as in the first option, then stops at the lock's commit for a restart before the pre-run's ten suite parts and the root, the act's longest routes."
+    }
+   ]
+  }
+ ]
+}
