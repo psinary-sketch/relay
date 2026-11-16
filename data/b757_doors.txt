@@ -1,0 +1,34 @@
+b757 -- (R367)(8)(v): THE TWO DESCRIPTIONS, SENT BY gh AS PASSED, EACH READ BACK (2026-11-16T09:46:37Z)
+
+### written by tools/b757_doors.py bank; the passed texts cut from the ferry bank; the descriptions read by gh from each clone (the description field alone); a description is a repository setting, nothing of a kernel`s tree written
+
+## THE CONTROLS FIRST: 4 of 4 AS WANTED
+    the cut over a planted clause: each door`s quoted text, the curly apostrophe kept -> AS WANTED
+    a clause naming one door twice: that door not cut -> AS WANTED
+    a clause naming neither door: nothing cut -> AS WANTED
+    the scrub: an API address and an <owner>/<door> path cut, the server`s words kept -> AS WANTED
+
+## THE PASSED TEXTS, CUT FROM THE FERRY BANK (data/b757_ferry.txt, the line opening '(8) FIVE REPAIRS')
+  PLACE-papers: 302 characters (the ruling`s figure 302: EQUAL) ; digest 24f8dc85c2aa5821 ; within the server`s 350
+    THE TEXT: Manuscripts, ledgers and registry of the PLACE TO STAND research programme: a criterion for the Riemann Hypothesis proved in Lean 4, the unconditional results around it, the RH-adjacent work, and Phase 2 in other domains (formation calculus, cognition, method, physics and cosmology, error correction).
+  SIDE-kernel: 328 characters (the ruling`s figure 328: EQUAL) ; digest 1a3208e4fb6cfb33 ; within the server`s 350
+    THE TEXT: Lean 4 kernel (PLACE TO STAND): the logical structure of the programme’s approach to the Riemann Hypothesis -- route terminals (ConservationBridge.riemann_hypothesis on its named premise, which is RH restated; spectral_cannon) and the E-Difficulty SieveCeiling subsystem. The criterion itself is proved in SIDE-explicit-formula.
+
+## THE TWO DESCRIPTIONS, READ BY gh (one call each, from the clone; the description field alone)
+  PLACE-papers: gh exit 0 ; 302 characters ; digest 24f8dc85c2aa5821 ; EQUAL TO THE PASSED TEXT True
+    CURRENT: Manuscripts, ledgers and registry of the PLACE TO STAND research programme: a criterion for the Riemann Hypothesis proved in Lean 4, the unconditional results around it, the RH-adjacent work, and Phase 2 in other domains (formation calculus, cognition, method, physics and cosmology, error correction).
+  SIDE-kernel: gh exit 0 ; 328 characters ; digest 1a3208e4fb6cfb33 ; EQUAL TO THE PASSED TEXT True
+    CURRENT: Lean 4 kernel (PLACE TO STAND): the logical structure of the programme’s approach to the Riemann Hypothesis -- route terminals (ConservationBridge.riemann_hypothesis on its named premise, which is RH restated; spectral_cannon) and the E-Difficulty SieveCeiling subsystem. The criterion itself is proved in SIDE-explicit-formula.
+
+## EVERY gh CALL THIS TOOL MADE (data/b757_doors_rows.json)
+  2026-11-16T09:46:00Z READ PLACE-papers: gh repo view exit 0 ; 284 characters, digest aef5613fbac3bc70 (the read mode)
+  2026-11-16T09:46:01Z READ SIDE-kernel: gh repo view exit 0 ; 309 characters, digest f341ac0b5a564d3b (the read mode)
+  2026-11-16T09:46:12Z READ PLACE-papers: gh repo view exit 0 ; 284 characters, digest aef5613fbac3bc70 (before the send)
+  2026-11-16T09:46:13Z EDIT PLACE-papers: gh repo edit --description exit 0 ; before digest aef5613fbac3bc70 ; the passed text digest 24f8dc85c2aa5821, 302 characters
+  2026-11-16T09:46:14Z READ PLACE-papers: gh repo view exit 0 ; 302 characters, digest 24f8dc85c2aa5821 (the read-back after the send)
+  2026-11-16T09:46:25Z READ SIDE-kernel: gh repo view exit 0 ; 309 characters, digest f341ac0b5a564d3b (before the send)
+  2026-11-16T09:46:25Z EDIT SIDE-kernel: gh repo edit --description exit 0 ; before digest f341ac0b5a564d3b ; the passed text digest 1a3208e4fb6cfb33, 328 characters
+  2026-11-16T09:46:26Z READ SIDE-kernel: gh repo view exit 0 ; 328 characters, digest 1a3208e4fb6cfb33 (the read-back after the send)
+  2026-11-16T09:46:36Z READ PLACE-papers: gh repo view exit 0 ; 302 characters, digest 24f8dc85c2aa5821 (the bank`s read)
+  2026-11-16T09:46:36Z READ SIDE-kernel: gh repo view exit 0 ; 328 characters, digest 1a3208e4fb6cfb33 (the bank`s read)
+### ### **(8)(v): CONTROLS AS WANTED ; SENT 2 OF 2 (EDIT CALLS 2) ; READ BACK EQUAL TO THE PASSED TEXT 2 OF 2 (PLACE-papers, SIDE-kernel).**
