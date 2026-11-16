@@ -123,6 +123,15 @@ def tip_refusal(full, heads):
     return None if at else 'the commit %s is no remote branch`s tip of the forms main, zq-b730, push-b757-* (push it by tools/push_gated.sh first)' % full[:8]
 
 
+def module_files(repo, sha):
+    """the tree's files at sha, with each file under a lean_lib's srcDir (lakefile.toml at sha) also named relative to it, as Lake names its
+    module (b722's carry-time repair, data/b722_tool_repairs.txt row (1)); for standing.dispatchrows.targets_refused."""
+    tree = DR.tree_files(repo, sha)
+    toml = git(repo, 'show', '%s:lakefile.toml' % sha)
+    sds = [s.rstrip('/') for s in re.findall(r'^srcDir\s*=\s*"([^"]+)"', toml, re.M)]
+    return tree + [f[len(sd) + 1:] for sd in sds for f in tree if f.startswith(sd + '/')]
+
+
 def axioms_of(text):
     """{name: (axioms...)} from a #print axioms output; a wrapped line read whole; () for a name depending on none."""
     out = {}
@@ -174,7 +183,7 @@ def cmd_dispatch(k, sha, n, item, *rest):
     why = tip_refusal(full, heads)
     if why:
         sys.exit('### NOT DISPATCHED: %s' % why)
-    bad = DR.targets_refused(target, DR.tree_files(kd['path'], full))
+    bad = DR.targets_refused(target, module_files(kd['path'], full))
     if bad or not target:
         sys.exit('### NOT DISPATCHED: targets not modules of the tree at %s: %s' % (full[:8], bad or 'NONE GIVEN'))
     try:
@@ -359,10 +368,13 @@ def controls():
         slug, owner = remote(k)
         rm[k] = (mask(slug, owner), bool(owner) and owner not in mask('https://github.com/%s/x/actions/runs/1' % slug, owner))
     c('each kernel`s remote read from its own config, printed masked', rm, all(v[0].startswith('<account>/') and v[1] for v in rm.values()))
-    tree = DR.tree_files(KERNELS['ef']['path'], K.EF_BASE)
+    tree = module_files(KERNELS['ef']['path'], K.EF_BASE)
     t1 = DR.targets_refused('SIDEExplicitFormula.Schema.Detector', tree)
     t2 = DR.targets_refused('SIDEExplicitFormula.Schema.NoSuchModule', tree)
-    c('targets at main 8fbab45d: a module taken, a name with no file refused', (t1, len(t2)), t1 == [] and len(t2) == 1)
+    t3 = DR.targets_refused('Lc.LiCriterion.ReverseDirection', tree)
+    t4 = DR.targets_refused('Lc.LiCriterion.ReverseDirection', DR.tree_files(KERNELS['ef']['path'], K.EF_BASE))
+    c('targets at main 8fbab45d: a module taken, a name with no file refused, a vendored module under its srcDir taken (refused by the tree '
+      'alone)', (t1, len(t2), t3, len(t4)), t1 == [] and len(t2) == 1 and t3 == [] and len(t4) == 1)
     heads = [('a' * 40, 'refs/heads/push-b757-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
     tp = (tip_refusal('a' * 40, heads), bool(tip_refusal('b' * 40, heads)), tip_refusal('c' * 40, heads), bool(tip_refusal('d' * 40, heads)), bool(tip_refusal('', heads)))
     c('the remote tip: a push-b757-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))

@@ -144,30 +144,87 @@ def _esc(s):
     return ''.join('\\' + ch if ch in '.^$*+?()[]{}|\\' else ch for ch in s)
 
 
-def module_of(path):
-    return path[:-5].replace('/', '.') if path.endswith('.lean') else None
+# ### the first reader (as committed at relay da4fcbcd) kept a candidate file where the name's namespace began with any namespace the file
+# ### opened, and read the default library alone: at push-b757-join 0cc23db8 it resolved 399 of 419 names and refused 20 (no declaration 1,
+# ### the vendored LiCriterion.positivity_implies_RH; more than one module 19). This reader reads the namespace at each declaration by the
+# ### file's namespace, section and end lines outside comments, and names a module as Lake does, relative to its library's srcDir.
+FIRST_READER = 'relay da4fcbcd: resolved 399 of 419, refused 20 (no declaration 1, more than one module 19)'
+NS_OPEN = re.compile(r'^\s*namespace\s+([A-Za-z0-9_.\x27]+)\s*$')
+SEC_OPEN = re.compile(r'^\s*(?:noncomputable\s+)?section\b')
+MUT_OPEN = re.compile(r'^\s*mutual\s*$')
+END = re.compile(r'^\s*end\b(?:\s+[A-Za-z0-9_.\x27]+)?\s*(?:--.*)?$')
+
+
+def libs_at(rev):
+    """[(prefix, srcDir or '')]: each lean_lib of lakefile.toml at rev -- its srcDir, or the roots of its globs where it has none."""
+    toml = g('show', '%s:lakefile.toml' % rev)
+    out = []
+    for blk in re.split(r'^\[\[', toml, flags=re.M)[1:]:
+        if not blk.startswith('lean_lib]]'):
+            continue
+        sd = re.search(r'^srcDir\s*=\s*"([^"]+)"', blk, re.M)
+        if sd:
+            out.append((sd.group(1).rstrip('/') + '/', sd.group(1).rstrip('/')))
+            continue
+        gl = re.search(r'^globs\s*=\s*\[([^\]]*)\]', blk, re.M)
+        for x in re.findall(r'"([^"]+)"', gl.group(1) if gl else ''):
+            out.append((re.sub(r'\.[+*]$', '', x).replace('.', '/') + '/', ''))
+    return out
+
+
+def module_of(path, libs=None):
+    if not path.endswith('.lean'):
+        return None
+    for pre, sd in libs or ():
+        if path.startswith(pre):
+            return (path[len(sd) + 1:] if sd else path)[:-5].replace('/', '.')
+    return None if libs else path[:-5].replace('/', '.')
+
+
+def decls_in(text, short):
+    """the full names of the declarations of `short` in a Lean file: the namespace at each read by the namespace, section, mutual and end
+    lines outside block comments (nested /- -/ counted); `_root_.` honoured; a dotted declaration name taken whole."""
+    stack, out, depth = [], [], 0
+    pat = re.compile(DECL % _esc(short))
+    for l in text.split(NL):
+        if depth == 0:
+            m = NS_OPEN.match(l)
+            if m:
+                stack.append(m.group(1).split('.'))
+            elif MUT_OPEN.match(l) or SEC_OPEN.match(l):
+                stack.append([])
+            elif END.match(l):
+                if stack:
+                    stack.pop()
+            else:
+                d = pat.match(l)
+                if d:
+                    pre = (d.group(5) or '').rstrip('.')
+                    ns = [c for grp in stack for c in grp]
+                    if pre.startswith('_root_'):
+                        ns, pre = [], pre[len('_root_'):].lstrip('.')
+                    out.append('.'.join(ns + ([pre] if pre else []) + [short]))
+        depth = max(0, depth + l.count('/-') - l.count('-/'))
+    return out
 
 
 def targets_at(rev=JOIN):
-    """{name: (module or None, [candidate modules], why)} for each line of print_targets.txt at rev."""
+    """{name: (module or None, [candidate modules], why)} for each line of print_targets.txt at rev: a module whose file declares the full name."""
     names = lines_at(rev) or []
-    libs = ('SIDEExplicitFormula/', 'Zeta23/')
-    out = {}
+    libs = libs_at(rev)
+    texts, out = {}, {}
     for n in names:
-        parts = n.split('.')
-        short, ns = parts[-1], '.'.join(parts[:-1])
+        short = n.split('.')[-1]
         hit = g('grep', '-n', '-E', '-e', DECL % _esc(short), rev, '--', '*.lean')
         files = sorted(set(h.split(':', 2)[1] for h in hit.split(NL) if h.count(':') >= 2))
-        files = [f for f in files if f.startswith(libs)]
-        if len(files) > 1:
-            keep = []
-            for f in files:
-                txt = g('show', '%s:%s' % (rev, f))
-                opened = re.findall(r'^namespace +(\S+)', txt, re.M)
-                if any(ns == o or ns.endswith('.' + o) or o.endswith(ns) or ns.startswith(o + '.') for o in opened) or (ns and module_of(f).startswith(ns)):
-                    keep.append(f)
-            files = keep if keep else files
-        mods = [module_of(f) for f in files]
+        files = [f for f in files if module_of(f, libs)]
+        mods = []
+        for f in files:
+            if f not in texts:
+                texts[f] = g('show', '%s:%s' % (rev, f))
+            if n in decls_in(texts[f], short):
+                mods.append(module_of(f, libs))
+        mods = sorted(set(mods))
         out[n] = (mods[0] if len(mods) == 1 else None, mods, 'one' if len(mods) == 1 else 'NO DECLARATION FOUND' if not mods else 'MORE THAN ONE MODULE')
     return out
 
@@ -222,6 +279,16 @@ def controls():
                                                                                                   ('foo', '-- theorem foo'))],
       [bool(re.search(DECL % _esc(x), y)) for x, y in (('foo', 'theorem foo : True'), ('foo', 'private lemma foo (h : x)'), ('foo', 'theorem foobar : True'),
                                                         ('bar', 'theorem Foo.bar : True'), ('foo', '-- theorem foo'))] == [True, True, False, True, False])
+    planted = NL.join(['namespace A.B', '/- namespace X', 'end -/', 'theorem foo : True := trivial', 'section', 'namespace C', 'lemma foo : 1 = 1 := rfl',
+                       'end C', 'end', 'theorem D.foo : True := trivial', 'theorem _root_.foo : True := trivial', 'end A.B', '-- theorem foo', 'def foo := 0'])
+    got = decls_in(planted, 'foo')
+    c('the namespace read on a planted file (a comment holding namespace and end, a section, a nested namespace, a dotted name, _root_, a line '
+      'comment, a top-level def)', got, got == ['A.B.foo', 'A.B.C.foo', 'A.B.D.foo', 'foo', 'foo'])
+    lb = libs_at(MAIN)
+    mo = (module_of('Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', lb), module_of('SIDEExplicitFormula/Schema/Detector.lean', lb),
+          module_of('AxiomCheck.lean', lb))
+    c('the libraries of lakefile.toml at main and a module named as Lake names it (the vendored srcDir, the default library, a root file in no '
+      'library)', (lb, mo), mo == ('Lc.LiCriterion.ReverseDirection', 'SIDEExplicitFormula.Schema.Detector', None))
     tips = [(n, g('rev-parse', sha).strip() == sha) for n, sha in TIPS]
     c('the four tips (R367)(4) names stand in the kernel at their commits', tips, all(x for _n, x in tips))
     c('main 8fbab45d stands', g('rev-parse', 'main').strip()[:8], g('rev-parse', 'main').strip() == MAIN)
@@ -240,7 +307,8 @@ def cmd_bank():
         '', '## THE JOINED %s AGAINST THE UNION OF MAIN AND THE FOUR TIPS' % NAMED] + cl + [
         '', '## THE DISPATCH`S TARGETS: THE MODULE DECLARING EACH LINE OF THE JOINED %s' % NAMED] + [
         '  REFUSED %s: %s %s' % (n, v[2], v[1][:4]) for n, v in sorted(bad.items())] + [
-        '  names %d ; resolved to one module %d ; refused %d ; modules %d:' % (len(t), len(t) - len(bad), len(bad), len(mods)), '  ' + ' '.join(mods), '',
+        '  names %d ; resolved to one module %d ; refused %d ; modules %d:' % (len(t), len(t) - len(bad), len(bad), len(mods)), '  ' + ' '.join(mods),
+        '  the reader`s lineage: the first reader, %s ; this reader, resolved %d of %d, refused %d' % (FIRST_READER, len(t) - len(bad), len(t), len(bad)), '',
         '### ### **THE JOIN: MERGES %s ; THE UNION %s ; TARGETS %d MODULES FOR %d NAMES, %d REFUSED ; CONTROLS %d OF %d.**' % (
             'AS ORDERED' if mok else 'NOT AS ORDERED', 'DIFFERENCES 0' if cok else 'DIFFERS', len(mods), len(t), len(bad), sum(ok), len(ok))]
     r = FB.write(BANK, NL.join(out))
