@@ -350,22 +350,22 @@ def counter_line():
         c['claim'], c['close'], (' ; UNTAGGED %s' % c['untagged']) if c['untagged'] else '')
 
 
-ARM_LIVE = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+[\d.]+\s', re.M)
+ARM_LIVE = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL|VAC)\s+(PASS|FAIL|VAC)\s+[\d.]+\s', re.M)
 
 
 def claim_figure(text):
-    """(⟪RUL⟫)(2): the claim arms' figure beside the whole suite's -- every arm row of a combined suite bank read with its tag from
-    data/arm_tags.json: CLAIM arms passing of CLAIM arms run; an arm with no tag counted apart (this act G-⟪RUL⟫-ENTERED, the carry's act
-    shift, which data/arm_tags.json -- outside (⟪RUL⟫)(8)'s (W) list -- does not carry)."""
-    tags = jl('arm_tags.json').get('tags') or {}
-    rows = dict((m.group(1), m.group(2)) for m in ARM_LIVE.finditer(text or ''))
-    cl = [n for n in rows if tags.get(n) == 'CLAIM']
-    un = sorted(n for n in rows if n not in tags)
+    """(⟪RUL⟫)(2); v1.35.5, b757 (R367)(8)(ii): ONE COUNT IN ONE FORM -- every arm row of a combined suite bank read, a vacuous arm (VAC in a
+    control column) named and counted neither passing nor failing, as "<p> OF <n> RUN ; FAILING <f> ; VACUOUS <v>", the bank's head line's
+    figure; beside it the CLAIM arms (data/arm_tags.json) passing of those run live, and the arms with no tag named apart."""
+    tags, rows = jl('arm_tags.json').get('tags') or {}, dict((m.group(1), m.group(2, 3, 4)) for m in ARM_LIVE.finditer(text or ''))
+    vac = sorted(n for n, c in rows.items() if 'VAC' in c)
+    live = dict((n, c[0]) for n, c in rows.items() if n not in vac)
+    cl, fl = [n for n in live if tags.get(n) == 'CLAIM'], sorted(n for n, v in live.items() if v != 'PASS')
     if not rows:
         return 'NOT YET RUN'
-    return 'THE CLAIM ARMS PASSING %d OF %d (failing %s) ; THE WHOLE SUITE PASSING %d OF %d ; UNTAGGED %s' % (
-        sum(1 for n in cl if rows[n] == 'PASS'), len(cl), sorted(n for n in cl if rows[n] != 'PASS') or 'NONE',
-        sum(1 for v in rows.values() if v == 'PASS'), len(rows), un or 'NONE')
+    return '%d OF %d RUN ; FAILING %d %s ; VACUOUS %d %s ; THE CLAIM ARMS PASSING %d OF %d ; UNTAGGED %s' % (
+        sum(1 for v in live.values() if v == 'PASS'), len(rows), len(fl), fl or '[]', len(vac), vac or '[]',
+        sum(1 for n in cl if live[n] == 'PASS'), len(cl), sorted(n for n in rows if n not in tags) or 'NONE')
 # ### the banks below carry no verdict line BY THEIR FORM; the closing prints "### NO VERDICT LINE" for them, and the suite`s G-CLOSING-DRY-STEP
 # ### reads each such bank itself ((⟪RUL⟫)(2)(iii): the line passes where the bank exists and carries no verdict line by this tool`s own reader,
 # ### tools/⟪ACT⟫_checks.py no_verdict_line_ok; no list of names). None this act: every row below names a bank with a verdict line or a pattern.
