@@ -228,10 +228,42 @@ def cmd_dispatch(k, sha, n, item, *rest):
             rid = str(new[0][1]) if new else ''
         if not rid:
             sys.exit('### DISPATCHED, NO RUN ID READ BACK in 40 s -- no row written; read `gh run list` by hand and row it before any other dispatch')
+        # ### the row's own target check given the srcDir-aware list (tree=): b757 dispatch 1's row, given repo=, read the tree alone and
+        # ### refused the vendored module after the send (run 43818699881, rowed by `rowsent`)
         rows.append(DR.row('dispatch', read, kernel=kd['key'], item=item, n=int(n), workflow=kd['workflow'], at_ref='main', sha=full, target=target,
-                           names=names or None, run=int(rid), at=at0, licence=lic, disk_mb=dk, repo=kd['path']))
+                           names=names or None, run=int(rid), at=at0, licence=lic, disk_mb=dk, tree=module_files(kd['path'], full)))
     DR.write(ROWS, rows)
     print(dict((x, rows[-1].get(x)) for x in ('kind', 'kernel', 'item', 'n', 'sha', 'run', 'free_mb', 'at')))
+
+
+def cmd_rowsent(k, sha, n, item, run, free_mb, free_at, *rest):
+    """the row of a dispatch already sent whose row was refused after the send: the free read printed before that send, the run read by
+    its id (a workflow_dispatch created after that read), the licence read at that read's time, the targets from the same file."""
+    rest = list(rest)
+    if rest[:1] != ['--targets-json'] or len(rest) != 2:
+        sys.exit('### usage: rowsent <ef|m24> <sha> <n> <item> <run> <free_mb> <free_at> --targets-json <file>')
+    read = (int(free_mb), free_at)
+    rows = _rows()
+    kd = KERNELS[k]
+    why = dispatch_refusal(k, item, int(n), rows, read, disk())
+    if why:
+        sys.exit('### NOT ROWED: %s' % why)
+    if any(int(r.get('run') or 0) == int(run) for r in rows):
+        sys.exit('### NOT ROWED: run %s rowed already' % run)
+    full = git(kd['path'], 'rev-parse', sha).strip()
+    tj = json.load(io.open(os.path.join(RELAY, rest[1]), encoding='utf-8'))
+    if tj.get('rev') != full or tj.get('refused') or not tj.get('modules'):
+        sys.exit('### NOT ROWED: the targets file read at %s against %s' % (str(tj.get('rev'))[:8], full[:8]))
+    v, _slug, _owner = _view(k, run)
+    if v['event'] != 'workflow_dispatch' or v['createdAt'] < free_at:
+        sys.exit('### NOT ROWED: run %s is %s, created %s, against the read at %s' % (run, v['event'], v['createdAt'], free_at))
+    lic = DR.licence(ANSWERS, ITEMS[item][1], by=free_at)
+    target = ' '.join(tj['modules'])
+    rows.append(DR.row('dispatch', read, kernel=kd['key'], item=item, n=int(n), workflow=kd['workflow'], at_ref='main', sha=full, target=target,
+                       names=None, run=int(run), at=v['createdAt'], licence=lic, disk_mb_at_row=disk(), tree=module_files(kd['path'], full),
+                       rowed_after_send='the row refused after the send by the row`s own target check (the tree alone); rowed by rowsent'))
+    DR.write(ROWS, rows)
+    print(dict((x, rows[-1].get(x)) for x in ('kind', 'kernel', 'item', 'n', 'sha', 'run', 'free_mb', 'free_at', 'at')), 'targets', len(tj['modules']))
 
 
 def _view(k, run):
@@ -388,6 +420,17 @@ def controls():
     t4 = DR.targets_refused('Lc.LiCriterion.ReverseDirection', DR.tree_files(KERNELS['ef']['path'], K.EF_BASE))
     c('targets at main 8fbab45d: a module taken, a name with no file refused, a vendored module under its srcDir taken (refused by the tree '
       'alone)', (t1, len(t2), t3, len(t4)), t1 == [] and len(t2) == 1 and t3 == [] and len(t4) == 1)
+    lic_j = DR.licence(ANSWERS, ITEMS['join'][1])
+    rr = []
+    for kw in (dict(tree=module_files(KERNELS['ef']['path'], K.EF_BASE)), dict(repo=KERNELS['ef']['path'])):
+        try:
+            DR.row('dispatch', (5000, _now()), kernel=EF, item='join', n=1, sha=K.EF_BASE, target='Lc.LiCriterion.ReverseDirection', run=1, at=_now(),
+                   licence=lic_j, **kw)
+            rr.append(None)
+        except DR.Refused as e:
+            rr.append(str(e)[:60])
+    c('the row`s own target check on a planted dispatch row of the vendored module: given the srcDir-aware list, taken ; given the kernel`s '
+      'folder alone (dispatch 1`s form), refused', rr, rr[0] is None and bool(rr[1]))
     heads = [('a' * 40, 'refs/heads/push-b757-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
     tp = (tip_refusal('a' * 40, heads), bool(tip_refusal('b' * 40, heads)), tip_refusal('c' * 40, heads), bool(tip_refusal('d' * 40, heads)), bool(tip_refusal('', heads)))
     c('the remote tip: a push-b757-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))
@@ -441,7 +484,7 @@ def cmd_bank(*_a):
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    fn = {'control': cmd_control, 'dispatch': cmd_dispatch, 'status': cmd_status, 'download': cmd_download, 'read': cmd_read,
+    fn = {'control': cmd_control, 'dispatch': cmd_dispatch, 'rowsent': cmd_rowsent, 'status': cmd_status, 'download': cmd_download, 'read': cmd_read,
           'errors': cmd_errors, 'axioms': cmd_axioms, 'bank': cmd_bank}.get(a[0] if a else '')
     if not fn:
         sys.exit(__doc__)
