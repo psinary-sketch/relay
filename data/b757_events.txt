@@ -122,3 +122,22 @@ COMPONENT 2, THE JOIN:
      87853, 0 a text that is not a harness block; the ruling and the ferry (06:46:16Z), the refusals bank (06:46:17Z), the step-zero
      and events banks and the defects bank read whole by the Read tool; the session's rows read by scratch tl757.py (06:46:18Z). The
      restatement stated in the reply after those reads and before this row.
+
+    (17) THE RUNNER'S [CLOSE ; NEW]: THE JOIN'S ONE DISPATCH BUILT EVERY MODULE AND ITS AXIOMS PRINT FAILED AT THE IMPORT: (R367)(4)'S FAILING
+     OUTCOME. Run 43818699881 at push-b757-join 6568e9c7 (created 06:43:14Z, completed 08:25:58Z, read 08:31:39Z): the exit file 0, the build
+     log "Build completed successfully (9074 jobs)" (:1641), errors 0, sorry warnings 0, the runner's low 3,991 MB, no stop under the hold.
+     The axioms print, one scratch file importing the 93 target modules together, failed at its first line: "import
+     SIDEExplicitFormula.Schema.ZQ.OffZero.Time failed, environment already contains 'SIDEExplicitFormula.Schema.ZQ.OffZero.sRe.match_1'
+     from SIDEExplicitFormula.Schema.ZQ.OffZero.Sums" -- the two modules each declare `sRe` in one namespace (Time.lean :18, Sums.lean
+     :134), neither imports the other (each imports OffZero.Elem alone), and both came in with zq-b730's own commits (f2de6ef, de4810d),
+     so each builds alone and the two cannot stand in one environment; the closure step failed the same way. Axioms lines 0 of 419. The
+     workflow's grammar refused two print targets, zqPair_Λ_one_sub and zqPair_Λ_eq_of_re, as at b730 (data/b730_defects.txt :23). WHAT
+     THE RUN MUST SHOW, an axioms line within the standard three for each line of the joined print_targets.txt: NOT SHOWN. The break is not
+     at (ii)'s file, so (4) licenses no second dispatch, and Time.lean and Sums.lean stand outside (10)'s (W) list: "any other break is
+     the failing outcome". Main stands at 8fbab45d, no tag cut, the four branches as they stood (data/b757_outcomes.txt, composed by
+     tools/b757_outcomes.py from the ferry bank, the rows and the tree). By (4), (5) is built past zq-b730's tip in b745's manner; the
+     branch built on is push-b757-coeff, made at zq-b730's tip 1e658870, because the route for kernel writes (R367)(3) built moves no
+     branch outside push-b757-* (commit.py's switch takes main or a push-b757-* branch; push_gated.sh's branch mode pushes a branch to
+     its own name): THE WRITE THE SEAT STOPS AT, by (3)'s last sentence, is the move of zq-b730 itself, and THE ROUTE IT LACKS is a push of
+     push-b757-coeff's tip to refs/heads/zq-b730, never forced, read back. The sentences of (5) name push-b757-coeff and its commit in
+     the tag's place.

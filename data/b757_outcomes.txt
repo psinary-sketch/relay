@@ -1,0 +1,18 @@
+b757 -- (R367)(4)-(7): EACH RESULT`S SENTENCE, THE RULING`S TEXT WITH ITS FIELDS FILLED FROM THE ACT`S BANKS (tools/b757_outcomes.py)
+
+## (4) THE JOIN (the ferry bank :15; the sentences cut from it: compiled 420 characters, not 155 characters)
+  the dispatches: 1 join run 43818699881 at 6568e9c7
+  THE RUN 43818699881 READ (data/b757_dispatch_rows.json): exit file 0 ; built 6568e9c7, equal to the dispatched commit True ; stopped under the hold False ; errors 0 ; sorry warnings 0 ; runner low 3991 MB
+  THE AXIOMS PRINT: FAILED, NO AXIOMS LINE: out/Axioms.lean:1:0: error: import SIDEExplicitFormula.Schema.ZQ.OffZero.Time failed, environment already contains 'SIDEExplicitFormula.Schema.ZQ.OffZero.sRe.match_1' from SIDEExplicitFormula.Schema.ZQ.OffZero.Sums
+  AGAINST THE JOINED print_targets.txt (419 lines): axioms lines 0 ; within the standard three 0 ; outside 0 ; without a line 419 ; sorryAx False
+  REFUSED BY THE WORKFLOW`S GRAMMAR (ASCII names alone): print target refused: SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub
+  REFUSED BY THE WORKFLOW`S GRAMMAR (ASCII names alone): print target refused: SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re
+  WHAT THE RUN MUST SHOW ((R367)(4)): the exit file 0 ; an axioms line within the standard three for each line ; no line naming sorryAx -> NOT SHOWN
+  THE BREAK: the print`s import of the 93 target modules together failed at SIDEExplicitFormula.Schema.ZQ.OffZero.Time, whose `sRe` the environment already held from SIDEExplicitFormula.Schema.ZQ.OffZero.Sums:
+  SIDEExplicitFormula.Schema.ZQ.OffZero.Time (SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean): `sRe` declared at :18 ; imports SIDEExplicitFormula.Schema.ZQ.OffZero.Elem ; added by f2de6ef ; that commit held by push-b757-join, zq-b730
+  SIDEExplicitFormula.Schema.ZQ.OffZero.Sums (SIDEExplicitFormula/Schema/ZQ/OffZero/Sums.lean): `sRe` declared at :134 ; imports SIDEExplicitFormula.Schema.ZQ.OffZero.Elem ; added by de4810d ; that commit held by push-b757-join, zq-b730
+  THE OUTCOME: THE FAILING OUTCOME ((R367)(4): "any other break is the failing outcome"; the break is not at (ii)`s file, so no second dispatch): main stands at 8fbab45d, no tag cut, the four branches as they stood; (5) built past zq-b730`s tip
+  THE SENTENCE: The join of the four branches broke at SIDEExplicitFormula.Schema.ZQ.OffZero.Time :18 in run 43818699881; main stands at 8fbab45d and no tag was cut; the four branches stand as they stood.
+  fields left unfilled: []
+
+### ### **THE OUTCOMES: JOIN BROKE.**

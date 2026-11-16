@@ -496,16 +496,19 @@ def cmd_bank(*_a):
                        'axiom lines %s, within %s, outside %s, missing %s, sorryAx %s, runner low %s MB' % (
                            r['n'], r['item'], r['sha'][:8], r['run'], r['free_mb'], r['licence']['commit'][:8], r['licence']['line'], rd.get('verdict', 'UNREAD'),
                            rd.get('build_exit'), rd.get('built_equal'), len(rd.get('errors') or []), rd.get('sorry_warnings'), rd.get('targets'),
-                           rd.get('axiom_lines'), rd.get('axiom_within'), len(rd.get('axiom_outside') or {}), len(rd.get('axiom_missing') or []),
+                           rd.get('axiom_lines'), rd.get('axiom_within'), len(rd.get('axiom_outside') or {}),
+                           rd.get('axiom_missing_n', len(rd.get('axiom_missing') or [])),
                            rd.get('sorryAx'), rd.get('runner_low_mb')))
             if rd:
                 out.append('      the axioms print: %s' % (rd.get('axioms_print') or 'NOT READ BY THIS FIELD'))
         out.append('')
     nd = sum(1 for r in rows if r.get('kind') == 'dispatch')
     nk = sum(1 for r in rows if r.get('kind') == 'read' and r.get('verdict') == 'KERNEL')
-    out.append('### ### **DISPATCHES %d (SIDE-explicit-formula %d OF %d, SIDE-dirichlet-mod-24 %d OF %d) ; READ KERNEL %d ; THE TOOL`S CONTROLS %d OF %d.**' % (
-        nd, sum(1 for r in rows if r.get('kind') == 'dispatch' and r.get('kernel') == EF), K.MAX_DISPATCHES,
-        sum(1 for r in rows if r.get('kind') == 'dispatch' and r.get('kernel') == M24), K.MAX_DISPATCHES_M24, nk, sum(ok), len(ok)))
+    npr = sum(1 for r in rows if r.get('kind') == 'read' and r.get('verdict') == 'KERNEL' and str(r.get('axioms_print') or '').startswith('RAN'))
+    out.append('### ### **DISPATCHES %d (SIDE-explicit-formula %d OF %d, SIDE-dirichlet-mod-24 %d OF %d) ; READ KERNEL (THE BUILD EXITING 0) %d, OF THEM WITH '
+               'THE AXIOMS PRINT RUN %d ; THE TOOL`S CONTROLS %d OF %d.**' % (
+                   nd, sum(1 for r in rows if r.get('kind') == 'dispatch' and r.get('kernel') == EF), K.MAX_DISPATCHES,
+                   sum(1 for r in rows if r.get('kind') == 'dispatch' and r.get('kernel') == M24), K.MAX_DISPATCHES_M24, nk, npr, sum(ok), len(ok)))
     r = FB.write(BANK, NL.join(out))
     print(NL.join(out))
     print('written data/b757_controls.txt ; figbank: %s' % r['why'])
