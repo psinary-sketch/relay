@@ -150,6 +150,20 @@ def axioms_read(text, targets):
     return dict(lines=len(ax), within=len(ax) - len(outside), outside=outside, missing=missing, sorryAx='sorryAx' in (text or ''))
 
 
+def axioms_print(text, ax):
+    """the axioms print's own state: NOT RUN (the workflow's line), FAILED (error lines and no axioms line: the first error line given), RAN
+    WITH ERRORS (axioms lines and error lines), RAN."""
+    t = (text or '').strip()
+    errs = [l for l in t.split(NL) if ': error' in l or l.startswith('error')]
+    if t.startswith('NOT RUN'):
+        return 'NOT RUN: %s' % t.split(NL)[0][:200]
+    if errs and not ax['lines']:
+        return 'FAILED, NO AXIOMS LINE: %s' % errs[0][:300]
+    if errs:
+        return 'RAN WITH ERRORS (%d error lines, the first: %s)' % (len(errs), errs[0][:200])
+    return 'RAN' if ax['lines'] else 'EMPTY'
+
+
 def _art(k, run):
     return os.path.join(RUNS, '%s-%s' % (k, run), 'build-module-%s' % run)
 
@@ -321,16 +335,24 @@ def cmd_read(k, n, run):
     ax = axioms_read(axt, targets)
     nums = [int(x) for x in re.findall(r'avail_mb=(\d+)', mem)]
     verdict = 'STOPPED UNDER THE HOLD' if stop else 'KERNEL' if ex == '0' else 'BREAKS'
+    # ### b757, the join's run 43818699881: the build exited 0 and the axioms print failed at its import (two modules declaring one name), so
+    # ### KERNEL alone read as the run's showing; the print's own state is read beside the verdict, which keeps its carried meaning (the build)
+    axp = axioms_print(axt, ax)
     rows.append(DR.row('read', DR.free(), kernel=KERNELS[k]['key'], n=int(n), run=int(run), status=v['status'], conclusion=v['conclusion'],
                        built_ref=ref[0] if ref else None, built_equal=bool(ref) and ref[0] == d[0]['sha'], toolchain=ref[-1] if len(ref) > 1 else None,
                        build_exit=ex, verdict=verdict, stop=stop[:3], errors=errs[:40], sorry_warnings=len(warn_sorry), targets=len(targets),
                        axiom_lines=ax['lines'], axiom_within=ax['within'], axiom_outside=dict((a, list(b)) for a, b in ax['outside'].items()),
-                       axiom_missing=ax['missing'][:60], sorryAx=ax['sorryAx'], axioms_refused=_f(art, 'axioms_refused.txt')[:300],
+                       axiom_missing=ax['missing'][:60], axiom_missing_n=len(ax['missing']), sorryAx=ax['sorryAx'],
+                       axioms_refused=_f(art, 'axioms_refused.txt')[:300], axioms_print=axp,
                        runner_low_mb=min(nums) if nums else None, at=v['updatedAt'], artifact=art.replace('\\', '/')))
     DR.write(ROWS, rows)
     r = rows[-1]
     print(dict((x, r[x]) for x in ('kernel', 'n', 'run', 'conclusion', 'built_ref', 'built_equal', 'build_exit', 'verdict', 'sorry_warnings', 'targets',
-                                   'axiom_lines', 'axiom_within', 'sorryAx', 'runner_low_mb', 'free_mb')), 'errors', len(errs))
+                                   'axiom_lines', 'axiom_within', 'axiom_missing_n', 'sorryAx', 'runner_low_mb', 'free_mb')), 'errors', len(errs))
+    print('  THE AXIOMS PRINT: %s' % axp)
+    for l in (r['axioms_refused'] or '').split(NL):
+        if l.strip():
+            print('  REFUSED BY THE WORKFLOW`S GRAMMAR: %s' % l.strip())
     for nm, a in sorted(ax['outside'].items()):
         print('  OUTSIDE THE STANDARD THREE: %s [%s]' % (nm, ', '.join(a)))
     for nm in ax['missing'][:40]:
@@ -420,6 +442,11 @@ def controls():
     t4 = DR.targets_refused('Lc.LiCriterion.ReverseDirection', DR.tree_files(KERNELS['ef']['path'], K.EF_BASE))
     c('targets at main 8fbab45d: a module taken, a name with no file refused, a vendored module under its srcDir taken (refused by the tree '
       'alone)', (t1, len(t2), t3, len(t4)), t1 == [] and len(t2) == 1 and t3 == [] and len(t4) == 1)
+    pl = [axioms_print("out/Axioms.lean:1:0: error: import X failed, environment already contains 'Y' from Z", axioms_read("out/Axioms.lean:1:0: error: x", ['a'])),
+          axioms_print("NOT RUN: the build did not complete under the hold", axioms_read('', ['a'])),
+          axioms_print("'a' depends on axioms: [propext]", axioms_read("'a' depends on axioms: [propext]", ['a']))]
+    c('the axioms print`s state on three planted files (an import failure, the NOT RUN line, a clean print)', [x[:24] for x in pl],
+      pl[0].startswith('FAILED, NO AXIOMS LINE') and pl[1].startswith('NOT RUN') and pl[2] == 'RAN')
     lic_j = DR.licence(ANSWERS, ITEMS['join'][1])
     rr = []
     for kw in (dict(tree=module_files(KERNELS['ef']['path'], K.EF_BASE)), dict(repo=KERNELS['ef']['path'])):
@@ -471,6 +498,8 @@ def cmd_bank(*_a):
                            rd.get('build_exit'), rd.get('built_equal'), len(rd.get('errors') or []), rd.get('sorry_warnings'), rd.get('targets'),
                            rd.get('axiom_lines'), rd.get('axiom_within'), len(rd.get('axiom_outside') or {}), len(rd.get('axiom_missing') or []),
                            rd.get('sorryAx'), rd.get('runner_low_mb')))
+            if rd:
+                out.append('      the axioms print: %s' % (rd.get('axioms_print') or 'NOT READ BY THIS FIELD'))
         out.append('')
     nd = sum(1 for r in rows if r.get('kind') == 'dispatch')
     nk = sum(1 for r in rows if r.get('kind') == 'read' and r.get('verdict') == 'KERNEL')
