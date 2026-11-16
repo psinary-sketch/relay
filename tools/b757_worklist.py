@@ -510,7 +510,9 @@ PIN_BUILDS = ('SIDE-simplicity',)
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
-MAX_DISPATCHES = 0         # ### N1: no runner dispatch this act
+MAX_DISPATCHES = 14        # ### (R367)(10), ferry :29: "At most 14 dispatches in SIDE-explicit-formula" (N1); set before Component 2's first dispatch
+MAX_DISPATCHES_M24 = 4     # ### (R367)(10), ferry :29: "and 4 in SIDE-dirichlet-mod-24" (N1)
+MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### SIDE-explicit-formula's main entering the act (b743's [A4], README alone)
@@ -554,7 +556,8 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: no runner dispatch this act
+EF_RUNS = ()   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id (tools/b757_controls.py), entered as each is read
+M24_RUNS = ()   # ### N1: this act's SIDE-dirichlet-mod-24 runs, entered as each is read
 EF_RUNS_B745 = (42388001562, 42388609600, 42391254295, 42392017104, 42393018408, 42393914259)   # ### N1: this act's dispatches, each read by its run id ((R364)(4)(c)): KERNEL (print stopped at maxErrors), KERNEL (13 names printed), BREAKS (lp_conj), KERNEL (SPZ1), KERNEL (SPZ2), KERNEL (SPZ3)
 EF_RUNS_B742 = (42054839204, 42056405331, 42058361986, 42061332755, 42062848400, 42065597154, 42068096322)   # ### b753's seven, read not re-run; the last the SP4 grade run
 EF_RUNS_B741 = (41931918742, 41935365948, 41936644993, 41938300160, 41939524029, 41940815524)   # ### b753's six: KERNEL (timing), BREAKS, KERNEL, BREAKS, BREAKS, KERNEL (SP3)
