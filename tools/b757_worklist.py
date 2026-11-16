@@ -417,14 +417,16 @@ CHAIN = (('c1', 'a8a02f38'), ('corr', '858b906f'), ('standing', '26ac811e'), ('l
          ('controls', '7e30d538'), ('t0_rows', 'a7d8ceee'), ('t0_read', 'a1b36dbc'), ('mod24_rows', 'c3f73580'), ('ceiling_gen', '7ed046aa'),
          ('ceiling', 'f75eee21'), ('wide_gen', '9a8a2230'), ('registry_gen', '676bc193'), ('doors_gen', '2bc7eca8'), ('ghcalls_gen', '7e678d5a'),
          ('c5', 'c98beed0'), ('v1355', 'e0428564'), ('sweep_gen', '88f8e89b'), ('sweep_fix', '0004ac11'), ('sweep', '2bda8e8f'), ('cut', '31c53852'),
-         ('notes_gen', '0243d123'), ('notes', 'c92fca81'), ('c6', '0dcd941d'), ('ghcalls_fix', '983d3021'), ('ghcalls', '214cfd3c'))
+         ('notes_gen', '0243d123'), ('notes', 'c92fca81'), ('c6', '0dcd941d'))
+# ### defect (z): the gh-call reader's repair 983d3021 and re-bank 214cfd3c named in GENS alone; CHAIN and TIME_ORDER end at c6, because
+# ### _chain and the order arms read the handoff page (c37cdb05) and the lock gate (24fca573) after CHAIN, both made before the repair
 PP_CHAIN = (('c1pp', '810ec2da'), ('pp_registry', '3e85e952'), ('pp_a', 'e88282c4'), ('pp_b', 'c7dfe43c'), ('pp_c', '9c0896c5'), ('pp_d', 'c45be6e0'),
             ('pp_e', 'b14256c2'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
 TIME_ORDER = ('actcur', 'stepzero', 'c1', 'c1pp', 'corr', 'standing', 'live', 'controls_gen', 'join_gen', 'join_fix', 'readme_gen', 'join_fix2', 'join',
               'controls_fix', 'rows1', 'controls_fix2', 'outcomes_gen', 'outcomes1', 'controls', 't0_rows', 't0_read', 'mod24_rows', 'ceiling_gen', 'ceiling',
               'wide_gen', 'registry_gen', 'pp_registry', 'doors_gen', 'ghcalls_gen', 'c5', 'v1355', 'sweep_gen', 'sweep_fix', 'sweep', 'cut', 'notes_gen',
-              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes', 'c6', 'ghcalls_fix', 'ghcalls')
+              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes', 'c6')
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.35.4', '26ac811e', 'data/b757_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b757_standing_v1355.txt', 6))
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
