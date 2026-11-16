@@ -1662,7 +1662,10 @@ def _ef_kind(rows, kind):
         per_.append((kn_, len(d_), cap_, d_ == r_ == sorted(str(x) for x in runs_w_)))
     runs_ = all(o_ for _k, _n, _c, o_ in per_) and all(n_ <= c_ for _k, n_, c_, _o in per_)
     twice_ = sorted(set(x for x in reads_ if reads_.count(x) > 1))
-    dmin_ = lambda r: min(r['disk_mb_at_row'].values()) if isinstance(r.get('disk_mb_at_row'), dict) and r['disk_mb_at_row'] else (r.get('disk_mb_at_row') if isinstance(r.get('disk_mb_at_row'), int) else -1)
+    # ### the disk read of a dispatch row under either of tools/b757_controls.py's two keys: `disk_mb` (the send's route, :248, read before the
+    # ### send) and `disk_mb_at_row` (the rowsent route, :277, the join's row alone, read at the row) -- defect (u): the reader read the second alone
+    dk_ = lambda r: r.get('disk_mb') if r.get('disk_mb') is not None else r.get('disk_mb_at_row')
+    dmin_ = lambda r: min(dk_(r).values()) if isinstance(dk_(r), dict) and dk_(r) else (dk_(r) if isinstance(dk_(r), int) else -1)
     free_ = [r.get('n') for r in _ef_kind(rows_, 'dispatch') if not isinstance(r.get('free_mb'), int) or r['free_mb'] < 2560 or dmin_(r) < 5000] \
         + [r.get('n') for r in _ef_kind(rows_, 'read') if not isinstance(r.get('free_mb'), int)]
     exits_ = ['%s %s exit %s %s' % (r.get('kernel', '')[5:], r.get('run'), r.get('build_exit'), r.get('verdict')) for r in _ef_kind(rows_, 'read')]
@@ -1859,7 +1862,7 @@ N3_NOTES = (('a', ('join', 'T0', 'T1', 'wide')), ('b', ('join', 'T0', 'T1', 'wid
 N3_PAPERS = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'FACES_LEDGER.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')
 N3_CONTROL = r'\b(?:control|Epstein|zq_\w+)\b|x\^2 \+ xy \+ 6y\^2'   # ### a sentence about the control: the control named, the Epstein function, a zq_ name, the form
 N3_SIDE_NAMED = r'\b(?:arithmetic|spectral|zero|prime-power) side\b'
-import hashlib as _h   # noqa: E402  ### the notes' digests, sha256 of each line (16 hex), as tools/b757_notes.py writes them
+import hashlib as _hs   # noqa: E402  ### the notes' digests, sha256 of each line (16 hex), as tools/b757_notes.py writes them; _hs, not _h, which record.tpl :2633 binds to its height formatter (defect (t))
 
 
 def _side_bad(x):
@@ -1870,6 +1873,15 @@ def _side_bad(x):
 def _nav_bad(x):
     """N3 (R367): a sentence printing (7)'s price as the navigator read it with no navigator named in it."""
     return bool(re.search(N3_NAV_FIGS, x) and not re.search(r'\bnavigator', x))
+
+
+def _nav_units(t):
+    """N3 (R367), the navigator's figures: a bank's own sentences as _own_sentences cuts them, each table row (a line carrying ' | ', the
+    price table's form) read whole and apart -- defect (w): the cut at a row's semicolon parted (7)'s figures from the navigator named
+    before it in the same row (data/b757_price.txt :23), and the scores dry of 14:39:47Z read that row's second half as a figure unnamed."""
+    ls_ = (t or '').replace(chr(13), '').split(NL)
+    rows_ = [l_.strip() for l_ in ls_ if ' | ' in l_ and not l_.startswith('### ')]
+    return _own_sentences(NL.join(l_ for l_ in ls_ if ' | ' not in l_)) + rows_
 
 
 def _own_sentences(t):
@@ -1924,7 +1936,7 @@ def _notes_rows():
         txt_ = (_show(PP, 'HEAD', it_.get('file') or '-') or '').replace(chr(13), '').split(NL)
         ls_ = [x_ for x_ in it_.get('lines') or []]
         got_ = [txt_[x_['line'] - 1] if 0 < (x_.get('line') or 0) <= len(txt_) else '\x00' for x_ in ls_]
-        dig_ = all(_h.sha256(t_.encode('utf-8')).hexdigest()[:16] == x_.get('digest') for t_, x_ in zip(got_, ls_))
+        dig_ = all(_hs.sha256(t_.encode('utf-8')).hexdigest()[:16] == x_.get('digest') for t_, x_ in zip(got_, ls_))
         keys_ = sorted(N3_KEYS.get(s_, s_) for s_ in (it_.get('sentences') or {}))
         body_ = NL.join(got_)
         rows_.append((k_, len(got_), bool(ls_) and dig_ and keys_ == sorted(want_) and all(oc_.get(w_, '\x00') in body_ for w_ in want_)))
@@ -1963,10 +1975,14 @@ def _notes_rows():
 #⟪END⟫
 #⟪SECTION record 20⟫
     # ### N3 over the act's own sentences (the banks' quote rows and quoted spans dropped) and the entry's, each matcher with its control
-    nsents_ = []
+    nsents_, navs_ = [], []
     for b_ in N3_BANKS:
-        nsents_ += _own_sentences(rdn('%s_%s.txt' % (ACT, b_)))
+        t_ = rdn('%s_%s.txt' % (ACT, b_))
+        nsents_ += _own_sentences(t_)
+        navs_ += _nav_units(t_)   # ### defect (w): the navigator's figures read with each table row whole
     neg_ = N3_NEG
+    row_n_ = '  (7) navigator  AS THE NAVIGATOR READ IT: 250-550 lines and 4-8 dispatches; hours (x) | lines 250-550 | dispatches 4-8\n'
+    row_x_ = '  (7) wide  THE WIDE DIRECTION: 250-550 lines and 4-8 dispatches; hours (x) | lines 250-550 | dispatches 4-8\n'
     ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The join is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
                  loc_c=not re.search(N3_LOC, 'There is a test function in classK, and the direction that gives it holds for every configuration.'),
@@ -1975,14 +1991,16 @@ def _notes_rows():
                  quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
                  and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')),
                  nav=_nav_bad('The wide direction took 250 to 550 lines.') and not _nav_bad('The navigator read 250 to 550 lines and 4 to 8 dispatches.')
-                 and not _nav_bad('The wide direction took 1250 to 5500 lines.'))
+                 and not _nav_bad('The wide direction took 1250 to 5500 lines.'),
+                 nav_row=any(_nav_bad(x_) for x_ in _own_sentences(row_n_)) and not any(_nav_bad(x_) for x_ in _nav_units(row_n_))
+                 and any(_nav_bad(x_) for x_ in _nav_units(row_x_)))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
     side_ = [x[:80] for x in sents + nsents_ if _side_bad(x)]
     # ### the writes of (9) against the ruling's text; no line of a paper removed; the navigator's figures
     notes_, removed_ = _notes_rows()
-    navfig_ = [x[:80] for x in nsents_ + sents if _nav_bad(x)]
+    navfig_ = [x[:80] for x in navs_ + sents if _nav_bad(x)]
     il_ = _integ_line(f)
     integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, il_, conv)
     nouns_ = [w_ for w_ in ('v0.2.0', 'push-b757-coeff', 'v1.35.4', 'v1.35.5', 'data/%s_outcomes.txt' % ACT, 'data/%s_join.txt' % ACT, 'data/%s_notes.json' % ACT,
@@ -1996,7 +2014,7 @@ def _notes_rows():
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (7)`s price as the navigator read it caught where no navigator is named, passed where one is, and a longer number passed): %s; each write of (9) at PLACE-papers HEAD, each line by the notes bank`s digest and each outcome`s sentence of the clause standing whole in its note (relay data/%s_notes.json, data/%s_outcomes.json): %s, %d lines; the papers of (9) and OPEN_TRAILS since the act`s base with a line removed, REGISTRY`s (8)(iv) line apart: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; a sentence about the control speaking of positivity with no side named: %s; a sentence printing (7)`s price as the navigator read it with no navigator named: %s; the entry`s last line (R367)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (7)`s price as the navigator read it caught where no navigator is named, passed where one is, and a longer number passed, a table row naming the navigator before its semicolon caught by the sentence cut and passed read whole, and a row naming none caught): %s;each write of (9) at PLACE-papers HEAD, each line by the notes bank`s digest and each outcome`s sentence of the clause standing whole in its note (relay data/%s_notes.json, data/%s_outcomes.json): %s, %d lines; the papers of (9) and OPEN_TRAILS since the act`s base with a line removed, REGISTRY`s (8)(iv) line apart: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; a sentence about the control speaking of positivity with no side named: %s; a sentence printing (7)`s price as the navigator read it with no navigator named: %s; the entry`s last line (R367)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
             ACT, ACT, ', '.join('(%s) %d %s' % x_ for x_ in notes_), sum(n_ for _k, n_, _o in notes_), removed_ or 'NONE',
             len(nsents_), more_ or 'NONE', src, first_ or 'NONE', loc_ or 'NONE', side_ or 'NONE', navfig_ or 'NONE',
@@ -2135,7 +2153,7 @@ def _post_lock_edits():
                 (addr.groups() if addr else ('UNREAD',) * 4) + (len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
                 K.M24_TAG[0], m24_loc_[:8] or 'NONE', [x_[:8] for x_ in m24_rb_] or 'NONE', [(a_[:8], b_[:8]) for a_, b_ in m24_pl_] or 'NONE', m24_ok,
                 ef_new_tags_ or 'NONE', ', '.join('%s at %s' % x_ for x_ in ef_br_), ef_rb_, efb_ok,
-                'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or 'NONE', gh_ok,
+                'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or ('UNREAD (no command bank)' if gho_ is None else 'NONE'), gh_ok,   # ### defect (x): NONE printed unread
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
