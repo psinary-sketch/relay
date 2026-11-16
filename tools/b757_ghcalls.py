@@ -8,13 +8,18 @@ tool's rows bank, and its planted control is a script that sends none and a scri
 THE CARRIED READER (`carried`), tools/acts/b756.py :1916 of b757's copy and :1860 of b756's, unchanged: a captured command whose text, its
 quoted arguments blanked, runs `gh repo edit`. THE TAUGHT READER (`taught`): the carried reader's rows, and beside them every command that
 runs an act tool (tools/b<act>_<name>.py) whose source holds a `gh repo edit` call (the list form ['gh', 'repo', 'edit' ...] or the words
-in a string), with the edit rows of that tool's rows bank (data/b<act>_<name>_rows.json: a row of kind 'edit', or a row carrying
-'edit_rc' as b756's rows do), each with its door, time and exit. A send counts whatever the server answered; the reader never calls gh.
+in a string) and imports subprocess at a line's head, with the edit rows of that tool's rows bank (data/b<act>_<name>_rows.json: a row of
+kind 'edit', or a row carrying 'edit_rc' as b756's rows do), each with its door, time and exit. A send counts whatever the server answered;
+the reader never calls gh. A command runs a tool where the tool is the script python is given in one of its segments (`runs`); a command
+naming the tool's path as another script's argument, a git grep's or a count's, does not run it (b757 defect (z): the first reader took
+every path named as a run, and read this reader's own planted words as a sender).
 
 THE CONTROLS, planted in a fresh temporary folder outside the relay and removed after: a script that sends none (no gh call in its source,
 its rows bank without an edit row) and a script that sends one (a gh repo edit call in its source, never run, and one edit row in its rows
-bank), both run by a planted command bank; and a command that runs gh repo edit itself. Wanted: the carried reader 1 (the direct command
-alone), the taught reader 2 (the direct command and the script that sends one), the script that sends none read as none.
+bank), both run by a planted command bank; a command that runs gh repo edit itself; a script holding the call's words in a string and
+importing no subprocess, run; and a script that sends one, with an edit row, whose path two commands name and none runs. Wanted: the
+carried reader 1 (the direct command alone), the taught reader 2 (the direct command and the script that sends one), the two scripts that
+send none read as none, the named script read as no run.
 
 usage: python -X utf8 -u tools/b757_ghcalls.py [--bank]      the controls, then both readers over b756's banks and over b757's
 """
@@ -32,8 +37,13 @@ NL = '\n'
 BANK = os.path.join(RELAY, 'data', 'b757_ghcalls.txt')
 QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'')
 DIRECT = re.compile(r'\bgh\s+repo\s+edit\b')
-TOOL_RUN = re.compile(r'(?:^|[\s/"])tools/(b\d+_[A-Za-z0-9_]+)\.py\b')
 SRC_CALL = re.compile(r'''['"]gh['"]\s*,\s*['"]repo['"]\s*,\s*['"]edit['"]|['"][^'"\n]*\bgh\s+repo\s+edit\b''')
+# ### b757 defect (z): a run read from the script python is given, segment by segment, not from any path the command names; a sender's
+# ### source imports subprocess at a line's head (a string holding the call's words, as this reader's own controls do, is no call)
+SEG = re.compile(r'&&|\|\||[;|]')
+PY = re.compile(r'(?:^|[\\/])(?:python3?|py)(?:\.exe)?$', re.I)
+ACT_TOOL = re.compile(r'(?:^|[\\/])tools[\\/](b\d+_[A-Za-z0-9_]+)\.py$')
+IMPORTS_SUBPROCESS = re.compile(r'(?m)^[ \t]*(?:import[ \t]+(?:[\w. \t]*,[ \t]*)?subprocess\b|from[ \t]+subprocess[ \t]+import\b)')
 
 
 def carried(cmd_rows):
@@ -41,10 +51,33 @@ def carried(cmd_rows):
     return [r['n'] for r in cmd_rows if DIRECT.search(QUOTED.sub('""', r.get('cmd') or ''))]
 
 
+def runs(cmd):
+    """the act tools a command runs: in each segment (cut at &&, ||, ; and |; a quoted argument holding a space blanked first), the script
+    the interpreter opening the segment is given -- its first argument after the options, -X and -W taking a value, -c and -m giving no
+    script -- where that script is tools/b<act>_<name>.py."""
+    out = []
+    for seg in SEG.split(QUOTED.sub(lambda m: m.group(0) if ' ' not in m.group(0) else '""', cmd or '')):
+        toks = [t.strip('"\'') for t in seg.split()]
+        if not toks or not PY.search(toks[0]):
+            continue
+        j, script = 1, None
+        while j < len(toks) and toks[j].startswith('-'):
+            if toks[j] in ('-c', '-m'):
+                j = len(toks)
+                break
+            j += 2 if toks[j] in ('-X', '-W') else 1
+        if j < len(toks):
+            script = toks[j]
+        m = ACT_TOOL.search(script or '')
+        if m and m.group(1) not in out:
+            out.append(m.group(1))
+    return out
+
+
 def source_sends(src):
-    """does a tool's source hold a gh repo edit call (comment lines dropped)?"""
+    """does a tool's source hold a gh repo edit call (comment lines dropped) and import subprocess at a line's head?"""
     body = NL.join(l for l in (src or '').split(NL) if not l.lstrip().startswith('#'))
-    return bool(SRC_CALL.search(body))
+    return bool(IMPORTS_SUBPROCESS.search(body)) and bool(SRC_CALL.search(body))
 
 
 def edit_rows(rows_path):
@@ -60,9 +93,9 @@ def taught(cmd_rows, tools_dir, data_dir):
     direct = carried(cmd_rows)
     stems = []
     for r in cmd_rows:
-        for m in TOOL_RUN.finditer(r.get('cmd') or ''):
-            if m.group(1) not in stems:
-                stems.append(m.group(1))
+        for s in runs(r.get('cmd') or ''):
+            if s not in stems:
+                stems.append(s)
     sends, quiet = {}, []
     for s in stems:
         p = os.path.join(tools_dir, s + '.py')
@@ -92,15 +125,27 @@ def controls():
         io.open(os.path.join(dd, 'b999_none_rows.json'), 'w', encoding='utf-8').write(json.dumps({'rows': [{'kind': 'read', 'door': 'A'}]}))
         io.open(os.path.join(dd, 'b999_one_rows.json'), 'w', encoding='utf-8').write(
             json.dumps({'rows': [{'kind': 'read', 'door': 'A'}, {'kind': 'edit', 'door': 'A', 'at': 'T', 'rc': 0}]}))
+        # ### defect (z)'s two plants: the call's words in a string with no subprocess import, run; a sender named by two commands, never run
+        io.open(os.path.join(td, 'b999_words.py'), 'w', encoding='utf-8').write(
+            'PLANT = \'subprocess.run(["gh", "repo", "edit", "--description", "w"])\'\nprint(PLANT)\n')
+        io.open(os.path.join(td, 'b999_named.py'), 'w', encoding='utf-8').write(
+            'import subprocess\nsubprocess.run(["gh", "repo", "edit", "--description", "z"])\n')
+        io.open(os.path.join(dd, 'b999_named_rows.json'), 'w', encoding='utf-8').write(
+            json.dumps({'rows': [{'kind': 'edit', 'door': 'B', 'at': 'U', 'rc': 0}]}))
         cmds = [dict(n=1, cmd='cd /d/relay && python -X utf8 -u tools/b999_none.py write A'),
                 dict(n=2, cmd='cd /d/relay && python -X utf8 -u tools/b999_one.py write A'),
                 dict(n=3, cmd='gh repo edit --description "y"'),
-                dict(n=4, cmd='python tools/standing/commit.py relay "x" "words naming gh repo edit inside quotes"')]
+                dict(n=4, cmd='python tools/standing/commit.py relay "x" "words naming gh repo edit inside quotes"'),
+                dict(n=5, cmd='python -X utf8 -u tools/standing/peek.py count tools/b999_named.py && git grep -n "gh repo" HEAD -- tools/b999_named.py'),
+                dict(n=6, cmd='cd /d/relay && python -X utf8 -u tools/b999_words.py')]
         c = carried(cmds)
         d, s, q = taught(cmds, td, dd)
-        out = [('the carried reader over the plant: the direct command alone (row 3), the two scripts and the quoted words unread', c == [3]),
+        out = [('the carried reader over the plant: the direct command alone (row 3), the scripts, the named path and the quoted words unread', c == [3]),
                ('the taught reader: the direct command and the script that sends one, its one edit row', d == [3] and s == {'b999_one': [('A', 'T', 0)]}),
-               ('the script that sends none: read, its source holding no call (a comment naming the words dropped), counted none', q == ['b999_none']),
+               ('the two scripts that send none, read and counted none: one whose source holds no call (a comment naming the words dropped), '
+                'one holding the call`s words in a string with no subprocess import', q == ['b999_none', 'b999_words']),
+               ('a sending script whose path a count and a git grep name and no command runs: no run, neither a sender nor read',
+                'b999_named' not in s and 'b999_named' not in q),
                ('the counts: carried 1, taught 2', len(c) == 1 and count(d, s) == 2)]
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
