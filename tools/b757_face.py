@@ -1,0 +1,161 @@
+# -*- coding: utf-8 -*-
+"""b757_face.py -- THE ACT'S FACE, COMPOSED: b756's sealed face (lines above its lock block) read unedited, the standing paragraphs between b756's blocks carried by the
+act shift, the act's own blocks from tools/b757_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b756's own blocks' first and last lines in b756's face, no line number kept.
+Writes data/b757_registration_<DATE>.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool from tools/b756_face.py, its MAP, PAT, LOGS and FIXES set by hand,
+and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes (data/b757_probe_<part>.txt) and the pre-lock comparison.
+### (R367)(10): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py, no amendment row banked (data/b757_amendments.json absent), the regeneration printed into the face's (W) section before the lock.
+### The face is written whole to a scratch name beside it and moved over the face only after the write returns (no zero-byte husk on an error).
+### Composed after the act's last commit before the gate and before the gate's add (tools/standing/fold/checks.tpl nothing_ahead_ok reads every commit to
+### the lock declared on the face by hash but the gate's step commits).
+"""
+import os
+import re
+import subprocess
+import sys
+
+T = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(T)
+D = os.path.join(ROOT, 'data')
+sys.path.insert(0, T)
+from standing import faceform as FF   # noqa: E402,F401
+from standing.faceform import PRE_FACE_TITLE   # noqa: E402
+from standing import amend as AM   # noqa: E402
+import b757_worklist as K   # noqa: E402
+OLD, NEW = os.path.join(D, 'b756_registration_2026-11-15.txt'), os.path.join(D, 'b757_registration_%s.txt' % K.DATE)
+OLD_BLOCKS, BLOCKS = os.path.join(T, 'b756_face_blocks.txt'), os.path.join(T, 'b757_face_blocks.txt')
+FERRY = os.path.join(D, 'b757_ferry.txt')
+ORDER = ('HEAD', 'ZERO', 'A', 'B_TOOLS', 'B_LAST', 'C', 'D', 'NEEDLES', 'G2', 'G2_RUN', 'W', 'Z')
+KEEP = ('keiper-b725', 'c2-b725', 'detect-b729', 'zq-b730', 'scratch-b724', 'rebuild-b721', 'b732_phase2_frontdoors')
+MAP = {'b756_registration_2026-11-15': 'b757_registration_%s' % K.DATE, 'b756': 'b757', 'b755': 'b756', '(R366)': '(R367)', 'R366': 'R367', 'v1.35.3': 'v1.35.5'}
+PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b756_registration_2026-11-15', '(R366)', 'R366', 'v1.35.3', 'b756', 'b755')))
+LOGS = ((ROOT, '38024feb'), (K.PP, 'b6860142'))   # ### b756's closing step row and its PLACE-papers record (data/b757_ferry.txt :3): the pre-face commits after them
+W_ANCHOR = '### No Zeta23 or vendored byte;'
+FIXES = (   # ### b757: the (W) list is (R367)(10)'s, where b756's was (R366)(7)'s (data/b757_ferry.txt :29); the shift carries the number unchanged
+    ('(outside (R367)(7)`s (W) list)', '(outside (R367)(10)`s (W) list)'),
+    ('`G-RULES-ROW-ENTERED` read (R367)(7) and the rules banks', '`G-RULES-ROW-ENTERED` read (R367)(10) and the rules banks'),
+    # ### (G1)'s order, carried from b756's face (:197) where it stood stale, read by no tool (tools/standing/ holds no "COMPONENTS 0-"): b757
+    # ### ran the ferry's Components 0 to 5 and Component 6's banks before this face (data/b757_ferry.txt :43-:49)
+    ('-> COMPONENTS 0-3 (the listings before any clause;', '-> COMPONENTS 0-5 AND COMPONENT 6`S BANKS (the listings before any clause;'),
+)
+# ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
+DECLARED = ('G-AXIOM-CLAIM', 'G-RESEARCH-REPRODUCES', 'G-LISTINGS-BEFORE-CLAUSES', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN')
+DECLARED_LINES = (
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b756 carried it.",
+    "### `G-RESEARCH-REPRODUCES` reads tools/research/reproduce.py`s full run banked at the act (data/b757_reproduce.txt and .json), which stand absent: the run calls rows that compute at a field (the Epstein control`s I-54, I-80, I-81, I-82 and I-85, and the class groups of I-106), which (R367)(10) bars, \"nothing computed at any field, the builds apart\" (data/b757_ferry.txt :29); neither the run nor a part of it was run, a part being no run the arm reads, so the arm fails on the absent bank (the probe of standing-a2 :58), as at b756.",
+    "### `G-LISTINGS-BEFORE-CLAUSES` takes the time of the first captured shell command that carries `branch ... --merged` (tools/acts/b757.py :452, the needle carried from b754`s module) and reads none: step zero`s listing was printed at 05:02:27Z, before the first delete (05:15:35Z), by a scratch reader that called the git listing within itself (data/b757_stepzero.txt :63-:65); a listing run now would follow the deletes, and the needle is not widened to read a scratch file the capture does not hold (data/b757_defects.txt (f); the probe of the act part :29).",
+    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check, the answers bank read cut before the root`s appended section, as data/b757_cut.txt, re-cut no paper and banked no search, so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :126), where b756`s suite passed it; (R367) orders its repairs under (3) and (8) and names neither the rule`s pattern nor the bank`s name, so neither is changed (data/b757_defects.txt (q)).",
+    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal (tools/no_sorry_main.py :184) and reads 23 kernels, pairs unequal 1, sorry in code 0 (the probe of standing-a1 :20, :22): the one pair SIDE-dirichlet-mod-24, its clone at push-b757-mod24 with HEAD equal to its remote`s main e5ebdd15 and its local main at 597b0869. The gated push`s default mode moved the remote`s main and no local main (tools/push_gated.sh :207, :229, :232); the local fast-forward is carried by neither the one-call tool nor the gated push, so by (R367)(3)`s last sentence the seat stops at that write and prints the route it lacks (data/b757_events.txt (38)); no plain git sent. SIDE-explicit-formula`s clone was returned to main by the one-call tool`s switch before the probe (HEAD = main = origin/main = 8fbab45d).",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 6, data/b757_ferry.txt :49).",
+)
+NEWLY = None   # ### set from tools/standing/prelock.py print b757 before the gate; None prints PENDING on a working face
+# ### PROVISIONAL: the probes of 12:52Z-13:52Z (data/b757_probe_<part>.txt): standing-a2 25 failing, the act part 11 failing; of these, on real
+# ### state the five declared above; the rest each read an object not yet written (the face, the guard and command banks, the gate, the lock,
+# ### the seal, the scores, the root, the entry and the trail), G-DELETES-ONE-BRANCH among them on the command bank`s count alone (scratch
+# ### dels757.py at 14:3xZ: its other terms each as wanted, the step-zero deletes OUTSIDE [] and the two controls of (3) deleted)
+
+
+def shift(s):
+    return PAT.sub(lambda m: MAP.get(m.group(0), m.group(0)), s)
+
+
+def blocks(path):
+    out, cur = {}, None
+    for l in open(path, encoding='utf-8').read().split('\n'):
+        m = re.match(r'^@@@ (\S+)$', l)
+        if m:
+            cur = m.group(1)
+            out[cur] = []
+        elif cur:
+            out[cur].append(l)
+    return {k: '\n'.join(v).rstrip('\n') for k, v in out.items()}
+
+
+def carried(o, old):
+    """the paragraphs of b756's face standing between its blocks: gap[k], the lines after block k up to the next; the lines found by each block's own last
+    and first lines, each read once."""
+    gaps = {}
+    i = 0
+    for n, k in enumerate(ORDER):
+        ls = old[k].split('\n')
+        first = next(l for l in ls if l and '@@' not in l)
+        last = ls[-1]
+        a = o.index(first, i)
+        b = o.index(last, a)
+        if n:
+            gaps[ORDER[n - 1]] = o[i:a]
+        i = b + 1
+    return gaps
+
+
+def pre_face():
+    hs = []
+    for repo, r in LOGS:
+        rng = r if '..' in r else r + '..HEAD'
+        hs += subprocess.run(['git', '-C', repo, 'rev-list', '--reverse', rng], capture_output=True, text=True).stdout.split()
+    return ' '.join(h[:8] for h in hs)
+
+
+def main():
+    if os.path.exists(NEW) and 'THE REGISTRATION LOCK' in open(NEW, encoding='utf-8').read():
+        print('REFUSED: the face carries its lock block')
+        return 2
+    o = open(OLD, encoding='utf-8', newline='').read().split('\n')
+    o = o[:o.index(next(l for l in o if l.startswith('### THE REGISTRATION LOCK'))) - 1]
+    G = carried(o, blocks(OLD_BLOCKS))
+    B = blocks(BLOCKS)
+    parts = []
+    for k in ORDER:
+        parts += [B[k]] + [shift(l) for l in G.get(k, [])]
+    t = '\n'.join(parts) + '\n'
+    t = t.replace('@@PREFACE@@', PRE_FACE_TITLE + ' ' + pre_face())
+    t = t.replace('@@DATE@@', K.DATE)
+    t = t.replace('@@DECLARED@@', ' '.join('`%s`' % a for a in DECLARED) + '.' if DECLARED else 'NONE.')
+    t = t.replace('@@DECLARED_LINES@@\n', ''.join(l + '\n' for l in DECLARED_LINES))
+    t = t.replace('@@NEWLY@@', 'PENDING (tools/standing/prelock.py print b757 not yet run)' if NEWLY is None else (' '.join('`%s`' % a for a in NEWLY) if NEWLY else 'NONE'))
+    for a_, b_ in FIXES:
+        if t.count(a_) != 1:
+            print('REFUSED: a carried sentence to set found %d times: %s' % (t.count(a_), a_[:80].replace('\n', ' / ')))
+            return 2
+        t = t.replace(a_, b_)
+        print('SET:', b_[:100].replace('\n', ' / '))
+    left = [x for x in re.findall(r'@@\w+@@', t) if x != '@@N5_WRITES@@']
+    if left:
+        print('REFUSED: unfilled', sorted(set(left)))
+        return 2
+    stale = sorted(set(re.findall(r'b757_registration_(?!%s)[\d-]+' % K.DATE, t)))
+    if stale:
+        print('REFUSED: a stale face date', stale)
+        return 2
+    ferry = open(FERRY, encoding='utf-8', newline='').read()
+    rows = AM.rows_of('b757')
+    row = AM.w_row(ferry, rows, t)
+    if t.count(W_ANCHOR) != 1:
+        print('REFUSED: the (W) anchor')
+        return 2
+    if row:
+        t = t.replace(W_ANCHOR, row + '\n' + W_ANCHOR)
+    regen = AM.regenerate('b757', ferry, t, rows)
+    t = t.replace(W_ANCHOR, '\n'.join(regen) + '\n' + W_ANCHOR)
+    t = t.replace('@@N5_WRITES@@', AM.n5_clause(ferry, rows, t).upper())
+    left = re.findall(r'@@\w+@@', t)
+    if left:
+        print('REFUSED: unfilled', sorted(set(left)))
+        return 2
+    print('\n'.join(regen))
+    print('(W) COVERS THE RULING`S CLAUSE-ORDERED FILES:', AM.writes(ferry, rows), '; THE COMPOSER`S ROW:', row or 'NONE NEEDED', '; MISSING AFTER:', AM.missing(ferry, rows, t))
+    if '--dry' in sys.argv:
+        print('DRY: nothing written', len(t), 'chars', t.count('\n'), 'lines')
+        if '--show' in sys.argv:
+            print(t)
+        return 0
+    tmp = NEW + '.part'
+    with open(tmp, 'w', encoding='utf-8', newline='') as f:
+        f.write(t)
+    os.replace(tmp, NEW)
+    print('WROTE', NEW, len(t), 'chars', t.count('\n'), 'lines')
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

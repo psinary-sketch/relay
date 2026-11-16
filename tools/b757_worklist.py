@@ -335,7 +335,7 @@ B714_ROOT = '48bf6d77facceaf48316c77b86f920fbd7a531fe064e1777dbc34d3c2ae0dd57'  
 B723_ROOT_BANKS = 'c95ca668'  # ### b756's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '26ac811e'     # ### tools/standing/ v1.35.4 with (R367)(3)'s route for kernel writes, a commit of its own moving VERSION, its controls 20 of 20 (step 10)
-C1_LOCKGATE = None           # ### tools/b757_lockgate.py carried from tools/b756_lockgate.py and committed before it runs (Component 6): set when made
+C1_LOCKGATE = '24fca573'     # ### tools/b757_lockgate.py carried from tools/b756_lockgate.py and committed before it runs (Component 6, step 70, 14:09:44Z)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b757_doors.py', '2bc7eca8', 'data/b757_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
@@ -471,7 +471,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R367)); one question at the root ((R367)(10))
 SITTING_STATES = {}
-HANDOFF_COMMIT = None   # ### (R367)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate: set when made
+HANDOFF_COMMIT = 'c37cdb05'   # ### (R367)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate (step 69, 14:07:50Z, 154 lines)
 C3_RELAY = ()   # ### Component 3 ((R367)(5)): set as made
 C3_NOTES_GEN = '0243d123'   # ### Component 6: tools/b757_notes.py committed before its run, controls 18 of 18 (step 56)
 C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'e88282c4'),
