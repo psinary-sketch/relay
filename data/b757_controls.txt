@@ -1,4 +1,4 @@
-b757 -- (R367)(3)-(7): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (2026-11-16T08:38:02Z)
+b757 -- (R367)(3)-(7): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (2026-11-16T12:22:14Z)
 
 ## THE CONTROLS
   (1) the axioms reader on a wrapped standard line: ('propext', 'Classical.choice', 'Quot.sound') -> AS WANTED
@@ -15,14 +15,28 @@ b757 -- (R367)(3)-(7): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY
   (12) the axioms print`s state on three planted files (an import failure, the NOT RUN line, a clean print): ['FAILED, NO AXIOMS LINE: ', 'NOT RUN: NOT RUN: the bu', 'RAN'] -> AS WANTED
   (13) the row`s own target check on a planted dispatch row of the vendored module: given the srcDir-aware list, taken ; given the kernel`s folder alone (dispatch 1`s form), refused: [None, '### THE ROW REFUSED, NOTHING WRITTEN: targets not modules of'] -> AS WANTED
   (14) the remote tip: a push-b757-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused: (None, True, None, True, True) -> AS WANTED
-  (15) the rows bank: 2 rows, refused by standing.dispatchrows NONE -> AS WANTED
-  (16) the free read and the disk read now: 5581 MB at 2026-11-16T08:38:02Z ; {'C:/': 25857, 'D:/': 616818} -> AS WANTED
+  (15) the rows bank: 16 rows, refused by standing.dispatchrows NONE -> AS WANTED
+  (16) the free read and the disk read now: 5281 MB at 2026-11-16T12:22:14Z ; {'C:/': 25845, 'D:/': 616782} -> AS WANTED
   the tool`s controls 16 of 16 as wanted
 
-## SIDE-explicit-formula: 1 DISPATCHES OF AT MOST 14 ; SENDS REFUSED BY THE HOST 0
+## SIDE-explicit-formula: 6 DISPATCHES OF AT MOST 14 ; SENDS REFUSED BY THE HOST 0
   1 | join        | sha 6568e9c7 | run 43818699881 | free 5396 MB | licence c2688333 :15 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 419, axiom lines 0, within 0, outside 0, missing 419, sorryAx False, runner low 3991 MB
       the axioms print: FAILED, NO AXIOMS LINE: out/Axioms.lean:1:0: error: import SIDEExplicitFormula.Schema.ZQ.OffZero.Time failed, environment already contains 'SIDEExplicitFormula.Schema.ZQ.OffZero.sRe.match_1' from SIDEExplicitFormula.Schema.ZQ.OffZero.Sums
+  2 | T0          | sha d40bbdab | run 43834018078 | free 5351 MB | licence c2688333 :17 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 388, axiom lines 0, within 0, outside 0, missing 388, sorryAx False, runner low 13271 MB
+      the axioms print: FAILED, NO AXIOMS LINE: out/Axioms.lean:2:14: error(lean.unknownIdentifier): Unknown constant `SIDEExplicitFormula.Schema.ZetaBox.zeta_box`
+  3 | T0          | sha 89eb71b6 | run 43835333285 | free 5476 MB | licence c2688333 :17 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 388, axiom lines 10, within 10, outside 0, missing 378, sorryAx False, runner low 13239 MB
+      the axioms print: RAN WITH ERRORS (101 error lines, the first: out/Axioms.lean:12:14: error(lean.unknownIdentifier): Unknown constant `SIDEExplicitFormula.Schema.ZetaBox.zeta_box`)
+  4 | T1          | sha e1afae15 | run 43836818700 | free 5346 MB | licence c2688333 :17 | BREAKS, exit 1, built True, 10 errors, sorry warnings 0, targets 419, axiom lines 0, within 0, outside 0, missing 419, sorryAx False, runner low 13185 MB
+      the axioms print: NOT RUN: NOT RUN: the build did not complete under the hold
+  5 | T1          | sha e52f9060 | run 43839463729 | free 5337 MB | licence c2688333 :17 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 419, axiom lines 41, within 41, outside 0, missing 378, sorryAx False, runner low 13265 MB
+      the axioms print: RAN WITH ERRORS (101 error lines, the first: out/Axioms.lean:43:14: error(lean.unknownIdentifier): Unknown constant `SIDEExplicitFormula.Schema.ZetaBox.zeta_box`)
+  6 | wide        | sha 596d1c9e | run 43841545568 | free 5465 MB | licence c2688333 :23 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 443, axiom lines 24, within 24, outside 0, missing 419, sorryAx False, runner low 11106 MB
+      the axioms print: RAN WITH ERRORS (101 error lines, the first: out/Axioms.lean:27:14: error(lean.unknownIdentifier): Unknown constant `SIDEExplicitFormula.Schema.ZQ.boxF_two`)
 
-## SIDE-dirichlet-mod-24: 0 DISPATCHES OF AT MOST 4 ; SENDS REFUSED BY THE HOST 0
+## SIDE-dirichlet-mod-24: 2 DISPATCHES OF AT MOST 4 ; SENDS REFUSED BY THE HOST 0
+  1 | workflow    | sha 22282733 | run 43835913340 | free 5442 MB | licence c2688333 :21 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 2, axiom lines 2, within 2, outside 0, missing 0, sorryAx False, runner low 14962 MB
+      the axioms print: RAN
+  2 | mod24       | sha e5ebdd15 | run 43836415096 | free 5351 MB | licence c2688333 :21 | KERNEL, exit 0, built True, 0 errors, sorry warnings 0, targets 8, axiom lines 8, within 8, outside 0, missing 0, sorryAx False, runner low 14758 MB
+      the axioms print: RAN
 
-### ### **DISPATCHES 1 (SIDE-explicit-formula 1 OF 14, SIDE-dirichlet-mod-24 0 OF 4) ; READ KERNEL (THE BUILD EXITING 0) 1, OF THEM WITH THE AXIOMS PRINT RUN 0 ; THE TOOL`S CONTROLS 16 OF 16.**
+### ### **DISPATCHES 8 (SIDE-explicit-formula 6 OF 14, SIDE-dirichlet-mod-24 2 OF 4) ; READ KERNEL (THE BUILD EXITING 0) 7, OF THEM WITH THE AXIOMS PRINT RUN 5 ; THE TOOL`S CONTROLS 16 OF 16.**
