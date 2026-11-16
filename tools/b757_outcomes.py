@@ -9,6 +9,10 @@ test, printed beside the sentence.
   join     (4): the join's one dispatch, read: the exit file, the axioms print, the lines against the joined print_targets.txt; the outcome and
            its sentence, the reading behind it (the declaration the environment held, in each module declaring it, with the commits that added
            them and the branches holding those commits; the names the workflow's grammar refused, with the bank that first entered them)
+  T0, T1   (5): the item's last dispatch, read: the exit file, the item's own names (every `theorem` its Lean file declares at the dispatched
+           commit, qualified in the file's namespace) each with an axioms line within the standard three, none naming sorryAx, and the file's
+           lines against the clause's stop; the sentence cut from the ferry's T0 or T1 line, the branch and commit in the tag's place ((4):
+           "where the join fails ... its sentences name that branch and commit in the tag's place")
   bank     every item composed so far, written to data/b757_outcomes.txt and data/b757_outcomes.json (written whole at each run, by this tool)
 """
 import io
@@ -149,9 +153,127 @@ def join():
     return out, rec
 
 
+AX_DEP = re.compile(r"'([^\n]+?)' depends on axioms: \[([^\]]*)\]")
+AX_NONE = re.compile(r"'([^\n]+?)' does not depend on any axioms")
+COEFF = dict(T0=dict(file='SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean', stop=360, head='zq_coeff_not_multiplicative',
+                     names=('zq_coeff_not_multiplicative',)),
+             T1=dict(file='SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean', stop=1350, head='cQ_not_nonneg',
+                     names=('cQ_not_nonneg', 'cQ_forty_eight')))
+COEFF_BRANCH = 'push-b757-coeff'
+
+
+def axioms_of(text):
+    """{name: (axioms...)} from a #print axioms output, a wrapped line read whole (the controls tool's reader, carried)."""
+    out = {}
+    for m in AX_DEP.finditer(text or ''):
+        out[m.group(1)] = tuple(x.strip() for x in m.group(2).replace(NL, ' ').split(',') if x.strip())
+    for m in AX_NONE.finditer(text or ''):
+        out[m.group(1)] = ()
+    return out
+
+
+def line_opening(prefix):
+    L = ferry()
+    hit = [(i + 1, l) for i, l in enumerate(L) if l.startswith(prefix)]
+    if len(hit) != 1:
+        sys.exit('### THE LINE OPENING %r NOT READ ONCE IN THE FERRY BANK (%d lines) -- nothing written' % (prefix, len(hit)))
+    return hit[0]
+
+
+def declared(src):
+    """the `theorem`s a Lean file declares and its namespace path (the `namespace` lines before the first declaration, one name each)."""
+    ns, names = [], []
+    for l in src.split(NL):
+        m = re.match(r'^namespace\s+(\S+)\s*$', l)
+        if m and not names:
+            ns.append(m.group(1))
+        m = re.match(r'^theorem\s+([A-Za-z_][A-Za-z0-9_\']*)', l)
+        if m:
+            names.append(m.group(1))
+    return '.'.join(ns), names
+
+
+def coeff(item):
+    ln, text = line_opening('%s, ' % item)
+    c = COEFF[item]
+    yes = quoted_after(text, 'IF IT COMPILES:')
+    no = quoted_after(text, 'IF IT DOES NOT:')
+    out = ['## (5) %s (the ferry bank :%d; the sentences cut from it: compiled %d characters, not %d characters)' % (item, ln, len(yes or ''), len(no or ''))]
+    R = rows()
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('item') == item]
+    reads = dict((int(r['run']), r) for r in R if r.get('kind') == 'read')
+    if not disp or not yes or not no:
+        out.append('  ### NO %s DISPATCH ROWED OR A SENTENCE NOT CUT -- nothing composed' % item)
+        return out, None
+    d = disp[-1]
+    rd = reads.get(int(d['run']))
+    out.append('  the dispatches: %s' % ', '.join('%d run %s at %s' % (x['n'], x['run'], x['sha'][:8]) for x in disp))
+    if not rd:
+        out.append('  ### THE RUN %s NOT READ -- nothing composed' % d['run'])
+        return out, None
+    src = g('show', '%s:%s' % (d['sha'], c['file']))
+    ns, names = declared(src)
+    nlines = len(src.rstrip(NL).split(NL)) if src else 0
+    q = ['%s.%s' % (ns, n) for n in names]
+    axt = io.open(os.path.join(rd['artifact'], 'axioms.txt'), encoding='utf-8', errors='replace').read() if rd.get('artifact') and \
+        os.path.exists(os.path.join(rd['artifact'], 'axioms.txt')) else ''
+    ax = axioms_of(axt)
+    have = [n for n in q if n in ax]
+    within = [n for n in have if set(ax[n]) <= set(STANDARD)]
+    sorry_lines = [n for n in have if 'sorryAx' in ax[n]]
+    built = rd.get('build_exit') == '0' and rd.get('built_equal') and not rd.get('stop')
+    ok = bool(built and names and len(have) == len(q) and len(within) == len(q) and not sorry_lines and nlines <= c['stop']
+              and all('%s.%s' % (ns, h) in q for h in c['names']))
+    out.append('  THE RUN %s READ (data/b757_dispatch_rows.json): exit file %s ; built %s, equal to the dispatched commit %s ; stopped under the hold %s ; '
+               'errors %d ; sorry warnings %s' % (d['run'], rd.get('build_exit'), (rd.get('built_ref') or '')[:8], rd.get('built_equal'), bool(rd.get('stop')),
+                                                  len(rd.get('errors') or []), rd.get('sorry_warnings')))
+    out.append('  THE ITEM`S FILE %s at %s: %d lines against the stop %d ; namespace %s ; theorems %d' % (c['file'], d['sha'][:8], nlines, c['stop'], ns or 'NONE', len(names)))
+    out.append('  ITS NAMES IN THE AXIOMS PRINT (%s): with a line %d of %d ; within the standard three %d ; naming sorryAx %d' % (
+        rd.get('axioms_print'), len(have), len(q), len(within), len(sorry_lines)))
+    for n in q:
+        a = ax.get(n)
+        out.append('    %-72s %s' % (n, 'NO AXIOMS LINE' if a is None else '[%s]%s' % (', '.join(a), '' if set(a) <= set(STANDARD) else '  OUTSIDE')))
+    out.append('  WHAT THE RUN MUST SHOW ((R367)(5)): a compile outcome, no verdict: the exit file 0 and each of the item`s names within the standard three, '
+               'no sorryAx, within %d lines -> %s' % (c['stop'], 'SHOWN' if ok else 'NOT SHOWN'))
+    rec = dict(item=item, clause_line=ln, run=int(d['run']), sha=d['sha'], shown=ok, lines=nlines, names=len(q))
+    if ok:
+        heads = [ax['%s.%s' % (ns, h)] for h in c['names']]
+        axs = sorted(set(a for h in heads for a in h), key=lambda a: STANDARD.index(a) if a in STANDARD else 9)
+        s, left = fill(yes, {'tag': COEFF_BRANCH, 'peel': d['sha'][:8], 'run id': d['run'], 'axioms': 'axioms: %s' % (', '.join(axs) or 'none')})
+        rec.update(outcome='COMPILED', sentence=s, unfilled=left)
+        out.append('  THE OUTCOME: COMPILED on %s at %s, the branch and commit in the tag`s place ((4)); zq-b730 not moved (events (17), (18)); no tag cut' % (
+            COEFF_BRANCH, d['sha'][:8]))
+    else:
+        errs = rd.get('errors') or []
+        where = None
+        for l in errs:
+            m = re.search(r'([A-Za-z0-9_/.]+\.lean):(\d+):\d+: error', l)
+            if m:
+                where = '%s :%s, run %s' % (m.group(1), m.group(2), d['run'])
+                break
+        if not where:
+            where = 'run %s: %s' % (d['run'], 'the build exit %s' % rd.get('build_exit') if not built else '%d of %d names without a line within the standard three' % (
+                len(q) - len(within), len(q)))
+        s, left = fill(no, {'where it stopped': where})
+        rec.update(outcome='NOT COMPILED AT THIS RUN', sentence=s, unfilled=left, where=where)
+        out.append('  THE OUTCOME AT THIS RUN: NOT COMPILED (%s); the clause`s stop is %d lines, the file at %d -- the failing sentence stands only where '
+                   'the item stops' % (where, c['stop'], nlines))
+    out.append('  THE SENTENCE: %s' % (rec.get('sentence') or 'NONE'))
+    out.append('  fields left unfilled: %s' % (rec.get('unfilled') if rec.get('unfilled') is not None else '-'))
+    return out, rec
+
+
+def t0():
+    return coeff('T0')
+
+
+def t1():
+    return coeff('T1')
+
+
 def bank():
     lines, recs = [], []
-    for fn in (join,):
+    for fn in (join, t0, t1):
         o, r = fn()
         lines += o + ['']
         if r:
@@ -172,10 +294,10 @@ def bank():
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if not a or a[0] not in ('join', 'bank'):
+    if not a or a[0] not in ('join', 'T0', 'T1', 'bank'):
         sys.exit(__doc__)
-    if a[0] == 'join':
-        o, _r = join()
+    if a[0] in ('join', 'T0', 'T1'):
+        o, _r = dict(join=join, T0=t0, T1=t1)[a[0]]()
         print(NL.join(o))
     else:
         bank()
