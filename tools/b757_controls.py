@@ -170,6 +170,11 @@ def cmd_dispatch(k, sha, n, item, *rest):
         i = rest.index('--names')
         names = rest[i + 1] if i + 1 < len(rest) else ''
         del rest[i:i + 2]
+    tjson = None
+    if '--targets-json' in rest:
+        i = rest.index('--targets-json')
+        tjson = rest[i + 1] if i + 1 < len(rest) else ''
+        del rest[i:i + 2]
     target = ' '.join(rest)
     read, dk, rows = DR.free(), disk(), _rows()
     why = dispatch_refusal(k, item, int(n), rows, read, dk)
@@ -178,6 +183,14 @@ def cmd_dispatch(k, sha, n, item, *rest):
     kd = KERNELS[k]
     slug, owner = remote(k)
     full = git(kd['path'], 'rev-parse', sha).strip()
+    if tjson is not None:
+        # ### the targets read from a bank a committed tool wrote (tools/b757_join.py bank), bound to the commit dispatched
+        tj = json.load(io.open(os.path.join(RELAY, tjson), encoding='utf-8')) if tjson and os.path.exists(os.path.join(RELAY, tjson)) else {}
+        if target or tj.get('rev') != full or tj.get('refused') or not tj.get('modules'):
+            sys.exit('### NOT DISPATCHED: the targets file %r read rev %s against the commit %s, refused %s, modules %d, targets typed beside it %s' % (
+                tjson, str(tj.get('rev'))[:8], full[:8], tj.get('refused'), len(tj.get('modules') or []), bool(target)))
+        target = ' '.join(tj['modules'])
+        print('  the targets from %s: %d modules, read at %s, its union %s, its merges %s' % (tjson, len(tj['modules']), tj['rev'][:8], tj.get('union_ok'), tj.get('merges_ok')))
     heads = [tuple(l.split('\t')) for l in subprocess.run(['git', '-C', kd['path'], 'ls-remote', '--heads', 'origin'], capture_output=True, text=True,
                                                           encoding='utf-8', errors='replace').stdout.split(NL) if '\t' in l]
     why = tip_refusal(full, heads)

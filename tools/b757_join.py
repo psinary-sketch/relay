@@ -14,6 +14,7 @@ conflicted in that file, the one file (R367)(4) names: "resolved as the union of
   bank                  data/b757_join.txt through standing.figbank: the controls first, then the merges, the union check, the targets
 """
 import io
+import json
 import os
 import re
 import subprocess
@@ -41,6 +42,7 @@ NAMED = 'print_targets.txt'
 TIPS = (('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'), ('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),
         ('c2-b725', '0395f15d3b2906716ccb1f09ca24171d7a921210'), ('zq-b730', '1e6588703732435b34d840bbbb840225932c9b6b'))
 BANK = os.path.join(D, 'b757_join.txt')
+TARGETS_JSON = os.path.join(D, 'b757_join_targets.json')
 DECL = r'^(@\[[^]]*\] *)?((private|protected|noncomputable|nonrec|partial|unsafe) +)*(theorem|lemma|def|abbrev|structure|instance|inductive|class|opaque) +([A-Za-z0-9_.\x27]+\.)?%s([ :({\[]|$)'
 
 
@@ -314,6 +316,14 @@ def cmd_bank():
     r = FB.write(BANK, NL.join(out))
     print(NL.join(out))
     print('written data/b757_join.txt ; figbank: %s' % r['why'])
+    # ### the dispatch's targets as data, bound to the commit they were read at (tools/b757_controls.py dispatch --targets-json reads them)
+    tj = dict(rev=g('rev-parse', JOIN).strip(), branch=JOIN, names=len(t), modules=mods, refused=sorted(bad), union_ok=cok, merges_ok=mok, at=_now())
+    tmp = TARGETS_JSON + '.tmp'
+    with open(tmp, 'w', encoding='utf-8', newline='\n') as f:
+        json.dump(tj, f, ensure_ascii=False, indent=1)
+        f.write(NL)
+    os.replace(tmp, TARGETS_JSON)
+    print('written data/b757_join_targets.json: rev %s ; modules %d ; refused %d' % (tj['rev'][:8], len(mods), len(bad)))
 
 
 if __name__ == '__main__':
