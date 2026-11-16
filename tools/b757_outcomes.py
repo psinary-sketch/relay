@@ -13,6 +13,8 @@ test, printed beside the sentence.
            commit, qualified in the file's namespace) each with an axioms line within the standard three, none naming sorryAx, and the file's
            lines against the clause's stop; the sentence cut from the ferry's T0 or T1 line, the branch and commit in the tag's place ((4):
            "where the join fails ... its sentences name that branch and commit in the tag's place")
+  mod24    (6): the route's control dispatch, then the module's last dispatch in SIDE-dirichlet-mod-24, read; units24_iso_signs within the
+           standard three (or none), no sorryAx; the riding segment of the compiled sentence kept where mul_eq_add_add_one_iff's line stands
   bank     every item composed so far, written to data/b757_outcomes.txt and data/b757_outcomes.json (written whole at each run, by this tool)
 """
 import io
@@ -263,6 +265,89 @@ def coeff(item):
     return out, rec
 
 
+M24 = 'D:/SIDE-dirichlet-mod-24'
+M24_FILE = 'SIDEDirichletMod24/Units.lean'
+M24_HEAD, M24_RIDE = 'units24_iso_signs', 'mul_eq_add_add_one_iff'
+M24_TAG = 'v0.2.0'
+RIDE_OPEN = '<; with it,'
+
+
+def mod24():
+    """(6): the module's last dispatch in SIDE-dirichlet-mod-24, read; the sentence cut from (6), its riding segment (opening RIDE_OPEN and
+    closing at the sentence's last '>') kept, brackets dropped, where the riding statement's line stands within the standard three, and
+    dropped where it does not."""
+    ln, text = clause(6)
+    yes = quoted_after(text, 'IF THE MODULE COMPILES:')
+    no = quoted_after(text, 'IF IT DOES NOT:')
+    out = ['## (6) THE MODULUS-24 MODULE (the ferry bank :%d; the sentences cut from it: compiled %d characters, not %d characters)' % (ln, len(yes or ''), len(no or ''))]
+    R = rows()
+    ctl = [r for r in R if r.get('kind') == 'dispatch' and r.get('item') == 'workflow']
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('item') == 'mod24']
+    reads = dict((int(r['run']), r) for r in R if r.get('kind') == 'read')
+    for x in ctl:
+        rc = reads.get(int(x['run'])) or {}
+        out.append('  THE ROUTE`S CONTROL ((6)(i)): dispatch %d run %s at %s, the tree as it stands: exit file %s, axioms lines %s of %s, %s' % (
+            x['n'], x['run'], x['sha'][:8], rc.get('build_exit', 'NOT READ'), rc.get('axiom_lines'), rc.get('targets'), rc.get('axioms_print')))
+    if not disp or not yes or not no:
+        out.append('  ### NO MODULE DISPATCH ROWED OR A SENTENCE NOT CUT -- nothing composed')
+        return out, None
+    d = disp[-1]
+    rd = reads.get(int(d['run']))
+    out.append('  the module`s dispatches: %s' % ', '.join('%d run %s at %s' % (x['n'], x['run'], x['sha'][:8]) for x in disp))
+    if not rd:
+        out.append('  ### THE RUN %s NOT READ -- nothing composed' % d['run'])
+        return out, None
+    src = subprocess.run(['git', '-C', M24, 'show', '%s:%s' % (d['sha'], M24_FILE)], capture_output=True, text=True, encoding='utf-8',
+                         errors='replace').stdout
+    ns, names = declared(src)
+    q = ['%s.%s' % (ns, n) for n in names]
+    axt = io.open(os.path.join(rd['artifact'], 'axioms.txt'), encoding='utf-8', errors='replace').read() if rd.get('artifact') and \
+        os.path.exists(os.path.join(rd['artifact'], 'axioms.txt')) else ''
+    ax = axioms_of(axt)
+    have = [n for n in q if n in ax]
+    within = [n for n in have if set(ax[n]) <= set(STANDARD)]
+    built = rd.get('build_exit') == '0' and rd.get('built_equal') and not rd.get('stop')
+    head, ride = '%s.%s' % (ns, M24_HEAD), '%s.%s' % (ns, M24_RIDE)
+    ok = bool(built and head in within and 'sorryAx' not in axt)
+    ride_ok = bool(ok and ride in within)
+    out.append('  THE RUN %s READ: exit file %s ; built %s, equal %s ; stopped %s ; errors %d ; the print %s' % (
+        d['run'], rd.get('build_exit'), (rd.get('built_ref') or '')[:8], rd.get('built_equal'), bool(rd.get('stop')), len(rd.get('errors') or []),
+        rd.get('axioms_print')))
+    out.append('  THE MODULE %s at %s: namespace %s ; theorems %d ; with a line %d ; within the standard three (or none) %d' % (
+        M24_FILE, d['sha'][:8], ns or 'NONE', len(q), len(have), len(within)))
+    for n in q:
+        a = ax.get(n)
+        out.append('    %-60s %s' % (n, 'NO AXIOMS LINE' if a is None else '[%s]%s' % (', '.join(a) or 'none', '' if set(a) <= set(STANDARD) else '  OUTSIDE')))
+    out.append('  WHAT THE RUN MUST SHOW ((R367)(6)): the exit file 0 ; %s within the standard three or none ; no sorryAx -> %s ; the riding statement %s -> %s' % (
+        M24_HEAD, 'SHOWN' if ok else 'NOT SHOWN', M24_RIDE, 'SHOWN' if ride_ok else 'NOT SHOWN'))
+    rec = dict(item='mod24', clause_line=ln, run=int(d['run']), sha=d['sha'], shown=ok, ride=ride_ok, names=len(q))
+    if ok:
+        i, j = yes.find(RIDE_OPEN), yes.rfind('>')
+        if i < 0 or j < i:
+            out.append('  ### THE RIDING SEGMENT NOT FOUND IN THE SENTENCE -- nothing composed')
+            return out, None
+        s = yes[:i] + (yes[i + 1:j] if ride_ok else '') + yes[j + 1:]
+        axs = sorted(set(ax[head]), key=lambda a: STANDARD.index(a) if a in STANDARD else 9)
+        s, left = fill(s, {'name': M24_HEAD, 'peel': d['sha'][:8], 'run id': d['run'], 'axioms': 'axioms: %s' % (', '.join(axs) or 'none')})
+        rec.update(outcome='COMPILED', sentence=s, unfilled=left, tag=M24_TAG)
+        out.append('  THE OUTCOME: COMPILED -- main moves to %s by the gated push`s default mode and %s is cut at its read-back, its peel read back' % (
+            d['sha'][:8], M24_TAG))
+    else:
+        where = None
+        for l in rd.get('errors') or []:
+            m = re.search(r'([A-Za-z0-9_/.]+\.lean):(\d+):\d+: error', l)
+            if m:
+                where = '%s :%s, run %s' % (m.group(1), m.group(2), d['run'])
+                break
+        where = where or 'run %s: the build exit %s' % (d['run'], rd.get('build_exit'))
+        s, left = fill(no, {'where it stopped': where})
+        rec.update(outcome='NOT COMPILED AT THIS RUN', sentence=s, unfilled=left, where=where)
+        out.append('  THE OUTCOME AT THIS RUN: NOT COMPILED (%s)' % where)
+    out.append('  THE SENTENCE: %s' % (rec.get('sentence') or 'NONE'))
+    out.append('  fields left unfilled: %s' % (rec.get('unfilled') if rec.get('unfilled') is not None else '-'))
+    return out, rec
+
+
 def t0():
     return coeff('T0')
 
@@ -273,7 +358,7 @@ def t1():
 
 def bank():
     lines, recs = [], []
-    for fn in (join, t0, t1):
+    for fn in (join, t0, t1, mod24):
         o, r = fn()
         lines += o + ['']
         if r:
@@ -294,10 +379,10 @@ def bank():
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if not a or a[0] not in ('join', 'T0', 'T1', 'bank'):
+    if not a or a[0] not in ('join', 'T0', 'T1', 'mod24', 'bank'):
         sys.exit(__doc__)
-    if a[0] in ('join', 'T0', 'T1'):
-        o, _r = dict(join=join, T0=t0, T1=t1)[a[0]]()
+    if a[0] in ('join', 'T0', 'T1', 'mod24'):
+        o, _r = dict(join=join, T0=t0, T1=t1, mod24=mod24)[a[0]]()
         print(NL.join(o))
     else:
         bank()
