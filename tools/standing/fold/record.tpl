@@ -292,7 +292,7 @@ def defects(*a):
 PRE_SEAL_PHASES, POST_SEAL_PHASES = __import__('standing.repeat', fromlist=['phases']).phases(ROOT)   # ### v1.4.0 (R334)(2)(iv): read from data/act_current.json's components, `lock` among them
 # ### before `seal` (a pre-seal phase of its own, the lock commit's), the record and the closing after; no literal tuple to keep by hand
 STEP_PHASES = PRE_SEAL_PHASES + POST_SEAL_PHASES
-STEP_REPOS = dict(relay=ROOT, pp=PP)
+STEP_REPOS = dict(relay=ROOT, pp=PP, **{'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-dirichlet-mod-24': 'D:/SIDE-dirichlet-mod-24'})   # ### v1.35.4, (R367)(3): the kernels of tools/standing/commit.py KERNELS, whose commits take a row (the controls read the two equal); in the one line, the template's line count kept for the act modules' overrides by number
 
 
 def step(*a):
@@ -302,7 +302,7 @@ def step(*a):
     step of several commits is one row carrying the list of them (`commits`), `commit` its first, and every arm reads the list through
     tools/act_close.py step_commits (a repair at ⟪ACT⟫). A commit already in the bank is not entered twice."""
     if len(a) < 2 or a[0] not in STEP_REPOS:
-        sys.exit('### step <relay|pp> <phase> [commit ...] -- the phases: %s' % ' | '.join(STEP_PHASES))
+        sys.exit('### step <%s> <phase> [commit ...] -- the phases: %s' % ('|'.join(STEP_REPOS), ' | '.join(STEP_PHASES)))
     rest = list(a[1:])
     commits = []
     while rest and re.match(r'^[0-9a-f]{7,40}$', rest[-1]):

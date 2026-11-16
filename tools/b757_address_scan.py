@@ -154,7 +154,7 @@ def added(diff):
 
 SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R348)(3): b738's one kernel branch, by its ref, read at b739 where no kernel is written; b737 defect (p): its commits land in this repository, so the scan reads each at the commit
 if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b757_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
-    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..main') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b757_kernel_bases.json'), encoding='utf-8')).items()))
+    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b757_kernel_bases.json'), encoding='utf-8')).items()))   # ### b757, (R367)(3): to HEAD, the checked-out push-b757-* branch whose commits stand before main moves (b745's '..main' read them only after)
 BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b739, (R349)(3) and (5): item [46]'s byline and two self-citations, under I-23
 
 
@@ -267,6 +267,10 @@ def scan(*a):
     L += ['  %-28s %4d ; %d ; %d ; %d ; %d' % (k, v[0], v[1], v[2], v[3], v[4]) for k, v in sorted(by.items())]
     hits = sorted(set('%s %s' % (kind, label) for kind, label, text in P if kind != BYLINE_KIND and (count(text, addr) or count(text, name) or count(text, uname) or count(text, orcid))))
     L += ['', '## THE PLACES WITH AN OCCURRENCE (by place, never the text): %s' % ('; '.join(hits) if hits else 'NONE')]
+    # ### b757, (R367)(3), tools/standing/ v1.35.4: the repositories whose commits, staged set and working tree this run read, by name; a
+    # ### kernel's commit through tools/standing/commit.py wants its kernel named here
+    L += ['', '## THE REPOSITORIES READ (commits from their base, the staged set, the working tree): %s' % '; '.join(
+        ['relay', 'PLACE-papers'] + [n for _r, n, _p in SITTING_REPOS])]
     L += ['', '## THE EXCEPTION, %s, [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (
         ('TAKEN UNDER %s`S N5 ("beyond a byline under I-23", read from its ferry bank at run time)' % RULING_N5) if BYLINE_HELD else
         ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b756 (e), b757 (b))' % RULING_N5),

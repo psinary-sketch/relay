@@ -1,0 +1,113 @@
+b757 -- THE CONTROLS OF tools/standing/ v1.35.4, (R367)(3): THE ROUTE FOR KERNEL WRITES (2026-11-16T06:03:25Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py; the planted cases in temporary repositories standing for a kernel, removed after; no kernel written by this tool
+
+### THE COMPILE CONTROL, BEFORE ANY FIGURE ((R345)(2)(i), carried):
+  checks render            OK    2794 lines
+  citation render          OK    650 lines
+  closing render           OK    656 lines
+  record render            OK    4976 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    496 lines
+  report render            OK    181 lines
+  tools/b757_worklist.py   OK    587 lines
+### THE COMPILE CONTROL : b757 COMPILES WHOLE, 8 OF 8
+
+### each case before and after, the tools before read from 858b906f
+
+  free 5578 MB at 2026-11-16T06:03:26Z, the hold 2560 MET
+### (third): A WRITE ORDERED IN A THIRD KERNEL, OR IN A KERNEL THE ACT DOES NOT OPEN
+  (third) the tool`s own entry, `commit.py SIDE-kernel add README.md` and `SIDE-kernel "component 2" ...`
+      BEFORE (v1.35.3): refused True by the usage text, the name unprinted (False) -> (alike at both is wanted)
+      AFTER  (v1.35.4): add refused True (### commit.py REFUSED, NOTHING WRITTEN: NOT A REPOSITORY THE TOOL WRITES: 'SIDE-kernel' -- relay | pp | the ke) ; commit refused True ; nothing read beyond the act record -> PASSES
+      AS WANTED
+  (third) repo_refusal by act: the two kernels at b757, at b758 and b756; relay and pp at b758; two other kernels at b757
+      BEFORE (v1.35.3): the kernels in REPOS: [] -> FAILS
+      AFTER  (v1.35.4): opened ['SIDE-dirichlet-mod-24@b757', 'SIDE-explicit-formula@b757', 'pp@b758', 'relay@b758'] ; refused ['SIDE-dirichlet-mod-24@b756', 'SIDE-explicit-formula@b758', 'SIDE-kernel@b757', 'SIDE-lv-conservation@b757'] -> PASSES
+      AS WANTED
+
+  free 5575 MB at 2026-11-16T06:03:26Z, the hold 2560 MET
+### (branch): THE ACT`S PUSH BRANCH IN A KERNEL, MADE AT A NAMED COMMIT AND CHECKED OUT
+  (branch) the form push-<act>-<word> over 9 names
+      AFTER  (v1.35.4): taken ['push-b757-coeff', 'push-b757-control-ef', 'push-b757-join'] -> PASSES
+      AS WANTED
+  (branch) a kernel branch at a named commit (the planted kernel`s t-clean tip), checked out
+      BEFORE (v1.35.3): BASE`s branch write: refused True (ONE BRANCH PER CALL) -> FAILS
+      AFTER  (v1.35.4): outside the form refused True ; made True, checked out push-b757-ctl, HEAD the named tip True ; again refused True ; no commit named refused True -> PASSES
+      AS WANTED
+
+  free 5575 MB at 2026-11-16T06:03:28Z, the hold 2560 MET
+### (merge): ONE NAMED COMMIT MERGED INTO THE PUSH BRANCH, NO FAST-FORWARD, CONCLUDED BY THE COMMIT ROUTE
+  (merge) a merge ordered while main is checked out
+      BEFORE (v1.35.3): merge among the writes: False -> FAILS
+      AFTER  (v1.35.4): refused True (A KERNEL`S MERGE OR COMMIT ON A BRANCH OUTSIDE THE push-b757-* FORM: 'main' checked out -- nothing w) ; HEAD unmoved True ; MERGE_HEAD none -> PASSES
+      AS WANTED
+  (merge) a clean merge left open, then concluded by the commit route
+      AFTER  (v1.35.4): merge True (MERGED WITHOUT CONFLICT, NOT CONCLUDED: MERGE_HEAD 36e42b31, 1 paths s) ; concluded True ({'act': 'b757', 'repo': 'SIDE-explicit-formula', 'phase': 'c) ; parents 2 ; second parent the merged tip True -> PASSES
+      AS WANTED
+  (merge) a conflict in print_targets.txt, the file (R367)(4) names: left open; a commit refused while it stands conflicted; resolved as the union, added and concluded
+      AFTER  (v1.35.4): left open True (CONFLICTED IN A FILE THE RULING NAMES: print_targets.txt (ME) ; MERGE_HEAD True ; the commit refused True (A FILE LEFT CONFLICTED IN SIDE-explicit-formula: p) ; added True ; concluded True ; parents 2, the second the merged tip True ; the lines ['Mod.A', 'Mod.B', 'Mod.C', 'Mod.D'] -> PASSES
+      AS WANTED
+  (merge) a conflict in A.lean, a file the ruling does not name: aborted, nothing concluded
+      AFTER  (v1.35.4): refused True (A CONFLICT IN A FILE THE RULING DOES NOT NAME: A.lean (named for SIDE-explicit-formula: print_targets.txt) -- THE MERGE ) ; HEAD unmoved True ; MERGE_HEAD none ; tracked changes 0 -> PASSES
+      AS WANTED
+  (merge) conflict_refusal: the named file alone at b757 in SIDE-explicit-formula; with A.lean beside it; in SIDE-dirichlet-mod-24; at b758
+      AFTER  (v1.35.4): refused: [False, True, True, True] -> PASSES
+      AS WANTED
+  (merge) a merge ordered in the relay
+      AFTER  (v1.35.4): refused True (THE MERGE WRITE IS A KERNEL`S ALONE ((R367)(3)): relay) -> PASSES
+      AS WANTED
+
+  free 5545 MB at 2026-11-16T06:03:32Z, the hold 2560 MET
+### (commit): A KERNEL`S COMMIT AND ITS CONDITIONS; THE DELETE ROUTE
+  (commit) a staged change committed while main is checked out
+      BEFORE (v1.35.3): BASE`s run in a kernel key: False -> FAILS
+      AFTER  (v1.35.4): refused True (A KERNEL`S MERGE OR COMMIT ON A BRANCH OUTSIDE THE push-b757-* FORM: 'main' checked out --) ; HEAD unmoved True -> PASSES
+      AS WANTED
+  (commit) refused with another identity, with a scan not naming the kernel, at the gate phase, and at b758; nothing committed
+      AFTER  (v1.35.4): identity True ; scan True ; gate True ; b758 True ; HEAD unmoved True -> PASSES
+      AS WANTED
+  (commit) every condition met: made on the push branch, its subject read back, its parent the branch`s base
+      AFTER  (v1.35.4): made True ({'act': 'b757', 'repo': 'SIDE-explicit-formula', 'phase': 'c) ; parent True ; subject 'b757 component 1: a planted kernel commit' -> PASSES
+      AS WANTED
+  (commit) the delete route: the checked-out branch refused; an unmerged push branch refused by -d; the control`s branch forced; a branch outside the form refused
+      AFTER  (v1.35.4): checked out True ; unmerged True (git branch -d exit 1: error: the branch 'push-b757-ctl' is n) ; control deleted True ; outside True -> PASSES
+      AS WANTED
+
+  free 5549 MB at 2026-11-16T06:03:35Z, the hold 2560 MET
+### (scan): THE ACT`S SCAN NAMES THE KERNELS IT READ
+  (scan) the act`s scan run without --bank (writes nothing): its repositories line
+      BEFORE (v1.35.3): the line in BASE`s scan: False -> FAILS
+      AFTER  (v1.35.4): exit 0 ; ## THE REPOSITORIES READ (commits from their base, the staged set, the working tree): relay; PLACE-papers; SIDE-explicit-formula zq-b730; SIDE-dirichl ; names SIDE-explicit-formula True, SIDE-dirichlet-mod-24 True, SIDE-kernel False -> PASSES
+      AS WANTED
+  (scan) run_scan returns the run`s text, which a kernel`s commit reads
+      BEFORE (v1.35.3): returns it: False -> FAILS
+      AFTER  (v1.35.4): returns it: True -> PASSES
+      AS WANTED
+
+  free 5509 MB at 2026-11-16T06:03:43Z, the hold 2560 MET
+### (record): THE STEP ROUTE`S REPOSITORIES (tools/standing/fold/record.tpl)
+  (record) STEP_REPOS beside relay and pp, in the one line (the template`s line count kept: the act modules override it by number)
+      BEFORE (v1.35.3): the kernels: False -> FAILS
+      AFTER  (v1.35.4): the kernels ['SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'] ; equal to commit.py KERNELS True ; lines 4031 against BASE`s 4031 -> PASSES
+      AS WANTED
+
+  free 5510 MB at 2026-11-16T06:03:43Z, the hold 2560 MET
+### (identity): THE KERNEL`S COMMIT IDENTITY (read, never printed)
+  (identity) identity_refusal: equal; another address; another name; none; equal but not the noreply form
+      AFTER  (v1.35.4): refused: [False, True, True, True, True] -> PASSES
+      AS WANTED
+  (identity) the two kernels as they stand, against the relay
+      AFTER  (v1.35.4): refused: {'SIDE-dirichlet-mod-24': False, 'SIDE-explicit-formula': False} -> PASSES
+      AS WANTED
+
+  free 5517 MB at 2026-11-16T06:03:43Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE (v1.35.3): v1.35.3 -> FAILS
+      AFTER  (v1.35.4): v1.35.4 -> PASSES
+      AS WANTED
+
+### per change: (third) 2 of 2 ; (branch) 2 of 2 ; (merge) 6 of 6 ; (commit) 4 of 4 ; (scan) 2 of 2 ; (record) 1 of 1 ; (identity) 2 of 2 ; (version) 1 of 1
+### ### **v1.35.4: CONTROLS (third), (branch), (merge), (commit), (scan), (record), (identity), (version) ; CASES 20 ; AS WANTED 20 ; ALL AS WANTED.**

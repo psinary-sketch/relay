@@ -51,6 +51,19 @@ v1.29.0, (R359)(3)(i)-(iii), b748 events (2), defects (b), (d), (k), (r):
         restore, branch and delete runs through this tool and its scan (b747's closing push capture be4a5a0d: a plain add, then a commit
         with no scan).
 
+v1.35.4, (R367)(3), THE ROUTE FOR KERNEL WRITES, BEFORE ANY BUILD: b745 committed in a kernel by plain git from a scratch clone (relay
+  data/b745_commands.txt :375-:376); since v1.29.0 the hook refuses a git write by plain git and this tool took two repositories, so no kernel
+  was written after b745. The tool now takes the kernels of KERNELS, each opened by an act's ruling for that act alone (KERNEL_ACTS; b757:
+  SIDE-explicit-formula and SIDE-dirichlet-mod-24); any other repository name, a third kernel among them, is refused before anything is read.
+  In a kernel: `add` and `restore` as in the relay; `branch <push-<act>-word> <commit>` makes the branch at the named commit and checks it out;
+  `switch <main | push-<act>-word>` checks out the one or the other; `merge <commit>` merges one named commit into the checked-out
+  push-<act>-* branch without fast-forward and without committing -- a conflict in a file the ruling names (NAMED_CONFLICTS) is left for the
+  seat to resolve and add, a conflict in any other file aborts the merge, nothing concluded; `delete <push-<act>-word>` deletes a branch not
+  checked out (forced for the act's control branches and for a branch whose tip the remote's main holds). The act phases' commit in a kernel
+  stands on the checked-out push-<act>-* branch alone, with the relay's commit identity, no file left conflicted, and the act's scan over the
+  staged set naming the kernel among the repositories it read; a commit while a merge stands open concludes that merge. No gate, lock, seal
+  or repair in a kernel. Pushes stay with tools/push_gated.sh as it stands.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -58,6 +71,12 @@ v1.29.0, (R359)(3)(i)-(iii), b748 events (2), defects (b), (d), (k), (r):
   python -X utf8 -u tools/standing/commit.py <relay|pp> add <path> [<path> ...]
   python -X utf8 -u tools/standing/commit.py <relay|pp> restore <path>
   python -X utf8 -u tools/standing/commit.py <relay|pp> delete <branch>
+  python -X utf8 -u tools/standing/commit.py <kernel> add <path> [<path> ...]
+  python -X utf8 -u tools/standing/commit.py <kernel> branch push-<act>-<word> <commit>
+  python -X utf8 -u tools/standing/commit.py <kernel> switch <main | push-<act>-<word>>
+  python -X utf8 -u tools/standing/commit.py <kernel> merge <commit>
+  python -X utf8 -u tools/standing/commit.py <kernel> "component 2" <the words>
+  python -X utf8 -u tools/standing/commit.py <kernel> delete push-<act>-<word>
 """
 import json
 import os
@@ -72,6 +91,13 @@ REPOS = {'relay': RELAY, 'pp': 'D:/MY-DOwnloads/PLACE-papers'}
 PHASES = ('gate', 'lock', 'seal', 'repair')
 RECORD = {'seal': '%s_seal_hashes.json', 'lock': '%s_lockgate.json'}
 SETTINGS = 'D:/.claude/settings.json'   # ### the seat's project settings carrying the hook (b743 events (4): its sha256 read before and after each lift)
+# ### v1.35.4, (R367)(3): the kernels the tool writes; each opened by an act's ruling for that act alone; the one file each ruling names for a
+# ### conflicted merge. fold/record.tpl's STEP_REPOS carries the same kernels (the step route's rows), the controls reading the two equal.
+KERNELS = {'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-dirichlet-mod-24': 'D:/SIDE-dirichlet-mod-24'}
+KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24')}   # ### (R367)(4): the holds lifted "in this act alone"
+NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
+NOREPLY = '@users.noreply.github.com'
+REPOS.update(KERNELS)
 if S not in sys.path:
     sys.path.insert(0, S)
 if T not in sys.path:
@@ -195,7 +221,7 @@ def lock_face(repo, act, read, data, run_seal=True):
 
 
 ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'component 6', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root ; v1.34.6, (R365)(2)(iii) with b755's amendment row 1: components 5 and 6
-WRITES = ('add', 'restore', 'delete', 'branch')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD
+WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
 
@@ -312,6 +338,7 @@ def run_scan(act, what='a commit', bank_dir=None, bank_act=None):
         print('  appended to %s (the per-commit bank, v1.29.0 (ii))' % shown)
     if bad:
         raise Refused(bad)
+    return out   # ### v1.35.4, (R367)(3): the run's text, so a kernel's commit reads the repositories it names
 
 
 # ================================================================================ v1.29.0 (i): ONE CALL OF THE TOOL PER MESSAGE
@@ -582,6 +609,158 @@ def staged_version_refusal(repo, names=None):
     return version_refusal(names, _git(repo, 'show', 'HEAD:tools/standing/VERSION').stdout, _git(repo, 'show', ':tools/standing/VERSION').stdout)
 
 
+# ================================================================================ v1.35.4, (R367)(3): THE ROUTE FOR KERNEL WRITES
+def repo_refusal(key, act):
+    """None, or the refusal, for a write ordered in `key` while `act` runs: relay and pp always; a kernel of KERNELS where KERNEL_ACTS opens it
+    for the act; any other name -- a third kernel among them -- refused. Pure."""
+    if key in ('relay', 'pp'):
+        return None
+    if key not in KERNELS:
+        return 'NOT A REPOSITORY THE TOOL WRITES: %r -- relay | pp | the kernels an act`s ruling opens (%s) ((R367)(3))' % (key, ', '.join(sorted(KERNELS)))
+    if key not in KERNEL_ACTS.get(act, ()):
+        return 'A KERNEL THE ACT`S RULING DOES NOT OPEN: %s while %s runs -- the kernels are opened act by act (%s) ((R367)(3))' % (
+            key, act, '; '.join('%s: %s' % (a, ', '.join(k)) for a, k in sorted(KERNEL_ACTS.items())))
+    return None
+
+
+def push_branch_ok(act, name):
+    """the name is the act's push branch in a kernel, push-<act>-<word>. Pure."""
+    import re
+    return bool(re.match(r'^push-%s-[a-z0-9][a-z0-9-]*$' % re.escape(act), name or ''))
+
+
+def kernel_branch_refusal(act, name):
+    return None if push_branch_ok(act, name) else 'NOT THE ACT`S PUSH BRANCH IN A KERNEL: %r -- a kernel`s branch is push-%s-<word> ((R367)(3))' % (name, act)
+
+
+def merge_branch_refusal(act, head):
+    """None, or the refusal, for a merge or a commit in a kernel while `head` is checked out (None or '' where HEAD is detached). Pure."""
+    if push_branch_ok(act, head):
+        return None
+    return 'A KERNEL`S MERGE OR COMMIT ON A BRANCH OUTSIDE THE push-%s-* FORM: %r checked out -- nothing written ((R367)(3))' % (act, head or 'a detached HEAD')
+
+
+def conflict_refusal(act, key, conflicted):
+    """None, or the refusal, for a merge whose conflicted files are `conflicted`: each must be a file the act's ruling names for `key`. Pure."""
+    named = (NAMED_CONFLICTS.get(act) or {}).get(key) or ()
+    out = sorted(c for c in conflicted or () if c not in named)
+    if out:
+        return 'A CONFLICT IN A FILE THE RULING DOES NOT NAME: %s (named for %s: %s) -- THE MERGE ABORTED, NOTHING CONCLUDED ((R367)(3))' % (
+            ', '.join(out), key, ', '.join(named) or 'none')
+    return None
+
+
+def identity_refusal(kernel, relay):
+    """None, or the refusal, for a kernel's commit: `kernel` and `relay` the (user.email, user.name) each repository resolves; the kernel's must
+    equal the relay's, and the relay's address be of the noreply form. Pure; neither is printed."""
+    if not kernel[0] or not kernel[1] or tuple(kernel) != tuple(relay) or not (relay[0] or '').endswith(NOREPLY):
+        return 'THE KERNEL`S COMMIT IDENTITY IS NOT THE RELAY`S NOREPLY IDENTITY: address equal %s, name equal %s, the noreply form %s -- nothing committed ((R367) N5)' % (
+            kernel[0] == relay[0], kernel[1] == relay[1], (relay[0] or '').endswith(NOREPLY))
+    return None
+
+
+def scan_names(out, key):
+    """the act's scan run `out` names `key` among the repositories it read (its line '## THE REPOSITORIES READ ...: a; b; c'). Pure."""
+    for l in (out or '').split('\n'):
+        if l.startswith('## THE REPOSITORIES READ'):
+            return key in [x.strip() for x in l.split(':', 1)[-1].split(';')]
+    return False
+
+
+def _head_branch(repo):
+    return _git(repo, 'symbolic-ref', '--short', '-q', 'HEAD').stdout.strip()
+
+
+def _merging(repo):
+    return _git(repo, 'rev-parse', '-q', '--verify', 'MERGE_HEAD').stdout.strip()
+
+
+def _dirty(repo):
+    return [l for l in _git(repo, 'status', '--porcelain', '--untracked-files=no').stdout.split('\n') if l.strip()]
+
+
+def _conflicted(repo):
+    return [p for p in _git(repo, 'diff', '--name-only', '--diff-filter=U').stdout.split('\n') if p]
+
+
+def _identity(repo):
+    return (_git(repo, 'config', 'user.email').stdout.strip(), _git(repo, 'config', 'user.name').stdout.strip())
+
+
+def _commit_of(repo, rev):
+    return _git(repo, 'rev-parse', '-q', '--verify', '%s^{commit}' % rev).stdout.strip()
+
+
+def kernel_write(key, verb, args, act, repo):
+    """the git argument list for a kernel's write, or Refused before anything is written; `merge` is completed by kernel_merge_after."""
+    if verb in ('restore', 'delete', 'switch', 'merge') and len(args) != 1:
+        raise Refused('ONE %s PER CALL' % verb.upper())
+    if verb == 'add':
+        return ['add', '--'] + list(args)
+    if verb == 'restore':
+        return ['checkout', '--', args[0]]
+    if verb in ('branch', 'switch', 'merge') and (_dirty(repo) or _merging(repo)):
+        raise Refused('THE KERNEL`S TREE IS NOT CLEAN OR A MERGE STANDS OPEN (%d tracked changes, MERGE_HEAD %s) -- nothing written' % (
+            len(_dirty(repo)), _merging(repo)[:8] or 'none'))
+    if verb == 'branch':
+        if len(args) != 2:
+            raise Refused('A KERNEL`S BRANCH NAMES ITS COMMIT: branch push-%s-<word> <commit> ((R367)(3))' % act)
+        bad = kernel_branch_refusal(act, args[0])
+        if bad:
+            raise Refused(bad)
+        full = _commit_of(repo, args[1])
+        if not full:
+            raise Refused('NOT A COMMIT OF %s: %s' % (key, args[1]))
+        if _commit_of(repo, 'refs/heads/%s' % args[0]):
+            raise Refused('THE BRANCH STANDS ALREADY IN %s: %s' % (key, args[0]))
+        return ['checkout', '-q', '-b', args[0], full]
+    if verb == 'switch':
+        if args[0] != 'main':
+            bad = kernel_branch_refusal(act, args[0])
+            if bad:
+                raise Refused(bad)
+        return ['checkout', '-q', args[0]]
+    if verb == 'merge':
+        bad = merge_branch_refusal(act, _head_branch(repo))
+        if bad:
+            raise Refused(bad)
+        full = _commit_of(repo, args[0])
+        if not full:
+            raise Refused('NOT A COMMIT OF %s: %s' % (key, args[0]))
+        return ['merge', '--no-ff', '--no-commit', full]
+    if verb == 'delete':
+        bad = kernel_branch_refusal(act, args[0])
+        if bad:
+            raise Refused(bad)
+        tip = _commit_of(repo, 'refs/heads/%s' % args[0])
+        if not tip:
+            raise Refused('NO SUCH BRANCH IN %s: %s' % (key, args[0]))
+        if _head_branch(repo) == args[0]:
+            raise Refused('THE BRANCH IS CHECKED OUT: %s -- switch first' % args[0])
+        held = _git(repo, 'merge-base', '--is-ancestor', tip, 'refs/remotes/origin/main').returncode == 0
+        return ['branch', '-D' if (held or args[0].startswith('push-%s-control' % act)) else '-d', args[0]]
+    raise Refused('the write %r is not one of %s' % (verb, ' | '.join(WRITES)))
+
+
+def kernel_merge_after(key, act, repo, rc, out):
+    """after `git merge --no-ff --no-commit`: the line printed, or Refused with the merge aborted where it conflicts outside the named files."""
+    mh = _merging(repo)
+    if rc == 0:
+        if not mh:
+            return 'ALREADY CONTAINED, NOTHING MERGED: %s' % out.strip()[:120]
+        return 'MERGED WITHOUT CONFLICT, NOT CONCLUDED: MERGE_HEAD %s, %d paths staged -- the commit route concludes it' % (
+            mh[:8], len([p for p in _git(repo, 'diff', '--cached', '--name-only').stdout.split('\n') if p]))
+    conf = _conflicted(repo)
+    bad = conflict_refusal(act, key, conf) if conf else 'THE MERGE FAILED WITH NO FILE CONFLICTED (exit %d): %s' % (rc, out.strip()[:160])
+    if bad:
+        if _merging(repo):
+            _git(repo, 'merge', '--abort')
+        raise Refused('%s ; after the abort: HEAD %s, MERGE_HEAD %s, tracked changes %d' % (
+            bad, _commit_of(repo, 'HEAD')[:8], _merging(repo)[:8] or 'none', len(_dirty(repo))))
+    return 'CONFLICTED IN A FILE THE RULING NAMES: %s (MERGE_HEAD %s) -- the seat resolves it, adds it by this tool, and the commit route concludes the merge' % (
+        ', '.join(conf), mh[:8])
+
+
 def usage_lines():
     """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
     zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
@@ -592,29 +771,44 @@ def usage_lines():
         '  repair takes the words naming the edits; a step-rows commit takes the tool`s words: "the step row for relay <sha8>"']
 
 
-def write_route(key, verb, args, act=None):
-    """v1.28.0 (iv): an add, a restore or a branch delete, under the act's write mark; Refused where nothing was written."""
+def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
+    """v1.28.0 (iv): an add, a restore or a branch delete, under the act's write mark; Refused where nothing was written. v1.35.4, (R367)(3):
+    a kernel of KERNELS (opened for the act) takes add, restore, branch <name> <commit>, switch, merge and delete by kernel_write; `repo` a
+    scratch clone standing for the kernel, for a control; a key that names a path (an earlier control's scratch clone) reads as before."""
     import act as A
     act = act or A.current()['act']
-    repo = REPOS[key] if key in REPOS else key
+    kern = key in KERNELS
+    repo = repo or (REPOS[key] if key in REPOS else key)
     if verb not in WRITES:
         raise Refused('the write %r is not one of %s' % (verb, ' | '.join(WRITES)))
     if not args:
         raise Refused('THE %s NAMES NOTHING' % verb.upper())
     if any(ch in a for a in args for ch in '*?['):
         raise Refused('A GLOB IN THE %s: name each path (%s)' % (verb.upper(), ' '.join(args)[:80]))
-    if verb in ('restore', 'delete', 'branch') and len(args) != 1:
-        raise Refused('ONE %s PER CALL' % verb.upper())
-    bad = branch_refusal(act, verb, args[0])   # ### v1.28.1
-    if bad:
-        raise Refused(bad)
-    cmd = {'add': ['add', '--'] + list(args), 'restore': ['checkout', '--', args[0]], 'delete': ['branch', '-d', args[0]],
-           'branch': ['branch', '--', args[0]]}[verb]
-    mark = open_mark('%s %s in %s: %s' % (act, verb, key, ' '.join(args)[:120]))
+    if kern:
+        bad = repo_refusal(key, act)
+        if bad:
+            raise Refused(bad)
+    elif verb in ('switch', 'merge'):
+        raise Refused('THE %s WRITE IS A KERNEL`S ALONE ((R367)(3)): %s' % (verb.upper(), key))
+    if not kern:
+        if verb in ('restore', 'delete', 'branch') and len(args) != 1:
+            raise Refused('ONE %s PER CALL' % verb.upper())
+        bad = branch_refusal(act, verb, args[0])   # ### v1.28.1
+        if bad:
+            raise Refused(bad)
+    mark = open_mark('%s %s in %s: %s' % (act, verb, key, ' '.join(args)[:120]), path=mark_path)
     try:
+        if kern:
+            cmd = kernel_write(key, verb, args, act, repo)
+        else:
+            cmd = {'add': ['add', '--'] + list(args), 'restore': ['checkout', '--', args[0]], 'delete': ['branch', '-d', args[0]],
+                   'branch': ['branch', '--', args[0]]}[verb]
         r = _git(repo, *cmd)
+        if kern and verb == 'merge':
+            return kernel_merge_after(key, act, repo, r.returncode, (r.stdout or '') + (r.stderr or ''))
     finally:
-        close_mark(mark)
+        close_mark(mark_path)
     if r.returncode != 0:
         raise Refused('git %s exit %d: %s' % (' '.join(cmd[:2]), r.returncode, (r.stderr or r.stdout).strip()[:200]))
     return (r.stdout + r.stderr).strip()
@@ -629,10 +823,12 @@ def flag_read(flag=None):
     return p, w, (HD.restart_times() if p else {})
 
 
-def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None, scanner=None, scan_dir=None, flag=None):
+def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None, scanner=None, scan_dir=None, flag=None, repo=None):
     """one call: preflight, commit, read back, row. Returns a dict of what was done; Refused where nothing was. `scan_dir`: the folder the
     per-commit scan bank is written in (a control's scratch clone), the relay's data/ where None. v1.34.0, (R364)(3)(xxi): the restart flag read
-    before every commit; set, the lock is refused and any other commit is the boundary the seat stops at (printed)."""
+    before every commit; set, the lock is refused and any other commit is the boundary the seat stops at (printed). v1.35.4, (R367)(3): a
+    kernel's commit -- an act phase alone, on the checked-out push-<act>-* branch, with the relay's identity, nothing left conflicted, the
+    scan's run naming the kernel; an open merge concluded by it, its second parent read back; `repo` a scratch clone standing for the kernel."""
     import act as A
     import hold as HD
     fp, fw, ft = flag_read(flag)
@@ -641,10 +837,22 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
                       'author`s word ((R364)(3)(xxi))' % (fw, ', '.join('%s %s' % kv for kv in sorted(ft.items())) or 'not read'))
     act = act or A.current()['act']
     data = data or os.path.join(RELAY, 'data')
-    repo = REPOS[key] if key in REPOS else key
+    kern = key in KERNELS
+    repo = repo or (REPOS[key] if key in REPOS else key)
     read = reader(data)
     rows = (read('%s_steps.json' % act) or {}).get('rows') or []
     lr = (lambda: lock_face(repo, act, read, data)) if (phase == 'lock' and key == 'relay') else None
+    mh = None
+    if kern:   # ### v1.35.4, (R367)(3): every condition read before the mark is taken and before anything is written
+        bad = repo_refusal(key, act)
+        if not bad and phase not in ACT_PHASES:
+            bad = 'NO %s IN A KERNEL: a kernel takes the act phases alone (%s) ((R367)(3))' % (phase.upper(), ' | '.join(ACT_PHASES))
+        bad = bad or merge_branch_refusal(act, _head_branch(repo)) or identity_refusal(_identity(repo), _identity(RELAY))
+        if not bad and _conflicted(repo):
+            bad = 'A FILE LEFT CONFLICTED IN %s: %s -- resolve it and add it by this tool before the commit concludes the merge' % (key, ', '.join(_conflicted(repo)))
+        if bad:
+            raise Refused(bad)
+        mh = _merging(repo) or None
     mark = open_mark('%s commit %s in %s' % (act, phase, key)) if row_writer is None else None   # ### v1.28.0 (iv): the act's write mark
     try:
         subj = preflight(act, phase, words, repo, rows, read, lock_runner=lr)
@@ -678,7 +886,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         nxt = ('b%d' % (int(act[1:]) + 1)) if (only and phase == 'closing') else None
         what = '%s commit %s in %s' % (act, phase, key) + ((', the closing step-row commit: its scan written to %s`s per-commit bank as its opening rows '
                                                             '((R364)(3)(iii))' % nxt) if nxt else '')
-        (scanner or (lambda a: run_scan(a, what, bank_dir=scan_dir, bank_act=nxt)))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
+        sc = (scanner or (lambda a: run_scan(a, what, bank_dir=scan_dir, bank_act=nxt)))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
+        if kern and not scan_names(sc, key):   # ### v1.35.4, (R367)(3): the scan over the kernel's staged set, read from its own run
+            raise Refused('THE SCAN DID NOT READ THE KERNEL: %s is not among the repositories its run names (its line "## THE REPOSITORIES READ") '
+                          '-- nothing committed' % key)
         full, back = commit(repo, subj)
     finally:
         if mark:
@@ -689,6 +900,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         rc, out = (row_writer or record_row)(key, phase, full)
     done = dict(act=act, repo=key, phase=phase, commit=full, subject=subj, read_back=back, equal=back == subj, row_exit=rc, row=out,
                 rowed=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), flag=HD.boundary_line(fp, fw, ft))
+    if mh:   # ### v1.35.4, (R367)(3): the merge the commit concluded, its second parent read back against the MERGE_HEAD it found
+        p2 = _commit_of(repo, '%s^2' % full)
+        done['merge'] = 'THE MERGE CONCLUDED: the commit`s second parent %s, the MERGE_HEAD %s: %s' % (p2[:8], mh[:8], 'EQUAL' if p2 == mh else '### NOT EQUAL')
+        done['equal'] = done['equal'] and p2 == mh
     if phase == 'seal':
         done['excludes'] = (after_seal or excludes)()
     return done
@@ -723,8 +938,13 @@ def excludes():
 
 
 def main(argv):
-    if len(argv) < 2 or argv[0] not in REPOS:
+    if len(argv) < 2:
         sys.exit(__doc__)
+    if argv[0] not in ('relay', 'pp'):   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read
+        import act as A
+        bad = repo_refusal(argv[0], A.current()['act'])
+        if bad:
+            sys.exit('### commit.py REFUSED, NOTHING WRITTEN: %s ### THE CLASS: %s' % (bad, repeat_of(bad, A.current()['act'])))
     bad, note = message_refusal(calls_tail(), argv)   # ### v1.29.0 (i)
     print('  ONE CALL PER MESSAGE ((R359)(3)(i)): %s' % note)
     if bad:
@@ -747,6 +967,8 @@ def main(argv):
     print('  subject   : %s' % d['subject'])
     print('  read back : %s -- %s' % (d['read_back'], 'EQUAL' if d['equal'] else '### NOT EQUAL'))
     print('  row       : %s (exit %d)' % (d['row'], d['row_exit']))
+    if d.get('merge'):
+        print('  merge     : %s' % d['merge'])   # ### v1.35.4, (R367)(3)
     print('  %s' % d.get('flag'))   # ### v1.34.0, (R364)(3)(xxi)
     if 'excludes' in d:
         print(d['excludes'])
