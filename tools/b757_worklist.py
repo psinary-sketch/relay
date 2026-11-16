@@ -326,36 +326,34 @@ LEAN_TREES = (('D:/SIDE-explicit-formula', '8fbab45d'), ('D:/SIDE-explicit-formu
 COMPARATIVE_BANKS = ('data/b757_corrigendum.txt', 'data/b757_price.txt', 'data/b757_route_controls.txt', 'data/b757_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('VERSION', 'amend.py', 'carry.py', 'commit.py', 'fold/checks.tpl', 'fold/record.tpl', 'gitwrite.py', 'manifest.py', 'nextact.py',
-                    'orders.py', 'postseal.py', 'roster.py', 'subject.py')   # ### v1.34.7 to v1.35.3's changed files, by git diff --name-status b19867ac..ec63f53e -- tools/standing (13; b756, Component 6)
-STANDING_NEW = ('cadence.py', 'deletefree.py', 'ledgers.py', 'ranahead.py', 'v1347.py', 'v1348.py', 'v1349.py', 'v1350.py', 'v1351.py', 'v1352.py',
-                'v1353.py')   # ### their new files, the same diff (11)
+STANDING_CHANGED = ('VERSION', 'commit.py', 'fold/closing.tpl', 'fold/record.tpl')   # ### v1.35.4 and v1.35.5's changed files, by git diff --name-status 38024feb..c92fca81 -- tools/standing/ (4; b757, Component 6)
+STANDING_NEW = ('v1354.py', 'v1355.py')   # ### their new files, the same diff (2)
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '38024feb'    # ### b756's closing (its step row), the act's relay base
 B714_RECORD = '667ce680'     # ### b756's record commit (relay)
 B714_ROOT = '48bf6d77facceaf48316c77b86f920fbd7a531fe064e1777dbc34d3c2ae0dd57'   # ### b756's root, data/act_roots.txt's last row (:136)
 B723_ROOT_BANKS = 'c95ca668'  # ### b756's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### tools/standing/ with (R367)(3)'s route for kernel writes, by a commit of its own that moves VERSION, its controls banked
-C1_LOCKGATE = '5e37bf97'     # ### tools/b756_lockgate.py carried from tools/b755_lockgate.py and committed before it runs ((R366)(1); step 5)
-C1_STANDING_LATER = (('[U1]', 'v1.34.9', 'be3fc2b3'), ('[U2]', 'v1.35.0', '2c3acfca'), ('the faults, first', 'v1.35.1', '7fae9822'),
-                     ('the faults, second', 'v1.35.2', '520777a8'), ('[H1]`s held part', 'v1.35.3', '47449d8b'))   # ### Component 5, (R366)(6): each a version commit of its own with its controls (steps 29, 31, 33, 34, 36)
-C5_FAULTS = ('tools/b757_faults.py', '21b0c76e', 'tools/b757_faults_placed.py', 'aadd9d2d')   # ### the count and the placing (16 rows; 11 landed, 1 carried, 4 no code)
-DOORS = ('tools/b757_doors.py', 'ec63f53e', 'data/b757_doors.txt')   # ### (6)'s README route: [B1] and [B3] HALTED, the two descriptions refused by the server at 350 characters, all four carried whole (step 37)
-C5_LANDED, C5_CARRIED = 5, 1   # ### the tool changes of (6): [U1], [U2], the two fault versions, [H1] landed; the README route carried whole ([B1], [B3], the two descriptions)
+C1_STANDING = '26ac811e'     # ### tools/standing/ v1.35.4 with (R367)(3)'s route for kernel writes, a commit of its own moving VERSION, its controls 20 of 20 (step 10)
+C1_LOCKGATE = None           # ### tools/b757_lockgate.py carried from tools/b756_lockgate.py and committed before it runs (Component 6): set when made
+C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
+C5_FAULTS = ()   # ### (carried name) no fault count this act
+DOORS = ('tools/b757_doors.py', '2bc7eca8', 'data/b757_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
+C5_LANDED, C5_CARRIED = 5, 0   # ### the repairs of (8): (i) the cut, (ii) v1.35.5, (iii) the gh-call reader, (iv) REGISTRY's header, (v) the two descriptions; none carried
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
-C1_CORR = C1_RELAY
-C1_RULES = '0a151012'        # ### data/b756_rules.txt, rows (a)-(c) of (R366)(2), in force from b757: committed with the c1 banks (C1_RELAY, step 7)
+C1_RELAY = 'a8a02f38'        # ### the c1 route in the act module (step 7)
+C1_CORR = '858b906f'         # ### the corrigendum banks, data/b757_corrigendum.txt, .json, the corrigenda bank's row (77) (step 9)
+C1_RULES = None              # ### no rules bank this act: (R367) orders none; data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
+B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it
 RULES_COMMITS = ()
-C1_CEILING = '7300f70e'            # ### the ceiling read again after Component 3 ((R365)(8)), data/b755_ceiling.txt (step 18); the act's one ceiling bank
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- b756 at its weight and the corrigendum for b756
+C1_CEILING = 'f75eee21'            # ### the ceiling read again after Component 3 ((R367)(2)), data/b757_ceiling.txt (step 44); the act's one ceiling bank
+C1_PP = '810ec2da'           # ### PLACE-papers: FINDINGS -- b756 at its weight (:15414) and the corrigendum for b756 (:15416) (step 8)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b756's weight line and the corrigendum for b756 (Component 1)
-NEXT_TRAIL_LINE = 18402      # ### OPEN_TRAILS: (R366)(1)(i)'s dated line giving b755's answer (Component 1, PLACE-papers d1133807)
+WEIGHT_LINE, CORR_LINE = 15414, 15416   # ### FINDINGS: b756's weight line and the corrigendum for b756 (Component 1, PLACE-papers 810ec2da)
+NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
 DIFFERS_LINE = None
 ERRATA_LINE = None
 C2_PLAN_FIRST = None   # ### Component 2's first commit
@@ -396,35 +394,53 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### bank's commit); (4)'s two ((R366)(4): each committed before its run) and the five of (3) to (5) committed so; the three of (6) (the
 # ### fault count, the placing, the README route) went in with their banks in one commit each, (6) ordering no commit before a run, and
 # ### stand apart in GENS_WITH_BANK
-GENS = (('the constellation rerun', 'tools/b757_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'), 'data/b757_constellation_summary.txt', '069271bb'),
-        ('the reverse read', 'tools/b757_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b757_reverse_read.txt', '069271bb'),
-        ('the notes of (3)', 'tools/b757_notes.py', ('d8eaaa2b',), 'data/b757_notes.json', '9518d3a0'),
-        ('the orders read', 'tools/b757_orders.py', ('5b3d5a60',), 'data/b757_orders_read.txt', 'f56557dd'),
-        ('the twelve status lines', 'tools/b757_moves.py', ('208eee6a',), 'data/b757_orders_moves.txt', 'a26f30b9'),
-        ('the ceiling after Component 4', 'tools/b757_ceiling.py', ('a26f30b9',), 'data/b757_ceiling_c4.txt', '1e35bedd'))
-PASSED_BANK = '0b87054f'   # ### data/b756_passed.json, the passed writes' bank (the two writes and their confirms), committed at Component 6 before the act module (step 38)
-GENS = GENS + ((('the two passed writes', 'tools/b757_passed.py', ('9aa5fe8c',), 'data/b757_passed.json', PASSED_BANK),) if PASSED_BANK else ())
-GENS_WITH_BANK = (('the faults counted', 'tools/b757_faults.py', 'data/b757_faults.txt', '21b0c76e'),
-                  ('the faults placed', 'tools/b757_faults_placed.py', 'data/b757_faults_placed.txt', 'aadd9d2d'),
-                  ('the README route', 'tools/b757_doors.py', 'data/b757_doors.txt', 'ec63f53e'))
-# ### b756, Component 6: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
-# ### module's N2 arms (the order by time and by ancestry); the handoff page appended where made
-CHAIN = (('standing', 'dc8319ea'), ('lockgate', '5e37bf97'), ('corr', '0a151012'), ('c2first', '3e112065'), ('c2_hand', 'd2f78fab'),
-         ('c2_reverse', '16ba8fbb'), ('c2_digest', 'e4701c5f'), ('map', '069271bb'), ('notes_gen', 'd8eaaa2b'), ('notes', '9518d3a0'),
-         ('orders_gen', '5b3d5a60'), ('orders', 'f56557dd'), ('put', '0803754c'), ('passed_gen', '9aa5fe8c'), ('v1348', '5b7aa91e'),
-         ('moves_gen', '208eee6a'), ('moves', 'a26f30b9'), ('ceiling', '1e35bedd'), ('v1349', 'be3fc2b3'), ('v1350', '2c3acfca'),
-         ('faults', '21b0c76e'), ('v1351', '7fae9822'), ('v1352', '520777a8'), ('placed', 'aadd9d2d'), ('v1353', '47449d8b'), ('doors', 'ec63f53e'))
-PP_CHAIN = (('c1pp', 'd1133807'), ('pp_i', 'ed23042f'), ('pp_ii', 'a680411c'), ('pp_iii', '1795559c'), ('pp_iv', '2cab7417'), ('pp_v', '6fb72eba'),
-            ('pp_cp', 'e50a394b'), ('pp_instruments', '3b45826d'))
+# ### b757, Component 6: every tool of the act committed before the bank it wrote -- (name, tool, its commits before the bank, bank, the
+# ### bank's commit, the last carrying the bank); tools/b757_readme.py (852d3198) writes no relay bank, its output the kernel commit 6568e9c7
+GENS = (('the controls tool', 'tools/b757_controls.py', ('f41d1af9', 'bdb1cb8a', 'fd9c6a30', '9b4b4001', '33683353', '583afba1'), 'data/b757_controls.txt', '7e30d538'),
+        ('the join', 'tools/b757_join.py', ('da4fcbcd', 'bdb1cb8a', 'fd9c6a30'), 'data/b757_join.txt', '170a995c'),
+        ('the outcomes', 'tools/b757_outcomes.py', ('3b09369c', 'a7d8ceee', 'c3f73580', '9a8a2230'), 'data/b757_outcomes.txt', 'c98beed0'),
+        ('the ceiling after Component 3', 'tools/b757_ceiling.py', ('7ed046aa',), 'data/b757_ceiling.txt', 'f75eee21'),
+        ('REGISTRY`s header line', 'tools/b757_registry_line.py', ('676bc193',), 'data/b757_registry_line.txt', 'c98beed0'),
+        ('the two descriptions', 'tools/b757_doors.py', ('2bc7eca8',), 'data/b757_doors.txt', 'c98beed0'),
+        ('the gh calls from inside a tool', 'tools/b757_ghcalls.py', ('7e678d5a',), 'data/b757_ghcalls.txt', 'c98beed0'),
+        ('the sweep of (9)', 'tools/b757_sweep.py', ('88f8e89b', '0004ac11'), 'data/b757_sweep.txt', '2bda8e8f'),
+        ('the answers bank cut', 'tools/b757_cut.py', ('2bda8e8f',), 'data/b757_cut.txt', '31c53852'),
+        ('the notes of (9)', 'tools/b757_notes.py', ('0243d123',), 'data/b757_notes.json', 'c92fca81'))
+PASSED_BANK = None   # ### (carried name) no passed writes this act
+GENS_WITH_BANK = ()  # ### none: each act tool committed before its run (the controls tool's control bank in its first commit, defect (i))
+# ### b757, Component 6: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
+# ### module's N2 arms (the order by time and by ancestry); the lock gate and the handoff page appended where made
+CHAIN = (('c1', 'a8a02f38'), ('corr', '858b906f'), ('standing', '26ac811e'), ('live', '1a99000b'), ('controls_gen', 'f41d1af9'),
+         ('join_gen', 'da4fcbcd'), ('join_fix', 'bdb1cb8a'), ('readme_gen', '852d3198'), ('join_fix2', 'fd9c6a30'), ('join', '170a995c'),
+         ('controls_fix', '9b4b4001'), ('rows1', '3ac44439'), ('controls_fix2', '33683353'), ('outcomes_gen', '3b09369c'), ('outcomes1', '583afba1'),
+         ('controls', '7e30d538'), ('t0_rows', 'a7d8ceee'), ('t0_read', 'a1b36dbc'), ('mod24_rows', 'c3f73580'), ('ceiling_gen', '7ed046aa'),
+         ('ceiling', 'f75eee21'), ('wide_gen', '9a8a2230'), ('registry_gen', '676bc193'), ('doors_gen', '2bc7eca8'), ('ghcalls_gen', '7e678d5a'),
+         ('c5', 'c98beed0'), ('v1355', 'e0428564'), ('sweep_gen', '88f8e89b'), ('sweep_fix', '0004ac11'), ('sweep', '2bda8e8f'), ('cut', '31c53852'),
+         ('notes_gen', '0243d123'), ('notes', 'c92fca81'))
+PP_CHAIN = (('c1pp', '810ec2da'), ('pp_registry', '3e85e952'), ('pp_a', 'e88282c4'), ('pp_b', 'c7dfe43c'), ('pp_c', '9c0896c5'), ('pp_d', 'c45be6e0'),
+            ('pp_e', 'b14256c2'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero', 'standing', 'lockgate', 'c1pp', 'corr', 'c2first', 'c2_hand', 'c2_reverse', 'c2_digest', 'map', 'notes_gen',
-              'pp_i', 'pp_ii', 'pp_iii', 'pp_iv', 'pp_v', 'notes', 'orders_gen', 'orders', 'put', 'passed_gen', 'pp_cp', 'pp_instruments', 'v1348',
-              'moves_gen', 'moves', 'ceiling', 'v1349', 'v1350', 'faults', 'v1351', 'v1352', 'placed', 'v1353', 'doors')
+TIME_ORDER = ('actcur', 'stepzero', 'c1', 'c1pp', 'corr', 'standing', 'live', 'controls_gen', 'join_gen', 'join_fix', 'readme_gen', 'join_fix2', 'join',
+              'controls_fix', 'rows1', 'controls_fix2', 'outcomes_gen', 'outcomes1', 'controls', 't0_rows', 't0_read', 'mod24_rows', 'ceiling_gen', 'ceiling',
+              'wide_gen', 'registry_gen', 'pp_registry', 'doors_gen', 'ghcalls_gen', 'c5', 'v1355', 'sweep_gen', 'sweep_fix', 'sweep', 'cut', 'notes_gen',
+              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes')
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
-STANDING_BANKS = (('v1.34.7', 'dc8319ea', 'data/b757_standing_v1347.txt', 16), ('v1.34.8', '5b7aa91e', 'data/b757_standing_v1348.txt', 11),
-                  ('v1.34.9', 'be3fc2b3', 'data/b757_standing_v1349.txt', 33), ('v1.35.0', '2c3acfca', 'data/b757_standing_v1350.txt', 15),
-                  ('v1.35.1', '7fae9822', 'data/b757_standing_v1351.txt', 13), ('v1.35.2', '520777a8', 'data/b757_standing_v1352.txt', 20),
-                  ('v1.35.3', '47449d8b', 'data/b757_standing_v1353.txt', 13))
+STANDING_BANKS = (('v1.35.4', '26ac811e', 'data/b757_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b757_standing_v1355.txt', 6))
+# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
+KERNEL_COMMITS = (('ef_control', 'SIDE-explicit-formula', '347f5d79', None), ('m24_control', 'SIDE-dirichlet-mod-24', '28caf3c8', None),
+                  ('merge1', 'SIDE-explicit-formula', '0a0672bc', 'push-b757-join'), ('merge2', 'SIDE-explicit-formula', '12d60407', 'push-b757-join'),
+                  ('merge3', 'SIDE-explicit-formula', '36ad7bb7', 'push-b757-join'), ('merge4', 'SIDE-explicit-formula', '0cc23db8', 'push-b757-join'),
+                  ('edit_i', 'SIDE-explicit-formula', '6f2d7e26', 'push-b757-join'), ('edit_ii', 'SIDE-explicit-formula', 'e90ae384', 'push-b757-join'),
+                  ('edit_iii', 'SIDE-explicit-formula', '6568e9c7', 'push-b757-join'), ('t0', 'SIDE-explicit-formula', 'd40bbdab', 'push-b757-coeff'),
+                  ('t0_list', 'SIDE-explicit-formula', '89eb71b6', 'push-b757-coeff'), ('t1', 'SIDE-explicit-formula', 'e1afae15', 'push-b757-coeff'),
+                  ('t1_fix', 'SIDE-explicit-formula', 'e52f9060', 'push-b757-coeff'), ('wide', 'SIDE-explicit-formula', '596d1c9e', 'push-b757-coeff'),
+                  ('m24_workflow', 'SIDE-dirichlet-mod-24', '22282733', 'main'), ('m24_module', 'SIDE-dirichlet-mod-24', 'e5ebdd15', 'main'))
+M24_DIR = 'D:/SIDE-dirichlet-mod-24'
+M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
+M24_MAIN = 'e5ebdd15'                 # ### its main at the close: moved to the workflow (22282733) under (6)(i), then to the module under (6)(ii)
+M24_TAG = ('v0.2.0', 'e5c84316', 'e5ebdd15')   # ### (R367)(6): name, tag object, peel read back at the remote (data/b757_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt)
+COEFF_BRANCH = ('push-b757-coeff', '596d1c9e')   # ### (5) and (7) built on zq-b730's tip in b745's manner, the branch the route carries (events (17))
+JOIN_BRANCH = ('push-b757-join', '6568e9c7')     # ### (4)'s join, its one dispatch's commit; main unmoved, no v0.39
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
@@ -454,15 +470,15 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R367)); one question at the root ((R367)(10))
 SITTING_STATES = {}
-HANDOFF_COMMIT = 'e12efae6'   # ### (R366)(7): HANDOFF.md regenerated once by tools/standing/handoff.py before the gate (20:15:39Z, 154 lines, sha256 00ead06c15870bb9), committed at step 44 (b755's was 99e8a2c6)
+HANDOFF_COMMIT = None   # ### (R367)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate: set when made
 C3_RELAY = ()   # ### Component 3 ((R367)(5)): set as made
-C3_NOTES_GEN = 'd8eaaa2b'   # ### Component 3: tools/b756_notes.py committed before its run, controls 11 of 11 and its dry over the five places (step 13)
-C3_NOTES_PP = (('(i)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'ed23042f'),
-               ('(ii)', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', 'a680411c'),
-               ('(iii)', 'day1/Which_Structure_Confines_v2_4_0.md', '1795559c'),
-               ('(iv)', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', '2cab7417'),
-               ('(v)', 'OPEN_TRAILS.md', '6fb72eba'))   # ### (item, the file, the PLACE-papers commit), steps 14-18, each confirmed at HEAD by `tools/b756_notes.py confirm`
-C3_NOTES_WRITTEN = 9   # ### the notes of (3): four notes and five trail lines, 9 of 9, each the ruling's text between its quotation marks (data/b756_notes.json)
+C3_NOTES_GEN = '0243d123'   # ### Component 6: tools/b757_notes.py committed before its run, controls 18 of 18 (step 56)
+C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'e88282c4'),
+               ('(b)', 'FACES_LEDGER.md', 'c7dfe43c'),
+               ('(c)', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '9c0896c5'),
+               ('(d)', 'REGISTRY.md', 'c45be6e0'),
+               ('(e)', 'OPEN_TRAILS.md', 'b14256c2'))   # ### (item, the file, the PLACE-papers commit), steps 57-61, each confirmed at HEAD by tools/b757_notes.py (data/b757_notes.json)
+C3_NOTES_WRITTEN = 5   # ### the notes of (9): five writes, one PLACE-papers commit each (data/b757_notes.json)
 # ### Component 4 ((R366)(5)): the put and the work its answers order, each value read from the step rows (data/b756_steps.json)
 C4_READ = ('tools/b757_orders.py', '5b3d5a60', ('data/b757_orders_read.txt', 'data/b757_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
 C4_PUT = ('data/b757_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)

@@ -391,13 +391,20 @@ def runner_ok(S):
 #⟪END⟫
 # ### b754, the Edit tool: v1.9.0's tools/standing/reportdry.py carries the word report and is no report tool; the needle read it as one (the mid probe's LIVE FAIL)
 #⟪OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)⟫
-        and (_ for _ in ()).throw(SystemExit('### b757`s a probe`s needle (OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED'))   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+        and not any('report' in t for t in K.SEALED if t != 'standing/reportdry.py') and 'b757_report.py' not in (S['sealj'].get('tools') or {})   # ### b757, Component 6: the carried stub set for the act, b756's body with the act's name
 #⟪END⟫
 # ### b754, Component 7 (the Edit tool): G-CONVERSION-ONE's needle `def conv(` read tools/b754_c2_check.py's Dirichlet convolution
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
 #⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
-    raise SystemExit('### b757`s a probe`s needle (OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 8 code lines, stands in the carry`s diff bank
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
+    one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
+    bad = []
+    for f in sorted(os.listdir(T)):
+        if (f.startswith('b757_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS:   # ### b757, Component 6: the carried stub set for the act, b756's body with the act's name
+            t = strip_prose(read(os.path.join(T, f)))
+            if any(x in t for x in toks) or one_arg.search(t):
+                bad.append(f)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R364): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
@@ -419,7 +426,7 @@ def runner_ok(S):
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
 #⟪OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)⟫
-    raise SystemExit('### b757`s a probe`s needle (OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged', c) is not None)   # ### b757, Component 6: the carried stub set, b756's body (the listing ran inside a scratch reader at b757, defect (f): the arm reads none)
 #⟪END⟫
 # ### b754, Component 4's dry composition: v1.27.0's rdn (repair (7)) refuses a missing file, and the record reads three banks the root and the
 # ### close write -- the answers bank, the answer check and the events bank -- before they can exist (the entry's dry composition for the touch
@@ -455,7 +462,48 @@ REG = os.path.join(D, 'b757_registration_%s.txt' % __import__('b757_worklist').D
 # ### written by the trail at the close alone); removed. The Lean-file clause keeps its relabelling: the template measures the port branch
 # ### under a kernel-wide label, and b754's Lean files are slot 4's EFLEAN on SIDE-explicit-formula's four branches
 #⟪OVERRIDE regspec MARK 93dd78f2e845 1⟫
-    ('Lean files written on the port branch', 'LEANFILES', 'LEANFILES', 'files', '### none on port-b707 (N5); MEASURED off the port branch against its tip; the act`s Lean files are slot 4`s EFLEAN.'),
+    ('Lean files written on the port branch', 'LEANFILES', 'LEANFILES', 'files', '### none on port-b707 (N5); MEASURED off the port branch against its tip; the act`s Lean files are slot 10`s EFNEW and EFEDIT.'),
+#⟪END⟫
+# ### b757, Component 6 (the Edit tool): the template's lines that read "none" of kernel writes, true of every act since b745 and not of this
+# ### one, each replaced for b757 by its count and its source ((R367)(3)-(6), (9)); the template stays, the earlier acts' renders unchanged
+#⟪OVERRIDE regspec MARK 254ae4810dcb 1⟫
+    ('commits on any kernel`s main', 2, 2, 'commits', '### (R367)(6): SIDE-dirichlet-mod-24`s main moved from 597b0869 to the workflow 22282733 and then to the module e5ebdd15 after its run`s success, each read back at the remote; SIDE-explicit-formula`s main unmoved at 8fbab45d.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 18c1a19a6cb6 1⟫
+    ('scratch branches cut on a kernel', 2, 2, 'branches', '### (R367)(3)`s live control: push-b757-control-ef and push-b757-control-mod24, a commit on each read back, each deleted by the tool`s route (data/b757_standing_v1354_live.txt).'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK a2b9535083e6 1⟫
+    ('push branches cut on a kernel for the push procedure', 4, 4, 'branches', '### push-b757-join and push-b757-coeff in SIDE-explicit-formula, push-b757-workflow and push-b757-mod24 in SIDE-dirichlet-mod-24, each made by the one-call tool and carried by the gated push, standing at the close.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 42ab3bdb112d 1⟫
+    ('kernel merges made', 4, 4, 'merges', '### (R367)(4): detect-b729, keiper-b725, c2-b725 and zq-b730 into push-b757-join, one at a time without fast-forward (0a0672bc, 12d60407, 36ad7bb7, 0cc23db8); no branch merged into a main.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 63e5424dd90e 1⟫
+    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5: one, v0.2.0 in SIDE-dirichlet-mod-24 (object e5c84316, peel e5ebdd15 read back at the remote equal to main); v0.38 unmoved at 14ca5725, no v0.39 and no v0.40; MEASURED off SIDE-explicit-formula`s tags past v0.38, SIDE-dirichlet-mod-24`s past v0.1.0, and the template`s other kernels as before.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 5381b10a2ae6 1⟫
+    ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() != 'v0.1.0']   # ### b757: v0.38 b745`s; SIDE-dirichlet-mod-24`s tags past v0.1.0
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 100638d8d84e 1⟫
+    ('kernel branches deleted', 2, 2, 'branches', '### the two control branches of (R367)(3), each by the tool`s route after its read-back; port-b707, the pin, challenge and rebuild branches and the four held branches kept; the four push-b757-* branches standing.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 51acd0ac8ef1 1⟫
+    ('branches deleted beyond the step zero`s list', 2, 2, 'branches', '### the two control branches, deleted as (R367)(3) orders; port-b707 kept.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK b6204f4e0fa8 1⟫
+    ('census editions written on main', 0, 0, 'editions', '### none: no new edition; the census v0.8.3 takes (R367)(9)(c)`s one note at its end (PLACE-papers 9c0896c5).'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 0daf7a1cb287 1⟫
+    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS and REGISTRY', 3, 3, 'papers', '### (R367)(9)(a)-(c): one dated note each in THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, FACES_LEDGER.md and THE_KEYSTONE_CENSUS_v0_8_3.md, by one PLACE-papers commit each; none moved or renamed, no sentence edited.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 46160108b751 1⟫
+    ('README edits', 1, 1, 'edits', '### (R367)(4)(iii): [B1] on push-b757-join (6568e9c7), not on any main; SIDE-dirichlet-mod-24`s README not written; [B3] carried whole.'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 2d7a99569826 1⟫
+    ('orders and annotations entered at OPEN_TRAILS before the seal', 18, 18, 'lines', '### (R367)(1), (9)(e): the dated block at the file`s end, the line of (1), the order lines, W-ORD-SQUARES-AT-24 and [L22], by PLACE-papers b14256c2 (git diff --numstat b6860142 b14256c2 -- OPEN_TRAILS.md: 18 added, 0 removed).'),
+#⟪END⟫
+#⟪OVERRIDE regspec MARK 44ff8bc9f5d4 1⟫
+    ('faces ledger update blocks appended', 1, 1, 'blocks', '### (R367)(9)(b): one UPDATE section at FACES_LEDGER`s end (PLACE-papers c7dfe43c), no face entered.'),
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): N1's dispatch commands are the seat's `gh workflow run build-module.yml` ((R364)(4)(iii)-(iv));
 # ### the carried pattern named the template's rebuild tool, which b754 does not have
@@ -467,7 +515,6 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### removed; the ledger exclusion unchanged. The arm stands in tools/standing/arms.py's RETIRED and is not in the run list; read so, its
 # ### template line :971 would fire on N3's label of the landed entry (record.tpl :2444, a string naming FINDINGS.md), not edited here
 #⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
-    raise SystemExit('### b757`s a probe`s needle (OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_walk.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
@@ -625,7 +672,7 @@ def _gens_ok(S, names=None):
                + [('c1', _ct(ROOT, K.C1_RELAY)), ('stepzero', _ct(ROOT, K.STEPZERO_BANKS)), ('actcur', _ct(ROOT, K.ACT_CURRENT_COMMIT))]),
 #⟪END⟫
 #⟪SECTION checks 9⟫
-                   corr=files_of(ROOT, K.C1_CORR), standing=files_of(ROOT, K.C1_STANDING), lockgate=files_of(ROOT, K.C1_LOCKGATE), c2=files_of(ROOT, K.C2_RELAY),
+                   corr=files_of(ROOT, K.C1_CORR), standing=files_of(ROOT, K.C1_STANDING), lockgate=files_of(ROOT, K.C1_LOCKGATE) if K.C1_LOCKGATE else [], c2=[],   # ### b757: the lock gate set when made; no Component 2 relay bank of b756's kind
                    v9=files_of(ROOT, K.STANDING_COMMIT), handoff=files_of(ROOT, K.HANDOFF_COMMIT) if K.HANDOFF_COMMIT else [],
                    **dict([('rc_' + k_, files_of(ROOT, h_)) for k_, h_ in K.CHAIN] + [('pp_' + k_, files_of(PP, h_)) for k_, h_ in K.PP_CHAIN]),   # ### b756: each commit of the two chains by its key
 #⟪END⟫
@@ -633,8 +680,32 @@ def _gens_ok(S, names=None):
 # ### b755's read-first bank's items by path, the ferry's read-first list in its order (data/b755_readfirst_rows.json); b755 step zero: the
 # ### carried stub replaced, one needle for each item of the ferry's list (:44) and for the act's own reads beside it
 # ### b756 step zero: the carried stub replaced, one needle for each item of the ferry's read-first list (data/b756_ferry.txt :46), in its order
-# ### CARRIED STUB (tools/standing/carry.py v1.34.0): statement READFIRST_NEEDLES; it carried an act ordinal or the read-first needles
-READFIRST_NEEDLES = __import__('standing.carry', fromlist=['Carried']).Carried('b757`s READFIRST_NEEDLES')
+# ### b757, Component 6: the carried stub replaced, one needle for each item of the ferry's read-first list (data/b757_ferry.txt :41), in its
+# ### order, as data/b757_readfirst.txt :14-:35 holds them
+READFIRST_NEEDLES = (
+    'relay data/b756_closing.txt |',
+    'relay data/b756_author_answers.txt |',
+    'relay data/b756_defects.txt, data/b756_events.txt |',
+    'relay data/b756_rules.txt |',
+    'relay data/b756_checks.txt |',
+    'relay data/b756_doors.txt |',
+    'relay data/b756_orders_read.txt |',
+    'relay data/b754_doors.txt |',
+    'relay data/b752_attribution_plan.txt |',
+    'relay data/b753_registrations.txt |',
+    'relay data/b725_interference.txt |',
+    'relay data/b750_cq_sign.txt |',
+    'relay data/b745_commands.txt |',
+    'relay data/b745_dispatch_rows.json |',
+    'relay data/b703_epstein_merge_push_out.txt |',
+    'relay tools/b745_controls.py |',
+    'relay tools/b756_doors.py |',
+    'relay tools/b756_lockgate.py |',
+    'relay tools/standing/commit.py |',
+    'relay tools/standing/hook.py |',
+    'relay tools/standing/fold/closing.tpl |',
+    'relay tools/push_gated.sh |',
+)
 #⟪END⟫
 #⟪SECTION checks 11⟫
 CLOSING_SECTIONS = ('CORRIGENDUM ((R367)(1)-(2))',   # ### the template's heading (closing.tpl :389), not the ferry's numbering
@@ -1029,8 +1100,7 @@ def research_reproduces_ok(S):
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (FINDINGS: the weight line, the corrigendum, the entry; OPEN_TRAILS: (1)(i)`s and (3)(v)`s dated lines, the CP lines and the trail; INSTRUMENTS: I-110 and I-111; the four documents of (3)(i) to (iv), a dated note each; (R367)(1), (3), (5), (7)); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    (_ for _ in ()).throw(SystemExit('### b757`s a block reading an act ordinal or the read-first needles (SECTION checks 60) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')),
-    ('G-PRIOR-CLOSED-PUSHED', 'b756`s trail record on OPEN_TRAILS (:18350) and its root in the chain', lambda S: '### b756 — lane two, act one hundred and eighty-two, the class-number-3 walk under (R366)' in S['ot']
+    ('G-PRIOR-CLOSED-PUSHED', 'b756`s trail record on OPEN_TRAILS (:18422) and its root in the chain', lambda S: '### b756 — lane two, act one hundred and eighty-three, the clearing act under (R366)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (FINDINGS, OPEN_TRAILS, INSTRUMENTS, the four documents of (3)): beyond %s' % (
@@ -1359,8 +1429,9 @@ back unchanged, relay data/b757_events.txt (27)).
 #⟪END⟫
 #⟪SECTION closing 4⟫
 import standing.faceform as FF   # ### v1.8.0, (R365)(2)(iv)(c): the outbound sentence from the one clause
-# ### CARRIED STUB (tools/standing/carry.py v1.34.0): statement TITLE_LINE; it carried an act ordinal or the read-first needles
-TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b757`s TITLE_LINE')
+TITLE_LINE = ('b757 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND EIGHTY-FOUR, THE BUILD: b756 AT ITS WEIGHT; A SHORT CORRIGENDUM; THE ROUTE FOR KERNEL '
+              'WRITES; THE JOIN OF THE FOUR BRANCHES BROKEN AT THE IMPORT, NO TAG CUT; T0 AND T1 COMPILED; THE MODULUS-24 MODULE COMPILED UNDER v0.2.0; THE WIDE '
+              'DIRECTION COMPILED; FIVE REPAIRS; THE NOTES OF (9), UNDER (R367).**')   # ### b757, Component 6: the ferry`s ACT line (data/b757_ferry.txt :37) adjusted to what the act did (data/b757_outcomes.txt)
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b756's sections over b756's objects not carried), headed as CLOSING_SECTIONS names them. A row
@@ -1448,9 +1519,11 @@ TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b757`s 
     # ### templates and tools/acts/b756.py)
 #⟪END⟫
 #⟪SECTION record 1⟫
-    print('  kernels read: %d (SIDE-faces-join among them at b712`s main %s with its tag v0.1.0; zq-b730 of SIDE-explicit-formula at %s, unmoved this act; '
-          'no Lean file written; the %s branches of the wave 1 kernels as b757 found them; port-b707 at b712`s tip %s; no README written, (R367)(6)`s route carried whole)' % (
-              len(ks), K.JOIN_NEW_TIP[:8], K.ZQ_TIP[:8], K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8]))
+    print('  kernels read: %d (SIDE-explicit-formula at main %s, unmoved this act, %s peeling to %s, unmoved; %s at %s, the join broken at the import, no v0.39 cut; '
+          '%s at %s carrying T0, T1 and the wide direction past zq-b730`s tip %s, no v0.40 cut; SIDE-dirichlet-mod-24 at main %s with its tag %s peeling to %s; '
+          'no kernel beyond the two written)' % (
+              len(ks), K.EF_BASE[:8], K.ZQ_TAG[0], K.ZQ_TAG[2][:8], K.JOIN_BRANCH[0], K.JOIN_BRANCH[1][:8], K.COEFF_BRANCH[0], K.COEFF_BRANCH[1][:8],
+              K.ZQ_TIP[:8], K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
 #⟪END⟫
 #⟪SECTION record 2⟫
 def _trail_resolved(text):
@@ -1461,67 +1534,67 @@ def _trail_resolved(text):
     return (m.group(2), m.group(3)) if m else None
 #⟪END⟫
 #⟪SECTION record 3⟫
-    b757's form over b757's objects: the corrigendum's foot; the seven standing versions' controls from their banks; the constellation's
-    controls and its rerun's foot; the reverse read's two feet and what the two find beyond (3); the notes' bank (the five writes of (3)
-    and their lines); the orders read, the instruments draft and the status lines; the passed writes' bank; the ceiling after Component 4;
-    the fault count, its placing and the README route's two feet; the citation check; the address scan; each by its own lines through
-    _bfig, which refuses where a bank does not carry its figure; the counter from the act's defects and events banks; nothing typed. No
-    reproduction bank: the run is not run at this act (relay data/b757_events.txt (29))."""
+    b757's form over b757's objects: the corrigendum's foot; the two standing versions' controls from their banks and the live control's;
+    the join's foot; the outcomes of (4) to (7) from the outcomes bank, its foot and each row's run, commit, lines and names; the dispatch
+    rows by kernel; the ceiling after Component 3; the five repairs' feet (the cut, v1.35.5, the gh-call reader, REGISTRY's header, the two
+    descriptions); the notes' bank (the five writes of (9) and their confirms); the sweep's foot and the moved cites' foot; the citation
+    check; the address scan; each by its own lines through _bfig, which refuses where a bank does not carry its figure; the counter from
+    the act's defects and events banks; nothing typed. No reproduction bank: the run computes at fields beyond the builds, which (R367)(10)
+    bars."""
 #⟪END⟫
 #⟪SECTION record 4⟫
     vs_ = [(v_,) + _bfig(b_.split('/', 1)[1], r'\*\*%s: CONTROLS ([^;]+?) ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*' % re.escape(v_), '%s`s controls' % v_)
            for v_, _c, b_, _n in K.STANDING_BANKS]
-    vh_ = [(v_, '(R367)(6)' in (rdn(b_.split('/', 1)[1]).split(NL) or [''])[0]) for v_, _c, b_, _n in K.STANDING_BANKS]   # ### the versions of (6), by each bank's head
-    cc_ = _bfig('%s_constellation_control.txt' % ACT, r'\*\*THE CONTROLS: (\d+) OF (\d+) AS WANTED ; ([\d.]+) s\.\*\*', 'the constellation`s controls')
-    cm_ = _bfig('%s_constellation_summary.txt' % ACT, r'\*\*TABLES READ: (\d+) OF (\d+)\. ### ROWS MOVED OR GONE BY THE TOOL: (\d+) \{[^}]*\} ; AFTER THE HAND-READ: (\d+) COUNTED, (\d+) NOT, (\d+) UNREAD\.',
-                'the rerun`s foot')
-    rv_ = _bfig('%s_reverse_read.txt' % ACT, r'\*\*THE REVERSE READ: CONTROLS (\d+) OF (\d+) AS WANTED ; LINES CARRYING THE SIX STATEMENTS (\d+): ADDRESSED BY \(3\) (\d+) ; '
-                r'REPAIRED BY \(1\)\(ii\) (\d+) ; THE RECORD (\d+) ; BEYOND \(3\) (\d+), OF THEM OVERTAKEN (\d+),', 'the reverse read`s foot')
-    rn_ = _bfig('%s_reverse_read.txt' % ACT, r'\*\*THE COUNT FOR \(4\)\(iii\) AND THE ROOT PROMPT: (\d+) LINE\(S\) BEYOND \(3\)', 'the reverse read`s count')
-    bt_ = _bfig('%s_beyond_three.txt' % ACT, r'\*\*THE TWO COUNTS FOR THE ROOT PROMPT: THE CONSTELLATION RERUN (\d+) ROWS MOVED OR GONE \((\d+) BY THE TOOL\) ; THE REVERSE READ (\d+) LINE\(S\) BEYOND \(3\)',
-                'the two counts')
+    lv_ = _bfig('%s_standing_v1354_live.txt' % ACT, r'\*\*v1\.35\.4: CONTROLS \(live\) ; CASES (\d+) ; AS WANTED (\d+) ; ALL AS WANTED\.\*\*', 'the live control`s foot')
+    jn_ = _bfig('%s_join.txt' % ACT, r'\*\*THE JOIN: (MERGES AS ORDERED) ; THE UNION DIFFERENCES (\d+) ; TARGETS (\d+) MODULES FOR (\d+) NAMES, (\d+) REFUSED ; CONTROLS (\d+) OF (\d+)\.\*\*', 'the join`s foot')
+    of_ = _bfig('%s_outcomes.txt' % ACT, r'\*\*THE OUTCOMES: JOIN (COMPILED|BROKE) ; T0 (COMPILED|OPEN) ; T1 (COMPILED|OPEN) ; MOD24 (COMPILED|OPEN) ; WIDE (COMPILED|PRICED|STOPPED)\.\*\*', 'the outcomes` foot')
+    oj_ = dict((r_.get('item'), r_) for r_ in (json.loads(rdn('%s_outcomes.json' % ACT)) or []))
+    if sorted(oj_) != ['T0', 'T1', 'join', 'mod24', 'wide'] or [oj_[k_].get('outcome') for k_ in ('join', 'T0', 'T1', 'mod24', 'wide')] != list(of_) or any(oj_[k_].get('unfilled') for k_ in oj_):
+        sys.exit('### data/%s_outcomes.json DOES NOT CARRY THE FIVE OUTCOMES OF ITS FOOT, EACH FILLED -- NOTHING COMPOSED' % ACT)
+    dr_rows_ = json.loads(rdn('%s_dispatch_rows.json' % ACT)) or []
+    dk_ = lambda kn_, kd_: [r_ for r_ in dr_rows_ if r_.get('kernel') == kn_ and r_.get('kind') == kd_]
+    ce_ = _bfig('%s_ceiling.txt' % ACT, r'\*\*THE CEILING AFTER COMPONENT 3: ([\d.]+) h AT THE LOWER FIGURES AGAINST (\d+) h, (NOTHING CARRIED) ; \(7\) LEFT ([\d.]+) h ; DISPATCHES (\d+) OF (\d+) AND (\d+) OF (\d+) USED\.\*\*',
+                'the ceiling after Component 3')
+    pr_ = _bfig('%s_price.txt' % ACT, r'\*\*THE PRICE TABLE: STEP ZERO ([\d.]+) h ; THE LOWER SUM ([\d.]+) h AGAINST THE CEILING (\d+) h, (NOTHING CARRIED) ; THE UPPER SUM ([\d.]+) h ;', 'the price table`s foot')
+    cu_ = _bfig('%s_cut.txt' % ACT, r'\*\*\(8\)\(i\): CONTROLS (\d+) OF (\d+) AS WANTED ; ON b756`S BANK WHOLE THE CUT CHECK (PASSES), ON THE PLANTED SECOND RESULT (FAILS)\.\*\*', 'the cut`s foot')
+    gh_ = _bfig('%s_ghcalls.txt' % ACT, r'\*\*\(8\)\(iii\): (CONTROLS AS WANTED) ; OVER b756`S BANKS THE CARRIED READER (\w+), THE TAUGHT READER (\d+)\.\*\*', 'the gh-call reader`s foot')
+    rg_ = _bfig('%s_registry_line.txt' % ACT, r'\*\*\(8\)\(iv\): CONTROLS (\d+) OF (\d+) AS WANTED ; LINE (\d+) REPLACED ; LINES MOVED (\d+) ; DATE (\d{4}-\d\d-\d\d)\.\*\*', 'REGISTRY`s header line`s foot')
+    ds_ = _bfig('%s_doors.txt' % ACT, r'\*\*\(8\)\(v\): (CONTROLS AS WANTED) ; SENT (\d+) OF (\d+) \(EDIT CALLS (\d+)\) ; READ BACK EQUAL TO THE PASSED TEXT (\d+) OF (\d+) \(([^)]*)\)\.\*\*', 'the descriptions` foot')
     nj_ = jl('%s_notes.json' % ACT).get('items') or {}
-    if sorted(nj_) != ['i', 'ii', 'iii', 'iv', 'v'] or not all((nj_[k_].get('confirm') or '').startswith('PLACE-papers ') for k_ in nj_):
-        sys.exit('### data/%s_notes.json DOES NOT CARRY THE FIVE WRITES OF (3) AND THEIR CONFIRMS -- NOTHING COMPOSED' % ACT)
-    od_ = _bfig('%s_orders_read.txt' % ACT, r'\*\*THE TWELVE ORDERS AT TODAY`S TREE: DONE (\d+) ; HERE (\d+) ; WITH THE BUILD (\d+) ; LATER (\d+) ;', 'the orders read`s foot')
-    om_ = _bfig('%s_orders_moves.txt' % ACT, r'\*\*TWELVE STATUS LINES: DISCHARGED (\d+) \(DONE (\d+), HERE (\d+)\) ; CARRIED (\d+) \(WITH THE BUILD (\d+), LATER (\d+)\) ;', 'the status lines` foot')
-    id_ = _bfig('%s_instruments_draft.txt' % ACT, r'\*\*TWO ROWS DRAFTED, (I-\d+) AND (I-\d+), AFTER (I-\d+) ; FIGURES ON THEIR LINES (\d+) OF (\d+) ;', 'the instruments draft`s foot')
-    pj_ = jl('%s_passed.json' % ACT).get('items') or {}
-    if sorted(pj_) != ['cp', 'instruments'] or not all((pj_[k_].get('confirm') or '').startswith('PLACE-papers ') for k_ in pj_):
-        sys.exit('### data/%s_passed.json DOES NOT CARRY THE TWO PASSED WRITES AND THEIR CONFIRMS -- NOTHING COMPOSED' % ACT)
-    c4_ = _bfig('%s_ceiling_c4.txt' % ACT, r'\*\*THE CEILING AFTER COMPONENT 4: SPENT ([\d.]+) h \+ REMAINING LOWER ([\d.]+) h = ([\d.]+) h AGAINST (\d+) h ; (NOTHING CARRIED) ;',
-                'the ceiling after Component 4')
-    fc_ = _bfig('%s_faults.txt' % ACT, r'\*\*THE FAULTS : (\d+) ROWS ; IN TWO ACTS OR MORE (\d+) \(', 'the fault count`s foot')
-    fp_ = _bfig('%s_faults_placed.txt' % ACT, r'\*\*THE FAULTS OF TWO ACTS OR MORE: (\d+) ; LANDED (\d+) \(([^)]*)\) ; CARRIED (\d+) ; NO CODE (\d+) ; UNPLACED (\d+) ;', 'the placing`s foot')
-    dr_ = _bfig('%s_doors.txt' % ACT, r'\*\*THE DESCRIPTIONS: WRITTEN AS RULED AND READ BACK EQUAL (\d+) of (\d+) ; REFUSED BY THE SERVER FOR LENGTH, EACH READ BACK UNCHANGED, (\d+) ',
-                'the descriptions` foot')
-    dh_ = _bfig('%s_doors.txt' % ACT, r'\*\*(THE README ROUTE HALTED): .*?(\[B1\] AND \[B3\] CARRIED WHOLE)', 'the README route`s foot')
+    if sorted(nj_) != ['a', 'b', 'c', 'd', 'e'] or not all(re.match(r'PLACE-papers [0-9a-f]{8} at \S+, \S+ alone, \d+ lines added, none removed$', nj_[k_].get('confirm') or '') for k_ in nj_):
+        sys.exit('### data/%s_notes.json DOES NOT CARRY THE FIVE WRITES OF (9) AND THEIR CONFIRMS -- NOTHING COMPOSED' % ACT)
+    sw_ = _bfig('%s_sweep.txt' % ACT, r'\*\*THE SWEEP: CONTROLS (\d+) OF (\d+) AS WANTED ; LINES SAYING ONE OF THE THREE STATEMENTS (\d+): OVERTAKEN (\d+) ; AS THE RECORD READS (\d+) ; A DATED RECORD (\d+) ; NOT SAYING IT (\d+) ; NOT YET READ (\d+) ;', 'the sweep`s foot')
+    mv_ = _bfig('%s_notes_moved.txt' % ACT, r'\*\*THE CITES THE INSERTION MOVES: LINES (\d+) \(PLACE-papers (\d+), relay (\d+)\) ; CITES MOVED (\d+) ; NONE EDITED, EACH PRINTED\.\*\*', 'the moved cites` foot')
     cit = _bfig(K.CITATION_BANK, r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', 'the citation check')
     ad = _bfig('%s_address_scan.txt' % ACT, r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ; PLACES (\d+) ; CONTROLS 7 OF 7 '
                r'AS WANTED ;', 'the address scan`s foot')
-    # ### b757: no order entered this act ((R367) enters none; two statuses move by the orders tool's route in the trail)
+    # ### b757: no order entered beyond (R367)(6)'s W-ORD-SQUARES-AT-24, in (9)'s block (OPEN_TRAILS :18503)
 #⟪END⟫
 #⟪SECTION record 5⟫
                 corr_repeat=ci[5], corr_row=co.get('row'),
                 corr_findings=((co.get('findings') or {}).get('claim'), (co.get('findings') or {}).get('close'), (co.get('findings') or {}).get('repeat')),
-                vers=[(v_, c_, int(n_), int(w_)) for v_, c_, n_, w_ in vs_],   # ### the seven: (version, controls, cases, as wanted)
-                vers6=[v_ for v_, o_ in vh_ if o_],
-                cc_ok=int(cc_[0]), cc_of=int(cc_[1]), cc_secs=cc_[2],
-                cm_tables=int(cm_[0]), cm_of=int(cm_[1]), cm_tool=int(cm_[2]), cm_counted=int(cm_[3]), cm_not=int(cm_[4]), cm_unread=int(cm_[5]),
-                rv_ctl=(int(rv_[0]), int(rv_[1])), rv_lines=int(rv_[2]), rv_addressed=int(rv_[3]), rv_repaired=int(rv_[4]), rv_record=int(rv_[5]),
-                rv_beyond_all=int(rv_[6]), rv_overtaken=int(rv_[7]), rv_beyond=int(rn_[0]),
-                bt_moved=int(bt_[0]), bt_tool=int(bt_[1]), bt_beyond=int(bt_[2]),
-                notes=[(k_, nj_[k_].get('file'), nj_[k_].get('confirm'), len([x_ for x_ in nj_[k_].get('lines') or [] if x_.get('kind') != 'head'])) for k_ in ('i', 'ii', 'iii', 'iv', 'v')],
-                notes_written=sum(len([x_ for x_ in nj_[k_].get('lines') or [] if x_.get('kind') != 'head']) for k_ in nj_),
-                od=tuple(int(x_) for x_ in od_), om=tuple(int(x_) for x_ in om_),
-                id_rows=(id_[0], id_[1]), id_after=id_[2], id_figs=(int(id_[3]), int(id_[4])),
-                passed=[(k_, pj_[k_].get('file'), pj_[k_].get('confirm'), len([x_ for x_ in pj_[k_].get('lines') or [] if x_.get('kind') != 'head'])) for k_ in ('cp', 'instruments')],
-                cp='passed' if len([x_ for x_ in (pj_.get('cp') or {}).get('lines') or [] if x_.get('kind') != 'head']) == 2 else 'struck',
-                c4_spent=c4_[0], c4_lower=c4_[1], c4_sum=c4_[2], c4_ceiling=int(c4_[3]), c4_word=c4_[4],
-                fc_rows=int(fc_[0]), fc_two=int(fc_[1]),
-                fp_two=int(fp_[0]), fp_landed=int(fp_[1]), fp_where=fp_[2], fp_carried=int(fp_[3]), fp_nocode=int(fp_[4]), fp_unplaced=int(fp_[5]),
-                dr_equal=int(dr_[0]), dr_of=int(dr_[1]), dr_refused=int(dr_[2]), dr_halted=dh_[0],
-                tc_landed=len([v_ for v_, o_ in vh_ if o_]), tc_carried=1 if dh_[1] else 0,
+                vers=[(v_, c_, int(n_), int(w_)) for v_, c_, n_, w_ in vs_],   # ### the two: (version, controls, cases, as wanted)
+                live=(int(lv_[0]), int(lv_[1])),
+                jn_merges=jn_[0], jn_union=int(jn_[1]), jn_modules=int(jn_[2]), jn_names=int(jn_[3]), jn_refused=int(jn_[4]), jn_ctl=(int(jn_[5]), int(jn_[6])),
+                oc=dict((k_, dict(outcome=oj_[k_].get('outcome'), run=oj_[k_].get('run'), sha=(oj_[k_].get('sha') or '')[:8], lines=oj_[k_].get('lines'),
+                                  names=oj_[k_].get('names'), sentence=oj_[k_].get('sentence'), module=oj_[k_].get('module'), line=oj_[k_].get('line'),
+                                  tag=oj_[k_].get('tag'))) for k_ in oj_),
+                join_word='built at v0.39' if of_[0] == 'COMPILED' else 'broke', t0_word=of_[1].lower(), t1_word=of_[2].lower(), m24_word=of_[3].lower(),
+                wide_word=dict(COMPILED='compiled', PRICED='priced, not built', STOPPED='stopped partway')[of_[4]],
+                disp_ef=len(dk_('SIDE-explicit-formula', 'dispatch')), disp_m24=len(dk_('SIDE-dirichlet-mod-24', 'dispatch')),
+                read_ef=len(dk_('SIDE-explicit-formula', 'read')), read_m24=len(dk_('SIDE-dirichlet-mod-24', 'read')),
+                ce_sum=ce_[0], ce_ceiling=int(ce_[1]), ce_word=ce_[2], ce_left=ce_[3], ce_disp=(int(ce_[4]), int(ce_[5]), int(ce_[6]), int(ce_[7])),
+                pr_zero=pr_[0], pr_lower=pr_[1], pr_ceiling=int(pr_[2]), pr_word=pr_[3], pr_upper=pr_[4],
+                cu_ctl=(int(cu_[0]), int(cu_[1])), cu_whole=cu_[2], cu_plant=cu_[3],
+                gh_carried=gh_[1], gh_taught=int(gh_[2]),
+                rg_ctl=(int(rg_[0]), int(rg_[1])), rg_line=int(rg_[2]), rg_moved=int(rg_[3]), rg_date=rg_[4],
+                ds_sent=(int(ds_[1]), int(ds_[2])), ds_calls=int(ds_[3]), ds_equal=(int(ds_[4]), int(ds_[5])), ds_where=ds_[6],
+                repairs=sum(1 for o_ in (cu_[2] == 'PASSES' and cu_[3] == 'FAILS', any(v_ == 'v1.35.5' and int(n_) == int(w_) for v_, _c, n_, w_ in vs_), int(gh_[2]) > 0,
+                                         int(rg_[3]) == 0, int(ds_[4]) == int(ds_[5]) == int(ds_[2])) if o_),
+                notes=[(k_, nj_[k_].get('file'), nj_[k_].get('confirm'), int(re.search(r', (\d+) lines added,', nj_[k_]['confirm']).group(1))) for k_ in ('a', 'b', 'c', 'd', 'e')],
+                notes_written=len(nj_),
+                sw_ctl=(int(sw_[0]), int(sw_[1])), sw_lines=int(sw_[2]), sw_overtaken=int(sw_[3]), sw_record=int(sw_[4]), sw_dated=int(sw_[5]), sw_not=int(sw_[6]), sw_unread=int(sw_[7]),
+                mv_lines=int(mv_[0]), mv_pp=int(mv_[1]), mv_relay=int(mv_[2]), mv_cites=int(mv_[3]),
                 cit_n=cit[0], cit_ok=cit[1], cit_miss=cit[2],
                 addr=ad[0], name=ad[1], prev_name=ad[2], orcid=ad[3], addr_places=ad[4],
 #⟪END⟫
@@ -1531,46 +1604,85 @@ def _ef_kind(rows, kind):
     return [r for r in rows or [] if r.get('kind') == kind]
 #⟪END⟫
 #⟪SECTION record 7⟫
-    """N1 (R367): no lean process runs on this host; no runner dispatch this act (MAX_DISPATCHES 0, EF_RUNS empty, no dispatch row and no
-    dispatch command in the capture); every row carrying free_mb; no suite part in the background. From the command bank (the seat's commands, read live from the capture by the
-    `commands` route), the dispatch rows beside the worklist's EF_RUNS, and the hook's refusal bank (a suite part sent in the background
-    refused BACKGROUND)."""
+    """N1 (R367): no lean process runs on this host; each build a runner dispatch read by its run id from the artifact, the exit file
+    governing (each dispatch row with one read row of its run, the read's exit read); the dispatch counts within (10)'s, 14 in
+    SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24, the worklist's EF_RUNS and M24_RUNS each the runs of its kernel's dispatch and
+    read rows; each dispatch under the memory hold (free_mb at or above 2,560 MB) and the disk hold (each volume at or above 5,000 MB) as its
+    row banks them, each read row carrying free_mb; each dispatch row naming the licence of step zero's banks; the dispatch commands in the
+    capture as many as the dispatch rows and the sends refused; no suite part in the background. From the command bank (the seat's commands,
+    read live from the capture by the `commands` route), the dispatch rows beside the worklist's runs, and the hook's refusal bank (a suite
+    part sent in the background refused BACKGROUND)."""
 #⟪END⟫
 #⟪SECTION record 8⟫
     rows_ = jl('%s_dispatch_rows.json' % ACT) or []
     reads_ = sorted(str(r.get('run')) for r in _ef_kind(rows_, 'read'))
-    runs_ = sorted(set(reads_)) == sorted(str(x) for x in K.EF_RUNS)
-    free_ = [r for r in _ef_kind(rows_, 'dispatch') + _ef_kind(rows_, 'read') if not isinstance(r.get('free_mb'), int)]
+    per_ = []
+    for kn_, runs_w_, cap_ in (('SIDE-explicit-formula', K.EF_RUNS, K.MAX_DISPATCHES), ('SIDE-dirichlet-mod-24', K.M24_RUNS, K.MAX_DISPATCHES_M24)):
+        d_ = sorted(str(r.get('run')) for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == kn_)
+        r_ = sorted(str(r.get('run')) for r in _ef_kind(rows_, 'read') if r.get('kernel') == kn_)
+        per_.append((kn_, len(d_), cap_, d_ == r_ == sorted(str(x) for x in runs_w_)))
+    runs_ = all(o_ for _k, _n, _c, o_ in per_) and all(n_ <= c_ for _k, n_, c_, _o in per_)
+    twice_ = sorted(set(x for x in reads_ if reads_.count(x) > 1))
+    dmin_ = lambda r: min(r['disk_mb_at_row'].values()) if isinstance(r.get('disk_mb_at_row'), dict) and r['disk_mb_at_row'] else (r.get('disk_mb_at_row') if isinstance(r.get('disk_mb_at_row'), int) else -1)
+    free_ = [r.get('n') for r in _ef_kind(rows_, 'dispatch') if not isinstance(r.get('free_mb'), int) or r['free_mb'] < 2560 or dmin_(r) < 5000] \
+        + [r.get('n') for r in _ef_kind(rows_, 'read') if not isinstance(r.get('free_mb'), int)]
+    exits_ = ['%s %s exit %s %s' % (r.get('kernel', '')[5:], r.get('run'), r.get('build_exit'), r.get('verdict')) for r in _ef_kind(rows_, 'read')]
+    unexit_ = [r.get('run') for r in _ef_kind(rows_, 'read') if str(r.get('build_exit') or '') == '']
     bg_ = [l for l in rdn('%s_hook_refusals.txt' % ACT).split(NL) if '| BACKGROUND |' in l]
     bgc_ = [r['n'] for r in ((cm.get('rows') or []) if cm else []) if r.get('bg') and re.search(r'fold\.py"? checks\b|_checks\.py', r.get('cmd') or '')]
     refused_ = _ef_kind(rows_, 'dispatch_refused')
     lic_ = [r for r in _ef_kind(rows_, 'dispatch') if not str((r.get('licence') or {}).get('commit') if isinstance(r.get('licence'), dict) else r.get('licence') or '').startswith(K.STEPZERO_BANKS[:8])]
-    ok = bool(cm) and not seat_lean and len(disp or []) == len(K.EF_RUNS) + len(refused_) == 0 and len(_ef_kind(rows_, 'dispatch')) == len(K.EF_RUNS) <= K.MAX_DISPATCHES == 0 \
-        and runs_ and not free_ and not lic_ and not bg_ and not bgc_
+    ok = bool(cm) and not seat_lean and len(disp or []) == len(_ef_kind(rows_, 'dispatch')) + len(refused_) and runs_ and not twice_ \
+        and not free_ and not unexit_ and not lic_ and not bg_ and not bgc_
 #⟪END⟫
 #⟪SECTION record 9⟫
-        'the seat`s commands running lean or lake on this host (relay data/b757_commands.json): %s; dispatch commands in the capture: %s, sends refused by the host (no run): %d, against the %d N1 allows; the worklist`s runs %d, each read by its run id: %s (reads %d, a run read twice: %s); dispatch and read rows without free_mb: %s; dispatch rows not naming the licence %s: %s (relay data/b757_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
-            (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', len(refused_), K.MAX_DISPATCHES, len(K.EF_RUNS), runs_, len(reads_),
-            ', '.join(sorted(set(x for x in reads_ if reads_.count(x) > 1))) or 'none', len(free_), K.STEPZERO_BANKS[:8], len(lic_), len(bgc_) if cm else 'unread', len(bg_)))
+        'the seat`s commands running lean or lake on this host (relay data/b757_commands.json): %s; dispatch commands in the capture: %s, against the dispatch rows %d and the sends refused by the host (no run) %d; by kernel, dispatches against (10)`s cap and the worklist`s runs each a dispatch row`s and a read row`s: %s; reads %d, a run read twice: %s; each read`s exit file: %s; a read with no exit read: %s; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: %s; dispatch rows not naming the licence %s: %s (relay data/b757_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
+            (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', len(_ef_kind(rows_, 'dispatch')), len(refused_),
+            ', '.join('%s %d of %d, the runs %s' % (k_, n_, c_, o_) for k_, n_, c_, o_ in per_), len(reads_), ', '.join(twice_) or 'none', '; '.join(exits_),
+            unexit_ or 'NONE', free_ or 'NONE', K.STEPZERO_BANKS[:8], len(lic_), len(bgc_) if cm else 'unread', len(bg_)))
 #⟪END⟫
 #⟪SECTION record 10⟫
 # ### N2 (over b757's objects): the tools' controls before their figures banked this act, (bank, the controls' line, the first figure's line);
-# ### the constellation's controls stand in a bank of their own (data/b757_constellation_control.txt), read by time in _n2
+# ### the controls tool's own controls stand in a bank of their own (data/b757_controls_control.txt), read by time against the opening dispatch
 N2_CONTROLS = (('data/b757_address_scan.txt', '## THE CONTROLS FIRST', '## THE PLACES READ'),
                ('data/b757_pathrefusal.txt', '## THE CONTROLS FIRST', '## THE PATHS READ'),
-               ('data/b757_standing_v1347.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.34.7: CONTROLS '),
-               ('data/b757_standing_v1348.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.34.8: CONTROLS '),
-               ('data/b757_standing_v1349.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.34.9: CONTROLS '),
-               ('data/b757_standing_v1350.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.0: CONTROLS '),
-               ('data/b757_standing_v1351.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.1: CONTROLS '),
-               ('data/b757_standing_v1352.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.2: CONTROLS '),
-               ('data/b757_standing_v1353.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.3: CONTROLS '),
-               ('data/b757_reverse_read.txt', '## THE CONTROLS, BEFORE THE FIGURES', '## (1) A ZERO LOCATED IN LEAN, OR NONE'),
-               ('data/b757_orders_moves.txt', 'CONTROLS 12 OF 12 AS WANTED', '#### THE LINES BEGIN'),
-               ('data/b757_ceiling_c4.txt', 'CONTROLS 4 OF 4 AS WANTED', '## THE ROWS'),
-               ('data/b757_faults.txt', '## THE CONTROLS, BEFORE ANY COUNT', '## THE FAULTS, DESCENDING'),
-               ('data/b757_faults_placed.txt', '## THE CONTROLS, BEFORE ANY PLACING', '## THE PLACING, IN THE COUNT'),
-               ('data/b757_doors.txt', '### the matcher`s controls: 5 of 5 AS WANTED', '## THE WRITES, EACH READ BACK'))
+               ('data/b757_standing_v1354.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.4: CONTROLS '),
+               ('data/b757_standing_v1354_live.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.4: CONTROLS (live)'),
+               ('data/b757_standing_v1355.txt', '### THE COMPILE CONTROL, BEFORE ANY FIGURE', '### ### **v1.35.5: CONTROLS '),
+               ('data/b757_join.txt', '## THE CONTROLS', '## THE MERGES, IN (R367)(4)`S ORDER'),
+               ('data/b757_cut.txt', '## THE CONTROLS, on ', '### ### **(8)(i): CONTROLS'),
+               ('data/b757_ghcalls.txt', '## THE CONTROLS FIRST', '## b756`S BANKS'),
+               ('data/b757_registry_line.txt', '## THE CONTROLS FIRST', '## THE READ'),
+               ('data/b757_doors.txt', '## THE CONTROLS FIRST: 4 of 4 AS WANTED', '## THE PASSED TEXTS, CUT FROM THE FERRY BANK'),
+               ('data/b757_sweep.txt', '## THE CONTROLS, BEFORE THE FIGURES', '## (1) THE CONTROL`S EXPLICIT FORMULA IS UNPROVED'))
+N2_PUSHES = ('SIDE-explicit-formula_push-b757-join', 'SIDE-explicit-formula_push-b757-coeff', 'SIDE-dirichlet-mod-24_push-b757-workflow',
+             'SIDE-dirichlet-mod-24_push-b757-mod24')   # ### the gated push's captures in the two kernels, data/b757_<kernel>_<branch>_push_out.txt
+N2_WORKFLOW = '22282733'   # ### (6)(i)'s workflow commit, the one move of a kernel's main ahead of a build (N2's own exception)
+
+
+def _main_moves():
+    """N2 (R367): each move of a kernel's main in the gated push's captures, (capture, time, tip, the run whose success licenses it or the
+    workflow's exception, ok): a section of a capture opening at its stamped `capture on` line and carrying a ` -> main` line; its tip the
+    section's `tip` field; licensed where a read row of the dispatch rows reads exit 0 for a dispatch at that tip, read before the section's
+    time, or the tip is (6)(i)'s workflow commit."""
+    rows_ = jl('%s_dispatch_rows.json' % ACT) or []
+    sha_ = dict((str(r.get('run')), r.get('sha') or '') for r in _ef_kind(rows_, 'dispatch'))
+    ok_reads_ = [(sha_.get(str(r.get('run')), ''), _iso_epoch(r.get('free_at') or r.get('at') or '') or 0, r.get('run')) for r in _ef_kind(rows_, 'read')
+                 if str(r.get('build_exit')) == '0']
+    out_ = []
+    for p_ in N2_PUSHES:
+        t_ = rdn('%s_%s_push_out.txt' % (ACT, p_))
+        for sec_ in re.split(r'(?m)^(?=push_gated: capture on )', t_):
+            if not re.search(r'(?m)^\s+\S+\.\.\S+\s+\S+ -> main$|\[new branch\]\s+\S+ -> main$', sec_):
+                continue
+            ts_ = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)', sec_)
+            tip_ = re.search(r'; tip ([0-9a-f]{40})', sec_)
+            te_ = _iso_epoch(ts_.group(1)) if ts_ else None
+            tp_ = tip_.group(1) if tip_ else ''
+            lic_ = [run_ for s_, e_, run_ in ok_reads_ if tp_ and s_.startswith(tp_[:8]) and te_ and e_ < te_]
+            wf_ = tp_.startswith(N2_WORKFLOW)
+            out_.append((p_, ts_.group(1) if ts_ else 'unread', tp_[:8], 'the workflow of (6)(i)' if wf_ else (lic_[0] if lic_ else 'NONE'), bool(te_) and (wf_ or bool(lic_))))
+    return out_
 N2_REGEN = '### THE (W) REGENERATION'   # ### the regeneration printed in the face, before the lock gate
 N2_SECTIONS = ()
 N2_RIDERS = ('data/b757_steps.json', 'data/b757_address_scan_commits.txt')   # ### the step row and the per-commit scan, riding in every commit by the one-call tool
@@ -1592,15 +1704,15 @@ def _first_add(path):
 #⟪END⟫
 #⟪SECTION record 11⟫
     """N2 (R367): the step-zero reads, the chain read and the carry printed before any write (the step-zero bank's times before the
-    act_current commit); the act's commits in the worklist's TIME_ORDER by time, relay and PLACE-papers together -- step zero's, v1.34.7, the
-    lock gate carried, the weight and corrigendum (PLACE-papers, then relay), the map's tool and banks, the notes' tool, its five PLACE-papers
-    writes and its bank, the orders read, the put, the passed writes' tool and its two PLACE-papers writes, v1.34.8, the status lines, the
-    ceiling, v1.34.9 to v1.35.3 with the fault count, the placing and the README route, then the passed bank and the handoff page where made;
-    each standing change landing before the gate, a commit of its own moving VERSION with its controls bank, the act's commits under
-    tools/standing/ those seven and no other; each tool of K.GENS first added by a commit of its own carrying it and not its bank, the bank's
-    commit not the tool; the constellation's tool committed before its controls ran, and those AS WANTED; each tool's controls before its
-    figures; the reverse read banked before the first write of (3); the (W) regeneration, the pre-lock comparison and the probe-path refusal
-    before the lock gate; v1.34.7 an ancestor of HEAD."""
+    act_current commit); the act's commits in the worklist's TIME_ORDER by time, relay and PLACE-papers together -- step zero's, the weight
+    and corrigendum, v1.35.4 and its live control, the controls and join tools and their repairs, the join's bank, the outcomes, the rows
+    and reads, the ceiling, the wide direction's composer, (8)(iv)'s tool and its PLACE-papers write, the doors and gh-call tools, v1.35.5,
+    the sweep and the cut, the notes' tool, its five PLACE-papers writes and its bank; each standing change a commit of its own moving VERSION
+    with its controls bank, the act's commits under tools/standing/ those two and no other; the standing change of (3) landing with its
+    controls before any kernel write; each tool of K.GENS first added by a commit of its own carrying it and not its bank, the bank's commit
+    not the tool; the controls tool's own controls banked AS WANTED after its commit and before its opening dispatch; each tool's controls
+    before its figures; a kernel's main moved after its run's success and at no other time, (6)(i)'s workflow commit apart; the (W)
+    regeneration, the pre-lock comparison and the probe-path refusal before the lock gate; v1.35.4 an ancestor of HEAD."""
     ct_ = lambda r_, h_: int((g(r_, 'log', '-1', '--format=%ct', h_) or '0').strip() or 0)
     keyed_ = dict([(k_, (ROOT, h_)) for k_, h_ in K.CHAIN] + [(k_, (PP, h_)) for k_, h_ in K.PP_CHAIN]
                   + [('actcur', (ROOT, K.ACT_CURRENT_COMMIT)), ('stepzero', (ROOT, K.STEPZERO_BANKS))]
@@ -1614,11 +1726,11 @@ def _first_add(path):
     sz_ = rdn('%s_stepzero.txt' % ACT)
     szt_ = [(n_, re.search(p_, sz_)) for n_, p_ in (('the step-zero reads', r'THE STEP-ZERO READS \((\d\d:\d\d:\d\d)Z, before any write\)'),
                                                     ('the chain read', r'THE CHAIN READ \((\d\d:\d\d:\d\d)Z\)'),
-                                                    ('the carry', r'THE CARRY before any write of the relay: .*?\((\d\d:\d\d:\d\d)Z'))]
+                                                    ('the carry', r'THE CARRY before any (?:other )?write of the relay: .*?\((\d\d:\d\d:\d\d)Z'))]
     sze_ = [(n_, _hms_epoch(m_.group(1)) if m_ else None) for n_, m_ in szt_]
     stepzero_ = all(e_ for _n, e_ in sze_) and [e_ for _n, e_ in sze_] == sorted(e_ for _n, e_ in sze_) and sze_[-1][1] < tm_[0]
-    # ### the standing changes: each of the seven a commit of its own moving VERSION with its controls bank; the act's commits under
-    # ### tools/standing/ those seven and no other
+    # ### the standing changes: each of the two a commit of its own moving VERSION with its controls bank; the act's commits under
+    # ### tools/standing/ those two and no other
     st_commits_ = [h_ for h_ in g(ROOT, 'log', '--reverse', '--format=%H', '%s..HEAD' % K.PRE_RELAY, '--', 'tools/standing').split() if h_.strip()]
     st_rows_ = [(v_, c_, 'tools/standing/VERSION' in files_(c_) and b_ in files_(c_)) for v_, c_, b_, _n in K.STANDING_BANKS]
     standing_ = all(o_ for _v, _c, o_ in st_rows_) and [h_[:8] for h_ in st_commits_] == [c_[:8] for _v, c_, _b, _n in K.STANDING_BANKS]
@@ -1630,13 +1742,20 @@ def _first_add(path):
         gens_ok_.append((n_, bool(fa_) and fa_ == g(ROOT, 'rev-parse', gens_[0]).strip() and all(tool_ in files_(h_) and data_ not in files_(h_) for h_ in gens_)
                          and data_ in files_(bank_) and tool_ not in files_(bank_) and max(ct_(ROOT, h_) for h_ in gens_) < ct_(ROOT, bank_)))
     gen_ = len(gens_ok_) == len(K.GENS) >= 6 and all(o_ for _n, o_ in gens_ok_)
-    # ### the constellation's tool committed before its controls ran, those AS WANTED; the reverse read banked before the first write of (3)
-    cc_t_ = rdn('%s_constellation_control.txt' % ACT)
+    # ### the standing change of (3) landed, with its controls bank, before any kernel write (the earliest of K.KERNEL_COMMITS by its own time)
+    kd_ = {'SIDE-explicit-formula': K.EF_DIR, 'SIDE-dirichlet-mod-24': K.M24_DIR}
+    kt_ = [(k_, c_, ct_(kd_[kn_], c_)) for k_, kn_, c_, _b in K.KERNEL_COMMITS]
+    kw0_ = min([t_ for _k, _c, t_ in kt_ if t_] or [0])
+    before_kw_ = all(t_ for _k, _c, t_ in kt_) and ct_(ROOT, K.C1_STANDING) < kw0_
+    # ### the controls tool committed, then its own controls banked AS WANTED, then its opening dispatch (the dispatch rows' first 'at')
+    cc_t_ = rdn('%s_controls_control.txt' % ACT)
     cc0_ = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)\s*$', (cc_t_.split(NL) or [''])[0])
-    cons_ = bool(cc0_) and ct_(ROOT, K.C2_PLAN_FIRST) < (_iso_epoch(cc0_.group(1)) or 0) and '### ### **THE CONTROLS: 6 OF 6 AS WANTED ;' in cc_t_
-    rv0_ = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)\s*$', (rdn('%s_reverse_read.txt' % ACT).split(NL) or [''])[0])
-    rev_ = bool(rv0_) and (_iso_epoch(rv0_.group(1)) or 0) < ct_(PP, dict(K.PP_CHAIN)['pp_i']) and ct_(ROOT, dict(K.CHAIN)['c2_reverse']) < (_iso_epoch(rv0_.group(1)) or 0)
-    sect_ = stepzero_ and standing_ and gen_ and cons_ and rev_
+    d0_ = min([_iso_epoch(r.get('free_at') or '') or 0 for r in _ef_kind(jl('%s_dispatch_rows.json' % ACT) or [], 'dispatch')] or [0])
+    cons_ = bool(cc0_) and ct_(ROOT, dict(K.CHAIN)['controls_gen']) < (_iso_epoch(cc0_.group(1)) or 0) < d0_ and 'CONTROLS: 14 OF 14 AS WANTED ; ALL AS WANTED' in cc_t_
+    # ### a kernel's main moved after its run's success and at no other time, (6)(i)'s workflow commit apart
+    mm_ = _main_moves()
+    rev_ = bool(mm_) and all(o_ for *_x, o_ in mm_)
+    sect_ = stepzero_ and standing_ and gen_ and cons_ and rev_ and before_kw_
     route_ = sect_
     regen_ = N2_REGEN in (rd(FACE) or '')
     tz = rdn('%s_prelock.txt' % ACT, optional=True)   # ### the gate writes the pre-lock bank after the score routes' dry form; read absent as empty
@@ -1646,55 +1765,72 @@ def _first_add(path):
     ok = route_ and regen_ and bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper() and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
 #⟪END⟫
 #⟪SECTION record 13⟫
-        'the step-zero reads, the chain read and the carry printed before any write (%s, each by the step-zero bank, before the act_current commit %s): %s; the standing changes landing before the gate, each a commit of its own moving VERSION with its controls bank (%s), the act`s commits under tools/standing/ those seven and no other (%s): %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; the constellation`s tool committed (%s) before its controls ran, those AS WANTED: %s; the reverse read banked after its tool`s last commit and before the first write of (3): %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, relay and PLACE-papers together: %s (%s); v1.34.7 an ancestor of HEAD: %s; the tools` controls before their figures: %s' % (
+        'the step-zero reads, the chain read and the carry printed before any write (%s, each by the step-zero bank, before the act_current commit %s): %s; the standing changes, each a commit of its own moving VERSION with its controls bank (%s), the act`s commits under tools/standing/ those two and no other (%s): %s; the standing change of (3) before any kernel write (the first kernel commit %s): %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; the controls tool committed (%s), its own controls banked AS WANTED (%s) before its opening dispatch: %s; each move of a kernel`s main after its run`s success, (6)(i)`s workflow commit apart (%s): %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, relay and PLACE-papers together: %s (%s); v1.35.4 an ancestor of HEAD: %s; the tools` controls before their figures: %s' % (
             ', '.join('%s %s' % (n_, ('%sZ' % m_.group(1)) if m_ else 'unread') for n_, m_ in szt_), K.ACT_CURRENT_COMMIT, stepzero_,
             ', '.join('%s %s %s' % (v_, c_[:8], o_) for v_, c_, o_ in st_rows_), ' '.join(h_[:8] for h_ in st_commits_) or 'none', standing_,
-            ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_, K.C2_PLAN_FIRST[:8], cons_, rev_,
+            ([('%s %s' % (k_, c_)) for k_, c_, t_ in kt_ if t_ == kw0_] or ['unread'])[0], before_kw_,
+            ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_, dict(K.CHAIN)['controls_gen'][:8], cc0_.group(1) if cc0_ else 'unread', cons_,
+            '; '.join('%s at %s tip %s licensed by %s %s' % x_ for x_ in mm_) or 'NONE', rev_,
             regen_, bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper(), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_,
             len(chain_), order_, ' '.join('%s %s@%d' % (k_, h_[:8], c_) for k_, (_r, h_), c_ in zip([k_ for k_ in okeys_ if k_ in keyed_], chain_, tm_)), anc_,
             ', '.join('%s %s' % (os.path.basename(p), o) for p, o in ctl)))
 #⟪END⟫
 #⟪SECTION record 14⟫
-# ### N3 (over b756's objects): the banks whose grade prints at their end, (bank, the words the foot carries); the address scan written
-# ### before the gate; no reproduction bank (relay data/b756_events.txt (29))
-N3_GRADED = (('b757_corrigendum.txt', ('ITEMS 46',)),
-             ('b757_standing_v1347.txt', ('v1.34.7: CONTROLS', 'ALL AS WANTED')), ('b757_standing_v1348.txt', ('v1.34.8: CONTROLS', 'ALL AS WANTED')),
-             ('b757_standing_v1349.txt', ('v1.34.9: CONTROLS', 'ALL AS WANTED')), ('b757_standing_v1350.txt', ('v1.35.0: CONTROLS', 'ALL AS WANTED')),
-             ('b757_standing_v1351.txt', ('v1.35.1: CONTROLS', 'ALL AS WANTED')), ('b757_standing_v1352.txt', ('v1.35.2: CONTROLS', 'ALL AS WANTED')),
-             ('b757_standing_v1353.txt', ('v1.35.3: CONTROLS', 'ALL AS WANTED')),
-             ('b757_constellation_control.txt', ('THE CONTROLS: 6 OF 6 AS WANTED',)),
-             ('b757_constellation_summary.txt', ('TABLES READ: 39 OF 39', 'AFTER THE HAND-READ: 7 COUNTED')),
-             ('b757_reverse_read.txt', ('THE COUNT FOR (4)(iii) AND THE ROOT PROMPT: 4 LINE(S) BEYOND (3)',)),
-             ('b757_beyond_three.txt', ('THE TWO COUNTS FOR THE ROOT PROMPT', 'THE CONSTELLATION RERUN 7 ROWS', 'THE REVERSE READ 4 LINE(S)')),
-             ('b757_orders_read.txt', ('DONE 1 ; HERE 1 ; WITH THE BUILD 5 ; LATER 5',)),
-             ('b757_instruments_draft.txt', ('FIGURES ON THEIR LINES 26 OF 26',)),
-             ('b757_orders_moves.txt', ('TWELVE STATUS LINES', 'DISCHARGED 2')),
-             ('b757_ceiling_c4.txt', ('THE CEILING AFTER COMPONENT 4', 'NOTHING CARRIED')),
-             ('b757_faults.txt', ('THE FAULTS : 43 ROWS', 'IN TWO ACTS OR MORE 16')),
-             ('b757_faults_placed.txt', ('UNPLACED 0', 'EACH LANDED ROW CHECKED AS WANTED')),
-             ('b757_doors.txt', ('THE DESCRIPTIONS:', 'CARRIED WHOLE')),
-             ('b757_citation_check.txt', ('THE CHECK CLEAN',)), ('b757_address_scan.txt', ('PREVIOUS ADDRESS',)))
-# ### N3 (R366): the matchers over the act's own sentences and the entry's, each with its control, a planted sentence it must catch; the
+# ### N3 (over b757's objects): the banks whose grade prints at their end, (bank, the words the foot carries); the address scan written
+# ### before the gate. The citation check's foot is its HALT (data/b757_citation_check.txt :149, the one Lean-path row read in the
+# ### step-zero bank, defect (c)), read as banked; no reproduction bank ((R367)(10): nothing computed at any field, the builds apart)
+N3_GRADED = (('b757_corrigendum.txt', ('ITEMS 48', 'THE CORRECTION TO (F6) ENTERED')),
+             ('b757_standing_v1354.txt', ('v1.35.4: CONTROLS', 'ALL AS WANTED')), ('b757_standing_v1354_live.txt', ('v1.35.4: CONTROLS (live)', 'ALL AS WANTED')),
+             ('b757_standing_v1355.txt', ('v1.35.5: CONTROLS', 'ALL AS WANTED')),
+             ('b757_controls_control.txt', ('THE TOOL`S CONTROLS: 14 OF 14 AS WANTED',)),
+             ('b757_join.txt', ('THE UNION DIFFERENCES 0', 'CONTROLS 8 OF 8')),
+             ('b757_outcomes.txt', ('THE OUTCOMES: JOIN BROKE ; T0 COMPILED ; T1 COMPILED ; MOD24 COMPILED ; WIDE COMPILED',)),
+             ('b757_price.txt', ('THE PRICE TABLE', 'NOTHING CARRIED')),
+             ('b757_ceiling.txt', ('THE CEILING AFTER COMPONENT 3', 'NOTHING CARRIED')),
+             ('b757_cut.txt', ('CONTROLS 4 OF 4 AS WANTED', 'THE CUT CHECK PASSES')),
+             ('b757_ghcalls.txt', ('CONTROLS AS WANTED', 'THE TAUGHT READER 2')),
+             ('b757_registry_line.txt', ('CONTROLS 2 OF 2 AS WANTED', 'LINES MOVED 0')),
+             ('b757_doors.txt', ('CONTROLS AS WANTED', 'READ BACK EQUAL TO THE PASSED TEXT 2 OF 2')),
+             ('b757_sweep.txt', ('CONTROLS 9 OF 9 AS WANTED', 'NOT YET READ 0')),
+             ('b757_notes_moved.txt', ('THE CITES THE INSERTION MOVES', 'NONE EDITED')),
+             ('b757_citation_check.txt', ('THE CHECK HALTED** (halts 1',)), ('b757_address_scan.txt', ('PREVIOUS ADDRESS',)))
+# ### N3 (R367): the matchers over the act's own sentences and the entry's, each with its control, a planted sentence it must catch; the
 # ### novelty matcher by its claim (a result, finding, theorem or proof called new, the earliest of its kind), not the bare word; the centre
-# ### matcher over zeta (the symbol, Riemann's, or a zeta function not the Epstein's), RH, GRH and Weil positivity on classK, (R366)'s N3
+# ### matcher over the clause's own words, "anything of zeta, RH, GRH or Weil positivity on classK for zeta" (data/b757_ferry.txt :51): zeta
+# ### (the symbol, Riemann's, or a zeta function not the Epstein's), RH, GRH and Weil positivity on classK -- b756's bare `classK` not carried,
+# ### the clause naming classK only inside Weil positivity for zeta, and (R367)(7)'s outcome a test function in classK at the control; the
+# ### side matcher over (R367)'s "no sentence about the control speaks of positivity without naming the side"
 N3_NEG = r'\b(?:NOT|not|no|No|NO|never|until|Until|nothing|Nothing|none|None|NONE|neither|Neither|unproven)\b'
 N3_LIT = (r'\b(?:novel|priority|never before|for the first time|first (?:of its kind|ever|formal|machine)|earliest (?:of its kind|result|proof|instance|known)|'
           r'(?:new|novel) (?:result|finding|theorem|proof|discovery))\b')
-N3_LOC = (r'(?:\b(?:RH|GRH|classK)\b|ζ|\bRiemann(?:`s|\'s)? zeta\b|(?<!Epstein )\bzeta function\b|\bWeil positivity on classK\b).*'
+N3_LOC = (r'(?:\b(?:RH|GRH)\b|ζ|\bRiemann(?:`s|\'s)? zeta\b|(?<!Epstein )\bzeta function\b|\bWeil positivity on classK\b).*'
           r'\b(?:holds|hold|fails|fail|proved|refuted|moved)\b')
-N3_BANKS = ('stepzero', 'corrigendum', 'rules', 'constellation_summary', 'constellation_control', 'reverse_read', 'beyond_three', 'orders_read',
-            'instruments_draft', 'orders_moves', 'ceiling_c4', 'faults', 'faults_placed', 'doors', 'standing_v1347', 'standing_v1348', 'standing_v1349',
-            'standing_v1350', 'standing_v1351', 'standing_v1352', 'standing_v1353', 'events', 'defects')
-# ### N3 (R366): no figure of the navigator's workspace printed as a banked figure -- the two workspace readings (3)(v)'s [L19] names "in the
-# ### navigator's workspace and in no bank" (data/b756_ferry.txt :21), written by (3) as the ruling's words and nowhere else: never an act's
-# ### own sentence, the ruling's text being a quotation the matcher reads past
-N3_NAV_FIGS = r'\b14 of 666\b|\b10 of 465\b'
-# ### N3 (R366): each write of (3) against the ruling's text between its quotation marks -- (item, the ferry's line(s)); (v)'s lines each the
-# ### quoted line, one space and the closing words "(the navigator's)" ((3)(v), data/b756_ferry.txt :18)
-N3_NOTES = (('i', (14,)), ('ii', (15,)), ('iii', (16,)), ('iv', (17,)), ('v', (19, 20, 21, 22, 23)))
-N3_CLOSING = " (the navigator's)"
-N3_PAPERS = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md',
-             'day1/Which_Structure_Confines_v2_4_0.md', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md')
+N3_SIDE = r'\bpositivity\b'
+N3_BANKS = ('stepzero', 'corrigendum', 'price', 'controls_control', 'controls', 'join', 'outcomes', 'ceiling', 'cut', 'ghcalls', 'registry_line', 'doors',
+            'sweep', 'notes_moved', 'standing_v1354', 'standing_v1354_live', 'standing_v1355', 'events', 'defects')
+# ### N3 (R367): no figure of the navigator's workspace printed as a banked figure -- the ruling's one figure of the navigator's reading that
+# ### no bank of the act computed, (7)'s price "as the navigator read it, 250 to 550 lines and 4 to 8 dispatches" ((R367)(2), (7)), banked
+# ### in the price table as the navigator's beside the seat's own: in the act's own sentences and the entry's, each occurrence wants the
+# ### navigator named in its sentence
+N3_NAV_FIGS = r'\b250(?: to |-)550\b|\b4(?: to |-)8 dispatches\b'
+# ### N3 (R367): each write of (9) equal to the ruling's text with its fields filled from the banks -- each line the notes bank names read at
+# ### PLACE-papers HEAD by its digest, and each outcome sentence the bank's item names (data/b757_outcomes.json) standing whole in that note
+N3_NOTES = (('a', ('join', 'T0', 'T1', 'wide')), ('b', ('join', 'T0', 'T1', 'wide')), ('c', ('join', 'T0', 'T1', 'mod24', 'wide')),
+            ('d', ('join', 'T0', 'T1', 'mod24', 'wide')), ('e', ()))
+N3_PAPERS = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'FACES_LEDGER.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')
+N3_CONTROL = r'\b(?:control|Epstein|zq_\w+)\b|x\^2 \+ xy \+ 6y\^2'   # ### a sentence about the control: the control named, the Epstein function, a zq_ name, the form
+N3_SIDE_NAMED = r'\b(?:arithmetic|spectral|zero|prime-power) side\b'
+import hashlib as _h   # noqa: E402  ### the notes' digests, sha256 of each line (16 hex), as tools/b757_notes.py writes them
+
+
+def _side_bad(x):
+    """N3 (R367): a sentence about the control that speaks of positivity and names no side of the explicit formula."""
+    return bool(re.search(N3_SIDE, x, re.I) and re.search(N3_CONTROL, x) and not re.search(N3_SIDE_NAMED, x))
+
+
+def _nav_bad(x):
+    """N3 (R367): a sentence printing (7)'s price as the navigator read it with no navigator named in it."""
+    return bool(re.search(N3_NAV_FIGS, x) and not re.search(r'\bnavigator', x))
 
 
 def _own_sentences(t):
@@ -1723,56 +1859,57 @@ def _own_sentences(t):
 
 
 def _integ_line(f):
-    """the entry's last line, (R366)'s INTEGRATION line (data/b756_ferry.txt :54) composed from the banks' feet through _figs, adjusted to
-    what the act did: the notes of (3) by the notes bank's lines, the rerun by its tables and its hand-read count, the reverse read by its
-    count for (4)(iii), the orders by the orders read's foot, the checkpoints by the passed writes' bank, the tool changes by the standing
-    banks of (6) and the README route's foot."""
-    return ('INTEGRATION: the notes of (3): %d written of 9; the constellation rerun: %d documents, %d rows moved or gone; the reverse read: %d '
-            'lines beyond those written; the orders: %d done, %d here, %d with the build, %d later; CP-6 and CP-7 %s; the tool changes: %d landed, '
-            '%d carried; nothing computed, nothing built' % (
-                f['notes_written'], f['cm_tables'], f['cm_counted'], f['rv_beyond'], f['od'][0], f['od'][1], f['od'][2], f['od'][3], f['cp'],
-                f['tc_landed'], f['tc_carried']))
+    """the entry's last line, (R367)'s INTEGRATION line (data/b757_ferry.txt :49) composed from the banks' feet through _figs, adjusted to
+    what the act did: the join, T0, T1, the modulus-24 module and the wide direction by the outcomes bank's foot; the dispatches by the
+    dispatch rows, the two kernels apart; the repairs by their five feet; the notes of (9) by the notes bank's five confirms."""
+    return ('INTEGRATION: the join: %s; T0 %s; T1 %s; the modulus-24 module %s; the wide direction %s; dispatches %d (SIDE-explicit-formula %d, '
+            'SIDE-dirichlet-mod-24 %d); the repairs: %d landed of 5; the notes of (9): %d written' % (
+                f['join_word'], f['t0_word'], f['t1_word'], f['m24_word'], f['wide_word'], f['disp_ef'] + f['disp_m24'], f['disp_ef'], f['disp_m24'],
+                f['repairs'], f['notes_written']))
 
 
-def _quoted(s_):
-    """the text between a line's opening quotation mark and its last (tools/b756_notes.py quoted, read again); None where either is missing
-    or one stands inside."""
-    s_ = (s_ or '').rstrip()
-    if s_.count('"') < 2 or not s_.endswith('"'):
-        return None
-    t_ = s_[s_.index('"') + 1:s_.rindex('"')]
-    return t_ if t_ and '"' not in t_ else None
+N3_KEYS = {'4': 'join', '6': 'mod24', '7': 'wide', 'T0': 'T0', 'T1': 'T1'}   # ### the notes bank's sentence keys, by the ruling's clause, to the outcomes bank's items
 
 
 def _notes_rows():
-    """N3 (R366): each write of (3) at PLACE-papers HEAD against the ruling's text between its quotation marks: each line the notes bank
-    names, read from its file at HEAD, equal to the cut ((i) to (iv)) or to the cut, one space and the closing words ((v)); (item, lines,
-    equal). And the four papers and OPEN_TRAILS since the act's base: lines added, none removed (no sentence above a note edited)."""
-    L_ = rdn('%s_ferry.txt' % ACT).split(NL)
+    """N3 (R367): each write of (9) at PLACE-papers HEAD against the ruling's text with its fields filled from the banks: each line the notes
+    bank names, read from its file at HEAD, carrying the bank's digest (sha256 of the line, 16 hex); the bank's sentence keys for the item
+    the clause's ((a) and (b) without (6)'s, (e) none); each such outcome's sentence (data/b757_outcomes.json) standing whole in the note's
+    lines; (item, lines, equal). And the papers of (9) since the act's base: lines added, none removed; REGISTRY one line removed and one
+    added at (8)(iv)'s commit and none removed by (9)(d)'s; OPEN_TRAILS none removed (no sentence above a note edited)."""
     nj_ = jl('%s_notes.json' % ACT).get('items') or {}
+    oc_ = dict((r_.get('item'), r_.get('sentence') or '\x00') for r_ in (json.loads(rdn('%s_outcomes.json' % ACT)) or []))
     rows_ = []
-    for k_, fl_ in N3_NOTES:
+    for k_, want_ in N3_NOTES:
         it_ = nj_.get(k_) or {}
-        want_ = [(_quoted(L_[n_ - 1]) or '\x00') + (N3_CLOSING if k_ == 'v' else '') for n_ in fl_]
         txt_ = (_show(PP, 'HEAD', it_.get('file') or '-') or '').replace(chr(13), '').split(NL)
-        got_ = [txt_[x_['line'] - 1] if 0 < (x_.get('line') or 0) <= len(txt_) else None for x_ in it_.get('lines') or [] if x_.get('kind') != 'head']
-        rows_.append((k_, len(got_), got_ == want_))
+        ls_ = [x_ for x_ in it_.get('lines') or []]
+        got_ = [txt_[x_['line'] - 1] if 0 < (x_.get('line') or 0) <= len(txt_) else '\x00' for x_ in ls_]
+        dig_ = all(_h.sha256(t_.encode('utf-8')).hexdigest()[:16] == x_.get('digest') for t_, x_ in zip(got_, ls_))
+        keys_ = sorted(N3_KEYS.get(s_, s_) for s_ in (it_.get('sentences') or {}))
+        body_ = NL.join(got_)
+        rows_.append((k_, len(got_), bool(ls_) and dig_ and keys_ == sorted(want_) and all(oc_.get(w_, '\x00') in body_ for w_ in want_)))
     rm_ = []
-    for p_ in N3_PAPERS + ('OPEN_TRAILS.md', 'phase1.5/method/INSTRUMENTS.md'):
+    for p_ in N3_PAPERS + ('OPEN_TRAILS.md',):
         ns_ = g(PP, 'diff', '--numstat', K.PRE_PP, 'HEAD', '--', p_).split()
         if not ns_ or ns_[1] != '0':
             rm_.append('%s %s' % (p_, ns_[:2] or 'UNCHANGED'))
+    r1_ = g(PP, 'show', '--numstat', '--format=', dict(K.PP_CHAIN)['pp_registry'], '--', 'REGISTRY.md').split()
+    r2_ = g(PP, 'show', '--numstat', '--format=', dict(K.PP_CHAIN)['pp_d'], '--', 'REGISTRY.md').split()
+    if r1_[:2] != ['1', '1'] or (r2_[1:2] != ['0']):
+        rm_.append('REGISTRY.md (8)(iv) %s ; (9)(d) %s' % (r1_[:2], r2_[:2]))
     return rows_, rm_
 #⟪END⟫
 #⟪SECTION record 15⟫
-    """N3 (R367): each write of (3) equal to the ruling's text byte for byte between its quotation marks (each line the notes bank names read
-    at PLACE-papers HEAD against the ferry's line); no sentence of any paper above a note edited (the four papers, OPEN_TRAILS and
-    INSTRUMENTS since the act's base: lines added, none removed); no sentence of the act says that anything of zeta, RH, GRH or Weil
-    positivity on classK holds, fails or moved, outside a negation; no bank and no sentence of the entry calls a result new or the earliest of
-    its kind; no figure of the navigator's workspace printed as a banked figure (the two readings [L19] names, in the act's own sentences or
-    the entry's); each bank's foot carrying its grade; each matcher's control caught; the entry's last line (R367)'s INTEGRATION line composed
-    from the banks; the banks' nouns in the entry; the root prompt's sentences about the entry the composer's. From the banks' last lines and
-    own sentences, git, the entry's sentences and the root prompt in the answers bank."""
+    """N3 (R367): each sentence written under (9) equal to the ruling's text with its fields filled from the banks (each line the notes bank
+    names read at PLACE-papers HEAD by its digest, each outcome's sentence standing whole in its note); no sentence of any paper above a note
+    edited (the papers of (9) and OPEN_TRAILS since the act's base: lines added, none removed; REGISTRY's one line of (8)(iv) apart); no
+    sentence of the act says that anything of zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved, outside a negation; no
+    sentence about the control speaks of positivity without naming the side; no bank and no sentence of the entry calls a result new or the
+    earliest of its kind; no figure of the navigator's workspace printed as a banked figure ((7)'s price as the navigator read it, each
+    occurrence naming the navigator); each bank's foot carrying its grade; each matcher's control caught; the entry's last line (R367)'s
+    INTEGRATION line composed from the banks; the banks' nouns in the entry; the root prompt's sentences about the entry the composer's. From
+    the banks' last lines and own sentences, git, the entry's sentences and the root prompt in the answers bank."""
 #⟪END⟫
 #⟪SECTION record 16⟫
     for n, words in N3_GRADED:
@@ -1791,36 +1928,39 @@ def _notes_rows():
     for b_ in N3_BANKS:
         nsents_ += _own_sentences(rdn('%s_%s.txt' % (ACT, b_)))
     neg_ = N3_NEG
-    ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The walk is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
+    ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The join is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
+                 loc_c=not re.search(N3_LOC, 'There is a test function in classK, and the direction that gives it holds for every configuration.'),
                  neg=bool(re.search(neg_, 'RH is not proved.')),
+                 side=_side_bad('Weil positivity fails at the control.') and not _side_bad('Positivity of the arithmetic side fails at the control.'),
                  quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
                  and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')),
-                 nav=bool(re.search(N3_NAV_FIGS, 'The lists read 14 of 666 pairs.')) and not re.search(N3_NAV_FIGS, 'The lists read 114 of 6660 pairs.'),
-                 notes=_quoted('(x) planted: "a b c"') == 'a b c' and _quoted('(x) planted: "a "b" c"') is None)
+                 nav=_nav_bad('The wide direction took 250 to 550 lines.') and not _nav_bad('The navigator read 250 to 550 lines and 4 to 8 dispatches.')
+                 and not _nav_bad('The wide direction took 1250 to 5500 lines.'))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
-    # ### the writes of (3) against the ruling's text; no line of a paper removed; the navigator's workspace figures
+    side_ = [x[:80] for x in sents + nsents_ if _side_bad(x)]
+    # ### the writes of (9) against the ruling's text; no line of a paper removed; the navigator's figures
     notes_, removed_ = _notes_rows()
-    navfig_ = [x[:60] for x in nsents_ + sents if re.search(N3_NAV_FIGS, x)]
+    navfig_ = [x[:80] for x in nsents_ + sents if _nav_bad(x)]
     il_ = _integ_line(f)
     integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, il_, conv)
-    nouns_ = [w_ for w_ in ('CP-6', 'CP-7', 'I-110', 'I-111', 'v1.34.7', 'v1.35.3', 'data/%s_notes.json' % ACT, 'data/%s_constellation_summary.txt' % ACT,
-                            'data/%s_reverse_read.txt' % ACT, 'data/%s_beyond_three.txt' % ACT, 'data/%s_orders_read.txt' % ACT, 'data/%s_passed.json' % ACT,
-                            'data/%s_faults_placed.txt' % ACT, 'data/%s_doors.txt' % ACT, 'data/%s_corrigendum.txt' % ACT) if w_ not in text]
+    nouns_ = [w_ for w_ in ('v0.2.0', 'push-b757-coeff', 'v1.35.4', 'v1.35.5', 'data/%s_outcomes.txt' % ACT, 'data/%s_join.txt' % ACT, 'data/%s_notes.json' % ACT,
+                            'data/%s_ceiling.txt' % ACT, 'data/%s_cut.txt' % ACT, 'data/%s_ghcalls.txt' % ACT, 'data/%s_registry_line.txt' % ACT,
+                            'data/%s_doors.txt' % ACT, 'data/%s_sweep.txt' % ACT, 'data/%s_corrigendum.txt' % ACT) if w_ not in text]
     ans_ = rdn('%s_author_answers.txt' % ACT, optional=True) or ''
     pr_ = [l_.split('): ', 1)[1] for l_ in ans_.split(NL) if l_.startswith('### PROMPT ') and '): ' in l_][-1:]
     unb_ = __import__('standing.rootprompt', fromlist=['entry_unbacked']).entry_unbacked(pr_[0], text) if pr_ else None
-    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and not more_ and not first_ and not loc_ and len(notes_) == 5 \
-        and all(o_ for _k, _n, o_ in notes_) and sum(n_ for _k, n_, _o in notes_) == 9 and not removed_ and not navfig_ and integ_ and not nouns_   # ### every clause but the root prompt's
+    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and not more_ and not first_ and not loc_ and not side_ and len(notes_) == 5 \
+        and all(o_ for _k, _n, o_ in notes_) and not removed_ and not navfig_ and integ_ and not nouns_   # ### every clause but the root prompt's
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence passed, a negation read, a quotation wrapped over two lines dropped and the text after it kept, a planted workspace figure caught and a longer number passed, the quotation cut taken and a cut with a mark inside refused): %s; each write of (3) at PLACE-papers HEAD equal to the ruling`s text between its quotation marks, (v)`s lines each with the closing words (relay data/%s_notes.json, data/%s_ferry.txt :14-:23): %s, %d lines of 9; the four papers, OPEN_TRAILS and INSTRUMENTS since the act`s base with a line removed: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; a sentence printing the navigator`s workspace readings of [L19] as the act`s own figure: %s; the entry`s last line (R367)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (7)`s price as the navigator read it caught where no navigator is named, passed where one is, and a longer number passed): %s; each write of (9) at PLACE-papers HEAD, each line by the notes bank`s digest and each outcome`s sentence of the clause standing whole in its note (relay data/%s_notes.json, data/%s_outcomes.json): %s, %d lines; the papers of (9) and OPEN_TRAILS since the act`s base with a line removed, REGISTRY`s (8)(iv) line apart: %s; over %d of the act`s own sentences and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation: %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant: %s; a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; a sentence about the control speaking of positivity with no side named: %s; a sentence printing (7)`s price as the navigator read it with no navigator named: %s; the entry`s last line (R367)`s INTEGRATION line composed from the banks (%s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
             ACT, ACT, ', '.join('(%s) %d %s' % x_ for x_ in notes_), sum(n_ for _k, n_, _o in notes_), removed_ or 'NONE',
-            len(nsents_), more_ or 'NONE', src, first_ or 'NONE', loc_ or 'NONE', navfig_ or 'NONE',
+            len(nsents_), more_ or 'NONE', src, first_ or 'NONE', loc_ or 'NONE', side_ or 'NONE', navfig_ or 'NONE',
             il_, integ_, nouns_ or 'NONE', 'UNREAD (no root prompt banked yet)' if unb_ is None else (unb_ or 'NONE')))
 #⟪END⟫
 #⟪SECTION record 22⟫
@@ -1881,7 +2021,7 @@ def _post_lock_edits():
         and bool(prev) and not moved and not pins_on_main
 #⟪END⟫
 #⟪OVERRIDE record MARK 68d2d745304d 1⟫
-            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main at 8fbab45d, the one tag past v0.37 v0.38 at 14ca5725 (made at b756 under (R366)(3), after b756`s face), the challenge branch %s at %s with no tag and '
+            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main at 8fbab45d, the one tag past v0.37 v0.38 at 14ca5725 (in b756`s face as in this act`s, no tag cut in that kernel this act), the challenge branch %s at %s with no tag and '
 #⟪END⟫
 #⟪SECTION record 24⟫
         'the lock at %s, its commit %s; the commits after it (relay) %d, touching the face, a tool or a bank tracked at the lock commit: %s; the '
@@ -1890,14 +2030,16 @@ def _post_lock_edits():
             ', '.join(N4_APPENDED)) +
 #⟪END⟫
 #⟪SECTION record 25⟫
-    # ### (R366)(8), N5: no kernel touched -- every ref of every kernel carrying a commit made after the act's opening commit is a fault, a
-    # ### listed push-* branch of the face's branch list excepted (none this act), and no other exception: (R366) writes no kernel branch, (6)'s
-    # ### README route carried whole (relay data/b756_events.txt (27)); no .lean file changed or untracked in a kernel's tree; the rebuild-b721
-    # ### branches kept as b756 found them; the address scan's count from its bank (relay data/b756_address_scan.txt), the suite's arm recounting it live
+    # ### (R367)(10), N5: no kernel beyond the two touched -- every ref of every kernel carrying a commit made after the act's opening commit is
+    # ### a fault but the act's own: in SIDE-explicit-formula and SIDE-dirichlet-mod-24 a push-b757-* branch, and SIDE-dirichlet-mod-24's main
+    # ### (moved by the gated push after its run's success, N2); a listed branch of the face's list excepted as before; no .lean file changed or
+    # ### untracked in a kernel's tree; the rebuild-b721 branches kept as b756 found them; the address scan's count from its bank
     start = int((g(ROOT, 'log', '-1', '--format=%ct', K.ACT_CURRENT_COMMIT) or '0').strip() or 0)
-    listed_ = [(r_.get('kernel'), r_.get('branch')) for r_ in __import__('standing.facebranches', fromlist=['listed']).listed(ACT)]   # ### v1.24.0, (R354)(2)(v): the face's branch list (none this act)
-    lean_w = []
-    for kp in K.KERNEL_PATHS:
+    listed_ = [(r_.get('kernel'), r_.get('branch')) for r_ in __import__('standing.facebranches', fromlist=['listed']).listed(ACT)]   # ### v1.24.0, (R354)(2)(v): the face's branch list
+    own_k_ = ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24')
+    lean_w, own_r = [], []
+    kps_ = list(dict.fromkeys(list(K.KERNEL_PATHS) + [K.M24_DIR]))
+    for kp in kps_:
         if not os.path.isdir(kp):
             continue
         kn = os.path.basename(kp)
@@ -1905,15 +2047,36 @@ def _post_lock_edits():
                 if l.strip()]
         for r_ in refs:
             if len(r_) == 3 and r_[2].isdigit() and int(r_[2]) > start and (kn, r_[0][len('refs/heads/'):]) not in listed_:
-                lean_w.append('%s %s (a commit after the act`s start)' % (kn, r_[0]))
+                if kn in own_k_ and (r_[0].startswith('refs/heads/push-b757-') or (kn == 'SIDE-dirichlet-mod-24' and r_[0] == 'refs/heads/main')):
+                    own_r.append('%s %s %s' % (kn, r_[0][len('refs/heads/'):], r_[1][:8]))
+                else:
+                    lean_w.append('%s %s (a commit after the act`s start)' % (kn, r_[0]))
         if [l for l in g(kp, 'status', '--porcelain', '--untracked-files=all').split(NL) if l.strip().endswith('.lean')]:
             lean_w.append('%s (a .lean file in the tree)' % kn)
+    own_r = sorted(set(own_r))
     rb_kept = [k for k, _t, _p in K.WAVE1 if g('D:/' + k, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.REBUILD_BRANCH).strip()]
     addr = re.search(r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ;', rdn('%s_address_scan.txt' % ACT))
     addr_ok = bool(addr) and addr.groups() == ('0', '0', '0', '0')
-    # ### (R364)(6), N5: no release, no new version, no publish, no repository edit in the capture
-    cmr_ = jl('%s_commands.json' % ACT).get('rows') or []
-    ghr_ = [r_['n'] for r_ in cmr_ if re.search(r'\bgh\s+repo\s+edit\b', re.sub(r'"(?:[^"\\]|\\.)*"|\'[^\']*\'', '""', r_.get('cmd') or ''))]   # ### b754 (p''): a run of gh, not its words inside a quoted argument (a commit's words, the capture's row 1001)
+    # ### N5: SIDE-dirichlet-mod-24's one new tag, its peel read back at the remote equal to main (the gated push's capture, the clone's main
+    # ### left where it stood: the push carries push-b757-mod24's tip to the remote main); SIDE-explicit-formula: no tag past v0.38, the two
+    # ### push-b757-* branches at their tips, each read back at the remote in its capture
+    m24c_ = rdn('%s_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt' % ACT)
+    m24_rb_ = re.findall(r'(?m)^push_gated: main read back at the remote: ([0-9a-f]{40})$', m24c_)
+    m24_pl_ = re.findall(r'(?m)^push_gated: tag %s peeled local ([0-9a-f]{40}) remote ([0-9a-f]{40})$' % re.escape(K.M24_TAG[0]), m24c_)
+    m24_loc_ = g(K.M24_DIR, 'rev-parse', '--verify', '--quiet', '%s^{commit}' % K.M24_TAG[0]).strip()
+    m24_ok = m24_loc_.startswith(K.M24_TAG[2]) and m24_rb_ == [m24_loc_] and m24_pl_ == [(m24_loc_, m24_loc_)] \
+        and g(K.M24_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/%s' % K.M24_TAG[0]).strip().startswith(K.M24_TAG[1])
+    ef_new_tags_ = [t_ for t_ in g(K.EF_DIR, 'tag', '--list', 'v0.39*', 'v0.40*').split() if t_.strip()]
+    ef_br_ = [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b_).strip()[:8]) for b_, _t in (K.JOIN_BRANCH, K.COEFF_BRANCH)]
+    ef_rb_ = [bool(re.search(r'(?m)^push_gated: branch %s read back at the remote: %s' % (re.escape(b_), t_), rdn('%s_SIDE-explicit-formula_%s_push_out.txt' % (ACT, b_))))
+              for b_, t_ in (K.JOIN_BRANCH, K.COEFF_BRANCH)]
+    efb_ok = not ef_new_tags_ and ef_br_ == [(b_, t_) for b_, t_ in (K.JOIN_BRANCH, K.COEFF_BRANCH)] and all(ef_rb_)
+    # ### (R367)(8)(iii), N5: a repository edit read by the taught reader (tools/b757_ghcalls.py over this act's capture): no captured command
+    # ### runs gh repo edit, and the sends from inside a tool by its rows bank are (8)(v)'s two descriptions alone, from tools/b757_doors.py
+    gho_ = __import__('b757_ghcalls').over(ACT)
+    ghr_ = (gho_ or {}).get('direct')
+    ghs_ = (gho_ or {}).get('sends') or {}
+    gh_ok = gho_ is not None and not ghr_ and sorted(ghs_) == ['b757_doors'] and len(ghs_['b757_doors'] or []) == 2
     # ### v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
     # ### banks alone (standing.act.zenodo_requests), not from captured commands nor from "the draft held at v5", the monograph's draft
     zr_ = __import__('standing.act', fromlist=['zenodo_requests']).zenodo_requests(ACT)
@@ -1923,17 +2086,25 @@ def _post_lock_edits():
 #⟪END⟫
 #⟪SECTION record 26⟫
         and not differ and arms_ok and not amended and not ident and not chained and not kept and gw_ok and gl and not lean_w \
-        and len(rb_kept) == len(K.WAVE1) and addr_ok and not ghe_ and not ghr_ and not zdel_
+        and len(rb_kept) == len(K.WAVE1) and addr_ok and not ghe_ and gh_ok and not zdel_ and m24_ok and efb_ok
 #⟪END⟫
 #⟪SECTION record 27⟫
             'the address scan (relay data/b757_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of any '
-            'kernel (no kernel touched, (R367)(8), the README route carried whole; a push-* branch of the face`s list excepted, none this act), or a .lean file in a kernel`s tree (%d kernels read): %s; the %s branch kept on the wave 1 '
-            'kernels: %d of %d; gh repo edit in the capture: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
-                (addr.groups() if addr else ('UNREAD',) * 4) + (len(K.KERNEL_PATHS), lean_w or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
-                ghr_ or 'NONE', ghe_ or 'NONE', zdel_ or 'NONE')) +
+            'kernel, the act`s own apart (a push-b757-* branch in SIDE-explicit-formula or SIDE-dirichlet-mod-24, and SIDE-dirichlet-mod-24`s main), or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
+            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, the gated push reading main back at the remote %s and the tag`s peel local and remote %s: %s; SIDE-explicit-formula: a tag v0.39 or v0.40: %s, %s locally, each read back at the remote in its capture %s: %s; '
+            'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader of (R367)(8)(iii), tools/b757_ghcalls.py): %s, (8)(v)`s two descriptions alone: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
+                (addr.groups() if addr else ('UNREAD',) * 4) + (len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
+                K.M24_TAG[0], m24_loc_[:8] or 'NONE', [x_[:8] for x_ in m24_rb_] or 'NONE', [(a_[:8], b_[:8]) for a_, b_ in m24_pl_] or 'NONE', m24_ok,
+                ef_new_tags_ or 'NONE', ', '.join('%s at %s' % x_ for x_ in ef_br_), ef_rb_, efb_ok,
+                'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or 'NONE', gh_ok,
+                ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    raise SystemExit('### b757`s a block reading an act ordinal or the read-first needles (SECTION record 28) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 3 code lines, stands in the carry`s diff bank
+    # ### b757, Component 6: the ruling's ordinal and title (the ferry's ACT line, data/b757_ferry.txt :37) adjusted to what the act did
+    # ### (data/b757_outcomes.txt)
+    return ('### b757 — lane two, act one hundred and eighty-four, the build under (R367): b756 at its weight; a short corrigendum; the route for '
+            'kernel writes; the join of the four branches broken at the import, no tag cut; T0, T1 and the one direction over the wider strip compiled '
+            'on push-b757-coeff; the modulus-24 module compiled under v0.2.0; five repairs; the notes of (9)')
 #⟪END⟫
 #⟪SECTION record 29⟫
 # ### b756: the figures of the title, entry and trail read from the banks' feet (_figs); the guard refuses where the feet disagree with
@@ -1941,49 +2112,54 @@ def _post_lock_edits():
 
 
 def _guard(f):
-    """the composer's refusals before any sentence: the seven standing versions in the worklist's order, each all as wanted; the rerun's
-    tables all read and its hand-read leaving none unread, its counted rows the two counts' figure; the reverse read's count the two counts'
-    figure; the notes nine lines over the five writes; the orders read's four places summing to twelve and agreeing with the status lines;
-    the placing's rows summing to the count's; the descriptions refused or equal, two of two."""
+    """the composer's refusals before any sentence, where the banks' feet disagree with one another (never on a verdict): the two standing
+    versions in the worklist's order with the worklist's cases, each all as wanted, and the live control's cases all as wanted; the join's
+    union read with no name refused; the dispatches by kernel within (10)'s caps, each dispatch read once; the five notes each a confirm with
+    lines added; the descriptions read back no more than sent, sent two of two; the sweep's lines summing over its three readings and its
+    unread; the moved cites' lines summing over the two repositories."""
     if [v_ for v_, _c, _n, _w in f['vers']] != [v_ for v_, _c, _b, _n in K.STANDING_BANKS] or any(n_ != w_ for _v, _c, n_, w_ in f['vers']) \
-            or [n_ for _v, _c, n_, _w in f['vers']] != [n_ for _v, _c, _b, n_ in K.STANDING_BANKS]:
-        sys.exit('### THE STANDING VERSIONS ARE NOT THE WORKLIST`S SEVEN, EACH ALL AS WANTED -- NOTHING COMPOSED')
-    if f['cm_tables'] != f['cm_of'] or f['cm_unread'] != 0 or f['cm_counted'] + f['cm_not'] != f['cm_tool'] or f['cm_counted'] != f['bt_moved'] or f['cm_tool'] != f['bt_tool']:
-        sys.exit('### THE RERUN`S FOOT AND THE TWO COUNTS DISAGREE -- NOTHING COMPOSED')
-    if f['rv_beyond'] != f['bt_beyond'] or f['rv_ctl'][0] != f['rv_ctl'][1]:
-        sys.exit('### THE REVERSE READ`S COUNT AND THE TWO COUNTS DISAGREE, OR ITS CONTROLS ARE NOT ALL AS WANTED -- NOTHING COMPOSED')
-    if f['notes_written'] != 9 or [n_ for _k, _f, _c, n_ in f['notes']] != [1, 1, 1, 1, 5]:
-        sys.exit('### THE NOTES OF (3) ARE NOT NINE LINES OVER THE FIVE WRITES -- NOTHING COMPOSED')
-    if sum(f['od']) != 12 or f['od'] != (f['om'][1], f['om'][2], f['om'][4], f['om'][5]) or f['om'][0] != f['om'][1] + f['om'][2] or f['om'][3] != f['om'][4] + f['om'][5]:
-        sys.exit('### THE ORDERS READ AND THE STATUS LINES DISAGREE -- NOTHING COMPOSED')
-    if f['fp_two'] != f['fc_two'] or f['fp_landed'] + f['fp_carried'] + f['fp_nocode'] + f['fp_unplaced'] != f['fp_two']:
-        sys.exit('### THE PLACING`S ROWS DO NOT SUM TO THE COUNT`S -- NOTHING COMPOSED')
-    if f['dr_equal'] + f['dr_refused'] != f['dr_of']:
-        sys.exit('### THE DESCRIPTIONS ARE NEITHER EQUAL NOR REFUSED, EACH -- NOTHING COMPOSED')
+            or [n_ for _v, _c, n_, _w in f['vers']] != [n_ for _v, _c, _b, n_ in K.STANDING_BANKS] or f['live'][0] != f['live'][1]:
+        sys.exit('### THE STANDING VERSIONS ARE NOT THE WORKLIST`S TWO, EACH ALL AS WANTED, OR THE LIVE CONTROL IS NOT -- NOTHING COMPOSED')
+    if f['jn_refused'] != 0 or f['jn_ctl'][0] != f['jn_ctl'][1]:
+        sys.exit('### THE JOIN`S FOOT READS A REFUSED NAME OR A CONTROL NOT AS WANTED -- NOTHING COMPOSED')
+    if f['disp_ef'] > K.MAX_DISPATCHES or f['disp_m24'] > K.MAX_DISPATCHES_M24 or f['disp_ef'] != f['read_ef'] or f['disp_m24'] != f['read_m24']:
+        sys.exit('### THE DISPATCH ROWS ARE OVER (10)`S CAPS OR NOT EACH READ ONCE -- NOTHING COMPOSED')
+    if f['notes_written'] != 5 or any(n_ < 1 for _k, _f, _c, n_ in f['notes']):
+        sys.exit('### THE NOTES OF (9) ARE NOT FIVE WRITES, EACH WITH LINES ADDED -- NOTHING COMPOSED')
+    if f['ds_equal'][0] > f['ds_sent'][0] or f['ds_sent'][0] != f['ds_sent'][1] or f['ds_equal'][1] != f['ds_sent'][1]:
+        sys.exit('### THE DESCRIPTIONS` FEET DISAGREE -- NOTHING COMPOSED')
+    if f['sw_overtaken'] + f['sw_record'] + f['sw_dated'] != f['sw_lines'] or f['sw_unread'] != 0:
+        sys.exit('### THE SWEEP`S LINES DO NOT SUM OVER ITS THREE READINGS, OR SOME STAND UNREAD -- NOTHING COMPOSED')
+    if f['mv_pp'] + f['mv_relay'] != f['mv_lines']:
+        sys.exit('### THE MOVED CITES` LINES DO NOT SUM OVER THE TWO REPOSITORIES -- NOTHING COMPOSED')
 #⟪END⟫
 #⟪SECTION record 30⟫
-    """the entry's title by its objects, the ferry's Component 6 order ("the FINDINGS entry titled by its objects", data/b757_ferry.txt :54):
-    the notes of (3) (b757_notes); the constellation rerun (b757_constellation_summary) and the reverse read (b757_reverse_read); the orders
-    placed (b757_orders_read); the CP lines (b757_passed); the tool changes (b757_faults_placed, b757_doors); nothing computed, nothing built.
-    Each object's name in the heading, for the line reader. Every figure from the banks' feet, printed in digits."""
+    """the entry's title by its objects, the ferry's Component 6 order ("the FINDINGS entry titled by its objects", data/b757_ferry.txt :49):
+    the join (b757_join, b757_outcomes); T0 and T1 on push-b757-coeff; the modulus-24 module under v0.2.0; the one direction over the wider
+    strip (b757_outcomes); the dispatches (b757_dispatch_rows); the five repairs (b757_cut, b757_standing_v1355, b757_ghcalls,
+    b757_registry_line, b757_doors); the notes of (9) (b757_notes). Each object's name in the heading, for the line reader. Every figure from
+    the banks' feet, printed in digits."""
 #⟪END⟫
 #⟪SECTION record 31⟫
     _guard(f)
-    return ('## The clearing act under (R367): the results of b756 written into the documents they bear on, %d notes of 9 (b757_notes); '
-            'the constellation map run again over %d documents, %d rows moved or gone (b757_constellation_summary), and read in reverse, %d lines '
-            'beyond those written (b757_reverse_read); the twelve ready orders placed, %d done, %d here, %d with the build, %d later (b757_orders_read); '
-            'CP-6 and CP-7 %s (b757_passed); the tool changes, %d landed and %d carried (b757_faults_placed, b757_doors); nothing computed, nothing built' % (
-                f['notes_written'], f['cm_tables'], f['cm_counted'], f['rv_beyond'], f['od'][0], f['od'][1], f['od'][2], f['od'][3], f['cp'],
-                f['tc_landed'], f['tc_carried']))
+    oc_ = f['oc']
+    jw_ = ('broken at %s :%s, no tag cut' % (oc_['join']['module'], oc_['join']['line'])) if oc_['join']['outcome'] == 'BROKE' else 'built under v0.39'
+    return ('## The build under (R367): the join of SIDE-explicit-formula`s four held branches %s (b757_join, b757_outcomes); T0 and T1, the control`s '
+            'halved coefficients not multiplicative and its log-derivative coefficients not all nonnegative, T0 %s at %s and T1 %s at %s on %s; the modulus-24 module '
+            '%s under %s; the one direction over the wider strip %s at %s (b757_outcomes); %d dispatches, %d in SIDE-explicit-formula and %d in '
+            'SIDE-dirichlet-mod-24 (b757_dispatch_rows); the five repairs, %d landed (b757_cut, b757_standing_v1355, b757_ghcalls, b757_registry_line, '
+            'b757_doors); the notes of (9), %d written (b757_notes)' % (
+                jw_, f['t0_word'], oc_['T0']['sha'], f['t1_word'], oc_['T1']['sha'], K.COEFF_BRANCH[0], f['m24_word'], K.M24_TAG[0], f['wide_word'], oc_['wide']['sha'],
+                f['disp_ef'] + f['disp_m24'], f['disp_ef'], f['disp_m24'], f['repairs'], f['notes_written']))
 #⟪END⟫
 #⟪SECTION record 32⟫
     # ### the navigator's letters, primed where they are: the reader takes a letter with its prime
     letters = ', '.join(re.match(r"^\(([a-z][`']?)\)", r).group(0) for r in nav)
-    return ('(1) the reproduction run not run: its rows compute at a field, which (R367)(8) and N1 bar, so the standing arm G-RESEARCH-REPRODUCES fails at the gate and is declared so on the face; neither the whole run nor a part of it run (relay data/b757_events.txt (29)); '
-            '(2) (6)`s README route carried whole, no route within (8) writing a kernel`s README, the halt proved by the kernel`s own hook and its positive control; the two descriptions sent as ruled and refused by the server for length, the seat shortening no word of the ruling`s, the four writes standing for the author`s wording (relay data/b757_doors.txt, data/b757_events.txt (27)); '
-            '(3) a reading of b756`s closing cause that differs from (R367)(1)(i)`s, printed and carried, the matcher of the next act`s word not repaired, the standing change of (1)(i) carrying the ruling`s words whether or not it finds an answer (relay data/b757_events.txt (11)); '
-            '(4) the orders read`s control of the label reader flipping at v1.34.8 by design, the orders bank standing as run at v1.34.7 (relay data/b757_events.txt (22)); and the constellation`s carried fall-back reading a declaration retired from main as missing, two rows counted by hand as moved (relay data/b757_events.txt (19)); '
-            '(5) the navigator`s two HERE readings placed otherwise by the orders read, the author passing the placements (relay data/b757_orders_read.txt, data/b757_author_answers.txt); defects (b) to (e) entered with no clause ordering a repair beyond (R367)`s, (c) answered by the (W) regeneration before the lock (relay data/b757_defects.txt); '
+    return ('(1) the join`s failing outcome: the build exited 0 and the axioms print failed at the import, OffZero.Time and OffZero.Sums each declaring the name sRe in one namespace, two files outside (10)`s (W) list, so no second dispatch and no repair of them; (5) and (7) built past zq-b730`s tip on push-b757-coeff, the route for kernel writes moving no branch outside the push-b757-* form, the move of zq-b730 itself the write the seat stopped at and the route it lacks printed, (3)`s last sentence (relay data/b757_events.txt (17), (18)); '
+            '(2) (4)`s test, an axioms line for each line of the joined print_targets.txt, not to be met as written at two lines whose names the workflow`s grammar refuses at any tip (relay data/b757_defects.txt (l), data/b730_defects.txt :23); '
+            '(3) (9)`s words for W-ORD-KEIPER-FACE, written for the join compiled, quoted whole as the ruling`s with keiper-b725 standing unjoined at 01fd33c2 beside them; and W-ORD-SQUARES-AT-24 entered with its trigger, its price read as none banked, no bank pricing it and the ruling giving no figure (PLACE-papers OPEN_TRAILS.md :18493, :18503; relay data/b757_events.txt (26)); '
+            '(4) Components 4 and 5 begun while Component 3`s runs stood on the runner, before the ceiling`s read after it, the read when banked carrying nothing (relay data/b757_defects.txt (n), data/b757_ceiling.txt); '
+            '(5) the taught reader of (8)(iii) reading this act`s own capture only at the close, its bank written before the commands route (relay data/b757_ghcalls.txt :15); and the 123 relay lines among the cites (9)(a)`s insertion moves not read by hand, their figure the reader`s, an upper bound (relay data/b757_notes_moved.txt, data/b757_events.txt (26)); '
             +
             '(6) %s and the seat’s %s defect%s as lettered' % (
 #⟪END⟫
@@ -2045,51 +2221,60 @@ def _runs3_line():
     v_, _vc, vn_, vw_ = f['vers'][0]
     sc_ = dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)   # ### version -> its commit
     sv_ = dict((x_[0], (x_[2], x_[3])) for x_ in f['vers'])   # ### version -> (cases, as wanted)
+    vs1_ = ('v1.35.4', sc_['v1.35.4'][:8], sv_['v1.35.4'][0], sv_['v1.35.4'][1])   # ### (R367)(3)'s version: (version, commit, cases, as wanted)
     ch_, pc_ = dict(K.CHAIN), dict(K.PP_CHAIN)
-    nl_ = '; '.join('(%s) %s, %d line%s' % (k_, (c_ or '').split(' at ')[0], n_, '' if n_ == 1 else 's') for k_, _f, c_, n_ in f['notes'])
-    pl_ = dict((k_, (c_ or '').split(' at ')[0]) for k_, _f, c_, _n in f['passed'])
+    nl_ = '; '.join('(%s) %s, %d line%s added' % (k_, (c_ or '').split(' at ')[0], n_, '' if n_ == 1 else 's') for k_, _f, c_, n_ in f['notes'])
+    oc_ = f['oc']
     e = ['', _title(), '',
-         'The results b756 left in banks were written into the documents they bear on as notes beside the text, in the ruling`s words and no others: %d lines by five PLACE-papers commits, one dated note each in THE_EPSTEIN_CONTROL_OBJECT_v0_1, SIMPLICITY_OF_RIEMANN_ZEROS, Which_Structure_Confines_v2_4_0 and THE_FINDINGS_AS_THEY_STAND_v0_7, and [L17] to [L21] at OPEN_TRAILS` end under one dated head, each line read at PLACE-papers HEAD equal to the ruling`s text between its quotation marks (relay data/b757_notes.json). The constellation map, last run at b589, was run again over the roster`s current editions: %d tables read, %d rows moved or gone by the tool, %d of them counted after the seat`s hand-read of every moved row and %d not, its controls %d of %d as wanted (relay data/b757_constellation_summary.txt, data/b757_constellation_control.txt); and the six statements the ruling lists were read in reverse over the roster, the two cuts` ledgers and the standing templates: %d lines carry them, %d of them beyond the lines (3) addresses, %d of those reading against their record in the form the ruling names (relay data/b757_reverse_read.txt), the two counts banked for the prose pass and the re-cuts and written nowhere at this act (relay data/b757_beyond_three.txt). The twelve ready orders were read at today`s tree and placed, %d done, %d here, %d with the build, %d later, and the author passed the placements; CP-6 and CP-7 were given their lines, %s, and I-110 and I-111 were entered in INSTRUMENTS (relay data/b757_orders_read.txt, data/b757_passed.json). Nothing was computed at any field and nothing was built.' % (
-             f['notes_written'], f['cm_tables'], f['cm_tool'], f['cm_counted'], f['cm_not'], f['cc_ok'], f['cc_of'], f['rv_lines'], f['rv_beyond_all'], f['rv_beyond'],
-             f['od'][0], f['od'][1], f['od'][2], f['od'][3], f['cp']), '',
-         '*Filed at b757 on the author’s ruling `(R367)` and its amendment row (relay data/b757_amendments.json); %d question%s put before the root%s. Banks: relay '
-         '`data/b757_corrigendum.txt`, `data/b757_rules.txt`, `data/b757_standing_v1347.txt` to `data/b757_standing_v1353.txt`, `data/b757_constellation_control.txt`, '
-         '`data/b757_constellation_summary.txt` with its document banks, `data/b757_reverse_read.txt`, `data/b757_beyond_three.txt`, `data/b757_notes.json`, '
-         '`data/b757_orders_read.txt`, `data/b757_instruments_draft.txt`, `data/b757_put_1.json`, `data/b757_author_answers.txt`, `data/b757_orders_moves.txt`, '
-         '`data/b757_passed.json`, `data/b757_ceiling_c4.txt`, `data/b757_faults.txt`, `data/b757_faults_placed.txt`, `data/b757_doors.txt`, `data/b757_events.txt`, '
-         '`data/b757_defects.txt`, `data/b757_prelock.txt`, `data/b757_pathrefusal.txt`, `data/b757_address_scan.txt`, `data/b757_touch.txt`, '
-         '`data/b757_standing_figures.txt`, `data/b757_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's', (
+         ' '.join(oc_[k_]['sentence'] for k_ in ('join', 'T0', 'T1', 'mod24', 'wide')) + (
+             ' Each sentence is the ruling`s for the outcome the act`s banks read, its fields filled from them (relay data/b757_outcomes.txt); every build a '
+             'runner dispatch read by its run id, %d in SIDE-explicit-formula of the 14 (10) allows and %d in SIDE-dirichlet-mod-24 of 4 (relay '
+             'data/b757_dispatch_rows.json); no lean process on this host; nothing computed at any field, the builds apart.' % (f['disp_ef'], f['disp_m24'])), '',
+         '*Filed at b757 on the author’s ruling `(R367)`; %d question%s put before the root%s. Banks: relay '
+         '`data/b757_price.txt`, `data/b757_corrigendum.txt`, `data/b757_standing_v1354.txt`, `data/b757_standing_v1354_live.txt`, `data/b757_controls_control.txt`, '
+         '`data/b757_controls.txt`, `data/b757_dispatch_rows.json`, `data/b757_join.txt`, `data/b757_outcomes.txt`, `data/b757_ceiling.txt`, '
+         '`data/b757_registry_line.txt`, `data/b757_doors.txt`, `data/b757_ghcalls.txt`, `data/b757_standing_v1355.txt`, `data/b757_sweep.txt`, `data/b757_cut.txt`, '
+         '`data/b757_notes.json`, `data/b757_notes_moved.txt`, the gated push`s captures `data/b757_SIDE-explicit-formula_push-b757-join_push_out.txt`, '
+         '`data/b757_SIDE-explicit-formula_push-b757-coeff_push_out.txt`, `data/b757_SIDE-dirichlet-mod-24_push-b757-workflow_push_out.txt` and '
+         '`data/b757_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt`, `data/b757_author_answers.txt`, `data/b757_events.txt`, `data/b757_defects.txt`, '
+         '`data/b757_prelock.txt`, `data/b757_pathrefusal.txt`, `data/b757_address_scan.txt`, `data/b757_touch.txt`, `data/b757_standing_figures.txt`, '
+         '`data/b757_report.txt`.*' % (n_ans, '' if n_ans == 1 else 's', (
              ' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else ''), '',
-         '**The weight, the corrigendum and the standing change** ((R367)(1); relay %s, %s, PLACE-papers %s): b756 entered at its weight (FINDINGS :%s); '
-         'the corrigendum of b756’s %s events and %s defects, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats, no CLAIM item to print in full -- '
-         'with the nine findings of the seat`s closing message for b756 entered as events, CLAIM %s, CLOSE %s, %s repeats, at FINDINGS :%s, the corrigenda bank appended at row (%s) (relay data/b757_corrigendum.txt). '
-         'Its two repairs: the entry`s and the closing`s line for the act that follows, read from this act on as the author answers at the root, and the N4 wording of the desk and of the scores that named a bank not kept, by one standing change -- tools/standing/ to %s at relay %s, VERSION moved with it and its controls %d of %d as wanted (relay data/b757_standing_v1347.txt); '
-         'and the lock gate carried as tools/b757_lockgate.py at relay %s. (R367)(1)(i)`s dated line giving b756`s answer appended to OPEN_TRAILS (:%s). The version at the close %s.' % (
-             K.C1_STANDING[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'],
-             f['corr_findings'][0], f['corr_findings'][1], f['corr_findings'][2], f['corr_line'], f['corr_row'], v_, K.C1_STANDING[:8], vw_, vn_, K.C1_LOCKGATE[:8],
-             K.NEXT_TRAIL_LINE, f['ver']), '',
-         '**The rule this act works by** ((R367)(2)): rows (a) to (c) of relay data/b757_rules.txt -- the sentence for each outcome ratified with the ruling; the lines that carry a changed statement printed; a note at a document`s end, no cited line moving -- in force from b757, committed at relay %s.' % K.C1_RULES[:8], '',
-         '**The map of dependent statements** ((R367)(4)): the rerun by tools/b757_constellation.py, carried from tools/b589_constellation.py and committed at relay %s before its run, each row`s declaration read at its pin and at its kernel`s main as the host holds it, nothing fetched; its controls as b589 ran them and the seat`s beside them, %d of %d as wanted, printed before its figures (relay data/b757_constellation_control.txt); %d of %d tables read, %d rows moved or gone by the tool, %d counted and %d not after the hand-read, %d unread (relay data/b757_constellation_summary.txt). '
-         'The reverse read by tools/b757_reverse.py, committed before its run and run before the writes of (3): its controls %d of %d as wanted; %d lines carrying the six statements, %d addressed by (3), %d repaired by (1)(ii), %d the record`s own, %d beyond (3), %d of those overtaken (relay data/b757_reverse_read.txt). What the two find beyond (3): the rerun`s %d rows and the reverse read`s %d lines, banked with the count and written nowhere at this act (relay data/b757_beyond_three.txt).' % (
-             K.C2_PLAN_FIRST[:8], f['cc_ok'], f['cc_of'], f['cm_tables'], f['cm_of'], f['cm_tool'], f['cm_counted'], f['cm_not'], f['cm_unread'],
-             f['rv_ctl'][0], f['rv_ctl'][1], f['rv_lines'], f['rv_addressed'], f['rv_repaired'], f['rv_record'], f['rv_beyond_all'], f['rv_overtaken'], f['bt_moved'], f['bt_beyond']), '',
-         '**The notes of (3)** ((R367)(3)): five PLACE-papers commits through the one-call tool with its scan, each cut by tools/b757_notes.py (relay %s, committed before its run) from the ruling`s text and read against it before the commit: %s; no sentence above a note edited (relay data/b757_notes.json).' % (
-             K.C3_NOTES_GEN[:8], nl_), '',
-         '**The orders and the checkpoints** ((R367)(5)): the twelve ready orders read at today`s tree by tools/b757_orders.py, committed before its run: %d done, %d here, %d with the build, %d later (relay data/b757_orders_read.txt); one put of three questions through the composer, each answered as recommended (relay data/b757_put_1.json, data/b757_author_answers.txt); on the pass the twelve status lines for this act`s trail, %d discharged and %d carried (relay data/b757_orders_moves.txt), the HERE work W-ORD-LABEL-READER done as tools/standing/ v1.34.8 at relay %s, its controls %d of %d as wanted (relay data/b757_standing_v1348.txt); '
-         'the CP-6 and CP-7 lines appended to OPEN_TRAILS as passed, %s, and the two INSTRUMENTS rows %s and %s, drafted from the banks with %d of %d figures on their lines, appended as passed, %s (relay data/b757_instruments_draft.txt, data/b757_passed.json). The ceiling read again after Component 4: %s h spent and %s h remaining at the lower figures, %s h against %d h, %s (relay data/b757_ceiling_c4.txt).' % (
-             f['od'][0], f['od'][1], f['od'][2], f['od'][3], f['om'][0], f['om'][3], sc_['v1.34.8'][:8], sv_['v1.34.8'][1], sv_['v1.34.8'][0],
-             pl_.get('cp'), f['id_rows'][0], f['id_rows'][1], f['id_figs'][0], f['id_figs'][1], pl_.get('instruments'),
-             f['c4_spent'], f['c4_lower'], f['c4_sum'], f['c4_ceiling'], f['c4_word'].lower()), '',
-         '**The tool changes** ((R367)(6)), in the ruling`s order, each a version commit of its own with its controls all as wanted (relay data/b757_standing_v1349.txt to data/b757_standing_v1353.txt): [U1] the cadence of the passes, v1.34.9 at relay %s; [U2] the ledgers` writers, v1.35.0 at %s; the faults repeated in two acts or more, %d of %d rows by the acts they stand in (relay data/b757_faults.txt), %d landed as v1.35.1 at %s and v1.35.2 at %s, %d carried, %d with no code, %d unplaced (relay data/b757_faults_placed.txt); [H1]`s held part, the handoff page in the archive, v1.35.3 at %s. '
-         'The README route with [B1] and [B3] carried whole: no route within (8) writes a kernel`s README, the halt proved by the kernel`s own hook and its positive control; the two descriptions sent as ruled and each refused by the server for length, %d of %d, each read back unchanged and no word shortened (relay data/b757_doors.txt).' % (
-             sc_['v1.34.9'][:8], sc_['v1.35.0'][:8], f['fc_two'], f['fc_rows'], f['fp_landed'], sc_['v1.35.1'][:8], sc_['v1.35.2'][:8], f['fp_carried'], f['fp_nocode'], f['fp_unplaced'],
-             sc_['v1.35.3'][:8], f['dr_refused'], f['dr_of']), '',
-         '**The order of the act** (N2): the step-zero reads, the chain read and the carry before any write (relay data/b757_stepzero.txt); step zero from %s (data/act_current.json) through b756`s carried files to its banks at %s; tools/standing/ v1.34.7 at %s, before the gate; the lock gate carried at %s; the weight and corrigendum at PLACE-papers %s and relay %s; the constellation`s tool at %s and the map`s banks at %s; the notes` tool at %s, its five writes at PLACE-papers %s to %s and its bank at %s; the orders read at %s; the put at %s; the passed writes` tool at %s and its two writes at PLACE-papers %s and %s; v1.34.8 at %s; the status lines at %s; the ceiling at %s; v1.34.9 to v1.35.3 at %s to %s, the fault count at %s and the placing at %s among them, and the README route at %s after them; the per-commit scan to its own bank at every commit; the pre-lock comparison and the probe-path refusal printed before the lock gate (relay data/b757_prelock.txt, data/b757_pathrefusal.txt). No lean process on this host and no runner dispatch.' % (
-             K.ACT_CURRENT_COMMIT[:8], K.STEPZERO_BANKS[:8], ch_['standing'][:8], ch_['lockgate'][:8], pc_['c1pp'][:8], ch_['corr'][:8], ch_['c2first'][:8], ch_['map'][:8],
-             ch_['notes_gen'][:8], pc_['pp_i'][:8], pc_['pp_v'][:8], ch_['notes'][:8], ch_['orders'][:8], ch_['put'][:8], ch_['passed_gen'][:8], pc_['pp_cp'][:8], pc_['pp_instruments'][:8],
-             ch_['v1348'][:8], ch_['moves'][:8], ch_['ceiling'][:8], ch_['v1349'][:8], ch_['v1353'][:8], ch_['faults'][:8], ch_['placed'][:8], ch_['doors'][:8]), '',
-         '**What this act is not**: nothing computed at any field; nothing built; nothing deposits; no Zenodo call; no kernel touched, no kernel branch merged, created, moved or deleted, no tag, no Lean file written, no dispatch; no README or anchor edited and no description changed; no sentence of any paper edited, each write of (3) a note beside the text; no ledger row edited beyond the weight line, the corrigendum, this entry, the trail, the dated lines of (1)(i) and (3)(v), the CP lines and the two INSTRUMENTS rows; no order entered; the draft held at v5.', '',
-         '**The research instruments not reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py`s full run calls rows that compute at a field, the Epstein control`s and the class groups at -23 and -15 among them, which (R367)(8) and N1 bar; neither the run nor a part of it was run, and the arm fails at the gate, declared so on the face (relay data/b757_events.txt (29)).', '',
+         '**The weight and the corrigendum** ((R367)(1); relay %s, %s, PLACE-papers %s): b756 entered at its weight (FINDINGS :%s); '
+         'the corrigendum of b756’s %s events and %s defects by count from their banks, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats -- its one CLAIM item in full, '
+         'with the seven findings the seat printed after b756`s lock entered as events from the author`s relay of that message, CLAIM %s, CLOSE %s, %s repeats, and the navigator`s correction to (F6) beside them, at FINDINGS :%s, the corrigenda bank appended at row (%s) (relay data/b757_corrigendum.txt). '
+         '(R367)(1)`s dated line giving b756`s root answer, the build as b757, appended to OPEN_TRAILS in (9)`s block (:%s, PLACE-papers b14256c2). The version at the close %s.' % (
+             K.C1_CORR[:8], K.C1_RELAY[:8], K.C1_PP[:8], f['weight'], f['corr_events'], f['corr_defects'], f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'],
+             f['corr_findings'][0], f['corr_findings'][1], f['corr_findings'][2], f['corr_line'], f['corr_row'], K.NEXT_TRAIL_LINE, f['ver']), '',
+         '**The route for kernel writes** ((R367)(3)): one standing change before any kernel write -- tools/standing/ to %s at relay %s, VERSION moved with it: the one-call tool takes SIDE-explicit-formula and SIDE-dirichlet-mod-24 beside the relay and PLACE-papers, for add and commit with the scan over the staged set, a push-b757-* branch made at a named commit and checked out, and a merge without fast-forward of one named commit concluded by the tool; its controls %d of %d as wanted, printed before any kernel write (relay data/b757_standing_v1354.txt), and the live commit in each kernel on a scratch branch, read back and deleted by the tool`s route, %d of %d (relay data/b757_standing_v1354_live.txt at %s). '
+         'The dispatch and the read by tools/b757_controls.py, carried from tools/b745_controls.py with the repository a parameter and committed at relay %s before its opening dispatch, its own controls 14 of 14 as wanted (relay data/b757_controls_control.txt), repaired before later runs at %s (relay data/b757_controls.txt). The pushes by tools/push_gated.sh as it stands, its branch mode with --scratch for each push-b757-* branch and its default mode for SIDE-dirichlet-mod-24`s main and tag, each read back.' % (
+             vs1_[0], vs1_[1], vs1_[3], vs1_[2], f['live'][1], f['live'][0], ch_['live'][:8], ch_['controls_gen'][:8],
+             ', '.join(c_[:8] for c_ in dict((g_[0], g_[2]) for g_ in K.GENS)['the controls tool'][1:])), '',
+         '**The join** ((R367)(4)): push-b757-join made at main %s and the four tips merged into it one at a time in the ruling`s order, detect-b729, keiper-b725, c2-b725 and zq-b730, print_targets.txt resolved as the union of the lines of main and the four tips, %d differences against that union; its %d names resolved to %d modules, %d refused; its controls %d of %d (relay data/b757_join.txt at %s); the three edits on the join branch, each its own commit -- (i) the docstrings of Schema/EpsteinZQ.lean, (ii) the alternatives after the one that closes liCoeff_two_keiper removed, (iii) [B1] cut from its bank by tools/b757_readme.py -- the tip %s. '
+         'One dispatch at the tip, run %s: the build exited 0 and every module built; the axioms print, one file importing the target modules together, failed at its first line, OffZero.Time and OffZero.Sums each declaring the name sRe in one namespace, so no axioms line was read; the break not at (ii)`s file, the failing outcome, main standing at %s and no tag cut (relay data/b757_outcomes.txt).' % (
+             K.EF_BASE[:8], f['jn_union'], f['jn_names'], f['jn_modules'], f['jn_refused'], f['jn_ctl'][0], f['jn_ctl'][1], ch_['join'][:8], K.JOIN_BRANCH[1][:8],
+             oc_['join']['run'], K.EF_BASE[:8]), '',
+         '**T0 and T1** ((R367)(5)), under the plan the author passed at b752: the join having failed, built past zq-b730`s tip in b745`s manner on %s, made at %s, because the route for kernel writes moves no branch outside the push-b757-* form; the move of zq-b730 itself the write the seat stopped at, the route it lacks printed (relay data/b757_events.txt (17), (18)). '
+         'T0, zq_coeff_not_multiplicative with its witness, %s in %s lines against the stop 360, its %s names each within the standard three in run %s; its first run built and its print stopped at Lean`s maxErrors before the names, which stood at the list`s foot, repaired by moving them to the head (relay data/b757_defects.txt (m)). '
+         'T1, cQ_not_nonneg with its witness cQ_forty_eight, %s in %s lines against the stop 1,350, its %s names each within the standard three in run %s; its first run broke on Lean`s recursion limit at the three largest boxes and was repaired with no statement changed (relay data/b757_events.txt (20)). No v0.40: main not moved, the join having failed.' % (
+             K.COEFF_BRANCH[0], K.ZQ_TIP[:8], f['t0_word'], oc_['T0']['lines'], oc_['T0']['names'], oc_['T0']['run'], f['t1_word'], oc_['T1']['lines'], oc_['T1']['names'], oc_['T1']['run']), '',
+         '**The modulus-24 module** ((R367)(6)), on the author`s word for OPEN_TRAILS :12649, in SIDE-dirichlet-mod-24 at its toolchain, no Mathlib: the build workflow committed on push-b757-workflow and main moved to it, the one move of a kernel`s main ahead of a build, its control dispatch building the tree as it stood; then the module on push-b757-mod24, the isomorphism closed by decide with the riding statement beside it, %s in run %s (%s names); main moved to %s after that run`s success and the tag %s cut at the read-back, its peel read back at the remote equal to main (relay data/b757_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt). W-ORD-SQUARES-AT-24 entered in OPEN_TRAILS with its trigger, as a named order.' % (
+             f['m24_word'], oc_['mod24']['run'], oc_['mod24']['names'], K.M24_MAIN[:8], K.M24_TAG[0]), '',
+         '**The one direction over the wider strip** ((R367)(7)): the ceiling read again after Component 3, %s h at the lower figures against %d h, %s, %s h left for (7) (relay data/b757_ceiling.txt), its two files committed in the kernel before that read and pushed and dispatched after it (relay data/b757_defects.txt (n)); built on %s at %s by the route the ruling read -- the half-scale map into the closed strip, the count over two unit windows, the detector of Schema/Detector.lean at the half-scale configuration, the dilate kept in classK -- %s in %s lines and one dispatch, against the price the navigator read, 250 to 550 lines and 4 to 8 dispatches, and the seat`s own beside it (relay data/b757_price.txt); its %s names each within the standard three in run %s; no main moved and no tag cut by it.' % (
+             f['ce_sum'], f['ce_ceiling'], f['ce_word'].lower(), f['ce_left'], K.COEFF_BRANCH[0], oc_['wide']['sha'], f['wide_word'], oc_['wide']['lines'], oc_['wide']['names'], oc_['wide']['run']), '',
+         '**The five repairs** ((R367)(8)), each with its control: (i) the check carried into this act`s module reads the answers bank cut before the root`s appended section, on b756`s bank whole it %s and on a planted second RESULT line it %s, controls %d of %d (relay data/b757_cut.txt); (ii) the closing prints one count in one form, tools/standing/ to v1.35.5 at relay %s, its controls %d of %d (relay data/b757_standing_v1355.txt); (iii) the reader behind N5`s line run over b756`s banks, the carried reader reading %s and the reader taught to read a gh call from inside a tool by its rows bank reading %d (relay data/b757_ghcalls.txt); (iv) REGISTRY`s header at :%d replaced in place, %d lines moving, dated %s, at PLACE-papers %s, its controls %d of %d (relay data/b757_registry_line.txt); (v) the two descriptions sent by gh from tools/b757_doors.py, %d of %d, each read back equal to the passed text, %d of %d (relay data/b757_doors.txt). Landed %d of 5.' % (
+             f['cu_whole'].lower(), f['cu_plant'].lower(), f['cu_ctl'][0], f['cu_ctl'][1], sc_['v1.35.5'][:8], sv_['v1.35.5'][1], sv_['v1.35.5'][0], f['gh_carried'].lower(), f['gh_taught'],
+             f['rg_line'], f['rg_moved'], f['rg_date'], pc_['pp_registry'][:8], f['rg_ctl'][0], f['rg_ctl'][1], f['ds_sent'][0], f['ds_sent'][1], f['ds_equal'][0], f['ds_equal'][1], f['repairs']), '',
+         '**The notes of (9)** ((R367)(9)): five PLACE-papers commits through the one-call tool with its scan, each composed by tools/b757_notes.py (relay %s, committed before its run) from the outcomes bank and matched against the ruling`s template for the outcome it reads: %s; no sentence above a note edited (relay data/b757_notes.json). The cites (a)`s insertion moves, printed before the write: %d lines, %d of them in PLACE-papers and %d in the relay, %d cites, none edited (relay data/b757_notes_moved.txt). The sweep of the three statements this act names over the roster`s current editions and the standing templates: %d lines say one of them, %d overtaken, %d reading as the record reads, %d a dated record, %d unread, its controls %d of %d (relay data/b757_sweep.txt). Two writes resolved by the seat for the author`s strike: W-ORD-KEIPER-FACE`s words, written for the join compiled, quoted whole as the ruling`s, and W-ORD-SQUARES-AT-24`s price read as none banked (relay data/b757_events.txt (26)).' % (
+             K.C3_NOTES_GEN[:8], nl_, f['mv_lines'], f['mv_pp'], f['mv_relay'], f['mv_cites'], f['sw_lines'], f['sw_overtaken'], f['sw_record'], f['sw_dated'], f['sw_unread'],
+             f['sw_ctl'][0], f['sw_ctl'][1]), '',
+         '**The order of the act** (N2): the step-zero reads, the chain read and the carry before any write (relay data/b757_stepzero.txt); step zero from %s (data/act_current.json) through b756`s carried files to its banks at %s; the weight and corrigendum at PLACE-papers %s and relay %s and %s; tools/standing/ v1.35.4 at %s and its live control at %s, before any kernel write; the controls tool at %s, committed before its opening dispatch; the join`s tool at %s and its bank at %s, the README`s cut at %s; the composer of the outcomes at %s, taught at %s, %s and %s before each later run, its banks at %s and %s; the ceiling`s tool at %s and its bank at %s; (8)(iv)`s tool at %s and its write at PLACE-papers %s; the doors at %s and the gh-call reader at %s; v1.35.5 at %s; the sweep`s tool at %s and %s and its bank at %s; the cut`s tool at %s, with the sweep`s bank, and its bank at %s; the tool of the notes at %s, its five writes at PLACE-papers %s to %s and its bank at %s; each kernel commit by the one-call tool, each push by the gated push, SIDE-dirichlet-mod-24`s main moved after its run`s success and at no other time, the workflow apart; the per-commit scan to its own bank at every commit; the pre-lock comparison and the probe-path refusal printed before the lock gate (relay data/b757_prelock.txt, data/b757_pathrefusal.txt).' % (
+             K.ACT_CURRENT_COMMIT[:8], K.STEPZERO_BANKS[:8], pc_['c1pp'][:8], ch_['c1'][:8], ch_['corr'][:8], ch_['standing'][:8], ch_['live'][:8], ch_['controls_gen'][:8],
+             ch_['join_gen'][:8], ch_['join'][:8], ch_['readme_gen'][:8], ch_['outcomes_gen'][:8], ch_['t0_rows'][:8], ch_['mod24_rows'][:8], ch_['wide_gen'][:8], ch_['outcomes1'][:8], ch_['c5'][:8],
+             ch_['ceiling_gen'][:8], ch_['ceiling'][:8], ch_['registry_gen'][:8], pc_['pp_registry'][:8], ch_['doors_gen'][:8], ch_['ghcalls_gen'][:8], ch_['v1355'][:8],
+             ch_['sweep_gen'][:8], ch_['sweep_fix'][:8], ch_['sweep'][:8], ch_['sweep'][:8], ch_['cut'][:8], ch_['notes_gen'][:8], pc_['pp_a'][:8], pc_['pp_e'][:8], ch_['notes'][:8]), '',
+         '**What this act is not**: nothing deposits; no Zenodo call; no kernel touched beyond SIDE-explicit-formula and SIDE-dirichlet-mod-24; no push forced; no tag moved, v0.38 among them; no toolchain or Mathlib pin moved; no sentence of any paper edited, each write of (9) a note beside the text and (8)(iv) the one line replaced in place; no anchor edited; nothing computed at any field, the builds apart; no lean process on this host; no ledger row edited beyond the weight line, the corrigendum, this entry, the trail, REGISTRY`s header and the notes of (9); the draft held at v5.', '',
+         '**The research instruments not reproduced** (the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py`s full run calls rows that compute at a field, the Epstein control`s and the class groups at -23 and -15 among them, which (R367)(10) bars, nothing computed at any field but the builds; neither the run nor a part of it was run, and the arm fails at the gate, declared so on the face.', '',
          '**The author’s name and address** (N5): the scan over every commit and bank of the act: PREVIOUS ADDRESS: %s, the '
          'author’s name %s, the previous name %s, the ORCID %s, over %s places, its seven controls as wanted (relay data/b757_address_scan.txt).' % (
              f['addr'], f['name'], f['prev_name'], f['orcid'], f['addr_places']), '',
@@ -2103,9 +2288,8 @@ def _runs3_line():
          '**The citation check** (the gate step from b662): %s cites checked, %s OK, %s missed, each printed; the comparative read vacuous, a pass that could not fire (relay data/b757_citation_check.txt, data/b757_stepzero.txt); %d answer check%s before the root.' % (
              cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
-         '**Read in mutual light** ((R204)(3)(ii)-(iii)): the reverse read and the notes of (3) read the same statements from two sides -- of the %d lines carrying the six statements, %d are those the notes of (3) stand beside and %d more stand beyond them in the form the ruling names, banked for the prose pass; the rerun`s %d counted rows are a second list of the same kind, drawn by a tool and not by a reading; none is a finding about zeta.' % (
-             f['rv_lines'], f['rv_addressed'], f['rv_beyond'], f['cm_counted']), '',
-         '**Carried to:** %s, per (R367)(7), as the author answers the one question at the root: the build as b757 (the four branches of the criterion kernel joined under a tag on main; T0 and T1; the criterion over the wider strip; the modulus-24 lemma; the written proofs of the class-number-3 law and of the closed form), or another the author names; what the rerun and the reverse read find beyond (3), for the prose pass and the re-cuts; the README route with [B1] and [B3] and the two descriptions, for the author`s wording; the one fault the placing carried; the reproduction run, not run at this act; the ten orders carried with the build and later; the draft held at v5.' % K.NEXT_ACT, '',
+         '**Read in mutual light** ((R204)(3)(ii)-(iii)): T0 and T1 at the control and the modulus-24 module meet at the primes 2 and 3 -- the witnesses of T0 and T1 are 6 and 48, and the module`s statements single out the class 1 modulo 24, the class of -23; whether they are one fact told from two sides is the question the ruling`s [L22] puts to the re-cut of the {2,3} documents as the navigator`s reading, promoting nothing (PLACE-papers OPEN_TRAILS.md :18505); none is a finding about zeta.', '',
+         '**Carried to:** %s, per (R367)(10), as the author answers the one question at the root: (7) built, so sections 6 to 8 of the Epstein document written from the compiled statements, or another the author names; the join of the four branches, broken at the import, with the two files that declare the name sRe outside this act`s (W) list; the move of zq-b730 to push-b757-coeff`s tip, the route the one-call tool lacks; W-ORD-KEIPER-FACE carried; W-ORD-EXPLICIT-FORMULA-C1, W-ORD-E2-SEPARATION, W-ORD-BESSEL-BOUND-TIGHTEN and W-ORD-B518-FLOAT carried to the act after the build by the author`s cut of 2026-11-15, and W-ORD-SQUARES-AT-24 entered; SIDE-dirichlet-mod-24`s README, not written at this act; the reproduction run, not run at this act; the draft held at v5.' % K.NEXT_ACT, '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH, GRH or Weil positivity on classK holds or fails, or about the zeros of zeta.*', '',
          _integ_line(f), '']
@@ -2194,9 +2378,9 @@ def _finding_text_b756():
     """b753's form over b753's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION record 35⟫
-    """the trail record (over b757's objects; b756's composer in git at b756's record tool): the ledger writes; the notes of (3); the map;
-    the twelve status lines of (5)(i) written here and nowhere before, the open-orders line from tools/standing/orders.py's output over the
-    trail at HEAD with them; the checkpoints and the instruments; the tool changes; the ceiling; the standing versions."""
+    """the trail record (over b757's objects; b756's composer in git at b756's record tool): the ledger writes; the outcomes of (4) to (7);
+    the dispatches; the five repairs; the ceiling; the open-orders line from tools/standing/orders.py's output over the trail at HEAD; the
+    standing versions; the kernels."""
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
@@ -2208,36 +2392,29 @@ def _finding_text_b756():
     f = _figs()
     _guard(f)
     rep, tot = _repeats()
-    # ### (R366)(5)(i) on the author's pass: the twelve status lines of relay data/b756_orders_moves.txt, written by this trail and nowhere before,
-    # ### read through the orders tool with the trail at HEAD: the two DISCHARGED out of the open list, the ten CARRIED in it
-    mv_ = rdn('%s_orders_moves.txt' % ACT)
-    two = [l_ for l_ in mv_[mv_.find('#### THE LINES BEGIN'):mv_.find('#### THE LINES END')].split(NL)[1:] if l_.strip()]
-    op = ORD.report(ORD.read(ORD.trail('HEAD') + two), 'HEAD')[1]
-    dis_ = [re.match(r'^`(W-ORD-[A-Z0-9-]+)`', l_).group(1) for l_ in two if ' DISCHARGED, ' in l_]
-    car_ = [re.match(r'^`(W-ORD-[A-Z0-9-]+)`', l_).group(1) for l_ in two if ' CARRIED, ' in l_]
-    if len(two) != 12 or len(dis_) != f['om'][0] or len(car_) != f['om'][3] or set(dis_) & set(op) or not set(car_) <= set(op):
-        sys.exit('### THE TRAIL: THE TWELVE STATUS LINES NOT READ AS PLACED BY THE ORDERS TOOL -- NOTHING COMPOSED')
-    pl_ = dict((k_, (c_ or '').split(' at ')[0]) for k_, _f, c_, _n in f['passed'])
+    # ### the open orders read through the orders tool with the trail at HEAD, (9)'s block among them (no status line written by this record)
+    oc_ = f['oc']
+    op = ORD.report(ORD.read(ORD.trail('HEAD')), 'HEAD')[1]
+    nl_ = '; '.join('(%s) %s' % (k_, (c_ or '').split(' at ')[0]) for k_, _f, c_, _n in f['notes'])
     rows_ = ['', TRAIL_HEAD(), '',
-             '**(R367) ratified.** Its components as the ferry orders them (relay data/b757_ferry.txt), with its amendment row (relay data/b757_amendments.json), each read below from its bank.', '',
-             '**Entered:** FINDINGS.md:%s (b756’s weight), :%s (the corrigendum), :%s (the entry); OPEN_TRAILS.md (1)(i)`s dated line (:%s), (3)(v)`s five lines under one dated head (%s), the CP-6 and CP-7 lines (%s); INSTRUMENTS I-110 and I-111 (%s); the four dated notes of (3)(i) to (iv); no order entered; no sentence of a paper edited; this record.' % (
-                 f['weight'], f['corr_line'], fj.get('entry_line'), K.NEXT_TRAIL_LINE, f['notes'][4][2].split(' at ')[0], pl_.get('cp'), pl_.get('instruments')), '',
-             '**The notes of (3):** %d lines of 9 in the ruling`s words, each read at PLACE-papers HEAD against its text (relay data/b757_notes.json).' % f['notes_written'], '',
-             '**The map:** the constellation rerun %d of %d tables, %d rows moved or gone by the tool, %d counted after the hand-read, its controls %d of %d (relay data/b757_constellation_summary.txt); the reverse read %d lines carrying the six statements, %d beyond (3) in the form the ruling names, its controls %d of %d (relay data/b757_reverse_read.txt); banked and written nowhere at this act (relay data/b757_beyond_three.txt).' % (
-                 f['cm_tables'], f['cm_of'], f['cm_tool'], f['cm_counted'], f['cc_ok'], f['cc_of'], f['rv_lines'], f['rv_beyond'], f['rv_ctl'][0], f['rv_ctl'][1]), '',
-             '**The orders acted** ((R367)(5)(i), on the author’s pass): %d done, %d here, %d with the build, %d later (relay data/b757_orders_read.txt, data/b757_orders_moves.txt):' % f['od'], '']
-    rows_ += two + ['',
-             '**The checkpoints and the instruments** ((R367)(5)(ii), (iii)): CP-6 and CP-7 %s; I-110 and I-111 entered (relay data/b757_passed.json).' % f['cp'], '',
-             '**The tool changes** ((R367)(6)): %d landed (%s), %d carried, the README route with [B1] and [B3] (relay data/b757_doors.txt); the faults of two acts or more %d, landed %d, carried %d, no code %d (relay data/b757_faults_placed.txt).' % (
-                 f['tc_landed'], ', '.join(f['vers6']), f['tc_carried'], f['fp_two'], f['fp_landed'], f['fp_carried'], f['fp_nocode']), '',
-             '**The ceiling:** after Component 4, %s h against %d h, %s (relay data/b757_ceiling_c4.txt).' % (f['c4_sum'], f['c4_ceiling'], f['c4_word'].lower()), '']
+             '**(R367) ratified.** Its components as the ferry orders them (relay data/b757_ferry.txt), each read below from its bank.', '',
+             '**Entered:** FINDINGS.md:%s (b756’s weight), :%s (the corrigendum), :%s (the entry); REGISTRY.md :%d replaced in place under (8)(iv) (PLACE-papers %s); the five notes of (9), %s, OPEN_TRAILS.md (1)`s dated line (:%s), the order lines and W-ORD-SQUARES-AT-24 among them under one dated head; no sentence of a paper edited; this record.' % (
+                 f['weight'], f['corr_line'], fj.get('entry_line'), f['rg_line'], dict(K.PP_CHAIN)['pp_registry'][:8], nl_, K.NEXT_TRAIL_LINE), '',
+             '**The outcomes** ((R367)(4) to (7)): the join %s, run %s; T0 %s, run %s, and T1 %s, run %s, on %s; the modulus-24 module %s, run %s, under %s = %s; the wide direction %s, run %s, on %s at %s (relay data/b757_outcomes.txt).' % (
+                 f['join_word'], oc_['join']['run'], f['t0_word'], oc_['T0']['run'], f['t1_word'], oc_['T1']['run'], K.COEFF_BRANCH[0], f['m24_word'], oc_['mod24']['run'],
+                 K.M24_TAG[0], K.M24_TAG[2][:8], f['wide_word'], oc_['wide']['run'], K.COEFF_BRANCH[0], oc_['wide']['sha']), '',
+             '**The dispatches:** SIDE-explicit-formula %d of the 14 (10) allows, SIDE-dirichlet-mod-24 %d of 4, each read by its run id, the exit file governing (relay data/b757_dispatch_rows.json).' % (
+                 f['disp_ef'], f['disp_m24']), '',
+             '**The repairs** ((R367)(8)): %d landed of 5 -- (i) the answers bank read cut, on b756`s bank whole the check %s, on the planted second result it %s (relay data/b757_cut.txt); (ii) the closing`s one count, tools/standing/ v1.35.5 (relay data/b757_standing_v1355.txt); (iii) N5`s reader taught, %d sends read over b756`s banks where the carried reader read %s (relay data/b757_ghcalls.txt); (iv) REGISTRY`s header, %d lines moved (relay data/b757_registry_line.txt); (v) the two descriptions, %d of %d read back equal (relay data/b757_doors.txt).' % (
+                 f['repairs'], f['cu_whole'].lower(), f['cu_plant'].lower(), f['gh_taught'], f['gh_carried'].lower(), f['rg_moved'], f['ds_equal'][0], f['ds_equal'][1]), '',
+             '**The ceiling:** after Component 3, %s h against %d h, %s, %s h left for (7) (relay data/b757_ceiling.txt).' % (f['ce_sum'], f['ce_ceiling'], f['ce_word'].lower(), f['ce_left']), '']
     rows_ += [
              ORD.open_line(op), '',
-             '**The orders by the tool:** %d of %s open at PLACE-papers main with the lines above, the open-orders line from tools/standing/orders.py`s output (its entry read outside quotations and hand sections, v1.27.0; a row ID`s token no order, v1.32.0).' % (
-                 len(op), len(ORD.read(ORD.trail('HEAD') + two))), '',
-             '**The standing versions:** %s (relay data/b757_standing_v1347.txt to data/b757_standing_v1353.txt); HANDOFF.md regenerated once by tools/standing/handoff.py before the gate, at relay %s.' % (
+             '**The orders by the tool:** %d of %s open at PLACE-papers main, the open-orders line from tools/standing/orders.py`s output (its entry read outside quotations and hand sections, v1.27.0; a row ID`s token no order, v1.32.0).' % (
+                 len(op), len(ORD.read(ORD.trail('HEAD')))), '',
+             '**The standing versions:** %s (relay data/b757_standing_v1354.txt, data/b757_standing_v1355.txt); HANDOFF.md regenerated once by tools/standing/handoff.py before the gate, at relay %s.' % (
                  '; '.join('%s %d of %d' % (v_, w_, n_) for v_, _c, n_, w_ in f['vers']), (K.HANDOFF_COMMIT or 'NOT MADE')[:8]), '',
-             '**The instruments not reproduced:** the run not run at this act, its rows computing at a field, which (R367)(8) bars; G-RESEARCH-REPRODUCES declared failing on the face (relay data/b757_events.txt (29)).', '',
+             '**The instruments not reproduced:** the run not run at this act, its rows computing at a field, which (R367)(10) bars; G-RESEARCH-REPRODUCES declared failing on the face.', '',
              '**The author’s name and address:** PREVIOUS ADDRESS: %s, the ORCID %s (relay data/b757_address_scan.txt).' % (f['addr'], f['orcid']), '',
              '**The standing line:** relay data/standing_clauses_v9.txt from `%s`; the touch read relay data/b757_touch.txt; the act’s counter '
              'CLAIM %d, CLOSE %d; REPEAT %d of %d, the closing carries the last figure; %s. %s' % (K.STANDING_COMMIT[:8], f['claim'], f['close'], rep, tot, _runs3_line(),
@@ -2247,14 +2424,15 @@ def _finding_text_b756():
              '**Prompts to the author:** %d question%s in %d call%s before the root%s (relay data/b757_author_answers.txt).' % (
                  n_ans, '' if n_ans == 1 else 's', len(_calls()) - len(_rf_), '' if len(_calls()) - len(_rf_) == 1 else 's', (
                      ' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else ''), '',
-             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b757_standing_v1353.txt); the standing '
+             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b757_standing_v1355.txt); the standing '
              'report tool (relay data/b757_report.txt).' % f['ver'], '']
     aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
-    rows_ += ['**The kernels:** no kernel touched, (6)`s README route carried whole; no Lean file written; no tag beyond v0.38; SIDE-explicit-formula`s main at %s unmoved, zq-b730 at %s unmoved; no runner dispatch; the %s branches as b757 found them; port-b707 at %s, kept, '
+    rows_ += ['**The kernels:** SIDE-explicit-formula`s main at %s unmoved and %s at %s unmoved, no v0.39 and no v0.40; %s at %s, the join broken at the import; %s at %s, made at zq-b730`s tip %s, zq-b730 unmoved; SIDE-dirichlet-mod-24`s main at %s with %s at it, the workflow at %s before it; no kernel beyond the two touched; the %s branches as b757 found them; port-b707 at %s, kept, '
               'its tag %s at it; SIDE-faces-join at %s with its one tag %s; no lean process on this host.' % (
-                  K.EF_MAIN[:8], K.ZQ_TIP[:8], K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
-              '**The mirror:** the export made after this root with the two ledgers’ cuts beside it (the ferry`s Component 6), HANDOFF.md among its files ([H1], v1.35.3), its file named in the closing by its name, bytes and hash and its folder by role (relay data/b757_closing.txt).', '',
+                  K.EF_MAIN[:8], K.ZQ_TAG[0], K.ZQ_TAG[2][:8], K.JOIN_BRANCH[0], K.JOIN_BRANCH[1][:8], K.COEFF_BRANCH[0], K.COEFF_BRANCH[1][:8], K.ZQ_TIP[:8], K.M24_MAIN[:8],
+                  K.M24_TAG[0], N2_WORKFLOW, K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
+              '**The mirror:** the export made after this root with the two ledgers’ cuts beside it (the ferry`s Component 6), HANDOFF.md among its files, its file named in the closing by its name, bytes and hash and its folder by role (relay data/b757_closing.txt).', '',
               '**The standing arms:** the four figures %s, %s, %s, %s against b756’s %s, %s, %s, %s (relay data/b757_standing_figures.txt).' % (
                   f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
                   f['figs10']['correspondence'], f['figs10']['readme'], f['figs10']['partners'], f['figs10']['pins']), '',
@@ -2270,61 +2448,61 @@ def _trail_text_b756():
     """b753's trail record over b753's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION regspec 1⟫
-    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: none this act; MEASURED off the command bank (each dispatch command at a command`s head).'),
-    ('runner runs read by their ids', 'EFRUNS', 'EFRUNS', 'runs', '### N1: none; MEASURED off the worklist`s EF_RUNS.'),
+    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: at most 14 in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24 ((R367)(10)), 6 and 2 sent; MEASURED off the command bank (each dispatch command at a command`s head).'),
+    ('runner runs read by their ids', 'EFRUNS', 'EFRUNS', 'runs', '### N1: every run read by its id from its artifact, the exit file governing (data/b757_dispatch_rows.json); MEASURED off the worklist`s EF_RUNS and M24_RUNS.'),
 #⟪END⟫
 #⟪SECTION regspec 2⟫
-    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b733*.'),
+    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b757*.'),
     ('rebuild branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
-    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
+    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved, the join and push-b757-coeff made beside them; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
     ('rebuild-b721 branches kept on the wave 1 kernels', 'RBBRANCHES', 'RBBRANCHES', 'branches', '### as b757 found them, the six; MEASURED off the six kernels` refs/heads.'),
     ('rebuild-b721 branches standing at their origins', 'RBPUSHED', 'RBPUSHED', 'branches', '### MEASURED off each kernel`s refs/remotes/origin/rebuild-b721.'),
     ('commits on a rebuild branch beyond its pin', 'RBBEYOND', 'RBBEYOND', 'commits', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 3⟫
-    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b733*.'),
+    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b757*.'),
 #⟪END⟫
 #⟪SECTION regspec 4⟫
     ('Lean files written on a rebuild branch', 'RBLEAN', 'RBLEAN', 'files', '### beyond the pins, b721`s and b723`s; MEASURED off each branch against its pin.'),
-    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b745`s, none this act; MEASURED off each branch against main.'),
-    ('Lean files written on any kernel`s main', 0, 0, 'files', '### N5: none; no kernel`s main touched.'),
+    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b745`s, none this act, the four unmoved; MEASURED off each branch against main.'),
+    ('Lean files written on any kernel`s main', 2, 2, 'files', '### (R367)(6)(ii): SIDE-dirichlet-mod-24`s main moved to e5ebdd15 after run 43836415096`s success, SIDEDirichletMod24/Units.lean added and the root import SIDEDirichletMod24.lean edited (git diff --name-status 597b0869 e5ebdd15); SIDE-explicit-formula`s main unmoved at 8fbab45d.'),
 #⟪END⟫
 #⟪SECTION regspec 5⟫
     ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b756-closing, push-b756-preroot, push-b756-record; PLACE-papers push-b756-preroot, push-b756-record; each local, by name, through the one-call tool, after the --merged listing (data/b757_stepzero.txt :62-:69).'),
 #⟪END⟫
 #⟪SECTION regspec 6⟫
-    ('workflow files written by this act`s kernel commits', 0, 0, 'files', '### none: no kernel commit this act.'),
+    ('workflow files written by this act`s kernel commits', 1, 1, 'files', '### (R367)(6)(i): .github/workflows/build-module.yml in SIDE-dirichlet-mod-24 at 22282733, a file and no Lean, main moved to it ahead of its control dispatch.'),
     ('workflow files on a kernel branch beyond its pin', 'RBWF', 'RBWF', 'files', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 7⟫
-    ('REGISTRY rows added', 0, 0, 'rows', '### none: REGISTRY not written this act ((R367)(7)`s (W) list names FINDINGS, OPEN_TRAILS, INSTRUMENTS and the four documents of (3) in PLACE-papers, and no other ledger).'),
-    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none; MEASURED off git diff --numstat from the act`s first PLACE-papers head to HEAD -- REGISTRY.md.'),
+    ('REGISTRY rows added', 0, 0, 'rows', '### none: REGISTRY`s header replaced in place under (R367)(8)(iv) (PLACE-papers 3e85e952) and one dated note appended at its end under (9)(d) (c45be6e0), no row.'),
+    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### (R367)(8)(iv): the header at :13, the one line replaced in place, no line moving; MEASURED off git diff --numstat from the act`s first PLACE-papers head to HEAD -- REGISTRY.md.'),
 #⟪END⟫
 #⟪SECTION regspec 8⟫
-    ('generated corrigendum entries', 1, 1, 'entries', '### (R367)(1): FINDINGS :15346 (relay data/b757_corrigendum_landing.json).'),
-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R367)(1): row (76).'),
-    ('ERRATA entries filed', 0, 0, 'entries', '### none this act ((R367)(8)).'),
-    ('notes of (3) written in the ruling`s words', 9, 9, 'lines', '### (R367)(3)(i)-(v): four notes and five trail lines by five PLACE-papers commits, each cut from the ruling`s text and read against it before its commit (relay data/b757_notes.json).'),
-    ('documents read by the constellation rerun', 39, 39, 'documents', '### (R367)(4)(i): each table`s rows read at their pins and at their kernels` mains as the host holds them, nothing fetched (relay data/b757_constellation_summary.txt).'),
-    ('constellation rows moved or gone', 7, 7, 'rows', '### (R367)(4)(i): after the hand-read of 12 rows, 7 counted and 5 not, 0 unread (relay data/b757_constellation_summary.txt).'),
-    ('reverse-read lines beyond those written', 4, 4, 'lines', '### (R367)(4)(ii), (iii): banked with the count and written nowhere at this act (relay data/b757_reverse_read.txt; data/b757_beyond_three.txt).'),
-    ('orders placed', 12, 12, 'orders', '### (R367)(5)(i): 1 done, 1 here, 5 with the build, 5 later, on the author`s pass (relay data/b757_orders_read.txt; data/b757_orders_moves.txt).'),
-    ('checkpoint lines written', 2, 2, 'lines', '### (R367)(5)(ii): CP-7 and CP-6 on the author`s pass (relay data/b757_passed.json).'),
-    ('INSTRUMENTS rows added', 2, 2, 'rows', '### (R367)(3)(vi), (5)(iii): I-110 and I-111 on the author`s pass (relay data/b757_passed.json).'),
-    ('orders entered with the trail', 0, 0, 'orders', '### none: (R367) enters no order.'),
-    ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: not run at b757, the run computing at a field where (R367)(8) bars it (data/b757_events.txt (29)); MEASURED off data/b757_reproduce.json, absent.'),
+    ('generated corrigendum entries', 1, 1, 'entries', '### (R367)(1): FINDINGS :15416 (relay data/b757_corrigendum.json).'),
+    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R367)(1): row (77).'),
+    ('ERRATA entries filed', 0, 0, 'entries', '### none this act ((R367) orders none).'),
+    ('outcome sentences composed from the banks', 5, 5, 'sentences', '### (R367)(4)-(7): the join`s, T0`s, T1`s, the modulus-24 module`s and the wide direction`s, each the ruling`s for the outcome its bank reads, its fields filled from the banks (relay data/b757_outcomes.txt).'),
+    ('notes of (9) written, each by one PLACE-papers commit', 5, 5, 'notes', '### (R367)(9)(a)-(e): PLACE-papers e88282c4, c7dfe43c, 9c0896c5, c45be6e0 and b14256c2, 2, 14, 2, 2 and 18 lines added and none removed, each confirmed against its bytes (relay data/b757_notes.json).'),
+    ('cites moved by (9)(a)`s insertion, printed before the write', 231, 231, 'cites', '### (R367)(9)(a): on 134 lines, 11 in PLACE-papers and 123 in the relay, none edited, an upper bound as the reader counts (relay data/b757_notes_moved.txt).'),
+    ('lines saying one of the three statements, read by the sweep', 24, 24, 'lines', '### (R367)(9) by (R366)(2)(b): 0 overtaken, 1 as the record reads, 23 a dated record, 0 unread (relay data/b757_sweep.txt).'),
+    ('repairs of (8) landed, each with its control', 5, 5, 'repairs', '### (R367)(8)(i)-(v) (relay data/b757_cut.txt, data/b757_standing_v1355.txt, data/b757_ghcalls.txt, data/b757_registry_line.txt, data/b757_doors.txt).'),
+    ('repository descriptions sent and read back equal', 2, 2, 'descriptions', '### (R367)(8)(v): PLACE-papers and SIDE-kernel, by tools/b757_doors.py (relay data/b757_doors.txt).'),
+    ('orders entered with the trail', 0, 0, 'orders', '### none: W-ORD-SQUARES-AT-24 entered in (9)(e)`s block before the seal (PLACE-papers b14256c2), not with the trail.'),
+    ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: not run at b757, the run computing at a field where (R367)(10) bars it; MEASURED off data/b757_reproduce.json, absent.'),
 #⟪END⟫
 #⟪SECTION regspec 9⟫
-    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record, none at a field ((R367)(8)): the seven standing versions` controls, the constellation`s controls and summary, the reverse read, what the two find beyond (3), the orders read, the drafts, the status lines, the ceiling, the fault count, its placing, the README route, the probe-path refusal, the address scan; MEASURED off the banks present.'),
-    ('registrations committed alone', 'REGALONE', 'REGALONE', 'commits', '### none: (R367) registers no rule at this act (the rule of (2) stands in data/b757_rules.txt, in force from b757), and no data/b757_registrations.txt is written; MEASURED off git.'),
+    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record and the runner`s prints, none at a field ((R367)(10)): the price, the two standing versions` controls and the live control, the controls tool`s controls and its runs, the join, the outcomes, the ceiling, the header line, the doors, the gh-call reader, the sweep, the cut, the moved cites, the probe-path refusal, the address scan; MEASURED off the banks present.'),
+    ('registrations committed alone', 'REGALONE', 'REGALONE', 'commits', '### none: (R367)(5) registers no test on either statement, a theorem taking a compile outcome and no verdict, and no data/b757_registrations.txt is written; MEASURED off git.'),
     ('figure banks of a registered object first committed after the registrations', 'REGS', 'REGS', 'banks', '### none: no registered object this act; MEASURED off git.'),
-    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none (N2): no registered object this act, nothing computed at any field; MEASURED off git.'),
+    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none (N2): no registered object this act, nothing computed at any field but the builds; MEASURED off git.'),
 #⟪END⟫
 #⟪SECTION regspec 10⟫
-    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### none: no Lean file written ((R367)(8)); MEASURED off each branch`s tip against its tip entering the act.'),
+    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### five added: Schema/ZQ/Mechanism/NoEuler.lean and CoeffSign.lean (T0, T1) and Schema/Wide/HalfScale.lean and HalfScaleControl.lean ((7)) on push-b757-coeff, SIDEDirichletMod24/Units.lean ((6)); MEASURED off push-b757-coeff against zq-b730`s tip and SIDE-dirichlet-mod-24`s main against its base.'),
+    ('Lean files edited on the join branch', 'EFEDIT', 'EFEDIT', 'files', '### (R367)(4)(i), (ii): Schema/EpsteinZQ.lean`s two docstrings and KeiperTwo.lean`s alternatives, each its own commit (6f2d7e26, e90ae384), no statement changed; MEASURED off the join branch`s commits after its fourth merge.'),
 #⟪END⟫
 #⟪SECTION regspec 11⟫
-    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R367)(1), (5)(i), (6) and the amendment row 1: tools/standing/ v1.34.7 to v1.35.3, each by a version commit of its own with its controls in its bank (data/b757_standing_v1347.txt to data/b757_standing_v1353.txt); MEASURED off the worklist`s lists.'),
+    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R367)(3), (8)(ii): tools/standing/ v1.35.4 and v1.35.5, each by a version commit of its own with its controls in its bank (data/b757_standing_v1354.txt, data/b757_standing_v1355.txt); MEASURED off the worklist`s lists.'),
     ('arms out of the suite`s run list by retirement', 'RETIRED', 'RETIRED', 'arms', '### tools/standing/arms.py RETIRED, unchanged; MEASURED off it.'),
     ('arms left the arm list this act', 0, 0, 'arms', '### none: the run list 116.'),
 #⟪END⟫
@@ -2340,7 +2518,7 @@ def _trail_text_b756():
     ('banks, faces or tools edited after the lock gate', 0, 0, 'edits', '### N4: a restore an edit; a correction found after the lock stands as an event.'),
 #⟪END⟫
 #⟪SECTION regspec 15⟫
-    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, and the gh reads and the two refused description writes under the GitHub login; none carries an identifier.'),
+    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, the dispatches and the artifact downloads, the gh reads and the two description writes under the GitHub login; none carries an identifier.'),
 #⟪END⟫
 #⟪SECTION regspec 16⟫
         return bool(c) and bool(K.REG_COMMIT) and c != K.REG_COMMIT \
@@ -2348,93 +2526,102 @@ def _trail_text_b756():
 
     def anc(a, b):
         return subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', a, b], capture_output=True).returncode == 0
-    # ### b756: no registered object and no figure bank ((R366)(8): nothing computed at any field)
+    # ### b757: no registered object and no figure bank ((R367)(5): no test registered on either statement)
     fig_banks = [p for p in ()
 #⟪END⟫
 #⟪SECTION regspec 17⟫
                     REGS=len([p for p in fig_banks if after_reg(first_add(p))]),
-                    EFRUNS=len(K.EF_RUNS),
+                    EFRUNS=len(K.EF_RUNS) + len(K.M24_RUNS),
                     REPROWS=jcount('b757_reproduce.json', lambda j: len(j.get('rows') or [])),
                     ADDRESS=tfirst('b757_address_scan.txt', r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ;'),
                     EFBRANCHES=sum(1 for b, t in K.EF_BRANCHES if _git(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b).strip() == t),
                     EFLEAN=sum(1 for _b, t in K.EF_BRANCHES for f_ in _git(K.EF_DIR, 'diff', '--name-only', K.EF_BASE, t).split() if f_.endswith('.lean')),
-                    EFNEW=sum(1 for (_b, t), p_ in zip(K.EF_BRANCHES, K.EF_BRANCHES_ENTERING) for f_ in _git(K.EF_DIR, 'diff', '--name-only', p_, t).split() if f_.endswith('.lean')),
+                    # ### b757: the modules this act added, on push-b757-coeff past zq-b730's tip and on SIDE-dirichlet-mod-24's main past its base
+                    EFNEW=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=A', K.ZQ_TIP, K.COEFF_BRANCH[1]).split() if f_.endswith('.lean'))
+                    + sum(1 for f_ in _git(K.M24_DIR, 'diff', '--name-only', '--diff-filter=A', K.M24_BASE, K.M24_MAIN).split() if f_.endswith('.lean')),
+                    # ### b757: the Lean files the join branch's own commits edit after its fourth merge ((R367)(4)(i), (ii))
+                    EFEDIT=len(set(f_ for c_ in _git(K.EF_DIR, 'rev-list', '--no-merges', '%s..%s' % (dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS)['merge4'], K.JOIN_BRANCH[1])).split()
+                                   for f_ in _git(K.EF_DIR, 'diff-tree', '--no-commit-id', '--name-only', '-r', c_).split() if f_.endswith('.lean'))),
 #⟪END⟫
 #⟪SECTION regspec 18⟫
-                    COMPUTE=len([n_ for n_ in ('standing_v1347', 'standing_v1348', 'standing_v1349', 'standing_v1350', 'standing_v1351', 'standing_v1352',
-                                               'standing_v1353', 'constellation_control', 'constellation_summary', 'reverse_read', 'beyond_three', 'orders_read',
-                                               'instruments_draft', 'orders_moves', 'ceiling_c4', 'faults', 'faults_placed', 'doors', 'pathrefusal', 'address_scan')
+                    COMPUTE=len([n_ for n_ in ('price', 'standing_v1354', 'standing_v1354_live', 'controls_control', 'controls', 'join', 'outcomes', 'ceiling',
+                                               'registry_line', 'doors', 'ghcalls', 'standing_v1355', 'sweep', 'cut', 'notes_moved', 'pathrefusal', 'address_scan')
                                  if os.path.exists(os.path.join(ROOT, 'data', 'b757_%s.txt' % n_))]),
                     REGALONE=len([c_ for c_ in _git(ROOT, 'log', '--format=%H', '--', 'data/b757_registrations.txt').split() if alone(c_)]),
 #⟪END⟫
 #⟪SECTION regspec 19⟫
-              'RBBRANCHES', 'RBPUSHED', 'RBBEYOND', 'RBLEAN', 'RBWF', 'EFBRANCHES', 'EFLEAN', 'EFNEW', 'EFRUNS', 'REPROWS', 'ADDRESS',
+              'RBBRANCHES', 'RBPUSHED', 'RBBEYOND', 'RBLEAN', 'RBWF', 'EFBRANCHES', 'EFLEAN', 'EFNEW', 'EFEDIT', 'EFRUNS', 'REPROWS', 'ADDRESS',
               'CHBRANCH', 'REGREMOVED', 'REGALONE',
 #⟪END⟫
 #⟪SECTION regspec 20⟫
-    spec = {"registration": ("data/b757_registration_%s.txt -- b757, THE CLEARING ACT: b756 AT ITS WEIGHT AND ITS CORRIGENDUM; THE RULE OF (2); "
-                             "THE NOTES OF (3) IN THE RULING'S WORDS; THE CONSTELLATION MAP RUN AGAIN AND READ IN REVERSE; THE TWELVE ORDERS PLACED; "
-                             "CP-6 AND CP-7 AND TWO INSTRUMENTS ROWS; v1.34.7 TO v1.35.3; NOTHING COMPUTED, NOTHING BUILT, UNDER (R367)" % K.DATE),
+    spec = {"registration": ("data/b757_registration_%s.txt -- b757, THE BUILD: b756 AT ITS WEIGHT AND ITS CORRIGENDUM; THE ROUTE FOR KERNEL WRITES, v1.35.4; "
+                             "THE JOIN BROKE AT THE IMPORT, MAIN UNMOVED; T0 AND T1 COMPILED ON push-b757-coeff; THE MODULUS-24 MODULE COMPILED AT v0.2.0; "
+                             "THE WIDE DIRECTION COMPILED; FIVE REPAIRS, v1.35.5; THE NOTES OF (9); NO DEPOSIT, UNDER (R367)" % K.DATE),
 #⟪END⟫
 #⟪SECTION report 1⟫
 Carried from b756's standing report by the fold (tools/standing/fold/report.tpl) and its lines rewritten for b757: b756's lines read banks this
-act does not write, and are not carried; the lines are b757's: tools/standing/ v1.34.7 to v1.35.3 by their controls, the constellation rerun
-and the reverse read by theirs (CERTIFIED); the notes of (3) in the ruling's words, the twelve orders placed on the author's pass, and the CP
-lines with the two INSTRUMENTS rows as passed (REGISTERED); the README route and the two descriptions carried whole, the reproduction run not
-run, and the draft (HELD); no line stands on KERNEL (no Lean this act).
+act does not write, and are not carried; the lines are b757's: T0 and T1, the modulus-24 module and the wide direction, each from its runner
+read by run id (KERNEL); tools/standing/ v1.35.4 and v1.35.5 and the controls tool by their controls (CERTIFIED); the notes of (9), the five
+repairs and the two descriptions (REGISTERED); the join broken at the import, the reproduction run not run, and the draft (HELD).
 #⟪END⟫
 #⟪SECTION report 2⟫
-    # ### b756's lines, each from the record tool's figures over b756's banks (REC._figs), the record's guard first
+    # ### b757's lines, each from the record tool's figures over b757's banks (REC._figs), the record's guard first
     REC._guard(f)
-    ch_ = dict(K.CHAIN)
-    # ------------------------------------------------------------------ REGISTERED: (R366)(3), the notes in the ruling's words
-    sa = seat('%s_notes.json' % ACT, '"confirm"')
-    keys['NOTES'] = ('REGISTERED -- THE NOTES OF (3) IN THE RULING`S WORDS: %d lines of 9 by five PLACE-papers commits (%s), each cut from the ruling`s text by the notes` tool at relay %s, committed before its run, and read against it before the commit. SOURCE %s.' % (
-        f['notes_written'], ', '.join((c_ or '').split(' at ')[0].replace('PLACE-papers ', '') for _k, _f, c_, _n in f['notes']), K.C3_NOTES_GEN[:8], sa['text']))
-    seats.append(sa)
-    # ------------------------------------------------------------------ REGISTERED: (R366)(5)(i), the twelve orders on the author's pass
-    sb = seat('%s_orders_moves.txt' % ACT, '**TWELVE STATUS LINES: ')
-    keys['ORDERS'] = ('REGISTERED -- THE TWELVE ORDERS PLACED ON THE AUTHOR`S PASS: %d done, %d here, %d with the build, %d later; %d status lines discharged and %d carried, written by the trail at the record; the orders read at relay %s and the status lines at %s. SOURCE %s.' % (
-        f['od'][0], f['od'][1], f['od'][2], f['od'][3], f['om'][0], f['om'][3], ch_['orders'][:8], ch_['moves'][:8], sb['text']))
-    seats.append(sb)
-    # ------------------------------------------------------------------ REGISTERED: (R366)(5)(ii), (iii), the CP lines and the two INSTRUMENTS rows (the name the template appends)
-    sk = seat('%s_passed.json' % ACT, '"confirm"')
-    keys['PASSED'] = ('REGISTERED -- CP-6 AND CP-7 AND THE TWO INSTRUMENTS ROWS, AS PASSED: the CP lines %s at %s; %s and %s at %s, drafted with %d of %d figures on their lines; the passed writes` tool at relay %s. SOURCE %s.' % (
-        f['cp'], (f['passed'][0][2] or '').split(' at ')[0], f['id_rows'][0], f['id_rows'][1], (f['passed'][1][2] or '').split(' at ')[0], f['id_figs'][0], f['id_figs'][1],
-        ch_['passed_gen'][:8], sk['text']))
+    ch_, oc_ = dict(K.CHAIN), f['oc']
+    # ------------------------------------------------------------------ KERNEL: (R367)(5), T0 and T1 on push-b757-coeff, each read by its run id
+    s5 = seat('%s_outcomes.txt' % ACT, '## (5) T0 ')
+    keys['T0T1'] = ('KERNEL -- T0 AND T1 ON %s, BUILT PAST zq-b730`S TIP THE JOIN HAVING FAILED: T0 %s at %s in %s lines against the stop 360, run %s, its %s names each within the standard three; T1 %s at %s in %s lines against the stop 1,350, run %s, its %s names each within the standard three; no main moved, no v0.40. SOURCE %s.' % (
+        K.COEFF_BRANCH[0], f['t0_word'], oc_['T0']['sha'], oc_['T0']['lines'], oc_['T0']['run'], oc_['T0']['names'], f['t1_word'], oc_['T1']['sha'], oc_['T1']['lines'],
+        oc_['T1']['run'], oc_['T1']['names'], s5['text']))
+    seats.append(s5)
+    # ------------------------------------------------------------------ KERNEL: (R367)(6), the modulus-24 module, read by its run id
+    s6 = seat('%s_outcomes.txt' % ACT, '## (6) THE MODULUS-24 MODULE')
+    keys['MOD24'] = ('KERNEL -- THE MODULUS-24 MODULE IN SIDE-dirichlet-mod-24: %s in run %s, its %s names; main moved to %s after that run`s success and %s cut at the read-back (object %s), its peel read back at the remote equal to main. SOURCE %s.' % (
+        f['m24_word'], oc_['mod24']['run'], oc_['mod24']['names'], K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[1][:8], s6['text']))
+    seats.append(s6)
+    # ------------------------------------------------------------------ KERNEL: (R367)(7), the wide direction, read by its run id (the name the template appends)
+    sk = seat('%s_outcomes.txt' % ACT, '## (7) THE ONE DIRECTION OVER THE WIDER STRIP')
+    keys['WIDE'] = ('KERNEL -- THE ONE DIRECTION OVER THE WIDER STRIP ON %s AT %s: %s in %s lines and one dispatch, against the navigator`s price of 250 to 550 lines and 4 to 8 dispatches, run %s, its %s names each within the standard three; no main moved and no tag cut by it. SOURCE %s.' % (
+        K.COEFF_BRANCH[0], oc_['wide']['sha'], f['wide_word'], oc_['wide']['lines'], oc_['wide']['run'], oc_['wide']['names'], sk['text']))
 #⟪END⟫
 #⟪SECTION report 3⟫
-    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.34.7 to v1.35.3 ((R366)(1), (5)(i), (6)), by their controls
-    sv = seat('%s_standing_v1353.txt' % ACT, '**v1.35.3: CONTROLS ')
-    keys['VERSIONS'] = ('CERTIFIED -- tools/standing/ v1.34.7 TO v1.35.3, each by a commit of its own moving VERSION, its controls all as wanted: %s. SOURCE %s.' % (
-        '; '.join('%s at relay %s, %d of %d' % (v_, dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)[v_][:8], w_, n_) for v_, _c, n_, w_ in f['vers']), sv['text']))
+    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.35.4 and v1.35.5 ((R367)(3), (8)(ii)), by their controls
+    sv = seat('%s_standing_v1355.txt' % ACT, '**v1.35.5: CONTROLS ')
+    keys['VERSIONS'] = ('CERTIFIED -- tools/standing/ v1.35.4 AND v1.35.5, each by a commit of its own moving VERSION, its controls all as wanted: %s; the live commit in each kernel %d of %d. SOURCE %s.' % (
+        '; '.join('%s at relay %s, %d of %d' % (v_, dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)[v_][:8], w_, n_) for v_, _c, n_, w_ in f['vers']), f['live'][0], f['live'][1], sv['text']))
     seats.append(sv)
-    # ------------------------------------------------------------------ CERTIFIED: (R366)(4)(i), the constellation rerun by its controls
-    sl = seat('%s_constellation_control.txt' % ACT, '**THE CONTROLS: ')
-    keys['MAP'] = ('CERTIFIED -- THE CONSTELLATION RERUN BY ITS CONTROLS: %d of %d as wanted, printed before its figures; %d of %d tables read, %d rows moved or gone by the tool, %d counted after the hand-read, %d not, %d unread; the tool at relay %s, committed before its run. SOURCE %s.' % (
-        f['cc_ok'], f['cc_of'], f['cm_tables'], f['cm_of'], f['cm_tool'], f['cm_counted'], f['cm_not'], f['cm_unread'], K.C2_PLAN_FIRST[:8], sl['text']))
-    seats.append(sl)
-    # ------------------------------------------------------------------ CERTIFIED: (R366)(4)(ii), the reverse read by its controls (the name the template appends)
-    sw = seat('%s_reverse_read.txt' % ACT, '**THE REVERSE READ: CONTROLS ')
-    keys['REVERSE'] = ('CERTIFIED -- THE REVERSE READ BY ITS CONTROLS: %d of %d as wanted, run before the writes of (3); %d lines carrying the six statements, %d addressed by (3), %d beyond (3), %d of those in the form the ruling names. SOURCE %s.' % (
-        f['rv_ctl'][0], f['rv_ctl'][1], f['rv_lines'], f['rv_addressed'], f['rv_beyond_all'], f['rv_beyond'], sw['text']))
+    # ------------------------------------------------------------------ CERTIFIED: (R367)(3), the dispatch and read tool by its own controls (the name the template appends)
+    sw = seat('%s_controls_control.txt' % ACT, '**THE TOOL`S CONTROLS: ')
+    keys['CONTROLS'] = ('CERTIFIED -- tools/b757_controls.py BY ITS OWN CONTROLS: 14 of 14 as wanted, committed at relay %s before its opening dispatch; every run read by its id, the exit file governing, %d dispatches in SIDE-explicit-formula of 14 and %d in SIDE-dirichlet-mod-24 of 4. SOURCE %s.' % (
+        ch_['controls_gen'][:8], f['disp_ef'], f['disp_m24'], sw['text']))
 #⟪END⟫
 #⟪SECTION report 4⟫
-    # ------------------------------------------------------------------ HELD: (R366)(6), the README route and the two descriptions, carried whole
-    se = seat('%s_doors.txt' % ACT, '**THE DESCRIPTIONS: ')
-    keys['DOORS'] = ('HELD -- THE README ROUTE AND THE TWO DESCRIPTIONS, CARRIED WHOLE: [B1] and [B3] halted, no route within (8) writing a kernel`s README; the two descriptions sent as ruled, %d of %d refused by the server for length, each read back unchanged, no word shortened; the tool at relay %s. SOURCE %s.' % (
-        f['dr_refused'], f['dr_of'], dict(K.CHAIN)['doors'][:8], se['text']))
-    seats.append(se)
-    # ------------------------------------------------------------------ HELD: the reproduction run, not run ((R366)(8), N1)
-    s7 = seat('%s_events.txt' % ACT, '    (29) ')
-    keys['REPRO'] = ('HELD -- THE REPRODUCTION RUN, NOT RUN: its rows compute at a field, which (R367)(8) and N1 bar; neither the run nor a part of it run; G-RESEARCH-REPRODUCES declared failing on the face. SOURCE %s.' % s7['text'])
+    # ------------------------------------------------------------------ REGISTERED: (R367)(9), the notes, each by one PLACE-papers commit
+    sa = seat('%s_notes.json' % ACT, '"confirm"')
+    keys['NOTES'] = ('REGISTERED -- THE NOTES OF (9): five PLACE-papers commits (%s), %d lines added and none removed, each composed from the outcomes bank by the tool of the notes at relay %s, committed before its run, and matched whole against the ruling`s template for its outcome. SOURCE %s.' % (
+        ', '.join((c_ or '').split(' at ')[0].replace('PLACE-papers ', '') for _k, _f, c_, _n in f['notes']), f['notes_written'], K.C3_NOTES_GEN[:8], sa['text']))
+    seats.append(sa)
+    # ------------------------------------------------------------------ REGISTERED: (R367)(8), the five repairs, each by its control
+    sr = seat('%s_cut.txt' % ACT, '**(8)(i): CONTROLS ')
+    keys['REPAIRS'] = ('REGISTERED -- THE FIVE REPAIRS OF (8), EACH WITH ITS CONTROL: %d landed of 5 -- (i) the cut, on b756`s bank whole the check %s, on the planted second result it %s; (ii) the closing`s one count, v1.35.5; (iii) N5`s reader, %d sends over b756`s banks where the carried reader read %s; (iv) REGISTRY`s header at :%d, %d lines moved, PLACE-papers %s; (v) the two descriptions, %d of %d read back equal. SOURCE %s.' % (
+        f['repairs'], f['cu_whole'].lower(), f['cu_plant'].lower(), f['gh_taught'], f['gh_carried'].lower(), f['rg_line'], f['rg_moved'], dict(K.PP_CHAIN)['pp_registry'][:8],
+        f['ds_equal'][0], f['ds_equal'][1], sr['text']))
+    seats.append(sr)
+    # ------------------------------------------------------------------ HELD: (R367)(4), the join, broken at the import
+    sj = seat('%s_outcomes.txt' % ACT, '## (4) THE JOIN')
+    keys['JOIN'] = ('HELD -- THE JOIN OF THE FOUR BRANCHES, BROKEN: run %s at %s built every module and its axioms print failed at the import, OffZero.Time and OffZero.Sums declaring sRe in one namespace; main standing at %s, no v0.39, the four branches as they stood; the two files outside (10)`s (W) list. SOURCE %s.' % (
+        oc_['join']['run'], K.JOIN_BRANCH[1][:8], K.EF_BASE[:8], sj['text']))
+    seats.append(sj)
+    # ------------------------------------------------------------------ HELD: the reproduction run, not run ((R367)(10))
+    s7 = seat('%s_ferry.txt' % ACT, 'nothing computed at any field, the builds apart')
+    keys['REPRO'] = ('HELD -- THE REPRODUCTION RUN, NOT RUN: its rows compute at a field, which (R367)(10) bars, the builds apart; neither the run nor a part of it run; G-RESEARCH-REPRODUCES declared failing on the face. SOURCE %s.' % s7['text'])
     seats.append(s7)
-    # ------------------------------------------------------------------ HELD: THE DRAFT ((R366)(8))
+    # ------------------------------------------------------------------ HELD: THE DRAFT ((R367)(10))
     sh = seat('%s_ferry.txt' % ACT, 'THE DRAFT stands at v5, HELD')
     keys['HELD'] = ('HELD -- the draft at v5, unpublished, nothing deposits; no Zenodo call this act. SOURCE %s.' % sh['text'])
 #⟪END⟫
 #⟪SECTION report 5⟫
-    order = [('KERNEL', []), ('CERTIFIED', ['VERSIONS', 'MAP', 'REVERSE']), ('REGISTERED', ['NOTES', 'ORDERS', 'PASSED']), ('HELD', ['DOORS', 'REPRO', 'HELD'])]
+    order = [('KERNEL', ['T0T1', 'MOD24', 'WIDE']), ('CERTIFIED', ['VERSIONS', 'CONTROLS']), ('REGISTERED', ['NOTES', 'REPAIRS']), ('HELD', ['JOIN', 'REPRO', 'HELD'])]
 #⟪END⟫
 #⟪OVERRIDE citation MARK 31b08d46e87d 1⟫
 C.ANCHOR, C.TAIL = K.RULING_ANCHOR, K.TAIL   # ### b754 carry-time repair: the ruling's BEGIN line (pasted before the act opened); K.ANCHOR is the capture's
