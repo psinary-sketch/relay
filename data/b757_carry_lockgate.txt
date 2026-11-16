@@ -1,0 +1,44 @@
+b757 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b756_lockgate.py -> tools/b757_lockgate.py (2026-11-16T14:08:56Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b756 -> b757, b755 -> b756, R366 -> R367, R365 -> R366); 150 lines, 11 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b756_tool_repairs.txt AND data/b756_repairdiff_lockgate.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b756; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b756_lockgate.py
+  +++ tools/b757_lockgate.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b756_lockgate.py -- b756: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, (R366)(1) (data/b756_ferry.txt :9): carried from
+  -tools/b755_lockgate.py by tools/b756_carry.py (data/b756_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  +"""tools/b757_lockgate.py -- b757: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, (R367)(1) (data/b757_ferry.txt :9): carried from
+  +tools/b756_lockgate.py by tools/b757_carry.py (data/b757_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  @@ -5,2 +5,2 @@
+  -:192). ### b756, the carry's note: the substitution b755 -> b756 alone; the citations of b754's banks and of (R364)(5)[H1] it moved set back to
+  -b754's and (R364)'s by the Edit tool before any run (:2-:5 here, :10-:11, the notes at :102-:103), the clause set to (R366)(1), and N2 named under (R366) (:20).
+  +:192). ### b757, the carry's note: the substitution b756 -> b757 alone; the citations of b754's banks and of (R364)(5)[H1] it moved set back to
+  +b754's and (R364)'s by the Edit tool before any run (:2-:5 here, :10-:11, the notes at :102-:103), the clause set to (R367)(1), and N2 named under (R367) (:20).
+  @@ -20,1 +20,1 @@
+  -committed before its run ((R366) N2, each generator commits before it runs).
+  +committed before its run ((R367) N2, each generator commits before it runs).
+  @@ -22,2 +22,2 @@
+  -  python -X utf8 -u tools/b756_lockgate.py controls b756 <face>
+  -  python -X utf8 -u tools/b756_lockgate.py b756 <face>
+  +  python -X utf8 -u tools/b757_lockgate.py controls b757 <face>
+  +  python -X utf8 -u tools/b757_lockgate.py b757 <face>
+  @@ -40,1 +40,1 @@
+  -ACT = 'b756'
+  +ACT = 'b757'
+  @@ -83,1 +83,1 @@
+  -    tmp = tempfile.mkdtemp(prefix='b756lg_')
+  +    tmp = tempfile.mkdtemp(prefix='b757lg_')
+  @@ -102,1 +102,1 @@
+  -    L = ['  ### (R366)(1), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  +    L = ['  ### (R367)(1), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  @@ -129,1 +129,1 @@
+  -        print('usage: b756_lockgate.py [controls] b756 <face> -- this act`s tool, for b756 alone; nothing read, nothing written')
+  +        print('usage: b757_lockgate.py [controls] b757 <face> -- this act`s tool, for b757 alone; nothing read, nothing written')
+
+### ### **CARRIED tools/b757_lockgate.py ; LINES 150 ; CHANGED BY THE SUBSTITUTION 11 ; REPAIR SPANS AT b756 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
