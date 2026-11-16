@@ -15,6 +15,9 @@ test, printed beside the sentence.
            "where the join fails ... its sentences name that branch and commit in the tag's place")
   mod24    (6): the route's control dispatch, then the module's last dispatch in SIDE-dirichlet-mod-24, read; units24_iso_signs within the
            standard three (or none), no sorryAx; the riding segment of the compiled sentence kept where mul_eq_add_add_one_iff's line stands
+  wide     (7): the wide direction's last dispatch, read: every `theorem` of Schema/Wide/HalfScale.lean and HalfScaleControl.lean at the
+           dispatched commit within the standard three, no sorryAx; the compiled sentence's two <name> fields filled in its own order, the
+           control's theorem zq_arith_side_re_neg and the direction's wide_detector, the branch and commit in the tag's place
   bank     every item composed so far, written to data/b757_outcomes.txt and data/b757_outcomes.json (written whole at each run, by this tool)
 """
 import io
@@ -348,6 +351,87 @@ def mod24():
     return out, rec
 
 
+WIDE_FILES = ('SIDEExplicitFormula/Schema/Wide/HalfScale.lean', 'SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean')
+WIDE_CONTROL, WIDE_DIRECTION = 'zq_arith_side_re_neg', 'wide_detector'
+
+
+def wide():
+    """(7): the wide direction's last dispatch, read; every `theorem` of its two files at the dispatched commit with an axioms line within the
+    standard three, none naming sorryAx; the compiled sentence cut from (7), its first <name> the control's theorem and its second the
+    direction's, in the order the sentence gives them, the branch and commit in the tag's place as (4) orders for (5) (the join having
+    failed, no main moved and no tag cut); a failing run printed with its break, the stop sentence composed only where the item stops."""
+    ln, text = clause(7)
+    yes = quoted_after(text, 'IF IT COMPILES:')
+    priced = quoted_after(text, 'IF IT IS PRICED AND NOT BUILT:')
+    out = ['## (7) THE ONE DIRECTION OVER THE WIDER STRIP (the ferry bank :%d; the sentences cut from it: compiled %d characters, priced and not built %d '
+           'characters)' % (ln, len(yes or ''), len(priced or ''))]
+    R = rows()
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('item') == 'wide']
+    reads = dict((int(r['run']), r) for r in R if r.get('kind') == 'read')
+    if not disp or not yes or not priced:
+        out.append('  ### NO wide DISPATCH ROWED OR A SENTENCE NOT CUT -- nothing composed')
+        return out, None
+    d = disp[-1]
+    rd = reads.get(int(d['run']))
+    out.append('  the dispatches: %s' % ', '.join('%d run %s at %s' % (x['n'], x['run'], x['sha'][:8]) for x in disp))
+    if not rd:
+        out.append('  ### THE RUN %s NOT READ -- nothing composed' % d['run'])
+        return out, None
+    q, nlines, per = [], 0, []
+    for f in WIDE_FILES:
+        src = g('show', '%s:%s' % (d['sha'], f))
+        ns, names = declared(src)
+        n_ = len(src.rstrip(NL).split(NL)) if src else 0
+        nlines += n_
+        per.append('%s (%d lines, namespace %s, theorems %d)' % (f, n_, ns or 'NONE', len(names)))
+        q += ['%s.%s' % (ns, n) for n in names]
+    axt = io.open(os.path.join(rd['artifact'], 'axioms.txt'), encoding='utf-8', errors='replace').read() if rd.get('artifact') and \
+        os.path.exists(os.path.join(rd['artifact'], 'axioms.txt')) else ''
+    ax = axioms_of(axt)
+    have = [n for n in q if n in ax]
+    within = [n for n in have if set(ax[n]) <= set(STANDARD)]
+    sorry_lines = [n for n in have if 'sorryAx' in ax[n]]
+    built = rd.get('build_exit') == '0' and rd.get('built_equal') and not rd.get('stop')
+    ctl = [n for n in q if n.endswith('.' + WIDE_CONTROL)]
+    dirn = [n for n in q if n.endswith('.' + WIDE_DIRECTION)]
+    ok = bool(built and q and len(have) == len(q) and len(within) == len(q) and not sorry_lines and len(ctl) == 1 and len(dirn) == 1)
+    out.append('  THE RUN %s READ (data/b757_dispatch_rows.json): exit file %s ; built %s, equal to the dispatched commit %s ; stopped under the hold %s ; '
+               'errors %d ; sorry warnings %s' % (d['run'], rd.get('build_exit'), (rd.get('built_ref') or '')[:8], rd.get('built_equal'), bool(rd.get('stop')),
+                                                  len(rd.get('errors') or []), rd.get('sorry_warnings')))
+    out.append('  THE ITEM`S FILES at %s: %s ; %d lines in all, against the price 250-550 (the navigator`s) and 350-800 (the seat`s), data/b757_price.txt' % (
+        d['sha'][:8], ' ; '.join(per), nlines))
+    out.append('  ITS NAMES IN THE AXIOMS PRINT (%s): with a line %d of %d ; within the standard three %d ; naming sorryAx %d' % (
+        rd.get('axioms_print'), len(have), len(q), len(within), len(sorry_lines)))
+    for n in q:
+        a = ax.get(n)
+        out.append('    %-72s %s' % (n, 'NO AXIOMS LINE' if a is None else '[%s]%s' % (', '.join(a) or 'none', '' if set(a) <= set(STANDARD) else '  OUTSIDE')))
+    out.append('  WHAT THE RUN MUST SHOW ((R367)(7)): the exit file 0 and each of the item`s names within the standard three, no sorryAx, %s and %s among '
+               'them -> %s' % (WIDE_CONTROL, WIDE_DIRECTION, 'SHOWN' if ok else 'NOT SHOWN'))
+    rec = dict(item='wide', clause_line=ln, run=int(d['run']), sha=d['sha'], shown=ok, lines=nlines, names=len(q), dispatches=len(disp))
+    if ok:
+        axs = sorted(set(ax[ctl[0]]), key=lambda a: STANDARD.index(a) if a in STANDARD else 9)
+        s = yes.replace('<name>', WIDE_CONTROL, 1).replace('<name>', WIDE_DIRECTION, 1)
+        s, left = fill(s, {'tag': COEFF_BRANCH, 'peel': d['sha'][:8], 'run id': d['run'], 'axioms': 'axioms: %s' % (', '.join(axs) or 'none')})
+        rec.update(outcome='COMPILED', sentence=s, unfilled=left, direction_axioms=list(ax[dirn[0]]))
+        out.append('  THE OUTCOME: COMPILED on %s at %s, the branch and commit in the tag`s place as (4) orders for (5); no main moved and no tag cut' % (
+            COEFF_BRANCH, d['sha'][:8]))
+        out.append('  %s`s own axioms: [%s]' % (WIDE_DIRECTION, ', '.join(ax[dirn[0]]) or 'none'))
+    else:
+        where = None
+        for l in rd.get('errors') or []:
+            m = re.search(r'([A-Za-z0-9_/.]+\.lean):(\d+):\d+: error', l)
+            if m:
+                where = '%s :%s, run %s' % (m.group(1), m.group(2), d['run'])
+                break
+        where = where or 'run %s: %s' % (d['run'], 'the build exit %s' % rd.get('build_exit') if not built else '%d of %d names without a line within '
+                                         'the standard three' % (len(q) - len(within), len(q)))
+        rec.update(outcome='NOT COMPILED AT THIS RUN', sentence=None, unfilled=None, where=where)
+        out.append('  THE OUTCOME AT THIS RUN: NOT COMPILED (%s); the stop sentence of (7) is composed only where the item stops' % where)
+    out.append('  THE SENTENCE: %s' % (rec.get('sentence') or 'NONE'))
+    out.append('  fields left unfilled: %s' % (rec.get('unfilled') if rec.get('unfilled') is not None else '-'))
+    return out, rec
+
+
 def t0():
     return coeff('T0')
 
@@ -358,7 +442,7 @@ def t1():
 
 def bank():
     lines, recs = [], []
-    for fn in (join, t0, t1, mod24):
+    for fn in (join, t0, t1, mod24, wide):
         o, r = fn()
         lines += o + ['']
         if r:
@@ -379,10 +463,10 @@ def bank():
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if not a or a[0] not in ('join', 'T0', 'T1', 'mod24', 'bank'):
+    if not a or a[0] not in ('join', 'T0', 'T1', 'mod24', 'wide', 'bank'):
         sys.exit(__doc__)
-    if a[0] in ('join', 'T0', 'T1', 'mod24'):
-        o, _r = dict(join=join, T0=t0, T1=t1, mod24=mod24)[a[0]]()
+    if a[0] in ('join', 'T0', 'T1', 'mod24', 'wide'):
+        o, _r = dict(join=join, T0=t0, T1=t1, mod24=mod24, wide=wide)[a[0]]()
         print(NL.join(o))
     else:
         bank()
