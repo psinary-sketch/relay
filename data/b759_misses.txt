@@ -1,0 +1,23 @@
+b759 -- THE SEAT'S READ OF WHAT (R369) MISSES ((R369)(2): ten lines or fewer, made after (5)'s pre-send reads at 630cba16, 2026-11-17T18:5xZ; printed to the author before Component 1 and once more before the lock)
+
+  (1) (7) cites data/b744_zetabox_plan.txt :134 for 1.2972e11; :134 carries zeta's 4.3908e+09, and 1.2972e+11 stands at :135, which F1 reads.
+  (2) (2) commits tools/mirror_prevbuild.json alone; its working copy differs from HEAD's blob by its 89 carriage returns alone, so the tool
+      refused an empty commit and nothing of it is carried (events (5)).
+  (3) (5) prints h2_sign_iff_rh (Seam.lean :101, h2_sign iff Mathlib's RiemannHypothesis), compiled at FINDINGS :901 and :4595, which the
+      ruling does not cite; the act writes of it its axioms line alone (N3).
+  (4) (5)'s one step: Complex.le_def gives the real part of 0 at or below the real part, so Complex.zero_re is read beside it; HalfScaleControl
+      opens no ComplexOrder (H2Sign.lean :15 opens it for its file), so the theorem takes `open scoped ComplexOrder in` before its docstring.
+  (5) (3) removes five branches at the remotes and is silent on the clones' local branches of those names (SIDE-explicit-formula's four,
+      push-b758-coeff checked out; SIDE-dirichlet-mod-24's push-b757-mod24, checked out); under N5 none is removed in a clone.
+
+## THE READS IT STANDS ON (read-only, 18:44Z-18:5xZ)
+  tools/b758_presend.py read 630cba16 (18:44:47Z, scratch capture): duplicates over the closure 0 and over the targets 0 ; anonymous pairs 0 of
+    19, 1 unread ; refused by the filter 2, :358 and :359 (U+039B), the two known ; modules refused 0
+  the four print names at 630cba16, each declared once in the tree, none in print_targets.txt: rQ_one Schema/ZQ/LogDeriv.lean :56 and cQ_eq :71
+    (namespace SIDEExplicitFormula.Schema.ZQ, :18-:20); detector Schema/Detector.lean :99 (SIDEExplicitFormula.Schema, :22-:23);
+    h2_sign_iff_rh Seam.lean :101 (SIDEExplicitFormula.B321, :21-:22); zq_arith_side_re_neg at print_targets.txt :420 alone of the
+    neighbours; zq_weil_positivity_fails declared nowhere
+  Schema/Wide/HalfScaleControl.lean read whole (39 lines): zq_arith_side_re_neg :26-:35, its statement `∃ k, B321.classK k ∧
+    (B321.poleTerm k - primeTermQ (fun n => cQ n) k + archTermQ k).re < 0`; H2Sign.lean read whole (40 lines): h2_sign :29-:30
+  the clones' local branches (18:5xZ, git branch -vv): SIDE-explicit-formula HEAD push-b758-coeff at 630cba16, main at 630cba16;
+    SIDE-dirichlet-mod-24 HEAD push-b757-mod24 at e5ebdd15, main e5ebdd15, push-b757-workflow 2228273 (kept)

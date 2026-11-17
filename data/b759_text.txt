@@ -1,0 +1,494 @@
+TEXT (R369) BEGIN -- part 2 of 2 of the delivery; the words the act enters, by block. A line opening @@ is a marker and enters no document.
+
+@@ BLOCK A -- the head of v0.2, placed under v0.1's title line (:1), which is kept
+
+*v0.2, ‹DATE›, entered by b759 under the author's ruling `(R369)`: §1 to §5 stand as v0.1 printed them with seven sentences re-cut (§9.9 lists them); §6 to §9 and the pages after them are new. v0.1 stands beside this file, unchanged. Nothing here is deposited.*
+
+**Summary.** Z_Q0(s) = Σ (x² + xy + 6y²)^(−s), the Epstein zeta function of the principal form of discriminant −23, has a functional equation under s ↦ 1 − s, as ζ has, and no Euler product. This paper sets out what is compiled in Lean about it. Its continuation, its zeros, its explicit formula and its local count of zeros are theorems (§3, §4). One zero lies off the critical line, in a box about 0.953 + 16.29 i (§5). From that zero, Weil's positivity fails for this function: on its Li coefficients, and on the arithmetic side of its explicit formula over the class of test functions the criterion uses (§6). For ζ the same positivity is compiled as equivalent to the Riemann Hypothesis; at this function the conclusion is false, and the criterion registers it. §7 states what a certified value at height γ costs, e^{πγ/2}, with its figures. §8 compiles two properties the function lacks, multiplicative coefficients and nonnegative coefficients of −Z′/Z, ‹LAWSUM› Each statement here is about Z_Q0; none bears on whether the Riemann Hypothesis holds.
+
+@@ BLOCK B -- seven sentences of v0.1's sections 1 to 5 (:21-:218), each OLD read to stand once in v0.1 at its line
+
+@@ B1 | :27
+OLD: Every citation of a Lean name below is to that tag, by path and line; every figure is to a relay bank line.
+NEW: Every citation of a Lean name is by path and line. §1 to §5 cite the tree at that tag, where their runs were made; §6 to §9 cite it at ‹PIN›, where each line cited here from v0.38 stands at the same path and line. Every figure is to a relay bank line.
+
+@@ B2 | :33
+OLD: The kernel at v0.38 defines Q0 alone;
+NEW: The kernel defines Q0 alone;
+
+@@ B3 | :58
+OLD: r_Q0(2) = r_Q0(3) = 0 while r_Q0(6) = 4 (relay data/b725_interference.txt :11).
+NEW: r_Q0(2) = r_Q0(3) = 0 while r_Q0(6) = 4, a compiled statement (`zq_coeff_not_multiplicative`, §8).
+
+@@ B4 | :73
+OLD: Its docstring calls each field "stated, not proved" (:133-:136).
+NEW: Its docstring calls each field "stated, not proved" as a field of the structure, and names the theorem that proves the five together at Z_Q0, `zq_premises` (:133-:136; §3).
+
+@@ B5 | :119
+OLD: is a hypothesis that nothing here proves; what v0.38 states of it at Z_Q0 is §5’s and §6’s.
+NEW: is false at Z_Q0: §5 locates a zero off the line, and §6 states the failure as a theorem (`zq_li_nonneg_fails`).
+
+@@ B6 | :119
+OLD: (Schema/Wide/PositiveControl.lean :124-:125, on the branch zq-b730 at 1e658870, past the tag v0.38)
+NEW: (Schema/Wide/PositiveControl.lean :124-:125, on main since v0.39)
+
+@@ B7 | :214
+OLD: (a skeleton at v0.1), and to §7.
+NEW: (a skeleton at v0.1), and to §7, which states the law with its figures.
+
+@@ BLOCK C -- sections 6 to 9 and Appendix A, in place of v0.1's :220-:227
+
+## 6. The corollary and what it says
+
+The zero of §5 is one fact about Z_Q0. Read through the schema it has three consequences: one on the Li coefficients, one on the zero side of the explicit formula, and one on its arithmetic side. Each is a theorem that binds no premise.
+
+**On the Li coefficients.** Not every Li coefficient of the configuration of Λ_Q's zeros is nonnegative (`zq_li_nonneg_fails`). This is §4 (3) read backwards. Nonnegativity of every coefficient would put every zero on the line, and one zero is off it.
+
+**On the zero side.** There is a test function k in classK at which the zero side has negative real part,
+
+  Re Σ_ρ m(ρ) k̂(γ_ρ) < 0,  where γ_ρ = (ρ − 1/2)/i and k̂(z) = ∫ k(u) e^{izu} du,
+
+the sum running over the zeros of Λ_Q with their multiplicities. classK is the class of test functions the criterion uses: k is even, twice continuously differentiable and compactly supported, and k = h ⋆ h̃ for some h that is twice continuously differentiable and compactly supported, where h̃(u) is the complex conjugate of h(−u).
+
+The statement comes from a theorem about any configuration (`wide_detector`). Let Z be a set of points in the strip −1/2 < Re s < 3/2, each with a multiplicity, closed under ρ ↦ 1 − ρ̄ with equal multiplicities, and with at most A₀ log(|t| + 3) points of ordinate in (t, t + 1] for every real t. If one point of Z lies off the line Re s = 1/2, then some k in classK makes the zero side of Z negative in real part.
+
+The proof is a change of scale. The criterion's schema proves the same statement for configurations in the closed strip 0 ≤ Re s ≤ 1 (`detector`), and a configuration in the wider strip is one of those at half scale. The map s ↦ 1/2 + (s − 1/2)/2 carries −1/2 < Re s < 3/2 onto 0 < Re s < 1. It fixes the line, commutes with the reflection, keeps the multiplicities and halves every γ_ρ. The count passes with the constant 4A₀, because a unit window of halved ordinates is two unit windows of the original ones (`half_count`). A test function k found for the half-scale configuration gives x ↦ 2k(2x) for the original. The dilate is again in classK (`dil_classK`), and its transform at γ is the transform of k at γ/2, so the two zero sides agree term by term (`halfConfig_sum`).
+
+At Z_Q0 each hypothesis is a theorem: the point off the line is §5's, the count is §4 (1).
+
+**On the arithmetic side.** There is a test function k in classK at which
+
+  Re [ P(k) − Σ_n c(n) n^(−1/2) · 2k(log n) + A_Q(k) ] < 0
+
+(`zq_arith_side_re_neg`). Here P is the pole term, c(n) are the coefficients of −Z_Q′/Z_Q, and A_Q(k) = (1/2π) ∫ k̂(r) [2 Re ψ(1/2 + ir) − 2 log(2π/√23)] dr is the archimedean term. It is the same k. The explicit formula of §4 (2) holds for every even, twice continuously differentiable, compactly supported k, so for every k in classK, and it says the bracket equals the zero side.
+
+**What it says.** The criterion for ζ is the inequality
+
+  P(k) − Σ_n Λ(n) n^(−1/2) · 2k(log n) + A(k) ≥ 0 for every k in classK
+
+(`h2_sign`), and it is compiled as equivalent to the Riemann Hypothesis (`h2_sign_iff_rh`). The bracket above is that expression written for Z_Q0: c(n) stands where von Mangoldt's Λ(n) stood, and the gamma factor of Λ_Q where ζ's stood. For Z_Q0 it takes a value of negative real part on classK, so the inequality fails there‹WEILNAME›.
+
+It fails for a stated reason: a zero is off the line. The direction of the criterion that turns an off-line zero into a negative value has been run here on a zero of a zeta function, and every step is compiled, from the certified enclosure of the zero in §5 to the sign of the arithmetic side.
+
+The schema has been exercised with both outcomes. With a true conclusion, `pc_online` draws "every point is on the line" at the two-point configuration {1/2 + i, 1/2 − i}, every hypothesis met and every Li coefficient nonnegative (`pc_li_nonneg`); and `zeta_box` certifies a zero of ζ on the line with ordinate between 12 and 16, by the instrument of §5. With a false conclusion, there is this section.
+
+**What the theorem gives and what it leaves open.** The theorem gives existence. The k it produces is a window built from the zero: a list of coefficients and a power j, with support growing as 2^j times a width fixed by ρ₀ (`detector`). Neither the list nor j is named. The same theorem applies to each further zero of Z_Q0 off the line once that zero is enclosed in Lean; 68 more are certified numerically to height 445 (FINDINGS :11771; relay data/b725_interference.txt).
+
+**What the bench shows of such a k.** Two numerical results stand beside the theorem; neither is compiled. A window designed for the purpose, a cosine-modulated plateau carrying the factor (γ₀² + D²), makes the criterion's quantity negative at Q0, beyond its error bound, for widths from 34 to 60 in the bench's width parameter (*The Findings As They Stand* v0.7 :322). And the window the detector theorem itself builds at this zero has been evaluated on the banked zeros to height 150: its power is j = 38, and its zero side is about −7.57 × 10^39 (INSTRUMENTS :648). The theorem's window is far wider than the designed one.
+
+**Prior work.** The explicit formula and the positivity criterion are Weil's (1952). Li's criterion is Li's (1997), in the form of Bombieri and Lagarias (1999). That Epstein zeta functions of class number above 1 have zeros off the line is classical: Davenport and Heilbronn (1936) for Re s > 1, Voronin (1976) inside the strip, as §5 cites them. The change of scale is elementary.
+
+## 7. The cost law e^{πγ/2} and the instrument
+
+**The law.** To certify a value of Λ_Q at height γ in the strip, the precision needed grows as e^{πγ/2}. The reason is the gamma factor. By Stirling's formula
+
+  |Γ(σ + iγ)| = √(2π) |γ|^(σ − 1/2) e^(−π|γ|/2) (1 + O(1/|γ|)),
+
+so Λ_Q(s) = (√23/2π)^s Γ(s) Z_Q(s) is smaller than Z_Q(s) by that exponential, while the terms of the sums that compute it are not. The value is what remains after cancellation among terms about e^{πγ/2} times its size.
+
+**The figures at the located zero.** At γ = 16.2902 the factor e^{πγ/2} is 1.2972 × 10^11 (relay data/b744_zetabox_plan.txt :134). The measured figure of §5, 1/|Γ(cA)| = 1.4608 × 10^10, is that factor divided by √(2π) γ^(σ − 1/2), which is ‹F1› at σ = 0.95326, as Stirling's formula says (relay data/b759_costlaw.txt). The conditioning of the centre's sum, its largest term over the tolerance it had to meet, is 0.016640 over 6 × 10^(−13), about 2.8 × 10^10 (:137–:138).
+
+**ζ beside it.** For ζ the gamma factor is Γ(s/2), and the exponent halves: e^{πγ/4} is 6.6263 × 10^4 at ζ's lowest zero, γ = 14.1347, against 3.6016 × 10^5 at the control's height (:135–:136). The task differs as well as the exponent. For ζ on the line a zero is certified by a change of sign of a real function between two points, and each value is needed for its sign and nothing more: the relative precision wanted was 6.2 × 10^(−4). For Z_Q0 off the line a zero is certified by a modulus that is small at a centre and bounded below on a whole frontier: 7.3 × 10^(−13) (:138–:139).
+
+**The instrument.** The six steps of §5 are one instrument, and each step answers the law.
+
+- The θ-representation, split at t = 1, writes Λ_Q through sums that converge rapidly.
+- Each term is an incomplete gamma value, computed as an exact rational series with a proved remainder.
+- The Γ and power factors are enclosed at an explicit order.
+- A generator outside the kernel writes the rational certificates; the kernel checks them by `decide`. The trust is in the kernel's check and not in the generator.
+- From points to a region, the discrete Cauchy formula interpolates from a circle inside the strip, where bounds drawn from the function's size would have asked for about 10^11 frontier points (§5).
+- The minimum-modulus principle turns "small at the centre, larger on the frontier" into a zero.
+
+**Its control on a known case.** The same instrument, pointed at ζ, returns the zero everyone knows where it should be: there is ρ with ζ(ρ) = 0, Re ρ = 1/2 and 12 < Im ρ < 16 (`zeta_box`). The statement is about Mathlib's `riemannZeta`, by the completed zeta split into incomplete-gamma terms and the sign of the real function on the line at t = 12 and t = 16. It is a control on the instrument and adds nothing to what is known of ζ.
+
+**What the law predicts.** The second zero of Z_Q0 off the line, near 0.798 + 29.55 i (phase1.5/method/INSTRUMENTS.md :556), costs more than the zero of §5 by the factor e^{π(γ′ − γ)/2} = ‹F2›, γ′ and γ their two heights (relay data/b759_costlaw.txt). A certificate there needs a different representation or a sharper remainder, and the present instrument's own figures say so in advance.
+
+**The methods note.** The derivation of the law, the general statements of the three objects Mathlib lacks, and the limits of the method are the subject of `phase1.5/method/CERTIFIED_EVALUATION_IN_THE_STRIP_v0_1.md`, a skeleton of nine headings. This section states the law, its figures and its control.
+
+## 8. Class number one, multiplicative representation numbers, and the sign of the logarithmic derivative's coefficients
+
+Two properties of ζ's arithmetic side are easy to take for granted: its coefficients are multiplicative, and the coefficients of −ζ′/ζ are nonnegative. Z_Q0 has neither. Both failures are compiled, each beside the statement for ζ that it is the failing case of.
+
+**Class number one.** When the class group is trivial there is one reduced form, and its Epstein zeta function is the Dedekind zeta function up to the number of units: Z_Q(s) = w ζ_K(s) = w ζ(s) L(s, χ_D). Its coefficients divided by w are Σ_{d|n} χ_D(d), which is multiplicative; the function has an Euler product; and the coefficients of −Z_Q′/Z_Q are those of −ζ_K′/ζ_K, a sum of logarithms of norms of prime ideals, taken over prime-ideal powers, hence nonnegative. At class number one the Epstein zeta function has both properties.
+
+**At discriminant −23 the coefficients are not multiplicative.** With r(n) the number of integer pairs (x, y) with x² + xy + 6y² = n,
+
+  r(1)/2 = 1, r(2) = r(3) = 0, r(6) = 4,
+
+so at the coprime pair 2, 3 the product of the values of r(n)/2 is 0 and its value at 6 is 2 (`rQ_two`, `rQ_three`, `rQ_six`, `rQ_half_one`). The function n ↦ r(n)/2 is not multiplicative in Mathlib's sense (`zq_coeff_not_multiplicative`). Multiplicativity is the hypothesis under which Mathlib proves an Euler product, and ζ's coefficients meet it (`zeta_isMultiplicative_control`).
+
+The reason is the class group. The primes 2 and 3 split in K = ℚ(√−23), and their prime ideals lie in the two classes of order 3, so the principal form represents neither 2 nor 3. A product of a prime ideal above 2 with one above 3 is principal when their classes are inverse, which happens for two of the four products, and each principal ideal of norm 6 is counted twice by the two units: r(6) = 4. The principal form counts principal ideals, and classes multiply where counts do not.
+
+**The coefficients of −Z_Q′/Z_Q are not all nonnegative.** Write −Z_Q′(s)/Z_Q(s) = Σ c(n) n^(−s). The c(n) are determined by the r(n) through the recursion
+
+  2c(n) = r(n) log n − Σ_{d|n, d<n} c(d) r(n/d)  (n ≥ 2)
+
+(`cQ_eq`), and the kernel computes them in closed form along the divisors of 48:
+
+| n | 1 | 2 | 3 | 4 | 6 | 8 | 12 | 16 | 24 | 48 |
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| c(n) | 0 | 0 | 0 | 2 log 2 | 2 log 6 | 6 log 2 | 2 log 12 | 2 log 2 | 0 | −8 log 2 − 2 log 3 |
+
+The last value is −2 log 48 ≈ −7.7424 (`cQ_forty_eight`), so the c(n) are not all nonnegative (`cQ_not_nonneg`), where the von Mangoldt function is (`vonMangoldt_nonneg_control`).
+
+Over a range the picture is this, as a banked computation and not as a theorem: for 2 ≤ n ≤ 3000, c(n) is negative at 102 values of n, the smallest of them 48, exactly zero at 2498, and positive at 399; run on ζ_K's coefficients, the same recursion returns no negative value (relay data/b750_cq_sign.txt :7–:37; INSTRUMENTS :766).
+
+@@ LAW BEGIN
+**The law the value belongs to.** Let b(n) = c(n)/log n, the coefficients of log(Z_Q(s)/2). The value above is b(48) = −2, and 48 is where a theorem about every field of class number 3 puts it.
+
+*Theorem.* Let K be an imaginary quadratic field of class number 3, and let p1 < p2 < p3 be the three least primes that split in K and are not represented by its principal form. Then b(n) ≥ 0 for every n below
+
+  n0 = min(p1⁴ p2, p1² p2 p3), and b(n0) = −2.
+
+The proof is Appendix A. It splits the Dirichlet series into two factors. One is carried by the primes whose prime ideals are principal, and its logarithm has nonnegative coefficients. The other involves the remaining primes alone, and its logarithm depends on n through the exponents in the factorisation of n and not through the primes themselves. Four exponent patterns are negative and minimal: p⁴q and p²qr with value −2, p³q² with value −4, and pqrs with value −6. Every pattern that contains none of the four is nonnegative, and the least integer carrying one of the four is n0.
+
+The law was registered as a hypothesis before any coefficient was computed, and it held at fourteen fields and at the two control fields −23 and −31, in exact rational arithmetic for n up to 90000 (relay data/b753_registrations.txt :14–:16; data/b755_walk.txt :232–:234). Those sixteen are now confirmations of a theorem. At −23 the three primes are 2, 3 and 13, and n0 = min(48, 156) = 48. The primes are 2 and 3 because −23 ≡ 1 (mod 24): a fundamental discriminant is 1 modulo 8 exactly when 2 splits and 1 modulo 3 exactly when 3 splits. `cQ_forty_eight` is the theorem's value at −23, compiled. The theorem itself is a written proof and is not compiled.
+
+At class number 2 the corresponding statement is compiled field by field: at each of the eighteen imaginary quadratic fields of class number 2, the least n with b(n) < 0 and the value b(n) there are theorems (`c2_least_negative`; for example n0 = 24 and b = −2 at −15). That the eighteen are all such fields is Baker's and Stark's theorem, cited and not compiled.
+
+The value −2 belongs to class number 3, and the nearest case where it fails is at class number 2. At −24, the least negative value is −1/2, at n0 = 36 (the same compiled statement, C2Walk.lean :27). There the ramified primes 2 and 3 have prime ideals that are not principal. At class number 3 a ramified prime ideal is principal, because its class has order dividing 2 in a group of order 3 (Appendix A, Step 2), and the value is −2 at every field.
+@@ LAW END
+
+**What the sign bears on.** In the explicit formula the prime-power side is Σ c(n) n^(−1/2) · 2k(log n). For ζ every weight is nonnegative. For Z_Q0 the weights change sign, and §6 shows the whole arithmetic side going negative on classK.
+
+What is proved about products and zeros is a statement about the half-plane Re s > 1: a function with an absolutely convergent Euler product has no zero there, and an Epstein zeta function of class number above 1 has infinitely many (Davenport and Heilbronn). Inside the strip, across the families the programme has tested, an Euler product is present where the zeros stay on the line and absent where they leave it (*Which Structure Confines*). For ζ itself, that the product holds the zeros to the line is the Riemann Hypothesis.
+
+## 9. Back matter
+
+### 9.1 Placement
+
+This paper is the account of one object, used across the programme as the case where the conclusion is false. Other documents meet it as follows.
+
+- **The criterion pages** (`THE_CLAUSE_AND_ITS_COMPILED_FACES.md`, `THE_CLAUSE_AT_THE_DIRICHLET_INSTANCE.md`) state Weil positivity on classK and its equivalence with the location of zeros, at ζ and at primitive Dirichlet characters. §6 supplies the case where the inequality fails.
+- ***Which Structure Confines*** compares families with and without an Euler product. §8 supplies two compiled statements about what this family member lacks.
+- ***Invariance Barriers*** (Theorem 3.7) uses ξ and this function as a pair that share six analytic properties and differ on the location of zeros. §5 supplies the zero as a theorem.
+- **INSTRUMENTS** holds the numerical instruments: the zero census, the coefficient computation (:766), the bench's windows on the criterion's quantity. §7 states the cost law their figures follow.
+- **The Faces Ledger** records that the classical theorems behind Li's criterion range over cuspidal automorphic L-functions, a class this function is outside (:448–:461).
+- **The methods note** (`CERTIFIED_EVALUATION_IN_THE_STRIP_v0_1.md`) carries the method of §5 and §7 in general form.
+- **The {2,3} documents** concern the pair of primes that §8 meets at −23; the units modulo 24 are compiled as three groups of order two in SIDE-dirichlet-mod-24 (`units24_iso_signs`).
+
+REGISTRY rows 1.5c-21 to 1.5c-23 (:177–:179) and its kernel row carry the pins.
+
+**How the statement of §6 reached its present form.** In October the kernel compiled the failure of positivity on the arithmetic side for any configuration in the closed strip that met two premises and contained the bench's second off-line zero (`epstein_not_h2_sign_cfg`, v0.16); the premises were not proved for Z_Q0, whose zeros do not all lie in the closed strip. The five premises were then proved for Z_Q0 over the wider strip its zeros need (§3). A zero was located in Lean (§5). The detecting direction was carried to the wider strip (§6). At v0.40 the statement binds no premise.
+
+### 9.2 Correspondence
+
+Kernel SIDE-explicit-formula at ‹PIN›, paths under `SIDEExplicitFormula/`. Each axioms cell gives the axioms Lean prints for the statement and the run that printed them. Axioms "std 3" means propext, Classical.choice, Quot.sound, with no `sorryAx`. Grades: DERIVES, the statement binds no premise of the programme; INTERFACES, it passes a named premise through.
+
+| § | What it says | Lean statement | File :line | Axioms, run | Grade |
+|:--|:--|:--|:--|:--|:--|
+| 3 | continuation and functional equation of Z_Q0 | `zq_continuation` | Schema/ZQ/Continuation.lean :221 | ‹AX› | DERIVES |
+| 3 | the configuration is Λ_Q's zeros with their orders | `zq_zeros` | Schema/ZQ/Zeros.lean :329 | ‹AX› | DERIVES |
+| 3 | Σ c(n) n^(−s) = −Z_Q′/Z_Q on Re s ≥ 3/2 | `zq_logDeriv` | Schema/ZQ/LogDeriv.lean :396 | ‹AX› | DERIVES |
+| 3 | the explicit formula for Z_Q0 | `zq_explicitFormula` | Schema/ZQ/EF/Main.lean :25 | ‹AX› | DERIVES |
+| 3 | the local count of zeros | `zq_count_holds` | Schema/ZQ/Count.lean :338 | ‹AX› | DERIVES |
+| 3 | the five together | `zq_premises` | Schema/ZQ/EF/Main.lean :190 | ‹AX› | DERIVES |
+| 4 | the count at the instance | `zq_count_instance` | Schema/ZQ/EF/Main.lean :194 | ‹AX› | DERIVES |
+| 4 | the explicit formula at the instance | `zq_explicit_formula_instance` | Schema/ZQ/EF/Main.lean :198 | ‹AX› | DERIVES |
+| 4 | Li-nonnegativity implies every zero on the line | `zq_li_nonneg_imp_online_instance` | Schema/ZQ/EF/Main.lean :205 | ‹AX› | DERIVES |
+| 2, 4 | the same, for any wide configuration | `Wide.li_nonneg_cfg_imp_online_ne_zero` | Schema/Wide/StripFree.lean :157 | ‹AX› | DERIVES |
+| 5 | a zero of Z_Q0 off the line | `zq_offline_zero` | Schema/ZQ/OffZero/SP4.lean :32 | ‹AX› | DERIVES |
+| 5 | the minimum-modulus frame | `min_modulus_zero` | Schema/ZQ/OffZero/MinModulus.lean :23 | ‹AX› | DERIVES |
+| 5 | the centre certificate, ≤ 6/10^13 | `lamM_centre_encl` | Schema/ZQ/OffZero/Centre.lean :247 | ‹AX› | DERIVES |
+| 5 | the frontier bound, ≥ 1/10^12 | `lamF_frontier_ge` | Schema/ZQ/OffZero/Frontier.lean :140 | ‹AX› | DERIVES |
+| 6 | not every Li coefficient is nonnegative | `zq_li_nonneg_fails` | Schema/ZQ/OffZero/SP4.lean :36 | ‹AX› | DERIVES |
+| 6 | off-line point gives a classK function with negative zero side, wide strip | `Wide.wide_detector` | Schema/Wide/HalfScale.lean :277 | ‹AX› | DERIVES |
+| 6 | the count at half scale, constant 4A₀ | `Wide.half_count` | Schema/Wide/HalfScale.lean :167 | ‹AX› | DERIVES |
+| 6 | the dilate stays in classK | `Wide.dil_classK` | Schema/Wide/HalfScale.lean :255 | ‹AX› | DERIVES |
+| 6 | the two zero sides agree | `Wide.halfConfig_sum` | Schema/Wide/HalfScale.lean :263 | ‹AX› | DERIVES |
+| 6 | the same, closed strip | `detector` | Schema/Detector.lean :99 | ‹AX› | DERIVES |
+| 6 | the arithmetic side is negative at some k in classK | `zq_arith_side_re_neg` | Schema/Wide/HalfScaleControl.lean :26 | ‹AX› | DERIVES |
+‹WEILROW›
+| 6 | the criterion for ζ | `h2_sign` (definition) | H2Sign.lean :29 | — | a definition |
+| 6 | the criterion is equivalent to RH | `h2_sign_iff_rh` | Seam.lean :101 | ‹AX› | DERIVES |
+| 6 | two points on the line: Li coefficients nonnegative | `pc_li_nonneg` | Schema/Wide/PositiveControl.lean :118 | ‹AX› | DERIVES |
+| 6 | two points on the line: the conclusion drawn | `pc_online` | Schema/Wide/PositiveControl.lean :124 | ‹AX› | DERIVES |
+| 6, 7 | a zero of ζ on the line, 12 < Im < 16 | `zeta_box` | Schema/ZetaBox/Box.lean :21 | ‹AX› | DERIVES |
+| 8 | r(1) = 2 | `rQ_one` | Schema/ZQ/LogDeriv.lean :56 | ‹AX› | DERIVES |
+| 8 | r(2) = 0, r(3) = 0, r(6) = 4 | `rQ_two`, `rQ_three`, `rQ_six` | Schema/ZQ/Mechanism/NoEuler.lean :81, :85, :89 | ‹AX› | DERIVES |
+| 8 | r(n)/2 is 1 at 1 | `rQ_half_one` | Schema/ZQ/Mechanism/NoEuler.lean :107 | ‹AX› | DERIVES |
+| 8 | r(n)/2 is not multiplicative | `zq_coeff_not_multiplicative` | Schema/ZQ/Mechanism/NoEuler.lean :99 | ‹AX› | DERIVES |
+| 8 | ζ's coefficients are multiplicative | `zeta_isMultiplicative_control` | Schema/ZQ/Mechanism/NoEuler.lean :112 | ‹AX› | DERIVES (Mathlib's) |
+| 8 | the recursion for c(n) | `cQ_eq` | Schema/ZQ/LogDeriv.lean :71 | ‹AX› | DERIVES |
+| 8 | c(4) = 2 log 2, c(6) = 2 log 6 | `cQ_four`, `cQ_six` | Schema/ZQ/Mechanism/CoeffSign.lean :240, :247 | ‹AX› | DERIVES |
+| 8 | c(8), c(12), c(16), c(24) | `cQ_eight`, `cQ_twelve`, `cQ_sixteen`, `cQ_twenty_four` | Schema/ZQ/Mechanism/CoeffSign.lean :253, :259, :266, :272 | ‹AX› | DERIVES |
+| 8 | c(48) = −8 log 2 − 2 log 3 | `cQ_forty_eight` | Schema/ZQ/Mechanism/CoeffSign.lean :281 | ‹AX› | DERIVES |
+| 8 | the c(n) are not all nonnegative | `cQ_not_nonneg` | Schema/ZQ/Mechanism/CoeffSign.lean :291 | ‹AX› | DERIVES |
+| 8 | Λ(n) ≥ 0 | `vonMangoldt_nonneg_control` | Schema/ZQ/Mechanism/CoeffSign.lean :301 | ‹AX› | DERIVES (Mathlib's) |
+| 8 | the least negative index and its value at the eighteen fields of class number 2 | `C2Walk.c2_least_negative` | C2Theorem.lean :76 | ‹AX› | DERIVES on the list as written |
+| 9.1 | the units modulo 24 as three groups of order two | `units24_iso_signs` | SIDE-dirichlet-mod-24, SIDEDirichletMod24/Units.lean :61, v0.2.0 = `e5ebdd15` | ‹AX› | DERIVES |
+
+Statements of this paper with no Lean terminal, each with its standing:
+
+| § | Statement | Standing |
+|:--|:--|:--|
+| 1 | the class group of order 3, Q1, ζ_K, L(s, ψ) and the two identities | classical; corroborated exactly for n ≤ 3000 (relay data/b725_interference.txt :8–:9); no Lean definition |
+| 5 | the zero's value 0.9533 + 16.2902 i | numerical (relay data/b326_zeros_run.txt :77) |
+| 6 | 68 further zeros off the line to height 445 | numerical, each a certified ball (relay data/b725_interference.txt) |
+| 7 | the cost law and its figures | Stirling's formula, classical; figures banked (relay data/b744_zetabox_plan.txt :131–:139) |
+| 8 | the sign of c(n) for n ≤ 3000 | banked computation (relay data/b750_cq_sign.txt) |
+‹LAWROW›
+| 8 | the eighteen fields are all of class number 2 | Baker 1971, Stark 1975; cited |
+| 8 | Euler product excludes zeros in Re s > 1; class number above 1 gives zeros there | classical; Davenport and Heilbronn 1936; cited |
+
+### 9.3 The reach of each statement
+
+| Statement | Reaches | Its limit |
+|:--|:--|:--|
+| the located zero (§5) | one zero of Λ_Q0 with Re ρ ≠ 1/2, in the closed box 0.85326 ≤ Re ρ ≤ 1.05326, 16.190216 ≤ Im ρ ≤ 16.390216 | the box contains Re s = 1; the multiplicity is not stated; the other 68 are numerical |
+| Li-nonnegativity fails (§6) | some Li coefficient of the configuration is negative | no index n is named |
+| the zero side and the arithmetic side (§6) | some k in classK gives each a negative real part | no k is named; the statement is about Z_Q0's own explicit formula |
+| the wide direction (§6) | every configuration in −1/2 < Re s < 3/2 with the reflection and the count | one direction: from a point off the line to a negative value |
+| T0 (§8) | r(n)/2 fails Mathlib's multiplicativity, at 2 and 3 | says nothing of a product formula of another kind |
+| T1 (§8) | one coefficient, c(48), is negative | the 102 negative values to 3000 are banked, not compiled |
+| every statement here | Z_Q0 and its configuration | ζ: the criterion `h2_sign` stands as compiled, equivalent to the Riemann Hypothesis, and nothing here bears on whether it holds |
+| the zeros of Z_Q0 beside ζ_K | at a zero ρ of Z_Q0 the identities of §1 give ζ_K(ρ) = Z_Q1(ρ) = −2L(ρ, ψ), by algebra | "Z_Q1(ρ) ≠ 0" is then "ζ_K(ρ) ≠ 0", which GRH for ζ_K gives at every ρ off the line. Z_Q1 excludes 0 at each of the 69 certified zeros to height 445. The finding's content is the identity and 69 points consistent with GRH for ζ_K; it is not a mechanism (the reading passed at the sitting of 2026-11-02, relay data/b736_author_answers.txt; FINDINGS :11771) |
+
+### 9.4 Pins
+
+| Object | Pin |
+|:--|:--|
+| SIDE-explicit-formula v0.38 | `14ca5725` (the located zero's run 42068096322) |
+| SIDE-explicit-formula v0.39 | `d1afb4fc` (the four branches joined; run 43997787796) |
+| SIDE-explicit-formula v0.40 | `630cba16` (§6 and §8's statements; run 44007490629) |
+‹V041›
+| Lean toolchain, Mathlib | v4.34.0-rc1; `de5ce8a9` |
+| SIDE-dirichlet-mod-24 v0.2.0 | `e5ebdd15` (Lean v4.29.0-rc8, no Mathlib) |
+
+The tags confer no deposit.
+
+### 9.5 The generators and their checksums
+
+| Generator (relay) | Commit(s) | What it wrote | Check |
+|:--|:--|:--|:--|
+| tools/b741_g5gen.py | `bca1d1ba` | the rational terms of the centre certificate | checked in the kernel by `decide` |
+| tools/b742_s6gen.py | `22f8d6b1`, `6467c061`, `3194b6eb` | FrontierData, NodesF, Nodes0 to Nodes3 | each module's md5 at `14ca5725` equals the generator's output: ‹MD5› |
+| tools/b750_cq_sign.py | `a1655706` (md5 `789afca8211cb39b4cc890ce5cb9daae`) | the coefficients c(n), n ≤ 3000 | controls K1 to K4 (relay data/b750_cq_sign.txt :7–:28) |
+
+### 9.6 The reproduction route
+
+1. **The Lean statements.** Check out SIDE-explicit-formula at ‹PIN›, fetch Mathlib's cache, and build the modules of §9.2; then print the axioms of each name. The repository's workflow `build-module.yml` does this on a runner from two inputs, a commit and a list of modules, and uploads the build's exit code and the axioms file.
+2. **The coefficients.** `python -X utf8 -u tools/b750_cq_sign.py` in the relay prints the table of §8 and its controls.
+3. **The pattern table of Appendix A.** `python -X utf8 -u tools/b759_c3table.py` in the relay prints the table by two routes, with its planted error failing.
+4. **The numerical zeros and the cost figures.** The banks named in §5, §7 and §9.2, each written by a relay tool committed before its run.
+
+### 9.7 Glossary
+
+- **Configuration.** A set of complex numbers with multiplicities, closed under ρ ↦ 1 − ρ̄, with finitely many in each window of ordinates. Here: the zeros of Λ_Q0 with their orders.
+- **classK.** Test functions k that are even, twice continuously differentiable, compactly supported, and of the form h ⋆ h̃.
+- **Zero side, arithmetic side.** The two sides of the explicit formula: the sum of k̂ over the configuration, and pole term less prime-power side plus archimedean term.
+- **Li coefficient.** Classically λ_n = Σ_ρ [1 − (1 − 1/ρ)^n] over the zeros. The kernel uses the paired form over a configuration: half the sum, with multiplicity, of the real part of the term that pairs ρ with its reflection (`Wide.liCoeff`, Schema/Wide/Converse.lean :32).
+- **Premise-free.** A statement that binds no hypothesis of the schema; the schema's premises enter as theorems.
+- **The standard three.** The axioms propext, Classical.choice and Quot.sound of Lean's library.
+- **DERIVES, INTERFACES.** The programme's grades for a compiled statement: it binds no premise of the programme, or it passes a named one through.
+
+### 9.8 Errata
+
+None against §1 to §5 as v0.1 printed them: the seven sentences re-cut at v0.2 were true when written and are superseded (§9.9).
+
+One entry of the programme's ERRATA concerns this object. E-2026-11-06-1 (ERRATA.md :1039) records the withdrawal, on 2026-11-06, of the sentence "a degree-2 object with off-line zeros satisfying the count and the explicit formula while positivity fails — is a compiled sentence with its axioms printed", because no declaration then located a zero or stated the failure. At v0.40 each clause is a compiled statement: the zero (`zq_offline_zero`), the count (`zq_count_instance`), the explicit formula (`zq_explicit_formula_instance`), and the failure of positivity on the Li coefficients (`zq_li_nonneg_fails`) and on the arithmetic side over classK (`zq_arith_side_re_neg`). A supplement to that entry is filed as E-‹DATE›-1 (ERRATA.md, at the file's end).
+
+### 9.9 History of this document
+
+v0.2 (‹DATE›, b759, under `(R369)`) re-cut seven sentences of §1 to §5 to what is compiled at ‹PIN›, at v0.1's lines :27, :33, :58, :73, :119 (two) and :214, and entered §6 to §9 and the pages after them. v0.1 stands beside this file with each sentence as it was. The dated notes of v0.1 follow, as written.
+
+‹HISTORY›
+
+### 9.10 References
+
+Each work is listed with how this record holds it. "Read" means read in full by an act, with its bank. "As stated by" means cited through a source that was read. An entry not yet in the programme's register `BIBLIOGRAPHY.md` is marked, and takes its key and full form there before v0.2 deposits anywhere; where a title is not established at content in this corpus the entry says so and carries no guess.
+
+| Work | Used for | How held |
+|:--|:--|:--|
+| Y. Lee, *On the Zeros of Epstein Zeta Functions*, arXiv:1204.6297v1 (2012) | §5: the classical theorems, in Lee's statements | Read in full (relay data/b751_literature.txt, S1; sha256 there). Not yet in the register. |
+| S. M. Voronin, *The zeros of zeta-functions of quadratic forms* (Russian), Trudy Mat. Inst. Steklov. 142 (1976), 135–147 | §5, §6: zeros inside the strip | Not read. As stated by Lee, Theorem 1.1 (b751, S1.c, S1.g). In the register. |
+| H. Davenport and H. Heilbronn, *On the zeros of certain Dirichlet series*, J. London Math. Soc. 11 (1936), 181–185, 307–312 | §1, §2, §5, §8: zeros in Re s > 1 | Not read. As stated by Lee (b751, S1.d, S1.g). In the register. |
+| A. Weil (1952) | §2, §6: the explicit formula and positivity | Cited as the kernel cites it (Schema/EpsteinZQ.lean :124–:126). In the register. Title unverified in this paper. |
+| E. Bombieri and J. C. Lagarias (1999) | §2, §6: Li's criterion in their form | As the kernel cites it (the same lines). In the register. Title unverified in this paper. |
+| X.-J. Li (1997) | §6: Li's criterion | Not read in any bank this draft used. Not yet in the register. Title unverified. |
+| P. Epstein (1903) | §2: continuation and functional equation | Not read. Not yet in the register. Title unverified. |
+| A. Baker (1971); H. M. Stark (1975) | §8: the eighteen fields of class number 2 | As the kernel cites them (C2Walk.lean, the docstring of `walk`). Not yet in the register. Titles unverified. |
+| J. C. Lagarias, arXiv:math/0404394 | §9.1: the class of the classical Li-criterion theorems | Read (relay data/b358_source_lagarias0404394.txt, as the Faces Ledger cites it). |
+| Mathlib at `de5ce8a9` | the maximum modulus principle (§5); `ArithmeticFunction.IsMultiplicative`, `ArithmeticFunction.vonMangoldt_nonneg` (§8); `riemannZeta`, `RiemannHypothesis` (§6, §7) | the pin of §9.4 |
+| The programme's own documents | §9.1 | at PLACE-papers `4ea41948` |
+
+@@ APPENDIX BEGIN
+## Appendix A. The coefficient law at class number 3: statement and proof
+
+The parts of this proof stand in the record: the general steps in relay data/b718_derivation.txt (steps 1 to 4 and 7), the reason in data/b753_registrations.txt :18–:23, the values in data/b721_derivation.txt. The appendix assembles them at class number 3 and closes the step that b718 named as open there, the bound on the number of prime factors. The table of Step 5 is reproduced by two routes at relay data/b759_c3table.txt.
+
+**Setting.** K is an imaginary quadratic field of class number 3, so its class group C is cyclic of order 3 and it has two units. Q0 is its principal form. Put a(n) = r_Q0(n)/2, the number of principal integral ideals of norm n, so that Z_Q0(s)/2 = Σ a(n) n^(−s) with a(1) = 1, and define b(n) by log(Z_Q0(s)/2) = Σ_{n ≥ 2} b(n) n^(−s). Call a rational prime *bad* when it splits in K and its two prime ideals are not principal, which is to say it splits and Q0 does not represent it; call every other prime *good*.
+
+**Theorem.** Let p1 < p2 < p3 be the three least bad primes. Then b(n) ≥ 0 for every n < n0 = min(p1⁴ p2, p1² p2 p3), and b(n0) = −2.
+
+**Step 1: characters.** C has three characters, 1, ψ and ψ̄. By orthogonality a(n) = (1/3) Σ_χ Σ_I χ(I), the inner sum over the integral ideals I of norm n, so
+
+  Z_Q0(s)/2 = (1/3) [ζ_K(s) + L(s, ψ) + L(s, ψ̄)],
+
+and each of the three is an Euler product over the rational primes.
+
+**Step 2: the local factors.** Write x = p^(−s).
+- p inert: the ideals of p-power norm are the powers of (p), all principal. The factor is 1/(1 − x²) for every χ.
+- p ramified, (p) the square of a prime ideal: the class of that ideal has order dividing 2 in a group of order 3, so the ideal is principal. The factor is 1/(1 − x) for every χ.
+- p split with principal prime ideals: the factor is 1/(1 − x)² for every χ.
+- p bad, with prime ideals of classes g and g⁻¹: the factor is 1/(1 − x)² at χ = 1 and 1/((1 − ωx)(1 − ω̄x)) = 1/(1 + x + x²) at χ = ψ and at χ = ψ̄, whichever of the two non-trivial classes g is.
+
+**Step 3: the two factors.** Let G be the product of the local factors at the good primes, the same for every χ. Then Z_Q0/2 = G · H with
+
+  H = (1/3) [ Π_bad (1 − x_p)^(−2) + 2 Π_bad (1 + x_p + x_p²)^(−1) ],
+
+and log(Z_Q0/2) = log G + log H. log G is a sum over the good primes of series in one variable each, −log(1 − x²), −log(1 − x) or −2 log(1 − x), with nonnegative coefficients. log H is a power series in the variables of the bad primes alone, symmetric in them. Three things follow.
+- If n is a power of a good prime, b(n) ≥ 0.
+- If n is divisible by a good prime and by another prime, b(n) = 0.
+- If n = q1^e1 ⋯ qk^ek with every qi bad, then b(n) is the coefficient of x1^e1 ⋯ xk^ek in log H. It depends on the exponents e1, …, ek and not on the primes. Write it β(e1, …, ek).
+
+**Step 4: one bad prime.** In one variable H = (1 − x + x²)/((1 − x)²(1 + x + x²)), and since 1 − x + x² = (1 + x³)/(1 + x) and 1 + x + x² = (1 − x³)/(1 − x),
+
+  log H = log((1 + x³)/(1 − x³)) − log(1 − x²) = Σ_{m ≥ 1} x^(2m)/m + 2 Σ_{k odd} x^(3k)/k.
+
+So β(e) ≥ 0 for every e.
+
+**Step 5: the small patterns.** Let α(e1, …, ek) be the coefficient of the same monomial in H; by Step 2, α = (1/3) [Π (ei + 1) + 2 Π A(ei)], where A(e) = 1, −1, 0 as e ≡ 0, 1, 2 modulo 3. Since α(1) = 0, H − 1 has no term of degree below 2, so (H − 1)^k has none below 2k, and in degree at most 5 the series log H = (H − 1) − (H − 1)²/2 + … gives
+
+  β = 2α − (α ∗ α)/2, where (α ∗ α)(e) = Σ_{0 ≤ d ≤ e} α(d) α(e − d).
+
+| pattern | 1,1 | 2,1 | 3,1 | 2,2 | 1,1,1 | 4,1 | 3,2 | 2,1,1 | 1,1,1,1 |
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| α | 2 | 2 | 2 | 3 | 2 | 4 | 4 | 4 | 6 |
+| α ∗ α | 4 | 4 | 8 | 12 | 4 | 20 | 24 | 20 | 36 |
+| β | 2 | 2 | 0 | 0 | 2 | −2 | −4 | −2 | −6 |
+
+**Step 6: every other pattern contains a negative one.** Say a pattern e contains a pattern f when the parts of f can be matched to distinct parts of e that are at least as large. A pattern that contains none of (4,1), (3,2), (2,1,1), (1,1,1,1) has one part; or two parts and is (1,1), (2,1), (3,1) or (2,2); or is (1,1,1). By Steps 4 and 5, β ≥ 0 at each of these. So if b(n) < 0 then n is a product of bad primes whose pattern contains one of the four.
+
+**Step 7: size.** Let n be a product of bad primes.
+- If its pattern contains (4,1), then n ≥ q⁴q′ for two distinct bad primes, so n ≥ p1⁴ p2.
+- If it contains (2,1,1), then n ≥ p1² p2 p3.
+- If it contains (3,2), then n ≥ p1³ p2² > p1⁴ p2.
+- If it contains (1,1,1,1), then n ≥ p1 p2 p3 p4 > p1² p2 p3.
+
+Hence b(n) < 0 forces n ≥ n0. The integer n0 has pattern (4,1) or (2,1,1) exactly, and β = −2 at both. ∎
+
+**What the proof uses.** Unique factorisation of ideals; the correspondence between classes of forms and ideal classes; orthogonality of characters; and that there are at least three bad primes, since each ideal class contains infinitely many prime ideals of degree one. It uses no list of fields: it holds at every imaginary quadratic field of class number 3, and the walk of §8 is the theorem observed at sixteen of them.
+
+**What it does not need, and what would compile.** Steps 4 to 6 are statements about one power series in at most four variables, and could be compiled as they stand. Steps 1 to 3 need the class group of an imaginary quadratic field, which the kernel does not hold.
+@@ APPENDIX END
+
+@@ BLOCK D -- the corpus lines, each OLD read to stand once in its file at its line
+
+@@ C1 | phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md :45 | SUPERSEDED
+OLD: (the control function with off-line zeros numerically located; its count and explicit formula compiled premise-free, no zero located in Lean)
+NEW: (the control function: one zero off the line located in Lean and 68 more located numerically; its count and explicit formula compiled premise-free; positivity compiled as failing, on its Li coefficients and on the arithmetic side of its explicit formula over classK, at SIDE-explicit-formula v0.40)
+
+@@ C2 | phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md :290 | CORRECTED
+OLD: the Epstein function decomposes into a sum of Dedekind zetas — but
+NEW: the Epstein function decomposes into a sum of L-functions of the characters of the class group, the Dedekind zeta function among them — but
+
+@@ C3 | phase2/formation/CAPACITY.md :50 | CORRECTED
+OLD: produces Epstein zeta functions for non-principal quadratic forms. These have off-line zeros, confirmed computationally and proved by Terras (1973) and Bombieri-Hejhal (1987).
+NEW: produces Epstein zeta functions of class number above 1; the programme's control is the principal form of discriminant −23. These have off-line zeros: in Re s > 1 by Davenport and Heilbronn (1936) and inside the strip by Voronin (1976), as Lee (2012) states them; at the control one is located in Lean (THE_EPSTEIN_CONTROL_OBJECT v0.2 §5).
+
+@@ C4 | day1/A_Place_to_Stand_v5_17.md :609 | SHARPENED
+OLD: Epstein zeta functions possess the functional equation but lack the Euler product. Their zeros wander off the critical line (Davenport–Heilbronn, 1936)
+NEW: Epstein zeta functions of class number above 1 possess the functional equation but lack the Euler product. They have zeros off the critical line, in Re s > 1 (Davenport–Heilbronn, 1936) and inside the critical strip (Voronin, 1976)
+
+@@ C5 | day1/A_Place_to_Stand_v5_17.md :1135 | RE-CUT
+OLD: Systems without the Euler product have off-line zeros. Systems with it do not (computationally). The discriminating variable is identified and its effect is confirmed empirically.
+NEW: In each family tested, the systems without the Euler product have off-line zeros and the systems with it show none in the range computed. At the control of discriminant −23 an off-line zero and the failure of Weil positivity on the arithmetic side of its explicit formula are compiled in Lean. The comparison is an observation across families; that the product confines the zeros of ζ is the Riemann Hypothesis itself.
+
+@@ C6 | phase1.5/experiments/CONTROLLED_EXPERIMENT.md :149 | RE-CUT
+OLD: It identifies the causal mechanism (multiplicative structure → Euler product → confinement) and confirms it through the controlled removal of that mechanism. But converting this causal identification into a proof requires showing that the mechanism is sufficient, not merely necessary.
+NEW: It removes one structure, the Euler product, and the zeros leave the line; in each family tested the two go together. What is proved is this much: an absolutely convergent Euler product excludes zeros in Re s > 1; the control's coefficients are not multiplicative; and its arithmetic side is negative at a test function in classK, the last two compiled (THE_EPSTEIN_CONTROL_OBJECT v0.2 §6, §8). Converting the observation into a proof requires showing that the product is sufficient to hold the zeros to the line; the experiment shows neither that nor that it is necessary.
+
+@@ C7 | phase1.5/structural/VOCABULARY.md :285 | RE-CUT
+OLD: Causal identification in mathematics through structural removal.
+NEW: Comparison in mathematics through structural removal: it yields an observed dependence, which a proof must then turn into a cause.
+
+@@ C8a | phase1.5/method/INVARIANCE_BARRIERS.md :255 | SHARPENED
+OLD: has infinitely many zeros off the critical line. For discriminant
+NEW: has infinitely many zeros in the half-plane Re s > 1, and so off the critical line; inside the strip the statement is Voronin's (1976). For discriminant
+
+@@ C8b | phase1.5/method/INVARIANCE_BARRIERS.md :255 | SUPERSEDED
+OLD: The programme has independently located two simple off-line zeros of this exact ξ_Q by argument-principle winding, doubly sourced: 0.953 + 16.29i and 0.798 + 29.55i
+NEW: One off-line zero of this ξ_Q is located in Lean, in a box about 0.953 + 16.29i (zq_offline_zero, SIDE-explicit-formula v0.40); the programme's certified list holds 68 more to height 445, 0.798 + 29.55i among them
+
+@@ C9a | SPIRAL_MAP.md :543 | SUPERSEDED
+OLD: | `SIDE-explicit-formula`, branch `zq-b730` | `14ca5725` (a branch head, no tag) |
+NEW: | `SIDE-explicit-formula`, main | v0.40 = `630cba16` (v0.38 = `14ca5725`, the located zero's tag) |
+
+@@ C9b | SPIRAL_MAP.md :543 | SUPERSEDED
+OLD: nothing here bears on ζ (OffZero/SP4.lean :32, :36, run 42068096322) |
+NEW: at v0.40 the control's halved coefficients not multiplicative, its coefficient at 48 negative, and its arithmetic side negative at a test function in classK (zq_coeff_not_multiplicative, cQ_not_nonneg, zq_arith_side_re_neg, run 44007490629); nothing here bears on ζ (OffZero/SP4.lean :32, :36, run 42068096322) |
+
+@@ C10 | day1/Which_Structure_Confines_v2_4_0.md :263 | SUPERSEDED
+OLD: whose argument-principle census banks two zeros off the line.
+NEW: whose argument-principle census then banked two zeros off the line; the certified list now holds 69 to height 445, and one of them is located in Lean (THE_EPSTEIN_CONTROL_OBJECT v0.2 §5).
+
+@@ C11a | SPIRAL_MAP.md :276 | SUPERSEDED
+OLD: `phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md` -- keystone in progress: §1-§4 filled (:11-:169), §5-§9 headings alone (:170-:178)
+NEW: `phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md` -- keystone, §1 to §9 and Appendix A entered (b759); v0.1 stands beside it
+
+@@ C11b | SPIRAL_MAP.md :276 | SUPERSEDED
+OLD: `SIDE-explicit-formula` at the tag `v0.38` (peeled `14ca5725`; the branch zq-b730, no merge)
+NEW: `SIDE-explicit-formula` at ‹PIN›
+
+@@ BLOCK E -- the two ERRATA entries, appended at the file's end in this order
+
+@@ ERRATA 1
+## E-‹DATE›-1 — E-2026-11-06-1 supplemented: what stands of the Epstein instance at v0.40 (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+
+**Filed ‹DATE› by b759, on the author’s ruling `(R369)`(10). Record affected: ERRATA.md :1039, E-2026-11-06-1; that entry is not edited.**
+
+**What stands.** Each clause of the sentence withdrawn on 2026-11-06 is now a compiled statement that binds no premise, on SIDE-explicit-formula’s main at v0.40 = `630cba16`: a zero off the line (`zq_offline_zero`); the local count (`zq_count_instance`); the explicit formula (`zq_explicit_formula_instance`); and positivity failing, on the Li coefficients (`zq_li_nonneg_fails`) and on the arithmetic side over classK (`zq_arith_side_re_neg`), each within the standard three.‹WEILERR› The sentence of 2026-11-06 stays withdrawn: it was written ahead of its declarations, and the record keeps that. The sentence that stands is: “for the Epstein zeta function of x² + xy + 6y², a zero off the line, the local count, the explicit formula, and the failure of positivity on the Li coefficients and on the arithmetic side over classK are each compiled, each within the standard three.”
+
+**Scope.** One entry’s standing; no statement, run or grade moves. Nothing here is a statement about ζ, RH or GRH.
+
+**Status.** FILED; E-2026-11-06-1 stands as composed, this entry beside it.
+@@ WEILERR COMPILED
+ At v0.41 the failure on the arithmetic side also stands in the form of `h2_sign` itself (`zq_weil_positivity_fails`).
+
+@@ ERRATA 2
+## E-‹DATE›-2 — ‹N› sentences about the Epstein control re-cut at b759 to what is proved, compiled and observed (CORPUS-FACING; ‹DEPOSITS›)
+
+**Filed ‹DATE› by b759, on the author’s ruling `(R369)`(9). Records affected: the lines listed below, each by its path and its line before the edit.**
+
+**The classes.** SUPERSEDED: true when written, overtaken by a later result. CORRECTED: not true as written. SHARPENED: true, now stated more exactly. RE-CUT: claimed more than is proved, now stating what is proved, what is compiled and what is observed.
+
+**The lines.** ‹one paragraph a line, composed by the tool from this ruling’s table: the key, the path and line, the class, “The line said:” with the present words, “It now reads:” with the new words; for a line not edited, “not edited:” with the reason and the order entered for it›
+
+**The attribution withdrawn at CAPACITY :50.** The line credited off-line zeros of Epstein zeta functions to Terras (1973) and Bombieri–Hejhal (1987). Neither work is held at content in this record, and the navigator’s read of the literature on 2026-11-17, at workspace grade, found Bombieri and Hejhal’s result described as zeros on the line under hypotheses. The line now credits Davenport and Heilbronn (1936) and Voronin (1976), as Lee (2012) states them (relay data/b751_literature.txt, S1.c, S1.d). W-ORD-CAPACITY-ATTRIBUTION holds the two works for a read at content.
+
+**What is proved, compiled and observed about products and zeros**, the ground of the lines classed RE-CUT. Proved: an absolutely convergent Euler product excludes zeros in Re s > 1, and an Epstein zeta function of class number above 1 has infinitely many there. Compiled, at discriminant −23: the coefficients are not multiplicative, a zero lies off the line, and the arithmetic side of the explicit formula is negative at a test function in classK. Observed: in each family the programme has tested, the Euler product is present where the zeros stay on the line and absent where they leave it. Not established: that the product holds the zeros of ζ to the line, which is the Riemann Hypothesis.
+
+**Scope.** The sentences listed; no statement, run or grade of any kernel moves. A deposited copy of a document is not touched and stands as deposited.
+
+**Status.** FILED.
+
+@@ BLOCK F -- the texts that depend on an outcome
+
+@@ LAWSUM THEOREM
+and proves where the least negative coefficient falls at each imaginary quadratic field of class number 3 (Appendix A).
+@@ LAWSUM OBSERVED
+and records where the least negative coefficient falls at sixteen fields of class number 3, a law observed and not proved.
+@@ LAWROW THEOREM
+| 8, A | the law n0 = min(p1⁴p2, p1²p2p3), b(n0) = −2 at class number 3 | a theorem by the written proof of Appendix A, its table reproduced at relay data/b759_c3table.txt; confirmed beforehand at 16 fields; not compiled |
+@@ LAWROW OBSERVED
+| 8 | the law n0 = min(p1⁴p2, p1²p2p3), b(n0) = −2 at class number 3 | observed at 16 fields, registered beforehand (relay data/b753_registrations.txt, data/b755_walk.txt); not proved; not compiled |
+@@ WEILROW COMPILED
+| 6 | Weil positivity fails at the control on the arithmetic side, in the form of `h2_sign` | `zq_weil_positivity_fails` | Schema/Wide/HalfScaleControl.lean :‹LINE› | ‹AX› | DERIVES |
+@@ WEILNAME COMPILED
+ (`zq_weil_positivity_fails`)
+@@ V041 LANDED
+| SIDE-explicit-formula v0.41 | `‹PEEL›` (‹WHAT LANDED›; run ‹RUN›) |
+@@ ALT8 BEGIN
+**The law the value belongs to.** Let b(n) = c(n)/log n, the coefficients of log(Z_Q(s)/2). The value above is b(48) = −2, and 48 is where a law observed at class number 3 puts it. The law is observed and not proved.
+
+*The law.* Let K be an imaginary quadratic field of class number 3, and let p1 < p2 < p3 be the three least primes that split in K and are not represented by its principal form. Then the least n with b(n) < 0 is n0 = min(p1⁴ p2, p1² p2 p3), and b(n0) = −2.
+
+The law was registered as a hypothesis before any coefficient was computed, and it held at fourteen fields and at the two control fields −23 and −31, in exact rational arithmetic for n up to 90000 (relay data/b753_registrations.txt :14–:16; data/b755_walk.txt :232–:234). At −23 the three primes are 2, 3 and 13, and n0 = min(48, 156) = 48. The primes are 2 and 3 because −23 ≡ 1 (mod 24): a fundamental discriminant is 1 modulo 8 exactly when 2 splits and 1 modulo 3 exactly when 3 splits. `cQ_forty_eight` is the law's value at −23, compiled.
+
+At class number 2 the corresponding statement is compiled field by field: at each of the eighteen imaginary quadratic fields of class number 2, the least n with b(n) < 0 and the value b(n) there are theorems (`c2_least_negative`; for example n0 = 24 and b = −2 at −15). That the eighteen are all such fields is Baker's and Stark's theorem, cited and not compiled.
+
+The value −2 is not general: the nearest case where it fails is at class number 2. At −24, the least negative value is −1/2, at n0 = 36 (the same compiled statement, C2Walk.lean :27); there the ramified primes 2 and 3 have prime ideals that are not principal, which cannot happen at class number 3, where the class of a ramified prime ideal has order dividing both 2 and 3.
+@@ ALT8 END
+
+TEXT (R369) END

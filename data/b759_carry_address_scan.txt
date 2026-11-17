@@ -1,0 +1,61 @@
+b759 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b758_address_scan.py -> tools/b759_address_scan.py (2026-11-17T18:14:51Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b758 -> b759, b757 -> b758, R368 -> R369, R367 -> R368); 304 lines, 18 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b758_tool_repairs.txt AND data/b758_repairdiff_address_scan.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b758; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b758_address_scan.py
+  +++ tools/b759_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b758_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b758 (data/b758_carry_address_scan.txt), its carry-time repairs and the author's word at b758's Component 1 marked ### b758.
+  -### b758, the carry's note: this file is tools/b757_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b758_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b757's file) kept; the comment notes it shifted
+  -### (b757's and b753's carry notes, here :7-:12) set back by the Edit tool to b757's text before any run.
+  -### b757, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b757_carry_address_scan.txt);
+  +"""b759_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b759 (data/b759_carry_address_scan.txt), its carry-time repairs and the author's word at b759's Component 1 marked ### b759.
+  +### b759, the carry's note: this file is tools/b758_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b759_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b758's file) kept; the comment notes it shifted
+  +### (b758's and b753's carry notes, here :7-:12) set back by the Edit tool to b758's text before any run.
+  +### b758, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b758_carry_address_scan.txt);
+  @@ -68,1 +68,1 @@
+  -                  --bank writes data/b758_address_scan.txt.
+  +                  --bank writes data/b759_address_scan.txt.
+  @@ -84,1 +84,1 @@
+  -import b758_worklist as K   # noqa: E402
+  +import b759_worklist as K   # noqa: E402
+  @@ -86,1 +86,1 @@
+  -ACT = 'b758'
+  +ACT = 'b759'
+  @@ -156,2 +156,2 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b758_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b758_kernel_bases.json'), encoding='utf-8')).items()))   # ### b758, (R368)(3): to HEAD, the checked-out push-b758-* branch whose commits stand before main moves (b745's '..main' read them only after)
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b759_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b759_kernel_bases.json'), encoding='utf-8')).items()))   # ### b759, (R369)(3): to HEAD, the checked-out push-b759-* branch whose commits stand before main moves (b745's '..main' read them only after)
+  @@ -161,2 +161,2 @@
+  -def ruling_byline(act='b758'):
+  -    """### b758, (R368)(6), b757 (e) REPEAT at b758 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  +def ruling_byline(act='b759'):
+  +    """### b759, (R369)(6), b758 (e) REPEAT at b759 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  @@ -165,1 +165,1 @@
+  -    exception under its own ruling's name until the seat set it by hand (b757 at 19:12:57Z, b758 at 13:02Z)."""
+  +    exception under its own ruling's name until the seat set it by hand (b758 at 19:12:57Z, b759 at 13:02Z)."""
+  @@ -174,1 +174,1 @@
+  -BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md') if BYLINE_HELD else ()   # ### b757's tuple where the act's N5 holds the exception; else none, each added line of the two files counted as any other (b758 defect (b))
+  +BYLINE_FILES = (BYLINE_FILE, 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md') if BYLINE_HELD else ()   # ### b758's tuple where the act's N5 holds the exception; else none, each added line of the two files counted as any other (b759 defect (b))
+  @@ -270,1 +270,1 @@
+  -    # ### b758, (R368)(3), tools/standing/ v1.35.4: the repositories whose commits, staged set and working tree this run read, by name; a
+  +    # ### b759, (R369)(3), tools/standing/ v1.35.4: the repositories whose commits, staged set and working tree this run read, by name; a
+  @@ -276,1 +276,1 @@
+  -        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b757 (e), b758 (b))' % RULING_N5),
+  +        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b758 (e), b759 (b))' % RULING_N5),
+  @@ -302,1 +302,1 @@
+  -        sys.exit('usage: b758_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b759_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b759_address_scan.py ; LINES 304 ; CHANGED BY THE SUBSTITUTION 18 ; REPAIR SPANS AT b758 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
