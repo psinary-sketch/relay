@@ -454,7 +454,9 @@ CHAIN = (('ceiling_gen', 'ac029157'), ('c1', '548028f4'), ('corr', 'e16d9603'), 
          ('compose_gen', 'ce2700fc'), ('notes_gen', '78ed7e76'), ('corpus_gen', '18addbde'), ('errata_gen', '4d000f9b'), ('reproduce', '8cf76f15'),
          ('compose_fix', 'c02309a9'), ('checks1', 'f14af238'), ('read1', '4cbb94b4'), ('rows1', '9207bcb4'), ('landed', '6c10db30'), ('fields', 'b2743155'),
          ('compose_fix2', '54405456'), ('compose_fix3', 'bf4ed2b4'), ('compose', '93f32449'), ('notes', 'a4857802'), ('corpus', 'b23d39a5'),
-         ('fields_fix', '6232c3ed'), ('fields_corpus', 'c0bdaca0'), ('errata', '28a7bd7f'))
+         ('fields_fix', '6232c3ed'), ('fields_corpus', 'c0bdaca0'), ('errata', '28a7bd7f'),
+         # ### b759, the lock's preparation (steps 57-61): the chain, the arms, the needles, the standing key, the closing title
+         ('chain', '5160d84e'), ('arms', 'a728ea95'), ('needles', 'a8bbc3b6'), ('standing_key', '0dc5d8ca'), ('closing_title', '5eb3cf6a'))
 # ### PLACE-papers' commits of the act in their order: the corrigendum; (8)'s document and its three notes; (9)'s nine documents; (10)'s two
 PP_CHAIN = (('c1pp', 'c71ebcd2'), ('pp_doc', 'd48bd080'), ('pp_reg', 'bb146c95'), ('pp_faces', 'e421b303'), ('pp_census', '9c522714'),
             ('pp_c1', '0bcb0b56'), ('pp_c2', '682e9bdd'), ('pp_c3', '343e2f57'), ('pp_c4', 'aeadc243'), ('pp_c6', '94cdaa3e'), ('pp_c7', 'dbb39833'),
@@ -464,7 +466,7 @@ TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'v1363'
               'dispatch1', 'outcomes_gen', 'outcomes_fix', 'table_gen', 'table', 'fields_gen', 'compose_gen', 'notes_gen', 'corpus_gen', 'errata_gen',
               'reproduce', 'compose_fix', 'checks1', 'read1', 'rows1', 'landed', 'fields', 'compose_fix2', 'compose_fix3', 'pp_doc', 'compose',
               'pp_reg', 'pp_faces', 'pp_census', 'notes', 'pp_c1', 'pp_c2', 'pp_c3', 'pp_c4', 'pp_c6', 'pp_c7', 'pp_c8', 'pp_c9', 'pp_c10', 'corpus',
-              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata')
+              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata', 'chain', 'arms', 'needles', 'standing_key', 'closing_title')
 CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
                     'v1363': 'v1.36.3, the route that removes a kernel branch', 'v1364': 'v1.36.4, the plant reading every covering clause',
                     'v1365': 'v1.36.5, the row writer`s phase repair', 'v1366': 'v1.36.6, the kernels face reader',
@@ -480,7 +482,8 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1
                     'pp_c1': 'C1', 'pp_c2': 'C2', 'pp_c3': 'C3', 'pp_c4': 'C4 and C5', 'pp_c6': 'C6', 'pp_c7': 'C7', 'pp_c8': 'C8a and C8b',
                     'pp_c9': 'C9a, C9b, C11a and C11b', 'pp_c10': 'C10', 'corpus': 'the corpus bank', 'fields_fix': 'the corpus route repaired',
                     'fields_corpus': 'N and DEPOSITS', 'pp_errata': 'the ERRATA entries', 'pp_trails': 'the OPEN_TRAILS lines',
-                    'errata': 'the errata bank'})
+                    'errata': 'the errata bank', 'chain': 'the worklist`s chain', 'arms': 'the act module`s arms', 'needles': 'the four needle stubs',
+                    'standing_key': 'the kernel route`s key', 'closing_title': 'the closing title and the trail head'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.36.3', '983ca5b1', 'data/b759_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b759_standing_v1364.txt', 6),
                   ('v1.36.5', '34452b1a', 'data/b759_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b759_standing_v1366.txt', 5),
