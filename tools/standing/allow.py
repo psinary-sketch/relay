@@ -25,10 +25,16 @@ changed nothing and the seal refused: `delete_clause` locates the ruling's delet
 `plant_kept` turns that clause's "deleted" into "kept"; where no clause carries them it returns None, and the plant then changes nothing
 (the arm's positive control read DEFECTIVE, never a silent pass of a plant that was placed).
 
+v1.36.4 ((R369)(4)(ii), b758 events (70)): THE PLANT READS KEPT EVERY CLAUSE THAT COVERS A NAMED REF. v1.5.0's plant turned to kept the
+first delete clause carrying every named ref; (R368)(5)'s clause deleting the kernels' push-b757-* and push-b758-* branches still allowed
+the relay's and PLACE-papers' push-b757-* names once (2)'s clause was planted (the reader reads names, not repositories), so the planted
+copy passed and the seal refused at b758; its module planted every covering clause after its lock (plant_every_kept). `plant_kept` now
+reads kept each delete clause covering any named ref, every "delete" word of each, so no planted clause reads as a delete clause.
+
   deletes_allowed(ruling, words) -> [names]        prompts_read(answers, ruling, heads) -> dict(rows, allowed, unbanked, ok)
   deletes_read(deleted, ruling, words) -> dict(rows, outside, ok)
   names_in(clause) -> [names]   delete_clause(ruling, must) -> clause or ''   plant_kept(ruling, must) -> the ruling, whitespace collapsed, with
-  that clause's "deleted" read "kept", or None
+  every delete clause covering a name of `must` read "kept", or None   covering(ruling, must) -> those clauses
 """
 import fnmatch
 import os
@@ -107,14 +113,23 @@ def delete_clause(ruling, must):
     return ''
 
 
+def covering(ruling, must):
+    """v1.36.4, (R369)(4)(ii): the ruling's delete clauses (saying deleted and not NOT deleted) that cover a branch of `must`, in order."""
+    return [c for c in clauses(ruling) if DELETED.search(c) and not NOT_DELETED.search(c) and any(matches(b, names_in(c)) for b in (must or ()))]
+
+
 def plant_kept(ruling, must):
-    """v1.5.0: the plant of G-DELETES-ONE-BRANCH -- the ruling with its whitespace collapsed (the form clauses() reads) and the located
-    delete clause's first "deleted" read "kept", so the clause no longer allows its branches; None where no clause carries `must`."""
-    c = delete_clause(ruling, must)
-    if not c:
+    """v1.5.0: the plant of G-DELETES-ONE-BRANCH -- the ruling with its whitespace collapsed (the form clauses() reads), the clauses
+    read kept so they no longer allow their branches; None where no clause covers `must`. v1.36.4, (R369)(4)(ii): every delete clause
+    covering a named ref (covering()), each of its "delete" words read "kept", where v1.5.0 read the first clause carrying all of
+    `must` and its first word alone."""
+    cs = covering(ruling, must)
+    if not cs:
         return None
     flat = re.sub(r'\s+', ' ', ruling or '')
-    return flat.replace(c, DELETED.sub('kept', c, count=1), 1)
+    for c in cs:
+        flat = flat.replace(c, DELETED.sub('kept', c), 1)
+    return flat
 
 
 # ### v1.34.0, (R364)(3)(xii): the ferries' three wordings of the kept clause. (1) "kept[ branches][:] <names>, and the rest as banked" (to b745);

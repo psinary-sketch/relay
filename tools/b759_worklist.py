@@ -357,13 +357,16 @@ C1_RELAY = '548028f4'        # ### b759: the c1 route committed before it wrote,
 C1_CORR = 'e16d9603'         # ### b759: the corrigendum banks, data/b759_corrigendum.txt, .json, the corrigenda bank's row (79) (step 8, 19:00:05Z, events (22))
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
-KERNEL_DELETES = ()          # ### (R368)(5): the merged kernel branches deleted at the remote after v0.40, (branch, its tip), set as each is deleted: none, the route lacking
-# ### (R368)(5) orders the four deleted "at the remote by the tool's route, each by name"; the route stands nowhere: tools/standing/commit.py's
-# ### kernel delete (:755-:765) is `git branch -d/-D`, local alone; tools/push_gated.sh "deletes nothing" (:22); `pushto` (v1.36.1) pushes a
-# ### commit to a branch name; the hook refuses a plain git write (PLAINGIT). Read at 04:3xZ with the four at the remote by one ls-remote
-# ### (push-b757-coeff 596d1c9e, push-b757-join 6568e9c7, push-b758-coeff 630cba16, push-b758-land d1afb4fc, each merged into main 630cba16);
-# ### no delete substituted, local or plain; the four carried with the route printed (events (52))
-KERNEL_DELETES_HALT = ('the delete of a kernel`s branch at its remote', 'push-b758-join', 'push-b758-coeff', 'push-b759-land', 'push-b759-coeff')
+KERNEL_DELETES = (('push-b757-join', '6568e9c7'), ('push-b757-coeff', '596d1c9e'), ('push-b758-land', 'd1afb4fc'), ('push-b758-coeff', '630cba16'),
+                  ('push-b757-mod24', 'e5ebdd15'))
+# ### (R369)(3): the five kernel branches removed at their remotes by tools/standing/commit.py `rdelete` (v1.36.3, (R369)(4)(i), relay 983ca5b1,
+# ### its controls 10 of 10), one a message, each after a flag read (GO), 19:09:51Z-19:10:41Z: the four of SIDE-explicit-formula, each tip an
+# ### ancestor of the remote's main 630cba16, and push-b757-mod24 of SIDE-dirichlet-mod-24 at its main e5ebdd15; each read back absent by the
+# ### route's ls-remote and again by one listing a kernel; none forced; the clones' own branches of the names not touched
+KERNEL_DELETES_HALT = ()
+# ### b758's halt as its worklist stood (the carry shifted its names): the four of (R368)(5), push-b757-join, push-b757-coeff, push-b758-land
+# ### and push-b758-coeff, carried for want of the route; removed at b759 by (R369)(3) above
+KERNEL_DELETES_HALT_B758 = ('the delete of a kernel`s branch at its remote', 'push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff')
 CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in the entry's order paragraph, set with CHAIN at Component 5
 C1_RULES = None              # ### no rules bank this act: (R368) orders none, nor did (R367); data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
