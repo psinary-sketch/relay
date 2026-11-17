@@ -532,3 +532,75 @@ COMPONENT 5:
      counter not telling them apart; b757's face read 0. Each written in the face blocks with the noun first or without the numeral ("both
      documents of (8)", "modules 93", "modules 97", "banks, 27"), the (W) bank regenerated after each of the five Edits
      (09:07:11Z-09:07:15Z); the counter over the blocks 0 (scratch preds758.py, read-only).
+
+AFTER THE LOCK (relay c63108c0, 09:17:28Z), BEFORE THE SEAL -- appended by the Edit tool (the events bank exempt from LOCKED, tools/standing/hook.py :467; N4 reads an append after the lock as an edit, tools/standing/act.py :181-:182, the score row (70)'s repair already costs):
+    (67) THE SEAT'S [CLOSE ; NEW]: THE LOCK GATE REFUSED ONCE, THE GATE RECORD'S STAMP LOST TO ITS OWN RE-RUN. The gatebanks route
+     stamps data/b758_reg_gate.txt with the face's digest; gatebanks ran at 09:09:39Z and the gate again at 09:10:47Z, which wrote the record
+     afresh without the stamp, and the record was committed so (50876ed8, then 5c860922 with the root dry). The lock gate at 09:14:16Z
+     (tools/b758_lockgate.py, exit 1): GATES READ 8, PASSING 7, the registration gate "THE RECORD CARRIES NO SUBJECT DIGEST", VERDICT LOCK
+     REFUSED, its notes written (data/b758_lockgate_notes.txt) and data/b758_lockgate.json with them. gatebanks again (09:14:30Z), the third
+     gate commit (0b527e2e, 09:16:07Z), the lock gate again (09:16:42Z, exit 0, permitting), its notes written beside the first as
+     data/b758_lockgate_notes2.txt; both notes banks committed with the lock (c63108c0). The order that holds: the gate CLEAR, then
+     gatebanks, then the gate commit, then the lock gate.
+    (68) THE TOOL'S [CLOSE ; NEW]: THE ROOT DRY REFUSED ONCE THE LOCK GATE'S RECORD STOOD. `fold.py record rootdry` sent at 09:16:23Z,
+     between the refused and the permitting lock gate runs: exit 5, "STEP [2] COMES BEFORE THE LOCK [6], WHOSE EVIDENCE STANDS
+     (data/b758_lockgate.json)", nothing run; the root dry banked at 09:13:08Z and committed at 5c860922 stands as [2]'s evidence.
+    (69) THE HOST'S [CLOSE ; REPEAT b758 events (2)]: A SEVENTEENTH SUMMARY OF THE SESSION, at transcript line 128395,
+     2026-11-17T10:23:38.685Z, after the pre-run's ten parts (09:19:07Z-10:22Z, each after a flag read of its own, each in the foreground)
+     and before the combine. The chain read was the first call after it (10:2xZ: 0 lost, 158 boundaries), then the author's words (2 user
+     texts and 2 queued-command attachments, no author's word after 00:31:28Z), b758's ferry, the amendments bank, the preseal words, the
+     step-zero, events (three reads), defects and refusals banks read whole and the restatement; the first route after it the combine
+     (10:25:49Z).
+    (70) THE SEAT'S [CLOSE ; NEW]: THE SEAL REFUSED AT [7a] ON G-DELETES-ONE-BRANCH'S PLANT; THE ACT MODULE REPAIRED ON THE AUTHOR'S WORD.
+     The pre-run's act part (10:18:25Z) read the arm PASS PASS PASS, "POS PASSES -- DEFECTIVE" (data/b758_arms_prerun_act.txt :26), where
+     b757's pre-run read its positive control failing; the combine (10:25:49Z): 116 arms, 92 passing, 24 failing, five of them declared on
+     the face and 19 reading objects not yet written, POSITIVE-CONTROL PASSES 1. The ten parts on b757's banks (10:26:41Z-10:46Z), the
+     cadence leaving standing-c, b1, b2a to b2d and b3 not run in that mode. close.py dry (10:46:07Z, exit 3, data/b758_close_dry.txt
+     :2-:6): G-DELETES-ONE-BRANCH "the mutated copy PASSED", THE SEAL REFUSED, nothing recorded. The cause, read by read-only scratch readers
+     (plant758b.py, plant758c.py): the plant (tools/standing/allow.py plant_kept :110-:117) turns to kept the first delete clause that
+     covers the named refs, (R368)(2)'s (data/b758_ferry.txt :11); (R368)(5)'s clause deleting the kernels' push-b757-* and push-b758-*
+     branches (:17) still allows the same names, the reader not reading the repository, so the planted copy passes. Of the rulings of b724
+     to b758, b758's alone carries two covering clauses; a plant over every covering clause fails as wanted at b758 and reads at each of
+     the other 34 as plant_kept read it. The live verdict stands, each delete one branch and allowed by (2)'s clause. Every route past the
+     refusal writes after the lock gate, as b724 found (data/b724_events.txt :50). The question composed and banked by rootprompt.py put
+     (data/b758_put_2.json, 10:47:36Z) and put at 10:47:45Z (transcript line 128891).
+     BEFORE THE EDIT, read 11:37:25Z: D:/.claude/settings.json sha256 98D5E3067366B7B1E5A9326397DC21EBA97A83E80E949CEE2AF04FEC5A0FD8B4;
+     tools/acts/b758.py sha256 E20FBEC6B19F10518C4313E9E1364FC73210E0FF403D881EBDD07577E3760E11 (HEAD's blob f99f53cf).
+     THE LIFT (the author's word, not the author's hand): 11:32:30Z, transcript line 128892, "Repair the act's plant, then seal",
+     banked by its tool at 11:33:19Z (data/b758_author_words_preseal.txt); the hook not lifted, the act module's post-lock edit being one it
+     admits since v1.24.0 (tools/standing/hook.py :492-:494), settings.json unchanged.
+     THE EDIT (the seat), 11:37:3xZ: tools/acts/b758.py after :354, 21 lines inserted and none removed: two overrides of the checks template,
+     the one a function plant_every_kept inserted before the template's `def listings_before_ok(S):` (MARK 48a0f0acd92b 0), every delete
+     clause covering a named ref read kept, the scratch reader's form; the other the arm's plant line (MARK 820be1a09ba5 1) calling it in
+     place of plant_kept. The compile control 11:37:41Z: b758 compiles whole, 8 of 8, the checks render 2,871 lines against 2,861. sha256
+     now 4A211F4BB625FF1780135F7C933B75DBE131ECA8BAB9A745E9E36242C3A05276, read 11:37:54Z with settings.json equal to before the edit. N4
+     REFUTED on this edit and on this bank's append after the lock, by the author's word. The standing reader (plant_kept) stays as it is;
+     its repair carried to the next act's opening. Then the pre-run's act part again, the combine, the seconds, close.py dry, the post-lock
+     scan and the seal; the parts on b757's banks not run again, the act part's plant reading b757's one covering clause the same by either
+     form.
+    (71) THE TOOL'S [CLOSE ; NEW]: THE REPAIR PHASE'S STEP ROW REFUSED BY THE ROW WRITER, THE PHASE NOT ONE IT KNOWS. The module staged alone
+     (11:38:23Z) and `commit.py relay repair` sent (11:38:34Z): the three conditions met ((1) 1 LIFT row; (2) settings.json EQUAL; (3) files
+     ['tools/acts/b758.py'], lines [354], CONFINED), the scan over the staged set 0 on each of its four counts, 606 places, controls 7 of 7;
+     committed at relay f401a81e under the head "b758 repair:", read back EQUAL; then the tool's row writer (`fold.py record step`,
+     tools/standing/fold/record.tpl :312-:313) refused, "THE PHASE 'repair' IS NOT ONE OF step zero | ... | closing -- NOTHING WRITTEN",
+     exit 1: its phases are read from data/act_current.json's components (:292-:294), and v1.24.0 gave commit.py a repair phase without a
+     row phase, this the phase's first use since. G-SEALED-AFTER-COMPONENTS wants a row for every commit, after the lock a phase outside the
+     pre-seal set (tools/standing/repeat.py :182-:210). The row written by its tool as phase seal (11:40:16Z, step 76), under the row
+     writer's own rule that the commit after the lock takes `seal` (record.tpl :322) and as b743's repair commit took it (data/b743_events.txt
+     :20-:21, its step row 34). The row phase for the repair commit carried to the next act's standing change beside plant_kept's.
+
+AFTER THE SEAL (relay b72c24d5, 11:47:45Z) -- appended by the Edit tool, as (67)-(71) (the events bank exempt from LOCKED, tools/standing/hook.py :467; N4's line at [9] already names this bank's working-tree change after the lock):
+    (72) THE HOST'S [CLOSE ; REPEAT b758 events (2)]: AN EIGHTEENTH SUMMARY OF THE SESSION, at transcript line 129547,
+     2026-11-17T11:51:03.093Z, one second after the root question was composed, checked and banked by rootprompt.py put
+     (data/b758_put_3.json, 11:51:02Z) and before it was put. Before it, after (71): the act part of the pre-run again, the combine, the
+     seconds and close.py dry CLEAN (11:45:41Z, exit 0, 116 of 116 arms with the negative control shown failing, none withheld); the
+     post-lock scan (11:46:05Z, 611 places, 0 on each of its four targets, controls 7 of 7); close.py seal (11:46:29Z, written
+     data/b758_seal_hashes.json); the seal's add by explicit list, b757's seal set in form, and the seal commit relay b72c24d5 (11:47:45Z,
+     step 77, 177 files, the staged set 537 places, 0 on each); the scores (11:48:21Z: N1, N2, N3, N5 and S3 HELD, N4 REFUTED, S1 and S2
+     PENDING); the root prompt's two remote reads (11:49:49Z-11:49:50Z: relay remote ff65ccdb, 71 commits past it; PLACE-papers remote
+     b8c0bd73, 6 past it). The chain read was the first call after it (129,616 rows, 0 lost, 159 boundaries), then the author's words
+     (scratch words758.py: 2 user texts and 2 queued-command attachments, no author's word after 00:31:28Z beside the answer to put 2 at
+     11:32:30Z), b758's ferry, the amendments bank, the preseal words, the step-zero, events (three reads), defects and refusals banks read
+     whole and the restatement; the first write after it this row. data/b758_events.txt, data/b758_author_words_preseal.txt,
+     data/b758_put_2.json and data/b758_hook_refusals.txt stand uncommitted after the seal, b757's seal set carrying none of them, for the
+     pre-root commit.
