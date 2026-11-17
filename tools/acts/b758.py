@@ -1736,7 +1736,7 @@ def _first_add(path):
     cc_t_ = rdn('%s_controls_control.txt' % ACT)
     cc0_ = re.search(r'\((\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\)\s*$', (cc_t_.split(NL) or [''])[0])
     d0_ = min([_iso_epoch(r.get('free_at') or '') or 0 for r in _ef_kind(jl('%s_dispatch_rows.json' % ACT) or [], 'dispatch')] or [0])
-    cons_ = bool(cc0_) and ct_(ROOT, dict(K.CHAIN)['controls_gen']) < (_iso_epoch(cc0_.group(1)) or 0) < d0_ and 'CONTROLS: 16 OF 16 AS WANTED ; ALL AS WANTED' in cc_t_
+    cons_ = bool(cc0_) and ct_(ROOT, dict(K.CHAIN)['join_gen']) < (_iso_epoch(cc0_.group(1)) or 0) < d0_ and 'CONTROLS: 16 OF 16 AS WANTED ; ALL AS WANTED' in cc_t_
     # ### a kernel's main moved after its run's success and at no other time
     mm_ = _main_moves()
     rev_ = bool(mm_) and all(o_ for *_x, o_ in mm_)
@@ -1754,7 +1754,7 @@ def _first_add(path):
             ', '.join('%s %s' % (n_, ('%sZ' % m_.group(1)) if m_ else 'unread') for n_, m_ in szt_), K.ACT_CURRENT_COMMIT, stepzero_,
             ', '.join('%s %s %s' % (v_, c_[:8], o_) for v_, c_, o_ in st_rows_), ' '.join(h_[:8] for h_ in st_commits_) or 'none', standing_,
             ([('%s %s' % (k_, c_)) for k_, c_, t_ in kt_ if t_ == kw0_] or ['unread'])[0], before_kw_,
-            ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_, dict(K.CHAIN)['controls_gen'][:8], cc0_.group(1) if cc0_ else 'unread', cons_,
+            ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_, dict(K.CHAIN)['join_gen'][:8], cc0_.group(1) if cc0_ else 'unread', cons_,
             '; '.join('%s at %s tip %s licensed by %s %s' % x_ for x_ in mm_) or 'NONE', rev_,
             regen_, bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper(), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_,
             len(chain_), order_, ' '.join('%s %s@%d' % (k_, h_[:8], c_) for k_, (_r, h_), c_ in zip([k_ for k_ in okeys_ if k_ in keyed_], chain_, tm_)), anc_,
