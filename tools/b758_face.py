@@ -4,7 +4,7 @@ act shift, the act's own blocks from tools/b758_face_blocks.txt, the field of pr
 written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b757's own blocks' first and last lines in b757's face, no line number kept.
 Writes data/b758_registration_<DATE>.txt alone, and only before the lock: it refuses when the face already carries a lock block. Written by the Write tool from tools/b757_face.py, its MAP, PAT, LOGS and FIXES set by hand,
 and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes (data/b758_probe_<part>.txt) and the pre-lock comparison.
-### (R368)(10): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py, no amendment row banked (data/b758_amendments.json absent), the regeneration printed into the face's (W) section before the lock.
+### (R368)(10): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py and its one amendment row (data/b758_amendments.json row 1, amending (1), widening nothing), the regeneration printed into the face's (W) section before the lock.
 ### The face is written whole to a scratch name beside it and moved over the face only after the write returns (no zero-byte husk on an error).
 ### Composed after the act's last commit before the gate and before the gate's add (tools/standing/fold/checks.tpl nothing_ahead_ok reads every commit to
 ### the lock declared on the face by hash but the gate's step commits).
@@ -37,23 +37,25 @@ FIXES = (   # ### b758: the (W) list is (R368)(10)'s, as b757's was (R367)(10)'s
     ('-> COMPONENTS 0-5 AND COMPONENT 6`S BANKS (the listings before any clause;', '-> COMPONENTS 0-4 AND COMPONENT 5`S BANKS (the listings before any clause;'),
 )
 # ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
-DECLARED = ('G-AXIOM-CLAIM', 'G-RESEARCH-REPRODUCES', 'G-LISTINGS-BEFORE-CLAUSES', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN')
+DECLARED = ('G-AXIOM-CLAIM', 'G-RESEARCH-REPRODUCES', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN', 'G-PUSHOUT-COMMITTED')
 DECLARED_LINES = (
-    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :21); its predicate (tools/b649_checks.py :452, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b757 carried it.",
-    "### `G-RESEARCH-REPRODUCES` reads tools/research/reproduce.py`s full run banked at the act (data/b758_reproduce.txt and .json), which stand absent: the run calls rows that compute at a field (the Epstein control`s I-54, I-80, I-81, I-82 and I-85, and the class groups of I-106), which (R368)(10) bars, \"nothing computed at any field, the builds apart\" (data/b758_ferry.txt :29); neither the run nor a part of it was run, a part being no run the arm reads, so the arm fails on the absent bank (the probe of standing-a2 :56), as at b757.",
-    "### `G-LISTINGS-BEFORE-CLAUSES` takes the time of the first captured shell command that carries `branch ... --merged` (tools/acts/b758.py :452, the needle carried from b754`s module) and reads none: step zero`s listing was printed at 05:02:27Z, before the first delete (05:15:35Z), by a scratch reader that called the git listing within itself (data/b758_stepzero.txt :63-:65); a listing run now would follow the deletes, and the needle is not widened to read a scratch file the capture does not hold (data/b758_defects.txt (f); the probe of the act part :27).",
-    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b758 banked (R368)(8)(i)`s check, the answers bank read cut before the root`s appended section, as data/b758_cut.txt, re-cut no paper and banked no search, so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :36, :124), where b757`s suite passed it; (R368) orders its repairs under (3) and (8) and names neither the rule`s pattern nor the bank`s name, so neither is changed (data/b758_defects.txt (q)).",
-    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal (tools/no_sorry_main.py :184) and reads 23 kernels, pairs unequal 1, sorry in code 0 (the probe of standing-a1 :18, :20): the one pair SIDE-dirichlet-mod-24, its clone at push-b758-mod24 with HEAD equal to its remote`s main e5ebdd15 and its local main at 597b0869. The gated push`s default mode moved the remote`s main and no local main (tools/push_gated.sh :207, :229, :232); the local fast-forward is carried by neither the one-call tool nor the gated push, so by (R368)(3)`s last sentence the seat stops at that write and prints the route it lacks (data/b758_events.txt (38)); no plain git sent. SIDE-explicit-formula`s clone was returned to main by the one-call tool`s switch before the probe (HEAD = main = origin/main = 8fbab45d).",
-    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 6, data/b758_ferry.txt :49).",
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b757 carried it.",
+    "### `G-RESEARCH-REPRODUCES` reads tools/research/reproduce.py`s full run banked at the act (data/b758_reproduce.txt and .json), which stand absent: the run calls rows that compute at a field (the Epstein control`s I-54, I-80, I-81, I-82 and I-85, and the class groups of I-106), which (R368)(10) bars, \"nothing computed at any field\" (data/b758_ferry.txt :27); neither the run nor a part of it was run, a part being no run the arm reads, so the arm fails on the absent bank (the probe of standing-a2 :58), as at b757.",
+    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :126), as at b757`s pre-run; b758 banks no cut bank, and (R368) names neither the rule`s pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean at :10 or :11, b726`s certificates (commit c9add92) carried onto main by (4)`s landing with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`. The axioms print of run 44007490629, the run that built v0.40`s tree, reads each of the fifteen C2Walk.cert_m<n> with no axiom, so no fallback branch was taken and sorryAx stands in neither run`s print; the counter counts the text (data/b758_events.txt (58)). (R368) orders no write of those files, so they stand as landed; b757`s one unequal pair, SIDE-dirichlet-mod-24, was mended by (6)(i)`s route (events (38)).",
+    "### `G-PUSHOUT-COMMITTED` wants the step-zero commit`s files to be the previous act`s closing push capture alone (data/b757_relay_push-b757-closing_push_out.txt, tools/standing/fold/checks.tpl :1673); b757 stopped at [22] on the author`s word, its closing push never ran and no such capture exists; its close, [22] to [25], ran at b758 under (R368)(1) and was committed under component 1 at 401d3bda with no push-b757-closing branch and no push, the commit reaching the remote with b758`s first relay push (data/b758_events.txt (20), (58); the probe of standing-a2 :51); (R368)(2) lists b757`s uncommitted files and names no closing capture.",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 5, data/b758_ferry.txt :44).",
 )
-NEWLY = ('G-CLOSING-DRY-STEP', 'G-DRY-STEP-CLEAN', 'G-LOCKGATE-EIGHT', 'G-NO-SORRY-MAIN', 'G-NOTHING-RAN-AHEAD', 'G-ROOTDRY-READY',
-         'G-RULE-RECUT-QUOTE', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS')
-# ### FINAL: tools/standing/prelock.py print b758 at 16:06:56Z (31 failing, 9 newly against b757`s pre-run 23), after the record routes, the
-# ### ten prev-mode dry parts (the last, the act part, at 15:48:02Z) and the probes of standing-a1 (15:51:59Z), standing-a2 (15:55:58Z) and
-# ### the act part (16:03:06Z) at one HEAD (ef7c36db); of the nine, G-NO-SORRY-MAIN and G-RULE-RECUT-QUOTE fail on real state and are declared
-# ### above, the other seven each read an object not yet written (the gate, the lock, the seal, the root dry, the closing dry), as b757`s
-# ### seven of the same names did at its comparison (tools/b757_face.py :47-:48); at 15:51:42Z, the probes taken before the record routes,
-# ### it read 36 failing and 13 newly; G-DELETES-ONE-BRANCH passes on the command bank (16:03:06Z)
+NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-HOOK-WIRED',
+         'G-LOCKGATE-EIGHT', 'G-NOTHING-RAN-AHEAD', 'G-PUSHOUT-COMMITTED', 'G-ROOTDRY-READY', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS',
+         'G-WRITELIST-MIRROR-STATE')
+# ### b758, AT THE FIRST COMPARISON: tools/standing/prelock.py print b758 at 07:11Z and again at 07:3xZ (36 failing, 13 newly against b757`s
+# ### pre-run 24), the act part`s probe at 06:59:39Z and standing-a2`s at 07:04:27Z, at a483ffa0; of the thirteen, G-PUSHOUT-COMMITTED fails on
+# ### real state and is declared above; G-HOOK-WIRED read this act`s refusals bank absent at the probes and reads it present since the hook`s
+# ### first refusal (07:26:13Z, data/b758_events.txt (63)), every clause true at a read-only evaluation (07:3xZ), so it is not declared; the
+# ### eleven others each read an object not yet written (the face, the gate and its records, the seal, the root dry, the guard`s dry, the
+# ### command bank). G-AXIOM-CLAIM, G-RESEARCH-REPRODUCES, G-RULE-RECUT-QUOTE and G-NO-SORRY-MAIN failed at b757`s pre-run too and fail here.
+# ### Set again from the last comparison before the gate.
 
 
 def shift(s):
@@ -89,6 +91,58 @@ def carried(o, old):
     return gaps
 
 
+WORDS = ('no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
+         'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four')
+
+
+def _refusal_rows(act):
+    """the hook's refusals bank of an act, one row a line ("<time> | <KIND> | <tool> | ..."), as (line number, time, kind); () where absent."""
+    p = os.path.join(D, '%s_hook_refusals.txt' % act)
+    if not os.path.exists(p):
+        return ()
+    out = []
+    for n, l in enumerate(open(p, encoding='utf-8').read().split('\n'), 1):
+        f = [x.strip() for x in l.split(' | ')]
+        if len(f) >= 2 and re.match(r'^\d{4}-\d\d-\d\dT[\d:]+Z$', f[0]) and re.match(r'^[A-Z]+$', f[1]):
+            out.append((n, f[0], f[1]))
+    return tuple(out)
+
+
+def _kinds(rows):
+    k = {}
+    for _n, _t, kind in rows:
+        k[kind] = k.get(kind, 0) + 1
+    return k
+
+
+def refusals():
+    """### b758, from the bank (no count kept by hand): the hook's refusals before this lock counted by kind, against b757's bank, and the kinds
+    above b757's count, each one event by [U3] (data/b754_rules.txt (12)). Returns (n, kinds, sentence)."""
+    own, prev = _refusal_rows('b758'), _refusal_rows('b757')
+    ko, kp = _kinds(own), _kinds(prev)
+    kinds = ', '.join('%s %d' % (k, ko[k]) for k in sorted(ko)) or 'NONE'
+    pk = ', '.join('%s %d' % (k, kp[k]) for k in sorted(kp)) or 'none'
+    if not own:
+        return '0', 'NONE', ('The hook refused nothing before this lock (data/b758_hook_refusals.txt absent), so by [U3] no kind stands above '
+                             'b757`s count (data/b757_hook_refusals.txt: %s).' % pk)
+    rows = '; '.join('%s :%d %s' % (kind, n, t[11:]) for n, t, kind in own)
+    above = ', '.join('%s %d against %d' % (k, ko[k], kp.get(k, 0)) for k in sorted(ko) if ko[k] > kp.get(k, 0))
+    s = ('The hook refused %d call%s before this lock, each before it ran (data/b758_hook_refusals.txt: %s), counted by kind %s against b757`s '
+         'bank`s %s; by [U3] each kind above b757`s count is one event of data/b758_events.txt and takes no letter: %s.'
+         % (len(own), '' if len(own) == 1 else 's', rows, kinds, pk, above or 'none above it'))
+    return str(len(own)), kinds, s
+
+
+def summaries():
+    """### b758, from the events bank: the act's summaries of the session, its rows headed "A ... SUMMARY OF THE SESSION" (b757's after its lock,
+    rows headed "... AFTER b757'S LOCK", left out). Returns the phrase "<n words> summaries within it (events (a), ..., (z))"."""
+    t = open(os.path.join(D, 'b758_events.txt'), encoding='utf-8').read()
+    ns = [m.group(1) for m in re.finditer(r"(?m)^    \((\d+)\) THE HOST'S \[[^\]]*\]: ([^\n]*)", t)
+          if 'SUMMARY OF THE SESSION' in m.group(2) and "AFTER b757'S LOCK" not in m.group(2)]
+    lst = ', '.join('(%s)' % n for n in ns[:-1]) + (' and (%s)' % ns[-1] if len(ns) > 1 else '(%s)' % ns[-1] if ns else '')
+    return '%s summar%s within it (events %s)' % (WORDS[len(ns)] if len(ns) < len(WORDS) else len(ns), 'y' if len(ns) == 1 else 'ies', lst)
+
+
 def pre_face():
     hs = []
     for repo, r in LOGS:
@@ -111,6 +165,9 @@ def main():
     t = '\n'.join(parts) + '\n'
     t = t.replace('@@PREFACE@@', PRE_FACE_TITLE + ' ' + pre_face())
     t = t.replace('@@DATE@@', K.DATE)
+    rn, rk, rs = refusals()
+    t = t.replace('@@REFUSED_N@@', rn).replace('@@REFUSED_KINDS@@', rk).replace('@@REFUSALS_ZERO@@', rs)
+    t = t.replace('@@SUMMARIES@@', summaries())
     t = t.replace('@@DECLARED@@', ' '.join('`%s`' % a for a in DECLARED) + '.' if DECLARED else 'NONE.')
     t = t.replace('@@DECLARED_LINES@@\n', ''.join(l + '\n' for l in DECLARED_LINES))
     t = t.replace('@@NEWLY@@', 'PENDING (tools/standing/prelock.py print b758 not yet run)' if NEWLY is None else (' '.join('`%s`' % a for a in NEWLY) if NEWLY else 'NONE'))
