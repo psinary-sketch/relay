@@ -1,0 +1,286 @@
+b759 -- (R369)(8): THE DOCUMENT ENTERED AT v0.2, ITS COMPOSITION AND ITS CONTROLS (2026-11-17T21:32:39Z, tools/b759_compose.py write)
+
+## THE CONTROLS (planted)
+  (1) BLOCK B: an OLD once at its line replaced; twice refused; absent refused: ([True, False, False], 'a B c') -> AS WANTED
+  (2) the figures: a x 10^b against e-notation, a negative exponent, a decimal prefix; an integer mantissa not taken; a plain decimal by its rounding (0.798 on 0.79799715718, not on 0.799): ['1.2972 × 10^11', '16.2902', '6.2 × 10^(−4)'] -> AS WANTED
+  (3) the cites of a planted line: a Lean path, an implied line, a relay bank, a ledger, a ledger named without lines: [('lean', 'Schema/X.lean', ':3-:5'), ('implied', None, ':7'), ('relay', 'data/b1.txt', ':2–:4'), ('pp', 'FINDINGS', ':10'), ('ctx', 'REGISTRY', None), ('implied', None, ':8')] -> AS WANTED
+  (4) the names of a cite: inside its part, and just before its parenthesis: (['q'], ['r']) -> AS WANTED
+  (5) a Lean cite: holds; a missed line corrected where the name is declared once; two files resolved by the line; an absent name listed: ['HOLDS', ('CORRECTED', 'A/X.lean', [4]), ('HOLDS', 'B/X.lean'), 'LISTED'] -> AS WANTED
+  (6) a relay cite: a figure off its line corrected where it stands once; on its line holds; twice listed; none; beyond the end: [('CORRECTED', [3]), 'HOLDS', 'LISTED', 'LINES EXIST', 'LISTED'] -> AS WANTED
+  (7) a corrected line in the cite`s own dash: (':135', ':139', ':3-:5') -> AS WANTED
+  (8) the fields: an empty row enters nothing, an unfilled one stays bracketed, a list enters its lines; inline and by line: ([], ['‹V041›'], ['*a*', '', '*b*'], 'at the tag v9 (x) | std, run 1') -> AS WANTED
+  (9) the reader`s repairs: a relay bank without data/, REGISTRY.md, a one-word alias, "the structure of :N", "`name` :N", a Lean file named without lines; a signature`s type after "the structure of", a name before ":N", an expression none, a field`s name; a bare file name read as the one cited before and as the one in the last Lean file`s directory, else listed; the figures standing once deciding: ([('relay', 'b742_x_notes.txt', ':3'), ('pp', 'REGISTRY.md', ':5'), ('word', 'notes', ':9'), ('implied', None, ':80'), ('implied', None, ':12'), ('lctx', 'Tail.lean', None), ('implied', None, ':160')], (['ZQC'], ['foo'], ['baz'], [], ['zeros']), (('LINES EXIST', 'A/X.lean'), ('LINES EXIST', 'B/X.lean'), 'LISTED'), ('CORRECTED', [4])) -> AS WANTED
+  controls 9 of 9 as wanted
+
+## (i) BLOCK B AGAINST v0.1 (PLACE-papers HEAD`s blob, 227 lines, sha256 8289b9539b21fd18)
+  B1 at v0.1 :27: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B2 at v0.1 :33: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B3 at v0.1 :58: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B4 at v0.1 :73: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B5 at v0.1 :119: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B6 at v0.1 :119: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+  B7 at v0.1 :214: its OLD 1 time(s) in v0.1`s line, 1 in the line as composed -> STANDS ONCE
+
+## THE COMPOSITION
+  v0.2: 551 lines, 78666 bytes, sha256 804a5c96244c5a3f ; v0.1`s title line, BLOCK A, v0.1 :21-:219 with BLOCK B`s seven, BLOCK C with the fields; the law THEOREM, the appendix ENTERED
+
+## (iv) THE CITES (Lean at the pin a3aad4cc, and §1-§5`s also at v0.38 14ca5725; relay and PLACE-papers at HEAD; PLACE-papers lines by sha256 alone)
+  v0.2 :13 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :45 at a3aad4cc [Q0form] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :13 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :48 at a3aad4cc [four_mul_Q0form] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :19 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :8 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :25 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :59-:62 at a3aad4cc [rQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :25 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :69 at a3aad4cc [rQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :27 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :72 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :31 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :80, :84-:85 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/Theta.lean :20 at a3aad4cc [] -> LINES EXIST (no name in the cite; 149 lines) ; at v0.38 LINES EXIST
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/FEPair.lean :22 at a3aad4cc [] -> LINES EXIST (no name in the cite; 204 lines) ; at v0.38 LINES EXIST
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/FEPair.lean :37 at a3aad4cc [thetaC] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/FEPair.lean :158 at a3aad4cc [zqPair] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/EF/Xi.lean :26 at a3aad4cc [] -> LINES EXIST (no name in the cite; 191 lines) ; at v0.38 LINES EXIST
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean :29 at a3aad4cc [lamM] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/Continuation.lean :122-:123 at a3aad4cc [zqFn] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :31 lean SIDEExplicitFormula/Schema/ZQ/Continuation.lean :76-:77 at a3aad4cc [] -> LINES EXIST (no name in the cite; 233 lines) ; at v0.38 LINES EXIST
+  v0.2 :33 lean SIDEExplicitFormula/Schema/ZQ/Zeros.lean :319 at a3aad4cc [zqZeroConfig] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :33 lean SIDEExplicitFormula/Schema/ZQ/Zeros.lean :320 at a3aad4cc [zqFn] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :33 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :92 at a3aad4cc [LambdaQZeros] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :33 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :18-:20 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :40 relay data/b725_interference.txt :8 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :40 relay data/b725_interference.txt :9 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :44 hand v0.1 :31 at - [] -> LISTED (read by hand: v0.1`s own line :31, the forms Q1 and Q1⁻¹, which stands at v0.2 :17, v0.1 :21-:218 entering v0.2 fourteen lines higher: a cite into the document itself, its number left as v0.1 wrote it, the sentence not among BLOCK B`s seven and (8) composing v0.1 :21-:218 unchanged but for them)
+  v0.2 :44 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :127-:128 at a3aad4cc [ZQExplicitFormula] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :44 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :112-:113 at a3aad4cc [primeTermQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :48 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :137-:142 at a3aad4cc [ZQPremises] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :48 lean SIDEExplicitFormula/Schema/Wide/Config.lean :28 at a3aad4cc [WideConfig] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :59 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :133-:136 at a3aad4cc [zq_premises] -> HOLDS (implied: the last Lean file cited (SIDEExplicitFormula/Schema/Wide/Config.lean) not holding the names; read at SIDEExplicitFormula/Schema/EpsteinZQ.lean, cited before) ; at v0.38 LISTED
+  v0.2 :61 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :80-:86 at a3aad4cc [ZQContinuation] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :74 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :99-:101 at a3aad4cc [ZQZeros] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :81 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :92-:93 at a3aad4cc [LambdaQZeros] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :81 lean SIDEExplicitFormula/Schema/Wide/Config.lean :28-:38 at a3aad4cc [] -> LINES EXIST (no name in the cite; 145 lines (a bare name of 2 files read as SIDEExplicitFormula/Schema/Wide/Config.lean, cited before)) ; at v0.38 LINES EXIST
+  v0.2 :83 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :140 at a3aad4cc [logDeriv] -> HOLDS (implied: the last Lean file cited (SIDEExplicitFormula/Schema/Wide/Config.lean) not holding the names; read at SIDEExplicitFormula/Schema/EpsteinZQ.lean, cited before) ; at v0.38 HOLDS
+  v0.2 :85 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :134 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :85 lean SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63-:65 at a3aad4cc [cQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :85 relay data/b725_interference.txt :11 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :87 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :127-:129 at a3aad4cc [ZQExplicitFormula] -> HOLDS (implied: the last Lean file cited (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean) not holding the names; read at SIDEExplicitFormula/Schema/EpsteinZQ.lean, cited before) ; at v0.38 HOLDS
+  v0.2 :94 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :107-:108 at a3aad4cc [zeroSideQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :94 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :112-:113 at a3aad4cc [primeTermQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :94 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :121-:122 at a3aad4cc [archTermQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :94 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :117-:118 at a3aad4cc [bracketQ] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :94 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :124-:126 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :96 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :142 at a3aad4cc [count] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :96 lean SIDEExplicitFormula/Schema/Wide/Config.lean :49-:50 at a3aad4cc [HCount] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :103 lean SIDEExplicitFormula/Schema/Wide/Config.lean :46 at a3aad4cc [N] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :105 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :144-:166 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :105 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :164-:166 at a3aad4cc [zq_li_nonneg_imp_online] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :105 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :166 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :105 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :145 at a3aad4cc [zqZeros_ne_zero] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :105 lean SIDEExplicitFormula/Schema/Wide/StripFree.lean :157 at a3aad4cc [Wide.li_nonneg_cfg_imp_online_ne_zero] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :105 lean SIDEExplicitFormula/Schema/Wide/PositiveControl.lean :124-:125 at a3aad4cc [pc_online] -> HOLDS ; at v0.38 LISTED
+  v0.2 :105 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :190 at a3aad4cc [zq_premises] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :109 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :137-:142 at a3aad4cc [ZQPremises] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :111 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :138 at a3aad4cc [continuation] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :111 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :80-:86 at a3aad4cc [ZQContinuation] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :111 relay data/b730_continuation.txt :55 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation.txt :3 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation.txt :43 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation.txt :46 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation.txt :32 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation_plan.txt :48 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :111 relay data/b730_continuation_plan.txt :10-:11 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :139 at a3aad4cc [zeros] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :113 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :99-:101 at a3aad4cc [ZQZeros] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :113 relay data/b731_zeros.txt :42 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 relay data/b731_zeros.txt :3 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 relay data/b731_zeros.txt :31 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 relay data/b731_zeros.txt :34 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 relay data/b731_zeros.txt :21 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :113 relay data/b731_zeros_plan.txt :49 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :140 at a3aad4cc [logDeriv] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :115 relay data/b731_logderiv.txt :49 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 relay data/b731_logderiv.txt :3 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 relay data/b731_logderiv.txt :38 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 relay data/b731_logderiv.txt :42 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 relay data/b731_logderiv.txt :49 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :115 relay data/b731_logderiv_plan.txt :47 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :141 at a3aad4cc [explicitFormula] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :117 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :127-:129 at a3aad4cc [ZQExplicitFormula] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :117 relay data/b735_explicitformula.txt :220 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 relay data/b735_explicitformula.txt :45 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 relay data/b735_explicitformula.txt :45 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 relay data/b735_explicitformula.txt :77 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :25 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :117 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :201 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :117 relay data/b734_explicitformula_plan.txt :148 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :117 relay data/b734_explicitformula_plan.txt :176 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :142 at a3aad4cc [count] -> HOLDS (implied: the last Lean file cited (SIDEExplicitFormula/Schema/ZQ/EF/Main.lean) not holding the names; read at SIDEExplicitFormula/Schema/EpsteinZQ.lean, cited before) ; at v0.38 HOLDS
+  v0.2 :119 relay data/b733_count.txt :58 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b733_count.txt :26 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b733_count.txt :39 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b733_count.txt :58 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b733_count_plan.txt :25-:49 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b733_count_plan.txt :104 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b732_a0_restatement.txt :8-:9 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 lean SIDEExplicitFormula/Schema/ZQ/Count.lean :340 at a3aad4cc [] -> LINES EXIST (no name in the cite; 355 lines) ; at v0.38 LINES EXIST
+  v0.2 :119 relay data/b735_explicitformula.txt :158 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :119 relay data/b732_a0_restatement.txt :29-:30 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :121 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :190-:191 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :128 relay data/b735_explicitformula.txt :96 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :128 relay data/b735_explicitformula.txt :88-:93 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :134 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :194-:195 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :143 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :198-:201 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :154 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :205-:207 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :162 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :203-:204 at a3aad4cc [] -> LINES EXIST (no name in the cite; 213 lines) ; at v0.38 LINES EXIST
+  v0.2 :164 relay data/b735_explicitformula.txt :152 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :164 relay data/b735_explicitformula.txt :218 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :164 pp REGISTRY.md :177 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 56a82a2238dd3491
+  v0.2 :164 pp REGISTRY.md :178 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 cd0d4d5a941eb035
+  v0.2 :164 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :153 at a3aad4cc [zq_count] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :164 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :157 at a3aad4cc [zq_explicit_formula] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :164 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :164 at a3aad4cc [zq_li_nonneg_imp_online] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :164 relay data/b735_explicitformula.txt :101, :118, :134 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :178 lean SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean :32-:33 and :36-:37 at a3aad4cc [] -> LINES EXIST (no name in the cite; 43 lines) ; at v0.38 LINES EXIST
+  v0.2 :178 relay data/b743_ferry.txt :11 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :178 relay data/b742_offlinezero.txt :61-:62 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :178 relay data/b742_offlinezero.txt :19 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :180 relay data/b743_ferry.txt :11 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :182 relay data/b326_zeros_run.txt :77 at HEAD [0.9532604747946607, 16.290215720390393] -> HOLDS
+  v0.2 :182 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Elem.lean :222 at a3aad4cc [] -> LINES EXIST (no name in the cite; 352 lines) ; at v0.38 LINES EXIST
+  v0.2 :182 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Box.lean :21-:24, :31 at a3aad4cc [] -> LINES EXIST (no name in the cite; 48 lines (a bare name of 2 files read as SIDEExplicitFormula/Schema/ZQ/OffZero/Box.lean, in the directory of the last Lean file cited)) ; at v0.38 LINES EXIST
+  v0.2 :182 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Box.lean :39-:40 at a3aad4cc [] -> LINES EXIST (no name in the cite; 48 lines) ; at v0.38 LINES EXIST
+  v0.2 :182 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :87-:88 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :182 relay data/b743_ferry.txt :11 at HEAD [0.9533] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/MinModulus.lean :23-:25 at a3aad4cc [min_modulus_zero] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :186 lean Mathlib/Analysis/Complex/AbsMax.lean :405 at de5ce8a9 [Complex.norm_le_of_forall_mem_frontier_norm_le] -> HOLDS
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/MinModulus.lean :30 at a3aad4cc [] -> LINES EXIST (no name in the cite; 42 lines) ; at v0.38 LINES EXIST
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Main.lean :24-:26 at a3aad4cc [zq_offline_of_box] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :186 relay data/b738_offlinezero.txt :40 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :25 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :84-:89 at a3aad4cc [lamF_min_modulus_zero] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :71-:72 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :186 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :80 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :188 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean :99 at a3aad4cc [] -> LINES EXIST (no name in the cite; 123 lines (a bare name of 2 files read as SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean, cited before)) ; at v0.38 LINES EXIST
+  v0.2 :188 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Split.lean :29 at a3aad4cc [] -> LINES EXIST (no name in the cite; 123 lines) ; at v0.38 LINES EXIST
+  v0.2 :188 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Tail.lean :160 at a3aad4cc [zq_theta_tail] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :190 lean SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean :198 at a3aad4cc [lamM_sub_trunc] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :190 relay data/b741_c7_plan.txt :13 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :190 lean SIDEExplicitFormula/Schema/ZQ/OffZero/IncGamma.lean :59 at a3aad4cc [norm_incGamma1_le] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :192 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean :247 at a3aad4cc [lamM_centre_encl] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :192 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :30 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :192 lean SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean :27-:29 at a3aad4cc [] -> LINES EXIST (no name in the cite; 43 lines) ; at v0.38 LINES EXIST
+  v0.2 :192 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean :255 at a3aad4cc [zqFn_centre_eps] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :192 relay data/b741_offlinezero.txt :55, :68 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :192 relay data/b741_c7_plan.txt :117-:121 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frame.lean :28 at a3aad4cc [] -> LINES EXIST (no name in the cite; 103 lines) ; at v0.38 LINES EXIST
+  v0.2 :194 relay data/b742_s6_plan.txt :28-:30 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Interp.lean :220-:223 at a3aad4cc [DiffContOnCl.norm_sub_discreteCauchy_le] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Strip.lean :106 at a3aad4cc [lamF_sphere_le] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :194 relay data/b742_s6_plan.txt :43 at HEAD [7.8004] -> HOLDS
+  v0.2 :194 relay data/b742_offlinezero_notes.txt :3 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/FrontierData.lean :398 at a3aad4cc [margin] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :194 relay data/b742_offlinezero_notes.txt :3 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 relay data/b742_offlinezero_notes.txt :9 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/FrontierData.lean :373 at a3aad4cc [lp_le] -> HOLDS ; at v0.38 HOLDS
+  v0.2 :194 relay data/b742_offlinezero_notes.txt :5 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :194 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frontier.lean :140 at a3aad4cc [] -> LINES EXIST (no name in the cite; 153 lines) ; at v0.38 LINES EXIST
+  v0.2 :194 relay data/b742_offlinezero_notes.txt :6 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :198 relay data/b742_s6_plan.txt :16-:23 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :198 relay data/b742_s6_plan.txt :18 at HEAD [0.674, 0.692, 1.747] -> HOLDS
+  v0.2 :198 relay data/b742_s6_plan.txt :20, :22 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :198 relay data/b742_s6_plan.txt :23 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :200 relay data/b740_offlinezero_notes.txt :5 at HEAD [1.4608] -> HOLDS
+  v0.2 :200 relay data/b741_offlinezero.txt :55 at HEAD [1.3103, 1.096] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :200 relay data/b740_offlinezero_notes.txt :5 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :200 relay data/b741_c7_plan.txt :35 at HEAD [0.0125885] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :200 relay data/b742_s6_plan.txt :20 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :202 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :8 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :204 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :18-:20 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines) ; at v0.38 LINES EXIST
+  v0.2 :240 pp FINDINGS.md :11771 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 e5610fd4f75bdc9e
+  v0.2 :242 pp phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md :322 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 afea09f858d721ba
+  v0.2 :242 pp phase1.5/method/INSTRUMENTS.md :648 at HEAD [7.57 × 10^39] -> HOLDS ; the lines` sha256 c43c3ed1b4d0f9c3
+  v0.2 :254 relay data/b744_zetabox_plan.txt :134 at HEAD [1.2972 × 10^11, 16.2902] -> CORRECTED (each figure stands once in the file -> :135)
+  v0.2 :254 relay data/b744_zetabox_plan.txt :137–:138 at HEAD [1.4608 × 10^10, 2.8 × 10^10, 0.95326, 0.016640] -> CORRECTED (each figure stands once in the file -> :139)
+  v0.2 :256 relay data/b744_zetabox_plan.txt :135–:136 at HEAD [6.6263 × 10^4, 3.6016 × 10^5, 14.1347] -> CORRECTED (the figures standing once in the file stand at :137; 14.1347 at more lines (:12, :28, :134, :179), not deciding -> :137)
+  v0.2 :256 relay data/b744_zetabox_plan.txt :138–:139 at HEAD [6.2 × 10^(−4), 7.3 × 10^(−13)] -> LISTED (a figure off the cited lines stands more than once in the file, the figures standing once not deciding (6.2 × 10^(−4) at :124, :139, :171; 7.3 × 10^(−13) at :140, :172))
+  v0.2 :269 pp phase1.5/method/INSTRUMENTS.md :556 at HEAD [0.798] -> HOLDS ; the lines` sha256 3a0518079c2d21be
+  v0.2 :299 relay data/b750_cq_sign.txt :7–:37 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :299 pp phase1.5/method/INSTRUMENTS.md :766 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 dcffcbb5b039965c
+  v0.2 :309 relay data/b753_registrations.txt :14–:16 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :309 relay data/b755_walk.txt :232–:234 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :313 lean SIDEExplicitFormula/C2Walk.lean :27 at a3aad4cc [] -> LINES EXIST (no name in the cite; 197 lines)
+  v0.2 :328 pp phase1.5/method/INSTRUMENTS.md :766 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 dcffcbb5b039965c
+  v0.2 :329 pp FACES_LEDGER.md :448–:461 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 32b39c0a0f955842, 4d69e392c1a3372b, acd7abda6e076627, a0d73713b54eec6d
+  v0.2 :333 pp REGISTRY.md :177–:179 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 56a82a2238dd3491, cd0d4d5a941eb035, f2fb0458c7ccb836
+  v0.2 :343 lean SIDEExplicitFormula/Schema/ZQ/Continuation.lean :221 at a3aad4cc [zq_continuation] -> HOLDS
+  v0.2 :344 lean SIDEExplicitFormula/Schema/ZQ/Zeros.lean :329 at a3aad4cc [zq_zeros] -> HOLDS
+  v0.2 :345 lean SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :396 at a3aad4cc [zq_logDeriv] -> HOLDS
+  v0.2 :346 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :25 at a3aad4cc [zq_explicitFormula] -> HOLDS
+  v0.2 :347 lean SIDEExplicitFormula/Schema/ZQ/Count.lean :338 at a3aad4cc [zq_count_holds] -> HOLDS
+  v0.2 :348 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :190 at a3aad4cc [zq_premises] -> HOLDS
+  v0.2 :349 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :194 at a3aad4cc [zq_count_instance] -> HOLDS
+  v0.2 :350 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :198 at a3aad4cc [zq_explicit_formula_instance] -> HOLDS
+  v0.2 :351 lean SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :205 at a3aad4cc [zq_li_nonneg_imp_online_instance] -> HOLDS
+  v0.2 :352 lean SIDEExplicitFormula/Schema/Wide/StripFree.lean :157 at a3aad4cc [Wide.li_nonneg_cfg_imp_online_ne_zero] -> HOLDS
+  v0.2 :353 lean SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean :32 at a3aad4cc [zq_offline_zero] -> HOLDS
+  v0.2 :354 lean SIDEExplicitFormula/Schema/ZQ/OffZero/MinModulus.lean :23 at a3aad4cc [min_modulus_zero] -> HOLDS
+  v0.2 :355 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Centre.lean :247 at a3aad4cc [lamM_centre_encl] -> HOLDS
+  v0.2 :356 lean SIDEExplicitFormula/Schema/ZQ/OffZero/Frontier.lean :140 at a3aad4cc [lamF_frontier_ge] -> HOLDS
+  v0.2 :357 lean SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean :36 at a3aad4cc [zq_li_nonneg_fails] -> HOLDS
+  v0.2 :358 lean SIDEExplicitFormula/Schema/Wide/HalfScale.lean :277 at a3aad4cc [Wide.wide_detector] -> HOLDS
+  v0.2 :359 lean SIDEExplicitFormula/Schema/Wide/HalfScale.lean :167 at a3aad4cc [Wide.half_count] -> HOLDS
+  v0.2 :360 lean SIDEExplicitFormula/Schema/Wide/HalfScale.lean :255 at a3aad4cc [Wide.dil_classK] -> HOLDS
+  v0.2 :361 lean SIDEExplicitFormula/Schema/Wide/HalfScale.lean :263 at a3aad4cc [Wide.halfConfig_sum] -> HOLDS
+  v0.2 :362 lean SIDEExplicitFormula/Schema/Detector.lean :99 at a3aad4cc [detector] -> HOLDS
+  v0.2 :363 lean SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean :26 at a3aad4cc [zq_arith_side_re_neg] -> HOLDS
+  v0.2 :364 lean SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean :44 at a3aad4cc [zq_weil_positivity_fails] -> HOLDS
+  v0.2 :365 lean SIDEExplicitFormula/H2Sign.lean :29 at a3aad4cc [h2_sign] -> HOLDS
+  v0.2 :366 lean SIDEExplicitFormula/Seam.lean :101 at a3aad4cc [h2_sign_iff_rh] -> HOLDS
+  v0.2 :367 lean SIDEExplicitFormula/Schema/Wide/PositiveControl.lean :118 at a3aad4cc [pc_li_nonneg] -> HOLDS
+  v0.2 :368 lean SIDEExplicitFormula/Schema/Wide/PositiveControl.lean :124 at a3aad4cc [pc_online] -> HOLDS
+  v0.2 :369 lean SIDEExplicitFormula/Schema/ZetaBox/Box.lean :21 at a3aad4cc [zeta_box] -> HOLDS
+  v0.2 :370 lean SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :56 at a3aad4cc [rQ_one] -> HOLDS
+  v0.2 :371 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :81 at a3aad4cc [rQ_two] -> HOLDS
+  v0.2 :371 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :85 at a3aad4cc [rQ_three] -> HOLDS
+  v0.2 :371 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :89 at a3aad4cc [rQ_six] -> HOLDS
+  v0.2 :372 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :107 at a3aad4cc [rQ_half_one] -> HOLDS
+  v0.2 :373 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :99 at a3aad4cc [zq_coeff_not_multiplicative] -> HOLDS
+  v0.2 :374 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :112 at a3aad4cc [zeta_isMultiplicative_control] -> HOLDS
+  v0.2 :375 lean SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :71 at a3aad4cc [cQ_eq] -> HOLDS
+  v0.2 :376 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :240 at a3aad4cc [cQ_four] -> HOLDS
+  v0.2 :376 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :247 at a3aad4cc [cQ_six] -> HOLDS
+  v0.2 :377 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :253 at a3aad4cc [cQ_eight] -> HOLDS
+  v0.2 :377 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :259 at a3aad4cc [cQ_twelve] -> HOLDS
+  v0.2 :377 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :266 at a3aad4cc [cQ_sixteen] -> HOLDS
+  v0.2 :377 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :272 at a3aad4cc [cQ_twenty_four] -> HOLDS
+  v0.2 :378 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :281 at a3aad4cc [cQ_forty_eight] -> HOLDS
+  v0.2 :379 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :291 at a3aad4cc [cQ_not_nonneg] -> HOLDS
+  v0.2 :380 lean SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :301 at a3aad4cc [vonMangoldt_nonneg_control] -> HOLDS
+  v0.2 :381 lean SIDEExplicitFormula/C2Theorem.lean :76 at a3aad4cc [C2Walk.c2_least_negative] -> HOLDS
+  v0.2 :382 lean SIDEDirichletMod24/Units.lean :61 at e5ebdd15 [units24_iso_signs] -> HOLDS
+  v0.2 :388 relay data/b725_interference.txt :8–:9 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :389 relay data/b326_zeros_run.txt :77 at HEAD [0.9533, 16.2902] -> HOLDS
+  v0.2 :391 relay data/b744_zetabox_plan.txt :131–:139 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :408 pp FINDINGS.md :11771 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 e5610fd4f75bdc9e
+  v0.2 :428 relay data/b742_offlinezero.txt :68 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :429 relay data/b750_cq_sign.txt :7–:28 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :443 lean SIDEExplicitFormula/Schema/Wide/Converse.lean :32 at a3aad4cc [Wide.liCoeff] -> HOLDS
+  v0.2 :452 pp ERRATA.md :1039 at HEAD [] -> LINES EXIST (no figure of the clause in the file) ; the lines` sha256 c8241e85d34c9fee
+  v0.2 :456 hand v0.1 :27, :33, :58, :73, :119 at - [] -> HOLDS (read by hand: v0.1`s lines, BLOCK B`s keys at them)
+  v0.2 :456 hand v0.1 :214 at - [] -> HOLDS (read by hand: v0.1`s line, BLOCK B`s key at it)
+  v0.2 :468 relay data/b754_author_answers.txt :182 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :470 relay data/b755_walk.txt :232, :234 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :470 relay data/b755_zeros_from_primes_59.txt :6-:13 at HEAD [0.834531] -> HOLDS
+  v0.2 :470 relay data/b755_recur_59.txt :7-:9 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  v0.2 :472 hand SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean :18 at 6568e9c7 [] -> HOLDS (read by hand: v0.1`s dated note of 2026-11-16, entered byte for byte as (7)`s HISTORY: where b757`s join broke in run 43818699881, read at that run`s built commit 6568e9c7 (relay data/b757_outcomes.txt :5, :12, :15), SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean :18 declaring `sRe` there; at the pin the line declares `timeSRe`, b758`s rename d1afb4fc)
+  v0.2 :485 lean SIDEExplicitFormula/Schema/EpsteinZQ.lean :124–:126 at a3aad4cc [] -> LINES EXIST (no name in the cite; 170 lines)
+  v0.2 :496 relay data/b753_registrations.txt :18–:23 at HEAD [] -> LINES EXIST (no figure of the clause in the file)
+  THE CITES READ 247 ; hand HOLDS 3 ; hand LISTED 1 ; lean HOLDS 106 ; lean LINES EXIST 40 ; pp HOLDS 2 ; pp LINES EXIST 10 ; relay CORRECTED 3 ; relay HOLDS 6 ; relay LINES EXIST 75 ; relay LISTED 1 ; CORRECTED 3 ; LISTED (THE MISSES) 2, 0 WANTED
+
+## (iii) SECTION 9.9`S NOTES AGAINST v0.1 :3-:19: BYTE-EQUAL (17 lines, sha256 4e9cea55862a7248 against 4e9cea55862a7248)
+## (vi) THE BRACKETS LEFT: 0
+## (v) THE BANNED STEMS (tools/banned_terms.py --new over a temporary copy, exit 0): live uses 0 ; VERDICT          : CLEAN
+## (ii) v0.1`S sha256: the blob 8289b9539b21fd18 before, 8289b9539b21fd18 after ; the working copy 8289b9539b21fd18 before, 8289b9539b21fd18 after ; EQUAL True ; the ruling`s opening 8289b9539b21fd18 matches the blob
+
+## THE SENTENCE OF (8), ITS FIELDS FILLED
+  THE_EPSTEIN_CONTROL_OBJECT stands at v0.2: sections 1 to 5 with seven sentences re-cut to what is compiled at the tag v0.41 (a3aad4cc); sections 6 to 9 and Appendix A entered from the navigator's text under (R369); 0 fields left in brackets; v0.1 unchanged beside it; nothing deposited.
+
+### ### **v0.2 COMPOSED: 551 LINES ; BLOCK B 7 OF 7 ; CITES 247, CORRECTED 3, LISTED 2 ; 9.9 BYTE-EQUAL ; BRACKETS LEFT 0 ; THE STEMS CLEAN ; v0.1 UNCHANGED ; CONTROLS 9 OF 9.**
+PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md STANDS ALREADY, BYTE-EQUAL TO THE COMPOSITION: 78666 bytes, sha256 804a5c96244c5a3f ; not rewritten (written by an earlier run of this tool whose bank figbank refused, events (40))
