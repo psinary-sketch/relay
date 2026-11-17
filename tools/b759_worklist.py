@@ -329,7 +329,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b759.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.36.2'            # ### entering; (R369)(4)'s four changes land each by a commit of its own that moves VERSION, its controls printed before any use
+STANDING_VERSION = 'v1.36.7'            # ### b759: v1.36.2 entering; (R369)(4)'s four changes (v1.36.3-v1.36.6) and the kernel route (v1.36.7), each by a commit of its own that moves VERSION, its controls printed before any use
 STANDING_VERSION_ENTERING = 'v1.36.2'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '630cba16'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R369)'s scope read: SIDE-explicit-formula's main at v0.40; SIDE-dirichlet-mod-24 at main, v0.2.0
 # ### v1.18.0, (R364)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -337,8 +337,8 @@ LEAN_TREES = (('D:/SIDE-explicit-formula', '630cba16'), ('D:/SIDE-dirichlet-mod-
 COMPARATIVE_BANKS = ('data/b759_corrigendum.txt', 'data/b759_presend.txt', 'data/b759_c3table.txt', 'data/b759_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('VERSION', 'commit.py', 'fold/closing.tpl', 'fold/record.tpl')   # ### v1.35.4 and v1.35.5's changed files, by git diff --name-status 38024feb..c92fca81 -- tools/standing/ (4; b757, Component 6)
-STANDING_NEW = ('v1354.py', 'v1355.py')   # ### their new files, the same diff (2)
+STANDING_CHANGED = ('VERSION', 'allow.py', 'commit.py', 'fold/checks.tpl', 'fold/record.tpl')   # ### b759: v1.36.3 to v1.36.7's changed files, by git diff --name-status e43f1369 HEAD -- tools/standing/ (5; 21:5xZ)
+STANDING_NEW = ('v1363.py', 'v1364.py', 'v1365.py', 'v1366.py', 'v1367.py')   # ### their new files, the same diff (5)
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = 'e43f1369'    # ### b758's last commit (its closing step row), the act's relay base
 B714_RECORD = '36daceb8'     # ### b758's record commit (relay)
@@ -346,7 +346,7 @@ B714_ROOT = '81ae9220f799745ea0b8307b056307e4b98db2bb29916456138c939047f82ac5'  
 B723_ROOT_BANKS = 'cd1e9ed5'  # ### b758's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = None           # ### none: (R369)(1) orders no standing change; the four of (4) are Component 2's
-C1_LOCKGATE = 'a85d414c'     # ### b758: tools/b758_lockgate.py carried from b757's and committed with its clause set before any run (03:56:16Z, CHAIN 'carries'), before the handoff page; _chain reads it at that place
+C1_LOCKGATE = None           # ### b759: tools/b759_lockgate.py carried from b758's and committed with its clause set before any run; set when made
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b759_doors.py', '2bc7eca8', 'data/b759_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
@@ -371,7 +371,7 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None              # ### no rules bank this act: (R368) orders none, nor did (R367); data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
-C1_CEILING = '548028f4'            # ### b759 (R369)(2): the commit carrying data/b759_ceiling.txt's last reading -- the first, before Component 1 (18:53:05Z, 0.69 h of 16, nothing carried); moved with each later reading
+C1_CEILING = 'b23d39a5'            # ### b759 (R369)(2): the commit carrying data/b759_ceiling.txt's last reading -- the ninth, before Component 6 (21:36:20Z, 3.41 h of 16, nothing carried, dispatches 1 of 3)
 C1_PP = 'c71ebcd2'           # ### PLACE-papers: FINDINGS -- the corrigendum for b758 at :15550 (step 7, 18:59:10Z); no weight line ((R369)(1) orders none)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
@@ -423,52 +423,64 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### first of its commits, each of them carrying the tool and not the bank, the bank's commit the bank and not the tool, the blob at that
 # ### commit equal to the working tree. The statements, the notes and the controls bank added as each is banked; the outcomes and the
 # ### ceiling set again at their last writes
-GENS = (('the pre-send reads', 'tools/b759_presend.py', ('06eaa976', '2e103c46'), 'data/b759_presend.txt', '7aaa2863'),
-        ('the landing read', 'tools/b759_join.py', ('7aaa2863',), 'data/b759_land.txt', 'b83b3cac'),
-        ('the merge of (5)', 'tools/b759_join.py', ('7aaa2863', 'f8b607a5'), 'data/b759_coeff.txt', '6e14bfe4'),
-        ('the controls tool`s controls', 'tools/b759_controls.py', ('7aaa2863',), 'data/b759_controls_control.txt', 'b83b3cac'),
-        ('the outcomes', 'tools/b759_outcomes.py', ('6db2be8d',), 'data/b759_outcomes.txt', '6490bf35'),
-        ('the moved cites of (8)', 'tools/b759_notes.py', ('4ca805a4', '5559a08b'), 'data/b759_moved_cites.txt', 'ca551bb4'),
-        ('the ceiling', 'tools/b759_ceiling.py', ('96a22fde',), 'data/b759_ceiling.txt', '0f620cdb'),
-        ('the statements of (7)', 'tools/b759_statements.py', ('5764d817', '4f069656'), 'data/b759_epstein_statements.txt', '0f620cdb'),
-        ('the notes of (8)', 'tools/b759_notes.py', ('4ca805a4', '5559a08b', 'a90f680a'), 'data/b759_notes.json', '5615a84f'),   # ### defect (c): repaired a90f680a
-        ('the dispatches', 'tools/b759_controls.py', ('7aaa2863',), 'data/b759_controls.txt', '63f25a83'))
+# ### b759, before the lock: every tool of the act committed before the bank it wrote, each read from git (scratch files759.py, read-only,
+# ### 21:5xZ): the tool's first add the first of its commits, each of them carrying the tool and not the bank, the bank's commit (as it stands
+# ### at HEAD) the bank and not the tool. tools/research/reproduce.py is a standing tool (its bank (11)'s) and stands apart
+GENS = (('the ceiling', 'tools/b759_ceiling.py', ('ac029157',), 'data/b759_ceiling.txt', 'b23d39a5'),
+        ('the pre-send reads', 'tools/b759_presend.py', ('5ae125f5',), 'data/b759_presend.txt', '9a5a7dc2'),
+        ('the controls tool`s controls', 'tools/b759_controls.py', ('9a5a7dc2',), 'data/b759_controls_control.txt', '993a02ff'),
+        ('the dispatches', 'tools/b759_controls.py', ('9a5a7dc2',), 'data/b759_controls.txt', '4cbb94b4'),
+        ('the outcomes', 'tools/b759_outcomes.py', ('51d7dd62', 'f73b67f6'), 'data/b759_outcomes.txt', '6c10db30'),
+        ('the table', 'tools/b759_c3table.py', ('ef78eb37',), 'data/b759_c3table.txt', '41dbbb91'),
+        ('the cost law', 'tools/b759_costlaw.py', ('ef78eb37',), 'data/b759_costlaw.txt', '41dbbb91'),
+        ('the fields', 'tools/b759_fields.py', ('13fc4704', '4d000f9b'), 'data/b759_fields.txt', 'b2743155'),
+        ('the fields N and DEPOSITS', 'tools/b759_fields.py', ('13fc4704', '4d000f9b', '6232c3ed'), 'data/b759_fields_corpus.txt', 'c0bdaca0'),   # ### events (42): the corpus route repaired 6232c3ed before its bank
+        ('the document', 'tools/b759_compose.py', ('ce2700fc', 'c02309a9', '54405456', 'bf4ed2b4'), 'data/b759_compose.txt', '93f32449'),   # ### events (37), (39)-(41): three repairs, defects (d) and (e)
+        ('the notes of (8)', 'tools/b759_notes.py', ('78ed7e76',), 'data/b759_notes.json', 'a4857802'),
+        ('the corpus lines', 'tools/b759_corpus.py', ('18addbde',), 'data/b759_corpus.txt', 'b23d39a5'),
+        ('the errata and the orders', 'tools/b759_errata.py', ('4d000f9b',), 'data/b759_errata.json', '28a7bd7f'))
+GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 GENS_WITH_BANK = ()  # ### none: each act tool committed before its run
 # ### b758, Component 5: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
 # ### module's N2 arms (the order by time and by ancestry) and the entry's order paragraph (CHAIN_WORDS); later commits appended as made; the
 # ### lock gate and the handoff page appended by _chain where made
-CHAIN = (('presend_gen', '06eaa976'), ('presend_fix', '2e103c46'), ('v1356', 'ac6a0a77'), ('words', 'b663b331'), ('v1357', '248cacb8'),
-         ('b758_close', '401d3bda'), ('v1358', 'ed0d3f33'), ('c1', 'f20e2be2'), ('corr', '2f3287de'), ('v1359', 'da79951c'), ('join_gen', '7aaa2863'),
-         ('dispatch1', 'b83b3cac'), ('join_ext', 'f8b607a5'), ('v1360', 'fd45f4c5'), ('v1361', '9bc8cfeb'), ('v1362', '4db55035'), ('side_rule', 'ae24d870'),
-         ('statements_gen', '5764d817'), ('statements_fix', '4f069656'), ('outcomes_gen', '6db2be8d'), ('notes_gen', '4ca805a4'), ('notes_fix', '5559a08b'),
-         ('moved', 'ca551bb4'), ('ceiling_gen', '96a22fde'), ('ceiling1', 'b9e4c79f'), ('read1', '064afdd6'), ('rows1', 'a3371bc3'), ('landed', '6e14bfe4'),
-         ('record1', '54fb61ff'), ('record2', '32e23cbe'), ('closing', 'c6a1f6ec'), ('regspec', 'ae675194'), ('overrides', '7822fd02'),
-         ('checks', '12d2fc58'), ('carries', 'a85d414c'), ('read2', '4905d3e3'), ('rows2', 'ac6def8e'), ('landed2', '6490bf35'), ('deletes', 'cfca142a'),
-         ('statements', '0f620cdb'), ('notes_fix2', 'a90f680a'), ('notes', '5615a84f'), ('controls', '63f25a83'))
-PP_CHAIN = (('c1pp', '6c50d50d'), ('pp_a', 'babcc8ea'), ('pp_b', 'fbfec0f5'), ('pp_c', '7f96a8c6'), ('pp_d', 'a3fad736'), ('pp_e', 'cd42d8e9'))   # ### the corrigendum, then the notes of (8), (a) to (e)
+# ### b759, before the lock: the act's relay commits after step zero's banks (3c135c69), every one, in their order, read from git (scratch
+# ### files759.py, read-only, 21:5xZ) and from data/b759_steps.json (the step-rows commit 9207bcb4 writes no row of its own); later commits
+# ### appended as made
+CHAIN = (('ceiling_gen', 'ac029157'), ('c1', '548028f4'), ('corr', 'e16d9603'), ('v1363', '983ca5b1'), ('v1364', '4622b017'), ('v1365', '34452b1a'),
+         ('v1366', '8fc653fc'), ('v1367', 'cd45450e'), ('presend_gen', '5ae125f5'), ('controls_gen', '9a5a7dc2'), ('dispatch1', '993a02ff'),
+         ('outcomes_gen', '51d7dd62'), ('outcomes_fix', 'f73b67f6'), ('table_gen', 'ef78eb37'), ('table', '41dbbb91'), ('fields_gen', '13fc4704'),
+         ('compose_gen', 'ce2700fc'), ('notes_gen', '78ed7e76'), ('corpus_gen', '18addbde'), ('errata_gen', '4d000f9b'), ('reproduce', '8cf76f15'),
+         ('compose_fix', 'c02309a9'), ('checks1', 'f14af238'), ('read1', '4cbb94b4'), ('rows1', '9207bcb4'), ('landed', '6c10db30'), ('fields', 'b2743155'),
+         ('compose_fix2', '54405456'), ('compose_fix3', 'bf4ed2b4'), ('compose', '93f32449'), ('notes', 'a4857802'), ('corpus', 'b23d39a5'),
+         ('fields_fix', '6232c3ed'), ('fields_corpus', 'c0bdaca0'), ('errata', '28a7bd7f'))
+# ### PLACE-papers' commits of the act in their order: the corrigendum; (8)'s document and its three notes; (9)'s nine documents; (10)'s two
+PP_CHAIN = (('c1pp', 'c71ebcd2'), ('pp_doc', 'd48bd080'), ('pp_reg', 'bb146c95'), ('pp_faces', 'e421b303'), ('pp_census', '9c522714'),
+            ('pp_c1', '0bcb0b56'), ('pp_c2', '682e9bdd'), ('pp_c3', '343e2f57'), ('pp_c4', 'aeadc243'), ('pp_c6', '94cdaa3e'), ('pp_c7', 'dbb39833'),
+            ('pp_c8', '1f4aa501'), ('pp_c9', '9dc65329'), ('pp_c10', '83883924'), ('pp_errata', 'ebbf080c'), ('pp_trails', 'b6e9f79c'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero', 'presend_gen', 'presend_fix', 'v1356', 'words', 'v1357', 'b758_close', 'v1358', 'c1', 'c1pp', 'corr', 'v1359',
-              'join_gen', 'dispatch1', 'join_ext', 'v1360', 'v1361', 'v1362', 'side_rule', 'statements_gen', 'statements_fix', 'outcomes_gen', 'notes_gen',
-              'notes_fix', 'moved', 'ceiling_gen', 'ceiling1', 'read1', 'rows1', 'landed', 'record1', 'record2', 'closing', 'regspec', 'overrides',
-              'checks', 'carries', 'read2', 'rows2', 'landed2', 'deletes', 'statements', 'pp_a', 'notes_fix2', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes',
-              'controls')
-CHAIN_WORDS.update({'presend_gen': 'the pre-send tool', 'presend_fix': 'its bound on the names of anonymous instances', 'v1356': 'v1.35.6, the reader`s repair',
-                    'words': 'the author`s answer and the amendment of (1)', 'v1357': 'v1.35.7, the bound', 'b758_close': 'b758`s four carried steps',
-                    'v1358': 'v1.35.8, the title rule', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
-                    'v1359': 'v1.35.9, the kernel route', 'join_gen': 'the join reader and the controls tool, with the pre-send bank',
-                    'dispatch1': 'the landing read and dispatch 1', 'join_ext': 'the join tool extended for (5)', 'v1360': 'v1.36.0, the fast-forward route',
-                    'v1361': 'v1.36.1, the push route', 'v1362': 'v1.36.2, the arm and the face', 'side_rule': 'the side rule narrowed',
-                    'statements_gen': 'the statements tool', 'statements_fix': 'its bank route', 'outcomes_gen': 'the outcomes tool', 'notes_gen': 'the notes tool',
-                    'notes_fix': 'its moved-cite reader sorted', 'moved': 'the moved cites', 'ceiling_gen': 'the ceiling tool',
-                    'ceiling1': 'the record`s reads and the ceiling`s first reading', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step row',
-                    'landed': 'the join landed at v0.39 and the merge with dispatch 2', 'record1': 'the entry rewritten', 'record2': 'the trail record',
-                    'closing': 'the closing record', 'regspec': 'the regspec and the report', 'overrides': 'the overrides and the delete arms',
-                    'checks': 'the checks rewritten', 'carries': 'the three close tools carried', 'read2': 'dispatch 2 read and the outcomes',
-                    'rows2': 'its step row', 'landed2': 'the three landed at v0.40', 'deletes': 'the deletes carried, the route lacking',
-                    'statements': 'the ceiling after Component 3 and the statements of (7)', 'pp_a': 'the Epstein note', 'notes_fix2': 'the notes tool repaired',
-                    'pp_b': 'the FACES_LEDGER update', 'pp_c': 'the census note', 'pp_d': 'the REGISTRY note', 'pp_e': 'the OPEN_TRAILS block',
-                    'notes': 'the notes bank', 'controls': 'the controls bank'})
+TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'v1363', 'v1364', 'v1365', 'v1366', 'v1367', 'presend_gen', 'controls_gen',
+              'dispatch1', 'outcomes_gen', 'outcomes_fix', 'table_gen', 'table', 'fields_gen', 'compose_gen', 'notes_gen', 'corpus_gen', 'errata_gen',
+              'reproduce', 'compose_fix', 'checks1', 'read1', 'rows1', 'landed', 'fields', 'compose_fix2', 'compose_fix3', 'pp_doc', 'compose',
+              'pp_reg', 'pp_faces', 'pp_census', 'notes', 'pp_c1', 'pp_c2', 'pp_c3', 'pp_c4', 'pp_c6', 'pp_c7', 'pp_c8', 'pp_c9', 'pp_c10', 'corpus',
+              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata')
+CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
+                    'v1363': 'v1.36.3, the route that removes a kernel branch', 'v1364': 'v1.36.4, the plant reading every covering clause',
+                    'v1365': 'v1.36.5, the row writer`s phase repair', 'v1366': 'v1.36.6, the kernels face reader',
+                    'v1367': 'v1.36.7, the kernel route opened for b759', 'presend_gen': 'the pre-send tool with the salt check',
+                    'controls_gen': 'the controls tool, with the pre-send bank', 'dispatch1': 'dispatch 1', 'outcomes_gen': 'the outcomes tool',
+                    'outcomes_fix': 'its clause reader', 'table_gen': 'the table and cost law tools', 'table': 'the table and the cost law',
+                    'fields_gen': 'the fields tool', 'compose_gen': 'the composer', 'notes_gen': 'the notes tool', 'corpus_gen': 'the corpus tool',
+                    'errata_gen': 'the errata tool and the fields` corpus route', 'reproduce': 'the reproduce run', 'compose_fix': 'the composer`s cite reader',
+                    'checks1': 'the act module`s first checks', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step rows',
+                    'landed': 'the statement landed at v0.41', 'fields': 'the fields', 'compose_fix2': 'the composer`s hand verdict',
+                    'compose_fix3': 'the composer`s write order', 'pp_doc': 'the document at v0.2', 'compose': 'the compose bank',
+                    'pp_reg': 'the REGISTRY row and note', 'pp_faces': 'the FACES_LEDGER note', 'pp_census': 'the census note', 'notes': 'the notes bank',
+                    'pp_c1': 'C1', 'pp_c2': 'C2', 'pp_c3': 'C3', 'pp_c4': 'C4 and C5', 'pp_c6': 'C6', 'pp_c7': 'C7', 'pp_c8': 'C8a and C8b',
+                    'pp_c9': 'C9a, C9b, C11a and C11b', 'pp_c10': 'C10', 'corpus': 'the corpus bank', 'fields_fix': 'the corpus route repaired',
+                    'fields_corpus': 'N and DEPOSITS', 'pp_errata': 'the ERRATA entries', 'pp_trails': 'the OPEN_TRAILS lines',
+                    'errata': 'the errata bank'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.36.3', '983ca5b1', 'data/b759_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b759_standing_v1364.txt', 6),
                   ('v1.36.5', '34452b1a', 'data/b759_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b759_standing_v1366.txt', 5),
@@ -525,15 +537,20 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R369)); one question at the root ((R369)(11))
 SITTING_STATES = {}
-HANDOFF_COMMIT = '86c1f110'   # ### (R368)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate (step 63, 05:20:37Z, 154 lines, controls 9 of 9)
+HANDOFF_COMMIT = None   # ### (R369)(11): HANDOFF.md written once by tools/standing/handoff.py before the gate; set when made
 C3_RELAY = ()   # ### Component 3 ((R369)(5)): set as made
-C3_NOTES_GEN = 'a90f680a'   # ### b758 (R368)(8): tools/b758_notes.py as last committed before its writes of (b) to (e), controls 24 of 24, defect (c); (a) written under 5559a08b (events (44), (53))
-C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'babcc8ea'),
-               ('(b)', 'FACES_LEDGER.md', 'fbfec0f5'),
-               ('(c)', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '7f96a8c6'),
-               ('(d)', 'REGISTRY.md', 'a3fad736'),
-               ('(e)', 'OPEN_TRAILS.md', 'cd42d8e9'))   # ### (item, the file, the PLACE-papers commit), steps 51 and 53-56, each confirmed at HEAD by tools/b758_notes.py (data/b758_notes.json, relay 5615a84f)
-C3_NOTES_WRITTEN = 5   # ### the notes of (8): five writes, one PLACE-papers commit each (data/b758_notes.json)
+C3_NOTES_GEN = '78ed7e76'   # ### b759 (R369)(8): tools/b759_notes.py committed before its run, controls 7 of 7, not edited after (step 25)
+C3_NOTES_PP = (('reg', 'REGISTRY.md', 'bb146c95'),
+               ('faces', 'FACES_LEDGER.md', 'e421b303'),
+               ('census', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '9c522714'))   # ### (item, the file, the PLACE-papers commit), steps 38-40, each read back EQUAL by tools/b759_notes.py (data/b759_notes.json, relay a4857802)
+C3_NOTES_WRITTEN = 3   # ### the notes of (8): three writes, one PLACE-papers commit each (data/b759_notes.json)
+C3_DOC_PP = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md', 'd48bd080')   # ### (R369)(8): the document, one PLACE-papers commit (step 36)
+C3_CORPUS_PP = (('C1', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', '0bcb0b56'), ('C2', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', '682e9bdd'),
+                ('C3', 'phase2/formation/CAPACITY.md', '343e2f57'), ('C4 C5', 'day1/A_Place_to_Stand_v5_17.md', 'aeadc243'),
+                ('C6', 'phase1.5/experiments/CONTROLLED_EXPERIMENT.md', '94cdaa3e'), ('C7', 'phase1.5/structural/VOCABULARY.md', 'dbb39833'),
+                ('C8a C8b', 'phase1.5/method/INVARIANCE_BARRIERS.md', '1f4aa501'), ('C9a C9b C11a C11b', 'SPIRAL_MAP.md', '9dc65329'),
+                ('C10', 'day1/Which_Structure_Confines_v2_4_0.md', '83883924'))   # ### (R369)(9): one PLACE-papers commit a document (steps 42-50), each confirmed at HEAD (data/b759_corpus.json)
+C3_ERRATA_PP = (('errata', 'ERRATA.md', 'ebbf080c'), ('trails', 'OPEN_TRAILS.md', 'b6e9f79c'))   # ### (R369)(10): steps 54, 55 (data/b759_errata.json)
 # ### Component 4 ((R366)(5)): the put and the work its answers order, each value read from the step rows (data/b756_steps.json)
 C4_READ = ('tools/b759_orders.py', '5b3d5a60', ('data/b759_orders_read.txt', 'data/b759_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
 C4_PUT = ('data/b759_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
