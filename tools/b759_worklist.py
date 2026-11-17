@@ -470,11 +470,13 @@ CHAIN_WORDS.update({'presend_gen': 'the pre-send tool', 'presend_fix': 'its boun
                     'pp_b': 'the FACES_LEDGER update', 'pp_c': 'the census note', 'pp_d': 'the REGISTRY note', 'pp_e': 'the OPEN_TRAILS block',
                     'notes': 'the notes bank', 'controls': 'the controls bank'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
-STANDING_BANKS = (('v1.35.6', 'ac6a0a77', 'data/b759_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b759_standing_v1357.txt', 16),
-                  ('v1.35.8', 'ed0d3f33', 'data/b759_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b759_standing_v1359.txt', 8),
-                  ('v1.36.0', 'fd45f4c5', 'data/b759_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b759_standing_v1361.txt', 11),
-                  ('v1.36.2', '4db55035', 'data/b759_standing_v1362.txt', 6))   # ### b758: the reader's repair (R368)(1), the bound (amendment row 1), the title rule (3), the kernel route, the two routes (6)(i)-(ii), the arm and the face (6)
-STANDING_BANKS_B757 = (('v1.35.4', '26ac811e', 'data/b758_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b758_standing_v1355.txt', 6))
+STANDING_BANKS = (('v1.36.3', '983ca5b1', 'data/b759_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b759_standing_v1364.txt', 6),
+                  ('v1.36.5', '34452b1a', 'data/b759_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b759_standing_v1366.txt', 5),
+                  ('v1.36.7', 'cd45450e', 'data/b759_standing_v1367.txt', 9))   # ### b759: (R369)(4)(i)-(iv), the route that removes a kernel branch, the plant, the row writer`s phase, the kernels face reader; and the kernel route opened for b759 under (5) and (11), counted apart from (4)`s four (events (28))
+STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b758_standing_v1357.txt', 16),
+                       ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
+                       ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
+                       ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names (the carry had shifted them)
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
 KERNEL_COMMITS = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'),             # ### (R368)(4): the one commit of push-b758-land, on main at v0.39
                   ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### (R368)(5): the merge of 596d1c9e, made on push-b758-coeff, on main at v0.40 (04:37:50Z)
