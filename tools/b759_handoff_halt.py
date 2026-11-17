@@ -13,12 +13,15 @@ THE READS:
   (L)  the live build at relay HEAD and PLACE-papers HEAD: its refusal;
   (A)  planted: REGISTRY at HEAD less its line :180 (the row 1.5c-24 of (R369)(8), PLACE-papers bb146c95, the one line the act added above
        :373): its refusal;
-  (B)  planted: (A) and data/b758_ferry.txt given b757's THE ACT'S PLACE line (data/b757_ferry.txt :31) at its end: built, its line count;
-  (C)  the standing tool's own build at b758's handoff commit 86c1f110 with PLACE-papers 4ea41948 (b758's close): built, its line count,
+  (B)  planted: (A) and data/b759_ferry.txt's (11) given a line opening "(11) THE DRAFT stands at" (its own words from that phrase on, in
+       place of the line opening "(11) THE SIDE RULE"): its refusal;
+  (C)  planted: (B) and data/b758_ferry.txt given b757's THE ACT'S PLACE line (data/b757_ferry.txt :31) at its end: built, its line count;
+  (D)  the standing tool's own build at b758's handoff commit 86c1f110 with PLACE-papers 4ea41948 (b758's close): built, its line count,
        the positive control that the needles read where the rule places them;
   (S)  handoff.py's control over the live heads: its exit and the exception's class where it raises;
-  and REGISTRY :372-:375 at 4ea41948 and at HEAD by predicate, the line 4ea41948 :373 sought at HEAD by its digest, and THE ACT'S PLACE
-  counted in each of the twelve newest ferries by handoff.py's two matchers.
+  and REGISTRY :372-:375 at 4ea41948 and at HEAD by predicate, the line 4ea41948 :373 sought at HEAD by its digest, the holds clause
+  counted in b759's ferry and THE ACT'S PLACE in each of the twelve newest ferries by handoff.py's two matchers each. ### The first run
+  (23:27:53Z) planted (A) and (C) alone and banked NOT AS READ: (A) refused at b759's holds clause, a third needle behind the first.
 
   python -X utf8 -u tools/b759_handoff_halt.py [--bank]
 """
@@ -70,28 +73,41 @@ def main():
                                                              sum(1 for l in f if H.PLACE_WIDE.search(l))))
     b759f = base.relay('data/b759_ferry.txt') or []
     L.append('  b759 (open): %d line(s) ; the second shape %d' % (sum(1 for l in b759f if H.PLACE.search(l)), sum(1 for l in b759f if H.PLACE_WIDE.search(l))))
+    hold = [k for k, l in enumerate(b759f, 1) if H.HOLD.search(l)]
+    wide = [k for k, l in enumerate(b759f, 1) if H.HOLD_WIDE.search(l)]
+    L.append('## THE HOLDS CLAUSE IN b759`S FERRY (handoff.py`s HOLD, a line opening "(n) THE DRAFT stands at", and HOLD_WIDE): %d line(s) %s ; '
+             'the second shape %d %s' % (len(hold), [':%d' % k for k in hold], len(wide), [':%d' % k for k in wide]))
     L += ['', '## THE BUILDS']
     lv, lv_ok = built(base)
     L.append('  (L) live: %s' % lv)
     regA = reg[:179] + reg[180:]
     a_, a_ok = built(H.Planted(base, pp={'REGISTRY.md': regA}))
     L.append('  (A) REGISTRY less :180: %s' % a_)
+    fB = list(b759f)
+    if len(wide) == 1:
+        k_ = wide[0] - 1
+        fB[k_] = '(11) ' + fB[k_][fB[k_].index('THE DRAFT stands at'):]
+    b_, b_ok = built(H.Planted(base, pp={'REGISTRY.md': regA}, relay={'data/b759_ferry.txt': fB}))
+    L.append('  (B) (A) and b759`s (11) given a line opening "(11) THE DRAFT stands at": %s' % b_)
     p757 = [l for l in (base.relay('data/b757_ferry.txt') or []) if H.PLACE.search(l)]
     f758 = base.relay('data/b758_ferry.txt') or []
-    b_, b_ok = built(H.Planted(base, pp={'REGISTRY.md': regA}, relay={'data/b758_ferry.txt': f758 + p757[:1]}))
-    L.append('  (B) (A) and b758`s ferry given b757`s line: %s' % b_)
-    c_, c_ok = built(H.Source(*B758_HANDOFF))
-    L.append('  (C) at relay %s and PLACE-papers %s: %s' % (B758_HANDOFF[0], B758_HANDOFF[1], c_))
+    c_, c_ok = built(H.Planted(base, pp={'REGISTRY.md': regA}, relay={'data/b759_ferry.txt': fB, 'data/b758_ferry.txt': f758 + p757[:1]}))
+    L.append('  (C) (B) and b758`s ferry given b757`s line: %s' % c_)
+    d_, d_ok = built(H.Source(*B758_HANDOFF))
+    L.append('  (D) at relay %s and PLACE-papers %s: %s' % (B758_HANDOFF[0], B758_HANDOFF[1], d_))
     try:
         ok, _cl = H.control()
         s_ = 'exit %d, its controls %s' % (0 if ok else 1, 'ALL AS WANTED' if ok else 'NOT ALL AS WANTED')
     except Exception as e:   # noqa: BLE001
         s_ = 'RAISED %s before its controls were counted' % type(e).__name__
     L.append('  (S) handoff.py control: %s' % s_)
-    want = (not lv_ok and ':373' in lv, not a_ok and 'data/b758_ferry.txt' in a_ and 'read 0 times' in a_, b_ok, c_ok)
-    L += ['', '## AS WANTED: (L) refused at :373 %s ; (A) refused at b758`s ferry, 0 lines %s ; (B) built %s ; (C) built %s' % want,
-          '', '### ### **THE HANDOFF PAGE: %s ; REFUSALS 2 (REGISTRY :373 NO HEADING AFTER (8)`S ROW AT :180 ; b758`S FERRY NO THE ACT`S PLACE) ; '
-          'CONTROLS %d OF 4 AS WANTED ; HANDOFF.md NOT WRITTEN.**' % ('HALTED' if all(want) else '### NOT AS READ, SEE ABOVE', sum(want))]
+    want = (not lv_ok and ':373' in lv, not a_ok and 'holds clause read 0 times in data/b759_ferry.txt' in a_,
+            not b_ok and 'data/b758_ferry.txt' in b_ and 'read 0 times' in b_, c_ok, d_ok)
+    L += ['', '## AS WANTED: (L) refused at :373 %s ; (A) refused at b759`s holds clause %s ; (B) refused at b758`s ferry, 0 lines %s ; (C) built %s ; '
+          '(D) built %s' % want,
+          '', '### ### **THE HANDOFF PAGE: %s ; REFUSALS 3 (REGISTRY :373 NO HEADING AFTER (8)`S ROW AT :180 ; b759`S FERRY NO LINE OPENING THE HOLDS '
+          'CLAUSE ; b758`S FERRY NO THE ACT`S PLACE) ; CONTROLS %d OF 5 AS WANTED ; HANDOFF.md NOT WRITTEN.**' % (
+              'HALTED' if all(want) else '### NOT AS READ, SEE ABOVE', sum(want))]
     if '--bank' in sys.argv:
         with open(BANK, 'w', encoding='utf-8', newline='\n') as fh:
             fh.write('\n'.join(L) + '\n')
