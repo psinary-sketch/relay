@@ -25,63 +25,219 @@
 #⟪PENDING reg_gate ⟫
 #⟪PENDING regspec ⟫
 #⟪PENDING report ⟫
-# ### b757, Component 1: THE c1 ROUTE FOR b756'S WEIGHT LINE AND ITS SHORT CORRIGENDUM, (R367)(1), written by the Edit tool against b756's
-# ### banks (37 events, 11 defects, 9 refusals; no post-seal events bank at b756 by (R366)(1)(ii)), the seven findings the seat printed after
-# ### b756's lock entered as this act's events from the author's relay of that message (data/b757_events.txt (7)-(13)), and the navigator's
-# ### correction to (F6); short, as (1) orders: the counts from the banks, the one CLAIM item in full, the seven findings, the correction. The
-# ### line of (1) for OPEN_TRAILS is composed here (`c1 next`, which prints only) and lands in (9)'s one dated block. The carried stub
-# ### (tools/standing/carry.py v1.34.0) removed by the Edit tool; nothing composed by it. The weight line is the head line and one sentence.
+# ### b758, Component 1: THE c1 ROUTE FOR b757'S SHORT CORRIGENDUM, (R368)(1), written by the Edit tool against b757's banks (46 events, 28
+# ### defects, 7 refusals; no post-seal events bank at b757 by its ferry's Component 6) and the findings after b757's lock entered as this act's
+# ### events from the author's relay in the delivery (data/b758_events.txt (23)-(32)); short, as (1) orders: the counts from the banks, the
+# ### CLAIM item (v) in full, the findings each with its time. (1) orders no weight line, where (R367)(1) ordered b756's, so the weight route is
+# ### retired; (8) carries OPEN_TRAILS' lines, so the next route too. The carried stub (tools/standing/carry.py v1.34.0) removed by the Edit tool;
+# ### nothing composed by it. The title under (R368)(3): no backtick (tools/standing/titlerule.py refuses one at the landing, v1.35.8).
 #⟪OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)⟫
-# ### CARRIED STUB (tools/standing/carry.py v1.34.0): the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)); the body carried, 219 code lines, stands in the carry`s diff bank
-C1_WRITTEN = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_WRITTEN')
-C1_PREV_CLOSE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_PREV_CLOSE')
-C1_HEAD_RELAY = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_HEAD_RELAY')
-C1_CLOSING_COMMIT = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_CLOSING_COMMIT')
-C1_PP_RECORD = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_PP_RECORD')
-C1_NOTED = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_NOTED')
-C1_CORRIGENDA_LAST = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_CORRIGENDA_LAST')
-C1_WEIGHT_HEAD = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_WEIGHT_HEAD')
-C1_ENTRY_NEEDLE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_ENTRY_NEEDLE')
-C1_TRAIL_NEEDLE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_TRAIL_NEEDLE')
-C1_NEXT_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_NEXT_LINE')
-C1_NEXT_NEEDLE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_NEXT_NEEDLE')
-C1_ANSWER = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_ANSWER')
-C1_ROW = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_ROW')
-C1_BANKS = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_BANKS')
-C1_FINDINGS_BANK = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_FINDINGS_BANK')
-C1_FINDINGS_IDS = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_FINDINGS_IDS')
-C1_CLAIM_ID = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_CLAIM_ID')
-C1_CORR_TITLE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s C1_CORR_TITLE')
-def _c1_rd(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_fl(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_git(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_rows(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_tally(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_q(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_owner(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_col(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_head(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_weight(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_trail(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_state(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_lines(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def _c1_bank(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
-def c1(*a, **k):
-    raise SystemExit('### b758`s the record route of Component 1 (OVERRIDE record MARK 8b04c0573f40 8 REPAIR (c1)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')
+C1_WRITTEN = True
+C1_NOTED = '2026-11-17'
+C1_CORRIGENDA_LAST = 77
+C1_ROW = re.compile(r"^\(((?:[a-z]'*)|\d+)\) (THE [A-Z' ]+?) \[(CLAIM|CLOSE) ; ([^\]]*)\]:? ?(.*)$")
+C1_BANKS = (('events', 'b757_events.txt'), ('defects', 'b757_defects.txt'))
+C1_EVENTS_N = 46
+C1_DEFECTS = (28, "b'")
+C1_REFUSALS = 7
+C1_CLAIMS = (('events', '13'), ('defects', 'v'))   # ### b756's finding entered as b757's (data/b757_events.txt :88) and the ruled (v) (:35); b758 events (9)
+C1_RULED_CLAIM = ('defects', 'v')
+C1_FINDINGS_BANK = 'b758_events.txt'
+C1_FINDINGS_IDS = tuple(str(i_) for i_ in range(23, 33))
+C1_RULED = (('23', ('19:35:51Z', 'PIPE')), ('24', ('mirror_prevbuild.json', 'CARRIAGE RETURNS', 'RESTORED BY THE TOOL')), ('25', ('19:43:30',)),
+            ('26', ('20:16:36',)), ('27', ('21:26:01',)), ('28', ('514.8 s',)), ('29', ('G-TRAIL-CARRIES-SEAL', 'UNDECLARED')),
+            ('30', ('--quiet', 'REFUSED AND RESENT')), ('31', ('21:55:35Z', 'TWO BACKTICKS')), ('32', ('23:19:16Z', 'PIPE')))   # ### (R368)(1)'s list in its order, the PIPE at 23:19:16Z from the author's words before the ruling
+C1_CORR_TITLE = ('## Corrigendum to b757’s record, short (relay data/b757_events.txt rows (1)-(46) and data/b757_defects.txt (a)-(b’)): its events and '
+                 'defects by count from their banks, its CLAIM item (v) in full, and the findings after the lock, entered as events with their times')
+def _c1_rd(name, base=None):
+    with open(os.path.join(base or D, name), encoding='utf-8') as fh:
+        return fh.read().replace(chr(13), '')
+
+
+def _c1_fl(name, pat, what, base=None):
+    """the one line of a bank matching pat: (groups, line number); any other count exits, nothing composed."""
+    hits = [(i, m) for i, l in enumerate(_c1_rd(name, base).split(NL), 1) for m in [re.search(pat, l)] if m]
+    if len(hits) != 1:
+        sys.exit('### %s: %d LINES OF %s MATCH %r, NOT ONE -- NOTHING COMPOSED' % (what, len(hits), name, pat))
+    return hits[0][1].groups(), hits[0][0]
+
+
+def _c1_rows(name):
+    """[(id, owner, tag, column, text)] of a bank's rows in bank order: a row opens at four spaces with (id) and its lines after, at five
+    spaces or more, are joined to it; a line at column 0 (a section head of an events bank) closes the row before it; an untagged row
+    exits, nothing composed."""
+    out, cur = [], None
+    for l in _c1_rd(name).split(NL):
+        if re.match(r"^    \(((?:[a-z]'*)|\d+)\) ", l):
+            cur = [l.strip()]
+            out.append(cur)
+        elif cur is not None and l.startswith('     ') and l.strip():
+            cur.append(l.strip())
+        else:
+            cur = None
+    rows = []
+    for r in out:
+        m = C1_ROW.match(' '.join(r))
+        if not m:
+            sys.exit('### %s: AN UNTAGGED ROW %s -- NOTHING COMPOSED' % (name, ' '.join(r)[:60]))
+        rows.append(m.groups())
+    return rows
+
+
+def _c1_tally(rows):
+    return dict(claim=sum(1 for r in rows if r[2] == 'CLAIM'), close=sum(1 for r in rows if r[2] == 'CLOSE'),
+                repeat=sum(1 for r in rows if not r[3].startswith('NEW')), total=len(rows))
+
+
+def _c1_q(s):
+    """a bank's own words for the ledger (b754's form, carried): markdown's marks escaped; a pair of backticks quoting a span read as quotes,
+    every other backtick as an apostrophe; the template's placeholder brackets as angles."""
+    s = s.replace('\\', '\\\\').replace('*', '\\*').replace('_', '\\_')
+    s = re.sub(r'(^|[\s(\[])`([^`]{1,60}?)`', r'\1‘\2’', s)
+    return (s.replace('`', '’')
+            .replace('\u27ea', '\u2039').replace('\u27eb', '\u203a'))
+
+
+def _c1_owner(o):
+    return o.lower().replace("'s", '’s').replace("'", '’')
+
+
+def _c1_col(c):
+    if c == 'NEW':
+        return 'NEW'
+    c = c if c.startswith('REPEAT of ') else c.replace('REPEAT ', 'REPEAT of ', 1)
+    return c.replace("'", '’').replace('`', '’')
+
+
+def _c1_head(text):
+    """a finding's head: its words before the first ", at " or the first full stop and space."""
+    m = re.match(r"^(.*?)(?:, at |\. )", text)
+    return m.group(1) if m else text[:120]
+
+
+def _c1_time(text):
+    """a finding's time: the first full date and time its row carries, as HH:MM:SSZ; None where the row carries none."""
+    m = re.search(r'\d{4}-\d\d-\d\dT(\d\d:\d\d:\d\d)(?:\.\d+)?Z', text)
+    return m.group(1) + 'Z' if m else None
+
+
+def _c1_state():
+    s = dict((k_, _c1_rows(n_)) for k_, n_ in C1_BANKS)
+    ev, df = s['events'], s['defects']
+    tot = _c1_tally(ev + df)
+    cnt, l_cn = _c1_fl('b757_closing.txt', r'^### THE COUNTER .*: CLAIM (\d+), CLOSE (\d+), REPEAT (\d+) OF (\d+) ; THE SET: DEFECTS (\d+), EVENTS (\d+),', 'the counter')
+    rf = [l for l in _c1_rd('b757_hook_refusals.txt').split(NL) if l.strip()]
+    kinds = {}
+    for l in rf:
+        m = re.match(r'^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ \| ([A-Z]+) \| ', l)
+        kinds[m.group(1) if m else '?'] = kinds.get(m.group(1) if m else '?', 0) + 1
+    cr_ = [int(m.group(1)) for m in re.finditer(r'(?m)^  \((\d+)\) ', _c1_rd('b675_corrigenda.txt'))]
+    own = dict((r[0], r) for r in _c1_rows(C1_FINDINGS_BANK))
+    fnd = [own.get(i_) for i_ in C1_FINDINGS_IDS]
+    claims = [(k_, r) for k_, _n in C1_BANKS for r in s[k_] if r[2] == 'CLAIM']
+    ruled = [(i_, w_) for i_, ws_ in C1_RULED for w_ in ws_ if not (own.get(i_) and w_ in own[i_][4])]
+    bad = [k_ for k_, ok_ in (
+        ('the event rows (1)-(%d)' % C1_EVENTS_N, [int(r[0]) for r in ev] == list(range(1, C1_EVENTS_N + 1))),
+        ('no post-seal events bank at b757', not os.path.exists(os.path.join(D, 'b757_events_postseal.txt'))),
+        ('the defect rows %d, the last (%s)' % C1_DEFECTS, len(df) == C1_DEFECTS[0] and df[-1][0] == C1_DEFECTS[1]),
+        ('the counter the closing`s', (tot['claim'], tot['close'], tot['repeat'], tot['total'], len(df), len(ev)) == tuple(int(x) for x in cnt)),
+        ('the CLAIM rows events (13) and defects (v)', [(k_, r[0]) for k_, r in claims] == list(C1_CLAIMS)),
+        ('the refusals %d, each by its kind' % C1_REFUSALS, len(rf) == C1_REFUSALS and '?' not in kinds),
+        ('the corrigenda bank`s last row (%d)' % C1_CORRIGENDA_LAST, bool(cr_) and max(cr_) == C1_CORRIGENDA_LAST),
+        ('the ten findings, each with its date and time', all(fnd) and all(_c1_time(r[4]) for r in fnd)),
+        ('the ruled findings, each in its row: missing %s' % ruled, not ruled),
+    ) if not ok_]
+    if bad:
+        sys.exit('### THE BANKS NOT AS READ: %s -- NOTHING COMPOSED (the tally %s)' % (bad, tot))
+    s.update(tally=tot, l_counter=l_cn, refusals=len(rf), kinds=kinds, findings=fnd, claims=claims)
+    return s
+
+
+def _c1_lines(s):
+    t = s['tally']
+    per = dict((k_, _c1_tally(s[k_])) for k_, _n in C1_BANKS)
+    kinds = ', '.join('%s %d' % kv for kv in sorted(s['kinds'].items(), key=lambda kv: (-kv[1], kv[0])))
+    pe, pd = per['events'], per['defects']
+    ft = _c1_tally(s['findings'])
+    L = ['*b757’s events bank (relay data/b757_events.txt) carries %d rows, (1)-(%d): CLAIM %d, CLOSE %d, REPEAT %d; its defects bank (relay '
+         'data/b757_defects.txt) %d lettered rows, (a)-(b’): CLAIM %d, CLOSE %d, REPEAT %d. Together CLAIM %d, CLOSE %d, REPEAT %d of %d, as b757’s closing '
+         'counter prints it (relay data/b757_closing.txt :%d, the closing record written at b758 by b757’s sealed tools under `(R368)`(1)). Its refusals '
+         'bank %d lines (relay data/b757_hook_refusals.txt), by kind %s, the seventh committed at b758’s step zero (relay 41ff314d). No post-seal events '
+         'bank at b757, by its ferry’s Component 6. Each item is tagged in its own bracket; the tags are the banks’ own and this entry edits none of them.*' % (
+             pe['total'], pe['total'], pe['claim'], pe['close'], pe['repeat'], pd['total'], pd['claim'], pd['close'], pd['repeat'],
+             t['claim'], t['close'], t['repeat'], t['total'], s['l_counter'], s['refusals'], kinds), '']
+    L += ['**The CLAIM item (v), in full:**', '']
+    for k_, (i_, o_, tg_, col_, tx_) in [(k_, r) for k_, r in s['claims'] if (k_, r[0]) == C1_RULED_CLAIM]:
+        L += ['**(%s)** %s (relay data/%s, row (%s); %s; %s; %s).' % (i_, _c1_q(tx_).replace("'", '’'), dict(C1_BANKS)[k_], i_, _c1_owner(o_), tg_, _c1_col(col_)), '']
+    L += ['b757’s other CLAIM row, events (13), is one of b756’s findings after its lock that b757 entered as its own events; it stands in full in '
+          'b757’s corrigendum (FINDINGS :%d) and is counted here.' % K.B711_CORRIGENDUM, '']
+    L += ['**The findings after b757’s lock**, entered as events of b758 from the author’s relay in `(R368)`(1) and the author’s words before the ruling '
+          '(the delivery at transcript line 112358, 2026-11-16T23:21:58Z; relay data/b758_events.txt rows (23)-(32)), each with its time on 2026-11-16: '
+          'CLAIM %d, CLOSE %d, REPEAT %d of %d. %s.' % (
+              ft['claim'], ft['close'], ft['repeat'], ft['total'],
+              '; '.join('(%s) %s, %s [%s ; %s]' % (r[0], _c1_q(_c1_head(r[4])).replace("'", '’'), _c1_time(r[4]), r[2], _c1_col(r[3])) for r in s['findings'])), '']
+    L += ['**The repairs:** the reader of tools/standing/act.py :82 at v1.35.6 (relay ac6a0a77) under `(R368)`(1); b757’s four carried steps, [22] to '
+          '[25], run at b758 under v1.35.7 (relay 248cacb8), the bound of the author’s amendment of (1) (relay data/b758_amendments.json row 1): b757 '
+          'closed at 7 of 8 HELD, N3 REFUTED on (v) as ruled (relay data/b757_scores_close.json, 401d3bda); the composer at v1.35.8 (relay ed0d3f33) under '
+          '`(R368)`(3); G-TRAIL-CARRIES-SEAL ordered under `(R368)`(6).', '',
+          '*Filed at b758 on the author’s ruling `(R368)`(1): generated by the record tool’s c1 route (`tools/standing/fold.py record c1 corrigendum`, the '
+          'act’s override in relay tools/acts/b758.py) from b757’s events, defects and refusals banks read unedited and b758’s events rows (23)-(32); '
+          'banked as relay `data/b758_corrigendum.txt`, the corrigenda bank `data/b675_corrigenda.txt` appended at row (%d). It answers b757’s record; no '
+          'sealed tool, face, trail or root-named bank of b757 is edited. No weight line is written: `(R368)`(1) orders none.*' % (C1_CORRIGENDA_LAST + 1)]
+    return L
+
+
+def _c1_bank(s, ln):
+    t = s['tally']
+    ft = _c1_tally(s['findings'])
+    return (['b758 -- THE CORRIGENDUM FOR b757, SHORT, (R368)(1) (%s)' % utc(), '',
+             '### the banks read unedited: data/b757_events.txt rows (1)-(%d), data/b757_defects.txt %d rows, data/b757_hook_refusals.txt %d lines; no '
+             'post-seal events bank at b757; data/b757_closing.txt :%d (the counter); data/%s rows (23)-(32) (the findings after the lock); the '
+             'corrigenda bank`s last row (%d).' % (len(s['events']), len(s['defects']), s['refusals'], s['l_counter'], C1_FINDINGS_BANK, C1_CORRIGENDA_LAST), '']
+            + ['  ' + l for l in _c1_lines(s)]
+            + ['', '### ### **ITEMS %d: EVENTS %d, DEFECTS %d ; CLAIM %d, CLOSE %d ; REPEAT %d ; THE CLAIM ITEM IN FULL 1 ; THE FINDINGS AFTER THE LOCK %d: '
+               'CLAIM %d, CLOSE %d, REPEAT %d ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :%s.**' % (
+                   t['total'], len(s['events']), len(s['defects']), t['claim'], t['close'], t['repeat'], ft['total'], ft['claim'],
+                   ft['close'], ft['repeat'], ln)])
+
+
+def c1(*a):
+    """`c1 corrigendum [dry|write]`: the short corrigendum for b757, landed through b698's guarded landing (the title rule of v1.35.8 in front of
+    it); dry prints and writes nothing. (R368)(1) orders no weight line and (8) carries OPEN_TRAILS' lines: `c1 weight` and `c1 next` refuse."""
+    route = a[0] if a else ''
+    dry = 'write' not in a
+    if route == 'weight':
+        sys.exit('### (R368)(1) ORDERS NO WEIGHT LINE FOR b757 ((R367)(1) ordered b756`s) -- NOTHING COMPOSED')
+    if route == 'next':
+        sys.exit('### (R368)(8) CARRIES OPEN_TRAILS` LINES UNDER ONE DATED HEAD -- NOTHING COMPOSED HERE')
+    if route == 'corrigendum':
+        from b652_record import line_of
+        s = _c1_state()
+        text = NL + C1_CORR_TITLE + NL + NL + NL.join(_c1_lines(s)) + NL
+        land([('FINDINGS.md', C1_CORR_TITLE, text)], '%s_corrigendum_landing.json' % ACT, 'corrigendum', entry=None, dry=dry)
+        if dry:
+            print(NL.join(_c1_bank(s, None)))
+            return
+        ln = line_of(R.FIND, C1_CORR_TITLE)
+        t = s['tally']
+        ft = _c1_tally(s['findings'])
+        put_txt('%s_corrigendum.txt' % ACT, _c1_bank(s, ln))
+        put_json('%s_corrigendum.json' % ACT, dict(at=utc(), entry_line=ln, title=C1_CORR_TITLE, claim=t['claim'], close=t['close'], repeat=t['repeat'], items=t['total'],
+                                                   by_bank=dict((k_, _c1_tally(s[k_])) for k_, _n in C1_BANKS),
+                                                   claims=[dict(bank=dict(C1_BANKS)[k_], id=r[0], owner=r[1], column=r[3]) for k_, r in s['claims']],
+                                                   in_full=dict(bank=dict(C1_BANKS)[C1_RULED_CLAIM[0]], id=C1_RULED_CLAIM[1]),
+                                                   findings=dict(bank='data/' + C1_FINDINGS_BANK, rows=list(C1_FINDINGS_IDS), claim=ft['claim'],
+                                                                 close=ft['close'], repeat=ft['repeat'],
+                                                                 times=dict((r[0], _c1_time(r[4])) for r in s['findings']),
+                                                                 claims=[dict(id=r[0], owner=r[1], column=r[3]) for r in s['findings'] if r[2] == 'CLAIM']),
+                                                   refusals=dict(lines=s['refusals'], kinds=s['kinds']),
+                                                   repairs=dict(reader='v1.35.6 ac6a0a77', bound='v1.35.7 248cacb8', composer='v1.35.8 ed0d3f33',
+                                                                trail_arm='(R368)(6)'),
+                                                   weight_line=None, row=C1_CORRIGENDA_LAST + 1))
+        print('  CLAIM %d, CLOSE %d over %d ; REPEAT %d ; THE CLAIM ITEM IN FULL (v) ; THE FINDINGS %d, CLAIM %d ; FINDINGS :%s' % (
+            t['claim'], t['close'], t['total'], t['repeat'], ft['total'], ft['claim'], ln))
+        return
+    sys.exit('usage: fold.py record c1 corrigendum  [dry | write]')
 #⟪END⟫
 # ### b754, Component 3 (the Edit tool, before the face; defect (k)): THE OVERRIDE NOTES BELOW WERE CARRIED BY THE ACT SHIFT FROM EARLIER ACTS'
 # ### FORMS -- where a note says "b754, Component 4/6/7" with a commit this act does not have, it is an earlier act's note under b754's name.
