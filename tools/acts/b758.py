@@ -2492,61 +2492,61 @@ def _trail_text_b757():
     """b753's trail record over b753's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION regspec 1⟫
-    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: at most 14 in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24 ((R368)(10)), 6 and 2 sent; MEASURED off the command bank (each dispatch command at a command`s head).'),
+    ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: at most 4 in SIDE-explicit-formula and none in SIDE-dirichlet-mod-24 ((R368)(10)); MEASURED off the command bank (each dispatch command at a command`s head).'),
     ('runner runs read by their ids', 'EFRUNS', 'EFRUNS', 'runs', '### N1: every run read by its id from its artifact, the exit file governing (data/b758_dispatch_rows.json); MEASURED off the worklist`s EF_RUNS and M24_RUNS.'),
 #⟪END⟫
 #⟪SECTION regspec 2⟫
-    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b757*.'),
+    ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b758*.'),
     ('rebuild branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
-    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved, the join and push-b758-coeff made beside them; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
+    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved, push-b758-land and push-b758-coeff made beside them; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
+    ('kernel branches deleted at the remote after v0.40', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, each by name through the one-call tool, one per message, after v0.40 was read back; none where (5) did not land; the four held branches of b725 to b730 kept.'),
     ('rebuild-b721 branches kept on the wave 1 kernels', 'RBBRANCHES', 'RBBRANCHES', 'branches', '### as b758 found them, the six; MEASURED off the six kernels` refs/heads.'),
     ('rebuild-b721 branches standing at their origins', 'RBPUSHED', 'RBPUSHED', 'branches', '### MEASURED off each kernel`s refs/remotes/origin/rebuild-b721.'),
     ('commits on a rebuild branch beyond its pin', 'RBBEYOND', 'RBBEYOND', 'commits', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 3⟫
-    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b757*.'),
+    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b758*.'),
 #⟪END⟫
 #⟪SECTION regspec 4⟫
     ('Lean files written on a rebuild branch', 'RBLEAN', 'RBLEAN', 'files', '### beyond the pins, b721`s and b723`s; MEASURED off each branch against its pin.'),
     ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b745`s, none this act, the four unmoved; MEASURED off each branch against main.'),
-    ('Lean files written on any kernel`s main', 2, 2, 'files', '### (R368)(6)(ii): SIDE-dirichlet-mod-24`s main moved to e5ebdd15 after run 43836415096`s success, SIDEDirichletMod24/Units.lean added and the root import SIDEDirichletMod24.lean edited (git diff --name-status 597b0869 e5ebdd15); SIDE-explicit-formula`s main unmoved at 8fbab45d.'),
+    ('Lean files changed on SIDE-explicit-formula`s main', 'EFMAINLEAN', 'EFMAINLEAN', 'files', '### (R368)(4), (5): the four held branches` Lean with (4)`s rename, then b757`s three results, each move after its run`s success; SIDE-dirichlet-mod-24`s remote main unmoved; MEASURED off git diff --name-only from 8fbab45d to main.'),
+    ('tags cut at main`s read-back', 'EFTAGS', 'EFTAGS', 'tags', '### (R368)(4), (5): v0.39 and v0.40, each where its run succeeded, its peel read back at the remote equal to main; v0.38 and v0.2.0 unmoved; MEASURED off SIDE-explicit-formula`s tags v0.39 and v0.40.'),
 #⟪END⟫
 #⟪SECTION regspec 5⟫
-    ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b757-closing, push-b757-preroot, push-b757-record; PLACE-papers push-b757-preroot, push-b757-record; each local, by name, through the one-call tool, after the --merged listing (data/b758_stepzero.txt :62-:69).'),
+    ('branches deleted at step zero', 4, 4, 'branches', '### relay push-b757-preroot, push-b757-record; PLACE-papers push-b757-preroot, push-b757-record; each by name, through the one-call tool, one per message, after the --merged listing and the citation check (data/b758_stepzero.txt :78-:80); no push-b757-closing, b757 having stopped at [22].'),
 #⟪END⟫
 #⟪SECTION regspec 6⟫
-    ('workflow files written by this act`s kernel commits', 1, 1, 'files', '### (R368)(6)(i): .github/workflows/build-module.yml in SIDE-dirichlet-mod-24 at 22282733, a file and no Lean, main moved to it ahead of its control dispatch.'),
+    ('workflow files written by this act`s kernel commits', 0, 0, 'files', '### none: (R368)(4), the workflow not widened for the two lines its filter refuses.'),
     ('workflow files on a kernel branch beyond its pin', 'RBWF', 'RBWF', 'files', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 7⟫
-    ('REGISTRY rows added', 0, 0, 'rows', '### none: REGISTRY`s header replaced in place under (R368)(8)(iv) (PLACE-papers 3e85e952) and one dated note appended at its end under (9)(d) (c45be6e0), no row.'),
-    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### (R368)(8)(iv): the header at :13, the one line replaced in place, no line moving; MEASURED off git diff --numstat from the act`s first PLACE-papers head to HEAD -- REGISTRY.md.'),
+    ('REGISTRY rows added', 0, 0, 'rows', '### none: one dated note appended at its end under (R368)(8), to the rows 1.5c-21 to 1.5c-23 and the kernel row, no row.'),
+    ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none: (8)`s note appended at the file`s end; MEASURED off git diff --numstat from the act`s first PLACE-papers head to HEAD -- REGISTRY.md.'),
 #⟪END⟫
 #⟪SECTION regspec 8⟫
-    ('generated corrigendum entries', 1, 1, 'entries', '### (R368)(1): FINDINGS :15416 (relay data/b758_corrigendum.json).'),
-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R368)(1): row (77).'),
+    ('generated corrigendum entries', 1, 1, 'entries', '### (R368)(1): FINDINGS :15484 (relay data/b758_corrigendum.json).'),
+    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R368)(1): row (78).'),
     ('ERRATA entries filed', 0, 0, 'entries', '### none this act ((R368) orders none).'),
-    ('outcome sentences composed from the banks', 5, 5, 'sentences', '### (R368)(4)-(7): the join`s, T0`s, T1`s, the modulus-24 module`s and the wide direction`s, each the ruling`s for the outcome its bank reads, its fields filled from the banks (relay data/b758_outcomes.txt).'),
-    ('notes of (9) written, each by one PLACE-papers commit', 5, 5, 'notes', '### (R368)(9)(a)-(e): PLACE-papers e88282c4, c7dfe43c, 9c0896c5, c45be6e0 and b14256c2, 2, 14, 2, 2 and 18 lines added and none removed, each confirmed against its bytes (relay data/b758_notes.json).'),
-    ('cites moved by (9)(a)`s insertion, printed before the write', 231, 231, 'cites', '### (R368)(9)(a): on 134 lines, 11 in PLACE-papers and 123 in the relay, none edited, an upper bound as the reader counts (relay data/b758_notes_moved.txt).'),
-    ('lines saying one of the three statements, read by the sweep', 24, 24, 'lines', '### (R368)(9) by (R367)(2)(b): 0 overtaken, 1 as the record reads, 23 a dated record, 0 unread (relay data/b758_sweep.txt).'),
-    ('repairs of (8) landed, each with its control', 5, 5, 'repairs', '### (R368)(8)(i)-(v) (relay data/b758_cut.txt, data/b758_standing_v1355.txt, data/b758_ghcalls.txt, data/b758_registry_line.txt, data/b758_doors.txt).'),
-    ('repository descriptions sent and read back equal', 2, 2, 'descriptions', '### (R368)(8)(v): PLACE-papers and SIDE-kernel, by tools/b758_doors.py (relay data/b758_doors.txt).'),
-    ('orders entered with the trail', 0, 0, 'orders', '### none: W-ORD-SQUARES-AT-24 entered in (9)(e)`s block before the seal (PLACE-papers b14256c2), not with the trail.'),
+    ('outcome sentences composed from the banks', 'OUTCOMES', 'OUTCOMES', 'sentences', '### (R368)(4), (5): each the ruling`s for the outcome its run read, its fields filled from the banks (relay data/b758_outcomes.txt); MEASURED off the outcomes bank`s rows read LANDED or BROKE.'),
+    ('notes of (8) written, each by one PLACE-papers commit', 'NOTESN', 'NOTESN', 'notes', '### (R368)(8)(a)-(e): the Epstein document, FACES_LEDGER, the census, REGISTRY and OPEN_TRAILS` block, each confirmed against its bytes; MEASURED off relay data/b758_notes.json.'),
+    ('cites b757`s Epstein note moved, read by the citation tool`s helpers', 'MOVED', 'MOVED', 'cites', '### (R368)(8): on the 123 relay lines, each printed, none edited; MEASURED off relay data/b758_moved_cites.txt`s foot.'),
+    ('standing routes of (6) landed, each with its planted control', 2, 2, 'routes', '### (R368)(6)(i), (ii): v1.36.0 and v1.36.1 (relay data/b758_standing_v1360.txt, data/b758_standing_v1361.txt).'),
+    ('orders entered with the trail', 0, 0, 'orders', '### none: no order entered this act; W-ORD-SQUARES-AT-24 takes its price in (8)(e)`s block.'),
     ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: not run at b758, the run computing at a field where (R368)(10) bars it; MEASURED off data/b758_reproduce.json, absent.'),
 #⟪END⟫
 #⟪SECTION regspec 9⟫
-    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record and the runner`s prints, none at a field ((R368)(10)): the price, the two standing versions` controls and the live control, the controls tool`s controls and its runs, the join, the outcomes, the ceiling, the header line, the doors, the gh-call reader, the sweep, the cut, the moved cites, the probe-path refusal, the address scan; MEASURED off the banks present.'),
-    ('registrations committed alone', 'REGALONE', 'REGALONE', 'commits', '### none: (R368)(5) registers no test on either statement, a theorem taking a compile outcome and no verdict, and no data/b758_registrations.txt is written; MEASURED off git.'),
+    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record and the runner`s prints, none at a field ((R368)(10)): the seven standing versions` controls, the pre-send reads, the landing, the controls tool`s controls and its runs, the outcomes, the merge, the ceiling, the statements, the moved cites, the probe-path refusal, the address scan; MEASURED off the banks present.'),
+    ('registrations committed alone', 'REGALONE', 'REGALONE', 'commits', '### none: (R368) registers no test, each result a theorem taking a compile outcome and no verdict, and no data/b758_registrations.txt is written; MEASURED off git.'),
     ('figure banks of a registered object first committed after the registrations', 'REGS', 'REGS', 'banks', '### none: no registered object this act; MEASURED off git.'),
-    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none (N2): no registered object this act, nothing computed at any field but the builds; MEASURED off git.'),
+    ('banks holding a figure at a registered object before its registration', 'PREREG', 'PREREG', 'banks', '### none (N2): no registered object this act, nothing computed at any field; MEASURED off git.'),
 #⟪END⟫
 #⟪SECTION regspec 10⟫
-    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### five added: Schema/ZQ/Mechanism/NoEuler.lean and CoeffSign.lean (T0, T1) and Schema/Wide/HalfScale.lean and HalfScaleControl.lean ((7)) on push-b758-coeff, SIDEDirichletMod24/Units.lean ((6)); MEASURED off push-b758-coeff against zq-b730`s tip and SIDE-dirichlet-mod-24`s main against its base.'),
-    ('Lean files edited on the join branch', 'EFEDIT', 'EFEDIT', 'files', '### (R368)(4)(i), (ii): Schema/EpsteinZQ.lean`s two docstrings and KeiperTwo.lean`s alternatives, each its own commit (6f2d7e26, e90ae384), no statement changed; MEASURED off the join branch`s commits after its fourth merge.'),
+    ('Lean modules written on the act`s branches', 'EFNEW', 'EFNEW', 'modules', '### none: (4)`s one commit adds no module and (5)`s merge brings b757`s, written at b757; MEASURED off push-b758-land against push-b757-join`s tip.'),
+    ('Lean files edited by the act`s own commits', 'EFEDIT', 'EFEDIT', 'files', '### (R368)(4): Schema/ZQ/OffZero/Time.lean, sRe renamed timeSRe with its uses in that file, no statement`s meaning changed (d1afb4fc); (5)`s merge resolving print_targets.txt alone; MEASURED off push-b758-land against push-b757-join`s tip.'),
 #⟪END⟫
 #⟪SECTION regspec 11⟫
-    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R368)(3), (8)(ii): tools/standing/ v1.35.4 and v1.35.5, each by a version commit of its own with its controls in its bank (data/b758_standing_v1354.txt, data/b758_standing_v1355.txt); MEASURED off the worklist`s lists.'),
+    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R368)(1), (3), (4), (6): tools/standing/ v1.35.6 to v1.36.2, each by a version commit of its own with its controls in its bank (data/b758_standing_v1356.txt to data/b758_standing_v1362.txt); MEASURED off the worklist`s lists.'),
     ('arms out of the suite`s run list by retirement', 'RETIRED', 'RETIRED', 'arms', '### tools/standing/arms.py RETIRED, unchanged; MEASURED off it.'),
     ('arms left the arm list this act', 0, 0, 'arms', '### none: the run list 116.'),
 #⟪END⟫
@@ -2562,7 +2562,7 @@ def _trail_text_b757():
     ('banks, faces or tools edited after the lock gate', 0, 0, 'edits', '### N4: a restore an edit; a correction found after the lock stands as an event.'),
 #⟪END⟫
 #⟪SECTION regspec 15⟫
-    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, the dispatches and the artifact downloads, the gh reads and the two description writes under the GitHub login; none carries an identifier.'),
+    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, the dispatches and the artifact downloads, and the gh reads under the GitHub login; none carries an identifier.'),
 #⟪END⟫
 #⟪SECTION regspec 16⟫
         return bool(c) and bool(K.REG_COMMIT) and c != K.REG_COMMIT \
@@ -2570,104 +2570,102 @@ def _trail_text_b757():
 
     def anc(a, b):
         return subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', a, b], capture_output=True).returncode == 0
-    # ### b757: no registered object and no figure bank ((R367)(5): no test registered on either statement)
+    # ### b758: no registered object and no figure bank ((R368) registers no test)
     fig_banks = [p for p in ()
 #⟪END⟫
 #⟪SECTION regspec 17⟫
                     REGS=len([p for p in fig_banks if after_reg(first_add(p))]),
-                    # ### b758 step zero: the runs' count read against (R368)(10) (SIDE-explicit-formula's alone, M24_RUNS empty); EFNEW and EFEDIT below
-                    # ### are b757's and are rewritten for (4) and (5) at Component 5
+                    # ### b758: the runs' count read against (R368)(10) (SIDE-explicit-formula's alone, M24_RUNS empty)
                     EFRUNS=len(K.EF_RUNS) + len(K.M24_RUNS),
+                    # ### b758, Component 5: main's Lean past the entering main, the tags of (4) and (5), the outcome rows, the notes, the moved cites
+                    EFMAINLEAN=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', K.EF_BASE, 'main').split() if f_.endswith('.lean')),
+                    EFTAGS=sum(1 for t_ in ('v0.39', 'v0.40') if _git(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/' + t_)),
+                    OUTCOMES=jcount('b758_outcomes.json', lambda j: len([r_ for r_ in j if r_.get('outcome') in ('LANDED', 'BROKE')])),
+                    NOTESN=jcount('b758_notes.json', lambda j: len([k_ for k_ in ('a', 'b', 'c', 'd', 'e') if (j.get(k_) or {}).get('confirm')])),
+                    MOVED=tfirst('b758_moved_cites.txt', r'\*\*THE MOVED CITES READ: RELAY LINES \d+ ; CITES (\d+) ;'),
                     REPROWS=jcount('b758_reproduce.json', lambda j: len(j.get('rows') or [])),
                     ADDRESS=tfirst('b758_address_scan.txt', r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ;'),
                     EFBRANCHES=sum(1 for b, t in K.EF_BRANCHES if _git(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b).strip() == t),
                     EFLEAN=sum(1 for _b, t in K.EF_BRANCHES for f_ in _git(K.EF_DIR, 'diff', '--name-only', K.EF_BASE, t).split() if f_.endswith('.lean')),
-                    # ### b757: the modules this act added, on push-b757-coeff past zq-b730's tip and on SIDE-dirichlet-mod-24's main past its base
-                    EFNEW=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=A', K.ZQ_TIP, K.COEFF_BRANCH[1]).split() if f_.endswith('.lean'))
-                    + sum(1 for f_ in _git(K.M24_DIR, 'diff', '--name-only', '--diff-filter=A', K.M24_BASE, K.M24_MAIN).split() if f_.endswith('.lean')),
-                    # ### b757: the Lean files the join branch's own commits edit after its fourth merge ((R367)(4)(i), (ii))
-                    EFEDIT=len(set(f_ for c_ in _git(K.EF_DIR, 'rev-list', '--no-merges', '%s..%s' % (dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS)['merge4'], K.JOIN_BRANCH[1])).split()
-                                   for f_ in _git(K.EF_DIR, 'diff-tree', '--no-commit-id', '--name-only', '-r', c_).split() if f_.endswith('.lean'))),
+                    # ### b758: the modules (4)'s branch adds past push-b757-join's tip, and the Lean files its own commit edits ((R368)(4))
+                    EFNEW=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=A', K.JOIN_BRANCH[1], K.LAND_BRANCH[1]).split() if f_.endswith('.lean')),
+                    EFEDIT=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=M', K.JOIN_BRANCH[1], K.LAND_BRANCH[1]).split() if f_.endswith('.lean')),
 #⟪END⟫
 #⟪SECTION regspec 18⟫
-                    COMPUTE=len([n_ for n_ in ('price', 'standing_v1354', 'standing_v1354_live', 'controls_control', 'controls', 'join', 'outcomes', 'ceiling',
-                                               'registry_line', 'doors', 'ghcalls', 'standing_v1355', 'sweep', 'cut', 'notes_moved', 'pathrefusal', 'address_scan')
+                    COMPUTE=len([n_ for n_ in ('standing_v1356', 'standing_v1357', 'standing_v1358', 'standing_v1359', 'standing_v1360', 'standing_v1361', 'standing_v1362',
+                                               'presend', 'land', 'controls_control', 'controls', 'outcomes', 'coeff', 'ceiling', 'epstein_statements', 'moved_cites',
+                                               'pathrefusal', 'address_scan')
                                  if os.path.exists(os.path.join(ROOT, 'data', 'b758_%s.txt' % n_))]),
                     REGALONE=len([c_ for c_ in _git(ROOT, 'log', '--format=%H', '--', 'data/b758_registrations.txt').split() if alone(c_)]),
 #⟪END⟫
 #⟪SECTION regspec 19⟫
               'RBBRANCHES', 'RBPUSHED', 'RBBEYOND', 'RBLEAN', 'RBWF', 'EFBRANCHES', 'EFLEAN', 'EFNEW', 'EFEDIT', 'EFRUNS', 'REPROWS', 'ADDRESS',
-              'CHBRANCH', 'REGREMOVED', 'REGALONE',
+              'CHBRANCH', 'REGREMOVED', 'REGALONE', 'EFMAINLEAN', 'EFTAGS', 'OUTCOMES', 'NOTESN', 'MOVED',
 #⟪END⟫
 #⟪SECTION regspec 20⟫
-    spec = {"registration": ("data/b758_registration_%s.txt -- b758, THE BUILD: b757 AT ITS WEIGHT AND ITS CORRIGENDUM; THE ROUTE FOR KERNEL WRITES, v1.35.4; "
-                             "THE JOIN BROKE AT THE IMPORT, MAIN UNMOVED; T0 AND T1 COMPILED ON push-b758-coeff; THE MODULUS-24 MODULE COMPILED AT v0.2.0; "
-                             "THE WIDE DIRECTION COMPILED; FIVE REPAIRS, v1.35.5; THE NOTES OF (9); NO DEPOSIT, UNDER (R368)" % K.DATE),
+    spec = {"registration": ("data/b758_registration_%s.txt -- b758, THE LANDING: b757 CLOSED BY ITS CARRIED STEPS AFTER THE READER`S REPAIR; THE JOIN AND "
+                             "THE THREE RESULTS BY THEIR OUTCOMES (data/b758_outcomes.txt); TWO ROUTES; THE STATEMENTS BANKED FOR SECTIONS 6 TO 8; THE NOTES OF (8); "
+                             "NO DEPOSIT, UNDER (R368)" % K.DATE),
 #⟪END⟫
 #⟪SECTION report 1⟫
 Carried from b757's standing report by the fold (tools/standing/fold/report.tpl) and its lines rewritten for b758: b757's lines read banks this
-act does not write, and are not carried; the lines are b758's: T0 and T1, the modulus-24 module and the wide direction, each from its runner
-read by run id (KERNEL); tools/standing/ v1.35.4 and v1.35.5 and the controls tool by their controls (CERTIFIED); the notes of (9), the five
-repairs and the two descriptions (REGISTERED); the join broken at the import, the reproduction run not run, and the draft (HELD).
+act does not write, and are not carried; the lines are b758's: the join and the three results, each from its runner read by run id where it
+landed (KERNEL); tools/standing/ v1.35.6 to v1.36.2 and the controls tool by their controls (CERTIFIED); the notes of (8) and the statements
+bank of (7) (REGISTERED); what did not land, the reproduction run not run, and the draft (HELD).
 #⟪END⟫
 #⟪SECTION report 2⟫
-    # ### b757's lines, each from the record tool's figures over b757's banks (REC._figs), the record's guard first
+    # ### b758's lines, each from the record tool's figures over b758's banks (REC._figs), the record's guard first
     REC._guard(f)
-    ch_, oc_ = dict(K.CHAIN), f['oc']
-    # ------------------------------------------------------------------ KERNEL: (R367)(5), T0 and T1 on push-b757-coeff, each read by its run id
-    s5 = seat('%s_outcomes.txt' % ACT, '## (5) T0 ')
-    keys['T0T1'] = ('KERNEL -- T0 AND T1 ON %s, BUILT PAST zq-b730`S TIP THE JOIN HAVING FAILED: T0 %s at %s in %s lines against the stop 360, run %s, its %s names each within the standard three; T1 %s at %s in %s lines against the stop 1,350, run %s, its %s names each within the standard three; no main moved, no v0.40. SOURCE %s.' % (
-        K.COEFF_BRANCH[0], f['t0_word'], oc_['T0']['sha'], oc_['T0']['lines'], oc_['T0']['run'], oc_['T0']['names'], f['t1_word'], oc_['T1']['sha'], oc_['T1']['lines'],
-        oc_['T1']['run'], oc_['T1']['names'], s5['text']))
-    seats.append(s5)
-    # ------------------------------------------------------------------ KERNEL: (R367)(6), the modulus-24 module, read by its run id
-    s6 = seat('%s_outcomes.txt' % ACT, '## (6) THE MODULUS-24 MODULE')
-    keys['MOD24'] = ('KERNEL -- THE MODULUS-24 MODULE IN SIDE-dirichlet-mod-24: %s in run %s, its %s names; main moved to %s after that run`s success and %s cut at the read-back (object %s), its peel read back at the remote equal to main. SOURCE %s.' % (
-        f['m24_word'], oc_['mod24']['run'], oc_['mod24']['names'], K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[1][:8], s6['text']))
-    seats.append(s6)
-    # ------------------------------------------------------------------ KERNEL: (R367)(7), the wide direction, read by its run id (the name the template appends)
-    sk = seat('%s_outcomes.txt' % ACT, '## (7) THE ONE DIRECTION OVER THE WIDER STRIP')
-    keys['WIDE'] = ('KERNEL -- THE ONE DIRECTION OVER THE WIDER STRIP ON %s AT %s: %s in %s lines and one dispatch, against the navigator`s price of 250 to 550 lines and 4 to 8 dispatches, run %s, its %s names each within the standard three; no main moved and no tag cut by it. SOURCE %s.' % (
-        K.COEFF_BRANCH[0], oc_['wide']['sha'], f['wide_word'], oc_['wide']['lines'], oc_['wide']['run'], oc_['wide']['names'], sk['text']))
+    oc_ = f['oc']
+    # ------------------------------------------------------------------ KERNEL or HELD: (R368)(4), the join, read by its run id
+    sj = seat('%s_outcomes.txt' % ACT, '## (4) THE JOIN LANDED')
+    jo_ = oc_['join']
+    keys['JOIN'] = (('KERNEL -- THE JOIN LANDED: %s cut at main`s read-back = %s, run %s at %s, %s axioms lines each within the standard three, the two lines the filter refuses standing unprinted by name, no sorryAx. SOURCE %s.' % (
+        jo_['tag'], jo_['peel'], jo_['run'], K.LAND_BRANCH[1][:8], (jo_['fields'] or {}).get('n', '-'), sj['text'])) if jo_['outcome'] == 'LANDED' else (
+        'HELD -- THE JOIN, NOT LANDED: %s, run %s; main standing at %s, no tag cut. SOURCE %s.' % (jo_['outcome'].lower(), jo_['run'] or '-', K.EF_BASE[:8], sj['text'])))
+    seats.append(sj)
+    # ------------------------------------------------------------------ KERNEL or HELD: (R368)(5), the three results, read by its run id (the name the template appends)
+    sk = seat('%s_outcomes.txt' % ACT, '## (5) T0, T1 AND THE WIDE DIRECTION LANDED')
+    co_ = oc_['coeff']
+    keys['THREE'] = (('KERNEL -- T0, T1 AND THE ONE DIRECTION OVER THE WIDER STRIP LANDED: %s cut at main`s read-back = %s, run %s at %s, the five names each within the standard three. SOURCE %s.' % (
+        co_['tag'], co_['peel'], co_['run'], (K.COEFF_LAND_BRANCH[1] or '-')[:8], sk['text'])) if co_['outcome'] == 'LANDED' else (
+        'HELD -- T0, T1 AND THE WIDE DIRECTION, NOT LANDED: %s%s; they stand compiled on push-b757-coeff at 596d1c9e. SOURCE %s.' % (
+            co_['outcome'].lower(), (', run %s' % co_['run']) if co_['run'] else '', sk['text'])))
 #⟪END⟫
 #⟪SECTION report 3⟫
-    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.35.4 and v1.35.5 ((R367)(3), (8)(ii)), by their controls
-    sv = seat('%s_standing_v1355.txt' % ACT, '**v1.35.5: CONTROLS ')
-    keys['VERSIONS'] = ('CERTIFIED -- tools/standing/ v1.35.4 AND v1.35.5, each by a commit of its own moving VERSION, its controls all as wanted: %s; the live commit in each kernel %d of %d. SOURCE %s.' % (
-        '; '.join('%s at relay %s, %d of %d' % (v_, dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)[v_][:8], w_, n_) for v_, _c, n_, w_ in f['vers']), f['live'][0], f['live'][1], sv['text']))
+    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.35.6 to v1.36.2 ((R368)(1), (3), (4), (6)), by their controls
+    sv = seat('%s_standing_v1362.txt' % ACT, '**v1.36.2: CONTROLS ')
+    keys['VERSIONS'] = ('CERTIFIED -- tools/standing/ v1.35.6 TO v1.36.2, each by a commit of its own moving VERSION, its controls all as wanted: %s. SOURCE %s.' % (
+        '; '.join('%s at relay %s, %d of %d' % (v_, dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)[v_][:8], w_, n_) for v_, _c, n_, w_ in f['vers']), sv['text']))
     seats.append(sv)
-    # ------------------------------------------------------------------ CERTIFIED: (R367)(3), the dispatch and read tool by its own controls (the name the template appends)
+    # ------------------------------------------------------------------ CERTIFIED: the dispatch and read tool by its own controls (the name the template appends)
     sw = seat('%s_controls_control.txt' % ACT, '**THE TOOL`S CONTROLS: ')
-    keys['CONTROLS'] = ('CERTIFIED -- tools/b758_controls.py BY ITS OWN CONTROLS: 14 of 14 as wanted, committed at relay %s before its opening dispatch; every run read by its id, the exit file governing, %d dispatches in SIDE-explicit-formula of 14 and %d in SIDE-dirichlet-mod-24 of 4. SOURCE %s.' % (
-        ch_['controls_gen'][:8], f['disp_ef'], f['disp_m24'], sw['text']))
+    keys['CONTROLS'] = ('CERTIFIED -- tools/b758_controls.py BY ITS OWN CONTROLS: %d of %d as wanted, committed before its opening dispatch; every run read by its id, the exit file governing, %d dispatches in SIDE-explicit-formula of 4 and none elsewhere. SOURCE %s.' % (
+        f['cc_ctl'][0], f['cc_ctl'][1], f['disp_ef'], sw['text']))
 #⟪END⟫
 #⟪SECTION report 4⟫
-    # ------------------------------------------------------------------ REGISTERED: (R367)(9), the notes, each by one PLACE-papers commit
+    # ------------------------------------------------------------------ REGISTERED: (R368)(8), the notes, each by one PLACE-papers commit
     sa = seat('%s_notes.json' % ACT, '"confirm"')
-    keys['NOTES'] = ('REGISTERED -- THE NOTES OF (9): five PLACE-papers commits (%s), %d lines added and none removed, each composed from the outcomes bank by the tool of the notes at relay %s, committed before its run, and matched whole against the ruling`s template for its outcome. SOURCE %s.' % (
-        ', '.join((c_ or '').split(' at ')[0].replace('PLACE-papers ', '') for _k, _f, c_, _n in f['notes']), f['notes_written'], K.C3_NOTES_GEN[:8], sa['text']))
+    keys['NOTES'] = ('REGISTERED -- THE NOTES OF (8): %d PLACE-papers commits (%s), each composed by the tool of the notes at relay %s, committed before its run, of the document`s dated head and the sentences of (4) and (5) that came true, and matched against the ruling`s text. SOURCE %s.' % (
+        f['notes_written'], ', '.join((c_ or '').split(' at ')[0].replace('PLACE-papers ', '') for _k, _f, c_, _n in f['notes']), K.C3_NOTES_GEN[:8], sa['text']))
     seats.append(sa)
-    # ------------------------------------------------------------------ REGISTERED: (R367)(8), the five repairs, each by its control
-    sr = seat('%s_cut.txt' % ACT, '**(8)(i): CONTROLS ')
-    keys['REPAIRS'] = ('REGISTERED -- THE FIVE REPAIRS OF (8), EACH WITH ITS CONTROL: %d landed of 5 -- (i) the cut, on b757`s bank whole the check %s, on the planted second result it %s; (ii) the closing`s one count, v1.35.5; (iii) N5`s reader, %d sends over b757`s banks where the carried reader read %s; (iv) REGISTRY`s header at :%d, %d lines moved, PLACE-papers %s; (v) the two descriptions, %d of %d read back equal. SOURCE %s.' % (
-        f['repairs'], f['cu_whole'].lower(), f['cu_plant'].lower(), f['gh_taught'], f['gh_carried'].lower(), f['rg_line'], f['rg_moved'], dict(K.PP_CHAIN)['pp_registry'][:8],
-        f['ds_equal'][0], f['ds_equal'][1], sr['text']))
-    seats.append(sr)
-    # ------------------------------------------------------------------ HELD: (R367)(4), the join, broken at the import
-    sj = seat('%s_outcomes.txt' % ACT, '## (4) THE JOIN')
-    keys['JOIN'] = ('HELD -- THE JOIN OF THE FOUR BRANCHES, BROKEN: run %s at %s built every module and its axioms print failed at the import, OffZero.Time and OffZero.Sums declaring sRe in one namespace; main standing at %s, no v0.39, the four branches as they stood; the two files outside (10)`s (W) list. SOURCE %s.' % (
-        oc_['join']['run'], K.JOIN_BRANCH[1][:8], K.EF_BASE[:8], sj['text']))
-    seats.append(sj)
-    # ------------------------------------------------------------------ HELD: the reproduction run, not run ((R367)(10))
-    s7 = seat('%s_ferry.txt' % ACT, 'nothing computed at any field, the builds apart')
-    keys['REPRO'] = ('HELD -- THE REPRODUCTION RUN, NOT RUN: its rows compute at a field, which (R368)(10) bars, the builds apart; neither the run nor a part of it run; G-RESEARCH-REPRODUCES declared failing on the face. SOURCE %s.' % s7['text'])
+    # ------------------------------------------------------------------ REGISTERED: (R368)(7), the statements bank
+    ss = seat('%s_epstein_statements.txt' % ACT, '**THE STATEMENTS BANK: ')
+    keys['STATEMENTS'] = ('REGISTERED -- THE STATEMENTS FOR SECTIONS 6 TO 8, BANKED AND NOT WRITTEN: the fourteen names at %s, %d found as one declaration, %d with no axioms line in the runs read; the heads of sections 6 to 8, %d of 3; controls %d of %d. SOURCE %s.' % (
+        f['st_rev'], f['st_found'], f['st_noax'], f['st_sections'], f['st_ctl'][0], f['st_ctl'][1], ss['text']))
+    seats.append(ss)
+    # ------------------------------------------------------------------ HELD: the reproduction run, not run ((R368)(10))
+    s7 = seat('%s_ferry.txt' % ACT, 'nothing computed at any field')
+    keys['REPRO'] = ('HELD -- THE REPRODUCTION RUN, NOT RUN: its rows compute at a field, which (R368)(10) bars; neither the run nor a part of it run; G-RESEARCH-REPRODUCES declared failing on the face. SOURCE %s.' % s7['text'])
     seats.append(s7)
-    # ------------------------------------------------------------------ HELD: THE DRAFT ((R367)(10))
+    # ------------------------------------------------------------------ HELD: THE DRAFT ((R368)(10))
     sh = seat('%s_ferry.txt' % ACT, 'THE DRAFT stands at v5, HELD')
     keys['HELD'] = ('HELD -- the draft at v5, unpublished, nothing deposits; no Zenodo call this act. SOURCE %s.' % sh['text'])
 #⟪END⟫
 #⟪SECTION report 5⟫
-    order = [('KERNEL', ['T0T1', 'MOD24', 'WIDE']), ('CERTIFIED', ['VERSIONS', 'CONTROLS']), ('REGISTERED', ['NOTES', 'REPAIRS']), ('HELD', ['JOIN', 'REPRO', 'HELD'])]
+    land_ = [k_ for k_, o_ in (('JOIN', f['oc']['join']['outcome']), ('THREE', f['oc']['coeff']['outcome'])) if o_ == 'LANDED']   # ### b758: a line`s tier by its outcome
+    order = [('KERNEL', land_), ('CERTIFIED', ['VERSIONS', 'CONTROLS']), ('REGISTERED', ['NOTES', 'STATEMENTS']),
+             ('HELD', [k_ for k_ in ('JOIN', 'THREE') if k_ not in land_] + ['REPRO', 'HELD'])]
 #⟪END⟫
 #⟪OVERRIDE citation MARK 31b08d46e87d 1⟫
 C.ANCHOR, C.TAIL = K.RULING_ANCHOR, K.TAIL   # ### b754 carry-time repair: the ruling's BEGIN line (pasted before the act opened); K.ANCHOR is the capture's
