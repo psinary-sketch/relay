@@ -346,7 +346,7 @@ B714_ROOT = '81ae9220f799745ea0b8307b056307e4b98db2bb29916456138c939047f82ac5'  
 B723_ROOT_BANKS = 'cd1e9ed5'  # ### b758's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'cd45450e'     # ### b759, before the lock: the kernel route the act module's N2 reads by this name (b758's v1.35.9) -- v1.36.7, SIDE-explicit-formula opened for b759 before any kernel write (step 13, 19:27:59Z, events (28)); (R369)(1) orders no standing change and the four of (4) are Component 2's
-C1_LOCKGATE = None           # ### b759: tools/b759_lockgate.py carried from b758's and committed with its clause set before any run; set when made
+C1_LOCKGATE = '8cd68c1b'     # ### b759: tools/b759_lockgate.py carried from b758's and committed with its clause set before any run (23:16:44Z, step 65, CHAIN 'carries'); _chain reads it at that place, as b758 read a85d414c
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b759_doors.py', '2bc7eca8', 'data/b759_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
@@ -456,7 +456,11 @@ CHAIN = (('ceiling_gen', 'ac029157'), ('c1', '548028f4'), ('corr', 'e16d9603'), 
          ('compose_fix2', '54405456'), ('compose_fix3', 'bf4ed2b4'), ('compose', '93f32449'), ('notes', 'a4857802'), ('corpus', 'b23d39a5'),
          ('fields_fix', '6232c3ed'), ('fields_corpus', 'c0bdaca0'), ('errata', '28a7bd7f'),
          # ### b759, the lock's preparation (steps 57-61): the chain, the arms, the needles, the standing key, the closing title
-         ('chain', '5160d84e'), ('arms', 'a728ea95'), ('needles', 'a8bbc3b6'), ('standing_key', '0dc5d8ca'), ('closing_title', '5eb3cf6a'))
+         ('chain', '5160d84e'), ('arms', 'a728ea95'), ('needles', 'a8bbc3b6'), ('standing_key', '0dc5d8ca'), ('closing_title', '5eb3cf6a'),
+         # ### b759, the lock's preparation (steps 62-68): the record's sections, the arm's keys, the touch read, the close tools carried (the
+         # ### lock gate among them, C1_LOCKGATE), the probe-path refusal and the kernels face, the handoff halt tool and its repair
+         ('record_secs', '32905ac3'), ('regfirst', '724e0902'), ('touch', 'd0ff72ab'), ('carries', '8cd68c1b'), ('pathrefusal', 'a50a44b5'),
+         ('halt_gen', '0ec0c176'), ('halt_fix', '6ea02173'))
 # ### PLACE-papers' commits of the act in their order: the corrigendum; (8)'s document and its three notes; (9)'s nine documents; (10)'s two
 PP_CHAIN = (('c1pp', 'c71ebcd2'), ('pp_doc', 'd48bd080'), ('pp_reg', 'bb146c95'), ('pp_faces', 'e421b303'), ('pp_census', '9c522714'),
             ('pp_c1', '0bcb0b56'), ('pp_c2', '682e9bdd'), ('pp_c3', '343e2f57'), ('pp_c4', 'aeadc243'), ('pp_c6', '94cdaa3e'), ('pp_c7', 'dbb39833'),
@@ -466,7 +470,8 @@ TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'v1363'
               'dispatch1', 'outcomes_gen', 'outcomes_fix', 'table_gen', 'table', 'fields_gen', 'compose_gen', 'notes_gen', 'corpus_gen', 'errata_gen',
               'reproduce', 'compose_fix', 'checks1', 'read1', 'rows1', 'landed', 'fields', 'compose_fix2', 'compose_fix3', 'pp_doc', 'compose',
               'pp_reg', 'pp_faces', 'pp_census', 'notes', 'pp_c1', 'pp_c2', 'pp_c3', 'pp_c4', 'pp_c6', 'pp_c7', 'pp_c8', 'pp_c9', 'pp_c10', 'corpus',
-              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata', 'chain', 'arms', 'needles', 'standing_key', 'closing_title')
+              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata', 'chain', 'arms', 'needles', 'standing_key', 'closing_title',
+              'record_secs', 'regfirst', 'touch', 'carries', 'pathrefusal', 'halt_gen', 'halt_fix')
 CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
                     'v1363': 'v1.36.3, the route that removes a kernel branch', 'v1364': 'v1.36.4, the plant reading every covering clause',
                     'v1365': 'v1.36.5, the row writer`s phase repair', 'v1366': 'v1.36.6, the kernels face reader',
@@ -483,7 +488,11 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1
                     'pp_c9': 'C9a, C9b, C11a and C11b', 'pp_c10': 'C10', 'corpus': 'the corpus bank', 'fields_fix': 'the corpus route repaired',
                     'fields_corpus': 'N and DEPOSITS', 'pp_errata': 'the ERRATA entries', 'pp_trails': 'the OPEN_TRAILS lines',
                     'errata': 'the errata bank', 'chain': 'the worklist`s chain', 'arms': 'the act module`s arms', 'needles': 'the four needle stubs',
-                    'standing_key': 'the kernel route`s key', 'closing_title': 'the closing title and the trail head'})
+                    'standing_key': 'the kernel route`s key', 'closing_title': 'the closing title and the trail head',
+                    'record_secs': 'the record, regspec, report and needle sections, with the second printing of the misses',
+                    'regfirst': 'the corpus keys of G-REGISTRATIONS-FIRST', 'touch': 'the mends of the entry and the touch read',
+                    'carries': 'the probe-path refusal, the lock gate and the face tool carried', 'pathrefusal': 'the probe-path refusal and the kernels face',
+                    'halt_gen': 'the handoff halt tool', 'halt_fix': 'its third refusal'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.36.3', '983ca5b1', 'data/b759_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b759_standing_v1364.txt', 6),
                   ('v1.36.5', '34452b1a', 'data/b759_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b759_standing_v1366.txt', 5),
@@ -540,7 +549,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R369)); one question at the root ((R369)(11))
 SITTING_STATES = {}
-HANDOFF_COMMIT = None   # ### (R369)(11): HANDOFF.md written once by tools/standing/handoff.py before the gate; set when made
+HANDOFF_COMMIT = None   # ### (R369)(11): HANDOFF.md NOT WRITTEN -- tools/standing/handoff.py refused the page, three needles not found (REGISTRY :373 no heading after (8)'s row at :180; b759's ferry no line opening its holds clause; b758's ferry no THE ACT'S PLACE); halted, the page standing at b758's 86c1f110 (data/b759_handoff_halt.txt, events (53)-(54))
 C3_RELAY = ()   # ### Component 3 ((R369)(5)): set as made
 C3_NOTES_GEN = '78ed7e76'   # ### b759 (R369)(8): tools/b759_notes.py committed before its run, controls 7 of 7, not edited after (step 25)
 C3_NOTES_PP = (('reg', 'REGISTRY.md', 'bb146c95'),
