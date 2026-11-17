@@ -94,8 +94,10 @@ SETTINGS = 'D:/.claude/settings.json'   # ### the seat's project settings carryi
 # ### v1.35.4, (R367)(3): the kernels the tool writes; each opened by an act's ruling for that act alone; the one file each ruling names for a
 # ### conflicted merge. fold/record.tpl's STEP_REPOS carries the same kernels (the step route's rows), the controls reading the two equal.
 KERNELS = {'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-dirichlet-mod-24': 'D:/SIDE-dirichlet-mod-24'}
-KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24')}   # ### (R367)(4): the holds lifted "in this act alone"
-NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
+KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # ### (R367)(4): the holds lifted "in this act alone"
+               'b758': ('SIDE-explicit-formula',)}   # ### v1.35.9, (R368)(5), (10): "lifted for SIDE-explicit-formula in this act alone"; SIDE-dirichlet-mod-24's local main by (6)(i)'s route alone
+NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
+                   'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
