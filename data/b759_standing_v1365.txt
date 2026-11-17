@@ -1,0 +1,50 @@
+b759 -- THE CONTROLS OF tools/standing/ v1.36.5, (R369)(4)(iii): THE ROW WRITER TAKES A ROW PHASE FOR A REPAIR COMMIT (2026-11-17T19:17:46Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; b758`s step bank read and not written, the step route run alone with a capture for its writer; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY CASE ((R345)(2)(i), carried):
+  checks render            OK    2856 lines
+  citation render          OK    597 lines
+  closing render           OK    668 lines
+  record render            OK    5177 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    507 lines
+  report render            OK    181 lines
+  tools/b759_worklist.py   OK    659 lines
+### THE COMPILE CONTROL : b759 COMPILES WHOLE, 8 OF 8
+
+### each case before (tools/standing/fold/record.tpl at 4622b017) and after (the working file)
+
+  free 5442 MB at 2026-11-17T19:17:46Z, the hold 2560 MET
+### (replay): b758`S REPAIR COMMIT f401a81e THROUGH THE STEP ROUTE, NOTHING WRITTEN
+  (replay) `step relay repair f401a81e` over b758`s 75 rows before its row (banked: row 76, phase 'seal')
+      BEFORE: refused True (### THE PHASE 'repair' IS NOT ONE OF step zero | component 1 | component 2 | component 3 |) ; captured 0 -> AS WANTED
+      AFTER : refused False ; captured 1: b758_steps.json, phase 'repair', commit f401a81e, subject 'b758 repair: tools/acts/b758.py after li' -> AS WANTED
+
+  free 5439 MB at 2026-11-17T19:17:47Z, the hold 2560 MET
+### (phases): THE SAME COMMIT, THE OTHER PHASES, AFTER
+  (phases) `seal`, `repiar` and a second `lock` for f401a81e
+      BEFORE: n/a (the route as at BASE for these) -> AS WANTED
+      AFTER : seal: refused False  captured ['seal'] ; repiar: refused True ### THE PHASE 'repiar' IS NOT ONE OF step zero | component 1 captured [] ; lock: refused True ### A LOCK ROW STANDS: the commit after the lock takes phase captured [] -> AS WANTED
+
+  free 5443 MB at 2026-11-17T19:17:47Z, the hold 2560 MET
+### (arm): G-SEALED-AFTER-COMPONENTS OVER b758`S ROWS, f401a81e READ `seal` AND `repair`
+  (arm) b758`s rows 84 ; relay log 78, PLACE-papers log 8
+      BEFORE: f401a81e read `seal` (as banked): (True, '') -> AS WANTED
+      AFTER : f401a81e read `repair`: (True, '') ; equal True -> AS WANTED
+
+  free 5439 MB at 2026-11-17T19:17:48Z, the hold 2560 MET
+### (renders): record.tpl RENDERED FOR EVERY ACT AT BASE`S TEMPLATE AND THE WORKING ONE
+  (renders) record.tpl: lines 4031 at BASE, 4031 now ; acts 39
+      BEFORE: the line counts equal True -> AS WANTED
+      AFTER : differing in the route`s two lines 39 (b759 among them True) ; raising alike 0 [] ; covered by the act 0 [] ; others NONE -> AS WANTED
+
+  free 5433 MB at 2026-11-17T19:17:57Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE: v1.36.4 -> AS WANTED
+      AFTER : v1.36.5 -> AS WANTED
+
+### per change: (replay) 1 of 1 ; (phases) 1 of 1 ; (arm) 1 of 1 ; (renders) 1 of 1 ; (version) 1 of 1
+### ### **v1.36.5: CONTROLS (replay), (phases), (arm), (renders), (version) ; CASES 5 ; AS WANTED 5 ; ALL AS WANTED.**

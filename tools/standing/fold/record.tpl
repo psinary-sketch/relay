@@ -309,8 +309,8 @@ def step(*a):
         commits.insert(0, rest.pop())
     commits = commits or ['HEAD']
     phase = ' '.join(rest)
-    if phase not in STEP_PHASES:
-        sys.exit('### THE PHASE %r IS NOT ONE OF %s -- NOTHING WRITTEN' % (phase, ' | '.join(STEP_PHASES)))
+    if phase not in STEP_PHASES + ('repair',):   # ### v1.36.5, (R369)(4)(iii): a repair commit's row takes its own phase (tools/standing/commit.py PHASES, between the lock and the seal), where b758's f401a81e took `seal` for want of it
+        sys.exit('### THE PHASE %r IS NOT ONE OF %s -- NOTHING WRITTEN' % (phase, ' | '.join(STEP_PHASES + ('repair',))))
     fulls = []
     for commit in commits:
         full = g(STEP_REPOS[a[0]], 'rev-parse', '--verify', '--quiet', commit + '^{commit}').strip()
