@@ -347,7 +347,7 @@ B714_ROOT = '95f84fdeeb9dac74d1b65c8964609ed5c6cb8bd257ebda274b41adcb2cdd6ed9'  
 B723_ROOT_BANKS = '6b47664a'  # ### b757's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'da79951c'     # ### b758: the kernel route, v1.35.9, a commit of its own moving VERSION with its controls (data/b758_standing_v1359.txt), before any kernel write (events (34)); N2's "standing change before its use" read at it
-C1_LOCKGATE = None           # ### b758: the act's lock gate, set when made (b757's 24fca573 carried until Component 5, read by _chain as this act's)
+C1_LOCKGATE = 'a85d414c'     # ### b758: tools/b758_lockgate.py carried from b757's and committed with its clause set before any run (03:56:16Z, CHAIN 'carries'), before the handoff page; _chain reads it at that place
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b758_doors.py', '2bc7eca8', 'data/b758_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
@@ -516,7 +516,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R368)); one question at the root ((R368)(10))
 SITTING_STATES = {}
-HANDOFF_COMMIT = None         # ### (R368)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate; set when made (b757's c37cdb05 carried until Component 5)
+HANDOFF_COMMIT = '86c1f110'   # ### (R368)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate (step 63, 05:20:37Z, 154 lines, controls 9 of 9)
 C3_RELAY = ('4905d3e3', 'ac6def8e', '6490bf35', 'cfca142a')   # ### Component 3 ((R368)(5)): dispatch 2's read, its step row, the landing at v0.40, the deletes carried (events (52))
 C3_NOTES_GEN = 'a90f680a'   # ### b758 (R368)(8): tools/b758_notes.py as last committed before its writes of (b) to (e), controls 24 of 24, defect (c); (a) written under 5559a08b (events (44), (53))
 C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'babcc8ea'),

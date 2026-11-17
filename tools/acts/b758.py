@@ -551,9 +551,12 @@ def _chain():
     """(R368)(1)-(9): the act's relay commits after step zero in their order, (key, commit) -- v9, then the worklist's CHAIN (the standing
     versions v1.35.6 to v1.36.2, b757's close, the c1 route and the corrigendum banks, the act's tools each before its bank, the landing's and
     the merge's banks, the dispatches' rows, the statements, the notes and the ceiling), then the handoff page and the lock gate where each is
-    made, in that order; read from the worklist at the call."""
+    made, in that order; read from the worklist at the call. b758: the lock gate tool was carried and committed at a85d414c ('carries'),
+    inside CHAIN and before the handoff page, so it is read at its place in CHAIN and not again after the handoff (N2's "each act tool
+    commits before it runs" read there)."""
     c = [('v9', K.STANDING_COMMIT)] + list(K.CHAIN)
-    c += [(k_, h_) for k_, h_ in (('passed', K.PASSED_BANK), ('handoff', K.HANDOFF_COMMIT), ('lockgate', K.C1_LOCKGATE)) if h_]
+    in_ = set(h_[:8] for _k, h_ in K.CHAIN)
+    c += [(k_, h_) for k_, h_ in (('passed', K.PASSED_BANK), ('handoff', K.HANDOFF_COMMIT), ('lockgate', K.C1_LOCKGATE)) if h_ and h_[:8] not in in_]
     return c
 
 
