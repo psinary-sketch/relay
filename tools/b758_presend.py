@@ -35,8 +35,26 @@ NL = '\n'
 ACT = 'b758'
 BANK = os.path.join(D, 'b758_presend.txt')
 WORKFLOW = '.github/workflows/build-module.yml'
-DECL_ANY = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?((?:(?:private|protected|noncomputable|nonrec|partial|unsafe)\s+)*)'
+DECL_ANY = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?((?:(?:private|protected|noncomputable|nonrec|partial|unsafe|scoped|local)\s+)*)'
                       r'(theorem|lemma|def|abbrev|structure|instance|inductive|class|opaque|axiom)\s+([^\s:({\[⦃]+)')
+# ### an instance the first pattern does not name: a priority before its name, or no name (Lean generates one from the type, so two
+# ### anonymous instances on one type in one namespace in two modules collide as two declarations of one name do)
+INST = re.compile(r'^\s*(?:@\[[^\]]*\]\s*)?((?:(?:private|protected|noncomputable|scoped|local)\s+)*)instance\b\s*(?:\(priority\s*:=\s*[^)]*\)\s*)?(.*)$')
+
+
+def _inst_type(rest):
+    """the type of an anonymous instance as its first line writes it: after the first colon outside brackets, before := or where;
+    '' where the line holds no such colon (the type on a later line, unread)."""
+    s = re.split(r'\swhere\b', rest.split(':=')[0])[0]
+    depth = 0
+    for i, ch in enumerate(s):
+        if ch in '([{⦃⟨':
+            depth += 1
+        elif ch in ')]}⦄⟩':
+            depth -= 1
+        elif ch == ':' and depth == 0:
+            return ' '.join(s[i + 1:].split())
+    return ''
 IMPORT = re.compile(r'^\s*(?:public\s+|meta\s+|private\s+)*import\s+(.+?)\s*(?:--.*)?$')
 
 
@@ -44,9 +62,10 @@ def _now():
     return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
 
-def all_decls(text):
+def all_decls(text, anon=None):
     """[(full name, line)] of every declaration in a Lean file that is not private: the namespace at each by tools/b757_join.py's lines
-    (namespace, section, mutual, end) outside block comments; `_root_.` honoured; `class inductive` read as its name."""
+    (namespace, section, mutual, end) outside block comments; `_root_.` honoured; `class inductive` read as its name; an instance named
+    after its priority read as named. Each anonymous instance that is not private is appended to `anon` as (namespace, type, line)."""
     stack, out, depth = [], [], 0
     for k, l in enumerate(text.split(NL), 1):
         if depth == 0:
@@ -70,8 +89,33 @@ def all_decls(text):
                         if nm.startswith('_root_.'):
                             ns, nm = [], nm[len('_root_.'):]
                         out.append(('.'.join(ns + [nm]), k))
+                elif not d:
+                    i = INST.match(l)
+                    if i and 'private' not in i.group(1).split():
+                        rest = i.group(2)
+                        ns = [c for grp in stack for c in grp]
+                        nmm = re.match(r'([^\s:({\[⦃]+)', rest)
+                        if nmm and nmm.group(1) != 'where':
+                            nm = nmm.group(1).rstrip('.')
+                            if nm.startswith('_root_.'):
+                                ns, nm = [], nm[len('_root_.'):]
+                            out.append(('.'.join(ns + [nm]), k))
+                        elif anon is not None:
+                            anon.append(('.'.join(ns), _inst_type(rest), k))
         depth = max(0, depth + l.count('/-') - l.count('-/'))
     return out
+
+
+def anon_pairs(anon_by_module):
+    """{(namespace, type): [(module, line), ...]} for each anonymous instance type read in one namespace in more than one module."""
+    seen = {}
+    for mod, rows in anon_by_module.items():
+        for ns, ty, ln in rows:
+            if ty:
+                seen.setdefault((ns, ty), [])
+                if mod not in [m for m, _l in seen[(ns, ty)]]:
+                    seen[(ns, ty)].append((mod, ln))
+    return dict((k, v) for k, v in seen.items() if len(v) > 1)
 
 
 def duplicates(decls_by_module):
@@ -188,8 +232,12 @@ def read_at(rev):
     mods = sorted(set(v[0] for v in t.values() if v[0]))
     texts, outside = closure(mods, rev, libs, files)
     by_t = dict((m, all_decls(texts[m][1])) for m in mods if m in texts)
-    by_c = dict((m, all_decls(tx)) for m, (_p, tx) in texts.items())
+    an_c = dict((m, []) for m in texts)
+    by_c = dict((m, all_decls(tx, an_c[m])) for m, (_p, tx) in texts.items())
     dup_t, dup_c = duplicates(by_t), duplicates(by_c)
+    an_n = sum(len(v) for v in an_c.values())
+    an_u = sum(1 for v in an_c.values() for _ns, ty, _l in v if not ty)
+    an_p = anon_pairs(an_c)
     k, cls, rows = filter_read(rev)
     refused = [(n, s) for n, s, okk in rows if not okk]
     L = ['## AT %s (%s)' % (rev, sha[:8]),
@@ -200,6 +248,10 @@ def read_at(rev):
              sum(len(v) for v in by_t.values()), len(dup_t), sum(len(v) for v in by_c.values()), len(dup_c))]
     for nm, v in sorted(dup_c.items()):
         L.append('    DUPLICATE %s: %s' % (nm, ' ; '.join('%s :%d (%s)' % (m, ln, 'a target' if m in by_t else 'imported') for m, ln in v)))
+    L.append('  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure %d (the type read on its first line %d, on a later line %d, '
+             'unread) ; one namespace and one type text in two modules %d (0 wanted)' % (an_n, an_n - an_u, an_u, len(an_p)))
+    for (ns, ty), v in sorted(an_p.items()):
+        L.append('    ANONYMOUS PAIR namespace %s, type %s: %s' % (ns or '(root)', ty, ' ; '.join('%s :%d' % (m, ln) for m, ln in v)))
     L.append('  (ii) THE FILTER (%s :%d at %s): the class %r passes %s ; lines %d ; passed %d ; refused %d' % (
         WORKFLOW, k, sha[:8], cls, describe(class_chars(cls)), len(rows), len(rows) - len(refused), len(refused)))
     for n, s in refused:
@@ -210,7 +262,7 @@ def read_at(rev):
     L.append('  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (%s :%d, the class %r, a refusal exiting 2 before any build): passed %d of %d%s' % (
         WORKFLOW, tk, tcls, len(mods) - len(tbad), len(mods), (' ; REFUSED ' + ' '.join(tbad)) if tbad else ''))
     return L, dict(sha=sha, names=len(t), refused_targets=len(bad), modules=len(mods), closure=len(texts), dup_t=len(dup_t), dup_c=len(dup_c),
-                   filtered=[n for n, _s in refused], lines=len(rows))
+                   filtered=[n for n, _s in refused], lines=len(rows), anon=an_n, anon_unread=an_u, anon_pairs=len(an_p), target_refused=len(tbad))
 
 
 def describe(ok):
@@ -235,6 +287,16 @@ def controls():
     got = [n for n, _k in all_decls(planted)]
     c('every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a '
       'nested namespace, _root_, an attribute, a class inductive read)', got, got == ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'])
+    an = []
+    got2 = [n for n, _k in all_decls(planted + NL + NL.join(['namespace C', 'instance (priority := 100) [Foo α] : Bar α := x',
+                                                             'instance (priority := 100) named : Baz := x', 'private instance : Qux := x',
+                                                             'scoped instance sc : Baz := x', 'instance :', '  Long := x', 'end C']), an)]
+    c('the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a '
+      'priority and a scoped one read as named, a type on the next line unread)', (got2[6:], an),
+      got2[6:] == ['C.named', 'C.sc'] and an == [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)])
+    ap = anon_pairs({'M1': [('A', 'Inhabited Nat', 3), ('A', '', 5)], 'M2': [('A', 'Inhabited Nat', 7), ('B', 'Inhabited Nat', 8)], 'M3': [('A', '', 2)]})
+    c('the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not)', ap,
+      ap == {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]})
     dp = duplicates({'M1': [('A.x', 3), ('A.y', 4)], 'M2': [('A.x', 9)], 'M3': [('B.x', 1)]})
     c('the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not)', dp,
       dp == {'A.x': [('M1', 3), ('M2', 9)]})
@@ -271,7 +333,8 @@ K_JOIN = '6568e9c7a5b34a7283a08c55f813c82b3cc54c07'   # ### push-b757-join's tip
 def cmd_read(rev):
     L, f = read_at(rev)
     print(NL.join(L))
-    print('### AT %s: DUPLICATES OVER THE CLOSURE %d ; OVER THE TARGETS %d ; REFUSED BY THE FILTER %d %s' % (f['sha'][:8], f['dup_c'], f['dup_t'], len(f['filtered']), f['filtered']))
+    print('### AT %s: DUPLICATES OVER THE CLOSURE %d ; OVER THE TARGETS %d ; ANONYMOUS PAIRS %d (OF %d, %d UNREAD) ; REFUSED BY THE FILTER %d %s ; MODULES REFUSED %d' % (
+        f['sha'][:8], f['dup_c'], f['dup_t'], f['anon_pairs'], f['anon'], f['anon_unread'], len(f['filtered']), f['filtered'], f['target_refused']))
 
 
 def cmd_bank(before, tip):
@@ -284,9 +347,10 @@ def cmd_bank(before, tip):
            '### refuses printed, two expected (:358 and :359, each carrying the Greek capital lambda); the file not edited, the workflow not widened.',
            '', '## THE CONTROLS'] + L + ['', '### the join`s tip as b757 left it, before (4)`s one commit'] + lb + [
            '', '### the tip the dispatch is sent at'] + lt + ['',
-           '### ### **THE PRE-SEND READS AT %s: DUPLICATES %d (OVER THE TARGETS %d) ; REFUSED BY THE FILTER %d (%s) ; TARGETS %d MODULES FOR %d NAMES, %d REFUSED ; CONTROLS %d OF %d.**' % (
-               ft['sha'][:8], ft['dup_c'], ft['dup_t'], len(ft['filtered']), ', '.join(':%d' % n for n in ft['filtered']) or 'none', ft['modules'], ft['names'],
-               ft['refused_targets'], sum(ok), len(ok))]
+           '### ### **THE PRE-SEND READS AT %s: DUPLICATES %d (OVER THE TARGETS %d) ; ANONYMOUS PAIRS %d (OF %d, %d UNREAD) ; REFUSED BY THE FILTER %d (%s) ; '
+           'TARGETS %d MODULES FOR %d NAMES, %d REFUSED, MODULES REFUSED %d ; CONTROLS %d OF %d.**' % (
+               ft['sha'][:8], ft['dup_c'], ft['dup_t'], ft['anon_pairs'], ft['anon'], ft['anon_unread'], len(ft['filtered']),
+               ', '.join(':%d' % n for n in ft['filtered']) or 'none', ft['modules'], ft['names'], ft['refused_targets'], ft['target_refused'], sum(ok), len(ok))]
     r = FB.write(BANK, NL.join(out))
     print(NL.join(out))
     print('written data/b758_presend.txt ; figbank: %s' % r['why'])
