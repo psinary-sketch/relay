@@ -112,7 +112,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = 'd1afb4fc2b34f5e62951947208461995d891c80c'    # ### b758: SIDE-explicit-formula's main at the close -- (4)'s landing at v0.39 (02:56:24Z); set to (5)'s merge where v0.40 lands (entering at 8fbab45d, EF_BASE)
+EF_MAIN = '630cba16e228a018f9dd986196142fc6feb704ec'    # ### b758: SIDE-explicit-formula's main at the close -- (5)'s merge at v0.40 (04:37:50Z, tag object d86d8cf5), after (4)'s landing at v0.39 = d1afb4fc (02:56:24Z) (entering at 8fbab45d, EF_BASE)
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -457,7 +457,7 @@ STANDING_BANKS = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), (
 STANDING_BANKS_B757 = (('v1.35.4', '26ac811e', 'data/b757_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b757_standing_v1355.txt', 6))
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
 KERNEL_COMMITS = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'),             # ### (R368)(4): the one commit of push-b758-land, on main at v0.39
-                  ('merge', 'SIDE-explicit-formula', '630cba16', 'push-b758-coeff'))   # ### (R368)(5): the merge of 596d1c9e; 'main' once v0.40 lands
+                  ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### (R368)(5): the merge of 596d1c9e, made on push-b758-coeff, on main at v0.40 (04:37:50Z)
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
