@@ -389,13 +389,20 @@ def _rdeletes(S):
 #⟪END⟫
 # ### b754, the Edit tool: v1.9.0's tools/standing/reportdry.py carries the word report and is no report tool; the needle read it as one (the mid probe's LIVE FAIL)
 #⟪OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)⟫
-        and (_ for _ in ()).throw(SystemExit('### b759`s a probe`s needle (OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED'))   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+        and not any('report' in t for t in K.SEALED if t != 'standing/reportdry.py') and 'b759_report.py' not in (S['sealj'].get('tools') or {})   # ### b759, before the lock: the carried stub set for the act, b758's body with the act's name
 #⟪END⟫
 # ### b754, Component 7 (the Edit tool): G-CONVERSION-ONE's needle `def conv(` read tools/b754_c2_check.py's Dirichlet convolution
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
 #⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
-    raise SystemExit('### b759`s a probe`s needle (OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 8 code lines, stands in the carry`s diff bank
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
+    one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
+    bad = []
+    for f in sorted(os.listdir(T)):
+        if (f.startswith('b759_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS:   # ### b759, before the lock: the carried stub set for the act, b758's body with the act's name
+            t = strip_prose(read(os.path.join(T, f)))
+            if any(x in t for x in toks) or one_arg.search(t):
+                bad.append(f)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R364): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
@@ -417,7 +424,7 @@ def _rdeletes(S):
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
 #⟪OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)⟫
-    raise SystemExit('### b759`s a probe`s needle (OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged', c) is not None)   # ### b759, before the lock: the carried stub set, b758's body (b759's listing at 18:41Z, data/b759_stepzero.txt :60)
 #⟪END⟫
 # ### b754, Component 4's dry composition: v1.27.0's rdn (repair (7)) refuses a missing file, and the record reads three banks the root and the
 # ### close write -- the answers bank, the answer check and the events bank -- before they can exist (the entry's dry composition for the touch
@@ -506,7 +513,6 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### removed; the ledger exclusion unchanged. The arm stands in tools/standing/arms.py's RETIRED and is not in the run list; read so, its
 # ### template line :971 would fire on N3's label of the landed entry (record.tpl :2444, a string naming FINDINGS.md), not edited here
 #⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
-    raise SystemExit('### b759`s a probe`s needle (OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_walk.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
