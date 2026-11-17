@@ -112,7 +112,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = '8fbab45d8a966dca53d42448e33927d885fd4ea3'    # ### SIDE-explicit-formula's main after [A4]: badacccb + README.md alone ((R364)(6))
+EF_MAIN = 'd1afb4fc2b34f5e62951947208461995d891c80c'    # ### b758: SIDE-explicit-formula's main at the close -- (4)'s landing at v0.39 (02:56:24Z); set to (5)'s merge where v0.40 lands (entering at 8fbab45d, EF_BASE)
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -347,7 +347,7 @@ B714_ROOT = '95f84fdeeb9dac74d1b65c8964609ed5c6cb8bd257ebda274b41adcb2cdd6ed9'  
 B723_ROOT_BANKS = '6b47664a'  # ### b757's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = 'da79951c'     # ### b758: the kernel route, v1.35.9, a commit of its own moving VERSION with its controls (data/b758_standing_v1359.txt), before any kernel write (events (34)); N2's "standing change before its use" read at it
-C1_LOCKGATE = '24fca573'     # ### tools/b757_lockgate.py carried from tools/b756_lockgate.py and committed before it runs (Component 6, step 70, 14:09:44Z)
+C1_LOCKGATE = None           # ### b758: the act's lock gate, set when made (b757's 24fca573 carried until Component 5, read by _chain as this act's)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b758_doors.py', '2bc7eca8', 'data/b758_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
@@ -363,7 +363,7 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None              # ### no rules bank this act: (R367) orders none; data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
 B756_RULES = ('data/b757_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it
 RULES_COMMITS = ()
-C1_CEILING = 'f75eee21'            # ### the ceiling read again after Component 3 ((R367)(2)), data/b757_ceiling.txt (step 44); the act's one ceiling bank
+C1_CEILING = 'b9e4c79f'            # ### b758 (R368)(2): the commit carrying data/b758_ceiling.txt's last reading (the first, 02:40:22Z, at b9e4c79f); set again at the reading after Component 3
 C1_PP = '6c50d50d'           # ### b758: PLACE-papers FINDINGS -- the corrigendum for b757 at :15484 (01:26:32Z, events (33))
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
@@ -410,39 +410,45 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### bank's commit); (4)'s two ((R366)(4): each committed before its run) and the five of (3) to (5) committed so; the three of (6) (the
 # ### fault count, the placing, the README route) went in with their banks in one commit each, (6) ordering no commit before a run, and
 # ### stand apart in GENS_WITH_BANK
-# ### b757, Component 6: every tool of the act committed before the bank it wrote -- (name, tool, its commits before the bank, bank, the
-# ### bank's commit, the last carrying the bank); tools/b757_readme.py (852d3198) writes no relay bank, its output the kernel commit 6568e9c7
-# ### the controls bank last carried by 0dcd941d (Component 6), its tool's bank route re-run at 12:22:14Z, the first bank commit 7e30d538 in CHAIN
-GENS = (('the controls tool', 'tools/b758_controls.py', ('f41d1af9', 'bdb1cb8a', 'fd9c6a30', '9b4b4001', '33683353', '583afba1'), 'data/b758_controls.txt', '0dcd941d'),
-        ('the join', 'tools/b758_join.py', ('da4fcbcd', 'bdb1cb8a', 'fd9c6a30'), 'data/b758_join.txt', '170a995c'),
-        ('the outcomes', 'tools/b758_outcomes.py', ('3b09369c', 'a7d8ceee', 'c3f73580', '9a8a2230'), 'data/b758_outcomes.txt', 'c98beed0'),
-        ('the ceiling after Component 3', 'tools/b758_ceiling.py', ('7ed046aa',), 'data/b758_ceiling.txt', 'f75eee21'),
-        ('REGISTRY`s header line', 'tools/b758_registry_line.py', ('676bc193',), 'data/b758_registry_line.txt', 'c98beed0'),
-        ('the two descriptions', 'tools/b758_doors.py', ('2bc7eca8',), 'data/b758_doors.txt', 'c98beed0'),
-        ('the gh calls from inside a tool', 'tools/b758_ghcalls.py', ('7e678d5a', '983d3021'), 'data/b758_ghcalls.txt', '214cfd3c'),   # ### defect (z): repaired 983d3021, re-banked 214cfd3c
-        ('the sweep of (9)', 'tools/b758_sweep.py', ('88f8e89b', '0004ac11'), 'data/b758_sweep.txt', '2bda8e8f'),
-        ('the answers bank cut', 'tools/b758_cut.py', ('2bda8e8f',), 'data/b758_cut.txt', '31c53852'),
-        ('the notes of (9)', 'tools/b758_notes.py', ('0243d123',), 'data/b758_notes.json', 'c92fca81'))
+# ### b758, Component 5: every tool of the act committed before the bank it wrote -- (name, tool, its commits before the bank, bank, the
+# ### commit carrying the bank as it stands at HEAD); each read by git at 03:5xZ (scratch reads, nothing written): the tool's first add the
+# ### first of its commits, each of them carrying the tool and not the bank, the bank's commit the bank and not the tool, the blob at that
+# ### commit equal to the working tree. The statements, the notes and the controls bank added as each is banked; the outcomes and the
+# ### ceiling set again at their last writes
+GENS = (('the pre-send reads', 'tools/b758_presend.py', ('06eaa976', '2e103c46'), 'data/b758_presend.txt', '7aaa2863'),
+        ('the landing read', 'tools/b758_join.py', ('7aaa2863',), 'data/b758_land.txt', 'b83b3cac'),
+        ('the merge of (5)', 'tools/b758_join.py', ('7aaa2863', 'f8b607a5'), 'data/b758_coeff.txt', '6e14bfe4'),
+        ('the controls tool`s controls', 'tools/b758_controls.py', ('7aaa2863',), 'data/b758_controls_control.txt', 'b83b3cac'),
+        ('the outcomes', 'tools/b758_outcomes.py', ('6db2be8d',), 'data/b758_outcomes.txt', '6e14bfe4'),
+        ('the moved cites of (8)', 'tools/b758_notes.py', ('4ca805a4', '5559a08b'), 'data/b758_moved_cites.txt', 'ca551bb4'),
+        ('the ceiling', 'tools/b758_ceiling.py', ('96a22fde',), 'data/b758_ceiling.txt', 'b9e4c79f'))
 PASSED_BANK = None   # ### (carried name) no passed writes this act
-GENS_WITH_BANK = ()  # ### none: each act tool committed before its run (the controls tool's control bank in its first commit, defect (i))
-# ### b757, Component 6: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
-# ### module's N2 arms (the order by time and by ancestry); the lock gate and the handoff page appended where made
-CHAIN = (('c1', 'a8a02f38'), ('corr', '858b906f'), ('standing', '26ac811e'), ('live', '1a99000b'), ('controls_gen', 'f41d1af9'),
-         ('join_gen', 'da4fcbcd'), ('join_fix', 'bdb1cb8a'), ('readme_gen', '852d3198'), ('join_fix2', 'fd9c6a30'), ('join', '170a995c'),
-         ('controls_fix', '9b4b4001'), ('rows1', '3ac44439'), ('controls_fix2', '33683353'), ('outcomes_gen', '3b09369c'), ('outcomes1', '583afba1'),
-         ('controls', '7e30d538'), ('t0_rows', 'a7d8ceee'), ('t0_read', 'a1b36dbc'), ('mod24_rows', 'c3f73580'), ('ceiling_gen', '7ed046aa'),
-         ('ceiling', 'f75eee21'), ('wide_gen', '9a8a2230'), ('registry_gen', '676bc193'), ('doors_gen', '2bc7eca8'), ('ghcalls_gen', '7e678d5a'),
-         ('c5', 'c98beed0'), ('v1355', 'e0428564'), ('sweep_gen', '88f8e89b'), ('sweep_fix', '0004ac11'), ('sweep', '2bda8e8f'), ('cut', '31c53852'),
-         ('notes_gen', '0243d123'), ('notes', 'c92fca81'), ('c6', '0dcd941d'))
-# ### defect (z): the gh-call reader's repair 983d3021 and re-bank 214cfd3c named in GENS alone; CHAIN and TIME_ORDER end at c6, because
-# ### _chain and the order arms read the handoff page (c37cdb05) and the lock gate (24fca573) after CHAIN, both made before the repair
-PP_CHAIN = (('c1pp', '810ec2da'), ('pp_registry', '3e85e952'), ('pp_a', 'e88282c4'), ('pp_b', 'c7dfe43c'), ('pp_c', '9c0896c5'), ('pp_d', 'c45be6e0'),
-            ('pp_e', 'b14256c2'))
+GENS_WITH_BANK = ()  # ### none: each act tool committed before its run
+# ### b758, Component 5: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
+# ### module's N2 arms (the order by time and by ancestry) and the entry's order paragraph (CHAIN_WORDS); later commits appended as made; the
+# ### lock gate and the handoff page appended by _chain where made
+CHAIN = (('presend_gen', '06eaa976'), ('presend_fix', '2e103c46'), ('v1356', 'ac6a0a77'), ('words', 'b663b331'), ('v1357', '248cacb8'),
+         ('b757_close', '401d3bda'), ('v1358', 'ed0d3f33'), ('c1', 'f20e2be2'), ('corr', '2f3287de'), ('v1359', 'da79951c'), ('join_gen', '7aaa2863'),
+         ('dispatch1', 'b83b3cac'), ('join_ext', 'f8b607a5'), ('v1360', 'fd45f4c5'), ('v1361', '9bc8cfeb'), ('v1362', '4db55035'), ('side_rule', 'ae24d870'),
+         ('statements_gen', '5764d817'), ('statements_fix', '4f069656'), ('outcomes_gen', '6db2be8d'), ('notes_gen', '4ca805a4'), ('notes_fix', '5559a08b'),
+         ('moved', 'ca551bb4'), ('ceiling_gen', '96a22fde'), ('ceiling1', 'b9e4c79f'), ('read1', '064afdd6'), ('rows1', 'a3371bc3'), ('landed', '6e14bfe4'),
+         ('record1', '54fb61ff'), ('record2', '32e23cbe'), ('closing', 'c6a1f6ec'), ('regspec', 'ae675194'), ('overrides', '7822fd02'))
+PP_CHAIN = (('c1pp', '6c50d50d'),)   # ### the notes of (8), (a) to (e), appended as written
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero', 'c1', 'c1pp', 'corr', 'standing', 'live', 'controls_gen', 'join_gen', 'join_fix', 'readme_gen', 'join_fix2', 'join',
-              'controls_fix', 'rows1', 'controls_fix2', 'outcomes_gen', 'outcomes1', 'controls', 't0_rows', 't0_read', 'mod24_rows', 'ceiling_gen', 'ceiling',
-              'wide_gen', 'registry_gen', 'pp_registry', 'doors_gen', 'ghcalls_gen', 'c5', 'v1355', 'sweep_gen', 'sweep_fix', 'sweep', 'cut', 'notes_gen',
-              'pp_a', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes', 'c6')
+TIME_ORDER = ('actcur', 'stepzero', 'presend_gen', 'presend_fix', 'v1356', 'words', 'v1357', 'b757_close', 'v1358', 'c1', 'c1pp', 'corr', 'v1359',
+              'join_gen', 'dispatch1', 'join_ext', 'v1360', 'v1361', 'v1362', 'side_rule', 'statements_gen', 'statements_fix', 'outcomes_gen', 'notes_gen',
+              'notes_fix', 'moved', 'ceiling_gen', 'ceiling1', 'read1', 'rows1', 'landed', 'record1', 'record2', 'closing', 'regspec', 'overrides')
+CHAIN_WORDS.update({'presend_gen': 'the pre-send tool', 'presend_fix': 'its bound on the names of anonymous instances', 'v1356': 'v1.35.6, the reader`s repair',
+                    'words': 'the author`s answer and the amendment of (1)', 'v1357': 'v1.35.7, the bound', 'b757_close': 'b757`s four carried steps',
+                    'v1358': 'v1.35.8, the title rule', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
+                    'v1359': 'v1.35.9, the kernel route', 'join_gen': 'the join reader and the controls tool, with the pre-send bank',
+                    'dispatch1': 'the landing read and dispatch 1', 'join_ext': 'the join tool extended for (5)', 'v1360': 'v1.36.0, the fast-forward route',
+                    'v1361': 'v1.36.1, the push route', 'v1362': 'v1.36.2, the arm and the face', 'side_rule': 'the side rule narrowed',
+                    'statements_gen': 'the statements tool', 'statements_fix': 'its bank route', 'outcomes_gen': 'the outcomes tool', 'notes_gen': 'the notes tool',
+                    'notes_fix': 'its moved-cite reader sorted', 'moved': 'the moved cites', 'ceiling_gen': 'the ceiling tool',
+                    'ceiling1': 'the record`s reads and the ceiling`s first reading', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step row',
+                    'landed': 'the join landed at v0.39 and the merge with dispatch 2', 'record1': 'the entry rewritten', 'record2': 'the trail record',
+                    'closing': 'the closing record', 'regspec': 'the regspec and the report', 'overrides': 'the overrides and the delete arms'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b758_standing_v1357.txt', 16),
                   ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
@@ -450,14 +456,9 @@ STANDING_BANKS = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), (
                   ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758: the reader's repair (R368)(1), the bound (amendment row 1), the title rule (3), the kernel route, the two routes (6)(i)-(ii), the arm and the face (6)
 STANDING_BANKS_B757 = (('v1.35.4', '26ac811e', 'data/b757_standing_v1354.txt', 20), ('v1.35.5', 'e0428564', 'data/b757_standing_v1355.txt', 6))
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
-KERNEL_COMMITS = (('ef_control', 'SIDE-explicit-formula', '347f5d79', None), ('m24_control', 'SIDE-dirichlet-mod-24', '28caf3c8', None),
-                  ('merge1', 'SIDE-explicit-formula', '0a0672bc', 'push-b757-join'), ('merge2', 'SIDE-explicit-formula', '12d60407', 'push-b757-join'),
-                  ('merge3', 'SIDE-explicit-formula', '36ad7bb7', 'push-b757-join'), ('merge4', 'SIDE-explicit-formula', '0cc23db8', 'push-b757-join'),
-                  ('edit_i', 'SIDE-explicit-formula', '6f2d7e26', 'push-b757-join'), ('edit_ii', 'SIDE-explicit-formula', 'e90ae384', 'push-b757-join'),
-                  ('edit_iii', 'SIDE-explicit-formula', '6568e9c7', 'push-b757-join'), ('t0', 'SIDE-explicit-formula', 'd40bbdab', 'push-b757-coeff'),
-                  ('t0_list', 'SIDE-explicit-formula', '89eb71b6', 'push-b757-coeff'), ('t1', 'SIDE-explicit-formula', 'e1afae15', 'push-b757-coeff'),
-                  ('t1_fix', 'SIDE-explicit-formula', 'e52f9060', 'push-b757-coeff'), ('wide', 'SIDE-explicit-formula', '596d1c9e', 'push-b757-coeff'),
-                  ('m24_workflow', 'SIDE-dirichlet-mod-24', '22282733', 'main'), ('m24_module', 'SIDE-dirichlet-mod-24', 'e5ebdd15', 'main'))
+KERNEL_COMMITS = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'),             # ### (R368)(4): the one commit of push-b758-land, on main at v0.39
+                  ('merge', 'SIDE-explicit-formula', '630cba16', 'push-b758-coeff'))   # ### (R368)(5): the merge of 596d1c9e; 'main' once v0.40 lands
+KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
 M24_MAIN = 'e5ebdd15'                 # ### b758: its remote main, unmoved; its local main fast-forwarded to it by (6)(i)'s route (01:59:39Z, events (38))
@@ -497,7 +498,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R368)); one question at the root ((R368)(10))
 SITTING_STATES = {}
-HANDOFF_COMMIT = 'c37cdb05'   # ### (R367)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate (step 69, 14:07:50Z, 154 lines)
+HANDOFF_COMMIT = None         # ### (R368)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate; set when made (b757's c37cdb05 carried until Component 5)
 C3_RELAY = ()   # ### Component 3 ((R368)(5)): set as made
 C3_NOTES_GEN = '5559a08b'   # ### b758 (R368)(8): tools/b758_notes.py as last committed before its writes, controls 24 of 24 (events (44))
 C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'e88282c4'),
@@ -560,7 +561,7 @@ MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
 EF_BASE = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### SIDE-explicit-formula's main entering the act (b743's [A4], README alone)
-EF_MAIN_AFTER = EF_BASE   # ### unmoved: no kernel's main is touched ((R364)(6))
+EF_MAIN_AFTER = EF_MAIN   # ### b758: moved by (4) and (5) alone, each after its run's success ((R368)(4), (5))
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b754: zq-b730 entering at b753's tip (SPZ3), unmoved this act ((R364)(8))
 ZQ_ENTERING_B745 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b753's entering tip, the tag's commit
