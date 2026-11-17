@@ -403,11 +403,27 @@ def moved():
         if not same:
             unread.append((x['path'], x['line']))
         for c in x['moved']:
-            old = CT.at(then, c)
-            res = bool(old.strip()) and CT.at(now, c) == old
-            where = c if res else (CT.first(now, old) if old.strip() else 0)
-            out.append((x['path'], x['line'], c, digest(old), res, where, same))
+            out.append((x['path'], x['line'], c) + cite_class(CT, then, now, c) + (same,))
     return out, len(rows), unread, ph.strip()
+
+
+def cite_class(CT, then, now, c):
+    """(digest of the line then, resolves, its class, where it stands now): RESOLVES (the line at c at HEAD the line at c then, not blank);
+    MOVED BY TWO (the line then at c + 2 at HEAD, b757's insertion); NO TEXT LINE THEN (the line then blank or past the file's end: the cite
+    named no text at b757's write either); ELSEWHERE (each line at HEAD carrying its text, by the citation tool's `first`, every one); GONE."""
+    old = CT.at(then, c)
+    if not old.strip():
+        return digest(old), False, 'NO TEXT LINE THEN', ()
+    if CT.at(now, c) == old:
+        return digest(old), True, 'RESOLVES', (c,)
+    if CT.at(now, c + 2) == old:
+        return digest(old), False, 'MOVED BY TWO', (c + 2,)
+    pos, k = [], CT.first(now, old)
+    while k:
+        if now[k - 1] == old:
+            pos.append(k)
+        k = CT.first(now, old, k + 1)
+    return digest(old), False, 'ELSEWHERE' if pos else 'GONE', tuple(pos)
 
 
 def moved_text(out, n, unread, ph, L=None):
@@ -418,13 +434,19 @@ def moved_text(out, n, unread, ph, L=None):
          'moved cite: the document`s line at that number at PLACE-papers %s (b757`s write`s HEAD) against the line at that number at PLACE-papers '
          'HEAD %s, by the citation tool`s helpers (b758_citation: _blob, at, first); a cite resolves where the two are equal and not blank; each '
          'that does not printed with where its line now stands (0: nowhere); the document`s lines given by number and digest alone' % (B757_PP_HEAD, ph[:8]), '']
-    for p, ln, c, dg, res, where, same in bad:
-        t.append('  relay %s :%d -- cites the document`s :%d (its line then sha256 %s) -- DOES NOT RESOLVE ; that line now at :%d%s' % (
-            p, ln, c, dg, where, '' if same else ' ; THE RELAY LINE NOT AS COUNTED'))
+    for p, ln, c, dg, _res, cls, where, same in bad:
+        t.append('  relay %s :%d -- cites the document`s :%d (its line then sha256 %s) -- DOES NOT RESOLVE: %s%s%s' % (
+            p, ln, c, dg, cls, (' ; that line now at %s' % ', '.join(':%d' % w for w in where)) if where else '',
+            '' if same else ' ; THE RELAY LINE NOT AS COUNTED'))
     for p, ln in unread:
         t.append('  relay %s :%d -- THE LINE AT RELAY HEAD NOT THE ONE b757 COUNTED (its digest differs)' % (p, ln))
-    t += ['', '### ### **THE MOVED CITES READ: RELAY LINES %d ; CITES %d ; RESOLVING %d ; NOT RESOLVING %d ; RELAY LINES NOT AS COUNTED %d ; NONE EDITED, EACH PRINTED.**' % (
-        n, len(out), len(out) - len(bad), len(bad), len(unread))]
+    by = {}
+    for r in out:
+        by[r[5]] = by.get(r[5], 0) + 1
+    t += ['', '### ### **THE MOVED CITES READ: RELAY LINES %d ; CITES %d ; RESOLVING %d ; NOT RESOLVING %d (MOVED BY TWO %d ; NO TEXT LINE THEN %d ; '
+          'ELSEWHERE %d ; GONE %d) ; RELAY LINES NOT AS COUNTED %d ; NONE EDITED, EACH PRINTED.**' % (
+              n, len(out), len(out) - len(bad), len(bad), by.get('MOVED BY TWO', 0), by.get('NO TEXT LINE THEN', 0), by.get('ELSEWHERE', 0),
+              by.get('GONE', 0), len(unread))]
     return NL.join(t) + NL
 
 
@@ -513,6 +535,12 @@ def controls(S=None):
         except SystemExit as e:
             ok_ = str(e)[:80]
         out.append(('(%s) composed on PLACE-papers HEAD`s %s with the planted pair' % (k, ITEMS[k]['rel']), ok_, True))
+    CT = citation_tool()
+    th, nw = ['a', 'b', '', 'q', 'r', 'w'], ['a', 'n', 'm', 'b', 'x', 'y', 'w', 'k', 'w']
+    cc = [(c, cite_class(CT, th, nw, c)[2:]) for c in (1, 2, 3, 5, 6, 40)]
+    out.append(('the moved-cite classes on planted lines by the citation tool`s helpers: resolves, moved by two, blank then, gone, elsewhere (each '
+                'place), past the end then', cc == [(1, ('RESOLVES', (1,))), (2, ('MOVED BY TWO', (4,))), (3, ('NO TEXT LINE THEN', ())),
+                                                   (5, ('GONE', ())), (6, ('ELSEWHERE', (7, 9))), (40, ('NO TEXT LINE THEN', ()))], True))
     ok = all(a == b for _, a, b in out)
     for n, a, b in out:
         print('  CONTROL %s: %s (wanted %s)' % (n, a, b))
