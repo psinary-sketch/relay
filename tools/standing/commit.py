@@ -64,6 +64,14 @@ v1.35.4, (R367)(3), THE ROUTE FOR KERNEL WRITES, BEFORE ANY BUILD: b745 committe
   staged set naming the kernel among the repositories it read; a commit while a merge stands open concludes that merge. No gate, lock, seal
   or repair in a kernel. Pushes stay with tools/push_gated.sh as it stands.
 
+v1.36.0, (R368)(6)(i), THE FAST-FORWARD OF A KERNEL'S LOCAL MAIN: tools/push_gated.sh moves a kernel's main at the remote from the pushed branch
+  and leaves the clone's own main where it stood (SIDE-dirichlet-mod-24's at 597b0869 beside the remote's e5ebdd15 since b757). `ff main` reads
+  the remote's main by one ls-remote of origin, wants that commit in the clone and the local main its ancestor, and moves the local main to it:
+  `merge --ff-only` where main is checked out on a clean tree, `update-ref` from the old value where it is not; the local main read back equal.
+  A local main that is not an ancestor (a divergent main), a remote main the clone lacks, or a read that fails is refused, nothing written; a
+  local main already equal writes nothing. Opened act by act by FF_ACTS, apart from KERNEL_ACTS: b758 opens SIDE-dirichlet-mod-24 to this
+  route alone and to no other write.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -77,6 +85,7 @@ v1.35.4, (R367)(3), THE ROUTE FOR KERNEL WRITES, BEFORE ANY BUILD: b745 committe
   python -X utf8 -u tools/standing/commit.py <kernel> merge <commit>
   python -X utf8 -u tools/standing/commit.py <kernel> "component 2" <the words>
   python -X utf8 -u tools/standing/commit.py <kernel> delete push-<act>-<word>
+  python -X utf8 -u tools/standing/commit.py <kernel> ff main
 """
 import json
 import os
@@ -98,6 +107,9 @@ KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # #
                'b758': ('SIDE-explicit-formula',)}   # ### v1.35.9, (R368)(5), (10): "lifted for SIDE-explicit-formula in this act alone"; SIDE-dirichlet-mod-24's local main by (6)(i)'s route alone
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
+# ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
+# ### read inside the route, not by KERNEL_ACTS -- (R368)(10): "no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i)"
+FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula')}
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
@@ -223,7 +235,7 @@ def lock_face(repo, act, read, data, run_seal=True):
 
 
 ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'component 6', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root ; v1.34.6, (R365)(2)(iii) with b755's amendment row 1: components 5 and 6
-WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone
+WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge', 'ff')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone ; v1.36.0, (R368)(6)(i): ff, a kernel's alone, by FF_ACTS
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
 
@@ -763,6 +775,73 @@ def kernel_merge_after(key, act, repo, rc, out):
         ', '.join(conf), mh[:8])
 
 
+def ff_refusal(key, act):
+    """v1.36.0, (R368)(6)(i): None, or the refusal, for `ff` in `key` while `act` runs: a kernel of KERNELS that FF_ACTS opens for the act. Pure."""
+    if key not in KERNELS:
+        return 'THE FAST-FORWARD IS A KERNEL`S ALONE: %r -- the kernels %s ((R368)(6)(i))' % (key, ', '.join(sorted(KERNELS)))
+    if key not in FF_ACTS.get(act, ()):
+        return 'A KERNEL THE ACT`S RULING DOES NOT OPEN TO THE FAST-FORWARD: %s while %s runs (%s) ((R368)(6)(i))' % (
+            key, act, '; '.join('%s: %s' % (a, ', '.join(k)) for a, k in sorted(FF_ACTS.items())) or 'none')
+    return None
+
+
+def remote_head(repo, branch):
+    """(the sha of origin's refs/heads/<branch> by one ls-remote, or '' ; the exit). Reads only."""
+    ref = 'refs/heads/%s' % branch
+    r = _git(repo, 'ls-remote', 'origin', ref)
+    sha = ''
+    for l in (r.stdout or '').split('\n'):
+        p = l.split('\t')
+        if len(p) == 2 and p[1].strip() == ref:
+            sha = p[0].strip()
+    return sha, r.returncode
+
+
+def ff_plan(old, new, ancestor, checked_out, clean):
+    """the git argument list of the fast-forward, None where the local main equals the remote's (nothing to write), or Refused. Pure."""
+    if not new:
+        raise Refused('THE REMOTE`S MAIN NOT READ -- nothing written ((R368)(6)(i))')
+    if not old:
+        raise Refused('NO LOCAL MAIN IN THE CLONE -- nothing written ((R368)(6)(i))')
+    if old == new:
+        return None
+    if not ancestor:
+        raise Refused('THE LOCAL MAIN %s IS NOT AN ANCESTOR OF THE REMOTE`S MAIN %s -- NOT A FAST-FORWARD, nothing written ((R368)(6)(i))' % (
+            old[:8], new[:8]))
+    if checked_out:
+        if not clean:
+            raise Refused('MAIN IS CHECKED OUT AND THE TREE IS NOT CLEAN OR A MERGE STANDS OPEN -- nothing written ((R368)(6)(i))')
+        return ['merge', '--ff-only', '-q', new]
+    return ['update-ref', '-m', 'commit.py ff main ((R368)(6)(i))', 'refs/heads/main', new, old]
+
+
+def ff_route(key, args, act, repo):
+    """v1.36.0, (R368)(6)(i): `ff main` in a kernel FF_ACTS opens; the line printed, or Refused."""
+    if list(args) != ['main']:
+        raise Refused('THE FAST-FORWARD TAKES main ALONE: `ff main` ((R368)(6)(i))')
+    new, rc = remote_head(repo, 'main')
+    if rc != 0:
+        raise Refused('THE REMOTE`S MAIN NOT READ (ls-remote exit %d) -- nothing written ((R368)(6)(i))' % rc)
+    full = _commit_of(repo, new) if new else ''
+    if new and not full:
+        raise Refused('THE REMOTE`S MAIN %s IS NOT IN THE CLONE -- nothing written ((R368)(6)(i))' % new[:8])
+    old = _commit_of(repo, 'refs/heads/main')
+    anc = bool(old and full) and _git(repo, 'merge-base', '--is-ancestor', old, full).returncode == 0
+    co = _head_branch(repo) == 'main'
+    cmd = ff_plan(old, full, anc, co, not (_dirty(repo) or _merging(repo)))
+    track = _commit_of(repo, 'refs/remotes/origin/main')
+    if cmd is None:
+        return 'ALREADY AT THE REMOTE`S MAIN: main %s, read at the remote %s ; nothing written' % (old[:8], full[:8])
+    r = _git(repo, *cmd)
+    back = _commit_of(repo, 'refs/heads/main')
+    if r.returncode != 0 or back != full:
+        raise Refused('THE FAST-FORWARD FAILED: git %s exit %d (%s) ; main reads %s, the remote`s %s' % (
+            cmd[0], r.returncode, ((r.stderr or r.stdout) or '').strip()[:120], back[:8], full[:8]))
+    return 'FAST-FORWARDED: main %s -> %s, the remote`s main read by ls-remote (the remote-tracking main %s) ; %s ; read back %s, EQUAL' % (
+        old[:8], full[:8], track[:8] or 'none', 'main checked out: merge --ff-only' if co else 'main not checked out: update-ref from the old value',
+        back[:8])
+
+
 def usage_lines():
     """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
     zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
@@ -787,7 +866,11 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
         raise Refused('THE %s NAMES NOTHING' % verb.upper())
     if any(ch in a for a in args for ch in '*?['):
         raise Refused('A GLOB IN THE %s: name each path (%s)' % (verb.upper(), ' '.join(args)[:80]))
-    if kern:
+    if verb == 'ff':   # ### v1.36.0, (R368)(6)(i): its own table, apart from KERNEL_ACTS
+        bad = ff_refusal(key, act)
+        if bad:
+            raise Refused(bad)
+    elif kern:
         bad = repo_refusal(key, act)
         if bad:
             raise Refused(bad)
@@ -801,6 +884,8 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
             raise Refused(bad)
     mark = open_mark('%s %s in %s: %s' % (act, verb, key, ' '.join(args)[:120]), path=mark_path)
     try:
+        if verb == 'ff':   # ### v1.36.0
+            return ff_route(key, args, act, repo)
         if kern:
             cmd = kernel_write(key, verb, args, act, repo)
         else:
@@ -942,7 +1027,7 @@ def excludes():
 def main(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
-    if argv[0] not in ('relay', 'pp'):   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read
+    if argv[0] not in ('relay', 'pp') and argv[1] != 'ff':   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read ; v1.36.0: ff read by FF_ACTS in write_route
         import act as A
         bad = repo_refusal(argv[0], A.current()['act'])
         if bad:
