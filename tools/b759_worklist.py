@@ -345,7 +345,7 @@ B714_RECORD = '36daceb8'     # ### b758's record commit (relay)
 B714_ROOT = '81ae9220f799745ea0b8307b056307e4b98db2bb29916456138c939047f82ac5'   # ### b758's root, data/act_roots.txt's last row (:138)
 B723_ROOT_BANKS = 'cd1e9ed5'  # ### b758's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### none: (R369)(1) orders no standing change; the four of (4) are Component 2's
+C1_STANDING = 'cd45450e'     # ### b759, before the lock: the kernel route the act module's N2 reads by this name (b758's v1.35.9) -- v1.36.7, SIDE-explicit-formula opened for b759 before any kernel write (step 13, 19:27:59Z, events (28)); (R369)(1) orders no standing change and the four of (4) are Component 2's
 C1_LOCKGATE = None           # ### b759: tools/b759_lockgate.py carried from b758's and committed with its clause set before any run; set when made
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
