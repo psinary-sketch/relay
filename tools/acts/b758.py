@@ -1309,20 +1309,22 @@ def research_reproduces_ok(S):
             add('ferry (standing clauses)', 'the standing clauses v%d the ferry names: data/standing_clauses_v%d.txt -- ABSENT, not ordered written at this act' % (v, v), True, 'absent, as ordered', '0')
 #⟪END⟫
 #⟪SECTION closing 1⟫
-tool, Component 6) are the corrigendum with the price table of step zero, the route for kernel writes (v1.35.4's controls and its live
-control, the controls tool's own controls), the builds (the join's pre-send bank, every dispatch and its read, the ceiling read after
-Component 3, the outcomes of (4) to (7)), the five repairs of (8) (the cut, v1.35.5, the gh-call reader, REGISTRY's line, the doors), the
-notes of (9) (the five confirms, the cites the insertion moves, the sweep), the name and address scan, the reproduction not run (declared on
-the face), the touch read of v9 and the standing arms, each row by its bank's verdict line or by the line its pattern names (section_reading);
+tool, Component 5) are the corrigendum with b757's close and the seat's read of what the ruling misses, the seven standing changes (the
+reader's repair, the bound, the title rule, the kernel route, the two routes of (6), the arm and the face, each by its controls bank), the
+landing ((4)'s pre-send reads, its branch, the controls tool's own controls, every dispatch and its read, the outcomes), the three results
+((5)'s merge and union), the ceiling's readings, the statements bank of (7), the notes of (8) (the five confirms and the moved cites), the
+name and address scan, the reproduction not run (declared on the face), the touch read of v9 and the standing arms, each row by its bank's
+verdict line or by the line its pattern names (section_reading);
 (R368)'s counter line beneath the title, the repeat count beside it, and the claim arms' figure beside the suite's in the commits section;
 the author's word after the seal printed from its bank (tools/act_close.py author_words_section, v5 row (74)); the carried items for the next
 act ((R368)(10)). The standing report prints its lines in footing order (KERNEL,
 #⟪END⟫
 #⟪SECTION closing 2⟫
-tool's scores route and written nowhere. Kernels written this act, the two (R368)(10) opens: SIDE-explicit-formula on push-b758-join (the
-four merges and (4)'s three edits; the join broken at the import, main unmoved at 8fbab45d, no v0.39) and on push-b758-coeff (T0, T1 and the
-wide direction past zq-b730's tip 1e658870, no main moved, no v0.40); SIDE-dirichlet-mod-24's main moved to the workflow 22282733 and then to
-the module e5ebdd15, v0.2.0 cut at the read-back (relay data/b758_outcomes.txt, data/b758_controls.txt).
+tool's scores route and written nowhere. Kernels written this act, as (R368)(10) opens them: SIDE-explicit-formula's tree on push-b758-land
+((4)'s one commit, the rename) and push-b758-coeff ((5)'s merge of 596d1c9e, print_targets.txt the union), main moved by the gated push's
+default mode after each run's success alone, each tag cut at main's read-back, as relay data/b758_outcomes.txt reads them; the two local mains
+fast-forwarded by (6)(i)'s route, SIDE-dirichlet-mod-24's to e5ebdd15 and SIDE-explicit-formula's to each landing (relay data/b758_events.txt
+(38), (47)).
 #⟪END⟫
 #⟪SECTION closing 3⟫
     """the carried items for the act after b758 ((R368)(10) and the author's words); the open orders by tools/standing/orders.py's output over the trail, not a hand list."""
@@ -1330,58 +1332,74 @@ the module e5ebdd15, v0.2.0 cut at the read-back (relay data/b758_outcomes.txt, 
 #⟪END⟫
 #⟪SECTION closing 4⟫
 import standing.faceform as FF   # ### v1.8.0, (R365)(2)(iv)(c): the outbound sentence from the one clause
-# ### CARRIED STUB (tools/standing/carry.py v1.34.0): statement TITLE_LINE; it carried an act ordinal or the read-first needles
-TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s TITLE_LINE')
+# ### b758, Component 5: (4)'s and (5)'s outcomes read from their bank at import, for the title and the kernel lines
+_OC5 = dict((r_.get('item'), r_) for r_ in (jl('b758_outcomes.json') or []) if isinstance(r_, dict))
+_OW5 = lambda k_: (_OC5.get(k_) or {}).get('outcome') or 'NOT READ'
+_LT5 = [(_OC5[k_].get('tag'), (_OC5[k_].get('peel') or '')[:8]) for k_ in ('join', 'coeff') if _OW5(k_) == 'LANDED']
+TITLE_LINE = ('b758 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND EIGHTY-FIVE, THE LANDING: b757 CLOSED BY ITS CARRIED STEPS; %s; %s; '
+              'TWO ROUTES; %s; UNDER (R368).**' % (
+                  'THE JOIN LANDED AT v0.39' if _OW5('join') == 'LANDED' else 'THE JOIN BROKEN, NO TAG CUT',
+                  'T0, T1 AND THE WIDE DIRECTION LANDED AT v0.40' if _OW5('coeff') == 'LANDED' else (
+                      'T0, T1 AND THE WIDE DIRECTION ON THEIR BRANCH' if _OW5('coeff') == 'BROKE' else 'T0, T1 AND THE WIDE DIRECTION NOT MERGED'),
+                  'THE STATEMENTS BANKED' if rd('b758_epstein_statements.txt') else 'THE STATEMENTS CARRIED'))   # ### the ferry`s ACT line (data/b758_ferry.txt :33) adjusted to what the act did
+_K5_MAIN = ('moved to %s' % ' and then to '.join('%s, %s cut at its read-back' % (p_, t_) for t_, p_ in _LT5)) if _LT5 else 'unmoved, no tag cut'
+_K5_DEL = ('the merged kernel branches deleted at the remote after v0.40 by the tool`s route, one per message: ' + ', '.join(
+    '%s (was %s)' % (b_, t_[:8]) for b_, t_ in WL.KERNEL_DELETES)) if WL.KERNEL_DELETES else 'push-b757-join, push-b757-coeff, push-b758-land and push-b758-coeff standing at the remote'
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b757's sections over b757's objects not carried), headed as CLOSING_SECTIONS names them. A row
     of two reads its bank's verdict line by vtail; a row of three reads the line its pattern names."""
 #⟪END⟫
 #⟪SECTION closing 6⟫
-                ('the price table of (3) to (8) and the ceiling read against its lower figures at step zero ((R368)(2))', 'b758_price.txt'),
+                ('b757`s close under v1.35.7, steps [22] to [25], its closing record`s head line ((R368)(1), amended)', 'b757_closing.txt', r'(?m)^b757 closed: [^\n]*'),
+                ('the seat`s read of what the ruling misses, made after (4)`s pre-send reads ((R368)(2)), its head', 'b758_misses.txt', r'(?m)^b758 -- [^\n]*'),
 #⟪END⟫
 #⟪SECTION closing 7⟫
-            ('THE ROUTE FOR KERNEL WRITES ((R368)(3))', [
-                ('tools/standing/ at v1.35.4: the one-call tool taught the two kernels, its controls printed before any kernel write', 'b758_standing_v1354.txt'),
-                ('the live control: a commit by the tool`s route in each kernel on a scratch branch, read back and deleted by that route', 'b758_standing_v1354_live.txt'),
-                ('tools/b758_controls.py by its own controls, committed before its opening dispatch', 'b758_controls_control.txt')]),
-            ('THE BUILDS ((R368)(4)-(7))', [
-                ('the join`s four merges in order, the union of print_targets.txt and the targets, read before its dispatch', 'b758_join.txt'),
-                ('every dispatch and its read by run id, each kernel within its cap', 'b758_controls.txt'),
-                ('the ceiling read again after Component 3, banked by its committed tool', 'b758_ceiling.txt'),
-                ('the outcome of each of (4) to (7), its sentence cut from the ruling for the outcome its run read', 'b758_outcomes.txt')]),
-            ('THE REPAIRS OF (8) ((R368)(8))', [
-                ('(i) the answers bank read cut before the root`s appended section, on b757`s bank whole and on a planted second RESULT', 'b758_cut.txt'),
-                ('(ii) tools/standing/ at v1.35.5: the closing`s one count in one form', 'b758_standing_v1355.txt'),
-                ('(iii) N5`s reader taught a gh call made from inside a tool, read over b757`s banks', 'b758_ghcalls.txt'),
-                ('(iv) REGISTRY`s header line replaced in place, no line moving', 'b758_registry_line.txt'),
-                ('(v) the two descriptions sent by gh from tools/b758_doors.py, each read back', 'b758_doors.txt')]),
-            ('THE NOTES OF (9) ((R368)(9))', [
+            ('THE STANDING CHANGES ((R368)(1), (3), (4), (6))', [
+                ('v1.35.6: the reader behind the FINDINGS line passing the head through the landing`s one conversion ((R368)(1))', 'b758_standing_v1356.txt'),
+                ('v1.35.7: the readers behind N2, N4, N5 and S3 bounded at the next act`s opening commit ((R368)(1), amended)', 'b758_standing_v1357.txt'),
+                ('v1.35.8: the title rule, a backtick refused in an entry`s title and a bank`s head ((R368)(3))', 'b758_standing_v1358.txt'),
+                ('v1.35.9: the one-call tool opened for this act in SIDE-explicit-formula, before any kernel write', 'b758_standing_v1359.txt'),
+                ('v1.36.0: (6)(i), the fast-forward of a kernel`s local main to its remote`s main', 'b758_standing_v1360.txt'),
+                ('v1.36.1: (6)(ii), the push of a named commit to a named non-main branch, built for the acts after', 'b758_standing_v1361.txt'),
+                ('v1.36.2: G-TRAIL-CARRIES-SEAL reading the trail bank, and the kernels face naming SIDE-dirichlet-mod-24', 'b758_standing_v1362.txt')]),
+            ('THE LANDING ((R368)(4))', [
+                ('the two pre-send reads at the landing`s tip, banked before the dispatch', 'b758_presend.txt'),
+                ('push-b758-land at push-b757-join`s tip, its one commit the rename', 'b758_land.txt'),
+                ('tools/b758_controls.py by its own controls, committed before its opening dispatch', 'b758_controls_control.txt'),
+                ('every dispatch and its read by run id, within the cap of 4', 'b758_controls.txt'),
+                ('the outcomes of (4) and (5), each sentence cut from the ruling for the outcome its run read', 'b758_outcomes.txt')]),
+            ('THE THREE RESULTS ((R368)(5))', [
+                ('push-b758-coeff at main, 596d1c9e merged without fast-forward, print_targets.txt the union read against the tree', 'b758_coeff.txt')]),
+            ('THE CEILING ((R368)(2))', [
+                ('the readings against 16 hours from the delivery, banked by the committed tool', 'b758_ceiling.txt')]),
+            ('THE STATEMENTS FOR SECTIONS 6 TO 8 ((R368)(7))', [
+                ('the fourteen names, each statement, docstring and axioms line with its run, and the heads of sections 6 to 8', 'b758_epstein_statements.txt')]),
+            ('THE NOTES OF (8) ((R368)(8))', [
                 ('the five notes (a) to (e), each cut from the outcomes bank and read against the ruling`s text, one PLACE-papers commit each', 'b758_notes.json', r'"confirm": "[^"]*"'),
-                ('the cites (a)`s insertion moves, printed before the write', 'b758_notes_moved.txt'),
-                ('the sweep of (R367)(2)(b) over the roster`s current editions and the standing templates', 'b758_sweep.txt')]),
+                ('the relay lines whose cites b757`s Epstein note moved, read by the citation tool`s helpers, none edited', 'b758_moved_cites.txt')]),
             ('THE NAME AND ADDRESS (N5)', [
                 ('the scan over every commit and bank of the act, the counts alone', 'b758_address_scan.txt')]),
             ('THE RESEARCH INSTRUMENTS NOT REPRODUCED (the standing arm G-RESEARCH-REPRODUCES)', [
-                ('tools/research/reproduce.py`s full run not run: its rows compute at a field, which (R368)(10) bars, the builds apart; the arm declared failing on the face', 'b758_registration_%s.txt' % WL.DATE, r'(?m)^### `G-RESEARCH-REPRODUCES`[^\n]*')]),
+                ('tools/research/reproduce.py`s full run not run: its rows compute at a field, which (R368)(10) bars; the arm declared failing on the face', 'b758_registration_%s.txt' % WL.DATE, r'(?m)^### `G-RESEARCH-REPRODUCES`[^\n]*')]),
             ('THE TOUCH READ (standing clauses v9)', [
 #⟪END⟫
 #⟪SECTION closing 8⟫
     '    kernels written, N5`s clause as the ferry words it: ' + FF.n5_clause_of(rd('%s_ferry.txt' % ACT)) + ' ;',   # ### v1.10.0, (R365)(2)(vi): composed, not carried
-    '    the two kernels (R368)(10) opens and no other: SIDE-explicit-formula`s main at ' + WL.EF_BASE[:8] + ', unmoved (the join broke, no v0.39) ; ' + WL.JOIN_BRANCH[0] + ' at ' + WL.JOIN_BRANCH[1] + ' (the four merges and (4)`s three edits, the README`s [B1] lines among them) and ' + WL.COEFF_BRANCH[0] + ' at ' + WL.COEFF_BRANCH[1] + ' (T0, T1 and the wide direction past zq-b730`s tip ' + WL.ZQ_TIP[:8] + '), each pushed --scratch and read back, no main moved and no v0.40 ; ' + WL.ZQ_TAG[0] + ' peeling to ' + WL.ZQ_TAG[2][:8] + ', unmoved ;',
-    '    SIDE-dirichlet-mod-24`s main moved from ' + WL.M24_BASE + ' to the workflow 22282733 under (6)(i) and to the module ' + WL.M24_MAIN + ' after its run, by the gated push`s default mode, never forced ; ' + WL.M24_TAG[0] + ' cut at main`s read-back, its peel ' + WL.M24_TAG[2] + ' read back at the remote ; v0.1.0 at ' + WL.M24_BASE + ', unmoved ; its README unwritten ;',
-    '    the four held branches of SIDE-explicit-formula at their tips, zq-b730 at ' + WL.ZQ_TIP[:8] + ' unmoved (its move the route the seat lacks, relay data/b758_events.txt (17)-(18)) ; the two control branches of (3) deleted by the tool`s route after their read-back ; the rebuild-b721 branches of the wave 1 kernels as b758 found them ;',
+    '    SIDE-explicit-formula`s tree alone, as (R368)(10) opens it: main from ' + WL.EF_BASE[:8] + ' ' + _K5_MAIN + ', by the gated push`s default mode after each run`s success, never forced ; ' + WL.LAND_BRANCH[0] + ' at ' + WL.LAND_BRANCH[1][:8] + ' ((4)`s one commit, sRe renamed in Schema/ZQ/OffZero/Time.lean) and ' + WL.COEFF_LAND_BRANCH[0] + ' at ' + (WL.COEFF_LAND_BRANCH[1] or '-')[:8] + ' ((5)`s merge of 596d1c9e, print_targets.txt the union), each pushed --scratch and read back ; ' + WL.ZQ_TAG[0] + ' peeling to ' + WL.ZQ_TAG[2][:8] + ', unmoved ;',
+    '    the local mains by (6)(i)`s route alone: SIDE-dirichlet-mod-24`s from ' + WL.M24_BASE + ' to its remote`s ' + WL.M24_MAIN + ', ' + WL.M24_TAG[0] + ' peeling to ' + WL.M24_TAG[2][:8] + ', unmoved, nothing pushed there ; SIDE-explicit-formula`s to each landing ;',
+    '    the four held branches of SIDE-explicit-formula at their tips, zq-b730 at ' + WL.ZQ_TIP[:8] + ' unmoved ; ' + _K5_DEL + ' ; the rebuild-b721 branches of the wave 1 kernels as b758 found them ;',
     '    ' + str(len(WL.EF_RUNS)) + ' runner dispatches in SIDE-explicit-formula of the ' + str(WL.MAX_DISPATCHES) + ' (R368)(10) allows, each read by its run id from its artifact, the exit file governing (relay data/b758_dispatch_rows.json, data/b758_controls.txt) ; none in SIDE-dirichlet-mod-24 (' + str(len(WL.M24_RUNS)) + ' rows), whose local main alone (6)(i) moves ;',   # ### b758 step zero: the dispatch line read against (R368)(10) and rewritten; the section's other lines are b757's and are rewritten at Component 5
     '    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;',
     '    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each record route, suite part and dispatch ;',
-    '    the push-b757-* branches of relay and PLACE-papers deleted at step zero by name, one per command and each its own message, the --merged listing printed before them by a scratch reader (relay data/b758_defects.txt (f)) ; N2: the step-zero reads, the chain read and the carry before any write ; tools/standing/ v1.35.4 landed with its controls before any kernel write, and v1.35.5 under (8)(ii), each a version commit of its own ; each act tool committed before its run (the exceptions entered as defects (i) and (o)) ; a kernel`s main moved after its run`s success alone, the workflow commit of (6)(i) apart ; the (W) regeneration and the pre-lock dry before the lock gate, the lock block in the lock commit, the scan over the staged set before every commit to its own bank ;',
-    '    N3: each note of (9) equal to the ruling`s template with its fields filled from the banks (relay data/b758_notes.json) ; no sentence of any paper above a note edited, (8)(iv) the one line replaced in place ; no sentence of the act saying that anything of zeta, RH, GRH or Weil positivity holds, fails or moved ; no bank calling a result new ; no figure of the navigator`s workspace printed as a banked figure ; the entry`s INTEGRATION line composed from the banks` feet ;',
-    '    N5: of PLACE-papers and the other private repositories, what rows (6) to (9) of relay data/b754_rules.txt allow, and of the lines of [Q]`s row (3) their path, line and digest ; nothing computed at any field but the builds ((R368)(10) ; the reproduction not run, declared on the face) ; no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed, the kernels` commits and tag messages among them (relay data/b758_address_scan.txt, data/b758_address_scan_postlock.txt, data/b758_address_scan_commits.txt) ;',
+    '    the push-b757-* branches of relay and PLACE-papers deleted at step zero by name, one per message, the --merged listing printed before them as captured shell commands ; N2: the step-zero reads, the chain read and the carry before any write ; tools/standing/ v1.35.6 to v1.36.2, each a version commit of its own with its controls in its bank before its use, v1.35.9 before any kernel write ; each act tool committed before its run ; a kernel`s main moved after its run`s success alone ; the (W) regeneration and the pre-lock dry before the lock gate, the lock block in the lock commit, the scan over the staged set before every commit to its own bank ;',
+    '    N3: each note of (8) equal to the ruling`s text with its fields filled from the banks (relay data/b758_notes.json) ; no sentence of any paper above a note edited ; no sentence of the act saying that anything of zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved ; a sentence of the act about a result at the control naming the side, the side matcher narrowed under (9) ; the entry`s INTEGRATION line composed from the banks` feet ;',
+    '    N5: of PLACE-papers and the other private repositories, what rows (6) to (9) of relay data/b754_rules.txt allow, and of the lines of [Q]`s row (3) their path, line and digest ; nothing computed at any field ((R368)(10) ; the reproduction not run, declared on the face) ; no new occurrence of the author`s name, address or ORCID in anything the act wrote, committed or pushed, the kernel`s commits and tag messages among them (relay data/b758_address_scan.txt, data/b758_address_scan_postlock.txt, data/b758_address_scan_commits.txt) ;',
     '    the commits under the GitHub login and its noreply address ; ' + FF.outbound_clause('gh reads under the GitHub login') + ' ;',
-    '    nothing deposited ; no new Zenodo version ; no Zenodo call ; no draft published, the draft held at v5 ; the two GitHub descriptions of (8)(v) written and each read back equal (PLACE-papers, SIDE-kernel) ; no anchor edited ; W-ORD-SQUARES-AT-24 entered in (9)`s block of OPEN_TRAILS, no other order entered ;',
-    '    on PLACE-papers main FINDINGS (the weight line, the corrigendum, the entry), OPEN_TRAILS ((9)`s block under one dated head with (1)`s line, and the trail), REGISTRY ((8)(iv)`s line replaced in place and (9)(d)`s note), FACES_LEDGER ((9)(b)`s UPDATE section), the Epstein document ((9)(a)`s note after :15) and the census ((9)(c)`s note) ; no sentence of a paper`s body edited ; no paper moved or renamed ;',
-    '    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b758`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ; no rules bank written this act, b757`s rows (a) to (c) read where they stand ;',
-    '    tools/standing/ v1.35.4 and v1.35.5, two version commits each with its controls in its bank (relay data/b758_standing_v1354.txt, data/b758_standing_v1355.txt) ; HANDOFF.md written once by tools/standing/handoff.py before the gate ; act_current`s shared_edits as standing/carry.py shared reads them ; the mirror zip and the two ledgers` cuts written outside every repository by tools/mirror_build.ps1 over the',
+    '    nothing deposited ; no new Zenodo version ; no Zenodo call ; no draft published, the draft held at v5 ; no anchor edited ; no order entered, W-ORD-SQUARES-AT-24 taking its price in (8)`s block of OPEN_TRAILS ;',
+    '    on PLACE-papers main FINDINGS (the corrigendum, the entry), OPEN_TRAILS ((8)`s block under one dated head, and the trail), REGISTRY ((8)(d)`s note at the file`s end), FACES_LEDGER ((8)(b)`s note at the file`s end), the Epstein document ((8)(a)`s note after its latest dated note) and the census ((8)(c)`s note at the file`s end) ; no sentence of a paper`s body edited ; no paper moved or renamed ;',
+    '    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b758`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ; no rules bank written this act ;',
+    '    tools/standing/ v1.35.6, v1.35.7, v1.35.8, v1.35.9, v1.36.0, v1.36.1 and v1.36.2, seven version commits each with its controls in its bank (relay data/b758_standing_v1356.txt to data/b758_standing_v1362.txt) ; HANDOFF.md written once by tools/standing/handoff.py before the gate ; act_current`s shared_edits as standing/carry.py shared reads them ; the mirror zip and the two ledgers` cuts written outside every repository by tools/mirror_build.ps1 over the',
     '    roster it reads from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of any patent written',
 #⟪END⟫
 #⟪SECTION closing 9⟫
@@ -1389,9 +1407,9 @@ TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s 
 #⟪END⟫
 #⟪SECTION closing 10⟫
     '    (c) For the next act, each from its bank: the root`s one question on the act after this one ((R368)(10)), its answer in relay data/b758_author_answers.txt ;',
-    '        the join`s break at the import, OffZero.Time and OffZero.Sums each declaring sRe in one namespace, and the move of zq-b730 to push-b758-coeff`s tip, the route the seat lacks (relay data/b758_outcomes.txt, data/b758_events.txt (17)-(18)) ;',
-    '        W-ORD-MECHANISM-ATTRIBUTION`s condition for the navigator`s read, T0 and T1 compiled ((R368)(5)) ; the two writes of (9) resolved by the seat for the author`s strike (relay data/b758_events.txt (26)) ; the mod-24 README unwritten ;',
-    '        the 123 relay lines of the moved cites not read by hand (relay data/b758_notes_moved.txt) ; the reproduction not run at this act ; the defects of relay data/b758_defects.txt for the next corrigendum ; the draft held at v5.',
+    '        the statements bank of (7) for the navigator`s draft of sections 6 to 8, rQ_one and cQ_eq standing with no axioms line in the runs read (relay data/b758_epstein_statements.txt, data/b758_misses.txt (2)) ;',
+    '        the route of (6)(ii) built and unused, zq-b730 at ' + WL.ZQ_TIP[:8] + ' ; the two lines of print_targets.txt no print can reach by the workflow`s filter, named and not edited (relay data/b758_presend.txt) ;',
+    '        the relay lines whose cites b757`s Epstein note moved, printed and none edited (relay data/b758_moved_cites.txt) ; the reproduction not run at this act ; the defects of relay data/b758_defects.txt for the next corrigendum ; the draft held at v5.',
 #⟪END⟫
 #⟪SECTION closing 11⟫
     '        units files, b714`s rectangle units file (declared in their tools` heads) and records.json at relay`s root',
@@ -1399,20 +1417,20 @@ TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b758`s 
 #⟪END⟫
 #⟪SECTION closing 12⟫
     '        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); keiper-b725 at ' + WL.EF_BRANCHES[0][1][:8] + ', c2-b725 at ' + WL.EF_BRANCHES[1][1][:8] + ', detect-b729 at ' + WL.EF_BRANCHES[2][1][:8] + ' and zq-b730 at ' + WL.EF_BRANCHES[3][1][:8] + ' of',
-    '        SIDE-explicit-formula, off main, zq-b730 carrying the tag v0.38 at 14ca5725 and b745`s Lean past it to 1e658870, unmoved this act; ' + WL.JOIN_BRANCH[0] + ' at ' + WL.JOIN_BRANCH[1] + ' and ' + WL.COEFF_BRANCH[0] + ' at ' + WL.COEFF_BRANCH[1] + ' of SIDE-explicit-formula, off main, the join and T0, T1 and the wide direction, the one ref each holds;',
-    '        push-b758-workflow and push-b758-mod24 of SIDE-dirichlet-mod-24, each merged into its main at ' + WL.M24_MAIN + '; scratch-b724 of SIDE-lv-conservation; corrigendum-b723 of relay;',
+    '        SIDE-explicit-formula, off main, zq-b730 carrying the tag v0.38 at 14ca5725 and b745`s Lean past it to 1e658870, unmoved this act; ' + ('the merged kernel branches deleted by name after v0.40 (' + ', '.join(b_ for b_, _t in WL.KERNEL_DELETES) + ')' if WL.KERNEL_DELETES else WL.JOIN_BRANCH[0] + ', ' + WL.COEFF_BRANCH[0] + ', ' + WL.LAND_BRANCH[0] + ' and ' + WL.COEFF_LAND_BRANCH[0] + ' of SIDE-explicit-formula standing at the remote') + ';',
+    '        push-b757-workflow and push-b757-mod24 of SIDE-dirichlet-mod-24, each merged into its main at ' + WL.M24_MAIN + '; scratch-b724 of SIDE-lv-conservation; corrigendum-b723 of relay;',
     '        challenge-b720-h2-sign-iff-rh of SIDE-explicit-formula; the pin-b718-de5ce8a9 branches; the rebuild-b721 branches of the wave 1 kernels as b758 found them.',
     '    (g) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.',
 #⟪END⟫
 #⟪SECTION closing 13⟫
-          'written on main but SIDE-dirichlet-mod-24, its main moved to ' + WL.M24_MAIN + ' with ' + WL.M24_TAG[0] + ' ((R368)(6)) ; '
-          'SIDE-explicit-formula main %s (unmoved: the join broke, no v0.39 and no v0.40), v0.37 %s, v0.17 %s, v0.38 peeling to ' + WL.ZQ_TAG[2][:12] + ', '
-          + WL.JOIN_BRANCH[0] + ' and ' + WL.COEFF_BRANCH[0] + ' off main, the challenge branch '
+          'written on main but SIDE-explicit-formula ((R368)(4), (5)), SIDE-dirichlet-mod-24`s local main fast-forwarded to its remote`s ' + WL.M24_MAIN + ' ((R368)(6)(i)) ; '
+          'SIDE-explicit-formula main %s (' + ', '.join('%s at %s' % (t_, p_) for t_, p_ in _LT5) + (' cut at main`s read-back' if _LT5 else 'unmoved, no tag cut') + '), v0.37 %s, v0.17 %s, v0.38 peeling to ' + WL.ZQ_TAG[2][:12] + ', '
+          + 'the held branches off main, the challenge branch '
           + WL.CHALLENGE_BRANCH + ' at ' + WL.CHALLENGE_TIP[:12] + ' standing ; SIDE-lv-conservation main %s (b735`s [41]), '
 #⟪END⟫
 #⟪SECTION closing 14⟫
-    # ### b757: two standing changes, v1.35.4 ((R367)(3), read in the route section) and v1.35.5 ((8)(ii), read in the repairs section); the
-    # ### carry's diffs here (b757 carried at step zero before the fold; its tools since are the templates and tools/acts/b757.py)
+    # ### b758: seven standing changes, v1.35.6 to v1.36.2, each read in the standing changes section; the carry's diffs here (b758 carried at
+    # ### step zero before the fold; its tools since are the templates and tools/acts/b758.py)
 #⟪END⟫
 #⟪SECTION record 1⟫
     # ### b758 (R368)(4)-(6): the kernels as the act left them, the landing and the merge by their branches; what each moved read from the

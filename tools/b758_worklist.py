@@ -460,7 +460,7 @@ KERNEL_COMMITS = (('ef_control', 'SIDE-explicit-formula', '347f5d79', None), ('m
                   ('m24_workflow', 'SIDE-dirichlet-mod-24', '22282733', 'main'), ('m24_module', 'SIDE-dirichlet-mod-24', 'e5ebdd15', 'main'))
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
-M24_MAIN = 'e5ebdd15'                 # ### its main at the close: moved to the workflow (22282733) under (6)(i), then to the module under (6)(ii)
+M24_MAIN = 'e5ebdd15'                 # ### b758: its remote main, unmoved; its local main fast-forwarded to it by (6)(i)'s route (01:59:39Z, events (38))
 M24_TAG = ('v0.2.0', 'e5c84316', 'e5ebdd15')   # ### (R367)(6): name, tag object, peel read back at the remote (data/b757_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt)
 # ### b758 step zero: the carry shifted b757's two kernel branch names to push-b758-* here and in KERNEL_COMMITS above; set back to the names
 # ### the remote holds (ls-remote 23:4xZ: push-b757-coeff 596d1c9e, push-b757-join 6568e9c7). KERNEL_COMMITS stays b757's until Components 2-3 write b758's.
@@ -600,7 +600,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read ((R368)(4), (5): at most 4)
+EF_RUNS = (43997787796,)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read ((R368)(4), (5): at most 4): (4)'s, read 02:53:56Z (events (47))
 M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R368)(6)(i) moves its local main alone)
 EF_RUNS_B757 = (43818699881, 43834018078, 43835333285, 43836818700, 43839463729, 43841545568)   # ### b757's six, read not re-run (tools/b757_controls.py): the join KERNEL (the print failed at the import), T0 KERNEL (print stopped at maxErrors), T0 KERNEL (10 names), T1 BREAKS (recursion depth), T1 KERNEL (31 names), the wide direction KERNEL (24 names)
 M24_RUNS_B757 = (43835913340, 43836415096)   # ### b757's two SIDE-dirichlet-mod-24 runs, read not re-run: the workflow's control KERNEL (2 names), the module KERNEL (8 names)
