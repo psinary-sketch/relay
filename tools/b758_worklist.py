@@ -346,7 +346,7 @@ B714_RECORD = '5cf8c377'     # ### b757's record commit (relay)
 B714_ROOT = '95f84fdeeb9dac74d1b65c8964609ed5c6cb8bd257ebda274b41adcb2cdd6ed9'   # ### b757's root, data/act_roots.txt's last row (:137)
 B723_ROOT_BANKS = '6b47664a'  # ### b757's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### tools/standing/ with (R368)(1)'s reader repair, by a commit of its own that moves VERSION, its controls banked
+C1_STANDING = 'da79951c'     # ### b758: the kernel route, v1.35.9, a commit of its own moving VERSION with its controls (data/b758_standing_v1359.txt), before any kernel write (events (34)); N2's "standing change before its use" read at it
 C1_LOCKGATE = '24fca573'     # ### tools/b757_lockgate.py carried from tools/b756_lockgate.py and committed before it runs (Component 6, step 70, 14:09:44Z)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
@@ -462,7 +462,7 @@ M24_TAG = ('v0.2.0', 'e5c84316', 'e5ebdd15')   # ### (R367)(6): name, tag object
 # ### the remote holds (ls-remote 23:4xZ: push-b757-coeff 596d1c9e, push-b757-join 6568e9c7). KERNEL_COMMITS stays b757's until Components 2-3 write b758's.
 COEFF_BRANCH = ('push-b757-coeff', '596d1c9e')   # ### b757's T0, T1 and the wide direction; (R368)(5) merges its tip --no-ff into push-b758-coeff
 JOIN_BRANCH = ('push-b757-join', '6568e9c7')     # ### b757's join; (R368)(4) makes push-b758-land at its tip
-LAND_BRANCH = ('push-b758-land', None)           # ### (R368)(4): made at JOIN_BRANCH's tip; its one commit (the rename) set when made
+LAND_BRANCH = ('push-b758-land', 'd1afb4fc2b34f5e62951947208461995d891c80c')   # ### (R368)(4): made at JOIN_BRANCH's tip (01:30:21Z); its one commit, the rename (01:32:10Z, events (36))
 COEFF_LAND_BRANCH = ('push-b758-coeff', None)    # ### (R368)(5): made at main after (4)'s success; the merge commit set when made
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
