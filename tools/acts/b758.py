@@ -2398,9 +2398,9 @@ def _finding_text_b757():
     """b753's form over b753's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION record 35⟫
-    """the trail record (over b758's objects; b757's composer in git at b757's record tool): the ledger writes; the outcomes of (4) to (7);
-    the dispatches; the five repairs; the ceiling; the open-orders line from tools/standing/orders.py's output over the trail at HEAD; the
-    standing versions; the kernels."""
+    """the trail record (over b758's objects): the ledger writes; b757's close; the outcomes of (4) and (5); the dispatches; the routes of
+    (6); the statements of (7); the ceiling; the open-orders line from tools/standing/orders.py's output over the trail at HEAD; the standing
+    versions; the kernels."""
     import standing.orders as ORD
     S, J = jl('%s_scores.json' % ACT), jl('%s_act_root.json' % ACT)
     fj = jl('%s_findings.json' % ACT)
@@ -2418,21 +2418,25 @@ def _finding_text_b757():
     nl_ = '; '.join('(%s) %s' % (k_, (c_ or '').split(' at ')[0]) for k_, _f, c_, _n in f['notes'])
     rows_ = ['', TRAIL_HEAD(), '',
              '**(R368) ratified.** Its components as the ferry orders them (relay data/b758_ferry.txt), each read below from its bank.', '',
-             '**Entered:** FINDINGS.md:%s (b757’s weight), :%s (the corrigendum), :%s (the entry); REGISTRY.md :%d replaced in place under (8)(iv) (PLACE-papers %s); the five notes of (9), %s, OPEN_TRAILS.md (1)`s dated line (:%s), the order lines and W-ORD-SQUARES-AT-24 among them under one dated head; no sentence of a paper edited; this record.' % (
-                 f['weight'], f['corr_line'], fj.get('entry_line'), f['rg_line'], dict(K.PP_CHAIN)['pp_registry'][:8], nl_, K.NEXT_TRAIL_LINE), '',
-             '**The outcomes** ((R368)(4) to (7)): the join %s, run %s; T0 %s, run %s, and T1 %s, run %s, on %s; the modulus-24 module %s, run %s, under %s = %s; the wide direction %s, run %s, on %s at %s (relay data/b758_outcomes.txt).' % (
-                 f['join_word'], oc_['join']['run'], f['t0_word'], oc_['T0']['run'], f['t1_word'], oc_['T1']['run'], K.COEFF_BRANCH[0], f['m24_word'], oc_['mod24']['run'],
-                 K.M24_TAG[0], K.M24_TAG[2][:8], f['wide_word'], oc_['wide']['run'], K.COEFF_BRANCH[0], oc_['wide']['sha']), '',
-             '**The dispatches:** SIDE-explicit-formula %d of the 14 (10) allows, SIDE-dirichlet-mod-24 %d of 4, each read by its run id, the exit file governing (relay data/b758_dispatch_rows.json).' % (
-                 f['disp_ef'], f['disp_m24']), '',
-             '**The repairs** ((R368)(8)): %d landed of 5 -- (i) the answers bank read cut, on b757`s bank whole the check %s, on the planted second result it %s (relay data/b758_cut.txt); (ii) the closing`s one count, tools/standing/ v1.35.5 (relay data/b758_standing_v1355.txt); (iii) N5`s reader taught, %d sends read over b757`s banks where the carried reader read %s (relay data/b758_ghcalls.txt); (iv) REGISTRY`s header, %d lines moved (relay data/b758_registry_line.txt); (v) the two descriptions, %d of %d read back equal (relay data/b758_doors.txt).' % (
-                 f['repairs'], f['cu_whole'].lower(), f['cu_plant'].lower(), f['gh_taught'], f['gh_carried'].lower(), f['rg_moved'], f['ds_equal'][0], f['ds_equal'][1]), '',
-             '**The ceiling:** after Component 3, %s h against %d h, %s, %s h left for (7) (relay data/b758_ceiling.txt).' % (f['ce_sum'], f['ce_ceiling'], f['ce_word'].lower(), f['ce_left']), '']
+             '**Entered:** FINDINGS.md:%s (the corrigendum for b757), :%s (the entry); the five notes of (8), %s, OPEN_TRAILS.md`s block among them under one dated head; no sentence of a paper edited; this record.' % (
+                 f['corr_line'], fj.get('entry_line'), nl_), '',
+             '**b757’s close** ((R368)(1), amended): steps [22] to [25] under v1.35.7, the scores %d of 8 HELD (%s), the mirror and the closing record (relay data/b757_scores_close.json, data/b757_closing.txt, committed at %s).' % (
+                 f['b7_held'], ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', K.B757_CLOSE[:8]), '',
+             '**The outcomes** ((R368)(4), (5)): the join %s, run %s%s; the three results %s%s (relay data/b758_outcomes.txt).' % (
+                 f['join_word'], oc_['join']['run'], (' = %s' % oc_['join']['peel']) if oc_['join']['outcome'] == 'LANDED' else '',
+                 f['three_word'], (', run %s = %s' % (oc_['coeff']['run'], oc_['coeff']['peel'])) if oc_['coeff']['outcome'] == 'LANDED' else (
+                     (', run %s' % oc_['coeff']['run']) if oc_['coeff']['outcome'] == 'BROKE' else ', (5) not begun')), '',
+             '**The dispatches:** SIDE-explicit-formula %d of the 4 (10) allows, none elsewhere, each read by its run id, the exit file governing (relay data/b758_dispatch_rows.json).' % (
+                 f['disp_ef']), '',
+             '**The routes** ((R368)(6)): %d of 2 -- (i) the fast-forward of a kernel`s local main, used; (ii) the push to a named non-main branch, built and unused; the arm and the face beside them (relay data/b758_standing_v1360.txt to data/b758_standing_v1362.txt).' % f['routes'], '',
+             '**The statements** ((R368)(7)): the fourteen names at %s, %d with no axioms line in the runs read; sections 6 to 8 by their heads, %d of 3 (relay data/b758_epstein_statements.txt).' % (
+                 f['st_rev'], f['st_noax'], f['st_sections']), '',
+             '**The ceiling:** %d reading%s, the last at %s, %s h of 16, %s (relay data/b758_ceiling.txt).' % (f['ce_n'], '' if f['ce_n'] == 1 else 's', f['ce_at'], f['ce_sum'], f['ce_word'].lower()), '']
     rows_ += [
              ORD.open_line(op), '',
              '**The orders by the tool:** %d of %s open at PLACE-papers main, the open-orders line from tools/standing/orders.py`s output (its entry read outside quotations and hand sections, v1.27.0; a row ID`s token no order, v1.32.0).' % (
                  len(op), len(ORD.read(ORD.trail('HEAD')))), '',
-             '**The standing versions:** %s (relay data/b758_standing_v1354.txt, data/b758_standing_v1355.txt); HANDOFF.md regenerated once by tools/standing/handoff.py before the gate, at relay %s.' % (
+             '**The standing versions:** %s (relay data/b758_standing_v1356.txt to data/b758_standing_v1362.txt); HANDOFF.md regenerated once by tools/standing/handoff.py before the gate, at relay %s.' % (
                  '; '.join('%s %d of %d' % (v_, w_, n_) for v_, _c, n_, w_ in f['vers']), (K.HANDOFF_COMMIT or 'NOT MADE')[:8]), '',
              '**The instruments not reproduced:** the run not run at this act, its rows computing at a field, which (R368)(10) bars; G-RESEARCH-REPRODUCES declared failing on the face.', '',
              '**The author’s name and address:** PREVIOUS ADDRESS: %s, the ORCID %s (relay data/b758_address_scan.txt).' % (f['addr'], f['orcid']), '',
@@ -2444,15 +2448,17 @@ def _finding_text_b757():
              '**Prompts to the author:** %d question%s in %d call%s before the root%s (relay data/b758_author_answers.txt).' % (
                  n_ans, '' if n_ans == 1 else 's', len(_calls()) - len(_rf_), '' if len(_calls()) - len(_rf_) == 1 else 's', (
                      ' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else ''), '',
-             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b758_standing_v1355.txt); the standing '
+             '**The standing clauses:** relay data/standing_clauses_v9.txt; tools/standing/ at %s (relay data/b758_standing_v1362.txt); the standing '
              'report tool (relay data/b758_report.txt).' % f['ver'], '']
     aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
-    rows_ += ['**The kernels:** SIDE-explicit-formula`s main at %s unmoved and %s at %s unmoved, no v0.39 and no v0.40; %s at %s, the join broken at the import; %s at %s, made at zq-b730`s tip %s, zq-b730 unmoved; SIDE-dirichlet-mod-24`s main at %s with %s at it, the workflow at %s before it; no kernel beyond the two touched; the %s branches as b758 found them; port-b707 at %s, kept, '
+    lt5_ = [oc_[k_] for k_ in ('join', 'coeff') if oc_[k_]['outcome'] == 'LANDED']
+    rows_ += ['**The kernels:** SIDE-explicit-formula`s main at %s (entering at %s), %s; %s at %s and %s at %s, %s; zq-b730 at %s, unmoved; SIDE-dirichlet-mod-24`s local main at %s by (6)(i), %s at %s; no kernel beyond SIDE-explicit-formula`s tree and the two local mains touched; the %s branches as b758 found them; port-b707 at %s, kept, '
               'its tag %s at it; SIDE-faces-join at %s with its one tag %s; no lean process on this host.' % (
-                  K.EF_MAIN[:8], K.ZQ_TAG[0], K.ZQ_TAG[2][:8], K.JOIN_BRANCH[0], K.JOIN_BRANCH[1][:8], K.COEFF_BRANCH[0], K.COEFF_BRANCH[1][:8], K.ZQ_TIP[:8], K.M24_MAIN[:8],
-                  K.M24_TAG[0], N2_WORKFLOW, K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
-              '**The mirror:** the export made after this root with the two ledgers’ cuts beside it (the ferry`s Component 6), HANDOFF.md among its files, its file named in the closing by its name, bytes and hash and its folder by role (relay data/b758_closing.txt).', '',
+                  (lt5_[-1]['peel'] if lt5_ else K.EF_BASE[:8]), K.EF_BASE[:8], ', '.join('%s at %s' % (x_['tag'], x_['peel']) for x_ in lt5_) or 'no tag cut', K.LAND_BRANCH[0], K.LAND_BRANCH[1][:8],
+                  K.COEFF_LAND_BRANCH[0], (K.COEFF_LAND_BRANCH[1] or '-')[:8], ('deleted at the remote after v0.40, with push-b757-join and push-b757-coeff' if K.KERNEL_DELETES else 'standing at the remote'),
+                  K.ZQ_TIP[:8], K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8], K.REBUILD_BRANCH, K.PORT_NEW_TIP[:8], K.LV_TAG, K.JOIN_NEW_TIP[:8], K.JOIN_TAG[0]), '',
+              '**The mirror:** the export made after this root with the two ledgers’ cuts beside it (the ferry`s Component 5), HANDOFF.md among its files, its file named in the closing by its name, bytes and hash and its folder by role (relay data/b758_closing.txt).', '',
               '**The standing arms:** the four figures %s, %s, %s, %s against b757’s %s, %s, %s, %s (relay data/b758_standing_figures.txt).' % (
                   f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
                   f['figs10']['correspondence'], f['figs10']['readme'], f['figs10']['partners'], f['figs10']['pins']), '',
