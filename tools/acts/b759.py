@@ -1583,9 +1583,11 @@ _K5_DEL = ('the branches of (3) deleted at the kernels` remotes by (4)(i)`s rout
 #⟪SECTION record 1⟫
     # ### b759 (R369)(3), (5): the kernels as the act left them, (5)'s branch and its two commits; what main moved to read from the outcomes
     # ### bank by the figures (f['oc']), not here
-    print('  kernels read: %d (SIDE-explicit-formula entering at main %s with %s peeling to %s; (5)`s branch %s at %s from main %s, its commits %s; '
+    # ### b759: the entering tag is v0.40, b758's, peeling to EF_BASE ((R369)'s SCOPE READ, data/b759_ferry.txt :3); the carry had left ZQ_TAG
+    # ### (v0.38 peeling to 14ca5725) beside EF_BASE in this print, which no bank carries (23:19:5xZ)
+    print('  kernels read: %d (SIDE-explicit-formula entering at main %s with v0.40 peeling to %s; (5)`s branch %s at %s from main %s, its commits %s; '
           'the five branches of (3) removed at the kernels` remotes, %s; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s; no kernel beyond the two written)' % (
-              len(ks), K.EF_BASE[:8], K.ZQ_TAG[0], K.ZQ_TAG[2][:8], K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8], K.EF_BASE[:8],
+              len(ks), K.EF_BASE[:8], K.EF_BASE[:8], K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8], K.EF_BASE[:8],
               ', '.join('%s %s' % (k_, c_[:8]) for k_, _kn, c_, _b in K.KERNEL_COMMITS), ', '.join(b_ for b_, _t in K.KERNEL_DELETES),
               K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
 #⟪END⟫
