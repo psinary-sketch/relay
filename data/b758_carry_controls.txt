@@ -1,0 +1,84 @@
+b758 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b757_controls.py -> tools/b758_controls.py (2026-11-17T01:36:19Z)
+
+### the substitution alone (b757 -> b758, R367 -> R368); 524 lines, 26 changed
+### SHIFTED PAST WHAT EXISTS: :2 b758_controls; :201 b758_join; :474 b758_controls
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b757_controls.py
+  +++ tools/b758_controls.py
+  @@ -2,1 +2,1 @@
+  -"""tools/b757_controls.py -- (R367)(3): THE DISPATCH AND THE READ, carried from tools/b745_controls.py with the repository a parameter.
+  +"""tools/b758_controls.py -- (R368)(3): THE DISPATCH AND THE READ, carried from tools/b745_controls.py with the repository a parameter.
+  @@ -6,2 +6,2 @@
+  -(standing.dispatchrows.licence: the clause of (R367) in data/b757_ferry.txt, committed at step zero). The caps are the worklist's, set from
+  -(R367)(10): at most 14 dispatches in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24. The kernel's remote is read from its own git
+  +(standing.dispatchrows.licence: the clause of (R368) in data/b758_ferry.txt, committed at step zero). The caps are the worklist's, set from
+  +(R368)(10): at most 14 dispatches in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24. The kernel's remote is read from its own git
+  @@ -10,1 +10,1 @@
+  -  control [--bank]                        the tool's own controls, planted and printed (data/b757_controls_control.txt with --bank)
+  +  control [--bank]                        the tool's own controls, planted and printed (data/b758_controls_control.txt with --bank)
+  @@ -18,1 +18,1 @@
+  -  bank                                    data/b757_controls.txt through standing.figbank: the controls first, the dispatches and reads after
+  +  bank                                    data/b758_controls.txt through standing.figbank: the controls first, the dispatches and reads after
+  @@ -39,1 +39,1 @@
+  -import b757_worklist as K        # noqa: E402
+  +import b758_worklist as K        # noqa: E402
+  @@ -45,6 +45,6 @@
+  -ACT = 'b757'
+  -ROWS = os.path.join(D, 'b757_dispatch_rows.json')
+  -BANK = os.path.join(D, 'b757_controls.txt')
+  -CONTROL_BANK = os.path.join(D, 'b757_controls_control.txt')
+  -ANSWERS = 'data/b757_ferry.txt'
+  -RUNS = 'D:/b757-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  +ACT = 'b758'
+  +ROWS = os.path.join(D, 'b758_dispatch_rows.json')
+  +BANK = os.path.join(D, 'b758_controls.txt')
+  +CONTROL_BANK = os.path.join(D, 'b758_controls_control.txt')
+  +ANSWERS = 'data/b758_ferry.txt'
+  +RUNS = 'D:/b758-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  @@ -60,1 +60,1 @@
+  -REMOTE_HEADS = re.compile(r'^refs/heads/(main|zq-b730|push-b757-[a-z0-9][a-z0-9-]*)$')
+  +REMOTE_HEADS = re.compile(r'^refs/heads/(main|zq-b730|push-b758-[a-z0-9][a-z0-9-]*)$')
+  @@ -99,1 +99,1 @@
+  -        return 'an item (R367) does not order: %r' % (item,)
+  +        return 'an item (R368) does not order: %r' % (item,)
+  @@ -109,1 +109,1 @@
+  -        return 'dispatch %d past the act`s %d in %s ((R367)(10))' % (n, cap, KERNELS[k]['key'])
+  +        return 'dispatch %d past the act`s %d in %s ((R368)(10))' % (n, cap, KERNELS[k]['key'])
+  @@ -119,1 +119,1 @@
+  -    """None where `full` is the tip of a remote head of the act's forms (main, zq-b730, push-b757-*); `heads` [(sha, ref)] from one ls-remote."""
+  +    """None where `full` is the tip of a remote head of the act's forms (main, zq-b730, push-b758-*); `heads` [(sha, ref)] from one ls-remote."""
+  @@ -123,1 +123,1 @@
+  -    return None if at else 'the commit %s is no remote branch`s tip of the forms main, zq-b730, push-b757-* (push it by tools/push_gated.sh first)' % full[:8]
+  +    return None if at else 'the commit %s is no remote branch`s tip of the forms main, zq-b730, push-b758-* (push it by tools/push_gated.sh first)' % full[:8]
+  @@ -201,1 +201,1 @@
+  -        # ### the targets read from a bank a committed tool wrote (tools/b757_join.py bank), bound to the commit dispatched
+  +        # ### the targets read from a bank a committed tool wrote (tools/b758_join.py bank), bound to the commit dispatched
+  @@ -245,1 +245,1 @@
+  -        # ### the row's own target check given the srcDir-aware list (tree=): b757 dispatch 1's row, given repo=, read the tree alone and
+  +        # ### the row's own target check given the srcDir-aware list (tree=): b758 dispatch 1's row, given repo=, read the tree alone and
+  @@ -338,1 +338,1 @@
+  -    # ### b757, the join's run 43818699881: the build exited 0 and the axioms print failed at its import (two modules declaring one name), so
+  +    # ### b758, the join's run 43818699881: the build exited 0 and the axioms print failed at its import (two modules declaring one name), so
+  @@ -417,1 +417,1 @@
+  -    c('the caps against (R367)(10)`s words', caps, caps == (14, 4) and 'At most 14 dispatches in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24' in ferry)
+  +    c('the caps against (R368)(10)`s words', caps, caps == (14, 4) and 'At most 14 dispatches in SIDE-explicit-formula and 4 in SIDE-dirichlet-mod-24' in ferry)
+  @@ -461,1 +461,1 @@
+  -    heads = [('a' * 40, 'refs/heads/push-b757-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
+  +    heads = [('a' * 40, 'refs/heads/push-b758-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
+  @@ -463,1 +463,1 @@
+  -    c('the remote tip: a push-b757-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))
+  +    c('the remote tip: a push-b758-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))
+  @@ -474,1 +474,1 @@
+  -    out = ['%s -- tools/b757_controls.py`s OWN CONTROLS, (R367)(3), BEFORE ITS OPENING DISPATCH (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  +    out = ['%s -- tools/b758_controls.py`s OWN CONTROLS, (R368)(3), BEFORE ITS OPENING DISPATCH (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  @@ -485,1 +485,1 @@
+  -    out = ['%s -- (R367)(3)-(7): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  +    out = ['%s -- (R368)(3)-(7): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  @@ -514,1 +514,1 @@
+  -    print('written data/b757_controls.txt ; figbank: %s' % r['why'])
+  +    print('written data/b758_controls.txt ; figbank: %s' % r['why'])
+
+### ### **CARRIED tools/b758_controls.py ; LINES 524 ; CHANGED 26 ; SHIFTED 3 (WRITTEN BY --shifted) ; CITES OF AN ABSENT BANK 0**

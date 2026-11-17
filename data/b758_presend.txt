@@ -1,0 +1,43 @@
+b758 -- (R368)(4): THE TWO PRE-SEND READS IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-17T01:35:18Z)
+
+### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
+### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
+### refuses printed, two expected (:358 and :359, each carrying the Greek capital lambda); the file not edited, the workflow not widened.
+
+## THE CONTROLS
+  (1) every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a nested namespace, _root_, an attribute, a class inductive read): ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'] -> AS WANTED
+  (2) the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a priority and a scoped one read as named, a type on the next line unread): (['C.named', 'C.sc'], [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)]) -> AS WANTED
+  (3) the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not): {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]} -> AS WANTED
+  (4) the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not): {'A.x': [('M1', 3), ('M2', 9)]} -> AS WANTED
+  (5) the imports of a planted header (two lines, a comment between, the body after not read): ['A.B', 'C'] -> AS WANTED
+  (6) the class of the workflow`s pattern as written, expanded: A-Z, a-z, 0-9, underscore, full stop, the prime: A-Z, a-z, 0-9, "'", '.', '_' (65 characters) -> AS WANTED
+  (7) the class read from .github/workflows/build-module.yml at 6568e9c7, the line the ruling names: (91, "A-Za-z0-9_.\\'") -> AS WANTED
+  (8) the target filter read from .github/workflows/build-module.yml at 6568e9c7 (:44: letters, digits, underscore, full stop and the space parting the modules): (44, 'A-Za-z0-9_.\\ ') -> AS WANTED
+  (9) the filter on planted names (a dotted name and a prime passed; the Greek capital lambda, a hyphen and a subscript refused): [('Foo.bar', True), ("Foo.bar'", True), ('Foo.zqPair_Λ_one', False), ('Foo-bar', False), ('Foo.b₁', False)] -> AS WANTED
+  (10) the module`s file as Lake names it, inverted (the default library, the vendored srcDir, a module outside the tree): ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', None) -> AS WANTED
+  (11) THE POSITIVE CONTROL, b757`s break (data/b757_events.txt (17)): at 6568e9c7 the reader finds SIDEExplicitFormula.Schema.ZQ.OffZero.sRe in OffZero.Time :18 and OffZero.Sums :134: [('SIDEExplicitFormula.Schema.ZQ.OffZero.sRe', [('Time', 18), ('Sums', 134)])] -> AS WANTED
+
+### the join`s tip as b757 left it, before (4)`s one commit
+## AT 6568e9c7a5b34a7283a08c55f813c82b3cc54c07 (6568e9c7)
+  THE TARGETS (tools/b757_join.py`s reader): names 419 ; resolved to one module 419 ; refused 0 [] ; modules 93
+  THE IMPORT CLOSURE IN THE TREE: modules 368 (the targets` 93 among them, 93 of them read) ; imports outside the tree 175 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1106 names, duplicates 1 ; over the closure 4071 names, duplicates 1 (0 wanted)
+    DUPLICATE SIDEExplicitFormula.Schema.ZQ.OffZero.sRe: SIDEExplicitFormula.Schema.ZQ.OffZero.Sums :134 (a target) ; SIDEExplicitFormula.Schema.ZQ.OffZero.Time :18 (a target)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at 6568e9c7): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 419 ; passed 417 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 93 of 93
+
+### the tip the dispatch is sent at
+## AT d1afb4fc (d1afb4fc)
+  THE TARGETS (tools/b757_join.py`s reader): names 419 ; resolved to one module 419 ; refused 0 [] ; modules 93
+  THE IMPORT CLOSURE IN THE TREE: modules 368 (the targets` 93 among them, 93 of them read) ; imports outside the tree 175 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1106 names, duplicates 0 ; over the closure 4071 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at d1afb4fc): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 419 ; passed 417 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 93 of 93
+
+### ### **THE PRE-SEND READS AT d1afb4fc: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359) ; TARGETS 93 MODULES FOR 419 NAMES, 0 REFUSED, MODULES REFUSED 0 ; CONTROLS 11 OF 11.**
