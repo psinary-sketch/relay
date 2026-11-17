@@ -119,7 +119,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = '630cba16e228a018f9dd986196142fc6feb704ec'    # ### b759: SIDE-explicit-formula's main at the close -- entering at 630cba16 (b758's v0.40), set to v0.41's peel where (5) lands, its run's success alone moving it
+EF_MAIN = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'    # ### b759: SIDE-explicit-formula's main at the close -- (5)'s commit two at v0.41 (21:25:08Z, tag object 390506fc), after run 44162171267's success (entering at 630cba16, EF_BASE)
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -478,11 +478,11 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
                        ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
                        ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names (the carry had shifted them)
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
-KERNEL_COMMITS = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'push-b759-weil'),   # ### (R369)(5) commit one: the four print lines (19:32:35Z, step 14)
-                  ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'push-b759-weil'))     # ### (R369)(5) commit two: zq_weil_positivity_fails (19:34:26Z, step 15); the branch each stands on set to main where (5) lands
+KERNEL_COMMITS = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines (19:32:35Z, step 14), on main at v0.41
+                  ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails (19:34:26Z, step 15), main at v0.41 (21:25:08Z)
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
 WEIL_BRANCH = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): made at main 630cba16 (19:30:14Z); commit one ddb3efb9, commit two a3aad4cc; pushed alone and read back (19:45:58Z)
-WEIL_TAG = ('v0.41', None, None)   # ### (R369)(5): name, tag object, peel read back at the remote; set from the outcomes bank where (5) lands
+WEIL_TAG = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): name, tag object, peel read back at the remote (data/b759_SIDE-explicit-formula_push-b759-weil_push_out.txt, 21:25:08Z)
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
