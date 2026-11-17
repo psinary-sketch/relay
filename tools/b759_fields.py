@@ -241,7 +241,8 @@ def run_corpus():
     if not all(ok):
         print(NL.join(head))
         sys.exit('### THE CONTROLS NOT AS WANTED -- nothing written')
-    rc, hb = _git(RELAY, 'show', 'HEAD:data/b759_corpus.json', raw=True)
+    g_ = subprocess.run(['git', '-C', RELAY, 'show', 'HEAD:data/b759_corpus.json'], capture_output=True)   # ### events (42): _git returns stdout alone
+    rc, hb = g_.returncode, g_.stdout
     wb = open(CORPUSJ, 'rb').read() if os.path.exists(CORPUSJ) else None
     if rc or wb is None or wb.replace(b'\r\n', b'\n') != hb:
         print(NL.join(head))
