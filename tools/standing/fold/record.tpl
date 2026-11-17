@@ -3237,7 +3237,7 @@ def scores(*a):
     close = 'close' in a
     if 'dry' not in a:
         _close_step(22 if close else 9)   # ### (⟪RUL⟫)(4)(vi): scores [9], scores close [22] (the events bank [21] before it)
-    S = dict([('N1', _n1()), ('N2', _n2()), ('N3', _n3()), ('N4', _n4()), ('N5', _n5())] + list(_s_scores().items()))
+    S = __import__('standing.closebound', fromlist=['scores']).scores(globals(), R, ACT, close)   # ### v1.35.7, (R368)(1) amended on the author's word (data/b758_amendments.json row 1): N1-N5 and S1-S3 as before; at `scores close` inside a later act, N2, N4, N5 and S3 read the relay as at the next act's opening commit's parent (tools/standing/closebound.py); one line, the older acts' line-keyed overrides unmoved
     for k2 in SCORE_KEYS:
         read_score_row(k2, list(S[k2]))
     for k2 in SCORE_KEYS:

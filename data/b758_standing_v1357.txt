@@ -1,0 +1,80 @@
+b758 -- THE CONTROLS OF tools/standing/ v1.35.7, (R368)(1) AMENDED: THE CLOSE`S READERS BOUNDED AT THE NEXT ACT`S OPENING COMMIT (2026-11-17T00:54:42Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY CASE ((R345)(2)(i), carried):
+  checks render            OK    2822 lines
+  citation render          OK    574 lines
+  closing render           OK    654 lines
+  record render            OK    4904 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    502 lines
+  report render            OK    186 lines
+  tools/b758_worklist.py   OK    628 lines
+### THE COMPILE CONTROL : b758 COMPILES WHOLE, 8 OF 8
+
+### each case before (record.tpl :3240 at ac6a0a77: the readers called unbounded) and after (tools/standing/closebound.py)
+
+  free 6008 MB at 2026-11-17T00:54:42Z, the hold 2560 MET
+### (bound): THE NEXT ACT`S OPENING COMMIT, READ FROM GIT
+  (bound) b757`s close inside b758
+      BEFORE: tools/standing/closebound.py at ac6a0a77: ABSENT -> AS WANTED
+      AFTER : the next act b758, its opening commit 49c58344, the base ff65ccdb, the cut 2026-11-16T23:38:49Z ; b758`s ACT_CURRENT_COMMIT 49c58344 ; 49c58344`s parent ff65ccdb -> AS WANTED
+  (bound) b756`s close inside a later act (the first act after b756`s PRE_RELAY to name another act)
+      AFTER : the next act b757, its opening commit 0ff48304, the base 38024feb ; b757`s ACT_CURRENT_COMMIT 0ff48304 -> AS WANTED
+  (bound) b758`s close inside its own act (data/act_current.json names b758)
+      AFTER : bound None -> AS WANTED
+
+  free 6008 MB at 2026-11-17T00:54:45Z, the hold 2560 MET
+### (step9): b757`S FOUR SCORES, BEFORE AND AFTER, AGAINST STEP [9] (data/b757_scores.json)
+  (N2) N2, step [9] HELD
+      BEFORE: REFUTED -- the act`s commits under tools/standing/ those two and no other (26ac811e e0428564 ac6a0a77): False -> AS WANTED
+      AFTER : HELD -- the act`s commits under tools/standing/ those two and no other (26ac811e e0428564): True -> AS WANTED
+  (N4) N4, step [9] HELD
+      BEFORE: REFUTED -- the commits after it (relay) 19, touching the face, a tool or a bank tracked at the lock commit: ['53fdf82d tools/acts/b758.py', '53fdf82d tools/b758_address_scan.py', '53fdf82d tools/b758_carry.py', '53fdf82d tools/b758_worklist.py', '06eaa976 tools/b758_pres | working tree`s changes to them: ['tools/standing/VERSION', 'tools/standing/fold/record.tpl']; -> AS WANTED
+      AFTER : HELD -- the commits after it (relay) 7, touching the face, a tool or a bank tracked at the lock commit: NONE; | working tree`s changes to them: NONE; -> AS WANTED
+  (N5) N5, step [9] HELD
+      BEFORE: REFUTED -- shared tools edited beyond the membrane ['tools/acts/b757.py', 'tools/b757_address_scan.py', 'tools/b757_carry.py', 'tools/b757_ceiling.py', 'tools/b757_controls.py', 'tools/b757_cut.py', 'tools/b757_doors.py', 'tools/b757_face.py', 'tools/b757_face_blocks.txt | sealed tools not agreeing: ['standing/VERSION', 'standing/act.py', 'standing/closebound.py', 'standing/v1356.py', 'standing/v1357.py', 'standing/fold/record.tpl']; | relay files beyond the face`s (W) list: ['data/b758_bank_hashes.json', 'data/b758_carry_acts.txt', 'data/b758_carry_address_scan.txt', 'data/b758_carry_carry.txt', 'data/b758_carry_worklist.txt', 'data/b758_citation_check.json', 'data/b758_citation_check.txt', -> AS WANTED
+      AFTER : HELD -- shared tools edited beyond the membrane ['tools/acts/b757.py', 'tools/b757_address_scan.py', 'tools/b757_carry.py', 'tools/b757_ceiling.py', 'tools/b757_controls.py', 'tools/b757_cut.py', 'tools/b757_doors.py', 'tools/b757_face.py', 'tools/b757_face_blocks.txt | sealed tools not agreeing: NONE; | relay files beyond the face`s (W) list: NONE; -> AS WANTED
+  (S3) S3, step [9] HELD
+      BEFORE: REFUTED -- the sealed tools` hashes {'agree': 169, 'differ': 3, 'absent': 3} -> AS WANTED
+      AFTER : HELD -- the sealed tools` hashes {'agree': 173} -> AS WANTED
+
+  free 5896 MB at 2026-11-17T00:56:31Z, the hold 2560 MET
+### (rest): N1, N3, S1 AND S2, BEFORE AND AFTER
+  (N1) N1 read as before
+      AFTER : before HELD, after HELD ; the readings equal True -> AS WANTED
+  (N3) N3 read as before
+      AFTER : before REFUTED, after REFUTED ; the readings equal True -> AS WANTED
+  (S1) S1 read as before
+      AFTER : before HELD, after HELD ; the readings equal True -> AS WANTED
+  (S2) S2 read as before
+      AFTER : before HELD, after HELD ; the readings equal True -> AS WANTED
+
+  free 5896 MB at 2026-11-17T00:56:31Z, the hold 2560 MET
+### (plant): A b757 COMMIT PLANTED AFTER ITS LOCK, BEFORE THE BASE, TOUCHING tools/standing/act.py
+  (plant) N4 bounded, the lock commit ccb918a3 (2026-11-16T18:21:57Z), the planted commit b757b757.. at the lock`s time + 1 s
+      AFTER : REFUTED -- the commits after it (relay) 8, touching the face, a tool or a bank tracked at the lock commit: ['b757b757 tools/standing/act.py']; | working tree`s changes to them: NONE; -> AS WANTED
+  (plant) N2 bounded, the planted commit among b757`s commits under tools/standing/
+      AFTER : REFUTED -- the act`s commits under tools/standing/ those two and no other (26ac811e e0428564 b757b757): False -> AS WANTED
+
+  free 5888 MB at 2026-11-17T00:56:52Z, the hold 2560 MET
+### (calls): THE RELAY CALLS THE BOUNDED READERS SENT, AS THE BOUND REWROTE THEM
+  (calls) the calls beneath the bound 530 (the bound`s rewrites 179), their shapes 15: cat-file --filters <sha>:<path> ; diff --name-only <sha> <sha> ; log --diff-filter=A --format=%H <sha> -- <paths> ; log --reverse --format=%H %ct <sha>..<sha> ; log --reverse --format=%H <sha>..<sha> -- <paths> ; log --reverse --format=%h %ct %s <sha>..<sha> ; log -1 --format=%ct <sha> ; ls-files -- <paths> ; ls-tree -r --name-only -z <sha> ; ls-tree -r --name-only <sha> ; merge-base --is-ancestor <sha> <sha> ; reflog --date=unix --format=%gd %gs ; rev-parse <sha> ; show --name-only --format= <sha> ; show <sha>:<path>
+      AFTER : naming HEAD 0 [] ; reading the working tree or the index 0 ; an option with a separate value 0 -> AS WANTED
+
+  free 5815 MB at 2026-11-17T00:57:45Z, the hold 2560 MET
+### (template): record.tpl RENDERED FOR EVERY ACT WITH A SECTIONS FILE, AT BASE`S TEMPLATE AND AT THE WORKING ONE
+  (template) record.tpl: lines 4031 at BASE, 4031 now
+      BEFORE: BASE`s template, every act rendered (38) -> AS WANTED
+      AFTER : renders differing in one line, the scores line, with the same line count: 38 of 38 ; others NONE -> AS WANTED
+
+  free 5796 MB at 2026-11-17T00:57:54Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE: v1.35.6 -> AS WANTED
+      AFTER : v1.35.7 -> AS WANTED
+
+### per change: (bound) 3 of 3 ; (step9) 4 of 4 ; (rest) 4 of 4 ; (plant) 2 of 2 ; (calls) 1 of 1 ; (template) 1 of 1 ; (version) 1 of 1
+### ### **v1.35.7: CONTROLS (bound), (step9), (rest), (plant), (calls), (template), (version) ; CASES 16 ; AS WANTED 16 ; ALL AS WANTED.**
