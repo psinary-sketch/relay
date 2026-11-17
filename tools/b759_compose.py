@@ -27,7 +27,9 @@ miss does not refuse it ((8): "listed where it does not"), each printed with its
 
   control   the planted controls, printed
   dry       composed in memory and every control run (the stems over a temporary copy, removed after); nothing written
-  write     the same, then the file written into PLACE-papers and data/b759_compose.txt banked; refused where the file stands already
+  write     the same, then the file written into PLACE-papers and data/b759_compose.txt banked; the bank's figbank reading checked before
+            the file is written; refused where the file stands already and differs from the composition; where it stands byte-equal, not
+            rewritten and the bank written (events (40))
 """
 import hashlib
 import io
@@ -647,7 +649,7 @@ def controls():
 def run(write):
     L, ok = controls()
     out = ['%s -- (R369)(8): THE DOCUMENT ENTERED AT v0.2, ITS COMPOSITION AND ITS CONTROLS (%s, tools/b759_compose.py %s)' % (
-        ACT, _now(), 'write' if write else 'dry'), '', '## THE PLANTED CONTROLS'] + L + ['  controls %d of %d as wanted' % (sum(ok), len(ok)), '']
+        ACT, _now(), 'write' if write else 'dry'), '', '## THE CONTROLS (planted)'] + L + ['  controls %d of %d as wanted' % (sum(ok), len(ok)), '']
     if not all(ok):
         print(NL.join(out))
         sys.exit('### THE PLANTED CONTROLS NOT AS WANTED -- nothing composed')
@@ -743,12 +745,22 @@ def run(write):
     if not good:
         sys.exit('### A CONTROL NOT AS WANTED -- nothing written')
     dst = os.path.join(K.PP, *V02.split('/'))
+    # ### b759 events (40): the bank's figbank reading checked BEFORE the document is written (the first write's bank was refused by figbank
+    # ### after the document stood written, its heading not in the controls form)
+    fr = FB.reading(NL.join(out + ['written PLACE-papers %s' % V02]))
+    if not fr['ok']:
+        sys.exit('### THE BANK WOULD BE REFUSED BY figbank (%s) -- nothing written' % fr['why'])
     if os.path.exists(dst):
-        sys.exit('### %s STANDS ALREADY -- nothing written' % V02)
-    with open(dst, 'wb') as fh:
-        fh.write(doc)
-    back = io.open(dst, 'rb').read()
-    out.append('written PLACE-papers %s: %d bytes, sha256 %s, read back %s' % (V02, len(back), sha16(back), 'EQUAL' if back == doc else 'NOT EQUAL'))
+        have = io.open(dst, 'rb').read()
+        if have != doc:
+            sys.exit('### %s STANDS ALREADY AND DIFFERS FROM THE COMPOSITION (%d bytes, sha256 %s) -- nothing written' % (V02, len(have), sha16(have)))
+        out.append('PLACE-papers %s STANDS ALREADY, BYTE-EQUAL TO THE COMPOSITION: %d bytes, sha256 %s ; not rewritten (written by an earlier '
+                   'run of this tool whose bank figbank refused, events (40))' % (V02, len(have), sha16(have)))
+    else:
+        with open(dst, 'wb') as fh:
+            fh.write(doc)
+        back = io.open(dst, 'rb').read()
+        out.append('written PLACE-papers %s: %d bytes, sha256 %s, read back %s' % (V02, len(back), sha16(back), 'EQUAL' if back == doc else 'NOT EQUAL'))
     rr = FB.write(BANK, NL.join(out))
     print(out[-1])
     print('written data/b759_compose.txt ; figbank: %s' % rr['why'])
