@@ -369,7 +369,7 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None              # ### no rules bank this act: (R367) orders none; data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
 B756_RULES = ('data/b757_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it
 RULES_COMMITS = ()
-C1_CEILING = 'b9e4c79f'            # ### b758 (R368)(2): the commit carrying data/b758_ceiling.txt's last reading (the first, 02:40:22Z, at b9e4c79f); set again at the reading after Component 3
+C1_CEILING = '0f620cdb'            # ### b758 (R368)(2): the commit carrying data/b758_ceiling.txt's last reading -- the second, after Component 3 (04:43:13Z, 5.35 h of 16, nothing carried), the first at b9e4c79f (02:40:22Z)
 C1_PP = '6c50d50d'           # ### b758: PLACE-papers FINDINGS -- the corrigendum for b757 at :15484 (01:26:32Z, events (33))
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
@@ -425,9 +425,12 @@ GENS = (('the pre-send reads', 'tools/b758_presend.py', ('06eaa976', '2e103c46')
         ('the landing read', 'tools/b758_join.py', ('7aaa2863',), 'data/b758_land.txt', 'b83b3cac'),
         ('the merge of (5)', 'tools/b758_join.py', ('7aaa2863', 'f8b607a5'), 'data/b758_coeff.txt', '6e14bfe4'),
         ('the controls tool`s controls', 'tools/b758_controls.py', ('7aaa2863',), 'data/b758_controls_control.txt', 'b83b3cac'),
-        ('the outcomes', 'tools/b758_outcomes.py', ('6db2be8d',), 'data/b758_outcomes.txt', '6e14bfe4'),
+        ('the outcomes', 'tools/b758_outcomes.py', ('6db2be8d',), 'data/b758_outcomes.txt', '6490bf35'),
         ('the moved cites of (8)', 'tools/b758_notes.py', ('4ca805a4', '5559a08b'), 'data/b758_moved_cites.txt', 'ca551bb4'),
-        ('the ceiling', 'tools/b758_ceiling.py', ('96a22fde',), 'data/b758_ceiling.txt', 'b9e4c79f'))
+        ('the ceiling', 'tools/b758_ceiling.py', ('96a22fde',), 'data/b758_ceiling.txt', '0f620cdb'),
+        ('the statements of (7)', 'tools/b758_statements.py', ('5764d817', '4f069656'), 'data/b758_epstein_statements.txt', '0f620cdb'),
+        ('the notes of (8)', 'tools/b758_notes.py', ('4ca805a4', '5559a08b', 'a90f680a'), 'data/b758_notes.json', '5615a84f'),   # ### defect (c): repaired a90f680a
+        ('the dispatches', 'tools/b758_controls.py', ('7aaa2863',), 'data/b758_controls.txt', '63f25a83'))
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 GENS_WITH_BANK = ()  # ### none: each act tool committed before its run
 # ### b758, Component 5: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
@@ -438,12 +441,16 @@ CHAIN = (('presend_gen', '06eaa976'), ('presend_fix', '2e103c46'), ('v1356', 'ac
          ('dispatch1', 'b83b3cac'), ('join_ext', 'f8b607a5'), ('v1360', 'fd45f4c5'), ('v1361', '9bc8cfeb'), ('v1362', '4db55035'), ('side_rule', 'ae24d870'),
          ('statements_gen', '5764d817'), ('statements_fix', '4f069656'), ('outcomes_gen', '6db2be8d'), ('notes_gen', '4ca805a4'), ('notes_fix', '5559a08b'),
          ('moved', 'ca551bb4'), ('ceiling_gen', '96a22fde'), ('ceiling1', 'b9e4c79f'), ('read1', '064afdd6'), ('rows1', 'a3371bc3'), ('landed', '6e14bfe4'),
-         ('record1', '54fb61ff'), ('record2', '32e23cbe'), ('closing', 'c6a1f6ec'), ('regspec', 'ae675194'), ('overrides', '7822fd02'))
-PP_CHAIN = (('c1pp', '6c50d50d'),)   # ### the notes of (8), (a) to (e), appended as written
+         ('record1', '54fb61ff'), ('record2', '32e23cbe'), ('closing', 'c6a1f6ec'), ('regspec', 'ae675194'), ('overrides', '7822fd02'),
+         ('checks', '12d2fc58'), ('carries', 'a85d414c'), ('read2', '4905d3e3'), ('rows2', 'ac6def8e'), ('landed2', '6490bf35'), ('deletes', 'cfca142a'),
+         ('statements', '0f620cdb'), ('notes_fix2', 'a90f680a'), ('notes', '5615a84f'), ('controls', '63f25a83'))
+PP_CHAIN = (('c1pp', '6c50d50d'), ('pp_a', 'babcc8ea'), ('pp_b', 'fbfec0f5'), ('pp_c', '7f96a8c6'), ('pp_d', 'a3fad736'), ('pp_e', 'cd42d8e9'))   # ### the corrigendum, then the notes of (8), (a) to (e)
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
 TIME_ORDER = ('actcur', 'stepzero', 'presend_gen', 'presend_fix', 'v1356', 'words', 'v1357', 'b757_close', 'v1358', 'c1', 'c1pp', 'corr', 'v1359',
               'join_gen', 'dispatch1', 'join_ext', 'v1360', 'v1361', 'v1362', 'side_rule', 'statements_gen', 'statements_fix', 'outcomes_gen', 'notes_gen',
-              'notes_fix', 'moved', 'ceiling_gen', 'ceiling1', 'read1', 'rows1', 'landed', 'record1', 'record2', 'closing', 'regspec', 'overrides')
+              'notes_fix', 'moved', 'ceiling_gen', 'ceiling1', 'read1', 'rows1', 'landed', 'record1', 'record2', 'closing', 'regspec', 'overrides',
+              'checks', 'carries', 'read2', 'rows2', 'landed2', 'deletes', 'statements', 'pp_a', 'notes_fix2', 'pp_b', 'pp_c', 'pp_d', 'pp_e', 'notes',
+              'controls')
 CHAIN_WORDS.update({'presend_gen': 'the pre-send tool', 'presend_fix': 'its bound on the names of anonymous instances', 'v1356': 'v1.35.6, the reader`s repair',
                     'words': 'the author`s answer and the amendment of (1)', 'v1357': 'v1.35.7, the bound', 'b757_close': 'b757`s four carried steps',
                     'v1358': 'v1.35.8, the title rule', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
@@ -454,7 +461,12 @@ CHAIN_WORDS.update({'presend_gen': 'the pre-send tool', 'presend_fix': 'its boun
                     'notes_fix': 'its moved-cite reader sorted', 'moved': 'the moved cites', 'ceiling_gen': 'the ceiling tool',
                     'ceiling1': 'the record`s reads and the ceiling`s first reading', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step row',
                     'landed': 'the join landed at v0.39 and the merge with dispatch 2', 'record1': 'the entry rewritten', 'record2': 'the trail record',
-                    'closing': 'the closing record', 'regspec': 'the regspec and the report', 'overrides': 'the overrides and the delete arms'})
+                    'closing': 'the closing record', 'regspec': 'the regspec and the report', 'overrides': 'the overrides and the delete arms',
+                    'checks': 'the checks rewritten', 'carries': 'the three close tools carried', 'read2': 'dispatch 2 read and the outcomes',
+                    'rows2': 'its step row', 'landed2': 'the three landed at v0.40', 'deletes': 'the deletes carried, the route lacking',
+                    'statements': 'the ceiling after Component 3 and the statements of (7)', 'pp_a': 'the Epstein note', 'notes_fix2': 'the notes tool repaired',
+                    'pp_b': 'the FACES_LEDGER update', 'pp_c': 'the census note', 'pp_d': 'the REGISTRY note', 'pp_e': 'the OPEN_TRAILS block',
+                    'notes': 'the notes bank', 'controls': 'the controls bank'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
 STANDING_BANKS = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b758_standing_v1357.txt', 16),
                   ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
@@ -505,14 +517,14 @@ SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R368)); one question at the root ((R368)(10))
 SITTING_STATES = {}
 HANDOFF_COMMIT = None         # ### (R368)(10): HANDOFF.md written once by tools/standing/handoff.py before the gate; set when made (b757's c37cdb05 carried until Component 5)
-C3_RELAY = ()   # ### Component 3 ((R368)(5)): set as made
-C3_NOTES_GEN = '5559a08b'   # ### b758 (R368)(8): tools/b758_notes.py as last committed before its writes, controls 24 of 24 (events (44))
-C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'e88282c4'),
-               ('(b)', 'FACES_LEDGER.md', 'c7dfe43c'),
-               ('(c)', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '9c0896c5'),
-               ('(d)', 'REGISTRY.md', 'c45be6e0'),
-               ('(e)', 'OPEN_TRAILS.md', 'b14256c2'))   # ### (item, the file, the PLACE-papers commit), steps 57-61, each confirmed at HEAD by tools/b757_notes.py (data/b757_notes.json)
-C3_NOTES_WRITTEN = 5   # ### the notes of (9): five writes, one PLACE-papers commit each (data/b757_notes.json)
+C3_RELAY = ('4905d3e3', 'ac6def8e', '6490bf35', 'cfca142a')   # ### Component 3 ((R368)(5)): dispatch 2's read, its step row, the landing at v0.40, the deletes carried (events (52))
+C3_NOTES_GEN = 'a90f680a'   # ### b758 (R368)(8): tools/b758_notes.py as last committed before its writes of (b) to (e), controls 24 of 24, defect (c); (a) written under 5559a08b (events (44), (53))
+C3_NOTES_PP = (('(a)', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md', 'babcc8ea'),
+               ('(b)', 'FACES_LEDGER.md', 'fbfec0f5'),
+               ('(c)', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '7f96a8c6'),
+               ('(d)', 'REGISTRY.md', 'a3fad736'),
+               ('(e)', 'OPEN_TRAILS.md', 'cd42d8e9'))   # ### (item, the file, the PLACE-papers commit), steps 51 and 53-56, each confirmed at HEAD by tools/b758_notes.py (data/b758_notes.json, relay 5615a84f)
+C3_NOTES_WRITTEN = 5   # ### the notes of (8): five writes, one PLACE-papers commit each (data/b758_notes.json)
 # ### Component 4 ((R366)(5)): the put and the work its answers order, each value read from the step rows (data/b756_steps.json)
 C4_READ = ('tools/b758_orders.py', '5b3d5a60', ('data/b758_orders_read.txt', 'data/b758_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
 C4_PUT = ('data/b758_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
