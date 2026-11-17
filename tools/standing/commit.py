@@ -72,6 +72,12 @@ v1.36.0, (R368)(6)(i), THE FAST-FORWARD OF A KERNEL'S LOCAL MAIN: tools/push_gat
   local main already equal writes nothing. Opened act by act by FF_ACTS, apart from KERNEL_ACTS: b758 opens SIDE-dirichlet-mod-24 to this
   route alone and to no other write.
 
+v1.36.1, (R368)(6)(ii), THE PUSH OF A NAMED COMMIT TO A NAMED NON-MAIN BRANCH OF A KERNEL, NOT FORCED: `pushto <commit> <branch>` reads the
+  branch's remote tip by one ls-remote of origin; an absent branch is made, a tip the clone holds and that is an ancestor of the commit is
+  moved forward, a tip equal to the commit writes nothing; a tip that is not an ancestor, or one the clone lacks (its ancestry unread), is
+  refused, nothing pushed. main, master, HEAD, a refs/ name or a name outside the branch form is refused. The push is `git push origin
+  <sha>:refs/heads/<branch>` with no force, read back by ls-remote equal to the commit. Opened act by act by PUSHTO_ACTS: no act at b758.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -86,6 +92,7 @@ v1.36.0, (R368)(6)(i), THE FAST-FORWARD OF A KERNEL'S LOCAL MAIN: tools/push_gat
   python -X utf8 -u tools/standing/commit.py <kernel> "component 2" <the words>
   python -X utf8 -u tools/standing/commit.py <kernel> delete push-<act>-<word>
   python -X utf8 -u tools/standing/commit.py <kernel> ff main
+  python -X utf8 -u tools/standing/commit.py <kernel> pushto <commit> <branch>
 """
 import json
 import os
@@ -110,6 +117,9 @@ NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
 # ### read inside the route, not by KERNEL_ACTS -- (R368)(10): "no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i)"
 FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula')}
+# ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
+# ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
+PUSHTO_ACTS = {}
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
@@ -235,7 +245,7 @@ def lock_face(repo, act, read, data, run_seal=True):
 
 
 ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'component 6', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root ; v1.34.6, (R365)(2)(iii) with b755's amendment row 1: components 5 and 6
-WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge', 'ff')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone ; v1.36.0, (R368)(6)(i): ff, a kernel's alone, by FF_ACTS
+WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge', 'ff', 'pushto')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone ; v1.36.0, (R368)(6)(i): ff, a kernel's alone, by FF_ACTS ; v1.36.1, (R368)(6)(ii): pushto, a kernel's alone, by PUSHTO_ACTS
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
 
@@ -842,6 +852,69 @@ def ff_route(key, args, act, repo):
         back[:8])
 
 
+def pushto_refusal(key, act, table=None):
+    """v1.36.1, (R368)(6)(ii): None, or the refusal, for `pushto` in `key` while `act` runs: a kernel of KERNELS that PUSHTO_ACTS (or `table`, a
+    control's) opens for the act. Pure."""
+    t = PUSHTO_ACTS if table is None else table
+    if key not in KERNELS:
+        return 'THE PUSH TO A NAMED BRANCH IS A KERNEL`S ALONE: %r -- the kernels %s ((R368)(6)(ii))' % (key, ', '.join(sorted(KERNELS)))
+    if key not in t.get(act, ()):
+        return 'A KERNEL THE ACT`S RULING DOES NOT OPEN TO THE PUSH TO A NAMED BRANCH: %s while %s runs (%s) ((R368)(6)(ii))' % (
+            key, act, '; '.join('%s: %s' % (a, ', '.join(k)) for a, k in sorted(t.items())) or 'no act opened: the route built for the acts after')
+    return None
+
+
+def pushto_name_refusal(name):
+    """None, or the refusal, for the branch named: a non-main branch in the branch form. Pure."""
+    import re
+    n = name or ''
+    if (n.lower() in ('main', 'master', 'head') or n.startswith(('refs/', '-')) or '..' in n or '//' in n or n.endswith(('/', '.', '.lock'))
+            or not re.match(r'^[A-Za-z0-9][A-Za-z0-9._/-]*$', n)):
+        return 'NOT A NON-MAIN BRANCH NAME: %r -- main, master, HEAD, a refs/ name and a name outside the branch form are refused ((R368)(6)(ii))' % name
+    return None
+
+
+def pushto_plan(full, tip, tip_local, ancestor):
+    """'new' (the branch made), 'forward' (its tip moved forward), None (the tip equal to the commit: nothing to push), or Refused. Pure."""
+    if not full:
+        raise Refused('NOT A COMMIT OF THE CLONE -- nothing pushed ((R368)(6)(ii))')
+    if not tip:
+        return 'new'
+    if not tip_local:
+        raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT IN THE CLONE -- its ancestry unread, nothing pushed ((R368)(6)(ii))' % tip[:8])
+    if tip_local == full:
+        return None
+    if not ancestor:
+        raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT AN ANCESTOR OF %s -- NOT A FAST-FORWARD, nothing pushed, no push forced ((R368)(6)(ii))' % (
+            tip[:8], full[:8]))
+    return 'forward'
+
+
+def pushto_route(key, args, act, repo):
+    """v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>` in a kernel PUSHTO_ACTS opens; the line printed, or Refused."""
+    if len(args) != 2:
+        raise Refused('THE PUSH NAMES ITS COMMIT AND ITS BRANCH: `pushto <commit> <branch>` ((R368)(6)(ii))')
+    bad = pushto_name_refusal(args[1])
+    if bad:
+        raise Refused(bad)
+    full = _commit_of(repo, args[0])
+    tip, rc = remote_head(repo, args[1])
+    if rc != 0:
+        raise Refused('THE BRANCH`S REMOTE TIP NOT READ (ls-remote exit %d) -- nothing pushed ((R368)(6)(ii))' % rc)
+    tip_local = _commit_of(repo, tip) if tip else ''
+    anc = bool(tip_local and full) and _git(repo, 'merge-base', '--is-ancestor', tip_local, full).returncode == 0
+    kind = pushto_plan(full, tip, tip_local, anc)
+    if kind is None:
+        return 'ALREADY AT THE COMMIT: refs/heads/%s at the remote reads %s ; nothing pushed' % (args[1], tip[:8])
+    r = _git(repo, 'push', '--porcelain', 'origin', '%s:refs/heads/%s' % (full, args[1]))
+    back, rc2 = remote_head(repo, args[1])
+    if r.returncode != 0 or rc2 != 0 or back != full:
+        raise Refused('THE PUSH FAILED OR ITS READ-BACK IS UNEQUAL: git push exit %d (%s) ; the remote reads %s, the commit %s' % (
+            r.returncode, ((r.stderr or r.stdout) or '').strip()[:120], back[:8] or 'none', full[:8]))
+    return 'PUSHED, NOT FORCED: %s to refs/heads/%s at the remote (%s) ; read back by ls-remote %s, EQUAL' % (
+        full[:8], args[1], 'the branch made' if kind == 'new' else 'its tip %s moved forward' % tip[:8], back[:8])
+
+
 def usage_lines():
     """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
     zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
@@ -870,6 +943,10 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
         bad = ff_refusal(key, act)
         if bad:
             raise Refused(bad)
+    elif verb == 'pushto':   # ### v1.36.1, (R368)(6)(ii): its own table
+        bad = pushto_refusal(key, act)
+        if bad:
+            raise Refused(bad)
     elif kern:
         bad = repo_refusal(key, act)
         if bad:
@@ -886,6 +963,8 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
     try:
         if verb == 'ff':   # ### v1.36.0
             return ff_route(key, args, act, repo)
+        if verb == 'pushto':   # ### v1.36.1
+            return pushto_route(key, args, act, repo)
         if kern:
             cmd = kernel_write(key, verb, args, act, repo)
         else:
@@ -1027,7 +1106,7 @@ def excludes():
 def main(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
-    if argv[0] not in ('relay', 'pp') and argv[1] != 'ff':   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read ; v1.36.0: ff read by FF_ACTS in write_route
+    if argv[0] not in ('relay', 'pp') and argv[1] not in ('ff', 'pushto'):   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read ; v1.36.0, v1.36.1: ff and pushto read by their own tables in write_route
         import act as A
         bad = repo_refusal(argv[0], A.current()['act'])
         if bad:

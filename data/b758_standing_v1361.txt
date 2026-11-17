@@ -1,0 +1,77 @@
+b758 -- THE CONTROLS OF tools/standing/ v1.36.1, (R368)(6)(ii): THE PUSH OF A NAMED COMMIT TO A NAMED NON-MAIN BRANCH, NOT FORCED (2026-11-17T02:02:22Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; the planted repositories in the system`s temporary folder, removed after each case, no path printed; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY CASE ((R345)(2)(i), carried):
+  checks render            OK    2822 lines
+  citation render          OK    574 lines
+  closing render           OK    654 lines
+  record render            OK    5060 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    502 lines
+  report render            OK    186 lines
+  tools/b758_worklist.py   OK    628 lines
+### THE COMPILE CONTROL : b758 COMPILES WHOLE, 8 OF 8
+
+### each case before (tools/standing/commit.py at fd45f4c5) and after (the working file)
+
+  free 4490 MB at 2026-11-17T02:02:22Z, the hold 2560 MET
+### (table): THE ROUTE OPENED ACT BY ACT BY PUSHTO_ACTS, WHICH OPENS NO ACT
+  (table) pushto_refusal at the real table and at a planted one
+      BEFORE: pushto_refusal absent ; pushto among the writes False -> AS WANTED
+      AFTER : PUSHTO_ACTS {} ; at b758/b759 refused [True, True, True] ; the planted table: ['None', 'REFUSED (THE PUSH TO A NAMED BRANCH IS A', 'REFUSED (A KERNEL THE ACT`S RULING DOES '] -> AS WANTED
+
+  free 4494 MB at 2026-11-17T02:02:23Z, the hold 2560 MET
+### (closed): AT b758, THROUGH write_route, IN A PLANTED CLONE
+  (closed) `pushto <c0> side` at b758
+      BEFORE: (True, "the write 'pushto' is not one of add | restore | delete | branch | switch | merge | ff") -> AS WANTED
+      AFTER : (True, 'A KERNEL THE ACT`S RULING DOES NOT OPEN TO THE PUSH TO A NAMED BRANCH: SIDE-explicit-formula while b758 runs (no act opened: the route built for the acts after) ((R368)(6)(ii))') ; the remote`s side absent -> AS WANTED
+
+  free 4497 MB at 2026-11-17T02:02:23Z, the hold 2560 MET
+### (name): THE BRANCH FORM
+  (name) refused ['main', 'master', 'HEAD', 'Main', 'refs/heads/x', '-f', 'a..b', 'x.lock', 'x/', 'a b'] ; taken ['zq-b730', 'push-b759-x', 'w/x.1']
+      BEFORE: n/a (the route absent at BASE) -> AS WANTED
+      AFTER : ([True, True, True, True, True, True, True, True, True, True], [True, True, True]) -> AS WANTED
+
+  free 4497 MB at 2026-11-17T02:02:23Z, the hold 2560 MET
+### (new), (forward), (equal), (nonanc): ONE PLANTED REMOTE, THE BRANCH side
+  (new) the branch side absent at the remote, `pushto <c0> side`
+      BEFORE: (True, "the write 'pushto' is not one of add | restore | delete | branch | switch | merge | ff") -> AS WANTED
+      AFTER : PUSHED, NOT FORCED: 3133d465 to refs/heads/side at the remote (the branch made) ; read back by ls-remote 3133d465, EQUAL ; the remote`s side 3133d465 -> AS WANTED
+  (forward) side at c0, `pushto <c1> side`, c1 a child of c0
+      BEFORE: n/a -> AS WANTED
+      AFTER : PUSHED, NOT FORCED: 98c91b48 to refs/heads/side at the remote (its tip 3133d465 moved forward) ; read back by ls-remote 98c91b48, EQUAL ; the remote`s side 98c91b48 -> AS WANTED
+  (equal) side at c1, `pushto <c1> side` again
+      BEFORE: n/a -> AS WANTED
+      AFTER : ALREADY AT THE COMMIT: refs/heads/side at the remote reads 98c91b48 ; nothing pushed ; the remote`s side 98c91b48 -> AS WANTED
+  (nonanc) THE ORDERED CONTROL: side at c1, `pushto <x> side`, x a planted sibling of c1 (5409941f)
+      BEFORE: n/a -> AS WANTED
+      AFTER : THE BRANCH`S REMOTE TIP 98c91b48 IS NOT AN ANCESTOR OF 5409941f -- NOT A FAST-FORWARD, nothing pushed, no push forced ((R368)(6)(ii)) ; the remote`s side 98c91b48 -> AS WANTED
+
+  free 4481 MB at 2026-11-17T02:02:26Z, the hold 2560 MET
+### (unknown): THE REMOTE TIP MOVED BY ANOTHER CLONE, NOT FETCHED
+  (unknown) side moved to 121a6176 by another clone, the clone not fetched
+      BEFORE: n/a -> AS WANTED
+      AFTER : THE BRANCH`S REMOTE TIP 121a6176 IS NOT IN THE CLONE -- its ancestry unread, nothing pushed ((R368)(6)(ii)) ; the remote`s side 121a6176 -> AS WANTED
+
+  free 4473 MB at 2026-11-17T02:02:28Z, the hold 2560 MET
+### (args): ONE ARGUMENT, AND main AS THE BRANCH
+  (args) `pushto <c0>` and `pushto <c0> main`
+      BEFORE: n/a -> AS WANTED
+      AFTER : [(True, 'THE PUSH NAMES ITS COMMIT AND ITS BRANCH: `pushto <commit> <branch>` ((R368)(6)(ii))'), (True, "NOT A NON-MAIN BRANCH NAME: 'main' -- main, master, HEAD, a refs/ name and a name outside the branch form are refused ((R368)(6)(ii))")] -> AS WANTED
+
+  free 4469 MB at 2026-11-17T02:02:29Z, the hold 2560 MET
+### (diff): THE WORKING commit.py AGAINST BASE`S
+  (diff) lines removed from BASE`s file
+      BEFORE: BASE`s file read, 1068 lines -> AS WANTED
+      AFTER : 2 removed, 81 added ; the removed: ["WRITES = ('add', 'restore', 'delete', 'branch', ", "if argv[0] not in ('relay', 'pp') and argv[1] !="] -> AS WANTED
+
+  free 4469 MB at 2026-11-17T02:02:29Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE: v1.36.0 -> AS WANTED
+      AFTER : v1.36.1 -> AS WANTED
+
+### per change: (table) 1 of 1 ; (closed) 1 of 1 ; (name) 1 of 1 ; (new) 4 of 4 ; (unknown) 1 of 1 ; (args) 1 of 1 ; (diff) 1 of 1 ; (version) 1 of 1
+### ### **v1.36.1: CONTROLS (table), (closed), (name), (new), (unknown), (args), (diff), (version) ; CASES 11 ; AS WANTED 11 ; ALL AS WANTED.**
