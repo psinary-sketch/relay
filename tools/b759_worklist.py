@@ -474,7 +474,7 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1
                     'controls_gen': 'the controls tool, with the pre-send bank', 'dispatch1': 'dispatch 1', 'outcomes_gen': 'the outcomes tool',
                     'outcomes_fix': 'its clause reader', 'table_gen': 'the table and cost law tools', 'table': 'the table and the cost law',
                     'fields_gen': 'the fields tool', 'compose_gen': 'the composer', 'notes_gen': 'the notes tool', 'corpus_gen': 'the corpus tool',
-                    'errata_gen': 'the errata tool and the fields` corpus route', 'reproduce': 'the reproduce run', 'compose_fix': 'the composer`s cite reader',
+                    'errata_gen': 'the errata tool and the fields’ corpus route', 'reproduce': 'the reproduce run', 'compose_fix': 'the composer`s cite reader',
                     'checks1': 'the act module`s first checks', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step rows',
                     'landed': 'the statement landed at v0.41', 'fields': 'the fields', 'compose_fix2': 'the composer`s hand verdict',
                     'compose_fix3': 'the composer`s write order', 'pp_doc': 'the document at v0.2', 'compose': 'the compose bank',

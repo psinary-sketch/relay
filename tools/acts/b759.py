@@ -2447,11 +2447,11 @@ def _guard(f):
             '(2) (2)`s commit of tools/mirror_prevbuild.json, its working copy differing from HEAD`s blob by carriage returns alone, nothing carried (relay data/b759_misses.txt :4-:5, data/b759_events.txt (5)); '
             '(3) h2_sign_iff_rh among (5)`s print lines, compiled at FINDINGS :901 and :4595, the act writing its axioms line alone (relay data/b759_misses.txt :6-:7); '
             '(4) (5)`s one step read with Complex.zero_re beside Complex.le_def, the theorem opening ComplexOrder for itself alone (relay data/b759_misses.txt :8-:9, data/b759_presend.txt); '
-            '(5) the clones` local branches of (3)`s five names, none removed in a clone (relay data/b759_misses.txt :10-:11); '
+            '(5) the clones’ local branches of (3)`s five names, none removed in a clone (relay data/b759_misses.txt :10-:11); '
             '(6) the kernel route, v1.36.7, a standing change (4) does not name, counted apart from its four (relay data/b759_misses.txt :27, data/b759_standing_v1367.txt); '
             '(7) (4)(iv)`s reader made on checks.tpl :663, not :611 (relay data/b759_misses.txt :28, data/b759_standing_v1366.txt); '
             '(8) the text block`s AX legend "std 3" where (7) writes "the standard three", the fields carrying (7)`s words (relay data/b759_misses.txt :29); '
-            '(9) section 7`s three cites of the zeta-box plan corrected by the composer to their figures` lines and one listed (relay data/b759_misses.txt :30, data/b759_compose.txt); '
+            '(9) section 7`s three cites of the zeta-box plan corrected by the composer to their figures’ lines and one listed (relay data/b759_misses.txt :30, data/b759_compose.txt); '
             '(10) v0.2 :44`s cite of the document`s own v0.1 :31 listed and left as v0.1 wrote it (relay data/b759_misses.txt :31); '
             '(11) FACES_LEDGER`s note written as an UPDATE section in b758`s form at :565 (relay data/b759_misses.txt :32, data/b759_notes.json); '
             '(12) %s and the seat’s %s defect%s as lettered' % (f['cl_f1'], f['cl_quot'],
@@ -2549,7 +2549,7 @@ def _runs3_line():
          '(iii) the row writer taking the phase repair, b758`s repair commit f401a81e replayed, %s (relay data/b759_standing_v1365.txt); '
          '(iv) the suite`s reader of the kernels face naming SIDE-dirichlet-mod-24, made on checks.tpl :663 where the ruling named :611, b758`s face read as 24 kernels, %s (relay data/b759_standing_v1366.txt). '
          'The changes: %d of 4. The kernel route, the one-call tool opened for this act in SIDE-explicit-formula before its first kernel write, a standing change (4) does not name, %s, counted apart (relay data/b759_standing_v1367.txt). '
-         'The branches of (3): at the relay and PLACE-papers the five push-b758-* branches by the tool`s route after the merged listing; at the kernels` remotes %s, each by (i)`s route after its controls, each an ancestor of its remote`s main; each read absent after, one a message (relay data/b759_stepzero.txt, data/b759_events.txt (13), (24)); no clone`s branch removed; push-b759-weil kept for the next act`s step zero.' % (
+         'The branches of (3): at the relay and PLACE-papers the five push-b758-* branches by the tool`s route after the merged listing; at the kernels’ remotes %s, each by (i)`s route after its controls, each an ancestor of its remote`s main; each read absent after, one a message (relay data/b759_stepzero.txt, data/b759_events.txt (13), (24)); no clone`s branch removed; push-b759-weil kept for the next act`s step zero.' % (
              vw_('v1.36.3'), vw_('v1.36.4'), vw_('v1.36.5'), vw_('v1.36.6'), f['changes'], vw_('v1.36.7'), ', '.join('%s (was %s)' % (b_, t_[:8]) for b_, t_ in K.KERNEL_DELETES)), '',
          '**The statement and the print lines** ((R369)(5)): push-b759-weil made at main %s; commit one %s, the four lines rQ_one, cQ_eq, detector and h2_sign_iff_rh after print_targets.txt :484, none of them there before; commit two %s, zq_weil_positivity_fails with its docstring in Schema/Wide/HalfScaleControl.lean :37-:51 after zq_arith_side_re_neg, no line above it moved, ComplexOrder opened for it alone, and its line at print_targets.txt :489. '
          'The salt check printed before the send, h2_sign`s body taken into the control`s names under a negation equal to the statement, no binder before its colon: %s; the pre-send reads at %s: duplicates %d; refused by the filter %d (%s), the two known; anonymous pairs %d of %d (%d unread); %d modules for %d names, %d refused; controls %d of %d (relay data/b759_presend.txt). '
@@ -2570,7 +2570,7 @@ def _runs3_line():
              f['cp_ctl'][0], f['cp_ctl'][1], K.C3_DOC_PP[1][:8], nl_, f['notes_reg'].get('id', '-'), f['notes_reg'].get('row_line', '-')), '',
          '**The corpus lines** ((R369)(9)): the hold on a paper`s sentences lifted for the fourteen lines of BLOCK D alone; each OLD read once at its line and replaced by its NEW by tools/b759_corpus.py, committed before its run, one PLACE-papers commit a document through the one-call tool, each confirmed at HEAD: %s; re-cut %d of %d, left %d, orders %d; REGISTRY`s deposit pins read for the nine documents, one deposited copy, A Place to Stand at REGISTRY :83, not read and not touched, C4 and C5 standing there as deposited; controls %d of %d (relay data/b759_corpus.txt, data/b759_corpus.json).' % (
              '; '.join('%s at %s' % (p_, c_) for p_, c_ in f['corpus_docs']), f['cr_recut'], f['cr_of'], f['cr_left'], f['cr_orders'], f['cr_ctl'][0], f['cr_ctl'][1]), '',
-         '**ERRATA and the orders** ((R369)(10)), by tools/b759_errata.py committed before its run, each write read back equal and committed alone: %s (relay data/b759_errata.json) -- ERRATA`s entries %s at the file`s end in the form of E-2026-11-09-1, E-2026-11-06-1 not edited; OPEN_TRAILS` block under one dated head after b758`s trail, no line moving: b758`s root answer; W-ORD-MECHANISM-ATTRIBUTION`s condition as the navigator read it, not met, T0 and T1 entered beside it and the order left open on the author`s word; the five orders W-ORD-WSC-KERNEL-CITES, W-ORD-LI-INDEX, W-ORD-CAPACITY-ATTRIBUTION, W-ORD-BIBLIOGRAPHY-LINK and W-ORD-EPSTEIN-SECTIONS-3-4 entered by name, each priced by no build; no order of a re-cut left, (9) leaving no line.' % (
+         '**ERRATA and the orders** ((R369)(10)), by tools/b759_errata.py committed before its run, each write read back equal and committed alone: %s (relay data/b759_errata.json) -- ERRATA`s entries %s at the file`s end in the form of E-2026-11-09-1, E-2026-11-06-1 not edited; OPEN_TRAILS’ block under one dated head after b758`s trail, no line moving: b758`s root answer; W-ORD-MECHANISM-ATTRIBUTION`s condition as the navigator read it, not met, T0 and T1 entered beside it and the order left open on the author`s word; the five orders W-ORD-WSC-KERNEL-CITES, W-ORD-LI-INDEX, W-ORD-CAPACITY-ATTRIBUTION, W-ORD-BIBLIOGRAPHY-LINK and W-ORD-EPSTEIN-SECTIONS-3-4 entered by name, each priced by no build; no order of a re-cut left, (9) leaving no line.' % (
              el_, ', '.join(((dict((r_[0], r_[4]) for r_ in f['errata']).get('errata')) or {}).get('entries') or [])), '',
          '**The research instruments reproduced** ((R369)(11), the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py`s full run in the foreground, nothing else writing to tools/ or data/ while it ran: rows %d, reproducing %d, differing %d, not run %d (I-56, I-57, I-61 and I-107, as at b755), the planted controls %d of %d as wanted, %d s (relay data/b759_reproduce.txt).' % (
              f['rp_rows'], f['rp_repro'], f['rp_differs'], f['rp_notrun'], f['rp_ctl'][0], f['rp_ctl'][1], f['rp_secs']), '',
@@ -2598,7 +2598,7 @@ def _runs3_line():
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the control now stands in one document read from its coefficients and from its zeros -- on its arithmetic side the failure of positivity compiled at v0.41 beside the statement it negates, the coefficient law at class number 3 by written proof with its table reproduced by two routes, and the corpus`s sentences about it re-cut to what is proved, compiled and observed; each is a statement about the Epstein zeta function of x^2 + xy + 6y^2, promoting nothing, and none is a finding about zeta.', '',
          '**Carried to:** %s, per (R369)(11), as the author answers the one question at the root: the same re-cut, map before write, for the keystone the author names, Which Structure Confines standing nearest with three of this act`s orders on it; or the class-number-3 law priced for a kernel; or W-ORD-BIBLIOGRAPHY-LINK; or another the author names. W-ORD-MECHANISM-ATTRIBUTION and the five orders of (10) open; push-b759-weil kept; the draft held at v5.' % K.NEXT_ACT, '',
          '**Next.** %s.' % K.next_line(), '',
-         '*Nothing here is a statement that RH, GRH or Weil positivity on classK holds or fails, or about the zeros of zeta.*', '',
+         '*Nothing here is a statement that RH or GRH holds or fails, that Weil positivity on classK holds or fails for zeta, or about the zeros of zeta.*', '',
          _integ_line(f), '']
     return _title(), NL.join(e)
 
@@ -2675,7 +2675,7 @@ def _finding_text_b758_body():
              f['wk_held'], f['wk_of'], f['zf_verdict'], f['zf_zeros'], f['zf_roots'], (', vacuous there' if vac_ else ''), f['rc_verdict']), '',
          '**Carried to:** %s, per (R369)(8), as the author answers the one question at the root: the clearing act as b759 (the twelve work-orders the triage of b724 read as ready; the tool changes of [U1] and [U2]; the README route with [B1] and [B3]; [H1]’s held part; the carried faults of (2); closing lines for checkpoints CP-6 and CP-7), or the build of T0 and T1 as b759 with the clearing act after it; defects (b), (e) and the tools’ (d) open for the author; the instruments NOT RUN, each with its price; the draft held at v5.' % K.NEXT_ACT, '',
          '**Next.** %s.' % K.next_line(), '',
-         '*Nothing here is a statement that RH, GRH or Weil positivity on classK holds or fails, or about the zeros of zeta.*', '',
+         '*Nothing here is a statement that RH or GRH holds or fails, that Weil positivity on classK holds or fails for zeta, or about the zeros of zeta.*', '',
          _integ_line(f), '']
     return _title(), NL.join(e)
 """
@@ -2710,7 +2710,7 @@ def _finding_text_b758():
                  f['corr_line'], fj.get('entry_line'), K.C3_DOC_PP[1][:8], nl_, el_), '',
              '**b758 at its weight** ((R369)(1)): closed at relay c25f8b53 and PLACE-papers 4ea41948, the scores %d of 8 HELD (%s), N4 not argued; the corrigendum short, no CLAIM item, no weight line (relay data/b758_scores_close.json, data/b759_corrigendum.txt).' % (
                  f['b7_held'], ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted'), '',
-             '**The standing changes** ((R369)(4)): %d of 4, v1.36.3 to v1.36.6, each with its controls before its use; the kernel route v1.36.7 counted apart; the branches of (3) removed, five at the relay and PLACE-papers and %s at the kernels` remotes (relay data/b759_standing_v1363.txt to data/b759_standing_v1367.txt).' % (
+             '**The standing changes** ((R369)(4)): %d of 4, v1.36.3 to v1.36.6, each with its controls before its use; the kernel route v1.36.7 counted apart; the branches of (3) removed, five at the relay and PLACE-papers and %s at the kernels’ remotes (relay data/b759_standing_v1363.txt to data/b759_standing_v1367.txt).' % (
                  f['changes'], ', '.join(b_ for b_, _t in K.KERNEL_DELETES)), '',
              '**The statement and the print lines** ((R369)(5)): %s, run %s%s, the grade %s; the salt check %s (relay data/b759_presend.txt, data/b759_outcomes.txt).' % (
                  f['weil_word'].lower(), w5_['run'], (', %s = %s' % (w5_['tag'], w5_['peel'])) if f['weil_word'].startswith('LANDED') else '', w5_['grade'], f['ps_salt'].lower()), '',
@@ -2718,7 +2718,7 @@ def _finding_text_b758():
                  f['disp_ef']), '',
              '**The table, the fields and the document** ((R369)(6)-(8)): the table %s, %d of %d by each route, the plant %s, the law %s; %d fields filled and N and DEPOSITS by the corpus route, F1 %s, F2 %s; v0.2 %d lines, %d fields left, v0.1 %s (relay data/b759_c3table.txt, data/b759_fields.txt, data/b759_compose.txt).' % (
                  f['table_word'], f['c3_one'][0], f['c3_one'][1], f['c3_plant'].lower(), f['law_word'], f['fd_filled'], f['cl_f1'], f['cl_f2'], f['cp_lines'], f['cp_left'], f['cp_v01'].lower()), '',
-             '**The corpus lines and the errata** ((R369)(9), (10)): %d of 14 re-cut, %d left, %d orders, one deposited copy not touched; ERRATA`s two entries and OPEN_TRAILS` block, W-ORD-MECHANISM-ATTRIBUTION left open and five orders entered (relay data/b759_corpus.txt, data/b759_errata.json).' % (
+             '**The corpus lines and the errata** ((R369)(9), (10)): %d of 14 re-cut, %d left, %d orders, one deposited copy not touched; ERRATA`s two entries and OPEN_TRAILS’ block, W-ORD-MECHANISM-ATTRIBUTION left open and five orders entered (relay data/b759_corpus.txt, data/b759_errata.json).' % (
                  f['cr_recut'], f['cr_left'], f['cr_orders']), '',
              '**The reproduction run** ((R369)(11)): rows %d, reproducing %d, differing %d, not run %d, controls %d of %d (relay data/b759_reproduce.txt).' % (
                  f['rp_rows'], f['rp_repro'], f['rp_differs'], f['rp_notrun'], f['rp_ctl'][0], f['rp_ctl'][1]), '',
