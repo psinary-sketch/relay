@@ -1,0 +1,131 @@
+b758 -- (R368)(7): THE STATEMENTS FOR SECTIONS 6 TO 8, BANKED AND NOT WRITTEN, FROM SIDE-explicit-formula AT 630cba16 (2026-11-17T04:43:32Z)
+
+## THE CONTROLS
+  (1) cQ_forty_eight at 596d1c9e: one declaration, its file in the coefficient module: [('SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean', 281, 'SIDEExplicitFormula.Schema.ZQ.cQ_forty_eight')] -> AS WANTED
+  (2) its statement read from its head to its `:=`: 1 lines, the last ending 'eal.log 3 :=' -> AS WANTED
+  (3) a planted docstring read across an attribute line: [(1, '/-- a planted docstring'), (2, '   over two lines -/')] -> AS WANTED
+  (4) a planted declaration with no docstring: [] -> AS WANTED
+  (5) a planted name declared nowhere: [] -> AS WANTED
+  (6) the document`s sections 6 to 8, each one head with its range, the head`s words not printed: [('6', 218, 218), ('7', 220, 220), ('8', 222, 222)] -> AS WANTED
+  (7) the axioms line from the first run that prints it, a run not downloaded passed over: ('2', 'X.Y.cQ_four', ('propext',)) -> AS WANTED
+
+## THE RUNS READ FOR THE AXIOMS LINES
+  run 44007490629: its axioms file read, 482 lines
+
+## THE FOURTEEN NAMES, EACH AT ITS FILE AND LINE: ITS DOCSTRING AND ITS STATEMENT AS WRITTEN (quote rows), ITS AXIOMS LINE WITH ITS RUN
+
+  SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean :32 -- SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero (the module SIDEExplicitFormula.Schema.ZQ.OffZero.SP4)
+    its docstring
+      :31 "/-- **SP4 (i)**: `zqZeroConfig` has a member off `Re = 1/2`. -/"
+    its statement as written, :32-:32
+      :32 "theorem zq_offline_zero : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1 / 2 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :194 -- SIDEExplicitFormula.Schema.ZQ.EF.zq_count_instance (the module SIDEExplicitFormula.Schema.ZQ.EF.Main)
+    its docstring
+      :193 "/-- `zq_count` at the instance, binding no premise. -/"
+    its statement as written, :194-:194
+      :194 "theorem zq_count_instance : ∃ A₀ : ℝ, Wide.HCount zqZeroConfig A₀ :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.EF.zq_count_instance [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :25 -- SIDEExplicitFormula.Schema.ZQ.EF.zq_explicitFormula (the module SIDEExplicitFormula.Schema.ZQ.EF.Main)
+    its docstring
+      :24 "/-- **E16. THE FIELD.** -/"
+    its statement as written, :25-:25
+      :25 "theorem zq_explicitFormula : ZQExplicitFormula zqZeroConfig (fun n => cQ n) :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.EF.zq_explicitFormula [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :198 -- SIDEExplicitFormula.Schema.ZQ.EF.zq_explicit_formula_instance (the module SIDEExplicitFormula.Schema.ZQ.EF.Main)
+    its docstring
+      :197 "/-- `zq_explicit_formula` at the instance, binding no premise. -/"
+    its statement as written, :198-:200
+      :198 "theorem zq_explicit_formula_instance (k : ℝ → ℂ) (hk : ContDiff ℝ 2 k) (hs : HasCompactSupport k)"
+      :199 "    (he : ∀ x : ℝ, k (-x) = k x) :"
+      :200 "    zeroSideQ zqZeroConfig k = B321.poleTerm k - primeTermQ (fun n => cQ n) k + archTermQ k :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.EF.zq_explicit_formula_instance [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/EF/Main.lean :190 -- SIDEExplicitFormula.Schema.ZQ.EF.zq_premises (the module SIDEExplicitFormula.Schema.ZQ.EF.Main)
+    its docstring
+      :189 "/-- **THE FIVE FIELDS TOGETHER**: `ZQPremises` at `zqFn`, `zqZeroConfig`, `cQ`, each field its compiled theorem. -/"
+    its statement as written, :190-:190
+      :190 "theorem zq_premises : ZQPremises zqFn zqZeroConfig (fun n => cQ n) :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.EF.zq_premises [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :56 -- SIDEExplicitFormula.Schema.ZQ.rQ_one (the module SIDEExplicitFormula.Schema.ZQ.LogDeriv)
+    its docstring
+      :55 "/-- `r_Q(1) = 2`, the value the recursion divides by. -/"
+    its statement as written, :56-:56
+      :56 "theorem rQ_one : rQ 1 = 2 :="
+    its axioms line: NO AXIOMS LINE in the runs read (44007490629)
+
+  SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :99 -- SIDEExplicitFormula.Schema.ZQ.zq_coeff_not_multiplicative (the module SIDEExplicitFormula.Schema.ZQ.Mechanism.NoEuler)
+    its docstring
+      :98 "/-- **T0: THE HALVED COEFFICIENTS OF Z_Q ARE NOT MULTIPLICATIVE.** -/"
+    its statement as written, :99-:100
+      :99 "theorem zq_coeff_not_multiplicative :"
+      :100 "    ¬ ArithmeticFunction.IsMultiplicative (⟨fun n => (rQ n : ℝ) / 2, by simp [rQ_zero]⟩ : ArithmeticFunction ℝ) :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.zq_coeff_not_multiplicative [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :71 -- SIDEExplicitFormula.Schema.ZQ.cQ_eq (the module SIDEExplicitFormula.Schema.ZQ.LogDeriv)
+    its docstring: none
+    its statement as written, :71-:72
+      :71 "theorem cQ_eq {n : ℕ} (hn : 2 ≤ n) :"
+      :72 "    2 * cQ n = (rQ n : ℝ) * Real.log n - ∑ d ∈ n.properDivisors, cQ d * (rQ (n / d) : ℝ) :="
+    its axioms line: NO AXIOMS LINE in the runs read (44007490629)
+
+  SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :240 -- SIDEExplicitFormula.Schema.ZQ.cQ_four (the module SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign)
+    its docstring
+      :239 "/-- **THE FIRST CONTROL**: `c(4) = 2 log 2`. -/"
+    its statement as written, :240-:240
+      :240 "theorem cQ_four : cQ 4 = 2 * Real.log 2 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.cQ_four [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :247 -- SIDEExplicitFormula.Schema.ZQ.cQ_six (the module SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign)
+    its docstring
+      :246 "/-- **THE SECOND CONTROL**: `c(6) = 2 log 6`. -/"
+    its statement as written, :247-:247
+      :247 "theorem cQ_six : cQ 6 = 2 * Real.log 6 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.cQ_six [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :281 -- SIDEExplicitFormula.Schema.ZQ.cQ_forty_eight (the module SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign)
+    its docstring
+      :280 "/-- **T1's WITNESS: `c(48) = −8 log 2 − 2 log 3`**, the coefficient law's value at discriminant −23, 48 = 2⁴ · 3. -/"
+    its statement as written, :281-:281
+      :281 "theorem cQ_forty_eight : cQ 48 = -(8 * Real.log 2) - 2 * Real.log 3 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.cQ_forty_eight [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :291 -- SIDEExplicitFormula.Schema.ZQ.cQ_not_nonneg (the module SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign)
+    its docstring
+      :290 "/-- **T1: THE COEFFICIENTS OF −Z_Q′/Z_Q ARE NOT ALL NONNEGATIVE.** -/"
+    its statement as written, :291-:291
+      :291 "theorem cQ_not_nonneg : ¬ (∀ n : ℕ, 0 ≤ cQ n) :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.cQ_not_nonneg [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/Wide/HalfScale.lean :277 -- SIDEExplicitFormula.Schema.Wide.wide_detector (the module SIDEExplicitFormula.Schema.Wide.HalfScale)
+    its docstring
+      :274 "/-- **THE ONE DIRECTION OVER THE WIDER STRIP**: for a configuration in the strip `-1/2 < Re s < 3/2`, closed under `s ↦ 1 - conj s`"
+      :275 "with equal multiplicities and with the local count bound, a point `ρ₀` off the line gives a test function in classK at which the sum"
+      :276 "over the configuration of the multiplicity times the transform has negative real part. -/"
+    its statement as written, :277-:280
+      :277 "theorem wide_detector (Z : WideConfig) {A₀ : ℝ} (hc : Wide.HCount Z A₀) (ρ₀ : ℂ) (h₀ : ρ₀ ∈ Z.carrier)"
+      :278 "    (hoff : ρ₀.re ≠ 1 / 2) :"
+      :279 "    ∃ k : ℝ → ℂ, B321.classK k ∧"
+      :280 "      (∑' ρ : Z.carrier, (Z.mult ρ : ℂ) * Zeta23.paperFT k (Zeta23.gammaOf ρ)).re < 0 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.Wide.wide_detector [propext, Classical.choice, Quot.sound]
+
+  SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean :26 -- SIDEExplicitFormula.Schema.ZQ.zq_arith_side_re_neg (the module SIDEExplicitFormula.Schema.Wide.HalfScaleControl)
+    its docstring
+      :24 "/-- **THE ARITHMETIC SIDE AT THE CONTROL**: there is a test function `k` in classK at which the arithmetic side of the control's"
+      :25 "explicit formula, `poleTerm k - primeTermQ cQ k + archTermQ k`, has negative real part. -/"
+    its statement as written, :26-:28
+      :26 "theorem zq_arith_side_re_neg :"
+      :27 "    ∃ k : ℝ → ℂ, B321.classK k ∧"
+      :28 "      (B321.poleTerm k - primeTermQ (fun n => cQ n) k + archTermQ k).re < 0 :="
+    its axioms line, run 44007490629: SIDEExplicitFormula.Schema.ZQ.zq_arith_side_re_neg [propext, Classical.choice, Quot.sound]
+
+## THE DOCUMENT`S SECTIONS 6 TO 8, AT PLACE-papers HEAD 6c50d50d, BY PATH, LINE RANGE AND THE HEAD LINE`S DIGEST (the words not copied; a range of one line a head with no body yet; (8)`s note, written after this bank, moves the lines below it)
+  PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md :218-:218 -- section 6, its head at :218, sha256 576a12c0e72658d8
+  PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md :220-:220 -- section 7, its head at :220, sha256 a3645c6feb3119ac
+  PLACE-papers phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md :222-:222 -- section 8, its head at :222, sha256 87a971bb6890518a
+
+### ### **THE STATEMENTS BANK: AT 630cba16 ; NAMES 14, FOUND ONE DECLARATION 14 ; NO AXIOMS LINE 2 ; SECTIONS 3 OF 3 ; CONTROLS 7 OF 7.**

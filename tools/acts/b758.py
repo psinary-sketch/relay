@@ -983,7 +983,7 @@ def _vlast(t):
     moved_ = _vlast(_txt(S['moved'])).startswith('THE MOVED CITES READ: RELAY LINES 123 ; CITES 212 ; ') and _vlast(_txt(S['moved'])).endswith(' ; NONE EDITED, EACH PRINTED.')
     l3_ = dict((r_.get('item'), r_.get('outcome')) for r_ in (S['outc'] if isinstance(S['outc'], list) else []) if isinstance(r_, dict)).get('coeff') == 'LANDED'
     sm_ = re.match(r'^THE STATEMENTS BANK: AT (\S+) ; NAMES 14, FOUND ONE DECLARATION (\d+) ; NO AXIOMS LINE (\d+) ; SECTIONS 3 OF 3 ; CONTROLS (\d+) OF (\d+)\.$', _vlast(_txt(S['stmts'])))
-    sweep_ = bool(sm_) and sm_.group(1) in (('v0.40',) if l3_ else ('596d1c9e', K.COEFF_BRANCH[1][:8])) and sm_.group(4) == sm_.group(5)
+    sweep_ = bool(sm_) and sm_.group(1) in ((K.EF_MAIN[:8], K.COEFF_LAND_BRANCH[1][:8]) if l3_ else ('596d1c9e', K.COEFF_BRANCH[1][:8])) and sm_.group(4) == sm_.group(5)   # ### the foot names the tag's peel by its sha (630cba16 at v0.40, 04:43:32Z)
     rep_ = [True]
     rows_ = S['drows'] or []
     ds_ = [r_ for r_ in rows_ if r_.get('kind') == 'dispatch']
