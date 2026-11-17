@@ -1,0 +1,70 @@
+b759 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b758_outcomes.py -> tools/b759_outcomes.py (2026-11-17T19:47:23Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b758 -> b759, b757 -> b758, R368 -> R369, R367 -> R368); 290 lines, 21 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b758_tool_repairs.txt AND data/b758_repairdiff_outcomes.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b758; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b758_outcomes.py
+  +++ tools/b759_outcomes.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b758_outcomes.py -- (R368)(4) AND (5): EACH RESULT'S SENTENCE, THE RULING'S TEXT WITH ITS FIELDS FILLED FROM THE ACT'S BANKS AND
+  -NOTHING ELSE. Written whole by the Write tool at b758's Component 5, in the form of tools/b757_outcomes.py (sentences cut from the ferry bank at
+  +"""tools/b759_outcomes.py -- (R369)(4) AND (5): EACH RESULT'S SENTENCE, THE RULING'S TEXT WITH ITS FIELDS FILLED FROM THE ACT'S BANKS AND
+  +NOTHING ELSE. Written whole by the Write tool at b759's Component 5, in the form of tools/b758_outcomes.py (sentences cut from the ferry bank at
+  @@ -5,1 +5,1 @@
+  -data/b758_outcomes.txt and data/b758_outcomes.json, written whole at each `bank`.
+  +data/b759_outcomes.txt and data/b759_outcomes.json, written whole at each `bank`.
+  @@ -7,1 +7,1 @@
+  -WHAT EACH RUN MUST SHOW, as (4) gives it (data/b758_ferry.txt :15) and (5) takes it ("as (4)", :17): the exit file 0; the print running with 0
+  +WHAT EACH RUN MUST SHOW, as (4) gives it (data/b759_ferry.txt :15) and (5) takes it ("as (4)", :17): the exit file 0; the print running with 0
+  @@ -9,1 +9,1 @@
+  -lines equal to (ii)'s (data/b758_presend.txt, by name: :358 and :359, each carrying the Greek capital lambda); no line naming sorryAx. (5) adds:
+  +lines equal to (ii)'s (data/b759_presend.txt, by name: :358 and :359, each carrying the Greek capital lambda); no line naming sorryAx. (5) adds:
+  @@ -11,1 +11,1 @@
+  -standard three. Read from the controls tool's read row (data/b758_dispatch_rows.json) and, for (5)'s five, the run's axioms file.
+  +standard three. Read from the controls tool's read row (data/b759_dispatch_rows.json) and, for (5)'s five, the run's axioms file.
+  @@ -14,1 +14,1 @@
+  -(data/b758_SIDE-explicit-formula_<branch>_push_out.txt) reads the tag made at main's read-back and its peel read back equal at the remote --
+  +(data/b759_SIDE-explicit-formula_<branch>_push_out.txt) reads the tag made at main's read-back and its peel read back equal at the remote --
+  @@ -36,2 +36,2 @@
+  -import b757_join as J            # noqa: E402  (the module namer, as committed at b757)
+  -import b758_controls as C        # noqa: E402  (the read rows and the axioms reader)
+  +import b758_join as J            # noqa: E402  (the module namer, as committed at b758)
+  +import b759_controls as C        # noqa: E402  (the read rows and the axioms reader)
+  @@ -41,6 +41,6 @@
+  -ACT = 'b758'
+  -FERRY = os.path.join(D, 'b758_ferry.txt')
+  -PRESEND = os.path.join(D, 'b758_presend.txt')
+  -ROWS = os.path.join(D, 'b758_dispatch_rows.json')
+  -BANK = os.path.join(D, 'b758_outcomes.txt')
+  -BANKJ = os.path.join(D, 'b758_outcomes.json')
+  +ACT = 'b759'
+  +FERRY = os.path.join(D, 'b759_ferry.txt')
+  +PRESEND = os.path.join(D, 'b759_presend.txt')
+  +ROWS = os.path.join(D, 'b759_dispatch_rows.json')
+  +BANK = os.path.join(D, 'b759_outcomes.txt')
+  +BANKJ = os.path.join(D, 'b759_outcomes.json')
+  @@ -51,1 +51,1 @@
+  -ITEMS = (('join', 4, 'join', 'push-b758-land', 'v0.39', 'THE SENTENCE IF IT COMPILES:', 'THE SENTENCE IF IT DOES NOT:',
+  +ITEMS = (('join', 4, 'join', 'push-b759-land', 'v0.39', 'THE SENTENCE IF IT COMPILES:', 'THE SENTENCE IF IT DOES NOT:',
+  @@ -53,1 +53,1 @@
+  -         ('coeff', 5, 'coeff', 'push-b758-coeff', 'v0.40', 'THE SENTENCE IF IT COMPILES, one for the three:', 'THE SENTENCE IF IT DOES NOT:',
+  +         ('coeff', 5, 'coeff', 'push-b759-coeff', 'v0.40', 'THE SENTENCE IF IT COMPILES, one for the three:', 'THE SENTENCE IF IT DOES NOT:',
+  @@ -167,1 +167,1 @@
+  -    out.append('  the dispatch: %d of item %s, run %s at %s (data/b758_dispatch_rows.json)' % (d['n'], ditem, d['run'], d['sha'][:8]))
+  +    out.append('  the dispatch: %d of item %s, run %s at %s (data/b759_dispatch_rows.json)' % (d['n'], ditem, d['run'], d['sha'][:8]))
+  @@ -178,1 +178,1 @@
+  -    out.append('  (ii)`s refused, by name (data/b758_presend.txt): %s' % ', '.join(refused))
+  +    out.append('  (ii)`s refused, by name (data/b759_presend.txt): %s' % ', '.join(refused))
+  @@ -264,1 +264,1 @@
+  -    out = ['%s -- (R368)(4) AND (5): EACH RESULT`S SENTENCE, THE RULING`S TEXT WITH ITS FIELDS FILLED FROM THE ACT`S BANKS (%s, tools/b758_outcomes.py bank)' % (ACT, _now()),
+  +    out = ['%s -- (R369)(4) AND (5): EACH RESULT`S SENTENCE, THE RULING`S TEXT WITH ITS FIELDS FILLED FROM THE ACT`S BANKS (%s, tools/b759_outcomes.py bank)' % (ACT, _now()),
+  @@ -277,1 +277,1 @@
+  -    print('written data/b758_outcomes.txt and data/b758_outcomes.json ; figbank: %s' % r['why'])
+  +    print('written data/b759_outcomes.txt and data/b759_outcomes.json ; figbank: %s' % r['why'])
+
+### ### **CARRIED tools/b759_outcomes.py ; LINES 290 ; CHANGED BY THE SUBSTITUTION 21 ; REPAIR SPANS AT b758 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
