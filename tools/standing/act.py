@@ -79,7 +79,7 @@ def landed_entry(act, fj, rev='HEAD'):
         raise ValueError('landed_entry: %s: no FINDINGS.md at %s' % (act, rev))
     lines = b.decode('utf-8').split(NL)
     i = int(fj['line']) - 1
-    if not 0 <= i < len(lines) or lines[i].rstrip() != (fj.get('head') or fj.get('title') or '').rstrip():
+    if not 0 <= i < len(lines) or lines[i].rstrip() != conv(fj.get('head') or fj.get('title') or '').rstrip():   # ### v1.35.6, (R368)(1): conv below
         raise ValueError('landed_entry: %s: FINDINGS.md :%d does not read the bank`s head' % (act, i + 1))
     ap = fj.get('append') or {}
     if ap.get('added'):
@@ -87,6 +87,20 @@ def landed_entry(act, fj, rev='HEAD'):
         return b[at:at + int(ap['added']) - (1 if ap.get('prefix') else 0)].decode('utf-8').strip() + NL
     e = next((k for k in range(i + 1, len(lines)) if lines[k].startswith('## ')), len(lines))
     return NL.join(lines[i:e]).strip() + NL
+
+
+# ### v1.35.6, (R368)(1), b757's halt at [22] (21:55:35Z, the entry's title composed with two backticks): the landing wrote the title's
+# ### backticks as ’ and :82 compared the landed line with the bank's head raw, so b757's own entry did not read. :82 now passes the head
+# ### through THE LANDING'S ONE CONVERSION, copied here from tools/b652_record.py :31 and :34-:37 (CONV and conv) and not imported: this
+# ### module imports no module whose name carries an act number (:6-:8). tools/standing/v1356.py reads the copy against b652's on every line
+# ### of FINDINGS.md.
+CONV = re.compile(r'(?<=[A-Za-z0-9)])`(?=[a-z])')
+
+
+def conv(t):
+    """the landing's one conversion ((R262)(2)), copied from tools/b652_record.py: a backtick standing as an apostrophe -- after a letter, a
+    digit or `)`, before a lower-case letter -- written ’."""
+    return CONV.sub('’', t)
 
 
 def entry_ends_with(text, line, conv):
