@@ -515,7 +515,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'ab'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) and (b), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abc'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) to (c), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b758_misses.txt', 'data/b758_corrigendum.txt', 'data/b758_amendments.json', 'data/b758_standing_v1356.txt', 'data/b758_standing_v1357.txt',

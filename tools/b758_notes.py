@@ -527,14 +527,19 @@ def controls(S=None):
     except SystemExit:
         refused = True
     out.append(('the REGISTRY note refused on a file without the four rows (planted)', refused, True))
+    held_ = load().get('items') or {}
     for k in ORDER:
-        _rc, blob = gitb(PP, 'show', 'HEAD:%s' % ITEMS[k]['rel'])
+        # ### b758 defect (c): an item written and confirmed composes on the state its write met, its own commit's parent, and not on HEAD,
+        # ### which carries its note (the insert of (a) refused at HEAD once (a) stood at :19); an item not yet written on HEAD as before
+        cf_ = re.match(r'^PLACE-papers ([0-9a-f]{8}) ', (held_.get(k) or {}).get('confirm') or '')
+        rev_ = (cf_.group(1) + '^') if cf_ else 'HEAD'
+        _rc, blob = gitb(PP, 'show', '%s:%s' % (rev_, ITEMS[k]['rel']))
         try:
             compose(k, blob, date, sp, F, TG)
             ok_ = True
         except SystemExit as e:
             ok_ = str(e)[:80]
-        out.append(('(%s) composed on PLACE-papers HEAD`s %s with the planted pair' % (k, ITEMS[k]['rel']), ok_, True))
+        out.append(('(%s) composed on PLACE-papers %s`s %s with the planted pair' % (k, rev_, ITEMS[k]['rel']), ok_, True))
     CT = citation_tool()
     th, nw = ['a', 'b', '', 'q', 'r', 'w'], ['a', 'n', 'm', 'b', 'x', 'y', 'w', 'k', 'w']
     cc = [(c, cite_class(CT, th, nw, c)[2:]) for c in (1, 2, 3, 5, 6, 40)]
