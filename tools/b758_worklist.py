@@ -358,7 +358,13 @@ C1_RELAY = 'f20e2be2'        # ### b758: the c1 route committed before it wrote 
 C1_CORR = '2f3287de'         # ### b758: the corrigendum banks, data/b758_corrigendum.txt, .json, the corrigenda bank's row (78) (01:27:18Z, events (33))
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
-KERNEL_DELETES = ()          # ### (R368)(5): the merged kernel branches deleted at the remote after v0.40, (branch, its tip), set as each is deleted
+KERNEL_DELETES = ()          # ### (R368)(5): the merged kernel branches deleted at the remote after v0.40, (branch, its tip), set as each is deleted: none, the route lacking
+# ### (R368)(5) orders the four deleted "at the remote by the tool's route, each by name"; the route stands nowhere: tools/standing/commit.py's
+# ### kernel delete (:755-:765) is `git branch -d/-D`, local alone; tools/push_gated.sh "deletes nothing" (:22); `pushto` (v1.36.1) pushes a
+# ### commit to a branch name; the hook refuses a plain git write (PLAINGIT). Read at 04:3xZ with the four at the remote by one ls-remote
+# ### (push-b757-coeff 596d1c9e, push-b757-join 6568e9c7, push-b758-coeff 630cba16, push-b758-land d1afb4fc, each merged into main 630cba16);
+# ### no delete substituted, local or plain; the four carried with the route printed (events (52))
+KERNEL_DELETES_HALT = ('the delete of a kernel`s branch at its remote', 'push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff')
 CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in the entry's order paragraph, set with CHAIN at Component 5
 C1_RULES = None              # ### no rules bank this act: (R367) orders none; data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
 B756_RULES = ('data/b757_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it

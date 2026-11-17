@@ -465,10 +465,10 @@ REG = os.path.join(D, 'b758_registration_%s.txt' % __import__('b758_worklist').D
     ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() not in ('v0.1.0', 'v0.2.0')]   # ### b758: v0.38 b745`s, v0.2.0 b757`s; the tags past them
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 100638d8d84e 1⟫
-    ('kernel branches deleted', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, each by name by the tool`s route after v0.40 was read back; port-b707, the pin, challenge and rebuild branches and the four held branches kept.'),
+    ('kernel branches deleted', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, ordered deleted at the remote by the tool`s route after v0.40 was read back; ' + ('each so deleted' if K.KERNEL_DELETES else 'none deleted, the route lacking (the one-call tool`s delete local, the gated push deleting nothing), the four carried (events (52))') + '; port-b707, the pin, challenge and rebuild branches and the four held branches kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 51acd0ac8ef1 1⟫
-    ('branches deleted beyond the step zero`s list', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### the merged kernel branches, deleted as (R368)(5) orders; port-b707 kept.'),
+    ('branches deleted beyond the step zero`s list', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### the merged kernel branches, ' + ('deleted as (R368)(5) orders' if K.KERNEL_DELETES else 'none: (R368)(5)`s deletes at the remote carried, the route lacking (events (52))') + '; port-b707 kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK b6204f4e0fa8 1⟫
     ('census editions written on main', 0, 0, 'editions', '### none: no new edition; the census v0.8.3 takes (R368)(8)`s one note at its end (relay data/b758_notes.json).'),
@@ -915,8 +915,9 @@ def _iso_epoch(x):
     read -- SIDE-explicit-formula's main locally and at its tracking ref at (5)'s merge 630cba16 where (5) landed, else at (4)'s rename
     d1afb4fc; v0.39 peeling to d1afb4fc, and v0.40 peeling to main where (5) landed, no other tag past v0.38, v0.38's object 21c6edaf and peel
     14ca5725; its four held branches at their entering tips locally and at origin, zq-b730 at 1e658870; where (5) landed the four merged
-    branches (push-b757-join, push-b757-coeff, push-b758-land, push-b758-coeff) gone from the tracking refs, each in the worklist's
-    KERNEL_DELETES, else push-b757-coeff at 596d1c9e and push-b758-coeff at 630cba16 at origin; each kernel commit of the worklist on its
+    branches (push-b757-join, push-b757-coeff, push-b758-land, push-b758-coeff) at origin at their tips with the worklist's KERNEL_DELETES
+    empty and its KERNEL_DELETES_HALT naming the route the act lacks (the delete at the remote: the one-call tool's delete is a local
+    `branch -d`, the gated push deletes nothing; events (52)), else push-b757-coeff at 596d1c9e and push-b758-coeff at 630cba16 at origin; each kernel commit of the worklist on its
     branch; SIDE-dirichlet-mod-24's main at e5ebdd15 at its tracking ref (its local main at 597b0869 or fast-forwarded to e5ebdd15 by
     (6)(i)'s route), v0.2.0's object e5c84316 peeling to e5ebdd15, v0.1.0 at 597b0869 and no other tag; no sitting kernel."""
     ks_ = S['kst'] or {}
@@ -933,8 +934,8 @@ def _iso_epoch(x):
         and h_(ef_, 'refs/tags/' + K.ZQ_TAG[0]) == K.ZQ_TAG[1] and p_(ef_, 'refs/tags/' + K.ZQ_TAG[0]) == K.ZQ_TAG[2] \
         and tg_ == ['refs/tags/v0.39'] + (['refs/tags/v0.40'] if l3_ else []) and p_(ef_, 'refs/tags/v0.39') == K.LAND_BRANCH[1] \
         and (not l3_ or p_(ef_, 'refs/tags/v0.40') == mn_) \
-        and ((len(K.KERNEL_DELETES) == 4 and sorted(b for b, _t in K.KERNEL_DELETES) == sorted(b for b, _t in (K.JOIN_BRANCH, K.COEFF_BRANCH, K.LAND_BRANCH, K.COEFF_LAND_BRANCH))
-              and not [b for b, _t in K.KERNEL_DELETES if ('refs/remotes/origin/' + b) in ef_]) if l3_ else
+        and ((K.KERNEL_DELETES == () and bool(K.KERNEL_DELETES_HALT)
+              and all(h_(ef_, 'refs/remotes/origin/' + b).startswith(t[:8]) for b, t in (K.JOIN_BRANCH, K.COEFF_BRANCH, K.LAND_BRANCH, K.COEFF_LAND_BRANCH))) if l3_ else
              all(h_(ef_, 'refs/remotes/origin/' + b).startswith(t[:8]) for b, t in (K.COEFF_BRANCH, K.COEFF_LAND_BRANCH)))
     kc_ = all(((('refs/heads/%s' % b) in ct_.get(k, [])) if b and b != 'main' else (('refs/remotes/origin/main' in ct_.get(k, [])) if b == 'main' else ct_.get(k) == []))
               for k, _kn, _c, b in K.KERNEL_COMMITS) and len(K.KERNEL_COMMITS) == 2
@@ -1074,7 +1075,7 @@ def research_reproduces_ok(S):
      lambda S: coeffs_law_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update({next(iter(d), 'none'): False}))),   # ### b758: the first pair of the chain's ancestry set False (b757's planted key stood in no state of b758's)
     ('G-DERIVATION-GRADED', '(R368)(2), (4)-(8), N2, N3: each of the act`s tools first added by a commit of its own, every one of its commits without its bank and the bank`s without it, the bank at HEAD its blob there; no tool committed with its bank; the outcomes bank`s foot the outcomes json`s two words; the pre-send`s, the landing`s, the merge`s, the moved cites` and the tool controls` feet; the ceiling at HEAD its blob at its last reading`s commit, two readings or more, nothing carried',
      lambda S: derivation_graded_ok(S), lambda S: put(S, 'ceiling', ((S['ceiling'] or (None, None))[0], 'planted'))),
-    ('G-OFFSET-POST-HOC', 'N5, (R368)(4)-(6), (10): the two kernels as the landing left them -- SIDE-explicit-formula`s main locally and at origin at the merge 630cba16 where (5) landed, else at the rename d1afb4fc; v0.39 peeling to d1afb4fc and v0.40 to main where (5) landed, no other tag past v0.38, v0.38 peeling to 14ca5725; its four held branches at their tips; the four merged branches gone from origin where (5) landed, each in KERNEL_DELETES, else push-b757-coeff and push-b758-coeff at origin; each kernel commit on its branch; SIDE-dirichlet-mod-24`s main at e5ebdd15 at origin, v0.2.0 peeling to it, v0.1.0 at 597b0869 and no other tag',
+    ('G-OFFSET-POST-HOC', 'N5, (R368)(4)-(6), (10): the two kernels as the landing left them -- SIDE-explicit-formula`s main locally and at origin at the merge 630cba16 where (5) landed, else at the rename d1afb4fc; v0.39 peeling to d1afb4fc and v0.40 to main where (5) landed, no other tag past v0.38, v0.38 peeling to 14ca5725; its four held branches at their tips; the four merged branches at origin at their tips where (5) landed, KERNEL_DELETES empty and the route the act lacks named (events (52)), else push-b757-coeff and push-b758-coeff at origin; each kernel commit on its branch; SIDE-dirichlet-mod-24`s main at e5ebdd15 at origin, v0.2.0 peeling to it, v0.1.0 at 597b0869 and no other tag',
      lambda S: offset_post_hoc_ok(S), lambda S: _mut(S, 'kst', lambda d: d['ef'].update({'refs/tags/v0.39': ('0' * 40, K.EF_BASE)}))),   # ### b758: v0.39's peel planted at the act's base 8fbab45d
     ('G-SURGERY-CARRIED', 'standing clauses v9 binding the act whole as b723 landed it: the text its blob at d9739558 and at the act`s base, VERSION 9; v8 at HEAD its blob at the base; no v10; v9`s commit an ancestor of v1.34.0`s',
      lambda S: surgery_carried_ok(S), lambda S: put(S, 'v9', (S['v9'] or '').replace('  (83) ', '  (84) '))),
@@ -2287,8 +2288,12 @@ def _runs3_line():
                     'wide_detector and zq_arith_side_re_neg, each within the standard three; main moved to the merged tip and %s cut at main`s read-back, %s, '
                     'its peel read back at the remote equal to main (relay data/b758_outcomes.txt, data/b758_SIDE-explicit-formula_push-b758-coeff_push_out.txt); '
                     'the local main fast-forwarded to it. The holds "no kernel`s main touched" and "no branch merged" lifted for SIDE-explicit-formula in this act '
-                    'alone; the merged kernel branches deleted at the remote after %s was read back, each by name through the one-call tool: %s; the four held '
-                    'branches of b725 to b730 kept.' % (c5_['run'], c5_['tag'], c5_['peel'], c5_['tag'], ', '.join('%s (was %s)' % (b_, t_[:8]) for b_, t_ in K.KERNEL_DELETES) or 'none'))
+                    'alone; %s; the four held branches of b725 to b730 kept.' % (c5_['run'], c5_['tag'], c5_['peel'], (
+                        'the merged kernel branches deleted at the remote after %s was read back, each by name through the one-call tool: %s' % (
+                            c5_['tag'], ', '.join('%s (was %s)' % (b_, t_[:8]) for b_, t_ in K.KERNEL_DELETES))) if K.KERNEL_DELETES else (
+                        'the merged kernel branches %s stand at the remote: (5) orders each deleted there by the tool`s route, and no route of the act deletes '
+                        'a kernel`s branch at its remote -- the one-call tool`s delete is local, the gated push deletes nothing -- so none was deleted, by '
+                        'that route or another, and the four are carried (relay data/b758_events.txt (52))' % ', '.join(K.KERNEL_DELETES_HALT[1:]))))
                     if c5_['outcome'] == 'LANDED' else
                     'One dispatch at the merged tip, run %s, broke: T0, T1 and the wide direction stand compiled on push-b757-coeff at 596d1c9e, and main stands at %s (relay data/b758_outcomes.txt).' % (
                         c5_['run'], j5_['tag']))
@@ -2529,7 +2534,7 @@ def _trail_text_b757():
     ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b758*.'),
     ('rebuild branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
     ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved, push-b758-land and push-b758-coeff made beside them; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
-    ('kernel branches deleted at the remote after v0.40', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, each by name through the one-call tool, one per message, after v0.40 was read back; none where (5) did not land; the four held branches of b725 to b730 kept.'),
+    ('kernel branches deleted at the remote after v0.40', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, ordered deleted at the remote by the tool`s route after v0.40 was read back; ' + ('each so deleted, one per message' if K.KERNEL_DELETES else 'none deleted: no route of the act deletes a kernel`s branch at its remote (the one-call tool`s delete local, the gated push deleting nothing), the four carried (events (52))') + '; the four held branches of b725 to b730 kept.'),
     ('rebuild-b721 branches kept on the wave 1 kernels', 'RBBRANCHES', 'RBBRANCHES', 'branches', '### as b758 found them, the six; MEASURED off the six kernels` refs/heads.'),
     ('rebuild-b721 branches standing at their origins', 'RBPUSHED', 'RBPUSHED', 'branches', '### MEASURED off each kernel`s refs/remotes/origin/rebuild-b721.'),
     ('commits on a rebuild branch beyond its pin', 'RBBEYOND', 'RBBEYOND', 'commits', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
