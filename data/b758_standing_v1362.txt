@@ -1,0 +1,56 @@
+b758 -- THE CONTROLS OF tools/standing/ v1.36.2, (R368)(6): G-TRAIL-CARRIES-SEAL READS THE TRAIL BANK; THE KERNELS FACE NAMES SIDE-dirichlet-mod-24 (2026-11-17T02:12:16Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; PLACE-papers lines read and not printed; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY CASE ((R345)(2)(i), carried):
+  checks render            OK    2822 lines
+  citation render          OK    574 lines
+  closing render           OK    654 lines
+  record render            OK    5060 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    502 lines
+  report render            OK    186 lines
+  tools/b758_worklist.py   OK    628 lines
+### THE COMPILE CONTROL : b758 COMPILES WHOLE, 8 OF 8
+
+### each case before (the templates and tools at 9bc8cfeb) and after (the working files)
+
+  free 4541 MB at 2026-11-17T02:12:16Z, the hold 2560 MET
+### (b756): b756`S TRAIL, ITS BANK CARRYING NO ROWS
+  (b756) b756: sealed 171 ; the bank`s rows none ; the trail read from its bank`s line, the head there True
+      BEFORE: the old reading True -> AS WANTED
+      AFTER : the new reading True -> AS WANTED
+
+  free 4534 MB at 2026-11-17T02:12:17Z, the hold 2560 MET
+### (b757): b757`S TRAIL, ITS BANK CARRYING THE ROWS
+  (b757) b757: sealed 173 ; the bank`s rows 173, agreeing 173 ; the head at the bank`s line True
+      BEFORE: the old reading False (b757 events (29): failing, undeclared) -> AS WANTED
+      AFTER : the new reading True -> AS WANTED
+
+  free 4533 MB at 2026-11-17T02:12:17Z, the hold 2560 MET
+### (plant): b757`S BANK PLANTED FOUR WAYS
+  (plant) acts/b757.py (written b757.py) differ ; removed ; twice ; no sealed tool -- then the sealed list naming it twice ; the writer`s pattern against BASE`s on a planted line
+      BEFORE: n/a (the reading absent at BASE) -> AS WANTED
+      AFTER : [False, False, False, False] ; True ; True -> AS WANTED
+
+  free 4532 MB at 2026-11-17T02:12:17Z, the hold 2560 MET
+### (checks): checks.tpl RENDERED FOR EVERY ACT AT BASE`S TEMPLATE AND THE WORKING ONE
+  (checks) checks.tpl: lines 2455 at BASE, 2455 now ; acts 38
+      BEFORE: the line counts equal True -> AS WANTED
+      AFTER : differing in the arm`s two lines, its reading and its positive control, 30 (b758 among them True) ; raising alike at both 8 ['b723', 'b727', 'b728', 'b729', 'b730', 'b731', 'b732', 'b733'] ; covered by the act 0 [] ; others NONE -> AS WANTED
+
+  free 4560 MB at 2026-11-17T02:12:28Z, the hold 2560 MET
+### (face): record.tpl RENDERED LIKEWISE, AND THE FACE`S READER ON SIDE-dirichlet-mod-24
+  (face) record.tpl: lines 4031 at BASE, 4031 now ; acts 38
+      BEFORE: the line counts equal True -> AS WANTED
+      AFTER : differing in the face`s one line 38 (b758 among them True) ; raising alike 0 ; covered 0 [] ; others NONE ; the reader on SIDE-dirichlet-mod-24: main e5ebdd1, tags [('v0.1.0', '597b086'), ('v0.2.0', 'e5ebdd1')], tracked changes '' -> AS WANTED
+
+  free 4587 MB at 2026-11-17T02:12:37Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE: v1.36.1 -> AS WANTED
+      AFTER : v1.36.2 -> AS WANTED
+
+### per change: (b756) 1 of 1 ; (b757) 1 of 1 ; (plant) 1 of 1 ; (checks) 1 of 1 ; (face) 1 of 1 ; (version) 1 of 1
+### ### **v1.36.2: CONTROLS (b756), (b757), (plant), (checks), (face), (version) ; CASES 6 ; AS WANTED 6 ; ALL AS WANTED.**

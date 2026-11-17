@@ -631,7 +631,7 @@ _kerns = R._kerns                  # ### b703's list (b698's and SIDE-substrate-
 
 
 def kernels(*a):
-    ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join']))
+    ks = list(dict.fromkeys(_kerns() + ['SIDE-faces-join', 'SIDE-dirichlet-mod-24']))   # ### v1.36.2, (R368)(6): the kernels face names SIDE-dirichlet-mod-24
     import b633_record as R3
     put_json('%s_kernels_face.json' % ACT, dict(at=utc(), kernels=R3.kern_state(ks)))
 ⟪SLOT 1⟫

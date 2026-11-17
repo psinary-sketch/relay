@@ -32,6 +32,7 @@ FROM_ACT = 757
 RULE = 'relay data/b754_rules.txt (11)'
 DEFECTS_LINE = re.compile(r'^\*\*Defects\*\* \(relay data/(b\d+)_defects\.txt\): (.*)\.$')
 SEALED_LINE = re.compile(r'^\*\*The sealed tools at the record:\*\* (.*)\.$')
+SEALED_ITEM = re.compile(r'([\w.-]+) (agree|differ|absent)\b')   # ### v1.36.2: the one pattern of trail()'s rows and seal_carried()'s names
 ROLL = '**The open orders:**'
 ORDER = re.compile(r'`(W-ORD-[A-Z0-9-]+)`')
 TAG = re.compile(r"^\(([a-z]'*|\d+)\) (THE [A-Z’' ]+?) \[(CLAIM|CLOSE) ; ([^\]]*)\]:? ?(.*)$")
@@ -97,7 +98,7 @@ def trail(act, text, rows):
             LAST['defects'] = list(rows or [])
             l = '**Defects** (relay data/%s_defects.txt): %s.' % (act, defects_body(act, rows))
         elif s:
-            items = re.findall(r'([\w.-]+) (agree|differ|absent)\b', s.group(1))
+            items = SEALED_ITEM.findall(s.group(1))
             LAST['sealed'] = [dict(tool=t_, at_record=v) for t_, v in items]
             l = '**The sealed tools at the record:** %d, %d of them agreeing with the hash recorded at the seal (relay data/%s_seal_hashes.json, each tool by name and sha256).' % (
                 len(items), sum(1 for _t, v in items if v == 'agree'), act)
@@ -115,6 +116,32 @@ def rows(act):
     if not in_force(act) or not LAST:
         return {}
     return dict(open_orders=list(LAST.get('open_orders') or []), sealed=list(LAST.get('sealed') or []), ledgers=VERSION)
+
+
+def trail_name(tool):
+    """the name trail() writes a sealed tool under: what SEALED_ITEM captures from "<tool> agree" (a path's last part: standing/act.py is
+    act.py, acts/b757.py is b757.py). Pure."""
+    m = SEALED_ITEM.findall('%s agree' % tool)
+    return m[-1][0] if m else tool
+
+
+def seal_carried(sealed, tail, tj):
+    """v1.36.2, (R368)(6), b757 events (29): G-TRAIL-CARRIES-SEAL's one reading. Where the trail bank carries the sealed tools by name (its
+    `sealed` rows, written by trail() and rows() since v1.35.0, from b757): every tool the act seals among them under the name trail() writes
+    (trail_name), as many rows of that name as tools, each `agree`. Where it carries none (a trail before v1.35.0, b756's and earlier):
+    "<tool> agree" in the trail record's text for each, as the arm read before. `sealed` the act's sealed tools (the worklist's SEALED),
+    `tail` the trail record's text, `tj` the trail bank. Pure."""
+    if not sealed:
+        return False
+    rows = (tj or {}).get('sealed')
+    if rows is None:
+        return all(('%s agree' % t) in (tail or '') for t in sealed)
+    by, want = {}, {}
+    for r in rows:
+        by.setdefault(r.get('tool'), []).append(r.get('at_record'))
+    for t in dict.fromkeys(sealed):   # ### each distinct tool once (a worklist's SEALED may name a tool twice)
+        want[trail_name(t)] = want.get(trail_name(t), 0) + 1
+    return all(by.get(n) == ['agree'] * k for n, k in want.items())
 
 
 # ================================================================================ THE CORRIGENDUM'S ENTRY
