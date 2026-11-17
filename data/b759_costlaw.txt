@@ -1,0 +1,30 @@
+b759 -- (R369)(7): F1 AND F2, THE COST LAW`S TWO FIGURES, FROM THE BANKS (2026-11-17T20:12:22Z, tools/b759_costlaw.py)
+
+## THE CONTROLS
+  (1) F1 on planted values: sigma 1/2 gives the square root of 2 pi alone: 2.51 -> AS WANTED
+  (2) F2 on planted heights a difference of 2 ln 10 / pi apart: 10 exactly: 10.0 -> AS WANTED
+  (3) two figures: 1.234e9, 9.96e9 and 1.06e-3 written: ('1.2 × 10^9', '1.0 × 10^10', '1.1 × 10^-3') -> AS WANTED
+  (4) the agreement within one part in a hundred: 8.88 against 8.88 x 1.009 taken, against 8.88 x 1.011 refused: (True, False) -> AS WANTED
+  (5) the inputs cut from planted words; words missing one value refused: ((('0.5', '2.0'), ('3.0', '1.0')), None) -> AS WANTED
+  controls 5 of 5 as wanted
+
+## THE INPUTS, EACH READ FROM A BANK
+  from (7)`s words (data/b759_ferry.txt :25): F1 at sigma = 0.95326 and gamma = 16.290216 ; F2 at gamma` = 29.5517610986 and gamma = 16.2902157204
+  data/b744_zetabox_plan.txt :135 (the ruling cites :134, which carries zeta`s figure; events (11)): e^(pi gamma/2) = 1.2972e+11
+  data/b740_offlinezero_notes.txt :5: 1/|Gamma(cA)| = 1.4608e+10
+  phase1.5/method/INSTRUMENTS.md :556 (sha256 3a0518079c2d21be, cited by digest, not quoted): carries gamma` 29.5517610986 and gamma 16.2902157204: YES
+
+## F1: sqrt(2 pi) gamma^(sigma - 1/2)
+  F1 = 8.879896, to three figures 8.88 ; the quotient of the two banked figures 1.2972e+11 / 1.4608e+10 = 8.880066 ; their difference 0.0019% of the quotient
+  within one part in a hundred: YES -> the sentence STANDS AS THE BLOCK PRINTS IT
+  the navigator`s own arithmetic: 8.88 (does not govern)
+
+## F2: e^(pi (gamma` - gamma)/2)
+  F2 = 1.113960e+09, written to two figures 1.1 × 10^9 ; the navigator`s own arithmetic: 1.1 × 10^9 (does not govern)
+
+FIELD F1 = 8.88
+FIELD F1_QUOTIENT = 8.88
+FIELD F1_SENTENCE = STANDS
+FIELD F2 = 1.1 × 10^9
+
+### ### **F1 8.88 (THE QUOTIENT 8.88, AGREEING WITHIN ONE PART IN A HUNDRED, THE SENTENCE STANDS) ; F2 1.1 × 10^9 ; INSTRUMENTS :556 CARRYING BOTH HEIGHTS ; CONTROLS 5 OF 5.**

@@ -1,0 +1,116 @@
+b759 -- (R369)(6): THE TABLE OF APPENDIX A REPRODUCED, WITH A PLANTED ERROR (2026-11-17T20:12:15Z, tools/b759_c3table.py)
+
+### a reproduction and no registered prediction: the navigator computed the table in its workspace before (R369). Route one the
+### group-ring model (tools/b718_abstract.py, INSTRUMENTS I-105); route two the form`s own count at -23 by the recursion of
+### tools/b750_cq_sign.py (INSTRUMENTS :766); route three the proof`s general steps over a range. Both tools imported unchanged.
+
+## THE PLANT, PRINTED BEFORE ANY USE OF THE RESULT: the wanted table with beta at (3,2) read -2
+  route one reports: beta at (3,2) got -4, the plant -2
+  route two reports: beta at (3,2) got -4, the plant -2
+  ### THE PLANT FAILS AS WANTED: each route reports it unequal, the cell named, beta at (3,2), and no other cell
+
+## ROUTE ONE, THE GROUP-RING MODEL: C3, each prime split with the class of order 3 (alpha by a_of, alpha*alpha as pair_sum + 2 alpha, beta by b_lattice)
+  pattern         alpha  alpha*alpha     beta
+  (1,1)               2            4        2
+  (2,1)               2            4        2
+  (3,1)               2            8        0
+  (2,2)               3           12        0
+  (1,1,1)             2            4        2
+  (4,1)               4           20       -2
+  (3,2)               4           24       -4
+  (2,1,1)             4           20       -2
+  (1,1,1,1)           6           36       -6
+  against the wanted table: EACH CELL AGREES, 27 of 27
+
+## ROUTE TWO, THE FORM`S OWN COUNT AT -23 (x^2 + xy + 6y^2; the recursion of tools/b750_cq_sign.py, c(n) exact as a sum of q_p log p)
+  the primes below 30 that split (the Kronecker symbol (-23/p) = 1) and that the form does not represent: [2, 3, 13, 29] ; wanted [2, 3, 13, 29] -> AS WANTED
+  pattern           n    alpha  alpha*alpha     beta
+  (1,1)             6        2            4        2
+  (2,1)            12        2            4        2
+  (3,1)            24        2            8        0
+  (2,2)            36        3           12        0
+  (1,1,1)          78        2            4        2
+  (4,1)            48        4           20       -2
+  (3,2)            72        4           24       -4
+  (2,1,1)         156        4           20       -2
+  (1,1,1,1)      2262        6           36       -6
+  the instances against the ruling`s 6, 12, 24, 36, 78, 48, 72, 156, 2262: EQUAL
+  against the wanted table: EACH CELL AGREES, 27 of 27
+
+## ROUTE THREE (a): ONE PRIME, beta(e) FOR e = 1..24 AGAINST THE CLOSED FORM OF STEP 4 (2/e where e is even, plus 6/e where e is an odd multiple of 3)
+  1: 0 ; 2: 1 ; 3: 2 ; 4: 1/2 ; 5: 0 ; 6: 1/3 ; 7: 0 ; 8: 1/4 ; 9: 2/3 ; 10: 1/5 ; 11: 0 ; 12: 1/6 ; 13: 0 ; 14: 1/7 ; 15: 2/5 ; 16: 1/8 ; 17: 0 ; 18: 1/9 ; 19: 0 ; 20: 1/10 ; 21: 2/7 ; 22: 1/11 ; 23: 0 ; 24: 1/12
+  ### (a) HOLDS: 24 of 24 equal
+
+## ROUTE THREE (b): EVERY PATTERN OF AT MOST 8 PRIME FACTORS COUNTED WITH MULTIPLICITY (66 patterns), beta at the pattern by b_lattice
+  (1,)                 beta 0        contains none of the four
+  (2,)                 beta 1        contains none of the four
+  (1,1)                beta 2        contains none of the four
+  (3,)                 beta 2        contains none of the four
+  (2,1)                beta 2        contains none of the four
+  (1,1,1)              beta 2        contains none of the four
+  (4,)                 beta 1/2      contains none of the four
+  (3,1)                beta 0        contains none of the four
+  (2,2)                beta 0        contains none of the four
+  (2,1,1)              beta -2       contains (2,1,1)
+  (1,1,1,1)            beta -6       contains (1,1,1,1)
+  (5,)                 beta 0        contains none of the four
+  (4,1)                beta -2       contains (4,1)
+  (3,2)                beta -4       contains (3,2)
+  (3,1,1)              beta -8       contains (2,1,1)
+  (2,2,1)              beta -10      contains (2,1,1)
+  (2,1,1,1)            beta -18      contains (2,1,1), (1,1,1,1)
+  (1,1,1,1,1)          beta -30      contains (1,1,1,1)
+  (6,)                 beta 1/3      contains none of the four
+  (5,1)                beta -2       contains (4,1)
+  (4,2)                beta -4       contains (4,1), (3,2)
+  (4,1,1)              beta -6       contains (4,1), (2,1,1)
+  (3,3)                beta -16/3    contains (3,2)
+  (3,2,1)              beta -8       contains (3,2), (2,1,1)
+  (3,1,1,1)            beta -8       contains (2,1,1), (1,1,1,1)
+  (2,2,2)              beta -8       contains (2,1,1)
+  (2,2,1,1)            beta -6       contains (2,1,1), (1,1,1,1)
+  (2,1,1,1,1)          beta 6        contains (2,1,1), (1,1,1,1)
+  (1,1,1,1,1,1)        beta 42       contains (1,1,1,1)
+  (7,)                 beta 0        contains none of the four
+  (6,1)                beta 0        contains (4,1)
+  (5,2)                beta 2        contains (4,1), (3,2)
+  (5,1,1)              beta 6        contains (4,1), (2,1,1)
+  (4,3)                beta 4        contains (4,1), (3,2)
+  (4,2,1)              beta 18       contains (4,1), (3,2), (2,1,1)
+  (4,1,1,1)            beta 42       contains (4,1), (2,1,1), (1,1,1,1)
+  (3,3,1)              beta 24       contains (3,2), (2,1,1)
+  (3,2,2)              beta 36       contains (3,2), (2,1,1)
+  (3,2,1,1)            beta 80       contains (3,2), (2,1,1), (1,1,1,1)
+  (3,1,1,1,1)          beta 168      contains (2,1,1), (1,1,1,1)
+  (2,2,2,1)            beta 114      contains (2,1,1), (1,1,1,1)
+  (2,2,1,1,1)          beta 234      contains (2,1,1), (1,1,1,1)
+  (2,1,1,1,1,1)        beta 462      contains (2,1,1), (1,1,1,1)
+  (1,1,1,1,1,1,1)      beta 882      contains (1,1,1,1)
+  (8,)                 beta 1/4      contains none of the four
+  (7,1)                beta 2        contains (4,1)
+  (6,2)                beta 8        contains (4,1), (3,2)
+  (6,1,1)              beta 16       contains (4,1), (2,1,1)
+  (5,3)                beta 16       contains (4,1), (3,2)
+  (5,2,1)              beta 42       contains (4,1), (3,2), (2,1,1)
+  (5,1,1,1)            beta 78       contains (4,1), (2,1,1), (1,1,1,1)
+  (4,4)                beta 20       contains (4,1), (3,2)
+  (4,3,1)              beta 64       contains (4,1), (3,2), (2,1,1)
+  (4,2,2)              beta 84       contains (4,1), (3,2), (2,1,1)
+  (4,2,1,1)            beta 150      contains (4,1), (3,2), (2,1,1), (1,1,1,1)
+  (4,1,1,1,1)          beta 258      contains (4,1), (2,1,1), (1,1,1,1)
+  (3,3,2)              beta 104      contains (3,2), (2,1,1)
+  (3,3,1,1)            beta 184      contains (3,2), (2,1,1), (1,1,1,1)
+  (3,2,2,1)            beta 232      contains (3,2), (2,1,1), (1,1,1,1)
+  (3,2,1,1,1)          beta 384      contains (3,2), (2,1,1), (1,1,1,1)
+  (3,1,1,1,1,1)        beta 600      contains (2,1,1), (1,1,1,1)
+  (2,2,2,2)            beta 288      contains (2,1,1), (1,1,1,1)
+  (2,2,2,1,1)          beta 462      contains (2,1,1), (1,1,1,1)
+  (2,2,1,1,1,1)        beta 690      contains (2,1,1), (1,1,1,1)
+  (2,1,1,1,1,1,1)      beta 918      contains (2,1,1), (1,1,1,1)
+  (1,1,1,1,1,1,1,1)    beta 954      contains (1,1,1,1)
+  the patterns containing none of (4,1), (3,2), (2,1,1), (1,1,1,1): 13, EQUAL TO the one-part patterns (1) to (8) and (1,1), (2,1), (3,1), (2,2), (1,1,1)
+  beta negative among them: 0 []
+  ### (b) HOLDS
+
+### ### **THE TABLE OF APPENDIX A: REPRODUCED ; ROUTE ONE AGREES 27 OF 27 ; ROUTE TWO AGREES 27 OF 27 ; (a) HOLDS ; (b) HOLDS ; THE PLANT FAILS AS WANTED.**
+### EACH CELL AGREES BY ROUTES ONE AND TWO ; (a) AND (b) HOLD ; THE PLANT FAILS AS WANTED: the law enters as a theorem by written proof
