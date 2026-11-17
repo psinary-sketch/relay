@@ -14,11 +14,13 @@ STAYS IN ITS BRACKETS AND IS NAMED.
   MD5       the md5 of each of the six generated modules at 14ca5725, from the kernel's blobs, read against data/b742_offlinezero.txt :68
   HISTORY   v0.1's nine dated notes, :3 to :19, from PLACE-papers' HEAD blob, the working copy read equal to it with CR removed
   DATE      the UTC date of the run
-  N, DEPOSITS   BLOCK E's, by (9)'s count and REGISTRY's deposit pins: not filled by this route (Component 6), named unfilled
+  N, DEPOSITS   BLOCK E's, by (9)'s count and REGISTRY's deposit pins: not filled by `bank` (named unfilled there), filled at Component 6
+            by `corpus` from data/b759_corpus.json at relay HEAD (tools/b759_corpus.py), banked apart so that the composer's input stands
 
   control   the planted controls, printed
   print     the fields composed and printed, nothing written
   bank      the same, written to data/b759_fields.txt and data/b759_fields.json (the composer's input)
+  corpus    N and DEPOSITS, written to data/b759_fields_corpus.txt and data/b759_fields_corpus.json (the errata tool's input)
 """
 import hashlib
 import io
@@ -52,6 +54,9 @@ B742, B742_LINE = os.path.join(D, 'b742_offlinezero.txt'), 68
 B757 = os.path.join(D, 'b757_outcomes.txt')
 BANK = os.path.join(D, 'b759_fields.txt')
 BANKJ = os.path.join(D, 'b759_fields.json')
+CORPUSJ = os.path.join(D, 'b759_corpus.json')
+BANKE = os.path.join(D, 'b759_fields_corpus.txt')
+BANKEJ = os.path.join(D, 'b759_fields_corpus.json')
 V01 = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md'
 WEIL = 'zq_weil_positivity_fails'
 WEIL_FILE = 'SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean'
@@ -187,7 +192,74 @@ def controls():
     lw = [law_of(['### ### **THE TABLE OF APPENDIX A: REPRODUCED ; x']), law_of(['### ### **THE TABLE OF APPENDIX A: NOT REPRODUCED AT (3,2) ; x']),
           law_of([])]
     c('the law read from the table`s verdict line: reproduced, not reproduced, absent', lw, lw == ['THEOREM', 'OBSERVED', None])
+    pc = dict(rows=[dict(key='C4', path='day1/A_v5_17.md', state='RE-CUT'), dict(key='C5', path='day1/A_v5_17.md', state='RE-CUT'),
+                    dict(key='C9', path='S.md', state='LEFT')], docs=[dict(path='day1/A_v5_17.md', changed=True, commit='abc')],
+              summary=dict(recut=['C4', 'C5'], left=['C9'], deposits={'day1/A_v5_17.md': [[83, '215']], 'S.md': [[9, '1']]}))
+    cf = corpus_fields(pc)
+    pn = corpus_fields(dict(pc, summary=dict(pc['summary'], deposits={})))
+    pu = corpus_fields(dict(pc, docs=[dict(path='day1/A_v5_17.md', changed=True, commit=None)]))
+    c('N and DEPOSITS from a planted corpus bank: a deposited copy named with its re-cut keys, a left line`s document not named; none; '
+      'an unconfirmed document refused', (cf, pn[:2], pu[:2]),
+      cf[:2] == ('2', 'THE DEPOSITED COPY OF A (ZENODO RECORD 215, REGISTRY :83) IS NOT EDITED, C4 AND C5 STANDING THERE AS DEPOSITED')
+      and pn[:2] == ('2', 'NO DEPOSITED ARTIFACT IS AFFECTED') and pu[:2] == (None, None))
     return L, ok
+
+
+def doc_name(path):
+    return re.sub(r'_v\d+(?:_\d+)*\.md$', '', path.split('/')[-1]).replace('.md', '').replace('_', ' ')
+
+
+def corpus_fields(CB):
+    """(N, DEPOSITS, why) from (9)'s bank: N the count re-cut; DEPOSITS the deposited copies, by REGISTRY's pins as the corpus bank read them,
+    of the documents with a line re-cut, each with its keys, or the form E-2026-11-09-1 carries; (None, None, why) where the bank carries no
+    summary or a document written is not confirmed at its commit."""
+    S = CB.get('summary') or {}
+    if not S:
+        return None, None, 'the corpus bank carries no summary'
+    if any(d.get('changed') and not d.get('commit') for d in CB.get('docs', [])):
+        return None, None, 'a document written and not confirmed at its commit'
+    rows = CB.get('rows', [])
+    paths = []
+    for r in rows:
+        if r['state'] == 'RE-CUT' and r['path'] not in paths:
+            paths.append(r['path'])
+    dep = []
+    for p in paths:
+        v = (S.get('deposits') or {}).get(p) or []
+        if v:
+            keys = [r['key'] for r in rows if r['path'] == p and r['state'] == 'RE-CUT']
+            dep.append('THE DEPOSITED COPY OF %s (ZENODO RECORD %s, REGISTRY :%d) IS NOT EDITED, %s STANDING THERE AS DEPOSITED' % (
+                doc_name(p).upper(), v[0][1], v[0][0], ' AND '.join(keys)))
+    return str(len(S['recut'])), ('; '.join(dep) if dep else 'NO DEPOSITED ARTIFACT IS AFFECTED'), ''
+
+
+def run_corpus():
+    """N and DEPOSITS banked apart, data/b759_fields.json not rewritten: data/b759_fields_corpus.txt and .json, from (9)'s bank at relay HEAD."""
+    L, ok = controls()
+    head = ['%s -- (R369)(7): THE FIELDS N AND DEPOSITS OF BLOCK E, FROM (9)`S BANK (%s, tools/b759_fields.py corpus)' % (ACT, _now()), '',
+            '## THE CONTROLS'] + L + ['  controls %d of %d as wanted' % (sum(ok), len(ok)), '']
+    if not all(ok):
+        print(NL.join(head))
+        sys.exit('### THE CONTROLS NOT AS WANTED -- nothing written')
+    rc, hb = _git(RELAY, 'show', 'HEAD:data/b759_corpus.json', raw=True)
+    wb = open(CORPUSJ, 'rb').read() if os.path.exists(CORPUSJ) else None
+    if rc or wb is None or wb.replace(b'\r\n', b'\n') != hb:
+        print(NL.join(head))
+        sys.exit('### data/b759_corpus.json NOT READ AT RELAY HEAD EQUAL TO ITS WORKING COPY -- nothing written')
+    n, dep, why = corpus_fields(json.loads(hb.decode('utf-8')))
+    body = head + ['## THE READ', '  data/b759_corpus.json at relay HEAD, sha256 %s%s' % (hashlib.sha256(hb).hexdigest()[:16], (' ; ' + why) if why else ''),
+                   '', '## THE FIELDS', 'FIELD N = %s' % (n if n is not None else '(left in its brackets)'),
+                   'FIELD DEPOSITS = %s' % (dep if dep is not None else '(left in its brackets)'), '',
+                   '### ### **N %s ; DEPOSITS %s ; CONTROLS %d OF %d.**' % (n, 'FILLED' if dep else 'LEFT', sum(ok), len(ok))]
+    print(NL.join(body))
+    if n is None:
+        sys.exit('### N AND DEPOSITS NOT FILLED -- nothing written')
+    r = FB.write(BANKE, NL.join(body))
+    js = json.dumps(dict(N=n, DEPOSITS=dep, corpus_sha=hashlib.sha256(hb).hexdigest()[:16], at=_now()), indent=1, ensure_ascii=False)
+    with open(BANKEJ + '.tmp', 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write(js + NL)
+    os.replace(BANKEJ + '.tmp', BANKEJ)
+    print('written data/b759_fields_corpus.txt and data/b759_fields_corpus.json ; figbank: %s' % r['why'])
 
 
 def compose():
@@ -375,5 +447,7 @@ if __name__ == '__main__':
         run(False)
     elif a[:1] == ['bank']:
         run(True)
+    elif a[:1] == ['corpus']:
+        run_corpus()
     else:
         sys.exit(__doc__)
