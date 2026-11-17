@@ -895,7 +895,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     want_ = [('c1pp', ['FINDINGS.md'], '0', True), ('pp_doc', [K.C3_DOC_PP[0]], '0', bool(cs_) and sha_(K.C3_DOC_PP[1], K.C3_DOC_PP[0], cs_.group(1)))] \
         + [('pp_' + it_, [f_], '0', (nj_.get(it_) or {}).get('read_back') is True and sha_(c_, f_, (nj_.get(it_) or {}).get('new_sha'))) for it_, f_, c_ in K.C3_NOTES_PP] \
         + [(k_, [f_], str(lines_.get(f_, -1)), (cd_.get(f_) or {}).get('commit', '')[:8] == c_[:8] and bool((cd_.get(f_) or {}).get('confirmed'))
-            and sha_(c_, f_, (cd_.get(f_) or {}).get('new_sha'))) for k_, (_ks, f_, c_) in zip([k_ for k_, _h in K.PP_CHAIN if k_.startswith('pp_c')], K.C3_CORPUS_PP)] \
+            and sha_(c_, f_, (cd_.get(f_) or {}).get('new_sha'))) for k_, (_ks, f_, c_) in zip([k_ for k_, _h in K.PP_CHAIN if re.match(r'pp_c\d+$', k_)], K.C3_CORPUS_PP)] \
         + [('pp_' + it_, [f_], '0', (ej_.get(it_) or {}).get('read_back') is True and sha_(c_, f_, (ej_.get(it_) or {}).get('new_sha'))) for it_, f_, c_ in K.C3_ERRATA_PP]
     rows_ = [(k_, sorted(pf_.get(k_) or []) == sorted(fs_) and bool(ns_.get(k_)) and all(x_ == rm_ for x_ in (ns_.get(k_) or [])[1::3])
               and (rm_ == '0' or (ns_.get(k_) or [])[0::3] == (ns_.get(k_) or [])[1::3]) and ok_) for k_, fs_, rm_, ok_ in want_]
