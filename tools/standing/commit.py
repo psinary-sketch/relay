@@ -78,6 +78,15 @@ v1.36.1, (R368)(6)(ii), THE PUSH OF A NAMED COMMIT TO A NAMED NON-MAIN BRANCH OF
   refused, nothing pushed. main, master, HEAD, a refs/ name or a name outside the branch form is refused. The push is `git push origin
   <sha>:refs/heads/<branch>` with no force, read back by ls-remote equal to the commit. Opened act by act by PUSHTO_ACTS: no act at b758.
 
+v1.36.3, (R369)(4)(i), THE ROUTE THAT REMOVES A BRANCH AT A KERNEL'S REMOTE: b758 found none (its worklist's KERNEL_DELETES_HALT: the kernel
+  `delete` is `git branch -d/-D`, local alone; push_gated.sh deletes nothing; `pushto` pushes a commit to a name). `rdelete <branch>` reads
+  the remote's main and the branch by one ls-remote of origin each, wants both commits in the clone and the branch's tip an ancestor of the
+  remote's main, and removes refs/heads/<branch> at the remote by `git push origin :refs/heads/<branch>`, not forced; the branch read back
+  absent by ls-remote. Refused, nothing removed: main (and any name outside the branch form); a name on the act's kept list (its worklist's
+  KEPT_BRANCHES rows for that kernel, the previous closing's carried list (f)); a name the act's ruling does not name (RDELETE_ACTS, act by
+  act and kernel by kernel); a tip that is no ancestor of the remote's main, a commit the clone lacks, a branch absent at the remote, or a
+  read that fails. The clone's own branches are not touched. b759 opens the five branches of (R369)(3).
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -93,6 +102,7 @@ v1.36.1, (R368)(6)(ii), THE PUSH OF A NAMED COMMIT TO A NAMED NON-MAIN BRANCH OF
   python -X utf8 -u tools/standing/commit.py <kernel> delete push-<act>-<word>
   python -X utf8 -u tools/standing/commit.py <kernel> ff main
   python -X utf8 -u tools/standing/commit.py <kernel> pushto <commit> <branch>
+  python -X utf8 -u tools/standing/commit.py <kernel> rdelete <branch>
 """
 import json
 import os
@@ -120,6 +130,11 @@ FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula')}
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}
+# ### v1.36.3, (R369)(4)(i): `rdelete <branch>`, a branch removed at a kernel's remote, opened act by act and kernel by kernel by its own table
+# ### naming the branches the act's ruling removes -- (R369)(3): "at the remote of SIDE-explicit-formula push-b757-join, push-b757-coeff,
+# ### push-b758-land and push-b758-coeff, and at the remote of SIDE-dirichlet-mod-24 push-b757-mod24"
+RDELETE_ACTS = {'b759': {'SIDE-explicit-formula': ('push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff'),
+                         'SIDE-dirichlet-mod-24': ('push-b757-mod24',)}}
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
@@ -245,7 +260,7 @@ def lock_face(repo, act, read, data, run_seal=True):
 
 
 ACT_PHASES = ('step zero', 'component 1', 'component 2', 'component 3', 'component 4', 'component 5', 'component 6', 'pre-root', 'root', 'record', 'closing')   # ### v1.28.1: root ; v1.34.6, (R365)(2)(iii) with b755's amendment row 1: components 5 and 6
-WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge', 'ff', 'pushto')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone ; v1.36.0, (R368)(6)(i): ff, a kernel's alone, by FF_ACTS ; v1.36.1, (R368)(6)(ii): pushto, a kernel's alone, by PUSHTO_ACTS
+WRITES = ('add', 'restore', 'delete', 'branch', 'switch', 'merge', 'ff', 'pushto', 'rdelete')   # ### v1.28.1: branch, the push-<act>-<stage> branch at HEAD ; v1.35.4, (R367)(3): switch and merge, a kernel's alone ; v1.36.0, (R368)(6)(i): ff, a kernel's alone, by FF_ACTS ; v1.36.1, (R368)(6)(ii): pushto, a kernel's alone, by PUSHTO_ACTS ; v1.36.3, (R369)(4)(i): rdelete, a kernel's alone, by RDELETE_ACTS
 MARK = os.path.join(RELAY, '.git', 'standing_write_open.json')
 
 
@@ -915,6 +930,88 @@ def pushto_route(key, args, act, repo):
         full[:8], args[1], 'the branch made' if kind == 'new' else 'its tip %s moved forward' % tip[:8], back[:8])
 
 
+def kept_names(act, key):
+    """v1.36.3, (R369)(4)(i): the names the act's worklist keeps in kernel `key` -- its KEPT_BRANCHES rows (path, name) whose path is the
+    kernel's (the previous closing's carried list (f)); Refused where the worklist or the list cannot be read. Reads only."""
+    import importlib.util
+    p = os.path.join(T, '%s_worklist.py' % act)
+    if not os.path.exists(p):
+        raise Refused('THE ACT`S WORKLIST NOT FOUND: tools/%s_worklist.py -- the kept list unread, nothing removed ((R369)(4)(i))' % act)
+    try:
+        spec = importlib.util.spec_from_file_location('%s_worklist_kept' % act, p)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        rows = tuple(m.KEPT_BRANCHES)
+    except Exception as e:  # noqa: BLE001
+        raise Refused('THE KEPT LIST NOT READ from tools/%s_worklist.py (%s: %s) -- nothing removed ((R369)(4)(i))' % (act, type(e).__name__, str(e)[:80]))
+    want = os.path.normcase(os.path.normpath(KERNELS[key]))
+    return tuple(n for path, n in rows if os.path.normcase(os.path.normpath(path)) == want)
+
+
+def rdelete_refusal(key, act, name, table=None, kept=None):
+    """v1.36.3, (R369)(4)(i): None, or the refusal, for `rdelete <name>` in `key` while `act` runs: a kernel of KERNELS that RDELETE_ACTS (or
+    `table`, a control's) opens for the act; not main and in the branch form; not on the kept list (`kept`, a control's, or the act's
+    worklist's for the kernel); named by the act's ruling. Pure where `kept` is given."""
+    t = RDELETE_ACTS if table is None else table
+    if key not in KERNELS:
+        return 'THE REMOVAL AT A REMOTE IS A KERNEL`S ALONE: %r -- the kernels %s ((R369)(4)(i))' % (key, ', '.join(sorted(KERNELS)))
+    named = (t.get(act) or {}).get(key) or ()
+    if not named:
+        return 'A KERNEL THE ACT`S RULING DOES NOT OPEN TO THE REMOVAL AT ITS REMOTE: %s while %s runs (%s) ((R369)(4)(i))' % (
+            key, act, '; '.join('%s: %s' % (a, ', '.join(sorted(k))) for a, k in sorted(t.items())) or 'none')
+    if pushto_name_refusal(name):
+        return 'MAIN, OR A NAME OUTSIDE THE BRANCH FORM: %r -- main is never removed, nothing removed ((R369)(4)(i))' % name
+    if name in (kept_names(act, key) if kept is None else kept):
+        return 'A NAME ON THE KEPT LIST: %s in %s -- nothing removed ((R369)(4)(i))' % (name, key)
+    if name not in named:
+        return 'A BRANCH THE ACT`S RULING DOES NOT NAME FOR REMOVAL: %s in %s (named: %s) -- nothing removed ((R369)(4)(i))' % (
+            name, key, ', '.join(named))
+    return None
+
+
+def rdelete_plan(main_sha, tip, main_local, tip_local, ancestor):
+    """'remove', or Refused: the remote's main read, the branch at the remote, both commits in the clone, the tip an ancestor of main. Pure."""
+    if not main_sha:
+        raise Refused('THE REMOTE`S MAIN NOT READ -- nothing removed ((R369)(4)(i))')
+    if not tip:
+        raise Refused('THE BRANCH IS ABSENT AT THE REMOTE -- nothing to remove ((R369)(4)(i))')
+    if not main_local:
+        raise Refused('THE REMOTE`S MAIN %s IS NOT IN THE CLONE -- the ancestry unread, nothing removed ((R369)(4)(i))' % main_sha[:8])
+    if not tip_local:
+        raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT IN THE CLONE -- the ancestry unread, nothing removed ((R369)(4)(i))' % tip[:8])
+    if not ancestor:
+        raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT AN ANCESTOR OF THE REMOTE`S MAIN %s -- UNMERGED, nothing removed ((R369)(4)(i))' % (
+            tip[:8], main_sha[:8]))
+    return 'remove'
+
+
+def rdelete_route(key, args, act, repo, table=None, kept=None):
+    """v1.36.3, (R369)(4)(i): `rdelete <branch>` in a kernel RDELETE_ACTS opens; the line printed, or Refused."""
+    if len(args) != 1:
+        raise Refused('ONE BRANCH PER CALL: `rdelete <branch>` ((R369)(4)(i))')
+    name = args[0]
+    bad = rdelete_refusal(key, act, name, table=table, kept=kept)
+    if bad:
+        raise Refused(bad)
+    main_sha, rc1 = remote_head(repo, 'main')
+    if rc1 != 0:
+        raise Refused('THE REMOTE`S MAIN NOT READ (ls-remote exit %d) -- nothing removed ((R369)(4)(i))' % rc1)
+    tip, rc2 = remote_head(repo, name)
+    if rc2 != 0:
+        raise Refused('THE BRANCH`S REMOTE TIP NOT READ (ls-remote exit %d) -- nothing removed ((R369)(4)(i))' % rc2)
+    main_local = _commit_of(repo, main_sha) if main_sha else ''
+    tip_local = _commit_of(repo, tip) if tip else ''
+    anc = bool(main_local and tip_local) and _git(repo, 'merge-base', '--is-ancestor', tip_local, main_local).returncode == 0
+    rdelete_plan(main_sha, tip, main_local, tip_local, anc)
+    r = _git(repo, 'push', '--porcelain', 'origin', ':refs/heads/%s' % name)
+    back, rc3 = remote_head(repo, name)
+    if r.returncode != 0 or rc3 != 0 or back:
+        raise Refused('THE REMOVAL FAILED OR ITS READ-BACK IS NOT ABSENT: git push exit %d (%s) ; the remote reads %s (exit %d)' % (
+            r.returncode, ((r.stderr or r.stdout) or '').strip()[:120], back[:8] or 'absent', rc3))
+    return 'REMOVED AT THE REMOTE, NOT FORCED: refs/heads/%s (its tip %s, an ancestor of the remote`s main %s) ; read back by ls-remote ABSENT' % (
+        name, tip[:8], main_sha[:8])
+
+
 def usage_lines():
     """v1.31.0, (R361)(3)(viii), b750 defects (b), (k), (o), (u), (y): the tool's usage, its phases and its word form, printed by the carry at step
     zero (tools/standing/carry.py ruled) so the seat reads them before its opening call."""
@@ -947,6 +1044,12 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
         bad = pushto_refusal(key, act)
         if bad:
             raise Refused(bad)
+    elif verb == 'rdelete':   # ### v1.36.3, (R369)(4)(i): its own table, the kept list and the named branches, read again in the route
+        if len(args) != 1:
+            raise Refused('ONE BRANCH PER CALL: `rdelete <branch>` ((R369)(4)(i))')
+        bad = rdelete_refusal(key, act, args[0])
+        if bad:
+            raise Refused(bad)
     elif kern:
         bad = repo_refusal(key, act)
         if bad:
@@ -965,6 +1068,8 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
             return ff_route(key, args, act, repo)
         if verb == 'pushto':   # ### v1.36.1
             return pushto_route(key, args, act, repo)
+        if verb == 'rdelete':   # ### v1.36.3
+            return rdelete_route(key, args, act, repo)
         if kern:
             cmd = kernel_write(key, verb, args, act, repo)
         else:
@@ -1106,7 +1211,7 @@ def excludes():
 def main(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
-    if argv[0] not in ('relay', 'pp') and argv[1] not in ('ff', 'pushto'):   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read ; v1.36.0, v1.36.1: ff and pushto read by their own tables in write_route
+    if argv[0] not in ('relay', 'pp') and argv[1] not in ('ff', 'pushto', 'rdelete'):   # ### v1.35.4, (R367)(3): a third kernel, or a kernel the act's ruling does not open, refused before anything is read ; v1.36.0, v1.36.1, v1.36.3: ff, pushto and rdelete read by their own tables in write_route
         import act as A
         bad = repo_refusal(argv[0], A.current()['act'])
         if bad:
