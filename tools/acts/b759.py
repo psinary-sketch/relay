@@ -1473,15 +1473,22 @@ fast-forwarded by (6)(i)'s route, SIDE-dirichlet-mod-24's to e5ebdd15 and SIDE-e
 #⟪END⟫
 #⟪SECTION closing 4⟫
 import standing.faceform as FF   # ### v1.8.0, (R365)(2)(iv)(c): the outbound sentence from the one clause
-# ### b759, Component 5: (4)'s and (5)'s outcomes read from their bank at import, for the title and the kernel lines
+# ### b759, before the lock: (5)'s outcome read from its bank at import, and the table's, the document's and the corpus's feet, for the title
+# ### and the kernel lines (b758's two items, join and coeff, give way to (5)'s one, weil)
 _OC5 = dict((r_.get('item'), r_) for r_ in (jl('b759_outcomes.json') or []) if isinstance(r_, dict))
 _OW5 = lambda k_: (_OC5.get(k_) or {}).get('outcome') or 'NOT READ'
-_LT5 = [(_OC5[k_].get('tag'), (_OC5[k_].get('peel') or '')[:8]) for k_ in ('join', 'coeff') if _OW5(k_) == 'LANDED']
-# ### CARRIED STUB (tools/standing/carry.py v1.34.0): statement TITLE_LINE; it carried an act ordinal or the read-first needles
-TITLE_LINE = __import__('standing.carry', fromlist=['Carried']).Carried('b759`s TITLE_LINE')
+_LT5 = [(_OC5[k_].get('tag'), (_OC5[k_].get('peel') or '')[:8]) for k_ in ('weil',) if _OW5(k_).startswith('LANDED')]
+_FT5 = lambda n_: ([l_ for l_ in (rd(n_) or '').split(NL) if l_.startswith('### ### **')] or [''])[-1]
+TITLE_LINE = ('b759 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND EIGHTY-SIX, THE EPSTEIN DOCUMENT AT v0.2: b758 AT ITS WEIGHT; '
+              'FOUR STANDING CHANGES; %s; %s; %s; %s; UNDER (R369).**' % (
+                  'ONE STATEMENT AND FOUR PRINT LINES LANDED AT v0.41' if _OW5('weil') == 'LANDED, COMPILED' else (
+                      'FOUR PRINT LINES LANDED AT v0.41, THE STATEMENT NOT COMPILED' if _OW5('weil').startswith('LANDED') else 'NOTHING LANDED, MAIN AT v0.40'),
+                  'THE APPENDIX’S TABLE REPRODUCED' if 'THE TABLE OF APPENDIX A: REPRODUCED ;' in _FT5('b759_c3table.txt') else 'THE APPENDIX’S TABLE NOT REPRODUCED',
+                  'THE DOCUMENT ENTERED' if 'v0.2 COMPOSED:' in _FT5('b759_compose.txt') else 'THE DOCUMENT NOT ENTERED',
+                  'THE CORPUS’S SENTENCES RE-CUT' if 'RE-CUT 14 OF 14 ;' in _FT5('b759_corpus.txt') else 'THE CORPUS’S SENTENCES RE-CUT IN PART'))   # ### the ferry`s ACT line (data/b759_ferry.txt :39) adjusted to what the act did
 _K5_MAIN = ('moved to %s' % ' and then to '.join('%s, %s cut at its read-back' % (p_, t_) for t_, p_ in _LT5)) if _LT5 else 'unmoved, no tag cut'
-_K5_DEL = ('the merged kernel branches deleted at the remote after v0.40 by the tool`s route, one per message: ' + ', '.join(
-    '%s (was %s)' % (b_, t_[:8]) for b_, t_ in WL.KERNEL_DELETES)) if WL.KERNEL_DELETES else 'push-b758-join, push-b758-coeff, push-b759-land and push-b759-coeff standing at the remote'
+_K5_DEL = ('the branches of (3) deleted at the kernels` remotes by (4)(i)`s route, one per message: ' + ', '.join(
+    '%s (was %s)' % (b_, t_[:8]) for b_, t_ in WL.KERNEL_DELETES)) if WL.KERNEL_DELETES else 'the branches of (3) standing at the kernels` remotes'
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b758's sections over b758's objects not carried), headed as CLOSING_SECTIONS names them. A row
@@ -2244,7 +2251,12 @@ def _post_lock_edits():
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    raise SystemExit('### b759`s a block reading an act ordinal or the read-first needles (SECTION record 28) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 3 code lines, stands in the carry`s diff bank
+    # ### b759, before the lock: the ruling's ordinal and title (the ferry's ACT line, data/b759_ferry.txt :39) adjusted to what the act did
+    # ### (data/b759_outcomes.txt: LANDED, COMPILED; data/b759_c3table.txt: REPRODUCED; data/b759_compose.txt: v0.2 COMPOSED;
+    # ### data/b759_corpus.txt: RE-CUT 14 OF 14); the apostrophe typographic, (R368)(3)
+    return ('### b759 — lane two, act one hundred and eighty-six, the Epstein document at v0.2 under (R369): b758 at its weight; a short corrigendum; '
+            'four standing changes; one statement and four print lines landed at v0.41; the appendix’s table reproduced; the document entered; '
+            'the corpus’s sentences re-cut')
 #⟪END⟫
 #⟪SECTION record 29⟫
 # ### b756: the figures of the title, entry and trail read from the banks' feet (_figs); the guard refuses where the feet disagree with
