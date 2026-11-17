@@ -660,7 +660,7 @@ def sources(need=()):
         S['fig'], S['fig_prev'], S['fig_prev_name'] = {}, {}, ''
     S['phase_secs']['the four standing figures' + ('' if 'figures' in need else ' (not in this part)')] = time.time() - t1
     t1 = time.time()
-    S['kern_now'] = kern_now(S['kern_face']) if S['kern_face'] else {}
+    S['kerns_read'] = list(dict.fromkeys(S['kerns_read'] + ['SIDE-dirichlet-mod-24'])); S['kern_now'] = kern_now(S['kern_face']) if S['kern_face'] else {}   # noqa: E702  ### v1.36.6, (R369)(4)(iv): the reader of the kernels face (:611's list) names SIDE-dirichlet-mod-24, as its writer does (record.tpl :634); on this line, :611's bytes kept for b758's sealed override by mark (f8d771e18f03, an edit of them refusing b758's render), the line count kept
     ch = set(x for x in gs(PP, 'diff', '--name-only', PRE['pp']).split(NL) if x.strip())
     ch |= set(x for x in gs(PP, 'diff', '--name-only', PRE['pp'], 'HEAD').split(NL) if x.strip())
     S['pp_changed'] = sorted(ch)
