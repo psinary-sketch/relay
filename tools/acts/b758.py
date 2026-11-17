@@ -302,12 +302,12 @@ def runner_ok(S):
 # ### b755: the step-zero bank rides in the step-zero banks' commit 77ae83fe (STEPZERO_BANKS = STEPZERO_BANK_COMMIT); five push-b754-* refs
 # ### deleted at step zero (relay three, PLACE-papers two, data/b755_stepzero.txt :55-:60), each with its tip
 #⟪OVERRIDE checks MARK 0b7306236355 1⟫
-    return len(tips) >= len(NAMED_PUSH) == 5 and 'data/b758_stepzero.txt' in files_of(ROOT, K.STEPZERO_BANK_COMMIT) and bool(fd) \
+    return len(tips) >= len(NAMED_PUSH) == 4 and 'data/b758_stepzero.txt' in files_of(ROOT, K.STEPZERO_BANK_COMMIT) and bool(fd) \
 #⟪END⟫
 # ### b754, Component 6 (the Edit tool), carried: the step-zero bank words the row "THE --MERGED LISTING, PRINTED BEFORE THE DELETES"
-# ### (data/b755_stepzero.txt :55)
+# ### (data/b755_stepzero.txt :55); b758, Component 5: b758's bank words it "THE --MERGED LISTING, before the deletes" (data/b758_stepzero.txt :54)
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE --MERGED LISTING, PRINTED BEFORE THE DELETES' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING, before the deletes' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's overrides of checks 1516 and 1659 (hook.py edited by b753's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b754 as it stands
@@ -331,28 +331,26 @@ def runner_ok(S):
 # ### moved or deleted"), data/b756_citation_check.txt :60, "| ruling (8) | port-b707 kept on SIDE-lv-conservation | local |"; b755's
 # ### "(9)" read no row and failed the arm at the a2 probe (19:11:41Z)
 #⟪OVERRIDE checks MARK 6381bcfb3cc2 1⟫
-    return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 5 and all(b in z for b in NAMED_PUSH) \
+    return all(v == [] for v in left.values()) and len(left) == 2 and len(NAMED_PUSH) == 4 and all(b in z for b in NAMED_PUSH) \
 #⟪END⟫
-# ### b757, Component 6 (the Edit tool): b757's citation check carries the kept row under (R367)(4) and (10) ("the four branches stand as
-# ### they stood"; "no kernel touched beyond SIDE-explicit-formula and SIDE-dirichlet-mod-24"), data/b757_citation_check.txt :74, "| ruling
-# ### (4), (10) | port-b707 kept on SIDE-lv-conservation | local |"; b756's "(8)" read no row and failed the arm at the standing-a2 probe (12:11Z)
+# ### b758, Component 5 (the Edit tool): four refs at b758's step zero, no push-b757-closing (b757 stopped at [22]); b758's citation check
+# ### carries the kept row under (R368)(5) and (10), data/b758_citation_check.txt :55, "| ruling (5), (10) | port-b707 kept on
+# ### SIDE-lv-conservation | local |"
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and '| ruling (4), (10) | port-b707 kept on SIDE-lv-conservation | local |' in (S['citation'] or '') and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and '| ruling (5), (10) | port-b707 kept on SIDE-lv-conservation | local |' in (S['citation'] or '') and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
 #⟪END⟫
-# ### b757, Component 6 (the Edit tool): G-DELETES-ONE-BRANCH's allowance read over the step-zero deletes alone -- (R367)(2)'s "The
-# ### push-b756-* branches are deleted by the tool's route" (data/b757_ferry.txt :11); the two control branches of (R367)(3), "a commit in
-# ### each of the two kernels on a scratch branch, read back and then deleted by the tool's route" (:13), name no branch in the ruling, so
-# ### they are read from the live control's bank, which names each by its commit's subject (data/b757_standing_v1354_live.txt :22, :25),
-# ### and are wanted deleted, the two and no other; (R367) writes no kept clause and names no port-b707, so the kept term reads port-b707
-# ### undeleted and at its tip in the tree in place of a clause the ruling does not carry (scratch dels757.py, 11:5xZ: 7 deletes, OUTSIDE
-# ### the two controls, the kept clause '')
+# ### b758, Component 5 (the Edit tool): G-DELETES-ONE-BRANCH over b758's deletes -- the four step-zero refs (R368)(2) names by its words
+# ### ("The push-b757-* branches of the relay and PLACE-papers are deleted by the tool's route, each by name", data/b758_ferry.txt :11),
+# ### read through the standing allowance reader, and the merged kernel branches of (5) (":17": "the kernels' push-b757-* and push-b758-*
+# ### branches merged into main are deleted at the remote by the tool's route, each by name"), wanted equal to the worklist's KERNEL_DELETES
+# ### and no other; port-b707 undeleted and at its tip
 #⟪OVERRIDE checks MARK 61379f7e4609 2⟫
-        and (_ctl := sorted(set(re.findall(r'on (push-b758-control-[a-z0-9]+)[ ,]', rd('b758_standing_v1354_live.txt') or '')))) == ['push-b758-control-ef', 'push-b758-control-mod24'] \
-        and sorted(b for b in got if b in _ctl) == _ctl and STW.deletes_read([('-', b) for b in got if b not in _ctl], S['ferry'], STW.words_of(ACTN))['ok'] \
+        and sorted(b for b in got if b not in NAMED_PUSH) == sorted(b_ for b_, _t in K.KERNEL_DELETES) \
+        and STW.deletes_read([('-', b) for b in got if b in NAMED_PUSH], S['ferry'], STW.words_of(ACTN))['ok'] \
         and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 23e17a97edcc 1⟫
-    ('G-DELETES-ONE-BRANCH', '(⟪PRUL⟫)(2), (3): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the step-zero deletes each allowed by the ruling`s own delete clause read through tools/standing/allow.py, the two control branches of (3) the live control`s bank names, deleted and no other; port-b707 undeleted at its tip; the command bank`s count',
+    ('G-DELETES-ONE-BRANCH', '(⟪PRUL⟫)(2), (5): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the step-zero deletes each allowed by the ruling`s own delete clause read through tools/standing/allow.py, the merged kernel branches of (5) the worklist names, deleted and no other; port-b707 undeleted at its tip; the command bank`s count',
 #⟪END⟫
 # ### b755, Component 6 (the Edit tool): b754's overrides of the ledger adds and G-FINDINGS-APPEND-ONLY (its (R364)(5)[A] passes
 # ### replacing seven FINDINGS lines one for one) retired -- b755 appends to FINDINGS alone (the weight line and the corrigendum at
@@ -373,13 +371,20 @@ def runner_ok(S):
 #⟪END⟫
 # ### b754, the Edit tool: v1.9.0's tools/standing/reportdry.py carries the word report and is no report tool; the needle read it as one (the mid probe's LIVE FAIL)
 #⟪OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)⟫
-        and (_ for _ in ()).throw(SystemExit('### b758`s a probe`s needle (OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED'))   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+        and not any('report' in t for t in K.SEALED if t != 'standing/reportdry.py') and 'b758_report.py' not in (S['sealj'].get('tools') or {})   # ### b758, Component 5: the carried stub set for the act, b757's body with the act's name
 #⟪END⟫
 # ### b754, Component 7 (the Edit tool): G-CONVERSION-ONE's needle `def conv(` read tools/b754_c2_check.py's Dirichlet convolution
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
 #⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
-    raise SystemExit('### b758`s a probe`s needle (OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 8 code lines, stands in the carry`s diff bank
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
+    one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
+    bad = []
+    for f in sorted(os.listdir(T)):
+        if (f.startswith('b758_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS:   # ### b758, Component 5: the carried stub set for the act, b757's body with the act's name
+            t = strip_prose(read(os.path.join(T, f)))
+            if any(x in t for x in toks) or one_arg.search(t):
+                bad.append(f)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R364): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
@@ -401,7 +406,7 @@ def runner_ok(S):
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
 #⟪OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)⟫
-    raise SystemExit('### b758`s a probe`s needle (OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged', c) is not None)   # ### b758, Component 5: the carried stub set, b757's body (b758's listing ran as captured shell commands, data/b758_stepzero.txt :54)
 #⟪END⟫
 # ### b754, Component 4's dry composition: v1.27.0's rdn (repair (7)) refuses a missing file, and the record reads three banks the root and the
 # ### close write -- the answers bank, the answer check and the events bank -- before they can exist (the entry's dry composition for the touch
@@ -442,43 +447,43 @@ REG = os.path.join(D, 'b758_registration_%s.txt' % __import__('b758_worklist').D
 # ### b757, Component 6 (the Edit tool): the template's lines that read "none" of kernel writes, true of every act since b745 and not of this
 # ### one, each replaced for b757 by its count and its source ((R367)(3)-(6), (9)); the template stays, the earlier acts' renders unchanged
 #⟪OVERRIDE regspec MARK 254ae4810dcb 1⟫
-    ('commits on any kernel`s main', 2, 2, 'commits', '### (R368)(6): SIDE-dirichlet-mod-24`s main moved from 597b0869 to the workflow 22282733 and then to the module e5ebdd15 after its run`s success, each read back at the remote; SIDE-explicit-formula`s main unmoved at 8fbab45d.'),
+    ('commits on any kernel`s main', 'EFMAINCOMMITS', 'EFMAINCOMMITS', 'commits', '### (R368)(4), (5): SIDE-explicit-formula`s main moved from 8fbab45d by the gated push`s default mode after each run`s success, carrying the four held branches` commits and their merges with (4)`s rename, then (5)`s merge; SIDE-dirichlet-mod-24`s remote main unmoved; MEASURED off git rev-list --count 8fbab45d..main.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 18c1a19a6cb6 1⟫
-    ('scratch branches cut on a kernel', 2, 2, 'branches', '### (R368)(3)`s live control: push-b758-control-ef and push-b758-control-mod24, a commit on each read back, each deleted by the tool`s route (data/b758_standing_v1354_live.txt).'),
+    ('scratch branches cut on a kernel', 0, 0, 'branches', '### none: the planted controls of (6)(i) and (6)(ii) each in a scratch clone outside the kernels (data/b758_standing_v1360.txt, data/b758_standing_v1361.txt).'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK a2b9535083e6 1⟫
-    ('push branches cut on a kernel for the push procedure', 4, 4, 'branches', '### push-b758-join and push-b758-coeff in SIDE-explicit-formula, push-b758-workflow and push-b758-mod24 in SIDE-dirichlet-mod-24, each made by the one-call tool and carried by the gated push, standing at the close.'),
+    ('push branches cut on a kernel for the push procedure', 2, 2, 'branches', '### push-b758-land and push-b758-coeff in SIDE-explicit-formula, each made by the one-call tool and carried by the gated push, ' + ('deleted at the remote after v0.40 by the tool`s route.' if K.KERNEL_DELETES else 'standing at the close.')),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 42ab3bdb112d 1⟫
-    ('kernel merges made', 4, 4, 'merges', '### (R368)(4): detect-b729, keiper-b725, c2-b725 and zq-b730 into push-b758-join, one at a time without fast-forward (0a0672bc, 12d60407, 36ad7bb7, 0cc23db8); no branch merged into a main.'),
+    ('kernel merges made', 1, 1, 'merges', '### (R368)(5): 596d1c9e into push-b758-coeff without fast-forward, print_targets.txt resolved as the union (630cba16); main moved to each landing by the gated push, no merge into a main.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 63e5424dd90e 1⟫
-    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5: one, v0.2.0 in SIDE-dirichlet-mod-24 (object e5c84316, peel e5ebdd15 read back at the remote equal to main); v0.38 unmoved at 14ca5725, no v0.39 and no v0.40; MEASURED off SIDE-explicit-formula`s tags past v0.38, SIDE-dirichlet-mod-24`s past v0.1.0, and the template`s other kernels as before.'),
+    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5: v0.39 and v0.40 where each run succeeded, each peel read back at the remote equal to main; v0.38 at 14ca5725 and v0.2.0 at e5ebdd15 unmoved; MEASURED off SIDE-explicit-formula`s tags past v0.38, SIDE-dirichlet-mod-24`s past v0.2.0, and the template`s other kernels as before.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 5381b10a2ae6 1⟫
-    ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() != 'v0.1.0']   # ### b757: v0.38 b745`s; SIDE-dirichlet-mod-24`s tags past v0.1.0
+    ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() not in ('v0.1.0', 'v0.2.0')]   # ### b758: v0.38 b745`s, v0.2.0 b757`s; the tags past them
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 100638d8d84e 1⟫
-    ('kernel branches deleted', 2, 2, 'branches', '### the two control branches of (R368)(3), each by the tool`s route after its read-back; port-b707, the pin, challenge and rebuild branches and the four held branches kept; the four push-b758-* branches standing.'),
+    ('kernel branches deleted', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R368)(5): the push-b757-* and push-b758-* branches merged into main, each by name by the tool`s route after v0.40 was read back; port-b707, the pin, challenge and rebuild branches and the four held branches kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 51acd0ac8ef1 1⟫
-    ('branches deleted beyond the step zero`s list', 2, 2, 'branches', '### the two control branches, deleted as (R368)(3) orders; port-b707 kept.'),
+    ('branches deleted beyond the step zero`s list', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### the merged kernel branches, deleted as (R368)(5) orders; port-b707 kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK b6204f4e0fa8 1⟫
-    ('census editions written on main', 0, 0, 'editions', '### none: no new edition; the census v0.8.3 takes (R368)(9)(c)`s one note at its end (PLACE-papers 9c0896c5).'),
+    ('census editions written on main', 0, 0, 'editions', '### none: no new edition; the census v0.8.3 takes (R368)(8)`s one note at its end (relay data/b758_notes.json).'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 0daf7a1cb287 1⟫
-    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS and REGISTRY', 3, 3, 'papers', '### (R368)(9)(a)-(c): one dated note each in THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, FACES_LEDGER.md and THE_KEYSTONE_CENSUS_v0_8_3.md, by one PLACE-papers commit each; none moved or renamed, no sentence edited.'),
+    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS and REGISTRY', 3, 3, 'papers', '### (R368)(8)(a)-(c): one dated note each in THE_EPSTEIN_CONTROL_OBJECT_v0_1.md, FACES_LEDGER.md and THE_KEYSTONE_CENSUS_v0_8_3.md, by one PLACE-papers commit each; none moved or renamed, no sentence edited.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 46160108b751 1⟫
-    ('README edits', 1, 1, 'edits', '### (R368)(4)(iii): [B1] on push-b758-join (6568e9c7), not on any main; SIDE-dirichlet-mod-24`s README not written; [B3] carried whole.'),
+    ('README edits', 0, 0, 'edits', '### none this act: b757`s [B1] cut reached main with the join at v0.39, written at b757; SIDE-dirichlet-mod-24`s README not written.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 2d7a99569826 1⟫
-    ('orders and annotations entered at OPEN_TRAILS before the seal', 18, 18, 'lines', '### (R368)(1), (9)(e): the dated block at the file`s end, the line of (1), the order lines, W-ORD-SQUARES-AT-24 and [L22], by PLACE-papers b14256c2 (git diff --numstat b6860142 b14256c2 -- OPEN_TRAILS.md: 18 added, 0 removed).'),
+    ('orders and annotations entered at OPEN_TRAILS before the seal', 'OTBLOCK', 'OTBLOCK', 'lines', '### (R368)(8)(e): the block under one dated head at the file`s end, no line moving -- b757`s root answer, the two lines resolved at b757 standing as written, W-ORD-SQUARES-AT-24`s price -- by one PLACE-papers commit; MEASURED off relay data/b758_notes.json`s (e) confirm.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 44ff8bc9f5d4 1⟫
-    ('faces ledger update blocks appended', 1, 1, 'blocks', '### (R368)(9)(b): one UPDATE section at FACES_LEDGER`s end (PLACE-papers c7dfe43c), no face entered.'),
+    ('faces ledger update blocks appended', 1, 1, 'blocks', '### (R368)(8)(b): one dated note at FACES_LEDGER`s end, no face entered (relay data/b758_notes.json).'),
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): N1's dispatch commands are the seat's `gh workflow run build-module.yml` ((R364)(4)(iii)-(iv));
 # ### the carried pattern named the template's rebuild tool, which b754 does not have
@@ -490,7 +495,6 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### removed; the ledger exclusion unchanged. The arm stands in tools/standing/arms.py's RETIRED and is not in the run list; read so, its
 # ### template line :971 would fire on N3's label of the landed entry (record.tpl :2444, a string naming FINDINGS.md), not edited here
 #⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
-    raise SystemExit('### b758`s a probe`s needle (OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_walk.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
@@ -2583,6 +2587,8 @@ def _trail_text_b757():
                     OUTCOMES=jcount('b758_outcomes.json', lambda j: len([r_ for r_ in j if r_.get('outcome') in ('LANDED', 'BROKE')])),
                     NOTESN=jcount('b758_notes.json', lambda j: len([k_ for k_ in ('a', 'b', 'c', 'd', 'e') if (j.get(k_) or {}).get('confirm')])),
                     MOVED=tfirst('b758_moved_cites.txt', r'\*\*THE MOVED CITES READ: RELAY LINES \d+ ; CITES (\d+) ;'),
+                    EFMAINCOMMITS=int(_git(K.EF_DIR, 'rev-list', '--count', '%s..main' % K.EF_BASE) or 0),
+                    OTBLOCK=jcount('b758_notes.json', lambda j: int(re.search(r', (\d+) lines added,', (j.get('e') or {}).get('confirm') or '').group(1))),
                     REPROWS=jcount('b758_reproduce.json', lambda j: len(j.get('rows') or [])),
                     ADDRESS=tfirst('b758_address_scan.txt', r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ;'),
                     EFBRANCHES=sum(1 for b, t in K.EF_BRANCHES if _git(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b).strip() == t),
@@ -2600,7 +2606,7 @@ def _trail_text_b757():
 #⟪END⟫
 #⟪SECTION regspec 19⟫
               'RBBRANCHES', 'RBPUSHED', 'RBBEYOND', 'RBLEAN', 'RBWF', 'EFBRANCHES', 'EFLEAN', 'EFNEW', 'EFEDIT', 'EFRUNS', 'REPROWS', 'ADDRESS',
-              'CHBRANCH', 'REGREMOVED', 'REGALONE', 'EFMAINLEAN', 'EFTAGS', 'OUTCOMES', 'NOTESN', 'MOVED',
+              'CHBRANCH', 'REGREMOVED', 'REGALONE', 'EFMAINLEAN', 'EFTAGS', 'OUTCOMES', 'NOTESN', 'MOVED', 'EFMAINCOMMITS', 'OTBLOCK',
 #⟪END⟫
 #⟪SECTION regspec 20⟫
     spec = {"registration": ("data/b758_registration_%s.txt -- b758, THE LANDING: b757 CLOSED BY ITS CARRIED STEPS AFTER THE READER`S REPAIR; THE JOIN AND "
