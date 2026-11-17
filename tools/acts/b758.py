@@ -727,16 +727,17 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R368)(1)-(2))',   # ### the template's headin
                   ['b757’s record, short', 'data/b757_events.txt rows (1)-(46)', 'data/b757_defects.txt (a)-(b’)', 'its CLAIM item (v) in full'])
 #⟪END⟫
 #⟪SECTION checks 15⟫
-# ### b757's title by its objects, the ferry's Component 6 order (data/b757_ferry.txt :49) adjusted to what the act did (record 31's _title
-# ### over the banks' feet, printed by scratch title757.py through tools/standing/fold.py load, writing nothing: the join broken at the import,
-# ### no tag cut; T0 and T1 compiled on push-b757-coeff; the module under v0.2.0; the wide direction compiled; 8 dispatches, 6 and 2; the
-# ### repairs 5 landed; the notes of (9) 5 written)
-TITLE_NEEDLES = ('## The build under (R368): the join of SIDE-explicit-formula`s four held branches broken at SIDEExplicitFormula.Schema.ZQ.OffZero.Time :18, no tag cut (b758_join, b758_outcomes)',
-                 'T0 compiled at 89eb71b6 and T1 compiled at e52f9060 on push-b758-coeff', 'the modulus-24 module compiled under v0.2.0',
-                 'the one direction over the wider strip compiled at 596d1c9e (b758_outcomes)',
-                 '8 dispatches, 6 in SIDE-explicit-formula and 2 in SIDE-dirichlet-mod-24 (b758_dispatch_rows)',
-                 'the five repairs, 5 landed (b758_cut, b758_standing_v1355, b758_ghcalls, b758_registry_line, b758_doors)',
-                 'the notes of (9), 5 written (b758_notes)')
+# ### b758's title by its objects, the ferry's Component 5 order (data/b758_ferry.txt :44) adjusted to what the act did (record 31's _title
+# ### over the banks' feet, printed by scratch title758.py through tools/standing/fold.py load, writing nothing, 05:02Z: b757's close written;
+# ### the join landed at v0.39 = d1afb4fc; the three landed at v0.40 = 630cba16; the routes 2 of 2; the statements at 630cba16; 2
+# ### dispatches; the notes of (8) 5 written); each needle composed with the typographic apostrophe, no backtick ((R368)(3)), conv(title) == title
+TITLE_NEEDLES = ('## The landing under (R368): b757’s close by its four carried steps, written (b758_corrigendum)',
+                 'the join of SIDE-explicit-formula’s four held branches landed at v0.39 = d1afb4fc (b758_presend, b758_land, b758_outcomes)',
+                 'T0, T1 and the one direction over the wider strip landed at v0.40 = 630cba16 (b758_coeff, b758_outcomes)',
+                 'the two routes of (6), 2 of 2 (b758_standing_v1360, b758_standing_v1361)',
+                 'the statements for sections 6 to 8 banked at 630cba16 (b758_epstein_statements)',
+                 '2 dispatches (b758_dispatch_rows)',
+                 'the notes of (8), 5 written (b758_notes)')
 #⟪END⟫
 #⟪SECTION checks 16⟫
                       r"(?: \(\([a-z][`'’]?\)(?:, \([a-z][`'’]?\))*\))? and the seat’s (\w+) defects? as lettered\.$", re.M)   # ### a primed letter read (defect (e`))
@@ -1864,8 +1865,9 @@ def _integ_line(f):
     """the entry's last line, the ferry's INTEGRATION line (data/b758_ferry.txt :44) composed from the banks' feet through _figs, adjusted to
     what the act did: b757's close by its closing record and scores close; the join and the three results by the outcomes bank's foot; the
     routes of (6) by their two standing versions' controls; the dispatches by the dispatch rows; the notes of (8) by the notes bank's five
-    confirms."""
-    return ("INTEGRATION: b757's close: %s; the join: %s; the three results: %s; the routes: %d of 2; dispatches %d; the notes of (8): %d written" % (
+    confirms. The apostrophe typographic, as (R368)(3) composes one and ENTRY_NEEDLES (checks 29) reads it; conv leaves a straight one as
+    it stands."""
+    return ("INTEGRATION: b757’s close: %s; the join: %s; the three results: %s; the routes: %d of 2; dispatches %d; the notes of (8): %d written" % (
         f['close_word'], f['join_word'], f['three_word'], f['routes'], f['disp_ef'] + f['disp_m24'], f['notes_written']))
 
 
@@ -2137,7 +2139,11 @@ def _post_lock_edits():
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    raise SystemExit('### b758`s a block reading an act ordinal or the read-first needles (SECTION record 28) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 3 code lines, stands in the carry`s diff bank
+    # ### b758, Component 5: the ruling's ordinal and title (the ferry's ACT line, data/b758_ferry.txt :33) adjusted to what the act did
+    # ### (data/b758_outcomes.txt: both LANDED; the four remote deletes carried, events (52)); the apostrophe typographic, (R368)(3)
+    return ('### b758 — lane two, act one hundred and eighty-five, the landing under (R368): b757 closed by its carried steps; a short corrigendum; '
+            'the join landed at v0.39; T0, T1 and the one direction over the wider strip landed at v0.40; two routes; the statements banked; '
+            'the notes of (8)')
 #⟪END⟫
 #⟪SECTION record 29⟫
 # ### b756: the figures of the title, entry and trail read from the banks' feet (_figs); the guard refuses where the feet disagree with
@@ -2263,6 +2269,7 @@ def _runs3_line():
     sv_ = dict((x_[0], (x_[2], x_[3])) for x_ in f['vers'])   # ### version -> (cases, as wanted)
     vw_ = lambda v_: '%s at relay %s, controls %d of %d' % (v_, sc_[v_][:8], sv_[v_][1], sv_[v_][0])   # ### a standing version as the entry names it
     nl_ = '; '.join('(%s) %s, %d line%s added' % (k_, (c_ or '').split(' at ')[0], n_, '' if n_ == 1 else 's') for k_, _f, c_, n_ in f['notes'])
+    pc_, ch_ = dict(K.PP_CHAIN), dict(K.CHAIN)   # ### the order line's commits by key, PLACE-papers and relay (the worklist's chains)
     oc_ = f['oc']
     j5_, c5_, cf5_ = oc_['join'], oc_['coeff'], f['cf'] or {}
     true5_ = [oc_[k_]['sentence'] for k_ in ('join', 'coeff') if oc_[k_]['outcome'] in ('LANDED', 'BROKE')]
@@ -2331,13 +2338,13 @@ def _runs3_line():
          '**T0, T1 and the wide direction** ((R368)(5)): %s' % cp5_, '',
          '**The two routes, the arm and the face** ((R368)(6)): (i) a fast-forward of a kernel`s local main to its remote`s main, refused where the local main is not an ancestor of the remote`s, read back, %s, its control a refusal on a planted divergent main in a scratch clone (relay data/b758_standing_v1360.txt); used for SIDE-dirichlet-mod-24`s local main and for SIDE-explicit-formula`s after each landing (relay data/b758_events.txt (38), (47)); '
          '(ii) a push of a named commit to a named non-main branch of a kernel, not forced, refused where the branch`s remote tip is not an ancestor, read back, %s, its control a refusal on a planted non-ancestor (relay data/b758_standing_v1361.txt), built for the acts after, zq-b730 staying at %s; '
-         'G-TRAIL-CARRIES-SEAL reading the tools` names from the trail bank, its control b756`s trail and b757`s, and the kernels face naming SIDE-dirichlet-mod-24, %s (relay data/b758_standing_v1362.txt). The routes: %d of 2.' % (
+         'G-TRAIL-CARRIES-SEAL reading the tools’ names from the trail bank, its control b756`s trail and b757`s, and the kernels face naming SIDE-dirichlet-mod-24, %s (relay data/b758_standing_v1362.txt). The routes: %d of 2.' % (
              vw_('v1.36.0'), vw_('v1.36.1'), K.ZQ_TIP[:8], vw_('v1.36.2'), f['routes']), '',
          '**The statements for sections 6 to 8** ((R368)(7)), banked and not written: the fourteen names at %s, %d of them found as one declaration, each with its file and line, its statement as written and its docstring, and its axioms line with the run that printed it, %d with no axioms line in the runs read; the heads of sections 6 to 8 of THE_EPSTEIN_CONTROL_OBJECT_v0_1.md by path, line range and the head line`s digest, %d of 3; controls %d of %d (relay data/b758_epstein_statements.txt, tools/b758_statements.py at %s). The navigator drafts the sections from that bank; they enter the document in the act the author names.' % (
              f['st_rev'], f['st_found'], f['st_noax'], f['st_sections'], f['st_ctl'][0], f['st_ctl'][1], K.STATEMENTS_GEN[:8]), '',
          '**The notes of (8)**: five PLACE-papers commits through the one-call tool with its scan, each composed by tools/b758_notes.py (relay %s, committed before its run) of the document`s own dated head and the sentences of (4) and (5) that came true, read from the outcomes bank and matched against the ruling`s template for the outcome: %s; no sentence above a note edited (relay data/b758_notes.json). '
          'The %d relay lines whose cites b757`s Epstein note moved, read by the citation tool`s helpers against the document at HEAD: %d cites, %d resolving, %d moved by two lines, %d naming no text line at b757`s write, %d elsewhere, %d gone, %d relay line%s not as b757 counted, each printed and none edited (relay data/b758_moved_cites.txt). '
-         'OPEN_TRAILS` block: b757`s root answer; the two lines the seat resolved at b757 standing as written, the author having struck neither; W-ORD-SQUARES-AT-24 taking its price as the ruling gives it, the navigator`s, from no build.' % (
+         'OPEN_TRAILS’ block: b757`s root answer; the two lines the seat resolved at b757 standing as written, the author having struck neither; W-ORD-SQUARES-AT-24 taking its price as the ruling gives it, the navigator`s, from no build.' % (
              K.C3_NOTES_GEN[:8], nl_, f['mv_lines'], f['mv_cites'], f['mv_resolving'], f['mv_two'], f['mv_notext'], f['mv_elsewhere'], f['mv_gone'], f['mv_uncounted'],
              '' if f['mv_uncounted'] == 1 else 's'), '',
          '**The side rule, narrowed** ((R368)(9)): N3`s side matcher reads the act`s sentences with each line headed by a dated record`s file and line and the report`s separator left out, every other matcher reading them as before; one control of each kind, a sentence of the act`s about a result caught and a line in b757`s sweep bank`s form passed; read against b757`s sweep bank, not rewritten (relay data/b758_events.txt (41)).', '',
@@ -2362,7 +2369,8 @@ def _runs3_line():
              cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the control read from its coefficients and from its zeros now stands on one main where the tags give it -- the coefficient law at the fields of class number 2 and the Epstein instance with its located zero beside the halved coefficients that fail multiplicativity at 2 and 3 and the coefficient at 48 with its sign; whether the located zero and the failed multiplicativity are one fact told from two sides is the navigator`s reading to make in the sections the statements bank feeds, promoting nothing; none is a finding about zeta.', '',
-         '**Carried to:** %s, per (R368)(10), as the author answers the one question at the root: sections 6 to 8 entered from the navigator`s draft with the author`s word; or the written proof of the class-number-3 coefficient law with the four carried orders priced beside it; or another the author names. W-ORD-KEIPER-FACE and the two lines the seat resolved at b757 stand as written; W-ORD-SQUARES-AT-24 priced as the ruling gives it; the route of (6)(ii) built and unused; the reproduction run, not run at this act; the draft held at v5.' % K.NEXT_ACT, '',
+         '**Carried to:** %s, per (R368)(10), as the author answers the one question at the root: sections 6 to 8 entered from the navigator`s draft with the author`s word; or the written proof of the class-number-3 coefficient law with the four carried orders priced beside it; or another the author names. W-ORD-KEIPER-FACE and the two lines the seat resolved at b757 stand as written; W-ORD-SQUARES-AT-24 priced as the ruling gives it; the route of (6)(ii) built and unused; %sthe reproduction run, not run at this act; the draft held at v5.' % (
+             K.NEXT_ACT, ('the deletes at SIDE-explicit-formula`s remote of the four kernel branches merged into main, %s, no route of the act deleting a kernel`s branch at its remote (relay data/b758_events.txt (52)); ' % ', '.join(K.KERNEL_DELETES_HALT[1:])) if K.KERNEL_DELETES == () and K.KERNEL_DELETES_HALT else ''), '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH, GRH or Weil positivity on classK holds or fails, or about the zeros of zeta.*', '',
          _integ_line(f), '']
@@ -2564,7 +2572,7 @@ def _trail_text_b757():
     ('corrigenda bank rows appended', 1, 1, 'rows', '### (R368)(1): row (78).'),
     ('ERRATA entries filed', 0, 0, 'entries', '### none this act ((R368) orders none).'),
     ('outcome sentences composed from the banks', 'OUTCOMES', 'OUTCOMES', 'sentences', '### (R368)(4), (5): each the ruling`s for the outcome its run read, its fields filled from the banks (relay data/b758_outcomes.txt); MEASURED off the outcomes bank`s rows read LANDED or BROKE.'),
-    ('notes of (8) written, each by one PLACE-papers commit', 'NOTESN', 'NOTESN', 'notes', '### (R368)(8)(a)-(e): the Epstein document, FACES_LEDGER, the census, REGISTRY and OPEN_TRAILS` block, each confirmed against its bytes; MEASURED off relay data/b758_notes.json.'),
+    ('notes of (8) written, each by one PLACE-papers commit', 'NOTESN', 'NOTESN', 'notes', '### (R368)(8)(a)-(e): the Epstein document, FACES_LEDGER, the census, REGISTRY and OPEN_TRAILS’ block, each confirmed against its bytes; MEASURED off relay data/b758_notes.json.'),
     ('cites b757`s Epstein note moved, read by the citation tool`s helpers', 'MOVED', 'MOVED', 'cites', '### (R368)(8): on the 123 relay lines, each printed, none edited; MEASURED off relay data/b758_moved_cites.txt`s foot.'),
     ('standing routes of (6) landed, each with its planted control', 2, 2, 'routes', '### (R368)(6)(i), (ii): v1.36.0 and v1.36.1 (relay data/b758_standing_v1360.txt, data/b758_standing_v1361.txt).'),
     ('orders entered with the trail', 0, 0, 'orders', '### none: no order entered this act; W-ORD-SQUARES-AT-24 takes its price in (8)(e)`s block.'),
