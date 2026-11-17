@@ -1729,6 +1729,25 @@ def _side_bad(x):
     return bool(re.search(N3_SIDE, x, re.I) and re.search(N3_CONTROL, x) and not re.search(N3_SIDE_NAMED, x))
 
 
+# ### (R368)(9), THE SIDE RULE NARROWED, from b757 defect (v): "A sentence the act writes about a result names the side where it speaks of
+# ### positivity at the control. A line that reports a dated record in that record's own words is outside the rule, and the matcher is taught
+# ### the difference by the line's head." The head: the line opens with the record's file and line and the report's separator,
+# ### `<file>.md :<n> -- ` or `<file>.lean :<n> -- ` (b757's sweep bank's form, :151-:183, and the statements bank's of (7)); such a line is
+# ### read by no side matcher, every other matcher reading it as before. b757's sweep bank is not rewritten.
+N3_DATED_HEAD = r'^\s*(?:PLACE-papers )?[\w./-]+\.(?:md|lean) :\d+(?:-:?\d+)? -- '
+
+
+def _dated_line(l_):
+    """(R368)(9): the line's head a dated record's file and line, the report's separator after it."""
+    return bool(re.match(N3_DATED_HEAD, l_ or ''))
+
+
+def _side_sentences(t):
+    """(R368)(9): the act's own sentences for the side matcher alone -- _own_sentences over the bank with each line headed by a dated record
+    (_dated_line) left out."""
+    return _own_sentences(NL.join(l_ for l_ in (t or '').replace(chr(13), '').split(NL) if not _dated_line(l_)))
+
+
 def _nav_bad(x):
     """N3 (R367): a sentence printing (7)'s price as the navigator read it with no navigator named in it."""
     return bool(re.search(N3_NAV_FIGS, x) and not re.search(r'\bnavigator', x))
@@ -1834,10 +1853,11 @@ def _notes_rows():
 #⟪END⟫
 #⟪SECTION record 20⟫
     # ### N3 over the act's own sentences (the banks' quote rows and quoted spans dropped) and the entry's, each matcher with its control
-    nsents_, navs_ = [], []
+    nsents_, navs_, nsides_ = [], [], []
     for b_ in N3_BANKS:
         t_ = rdn('%s_%s.txt' % (ACT, b_))
         nsents_ += _own_sentences(t_)
+        nsides_ += _side_sentences(t_)   # ### (R368)(9): the lines headed by a dated record left out of the side matcher alone
         navs_ += _nav_units(t_)   # ### defect (w): the navigator's figures read with each table row whole
     neg_ = N3_NEG
     row_n_ = '  (7) navigator  AS THE NAVIGATOR READ IT: 250-550 lines and 4-8 dispatches; hours (x) | lines 250-550 | dispatches 4-8\n'
@@ -1847,6 +1867,12 @@ def _notes_rows():
                  loc_c=not re.search(N3_LOC, 'There is a test function in classK, and the direction that gives it holds for every configuration.'),
                  neg=bool(re.search(neg_, 'RH is not proved.')),
                  side=_side_bad('Weil positivity fails at the control.') and not _side_bad('Positivity of the arithmetic side fails at the control.'),
+                 # ### (R368)(9), one control of each kind: a sentence the act writes about a result, caught; a line reporting a dated record in its
+                 # ### own words under the record's head (b757's sweep bank :159's form), passed
+                 side_result=any(_side_bad(x_) for x_ in _side_sentences('  THE LANDING: the control`s positivity fails at v0.40.\n')),
+                 side_dated=not any(_side_bad(x_) for x_ in _side_sentences(
+                     '  FINDINGS.md :12999 -- SAYS IT ; A DATED RECORD -- TAKES MOVED BY NO RULE -- hand-read: b736`s discharge: the control`s positivity '
+                     'failure held numerically at b726`s two windows, stated by no declaration then; true of its act\n      sha256 92c4460ac53deb3b\n')),
                  quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
                  and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')),
                  nav=_nav_bad('The wide direction took 250 to 550 lines.') and not _nav_bad('The navigator read 250 to 550 lines and 4 to 8 dispatches.')
@@ -1856,7 +1882,7 @@ def _notes_rows():
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
-    side_ = [x[:80] for x in sents + nsents_ if _side_bad(x)]
+    side_ = [x[:80] for x in sents + nsides_ if _side_bad(x)]   # ### (R368)(9): the banks' sentences with the dated records' lines left out
     # ### the writes of (9) against the ruling's text; no line of a paper removed; the navigator's figures
     notes_, removed_ = _notes_rows()
     navfig_ = [x[:80] for x in navs_ + sents if _nav_bad(x)]
