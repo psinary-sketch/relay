@@ -515,7 +515,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abc'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) to (c), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcde'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) to (e), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b758_misses.txt', 'data/b758_corrigendum.txt', 'data/b758_amendments.json', 'data/b758_standing_v1356.txt', 'data/b758_standing_v1357.txt',
@@ -766,17 +766,18 @@ TITLE_NEEDLES = ('## The landing under (R368): b757’s close by its four carrie
         and '  (78) ' in S['corrigenda'] and '  (79) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
-    worklist's SEALED naming no report tool. (R368) orders no rules bank for this act; the rule it works by is b757's, data/b757_rules.txt,
-    its rows (a) to (c) in force from b758 by (R367)(2); a rules bank is
+    worklist's SEALED naming no report tool. (R368) orders no rules bank for this act, nor did (R367); the rule it works by is b756's,
+    data/b756_rules.txt, its rows (a) to (c) in force from b757 by (R366)(2); a rules bank is
 #⟪END⟫
 #⟪SECTION checks 21⟫
-    here b757's rows (a) to (c), lettered as (R367)(2) letters them, in b757's Component 1 commit (relay 0a151012) and no other, the working
-    tree its blob at HEAD; no data/b758_rules.txt written (the worklist's C1_RULES None)."""
+    here b756's rows (a) to (c), lettered as (R366)(2) letters them, in b756's Component 1 commit (relay 0a151012) and no other, the working
+    tree its blob at HEAD; no data/b758_rules.txt written (the worklist's C1_RULES None). b758: the carry had shifted the bank's name to
+    b757's, which no commit holds (defect (e))."""
 #⟪END⟫
 #⟪SECTION checks 22⟫
-        and re.findall(r'(?m)^  \(([a-z])\) ', rd('b757_rules.txt') or '') == ['a', 'b', 'c'] \
+        and re.findall(r'(?m)^  \(([a-z])\) ', rd('b756_rules.txt') or '') == ['a', 'b', 'c'] \
         and not r1 and K.C1_RULES is None and not os.path.exists(os.path.join(D, 'b758_rules.txt')) \
-        and _txt(rd('b757_rules.txt')) == _txt(blob(ROOT, 'HEAD:' + K.B756_RULES[0])) \
+        and _txt(rd('b756_rules.txt')) == _txt(blob(ROOT, 'HEAD:' + K.B756_RULES[0])) \
         and [h_[:8] for h_ in gs(ROOT, 'log', '--format=%H', '--', K.B756_RULES[0]).split()] == [K.B756_RULES[1][:8]] \
 #⟪END⟫
 #⟪SECTION checks 23⟫
@@ -1067,7 +1068,7 @@ def research_reproduces_ok(S):
     ('G-CORRIGENDUM-ENTERED', '(R368)(1): the generated corrigendum for b757`s record, short, landed at FINDINGS :15484: b757`s 46 events and 28 defects by count from their banks, 74 items each CLAIM or CLOSE and NEW or REPEAT, CLAIM 2 CLOSE 72, REPEAT 52, its CLAIM item (v) in full; the ten findings after b757`s lock entered as b758`s events (23)-(32), CLAIM 0 CLOSE 10 REPEAT 7; no weight line; the corrigenda bank appended at row (78)',
 #⟪END⟫
 #⟪SECTION checks 51⟫
-    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); by (R367)(2), data/b757_rules.txt`s rows (a) to (c), in force from b758, in b757`s commit 0a151012 and no other, the working tree its blob at HEAD; no rules bank of b758`s, (R368) ordering none',
+    ('G-RULES-ROW-ENTERED', 'the rules that bind this act read where they stand: b710`s row (1) by version (v7 at VERSION 7), b709`s carry row (the carry banks), b708`s report row (no report tool sealed); by (R366)(2), data/b756_rules.txt`s rows (a) to (c), in force from b757, in b756`s commit 0a151012 and no other, the working tree its blob at HEAD; no rules bank of b758`s, (R368) ordering none',
 #⟪END⟫
 #⟪SECTION checks 52⟫
     # ### the act arms' names frozen with the run list; each description, predicate and plant over b758's objects
@@ -1088,7 +1089,13 @@ def research_reproduces_ok(S):
 #⟪SECTION checks 53⟫
     ('G-COUNT-ROUTE-PRICED', '(R368)(7), (8), (10), N1, N3: the counts read from their banks -- the notes of (8) five, (a) to (e), each at its file and confirmed at its commit with none removed; the relay lines whose cites b757`s note moved, 123 lines and 212 cites, none edited; the statements bank at v0.40 or at 596d1c9e by (5)`s outcome, fourteen names and three section heads, its controls all as wanted; the dispatches one to four in SIDE-explicit-formula and none elsewhere by their rows, each read once after it; b746`s draft at its md5; no Zenodo tool',
      lambda S: count_route_priced_ok(S), lambda S: _mut(S, 'notesj', lambda d: (d.get('items') or {}).pop('e', None))),   # ### b758: the trail's note (e) dropped from the notes bank
-    ('G-DIFFERS-ERRATA', '(R368)(1), (10): no DIFFERS entry and no ERRATA entry this act -- ERRATA.md at HEAD its base`s bytes; no differs or errata bank; the corrigendum in 6c50d50d, FINDINGS the one file there',
+    ('G-DIFFERS-ERRATA', '(R368)(1), (10): no DIFFERS entry and no ERRATA entry this act -- ERRATA.md at HEAD its base`s bytes; no differs or errata bank; the corrigendum in 6c50d50d, FINDINGS the one file there, its head at FINDINGS :15484; no weight line, (R368)(1) ordering none',
+#⟪END⟫
+# ### b758, Component 5 (the Edit tool), defect (d): the template's last clause reads a weight line in FINDINGS (K.WEIGHT_LINE), which (R368)(1)
+# ### orders none (the worklist's WEIGHT_LINE None, fline reading ''), so the arm failed at the act part's probe (05:27:49Z) on that clause alone;
+# ### it reads the corrigendum's head at the worklist's CORR_LINE instead, the line Component 1's PLACE-papers commit 6c50d50d wrote
+#⟪OVERRIDE checks MARK a024eb64e706 1⟫
+        and K.WEIGHT_LINE is None and fline(S, K.CORR_LINE).startswith('## Corrigendum to b757')
 #⟪END⟫
 #⟪SECTION checks 54⟫
     ('G-TOUCH-READ', 'standing clauses v9, N4: data/b758_touch.txt by hand before the root, every row AGREES or DIFFERS; no touch tool built',
