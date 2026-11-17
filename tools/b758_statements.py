@@ -218,7 +218,9 @@ def cmd_bank(rev, *runs):
             noax += 1
             out.append('    its axioms line: NO AXIOMS LINE in the runs read (%s)' % ', '.join(str(r) for r, _a in ax))
     sx = sections()
-    out += ['', '## THE DOCUMENT`S SECTIONS 6 TO 8, AT PLACE-papers HEAD, BY PATH, LINE RANGE AND THE HEAD LINE`S DIGEST (the words not copied)'] + [
+    pph = subprocess.run(['git', '-C', PP, 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    out += ['', '## THE DOCUMENT`S SECTIONS 6 TO 8, AT PLACE-papers HEAD %s, BY PATH, LINE RANGE AND THE HEAD LINE`S DIGEST (the words not copied; '
+            'a range of one line a head with no body yet; (8)`s note, written after this bank, moves the lines below it)' % pph[:8]] + [
         '  PLACE-papers %s :%s-:%s -- section %s, its head at :%s, sha256 %s' % (DOC, a, b, s, a, h) if a else '  section %s: %s' % (s, h)
         for s, a, b, h in sx]
     out += ['', '### ### **THE STATEMENTS BANK: AT %s ; NAMES %d, FOUND ONE DECLARATION %d ; NO AXIOMS LINE %d ; SECTIONS %d OF 3 ; CONTROLS %d OF %d.**' % (
