@@ -17,7 +17,8 @@ ITS CONTROLS, printed before the commit ((8)):
         last Lean file's directory; a backticked span a name only where it is one identifier (a field's signature its name, after "the
         structure of" its type); a relay bank named without data/; a one-word alias of the last relay bank ("notes :3"); a plain decimal
         figure standing where a decimal of the line rounds to it; a figure correction decided by the figures standing once in the file
-        HAND: the residue the reader cannot place, each read by hand and entered below with its verdict, BLOCK B's lines checked by the tool
+        HAND: the residue the reader cannot place, each read by hand and entered below with its verdict, BLOCK B's lines checked by the tool,
+        the HISTORY note's break (a module named by its dotted name) checked at b757's bank and at its run's built commit
   (v)   the banned stems 0 (tools/banned_terms.py --new over the composed file)
   (vi)  the brackets left, by name
 PLACE-papers lines are printed by path, line and sha256 (16 hex) alone, never by their words.
@@ -516,7 +517,27 @@ HAND = {
                            '(8) composing v0.1 :21-:218 unchanged but for them', None),
     (('text', 293), ':27, :33, :58, :73, :119'): ('HOLDS', 'v0.1`s lines, BLOCK B`s keys at them', 'blockb'),
     (('text', 293), ':214'): ('HOLDS', 'v0.1`s line, BLOCK B`s key at it', 'blockb'),
+    # ### found at the first dry on the act's fields (21:27Z): v0.1's dated note of 2026-11-16, entered byte for byte as (7)'s HISTORY, names
+    # ### the module where b757's join broke by its dotted name; read at that run's built commit, where the line declares the clashing name
+    (('field', 295), ':18'): ('HOLDS', 'v0.1`s dated note of 2026-11-16, entered byte for byte as (7)`s HISTORY: where b757`s join broke in run '
+                                       '43818699881, read at that run`s built commit 6568e9c7 (relay data/b757_outcomes.txt :5, :12, :15), '
+                                       'SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean :18 declaring `sRe` there; at the pin the line declares '
+                                       '`timeSRe`, b758`s rename d1afb4fc', 'b757break'),
 }
+
+
+def _b757break():
+    """the dated note's break: b757's outcomes bank names the run, its built commit and `sRe` at :18 of Time.lean, and carries the note's
+    sentence once; the kernel's blob of Time.lean declares `sRe` at :18 at that commit and `timeSRe` there at b758's rename d1afb4fc"""
+    b = _lines(os.path.join(D, 'b757_outcomes.txt'))
+    s = 'The join of the four branches broke at SIDEExplicitFormula.Schema.ZQ.OffZero.Time :18 in run 43818699881'
+    ok = (sum(1 for l in b if s in l) == 1 and any('built 6568e9c7, equal to the dispatched commit True' in l for l in b)
+          and any('(SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean): `sRe` declared at :18' in l for l in b))
+
+    def at(rev, name):
+        src = git(EFP, 'show', '%s:SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean' % rev).split(NL)
+        return len(src) >= 18 and re.search(DECL % name, src[17]) is not None
+    return ok and at('6568e9c7', 'sRe') and not at('6568e9c7', 'timeSRe') and at('d1afb4fc', 'timeSRe') and not at('d1afb4fc', 'sRe')
 
 
 def hand(rows, lines, ch):
@@ -531,7 +552,10 @@ def hand(rows, lines, ch):
                 v, why, chk = h
                 if chk == 'blockb':
                     v = 'HOLDS' if set(expand(r[4])) <= bl else 'LISTED'
-                r = ('hand', r[1], 'v0.1' if chk == 'blockb' or r[4] == ':31' else None, '-', r[4], [], v, 'read by hand: ' + why, None)
+                if chk == 'b757break':
+                    v = 'HOLDS' if _b757break() else 'LISTED'
+                pth = 'v0.1' if chk == 'blockb' or r[4] == ':31' else ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean' if chk == 'b757break' else None)
+                r = ('hand', r[1], pth, '6568e9c7' if chk == 'b757break' else '-', r[4], [], v, 'read by hand: ' + why, None)
         out.append(r)
     return out
 
