@@ -73,10 +73,17 @@ def _rd(p):
 
 
 def clause(n):
-    hit = [(i + 1, l) for i, l in enumerate(_rd(FERRY).split(NL)) if l.startswith('(%d) ' % n)]
+    """(the clause's first line, its text): the lines from the one opening `(n) ` to the line before the next clause's or the ruling's end,
+    joined. ### b759: (5) runs over :17 to :21, its statement at :19 and its sentences at :21; b758's reader took the opening line alone,
+    and the tool's control (1) refused it at its first run (19:50:4xZ), before any bank."""
+    ls = _rd(FERRY).split(NL)
+    hit = [i for i, l in enumerate(ls) if l.startswith('(%d) ' % n)]
     if len(hit) != 1:
         sys.exit('### CLAUSE (%d) NOT READ ONCE IN THE FERRY BANK -- nothing written' % n)
-    return hit[0]
+    j = hit[0] + 1
+    while j < len(ls) and not re.match(r'^\(\d+\) ', ls[j]) and not ls[j].startswith('RULING (R'):
+        j += 1
+    return hit[0] + 1, NL.join(ls[hit[0]:j])
 
 
 def quoted_after(text, words):
