@@ -515,7 +515,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcde'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) to (e), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdef'))   # ### b758: the seat's rows of data/b758_defects.txt as the template's reader takes them, (a) to (f), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b758_misses.txt', 'data/b758_corrigendum.txt', 'data/b758_amendments.json', 'data/b758_standing_v1356.txt', 'data/b758_standing_v1357.txt',
@@ -1096,6 +1096,13 @@ def research_reproduces_ok(S):
 # ### it reads the corrigendum's head at the worklist's CORR_LINE instead, the line Component 1's PLACE-papers commit 6c50d50d wrote
 #⟪OVERRIDE checks MARK a024eb64e706 1⟫
         and K.WEIGHT_LINE is None and fline(S, K.CORR_LINE).startswith('## Corrigendum to b757')
+#⟪END⟫
+# ### b758, Component 5 (the Edit tool), defect (f): v1.36.2 taught the kernels face's writer to name SIDE-dirichlet-mod-24 (record.tpl :634)
+# ### and not the suite's reader of the face (checks.tpl :611, its list without it), so G-KERNELS-UNTOUCHED's first clause (the face's
+# ### kernels equal the kernels read) failed at the standing-a2 probe (05:51:52Z), 24 against 23; the reader takes the writer's own list, in
+# ### the act's module for this act, the standing line carried to the next act's standing change (the misses read before the lock)
+#⟪OVERRIDE checks MARK f8d771e18f03 1 REPAIR (face)⟫
+        kern_face=(jl('b758_kernels_face.json').get('kernels') or {}), kerns_read=list(dict.fromkeys(REC._kerns() + ['SIDE-faces-join', 'SIDE-dirichlet-mod-24'])),
 #⟪END⟫
 #⟪SECTION checks 54⟫
     ('G-TOUCH-READ', 'standing clauses v9, N4: data/b758_touch.txt by hand before the root, every row AGREES or DIFFERS; no touch tool built',
