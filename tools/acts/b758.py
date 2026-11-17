@@ -352,6 +352,27 @@ def runner_ok(S):
 #⟪OVERRIDE checks MARK 23e17a97edcc 1⟫
     ('G-DELETES-ONE-BRANCH', '(⟪PRUL⟫)(2), (5): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the step-zero deletes each allowed by the ruling`s own delete clause read through tools/standing/allow.py, the merged kernel branches of (5) the worklist names, deleted and no other; port-b707 undeleted at its tip; the command bank`s count',
 #⟪END⟫
+# ### b758, AFTER THE LOCK, on the author's word (data/b758_put_2.json, answered 11:32:30Z; data/b758_events.txt (70)): G-DELETES-ONE-BRANCH's
+# ### plant turning to kept EVERY delete clause of the ruling that covers a named ref, not the first alone (tools/standing/allow.py plant_kept
+# ### :110-:117). (R368)(5)'s clause deleting the kernels' push-b757-* and push-b758-* branches (ferry :17) still allowed the relay's and
+# ### PLACE-papers' push-b757-* names once (2)'s clause (ferry :11) was planted, the reader not reading the repository, so the planted copy
+# ### passed and close.py dry refused the seal (data/b758_close_dry.txt :3). Its control the read-only scratch reader over the rulings of b724
+# ### to b758: planted ok False at b758, and at each of the other 34 as plant_kept read it. N4 REFUTED on this edit, by the author's word.
+#⟪OVERRIDE checks MARK 48a0f0acd92b 0⟫
+def plant_every_kept(ruling, must):
+    """b758, after the lock: the ruling with its whitespace collapsed (the form clauses() reads) and every delete clause covering a branch of
+    `must` read kept; None where no clause covers one."""
+    flat = re.sub(r'\s+', ' ', ruling or '')
+    cs = [c for c in STW.clauses(flat) if STW.DELETED.search(c) and not STW.NOT_DELETED.search(c) and any(STW.matches(b, STW.names_in(c)) for b in must)]
+    for c in cs:
+        flat = flat.replace(c, STW.DELETED.sub('kept', c), 1)
+    return flat if cs else None
+
+
+#⟪END⟫
+#⟪OVERRIDE checks MARK 820be1a09ba5 1⟫
+     lambda S: deletes_one_ok(S), lambda S: put(S, 'ferry', plant_every_kept(S['ferry'], NAMED_PUSH) or S['ferry'])),
+#⟪END⟫
 # ### b755, Component 6 (the Edit tool): b754's overrides of the ledger adds and G-FINDINGS-APPEND-ONLY (its (R364)(5)[A] passes
 # ### replacing seven FINDINGS lines one for one) retired -- b755 appends to FINDINGS alone (the weight line and the corrigendum at
 # ### PLACE-papers dc89f3e7, 1 hunk, 0 lines removed; the entry at the record), so the template's appended() and its arm read b755 as it stands
