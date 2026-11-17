@@ -2264,6 +2264,10 @@ def _runs3_line():
     n_ref = sum(_qc_(b)['prompts'] for b in _rf_)
     n_ans = _qc_(_aa_)['prompts'] - n_ref   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart; the refused call's read apart
     cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))   # ### the bank's foot
+    # ### b758 touch read: the comparative read's own line in the citation bank (banks, words, rows), cited by its line; step zero records none
+    cl_ = rdn(K.CITATION_BANK).replace('\r', '').split(NL)
+    cwl_ = next((i_ for i_, l_ in enumerate(cl_, 1) if l_.startswith('### THE COMPARATIVE SENTENCES AGAINST THE TABLES THEY CITE')), 0)
+    cw_ = re.search(r': banks (\d+), words (\d+), rows (\d+) ;', cl_[cwl_ - 1]) if cwl_ else None
     checks = __import__('standing.nouns', fromlist=['answer_checks']).answer_checks(rdn('%s_answer_check.txt' % ACT))   # ### v1.10.0, (R363)(2)(v)
     sc_ = dict((x_[0], x_[1]) for x_ in K.STANDING_BANKS)   # ### version -> its commit
     sv_ = dict((x_[0], (x_[2], x_[3])) for x_ in f['vers'])   # ### version -> (cases, as wanted)
@@ -2342,7 +2346,7 @@ def _runs3_line():
              vw_('v1.36.0'), vw_('v1.36.1'), K.ZQ_TIP[:8], vw_('v1.36.2'), f['routes']), '',
          '**The statements for sections 6 to 8** ((R368)(7)), banked and not written: the fourteen names at %s, %d of them found as one declaration, each with its file and line, its statement as written and its docstring, and its axioms line with the run that printed it, %d with no axioms line in the runs read; the heads of sections 6 to 8 of THE_EPSTEIN_CONTROL_OBJECT_v0_1.md by path, line range and the head line`s digest, %d of 3; controls %d of %d (relay data/b758_epstein_statements.txt, tools/b758_statements.py at %s). The navigator drafts the sections from that bank; they enter the document in the act the author names.' % (
              f['st_rev'], f['st_found'], f['st_noax'], f['st_sections'], f['st_ctl'][0], f['st_ctl'][1], K.STATEMENTS_GEN[:8]), '',
-         '**The notes of (8)**: five PLACE-papers commits through the one-call tool with its scan, each composed by tools/b758_notes.py (relay %s, committed before its run) of the document`s own dated head and the sentences of (4) and (5) that came true, read from the outcomes bank and matched against the ruling`s template for the outcome: %s; no sentence above a note edited (relay data/b758_notes.json). '
+         '**The notes of (8)**: five PLACE-papers commits through the one-call tool with its scan, each composed by tools/b758_notes.py (relay 5559a08b for (a) and %s, its controls repaired after (a), for (b) to (e), each committed before its run, relay data/b758_defects.txt (c)) of the document`s own dated head and the sentences of (4) and (5) that came true, read from the outcomes bank and matched against the ruling`s template for the outcome: %s; no sentence above a note edited (relay data/b758_notes.json). '
          'The %d relay lines whose cites b757`s Epstein note moved, read by the citation tool`s helpers against the document at HEAD: %d cites, %d resolving, %d moved by two lines, %d naming no text line at b757`s write, %d elsewhere, %d gone, %d relay line%s not as b757 counted, each printed and none edited (relay data/b758_moved_cites.txt). '
          'OPEN_TRAILS’ block: b757`s root answer; the two lines the seat resolved at b757 standing as written, the author having struck neither; W-ORD-SQUARES-AT-24 taking its price as the ruling gives it, the navigator`s, from no build.' % (
              K.C3_NOTES_GEN[:8], nl_, f['mv_lines'], f['mv_cites'], f['mv_resolving'], f['mv_two'], f['mv_notext'], f['mv_elsewhere'], f['mv_gone'], f['mv_uncounted'],
@@ -2365,8 +2369,10 @@ def _runs3_line():
          'roster (relay data/b758_standing_figures.txt); standing arms added %d.' % (
              f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
              f['figs10']['correspondence'], f['figs10']['readme'], f['figs10']['partners'], f['figs10']['pins'], len(K.STANDING_ADDED)), '',
-         '**The citation check** (the gate step from b662): %s cites checked, %s OK, %s missed, each printed; the comparative read vacuous, a pass that could not fire (relay data/b758_citation_check.txt, data/b758_stepzero.txt); %d answer check%s before the root.' % (
-             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-', checks, '' if checks == 1 else 's'), '',
+         '**The citation check** (the gate step from b662): %s cites checked, %s OK, %s missed, each printed; the comparative read vacuous, %s, a pass that could not fire (relay data/b758_citation_check.txt%s); %d answer check%s before the root.' % (
+             cc.group(1) if cc else '-', cc.group(2) if cc else '-', cc.group(3) if cc else '-',
+             ('%s comparative words in %s banks, %s rows' % (cw_.group(2), cw_.group(1), cw_.group(3))) if cw_ else 'its line unread',
+             (' :%d' % cwl_) if cwl_ else '', checks, '' if checks == 1 else 's'), '',
          scores_line(S), '',
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the control read from its coefficients and from its zeros now stands on one main where the tags give it -- the coefficient law at the fields of class number 2 and the Epstein instance with its located zero beside the halved coefficients that fail multiplicativity at 2 and 3 and the coefficient at 48 with its sign; whether the located zero and the failed multiplicativity are one fact told from two sides is the navigator`s reading to make in the sections the statements bank feeds, promoting nothing; none is a finding about zeta.', '',
          '**Carried to:** %s, per (R368)(10), as the author answers the one question at the root: sections 6 to 8 entered from the navigator`s draft with the author`s word; or the written proof of the class-number-3 coefficient law with the four carried orders priced beside it; or another the author names. W-ORD-KEIPER-FACE and the two lines the seat resolved at b757 stand as written; W-ORD-SQUARES-AT-24 priced as the ruling gives it; the route of (6)(ii) built and unused; %sthe reproduction run, not run at this act; the draft held at v5.' % (
