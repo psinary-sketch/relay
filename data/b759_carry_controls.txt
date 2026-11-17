@@ -1,0 +1,96 @@
+b759 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b758_controls.py -> tools/b759_controls.py (2026-11-17T19:39:44Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b758 -> b759, b757 -> b758, R368 -> R369, R367 -> R368); 525 lines, 30 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b758_tool_repairs.txt AND data/b758_repairdiff_controls.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b758; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b758_controls.py
+  +++ tools/b759_controls.py
+  @@ -2,3 +2,3 @@
+  -"""tools/b758_controls.py -- (R368)(4) AND (5): THE DISPATCH AND THE READ, carried from tools/b757_controls.py (b745's form, the repository a
+  -parameter) by tools/standing/carry.py (data/b758_carry_controls.txt), set for b758 by the Edit tool before its first run: the items, the caps,
+  -the planted cases, b757's two notes set back to b757's name.
+  +"""tools/b759_controls.py -- (R369)(4) AND (5): THE DISPATCH AND THE READ, carried from tools/b758_controls.py (b745's form, the repository a
+  +parameter) by tools/standing/carry.py (data/b759_carry_controls.txt), set for b759 by the Edit tool before its first run: the items, the caps,
+  +the planted cases, b758's two notes set back to b758's name.
+  @@ -8,2 +8,2 @@
+  -(standing.dispatchrows.licence: the clause of (R368) in data/b758_ferry.txt, committed at step zero). The caps are the worklist's, set from
+  -(R368)(10): "At most 4 dispatches", all in SIDE-explicit-formula, none in SIDE-dirichlet-mod-24. The kernel's remote is read from its own git
+  +(standing.dispatchrows.licence: the clause of (R369) in data/b759_ferry.txt, committed at step zero). The caps are the worklist's, set from
+  +(R369)(10): "At most 4 dispatches", all in SIDE-explicit-formula, none in SIDE-dirichlet-mod-24. The kernel's remote is read from its own git
+  @@ -12,1 +12,1 @@
+  -  control [--bank]                        the tool's own controls, planted and printed (data/b758_controls_control.txt with --bank)
+  +  control [--bank]                        the tool's own controls, planted and printed (data/b759_controls_control.txt with --bank)
+  @@ -20,1 +20,1 @@
+  -  bank                                    data/b758_controls.txt through standing.figbank: the controls first, the dispatches and reads after
+  +  bank                                    data/b759_controls.txt through standing.figbank: the controls first, the dispatches and reads after
+  @@ -22,1 +22,1 @@
+  -  items: join ((4), the joined branch push-b758-land), coeff ((5), the merged branch push-b758-coeff), both SIDE-explicit-formula's;
+  +  items: join ((4), the joined branch push-b759-land), coeff ((5), the merged branch push-b759-coeff), both SIDE-explicit-formula's;
+  @@ -42,1 +42,1 @@
+  -import b758_worklist as K        # noqa: E402
+  +import b759_worklist as K        # noqa: E402
+  @@ -48,6 +48,6 @@
+  -ACT = 'b758'
+  -ROWS = os.path.join(D, 'b758_dispatch_rows.json')
+  -BANK = os.path.join(D, 'b758_controls.txt')
+  -CONTROL_BANK = os.path.join(D, 'b758_controls_control.txt')
+  -ANSWERS = 'data/b758_ferry.txt'
+  -RUNS = 'D:/b758-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  +ACT = 'b759'
+  +ROWS = os.path.join(D, 'b759_dispatch_rows.json')
+  +BANK = os.path.join(D, 'b759_controls.txt')
+  +CONTROL_BANK = os.path.join(D, 'b759_controls_control.txt')
+  +ANSWERS = 'data/b759_ferry.txt'
+  +RUNS = 'D:/b759-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  @@ -61,1 +61,1 @@
+  -REMOTE_HEADS = re.compile(r'^refs/heads/(main|zq-b730|push-b758-[a-z0-9][a-z0-9-]*)$')
+  +REMOTE_HEADS = re.compile(r'^refs/heads/(main|zq-b730|push-b759-[a-z0-9][a-z0-9-]*)$')
+  @@ -100,1 +100,1 @@
+  -        return 'an item (R368) does not order: %r' % (item,)
+  +        return 'an item (R369) does not order: %r' % (item,)
+  @@ -110,1 +110,1 @@
+  -        return 'dispatch %d past the act`s %d in %s ((R368)(10))' % (n, cap, KERNELS[k]['key'])
+  +        return 'dispatch %d past the act`s %d in %s ((R369)(10))' % (n, cap, KERNELS[k]['key'])
+  @@ -120,1 +120,1 @@
+  -    """None where `full` is the tip of a remote head of the act's forms (main, zq-b730, push-b758-*); `heads` [(sha, ref)] from one ls-remote."""
+  +    """None where `full` is the tip of a remote head of the act's forms (main, zq-b730, push-b759-*); `heads` [(sha, ref)] from one ls-remote."""
+  @@ -124,1 +124,1 @@
+  -    return None if at else 'the commit %s is no remote branch`s tip of the forms main, zq-b730, push-b758-* (push it by tools/push_gated.sh first)' % full[:8]
+  +    return None if at else 'the commit %s is no remote branch`s tip of the forms main, zq-b730, push-b759-* (push it by tools/push_gated.sh first)' % full[:8]
+  @@ -202,1 +202,1 @@
+  -        # ### the targets read from a bank a committed tool wrote (tools/b758_join.py bank), bound to the commit dispatched
+  +        # ### the targets read from a bank a committed tool wrote (tools/b759_join.py bank), bound to the commit dispatched
+  @@ -246,1 +246,1 @@
+  -        # ### the row's own target check given the srcDir-aware list (tree=): b757 dispatch 1's row, given repo=, read the tree alone and
+  +        # ### the row's own target check given the srcDir-aware list (tree=): b758 dispatch 1's row, given repo=, read the tree alone and
+  @@ -339,1 +339,1 @@
+  -    # ### b757, the join's run 43818699881: the build exited 0 and the axioms print failed at its import (two modules declaring one name), so
+  +    # ### b758, the join's run 43818699881: the build exited 0 and the axioms print failed at its import (two modules declaring one name), so
+  @@ -410,1 +410,1 @@
+  -    c('nine planted dispatches refused (an EF item in SIDE-dirichlet-mod-24, two items (R368) does not order, past the cap of 4, out of series, '
+  +    c('nine planted dispatches refused (an EF item in SIDE-dirichlet-mod-24, two items (R369) does not order, past the cap of 4, out of series, '
+  @@ -418,1 +418,1 @@
+  -    c('the caps against (R368)(10)`s words', caps, caps == (4, 0) and 'At most 4 dispatches.' in ferry)
+  +    c('the caps against (R369)(10)`s words', caps, caps == (4, 0) and 'At most 4 dispatches.' in ferry)
+  @@ -462,1 +462,1 @@
+  -    heads = [('a' * 40, 'refs/heads/push-b758-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
+  +    heads = [('a' * 40, 'refs/heads/push-b759-join'), ('b' * 40, 'refs/heads/feature'), ('c' * 40, 'refs/heads/main')]
+  @@ -464,1 +464,1 @@
+  -    c('the remote tip: a push-b758-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))
+  +    c('the remote tip: a push-b759-* tip taken, another branch`s refused, main`s taken, no tip refused, no commit refused', tp, tp == (None, True, None, True, True))
+  @@ -475,1 +475,1 @@
+  -    out = ['%s -- tools/b758_controls.py`s OWN CONTROLS, (R368)(4) AND (5), BEFORE ITS OPENING DISPATCH (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  +    out = ['%s -- tools/b759_controls.py`s OWN CONTROLS, (R369)(4) AND (5), BEFORE ITS OPENING DISPATCH (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  @@ -486,1 +486,1 @@
+  -    out = ['%s -- (R368)(4) AND (5): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  +    out = ['%s -- (R369)(4) AND (5): THE DISPATCHES AND THE READS, BY THE RUNNER, EACH READ BY ITS RUN ID (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+  @@ -515,1 +515,1 @@
+  -    print('written data/b758_controls.txt ; figbank: %s' % r['why'])
+  +    print('written data/b759_controls.txt ; figbank: %s' % r['why'])
+
+### ### **CARRIED tools/b759_controls.py ; LINES 525 ; CHANGED BY THE SUBSTITUTION 30 ; REPAIR SPANS AT b758 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

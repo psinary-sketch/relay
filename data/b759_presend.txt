@@ -1,0 +1,56 @@
+b759 -- (R369)(5): THE PRE-SEND READS OF (R368)(4), CARRIED, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-17T19:39:21Z)
+
+### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
+### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
+### refuses printed, the two known wanted (:358 and :359, each carrying the Greek capital lambda); the file not edited for them, the
+### workflow not widened. The reads and controls are tools/b758_presend.py`s, imported and not changed.
+
+## THE CONTROLS
+  (1) every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a nested namespace, _root_, an attribute, a class inductive read): ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'] -> AS WANTED
+  (2) the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a priority and a scoped one read as named, a type on the next line unread): (['C.named', 'C.sc'], [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)]) -> AS WANTED
+  (3) the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not): {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]} -> AS WANTED
+  (4) the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not): {'A.x': [('M1', 3), ('M2', 9)]} -> AS WANTED
+  (5) the imports of a planted header (two lines, a comment between, the body after not read): ['A.B', 'C'] -> AS WANTED
+  (6) the class of the workflow`s pattern as written, expanded: A-Z, a-z, 0-9, underscore, full stop, the prime: A-Z, a-z, 0-9, "'", '.', '_' (65 characters) -> AS WANTED
+  (7) the class read from .github/workflows/build-module.yml at 6568e9c7, the line the ruling names: (91, "A-Za-z0-9_.\\'") -> AS WANTED
+  (8) the target filter read from .github/workflows/build-module.yml at 6568e9c7 (:44: letters, digits, underscore, full stop and the space parting the modules): (44, 'A-Za-z0-9_.\\ ') -> AS WANTED
+  (9) the filter on planted names (a dotted name and a prime passed; the Greek capital lambda, a hyphen and a subscript refused): [('Foo.bar', True), ("Foo.bar'", True), ('Foo.zqPair_Λ_one', False), ('Foo-bar', False), ('Foo.b₁', False)] -> AS WANTED
+  (10) the module`s file as Lake names it, inverted (the default library, the vendored srcDir, a module outside the tree): ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', None) -> AS WANTED
+  (11) THE POSITIVE CONTROL, b757`s break (data/b757_events.txt (17)): at 6568e9c7 the reader finds SIDEExplicitFormula.Schema.ZQ.OffZero.sRe in OffZero.Time :18 and OffZero.Sums :134: [('SIDEExplicitFormula.Schema.ZQ.OffZero.sRe', [('Time', 18), ('Sums', 134)])] -> AS WANTED
+  THE SALT CHECK`S PLANTED CONTROLS:
+  (s1) the planted theorem as ordered: PASSED -> AS WANTED
+  (s2) a hypothesis bound before its colon: REFUSED -> AS WANTED
+  (s3) primeSum left in place of primeTermQ: REFUSED -> AS WANTED
+  (s4) the negation dropped: REFUSED -> AS WANTED
+  (s5) ComplexOrder opened for the whole file: REFUSED -> AS WANTED
+
+### main as b758 left it (v0.40), where push-b759-weil is made
+## AT 630cba16 (630cba16)
+  THE TARGETS (tools/b757_join.py`s reader): names 484 ; resolved to one module 484 ; refused 0 [] ; modules 97
+  THE IMPORT CLOSURE IN THE TREE: modules 372 (the targets` 97 among them, 97 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1176 names, duplicates 0 ; over the closure 4141 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at 630cba16): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 484 ; passed 482 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 97 of 97
+
+### the tip the dispatch is sent at
+## AT a3aad4cc (a3aad4cc)
+  THE TARGETS (tools/b757_join.py`s reader): names 489 ; resolved to one module 489 ; refused 0 [] ; modules 99
+  THE IMPORT CLOSURE IN THE TREE: modules 372 (the targets` 99 among them, 99 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1191 names, duplicates 0 ; over the closure 4142 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at a3aad4cc): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 489 ; passed 487 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 99 of 99
+
+### (R369)(5): the salt check, printed before the send
+## THE SALT CHECK AT a3aad4cc (a3aad4cc)
+  h2_sign (SIDEExplicitFormula/H2Sign.lean, its body)        : ∀ k : ℝ → ℂ, classK k → 0 ≤ poleTerm k - primeSum k + archTerm k
+  the body in the control`s names : ¬ ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ B321.poleTerm k - primeTermQ (fun n => cQ n) k + archTermQ k
+  zq_weil_positivity_fails (SIDEExplicitFormula/Schema/Wide/HalfScaleControl.lean)  : ¬ ∀ k : ℝ → ℂ, B321.classK k → 0 ≤ B321.poleTerm k - primeTermQ (fun n => cQ n) k + archTermQ k
+  THE SAME EXPRESSION UNDER A NEGATION: EQUAL ; BINDERS BEFORE ITS COLON: none (binding no hypothesis) ; ComplexOrder OPENED FOR IT ALONE: YES (the line before its docstring 'open scoped ComplexOrder in' ; the file`s lines opening ComplexOrder [37])
+
+### ### **THE PRE-SEND READS AT a3aad4cc: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 99 MODULES FOR 489 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK PASSED ; CONTROLS 16 OF 16.**
