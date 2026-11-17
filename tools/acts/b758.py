@@ -1978,16 +1978,22 @@ def _post_lock_edits():
 # ### b754, defect (v): N5's SIDE-explicit-formula clause (record.tpl :2563-2564) wanted no tag past v0.37 and every kernel's tags as b753's face
 # ### read them; (R364)(3) adds the one tag v0.38 at 14ca5725, so the clause reads that tag and no other: the tag sets equal but for v0.38 at
 # ### 14ca572, main unmoved, the tags containing v0.37 exactly v0.37 and v0.38, v0.38 peeling to 14ca5725
+# ### b758, (R368)(4), (5), N5: SIDE-explicit-formula's main and tags against b757's face moved by the outcomes alone -- main at the last
+# ### LANDED item's peel (8fbab45d where none landed), the tags b757's face read and each LANDED item's tag at its peel, no other; the tags
+# ### containing v0.37 among v0.37, v0.38 and those; v0.38 peeling to 14ca5725
 #⟪OVERRIDE record MARK 82a559f5c96c 2⟫
     _ef_now, _ef_prev = now.get('SIDE-explicit-formula') or ['', {}], prev.get('SIDE-explicit-formula') or ['', {}]
-    tag_one = _ef_now[0] == _ef_prev[0] and dict(_ef_now[1] or {}) == dict(dict(_ef_prev[1] or {}), **{'v0.38': '14ca572'})
+    _land5 = [r_ for r_ in (json.loads(rdn('%s_outcomes.json' % ACT, optional=True) or '[]') or []) if r_.get('outcome') == 'LANDED' and r_.get('tag') and r_.get('peel')]
+    _new5 = dict((r_['tag'], r_['peel'][:7]) for r_ in _land5)
+    _main5 = _land5[-1]['peel'] if _land5 else K.EF_BASE
+    tag_one = _ef_now[0] == _main5[:7] and dict(_ef_now[1] or {}) == dict(dict(_ef_prev[1] or {}), **_new5)
     moved = [k_ for k_ in moved if not (k_ == 'SIDE-explicit-formula' and tag_one)]
-    ef_ok = ef_main == K.EF_MAIN and sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--contains', K.EF_V037).split() if t_.strip()) == ['v0.37', 'v0.38'] \
+    ef_ok = ef_main.startswith(_main5[:8]) and set(t_ for t_ in g(K.EF_DIR, 'tag', '--contains', K.EF_V037).split() if t_.strip()) <= set(['v0.37', 'v0.38'] + list(_new5)) \
         and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.38^{commit}').strip().startswith('14ca5725') and ch_ok \
         and bool(prev) and not moved and not pins_on_main
 #⟪END⟫
 #⟪OVERRIDE record MARK 68d2d745304d 1⟫
-            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main at 8fbab45d, the one tag past v0.37 v0.38 at 14ca5725 (in b757`s face as in this act`s, no tag cut in that kernel this act), the challenge branch %s at %s with no tag and '
+            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main and tags against b757`s face moved by the outcomes of (R368)(4) and (5) alone (main at the last landed tag`s peel, 8fbab45d where none landed; each landed tag at its peel; v0.38 at 14ca5725; read in full in N5`s kernel clause below), the challenge branch %s at %s with no tag and '
 #⟪END⟫
 #⟪SECTION record 24⟫
         'the lock at %s, its commit %s; the commits after it (relay) %d, touching the face, a tool or a bank tracked at the lock commit: %s; the '
@@ -1996,10 +2002,14 @@ def _post_lock_edits():
             ', '.join(N4_APPENDED)) +
 #⟪END⟫
 #⟪SECTION record 25⟫
-    # ### (R367)(10), N5: no kernel beyond the two touched -- every ref of every kernel carrying a commit made after the act's opening commit is
-    # ### a fault but the act's own: in SIDE-explicit-formula and SIDE-dirichlet-mod-24 a push-b757-* branch, and SIDE-dirichlet-mod-24's main
-    # ### (moved by the gated push after its run's success, N2); a listed branch of the face's list excepted as before; no .lean file changed or
-    # ### untracked in a kernel's tree; the rebuild-b721 branches kept as b756 found them; the address scan's count from its bank
+    # ### (R368)(10), N5: "no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i)" -- every ref of every kernel
+    # ### carrying a commit made after the act's opening commit is a fault but the act's own: in SIDE-explicit-formula a push-b758-* branch, its
+    # ### main at the last landed tag's peel and the landed tags; SIDE-dirichlet-mod-24's local main (6)(i) moved to a commit of b757's, before
+    # ### the start; a listed branch of the face's list excepted as before; no .lean file changed or untracked in a kernel's tree; the
+    # ### rebuild-b721 branches kept as b756 found them; the address scan's count from its bank
+    ocr5_ = json.loads(rdn('%s_outcomes.json' % ACT)) or []
+    land5_ = [r_ for r_ in ocr5_ if r_.get('outcome') == 'LANDED']
+    main5_ = (land5_[-1].get('peel') if land5_ else K.EF_BASE) or ''
     start = int((g(ROOT, 'log', '-1', '--format=%ct', K.ACT_CURRENT_COMMIT) or '0').strip() or 0)
     listed_ = [(r_.get('kernel'), r_.get('branch')) for r_ in __import__('standing.facebranches', fromlist=['listed']).listed(ACT)]   # ### v1.24.0, (R354)(2)(v): the face's branch list
     own_k_ = ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24')
@@ -2013,7 +2023,9 @@ def _post_lock_edits():
                 if l.strip()]
         for r_ in refs:
             if len(r_) == 3 and r_[2].isdigit() and int(r_[2]) > start and (kn, r_[0][len('refs/heads/'):]) not in listed_:
-                if kn in own_k_ and (r_[0].startswith('refs/heads/push-b758-') or (kn == 'SIDE-dirichlet-mod-24' and r_[0] == 'refs/heads/main')):
+                if kn in own_k_ and (r_[0].startswith('refs/heads/push-b758-') or (kn == 'SIDE-dirichlet-mod-24' and r_[0] == 'refs/heads/main')
+                                     or (kn == 'SIDE-explicit-formula' and r_[0] == 'refs/heads/main' and bool(land5_) and r_[1].startswith(main5_[:8]))
+                                     or (kn == 'SIDE-explicit-formula' and r_[0] in ['refs/tags/%s' % x_.get('tag') for x_ in land5_])):
                     own_r.append('%s %s %s' % (kn, r_[0][len('refs/heads/'):], r_[1][:8]))
                 else:
                     lean_w.append('%s %s (a commit after the act`s start)' % (kn, r_[0]))
@@ -2023,26 +2035,35 @@ def _post_lock_edits():
     rb_kept = [k for k, _t, _p in K.WAVE1 if g('D:/' + k, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + K.REBUILD_BRANCH).strip()]
     addr = re.search(r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ; PREVIOUS NAME: (\d+) ; THE ORCID: (\d+) ;', rdn('%s_address_scan.txt' % ACT))
     addr_ok = bool(addr) and addr.groups() == ('0', '0', '0', '0')
-    # ### N5: SIDE-dirichlet-mod-24's one new tag, its peel read back at the remote equal to main (the gated push's capture, the clone's main
-    # ### left where it stood: the push carries push-b757-mod24's tip to the remote main); SIDE-explicit-formula: no tag past v0.38, the two
-    # ### push-b757-* branches at their tips, each read back at the remote in its capture
-    m24c_ = rdn('%s_SIDE-dirichlet-mod-24_push-b758-mod24_push_out.txt' % ACT)
-    m24_rb_ = re.findall(r'(?m)^push_gated: main read back at the remote: ([0-9a-f]{40})$', m24c_)
-    m24_pl_ = re.findall(r'(?m)^push_gated: tag %s peeled local ([0-9a-f]{40}) remote ([0-9a-f]{40})$' % re.escape(K.M24_TAG[0]), m24c_)
+    # ### N5 (R368): "v0.38's peel reads 14ca5725 and v0.2.0's reads e5ebdd15 at the close; each new tag's peel is read back equal to main".
+    # ### SIDE-dirichlet-mod-24: v0.2.0 peeling to e5ebdd15 by its tag object, the local main there by (6)(i)'s route. SIDE-explicit-formula:
+    # ### each tag the outcomes bank gives LANDED, its gated push's capture reading main back at the remote equal to the tag's commit and the
+    # ### tag's peel local and remote equal to it, the commit the outcome's peel; no tag v0.39* or v0.40* beyond those; v0.38 at 14ca5725; each
+    # ### branch the act pushed read back at the remote in its capture
     m24_loc_ = g(K.M24_DIR, 'rev-parse', '--verify', '--quiet', '%s^{commit}' % K.M24_TAG[0]).strip()
-    m24_ok = m24_loc_.startswith(K.M24_TAG[2]) and m24_rb_ == [m24_loc_] and m24_pl_ == [(m24_loc_, m24_loc_)] \
+    m24_main_ = g(K.M24_DIR, 'rev-parse', '--verify', '--quiet', 'main').strip()
+    m24_ok = m24_loc_.startswith(K.M24_TAG[2]) and m24_main_ == m24_loc_ \
         and g(K.M24_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/%s' % K.M24_TAG[0]).strip().startswith(K.M24_TAG[1])
-    ef_new_tags_ = [t_ for t_ in g(K.EF_DIR, 'tag', '--list', 'v0.39*', 'v0.40*').split() if t_.strip()]
-    ef_br_ = [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b_).strip()[:8]) for b_, _t in (K.JOIN_BRANCH, K.COEFF_BRANCH)]
-    ef_rb_ = [bool(re.search(r'(?m)^push_gated: branch %s read back at the remote: %s' % (re.escape(b_), t_), rdn('%s_SIDE-explicit-formula_%s_push_out.txt' % (ACT, b_))))
-              for b_, t_ in (K.JOIN_BRANCH, K.COEFF_BRANCH)]
-    efb_ok = not ef_new_tags_ and ef_br_ == [(b_, t_) for b_, t_ in (K.JOIN_BRANCH, K.COEFF_BRANCH)] and all(ef_rb_)
-    # ### (R367)(8)(iii), N5: a repository edit read by the taught reader (tools/b757_ghcalls.py over this act's capture): no captured command
-    # ### runs gh repo edit, and the sends from inside a tool by its rows bank are (8)(v)'s two descriptions alone, from tools/b757_doors.py
-    gho_ = __import__('b758_ghcalls').over(ACT)
+    br5_ = {'join': K.LAND_BRANCH[0], 'coeff': K.COEFF_LAND_BRANCH[0]}
+    efl_ = []
+    for r_ in land5_:
+        c_ = rdn('%s_SIDE-explicit-formula_%s_push_out.txt' % (ACT, br5_.get(r_.get('item'), '-')), optional=True) or ''
+        rb_ = re.findall(r'(?m)^push_gated: main read back at the remote: ([0-9a-f]{40})$', c_)
+        pl_ = re.findall(r'(?m)^push_gated: tag %s peeled local ([0-9a-f]{40}) remote ([0-9a-f]{40})$' % re.escape(r_.get('tag') or '-'), c_)
+        loc_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', '%s^{commit}' % (r_.get('tag') or '-')).strip()
+        efl_.append((r_.get('tag'), loc_[:8] or 'NONE', bool(loc_) and loc_.startswith((r_.get('peel') or '-')[:8]) and rb_[-1:] == [loc_] and pl_[-1:] == [(loc_, loc_)]))
+    ef_new_tags_ = sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--list', 'v0.39*', 'v0.40*').split() if t_.strip())
+    v038_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.38^{commit}').strip()
+    pushed5_ = [(K.LAND_BRANCH[0], K.LAND_BRANCH[1])] + ([(K.COEFF_LAND_BRANCH[0], K.COEFF_LAND_BRANCH[1])] if K.COEFF_LAND_BRANCH[1] else [])
+    ef_rb_ = [(b_, bool(re.search(r'(?m)^push_gated: branch %s read back at the remote: %s' % (re.escape(b_), t_ or '-'),
+                                  rdn('%s_SIDE-explicit-formula_%s_push_out.txt' % (ACT, b_), optional=True) or ''))) for b_, t_ in pushed5_]
+    efb_ok = ef_new_tags_ == sorted(t_ for t_, _l, _o in efl_) and all(o_ for _t, _l, o_ in efl_) and v038_.startswith('14ca5725') and all(o_ for _b, o_ in ef_rb_)
+    # ### N5: a repository edit read by the taught reader (tools/b757_ghcalls.py over this act's capture, unedited): no captured command runs
+    # ### gh repo edit, and no tool the capture runs sends one ((R368) orders no description)
+    gho_ = __import__('b757_ghcalls').over(ACT)
     ghr_ = (gho_ or {}).get('direct')
     ghs_ = (gho_ or {}).get('sends') or {}
-    gh_ok = gho_ is not None and not ghr_ and sorted(ghs_) == ['b758_doors'] and len(ghs_['b758_doors'] or []) == 2
+    gh_ok = gho_ is not None and not ghr_ and not ghs_
     # ### v1.30.0, (R360)(3)(vi), b749 defects (l), (q), (t): a release, a new version, a publish or a repository edit read from the act's Zenodo
     # ### banks alone (standing.act.zenodo_requests), not from captured commands nor from "the draft held at v5", the monograph's draft
     zr_ = __import__('standing.act', fromlist=['zenodo_requests']).zenodo_requests(ACT)
@@ -2056,12 +2077,12 @@ def _post_lock_edits():
 #⟪END⟫
 #⟪SECTION record 27⟫
             'the address scan (relay data/b758_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of any '
-            'kernel, the act`s own apart (a push-b758-* branch in SIDE-explicit-formula or SIDE-dirichlet-mod-24, and SIDE-dirichlet-mod-24`s main), or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
-            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, the gated push reading main back at the remote %s and the tag`s peel local and remote %s: %s; SIDE-explicit-formula: a tag v0.39 or v0.40: %s, %s locally, each read back at the remote in its capture %s: %s; '
-            'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader of (R368)(8)(iii), tools/b758_ghcalls.py): %s, (8)(v)`s two descriptions alone: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
-                (addr.groups() if addr else ('UNREAD',) * 4) + (len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
-                K.M24_TAG[0], m24_loc_[:8] or 'NONE', [x_[:8] for x_ in m24_rb_] or 'NONE', [(a_[:8], b_[:8]) for a_, b_ in m24_pl_] or 'NONE', m24_ok,
-                ef_new_tags_ or 'NONE', ', '.join('%s at %s' % x_ for x_ in ef_br_), ef_rb_, efb_ok,
+            'kernel, the act`s own apart (a push-b758-* branch, main at the last landed tag`s peel %s and the landed tags in SIDE-explicit-formula, SIDE-dirichlet-mod-24`s local main), or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
+            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: the tags v0.39* and v0.40* %s, each landed tag at its outcome`s peel with main read back at the remote equal to it and its peel local and remote equal (%s), v0.38 at %s, each branch the act pushed read back at the remote in its capture %s: %s; '
+            'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b757_ghcalls.py): %s, none wanted: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
+                (addr.groups() if addr else ('UNREAD',) * 4) + (main5_[:8], len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
+                K.M24_TAG[0], m24_loc_[:8] or 'NONE', m24_main_[:8] or 'NONE', m24_ok,
+                ef_new_tags_ or 'NONE', '; '.join('%s at %s %s' % x_ for x_ in efl_) or 'none landed', v038_[:8] or 'NONE', ef_rb_, efb_ok,
                 'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or ('UNREAD (no command bank)' if gho_ is None else 'NONE'), gh_ok,   # ### defect (x): NONE printed unread
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
