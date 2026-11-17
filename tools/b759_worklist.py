@@ -119,7 +119,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = '630cba16e228a018f9dd986196142fc6feb704ec'    # ### b758: SIDE-explicit-formula's main at the close -- (5)'s merge at v0.40 (04:37:50Z, tag object d86d8cf5), after (4)'s landing at v0.39 = d1afb4fc (02:56:24Z) (entering at 8fbab45d, EF_BASE)
+EF_MAIN = '630cba16e228a018f9dd986196142fc6feb704ec'    # ### b759: SIDE-explicit-formula's main at the close -- entering at 630cba16 (b758's v0.40), set to v0.41's peel where (5) lands, its run's success alone moving it
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -478,8 +478,11 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
                        ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
                        ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names (the carry had shifted them)
 # ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
-KERNEL_COMMITS = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'),             # ### (R368)(4): the one commit of push-b758-land, on main at v0.39
-                  ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### (R368)(5): the merge of 596d1c9e, made on push-b758-coeff, on main at v0.40 (04:37:50Z)
+KERNEL_COMMITS = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'push-b759-weil'),   # ### (R369)(5) commit one: the four print lines (19:32:35Z, step 14)
+                  ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'push-b759-weil'))     # ### (R369)(5) commit two: zq_weil_positivity_fails (19:34:26Z, step 15); the branch each stands on set to main where (5) lands
+KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
+WEIL_BRANCH = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): made at main 630cba16 (19:30:14Z); commit one ddb3efb9, commit two a3aad4cc; pushed alone and read back (19:45:58Z)
+WEIL_TAG = ('v0.41', None, None)   # ### (R369)(5): name, tag object, peel read back at the remote; set from the outcomes bank where (5) lands
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
@@ -487,10 +490,12 @@ M24_MAIN = 'e5ebdd15'                 # ### b758: its remote main, unmoved; its 
 M24_TAG = ('v0.2.0', 'e5c84316', 'e5ebdd15')   # ### (R367)(6): name, tag object, peel read back at the remote (data/b757_SIDE-dirichlet-mod-24_push-b757-mod24_push_out.txt)
 # ### b758 step zero: the carry shifted b757's two kernel branch names to push-b758-* here and in KERNEL_COMMITS above; set back to the names
 # ### the remote holds (ls-remote 23:4xZ: push-b757-coeff 596d1c9e, push-b757-join 6568e9c7). KERNEL_COMMITS stays b757's until Components 2-3 write b758's.
-COEFF_BRANCH = ('push-b758-coeff', '596d1c9e')   # ### b757's T0, T1 and the wide direction; (R368)(5) merges its tip --no-ff into push-b758-coeff
-JOIN_BRANCH = ('push-b758-join', '6568e9c7')     # ### b757's join; (R368)(4) makes push-b758-land at its tip
-LAND_BRANCH = ('push-b759-land', 'd1afb4fc2b34f5e62951947208461995d891c80c')   # ### (R368)(4): made at JOIN_BRANCH's tip (01:30:21Z); its one commit, the rename (01:32:10Z, events (36))
-COEFF_LAND_BRANCH = ('push-b759-coeff', '630cba16e228a018f9dd986196142fc6feb704ec')   # ### (R368)(5): made at main d1afb4fc after (4)'s success (02:57:11Z); the merge of 596d1c9e (02:58:47Z, events (48))
+# ### b759, before the lock: the four below are b758's history, their names set back to the ones the remote held (the carry had shifted each
+# ### by one act); each removed at its remote by (R369)(3) through (4)(i)'s route (data/b759_events.txt (24))
+COEFF_BRANCH = ('push-b757-coeff', '596d1c9e')   # ### b757's T0, T1 and the wide direction; (R368)(5) merged its tip --no-ff into push-b758-coeff
+JOIN_BRANCH = ('push-b757-join', '6568e9c7')     # ### b757's join; (R368)(4) made push-b758-land at its tip
+LAND_BRANCH = ('push-b758-land', 'd1afb4fc2b34f5e62951947208461995d891c80c')   # ### (R368)(4): made at JOIN_BRANCH's tip; its one commit, the rename; main at v0.39
+COEFF_LAND_BRANCH = ('push-b758-coeff', '630cba16e228a018f9dd986196142fc6feb704ec')   # ### (R368)(5): the merge of 596d1c9e; main at v0.40, b759's entering main
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
@@ -583,8 +588,9 @@ MAX_DISPATCHES_B757 = (14, 4)   # ### b757's caps, (R367)(10)
 MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### SIDE-explicit-formula's main entering the act (b743's [A4], README alone)
-EF_MAIN_AFTER = EF_MAIN   # ### b758: moved by (4) and (5) alone, each after its run's success ((R368)(4), (5))
+EF_BASE = '630cba16e228a018f9dd986196142fc6feb704ec'   # ### b759: SIDE-explicit-formula's main entering the act, b758's merge at v0.40
+EF_BASE_B758 = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### b758's entering main (b743's [A4], README alone)
+EF_MAIN_AFTER = EF_MAIN   # ### b759: moved by (5) alone, after its run's success ((R369)(5))
 ZQ_BRANCH = 'zq-b730'
 ZQ_ENTERING = '1e6588703732435b34d840bbbb840225932c9b6b'   # ### b754: zq-b730 entering at b753's tip (SPZ3), unmoved this act ((R364)(8))
 ZQ_ENTERING_B745 = '14ca572560f50378a6e4715e35cba0351e5f105d'   # ### b753's entering tip, the tag's commit
@@ -624,7 +630,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read ((R369)(5): at most 3)
+EF_RUNS = (44162171267,)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read ((R369)(5): at most 3); dispatch 1 read 21:19:29Z, ALL
 M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R369)(11))
 EF_RUNS_B758 = (43997787796, 44007490629)   # ### b758's two, read not re-run: (4)'s join at v0.39 = d1afb4fc, (5)'s three results at v0.40 = 630cba16 (data/b758_outcomes.txt)
 EF_RUNS_B757 = (43818699881, 43834018078, 43835333285, 43836818700, 43839463729, 43841545568)   # ### b757's six, read not re-run (tools/b757_controls.py): the join KERNEL (the print failed at the import), T0 KERNEL (print stopped at maxErrors), T0 KERNEL (10 names), T1 BREAKS (recursion depth), T1 KERNEL (31 names), the wide direction KERNEL (24 names)
