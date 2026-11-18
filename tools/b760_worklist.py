@@ -203,10 +203,13 @@ ONSETS_B717 = 'data/b717_onsets.txt'
 REGISTRATIONS_NEW = 'data/b725_registrations.txt'
 COEFF_BANKS = ('data/b711_coeffs.txt', 'data/b713_coeffs.txt', 'data/b717_coeffs.txt', 'data/b719_coeffs.txt', 'data/b720_coeffs.txt')
 #   ### read not written (carried name); b753 wrote no coefficient bank
-COMPUTE_BANKS = ('data/b760_corrigendum.txt', 'data/b760_edition_diff.txt', 'data/b760_quote.json', 'data/b760_late_quotes.txt',
-                 'data/b760_address_scan.txt')
+COMPUTE_BANKS = ('data/b760_corrigendum.txt', 'data/b760_standing_v1368.txt', 'data/b760_standing_v1369.txt', 'data/b760_standing_v1370.txt',
+                 'data/b760_standing_v1371.txt', 'data/b760_places.txt', 'data/b760_discharge.txt', 'data/b760_discharge.json',
+                 'data/b760_quote.json', 'data/b760_edition_diff.txt', 'data/b760_cut.json', 'data/b760_wsc_cut.txt', 'data/b760_late_quotes.txt',
+                 'data/b760_late_quotes.json', 'data/b760_epstein_keys.txt', 'data/b760_ledgers.txt', 'data/b760_ledgers.json',
+                 'data/b760_reproduce.txt', 'data/b760_reproduce.json', 'data/b760_ceiling.txt', 'data/b760_address_scan.txt')
 #   ### the banks of (R370)(1)-(13) as the ruling names them, each written by its component; no build this act;
-#   ### set by the Edit tool to the banks as written, before the lock
+#   ### set by the Edit tool to the banks as written (Component 6, 11:0xZ), before the lock
 READ_BANKS = ('data/b707_read_calls.txt', 'data/b708_read_calls.txt', 'data/b709_read_calls.txt', 'data/b710_read_calls.txt',
               'data/b718_read_calls.txt', 'data/b719_read_calls.txt', 'data/b720_read_calls.txt', 'data/b721_read_calls.txt',
               'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b759_read_calls.txt', 'data/b760_read_calls.txt')
@@ -337,7 +340,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b760.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.36.7'            # ### entering; (R370)(5)'s four changes land each by a commit of its own that moves VERSION, its controls printed before any use
+STANDING_VERSION = 'v1.37.1'            # ### b760: after (R370)(5)'s four changes, each landed by a commit of its own that moves VERSION, its controls printed before any use (v1.36.8 to v1.37.1)
 STANDING_VERSION_ENTERING = 'v1.36.7'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'a3aad4cc'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R370)'s scope read: SIDE-explicit-formula's main at v0.41, read by the edition and written by no commit; SIDE-dirichlet-mod-24 at main, v0.2.0, unmoved
 # ### v1.18.0, (R364)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -345,24 +348,24 @@ LEAN_TREES = (('D:/SIDE-explicit-formula', 'a3aad4cc'), ('D:/SIDE-dirichlet-mod-
 COMPARATIVE_BANKS = ('data/b760_corrigendum.txt', 'data/b760_edition_diff.txt', 'data/b760_quote.json', 'data/b760_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ('VERSION', 'allow.py', 'commit.py', 'fold/checks.tpl', 'fold/record.tpl')   # ### b759: v1.36.3 to v1.36.7's changed files, by git diff --name-status e43f1369 HEAD -- tools/standing/ (5; 21:5xZ)
-STANDING_NEW = ('v1363.py', 'v1364.py', 'v1365.py', 'v1366.py', 'v1367.py')   # ### their new files, the same diff (5)
+STANDING_CHANGED = ('VERSION', 'commit.py', 'handoff.py', 'subject.py')   # ### b760: v1.36.8 to v1.37.1's changed files, by git diff --name-status 15f762dd HEAD -- tools/standing/ (4; 11:0xZ)
+STANDING_NEW = ('v1368.py', 'v1369.py', 'v1370.py', 'v1371.py')   # ### their new files, the same diff (4)
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
 B714_CLOSING = '15f762dd'    # ### b759's last commit (its closing step row), the act's relay base
 B714_RECORD = '157415ed'     # ### b759's record commit (relay)
 B714_ROOT = 'ec0ffeb72d1a72dee04c2d799c7f45dfda6293a56e7a3237ac3a6689cfb2c6fe'   # ### b759's root, data/act_roots.txt's last row (:139)
 B723_ROOT_BANKS = 'ae7eff9b'  # ### b759's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### none: (R370)(1) orders no standing change; the four of (5) are Component 2's
-C1_LOCKGATE = '8cd68c1b'     # ### b759: tools/b759_lockgate.py carried from b758's and committed with its clause set before any run (23:16:44Z, step 65, CHAIN 'carries'); _chain reads it at that place, as b758 read a85d414c
+C1_STANDING = '6bc5d706'     # ### b760, Component 6: the kernel route the act module's N2 reads by this name (b759's cd45450e) -- v1.37.1, the removal route's table opening SIDE-explicit-formula for b760 before its one kernel touch (step 16, 09:34:16Z, events (48)); (R370)(1) orders no standing change and the four of (5) are Component 2's
+C1_LOCKGATE = None           # ### b760: set when tools/b760_lockgate.py is carried and committed before any run (b759's 8cd68c1b)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b760_doors.py', '2bc7eca8', 'data/b760_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
 C5_LANDED, C5_CARRIED = 5, 0   # ### the repairs of (8): (i) the cut, (ii) v1.35.5, (iii) the gh-call reader, (iv) REGISTRY's header, (v) the two descriptions; none carried
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
-C1_CORR = 'e16d9603'         # ### b759: the corrigendum banks, data/b759_corrigendum.txt, .json, the corrigenda bank's row (79) (step 8, 19:00:05Z, events (22))
+C1_RELAY = '2ec51d4e'        # ### b760: the c1 route committed before it wrote, with the events rows and the ceiling's first reading (step 7, 09:02:20Z, events (39))
+C1_CORR = 'e90e0860'         # ### b760: the corrigendum banks, data/b760_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (80) (step 9, 09:03:49Z, events (39))
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
 KERNEL_DELETES = (('push-b759-weil', 'a3aad4cc'),)   # ### (R370)(4): removed at SIDE-explicit-formula's remote by `commit.py SIDE-explicit-formula rdelete push-b759-weil` under v1.37.1 (flag 09:34:35Z): its tip a3aad4cc an ancestor of the remote's main a3aad4cc, not forced, read back ABSENT; the clone's own branch not touched
@@ -377,18 +380,18 @@ KERNEL_DELETES_HALT = ()
 # ### and push-b758-coeff, carried for want of the route; removed at b759 by (R369)(3) above
 KERNEL_DELETES_HALT_B758 = ('the delete of a kernel`s branch at its remote', 'push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff')
 CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in the entry's order paragraph, set with CHAIN at Component 5
-C1_RULES = None              # ### no rules bank this act: (R368) orders none, nor did (R367); data/b756_rules.txt's rows (a)-(c), in force from b757, read at b756's commit
+C1_RULES = '34390a25'        # ### b760 (R370)(5)(i): data/b760_rules.txt row (a), the anchor of rule [Q] (3) by its heading's digest in the clause's words as the author's, committed with v1.36.8 (step 10); data/b756_rules.txt's rows (a)-(c) in force beside it
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
-C1_CEILING = 'b23d39a5'            # ### b759 (R369)(2): the commit carrying data/b759_ceiling.txt's last reading -- the ninth, before Component 6 (21:36:20Z, 3.41 h of 16, nothing carried, dispatches 1 of 3)
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- b759 at its weight and the corrigendum for b759
+C1_CEILING = 'b7130f16'            # ### b760 (R370)(3): the commit carrying data/b760_ceiling.txt's last reading -- the sixth, before Component 6's further routes (10:56:30Z, 2.70 h of 16, nothing carried, dispatches 0 of 0; step 34)
+C1_PP = '0e484b6f'           # ### PLACE-papers: FINDINGS -- the corrigendum for b759 at :15610 (step 8, 09:02:59Z); no weight line ((R370)(1) orders none)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b759's weight line and the corrigendum for b759 (Component 1)
+WEIGHT_LINE, CORR_LINE = None, 15610   # ### FINDINGS: no weight line ((R370)(1) orders none); the corrigendum for b759 at :15610 (Component 1, PLACE-papers 0e484b6f)
 NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
 DIFFERS_LINE = None
-ERRATA_LINE = None
+ERRATA_LINE = 1127   # ### ERRATA: E-2026-11-18-1 at :1127, E-2026-11-18-2 after it (Component 5, PLACE-papers f47d90f0)
 C2_PLAN_FIRST = None   # ### Component 2's first commit
 C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
 C2_RELAY = None   # ### the last of them
@@ -435,19 +438,21 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### b759, before the lock: every tool of the act committed before the bank it wrote, each read from git (scratch files759.py, read-only,
 # ### 21:5xZ): the tool's first add the first of its commits, each of them carrying the tool and not the bank, the bank's commit (as it stands
 # ### at HEAD) the bank and not the tool. tools/research/reproduce.py is a standing tool (its bank (11)'s) and stands apart
-GENS = (('the ceiling', 'tools/b760_ceiling.py', ('ac029157',), 'data/b760_ceiling.txt', 'b23d39a5'),
-        ('the pre-send reads', 'tools/b760_presend.py', ('5ae125f5',), 'data/b760_presend.txt', '9a5a7dc2'),
-        ('the controls tool`s controls', 'tools/b760_controls.py', ('9a5a7dc2',), 'data/b760_controls_control.txt', '993a02ff'),
-        ('the dispatches', 'tools/b760_controls.py', ('9a5a7dc2',), 'data/b760_controls.txt', '4cbb94b4'),
-        ('the outcomes', 'tools/b760_outcomes.py', ('51d7dd62', 'f73b67f6'), 'data/b760_outcomes.txt', '6c10db30'),
-        ('the table', 'tools/b760_c3table.py', ('ef78eb37',), 'data/b760_c3table.txt', '41dbbb91'),
-        ('the cost law', 'tools/b760_costlaw.py', ('ef78eb37',), 'data/b760_costlaw.txt', '41dbbb91'),
-        ('the fields', 'tools/b760_fields.py', ('13fc4704', '4d000f9b'), 'data/b760_fields.txt', 'b2743155'),
-        ('the fields N and DEPOSITS', 'tools/b760_fields.py', ('13fc4704', '4d000f9b', '6232c3ed'), 'data/b760_fields_corpus.txt', 'c0bdaca0'),   # ### events (42): the corpus route repaired 6232c3ed before its bank
-        ('the document', 'tools/b760_compose.py', ('ce2700fc', 'c02309a9', '54405456', 'bf4ed2b4'), 'data/b760_compose.txt', '93f32449'),   # ### events (37), (39)-(41): three repairs, defects (d) and (e)
-        ('the notes of (8)', 'tools/b760_notes.py', ('78ed7e76',), 'data/b760_notes.json', 'a4857802'),
-        ('the corpus lines', 'tools/b760_corpus.py', ('18addbde',), 'data/b760_corpus.txt', 'b23d39a5'),
-        ('the errata and the orders', 'tools/b760_errata.py', ('4d000f9b',), 'data/b760_errata.json', '28a7bd7f'))
+# ### b760, Component 6: every tool of the act committed before the bank it wrote, each read from git (scratch steps760.py, read-only, the
+# ### step rows with each commit's files, 11:0xZ): the tool's first add the first of its commits, each of them carrying the tool and not the
+# ### bank, the bank's commit (as it stands at HEAD) the bank and not the tool. The edition tool's commits before each bank are those before
+# ### the bank was written (the search and the diff at beb7b07b, the cut again at 6b639c83, the late search at 35371470); the address scan's
+# ### bank is written at the record by its standing route; tools/research/reproduce.py is a standing tool (its bank (12)'s) and stands apart
+GENS = (('the ceiling', 'tools/b760_ceiling.py', ('a028dede',), 'data/b760_ceiling.txt', 'b7130f16'),
+        ('the places of (5)(ii)', 'tools/b760_places.py', ('1ea4c681',), 'data/b760_places.txt', 'e8c32b99'),
+        ('the discharge of (6)', 'tools/b760_discharge.py', ('dd88c2f0',), 'data/b760_discharge.txt', 'ecbbae2a'),
+        ('the quotation search of (8)', 'tools/b760_edition.py', ('42128c9d', 'bf785fd7', 'fcf6177e', '1e05d103', 'beb7b07b'), 'data/b760_quote.json', '3378b0b6'),
+        ('the edition`s diff of (7)', 'tools/b760_edition.py', ('42128c9d', 'bf785fd7', 'fcf6177e', '1e05d103', 'beb7b07b'), 'data/b760_edition_diff.txt', '3378b0b6'),
+        ('the cut of (8)', 'tools/b760_edition.py', ('42128c9d', 'bf785fd7', 'fcf6177e', '1e05d103', 'beb7b07b', '6b639c83'), 'data/b760_wsc_cut.txt', '3378b0b6'),   # ### events (63): the head's words set before the cut was banked again
+        ('the late search of (8)', 'tools/b760_edition.py', ('42128c9d', 'bf785fd7', 'fcf6177e', '1e05d103', 'beb7b07b', '6b639c83', '35371470'), 'data/b760_late_quotes.txt', '92ef6b8e'),
+        ('the Epstein document`s keys of (9)', 'tools/b760_ledgers.py', ('92ef6b8e',), 'data/b760_epstein_keys.txt', '22c07eaf'),
+        ('the ledgers of (10) and (11)', 'tools/b760_ledgers.py', ('92ef6b8e',), 'data/b760_ledgers.txt', '22c07eaf'))
+GENS_B759 = ()   # ### b759's thirteen stand in git at tools/b759_worklist.py
 GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 GENS_WITH_BANK = ()  # ### none: each act tool committed before its run
@@ -457,62 +462,47 @@ GENS_WITH_BANK = ()  # ### none: each act tool committed before its run
 # ### b759, before the lock: the act's relay commits after step zero's banks (3c135c69), every one, in their order, read from git (scratch
 # ### files759.py, read-only, 21:5xZ) and from data/b759_steps.json (the step-rows commit 9207bcb4 writes no row of its own); later commits
 # ### appended as made
-CHAIN = (('ceiling_gen', 'ac029157'), ('c1', '548028f4'), ('corr', 'e16d9603'), ('v1363', '983ca5b1'), ('v1364', '4622b017'), ('v1365', '34452b1a'),
-         ('v1366', '8fc653fc'), ('v1367', 'cd45450e'), ('presend_gen', '5ae125f5'), ('controls_gen', '9a5a7dc2'), ('dispatch1', '993a02ff'),
-         ('outcomes_gen', '51d7dd62'), ('outcomes_fix', 'f73b67f6'), ('table_gen', 'ef78eb37'), ('table', '41dbbb91'), ('fields_gen', '13fc4704'),
-         ('compose_gen', 'ce2700fc'), ('notes_gen', '78ed7e76'), ('corpus_gen', '18addbde'), ('errata_gen', '4d000f9b'), ('reproduce', '8cf76f15'),
-         ('compose_fix', 'c02309a9'), ('checks1', 'f14af238'), ('read1', '4cbb94b4'), ('rows1', '9207bcb4'), ('landed', '6c10db30'), ('fields', 'b2743155'),
-         ('compose_fix2', '54405456'), ('compose_fix3', 'bf4ed2b4'), ('compose', '93f32449'), ('notes', 'a4857802'), ('corpus', 'b23d39a5'),
-         ('fields_fix', '6232c3ed'), ('fields_corpus', 'c0bdaca0'), ('errata', '28a7bd7f'),
-         # ### b759, the lock's preparation (steps 57-61): the chain, the arms, the needles, the standing key, the closing title
-         ('chain', '5160d84e'), ('arms', 'a728ea95'), ('needles', 'a8bbc3b6'), ('standing_key', '0dc5d8ca'), ('closing_title', '5eb3cf6a'),
-         # ### b759, the lock's preparation (steps 62-68): the record's sections, the arm's keys, the touch read, the close tools carried (the
-         # ### lock gate among them, C1_LOCKGATE), the probe-path refusal and the kernels face, the handoff halt tool and its repair
-         ('record_secs', '32905ac3'), ('regfirst', '724e0902'), ('touch', 'd0ff72ab'), ('carries', '8cd68c1b'), ('pathrefusal', 'a50a44b5'),
-         ('halt_gen', '0ec0c176'), ('halt_fix', '6ea02173'))
-# ### PLACE-papers' commits of the act in their order: the corrigendum; (8)'s document and its three notes; (9)'s nine documents; (10)'s two
-PP_CHAIN = (('c1pp', 'c71ebcd2'), ('pp_doc', 'd48bd080'), ('pp_reg', 'bb146c95'), ('pp_faces', 'e421b303'), ('pp_census', '9c522714'),
-            ('pp_c1', '0bcb0b56'), ('pp_c2', '682e9bdd'), ('pp_c3', '343e2f57'), ('pp_c4', 'aeadc243'), ('pp_c6', '94cdaa3e'), ('pp_c7', 'dbb39833'),
-            ('pp_c8', '1f4aa501'), ('pp_c9', '9dc65329'), ('pp_c10', '83883924'), ('pp_errata', 'ebbf080c'), ('pp_trails', 'b6e9f79c'))
+# ### b760, Component 6: the act's relay commits after step zero's banks (45919664), every one, in their order, read from git and from
+# ### data/b760_steps.json (scratch steps760.py, read-only, 11:0xZ: 34 rows, each commit with its files); later commits appended as made
+CHAIN = (('ceiling_gen', 'a028dede'), ('c1', '2ec51d4e'), ('corr', 'e90e0860'), ('v1368', '34390a25'), ('places_gen', '1ea4c681'),
+         ('places', 'e8c32b99'), ('v1369', '1e9493e5'), ('handoff', '8d99ac80'), ('v1370', 'a8f8403a'), ('v1371', '6bc5d706'),
+         ('rdelete', '75b8e66a'), ('discharge_gen', 'dd88c2f0'), ('discharge', 'ecbbae2a'), ('edition_gen', '42128c9d'),
+         ('edition_fix', 'bf785fd7'), ('edition_fix2', 'fcf6177e'), ('edition_fix3', '1e05d103'), ('edition_fix4', 'beb7b07b'),
+         ('scan_fix', 'bbc81629'), ('cut_fix', '6b639c83'), ('edition_banks', '3378b0b6'), ('late_fix', '35371470'),
+         ('ledgers_gen', '92ef6b8e'), ('ledger_banks', '22c07eaf'), ('reproduce', 'b7130f16'))
+CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklist.py
+# ### PLACE-papers' commits of the act in their order: the corrigendum; (7)'s edition; (9)'s five keys; (10) and (11)'s four ledgers in one
+PP_CHAIN = (('c1pp', '0e484b6f'), ('pp_edition', 'af9a0f9f'), ('pp_epstein', '09d7ed34'), ('pp_ledgers', 'f47d90f0'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'v1363', 'v1364', 'v1365', 'v1366', 'v1367', 'presend_gen', 'controls_gen',
-              'dispatch1', 'outcomes_gen', 'outcomes_fix', 'table_gen', 'table', 'fields_gen', 'compose_gen', 'notes_gen', 'corpus_gen', 'errata_gen',
-              'reproduce', 'compose_fix', 'checks1', 'read1', 'rows1', 'landed', 'fields', 'compose_fix2', 'compose_fix3', 'pp_doc', 'compose',
-              'pp_reg', 'pp_faces', 'pp_census', 'notes', 'pp_c1', 'pp_c2', 'pp_c3', 'pp_c4', 'pp_c6', 'pp_c7', 'pp_c8', 'pp_c9', 'pp_c10', 'corpus',
-              'fields_fix', 'fields_corpus', 'pp_errata', 'pp_trails', 'errata', 'chain', 'arms', 'needles', 'standing_key', 'closing_title',
-              'record_secs', 'regfirst', 'touch', 'carries', 'pathrefusal', 'halt_gen', 'halt_fix')
+TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'v1368', 'places_gen', 'places', 'v1369', 'handoff', 'v1370', 'v1371',
+              'rdelete', 'discharge_gen', 'discharge', 'edition_gen', 'edition_fix', 'edition_fix2', 'edition_fix3', 'edition_fix4', 'scan_fix',
+              'pp_edition', 'cut_fix', 'edition_banks', 'late_fix', 'ledgers_gen', 'pp_epstein', 'pp_ledgers', 'ledger_banks', 'reproduce')
 CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
-                    'v1363': 'v1.36.3, the route that removes a kernel branch', 'v1364': 'v1.36.4, the plant reading every covering clause',
-                    'v1365': 'v1.36.5, the row writer`s phase repair', 'v1366': 'v1.36.6, the kernels face reader',
-                    'v1367': 'v1.36.7, the kernel route opened for b760', 'presend_gen': 'the pre-send tool with the salt check',
-                    'controls_gen': 'the controls tool, with the pre-send bank', 'dispatch1': 'dispatch 1', 'outcomes_gen': 'the outcomes tool',
-                    'outcomes_fix': 'its clause reader', 'table_gen': 'the table and cost law tools', 'table': 'the table and the cost law',
-                    'fields_gen': 'the fields tool', 'compose_gen': 'the composer', 'notes_gen': 'the notes tool', 'corpus_gen': 'the corpus tool',
-                    'errata_gen': 'the errata tool and the fields’ corpus route', 'reproduce': 'the reproduce run', 'compose_fix': 'the composer`s cite reader',
-                    'checks1': 'the act module`s first checks', 'read1': 'dispatch 1 read and the outcomes', 'rows1': 'its step rows',
-                    'landed': 'the statement landed at v0.41', 'fields': 'the fields', 'compose_fix2': 'the composer`s hand verdict',
-                    'compose_fix3': 'the composer`s write order', 'pp_doc': 'the document at v0.2', 'compose': 'the compose bank',
-                    'pp_reg': 'the REGISTRY row and note', 'pp_faces': 'the FACES_LEDGER note', 'pp_census': 'the census note', 'notes': 'the notes bank',
-                    'pp_c1': 'C1', 'pp_c2': 'C2', 'pp_c3': 'C3', 'pp_c4': 'C4 and C5', 'pp_c6': 'C6', 'pp_c7': 'C7', 'pp_c8': 'C8a and C8b',
-                    'pp_c9': 'C9a, C9b, C11a and C11b', 'pp_c10': 'C10', 'corpus': 'the corpus bank', 'fields_fix': 'the corpus route repaired',
-                    'fields_corpus': 'N and DEPOSITS', 'pp_errata': 'the ERRATA entries', 'pp_trails': 'the OPEN_TRAILS lines',
-                    'errata': 'the errata bank', 'chain': 'the worklist`s chain', 'arms': 'the act module`s arms', 'needles': 'the four needle stubs',
-                    'standing_key': 'the kernel route`s key', 'closing_title': 'the closing title and the trail head',
-                    'record_secs': 'the record, regspec, report and needle sections, with the second printing of the misses',
-                    'regfirst': 'the corpus keys of G-REGISTRATIONS-FIRST', 'touch': 'the mends of the entry and the touch read',
-                    'carries': 'the probe-path refusal, the lock gate and the face tool carried', 'pathrefusal': 'the probe-path refusal and the kernels face',
-                    'halt_gen': 'the handoff halt tool', 'halt_fix': 'its third refusal'})
+                    'v1368': 'v1.36.8, rule [Q] (3)`s heading read by its digest', 'places_gen': 'the places tool', 'places': 'the places bank',
+                    'v1369': 'v1.36.9, the place of an act whose ferry carries none', 'handoff': 'the handoff page',
+                    'v1370': 'v1.37.0, the subject read over the live papers', 'v1371': 'v1.37.1, the removal route opened for b760',
+                    'rdelete': 'the kernel branch removed', 'discharge_gen': 'the discharge tool', 'discharge': 'the discharge banks',
+                    'edition_gen': 'the edition tool', 'edition_fix': 'its field reader and second substitution', 'edition_fix2': 'its tables’ fields',
+                    'edition_fix3': 'its cite controls', 'edition_fix4': 'its residue rule', 'scan_fix': 'the address scan`s N5 reader',
+                    'pp_edition': 'the edition at v2.5.0', 'cut_fix': 'the cut`s head', 'edition_banks': 'the search, diff and cut banks',
+                    'late_fix': 'the late search`s labels', 'ledgers_gen': 'the ledger tool with the late search`s banks',
+                    'pp_epstein': 'the Epstein document`s five keys', 'pp_ledgers': 'ERRATA, OPEN_TRAILS, REGISTRY and the census',
+                    'ledger_banks': 'the keys’ and the ledgers’ banks', 'reproduce': 'the reproduce run'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): every one a commit of its own moving VERSION
-STANDING_BANKS = (('v1.36.3', '983ca5b1', 'data/b760_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b760_standing_v1364.txt', 6),
-                  ('v1.36.5', '34452b1a', 'data/b760_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b760_standing_v1366.txt', 5),
-                  ('v1.36.7', 'cd45450e', 'data/b760_standing_v1367.txt', 9))   # ### b759: (R369)(4)(i)-(iv), the route that removes a kernel branch, the plant, the row writer`s phase, the kernels face reader; and the kernel route opened for b759 under (5) and (11), counted apart from (4)`s four (events (28))
-STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b759_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b759_standing_v1357.txt', 16),
-                       ('v1.35.8', 'ed0d3f33', 'data/b759_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b759_standing_v1359.txt', 8),
-                       ('v1.36.0', 'fd45f4c5', 'data/b759_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b759_standing_v1361.txt', 11),
-                       ('v1.36.2', '4db55035', 'data/b759_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names (the carry had shifted them)
-# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close)
-KERNEL_COMMITS = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines (19:32:35Z, step 14), on main at v0.41
-                  ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails (19:34:26Z, step 15), main at v0.41 (21:25:08Z)
+STANDING_BANKS = (('v1.36.8', '34390a25', 'data/b760_standing_v1368.txt', 9), ('v1.36.9', '1e9493e5', 'data/b760_standing_v1369.txt', 9),
+                  ('v1.37.0', 'a8f8403a', 'data/b760_standing_v1370.txt', 10), ('v1.37.1', '6bc5d706', 'data/b760_standing_v1371.txt', 9))   # ### b760: (R370)(5)(i)-(iv), rule [Q] (3)`s heading by its digest, the place of an act whose ferry carries none, the subject read over the live papers, the removal route opened for b760 (events (41), (42), (47), (48))
+STANDING_BANKS_B759 = (('v1.36.3', '983ca5b1', 'data/b759_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b759_standing_v1364.txt', 6),
+                       ('v1.36.5', '34452b1a', 'data/b759_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b759_standing_v1366.txt', 5),
+                       ('v1.36.7', 'cd45450e', 'data/b759_standing_v1367.txt', 9))   # ### b759's five, read not re-made, under their own names (the carry had shifted them)
+STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 11), ('v1.35.7', '248cacb8', 'data/b758_standing_v1357.txt', 16),
+                       ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
+                       ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
+                       ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names
+# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close). b760 makes
+# ### none ((R370)(12): no kernel written, its one touch the removal of (4), KERNEL_DELETES)
+KERNEL_COMMITS = ()
+KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
+                       ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
 WEIL_BRANCH = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): made at main 630cba16 (19:30:14Z); commit one ddb3efb9, commit two a3aad4cc; pushed alone and read back (19:45:58Z)
 WEIL_TAG = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): name, tag object, peel read back at the remote (data/b759_SIDE-explicit-formula_push-b759-weil_push_out.txt, 21:25:08Z)
@@ -558,20 +548,22 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### no sitting this act ((R370)); one question at the root ((R370)(13))
 SITTING_STATES = {}
-HANDOFF_COMMIT = None   # ### (R369)(11): HANDOFF.md NOT WRITTEN -- tools/standing/handoff.py refused the page, three needles not found (REGISTRY :373 no heading after (8)'s row at :180; b759's ferry no line opening its holds clause; b758's ferry no THE ACT'S PLACE); halted, the page standing at b758's 86c1f110 (data/b759_handoff_halt.txt, events (53)-(54))
+HANDOFF_COMMIT = '8d99ac80'   # ### (R370)(5): HANDOFF.md built and written by tools/standing/handoff.py at v1.36.9, 154 lines, committed (step 14, 09:18:36Z, events (43)); b759's halt (data/b759_handoff_halt.txt) answered
 C3_RELAY = ()   # ### Component 3 ((R370)(6)): set as made
-C3_NOTES_GEN = '78ed7e76'   # ### b759 (R369)(8): tools/b759_notes.py committed before its run, controls 7 of 7, not edited after (step 25)
-C3_NOTES_PP = (('reg', 'REGISTRY.md', 'bb146c95'),
-               ('faces', 'FACES_LEDGER.md', 'e421b303'),
-               ('census', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', '9c522714'))   # ### (item, the file, the PLACE-papers commit), steps 38-40, each read back EQUAL by tools/b759_notes.py (data/b759_notes.json, relay a4857802)
-C3_NOTES_WRITTEN = 3   # ### the notes of (8): three writes, one PLACE-papers commit each (data/b759_notes.json)
-C3_DOC_PP = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md', 'd48bd080')   # ### (R369)(8): the document, one PLACE-papers commit (step 36)
-C3_CORPUS_PP = (('C1', 'phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', '0bcb0b56'), ('C2', 'phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md', '682e9bdd'),
-                ('C3', 'phase2/formation/CAPACITY.md', '343e2f57'), ('C4 C5', 'day1/A_Place_to_Stand_v5_17.md', 'aeadc243'),
-                ('C6', 'phase1.5/experiments/CONTROLLED_EXPERIMENT.md', '94cdaa3e'), ('C7', 'phase1.5/structural/VOCABULARY.md', 'dbb39833'),
-                ('C8a C8b', 'phase1.5/method/INVARIANCE_BARRIERS.md', '1f4aa501'), ('C9a C9b C11a C11b', 'SPIRAL_MAP.md', '9dc65329'),
-                ('C10', 'day1/Which_Structure_Confines_v2_4_0.md', '83883924'))   # ### (R369)(9): one PLACE-papers commit a document (steps 42-50), each confirmed at HEAD (data/b759_corpus.json)
-C3_ERRATA_PP = (('errata', 'ERRATA.md', 'ebbf080c'), ('trails', 'OPEN_TRAILS.md', 'b6e9f79c'))   # ### (R369)(10): steps 54, 55 (data/b759_errata.json)
+# ### b760, Component 6: PLACE-papers' writes of (7), (9), (10) and (11), each (item, the file, the PLACE-papers commit), read by the act
+# ### module's N3 arms against the banks' sha256 (data/b760_ledgers.json, data/b760_epstein_keys.txt) and the edition's (events (61))
+PP_WRITES = (('edition', 'day1/Which_Structure_Confines_v2_5_0.md', 'af9a0f9f'),                 # ### (R370)(7): the new file (step 26)
+             ('epstein', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md', '09d7ed34'),     # ### (R370)(9): its five keys (step 31)
+             ('errata', 'ERRATA.md', 'f47d90f0'), ('trails', 'OPEN_TRAILS.md', 'f47d90f0'),       # ### (R370)(10): one commit, four files (step 32)
+             ('reg', 'REGISTRY.md', 'f47d90f0'), ('census', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md', 'f47d90f0'))   # ### (R370)(11)
+LEDGERS_GEN = '92ef6b8e'     # ### tools/b760_ledgers.py committed before it wrote, after its two dries (step 30)
+EDITION_GEN = 'beb7b07b'     # ### tools/b760_edition.py as it stood when it wrote the edition (step 24); the cut's head set at 6b639c83 after
+C3_NOTES_GEN = None          # ### (carried name) b759's notes tool; b760's notes of (11) written by the ledger tool (LEDGERS_GEN)
+C3_NOTES_PP = ()             # ### (carried name) b759's three notes; b760's in PP_WRITES
+C3_NOTES_WRITTEN = 0
+C3_DOC_PP = ()               # ### (carried name) b759's document; b760's edition in PP_WRITES
+C3_CORPUS_PP = ()            # ### (carried name) b759's nine documents of (9); b760 re-cuts none
+C3_ERRATA_PP = ()            # ### (carried name) b759's two; b760's in PP_WRITES
 # ### Component 4 ((R366)(5)): the put and the work its answers order, each value read from the step rows (data/b756_steps.json)
 C4_READ = ('tools/b760_orders.py', '5b3d5a60', ('data/b760_orders_read.txt', 'data/b760_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
 C4_PUT = ('data/b760_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
@@ -619,14 +611,16 @@ PIN_BUILDS = ('SIDE-simplicity',)
 PIN_CARRIED = ('SIDE-archimedean', 'SIDE-grh-transfer', 'SIDE-interfaces', 'SIDE-kernel', 'SIDE-lv-conservation', 'SIDE-rcurve',
                'SIDE-simplicity', 'SIDE-spinor', 'SIDE-trivium')
 PIN_TO_NEXT = ()
-MAX_DISPATCHES = 3         # ### (R369)(5): "DISPATCHES, at most 3, each at the branch's tip, the whole tree's targets" (N1: "at most 3 dispatches"); set at step zero, before Component 3's first dispatch
-MAX_DISPATCHES_M24 = 0     # ### (R369)(11): no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3): no dispatch in SIDE-dirichlet-mod-24
+MAX_DISPATCHES = 0         # ### (R370)(12) and N1: "no dispatch is sent"
+MAX_DISPATCHES_M24 = 0     # ### (R370)(12): no kernel written; no dispatch in SIDE-dirichlet-mod-24
+MAX_DISPATCHES_B759 = (3, 0)   # ### b759's caps, (R369)(5), (11)
 MAX_DISPATCHES_B758 = (4, 0)   # ### b758's caps, (R368)(10)
 MAX_DISPATCHES_B757 = (14, 4)   # ### b757's caps, (R367)(10)
 MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = '630cba16e228a018f9dd986196142fc6feb704ec'   # ### b759: SIDE-explicit-formula's main entering the act, b758's merge at v0.40
+EF_BASE = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'   # ### b760: SIDE-explicit-formula's main entering the act, b759's commit two at v0.41, unmoved ((R370)(12))
+EF_BASE_B759 = '630cba16e228a018f9dd986196142fc6feb704ec'   # ### b759's entering main, b758's merge at v0.40
 EF_BASE_B758 = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### b758's entering main (b743's [A4], README alone)
 EF_MAIN_AFTER = EF_MAIN   # ### b759: moved by (5) alone, after its run's success ((R369)(5))
 ZQ_BRANCH = 'zq-b730'
@@ -668,8 +662,9 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (44162171267,)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read ((R369)(5): at most 3); dispatch 1 read 21:19:29Z, ALL
-M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R369)(11))
+EF_RUNS = ()   # ### N1: no dispatch this act ((R370)(12)); run 44162171267 is b759's, read by the edition's AX field, not re-run
+EF_RUNS_B759 = (44162171267,)   # ### b759's one, read not re-run
+M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R370)(12))
 EF_RUNS_B758 = (43997787796, 44007490629)   # ### b758's two, read not re-run: (4)'s join at v0.39 = d1afb4fc, (5)'s three results at v0.40 = 630cba16 (data/b758_outcomes.txt)
 EF_RUNS_B757 = (43818699881, 43834018078, 43835333285, 43836818700, 43839463729, 43841545568)   # ### b757's six, read not re-run (tools/b757_controls.py): the join KERNEL (the print failed at the import), T0 KERNEL (print stopped at maxErrors), T0 KERNEL (10 names), T1 BREAKS (recursion depth), T1 KERNEL (31 names), the wide direction KERNEL (24 names)
 M24_RUNS_B757 = (43835913340, 43836415096)   # ### b757's two SIDE-dirichlet-mod-24 runs, read not re-run: the workflow's control KERNEL (2 names), the module KERNEL (8 names)
@@ -681,8 +676,8 @@ EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430,
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
 DISPATCH_ROWS = 'data/b760_dispatch_rows.json'
-ERRATA_ID = None   # ### no erratum this act
-ERRATA_IDS = ()   # ### no erratum this act
+ERRATA_ID = 'E-2026-11-18-1'   # ### (R370)(9), (10): the citations' erratum, BLOCK E's first entry (ERRATA :1127)
+ERRATA_IDS = ('E-2026-11-18-1', 'E-2026-11-18-2')   # ### (R370)(10): BLOCK E's two entries at the file's end (PLACE-papers f47d90f0)
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
 # ### its VERSION), read here at import so the suite's arms and the seal read the one list (the root answer's addition (b))

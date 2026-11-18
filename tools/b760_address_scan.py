@@ -285,7 +285,7 @@ def scan(*a):
     L += ['', '## THE REPOSITORIES READ (commits from their base, the staged set, the working tree): %s' % '; '.join(
         ['relay', 'PLACE-papers'] + [n for _r, n, _p in SITTING_REPOS])]
     L += ['', '## THE EXCEPTION, %s, [46]`S BYLINE AND TWO SELF-CITATIONS AT %s, AND THE BYLINE OF THE v0.7 EDITION OF p2-41 AND ITS CARRIED QUOTATION (b736 defect (r)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (
-        ('TAKEN UNDER %s`S N5 ("beyond a byline under I-23", read from its ferry bank at run time)' % RULING_N5) if BYLINE_HELD else
+        ('TAKEN UNDER %s`S N5 (its byline exception, read from its ferry bank at run time; b760 events (80))' % RULING_N5) if BYLINE_HELD else
         ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b759 (e), b760 (b))' % RULING_N5),
         BYLINE_FILE, 'none yet' if not exc else '')] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, 'THE ORCID: %d' % no, '',
