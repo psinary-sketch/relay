@@ -1955,12 +1955,24 @@ N3_LEDGER_WANT = {'ERRATA.md': ('E-2026-11-18-1', 'E-2026-11-18-2'),
                   'OPEN_TRAILS.md': ('W-ORD-MECHANISM-ATTRIBUTION', 'W-ORD-WSC-KERNEL-CITES', 'W-ORD-KEYSTONE-HEADS', 'W-ORD-WSC-TITCHMARSH',
                                      'W-ORD-RECUT-QUOTE-W4', 'W-ORD-RECUT-QUOTE-W8', 'W-ORD-RECUT-QUOTE-W9', 'W-ORD-RECUT-QUOTE-C4'),
                   'REGISTRY.md': ('v2.5.0',), 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md': ('v2.5.0',)}
-N3_EDITION = ('day1/Which_Structure_Confines_v2_5_0.md', 'day1/Which_Structure_Confines_v2_4_0.md', 'day1/Which_Structure_Confines_v2_3_1.md')
+# ### v2.3.1 by its own path, day1/Which_Structure_Confines.md (the edition tool's V231, tools/b760_edition.py :52; the citation section's
+# ### :1360): the path ending _v2_3_1.md is held by no tree, and the unchanged clause read it absent as changed (defect (k))
+N3_EDITION = ('day1/Which_Structure_Confines_v2_5_0.md', 'day1/Which_Structure_Confines_v2_4_0.md', 'day1/Which_Structure_Confines.md')
 N3_EPSTEIN = ('phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md', 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_1.md')
 N3_APPENDED = ('FINDINGS.md', 'ERRATA.md', 'OPEN_TRAILS.md', 'REGISTRY.md', 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md')
 # ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by path, line and the sentence's
-# ### digest (sha256, 16 hex), each read before the lock; the words not quoted
-N3_HAND = {}
+# ### digest (sha256, 16 hex), each read before the lock; the words not quoted. b760: the scores dry (flag 2026-11-18T14:25:02Z) read 4 hits
+# ### over 400 units, each read whole through the masks by scratch n3hits760.py (read only, the module's own cut, matchers and digest)
+N3_HAND = {(N3_EDITION[0], 104, '96afaf36afa69952'): 'hand-read: the failure it states is of Z_Q0, the control, on the arithmetic side of its explicit '
+                                                      'formula, pinned to zq_weil_positivity_fails; of zeta it says only that the same inequality is '
+                                                      'equivalent to RH (h2_sign_iff_rh), and nothing of zeta holds, fails or moved; BLOCK W`s ruled text',
+           (N3_EDITION[0], 389, '34b82e18b0c56ad1'): 'hand-read: a row of the Correspondence at Q0, the failure stated on the arithmetic side with its '
+                                                      'Lean name, run and line; nothing of zeta',
+           (N3_EDITION[0], 419, '8635dc34f0442bab'): 'hand-read: the rewrites table`s cell for v2.5.0 carrying the sentence of :104 whole; as :104',
+           (N3_EDITION[0], 420, '0c99e61a005acb39'): 'hand-read: the rewrites table`s cell for v2.4.0, b750`s dated note in its own words, printed as '
+                                                      'the wording removed; its failure is zq_li_nonneg_fails at the control; (R368)(9) puts a dated '
+                                                      'record in its own words outside the side rule, and the edition`s own sentence for the result '
+                                                      'names the arithmetic side (:104)'}
 N3_CONTROL = r'\b(?:control|Epstein|zq_\w+)\b|x\^2 \+ xy \+ 6y\^2'   # ### a sentence about the control: the control named, the Epstein function, a zq_ name, the form
 N3_SIDE_NAMED = r'\b(?:arithmetic|spectral|zero|prime-power) side\b'
 import hashlib as _hs   # noqa: E402  ### the notes' digests, sha256 of each line (16 hex), as tools/b757_notes.py writes them; _hs, not _h, which record.tpl :2633 binds to its height formatter (defect (t))
