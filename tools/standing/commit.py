@@ -92,6 +92,12 @@ v1.36.7, (R369)(5) AND (11): THE KERNEL ROUTE OPENED FOR b759 AT SIDE-explicit-f
   was read. b759 opens SIDE-explicit-formula in both; SIDE-dirichlet-mod-24 stays closed (its one write, (3)'s removal, by `rdelete`); no
   file is named for a conflicted merge, (5) merging nothing.
 
+v1.37.1, (R370)(5)(iv) AND (4): THE REMOVAL ROUTE'S TABLE OPENS SIDE-explicit-formula FOR b760, for the one kernel branch of (4),
+  push-b759-weil, "read there to be an ancestor of main before and read absent after". RDELETE_ACTS named b759 alone, so the removal was
+  refused for b760 before anything was read. b760 opens that one name at that one kernel; SIDE-dirichlet-mod-24 stays closed; KERNEL_ACTS,
+  FF_ACTS and PUSHTO_ACTS do not name b760, no other kernel write being ordered; the kept list (b760's worklist's KEPT_BRANCHES) carries
+  b759's list (f) less push-b759-weil, whose entry lapses with the removal.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -141,7 +147,10 @@ PUSHTO_ACTS = {}
 # ### naming the branches the act's ruling removes -- (R369)(3): "at the remote of SIDE-explicit-formula push-b757-join, push-b757-coeff,
 # ### push-b758-land and push-b758-coeff, and at the remote of SIDE-dirichlet-mod-24 push-b757-mod24"
 RDELETE_ACTS = {'b759': {'SIDE-explicit-formula': ('push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff'),
-                         'SIDE-dirichlet-mod-24': ('push-b757-mod24',)}}
+                         'SIDE-dirichlet-mod-24': ('push-b757-mod24',)},
+                # ### v1.37.1, (R370)(5)(iv) and (4): "The branch push-b759-weil of SIDE-explicit-formula is deleted at its remote by the standing
+                # ### removal route, read there to be an ancestor of main before and read absent after"; no other kernel and no other name
+                'b760': {'SIDE-explicit-formula': ('push-b759-weil',)}}
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
