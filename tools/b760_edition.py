@@ -889,11 +889,48 @@ def search(rows, own_of, live, family):
     return time.time() - t0, len(faces)
 
 
+# ### the seat's hand read of each live line the search found (scratch qread760.py, 10:2xZ, every line printed through mask760 and read
+# ### whole): what the line carries, in the seat's words, never the line's; printed beside the order or the residue, banked in the JSON
+READINGS = {
+    ('day1/Spectral_Inertness.md', 97): 'v2.4.0 :43 byte for byte: the theorem with the two words W4`s STATUS names, the claim W4 corrects',
+    ('day1/A_Place_to_Stand.md', 1096): 'the same theorem stated with the two words W4`s STATUS names, the claim W4 corrects; an edition of a family whose newest file in the tree is v5_17',
+    ('day1/A_Place_to_Stand_v5_14.md', 1092): 'as day1/A_Place_to_Stand.md :1096, an earlier edition',
+    ('day1/A_Place_to_Stand_v5_15.md', 1093): 'as day1/A_Place_to_Stand.md :1096, an earlier edition',
+    ('day1/A_Place_to_Stand_v5_16.md', 1094): 'as day1/A_Place_to_Stand.md :1096, an earlier edition',
+    ('day1/A_Place_to_Stand_v5_17.md', 1095): 'as day1/A_Place_to_Stand.md :1096, the family`s newest edition in the tree',
+    ('SPIRAL_MAP.md', 543): 'a table row carrying W-ORD-ZQ-OFFLINE-ZERO`s discharge sentence ((R353)(2)), which v2.4.0 :95 also carried; the claim stands, W8 restating it at v0.41; the row is b759`s C9a and C9b',
+    ('phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', 626): 'its own dated note of b743 under (R353)(4)(A), parallel to v2.4.0 :95, carrying the same discharge sentence; the claim stands, W8 restating it at v0.41',
+    ('README.md', 108): 'its own dated note of b750 under (R360)(2)[B2], parallel to v2.4.0 :97 and closing with the same sentence; the claim stands, W9 removing a note whose content the subsection states',
+}
+
+
+def stands(r, shape):
+    """the matched words stand in the key's own NEW (whitespace-normalized; the wide shape case-insensitive): the hit quotes no changed sentence."""
+    nw = ' '.join((r.get('new') or '').split())
+    if shape == 'hits':
+        return ' '.join(r['needle'].split()) in nw
+    return ' '.join(r['wide'].split()) in nw.lower()
+
+
 def hit_lines(r):
-    """a row's distinct hits: a live paper's, a face's, a ledger's and an untracked-class line each by path, line and sha256; the family's, the
-    copies' and the relay's records counted by class (their places stand in the JSON bank where one is written)."""
-    hs = sorted({(h['path'], h['line'], h['sha256'], h['cls']) for h in r['hits'] + r['hits_wide']})
-    out = ['      %s :%d [%s] %s' % h for h in hs if h[3] in ('live', 'face', 'ledger', 'other')]
+    """a row's distinct hits: a live paper's, a face's, a ledger's and an untracked-class line each by path, line and sha256 (a live or face hit
+    marked as an order or as a residue whose words stand in v2.5.0, the seat's reading beside); the family's, the copies' and the relay's
+    records counted by class (their places stand in the JSON bank where one is written)."""
+    hs = {}
+    for shape in ('hits', 'hits_wide'):
+        for h in r[shape]:
+            k = (h['path'], h['line'], h['sha256'], h['cls'])
+            hs[k] = hs.get(k, True) and stands(r, shape)
+    out = []
+    for h, st in sorted(hs.items()):
+        if h[3] not in ('live', 'face', 'ledger', 'other'):
+            continue
+        tag = '' if h[3] not in ('live', 'face') else (' -- residue, its words standing in v2.5.0`s %s: no order' % r['key'] if st else
+                                                      ' -- residue%s' % (' and order W-ORD-RECUT-QUOTE-%s' % r['key'] if h[3] == 'live' else ''))
+        out.append('      %s :%d [%s] %s%s' % (h + (tag,)))
+        if (h[0], h[1]) in READINGS:
+            out.append('        the seat`s reading: %s' % READINGS[(h[0], h[1])])
+    hs = sorted(hs)
     cnt = {}
     for h in hs:
         if h[3] not in ('live', 'face', 'ledger', 'other'):
@@ -911,9 +948,12 @@ def summarize(rows):
     res = sorted(by.get('live', set()) | by.get('face', set()))
     orders = {}
     for r in rows:
-        for h in r['hits'] + r['hits_wide']:
-            if h['cls'] == 'live':
-                orders.setdefault(r['key'], set()).add((h['path'], h['line']))
+        for shape in ('hits', 'hits_wide'):
+            st = stands(r, shape)
+            for h in r[shape]:
+                h['stands_in_v250'] = st
+                if h['cls'] == 'live' and not st:
+                    orders.setdefault(r['key'], set()).add((h['path'], h['line']))
     return by, res, orders
 
 
@@ -927,13 +967,13 @@ def quote_rows():
             continue
         n = k['n']
         if n in ID_LINES:
-            rows.append(dict(key=k['key'], line_no=n, line=k['old'], line_withheld=True, line_sha256=sha(L[n - 1])[:16], needle=k['old'], wide=k['old'].lower()))
+            rows.append(dict(key=k['key'], line_no=n, line=k['old'], line_withheld=True, line_sha256=sha(L[n - 1])[:16], needle=k['old'], wide=k['old'].lower(), new=k['new']))
             continue
         span = k['old'] if k['kind'] == 'PART' else L[n - 1]
         for p in pieces(span):
-            rows.append(dict(key=k['key'], line_no=n, line=L[n - 1], needle=p, wide=wide(p)))
-    for rid, n, old, _new, by, _wk, _w in RESTATE:
-        rows.append(dict(key=rid, line_no=n, line=L[n - 1], needle=old, wide=wide(old)))
+            rows.append(dict(key=k['key'], line_no=n, line=L[n - 1], needle=p, wide=wide(p), new=k['new'] or ''))
+    for rid, n, old, new, by, _wk, _w in RESTATE:
+        rows.append(dict(key=rid, line_no=n, line=L[n - 1], needle=old, wide=wide(old), new=new))
     return rows, L
 
 
@@ -957,7 +997,10 @@ def quote(dry):
           '### sentences (a table row into its cells), each piece of 24 characters or more an exact needle, its longest clause of four words or more a',
           '### case-insensitive needle; v2.4.0 :3 needled by W0`s OLD alone, the line withheld. A hit is printed by path, line and sha256; its words are not.',
           '### Classes: live (a live paper: a residue and an order W-ORD-RECUT-QUOTE-<key>), face (a residue), family (the paper`s own editions, v2.3.1 and',
-          '### v2.4.0`s other lines), copy, ledger, other (tracked, no live paper), relay record. Rows: key | v2.4.0 line | exact hits | wide hits | own.', '']
+          '### v2.4.0`s other lines), copy, ledger, other (tracked, no live paper), relay record. Rows: key | v2.4.0 line | exact hits | wide hits | own.',
+          '### Every live or face hit is a residue (data/b690_rules.txt :9-:10, "Every hit is entered as a residue with the quoting line"); a live hit is an',
+          '### order where its matched words do not stand in the key`s own NEW -- (8): "a live paper that quotes a changed sentence" -- and a residue alone',
+          '### where they do (the words the edition keeps). The seat`s hand read of each live line (scratch qread760.py, through mask760) printed beside it.', '']
     for r in rows:
         L_.append('  %s :%-3d | %d | %d | own %d | %r' % (r['key'], r['line_no'], len(r['hits']), len(r['hits_wide']), len(r['own']), r['needle'][:70]))
         L_ += hit_lines(r)
@@ -973,6 +1016,7 @@ def quote(dry):
         die('THE EDITION IS COMMITTED: THE SEARCH STANDS BEFORE ITS COMMIT OR NOT AT ALL')
     j = dict(at=at, act=ACT, document=V25, source=V24, base=head, relay=git(RELAY, 'rev-parse', 'HEAD').strip(), live_papers=len(live), faces=nfaces, seconds=round(secs, 1),
              rows=rows, quoting=[list(x) for x in res], orders=dict((k, [list(x) for x in sorted(v)]) for k, v in orders.items()),
+             readings=['%s :%d -- %s' % (p, n, w) for (p, n), w in sorted(READINGS.items())],
              by_class=dict((c, len(v)) for c, v in by.items()), text=L_)
     I, _SC = ids()
     a = idcount(json.dumps(j, ensure_ascii=False), I)
@@ -1046,7 +1090,8 @@ def late(dry):
     for i in range(i0, len(t)):
         m = CHDR.match(t[i])
         if m and i + 1 < len(t) and t[i + 1].startswith('OLD: '):
-            keys.append(dict(key=m.group(1), path=m.group(2), n=int(m.group(3)), kind=m.group(4), old=t[i + 1][5:]))
+            keys.append(dict(key=m.group(1), path=m.group(2), n=int(m.group(3)), kind=m.group(4), old=t[i + 1][5:],
+                             new=t[i + 2][5:] if i + 2 < len(t) and t[i + 2].startswith('NEW: ') else ''))
     if len(keys) != 14:
         die('BLOCK D CARRIES %d KEYS, NOT 14' % len(keys))
     import subject as S
@@ -1056,7 +1101,7 @@ def late(dry):
     for k in keys:
         ps = pieces(k['old']) or [k['old'].strip()]
         for p in ps:
-            rows.append(dict(key=k['key'], line_no=k['n'], path=k['path'], line=k['old'], needle=p, wide=wide(p)))
+            rows.append(dict(key=k['key'], line_no=k['n'], path=k['path'], line=k['old'], needle=p, wide=wide(p), new=k['new']))
     own_of = lambda r, path, ln: path == r['path'] and ln == r['line_no']   # noqa: E731
     # ### a row's family is its own key's paper: another edition of that paper is not a quotation of it
     secs, nfaces = search(rows, own_of, live, lambda r, p: S.family_of(p) == S.family_of(r['path']))
