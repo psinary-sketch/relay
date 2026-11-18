@@ -2357,7 +2357,7 @@ def _post_lock_edits():
         and v039_.startswith('d1afb4fc') and v040_.startswith('630cba16') and all(o_ for _b, o_ in ef_rb_)
     # ### N5: a repository edit read by the taught reader (tools/b757_ghcalls.py over this act's capture, unedited): no captured command runs
     # ### gh repo edit, and no tool the capture runs sends one ((R368) orders no description)
-    gho_ = __import__('b758_ghcalls').over(ACT)
+    gho_ = __import__('b757_ghcalls').over(ACT)
     ghr_ = (gho_ or {}).get('direct')
     ghs_ = (gho_ or {}).get('sends') or {}
     gh_ok = gho_ is not None and not ghr_ and not ghs_
@@ -2376,7 +2376,7 @@ def _post_lock_edits():
             'the address scan (relay data/b759_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of any '
             'kernel, the act`s own apart (a push-b759-* branch, main at the landed tag`s peel %s and the landed tag in SIDE-explicit-formula), or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
             'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: the tags v0.39*, v0.40* and v0.41* %s, each landed tag at its outcome`s peel with main read back at the remote equal to it and its peel local and remote equal (%s), v0.38 at %s, v0.39 at %s, v0.40 at %s, the branch the act pushed read back at the remote in its capture %s: %s; '
-            'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b758_ghcalls.py): %s, none wanted: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
+            'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b757_ghcalls.py): %s, none wanted: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
                 (addr.groups() if addr else ('UNREAD',) * 4) + (main5_[:8], len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
                 K.M24_TAG[0], m24_loc_[:8] or 'NONE', m24_main_[:8] or 'NONE', m24_ok,
                 ef_new_tags_ or 'NONE', '; '.join('%s at %s %s' % x_ for x_ in efl_) or 'none landed', v038_[:8] or 'NONE', v039_[:8] or 'NONE', v040_[:8] or 'NONE', ef_rb_, efb_ok,
