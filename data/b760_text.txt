@@ -1,0 +1,309 @@
+TEXT (R370) BEGIN -- part 2 of 2 of the delivery; the words the act enters, by block. A line opening @@, NEW>> or <<NEW is a marker and enters no document.
+
+@@ BLOCK W -- the edition day1/Which_Structure_Confines_v2_5_0.md, composed from v2.4.0's bytes (347 lines, sha256 opening b9d5b35ac4849f3e). Each key acts at its line of v2.4.0. WHOLE: the line, read by the sha256 of its bytes (16 hex), gives way to NEW. PART: OLD, standing once in the file and at that line, gives way to NEW. INLINE-AFTER: NEW follows OLD in its line. ROW-AFTER: NEW is a new line after the line. PARA-AFTER and PARA-BEFORE: NEW is a new paragraph, a blank line between. REMOVE: the line and the blank line after it are left out.
+
+@@ W0 | :3 | PART
+STATUS: the version and month of this edition
+OLD: v2.4.0, October 2026
+NEW>>
+v2.5.0, November 2026
+<<NEW
+
+@@ W1 | :5 | PARA-BEFORE | sha256 3d076c2aceb94e02
+STATUS: an addition: one version line, counted under H28b
+NEW>>
+*v2.5.0, ‹DATE› (b760, under `(R370)`(7): the edition written beside v2.4.0, which is unedited; it redrafts the opening paragraph, names the Lean statements compiled at discriminant −23, corrects the record's table and the remark on the Ramanujan bound, and re-cuts the paragraph on the seven classes; its back matter closes the file).*
+<<NEW
+
+@@ W2 | :11 | WHOLE | sha256 188bf9ca5331d481
+STATUS: a ruled rewrite under W-ORD-KEYSTONE-HEADS: the opening states its results, each with its terminal by name or its status by name
+NEW>>
+This paper compares functions that share the functional equation of ζ and differ in one structure. An Epstein zeta function of class number above 1 has the functional equation and no Euler product, and it has infinitely many zeros off the critical line (Davenport–Heilbronn 1936 in Re s > 1, Voronin 1976 inside the strip; classical, cited). At one member of the family, the principal form x² + xy + 6y² of discriminant −23, each part of the comparison is a theorem in Lean (SIDE-explicit-formula v0.41): the functional equation (`zq_continuation`), coefficients that are not multiplicative (`zq_coeff_not_multiplicative`), a zero off the line (`zq_offline_zero`), and the failure of Weil positivity on classK on the arithmetic side of its explicit formula (`zq_weil_positivity_fails`), in the form that for ζ is equivalent to the Riemann Hypothesis (`h2_sign_iff_rh`). So the functional equation, the explicit formula and the local count of zeros, which this function shares with ξ, do not confine zeros to the line; that is compiled, at this one function. Across the families tested — Riemann, Dirichlet, Hecke, automorphic, Epstein, Davenport–Heilbronn, random Dirichlet series — each function with a functional equation, an Euler product and the Ramanujan size bound has all its computed zeros on the line, and each function lacking the Euler product does not; that is observed. Whether the Euler product is what holds the zeros of ζ to the line is not settled here: for ζ that statement is the Riemann Hypothesis, and it is open.
+<<NEW
+
+@@ W3 | :36 | INLINE-AFTER
+STATUS: an addition: a ruled citation, the compiled instance of the parenthetical
+OLD: so the series does not factor into an Euler product.)
+NEW>>
+ At discriminant −23 the failure is compiled: with r(n) the number of representations of n by x² + xy + 6y², r(2) = r(3) = 0 and r(6) = 4 (`zq_coeff_not_multiplicative`).
+<<NEW
+
+@@ W4 | :43 | WHOLE | sha256 1d2711d9071120a3
+STATUS: a ruled rewrite: the theorem as the record holds it, in Lee's statements; “generically” and “n ≥ 2” named no theorem read here
+NEW>>
+Let Q be a positive definite binary quadratic form with integer coefficients whose discriminant is the discriminant D of an imaginary quadratic field of class number above 1. Then Z_Q(s) has infinitely many zeros in Re s > 1 (Davenport–Heilbronn), and for any 1/2 < σ1 < σ2 < 1 and T large it has at least cT zeros with σ1 < Re s < σ2 and |Im s| < T, where c > 0 depends on σ1, σ2 and Q (Voronin). Both are cited as Lee (2012) states them (relay `data/b751_literature.txt`, S1.c and S1.d), and neither is compiled.
+<<NEW
+
+@@ W5 | :76 | ROW-AFTER
+STATUS: an addition: a ruled citation, the size row of the record's mechanism table
+OLD: | Davenport–Heilbronn f(s) | ✓ | ✗ | **No** (theorem) |
+NEW>>
+| ζ(s + c/2) ζ(s − c/2), c > 0 (size bound dropped) | ✓ | ✓ | **No** (by construction) |
+<<NEW
+
+@@ W6 | :78 | WHOLE | sha256 03cda84ff2a8c8d0
+STATUS: a ceiling correction (I-19): for the Selberg class the Riemann Hypothesis is a conjecture and no axiom
+NEW>>
+| Selberg class (all axioms) | ✓ | ✓ | conjectured; no violation known |
+<<NEW
+
+@@ W7 | :83 | PART
+STATUS: a ruled rewrite: the record holds a family with both and without the size bound, its zeros off its centre line
+OLD: Both together: no known violation. The record is perfect across every tested case.
+NEW>>
+Functional equation and Euler product without the size bound: insufficient, by the shifted product. All three together: no known violation in any tested case.
+<<NEW
+
+@@ W8 | :95 | WHOLE | sha256 bf2d1eaf5e4d721b
+STATUS: a removal with a ruled addition: the dated note of b743 gives way to the subsection, which states its content at v0.41
+NEW>>
+### What is compiled at Q0
+
+Each line below is a theorem in Lean about the Epstein zeta function of Q0 or about ζ, binding no premise, on the main branch of SIDE-explicit-formula at v0.41 (`a3aad4cc`); *The Epstein Control Object at Discriminant −23* v0.2 gives the statements in full.
+
+- Shared with ξ: the continuation and functional equation (`zq_continuation`), the explicit formula (`zq_explicit_formula_instance`) and the local count of zeros (`zq_count_instance`).
+- A zero off the line, in a box about 0.953 + 16.29 i (`zq_offline_zero`); 68 more stand numerical, to height 445.
+- From that zero: Weil positivity on classK fails on the arithmetic side of the explicit formula of Z_Q0 (`zq_weil_positivity_fails`), where for ζ the same inequality is equivalent to the Riemann Hypothesis (`h2_sign_iff_rh`).
+- Lacking, where ζ has them: multiplicative coefficients (`zq_coeff_not_multiplicative` beside `zeta_isMultiplicative_control`) and nonnegative coefficients of the logarithmic derivative (`cQ_not_nonneg` beside `vonMangoldt_nonneg_control`).
+- The same schema and instrument where the conclusion is true: two points on the line (`pc_online`), and a zero of ζ on the line between heights 12 and 16 (`zeta_box`).
+
+For this paper's question, lines one to three say that the functional equation, the explicit formula and the count, held by Z_Q0 and by ξ alike, do not by themselves confine zeros to the line. Line four names what differs. None of them says that the difference is the cause.
+<<NEW
+
+@@ W9 | :97 | REMOVE | sha256 9aabeca581140a9f
+STATUS: a removal: the dated note of b750, its content stated in the subsection above
+
+@@ W11 | :131 | PART
+STATUS: a ruled rewrite: the theorem as Lee states it has no generic exception
+OLD: The Davenport–Heilbronn theorem establishes off-line zeros generically; whether specific non-generic binary Epstein functions with class number exceeding 1 might have all zeros on-line is an open question that does not affect the discriminating-variable argument, since the point is that the functional equation *permits* off-line zeros while no tested function with an Euler product shows one.
+NEW>>
+The Davenport–Heilbronn theorem, as Lee states it, covers each binary form with integer coefficients whose discriminant is that of a field of class number above 1, with no exception: each has infinitely many zeros in Re s > 1; the point for the discriminating-variable argument is that the functional equation *permits* off-line zeros while no tested function with an Euler product and the size bound shows one.
+<<NEW
+
+@@ W12 | :133 | WHOLE | sha256 f2ef2ffaa1c5785a
+STATUS: a ruled rewrite: the dated note of 2026-11-15 taken up, by the record's mechanism table
+NEW>>
+*Remark (The Ramanujan bound).* The Ramanujan bound |a_p| ≤ 2p^{(k−1)/2} on Euler product coefficients is a third structural ingredient. The binary Epstein functions keep it and drop the Euler product: the halved coefficients of Z_Q count the ideals of norm n in one class, so they are at most the number of divisors of n. The shifted product ζ(s + c/2) ζ(s − c/2) keeps the Euler product and the functional equation and drops the bound, and its zeros sit off its centre line by c/2, by construction. So the record holds each of the two dropped without the other, with zeros off the line in both cases (relay `data/b726_mechanisms.txt` :9, :16). A Beurling system, which keeps an Euler product and drops the additive structure of the integers, was searched for one carrying a functional equation and a zero off its centre line, and none was found in the sources read (:23, :38–:42).
+<<NEW
+
+@@ W13 | :143 | PART
+STATUS: a ceiling correction (I-19): an experiment on other functions does not confirm a statement about ξ
+OLD: The Epstein experiment confirms this: removing the multiplicative constraint is the structural change that permits off-line zeros.
+NEW>>
+The Epstein experiment is consistent with this: removing the multiplicative constraint is the structural change after which off-line zeros appear.
+<<NEW
+
+@@ W14 | :143 | PART
+STATUS: a ruled rewrite: the finding that discharges W-ORD-MECHANISM-ATTRIBUTION; applied where (6) stands, left where the author strikes (6)
+OLD: In the language of proof by exhaustion: the Epstein experiment confirms that the per-class analysis (*The Seven Mechanism Classes of ξ(s)*, this collection) (in which each structural component is checked individually for zero-producing mechanisms) points to the same structural component, by exhibiting what happens when that component is removed. If the seven-class decomposition missed a structural force, removing the Euler product alone should not reliably produce off-line zeros — the missing force might compensate. It does not. The decomposition stands at this test. That no missing force compensates is the one open premise — the inter-class conservation step (named in five equivalent registers, *A Place to Stand* §27.3).
+NEW>>
+The per-class analysis (*The Seven Mechanism Classes of ξ(s)*, this collection) checks each structural component of ξ for a zero-producing mechanism, and the experiment removes one such component and exhibits the outcome. The two do not meet as theorems: the kernel's exclusion over the seven classes (`none_produce`, SIDE-kernel v1.5) is a statement about a real σ and holds whatever function has zeros where, and the located zero (`zq_offline_zero`) is a statement about Z_Q0. No class of the seven carries a predicate on functions, so none admits that zero in the kernel's present vocabulary (relay `data/b752_attribution_plan.txt` :14, :78–:80). What the experiment supplies beside the analysis is the premise ζ has and Z_Q0 lacks, compiled twice: coefficients that are multiplicative, and coefficients of the logarithmic derivative that are nonnegative. Whether the classes together leave no room for a force the analysis did not name is the one open premise of that analysis — the inter-class conservation step (named in five equivalent registers, *A Place to Stand* §27.3).
+<<NEW
+
+@@ W15 | :196 | PART
+STATUS: a ceiling correction (I-19): as :11
+OLD: That isolates which ingredient does the confining.
+NEW>>
+That shows which ingredient's removal changes the outcome.
+<<NEW
+
+@@ W16 | :198 | WHOLE | sha256 cabfda5e43fc2c10
+STATUS: a ruled rewrite under W-ORD-WSC-KERNEL-CITES: the document now cites a kernel
+NEW>>
+**The classical theorem this document rests on is someone else's and is cited as such** (Davenport–Heilbronn 1936; Voronin 1976). **At one member of the family the programme has compiled the comparison's parts**, and the table names those terminals, in SIDE-explicit-formula at v0.41; the comparison across families remains the paper's own.
+<<NEW
+
+@@ W17 | :202 | WHOLE | sha256 eb1330aa66f98dd6
+STATUS: W-ORD-WSC-KERNEL-CITES: the terminal at the instance
+NEW>>
+| Epstein zeta functions have the functional equation | SIDE-explicit-formula v0.41, at discriminant −23 | `SIDEExplicitFormula.Schema.ZQ.zq_continuation` | ‹AX› | COMPILED at the instance; the general statement MANUSCRIPT-RESIDENT — Poisson summation on the lattice, classical | read Schema/ZQ/Continuation.lean :221 |
+<<NEW
+
+@@ W18 | :203 | WHOLE | sha256 d3f58be4f65c568d
+STATUS: W-ORD-WSC-KERNEL-CITES: the terminal at the instance
+NEW>>
+| for class number > 1 the coefficients are not multiplicative, so no Euler product exists | SIDE-explicit-formula v0.41, at discriminant −23 | `SIDEExplicitFormula.Schema.ZQ.zq_coeff_not_multiplicative` | ‹AX› | COMPILED at the instance; the general statement MANUSCRIPT-RESIDENT — classical; stated at content in this paper | read Schema/ZQ/Mechanism/NoEuler.lean :99 |
+<<NEW
+
+@@ W19 | :204 | WHOLE | sha256 0799b8aaa4c113eb
+STATUS: W-ORD-WSC-KERNEL-CITES: the terminal at the instance
+NEW>>
+| their zeros lie off the critical line | SIDE-explicit-formula v0.41, at discriminant −23 | `SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero` | ‹AX› | COMPILED for one zero of the instance; the theorem MANUSCRIPT-RESIDENT — Davenport–Heilbronn 1936 and Voronin 1976, cited as Lee (2012) states them | read Schema/ZQ/OffZero/SP4.lean :32 |
+<<NEW
+
+@@ W20 | :205 | WHOLE | sha256 509ccddac08a6c2d
+STATUS: a ceiling correction (I-19): the inference is held and not shown
+NEW>>
+| the inference: the Euler product is the confining ingredient | NONE | — | — | HELD — the paper's own comparative argument, observed across the tested families; for ζ the statement is the Riemann Hypothesis | read §The result; no terminal |
+<<NEW
+
+@@ W21 | :302 | WHOLE | sha256 23209a67232a137b
+STATUS: a ruled rewrite: the sentence its parenthesis pointed to is re-cut at :198
+NEW>>
+## Correspondence, rows of v2.4.0 *(added 2026-10-30, b726: the programme's computations of that edition, none compiled.)*
+<<NEW
+
+@@ W22 | :172 | PARA-AFTER
+STATUS: an addition: a ruled citation, the reference the theorem is stated from
+OLD: P. Epstein. Zur Theorie allgemeiner Zetafunctionen. *Math. Ann.* 56 (1903), 615–644.
+NEW>>
+Y. Lee. On the zeros of Epstein zeta functions. arXiv:1204.6297 (2012).
+<<NEW
+
+@@ W23 | :178 | PARA-AFTER
+STATUS: an addition: a ruled citation, the reference the theorem names
+OLD: E. C. Titchmarsh. *The Theory of the Riemann Zeta-Function.* 2nd ed., revised by D. R. Heath-Brown, Oxford, 1986.
+NEW>>
+S. M. Voronin. The zeros of zeta-functions of quadratic forms (Russian). *Trudy Mat. Inst. Steklov.* 142 (1976), 135–147.
+<<NEW
+
+@@ BLOCK V -- appended at the edition's end, after v2.4.0's last line and a blank line
+NEW>>
+<!-- b760 (R370) THE v2.5.0 EDITION`S BACK MATTER, ‹DATE› -->
+
+---
+
+## Placement, rows of v2.5.0 *(added ‹DATE›, b760 — each result the edition adds, with its source and its footing)*
+
+The footings are those of the Placement section above, with one more: **COMPILED** — a theorem in Lean that binds no premise, read at its tag.
+
+| result | source | pin | footing |
+|:--|:--|:--|:--|
+| the functional equation, the explicit formula and the local count at Q0 | SIDE-explicit-formula, Schema/ZQ/Continuation.lean :221; Schema/ZQ/EF/Main.lean :198, :194 | v0.41 = `a3aad4cc` | COMPILED |
+| a zero of Z_Q0 off the line | Schema/ZQ/OffZero/SP4.lean :32 | v0.41 = `a3aad4cc` | COMPILED |
+| Weil positivity on classK failing on the arithmetic side at Q0 | Schema/Wide/HalfScaleControl.lean :44 | v0.41 = `a3aad4cc` | COMPILED |
+| the coefficients at Q0 not multiplicative; the coefficients of its logarithmic derivative not all nonnegative | Schema/ZQ/Mechanism/NoEuler.lean :99; Schema/ZQ/Mechanism/CoeffSign.lean :291 | v0.41 = `a3aad4cc` | COMPILED |
+| the size bound kept by the Epstein family and dropped by the shifted product, zeros off the line in each | relay `data/b726_mechanisms.txt` :9, :16; `data/b725_dial.txt` :4 | no kernel | DERIVATION |
+‹CLASSROW›
+| the Euler product as the discriminating variable | this paper's comparison | no kernel | HELD |
+
+## Correspondence, rows of v2.5.0 *(added ‹DATE›, b760; the rows at :202 to :204 carry three more terminals)*
+
+| claim | kernel | fully-qualified terminal | axiom profile | status | `VERIFY-BY` |
+|:--|:--|:--|:--|:--|:--|
+| the explicit formula holds for Z_Q0 | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.ZQ.EF.zq_explicit_formula_instance` | ‹AX› | COMPILED | read Schema/ZQ/EF/Main.lean :198 |
+| the local count of zeros holds for Z_Q0 | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.ZQ.EF.zq_count_instance` | ‹AX› | COMPILED | read Schema/ZQ/EF/Main.lean :194 |
+| Weil positivity on classK fails on the arithmetic side at Q0 | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.ZQ.zq_weil_positivity_fails` | ‹AX› | COMPILED | read Schema/Wide/HalfScaleControl.lean :44 |
+| for ζ the same inequality is equivalent to the Riemann Hypothesis | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.B321.h2_sign_iff_rh` | ‹AX› | COMPILED | read Seam.lean :101 |
+| the coefficients of −Z_Q′/Z_Q at Q0 are not all nonnegative | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.ZQ.cQ_not_nonneg` | ‹AX› | COMPILED | read Schema/ZQ/Mechanism/CoeffSign.lean :291 |
+| ζ's coefficients are multiplicative; Λ(n) ≥ 0 | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.ZQ.zeta_isMultiplicative_control`; `SIDEExplicitFormula.Schema.ZQ.vonMangoldt_nonneg_control` | ‹AX› | COMPILED, Mathlib's statements restated | read Schema/ZQ/Mechanism/NoEuler.lean :112; CoeffSign.lean :301 |
+| two points on the line, the conclusion drawn; a zero of ζ on the line, 12 < Im < 16 | SIDE-explicit-formula v0.41 | `SIDEExplicitFormula.Schema.Wide.pc_online`; `SIDEExplicitFormula.Schema.ZetaBox.zeta_box` | ‹AX› | COMPILED | read Schema/Wide/PositiveControl.lean :124; Schema/ZetaBox/Box.lean :21 |
+
+## Back matter of the v2.5.0 edition -- written ‹DATE› by b760 under the author’s ruling `(R370)`(7), by the form of an edition (I-16, OPEN_TRAILS :11864)
+
+*This file is v2.5.0 of Which Structure Confines, written beside v2.4.0 (`day1/Which_Structure_Confines_v2_4_0.md`, unedited) and v2.3.1 (`day1/Which_Structure_Confines.md`, unedited). It has no CP-1b work-list and is written from `(R370)`(7)'s table of substitutions. It does not deposit and replaces neither. Every line cited below is this file's own.*
+
+### Removals
+
+Two dated notes of v2.4.0's body, its :95 and :97, give way to the subsection “What is compiled at Q0”, which states their content at v0.41. Each stands in v2.4.0 as written.
+
+### The orders this edition answers
+
+- `W-ORD-KEYSTONE-HEADS` (OPEN_TRAILS :15454, its trigger moved at :15496): the opening paragraph redrafted to state its results at the ceiling, each sentence with its terminal by name or its status by name.
+- `W-ORD-WSC-KERNEL-CITES` (entered at b759): the Correspondence rows take their terminals at discriminant −23, and the sentence at the head of that section is re-cut.
+- The dated note of 2026-11-15 (b756), the last line before this back matter: the remark on the Ramanujan bound is re-cut to the record's mechanism table.
+‹ORDERLINE›
+
+### Ceiling corrections and ruled rewrites
+
+‹REWRITES›
+
+### Additions ruled by `(R370)`(7)
+
+‹ADDITIONS›
+<<NEW
+
+@@ BLOCK X -- three citations and one legend of phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md corrected in place, and its Errata section's line; each OLD read to stand once at its line
+
+@@ X1 | :44 | PART
+OLD: (the column of :31)
+NEW>>
+(relay data/b725_interference.txt :31, its last column)
+<<NEW
+
+@@ X2 | :256 | PART
+OLD: 7.3 × 10^(−13) (:138–:139)
+NEW>>
+7.3 × 10^(−13) (:139–:140)
+<<NEW
+
+@@ X3 | :339 | PART
+OLD: Axioms "std 3" means propext, Classical.choice, Quot.sound, with no `sorryAx`.
+NEW>>
+In the cells, “the standard three” means propext, Classical.choice and Quot.sound, with no `sorryAx`.
+<<NEW
+
+@@ X4 | :391 | PART
+OLD: data/b744_zetabox_plan.txt :131–:139
+NEW>>
+data/b744_zetabox_plan.txt :131–:140
+<<NEW
+
+@@ X5 | :452 | PARA-AFTER
+OLD: A supplement to that entry is filed as E-2026-11-17-1 (ERRATA.md, at the file's end).
+NEW>>
+Corrected ‹DATE› by b760, in place: three citations of v0.2 as it was entered, and one legend. §1's short cite “(the column of :31)” had lost the bank it abbreviates when the sentence before it was re-cut, and now names relay data/b725_interference.txt. §7's last cite of relay data/b744_zetabox_plan.txt and §9.2's cite of the same bank each stood one line low, as the navigator wrote them. §9.2's legend named “std 3” where its cells read “the standard three”. Three more of §7's cites into that bank were one line low in the navigator's text and were corrected by b759's composer before the text was entered (relay data/b759_compose.txt).
+<<NEW
+
+@@ BLOCK P -- the place of two acts whose ferries carry no such line, banked as data/b760_places.txt and read by the handoff tool under (5)(ii)
+
+@@ P b758
+NEW>>
+THE ACT'S PLACE. b757 built the control's parts and left them on branches. b758 joined them on one main under one tag and landed the two coefficient statements and the wide direction, so that sections 6 to 8 of the Epstein document could be written from compiled statements on main.
+<<NEW
+
+@@ P b759
+NEW>>
+THE ACT'S PLACE. The control's statements stood on main and the Epstein document still read as five sections under nine dated notes. b759 entered the document at v0.2 from those statements, landed the failure of positivity in the criterion's own form, reproduced the appendix's table, and re-cut fourteen sentences elsewhere in the corpus to what is proved, compiled and observed.
+<<NEW
+
+@@ BLOCK E -- two ERRATA entries, appended at the file's end in this order, in the form of E-2026-11-17-1
+
+@@ ERRATA 1
+NEW>>
+## E-‹DATE›-1 — Three citations and one legend of THE_EPSTEIN_CONTROL_OBJECT v0.2 corrected in place (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+
+**Filed ‹DATE› by b760, on the author’s ruling `(R370)`(9). Record affected: phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md, three citations, one legend and its §9.8.**
+
+**What was wrong.** The navigator's text for v0.2 carried six citations that did not stand as written: five into relay data/b744_zetabox_plan.txt were one line low, and one short cite into data/b725_interference.txt had lost the bank it abbreviates when the sentence before it was re-cut. b759's composer corrected three of the five before entering the text and listed two it could not place (relay data/b759_compose.txt; data/b759_closing.txt, CARRIED FORWARD (c)). The legend of §9.2 named “std 3” where its cells read “the standard three”.
+
+**The correction.** The three citations that stood in v0.2 and the legend are corrected in place and §9.8 of the document records them. No statement, figure, run or grade moves: each figure stood in the bank, one line from where it was cited.
+
+**Status.** FILED.
+<<NEW
+
+@@ ERRATA 2
+NEW>>
+## E-‹DATE›-2 — The navigator's read of W-ORD-MECHANISM-ATTRIBUTION at `(R369)`(10) withdrawn (CORPUS-FACING; NO DEPOSITED ARTIFACT IS AFFECTED)
+
+**Filed ‹DATE› by b760, on the author’s ruling `(R370)`(6). Record affected: OPEN_TRAILS.md, b759's block on the order (:18623 at b759's close), which is not edited.**
+
+**What was wrong.** `(R369)`(10) read the order's condition as not met and left the order open. That read was made without relay data/b752_attribution_plan.txt, the plan the author passed at [P1] on 2026-11-11 (data/b752_author_answers.txt :7). The plan answers the order's question from the record: no class of the kernel's mechanism type carries a predicate on functions, so none admits the located zero in the kernel's present vocabulary; and it fixes the words of the discharge for the day T0 and T1 compile. They compiled at b757 and stand on main since v0.40.
+
+**What stands.** ‹DISCHARGE›
+
+**Scope.** One order's standing and one paragraph of Which Structure Confines v2.5.0. Nothing here is a statement about ζ, RH or GRH.
+
+**Status.** FILED.
+<<NEW
+
+@@ BLOCK F -- the texts that turn on clause (6)
+
+@@ ORDERLINE WHERE (6) STANDS
+NEW>>
+- `W-ORD-MECHANISM-ATTRIBUTION` (OPEN_TRAILS :17932), discharged at b760 by its second clause: the paragraph on the seven classes says what that finding says.
+<<NEW
+@@ CLASSROW WHERE (6) STANDS
+NEW>>
+| no class of the seven admits the located zero in the kernel's present vocabulary | relay `data/b752_attribution_plan.txt` :14, :78–:80 | SIDE-kernel v1.5 beside SIDE-explicit-formula v0.41; no one theorem | HELD |
+<<NEW
+@@ DISCHARGE WHERE (6) STANDS
+NEW>>
+The order is discharged at b760 by its second clause, in the plan's own words (relay data/b752_attribution_plan.txt :90–:92), and FINDINGS carries the two printed lines the plan names, T2's and T3-f's.
+<<NEW
+@@ DISCHARGE WHERE THE AUTHOR STRIKES (6)
+NEW>>
+The order stays open on the author's word; the read of `(R369)`(10) is withdrawn all the same, and the plan's finding stands printable as the plan left it.
+<<NEW
+
+TEXT (R370) END

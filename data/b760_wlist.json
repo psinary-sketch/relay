@@ -1,0 +1,69 @@
+{
+ "act": "b760",
+ "at": "2026-11-18T08:21:25Z",
+ "source": "kinds",
+ "patterns": [
+  "relay/data/b760_*",
+  "relay/tools/b760_*",
+  "relay/tools/acts/b760.py",
+  "relay/tools/standing/*",
+  "relay/data/act_current.json",
+  "relay/data/act_roots.txt",
+  "relay/data/b675_corrigenda.txt",
+  "relay/data/b761_rules.txt",
+  "relay/tools/mirror_prevbuild.json",
+  "relay/data/b759_*_push_out.txt",
+  "PLACE-papers/FINDINGS.md",
+  "PLACE-papers/OPEN_TRAILS.md",
+  "PLACE-papers/REGISTRY.md",
+  "PLACE-papers/ERRATA.md",
+  "PLACE-papers/phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md",
+  "PLACE-papers/day1/Which_Structure_Confines_v2_5_0.md",
+  "PLACE-papers/phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md",
+  "relay/data/b760_author_answers.txt",
+  "relay/data/b760_author_answers.json",
+  "relay/data/b760_answer_check.txt",
+  "relay/data/b760_author_words.txt",
+  "relay/data/b760_author_words_preseal.txt",
+  "relay/data/b760_address_scan_postlock.txt",
+  "relay/data/b760_address_scan_commits.txt",
+  "relay/data/b760_events_postseal.txt",
+  "relay/HANDOFF.md",
+  "relay/data/b761_address_scan_commits.txt",
+  "relay/data/b759_relay_push-b759-closing_push_out.txt"
+ ],
+ "sources": {
+  "data/b760_ferry.txt": "0204fefab7662a9c0cbe0f964cf24582c03d63eaa3021e978b34fc3e1025f01b",
+  "data/b760_amendments.json": "ABSENT",
+  "tools/b760_worklist.py#PP_EDITED": "d74275b2285e7318c1df629404c945b25b171ea959f5fb9c058d012c0b1eac4e",
+  "data/b760_face.txt": "ABSENT",
+  "tools/b760_face_blocks.txt": "ABSENT",
+  "tools/b760_worklist.py#W_WORDS": "accdb226ce81ae5c59de8fc813cb1f443a4724a3654789c8001d36d6dc89e319"
+ },
+ "word_rows": [
+  {
+   "pattern": "relay/HANDOFF.md",
+   "clause": "(R370)(5)(ii), (13): HANDOFF.md -- built and written by tools/standing/handoff.py after (5)(i) and (ii)"
+  },
+  {
+   "pattern": "relay/data/b760_address_scan_commits.txt",
+   "clause": "(R370)(3), (13): b759`s carried files -- this act`s per-commit scan bank, by (R364)(3)(iii)`s route"
+  },
+  {
+   "pattern": "relay/data/b761_address_scan_commits.txt",
+   "clause": "(R370)(13): the scan banks -- the next act`s per-commit scan bank, by (R364)(3)(iii)`s route"
+  },
+  {
+   "pattern": "relay/data/b759_relay_push-b759-closing_push_out.txt",
+   "clause": "(R370)(3), (13): b759`s carried files -- the closing push-out bank with its as-of lines, committed alone"
+  },
+  {
+   "pattern": "relay/tools/mirror_prevbuild.json",
+   "clause": "(R370)(3), (13): b759`s carried files -- the builder`s state file as b759`s build wrote it"
+  },
+  {
+   "pattern": "relay/tools/acts/b760.py",
+   "clause": "(R370)(13): tools/acts/b760.py"
+  }
+ ]
+}

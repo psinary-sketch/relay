@@ -1,0 +1,14 @@
+b760 -- THE SEAT'S READ OF WHAT (R370) MISSES ((R370)(3): ten lines or fewer, made at step zero after the citation check and the deletes, 2026-11-18T08:4xZ; printed to the author before Component 1 and once more before the lock)
+
+  (1) N5 now reads "beyond the edition's byline and two self-citations"; tools/b760_address_scan.py :169 finds the exception by the words "beyond a byline" and :158 names v2.4.0, so as carried it reads no exception and would count v2.5.0's three carried lines; the act sets both to (R370)'s words and v2.5.0 before the edition's commit.
+  (2) (5)(i)'s "each tool that reads ... by the number 373": among the standing tools handoff.py :141-:147 alone, with tools/standing/v1344.py :10's control case naming :373; b754's sealed readers (tools/b754_agenda.py, _anchor_grades.py, _doors.py, _sitting.py, tools/acts/b754.py :1523) stand outside the (W) list and are not edited; the seat's own scratch reader by :373 read a blank line this act, no protected line printed (events).
+  (3) (7)'s sentence counts "its rows of v2.5.0 seven more": BLOCK V's Correspondence rows of v2.5.0 (text :184-:190) are seven rows carrying nine names (:189 and :190 two each); the sentence is entered as ruled, its count read as rows.
+  (4) BLOCK V's back matter says "Every line cited below is this file's own" (text :194) while :198 cites v2.4.0's :95 and :97, which v2.5.0 removes, and :202 cites OPEN_TRAILS :15454 and :15496; the re-pin of (7) (I-22) takes the cites naming this edition's own lines (:180's ":202 to :204"), the others left as written.
+  (5) (7)'s AX: data/b759_outcomes.txt :26-:30 carries axioms lines for five of the edition's twelve names; the other seven come from run 44162171267's axioms file, b759's download outside every repository, read with -I by its digest, its long lists wrapped onto continuation lines (the act's first parser missed one name; fixed before the check was banked).
+  (6) (4) removes push-b759-weil at the kernel's remote; the clone stands checked out on push-b759-weil at a3aad4cc, and under N5 its local branch is not removed (as b759's (5)).
+
+## THE READS IT STANDS ON (read-only, 08:3xZ-08:4xZ)
+  git grep over tools/*.py, tools/standing/*.py, tools/standing/fold/*.tpl and tools/acts/b760.py for a REGISTRY read by 373: the eighteen lines printed at 08:4xZ, handoff.py :19, :141, :143-:147, :405 and v1344.py :10 among the standing tools
+  data/b760_text.txt :160-:209 (BLOCK V) read by the Read tool; :180, :184-:190, :194, :198, :202 as cited
+  OPEN_TRAILS :18687 masked: b759's trail scores line with three readings PENDING (the readings that waited, at the close), b759's closing head line 8 of 8 HELD -- the two agree in kind, not a miss
+  SIDE-explicit-formula's clone: HEAD push-b759-weil at a3aad4cc
