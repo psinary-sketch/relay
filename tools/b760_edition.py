@@ -1054,7 +1054,7 @@ def cut(commit, dry):
     added = sum(1 for r in rows if not r['change'] and r['now'])
     res = q.get('quoting') or []
     L_ = ['%s -- COMPONENT 4, (R370)(7) AND (8): THE EDITION OF %s AS A CUT, ITS DISTANCE, ITS RESIDUES (%s)' % (ACT, FAMILY.replace('.md', ''), utc()), '',
-          '### the cut: BLOCK W`s keys and the one restatement of I-29 applied to v2.4.0`s bytes in the new file %s; v2.4.0 and v2.3.1 unedited.' % V25,
+          '### the cut: BLOCK W`s keys and the %d restatements of I-29 applied to v2.4.0`s bytes in the new file %s; v2.4.0 and v2.3.1 unedited.' % (len(RESTATE), V25),
           '### the base v2.4.0 at PLACE-papers HEAD (sha256 %s) ; now %s, its body before the b760 back matter (which lists both wordings).' % (sha(full)[:16], ('%s:%s' % (commit, V25)) if commit else 'the working file'),
           '### THE DISTANCE BY THE b670 METHOD: each changed text searched whitespace-normalized at the base and now, the row met where it no longer stands;',
           '### each added text met where it stands now. Rows: key | v2.4.0 line | kind | at the base | now | the text (v2.4.0 :3 by W0`s words alone):']
