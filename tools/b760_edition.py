@@ -415,12 +415,13 @@ def compose(fill=True):
         return '; '.join('%s: %s' % (n.split('.')[-1], ', '.join(a) or 'none') for n, a in got) + ' (run %s)' % RUN, got
     axrows = []
 
-    def fill_ax(text):
+    def fill_ax(text, record=True):
         out = []
         for l in text.split(NL):
             if '‹AX›' in l:
                 v, got = ax_of(l)
-                axrows.append((l.split('|')[1].strip()[:70], v, got))
+                if record:
+                    axrows.append((l.split('|')[1].strip()[:70], v, got))
                 l = l.replace('‹AX›', v)
             out.append(l)
         return NL.join(out)
@@ -445,6 +446,7 @@ def compose(fill=True):
             old, new = L[n - 1], (k['new'] if kd == 'WHOLE' else '— (removed)')
         else:
             old, new = '—', k['new']
+        new = fill_ax(new, record=False).replace('‹DATE›', date)   # ### the table carries v2.5.0's wording as the edition prints it, its fields filled
         line = (':%d' % where[k['key']]) if kd != 'REMOVE' else '— (before :%d)' % where[k['key']]
         row = (where[k['key']], '| %s | %s | %s | %s |' % (line, q(old), q(new), q(st[k['key']])))
         (add if st[k['key']].startswith('an addition') else rew).append(row)
