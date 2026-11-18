@@ -70,6 +70,7 @@ QBANK = os.path.join(D, 'b760_quote.json')
 CBANK = os.path.join(D, 'b760_cut.json')
 CTXT = os.path.join(D, 'b760_wsc_cut.txt')
 LBANK = os.path.join(D, 'b760_late_quotes.txt')
+LJSON = os.path.join(D, 'b760_late_quotes.json')   # ### b760 events (66): the late search's rows, quoting lines, orders and readings, for Component 5's ledger tool
 BLOCK_D = 'b759_text.txt'
 
 # ### the twelve Lean names of BLOCK W and BLOCK V at v0.41: (path under SIDEExplicitFormula/, line, fully-qualified name)
@@ -912,10 +913,24 @@ def stands(r, shape):
     return ' '.join(r['wide'].split()) in nw.lower()
 
 
-def hit_lines(r):
+LATE_READINGS = {
+    ('internal/TECHNE_ELEMENTS.md', 392): 'says of the Epstein family as a whole that its zeros wander off the critical line, the claim C4 sharpened to class number above 1 in A Place to Stand v5_17 :609',
+    ('phase1.5/spectral/CONSERVATION_REFINED.md', 16): 'presents the Epstein family as a controlled experiment whose zeros wander off the critical line, of the family as a whole: the claim C4 sharpened to class number above 1',
+    ('phase2/method/THE_DAY1_IMPLICATIONS.md', 40): 'a table cell quoting C4`s OLD whole within quotation marks, attributed to A_Place_to_Stand by chapter; a paper the registry does not name, so no order under (8)`s live-paper rule: entered in the misses read',
+    ('day1/Which_Structure_Confines_v2_4_0.md', 95): 'v2.4.0`s dated note of b743, its discharge sentence closing with the clause C9b`s NEW keeps whole; v2.4.0 stands unedited, v2.5.0 re-cutting the note at W8',
+    ('day1/Which_Structure_Confines_v2_5_0.md', 419): 'v2.5.0`s rewrites table, its row for W8 quoting v2.4.0 :95`s wording as the form of an edition lists it',
+    ('phase2/method/THE_FINDINGS_AS_THEY_STAND_v0_7.md', 626): 'its own dated note of b743, the discharge sentence closing with the clause C9b`s NEW keeps whole; the edition search`s W-ORD-RECUT-QUOTE-W8 already names the line',
+    ('phase2/method/THE_EULER_SPECIFICATION.md', 469): 'its own dated note of b743 under (R353)(4)(A), the discharge sentence closing with the clause C9b`s NEW keeps whole; a paper the registry does not name',
+}
+
+
+def hit_lines(r, where=None, readings=None):
     """a row's distinct hits: a live paper's, a face's, a ledger's and an untracked-class line each by path, line and sha256 (a live or face hit
-    marked as an order or as a residue whose words stand in v2.5.0, the seat's reading beside); the family's, the copies' and the relay's
-    records counted by class (their places stand in the JSON bank where one is written)."""
+    marked as an order or as a residue whose words stand in the key's NEW -- v2.5.0's for the edition's search, b759's re-cut line for the late
+    search (b760 events (66)) -- the seat's reading beside); the family's, the copies' and the relay's records counted by class (their places
+    stand in the JSON bank where one is written)."""
+    where = where or ('v2.5.0`s %s' % r['key'])
+    readings = READINGS if readings is None else readings
     hs = {}
     for shape in ('hits', 'hits_wide'):
         for h in r[shape]:
@@ -925,11 +940,11 @@ def hit_lines(r):
     for h, st in sorted(hs.items()):
         if h[3] not in ('live', 'face', 'ledger', 'other'):
             continue
-        tag = '' if h[3] not in ('live', 'face') else (' -- residue, its words standing in v2.5.0`s %s: no order' % r['key'] if st else
+        tag = '' if h[3] not in ('live', 'face') else (' -- residue, its words standing in %s: no order' % where if st else
                                                       ' -- residue%s' % (' and order W-ORD-RECUT-QUOTE-%s' % r['key'] if h[3] == 'live' else ''))
         out.append('      %s :%d [%s] %s%s' % (h + (tag,)))
-        if (h[0], h[1]) in READINGS:
-            out.append('        the seat`s reading: %s' % READINGS[(h[0], h[1])])
+        if (h[0], h[1]) in readings:
+            out.append('        the seat`s reading: %s' % readings[(h[0], h[1])])
     hs = sorted(hs)
     cnt = {}
     for h in hs:
@@ -1115,7 +1130,7 @@ def late(dry):
           '### clause of four words or more a case-insensitive one. A hit is printed by path, line and sha256 alone. Classes as data/b760_quote.json.', '']
     for r in rows:
         L_.append('  %s %s :%d | %d | %d | own %d | %r' % (r['key'], r['path'], r['line_no'], len(r['hits']), len(r['hits_wide']), len(r['own']), r['needle'][:70]))
-        L_ += hit_lines(r)
+        L_ += hit_lines(r, 'b759`s NEW of %s (%s :%d, as re-cut)' % (r['key'], r['path'], r['line_no']), LATE_READINGS)
     L_ += ['', '### BY CLASS, DISTINCT LINES: ' + (' ; '.join('%s %d' % (c, len(v)) for c, v in sorted(by.items())) or 'none'),
            '### THE QUOTING LINES (live and face): %s' % ('; '.join('%s :%d' % x for x in res) or 'NONE'),
            '### THE ORDERS (each a live paper`s line, not edited): %s' % ('; '.join('W-ORD-RECUT-QUOTE-%s: %s' % (k, ', '.join('%s :%d' % x for x in sorted(v))) for k, v in sorted(orders.items())) or 'NONE'),
@@ -1123,12 +1138,18 @@ def late(dry):
     print(NL.join(L_))
     if dry:
         return
+    j = dict(at=at, act=ACT, source='data/b759_text.txt BLOCK D', late=True, base=git(PP, 'rev-parse', 'HEAD').strip(),
+             relay=git(RELAY, 'rev-parse', 'HEAD').strip(), live_papers=len(live), faces=nfaces, seconds=round(secs, 1), rows=rows,
+             quoting=[list(x) for x in res], orders=dict((k, [list(x) for x in sorted(v)]) for k, v in orders.items()),
+             readings=['%s :%d -- %s' % (p, n, w) for (p, n), w in sorted(LATE_READINGS.items())],
+             by_class=dict((c, len(v)) for c, v in by.items()))
     I, _SC = ids()
-    a = idcount(NL.join(L_), I)
+    a = idcount(NL.join(L_) + json.dumps(j, ensure_ascii=False), I)
     if any(a.values()):
         die('AN IDENTIFIER IN THE LATE BANK %s' % a)
     put(LBANK, NL.join(L_) + NL)
-    print('written data/b760_late_quotes.txt')
+    put(LJSON, json.dumps(j, ensure_ascii=False, indent=1) + NL)
+    print('written data/b760_late_quotes.txt and data/b760_late_quotes.json (%d rows)' % len(rows))
 
 
 def main(argv):
