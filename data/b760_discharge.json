@@ -1,0 +1,156 @@
+{
+ "act": "b760",
+ "clause": "(R370)(6)",
+ "standing": "STANDS",
+ "order": "W-ORD-MECHANISM-ATTRIBUTION",
+ "answer": {
+  "path": "data/b752_author_answers.txt",
+  "line": 7,
+  "sha256": "1d7d72f8bde91edd",
+  "carries": "Pass [P1]"
+ },
+ "plan": {
+  "T2": {
+   "path": "data/b752_attribution_plan.txt",
+   "lines": [
+    67,
+    76
+   ],
+   "line_sha256": [
+    "38cc77b4cf72ba02",
+    "ab20828b3fdaf57e",
+    "93b3509027c58814",
+    "659361d765d2e461",
+    "b4a875626c8223ed",
+    "164ea8086b36cd07",
+    "ad87b7e7f6535502",
+    "a7c47a0f1ce4a9ea",
+    "535af291dc3ed88c",
+    "061fc91518986a25"
+   ],
+   "words": "(T2) THE EDGE -- DISMISSED, PRINTED INSTEAD: \"DOES NOT ABSTRACT AT THE PIN\" (5)(iii) FOUND: Mathlib's route to zeta's zero-free line at e960b841 is for Dirichlet characters through their Euler products (chi : DirichletCharacter C N, Nonvanishing.lean :216; the binding lemmas norm_LSeries_product_ge_one :285-:303 and re_log_comb_nonneg :241-:265), not for a Dirichlet series with nonnegative coefficients; Nonvanishing.lean does not call vonMangoldt_nonneg (data/b752_statements.txt (iii)). A GENERAL A9 (a series with an Euler product and nonnegative log-coefficients, nonvanishing on Re s = 1) would be new to the pin: 600-1500 lines, 5-12 dispatches (the seat's). DISMISSED: with T0 and T1, Z_Q0 fails the hypothesis twice over, and Davenport-Heilbronn's theorem as Lee states it (cited, not compiled: \"Earlier, Davenport and Heilbronn [5] had shown that when h(D) > 1, E(s, Q) has infinitely many zeros in Re s > 1\", data/b751_literature.txt :42-:43, Lee arXiv 1204.6297 p.4) says the conclusion fails for Z_Q0 (h(-23) = 3); the general theorem would add no fact about Z_Q0. The located zero itself lies in Voronin's region, not Davenport-Heilbronn's half-plane (data/b751_literature.txt :86). A9's Mathlib name in PATHS (:389) is carried as a finding, not edited (data/b752_statements.txt (iv)).",
+   "words_sha256": "2879fb9d7ab1ac1c"
+  },
+  "T3F": {
+   "path": "data/b752_attribution_plan.txt",
+   "lines": [
+    78,
+    80
+   ],
+   "line_sha256": [
+    "78c424c5b38b6a38",
+    "e2dcab75257a0d82",
+    "c7393555126e9643"
+   ],
+   "words": "No class of SIDE-kernel v1.5's MechanismClass admits the located zero of Z_Q0 as a theorem in the kernel's present vocabulary: each class carries a predicate on a real sigma (TheBridgeComplete.lean :157-:165) and none a predicate on functions; none_produce (:198-:207) and zq_offline_zero (SP4.lean :32) are both compiled and do not meet.",
+   "words_sha256": "52c71164c2e4337d"
+  },
+  "DISCHARGE": {
+   "path": "data/b752_attribution_plan.txt",
+   "lines": [
+    90,
+    92
+   ],
+   "line_sha256": [
+    "7b2ec5a7e9ee08a7",
+    "75bbccc454c1f45e",
+    "8f9cbd40bce1167c"
+   ],
+   "words": "W-ORD-MECHANISM-ATTRIBUTION discharged by its second clause: no class of the type admits the zero as a theorem in the kernel's present vocabulary (the classes carry predicates on a real sigma, none on functions); the premise zeta has and Z_Q0 lacks is compiled twice -- its coefficients not multiplicative (T0), its log-derivative's coefficients not nonnegative (T1) -- beside vonMangoldt_nonneg; the edge does not abstract at the pin (T2); B3 stands.",
+   "words_sha256": "d5cadec018d456e3"
+  }
+ },
+ "kernel": {
+  "main": "a3aad4cc",
+  "v041_peel": "a3aad4cc",
+  "pins": [
+   {
+    "name": "zq_coeff_not_multiplicative",
+    "v0.41": "SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :99",
+    "v0.40": "SIDEExplicitFormula/Schema/ZQ/Mechanism/NoEuler.lean :99"
+   },
+   {
+    "name": "cQ_not_nonneg",
+    "v0.41": "SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :291",
+    "v0.40": "SIDEExplicitFormula/Schema/ZQ/Mechanism/CoeffSign.lean :291"
+   }
+  ]
+ },
+ "order_line": {
+  "path": "OPEN_TRAILS.md",
+  "line": 17932,
+  "sha256": "9ed67be0dd6a9182",
+  "at": "0e484b6f",
+  "carries": "W-ORD-MECHANISM-ATTRIBUTION"
+ },
+ "w14": "APPLY",
+ "orderline": {
+  "path": "data/b760_text.txt",
+  "line": 294,
+  "words": "- `W-ORD-MECHANISM-ATTRIBUTION` (OPEN_TRAILS :17932), discharged at b760 by its second clause: the paragraph on the seven classes says what that finding says.",
+  "sha256": "b4450290aa109a9e"
+ },
+ "classrow": {
+  "path": "data/b760_text.txt",
+  "line": 298,
+  "words": "| no class of the seven admits the located zero in the kernel's present vocabulary | relay `data/b752_attribution_plan.txt` :14, :78–:80 | SIDE-kernel v1.5 beside SIDE-explicit-formula v0.41; no one theorem | HELD |",
+  "sha256": "1cf221cc93afe5b4"
+ },
+ "errata_discharge": {
+  "path": "data/b760_text.txt",
+  "line": 302,
+  "words": "The order is discharged at b760 by its second clause, in the plan's own words (relay data/b752_attribution_plan.txt :90–:92), and FINDINGS carries the two printed lines the plan names, T2's and T3-f's.",
+  "sha256": "1bbd54e839f6c838"
+ },
+ "findings": [
+  {
+   "path": "data/b752_attribution_plan.txt",
+   "lines": [
+    67,
+    76
+   ],
+   "line_sha256": [
+    "38cc77b4cf72ba02",
+    "ab20828b3fdaf57e",
+    "93b3509027c58814",
+    "659361d765d2e461",
+    "b4a875626c8223ed",
+    "164ea8086b36cd07",
+    "ad87b7e7f6535502",
+    "a7c47a0f1ce4a9ea",
+    "535af291dc3ed88c",
+    "061fc91518986a25"
+   ],
+   "words": "(T2) THE EDGE -- DISMISSED, PRINTED INSTEAD: \"DOES NOT ABSTRACT AT THE PIN\" (5)(iii) FOUND: Mathlib's route to zeta's zero-free line at e960b841 is for Dirichlet characters through their Euler products (chi : DirichletCharacter C N, Nonvanishing.lean :216; the binding lemmas norm_LSeries_product_ge_one :285-:303 and re_log_comb_nonneg :241-:265), not for a Dirichlet series with nonnegative coefficients; Nonvanishing.lean does not call vonMangoldt_nonneg (data/b752_statements.txt (iii)). A GENERAL A9 (a series with an Euler product and nonnegative log-coefficients, nonvanishing on Re s = 1) would be new to the pin: 600-1500 lines, 5-12 dispatches (the seat's). DISMISSED: with T0 and T1, Z_Q0 fails the hypothesis twice over, and Davenport-Heilbronn's theorem as Lee states it (cited, not compiled: \"Earlier, Davenport and Heilbronn [5] had shown that when h(D) > 1, E(s, Q) has infinitely many zeros in Re s > 1\", data/b751_literature.txt :42-:43, Lee arXiv 1204.6297 p.4) says the conclusion fails for Z_Q0 (h(-23) = 3); the general theorem would add no fact about Z_Q0. The located zero itself lies in Voronin's region, not Davenport-Heilbronn's half-plane (data/b751_literature.txt :86). A9's Mathlib name in PATHS (:389) is carried as a finding, not edited (data/b752_statements.txt (iv)).",
+   "words_sha256": "2879fb9d7ab1ac1c"
+  },
+  {
+   "path": "data/b752_attribution_plan.txt",
+   "lines": [
+    78,
+    80
+   ],
+   "line_sha256": [
+    "78c424c5b38b6a38",
+    "e2dcab75257a0d82",
+    "c7393555126e9643"
+   ],
+   "words": "No class of SIDE-kernel v1.5's MechanismClass admits the located zero of Z_Q0 as a theorem in the kernel's present vocabulary: each class carries a predicate on a real sigma (TheBridgeComplete.lean :157-:165) and none a predicate on functions; none_produce (:198-:207) and zq_offline_zero (SP4.lean :32) are both compiled and do not meet.",
+   "words_sha256": "52c71164c2e4337d"
+  }
+ ],
+ "open_trails": {
+  "path": "data/b752_attribution_plan.txt",
+  "lines": [
+   90,
+   92
+  ],
+  "line_sha256": [
+   "7b2ec5a7e9ee08a7",
+   "75bbccc454c1f45e",
+   "8f9cbd40bce1167c"
+  ],
+  "words": "W-ORD-MECHANISM-ATTRIBUTION discharged by its second clause: no class of the type admits the zero as a theorem in the kernel's present vocabulary (the classes carry predicates on a real sigma, none on functions); the premise zeta has and Z_Q0 lacks is compiled twice -- its coefficients not multiplicative (T0), its log-derivative's coefficients not nonnegative (T1) -- beside vonMangoldt_nonneg; the edge does not abstract at the pin (T2); B3 stands.",
+  "words_sha256": "d5cadec018d456e3"
+ }
+}
