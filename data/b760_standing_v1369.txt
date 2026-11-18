@@ -1,0 +1,74 @@
+b760 -- THE CONTROLS OF tools/standing/ v1.36.9, (R370)(5)(ii): THE PLACE OF AN ACT WHOSE FERRY CARRIES NONE (2026-11-18T09:16:13Z)
+
+## THE CONTROLS
+  the bank is its controls: the compile control first, then each case before and after; the free memory read before each; the page built in memory, the planted banks in memory; no protected line and not the quoting rule`s word printed; written through tools/standing/figbank.py
+
+### THE COMPILE CONTROL, BEFORE ANY CASE ((R345)(2)(i), carried):
+  checks render            OK    2909 lines
+  citation render          OK    646 lines
+  closing render           OK    670 lines
+  record render            OK    5311 lines
+  reg_gate render          OK    92 lines
+  regspec render           OK    508 lines
+  report render            OK    194 lines
+  tools/b760_worklist.py   OK    705 lines
+### THE COMPILE CONTROL : b760 COMPILES WHOLE, 8 OF 8
+
+### each case before (tools/standing/handoff.py at e8c32b99) and after (the working file); nothing written
+
+  free 4948 MB at 2026-11-18T09:16:14Z, the hold 2560 MET
+### (bank): THE ORDERED CONTROL, b758`S PLACE READ FROM THE BANK
+  (bank) the page over the banks at the two heads: where b758`s place is read
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : BUILT, 154 lines ; b758 from data/b760_places.txt :7 -> AS WANTED
+
+  free 4947 MB at 2026-11-18T09:16:17Z, the hold 2560 MET
+### (ferry): THE ORDERED CONTROL, b757`S PLACE READ FROM ITS FERRY
+  (ferry) the page over the banks at the two heads: where b757`s place is read
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : BUILT, 154 lines ; b757 from data/b757_ferry.txt :31 -> AS WANTED
+
+  free 4943 MB at 2026-11-18T09:16:19Z, the hold 2560 MET
+### (neither): THE ORDERED CONTROL, AN ACT WITH NEITHER
+  (neither) data/b760_places.txt planted without b758`s row (8 of 9 lines)
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : REFUSED (THE ACT`S PLACE read 0 times in data/b758_ferry.txt and 0 times in the places banks (data/<act>_places.txt), one wanted) -> AS WANTED
+
+  free 4941 MB at 2026-11-18T09:16:20Z, the hold 2560 MET
+### (twice): b758`S ROW TWICE
+  (twice) data/b760_places.txt planted with b758`s row copied to its end
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : REFUSED (THE ACT`S PLACE read 0 times in data/b758_ferry.txt and 2 times in the places banks (data/<act>_places.txt), one wanted) -> AS WANTED
+
+  free 4939 MB at 2026-11-18T09:16:21Z, the hold 2560 MET
+### (first): THE FERRY READ BEFORE ANY BANK
+  (first) data/b760_places.txt planted with a row for b757, whose ferry carries the line
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : BUILT, 154 lines ; b757 from data/b757_ferry.txt :31 ; the planted row quoted False -> AS WANTED
+
+  free 4938 MB at 2026-11-18T09:16:23Z, the hold 2560 MET
+### (page): THE PAGE FROM THE BANKS AT THE TWO HEADS (nothing written)
+  (page) build at relay and PLACE-papers HEAD
+      BEFORE: REFUSED (THE ACT`S PLACE read 0 times in data/b759_ferry.txt, one wanted) -> AS WANTED
+      AFTER : BUILT, 154 lines ; acts 12 ; each place read True -> AS WANTED
+
+  free 4930 MB at 2026-11-18T09:16:25Z, the hold 2560 MET
+### (control): handoff.py`S OWN CONTROLS
+  (control) handoff.py control
+      BEFORE: False ; RAISED StopIteration:  -> AS WANTED
+      AFTER : True ; HANDOFF CONTROLS 15 ; AS WANTED 15 ; ALL AS WANTED True. -> AS WANTED
+
+  free 4951 MB at 2026-11-18T09:16:40Z, the hold 2560 MET
+### (diff): THE WORKING handoff.py AGAINST BASE`S
+  (diff) lines removed and added
+      BEFORE: BASE`s file read, 466 lines -> AS WANTED
+      AFTER : 11 removed, 60 added ; removed named 11, other 0 [] -> AS WANTED
+
+  free 4951 MB at 2026-11-18T09:16:40Z, the hold 2560 MET
+### (version): THE STANDING VERSION PRINTED
+  (version) tools/standing/VERSION
+      BEFORE: v1.36.8 -> AS WANTED
+      AFTER : v1.36.9 -> AS WANTED
+
+### per change: (bank) 1 of 1 ; (ferry) 1 of 1 ; (neither) 1 of 1 ; (twice) 1 of 1 ; (first) 1 of 1 ; (page) 1 of 1 ; (control) 1 of 1 ; (diff) 1 of 1 ; (version) 1 of 1
+### ### **v1.36.9: CONTROLS (bank), (ferry), (neither), (twice), (first), (page), (control), (diff), (version) ; CASES 9 ; AS WANTED 9 ; ALL AS WANTED.**

@@ -10,7 +10,9 @@ THE PAGE, every line read from a bank at the relay's HEAD or from PLACE-papers a
       opening "(n) THE DRAFT stands at").
   (3) THE LAST TWELVE ACTS: the twelve closed acts of the highest numbers (an act is closed where data/<act>_closing.txt is tracked),
       newest first, each by its closing's head line (:1, opening "<act> closed: ") and its ruling's paragraph THE ACT'S PLACE, the one
-      ferry line carrying it in any of its three wordings and with either apostrophe.
+      ferry line carrying it in any of its three wordings and with either apostrophe; where the ferry carries none, the one row for the
+      act in the places banks data/<act>_places.txt at the relay's HEAD, "<act> | <the place>" (v1.36.9, (R370)(5)(ii)); a ferry that
+      carries the line is read before any bank.
   (4) THE NEXT: the first "**Next:**" line after the last trail's heading ("### <act> — ...") in PLACE-papers OPEN_TRAILS.md.
   (5) THE OPEN ORDERS by count and name, from tools/standing/orders.py's reader over the same OPEN_TRAILS.md.
   (6) WHERE EACH KIND OF STATE IS HELD, by path and line: the registry's phase tables, the census's cluster and kernel tables at its
@@ -58,6 +60,8 @@ FERRY = re.compile(r'^data/b(\d+)_ferry\.txt$')
 HEADLINE = re.compile(r'^b(\d+) closed: ')
 PLACE = re.compile("THE ACT['’`]S PLACE(?: ON THE PAPER PATH)?[.:]")
 PLACE_WIDE = re.compile(r'(?i)THE ACT\W{1,3}S PLACE')          # ### the second shape: its yield printed beside, it decides nothing
+PLACES = re.compile(r'^data/b(\d+)_places\.txt$')               # ### v1.36.9, (R370)(5)(ii): the places banks
+PROW = re.compile(r'^(b\d+) \| (.*)$')                          # ### a places bank's row: "<act> | <the place>"
 HOLD = re.compile(r'^\s*\(\d+\) THE DRAFT stands at ')
 HOLD_WIDE = re.compile(r'THE DRAFT stands at v\d+, HELD')     # ### the second shape, printed beside
 TRAIL = re.compile('^### b(\\d+) — ')
@@ -218,6 +222,19 @@ def holds(src, q, Y):
     return path, hits[0], quote(path, hits[0], f[hits[0] - 1], q, Y)
 
 
+def place_rows(src, act):
+    """v1.36.9, (R370)(5)(ii): [(path, line, the place)] of the rows for `act` in every places bank at the relay's HEAD whose place carries
+    THE ACT'S PLACE."""
+    out = []
+    for n in _nums(src.relay_list(), PLACES):
+        path = 'data/b%d_places.txt' % n
+        for k, l in enumerate(src.relay(path) or [], 1):
+            m = PROW.match(l)
+            if m and m.group(1) == act and PLACE.search(m.group(2)):
+                out.append((path, k, m.group(2)))
+    return out
+
+
 def acts(src, q, Y):
     cs = _nums(src.relay_list(), CLOSING)
     if len(cs) < TWELVE:
@@ -233,11 +250,21 @@ def acts(src, q, Y):
             raise Refuse('%s not at relay %s' % (fp, src.rhead))
         hits = [k for k, l in enumerate(f, 1) if PLACE.search(l)]
         wide = [k for k, l in enumerate(f, 1) if PLACE_WIDE.search(l)]
-        Y['yields'].append('ACT b%d : %s :1 head line READ ; %s THE ACT`S PLACE %d line(s) %s ; the second shape %d %s' % (
-            a, cp, fp, len(hits), [':%d' % k for k in hits], len(wide), [':%d' % k for k in wide]))
-        if len(hits) != 1:
+        pr = place_rows(src, 'b%d' % a)
+        if len(hits) > 1:
             raise Refuse('THE ACT`S PLACE read %d times in %s, one wanted' % (len(hits), fp))
-        out.append((a, cp, quote(cp, 1, c[0], q, Y), fp, hits[0], quote(fp, hits[0], f[hits[0] - 1], q, Y)))
+        if hits:
+            where = (fp, hits[0], f[hits[0] - 1])
+        elif len(pr) == 1:
+            where = pr[0]
+        else:
+            where = None
+        Y['yields'].append('ACT b%d : %s :1 head line READ ; %s THE ACT`S PLACE %d line(s) %s ; the second shape %d %s ; the places banks %d row(s) %s ; %s' % (
+            a, cp, fp, len(hits), [':%d' % k for k in hits], len(wide), [':%d' % k for k in wide], len(pr), ['%s :%d' % (p_, k_) for p_, k_, _t in pr],
+            'THE PLACE READ FROM %s :%d' % where[:2] if where else 'THE PLACE NOT READ'))
+        if where is None:
+            raise Refuse('THE ACT`S PLACE read 0 times in %s and %d times in the places banks (data/<act>_places.txt), one wanted' % (fp, len(pr)))
+        out.append((a, cp, quote(cp, 1, c[0], q, Y), where[0], where[1], quote(where[0], where[1], where[2], q, Y)))
     return out
 
 
@@ -376,18 +403,21 @@ def control():
 
     try:
         P, Y = build(base)
-        rec = (len(P) < CAP, sum(1 for y in Y['yields'] if y.startswith('ACT ')), all('PLACE 1 line(s)' in y for y in Y['yields'] if y.startswith('ACT ')))
+        rec = (len(P) < CAP, sum(1 for y in Y['yields'] if y.startswith('ACT ')), all('THE PLACE READ FROM' in y for y in Y['yields'] if y.startswith('ACT ')))
     except Refuse as e:
         P, Y, rec = [], dict(yields=['### REFUSED: %s' % e], cited=[]), (False, 0, False)
     L += ['      ' + y for y in Y['yields']]
-    case('RECORD', 'the page built from the banks at the two heads: under the cap, twelve acts, THE ACT`S PLACE once in each', rec, (True, TWELVE, True))
+    case('RECORD', 'the page built from the banks at the two heads: under the cap, twelve acts, the place of each read once (its ferry, or a places bank where the ferry carries none)',
+         rec, (True, TWELVE, True))
     cs = _nums(base.relay_list(), CLOSING)
     newest = cs[-1]
-    fp, cp = 'data/b%d_ferry.txt' % newest, 'data/b%d_closing.txt' % newest
+    cp = 'data/b%d_closing.txt' % newest
+    fa = next(a for a in reversed(cs[-TWELVE:]) if any(PLACE.search(l) for l in base.relay('data/b%d_ferry.txt' % a) or []))   # ### the newest ferry carrying the line
+    fp = 'data/b%d_ferry.txt' % fa
     f = base.relay(fp)
     k = next(i for i, l in enumerate(f) if PLACE.search(l))
     gone = f[:k] + f[k + 1:]
-    case('CONSTRUCTED', 'b%d`s ferry with its THE ACT`S PLACE line taken out: refused, naming that ferry' % newest,
+    case('CONSTRUCTED', 'b%d`s ferry with its THE ACT`S PLACE line taken out, no places bank row for it: refused, naming that ferry' % fa,
          fp in (_refused(Planted(base, relay={fp: gone})) or ''), True)
     curly = list(f)
     curly[k] = PLACE.sub(lambda m: m.group(0).replace("'", '’'), curly[k])
@@ -396,10 +426,29 @@ def control():
         got = any('’S PLACE' in l for l in Pc)
     except Refuse:
         got = False
-    case('CONSTRUCTED', 'b%d`s THE ACT`S PLACE written with the curly apostrophe (b745`s form): found and quoted' % newest, got, True)
+    case('CONSTRUCTED', 'b%d`s THE ACT`S PLACE written with the curly apostrophe (b745`s form): found and quoted' % fa, got, True)
     twin = f[:k + 1] + [f[k]] + f[k + 1:]
-    case('CONSTRUCTED', 'b%d`s ferry carrying THE ACT`S PLACE twice: refused (one wanted)' % newest,
+    case('CONSTRUCTED', 'b%d`s ferry carrying THE ACT`S PLACE twice: refused (one wanted)' % fa,
          'one wanted' in (_refused(Planted(base, relay={fp: twin})) or ''), True)
+    pb = _nums(base.relay_list(), PLACES)
+    if pb:
+        bp = 'data/b%d_places.txt' % pb[-1]
+        bl = base.relay(bp) or []
+        rows_ = [(i, PROW.match(l)) for i, l in enumerate(bl) if PROW.match(l)]
+        if rows_:
+            i0, m0 = rows_[0]
+            by_bank = [y for y in Y['yields'] if y.startswith('ACT %s ' % m0.group(1)) and 'THE PLACE READ FROM %s :%d' % (bp, i0 + 1) in y]
+            case('CONSTRUCTED', '%s`s place read from %s :%d, its ferry carrying none ((R370)(5)(ii))' % (m0.group(1), bp, i0 + 1), len(by_bank), 1)
+            case('CONSTRUCTED', '%s with %s`s row taken out, its ferry carrying none: refused, naming that ferry ((R370)(5)(ii))' % (bp, m0.group(1)),
+                 ('data/%s_ferry.txt' % m0.group(1)) in (_refused(Planted(base, relay={bp: bl[:i0] + bl[i0 + 1:]})) or ''), True)
+            case('CONSTRUCTED', '%s carrying %s`s row twice: refused (one wanted)' % (bp, m0.group(1)),
+                 'one wanted' in (_refused(Planted(base, relay={bp: bl[:i0 + 1] + [bl[i0]] + bl[i0 + 1:]})) or ''), True)
+            try:
+                Pf, Yf = build(Planted(base, relay={bp: bl + ['b%d | THE ACT\'S PLACE. a planted row' % fa]}))
+                got = [y for y in Yf['yields'] if y.startswith('ACT b%d ' % fa) and 'THE PLACE READ FROM %s :' % fp in y] != [] and not any('a planted row' in l for l in Pf)
+            except Refuse:
+                got = False
+            case('CONSTRUCTED', 'b%d given a planted row in %s beside its ferry`s line: read from its ferry, the row not quoted' % (fa, bp), got, True)
     c = base.relay(cp)
     case('CONSTRUCTED', '%s :1 not opening "b%d closed: ": refused' % (cp, newest),
          cp in (_refused(Planted(base, relay={cp: ['a planted head'] + c[1:]})) or ''), True)
