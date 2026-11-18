@@ -101,21 +101,30 @@ RELAY_READS = (('data/b726_mechanisms.txt', 9, 'dropped: the Euler product'), ('
 # ### I-22: the ':N' of a STATUS or of BLOCK V that names this edition's own line, by (where, the words carrying it, the keys whose lines replace it)
 REPIN = (('W15', 'as :11', ('W2',)), ('W21', 're-cut at :198', ('W16',)), ('V', 'the rows at :202 to :204', ('W17', 'W19')))
 
-# ### I-29: (v2.4.0's line, the words, the substitution, the keys whose claim it restates, the key whose words it takes)
-RESTATE = ((131, 'every function with both a functional equation and an Euler product has all computed zeros on the critical line',
+# ### I-29: (id, v2.4.0's line, the words, the substitution, the keys whose claim it restates, the key whose words it takes, those words). Each
+# ### a sentence of :131 left unmarked by BLOCK W that restates the sufficiency claim W7 corrects at :83 and W2 at :11 (an Euler product with
+# ### the functional equation suffices), which the edition's own W12 contradicts (the shifted product keeps both, its zeros off its line);
+# ### read by hand over the 23 sentences of v2.4.0's body naming the product, the bound or a correlation (scratch euler760.py, 10:1xZ).
+RESTATE = (('I29-1', 131, 'every function with both a functional equation and an Euler product has all computed zeros on the critical line',
             'every function with a functional equation, an Euler product and the Ramanujan size bound has all computed zeros on the critical line',
-            ('W7', 'W2'), 'W2', 'a functional equation, an Euler product and the Ramanujan size bound'),)
+            ('W7', 'W2'), 'W2', 'a functional equation, an Euler product and the Ramanujan size bound'),
+           ('I29-2', 131, 'the Euler product is the only structural component whose presence correlates with zero confinement',
+            'the Euler product with the size bound is the only structural component whose presence correlates with zero confinement',
+            ('W7', 'W12'), 'W7', 'the size bound'))
 
 # ### the restatement read's phrases (each a claim a key corrects) and the dispositions of the hits the hand read placed (v2.4.0's line, phrase)
 PHRASES = (('the record', r'record is perfect'), ('both', r'both a functional equation and an euler product|both properties|both together'),
            ('confirm', r'\bconfirm\w*'), ('confining', r'does the confining|confining ingredient'), ('axiomatization', r'by axiomatization'),
            ('generic', r'\bgenerically\b'), ('violate', r'\bviolat\w*'), ('co-occur', r'co-occur'),
            ('no kernel', r'cites no kernel|not a computation this programme performed'),
-           ('seven classes', r'decomposition stands|points to the same structural component'), ('n ≥ 2', r'n ≥ 2'))
+           ('seven classes', r'decomposition stands|points to the same structural component'), ('n ≥ 2', r'n ≥ 2'),
+           ('presence correlates', r'presence correlates with zero confinement'), ('only one present', r'only one present wherever'))
 DISPO = {(28, 'both'): 'CARRIED: of ζ`s own specification, which has both; no claim about functions in general',
          (60, 'confirm'): 'CARRIED: the Davenport–Heilbronn function`s off-line zeros are a theorem (1936), the outcome it is cited as confirming',
          (131, 'the record'): 'SUBSTITUTED UNDER I-29: the predicate takes the size bound in W2`s words; with it the record holds as the sentence states',
          (131, 'confirm'): 'CARRIED: the engineered construction`s off-line zeros are a theorem',
+         (131, 'presence correlates'): 'SUBSTITUTED UNDER I-29: the component takes the size bound in W7`s words; the product with the bound is present in each confined function and absent, in one part or the other, in each escaping one',
+         (131, 'only one present'): 'CARRIED, ENTERED IN THE MISSES READ: necessity, which W2 keeps in the Euler product`s own terms; its "only" rested on v2.4.0`s joint treatment of the product and the bound, which W12 removes, and it restates no marked row`s claim',
          (139, 'confirm'): 'CARRIED: the examples` off-line zeros are theorems (Davenport–Heilbronn; Voronin), so of those functions the sentence holds',
          (143, 'confirm'): 'CARRIED: W14 left where the author strikes (6) -- read only when (6) is struck',
          (143, 'seven classes'): 'CARRIED: W14 left where the author strikes (6) -- read only when (6) is struck'}
@@ -294,11 +303,14 @@ def compose(fill=True):
         die('HELD AT %s: THE KEY DOES NOT HOLD AT ITS LINE OF v2.4.0 (%s)' % (bad[0][0], bad))
     dj = discharge()
     stands = dj.get('standing') == 'STANDS' and dj.get('w14') == 'APPLY'
-    if stands and (dj.get('orderline') != t[293] or dj.get('classrow') != t[297]):
+    # ### the discharge bank's fields are {path, line, words, sha256} (tools/b760_discharge.py): each read at its place in the text block
+    fol, fcr = dj.get('orderline') or {}, dj.get('classrow') or {}
+    if stands and not all(f.get('path') == 'data/' + TEXT and f.get('line') == n and f.get('words') == t[n - 1] and sha(t[n - 1]).startswith(f.get('sha256') or '-')
+                          for f, n in ((fol, 294), (fcr, 298))):
         die('ORDERLINE OR CLASSROW IS NOT BLOCK F`S TEXT AT data/%s :294 AND :298' % TEXT)
-    for n, old, new, _by, wk, words in RESTATE:
+    for rid, n, old, new, _by, wk, words in RESTATE:
         if not (old in L[n - 1] and full.count(old) == 1):
-            die('THE RESTATEMENT AT v2.4.0 :%d DOES NOT STAND ONCE AT ITS LINE' % n)
+            die('THE RESTATEMENT %s AT v2.4.0 :%d DOES NOT STAND ONCE AT ITS LINE' % (rid, n))
         if words not in next(k['new'] for k in keys if k['key'] == wk) or words not in new:
             die('THE RESTATEMENT`S WORDS ARE NOT %s`S' % wk)
     slots = [[l] for l in L]
@@ -328,15 +340,29 @@ def compose(fill=True):
         else:
             die('%s: KIND %s NOT READ BY THIS TOOL' % (k['key'], kd))
         applied.append(k['key'])
-    for n, old, new, _by, _wk, _w in RESTATE:
+    for rid, n, old, new, _by, _wk, _w in RESTATE:
         if len(slots[n - 1]) != 1 or slots[n - 1][0].count(old) != 1:
-            die('THE RESTATEMENT AT v2.4.0 :%d NOT ONCE IN ITS LINE AFTER THE KEYS' % n)
+            die('THE RESTATEMENT %s AT v2.4.0 :%d NOT ONCE IN ITS LINE AFTER THE KEYS' % (rid, n))
         slots[n - 1] = [slots[n - 1][0].replace(old, new, 1)]
     start, pos = [], 1
     for s in slots:
         start.append(pos)
         pos += len(s)
     flat = [l for s in slots for l in s]
+    # ### the edition's lines a key wrote whole (owned) and the lines a key changed in part (mixed, with the key's NEW): I-29's read skips the first
+    owned, mixed = set(), {}
+    for k in keys:
+        if k['key'] not in applied:
+            continue
+        s0, kd, nl = start[k['n'] - 1], k['kind'], len((k['new'] or '').split(NL))
+        if kd in ('WHOLE', 'PARA-BEFORE'):
+            owned.update(range(s0, s0 + nl))
+        elif kd == 'PARA-AFTER':
+            owned.update(range(s0 + 2, s0 + 2 + nl))
+        elif kd == 'ROW-AFTER':
+            owned.update(range(s0 + 1, s0 + 1 + nl))
+        elif kd in ('PART', 'INLINE-AFTER'):
+            mixed.setdefault(s0, []).append(k['new'])
 
     def eline(k):
         i, kd = k['n'] - 1, k['kind']
@@ -346,8 +372,8 @@ def compose(fill=True):
             return start[i] + 1
         return start[i]
     where = dict((k['key'], eline(k)) for k in keys if k['key'] in applied)
-    for n, *_r in RESTATE:
-        where['I29:%d' % n] = start[n - 1]
+    for rid, n, *_r in RESTATE:
+        where[rid] = start[n - 1]
     # ### the edition's line of each line of v2.4.0 (None where removed)
     emap = dict((n, start[n - 1]) for n in range(1, len(L) + 1) if slots[n - 1])
     vtext, vat = block_v(t)
@@ -401,7 +427,7 @@ def compose(fill=True):
     flat = fill_ax(NL.join(flat)).replace('‹DATE›', date).split(NL)
     vtext = fill_ax(vtext).replace('‹DATE›', date)
     if stands:
-        vtext = vtext.replace('‹ORDERLINE›', dj['orderline']).replace('‹CLASSROW›', dj['classrow'])
+        vtext = vtext.replace('‹ORDERLINE›', fol['words']).replace('‹CLASSROW›', fcr['words'])
     else:
         vtext = NL.join(l for l in vtext.split(NL) if l.strip() not in ('‹ORDERLINE›', '‹CLASSROW›'))
     # ### the tables
@@ -422,16 +448,16 @@ def compose(fill=True):
         line = (':%d' % where[k['key']]) if kd != 'REMOVE' else '— (before :%d)' % where[k['key']]
         row = (where[k['key']], '| %s | %s | %s | %s |' % (line, q(old), q(new), q(st[k['key']])))
         (add if st[k['key']].startswith('an addition') else rew).append(row)
-    for n, old, new, by, wk, _w in RESTATE:
+    for rid, n, old, new, by, wk, _w in RESTATE:
         s29 = 'a restatement (I-29, OPEN_TRAILS :12192): the sentence restates the claim corrected at %s; the size bound added in the words of :%d, the rest unchanged' % (
             ' and '.join(':%d' % where[b] for b in by), where[wk])
-        rew.append((where['I29:%d' % n], '| :%d | %s | %s | %s |' % (where['I29:%d' % n], q(old), q(new), q(s29))))
+        rew.append((where[rid], '| :%d | %s | %s | %s |' % (where[rid], q(old), q(new), q(s29))))
     head = ['| this edition\'s line | v2.4.0\'s wording | v2.5.0\'s wording | Status |', '|:--|:--|:--|:--|']
     vtext = vtext.replace('‹REWRITES›', NL.join(head + [r for _w, r in sorted(rew)])).replace('‹ADDITIONS›', NL.join(head + [r for _w, r in sorted(add)]))
     if any(c in NL.join(flat) + vtext for c in '‹›'):
         die('A FIELD LEFT UNFILLED: %s' % sorted(set(re.findall(r'‹[^›]*›', NL.join(flat) + vtext))))
     text = NL.join(flat) + NL + NL + vtext + NL
-    return dict(text=text, full=full, L=L, keys=keys, applied=applied, where=where, emap=emap, repins=repins, axrows=axrows, date=date,
+    return dict(text=text, full=full, L=L, keys=keys, applied=applied, where=where, emap=emap, repins=repins, axrows=axrows, date=date, owned=owned, mixed=mixed,
                 stands=stands, dj=dj, vtext=vtext, vraw=vraw, vat=vat, rew=rew, add=add, st=st, t=t, nbody=len(flat))
 
 
@@ -454,8 +480,11 @@ def kernel_reads(C):
     added = NL.join((k['new'] or '') for k in C['keys']) + NL + C['vtext']
     shorts = set(fq.split('.')[-1] for _p, _l, fq in LN)
     fqs = set(fq for _p, _l, fq in LN)
-    named = sorted(set(re.findall(r'`([A-Za-z][A-Za-z0-9_.]*_[A-Za-z0-9_.]*)`', added)))
-    unplaced = [n for n in named if n not in shorts and n not in fqs and n not in OTHER_LEAN]
+    # ### a Lean name: a backticked word in snake case (a lower-case letter or digit, an underscore, a lower-case letter), no file's name;
+    # ### placed where it is one of the twelve by its full name or by a dotted tail of it, or the plan's one
+    named = sorted(n for n in set(re.findall(r'`([A-Za-z][A-Za-z0-9_.\']*)`', added))
+                   if re.search(r'[a-z0-9]_[a-z]', n) and not re.search(r'\.(md|txt|lean|py|json)$', n))
+    unplaced = [n for n in named if n not in OTHER_LEAN and not any(fq == n or fq.endswith('.' + n) for fq in fqs)]
     cites = set()
     for m in re.finditer(r'([A-Za-z0-9_/]+\.lean) :(\d+)((?:, :\d+)*)', added):
         for x in [m.group(2)] + re.findall(r':(\d+)', m.group(3)):
@@ -511,12 +540,13 @@ def restatement_read(C):
     tl = C['text'].split(NL)
     era = next(i for i, l in enumerate(tl, 1) if l.startswith('### ERA ANNOTATION'))
     inv = dict((e, n) for n, e in C['emap'].items())
-    marked = [k['new'] for k in C['keys'] if k['key'] in C['applied'] and k['new']]
     hits, unknown, beside = [], [], {}
     for i, l in enumerate(tl[:era - 1], 1):
+        if i in C['owned']:
+            continue
         n24 = inv.get(i)
         for s in sents([l]) if not l.lstrip().startswith('|') else [l]:
-            if any(s in m for m in marked):
+            if any(s in m for m in C['mixed'].get(i, [])):
                 continue
             for key, pat in PHRASES:
                 if re.search(pat, s, re.I):
@@ -607,7 +637,7 @@ def page_clause(C):
 def identifiers(C, I, bank_text=''):
     a24 = idcount(C['full'], I)
     a25 = idcount(C['text'], I)
-    added = NL.join((k['new'] or '') + NL + (k['old'] or '') for k in C['keys']) + NL + C['vtext'] + NL + NL.join(r[2] for r in RESTATE)
+    added = NL.join((k['new'] or '') + NL + (k['old'] or '') for k in C['keys']) + NL + C['vtext'] + NL + NL.join(r[3] for r in RESTATE)
     a_add = idcount(added, I)
     a_bank = idcount(bank_text, I) if bank_text else None
     ok = a24 == a25 and not any(a_add.values()) and (a_bank is None or not any(a_bank.values()))
@@ -674,9 +704,9 @@ def report(C, I, s, ctl_lines, ctl_miss, rr):
             L_.append('    + ' + x)
         if kd == 'REMOVE':
             L_.append('    + (removed)')
-    for n, old, new, by, wk, _w in RESTATE:
-        L_ += ['  I-29 (v2.4.0 :%d, the restatement clause, the edition`s :%d): the claim %s correct, restated; minimal substitution in %s`s words' % (
-            n, C['where']['I29:%d' % n], ' and '.join(by), wk), '    - ' + old, '    + ' + new]
+    for rid, n, old, new, by, wk, _w in RESTATE:
+        L_ += ['  %s (v2.4.0 :%d, the restatement clause, the edition`s :%d): the claim %s correct, restated; minimal substitution in %s`s words' % (
+            rid, n, C['where'][rid], ' and '.join(by), wk), '    - ' + old, '    + ' + new]
     L_ += ['', '## THE FIELDS',
            '  DATE: %s (UTC, at the run)' % C['date'],
            '  AX (run %s`s axioms file, %s; data/%s :16 reads it: %s):' % (RUN, 'its lines read', OUTCOMES, rdrelay('data/' + OUTCOMES)[15].strip()[:140])]
@@ -723,7 +753,9 @@ def report(C, I, s, ctl_lines, ctl_miss, rr):
                           if any(p['v25'] and not p['lists_family'] for p in pg) else 'the edition names no node of either page, so neither page is regenerated'),
            '  N3 READ: the edition equals v2.4.0 with BLOCK W applied and BLOCK V appended, but for %d substitution of the restatement clause, listed in its rewrites table -- REFUTED BY THAT ROW, printed' % len(RESTATE),
            '  NOT DEPOSITED; committed to PLACE-papers beside v2.4.0 and v2.3.1, each unedited']
-    held = unknown or ctl_miss or not ok_b or not ok_c
+    # ### HELD at a sentence the form cannot place (I-29's read), a control's miss, or a sentence beyond the ceiling (H28c); H28a and H28b print
+    # ### as scored ((R370)(7): "H28a, H28b and H28c <as scored>")
+    held = unknown or ctl_miss or not ok_c
     L_ += ['', '### ### **WHICH STRUCTURE CONFINES v2.5.0: %s ; KEYS %d OF 23 HOLDING, %d APPLIED ; H28a HELD ; H28b %s (%+d AGAINST %d) ; H28c %s ; I-29 %d SUBSTITUTED, %d NOT PLACED ; CONTROLS MISSES %d ; NOT DEPOSITED.**' % (
         ('HELD AT %s' % (('the edition`s :%d' % unknown[0][0]) if unknown else ctl_miss[0] if ctl_miss else 'the scores')) if held else 'COMPOSED BESIDE v2.4.0 AND v2.3.1, EACH UNEDITED',
         len(C['keys']), len(C['applied']), 'HELD' if ok_b else 'REFUTED', s['d'], s['bound'], 'HELD' if ok_c else 'REFUTED', len(RESTATE), len(unknown), len(ctl_miss))]
@@ -835,6 +867,20 @@ def search(rows, own_of, live, family):
     return time.time() - t0, len(faces)
 
 
+def hit_lines(r):
+    """a row's distinct hits: a live paper's, a face's, a ledger's and an untracked-class line each by path, line and sha256; the family's, the
+    copies' and the relay's records counted by class (their places stand in the JSON bank where one is written)."""
+    hs = sorted({(h['path'], h['line'], h['sha256'], h['cls']) for h in r['hits'] + r['hits_wide']})
+    out = ['      %s :%d [%s] %s' % h for h in hs if h[3] in ('live', 'face', 'ledger', 'other')]
+    cnt = {}
+    for h in hs:
+        if h[3] not in ('live', 'face', 'ledger', 'other'):
+            cnt[h[3]] = cnt.get(h[3], 0) + 1
+    if cnt:
+        out.append('      counted: ' + ' ; '.join('%s %d' % x for x in sorted(cnt.items())))
+    return out
+
+
 def summarize(rows):
     allh = [h for r in rows for h in r['hits'] + r['hits_wide']]
     by = {}
@@ -864,8 +910,8 @@ def quote_rows():
         span = k['old'] if k['kind'] == 'PART' else L[n - 1]
         for p in pieces(span):
             rows.append(dict(key=k['key'], line_no=n, line=L[n - 1], needle=p, wide=wide(p)))
-    for n, old, _new, by, _wk, _w in RESTATE:
-        rows.append(dict(key='I29-%d' % n, line_no=n, line=L[n - 1], needle=old, wide=wide(old)))
+    for rid, n, old, _new, by, _wk, _w in RESTATE:
+        rows.append(dict(key=rid, line_no=n, line=L[n - 1], needle=old, wide=wide(old)))
     return rows, L
 
 
@@ -891,9 +937,8 @@ def quote(dry):
           '### Classes: live (a live paper: a residue and an order W-ORD-RECUT-QUOTE-<key>), face (a residue), family (the paper`s own editions, v2.3.1 and',
           '### v2.4.0`s other lines), copy, ledger, other (tracked, no live paper), relay record. Rows: key | v2.4.0 line | exact hits | wide hits | own.', '']
     for r in rows:
-        L_.append('  %s :%-3d | %d | %d | own %d | %r' % (r['key'], r['line_no'], len(r['hits']), len(r['hits_wide']), len(r['own']), (r['needle'] if not r.get('line_withheld') else r['needle'])[:70]))
-        for h in sorted({(h['path'], h['line'], h['sha256'], h['cls']) for h in r['hits'] + r['hits_wide']}):
-            L_.append('      %s :%d [%s] %s' % h)
+        L_.append('  %s :%-3d | %d | %d | own %d | %r' % (r['key'], r['line_no'], len(r['hits']), len(r['hits_wide']), len(r['own']), r['needle'][:70]))
+        L_ += hit_lines(r)
     L_ += ['', '### BY CLASS, DISTINCT LINES: ' + ' ; '.join('%s %d' % (c, len(v)) for c, v in sorted(by.items())) if by else '### BY CLASS: no hit outside the changed lines',
            '### THE RESIDUES (live and face), each entered in data/b760_cut.json: %s' % ('; '.join('%s :%d' % x for x in res) or 'NONE'),
            '### THE ORDERS (a live paper quoting a changed sentence, not edited): %s' % ('; '.join('W-ORD-RECUT-QUOTE-%s: %s' % (k, ', '.join('%s :%d' % x for x in sorted(v))) for k, v in sorted(orders.items())) or 'NONE'),
@@ -936,8 +981,8 @@ def cut(commit, dry):
         else:
             piece = max(re.split(r'‹[^›]*›', k['new']), key=len)   # ### a field (DATE, AX) filled at the write: the NEW read by its longest field-free piece
             rows.append(dict(key=k['key'], line=k['n'], kind=kd, change=False, base=norm(piece) in nb, now=norm(piece) in nn, text=k['new'][:110]))
-    for n, old, new, *_r in RESTATE:
-        rows.append(dict(key='I29-%d' % n, line=n, kind='RESTATEMENT', change=True, base=norm(old) in nb, now=norm(old) in nn, text=old[:110]))
+    for rid, n, old, new, *_r in RESTATE:
+        rows.append(dict(key=rid, line=n, kind='RESTATEMENT', change=True, base=norm(old) in nb, now=norm(old) in nn, text=old[:110]))
     before = sum(1 for r in rows if r['change'] and r['base'])
     after = sum(1 for r in rows if r['change'] and r['now'])
     added = sum(1 for r in rows if not r['change'] and r['now'])
@@ -1003,8 +1048,7 @@ def late(dry):
           '### clause of four words or more a case-insensitive one. A hit is printed by path, line and sha256 alone. Classes as data/b760_quote.json.', '']
     for r in rows:
         L_.append('  %s %s :%d | %d | %d | own %d | %r' % (r['key'], r['path'], r['line_no'], len(r['hits']), len(r['hits_wide']), len(r['own']), r['needle'][:70]))
-        for h in sorted({(h['path'], h['line'], h['sha256'], h['cls']) for h in r['hits'] + r['hits_wide']}):
-            L_.append('      %s :%d [%s] %s' % h)
+        L_ += hit_lines(r)
     L_ += ['', '### BY CLASS, DISTINCT LINES: ' + (' ; '.join('%s %d' % (c, len(v)) for c, v in sorted(by.items())) or 'none'),
            '### THE QUOTING LINES (live and face): %s' % ('; '.join('%s :%d' % x for x in res) or 'NONE'),
            '### THE ORDERS (each a live paper`s line, not edited): %s' % ('; '.join('W-ORD-RECUT-QUOTE-%s: %s' % (k, ', '.join('%s :%d' % x for x in sorted(v))) for k, v in sorted(orders.items())) or 'NONE'),
