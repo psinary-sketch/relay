@@ -5,6 +5,7 @@ Written by the Write tool at b761's Component 4 and committed before its first r
 
   agenda dry|write     data/b761_sitting_agenda.txt and .json: the sixteen items and the orders section; writes nothing else
   question dry|write   data/b761_question.json, the one question composed from the agenda's bank, for `rootprompt.py put b761`
+  inputs dry|write     data/b761_recut_inputs.txt, for each keystone the passed items it does not carry (the route's own docstring)
 
 THE ITEMS ((R371)(5)): one for each FINDINGS entry from b745's to b760's that is no corrigendum, in the entries' order, numbered: its heading
 by line and sha256 (no line of a paper quoted in a relay bank) and its names as tools/standing/linematch.py reads them (the heading's
@@ -493,8 +494,94 @@ def question(mode):
         print('written data/b761_question.json')
 
 
+# ================================================================================ THE INPUTS BANK
+INPUTS = os.path.join(D, 'b761_recut_inputs.txt')
+ANSWERS = 'data/b761_author_answers.txt'
+CHOSEN = '"="With the recommendation (Recommended)"'
+
+
+def inputs(mode):
+    """(R371)(5): THE INPUTS BANK, data/b761_recut_inputs.txt: for each keystone, the passed items it does not carry, each by its entry`s
+    line and its bank; read from the agenda`s JSON as committed and the author`s answer as the answers route banked it (the option chosen
+    read from its RESULT line). An item`s bank: the relay files under data/ each of its names opens (data/<name>.<suffix>); an item whose
+    heading names none, its act`s closing bank. Beside the inputs, and not counted among them, the items a keystone carries by relay paths
+    alone, which canon XXIV sends out of the paper at its re-cut."""
+    A = json.load(open(AJSON, encoding='utf-8'))
+    W = relay_lines(ANSWERS)
+    res = [l for l in W if l.startswith('RESULT (')]
+    chosen = len(res) == 1 and CHOSEN in res[0]
+    rk = next((k for k, l in enumerate(W, 1) if l.startswith('RESULT (')), 0)
+    it = A['items']
+    final = []
+    for i in it:
+        r = i['reading']
+        if i['act'] in NAV and chosen:
+            r = 'BANKED, NO SEAT'
+        final.append(dict(i, final=r))
+    cnt = dict((w, sum(1 for i in final if i['final'].startswith(w))) for w in ('SYNTHESISED', 'CLUSTERED', 'BANKED'))
+    files = sorted(os.listdir(D))
+
+    def banks(i):
+        b = ['data/' + f for x in i['names'] for f in files if f.startswith(x + '.')]
+        if b:
+            return list(dict.fromkeys(b)), ''
+        c = 'data/%s_closing.txt' % i['act']
+        return ([c] if os.path.exists(os.path.join(RELAY, c)) else []), ' (its heading names no bank: the act`s closing bank)'
+    keys = list(dict.fromkeys(k for i in final for k in i['keys']))
+    P = ['%s -- (R371)(5): THE INPUTS BANK, FOR EACH KEYSTONE THE PASSED ITEMS IT DOES NOT CARRY (%s)' % (ACT, utc()), '',
+         '### tools/b761_sitting.py inputs %s; from data/b761_sitting_agenda.json as committed and the author`s answer (%s :%d, the option chosen: %s);' % (
+             mode, ANSWERS, rk, 'with the navigator`s recommendation' if chosen else 'NOT READ'),
+         '### each item by its FINDINGS line (its heading`s, by sha256, no line of a paper quoted) and its bank; no keystone written ((R371)(5), canon XXIV).', '']
+    n_in, miss = 0, []
+    for kp in keys:
+        ins = [i for i in final if kp in i['keys'] and i['final'].startswith('CLUSTERED')]
+        P.append('## %s: %d input(s) of its re-cut' % (kp, len(ins)))
+        for i in ins:
+            b, why = banks(i)
+            if not b:
+                miss.append(i['n'])
+            n_in += 1
+            P.append('  [%d] %s, FINDINGS :%d (sha256 %s), its line as written FINDINGS :%s; its bank%s: %s' % (
+                i['n'], i['act'], i['line'], i['sha'], i['iline'], why, ', '.join(b) or 'NONE FOUND'))
+        side = [i for i in final if kp in i['keys'] and i['final'] == 'SYNTHESISED' and i['path_only']]
+        if side:
+            P.append('  beside the inputs, not counted: carried by relay paths alone, which canon XXIV sends out of the paper at its re-cut: %s' % (
+                ', '.join('[%d] %s (FINDINGS :%d)' % (i['n'], i['act'], i['line']) for i in side)))
+        P.append('')
+    nseat = [i for i in final if i['final'].startswith('BANKED')]
+    P.append('## NO KEYSTONE (banked with no seat, or BANKED by the navigator`s recommendation): %s' % ', '.join(
+        '[%d] %s' % (i['n'], i['act']) for i in nseat))
+    P.append('')
+    sent = ('the sitting: %d items, %d passed, %d struck; %d read SYNTHESISED, %d an input of a re-cut, %d banked with no seat; no keystone written' % (
+        len(final), len(final), 0, cnt['SYNTHESISED'], cnt['CLUSTERED'], cnt['BANKED']))
+    P.append('## THE SENTENCE FOR THE ACT`S FINDINGS ((R371)(5)): "%s"' % sent)
+    I = RG.ids()
+    qw = RG.qword(show('REGISTRY.md'))
+    ctl = [('the answer read: one RESULT line, the option chosen the navigator`s recommendation', chosen),
+           ('the counts after the recommendation %d, %d, %d, summing to %d, and equal to the agenda`s recommended counts' % (
+               cnt['SYNTHESISED'], cnt['CLUSTERED'], cnt['BANKED'], len(final)),
+            sum(cnt.values()) == len(final) == 16 and cnt == A['recommended']),
+           ('every input read not carried: none of its names carried by its keystone in the agenda`s read', all(
+               not at for i in final if i['final'].startswith('CLUSTERED') for r in i['reads'] for _x, at, _p in r['names'])),
+           ('every input`s bank found (misses %s)' % (miss or 'none'), not miss),
+           ('the inputs %d, the CLUSTERED items %d' % (n_in, cnt['CLUSTERED']), n_in == cnt['CLUSTERED'])]
+    text = NL.join(P)
+    ctl.append(('the identifiers 0 and the protected word 0', RG.idcount(text, I) == 0 and qw.lower() not in text.lower()))
+    ok = all(o for _w, o in ctl)
+    P += ['', '## THE CONTROLS'] + ['  %-130s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '### ### **THE INPUTS: KEYSTONES %d ; INPUTS %d ; NO KEYSTONE %d ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+        len(keys), n_in, len(nseat), sum(1 for _w, o in ctl if o), len(ctl), ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    text = NL.join(P) + NL
+    print(text)
+    if mode == 'write':
+        if not ok:
+            die('A CONTROL NOT AS WANTED')
+        put(INPUTS, text)
+        print('written data/b761_recut_inputs.txt (%d lines)' % len(P))
+
+
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if len(a) != 2 or a[0] not in ('agenda', 'question') or a[1] not in ('dry', 'write'):
+    if len(a) != 2 or a[0] not in ('agenda', 'question', 'inputs') or a[1] not in ('dry', 'write'):
         sys.exit(__doc__)
-    (agenda if a[0] == 'agenda' else question)(a[1])
+    dict(agenda=agenda, question=question, inputs=inputs)[a[0]](a[1])
