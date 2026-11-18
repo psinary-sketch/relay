@@ -166,8 +166,17 @@ def ruling_byline(act='b760'):
     p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', '%s_ferry.txt' % act)
     t = open(p, encoding='utf-8', errors='replace').read() if os.path.exists(p) else ''
     m = re.search(r'RULING \((R\d+)\) BEGIN', t)
-    held = any('beyond a byline' in l[l.find('(N5)'):] for l in t.split(NL) if '(N5)' in l)
-    return (m.group(1) if m else 'THE RULING (its ferry bank unread)'), held
+    return (m.group(1) if m else 'THE RULING (its ferry bank unread)'), n5_holds(t)
+
+
+N5_BYLINE = re.compile(r"beyond (?:a|the edition['’]s) byline")
+
+
+def n5_holds(t):
+    """### b760 defect (f): whether a ferry's N5 holds the byline exception, the text after '(N5)' on its line reading "beyond a byline" ((R369)'s
+    and CLAUDE.md's wording) or "beyond the edition's byline" ((R370)'s, data/b760_ferry.txt :53). The first form alone read (R370)'s N5 as holding
+    none, and the one-call tool refused v2.5.0's commit on the byline and two self-citations N5 excepts (2026-11-18T10:26:17Z)."""
+    return any(N5_BYLINE.search(l[l.find('(N5)'):]) for l in t.split(NL) if '(N5)' in l)
 
 
 RULING_N5, BYLINE_HELD = ruling_byline()
@@ -237,6 +246,10 @@ def scan(*a):
     ctl.append(('a moved line is not added, a new line and a second copy are', added('-a\n+a\n+b') == 'b' and added('-a\n+a\n+a') == 'a'))
     ctl.append(('the ORCID excepted in the byline alone', all(excepted(k, 0, 0, 0, count(s, orcid)) == (k == BYLINE_KIND)
                                                              for k in (BYLINE_KIND, 'commit added lines', 'commit message', 'untracked bank'))))
+    ctl.append(('N5 read in both rulings` wordings (b760 (f))', n5_holds('(N5) x; no new occurrence beyond a byline under I-23')
+                and n5_holds("(N5) x; no identifier of the author beyond the edition's byline and two self-citations")
+                and not n5_holds('(N5) x; no identifier of the author in anything the act writes') and not n5_holds('(N4) beyond a byline')
+                and BYLINE_HELD == (RULING_N5 == 'R370')))
     del s
     L = ['%s -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR`S NAME OR E-MAIL ADDRESS (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
          '', '### the previous address read from relay`s history to %s (author and committer e-mails less the noreply form: one address), the' % K.PRE_RELAY[:8],
