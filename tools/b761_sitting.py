@@ -561,7 +561,8 @@ def inputs(mode):
            ('the counts after the recommendation %d, %d, %d, summing to %d, and equal to the agenda`s recommended counts' % (
                cnt['SYNTHESISED'], cnt['CLUSTERED'], cnt['BANKED'], len(final)),
             sum(cnt.values()) == len(final) == 16 and cnt == A['recommended']),
-           ('every input read not carried: none of its names carried by its keystone in the agenda`s read', all(
+           ('every input read not carried: none of its names carried by its keystone in the agenda`s read (VACUOUS for the %d whose heading names none)' % sum(
+               1 for i in final if i['final'].startswith('CLUSTERED') and not i['names']), all(
                not at for i in final if i['final'].startswith('CLUSTERED') for r in i['reads'] for _x, at, _p in r['names'])),
            ('every input`s bank found (misses %s)' % (miss or 'none'), not miss),
            ('the inputs %d, the CLUSTERED items %d' % (n_in, cnt['CLUSTERED']), n_in == cnt['CLUSTERED'])]
