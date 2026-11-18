@@ -290,13 +290,15 @@ def rebuild_wf_ok(S):
 def runner_ok(S):
     """N1, b760 ((R370)(12): "no dispatch is sent"; b756's form): no dispatch allowed and none made (MAX_DISPATCHES 0 and its cap in
     SIDE-dirichlet-mod-24 0, EF_RUNS and M24_RUNS empty, no dispatch bank written); any dispatch row carrying free_mb, its run id the
-    worklist's, read once after it by that id; the plant a dispatch row with no read refused."""
+    worklist's, read once after it by that id; the plant a dispatch row with no read refused. The bank's clause is the bank's presence
+    equal to the rows' (written at events (72) as `not <exists> == <rows>`, which Python reads as `not (exists == rows)`, false on the act's
+    own state; defect (i), events (84))."""
     rows = S['drows'] or []
     ds = [r for r in rows if r.get('kind') == 'dispatch']
     rs = [r for r in rows if r.get('kind') == 'read']
     return len(ds) == len(K.EF_RUNS) + len(K.M24_RUNS) <= K.MAX_DISPATCHES == 0 == K.MAX_DISPATCHES_M24 \
         and [int(r.get('run')) for r in ds] == list(K.EF_RUNS) + list(K.M24_RUNS) \
-        and not os.path.exists(os.path.join(D, 'b760_dispatch_rows.json')) == bool(ds) \
+        and os.path.exists(os.path.join(D, 'b760_dispatch_rows.json')) == bool(ds) \
         and all(str(r.get('free_mb', '')).isdigit() and int(r.get('free_mb')) >= KS.HOLD for r in ds + rs) \
         and all(sum(1 for x in rs if str(x.get('run')) == str(d.get('run'))) == 1
                 and rows.index(d) < next((i for i, x in enumerate(rows) if x.get('kind') == 'read' and str(x.get('run')) == str(d.get('run'))), -1) for d in ds)
