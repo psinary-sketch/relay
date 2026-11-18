@@ -258,10 +258,11 @@ def place(h, ct, rr, ktexts):
 
 
 def carried(name, KL):
+    # ### a relay path: the name between a folder`s slash and a file`s suffix (data/<name>.txt, tools/<name>.py); every occurrence so -> path alone
     at = [k for k, l in enumerate(KL, 1) if name in LM.names(l)]
-    path = bool(at) and all(re.findall(r'(?<![\w`.-])`?' + re.escape(name) + r'`?(?![\w-])', KL[k - 1]) and
-                            len(re.findall(r'data/' + re.escape(name) + r'\.', KL[k - 1])) == len(re.findall(r'(?<![\w`.-])`?' + re.escape(name) + r'`?(?![\w-])', KL[k - 1]))
-                            for k in at)
+    occ = r'(?<![\w`.-])`?' + re.escape(name) + r'`?(?![\w-])'
+    pth = r'/' + re.escape(name) + r'\.[a-z]'
+    path = bool(at) and all(len(re.findall(pth, KL[k - 1])) == len(re.findall(occ, KL[k - 1])) for k in at)
     return at, path
 
 
@@ -366,10 +367,10 @@ def agenda(mode):
             for kp, rows_ in r['per']:
                 for x, at, p in rows_:
                     P.append('        %s: %s' % (x, ('carried at %s%s' % (', '.join(':%d' % k for k in at[:8]) + (' and %d more' % (len(at) - 8) if len(at) > 8 else ''),
-                                                                         ', inside a relay bank`s path alone' if p else '')) if at else 'not carried'))
+                                                                         ', inside a relay path alone' if p else '')) if at else 'not carried'))
         note = ''
         if i['path_only']:
-            note = ' -- carried as a relay bank`s path alone, which canon XXIV sends out of the paper at its re-cut (the navigator`s (vi))'
+            note = ' -- carried as a relay path alone (a bank`s or a tool`s), which canon XXIV sends out of the paper at its re-cut (the navigator`s (vi))'
         elif i['reading'].startswith('CLUSTERED') and not i['names']:
             note = ' -- the heading names the keystone`s own work and carries no name the reader takes (data/b761_misses.txt (1))'
         if i['act'] in NAV:
@@ -397,6 +398,9 @@ def agenda(mode):
             len(ct) >= 9 and any(k.endswith('THE_EPSTEIN_CONTROL_OBJECT_v0_2.md') for k in ktexts)),
            ('the match`s positive control: pc_online read carried by the Epstein keystone, a planted name b999_planted not', any(
                carried('pc_online', v[0])[0] for k, v in ktexts.items() if 'EPSTEIN' in k) and not any(carried('b999_planted', v[0])[0] for v in ktexts.values())),
+           ('the path test`s control: in the Epstein keystone b759_c3table read as relay paths alone (a bank`s and a tool`s), pc_online not',
+            any(carried('b759_c3table', v[0]) == (carried('b759_c3table', v[0])[0], True) and carried('b759_c3table', v[0])[0] and
+                carried('pc_online', v[0])[0] and not carried('pc_online', v[0])[1] for k, v in ktexts.items() if 'EPSTEIN' in k)),
            ('the placement`s planted control: a heading naming nothing of the maps (b999_planted_bank) placed nowhere',
             not place('## b999_planted_bank read', ct, rr, ktexts)),
            ('the orders: the hand table`s %d names each once and equal to the %d OPEN at HEAD' % (len(names), len(opn)),
@@ -448,7 +452,7 @@ def question(mode):
     om = A['orders']
     q = ('The synthesis sitting of b761 under (R371)(5): the agenda is banked whole (data/b761_sitting_agenda.txt :%d), %d items, one for each FINDINGS heading of b745 to '
          'b760 that is no corrigendum, each read from REGISTRY, the cluster table of SPIRAL_MAP and the keystone`s text at PLACE-papers HEAD. As the maps read them: '
-         '%d SYNTHESISED (items %s by names the Epstein document v0.2 carries in its prose; items %s by relay bank paths alone, which canon XXIV sends out of the paper '
+         '%d SYNTHESISED (items %s by names the Epstein document v0.2 carries outside any relay path; items %s by relay paths alone, banks and tools, which canon XXIV sends out of the paper '
          'at its re-cut); %d CLUSTERED, each an input of the Epstein document`s re-cut (items %s); %d BANKED with no seat (items %s). No keystone is written at this '
          'sitting. The navigator recommends that items %s (b752, b753, b754), reads of the record`s own documents, take no keystone and stand BANKED; with it %d read '
          'SYNTHESISED, %d an input of a re-cut and %d banked (data/b761_sitting_agenda.txt :%d). The agenda also lists the open orders by their triggers '
