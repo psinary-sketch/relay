@@ -16,10 +16,13 @@ THE PAGE, every line read from a bank at the relay's HEAD or from PLACE-papers a
   (6) WHERE EACH KIND OF STATE IS HELD, by path and line: the registry's phase tables, the census's cluster and kernel tables at its
       newest edition, the reference layer, the instruments, the standing clauses, the rules banks and the registrations banks.
 THE MATCHERS print their yields; a needle not found, or found more than once where one is wanted, refuses the page: nothing is written.
-THE QUOTING RULE (data/b754_rules.txt (8), [Q]'s row (3)): the word is read at run time from REGISTRY :373's heading and held in no
-tracked file; a line the page would quote that carries it, or a PLACE-papers line in that row's protected set (the section under :373,
-FINDINGS :820-:826, OPEN_TRAILS' O.7 whole, two lines either side of the word in a ledger), is cited by path, line and the opening
-sixteen characters of its sha256 and not quoted. The word itself is printed nowhere.
+THE QUOTING RULE (data/b754_rules.txt (8), [Q]'s row (3)): the word is read at run time from the rule's heading in REGISTRY and held in
+no tracked file; a line the page would quote that carries it, or a PLACE-papers line in that row's protected set (the section under the
+heading, FINDINGS :820-:826, OPEN_TRAILS' O.7 whole, two lines either side of the word in a ledger), is cited by path, line and the
+opening sixteen characters of its sha256 and not quoted. The word itself is printed nowhere.
+THE HEADING BY ITS DIGEST (v1.36.8, (R370)(5)(i), the author's; data/b760_rules.txt): the heading is the one line of REGISTRY whose
+sha256 opens HEAD_DIGEST, found wherever it stands, its line and its section's span printed among the yields; where no line carries that
+digest, or more than one does, the page is refused. The number the heading stood at before b759's REGISTRY row moved it is read nowhere.
 REACH: the page says where the record holds its state and what the last acts were, in the banks' own words; it reads no figure, grades
 nothing and checks no bank's words against the record.
 
@@ -48,6 +51,7 @@ OUT = os.path.join(RELAY, 'HANDOFF.md')
 CAP = 400
 TWELVE = 12
 RULE_CITE = 'data/b754_rules.txt (8), [Q]`s row (3)'
+HEAD_DIGEST = '53d53060a58f6b9b'   # ### (R370)(5)(i): the sha256 of rule [Q] (3)'s heading line in REGISTRY, its opening sixteen characters
 
 CLOSING = re.compile(r'^data/b(\d+)_closing\.txt$')
 FERRY = re.compile(r'^data/b(\d+)_ferry\.txt$')
@@ -137,15 +141,26 @@ def digest(line):
     return hashlib.sha256(line.encode('utf-8')).hexdigest()[:16]
 
 
+def head_line(reg):
+    """(R370)(5)(i), v1.36.8: the 1-based line of REGISTRY carrying rule [Q] (3)'s heading, the one line whose sha256 opens HEAD_DIGEST;
+    refused where no line carries that digest or more than one does."""
+    hits = [k for k, l in enumerate(reg or [], 1) if digest(l) == HEAD_DIGEST]
+    if len(hits) != 1:
+        raise Refuse('REGISTRY.md: %d lines carry the sha256 opening %s (rule [Q] (3)`s heading), one wanted: the quoting rule cannot run' % (
+            len(hits), HEAD_DIGEST))
+    return hits[0]
+
+
 def qword(src):
-    """the quoting rule's word, read from REGISTRY :373's heading at run time: (compiled matcher, the word, the heading's level)."""
+    """the quoting rule's word, read at run time from the heading head_line finds: (compiled matcher, the word, the heading's level, its line)."""
     reg = src.pp('REGISTRY.md')
-    if not reg or len(reg) < 373:
-        raise Refuse('REGISTRY.md :373 not read: the quoting rule cannot run')
-    m = re.match(r'^(#+)\s*\**\s*([A-Za-z][A-Za-z\-]*)', reg[372])
+    if not reg:
+        raise Refuse('REGISTRY.md not read: the quoting rule cannot run')
+    k = head_line(reg)
+    m = re.match(r'^(#+)\s*\**\s*([A-Za-z][A-Za-z\-]*)', reg[k - 1])
     if not m:
-        raise Refuse('REGISTRY.md :373 carries no heading`s leading word: the quoting rule cannot run')
-    return re.compile(r'\b%s\b' % re.escape(m.group(2)), re.I), m.group(2), len(m.group(1))
+        raise Refuse('REGISTRY.md :%d carries the heading`s digest and no heading`s leading word: the quoting rule cannot run' % k)
+    return re.compile(r'\b%s\b' % re.escape(m.group(2)), re.I), m.group(2), len(m.group(1)), k
 
 
 def _section(lines, start, level):
@@ -160,10 +175,10 @@ def _section(lines, start, level):
 
 def protected(path, lines, q):
     """[Q]'s row (3) over one PLACE-papers ledger: the 1-based lines that are cited and not quoted."""
-    rx, _w, level = q
+    rx, _w, level = q[:3]
     out = set()
     if path == 'REGISTRY.md':
-        out |= _section(lines, 373, level)
+        out |= _section(lines, head_line(lines), level)
     if path == 'FINDINGS.md':
         out |= set(range(820, 827))
     if path == 'OPEN_TRAILS.md':
@@ -310,6 +325,9 @@ def build(src, cap=CAP):
     """(the page's lines, the yields); Refuse where a needle is missing or the page is over the cap."""
     Y = dict(yields=[], cited=[])
     q = qword(src)
+    sec = _section(src.pp('REGISTRY.md'), q[3], q[2])
+    Y['yields'].append('QUOTING RULE  PLACE-papers REGISTRY.md : the heading by the sha256 opening %s at :%d ; its section :%d-:%d, %d lines, none printed' % (
+        HEAD_DIGEST, q[3], min(sec), max(sec), len(sec)))
     hp, hk, ht = holds(src, q, Y)
     A = acts(src, q, Y)
     tl, ha, hh, nk, nt = the_next(src, q, Y)
@@ -386,7 +404,7 @@ def control():
     case('CONSTRUCTED', '%s :1 not opening "b%d closed: ": refused' % (cp, newest),
          cp in (_refused(Planted(base, relay={cp: ['a planted head'] + c[1:]})) or ''), True)
     tl = base.pp('OPEN_TRAILS.md')
-    rx, word, _lv = qword(base)
+    rx, word, _lv, _hk = qword(base)
     hk = [i for i, l in enumerate(tl) if TRAIL.match(l)][-1]
     nk = next(i for i in range(hk + 1, len(tl)) if NEXT.match(tl[i]))
     nt = tl[nk].strip()
@@ -402,8 +420,18 @@ def control():
     case('CONSTRUCTED', 'OPEN_TRAILS.md with no trail heading: refused',
          'no trail heading' in (_refused(Planted(base, pp={'OPEN_TRAILS.md': [l for l in tl if not TRAIL.match(l)]})) or ''), True)
     reg = base.pp('REGISTRY.md')
-    case('CONSTRUCTED', 'REGISTRY.md :373 carrying no heading: refused (the quoting rule cannot run)',
-         'cannot run' in (_refused(Planted(base, pp={'REGISTRY.md': reg[:372] + ['a planted line'] + reg[373:]})) or ''), True)
+    above = reg[:_hk - 1] + ['a planted line'] + reg[_hk - 1:]
+    try:
+        qa = qword(Planted(base, pp={'REGISTRY.md': above}))
+        got = (qa[3] - _hk, sorted(_section(above, qa[3], qa[2])) == [x + 1 for x in sorted(_section(reg, _hk, _lv))])
+    except Refuse:
+        got = None
+    case('CONSTRUCTED', 'REGISTRY.md with a line planted above the heading: the heading and its section found one line down ((R370)(5)(i))',
+         got, (1, True))
+    case('CONSTRUCTED', 'REGISTRY.md with the heading removed: refused, no line carrying its digest (the quoting rule cannot run)',
+         '0 lines carry' in (_refused(Planted(base, pp={'REGISTRY.md': reg[:_hk - 1] + reg[_hk:]})) or ''), True)
+    case('CONSTRUCTED', 'REGISTRY.md with a second such heading: refused, two lines carrying its digest (the quoting rule cannot run)',
+         '2 lines carry' in (_refused(Planted(base, pp={'REGISTRY.md': reg + [reg[_hk - 1]]})) or ''), True)
     case('CONSTRUCTED', 'the page`s cap set at 20 lines: refused', 'the cap 20' in (_refused(base, cap=20) or ''), True)
     L.append('### ### **HANDOFF CONTROLS %d ; AS WANTED %d ; ALL AS WANTED %s.**' % (len(res), sum(res), all(res)))
     return all(res), L
