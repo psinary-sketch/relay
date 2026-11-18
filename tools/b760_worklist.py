@@ -365,7 +365,7 @@ C1_RELAY = None              # ### the c1 route, the corrigendum banks
 C1_CORR = 'e16d9603'         # ### b759: the corrigendum banks, data/b759_corrigendum.txt, .json, the corrigenda bank's row (79) (step 8, 19:00:05Z, events (22))
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
-KERNEL_DELETES = ()   # ### (R370)(4): push-b759-weil at SIDE-explicit-formula's remote, set when removed (after (5)(iv))
+KERNEL_DELETES = (('push-b759-weil', 'a3aad4cc'),)   # ### (R370)(4): removed at SIDE-explicit-formula's remote by `commit.py SIDE-explicit-formula rdelete push-b759-weil` under v1.37.1 (flag 09:34:35Z): its tip a3aad4cc an ancestor of the remote's main a3aad4cc, not forced, read back ABSENT; the clone's own branch not touched
 KERNEL_DELETES_B759 = (('push-b757-join', '6568e9c7'), ('push-b757-coeff', '596d1c9e'), ('push-b758-land', 'd1afb4fc'), ('push-b758-coeff', '630cba16'),
                        ('push-b757-mod24', 'e5ebdd15'))   # ### b759's five, the carry's shift of b758's names set back
 # ### (R369)(3): the five kernel branches removed at their remotes by tools/standing/commit.py `rdelete` (v1.36.3, (R369)(4)(i), relay 983ca5b1,
