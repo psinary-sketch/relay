@@ -19,6 +19,8 @@ an upper-case document stem, a kernel's or branch's name, a REGISTRY id); (R2) t
 sibling-anchor cell, its version suffix cut, underscores read as spaces, case ignored; (R3) a REGISTRY row whose File cell carries a needle of
 the heading (a kernel's name aside, a kernel serving many rows), or whose id is one, is a row the cluster row names by id; (R4) the cluster
 row's keystone text carries a linematch name of the entry. A heading no rule places reads BANKED, NO SEAT, keystone none yet.
+THE KEYSTONE of a row: the documents its keystone cell names by backticked path, else by stem, resolved in the tree at HEAD, copies under
+archive/ set aside; where the cell names its ANCHOR, the anchor alone (SPIRAL_MAP :270 names one and retains the prior one as a member).
 THE ORDERS (the author's words of 2026-11-18, data/b761_author_words_preseal.txt :2 (3) and :5): every order tools/standing/orders.py reads
 OPEN at PLACE-papers HEAD, each in one class by the seat's reading of its trigger as last written (b724's triage, data/b724_orders_triage.txt;
 b756's trigger written again, data/b756_orders_read.txt; or its own line in OPEN_TRAILS where b724 did not read it), the line cited and read
@@ -72,8 +74,8 @@ ORDERS = [
     ('W-ORD-EXPLICIT-FORMULA-C1', 'M', [(B724, 373), (B756, 81)], BUILD),
     ('W-ORD-MECHANISM-TABLE', 'M', [(OT, 16589), (OT, 17094)], 'its trigger read at b725, its work begun at b726 and carried at b732'),
     ('W-ORD-VISIBILITY', 'M', [(OT, 16590), (OT, 16893)], 'its trigger met, its work read not clean at b728 and carried at b729'),
-    ('W-ORD-LATE-BANKS', 'M', [(B724, 463)], 'its trigger the next finding after a seal: b760`s findings after its lock, entered at this act (data/b761_events.txt (20)-(35)); b724 graded it on the author`s word'),
-    ('W-ORD-MATCHER-SHAPE', 'M', [(B724, 415)], 'its trigger the next act that matches a header, a document name or a version by pattern: this act`s cells tool does (tools/b761_registry.py); b724 graded it on the author`s word'),
+    ('W-ORD-LATE-BANKS', 'M', [(B724, 463)], 'its trigger the next finding after a seal: b760`s findings after its lock, entered at this act (data/b761_events.txt (20)-(35)); b724 graded it AUTHOR`S WORD, recommending a re-scope'),
+    ('W-ORD-MATCHER-SHAPE', 'M', [(B724, 415)], 'its trigger the next act that matches a header, a document name or a version by pattern: this act`s cells tool does (tools/b761_registry.py); b724 graded it AUTHOR`S WORD, recommending a re-scope'),
     ('W-ORD-CORRESPONDENCE-BEHIND-SCOPE', 'M', [(B724, 365), (B756, 68)], 'its trigger as b756 wrote it again, the next re-cut act of a document carrying a Correspondence table: b760`s edition of Which Structure Confines at v2.5.0 carries one, read as met where an edition is such an act'),
     ('W-ORD-P2-9-RESYNC', 'A', [(B724, 204)], 'the author schedules it'),
     ('W-ORD-LI-WEIL-BRIDGE', 'A', [(B724, 207)], 'the author`s word'),
@@ -346,6 +348,8 @@ def agenda(mode):
          '### tools/b761_sitting.py agenda %s; PLACE-papers HEAD %s; REGISTRY, SPIRAL_MAP`s cluster table (:%d-:%d), FINDINGS and the keystones read at HEAD;' % (mode, head, CT_HEAD, CT_LAST),
          '### each heading by its line and sha256, no line of a paper quoted; the names as tools/standing/linematch.py reads them (the heading`s lower-case',
          '### underscore names alone, linematch.py :9-:10); the cluster by rules R1-R4 (the tool`s docstring), the rule that placed each item printed;',
+         '### a row`s keystone the documents its keystone cell names by path, else by stem, copies under archive/ set aside, and where the cell',
+         '### names its ANCHOR the anchor alone (SPIRAL_MAP :270 names one and retains the prior one as a member, not read as a keystone here);',
          '### no keystone, map or FINDINGS line written at this sitting ((R371)(5), canon XXIV).', '',
          '## THE CLUSTER TABLE (SPIRAL_MAP :%d-:%d): cluster rows %d; the keystones it names by path or by stem read: %s' % (
              CT_HEAD, CT_LAST, len(ct), ', '.join('%s (%d lines, %d names)' % (k, len(v[0]), len(v[1])) for k, v in ktexts.items()) or 'none'), '',
