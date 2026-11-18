@@ -1,14 +1,34 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.36.2) at relay `a998d9f5` and PLACE-papers `cd42d8e9`, 2026-11-17T05:20:06Z, from the banks: the closings and ferries of b746 to b757 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b758_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.36.9) at relay `1e9493e5` and PLACE-papers `0e484b6f`, 2026-11-18T09:18:09Z, from the banks: the closings and ferries of b748 to b759 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b760_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b758_ferry.txt :27:
+The last ruling`s clause on them, data/b760_ferry.txt :31:
 
-> (10) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i); no push forced; no tag moved, v0.38 and v0.2.0 among them; no pin moved; no sentence of any paper edited, each write of (8) a note beside the text; nothing computed at any field. THE (W) LIST regenerated from this ruling before the lock: the banks as data/b758_*; their generators as tools/b758_*.py; tools/acts/b758.py; tools/standing/ with VERSION; b757's carried files and its close's banks; HANDOFF.md; in PLACE-papers FINDINGS.md, OPEN_TRAILS.md, REGISTRY.md, FACES_LEDGER.md and the two documents of (8); in SIDE-explicit-formula Schema/ZQ/OffZero/Time.lean and print_targets.txt. At most 4 dispatches. One question at the root, composed from the banks: the act after this one is sections 6 to 8 entered from the navigator's draft with the author's word; or the written proof of the class-number-3 coefficient law with the four carried orders priced beside it; or another the author names.
+> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel written, its one touch the removal of (4); no dispatch; no push forced; no tag moved, v0.38 to v0.41 and v0.2.0 among them; no pin moved; no sentence of any paper edited beyond the new file of (7) and the five keys of (9); nothing computed at a field; tools/research/reproduce.py's full run made and banked as the standing clauses order it.
 
 ## The last twelve acts, newest first
+
+### b759
+
+data/b759_closing.txt :1:
+
+> b759 closed: relay e853642a, PLACE-papers d711a5d; suite 112 of 116; root ec0ffeb72d1a72de…; 1 prompt answered; scores 8 of 8 HELD; 11 defects
+
+data/b760_places.txt :8, THE ACT`S PLACE:
+
+> THE ACT'S PLACE. The control's statements stood on main and the Epstein document still read as five sections under nine dated notes. b759 entered the document at v0.2 from those statements, landed the failure of positivity in the criterion's own form, reproduced the appendix's table, and re-cut fourteen sentences elsewhere in the corpus to what is proved, compiled and observed.
+
+### b758
+
+data/b758_closing.txt :1:
+
+> b758 closed: relay c25f8b53, PLACE-papers 4ea4194; suite 111 of 116; root 81ae9220f799745e…; 3 prompts answered; scores 7 of 8 HELD; 8 defects
+
+data/b760_places.txt :7, THE ACT`S PLACE:
+
+> THE ACT'S PLACE. b757 built the control's parts and left them on branches. b758 joined them on one main under one tag and landed the two coefficient statements and the wide direction, so that sections 6 to 8 of the Epstein document could be written from compiled statements on main.
 
 ### b757
 
@@ -110,45 +130,25 @@ data/b748_ferry.txt :23, THE ACT`S PLACE:
 
 > (8) THE ACT'S PLACE ON THE PAPER PATH: §2 fixed the demand, §3 states what was discharged against it and §4 states the forms that stand once the demand is met; after this act the paper's result sections begin at §5 with the located zero, whose banks (b738-b743) are on the relay. The act after this one is the Tier 3 act of (4) by the author's word already given; the act after that is named by the author at this act's root: §5 of the paper, the attribution order's plan act, the front-door sitting, the ten doors outside the census, or the synthesis sitting of (R356)(6) at b750.
 
-### b747
-
-data/b747_closing.txt :1:
-
-> b747 closed: relay 15746802, PLACE-papers ea29289; suite 112 of 116; root 59db3794b7ae4cf7…; 3 prompts answered; scores 7 of 8 HELD; 28 defects
-
-data/b747_ferry.txt :25, THE ACT`S PLACE:
-
-> (9) THE ACT'S PLACE ON THE PAPER PATH: §1 fixed the object, §2 fixes what the schema asks of it, so §3 can state what was discharged against a stated demand; the attribution order enters the ledger on the word given a day ago, by the route the defect of b746 asked for; and the stale draft is read before anything is decided about it. The act after this one is named by the author at the root: §3 of the paper (the five discharges), the attribution order's plan act, the Tier 3 act over the v1.2.0 draft if the root's answer is discard, the front-door sitting, the ten doors outside the census, or the synthesis sitting of (R356)(6) at b750.
-
-### b746
-
-data/b746_closing.txt :1:
-
-> b746 closed: relay 99108e06, PLACE-papers f62d997; suite 111 of 116; root 232483343415fa39…; 6 prompts answered; scores 7 of 8 HELD; 17 defects
-
-data/b746_ferry.txt :25, THE ACT`S PLACE:
-
-> (9) THE ACT'S PLACE ON THE PAPER PATH: the two controls discharged, so the method has its calibration on record; the paper begins at the object, where an outside reader begins; the next order enters at the catalogue's edge; and the entry's form gains the line that says where each finding is on its way from bank to keystone. The act after this one is named by the author at the root: §2 of the paper, the attribution order's plan act, the Tier 3 act over the stale v1.2.0 draft, the front-door sitting, the ten doors outside the census, or the synthesis sitting of (6) at b750.
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :18555, the trail of b757 headed at :18507:
+PLACE-papers OPEN_TRAILS.md :18689, the trail of b759 headed at :18635:
 
-> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R367)(10)): where (7) was not built, the one direction over the wider strip as its centre with the four carried orders and the two written proofs priced beside it; or, where (7) was built, sections 6 to 8 of the Epstein document written from the compiled statements; or another the author names; the open orders whose status names b758 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R369)(11)): the same re-cut, map before write, for the keystone the author names, Which Structure Confines standing nearest with three of this act’s orders on it; or the class-number-3 law priced for a kernel; or W-ORD-BIBLIOGRAPHY-LINK; or another the author names; the open orders whose status names b760 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-71 open of 208 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `cd42d8e9`:
+76 open of 213 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `0e484b6f`:
 
-`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-E0-RANK-PROPAGATION`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-GW-IMPORT`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-TABLE-SHAPE`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-EPSTEIN-COUNT-LEAN`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-MECHANISM-ATTRIBUTION`, `W-ORD-SQUARES-AT-24`
+`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-E0-RANK-PROPAGATION`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-GW-IMPORT`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-TABLE-SHAPE`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-EPSTEIN-COUNT-LEAN`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-MECHANISM-ATTRIBUTION`, `W-ORD-SQUARES-AT-24`, `W-ORD-WSC-KERNEL-CITES`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-BIBLIOGRAPHY-LINK`, `W-ORD-EPSTEIN-SECTIONS-3-4`
 
 ## Where each kind of state is held
 
-- the registry`s phase tables: PLACE-papers REGISTRY.md :134 PHASE 1.5: RH-Adjacent ; :234 PHASE 2: Other Domains
+- the registry`s phase tables: PLACE-papers REGISTRY.md :134 PHASE 1.5: RH-Adjacent ; :235 PHASE 2: Other Domains
 - the census`s cluster and kernel tables, at its newest edition: PLACE-papers phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md :155 (the phases and clusters), :187 (the kernels)
 - the reference layer: PLACE-papers FINDINGS.md :762-:1096, 76 anchors, the rule for how an anchor moves at :1084
 - the instruments: PLACE-papers phase1.5/method/INSTRUMENTS.md, 111 entries, the newest I-111 at :776
 - the standing clauses: relay data/standing_clauses_v9.txt (the newest of 9 editions)
-- the rules banks: relay data/<act>_rules.txt, 49 banks, data/b670_rules.txt to data/b756_rules.txt
+- the rules banks: relay data/<act>_rules.txt, 50 banks, data/b670_rules.txt to data/b760_rules.txt
 - the registrations banks: relay data/<act>_registrations.txt, 17 banks, data/b703_registrations.txt to data/b755_registrations.txt
 
