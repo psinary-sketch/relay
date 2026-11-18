@@ -173,6 +173,20 @@ def put(path, text):
     os.replace(path + '.tmp', path)
 
 
+def units(lines, whole=False):
+    """the diff bank's units: a heading, rule, comment or table row whole, a reference line whole where asked, else b726's sentences."""
+    out = []
+    for l in lines:
+        s = l.strip()
+        if not s:
+            continue
+        if whole or s.startswith(('#', '|', '---', '<!--')):
+            out.append(s)
+        else:
+            out += sents([s])
+    return out
+
+
 def sents(lines):
     """b726's reader: the prose sentences of lines (no table, rule, heading or comment), split at a stop before a space and a capital."""
     out = []
@@ -427,6 +441,8 @@ def compose(fill=True):
         return NL.join(out)
     flat = fill_ax(NL.join(flat)).replace('‹DATE›', date).split(NL)
     vtext = fill_ax(vtext).replace('‹DATE›', date)
+    for k in keys:   # ### each key's NEW as the edition prints it, for the tables and the diff bank
+        k['new_f'] = fill_ax(k['new'], record=False).replace('‹DATE›', date) if k['new'] is not None else None
     if stands:
         vtext = vtext.replace('‹ORDERLINE›', fol['words']).replace('‹CLASSROW›', fcr['words'])
     else:
@@ -478,8 +494,9 @@ def kernel_reads(C):
         L_.append('  %-44s %s :%d -- declared at :%s ; among print_targets.txt %s -> %s' % (short, path, line, dl, fq in pt, 'AS WANTED' if ok else 'MISS'))
         if not ok:
             misses.append(short)
-    # ### every Lean name the edition's added texts carry, and every kernel path and line they print
-    added = NL.join((k['new'] or '') for k in C['keys']) + NL + C['vtext']
+    # ### every Lean name the edition's added texts carry, and every kernel path and line they print: the keys' NEW and BLOCK V as the block
+    # ### gives it, not the filled tables, whose v2.4.0 column carries v2.4.0's own cites
+    added = NL.join((k['new'] or '') for k in C['keys']) + NL + C['vraw']
     shorts = set(fq.split('.')[-1] for _p, _l, fq in LN)
     fqs = set(fq for _p, _l, fq in LN)
     # ### a Lean name: a backticked word in snake case (a lower-case letter or digit, an underscore, a lower-case letter), no file's name;
@@ -522,7 +539,7 @@ def relay_reads(C):
         L_.append('  relay %s :%d carries %r -> %s' % (p, n, nd, 'AS WANTED' if ok else 'MISS'))
         if not ok:
             miss.append('%s :%d' % (p, n))
-    added = NL.join((k['new'] or '') for k in C['keys']) + NL + C['vtext']
+    added = NL.join((k['new'] or '') for k in C['keys']) + NL + C['vraw']
     seen = 0
     for m in RELAY_CITE.finditer(added):
         l = rdrelay(m.group(1))
@@ -682,6 +699,8 @@ def report(C, I, s, ctl_lines, ctl_miss, rr):
         if o != prev:
             off.append('from v2.4.0 :%d %s' % (n, 'removed' if o is None else ('%+d' % o)))
             prev = o
+    r0 = next((i for i, l in enumerate(C['L'], 1) if l.startswith('## References')), 0)
+    refs = (r0, next((i for i, l in enumerate(C['L'], 1) if i > r0 and l.startswith('## ')), 0) if r0 else 0)
     L_ += ['### THE OFFSET (I-22): ' + ' ; '.join(off) + '. Every line the back matter`s rows name is the edition`s own.', '',
            '## THE KEYS, EACH ASSERTED AT ITS LINE OF v2.4.0 BEFORE COMPOSITION, THEN APPLIED (key | v2.4.0 line | kind | how asserted | the edition`s line | Status)']
     for k in C['keys']:
@@ -700,9 +719,10 @@ def report(C, I, s, ctl_lines, ctl_miss, rr):
         if kd in ('INLINE-AFTER', 'PARA-BEFORE', 'PARA-AFTER', 'ROW-AFTER'):
             L_.append('    (added %s v2.4.0 :%d%s)' % ('before' if kd == 'PARA-BEFORE' else 'after', n, (', after the words "%s"' % k['old']) if kd == 'INLINE-AFTER' else ''))
             old = ''
-        for x in ([old] if old.lstrip().startswith('|') else sents([old])):
+        whole = refs[0] < n < refs[1]   # ### a reference is printed by its line, not split at its initials
+        for x in units([old], whole):
             L_.append('    - ' + x)
-        for x in (k['new'] or '').split(NL) if (k['new'] or '').lstrip().startswith('|') else sents((k['new'] or '').split(NL)):
+        for x in units((k['new_f'] or '').split(NL), whole):
             L_.append('    + ' + x)
         if kd == 'REMOVE':
             L_.append('    + (removed)')
@@ -746,14 +766,14 @@ def report(C, I, s, ctl_lines, ctl_miss, rr):
            '    per key in the body (key, kind, v2.4.0`s sentences, v2.5.0`s): %s ; the restatement 0 sentences moved' % ', '.join('%s %s %d->%d' % r for r in s['rows']),
            '  H28c: live banned stems in the whole file %d ; sentences beyond the ceiling %d by the list %s (the question at :22 struck from the count and carried, %d line) -- %s' % (
                len(s['stems']), len(s['ceil_hits']), list(CEILING), s['q_in'], 'HELD' if ok_c else 'REFUTED %s %s' % (s['stems'], s['ceil_hits'])),
-           '  STANDS: %d of %d sentences of v2.4.0`s body carried unchanged; the keys and the one restatement changed the rest as listed' % (s['stands'], s['body_cur']),
+           '  STANDS: %d of %d sentences of v2.4.0`s body carried unchanged; the keys and the %d restatements changed the rest as listed' % (s['stands'], s['body_cur'], len(RESTATE)),
            '  THE PAGE CLAUSE (I-28), each page by tools/chain_page.py keystones()`s pattern over its newest node list at relay HEAD: ' + ' ; '.join(
                '%s (%s, %d nodes, last written at PLACE-papers %s): v2.4.0 names %s, the edition names %s ; the page lists the paper %s ; it lists %s %s, which names its nodes %s' % (
                    p['page'], p['list'], p['nodes'], p['last'], p['v24'] or 'none', p['v25'] or 'none', p['lists_family'], EPSTEIN_DOC, p['lists_epstein'], p['epstein_names'])
                for p in pg),
            '    %s' % ('A REGENERATION WOULD ADD THE EDITION TO A PAGE`S PLACEMENT; NEITHER PAGE IS ON (R370)(13)`S (W) LIST, AND EACH ALREADY OMITS A LATER KEYSTONE NAMING ITS NODES, SO NEITHER IS REGENERATED BY THIS ACT: ENTERED IN THE MISSES READ FOR THE AUTHOR'
                           if any(p['v25'] and not p['lists_family'] for p in pg) else 'the edition names no node of either page, so neither page is regenerated'),
-           '  N3 READ: the edition equals v2.4.0 with BLOCK W applied and BLOCK V appended, but for %d substitution of the restatement clause, listed in its rewrites table -- REFUTED BY THAT ROW, printed' % len(RESTATE),
+           '  N3 READ: the edition equals v2.4.0 with BLOCK W applied and BLOCK V appended, but for %d substitutions of the restatement clause, each listed in its rewrites table -- REFUTED BY THOSE ROWS, printed' % len(RESTATE),
            '  NOT DEPOSITED; committed to PLACE-papers beside v2.4.0 and v2.3.1, each unedited']
     # ### HELD at a sentence the form cannot place (I-29's read), a control's miss, or a sentence beyond the ceiling (H28c); H28a and H28b print
     # ### as scored ((R370)(7): "H28a, H28b and H28c <as scored>")
