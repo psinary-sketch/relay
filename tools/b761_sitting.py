@@ -201,8 +201,10 @@ def cluster_table(S):
             continue
         c = l.split('|')
         kcell, scell = (c[2] if len(c) > 2 else ''), (c[3] if len(c) > 3 else '')
-        keys = re.findall(r'`([\w./\-]+\.md)`', kcell)
-        if not keys:
+        keys = []
+        for x in re.findall(r'`([\w./\-]+\.md)`', kcell):
+            keys += [x] if x in files else [f for f in files if f.rsplit('/', 1)[-1] == x.rsplit('/', 1)[-1]]
+        if not re.findall(r'`([\w./\-]+\.md)`', kcell):
             for s in stems(kcell):
                 keys += [f for f in files if f.endswith('.md') and re.sub(r'(_v\d+(?:_\d+)*)$', '', f.rsplit('/', 1)[-1][:-3]) == s]
         ids = list(dict.fromkeys(re.findall(r'(?<![\w.])(\d\.\d[a-z]-\d+|p2-\d+|d1-\d+)\b', l)))
