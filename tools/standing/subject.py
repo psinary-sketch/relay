@@ -28,8 +28,22 @@ lines; with none, the file whole. The controls (`control_corpus`): (R363) replay
 (R345)(2)(iv) where the relay holds it (data/b748_rules.txt :9, tools/b378_lockgate.py :237); "minimal negative" and "class number 3" reaching
 data/b721_derivation.txt; two-leg reaching FINDINGS :901 and :979, simplicity :904, a planted noun nothing; each against the corpus before.
 
+v1.37.0, (R370)(5)(iii), the author's: THE THIRD SEARCH, OVER THE LIVE PAPERS. "tools/standing/subject.py gains a third search, the lines of
+the registry's live papers that name the object's nouns, each printed by path and line, so that a ruling's destinations are read from it and
+not from recall." THE LIVE PAPERS (live_papers): every `.md` path REGISTRY's lines name at the ref (rule [Q] (3)'s section skipped, its
+heading found by its digest, tools/standing/handoff.py head_line), each taken to its family (the name with its `_v<n>` edition mark removed)
+and the family to every file of it in PLACE-papers' tree at the ref, a bare name by its file name where no path carries it; the deposited and
+archived copies (archive/, outputs/) are not live and are left out, as are the record's four ledgers (FINDINGS, OPEN_TRAILS, REGISTRY,
+ERRATA), which the first two searches and the citation check read. Every line of every live paper is an item `live:<path>`; a hit among them
+is printed by path, line and nouns and never by its words, with or without --quote (no line of a paper is printed, so no identifier and no
+protected line can be). The read takes the three searches together; `live <ref> <spec> ...` runs the third alone. Its control
+(control_live): at PLACE-papers 4ea41948, b758's close and (R369)(9)'s base, with the nouns Epstein and Z_Q, each of BLOCK D's fourteen keys
+(relay data/b759_text.txt) printed by path and line with the nouns its line carries and whether the third search reaches it; AS WANTED where
+it reaches every BLOCK D line that carries either noun and no hit lies in a copy, their count printed beside 14.
+
   python -X utf8 -u tools/standing/subject.py control
   python -X utf8 -u tools/standing/subject.py read <ferry path> <begin marker> <end marker> <spec> [<spec> ...] [--quote]
+  python -X utf8 -u tools/standing/subject.py live <PLACE-papers ref> <spec> [<spec> ...]
 """
 import io
 import re
@@ -130,6 +144,74 @@ def corpus(ref='HEAD', pp=PP, rref='HEAD', relay=RELAY):
     return hs + ly, fig, ri
 
 
+# ### v1.37.0, (R370)(5)(iii): THE THIRD SEARCH, over the registry's live papers
+LIVE_OUT = ('archive/', 'outputs/')                                   # ### deposited and archived copies: not live
+LIVE_LEDGERS = ('FINDINGS.md', 'OPEN_TRAILS.md', 'REGISTRY.md', 'ERRATA.md')   # ### the record's ledgers, read by the first two searches
+REG_PATH = re.compile(r'(?<![A-Za-z0-9_./-])([A-Za-z0-9_][A-Za-z0-9_./-]*\.md)(?![A-Za-z0-9_])')
+VERSIONED = re.compile(r'_v\d+(?:_\d+)*(?=\.md$)')
+LIVE_PIN = '4ea41948'                                                 # ### PLACE-papers at b758's close: (R369)(9)'s base
+LIVE_SPECS = ('word:Epstein=Epstein', 'sym:Z_Q')
+BLOCK_D = 'D:/relay/data/b759_text.txt'
+
+
+def family_of(p):
+    """a paper's family: its path with the `_v<n>` edition mark before `.md` removed."""
+    return VERSIONED.sub('', p)
+
+
+def _registry_named(ref='HEAD', pp=PP):
+    """({the `.md` paths REGISTRY's lines name at the ref}, the lines of rule [Q] (3)'s section skipped): the section found by its heading's
+    digest (tools/standing/handoff.py head_line); no line of it is read for names or printed."""
+    import handoff as HO
+    reg = blob('REGISTRY.md', ref, pp)
+    try:
+        k = HO.head_line(reg)
+    except HO.Refuse as e:
+        raise SystemExit('### THE SUBJECT READ: %s at PLACE-papers %s -- NOTHING READ' % (e, ref))
+    skip = HO._section(reg, k, len(re.match(r'^(#+)', reg[k - 1]).group(1)))
+    return set(m.group(1) for i, l in enumerate(reg, 1) if i not in skip for m in REG_PATH.finditer(l)), len(skip)
+
+
+def live_papers(ref='HEAD', pp=PP):
+    """([the live papers' paths], figures) at the ref: REGISTRY's named paths, each by its family to every file of it in the tree outside the
+    copies, a name no path carries by its file name; the four ledgers left out."""
+    r = subprocess.run(['git', '-C', pp, 'ls-tree', '-r', '-z', '--name-only', ref], capture_output=True)   # ### -z: each path as written, none quoted
+    if r.returncode:
+        raise SystemExit('### THE SUBJECT READ: PLACE-papers %s`s tree UNREADABLE (exit %d) -- NOTHING READ' % (ref, r.returncode))
+    live = [p for p in r.stdout.decode('utf-8', 'replace').split('\0') if p.endswith('.md') and not p.startswith(LIVE_OUT)]
+    named, skipped = _registry_named(ref, pp)
+    fam = {}
+    for p in live:
+        fam.setdefault(family_of(p), []).append(p)
+    byname = {}
+    for f in fam:
+        byname.setdefault(f.rsplit('/', 1)[-1], []).append(f)
+    fams, unresolved, copies = set(), [], 0
+    for n in sorted(named):
+        if n.startswith(LIVE_OUT):
+            copies += 1
+            continue
+        f = family_of(n)
+        if f in fam:
+            fams.add(f)
+        elif f.rsplit('/', 1)[-1] in byname:
+            fams |= set(byname[f.rsplit('/', 1)[-1]])
+        else:
+            unresolved.append(n)
+    papers = sorted(p for f in fams for p in fam[f] if p not in LIVE_LEDGERS)
+    fig = dict(named=len(named), named_copies=copies, unresolved=len(unresolved), families=len(fams), live_papers=len(papers),
+               ledgers_left_out=sum(1 for f in fams for p in fam[f] if p in LIVE_LEDGERS), protected_lines_skipped=skipped)
+    return papers, fig
+
+
+def live_items(ref='HEAD', pp=PP):
+    """[(`live:<path>`, line, text)] of every line of every live paper at the ref, and the figures with the lines counted."""
+    papers, fig = live_papers(ref, pp)
+    out = [('live:' + p, i, l) for p in papers for i, l in enumerate(blob(p, ref, pp), 1)]
+    fig['live_lines'] = len(out)
+    return out, fig
+
+
 def ruling(text, begin, end):
     i = text.find(begin)
     j = text.find(end, i + 1) if i >= 0 else -1
@@ -185,16 +267,17 @@ def run(specs, text, hs, quote=True, fig=None):
     multi = [h for h in unc if len(h[3]) >= 2]
     nF = sum(1 for h in hs if h[0] == 'FINDINGS')
     nI = sum(1 for h in hs if h[0] == 'INSTRUMENTS')
-    nR = len(hs) - nF - nI
-    L = ['### THE SUBJECT READ: NOUNS %d ; HEADINGS %d ; ENTRY HEADS %d%s ; HITS %d ; CITED %d ; UNCITED %d ; MATCHING TWO OR MORE %d%s' % (
-        len(pats), nF, nI, ' ; RELAY LINES %d' % nR if nR else '', len(hits), len(hits) - len(unc), len(unc), len(multi),
-        '' if quote else ' ; PRINTED BY PLACE, NO LINE QUOTED')]
+    nL = sum(1 for h in hs if h[0].startswith('live:'))   # ### v1.37.0: the third search's items, counted apart
+    nR = len(hs) - nF - nI - nL
+    L = ['### THE SUBJECT READ: NOUNS %d ; HEADINGS %d ; ENTRY HEADS %d%s%s ; HITS %d ; CITED %d ; UNCITED %d ; MATCHING TWO OR MORE %d%s' % (
+        len(pats), nF, nI, ' ; RELAY LINES %d' % nR if nR else '', ' ; LIVE PAPER LINES %d (PRINTED BY PLACE ALONE)' % nL if nL else '',
+        len(hits), len(hits) - len(unc), len(unc), len(multi), '' if quote else ' ; PRINTED BY PLACE, NO LINE QUOTED')]
     if fig:
         L.append('   THE CORPUS: ' + ' ; '.join('%s %d' % (k.replace('_', ' '), v) for k, v in sorted(fig.items())))
     for noun, p in pats:
         L.append('   noun %-14s %-30s hits %d, uncited %d' % (noun, '/%s/' % p.pattern, sum(1 for h in hits if noun in h[3]), sum(1 for h in unc if noun in h[3])))
     for d, n, _ok, f, l in sorted(unc, key=lambda h: (len(h[3]) < 2, h[0], h[1])):
-        L.append('   %s %s :%d [%s]%s' % ('TWO+' if len(f) >= 2 else '    ', d, n, ', '.join(f), ' ' + l[:130] if quote else ''))
+        L.append('   %s %s :%d [%s]%s' % ('TWO+' if len(f) >= 2 else '    ', d, n, ', '.join(f), ' ' + l[:130] if quote and not d.startswith('live:') else ''))
     return dict(hits=len(hits), hit={(h[0], h[1]) for h in hits}, uncited={(h[0], h[1]) for h in unc}, multi={(h[0], h[1]) for h in multi},
                 cited_hits={(h[0], h[1]) for h in hits if h[2]}, lines=L)
 
@@ -291,19 +374,68 @@ def control_corpus(ferry753='D:/relay/data/b753_ferry.txt', ferry754='D:/relay/d
 CORPUS_PIN = '04fef04e'
 
 
+def block_d(path=BLOCK_D):
+    """[(key, path, line)] of (R369)(9)'s BLOCK D: each marker line `@@ C<k> | <path> :<line> | <grade>`."""
+    out = []
+    for l in io.open(path, encoding='utf-8').read().replace('\r', '').split('\n'):
+        m = re.match(r'^@@ (C\d+[a-z]?) \| (\S+\.md) :(\d+) \| ', l)
+        if m:
+            out.append((m.group(1), m.group(2), int(m.group(3))))
+    return out
+
+
+def control_live(ref=LIVE_PIN, pp=PP, specs=LIVE_SPECS):
+    """(ok, lines): (R370)(5)(iii)'s control. At the ref, the third search with the nouns; each of BLOCK D's keys printed by path and line, the
+    nouns its line carries at the ref and whether the search reaches it; AS WANTED where the search reaches every BLOCK D line carrying either
+    noun, and no hit lies in a copy; their count printed beside 14. No line's words are printed."""
+    li, lf = live_items(ref, pp)
+    r = run(specs, '', li, quote=False, fig=lf)
+    pats = [pattern(s) for s in specs]
+    D = block_d()
+    rows, want, got, cache = [], set(), set(), {}
+    for k, p, n in D:
+        if p not in cache:
+            try:
+                cache[p] = blob(p, ref, pp)
+            except SystemExit:
+                cache[p] = []
+        line = cache[p][n - 1] if 0 < n <= len(cache[p]) else None
+        nouns = [noun for noun, rx in pats if line is not None and rx.search(line)]
+        hit = ('live:' + p, n) in r['hit']
+        if nouns:
+            want.add((p, n))
+        if hit:
+            got.add((p, n))
+        rows.append('   %-5s %s :%d -- nouns %s ; the third search %s' % (k, p, n, ', '.join(nouns) if nouns else 'none', 'HIT' if hit else 'NO HIT'))
+    copies = [x for x in r['hit'] if x[0][5:].startswith(LIVE_OUT)]
+    keys = sum(1 for k, p, n in D if (p, n) in got)
+    ok = len(D) == 14 and bool(want) and got == want and not copies
+    L = r['lines'][:2 + len(specs)] + ['### (R369)(9)`S FOURTEEN KEYS AT PLACE-papers %s, EACH BY PATH AND LINE (relay %s, BLOCK D):' % (ref, BLOCK_D[9:])] + rows + [
+        '### THE CONTROL: BLOCK D`S KEYS REACHED %d BESIDE 14 (LINES %d OF %d) ; LINES CARRYING EITHER NOUN %d ; HITS IN A COPY %d ; %s' % (
+            keys, len(got), len(set((p, n) for k, p, n in D)), len(want), len(copies), 'AS WANTED' if ok else 'NOT AS WANTED')]
+    return ok, L
+
+
 def main(argv):
     if argv[:1] == ['control']:
         ok, L = control()
         ok2, L2 = control_corpus(ref=CORPUS_PIN)
         L2 = L2[:1] + ['### THE CORPUS READ AT PLACE-papers %s, THE COMMIT THE CASES WERE WRITTEN AGAINST (v1.35.2)' % CORPUS_PIN] + L2[1:]
-        print('\n'.join(L + L2))
-        return 0 if ok and ok2 else 1
+        ok3, L3 = control_live()
+        print('\n'.join(L + L2 + L3))
+        return 0 if ok and ok2 and ok3 else 1
     if argv[:1] == ['read'] and len(argv) >= 5:
         quote = '--quote' in argv
         argv = [a for a in argv if a != '--quote']
         t = ruling(io.open(argv[1], encoding='utf-8').read(), argv[2], argv[3])
         items, fig, ri = corpus()
-        print('\n'.join(run(argv[4:], t, items + ri, quote=quote, fig=fig)['lines']))
+        li, lf = live_items()   # ### v1.37.0, (R370)(5)(iii): the third search beside the two
+        fig.update(dict(('live ' + k, v) for k, v in lf.items()))
+        print('\n'.join(run(argv[4:], t, items + ri + li, quote=quote, fig=fig)['lines']))
+        return 0
+    if argv[:1] == ['live'] and len(argv) >= 3:
+        li, lf = live_items(argv[1])
+        print('\n'.join(run(argv[2:], '', li, quote=False, fig=lf)['lines']))
         return 0
     sys.exit(__doc__)
 
