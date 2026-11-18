@@ -12,10 +12,12 @@ THE ROWS: each row id opening 1.5 that b720's block reads "not yet read" (read f
 1.5f-4, 1.5g-4, 1.5h-6, 1.5h-7, 1.5h-8, 1.5h-9, then the rest in the block's order, the three the block does not name after them in their
 id order. Each row's document is the path its REGISTRY row's File cell names, read at PLACE-papers HEAD.
 SUBJECT: one clause quoted from the document's own text -- its PURPOSE line ("**PURPOSE:**" in the head, before the first '## ') where the
-head carries one; else its abstract's first prose sentence; else its opening's (the first prose line after the title, a line carrying an
-identifier, a date, an ornament, a list item, a wholly emphasised line or a provenance label passed over) -- cut at its first ';' and, past
-220 characters, at a comma, the line cited; emphasis marks removed, the words kept; a clause carrying the protected word cited by line and
-digest alone.
+head carries one; else its abstract's first prose sentence; else its opening's (the first prose paragraph after the title, a line
+carrying an identifier, a date, an ornament, a list item, a line wholly in emphasis or a metadata label passed over; the documents'
+lines hard-wrapped, so a sentence is read across its paragraph; a sentence of fewer than five words before a longer one taken as a
+label) -- cut at its first ';' and, past 220 characters, at a comma, its lines cited; emphasis marks removed, the words kept; a clause
+carrying the protected word cited by line and digest alone. Repaired at Component 3 after its first dry run (22:40:29Z), committed
+before its second.
 TO KC: the class the standing class line declares ("**DOCUMENT CLASS — THE STANDING TAXONOMY (...): TIER X**"), or no class line; which
 of Correspondence, Glossary, References or Bibliography, and Errata its headings carry, each by its lines; the newest tag of
 SIDE-explicit-formula (the kernel clone's tags in creation order) that its text carries by the tag's name beside the kernel's name or by
@@ -62,7 +64,8 @@ B720_HEAD = '## SUBJECT / TO-KC ATTRIBUTE'
 B720_END = '<!-- b720 (R330)(5)(i) ATTRIBUTE BLOCK'
 CLS = re.compile(r'^\*\*DOCUMENT CLASS — THE STANDING TAXONOMY \([^)]*\):\s*(?:#+\s*)?([A-Z][A-Z ]+?)\*\*')
 META = re.compile(r'^(author|orcid|version|status|date|license|licence|doi|keywords?|msc|filed|lane|predecessor|successor|supersedes|'
-                  r'superseded|provenance|act|ruling|cluster spine|paper p\d)\b', re.I)
+                  r'superseded|provenance|act|ruling|cluster spine|paper p\d|class-numbering scheme|document class|correction|changelog)\b', re.I)
+TAXONOMY = 'phase1.5/method/THE_DOCUMENT_CLASS_TAXONOMY.md'
 KINDS = (('Correspondence', r'correspondence'), ('Glossary', r'glossary'), ('References or Bibliography', r'references|bibliography'), ('Errata', r'errata'))
 K_NAME = r'SIDE-explicit-formula`?(?:’s|\'s)?'
 
@@ -169,28 +172,49 @@ def plain(s):
 
 
 LABEL = re.compile(r'^\*\*([A-Z][A-Za-z ]{0,24})[.:]\*\*\s*')
+STRUCT = ('#', '>', '|', '<', '```', '---', '===', '[', '!')
+LIST = re.compile(r'^(\d+\.|[-+*])\s')
+SPLIT = re.compile(r'(?:(?<=[.!?])|(?<=[.!?]["”’)]))\s+(?=[A-Z(“"$])')
 
 
-def is_prose(s, I, qw):
+def words(s):
+    return len(re.findall(r'[A-Za-z]{2,}', s))
+
+
+def starts_prose(s, I, qw):
+    """a line that may open the opening's paragraph: no structure, no list item, no line wholly in emphasis (an epigraph, a dedication,
+    a headnote), no label of provenance or metadata, no identifier, no protected word."""
     s0 = s.strip()
-    if not s0 or s0.startswith(('#', '>', '|', '<', '```', '---', '===', '[', '!')) or re.match(r'^(\d+\.|[-+*])\s', s0):
+    if not s0 or s0.startswith(STRUCT) or LIST.match(s0):
         return False
-    if idcount(s0, I) or qw.lower() in s0.lower() or '·' in s0:
+    if idcount(s0, I) or qw.lower() in s0.lower():
         return False
-    if re.fullmatch(r'\*\*[^*]+\*\*', s0) or re.fullmatch(r'\*[^*]+\*', s0) or re.fullmatch(r'_[^_]+_', s0):
+    if re.fullmatch(r'\*\*[^*]+\*\*', s0) or (s0.startswith('*') and not s0.startswith('**') and s0.endswith('*')) or re.fullmatch(r'_[^_]+_', s0):
         return False
     lab = LABEL.match(s0)
     if lab and META.match(lab.group(1)):
         return False
-    if META.match(plain(s0)):
-        return False
-    body = plain(LABEL.sub('', s0))
-    return len(re.findall(r'[A-Za-z]{2,}', body)) >= 8
+    return not META.match(plain(s0))
+
+
+def para(Dl, k):
+    """the paragraph opening at line k, the documents' lines being hard-wrapped: k and each line after it to a blank, structural or
+    list line, as (its last line, its lines joined by one space)."""
+    j = k
+    while j < len(Dl) and Dl[j].strip() and not Dl[j].strip().startswith(STRUCT) and not LIST.match(Dl[j].strip()):
+        j += 1
+    return j, ' '.join(x.strip() for x in Dl[k - 1:j])
+
+
+def span_text(Dl, k, j):
+    return plain(LABEL.sub('', ' '.join(x.strip() for x in Dl[k - 1:j]).strip()))
 
 
 def clause_of(text):
-    """one clause: the first sentence, cut at its first ';' and, past 220 characters, at its last comma or dash before 220."""
-    s = re.split(r'(?<=[.!?])\s+(?=[A-Z(“"$])', text.strip())[0]
+    """one clause: the first sentence of five words or more (a shorter one before it, a label, passed over), cut at its first '; ' and,
+    past 220 characters, at its last comma or dash before 220."""
+    ss = SPLIT.split(text.strip())
+    s = next((x for x in ss if words(x) >= 5), ss[0])
     s = s.split('; ')[0].strip()
     cut = False
     if len(s) > 220:
@@ -211,13 +235,15 @@ def subject(Dl, I, qw):
         rest = Dl[k - 1][len('**PURPOSE:**'):]
         m = re.match(r'\s*\*([^*]+)\*', rest)
         src = m.group(1) if m else rest.split(' — ')[0]
-        return 'PURPOSE', k, plain(src)
+        return 'PURPOSE', k, k, plain(src)
     ab = [k for k, l in enumerate(Dl, 1) if re.match(r'^#+\s*(?:\d+\.?\s*)?(?i:abstract)\b', l)]
     start, src = (ab[0] + 1, 'abstract') if ab else (2, 'opening')
     for k in range(start, len(Dl) + 1):
-        if is_prose(Dl[k - 1], I, qw):
-            return src, k, plain(LABEL.sub('', Dl[k - 1].strip()))
-    return src, None, ''
+        if starts_prose(Dl[k - 1], I, qw):
+            j, txt = para(Dl, k)
+            if words(txt) >= 8 and not idcount(txt, I) and qw.lower() not in txt.lower():
+                return src, k, j, span_text(Dl, k, j)
+    return src, None, None, ''
 
 
 def newest(txt, TG):
@@ -248,8 +274,8 @@ def read_doc(path, I, qw, TG):
         if ks:
             heads.append((name, ks))
     kc = [k for k, l in enumerate(Dl[:h2 - 1], 1) if re.search(r'(?i)keystone candidate', l)]
-    src, k, line = subject(Dl, I, qw)
-    return dict(lines=len(Dl), cls=cl[0] if cl else None, heads=heads, kc=kc, src=src, k=k, line=line, tag=newest(raw, TG), D=Dl)
+    src, k, j, line = subject(Dl, I, qw)
+    return dict(lines=len(Dl), cls=cl[0] if cl else None, heads=heads, kc=kc, src=src, k=k, j=j, line=line, tag=newest(raw, TG), D=Dl)
 
 
 def cells(rid, k, c, I, qw, TG):
@@ -265,11 +291,13 @@ def cells(rid, k, c, I, qw, TG):
     d = read_doc(path, I, qw, TG)
     if d is None:
         return dict(kind='absent', path=path, subject='absent at HEAD, as its row names it (REGISTRY :%d, `%s`); no text read' % (k, path), tokc='absent; no text read')
+    j2 = None
     if not d['k']:
         subj, cl_, cut = 'no %s sentence read (`%s`)' % (d['src'], path), '', False
     else:
         cl_, cut = clause_of(d['line'])
-        where = '%s :%d' % ('PURPOSE' if d['src'] == 'PURPOSE' else d['src'], d['k'])
+        j2 = next((x for x in range(d['k'], d['j'] + 1) if cl_ in span_text(d['D'], d['k'], x)), d['j'])
+        where = '%s :%d' % (d['src'], d['k']) + ('–:%d' % j2 if j2 > d['k'] else '')
         if qw.lower() in cl_.lower() or idcount(cl_, I):
             subj = 'its %s line cited by line and digest alone: :%d (sha256 %s)' % (d['src'], d['k'], sha(d['D'][d['k'] - 1])[:16])
             cl_ = ''
@@ -283,11 +311,12 @@ def cells(rid, k, c, I, qw, TG):
     if re.fullmatch(r'TIER (K|C)', tier) or d['kc']:
         parts.append('**candidate** (%s)' % ('Tier %s declared' % tier[-1] if tier else 'names itself a keystone candidate, :%d' % d['kc'][0]))
     elif tier == 'TIER KC':
-        parts.append('declares Tier KC itself; not given the word by b720’s rule, which names one half of KC; the placement is the author’s (taxonomy :69)')
+        parts.append('declares Tier KC whole, where b720’s rule gives the word to a head declaring one half (Tier K or Tier C), so the word is not given here; `%s` :69 names no candidate' % TAXONOMY)
     else:
         parts.append('not a candidate by b720’s rule')
-    return dict(kind='read', path=path, src=d['src'], k=d['k'], clause=cl_, cut=cut, subject=subj, tokc=' · '.join(parts),
-                cls=d['cls'], heads=d['heads'], tag=d['tag'][:2] if d['tag'] else None, line_text=d['D'][d['k'] - 1] if d['k'] else '')
+    return dict(kind='read', path=path, src=d['src'], k=d['k'], j=j2, clause=cl_, cut=cut, subject=subj, tokc=' · '.join(parts),
+                cls=d['cls'], heads=d['heads'], tag=d['tag'][:2] if d['tag'] else None,
+                line_text=NL.join(d['D'][d['k'] - 1:j2]) if d['k'] else '')
 
 
 # ================================================================================ THE BLOCK
@@ -305,7 +334,7 @@ def compose(L, order, info, I, qw, TG, date):
     rule = [k for k, l in enumerate(L, 1) if 'The word `candidate` marks' in l]
     out = ['<!-- b761 (R371)(9) SUBJECT / TO-KC CELLS, %s -->' % date, '',
            '## SUBJECT / TO-KC CELLS OF PHASE 1.5 *(added %s, b761, under the author’s ruling `(R371)`(9); in the form of b720’s block (:%d), which is not edited)*' % (date, info['head']), '',
-           '**The rows of Phase 1.5 that b720’s block reads `not yet read`, and 1.5c-21 to 1.5c-24, which it does not name, each with its two cells. `SUBJECT`: one clause quoted from the document’s own text — its PURPOSE line where its head carries one, else its abstract’s first sentence, else its opening’s — cut at its first semicolon, the line cited; emphasis marks are removed and the words kept. `TO KC`: four parts read from the document at PLACE-papers HEAD — the class its standing class line declares, or no class line; which of the headings Correspondence, Glossary, References or Bibliography, and Errata it carries, each by its lines; the newest tag of SIDE-explicit-formula its text carries by the tag’s name beside the kernel’s name or by the opening seven characters of the tag’s peeled commit, or names no tag; and the word `candidate` by b720’s rule (:%s). A row whose document is withdrawn, superseded or absent reads so from its own row; a row with no document reads a kernel row. The rows stand in the order `(R371)`(9) gives: the keystones’ rows first, then the rest in b720’s order, the three rows b720’s block does not name after them. No row is moved between phases here: each row’s placement is put to the author after these cells are read (the block at :%d).**' % (
+           '**The rows of Phase 1.5 that b720’s block reads `not yet read`, and 1.5c-21 to 1.5c-24, which it does not name, each with its two cells. `SUBJECT`: one clause quoted from the document’s own text — its PURPOSE line where its head carries one, else its abstract’s first sentence, else its opening’s — cut at its first semicolon, its lines cited; the documents’ lines being hard-wrapped, a sentence is read across its paragraph; a line wholly in emphasis (an epigraph, a dedication, a headnote), a list, a date, a label of metadata and a sentence of fewer than five words before the first longer one (a label) are passed over; emphasis marks are removed and the words kept. `TO KC`: four parts read from the document at PLACE-papers HEAD — the class its standing class line declares, or no class line; which of the headings Correspondence, Glossary, References or Bibliography, and Errata it carries, each by its lines; the newest tag of SIDE-explicit-formula its text carries by the tag’s name beside the kernel’s name or by the opening seven characters of the tag’s peeled commit, or names no tag; and the word `candidate` by b720’s rule (:%s). A row whose document is withdrawn, superseded or absent reads so from its own row; a row with no document reads a kernel row. The rows stand in the order `(R371)`(9) gives: the keystones’ rows first, then the rest in b720’s order, the three rows b720’s block does not name after them. No row is moved between phases here: each row’s placement is put to the author after these cells are read (the block at :%d).**' % (
                ', :'.join(str(x) for x in rule) or '?', [k for k, l in enumerate(L, 1) if l.startswith('## THE PHASES BY SUBJECT')][0]), '',
            '| row | `SUBJECT` | `TO KC` |', '|:--|:--|:--|']
     for r in rows:
@@ -340,8 +369,8 @@ def run(mode):
     for r in rows:
         if r['kind'] == 'read' and r['clause']:
             Dl, _rc = git(PP, 'show', 'HEAD:' + r['path'])
-            ln = Dl.replace('\r', '').split(NL)[r['k'] - 1]
-            back.append((r['id'], r['k'], r['clause'] in plain(LABEL.sub('', ln.strip())) and ln == r['line_text']))
+            Dl = Dl.replace('\r', '').split(NL)
+            back.append((r['id'], '%d-%d' % (r['k'], r['j']), r['clause'] in span_text(Dl, r['k'], r['j']) and NL.join(Dl[r['k'] - 1:r['j']]) == r['line_text']))
     tbl = [l for l in block.split(NL) if l.startswith('| `')]
     cellbad = [l[:12] for l in tbl if len(re.split(r'(?<!\\)\|', l)) != 5 or l.count('`') % 2]
     ticks = [k for k, l in enumerate(block.split(NL), 1) if l.count('`') % 2]
@@ -372,7 +401,7 @@ def run(mode):
     for r in rows:
         if r['kind'] == 'read':
             P.append('  %s | :%d | read | %s :%s | %s%s | %s | %s | %s | %s' % (
-                r['id'], r['row'], r['src'], r['k'], sha(r['clause'])[:16] if r['clause'] else 'by digest', ' (cut)' if r['cut'] else '',
+                r['id'], r['row'], r['src'], ('%d-%d' % (r['k'], r['j'])) if r['k'] and r['j'] != r['k'] else r['k'], sha(r['clause'])[:16] if r['clause'] else 'by digest', ' (cut)' if r['cut'] else '',
                 ('%s :%d' % (r['cls'][1], r['cls'][0])) if r['cls'] else 'none', ', '.join('%s %s' % (n, ks[:4]) for n, ks in r['heads']) or 'none',
                 ('%s %s' % r['tag']) if r['tag'] else 'none', 'candidate' if '**candidate**' in r['tokc'] else '-'))
         else:
@@ -399,7 +428,7 @@ def run(mode):
     put(BANK, NL.join(P) + NL)
     put(BJSON, json.dumps(dict(at=utc(), act=ACT, date=date, rows_read=len(rows), m=len(order), carried=carried, candidate=cand, kinds=kinds,
                                block_first_line=len(L) + 2, block_sha256=sha(block)[:16], file_sha_before=sha(base)[:16], file_sha_after=sha(new)[:16],
-                               rows=[dict(id=r['id'], row=r['row'], kind=r['kind'], src=r.get('src'), line=r.get('k'), clause_sha256=sha(r['clause'])[:16] if r.get('clause') else None,
+                               rows=[dict(id=r['id'], row=r['row'], kind=r['kind'], src=r.get('src'), line=r.get('k'), line_end=r.get('j'), clause_sha256=sha(r['clause'])[:16] if r.get('clause') else None,
                                           cut=r.get('cut'), cls=list(r['cls']) if r.get('cls') else None, heads=[[n, ks] for n, ks in r.get('heads') or []],
                                           tag=list(r['tag']) if r.get('tag') else None, candidate='**candidate**' in r['tokc']) for r in rows],
                                sentence='the cells: %d rows read of %d; %d carried over the ceiling' % (len(rows), len(order), len(carried)),
