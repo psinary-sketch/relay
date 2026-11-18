@@ -719,9 +719,10 @@ READFIRST_NEEDLES = (
 #⟪END⟫
 #⟪SECTION checks 11⟫
 CLOSING_SECTIONS = ('CORRIGENDUM ((R369)(1)-(2))',   # ### the template's heading (closing.tpl :389), not the ferry's numbering
- 'STANDING CHANGES ((R369)(1), (3), (4), (6))', 'LANDING ((R369)(4))', 'THREE RESULTS ((R369)(5))', 'CEILING ((R369)(2))',
- 'STATEMENTS FOR SECTIONS 6 TO 8 ((R369)(7))', 'NOTES OF (8) ((R369)(8))',
- 'NAME AND ADDRESS (N5)', 'RESEARCH INSTRUMENTS NOT REPRODUCED (the standing arm G-RESEARCH-REPRODUCES)', 'TOUCH READ (standing clauses v9)')   # ### b758: closing 7's sections, the ferry's components in order
+ 'STANDING CHANGES ((R369)(4), and the kernel route counted apart)', 'STATEMENT AND THE PRINT LINES ((R369)(5))',
+ 'TABLE AND THE FIELDS ((R369)(6), (7))', 'DOCUMENT ((R369)(8))', 'CORPUS LINES AND THE ERRATA ((R369)(9), (10))',
+ 'RESEARCH INSTRUMENTS REPRODUCED ((R369)(11), the standing arm G-RESEARCH-REPRODUCES)', 'CEILING ((R369)(2))',
+ 'NAME AND ADDRESS (N5)', 'TOUCH READ (standing clauses v9)')   # ### b759: closing 7's headings as rewritten at step 62 (32905ac3), in its order; b758's carried list named six the closing no longer carries (defect (i))
 #⟪END⟫
 #⟪SECTION checks 12⟫
     """b759: the citation check's bank: every cite checked, OK and misses summing (78 = 77 + 1, data/b759_citation_check.txt :147), the one
