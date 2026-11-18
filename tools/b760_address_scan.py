@@ -155,7 +155,7 @@ def added(diff):
 SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R348)(3): b738's one kernel branch, by its ref, read at b739 where no kernel is written; b737 defect (p): its commits land in this repository, so the scan reads each at the commit
 if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b760_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
     SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b760_kernel_bases.json'), encoding='utf-8')).items()))   # ### b760, (R370)(3): to HEAD, the checked-out push-b760-* branch whose commits stand before main moves (b745's '..main' read them only after)
-BYLINE_FILE = 'day1/Which_Structure_Confines_v2_4_0.md'   # ### b739, (R349)(3) and (5): item [46]'s byline and two self-citations, under I-23
+BYLINE_FILE = 'day1/Which_Structure_Confines_v2_5_0.md'   # ### b760, (R370)(7) and N5: the edition carries v2.4.0's byline and two self-citations, and its commit adds every line of the new file; v2.4.0 (b739's name here, (R349)(3) and (5), item [46]) is not touched by this act
 
 
 def ruling_byline(act='b760'):
