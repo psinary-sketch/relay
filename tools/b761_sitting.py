@@ -132,7 +132,7 @@ ORDERS = [
     ('W-ORD-RECUT-QUOTE-W9', 'W', [(OT, 18707)], 'the next edition of each document named'),
     ('W-ORD-RECUT-QUOTE-C4', 'W', [(OT, 18709)], 'the next edition of each document named'),
 ]
-CLASSES = (('M', 'TRIGGERS MET, EACH TAKEN UP AT ' + TAKEN.split(',')[0].upper() + ' OR THE ACT ITS RULING NAMES'),
+CLASSES = (('M', 'TRIGGERS MET, EACH TAKEN UP AT b762 OR THE ACT ITS RULING NAMES (the author`s word, data/b761_author_words_preseal.txt :5)'),
            ('A', 'WAITING ON THE AUTHOR`S WORD, LISTED TO THE AUTHOR'),
            ('N', 'NO TRIGGER WRITTEN, EACH CARRIED BY NAME TO THE NEXT RULING, WHICH GIVES ONE OR RETIRES IT; THE SEAT WRITES NEITHER'),
            ('W', 'A TRIGGER WRITTEN, NOT READ AS MET AT THIS ACT'))
@@ -192,7 +192,14 @@ def needles(h):
 def cluster_table(S):
     if not S[CT_HEAD - 1].startswith('| Cluster |'):
         die('SPIRAL_MAP :%d IS NOT THE CLUSTER TABLE`S HEAD' % CT_HEAD)
-    files = subprocess.run(['git', '-C', PP, 'ls-files'], capture_output=True).stdout.decode('utf-8').split(NL)
+    files = [f for f in subprocess.run(['git', '-C', PP, 'ls-files'], capture_output=True).stdout.decode('utf-8').split(NL)
+             if f and not f.startswith('archive/')]   # ### an archived copy is no keystone
+
+    def resolve(x):
+        if x.endswith('.md'):
+            return [x] if x in files else [f for f in files if f.rsplit('/', 1)[-1] == x.rsplit('/', 1)[-1]]
+        s = re.sub(r'(_v\d+(?:_\d+)*)$', '', x)
+        return [f for f in files if f.endswith('.md') and re.sub(r'(_v\d+(?:_\d+)*)$', '', f.rsplit('/', 1)[-1][:-3]) == s]
     out = []
     for k in range(CT_FIRST, CT_LAST + 1):
         l = S[k - 1]
@@ -201,12 +208,9 @@ def cluster_table(S):
             continue
         c = l.split('|')
         kcell, scell = (c[2] if len(c) > 2 else ''), (c[3] if len(c) > 3 else '')
-        keys = []
-        for x in re.findall(r'`([\w./\-]+\.md)`', kcell):
-            keys += [x] if x in files else [f for f in files if f.rsplit('/', 1)[-1] == x.rsplit('/', 1)[-1]]
-        if not re.findall(r'`([\w./\-]+\.md)`', kcell):
-            for s in stems(kcell):
-                keys += [f for f in files if f.endswith('.md') and re.sub(r'(_v\d+(?:_\d+)*)$', '', f.rsplit('/', 1)[-1][:-3]) == s]
+        anchor = re.search(r'ANCHOR\b[^`]*`([\w./\-]+)`', kcell)   # ### a cell naming its ANCHOR names its keystone; the members beside it are not
+        named = [anchor.group(1)] if anchor else (re.findall(r'`([\w./\-]+\.md)`', kcell) or stems(kcell))
+        keys = [f for x in named for f in resolve(x)]
         ids = list(dict.fromkeys(re.findall(r'(?<![\w.])(\d\.\d[a-z]-\d+|p2-\d+|d1-\d+)\b', l)))
         out.append(dict(line=k, name=m.group(1).strip(), text=l, stems=stems(kcell + ' ' + scell), keys=list(dict.fromkeys(keys)), ids=ids))
     return out
@@ -279,7 +283,7 @@ def agenda(mode):
                 ktexts[kp] = (KL, LM.names(NL.join(KL)))
     items = []
     for n, (h, a) in enumerate(zip(hs, acts), 1):
-        nxt = min([k for k in hs + [x for x, _a in cs] if k > h] or [len(F) + 1])
+        nxt = min([k for k in hs if k > h] or [len(F) + 1])   # ### linematch.entry_heading: a line belongs to the nearest non-corrigendum heading above it
         il = next((k for k in range(h + 1, nxt) if F[k - 1].startswith('INTEGRATION:')), None)
         st = re.search(r'stage ([A-Z]+(?: \([^)]*\))?(?:, [A-Z]+ \([^)]*\))?)\s*$', F[il - 1]) if il else None
         nm = LM.names(F[h - 1])
