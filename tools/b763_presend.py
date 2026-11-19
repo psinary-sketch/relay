@@ -98,7 +98,7 @@ WO = WE.replace('e u', 'o u')
 WG = WE.replace('e u', 'g u')
 WH = r'Zeta23\.EF\.weilTest \(fun u => \(\(e u \+ o u : ℝ\) : ℂ\)\) \(fun u => \(\(e u \+ o u : ℝ\) : ℂ\)\)'
 SENDS = {
-    's123': dict(clause='(R373)(6), statements (S1), (S2) and (S3), sent together', of7=False, files=(FF, PA), stmts=(
+    's123': dict(clause='(R373)(6), statements (S1), (S2) and (S3), sent together (dispatch 1; again at dispatch 2 with (S3)`s import repaired, beside (S4) and (S5))', of7=False, files=(FF, PA), stmts=(
         ('primeTermQ_window', FF, '(S1)', S1, (
             ('the prime-power side at any weights c', r'^Schema\.primeTermQ c k ='),
             ('equal to the sum over n up to the integer part of e^L', r'= ∑ n ∈ Finset\.range \(⌊Real\.exp L⌋₊ \+ 1\), \(\(c n / Real\.sqrt n : ℝ\) : ℂ\) \* \(2 \* k \(Real\.log n\)\)$'))),
@@ -147,7 +147,7 @@ SENDS = {
         ('exists_classK_poleTerm_re_neg', PA, '(S3)', S3, (
             ('a k in classK with the real part of poleTerm k below 0', r'^∃ k : ℝ → ℂ, classK k ∧ \(poleTerm k\)\.re < 0$'),)),
     )),
-    's4': dict(clause='(R373)(6), statement (S4), sent with (S5) in one dispatch after (S1) to (S3) compiled, (S5) not importing it; the domain classes (twice continuously differentiable, '
+    's4': dict(clause='(R373)(6), statement (S4), sent with (S5) and with (S1) to (S3) repaired in dispatch 2, (S3) having broken at dispatch 1 on an import, so sent together and not apart; the domain classes (twice continuously differentiable, '
                       'continuous, compact support) are the domain of the form`s three terms, which the sentence`s "each of the three terms of the '
                       'form at h" takes; the seat splits (S4) into the additivity of each term and the split itself, and says so',
                of7=False, files=(PS,), stmts=(
@@ -176,7 +176,7 @@ SENDS = {
             ('is the form at e plus the form at o', r'= \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\) \+ \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\)$'
              % (WE, WE, WE, WO, WO, WO)))),
     )),
-    's5': dict(clause='(R373)(6), statement (S5), sent with (S4) in one dispatch after (S1) to (S3) compiled, importing FormFinite and DetectionRegion and not (S4); the seat splits (S5) into the set, the linearity of the '
+    's5': dict(clause='(R373)(6), statement (S5), sent with (S4) and with (S1) to (S3) repaired in dispatch 2, so sent together and not apart, importing FormFinite and DetectionRegion and neither (S3) nor (S4); the seat splits (S5) into the set, the linearity of the '
                       'prime-power side in the weights on a window, the convexity, the congruence and the von Mangoldt membership, and says so',
                of7=False, files=(AW,), stmts=(
         ('admissibleWeights', AW, '(S5)', S5, (
