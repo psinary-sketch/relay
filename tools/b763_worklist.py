@@ -268,7 +268,14 @@ W_WORDS = (('relay/HANDOFF.md', '(R373)(13): HANDOFF.md'),
            ('relay/data/b762_relay_push-b762-closing_push_out.txt', '(R373)(3), (13): b762`s carried files -- the closing push-out bank with its as-of lines, committed alone'),
            ('relay/tools/mirror_prevbuild.json', '(R373)(3), (13): b762`s carried files -- the builder`s state file as b762`s build wrote it'),
            ('relay/tools/acts/b763.py', '(R373)(13): tools/acts/b763.py'),
-           ('SIDE-explicit-formula/print_targets.txt', '(R373)(6), (13): the six names of [P1] of (R372) and each new declaration`s line'))
+           ('SIDE-explicit-formula/print_targets.txt', '(R373)(6), (13): the six names of [P1] of (R372) and each new declaration`s line'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/FormFinite.lean', '(R373)(6), (13): the files of (6) -- (S1) the prime-power side of a window a finite sum, (S2) below log 2 the prime sum vanishes'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/PoleAutocorrelation.lean', '(R373)(6), (13): the files of (6) -- (S3) the pole term on an autocorrelation'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/ParitySplit.lean', '(R373)(6), (13): the files of (6) -- (S4) the split by parity'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/AdmissibleWeights.lean', '(R373)(6), (13): the files of (6) -- (S5) the admissible weights a convex set'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureStatement.lean', '(R373)(7), (13): the files of (7) -- FORM A and FORM B as definitions of a Prop, in a file of their own, before any proof'))
+# ### b763 Component 1: the kernel files of (6) and (7) named before any is written ((R373)(13), "in SIDE-explicit-formula the files of (6),
+# ### (7) and (8) with print_targets.txt"); (7)'s proof file and each (8) file take their row when named
 #   ### b763 step zero: (R373)(13)'s (W) list in words: the banks as data/b763_* and their generators as tools/b763_*.py (standing kinds);
 #   ### tools/acts/b763.py; b762's carried files by name ((R373)(3): the closing push-out bank, data/b763_address_scan_commits.txt and
 #   ### tools/mirror_prevbuild.json); HANDOFF.md; tools/standing/ where (5) moves it (none at step zero); PLACE-papers by PP_EDITED; in
