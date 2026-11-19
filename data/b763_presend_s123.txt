@@ -1,0 +1,163 @@
+b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE SALT CHECK OF SEND s123, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-19T20:35:16Z)
+
+### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
+### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
+### refuses printed, the two known wanted (:358 and :359); the file not edited for them, the workflow not widened. The reads and their
+### controls are tools/b758_presend.py`s, imported and not changed. THE SALT CHECK is this tool`s: each statement`s hypotheses classed
+### against its sentence, its conclusion read against the sentence`s predicates, the definitions it rests on by file, line and digest;
+### each kernel line by predicate, line number and digest alone, none quoted.
+
+## THE CONTROLS
+  (1) every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a nested namespace, _root_, an attribute, a class inductive read): ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'] -> AS WANTED
+  (2) the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a priority and a scoped one read as named, a type on the next line unread): (['C.named', 'C.sc'], [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)]) -> AS WANTED
+  (3) the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not): {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]} -> AS WANTED
+  (4) the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not): {'A.x': [('M1', 3), ('M2', 9)]} -> AS WANTED
+  (5) the imports of a planted header (two lines, a comment between, the body after not read): ['A.B', 'C'] -> AS WANTED
+  (6) the class of the workflow`s pattern as written, expanded: A-Z, a-z, 0-9, underscore, full stop, the prime: A-Z, a-z, 0-9, "'", '.', '_' (65 characters) -> AS WANTED
+  (7) the class read from .github/workflows/build-module.yml at 6568e9c7, the line the ruling names: (91, "A-Za-z0-9_.\\'") -> AS WANTED
+  (8) the target filter read from .github/workflows/build-module.yml at 6568e9c7 (:44: letters, digits, underscore, full stop and the space parting the modules): (44, 'A-Za-z0-9_.\\ ') -> AS WANTED
+  (9) the filter on planted names (a dotted name and a prime passed; the Greek capital lambda, a hyphen and a subscript refused): [('Foo.bar', True), ("Foo.bar'", True), ('Foo.zqPair_Λ_one', False), ('Foo-bar', False), ('Foo.b₁', False)] -> AS WANTED
+  (10) the module`s file as Lake names it, inverted (the default library, the vendored srcDir, a module outside the tree): ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', None) -> AS WANTED
+  (11) THE POSITIVE CONTROL, b757`s break (data/b757_events.txt (17)): at 6568e9c7 the reader finds SIDEExplicitFormula.Schema.ZQ.OffZero.sRe in OffZero.Time :18 and OffZero.Sums :134: [('SIDEExplicitFormula.Schema.ZQ.OffZero.sRe', [('Time', 18), ('Sums', 134)])] -> AS WANTED
+  THE SALT CHECK`S PLANTED CONTROLS:
+  (s1) the planted statement as its sentence words it: PASSED -> AS WANTED
+  (s2) a hypothesis beyond the sentence bound: REFUSED -> AS WANTED
+  (s3) a hypothesis of a class the sentence does not name (L below log 2 on (S1)): REFUSED -> AS WANTED
+  (s4) the conclusion short of its sentence (the range to the floor of e^L): REFUSED -> AS WANTED
+  (s5) a sorry in the proof: REFUSED -> AS WANTED
+  (s6) the statement absent (renamed): REFUSED -> AS WANTED
+  (s7) a variable line in the file: REFUSED -> AS WANTED
+  (s8) a lemma in place of a theorem, counted and not refused: PASSED -> AS WANTED
+  THE NO-ZERO CONTROL`S PLANTED CONTROLS, AND THREE AT v0.41:
+  (z1) a clean file, the barred names in its prose alone: PASSED -> AS WANTED
+  (z2) Schema/Detector imported: REFUSED -> AS WANTED
+  (z3) a module under Schema/ZQ/OffZero imported: REFUSED -> AS WANTED
+  (z4) a Schema/Wide module carrying a detector imported: REFUSED -> AS WANTED
+  (z5) a Schema/Wide module carrying none imported: PASSED -> AS WANTED
+  (z6) zq_li_nonneg_fails named in code: REFUSED -> AS WANTED
+  (z7) detector named, qualified, in code: REFUSED -> AS WANTED
+  (z8) a name holding detector as a part (detectorBase), not one of the five: PASSED -> AS WANTED
+  (z9) at v0.41, Schema/Wide/HalfScale.lean over itself: REFUSED -> AS WANTED
+  (z10) at v0.41, Schema/Wide/HalfScale read among the Schema/Wide modules carrying a detector: YES -> AS WANTED
+  (z11) at v0.41, the salt check of send s123, no file of (6) in the tree: REFUSED -> AS WANTED
+
+### main as b762 left it (v0.41), where the branch is made
+## AT a3aad4cceb41705fe9929c9b5600976eaf7434b5 (a3aad4cc)
+  THE TARGETS (tools/b757_join.py`s reader): names 489 ; resolved to one module 489 ; refused 0 [] ; modules 99
+  THE IMPORT CLOSURE IN THE TREE: modules 372 (the targets` 99 among them, 99 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1191 names, duplicates 0 ; over the closure 4142 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at a3aad4cc): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 489 ; passed 487 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 99 of 99
+
+### the tip the dispatch is sent at
+## AT ec82fed0 (ec82fed0)
+  THE TARGETS (tools/b757_join.py`s reader): names 518 ; resolved to one module 518 ; refused 0 [] ; modules 106
+  THE IMPORT CLOSURE IN THE TREE: modules 375 (the targets` 106 among them, 106 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1256 names, duplicates 0 ; over the closure 4170 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at ec82fed0): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 518 ; passed 516 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 106 of 106
+
+### (R373)(6), statements (S1), (S2) and (S3), sent together: the salt check, printed before the send
+## THE SALT CHECK OF SEND s123 AT ec82fed0 (ec82fed0): (R373)(6), statements (S1), (S2) and (S3), sent together
+  THE FILE SIDEExplicitFormula/FormFinite.lean: READ, 67 lines, sha256 615815e4bc4278ef ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.Schema.EpsteinZQ -> CLEAN
+  THE FILE SIDEExplicitFormula/PoleAutocorrelation.lean: READ, 242 lines, sha256 d1361927615a1cea ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.TwoPropertyWindow -> CLEAN
+  (S1) primeTermQ_window, a theorem at SIDEExplicitFormula/FormFinite.lean :24 (its header sha256 48f527618a526f78): PASSED
+     binds: c weights c : N -> R (the sentence: "for any real weights c"); k a test function R -> C; L a real number (a width L, or a point); hk vanishing outside [-L, L]
+     concludes: the prime-power side at any weights c HOLDS ; equal to the sum over n up to the integer part of e^L HOLDS
+     rests on: primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112, sha256 48dd7c8e5bab9a23) ; of the ruling`s six: primeTermQ
+  (S1) primeSum_eq_primeTermQ, a theorem at SIDEExplicitFormula/FormFinite.lean :41 (its header sha256 2f19c6f5f5c3f42a): PASSED
+     binds: k a test function R -> C
+     concludes: zeta`s primeSum is primeTermQ at the von Mangoldt weights HOLDS
+     rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8), primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112, sha256 48dd7c8e5bab9a23) ; of the ruling`s six: primeSum, primeTermQ
+  (S1) primeSum_window, a theorem at SIDEExplicitFormula/FormFinite.lean :45 (its header sha256 a598d455d18d0b95): PASSED
+     binds: k a test function R -> C; L a real number (a width L, or a point); hk vanishing outside [-L, L]
+     concludes: primeSum on a window is the sum over n up to the integer part of e^L HOLDS
+     rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8) ; of the ruling`s six: primeSum
+  (S2) primeSum_eq_zero_of_lt_log_two, a theorem at SIDEExplicitFormula/FormFinite.lean :53 (its header sha256 be5dec374996fdd4): PASSED
+     binds: k a test function R -> C; L a real number (a width L, or a point); hL L below log 2; hk vanishing outside [-L, L]
+     concludes: primeSum k = 0 HOLDS
+     rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8) ; of the ruling`s six: primeSum
+  (S3) paperFT_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :29 (its header sha256 c901c02858b37ef2): PASSED
+     binds: h a test function R -> C
+     concludes: the transform at -i/2 is the integral against e^(x/2) HOLDS
+     rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
+  (S3) paperFT_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :41 (its header sha256 f1b9be515be8f374): PASSED
+     binds: h a test function R -> C
+     concludes: the transform at i/2 is the integral against e^(-x/2) HOLDS
+     rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
+  (S3) poleTerm_weilTest, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :56 (its header sha256 78ceb352fe0c7ece): PASSED
+     binds: h a test function R -> C; hh twice continuously differentiable; hs compact support
+     concludes: poleTerm (weilTest h h) = 2 Re(A conj B), A at -i/2 and B at i/2 HOLDS
+     rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d), paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: poleTerm, weilTest
+  (S3) paperFT_real_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :78 (its header sha256 4f44973075abf43a): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hg continuous (implied by twice continuously differentiable); hs compact support
+     concludes: the transform of a real g at -i/2 HOLDS ; is C + S HOLDS
+     rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
+  (S3) paperFT_real_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :95 (its header sha256 d8eb43ef7d0aa9b6): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hg continuous (implied by twice continuously differentiable); hs compact support
+     concludes: the transform of a real g at i/2 HOLDS ; is C - S HOLDS
+     rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
+  (S3) poleTerm_weilTest_real, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :113 (its header sha256 82ead739cb474163): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support
+     concludes: the pole term of a real autocorrelation HOLDS ; is 2 (C^2 - S^2) HOLDS
+     rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
+  (S3) integral_mul_sinh_eq_zero_of_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :124 (its header sha256 254ca6ab2f14b3f0): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hev even
+     concludes: the integral against sinh(x/2) vanishes HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) integral_mul_cosh_eq_zero_of_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :135 (its header sha256 92de4facf738fd75): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hodd odd
+     concludes: the integral against cosh(x/2) vanishes HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) poleTerm_weilTest_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :146 (its header sha256 5123d947d8cf0d29): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support; hev even
+     concludes: on an even real g: twice the square of the integral of g cosh(x/2) HOLDS
+     rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
+  (S3) poleTerm_weilTest_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :154 (its header sha256 ca136dbe819d0ea6): PASSED
+     binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support; hodd odd
+     concludes: on an odd real g: minus twice the square of the integral of g sinh(x/2) HOLDS
+     rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
+  (S3) basePlateau, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :164 (its header sha256 a018d97f233e5ecc): PASSED
+     binds: no hypothesis
+     concludes: its body: the plateau at ramp fraction 1/2 and half-width 1 HOLDS
+     rests on: plateau (SIDEExplicitFormula/TwoPropertyWindow.lean :56, sha256 c1207e376fe867d5) ; of the ruling`s six: none
+  (S3) oddWindow, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :167 (its header sha256 e9a9948f023f39a7): PASSED
+     binds: no hypothesis
+     concludes: its body: u times basePlateau HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) basePlateau_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :169 (its header sha256 837913b45d12cd32): PASSED
+     binds: no hypothesis
+     concludes: twice continuously differentiable HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) basePlateau_nonneg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :176 (its header sha256 663f8f1996721979): PASSED
+     binds: u a real number (a width L, or a point)
+     concludes: at or above 0 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) oddWindow_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :180 (its header sha256 21f9195b40af9947): PASSED
+     binds: no hypothesis
+     concludes: twice continuously differentiable HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) oddWindow_hasCompactSupport, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :184 (its header sha256 774310077a250199): PASSED
+     binds: no hypothesis
+     concludes: compact support HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) oddWindow_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :189 (its header sha256 634c91adbeb807e0): PASSED
+     binds: x a real number (a width L, or a point)
+     concludes: odd HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) oddWindow_sinh_pos, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :198 (its header sha256 39337540208118bd): PASSED
+     binds: no hypothesis
+     concludes: its integral against sinh(x/2) positive HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (S3) exists_classK_poleTerm_re_neg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :227 (its header sha256 d82cc53939d429f7): PASSED
+     binds: no hypothesis
+     concludes: a k in classK with the real part of poleTerm k below 0 HOLDS
+     rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69) ; of the ruling`s six: poleTerm, classK
+
+### ### **THE PRE-SEND READS AT ec82fed0: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 106 MODULES FOR 518 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK OF SEND s123 PASSED (23 OF 23 STATEMENTS) ; CONTROLS 30 OF 30.**
