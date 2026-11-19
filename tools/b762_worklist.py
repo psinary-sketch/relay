@@ -387,8 +387,9 @@ DOORS = ('tools/b762_doors.py', '2bc7eca8', 'data/b762_doors.txt', 'c98beed0')  
 C5_LANDED, C5_CARRIED = 5, 0   # ### the repairs of (8): (i) the cut, (ii) v1.35.5, (iii) the gh-call reader, (iv) REGISTRY's header, (v) the two descriptions; none carried
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
-C1_CORR = '9a33e6b3'         # ### b761: the corrigendum banks, data/b761_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (81) (step 12, 22:24:08Z, events (44))
+C1_RELAY = '36de4942'        # ### b762: the c1 route written in place of the carried stub, committed before its run (step 6, 10:31:56Z)
+C1_CORR = '6918f5d9'         # ### b762: the corrigendum banks, data/b762_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (82) (step 8, 10:33:38Z, events (30))
+C1_CORR_B761 = '9a33e6b3'    # ### b761's, kept beside for the carried arms
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
 KERNEL_DELETES = ()   # ### b762: (R372)(4) and N1 remove no kernel branch and touch no kernel
@@ -407,15 +408,15 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None        # ### b761: (R371) orders no rules bank and no data/b761_rules.txt is written; b760's was data/b760_rules.txt row (a) at relay 34390a25; data/b756_rules.txt's rows (a)-(c) in force
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
-C1_CEILING = '1a2c1738'      # ### b761 (R371)(3): the commit carrying data/b761_ceiling.txt's last reading, the sixth (23:21:23Z), with the reproduce banks (step 31)
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- b761 at its weight and the corrigendum for b761
+C1_CEILING = '4b76816a'      # ### b762 (R372)(3): the commit carrying data/b762_ceiling.txt's last reading, the sixth (11:09:38Z, before Component 6), with the reproduce banks (step 20)
+C1_PP = 'cb922f02'           # ### PLACE-papers: FINDINGS -- the corrigendum for b761 at :15737, b761 at its weight inside it, no weight line (step 7, 10:32:48Z)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE, CORR_LINE = None, None   # ### FINDINGS: b761's weight line and the corrigendum for b761 (Component 1)
+WEIGHT_LINE, CORR_LINE = None, 15737   # ### FINDINGS: no weight line ((R372)(1) orders none); the corrigendum for b761 at :15737 (Component 1, PLACE-papers cb922f02)
 NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
 DIFFERS_LINE = None
-ERRATA_LINE = None   # ### b761 writes no ERRATA row ((R371)(13)'s (W) list names no ERRATA.md); b760's E-2026-11-18-1 at :1127 (PLACE-papers f47d90f0)
+ERRATA_LINE = None   # ### b762 writes no ERRATA row ((R372)(13)'s (W) list names no ERRATA.md); b760's E-2026-11-18-1 at :1127 (PLACE-papers f47d90f0)
 C2_PLAN_FIRST = None   # ### Component 2's first commit (the registration, committed alone, (R372)(9))
 C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
 C2_RELAY = None   # ### the last of them
@@ -471,20 +472,23 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### step rows with each commit's files, 23:4xZ): the tool's first add the first of its commits, each of them carrying the tool and not the
 # ### bank, the bank's commit (as it stands at HEAD) the bank and not the tool. The orders roster (data/b761_orders.txt) is written by the
 # ### standing reader tools/standing/orders.py and the reproduce bank by tools/research/reproduce.py, each a standing tool, and stand apart
-GENS = (('the ceiling', 'tools/b762_ceiling.py', ('f5c7cb5d',), 'data/b762_ceiling.txt', '1a2c1738'),
-        ('the author`s rulings of (7)', 'tools/b762_rulings.py', ('688f7443',), 'data/b762_author_rulings.txt', 'aee4ed14'),
-        ('the ledgers of (7) and (8)', 'tools/b762_rulings.py', ('688f7443',), 'data/b762_ledgers.txt', 'aee4ed14'),
-        ('the cells of (9)', 'tools/b762_registry.py', ('da84ba4e', '81d13210'), 'data/b762_registry_cells.txt', 'c8d62944'),
-        ('the inputs of (5)', 'tools/b762_sitting.py', ('a3062bc9', 'ba9d2a85', 'dd7fb268', 'fe39e31d', '79cf4bbf', 'e4667b7a', '187fe470'), 'data/b762_recut_inputs.txt', '6bf04236'),
-        ('the lines of (6)', 'tools/b762_lines.py', ('16cd853e',), 'data/b762_lines.txt', 'b542b24c'))
+# ### b762, Component 6: every tool of the act committed before the bank it wrote, each read from git (scratch files762.py, read-only, the
+# ### step rows with each commit's files, 11:2xZ): the tool's first add the first of its commits, each of them carrying the tool and not the
+# ### bank, the bank's commit (as it stands at HEAD) the bank and not the tool. The registration was written by the Write tool ((R372)(9)), the
+# ### corrigendum by the act module's c1 route, the roster by the standing reader tools/standing/orders.py and the reproduce bank by
+# ### tools/research/reproduce.py, and stand apart
+GENS = (('the ceiling', 'tools/b762_ceiling.py', ('6eba72fc',), 'data/b762_ceiling.txt', '4b76816a'),
+        ('the map of (5)', 'tools/b762_onepage_map.py', ('ea7f1a9c', 'f59ec189', 'e2ac8d03'), 'data/b762_onepage_map.txt', 'bfc620a1'),
+        ('the page of (6)', 'tools/b762_page.py', ('01e18fb3',), 'data/b762_page.txt', '341a5fca'),
+        ('the author`s word of (8)', 'tools/b762_rulings.py', ('254023b4',), 'data/b762_author_rulings.txt', 'd286a214'),
+        ('the trail`s lines of (7) and (8)', 'tools/b762_rulings.py', ('254023b4',), 'data/b762_ledgers.txt', 'd286a214'))
 GENS_B760 = ()   # ### b760's nine stand in git at tools/b760_worklist.py
 GENS_B759 = ()   # ### b759's thirteen stand in git at tools/b759_worklist.py
 GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 # ### b761: two banks of the sitting tool rode in a commit with a later state of their tool, each written by the tool as last committed before
 # ### the write (the tool committed before each run, (N2)): (name, tool, bank, the commit carrying both, the bank's commit as it stands at HEAD)
-GENS_WITH_BANK = (('the agenda of (5)', 'tools/b762_sitting.py', 'data/b762_sitting_agenda.txt', '79cf4bbf', 'ea7e03fe'),   # ### the agenda as first written beside the repaired tool, defect (j); written again by the repaired tool and banked alone at ea7e03fe
-                  ('the question of (5)', 'tools/b762_sitting.py', 'data/b762_question.json', 'e4667b7a', 'e4667b7a'))     # ### written at 23:10:55Z by the tool at 79cf4bbf; committed with the inputs route added after it (23:14:55Z)
+GENS_WITH_BANK = ()   # ### b762: none -- each bank of the act rode in a commit of its own, after its tool's ((N2))
 # ### b758, Component 5: the act's relay commits after step zero in their order (key, commit), and PLACE-papers' in theirs, each read by the act
 # ### module's N2 arms (the order by time and by ancestry) and the entry's order paragraph (CHAIN_WORDS); later commits appended as made; the
 # ### lock gate and the handoff page appended by _chain where made
@@ -495,26 +499,26 @@ GENS_WITH_BANK = (('the agenda of (5)', 'tools/b762_sitting.py', 'data/b762_sitt
 # ### data/b760_steps.json (scratch steps760.py, read-only, 11:0xZ: 34 rows, each commit with its files); later commits appended as made
 # ### b761, Component 6: the act's relay commits after step zero's banks (bdacc192), every one, in their order, read from git and from
 # ### data/b761_steps.json (scratch steps761.py, read-only, 23:4xZ: 31 rows, each commit with its files); later commits appended as made
-CHAIN = (('ceiling_gen', 'f5c7cb5d'), ('c1', 'f9b3ef41'), ('c1_fix', '140e82ab'), ('corr', '9a33e6b3'), ('rulings_gen', '688f7443'),
-         ('ledger_banks', 'aee4ed14'), ('cells_gen', 'da84ba4e'), ('cells_fix', '81d13210'), ('cells', 'c8d62944'),
-         ('sitting_gen', 'a3062bc9'), ('sitting_fix', 'ba9d2a85'), ('sitting_fix2', 'dd7fb268'), ('sitting_fix3', 'fe39e31d'),
-         ('agenda_first', '79cf4bbf'), ('agenda', 'ea7e03fe'), ('answers', 'e4667b7a'), ('inputs_fix', '187fe470'), ('inputs', '6bf04236'),
-         ('lines_gen', '16cd853e'), ('lines', 'b542b24c'), ('reproduce', '1a2c1738'))
+# ### b762, Component 6: the act's relay commits after step zero's banks (18b2afda), every one, in their order, read from git and from
+# ### data/b762_steps.json (scratch files762.py, read-only, 11:2xZ: 20 rows, each commit with its files); later commits appended as made
+CHAIN = (('ceiling_gen', '6eba72fc'), ('c1', '36de4942'), ('corr', '6918f5d9'), ('registration', '577192e3'),
+         ('map_gen', 'ea7f1a9c'), ('map_fix', 'f59ec189'), ('map_fix2', 'e2ac8d03'), ('map', 'bfc620a1'),
+         ('page_gen', '01e18fb3'), ('page', '341a5fca'), ('rulings_gen', '254023b4'), ('ledger_banks', 'd286a214'), ('reproduce', '4b76816a'))
+CHAIN_B761 = ()   # ### b761's twenty-one keys stand in git at tools/b761_worklist.py
 CHAIN_B760 = ()   # ### b760's twenty-five keys stand in git at tools/b760_worklist.py
 CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklist.py
-# ### PLACE-papers' commits of the act in their order: the corrigendum; (7) and (8)'s three ledgers in one; (9)'s cells
-PP_CHAIN = (('c1pp', 'bb5f3092'), ('pp_rulings', '71df7999'), ('pp_cells', 'bfec8bc5'))
+# ### PLACE-papers' commits of the act in their order: the corrigendum (FINDINGS); the page and [G1], [G2] (the new file and REGISTRY); the
+# ### lines of (7), (8) and [O6] (OPEN_TRAILS)
+PP_CHAIN = (('c1pp', 'cb922f02'), ('pp_page', '33d3bc84'), ('pp_rulings', '98eee01f'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1_fix', 'c1pp', 'corr', 'rulings_gen', 'pp_rulings', 'ledger_banks', 'cells_gen',
-              'cells_fix', 'pp_cells', 'cells', 'sitting_gen', 'sitting_fix', 'sitting_fix2', 'sitting_fix3', 'agenda_first', 'agenda', 'answers',
-              'inputs_fix', 'inputs', 'lines_gen', 'lines', 'reproduce')
-CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1_fix': 'its repair after the screen', 'c1pp': 'the corrigendum',
-                    'corr': 'the corrigendum banks', 'rulings_gen': 'the rulings tool', 'pp_rulings': '[A1] to [A3], [B1] and [B2] entered',
-                    'ledger_banks': 'the rulings’ and the ledgers’ banks with the roster', 'cells_gen': 'the cells tool', 'cells_fix': 'its openings read by paragraph',
-                    'pp_cells': 'the cells of (9)', 'cells': 'the cells bank', 'sitting_gen': 'the sitting tool', 'sitting_fix': 'its bare file names',
-                    'sitting_fix2': 'its anchors and archive', 'sitting_fix3': 'its keystone rule printed', 'agenda_first': 'the agenda first written, the path read by both shapes',
-                    'agenda': 'the agenda banked', 'answers': 'the question and the author’s answer', 'inputs_fix': 'the inputs route',
-                    'inputs': 'the inputs bank', 'lines_gen': 'the lines tool', 'lines': 'the lines bank', 'reproduce': 'the reproduce run'})
+TIME_ORDER = ('actcur', 'stepzero', 'ceiling_gen', 'c1', 'c1pp', 'corr', 'registration', 'map_gen', 'map_fix', 'map_fix2', 'map',
+              'page_gen', 'pp_page', 'page', 'rulings_gen', 'pp_rulings', 'ledger_banks', 'reproduce')
+CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1pp': 'the corrigendum', 'corr': 'the corrigendum banks',
+                    'registration': 'the registration, alone', 'map_gen': 'the map tool', 'map_fix': 'its quotation control and its word',
+                    'map_fix2': 'its sentence over the live papers', 'map': 'the map banked', 'page_gen': 'the page tool',
+                    'pp_page': 'the page, [G1] and [G2] entered', 'page': 'the page bank', 'rulings_gen': 'the rulings tool',
+                    'pp_rulings': 'the orders of (7), (8) and (5) entered', 'ledger_banks': 'the author’s word, the trail’s lines and the roster',
+                    'reproduce': 'the reproduce run'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 STANDING_BANKS = ()
@@ -577,17 +581,20 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### none at b762: (R372) holds no sitting (carried name)
 SITTING_STATES = {}
-HANDOFF_COMMIT = 'd2adb845'   # ### b761: HANDOFF.md regenerated once by tools/standing/handoff.py before the gate ((R371)(13)'s (W) list names it), 154 lines, committed (step 38, 02:34:06Z, events (72))
+HANDOFF_COMMIT = None         # ### b762: set when HANDOFF.md is regenerated by tools/standing/handoff.py before the gate ((R372)(13)'s (W) list names it) and committed
+HANDOFF_COMMIT_B761 = 'd2adb845'   # ### b761's, 154 lines (step 38, 02:34:06Z)
 HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by tools/standing/handoff.py at v1.36.9, 154 lines (step 14, 09:18:36Z)
 C3_RELAY = ()   # ### Component 3 ((R372)(5), the map): set as made
 # ### b760, Component 6: PLACE-papers' writes of (7), (9), (10) and (11), each (item, the file, the PLACE-papers commit), read by the act
 # ### module's N3 arms against the banks' sha256 (data/b760_ledgers.json, data/b760_epstein_keys.txt) and the edition's (events (61))
 # ### b761, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b761_ledgers.json's files; data/b761_registry_cells.json's file_sha_before and file_sha_after)
-PP_WRITES = (('corr', 'FINDINGS.md', 'bb5f3092'),                                                     # ### (R371)(1): the corrigendum (step 11)
-             ('reg', 'REGISTRY.md', '71df7999'), ('canon', 'phase1.5/method/THE_METHOD_CANON.md', '71df7999'),
-             ('trails', 'OPEN_TRAILS.md', '71df7999'),                                                # ### (R371)(7), (8): one commit, three files (step 14)
-             ('cells', 'REGISTRY.md', 'bfec8bc5'))                                                    # ### (R371)(9): the cells (step 18)
+# ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
+# ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
+PP_WRITES = (('corr', 'FINDINGS.md', 'cb922f02'),                                                     # ### (R372)(1): the corrigendum (step 7)
+             ('page', 'day1/ONE_PAGE_PROOF_v2_0.md', '33d3bc84'), ('reg', 'REGISTRY.md', '33d3bc84'),  # ### (R372)(6): the page and [G1], [G2] (step 15)
+             ('trails', 'OPEN_TRAILS.md', '98eee01f'))                                                # ### (R372)(5), (7), (8): the trail's lines (step 18)
+PP_WRITES_B761 = ()   # ### b761's five stand in git at tools/b761_worklist.py
 PP_WRITES_B760 = ()   # ### b760's six stand in git at tools/b760_worklist.py
 LEDGERS_GEN = '92ef6b8e'     # ### tools/b760_ledgers.py committed before it wrote, after its two dries (step 30)
 EDITION_GEN = 'beb7b07b'     # ### tools/b760_edition.py as it stood when it wrote the edition (step 24); the cut's head set at 6b639c83 after
