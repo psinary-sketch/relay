@@ -567,7 +567,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### the sitting's agenda items, set at Component 4 ((R371)(5)) when the agenda is banked
 SITTING_STATES = {}
-HANDOFF_COMMIT = None   # ### b761: HANDOFF.md regenerated once by tools/standing/handoff.py before the gate ((R371)(13)'s (W) list names it), set when committed
+HANDOFF_COMMIT = 'd2adb845'   # ### b761: HANDOFF.md regenerated once by tools/standing/handoff.py before the gate ((R371)(13)'s (W) list names it), 154 lines, committed (step 38, 02:34:06Z, events (72))
 HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by tools/standing/handoff.py at v1.36.9, 154 lines (step 14, 09:18:36Z)
 C3_RELAY = ()   # ### Component 3 ((R371)(9)): set as made
 # ### b760, Component 6: PLACE-papers' writes of (7), (9), (10) and (11), each (item, the file, the PLACE-papers commit), read by the act
