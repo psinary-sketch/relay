@@ -1,0 +1,39 @@
+{
+ "exercise": {
+  "G-ACTROOT-VERIFY": {
+   "live": true,
+   "neg": true,
+   "pos": false,
+   "vacuous": false,
+   "pos_raised": null,
+   "shown_failing": true,
+   "reads": "the chain recomputed at commit in parts by act with the suite`s own remote reads: standing-b2a`s banked b624-b627, standing-b2b`s banked b628-b631, standing-b2c`s banked b632-b635, standing-b2d`s banked b636-b658 and standing-b3`s b659-b760 all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), b760 written LF",
+   "secs": 0.0853
+  }
+ },
+ "run": 1,
+ "live_failing": [],
+ "defective": [],
+ "neg_failures": 0,
+ "withheld": [],
+ "part": "standing-b3",
+ "mode": "prerun",
+ "at": "2026-11-19T04:27:54Z",
+ "relay_head": "7fec1d472f5bc9b17e8cfd90cb5c01a6f314554c",
+ "cadence": {
+  "version": "v1.34.9",
+  "rule": "relay data/b754_rules.txt (10)",
+  "fit": "relay data/b754_agenda.txt :358-:380",
+  "held": "read",
+  "why": "tools/standing/ unmoved since the run data/b760_arms_prerun_standing-b3.txt repeats (relay 09d5b3c1): tree 5ac79500304f at both, no tracked change",
+  "at": "2026-11-19T04:27:54Z",
+  "source": "data/b760_arms_prerun_standing-b3.txt",
+  "source_exercise": "data/b760_exercise_standing-b3.json",
+  "source_commit": "1a6955c9782bbbda328215ba49e4a224692914f8",
+  "source_mode": "prerun",
+  "source_at": "2026-11-18T17:49:39Z",
+  "source_head": "09d5b3c1b9baf7453927345e9a156da81bb4c4f6",
+  "run_head": "09d5b3c1b9baf7453927345e9a156da81bb4c4f6",
+  "source_seconds": 443
+ }
+}
