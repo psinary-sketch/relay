@@ -75,7 +75,7 @@ CLASSES = (
     ('cpoint', 'a complex point, the variable of the transform (as a real point is of a function)', r'ℂ'),
     ('agree', 'two weights agreeing up to the integer part of e^L (the sentence: "turns on the values of c up to the integer part of e^L")',
      r'∀ n : ℕ, n ≤ ⌊Real\.exp \w+⌋₊ → \w+ n = \w+ n'),
-    ('nat', 'a natural number n (the sentence of FORM A: "at a named n", the statement taking n as its parameter)', r'ℕ'),
+    ('nat', 'a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows)', r'ℕ'),
     ('evenR', 'even, the variable typed (as the source row binds it)', r'∀ x : ℝ, (\w+) \(-x\) = \1 x'),
     ('nezero', 'the modulus not zero (as the source row binds it, a variable of its file)', r'NeZero \w+'),
     ('character', 'a Dirichlet character (the row: "at a primitive character")', r'DirichletCharacter ℂ \w+'),
