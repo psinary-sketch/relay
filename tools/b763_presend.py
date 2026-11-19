@@ -57,6 +57,7 @@ PA = 'SIDEExplicitFormula/PoleAutocorrelation.lean'
 PS = 'SIDEExplicitFormula/ParitySplit.lean'
 AW = 'SIDEExplicitFormula/AdmissibleWeights.lean'
 CF = 'SIDEExplicitFormula/ControlFailureStatement.lean'
+OP = 'SIDEExplicitFormula/OnePageStatement.lean'
 
 # ### the classes of a bound hypothesis, each by the full match of its type (whitespace collapsed)
 CLASSES = (
@@ -75,6 +76,12 @@ CLASSES = (
     ('agree', 'two weights agreeing up to the integer part of e^L (the sentence: "turns on the values of c up to the integer part of e^L")',
      r'∀ n : ℕ, n ≤ ⌊Real\.exp \w+⌋₊ → \w+ n = \w+ n'),
     ('nat', 'a natural number n (the sentence of FORM A: "at a named n", the statement taking n as its parameter)', r'ℕ'),
+    ('evenR', 'even, the variable typed (as the source row binds it)', r'∀ x : ℝ, (\w+) \(-x\) = \1 x'),
+    ('nezero', 'the modulus not zero (as the source row binds it, a variable of its file)', r'NeZero \w+'),
+    ('character', 'a Dirichlet character (the row: "at a primitive character")', r'DirichletCharacter ℂ \w+'),
+    ('primitive', 'primitive (the row: "a primitive character")', r'\w+\.IsPrimitive'),
+    ('nontriv', 'not the trivial character (the row: "χ ≠ 1")', r'\w+ ≠ 1'),
+    ('config', 'a configuration (the row: "over a configuration")', r'Schema\.WeilConfig'),
 )
 CLASS_WORDS = dict((k, w) for k, w, _r in CLASSES)
 
@@ -96,6 +103,9 @@ S3 = ('testfn', 'realfn', 'real', 'c2', 'cont', 'compact', 'even', 'odd')
 S4 = ('testfn', 'realfn', 'real', 'cpoint', 'c2', 'cont', 'compact', 'even', 'odd')
 S5 = ('weights', 'testfn', 'real', 'vanish', 'agree')
 S7 = ('real', 'nat')
+SF0 = ()                                                              # ### a row that binds nothing
+SFK = ('testfn', 'c2', 'compact', 'evenR')                            # ### the two explicit formulas
+SFC = ('nat', 'nezero', 'character', 'primitive', 'nontriv')          # ### the row at a character
 # ### the autocorrelations (S4) names, as patterns: of e, of o, of h = e + o, and of a real g
 WE = r'Zeta23\.EF\.weilTest \(fun u => \(e u : ℂ\)\) \(fun u => \(e u : ℂ\)\)'
 WO = WE.replace('e u', 'o u')
@@ -223,6 +233,41 @@ SENDS = {
              r'∧ \(poleTerm witnessK - Schema\.primeTermQ Schema\.ZQ\.cQ witnessK \+ Schema\.archTermQ witnessK\)\.re < 0$'))),
         ('ControlFailureA', CF, '(7) A', S7, (
             ('Wide.liCoeff zqZeroConfig n < 0', r'^Schema\.Wide\.liCoeff Schema\.ZQ\.zqZeroConfig n < 0$'),)),
+    )),
+    'sf': dict(clause='(R373)(6), "with them, on the same branch": the statement file of W-ORD-STATEMENT-FILE (OPEN_TRAILS :18889), priced within '
+                      'this build (data/b763_price.txt :22); One Page v2.0`s Correspondence (day1/ONE_PAGE_PROOF_v2_0.md :36-:54), the 19 rows '
+                      'of SIDE-explicit-formula, each stated apart from its proof and closed by the name the row cites, the two definitions as '
+                      'their unfolding; the three rows of SIDE-kernel v1.5 (:55-:57) named in its docstring, that kernel not imported',
+               of7=False, files=(OP,), stmts=(
+        ('classK_def', OP, ':36', ('testfn',), (
+            ('the class of test functions, unfolded', r'^B321\.classK k ↔ \(\(∀ x : ℝ, k \(-x\) = k x\) ∧ ContDiff ℝ 2 k ∧ HasCompactSupport k ∧ ∃ h : ℝ → ℂ, ContDiff ℝ 2 h ∧ HasCompactSupport h ∧ k = Zeta23\.EF\.weilTest h h\)$'),)),
+        ('h2_sign_def', OP, ':37', SF0, (
+            ('the clause, unfolded', r'^B321\.h2_sign ↔ ∀ k : ℝ → ℂ, B321\.classK k → 0 ≤ B321\.poleTerm k - B321\.primeSum k \+ B321\.archTerm k$'),)),
+        ('b321_identity', OP, ':38', SFK, (
+            ('the explicit formula for zeta', r'^B321\.zeroSide k = B321\.b321Norm \* \(B321\.poleTerm k - B321\.primeSum k \+ B321\.archTerm k\)$'),)),
+        ('h2_sign_iff_rh', OP, ':39', SF0, (('the clause is equivalent to the Riemann Hypothesis', r'^B321\.h2_sign ↔ RiemannHypothesis$'),)),
+        ('h2_sign_chi_iff_grh_chi', OP, ':40', SFC, (
+            ('the same at a primitive character other than 1', r'^GRHWeil\.h2_sign_chi χ ↔ GRHWeil\.GRH_chi χ$'),)),
+        ('h2_sign_cfg_iff_target', OP, ':41', ('config',), (('the same over a configuration', r'^Schema\.h2_sign_cfg C ↔ C\.target$'),)),
+        ('li_nonneg_iff_rh', OP, ':42', SF0, (('Li`s criterion', r'^\(∀ n : ℕ, 0 ≤ LiWeil\.LiCoeff n\) ↔ RiemannHypothesis$'),)),
+        ('arith_limit_nonneg_iff_rh', OP, ':43', SF0, (
+            ('the Bombieri-Lagarias form', r'^\(∀ \(n : ℕ\) \(L : ℂ\), Filter\.Tendsto \(fun δ => Zeta23\.EF\.literatureRHS \(LiWeil\.symMember n δ\)\) \(𝓝\[>\] 0\) \(𝓝 L\) → 0 ≤ L\.re\) ↔ RiemannHypothesis$'),)),
+        ('h2_sign_iff_forall_upto', OP, ':44', SF0, (('bounded support', r'^B321\.h2_sign ↔ ∀ L₀ : ℝ, B321\.h2_sign_upto L₀$'),)),
+        ('liCoeff_one_pos', OP, ':45', SF0, (('λ₁ > 0', r'^0 < LiWeil\.LiCoeff 1$'),)),
+        ('zeta_box', OP, ':46', SF0, (
+            ('a zero of zeta on the line between heights 12 and 16', r'^∃ ρ : ℂ, riemannZeta ρ = 0 ∧ ρ\.re = 1 / 2 ∧ \(12 : ℝ\) < ρ\.im ∧ ρ\.im < 16$'),)),
+        ('zq_explicit_formula_instance', OP, ':47', SFK, (
+            ('the explicit formula for the control', r'^Schema\.zeroSideQ Schema\.ZQ\.zqZeroConfig k = B321\.poleTerm k - Schema\.primeTermQ \(fun n => Schema\.ZQ\.cQ n\) k \+ Schema\.archTermQ k$'),)),
+        ('zq_offline_zero', OP, ':48', SF0, (('a zero of the control off the line', r'^∃ ρ ∈ \(Schema\.ZQ\.zqZeroConfig\)\.carrier, ρ\.re ≠ 1 / 2$'),)),
+        ('zq_weil_positivity_fails', OP, ':49', SF0, (
+            ('the inequality fails for the control, on the arithmetic side', r'^¬ ∀ k : ℝ → ℂ, B321\.classK k → 0 ≤ B321\.poleTerm k - Schema\.primeTermQ \(fun n => Schema\.ZQ\.cQ n\) k \+ Schema\.archTermQ k$'),)),
+        ('zq_li_nonneg_fails', OP, ':50', SF0, (('Li`s nonnegativity fails for the control', r'^¬ \(∀ n : ℕ, 0 ≤ Schema\.Wide\.liCoeff Schema\.ZQ\.zqZeroConfig n\)$'),)),
+        ('zq_coeff_not_multiplicative', OP, ':51', SF0, (
+            ('the coefficients of the control not multiplicative', r'^¬ ArithmeticFunction\.IsMultiplicative \(⟨fun n => \(Schema\.rQ n : ℝ\) / 2, by simp \[Schema\.rQ_zero\]⟩ : ArithmeticFunction ℝ\)$'),)),
+        ('zeta_isMultiplicative_control', OP, ':52', SF0, (
+            ('the coefficients of zeta multiplicative', r'^ArithmeticFunction\.IsMultiplicative ArithmeticFunction\.zeta$'),)),
+        ('cQ_not_nonneg', OP, ':53', SF0, (('the log-derivative coefficients of the control not all nonnegative', r'^¬ \(∀ n : ℕ, 0 ≤ Schema\.ZQ\.cQ n\)$'),)),
+        ('vonMangoldt_nonneg_control', OP, ':54', ('nat',), (('Λ nonnegative', r'^0 ≤ ArithmeticFunction\.vonMangoldt n$'),)),
     )),
 }
 

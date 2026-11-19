@@ -273,6 +273,7 @@ W_WORDS = (('relay/HANDOFF.md', '(R373)(13): HANDOFF.md'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/PoleAutocorrelation.lean', '(R373)(6), (13): the files of (6) -- (S3) the pole term on an autocorrelation'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/ParitySplit.lean', '(R373)(6), (13): the files of (6) -- (S4) the split by parity'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/AdmissibleWeights.lean', '(R373)(6), (13): the files of (6) -- (S5) the admissible weights a convex set'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/OnePageStatement.lean', '(R373)(6), (13): the files of (6) -- the statement file of W-ORD-STATEMENT-FILE, which (6) places on push-b763-form where the table prices it within this build (data/b763_price.txt :22)'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureStatement.lean', '(R373)(7), (13): the files of (7) -- FORM A and FORM B as definitions of a Prop, in a file of their own, before any proof'))
 # ### b763 Component 1: the kernel files of (6) and (7) named before any is written ((R373)(13), "in SIDE-explicit-formula the files of (6),
 # ### (7) and (8) with print_targets.txt"); (7)'s proof file and each (8) file take their row when named
