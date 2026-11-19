@@ -54,6 +54,8 @@ ACT = 'b763'
 KNOWN = [358, 359]   # ### the filter's two known refusals at a3aad4cc (v0.41): 489 lines, 487 passed, 2 refused
 FF = 'SIDEExplicitFormula/FormFinite.lean'
 PA = 'SIDEExplicitFormula/PoleAutocorrelation.lean'
+PS = 'SIDEExplicitFormula/ParitySplit.lean'
+AW = 'SIDEExplicitFormula/AdmissibleWeights.lean'
 
 # ### the classes of a bound hypothesis, each by the full match of its type (whitespace collapsed)
 CLASSES = (
@@ -68,6 +70,9 @@ CLASSES = (
     ('compact', 'compact support', r'HasCompactSupport \w+'),
     ('even', 'even', r'∀ x, (\w+) \(-x\) = \1 x'),
     ('odd', 'odd', r'∀ x, (\w+) \(-x\) = -\1 x'),
+    ('cpoint', 'a complex point, the variable of the transform (as a real point is of a function)', r'ℂ'),
+    ('agree', 'two weights agreeing up to the integer part of e^L (the sentence: "turns on the values of c up to the integer part of e^L")',
+     r'∀ n : ℕ, n ≤ ⌊Real\.exp \w+⌋₊ → \w+ n = \w+ n'),
 )
 CLASS_WORDS = dict((k, w) for k, w, _r in CLASSES)
 
@@ -77,13 +82,21 @@ DEFS = (('primeSum', 'SIDEExplicitFormula/B321Identity.lean'), ('primeTermQ', 'S
         ('classK', 'SIDEExplicitFormula/H2Sign.lean'), ('h2_sign_upto', 'SIDEExplicitFormula/DetectionRegion.lean'),
         ('archTerm', 'SIDEExplicitFormula/B321Identity.lean'), ('paperFT', 'Zeta23/Defs.lean'),
         ('plateau', 'SIDEExplicitFormula/TwoPropertyWindow.lean'), ('archTermQ', 'SIDEExplicitFormula/Schema/EpsteinZQ.lean'),
-        ('cQ', 'SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean'))
+        ('cQ', 'SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean'), ('zeroSide', 'SIDEExplicitFormula/B321Identity.lean'),
+        ('admissibleWeights', 'SIDEExplicitFormula/AdmissibleWeights.lean'))
 SIX = ('primeSum', 'primeTermQ', 'poleTerm', 'weilTest', 'classK', 'h2_sign_upto')
 
 # ### the sends: each statement (name, file, sentence, the classes its sentence names, [(the predicate's words, its pattern on the conclusion)])
 S1 = ('weights', 'testfn', 'real', 'vanish')
 S2 = ('testfn', 'real', 'log2', 'vanish')
 S3 = ('testfn', 'realfn', 'real', 'c2', 'cont', 'compact', 'even', 'odd')
+S4 = ('testfn', 'realfn', 'real', 'cpoint', 'c2', 'cont', 'compact', 'even', 'odd')
+S5 = ('weights', 'testfn', 'real', 'vanish', 'agree')
+# ### the autocorrelations (S4) names, as patterns: of e, of o, of h = e + o, and of a real g
+WE = r'Zeta23\.EF\.weilTest \(fun u => \(e u : ℂ\)\) \(fun u => \(e u : ℂ\)\)'
+WO = WE.replace('e u', 'o u')
+WG = WE.replace('e u', 'g u')
+WH = r'Zeta23\.EF\.weilTest \(fun u => \(\(e u \+ o u : ℝ\) : ℂ\)\) \(fun u => \(\(e u \+ o u : ℝ\) : ℂ\)\)'
 SENDS = {
     's123': dict(clause='(R373)(6), statements (S1), (S2) and (S3), sent together', of7=False, files=(FF, PA), stmts=(
         ('primeTermQ_window', FF, '(S1)', S1, (
@@ -133,6 +146,51 @@ SENDS = {
         ('oddWindow_sinh_pos', PA, '(S3)', S3, (('its integral against sinh(x/2) positive', r'^0 < ∫ u : ℝ, oddWindow u \* Real\.sinh \(u / 2\)$'),)),
         ('exists_classK_poleTerm_re_neg', PA, '(S3)', S3, (
             ('a k in classK with the real part of poleTerm k below 0', r'^∃ k : ℝ → ℂ, classK k ∧ \(poleTerm k\)\.re < 0$'),)),
+    )),
+    's4': dict(clause='(R373)(6), statement (S4), sent alone after (S1) to (S3) compiled; the domain classes (twice continuously differentiable, '
+                      'continuous, compact support) are the domain of the form`s three terms, which the sentence`s "each of the three terms of the '
+                      'form at h" takes; the seat splits (S4) into the additivity of each term and the split itself, and says so',
+               of7=False, files=(PS,), stmts=(
+        ('paperFT_add', PS, '(S4)', S4, (('the transform additive', r'^Zeta23\.paperFT \(fun u => f u \+ g u\) z = Zeta23\.paperFT f z \+ Zeta23\.paperFT g z$'),)),
+        ('poleTerm_add', PS, '(S4)', S4, (('the pole term additive', r'^poleTerm \(fun x => f x \+ g x\) = poleTerm f \+ poleTerm g$'),)),
+        ('exists_window', PS, '(S4)', S4, (('a compact support lies in a window', r'^∃ L : ℝ, ∀ u : ℝ, L < \|u\| → k u = 0$'),)),
+        ('primeSum_add', PS, '(S4)', S4, (('the prime sum additive', r'^primeSum \(fun x => f x \+ g x\) = primeSum f \+ primeSum g$'),)),
+        ('zeroSide_add', PS, '(S4)', S4, (('the zero side additive', r'^zeroSide \(fun x => f x \+ g x\) = zeroSide f \+ zeroSide g$'),)),
+        ('archTerm_add', PS, '(S4)', S4, (('the archimedean term additive', r'^archTerm \(fun x => f x \+ g x\) = archTerm f \+ archTerm g$'),)),
+        ('weilTest_ofReal_apply', PS, '(S4)', S4, (
+            ('the autocorrelation of real functions at x is the integral of f(t) g(t - x)',
+             r'^Zeta23\.EF\.weilTest \(fun u => \(f u : ℂ\)\) \(fun u => \(g u : ℂ\)\) x = \(\(∫ t : ℝ, f t \* g \(t - x\) : ℝ\) : ℂ\)$'),)),
+        ('integral_parity_split', PS, '(S4)', S4, (
+            ('the cross terms cancel', r'^∫ t : ℝ, \(e t \+ o t\) \* \(e \(t - x\) \+ o \(t - x\)\) = \(∫ t : ℝ, e t \* e \(t - x\)\) \+ ∫ t : ℝ, o t \* o \(t - x\)$'),)),
+        ('weilTest_parity_split', PS, '(S4)', S4, (
+            ('weilTest h h = weilTest e e + weilTest o o as functions', r'^%s = fun x => %s x \+ %s x$' % (WH, WE, WO)),)),
+        ('autocorr_facts', PS, '(S4)', S4, (
+            ('the autocorrelation twice continuously differentiable', r'^ContDiff ℝ 2 \(%s\) ∧' % WG),
+            ('with compact support', r'∧ HasCompactSupport \(%s\) ∧' % WG),
+            ('and even', r'∧ ∀ x, %s \(-x\) = %s x$' % (WG, WG)))),
+        ('poleTerm_parity_split', PS, '(S4)', S4, (('the pole term at h is its sum at e and at o', r'^poleTerm \(%s\) = poleTerm \(%s\) \+ poleTerm \(%s\)$' % (WH, WE, WO)),)),
+        ('primeSum_parity_split', PS, '(S4)', S4, (('the prime sum at h is its sum at e and at o', r'^primeSum \(%s\) = primeSum \(%s\) \+ primeSum \(%s\)$' % (WH, WE, WO)),)),
+        ('archTerm_parity_split', PS, '(S4)', S4, (('the archimedean term at h is its sum at e and at o', r'^archTerm \(%s\) = archTerm \(%s\) \+ archTerm \(%s\)$' % (WH, WE, WO)),)),
+        ('form_parity_split', PS, '(S4)', S4, (
+            ('the form at h', r'^poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\) =' % (WH, WH, WH)),
+            ('is the form at e plus the form at o', r'= \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\) \+ \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\)$'
+             % (WE, WE, WE, WO, WO, WO)))),
+    )),
+    's5': dict(clause='(R373)(6), statement (S5), sent alone after (S4) compiled; the seat splits (S5) into the set, the linearity of the '
+                      'prime-power side in the weights on a window, the convexity, the congruence and the von Mangoldt membership, and says so',
+               of7=False, files=(AW,), stmts=(
+        ('admissibleWeights', AW, '(S5)', S5, (
+            ('its body: the weights c at which pole term less prime-power side with c plus archimedean term is at or above 0 on each window in classK of width L',
+             r'^\{c \| ∀ k : ℝ → ℂ, classK k → \(∀ u : ℝ, L < \|u\| → k u = 0\) → 0 ≤ poleTerm k - Schema\.primeTermQ c k \+ archTerm k\}$'),)),
+        ('primeTermQ_combo', AW, '(S5)', S5, (
+            ('on a window the prime-power side is linear in the weights',
+             r'^Schema\.primeTermQ \(a • c₁ \+ b • c₂\) k = \(a : ℂ\) \* Schema\.primeTermQ c₁ k \+ \(b : ℂ\) \* Schema\.primeTermQ c₂ k$'),)),
+        ('admissibleWeights_convex', AW, '(S5)', S5, (('convex at each width', r'^Convex ℝ \(admissibleWeights L\)$'),)),
+        ('admissibleWeights_congr', AW, '(S5)', S5, (
+            ('membership turns on the weights up to the integer part of e^L', r'^c₁ ∈ admissibleWeights L ↔ c₂ ∈ admissibleWeights L$'),)),
+        ('h2_sign_upto_iff_mem', AW, '(S5)', S5, (
+            ('h2_sign_upto L says that the von Mangoldt function is a member',
+             r'^h2_sign_upto L ↔ \(fun n : ℕ => ArithmeticFunction\.vonMangoldt n\) ∈ admissibleWeights L$'),)),
     )),
 }
 
