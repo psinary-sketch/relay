@@ -142,11 +142,16 @@ def controls():
     c('planted: FORM B where its upper fits, FORM A where only its own would (none can: its upper is above B`s), no proof below B`s upper',
       (decide(rows[PROOF_B]['hi_h'], rows), decide(rows[PROOF_A]['hi_h'], rows), decide(rows[PROOF_B]['hi_h'] - 0.01, rows)),
       decide(rows[PROOF_B]['hi_h'], rows) == 'FORM B' and decide(rows[PROOF_B]['hi_h'] - 0.01, rows).startswith('NO PROOF'))
+    # ### b763 defect (e): the first form planted "spent 0 carries nothing", a plant that does not meet its premise (c2's remaining rows sum
+    # ### to 26.95 h at their lower figures, over 24 h with nothing spent); planted now at the boundary, the remaining sum exactly at the ceiling
     rem2 = list(REMAIN['c2']) + k8 + list(TAIL)
-    t_in, c_in, _r = carry(0.0, rem2, rows, k8, True)
-    t_ov, c_ov, _r2 = carry(CEILING, rem2, rows, k8, True)
-    c('planted at c2: spent 0 carries nothing; spent 24 carries every (8) row, the last priced first, then (7)`s proof', (c_in, c_ov),
-      c_in == [] and c_ov == list(reversed(k8)) + [PROOF_B])
+    s0 = CEILING - sum(rows[k]['lo_h'] for k in rem2)
+    _t0, c_at, _r0 = carry(s0, rem2, rows, k8, True)
+    _t1, c_ov1, _r1 = carry(s0 + 0.01, rem2, rows, k8, True)
+    _t2, c_ov, _r2 = carry(CEILING, rem2, rows, k8, True)
+    c('planted at c2: the sum exactly at 24 h carries nothing; 0.01 h over carries the last priced alone; spent 24 h carries every (8) row, '
+      'the last priced first, then (7)`s proof', (c_at, c_ov1, c_ov),
+      c_at == [] and c_ov1 == [k8[-1]] and c_ov == list(reversed(k8)) + [PROOF_B])
     p = plan8(5.0, rows, k8)
     c('planted at c3 with 5 h left: (8) in ascending upper order, the barred two named barred whatever is left',
       [(k[4:], w) for k, w, _h, _l in p], [k for k, _w, _h, _l in p] == sorted(k8, key=lambda k: rows[k]['hi_h'])
