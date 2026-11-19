@@ -375,7 +375,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b763.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.37.1'            # ### entering; (R373)(5) and (11) move tools/standing/ only where the kernel route refuses this act's branch names, VERSION with it; set at the close
+STANDING_VERSION = 'v1.37.2'            # ### b763 (R373)(5): v1.37.1 entering, v1.37.2 at relay d34f7323 (step 11), the kernel route opened for b763 at SIDE-explicit-formula; read again at the close
 STANDING_VERSION_ENTERING = 'v1.37.1'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'a3aad4cc'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R373)(5), (6): SIDE-explicit-formula written on push-b763-* branches made at main, v0.41 (a3aad4cc), main moved after a run's success alone; SIDE-dirichlet-mod-24 at main, v0.2.0, untouched (N5); SIDE-kernel read at v1.5 at most, its main unmoved
 # ### v1.18.0, (R364)(2)(ii): the act's banks whose comparative sentences the citation check reads, and a reading row for each word (tools/standing/cites.py
@@ -383,8 +383,9 @@ LEAN_TREES = (('D:/SIDE-explicit-formula', 'a3aad4cc'), ('D:/SIDE-dirichlet-mod-
 COMPARATIVE_BANKS = ('data/b763_corrigendum.txt', 'data/b763_price.txt', 'data/b763_defects.txt')
 COMPARATIVE_ROWS = ()   # ### comparative word in them ("at least" excepted by the reader), so no reading row; the check reads the three for one
 #   ### the trees the ruling's Lean paths are read against: zq-b730's tip, and Mathlib at its pin (the ferry's "Mathlib at the pin: Analysis/Complex/AbsMax.lean :405, ...")
-STANDING_CHANGED = ()   # ### b762: (R372)(11), no standing change -- tools/standing/ tree-equal to b761's close (fb9fbaef), read at the close by git diff --name-status fb9fbaef HEAD -- tools/standing/
-STANDING_NEW = ()       # ### none
+STANDING_CHANGED = ('VERSION', 'commit.py')   # ### b763 (R373)(5): v1.37.1 to v1.37.2's changed files, read at the close by git diff --name-status 3fe5b17c HEAD -- tools/standing/
+STANDING_NEW = ('v1372.py',)                  # ### its controls tool, committed before its first run (d34f7323)
+STANDING_CHANGED_B762 = ()   # ### b762's: (R372)(11), no standing change, kept for the carried arms
 STANDING_CHANGED_B760 = ('VERSION', 'commit.py', 'handoff.py', 'subject.py')   # ### b760's: v1.36.8 to v1.37.1's changed files (4), kept for the carried arms that cite them
 STANDING_NEW_B760 = ('v1368.py', 'v1369.py', 'v1370.py', 'v1371.py')
 # ### b753's commits the act reads (the names kept for the carried arms: the previous act's)
@@ -393,7 +394,7 @@ B714_RECORD = '8f2cf6d5'     # ### b762's record commit (relay)
 B714_ROOT = '042d9f69255daba8ab3653856f0fe2cd52d7328d9a4eca8040348e575eebbf48'   # ### b762's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '340684d6'  # ### b762's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### (R373)(5): the one change under tools/standing/ that admits this act's branch names, where the route refuses them; set when made, else none
+C1_STANDING = 'd34f7323'     # ### (R373)(5): the one change under tools/standing/ that admits this act's branch names, v1.37.2 with its standing dry PENDING on a carried bank name (step 11, 19:53:55Z)
 C1_LOCKGATE = None           # ### b760: set when tools/b760_lockgate.py is carried and committed before any run (b759's 8cd68c1b)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
@@ -537,7 +538,7 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'c1': 'the c1 route', 'c1
                     'reproduce': 'the reproduce run'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
-STANDING_BANKS = ()
+STANDING_BANKS = (('v1.37.2', 'd34f7323', 'data/b763_standing_v1372.txt', 10),)   # ### b763 (R373)(5): its controls 10 of 10, banked after the commit (19:54:12Z)
 STANDING_BANKS_B760 = (('v1.36.8', '34390a25', 'data/b762_standing_v1368.txt', 9), ('v1.36.9', '1e9493e5', 'data/b762_standing_v1369.txt', 9),
                        ('v1.37.0', 'a8f8403a', 'data/b762_standing_v1370.txt', 10), ('v1.37.1', '6bc5d706', 'data/b762_standing_v1371.txt', 9))   # ### b760's (R370)(5)(i)-(iv), read not re-made
 STANDING_BANKS_B759 = (('v1.36.3', '983ca5b1', 'data/b762_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b762_standing_v1364.txt', 6),
