@@ -56,6 +56,7 @@ FF = 'SIDEExplicitFormula/FormFinite.lean'
 PA = 'SIDEExplicitFormula/PoleAutocorrelation.lean'
 PS = 'SIDEExplicitFormula/ParitySplit.lean'
 AW = 'SIDEExplicitFormula/AdmissibleWeights.lean'
+CF = 'SIDEExplicitFormula/ControlFailureStatement.lean'
 
 # ### the classes of a bound hypothesis, each by the full match of its type (whitespace collapsed)
 CLASSES = (
@@ -73,6 +74,7 @@ CLASSES = (
     ('cpoint', 'a complex point, the variable of the transform (as a real point is of a function)', r'ℂ'),
     ('agree', 'two weights agreeing up to the integer part of e^L (the sentence: "turns on the values of c up to the integer part of e^L")',
      r'∀ n : ℕ, n ≤ ⌊Real\.exp \w+⌋₊ → \w+ n = \w+ n'),
+    ('nat', 'a natural number n (the sentence of FORM A: "at a named n", the statement taking n as its parameter)', r'ℕ'),
 )
 CLASS_WORDS = dict((k, w) for k, w, _r in CLASSES)
 
@@ -83,7 +85,8 @@ DEFS = (('primeSum', 'SIDEExplicitFormula/B321Identity.lean'), ('primeTermQ', 'S
         ('archTerm', 'SIDEExplicitFormula/B321Identity.lean'), ('paperFT', 'Zeta23/Defs.lean'),
         ('plateau', 'SIDEExplicitFormula/TwoPropertyWindow.lean'), ('archTermQ', 'SIDEExplicitFormula/Schema/EpsteinZQ.lean'),
         ('cQ', 'SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean'), ('zeroSide', 'SIDEExplicitFormula/B321Identity.lean'),
-        ('admissibleWeights', 'SIDEExplicitFormula/AdmissibleWeights.lean'))
+        ('admissibleWeights', 'SIDEExplicitFormula/AdmissibleWeights.lean'), ('liCoeff', 'SIDEExplicitFormula/Schema/Wide/Converse.lean'),
+        ('zqZeroConfig', 'SIDEExplicitFormula/Schema/ZQ/Zeros.lean'))
 SIX = ('primeSum', 'primeTermQ', 'poleTerm', 'weilTest', 'classK', 'h2_sign_upto')
 
 # ### the sends: each statement (name, file, sentence, the classes its sentence names, [(the predicate's words, its pattern on the conclusion)])
@@ -92,6 +95,7 @@ S2 = ('testfn', 'real', 'log2', 'vanish')
 S3 = ('testfn', 'realfn', 'real', 'c2', 'cont', 'compact', 'even', 'odd')
 S4 = ('testfn', 'realfn', 'real', 'cpoint', 'c2', 'cont', 'compact', 'even', 'odd')
 S5 = ('weights', 'testfn', 'real', 'vanish', 'agree')
+S7 = ('real', 'nat')
 # ### the autocorrelations (S4) names, as patterns: of e, of o, of h = e + o, and of a real g
 WE = r'Zeta23\.EF\.weilTest \(fun u => \(e u : ℂ\)\) \(fun u => \(e u : ℂ\)\)'
 WO = WE.replace('e u', 'o u')
@@ -191,6 +195,34 @@ SENDS = {
         ('h2_sign_upto_iff_mem', AW, '(S5)', S5, (
             ('h2_sign_upto L says that the von Mangoldt function is a member',
              r'^h2_sign_upto L ↔ \(fun n : ℕ => ArithmeticFunction\.vonMangoldt n\) ∈ admissibleWeights L$'),)),
+    )),
+    's7': dict(clause='(R373)(7), the statement of each form the table prices, FORM B and FORM A, each a definition of a Prop in a file of its own, '
+                      'with no sorry and no proof, compiled by one dispatch on push-b763-arith before any line of a proof; FORM B`s named window '
+                      'in eight definitions beside them (the B-spline of order 6 carried onto [-log 32, log 32], the family`s frequency as relay '
+                      'data/b709_grid.txt :46 prints it, the window of kind N, its autocorrelation and the width log 1024); FORM A takes n as its '
+                      'parameter, no bank naming n',
+               of7=True, files=(CF,), stmts=(
+        ('bsplineSix', CF, '(7) B', S7, (
+            ('its body: the cardinal B-spline of order 6, (1/120) times the sum over j up to 6 of (-1)^j C(6, j) (x - j)_+^5',
+             r'^\(1 / 120\) \* ∑ j ∈ Finset\.range 7, \(-1 : ℝ\) \^ j \* \(Nat\.choose 6 j : ℝ\) \* \(max \(x - j\) 0\) \^ 5$'),)),
+        ('witnessStep', CF, '(7) B', S7, (('its body: a third of log 32', r'^Real\.log 32 / 3$'),)),
+        ('witnessPhi', CF, '(7) B', S7, (
+            ('its body: the B-spline carried onto [-log 32, log 32]', r'^bsplineSix \(\(u \+ Real\.log 32\) / witnessStep\) / witnessStep$'),)),
+        ('witnessFreq', CF, '(7) B', S7, (
+            ('its body: the family`s frequency, 16.290215720390390792963', r'^16290215720390390792963 / 10 \^ 21$'),)),
+        ('witnessCos', CF, '(7) B', S7, (('its body: cos(g u) phi(u)', r'^Real\.cos \(witnessFreq \* u\) \* witnessPhi u$'),)),
+        ('witnessH', CF, '(7) B', S7, (
+            ('its body: the window of kind N, (g^2 + D^2)[cos(g u) phi(u)]', r'^witnessFreq \^ 2 \* witnessCos u \+ deriv \(deriv witnessCos\) u$'),)),
+        ('witnessK', CF, '(7) B', S7, (
+            ('its body: the autocorrelation of the window', r'^Zeta23\.EF\.weilTest \(fun u => \(witnessH u : ℂ\)\) \(fun u => \(witnessH u : ℂ\)\)$'),)),
+        ('witnessWidth', CF, '(7) B', S7, (('its body: the width log 1024', r'^Real\.log 1024$'),)),
+        ('ControlFailureB', CF, '(7) B', S7, (
+            ('the named k in classK', r'^classK witnessK ∧'),
+            ('vanishing outside [-L, L], L named', r'∧ \(∀ u : ℝ, witnessWidth < \|u\| → witnessK u = 0\) ∧'),
+            ('the real part of poleTerm k - primeTermQ cQ k + archTermQ k below 0',
+             r'∧ \(poleTerm witnessK - Schema\.primeTermQ Schema\.ZQ\.cQ witnessK \+ Schema\.archTermQ witnessK\)\.re < 0$'))),
+        ('ControlFailureA', CF, '(7) A', S7, (
+            ('Wide.liCoeff zqZeroConfig n < 0', r'^Schema\.Wide\.liCoeff Schema\.ZQ\.zqZeroConfig n < 0$'),)),
     )),
 }
 
