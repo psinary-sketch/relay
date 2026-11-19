@@ -1,0 +1,81 @@
+b763 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b762_address_scan.py -> tools/b763_address_scan.py (2026-11-19T18:37:05Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b762 -> b763, b761 -> b762, R372 -> R373, R371 -> R372); 318 lines, 26 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b762_tool_repairs.txt AND data/b762_repairdiff_address_scan.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b762; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b762_address_scan.py
+  +++ tools/b763_address_scan.py
+  @@ -2,6 +2,6 @@
+  -"""b762_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  -carried to b762 (data/b762_carry_address_scan.txt), its carry-time repairs and the author's word at b762's Component 1 marked ### b762.
+  -### b762, the carry's note: this file is tools/b761_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b762_carry_address_scan.txt);
+  -### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b761's file) kept; the comment notes it shifted
+  -### (b761's and b753's carry notes, here :7-:12) set back by the Edit tool to b761's text before any run.
+  -### b761, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b761_carry_address_scan.txt);
+  +"""b763_address_scan.py -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR'S NAME OR E-MAIL ADDRESS. Written whole at b722 by the Write tool,
+  +carried to b763 (data/b763_carry_address_scan.txt), its carry-time repairs and the author's word at b763's Component 1 marked ### b763.
+  +### b763, the carry's note: this file is tools/b762_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b763_carry_address_scan.txt);
+  +### the shift's functional lines (:2, :3, :65, :81, :83, :153-:154, :251, :276, numbered in b762's file) kept; the comment notes it shifted
+  +### (b762's and b753's carry notes, here :7-:12) set back by the Edit tool to b762's text before any run.
+  +### b762, the carry's note: this file is tools/b753_address_scan.py carried by tools/standing/carry.py's whole-file shift (data/b762_carry_address_scan.txt);
+  @@ -68,1 +68,1 @@
+  -                  --bank writes data/b762_address_scan.txt.
+  +                  --bank writes data/b763_address_scan.txt.
+  @@ -84,1 +84,1 @@
+  -import b762_worklist as K   # noqa: E402
+  +import b763_worklist as K   # noqa: E402
+  @@ -86,1 +86,1 @@
+  -ACT = 'b762'
+  +ACT = 'b763'
+  @@ -156,3 +156,3 @@
+  -if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b762_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  -    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b762_kernel_bases.json'), encoding='utf-8')).items()))   # ### b762, (R372)(3): to HEAD, the checked-out push-b762-* branch whose commits stand before main moves (b745's '..main' read them only after)
+  -BYLINE_FILE = 'day1/ONE_PAGE_PROOF_v2_0.md'   # ### b762 (10:1xZ): the page's name by (R372)(6)'s stem clause (tools/standing/subject.py family_of), in place of day1/ONE_PAGE_v2_0.md. (R372)(6) and its N5 (data/b762_ferry.txt :171, "beyond a byline, carried into the page from line :3 of the deposited edition's file by its bytes"): the new page alone; b761's was day1/Which_Structure_Confines_v2_5_0.md (set at b762 step zero by the Edit tool, b762 defect (a))
+  +if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
+  +    SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_kernel_bases.json'), encoding='utf-8')).items()))   # ### b763, (R373)(3): to HEAD, the checked-out push-b763-* branch whose commits stand before main moves (b745's '..main' read them only after)
+  +BYLINE_FILE = 'day1/ONE_PAGE_PROOF_v2_0.md'   # ### b763 (10:1xZ): the page's name by (R373)(6)'s stem clause (tools/standing/subject.py family_of), in place of day1/ONE_PAGE_v2_0.md. (R373)(6) and its N5 (data/b763_ferry.txt :171, "beyond a byline, carried into the page from line :3 of the deposited edition's file by its bytes"): the new page alone; b762's was day1/Which_Structure_Confines_v2_5_0.md (set at b763 step zero by the Edit tool, b763 defect (a))
+  @@ -161,2 +161,2 @@
+  -def ruling_byline(act='b762'):
+  -    """### b762, (R372)(6), b761 (e) REPEAT at b762 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  +def ruling_byline(act='b763'):
+  +    """### b763, (R373)(6), b762 (e) REPEAT at b763 (b) (tools/standing/ v1.35.2's fault set): (the ruling's name, whether its N5 holds the
+  @@ -165,1 +165,1 @@
+  -    exception under its own ruling's name until the seat set it by hand (b761 at 19:12:57Z, b762 at 13:02Z)."""
+  +    exception under its own ruling's name until the seat set it by hand (b762 at 19:12:57Z, b763 at 13:02Z)."""
+  @@ -176,2 +176,2 @@
+  -    """### b761 defect (f): whether a ferry's N5 holds the byline exception, the text after '(N5)' on its line reading "beyond a byline" ((R369)'s
+  -    and CLAUDE.md's wording) or "beyond the edition's byline" ((R371)'s, data/b761_ferry.txt :53). The first form alone read (R371)'s N5 as holding
+  +    """### b762 defect (f): whether a ferry's N5 holds the byline exception, the text after '(N5)' on its line reading "beyond a byline" ((R369)'s
+  +    and CLAUDE.md's wording) or "beyond the edition's byline" ((R372)'s, data/b762_ferry.txt :53). The first form alone read (R372)'s N5 as holding
+  @@ -179,1 +179,1 @@
+  -    back at b762 by the Edit tool, the carry having shifted them; (R372)'s N5 (data/b762_ferry.txt :171) carries the first form."""
+  +    back at b763 by the Edit tool, the carry having shifted them; (R373)'s N5 (data/b763_ferry.txt :171) carries the first form."""
+  @@ -184,1 +184,1 @@
+  -BYLINE_FILES = (BYLINE_FILE,) if BYLINE_HELD else ()   # ### b762: the page alone where the act's N5 holds the exception (b761's tuple named v2.5.0 and the findings v0.7); else none, each added line counted as any other
+  +BYLINE_FILES = (BYLINE_FILE,) if BYLINE_HELD else ()   # ### b763: the page alone where the act's N5 holds the exception (b762's tuple named v2.5.0 and the findings v0.7); else none, each added line counted as any other
+  @@ -250,1 +250,1 @@
+  -    ctl.append(('N5 read in both rulings` wordings (b761 (f))', n5_holds('(N5) x; no new occurrence beyond a byline under I-23')
+  +    ctl.append(('N5 read in both rulings` wordings (b762 (f))', n5_holds('(N5) x; no new occurrence beyond a byline under I-23')
+  @@ -253,1 +253,1 @@
+  -                and RULING_N5 == 'R372' and BYLINE_HELD))   # ### b762: (R372)'s N5 (data/b762_ferry.txt :171) holds the byline exception, for the page of (6) alone; the carried clause read b761's (R371), which held none (b762 defect (a))
+  +                and RULING_N5 == 'R373' and BYLINE_HELD))   # ### b763: (R373)'s N5 (data/b763_ferry.txt :171) holds the byline exception, for the page of (6) alone; the carried clause read b762's (R372), which held none (b763 defect (a))
+  @@ -284,1 +284,1 @@
+  -    # ### b762, (R372)(3), tools/standing/ v1.35.4: the repositories whose commits, staged set and working tree this run read, by name; a
+  +    # ### b763, (R373)(3), tools/standing/ v1.35.4: the repositories whose commits, staged set and working tree this run read, by name; a
+  @@ -288,3 +288,3 @@
+  -    L += ['', '## THE EXCEPTION, %s, THE BYLINE (AND AT MOST TWO SELF-CITATIONS) AT %s, CARRIED FROM day1/ONE_PAGE_PROOF.md :3 BY ITS BYTES ((R372)(6)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (
+  -        ('TAKEN UNDER %s`S N5 (its byline exception, read from its ferry bank at run time; b762 defect (a))' % RULING_N5) if BYLINE_HELD else
+  -        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b761 (e), b762 (b))' % RULING_N5),
+  +    L += ['', '## THE EXCEPTION, %s, THE BYLINE (AND AT MOST TWO SELF-CITATIONS) AT %s, CARRIED FROM day1/ONE_PAGE_PROOF.md :3 BY ITS BYTES ((R373)(6)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (
+  +        ('TAKEN UNDER %s`S N5 (its byline exception, read from its ferry bank at run time; b763 defect (a))' % RULING_N5) if BYLINE_HELD else
+  +        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b762 (e), b763 (b))' % RULING_N5),
+  @@ -316,1 +316,1 @@
+  -        sys.exit('usage: b762_address_scan.py scan [--bank]')
+  +        sys.exit('usage: b763_address_scan.py scan [--bank]')
+
+### ### **CARRIED tools/b763_address_scan.py ; LINES 318 ; CHANGED BY THE SUBSTITUTION 26 ; REPAIR SPANS AT b762 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
