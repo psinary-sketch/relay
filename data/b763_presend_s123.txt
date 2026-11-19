@@ -1,4 +1,4 @@
-b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE SALT CHECK OF SEND s123, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-19T20:35:16Z)
+b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE SALT CHECK OF SEND s123, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-19T22:03:08Z)
 
 ### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
 ### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
@@ -53,20 +53,20 @@ b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE S
   BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 99 of 99
 
 ### the tip the dispatch is sent at
-## AT ec82fed0 (ec82fed0)
-  THE TARGETS (tools/b757_join.py`s reader): names 518 ; resolved to one module 518 ; refused 0 [] ; modules 106
-  THE IMPORT CLOSURE IN THE TREE: modules 375 (the targets` 106 among them, 106 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
-  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1256 names, duplicates 0 ; over the closure 4170 names, duplicates 0 (0 wanted)
+## AT 0f849552 (0f849552)
+  THE TARGETS (tools/b757_join.py`s reader): names 537 ; resolved to one module 537 ; refused 0 [] ; modules 108
+  THE IMPORT CLOSURE IN THE TREE: modules 377 (the targets` 108 among them, 108 of them read) ; imports outside the tree 178 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1275 names, duplicates 0 ; over the closure 4189 names, duplicates 0 (0 wanted)
   (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
-  (ii) THE FILTER (.github/workflows/build-module.yml :91 at ec82fed0): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 518 ; passed 516 ; refused 2
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at 0f849552): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 537 ; passed 535 ; refused 2
     REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
     REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
-  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 106 of 106
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 108 of 108
 
-### (R373)(6), statements (S1), (S2) and (S3), sent together: the salt check, printed before the send
-## THE SALT CHECK OF SEND s123 AT ec82fed0 (ec82fed0): (R373)(6), statements (S1), (S2) and (S3), sent together
+### (R373)(6), statements (S1), (S2) and (S3), sent together (dispatch 1; again at dispatch 2 with (S3)`s import repaired, beside (S4) and (S5)): the salt check, printed before the send
+## THE SALT CHECK OF SEND s123 AT 0f849552 (0f849552): (R373)(6), statements (S1), (S2) and (S3), sent together (dispatch 1; again at dispatch 2 with (S3)`s import repaired, beside (S4) and (S5))
   THE FILE SIDEExplicitFormula/FormFinite.lean: READ, 67 lines, sha256 615815e4bc4278ef ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.Schema.EpsteinZQ -> CLEAN
-  THE FILE SIDEExplicitFormula/PoleAutocorrelation.lean: READ, 242 lines, sha256 d1361927615a1cea ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.TwoPropertyWindow -> CLEAN
+  THE FILE SIDEExplicitFormula/PoleAutocorrelation.lean: READ, 243 lines, sha256 ecdc8abfbe743a1b ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.TwoPropertyWindow Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp -> CLEAN
   (S1) primeTermQ_window, a theorem at SIDEExplicitFormula/FormFinite.lean :24 (its header sha256 48f527618a526f78): PASSED
      binds: c weights c : N -> R (the sentence: "for any real weights c"); k a test function R -> C; L a real number (a width L, or a point); hk vanishing outside [-L, L]
      concludes: the prime-power side at any weights c HOLDS ; equal to the sum over n up to the integer part of e^L HOLDS
@@ -83,81 +83,81 @@ b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE S
      binds: k a test function R -> C; L a real number (a width L, or a point); hL L below log 2; hk vanishing outside [-L, L]
      concludes: primeSum k = 0 HOLDS
      rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8) ; of the ruling`s six: primeSum
-  (S3) paperFT_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :29 (its header sha256 c901c02858b37ef2): PASSED
+  (S3) paperFT_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :30 (its header sha256 c901c02858b37ef2): PASSED
      binds: h a test function R -> C
      concludes: the transform at -i/2 is the integral against e^(x/2) HOLDS
      rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
-  (S3) paperFT_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :41 (its header sha256 f1b9be515be8f374): PASSED
+  (S3) paperFT_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :42 (its header sha256 f1b9be515be8f374): PASSED
      binds: h a test function R -> C
      concludes: the transform at i/2 is the integral against e^(-x/2) HOLDS
      rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
-  (S3) poleTerm_weilTest, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :56 (its header sha256 78ceb352fe0c7ece): PASSED
+  (S3) poleTerm_weilTest, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :57 (its header sha256 78ceb352fe0c7ece): PASSED
      binds: h a test function R -> C; hh twice continuously differentiable; hs compact support
      concludes: poleTerm (weilTest h h) = 2 Re(A conj B), A at -i/2 and B at i/2 HOLDS
      rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d), paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: poleTerm, weilTest
-  (S3) paperFT_real_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :78 (its header sha256 4f44973075abf43a): PASSED
+  (S3) paperFT_real_neg_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :79 (its header sha256 4f44973075abf43a): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hg continuous (implied by twice continuously differentiable); hs compact support
      concludes: the transform of a real g at -i/2 HOLDS ; is C + S HOLDS
      rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
-  (S3) paperFT_real_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :95 (its header sha256 d8eb43ef7d0aa9b6): PASSED
+  (S3) paperFT_real_half_I, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :96 (its header sha256 d8eb43ef7d0aa9b6): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hg continuous (implied by twice continuously differentiable); hs compact support
      concludes: the transform of a real g at i/2 HOLDS ; is C - S HOLDS
      rests on: paperFT (Zeta23/Defs.lean :60, sha256 0feee803f206fc16) ; of the ruling`s six: none
-  (S3) poleTerm_weilTest_real, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :113 (its header sha256 82ead739cb474163): PASSED
+  (S3) poleTerm_weilTest_real, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :114 (its header sha256 82ead739cb474163): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support
      concludes: the pole term of a real autocorrelation HOLDS ; is 2 (C^2 - S^2) HOLDS
      rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
-  (S3) integral_mul_sinh_eq_zero_of_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :124 (its header sha256 254ca6ab2f14b3f0): PASSED
+  (S3) integral_mul_sinh_eq_zero_of_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :125 (its header sha256 254ca6ab2f14b3f0): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hev even
      concludes: the integral against sinh(x/2) vanishes HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) integral_mul_cosh_eq_zero_of_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :135 (its header sha256 92de4facf738fd75): PASSED
+  (S3) integral_mul_cosh_eq_zero_of_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :136 (its header sha256 92de4facf738fd75): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hodd odd
      concludes: the integral against cosh(x/2) vanishes HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) poleTerm_weilTest_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :146 (its header sha256 5123d947d8cf0d29): PASSED
+  (S3) poleTerm_weilTest_even, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :147 (its header sha256 5123d947d8cf0d29): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support; hev even
      concludes: on an even real g: twice the square of the integral of g cosh(x/2) HOLDS
      rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
-  (S3) poleTerm_weilTest_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :154 (its header sha256 ca136dbe819d0ea6): PASSED
+  (S3) poleTerm_weilTest_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :155 (its header sha256 ca136dbe819d0ea6): PASSED
      binds: g a real function R -> R (the sentence: "h real"); hg twice continuously differentiable; hs compact support; hodd odd
      concludes: on an odd real g: minus twice the square of the integral of g sinh(x/2) HOLDS
      rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: poleTerm, weilTest
-  (S3) basePlateau, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :164 (its header sha256 a018d97f233e5ecc): PASSED
+  (S3) basePlateau, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :165 (its header sha256 a018d97f233e5ecc): PASSED
      binds: no hypothesis
      concludes: its body: the plateau at ramp fraction 1/2 and half-width 1 HOLDS
      rests on: plateau (SIDEExplicitFormula/TwoPropertyWindow.lean :56, sha256 c1207e376fe867d5) ; of the ruling`s six: none
-  (S3) oddWindow, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :167 (its header sha256 e9a9948f023f39a7): PASSED
+  (S3) oddWindow, a def at SIDEExplicitFormula/PoleAutocorrelation.lean :168 (its header sha256 e9a9948f023f39a7): PASSED
      binds: no hypothesis
      concludes: its body: u times basePlateau HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) basePlateau_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :169 (its header sha256 837913b45d12cd32): PASSED
+  (S3) basePlateau_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :170 (its header sha256 837913b45d12cd32): PASSED
      binds: no hypothesis
      concludes: twice continuously differentiable HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) basePlateau_nonneg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :176 (its header sha256 663f8f1996721979): PASSED
+  (S3) basePlateau_nonneg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :177 (its header sha256 663f8f1996721979): PASSED
      binds: u a real number (a width L, or a point)
      concludes: at or above 0 HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) oddWindow_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :180 (its header sha256 21f9195b40af9947): PASSED
+  (S3) oddWindow_contDiff, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :181 (its header sha256 21f9195b40af9947): PASSED
      binds: no hypothesis
      concludes: twice continuously differentiable HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) oddWindow_hasCompactSupport, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :184 (its header sha256 774310077a250199): PASSED
+  (S3) oddWindow_hasCompactSupport, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :185 (its header sha256 774310077a250199): PASSED
      binds: no hypothesis
      concludes: compact support HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) oddWindow_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :189 (its header sha256 634c91adbeb807e0): PASSED
+  (S3) oddWindow_odd, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :190 (its header sha256 634c91adbeb807e0): PASSED
      binds: x a real number (a width L, or a point)
      concludes: odd HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) oddWindow_sinh_pos, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :198 (its header sha256 39337540208118bd): PASSED
+  (S3) oddWindow_sinh_pos, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :199 (its header sha256 39337540208118bd): PASSED
      binds: no hypothesis
      concludes: its integral against sinh(x/2) positive HOLDS
      rests on: none of DEFS ; of the ruling`s six: none
-  (S3) exists_classK_poleTerm_re_neg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :227 (its header sha256 d82cc53939d429f7): PASSED
+  (S3) exists_classK_poleTerm_re_neg, a theorem at SIDEExplicitFormula/PoleAutocorrelation.lean :228 (its header sha256 d82cc53939d429f7): PASSED
      binds: no hypothesis
      concludes: a k in classK with the real part of poleTerm k below 0 HOLDS
      rests on: poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69) ; of the ruling`s six: poleTerm, classK
 
-### ### **THE PRE-SEND READS AT ec82fed0: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 106 MODULES FOR 518 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK OF SEND s123 PASSED (23 OF 23 STATEMENTS) ; CONTROLS 30 OF 30.**
+### ### **THE PRE-SEND READS AT 0f849552: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 108 MODULES FOR 537 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK OF SEND s123 PASSED (23 OF 23 STATEMENTS) ; CONTROLS 30 OF 30.**
