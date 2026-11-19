@@ -274,7 +274,7 @@ def compose():
     paths = set(C['live']) | {REGISTRY, SPIRAL, CENSUS, PAGE, DEPOSITED}
     at = utc()
     sentence = 'the map: %d names read over %d live papers, %d carried by another paper; %d lines name the page, %d of them PROOF-WORDED in %d live papers' % (
-        len(N), f, len(carried), len(prow), len(pw), len(d))
+        len(N), f, len(carried), len(prow), len(pw_live), len(d))   # ### <w>: the PROOF-WORDED lines of the live papers, the ledgers` beside (defect (g))
     L = ['%s -- (R372)(5): THE MAP BEFORE THE WRITING: THE NAMES OF ONE PAGE`S TABLE AND THE LINES THAT NAME THE PAGE, OVER PLACE-papers` LIVE PAPERS AT HEAD (%s)' % (ACT, at), '',
          '### PLACE-papers HEAD %s; its live papers by tools/standing/subject.py live_papers: %d (REGISTRY names %d paths, %d families, %d unresolved; the' % (
              C['head'][:8], len(C['live']), C['fig'].get('named', 0), C['fig'].get('families', 0), C['fig'].get('unresolved', 0)),
@@ -317,11 +317,11 @@ def compose():
     secs = time.time() - t0
     draft = NL.join(L + body)
     Lc, ok = controls(C, N, draft, paths)
-    foot = '### ### **THE MAP: NAMES %d OVER %d LIVE PAPERS, %d CARRIED BY ANOTHER PAPER, %d BY NONE ; POINTER LINES %d, PROOF-WORDED %d IN %d LIVE PAPERS ; [O6] %s ; CONTROLS %d OF %d AS WANTED ; %.1f s.**' % (
-        len(N), f, len(carried), len(N) - len(carried), len(prow), len(pw), len(d), 'ENTERED' if pw_live else 'NOT ENTERED', sum(ok), len(ok), secs)
+    foot = '### ### **THE MAP: NAMES %d OVER %d LIVE PAPERS, %d CARRIED BY ANOTHER PAPER, %d BY NONE ; POINTER LINES %d, PROOF-WORDED %d IN %d LIVE PAPERS, THE LEDGERS` %d PRINTED AND NOT EDITED ; [O6] %s ; CONTROLS %d OF %d AS WANTED ; %.1f s.**' % (
+        len(N), f, len(carried), len(N) - len(carried), len(prow), len(pw_live), len(d), len(ledger_pw), 'ENTERED' if pw_live else 'NOT ENTERED', sum(ok), len(ok), secs)
     text = NL.join(L + ['## THE CONTROLS'] + Lc + [''] + body + ['', foot]) + NL
     j = dict(at=at, act=ACT, head=C['head'], live_papers=len(C['live']), read=f, family_apart=C['fam'], page=PAGE, names=nrows,
-             pointers=prow, apart=apart, wide=wide, proof_worded_live=[[r['path'], r['line']] for r in pw_live], d=len(d), d_papers=d,
+             pointers=prow, apart=apart, wide=wide, proof_worded_live=[[r['path'], r['line']] for r in pw_live], w=len(pw_live), proof_worded_all=len(pw), d=len(d), d_papers=d,
              ledgers_proof_worded=[[r['path'], r['line'], r['cls']] for r in ledger_pw], o6=bool(pw_live), sentence=sentence,
              controls=dict(ok=sum(ok), of=len(ok)), seconds=round(secs, 1), census=CENSUS, census_editions=C['census_eds'], qskip=len(C['qskip']))
     return text, j, all(ok), Lc
