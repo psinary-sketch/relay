@@ -577,7 +577,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijk'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (k), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijkl'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (l), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b761_misses.txt', 'data/b761_corrigendum.txt', 'data/b761_corrigendum.json',                     # ### step zero and Component 1
@@ -1529,11 +1529,12 @@ _K5_DEL = 'no kernel branch removed by this act ((R371)(4))'   # ### b761: KERNE
     # ### templates and tools/acts/b761.py)
 #⟪END⟫
 #⟪SECTION record 1⟫
-    # ### b760 (R370)(4), (12): no kernel written; the one touch the removal of b759's push-b759-weil at SIDE-explicit-formula's remote by
-    # ### the standing removal route (v1.37.1), the clone's own branch kept; main and v0.41 as b759 left them
-    print('  kernels read: %d (SIDE-explicit-formula at main %s with %s peeling to %s, unmoved; %s removed at its remote, its tip %s, the clone`s '
+    # ### b761 (R371)(4), (12): no kernel touched, no kernel branch removed (KERNEL_DELETES empty); b760's one touch, the removal of
+    # ### push-b759-weil at SIDE-explicit-formula's remote, named by WEIL_BRANCH, the clone's own branch kept; main and v0.41 as b759 left
+    # ### them (the carried line joined KERNEL_DELETES, which printed a blank name at its first run, events (67))
+    print('  kernels read: %d (SIDE-explicit-formula at main %s with %s peeling to %s, unmoved; %s removed at its remote by b760, its tip %s, the clone`s '
           'branch kept; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s; no kernel written)' % (
-              len(ks), K.EF_MAIN[:8], K.WEIL_TAG[0], K.WEIL_TAG[2][:8], ', '.join(b_ for b_, _t in K.KERNEL_DELETES), K.WEIL_BRANCH[1][:8],
+              len(ks), K.EF_MAIN[:8], K.WEIL_TAG[0], K.WEIL_TAG[2][:8], K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8],
               K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
 #⟪END⟫
 #⟪SECTION record 2⟫
