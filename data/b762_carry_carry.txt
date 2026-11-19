@@ -1,0 +1,61 @@
+b762 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b761_carry.py -> tools/b762_carry.py (2026-11-19T09:42:33Z)
+
+### the substitution alone (b761 -> b762, b760 -> b761, R371 -> R372, R370 -> R371); 263 lines, 19 changed
+### SHIFTED PAST WHAT EXISTS: :2 b762_carry; :260 b762_carry
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 1
+  :8 data/b761_tool_repairs.txt (the source line cited data/b760_tool_repairs.txt)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b761_carry.py
+  +++ tools/b762_carry.py
+  @@ -2,1 +2,1 @@
+  -"""b761_carry.py -- THE CARRY BY DIFF, data/b709_rules.txt row (1) ((R319)(2), binding from b709; (R328) "The close runs each step as the
+  +"""b762_carry.py -- THE CARRY BY DIFF, data/b709_rules.txt row (1) ((R319)(2), binding from b709; (R328) "The close runs each step as the
+  @@ -7,7 +7,7 @@
+  -### `carry <name>`: tools/b760_<name>.py -> tools/b761_<name>.py with b760 -> b761, b759 -> b760, (R370) -> (R371), (R369) -> (R370); the diff
+  -### banked in data/b761_carry_<name>.txt (autojunk=False opcodes, b697's trap) with the spans data/b760_tool_repairs.txt names for the tool;
+  -### `prune` removes the previous act's routes over its own objects (banked in data/b761_prune_<name>.txt); `repairdiff` banks the carry-time
+  -### repairs as a diff against the carried form; `spans` summarises in data/b761_carry_spans.txt; `acts` carries the act's sections file,
+  -### tools/acts/b760.py -> tools/acts/b761.py, by the same substitution, its diff banked in data/b761_carry_acts.txt (the fold's file from
+  -### v1.3.0, (R333)(2)(i)). Written at b761 from tools/b760_carry.py (263 lines) by tools/standing/carry.py (data/b761_carry_carry.txt)
+  -### (b760 -> b761, b759 -> b760, R370 -> R371, R369 -> R370); the SUBS line at :31 set by hand (the shift run over this file's own table
+  +### `carry <name>`: tools/b761_<name>.py -> tools/b762_<name>.py with b761 -> b762, b759 -> b761, (R371) -> (R372), (R369) -> (R371); the diff
+  +### banked in data/b762_carry_<name>.txt (autojunk=False opcodes, b697's trap) with the spans data/b761_tool_repairs.txt names for the tool;
+  +### `prune` removes the previous act's routes over its own objects (banked in data/b762_prune_<name>.txt); `repairdiff` banks the carry-time
+  +### repairs as a diff against the carried form; `spans` summarises in data/b762_carry_spans.txt; `acts` carries the act's sections file,
+  +### tools/acts/b761.py -> tools/acts/b762.py, by the same substitution, its diff banked in data/b762_carry_acts.txt (the fold's file from
+  +### v1.3.0, (R333)(2)(i)). Written at b762 from tools/b761_carry.py (263 lines) by tools/standing/carry.py (data/b762_carry_carry.txt)
+  +### (b761 -> b762, b759 -> b761, R371 -> R372, R369 -> R371); the SUBS line at :31 set by hand (the shift run over this file's own table
+  @@ -31,2 +31,2 @@
+  -PREV, ACT = 'b760', 'b761'
+  -SUBS = (('b760', 'b761'), ('b759', 'b760'), ('R370', 'R371'), ('R369', 'R370'))   # ### b716's carry-time repair kept: the bare pairs in
+  +PREV, ACT = 'b761', 'b762'
+  +SUBS = (('b761', 'b762'), ('b759', 'b761'), ('R371', 'R372'), ('R369', 'R371'))   # ### b716's carry-time repair kept: the bare pairs in
+  @@ -50,1 +50,1 @@
+  -        import b761_record as REC
+  +        import b762_record as REC
+  @@ -58,1 +58,1 @@
+  -    """the act names shifted by one act, in order so that b760 -> b761 runs before b719 -> b760; v1.13.0: through the standing route, a kept branch's name held out."""
+  +    """the act names shifted by one act, in order so that b761 -> b762 runs before b719 -> b761; v1.13.0: through the standing route, a kept branch's name held out."""
+  @@ -96,1 +96,1 @@
+  -    """`acts`: the act's sections file, tools/acts/b760.py -> tools/acts/b761.py, by the substitution alone; its diff in data/b761_carry_acts.txt."""
+  +    """`acts`: the act's sections file, tools/acts/b761.py -> tools/acts/b762.py, by the substitution alone; its diff in data/b762_carry_acts.txt."""
+  @@ -161,2 +161,2 @@
+  -    """`prune <name> <start prefix> <end prefix>`: the lines of tools/b761_<name>.py from the one line starting with <start prefix> up to (not
+  -    including) the one line starting with <end prefix> removed, the removal banked as a hunk in data/b761_prune_<name>.txt (appended)."""
+  +    """`prune <name> <start prefix> <end prefix>`: the lines of tools/b762_<name>.py from the one line starting with <start prefix> up to (not
+  +    including) the one line starting with <end prefix> removed, the removal banked as a hunk in data/b762_prune_<name>.txt (appended)."""
+  @@ -186,2 +186,2 @@
+  -    """`repairdiff <name>`: the carry-time repairs of tools/b761_<name>.py as a diff against its carried form; a pruned span printed as its hunk
+  -    header with its line count, every other change in full; written to data/b761_repairdiff_<name>.txt."""
+  +    """`repairdiff <name>`: the carry-time repairs of tools/b762_<name>.py as a diff against its carried form; a pruned span printed as its hunk
+  +    header with its line count, every other change in full; written to data/b762_repairdiff_<name>.txt."""
+  @@ -239,1 +239,1 @@
+  -    """`spanlist <name>`: the new-side line ranges of the previous act's repairdiff bank for the tool (data/b760_repairdiff_<name>.txt, its hunk
+  +    """`spanlist <name>`: the new-side line ranges of the previous act's repairdiff bank for the tool (data/b761_repairdiff_<name>.txt, its hunk
+  @@ -260,1 +260,1 @@
+  -        print('usage: b761_carry.py carry <name> [again] | acts [again] | prune <name> <start prefix> <end prefix> | repairdiff <name> | spans')
+  +        print('usage: b762_carry.py carry <name> [again] | acts [again] | prune <name> <start prefix> <end prefix> | repairdiff <name> | spans')
+
+### ### **CARRIED tools/b762_carry.py ; LINES 263 ; CHANGED 19 ; SHIFTED 2 (WRITTEN BY --shifted) ; CITES OF AN ABSENT BANK 1**

@@ -1,0 +1,93 @@
+TEXT (R372) BEGIN -- part 2 of 2 of the delivery; the words the act enters, by block. A line opening @@, NEW>> or <<NEW is a marker and enters no document.
+
+@@ BLOCK P -- the whole of day1/ONE_PAGE_v2_0.md, a new file beside day1/ONE_PAGE_PROOF.md, which is not edited. The file's bytes are the lines between NEW>> and <<NEW with LF line ends and one closing LF. ONE FIELD: the line reading ‹BYLINE› gives way to line :3 of day1/ONE_PAGE_PROOF.md, carried by the tool by its bytes and printed by no tool and no bank.
+
+@@ P1 | WHOLE FILE
+NEW>>
+# One Page: the SIDE Reduction of the Riemann Hypothesis to a Single Located Clause
+
+‹BYLINE›
+v2.0, November 2026
+
+**The statement.** Let h be a twice continuously differentiable function on the real line with compact support. Let k = h ∗ h̃ be its autocorrelation, where h̃(x) is the complex conjugate of h(−x), and suppose k is even. Write k̂(z) = ∫ k(u) e^{izu} du, Λ for the von Mangoldt function and ψ = Γ′/Γ. Put
+
+W(k) = k̂(i/2) + k̂(−i/2) − 2 Σ_{n ≥ 1} Λ(n) n^{−1/2} k(log n) + (1/2π) ∫ k̂(r) [Re ψ(1/4 + ir/2) − log π] dr.
+
+By the explicit formula, W(k) is the sum of k̂(γ) over the nontrivial zeros 1/2 + iγ of the Riemann zeta function, counted with multiplicity. The number γ is real exactly when the zero is on the critical line.
+
+**Theorem.** The Riemann Hypothesis is equivalent to the statement that W(k) ≥ 0 for every such k.
+
+This is Weil's criterion. Both directions are proved in Lean 4 against Mathlib's own statement of the Riemann Hypothesis, with no hypothesis and no axiom beyond the three that Lean's classical mathematics uses. The inequality "W(k) ≥ 0 for every such k" is the located clause: the one statement to which the Hypothesis reduces. It is open. What is proved is the equivalence.
+
+**The same theorem at Dirichlet L-functions.** For every primitive Dirichlet character χ other than the trivial one, the corresponding inequality, with χ's prime sum and archimedean term and no pole term, holds for every such k exactly when every zero of L(s, χ) in the critical strip has real part 1/2. This is compiled in both directions, as an instance of one theorem over any configuration of zeros that has an explicit formula and a local count.
+
+**Three forms of the clause.** Each is compiled as equivalent to the Hypothesis. Li's criterion: the Li coefficients λ_n of ζ are nonnegative for every n. The Bombieri–Lagarias form: for every n, the limit of the explicit formula's arithmetic side along a named family of test functions is nonnegative. Bounded support: for every L, W(k) ≥ 0 for the k that vanish outside [−L, L].
+
+**Where it fails.** Let Z be the Epstein zeta function of the quadratic form x² + xy + 6y², of discriminant −23. Z has a functional equation and no Euler product. For Z the kernel compiles the explicit formula on the same test functions, a zero off the critical line, and the failure of the corresponding inequality and of Li's nonnegativity. It also compiles what Z lacks beside ζ on the prime side. The coefficients of Z are not multiplicative; the failure is at 6 = 2 · 3. The coefficients of its logarithmic derivative are not all nonnegative; the failure is at 48. The coefficients of ζ are multiplicative, and Λ is nonnegative. The criterion therefore separates the two functions, and any argument for the clause must use a property of ζ that Z does not have.
+
+**What holds without the clause.** The explicit formula itself, for ζ and for every primitive character; λ₁ > 0; and a zero of ζ on the critical line between heights 12 and 16, located in Lean by a change of sign.
+
+**How the clause was located.** The programme reached it by exhaustive enumeration. The specification of the completed zeta function, n² → θ → ξ, decomposes into seven mechanism classes: two from the operations of the integers, three from Ostrowski's classification of the places of the rationals, two from the local and global scales, and none from the interfaces between them. For each class the deposited kernel compiles a condition on a real number σ, and each condition singles out σ = 1/2. These conditions fix the line. They are statements about σ and about no function: the kernel's exclusion of off-line zeros class by class, and the zero of Z off the line, are both compiled and do not meet. The step from the line to the zeros of ξ is the clause above, and it is there, on the prime side, that ζ and Z differ. *The Seven Mechanism Classes of ξ(s)* develops the enumeration; *The Unconditional Surround of ξ*, what holds around the clause; *The Epstein Control Object at Discriminant −23*, the control; *A Place to Stand*, the whole.
+
+**What it opens.** A test for any proposed proof of positivity: it must go through for ζ and fail for Z. An effective form of the criterion: how wide a test function must be to detect a zero at a given height and distance from the line. The same theorem for further L-functions that have an explicit formula and a local count.
+
+---
+
+## Correspondence
+
+Kernel: SIDE-explicit-formula at tag v0.41, its files under `SIDEExplicitFormula/`, and for the last three rows SIDE-kernel at tag v1.5. Each declaration is checked by opening the file at the tag and running `#print axioms` on the name.
+
+| Claim | Declaration | File and line | Status |
+|:--|:--|:--|:--|
+| The class of test functions | `B321.classK` | `H2Sign.lean` :24 | definition |
+| The clause | `B321.h2_sign` | `H2Sign.lean` :29 | definition; open |
+| The explicit formula for ζ | `B321.b321_identity` | `B321Identity.lean` :44 | derived |
+| The clause is equivalent to the Riemann Hypothesis | `B321.h2_sign_iff_rh` | `Seam.lean` :101 | derived |
+| The same at a primitive character χ ≠ 1 | `GRHWeil.h2_sign_chi_iff_grh_chi` | `Chi/CriterionConverse.lean` :270 | derived |
+| The same over a configuration | `Schema.h2_sign_cfg_iff_target` | `Schema/Converse.lean` :265 | derived |
+| Li's criterion | `LiCriterionBridge.li_nonneg_iff_rh` | `LiCriterionBridge.lean` :179 | derived; converse vendored |
+| The Bombieri–Lagarias form | `LiCriterionBridge.arith_limit_nonneg_iff_rh` | `LiCriterionBridge.lean` :191 | derived |
+| Bounded support | `B321.h2_sign_iff_forall_upto` | `DetectionRegion.lean` :47 | derived |
+| λ₁ > 0 | `KeiperSign.liCoeff_one_pos` | `KeiperSign.lean` :82 | derived |
+| A zero of ζ on the line between heights 12 and 16 | `ZetaBox.zeta_box` | `Schema/ZetaBox/Box.lean` :21 | derived |
+| The explicit formula for Z | `ZQ.EF.zq_explicit_formula_instance` | `Schema/ZQ/EF/Main.lean` :198 | derived |
+| A zero of Z off the line | `ZQ.OffZero.zq_offline_zero` | `Schema/ZQ/OffZero/SP4.lean` :32 | derived |
+| The inequality fails for Z | `ZQ.zq_weil_positivity_fails` | `Schema/Wide/HalfScaleControl.lean` :44 | derived |
+| Li's nonnegativity fails for Z | `ZQ.OffZero.zq_li_nonneg_fails` | `Schema/ZQ/OffZero/SP4.lean` :36 | derived |
+| The coefficients of Z are not multiplicative | `ZQ.zq_coeff_not_multiplicative` | `Schema/ZQ/Mechanism/NoEuler.lean` :99 | derived |
+| The coefficients of ζ are multiplicative | `ZQ.zeta_isMultiplicative_control` | `Schema/ZQ/Mechanism/NoEuler.lean` :112 | derived |
+| The log-derivative coefficients of Z are not all nonnegative | `ZQ.cQ_not_nonneg` | `Schema/ZQ/Mechanism/CoeffSign.lean` :291 | derived |
+| Λ is nonnegative | `ZQ.vonMangoldt_nonneg_control` | `Schema/ZQ/Mechanism/CoeffSign.lean` :301 | derived |
+| The seven classes | `MechanismClass`, `seven_classes` | SIDE-kernel at v1.5, `Bridge/TheBridgeComplete.lean` :20, :25 | a defined type, counted |
+| Each class's condition on a real σ | `produces_offline` | SIDE-kernel at v1.5, `Bridge/TheBridgeComplete.lean` :157 | definition |
+| No class's condition holds at a σ other than 1/2 | `none_produce` | SIDE-kernel at v1.5, `Bridge/TheBridgeComplete.lean` :198 | derived |
+
+## For readers of the deposited edition
+
+The edition deposited in July 2026 set out a nine-step argument by exhaustive enumeration and called it a proof. Its sixth to eighth steps rest on the statement that every zero is produced by one of the seven classes. That statement is not compiled, and it is equivalent to the Riemann Hypothesis. The kernel's three route terminals do not compose into the Hypothesis, and the premise of the third is the Hypothesis restated (ERRATA, E-2026-09-25-1). This edition states what is proved: the equivalence, its instances and its control.
+
+## Glossary
+
+- **Autocorrelation.** For a function h, the function h ∗ h̃, where h̃(x) is the complex conjugate of h(−x).
+- **Configuration.** A set of complex numbers with multiplicities, taken as the zeros of a function, with a statement of where they should lie.
+- **Critical strip, critical line.** The complex numbers with real part between 0 and 1; those with real part 1/2.
+- **Explicit formula.** The identity that equates a sum over the zeros of a zeta or L-function with a pole term, a sum over prime powers and an archimedean integral.
+- **Local count.** A bound on the number of zeros in each window of unit height.
+- **Located clause.** The inequality W(k) ≥ 0 for every test function k of the class above: the statement that the kernel proves equivalent to the Riemann Hypothesis and carries as its one open premise.
+- **Mechanism class.** One of the seven ways in which the specification of ξ constrains where a zero can sit.
+- **SIDE.** The programme's method: Symmetry, Independence, Determination, Exhaustiveness.
+- **The three axioms.** `propext`, `Classical.choice` and `Quot.sound`, the axioms of classical mathematics in Lean.
+
+## References
+
+- E. Bombieri, J. C. Lagarias. Complements to Li's criterion for the Riemann hypothesis. *J. Number Theory* 77 (1999), 274–287.
+- H. Davenport, H. Heilbronn. On the zeros of certain Dirichlet series. *J. London Math. Soc.* 11 (1936), 181–185.
+- Y. Lee. On the zeros of Epstein zeta functions. arXiv:1204.6297 (2012).
+- X.-J. Li. The positivity of a sequence of numbers and the Riemann hypothesis. *J. Number Theory* 65 (1997), 325–333.
+- A. Weil. Sur les « formules explicites » de la théorie des nombres premiers. *Meddelanden Från Lunds Univ. Mat. Sem.* (dédié à M. Riesz) (1952), 252–265.
+- Lean sources: Mathlib, for ζ, Dirichlet L-functions and the statement of the Riemann Hypothesis; the Zeta23 development (anthropics/formal-math), vendored, for the explicit formula; N. Bulka, li-criterion-rh-equivalence-lean (Apache 2.0), vendored, for the converse of Li's criterion.
+
+*Computational workflow assisted by various LLM instances. Mathematical content, strategies of argument, and editorial decisions are the author's.*
+<<NEW
+
+TEXT (R372) END

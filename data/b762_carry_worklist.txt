@@ -1,0 +1,353 @@
+b762 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b761_worklist.py -> tools/b762_worklist.py (2026-11-19T09:42:53Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b761 -> b762, b760 -> b761, R371 -> R372, R370 -> R371); 725 lines, 113 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b761_tool_repairs.txt AND data/b761_repairdiff_worklist.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b761; the seat reads this diff`s hunks alone
+
+### THE STUBS THE CARRY LEFT ((R364)(3)(ii), tools/standing/carry.py v1.34.0), each refusing itself when used until written for the act: 48
+  :32 the stage-one value PRE_PP
+  :33 the stage-one value PRE_RELAY
+  :34 the stage-one value PRE_PP_REMOTE_AT_START
+  :35 the stage-one value PRE_RELAY_REMOTE_AT_START
+  :36 the stage-one value B718_RELAY_HEAD
+  :37 the stage-one value B718_PP_HEAD
+  :38 the stage-one value DATE
+  :39 the stage-one value SESSION_ID
+  :40 the stage-one value SP
+  :45 the stage-one value SESSIONS_AFTER
+  :46 the stage-one value PREV_SESSION
+  :47 the stage-one value PREV_ANCHOR
+  :55 the stage-one value B711_ENTRY
+  :56 the stage-one value B711_WEIGHT
+  :57 the stage-one value B711_CORRIGENDUM
+  :59 the stage-one value B711_TRAIL
+  :60 the stage-one value B711_FACE
+  :61 the stage-one value MIRROR_ZIP
+  :68 the stage-one value TRAIL_ORDERS
+  :69 the stage-one value TRAIL_RESOLVED
+  :70 the stage-one value TRAIL_RETIRED
+  :180 the stage-one value SECTION_BANK
+  :211 the stage-one value COMPUTE_BANKS
+  :278 the stage-one value NEXT
+  :279 the stage-one value NEXT_ACT
+  :312 the stage-one value ACT_CURRENT_COMMIT
+  :313 the stage-one value STEPZERO
+  :325 the stage-one value STEPZERO_PREVBUILD
+  :328 the stage-one value STEPZERO_BANKS
+  :354 the stage-one value STANDING_VERSION
+  :355 the stage-one value STANDING_VERSION_ENTERING
+  :356 the stage-one value LEAN_TREES
+  :359 the stage-one value COMPARATIVE_BANKS
+  :367 the stage-one value B714_CLOSING
+  :368 the stage-one value B714_RECORD
+  :369 the stage-one value B714_ROOT
+  :370 the stage-one value B723_ROOT_BANKS
+  :372 the stage-one value C1_STANDING
+  :380 the stage-one value C1_RELAY
+  :401 the stage-one value C1_PP
+  :405 the stage-one value WEIGHT_LINE, CORR_LINE
+  :409 the stage-one value C2_PLAN_FIRST
+  :410 the stage-one value C2_RELAY_ALL
+  :411 the stage-one value C2_RELAY
+  :541 the stage-one value C1_DEFECTS
+  :568 the stage-one value SITTING_ITEMS
+  :572 the stage-one value C3_RELAY
+  :601 the stage-one value C4_LINE
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 12
+  :216 data/b729_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b760_read_calls.txt, data/b761_read_calls.txt)
+  :216 data/b730_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b760_read_calls.txt, data/b761_read_calls.txt)
+  :216 data/b761_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b760_read_calls.txt, data/b761_read_calls.txt)
+  :511 data/b761_standing_v1368.txt (the source line cited data/b760_standing_v1368.txt, data/b760_standing_v1369.txt)
+  :511 data/b761_standing_v1369.txt (the source line cited data/b760_standing_v1368.txt, data/b760_standing_v1369.txt)
+  :512 data/b761_standing_v1370.txt (the source line cited data/b760_standing_v1370.txt, data/b760_standing_v1371.txt)
+  :512 data/b761_standing_v1371.txt (the source line cited data/b760_standing_v1370.txt, data/b760_standing_v1371.txt)
+  :513 data/b761_standing_v1363.txt (the source line cited data/b760_standing_v1363.txt, data/b760_standing_v1364.txt)
+  :513 data/b761_standing_v1364.txt (the source line cited data/b760_standing_v1363.txt, data/b760_standing_v1364.txt)
+  :514 data/b761_standing_v1365.txt (the source line cited data/b760_standing_v1365.txt, data/b760_standing_v1366.txt)
+  :514 data/b761_standing_v1366.txt (the source line cited data/b760_standing_v1365.txt, data/b760_standing_v1366.txt)
+  :515 data/b761_standing_v1367.txt (the source line cited data/b760_standing_v1367.txt)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b761_worklist.py
+  +++ tools/b762_worklist.py
+  @@ -2,1 +2,1 @@
+  -"""b761_worklist.py -- THE ACT'S DATA, UNDER (R371). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  +"""b762_worklist.py -- THE ACT'S DATA, UNDER (R372). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  @@ -4,2 +4,2 @@
+  -### ### b761: LANE TWO, ACT ONE HUNDRED AND EIGHTY-EIGHT, THE SYNTHESIS SITTING -- b760 AT ITS WEIGHT; THE SITTING HELD AND NO KEYSTONE
+  -### WRITTEN; THE INTEGRATION LINES OF b755 TO b760; THE AUTHOR'S RULINGS ENTERED; TWO ORDERS CLOSED IN THE ROSTER'S FORM; THE CELLS OF
+  +### ### b762: LANE TWO, ACT ONE HUNDRED AND EIGHTY-EIGHT, THE SYNTHESIS SITTING -- b761 AT ITS WEIGHT; THE SITTING HELD AND NO KEYSTONE
+  +### WRITTEN; THE INTEGRATION LINES OF b755 TO b761; THE AUTHOR'S RULINGS ENTERED; TWO ORDERS CLOSED IN THE ROSTER'S FORM; THE CELLS OF
+  @@ -7,1 +7,1 @@
+  -### Carried by diff from b760_worklist.py (data/b761_carry_worklist.txt); its stage one set at step zero with this act's figures by the
+  +### Carried by diff from b761_worklist.py (data/b762_carry_worklist.txt); its stage one set at step zero with this act's figures by the
+  @@ -9,3 +9,3 @@
+  -### (R371) was delivered in one part in session 11d67961 (b760's session; at transcript line 167118, 2026-11-18T21:31:58Z); the act runs
+  -### in it, one seat, with no change of session, harness or store (the step-zero reads of 2026-11-18T21:32:16Z-21:33:01Z). b760 closed
+  -### (relay 622ea434, PLACE-papers 91b69bf1); its carried files ((R371)(3)) committed at step zero.
+  +### (R372) was delivered in one part in session 11d67961 (b761's session; at transcript line 167118, 2026-11-18T21:31:58Z); the act runs
+  +### in it, one seat, with no change of session, harness or store (the step-zero reads of 2026-11-18T21:32:16Z-21:33:01Z). b761 closed
+  +### (relay 622ea434, PLACE-papers 91b69bf1); its carried files ((R372)(3)) committed at step zero.
+  @@ -26,0 +26,1 @@
+  +from standing.carry import Carried as _Carried   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one values below refuse on use until written
+  @@ -31,9 +32,9 @@
+  -PRE_PP = '91b69bf126917107e0f0771190b2a8a4fd08f0bc'    # ### PLACE-papers main before the act's own commits: b760's record (the trail), pushed
+  -PRE_RELAY = '622ea434fba2ad91e48e0a18bfe7d440e026875b'  # ### relay main before the act's own commits: b760's closing step row, pushed
+  -PRE_PP_REMOTE_AT_START = '91b69bf'       # ### PLACE-papers origin/main at the act's start, read from the tracking ref (no remote read at step zero), equal to local
+  -PRE_RELAY_REMOTE_AT_START = '622ea434'   # ### relay origin/main at the act's start, read from the tracking ref, equal to local
+  -B718_RELAY_HEAD = '622ea43'  # ### the names kept for the carried readers: the previous act's last relay head (b760's closing step row)
+  -B718_PP_HEAD = '91b69bf'     # ### the previous act's last PLACE-papers head (b760's record)
+  -DATE = '2026-11-18'
+  -SESSION_ID = '11d67961-2aa4-4353-bc12-a982038bfa55'   # ### the transcript the ruling and the ferry stand in (one part, at line 167118, 2026-11-18T21:31:58Z), b760's session; the act runs in it, one seat, no change of session, harness or store
+  -SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/11d67961-2aa4-4353-bc12-a982038bfa55/scratchpad'   # ### the seat's scratchpad as the harness names it (session 11d67961, the act's own)
+  +PRE_PP = _Carried('b762`s PRE_PP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_RELAY = _Carried('b762`s PRE_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_PP_REMOTE_AT_START = _Carried('b762`s PRE_PP_REMOTE_AT_START')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_RELAY_REMOTE_AT_START = _Carried('b762`s PRE_RELAY_REMOTE_AT_START')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B718_RELAY_HEAD = _Carried('b762`s B718_RELAY_HEAD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B718_PP_HEAD = _Carried('b762`s B718_PP_HEAD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +DATE = _Carried('b762`s DATE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +SESSION_ID = _Carried('b762`s SESSION_ID')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +SP = _Carried('b762`s SP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -41,2 +42,2 @@
+  -ANCHOR = 'RULING (R371) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  -RULING_ANCHOR = 'RULING (R371) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  +ANCHOR = 'RULING (R372) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  +RULING_ANCHOR = 'RULING (R372) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  @@ -44,3 +45,3 @@
+  -SESSIONS_AFTER = ()   # ### none: the act runs in the session its ruling was delivered in (b671's form not needed)
+  -PREV_SESSION = '11d67961-2aa4-4353-bc12-a982038bfa55'   # ### b760 ran in this session from its delivery (2026-11-18T08:14:37Z) to its closing push (2026-11-18T20:59:29Z); (R371) was delivered in it after that close
+  -PREV_ANCHOR = 'RULING (R370) BEGIN'   # ### the first user row of 11d67961 holding b760's ruling's first line (2026-11-18T08:14:37Z), before b760's post-push combine (sent 2026-11-18T20:51:45Z); G-EDIT-ROUTE's window from that combine to (R371)'s anchor
+  +SESSIONS_AFTER = _Carried('b762`s SESSIONS_AFTER')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PREV_SESSION = _Carried('b762`s PREV_SESSION')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PREV_ANCHOR = _Carried('b762`s PREV_ANCHOR')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -51,1 +52,1 @@
+  -CITATION_BANK = 'b761_citation_check.txt'
+  +CITATION_BANK = 'b762_citation_check.txt'
+  @@ -54,3 +55,3 @@
+  -B711_ENTRY = 15620          # ### FINDINGS: b760's entry head (at b158cd4, unmoved at 91b69bf1)
+  -B711_WEIGHT = None          # ### FINDINGS: b760 wrote no weight line of its own; b759 at its weight stands in b760's entry (:15626)
+  -B711_CORRIGENDUM = 15610    # ### FINDINGS: b760's corrigendum for b759
+  +B711_ENTRY = _Carried('b762`s B711_ENTRY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_WEIGHT = _Carried('b762`s B711_WEIGHT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_CORRIGENDUM = _Carried('b762`s B711_CORRIGENDUM')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -58,3 +59,3 @@
+  -B711_TRAIL = 18711          # ### OPEN_TRAILS: b760's trail record (PLACE-papers 91b69bf1)
+  -B711_FACE = 'data/b760_registration_2026-11-18.txt'   # ### b760's face
+  -MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-11-18-b760.zip'   # ### the last export built, b760's (data/b760_mirror_build.json, its step [23], 2026-11-18T20:53Z)
+  +B711_TRAIL = _Carried('b762`s B711_TRAIL')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_FACE = _Carried('b762`s B711_FACE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +MIRROR_ZIP = _Carried('b762`s MIRROR_ZIP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -67,3 +68,3 @@
+  -TRAIL_ORDERS = 18737        # ### OPEN_TRAILS: the last open-orders line, b760's, written from the generator's output
+  -TRAIL_RESOLVED = 18763      # ### OPEN_TRAILS: b760's items for the author's strike, in its trail
+  -TRAIL_RETIRED = 18749       # ### OPEN_TRAILS: b760's count line of the author's prompts
+  +TRAIL_ORDERS = _Carried('b762`s TRAIL_ORDERS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +TRAIL_RESOLVED = _Carried('b762`s TRAIL_RESOLVED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +TRAIL_RETIRED = _Carried('b762`s TRAIL_RETIRED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -88,4 +89,4 @@
+  -DELETE = (('D:/relay', ('push-b760-closing', 'push-b760-preroot', 'push-b760-record')),
+  -          ('D:/MY-DOwnloads/PLACE-papers', ('push-b760-preroot', 'push-b760-record')))
+  -DELETE_TIPS = {('D:/relay', 'push-b760-closing'): '622ea434', ('D:/relay', 'push-b760-preroot'): 'ece84e95', ('D:/relay', 'push-b760-record'): '824cce67',
+  -               ('D:/MY-DOwnloads/PLACE-papers', 'push-b760-preroot'): 'b158cd41', ('D:/MY-DOwnloads/PLACE-papers', 'push-b760-record'): '91b69bf1'}
+  +DELETE = (('D:/relay', ('push-b761-closing', 'push-b761-preroot', 'push-b761-record')),
+  +          ('D:/MY-DOwnloads/PLACE-papers', ('push-b761-preroot', 'push-b761-record')))
+  +DELETE_TIPS = {('D:/relay', 'push-b761-closing'): '622ea434', ('D:/relay', 'push-b761-preroot'): 'ece84e95', ('D:/relay', 'push-b761-record'): '824cce67',
+  +               ('D:/MY-DOwnloads/PLACE-papers', 'push-b761-preroot'): 'b158cd41', ('D:/MY-DOwnloads/PLACE-papers', 'push-b761-record'): '91b69bf1'}
+  @@ -179,1 +180,1 @@
+  -SECTION_BANK = 'data/b760_ledgers.txt'      # ### b760's ledgers bank (ERRATA, the orders entered and discharged), read not written; (R371)(8) reads the two discharges it names
+  +SECTION_BANK = _Carried('b762`s SECTION_BANK')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -185,1 +186,1 @@
+  -RULES_747 = 'data/b761_rules.txt'                     # ### (R364)(3): the seat's reading of the corrigendum's repairs, each for the author's strike
+  +RULES_747 = 'data/b762_rules.txt'                     # ### (R364)(3): the seat's reading of the corrigendum's repairs, each for the author's strike
+  @@ -210,2 +211,1 @@
+  -COMPUTE_BANKS = ('data/b761_corrigendum.txt', 'data/b761_author_rulings.txt', 'data/b761_sitting_agenda.txt', 'data/b761_recut_inputs.txt',
+  -                 'data/b761_address_scan.txt')
+  +COMPUTE_BANKS = _Carried('b762`s COMPUTE_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -216,1 +216,1 @@
+  -              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b760_read_calls.txt', 'data/b761_read_calls.txt')
+  +              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b761_read_calls.txt', 'data/b762_read_calls.txt')
+  @@ -223,1 +223,1 @@
+  -CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b761'))
+  +CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b762'))
+  @@ -250,8 +250,8 @@
+  -W_WORDS = (('relay/HANDOFF.md', '(R371)(13): HANDOFF.md'),
+  -           ('relay/data/b761_address_scan_commits.txt', '(R371)(3), (13): b760`s carried files -- this act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  -           ('relay/data/b762_address_scan_commits.txt', '(R371)(13): the scan banks -- the next act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  -           ('relay/data/b760_relay_push-b760-closing_push_out.txt', '(R371)(3), (13): b760`s carried files -- the closing push-out bank with its as-of lines, committed alone'),
+  -           ('relay/tools/mirror_prevbuild.json', '(R371)(3), (13): b760`s carried files -- the builder`s state file as b760`s build wrote it'),
+  -           ('relay/data/terminal_table_prior.json', '(R371)(3), (13): b760`s carried files -- the terminal table`s prior as b760`s row generator wrote it'),
+  -           ('relay/data/terminal_table_run.txt', '(R371)(3), (13): b760`s carried files -- the terminal table`s run print as b760`s row generator wrote it'),
+  -           ('relay/tools/acts/b761.py', '(R371)(13): tools/acts/b761.py'))
+  +W_WORDS = (('relay/HANDOFF.md', '(R372)(13): HANDOFF.md'),
+  +           ('relay/data/b762_address_scan_commits.txt', '(R372)(3), (13): b761`s carried files -- this act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  +           ('relay/data/b762_address_scan_commits.txt', '(R372)(13): the scan banks -- the next act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  +           ('relay/data/b761_relay_push-b761-closing_push_out.txt', '(R372)(3), (13): b761`s carried files -- the closing push-out bank with its as-of lines, committed alone'),
+  +           ('relay/tools/mirror_prevbuild.json', '(R372)(3), (13): b761`s carried files -- the builder`s state file as b761`s build wrote it'),
+  +           ('relay/data/terminal_table_prior.json', '(R372)(3), (13): b761`s carried files -- the terminal table`s prior as b761`s row generator wrote it'),
+  +           ('relay/data/terminal_table_run.txt', '(R372)(3), (13): b761`s carried files -- the terminal table`s run print as b761`s row generator wrote it'),
+  +           ('relay/tools/acts/b762.py', '(R372)(13): tools/acts/b762.py'))
+  @@ -278,2 +278,2 @@
+  -NEXT = 'the act after this one, as the author answers at the root (the answers bank) ((R371)(13)): the re-cut of One Page (day1/ONE_PAGE_PROOF.md) from the navigator`s text, the map before the writing, as the author named it on 2026-11-18; or the edition of THE_RESIDUE_OF_RH; or one act of the record`s upkeep carrying the repairs of (11); or another the author names'
+  -NEXT_ACT = 'b762'
+  +NEXT = _Carried('b762`s NEXT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +NEXT_ACT = _Carried('b762`s NEXT_ACT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -312,2 +312,2 @@
+  -ACT_CURRENT_COMMIT = '63057b70'         # ### data/act_current.json for b761 committed alone through the one-call tool ((R371)(3)), the scan in the call; its row step 1 (21:42:28Z), after the scan's carried N5 control was set back (b761 events)
+  -STEPZERO = '1c1f2762'             # ### the first of b760's carried files committed alone ((R371)(3)): the closing push-out bank with its as-of lines; step 2 (21:42:51Z)
+  +ACT_CURRENT_COMMIT = _Carried('b762`s ACT_CURRENT_COMMIT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +STEPZERO = _Carried('b762`s STEPZERO')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -319,1 +319,1 @@
+  -                    ('51db9f2a', 4, 'data/b761_address_scan_commits.txt'), ('c4670f7f', 5, 'data/terminal_table_prior.json'),
+  +                    ('51db9f2a', 4, 'data/b762_address_scan_commits.txt'), ('c4670f7f', 5, 'data/terminal_table_prior.json'),
+  @@ -325,1 +325,1 @@
+  -STEPZERO_PREVBUILD = 'd5b79fda'   # ### tools/mirror_prevbuild.json as b760's build wrote it (2026-11-18T20:53Z), committed at step zero ((R371)(3)) with act_current beside it, step 3 (21:43:43Z)
+  +STEPZERO_PREVBUILD = _Carried('b762`s STEPZERO_PREVBUILD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -328,1 +328,1 @@
+  -STEPZERO_BANKS = 'bdacc192'      # ### step zero's banks and carried tools, one commit (data/b761_stepzero.txt among them), step 7 (22:06:28Z)
+  +STEPZERO_BANKS = _Carried('b762`s STEPZERO_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -352,1 +352,1 @@
+  -                          and f != 'report.tpl')) + ('acts/b761.py',)
+  +                          and f != 'report.tpl')) + ('acts/b762.py',)
+  @@ -354,3 +354,3 @@
+  -STANDING_VERSION = 'v1.37.1'            # ### entering and at the close: (R371)(11) moves nothing under tools/standing/, VERSION stands
+  -STANDING_VERSION_ENTERING = 'v1.37.1'
+  -LEAN_TREES = (('D:/SIDE-explicit-formula', 'a3aad4cc'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R371) touches no kernel (N1): SIDE-explicit-formula's main at v0.41, its tags read by (9) from the clone and written by no commit; SIDE-dirichlet-mod-24 at main, v0.2.0, unmoved
+  +STANDING_VERSION = _Carried('b762`s STANDING_VERSION')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +STANDING_VERSION_ENTERING = _Carried('b762`s STANDING_VERSION_ENTERING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +LEAN_TREES = _Carried('b762`s LEAN_TREES')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -359,1 +359,1 @@
+  -COMPARATIVE_BANKS = ('data/b761_corrigendum.txt', 'data/b761_sitting_agenda.txt', 'data/b761_defects.txt')
+  +COMPARATIVE_BANKS = _Carried('b762`s COMPARATIVE_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -367,4 +367,4 @@
+  -B714_CLOSING = '622ea434'    # ### b760's last commit (its closing step row), the act's relay base
+  -B714_RECORD = 'cb0ff7eb'     # ### b760's record commit (relay)
+  -B714_ROOT = '3740a5d785003ac7e9c16e6534cef1e501c5d9406fa56fc868967ace738c75d6'   # ### b760's root, data/act_roots.txt's last row (:140)
+  -B723_ROOT_BANKS = 'c98834b2'  # ### b760's root commit, the banks its root rode with
+  +B714_CLOSING = _Carried('b762`s B714_CLOSING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B714_RECORD = _Carried('b762`s B714_RECORD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B714_ROOT = _Carried('b762`s B714_ROOT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B723_ROOT_BANKS = _Carried('b762`s B723_ROOT_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -372,1 +372,1 @@
+  -C1_STANDING = None           # ### none: (R371)(1) and (11) order no standing change; the repairs b760's findings name are carried, each named
+  +C1_STANDING = _Carried('b762`s C1_STANDING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -376,1 +376,1 @@
+  -DOORS = ('tools/b761_doors.py', '2bc7eca8', 'data/b761_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
+  +DOORS = ('tools/b762_doors.py', '2bc7eca8', 'data/b762_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
+  @@ -380,1 +380,1 @@
+  -C1_RELAY = '140e82ab'        # ### b761: the c1 route as it wrote, repaired after the screen refused its first write (step 10, 22:22:48Z, defect (f)); its first commit f9b3ef41 (step 9)
+  +C1_RELAY = _Carried('b762`s C1_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -401,1 +401,1 @@
+  -C1_PP = 'bb5f3092'           # ### PLACE-papers: FINDINGS -- the corrigendum for b760 at :15668, no weight line (step 11, 22:23:32Z)
+  +C1_PP = _Carried('b762`s C1_PP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -405,1 +405,1 @@
+  -WEIGHT_LINE, CORR_LINE = None, 15668   # ### FINDINGS: no weight line ((R371)(1) orders none); the corrigendum for b760 at :15668 (Component 1, PLACE-papers bb5f3092)
+  +WEIGHT_LINE, CORR_LINE = _Carried('b762`s WEIGHT_LINE'), _Carried('b762`s CORR_LINE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -409,3 +409,3 @@
+  -C2_PLAN_FIRST = None   # ### Component 2's first commit
+  -C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
+  -C2_RELAY = None   # ### the last of them
+  +C2_PLAN_FIRST = _Carried('b762`s C2_PLAN_FIRST')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +C2_RELAY_ALL = _Carried('b762`s C2_RELAY_ALL')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +C2_RELAY = _Carried('b762`s C2_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -413,5 +413,5 @@
+  -C2_MAP = (('the constellation rerun', 'tools/b761_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
+  -           'data/b761_constellation_summary.txt', '069271bb'),
+  -          ('the reverse read', 'tools/b761_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b761_reverse_read.txt', '069271bb'),
+  -          ('what the two find beyond (3)', 'tools/b761_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b761_beyond_three.txt', '069271bb'))
+  -C2_WALK = ('tools/b761_coeffs.py', '3bdb6561', 'data/b761_walk.txt', '9a989df8')   # ### (generator, its commit, bank, the bank's commit)
+  +C2_MAP = (('the constellation rerun', 'tools/b762_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
+  +           'data/b762_constellation_summary.txt', '069271bb'),
+  +          ('the reverse read', 'tools/b762_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b762_reverse_read.txt', '069271bb'),
+  +          ('what the two find beyond (3)', 'tools/b762_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b762_beyond_three.txt', '069271bb'))
+  +C2_WALK = ('tools/b762_coeffs.py', '3bdb6561', 'data/b762_walk.txt', '9a989df8')   # ### (generator, its commit, bank, the bank's commit)
+  @@ -422,6 +422,6 @@
+  -C3_CANDS = (('(a)', 'tools/b761_closed.py', ('a7034608',), 'data/b761_cand_a.txt', '1b84e4b1'),
+  -            ('(h)', 'tools/b761_zlist.py', ('1b84e4b1',), 'data/b761_cand_h.txt', 'ea99215e'),
+  -            ('(c)', 'tools/b761_cands.py', ('ea99215e', '1b361013'), 'data/b761_cand_c.txt', 'b4668b52'),
+  -            ('(j)', 'tools/b761_cands.py', ('ea99215e', '1b361013'), 'data/b761_cand_j.txt', 'b4668b52'),
+  -            ('(k)', 'tools/b761_cands.py', ('ea99215e', '1b361013'), 'data/b761_cand_k.txt', 'b4668b52'),
+  -            ('(l)', 'tools/b761_cands.py', ('ea99215e', '1b361013'), 'data/b761_cand_l.txt', 'b4668b52'))
+  +C3_CANDS = (('(a)', 'tools/b762_closed.py', ('a7034608',), 'data/b762_cand_a.txt', '1b84e4b1'),
+  +            ('(h)', 'tools/b762_zlist.py', ('1b84e4b1',), 'data/b762_cand_h.txt', 'ea99215e'),
+  +            ('(c)', 'tools/b762_cands.py', ('ea99215e', '1b361013'), 'data/b762_cand_c.txt', 'b4668b52'),
+  +            ('(j)', 'tools/b762_cands.py', ('ea99215e', '1b361013'), 'data/b762_cand_j.txt', 'b4668b52'),
+  +            ('(k)', 'tools/b762_cands.py', ('ea99215e', '1b361013'), 'data/b762_cand_k.txt', 'b4668b52'),
+  +            ('(l)', 'tools/b762_cands.py', ('ea99215e', '1b361013'), 'data/b762_cand_l.txt', 'b4668b52'))
+  @@ -464,6 +464,6 @@
+  -GENS = (('the ceiling', 'tools/b761_ceiling.py', ('f5c7cb5d',), 'data/b761_ceiling.txt', '1a2c1738'),
+  -        ('the author`s rulings of (7)', 'tools/b761_rulings.py', ('688f7443',), 'data/b761_author_rulings.txt', 'aee4ed14'),
+  -        ('the ledgers of (7) and (8)', 'tools/b761_rulings.py', ('688f7443',), 'data/b761_ledgers.txt', 'aee4ed14'),
+  -        ('the cells of (9)', 'tools/b761_registry.py', ('da84ba4e', '81d13210'), 'data/b761_registry_cells.txt', 'c8d62944'),
+  -        ('the inputs of (5)', 'tools/b761_sitting.py', ('a3062bc9', 'ba9d2a85', 'dd7fb268', 'fe39e31d', '79cf4bbf', 'e4667b7a', '187fe470'), 'data/b761_recut_inputs.txt', '6bf04236'),
+  -        ('the lines of (6)', 'tools/b761_lines.py', ('16cd853e',), 'data/b761_lines.txt', 'b542b24c'))
+  +GENS = (('the ceiling', 'tools/b762_ceiling.py', ('f5c7cb5d',), 'data/b762_ceiling.txt', '1a2c1738'),
+  +        ('the author`s rulings of (7)', 'tools/b762_rulings.py', ('688f7443',), 'data/b762_author_rulings.txt', 'aee4ed14'),
+  +        ('the ledgers of (7) and (8)', 'tools/b762_rulings.py', ('688f7443',), 'data/b762_ledgers.txt', 'aee4ed14'),
+  +        ('the cells of (9)', 'tools/b762_registry.py', ('da84ba4e', '81d13210'), 'data/b762_registry_cells.txt', 'c8d62944'),
+  +        ('the inputs of (5)', 'tools/b762_sitting.py', ('a3062bc9', 'ba9d2a85', 'dd7fb268', 'fe39e31d', '79cf4bbf', 'e4667b7a', '187fe470'), 'data/b762_recut_inputs.txt', '6bf04236'),
+  +        ('the lines of (6)', 'tools/b762_lines.py', ('16cd853e',), 'data/b762_lines.txt', 'b542b24c'))
+  @@ -476,2 +476,2 @@
+  -GENS_WITH_BANK = (('the agenda of (5)', 'tools/b761_sitting.py', 'data/b761_sitting_agenda.txt', '79cf4bbf', 'ea7e03fe'),   # ### the agenda as first written beside the repaired tool, defect (j); written again by the repaired tool and banked alone at ea7e03fe
+  -                  ('the question of (5)', 'tools/b761_sitting.py', 'data/b761_question.json', 'e4667b7a', 'e4667b7a'))     # ### written at 23:10:55Z by the tool at 79cf4bbf; committed with the inputs route added after it (23:14:55Z)
+  +GENS_WITH_BANK = (('the agenda of (5)', 'tools/b762_sitting.py', 'data/b762_sitting_agenda.txt', '79cf4bbf', 'ea7e03fe'),   # ### the agenda as first written beside the repaired tool, defect (j); written again by the repaired tool and banked alone at ea7e03fe
+  +                  ('the question of (5)', 'tools/b762_sitting.py', 'data/b762_question.json', 'e4667b7a', 'e4667b7a'))     # ### written at 23:10:55Z by the tool at 79cf4bbf; committed with the inputs route added after it (23:14:55Z)
+  @@ -511,5 +511,5 @@
+  -STANDING_BANKS_B760 = (('v1.36.8', '34390a25', 'data/b760_standing_v1368.txt', 9), ('v1.36.9', '1e9493e5', 'data/b760_standing_v1369.txt', 9),
+  -                       ('v1.37.0', 'a8f8403a', 'data/b760_standing_v1370.txt', 10), ('v1.37.1', '6bc5d706', 'data/b760_standing_v1371.txt', 9))   # ### b760's (R370)(5)(i)-(iv), read not re-made
+  -STANDING_BANKS_B759 = (('v1.36.3', '983ca5b1', 'data/b760_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b760_standing_v1364.txt', 6),
+  -                       ('v1.36.5', '34452b1a', 'data/b760_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b760_standing_v1366.txt', 5),
+  -                       ('v1.36.7', 'cd45450e', 'data/b760_standing_v1367.txt', 9))   # ### b759's five, read not re-made, under their own names (the carry had shifted them)
+  +STANDING_BANKS_B760 = (('v1.36.8', '34390a25', 'data/b761_standing_v1368.txt', 9), ('v1.36.9', '1e9493e5', 'data/b761_standing_v1369.txt', 9),
+  +                       ('v1.37.0', 'a8f8403a', 'data/b761_standing_v1370.txt', 10), ('v1.37.1', '6bc5d706', 'data/b761_standing_v1371.txt', 9))   # ### b760's (R370)(5)(i)-(iv), read not re-made
+  +STANDING_BANKS_B759 = (('v1.36.3', '983ca5b1', 'data/b761_standing_v1363.txt', 10), ('v1.36.4', '4622b017', 'data/b761_standing_v1364.txt', 6),
+  +                       ('v1.36.5', '34452b1a', 'data/b761_standing_v1365.txt', 5), ('v1.36.6', '8fc653fc', 'data/b761_standing_v1366.txt', 5),
+  +                       ('v1.36.7', 'cd45450e', 'data/b761_standing_v1367.txt', 9))   # ### b759's five, read not re-made, under their own names (the carry had shifted them)
+  @@ -541,1 +541,1 @@
+  -C1_DEFECTS = ()   # ### the defects bank's commits
+  +C1_DEFECTS = _Carried('b762`s C1_DEFECTS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -559,1 +559,1 @@
+  -C3_PUTS = (('defect (c)', 'data/b761_put_1.json', '77ae83fe'), ('N5`s folder clause', 'data/b761_put_2.json', 'cb14bae1'))   # ### (subject, the put bank, the commit carrying it)
+  +C3_PUTS = (('defect (c)', 'data/b762_put_1.json', '77ae83fe'), ('N5`s folder clause', 'data/b762_put_2.json', 'cb14bae1'))   # ### (subject, the put bank, the commit carrying it)
+  @@ -568,1 +568,1 @@
+  -SITTING_ITEMS = None          # ### the sitting's agenda items, set at Component 4 ((R371)(5)) when the agenda is banked
+  +SITTING_ITEMS = _Carried('b762`s SITTING_ITEMS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -572,1 +572,1 @@
+  -C3_RELAY = ()   # ### Component 3 ((R371)(9)): set as made
+  +C3_RELAY = _Carried('b762`s C3_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -591,2 +591,2 @@
+  -C4_READ = ('tools/b761_orders.py', '5b3d5a60', ('data/b761_orders_read.txt', 'data/b761_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
+  -C4_PUT = ('data/b761_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
+  +C4_READ = ('tools/b762_orders.py', '5b3d5a60', ('data/b762_orders_read.txt', 'data/b762_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
+  +C4_PUT = ('data/b762_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
+  @@ -595,3 +595,3 @@
+  -C4_HERE = ('v1.34.8', '5b7aa91e', 'data/b761_standing_v1348.txt')   # ### W-ORD-LABEL-READER's predicate and control, controls 11 of 11 (step 26)
+  -C4_MOVES = ('tools/b761_moves.py', '208eee6a', 'data/b761_orders_moves.txt', 'a26f30b9')   # ### the twelve status lines for this act's trail, controls 12 of 12 (steps 27, 28)
+  -C4_CEILING = ('tools/b761_ceiling.py', 'a26f30b9', 'data/b761_ceiling_c4.txt')   # ### the ceiling after Component 4: 17.53 h against 24 h, nothing carried
+  +C4_HERE = ('v1.34.8', '5b7aa91e', 'data/b762_standing_v1348.txt')   # ### W-ORD-LABEL-READER's predicate and control, controls 11 of 11 (step 26)
+  +C4_MOVES = ('tools/b762_moves.py', '208eee6a', 'data/b762_orders_moves.txt', 'a26f30b9')   # ### the twelve status lines for this act's trail, controls 12 of 12 (steps 27, 28)
+  +C4_CEILING = ('tools/b762_ceiling.py', 'a26f30b9', 'data/b762_ceiling_c4.txt')   # ### the ceiling after Component 4: 17.53 h against 24 h, nothing carried
+  @@ -601,1 +601,1 @@
+  -C4_LINE = None       # ### Component 6: the act's INTEGRATION line in the form of canon XXIII (A) ((R371)(6))
+  +C4_LINE = _Carried('b762`s C4_LINE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -624,1 +624,1 @@
+  -LV_ROWS = 'data/b761_lv_rows.json'
+  +LV_ROWS = 'data/b762_lv_rows.json'
+  @@ -701,1 +701,1 @@
+  -DISPATCH_ROWS = 'data/b761_dispatch_rows.json'
+  +DISPATCH_ROWS = 'data/b762_dispatch_rows.json'
+  @@ -708,1 +708,1 @@
+  -SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b761_') and f.endswith('.py') and f != 'b761_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  +SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b762_') and f.endswith('.py') and f != 'b762_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  @@ -714,1 +714,1 @@
+  -            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R371-ENTERED',
+  +            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R372-ENTERED',
+  @@ -723,2 +723,2 @@
+  -SITTING_BANK = 'data/b761_sitting.txt'   # ### the record of the sitting, one row per item
+  -KERNEL_BASES = 'data/b761_kernel_bases.json'
+  +SITTING_BANK = 'data/b762_sitting.txt'   # ### the record of the sitting, one row per item
+  +KERNEL_BASES = 'data/b762_kernel_bases.json'
+
+### ### **CARRIED tools/b762_worklist.py ; LINES 725 ; CHANGED BY THE SUBSTITUTION 113 ; REPAIR SPANS AT b761 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
