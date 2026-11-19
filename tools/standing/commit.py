@@ -98,6 +98,13 @@ v1.37.1, (R370)(5)(iv) AND (4): THE REMOVAL ROUTE'S TABLE OPENS SIDE-explicit-fo
   FF_ACTS and PUSHTO_ACTS do not name b760, no other kernel write being ordered; the kept list (b760's worklist's KEPT_BRANCHES) carries
   b759's list (f) less push-b759-weil, whose entry lapses with the removal.
 
+v1.37.2, (R373)(5): THE KERNEL ROUTE OPENED FOR b763 AT SIDE-explicit-formula ALONE, "as b757 made it and b759 used it". KERNEL_ACTS and
+  FF_ACTS named b757, b758 and b759, so every kernel write of b763's builds (the branches push-b763-* at a named commit, their commits, the
+  local main after the gated push) was refused before it was read; (5): "Where that route refuses this act's branch names, the seat makes the
+  one change under tools/standing/ that admits them". b763 opens SIDE-explicit-formula in both tables; SIDE-dirichlet-mod-24 stays closed
+  ("No kernel beyond SIDE-explicit-formula is written"); no file is named for a conflicted merge; PUSHTO_ACTS and RDELETE_ACTS do not name
+  b763, (4) removing no kernel branch and this act's own push-b763-* branches staying for the next act's step zero.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -133,13 +140,15 @@ SETTINGS = 'D:/.claude/settings.json'   # ### the seat's project settings carryi
 KERNELS = {'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-dirichlet-mod-24': 'D:/SIDE-dirichlet-mod-24'}
 KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # ### (R367)(4): the holds lifted "in this act alone"
                'b758': ('SIDE-explicit-formula',),   # ### v1.35.9, (R368)(5), (10): "lifted for SIDE-explicit-formula in this act alone"; SIDE-dirichlet-mod-24's local main by (6)(i)'s route alone
-               'b759': ('SIDE-explicit-formula',)}   # ### v1.36.7, (R369)(5), (11): "lifted for SIDE-explicit-formula in this act alone"; "no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3)"
+               'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5), (11): "lifted for SIDE-explicit-formula in this act alone"; "no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3)"
+               'b763': ('SIDE-explicit-formula',)}   # ### v1.37.2, (R373)(5): "No kernel beyond SIDE-explicit-formula is written"
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
 # ### read inside the route, not by KERNEL_ACTS -- (R368)(10): "no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i)"
 FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'),
-           'b759': ('SIDE-explicit-formula',)}   # ### v1.36.7, (R369)(5): the local main following the remote's after the gated push moves it to v0.41
+           'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5): the local main following the remote's after the gated push moves it to v0.41
+           'b763': ('SIDE-explicit-formula',)}   # ### v1.37.2, (R373)(5): the local main following the remote's after each gated push that moves main (v0.42 and on)
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}

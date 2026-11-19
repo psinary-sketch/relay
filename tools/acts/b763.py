@@ -1674,6 +1674,10 @@ def _trail_resolved(text):
     # ### its json; (8)'s [W1] bank; (7) and (8)'s trail lines, their json's file, the twenty-two texts and the roster, the paragraphs by line;
     # ### the roster at HEAD; (12)'s reproduction run; the ceiling; b762's close; the citation check; the address scan
     sha16_ = lambda b_: __import__('hashlib').sha256(b_ if isinstance(b_, bytes) else b_.encode('utf-8')).hexdigest()[:16]
+    # ### b763, Component 1 (defect (g)): this section stands as b762 left it until Component 6 writes b763's own; the first bank it reads that
+    # ### b763 has not written is read through rdn first, which halts naming it (the standing dry's PENDING form, as b760's "PENDING on a
+    # ### carried bank name"), in place of the bare open's Traceback, which the dry reads NOT CLEAN
+    rdn('%s_registration.txt' % ACT)
     with open(os.path.join(D, '%s_registration.txt' % ACT), 'rb') as fh_:
         rgb_ = fh_.read()
     rgh_ = re.match(r'^b763 -- THE REGISTRATION (H-[A-Z-]+), WRITTEN BEFORE ANY NUMBER IS COMPUTED \((\d{4}-\d\d-\d\d)\), under \(R373\)\(9\)\.$',
