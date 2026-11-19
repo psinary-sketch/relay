@@ -577,7 +577,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijkl'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (l), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklm'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b761_misses.txt', 'data/b761_corrigendum.txt', 'data/b761_corrigendum.json',                     # ### step zero and Component 1
@@ -2437,8 +2437,10 @@ def _first_clause(s):
 
 
 def _no_none(s):
-    """b761: the template's count word for no navigator miss read as "no navigator misses"."""
-    return s.replace('the none navigator misses', 'no navigator misses')
+    """b761: the line as the template composes it, "the none navigator misses" kept: the standing readers take "(\\d+) the (\\w+) navigator
+    (?:miss|misses)" (record.tpl's dry-run step through _trail_resolved; checks.tpl's trail_resolved_ok), so the rewording of events (63)
+    is withdrawn (defect (m))."""
+    return s
 
 
 def _repeats(act=ACT):
