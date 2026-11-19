@@ -2417,11 +2417,29 @@ def _guard(f):
         m_ = re.match(r'^  \((\d+)\) (.+)$', l_)
         if m_ and m_.group(1) not in seen_:
             seen_.add(m_.group(1))
-            items_.append((i_ + 1, m_.group(2).split('; ')[0].rstrip('.;')))
-    return ('; '.join('(%d) %s (relay data/%s_misses.txt :%d)' % (k_ + 1, t_, ACT, n_) for k_, (n_, t_) in enumerate(items_)) + '; '
+            items_.append((i_ + 1, _first_clause(m_.group(2)).rstrip('.;')))
+    # ### b761, Component 6 (the record read before its commit): the first clause cut at a semicolon outside quotation marks (item (6)'s
+    # ### quoted form carries " ; "), and the template's count word read so that no navigator miss prints "no", not "the none"
+    return _no_none('; '.join('(%d) %s (relay data/%s_misses.txt :%d)' % (k_ + 1, t_, ACT, n_) for k_, (n_, t_) in enumerate(items_)) + '; '
             '(%d) %s and the seat’s %s defect%s as lettered' % (len(items_) + 1,
 #⟪END⟫
 #⟪SECTION record 33⟫
+def _first_clause(s):
+    """b761: a misses item to its first semicolon standing outside double quotation marks (the whole item where it has none)."""
+    q_ = False
+    for i_, c_ in enumerate(s):
+        if c_ == '"':
+            q_ = not q_
+        elif c_ == ';' and not q_:
+            return s[:i_]
+    return s
+
+
+def _no_none(s):
+    """b761: the template's count word for no navigator miss read as "no navigator misses"."""
+    return s.replace('the none navigator misses', 'no navigator misses')
+
+
 def _repeats(act=ACT):
     """v9 row (83): the repeat count beside the counter -- the rows of the act's defects and events banks (as _counter reads them) tagged
     REPEAT after their CLAIM or CLOSE, and the rows read."""
@@ -2466,12 +2484,12 @@ def _report10():
     lock_ = next((r_ for r_ in rows_ if lc_ and str(r_.get('commit') or '').startswith(lc_[:8])), None)
     clo_ = next((r_ for r_ in reversed(rows_) if r_.get('phase') == 'closing'), None)
     op_ = rows_[0] if rows_ else None
-    h_ = lambda a_, b_: '%.2f h' % ((ep_(b_) - ep_(a_)) / 3600.0) if a_ and b_ and ep_(a_) and ep_(b_) else 'not yet a row'
-    hours_ = 'open %s %s -> lock %s %s : %s ; lock -> closing %s : %s ; open -> closing %s' % (
-        (op_ or {}).get('commit', '-')[:8], (op_ or {}).get('at', '-'), (lock_ or {}).get('commit', '-')[:8], (lock_ or {}).get('at', '-'), h_(op_, lock_),
-        (clo_ or {}).get('commit', 'not yet a row')[:8], h_(lock_, clo_), h_(op_, clo_))
+    h_ = lambda a_, b_: '%.2f h' % ((ep_(b_) - ep_(a_)) / 3600.0) if a_ and b_ and ep_(a_) and ep_(b_) else 'not yet read'
+    at_ = lambda r_, w_: '%s at %s' % (str(r_.get('commit') or '-')[:8], r_.get('at') or '-') if r_ else w_
+    hours_ = 'from the opening row (%s) to the lock (%s) %s ; from the lock to the closing (%s) %s ; from the opening row to the closing %s' % (
+        at_(op_, 'no row'), at_(lock_, 'not yet made'), h_(op_, lock_), at_(clo_, 'not yet a row'), h_(lock_, clo_), h_(op_, clo_))
     by_ = []
-    for mode_ in ('prerun', 'prev', 'post-push'):
+    for mode_ in ('prerun', 'prev', 'pre-push', 'post-push'):
         cls_ = {}
         for p_ in K.PARTS:
             t_ = rdn(CAD.text_name(ACT, mode_, p_), optional=True) or ''
@@ -2562,22 +2580,22 @@ def _runs3_line():
          '**The author`s rulings and the two orders** ((R371)(7), (8)): the author`s %d words of 2026-11-18 banked verbatim from the ferry, each beside the navigator`s rendering, nothing changed (relay data/b761_author_rulings.txt); '
          'entered by tools/b761_rulings.py, committed before it wrote, each file appended at its end and no line moving, its bytes at HEAD a prefix of its new bytes: [A1] at REGISTRY :%d, no row above it edited and no line added above rule [Q] (3)`s heading, read by its digest; '
          '[A2] as section XXIV of phase1.5/method/THE_METHOD_CANON.md at :%d, in the form XXII and XXIII were appended, and after it one dated foot line beside XXIII (C) quoting the author`s words of the act, a departure from (12) made on the author`s later word and lettered for the navigator (defect (g)); '
-         'in OPEN_TRAILS from :%d under one dated head the line naming [A1]`s block, [A3], [B1] and [B2], then under a dated head of their own the author`s words of the act (relay data/b761_author_words_preseal.txt :%d, :%d), each beside its number, entering, closing and retiring no order; controls %d of %d (relay data/b761_ledgers.txt); PLACE-papers %s. '
+         'in OPEN_TRAILS from :%d under one dated head the line naming [A1]’s block, [A3], [B1] and [B2], then under a dated head of their own the author`s words of the act (relay data/b761_author_words_preseal.txt :%d, :%d), each beside its number, entering, closing and retiring no order; controls %d of %d (relay data/b761_ledgers.txt); PLACE-papers %s. '
          'The roster read after them by tools/standing/orders.py: orders %d, open %d, closed %d; W-ORD-MECHANISM-ATTRIBUTION CLOSED at OPEN_TRAILS :%d and W-ORD-WSC-KERNEL-CITES CLOSED at :%d, each DISCHARGED; beside %s, open %d, the status moved for those two alone; W-ORD-LI-ARITH open, its trigger given by the author`s word of the act (relay data/b761_orders.txt). '
          'From this act a ruling`s discharge text carries its status word in capitals.' % (
              f['rl_words'], f['led_heads'].get('registry'), f['led_heads'].get('canon'), f['led_heads'].get('open_trails'), f['led_words_lines'][0], f['led_words_lines'][1],
              f['led_ctl'][0], f['led_ctl'][1], ppw_['reg'][:8], f['ord_head'][0], f['ord_head'][1], f['ord_head'][2],
              ro_['W-ORD-MECHANISM-ATTRIBUTION'][2], ro_['W-ORD-WSC-KERNEL-CITES'][2], f['ord_base'][0][:8], f['ord_base'][2]), '',
          '**The cells of Phases 1.2 and 1.5** ((R371)(9)): by tools/b761_registry.py in the form of tools/b720_registry.py, committed before it ran, one block appended at REGISTRY`s end from :%d in the form of b720`s SUBJECT / TO-KC block, which is not edited: '
-         'rows %d of %d read, the keystones` rows first in the ruling`s order -- read from the document %d, a kernel row %d, superseded %d; candidate %d by b720`s rule as written, a head declaring Tier KC whole given no word and saying so, the word for it the author`s (relay data/b761_events.txt (49)); carried over the ceiling %d; controls %d of %d (relay data/b761_registry_cells.txt); PLACE-papers %s. '
+         'rows %d of %d read, the keystones’ rows first in the ruling`s order -- read from the document %d, a kernel row %d, superseded %d; candidate %d by b720`s rule as written, a head declaring Tier KC whole given no word and saying so, the word for it the author`s (relay data/b761_events.txt (49)); carried over the ceiling %d; controls %d of %d (relay data/b761_registry_cells.txt); PLACE-papers %s. '
          'Each SUBJECT is the document`s own words in quotation marks with its line; no row is moved between phases, each row`s placement put to the author after the cells are read ([A1]).' % (
              f['cells_first'], f['cells'][0], f['cells'][1], f['cells_kinds'][1], f['cells_kinds'][0], f['cells_kinds'][2], f['cells_cand'], f['cells_carried'],
              f['cells_ctl'][0], f['cells_ctl'][1], ppw_['cells'][:8]), '',
          '**The sitting** ((R371)(5)), in b736`s form as b750 ran it, canon XXIII (C) setting one at each tenth act: by tools/b761_sitting.py, committed before each run, the agenda banked before the question (relay data/b761_sitting_agenda.txt): '
-         '%d items, one for each FINDINGS entry from b745`s to b760`s that is no corrigendum, in the entries` order, each with its heading`s names as tools/standing/linematch.py reads them, its cluster and that cluster`s keystone from REGISTRY`s rows and SPIRAL_MAP`s cluster table at HEAD, and for each name whether the keystone`s text carries it; '
+         '%d items, one for each FINDINGS entry from b745`s to b760`s that is no corrigendum, in the entries’ order, each with its heading`s names as tools/standing/linematch.py reads them, its cluster and that cluster`s keystone from REGISTRY`s rows and SPIRAL_MAP`s cluster table at HEAD, and for each name whether the keystone`s text carries it; '
          'read SYNTHESISED %d, an input of a re-cut %d, banked with no seat %d; beside the question the navigator`s recommendation, items %s (%s), reads of the record`s own documents, taking no keystone and standing BANKED, which gives %d, %d and %d; '
          'the open orders listed by their triggers as the author`s two words of the act order it (relay data/b761_author_words_preseal.txt :2, :5): %d, met %d, the author`s word %d, no trigger written %d, a trigger written and not met %d, each carried by name to the next ruling, the seat writing no trigger and retiring no order; controls %d of %d. '
-         'The one question, the agenda whole, put through the composer and answered "%s" (relay data/b761_author_answers.txt :%d, %s). '
+         'The one question, the agenda whole, put through the composer and answered "%s" (relay data/b761_author_answers.txt ; at the session`s transcript line %d, %s). '
          'The inputs bank by the same tool: keystones %d, the Epstein document v0.2, its re-cut`s inputs %d, each by its entry`s line and its banks; no keystone %d; controls %d of %d (relay data/b761_recut_inputs.txt). '
          'At this sitting no keystone is written and none takes a dated note ([A2]); a finding its keystone does not carry is banked as an input of that keystone`s re-cut.' % (
              f['ag_items'], f['ag_counts'][0], f['ag_counts'][1], f['ag_counts'][2], rq_.group(1).strip(), rq_.group(2), f['ag_rec'][0], f['ag_rec'][1], f['ag_rec'][2],
@@ -2587,7 +2605,7 @@ def _runs3_line():
          'one line for each act from b755 to b760 in the form of canon XXIII (A), each naming its act and its entry`s line, read as the sitting`s passed items read them, SYNTHESISED %d, CLUSTERED %d, BANKED %d, %d of %d as the sitting read them; this act`s own line in the same form, %s, the entry`s last line; controls %d of %d (relay data/b761_lines.txt). '
          'No line of an earlier entry is rewritten, and the tallies those entries carry stand as written. From this act each ruling orders the line in the canon`s form and no tally in its place.' % (
              f['ln_counts'][0], f['ln_counts'][1], f['ln_counts'][2], f['ln_as_read'][0], f['ln_as_read'][1], f['ln_own_stage'], f['ln_ctl'][0], f['ln_ctl'][1]), '',
-         '**%s**' % conv(f['ln_head']), ''] + ['- %s' % t_ for _a, _l, t_, _s in f['ln_lines']] + ['',
+         '**%s**' % f['ln_head'].replace('`', '’'), ''] + ['- %s' % t_ for _a, _l, t_, _s in f['ln_lines']] + ['',   # ### the bank's CANON`S: conv leaves a backtick before a capital
          '**The research instruments reproduced** ((R371)(12), the standing arm G-RESEARCH-REPRODUCES): tools/research/reproduce.py`s full run in the foreground, nothing else writing to tools/ or data/ while it ran: rows %d, reproducing %d, differing %d, not run %d (%s, as at b760), the planted controls %d of %d as wanted, %d s (relay data/b761_reproduce.txt).' % (
              f['rp_rows'], f['rp_repro'], f['rp_differs'], f['rp_notrun'], ', '.join(str(x_) for x_ in f['rp_notruns']) or 'none', f['rp_ctl'][0], f['rp_ctl'][1], f['rp_secs']), '',
          '**The ceiling** ((R371)(3)): %d reading%s against 16 hours from the delivery, the last at %s, %s h, %s, dispatches %d of %d, each reading before the work of its component began, the cells of (9) carried over it none (relay data/b761_ceiling.txt). The seat`s read of what the ruling misses printed to the author before Component 1 and once more before the lock (relay data/b761_misses.txt).' % (
@@ -2815,7 +2833,7 @@ def _finding_text_b760():
     r10h_, _r10p = _report10()
     rows_ = ['', TRAIL_HEAD(), '',
              '**(R371) ratified.** Its components as the ferry orders them (relay data/b761_ferry.txt), each read below from its bank.', '',
-             '**Entered:** FINDINGS.md:%s (the corrigendum for b760), :%s (the entry); REGISTRY.md:%s ([A1]`s dated block) and :%s (the cells of (9)); phase1.5/method/THE_METHOD_CANON.md:%s (section XXIV) and its dated foot line at :%s; OPEN_TRAILS.md:%s under the dated head of (7) and (8) and the dated head of the author`s words of the act; this record.' % (
+             '**Entered:** FINDINGS.md:%s (the corrigendum for b760), :%s (the entry); REGISTRY.md:%s ([A1]’s dated block) and :%s (the cells of (9)); phase1.5/method/THE_METHOD_CANON.md:%s (section XXIV) and its dated foot line at :%s; OPEN_TRAILS.md:%s under the dated head of (7) and (8) and the dated head of the author`s words of the act; this record.' % (
                  f['corr_line'], fj.get('entry_line'), f['led_heads'].get('registry'), f['cells_first'], f['led_heads'].get('canon'), lf_.get(N3_CANON),
                  f['led_heads'].get('open_trails')), '',
              '**b760 at its weight** ((R371)(1)): closed at relay %s and PLACE-papers %s, the scores %d of %s HELD (%s); the corrigendum short at FINDINGS :%s, b760`s %s CLAIM items printed in full, the findings after its lock entered as events, the navigator`s own entered CLAIM, no weight line (relay data/b760_scores_close.json, data/b761_corrigendum.txt).' % (
