@@ -577,7 +577,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklm'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmn'))   # ### b761: the seat's rows of data/b761_defects.txt as the template's reader takes them, (a) to (n), each THE SEAT'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b761_misses.txt', 'data/b761_corrigendum.txt', 'data/b761_corrigendum.json',                     # ### step zero and Component 1
@@ -2158,7 +2158,8 @@ def _pp_units():
     il_ = _integ_line(f)
     integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, il_, conv)
     # ### (R371)(6): the six lines under one head, in the acts' order, each whole in the entry, the head before the first
-    six_at_ = [text.find(conv(x_)) if conv(x_) in text else text.find(x_) for x_ in [f['ln_head']] + [t_ for _a, _l, t_, _s in f['ln_lines']]]
+    # ### b761, defect (n): the head read as the entry's composer writes it (:2611, the bank's backtick before a capital written typographic)
+    six_at_ = [text.find(conv(x_)) if conv(x_) in text else text.find(x_) for x_ in [f['ln_head'].replace('`', '’')] + [t_ for _a, _l, t_, _s in f['ln_lines']]]
     six_ = len(six_at_) == 7 and all(p_ >= 0 for p_ in six_at_) and six_at_ == sorted(six_at_)
     nouns_ = [w_ for w_ in ('data/%s_corrigendum.txt' % ACT, 'data/%s_author_rulings.txt' % ACT, 'data/%s_ledgers.txt' % ACT, 'data/%s_orders.txt' % ACT,
                             'data/%s_registry_cells.txt' % ACT, 'data/%s_sitting_agenda.txt' % ACT, 'data/%s_recut_inputs.txt' % ACT, 'data/%s_lines.txt' % ACT,
