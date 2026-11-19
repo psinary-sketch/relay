@@ -147,7 +147,7 @@ SENDS = {
         ('exists_classK_poleTerm_re_neg', PA, '(S3)', S3, (
             ('a k in classK with the real part of poleTerm k below 0', r'^∃ k : ℝ → ℂ, classK k ∧ \(poleTerm k\)\.re < 0$'),)),
     )),
-    's4': dict(clause='(R373)(6), statement (S4), sent alone after (S1) to (S3) compiled; the domain classes (twice continuously differentiable, '
+    's4': dict(clause='(R373)(6), statement (S4), sent with (S5) in one dispatch after (S1) to (S3) compiled, (S5) not importing it; the domain classes (twice continuously differentiable, '
                       'continuous, compact support) are the domain of the form`s three terms, which the sentence`s "each of the three terms of the '
                       'form at h" takes; the seat splits (S4) into the additivity of each term and the split itself, and says so',
                of7=False, files=(PS,), stmts=(
@@ -176,7 +176,7 @@ SENDS = {
             ('is the form at e plus the form at o', r'= \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\) \+ \(poleTerm \(%s\) - primeSum \(%s\) \+ archTerm \(%s\)\)$'
              % (WE, WE, WE, WO, WO, WO)))),
     )),
-    's5': dict(clause='(R373)(6), statement (S5), sent alone after (S4) compiled; the seat splits (S5) into the set, the linearity of the '
+    's5': dict(clause='(R373)(6), statement (S5), sent with (S4) in one dispatch after (S1) to (S3) compiled, importing FormFinite and DetectionRegion and not (S4); the seat splits (S5) into the set, the linearity of the '
                       'prime-power side in the weights on a window, the convexity, the congruence and the von Mangoldt membership, and says so',
                of7=False, files=(AW,), stmts=(
         ('admissibleWeights', AW, '(S5)', S5, (
