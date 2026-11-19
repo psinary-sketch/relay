@@ -1,0 +1,146 @@
+b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE SALT CHECK OF SEND sf, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-19T23:54:36Z)
+
+### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
+### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
+### refuses printed, the two known wanted (:358 and :359); the file not edited for them, the workflow not widened. The reads and their
+### controls are tools/b758_presend.py`s, imported and not changed. THE SALT CHECK is this tool`s: each statement`s hypotheses classed
+### against its sentence, its conclusion read against the sentence`s predicates, the definitions it rests on by file, line and digest;
+### each kernel line by predicate, line number and digest alone, none quoted.
+
+## THE CONTROLS
+  (1) every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a nested namespace, _root_, an attribute, a class inductive read): ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'] -> AS WANTED
+  (2) the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a priority and a scoped one read as named, a type on the next line unread): (['C.named', 'C.sc'], [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)]) -> AS WANTED
+  (3) the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not): {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]} -> AS WANTED
+  (4) the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not): {'A.x': [('M1', 3), ('M2', 9)]} -> AS WANTED
+  (5) the imports of a planted header (two lines, a comment between, the body after not read): ['A.B', 'C'] -> AS WANTED
+  (6) the class of the workflow`s pattern as written, expanded: A-Z, a-z, 0-9, underscore, full stop, the prime: A-Z, a-z, 0-9, "'", '.', '_' (65 characters) -> AS WANTED
+  (7) the class read from .github/workflows/build-module.yml at 6568e9c7, the line the ruling names: (91, "A-Za-z0-9_.\\'") -> AS WANTED
+  (8) the target filter read from .github/workflows/build-module.yml at 6568e9c7 (:44: letters, digits, underscore, full stop and the space parting the modules): (44, 'A-Za-z0-9_.\\ ') -> AS WANTED
+  (9) the filter on planted names (a dotted name and a prime passed; the Greek capital lambda, a hyphen and a subscript refused): [('Foo.bar', True), ("Foo.bar'", True), ('Foo.zqPair_Λ_one', False), ('Foo-bar', False), ('Foo.b₁', False)] -> AS WANTED
+  (10) the module`s file as Lake names it, inverted (the default library, the vendored srcDir, a module outside the tree): ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', None) -> AS WANTED
+  (11) THE POSITIVE CONTROL, b757`s break (data/b757_events.txt (17)): at 6568e9c7 the reader finds SIDEExplicitFormula.Schema.ZQ.OffZero.sRe in OffZero.Time :18 and OffZero.Sums :134: [('SIDEExplicitFormula.Schema.ZQ.OffZero.sRe', [('Time', 18), ('Sums', 134)])] -> AS WANTED
+  THE SALT CHECK`S PLANTED CONTROLS:
+  (s1) the planted statement as its sentence words it: PASSED -> AS WANTED
+  (s2) a hypothesis beyond the sentence bound: REFUSED -> AS WANTED
+  (s3) a hypothesis of a class the sentence does not name (L below log 2 on (S1)): REFUSED -> AS WANTED
+  (s4) the conclusion short of its sentence (the range to the floor of e^L): REFUSED -> AS WANTED
+  (s5) a sorry in the proof: REFUSED -> AS WANTED
+  (s6) the statement absent (renamed): REFUSED -> AS WANTED
+  (s7) a variable line in the file: REFUSED -> AS WANTED
+  (s8) a lemma in place of a theorem, counted and not refused: PASSED -> AS WANTED
+  THE NO-ZERO CONTROL`S PLANTED CONTROLS, AND THREE AT v0.41:
+  (z1) a clean file, the barred names in its prose alone: PASSED -> AS WANTED
+  (z2) Schema/Detector imported: REFUSED -> AS WANTED
+  (z3) a module under Schema/ZQ/OffZero imported: REFUSED -> AS WANTED
+  (z4) a Schema/Wide module carrying a detector imported: REFUSED -> AS WANTED
+  (z5) a Schema/Wide module carrying none imported: PASSED -> AS WANTED
+  (z6) zq_li_nonneg_fails named in code: REFUSED -> AS WANTED
+  (z7) detector named, qualified, in code: REFUSED -> AS WANTED
+  (z8) a name holding detector as a part (detectorBase), not one of the five: PASSED -> AS WANTED
+  (z9) at v0.41, Schema/Wide/HalfScale.lean over itself: REFUSED -> AS WANTED
+  (z10) at v0.41, Schema/Wide/HalfScale read among the Schema/Wide modules carrying a detector: YES -> AS WANTED
+  (z11) at v0.41, the salt check of send s123, no file of (6) in the tree: REFUSED -> AS WANTED
+
+### main as b762 left it (v0.41), where the branch is made
+## AT a3aad4cceb41705fe9929c9b5600976eaf7434b5 (a3aad4cc)
+  THE TARGETS (tools/b757_join.py`s reader): names 489 ; resolved to one module 489 ; refused 0 [] ; modules 99
+  THE IMPORT CLOSURE IN THE TREE: modules 372 (the targets` 99 among them, 99 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1191 names, duplicates 0 ; over the closure 4142 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at a3aad4cc): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 489 ; passed 487 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 99 of 99
+
+### the tip the dispatch is sent at
+## AT 4964e95758a7b1bc8c49d0972ebb18877d4f945f (4964e957)
+  THE TARGETS (tools/b757_join.py`s reader): names 556 ; resolved to one module 556 ; refused 0 [] ; modules 109
+  THE IMPORT CLOSURE IN THE TREE: modules 378 (the targets` 109 among them, 109 of them read) ; imports outside the tree 178 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1294 names, duplicates 0 ; over the closure 4208 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at 4964e957): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 556 ; passed 554 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 109 of 109
+
+### (R373)(6), "with them, on the same branch": the statement file of W-ORD-STATEMENT-FILE (OPEN_TRAILS :18889), priced within this build (data/b763_price.txt :22); One Page v2.0`s Correspondence (day1/ONE_PAGE_PROOF_v2_0.md :36-:54), the 19 rows of SIDE-explicit-formula, each stated apart from its proof and closed by the name the row cites, the two definitions as their unfolding; the three rows of SIDE-kernel v1.5 (:55-:57) named in its docstring, that kernel not imported: the salt check, printed before the send
+## THE SALT CHECK OF SEND sf AT 4964e95758a7b1bc8c49d0972ebb18877d4f945f (4964e957): (R373)(6), "with them, on the same branch": the statement file of W-ORD-STATEMENT-FILE (OPEN_TRAILS :18889), priced within this build (data/b763_price.txt :22); One Page v2.0`s Correspondence (day1/ONE_PAGE_PROOF_v2_0.md :36-:54), the 19 rows of SIDE-explicit-formula, each stated apart from its proof and closed by the name the row cites, the two definitions as their unfolding; the three rows of SIDE-kernel v1.5 (:55-:57) named in its docstring, that kernel not imported
+  THE FILE SIDEExplicitFormula/OnePageStatement.lean: READ, 143 lines, sha256 db2c42b34795c603 ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.Seam SIDEExplicitFormula.Chi.CriterionConverse SIDEExplicitFormula.Schema.Converse SIDEExplicitFormula.LiCriterionBridge SIDEExplicitFormula.DetectionRegion SIDEExplicitFormula.KeiperSign SIDEExplicitFormula.Schema.ZetaBox.Box SIDEExplicitFormula.Schema.ZQ.EF.Main SIDEExplicitFormula.Schema.ZQ.OffZero.SP4 SIDEExplicitFormula.Schema.Wide.HalfScaleControl SIDEExplicitFormula.Schema.ZQ.Mechanism.NoEuler SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign -> CLEAN
+  :36 classK_def, a theorem at SIDEExplicitFormula/OnePageStatement.lean :49 (its header sha256 2a13be2c08bb88c5): PASSED
+     binds: k a test function R -> C
+     concludes: the class of test functions, unfolded HOLDS
+     rests on: weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69) ; of the ruling`s six: weilTest, classK
+  :37 h2_sign_def, a theorem at SIDEExplicitFormula/OnePageStatement.lean :55 (its header sha256 a71f4cba6447c8ed): PASSED
+     binds: no hypothesis
+     concludes: the clause, unfolded HOLDS
+     rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8), poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69), archTerm (SIDEExplicitFormula/B321Identity.lean :37, sha256 3023b63508de749c) ; of the ruling`s six: primeSum, poleTerm, classK
+  :38 b321_identity, a theorem at SIDEExplicitFormula/OnePageStatement.lean :60 (its header sha256 cec129367bdcccad): PASSED
+     binds: k a test function R -> C; hk twice continuously differentiable; hs compact support; he even, the variable typed (as the source row binds it)
+     concludes: the explicit formula for zeta HOLDS
+     rests on: primeSum (SIDEExplicitFormula/B321Identity.lean :33, sha256 5e0c6c5970f320e8), poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), archTerm (SIDEExplicitFormula/B321Identity.lean :37, sha256 3023b63508de749c), zeroSide (SIDEExplicitFormula/B321Identity.lean :24, sha256 792e0fb8b07b2f5a) ; of the ruling`s six: primeSum, poleTerm
+  :39 h2_sign_iff_rh, a theorem at SIDEExplicitFormula/OnePageStatement.lean :65 (its header sha256 05c8eb30d3703131): PASSED
+     binds: no hypothesis
+     concludes: the clause is equivalent to the Riemann Hypothesis HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :40 h2_sign_chi_iff_grh_chi, a theorem at SIDEExplicitFormula/OnePageStatement.lean :69 (its header sha256 c69073fb318b8b3d): PASSED
+     binds: N a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows); (anonymous) the modulus not zero (as the source row binds it, a variable of its file); χ a Dirichlet character (the row: "at a primitive character"); hχ primitive (the row: "a primitive character"); h1 not the trivial character (the row: "χ ≠ 1")
+     concludes: the same at a primitive character other than 1 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :41 h2_sign_cfg_iff_target, a theorem at SIDEExplicitFormula/OnePageStatement.lean :74 (its header sha256 b9d368b878cef24d): PASSED
+     binds: C a configuration (the row: "over a configuration")
+     concludes: the same over a configuration HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :42 li_nonneg_iff_rh, a theorem at SIDEExplicitFormula/OnePageStatement.lean :78 (its header sha256 e9328cad0be0c937): PASSED
+     binds: no hypothesis
+     concludes: Li`s criterion HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :43 arith_limit_nonneg_iff_rh, a theorem at SIDEExplicitFormula/OnePageStatement.lean :82 (its header sha256 ee73a26a373037f4): PASSED
+     binds: no hypothesis
+     concludes: the Bombieri-Lagarias form HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :44 h2_sign_iff_forall_upto, a theorem at SIDEExplicitFormula/OnePageStatement.lean :88 (its header sha256 af9bf925187be610): PASSED
+     binds: no hypothesis
+     concludes: bounded support HOLDS
+     rests on: h2_sign_upto (SIDEExplicitFormula/DetectionRegion.lean :29, sha256 2e544b4e232af69d) ; of the ruling`s six: h2_sign_upto
+  :45 liCoeff_one_pos, a theorem at SIDEExplicitFormula/OnePageStatement.lean :94 (its header sha256 98748ee3747ee274): PASSED
+     binds: no hypothesis
+     concludes: λ₁ > 0 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :46 zeta_box, a theorem at SIDEExplicitFormula/OnePageStatement.lean :98 (its header sha256 8541888859bb16f0): PASSED
+     binds: no hypothesis
+     concludes: a zero of zeta on the line between heights 12 and 16 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :47 zq_explicit_formula_instance, a theorem at SIDEExplicitFormula/OnePageStatement.lean :104 (its header sha256 6f61894d917c88fa): PASSED
+     binds: k a test function R -> C; hk twice continuously differentiable; hs compact support; he even, the variable typed (as the source row binds it)
+     concludes: the explicit formula for the control HOLDS
+     rests on: primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112, sha256 48dd7c8e5bab9a23), poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), archTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :121, sha256 1684664de5eb4150), cQ (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63, sha256 1862384c8cbbd7fe), zqZeroConfig (SIDEExplicitFormula/Schema/ZQ/Zeros.lean :319, sha256 c32b33fe389a72f4) ; of the ruling`s six: primeTermQ, poleTerm
+  :48 zq_offline_zero, a theorem at SIDEExplicitFormula/OnePageStatement.lean :111 (its header sha256 708e17ae8a5c720d): PASSED
+     binds: no hypothesis
+     concludes: a zero of the control off the line HOLDS
+     rests on: zqZeroConfig (SIDEExplicitFormula/Schema/ZQ/Zeros.lean :319, sha256 c32b33fe389a72f4) ; of the ruling`s six: none
+  :49 zq_weil_positivity_fails, a theorem at SIDEExplicitFormula/OnePageStatement.lean :115 (its header sha256 c335b5b475ac44ed): PASSED
+     binds: no hypothesis
+     concludes: the inequality fails for the control, on the arithmetic side HOLDS
+     rests on: primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112, sha256 48dd7c8e5bab9a23), poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69), archTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :121, sha256 1684664de5eb4150), cQ (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63, sha256 1862384c8cbbd7fe) ; of the ruling`s six: primeTermQ, poleTerm, classK
+  :50 zq_li_nonneg_fails, a theorem at SIDEExplicitFormula/OnePageStatement.lean :120 (its header sha256 a25d08cf87c1673b): PASSED
+     binds: no hypothesis
+     concludes: Li`s nonnegativity fails for the control HOLDS
+     rests on: liCoeff (SIDEExplicitFormula/Schema/Wide/Converse.lean :32, sha256 0ffe12c21d51b4f1), zqZeroConfig (SIDEExplicitFormula/Schema/ZQ/Zeros.lean :319, sha256 c32b33fe389a72f4) ; of the ruling`s six: none
+  :51 zq_coeff_not_multiplicative, a theorem at SIDEExplicitFormula/OnePageStatement.lean :124 (its header sha256 b03e801637599835): PASSED
+     binds: no hypothesis
+     concludes: the coefficients of the control not multiplicative HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :52 zeta_isMultiplicative_control, a theorem at SIDEExplicitFormula/OnePageStatement.lean :130 (its header sha256 cc93edf1bcae68fc): PASSED
+     binds: no hypothesis
+     concludes: the coefficients of zeta multiplicative HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  :53 cQ_not_nonneg, a theorem at SIDEExplicitFormula/OnePageStatement.lean :134 (its header sha256 43accc271b20217c): PASSED
+     binds: no hypothesis
+     concludes: the log-derivative coefficients of the control not all nonnegative HOLDS
+     rests on: cQ (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63, sha256 1862384c8cbbd7fe) ; of the ruling`s six: none
+  :54 vonMangoldt_nonneg_control, a theorem at SIDEExplicitFormula/OnePageStatement.lean :138 (its header sha256 432d053547d2f084): PASSED
+     binds: n a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows)
+     concludes: Λ nonnegative HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+
+### ### **THE PRE-SEND READS AT 4964e957: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 109 MODULES FOR 556 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK OF SEND sf PASSED (19 OF 19 STATEMENTS) ; CONTROLS 30 OF 30.**
