@@ -11,8 +11,10 @@ counted neither among the live papers read nor among the papers that carry a nam
 whole identifier, bare or under its namespace; the qualified shape, the name as the table prints it, is counted beside.
 THE POINTERS' PART: each line of the live papers, REGISTRY, SPIRAL_MAP and the census at HEAD that names the page by "One Page" with a space or
 a hyphen, case ignored, or by the stem ONE_PAGE_PROOF (misses (4)), classed PROOF-WORDED where, the stem's occurrences removed, the line
-carries the word proof (or proofs) in any case, PLAIN otherwise; REGISTRY's rule [Q] (3) section skipped by its heading's digest, as the
-subject reader skips it. The wider shapes' yields are printed beside the governing ones for the hand read.
+carries the word proof in any case, PLAIN otherwise; REGISTRY's rule [Q] (3) section skipped by its heading's digest, as the subject
+reader skips it. The wider shapes' yields are printed beside the governing ones for the hand read. Repaired after its first dry run
+(10:44:05Z), before any bank: the quotation control reads a window of four words or more (defect (e)); the word is (5)'s alone, its plural
+a wider shape printed beside (defect (f)).
 
   control   the controls, printed; nothing written
   dry       the map composed and printed; nothing written
@@ -52,14 +54,15 @@ JBANK = os.path.join(D, 'b762_onepage_map.json')
 TITLE = re.compile(r'(?i)(?<!\w)one[ -]page(?!\w)')
 STEM = re.compile(r'(?i)(?<![A-Za-z0-9])one_page_proof')
 WIDE = re.compile(r'(?i)one[\s_-]*page')
-PROOF = re.compile(r'(?i)(?<![a-z])proofs?(?![a-z])')
-PROOF_NARROW = re.compile(r'(?i)(?<![a-z])proof(?![a-z])')
+PROOF = re.compile(r'(?i)(?<![a-z])proof(?![a-z])')          # ### (5): "the word proof in any case", the rule's word and no other form (defect (f))
+PROOF_PLURAL = re.compile(r'(?i)(?<![a-z])proofs?(?![a-z])')  # ### a wider shape, its yield printed beside for the hand read
 PROOF_WIDE = re.compile(r'(?i)proof')
+PROSE = re.compile(r"[A-Za-z’'-]{2,}\s+[A-Za-z’'-]{2,}\s+[A-Za-z’'-]{2,}\s+[A-Za-z’'-]{2,}")   # ### a quotation: four words in a window (defect (e))
 WIN = 24
 PLANT_NAME = 'B321.b762_planted_name_carried_by_none'
-PLANTS = (('the One Page proof, a planted line', 'PROOF-WORDED'), ('One-Page Proofs, planted', 'PROOF-WORDED'),
-          ('day1/ONE_PAGE_PROOF.md, a planted line with the stem alone', 'PLAIN'), ('a proof planted alone', None),
-          ('a one-pager, planted', None))
+PLANTS = (('the One Page proof, a planted line', 'PROOF-WORDED'), ('One-Page Proof, planted', 'PROOF-WORDED'),
+          ('day1/ONE_PAGE_PROOF.md, a planted line with the stem alone', 'PLAIN'), ('One Page among the phase1.5/proofs/ papers, planted', 'PLAIN'),
+          ('a proof planted alone', None), ('a one-pager, planted', None))
 
 
 def die(w):
@@ -167,7 +170,7 @@ def pointers_part(C):
             ok, kind, words = pointer(l)
             if ok:
                 r = dict(path=p, line=i, cls=cls, kind=kind, words=words,
-                         narrow=bool(PROOF_NARROW.search(STEM.sub(' ', l))), wide=bool(PROOF_WIDE.search(STEM.sub(' ', l))))
+                         plural=bool(PROOF_PLURAL.search(STEM.sub(' ', l))), wide=bool(PROOF_WIDE.search(STEM.sub(' ', l))))
                 (apart if cls == 'apart' else rows).append(r)
             elif WIDE.search(l) and cls != 'apart':
                 wide.append(dict(path=p, line=i, cls=cls, words=[m.group(0) for m in WIDE.finditer(l)]))
@@ -199,7 +202,7 @@ def quoted(bank, C, N, prow, wide, paths):
     found = []
     for p, i in sorted(lines):
         for seg in spans_removed(C['texts'][p][i - 1], regs):
-            if any(seg[j:j + WIN] in have for j in range(0, len(seg) - WIN + 1, 6)):
+            if any(seg[j:j + WIN] in have and PROSE.search(seg[j:j + WIN]) for j in range(0, len(seg) - WIN + 1, 6)):
                 found.append((p, i))
                 break
     return found
@@ -243,8 +246,8 @@ def controls(C, N, bank=None, paths=()):
         seg = spans_removed(plant, [TITLE, STEM, PROOF])
         pb = bank + NL + (seg[0] if seg else '')
         have_p = set(pb[i:i + WIN] for i in range(len(pb) - WIN + 1))
-        fire = bool(seg) and any(seg[0][j:j + WIN] in have_p for j in range(0, len(seg[0]) - WIN + 1, 6))
-        c('the bank quotes no line of a paper beyond the name or the words matched (24-character windows); a planted quotation found', (q[:5], fire), not q and fire)
+        fire = bool(seg) and any(seg[0][j:j + WIN] in have_p and PROSE.search(seg[0][j:j + WIN]) for j in range(0, len(seg[0]) - WIN + 1, 6))
+        c('the bank quotes no line of a paper beyond the name or the words matched (24-character windows of four words or more); a planted quotation found', (q[:5], fire), not q and fire)
         ids = idcount(bank)
         c('no identifier of the author in the bank', ids, not any(ids.values()))
         qn = len(C['qrx'].findall(bank))
@@ -281,7 +284,7 @@ def compose():
          '### THE NAMES: BLOCK P`s Declaration column (data/b762_text.txt :%d-:%d), %d names. A name is carried where a line holds it as a whole identifier,' % (a, b, len(N)),
          '### bare or under its namespace (the governing shape); the qualified shape, the name as the table prints it, counted beside.',
          '### THE POINTERS: a line names the page where it carries "One Page" with a space or a hyphen, case ignored, or the stem ONE_PAGE_PROOF, case',
-         '### ignored; PROOF-WORDED where, the stem`s occurrences removed, it carries the word proof or proofs in any case; PLAIN otherwise. Files: the',
+         '### ignored; PROOF-WORDED where, the stem`s occurrences removed, it carries the word proof in any case; PLAIN otherwise. Files: the',
          '### live papers; REGISTRY, a ledger, its rule [Q] (3) section skipped by its heading`s digest (%d lines, none read or printed); SPIRAL_MAP and' % len(C['qskip']),
          '### the census (%s) at HEAD, %s. No line of a paper is quoted: a hit is printed by path and line with the name or words it matched.' % (
              CENSUS, 'each among the live papers' if SPIRAL in C['live'] and CENSUS in C['live'] else 'SPIRAL_MAP %s, the census %s' % (
@@ -300,8 +303,9 @@ def compose():
                  sum(r['qualified_lines'] for r in nrows), sum(r['lines'] for r in nrows), sum(1 for r in nrows if r['qualified_lines']), len(carried)),
              '  the pointers, "one" and "page" with any separator or none, the governing shapes not matching: %d lines%s' % (
                  len(wide), (' -- ' + '; '.join('%s :%d (%s)' % (r['path'], r['line'], ', '.join(r['words'])) for r in wide)) if wide else ''),
-             '  the word among the pointer lines: proof alone %d, proof or proofs %d (governing), proof as any part of a word %d' % (
-                 sum(1 for r in prow if r['narrow']), len(pw), sum(1 for r in prow if r['wide']))]
+             '  the word among the pointer lines: proof %d (governing), proof or proofs %d, proof as any part of a word %d; the lines the wider shapes add: %s' % (
+                 len(pw), sum(1 for r in prow if r['plural']), sum(1 for r in prow if r['wide']),
+                 '; '.join('%s :%d (%s)' % (r['path'], r['line'], 'proofs' if r['plural'] else 'within a word') for r in prow if r['kind'] == 'PLAIN' and r['wide']) or 'none')]
     body += ['', '## WHAT FOLLOWS ((R372)(5))']
     if pw_live:
         body += ['  [O6] ENTERED: %d live papers name One Page beside the word proof, at %s; no paper is edited.' % (
