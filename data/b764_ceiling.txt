@@ -1,0 +1,45 @@
+b764 -- (R374)(3): THE CEILING, 24 HOURS AGAINST THE PRICE TABLE`S LOWER FIGURES, READ AFTER COMPONENT 2 (tools/b764_ceiling.py; the step-zero reading in data/b764_price.txt)
+
+## THE CONTROLS
+  (1) the delivery reproduces the price bank`s spent_h at its own time (2026-11-20T17:41:56Z): ('0.8300', 0.83) -> AS WANTED
+  (2) the step-zero sum from the json`s rows read at their kind against the bank`s, within the rounding of 36 rows and the spent figure (0.185 h): ('17.37', 17.37) -> AS WANTED
+  (3) the step-zero carry against the bank`s carried list and its sum after: ([], '17.37', 17.37) -> AS WANTED
+  (4) THE RATE, the record instance: b763`s table (a flat 0.325 h a dispatch) read at the kinds b764`s table names: every dispatching row BELOW ITS KIND, (7)`s statement (priced 0.33 h, a dispatch that built the kernel whole) read at a whole build: (15, 15, [0.33, 0.33], [1.13, 1.73]) -> AS WANTED
+  (5) THE RATE over b764`s table: each dispatching row AT ITS KIND with the waits of WAITS (data/b764_price.txt :38, "TWO DISPATCHES of the branch tip sent together ... the waits of both read as one"); without them the reference and the saving run, sent together, read BELOW, the waits read: ([('(7) reference+save', 'AT ITS KIND'), ('(7) restore', 'AT ITS KIND')], 'BELOW ITS KIND, READ AT ITS FLOOR') -> AS WANTED
+  (6) planted: a dispatching row that names no kind is read as a whole build: ('whole', 'NO KIND NAMED, read as a whole build', [1.13, 1.73]) -> AS WANTED
+  (7) planted: a table naming no build`s minutes, none passed, is refused: False -> AS WANTED
+  (8) planted at c2: the sum exactly at 24 h carries nothing; 0.01 h over carries the last priced order of (8) alone; spent 24 h carries every order of (8), the last priced first, then (7)`s trial whole, then (9)(b): ([], ['(8) CORRESPONDENCE-BEHIND-SCOPE'], ['(8) CORRESPONDENCE-BEHIND-SCOPE', '(8) BIBLIOGRAPHY-LINK', '(8) MATCHER-SHAPE', '(8) LATE-BANKS', '(8) E0-RANK-PROPAGATION', '(7) workflow', '(7) reference+save', '(7) restore', '(7) main', '(9)(b)']) -> AS WANTED
+  (9) planted with 1 h left for (8): ascending upper order, each built where its upper fits, its upper then taken: [('E0-RANK-PROPAGATION', 'BUILT WHERE IT FITS'), ('LATE-BANKS', 'BUILT WHERE IT FITS'), ('MATCHER-SHAPE', 'CARRIED BY NAME'), ('BIBLIOGRAPHY-LINK', 'CARRIED BY NAME'), ('CORRESPONDENCE-BEHIND-SCOPE', 'CARRIED BY NAME')] -> AS WANTED
+  (10) the price bank`s rows for each key this tool reads, five orders of (8) among them: ([], 5) -> AS WANTED
+
+## THE READING AFTER COMPONENT 2, AT 2026-11-20T21:40:01Z
+## THE PRICE`S RATE BY THE KIND OF BUILD (tools/standing/dispatchrate.py, v1.38.13, (R374)(5) [K14]), the rows of `rows`: the table`s whole_min and closure_min
+  a build of the kernel whole 67.7-103.9 min ; a module`s closure 7.3 min, its upper a whole build
+  (7) reference+save             whole (its kind dispatch-whole) ; dispatches 2-2, waits 1-1 ; floor 1.13-1.73 h ; priced 1.13-1.73 h -> AT ITS KIND
+  (7) restore                    closure (its kind dispatch-closure) ; dispatches 1-1, waits 1-1 ; floor 0.12-1.73 h ; priced 0.12-1.73 h -> AT ITS KIND
+  dispatching rows read 2 ; BELOW ITS KIND 0
+  SPENT from the delivery (2026-11-20T16:52:08Z, transcript line 213526) to this read: 4.80 h
+  REMAINING (7) workflow                     lower 0.40 h (upper 1.00 h)
+  REMAINING (7) reference+save               lower 1.13 h (upper 1.73 h)
+  REMAINING (7) restore                      lower 0.12 h (upper 1.73 h)
+  REMAINING (7) main                         lower 0.30 h (upper 0.50 h)
+  REMAINING (8) E0-RANK-PROPAGATION          lower 0.10 h (upper 0.30 h)
+  REMAINING (8) LATE-BANKS                   lower 0.20 h (upper 0.60 h)
+  REMAINING (8) MATCHER-SHAPE                lower 0.20 h (upper 0.60 h)
+  REMAINING (8) BIBLIOGRAPHY-LINK            lower 0.30 h (upper 1.00 h)
+  REMAINING (8) CORRESPONDENCE-BEHIND-SCOPE  lower 1.50 h (upper 4.50 h)
+  REMAINING (9)(a)                           lower 0.20 h (upper 0.50 h)
+  REMAINING (9)(b)                           lower 0.50 h (upper 2.00 h)
+  REMAINING (9)(c)                           lower 0.20 h (upper 0.60 h)
+  REMAINING (9)(d)                           lower 0.05 h (upper 0.15 h)
+  REMAINING close                            lower 6.26 h (upper 9.96 h)
+  THE SUM AT THE LOWER FIGURES: 16.26 h against 24 h -> NOTHING CARRIED
+  WHAT THE CEILING LEAVES FOR (8), every other remaining row not carried at its lower figure: 10.04 h
+  (8) E0-RANK-PROPAGATION            upper 0.30 h against 10.04 h left -> BUILT WHERE IT FITS
+  (8) LATE-BANKS                     upper 0.60 h against 9.74 h left -> BUILT WHERE IT FITS
+  (8) MATCHER-SHAPE                  upper 0.60 h against 9.14 h left -> BUILT WHERE IT FITS
+  (8) BIBLIOGRAPHY-LINK              upper 1.00 h against 8.54 h left -> BUILT WHERE IT FITS
+  (8) CORRESPONDENCE-BEHIND-SCOPE    upper 4.50 h against 7.54 h left -> BUILT WHERE IT FITS
+  THE DISPATCHES (data/b764_dispatch_rows.json, absent: none sent): used 0 against the worklist`s MAX_DISPATCHES 3
+
+### ### **THE CEILING: READINGS 1 ; THE LAST AFTER COMPONENT 2 AT 2026-11-20T21:40:01Z, 16.26 h AT THE LOWER FIGURES AGAINST 24 h, NOTHING CARRIED ; BUILT WHERE IT FITS: E0-RANK-PROPAGATION, LATE-BANKS, MATCHER-SHAPE, BIBLIOGRAPHY-LINK, CORRESPONDENCE-BEHIND-SCOPE ; (7) TRIED WHERE THE CEILING LEAVES IT ; DISPATCHES 0 OF 3.**

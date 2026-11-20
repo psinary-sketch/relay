@@ -1,0 +1,79 @@
+{
+ "readings": [
+  {
+   "point": "c2",
+   "at": "2026-11-20T21:40:01Z",
+   "spent_h": 4.8,
+   "total_h": 16.26,
+   "carried": [],
+   "after_carry_h": 16.26,
+   "used": 0,
+   "cap": 3,
+   "dispatch_rows": false,
+   "left_for_8_h": 10.04,
+   "plan": [
+    {
+     "key": "(8) E0-RANK-PROPAGATION",
+     "word": "BUILT WHERE IT FITS",
+     "hi_h": 0.3,
+     "left_h": 10.04
+    },
+    {
+     "key": "(8) LATE-BANKS",
+     "word": "BUILT WHERE IT FITS",
+     "hi_h": 0.6,
+     "left_h": 9.74
+    },
+    {
+     "key": "(8) MATCHER-SHAPE",
+     "word": "BUILT WHERE IT FITS",
+     "hi_h": 0.6,
+     "left_h": 9.14
+    },
+    {
+     "key": "(8) BIBLIOGRAPHY-LINK",
+     "word": "BUILT WHERE IT FITS",
+     "hi_h": 1.0,
+     "left_h": 8.54
+    },
+    {
+     "key": "(8) CORRESPONDENCE-BEHIND-SCOPE",
+     "word": "BUILT WHERE IT FITS",
+     "hi_h": 4.5,
+     "left_h": 7.54
+    }
+   ],
+   "verdict": "BUILT WHERE IT FITS: E0-RANK-PROPAGATION, LATE-BANKS, MATCHER-SHAPE, BIBLIOGRAPHY-LINK, CORRESPONDENCE-BEHIND-SCOPE ; (7) TRIED WHERE THE CEILING LEAVES IT",
+   "lines": [
+    "## THE PRICE`S RATE BY THE KIND OF BUILD (tools/standing/dispatchrate.py, v1.38.13, (R374)(5) [K14]), the rows of `rows`: the table`s whole_min and closure_min",
+    "  a build of the kernel whole 67.7-103.9 min ; a module`s closure 7.3 min, its upper a whole build",
+    "  (7) reference+save             whole (its kind dispatch-whole) ; dispatches 2-2, waits 1-1 ; floor 1.13-1.73 h ; priced 1.13-1.73 h -> AT ITS KIND",
+    "  (7) restore                    closure (its kind dispatch-closure) ; dispatches 1-1, waits 1-1 ; floor 0.12-1.73 h ; priced 0.12-1.73 h -> AT ITS KIND",
+    "  dispatching rows read 2 ; BELOW ITS KIND 0",
+    "  SPENT from the delivery (2026-11-20T16:52:08Z, transcript line 213526) to this read: 4.80 h",
+    "  REMAINING (7) workflow                     lower 0.40 h (upper 1.00 h)",
+    "  REMAINING (7) reference+save               lower 1.13 h (upper 1.73 h)",
+    "  REMAINING (7) restore                      lower 0.12 h (upper 1.73 h)",
+    "  REMAINING (7) main                         lower 0.30 h (upper 0.50 h)",
+    "  REMAINING (8) E0-RANK-PROPAGATION          lower 0.10 h (upper 0.30 h)",
+    "  REMAINING (8) LATE-BANKS                   lower 0.20 h (upper 0.60 h)",
+    "  REMAINING (8) MATCHER-SHAPE                lower 0.20 h (upper 0.60 h)",
+    "  REMAINING (8) BIBLIOGRAPHY-LINK            lower 0.30 h (upper 1.00 h)",
+    "  REMAINING (8) CORRESPONDENCE-BEHIND-SCOPE  lower 1.50 h (upper 4.50 h)",
+    "  REMAINING (9)(a)                           lower 0.20 h (upper 0.50 h)",
+    "  REMAINING (9)(b)                           lower 0.50 h (upper 2.00 h)",
+    "  REMAINING (9)(c)                           lower 0.20 h (upper 0.60 h)",
+    "  REMAINING (9)(d)                           lower 0.05 h (upper 0.15 h)",
+    "  REMAINING close                            lower 6.26 h (upper 9.96 h)",
+    "  THE SUM AT THE LOWER FIGURES: 16.26 h against 24 h -> NOTHING CARRIED",
+    "  WHAT THE CEILING LEAVES FOR (8), every other remaining row not carried at its lower figure: 10.04 h",
+    "  (8) E0-RANK-PROPAGATION            upper 0.30 h against 10.04 h left -> BUILT WHERE IT FITS",
+    "  (8) LATE-BANKS                     upper 0.60 h against 9.74 h left -> BUILT WHERE IT FITS",
+    "  (8) MATCHER-SHAPE                  upper 0.60 h against 9.14 h left -> BUILT WHERE IT FITS",
+    "  (8) BIBLIOGRAPHY-LINK              upper 1.00 h against 8.54 h left -> BUILT WHERE IT FITS",
+    "  (8) CORRESPONDENCE-BEHIND-SCOPE    upper 4.50 h against 7.54 h left -> BUILT WHERE IT FITS",
+    "  THE DISPATCHES (data/b764_dispatch_rows.json, absent: none sent): used 0 against the worklist`s MAX_DISPATCHES 3"
+   ]
+  }
+ ]
+}
