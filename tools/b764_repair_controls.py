@@ -1349,8 +1349,69 @@ def control_k14(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K18] THE CLASSES REPEATING THREE ACTS RUNNING
+K18_PATHS = ('tools/standing/repeat.py', 'tools/acts/b764.py')
+K18_PROBE = r'''
+import json, os, re, sys
+snap, data = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools'))
+src = open(os.path.join(snap, 'tools', 'acts', 'b764.py'), encoding='utf-8').read().replace(chr(13), '')
+i = src.find(chr(10) + 'def _runs3(act=ACT):')
+j = src.find(chr(10) + 'def ', i + 10)
+code = src[i:j]
+def rdn(name, optional=False):
+    p = os.path.join(data, name)
+    return open(p, encoding='utf-8').read().replace(chr(13), '') if os.path.exists(p) else ''
+ns = dict(re=re, NL=chr(10), ACT='b764', rdn=rdn, __builtins__=__builtins__)
+exec(compile(code, 'b764_runs3', 'exec'), ns)
+out = dict(standing=os.path.exists(os.path.join(snap, 'tools', 'standing', 'repeat.py')) and 'def runs3(' in open(os.path.join(snap, 'tools', 'standing', 'repeat.py'), encoding='utf-8').read(),
+           calls=("fromlist=['runs3']" in code))
+for a in ('b763', 'b764'):
+    out[a] = [list(x) for x in ns['_runs3'](a)]
+print(json.dumps(out))
+'''
+
+
+def control_k18(before, after):
+    """[K18]: the reader of the classes repeating three acts running. Each revision's _runs3 (tools/acts/b764.py, its text cut from the
+    sections file and run over the record's banks as they stand), with tools/standing/repeat.py of that revision on the path, over b763's
+    banks (the record instance: OPEN_TRAILS :19027, "0 rows in 0 classes -- none", beside b763's seven defects tagged REPEAT) and over
+    b764's. FAULT: no class read at b763 and none at b764 (b764 (d), a tool's row tagged REPEAT b763 (k), whose b763 (k) is tagged REPEAT
+    b762 (f), unread). CLEAN: at b763 classes read, one among them a finding of b762 entered under b763's FINDINGS AFTER ITS LOCK head; at
+    b764 the class b762 (f) -> b763 (k) -> b764 (d), and b763's findings 2, 4, 6 and 12 after its lock (b764 events (14), (16), (18), (24))."""
+    L, res = [], {}
+    rep763 = sum(1 for l in open(os.path.join(D, 'b763_defects.txt'), encoding='utf-8').read().split(NL) if re.match(r"^    \([a-z]'*\) THE [A-Z]+'S \[(?:CLAIM|CLOSE) ; REPEAT", l))
+    L.append('  THE RECORD INSTANCE: OPEN_TRAILS :19027 (b763`s standing line): "0 rows in 0 classes -- none" ; b763`s defects tagged REPEAT %d '
+             '(data/b763_defects.txt) ; b763`s findings after its lock: twelve, entered as b764 events (13)-(24) and appended at b763 events (92)-(110)' % rep763)
+    want764 = ['b764 events (14)', 'b764 events (16)', 'b764 events (18)', 'b764 events (24)']
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k18_')
+        try:
+            got = snapshot(rev, K18_PATHS, tmp)
+            j = probe(K18_PROBE, tmp, D)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k18_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s): the files %s ; standing runs3 %s ; the act module`s _runs3 calls it %s' % (
+            name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), 'STANDS' if j['standing'] else 'ABSENT', j['calls']))
+        for a in ('b763', 'b764'):
+            L.append('    over %s`s banks: %d rows' % (a, len(j[a])))
+            L += ['      %s: %s' % (x[0], x[1]) for x in j[a]]
+        labs3, labs4 = [x[0] for x in j['b763']], dict((x[0], x[1]) for x in j['b764'])
+        fault = not j['b763'] and not j['b764']
+        clean = (j['standing'] and j['calls'] and any(l.startswith('b763 events (') and int(l[13:-1]) < 92 for l in labs3)
+                 and labs4.get('b764 (d)') == 'b762 (f) -> b763 (k) -> b764 (d)' and all(w in labs4 for w in want764))
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18)
 
 
 def main(argv):

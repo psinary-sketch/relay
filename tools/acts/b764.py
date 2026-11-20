@@ -2801,20 +2801,12 @@ def _repeats(act=ACT):
 
 
 def _runs3(act=ACT):
-    """v9 row (83): "a class that repeats in three acts running is the next act's opening component" -- each row of the act's defects bank
-    tagged REPEAT <the previous act> (<letter>) whose row in the previous act's defects bank is itself tagged REPEAT <the act before> (...):
-    a list of (this act's letter, 'b<n-2> (x) -> b<n-1> (y) -> b<n> (z)'). A REPEAT naming an older act, a class, or no letter, is not a run
-    of three."""
-    n = int(act[1:])
-    p1, p2 = 'b%d' % (n - 1), 'b%d' % (n - 2)
-    tag = re.compile(r"^    \(([a-z]'*)\) THE (?:SEAT|NAVIGATOR)'S \[(?:CLAIM|CLOSE) ; REPEAT (b\d+) \(([a-z]'*)\)\]")   # ### b754, defect (d''): any number of primes; the carried `'?` missed (a'') -> b753 (b) -> b752 (b)
-    prev = dict((m.group(1), m) for m in (tag.match(l) for l in rdn('%s_defects.txt' % p1).split(NL)) if m)
-    out = []
-    for l in rdn('%s_defects.txt' % act).split(NL):
-        m = tag.match(l)
-        if m and m.group(2) == p1 and m.group(3) in prev and prev[m.group(3)].group(2) == p2:
-            out.append((m.group(1), '%s (%s) -> %s (%s) -> %s (%s)' % (p2, prev[m.group(3)].group(3), p1, m.group(3), act, m.group(1))))
-    return out
+    """v9 row (83): "a class that repeats in three acts running is the next act's opening component". v1.38.14, (R374)(5) [K18]: read by
+    tools/standing/repeat.py runs3 -- the act's lettered rows and the findings after a lock (the previous act's, under the corrigendum's
+    FINDINGS AFTER ITS LOCK head, and the act's own after its lock), a row of any actor, each followed back through its tags: a list of
+    (the row's label, 'b<n-2> ... -> b<n-1> ... -> <label>'). The carried form read the defects bank alone, the seat's and the navigator's
+    rows alone, and read 0 rows in 0 classes at b763 (OPEN_TRAILS :19027)."""
+    return [(lab, ch) for lab, _own, ch in __import__('standing.repeat', fromlist=['runs3']).runs3(act, lambda n_: rdn(n_, optional=True) or '')]
 
 
 def _report10():
@@ -2872,9 +2864,10 @@ def _runs3_line():
     by = {}
     for l, c in r:
         by.setdefault(c.split(' -> ')[0], []).append(l)
-    return ('the classes repeating three acts running, by the tags (v9 row (83), each the next act’s opening component, printed for the '
-            'author beside the next act of %s): %d rows in %d classes -- %s' % (__import__('standing.cites', fromlist=['next_clause']).next_clause(rdn('%s_ferry.txt' % ACT)) or '(R374)(8)', len(r), len(by), '; '.join(
-                '%s as %s' % (k, ', '.join('(%s)' % x for x in v)) for k, v in sorted(by.items())) or 'none'))
+    return ('the classes repeating three acts running, by the tags of the lettered rows and of the findings after a lock (v9 row (83), each the '
+            'next act’s opening component, printed for the author beside the next act of %s): %d rows in %d classes -- %s' % (
+                __import__('standing.cites', fromlist=['next_clause']).next_clause(rdn('%s_ferry.txt' % ACT)) or '(R374)(8)', len(r), len(by), '; '.join(
+                    '%s as %s' % (k, ', '.join(v)) for k, v in sorted(by.items())) or 'none'))
 
 
 #⟪END⟫

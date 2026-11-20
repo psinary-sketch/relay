@@ -14,6 +14,7 @@ Written at b724 by the Write tool; each repair's control is tools/standing/v140.
   (vii) others_running(table, self_pid)  another suite part in the process table; refuse_concurrent_part(part) the guard
   (ix)  shifted_missing(src, dst, tools_dir)  a module or tool path the carry's substitution named that does not exist
   (x)   grade(ok, yes, no)               the grade sentence composed from the check's result
+  v1.38.14, (R374)(5) [K18]: runs3(act, read)  the classes repeating three acts running, the lettered rows and the findings after a lock
 """
 import json
 import os
@@ -441,3 +442,90 @@ def order_refusal(part, parts, banks_of, exists):
         return None
     return 'PART %s NOT RUN: ITS PREDECESSOR %s HAS NO BANK IN THIS MODE (%s) -- THE ORDER: %s ((R361)(3)(i))' % (
         part, pred, ' or '.join(names), ' -> '.join(parts))
+
+
+# ================================================================================ v1.38.14, (R374)(5) [K18]: THE CLASSES REPEATING THREE ACTS RUNNING
+# ### v9 row (83): "a class that repeats in three acts running is the next act's opening component". The act module's reader (_runs3, carried
+# ### to b763 from b754) read the act's defects bank alone, and only rows of the seat or the navigator; at b763 it read 0 rows in 0 classes
+# ### (OPEN_TRAILS :19027) beside seven defects tagged REPEAT and findings after the lock standing as at three acts. This reader takes, beside
+# ### the lettered rows, the findings after a lock: the act's events rows under a head "b<n>'S ... FINDINGS AFTER ITS LOCK" (the previous
+# ### act's, entered by the corrigendum), its events rows under a head "AFTER THE LOCK" and its post-seal events bank (its own); a row of any
+# ### actor; each followed back through its tags, "REPEAT b<n> (<letter>)" to that act's defects bank and "REPEAT b<n> events (<n>)" to its
+# ### events bank (or its post-seal bank), while the row cited carries a tag of its own. A class runs three acts where the acts so read hold
+# ### the row's own act and the two before it. THE LIMIT: a class whose earlier row was tagged NEW, or tagged by its words alone, ends there.
+RUNS_TAG = re.compile(r"^    \(([a-z]'*|\d+)\) THE [A-Z]+'S \[(?:CLAIM|CLOSE) ; (?:REPEAT (b\d{3})(?: (events))? \(([a-z]'*|\d+)\))?")
+RUNS_ROW = re.compile(r"^    \(([a-z]'*|\d+)\) ")
+RUNS_FINDINGS = re.compile(r"^(b\d{3})'S (?:[A-Z]+ )?FINDINGS AFTER ITS LOCK")
+RUNS_OWN_AFTER = re.compile(r"^AFTER THE LOCK")
+
+
+def _runs_cite(m):
+    return (m.group(2), 'e' if m.group(3) else 'd', m.group(4)) if m and m.group(2) else None
+
+
+def runs_subjects(act, read):
+    """[(the row's own act, its label, its cite or None)]: the act's lettered rows; its events rows under a FINDINGS AFTER ITS LOCK head (the
+    act that head names); its events rows under an AFTER THE LOCK head and its post-seal bank's rows (the act's own). `read(name)` returns a
+    bank of data/ by name, '' where absent."""
+    out = []
+    for l in (read('%s_defects.txt' % act) or '').split(NL):
+        m = RUNS_TAG.match(l)
+        if m:
+            out.append((act, '%s (%s)' % (act, m.group(1)), _runs_cite(m)))
+    sec, seen = None, False
+    for l in (read('%s_events.txt' % act) or '').split(NL):
+        if l and not l.startswith(' '):
+            h = RUNS_FINDINGS.match(l)
+            if h:
+                sec, seen = h.group(1), False
+            elif RUNS_OWN_AFTER.match(l):
+                sec, seen = act, False
+            elif seen:
+                sec = None
+            continue
+        m = RUNS_TAG.match(l)
+        if m and sec:
+            seen = True
+            out.append((sec, '%s events (%s)' % (act, m.group(1)), _runs_cite(m)))
+    for l in (read('%s_events_postseal.txt' % act) or '').split(NL):
+        m = RUNS_TAG.match(l)
+        if m:
+            out.append((act, '%s post-seal (%s)' % (act, m.group(1)), _runs_cite(m)))
+    return out
+
+
+def runs3(act, read, depth=24):
+    """[(label, own act, chain)]: each subject of runs_subjects whose class, read back through its tags, holds its own act and the two acts
+    before it; the chain from the earliest row read to the subject, 'b761 events (33) -> b762 events (22) -> ... -> <label>'."""
+    idx = {}
+
+    def index(a):
+        if a not in idx:
+            ix = {}
+            for kind, name in (('d', '%s_defects.txt' % a), ('e', '%s_events.txt' % a), ('p', '%s_events_postseal.txt' % a)):
+                for l in (read(name) or '').split(NL):
+                    m = RUNS_TAG.match(l)
+                    if m:
+                        ix[(kind, m.group(1))] = _runs_cite(m)
+                    elif RUNS_ROW.match(l):
+                        ix.setdefault((kind, RUNS_ROW.match(l).group(1)), None)
+            idx[a] = ix
+        return idx[a]
+
+    out = []
+    for own, label, cite in runs_subjects(act, read):
+        acts, path, seen, d = [own], [], set(), depth
+        while cite and d > 0 and cite not in seen:
+            seen.add(cite)
+            a, k, r = cite
+            ix = index(a)
+            key = (k, r) if (k, r) in ix else (('p', r) if k == 'e' and ('p', r) in ix else None)
+            if key is None:
+                break
+            path.append('%s %s(%s)' % (a, 'events ' if k == 'e' else '', r))
+            acts.append(a)
+            cite, d = ix[key], d - 1
+        n = int(own[1:])
+        if {'b%d' % n, 'b%d' % (n - 1), 'b%d' % (n - 2)} <= set(acts):
+            out.append((label, own, ' -> '.join(list(reversed(path)) + [label])))
+    return out
