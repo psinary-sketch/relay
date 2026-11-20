@@ -1,0 +1,38 @@
+{
+ "readings": [
+  {
+   "point": "c2",
+   "at": "2026-11-20T02:23:32Z",
+   "spent_h": 7.81,
+   "total_h": 34.76,
+   "carried": [
+    "(8) BESSEL-BOUND-TIGHTEN",
+    "(8) EXPLICIT-FORMULA-C1",
+    "(8) E2-SEPARATION"
+   ],
+   "after_carry_h": 23.55,
+   "used": 4,
+   "cap": 18,
+   "dispatch_rows": true,
+   "proof_left_h": 9.51,
+   "verdict": "NO PROOF SENT: [X2]",
+   "lines": [
+    "  SPENT from the delivery (2026-11-19T18:35:12Z, transcript line 191165) to this read: 7.81 h",
+    "  REMAINING (7) statements               lower 0.33 h (upper 0.33 h)",
+    "  REMAINING (7) B                        lower 5.53 h (upper 16.25 h)",
+    "  REMAINING (8) SQUARES-AT-24            lower 0.33 h (upper 0.65 h)",
+    "  REMAINING (8) IMP2-TAU                 lower 0.50 h (upper 1.50 h)",
+    "  REMAINING (8) KEIPER-FACE              lower 1.08 h (upper 3.25 h)",
+    "  REMAINING (8) WINDOW-CERTIFY           lower 1.62 h (upper 4.32 h)",
+    "  REMAINING (8) E2-SEPARATION            lower 2.27 h (upper 6.50 h)",
+    "  REMAINING (8) EXPLICIT-FORMULA-C1      lower 5.94 h (upper 7.72 h)",
+    "  REMAINING (8) BESSEL-BOUND-TIGHTEN     lower 3.00 h (upper 8.00 h)",
+    "  REMAINING (9)                          lower 0.09 h (upper 0.80 h)",
+    "  REMAINING close                        lower 6.26 h (upper 9.50 h)",
+    "  THE SUM AT THE LOWER FIGURES: 34.76 h against 24 h -> OVER: CARRIED IN (R373)(3)`S ORDER, (8) BESSEL-BOUND-TIGHTEN (3.00-8.00 h), (8) EXPLICIT-FORMULA-C1 (5.94-7.72 h), (8) E2-SEPARATION (2.27-6.50 h); 23.55 h after",
+    "  WHAT THE CEILING LEAVES FOR (7)`S PROOF, every other remaining summed row but (8) at its lower figure: 9.51 h ; FORM B`s upper 16.25 h DOES NOT FIT ; FORM A`s upper 21.58 h DOES NOT FIT -> NO PROOF SENT: [X2]",
+    "  THE DISPATCHES (data/b763_dispatch_rows.json): used 4 against the worklist`s MAX_DISPATCHES 18"
+   ]
+  }
+ ]
+}
