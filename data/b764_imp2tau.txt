@@ -1,0 +1,52 @@
+b764 -- (R374)(9)(b), W-ORD-IMP2-TAU: THE FINITE PART F OF THE TRANSCRIBED ARCHIMEDEAN INTEGRAL AT rho = 1, SCORED AGAINST THE REGISTRATION H-TAU-FINITE-PART (2026-11-20T22:26:30Z, tools/b764_imp2tau.py bank)
+
+### the registration: relay data/b764_registration.txt, committed alone at 6fd013e9 before this tool (sha256 07cc4cd405dc2c93), its HELD sentence with the author`s word of 2026-11-20 in place
+### the order: PLACE-papers OPEN_TRAILS.md at 7db9a66c, :3367 (sha256 2f77174afa94f85c), its transcription :3375 (sha256 7426b9756acdac67), its ask :3377 (sha256 b5625609ee382e78), read by path, line and digest; the transcription computed here is the relay`s data/b232_sign_of_A.txt :94-:96
+### T(eps) = - the integral over |rho - 1| > eps of f(rho^-1) tau(rho) d*rho, f(rho) = k(log rho), in u = log rho; F = lim T(eps) - f(1) ln eps by route 1 (the subtraction at rho = 1, G0 in closed form) and route 2 (b763`s truncation at 10^-7 and 10^-8); mpmath 1.3.0, controls at 30 digits, cells at 20; REACH 1.0e-7, STEP 1.0e-6
+### A at each cell from data/b40_2026-08-18.txt, the A field alone, its ball half its last printed digit; data/b36_2026-08-18.txt, data/b37_2026-08-18.txt, data/b38_2026-08-18.txt beside it at the six; the constant log 2 pi + gamma = 2.41509273131088
+
+## THE CONTROLS, BEFORE ANY CELL
+  (1) tau(rho) |1 - rho| at rho = 1 - 10^-12 and 1 + 10^-12, the pole even with residue 1/2 each side: ['0.5', '0.5'] -> AS WANTED
+  (2) tau against its own two branches, rho^(3/2)/(rho^2 - 1) above 1 and rho^(1/2)/(1 - rho^2) below, at four points: 1.97e-31 -> AS WANTED
+  (3) OFF (f(1) = 0, support away from rho = 1): T(eps) one value from 10^-1 to 10^-8: 0.0 -> AS WANTED
+  (4) TRI (f(1) = 1/2): the last decade`s step against -f(1) ln 10 = -1.1512925465: -1.151292479 -> AS WANTED
+  (5) TRI2 (f(1) = 1): its last step twice TRI`s: 2.0 -> AS WANTED
+  (6) ODD (TRI against 1/(1 - rho)): the principal value converges, its last step: -4.5e-8 -> AS WANTED
+  (7) tau(e^u) as (sech(u/2) + |csch(u/2)|)/4 against tau at four points: 2.21e-28 -> AS WANTED
+  (8) G0 in closed form against its quadrature 2 * integral over (0, 1) of (tau(e^u) - 1/(2u)) du: 0.459846326506325 ; 0.459846326506325 -> AS WANTED
+  (9) TRI: route 1`s F against route 2`s T(10^-8) - f(1) ln 10^-8, and against b763`s banked T(10^-8) (data/b763_imp2tau.txt :15): 0.7852619283464 ; 0.7852619208464 ; 0.7852619208465 -> AS WANTED
+  (10) OFF: route 1`s F (f(1) = 0) equals T at every eps, and b763`s banked -0.18102992952218 (:19): -0.181029929522175 ; -0.181029929522175 -> AS WANTED
+  (11) TRI2: route 1`s F twice TRI`s (F is linear in f): 2.0 -> AS WANTED
+  (12) [G1]`s control at k(u) = exp(-u^2): A by the digamma integral against the navigator`s -2.5251491414 to the digits printed: -2.525149141408 -> AS WANTED
+  (13) [G1]`s control: F by route 1 against the navigator`s -0.1100564101 to the digits printed, and route 2 at 10^-8 within REACH: -0.1100564100968 ; -0.1100564050968 -> AS WANTED
+  (14) [G1]`s control: F - (log 2 pi + gamma) f(1) against A by the digamma integral, the two agreeing, each -2.5251491414 to the digits printed: -2.525149141408 ; -2.525149141408 ; differ 0.0 -> AS WANTED
+  (15) the A reader: b40`s nine cells each read once (2 -1.990528 :15, 3 -1.908900 :21, 4 -1.786498 :27, 8 -1.525474 :33, 9 -1.488337 :39, 12 -1.405398 :45, 16 -1.332102 :51, 25 -1.233916 :57, 36 -1.164932 :63) ; b36`s, b37`s and b38`s rows equal to it at the six ; a planted last digit at a^2 = 2 read different: (9, True, False) -> AS WANTED
+  (16) the cell`s function at a^2 = 2: the bump`s total 1, its autocorrelation`s total 1 (the square of the first), k(0) = ||w||^2 = 1.9479753563: 1.0 ; 1.0 -> AS WANTED
+  (17) [G1] committed alone before this run (6fd013e9), its bytes at HEAD, sha256 07cc4cd405dc2c93: (True, True) -> AS WANTED
+
+## b763`S READINGS, T(eps) AND ITS STEP A DECADE, AT THE PLANTED FUNCTIONS
+  TRI: eps 1e-1 -0.44285915646434 ; eps 1e-2 -1.5248390379835 ; eps 1e-3 -2.6693658676413 ; eps 1e-4 -3.8199832592044 ; eps 1e-5 -4.9712083041543 ; eps 1e-6 -6.1224941006359 ; eps 1e-7 -7.2737859721327 ; eps 1e-8 -8.4250784511297
+  TRI, the step a decade: -1.08197988152 ; -1.14452682966 ; -1.15061739156 ; -1.15122504495 ; -1.15128579648 ; -1.1512918715 ; -1.151292479
+  TRI2: eps 1e-1 -0.88571831292867 ; eps 1e-2 -3.049678075967 ; eps 1e-3 -5.3387317352827 ; eps 1e-4 -7.6399665184088 ; eps 1e-5 -9.9424166083086 ; eps 1e-6 -12.244988201272 ; eps 1e-7 -14.547571944265 ; eps 1e-8 -16.850156902259
+  TRI2, the step a decade: -2.16395976304 ; -2.28905365932 ; -2.30123478313 ; -2.3024500899 ; -2.30257159296 ; -2.30258374299 ; -2.30258495799
+  OFF: eps 1e-1 -0.18102992952218 ; eps 1e-2 -0.18102992952218 ; eps 1e-3 -0.18102992952218 ; eps 1e-4 -0.18102992952218 ; eps 1e-5 -0.18102992952218 ; eps 1e-6 -0.18102992952218 ; eps 1e-7 -0.18102992952218 ; eps 1e-8 -0.18102992952218
+  ODD: eps 1e-1 -0.019596812117897 ; eps 1e-2 -0.057252703976031 ; eps 1e-3 -0.061678574429805 ; eps 1e-4 -0.062127832054238 ; eps 1e-5 -0.062172824629362 ; eps 1e-6 -0.062177324555113 ; eps 1e-7 -0.06217777455437 ; eps 1e-8 -0.062177819554363
+  ODD, the step a decade: -0.0376558918581 ; -0.00442587045377 ; -0.000449257624432 ; -4.49925751248e-5 ; -4.49992575012e-6 ; -4.499992575e-7 ; -4.4999992575e-8
+  GAUSS, k(u) = exp(-u^2): A by the digamma integral -2.52514914140767 ; F by route 1 -0.110056410096792 ; by route 2 at 10^-8 -0.110056405096792 ; F - (log 2 pi + gamma) f(1) -2.52514914140767
+
+## THE CELLS: a^2 | f(1) = k(0) | F by route 1 | by route 2 | the step 10^-7 -> 10^-8 against -f(1) ln 10 | reached | A (the bank) | F - (log 2 pi + gamma) f(1) | A less it | the ball | (A - F) / f(1)
+  2 | 1.9479753562997 | 2.7140134963867 | 2.71401350612656 | -4.48537910459 against -4.48537901694 | REACHED | -1.990528 | -1.99052762738544 | -3.726e-07 | 5.097e-07 | -2.415092923
+  3 | 1.22903561151344 | 1.05933464274045 | 1.05933464888562 | -2.82995913314 against -2.82995907783 | REACHED | -1.908900 | -1.90890032914789 | +3.291e-07 | 5.061e-07 | -2.415092464
+  4 | 0.973987678149852 | 0.565772707556591 | 0.56577271242652 | -2.2426895523 against -2.24268950847 | REACHED | -1.786498 | -1.78649785432948 | -1.457e-07 | 5.049e-07 | -2.415092881
+  8 | 0.649325118766568 | 0.0427060297448231 | 0.0427060329914424 | -1.4951263682 against -1.49512633898 | REACHED | -1.525474 | -1.52547434484589 | +3.448e-07 | 5.032e-07 | -2.4150922
+  9 | 0.614517805756722 | -0.00421951537898851 | -0.00421951230640539 | -1.41497956657 against -1.41497953891 | REACHED | -1.488337 | -1.48833700132316 | +1.323e-09 | 5.031e-07 | -2.415092729
+  12 | 0.543373983942049 | -0.0930994839257944 | -0.0930994812089297 | -1.2511648598 against -1.25116483535 | REACHED | -1.405398 | -1.40539804292767 | +4.293e-08 | 5.027e-07 | -2.415092652
+  16 | 0.486993839074926 | -0.155966359973284 | -0.15596635753832 | -1.12134477615 against -1.12134475423 | REACHED | -1.332102 | -1.33210164091632 | -3.591e-07 | 5.024e-07 | -2.415093469
+  25 | 0.419473660831474 | -0.220848281988936 | -0.220848279891572 | -0.965873817211 against -0.965873798334 | REACHED | -1.233916 | -1.23391607123939 | +7.124e-08 | 5.021e-07 | -2.415092561
+  36 | 0.376789867504124 | -0.254949356441568 | -0.254949354557622 | -0.867590749062 against -0.867590732106 | REACHED | -1.164932 | -1.16493182668237 | -1.733e-07 | 5.019e-07 | -2.415093191
+
+## THE SCORE OF H-TAU-FINITE-PART
+  HELD
+  THE SENTENCE: At 9 cells the kernel's archimedean term equals F - (log 2 pi + gamma) f(1) to 6 digits, F the finite part at rho = 1 of the integral as OPEN_TRAILS :3375 transcribes it. That integral's finite part is therefore A + (log 2 pi + gamma) f(1), and -A is (log 4 pi + gamma) f(1) plus the integral with the classical subtraction. This agrees with FINDINGS :3113, where the corpus's A is the source's W_infinity; b232's verdict wInf = -A (relay data/b232_sign_of_A.txt :9) is read beside the two at the next act that leans on it
+  THE READING AT EACH CELL, HELD OR NOT ([G1]): (A - F) / f(1) against -(log 2 pi + gamma) = -2.415092731
+### ### **H-TAU-FINITE-PART: HELD ; CELLS 9 TO 6 DIGITS ; CONTROLS 17 OF 17 ; 310 s.**
