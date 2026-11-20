@@ -84,7 +84,8 @@ def wrap(reader, key, log):
         t0 = time.time()
         refs = reader(path)
         dt = round(time.time() - t0, 2)
-        log[path] = dict(reads=1, secs=dt, cached=False, at=_utc())
+        log[path] = dict(reads=1, secs=dt, cached=False, at=_utc(),
+                         empty=not any(k.startswith('refs/heads/') for k in (refs or {})))   # ### v1.38.5, (R374)(5) [K16]: an answer with no branch, not cached
         att = (getattr(reader, 'attempts', None) or {}).get(path)   # ### v1.26.0, (R356)(3)(v): a retried read's two timings
         if att:
             log[path]['attempts'] = list(att)

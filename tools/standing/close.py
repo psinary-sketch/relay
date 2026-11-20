@@ -39,7 +39,8 @@ ARM_ROW = re.compile(r'^  (G-[\w-]+)\s+(PASS|FAIL)\s+(PASS|FAIL)\s+(PASS|FAIL|VA
 FIG_LINE = re.compile(r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE FAILING : (\d+) ?(\[[^\]]*\])?\.'
                       r'(?: ### WITHHELD, NOT EXERCISABLE : (\d+) ?(\[[^\]]*\])?\.)?')
 CTL_LINE = re.compile(r'NEGATIVE-CONTROL FAILURES : (\d+)\. ### POSITIVE-CONTROL PASSES : (\d+) ?(\[[^\]]*\])?\.')
-VERDICT_LINE = re.compile(r'VERDICT : ([^*;]+?)(?: ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: ([^*]+))?\*\*')
+VERDICT_LINE = re.compile(r'VERDICT : ([^*;]+?)(?: ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: ([^*;]+))?'
+                          r'(?: ; PARTS NOT READ, COUNTED APART FROM A PASS: (\d+))?\*\*')   # ### v1.38.5, (R374)(5) [K16]: the parts not read, counted apart
 
 NegShown = collections.namedtuple('NegShown', 'shown bad withheld vacuous held', defaults=((), ()))   # ### v1.38.1, (R374)(5) [K1]: held, [(arm, constants)]
 

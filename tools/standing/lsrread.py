@@ -18,6 +18,17 @@ the run cache's log (remotecache.wrap) -- and the part's verdict read from the c
                                                                         NONE (v1.27.0) over zero repositories: VACUOUS, never FAIL
   ok(lsr, times) -> bool                                                the arm's predicate: True on PASS and on CACHED (not a failure); the
                                                                         suite reads CACHED as VACUOUS and counts it as no pass
+
+v1.38.5, (R374)(5) [K16], b763 finding 9 (data/b764_events.txt (21)), b763 events (27), b762's finding 14: THE PART THAT READS NOTHING. At b763 the
+parts standing-c, b2b, b2c, b2d and b3 took every remote read from the run cache (CACHED) and standing-b1 read none (NONE), and each passed as a
+part, its count arm alone VACUOUS; post-push standing-b2a's two reads answered no branch, so b624 to b627 read UNREAD, and the read was classed
+READ until the part was run alone. Here a call answering no refs/heads/ is classed
+  EMPTY    one call, the answer holding no branch (the run cache's log: empty), never cached
+and part_read() gives the part's own verdict beside its arms: NOT READ where every repository came from the run cache (CACHED), none was read
+(NONE), a remote answered nothing (EMPTY), or every arm the part ran printed VACUOUS; READ otherwise. The suite prints it for each part and
+banks it with the part's remote reads; the combine counts the parts NOT READ apart from a pass.
+
+  part_read(classed, events, ex, withheld) -> ('READ' | 'NOT READ', why)
 """
 
 
@@ -28,6 +39,8 @@ def classify(lsr, times):
         n, t = lsr.get(p, 0), times.get(p) or {}
         if n == 0 and t.get('cached'):
             out[p] = ('CACHED', 'from the run cache at %s' % t.get('at'))
+        elif n == 1 and t.get('empty'):   # ### v1.38.5, [K16]: the remote answered no branch
+            out[p] = ('EMPTY', 'one call, no refs/heads/ in the answer, %.2f s' % t.get('secs', 0.0))
         elif n == 1:
             out[p] = ('READ', '%.2f s' % t.get('secs', 0.0) if t else 'one call')
         elif n == 2 and t.get('reads') == 1 and not t.get('cached'):
@@ -50,6 +63,8 @@ def verdict(lsr, times):
     ev = ['RETRIED %s: %s (an event)' % (p, d) for p, (k, d) in sorted(c.items()) if k == 'RETRIED']
     if any(k == 'OVER' for k, _d in c.values()):
         return 'FAIL', ev + ['OVER %s: %s' % (p, d) for p, (k, d) in sorted(c.items()) if k == 'OVER']
+    if any(k == 'EMPTY' for k, _d in c.values()):   # ### v1.38.5, [K16]
+        return 'EMPTY', ev + ['EMPTY %s: %s' % (p, d) for p, (k, d) in sorted(c.items()) if k == 'EMPTY']
     if all(k == 'CACHED' for k, _d in c.values()):
         return 'CACHED', ev + ['CACHED: every one of %d repositories read from the run cache, no ls-remote call -- VACUOUS, NO PASS' % len(c)]
     return 'PASS', ev
@@ -57,3 +72,19 @@ def verdict(lsr, times):
 
 def ok(lsr, times):
     return verdict(lsr, times)[0] != 'FAIL'
+
+
+def part_read(classed, events=(), ex=None, withheld=()):
+    """v1.38.5, (R374)(5) [K16]: the part's own verdict: NOT READ, with its reason, where its remote reads are CACHED, NONE or EMPTY, or where
+    every arm it ran (ex: {arm: its row}, withheld and held arms set aside) printed VACUOUS; READ otherwise. A failure is a reading."""
+    why = []
+    if classed == 'CACHED':
+        why.append('CACHED: every remote read from the run cache, none by the part')
+    elif classed == 'NONE':
+        why.append('NONE: no repository read by the part')
+    elif classed == 'EMPTY':
+        why.append('EMPTY: %s' % '; '.join(e for e in (events or ()) if e.startswith('EMPTY ')) or 'a remote answered no branch')
+    run = [n for n, e in (ex or {}).items() if n not in (withheld or ()) and not e.get('held')]
+    if run and all((ex[n] or {}).get('vacuous') for n in run):
+        why.append('every arm run VACUOUS (%d)' % len(run))
+    return ('NOT READ', ' ; '.join(why)) if why else ('READ', '')

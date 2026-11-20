@@ -519,7 +519,85 @@ def control_k15(before, after):
     return L, ok
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15)
+# ================================================================================ [K16] THE PARTS THAT PASS BY READING NOTHING
+K16_PATHS = ('tools/standing/remotecache.py', 'tools/standing/lsrread.py', 'tools/standing/fold/checks.tpl', 'tools/standing/close.py')
+K16_PROBE = r'''
+import ast, json, os, re, sys
+snap, inst = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import remotecache as RC
+import lsrread as L
+rd = lambda p: open(p, encoding='utf-8').read()
+parts = json.load(open(os.path.join(inst, 'parts.json'), encoding='utf-8'))
+pr = getattr(L, 'part_read', None)
+verdicts = dict((p, (pr(c, ev)[0] if pr else ('PASS AS A PART' if c != 'FAIL' else 'FAIL'))) for p, c, ev in parts)
+log = {}
+w = RC.wrap(lambda p: {}, 'b764-k16-control-standin-no-cache', log)
+w('X:/a-remote-answering-nothing')
+cl = L.classify({'X:/a-remote-answering-nothing': 1}, log)['X:/a-remote-answering-nothing'][0]
+vd = L.verdict({'X:/a-remote-answering-nothing': 1}, log)
+empty_part = pr(vd[0], vd[1])[0] if pr else ('PASS AS A PART' if vd[0] != 'FAIL' else 'FAIL')
+chk = rd(os.path.join(snap, 'tools', 'standing', 'fold', 'checks.tpl'))
+suite = 'LSRD.part_read(lsv[0], lsv[1], EX, W)' in chk and 'part_read=PRD[0]' in chk and 'PARTS NOT READ %d, COUNTED APART FROM A PASS' in chk
+src = rd(os.path.join(snap, 'tools', 'standing', 'close.py'))
+node = [n for n in ast.parse(src).body if isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'VERDICT_LINE'][0]
+ns = dict(re=re)
+exec(compile(ast.Module(body=[node], type_ignores=[]), 'close_VERDICT_LINE', 'exec'), ns)
+m = ns['VERDICT_LINE'].search('  ### ### **VERDICT : ALL ARMS PASS AND EVERY CONTROL BEHAVES ; PARTS NOT READ, COUNTED APART FROM A PASS: 6**')
+print(json.dumps(dict(verdicts=verdicts, empty=[cl, vd[0], empty_part], suite=suite, reader=bool(m) and m.group(1).strip() == 'ALL ARMS PASS AND EVERY CONTROL BEHAVES')))
+'''
+
+
+def control_k16(before, after):
+    """[K16]: b763's own parts by their banked remote reads (data/b763_lsr_prerun_<part>.json, the pre-run's ten parts, each class as banked:
+    standing-c, b2b, b2c, b2d and b3 CACHED, standing-b1 NONE), each given its part's verdict by the revision's reader; a stand-in remote
+    answering no branch read through the revision's run cache and its classes (post-push standing-b2a's case, events (21)); the suite's part
+    runner and combine, and the verdict reader of close.py, read at the revision. FAULT: a part reading nothing passes as a part (no part
+    verdict), or the empty answer is classed READ. CLEAN: the six parts reading nothing NOT READ and the four reading READ, the empty answer
+    EMPTY and its part NOT READ, the suite printing and banking each part's verdict and counting NOT READ apart from a pass, and the verdict
+    line with that count read back."""
+    L, res = [], {}
+    parts = []
+    for p in ('act', 'standing-a1', 'standing-a2', 'standing-b1', 'standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d', 'standing-b3', 'standing-c'):
+        j = json.load(open(os.path.join(D, 'b763_lsr_prerun_%s.json' % p), encoding='utf-8'))
+        parts.append((p, j.get('classed'), j.get('events') or []))
+    want_nr = sorted(p for p, c, _e in parts if c in ('CACHED', 'NONE'))
+    L.append('  THE RECORD INSTANCE: b763`s pre-run parts by their banked classes (data/b763_lsr_prerun_<part>.json): %s' % ', '.join('%s %s' % (p, c) for p, c, _e in parts))
+    inst = tempfile.mkdtemp(prefix='b764k16i_')
+    try:
+        with open(os.path.join(inst, 'parts.json'), 'w', encoding='utf-8', newline='\n') as fh:
+            json.dump(parts, fh)
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b764k16_')
+            try:
+                got = snapshot(rev, K16_PATHS, tmp)
+                j = probe(K16_PROBE, tmp, inst)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k16_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            nr = sorted(p for p, v in j['verdicts'].items() if v == 'NOT READ')
+            rd_ = sorted(p for p, v in j['verdicts'].items() if v == 'READ')
+            fault = any(j['verdicts'][p] != 'NOT READ' for p in want_nr) or j['empty'][0] != 'EMPTY'
+            clean = nr == want_nr and len(rd_) == len(parts) - len(want_nr) and j['empty'] == ['EMPTY', 'EMPTY', 'NOT READ'] and j['suite'] and j['reader']
+            L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+                  '    the parts` own verdicts: NOT READ %s ; READ %d ; others %s' % (nr or 'NONE', len(rd_),
+                                                                                   sorted('%s %s' % (p, v) for p, v in j['verdicts'].items() if v not in ('READ', 'NOT READ')) or 'NONE'),
+                  '    a remote answering no branch: classed %s, the part`s reads %s, the part %s' % tuple(j['empty']),
+                  '    the suite prints and banks each part`s verdict and the combine counts NOT READ apart from a pass: %s ; the verdict line with the count read back: %s' % (
+                      j['suite'], j['reader']),
+                  '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    finally:
+        if os.path.isabs(inst) and os.path.basename(inst).startswith('b764k16i_'):
+            shutil.rmtree(inst, ignore_errors=True)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16)
 
 
 def main(argv):

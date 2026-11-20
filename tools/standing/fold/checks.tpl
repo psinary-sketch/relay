@@ -2088,6 +2088,15 @@ def combine():
         heads.append(t.split(NL)[1] if len(t.split(NL)) > 1 else '')
     n, lp, lf, ng, pc, fails, defs, wh = _combine_tally(parts, withheld_field())
     deq = all(m.group(9) == 'True' for _p, m, _t in parts)
+    nread = []   # ### v1.38.5, (R374)(5) [K16]: each part's own verdict from its remote-reads bank; NOT READ counted apart from a pass
+    for p_, _m, _t in parts:
+        lj_ = jl(_part_name(base, p_).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json')) or {}
+        pr_ = ('NOT READ', 'read from a bank under the cadence') if lj_.get('cadence') else \
+            ((lj_['part_read'], lj_.get('part_read_why') or '') if lj_.get('part_read') else LSRD.part_read(lj_.get('classed'), lj_.get('events') or ()))
+        if pr_[0] == 'NOT READ':
+            nread.append('%s (%s)' % (p_, pr_[1]))
+    nread_line = '  ### ### **v1.38.5, (R374)(5) [K16]: PARTS READ %d ; PARTS NOT READ %d, COUNTED APART FROM A PASS%s.**' % (
+        len(parts) - len(nread), len(nread), (': ' + '; '.join(nread)) if nread else '')
     carried = [f for f in fails if f in CARRIED_FAILING]
     ok = lf == len(carried) and pc == 0 and ng == 0 and deq
     out = ['=' * 104, heads[0].replace('PART %s ' % KS.PARTS[0], '%d PARTS SUMMED ' % len(KS.PARTS)), '=' * 104] + [
@@ -2099,10 +2108,11 @@ def combine():
             list(CARRIED_FAILING) or 'NONE', carried or 'NONE', [f for f in fails if f not in CARRIED_FAILING] or 'NONE'),
         '  ### ### **ARMS RUN : %d. ### LIVE PASSING : %d. ### LIVE FAILING : %d %s. ### WITHHELD, NOT EXERCISABLE : %d %s.**' % (
             n, lp, lf, fails or '', len(wh), wh or ''),
-        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''), STC.vacuous_line(parts),
-        '  ### ### **VERDICT : %s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
-                                         'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
-                                         ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else ''),
+        '  ### ### **NEGATIVE-CONTROL FAILURES : %d. ### POSITIVE-CONTROL PASSES : %d %s.**' % (ng, pc, defs or ''), STC.vacuous_line(parts), nread_line,
+        '  ### ### **VERDICT : %s%s%s**' % ('ALL ARMS PASS AND EVERY CONTROL BEHAVES' if (ok and not fails) else
+                                           'EVERY ARM PASSES BUT THE CARRIED FAILURE DECLARED ON THE FACE, AND EVERY CONTROL BEHAVES' if ok else 'NOT CLEAN',
+                                           ' ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: %s' % ', '.join(wh) if wh else '',
+                                           ' ; PARTS NOT READ, COUNTED APART FROM A PASS: %d' % len(nread) if nread else ''),
         '=' * 104, '']
     for p, _m, t in parts:
         out += ['### THE PART BANK %s, WHOLE:' % _part_name(base, p)] + t.rstrip(NL).split(NL) + ['']
@@ -2366,6 +2376,8 @@ def main():
         RC_KEY, rcs[0], rcs[1], rcs[2], rcs[3], rcs[4][0], rcs[4][1]))
     lsv = LSRD.verdict(lsr, RC_LOG)   # ### v1.26.0, (⟪RUL⟫)(3)(v)
     rec('  ### v1.26.0, (R356)(3)(v): THE REMOTE READS CLASSED: %s ; %s' % (lsv[0], ' ; '.join(lsv[1]) or 'no retry'))
+    PRD = LSRD.part_read(lsv[0], lsv[1], EX, W)   # ### v1.38.5, (R374)(5) [K16]: the part's own verdict, counted apart from a pass where NOT READ
+    rec('  ### v1.38.5, (R374)(5) [K16]: THE PART %s %s%s' % (PART, PRD[0], (' -- %s ; COUNTED APART FROM A PASS' % PRD[1]) if PRD[0] == 'NOT READ' else ''))
     if regen:
         rec('  ### ### **(R107): THE GENERATOR WAS RE-RUN BY THIS SUITE.** ### exit %d.' % rc_gen)
         rec('  ###   rows added %d ; rows gone %d ; grade-or-profile changed %d %s' % (len(gen_diff.get('added') or []), len(gen_diff.get('gone') or []),
@@ -2387,7 +2399,7 @@ def main():
     rec('=' * 104)
     out = _write(_part_name(base, PART), L)
     lp = os.path.join(D, _part_name(base, PART).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json'))
-    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG, classed=lsv[0], events=lsv[1]), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG, classed=lsv[0], events=lsv[1], part_read=PRD[0], part_read_why=PRD[1]), indent=1, ensure_ascii=False) + NL).encode('utf-8')
     _membrane(lp)
     with open(lp + '.tmp', 'wb') as fh:
         fh.write(lb)
