@@ -300,3 +300,32 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      this act the close does not print it as a finding"
      THE READ: no tool of the close prints it (tools/standing/, its templates and tools/acts/b764.py read for the words, none found); the
      finding was the seat's own line in b763's closing message, and from this act the seat's closing message does not list it.
+
+    [K4] CLASS ONE, WHAT AN ACT INHERITS BY COPY ; EVIDENCE: (R374)(5) [K4] (data/b764_ferry.txt :18); the worklist's C2_RELAY_ALL
+     ("Component 2's relay commits in order, set as each is made", tools/b764_worklist.py :470 at 5eecbb4a) and C3_RELAY ("Component 3
+     ((R374)(7), the runner): set as made", :692), each empty, each named in tools/standing/carry.py's STAGE_ONE (:439-:444, the two at :443 and :444), the carry's
+     stage one, which empties them; in b764's record render (fold.render, 5,779 lines) C2_RELAY_ALL read nowhere and C3_RELAY read at :4327
+     in _finding_text_b763 and :4500 in _trail_text_b763, defs nothing calls, which hold record.tpl's retained b72x bodies after SLOT 34
+     (:2664-:2750) and SLOT 35 (:2767-:2824) (scratch k4live764.py and k4mark764.py, read-only) ; STATE: REMOVED ; VERSION: v1.38.17, relay
+     cee11f73 (tools/b764_worklist.py: the two constants taken out, C1_STANDING's comment pointed at data/b764_steps.json, C2_RELAY's comment
+     naming the removal; tools/standing/carry.py: the two names taken out of STAGE_ONE, a comment of three lines; tools/acts/b764.py: the two
+     retained def heads cut, two MARK overrides (df786768d1d9 87, 44716f1971b1 58) taking record.tpl's two bodies out of b764's render, b754's
+     override of :2665-:2667, which patched the first body, removed with it, and the DEAD line cut from 16 names to the 6 the render still
+     reads; record.tpl itself unedited) ; THE CONTROL: data/b764_repair_controls.txt :407-:418 (before: the two in the worklist, empty, in
+     STAGE_ONE, C3_RELAY read twice in defs called 0 times; after: neither in the worklist nor in STAGE_ONE, the render 5,628 lines compiling
+     and reading neither, nothing refused by the fold's name reader; planted, the retained blocks put back, the render refused on C3_RELAY and
+     ten names no longer declared DEAD, so the constants could not go without the blocks) ; PRICE: 0.33-1.24 h, lines 40-120 removed ; TOOK:
+     0.25 h (21:08:17Z-21:23:06Z, a summary within it, and one refusal by the one-call tool, the phase written without its space, 21:22:22Z,
+     nothing committed); removed: 2 constants of the worklist, 2 names of STAGE_ONE and 151 lines of b764's record render
+     "[K4] removed at v1.38.17: the worklist's C2_RELAY_ALL and C3_RELAY, left empty by the carry under "set as each is made", taken out of the
+     worklist and of the carry's stage one, with record.tpl's two retained bodies after its slots 34 and 35, which held C3_RELAY's reads, taken
+     out of b764's render; no arm or route in force reads it (each of b764's seven renders compiles and reads neither name, the fold's name
+     reader refusing none, data/b764_repair_controls.txt :418)"
+     THE LISTING ((5) [K4], "listed and removed"), the worklist at cee11f73: under the words "set as each is made" or "set as made", the two
+     above, left empty by the carry and read by no live arm, removed; KERNEL_COMMITS (:624-:625's comment) and ORDER_BRANCHES (:640) under the
+     words but carried full, b763's values with their branch names shifted (defect (f)), N5 reading the first, not removed and set at
+     Component 3. Beside them, not under the words and not removed: the stage one's other constants that stand empty with no read in b764's
+     renders, C1_DEFECTS (:658, "the defects bank's commits"), SITTING_ITEMS (:685, none at b764 by (R374)) and C4_LINE (:723, Component 5's
+     INTEGRATION line, to set).
+     THE REPAIR'S LIMIT: record.tpl keeps the two bodies, unedited, for the earlier acts' renders that read them; b764's render takes them out
+     by its sections' overrides, and the act after carries those overrides with the act module.
