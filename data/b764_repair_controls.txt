@@ -18,3 +18,20 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     the record instance, b763`s [21] commit d784c1da (data/b763_events.txt) against its lock 88e06e13: read as an edit ['data/b763_events.txt']
     AFTER: CLEAN
 ### ### **[K10] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K1] THE PLANTED CONTROL (2026-11-20T18:26:10Z): BEFORE relay c04a71d1, THE REPAIR`S COMMIT relay 77b7aefa, its first parent c04a71d1 -- THE COMMIT BEFORE
+  BEFORE (relay c04a71d1): the files tools/standing/toset.py ABSENT, tools/standing/fold/checks.tpl present, tools/standing/close.py present
+    a reader telling a constant still to set from one left empty (tools/standing/toset.py): False
+    the part runner holds an arm naming a constant still to set before its arm loop (checks.tpl): False
+    the combine counts a held row among the withheld (close.py combine_tally): False ; the seal reads it HELD (close.py neg_shown): False
+    the planted instance, b764`s worklist at c04a71d1 with CORR_LINE planted empty, G-DIFFERS-ERRATA`s predicate from tools/acts/b764.py: NOT READ -- no reader: the arm runs on CORR_LINE None, nothing printed, WEIGHT_LINE and CORR_LINE on one line told apart by nothing
+    the record instance, b763`s worklist :445 and act module at 6dc04ffb^: NOT READ -- no reader: its probe ran the arm on CORR_LINE None (06:23:04Z) and the failure read like any other
+    BEFORE: THE FAULT READ
+  AFTER (relay 77b7aefa): the files tools/standing/toset.py present, tools/standing/fold/checks.tpl present, tools/standing/close.py present
+    a reader telling a constant still to set from one left empty (tools/standing/toset.py): True
+    the part runner holds an arm naming a constant still to set before its arm loop (checks.tpl): True
+    the combine counts a held row among the withheld (close.py combine_tally): True ; the seal reads it HELD (close.py neg_shown): True
+    the planted instance, b764`s worklist at 77b7aefa with CORR_LINE planted empty, G-DIFFERS-ERRATA`s predicate from tools/acts/b764.py: constants still to set it names ['CORR_LINE', 'ERRATA_LINE'] ; CORR_LINE ['TO SET', "### FINDINGS: the corrigendum for b763 (Component 1), set when written -- PLANTED by the control: b764's value as it sto"] ; WEIGHT_LINE ['EMPTY', '(R374)(1)']
+    the record instance, b763`s worklist :445 and act module at 6dc04ffb^: constants still to set the arm names ['CORR_LINE', 'DIFFERS_LINE', 'ERRATA_LINE', 'WEIGHT_LINE'] ; CORR_LINE ['TO SET', "### FINDINGS: b762's weight line and the corrigendum for b762 (Component 1)"]
+    AFTER: CLEAN
+### ### **[K1] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**

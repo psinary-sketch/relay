@@ -1,8 +1,9 @@
 b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (2026-11-20)
 
 ### each row: the key, its class, its evidence by bank and line, its state (REPAIRED, READ AS DESIGNED, REMOVED for [K4] and [K13] alone, or
-### CARRIED), the version or the tool's commit, the control's bank and line, its price (data/b764_price.txt) and what it took (from the commit
-### before the repair to the control's reading); then the state's sentence of (5) with its fields filled, as the FINDINGS entry and the trail
+### CARRIED), the version or the tool's commit, the control's bank and line, its price (data/b764_price.txt) and what it took (from the end of
+### the key before -- its last reading, or Component 1's last commit for the first -- to the control's reading, a summary of the session
+### within it named); then the state's sentence of (5) with its fields filled, as the FINDINGS entry and the trail
 ### take it. A repair under tools/standing/ moves VERSION by its own commit, the standing dry beside it; a repair inside an act's own tool is
 ### shown by the same control with no VERSION moved. The controls: tools/b764_repair_controls.py, each revision probed apart, banked in
 ### data/b764_repair_controls.txt.
@@ -16,3 +17,16 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      lock by design, data/<act>_events_postseal.txt, appended by tools/standing/append.py's new events kind and by no hand, and the closing
      message; N4's sentence reads that bank as the one step [21] names; its planted control read the fault before and reads clean after
      (data/b764_repair_controls.txt :20)"
+
+    [K1] CLASS ONE, WHAT AN ACT INHERITS BY COPY ; EVIDENCE: data/b763_events.txt :723-:729 (G-DIFFERS-ERRATA failed at the act probe on
+     CORR_LINE left None by the carry, tools/b763_worklist.py :445 at 6dc04ffb^), data/b763_defects.txt (g), (R372)(11), b761 (a), (b), (l);
+     the same line again at b764 (tools/b764_worklist.py :464 at 8720475f: CORR_LINE None after the corrigendum stood at FINDINGS :15865,
+     one comment naming (R374)(1) for WEIGHT_LINE beside it) ; STATE: REPAIRED ; VERSION: v1.38.1, relay 77b7aefa (tools/standing/toset.py
+     new; tools/standing/fold/checks.tpl's part runner; tools/standing/close.py combine_tally and neg_shown; the worklist's CORR_LINE set to
+     15865, WEIGHT_LINE and DIFFERS_LINE marked LEFT EMPTY BY their clauses) ; THE CONTROL: data/b764_repair_controls.txt :22-:37 ; PRICE:
+     0.33-1.24 h ; TOOK: 0.22 h (18:13:08Z-18:26:10Z, the summary of 18:16:45Z and its restatement within it)
+     "[K1] repaired at v1.38.1: a constant of the act's worklist bound empty is read as left empty only where its comment names it LEFT EMPTY
+     BY a ruling's clause, and as still to set otherwise, by tools/standing/toset.py from the worklist's text; before its arms each part, in
+     every mode but the run on the previous act's banks, prints every arm that names a constant still to set with the constants and does not
+     run it, its row WITHHELD, NOT RUN, counted neither passing nor failing, the combine counting it withheld and the seal reading it HELD;
+     its planted control read the fault before and reads clean after (data/b764_repair_controls.txt :37)"
