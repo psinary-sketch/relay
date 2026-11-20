@@ -515,7 +515,8 @@ GENS = (('the ceiling', 'tools/b763_ceiling.py', ('0826dbaf', '700efb97'), 'data
         ('the pre-send bank of KEIPER-FACE', 'tools/b763_presend.py', ('456f6547', 'c83f76d4', '508c1bb0', 'be45c496', '49773e96', 'f24bbcb4', '7eeb89d3',
                                                                        'e47fa937', '33ccc430'), 'data/b763_presend_skp.txt', 'bdccf9a1'),
         ('the author`s rulings of (9)', 'tools/b763_rulings.py', ('922ecaa9',), 'data/b763_author_rulings.txt', '2afcea71'),
-        ('the IMP2-TAU reading of (8)', 'tools/b763_imp2tau.py', ('095e5198',), 'data/b763_imp2tau.txt', '5fa0c996'))
+        ('the IMP2-TAU reading of (8)', 'tools/b763_imp2tau.py', ('095e5198',), 'data/b763_imp2tau.txt', '5fa0c996'),
+        ('the recut inputs of (10)', 'tools/b763_recut.py', ('3c15f127', '07a56968'), 'data/b763_recut_inputs.txt', '9779a81f'))
 GENS_B762 = ()   # ### b762's five stand in git at tools/b762_worklist.py
 GENS_B760 = ()   # ### b760's nine stand in git at tools/b760_worklist.py
 GENS_B759 = ()   # ### b759's thirteen stand in git at tools/b759_worklist.py
@@ -548,7 +549,8 @@ CHAIN = (('ceiling_gen', '0826dbaf'), ('ceiling_fix', '700efb97'), ('c1', '17b27
          ('reproduce', '9c9effb3'), ('module1', 'b9ed79b5'), ('events_59', '21905870'), ('module2', 'e0c98dea'), ('events_60', '38b107ea'),
          ('module3', 'e9cbce4f'), ('events_61', '8d72486a'), ('outcomes_c3', '4565bf58'), ('send6', '50a7a65b'), ('imp2_gen', '095e5198'),
          ('imp2', '5fa0c996'), ('events_65', '2c9ab50c'), ('presend_skp', '33ccc430'), ('presend_skp_bank', 'bdccf9a1'), ('send7', '904c3324'),
-         ('rulings', '2afcea71'), ('close_carry', 'dbd562bb'))
+         ('rulings', '2afcea71'), ('close_carry', 'dbd562bb'), ('graders', '0729658c'), ('recut_gen', '3c15f127'), ('recut_bank0', '1d8b80a2'),
+         ('recut_fix', '07a56968'), ('recut', '9779a81f'))
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
 CHAIN_B761 = ()   # ### b761's twenty-one keys stand in git at tools/b761_worklist.py
 CHAIN_B760 = ()   # ### b760's twenty-five keys stand in git at tools/b760_worklist.py
@@ -574,7 +576,9 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'ceiling_fix': 'its contr
                     'module3': 'its third', 'events_61': 'events (61)', 'outcomes_c3': 'the outcomes of (7) and the ceiling after Component 3',
                     'send6': 'dispatch 6 sent', 'imp2_gen': 'the IMP2-TAU tool', 'imp2': 'its bank', 'events_65': 'events (65)',
                     'presend_skp': 'the pre-send tool takes KEIPER-FACE', 'presend_skp_bank': 'its pre-send bank', 'send7': 'dispatch 7 sent',
-                    'rulings': 'the author`s rulings banked', 'close_carry': 'the close`s tools carried'})
+                    'rulings': 'the author`s rulings banked', 'close_carry': 'the close`s tools carried',
+                    'graders': 'the act module`s graders for b763 and the scan`s byline repair (defect (k))', 'recut_gen': 'the recut inputs tool of (10)',
+                    'recut_bank0': 'its first bank', 'recut_fix': 'its foot in the verdict form (defect (l))', 'recut': 'its bank again'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 STANDING_BANKS = (('v1.37.2', 'd34f7323', 'data/b763_standing_v1372.txt', 10),)   # ### b763 (R373)(5): its controls 10 of 10, banked after the commit (19:54:12Z)

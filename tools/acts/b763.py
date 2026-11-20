@@ -638,7 +638,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijk'))   # ### b763: the seat's rows of data/b763_defects.txt as the template's reader takes them, (a) to (k), each THE SEAT'S ((a)-(d) at step zero, (e)-(g) in Component 1, (h)-(j) in Component 2, (k) at Component 6's preparation); set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijkl'))   # ### b763: the seat's rows of data/b763_defects.txt as the template's reader takes them, (a) to (l), each THE SEAT'S ((a)-(d) at step zero, (e)-(g) in Component 1, (h)-(j) in Component 2, (k) and (l) at Component 6's preparation); set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b763_misses.txt', 'data/b763_price.txt', 'data/b763_price.json', 'data/b763_corrigendum.txt', 'data/b763_corrigendum.json',   # ### step zero and Component 1
@@ -1059,7 +1059,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     """(R373)(3), (5)-(9), (12), N2, N3 (the name the frozen run list carries): each tool of K.GENS first added by a commit of its own,
     every one of its commits carrying it and not its bank, the bank's commit carrying the bank and not the tool and after every tool commit,
     the bank at HEAD its blob there (the ceiling, the dispatch tool's controls, the pre-send reads with each send's salt check, the
-    outcomes of (6)-(8), the IMP2-TAU reading, the author's rulings and the ledgers of (9)); K.GENS_WITH_BANK empty, no bank of this act
+    outcomes of (6)-(8), the IMP2-TAU reading, the author's rulings, the ledgers of (9) and the recut inputs of (10)); K.GENS_WITH_BANK empty, no bank of this act
     riding with its tool; the ceiling at HEAD its blob at the commit of its last reading, two readings, (8)'s two carried by name and three
     built where they fit, dispatches 5 of 18 at that reading; the outcomes' foot the outcomes json's words for (6), the statement file and
     (7); the controls', each pre-send bank's (its salt check PASSED, the no-zero control over (7)'s file), the IMP2-TAU reading's, the
@@ -1088,7 +1088,8 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
              ('b763_author_rulings.txt', 'THE AUTHOR`S RULINGS: WORDS 1, VERBATIM FROM THE FERRY ; RENDERINGS 12, THE NAVIGATOR`S, EACH VERBATIM ; NOTHING CHANGED.'),
              ('b763_corrigendum.txt', 'ITEMS 70: EVENTS 59, DEFECTS 11 ; CLAIM 6, CLOSE 64 ; REPEAT 50 ; THE CLAIM ITEMS OF b762`S BANKS 6, PRINTED IN FULL ; THE FINDINGS AFTER THE LOCK 17: '
                                       'CLAIM 0, CLOSE 17, REPEAT 14 ; THE NAVIGATOR`S OWN 5, CLAIM 5 ; [I1] CLUSTER Day 1 ; THE REPAIRS OF (11) 6, CARRIED BY NAME ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :15797.'),
-             ('b763_reproduce.txt', 'ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 330 s.')]
+             ('b763_reproduce.txt', 'ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 330 s.'),
+             ('b763_recut_inputs.txt', 'THE RECUT INPUTS: (6) 42 DECLARATIONS OF 5 STATEMENTS FOR 7 PAPERS ; THE STATEMENT FILE 19 FOR 1 PAPER ; (7) 10 FOR 1 PAPER ; CONTROLS 7 OF 7.')]
     ft_ = [_vlast(_txt(rd(n_))) == w_ for n_, w_ in feet_]
     lj_ = S['ledgersj'] if isinstance(S['ledgersj'], dict) else {}
     lr_ = lj_.get('roster') or {}
@@ -1098,7 +1099,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
         and lr_.get('before_open') == 84 and lr_.get('mid_open') == 83 == lr_.get('want')
     om_ = re.match(r'^ORDERS (\d+) ; OPEN (\d+) ; CLOSED (\d+) ;', _vlast(_txt(S['orderst'])))
     ro_ = bool(om_) and int(om_.group(2)) == lr_.get('after_open') and int(om_.group(1)) == int(om_.group(2)) + int(om_.group(3))
-    return len(gk_) == len(K.GENS) == 8 and all(o_ for _n, o_ in gk_) and K.GENS_WITH_BANK == () \
+    return len(gk_) == len(K.GENS) == 9 and all(o_ for _n, o_ in gk_) and K.GENS_WITH_BANK == () \
         and ceil_ and out_ and len(pf_) == len(K.PRESEND_SENDS) == 7 and all(pf_) and all(ft_) and led_ and ro_
 
 
@@ -1936,7 +1937,8 @@ N2_CONTROLS = (('data/b763_address_scan.txt', '## THE CONTROLS FIRST', '## THE P
                ('data/b763_presend_s7.txt', '## THE CONTROLS', '## THE SALT CHECK OF SEND s7 '),
                ('data/b763_presend_s24.txt', '## THE CONTROLS', '## THE SALT CHECK OF SEND s24 '),
                ('data/b763_presend_skp.txt', '## THE CONTROLS', '## THE SALT CHECK OF SEND skp '),
-               ('data/b763_ledgers.txt', '## THE CONTROLS', '## THE ROSTER BY tools/standing/orders.py'))
+               ('data/b763_ledgers.txt', '## THE CONTROLS', '## THE ROSTER BY tools/standing/orders.py'),
+               ('data/b763_recut_inputs.txt', '## THE CONTROLS', '## THE PAPERS'))
 # ### b763: the one standing change of (5), v1.37.2 (relay d34f7323), its controls run after its commit and before the first kernel commit
 # ### (ec82fed0, step 16) that its route admits; read by N2's standing clause below
 N2_USES = ()
@@ -2018,7 +2020,7 @@ def _cmd_epoch(ts):
         ft_, fd_ = _first_add(tool_), _first_add(data_)
         gens_ok_.append((n_, bool(ft_) and bool(fd_) and ct_(ROOT, ft_) < ct_(ROOT, fd_) and tool_ in files_(c_) and data_ in files_(c_)
                          and data_ in files_(k_) and ct_(ROOT, c_) <= ct_(ROOT, k_)))
-    gen_ = len(gens_ok_) == len(K.GENS) + len(K.GENS_WITH_BANK) == 8 and all(o_ for _n, o_ in gens_ok_)   # ### b763: the eight generator rows of the worklist
+    gen_ = len(gens_ok_) == len(K.GENS) + len(K.GENS_WITH_BANK) == 9 and all(o_ for _n, o_ in gens_ok_)   # ### b763: the nine generator rows of the worklist
     # ### each act tool committed before it runs ((N2)'s third clause, as written, a dry run among the runs, defect (h)): each seat command
     # ### running a tools/<act>_*.py of K.GENS (a program argument, not a one-line program, not the one-call tool's add), its time against
     # ### the tool's first commit; read from the command bank. The Edits between a commit and a run are not read by this arm
