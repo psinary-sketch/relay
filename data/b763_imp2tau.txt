@@ -1,0 +1,27 @@
+b763 -- (R373)(8), W-ORD-IMP2-TAU: CC`S ARCHIMEDEAN TERM AS THE RECORD TRANSCRIBES IT, ITS PRINCIPAL VALUE AT rho = 1 READ AT PLANTED AUTOCORRELATIONS (2026-11-20T04:00:42Z, tools/b763_imp2tau.py bank; data/b763_misses.txt (5))
+
+### the order: PLACE-papers OPEN_TRAILS.md at 87cab4f2, :3367 (sha256 2f77174afa94f85c), its transcription :3375 (sha256 7426b9756acdac67), its ask :3377 (sha256 b5625609ee382e78), read by path, line and digest; the transcription computed here is the relay`s data/b232_sign_of_A.txt :94-:96
+### T(eps) = - the integral over |rho - 1| > eps of f(rho^-1) tau(rho) d*rho, in u = log rho, mpmath 1.3.0 at 30 digits
+
+## THE CONTROLS
+  (1) tau(rho) |1 - rho| at rho = 1 - 10^-12 and 1 + 10^-12, the pole even with residue 1/2 each side: ['0.5', '0.5'] -> AS WANTED
+  (2) tau against its own two branches, rho^(3/2)/(rho^2 - 1) above 1 and rho^(1/2)/(1 - rho^2) below, at four points: 1.97e-31 -> AS WANTED
+  (3) OFF (f(1) = 0, support away from rho = 1): T(eps) one value from 10^-1 to 10^-8: 0.0 -> AS WANTED
+  (4) TRI (f(1) = 1/2): the last decade`s step against -f(1) ln 10 = -1.1512925465: -1.151292479 -> AS WANTED
+  (5) TRI2 (f(1) = 1): its last step twice TRI`s: 2.0 -> AS WANTED
+  (6) ODD (TRI against 1/(1 - rho)): the principal value converges, its last step: -4.5e-8 -> AS WANTED
+
+## THE READINGS, T(eps) AND ITS STEP A DECADE
+  TRI: eps 1e-1 -0.44285915646434 ; eps 1e-2 -1.5248390379835 ; eps 1e-3 -2.6693658676413 ; eps 1e-4 -3.8199832592044 ; eps 1e-5 -4.9712083041543 ; eps 1e-6 -6.1224941006359 ; eps 1e-7 -7.2737859721327 ; eps 1e-8 -8.4250784511297
+  TRI, the step a decade: -1.08197988152 ; -1.14452682966 ; -1.15061739156 ; -1.15122504495 ; -1.15128579648 ; -1.1512918715 ; -1.151292479
+  TRI2: eps 1e-1 -0.88571831292867 ; eps 1e-2 -3.049678075967 ; eps 1e-3 -5.3387317352827 ; eps 1e-4 -7.6399665184088 ; eps 1e-5 -9.9424166083086 ; eps 1e-6 -12.244988201272 ; eps 1e-7 -14.547571944265 ; eps 1e-8 -16.850156902259
+  TRI2, the step a decade: -2.16395976304 ; -2.28905365932 ; -2.30123478313 ; -2.3024500899 ; -2.30257159296 ; -2.30258374299 ; -2.30258495799
+  OFF: eps 1e-1 -0.18102992952218 ; eps 1e-2 -0.18102992952218 ; eps 1e-3 -0.18102992952218 ; eps 1e-4 -0.18102992952218 ; eps 1e-5 -0.18102992952218 ; eps 1e-6 -0.18102992952218 ; eps 1e-7 -0.18102992952218 ; eps 1e-8 -0.18102992952218
+  ODD: eps 1e-1 -0.019596812117897 ; eps 1e-2 -0.057252703976031 ; eps 1e-3 -0.061678574429805 ; eps 1e-4 -0.062127832054238 ; eps 1e-5 -0.062172824629362 ; eps 1e-6 -0.062177324555113 ; eps 1e-7 -0.06217777455437 ; eps 1e-8 -0.062177819554363
+  ODD, the step a decade: -0.0376558918581 ; -0.00442587045377 ; -0.000449257624432 ; -4.49925751248e-5 ; -4.49992575012e-6 ; -4.499992575e-7 ; -4.4999992575e-8
+
+## THE READING
+  The transcribed tau has an even pole at rho = 1, residue 1/2 from each side (control (1)); the two sides of the excision add, so T(eps) at an f with f(1) not 0 moves by -f(1) ln 10 a decade without end (TRI -1.151292479 a decade at f(1) = 1/2, TRI2 twice it), while an f vanishing near rho = 1 and the odd kernel converge (OFF, ODD). The principal value the order asks has no finite value at any f with f(1) not 0.
+  Each test function the order names is an autocorrelation, Q^W(g) = W_inf(g * g*) (data/b232_sign_of_A.txt :94), with f(1) = ||g||^2 > 0 for g not 0: at every diagonal a^2 cell the transcribed integral diverges as f(1) log(1/eps), so its comparison with -A is NOT MADE by this tool.
+  The finite part at rho = 1 needs a constant that CC state in their text; that text is not on this host and (R373)(12) fetches nothing, so no regularization is put in its place. W-ORD-IMP2-TAU is carried by name with its price and this reading.
+### ### **THE IMP2-TAU READING: THE TRANSCRIBED PRINCIPAL VALUE DIVERGES AT f(1) NOT 0, ITS STEP A DECADE -f(1) ln 10 (TRI -1.151292479) ; THE COMPARISON WITH -A NOT MADE ; CONTROLS 6 OF 6 ; 2 s.**
