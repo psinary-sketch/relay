@@ -638,7 +638,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijkl'))   # ### b763: the seat's rows of data/b763_defects.txt as the template's reader takes them, (a) to (l), each THE SEAT'S ((a)-(d) at step zero, (e)-(g) in Component 1, (h)-(j) in Component 2, (k) and (l) at Component 6's preparation); set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmno'))   # ### b763: the seat's rows of data/b763_defects.txt as the template's reader takes them, (a) to (o), each THE SEAT'S ((a)-(d) at step zero, (e)-(g) in Component 1, (h)-(j) in Component 2, (k) and (l) at Component 6's preparation, (m) to (o) at its probes); set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b763_misses.txt', 'data/b763_price.txt', 'data/b763_price.json', 'data/b763_corrigendum.txt', 'data/b763_corrigendum.json',   # ### step zero and Component 1
@@ -876,9 +876,11 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R373)(1)-(2))',   # ### the template's headin
 #⟪SECTION checks 14⟫
     # ### b763, (R373)(1): no weight line ordered (the c1 route refuses one; data/b763_corrigendum.txt's foot NO WEIGHT LINE), so the
     # ### record-lines bank holds none; b762 at its weight stands in the corrigendum's line, FINDINGS :15797 (PLACE-papers 6034501c, step 9),
-    # ### read through the corrigendum's landing bank, its head through conv; a planted record-lines line is read in its place
+    # ### read through the corrigendum's landing bank, its head through conv; a planted record-lines line is read in its place. The needles
+    # ### are phrases of the head line (C1_CORR_TITLE), which `landed` reads alone, in b762's form; set at Component 6 after the standing-a2
+    # ### probe (06:49:59Z) read the arm failing on needles taken from the corrigendum's body (its :15799 on), defect (n)
     return landed(S if S['rl'] else dict(S, rl=jl('b763_corrigendum_landing.json')), 0,
-                  ['b762 closed at relay efb9acb6 and PLACE-papers 87cab4f', 'carries 59 rows, (1)-(59)', '11 lettered rows, (a)-(k)', 'Its 6 CLAIM items are printed in full below'])
+                  ['b762’s record, short', 'data/b762_events.txt rows (1)-(59)', 'data/b762_defects.txt (a)-(k)', 'its six CLAIM items printed in full'])
 #⟪END⟫
 #⟪SECTION checks 15⟫
 # ### b763's title by its objects, the ferry's ACT line (data/b763_ferry.txt :131) adjusted to what the act did (record 31's _title over the
@@ -1674,7 +1676,7 @@ _K5_DEL = 'no kernel branch removed by this act ((R373)(4))'   # ### b763: KERNE
             ('THE ROUTE FOR KERNEL WRITES ((R373)(5))', [
                 ('tools/standing/ v1.37.2 admitting this act`s branch names in SIDE-explicit-formula, its planted control', 'b763_standing_v1372.txt'),
                 ('the dispatch and read tool`s controls, the tool committed before its opening dispatch', 'b763_controls_control.txt')]),
-            ('BUILD ONE AND THE STATEMENT FILE ((R373)(6), the author`s word of 2026-11-19)', [
+            ('THE BUILD ONE AND THE STATEMENT FILE ((R373)(6), the author`s word of 2026-11-19)', [   # ### "THE " as G-CLOSING-SENTENCE prefixes each CLOSING_SECTIONS name, defect (o)
                 ('the pre-send reads and the salt check of the statement file`s send at its commit, printed before the send', 'b763_presend_sf.txt'),
                 ('the outcomes of (6), (7) and (8), each sentence the ruling`s with its fields filled from its run, and the statement file`s line', 'b763_outcomes.txt')]),
             ('THE CENTRE ((R373)(7))', [
