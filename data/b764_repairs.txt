@@ -1,0 +1,18 @@
+b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (2026-11-20)
+
+### each row: the key, its class, its evidence by bank and line, its state (REPAIRED, READ AS DESIGNED, REMOVED for [K4] and [K13] alone, or
+### CARRIED), the version or the tool's commit, the control's bank and line, its price (data/b764_price.txt) and what it took (from the commit
+### before the repair to the control's reading); then the state's sentence of (5) with its fields filled, as the FINDINGS entry and the trail
+### take it. A repair under tools/standing/ moves VERSION by its own commit, the standing dry beside it; a repair inside an act's own tool is
+### shown by the same control with no VERSION moved. The controls: tools/b764_repair_controls.py, each revision probed apart, banked in
+### data/b764_repair_controls.txt.
+
+    [K10] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES ; EVIDENCE: b763's finding 10 (data/b764_events.txt (22); data/b763_events.txt
+     (110)), the close order's step [21] (data/standing_clauses_v5.txt :188) against N4's reader (tools/acts/b764.py :2541) ; STATE: REPAIRED ;
+     VERSION: v1.38.0, relay 8720475f (tools/standing/act.py STEP_21 and close_order, tools/standing/append.py's events kind,
+     tools/standing/fold/record.tpl's closeorder route and N4's sentence) ; THE CONTROL: data/b764_repair_controls.txt :3-:20 ; PRICE: 0.16-0.62 h
+     ; TOOK: 0.14 h (18:04:46Z-18:13:08Z)
+     "[K10] repaired at v1.38.0: the close order the seat reads takes its step [21] from the standing toolset, naming the bank written after the
+     lock by design, data/<act>_events_postseal.txt, appended by tools/standing/append.py's new events kind and by no hand, and the closing
+     message; N4's sentence reads that bank as the one step [21] names; its planted control read the fault before and reads clean after
+     (data/b764_repair_controls.txt :20)"

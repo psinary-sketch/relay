@@ -1,0 +1,20 @@
+b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each appended by tools/b764_repair_controls.py --bank
+
+## [K10] THE PLANTED CONTROL (2026-11-20T18:12:59Z): BEFORE relay 89fbe2f4, THE REPAIR`S COMMIT relay 8720475f, its first parent 89fbe2f4 -- THE COMMIT BEFORE
+  BEFORE (relay 89fbe2f4): the files tools/standing/act.py present, tools/standing/append.py present, tools/act_close.py present, tools/standing/fold/record.tpl present, data/standing_clauses_v5.txt present
+    the closeorder route reads standing.act.close_order: False
+    step [21] as the seat reads it: the events bank (an event found after it appended by the Edit tool before the closing) (data/b764_events.txt)
+    the planted instance: a commit after a lock that tracked data/b764_defects.txt, data/b764_events.txt, data/b764_stepzero.txt touches data/b764_events.txt -- N4`s predicate reads it as an edit: True
+    a tool writes that bank (tools/standing/append.py`s kinds ['preseal', 'words']): False
+    N4`s sentence calls the post-seal bank one the act does not keep: True
+    the record instance, b763`s [21] commit d784c1da (data/b763_events.txt) against its lock 88e06e13: read as an edit ['data/b763_events.txt']
+    BEFORE: THE FAULT READ
+  AFTER (relay 8720475f): the files tools/standing/act.py present, tools/standing/append.py present, tools/act_close.py present, tools/standing/fold/record.tpl present, data/standing_clauses_v5.txt present
+    the closeorder route reads standing.act.close_order: True
+    step [21] as the seat reads it: what is found after the lock, entered in the bank written after the lock by design by `tools/standing/append.py <act> events <source>` and by no hand, (data/b764_events_postseal.txt)
+    the planted instance: a commit after a lock that tracked data/b764_defects.txt, data/b764_events.txt, data/b764_stepzero.txt touches data/b764_events_postseal.txt -- N4`s predicate reads it as an edit: False
+    a tool writes that bank (tools/standing/append.py`s kinds ['events', 'preseal', 'words']): True
+    N4`s sentence calls the post-seal bank one the act does not keep: False
+    the record instance, b763`s [21] commit d784c1da (data/b763_events.txt) against its lock 88e06e13: read as an edit ['data/b763_events.txt']
+    AFTER: CLEAN
+### ### **[K10] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
