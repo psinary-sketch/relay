@@ -69,3 +69,20 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      the fault before and reads clean after (data/b764_repair_controls.txt :89)"
      THE REPAIR'S LIMIT: the answer is the one word() finds naming the next act (the author's word saying "<next> is", or a prompt headed with
      the next act answered by an option); an answer in other words leaves the lines as composed with the bank named, as before.
+
+    [K15] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES ; EVIDENCE: b763's finding 6 (data/b764_events.txt (18); data/b763_events.txt
+     (102) :935-:940: root part 1 READY in 670.5 s by its own count, 682 s by the capture, moved to the background at the limit), b762's part 1
+     (data/b763_events.txt (23) :126-:127: 581.6 s by its own count, 593 s by the capture; the ruling's 587 s), (R372)(11) ; THE CAUSE, found
+     at the repair: b698's one record module R is shared by every act's record module the record route imports in its chain, and each renders
+     the template line calling standing.repeat.committed_root(R), so b764's load wrapped R.rootbanks 44 times and part 1, the first reading, ran
+     the reading of every named bank 44 times, one more at each act (scratch rbdepth764.py, 19:1xZ) ; STATE: REPAIRED ; VERSION: v1.38.4, relay
+     93ab33f2 (tools/standing/repeat.py committed_root made once, its mark read by a second call; tools/standing/rootparts.py each part's
+     seconds read against the 590 s guard and the 600 s limit beside the previous act's same part and banked) ; THE CONTROL:
+     data/b764_repair_controls.txt :91-:102 ; PRICE: 0.16-0.62 h ; TOOK: 0.15 h (19:13:26Z-19:22:06Z)
+     "[K15] repaired at v1.38.4: root part 1 ran the reading of the root's banks once for each act's record module in the record route's
+     import chain, every module wrapping the one shared reading again (44 times at b764, one more at each act), so it passed the host's 600 s
+     at b763; the wrapper is now made once whatever the number of modules, part 1 reading the banks once and the route whole twice, and each
+     part prints and banks its seconds against the 590 s guard and the 600 s limit beside the previous act's same part; its planted control
+     read the fault before and reads clean after (data/b764_repair_controls.txt :102)"
+     THE REPAIR'S LIMIT: the parts rule is unchanged (the expected seconds from the previous act's parts bank, the margin of 480 s), so b764
+     runs the root in parts on b763's 713 s and the act after it reads b764's; the 590 s guard is read and banked, and refuses nothing.
