@@ -276,6 +276,7 @@ W_WORDS = (('relay/HANDOFF.md', '(R373)(13): HANDOFF.md'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/AdmissibleWeights.lean', '(R373)(6), (13): the files of (6) -- (S5) the admissible weights a convex set'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/OnePageStatement.lean', '(R373)(6), (13): the files of (6) -- the statement file of W-ORD-STATEMENT-FILE, which (6) places on push-b763-form where the table prices it within this build (data/b763_price.txt :22)'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/SquaresAt24.lean', '(R373)(8), (13): the files of (8) -- W-ORD-SQUARES-AT-24, home SIDE-explicit-formula by [A4], on a push-b763-* branch of its own after Component 3, where the ceiling leaves its upper figure'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/KeiperPolygamma.lean', '(R373)(8), (13): the files of (8) -- W-ORD-KEIPER-FACE as [T1] of (R372) carried it, on a push-b763-* branch of its own after Component 3, where the ceiling leaves its upper figure (the reading after Component 3: BUILT WHERE IT FITS)'),
            ('SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureStatement.lean', '(R373)(7), (13): the files of (7) -- FORM A and FORM B as definitions of a Prop, in a file of their own, before any proof'))
 # ### b763 Component 1: the kernel files of (6) and (7) named before any is written ((R373)(13), "in SIDE-explicit-formula the files of (6),
 # ### (7) and (8) with print_targets.txt"); (7)'s proof file and each (8) file take their row when named

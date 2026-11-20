@@ -59,6 +59,7 @@ AW = 'SIDEExplicitFormula/AdmissibleWeights.lean'
 CF = 'SIDEExplicitFormula/ControlFailureStatement.lean'
 OP = 'SIDEExplicitFormula/OnePageStatement.lean'
 SQ = 'SIDEExplicitFormula/SquaresAt24.lean'
+KP = 'SIDEExplicitFormula/KeiperPolygamma.lean'
 
 # ### the classes of a bound hypothesis, each by the full match of its type (whitespace collapsed)
 CLASSES = (
@@ -87,6 +88,9 @@ CLASSES = (
     ('factprime', 'p prime, as an instance (the order: "a prime above 3")', r'Fact \w+\.Prime'),
     ('above3', 'p above 3 (the order: "a prime above 3")', r'3 < \w+'),
     ('mod4', 'p 1 modulo 4 (a step of the order`s proof: reciprocity at 3 for such a prime)', r'\w+ % 4 = 1'),
+    ('repos', 'a point of the right half-plane (the file: "on the right half-plane", where Gamma has no pole)', r'0 < \w+\.re'),
+    ('tail', 'the tail premise, the n-th derivative of digamma at z + N tending to 0 (the file: "where it tends to 0", named and not assumed)',
+     r'Tendsto \(fun N : ℕ => iteratedDeriv \w+ digamma \(\w+ \+ N\)\) atTop \(𝓝 0\)'),
 )
 CLASS_WORDS = dict((k, w) for k, w, _r in CLASSES)
 
@@ -284,6 +288,32 @@ SENDS = {
         ('squares_at_24', SQ, '(8) SQUARES-AT-24', ('nat', 'prime', 'above3'), (
             ('-1, 2 and 3 all squares modulo p exactly when p is 1 modulo 24',
              r'^\(IsSquare \(-1 : ZMod p\) ∧ IsSquare \(2 : ZMod p\) ∧ IsSquare \(3 : ZMod p\)\) ↔ p % 24 = 1$'),)),
+    )),
+    'skp': dict(clause='(R373)(8), W-ORD-KEIPER-FACE as [T1] of (R372) carried it (OPEN_TRAILS :11704, its re-pricing :12132): a first file toward '
+                       '(O4) at every index, on Mathlib`s digamma: analytic on the right half-plane, its functional equation at every order and '
+                       'N times, and its value from its partial sums where the tail tends to 0; on a push-b763-* branch of its own, after '
+                       'Component 3, where the ceiling leaves its upper figure',
+                of7=False, files=(KP,), stmts=(
+        ('rhp', KP, '(8) KEIPER-FACE', SF0, (('its body: the right half-plane', r'^\{z \| 0 < z\.re\}$'),)),
+        ('mem_rhp', KP, '(8) KEIPER-FACE', ('cpoint',), (('membership is a positive real part', r'^z ∈ rhp ↔ 0 < z\.re$'),)),
+        ('isOpen_rhp', KP, '(8) KEIPER-FACE', SF0, (('the half-plane open', r'^IsOpen rhp$'),)),
+        ('ne_neg_nat_of_re_pos', KP, '(8) KEIPER-FACE', ('cpoint', 'repos'), (('no pole of Gamma', r'^∀ m : ℕ, z ≠ -\(m : ℂ\)$'),)),
+        ('differentiableOn_Gamma_rhp', KP, '(8) KEIPER-FACE', SF0, (('Gamma differentiable on the half-plane', r'^DifferentiableOn ℂ Gamma rhp$'),)),
+        ('analyticAt_Gamma_of_re_pos', KP, '(8) KEIPER-FACE', ('cpoint', 'repos'), (('Gamma analytic there', r'^AnalyticAt ℂ Gamma z$'),)),
+        ('analyticAt_digamma', KP, '(8) KEIPER-FACE', ('cpoint', 'repos'), (('digamma analytic there', r'^AnalyticAt ℂ digamma z$'),)),
+        ('digamma_eventually_shift', KP, '(8) KEIPER-FACE', ('cpoint', 'repos'), (
+            ('the functional equation as germs', r'^digamma =ᶠ\[𝓝 z\] fun w => digamma \(w \+ 1\) - w⁻¹$'),)),
+        ('iteratedDeriv_inv_apply', KP, '(8) KEIPER-FACE', ('nat', 'cpoint'), (
+            ('the n-th derivative of 1/w', r'^iteratedDeriv n \(fun w : ℂ => w⁻¹\) z = \(-1\) \^ n \* \(n\.factorial : ℂ\) \* z \^ \(-1 - n : ℤ\)$'),)),
+        ('iteratedDeriv_digamma_shift', KP, '(8) KEIPER-FACE', ('nat', 'cpoint', 'repos'), (
+            ('the functional equation at every order',
+             r'^iteratedDeriv n digamma z = iteratedDeriv n digamma \(z \+ 1\) - \(-1\) \^ n \* \(n\.factorial : ℂ\) \* z \^ \(-1 - n : ℤ\)$'),)),
+        ('iteratedDeriv_digamma_shift_nat', KP, '(8) KEIPER-FACE', ('nat', 'cpoint', 'repos'), (
+            ('the functional equation N times',
+             r'^iteratedDeriv n digamma z = iteratedDeriv n digamma \(z \+ N\) - ∑ j ∈ Finset\.range N, \(-1\) \^ n \* \(n\.factorial : ℂ\) \* \(z \+ j\) \^ \(-1 - n : ℤ\)$'),)),
+        ('tendsto_partial_sums_of_tail', KP, '(8) KEIPER-FACE', ('nat', 'cpoint', 'repos', 'tail'), (
+            ('the partial sums tend to minus the n-th derivative at z',
+             r'^Tendsto \(fun N : ℕ => ∑ j ∈ Finset\.range N, \(-1\) \^ n \* \(n\.factorial : ℂ\) \* \(z \+ j\) \^ \(-1 - n : ℤ\)\) atTop \(𝓝 \(-iteratedDeriv n digamma z\)\)$'),)),
     )),
 }
 
