@@ -12,7 +12,7 @@
 #⟪DEAD checks ⟫
 #⟪DEAD citation ⟫
 #⟪DEAD closing ⟫
-#⟪DEAD record B710_TRAIL,B713_ONSETS_RELAY,B713_PRED_RELAY,C2_HALT,C2_PRED,C2_REG,C2_SELECT,C3_RULE,C4_PRED,C6_CENSUS,C6_DRAFTS,C6_FROZEN,C6_RELAY,MAX_PORT_DISPATCHES,PORT_FILE,PORT_LINE⟫
+#⟪DEAD record B710_TRAIL,B713_ONSETS_RELAY,B713_PRED_RELAY,MAX_PORT_DISPATCHES,PORT_FILE,PORT_LINE⟫
 #⟪DEAD reg_gate ⟫
 #⟪DEAD regspec ⟫
 #⟪DEAD report ⟫
@@ -813,12 +813,9 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R374)(1)-(2))',   # ### the template's headin
     mc = re.search(r'(?m)(?<=^### ### \*\*)CITES CHECKED \d+ ; OK \d+ ; MISSES \d+(?=\.\*\*)', S['citation'])
 #⟪END⟫
 # ### b754, defect (a'), its fifth to seventh readers (found sweeping the templates after the closing's dry run): the record tool's two entry
-# ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386)
-#⟪OVERRIDE record MARK 02b19df735c8 3⟫
-    f = _figs()
-    n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
-    cc = re.search(r'(?m)^### ### \*\*CITES CHECKED (\d+) ; OK (\d+) ; MISSES (\d+)\.\*\*', rdn(K.CITATION_BANK))
-#⟪END⟫
+# ### routes (record.tpl :2667 and :2878, one line twice, each marked by its three-line span) and the spec's MISSES field (regspec.tpl :386).
+# ### v1.38.17, (R374)(5) [K4]: the override of :2665-:2667 removed with the retained body it patched (record.tpl :2664-:2750, the MARK
+# ### override df786768d1d9 below record 35); the one of :2876-:2878 stands
 #⟪OVERRIDE record MARK 1c3af0435e5b 3⟫
     f = _figs()
     n_ans = __import__('standing.act', fromlist=['question_count']).question_count(rdn('%s_author_answers.txt' % ACT))['prompts']   # ### v1.30.0, (R360)(3)(vii): the composed prompts' rows, the sitting rows read apart
@@ -3205,10 +3202,6 @@ def _finding_text_b763_body():
          _integ_line(f), '']
     return _title(), NL.join(e)
 """
-
-
-def _finding_text_b763():
-    """b753's form over b753's objects, kept for the record and not called."""
 #⟪END⟫
 #⟪SECTION record 35⟫
     """the trail record (over b764's objects): the writes; b763 at its weight; the route of (5); build one of (6) and the statement file;
@@ -3298,10 +3291,12 @@ def _finding_text_b763():
               '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
               '**Next:** %s.' % K.next_line(), '']
     return NL.join(rows_)
-
-
-def _trail_text_b763():
-    """b753's trail record over b753's objects, kept for the record and not called."""
+#⟪END⟫
+#⟪OVERRIDE record MARK df786768d1d9 87⟫
+    # ### v1.38.17, (R374)(5) [K4]: record.tpl :2664-:2750, the b72x body the template keeps after SLOT 34, REMOVED from this act's render with the retained def that held it (_finding_text_b763, never called): it read the worklist's C3_RELAY, a constant the carry left empty "set as made", and the DEAD names
+#⟪END⟫
+#⟪OVERRIDE record MARK 44716f1971b1 58⟫
+    # ### v1.38.17, (R374)(5) [K4]: record.tpl :2767-:2824, the b72x body the template keeps after SLOT 35, REMOVED from this act's render with the retained def that held it (_trail_text_b763, never called): it read the worklist's C3_RELAY
 #⟪END⟫
 #⟪SECTION regspec 1⟫
     ('runner dispatch commands made', 'DISPATCHES', 'DISPATCHES', 'dispatches', '### N1: within the worklist`s MAX_DISPATCHES 18 in SIDE-explicit-formula (the price table`s upper figures for (6), (7)`s statement and the orders of (8) the ceiling left) and none in SIDE-dirichlet-mod-24; MEASURED off the command bank (each dispatch command at a command`s head).'),

@@ -425,7 +425,7 @@ B714_RECORD = '9079160c'     # ### b763's record commit (relay)
 B714_ROOT = '34de7cffdf0093e2a1509dd764cc5c24b5667812f4e11139fe73409b9579dd54'   # ### b763's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'c1349d62'  # ### b763's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### (R374)(12): no change under tools/standing/ in Component 1; the changes of (5) are Component 2's, one commit a key (C2_RELAY_ALL)
+C1_STANDING = None           # ### (R374)(12): no change under tools/standing/ in Component 1; the changes of (5) are Component 2's, one commit a key (data/b764_steps.json)
 C1_LOCKGATE = 'dbd562bb'     # ### b763: tools/b763_lockgate.py carried and set, committed before any run with the face and probe-path tools (step 57, 04:37:20Z)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
@@ -467,8 +467,7 @@ NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b7
 DIFFERS_LINE = None   # ### LEFT EMPTY BY (R374)(13): no DIFFERS entry, ERRATA and BIBLIOGRAPHY.md the two PLACE-papers files beside FINDINGS and OPEN_TRAILS (v1.38.1 [K1]'s marker)
 ERRATA_LINE = None   # ### still to set: [E1] at ERRATA's end under (R374)(9)(a), Component 4 (b760's E-2026-11-18-1 at :1127, PLACE-papers f47d90f0)
 C2_PLAN_FIRST = None   # ### Component 2's first relay commit (the first key of (5)'s order of repair, [K10])
-C2_RELAY_ALL = ()   # ### Component 2's relay commits in order, set as each is made
-C2_RELAY = None   # ### the last of them
+C2_RELAY = None   # ### Component 2's last relay commit (C2_RELAY_ALL, the list "set as each is made" that no arm read, removed at v1.38.17 by (R374)(5) [K4])
 # ### (R366)(4): each tool of the map beside its banks -- (name, generator, the generator's commits before the bank, bank, the bank's commit)
 C2_MAP = (('the constellation rerun', 'tools/b764_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
            'data/b764_constellation_summary.txt', '069271bb'),
@@ -689,7 +688,6 @@ HANDOFF_COMMIT = '26be95bb'   # ### b763: HANDOFF.md written once by tools/stand
 HANDOFF_COMMIT_B762 = 'f702adac'   # ### b762's, 154 lines (step 28, 13:55:52Z)
 HANDOFF_COMMIT_B761 = 'd2adb845'   # ### b761's, 154 lines (step 38, 02:34:06Z)
 HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by tools/standing/handoff.py at v1.36.9, 154 lines (step 14, 09:18:36Z)
-C3_RELAY = ()   # ### Component 3 ((R374)(7), the runner): set as made
 # ### b760, Component 6: PLACE-papers' writes of (7), (9), (10) and (11), each (item, the file, the PLACE-papers commit), read by the act
 # ### module's N3 arms against the banks' sha256 (data/b760_ledgers.json, data/b760_epstein_keys.txt) and the edition's (events (61))
 # ### b761, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3

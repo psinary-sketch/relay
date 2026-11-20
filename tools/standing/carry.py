@@ -440,9 +440,12 @@ STAGE_ONE = ('PRE_PP', 'PRE_RELAY', 'PRE_PP_REMOTE_AT_START', 'PRE_RELAY_REMOTE_
              'SP', 'SESSIONS_AFTER', 'PREV_SESSION', 'PREV_ANCHOR', 'B711_ENTRY', 'B711_WEIGHT', 'B711_CORRIGENDUM', 'B711_TRAIL', 'B711_FACE',
              'MIRROR_ZIP', 'TRAIL_ORDERS', 'TRAIL_RESOLVED', 'TRAIL_RETIRED', 'SECTION_BANK', 'STANDING_VERSION', 'STANDING_VERSION_ENTERING',
              'LEAN_TREES', 'B714_CLOSING', 'B714_RECORD', 'B714_ROOT', 'B723_ROOT_BANKS', 'ACT_CURRENT_COMMIT', 'STEPZERO', 'STEPZERO_PREVBUILD',
-             'STEPZERO_BANKS', 'C1_STANDING', 'C1_RELAY', 'C1_PP', 'WEIGHT_LINE', 'CORR_LINE', 'C2_PLAN_FIRST', 'C2_RELAY_ALL', 'C2_RELAY',
-             'C1_DEFECTS', 'SITTING_ITEMS', 'C3_RELAY', 'C4_LINE', 'NEXT', 'NEXT_ACT', 'COMPUTE_BANKS', 'COMPARATIVE_BANKS')
+             'STEPZERO_BANKS', 'C1_STANDING', 'C1_RELAY', 'C1_PP', 'WEIGHT_LINE', 'CORR_LINE', 'C2_PLAN_FIRST', 'C2_RELAY',
+             'C1_DEFECTS', 'SITTING_ITEMS', 'C4_LINE', 'NEXT', 'NEXT_ACT', 'COMPUTE_BANKS', 'COMPARATIVE_BANKS')
 # ### the worklist's stage one: the per-act figures b754's step zero set by its script (each constant replaced whole by its name)
+# ### v1.38.17, (R374)(5) [K4]: C2_RELAY_ALL ("set as each is made") and C3_RELAY ("set as made") taken out: each left empty by this carry, as
+# ### at b763 and b764, and read by no live arm -- C2_RELAY_ALL by no render of b764, C3_RELAY only in record.tpl's retained b72x bodies, which
+# ### b764's sections take out of its render by two MARK overrides; the constants removed from tools/b764_worklist.py with them
 
 
 class Carried(object):

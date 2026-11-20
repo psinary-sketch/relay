@@ -1572,9 +1572,111 @@ def control_k9(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K4] THE CONSTANTS NO ARM READS, REMOVED WITH THEIR RETAINED BLOCKS
+K4_PATHS = ('tools/b764_worklist.py', 'tools/standing/carry.py', 'tools/acts/b764.py', 'tools/standing/fold.py', 'tools/standing/fold/record.tpl',
+            'data/act_current.json')
+K4_NAMES = ('C2_RELAY_ALL', 'C3_RELAY')
+K4_PROBE = r'''
+import ast, json, os, re, sys, types
+snap = sys.argv[1]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import fold as F
+NAMES = ('C2_RELAY_ALL', 'C3_RELAY')
+rd = lambda *p: open(os.path.join(snap, *p), encoding='utf-8').read()
+wsrc = rd('tools', 'b764_worklist.py')
+wl, other = {}, set()
+for n in ast.parse(wsrc).body:
+    if isinstance(n, ast.Assign):
+        for t in n.targets:
+            if isinstance(t, ast.Name):
+                wl[t.id] = n.value
+    elif isinstance(n, (ast.FunctionDef, ast.ClassDef)):
+        other.add(n.name)
+    elif isinstance(n, (ast.Import, ast.ImportFrom)):
+        other.update((a.asname or a.name).split('.')[0] for a in n.names)
+csrc = rd('tools', 'standing', 'carry.py')
+stage = [ast.literal_eval(n.value) for n in ast.parse(csrc).body if isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'STAGE_ONE'][0]
+def empty(v):
+    return (isinstance(v, (ast.Tuple, ast.List)) and not v.elts) or (isinstance(v, ast.Constant) and v.value in ('', None))
+def readout(text, ns):
+    L = text.split(chr(10))
+    reads = {}
+    for nm in NAMES:
+        hold = []
+        for i, l in enumerate(L):
+            if re.search(r'(?<![\w.])K\.%s\b' % nm, l):
+                k = i
+                while k >= 0 and not re.match(r'^(?:def|class) (\w+)', L[k]):
+                    k -= 1
+                fn = re.match(r'^(?:def|class) (\w+)', L[k]).group(1) if k >= 0 else '<module>'
+                calls = len(re.findall(r'(?<![\w.])%s\b' % re.escape(fn), text)) - len(re.findall(r'(?m)^def %s\(' % re.escape(fn), text))
+                hold.append([i + 1, fn, calls])
+        reads[nm] = hold
+    alias, used, missing = F.missing_names('b764', text, ns)
+    refused = sorted(missing - F.dead('b764').get('record', set()) - F.pending('b764').get('record', set()))
+    return reads, refused
+ns = types.SimpleNamespace(**dict((k, None) for k in set(wl) | other))
+ns_without = types.SimpleNamespace(**dict((k, None) for k in (set(wl) | other) if k not in NAMES))
+text = F.render('b764', 'record')
+compile(text, 'b764_record', 'exec')
+reads, refused = readout(text, ns)
+_r, refused_without = readout(text, ns_without)
+st = rd('tools', 'acts', 'b764.py')
+plain = re.sub(r'(?m)^#⟪OVERRIDE record MARK (?:df786768d1d9 87|44716f1971b1 58)⟫\n(?:.*\n)*?#⟪END⟫\n', '', st)
+planted = None
+if plain != st:
+    s2, o2 = F._parse('b764', plain)
+    o2['record'] = [o for o in o2.get('record', []) if o[0] != '02b19df735c8']
+    t2 = F.render('b764', 'record', s2, o2)
+    planted = readout(t2, ns_without)[1]
+print(json.dumps(dict(worklist=dict((nm, [nm in wl, nm in wl and empty(wl[nm])]) for nm in NAMES), stage=dict((nm, nm in stage) for nm in NAMES),
+                      reads=reads, refused=refused, refused_without=refused_without, lines=text.count(chr(10)), planted=planted,
+                      dead=sorted(F.dead('b764').get('record', set())))))
+'''
+
+
+def control_k4(before, after):
+    """[K4]: the worklist's constants the carry leaves empty under its words "set as each is made" (tools/standing/carry.py STAGE_ONE; at b764
+    C2_RELAY_ALL, "set as each is made", and C3_RELAY, "set as made") and that no live arm reads, each read in each revision: in the worklist and
+    empty, in STAGE_ONE, and its reads in b764's record render (fold.render) with the def holding each read and that def's calls; the names the
+    render reads that the worklist lacks, refused unless declared DEAD (fold.check_names). FAULT: the two stand in the worklist, empty, in
+    STAGE_ONE, every read of them in a def nothing calls. CLEAN: neither in the worklist nor in STAGE_ONE; the render compiles and reads neither;
+    nothing refused; and, planted, the render with the retained blocks put back reads C3_RELAY again and is refused, so the constants could not
+    go without the blocks that held their reads."""
+    L, res = [], {}
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k4_')
+        try:
+            got = snapshot(rev, K4_PATHS, tmp)
+            j = probe(K4_PROBE, tmp)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k4_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s): the files %s ; the record render %d lines, compiling ; DEAD for record %d' % (
+            name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), j['lines'], len(j['dead'])))
+        for nm in K4_NAMES:
+            w = j['worklist'][nm]
+            L.append('    %s: in the worklist %s%s ; in STAGE_ONE %s ; read in the record render %d time(s)%s' % (
+                nm, w[0], ' (empty)' if w[1] else '', j['stage'][nm], len(j['reads'][nm]),
+                (': ' + '; '.join(':%d in %s, called %d' % tuple(r) for r in j['reads'][nm])) if j['reads'][nm] else ''))
+        L.append('    refused by the fold`s name reader: %s ; with the two taken out of the worklist: %s ; planted, the retained blocks put back: %s' % (
+            j['refused'] or 'NONE', j['refused_without'] or 'NONE', j['planted'] if j['planted'] is not None else 'NOT PLANTED (no override to take out)'))
+        live = sum(1 for nm in K4_NAMES for r in j['reads'][nm] if r[2] > 0)
+        fault = all(j['worklist'][nm] == [True, True] and j['stage'][nm] for nm in K4_NAMES) and live == 0
+        clean = (not any(j['worklist'][nm][0] or j['stage'][nm] or j['reads'][nm] for nm in K4_NAMES)) and not j['refused'] \
+            and j['planted'] is not None and 'C3_RELAY' in j['planted']
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
                 K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18, K6=control_k6,
-                K9=control_k9)
+                K9=control_k9, K4=control_k4)
 
 
 def main(argv):
