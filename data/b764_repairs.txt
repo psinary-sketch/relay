@@ -251,3 +251,22 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      THE REPAIR'S LIMIT: the reader follows the tags as the seat wrote them: findings 3 and 7 of b763 chain to rows the seat tagged NEW at b762
      and at b763 (b763 events (21) to b762 events (18); b764 events (19) to b763 events (25)), so neither reads as three acts, though their
      words say "as at b761 and b762"; a chain through a routine class (the host's summaries) is read as the tags join it.
+
+    [K6] CLASS TWO, A TEXT COMPOSED IN ONE FORM AND GRADED IN ANOTHER ; EVIDENCE: b763's finding 8 after its lock (b764 events (20)):
+     G-ENTRY-TITLE-FORM failed in both suites on a right entry; b763's TITLE_NEEDLES (tools/acts/b763.py) carried "84 open to 83", the
+     ruling's WANTED figure typed before the build lines, where the title composed from the roster read "84 open to 82" (data/b763_ledgers.json
+     roster before_open 84; data/b763_orders.txt :237, OPEN 82) ; STATE: REPAIRED ; VERSION: v1.38.15, relay 9155ed34
+     (tools/standing/armnorm.py: roster_at_close and at_close, the roster's figure read at the close from the ledgers' before_open and the OPEN
+     of the orders bank's foot, and a needle's ROSTER_TOKEN or typed "<n> open to <m>" read as that figure; tools/standing/fold/checks.tpl
+     entry_title_ok reading its needles through at_close, its one line changed in place; armnorm's title route reading TITLE_NEEDLES by their
+     literal, the act module being a sections file no import compiles, so that the route had read nothing at any act; tools/acts/b764.py's
+     roster needle written as the token) ; THE CONTROL: data/b764_repair_controls.txt :379-:387 (b763's landed entry, PLACE-papers 7db9a66c
+     FINDINGS :15815 by sha256: the arm FAILS before and PASSES after; b762's, FINDINGS :15751 at 87cab4f2, PASSES at both; b763's title
+     planted one lower FAILS at both; a token needle PASSES with b763's roster and FAILS with none) ; PRICE: 0.16-0.62 h ; TOOK: 0.14 h
+     (20:52:40Z-21:01:21Z, a summary within it)
+     "[K6] repaired at v1.38.15: the title arm reads the roster's figure in its needles from the roster at the close, the ledgers' open count
+     before the act and the open count at the orders bank's foot, and not from a figure typed before the build lines; its planted control read
+     the fault before and reads clean after (data/b764_repair_controls.txt :387)"
+     THE REPAIR'S LIMIT: the roster figure is the one form "<n> open to <m>" the titles of b762 and b763 carry; a figure of another form in a
+     needle is read as typed. The title route prints the needles and the roster; the composed title it reads only where a record module
+     imports, and the fold renders the record at the close, so before it the route prints the title UNREAD and the suite's arm reads it.
