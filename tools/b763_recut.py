@@ -184,7 +184,7 @@ def compose():
           'which (10) names not' % ', '.join(O.P1)]
     n6 = sum(len(full) for _k, full, _c, ok in s6 if ok)
     k6 = sum(1 for *_x, ok in s6 if ok)
-    P += ['', '**THE RECUT INPUTS: (6) %d DECLARATIONS OF %d STATEMENTS FOR %d PAPERS ; THE STATEMENT FILE %d FOR 1 PAPER ; (7) %d FOR 1 PAPER ; '
+    P += ['', '### ### **THE RECUT INPUTS: (6) %d DECLARATIONS OF %d STATEMENTS FOR %d PAPERS ; THE STATEMENT FILE %d FOR 1 PAPER ; (7) %d FOR 1 PAPER ; '
           'CONTROLS %d OF %d.**' % (n6, k6, len(papers6), len(sf[0]) if sf[1] else 0, len(ar[0]) if ar[1] else 0, n_ok, len(ctl))]
     return P, n_ok == len(ctl)
 
