@@ -739,7 +739,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (44610575175, 44625270777, 44641876790, 44646848292)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL
+EF_RUNS = (44610575175, 44625270777, 44641876790, 44646848292, 44661759569)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL, 5 KERNEL ((7)'s statement)
 EF_RUNS_B762 = ()   # ### b762's: none
 EF_RUNS_B759 = (44162171267,)   # ### b759's one, read not re-run
 M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R373)(5): no kernel beyond SIDE-explicit-formula)
