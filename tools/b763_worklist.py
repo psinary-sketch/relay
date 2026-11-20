@@ -563,7 +563,8 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
 KERNEL_COMMITS = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),       # ### (R373)(6) (S1)-(S3) and [P1]'s six names (20:32:07Z, step 16), on main at v0.42
                   ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
                   ('statement', 'SIDE-explicit-formula', '4964e957', 'main'),    # ### the statement file by the author's word (23:51:12Z, step 28), main at v0.42 (02:22:05Z)
-                  ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b763-arith'))   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
+                  ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b763-arith'),   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
+                  ('squares', 'SIDE-explicit-formula', '819e4a83', 'push-b763-squares'))   # ### (R373)(8) W-ORD-SQUARES-AT-24 (03:48:55Z, step 47), on its branch; main moved to it only on its run's success
 KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
@@ -572,8 +573,8 @@ WEIL_BRANCH = ('push-b763-form', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   #
 WEIL_TAG = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### (R373)(6): name, tag object, peel read back at the remote (data/b763_SIDE-explicit-formula_push-b763-form_push_out.txt, 02:22:05Z)
 WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
-ORDER_BRANCHES = ()   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3
-PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
+ORDER_BRANCHES = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z)
+PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7', 's24')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
 ARITH_BRANCH = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
