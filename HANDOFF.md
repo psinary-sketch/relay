@@ -1,14 +1,24 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.37.1) at relay `462a14d0` and PLACE-papers `98eee01f`, 2026-11-19T13:55:14Z, from the banks: the closings and ferries of b750 to b761 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b762_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.37.2) at relay `256c3e8d` and PLACE-papers `387713dd`, 2026-11-20T08:17:02Z, from the banks: the closings and ferries of b751 to b762 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b763_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b762_ferry.txt :31:
+The last ruling`s clause on them, data/b763_ferry.txt :31:
 
-> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched; no dispatch; no push forced; no tag moved, v0.38 to v0.41 and v0.2.0 among them; no pin moved; no sentence of any paper written or edited beyond the new file of (6); nothing fetched from the web; nothing computed at a field or at a zero; tools/research/reproduce.py's full run made and banked as the standing clauses order it.
+> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag moved, v0.38 to v0.41 and v0.2.0 among them; no pin moved; no sentence of any paper written or edited beyond the canon's new section; nothing fetched from the web; nothing computed at a zero, and no row of a bank of zeros opened; the banked family of b709 read for the choice of (7)'s window and for nothing else; tools/research/reproduce.py's full run made and banked as the standing clauses order it.
 
 ## The last twelve acts, newest first
+
+### b762
+
+data/b762_closing.txt :1:
+
+> b762 closed: relay efb9acb6, PLACE-papers 87cab4f; suite 111 of 116; root 042d9f69255daba8…; 1 prompt answered; scores 7 of 8 HELD; 11 defects
+
+data/b762_ferry.txt :11, THE ACT`S PLACE:
+
+> (2) THE ACT'S PLACE. The sitting gave each finding its stage, and the author ruled that a keystone carries its results and not the record of its editions, with One Page re-cut ahead of the rest as the exemplar. The page as deposited sets out an argument by enumeration and calls it a proof; the kernel since compiles the inequality it rests on as equivalent to the Riemann Hypothesis, in both directions, with instances at the Dirichlet characters and a control at which it fails. This act writes the page that says so, from the navigator's text, with the map of the documents that share its objects made before the writing. It also names an act for each order whose trigger is met, gives a trigger to the four that carry none, and enters what the reflection of the two days reached, as orders and one registration, so that each waits on an event and not on a further word. It changes no standing tool and edits no other paper. The proof that the control fails from the arithmetic side follows it, by the author's word.
 
 ### b761
 
@@ -120,27 +130,17 @@ data/b751_ferry.txt :21, THE ACT`S PLACE:
 
 > (7) THE ACT'S PLACE ON THE PAPER PATH: §1-§4 fixed the object, the demand, the discharges and the forms; §5 is the result the paper exists to report, and it is written so that each figure is a bank line and each step a pin, with the classical theorem it instances named from a source and not from memory. After it, §6 (the corollary at the schema), §7 (the cost law) and §8 (what this does not say) draft from banks already on the relay. The act after this one is the attribution order's plan act, as the author named it at b750's root, confirmed at this act's root; §6 after it.
 
-### b750
-
-data/b750_closing.txt :1:
-
-> b750 closed: relay 766f0363, PLACE-papers 88942b4; suite 112 of 116; root fbd3c1d6dd1a0bc1…; 12 prompts answered; scores 8 of 8 HELD; 25 defects
-
-data/b750_ferry.txt :37, THE ACT`S PLACE:
-
-> (7) THE ACT'S PLACE: the opening sitting under the stages moves the Epstein findings from the banks into a keystone and a cluster row, brings the front door to the tag, writes the grade where the paper had to go to a bank for it, and banks the one cheap computation the attribution order's plan needs. The act after this one is §5 of the paper, as the author named it at b748's root, confirmed at this act's root; the attribution order's plan act after that, opening on [E]'s figure.
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :18847, the trail of b761 headed at :18791:
+PLACE-papers OPEN_TRAILS.md :18953, the trail of b762 headed at :18897:
 
-> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R371)(13)): the re-cut of One Page (day1/ONE_PAGE_PROOF.md) from the navigator’s text, the map before the writing, as the author named it on 2026-11-18; or the edition of THE_RESIDUE_OF_RH; or one act of the record’s upkeep carrying the repairs of (11); or another the author names; the open orders whose status names b762 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R372)(13)): W-ORD-LI-ARITH, by the author’s word of 2026-11-18, its plan bank pricing beside it the four orders that [T1] to [T4] carry to its build; or one act of the record’s upkeep carrying the repairs of (11); or another the author names; the open orders whose status names b763 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-84 open of 224 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `98eee01f`:
+82 open of 225 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `387713dd`:
 
-`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-E0-RANK-PROPAGATION`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-GW-IMPORT`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-TABLE-SHAPE`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-SQUARES-AT-24`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-BIBLIOGRAPHY-LINK`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`
+`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-E0-RANK-PROPAGATION`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-BIBLIOGRAPHY-LINK`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`
 
 ## Where each kind of state is held
 
