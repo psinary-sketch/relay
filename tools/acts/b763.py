@@ -1691,13 +1691,15 @@ _K5_DEL = 'no kernel branch removed by this act ((R373)(4))'   # ### b763: KERNE
     # ### SIDE-explicit-formula); its controls in data/b763_standing_v1372.txt
 #⟪END⟫
 #⟪SECTION record 1⟫
-    # ### b762 (R372)(4), (12): no kernel touched, no kernel branch removed (KERNEL_DELETES empty); b760's one touch, the removal of
-    # ### push-b759-weil at SIDE-explicit-formula's remote, named by WEIL_BRANCH, the clone's own branch kept; main and v0.41 as b759 left
-    # ### them (b761's line said b761 for b760's removal, corrected here)
-    print('  kernels read: %d (SIDE-explicit-formula at main %s with %s peeling to %s, unmoved; %s removed at its remote by b760, its tip %s, the clone`s '
-          'branch kept; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s; no kernel written)' % (
-              len(ks), K.EF_MAIN[:8], K.WEIL_TAG[0], K.WEIL_TAG[2][:8], K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8],
-              K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
+    # ### b763 (R373)(4), (5), (6), (8): SIDE-explicit-formula written on push-b763-* branches, main moved from push-b763-form at v0.42 and
+    # ### from an order's branch at each tag of ORDER_TAGS; (7)'s branch holds its statement alone; no kernel branch removed (KERNEL_DELETES
+    # ### empty); SIDE-dirichlet-mod-24 untouched, as b759 left it
+    print('  kernels read: %d (SIDE-explicit-formula at main %s: %s peeling to %s, cut at main`s read-back after (6)`s run%s; this act`s branches, '
+          'none removed: %s, and %s holding (7)`s statement alone; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s, untouched)' % (
+              len(ks), K.EF_MAIN[:8], K.WEIL_TAG[0], K.WEIL_TAG[2][:8],
+              ''.join('; %s peeling to %s, cut at main`s read-back after (8)`s run' % (t_[0], t_[2][:8]) for t_ in K.ORDER_TAGS),
+              ', '.join('%s at %s' % (b_, s_[:8]) for b_, s_ in (K.WEIL_BRANCH,) + tuple(K.ORDER_BRANCHES)),
+              '%s at %s' % (K.ARITH_BRANCH[0], K.ARITH_BRANCH[1][:8]), K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
 #⟪END⟫
 #⟪SECTION record 2⟫
 def _trail_resolved(text):

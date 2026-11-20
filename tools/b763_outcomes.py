@@ -99,7 +99,15 @@ CF10 = tuple(B + n for n in ('bsplineSix', 'witnessStep', 'witnessPhi', 'witness
 # ### (8)'s items as this act builds them: (the controls tool's item, the order, its branch, its full names, what compiled by name)
 ITEMS8 = (('squares', 'W-ORD-SQUARES-AT-24', 'push-b763-squares',
            tuple('SIDEExplicitFormula.SquaresAt24.' + n for n in ('not_isSquare_two_zmod_three', 'isSquare_three_iff', 'squares_at_24')),
-           'squares_at_24, with isSquare_three_iff and not_isSquare_two_zmod_three'),)
+           'squares_at_24, with isSquare_three_iff and not_isSquare_two_zmod_three'),
+          # ### b763 (8)'s third by its upper hours: a first file of W-ORD-KEIPER-FACE, the order not built in full by this act (events (66)),
+          # ### so its branch's capture reads no tag and its outcome reads NOT BUILT whatever its run shows; its run read here beside it
+          ('keiper', 'W-ORD-KEIPER-FACE', 'push-b763-keiper',
+           tuple('SIDEExplicitFormula.KeiperPolygamma.' + n for n in (
+               'rhp', 'mem_rhp', 'isOpen_rhp', 'ne_neg_nat_of_re_pos', 'differentiableOn_Gamma_rhp', 'analyticAt_Gamma_of_re_pos',
+               'analyticAt_digamma', 'digamma_eventually_shift', 'iteratedDeriv_inv_apply', 'iteratedDeriv_digamma_shift',
+               'iteratedDeriv_digamma_shift_nat', 'tendsto_partial_sums_of_tail')),
+           'a first file, KeiperPolygamma.lean'))
 SENT6 = tuple((k, 'for (%s), ' % k) for k in ('S1', 'S2', 'S3', 'S4', 'S5'))
 FAIL6 = 'A statement that does not compile within its price: '
 NOPROOF7 = 'IF NO PROOF IS BUILT: '

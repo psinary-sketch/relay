@@ -1,0 +1,46 @@
+b763 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b762_lockgate.py -> tools/b763_lockgate.py (2026-11-20T04:35:01Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b762 -> b763, b761 -> b762, R372 -> R373, R371 -> R372); 151 lines, 12 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b762_tool_repairs.txt AND data/b762_repairdiff_lockgate.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b762; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b762_lockgate.py
+  +++ tools/b763_lockgate.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b762_lockgate.py -- b762: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, the ferry's Component 6 under (R372) (data/b762_ferry.txt :169): carried from
+  -tools/b761_lockgate.py by tools/b762_carry.py (data/b762_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  +"""tools/b763_lockgate.py -- b763: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, the ferry's Component 6 under (R373) (data/b763_ferry.txt :169): carried from
+  +tools/b762_lockgate.py by tools/b763_carry.py (data/b763_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  @@ -5,3 +5,3 @@
+  -:192). ### b762, the carry's note: the substitution b761 -> b762 alone, which moved no citation of b754's banks or of (R364)(5)[H1]
+  -(:3-:5, :11-:12, :103-:104 read after it), the ferry's line at :2 set from b761's :91 to b762's :169 before any run (events (48)); the clause set by the Edit tool before any run to the ferry's Component 6, which orders "THE
+  -SEAL, THE SUITE, THE RECORD AND THE MIRROR, as the standing clauses order them" (:2 here, the notes at :103); N2 named under (R372) (:21).
+  +:192). ### b763, the carry's note: the substitution b762 -> b763 alone, which moved no citation of b754's banks or of (R364)(5)[H1]
+  +(:3-:5, :11-:12, :103-:104 read after it), the ferry's line at :2 set from b762's :91 to b763's :169 before any run (events (48)); the clause set by the Edit tool before any run to the ferry's Component 6, which orders "THE
+  +SEAL, THE SUITE, THE RECORD AND THE MIRROR, as the standing clauses order them" (:2 here, the notes at :103); N2 named under (R373) (:21).
+  @@ -21,1 +21,1 @@
+  -committed before its run ((R372) N2, each generator commits before it runs).
+  +committed before its run ((R373) N2, each generator commits before it runs).
+  @@ -23,2 +23,2 @@
+  -  python -X utf8 -u tools/b762_lockgate.py controls b762 <face>
+  -  python -X utf8 -u tools/b762_lockgate.py b762 <face>
+  +  python -X utf8 -u tools/b763_lockgate.py controls b763 <face>
+  +  python -X utf8 -u tools/b763_lockgate.py b763 <face>
+  @@ -41,1 +41,1 @@
+  -ACT = 'b762'
+  +ACT = 'b763'
+  @@ -84,1 +84,1 @@
+  -    tmp = tempfile.mkdtemp(prefix='b762lg_')
+  +    tmp = tempfile.mkdtemp(prefix='b763lg_')
+  @@ -103,1 +103,1 @@
+  -    L = ['  ### THE FERRY`S COMPONENT 6 UNDER (R372), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  +    L = ['  ### THE FERRY`S COMPONENT 6 UNDER (R373), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  @@ -130,1 +130,1 @@
+  -        print('usage: b762_lockgate.py [controls] b762 <face> -- this act`s tool, for b762 alone; nothing read, nothing written')
+  +        print('usage: b763_lockgate.py [controls] b763 <face> -- this act`s tool, for b763 alone; nothing read, nothing written')
+
+### ### **CARRIED tools/b763_lockgate.py ; LINES 151 ; CHANGED BY THE SUBSTITUTION 12 ; REPAIR SPANS AT b762 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**

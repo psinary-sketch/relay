@@ -577,6 +577,7 @@ WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
 ORDER_BRANCHES = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z)
                   ('push-b763-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z)
+ORDER_TAGS = ()   # ### (R373)(8): each tag cut for an order of (8) built in full, (name, tag object, peel read back at the remote), set as each is read back
 PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7', 's24', 'skp')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
 ARITH_BRANCH = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
