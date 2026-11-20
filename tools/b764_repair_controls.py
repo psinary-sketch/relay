@@ -1067,8 +1067,102 @@ def control_k11(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K2] THE CARRIED EXCEPTION AND ITS CITES
+K2_PATHS = ('tools/standing/carry.py', 'tools/b764_carry.py', 'tools/b764_address_scan.py', 'data/b764_ferry.txt')
+K2_SRC = ('d4ec1edb', 'tools/b763_address_scan.py')   # ### b763's record commit, the scan tool b764's step zero carried (16:55:54Z)
+K2_PROBE = r'''
+import ast, difflib, json, os, re, sys
+snap, inst = sys.argv[1], sys.argv[2]
+rd = lambda *p: open(os.path.join(snap, *p), encoding='utf-8').read()
+src = open(os.path.join(inst, 'src.py'), encoding='utf-8').read().replace(chr(13), '')
+subs = [tuple(x) for x in json.load(open(os.path.join(inst, 'subs.json'), encoding='utf-8'))]
+car = rd('tools', 'standing', 'carry.py')
+want = ('KEPT_BRANCH', 'DATAP', 'CITE_MOVED', 'substitute', 'shifted_absent', 'shifted_cites', 'cite_lines')
+nodes = [n for n in ast.parse(car).body if (isinstance(n, ast.FunctionDef) and n.name in want)
+         or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') in want)]
+ns = dict(re=re, difflib=difflib, NL=chr(10))
+exec(compile(ast.Module(body=nodes, type_ignores=[]), 'carry_k2', 'exec'), ns)
+dst = ns['substitute'](src, subs)
+absent = ns['shifted_absent'](src, dst, 'b764', lambda p: True) if 'shifted_absent' in ns else None
+moved = ns['shifted_cites'](src, dst, 'b764') if 'shifted_cites' in ns else None
+bc = rd('tools', 'b764_carry.py')
+fn = [n for n in ast.parse(bc).body if isinstance(n, ast.FunctionDef) and n.name == '_carry']
+bc_calls = bool(fn) and any(isinstance(c, ast.Call) and getattr(c.func, 'attr', '') == 'shifted_cites' for c in ast.walk(fn[0]))
+sc = rd('tools', 'b764_address_scan.py')
+ferry = rd('data', 'b764_ferry.txt')
+snodes = [n for n in ast.parse(sc).body if (isinstance(n, ast.FunctionDef) and n.name in ('n5_line', 'exception_head'))
+          or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'N5_CLAUSE')]
+sns = dict(re=re, NL=chr(10))
+exec(compile(ast.Module(body=snodes, type_ignores=[]), 'scan_k2', 'exec'), sns)
+if 'exception_head' in sns:
+    head = sns['exception_head']('b764', 'R374', sns['n5_line'](ferry), (), False)
+else:
+    i = sc.find("'## THE EXCEPTION, THE BYLINE UNDER I-23")
+    head = 'COMPOSED INLINE IN scan(): ' + sc[i:sc.find('% RULING_N5', i)].replace(chr(10), ' ')[:400]
+print(json.dumps(dict(dst_lines=dst.count(chr(10)), absent=None if absent is None else len(absent), moved=moved, b764_carry_calls=bc_calls,
+                      head=head, literals_ferry_line=re.findall(r'data/b764_ferry\.txt :\d+', sc), literals_k=sc.count('b764 defect (k)'))))
+'''
+
+
+def control_k2(before, after):
+    """[K2]: the carried exception and its cites. THE CARRY: b763's scan tool at b763's record commit carried to b764 by the substitution b764's
+    step zero used (its pairs read from data/b764_carry_address_scan.txt :3), through each revision's tools/standing/carry.py (substitute,
+    shifted_absent and, where it stands, shifted_cites, read by ast), and whether tools/b764_carry.py's _carry calls the new reader. THE SCAN:
+    each revision's tools/b764_address_scan.py, its exception line composed over b764's ferry bank, and its literal cites of b764's ferry by a
+    line and of b764's defect (k). The record instance: b764 defect (d) (the carried cites at :158, :179, :187, :196, :266 and :303 shifted from
+    b763's). FAULT: the carry reads none of the shifted cites (shifted_absent 0, no other reader) and the scan's exception line carries the
+    shifted letter. CLEAN: the carry lists them, the OWN among them b764's ferry at :145 and b764 defect (k); b764's carry route calls it; the
+    exception line names N5 at the ferry's line read at run time (:157), no letter in it, the act arm's needle its prefix; no shifted literal."""
+    L, res = [], {}
+    rc, src = git('show', '%s:%s' % K2_SRC)
+    head3 = open(os.path.join(D, 'b764_carry_address_scan.txt'), encoding='utf-8').read().split(NL)[2]
+    m = re.search(r'substitution alone \(([^)]*)\)', head3)
+    subs = [tuple(x.strip().split(' -> ')) for x in m.group(1).split(',')] if m else []
+    ferry = open(os.path.join(D, 'b764_ferry.txt'), encoding='utf-8').read().split(NL)
+    n5 = [i + 1 for i, l in enumerate(ferry) if '(N5)' in l]
+    L += ['  THE RECORD INSTANCE: %s at %s (%d bytes), carried by the pairs %s (data/b764_carry_address_scan.txt :3); b764 defect (d) names the '
+          'shifted cites at :158, :179, :187, :196, :266 and :303' % (K2_SRC[1], K2_SRC[0], len(src), subs),
+          '    b764`s ferry bank: "(N5)" on lines %s; the clause opens at :%s ("(N5) nothing deposits")' % (n5, n5[-1] if n5 else None)]
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k2_')
+        inst = tempfile.mkdtemp(prefix='b764k2i_')
+        try:
+            got = snapshot(rev, K2_PATHS, tmp)
+            with open(os.path.join(inst, 'src.py'), 'wb') as fh:
+                fh.write(src)
+            with open(os.path.join(inst, 'subs.json'), 'w', encoding='utf-8') as fh:
+                json.dump(subs, fh)
+            j = probe(K2_PROBE, tmp, inst)
+        finally:
+            for t_, pre in ((tmp, 'b764k2_'), (inst, 'b764k2i_')):
+                if os.path.isabs(t_) and os.path.basename(t_).startswith(pre):
+                    shutil.rmtree(t_, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        mv = j['moved']
+        own = [r for r in (mv or []) if r[2] == 'OWN']
+        own_c = set(r[1] for r in own)
+        fault = mv is None and 'b764 defect (k)' in j['head']
+        clean = (mv is not None and {'data/b764_ferry.txt :145', 'b764 defect (k)'} <= own_c and len(own) >= 10 and j['b764_carry_calls']
+                 and 'data/b764_ferry.txt :157' in j['head'] and 'defect (' not in j['head']
+                 and j['head'].startswith('## THE EXCEPTION, THE BYLINE UNDER I-23: NONE TAKEN: R374`S N5')
+                 and not j['literals_ferry_line'] and j['literals_k'] == 0)
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    THE CARRY: %d lines carried ; cites of an absent bank %s ; the cites the shift moved %s' % (
+                  j['dst_lines'], j['absent'], ('%d, OWN %d' % (len(mv), len(own))) if mv is not None else 'NOT READ (no reader)')]
+        L += ['      :%d %s %s (from %s)' % tuple(r) for r in (mv or [])]
+        L += ['    tools/b764_carry.py`s _carry calls the reader: %s' % j['b764_carry_calls'],
+              '    THE SCAN`S EXCEPTION LINE over b764`s ferry: %s' % j['head'][:330],
+              '    the scan tool`s literal cites of b764`s ferry by a line %s ; of b764 defect (k) %d' % (j['literals_ferry_line'] or 'NONE', j['literals_k']),
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2)
 
 
 def main(argv):

@@ -979,7 +979,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     """N5, the scan arm (the name the frozen run list carries): tools/b764_address_scan.py run live over every commit of the act (relay,
     PLACE-papers and SIDE-explicit-formula's commits from its base, the kernel's commits and tag messages among them; fields, messages and
     added lines), the working trees' added lines and the untracked banks, the previous address, the name and the ORCID held in memory -- the
-    address 0, the author's name 0, the previous name 0, the ORCID 0; no byline excepted, (R374)'s N5 writing none (defect (k)), the bank's
+    address 0, the author's name 0, the previous name 0, the ORCID 0; no byline excepted, (R374)'s N5 writing none (defect (d)), the bank's
     exception line NONE TAKEN; its eight controls as wanted; the bank's counts the same; none printed."""
     a = S['addr_live'] or {}
     out = a.get('out') or ''

@@ -92,13 +92,14 @@ def carry(src_rel, dst_rel, name, subs, shifted_ok=False, again=False):
                          + ['### repair the carried form by hand after `--shifted`, or carry the name unshifted']))
     act = subs[0][1]
     absent = shifted_absent(old, new, act, lambda p_: os.path.exists(_path(p_)))   # ### v1.35.1, (R366)(6), b755 (n)
+    moved = shifted_cites(old, new, act)   # ### v1.38.11, (R374)(5) [K2]
     ol, nl_ = old.split(NL), new.split(NL)
     diff = udiff(ol, nl_, src_rel, dst_rel)
     changed = sum(1 for l in diff if l.startswith('+') and not l.startswith('+++'))
     L = ['%s -- THE CARRY BY DIFF (tools/standing/carry.py): %s -> %s (%s)' % (act, src_rel, dst_rel, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())), '',
          '### the substitution alone (%s); %d lines, %d changed' % (', '.join('%s -> %s' % s for s in subs), len(nl_), changed),
          '### SHIFTED PAST WHAT EXISTS: %s' % ('; '.join(':%d %s' % s for s in shifted) if shifted else 'NONE'), '']
-    L += absent_lines(absent) + ['', '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
+    L += absent_lines(absent) + [''] + cite_lines(moved) + ['', '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
     L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED %d ; SHIFTED %d%s ; CITES OF AN ABSENT BANK %d**' % (
         dst_rel, len(nl_), changed, len(shifted), ' (WRITTEN BY --shifted)' if shifted else '', len(absent))]
     p = os.path.join(D, '%s_carry_%s.txt' % (act, name))
@@ -108,7 +109,7 @@ def carry(src_rel, dst_rel, name, subs, shifted_ok=False, again=False):
         with open(path + '.tmp', 'wb') as fh:
             fh.write(body.encode('utf-8'))
         os.replace(path + '.tmp', path)
-    print(NL.join(L[:4] + absent_lines(absent) + L[-1:]))
+    print(NL.join(L[:4] + absent_lines(absent) + cite_lines(moved) + L[-1:]))
 
 
 def check(src_rel, dst_rel):
@@ -119,6 +120,7 @@ def check(src_rel, dst_rel):
     m = re.search(r'b\d{3}', os.path.basename(dst_rel))
     if m:
         print(NL.join(absent_lines(shifted_absent(rd(_path(src_rel)), rd(_path(dst_rel)), m.group(0), lambda p_: os.path.exists(_path(p_))))))
+        print(NL.join(cite_lines(shifted_cites(rd(_path(src_rel)), rd(_path(dst_rel)), m.group(0)))))   # ### v1.38.11, [K2]
     return 1 if shifted else 0
 
 
@@ -149,6 +151,43 @@ def shifted_absent(src, dst, act, exists):
 def absent_lines(absent):
     return (['### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: %d' % len(absent)]
             + ['  :%d %s (the source line cited %s)' % (i, p, ', '.join(s) or 'none') for i, p, s in absent])
+
+
+# ================================================================================ v1.38.11, (R374)(5) [K2]: b764 defect (d), b763 (k), b762 (f)
+# ### THE CITES THE SHIFT MOVES BY A LINE OR A LETTER. The substitution moves every act name with the act's own, so a carried cite of an act's
+# ### ferry by its line, or of one of its defect rows by letter or event rows by number, comes to cite another act's ferry at the same line
+# ### and another act's row of the same letter. b764's address scan, carried from b763's, cited "(R374)'s N5 (data/b764_ferry.txt :145)"
+# ### where (R374)'s N5 stands at :157, and "b764 defect (k)", a letter b764's defects bank does not hold; b763's carry did the same, and
+# ### b762's. Those banks stand, so shifted_absent (a bank the tree lacks) never read them, and the seat found them at the read-first rows.
+# ### Each such cite is printed at the carry, the act's first write at step zero, the cites onto the act's own ferry and rows marked OWN, so
+# ### the exception and the clause and line it cites are read against this act's ruling before any run: a print, as shifted_absent's.
+CITE_MOVED = re.compile(r"\bdata/(b\d{3})_ferry\.txt :\d+|\b(b\d{3}) defects? \([a-z]'*\)|\b(b\d{3}) events \(\d+\)|\b(b\d{3}) \([a-z]'*\)")
+
+
+def shifted_cites(src, dst, act):
+    """[(line, the carried cite, 'OWN' | 'MOVED', the source line's cite)]: on a line the substitution changed, a cite of an act's ferry by
+    its line or of an act's defect or event row by letter or number whose act name differs from the same cite on the source line -- a cite
+    the shift moved, OWN where it now names `act` itself. The lines paired by the diff's opcodes, as shifted_absent pairs them."""
+    out, pair = [], {}
+    sl, dl = (src or '').split(NL), (dst or '').split(NL)
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, sl, dl, autojunk=False).get_opcodes():
+        if tag != 'equal':
+            for k in range(j1, j2):
+                pair[k] = sl[i1 + k - j1] if tag == 'replace' and i1 + k - j1 < i2 else ''
+    for k in sorted(pair):
+        have = [(m.group(0), next(g for g in m.groups() if g)) for m in CITE_MOVED.finditer(pair[k])]
+        for m in CITE_MOVED.finditer(dl[k]):
+            c, a = m.group(0), next(g for g in m.groups() if g)
+            src_c = [s for s, b in have if b != a and s.replace(b, a, 1) == c]
+            if src_c and c not in [s for s, _b in have]:
+                out.append((k + 1, c, 'OWN' if a == act else 'MOVED', src_c[0]))
+    return out
+
+
+def cite_lines(moved):
+    return (['### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read '
+             'against this act`s ruling before any run: %d (OWN %d)' % (len(moved), sum(1 for r in moved if r[2] == 'OWN'))]
+            + ['  :%d %s %s (the source line cited %s)' % (i, k, c, s) for i, c, k, s in moved])
 
 
 # ================================================================================ v1.27.0, (R357)(3)(viii): THE CARRY BESIDE THE RULING

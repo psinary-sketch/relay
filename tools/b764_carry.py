@@ -129,6 +129,9 @@ def _carry(name, src_rel, dst_rel, *a):
         new = substitute(old)
     # ### v1.35.1, (R366)(6), b755 (n) at 19 acts: each carried cite of an earlier act's bank the tree lacks, printed before any write of the act
     absent = CR.shifted_absent(old, new, ACT, lambda p_: os.path.exists(os.path.join(ROOT, *p_.split('/'))))
+    # ### b764, (R374)(5) [K2], tools/standing/ v1.38.11: each cite the shift moved by a ferry's line or a row's letter, OWN where onto this
+    # ### act's own ferry or rows, printed before any write of the act, so the scan's exception and its cites are read against this ruling
+    moved = CR.shifted_cites(old, new, ACT) if hasattr(CR, 'shifted_cites') else []
     ol, nl_ = old.split(NL), new.split(NL)
     diff = udiff(ol, nl_, src_rel, dst_rel)
     spans = repair_spans(name)
@@ -146,6 +149,7 @@ def _carry(name, src_rel, dst_rel, *a):
         L += ['', '### THE STUBS THE CARRY LEFT ((R364)(3)(ii), tools/standing/carry.py v1.34.0), each refusing itself when used until written for the act: %d' % len(stubbed)]
         L += ['  :%d %s' % s for s in stubbed]
     L += [''] + CR.absent_lines(absent)
+    L += ([''] + CR.cite_lines(moved)) if hasattr(CR, 'cite_lines') else []
     L += ['', '### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:'] + ['  ' + l for l in diff]
     L += ['', '### ### **CARRIED %s ; LINES %d ; CHANGED BY THE SUBSTITUTION %d ; REPAIR SPANS AT %s %d ; THE SEAT READS THE SPANS, NOT THE WHOLE.**' % (
         dst_rel, len(nl_), changed, PREV, len(spans))]
@@ -154,7 +158,7 @@ def _carry(name, src_rel, dst_rel, *a):
     with open(p + '.tmp', 'wb') as fh:
         fh.write((NL.join(L) + NL).encode('utf-8'))
     os.replace(p + '.tmp', p)
-    print(NL.join(L[:6] + CR.absent_lines(absent) + L[-1:]))
+    print(NL.join(L[:6] + CR.absent_lines(absent) + (CR.cite_lines(moved) if hasattr(CR, 'cite_lines') else []) + L[-1:]))
 
 
 def prune(name, start, end, *a):
