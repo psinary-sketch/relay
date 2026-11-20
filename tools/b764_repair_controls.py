@@ -237,6 +237,8 @@ q_before, q_after = N.bar(rd('q_before.txt')), N.bar(rd('q_after.txt'))
 print(json.dumps(dict(l_need=bool(f_need), l_before=l_before, l_after=l_after, p_rows=p_rows,
                       q_before=[len(q_before[0]), len(q_before[1]), q_before[3]], q_after=[len(q_after[0]), len(q_after[1]), q_after[3]])))
 '''
+K5_HEAD = '### b763 — lane two, act one hundred and ninety, The control’s failure from its coefficients under (R373)'
+K5_CARRIED = '### b763 — lane two, act one hundred and eighty-nine, The re-cut of One Page under (R373)'
 K5_Q_OLD = 'two arms failing beyond b762`s (defects (n), (o))'
 K5_Q_NEW = 'G-WEIGHT-LINE and G-CLOSING-SENTENCE failing beyond b762`s (defects (n), (o))'
 
@@ -250,11 +252,12 @@ def control_k5(before, after):
     (p) the face's trail needle in the backtick form stands raw and not through conv, and the typographic form stands through conv;
     (q) b763's face paragraph as committed at 256c3e8d (tools/b763_face_blocks.txt, the Component 6 paragraph counting two arms) reads an
         arm miss through the gate's bar screen, and the same paragraph with the two arms named reads none;
-    (n), (o) the arm route: `needle.py b763 arm G-DIFFERS-ERRATA` over b763's own corrigendum head needle and a planted needle written
-        nowhere, --dry: the arm run on b763's composed sources (PASS or FAIL, not RAISED), the first needle standing in the text the arm
-        reads (its FINDINGS line reader's source), the planted one not. b763 and not b764: b764's act module holds carried stubs until its
-        sections are written at Component 5 (its checks section 60 among them), so b764's sources halt by design before then (the first run
-        of this control, 18:40:16Z, read that halt and is kept in the bank)."""
+    (n), (o) the arm route: `needle.py b764 arm G-PRIOR-CLOSED-PUSHED`, --dry, over three needles of b763's trail head -- as OPEN_TRAILS
+        :18993 holds it (the apostrophe typographic), in the relay's backtick form, and as the carry left it (b762's head under b763's name)
+        -- the arm run on b764's composed sources (PASS or FAIL, not RAISED), the first standing in the text the arm reads (S['ot']), the
+        second and third not. The first run of this control (18:40:16Z) read b764's sources halting on the carried stub of the act module's
+        checks section 60, which is this arm's needle; the second (18:41:45Z) read b763's suite refused by its root's guard ((R339)(2)(iii))
+        for a closed act; section 60 written for b764 (the Edit tool) and the module committed before this case runs. Both readings kept."""
     L = []
     rc, b = git('show', '%s:%s' % (before, K5_TOOL))
     L += ['  BEFORE (relay %s): %s %s' % (before[:8], K5_TOOL, 'present' if rc == 0 else 'ABSENT'),
@@ -290,13 +293,13 @@ def control_k5(before, after):
     p_ok = j['p_rows'][0][1] and not j['p_rows'][0][2] and j['p_rows'][1][2]
     q_ok = bool(para) and j['q_before'][1] >= 1 and j['q_after'][1] == 0
     t0 = time.time()
-    a = subprocess.run([sys.executable, '-X', 'utf8', '-u', os.path.join(ROOT, 'tools', 'standing', 'needle.py'), 'b763', 'arm', 'G-DIFFERS-ERRATA',
-                        '## Corrigendum to b762', 'b764 PLANTED NEEDLE WRITTEN NOWHERE', '--dry'], capture_output=True, text=True, encoding='utf-8',
-                       errors='replace', cwd=ROOT, timeout=560)
+    nd = [K5_HEAD, K5_HEAD.replace('’', '`'), K5_CARRIED]
+    a = subprocess.run([sys.executable, '-X', 'utf8', '-u', os.path.join(ROOT, 'tools', 'standing', 'needle.py'), ACT, 'arm', 'G-PRIOR-CLOSED-PUSHED']
+                       + nd + ['--dry'], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=ROOT, timeout=560)
     out = a.stdout
     m = re.search(r'ON THE COMPOSED SOURCES: (PASS|FAIL|RAISED[^(]*)', out)
-    rows = re.findall(r"NEEDLE '([^']*)'.* -- (STANDS|DOES NOT STAND)", out)
-    n_ok = bool(m) and not m.group(1).startswith('RAISED') and rows[:2] == [('## Corrigendum to b762', 'STANDS'), ('b764 PLANTED NEEDLE WRITTEN NOWHERE', 'DOES NOT STAND')]
+    rows = [w for w in re.findall(r' -- (STANDS|DOES NOT STAND)$', out, re.M)]
+    n_ok = bool(m) and not m.group(1).startswith('RAISED') and rows == ['STANDS', 'DOES NOT STAND', 'DOES NOT STAND']
     L += ['    (l) the recut bank`s foot: the repaired foot`s text read %s ; at 1d8b80a2 a verdict line %s, the needle %s ; at 9779a81f a verdict line %s, the needle %s -- %s' % (
               j['l_need'], j['l_before']['foot_found'], 'STANDS' if j['l_before']['rows'][0][1] else 'DOES NOT STAND', j['l_after']['foot_found'],
               'STANDS' if j['l_after']['rows'][0][1] else 'DOES NOT STAND', 'AS WANTED' if l_ok else 'NOT AS WANTED'),
@@ -304,9 +307,9 @@ def control_k5(before, after):
               j['p_rows'][0][1], j['p_rows'][0][2], j['p_rows'][1][2], 'AS WANTED' if p_ok else 'NOT AS WANTED'),
           '    (q) b763`s face paragraph at 256c3e8d (found %s): arm misses %d (multi-arm paragraphs %d) ; with the two arms named: arm misses %d -- %s' % (
               bool(para), j['q_before'][1], j['q_before'][2], j['q_after'][1], 'AS WANTED' if q_ok else 'NOT AS WANTED'),
-          '    (n), (o) the arm route, b763`s G-DIFFERS-ERRATA on b763`s composed sources (exit %d, %.0f s): %s ; the needles %s -- %s' % (
-              a.returncode, time.time() - t0, m.group(1).strip() if m else 'NO VERDICT LINE', rows or (a.stderr or out).strip()[-300:],
-              'AS WANTED' if n_ok else 'NOT AS WANTED')]
+          '    (n), (o) the arm route, G-PRIOR-CLOSED-PUSHED on b764`s composed sources (exit %d, %.0f s): %s ; the needles (landed form, backtick'
+          ' form, as carried) %s -- %s' % (a.returncode, time.time() - t0, m.group(1).strip() if m else 'NO VERDICT LINE',
+                                         rows or (a.stderr or out).strip()[-300:], 'AS WANTED' if n_ok else 'NOT AS WANTED')]
     clean = l_ok and p_ok and q_ok and n_ok
     L.append('    AFTER: %s' % ('CLEAN' if clean else 'THE FAULT READ'))
     return L, before_fault and clean

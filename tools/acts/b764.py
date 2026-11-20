@@ -1281,10 +1281,10 @@ def research_reproduces_ok(S):
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (FINDINGS: the corrigendum and the entry; OPEN_TRAILS: the lines of (9) and the build lines under the dated head, and the trail; phase1.5/method/THE_METHOD_CANON.md: section XXV of [C1]; (R374)(1), (9), (13)); REGISTRY not written (N3); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    (_ for _ in ()).throw(SystemExit('### b764`s a block reading an act ordinal or the read-first needles (SECTION checks 60) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')),
-    # ### b763, Component 3 (the Edit tool): the carried stub replaced -- b762's trail head as OPEN_TRAILS :18897 carries it (scratch ent763.py
-    # ### through the masks, 2026-11-20T03:1xZ), in place of the carried needle, which named b761's head under b762's name
-    ('G-PRIOR-CLOSED-PUSHED', 'b763`s trail record on OPEN_TRAILS (:18897) and its root in the chain', lambda S: '### b763 — lane two, act one hundred and eighty-nine, The re-cut of One Page under (R373)' in S['ot']
+    # ### b764, Component 2 (the Edit tool), at [K5]'s control: the carried stub replaced -- b763's trail head as OPEN_TRAILS :18993 carries it
+    # ### (scratch ot764.py through the masks, 2026-11-20T18:4xZ, the line's sha256 034d47bfa9dd9edc), the apostrophe typographic as the
+    # ### landed file holds it, in place of the carried needle, which named b762's head under b763's name; read by tools/standing/needle.py arm
+    ('G-PRIOR-CLOSED-PUSHED', 'b763`s trail record on OPEN_TRAILS (:18993) and its root in the chain', lambda S: '### b763 — lane two, act one hundred and ninety, The control’s failure from its coefficients under (R373)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (FINDINGS, OPEN_TRAILS and the canon): beyond %s' % (
