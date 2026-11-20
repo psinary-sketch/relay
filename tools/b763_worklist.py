@@ -133,7 +133,8 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = '4964e95758a7b1bc8c49d0972ebb18877d4f945f'    # ### b763: SIDE-explicit-formula's main after (R373)(6) -- moved from push-b763-form at v0.42 (02:22:05Z, tag object 001e94ff), after run 44646848292's success (entering at a3aad4cc, EF_BASE); set again where (8) moves it
+EF_MAIN = '819e4a832700038d103b4efc1e0ee0f1343f7c6e'    # ### b763: SIDE-explicit-formula's main at the close -- moved from push-b763-form at v0.42 (02:22:05Z, tag object 001e94ff) after run 44646848292's success, then from push-b763-squares at v0.43 (05:34Z, tag object bcd4d481) after run 44670834879's, (8)'s W-ORD-SQUARES-AT-24 built in full (entering at a3aad4cc, EF_BASE); the local main fast-forwarded by the one-call tool after each (05:34:3xZ the second)
+EF_MAIN_V042 = '4964e95758a7b1bc8c49d0972ebb18877d4f945f'   # ### b763: main after (6) alone, at v0.42, before (8)'s landing
 EF_MAIN_B759 = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'    # ### b759's main at its close, v0.41, b763's entering main
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
@@ -550,7 +551,7 @@ CHAIN = (('ceiling_gen', '0826dbaf'), ('ceiling_fix', '700efb97'), ('c1', '17b27
          ('module3', 'e9cbce4f'), ('events_61', '8d72486a'), ('outcomes_c3', '4565bf58'), ('send6', '50a7a65b'), ('imp2_gen', '095e5198'),
          ('imp2', '5fa0c996'), ('events_65', '2c9ab50c'), ('presend_skp', '33ccc430'), ('presend_skp_bank', 'bdccf9a1'), ('send7', '904c3324'),
          ('rulings', '2afcea71'), ('close_carry', 'dbd562bb'), ('graders', '0729658c'), ('recut_gen', '3c15f127'), ('recut_bank0', '1d8b80a2'),
-         ('recut_fix', '07a56968'), ('recut', '9779a81f'))
+         ('recut_fix', '07a56968'), ('recut', '9779a81f'), ('events_72', 'dc72e300'), ('events_73', '84162179'))
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
 CHAIN_B761 = ()   # ### b761's twenty-one keys stand in git at tools/b761_worklist.py
 CHAIN_B760 = ()   # ### b760's twenty-five keys stand in git at tools/b760_worklist.py
@@ -578,7 +579,8 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'ceiling_fix': 'its contr
                     'presend_skp': 'the pre-send tool takes KEIPER-FACE', 'presend_skp_bank': 'its pre-send bank', 'send7': 'dispatch 7 sent',
                     'rulings': 'the author`s rulings banked', 'close_carry': 'the close`s tools carried',
                     'graders': 'the act module`s graders for b763 and the scan`s byline repair (defect (k))', 'recut_gen': 'the recut inputs tool of (10)',
-                    'recut_bank0': 'its first bank', 'recut_fix': 'its foot in the verdict form (defect (l))', 'recut': 'its bank again'})
+                    'recut_bank0': 'its first bank', 'recut_fix': 'its foot in the verdict form (defect (l))', 'recut': 'its bank again',
+                    'events_72': 'events (72) with defect (l)', 'events_73': 'events (73)'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 STANDING_BANKS = (('v1.37.2', 'd34f7323', 'data/b763_standing_v1372.txt', 10),)   # ### b763 (R373)(5): its controls 10 of 10, banked after the commit (19:54:12Z)
@@ -597,7 +599,7 @@ KERNEL_COMMITS = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),      
                   ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
                   ('statement', 'SIDE-explicit-formula', '4964e957', 'main'),    # ### the statement file by the author's word (23:51:12Z, step 28), main at v0.42 (02:22:05Z)
                   ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b763-arith'),   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
-                  ('squares', 'SIDE-explicit-formula', '819e4a83', 'push-b763-squares'),   # ### (R373)(8) W-ORD-SQUARES-AT-24 (03:48:55Z, step 47), on its branch; main moved to it only on its run's success
+                  ('squares', 'SIDE-explicit-formula', '819e4a83', 'main'),   # ### (R373)(8) W-ORD-SQUARES-AT-24 (03:48:55Z, step 47), on push-b763-squares; main moved to it at v0.43 after run 44670834879's success (05:34Z)
                   ('keiper', 'SIDE-explicit-formula', 'a59632eb', 'push-b763-keiper'))     # ### (R373)(8) W-ORD-KEIPER-FACE, a first file (04:23:03Z, step 53), on its branch made at main 4964e957; the order not built in full, so main does not move to it
 KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
@@ -609,7 +611,7 @@ WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
 ORDER_BRANCHES = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z)
                   ('push-b763-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z)
-ORDER_TAGS = ()   # ### (R373)(8): each tag cut for an order of (8) built in full, (name, tag object, peel read back at the remote), set as each is read back
+ORDER_TAGS = (('v0.43', 'bcd4d4818520fc7a477c98e2c79548b80295725f', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### (R373)(8): each tag cut for an order of (8) built in full, (name, tag object, peel read back at the remote): W-ORD-SQUARES-AT-24 at main's read-back (data/b763_SIDE-explicit-formula_push-b763-squares_push_out.txt, 05:34Z)
 PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7', 's24', 'skp')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
 ARITH_BRANCH = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
@@ -777,7 +779,7 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = (44610575175, 44625270777, 44641876790, 44646848292, 44661759569)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL, 5 KERNEL ((7)'s statement)
+EF_RUNS = (44610575175, 44625270777, 44641876790, 44646848292, 44661759569, 44670834879)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL, 5 KERNEL ((7)'s statement), 6 KERNEL (SQUARES-AT-24, 05:33:36Z)
 EF_RUNS_B762 = ()   # ### b762's: none
 EF_RUNS_B759 = (44162171267,)   # ### b759's one, read not re-run
 M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R373)(5): no kernel beyond SIDE-explicit-formula)
