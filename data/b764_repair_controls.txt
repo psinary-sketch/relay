@@ -226,3 +226,25 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     controls.py`s (3ii) replay reads close.py`s blob_carries: True
     AFTER: CLEAN
 ### ### **[K12] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K11] THE PLANTED CONTROL (2026-11-20T20:12:39Z): BEFORE relay 0698ff43, THE REPAIR`S COMMIT relay 132c8f59, its first parent 0698ff43 -- THE COMMIT BEFORE
+  THE RECORD INSTANCE b758: the seal record at 2026-11-17T11:46:36Z ; the post-lock runs ['2026-11-17T11:46:23Z'] ; the seal commit f401a81e staged 1 names, the post-lock bank among them: False
+  THE RECORD INSTANCE b759: the seal record at 2026-11-18T04:30:12Z ; the post-lock runs ['2026-11-18T04:29:43Z'] ; the seal commit 4f138c32 staged 79 names, the post-lock bank among them: True
+  THE RECORD INSTANCE b760: the seal record at 2026-11-18T18:25:02Z ; the post-lock runs ['2026-11-18T18:24:42Z'] ; the seal commit 1a6955c9 staged 79 names, the post-lock bank among them: True
+  THE RECORD INSTANCE b761: the seal record at 2026-11-19T05:48:09Z ; the post-lock runs ['2026-11-19T05:49:31Z'] ; the seal commit 80bb4c9a staged 79 names, the post-lock bank among them: True
+  THE RECORD INSTANCE b762: the seal record at 2026-11-19T16:09:39Z ; the post-lock runs ['2026-11-19T16:09:54Z'] ; the seal commit 027ae0f1 staged 79 names, the post-lock bank among them: True
+  THE RECORD INSTANCE b763: the seal record at 2026-11-20T11:31:30Z ; the post-lock runs ['2026-11-20T11:31:50Z'] ; the seal commit 77a72b91 staged 79 names, the post-lock bank among them: True
+  THE PLANTED INSTANCE b763 unstaged: b763`s order with data/b763_address_scan_postlock.txt taken out of its seal commit`s names
+  BEFORE (relay 0698ff43): the files tools/standing/act.py present, tools/standing/commit.py present, tools/act_close.py present, data/standing_clauses_v5.txt present
+    the close order as the seat reads it: [1] [2] [3] [4] [5] [5a] [6] [7] [7a] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
+    the step that places the post-lock scan: NONE
+    the seal commit`s refusal defined False ; called by run False
+    each order at the seal commit: every order taken, no place read
+    BEFORE: THE FAULT READ
+  AFTER (relay 132c8f59): the files tools/standing/act.py present, tools/standing/commit.py present, tools/act_close.py present, data/standing_clauses_v5.txt present
+    the close order as the seat reads it: [1] [2] [3] [4] [5] [5a] [6] [7] [7a] [8] [8a] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
+    the step that places the post-lock scan: [['8a', 'the post-lock address scan, after close.py`s seal route has written the hashes and before the seal commit, which carries', 'data/<act>_address_scan_postlock.txt']]
+    the seal commit`s refusal defined True ; called by run True
+    each order at the seal commit: b758 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b759 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b760 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b761 taken; b762 taken; b763 taken; b763 unstaged REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): data/b763_address_scan_postlock.txt is not staged with the seal (its run of 
+    AFTER: CLEAN
+### ### **[K11] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**

@@ -161,3 +161,20 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      refused; its planted control read the fault before and reads clean after (data/b764_repair_controls.txt :228)"
      THE REPAIR'S LIMIT: the seal records the working bytes' sha256 as before (G-SEAL-HASHES reads the working bytes); the replay finds a blob
      whose checkout writes every LF as CR LF, and a working file of mixed line ends is read by the guard but not found by the replay.
+
+    [K11] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES ; EVIDENCE: b763 events (21) and (96) (the post-lock scan at 2026-11-20T11:31:37Z
+     after the seal route and before the seal commit 77a72b91), b762 events (18) ("no rule ordering the two"); b764 events (15); the record,
+     data/b764_repair_controls.txt :231-:236: b758, b759 and b760 ran the scan before the seal route, b761, b762 and b763 after it, each seal
+     commit from b759 carrying the bank ; STATE: REPAIRED ; VERSION: v1.38.10, relay 132c8f59 (tools/standing/act.py: STEP_8A and
+     postlock_place, the close order taking [8a] after [8]; tools/standing/commit.py: postlock_refusal, called by the seal commit;
+     tools/standing/fold/record.tpl: the closeorder route printing [8a] whole, as [21]) ; THE CONTROL: data/b764_repair_controls.txt
+     :230-:250 ; PRICE: 0.16-0.62 h ; TOOK: 0.12 h (20:05:28Z-20:12:39Z)
+     THE RULE, written here and in the tools that enforce it ((R374)(12)): the post-lock address scan runs after close.py's seal route has
+     written data/<act>_seal_hashes.json and before the seal commit, which carries its bank, so the scan reads the seal record among the act's
+     writes; the one-call tool's seal commit is refused where data/<act>_address_scan_postlock.txt holds no run stamped at or after the seal
+     record's time, or where that bank is not staged with the seal.
+     "[K11] repaired at v1.38.10: the post-lock address scan is placed by one written rule, step [8a] of the close order, after close.py's
+     seal route writes the hashes and before the seal commit that carries its bank, and the seal commit refuses any other order; its planted
+     control read the fault before and reads clean after (data/b764_repair_controls.txt :250)"
+     THE REPAIR'S LIMIT: the rule reads the run's stamp against the seal record's time to the second; a run made after the seal commit is
+     not read by it, the bank being written after the lock by design for every later commit.
