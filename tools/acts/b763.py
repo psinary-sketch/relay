@@ -2798,11 +2798,15 @@ def _guard(f):
     # ### b761: the seat's read of what (R371) misses (data/b761_misses.txt, its first printing and the second, before the lock, below it),
     # ### each item by its number once and its line, in the bank's own words to its first semicolon; then the navigator's and the seat's own
     ml_ = rdn('%s_misses.txt' % ACT).replace(chr(13), '').split(NL)
-    items_, seen_ = [], set()
+    items_, seen_ = [], {}
     for i_, l_ in enumerate(ml_):
         m_ = re.match(r'^  \((\d+)\) (.+)$', l_)
-        if m_ and m_.group(1) not in seen_:
-            seen_.add(m_.group(1))
+        # ### b763, Component 6 (the touch read): an item the second printing restates ((2), superseded for FORM B) is read at its latest
+        # ### line, in its first printing's place; the first printing's line stood against the entry's centre, FORM B committed at a named window
+        if m_ and m_.group(1) in seen_:
+            items_[seen_[m_.group(1)]] = (i_ + 1, _first_clause(m_.group(2)).rstrip('.;'))
+        elif m_:
+            seen_[m_.group(1)] = len(items_)
             items_.append((i_ + 1, _first_clause(m_.group(2)).rstrip('.;')))
     # ### b761, Component 6 (the record read before its commit): the first clause cut at a semicolon outside quotation marks (item (6)'s
     # ### quoted form carries " ; "), and the template's count word read so that no navigator miss prints "no", not "the none"
