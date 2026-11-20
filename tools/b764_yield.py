@@ -23,8 +23,11 @@ Controls, before the figures: (A) the spans of b744 to b753 recomputed from thei
 three figures of each act; at each of b754 to b763 the phases' seconds summed equal to the opening row's span to the last row; a planted set
 of rows read to its known phases. (C) the row reader against each part bank's own LIVE FAILING list, b754 to b763, every pass; the summary
 matcher's yield; the row form's yield against a loose form, b754's strict form beside it; the standing arms by the act's list equal to its
-FREEZE line's figure, before and after the push, at each act; a planted FAIL row in a bank whose summary prints NONE read as a disagreement;
-a planted fault on a standing arm that read none moved from the none to the one or more.
+FREEZE line's figure, before and after the push, at each act; the CACHE line's yield and one VAC row read at its bank line; a planted FAIL
+row in a bank whose summary prints NONE read as a disagreement; a planted fault on a standing arm that read none moved from the none to the
+one or more. THE READING'S LIMIT, printed beside the arms at none: a PASS counts as no fault whatever the arm read; each arm at none carries
+its part, the acts at which that part took every remote read from the run cache ((R374)(5) [K16]'s class) and those at which its row read
+VAC or VACUOUS, added after the first run's bank (21:36:41Z) was read.
 argv: control | run."""
 import io, json, os, re, subprocess, sys, datetime
 R = r'D:\relay'
@@ -43,6 +46,7 @@ LOOSE = re.compile(r'^  (G-[A-Z0-9-]+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)')
 SUMMARY = re.compile(r'^  ### PART (\S+) : ARMS (\d+) ; LIVE PASSING (\d+) ; LIVE FAILING (\d+) (\[[^\]]*\]|NONE)')
 SUMHEAD = re.compile(r'^  ### PART \S+ : ARMS ')
 FREEZE = re.compile(r'THE FREEZE: the standing arms \([^)]*\) (\d+) ; carried here (\d+) ; the act`s arms over its own banks (\[[^\]]*\])')
+CACHE = re.compile(r'THE REMOTE READS OF THIS SUITE RUN \(key [^)]*\): repositories (\d+) ; read by this part (\d+) ; from the run cache (\d+)')
 T = lambda s: datetime.datetime.strptime(s, '%Y-%m-%dT%H:%M:%SZ')   # noqa: E731
 SEC = lambda a, b: int((T(b) - T(a)).total_seconds())   # noqa: E731
 H = lambda a, b: round(SEC(a, b) / 3600.0, 2)   # noqa: E731
@@ -207,6 +211,7 @@ def read_pass(act, prefix):
         return _PASS[(act, prefix)]
     parts = parts_of(act, prefix)
     fails, arms, agree, disagree, raw, nosum = set(), set(), 0, [], {}, []
+    where, vac, cache_only = {}, set(), set()
     y = [0, 0, 0, 0, 0]
     for p in parts:
         name = '%s_%s_%s.txt' % (act, prefix, p)
@@ -215,6 +220,15 @@ def read_pass(act, prefix):
         t = rd(name)
         raw[p] = t
         rows, _s = read_part(t)
+        for a in rows:
+            where[a] = p
+        for l in t.split(NL):
+            mv = ROW.match(l)
+            if mv and (mv.group(3) == 'VAC' or mv.group(4) == 'VAC' or re.search(r'vacuous', mv.group(6), re.I)):
+                vac.add(mv.group(1))
+        mc = CACHE.search(t)
+        if mc and int(mc.group(2)) == 0 and int(mc.group(3)) > 0:
+            cache_only.add(p)
         arms |= set(rows)
         fails |= set(a for a, live in rows.items() if live == 'FAIL')
         y = [a + b for a, b in zip(y, yields(t))]
@@ -225,7 +239,8 @@ def read_pass(act, prefix):
             agree += 1
         else:
             disagree.append((name, diff))
-    r = dict(parts=sorted(raw), fails=fails, arms=arms, agree=agree, disagree=disagree, raw=raw, nosum=nosum, yields=y)
+    r = dict(parts=sorted(raw), fails=fails, arms=arms, agree=agree, disagree=disagree, raw=raw, nosum=nosum, yields=y, where=where, vac=vac,
+             cache_only=cache_only)
     _PASS[(act, prefix)] = r
     return r
 
@@ -246,7 +261,7 @@ def tally(acts, fails_of=None):
         rs = dict((pn, read_pass(act, pre)) for pn, pre in PASSES)
         standing = set().union(*[rs[pn]['arms'] for pn in GRADING]) - own
         for a in standing:
-            present, fault, by = out.setdefault(a, ([], [], dict((pn, []) for pn, _ in PASSES)))
+            present, fault, by = out.setdefault(a, ([], [], dict([(pn, []) for pn, _ in PASSES] + [('vac', []), ('cache', []), ('part', [])])))
             present.append(act)
             f = fails_of(act, a, rs) if fails_of else any(a in rs[pn]['fails'] for pn in GRADING)
             if f:
@@ -254,6 +269,12 @@ def tally(acts, fails_of=None):
             for pn, _ in PASSES:
                 if a in rs[pn]['fails']:
                     by[pn].append(act)
+            if any(a in rs[pn]['vac'] for pn in GRADING):
+                by['vac'].append(act)
+            parts_ = set(rs[pn]['where'].get(a) for pn in GRADING) - {None}
+            by['part'].append(','.join(sorted(parts_)))
+            if parts_ and all(any(q in rs[pn]['cache_only'] for pn in GRADING) for q in parts_):
+                by['cache'].append(act)
     return out
 
 
@@ -295,6 +316,29 @@ def control_c():
             ok += good
             out.append('  (C) %s %s: the standing arms by the act`s list %s ; the FREEZE line`s figure %s (the act`s own %d) : %s' % (
                 act, pn, st, fr and fr[0], len(fr[2]) if fr else -1, 'AS WANTED' if good else '### NOT AS WANTED'))
+    heads, taken, cache_n = 0, 0, 0
+    for act in ACTS:
+        for pn, pre in PASSES:
+            if pn not in GRADING:
+                continue
+            r = read_pass(act, pre)
+            for p, t in r['raw'].items():
+                if 'THE REMOTE READS OF THIS SUITE RUN' in t:
+                    heads += 1
+                    taken += bool(CACHE.search(t))
+            cache_n += len(r['cache_only'])
+    n += 1
+    good = heads == taken and heads > 0
+    ok += good
+    out.append('  (C) THE CACHE LINE`S YIELD, before and after the push: banks with its head %d ; taken by the reader %d (wanted equal) ; the parts that took every '
+               'remote read from the run cache %d : %s' % (heads, taken, cache_n, 'AS WANTED' if good else '### NOT AS WANTED'))
+    n += 1
+    l59 = rd('b754_checks_standing-a2.txt').split(NL)[58]
+    r = read_pass('b754', 'checks')
+    good = l59.startswith('  G-RUNNER-GATE ') and ' VAC ' in l59 and 'G-RUNNER-GATE' in r['vac'] and r['where'].get('G-RUNNER-GATE') == 'standing-a2'
+    ok += good
+    out.append('  (C) THE VAC READING: data/b754_checks_standing-a2.txt :59 G-RUNNER-GATE`s row with VAC in its POS column read VAC %s, its part %s : %s' % (
+        'G-RUNNER-GATE' in r['vac'], r['where'].get('G-RUNNER-GATE'), 'AS WANTED' if good else '### NOT AS WANTED'))
     n += 1
     pick = None
     for p in read_pass('b763', 'checks')['parts']:
@@ -379,13 +423,23 @@ def figures():
         L.append('  %-34s faults at %2d of %2d present: %s | pre-run %s | prev-mode %s' % (
             a, len(fault), len(present), ' '.join(x[1:] for x in fault), ' '.join(x[1:] for x in by['pre-run']) or '-',
             ' '.join(x[1:] for x in by['prev-mode']) or '-'))
-    L.append('  -- THE STANDING ARMS THAT READ A FAULT AT NONE OF THE TEN (%d), for the author`s strike ((R374)(6); nothing removed on it by b764):' % len(none))
+    L.append('  -- THE STANDING ARMS THAT READ A FAULT AT NONE OF THE TEN (%d), for the author`s strike ((R374)(6); nothing removed on it by b764),' % len(none))
+    L.append('  -- each with its part at b763, the acts at which that part took every remote read from the run cache (CACHE) and those at which')
+    L.append('  -- its row read VAC in a control column or VACUOUS in its verdict (VAC):')
     for a in none:
         present, fault, by = t[a]
-        L.append('  %-34s present at %2d ; pre-run %s | prev-mode %s' % (a, len(present), ' '.join(x[1:] for x in by['pre-run']) or '-',
-                                                                     ' '.join(x[1:] for x in by['prev-mode']) or '-'))
+        L.append('  %-34s present at %2d ; part %-13s ; CACHE %s ; VAC %s ; pre-run %s | prev-mode %s' % (
+            a, len(present), by['part'][-1], ' '.join(x[1:] for x in by['cache']) or '-', ' '.join(x[1:] for x in by['vac']) or '-',
+            ' '.join(x[1:] for x in by['pre-run']) or '-', ' '.join(x[1:] for x in by['prev-mode']) or '-'))
     L.append('  ### ### **(C) STANDING ARMS %d ; READ A FAULT AT ONE ACT OR MORE %d ; AT NONE %d ; sum equal %s**' % (len(t), len(some), len(none),
                                                                                                              len(some) + len(none) == len(t)))
+    cache_all = [a for a in none if len(t[a][2]['cache']) == len(t[a][0])]
+    cache_any = [a for a in none if t[a][2]['cache']]
+    vac_any = [a for a in none if t[a][2]['vac']]
+    L.append('  THE READING`S LIMIT: a PASS is counted as no fault, whatever the arm read. Of the %d at none, %d stand in a part that took every remote '
+             'read from the run cache at each of their acts and %d at one act or more (the run cache holds the same run`s own reads; an empty answer '
+             'in it read as a pass before v1.38.5, (R374)(5) [K16]); %d read VAC or VACUOUS at one act or more (%s). A pass read from the cache is '
+             'not a pass read by the part.' % (len(none), len(cache_all), len(cache_any), len(vac_any), ', '.join(vac_any) or 'none'))
     L += ['', '## THE SENTENCE OF (R374)(6), its fields filled from (A) and (C) above (the acts with both rows for the hours):',
           '  From b754 to b763 an act ran %.2f to %.2f hours from its opening row to its closing, %.2f to %.2f of them from the lock to the closing; of %d standing '
           'arms %d read a fault at one act or more of the ten and %d at none, the %d listed in relay data/b764_close_yield.txt for the author\'s strike' % (
