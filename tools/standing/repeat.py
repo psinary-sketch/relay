@@ -261,7 +261,16 @@ def committed_root(R):
     """b698_record's rootbanks rebound so the root names committed blobs alone: its reading (every named bank clean and equal to HEAD's blob,
     HEAD the remote main), its own writes (the root-banks banks, an excluded kind), and then the same reading again over the names root_banks
     gives at that moment -- a bank written or added between the first reading and the compute refuses the root. b723's root named
-    data/b723_bank_hashes.json, which the hash recorder rewrote after the reading (no commit carries the hashed blob, 133004c8)."""
+    data/b723_bank_hashes.json, which the hash recorder rewrote after the reading (no commit carries the hashed blob, 133004c8).
+
+    v1.38.4, (R374)(5) [K15]: ONE WRAPPER, WHATEVER THE NUMBER OF RECORD MODULES THAT CALL IT. R is b698's one module, shared by every act's
+    record module the record route imports in its chain, and each of them renders the template line that calls this function: b764's load
+    wrapped R.rootbanks 44 times, each layer's first() the layer beneath it, so the root route's first reading ran the whole reading 44 times
+    -- one more reading at each act: root part 1 587 s at b762 (42 layers) and 670.5 s at b763 (43, data/b763_root_banks_parts.json),
+    against the host's 600 s. Where R.rootbanks already carries this wrapper it is returned as it stands; the reading, its writes and the
+    reading after them are the ones a single wrapper made."""
+    if getattr(R.rootbanks, 'committed_root', False):
+        return R.rootbanks
     first = R.rootbanks
 
     def rootbanks(*a):
@@ -275,6 +284,7 @@ def committed_root(R):
             return False
         return True
     rootbanks.first = first   # ### v1.34.0, (R364)(3)(x): the first reading named, so the root route in parts runs it as a part of its own
+    rootbanks.committed_root = True   # ### v1.38.4, [K15]: the mark a second call reads, so the wrapper is made once
     R.rootbanks = rootbanks
     return rootbanks
 

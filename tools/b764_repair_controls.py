@@ -404,7 +404,122 @@ def control_k8(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and all(ok for _p, _n, _s, ok in shas)
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8)
+# ================================================================================ [K15] THE LIMITS: ROOT PART 1
+K15_PATHS = ('tools/standing/repeat.py', 'tools/standing/rootparts.py')
+K15_LIVE = r'''
+import json, sys
+sys.path.insert(0, 'D:/relay/tools/standing')
+sys.path.insert(1, 'D:/relay/tools')
+sys.argv = ['fold.py', 'record']
+import standing.repeat as RP
+calls = [0]
+orig = RP.committed_root
+def counted(R):
+    calls[0] += 1
+    return orig(R)
+RP.committed_root = counted
+import fold as F
+F.install()
+M = F.load('b764', 'record')
+f, n = M.R.rootbanks, 0
+while hasattr(f, 'first'):
+    n += 1
+    f = f.first
+print(json.dumps(dict(calls=calls[0], layers=n, innermost='%s:%d' % (f.__code__.co_filename.replace('\\', '/').split('/tools/')[-1], f.__code__.co_firstlineno))))
+'''
+K15_PROBE = r'''
+import json, os, sys, types
+snap, n = sys.argv[1], int(sys.argv[2])
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import repeat as RP
+src = open(os.path.join(snap, 'tools', 'standing', 'rootparts.py'), encoding='utf-8').read()
+reads = [0]
+R = types.ModuleType('R_standin')
+R.root_banks = lambda: ['data/x.txt']
+def state(banks):
+    reads[0] += 1
+    return dict(rows=[dict(bank=b, status='clean', equal=True) for b in banks], pushed=True)
+R.root_banks_state = state
+def rootbanks(*a):
+    state(R.root_banks())
+    return True
+R.rootbanks = rootbanks
+for _ in range(n):
+    RP.committed_root(R)
+f, layers = R.rootbanks, 0
+while hasattr(f, 'first'):
+    layers += 1
+    f = f.first
+reads[0] = 0
+R.rootbanks.first()
+in_first = reads[0]
+reads[0] = 0
+R.rootbanks()
+print(json.dumps(dict(layers=layers, in_first=in_first, whole=reads[0], guard='GUARD_S = 590' in src and "guard_line('1'" in src and "guard_line('2'" in src
+                      and "guard_line('3'" in src and "row['under_guard']" in src)))
+'''
+
+
+def control_k15(before, after):
+    """[K15]: root part 1, the first reading of the root route. The record route loads b764's record module, whose import chain renders the
+    template line calling standing.repeat.committed_root(R) once for each act's record module, R b698's one module: the number of calls read
+    live at the working tree (its two files the repair's commit's, read and printed). Each revision's repeat.py then wraps a stand-in R that
+    many times, and its first reading -- root part 1 -- is run, counting the readings of every named bank it makes; rootparts.py read for the
+    part's seconds against the 590 s guard and the 600 s limit. The record instance: b762's and b763's parts banks, part 1 against the guard,
+    beside the layers each act's load made (one a record module from b721: 42 and 43). FAULT: part 1 reads the banks more than once (its
+    seconds the reading's times the layers, past the guard at b763), or no part reads its seconds against the guard. CLEAN: one wrapper, part 1
+    one reading and the route whole two (the reading, its writes, the reading after), each part's seconds read against the guard and banked."""
+    L, res = [], {}
+    rec = []
+    for a in ('b762', 'b763'):
+        pj = json.load(open(os.path.join(D, '%s_root_banks_parts.json' % a), encoding='utf-8'))
+        s1 = float(pj['parts']['1']['seconds'])
+        rec.append((a, s1, int(a[1:]) - 720))
+    per = rec[1][1] / rec[1][2]
+    L.append('  THE RECORD INSTANCE: %s ; one reading at b763 by its part 1 and its layers %.1f s' % (
+        '; '.join('%s part 1 %.1f s at %d layers, under the 590 s guard %s, under the 600 s limit %s' % (a, s, k, s < 590, s < 600) for a, s, k in rec), per))
+    same = []
+    for p in K15_PATHS:
+        rc, blob = git('show', '%s:%s' % (after, p))
+        work = open(os.path.join(ROOT, *p.split('/')), 'rb').read()
+        same.append(rc == 0 and work.replace(b'\r\n', b'\n') == blob.replace(b'\r\n', b'\n'))
+    t0 = time.time()
+    r = subprocess.run([sys.executable, '-X', 'utf8', '-I', '-c', K15_LIVE], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=ROOT, timeout=560)
+    js = [l for l in r.stdout.split(NL) if l.startswith('{')]
+    live = json.loads(js[-1]) if (r.returncode == 0 and js) else None
+    L.append('  THE LIVE LOAD at the working tree (its %s the repair`s commit`s: %s ; %.0f s): %s' % (
+        ' and '.join(K15_PATHS), all(same), time.time() - t0,
+        ('committed_root called %d times, layers over R.rootbanks %d, the innermost %s' % (live['calls'], live['layers'], live['innermost'])) if live
+        else 'FAILED: exit %d %s' % (r.returncode, (r.stderr or r.stdout).strip()[-300:])))
+    if not live or not all(same):
+        return L + ['  NOT READ: the live load failed or the working files are not the commit`s'], False
+    n = live['calls']
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k15_')
+        try:
+            got = snapshot(rev, K15_PATHS, tmp)
+            j = probe(K15_PROBE, tmp, str(n))
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k15_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        proj = j['in_first'] * per
+        fault = j['in_first'] > 1 or proj >= 590 or not j['guard']
+        clean = j['layers'] == 1 and j['in_first'] == 1 and j['whole'] == 2 and j['guard']
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    a stand-in R wrapped %d times, as the load calls it: layers %d ; part 1, the first reading, reads the banks %d time(s), the route'
+              ' whole %d ; part 1 at b763`s %.1f s a reading: %.0f s, under the 590 s guard %s' % (n, j['layers'], j['in_first'], j['whole'], per, proj, proj < 590),
+              '    each part`s seconds read against the 590 s guard and the 600 s limit and banked (rootparts.py): %s' % j['guard'],
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    ok = res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and live['layers'] == 1
+    return L, ok
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15)
 
 
 def main(argv):

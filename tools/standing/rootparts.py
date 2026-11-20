@@ -34,6 +34,18 @@ NL = '\n'
 LIMIT_S = 600       # ### the host's limit for a foreground call: tools/standing/limits.py's row for a record route, 600000 ms
 MARGIN = 0.8        # ### the parts where the expected seconds reach four fifths of it
 PARTS = '%s_root_banks_parts.json'
+GUARD_S = 590       # ### v1.38.4, (R374)(5) [K15]: the suite's guard for a part (tools/standing/fold/checks.tpl's 590 s), read beside the host's limit
+
+
+def guard_line(key, seconds, prev, D):
+    """v1.38.4, (R374)(5) [K15]: a part's seconds read against the 590 s guard and the host's 600 s limit, beside the previous act's same part
+    by its parts bank (b762's part 1 587 s and b763's 670.5 s each ran the reading once per record module in the chain, repeat.py's v1.38.4).
+    Returns (line, under the guard)."""
+    pj = _jl(os.path.join(D, PARTS % prev)) or {}
+    ps = ((pj.get('parts') or {}).get(key) or {}).get('seconds')
+    under = seconds is not None and seconds < GUARD_S
+    return ('  ### PART %s`S SECONDS %.1f AGAINST THE GUARD %d s AND THE HOST`S LIMIT %d s: UNDER THE GUARD %s ; %s`s part %s %s' % (
+        key, seconds, GUARD_S, LIMIT_S, under, prev, key, ('%.1f s' % float(ps)) if ps is not None else 'NOT BANKED')), under
 
 
 def _epoch(iso):
@@ -125,7 +137,9 @@ def bind(R, ACT, PREV, D, ROOT, put_json, utc):
                 sys.exit('### THE ROOT ROUTE IN PARTS: R.rootbanks carries no first reading (standing.repeat.committed_root not bound) -- NOTHING RUN')
             ok = bool(first())
             row = dict(at=utc(), seconds=round(time.time() - t0, 1), ok=ok, head=_git('rev-parse', 'HEAD').strip())
+            gl, row['under_guard'] = guard_line('1', row['seconds'], PREV, D)   # ### v1.38.4, [K15]
             _bank('1', row)
+            print(gl)
             print('### ### **THE ROOT ROUTE, PART 1 OF 2 (the first reading): %s in %.1f s, banked in data/%s.**' % ('READY' if ok else 'NOT READY', row['seconds'], PARTS % ACT))
             return
         if not (_parts().get('1') or {}).get('ok'):
@@ -136,7 +150,9 @@ def bind(R, ACT, PREV, D, ROOT, put_json, utc):
         ready = not bad and bool(s['pushed']) and bool(s['rows'])
         row = dict(at=utc(), seconds=None, ready=ready, head=s['head'], remote=s['remote'], bad=bad, banks=blob_shas(ROOT, s['head'], banks))
         row['seconds'] = round(time.time() - t0, 1)
+        gl, row['under_guard'] = guard_line('2', row['seconds'], PREV, D)   # ### v1.38.4, [K15]
         _bank('2', row)
+        print(gl)
         print('### ### **THE ROOT ROUTE, PART 2 OF 2 (the second reading): banks %d, not clean or not equal %d, HEAD the remote main %s -- %s in %.1f s, '
               'banked in data/%s.**' % (len(banks), len(bad), s['pushed'], 'READY' if ready else 'NOT READY', row['seconds'], PARTS % ACT))
 
@@ -170,7 +186,10 @@ def bind(R, ACT, PREV, D, ROOT, put_json, utc):
             print('  the second reading holds at the compute: banks %d, HEAD %s the remote main, status clean, every file its blob' % (len(banks), head[:12]))
             _compute(banks, a)
             if 'dry' not in a:
-                _bank('3', dict(at=utc(), seconds=round(time.time() - t0, 1), head=head))
+                r3 = dict(at=utc(), seconds=round(time.time() - t0, 1), head=head)
+                gl, r3['under_guard'] = guard_line('3', r3['seconds'], PREV, D)   # ### v1.38.4, [K15]
+                _bank('3', r3)
+                print(gl)
             return
         if mode == 'parts':
             sys.exit('### THE ROOT ROUTE: THE EXPECTED SECONDS REACH THE MARGIN OR ARE UNREAD -- RUN IN PARTS, EACH A CALL OF ITS OWN IN THE FOREGROUND '
