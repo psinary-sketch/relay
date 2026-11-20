@@ -2301,10 +2301,22 @@ def main():
     rec('  %-46s %-5s %-5s %-5s %-8s %s' % ('arm', 'LIVE', 'NEG', 'POS', 'secs', 'verdict'))
     rec('  ' + '-' * 106)
     W = withheld_field()
+    # ### v1.38.1, (R374)(5) [K1], THE VALUE NOT YET SET (tools/standing/toset.py): before the arms, in every mode but the run on the previous act's
+    # ### banks, each arm that names a constant of the act's worklist still to set is printed with its constants and not run on it; its row reads
+    # ### WITHHELD, NOT RUN, counted neither passing nor failing (W for this run's tally); the seal reads it HELD (tools/standing/close.py neg_shown)
+    HELD = {} if PREV else __import__('standing.toset', fromlist=['held']).held(arms, KS.__file__, globals())
+    rec('  ### v1.38.1, (R374)(5) [K1]: THE ARMS OF THIS PART THAT NAME A CONSTANT STILL TO SET, NOT RUN ON IT: %s' % (
+        '; '.join('%s (%s)' % (a_, ', '.join(c_)) for a_, c_ in sorted(HELD.items())) or ('NONE (the run on ⟪PREV⟫`s banks holds none)' if PREV else 'NONE')))
+    W = list(W) + [a_ for a_ in sorted(HELD) if a_ not in W]
     fail, defective, negfail, EX, SECS = [], [], 0, {}, {}
     for name, reads, pred, pos in arms:
         if name == 'G-ARMS-NO-LIVE-LIMB':
             S['no_live_limb'] = not defective
+        if name in HELD:
+            SECS[name] = 0.0
+            EX[name] = dict(live=False, neg=False, pos=False, vacuous=False, pos_raised=None, shown_failing=False, reads=reads, secs=0.0, held=HELD[name])
+            rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'FAIL', 'FAIL', 'FAIL', 0.0, 'WITHHELD, NOT RUN: STILL TO SET %s' % ', '.join(HELD[name])))
+            continue
         ta = time.time()
         try:
             live = bool(pred(S))

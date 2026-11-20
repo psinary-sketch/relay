@@ -41,7 +41,7 @@ FIG_LINE = re.compile(r'ARMS RUN : (\d+)\. ### LIVE PASSING : (\d+)\. ### LIVE F
 CTL_LINE = re.compile(r'NEGATIVE-CONTROL FAILURES : (\d+)\. ### POSITIVE-CONTROL PASSES : (\d+) ?(\[[^\]]*\])?\.')
 VERDICT_LINE = re.compile(r'VERDICT : ([^*;]+?)(?: ; WITHHELD, NOT EXERCISABLE, COUNTED NEITHER PASSING NOR FAILING: ([^*]+))?\*\*')
 
-NegShown = collections.namedtuple('NegShown', 'shown bad withheld vacuous', defaults=((),))
+NegShown = collections.namedtuple('NegShown', 'shown bad withheld vacuous held', defaults=((), ()))   # ### v1.38.1, (R374)(5) [K1]: held, [(arm, constants)]
 
 
 def plant_vacuous(S, m, posv):
@@ -149,6 +149,9 @@ def combine_tally(parts, W):
     for _p, _m, t in parts:
         for r in ARM_ROW.finditer(t):
             nm, live, neg, pos, verdict = r.groups()
+            if verdict.startswith('WITHHELD, NOT RUN') and nm not in wh:   # ### v1.38.1, (R374)(5) [K1]: held by its part, its footer left it out
+                wh.append(nm)
+                continue
             if nm not in W or nm in wh:
                 continue
             wh.append(nm)
@@ -222,10 +225,11 @@ def neg_shown(arms, banks, withheld):
     """an arm's NEG control shown failing on its mutated copy, read from the pre-run's exercise banks: `arms` [(arm, part)], `banks`
     {part: exercise json}, `withheld` [(arm, reason)] the field's entries whose condition holds. An arm with no row, whose mutated copy
     passed, or whose plant or predicate raised, is not shown; an arm in `withheld` whose mutated copy passed is withheld; v1.8.0, an arm whose
-    plant mutated nothing is vacuous, neither shown nor bad. Returns NegShown (shown, bad, withheld, vacuous), each a list, read by name by
-    every caller."""
+    plant mutated nothing is vacuous, neither shown nor bad; v1.38.1, (R374)(5) [K1], an arm its part did not run for a constant still to set
+    is held, neither shown nor bad, and never enters the withheld field. Returns NegShown (shown, bad, withheld, vacuous, held), each a list,
+    read by name by every caller."""
     wl = dict(withheld)
-    shown, bad, wh, vac = [], [], [], []
+    shown, bad, wh, vac, hl = [], [], [], [], []
     for n, p in arms:
         j = banks.get(p) or {}
         e = (j.get('exercise') or {}).get(n)
@@ -233,6 +237,8 @@ def neg_shown(arms, banks, withheld):
             bad.append((n, 'part %s: no pre-run exercise bank (mode %s)' % (p, j.get('mode'))))
         elif e is None:
             bad.append((n, 'part %s: no row in the pre-run' % p))
+        elif e.get('held'):
+            hl.append((n, list(e['held'])))
         elif e.get('vacuous'):
             vac.append(n)
         elif e.get('pos') and n in wl:
@@ -243,7 +249,7 @@ def neg_shown(arms, banks, withheld):
             bad.append((n, 'the mutated copy raised: %s' % e.get('pos_raised')))
         else:
             shown.append(n)
-    return NegShown(shown, bad, wh, vac)
+    return NegShown(shown, bad, wh, vac, hl)
 
 
 def exercise_banks(act, parts, rev=None):
@@ -421,6 +427,7 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     missing = [q for q in aparts if A.jl('%s_prevrun_exercise_%s.json' % (act, q)).get('mode') != 'prev']
     L += ['  WITHHELD, NOT EXERCISABLE: %-46s %s' % (n, w) for n, w in ns.withheld]
     L += ['  VACUOUS, NEITHER A PASS NOR A FAILURE: %s' % n for n in ns.vacuous]
+    L += ['  HELD, NOT RUN IN THE PRE-RUN FOR A CONSTANT STILL TO SET (v1.38.1, (R374)(5) [K1]): %-46s %s' % (n, ', '.join(c)) for n, c in ns.held]
     sg = seconds_gathered(act, parts)
     if ns.bad or missing or not sg['ok']:
         return 3, L + ['### %d OF %d ARMS WITHOUT THEIR NEG CONTROL SHOWN FAILING ON A MUTATED COPY IN THE PRE-RUN:' % (len(ns.bad), len(arms))] + [

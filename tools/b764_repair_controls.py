@@ -125,7 +125,102 @@ def control_k10(before, after):
     return L, res.get('BEFORE') is True and res.get('AFTER') is False
 
 
-CONTROLS = dict(K10=control_k10)
+# ================================================================================ [K1] THE VALUE NOT YET SET
+K1_PATHS = ('tools/standing/toset.py', 'tools/standing/fold/checks.tpl', 'tools/standing/close.py')
+K1_PROBE = r'''
+import json, os, sys
+snap = sys.argv[1]
+st = os.path.join(snap, 'tools', 'standing')
+rd = lambda *p: open(os.path.join(*p), encoding='utf-8').read()
+tpl, cl = rd(st, 'fold', 'checks.tpl'), rd(st, 'close.py')
+k = tpl.find('    for name, reads, pred, pos in arms:')
+out = dict(has_toset=os.path.exists(os.path.join(st, 'toset.py')), runner_holds=k > 0 and 'standing.toset' in tpl[max(0, k - 3000):k]
+           and 'WITHHELD, NOT RUN: STILL TO SET' in tpl[k:k + 1500], combine_counts="startswith('WITHHELD, NOT RUN')" in cl,
+           seal_reads_held="e.get('held')" in cl and 'HELD, NOT RUN IN THE PRE-RUN' in cl, cases={})
+if out['has_toset']:
+    sys.path.insert(0, st)
+    import toset as TS
+    for case in ('planted764', 'record763'):
+        c = TS.classify_text(rd(snap, case + '_worklist.py'))
+        names = TS.code_names(compile(rd(snap, case + '_pred.py'), case, 'exec'), {})
+        out['cases'][case] = dict(hit=sorted(names & set(n for n, (s, _w) in c.items() if s == 'TO SET')),
+                                  corr=list(c.get('CORR_LINE') or ['BOUND']), weight=list(c.get('WEIGHT_LINE') or ['BOUND']))
+print(json.dumps(out))
+'''
+K1_CORR_OLD = "CORR_LINE = None    # ### FINDINGS: the corrigendum for b763 (Component 1), set when written -- PLANTED by the control: b764's value as it stood"
+
+
+def _git_text(rev, path):
+    rc, b = git('show', '%s:%s' % (rev, path))
+    return b.decode('utf-8') if rc == 0 else ''
+
+
+def _override_after(module_text, arm):
+    """the body of the first act-module override after the arm's tuple, as a function's source (its names alone are read)."""
+    i = module_text.find("('%s'" % arm)
+    a = module_text.find('#⟪OVERRIDE checks', i)
+    b = module_text.find('#⟪END⟫', a)
+    if i < 0 or a < 0 or b < 0:
+        return 'def _none(S):\n    return None\n'
+    return 'def _pred(S):\n' + module_text[module_text.find('\n', a) + 1:b]
+
+
+def _plant_corr(w):
+    """b764's worklist with CORR_LINE planted empty where it is bound to a value: a line `CORR_LINE = <value>` replaced by K1_CORR_OLD."""
+    ls = w.split('\n')
+    for j, l in enumerate(ls):
+        if l.startswith('CORR_LINE = ') and not l.startswith('CORR_LINE = None'):
+            ls[j] = K1_CORR_OLD
+    return '\n'.join(ls)
+
+
+def control_k1(before, after):
+    """[K1]: a worklist constant still to set told apart from one the ruling leaves empty, and the part runner holding an arm that names one.
+    The planted instance: b764's worklist at the revision, CORR_LINE planted empty where the revision binds it, with the G-DIFFERS-ERRATA
+    predicate of b764's act module at the revision; the record instance: b763's worklist and act module at the commit before 6dc04ffb, where
+    CORR_LINE stood None and its probe failed the arm (data/b763_events.txt :723-:729). FAULT: no reader tells the two apart, or the part
+    runner runs the arm on a constant still to set, or the combine or the seal does not read the held row. CLEAN: the reader present, the
+    runner holding before its arm loop, the combine and the seal reading it, CORR_LINE among the planted arm's constants still to set and
+    WEIGHT_LINE read as left empty by its clause."""
+    L, res = [], {}
+    rec763 = ('6dc04ffb^', _git_text('6dc04ffb^', 'tools/b763_worklist.py'), _override_after(_git_text('6dc04ffb^', 'tools/acts/b763.py'), 'G-DIFFERS-ERRATA'))
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k1_')
+        try:
+            got = snapshot(rev, K1_PATHS, tmp)
+            for case, w, pr in (('planted764', _plant_corr(_git_text(rev, 'tools/b764_worklist.py')),
+                                 _override_after(_git_text(rev, 'tools/acts/b764.py'), 'G-DIFFERS-ERRATA')), ('record763', rec763[1], rec763[2])):
+                for suf, t in (('_worklist.py', w), ('_pred.py', pr)):
+                    with open(os.path.join(tmp, case + suf), 'w', encoding='utf-8', newline='\n') as fh:
+                        fh.write(t)
+            j = probe(K1_PROBE, tmp)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k1_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        pl, r3 = j['cases'].get('planted764') or {}, j['cases'].get('record763') or {}
+        clean = (j['has_toset'] and j['runner_holds'] and j['combine_counts'] and j['seal_reads_held'] and 'CORR_LINE' in (pl.get('hit') or [])
+                 and pl.get('weight', [None])[0] == 'EMPTY' and 'CORR_LINE' in (r3.get('hit') or []))
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    a reader telling a constant still to set from one left empty (tools/standing/toset.py): %s' % j['has_toset'],
+              '    the part runner holds an arm naming a constant still to set before its arm loop (checks.tpl): %s' % j['runner_holds'],
+              '    the combine counts a held row among the withheld (close.py combine_tally): %s ; the seal reads it HELD (close.py neg_shown): %s' % (
+                  j['combine_counts'], j['seal_reads_held']),
+              '    the planted instance, b764`s worklist at %s with CORR_LINE planted empty, G-DIFFERS-ERRATA`s predicate from tools/acts/b764.py: %s' % (
+                  rev[:8], ('constants still to set it names %s ; CORR_LINE %s ; WEIGHT_LINE %s' % (pl.get('hit'), pl.get('corr'), pl.get('weight')))
+                  if pl else 'NOT READ -- no reader: the arm runs on CORR_LINE None, nothing printed, WEIGHT_LINE and CORR_LINE on one line told apart by nothing'),
+              '    the record instance, b763`s worklist :445 and act module at %s: %s' % (
+                  rec763[0], ('constants still to set the arm names %s ; CORR_LINE %s' % (r3.get('hit'), r3.get('corr'))) if r3 else
+                  'NOT READ -- no reader: its probe ran the arm on CORR_LINE None (06:23:04Z) and the failure read like any other'),
+              '    %s: %s' % (name, 'CLEAN' if clean else 'THE FAULT READ')]
+        res[name] = not clean
+    return L, res.get('BEFORE') is True and res.get('AFTER') is False
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1)
 
 
 def main(argv):
