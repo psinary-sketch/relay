@@ -673,7 +673,160 @@ def control_k7(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and same764
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7)
+# ================================================================================ [K17] THE PASS IN THE PREVIOUS ACT'S MODE
+K17_PATHS = ('tools/standing/repeat.py', 'tools/standing/fold/checks.tpl')
+K17_PAIRS = (('b761', 'b760'), ('b762', 'b761'), ('b763', 'b762'), ('b764', 'b763'))
+K17_PROBE = r'''
+import importlib.util, json, os, re, sys
+snap, relay = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+sys.path.append(os.path.join(relay, 'tools'))   # the worklists import standing.carry (the live tree's, unchanged by the repair)
+import repeat as RP
+def load(a):
+    sp = importlib.util.spec_from_file_location('wl_' + a, os.path.join(relay, 'tools', a + '_worklist.py'))
+    m = importlib.util.module_from_spec(sp)
+    sp.loader.exec_module(m)
+    return m
+pv = getattr(RP, 'prev_value', None)
+def read(prev, own, n):
+    if pv:
+        return pv(prev, own, n)[0]
+    return getattr(prev, n) if RP.prev_carries(prev, own, n) else getattr(own, n)
+IDN = re.compile(r'^[a-z][a-z0-9_]*$')
+def iskeyed(v):   # the class the repair names, fixed here alike for both revisions: pairs of strings keyed by distinct names of the chain's form
+    if not (isinstance(v, (tuple, list)) and v and all(isinstance(r, (tuple, list)) and len(r) == 2 and isinstance(r[0], str) and isinstance(r[1], str) for r in v)):
+        return False
+    ks = [r[0] for r in v]
+    return len(set(ks)) == len(ks) and all(IDN.match(k) for k in ks)
+iskmap = lambda v: isinstance(v, dict) and bool(v) and all(isinstance(k, str) and IDN.match(k) for k in v)
+pairs, moved = {}, {}
+for own_a, prev_a in json.loads(sys.argv[3]):
+    own, prev = load(own_a), load(prev_a)
+    rows = []
+    mv = []
+    for n in sorted(k for k in vars(own) if k.upper() == k and not k.startswith('_')):
+        o = getattr(own, n)
+        try:
+            if read(prev, own, n) != (getattr(prev, n) if RP.prev_carries(prev, own, n) else getattr(own, n)):
+                mv.append(n)
+        except Exception as e:
+            mv.append('%s (%s)' % (n, type(e).__name__))
+        if not (iskeyed(o) or iskmap(o)):
+            continue
+        v = read(prev, own, n)
+        keys = [r[0] for r in o] if iskeyed(o) else list(o)
+        try:
+            got = dict(v)
+        except Exception:
+            got = {}
+        miss = [k for k in keys if k not in got]
+        p = getattr(prev, n, None)
+        prefix = (not iskeyed(p)) or (not iskeyed(v)) or list(v)[:len(p)] == list(p) or list(v) == list(o)
+        rows.append([n, miss, prefix])
+    pairs['%s on %s' % (own_a, prev_a)] = rows
+    moved['%s on %s' % (own_a, prev_a)] = mv
+inst = {}
+for own_a, prev_a, n, key in (('b762', 'b761', 'CHAIN', 'registration'), ('b761', 'b760', 'PP_CHAIN', 'pp_rulings'), ('b761', 'b760', 'PP_CHAIN', 'pp_cells'), ('b761', 'b760', 'PP_CHAIN', 'pp_epstein')):
+    try:
+        inst['%s on %s: dict(K.%s)[%r]' % (own_a, prev_a, n, key)] = 'FOUND %s' % dict(read(load(prev_a), load(own_a), n))[key][:8]
+    except KeyError as e:
+        inst['%s on %s: dict(K.%s)[%r]' % (own_a, prev_a, n, key)] = 'KeyError %s' % e
+tpl = open(os.path.join(snap, 'tools', 'standing', 'fold', 'checks.tpl'), encoding='utf-8').read()
+cause = None
+i = tpl.find('def _k17_empty(')
+j = tpl.find('_JL_OWN = None', i)
+if i >= 0 and j > i:
+    ns = {}
+    exec(compile(tpl[i:j].replace('⟪ACT⟫', 'b764').replace('⟪PREV⟫', 'b763'), 'checks_k17', 'exec'), ns)
+    log, base = [], {'a': '', 'b': 'x'}
+    rs = ns['_RecS'](base, log)
+    rs['a']; rs.get('b'); rs.get('c'); rs['z'] = 1
+    c1 = ns['_prev_cause'](dict(raised="KeyError: 'registration'", trace=dict(worklist=[], state=[], banks=[])))
+    c2 = ns['_prev_cause'](dict(raised=None, trace=dict(worklist=['CHAIN MERGED +registration'], state=[('fj', True), ('ot', False)], banks=['b763_x.txt'])))
+    c3 = ns['_prev_cause'](dict(raised=None, trace=dict(worklist=[], state=[('ot', False)], banks=[])))
+    cause = dict(log=log, write_through=base.get('z') == 1, c1=c1, c2=c2, c3=c3)
+suite = ("pv['causes'] = dict((n_, _prev_cause(EX[n_]))" in tpl and "globals()['_K17_TRACE'] = dict(worklist=[], state=[], banks=[])" in tpl
+         and 'EX[name].update(raised=raised_, trace=trace_)' in tpl and "THE CAUSE, %s: %s" in tpl and '_K17_RUN.add(w_)' in tpl)
+print(json.dumps(dict(pairs=pairs, moved=moved, inst=inst, cause=cause, suite=suite)))
+'''
+
+
+def _k17_places():
+    """b763's DIVERGE rows (its previous-mode a2 and act banks), each read by where its predicate is written at b763's close (d4ec1edb): the
+    template or b763's act module, and the act's own literals its arm text names."""
+    tpl = git('show', 'd4ec1edb:tools/standing/fold/checks.tpl')[1].decode('utf-8', 'replace')
+    mod = git('show', 'd4ec1edb:tools/acts/b763.py')[1].decode('utf-8', 'replace')
+    out = []
+    for part, b in (('a2', 'b763_prevrun_standing-a2.txt'), ('act', 'b763_prevrun_act.txt')):
+        t = open(os.path.join(D, b), encoding='utf-8').read()
+        m = re.search(r"###   DIVERGE\s+(\d+) (\[.*?\])", t)
+        arms = json.loads(m.group(2).replace("'", '"'))
+        for a in arms:
+            where = []
+            for nm, src in (('template', tpl), ('act module', mod)):
+                i = src.find("('%s'," % a)
+                if i >= 0:
+                    j = src.find("\n    ('G-", i + 1)
+                    seg = src[i:j if j > 0 else i + 3000]
+                    lit = len(re.findall(r'b763|\(R373\)', seg))
+                    where.append('%s%s' % (nm, (', naming b763`s own text %d times' % lit) if lit else ''))
+            out.append((part, a, ' and '.join(where) or 'NOT FOUND'))
+    return out
+
+
+def control_k17(before, after):
+    """[K17]: the four act pairs b761 on b760 to b764 on b763, each worklist name of this act's that is a keyed table or a mapping read through
+    the revision's --prev rule (repeat.prev_carries, and prev_value where it stands), every key of this act's sought in the table read; the two
+    instances by name (b762 on b761, dict(K.CHAIN)['registration'], b763 events (19); b761 on b760, PP_CHAIN, b761 events (25)); the previous
+    act's rows keeping their places; the cause of a DIVERGE row read from stand-in traces through the revision's template functions; and the
+    suite's text. FAULT: a key of this act's not found (a KeyError), or no cause given. CLEAN: every key found in every pair, the prefix kept,
+    the three stand-in causes RAISED, the three trace parts, and NONE OF THESE, the state read recorded and written through, the suite printing
+    each row's cause. b763's 38 DIVERGE rows are printed by where each predicate is written (the record instance)."""
+    L, res = [], {}
+    pl = _k17_places()
+    L.append('  THE RECORD INSTANCE: b763`s DIVERGE rows in its previous-mode pass (data/b763_prevrun_standing-a2.txt :133, 20; data/b763_prevrun_act.txt :59, 18),'
+             ' each by where its predicate is written at b763`s close (d4ec1edb):')
+    for part in ('a2', 'act'):
+        rows_ = [(a, w) for p, a, w in pl if p == part]
+        L.append('    %s: template %d, act module %d, both %d' % (part, sum(1 for _a, w in rows_ if w == 'template'), sum(1 for _a, w in rows_ if w.startswith('act module')),
+                                                                    sum(1 for _a, w in rows_ if ' and ' in w)))
+        L += ['      %-30s %s' % (a, w) for a, w in rows_]
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k17_')
+        try:
+            got = snapshot(rev, K17_PATHS, tmp)
+            j = probe(K17_PROBE, tmp, ROOT, json.dumps(K17_PAIRS))
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k17_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        miss = dict((pr, [(n, m) for n, m, _p in rows if m]) for pr, rows in j['pairs'].items())
+        nmiss = sum(len(m) for _n, m in sum(miss.values(), []))
+        prefix = all(p for rows in j['pairs'].values() for _n, _m, p in rows)
+        c = j['cause']
+        cause_ok = bool(c) and c['log'] == [['a', True], ['b', False], ['c', True]] and c['write_through'] and c['c1'].startswith('RAISED KeyError') \
+            and all(x in c['c2'] for x in ('THE WORKLIST READ AS', 'THE STATE READ EMPTY (1): fj', 'BANKS READ EMPTY (1): b763_x.txt')) and c['c3'].startswith('NONE OF THESE')
+        moved_out = dict((pr, [n for n in mv if n not in [r[0] for r in j['pairs'][pr]]]) for pr, mv in j['moved'].items())
+        fault = nmiss > 0 or not c
+        clean = nmiss == 0 and prefix and cause_ok and j['suite'] and all(v.startswith('FOUND') for v in j['inst'].values()) and not any(moved_out.values())
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got))]
+        for pr, rows in j['pairs'].items():
+            L.append('    %s: keyed names %d %s ; keys of this act`s not found %s ; the previous act`s rows in place %s ; names read otherwise than prev_carries reads them %s (outside the keyed names %s)' % (
+                pr, len(rows), [n for n, _m, _p in rows], ['%s %s' % (n, m) for n, m, _p in rows if m] or 'NONE', all(p for _n, _m, p in rows),
+                j['moved'][pr] or 'NONE', moved_out[pr] or 'NONE'))
+        L += ['    the instances: %s' % '; '.join('%s %s' % kv for kv in j['inst'].items()),
+              '    the cause from a trace: %s' % (('RAISED: %r ; THE THREE PARTS: %r ; NONE: %r ; the state recorded %s, written through %s' % (
+                  c['c1'], c['c2'], c['c3'], c['log'], c['write_through'])) if c else 'NO CAUSE GIVEN (the template holds no _prev_cause)'),
+              '    the suite prints each DIVERGE and NOT RUN row`s cause from its live trace: %s' % j['suite'],
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17)
 
 
 def main(argv):

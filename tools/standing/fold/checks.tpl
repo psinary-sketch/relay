@@ -2329,11 +2329,17 @@ def main():
             rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'FAIL', 'FAIL', 'FAIL', 0.0, 'WITHHELD, NOT RUN: STILL TO SET %s' % ', '.join(HELD[name])))
             continue
         ta = time.time()
+        raised_ = None
+        if PREV:   # ### v1.38.7, (R374)(5) [K17]: the live reading on ⟪PREV⟫'s banks traced, for the cause of a DIVERGE row (_prev_cause)
+            globals()['_K17_TRACE'] = dict(worklist=[], state=[], banks=[])
         try:
-            live = bool(pred(S))
+            live = bool(pred(_RecS(S, _K17_TRACE['state']) if PREV else S))
         except Exception as e:
             live = False
+            raised_ = '%s: %s' % (type(e).__name__, str(e)[:120])
             rec('  ### %s raised %s: %s' % (name, type(e).__name__, str(e)[:160]))
+        trace_ = _K17_TRACE
+        globals()['_K17_TRACE'] = None
         try:
             neg = bool(pred(copy.copy(S)))
         except Exception:
@@ -2357,6 +2363,8 @@ def main():
         vac = vac or cached   # ### v1.26.0, (⟪RUL⟫)(3)(v): a part read wholly from the run cache: CACHED, counted as no pass
         defective.append(name) if (posv and not vac) else None
         EX[name] = dict(live=live, neg=neg, pos=posv and not vac, vacuous=vac, pos_raised=pos_raised, shown_failing=(not posv and pos_raised is None), reads=reads, secs=SECS[name])
+        if PREV:
+            EX[name].update(raised=raised_, trace=trace_)   # ### v1.38.7, [K17]
         rec('  %-46s %-5s %-5s %-5s %-8.3f %s' % (name, 'PASS' if live else 'FAIL', 'PASS' if neg else 'FAIL', 'VAC' if vac else 'PASS' if posv else 'FAIL', SECS[name],
                                                  'WITHHELD, NOT EXERCISABLE' if name in W else 'CACHED: EVERY REMOTE FROM THE RUN CACHE, VACUOUS, NO PASS' if cached else 'VACUOUS: THE PLANT MUTATED NOTHING' if vac else
                                                  'OK' if (live and neg and not posv) else ('### POS PASSES -- DEFECTIVE' if posv else
@@ -2387,6 +2395,12 @@ def main():
         rec('  ### (⟪RUL⟫)(2)(iii) THE ARMS ON ⟪PREV⟫`S BANKS, beside ⟪PREV⟫`s own verdicts (relay data/⟪PREV⟫_exercise.json, ⟪PREV⟫`s post-push combine):')
         for k_ in ('pass_on_prev', 'fail_as_prev', 'diverge', 'not_run_by_prev'):
             rec('  ###   %-16s %d %s' % (k_.upper(), len(pv[k_]), pv[k_] or ''))
+        # ### v1.38.7, (R374)(5) [K17], finding 1: each DIVERGE and NOT RUN row given its cause from its live reading's trace
+        pv['causes'] = dict((n_, _prev_cause(EX[n_])) for n_ in pv['diverge'] + pv['not_run_by_prev'])
+        for n_ in pv['diverge'] + pv['not_run_by_prev']:
+            rec('  ###     THE CAUSE, %s: %s' % (n_, pv['causes'][n_]))
+        rec('  ### v1.38.7, (R374)(5) [K17]: THE WORKLIST NAMES THIS RUN READ AS ⟪ACT⟫`S OR MERGED (tools/standing/repeat.py prev_value): %s' % (
+            ', '.join(sorted(_K17_RUN)) or 'NONE'))
         rec('  ### ### **ON ⟪PREV⟫`S BANKS: PASS %d ; FAILED AS ⟪PREV⟫ FAILED %d ; DIVERGE %d (⟪PREV⟫ passed, here failed) ; NOT RUN BY ⟪PREV⟫ %d (here failed).**' % (
             len(pv['pass_on_prev']), len(pv['fail_as_prev']), len(pv['diverge']), len(pv['not_run_by_prev'])))
     secs = time.time() - t_start
@@ -2443,9 +2457,66 @@ class _PrevWorklist(object):
         self._own, self._prev = own, prev
 
     def __getattr__(self, n):
-        if __import__('standing.repeat', fromlist=['prev_carries']).prev_carries(self._prev, self._own, n):   # ### v1.4.0 (iii); v1.10.0 (⟪RUL⟫)(2)(i)
-            return getattr(self._prev, n)
-        return getattr(self._own, n)
+        # ### v1.4.0 (iii); v1.10.0 (⟪RUL⟫)(2)(i); v1.38.7, (R374)(5) [K17]: a keyed table merged with this act's keys (standing.repeat.prev_value)
+        v, how, add = __import__('standing.repeat', fromlist=['prev_value']).prev_value(self._prev, self._own, n)
+        if how != 'PREV':
+            w_ = '%s %s%s' % (n, how, (' +' + ','.join(add)) if add else '')
+            _K17_RUN.add(w_)
+            if _K17_TRACE is not None:
+                _K17_TRACE['worklist'].append(w_)
+        return v
+
+
+# ### v1.38.7, (R374)(5) [K17]: THE CAUSE OF A DIVERGE ROW, read from the arm's live reading on ⟪PREV⟫'s banks. The trace is set for the live call
+# ### alone (the arm loop): the worklist names read as this act's or merged, each state key read with whether it was empty, the banks read
+# ### empty through the rebinding; the run's names read as this act's or merged, printed once.
+_K17_TRACE = None
+_K17_RUN = set()
+
+
+def _k17_empty(v):
+    return v is None or v == '' or (isinstance(v, (dict, list, tuple, set)) and not v)
+
+
+class _RecS(dict):
+    """v1.38.7, [K17]: the state an arm reads on ⟪PREV⟫'s banks, each key it reads recorded with whether it was empty; a write goes through."""
+
+    def __init__(self, base, log):
+        dict.__init__(self, base)
+        self._base, self._log = base, log
+
+    def __getitem__(self, k):
+        v = dict.__getitem__(self, k)
+        self._log.append((k, _k17_empty(v)))
+        return v
+
+    def get(self, k, d=None):
+        v = dict.get(self, k, d)
+        self._log.append((k, _k17_empty(v)))
+        return v
+
+    def __setitem__(self, k, v):
+        dict.__setitem__(self, k, v)
+        self._base[k] = v
+
+
+def _prev_cause(e):
+    """v1.38.7, (R374)(5) [K17], finding 1: an arm's cause of failing on ⟪PREV⟫'s banks where ⟪PREV⟫ passed it: what it raised; the worklist names it
+    read as ⟪ACT⟫'s or merged; the state keys it read empty; the banks it read empty through the rebinding. Where none of these: the predicate's own
+    reading of ⟪PREV⟫'s banks, its needle ⟪ACT⟫'s."""
+    t, c = e.get('trace') or {}, []
+    if e.get('raised'):
+        c.append('RAISED %s' % e['raised'])
+    w = sorted(set(t.get('worklist') or ()))
+    if w:
+        c.append('THE WORKLIST READ AS ⟪ACT⟫`S OR MERGED: %s' % ', '.join(w))
+    s = sorted(set(k for k, emp in (t.get('state') or ()) if emp))
+    if s:
+        c.append('THE STATE READ EMPTY (%d): %s' % (len(s), ', '.join(s[:12]) + (' ...' if len(s) > 12 else '')))
+    b = sorted(set(t.get('banks') or ()))
+    if b:
+        c.append('BANKS READ EMPTY (%d): %s' % (len(b), ', '.join(b[:8]) + (' ...' if len(b) > 8 else '')))
+    return ' ; '.join(c) or 'NONE OF THESE: THE PREDICATE`S OWN READING OF ⟪PREV⟫`S BANKS, ITS NEEDLE ⟪ACT⟫`S'
 
 
 _JL_OWN = None   # defect (j): the chain halves are this run's own banks, read past the rebinding
@@ -2463,8 +2534,13 @@ def _prev_rebind():
 
     rd0, jl0 = rd, jl
     _JL_OWN = jl0
-    rd = lambda n: rd0(pv(n))   # noqa: E731
-    jl = lambda n: jl0(pv(n))   # noqa: E731
+
+    def _k17(n, v):   # ### v1.38.7, (R374)(5) [K17]: a bank read empty during an arm's live reading, for its cause
+        if _K17_TRACE is not None and not v:
+            _K17_TRACE['banks'].append(pv(n))
+        return v
+    rd = lambda n: _k17(n, rd0(pv(n)))   # noqa: E731
+    jl = lambda n: _k17(n, jl0(pv(n)))   # noqa: E731
     FACE = B707_FACE
     K = _PrevWorklist(K, K707)
     PRE = dict(relay=K707.PRE_RELAY, pp=K707.PRE_PP)

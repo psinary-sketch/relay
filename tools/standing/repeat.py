@@ -80,6 +80,53 @@ def prev_carries(prev, own, n):
     return True
 
 
+KEY_NAME = re.compile(r'^[a-z][a-z0-9_]*$')
+
+
+def keyed(v):
+    """v1.38.7, (R374)(5) [K17]: a keyed table -- a non-empty tuple or list of pairs of strings whose keys are distinct names of the chain's
+    form (lower case, digits and underscores: no path, no tuple, no hyphen), read by dict(K.CHAIN)[key]. Over the worklists of b760 to b764
+    the form takes CHAIN and PP_CHAIN; the wider form (any pairs opening on a string) took 25 to 29 names a worklist, tables iterated whole
+    (DELETE_TIPS, W_WORDS, LEAN_TREES among them), which are not merged."""
+    if not (isinstance(v, (tuple, list)) and v and all(isinstance(r, (tuple, list)) and len(r) == 2 and isinstance(r[0], str) and isinstance(r[1], str) for r in v)):
+        return False
+    ks = [r[0] for r in v]
+    return len(set(ks)) == len(ks) and all(KEY_NAME.match(k) for k in ks)
+
+
+def keyed_map(v):
+    """v1.38.7, [K17]: a mapping of the same form -- every key a name of the chain's form (CHAIN_WORDS; CHAIN_HALVES and CHAIN_QUARTERS, which
+    hold the same keys at every act and so take none)."""
+    return isinstance(v, dict) and bool(v) and all(isinstance(k, str) and KEY_NAME.match(k) for k in v)
+
+
+def prev_value(prev, own, n):
+    """v1.38.7, (R374)(5) [K17], b761 events (25), b763 events (19), finding 1: THE KEYED TABLE CARRIED WITHOUT THIS ACT'S KEYS. `--prev` read the
+    previous act's CHAIN where its rows were as many as this act's, and the act's own arms index it by this act's keys: b762's module
+    dict(K.CHAIN)['registration'] (tools/acts/b762.py :1086, :2176) on b761's CHAIN, which holds no such key, raised KeyError; b761's registrations
+    arm met b760's key 'pp_epstein' (b760's PP_CHAIN and TIME_ORDER) in a table of b761's keys. One class: a key list and a keyed table read
+    from two acts. Here, where prev_carries reads the previous act's value and that value is a keyed table or a mapping lacking keys this act's
+    holds, it is read as the previous act's rows followed by this act's rows for each key it lacks (MERGED, the keys added named), so that
+    every key either act's source names is found; the previous act's rows keep their places, so a positional index reads what it read. Where
+    prev_carries reads this act's value (a table of fewer rows than this act's, b729 event (3)), it stays this act's (OWN). Returns (value, how,
+    keys added)."""
+    if not prev_carries(prev, own, n):
+        return getattr(own, n), 'OWN', []
+    p, o = getattr(prev, n), getattr(own, n, None)
+    if keyed(o) and keyed(p):
+        pk = set(r[0] for r in p)
+        add = [r for r in o if r[0] not in pk]
+        if add:
+            return type(p)(list(p) + add), 'MERGED', [r[0] for r in add]
+    elif keyed_map(o) and isinstance(p, dict):
+        add = [k for k in o if k not in p]
+        if add:
+            m = dict(p)
+            m.update((k, o[k]) for k in add)
+            return m, 'MERGED', add
+    return p, 'PREV', []
+
+
 def exported(mod):
     """the worklist module's exported names: its upper-case module attributes, nothing kept."""
     return sorted(k for k in vars(mod) if k.upper() == k and not k.startswith('_'))
