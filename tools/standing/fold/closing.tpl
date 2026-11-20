@@ -380,7 +380,7 @@ def section_reading(lab, bk, pat=None):
         return '### ABSENT'
     if pat is None:
         return vtail(t)
-    m = re.search(pat, t)
+    ms = list(re.finditer(pat[5:] if pat.startswith('FOOT:') else pat, t)); m = (ms[-1] if pat.startswith('FOOT:') else ms[0]) if ms else None   # ### v1.38.16, (R374)(5) [K9]: a FOOT: pattern reads the bank's last match, its foot, not a figure it quotes
     return ' '.join(m.group(0).split())[:400] if m else '### NOT FOUND'
 
 
@@ -392,7 +392,7 @@ def act_sections():
                 ('the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1))', '⟪ACT⟫_root_banks_dry.txt')]),
 ⟪SLOT 7⟫
                 ('every line found for the entry`s objects, AGREES or DIFFERS, by hand before the root', '⟪ACT⟫_touch.txt',
-                 r'(?m)^### ### \*\*[^\n]*|ROWS \d+[^\n]*')]),
+                 r'FOOT:(?m)^### ### \*\*ROWS \d+ ; AGREES \d+ ; DIFFERS \d+[^\n]*')]),   # ### v1.38.16, [K9]: the touch bank's own foot; b763 read the reproduce foot its row (12) quotes
             ('THE STANDING ARMS', [('the four figures against ⟪PREV⟫`s, read by b706`s tool', '⟪ACT⟫_standing_figures.txt')])]
 
 

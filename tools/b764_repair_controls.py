@@ -1496,8 +1496,85 @@ def control_k6(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K9] THE CLOSING'S TOUCH-READ ROW READS THE TOUCH BANK'S FOOT
+K9_PATHS = ('tools/standing/fold/closing.tpl',)
+K9_PROBE = r'''
+import ast, json, os, re, sys
+snap, data = sys.argv[1], sys.argv[2]
+tpl = open(os.path.join(snap, 'tools', 'standing', 'fold', 'closing.tpl'), encoding='utf-8').read().replace(chr(13), '')
+i = tpl.find(chr(10) + 'def section_reading(')
+fn = tpl[i:tpl.find(chr(10) * 3, i + 5)]
+L = tpl.split(chr(10))
+k = [n for n, l in enumerate(L) if "_touch.txt'," in l][0]
+pat = ast.literal_eval(re.search(r"(r'[^']*')", L[k + 1]).group(1))
+def rd(n):
+    p = os.path.join(data, n)
+    return open(p, encoding='utf-8').read().replace(chr(13), '') if os.path.exists(p) else ''
+ns = dict(re=re, rd=rd, vtail=lambda t: '### VTAIL')
+exec(compile(fn, 'section_reading', 'exec'), ns)
+out = dict(pat=pat)
+for n in ('b760_touch.txt', 'b762_touch.txt', 'b763_touch.txt', 'plant_two_feet.txt', 'plant_no_foot.txt'):
+    out[n] = ns['section_reading']('the touch read', n, pat)
+print(json.dumps(out))
+'''
+
+
+def control_k9(before, after):
+    """[K9]: the closing's touch-read row (tools/standing/fold/closing.tpl, the row naming <act>_touch.txt and its pattern, read by
+    section_reading) over b763's touch bank, where b763's closing printed "ROWS 68 ; REPRODUCES 64 ; ..." (data/b763_closing.txt :242), the
+    reproduce bank's foot that the touch bank's row (12) quotes (data/b763_touch.txt :19), beside the touch bank's own foot at :46; over b762's
+    and b760's banks, each quoting the reproduce foot at a row before its own foot; a planted bank with two feet, the later the foot; a planted
+    bank with no foot. FAULT: b763's reading is the quoted figure. CLEAN: each act's reading is its own last "### ### **ROWS" line, the planted
+    two-feet bank reads its later foot, and the no-foot bank reads NOT FOUND."""
+    L, res = [], {}
+    inst = tempfile.mkdtemp(prefix='b764k9i_')
+    try:
+        want = {}
+        for a in ('b760', 'b762', 'b763'):
+            t = io.open(os.path.join(D, '%s_touch.txt' % a), encoding='utf-8').read().replace('\r', '')
+            shutil.copyfile(os.path.join(D, '%s_touch.txt' % a), os.path.join(inst, '%s_touch.txt' % a))
+            feet = [(n + 1, l) for n, l in enumerate(t.split(NL)) if l.startswith('### ### **ROWS ')]
+            want['%s_touch.txt' % a] = (feet[-1][0], ' '.join(feet[-1][1].split())[:400]) if feet else (None, None)
+        two = 'plant\n### ### **ROWS 3 ; AGREES 2 ; DIFFERS 1 AT THE FIRST READ.**\n  (4) a row quoting "ROWS 9 ; REPRODUCES 9".\n### ### **ROWS 4 ; AGREES 4 ; DIFFERS 0 AT THIS READ.**\n'
+        with open(os.path.join(inst, 'plant_two_feet.txt'), 'w', encoding='utf-8', newline='\n') as fh:
+            fh.write(two)
+        with open(os.path.join(inst, 'plant_no_foot.txt'), 'w', encoding='utf-8', newline='\n') as fh:
+            fh.write('plant\n  (1) a row quoting "ROWS 9 ; REPRODUCES 9".\n')
+        want['plant_two_feet.txt'] = (4, '### ### **ROWS 4 ; AGREES 4 ; DIFFERS 0 AT THIS READ.**')
+        want['plant_no_foot.txt'] = (None, '### NOT FOUND')
+        L.append('  THE RECORD INSTANCE: data/b763_closing.txt :242 printed the touch row as "ROWS 68 ; REPRODUCES 64 ; ...", the reproduce foot data/b763_touch.txt '
+                 ':19 quotes; the touch bank`s own foot at :%d' % want['b763_touch.txt'][0])
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b764k9_')
+            try:
+                got = snapshot(rev, K9_PATHS, tmp)
+                j = probe(K9_PROBE, tmp, inst)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k9_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            L.append('  %s (relay %s): the files %s ; the touch row`s pattern %s' % (
+                name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), j['pat']))
+            eq = {}
+            for n in ('b760_touch.txt', 'b762_touch.txt', 'b763_touch.txt', 'plant_two_feet.txt', 'plant_no_foot.txt'):
+                eq[n] = j[n] == want[n][1]
+                L.append('    %s: reads "%s" ; its foot%s: %s' % (n, j[n][:110], (' :%d' % want[n][0]) if want[n][0] else '', 'EQUAL' if eq[n] else 'DIFFERS'))
+            fault = j['b763_touch.txt'].startswith('ROWS 68 ; REPRODUCES')
+            clean = all(eq.values())
+            L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    finally:
+        if os.path.isabs(inst) and os.path.basename(inst).startswith('b764k9i_'):
+            shutil.rmtree(inst, ignore_errors=True)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18, K6=control_k6)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18, K6=control_k6,
+                K9=control_k9)
 
 
 def main(argv):
