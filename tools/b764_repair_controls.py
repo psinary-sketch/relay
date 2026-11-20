@@ -1674,9 +1674,95 @@ def control_k4(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [R7] (R374)(7): THE KERNEL ROUTE OPENED FOR b764 AT SIDE-explicit-formula
+R7_PATHS = ('tools/standing/commit.py', 'tools/standing/VERSION')
+R7_PROBE = r'''
+import ast, json, os, re, sys
+snap = sys.argv[1]
+src = open(os.path.join(snap, 'tools', 'standing', 'commit.py'), encoding='utf-8').read()
+want = ('KERNELS', 'KERNEL_ACTS', 'NAMED_CONFLICTS', 'FF_ACTS', 'PUSHTO_ACTS', 'RDELETE_ACTS', 'repo_refusal', 'push_branch_ok',
+        'kernel_branch_refusal', 'merge_branch_refusal', 'conflict_refusal', 'ff_refusal', 'pushto_refusal', 'pushto_name_refusal', 'rdelete_refusal')
+tree = ast.parse(src)
+nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in want) or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') in want)]
+ns = dict(re=re)
+exec(compile(ast.Module(body=nodes, type_ignores=[]), 'commit_r7', 'exec'), ns)
+EF, M24 = 'SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'
+none = lambda v: v is None
+out = dict(
+    open=none(ns['repo_refusal'](EF, 'b764')),
+    ff=none(ns['ff_refusal'](EF, 'b764')),
+    closed_m24=[none(ns['repo_refusal'](M24, 'b764')), none(ns['ff_refusal'](M24, 'b764'))],
+    b763=[none(ns['repo_refusal'](EF, 'b763')), none(ns['ff_refusal'](EF, 'b763')), none(ns['repo_refusal'](M24, 'b763'))],
+    other=[none(ns['repo_refusal'](EF, 'b765')), none(ns['ff_refusal'](EF, 'b765')), none(ns['repo_refusal']('SIDE-frobenius', 'b764'))],
+    branch=[none(ns['kernel_branch_refusal']('b764', 'push-b764-runner')), none(ns['merge_branch_refusal']('b764', 'push-b764-runner')),
+            none(ns['kernel_branch_refusal']('b764', 'push-b763-arith')), none(ns['kernel_branch_refusal']('b764', 'main')),
+            none(ns['merge_branch_refusal']('b764', 'main'))],
+    named=none(ns['conflict_refusal']('b764', EF, ['print_targets.txt'])),
+    holds=[none(ns['pushto_refusal'](EF, 'b764')), none(ns['rdelete_refusal'](EF, 'b764', 'push-b763-arith', kept=()))],
+    rows=dict((t, sorted(ns[t])) for t in ('KERNEL_ACTS', 'FF_ACTS', 'PUSHTO_ACTS', 'RDELETE_ACTS', 'NAMED_CONFLICTS')),
+    b764_rows=dict((t, list(ns[t].get('b764', ()))) for t in ('KERNEL_ACTS', 'FF_ACTS')))
+print(json.dumps(out))
+'''
+
+
+def control_r7(before, after):
+    """(R374)(7) and (12): the kernel route opened for b764 at SIDE-explicit-formula alone, read in each revision by commit.py's pure refusals
+    (its tables and refusal functions executed apart, nothing written, no git command run). FAULT: repo_refusal and ff_refusal refuse
+    SIDE-explicit-formula for b764, so push-b764-runner, its commit of the workflow's file and the local main after the gated push are refused
+    before anything is read. CLEAN: both None for b764 at SIDE-explicit-formula; SIDE-dirichlet-mod-24 refused for b764 in both tables; b763's
+    opening unmoved; b765 and a third repository refused; push-b764-runner admitted as the act's branch and push-b763-arith and main refused;
+    no conflicted merge named; the push to a named branch and the removal at a remote refused for b764; the only rows added b764's, each
+    SIDE-explicit-formula alone; VERSION v1.38.18."""
+    L, res, rows = [], {}, {}
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764r7_')
+        try:
+            got = snapshot(rev, R7_PATHS, tmp)
+            j = probe(R7_PROBE, tmp)
+            ver = io.open(os.path.join(tmp, 'tools', 'standing', 'VERSION'), encoding='utf-8').read().strip() if os.path.exists(
+                os.path.join(tmp, 'tools', 'standing', 'VERSION')) else None
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764r7_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        L.append('    (open)   repo_refusal(SIDE-explicit-formula, b764) %s ; (ff) ff_refusal %s' % (
+            'None' if j['open'] else 'REFUSED', 'None' if j['ff'] else 'REFUSED'))
+        L.append('    (closed) SIDE-dirichlet-mod-24 for b764: repo %s, ff %s' % tuple('None' if v else 'REFUSED' for v in j['closed_m24']))
+        L.append('    (b763)   SIDE-explicit-formula repo %s, ff %s ; SIDE-dirichlet-mod-24 repo %s' % tuple('None' if v else 'REFUSED' for v in j['b763']))
+        L.append('    (other)  SIDE-explicit-formula for b765: repo %s, ff %s ; SIDE-frobenius for b764: %s' % tuple('None' if v else 'REFUSED' for v in j['other']))
+        L.append('    (branch) push-b764-runner as branch %s, as HEAD for a commit %s ; push-b763-arith %s ; main as branch %s, as HEAD %s' % tuple(
+            'None' if v else 'REFUSED' for v in j['branch']))
+        L.append('    (named)  print_targets.txt in a conflicted merge for b764: %s ; (holds) pushto %s, rdelete %s' % (
+            'None' if j['named'] else 'REFUSED', 'None' if j['holds'][0] else 'REFUSED', 'None' if j['holds'][1] else 'REFUSED'))
+        L.append('    (rows)   %s ; b764: %s' % (' ; '.join('%s %s' % (t, ', '.join(v) or 'none') for t, v in sorted(j['rows'].items())),
+                                                 ' ; '.join('%s %s' % (t, ', '.join(v) or 'none') for t, v in sorted(j['b764_rows'].items()))))
+        fault = not j['open'] and not j['ff']
+        clean = j['open'] and j['ff'] and not any(j['closed_m24']) and j['b763'] == [True, True, False] and not any(j['other']) \
+            and j['branch'] == [True, True, False, False, False] and not j['named'] and not any(j['holds']) \
+            and j['b764_rows'] == {'KERNEL_ACTS': ['SIDE-explicit-formula'], 'FF_ACTS': ['SIDE-explicit-formula']} \
+            and 'b764' not in j['rows']['PUSHTO_ACTS'] and 'b764' not in j['rows']['RDELETE_ACTS'] and 'b764' not in j['rows']['NAMED_CONFLICTS'] \
+            and ver == 'v1.38.18'
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+        rows[name] = j['rows']
+    diff_ok = None
+    if 'BEFORE' in rows and 'AFTER' in rows:
+        moved = dict((t, (sorted(set(rows['AFTER'][t]) - set(rows['BEFORE'][t])), sorted(set(rows['BEFORE'][t]) - set(rows['AFTER'][t]))))
+                     for t in sorted(rows['AFTER']))
+        diff_ok = all(moved[t] == ((['b764'], []) if t in ('KERNEL_ACTS', 'FF_ACTS') else ([], [])) for t in moved)
+        L.append('  (diff)   the acts each table gains and loses, BEFORE to AFTER: %s -- %s' % (
+            ' ; '.join('%s +%s -%s' % (t, ','.join(a) or 'none', ','.join(r) or 'none') for t, (a, r) in sorted(moved.items())),
+            'b764 GAINED BY KERNEL_ACTS AND FF_ACTS ALONE' if diff_ok else 'ANOTHER ROW MOVED'))
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and diff_ok is True
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
                 K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18, K6=control_k6,
-                K9=control_k9, K4=control_k4)
+                K9=control_k9, K4=control_k4, R7=control_r7)
 
 
 def main(argv):

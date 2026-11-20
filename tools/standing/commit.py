@@ -105,6 +105,14 @@ v1.37.2, (R373)(5): THE KERNEL ROUTE OPENED FOR b763 AT SIDE-explicit-formula AL
   ("No kernel beyond SIDE-explicit-formula is written"); no file is named for a conflicted merge; PUSHTO_ACTS and RDELETE_ACTS do not name
   b763, (4) removing no kernel branch and this act's own push-b763-* branches staying for the next act's step zero.
 
+v1.38.18, (R374)(7) AND (12): THE KERNEL ROUTE OPENED FOR b764 AT SIDE-explicit-formula ALONE, for the trial of the runner on a restored
+  build: "THE CHANGE, on a branch push-b764-runner of SIDE-explicit-formula made at main, by the route of (R373)(5)"; "ON SUCCESS, and at no
+  other time: main moved to the branch tip by the gated push's default mode and read back". KERNEL_ACTS and FF_ACTS named b757, b758, b759
+  and b763, so the branch, its commit of the workflow's file and the local main after the gated push were each refused for b764 before
+  anything was read. b764 opens SIDE-explicit-formula in both tables; SIDE-dirichlet-mod-24 stays closed ("no kernel touched beyond
+  SIDE-explicit-formula, and there the workflow's file alone"); no file is named for a conflicted merge; PUSHTO_ACTS and RDELETE_ACTS do
+  not name b764, (4) removing no kernel branch and push-b764-runner staying for the next act's step zero.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -141,14 +149,16 @@ KERNELS = {'SIDE-explicit-formula': 'D:/SIDE-explicit-formula', 'SIDE-dirichlet-
 KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # ### (R367)(4): the holds lifted "in this act alone"
                'b758': ('SIDE-explicit-formula',),   # ### v1.35.9, (R368)(5), (10): "lifted for SIDE-explicit-formula in this act alone"; SIDE-dirichlet-mod-24's local main by (6)(i)'s route alone
                'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5), (11): "lifted for SIDE-explicit-formula in this act alone"; "no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3)"
-               'b763': ('SIDE-explicit-formula',)}   # ### v1.37.2, (R373)(5): "No kernel beyond SIDE-explicit-formula is written"
+               'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): "No kernel beyond SIDE-explicit-formula is written"
+               'b764': ('SIDE-explicit-formula',)}   # ### v1.38.18, (R374)(7): push-b764-runner made at main and its commit of the workflow's file; "there the workflow's file alone"
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
 # ### read inside the route, not by KERNEL_ACTS -- (R368)(10): "no kernel touched beyond SIDE-explicit-formula's tree and the two local mains of (6)(i)"
 FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'),
            'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5): the local main following the remote's after the gated push moves it to v0.41
-           'b763': ('SIDE-explicit-formula',)}   # ### v1.37.2, (R373)(5): the local main following the remote's after each gated push that moves main (v0.42 and on)
+           'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): the local main following the remote's after each gated push that moves main (v0.42 and on)
+           'b764': ('SIDE-explicit-formula',)}   # ### v1.38.18, (R374)(7): the local main following the remote's after the gated push moves main on the trial's success alone
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}
