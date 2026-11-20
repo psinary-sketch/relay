@@ -11,13 +11,57 @@ that the unrepaired arm could never find.
   title_ok_old(title, needles) -> every needle, unfolded, in the folded title (the predicate at v1.19.0)
   python -X utf8 -u tools/standing/armnorm.py title <act>   the act's TITLE_NEEDLES read by cannot_pass and against the title its record
                                                             tool composes (the positive control before the lock); nothing written
+
+v1.38.15, (R374)(5) [K6], b763's finding 8 after its lock (b764 events (20)): THE ROSTER FIGURE READ FROM THE ROSTER AT THE CLOSE. b763's needle
+carried "84 open to 83", the ruling's WANTED figure typed before the build lines; its title, composed from the roster, read "84 open to 82",
+true to data/b763_orders.txt, and the arm failed in both suites on a right entry.
+  roster_at_close(act, read)   -> (open before the act, open at the roster's foot) or None: data/<act>_ledgers.json's roster `before_open`
+                                  and the OPEN of the last "### ### **ORDERS n ; OPEN m ; CLOSED c ;" line of data/<act>_orders.txt
+  at_close(needles, act, read) -> the needles with ROSTER_TOKEN, and any figure typed as "<n> open to <m>", replaced by the roster's figure
+                                  at the close; where the act has no roster the needles stand as written, a token among them unfound
 """
 import importlib
+import json
 import os
 import re
 import sys
 
 T = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+D = os.path.join(os.path.dirname(T), 'data')
+ROSTER_TOKEN = '<THE ROSTER AT THE CLOSE>'
+ROSTER_FIGURE = re.compile(r'\b\d+ open to \d+\b')
+ROSTER_FOOT = re.compile(r'(?m)^### ### \*\*ORDERS (\d+) ; OPEN (\d+) ; CLOSED (\d+) ;')
+
+
+def _read_data(name):
+    p = os.path.join(D, name)
+    if not os.path.exists(p):
+        return ''
+    with open(p, encoding='utf-8') as fh:
+        return fh.read().replace('\r', '')
+
+
+def roster_at_close(act, read=None):
+    """(open before the act, open at the roster's foot), or None where either bank does not hold its figure."""
+    read = read or _read_data
+    try:
+        lj = json.loads(read('%s_ledgers.json' % act) or '{}')
+    except ValueError:
+        lj = {}
+    ro = (lj.get('roster') or {}) if isinstance(lj, dict) else {}
+    feet = ROSTER_FOOT.findall(read('%s_orders.txt' % act) or '')
+    b = ro.get('before_open')
+    if not feet or not isinstance(b, int) or isinstance(b, bool):
+        return None
+    return b, int(feet[-1][1])
+
+
+def at_close(needles, act, read=None):
+    fig = roster_at_close(act, read)
+    if fig is None:
+        return tuple(needles)
+    s = '%d open to %d' % fig
+    return tuple(ROSTER_FIGURE.sub(s, n.replace(ROSTER_TOKEN, s)) for n in needles)
 
 
 def fold_article(t):
@@ -45,14 +89,43 @@ def _act_module(act):
     return importlib.import_module('acts.%s' % act)
 
 
+def needles_of(act):
+    """v1.38.15, [K6]: the act's TITLE_NEEDLES read by their literal from tools/acts/<act>.py. The act module is a sections file since the fold
+    took the tools apart, and no import of it compiles (b764: a SyntaxError at its :877), so the title route read nothing at any act."""
+    import ast
+    p = os.path.join(T, 'acts', '%s.py' % act)
+    if not os.path.exists(p):
+        return ()
+    with open(p, encoding='utf-8') as fh:
+        src = fh.read().replace('\r', '')
+    m = re.search(r'(?m)^TITLE_NEEDLES = ', src)
+    if not m:
+        return ()
+    k = m.end()
+    while True:
+        k = src.find('\n', k + 1)
+        if k < 0:
+            return ()
+        try:
+            v = ast.literal_eval(src[m.end():k].strip())
+        except (SyntaxError, ValueError):
+            continue
+        return tuple(v) if isinstance(v, (tuple, list)) else ()
+
+
 def main(argv):
     if len(argv) < 3 or argv[1] != 'title':
         sys.exit('usage: armnorm.py title <act>')
     act = __import__('act').act_name(argv[2], 'armnorm.py title', 'usage: armnorm.py title <act>')   # ### v1.32.0, (R362)(7)(vii), b751 (t)
-    m = _act_module(act)
-    needles = tuple(getattr(m, 'TITLE_NEEDLES', ()) or ())
+    needles = needles_of(act)
     cp = cannot_pass(needles)
     print('  %s TITLE_NEEDLES %d ; under a fold of the target alone CANNOT PASS: %s' % (act, len(needles), cp or 'NONE'))
+    fig = roster_at_close(act)
+    typed = [n for n in needles if ROSTER_FIGURE.search(n)]
+    print('  THE ROSTER AT THE CLOSE ((R374)(5) [K6]): %s ; needles carrying the token %d ; a figure typed in a needle, read from the roster in its '
+          'place: %s' % (('%d open to %d' % fig) if fig else 'NONE (no roster figure in the banks: a token stays unfound)',
+                         sum(1 for n in needles if ROSTER_TOKEN in n), ', '.join(ROSTER_FIGURE.search(n).group(0) for n in typed) or 'NONE'))
+    needles = at_close(needles, act)
     try:
         rec = importlib.import_module('%s_record' % act)
         title = rec._title()

@@ -845,7 +845,7 @@ TITLE_NEEDLES = ('## The control’s failure from its coefficients under (R374):
                  ' (b764_corrigendum); the finite and signed parts of the form compiled at v0.42, 5 statements of 5, and One Page’s 19 rows of this kernel stated and built in one file (b764_outcomes)',
                  'the statement of the control’s failure committed and compiled before its proof, no proof sent (b764_outcomes, b764_ceiling)',
                  'the orders priced beside it, ', ' (b764_price, b764_outcomes)',
-                 'the author’s words on the waiting orders and canon XXV entered, 84 open to 83 (b764_author_rulings, b764_ledgers, b764_orders)',
+                 'the author’s words on the waiting orders and canon XXV entered, <THE ROSTER AT THE CLOSE> (b764_author_rulings, b764_ledgers, b764_orders)',   # ### v1.38.15, [K6]: tools/standing/armnorm.py at_close reads the figure from the roster at the close
                  ' dispatches')
 #⟪END⟫
 #⟪SECTION checks 16⟫

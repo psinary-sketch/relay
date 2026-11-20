@@ -999,7 +999,7 @@ def entry_title_ok(S):
     import armnorm as AN
     e = S['fj'].get('entry_line')
     t = S['REC']._title()
-    return bool(e) and fline(S, e) == conv(t) and AN.title_ok(t, TITLE_NEEDLES)
+    return bool(e) and fline(S, e) == conv(t) and AN.title_ok(t, AN.at_close(TITLE_NEEDLES, '⟪ACT⟫'))   # ### v1.38.15, (R374)(5) [K6]: the roster figure read at the close
 
 
 def trail_tail(S):

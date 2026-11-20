@@ -1410,8 +1410,94 @@ def control_k18(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K6] THE TITLE ARM'S NEEDLE FROM THE ROSTER AT THE CLOSE
+K6_PATHS = ('tools/standing/armnorm.py', 'tools/standing/fold/checks.tpl')
+K6_LINES = (('b763', '7db9a66c', 15815, 'e92c14b646cdf266'), ('b762', '87cab4f2', 15751, '7dcaceff1515fa1e'))   # ### data/b76x_findings.json "entry_line"
+K6_PROBE = r'''
+import json, os, re, sys
+snap, inst = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import armnorm as AN
+chk = open(os.path.join(snap, 'tools', 'standing', 'fold', 'checks.tpl'), encoding='utf-8').read()
+i = chk.find('def entry_title_ok(S):')
+body = chk[i:chk.find(chr(10) + 'def ', i + 10)]
+calls = 'AN.at_close(' in body and hasattr(AN, 'at_close')
+rd = lambda n: open(os.path.join(inst, n), encoding='utf-8').read() if os.path.exists(os.path.join(inst, n)) else ''
+J = json.load(open(os.path.join(inst, 'cases.json'), encoding='utf-8'))
+TOKEN = getattr(AN, 'ROSTER_TOKEN', '<THE ROSTER AT THE CLOSE>')
+def arm(title, needles, act):
+    return AN.title_ok(title, AN.at_close(tuple(needles), act, rd) if calls else tuple(needles))
+fig = re.compile(r'\b\d+ open to \d+\b')
+out = dict(calls=calls, roster=list(AN.roster_at_close('b763', rd)) if hasattr(AN, 'roster_at_close') else None)
+for act in ('b763', 'b762'):
+    t, nd = rd('%s_title.txt' % act).strip(chr(10)), J[act]
+    out[act] = arm(t, nd, act)
+t3, nd3 = rd('b763_title.txt').strip(chr(10)), J['b763']
+out['wrong'] = arm(fig.sub(lambda m: re.sub(r'\d+$', lambda k: str(int(k.group(0)) - 1), m.group(0)), t3), nd3, 'b763')
+out['token'] = arm(t3, [fig.sub(TOKEN, n) for n in nd3], 'b763')
+out['no_roster'] = arm(t3, [fig.sub(TOKEN, n) for n in nd3], 'b999')
+print(json.dumps(out))
+'''
+
+
+def control_k6(before, after):
+    """[K6]: the title arm (tools/standing/fold/checks.tpl entry_title_ok) on b763's landed entry line (PLACE-papers 7db9a66c, FINDINGS :15815,
+    read by line and sha256, no text printed) with b763's TITLE_NEEDLES (tools/acts/b763.py, seven, one carrying "84 open to 83", the ruling's
+    WANTED figure) and b763's roster banks (data/b763_ledgers.json, its roster's before_open 84; data/b763_orders.txt, its foot OPEN 82), each
+    revision's armnorm.py and arm. FAULT: the arm FAILS on b763's right entry. CLEAN: it PASSES there; it PASSES on b762's (FINDINGS :15751 at
+    87cab4f2, "79 open to 84" typed and true); it FAILS on b763's title planted with its open figure one lower (the arm not made vacuous); a
+    needle carrying ROSTER_TOKEN PASSES where the act has a roster and FAILS where it has none."""
+    L, res = [], {}
+    inst = tempfile.mkdtemp(prefix='b764k6i_')
+    try:
+        shas, cases = [], {}
+        for act, rev, ln, sha in K6_LINES:
+            r = subprocess.run(['git', '-C', K8_PP, 'show', '%s:FINDINGS.md' % rev], capture_output=True)
+            l_ = r.stdout.decode('utf-8').replace('\r', '').split(NL)[ln - 1] if r.returncode == 0 else ''
+            got = __import__('hashlib').sha256(l_.encode('utf-8')).hexdigest()[:16]
+            shas.append((act, rev, ln, got, got == sha))
+            with open(os.path.join(inst, '%s_title.txt' % act), 'w', encoding='utf-8', newline='\n') as fh:
+                fh.write(l_)
+            src = io.open(os.path.join(ROOT, 'tools', 'acts', '%s.py' % act), encoding='utf-8').read()
+            i = src.find(NL + 'TITLE_NEEDLES = ')
+            cases[act] = list(__import__('ast').literal_eval(src[i + 17:src.find(NL + '#', i + 5)].strip()))
+            for n in ('%s_ledgers.json' % act, '%s_orders.txt' % act):
+                shutil.copyfile(os.path.join(D, n), os.path.join(inst, n))
+        with open(os.path.join(inst, 'cases.json'), 'w', encoding='utf-8', newline='\n') as fh:
+            fh.write(json.dumps(cases))
+        typed = [re.search(r'\b\d+ open to \d+\b', n).group(0) for n in cases['b763'] if re.search(r'\b\d+ open to \d+\b', n)]
+        L.append('  THE RECORD INSTANCE (PLACE-papers, by line and sha256): %s ; b763`s needles %d, the figure typed in them: %s (the ruling`s WANTED)' % (
+            '; '.join('%s %s FINDINGS :%d %s %s' % (a, rv, n, s, 'EQUAL' if ok else 'DIFFERS') for a, rv, n, s, ok in shas), len(cases['b763']), ', '.join(typed)))
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b764k6_')
+            try:
+                got = snapshot(rev, K6_PATHS, tmp)
+                j = probe(K6_PROBE, tmp, inst)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k6_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            pf = lambda b: 'PASSES' if b else 'FAILS'
+            L += ['  %s (relay %s): the files %s ; the arm reads the roster at the close: %s ; b763`s roster at the close: %s' % (
+                      name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), j['calls'],
+                      ('%d open to %d' % tuple(j['roster'])) if j['roster'] else 'NOT READ'),
+                  '    the arm on b763`s right entry: %s ; on b762`s: %s ; on b763`s title planted one lower: %s ; a needle carrying the token, with b763`s '
+                  'roster: %s ; with no roster: %s' % (pf(j['b763']), pf(j['b762']), pf(j['wrong']), pf(j['token']), pf(j['no_roster']))]
+            fault = not j['b763']
+            clean = j['calls'] and j['b763'] and j['b762'] and not j['wrong'] and j['token'] and not j['no_roster'] and all(s[4] for s in shas)
+            L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    finally:
+        if os.path.isabs(inst) and os.path.basename(inst).startswith('b764k6i_'):
+            shutil.rmtree(inst, ignore_errors=True)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14, K18=control_k18, K6=control_k6)
 
 
 def main(argv):
