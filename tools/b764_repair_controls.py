@@ -597,7 +597,83 @@ def control_k16(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16)
+# ================================================================================ [K7] THE CLAUSE READER, THE NAME AFTER ITS PATH
+K7_PATHS = ('tools/standing/cites.py', 'tools/standing/act.py')
+K7_TREES_B763 = [['D:/SIDE-explicit-formula', 'a3aad4cc'], ['D:/SIDE-dirichlet-mod-24', 'e5ebdd15']]   # tools/b763_worklist.py :392
+K7_TREES_B764 = [['D:/SIDE-explicit-formula', '819e4a83'], ['D:/SIDE-explicit-formula', 'ec14e9d9'], ['D:/SIDE-explicit-formula', 'a59632eb'],
+                 ['D:/SIDE-dirichlet-mod-24', 'e5ebdd15']]   # tools/b764_worklist.py :406-:407
+K7_WRONG = 'a stand-in sentence, Schema/Wide/HalfScaleControl.lean at wide_detector, read by no route\n'
+K7_WORD = 'a stand-in sentence, SIDEExplicitFormula/H2Sign.lean at the line it names, read by no route\n'
+K7_PROBE = r'''
+import json, os, sys
+snap, inst = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import cites as C
+j = json.load(open(inst, encoding='utf-8'))
+out = {}
+for key, text, trees in j:
+    rows = C.lean_rows(text, [tuple(t) for t in trees])
+    out[key] = [[r[0], r[1], r[2], bool(r[3])] for r in rows]
+print(json.dumps(out))
+'''
+
+
+def control_k7(before, after):
+    """[K7]: b763's ferry whole under b763's trees (tools/b763_worklist.py :392), where SCOPE READ's "Schema/Wide/HalfScale.lean at
+    wide_detector, ..." (data/b763_ferry.txt :3) halted the check (data/b763_citation_check.txt :93); b764's ferry under b764's trees, which
+    must read the same rows at both revisions; and two stand-ins under b763's trees: the name after a path that does not declare it, and a
+    word after at that is no name. FAULT: b763's ferry reads a failing row on wide_detector, or the stand-in's wrong path goes unread.
+    CLEAN: b763's ferry no failing row and wide_detector read at HalfScale.lean, the wrong path one failing row, the word no row, b764's
+    rows equal to the revision before's."""
+    L, res, got_ = [], {}, {}
+    b763 = open(os.path.join(D, 'b763_ferry.txt'), encoding='utf-8').read()
+    b764 = open(os.path.join(D, 'b764_ferry.txt'), encoding='utf-8').read()
+    L.append('  THE RECORD INSTANCE: data/b763_ferry.txt whole (%d lines) under b763`s trees %s; data/b764_ferry.txt whole (%d lines) under b764`s %s' % (
+        b763.count(NL), ', '.join(r for _p, r in K7_TREES_B763), b764.count(NL), ', '.join(r for _p, r in K7_TREES_B764)))
+    L.append('  THE STAND-INS, under b763`s trees: %r ; %r' % (K7_WRONG.strip(), K7_WORD.strip()))
+    tmpi = tempfile.mkdtemp(prefix='b764k7i_')
+    try:
+        inst = os.path.join(tmpi, 'inst.json')
+        with open(inst, 'w', encoding='utf-8', newline='\n') as fh:
+            json.dump([['b763', b763, K7_TREES_B763], ['b764', b764, K7_TREES_B764], ['wrong', K7_WRONG, K7_TREES_B763], ['word', K7_WORD, K7_TREES_B763]], fh)
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b764k7_')
+            try:
+                got = snapshot(rev, K7_PATHS, tmp)
+                j = probe(K7_PROBE, tmp, inst)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k7_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            got_[name] = j
+            f763 = [r for r in j['b763'] if not r[3]]
+            wide = [r for r in j['b763'] if 'wide_detector' in r[1]]
+            fwr = [r for r in j['wrong'] if not r[3]]
+            nword = [r for r in j['word'] if not r[1].endswith('.lean')]
+            f764 = [r for r in j['b764'] if not r[3]]
+            fault = any('wide_detector' in r[1] for r in f763) or not fwr
+            clean = (not f763 and any(r[1].startswith('wide_detector at Schema/Wide/HalfScale.lean') and r[3] for r in wide) and len(fwr) == 1
+                     and not nword and not f764)
+            L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+                  '    b763`s ferry: rows %d ; failing %d %s' % (len(j['b763']), len(f763), ['%s %s | %s' % (r[0], r[1], r[2]) for r in f763] or ''),
+                  '    the rows on wide_detector: %s' % (['%s %s | %s | %s' % (r[0], r[1], r[2], 'OK' if r[3] else 'FAILING') for r in wide] or 'NONE'),
+                  '    the stand-in, the name after a path that does not declare it: %s' % (['%s | %s | %s' % (r[1], r[2], 'OK' if r[3] else 'FAILING') for r in j['wrong'] if not r[1].endswith('.lean')] or 'NO ROW, UNREAD'),
+                  '    the stand-in, a word after at: name rows %d' % len(nword),
+                  '    b764`s ferry: rows %d ; failing %d' % (len(j['b764']), len(f764)),
+                  '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    finally:
+        if os.path.isabs(tmpi) and os.path.basename(tmpi).startswith('b764k7i_'):
+            shutil.rmtree(tmpi, ignore_errors=True)
+    same764 = 'BEFORE' in got_ and 'AFTER' in got_ and got_['BEFORE']['b764'] == got_['AFTER']['b764']
+    L.append('  b764`s ferry, its rows at the two revisions equal: %s' % same764)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and same764
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7)
 
 
 def main(argv):

@@ -14,6 +14,7 @@ ruling's top-level item whose clause carries that name (b725: (R335)(5)); where 
   cite(key, act=None) -> '(Rnnn)(n)...'     check(text, act) -> [(key, cited, wanted)] the table's keys whose citation the text misplaces
   v1.18.0: comparative_hits(bank, text), comparative_rows(rows, read), comparative_unread(hits, rows) -- a bank's comparative sentences
   against the figures of the table they cite, AGREES / CONTRADICTS / UNREAD ((R348)(2)(ii))
+  v1.38.6, (R374)(5) [K7]: at_names(text) -- a Lean path, the word at and a name read as a cite of that name at that path (lean_rows)
 """
 import os
 import re
@@ -177,6 +178,8 @@ def lean_rows(text, trees, near=110):
     files = [(repo, rev, f) for repo, rev in trees for f in _tree(repo, rev)]
     cache, rows = {}, []
     clauses = lean_clauses(text)
+    ats = at_names(text)
+    wt = _at_masked(text, ats)
     for k_, m in enumerate(LEAN_PATH.finditer(text or '')):
         p, line = m.group(0), text.count('\n', 0, m.start()) + 1
         hits = [f for _r, _v, f in files if f == p or f.endswith('/' + p)]
@@ -184,12 +187,21 @@ def lean_rows(text, trees, near=110):
         if not hits:
             continue
         cl = clauses.get(k_)
+        if k_ in ats:
+            # ### v1.38.6, (R374)(5) [K7]: the name after its path, by the word at, is that path's cite; one no tree declares takes no row
+            name = ats[k_][0]
+            if name not in cache:
+                cache[name] = sorted(set(f for repo, rev in trees for f in _decl(repo, rev, name)))
+            if cache[name]:
+                rows.append((':%d' % line, '%s at %s (the name after its path)' % (name, p), 'declared at %s' % ', '.join(cache[name]), bool(set(cache[name]) & set(hits))))
+                if cl is None or len(cl) == 1:
+                    continue
         if cl is not None and len(cl) > 1:
             # ### v1.34.0, (R364)(3)(iv), b751 (d), b752 (d), b753 (e): a clause of several paths read as a clause, once, at its first path
             if k_ == cl[0]:
-                rows += _clause_rows(text, cl, files, trees, cache, near)
+                rows += _clause_rows(text, cl, files, trees, cache, near, wt)
             continue
-        w = text[max(text.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
+        w = wt[max(wt.rfind('\n', 0, m.start()) + 1, m.start() - near):m.start()]
         w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]   # ### v1.18.0, (R348)(4), b738 step zero: a closed parenthesis ends the window, its names the path before it's ("Zeros.lean (..., zqZeroConfig :319), Continuation.lean")
         if LABEL_BEFORE.search(w):   # ### v1.23.0, b743 step-zero defect (f): "(S4', Carrier.lean :21)" -- the path cited for the item label opening its parenthesis; no name before it is read
             continue
@@ -209,6 +221,38 @@ def lean_rows(text, trees, near=110):
             break   # ### v1.18.0, (R348)(4), b738 step zero: the nearest identifier is the one cited, declared or not; one no tree declares (a name the act builds,
             #   ### "S3 min_modulus_zero on AbsMax.lean :405") takes no row and stops the read, where before it passed to S2's DiffContOnCl
     return rows
+
+
+# ### v1.38.6, (R374)(5) [K7], b763 defects (c), REPEAT b753 (e), b763 misses (8): THE NAME AFTER ITS PATH. (R373)'s SCOPE READ wrote
+# ### "Schema/Wide/HalfScale.lean at wide_detector, Schema/Wide/HalfScaleControl.lean :1-:35, PowerWindow.lean :42-:47, ..." (data/b763_ferry.txt
+# ### :3); the reader reads the names before a path, so wide_detector fell in the window of the clause of three after it and the check halted
+# ### (data/b763_citation_check.txt :93), though HalfScale.lean :277 declares it. A path, its line cites if any, the word at and a name of the
+# ### reader's form is a cite of that name at that path: one row, the name against that path alone, and the path's own window before it not read;
+# ### the name masked, by spaces of its length, from every later window. A word after at that no tree declares (a commit, "the", "port") takes no
+# ### row and leaves the path read as before. Over the ferries b700 to b799 the shape stands once, at b763 :3.
+AT_NAME = re.compile(r'((?:\s*:\d+(?:\s*[-–]\s*:?\d+)?)*\s+at\s+`?)([A-Za-z_][\w.\']*)')
+
+
+def at_names(text):
+    """{index of a LEAN_PATH match: (name, start, end)}: each path followed, past its line cites, by the word at and a name of LEAN_NAME's
+    form (a dotted one namespaced, as the window reads it); a sentence's closing point is not the name's."""
+    out = {}
+    for k, m in enumerate(LEAN_PATH.finditer(text or '')):
+        a = AT_NAME.match(text, m.end())
+        if not a:
+            continue
+        name = a.group(2).rstrip('.')
+        if not LEAN_NAME.fullmatch(name) or ('.' in name and not NAMESPACED.match(name)):
+            continue
+        out[k] = (name, a.start(2), a.start(2) + len(name))
+    return out
+
+
+def _at_masked(text, ats):
+    t = text or ''
+    for _n, s, e in sorted(ats.values(), key=lambda x: -x[1]):
+        t = t[:s] + ' ' * (e - s) + t[e:]
+    return t
 
 
 # ### v1.34.0, (R364)(3)(iv), b751 (d), b752 (d), b753 (e), three acts running: THE CLAUSE OF SEVERAL LEAN PATHS. The reader paired each path
@@ -233,13 +277,14 @@ def lean_clauses(text):
     return out
 
 
-def _clause_rows(text, cl, files, trees, cache, near):
+def _clause_rows(text, cl, files, trees, cache, near, wtext=None):
     ms = list(LEAN_PATH.finditer(text or ''))
     first = ms[cl[0]]
     paths = [ms[i].group(0) for i in cl]
     line = text.count('\n', 0, first.start()) + 1
     held = dict((p, set(f for _r, _v, f in files if f == p or f.endswith('/' + p))) for p in paths)
-    w = text[max(text.rfind('\n', 0, first.start()) + 1, first.start() - near):first.start()]
+    wt = text if wtext is None else wtext   # ### v1.38.6, [K7]: the window read with each name after its path masked
+    w = wt[max(wt.rfind('\n', 0, first.start()) + 1, first.start() - near):first.start()]
     w = re.split(r'\.lean\b|[.;:] |\)', w)[-1]
     if LABEL_BEFORE.search(w):
         return []
