@@ -416,3 +416,25 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     refused by the fold`s name reader: NONE ; with the two taken out of the worklist: NONE ; planted, the retained blocks put back: ['C2_HALT', 'C2_PRED', 'C2_REG', 'C2_SELECT', 'C3_RELAY', 'C3_RULE', 'C4_PRED', 'C6_CENSUS', 'C6_DRAFTS', 'C6_FROZEN', 'C6_RELAY']
     AFTER: CLEAN
 ### ### **[K4] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [R7] THE PLANTED CONTROL (2026-11-20T21:31:09Z): BEFORE relay c3c1e278, THE REPAIR`S COMMIT relay 815d0d6b, its first parent c3c1e278 -- THE COMMIT BEFORE
+  BEFORE (relay c3c1e278, VERSION v1.38.17): the files tools/standing/commit.py present, tools/standing/VERSION present
+    (open)   repo_refusal(SIDE-explicit-formula, b764) REFUSED ; (ff) ff_refusal REFUSED
+    (closed) SIDE-dirichlet-mod-24 for b764: repo REFUSED, ff REFUSED
+    (b763)   SIDE-explicit-formula repo None, ff None ; SIDE-dirichlet-mod-24 repo REFUSED
+    (other)  SIDE-explicit-formula for b765: repo REFUSED, ff REFUSED ; SIDE-frobenius for b764: REFUSED
+    (branch) push-b764-runner as branch None, as HEAD for a commit None ; push-b763-arith REFUSED ; main as branch REFUSED, as HEAD REFUSED
+    (named)  print_targets.txt in a conflicted merge for b764: REFUSED ; (holds) pushto REFUSED, rdelete REFUSED
+    (rows)   FF_ACTS b758, b759, b763 ; KERNEL_ACTS b757, b758, b759, b763 ; NAMED_CONFLICTS b757, b758 ; PUSHTO_ACTS none ; RDELETE_ACTS b759, b760 ; b764: FF_ACTS none ; KERNEL_ACTS none
+    BEFORE: THE FAULT READ
+  AFTER (relay 815d0d6b, VERSION v1.38.18): the files tools/standing/commit.py present, tools/standing/VERSION present
+    (open)   repo_refusal(SIDE-explicit-formula, b764) None ; (ff) ff_refusal None
+    (closed) SIDE-dirichlet-mod-24 for b764: repo REFUSED, ff REFUSED
+    (b763)   SIDE-explicit-formula repo None, ff None ; SIDE-dirichlet-mod-24 repo REFUSED
+    (other)  SIDE-explicit-formula for b765: repo REFUSED, ff REFUSED ; SIDE-frobenius for b764: REFUSED
+    (branch) push-b764-runner as branch None, as HEAD for a commit None ; push-b763-arith REFUSED ; main as branch REFUSED, as HEAD REFUSED
+    (named)  print_targets.txt in a conflicted merge for b764: REFUSED ; (holds) pushto REFUSED, rdelete REFUSED
+    (rows)   FF_ACTS b758, b759, b763, b764 ; KERNEL_ACTS b757, b758, b759, b763, b764 ; NAMED_CONFLICTS b757, b758 ; PUSHTO_ACTS none ; RDELETE_ACTS b759, b760 ; b764: FF_ACTS SIDE-explicit-formula ; KERNEL_ACTS SIDE-explicit-formula
+    AFTER: CLEAN
+  (diff)   the acts each table gains and loses, BEFORE to AFTER: FF_ACTS +b764 -none ; KERNEL_ACTS +b764 -none ; NAMED_CONFLICTS +none -none ; PUSHTO_ACTS +none -none ; RDELETE_ACTS +none -none -- b764 GAINED BY KERNEL_ACTS AND FF_ACTS ALONE
+### ### **[R7] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
