@@ -11,6 +11,7 @@ else is written. The repair's commit must have the commit before it as its first
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -220,7 +221,96 @@ def control_k1(before, after):
     return L, res.get('BEFORE') is True and res.get('AFTER') is False
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1)
+# ================================================================================ [K5] A NEEDLE READ THROUGH ITS READER WHEN IT IS WRITTEN
+K5_TOOL = 'tools/standing/needle.py'
+K5_CASES = r'''
+import json, os, sys
+sys.path.insert(0, os.path.join(sys.argv[1], 'tools', 'standing'))
+sys.path.insert(1, os.path.join(sys.argv[1], 'tools'))
+import needle as N
+snap = sys.argv[2]
+rd = lambda n: open(os.path.join(snap, n), encoding='utf-8').read()
+f_need = N.foot(rd('l_after.txt'))
+l_before, l_after = N.foot_read(rd('l_before.txt'), [f_need]), N.foot_read(rd('l_after.txt'), [f_need])
+p_rows = N.conv_read('**The author`s words** (relay data/b763_author_answers.txt)', ['**The author`s words**', '**The author’s words**'])
+q_before, q_after = N.bar(rd('q_before.txt')), N.bar(rd('q_after.txt'))
+print(json.dumps(dict(l_need=bool(f_need), l_before=l_before, l_after=l_after, p_rows=p_rows,
+                      q_before=[len(q_before[0]), len(q_before[1]), q_before[3]], q_after=[len(q_after[0]), len(q_after[1]), q_after[3]])))
+'''
+K5_Q_OLD = 'two arms failing beyond b762`s (defects (n), (o))'
+K5_Q_NEW = 'G-WEIGHT-LINE and G-CLOSING-SENTENCE failing beyond b762`s (defects (n), (o))'
+
+
+def control_k5(before, after):
+    """[K5]: one call taking a needle and its reader and composing the text as the reader's route composes it. BEFORE: no such call at the
+    revision, each of b763's five read by nothing until the part's probe or the gate's first run. AFTER (the working tree equal to the
+    repair's commit for the call's file, read and printed): the call over b763's own instances, each wanted read --
+    (l) the recut bank's foot before its repair (data/b763_recut_inputs.txt at 1d8b80a2, a bare bold foot) and after (9779a81f): the
+        repaired foot's text does not stand in the first's foot, which reads empty, and stands in the second's;
+    (p) the face's trail needle in the backtick form stands raw and not through conv, and the typographic form stands through conv;
+    (q) b763's face paragraph as committed at 256c3e8d (tools/b763_face_blocks.txt, the Component 6 paragraph counting two arms) reads an
+        arm miss through the gate's bar screen, and the same paragraph with the two arms named reads none;
+    (n), (o) the arm route: `needle.py b764 arm G-DIFFERS-ERRATA` over the corrigendum's head needle and a planted needle written nowhere,
+        --dry: the arm run on its composed sources (PASS or FAIL, not RAISED), the first needle standing in the text the arm reads (its
+        FINDINGS line reader's source), the planted one not."""
+    L = []
+    rc, b = git('show', '%s:%s' % (before, K5_TOOL))
+    L += ['  BEFORE (relay %s): %s %s' % (before[:8], K5_TOOL, 'present' if rc == 0 else 'ABSENT'),
+          '    no call reads a needle through its reader at its writing: b763`s (n) and (o) found at the standing-a2 probe (06:49:59Z), (p) and (q)'
+          ' at the gate`s first run (08:22:02Z), (l) by hand at 05:21Z, each after the writing (data/b763_defects.txt :56-:111)',
+          '    BEFORE: %s' % ('THE FAULT READ' if rc != 0 else 'CLEAN')]
+    before_fault = rc != 0
+    rc2, head = git('rev-parse', 'HEAD')
+    rc3, blob = git('show', '%s:%s' % (after, K5_TOOL))
+    work = open(os.path.join(ROOT, *K5_TOOL.split('/')), 'rb').read() if os.path.exists(os.path.join(ROOT, *K5_TOOL.split('/'))) else None
+    same = rc3 == 0 and work is not None and work.replace(b'\r\n', b'\n') == blob.replace(b'\r\n', b'\n') and head.decode().strip() == after
+    L.append('  AFTER (relay %s): %s at the commit %s ; HEAD the repair`s commit and the working file its blob: %s' % (
+        after[:8], K5_TOOL, 'present' if rc3 == 0 else 'ABSENT', same))
+    if not same:
+        return L + ['    AFTER: NOT READ -- the call`s file is not the commit`s'], False
+    tmp = tempfile.mkdtemp(prefix='b764k5_')
+    try:
+        qb = _git_text('256c3e8d', 'tools/b763_face_blocks.txt')
+        para = [p for p in qb.split('\n\n') if K5_Q_OLD in p]
+        for n_, t_ in (('l_before.txt', _git_text('1d8b80a2', 'data/b763_recut_inputs.txt')), ('l_after.txt', _git_text('9779a81f', 'data/b763_recut_inputs.txt')),
+                       ('q_before.txt', para[0] if para else ''), ('q_after.txt', para[0].replace(K5_Q_OLD, K5_Q_NEW) if para else '')):
+            with open(os.path.join(tmp, n_), 'w', encoding='utf-8', newline='\n') as fh:
+                fh.write(t_)
+        r = subprocess.run([sys.executable, '-X', 'utf8', '-I', '-c', K5_CASES, ROOT, tmp], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    finally:
+        if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k5_'):
+            shutil.rmtree(tmp, ignore_errors=True)
+    js = [l for l in r.stdout.split(NL) if l.startswith('{')]
+    if r.returncode or not js:
+        return L + ['    THE CASES FAILED: exit %d: %s' % (r.returncode, (r.stderr or r.stdout).strip()[-400:])], False
+    j = json.loads(js[-1])
+    l_ok = j['l_need'] and not j['l_before']['rows'][0][1] and j['l_after']['rows'][0][1]
+    p_ok = j['p_rows'][0][1] and not j['p_rows'][0][2] and j['p_rows'][1][2]
+    q_ok = bool(para) and j['q_before'][1] >= 1 and j['q_after'][1] == 0
+    t0 = time.time()
+    a = subprocess.run([sys.executable, '-X', 'utf8', '-u', os.path.join(ROOT, 'tools', 'standing', 'needle.py'), ACT, 'arm', 'G-DIFFERS-ERRATA',
+                        '## Corrigendum to b763', 'b764 PLANTED NEEDLE WRITTEN NOWHERE', '--dry'], capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', cwd=ROOT, timeout=560)
+    out = a.stdout
+    m = re.search(r'ON THE COMPOSED SOURCES: (PASS|FAIL|RAISED[^(]*)', out)
+    rows = re.findall(r"NEEDLE '([^']*)'.* -- (STANDS|DOES NOT STAND)", out)
+    n_ok = bool(m) and not m.group(1).startswith('RAISED') and rows[:2] == [('## Corrigendum to b763', 'STANDS'), ('b764 PLANTED NEEDLE WRITTEN NOWHERE', 'DOES NOT STAND')]
+    L += ['    (l) the recut bank`s foot: the repaired foot`s text read %s ; at 1d8b80a2 a verdict line %s, the needle %s ; at 9779a81f a verdict line %s, the needle %s -- %s' % (
+              j['l_need'], j['l_before']['foot_found'], 'STANDS' if j['l_before']['rows'][0][1] else 'DOES NOT STAND', j['l_after']['foot_found'],
+              'STANDS' if j['l_after']['rows'][0][1] else 'DOES NOT STAND', 'AS WANTED' if l_ok else 'NOT AS WANTED'),
+          '    (p) the trail needle: backtick form raw %s, through conv %s ; typographic form through conv %s -- %s' % (
+              j['p_rows'][0][1], j['p_rows'][0][2], j['p_rows'][1][2], 'AS WANTED' if p_ok else 'NOT AS WANTED'),
+          '    (q) b763`s face paragraph at 256c3e8d (found %s): arm misses %d (multi-arm paragraphs %d) ; with the two arms named: arm misses %d -- %s' % (
+              bool(para), j['q_before'][1], j['q_before'][2], j['q_after'][1], 'AS WANTED' if q_ok else 'NOT AS WANTED'),
+          '    (n), (o) the arm route, G-DIFFERS-ERRATA on its composed sources (exit %d, %.0f s): %s ; the needles %s -- %s' % (
+              a.returncode, time.time() - t0, m.group(1).strip() if m else 'NO VERDICT LINE', rows or (a.stderr or out).strip()[-300:],
+              'AS WANTED' if n_ok else 'NOT AS WANTED')]
+    clean = l_ok and p_ok and q_ok and n_ok
+    L.append('    AFTER: %s' % ('CLEAN' if clean else 'THE FAULT READ'))
+    return L, before_fault and clean
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5)
 
 
 def main(argv):
