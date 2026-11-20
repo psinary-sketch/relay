@@ -58,6 +58,7 @@ PS = 'SIDEExplicitFormula/ParitySplit.lean'
 AW = 'SIDEExplicitFormula/AdmissibleWeights.lean'
 CF = 'SIDEExplicitFormula/ControlFailureStatement.lean'
 OP = 'SIDEExplicitFormula/OnePageStatement.lean'
+SQ = 'SIDEExplicitFormula/SquaresAt24.lean'
 
 # ### the classes of a bound hypothesis, each by the full match of its type (whitespace collapsed)
 CLASSES = (
@@ -75,13 +76,17 @@ CLASSES = (
     ('cpoint', 'a complex point, the variable of the transform (as a real point is of a function)', r'ℂ'),
     ('agree', 'two weights agreeing up to the integer part of e^L (the sentence: "turns on the values of c up to the integer part of e^L")',
      r'∀ n : ℕ, n ≤ ⌊Real\.exp \w+⌋₊ → \w+ n = \w+ n'),
-    ('nat', 'a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows)', r'ℕ'),
+    ('nat', 'a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows; the prime p of (8)`s squares)', r'ℕ'),
     ('evenR', 'even, the variable typed (as the source row binds it)', r'∀ x : ℝ, (\w+) \(-x\) = \1 x'),
     ('nezero', 'the modulus not zero (as the source row binds it, a variable of its file)', r'NeZero \w+'),
     ('character', 'a Dirichlet character (the row: "at a primitive character")', r'DirichletCharacter ℂ \w+'),
     ('primitive', 'primitive (the row: "a primitive character")', r'\w+\.IsPrimitive'),
     ('nontriv', 'not the trivial character (the row: "χ ≠ 1")', r'\w+ ≠ 1'),
     ('config', 'a configuration (the row: "over a configuration")', r'Schema\.WeilConfig'),
+    ('prime', 'p prime (the order: "a prime above 3")', r'\w+\.Prime'),
+    ('factprime', 'p prime, as an instance (the order: "a prime above 3")', r'Fact \w+\.Prime'),
+    ('above3', 'p above 3 (the order: "a prime above 3")', r'3 < \w+'),
+    ('mod4', 'p 1 modulo 4 (a step of the order`s proof: reciprocity at 3 for such a prime)', r'\w+ % 4 = 1'),
 )
 CLASS_WORDS = dict((k, w) for k, w, _r in CLASSES)
 
@@ -268,6 +273,17 @@ SENDS = {
             ('the coefficients of zeta multiplicative', r'^ArithmeticFunction\.IsMultiplicative ArithmeticFunction\.zeta$'),)),
         ('cQ_not_nonneg', OP, ':53', SF0, (('the log-derivative coefficients of the control not all nonnegative', r'^¬ \(∀ n : ℕ, 0 ≤ Schema\.ZQ\.cQ n\)$'),)),
         ('vonMangoldt_nonneg_control', OP, ':54', ('nat',), (('Λ nonnegative', r'^0 ≤ ArithmeticFunction\.vonMangoldt n$'),)),
+    )),
+    's24': dict(clause='(R373)(8), W-ORD-SQUARES-AT-24 under [A4], its home SIDE-explicit-formula (OPEN_TRAILS :18503, its price :18563): a prime '
+                       'above 3 has -1, 2 and 3 all squares modulo it exactly when it is 1 modulo 24, by Mathlib`s supplementary laws for -1 and 2 '
+                       'and reciprocity at 3; on a push-b763-* branch of its own, after Component 3, where the ceiling leaves its upper figure',
+                of7=False, files=(SQ,), stmts=(
+        ('not_isSquare_two_zmod_three', SQ, '(8) SQUARES-AT-24', SF0, (('2 not a square modulo 3', r'^¬ IsSquare \(2 : ZMod 3\)$'),)),
+        ('isSquare_three_iff', SQ, '(8) SQUARES-AT-24', ('nat', 'factprime', 'above3', 'mod4'), (
+            ('3 a square modulo p exactly when p is 1 modulo 3', r'^IsSquare \(3 : ZMod p\) ↔ p % 3 = 1$'),)),
+        ('squares_at_24', SQ, '(8) SQUARES-AT-24', ('nat', 'prime', 'above3'), (
+            ('-1, 2 and 3 all squares modulo p exactly when p is 1 modulo 24',
+             r'^\(IsSquare \(-1 : ZMod p\) ∧ IsSquare \(2 : ZMod p\) ∧ IsSquare \(3 : ZMod p\)\) ↔ p % 24 = 1$'),)),
     )),
 }
 
