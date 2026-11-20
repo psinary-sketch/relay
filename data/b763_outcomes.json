@@ -1,0 +1,147 @@
+{
+ "at": "2026-11-20T02:22:39Z",
+ "form": {
+  "item": "form",
+  "outcome": "LANDED, COMPILED",
+  "runs": [
+   {
+    "n": 1,
+    "run": 44610575175,
+    "sha": "ec82fed0c421164bb76a2025772652d981cebf8e",
+    "state": "BROKE",
+    "file_targets": false,
+    "where": "SIDEExplicitFormula/PoleAutocorrelation.lean :210"
+   },
+   {
+    "n": 2,
+    "run": 44625270777,
+    "sha": "0f8495525b060555e9c5595380ac1ac661207f33",
+    "state": "FORM",
+    "file_targets": false,
+    "where": null
+   },
+   {
+    "n": 3,
+    "run": 44641876790,
+    "sha": "4964e95758a7b1bc8c49d0972ebb18877d4f945f",
+    "state": "BROKE",
+    "file_targets": true,
+    "where": "the axioms print, NOT RUN: NOT RUN: the build did not complete under the hold"
+   },
+   {
+    "n": 4,
+    "run": 44646848292,
+    "sha": "4964e95758a7b1bc8c49d0972ebb18877d4f945f",
+    "state": "FILE",
+    "file_targets": true,
+    "where": null
+   }
+  ],
+  "statements": [
+   {
+    "key": "S1",
+    "compiled": true,
+    "cited": [
+     "primeTermQ_window"
+    ],
+    "axioms": "axioms [propext, Classical.choice, Quot.sound]",
+    "sentence": "On a test function that vanishes outside [-L, L], the prime-power side of the explicit formula, for any weights, is the finite sum over n up to e^L (primeTermQ_window, SIDE-explicit-formula v0.42 = 4964e957, run 44646848292, axioms [propext, Classical.choice, Quot.sound])",
+    "unfilled": [],
+    "grade": "DERIVES"
+   },
+   {
+    "key": "S2",
+    "compiled": true,
+    "cited": [
+     "primeSum_eq_zero_of_lt_log_two"
+    ],
+    "axioms": "axioms [propext, Classical.choice, Quot.sound]",
+    "sentence": "Below log 2 the prime sum of zeta's formula vanishes (primeSum_eq_zero_of_lt_log_two, SIDE-explicit-formula v0.42 = 4964e957, run 44646848292, axioms [propext, Classical.choice, Quot.sound])",
+    "unfilled": [],
+    "grade": "DERIVES"
+   },
+   {
+    "key": "S3",
+    "compiled": true,
+    "cited": [
+     "poleTerm_weilTest",
+     "poleTerm_weilTest_even",
+     "poleTerm_weilTest_odd",
+     "exists_classK_poleTerm_re_neg"
+    ],
+    "axioms": "axioms [propext, Classical.choice, Quot.sound]",
+    "sentence": "On the autocorrelation of h the pole term is 2 Re(A conj B), twice the square of the integral of h cosh(x/2) on an even real h and minus twice the square of the integral of h sinh(x/2) on an odd one, and its real part is below 0 at a test function in classK (poleTerm_weilTest, poleTerm_weilTest_even, poleTerm_weilTest_odd and exists_classK_poleTerm_re_neg, SIDE-explicit-formula v0.42 = 4964e957, run 44646848292, axioms [propext, Classical.choice, Quot.sound])",
+    "unfilled": [],
+    "grade": "DERIVES"
+   },
+   {
+    "key": "S4",
+    "compiled": true,
+    "cited": [
+     "form_parity_split"
+    ],
+    "axioms": "axioms [propext, Classical.choice, Quot.sound]",
+    "sentence": "For a real test function the form is the sum of its values on the even and the odd part (form_parity_split, SIDE-explicit-formula v0.42 = 4964e957, run 44646848292, axioms [propext, Classical.choice, Quot.sound])",
+    "unfilled": [],
+    "grade": "DERIVES"
+   },
+   {
+    "key": "S5",
+    "compiled": true,
+    "cited": [
+     "admissibleWeights_convex",
+     "admissibleWeights_congr",
+     "h2_sign_upto_iff_mem"
+    ],
+    "axioms": "axioms [propext, Classical.choice, Quot.sound]",
+    "sentence": "At each width the weights for which the form is at or above 0 on each window of that width form a convex set fixed by the pole term and the archimedean term, and membership turns on finitely many weights (admissibleWeights_convex, admissibleWeights_congr and h2_sign_upto_iff_mem, SIDE-explicit-formula v0.42 = 4964e957, run 44646848292, axioms [propext, Classical.choice, Quot.sound])",
+    "unfilled": [],
+    "grade": "DERIVES"
+   }
+  ],
+  "tag": "v0.42",
+  "peel": "4964e95758a7b1bc8c49d0972ebb18877d4f945f",
+  "tag_object": "001e94ff09537595adfe0b59acddfb45635a0e86",
+  "run": 44646848292,
+  "sha": "4964e95758a7b1bc8c49d0972ebb18877d4f945f",
+  "landed_by": "push-b763-form"
+ },
+ "statement_file": {
+  "outcome": "BUILT",
+  "key": "SF_BUILT",
+  "fields": [
+   [
+    "<tag>",
+    "v0.42"
+   ],
+   [
+    "<peel>",
+    "4964e957"
+   ],
+   [
+    "<run id>",
+    "44646848292"
+   ],
+   [
+    "<axioms>",
+    "axioms [propext, Classical.choice, Quot.sound]"
+   ]
+  ],
+  "runs": [
+   44646848292
+  ]
+ },
+ "arith": {
+  "item": "arith",
+  "outcome": "NOT READ",
+  "runs": []
+ },
+ "orders": [
+  {
+   "item": "squares",
+   "order": "W-ORD-SQUARES-AT-24",
+   "outcome": "NOT BUILT",
+   "runs": []
+  }
+ ]
+}
