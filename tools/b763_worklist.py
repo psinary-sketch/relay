@@ -573,6 +573,7 @@ WEIL_TAG = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1
 WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
 ORDER_BRANCHES = ()   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3
+PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
 ARITH_BRANCH = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
