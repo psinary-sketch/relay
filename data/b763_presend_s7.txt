@@ -1,0 +1,116 @@
+b763 -- (R373)(5), (6), (7): THE PRE-SEND READS OF (R368)(4), CARRIED, AND THE SALT CHECK OF SEND s7, IN SIDE-explicit-formula, BEFORE THE DISPATCH (2026-11-20T02:31:46Z)
+
+### (i) each fully qualified declaration name in one module, over the targets` modules and their import closure in the tree, the
+### duplicates printed, 0 wanted at the tip; (ii) each line of print_targets.txt against build-module.yml :91`s filter, the lines it
+### refuses printed, the two known wanted (:358 and :359); the file not edited for them, the workflow not widened. The reads and their
+### controls are tools/b758_presend.py`s, imported and not changed. THE SALT CHECK is this tool`s: each statement`s hypotheses classed
+### against its sentence, its conclusion read against the sentence`s predicates, the definitions it rests on by file, line and digest;
+### each kernel line by predicate, line number and digest alone, none quoted.
+
+## THE CONTROLS
+  (1) every declaration on a planted file (a private one, a commented one, an anonymous instance and a line comment not read; a section, a nested namespace, _root_, an attribute, a class inductive read): ['A.x', 'A.B.x', 'z', 'A.instFoo', 'A.v', 'A.K'] -> AS WANTED
+  (2) the instances on planted lines (the anonymous one, one after a priority with a binder, a private one not taken, a named one after a priority and a scoped one read as named, a type on the next line unread): (['C.named', 'C.sc'], [('A', 'Inhabited Nat', 12), ('C', 'Bar α', 19), ('C', '', 23)]) -> AS WANTED
+  (3) the anonymous pairs on planted modules (one namespace and type in two modules taken; another namespace, and two unread types, not): {('A', 'Inhabited Nat'): [('M1', 3), ('M2', 7)]} -> AS WANTED
+  (4) the duplicates on planted modules (the same name in one namespace in two modules; the same short name in two namespaces not): {'A.x': [('M1', 3), ('M2', 9)]} -> AS WANTED
+  (5) the imports of a planted header (two lines, a comment between, the body after not read): ['A.B', 'C'] -> AS WANTED
+  (6) the class of the workflow`s pattern as written, expanded: A-Z, a-z, 0-9, underscore, full stop, the prime: A-Z, a-z, 0-9, "'", '.', '_' (65 characters) -> AS WANTED
+  (7) the class read from .github/workflows/build-module.yml at 6568e9c7, the line the ruling names: (91, "A-Za-z0-9_.\\'") -> AS WANTED
+  (8) the target filter read from .github/workflows/build-module.yml at 6568e9c7 (:44: letters, digits, underscore, full stop and the space parting the modules): (44, 'A-Za-z0-9_.\\ ') -> AS WANTED
+  (9) the filter on planted names (a dotted name and a prime passed; the Greek capital lambda, a hyphen and a subscript refused): [('Foo.bar', True), ("Foo.bar'", True), ('Foo.zqPair_Λ_one', False), ('Foo-bar', False), ('Foo.b₁', False)] -> AS WANTED
+  (10) the module`s file as Lake names it, inverted (the default library, the vendored srcDir, a module outside the tree): ('SIDEExplicitFormula/Schema/ZQ/OffZero/Time.lean', 'Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean', None) -> AS WANTED
+  (11) THE POSITIVE CONTROL, b757`s break (data/b757_events.txt (17)): at 6568e9c7 the reader finds SIDEExplicitFormula.Schema.ZQ.OffZero.sRe in OffZero.Time :18 and OffZero.Sums :134: [('SIDEExplicitFormula.Schema.ZQ.OffZero.sRe', [('Time', 18), ('Sums', 134)])] -> AS WANTED
+  THE SALT CHECK`S PLANTED CONTROLS:
+  (s1) the planted statement as its sentence words it: PASSED -> AS WANTED
+  (s2) a hypothesis beyond the sentence bound: REFUSED -> AS WANTED
+  (s3) a hypothesis of a class the sentence does not name (L below log 2 on (S1)): REFUSED -> AS WANTED
+  (s4) the conclusion short of its sentence (the range to the floor of e^L): REFUSED -> AS WANTED
+  (s5) a sorry in the proof: REFUSED -> AS WANTED
+  (s6) the statement absent (renamed): REFUSED -> AS WANTED
+  (s7) a variable line in the file: REFUSED -> AS WANTED
+  (s8) a lemma in place of a theorem, counted and not refused: PASSED -> AS WANTED
+  THE NO-ZERO CONTROL`S PLANTED CONTROLS, AND THREE AT v0.41:
+  (z1) a clean file, the barred names in its prose alone: PASSED -> AS WANTED
+  (z2) Schema/Detector imported: REFUSED -> AS WANTED
+  (z3) a module under Schema/ZQ/OffZero imported: REFUSED -> AS WANTED
+  (z4) a Schema/Wide module carrying a detector imported: REFUSED -> AS WANTED
+  (z5) a Schema/Wide module carrying none imported: PASSED -> AS WANTED
+  (z6) zq_li_nonneg_fails named in code: REFUSED -> AS WANTED
+  (z7) detector named, qualified, in code: REFUSED -> AS WANTED
+  (z8) a name holding detector as a part (detectorBase), not one of the five: PASSED -> AS WANTED
+  (z9) at v0.41, Schema/Wide/HalfScale.lean over itself: REFUSED -> AS WANTED
+  (z10) at v0.41, Schema/Wide/HalfScale read among the Schema/Wide modules carrying a detector: YES -> AS WANTED
+  (z11) at v0.41, the salt check of send s123, no file of (6) in the tree: REFUSED -> AS WANTED
+
+### main as b762 left it (v0.41), where the branch is made
+## AT a3aad4cceb41705fe9929c9b5600976eaf7434b5 (a3aad4cc)
+  THE TARGETS (tools/b757_join.py`s reader): names 489 ; resolved to one module 489 ; refused 0 [] ; modules 99
+  THE IMPORT CLOSURE IN THE TREE: modules 372 (the targets` 99 among them, 99 of them read) ; imports outside the tree 177 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1191 names, duplicates 0 ; over the closure 4142 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at a3aad4cc): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 489 ; passed 487 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 99 of 99
+
+### the tip the dispatch is sent at
+## AT ec14e9d937fbeb943a0f8d3103803570ee810f09 (ec14e9d9)
+  THE TARGETS (tools/b757_join.py`s reader): names 566 ; resolved to one module 566 ; refused 0 [] ; modules 110
+  THE IMPORT CLOSURE IN THE TREE: modules 379 (the targets` 110 among them, 110 of them read) ; imports outside the tree 178 (Mathlib and the toolchain`s, not read)
+  (i) THE FULLY QUALIFIED DECLARATION NAMES, NONE PRIVATE: over the targets` modules 1304 names, duplicates 0 ; over the closure 4218 names, duplicates 0 (0 wanted)
+  (i), THE NAMES LEAN GENERATES, BOUNDED: anonymous instances over the closure 19 (the type read on its first line 18, on a later line 1, unread) ; one namespace and one type text in two modules 0 (0 wanted)
+  (ii) THE FILTER (.github/workflows/build-module.yml :91 at ec14e9d9): the class "A-Za-z0-9_.\\'" passes A-Z, a-z, 0-9, "'", '.', '_' (65 characters) ; lines 566 ; passed 564 ; refused 2
+    REFUSED print_targets.txt :358 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_one_sub (characters outside the class: U+039B) -- a line no print can reach by this workflow
+    REFUSED print_targets.txt :359 SIDEExplicitFormula.Schema.ZQ.zqPair_Λ_eq_of_re (characters outside the class: U+039B) -- a line no print can reach by this workflow
+  BESIDE (ii), THE DISPATCH`S INPUT: the modules against the target filter (.github/workflows/build-module.yml :44, the class 'A-Za-z0-9_.\\ ', a refusal exiting 2 before any build): passed 110 of 110
+
+### (R373)(7), the statement of each form the table prices, FORM B and FORM A, each a definition of a Prop in a file of its own, with no sorry and no proof, compiled by one dispatch on push-b763-arith before any line of a proof; FORM B`s named window in eight definitions beside them (the B-spline of order 6 carried onto [-log 32, log 32], the family`s frequency as relay data/b709_grid.txt :46 prints it, the window of kind N, its autocorrelation and the width log 1024); FORM A takes n as its parameter, no bank naming n: the salt check, printed before the send
+## THE SALT CHECK OF SEND s7 AT ec14e9d937fbeb943a0f8d3103803570ee810f09 (ec14e9d9): (R373)(7), the statement of each form the table prices, FORM B and FORM A, each a definition of a Prop in a file of its own, with no sorry and no proof, compiled by one dispatch on push-b763-arith before any line of a proof; FORM B`s named window in eight definitions beside them (the B-spline of order 6 carried onto [-log 32, log 32], the family`s frequency as relay data/b709_grid.txt :46 prints it, the window of kind N, its autocorrelation and the width log 1024); FORM A takes n as its parameter, no bank naming n
+  THE FILE SIDEExplicitFormula/ControlFailureStatement.lean: READ, 76 lines, sha256 0b4c16d2e11fb4f2 ; sorry or admit 0 ; axiom 0 ; variable 0 ; unsafe 0 ; implemented_by or extern 0 ; skipKernelTC 0 ; lemma 0 ; imports SIDEExplicitFormula.H2Sign SIDEExplicitFormula.Schema.EpsteinZQ SIDEExplicitFormula.Schema.ZQ.Zeros SIDEExplicitFormula.Schema.Wide.Converse -> CLEAN
+  (7) B bsplineSix, a def at SIDEExplicitFormula/ControlFailureStatement.lean :38 (its header sha256 6f5083543cb7c372): PASSED
+     binds: x a real number (a width L, or a point)
+     concludes: its body: the cardinal B-spline of order 6, (1/120) times the sum over j up to 6 of (-1)^j C(6, j) (x - j)_+^5 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessStep, a def at SIDEExplicitFormula/ControlFailureStatement.lean :42 (its header sha256 e52087368bc59acd): PASSED
+     binds: no hypothesis
+     concludes: its body: a third of log 32 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessPhi, a def at SIDEExplicitFormula/ControlFailureStatement.lean :45 (its header sha256 f9c73346081cda76): PASSED
+     binds: u a real number (a width L, or a point)
+     concludes: its body: the B-spline carried onto [-log 32, log 32] HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessFreq, a def at SIDEExplicitFormula/ControlFailureStatement.lean :48 (its header sha256 590689d01b9793ad): PASSED
+     binds: no hypothesis
+     concludes: its body: the family`s frequency, 16.290215720390390792963 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessCos, a def at SIDEExplicitFormula/ControlFailureStatement.lean :51 (its header sha256 f7345a50ed3c9ae6): PASSED
+     binds: u a real number (a width L, or a point)
+     concludes: its body: cos(g u) phi(u) HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessH, a def at SIDEExplicitFormula/ControlFailureStatement.lean :54 (its header sha256 fa68ad418c75a82a): PASSED
+     binds: u a real number (a width L, or a point)
+     concludes: its body: the window of kind N, (g^2 + D^2)[cos(g u) phi(u)] HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B witnessK, a def at SIDEExplicitFormula/ControlFailureStatement.lean :57 (its header sha256 9d2b2a67ed2ded0f): PASSED
+     binds: no hypothesis
+     concludes: its body: the autocorrelation of the window HOLDS
+     rests on: weilTest (Zeta23/ExplicitFormula.lean :68, sha256 9da92312be927c0d) ; of the ruling`s six: weilTest
+  (7) B witnessWidth, a def at SIDEExplicitFormula/ControlFailureStatement.lean :60 (its header sha256 009520e4f0d45994): PASSED
+     binds: no hypothesis
+     concludes: its body: the width log 1024 HOLDS
+     rests on: none of DEFS ; of the ruling`s six: none
+  (7) B ControlFailureB, a def at SIDEExplicitFormula/ControlFailureStatement.lean :66 (its header sha256 d772f1eb118bff2a): PASSED
+     binds: no hypothesis
+     concludes: the named k in classK HOLDS ; vanishing outside [-L, L], L named HOLDS ; the real part of poleTerm k - primeTermQ cQ k + archTermQ k below 0 HOLDS
+     rests on: primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112, sha256 48dd7c8e5bab9a23), poleTerm (SIDEExplicitFormula/B321Identity.lean :29, sha256 92f339974dd66ea8), classK (SIDEExplicitFormula/H2Sign.lean :24, sha256 e2a01cd1da9f2a69), archTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :121, sha256 1684664de5eb4150), cQ (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63, sha256 1862384c8cbbd7fe) ; of the ruling`s six: primeTermQ, poleTerm, classK
+  (7) A ControlFailureA, a def at SIDEExplicitFormula/ControlFailureStatement.lean :71 (its header sha256 03f84557c07a7e86): PASSED
+     binds: n a natural number (FORM A`s n, "at a named n", which the statement takes as its parameter; the modulus N and the index n of One Page`s rows; the prime p of (8)`s squares)
+     concludes: Wide.liCoeff zqZeroConfig n < 0 HOLDS
+     rests on: liCoeff (SIDEExplicitFormula/Schema/Wide/Converse.lean :32, sha256 0ffe12c21d51b4f1), zqZeroConfig (SIDEExplicitFormula/Schema/ZQ/Zeros.lean :319, sha256 c32b33fe389a72f4) ; of the ruling`s six: none
+
+### (R373)(7): the no-zero control over the send`s files, printed before the send
+## THE NO-ZERO CONTROL AT ec14e9d937fbeb943a0f8d3103803570ee810f09 (ec14e9d9)
+  the modules under Schema/Wide carrying a detector at ec14e9d9: 1 (SIDEExplicitFormula.Schema.Wide.HalfScale)
+  THE NO-ZERO CONTROL over SIDEExplicitFormula/ControlFailureStatement.lean: READ ; its imports 4 (SIDEExplicitFormula.H2Sign SIDEExplicitFormula.Schema.EpsteinZQ SIDEExplicitFormula.Schema.ZQ.Zeros SIDEExplicitFormula.Schema.Wide.Converse) ; barred among them 0 ; the five names in its code 0 ; in its prose 0, not read -> PASSED
+  BESIDE, NOT THE CONTROL: the file`s import closure in the tree 119 modules, of them barred by the control`s list 1 (SIDEExplicitFormula.Schema.Detector); the ruling bars the file`s own imports
+
+### ### **THE PRE-SEND READS AT ec14e9d9: DUPLICATES 0 (OVER THE TARGETS 0) ; ANONYMOUS PAIRS 0 (OF 19, 1 UNREAD) ; REFUSED BY THE FILTER 2 (:358, :359), THE TWO KNOWN YES ; TARGETS 110 MODULES FOR 566 NAMES, 0 REFUSED, MODULES REFUSED 0 ; THE SALT CHECK OF SEND s7 PASSED (10 OF 10 STATEMENTS) ; THE NO-ZERO CONTROL PASSED ; CONTROLS 30 OF 30.**
