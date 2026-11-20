@@ -133,7 +133,8 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'    # ### b759: SIDE-explicit-formula's main at the close -- (5)'s commit two at v0.41 (21:25:08Z, tag object 390506fc), after run 44162171267's success (entering at 630cba16, EF_BASE)
+EF_MAIN = '4964e95758a7b1bc8c49d0972ebb18877d4f945f'    # ### b763: SIDE-explicit-formula's main after (R373)(6) -- moved from push-b763-form at v0.42 (02:22:05Z, tag object 001e94ff), after run 44646848292's success (entering at a3aad4cc, EF_BASE); set again where (8) moves it
+EF_MAIN_B759 = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'    # ### b759's main at its close, v0.41, b763's entering main
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
 LV_V0100 = '93c27ec2cb9b1fc59e4796b93a2150c408ecfa8f'   # ### the deposit, untouched (N5)
 PORT_BRANCH = 'port-b707'
@@ -418,7 +419,7 @@ C1_CORR_B762 = '6918f5d9'    # ### b762's, kept beside for the carried arms
 C1_CORR_B761 = '9a33e6b3'    # ### b761's, kept beside for the carried arms
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
-KERNEL_DELETES = ()   # ### b762: (R372)(4) and N1 remove no kernel branch and touch no kernel
+KERNEL_DELETES = ()   # ### b763: (R373)(4) removes no kernel branch; this act's push-b763-* branches stay for the next act's step zero
 KERNEL_DELETES_B760 = (('push-b759-weil', 'a3aad4cc'),)   # ### b760's (R370)(4): removed at SIDE-explicit-formula's remote by `commit.py SIDE-explicit-formula rdelete push-b759-weil` under v1.37.1 (flag 09:34:35Z), read back ABSENT
 KERNEL_DELETES_B759 = (('push-b757-join', '6568e9c7'), ('push-b757-coeff', '596d1c9e'), ('push-b758-land', 'd1afb4fc'), ('push-b758-coeff', '630cba16'),
                        ('push-b757-mod24', 'e5ebdd15'))   # ### b759's five, the carry's shift of b758's names set back
@@ -557,14 +558,22 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
                        ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
                        ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
                        ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names
-# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close). b760 makes
-# ### none ((R370)(12): no kernel written, its one touch the removal of (4), KERNEL_DELETES)
-KERNEL_COMMITS = ()
+# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close). b763's,
+# ### each by the one-call tool on a push-b763-* branch made at a named commit ((R373)(5)); set as each is made
+KERNEL_COMMITS = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),       # ### (R373)(6) (S1)-(S3) and [P1]'s six names (20:32:07Z, step 16), on main at v0.42
+                  ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
+                  ('statement', 'SIDE-explicit-formula', '4964e957', 'main'),    # ### the statement file by the author's word (23:51:12Z, step 28), main at v0.42 (02:22:05Z)
+                  ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b763-arith'))   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
+KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
-WEIL_BRANCH = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): made at main 630cba16 (19:30:14Z); commit one ddb3efb9, commit two a3aad4cc; pushed alone and read back (19:45:58Z)
-WEIL_TAG = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### (R369)(5): name, tag object, peel read back at the remote (data/b759_SIDE-explicit-formula_push-b759-weil_push_out.txt, 21:25:08Z)
+WEIL_BRANCH = ('push-b763-form', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### (R373)(6): made at main a3aad4cc (20:14:10Z); commits ec82fed0, 0f849552, 4964e957; main moved from it (02:22:05Z)
+WEIL_TAG = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### (R373)(6): name, tag object, peel read back at the remote (data/b763_SIDE-explicit-formula_push-b763-form_push_out.txt, 02:22:05Z)
+WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
+WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
+ORDER_BRANCHES = ()   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3
+ARITH_BRANCH = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
@@ -686,7 +695,7 @@ MAX_DISPATCHES_B757 = (14, 4)   # ### b757's caps, (R367)(10)
 MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'   # ### b760: SIDE-explicit-formula's main entering the act, b759's commit two at v0.41, unmoved ((R370)(12))
+EF_BASE = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'   # ### b763: SIDE-explicit-formula's main entering the act, b759's commit two at v0.41
 EF_BASE_B759 = '630cba16e228a018f9dd986196142fc6feb704ec'   # ### b759's entering main, b758's merge at v0.40
 EF_BASE_B758 = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### b758's entering main (b743's [A4], README alone)
 EF_MAIN_AFTER = EF_MAIN   # ### b759: moved by (5) alone, after its run's success ((R369)(5))
@@ -729,9 +738,10 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### N1: no dispatch this act ((R370)(12)); run 44162171267 is b759's, read by the edition's AX field, not re-run
+EF_RUNS = (44610575175, 44625270777, 44641876790, 44646848292)   # ### N1: this act's SIDE-explicit-formula runs, each read by its run id, set as each is read (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL
+EF_RUNS_B762 = ()   # ### b762's: none
 EF_RUNS_B759 = (44162171267,)   # ### b759's one, read not re-run
-M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R370)(12))
+M24_RUNS = ()   # ### N1: no SIDE-dirichlet-mod-24 dispatch this act ((R373)(5): no kernel beyond SIDE-explicit-formula)
 EF_RUNS_B758 = (43997787796, 44007490629)   # ### b758's two, read not re-run: (4)'s join at v0.39 = d1afb4fc, (5)'s three results at v0.40 = 630cba16 (data/b758_outcomes.txt)
 EF_RUNS_B757 = (43818699881, 43834018078, 43835333285, 43836818700, 43839463729, 43841545568)   # ### b757's six, read not re-run (tools/b757_controls.py): the join KERNEL (the print failed at the import), T0 KERNEL (print stopped at maxErrors), T0 KERNEL (10 names), T1 BREAKS (recursion depth), T1 KERNEL (31 names), the wide direction KERNEL (24 names)
 M24_RUNS_B757 = (43835913340, 43836415096)   # ### b757's two SIDE-dirichlet-mod-24 runs, read not re-run: the workflow's control KERNEL (2 names), the module KERNEL (8 names)
