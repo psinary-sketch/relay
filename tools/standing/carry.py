@@ -15,6 +15,9 @@ tools/b724_address_scan.py's `import b723_llm_line`, carried from b722_llm_line,
 ###   v1.30.0, (R360)(3)(x): R5, a row of a carried citation section or of the carried c1 route citing a bank the ruling does not name
 ###   v1.31.0, (R361)(3)(vii), (viii): every carried row printed with its banks beside the ruling; R6, the ferry not banked by the citation
 ###   route (data/<act>_ferry_scan.txt absent); the one-call tool's usage, phases and word form printed at the foot
+###   v1.38.12, (R374)(5) [K3]: data/<act>_kernel_bases.json written where the ruling names a kernel of commit.py's KERNELS, a bank standing kept
+### carry.py bases <act> <ferry bank> [--dry]
+###   v1.38.12, (R374)(5) [K3]: the kernel bases bank alone, as the ruled route writes it; `--dry` writes nothing
 ### carry.py shared <act> <entering relay head>
 ###   v1.30.0, (R360)(3)(x): act_current's shared_edits from this act's own commits (standing.act.shared_edits), never carried
 ### carry.py kept <act>
@@ -879,12 +882,82 @@ def kept_row(act, repos=None, lister=None):
         act, ' ; '.join(parts) or 'none', other)
 
 
+# ================================================================================ v1.38.12, (R374)(5) [K3]: THE KERNEL BASES BANK BY THE CARRY
+# ### b763 defect (h), REPEAT b759 (b): the act's scan reads a kernel only where data/<act>_kernel_bases.json names it (the scan tool's
+# ### SITTING_REPOS, base..HEAD), and the one-call tool refuses a kernel commit whose scan did not read the kernel ("THE SCAN DID NOT READ
+# ### THE KERNEL"); b759's and b763's first kernel commits were each refused so, the bank then written by hand. The ruled route, which reads
+# ### the act's ferry bank at step zero, now writes the bank where the ruling names a kernel of commit.py's KERNELS in a clause on the kernels
+# ### ("no kernel touched beyond <K>", "No kernel beyond <K> is written"), each named kernel at its local main at the write, in the form of
+# ### b757's to b763's banks. A bank already written stands and is printed, never rewritten; where the ruling names none, nothing is written.
+# ### THE LIMIT: a kernel opened in another wording (an amendment's sitting, as b736's and b743's) is not read by it.
+KERNEL_CLAUSE = re.compile(r"\b[Nn]o kernel (?:is )?(?:touched |written )?beyond ([^;.]+)")
+
+
+def kernels_named(ruling_text, kernels):
+    """[(kernel, line)]: each kernel of `kernels` (names) that the ruling's clauses on the kernels name after "beyond", with the first line naming it."""
+    out = {}
+    for i, l in enumerate((ruling_text or '').replace('\r', '').split(NL), 1):
+        for m in KERNEL_CLAUSE.finditer(l):
+            for k in kernels:
+                if k not in out and re.search(r'(?<![\w-])%s(?![\w-])' % re.escape(k), m.group(1)):
+                    out[k] = i
+    return sorted(out.items())
+
+
+def kernel_main(path):
+    """a kernel's local main, its full commit, or None."""
+    import subprocess
+    r = subprocess.run(['git', '-C', path, 'rev-parse', '--verify', '--quiet', 'refs/heads/main'], capture_output=True, text=True, encoding='utf-8', errors='replace')
+    v = r.stdout.strip()
+    return v if r.returncode == 0 and re.fullmatch('[0-9a-f]{40}', v) else None
+
+
+def kernel_bases(act, ruling_text, kernels, bank_dir=None, main_of=None, write=True, opened=None):
+    """(L, the bank or None): data/<act>_kernel_bases.json written where the ruling names a kernel and no bank stands, in the form of b757's to
+    b763's banks (a JSON object, each kernel to its main's full commit, keys sorted, two spaces, one closing newline); `kernels` maps each
+    kernel's name to its folder (tools/standing/commit.py KERNELS); `opened` the kernels commit.py's KERNEL_ACTS opens for the act."""
+    p = os.path.join(bank_dir or D, '%s_kernel_bases.json' % act)
+    named = kernels_named(ruling_text, sorted(kernels))
+    want = [k for k, _ in named]
+    L = ['', '## THE KERNEL BASES BANK (v1.38.12, (R374)(5) [K3]): the kernels the ruling names in its clauses on the kernels: %s' % (
+        ', '.join('%s (the ferry`s :%d)' % kn for kn in named) or 'NONE NAMED')]
+    if opened is not None:
+        L.append('  commit.py`s KERNEL_ACTS opens for %s: %s (the one-call tool`s kernel routes read that table; the act`s scan reads this bank)' % (
+            act, ', '.join(opened) or 'NONE'))
+    if os.path.exists(p):
+        have = json.loads(rd(p) or '{}')
+        L.append('  data/%s_kernel_bases.json STANDS, not rewritten: %s%s' % (act, ', '.join('%s %s' % (k, str(v)[:8]) for k, v in sorted(have.items())) or 'empty',
+                                                                              '' if sorted(have) == want else ' ### IT DIFFERS FROM THE KERNELS NAMED'))
+        return L, have
+    if not named:
+        L.append('  nothing written: the ruling names no kernel')
+        return L, None
+    bank = dict((k, (main_of or kernel_main)(kernels[k])) for k in want)
+    if not all(bank.values()):
+        L.append('  ### NOT WRITTEN: the local main of %s not read' % ', '.join(k for k in want if not bank[k]))
+        return L, None
+    s = json.dumps(bank, indent=2, sort_keys=True) + NL   # ### composed before the file is opened (a failed dump leaves no husk)
+    if write:
+        with open(p, 'w', encoding='utf-8', newline='\n') as fh:
+            fh.write(s)
+    L.append('  data/%s_kernel_bases.json %s: %s, each the kernel`s local main at the write' % (
+        act, 'WRITTEN' if write else 'TO BE WRITTEN (a dry, nothing written)', ', '.join('%s %s' % (k, bank[k][:8]) for k in want)))
+    return L, bank
+
+
 def main(argv):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    if argv[:1] in (['kept'], ['shared'], ['check'], ['ruled']) and len(argv) > 1:
+    if argv[:1] in (['kept'], ['shared'], ['check'], ['ruled'], ['bases']) and len(argv) > 1:
         __import__('act').act_name(argv[1], 'carry.py %s' % argv[0], __doc__)   # ### v1.32.0, (R362)(7)(vii), b751 (t)
     if argv[:1] == ['kept'] and len(argv) == 2:
         print(kept_row(argv[1]))
+        return 0
+    if argv[:1] == ['bases'] and len(argv) in (3, 4) and argv[3:] in ([], ['--dry']):
+        # ### v1.38.12, (R374)(5) [K3]: the kernel bases bank alone, as the ruled route writes it
+        import commit as CM
+        if not rd(_path(argv[2])):
+            sys.exit('### REFUSED: %s resolves to no file' % argv[2])
+        print(NL.join(kernel_bases(argv[1], rd(_path(argv[2])), CM.KERNELS, write='--dry' not in argv, opened=CM.KERNEL_ACTS.get(argv[1], ()))[0]))
         return 0
     if argv[:1] == ['shared'] and len(argv) == 3:
         # ### v1.30.0, (R360)(3)(x), b749 defect (k): act_current's shared_edits from this act's own list, never the previous act's
@@ -912,6 +985,8 @@ def main(argv):
         # ### v1.31.0, (R361)(3)(viii): the one-call tool's usage, phases and word form, printed before the seat's opening call
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import commit as CM
+        # ### v1.38.12, (R374)(5) [K3]: the kernel bases bank written where the ruling names a kernel, before any kernel commit
+        print(NL.join(kernel_bases(a, texts[4], CM.KERNELS, opened=CM.KERNEL_ACTS.get(a, ()))[0]))
         print(NL.join([''] + CM.usage_lines()))
         return 13 if refused else 0
     if len(argv) < 5 or '--subs' not in argv:

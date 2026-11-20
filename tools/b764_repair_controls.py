@@ -1161,8 +1161,121 @@ def control_k2(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K3] THE KERNEL BASES BANK BY THE CARRY
+K3_PATHS = ('tools/standing/carry.py', 'tools/standing/commit.py')
+K3_ACTS = tuple('b%d' % n for n in range(756, 765))
+K3_PROBE = r'''
+import ast, io, json, os, re, sys
+snap, inst = sys.argv[1], sys.argv[2]
+rd_ = lambda *p: open(os.path.join(*p), encoding='utf-8').read()
+car = rd_(snap, 'tools', 'standing', 'carry.py')
+cm = rd_(snap, 'tools', 'standing', 'commit.py')
+KERNELS = ast.literal_eval([n for n in ast.parse(cm).body if isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'KERNELS'][0].value)
+tree = ast.parse(car)
+want = ('KERNEL_CLAUSE', 'kernels_named', 'kernel_bases', 'rd')
+nodes = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in want) or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') in want)]
+out = os.path.join(inst, 'out')
+ns = dict(re=re, json=json, os=os, io=io, NL=chr(10), D=out)
+exec(compile(ast.Module(body=nodes, type_ignores=[]), 'carry_k3', 'exec'), ns)
+mainf = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'main']
+calls = sum(1 for c in ast.walk(mainf[0]) if isinstance(c, ast.Call) and getattr(c.func, 'id', '') == 'kernel_bases') if mainf else 0
+acts = json.load(open(os.path.join(inst, 'acts.json'), encoding='utf-8'))
+res = {}
+for a in sorted(acts):
+    rec = acts[a]
+    fer = rd_(inst, 'ferries', '%s_ferry.txt' % a)
+    if 'kernel_bases' not in ns:
+        res[a] = dict(named=None, written=None, lines=[])
+        continue
+    stub = dict((KERNELS[k], v) for k, v in (rec or {}).items())
+    L, _b = ns['kernel_bases'](a, fer, KERNELS, bank_dir=out, main_of=lambda p, s=stub: s.get(p, '0123456789abcdef' * 2 + '01234567'))
+    p = os.path.join(out, '%s_kernel_bases.json' % a)
+    res[a] = dict(named=[k for k, _ in ns['kernels_named'](fer, sorted(KERNELS))], written=open(p, 'rb').read().decode('utf-8') if os.path.exists(p) else None, lines=L)
+planted = None
+if 'kernel_bases' in ns:
+    p = os.path.join(out, 'b999_kernel_bases.json')
+    with open(p, 'w', encoding='utf-8', newline=chr(10)) as fh:
+        fh.write('{' + chr(10) + '  "SIDE-explicit-formula": "' + 'f' * 40 + '"' + chr(10) + '}' + chr(10))
+    b0 = open(p, 'rb').read()
+    L, _b = ns['kernel_bases']('b999', 'no kernel touched beyond SIDE-explicit-formula, and there one file', KERNELS, bank_dir=out, main_of=lambda q: 'e' * 40)
+    planted = dict(kept=open(p, 'rb').read() == b0, lines=L)
+print(json.dumps(dict(kernels=sorted(KERNELS), main_calls=calls, res=res, planted=planted)))
+'''
+
+
+def control_k3(before, after):
+    """[K3]: the kernel bases bank written by the carry where the ruling names a kernel. Each revision's tools/standing/carry.py (its bank
+    writer and reader, read by ast, the routes of main that call it) and commit.py (KERNELS) over the ferry banks of b756 to b764, each run
+    in a scratch data folder with each kernel's main read as the act's bank on record holds it (a stand-in commit where none stands). The
+    record instance: b763 defect (h), REPEAT b759 (b) (b763's first kernel commit refused at 20:31:38Z, "THE SCAN DID NOT READ THE KERNEL",
+    the bank then written by the Write tool). FAULT: no route of the carry writes the bank, for any ruling that names a kernel. CLEAN: the
+    kernels read from each ruling are the kernels of its bank on record; the bank written equals the bank on record byte for byte (b757,
+    b758, b759, b763); no bank written for a ruling that names none (b756, b760-b762); b764's written naming SIDE-explicit-formula; a bank
+    standing is not rewritten (planted); the ruled and bases routes call the writer."""
+    L, res = [], {}
+    acts = {}
+    for a in K3_ACTS:
+        p = os.path.join(D, '%s_kernel_bases.json' % a)
+        acts[a] = json.load(open(p, encoding='utf-8')) if os.path.exists(p) else None
+    L += ['  THE RECORD INSTANCE: b763 defect (h), REPEAT b759 (b); the banks on record: %s' % (
+        ', '.join('%s %s' % (a, sorted(v)) for a, v in sorted(acts.items()) if v)),
+          '    the ferry banks read: %s (data/<act>_ferry.txt, the record`s); the acts with no bank on record: %s' % (
+              ', '.join(K3_ACTS), ', '.join(a for a in K3_ACTS if not acts[a]))]
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k3_')
+        inst = tempfile.mkdtemp(prefix='b764k3i_')
+        try:
+            got = snapshot(rev, K3_PATHS, tmp)
+            os.makedirs(os.path.join(inst, 'ferries'))
+            os.makedirs(os.path.join(inst, 'out'))
+            for a in K3_ACTS:
+                shutil.copyfile(os.path.join(D, '%s_ferry.txt' % a), os.path.join(inst, 'ferries', '%s_ferry.txt' % a))
+            with open(os.path.join(inst, 'acts.json'), 'w', encoding='utf-8') as fh:
+                json.dump(acts, fh)
+            j = probe(K3_PROBE, tmp, inst)
+        finally:
+            for t_, pre in ((tmp, 'b764k3_'), (inst, 'b764k3i_')):
+                if os.path.isabs(t_) and os.path.basename(t_).startswith(pre):
+                    shutil.rmtree(t_, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s): the files %s ; the kernels of commit.py %s ; the routes of main calling the writer %d' % (
+            name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), j['kernels'], j['main_calls']))
+        rows_ok = []
+        for a in K3_ACTS:
+            r, rec = j['res'][a], acts[a]
+            rec_text = open(os.path.join(D, '%s_kernel_bases.json' % a), encoding='utf-8').read().replace(chr(13), '') if rec else None
+            if r['named'] is None:
+                L.append('    %s: NO WRITER (the bank on record %s)' % (a, sorted(rec) if rec else 'none'))
+                rows_ok.append(False)
+                continue
+            if rec:
+                ok = r['named'] == sorted(rec) and r['written'] == rec_text
+                what = 'written %s the bank on record byte for byte' % ('EQUAL TO' if r['written'] == rec_text else 'DIFFERING FROM')
+            elif a == 'b764':
+                w = json.loads(r['written']) if r['written'] else {}
+                ok = r['named'] == ['SIDE-explicit-formula'] and sorted(w) == ['SIDE-explicit-formula'] and bool(re.fullmatch('[0-9a-f]{40}', w.get('SIDE-explicit-formula', '')))
+                what = 'written %s' % (sorted(w) if w else 'NOTHING')
+            else:
+                ok = r['named'] == [] and r['written'] is None
+                what = 'nothing written' if r['written'] is None else 'WRITTEN WHERE NONE IS NAMED'
+            rows_ok.append(ok)
+            L.append('    %s: named %s ; %s -- %s' % (a, r['named'] or 'none', what, 'AS ON RECORD' if ok else 'NOT AS ON RECORD'))
+        pl = j['planted']
+        if pl:
+            L.append('    PLANTED: a bank standing for b999 with another commit, the writer run over it: %s (%s)' % (
+                'KEPT, not rewritten' if pl['kept'] else 'REWRITTEN', next((x.strip() for x in pl['lines'] if 'STANDS' in x), 'no STANDS line')[:120]))
+        fault = all(j['res'][a]['named'] is None for a in K3_ACTS) and j['main_calls'] == 0
+        clean = all(rows_ok) and bool(pl and pl['kept']) and j['main_calls'] >= 2
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3)
 
 
 def main(argv):
