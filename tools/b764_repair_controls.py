@@ -826,7 +826,71 @@ def control_k17(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17)
+# ================================================================================ [K13] THE DESK ROUTE'S MARKER
+K13_PATHS = ('tools/standing/fold/record.tpl',)
+K13_PROBE = r'''
+import contextlib, hashlib, io, json, os, sys
+snap, tmpd = sys.argv[1], sys.argv[2]
+tpl = open(os.path.join(snap, 'tools', 'standing', 'fold', 'record.tpl'), encoding='utf-8').read()
+def standin_desk(*a):   # b698's desk in form: the bank written, nothing printed
+    with open(os.path.join(tmpd, 'b764_desk_notes.txt'), 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write('=' * 104 + '\nb764 -- THE DESK.\n' + '=' * 104 + '\n\n  a stand-in row\n')
+ns = dict(ROUTES=dict(desk=standin_desk), D=tmpd, ACT='b764', os=os, hashlib=hashlib)
+i = tpl.find('_desk_route_composed = ROUTES.get(')
+block = ''
+if i >= 0:
+    j = tpl.find("ROUTES['desk'] = _desk_route", i)
+    block = tpl[i:j + len("ROUTES['desk'] = _desk_route")]
+    exec(compile(block, 'record_k13', 'exec'), ns)
+out = io.StringIO()
+with contextlib.redirect_stdout(out):
+    ns['ROUTES']['desk']()
+lines = out.getvalue().split('\n')
+at = next((k + 1 for k, l in enumerate(lines) if 'DESK' in l), None)
+b = open(os.path.join(tmpd, 'b764_desk_notes.txt'), 'rb').read()
+print(json.dumps(dict(block=bool(block), stdout=lines[:3], marker_at=at, bank_lines=b.count(b'\n'), bank_sha=hashlib.sha256(b).hexdigest()[:16])))
+'''
+
+
+def control_k13(before, after):
+    """[K13]: the desk route through each revision's record template, its foot read and run with a stand-in of b698's desk (the bank written
+    to a temporary folder, nothing printed) and the capture's marker DESK sought in its stdout as the capture seeks it, the first line holding
+    it. The record instance: b761's to b763's desk banks, each opening "<act> -- THE DESK.", and b763's capture at 12:31:38Z (events (104):
+    one empty line, the marker at no line). FAULT: the marker at no line. CLEAN: the marker on the route's line, its lines and sha256 those
+    of the bank written."""
+    L, res = [], {}
+    for a in ('b761', 'b762', 'b763'):
+        p = os.path.join(D, '%s_desk_notes.txt' % a)
+        t = open(p, encoding='utf-8').read().split(NL) if os.path.exists(p) else []
+        L.append('  THE RECORD INSTANCE: data/%s_desk_notes.txt, %d lines, its second line %r' % (a, len(t) - 1, t[1] if len(t) > 1 else None))
+    L.append('  b763`s capture of the route (data/b763_events.txt (104), 12:31:38Z): exit 0, stdout one empty line, the marker DESK at no line')
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k13_')
+        tmpd = tempfile.mkdtemp(prefix='b764k13d_')
+        try:
+            got = snapshot(rev, K13_PATHS, tmp)
+            j = probe(K13_PROBE, tmp, tmpd)
+        finally:
+            for t_, pre in ((tmp, 'b764k13_'), (tmpd, 'b764k13d_')):
+                if os.path.isabs(t_) and os.path.basename(t_).startswith(pre):
+                    shutil.rmtree(t_, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        fault = j['marker_at'] is None
+        clean = (j['marker_at'] is not None and j['block'] and ('%d lines' % j['bank_lines']) in j['stdout'][j['marker_at'] - 1]
+                 and j['bank_sha'] in j['stdout'][j['marker_at'] - 1])
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    the template`s desk wrap present: %s ; the route`s stdout %r ; the marker DESK at line %s ; the stand-in bank %d lines, sha256 %s' % (
+                  j['block'], j['stdout'], j['marker_at'], j['bank_lines'], j['bank_sha']),
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
+                K13=control_k13)
 
 
 def main(argv):

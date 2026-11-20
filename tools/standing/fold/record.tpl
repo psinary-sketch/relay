@@ -4030,6 +4030,25 @@ if _trail_route_composed is not None:
     ROUTES['trail'] = _trail_route
 
 
+# ### v1.38.8, (R374)(5) [K13], finding 7, b763 events (25) and (104), b761's closing message: THE DESK ROUTE'S MARKER. The desk route (b698's
+# ### desk, bound at :653) wrote data/<act>_desk_notes.txt and printed nothing, so the close order's capture of step [16], its marker DESK -- the
+# ### word the bank opens with ("<act> -- THE DESK.") -- met nothing at b761, b762 and b763 (b763 at 12:31:38Z: one empty line on stdout). The
+# ### route is wrapped here, after every route and above the main block, so no line an act's override keys moves: it prints the line of what
+# ### it wrote, the marker in it, its lines and its sha256 read back from the bank. A stand-in run writes no bank and prints no such line.
+_desk_route_composed = ROUTES.get('desk')
+
+
+def _desk_route(*a):
+    _desk_route_composed(*a)
+    p_ = os.path.join(D, '%s_desk_notes.txt' % ACT)
+    b_ = open(p_, 'rb').read() if os.path.exists(p_) else b''
+    print('### THE DESK WRITTEN: data/%s_desk_notes.txt, %d lines, sha256 %s' % (ACT, b_.count(b'\n'), hashlib.sha256(b_).hexdigest()[:16]))
+
+
+if _desk_route_composed is not None:
+    ROUTES['desk'] = _desk_route
+
+
 # ### v1.35.1, (⟪RUL⟫)(6), the carried faults (6) and (12) of relay data/b755_carried_faults.txt (b754 (m''); 17 acts by data/b756_faults.txt):
 # ### the record's defect row read with any number of primes. :194 binds b698's matcher of one prime and stays as it stands, for b754's override
 # ### (MARK 7606fc9891fa), carried by every act since, keys on its bytes; the binding is made here, the four modules' names with it, so every
