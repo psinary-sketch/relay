@@ -449,7 +449,14 @@ def _rdeletes(S):
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
 #⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
-    raise SystemExit('### b764`s a probe`s needle (OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 8 code lines, stands in the carry`s diff bank
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
+    one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
+    bad = []
+    for f in sorted(os.listdir(T)):
+        if (f.startswith('b764_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS:   # ### b764, Component 2 (the Edit tool), at [K5]'s control: the carried stub set for the act, b763's body with the act's name
+            t = strip_prose(read(os.path.join(T, f)))
+            if any(x in t for x in toks) or one_arg.search(t):
+                bad.append(f)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R364): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
