@@ -86,3 +86,18 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      read the fault before and reads clean after (data/b764_repair_controls.txt :102)"
      THE REPAIR'S LIMIT: the parts rule is unchanged (the expected seconds from the previous act's parts bank, the margin of 480 s), so b764
      runs the root in parts on b763's 713 s and the act after it reads b764's; the 590 s guard is read and banked, and refuses nothing.
+
+    [K16] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES ; EVIDENCE: b763's finding 9 (data/b764_events.txt (21): post-push
+     standing-b2a's remote read answered nothing, b624 to b627 UNREAD until the part was run alone), b763 events (27) :139-:142 (seven rule
+     arms passing by reading nothing and five parts taking their remote reads from the run cache, each VACUOUS), data/b763_lsr_prerun_<part>.json
+     (standing-c, b2b, b2c, b2d and b3 CACHED, standing-b1 NONE, each passing as a part), b762's finding 14 ; STATE: REPAIRED ; VERSION:
+     v1.38.5, relay 8c9633ae (tools/standing/remotecache.py marks an answer with no branch; tools/standing/lsrread.py classes it EMPTY and gives
+     each part its verdict, part_read(); tools/standing/fold/checks.tpl prints and banks each part's verdict and its combine counts the parts
+     NOT READ apart from a pass, the verdict line carrying the count; tools/standing/close.py's verdict reader takes it) ; THE CONTROL:
+     data/b764_repair_controls.txt :104-:116 ; PRICE: 0.33-1.24 h ; TOOK: 0.13 h (19:22:06Z-19:29:46Z)
+     "[K16] repaired at v1.38.5: a part whose remote reads all came from the run cache, that read no repository, that met a remote answering
+     no branch, or whose every arm run printed VACUOUS now prints NOT READ with its reason beside its arms and banks it with its remote reads,
+     and the combine counts such parts apart from a pass, the verdict line naming their number; a remote answering no branch is classed EMPTY
+     and not READ; its planted control read the fault before and reads clean after (data/b764_repair_controls.txt :116)"
+     THE REPAIR'S LIMIT: the arms' own verdicts are unchanged (a VACUOUS arm counted neither passing nor failing, as since v1.8.0); a part NOT
+     READ fails nothing and holds no seal; the seat runs a part NOT READ for EMPTY again alone, as at b763.

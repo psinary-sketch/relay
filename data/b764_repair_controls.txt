@@ -100,3 +100,17 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     each part`s seconds read against the 590 s guard and the 600 s limit and banked (rootparts.py): True
     AFTER: CLEAN
 ### ### **[K15] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K16] THE PLANTED CONTROL (2026-11-20T19:29:46Z): BEFORE relay f40c501b, THE REPAIR`S COMMIT relay 8c9633ae, its first parent f40c501b -- THE COMMIT BEFORE
+  THE RECORD INSTANCE: b763`s pre-run parts by their banked classes (data/b763_lsr_prerun_<part>.json): act PASS, standing-a1 PASS, standing-a2 PASS, standing-b1 NONE, standing-b2a PASS, standing-b2b CACHED, standing-b2c CACHED, standing-b2d CACHED, standing-b3 CACHED, standing-c CACHED
+  BEFORE (relay f40c501b): the files tools/standing/remotecache.py present, tools/standing/lsrread.py present, tools/standing/fold/checks.tpl present, tools/standing/close.py present
+    the parts` own verdicts: NOT READ NONE ; READ 0 ; others ['act PASS AS A PART', 'standing-a1 PASS AS A PART', 'standing-a2 PASS AS A PART', 'standing-b1 PASS AS A PART', 'standing-b2a PASS AS A PART', 'standing-b2b PASS AS A PART', 'standing-b2c PASS AS A PART', 'standing-b2d PASS AS A PART', 'standing-b3 PASS AS A PART', 'standing-c PASS AS A PART']
+    a remote answering no branch: classed READ, the part`s reads PASS, the part PASS AS A PART
+    the suite prints and banks each part`s verdict and the combine counts NOT READ apart from a pass: False ; the verdict line with the count read back: False
+    BEFORE: THE FAULT READ
+  AFTER (relay 8c9633ae): the files tools/standing/remotecache.py present, tools/standing/lsrread.py present, tools/standing/fold/checks.tpl present, tools/standing/close.py present
+    the parts` own verdicts: NOT READ ['standing-b1', 'standing-b2b', 'standing-b2c', 'standing-b2d', 'standing-b3', 'standing-c'] ; READ 4 ; others NONE
+    a remote answering no branch: classed EMPTY, the part`s reads EMPTY, the part NOT READ
+    the suite prints and banks each part`s verdict and the combine counts NOT READ apart from a pass: True ; the verdict line with the count read back: True
+    AFTER: CLEAN
+### ### **[K16] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
