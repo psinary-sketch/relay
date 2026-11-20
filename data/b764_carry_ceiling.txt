@@ -1,0 +1,80 @@
+b764 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b763_ceiling.py -> tools/b764_ceiling.py (2026-11-20T20:37:24Z)
+
+### the substitution alone (b763 -> b764, b762 -> b763, R373 -> R374, R372 -> R373); 236 lines, 25 changed
+### SHIFTED PAST WHAT EXISTS: :2 b764_ceiling; :166 b764_ceiling
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 2 (OWN 2)
+  :5 OWN data/b764_ferry.txt :13 (the source line cited data/b763_ferry.txt :13)
+  :145 OWN b764 defect (e) (the source line cited b763 defect (e))
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b763_ceiling.py
+  +++ tools/b764_ceiling.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b763_ceiling.py -- (R373)(3): THE CEILING, 24 HOURS AGAINST THE PRICE TABLE'S LOWER FIGURES, READ AFTER COMPONENT 2 AND AFTER
+  -COMPONENT 3 (the step-zero reading stands in data/b763_price.txt). "THE CEILING: 24 hours against the table's lower figures, read at step
+  +"""tools/b764_ceiling.py -- (R374)(3): THE CEILING, 24 HOURS AGAINST THE PRICE TABLE'S LOWER FIGURES, READ AFTER COMPONENT 2 AND AFTER
+  +COMPONENT 3 (the step-zero reading stands in data/b764_price.txt). "THE CEILING: 24 hours against the table's lower figures, read at step
+  @@ -5,3 +5,3 @@
+  -leaving soonest; then the proof of (7), its statement staying committed; then statements (S4) and (S5) of (6)" (data/b763_ferry.txt :13).
+  -Carried from tools/b757_ceiling.py (its price-based form: the price bank, the dispatch rows and the clock) by the Write tool at b763's
+  -Component 1 and committed before it runs. Its writes: data/b763_ceiling.txt and data/b763_ceiling.json, each reading appended to the
+  +leaving soonest; then the proof of (7), its statement staying committed; then statements (S4) and (S5) of (6)" (data/b764_ferry.txt :13).
+  +Carried from tools/b757_ceiling.py (its price-based form: the price bank, the dispatch rows and the clock) by the Write tool at b764's
+  +Component 1 and committed before it runs. Its writes: data/b764_ceiling.txt and data/b764_ceiling.json, each reading appended to the
+  @@ -10,2 +10,2 @@
+  -THE READING: the hours spent from the delivery (transcript line 191165, 2026-11-19T18:35:12Z; data/b763_price.json spent_h) to the read;
+  -the table's summed rows that remain at the point, at their lower figures; the sum against 24 h, and what it carries in (R373)(3)'s order
+  +THE READING: the hours spent from the delivery (transcript line 191165, 2026-11-19T18:35:12Z; data/b764_price.json spent_h) to the read;
+  +the table's summed rows that remain at the point, at their lower figures; the sum against 24 h, and what it carries in (R374)(3)'s order
+  @@ -15,2 +15,2 @@
+  -left; the two orders (12) bars (data/b763_misses.txt (4)) named as barred whatever the ceiling leaves. The dispatches used, from
+  -data/b763_dispatch_rows.json, against the worklist's MAX_DISPATCHES.
+  +left; the two orders (12) bars (data/b764_misses.txt (4)) named as barred whatever the ceiling leaves. The dispatches used, from
+  +data/b764_dispatch_rows.json, against the worklist's MAX_DISPATCHES.
+  @@ -37,6 +37,6 @@
+  -ACT = 'b763'
+  -PRICE_J = os.path.join(D, 'b763_price.json')
+  -ROWS = os.path.join(D, 'b763_dispatch_rows.json')
+  -WORKLIST = os.path.join(T, 'b763_worklist.py')
+  -BANK_T = os.path.join(D, 'b763_ceiling.txt')
+  -BANK_J = os.path.join(D, 'b763_ceiling.json')
+  +ACT = 'b764'
+  +PRICE_J = os.path.join(D, 'b764_price.json')
+  +ROWS = os.path.join(D, 'b764_dispatch_rows.json')
+  +WORKLIST = os.path.join(T, 'b764_worklist.py')
+  +BANK_T = os.path.join(D, 'b764_ceiling.txt')
+  +BANK_J = os.path.join(D, 'b764_ceiling.json')
+  @@ -51,1 +51,1 @@
+  -BARRED_12 = ('(8) BESSEL-BOUND-TIGHTEN', '(8) E2-SEPARATION')   # ### data/b763_misses.txt (4): each computes at zeros, which (12) forbids
+  +BARRED_12 = ('(8) BESSEL-BOUND-TIGHTEN', '(8) E2-SEPARATION')   # ### data/b764_misses.txt (4): each computes at zeros, which (12) forbids
+  @@ -73,1 +73,1 @@
+  -    sys.exit('### MAX_DISPATCHES NOT FOUND IN tools/b763_worklist.py -- NOTHING READ')
+  +    sys.exit('### MAX_DISPATCHES NOT FOUND IN tools/b764_worklist.py -- NOTHING READ')
+  @@ -82,1 +82,1 @@
+  -    """(R373)(3)'s order over the ceiling: the (8) rows that remain, the last priced first; then (7)'s proof where it remains. Returns the
+  +    """(R374)(3)'s order over the ceiling: the (8) rows that remain, the last priced first; then (7)'s proof where it remains. Returns the
+  @@ -145,1 +145,1 @@
+  -    # ### b763 defect (e): the first form planted "spent 0 carries nothing", a plant that does not meet its premise (c2's remaining rows sum
+  +    # ### b764 defect (e): the first form planted "spent 0 carries nothing", a plant that does not meet its premise (c2's remaining rows sum
+  @@ -165,2 +165,2 @@
+  -    out = ['%s -- (R373)(3): THE CEILING, 24 HOURS AGAINST THE PRICE TABLE`S LOWER FIGURES, READ AFTER COMPONENT 2 AND AFTER COMPONENT 3 '
+  -           '(tools/b763_ceiling.py; the step-zero reading in data/b763_price.txt)' % ACT, '', '## THE CONTROLS'] + L + ['']
+  +    out = ['%s -- (R374)(3): THE CEILING, 24 HOURS AGAINST THE PRICE TABLE`S LOWER FIGURES, READ AFTER COMPONENT 2 AND AFTER COMPONENT 3 '
+  +           '(tools/b764_ceiling.py; the step-zero reading in data/b764_price.txt)' % ACT, '', '## THE CONTROLS'] + L + ['']
+  @@ -183,1 +183,1 @@
+  -        sys.exit('### A READING AFTER %s IS HELD (data/b763_ceiling.json) -- NOTHING WRITTEN' % point)
+  +        sys.exit('### A READING AFTER %s IS HELD (data/b764_ceiling.json) -- NOTHING WRITTEN' % point)
+  @@ -195,1 +195,1 @@
+  -        total, CEILING, 'NOTHING CARRIED' if not car else 'OVER: CARRIED IN (R373)(3)`S ORDER, ' + ', '.join(
+  +        total, CEILING, 'NOTHING CARRIED' if not car else 'OVER: CARRIED IN (R374)(3)`S ORDER, ' + ', '.join(
+  @@ -215,1 +215,1 @@
+  -    lines.append('  THE DISPATCHES (data/b763_dispatch_rows.json%s): used %d against the worklist`s MAX_DISPATCHES %s' % (
+  +    lines.append('  THE DISPATCHES (data/b764_dispatch_rows.json%s): used %d against the worklist`s MAX_DISPATCHES %s' % (
+  @@ -223,1 +223,1 @@
+  -    print('written data/b763_ceiling.txt, data/b763_ceiling.json ; figbank: %s' % r['why'])
+  +    print('written data/b764_ceiling.txt, data/b764_ceiling.json ; figbank: %s' % r['why'])
+
+### ### **CARRIED tools/b764_ceiling.py ; LINES 236 ; CHANGED 25 ; SHIFTED 2 (WRITTEN BY --shifted) ; CITES OF AN ABSENT BANK 0**

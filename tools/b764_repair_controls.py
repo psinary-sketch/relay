@@ -1274,8 +1274,83 @@ def control_k3(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K14] THE PRICE'S RATE BY THE KIND OF BUILD
+K14_PATHS = ('tools/standing/dispatchrate.py', 'tools/standing/figbank.py', 'tools/b764_ceiling.py', 'tools/b763_ceiling.py',
+             'data/b763_price.json', 'data/b764_price.json')
+K14_PROBE = r'''
+import importlib.util, json, os, sys
+snap = sys.argv[1]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+disp = lambda rows: dict((k, [r['lo_h'], r['hi_h'], list(r.get('dispatches') or [0, 0])]) for k, r in rows.items() if max(r.get('dispatches') or [0]) > 0)
+out = dict(rate_reader=os.path.exists(os.path.join(snap, 'tools', 'standing', 'dispatchrate.py')))
+b764 = os.path.join(snap, 'tools', 'b764_ceiling.py')
+if os.path.exists(b764):
+    C = load('b764_ceiling', b764)
+    j, rows, k8, L, ok = C.price(os.path.join(snap, 'data', 'b763_price.json'), (67.7, 103.9, 7.3), {})
+    j4, rows4, k84, L4, ok4 = C.price()
+    out.update(reader='tools/b764_ceiling.py price(), through tools/standing/dispatchrate.py', b763=disp(rows), b764=disp(rows4),
+               b764_sum=round(j4['spent_h'] + sum(r['lo_h'] for r in rows4.values() if r['summed']), 2), ok=ok and ok4)
+else:
+    C = load('b763_ceiling', os.path.join(snap, 'tools', 'b763_ceiling.py'))
+    j, rows, k8 = C.price()
+    out.update(reader='tools/b763_ceiling.py price(), the reader of record (no tools/b764_ceiling.py)', b763=disp(rows), b764=None, b764_sum=None,
+               ok=True, h_per_dispatch=j.get('h_per_dispatch'))
+print(json.dumps(out))
+'''
+
+
+def control_k14(before, after):
+    """[K14]: the price table's reader taking a dispatch's hours from the kind of build it is. Each revision's reader of the price table: at
+    the commit before, tools/b763_ceiling.py's price() (no tools/b764_ceiling.py, no tools/standing/dispatchrate.py), over b763's table;
+    at the repair's, tools/b764_ceiling.py's price() through tools/standing/dispatchrate.py, over b763's table at the kinds b764's table names
+    and over b764's own. The record instance: data/b763_misses.txt (11), b763's table at zq-b730's 0.325 h a dispatch (h_per_dispatch), its
+    seven runs 0.25 to 1.73 h each, the completed 67.7 to 103.9 min. FAULT: the reader takes b763's dispatching rows as priced, (7)'s
+    statement (one dispatch, a build of the kernel whole) at under a whole build's lower minutes. CLEAN: every dispatching row of b763's read
+    at or above its floor by kind, (7)'s statement at 1.13-1.73 h; b764's rows read as priced (AT ITS KIND, the waits of its row :38 read),
+    its step-zero sum 17.37 h unmoved."""
+    L, res = [], {}
+    whole_lo = 67.7 / 60.0
+    L.append('  THE RECORD INSTANCE: data/b763_misses.txt (11): b763`s table priced a dispatch at 0.325 h (data/b763_price.json h_per_dispatch, from '
+             'data/b757_price.txt :8); b763`s completed runs 67.7-103.9 min each (data/b764_price.txt :8, from data/b763_closing.txt :743)')
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k14_')
+        try:
+            got = snapshot(rev, K14_PATHS, tmp)
+            j = probe(K14_PROBE, tmp)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k14_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        b3 = j['b763']
+        st = b3.get('(7) statements') or [None, None, None]
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    THE READER: %s ; the rate reader tools/standing/dispatchrate.py %s' % (j['reader'], 'STANDS' if j['rate_reader'] else 'ABSENT'),
+              '    b763`s dispatching rows as the reader returns them (lower-upper h, dispatches): %d' % len(b3)]
+        # ### the flag's tolerance a hundredth: the reader rounds its floor to the hundredth (27 x 67.7 / 60 = 30.465 read 30.46)
+        L += ['      %-28s %.2f-%.2f h, %d-%d dispatches%s' % (k, v[0], v[1], v[2][0], v[2][1], ' ### UNDER A WHOLE BUILD`S LOWER MINUTES A DISPATCH'
+                                                              if v[0] < v[2][0] * whole_lo - 0.01 else '') for k, v in sorted(b3.items())]
+        if j['b764'] is not None:
+            L.append('    b764`s dispatching rows as the reader returns them: %s ; its step-zero sum at the lower figures %.2f h (the bank`s 17.37 h)' % (
+                ', '.join('%s %.2f-%.2f h' % (k, v[0], v[1]) for k, v in sorted(j['b764'].items())), j['b764_sum']))
+        fault = (not j['rate_reader']) and st[0] is not None and st[0] < whole_lo - 0.005
+        clean = (j['rate_reader'] and j['ok'] and len(b3) == 15 and all(v[0] >= v[2][0] * (7.3 / 60.0) - 0.005 for v in b3.values())
+                 and st[:2] == [1.13, 1.73] and j['b764'] == {'(7) reference+save': [1.13, 1.73, [2, 2]], '(7) restore': [0.12, 1.73, [1, 1]]}
+                 and abs(j['b764_sum'] - 17.37) <= 0.005)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3)
+                K13=control_k13, K12=control_k12, K11=control_k11, K2=control_k2, K3=control_k3, K14=control_k14)
 
 
 def main(argv):
