@@ -245,7 +245,7 @@ def lines_v11(L, case, cur, act, prev):
 
     def sealed(t):
         return A.blob(seal_c, 'tools/' + t)
-    hashed_ok = all((lambda b: b is not None and A.sha256_bytes(b) == (sh.get('tools') or {})[t])(sealed(t)) for t in tl)
+    hashed_ok = all(C.blob_carries(sealed(t), (sh.get('tools') or {})[t]) for t in tl)   # ### v1.38.9, (R374)(5) [K12]: close.py's reading, a blob's checkout form with it
     g_rec = C.seal_guard(tl, rev=rec_head, read=sealed)
     g_seal = C.seal_guard(tl, rev=seal_c, read=sealed)
     case('3ii', 'RECORD', '%s`s %d sealed bytes (its seal commit`s blobs, each equal to its sha256) guarded at the head it recorded: refused ; at its seal commit: passed, the head %s' % (

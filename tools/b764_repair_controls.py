@@ -889,8 +889,96 @@ def control_k13(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K12] close.py READS tools/mirror_prevbuild.json BY ITS CONTENT
+K12_PATHS = ('tools/standing/close.py', 'tools/standing/controls.py')
+K12_FILE = 'mirror_prevbuild.json'
+K12_SEAL_COMMIT = '77a72b91'   # ### b763's seal commit (data/b763_steps.json), its blob of the file the one b763's seal hashed (5305bacb...)
+K12_PROBE = r'''
+import ast, hashlib, json, os, sys
+snap, inst = sys.argv[1], sys.argv[2]
+src = open(os.path.join(snap, 'tools', 'standing', 'close.py'), encoding='utf-8').read()
+ctl = open(os.path.join(snap, 'tools', 'standing', 'controls.py'), encoding='utf-8').read()
+blob = open(os.path.join(inst, 'blob.bin'), 'rb').read()
+work = open(os.path.join(inst, 'work.bin'), 'rb').read()
+sha = lambda b: hashlib.sha256(b).hexdigest()
+class A:
+    blobs = {}
+    sha256_bytes = staticmethod(sha)
+    blob = staticmethod(lambda rev, rel: A.blobs.get((rev, rel)))
+    gs = staticmethod(lambda repo, *a: 'STANDIN-HEAD')
+want = ('lf', 'blob_carries', 'seal_guard', 'seal_head')
+nodes = [n for n in ast.parse(src).body if isinstance(n, ast.FunctionDef) and n.name in want]
+ns = dict(A=A, os=os)
+exec(compile(ast.Module(body=nodes, type_ignores=[]), 'close_k12', 'exec'), ns)
+t = 'mirror_prevbuild.json'
+g1 = ns['seal_guard']([t], rev='REV', read=lambda _t: work, at_rev=lambda _t: blob)
+edited = (blob + b'{"an edit after its last commit": 1}\n').replace(b'\r\n', b'\n').replace(b'\n', b'\r\n')
+g2 = ns['seal_guard']([t], rev='REV', read=lambda _t: edited, at_rev=lambda _t: blob)
+A.blobs[('C1', 'tools/' + t)] = blob
+h_work = ns['seal_head']({t: sha(work)}, ['C1'])
+h_blob = ns['seal_head']({t: sha(blob)}, ['C1'])
+h_edit = ns['seal_head']({t: sha(edited)}, ['C1'])
+print(json.dumps(dict(defs=[n.name for n in nodes], g1_refused=[w for _t, w in g1['refused']], g1_line_ends=g1.get('line_ends'), g1_head=g1['head'],
+                      g2_refused=[w for _t, w in g2['refused']], h_work=h_work, h_blob=h_blob, h_edit=h_edit,
+                      controls_reads=('C.blob_carries(sealed(t)' in ctl))))
+'''
+
+
+def control_k12(before, after):
+    """[K12]: the seal's guard and its replay, each revision's close.py functions (lf, blob_carries, seal_guard, seal_head, those it has) read
+    by ast and run on a stand-in of act.py's three calls, over the record instance: tools/mirror_prevbuild.json's blob at b763's seal commit
+    (LF, the bytes b763's seal hashed) and the file's live working bytes (CR LF, git status clean, as at b763's dry of 11:29:43Z). FAULT: the
+    working file refused as edited after its last commit. CLEAN: it is read by its content and named among the line ends; a content edit
+    (one line appended, written CR LF) still refused; the replay finds the commit whose blob carries the working bytes' sha256, the blob's
+    own, and not an edit's; controls.py's (3ii) replay reads close.py's blob_carries."""
+    L, res = [], {}
+    rc, blob = git('show', '%s:tools/%s' % (K12_SEAL_COMMIT, K12_FILE))
+    work = open(os.path.join(ROOT, 'tools', K12_FILE), 'rb').read()
+    import hashlib
+    sha = lambda b: hashlib.sha256(b).hexdigest()
+    st = subprocess.run(['git', '-C', ROOT, 'status', '--porcelain', '--', 'tools/' + K12_FILE], capture_output=True, text=True).stdout
+    acr = subprocess.run(['git', '-C', ROOT, 'config', '--get', 'core.autocrlf'], capture_output=True, text=True).stdout.strip()
+    L += ['  THE RECORD INSTANCE: tools/%s at b763`s seal commit %s: %d bytes, CR %d, sha256 %s (data/b763_seal_hashes.json records %s)' % (
+              K12_FILE, K12_SEAL_COMMIT, len(blob), blob.count(b'\r'), sha(blob)[:16],
+              (json.load(open(os.path.join(D, 'b763_seal_hashes.json'), encoding='utf-8')).get('tools') or {}).get(K12_FILE, '?')[:16]),
+          '    its working bytes: %d bytes, CR %d, sha256 %s ; equal to the blob with each CR LF read as LF: %s ; equal to the blob`s checkout form '
+          '(each LF written CR LF): %s ; git status %r ; core.autocrlf %r' % (
+              len(work), work.count(b'\r'), sha(work)[:16], work.replace(b'\r\n', b'\n') == blob, blob.replace(b'\n', b'\r\n') == work, st, acr)]
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k12_')
+        inst = tempfile.mkdtemp(prefix='b764k12i_')
+        try:
+            got = snapshot(rev, K12_PATHS, tmp)
+            for n_, b_ in (('blob.bin', blob), ('work.bin', work)):
+                with open(os.path.join(inst, n_), 'wb') as fh:
+                    fh.write(b_)
+            j = probe(K12_PROBE, tmp, inst)
+        finally:
+            for t_, pre in ((tmp, 'b764k12_'), (inst, 'b764k12i_')):
+                if os.path.isabs(t_) and os.path.basename(t_).startswith(pre):
+                    shutil.rmtree(t_, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        fault = bool(j['g1_refused'])
+        clean = (not j['g1_refused'] and j['g1_line_ends'] == [K12_FILE] and bool(j['g2_refused']) and j['h_work'] == 'C1'
+                 and j['h_blob'] == 'C1' and j['h_edit'] is None and j['controls_reads'])
+        L += ['  %s (relay %s): the files %s ; close.py`s functions read %s' % (
+                  name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got), j['defs']),
+              '    the working file (CR LF) against the blob: refused %s ; read by its content (line ends) %s ; the head %s' % (
+                  j['g1_refused'] or 'NONE', j['g1_line_ends'], j['g1_head']),
+              '    a content edit (one line appended, CR LF) against the blob: refused %s' % (j['g2_refused'] or 'NONE'),
+              '    the replay over one commit carrying the blob: for the working bytes` sha256 %s ; for the blob`s own %s ; for the edit`s %s' % (
+                  j['h_work'], j['h_blob'], j['h_edit']),
+              '    controls.py`s (3ii) replay reads close.py`s blob_carries: %s' % j['controls_reads'],
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13)
+                K13=control_k13, K12=control_k12)
 
 
 def main(argv):

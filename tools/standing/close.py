@@ -19,6 +19,8 @@ v1.1.0 (the class repair (3)(ii) of the registrations act; event (1) of the tool
   sealed_list        the act's sealed tools: tools/<act>_*.py but its report tool (sealed after the root's word, b707's), and tools/standing/
   seal_write         step [8] of the close, the seal, run by the core: tools/b715_checks.py seal (:1792-:1832) with its act constants removed,
                      the guard first and the head it records the commit that carries what it hashed
+v1.38.9 ((R374)(5) [K12]): the guard and the replay read a sealed file by its content, each CR LF read as LF, as git reads it under the
+  relay's core.autocrlf true (lf, blob_carries); a file whose line ends alone differ from its blob is printed as so read, not refused
 """
 import collections
 import json
@@ -305,11 +307,31 @@ def seal_record(act, parts, rev, defects_rev, withheld_spec):
 
 
 # ======================================================================== THE SEAL COMMITS WHAT IT HASHES (the class repair (3)(ii))
+# ### v1.38.9, (R374)(5) [K12], finding 2 of b763's closing message, b763 events (95), b762 events (17), as at b761: A SEALED FILE READ BY
+# ### ITS CONTENT, NOT ITS LINE ENDS. The relay's core.autocrlf is true: git stores a text file with LF and its checkout writes CR LF, so a
+# ### file whose working bytes differ from its blob by CR LF against LF alone reads unchanged to git (its add stages nothing and the commit
+# ### is refused "nothing staged", b764 step zero, 17:07:21Z), while the guard compared raw bytes and refused it, the seal's dry exiting 3 on
+# ### tools/mirror_prevbuild.json (b763 at 11:29:43Z, its 89 carriage returns). The guard and the replay read a file as git reads it.
+def lf(b):
+    """a file's bytes with each CR LF read as LF, git's reading of a text file under core.autocrlf true; None stays None."""
+    return None if b is None else b.replace(b'\r\n', b'\n')
+
+
+def blob_carries(b, h):
+    """a blob carries the sha256 `h`: its own bytes hash to it, or, for a blob that holds no CR, its checkout under core.autocrlf true (each
+    LF written CR LF) does -- the bytes a seal hashed in a working tree that git reads as that blob. False where the blob is absent."""
+    if b is None:
+        return False
+    return A.sha256_bytes(b) == h or (b'\r' not in b and A.sha256_bytes(b.replace(b'\n', b'\r\n')) == h)
+
+
 def seal_guard(tools, rev='HEAD', read=None, at_rev=None):
     """the seal's guard before it hashes: each sealed tool (a path under relay tools/) whose bytes in the working tree differ from its blob
     at `rev` (the commit the seal will record, HEAD) is refused -- a tool edited after its last commit is committed in the seal's own step
     before the seal hashes, so the head the seal records carries every byte it hashed. `read` (path -> bytes) and `at_rev` (path -> bytes
-    or None) may be passed for a constructed control. Returns dict(ok, refused [(tool, reason)], head)."""
+    or None) may be passed for a constructed control. v1.38.9 ([K12]): the bytes compared by their content, each CR LF read as LF (lf); a
+    tool whose line ends alone differ is not refused, as git stages nothing for it, and is named in `line_ends`. Returns dict(ok, refused
+    [(tool, reason)], head, line_ends [tool])."""
     def _read(t):
         p = os.path.join(A.T, *t.split('/'))
         if not os.path.isfile(p):
@@ -318,7 +340,7 @@ def seal_guard(tools, rev='HEAD', read=None, at_rev=None):
             return f.read()
     read = read or _read
     at_rev = at_rev or (lambda t: A.blob(rev, 'tools/' + t))
-    refused = []
+    refused, line_ends = [], []
     for t in tools:
         w, c = read(t), at_rev(t)
         if w is None:
@@ -326,16 +348,19 @@ def seal_guard(tools, rev='HEAD', read=None, at_rev=None):
         elif c is None:
             refused.append((t, 'not committed at %s' % rev))
         elif A.sha256_bytes(w) != A.sha256_bytes(c):
-            refused.append((t, 'edited after its last commit: working %s, at %s %s' % (A.sha256_bytes(w)[:16], rev, A.sha256_bytes(c)[:16])))
+            if lf(w) == lf(c):
+                line_ends.append(t)
+            else:
+                refused.append((t, 'edited after its last commit: working %s, at %s %s' % (A.sha256_bytes(w)[:16], rev, A.sha256_bytes(c)[:16])))
     head = A.gs('relay', 'rev-parse', rev) if not refused else None
-    return dict(ok=not refused, refused=refused, head=head)
+    return dict(ok=not refused, refused=refused, head=head, line_ends=line_ends)
 
 
 def seal_head(hashes, commits):
     """the first commit of `commits` (in order) whose blobs carry every sealed tool's sha256 in `hashes` ({tool: sha256}): the head a seal
     that commits what it hashes records. None where no commit carries them all."""
     for c in commits:
-        if all((lambda b: b is not None and A.sha256_bytes(b) == h)(A.blob(c, 'tools/' + t)) for t, h in hashes.items()):
+        if all(blob_carries(A.blob(c, 'tools/' + t), h) for t, h in hashes.items()):   # ### v1.38.9 ([K12]): a blob's checkout form read with it
             return c
     return None
 
@@ -421,6 +446,9 @@ def seal_write(act, parts, date, withheld_spec, prev=None, write=True):
     if not g['ok']:
         return 3, ['### THE SEAL`S GUARD: %d SEALED TOOL(S) NOT AS COMMITTED AT HEAD -- COMMIT THEM IN THE SEAL`S STEP; NOTHING RECORDED' % len(g['refused'])] + [
             '  %-38s %s' % (t, w) for t, w in g['refused']]
+    if g.get('line_ends'):   # ### v1.38.9, (R374)(5) [K12]: printed only where a sealed file's line ends alone differ from its blob
+        L += ['  READ BY ITS CONTENT, ITS LINE ENDS ALONE DIFFERING FROM ITS BLOB AT HEAD (git stages nothing for it; v1.38.9, (R374)(5) [K12]): %s'
+              % ', '.join(g['line_ends'])]
     banks = exercise_banks(act, parts)
     arms = arms_of(banks, parts)
     ns = neg_shown(arms, banks, withheld_entries(withheld_spec))
