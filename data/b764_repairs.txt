@@ -148,3 +148,16 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      (data/b764_repair_controls.txt :211)"
      THE REPAIR'S LIMIT: the marker is the close order's capture word for step [16], held in no standing table (searched: no 'DESK' marker in
      tools/standing/); the route's line carries the word wherever a capture takes it; a stand-in run writes no bank and prints no line.
+
+    [K12] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES ; EVIDENCE: b763 events (95) (close.py dry exit 3 at 2026-11-20T11:29:43Z on
+     tools/mirror_prevbuild.json, its difference from its blob CR LF alone), b762 events (17), as at b761; b764 events (14) and step zero
+     (the file's add staging nothing, its commit refused "nothing staged", 17:07:21Z) ; STATE: REPAIRED ; VERSION: v1.38.9, relay 32b8e2a0
+     (tools/standing/close.py: lf and blob_carries added, seal_guard comparing a sealed file's bytes with each CR LF read as LF and naming a
+     file whose line ends alone differ in line_ends, printed by seal_write and not refused; seal_head reading a blob's checkout form with it;
+     tools/standing/controls.py's (3ii) replay reading close.py's blob_carries) ; THE CONTROL: data/b764_repair_controls.txt :213-:228 ;
+     PRICE: 0.16-0.62 h ; TOOK: 0.12 h (19:57:50Z-20:04:56Z)
+     "[K12] repaired at v1.38.9: the seal's guard and its replay read a sealed file by its content, each CR LF read as LF as git reads it under
+     the relay's core.autocrlf, so tools/mirror_prevbuild.json's line ends alone no longer refuse the dry, and a content edit is still
+     refused; its planted control read the fault before and reads clean after (data/b764_repair_controls.txt :228)"
+     THE REPAIR'S LIMIT: the seal records the working bytes' sha256 as before (G-SEAL-HASHES reads the working bytes); the replay finds a blob
+     whose checkout writes every LF as CR LF, and a working file of mixed line ends is read by the guard but not found by the replay.

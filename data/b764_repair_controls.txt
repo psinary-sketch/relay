@@ -209,3 +209,20 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     the template`s desk wrap present: True ; the route`s stdout ['### THE DESK WRITTEN: data/b764_desk_notes.txt, 5 lines, sha256 a4334335c4f9c94f', ''] ; the marker DESK at line 1 ; the stand-in bank 5 lines, sha256 a4334335c4f9c94f
     AFTER: CLEAN
 ### ### **[K13] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K12] THE PLANTED CONTROL (2026-11-20T20:04:56Z): BEFORE relay b6e23b07, THE REPAIR`S COMMIT relay 32b8e2a0, its first parent b6e23b07 -- THE COMMIT BEFORE
+  THE RECORD INSTANCE: tools/mirror_prevbuild.json at b763`s seal commit 77a72b91: 4353 bytes, CR 0, sha256 5305bacbfc629ae7 (data/b763_seal_hashes.json records 5305bacbfc629ae7)
+    its working bytes: 4442 bytes, CR 89, sha256 4e0b88e14a0bcde6 ; equal to the blob with each CR LF read as LF: True ; equal to the blob`s checkout form (each LF written CR LF): True ; git status '' ; core.autocrlf 'true'
+  BEFORE (relay b6e23b07): the files tools/standing/close.py present, tools/standing/controls.py present ; close.py`s functions read ['seal_guard', 'seal_head']
+    the working file (CR LF) against the blob: refused ['edited after its last commit: working 4e0b88e14a0bcde6, at REV 5305bacbfc629ae7'] ; read by its content (line ends) None ; the head None
+    a content edit (one line appended, CR LF) against the blob: refused ['edited after its last commit: working 7a6a2ff15269930b, at REV 5305bacbfc629ae7']
+    the replay over one commit carrying the blob: for the working bytes` sha256 None ; for the blob`s own C1 ; for the edit`s None
+    controls.py`s (3ii) replay reads close.py`s blob_carries: False
+    BEFORE: THE FAULT READ
+  AFTER (relay 32b8e2a0): the files tools/standing/close.py present, tools/standing/controls.py present ; close.py`s functions read ['lf', 'blob_carries', 'seal_guard', 'seal_head']
+    the working file (CR LF) against the blob: refused NONE ; read by its content (line ends) ['mirror_prevbuild.json'] ; the head STANDIN-HEAD
+    a content edit (one line appended, CR LF) against the blob: refused ['edited after its last commit: working 7a6a2ff15269930b, at REV 5305bacbfc629ae7']
+    the replay over one commit carrying the blob: for the working bytes` sha256 C1 ; for the blob`s own C1 ; for the edit`s None
+    controls.py`s (3ii) replay reads close.py`s blob_carries: True
+    AFTER: CLEAN
+### ### **[K12] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
