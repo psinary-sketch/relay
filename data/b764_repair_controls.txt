@@ -385,3 +385,21 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     the arm on b763`s right entry: PASSES ; on b762`s: PASSES ; on b763`s title planted one lower: FAILS ; a needle carrying the token, with b763`s roster: PASSES ; with no roster: FAILS
     AFTER: CLEAN
 ### ### **[K6] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K9] THE PLANTED CONTROL (2026-11-20T21:05:57Z): BEFORE relay 9de63b15, THE REPAIR`S COMMIT relay 216873cd, its first parent 9de63b15 -- THE COMMIT BEFORE
+  THE RECORD INSTANCE: data/b763_closing.txt :242 printed the touch row as "ROWS 68 ; REPRODUCES 64 ; ...", the reproduce foot data/b763_touch.txt :19 quotes; the touch bank`s own foot at :46
+  BEFORE (relay 9de63b15): the files tools/standing/fold/closing.tpl present ; the touch row`s pattern (?m)^### ### \*\*[^\n]*|ROWS \d+[^\n]*
+    b760_touch.txt: reads "ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 357 s"; events (69), I" ; its foot :43: DIFFERS
+    b762_touch.txt: reads "ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 352 s"; its JSON's row" ; its foot :42: DIFFERS
+    b763_touch.txt: reads "ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 330 s"; its JSON's row" ; its foot :46: DIFFERS
+    plant_two_feet.txt: reads "### ### **ROWS 3 ; AGREES 2 ; DIFFERS 1 AT THE FIRST READ.**" ; its foot :4: DIFFERS
+    plant_no_foot.txt: reads "ROWS 9 ; REPRODUCES 9"." ; its foot: DIFFERS
+    BEFORE: THE FAULT READ
+  AFTER (relay 216873cd): the files tools/standing/fold/closing.tpl present ; the touch row`s pattern FOOT:(?m)^### ### \*\*ROWS \d+ ; AGREES \d+ ; DIFFERS \d+[^\n]*
+    b760_touch.txt: reads "### ### **ROWS 34 ; AGREES 34 ; DIFFERS 0 AT THIS READ (the six possessives mended before it ; rows (11), (22)" ; its foot :43: EQUAL
+    b762_touch.txt: reads "### ### **ROWS 33 ; AGREES 33 ; DIFFERS 0 AT THIS READ (row (11) with defect (i) ; rows (3), (12), (15), (18)," ; its foot :42: EQUAL
+    b763_touch.txt: reads "### ### **ROWS 37 ; AGREES 37 ; DIFFERS 0 AT THIS READ (row (35) after the record's set at this read ; rows (3" ; its foot :46: EQUAL
+    plant_two_feet.txt: reads "### ### **ROWS 4 ; AGREES 4 ; DIFFERS 0 AT THIS READ.**" ; its foot :4: EQUAL
+    plant_no_foot.txt: reads "### NOT FOUND" ; its foot: EQUAL
+    AFTER: CLEAN
+### ### **[K9] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
