@@ -621,27 +621,36 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
                        ('v1.35.8', 'ed0d3f33', 'data/b758_standing_v1358.txt', 7), ('v1.35.9', 'da79951c', 'data/b758_standing_v1359.txt', 8),
                        ('v1.36.0', 'fd45f4c5', 'data/b758_standing_v1360.txt', 10), ('v1.36.1', '9bc8cfeb', 'data/b758_standing_v1361.txt', 11),
                        ('v1.36.2', '4db55035', 'data/b758_standing_v1362.txt', 6))   # ### b758's seven, read not re-made, under their own names
-# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close). b763's,
-# ### each by the one-call tool on a push-b763-* branch made at a named commit ((R373)(5)); set as each is made
-KERNEL_COMMITS = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),       # ### (R373)(6) (S1)-(S3) and [P1]'s six names (20:32:07Z, step 16), on main at v0.42
-                  ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
-                  ('statement', 'SIDE-explicit-formula', '4964e957', 'main'),    # ### the statement file by the author's word (23:51:12Z, step 28), main at v0.42 (02:22:05Z)
-                  ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b764-arith'),   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
-                  ('squares', 'SIDE-explicit-formula', '819e4a83', 'main'),   # ### (R373)(8) W-ORD-SQUARES-AT-24 (03:48:55Z, step 47), on push-b763-squares; main moved to it at v0.43 after run 44670834879's success (05:34Z)
-                  ('keiper', 'SIDE-explicit-formula', 'a59632eb', 'push-b764-keiper'))     # ### (R373)(8) W-ORD-KEIPER-FACE, a first file (04:23:03Z, step 53), on its branch made at main 4964e957; the order not built in full, so main does not move to it
+# ### the kernel commits of the act, read by N5 and G-OFFSET-POST-HOC: (key, kernel, commit, the branch it stands on at the close).
+# ### ### b764, Component 3 (the Edit tool, defect (f)): b764's one, by the one-call tool on push-b764-runner made at main 819e4a83 ((R374)(7));
+# ### its branch set to main where the trial's success moves main to it. b763's six stand below as KERNEL_COMMITS_B763 under the branch
+# ### names the remote holds (push-b763-arith, push-b763-keiper), which the carry had shifted to push-b764-*.
+KERNEL_COMMITS = (('runner', 'SIDE-explicit-formula', '38a57e02', 'push-b764-runner'),)   # ### (R374)(7)'s workflow change alone (21:52:37Z, step 56), pushed alone and read back (21:53:1xZ)
+KERNEL_COMMITS_B763 = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),       # ### (R373)(6) (S1)-(S3) and [P1]'s six names (20:32:07Z, step 16), on main at v0.42
+                       ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
+                       ('statement', 'SIDE-explicit-formula', '4964e957', 'main'),    # ### the statement file by the author's word (23:51:12Z, step 28), main at v0.42 (02:22:05Z)
+                       ('arith', 'SIDE-explicit-formula', 'ec14e9d9', 'push-b763-arith'),   # ### (R373)(7)'s statement, no proof (02:28:20Z, step 36), on its branch
+                       ('squares', 'SIDE-explicit-formula', '819e4a83', 'main'),   # ### (R373)(8) W-ORD-SQUARES-AT-24 (03:48:55Z, step 47), on push-b763-squares; main moved to it at v0.43 after run 44670834879's success (05:34Z)
+                       ('keiper', 'SIDE-explicit-formula', 'a59632eb', 'push-b763-keiper'))     # ### (R373)(8) W-ORD-KEIPER-FACE, a first file (04:23:03Z, step 53), on its branch made at main 4964e957; the order not built in full, so main does not move to it
 KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
-WEIL_BRANCH = ('push-b764-form', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### (R373)(6): made at main a3aad4cc (20:14:10Z); commits ec82fed0, 0f849552, 4964e957; main moved from it (02:22:05Z)
-WEIL_TAG = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### (R373)(6): name, tag object, peel read back at the remote (data/b763_SIDE-explicit-formula_push-b763-form_push_out.txt, 02:22:05Z)
+WEIL_BRANCH = ('push-b764-runner', '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a')   # ### b764 (R374)(7): the act's one kernel branch, made at main 819e4a83 by the one-call tool (21:50:3xZ), its one commit 38a57e02 (step 56), pushed alone by the gated push's branch mode, scratch, and read back (data/b764_SIDE-explicit-formula_push-b764-runner_push_out.txt); kept for the next act's step zero ((R374)(4))
+WEIL_TAG = None   # ### b764 (R374)(7), (13), N5: no tag cut at this act, the trial's success moving main with no tag; every reader of WEIL_TAG is rewritten for b764 at Component 5
+RUNNER_COMMIT = '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a'   # ### b764 (R374)(7): the commit whose workflow bytes the arm that reads the workflow's file takes, by this clause's commit and no other
+WEIL_BRANCH_B763 = ('push-b763-form', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### b763's (R373)(6): made at main a3aad4cc (20:14:10Z); commits ec82fed0, 0f849552, 4964e957; main moved from it (02:22:05Z); kept by (R374)(4)
+WEIL_TAG_B763 = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### b763's (R373)(6): name, tag object, peel read back at the remote (data/b763_SIDE-explicit-formula_push-b763-form_push_out.txt, 02:22:05Z); peels as before ((R374) N5)
 WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
-ORDER_BRANCHES = (('push-b764-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### (R373)(8): each order's push-b763-* branch with its tip, set as each is made after Component 3: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z)
-                  ('push-b764-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z)
-ORDER_TAGS = (('v0.43', 'bcd4d4818520fc7a477c98e2c79548b80295725f', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### (R373)(8): each tag cut for an order of (8) built in full, (name, tag object, peel read back at the remote): W-ORD-SQUARES-AT-24 at main's read-back (data/b763_SIDE-explicit-formula_push-b763-squares_push_out.txt, 05:34Z)
+ORDER_BRANCHES = ()   # ### b764 (R374)(8): no order of (8) writes a kernel (each is a relay or PLACE-papers build), so no order branch is made
+ORDER_TAGS = ()   # ### b764 (R374)(7), (13): no tag cut
+ORDER_BRANCHES_B763 = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### b763's (R373)(8), under the names the remote holds: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z); kept by (R374)(4)
+                       ('push-b763-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z); kept by (R374)(4)
+ORDER_TAGS_B763 = (('v0.43', 'bcd4d4818520fc7a477c98e2c79548b80295725f', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### b763's (R373)(8): W-ORD-SQUARES-AT-24 at main's read-back (data/b763_SIDE-explicit-formula_push-b763-squares_push_out.txt, 05:34Z); peels as before ((R374) N5)
 PRESEND_SENDS = ('s123', 's4', 's5', 'sf', 's7', 's24', 'skp')   # ### each send's pre-send bank data/b763_presend_<send>.txt, read by the record's figures; an (8) send added as it is made
-ARITH_BRANCH = ('push-b764-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it
+ARITH_BRANCH = None   # ### b764 (R374)(9)(c): no statement and no line of a proof sent, so no arith branch; every reader of ARITH_BRANCH is rewritten for b764 at Component 5
+ARITH_BRANCH_B763 = ('push-b763-arith', 'ec14e9d937fbeb943a0f8d3103803570ee810f09')   # ### b763's (R373)(7): made at main 4964e957 (02:26:08Z), the statement alone; pushed alone and read back (02:32:35Z); main not moved from it; kept by (R374)(4)
 KERNEL_COMMITS_B757 = ()   # ### b757's sixteen stand in git at tools/b757_worklist.py
 M24_DIR = 'D:/SIDE-dirichlet-mod-24'
 M24_BASE = '597b0869'                 # ### SIDE-dirichlet-mod-24's main entering the act, its one commit
@@ -766,7 +775,8 @@ MAX_DISPATCHES_B757 = (14, 4)   # ### b757's caps, (R367)(10)
 MAX_DISPATCHES_B756 = 0    # ### b756's: no runner dispatch
 MAX_C2, MAX_KEIPER = 0, 0
 EF_DIR = 'D:/SIDE-explicit-formula'
-EF_BASE = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'   # ### b763: SIDE-explicit-formula's main entering the act, b759's commit two at v0.41
+EF_BASE = '819e4a832700038d103b4efc1e0ee0f1343f7c6e'   # ### b764 (Component 3, the Edit tool, defect (f)'s class): SIDE-explicit-formula's main entering the act, b763's v0.43 (the carry had kept b763's entering pin under b763's comment)
+EF_BASE_B763 = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'   # ### b763's entering main, b759's commit two at v0.41
 EF_BASE_B759 = '630cba16e228a018f9dd986196142fc6feb704ec'   # ### b759's entering main, b758's merge at v0.40
 EF_BASE_B758 = '8fbab45d8a966dca53d42448e33927d885fd4ea3'   # ### b758's entering main (b743's [A4], README alone)
 EF_MAIN_AFTER = EF_MAIN   # ### b759: moved by (5) alone, after its run's success ((R369)(5))
