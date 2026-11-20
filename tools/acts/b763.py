@@ -2163,8 +2163,14 @@ N3_CANON = 'phase1.5/method/THE_METHOD_CANON.md'   # ### (R373)(9): the one pape
 N3_PREFIXED = ('OPEN_TRAILS.md', 'FINDINGS.md')   # ### (R373) N3: REGISTRY not written, read apart
 N3_OT_KEYS = tuple(['A%d' % i_ for i_ in range(1, 13)] + ['B1', 'B2'])   # ### (9)'s lines of OPEN_TRAILS; [C1], [I1], [W1] and the build lines read apart
 # ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by (path, line, the sentence's
-# ### digest (sha256, 16 hex)) -> the verdict, each read before the lock; the words not quoted. b763: none pinned before the scores dry
-N3_HAND = {}
+# ### digest (sha256, 16 hex)) -> the verdict, each read before the lock; the words not quoted. b763: the scores dry (flag 2026-11-20T08:33:10Z)
+# ### read 1 hit over 65 units, read whole through the masks by scratch n3hits763.py (read only, the module's own lines, cut, matchers and digest,
+# ### 08:37:36Z), b760's form (tools/acts/b760.py :1966)
+N3_HAND = {(N3_CANON, 401, 'f511cfabb7498855'): 'hand-read: [C1]`s worked example, the ruling`s text entered verbatim under (R373)(9) (data/b763_ferry.txt '
+                                                ':50); the failure it states is of the control, Weil positivity on classK pinned to '
+                                                'zq_weil_positivity_fails, the form h2_sign writes as pole term less prime-power side plus archimedean '
+                                                'term, the arithmetic side of its explicit formula, as b760`s verdict read the same declaration; of zeta '
+                                                'it says only the equivalence pinned to h2_sign_iff_rh, and nothing of zeta holds, fails or moved'}
 N3_CONTROL = r'\b(?:control|Epstein|zq_\w+)\b|x\^2 \+ xy \+ 6y\^2'   # ### a sentence about the control: the control named, the Epstein function, a zq_ name, the form
 N3_SIDE_NAMED = r'\b(?:arithmetic|spectral|zero|prime-power) side\b'
 import hashlib as _hs   # noqa: E402  ### the notes' digests, sha256 of each line (16 hex), as tools/b757_notes.py writes them; _hs, not _h, which record.tpl :2633 binds to its height formatter (defect (t))
