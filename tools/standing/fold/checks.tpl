@@ -1028,8 +1028,9 @@ def trail_resolved_ok(S):
     if S['letters_seal'] is None:
         return False
     nav, seat = _owners(S['letters_seal'])
-    return 'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True' in S['gate'] and bool(m) and S['REC'].num_word(nav) == m.group(2) \
-        and S['REC'].num_word(seat) == m.group(3)
+    cw = (lambda n_, a_=(PREV_ACT if PREV else ACT_NOW): __import__('standing.nextact', fromlist=['count_word']).count_word(n_, a_, S['REC'].num_word))   # ### v1.38.3, [K8]: the count word of the act whose trail is read
+    return 'THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True' in S['gate'] and bool(m) and cw(nav) == m.group(2) \
+        and cw(seat) == m.group(3)
 
 
 def corrigendum_ok(S):

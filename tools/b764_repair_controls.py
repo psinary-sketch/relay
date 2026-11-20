@@ -315,7 +315,96 @@ def control_k5(before, after):
     return L, before_fault and clean
 
 
-CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5)
+# ================================================================================ [K8] THE ANSWER IN THE NEXT, CARRIED-TO AND RESOLVED LINES
+K8_PATHS = ('tools/standing/nextact.py', 'tools/standing/fold/record.tpl', 'tools/standing/fold/checks.tpl', 'tools/b703_record.py',
+            'data/b763_author_answers.txt')
+K8_PP = 'D:/MY-DOwnloads/PLACE-papers'
+K8_LINES = (('carried.txt', 'FINDINGS.md', 15857, '9d0d63ea8682be6c'), ('next.txt', 'FINDINGS.md', 15859, 'b4d0dbfd1a6cc874'),
+            ('trail_next.txt', 'OPEN_TRAILS.md', 19051, 'cc2fb63cfaef7b51'), ('resolved.txt', 'OPEN_TRAILS.md', 19045, '6bafcbb72a0773b3'))
+K8_PROBE = r'''
+import ast, json, os, sys
+snap, inst = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import nextact as N
+rd = lambda p: open(p, encoding='utf-8').read()
+tpl = rd(os.path.join(snap, 'tools', 'standing', 'fold', 'record.tpl'))
+chk = rd(os.path.join(snap, 'tools', 'standing', 'fold', 'checks.tpl'))
+src = rd(os.path.join(snap, 'tools', 'b703_record.py'))
+NUM = ast.literal_eval([n for n in ast.parse(src).body if isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'NUM'][0].value)
+nw = lambda n: NUM[n] if 0 <= n < len(NUM) else str(n)
+w = N.word('b763')
+want = ('relay data/b763_author_answers.txt :%d, %s' % w) if w else None
+car, nxt, trl = (rd(os.path.join(inst, n)).strip('\n') for n in ('carried.txt', 'next.txt', 'trail_next.txt'))
+ent = N.entry('b763', car + '\n\n' + nxt)
+e_car, e_next = ent.split('\n')[0], ent.split('\n')[2]
+wrap = 'NXA7.trail(ACT' in tpl and hasattr(N, 'trail')
+t_next = N.trail('b763', trl) if wrap else trl
+i = tpl.find('def _for_author():')
+fa = tpl[i:tpl.find('\ndef ', i + 10)]
+cwf = getattr(N, 'count_word', None)
+composes = 'count_word(len(nav))' in fa and 'num_word(len(nav))' not in fa
+words = [cwf(0, 'b764', nw), cwf(0, 'b763', nw), cwf(17, 'b764', nw)] if (cwf and composes) else [nw(0), nw(0), nw(17)]
+readers = 'wr = (count_word(' in tpl and 'count_word(n_, a_' in chk
+print(json.dumps(dict(answer=w, carried=bool(want) and want in e_car, next=bool(want) and want in e_next, trail_wrap=wrap,
+                      trail=bool(want) and want in t_next, composes=composes, words=words, num17=nw(17), readers=readers,
+                      idem=N.entry('b763', ent) == ent and (N.trail('b763', t_next) == t_next if wrap else True))))
+'''
+
+
+def control_k8(before, after):
+    """[K8]: b763's own landed lines, as its sealed composition wrote them (PLACE-papers 7db9a66c: the entry's Carried to line FINDINGS :15857
+    and Next line :15859, the trail's Next line OPEN_TRAILS :19051, each read by line and sha256, no text printed), read through each
+    revision's composition with b763's answers bank (data/b763_author_answers.txt, the author's choice at :8): the entry's two lines through
+    nextact.entry(), the trail's through the template's wrap where the revision has one, and the Resolved line's count word for a count of 0
+    through _for_author() as the revision's template composes it (b763's item (14), OPEN_TRAILS :19045, "the none navigator misses").
+    FAULT: the answer and its bank absent from a line, or the count of 0 composed "none" for b764. CLEAN: the answer and its bank in each of the
+    three lines, read twice and read once; "zero" for b764, "none" for b763 as landed, num_word's word for any other count; the dry check's
+    reader and the suite's arm reading the same word."""
+    L, res = [], {}
+    inst = tempfile.mkdtemp(prefix='b764k8i_')
+    try:
+        shas = []
+        for fn, path, ln, sha in K8_LINES:
+            r = subprocess.run(['git', '-C', K8_PP, 'show', '7db9a66c:%s' % path], capture_output=True)
+            l_ = r.stdout.decode('utf-8').replace('\r', '').split(NL)[ln - 1] if r.returncode == 0 else ''
+            got = __import__('hashlib').sha256(l_.encode('utf-8')).hexdigest()[:16]
+            shas.append((path, ln, got, got == sha))
+            with open(os.path.join(inst, fn), 'w', encoding='utf-8', newline='\n') as fh:
+                fh.write(l_)
+        item14 = '(14) the none navigator misses' in io.open(os.path.join(inst, 'resolved.txt'), encoding='utf-8').read()
+        L.append('  THE RECORD INSTANCES (PLACE-papers 7db9a66c, by line and sha256): %s ; b763`s item (14) reads "the none navigator misses": %s' % (
+            '; '.join('%s :%d %s %s' % (p, n, s, 'EQUAL' if ok else 'DIFFERS') for p, n, s, ok in shas), item14))
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b764k8_')
+            try:
+                got = snapshot(rev, K8_PATHS, tmp)
+                j = probe(K8_PROBE, tmp, inst)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b764k8_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            clean = bool(j['answer']) and j['carried'] and j['next'] and j['trail_wrap'] and j['trail'] and j['composes'] \
+                and j['words'] == ['zero', 'none', j['num17']] and j['readers'] and j['idem']
+            fault = (not j['carried']) or (not j['next']) or (not j['trail']) or j['words'][0] != 'zero'
+            L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+                  '    b763`s answers bank read by word(): %s' % (('line %d, %s' % tuple(j['answer'])) if j['answer'] else 'NONE'),
+                  '    the entry`s Carried to line carries the bank and the answer: %s ; the entry`s Next line: %s' % (j['carried'], j['next']),
+                  '    the template binds the trail through nextact`s trail(): %s ; the trail`s Next line carries the bank and the answer: %s' % (
+                      j['trail_wrap'], j['trail']),
+                  '    _for_author() composes the count through count_word(): %s ; the count words (0 at b764, 0 at b763, 17 at b764): %s ; the dry check`s'
+                  ' reader and the arm read it: %s ; read twice, read once: %s' % (j['composes'], j['words'], j['readers'], j['idem']),
+                  '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    finally:
+        if os.path.isabs(inst) and os.path.basename(inst).startswith('b764k8i_'):
+            shutil.rmtree(inst, ignore_errors=True)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and all(ok for _p, _n, _s, ok in shas)
+
+
+CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8)
 
 
 def main(argv):

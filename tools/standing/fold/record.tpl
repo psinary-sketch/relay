@@ -2653,8 +2653,8 @@ def _for_author():
     f = _figs()
     seat = AC.defect_owners(rows)['SEAT']   # ### (⟪RUL⟫)(4)(iii), v4 row (64): the one counter
 ⟪SLOT 32⟫
-                'the %s navigator %s%s' % (num_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if nav else ''),
-                num_word(seat), '' if seat == 1 else 's'))
+                'the %s navigator %s%s' % (count_word(len(nav)), 'miss' if len(nav) == 1 else 'misses', (' (%s)' % letters) if nav else ''),
+                count_word(seat), '' if seat == 1 else 's'))
 
 
 ⟪SLOT 33⟫
@@ -3320,7 +3320,7 @@ def drycheck(*a):
             rows, nav = _owners_now()
             gr = _trail_resolved(t)
             oc = AC.defect_owners(rows)   # ### (⟪RUL⟫)(4)(iii), v4 row (64): the one counter, the suite's arm's own (a repair at ⟪ACT⟫)
-            wr = (num_word(oc['NAVIGATOR']), num_word(oc['SEAT']))
+            wr = (count_word(oc['NAVIGATOR']), count_word(oc['SEAT']))   # ### v1.38.3, [K8]: the composer's count word
             eqr = gr == wr
             print('  THE TRAIL`S RESOLVED LINE`S COUNTS: %s ; THE BANK`S OWNERS (navigator, seat): %s' % (gr, wr))
             print('  ### THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK %s' % eqr)
@@ -3998,6 +3998,23 @@ _trail_text_composed = _trail_text
 
 def _trail_text():
     return LDG.trail(ACT, _trail_text_composed(), _letters_now())
+
+
+# ### v1.38.3, (R374)(5) [K8] (iii): THE TRAIL'S NEXT LINE READ THROUGH tools/standing/nextact.py's trail(), after the ledgers' wrap, as the
+# ### entry's Next and Carried-to lines are read through its entry() above: b762's and b763's trails (OPEN_TRAILS :18953, :19051) listed the
+# ### ruling's options beside an answers bank that held the author's choice, their Next line composed from next_line() and read by nothing.
+_trail_text_ledgered = _trail_text
+
+
+def _trail_text():
+    return NXA7.trail(ACT, _trail_text_ledgered(), D)
+
+
+def count_word(n):
+    """v1.38.3, (R374)(5) [K8]: the Resolved line's count word (_for_author() and the dry check's reader) through tools/standing/nextact.py's
+    count_word() -- from b764 a count of 0 reads "zero" and not num_word's "none", the word for no count (b763's item (14)); before b764
+    num_word's word, as landed. Defined at the foot, as an act's slot may continue _for_author() below its template lines."""
+    return NXA7.count_word(n, ACT, num_word)
 
 
 _trail_route_composed = ROUTES.get('trail')
