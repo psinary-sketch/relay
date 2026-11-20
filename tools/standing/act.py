@@ -192,6 +192,28 @@ def post_lock_appended(act):
     return base + tuple(p for p in by_design(act) if p not in base)
 
 
+# ### v1.38.0, (R374)(5) [K10], b763's finding 10 (relay data/b764_events.txt (22)): STEP [21] AGAINST N4. v5 row (79)'s step [21] reads "the
+# ### events bank (an event found after it appended by the Edit tool before the closing) (data/<act>_events.txt)", a bank tracked at the lock;
+# ### N4's clause (the act's post-lock reader, less post_lock_appended) reads a commit touching it after the lock as an edit, and b763's [21]
+# ### commit d784c1da refuted N4, against the rule the closing message cites ((R365)(2)(ii), (R366)(1)(ii)). The standing clauses' bank is not
+# ### rewritten ((R374)(12)): the close order the seat reads (`fold.py record closeorder`) takes its step [21] from STEP_21, which names the bank
+# ### written after the lock by design (by_design's last, appended by tools/standing/append.py's `events` kind) and the closing message. The
+# ### row's own evidence for [21] (data/<act>_events.txt, present at every act) still stands under close_refuses, so no lower-step reading moves.
+STEP_21 = (21, 'what is found after the lock, entered in the bank written after the lock by design by `tools/standing/append.py <act> events '
+               '<source>` and by no hand, no bank tracked at the lock written (N4), and printed with its times in the closing message; where '
+               'nothing is found, no bank written', 'data/<act>_events_postseal.txt')
+
+
+def close_order(text=None):
+    """v1.38.0, (R374)(5) [K10]: the close order as the seat reads it -- tools/act_close.py close_steps_printed (v5 row (79), with [5a] and
+    [7a]), its step [21] taken from STEP_21. [(n, words, evidence)]; pure in the row's text."""
+    import sys as _sys
+    if T not in _sys.path:
+        _sys.path.append(T)
+    import act_close as _AC
+    return [STEP_21 if s[0] == 21 else s for s in _AC.close_steps_printed(text)]
+
+
 APPEND_HEAD = '## APPENDED BY %s AT %s: %d LINE(S); NO LINE ALREADY IN THE BANK REWRITTEN'
 
 

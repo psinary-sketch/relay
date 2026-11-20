@@ -2500,7 +2500,7 @@ def _n4():
     after = [r for r in steps if sealed_at is not None and r.get('ct', 0) > sealed_at]
     wrong = [r['commit'][:8] for r in after if r.get('phase') not in POST_SEAL_PHASES]
     ra = jl('%s_root_arm.json' % ACT)
-    ev = os.path.exists(os.path.join(D, '%s_events_postseal.txt' % ACT))   # ### v1.34.7, (R366)(1)(ii): the post-seal bank, which the act does not keep (before: the act's own events bank, so 'present' at every act)
+    ev = os.path.exists(os.path.join(D, '%s_events_postseal.txt' % ACT))   # ### v1.34.7, (R366)(1)(ii): the post-seal bank (before: the act's own events bank, so 'present' at every act); v1.38.0, (R374)(5) [K10]: the bank step [21] names, written after the lock by design
     # ### (⟪RUL⟫)(4)(v), N4: every push writes its capture -- each push_gated.sh call of the seat's capture names its repository and branch, and
     # ### the tool's capture for that pair stands (the relay's data/<act>_<repo>_<branch>_push_out.txt, or the per-command capture file named)
     pushes = []
@@ -2530,12 +2530,12 @@ def _n4():
     return ('HELD' if ok else ('PENDING' if seal is None else 'REFUTED')), (
 ⟪SLOT 24⟫
         'the letters the seal records (relay data/⟪ACT⟫_seal_hashes.json) %d, the defects bank`s letters now %d, letters after the seal %s; the step '
-        'bank`s commits after the seal (relay data/⟪ACT⟫_steps.json) %d, each with a post-seal phase: %s; no events bank for what is found after the seal ((R365)(2)(ii), (R366)(1)(ii): what the seat finds after the lock is printed with its times in the closing message and carried to the next corrigendum), relay data/⟪ACT⟫_events_postseal.txt %s; '
+        'bank`s commits after the seal (relay data/⟪ACT⟫_steps.json) %d, each with a post-seal phase: %s; what is found after the lock entered in the bank written after the lock by design and printed with its times in the closing message, no bank tracked at the lock written (step [21] at v1.38.0, (R374)(5) [K10]; (R365)(2)(ii), (R366)(1)(ii)), relay data/⟪ACT⟫_events_postseal.txt %s; '
         'no bank after the root (relay data/⟪ACT⟫_root_arm.json) %s; the pushes through push_gated.sh in the capture %d, each with its capture: %s, each '
         'capture printing its repository`s visibility: %s; the author`s word after the seal (relay data/⟪ACT⟫_author_words.txt) %s, printed from its bank '
         'by the closing, record and trail tools; the banks this tool wrote, by its hashes bank (relay data/⟪ACT⟫_bank_hashes.json, %d), edited by hand '
         'since: %s; the closing`s head line carrying commits read from the remotes: %s; the clauses that wait read again at `scores close`' % (
-            len(seal or []), len(now), late or 'NONE', len(after), not wrong, 'PRESENT, a bank the act does not keep' if ev else 'absent',
+            len(seal or []), len(now), late or 'NONE', len(after), not wrong, 'PRESENT, the bank step [21] names' if ev else 'absent, nothing found after the lock',
             ('late %s' % ra.get('late')) if ra else 'waits on the root', len(pushes), uncaptured or 'every one', unseen or 'every one',
             ('%d lines' % len(aw.rstrip(NL).split(NL))) if aw is not None else ('none received' if os.path.exists(os.path.join(D, '%s_act_root.json' % ACT)) else 'not yet composed (appended after the root by design, v1.30.0)'), len(hb or {}),
             [os.path.basename(p) for p, _w, _n in hand] or 'NONE', head_ok if head else 'waits on the closing'))
@@ -3028,8 +3028,8 @@ def closeorder(*a):
     """`closeorder <n>`: step [n] of v4 row (68) read against the lower steps' evidence before the seat runs it by hand (the record commit
     [19] among them); prints and exits 5 where it refuses; writes nothing."""
     if not a or not a[0].isdigit():
-        for k, w, e in AC.close_steps_printed():
-            print('  [%s] %s (%s)' % (k, w[:90], e.replace('<act>', ACT)))
+        for k, w, e in __import__('standing.act', fromlist=['close_order']).close_order():   # ### v1.38.0, (R374)(5) [K10]: step [21] the bank written after the lock by design
+            print('  [%s] %s (%s)' % (k, w[:90] if k != 21 else w, e.replace('<act>', ACT)))
         return
     _close_step(int(a[0]))
 

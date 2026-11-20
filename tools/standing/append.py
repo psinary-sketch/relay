@@ -8,6 +8,13 @@ NONE RECEIVED). This route appends a source file's text to one of them, verbatim
 rewrites nothing already in the bank. The source is a scratch file the seat writes with the Write tool, holding the author's words as received.
 
   python -X utf8 -u tools/standing/append.py <act> words|preseal <source file>     data/<act>_author_words.txt | _author_words_preseal.txt
+
+v1.38.0, (R374)(5) [K10]: the post-seal events bank, data/<act>_events_postseal.txt, the last of the design list (standing.act.by_design), had
+no route: the close order's step [21] named the act's own events bank, a bank tracked at the lock, and the seat appended there by hand (b763's
+d784c1da, N4 REFUTED). The `events` kind appends what is found after the lock to the bank written after the lock by design, as step [21] now
+names it (standing.act.close_order); the source a scratch file holding the rows, each with its time.
+
+  python -X utf8 -u tools/standing/append.py <act> events <source file>            data/<act>_events_postseal.txt
 """
 import io
 import os
@@ -17,7 +24,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import act as A   # noqa: E402
 
-KINDS = dict(words='author_words', preseal='author_words_preseal')
+KINDS = dict(words='author_words', preseal='author_words_preseal', events='events_postseal')   # ### v1.38.0, (R374)(5) [K10]: events, step [21]'s bank
 
 
 def main(argv):
