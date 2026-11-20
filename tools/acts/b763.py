@@ -2020,14 +2020,29 @@ def _cmd_epoch(ts):
 # ### each matcher over all three, the quoted spans dropped; the author-rulings bank (the author's word and the navigator's rendering), the
 # ### registration ([H], the ruling's text, read by its digest at (d)) and the orders bank (the roster's lines of OPEN_TRAILS, quoted) read
 # ### by neither. The orders bank's foot stands at its :236, not its last line, so it is graded at G-COUNT-ROUTE-PRICED and not here
-N3_GRADED = (('b763_corrigendum.txt', ('ITEMS 91', 'NO WEIGHT LINE', 'THE ENTRY AT FINDINGS :15737')),
-             ('b763_ceiling.txt', ('THE CEILING: READINGS ', ' h OF 16 ; ')),
-             ('b763_onepage_map.txt', ('THE MAP: NAMES 23 OVER 185 LIVE PAPERS', 'CONTROLS 11 OF 11 AS WANTED')),
-             ('b763_page.txt', ('THE PAGE: ENTERED', 'MISSES 0', 'CONTROLS 11 OF 11 AS WANTED')),
+# ### b763: (R373)'s N3 reads eleven clauses -- (a) no file under day1/, phase1.5/, phase2/ or internal/ differing from its bytes at
+# ### 87cab4f2 but the canon, by an appended section; (b) REGISTRY not written; (c) OPEN_TRAILS and FINDINGS each a byte prefix of its new
+# ### bytes; (d) each text of the ruling as entered equal to its text with its fields filled; (e) each sentence of (6) and (7) as entered
+# ### equal to the ruling's with its fields filled from a run; (f) (7)'s statement committed and compiled before a line of its proof; (g) the
+# ### file that carries its proof passing the control that no zero is used; (h) after (9) the roster as WANTED; (i) no sentence of the act
+# ### beyond the canon's section saying anything of zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved; (j) no
+# ### sentence about the control speaking of positivity without naming the side; (k) no figure of the navigator's workspace printed as a
+# ### banked figure. (R369)'s catalogue clause and the novelty matcher stand in no clause of (R373): printed with their yields, graded by
+# ### none. The act's own sentences are its banks', the entry's and its PLACE-papers writes' (OPEN_TRAILS' appended text and the canon's
+# ### section), the quoted spans dropped; the canon's section, the ruling's [C1] entered verbatim, is read by (i)'s words by no centre
+# ### matcher, and by the side matcher with its hits pinned by hand where they are the ruling's own text; the author-rulings bank (the
+# ### author's word and the navigator's renderings) and the orders bank (the roster's lines, quoted) read by neither
+N3_GRADED = (('b763_corrigendum.txt', ('ITEMS 70', 'NO WEIGHT LINE', 'THE ENTRY AT FINDINGS :15797')),
+             ('b763_price.txt', ('THE PRICE TABLE: STEP ZERO', 'THE UPPER SUM')),
+             ('b763_ceiling.txt', ('THE CEILING: READINGS 2', 'THE LAST AFTER COMPONENT 3')),
+             ('b763_standing_v1372.txt', ('v1.37.2: CONTROLS', 'ALL AS WANTED')),
+             ('b763_controls_control.txt', ('THE TOOL`S CONTROLS: ', 'ALL AS WANTED')),
+             ('b763_outcomes.txt', ('THE OUTCOMES: (6) ', 'CONTROLS 12 OF 12')),
              ('b763_author_rulings.txt', ('THE AUTHOR`S RULINGS: WORDS 1', 'NOTHING CHANGED')),
-             ('b763_ledgers.txt', ('THE TRAIL`S LINES: 24 PARAGRAPHS APPENDED, NO LINE MOVING', 'THE ROSTER 84 OPEN, WANTED 84', 'CONTROLS 6 OF 6 AS WANTED')),
+             ('b763_ledgers.txt', ('THE LEDGERS: FILES 2 OF 2 APPENDED, NO LINE MOVING', 'WANTED 83', 'WRITTEN.')),
              ('b763_reproduce.txt', ('ROWS ', 'PLANTED CONTROLS AS WANTED ')),
-             ('b763_citation_check.txt', ('### ### **THE CHECK ', '** (halts ')), ('b763_address_scan.txt', ('PREVIOUS ADDRESS',)))
+             ('b763_citation_check.txt', ('### ### **THE CHECK ', '** (halts ')), ('b763_address_scan.txt', ('PREVIOUS ADDRESS',))) \
+    + tuple(('b763_presend_%s.txt' % s_, ('THE SALT CHECK OF SEND %s PASSED' % s_, 'CONTROLS 30 OF 30')) for s_ in K.PRESEND_SENDS)
 # ### N3 (R367): the matchers over the act's own sentences and the entry's, each with its control, a planted sentence it must catch; the
 # ### novelty matcher by its claim (a result, finding, theorem or proof called new, the earliest of its kind), not the bare word; the centre
 # ### matcher over the clause's own words, "anything of zeta, RH, GRH or Weil positivity on classK for zeta" (data/b757_ferry.txt :51): zeta
@@ -2046,24 +2061,23 @@ N3_LOC = (r'(?:\b(?:RH|GRH)\b|ζ|\bRiemann(?:`s|\'s)? zeta\b|(?<!Epstein )\bzeta
 # ### b759, N3's last clause: "no sentence says the mechanism catalogue has or has not met the zero" -- a negation does not pass it
 N3_CAT = r'\bcatalogue\b[^.;]*\b(?:has|have|had)(?: not)? met\b'
 N3_SIDE = r'\bpositivity\b'
-N3_BANKS = ('stepzero', 'misses', 'corrigendum', 'ceiling', 'onepage_map', 'page', 'ledgers', 'reproduce', 'events', 'defects')
-N3_BANKS_OPTIONAL = ()
-# ### N3 (R367): no figure of the navigator's workspace printed as a banked figure -- the ruling's one figure of the navigator's reading that
-# ### no bank of the act computed, (7)'s price "as the navigator read it, 250 to 550 lines and 4 to 8 dispatches" ((R367)(2), (7)), banked
-# ### in the price table as the navigator's beside the seat's own: in the act's own sentences and the entry's, each occurrence wants the
-# ### navigator named in its sentence
-N3_NAV_FIGS = r'\b250(?: to |-)550\b|\b4(?: to |-)8 dispatches\b'
+N3_BANKS = ('stepzero', 'misses', 'corrigendum', 'price', 'ceiling', 'outcomes', 'ledgers', 'reproduce', 'events', 'defects')
+N3_BANKS_OPTIONAL = ('recut_inputs',)
+# ### N3 (k), (R373): no figure of the navigator's workspace printed as a banked figure -- the ruling's figures of the navigator's own
+# ### reads that no bank of this act computes: the mirror export's MANIFEST md5 the navigator read (SCOPE READ, data/b763_ferry.txt :3,
+# ### "opening a4290f9b"); the roster's 83 the ruling's WANTED is computed by this act's own tool (data/b763_ledgers.txt) and is not one.
+# ### In the act's own sentences and the entry's, each occurrence wants the navigator named in its sentence
+N3_NAV_FIGS = r'\ba4290f9b\b'
 # ### b762, N3 (a) to (f): the trees the act may not change but for the page of (6), added; the three files that take appended bytes alone;
 # ### the page against BLOCK P; each of the ruling's texts by the file it is entered in -- the trail's twenty-two by the trail tool's digests
 # ### (data/b762_ledgers.json entered, sha256 of the filled text, as tools/b762_rulings.py writes them), [G1] and [G2] in REGISTRY, [H] the
 # ### registration's bytes, [W1] in the author-rulings bank; the roster as (7) wants it; the registration alone and before the map's tool
 N3_TREES = ('day1', 'phase1.5', 'phase2', 'internal')
-N3_PREFIXED = ('REGISTRY.md', 'OPEN_TRAILS.md', 'FINDINGS.md')
-N3_DEPOSITED = 'day1/ONE_PAGE_PROOF.md'   # ### the deposited edition's file; its line :3 read by predicate alone, never printed
-N3_OT_KEYS = tuple(['T%d' % i_ for i_ in range(1, 15)] + ['D1'] + ['O%d' % i_ for i_ in range(1, 7)] + ['P1'])
-N3_STEM = ('`day1/ONE_PAGE_v2_0.md`', '`day1/ONE_PAGE_PROOF_v2_0.md`')   # ### (6)'s stem clause: [G1]'s path the page's, nothing else changing
-# ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by path, line and the sentence's
-# ### digest (sha256, 16 hex), each read before the lock; the words not quoted. b762: none pinned before the scores dry
+N3_CANON = 'phase1.5/method/THE_METHOD_CANON.md'   # ### (R373)(9): the one paper this act edits, by an appended section
+N3_PREFIXED = ('OPEN_TRAILS.md', 'FINDINGS.md')   # ### (R373) N3: REGISTRY not written, read apart
+N3_OT_KEYS = tuple(['A%d' % i_ for i_ in range(1, 13)] + ['B1', 'B2'])   # ### (9)'s lines of OPEN_TRAILS; [C1], [I1], [W1] and the build lines read apart
+# ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by (path, line, the sentence's
+# ### digest (sha256, 16 hex)) -> the verdict, each read before the lock; the words not quoted. b763: none pinned before the scores dry
 N3_HAND = {}
 N3_CONTROL = r'\b(?:control|Epstein|zq_\w+)\b|x\^2 \+ xy \+ 6y\^2'   # ### a sentence about the control: the control named, the Epstein function, a zq_ name, the form
 N3_SIDE_NAMED = r'\b(?:arithmetic|spectral|zero|prime-power) side\b'
@@ -2197,30 +2211,49 @@ def _added_lines(old_b, new_b):
 
 
 def _trees_n3():
-    """N3 (a) and (b), (R372): the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act's base
-    (K.PRE_PP, da82a9d5), against the new file of (6) alone, absent at the base and present at HEAD; and each of REGISTRY, OPEN_TRAILS and
-    FINDINGS a byte prefix of its bytes at HEAD. Returns (the files changed, the page added, [(file, a prefix)])."""
+    """N3 (a) to (c), (R373): the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act's base
+    (K.PRE_PP, 87cab4f2), against the canon alone, its bytes at the base a prefix of its bytes at HEAD (a section appended); REGISTRY's bytes
+    at HEAD its bytes at the base (not written); OPEN_TRAILS and FINDINGS each a byte prefix of its bytes at HEAD. Returns (the files
+    changed, the canon appended, REGISTRY unwritten, [(file, a prefix)])."""
     ch_ = [p_.strip() for p_ in g(PP, 'diff', '--name-only', K.PRE_PP, 'HEAD', '--', *N3_TREES).split(NL) if p_.strip()]
-    added_ = not _blob(K.PRE_PP, K.PP_NEW[0]) and bool(_blob('HEAD', K.PP_NEW[0]))
+    cb_, ch2_ = _blob(K.PRE_PP, N3_CANON), _blob('HEAD', N3_CANON)
+    canon_ = bool(cb_) and ch2_.startswith(cb_) and len(ch2_) > len(cb_)
+    rg_ = bool(_blob('HEAD', 'REGISTRY.md')) and _blob(K.PRE_PP, 'REGISTRY.md') == _blob('HEAD', 'REGISTRY.md')
     pre_ = []
     for p_ in N3_PREFIXED:
         b_, h_ = _blob(K.PRE_PP, p_), _blob('HEAD', p_)
         pre_.append((p_, bool(b_) and h_.startswith(b_) and len(h_) > len(b_)))
-    return ch_, added_, pre_
+    return ch_, canon_, rg_, pre_
 
 
-def _page_n3():
-    """N3 (c), (R372)(6): the page at PLACE-papers HEAD equal to BLOCK P (data/b762_text.txt, the lines between NEW>> and <<NEW, LF line
-    ends and one closing LF) with its one field filled: its line :3 the deposited edition's line :3 by its bytes (a predicate; neither line
-    printed nor kept), and with that line put back to the field's own line the bytes BLOCK P's. Returns (equal to BLOCK P, line :3 the
-    deposited file's, the put-back bytes' digest, sha256 16 hex)."""
-    tl_ = rdn('%s_text.txt' % ACT).replace(chr(13), '').split(NL)
-    blk_ = tl_[tl_.index('NEW>>') + 1:tl_.index('<<NEW')]
-    pl_ = _blob('HEAD', K.PP_NEW[0]).decode('utf-8', 'replace').split(NL)
-    dl_ = _blob('HEAD', N3_DEPOSITED).decode('utf-8', 'replace').split(NL)
-    l3_ = len(pl_) > 3 and len(dl_) > 3 and len(blk_) > 3 and pl_[2] == dl_[2] and blk_[2] == '‹BYLINE›' and chr(13) not in pl_[2]
-    pb_ = NL.join(pl_[:2] + blk_[2:3] + pl_[3:])
-    return pb_ == NL.join(blk_) + NL, l3_, _sha16(pb_)
+def _proof_n3(f):
+    """N3 (f) and (g), (R373)(7): the statement of (7) committed and compiled before a line of its proof -- its commit on push-b763-arith,
+    its run read compiled, and the branch's tip the statement's commit where no proof was sent (no commit after it, so no line of a proof),
+    or the proof's commit after the statement's run where one was; and the file that carries the proof passing the control that no zero is
+    used, VACUOUS where no proof was written, the statement file's own control read beside it (data/b763_presend_s7.txt). Returns (compiled,
+    before, a proof sent, the proof file's control: PASSED | FAILED | VACUOUS, the statement file's control, the statement's commit, the tip)."""
+    kc_ = dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS)
+    st_, tip_ = kc_.get('arith') or '', K.ARITH_BRANCH[1]
+    out_ = str(f['oc_arith'].get('outcome') or '')
+    proof_ = out_.startswith('PROOF')
+    compiled_ = out_ == 'STATEMENT COMPILED, NO PROOF SENT' or proof_
+    before_ = bool(st_) and (tip_.startswith(st_) if not proof_ else bool(f['oc_arith'].get('proof_after_statement')))
+    pf_ = (f['ps'].get('s7p') or {}).get('nozero') if proof_ else 'VACUOUS'
+    return compiled_, before_, proof_, pf_ or 'UNREAD', f['ps']['s7']['nozero'], st_, tip_[:8]
+
+
+def _sentences_n3(f, text, conv):
+    """N3 (e), (R373)(6) and (7): each sentence of (6) and (7) as entered equal to the ruling's with its fields filled from a run -- each
+    compiled statement's sentence and (7)'s, as the outcomes bank composed them from the ferry's text (data/b763_outcomes.json), whole in the
+    entry, no field left, and the run id each cites one of the act's dispatch rows. Returns [(key, whole in the entry, filled, its run read)]."""
+    runs_ = set(r_ for _i, _n, r_, _s, _a, _b, _h in f['runs'])
+    rows_ = []
+    for s_ in [s_ for s_ in f['oc_form'].get('statements') or [] if s_.get('compiled')] + ([dict(f['oc_arith'], key='(7)')] if f['oc_arith'].get('sentence') else []):
+        t_ = s_.get('sentence') or ''
+        rid_ = re.findall(r'\brun (\d{8,})', t_)
+        rows_.append((s_.get('key'), bool(t_) and (t_ in text or conv(t_) in text), bool(t_) and not s_.get('unfilled') and not re.search(r'<[a-z][^>]*>', t_),
+                      bool(rid_) and all(x_ in runs_ for x_ in rid_)))
+    return rows_
 
 
 def _ferry_texts():
@@ -2236,77 +2269,67 @@ def _ferry_texts():
 
 
 def _texts_n3():
-    """N3 (d), (R372)(5)-(9): each text of the ruling as entered equal to the ruling's text with its fields filled -- [T1] to [T14], [D1],
-    [O1] to [O6] ([O6]'s <d> the trail json's d) and [P1], each whole as a line of OPEN_TRAILS at HEAD and by the digest the trail tool banked
-    (data/b762_ledgers.json entered); [G1] and [G2], <DATE> the act's date and [G1]'s path the page's by (6)'s stem clause, each whole as a
-    line of REGISTRY at HEAD; [H], <DATE> filled, the registration's bytes with one closing LF; [W1], each of its lines whole, stripped, as
-    a line of the author-rulings bank. Returns [(key, file, ok)]."""
+    """N3 (d), (R373): each text of the ruling as entered equal to the ruling's text with its fields filled -- [A1] to [A12], [B1] and [B2],
+    each whole as a line of OPEN_TRAILS at HEAD and by the digest the trail tool banked (data/b763_ledgers.json entered); [C1], <DATE> the
+    ledgers' date, whole in the canon at HEAD and by its digest; [I1], its cluster field the corrigendum's reading (data/b763_corrigendum.txt,
+    "[I1] CLUSTER ..."), whole in FINDINGS at HEAD; [W1], each of its lines whole, stripped, as a line of the author-rulings bank; and each
+    build line ([X1] to [X3] and the statement file's, from data/b763_xlines.json) a line of OPEN_TRAILS at HEAD by the digest the trail tool
+    banked, no field left. Returns [(key, file, ok)]."""
     X_ = _ferry_texts()
     lj_ = jl('%s_ledgers.json' % ACT) or {}
     ej_ = lj_.get('entered') or {}
-    ot_ = _blob('HEAD', 'OPEN_TRAILS.md').decode('utf-8', 'replace').replace(chr(13), '').split(NL)
-    rg_ = _blob('HEAD', 'REGISTRY.md').decode('utf-8', 'replace').replace(chr(13), '').split(NL)
+    ot_ = _blob('HEAD', 'OPEN_TRAILS.md').decode('utf-8', 'replace').replace(chr(13), '')
+    otl_ = ot_.split(NL)
+    cn_ = _blob('HEAD', N3_CANON).decode('utf-8', 'replace').replace(chr(13), '')
+    fd_ = _blob('HEAD', 'FINDINGS.md').decode('utf-8', 'replace').replace(chr(13), '')
     rows_ = []
     for k_ in N3_OT_KEYS:
-        t_ = (X_.get(k_) or '').replace('<d>', str(lj_.get('d')))
-        rows_.append((k_, 'OPEN_TRAILS.md', bool(t_) and not re.search(r'<[a-z]+>|<DATE>', t_) and t_ in ot_ and _sha16(t_) == ej_.get(k_)))
-    for k_ in ('G1', 'G2'):
-        t_ = (X_.get(k_) or '').replace('<DATE>', K.DATE).replace(*N3_STEM)
-        rows_.append((k_, 'REGISTRY.md', bool(t_) and '<DATE>' not in t_ and t_ in rg_))
-    with open(os.path.join(D, '%s_registration.txt' % ACT), 'rb') as fh_:
-        rb_ = fh_.read()
-    h_ = (X_.get('H') or '').replace('<DATE>', K.DATE)
-    rows_.append(('H', 'data/%s_registration.txt' % ACT, bool(h_) and '<DATE>' not in h_ and rb_ == (h_ + NL).encode('utf-8')))
+        t_ = X_.get(k_) or ''
+        rows_.append((k_, 'OPEN_TRAILS.md', bool(t_) and not re.search(r'<[A-Za-z][^>]*>', t_) and t_ in otl_ and _sha16(t_) == ej_.get(k_)))
+    c1_ = (X_.get('C1') or '').replace('<DATE>', str(lj_.get('date') or K.DATE))
+    rows_.append(('C1', N3_CANON, bool(c1_) and '<DATE>' not in c1_ and (NL + c1_ + NL) in (NL + cn_ + NL) and _sha16(c1_) == ej_.get('C1')))
+    cl_ = re.search(r'\[I1\] CLUSTER ([^;*]+?) ;', rdn('%s_corrigendum.txt' % ACT))
+    i1_ = re.sub(r'<the cluster [^>]*>', cl_.group(1).strip(), X_.get('I1') or '') if cl_ else ''
+    rows_.append(('I1', 'FINDINGS.md', bool(i1_) and not re.search(r'<the cluster', i1_) and i1_ in fd_))
     aw_ = [l_.strip() for l_ in rdn('%s_author_rulings.txt' % ACT).replace(chr(13), '').split(NL)]
     w_ = [l_.strip() for l_ in (X_.get('W1') or '').split(NL) if l_.strip()]
     rows_.append(('W1', 'data/%s_author_rulings.txt' % ACT, bool(w_) and all(l_ in aw_ for l_ in w_)))
+    shas_ = dict((_sha16(l_), l_) for l_ in otl_ if l_.strip())
+    for k_, s_, _f, _r in lj_.get('build_lines') or []:
+        rows_.append((k_, 'OPEN_TRAILS.md', s_ in shas_ and not re.search(r'<[a-z][^>]*>', shas_[s_])))
     return rows_
 
 
 def _orders_n3():
-    """N3 (e), (R372)(7): after (7) the roster as WANTED -- W-ORD-EPSTEIN-COUNT-LEAN CLOSED; the orders of [T1] to [T14] and [P1] OPEN; the
-    six (8) and (5) enter OPEN; no other order's status moved; 84 open with [O6] -- read from the trail tool's roster in memory before its
-    write, each of its rows as wanted (data/b762_ledgers.json roster), and from tools/standing/orders.py's foot at HEAD after it
-    (data/b762_orders.txt :236). Returns (ok, [(row, as wanted)])."""
+    """N3 (h), (R373)(9): after (9) the roster as WANTED -- W-ORD-GW-IMPORT and W-ORD-TABLE-SHAPE CLOSED, W-ORD-PREMISE-POSITIONS entered
+    OPEN, no other order's status moved, 83 open with the lines up to [B2] -- read from the trail tool's roster in memory before its write,
+    each of its rows as wanted (data/b763_ledgers.json roster), and from tools/standing/orders.py's foot at HEAD after it (data/b763_orders.txt),
+    its open count the roster's with the build lines beside. Returns (ok, [(row, as wanted)])."""
     ro_ = (jl('%s_ledgers.json' % ACT) or {}).get('roster') or {}
     ft_ = re.search(r'(?m)^### ### \*\*ORDERS (\d+) ; OPEN (\d+) ; CLOSED (\d+) ;', rdn('%s_orders.txt' % ACT))
     rows_ = ro_.get('rows') or []
-    ok_ = len(rows_) == 5 and all(r_[-1] is True for r_ in rows_) and list(ro_.get('moved') or []) == ['W-ORD-EPSTEIN-COUNT-LEAN'] \
-        and list(ro_.get('closing') or []) == ['W-ORD-EPSTEIN-COUNT-LEAN', 'OPEN', 'CLOSED'] and len(ro_.get('added') or []) == 6 \
-        and ro_.get('after_open') == ro_.get('want') == 84 and bool(ft_) and int(ft_.group(2)) == 84
+    ok_ = len(rows_) == 4 and all(r_[-1] is True for r_ in rows_) and ro_.get('mid_open') == ro_.get('want') == 83 \
+        and bool(ft_) and int(ft_.group(2)) == ro_.get('after_open')
     return ok_, [(r_[0], r_[-1]) for r_ in rows_]
 
 
-def _registration_n3():
-    """N3 (f), (R372)(9): the registration committed alone (the worklist's chain row, its one file the bank) and before the map's tool (its
-    commit time before tools/b762_onepage_map.py's first add). Returns (alone, before, the commit)."""
-    rc_ = dict(K.CHAIN)['registration']
-    fs_ = [x_.strip() for x_ in g(ROOT, 'show', '--name-only', '--format=', rc_).split(NL) if x_.strip()]
-    ct_ = lambda h_: int((g(ROOT, 'log', '-1', '--format=%ct', h_) or '0').strip() or 0)
-    fa_ = [h_ for h_ in g(ROOT, 'log', '--diff-filter=A', '--format=%H', '--', 'tools/b763_onepage_map.py').split() if h_.strip()]
-    return fs_ == ['data/%s_registration.txt' % ACT], bool(fa_) and 0 < ct_(rc_) < ct_(fa_[-1]), rc_
-
-
 def _pp_units():
-    """N3 (g) over the act's PLACE-papers writes beyond the page's own text: the trail lines' appended text at HEAD (OPEN_TRAILS from the
-    json's first_new to lines_after) and [G1] and [G2] at REGISTRY's end, each line's quoted spans dropped as _own_sentences drops them, each
-    line cut at . ; ? before a space, for the centre matcher (outside a negation), the side matcher (a line a dated record heads left out,
-    (R368)(9); graded by no clause of (R372)) and the catalogue matcher (printed); a hit named by path, line and the sentence's digest, never
-    by its words, passing only by a hand verdict of N3_HAND. Returns (units read, hits (place, digest, kinds, verdict or None), the
-    catalogue's hits by place)."""
+    """N3 (i) and (j) over the act's PLACE-papers writes: the appended text at HEAD of OPEN_TRAILS and of the canon (each from the trail
+    json's first_new to lines_after), each line's quoted spans dropped as _own_sentences drops them, each line cut at . ; ? before a space,
+    for the centre matcher (outside a negation; the canon's section left out by (i)'s own words, "beyond the canon's section"), the side
+    matcher (a line a dated record heads left out, (R368)(9)) and the catalogue matcher (printed); a hit named by path, line and the
+    sentence's digest, never by its words, passing only by a hand verdict of N3_HAND. Returns (units read, hits (place, digest, kinds,
+    verdict or None), the catalogue's hits by place)."""
     lines_ = []
     for x_ in (jl('%s_ledgers.json' % ACT) or {}).get('files') or []:
         hl_ = _blob('HEAD', x_['path']).decode('utf-8', 'replace').replace(chr(13), '').split(NL)
         lines_ += [(x_['path'], n_, hl_[n_ - 1]) for n_ in range(x_['first_new'], x_['lines_after'] + 1) if 0 < n_ <= len(hl_)]
-    rl_ = _blob('HEAD', 'REGISTRY.md').decode('utf-8', 'replace').replace(chr(13), '').split(NL)
-    gt_ = [x_[2] for x_ in (jl('%s_page.json' % ACT) or {}).get('g') or []]
-    lines_ += [('REGISTRY.md', n_, l_) for n_, l_ in enumerate(rl_, 1) if l_ in gt_]
     units_, hits_, cat_ = 0, [], []
     for p_, n_, l_ in lines_:
         dated_ = _dated_line(l_)
         for x_ in _own_sentences(l_):
             units_ += 1
-            kinds_ = [k_ for k_, bad_ in (('centre', bool(re.search(N3_LOC, x_)) and not re.search(N3_NEG, x_)),
+            kinds_ = [k_ for k_, bad_ in (('centre', p_ != N3_CANON and bool(re.search(N3_LOC, x_)) and not re.search(N3_NEG, x_)),
                                           ('side', not dated_ and _side_bad(x_))) if bad_]
             d_ = _sha16(x_)
             if re.search(N3_CAT, x_):
@@ -2316,19 +2339,23 @@ def _pp_units():
     return units_, hits_, cat_
 #⟪END⟫
 #⟪SECTION record 15⟫
-    """N3 (R373): "no file under day1/, phase1.5/, phase2/ or internal/ differs from its bytes at da82a9d5, the new file of (6) alone added;
-    REGISTRY, OPEN_TRAILS and FINDINGS are each a byte prefix of their new bytes; the page equals BLOCK P with its one field filled; each text
-    of this ruling as entered equals the ruling's text with its fields filled; after (7) the roster reads as WANTED; the registration is
-    committed alone and before the map's tool; no sentence of the act beyond the page's own text says that anything of zeta, RH, GRH or Weil
-    positivity on classK for zeta holds, fails or moved." Read: (a) the files changed under the four trees, the page alone, absent at the
-    base; (b) the three files each a byte prefix; (c) the page against BLOCK P, its line :3 the deposited file's by predicate; (d) the
-    twenty-two trail texts by line and by the trail tool's digests, [G1] and [G2] in REGISTRY, [H] the registration's bytes, [W1] in its bank,
-    and the sentences of (5), (6) and (9) whole in the entry; (e) the roster's rows as wanted and its foot at HEAD 84 open; (f) the
-    registration's commit its one file, before the map tool's first add; (g) the centre matcher over the act's own sentences -- its banks',
-    the entry's and its PLACE-papers writes' beyond the page -- a PLACE-papers hit passing by a pinned hand verdict alone; each bank's foot
-    carrying its grade; each matcher's control caught; the entry's last line this act's own in the canon's form; the banks' nouns in the
-    entry; the root prompt's sentences about the entry the composer's ((R373)(13), "composed from the banks"). The side, novelty, catalogue
-    and navigator-figure matchers printed with their yields and graded by no clause of (R373)."""
+    """N3 (R373): "no file under day1/, phase1.5/, phase2/ or internal/ differs from its bytes at 87cab4f2, the canon alone changed and by an
+    appended section; REGISTRY is not written; OPEN_TRAILS and FINDINGS are each a byte prefix of their new bytes; each text of this ruling
+    as entered equals the ruling's text with its fields filled; each sentence of (6) and (7) as entered equals the ruling's with its fields
+    filled from a run; the statement of (7) is committed and compiled before a line of its proof; the file that carries its proof passes the
+    control that no zero is used; after (9) the roster reads as WANTED; no sentence of the act beyond the canon's section says that anything
+    of zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved; no sentence about the control speaks of positivity without
+    naming the side; no figure of the navigator's workspace is printed as a banked figure." Read: (a) the files changed under the four trees,
+    the canon alone, its base bytes a prefix of its new; (b) REGISTRY's bytes at HEAD its bytes at the base; (c) OPEN_TRAILS and FINDINGS each
+    a byte prefix; (d) [A1] to [A12], [B1], [B2] by line and by the trail tool's digests, [C1] in the canon, [I1] in FINDINGS, [W1] in its bank,
+    each build line by its digest; (e) each compiled statement's sentence and (7)'s whole in the entry, filled, its run read; (f) (7)'s
+    statement's commit on its branch, compiled, before any commit of a proof; (g) the proof file's control, VACUOUS where no proof was written,
+    the statement file's PASSED beside it; (h) the roster's rows as wanted, 83 open with the lines up to [B2], the foot at HEAD the roster's
+    with the build lines; (i) the centre matcher over the act's own sentences -- its banks', the entry's and its PLACE-papers writes' beyond
+    the canon's section -- a PLACE-papers hit passing by a pinned hand verdict alone; (j) the side matcher over the same and the canon's
+    section; (k) the navigator's figure with no navigator named; each bank's foot carrying its grade; each matcher's control caught; the
+    entry's last line (10)'s INTEGRATION line; the banks' nouns in the entry; the root prompt's sentences about the entry the composer's
+    ((R373)(13), "composed from the banks"). The novelty and catalogue matchers printed with their yields and graded by no clause of (R373)."""
 #⟪END⟫
 #⟪SECTION record 16⟫
     for n, words in N3_GRADED:
@@ -2350,8 +2377,8 @@ def _pp_units():
         nsides_ += _side_sentences(t_)   # ### (R368)(9): the lines headed by a dated record left out of the side matcher alone
         navs_ += _nav_units(t_)   # ### defect (w): the navigator's figures read with each table row whole
     neg_ = N3_NEG
-    row_n_ = '  (7) navigator  AS THE NAVIGATOR READ IT: 250-550 lines and 4-8 dispatches; hours (x) | lines 250-550 | dispatches 4-8\n'
-    row_x_ = '  (7) wide  THE WIDE DIRECTION: 250-550 lines and 4-8 dispatches; hours (x) | lines 250-550 | dispatches 4-8\n'
+    row_n_ = '  mirror navigator  AS THE NAVIGATOR READ IT: the MANIFEST md5; its head | md5 a4290f9b\n'
+    row_x_ = '  mirror  THE EXPORT: the MANIFEST md5; its head | md5 a4290f9b\n'
     ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The join is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
                  # ### b759: (5)'s ruled sentence, its head as the ruling writes it, passed; the same words for zeta caught
@@ -2371,67 +2398,66 @@ def _pp_units():
                      'failure held numerically at b726`s two windows, stated by no declaration then; true of its act\n      sha256 92c4460ac53deb3b\n')),
                  quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
                  and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')),
-                 nav=_nav_bad('The wide direction took 250 to 550 lines.') and not _nav_bad('The navigator read 250 to 550 lines and 4 to 8 dispatches.')
-                 and not _nav_bad('The wide direction took 1250 to 5500 lines.'),
+                 nav=_nav_bad('The export`s MANIFEST md5 opens a4290f9b.') and not _nav_bad('The navigator read the MANIFEST md5 opening a4290f9b.')
+                 and not _nav_bad('The md5 opens a4290f9bc.'),
                  nav_row=any(_nav_bad(x_) for x_ in _own_sentences(row_n_)) and not any(_nav_bad(x_) for x_ in _nav_units(row_n_))
                  and any(_nav_bad(x_) for x_ in _nav_units(row_x_)))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
-    side_ = [x[:80] for x in sents + nsides_ if _side_bad(x)]   # ### (R368)(9): the banks' sentences with the dated records' lines left out
-    cat_ = [x[:80] for x in sents + nsents_ if re.search(N3_CAT, x)]   # ### (R369)'s catalogue clause: printed, graded by no clause of (R370)
-    # ### (a), (b) the trees and the prefixed files; (c) the page; (d) the ruling's texts and the entry's sentences; (e) the roster; (f) the
-    # ### registration; (g) the PLACE-papers writes beyond the page
-    tr_ch_, tr_add_, tr_pre_ = _trees_n3()
-    trees_ok_ = tr_ch_ == [K.PP_NEW[0]] and tr_add_
-    pre_ok_ = len(tr_pre_) == 3 and all(o_ for _p, o_ in tr_pre_)
-    pg_eq_, pg_l3_, pg_pb_ = _page_n3()
-    page_ok_ = pg_eq_ and pg_l3_ and pg_pb_ == f['pg_put'] == '4fdae6951f0f9527'
+    side_ = [x[:80] for x in sents + nsides_ if _side_bad(x)]   # ### (R368)(9): the banks' sentences with the dated records' lines left out; (R373) N3 (j), graded
+    cat_ = [x[:80] for x in sents + nsents_ if re.search(N3_CAT, x)]   # ### (R369)'s catalogue clause: printed, graded by no clause of (R373)
+    # ### (a) to (c) the trees, REGISTRY and the prefixed files; (d) the ruling's texts; (e) the sentences of (6) and (7); (f), (g) the
+    # ### statement before the proof and the control that no zero is used; (h) the roster; (i), (j) the PLACE-papers writes; (k) the navigator
+    tr_ch_, canon_ok_, reg_ok_, tr_pre_ = _trees_n3()
+    trees_ok_ = tr_ch_ == [N3_CANON] and canon_ok_
+    pre_ok_ = len(tr_pre_) == 2 and all(o_ for _p, o_ in tr_pre_)
     tx_rows_ = _texts_n3()
+    se_rows_ = _sentences_n3(f, text, conv)
+    pf_ = _proof_n3(f)
+    pf_ok_ = pf_[0] and pf_[1] and pf_[3] in ('PASSED', 'VACUOUS') and pf_[4] == 'PASSED'
     ord_ok_, ord_rows_ = _orders_n3()
-    rg_alone_, rg_before_, rg_c_ = _registration_n3()
     ppn_, pph_, ppcat_ = _pp_units()
     ppbad_ = [h_ for h_ in pph_ if not h_[3] and 'centre' in h_[2]]
     ppside_ = [h_ for h_ in pph_ if not h_[3] and 'side' in h_[2]]
-    led_ = [(k_, bool(s_) and (s_ in text or conv(s_) in text)) for k_, s_ in (('(5) the map', f['map_sentence']), ('(6) the page', f['pg_sentence']),
-                                                                               ('(9) the registration', f['reg_sentence']))]
     navfig_ = [x[:80] for x in navs_ + sents if _nav_bad(x)]
     il_ = _integ_line(f)
     integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, il_, conv)
-    nouns_ = [w_ for w_ in ('data/%s_corrigendum.txt' % ACT, 'data/%s_registration.txt' % ACT, 'data/%s_onepage_map.txt' % ACT, 'data/%s_page.txt' % ACT,
+    nouns_ = [w_ for w_ in ('data/%s_corrigendum.txt' % ACT, 'data/%s_price.txt' % ACT, 'data/%s_ceiling.txt' % ACT, 'data/%s_outcomes.txt' % ACT,
                             'data/%s_author_rulings.txt' % ACT, 'data/%s_ledgers.txt' % ACT, 'data/%s_orders.txt' % ACT, 'data/%s_reproduce.txt' % ACT,
-                            'data/%s_ceiling.txt' % ACT, K.PP_NEW[0], 'H-ONSET-DENSITY', 'W-ORD-EPSTEIN-COUNT-LEAN', 'W-ORD-LI-ARITH')
+                            'W-ORD-LI-ARITH', 'W-ORD-STATEMENT-FILE')
               if w_ not in text]
     ans_ = rdn('%s_author_answers.txt' % ACT, optional=True) or ''
     pr_ = [l_.split('): ', 1)[1] for l_ in ans_.split(NL) if l_.startswith('### PROMPT ') and '): ' in l_][-1:]
     unb_ = __import__('standing.rootprompt', fromlist=['entry_unbacked']).entry_unbacked(pr_[0], text) if pr_ else None
-    # ### b762: (R372)'s seven clauses and the carried ones beside them; side_, more_, first_, cat_ and navfig_ printed, graded by no clause of (R372)
-    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and not loc_ and trees_ok_ and pre_ok_ and page_ok_ and len(tx_rows_) == len(N3_OT_KEYS) + 4 \
-        and all(o_ for _k, _p, o_ in tx_rows_) and ord_ok_ and rg_alone_ and rg_before_ and not ppbad_ \
-        and all(o_ for _k, o_ in led_) and integ_ and not nouns_   # ### every clause but the root prompt's
+    # ### b763: (R373)'s eleven clauses and the carried ones beside them; more_, first_ and cat_ printed, graded by no clause of (R373)
+    ok_rest = all(o for _n, o in graded) and all(ctl3_.values()) and not loc_ and not side_ and trees_ok_ and reg_ok_ and pre_ok_ \
+        and len(tx_rows_) == len(N3_OT_KEYS) + 3 + f['led_build'] and all(o_ for _k, _p, o_ in tx_rows_) \
+        and bool(se_rows_) and all(all(r_[1:]) for r_ in se_rows_) and pf_ok_ and ord_ok_ and not ppbad_ and not ppside_ and not navfig_ \
+        and integ_ and not nouns_   # ### every clause but the root prompt's
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
         'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, a navigator`s price caught where no navigator is named, passed where one is, and a longer number passed, a table row naming the navigator before its semicolon caught by the sentence cut and passed read whole, and a row naming none caught): %s; '
-        '(a) the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act`s base %s: %s, against the new file of (6) alone, absent at the base and present at HEAD (%s): %s; '
-        '(b) REGISTRY, OPEN_TRAILS and FINDINGS each a byte prefix of its bytes at HEAD: %s: %s; '
-        '(c) the page %s at HEAD equal to BLOCK P (relay data/%s_text.txt, between NEW>> and <<NEW) with its one field filled: %s; its line :3 the deposited edition`s line :3 by its bytes (a predicate, neither line printed): %s; with that line put back, sha256 %s against (6)`s %s: %s; '
-        '(d) each text of the ruling as entered equal to the ruling`s text with its fields filled (<d> %s, DATE %s, [G1]`s path the page`s): %s; the sentences of (5), (6) and (9) whole in the entry: %s; '
-        '(e) the roster after (7) as WANTED, the trail tool`s rows (relay data/%s_ledgers.json) and tools/standing/orders.py`s foot at HEAD (relay data/%s_orders.txt): %s: %s; '
-        '(f) the registration committed alone at %s and before the map`s tool: alone %s, before %s; '
-        'over %d of the act`s own sentences in its banks and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation (graded by no clause of (R373)): %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant (graded by no clause of (R373)): %s; (g) a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; a sentence about a result at the control speaking of positivity with no side named, the lines a dated record heads left out ((R368)(9), graded by no clause of (R373)): %s; a sentence saying the mechanism catalogue has or has not met the zero ((R369)`s clause, graded by no clause of (R373)): %s, in the PLACE-papers writes %s; '
-        'over %d units of the act`s PLACE-papers writes beyond the page (the trail lines` appended text and [G1] and [G2], the quoted spans dropped), the hits of the centre and side matchers by place and digest, the words not quoted: %s, of the centre matcher passed by no hand verdict: %s (of the side matcher, graded by no clause: %s); '
-        'a sentence printing a navigator`s price with no navigator named (graded by no clause of (R373)): %s; the entry`s last line this act`s own in the canon`s form (%s; read over the heading`s names %s, %s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
+        '(a) the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act`s base %s: %s, against the canon alone, its bytes at the base a prefix of its bytes at HEAD (%s): %s; '
+        '(b) REGISTRY`s bytes at HEAD its bytes at the base, not written: %s; (c) OPEN_TRAILS and FINDINGS each a byte prefix of its bytes at HEAD: %s: %s; '
+        '(d) each text of the ruling as entered equal to the ruling`s text with its fields filled (DATE %s, [I1]`s cluster the corrigendum`s), and each build line by the trail tool`s digest: %s; '
+        '(e) each sentence of (6) and (7) as entered whole in the entry, filled, its run among the act`s dispatch rows: %s; '
+        '(f) (7)`s statement committed at %s on its branch, its tip %s, compiled %s, before any line of a proof %s, a proof sent %s; (g) the control that no zero is used over the file that carries the proof: %s (the statement file`s own control %s); '
+        '(h) the roster after (9) as WANTED, the trail tool`s rows (relay data/%s_ledgers.json) and tools/standing/orders.py`s foot at HEAD (relay data/%s_orders.txt): %s: %s; '
+        'over %d of the act`s own sentences in its banks and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation (graded by no clause of (R373)): %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant (graded by no clause of (R373)): %s; (i) a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; (j) a sentence about the control speaking of positivity with no side named, the lines a dated record heads left out ((R368)(9)): %s; a sentence saying the mechanism catalogue has or has not met the zero ((R369)`s clause, graded by no clause of (R373)): %s, in the PLACE-papers writes %s; '
+        'over %d units of the act`s PLACE-papers writes (OPEN_TRAILS` appended text and the canon`s section, the quoted spans dropped, the canon`s section read by no centre matcher by (i)`s words), the hits of the centre and side matchers by place and digest, the words not quoted: %s, of the centre matcher passed by no hand verdict: %s, of the side matcher passed by no hand verdict: %s; '
+        '(k) a sentence printing a figure of the navigator`s workspace with no navigator named: %s; the entry`s last line (10)`s INTEGRATION line (%s; %s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
-            K.PRE_PP[:8], tr_ch_ or 'NONE', tr_add_, trees_ok_,
-            ', '.join('%s %s' % x_ for x_ in tr_pre_), pre_ok_,
-            K.PP_NEW[0], ACT, pg_eq_, pg_l3_, pg_pb_, f['pg_put'], page_ok_,
-            (jl('%s_ledgers.json' % ACT) or {}).get('d'), K.DATE, ', '.join('%s in %s %s' % x_ for x_ in tx_rows_), ', '.join('%s %s' % x_ for x_ in led_),
+            K.PRE_PP[:8], tr_ch_ or 'NONE', canon_ok_, trees_ok_,
+            reg_ok_, ', '.join('%s %s' % x_ for x_ in tr_pre_), pre_ok_,
+            (jl('%s_ledgers.json' % ACT) or {}).get('date'), ', '.join('%s in %s %s' % x_ for x_ in tx_rows_),
+            ', '.join('%s whole %s, filled %s, its run read %s' % x_ for x_ in se_rows_) or 'NONE',
+            pf_[5][:8], pf_[6], pf_[0], pf_[1], pf_[2], pf_[3] + (' (no file of a proof written, so the clause reads nothing: VACUOUS)' if pf_[3] == 'VACUOUS' else ''), pf_[4],
             ACT, ACT, '; '.join('%s %s' % x_ for x_ in ord_rows_) or 'NONE', ord_ok_,
-            rg_c_[:8], rg_alone_, rg_before_,
             len(nsents_), more_ or 'NONE', src, first_ or 'NONE', loc_ or 'NONE', side_ or 'NONE', cat_ or 'NONE', ppcat_ or 'NONE',
             ppn_, '; '.join('%s %s %s%s' % (p_, d_, k_, (' HAND: %s' % v_) if v_ else '') for p_, d_, k_, v_ in pph_) or 'NONE', ppbad_ or 'NONE', ppside_ or 'NONE',
-            navfig_ or 'NONE', il_, ', '.join(_INTEG.get('names') or []) or 'none', _INTEG.get('why') or '-', integ_, nouns_ or 'NONE',
+            navfig_ or 'NONE', il_, _INTEG.get('why') or '-', integ_, nouns_ or 'NONE',
             'UNREAD (no root prompt banked yet)' if unb_ is None else (unb_ or 'NONE')))
 #⟪END⟫
 #⟪SECTION record 22⟫
@@ -3325,60 +3351,106 @@ def _trail_text_b762():
 #⟪END⟫
 #⟪SECTION report 1⟫
 Carried from b762's standing report by the fold (tools/standing/fold/report.tpl) and its lines rewritten for b763: b762's lines read banks this
-act does not write, and are not carried; the lines are b763's: no KERNEL line, no kernel touched and no run read ((R373)(12)); no standing
-version ((R373)(11)); the reproduction run by its controls (CERTIFIED); the corrigendum, the registration, the map, the page, and the
-author's word with the trail's lines and the roster (REGISTERED); the draft (HELD).
+act does not write, and are not carried; the lines are b763's: the form's five statements landed at v0.42, the statement file built, (7)'s
+statement compiled before its proof and each order of (8) built in full, each read from the runner by its run id (KERNEL); tools/standing/
+v1.37.2, the dispatch tool, the pre-send reads and the reproduction run by their controls (CERTIFIED); the corrigendum, the price with the
+ceiling's two readings, and the author's words with the canon's section, the trail's lines and the roster (REGISTERED); what did not land,
+(7)'s proof not sent, the orders of (8) carried by name, and the draft (HELD).
 #⟪END⟫
 #⟪SECTION report 2⟫
-    # ### b762's lines, each from the record tool's figures over b762's banks (REC._figs), the record's guard first; no KERNEL line
+    # ### b763's lines, each from the record tool's figures over b763's banks (REC._figs), the record's guard first
     REC._guard(f)
-    # ------------------------------------------------------------------ REGISTERED: (R372)(1), the corrigendum for b761 (the seat the template appends)
-    sk = seat('%s_corrigendum.txt' % ACT, '**ITEMS ')
-    keys['CORRIGENDUM'] = ('REGISTERED -- THE CORRIGENDUM FOR b762, SHORT: %s items, CLAIM %s, CLOSE %s, %s repeats; b762`s %s CLAIM items printed in full; the findings after its lock entered as events, the navigator`s own as CLAIM; at FINDINGS :%s, the corrigenda bank`s row (%s); PLACE-papers %s. SOURCE %s.' % (
-        f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_claim'], f['corr_line'], f['corr_row'], K.C1_PP[:8], sk['text']))
+    fo_, sf_, ar_ = f['oc_form'], f['oc_sf'], f['oc_arith']
+    n6_ = sum(1 for s_ in fo_.get('statements') or [] if s_.get('compiled'))
+    # ------------------------------------------------------------------ KERNEL or HELD: (R373)(6), the five statements, read by run id (the seat the template appends)
+    sk = seat('%s_outcomes.txt' % ACT, '## (6) BUILD ONE')
+    keys['FORM'] = (('KERNEL -- THE FINITE AND SIGNED PARTS OF THE FORM LANDED: %d of 5 statements compiled (%s), %s cut at main`s read-back = %s (tag object %s), run %s, each new name`s axioms line within propext, Classical.choice and Quot.sound, no sorryAx; the grade %s, binding no premise, read against (6) from each compiled statement before it was written. SOURCE %s.' % (
+        n6_, ', '.join(s_.get('key') for s_ in fo_.get('statements') or [] if s_.get('compiled')), fo_.get('tag'), (fo_.get('peel') or '')[:8], (fo_.get('tag_object') or '-')[:8], fo_.get('run'),
+        ', '.join(sorted(set(s_.get('grade') or '-' for s_ in fo_.get('statements') or [] if s_.get('compiled')))), sk['text'])) if f['oc_words'][0] == 'LANDED, COMPILED' else (
+        'HELD -- (6), NOT LANDED AS ORDERED: %s, statements compiled %d of 5, main unmoved. SOURCE %s.' % (f['oc_words'][0].lower(), n6_, sk['text'])))
+    # ------------------------------------------------------------------ KERNEL or HELD: the statement file, by the author's word of 2026-11-19
+    ss = seat('%s_outcomes.txt' % ACT, 'THE STATEMENT FILE (the author`s word')
+    keys['SF'] = (('KERNEL -- THE STATEMENT FILE BUILT, BY THE AUTHOR`S WORD OF 2026-11-19: SIDEExplicitFormula/OnePageStatement.lean, One Page v2.0`s 19 rows of SIDE-explicit-formula each stated apart from its proof and closed by the name that proves it, the three rows of SIDE-kernel v1.5 named in its header and stated nowhere; its 19 names within the standard three at run %s, landed with %s; W-ORD-STATEMENT-FILE CARRIED, its object the same file for the three rows of SIDE-kernel. SOURCE %s.' % (
+        (sf_.get('runs') or ['-'])[-1], fo_.get('tag') or '-', ss['text'])) if f['oc_words'][1] == 'BUILT' else (
+        'HELD -- THE STATEMENT FILE, NOT BUILT: %s; W-ORD-STATEMENT-FILE CARRIED whole with the build`s reading. SOURCE %s.' % (f['oc_words'][1].lower(), ss['text'])))
+    seats.append(ss)
+    # ------------------------------------------------------------------ KERNEL or HELD: (R373)(7), the statement of the control's failure, before its proof
+    sa = seat('%s_outcomes.txt' % ACT, '## (7) THE CENTRE')
+    keys['ARITH'] = (('KERNEL -- THE STATEMENT OF THE CONTROL`S FAILURE COMPILED BEFORE ITS PROOF: ControlFailureB (FORM B, at a named test function in classK and a named width) and ControlFailureA n (FORM A), each a definition of a Prop with no proof and no sorry, committed on push-b763-arith at %s before any line of a proof, run %s, its names within the standard three; the control that no zero is used %s over its file. SOURCE %s.' % (
+        (ar_.get('sha') or '')[:8], ar_.get('run'), f['ps']['s7']['nozero'], sa['text'])) if f['oc_words'][2] == 'STATEMENT COMPILED, NO PROOF SENT' else (
+        'HELD -- (7)`s STATEMENT, NOT COMPILED AS ORDERED: %s. SOURCE %s.' % (f['oc_words'][2].lower(), sa['text'])))
+    seats.append(sa)
+    # ------------------------------------------------------------------ KERNEL: (R373)(8), each order built in full, its line [X3]
+    s8 = seat('%s_outcomes.txt' % ACT, '## (8) THE ORDERS PRICED BESIDE IT')
+    for o_ in [o_ for o_ in f['oc_orders'] if o_.get('outcome') == 'BUILT IN FULL']:
+        keys['O8_' + o_['item']] = 'KERNEL -- %s BUILT IN FULL UNDER (8): %s cut at main`s read-back = %s (tag object %s), run %s, its names within the standard three, no sorryAx; its line [X3]. SOURCE %s.' % (
+            o_['order'], o_.get('tag'), (o_.get('peel') or '')[:8], (o_.get('tag_object') or '-')[:8], o_.get('run'), s8['text'])
+    seats.append(s8)
+    # ------------------------------------------------------------------ REGISTERED: (R373)(1), the corrigendum for b762
+    sc_ = seat('%s_corrigendum.txt' % ACT, '**ITEMS ')
+    keys['CORRIGENDUM'] = ('REGISTERED -- THE CORRIGENDUM FOR b762, SHORT: %s items, CLAIM %s, CLOSE %s, %s repeats; b762`s %s CLAIM items printed in full; the findings after its lock entered as events, the navigator`s own as CLAIM, [I1] among them; at FINDINGS :%s, the corrigenda bank`s row (%s); PLACE-papers %s. SOURCE %s.' % (
+        f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_claim'], f['corr_line'], f['corr_row'], K.C1_PP[:8], sc_['text']))
+    seats.append(sc_)
 #⟪END⟫
 #⟪SECTION report 3⟫
-    # ------------------------------------------------------------------ no CERTIFIED version line: tools/standing/ unmoved ((R372)(11))
-    # ------------------------------------------------------------------ CERTIFIED: (R372)(12), the reproduction run (the seat the template appends)
-    sw = seat('%s_reproduce.txt' % ACT, '**ROWS ')
+    # ------------------------------------------------------------------ CERTIFIED: tools/standing/ v1.37.2 ((R373)(5)), by its controls
+    sv = seat('%s_standing_v1372.txt' % ACT, '**v1.37.2: CONTROLS ')
+    keys['VERSIONS'] = ('CERTIFIED -- tools/standing/ v1.37.2, THE ONE CHANGE (5) REQUIRED, by a commit of its own moving VERSION from v1.37.1: commit.py admitting b763 at SIDE-explicit-formula alone, %s. SOURCE %s.' % (
+        '; '.join('%s at relay %s, %d cases, %d as wanted, the planted control among them' % (v_, K.C1_STANDING[:8], n_, wv_) for v_, _c, n_, wv_ in f['vers']), sv['text']))
+    seats.append(sv)
+    # ------------------------------------------------------------------ CERTIFIED: the dispatch and read tool by its own controls (the seat the template appends)
+    sw = seat('%s_controls_control.txt' % ACT, '**THE TOOL`S CONTROLS: ')
+    keys['CONTROLS'] = ('CERTIFIED -- tools/b763_controls.py BY ITS OWN CONTROLS: %d of %d as wanted, committed before its opening dispatch; every run read by its id from the downloaded artifact, the exit file governing, %d dispatch%s in SIDE-explicit-formula against the worklist`s %d and none elsewhere. SOURCE %s.' % (
+        f['cc_ctl'][0], f['cc_ctl'][1], f['disp_ef'], '' if f['disp_ef'] == 1 else 'es', f['ce_disp'][1], sw['text']))
+    # ------------------------------------------------------------------ CERTIFIED: the pre-send reads of (R368)(4) and each send's salt check
+    sp_ = [seat('%s_presend_%s.txt' % (ACT, s_), '**THE PRE-SEND READS AT ') for s_ in K.PRESEND_SENDS]
+    keys['PRESEND'] = ('CERTIFIED -- THE PRE-SEND READS AND THE SALT CHECK BEFORE EACH SEND, by tools/b763_presend.py committed before its run: %s; the control that no zero is used over (7)`s file %s. SOURCE %s.' % (
+        '; '.join('%s at %s %s, %d of %d statements, controls %d of %d' % (s_, f['ps'][s_]['rev'], f['ps'][s_]['salt'], f['ps'][s_]['salt_n'][0], f['ps'][s_]['salt_n'][1], f['ps'][s_]['ctl'][0], f['ps'][s_]['ctl'][1])
+                  for s_ in K.PRESEND_SENDS), f['ps']['s7']['nozero'], ' ; '.join(x_['text'] for x_ in sp_)))
+    seats.extend(sp_)
+    # ------------------------------------------------------------------ CERTIFIED: (R373)(12), the reproduction run
+    sr_ = seat('%s_reproduce.txt' % ACT, '**ROWS ')
     keys['REPRO'] = ('CERTIFIED -- THE RESEARCH INSTRUMENTS REPRODUCED: tools/research/reproduce.py`s full run in the foreground, rows %d, reproducing %d, differing %d, not run %d, the planted controls %d of %d as wanted, %d s. SOURCE %s.' % (
-        f['rp_rows'], f['rp_repro'], f['rp_differs'], f['rp_notrun'], f['rp_ctl'][0], f['rp_ctl'][1], f['rp_secs'], sw['text']))
+        f['rp_rows'], f['rp_repro'], f['rp_differs'], f['rp_notrun'], f['rp_ctl'][0], f['rp_ctl'][1], f['rp_secs'], sr_['text']))
+    seats.append(sr_)
 #⟪END⟫
 #⟪SECTION report 4⟫
     ppw_ = dict((k_, c_) for k_, _p, c_ in K.PP_WRITES)
-    # ------------------------------------------------------------------ REGISTERED: (R372)(9), the registration
-    sq = seat('%s_registration.txt' % ACT, 'b763 -- THE REGISTRATION ')
-    keys['REGISTRATION'] = ('REGISTERED -- THE REGISTRATION %s, WRITTEN BEFORE ANY NUMBER: %s; %d bytes, sha256 %s, [H] with its one field filled; nothing of it computed. SOURCE %s.' % (
-        f['reg_name'], f['reg_sentence'], f['reg_bytes'], f['reg_sha'], sq['text']))
-    seats.append(sq)
-    # ------------------------------------------------------------------ REGISTERED: (R372)(5), the map
-    sm = seat('%s_onepage_map.txt' % ACT, '**THE MAP: NAMES ')
-    keys['MAP'] = ('REGISTERED -- THE MAP BEFORE THE WRITING: %s; the ledgers’ %d printed and not edited; [O6] %s; controls %d of %d; banked at relay %s before the page was composed. SOURCE %s.' % (
-        f['map_sentence'], f['map_ledgers'], 'ENTERED' if f['map_o6'] else 'NOT ENTERED', f['map_ctl'][0], f['map_ctl'][1], f['map_commit'][:8], sm['text']))
-    seats.append(sm)
-    # ------------------------------------------------------------------ REGISTERED: (R372)(6), the page and [G1], [G2]
-    sp = seat('%s_page.txt' % ACT, '**THE PAGE: ')
-    keys['PAGE'] = ('REGISTERED -- ONE PAGE AT v2.0: %s, %d bytes, sha256 %s, put back %s; declarations %d, misses %d; the deposited file`s sha256 %s before and after; [G1] at REGISTRY :%d and [G2] at :%d; controls %d of %d; one PLACE-papers commit, %s. SOURCE %s.' % (
-        f['pg_path'], f['pg_bytes'], f['pg_sha'], f['pg_put'], f['pg_decl'], f['pg_miss'], f['pg_dep'], f['pg_g'][0][1], f['pg_g'][1][1], f['pg_ctl'][0], f['pg_ctl'][1],
-        ppw_['page'][:8], sp['text']))
-    seats.append(sp)
-    # ------------------------------------------------------------------ REGISTERED: (R372)(7), (8), the author's word, the trail's lines and the roster
+    pr_ = f['pr_rows']
+    pw_ = lambda k_: '%s to %s h over %d to %d dispatches' % (pr_[k_]['lo_h'], pr_[k_]['hi_h'], pr_[k_]['dispatches'][0], pr_[k_]['dispatches'][1])
+    # ------------------------------------------------------------------ REGISTERED: (R373)(3), the price table and the ceiling's two readings
+    sq = seat('%s_price.txt' % ACT, '**THE PRICE TABLE: ')
+    sce = seat('%s_ceiling.txt' % ACT, '**THE CEILING: READINGS ')
+    keys['PRICE'] = ('REGISTERED -- THE PRICE AND THE CEILING OF (3): the table banked before Component 1 from banked timings, the lower sum %s h against %d h at step zero, carried %s, the upper sum %s h; the ceiling read after Component 2 at %s, %s h, %s, and after Component 3 at %s, %s h, %s; dispatches %d against %d. SOURCE %s ; %s.' % (
+        f['pr_lower'], f['pr_ceiling'], f['pr_carried'], f['pr_upper'],
+        f['ce_readings'][0]['at'], f['ce_readings'][0]['total'], f['ce_readings'][0]['verdict'], f['ce_readings'][1]['at'], f['ce_readings'][1]['total'], f['ce_readings'][1]['verdict'],
+        f['ce_disp'][0], f['ce_disp'][1], sq['text'], sce['text']))
+    seats.extend([sq, sce])
+    # ------------------------------------------------------------------ REGISTERED: (R373)(9), the author's words, the canon's section XXV, the trail's lines and the roster
     sr = seat('%s_author_rulings.txt' % ACT, '**THE AUTHOR`S RULINGS: WORDS ')
-    seats.append(sr)
-    sg = seat('%s_ledgers.txt' % ACT, '**THE TRAIL`S LINES: ')
-    seats.append(sg)
+    sg = seat('%s_ledgers.txt' % ACT, '**THE LEDGERS: FILES ')
     so = seat('%s_orders.txt' % ACT, '**ORDERS ')
-    keys['ORDERS'] = ('REGISTERED -- THE ORDERS BY THEIR TRIGGERS AND THE REFLECTION`S ORDERS: [W1] banked verbatim beside the navigator`s rendering (%s); %d paragraphs in OPEN_TRAILS from :%d, no line moving, controls %d of %d; one PLACE-papers commit, %s (%s); tools/standing/orders.py at PLACE-papers HEAD, orders %d, open %d, closed %d; W-ORD-EPSTEIN-COUNT-LEAN CLOSED; %s entered OPEN; open %d before, wanted %d. SOURCE %s.' % (
-        sr['text'], f['led_paras'], f['led_lines']['head'], f['led_ctl'][0], f['led_ctl'][1], ppw_['trails'][:8], sg['text'], f['ord_head'][0], f['ord_head'][1], f['ord_head'][2],
-        ', '.join(f['led_added']), f['led_roster'][0], f['led_roster'][2], so['text']))
-    seats.append(so)
-    # ------------------------------------------------------------------ HELD: THE DRAFT ((R372)(12)) (the seat the template appends)
+    keys['WORDS'] = ('REGISTERED -- THE AUTHOR`S WORDS ENTERED: [W1] banked verbatim beside the navigator`s %d renderings (%s); THE_METHOD_CANON.md took [C1] as section XXV at :%d, no byte above it changing; OPEN_TRAILS took the bank line, [A1] to [A12], [B1], [B2] and %d build lines under one dated head from :%d, no line moving, controls %d of %d (%s); one PLACE-papers commit, %s; the roster %d open before, %d with the lines up to [B2], wanted %d, %d of %d as wanted; at HEAD orders %d, open %d, closed %d. SOURCE %s.' % (
+        f['rl_renders'], sr['text'], f['led_xv'], f['led_build'], f['led_head'], f['led_ctl'][0], f['led_ctl'][1], sg['text'], ppw_.get('trails', '-')[:8],
+        f['led_roster'][0], f['led_roster'][1], f['led_roster'][3], f['led_rows'][0], f['led_rows'][1], f['ord_head'][0], f['ord_head'][1], f['ord_head'][2], so['text']))
+    seats.extend([sr, sg, so])
+    # ------------------------------------------------------------------ HELD: (R373)(7), the proof not sent, by the ceiling after Component 2
+    if not str(f['oc_words'][2]).startswith('PROOF'):
+        keys['PROOF7'] = ('HELD -- (7)`s PROOF, NOT SENT: the ceiling after Component 2 left %s h for it, where FORM B`s upper %s h and FORM A`s %s h each do not fit; FORM A priced at %s and FORM B at %s; W-ORD-LI-ARITH carried by [X2], its statement compiled. SOURCE %s.' % (
+            f['ce_proof_left'], pr_['(7) B']['hi_h'], pr_['(7) A']['hi_h'], pw_('(7) A'), pw_('(7) B'), sce['text']))
+    # ------------------------------------------------------------------ HELD: (R373)(8), each order not built in full, carried by name with its price
+    b8_ = set('(8) ' + o_['order'][6:] for o_ in f['oc_orders'] if o_.get('outcome') == 'BUILT IN FULL')
+    keys['CARRIED8'] = ('HELD -- THE ORDERS OF (8) NOT BUILT IN FULL, EACH CARRIED BY NAME WITH ITS PRICE, NO LINE WRITTEN FOR IT: %s. SOURCE %s.' % (
+        '; '.join('W-ORD-%s, %s, %s' % (k_[4:], pw_(k_), w_.lower()) for k_, w_, _h, _l in f['ce_plan'] if k_ not in b8_) or 'none', sce['text']))
+    # ------------------------------------------------------------------ HELD: THE DRAFT ((R373)(12)) (the seat the template appends)
     sh = seat('%s_ferry.txt' % ACT, 'THE DRAFT stands at v5, HELD')
     keys['HELD'] = ('HELD -- the draft at v5, unpublished, nothing deposits; no Zenodo call this act. SOURCE %s.' % sh['text'])
 #⟪END⟫
 #⟪SECTION report 5⟫
-    order = [('KERNEL', []), ('CERTIFIED', ['REPRO']), ('REGISTERED', ['CORRIGENDUM', 'REGISTRATION', 'MAP', 'PAGE', 'ORDERS']),
-             ('HELD', ['HELD'])]   # ### b762: no KERNEL line, no kernel touched and no run read ((R372)(12)); no version line ((R372)(11))
+    land_ = [k_ for k_, ok_ in (('FORM', f['oc_words'][0] == 'LANDED, COMPILED'), ('SF', f['oc_words'][1] == 'BUILT'), ('ARITH', f['oc_words'][2] == 'STATEMENT COMPILED, NO PROOF SENT')) if ok_] \
+        + ['O8_' + o_['item'] for o_ in f['oc_orders'] if o_.get('outcome') == 'BUILT IN FULL']   # ### b763: each line`s tier by its outcome
+    order = [('KERNEL', land_), ('CERTIFIED', ['VERSIONS', 'CONTROLS', 'PRESEND', 'REPRO']), ('REGISTERED', ['CORRIGENDUM', 'PRICE', 'WORDS']),
+             ('HELD', [k_ for k_ in ('FORM', 'SF', 'ARITH') if k_ not in land_] + [k_ for k_ in ('PROOF7',) if k_ in keys] + ['CARRIED8', 'HELD'])]
 #⟪END⟫
 #⟪OVERRIDE citation MARK 31b08d46e87d 1⟫
 C.ANCHOR, C.TAIL = K.RULING_ANCHOR, K.TAIL   # ### b754 carry-time repair: the ruling's BEGIN line (pasted before the act opened); K.ANCHOR is the capture's
