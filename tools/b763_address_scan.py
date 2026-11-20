@@ -155,7 +155,7 @@ def added(diff):
 SITTING_REPOS = (('D:/SIDE-explicit-formula', 'SIDE-explicit-formula zq-b730', 'main..zq-b730'),)   # ### (R348)(3): b738's one kernel branch, by its ref, read at b739 where no kernel is written; b737 defect (p): its commits land in this repository, so the scan reads each at the commit
 if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_kernel_bases.json')):   # ### (R350)(4) as the author amended it: the kernels the sitting writes, from each one's main at the sitting's head
     SITTING_REPOS += tuple(('D:/' + k_, k_, b_ + '..HEAD') for k_, b_ in sorted(json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_kernel_bases.json'), encoding='utf-8')).items()))   # ### b763, (R373)(3): to HEAD, the checked-out push-b763-* branch whose commits stand before main moves (b745's '..main' read them only after)
-BYLINE_FILE = 'day1/ONE_PAGE_PROOF_v2_0.md'   # ### b763 (10:1xZ): the page's name by (R373)(6)'s stem clause (tools/standing/subject.py family_of), in place of day1/ONE_PAGE_v2_0.md. (R373)(6) and its N5 (data/b763_ferry.txt :171, "beyond a byline, carried into the page from line :3 of the deposited edition's file by its bytes"): the new page alone; b762's was day1/Which_Structure_Confines_v2_5_0.md (set at b763 step zero by the Edit tool, b763 defect (a))
+BYLINE_FILE = 'day1/ONE_PAGE_PROOF_v2_0.md'   # ### b762's page, the file its (R372)(6) carried a byline into (b762's scan, carried here with its names shifted by one act). b763 defect (k): (R373)'s N5 (data/b763_ferry.txt :145) reads "beyond a byline, and this act writes no byline", so no file is excepted at b763 (BYLINE_FILES below)
 
 
 def ruling_byline(act='b763'):
@@ -175,13 +175,25 @@ N5_BYLINE = re.compile(r"beyond (?:a|the edition['’]s) byline")
 def n5_holds(t):
     """### b762 defect (f): whether a ferry's N5 holds the byline exception, the text after '(N5)' on its line reading "beyond a byline" ((R369)'s
     and CLAUDE.md's wording) or "beyond the edition's byline" ((R372)'s, data/b762_ferry.txt :53). The first form alone read (R372)'s N5 as holding
-    none, and the one-call tool refused v2.5.0's commit on the byline and two self-citations N5 excepts (2026-11-18T10:26:17Z). The cites set
-    back at b763 by the Edit tool, the carry having shifted them; (R373)'s N5 (data/b763_ferry.txt :171) carries the first form."""
+    none, and the one-call tool refused v2.5.0's commit on the byline and two self-citations N5 excepts (2026-11-18T10:26:17Z). (R373)'s N5
+    (data/b763_ferry.txt :145) carries the first form."""
     return any(N5_BYLINE.search(l[l.find('(N5)'):]) for l in t.split(NL) if '(N5)' in l)
 
 
+N5_NONE = re.compile(r"this act writes no byline")
+
+
+def n5_writes_none(t):
+    """### b763 defect (k): whether a ferry's N5, holding the exception in its words, also says the act writes no byline ((R373)'s N5,
+    data/b763_ferry.txt :145: "beyond a byline, and this act writes no byline"); where it does, no file is excepted and every added line
+    counts as any other."""
+    return any(N5_NONE.search(l[l.find('(N5)'):]) for l in t.split(NL) if '(N5)' in l)
+
+
 RULING_N5, BYLINE_HELD = ruling_byline()
-BYLINE_FILES = (BYLINE_FILE,) if BYLINE_HELD else ()   # ### b763: the page alone where the act's N5 holds the exception (b762's tuple named v2.5.0 and the findings v0.7); else none, each added line counted as any other
+NO_BYLINE = n5_writes_none(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_ferry.txt'),
+                                encoding='utf-8', errors='replace').read()) if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'b763_ferry.txt')) else False
+BYLINE_FILES = (BYLINE_FILE,) if BYLINE_HELD and not NO_BYLINE else ()   # ### b763 defect (k): none, (R373)'s N5 writing no byline; each added line counted as any other
 # ### b736 defect (r) (the carries shifted it to b737's at b737, b737 defect (n), and again at b738, b738 defect (f)): the (A1) edition carries v0.6's byline at :15 and, until its repair commit, v0.6's quotation of it; named at the bank's exception line
 BYLINE_KIND = 'THE [46] BYLINE, EXCEPTED UNDER I-23'
 BYLINE_MAX = 3   # ### the byline and two self-citations, one occurrence each: more than three is not the exception
@@ -250,7 +262,8 @@ def scan(*a):
     ctl.append(('N5 read in both rulings` wordings (b762 (f))', n5_holds('(N5) x; no new occurrence beyond a byline under I-23')
                 and n5_holds("(N5) x; no identifier of the author beyond the edition's byline and two self-citations")
                 and not n5_holds('(N5) x; no identifier of the author in anything the act writes') and not n5_holds('(N4) beyond a byline')
-                and RULING_N5 == 'R373' and BYLINE_HELD))   # ### b763: (R373)'s N5 (data/b763_ferry.txt :171) holds the byline exception, for the page of (6) alone; the carried clause read b762's (R372), which held none (b763 defect (a))
+                and RULING_N5 == 'R373' and BYLINE_HELD and NO_BYLINE and BYLINE_FILES == ()
+                and n5_writes_none('(N5) x; beyond a byline, and this act writes no byline') and not n5_writes_none('(N5) x; beyond a byline under I-23')))   # ### b763 defect (k): (R373)'s N5 (data/b763_ferry.txt :145) holds the exception in its words and writes no byline, so no file is excepted
     del s
     L = ['%s -- (R332)(9)(i): NO NEW OCCURRENCE OF THE AUTHOR`S NAME OR E-MAIL ADDRESS (%s)' % (ACT, time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
          '', '### the previous address read from relay`s history to %s (author and committer e-mails less the noreply form: one address), the' % K.PRE_RELAY[:8],
@@ -285,10 +298,11 @@ def scan(*a):
     # ### kernel's commit through tools/standing/commit.py wants its kernel named here
     L += ['', '## THE REPOSITORIES READ (commits from their base, the staged set, the working tree): %s' % '; '.join(
         ['relay', 'PLACE-papers'] + [n for _r, n, _p in SITTING_REPOS])]
-    L += ['', '## THE EXCEPTION, %s, THE BYLINE (AND AT MOST TWO SELF-CITATIONS) AT %s, CARRIED FROM day1/ONE_PAGE_PROOF.md :3 BY ITS BYTES ((R373)(6)), UNDER I-23, NAMED AND NOT COUNTED: %s' % (
-        ('TAKEN UNDER %s`S N5 (its byline exception, read from its ferry bank at run time; b763 defect (a))' % RULING_N5) if BYLINE_HELD else
-        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS NO BYLINE EXCEPTION, AND NO SECTION OF A DIFF IS READ AS THE BYLINE`S (b762 (e), b763 (b))' % RULING_N5),
-        BYLINE_FILE, 'none yet' if not exc else '')] + exc
+    L += ['', '## THE EXCEPTION, THE BYLINE UNDER I-23: %s%s' % (
+        ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS THE EXCEPTION IN ITS WORDS AND SAYS THIS ACT WRITES NO BYLINE, SO NO SECTION OF A DIFF IS '
+         'READ AS A BYLINE`S AND EVERY ADDED LINE COUNTS (b763 defect (k))' % RULING_N5) if not BYLINE_FILES else
+        ('TAKEN UNDER %s`S N5 AT %s, NAMED AND NOT COUNTED' % (RULING_N5, ', '.join(BYLINE_FILES))),
+        ('' if not exc else ':'))] + exc
     L += ['', 'PREVIOUS ADDRESS: %d' % na, 'THE AUTHOR`S NAME: %d' % nn, 'PREVIOUS NAME: %d' % nu, 'THE ORCID: %d' % no, '',
           '### ### **PREVIOUS ADDRESS: %d ; THE AUTHOR`S NAME: %d ; PREVIOUS NAME: %d ; THE ORCID: %d ; PLACES %d ; CONTROLS %d OF %d AS WANTED ; %d s.**' % (
               na, nn, nu, no, len(P), len(ctl), len(ctl), int(time.time() - t0))]
