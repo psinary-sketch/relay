@@ -517,7 +517,9 @@ GENS = (('the ceiling', 'tools/b763_ceiling.py', ('0826dbaf', '700efb97'), 'data
                                                                        'e47fa937', '33ccc430'), 'data/b763_presend_skp.txt', 'bdccf9a1'),
         ('the author`s rulings of (9)', 'tools/b763_rulings.py', ('922ecaa9',), 'data/b763_author_rulings.txt', '2afcea71'),
         ('the IMP2-TAU reading of (8)', 'tools/b763_imp2tau.py', ('095e5198',), 'data/b763_imp2tau.txt', '5fa0c996'),
-        ('the recut inputs of (10)', 'tools/b763_recut.py', ('3c15f127', '07a56968'), 'data/b763_recut_inputs.txt', '9779a81f'))
+        ('the recut inputs of (10)', 'tools/b763_recut.py', ('3c15f127', '07a56968'), 'data/b763_recut_inputs.txt', '9779a81f'),
+        ('the outcomes of (6)-(8)', 'tools/b763_outcomes.py', ('8d7b34d8', 'dbd562bb'), 'data/b763_outcomes.txt', '899577a5'),
+        ('the ledgers of (9)', 'tools/b763_rulings.py', ('922ecaa9',), 'data/b763_ledgers.txt', '79c05bf2'))
 GENS_B762 = ()   # ### b762's five stand in git at tools/b762_worklist.py
 GENS_B760 = ()   # ### b760's nine stand in git at tools/b760_worklist.py
 GENS_B759 = ()   # ### b759's thirteen stand in git at tools/b759_worklist.py
@@ -551,7 +553,8 @@ CHAIN = (('ceiling_gen', '0826dbaf'), ('ceiling_fix', '700efb97'), ('c1', '17b27
          ('module3', 'e9cbce4f'), ('events_61', '8d72486a'), ('outcomes_c3', '4565bf58'), ('send6', '50a7a65b'), ('imp2_gen', '095e5198'),
          ('imp2', '5fa0c996'), ('events_65', '2c9ab50c'), ('presend_skp', '33ccc430'), ('presend_skp_bank', 'bdccf9a1'), ('send7', '904c3324'),
          ('rulings', '2afcea71'), ('close_carry', 'dbd562bb'), ('graders', '0729658c'), ('recut_gen', '3c15f127'), ('recut_bank0', '1d8b80a2'),
-         ('recut_fix', '07a56968'), ('recut', '9779a81f'), ('events_72', 'dc72e300'), ('events_73', '84162179'))
+         ('recut_fix', '07a56968'), ('recut', '9779a81f'), ('events_72', 'dc72e300'), ('events_73', '84162179'), ('landing', 'ac83de9d'),
+         ('events_75', 'd6303b7e'), ('outcomes8', '899577a5'), ('ledgers', '79c05bf2'))
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
 CHAIN_B761 = ()   # ### b761's twenty-one keys stand in git at tools/b761_worklist.py
 CHAIN_B760 = ()   # ### b760's twenty-five keys stand in git at tools/b760_worklist.py
@@ -560,9 +563,13 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### lines of (7), (8) and [O6] (OPEN_TRAILS)
 # ### b763: the corrigendum with [I1] (FINDINGS); the canon's section XXV and the lines of (9) under one dated head, with the build lines
 # ### of (6) and (7) (THE_METHOD_CANON.md and OPEN_TRAILS.md), appended as made
-PP_CHAIN = (('c1pp', '6034501c'),)
+PP_CHAIN = (('c1pp', '6034501c'), ('ledgerspp', '387713dd'))
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it
-TIME_ORDER = ('actcur', 'stepzero') + tuple(k_ for k_, _h in CHAIN[:3]) + ('c1pp',) + tuple(k_ for k_, _h in CHAIN[3:])
+# ### b763: the ledgers of (9) written to PLACE-papers (387713dd, 05:50:18Z) after the outcomes of (8) (899577a5, 05:49:18Z) and before the
+# ### relay's ledgers banks (79c05bf2, 05:51:30Z), as b762's pp_rulings stood before its ledger_banks
+_I_LEDGERS = tuple(k_ for k_, _h in CHAIN).index('ledgers')
+TIME_ORDER = (('actcur', 'stepzero') + tuple(k_ for k_, _h in CHAIN[:3]) + ('c1pp',) + tuple(k_ for k_, _h in CHAIN[3:_I_LEDGERS]) + ('ledgerspp',)
+              + tuple(k_ for k_, _h in CHAIN[_I_LEDGERS:]))
 CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'ceiling_fix': 'its control (6) re-planted', 'c1': 'the c1 route', 'c1pp': 'the corrigendum with [I1]',
                     'corr': 'the corrigendum banks', 'standing': 'tools/standing/ v1.37.2, the route of (5)', 'standing_bank': 'its controls bank',
                     'controls_gen': 'the dispatch tool', 'controls_bank': 'its controls bank', 'presend_gen': 'the pre-send tool',
@@ -580,7 +587,9 @@ CHAIN_WORDS.update({'ceiling_gen': 'the ceiling tool', 'ceiling_fix': 'its contr
                     'rulings': 'the author`s rulings banked', 'close_carry': 'the close`s tools carried',
                     'graders': 'the act module`s graders for b763 and the scan`s byline repair (defect (k))', 'recut_gen': 'the recut inputs tool of (10)',
                     'recut_bank0': 'its first bank', 'recut_fix': 'its foot in the verdict form (defect (l))', 'recut': 'its bank again',
-                    'events_72': 'events (72) with defect (l)', 'events_73': 'events (73)'})
+                    'events_72': 'events (72) with defect (l)', 'events_73': 'events (73)',
+                    'landing': 'dispatch 6 read, main at v0.43', 'events_75': 'events (75)', 'outcomes8': 'dispatch 7 read and the outcomes of (8)',
+                    'ledgerspp': 'the canon`s section XXV and the lines of (9) with the build lines', 'ledgers': 'the ledgers and the roster banked'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 STANDING_BANKS = (('v1.37.2', 'd34f7323', 'data/b763_standing_v1372.txt', 10),)   # ### b763 (R373)(5): its controls 10 of 10, banked after the commit (19:54:12Z)
@@ -668,7 +677,9 @@ C3_RELAY = ()   # ### Component 3 ((R373)(7), the centre): set as made
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = (('corr', 'FINDINGS.md', '6034501c'),)                                                    # ### (R373)(1): the corrigendum with [I1] (step 9)
+PP_WRITES = (('corr', 'FINDINGS.md', '6034501c'),                                                     # ### (R373)(1): the corrigendum with [I1] (step 9)
+             ('trails', 'OPEN_TRAILS.md', '387713dd'),                                                # ### (R373)(9): the lines of (9) with the build lines of (6), (7) and (8) under one dated head (step 68)
+             ('canon', 'phase1.5/method/THE_METHOD_CANON.md', '387713dd'))                           # ### (R373)(9): [C1] as section XXV (step 68)
 PP_WRITES_B762 = ()   # ### b762's four stand in git at tools/b762_worklist.py
 PP_WRITES_B761 = ()   # ### b761's five stand in git at tools/b761_worklist.py
 PP_WRITES_B760 = ()   # ### b760's six stand in git at tools/b760_worklist.py
