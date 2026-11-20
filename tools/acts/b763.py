@@ -1858,6 +1858,9 @@ def _trail_resolved(text):
                 oc_form=oj_['form'], oc_sf=oj_.get('statement_file') or {}, oc_arith=oj_.get('arith') or {}, oc_orders=list(oj_.get('orders') or []),
                 oc_words=(of_[0], of_[2], of_[3], of_[4]), oc_ctl=(int(of_[6]), int(of_[7])), xlines=xj_,
                 runs=runs_, disp_ef=len(runs_), read_ef=sum(1 for r_ in dr_rows_ if r_.get('kind') == 'read' and r_.get('kernel') == 'SIDE-explicit-formula'),
+                # ### b763, Component 6 (the Edit tool): each run's read row by its id, its verdict and its new names, for the entry's runs and (8)'s orders
+                rd_rows=dict((str(r_.get('run')), dict(verdict=r_.get('verdict'), new_n=len(r_.get('new_names') or {}), new_within=bool(r_.get('new_all_within'))))
+                             for r_ in dr_rows_ if r_.get('kind') == 'read' and r_.get('kernel') == 'SIDE-explicit-formula'),
                 disp_m24=sum(1 for r_ in dr_rows_ if r_.get('kind') == 'dispatch' and r_.get('kernel') == 'SIDE-dirichlet-mod-24'),
                 rl_words=int(rl_[0]), rl_renders=int(rl_[1]),
                 led_files=[(x_['path'], x_['lines_before'], x_['lines_after'], x_['first_new'], x_.get('sha_before'), x_.get('sha_after')) for x_ in lj_['files']],
@@ -2935,10 +2938,22 @@ def _runs3_line():
     fo_, ar_, sf_ = f['oc_form'], f['oc_arith'], f['oc_sf']
     st6_ = [s_ for s_ in fo_.get('statements') or [] if s_.get('compiled')]
     true_ = [s_['sentence'] for s_ in st6_] + ([ar_['sentence']] if ar_.get('sentence') else [])
-    pw_ = lambda k_: '%s to %s hours over %d to %d dispatches' % (f['pr_rows'][k_]['lo_h'], f['pr_rows'][k_]['hi_h'], f['pr_rows'][k_]['dispatches'][0], f['pr_rows'][k_]['dispatches'][1])
-    rw_ = lambda it_: '; '.join('dispatch %d, run %s at %s, %s h, %s' % (n_, r_, s_, h_ if h_ is not None else 'not read', next(
-        (x_.get('state') for x_ in (fo_.get('runs') if it_ == 'form' else ar_.get('runs') if it_ == 'arith' else []) or [] if str(x_.get('run')) == r_), 'read'))
+    # ### b763, Component 6 (the Edit tool): a range printed once where its ends are equal ("0 dispatches", "1 dispatch", "0.33 hours")
+    rg_ = lambda a_, b_, u_: ('%s %s' % (a_, u_[:-2] if (u_ == 'dispatches' and a_ == 1) else u_)) if a_ == b_ else '%s to %s %s' % (a_, b_, u_)
+    pw_ = lambda k_: '%s over %s' % (rg_(f['pr_rows'][k_]['lo_h'], f['pr_rows'][k_]['hi_h'], 'hours'), rg_(f['pr_rows'][k_]['dispatches'][0], f['pr_rows'][k_]['dispatches'][1], 'dispatches'))
+    # ### b763, Component 6 (the Edit tool): each run's state worded for the reader -- the read row's verdict where the run broke or stopped, and what
+    # ### compiled where it compiled (the outcomes tool's FORM, FILE and COMPILED)
+    sw_ = {'FORM': 'KERNEL, the five statements compiled', 'FILE': 'KERNEL, the five statements and the statement file compiled', 'COMPILED': 'KERNEL'}
+    rw_ = lambda it_: '; '.join('dispatch %d, run %s at %s, %s h, %s' % (n_, r_, s_, h_ if h_ is not None else 'not read', (lambda st_: sw_.get(st_) or (
+        f['rd_rows'].get(r_) or {}).get('verdict') or st_)(next(
+        (x_.get('state') for x_ in (fo_.get('runs') if it_ == 'form' else ar_.get('runs') if it_ == 'arith' else []) or [] if str(x_.get('run')) == r_), 'read')))
         for i_, n_, r_, s_, _a, _b, h_ in f['runs'] if i_ == it_)
+    # ### b763, Component 6 (the Edit tool): what each order of (8) not built in full did build, named; the IMP2-TAU reading from its bank's foot
+    i2_ = re.search(r'(?m)^### ### \*\*THE IMP2-TAU READING: ([^\n]*?) ; CONTROLS (\d+) OF (\d+) ; ', rdn('%s_imp2tau.txt' % ACT))
+    nb8_ = {'W-ORD-KEIPER-FACE': lambda o_: 'its first file, SIDEExplicitFormula/KeiperPolygamma.lean, %d declarations on Mathlib`s digamma -- its analyticity on the right half-plane, its functional equation at every order and N times, its value from its partial sums where the tail tends to 0, the tail a named premise -- compiled on push-b763-keiper at %s, run %s, %s; the order in full needs the Keiper-Taylor identity`s fourth obligation at every index and the bounds on the Stieltjes constants, so main did not move to its branch' % (
+        max([(f['rd_rows'].get(str(x_.get('run'))) or {}).get('new_n', 0) for x_ in o_.get('runs') or []] or [0]), kc_.get('keiper', '-')[:8],
+        ', '.join(str(x_.get('run')) for x_ in o_.get('runs') or []) or 'no run',
+        'each name within the standard three' if all((f['rd_rows'].get(str(x_.get('run'))) or {}).get('new_within') for x_ in o_.get('runs') or []) and o_.get('runs') else 'its names not all within')}
     kc_ = dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS)
     c2_, c3_ = f['ce_readings'][0], f['ce_readings'][1]
     i1_ = re.search(r'\[I1\] CLUSTER ([^;]+?) ;', rdn('%s_corrigendum.txt' % ACT))
@@ -3007,16 +3022,18 @@ def _runs3_line():
          '**The orders priced beside it** ((R373)(8)): each priced in the table from its entry and its statements (relay data/b763_price.txt). The ceiling after Component 3: spent %s h from the delivery; left for (8), (9) and the close at their lower figures %s h; in ascending order of upper hours, %s (relay data/b763_ceiling.txt). %s' % (
              c3_['spent'], f['ce_left8'], '; '.join('%s, upper %s h against %s h left, %s' % (k_[4:], h_, l_, w_.lower()) for k_, w_, h_, l_ in f['ce_plan']),
              ' '.join(('%s BUILT IN FULL at %s = %s, run %s, its line [X3] (relay data/b763_outcomes.txt).' % (o_['order'], o_.get('tag'), (o_.get('peel') or '')[:8], o_.get('run')))
-                      if o_.get('outcome') == 'BUILT IN FULL' else ('%s not built, %s; carried by name with its price, %s.' % (
-                          o_['order'], 'its runs %s' % ', '.join(str(x_.get('run')) for x_ in o_.get('runs') or []) if o_.get('runs') else 'no run sent', pw_('(8) ' + o_['order'][6:])))
+                      if o_.get('outcome') == 'BUILT IN FULL' else ('%s not built in full: %s; carried by name with its price, %s, no line written for it.' % (
+                          o_['order'], nb8_[o_['order']](o_) if o_['order'] in nb8_ else ('its runs %s' % ', '.join(str(x_.get('run')) for x_ in o_.get('runs') or []) if o_.get('runs') else 'no run sent'),
+                          pw_('(8) ' + o_['order'][6:])))
                       for o_ in f['oc_orders']) + ' ' + ' '.join(
-                 '%s carried by name with its price, %s%s.' % ('W-ORD-' + k_[4:], pw_(k_), {'(8) IMP2-TAU': ': a relay computation and no kernel build, which (8)`s rules for a run, for success and for a tag do not reach, and whose line [X3] carries a kernel`s fields',
+                 '%s carried by name with its price, %s%s.' % ('W-ORD-' + k_[4:], pw_(k_), {'(8) IMP2-TAU': (': built as a relay computation of this act and banked -- the transcribed principal value diverges at every test function with f(1) not 0, its step a decade -f(1) ln 10 (read %s at f(1) = 1/2 against -1.1512925465), and each test function the order names is an autocorrelation with f(1) the square of its norm, above 0, so its comparison with -A is not made and no regularization is put in place of CC`s; its controls %s of %s (relay data/b763_imp2tau.txt). Not built in full, and as a relay computation and no kernel build it takes no line [X3], which carries a kernel`s fields' % (
+                     (re.search(r'\(TRI (-?[\d.]+)\)', i2_.group(1)) or re.search(r'()', '')).group(1) or 'unread', i2_.group(2), i2_.group(3))) if i2_ else ': its bank`s foot unread',
                                                                                          '(8) BESSEL-BOUND-TIGHTEN': ': its every run computes at zeros, which (12) forbids',
                                                                                          '(8) E2-SEPARATION': ': its test opens a bank of zeros, which (12) forbids'}.get(k_, ''))
                  for k_, w_, _h, _l in f['ce_plan'] if not any(('(8) ' + o_['order'][6:]) == k_ for o_ in f['oc_orders']))), '',
          '**The author’s words** ((R373)(9)): [W1], the author`s word of 2026-11-19 on the form of a statement, banked verbatim from the ferry beside the navigator`s renderings of the author`s words on the orders, %d of them, each verbatim, nothing changed (relay data/b763_author_rulings.txt). '
          'By tools/b763_rulings.py, committed before its run, each file`s bytes at HEAD a prefix of its new bytes, no line moving: THE_METHOD_CANON.md took [C1] as section XXV at :%d, the one paper this act edits; OPEN_TRAILS took, under one dated head at :%d after b762`s trail and before this act`s own, the line naming the bank at :%d, [A1] to [A12] at :%d to :%d, [B1] at :%d and [B2] at :%d, then the build lines %s; controls %d of %d (relay data/b763_ledgers.txt). '
-         'The roster by tools/standing/orders.py`s rule: open %d before, %d with the lines up to [B2], wanted %d, the rows %d of %d as wanted; W-ORD-GW-IMPORT and W-ORD-TABLE-SHAPE RETIRED by [A11] and [A12], W-ORD-PREMISE-POSITIONS ENTERED by [B2]; %d with the build lines beside, %s; at PLACE-papers HEAD orders %d, open %d, closed %d (relay data/b763_orders.txt). Three orders held as they stand and two keeping their entries` events took no line.' % (
+         'The roster by tools/standing/orders.py`s rule: open %d before, %d with the lines up to [B2], wanted %d, the rows %d of %d as wanted; W-ORD-GW-IMPORT and W-ORD-TABLE-SHAPE RETIRED by [A11] and [A12], W-ORD-PREMISE-POSITIONS ENTERED by [B2]; %d with the build lines beside, %s; at PLACE-papers HEAD orders %d, open %d, closed %d (relay data/b763_orders.txt). Three orders held as they stand and two keeping their entries’ events took no line.' % (
              f['rl_renders'], f['led_xv'], f['led_head'], pl_['W1 line'], pl_['A1'], pl_['A12'], pl_['B1'], pl_['B2'],
              ', '.join('%s at :%d' % (x_.get('key'), pl_.get(x_.get('key'), 0)) for x_ in f['xlines']) or 'none', f['led_ctl'][0], f['led_ctl'][1],
              f['led_roster'][0], f['led_roster'][1], f['led_roster'][3], f['led_rows'][0], f['led_rows'][1], f['led_roster'][2],
@@ -3052,7 +3069,7 @@ def _runs3_line():
          scores_line(S), '',
          '**The report of (10)**: the hours by the step rows, as relay data/b754_close_yield.txt (A) reads them: %s (the closing comes after this entry and its row is printed in the closing message). '
          'The parts of each pass by the cadence (tools/standing/cadence.py %s), tools/standing/ at %s: %s; the pass after the push runs after this entry, its parts printed in the closing message. '
-         'The price table`s figures beside what each item took, by its runs` dispatch and read rows (relay data/b763_price.txt, data/b763_dispatch_rows.json): %s.' % (
+         'The price table`s figures beside what each item took, by its runs’ dispatch and read rows (relay data/b763_price.txt, data/b763_dispatch_rows.json): %s.' % (
              r10h_, __import__('standing.cadence', fromlist=['VERSION']).VERSION, K.STANDING_VERSION, ' ; '.join(r10p_),
              '; '.join(['(6) priced %s to %s h over %d to %d dispatches, took %d dispatches and %s h of runs' % ((
                  round(sum(r_['lo_h'] for r_ in p6_), 2), round(sum(r_['hi_h'] for r_ in p6_), 2), sum(r_['dispatches'][0] for r_ in p6_), sum(r_['dispatches'][1] for r_ in p6_)) + tk_('form')),
@@ -3274,9 +3291,13 @@ def _finding_text_b762():
                  ('%s = %s' % (fo_.get('tag'), (fo_.get('peel') or '')[:8])) if f['oc_words'][0] == 'LANDED, COMPILED' else 'no tag cut', fo_.get('run'), f['oc_words'][1].lower()), '',
              '**The centre** ((R373)(7)): %s, run %s at %s; the no-zero control %s; FORM A priced at %s and FORM B at %s, neither fitting the %s h the ceiling left; [X2] (relay data/b763_outcomes.txt, data/b763_ceiling.txt).' % (
                  f['oc_words'][2].lower(), ar_.get('run'), (ar_.get('sha') or '')[:8], f['ps']['s7']['nozero'].lower(), (ar_.get('prices') or {}).get('A', '-'), (ar_.get('prices') or {}).get('B', '-'), f['ce_proof_left']), '',
-             '**The orders priced beside it** ((R373)(8)): %s; %s (relay data/b763_ceiling.txt, data/b763_outcomes.txt).' % (
+             '**The orders priced beside it** ((R373)(8)): %s; %s%s; W-ORD-IMP2-TAU built as a relay computation, the transcribed principal value diverging at each test function the order names and its comparison with -A not made, carried; the others carried by name with their prices, no line written for any order not built in full (relay data/b763_ceiling.txt, data/b763_outcomes.txt, data/b763_imp2tau.txt).' % (
                  '; '.join('%s %s' % (k_[4:], w_.lower()) for k_, w_, _h, _l in f['ce_plan']),
-                 ('built in full ' + ', '.join('%s at %s = %s, run %s' % (o_['order'], o_.get('tag'), (o_.get('peel') or '')[:8], o_.get('run')) for o_ in b8_)) if b8_ else 'none built, each carried by name with its price'), '',
+                 ('built in full ' + ', '.join('%s at %s = %s, run %s' % (o_['order'], o_.get('tag'), (o_.get('peel') or '')[:8], o_.get('run')) for o_ in b8_)) if b8_ else 'none built, each carried by name with its price',
+                 # ### b763, Component 6 (the Edit tool): each order of (8) begun on a branch and not built in full, by what compiled
+                 ''.join('; %s not built in full, its first file compiled on its branch at %s, run %s, carried' % (
+                     o_['order'], dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS).get(o_.get('item'), '-')[:8], ', '.join(str(x_.get('run')) for x_ in o_.get('runs') or []))
+                         for o_ in f['oc_orders'] if o_.get('outcome') != 'BUILT IN FULL' and o_.get('runs'))), '',
              '**The author`s words** ((R373)(9)): [W1] banked verbatim beside %d renderings; [C1] as canon XXV at :%d; the bank line, [A1] to [A12], [B1], [B2] and %d build lines from OPEN_TRAILS :%d; the roster %d open before, %d with the lines up to [B2], wanted %d; at HEAD %d orders, %d open, %d closed (relay data/b763_author_rulings.txt, data/b763_ledgers.txt, data/b763_orders.txt).' % (
                  f['rl_renders'], f['led_xv'], f['led_build'], f['led_head'], f['led_roster'][0], f['led_roster'][1], f['led_roster'][3], f['ord_head'][0], f['ord_head'][1], f['ord_head'][2]), '',
              '**The dispatches:** SIDE-explicit-formula %d, each read by its run id, the exit file governing: %s; none elsewhere (relay data/b763_dispatch_rows.json).' % (
@@ -3525,7 +3546,9 @@ ceiling's two readings, and the author's words with the canon's section, the tra
 #⟪SECTION report 4⟫
     ppw_ = dict((k_, c_) for k_, _p, c_ in K.PP_WRITES)
     pr_ = f['pr_rows']
-    pw_ = lambda k_: '%s to %s h over %d to %d dispatches' % (pr_[k_]['lo_h'], pr_[k_]['hi_h'], pr_[k_]['dispatches'][0], pr_[k_]['dispatches'][1])
+    # ### b763, Component 6 (the Edit tool): a range printed once where its ends are equal, as the entry prints it
+    rg_ = lambda a_, b_, u_: ('%s %s' % (a_, u_[:-2] if (u_ == 'dispatches' and a_ == 1) else u_)) if a_ == b_ else '%s to %s %s' % (a_, b_, u_)
+    pw_ = lambda k_: '%s over %s' % (rg_(pr_[k_]['lo_h'], pr_[k_]['hi_h'], 'h'), rg_(pr_[k_]['dispatches'][0], pr_[k_]['dispatches'][1], 'dispatches'))
     # ------------------------------------------------------------------ REGISTERED: (R373)(3), the price table and the ceiling's two readings
     sq = seat('%s_price.txt' % ACT, '**THE PRICE TABLE: ')
     sce = seat('%s_ceiling.txt' % ACT, '**THE CEILING: READINGS ')
