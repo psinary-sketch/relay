@@ -204,14 +204,49 @@ STEP_21 = (21, 'what is found after the lock, entered in the bank written after 
                'nothing is found, no bank written', 'data/<act>_events_postseal.txt')
 
 
+# ### v1.38.10, (R374)(5) [K11], finding 3 of b763's closing message (relay data/b764_events.txt (15)), b763 events (21) and (96), b762 events
+# ### (18): THE POST-LOCK ADDRESS SCAN'S PLACE AGAINST THE SEAL, BY ONE WRITTEN RULE. No row ordered the scan against close.py's seal route:
+# ### b758, b759 and b760 ran it before the route, b761, b762 and b763 after it and before the seal commit, each seal commit from b759 carrying
+# ### its bank. THE RULE: the post-lock address scan runs after close.py's seal route has written data/<act>_seal_hashes.json and before the
+# ### seal commit, which carries its bank, so the scan reads the seal record among the act's writes. The close order the seat reads takes it as
+# ### step [8a]; the one-call tool's seal commit refuses where the post-lock bank holds no run stamped at or after the seal record's time, or
+# ### where that bank is not staged with the seal (postlock_place, read by tools/standing/commit.py's postlock_refusal). The standing clauses'
+# ### bank is not rewritten ((R374)(12)); the row's own steps and their evidence stand as they are, so no lower-step reading moves.
+STEP_8A = ('8a', 'the post-lock address scan, after close.py`s seal route has written the hashes and before the seal commit, which carries '
+                 'its bank: `tools/<act>_address_scan.py scan --bank`, a run stamped at or after the seal record`s time, refused at the seal '
+                 'commit otherwise ((R374)(5) [K11])', 'data/<act>_address_scan_postlock.txt')
+POSTLOCK_RUN = re.compile(r'^## THE RUN AFTER THE LOCK, (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)', re.M)
+
+
+def postlock_place(act, seal_at, bank_text, staged):
+    """v1.38.10, (R374)(5) [K11]: the post-lock scan in its place at the seal commit, pure in its arguments -- the seal record's `at`, the
+    post-lock bank's text ('' where absent) and the names staged for the seal commit. Returns (ok, why)."""
+    runs = POSTLOCK_RUN.findall((bank_text or '').replace('\r', ''))
+    bank = 'data/%s_address_scan_postlock.txt' % act
+    if not seal_at:
+        return False, 'the seal record carries no time'
+    after = [r for r in runs if r >= seal_at]
+    if not after:
+        return False, 'the post-lock bank holds no run stamped at or after the seal record`s time %s (its runs: %s)' % (seal_at, ', '.join(runs) or 'NONE')
+    if bank not in set(staged or ()):
+        return False, '%s is not staged with the seal (its run of %s)' % (bank, after[-1])
+    return True, 'the run of %s, at or after the seal record`s %s, its bank staged with the seal' % (after[-1], seal_at)
+
+
 def close_order(text=None):
     """v1.38.0, (R374)(5) [K10]: the close order as the seat reads it -- tools/act_close.py close_steps_printed (v5 row (79), with [5a] and
-    [7a]), its step [21] taken from STEP_21. [(n, words, evidence)]; pure in the row's text."""
+    [7a]), its step [21] taken from STEP_21. v1.38.10 ([K11]): step [8a], the post-lock address scan's place (STEP_8A), after [8]. [(n, words,
+    evidence)]; pure in the row's text."""
     import sys as _sys
     if T not in _sys.path:
         _sys.path.append(T)
     import act_close as _AC
-    return [STEP_21 if s[0] == 21 else s for s in _AC.close_steps_printed(text)]
+    out = []
+    for s in _AC.close_steps_printed(text):
+        out.append(STEP_21 if s[0] == 21 else s)
+        if s[0] == 8:
+            out.append(STEP_8A)
+    return out
 
 
 APPEND_HEAD = '## APPENDED BY %s AT %s: %d LINE(S); NO LINE ALREADY IN THE BANK REWRITTEN'

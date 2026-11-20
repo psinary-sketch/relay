@@ -665,6 +665,16 @@ def staged_shared_refusal(repo, act, names):
     return shared_refusal(act, names, listed)
 
 
+def postlock_refusal(act, read, names):
+    """v1.38.10, (R374)(5) [K11]: the seal commit refused where the post-lock address scan is not in its place by the close order's step [8a]
+    (standing.act.postlock_place): a run of data/<act>_address_scan_postlock.txt stamped at or after the seal record's time, its bank staged
+    with the seal. None where it stands; `read` the tool's reader of relay data/ (a control's stand-in)."""
+    import act as A
+    ok, why = A.postlock_place(act, (read(RECORD['seal'] % act) or {}).get('at'), read('%s_address_scan_postlock.txt' % act) or '', names)
+    return None if ok else ('THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): %s -- run `tools/%s_address_scan.py '
+                            'scan --bank` after close.py`s seal route and stage its bank with the seal' % (why, act))
+
+
 def staged_version_refusal(repo, names=None):
     """v1.34.0, (R364)(3)(vi): version_refusal over `repo`'s staged set (read from the index where `names` is None), HEAD's VERSION against
     the index's. The one reading run() and the controls' replay on a scratch clone both call."""
@@ -1166,6 +1176,10 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
                 raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)
             bad = scan_left_out(act, names, [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p])
+            if bad:
+                raise Refused(bad)
+        if phase == 'seal' and os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.38.10, (R374)(5) [K11]: the post-lock scan in its place, step [8a]
+            bad = postlock_refusal(act, read, names)
             if bad:
                 raise Refused(bad)
         only = phase in ACT_PHASES and os.path.abspath(repo) == os.path.abspath(RELAY) and rows_only(act, names)   # ### v1.28.1

@@ -977,8 +977,98 @@ def control_k12(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
+# ================================================================================ [K11] THE ADDRESS SCAN AFTER THE LOCK, ITS PLACE AGAINST THE SEAL
+K11_PATHS = ('tools/standing/act.py', 'tools/standing/commit.py', 'tools/act_close.py', 'data/standing_clauses_v5.txt')
+K11_ACTS = ('b758', 'b759', 'b760', 'b761', 'b762', 'b763')
+K11_PROBE = r'''
+import ast, json, os, sys
+snap, inst = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools'))
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import act as A
+steps = A.close_order() if hasattr(A, 'close_order') else []
+order = [str(s[0]) for s in steps]
+s8a = [[str(s[0]), s[1][:120], s[2]] for s in steps if 'address scan' in s[1] or 'address_scan_postlock' in s[2]]
+src = open(os.path.join(snap, 'tools', 'standing', 'commit.py'), encoding='utf-8').read()
+tree = ast.parse(src)
+fn = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'postlock_refusal']
+run = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'run']
+calls = bool(run) and any(isinstance(c, ast.Call) and getattr(c.func, 'id', '') == 'postlock_refusal' for c in ast.walk(run[0]))
+cases = json.load(open(os.path.join(inst, 'cases.json'), encoding='utf-8'))
+out = {}
+if fn:
+    ns = dict(RECORD={'seal': '%s_seal_hashes.json', 'lock': '%s_lockgate.json'}, os=os, sys=sys)
+    exec(compile(ast.Module(body=fn, type_ignores=[]), 'commit_k11', 'exec'), ns)
+    for name, c in sorted(cases.items()):
+        read = (lambda c: lambda n: ({'at': c['at']} if n.endswith('_seal_hashes.json') else (c['bank'] if n.endswith('_address_scan_postlock.txt') else None)))(c)
+        r = ns['postlock_refusal'](c['act'], read, c['staged'])
+        out[name] = r[:160] if r else None
+print(json.dumps(dict(order=order, s8a=s8a, defined=bool(fn), run_calls=calls, refusals=out)))
+'''
+
+
+def control_k11(before, after):
+    """[K11]: the post-lock address scan's place against close.py's seal route and the seal commit. Each revision's close order as the seat
+    reads it (standing.act.close_order over the v5 row) and the one-call tool's seal commit (commit.py's run and its postlock_refusal, read
+    by ast and run on a stand-in reader) over the record instances, b758 to b763: each act's seal record time (data/<act>_seal_hashes.json),
+    its post-lock bank's runs (data/<act>_address_scan_postlock.txt) and the names its seal commit staged (data/<act>_steps.json's seal row),
+    with b763's order planted once more without its bank staged. FAULT: no step of the close order places the scan and the seal commit reads
+    no place, so the orders of b758 to b760 (before the seal route) and of b761 to b763 (after it) pass alike without a word. CLEAN: step
+    [8a] after [8] names the post-lock bank; the seal commit calls the refusal; b758, b759 and b760 refused, b761, b762 and b763 taken, b763
+    without its bank staged refused."""
+    import re as _re
+    L, res, cases = [], {}, {}
+    for a in K11_ACTS:
+        sj = json.load(open(os.path.join(D, '%s_seal_hashes.json' % a), encoding='utf-8'))
+        bank = open(os.path.join(D, '%s_address_scan_postlock.txt' % a), encoding='utf-8').read()
+        st = json.load(open(os.path.join(D, '%s_steps.json' % a), encoding='utf-8'))
+        rows = st.get('rows') if isinstance(st, dict) else st
+        sc = [r['commit'] for r in rows if r.get('phase') == 'seal' and r.get('repo') == 'relay'][0]
+        rc, nm = git('show', '--name-only', '--format=', sc)
+        staged = [x for x in nm.decode('utf-8').split(NL) if x.strip()]
+        runs = _re.findall(r'^## THE RUN AFTER THE LOCK, (\S+)', bank.replace('\r', ''), _re.M)
+        cases[a] = dict(act=a, at=sj.get('at'), bank=bank, staged=staged)
+        L.append('  THE RECORD INSTANCE %s: the seal record at %s ; the post-lock runs %s ; the seal commit %s staged %d names, the post-lock bank among them: %s' % (
+            a, sj.get('at'), runs, sc[:8], len(staged), ('data/%s_address_scan_postlock.txt' % a) in staged))
+    c = dict(cases['b763'])
+    c['staged'] = [x for x in c['staged'] if x != 'data/b763_address_scan_postlock.txt']
+    cases['b763 unstaged'] = c
+    L.append('  THE PLANTED INSTANCE b763 unstaged: b763`s order with data/b763_address_scan_postlock.txt taken out of its seal commit`s names')
+    want = {'b758': True, 'b759': True, 'b760': True, 'b761': False, 'b762': False, 'b763': False, 'b763 unstaged': True}
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b764k11_')
+        inst = tempfile.mkdtemp(prefix='b764k11i_')
+        try:
+            got = snapshot(rev, K11_PATHS, tmp)
+            with open(os.path.join(inst, 'cases.json'), 'w', encoding='utf-8') as fh:
+                json.dump(cases, fh)
+            j = probe(K11_PROBE, tmp, inst)
+        finally:
+            for t_, pre in ((tmp, 'b764k11_'), (inst, 'b764k11i_')):
+                if os.path.isabs(t_) and os.path.basename(t_).startswith(pre):
+                    shutil.rmtree(t_, ignore_errors=True)
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        o = j['order']
+        placed = bool(j['s8a']) and '8a' in o and '8' in o and o.index('8a') == o.index('8') + 1 and j['s8a'][0][2] == 'data/<act>_address_scan_postlock.txt'
+        refused = dict((k, v is not None) for k, v in j['refusals'].items())
+        fault = not j['s8a'] and not (j['defined'] and j['run_calls'])
+        clean = placed and j['defined'] and j['run_calls'] and refused == want
+        L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+              '    the close order as the seat reads it: %s' % ' '.join('[%s]' % x for x in o),
+              '    the step that places the post-lock scan: %s' % (j['s8a'] or 'NONE'),
+              '    the seal commit`s refusal defined %s ; called by run %s' % (j['defined'], j['run_calls']),
+              '    each order at the seal commit: %s' % ('; '.join('%s %s' % (k, ('REFUSED: ' + v) if v else 'taken') for k, v in sorted(j['refusals'].items()))
+                                                    if j['refusals'] else 'every order taken, no place read'),
+              '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
 CONTROLS = dict(K10=control_k10, K1=control_k1, K5=control_k5, K8=control_k8, K15=control_k15, K16=control_k16, K7=control_k7, K17=control_k17,
-                K13=control_k13, K12=control_k12)
+                K13=control_k13, K12=control_k12, K11=control_k11)
 
 
 def main(argv):

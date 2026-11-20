@@ -3029,7 +3029,7 @@ def closeorder(*a):
     [19] among them); prints and exits 5 where it refuses; writes nothing."""
     if not a or not a[0].isdigit():
         for k, w, e in __import__('standing.act', fromlist=['close_order']).close_order():   # ### v1.38.0, (R374)(5) [K10]: step [21] the bank written after the lock by design
-            print('  [%s] %s (%s)' % (k, w[:90] if k != 21 else w, e.replace('<act>', ACT)))
+            print('  [%s] %s (%s)' % (k, w[:90] if k not in (21, '8a') else w, e.replace('<act>', ACT)))   # ### v1.38.10, [K11]: [8a] whole, as [21]
         return
     _close_step(int(a[0]))
 
