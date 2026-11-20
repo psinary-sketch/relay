@@ -248,3 +248,34 @@ b764 -- THE PLANTED CONTROLS OF THE REPAIRS, (R374)(5), one section a key, each 
     each order at the seal commit: b758 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b759 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b760 REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): the post-lock bank holds no run stamped at or after the seal record`s time 2; b761 taken; b762 taken; b763 taken; b763 unstaged REFUSED: THE POST-LOCK SCAN NOT IN ITS PLACE ((R374)(5) [K11], the close order`s step [8a]): data/b763_address_scan_postlock.txt is not staged with the seal (its run of 
     AFTER: CLEAN
 ### ### **[K11] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K2] THE PLANTED CONTROL (2026-11-20T20:21:59Z): BEFORE relay fa3a436d, THE REPAIR`S COMMIT relay 9a15c01a, its first parent fa3a436d -- THE COMMIT BEFORE
+  THE RECORD INSTANCE: tools/b763_address_scan.py at d4ec1edb (26216 bytes), carried by the pairs [('b763', 'b764'), ('b762', 'b763'), ('R373', 'R374'), ('R372', 'R373')] (data/b764_carry_address_scan.txt :3); b764 defect (d) names the shifted cites at :158, :179, :187, :196, :266 and :303
+    b764`s ferry bank: "(N5)" on lines [18, 157]; the clause opens at :157 ("(N5) nothing deposits")
+  BEFORE (relay fa3a436d): the files tools/standing/carry.py present, tools/b764_carry.py present, tools/b764_address_scan.py present, data/b764_ferry.txt present
+    THE CARRY: 331 lines carried ; cites of an absent bank 0 ; the cites the shift moved NOT READ (no reader)
+    tools/b764_carry.py`s _carry calls the reader: False
+    THE SCAN`S EXCEPTION LINE over b764`s ferry: COMPOSED INLINE IN scan(): '## THE EXCEPTION, THE BYLINE UNDER I-23: %s%s' % (         ('NONE TAKEN: %s`S N5, READ FROM ITS FERRY BANK AT RUN TIME, HOLDS THE EXCEPTION IN ITS WORDS AND SAYS THIS ACT WRITES NO BYLINE, SO NO SECTION OF A DIFF IS '          'READ AS A BYLINE`S AND EVERY ADDED LINE COUNTS (b764 defect (k))' 
+    the scan tool`s literal cites of b764`s ferry by a line ['data/b764_ferry.txt :145', 'data/b764_ferry.txt :145', 'data/b764_ferry.txt :145', 'data/b764_ferry.txt :145'] ; of b764 defect (k) 5
+    BEFORE: THE FAULT READ
+  AFTER (relay 9a15c01a): the files tools/standing/carry.py present, tools/b764_carry.py present, tools/b764_address_scan.py present, data/b764_ferry.txt present
+    THE CARRY: 331 lines carried ; cites of an absent bank 0 ; the cites the shift moved 14, OWN 10
+      :158 b764 defect (k) OWN (from b763 defect (k))
+      :158 data/b764_ferry.txt :145 OWN (from data/b763_ferry.txt :145)
+      :162 b763 (e) MOVED (from b762 (e))
+      :162 b764 (b) OWN (from b763 (b))
+      :176 b763 defect (f) MOVED (from b762 defect (f))
+      :177 data/b763_ferry.txt :53 MOVED (from data/b762_ferry.txt :53)
+      :179 data/b764_ferry.txt :145 OWN (from data/b763_ferry.txt :145)
+      :187 b764 defect (k) OWN (from b763 defect (k))
+      :188 data/b764_ferry.txt :145 OWN (from data/b763_ferry.txt :145)
+      :196 b764 defect (k) OWN (from b763 defect (k))
+      :262 b763 (f) MOVED (from b762 (f))
+      :266 b764 defect (k) OWN (from b763 defect (k))
+      :266 data/b764_ferry.txt :145 OWN (from data/b763_ferry.txt :145)
+      :303 b764 defect (k) OWN (from b763 defect (k))
+    tools/b764_carry.py`s _carry calls the reader: True
+    THE SCAN`S EXCEPTION LINE over b764`s ferry: ## THE EXCEPTION, THE BYLINE UNDER I-23: NONE TAKEN: R374`S N5 (data/b764_ferry.txt :157), READ FROM ITS FERRY BANK AT RUN TIME, HOLDS THE EXCEPTION IN ITS WORDS AND SAYS THIS ACT WRITES NO BYLINE, SO NO SECTION OF A DIFF IS READ AS A BYLINE`S AND EVERY ADDED LINE COUNTS
+    the scan tool`s literal cites of b764`s ferry by a line NONE ; of b764 defect (k) 0
+    AFTER: CLEAN
+### ### **[K2] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
