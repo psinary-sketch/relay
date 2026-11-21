@@ -430,7 +430,7 @@ B714_ROOT = '34de7cffdf0093e2a1509dd764cc5c24b5667812f4e11139fe73409b9579dd54'  
 B723_ROOT_BANKS = 'c1349d62'  # ### b763's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = None           # ### (R374)(12): no change under tools/standing/ in Component 1; the changes of (5) are Component 2's, one commit a key (data/b764_steps.json)
-C1_LOCKGATE = None           # ### still to set: tools/b764_lockgate.py carried and set, committed before any run with the face and probe-path tools (b763's was dbd562bb, step 57)
+C1_LOCKGATE = 'ec439ca3'     # ### b764 Component 5: tools/b764_lockgate.py carried and set, committed before any run with the face and probe-path tools (step 69, 00:27:48Z)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
 DOORS = ('tools/b764_doors.py', '2bc7eca8', 'data/b764_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
