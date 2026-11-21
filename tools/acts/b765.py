@@ -2000,15 +2000,19 @@ def _ef_kind(rows, kind):
     return [r for r in rows or [] if r.get('kind') == kind]
 #⟪END⟫
 #⟪SECTION record 7⟫
-    """N1 (R375): "no lean process runs on this host; each build is a runner dispatch read by its run id from the artifact, the exit file
-    governing; the dispatches are the three of (7) and no other; nothing is fetched from the web by the seat; each record route and
-    dispatch under the holds." Read (b759's form, b765's items): no seat command running lean or lake; each dispatch row with one read row
-    of its run, the read's exit read; the dispatch counts within the worklist's caps, MAX_DISPATCHES (3) in SIDE-explicit-formula and 0 in
-    SIDE-dirichlet-mod-24, the worklist's EF_RUNS and M24_RUNS each the runs of its kernel's dispatch and read rows; the dispatch rows'
-    items the save, the reference and the restore of (7), each once at most; each dispatch under the memory hold (free_mb at or above
-    2,560 MB) and the disk hold (each volume at or above 5,000 MB) as its row banks them, each read row carrying free_mb; each dispatch row
-    naming the licence of step zero's banks; the dispatch commands in the capture as many as the dispatch rows and the sends refused; no
-    suite part in the background. From the command bank (the seat's commands, read live from the capture by the `commands` route), the
+    """N1 (R375), data/b765_ferry.txt :134: "no lean process runs on this host; each build is a runner dispatch read by its run id from the
+    artifact, the exit file governing; the dispatches of SIDE-explicit-formula number at most 13 and are those of (4); nothing is fetched
+    from the web by the seat; each record route and dispatch under the holds." Read (b759's form, b765's items; the carried reading of
+    (R374)(7)'s three items and one licence set to (4)'s and the author's words of 2026-11-21 before the lock, defect (v)): no seat command
+    running lean or lake; each dispatch row with one read row of its run, the read's exit read; the dispatch counts within the worklist's
+    caps, MAX_DISPATCHES (13) in SIDE-explicit-formula and 0 in SIDE-dirichlet-mod-24, the worklist's EF_RUNS and M24_RUNS each the runs
+    of its kernel's dispatch and read rows; the dispatch rows' items those of tools/b765_controls.py's ITEMS for (4) and the words, the
+    planted run, the closing build from source, the one repeat and each save on main once at most, those with the restore on (the
+    statement, the lemma's items and the saves on main, the tool's ON_ITEMS) at most ten; each dispatch under the memory hold (free_mb at
+    or above 2,560 MB) and the disk hold (each volume at or above 5,000 MB) as its row banks them, each read row carrying free_mb; each
+    dispatch row naming its licence: step zero's banks at the ferry's line, or, for the planted run and the saves on main, the author's
+    words bank at the commit that carried its lines (the worklist's CHAIN keys word and rows10, the tool's LICENCE_BANK); the dispatch
+    commands in the capture as many as the dispatch rows and the sends refused; no suite part in the background. From the command bank (the seat's commands, read live from the capture by the `commands` route), the
     dispatch rows beside the worklist's runs, and the hook's refusal bank (a suite part sent in the background refused BACKGROUND)."""
 #⟪END⟫
 #⟪SECTION record 8⟫
@@ -2030,19 +2034,30 @@ def _ef_kind(rows, kind):
     bg_ = [l for l in rdn('%s_hook_refusals.txt' % ACT).split(NL) if '| BACKGROUND |' in l]
     bgc_ = [r['n'] for r in ((cm.get('rows') or []) if cm else []) if r.get('bg') and re.search(r'fold\.py"? checks\b|_checks\.py', r.get('cmd') or '')]
     refused_ = _ef_kind(rows_, 'dispatch_refused')
-    lic_ = [r for r in _ef_kind(rows_, 'dispatch') if not str((r.get('licence') or {}).get('commit') if isinstance(r.get('licence'), dict) else r.get('licence') or '').startswith(K.STEPZERO_BANKS[:8])]
-    its_ = [r.get('item') for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula']   # ### b765: (7)'s three items, each once at most
+    # ### b765 (defect (v)): a licence is step zero's banks at the ferry's line, or the author's words bank at the commit that carried its
+    # ### lines (the worklist's CHAIN keys word, 33f1c248, and rows10, 62ffe878) for the planted run and the saves on main alone
+    wlic_ = tuple(str(dict(K.CHAIN).get(k_) or '')[:8] for k_ in ('word', 'rows10'))
+    licd_ = lambda r: r.get('licence') if isinstance(r.get('licence'), dict) else {'commit': r.get('licence') or ''}
+    lic_ = [r for r in _ef_kind(rows_, 'dispatch')
+            if not ((licd_(r).get('bank') == 'data/%s_ferry.txt' % ACT and str(licd_(r).get('commit') or '').startswith(K.STEPZERO_BANKS[:8]))
+                    or (licd_(r).get('bank') == 'data/%s_author_words_preseal.txt' % ACT and r.get('item') in ('planted', 'mainsave', 'mainsave2')
+                        and len(str(licd_(r).get('commit') or '')) >= 8 and str(licd_(r).get('commit'))[:8] in wlic_))]
+    its_ = [r.get('item') for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula']   # ### b765: (4)'s items and the words' (tools/b765_controls.py ITEMS)
+    once_ = ('planted', 'closing', 'repeat', 'mainsave', 'mainsave2')
+    on_ = ('statement', 'lemma-statement', 'lemma-step', 'lemma-later', 'mainsave', 'mainsave2')   # ### the tool's ON_ITEMS, at most ten ((R375)(4))
+    non_ = sum(1 for x_ in its_ if x_ in on_)
+    items_ok_ = set(its_) <= set(once_ + on_) and all(its_.count(x_) <= 1 for x_ in once_) and non_ <= 10
     ok = bool(cm) and not seat_lean and len(disp or []) == len(_ef_kind(rows_, 'dispatch')) + len(refused_) and runs_ and not twice_ \
-        and not free_ and not unexit_ and not lic_ and not bg_ and not bgc_ \
-        and set(its_) <= {'save', 'reference', 'restore'} and len(its_) == len(set(its_))
+        and not free_ and not unexit_ and not lic_ and not bg_ and not bgc_ and items_ok_
 #⟪END⟫
 #⟪SECTION record 9⟫
-        'the seat`s commands running lean or lake on this host (relay data/b765_commands.json): %s; dispatch commands in the capture: %s, against the dispatch rows %d and the sends refused by the host (no run) %d; by kernel, dispatches against the worklist`s cap (the three of (7), N1) and the worklist`s runs each a dispatch row`s and a read row`s: %s; the items of SIDE-explicit-formula`s dispatches: %s; reads %d, a run read twice: %s; each read`s exit file: %s; a read with no exit read: %s; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: %s; dispatch rows not naming the licence %s: %s (relay data/b765_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
+        'the seat`s commands running lean or lake on this host (relay data/b765_commands.json): %s; dispatch commands in the capture: %s, against the dispatch rows %d and the sends refused by the host (no run) %d; by kernel, dispatches against the worklist`s cap ((4)`s 13 and the author`s words, N1) and the worklist`s runs each a dispatch row`s and a read row`s: %s; the items of SIDE-explicit-formula`s dispatches: %s; those of (4) and the author`s words, the planted run, the closing build, the repeat and each save on main once at most, with the restore on %d of at most 10: %s; reads %d, a run read twice: %s; each read`s exit file: %s; a read with no exit read: %s; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: %s; dispatch rows not naming their licence (step zero`s banks %s at the ferry`s line, or for the planted run and the saves on main the author`s words bank at %s): %s (relay data/b765_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
             (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', len(_ef_kind(rows_, 'dispatch')), len(refused_),
             ', '.join('%s %d of %d, the runs %s' % (k_, n_, c_, o_) for k_, n_, c_, o_ in per_),
             ', '.join(r.get('item') + ' (restore ' + str(r.get('restore')) + ')' for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula') or 'none',
+            non_, items_ok_,
             len(reads_), ', '.join(twice_) or 'none', '; '.join(exits_),
-            unexit_ or 'NONE', free_ or 'NONE', K.STEPZERO_BANKS[:8], len(lic_), len(bgc_) if cm else 'unread', len(bg_)))
+            unexit_ or 'NONE', free_ or 'NONE', K.STEPZERO_BANKS[:8], ' or '.join(wlic_), len(lic_), len(bgc_) if cm else 'unread', len(bg_)))
 #⟪END⟫
 #⟪SECTION record 10⟫
 # ### N2 (over b765's objects): the tools' controls before their figures banked this act, (bank, the controls' line, the first figure's line).
