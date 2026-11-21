@@ -272,9 +272,16 @@ def control_k21(before, after):
             res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
         kj5 = os.path.join(inst, 'b765.json')
         c5 = _k21_consts('b765_worklist', kj5)
-        if 'error' not in c5 and 'HANDOFF_COMMIT' in (c5.get('consts') or {}) and not c5['consts']['HANDOFF_COMMIT']:
-            L.append('  b765`S OWN CHAIN (tools/b765_worklist.py, the working tree): PENDING -- HANDOFF_COMMIT not yet set; the control runs again after '
-                     'it is set ((R375)(8)), this reading not scored%s' % (
+        # ### the handoff is b765's where it descends from the worklist's act_current commit; a value carried from the act before (b764's
+        # ### 6d4d47f5, set before b765's base) is not set here (the first run, 11:12:17Z, read the carried value as set: defect (f))
+        cs5 = c5.get('consts') or {}
+        h5, a5 = cs5.get('HANDOFF_COMMIT'), cs5.get('ACT_CURRENT_COMMIT')
+        here = bool(h5) and bool(a5) and subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', a5, h5], capture_output=True).returncode == 0
+        if 'error' not in c5 and 'HANDOFF_COMMIT' in cs5 and not here:
+            L.append('  b765`S OWN CHAIN (tools/b765_worklist.py, the working tree): PENDING -- HANDOFF_COMMIT not yet set for b765%s; the control runs '
+                     'again after it is set ((R375)(8)), this reading not scored%s' % (
+                         (' (the worklist carries %s, not a descendant of its act_current commit %s: the act before`s)' % (h5[:8], (a5 or 'NONE')[:8]))
+                         if h5 else '',
                          ' (constants not yet readable: %s)' % ', '.join(sorted(c5['errors'])) if c5.get('errors') else ''))
             res['OWN'] = 'PENDING'
         elif 'error' in c5 or c5.get('errors'):
