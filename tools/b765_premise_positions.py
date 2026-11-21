@@ -20,8 +20,8 @@ written as a rule a declaration can be tested against (the seat's words, not the
   A HYPOTHESIS BY DESIGN ("part of what a theorem is about"): the premise a predicate (binders of its own: a statement about the theorem's
   variables) and a compiled theorem taking it whose conclusion is not the Hypothesis;
   NONE OF THESE COMPILED otherwise. A closed premise taken as a hypothesis is a fact assumed, not a theorem's subject, so it is not by design;
-  a theorem concluding the Hypothesis under further explicit hypotheses compiles no relation of the premise alone: its edge is printed with
-  the further hypotheses by name.
+  a theorem concluding the Hypothesis under further explicit hypotheses compiles no relation of the premise alone: each such edge, a compiled
+  theorem concluding the Hypothesis whose binders name the premise in any form, is printed with the binders naming it and the others by name.
 THE CONSEQUENCE, by the order's own list (OPEN_TRAILS :18985): by design, put to the author for retirement with the reason; derived, carried
 with the declaration; of the Hypothesis's strength (equivalent or implies), put for retirement with its position written and one shared
 sentence naming Weil positivity on classK; none, the order stands. No order is retired by this act.
@@ -191,6 +191,7 @@ def positions(name, closed, thms):
     """{position: [theorem]} held by the premise among the compiled theorems `thms`, by the rule of this file's head; and the theorems taking
     it, and its edges to the Hypothesis (compiled theorems taking it and concluding the Hypothesis), each with its other explicit binders."""
     hx = head_rx(name)
+    wx = re.compile(r"(?<![\w'])" + re.escape(name.split('.')[-1]) + r"(?![\w'])")
     held = dict((p, []) for p in ORDER_OF)
     takes, edges = [], []
     for t in thms:
@@ -202,8 +203,11 @@ def positions(name, closed, thms):
         c = t['concl']
         if tk:
             takes.append(t)
-            if 'RiemannHypothesis' in c:
-                edges.append((t, [g[1] for g in others]))
+        # ### an edge: a compiled theorem concluding the Hypothesis whose binders name the premise in any form (taken, or inside a
+        # ### hypothesis's type), with the binders naming it and the other explicit binders
+        ment = [g for g in t['binders'] if wx.search(g[2])]
+        if ment and 'RiemannHypothesis' in c:
+            edges.append((t, [g[1] or '(anonymous)' for g in ment], [g[1] for g in expl if g not in ment]))
         m1 = re.match(r'^(.+?)\s*\u2194\s*RiemannHypothesis$', c) or re.match(r'^RiemannHypothesis\s*\u2194\s*(.+)$', c)
         if m1 and applied(m1.group(1), hx) and not others:
             held[EQV].append(t)
@@ -353,7 +357,8 @@ def compose(at, tool):
                 ground = 'none: no compiled theorem at main takes it'
         else:
             ground = '%s (%s:%d)%s' % (g[0]['name'], g[0]['path'], g[0]['line'], (' and %d more' % (len(g) - 1)) if len(g) > 1 else '')
-        eds = '; '.join('%s (%s:%d) under %s' % (t['name'], t['path'], t['line'], ', '.join(o) or 'no other explicit hypothesis') for t, o in r['edges'][:3])
+        eds = '; '.join('%s (%s:%d), naming it in %s, under %s' % (t['name'], t['path'], t['line'], ', '.join(mn), ', '.join(o) or 'no other explicit binder')
+                        for t, mn, o in r['edges'][:4]) + ((' ; and %d more' % (len(r['edges']) - 4)) if len(r['edges']) > 4 else '')
         h = HAND.get(r['name'])
         agree += h == p
         out.append('    (%d) %s | %s | %s %s :%d at %s (held %s ; OPEN_TRAILS :%d sha256 %s) | `%s` | %s | %s, at main %s | %s | %s | hand-read %s' % (
