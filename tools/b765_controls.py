@@ -20,6 +20,9 @@ THE ITEMS, each with the needle of its clause in the ferry bank (one line), its 
                    not counted toward (a); wanted: exit not 0, the log naming the module
   mainsave         the word's (iii): under HELD alone, after main's read-back at the closing commit, one dispatch at main with the restore
                    on, among the ten; wanted: no key restored and a save; where the cap would be passed, the one carried
+  mainsave2        the author's word of 2026-11-21 on the save on main (data/b765_author_words_preseal.txt :30-:36, amendment row 3, the
+                   answer to data/b765_put_1.json): after the save on main read STOPPED, one more dispatch at main with the restore on, under
+                   HELD after main's read-back, among the ten; wanted as mainsave; once; a second stop leaves the save carried
   lemma-statement  (5)(b), restore on, the centre's tip
   lemma-step       (5)(b), restore on, the centre's tip
   lemma-later      (5)(b), restore on, the centre's tip
@@ -105,6 +108,8 @@ N5B = "(b) GAUSS'S INTEGRAL FOR THE ARCHIMEDEAN TERM, the lemma inside readings 
 WORDS = 'data/b765_author_words_preseal.txt'
 W_I = '(i) THE PLANTED BUILD OF (4)(a) is scored on a run whose cache record, out/cache_kernel.txt, reads a restore hit'
 W_III = "(iii) THE SAVE ON MAIN. Under the HELD outcome, after main's read-back, one dispatch runs on main with the restore on"
+# ### the author's word of 2026-11-21 on the save on main, banked verbatim at data/b765_author_words_preseal.txt :30-:36 (amendment row 3)
+W_MS2 = 'ITS WORDS, AS PUT: Your word licenses one more dispatch at main 0ba9cd61 with the restore on, wanted no hit and a save'
 MAIN = 'main'
 PLANT_COMMIT = 'e83e0deb'  # ### the centre's commit carrying the workflow's input planted
 # ### each item: the needle of its clause, its price row, the input restore it sends (None: the stopped build's), its branch (None: the stopped build's)
@@ -115,10 +120,12 @@ ITEMS = {'statement': (N5A, '(5)(a)', 'on', CENTRE),
          'lemma-later': (N5B, '(5)(b) later lemmas', 'on', CENTRE),
          'closing': (N4, '(4)(b) closing', 'off', CENTRE),
          'repeat': (N4, '(4)(b) closing', None, None),
-         'mainsave': (W_III, '(4) the save on main', 'on', MAIN)}
-LICENCE_BANK = {'planted': WORDS, 'mainsave': WORDS}   # ### the bank carrying each item's needle; the ferry's bank for the others
-EXTRA_CAPS = {'(4) the save on main': 1}               # ### a row the price table (banked before the word) does not carry: the word's one
-ON_ITEMS = ('statement', 'lemma-statement', 'lemma-step', 'lemma-later', 'mainsave')
+         'mainsave': (W_III, '(4) the save on main', 'on', MAIN),
+         'mainsave2': (W_MS2, '(4) the second save on main', 'on', MAIN)}
+LICENCE_BANK = {'planted': WORDS, 'mainsave': WORDS, 'mainsave2': WORDS}   # ### the bank carrying each item's needle; the ferry's bank for the others
+EXTRA_CAPS = {'(4) the save on main': 1, '(4) the second save on main': 1}   # ### rows the price table (banked before the words) does not carry: each word's one
+ON_ITEMS = ('statement', 'lemma-statement', 'lemma-step', 'lemma-later', 'mainsave', 'mainsave2')
+MAINSAVES = ('mainsave', 'mainsave2')
 PLANTED_KEYS = (('input', 'planted input: '), ('ref', 'planted ref: '), ('tip', 'planted tip: '), ('parent', 'planted parent: '),
                 ('count', 'planted files: '), ('built', 'the commit built: '))
 AX_DEP = re.compile(r"'([^\n]+?)' depends on axioms: \[([^\]]*)\]")
@@ -387,8 +394,8 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
     last = mine[-1] if mine else None
     if last and int(last['run']) not in reads:
         return 'dispatch %d (run %s) not yet read: one run read before the next is sent' % (last['n'], last['run'])
-    if any(r.get('item') == 'closing' for r in mine) and item not in ('repeat', 'mainsave'):
-        return 'the closing build sent: after it, the repeat of a stopped build and the save on main alone'
+    if any(r.get('item') == 'closing' for r in mine) and item not in ('repeat',) + MAINSAVES:
+        return 'the closing build sent: after it, the repeat of a stopped build and the saves on main alone'
     if item == 'repeat':
         if any(r.get('item') == 'repeat' for r in mine):
             return 'the one repeat of (4) sent already'
@@ -403,7 +410,7 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
         if len(cl) + 1 > caps.get('(4)(b) closing', 0):
             return 'the price row (4)(b) closing`s dispatch %d past its upper figure %d' % (len(cl) + 1, caps.get('(4)(b) closing', 0))
         return None
-    if item in ('planted', 'closing', 'mainsave') and any(r.get('item') == item for r in mine):
+    if item in ('planted', 'closing') + MAINSAVES and any(r.get('item') == item for r in mine):
         return 'the item %s dispatched already: once' % item
     row_ = ITEMS[item][1]
     of_row = [r for r in mine if r.get('item') != 'repeat' and ITEMS.get(r.get('item'), (None, None))[1] == row_]
@@ -429,12 +436,19 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
             return 'the planted commit`s parent is no ancestor of the commit sent on %s' % CENTRE
         if not ctx.get('module_equal'):
             return 'the planted module at the commit sent differs from its file at the planted commit`s parent: more than the planted change would be taken'
-    if item == 'mainsave':
+    if item in MAINSAVES:
         hv = verdicts(rows)['h']
         if hv[0] != 'HELD':
             return 'the save on main where H-RUNNER-RESTORE reads %s: the author`s word of 2026-11-21 (iii) sends it under HELD alone' % hv[0]
         if not ctx.get('main_read_back'):
             return 'the save on main before main`s read-back at the closing commit'
+    if item == 'mainsave2':
+        # ### the author's word on the save on main: one more after the save on main read STOPPED, and after no other reading
+        md_ = [r for r in mine if r.get('item') == 'mainsave']
+        mr_ = reads.get(int(md_[0]['run'])) if md_ else None
+        if not mr_ or mr_.get('verdict') != STOPPED:
+            return 'the second save on main where the save on main is %s: the author`s word on the save on main sends it after a stop alone' % (
+                'not sent' if not md_ else ((mr_ or {}).get('verdict') or 'not read'))
     if item == 'closing':
         ok_on = [r for r in reads.values() if r.get('restore_input') == 'on' and r.get('item') != 'planted' and r.get('built_ref') == sha
                  and r.get('build_exit') == '0']
@@ -584,8 +598,13 @@ def verdicts(rows):
     rp_m = [r for r in disp if r.get('item') == 'repeat' and md and r.get('n', 0) > md[0]['n'] and r.get('sha') == md[0]['sha']]
     if mrd and mrd.get('verdict') == STOPPED and rp_m:
         mrd = reads.get(int(rp_m[0]['run'])) or mrd
-    return dict(planted=pl, planted_read=prd, pair=pr, stopped_both=stopped_both, h=hv, mainsave=mainsave_state(mrd) if md else 'NOT SENT',
-                mainsave_read=mrd)
+    m2 = [r for r in disp if r.get('item') == 'mainsave2']
+    m2rd = reads.get(int(m2[0]['run'])) if m2 else None
+    ms1 = mainsave_state(mrd) if md else 'NOT SENT'
+    ms2 = mainsave_state(m2rd) if m2 else 'NOT SENT'
+    return dict(planted=pl, planted_read=prd, pair=pr, stopped_both=stopped_both, h=hv, mainsave=ms1, mainsave_read=mrd,
+                mainsave2=ms2, mainsave2_read=m2rd, save_on_main=(ms2 if m2 else ms1),
+                save_on_main_read=(m2rd if m2 else mrd))
 
 
 def statement_state(ax_text, build_exit):
@@ -638,7 +657,7 @@ def cmd_dispatch(sha, n, item, *rest):
               'changed %s ; its file equal at %s and at the parent: %s ; %s' % (
                   full[:8], PLANTED, str(ctx.get('planted_tip'))[:8], str(ctx.get('planted_parent'))[:8], full[:8], ctx['parent_on_centre'], pmod,
                   ctx.get('planted_path'), ctx.get('planted_lines'), full[:8], ctx['module_equal'], ctx['planted'][1] or 'TAKEN'))
-    if item == 'mainsave':
+    if item in MAINSAVES:
         mtip = next((sha for sha, ref in heads if ref == 'refs/heads/' + MAIN), None)
         pc = verdicts(rows)['pair'].get('commit')
         ctx['main_read_back'] = bool(mtip) and mtip == pc == full
@@ -801,7 +820,7 @@ def cmd_read(n, run, *rest):
     print('  THE STATEMENT %s: %s (%s)' % (STATEMENT_NAME, st[0], st[1]))
     print('  THE PLANTED RECORD (out/planted.txt): %s' % dict((x, pr_.get(x)) for x in ('read', 'input', 'ref', 'tip', 'parent', 'files', 'count', 'built',
                                                                                      'refused', 'taken')))
-    if d[0].get('item') in ('planted', 'mainsave') or d[0].get('planted_input') == 'on':
+    if d[0].get('item') in ('planted',) + MAINSAVES or d[0].get('planted_input') == 'on':
         print('  THE STATE BY THE WORD OF 2026-11-21: %s' % (planted_state(r) if d[0].get('planted_input') == 'on' else mainsave_state(r)))
     if d[0].get('planted_module'):
         print('  THE PLANTED MODULE %s NAMED BY THE LOG IN %d LINES:' % (d[0]['planted_module'], len(names)))
@@ -907,7 +926,10 @@ def verdict_lines(rows=None):
          '  H-RUNNER-RESTORE: %s%s' % (v['h'][0], (' ; ' + v['h'][1]) if v['h'][1] else ''),
          '  THE SAVE ON MAIN (the word`s (iii)): %s%s' % (v['mainsave'], (' (run %s, exit %s, hit %s, restored key %s, saved %s)' % (
              v['mainsave_read'].get('run'), v['mainsave_read'].get('build_exit'), (v['mainsave_read'].get('cache') or {}).get('hit'),
-             (v['mainsave_read'].get('cache') or {}).get('matched'), (v['mainsave_read'].get('cache') or {}).get('saved'))) if v['mainsave_read'] else '')]
+             (v['mainsave_read'].get('cache') or {}).get('matched'), (v['mainsave_read'].get('cache') or {}).get('saved'))) if v['mainsave_read'] else ''),
+         '  THE SECOND SAVE ON MAIN (the author`s word on the save on main): %s%s' % (v['mainsave2'], (' (run %s, exit %s, hit %s, restored key %s, saved %s)' % (
+             v['mainsave2_read'].get('run'), v['mainsave2_read'].get('build_exit'), (v['mainsave2_read'].get('cache') or {}).get('hit'),
+             (v['mainsave2_read'].get('cache') or {}).get('matched'), (v['mainsave2_read'].get('cache') or {}).get('saved'))) if v['mainsave2_read'] else '')]
     if v['planted_read']:
         L.append('  THE PLANTED RECORD: taken %s, tip %s, parent %s, files %s, the commit built %s, refused %s ; the cache`s restore line %s, restored key %s' % (
             (v['planted_read'].get('planted_rec') or {}).get('taken'), str((v['planted_read'].get('planted_rec') or {}).get('tip'))[:8],
@@ -944,12 +966,12 @@ def controls():
       list(s['outside']) == ['a'] and s['missing'] == ['c'] and s['sorryAx'] and s['within'] == 1)
     caps = row_caps()
     want_caps = {'(5)(a)': 2, '(4)(a) planted': 1, '(5)(b) statement': 1, '(5)(b) first step': 2, '(5)(b) later lemmas': 5, '(4)(b) closing': 2,
-                 '(4) the save on main': 1}
-    c('each price row`s cap, its upper dispatch figure (data/b765_price.json), and the word`s save on main at 1 beside them', caps, caps == want_caps)
+                 '(4) the save on main': 1, '(4) the second save on main': 1}
+    c('each price row`s cap, its upper dispatch figure (data/b765_price.json), and the two words` saves on main at 1 each beside them', caps, caps == want_caps)
     on_sum = sum(caps[ITEMS[i][1]] for i in ON_ITEMS)
     c('the kernel`s cap (the worklist`s MAX_DISPATCHES) against the rows` upper figures, the restore-on rows` sum against the ten of (4): the '
-      'price rows 13 and 10, the word`s one beside them, held by the 13 and the ten (where the cap would be passed, the save on main carried)',
-      (K.MAX_DISPATCHES, sum(caps.values()), on_sum, ON_CAP), K.MAX_DISPATCHES == 13 and sum(caps.values()) == 14 and on_sum == 11 and ON_CAP == 10)
+      'price rows 13 and 10, the two words` ones beside them, held by the 13 and the ten (where the cap would be passed, the save on main carried)',
+      (K.MAX_DISPATCHES, sum(caps.values()), on_sum, ON_CAP), K.MAX_DISPATCHES == 13 and sum(caps.values()) == 15 and on_sum == 12 and ON_CAP == 10)
     good, dk = (5000, _now()), {'C:/': 20000, 'D:/': 20000}
     A, B = 'a' * 40, 'b' * 40
 
@@ -1006,17 +1028,17 @@ def controls():
     c('five planted dispatches taken (the statement first ; the planted after a save`s read ; the closing after the restore-on build at its commit ; '
       'the repeat of a stopped closing build ; a lemma step after the statement)', passes, passes == [None] * 5)
     lic = {}
-    for bank_, nd, want_line in ((ANSWERS, N4, 17), (ANSWERS, N5A, 20), (ANSWERS, N5B, 21), (WORDS, W_I, 23), (WORDS, W_III, 25)):
+    for bank_, nd, want_line in ((ANSWERS, N4, 17), (ANSWERS, N5A, 20), (ANSWERS, N5B, 21), (WORDS, W_I, 23), (WORDS, W_III, 25), (WORDS, W_MS2, 34)):
         try:
             x = DR.licence(bank_, nd)
             lic[nd[:12]] = (x['commit'][:8], x['line'], x['line'] == want_line)
         except DR.Refused as e:
             lic[nd[:12]] = str(e)[:60]
     c('the licences at the committed banks: the ferry`s (4) at :17, (5)(a) at :20, (5)(b) at :21 ; the author`s words bank`s word of 2026-11-21 on '
-      'the cache, its (i) at :23 and its (iii) at :25', lic, all(isinstance(v, tuple) and v[2] for v in lic.values()))
-    c('each item`s licence bank: the planted and the save on main at the author`s words bank, the others at the ferry`s',
+      'the cache, its (i) at :23 and its (iii) at :25 ; the word on the save on main at :34', lic, all(isinstance(v, tuple) and v[2] for v in lic.values()))
+    c('each item`s licence bank: the planted and the two saves on main at the author`s words bank, the others at the ferry`s',
       dict((i, LICENCE_BANK.get(i, ANSWERS)) for i in sorted(ITEMS)),
-      all(LICENCE_BANK.get(i, ANSWERS) == (WORDS if i in ('planted', 'mainsave') else ANSWERS) for i in ITEMS))
+      all(LICENCE_BANK.get(i, ANSWERS) == (WORDS if i in ('planted',) + MAINSAVES else ANSWERS) for i in ITEMS))
     try:
         DR.licence(ANSWERS, '(15) A CLAUSE THE RULING DOES NOT HAVE')
         miss = False
@@ -1155,6 +1177,35 @@ def controls():
           dispatch_refusal('lemma-step', 5, A, held_rows, good, dk, caps=want_caps, ctx={})]
     c('the save on main`s dispatch (taken under HELD after main`s read-back ; refused before it ; refused where H-RUNNER-RESTORE reads OPEN ; '
       'refused a second time ; a lemma step refused after the closing)', [x is None for x in mr], [x is None for x in mr] == [True, False, False, False, False])
+    # ### the author's word on the save on main (amendment row 3): the second save taken after the save on main read STOPPED alone
+    ms_stop = held_rows + [D_(5, 'mainsave', 15), R_(15, 'mainsave', verdict=STOPPED, ex='143')]
+    m2 = [dispatch_refusal('mainsave2', 6, A, ms_stop, good, dk, caps=want_caps, ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave2', 6, A, ms_stop, good, dk, caps=want_caps, ctx={}),
+          dispatch_refusal('mainsave2', 5, A, held_rows, good, dk, caps=want_caps, ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave2', 6, A, held_rows + [D_(5, 'mainsave', 15), dict(R_(15, 'mainsave'), cache=recs[0])], good, dk, caps=want_caps,
+                           ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave2', 7, A, ms_stop + [D_(6, 'mainsave2', 16), R_(16, 'mainsave2', verdict=STOPPED, ex='143')], good, dk,
+                           caps=want_caps, ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave', 7, A, ms_stop + [D_(6, 'mainsave2', 16), R_(16, 'mainsave2', verdict=STOPPED, ex='143')], good, dk,
+                           caps=want_caps, ctx=dict(main_read_back=True))]
+    c('the second save on main`s dispatch by the word on the save on main (taken after the save on main read STOPPED, under HELD after main`s '
+      'read-back ; refused before the read-back ; refused with no save on main sent ; refused after a save on main read exit 0 ; refused a '
+      'second time ; the save on main refused again after it)', [x is None for x in m2], [x is None for x in m2] == [True, False, False, False, False, False])
+    v2 = verdicts(ms_stop + [D_(6, 'mainsave2', 16), dict(R_(16, 'mainsave2'), cache=real1)])
+    c('the verdicts over that series, the second save read as dispatch 1`s real record (from source, saved): the save on main STOPPED, the second '
+      'AS WANTED, the save on main read from the second', (v2['mainsave'], v2['mainsave2'], v2['save_on_main']),
+      (v2['mainsave'], v2['mainsave2'], v2['save_on_main']) == ('STOPPED', 'AS WANTED', 'AS WANTED'))
+    # ### THE POSITIVE CONTROL on the act's own rows, read up to the first row of the second save (so it reads alike before and after that
+    # ### dispatch): H-RUNNER-RESTORE HELD, the save on main STOPPED, and the second's dispatch at the closing commit taken under a read-back
+    rr = _rows()
+    cut = next((i for i, r in enumerate(rr) if r.get('item') == 'mainsave2'), len(rr))
+    rr0 = rr[:cut]
+    nr = 1 + len([r for r in rr0 if r.get('kind') == 'dispatch' and r.get('kernel') == EF])
+    vr2 = verdicts(rr0)
+    pr2 = dispatch_refusal('mainsave2', nr, K.RUNNER_COMMIT, rr0, good, dk, ctx=dict(main_read_back=True)) if rr0 else 'no rows'
+    c('THE POSITIVE CONTROL on the act`s own rows before the second save`s: H-RUNNER-RESTORE, the save on main (run 44925522330), and the '
+      'second`s dispatch %d at the closing commit taken under a read-back' % nr, (vr2['h'][0], vr2['mainsave'], vr2['mainsave2'], pr2),
+      (vr2['h'][0], vr2['mainsave'], vr2['mainsave2'], pr2) == ('HELD', 'STOPPED', 'NOT SENT', None))
     ss = [statement_state("'%s' depends on axioms: [propext]" % STATEMENT_NAME, '0')[0], statement_state("'%s' depends on axioms: [propext]" % STATEMENT_NAME, '1')[0],
           statement_state("'other' depends on axioms: [propext]", '0')[0], statement_state("'%s' depends on axioms: [sorryAx]" % STATEMENT_NAME, '0')[0]]
     c('the statement`s state on four planted prints (its line in the three ; the exit 1 ; no line ; sorryAx)', ss,
@@ -1219,7 +1270,9 @@ def cmd_bank(*_a):
     nd = len(disp)
     out.append('### ### **DISPATCHES %d OF AT MOST %d (WITH THE RESTORE ON %d OF AT MOST %d) ; THE PLANTED %s ; THE PAIR %s ; H-RUNNER-RESTORE %s ; THE SAVE '
                'ON MAIN %s ; THE TOOL`S CONTROLS %d OF %d.**' % (nd, K.MAX_DISPATCHES, sum(1 for r in disp if r.get('item') in ON_ITEMS), ON_CAP, v['planted'],
-                                                                v['pair']['state'], v['h'][0], v['mainsave'], sum(ok), len(ok)))
+                                                                v['pair']['state'], v['h'][0],
+                                                                v['mainsave'] if v['mainsave2'] == 'NOT SENT' else '%s, THE SECOND %s' % (v['mainsave'], v['mainsave2']),
+                                                                sum(ok), len(ok)))
     r = FB.write(BANK, NL.join(out))
     print(NL.join(out))
     print('written data/b765_controls.txt ; figbank: %s' % r['why'])
