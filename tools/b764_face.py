@@ -37,30 +37,38 @@ PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b763_registration_2026-
 # ### worklist's PRE_RELAY and PRE_PP: the pre-face commits after them (the carry had left b762's 3fe5b17c and 87cab4f2 in this comment)
 LOGS = ((ROOT, K.PRE_RELAY), (K.PP, K.PRE_PP))
 W_ANCHOR = '### No Zeta23 or vendored byte;'
-# ### b764: (G1)'s order as b763's face carries it between its blocks, "-> COMPONENTS 0-5 AND COMPONENT 6`S BANKS (the listings before any
-# ### clause;" (data/b763_registration_2026-11-19.txt :200), is b764's own: b764 ran the ferry's Components 0 to 5 and Component 6's banks
-# ### before this face (data/b764_ferry.txt :137-:143), so nothing is set. The (W) list is (R374)(13)'s, as (R373)'s was its (13), the shift
-# ### carrying b763's "(R373)(13)`s (W) list" (:242) to it with nothing set. b763's face already carries its rules sentence as set at b763,
-# ### "(R373) ordering no rules row and no data/b763_rules.txt written" (:277), which the shift carries to (R374) and data/b764_rules.txt:
-# ### (R374) orders no rules row and none is written (the act module's G-RULES-ROW-ENTERED reads so), so FIXES is empty and nothing is set.
-FIXES = ()
-# ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
-DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN')
-DECLARED_LINES = (
-    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b763 carried it (data/b763_events.txt (50)).",
-    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :126), as at b763`s pre-run. b764 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b764_*cut.txt in the tree; its re-cut inputs bank, data/b764_recut_inputs.txt, does not end in cut.txt), so it adds to neither count, and the searches read fail NONE (:38). (R374) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
-    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean at :10 or :11, b726`s certificates (commit c9add92) carried onto main with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`, as at b763. The axioms print of run 44670834879, the run that built v0.43`s tree at main 819e4a83, reads each C2Walk.cert_m<n> with no axiom (its artifact`s axioms.txt :136-:153), so no fallback branch was taken and sorryAx stands nowhere in its print; the counter counts the text (data/b763_events.txt (50)). The one pair the first standing-a1 probe read unequal, the kernel`s clone checked out at push-b764-keiper, was returned to main by the one-call tool`s switch before the probe these cites read (data/b764_events.txt (84)); (R374) removes no kernel branch ((4)), and the M<n> files stand as landed.",
-    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 6, data/b764_ferry.txt :143).",
+# ### b764: four sentences of b763's face carried between its blocks read against b764 and set (scratch gaps764.py, read-only, 02:57Z).
+# ### (G1)'s order at b763's :199 names "COMPONENTS 0-5 AND COMPONENT 6`S BANKS", b763's ferry's components; b764's ferry has Components 0
+# ### to 5 (data/b764_ferry.txt :150-:155), and before this face b764 ran 0 to 4 and Component 5's banks. The freeze paragraph (:241) and
+# ### the arms' paragraph (:276) name "(R374)(13)`s (W) list" and "(R374)(13)`s (W) row", the shift of b763's (R373)(13); b764's (W) list is
+# ### (R374)(14)'s (:44). The arms' paragraph (:249) reads G-DELETES-ONE-BRANCH's allowance "through tools/standing/allow.py at v1.37.1",
+# ### the standing VERSION each face since b750 names there (b759 v1.36.7, b760 to b763 v1.37.1); b764's is v1.38.18. b763's rules sentence
+# ### (:276), "(R374) ordering no rules row and no data/b764_rules.txt written" after the shift, is true of b764 (C1_RULES LEFT EMPTY BY
+# ### (R374)(12)) and stands.
+FIXES = (
+    ('COMPONENTS 0-5 AND COMPONENT 6`S BANKS', 'COMPONENTS 0-4 AND COMPONENT 5`S BANKS'),
+    ('(outside (R374)(13)`s (W) list)', '(outside (R374)(14)`s (W) list)'),
+    ('read (R374)(13)`s (W) row and the rules banks', 'read (R374)(14)`s (W) row and the rules banks'),
+    ('tools/standing/allow.py at v1.37.1', 'tools/standing/allow.py at v1.38.18'),
 )
-NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-LOCKGATE-EIGHT',
-         'G-NOTHING-RAN-AHEAD', 'G-ROOTDRY-READY', 'G-RULE-SCORES-BEFORE-SEAL', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS', 'G-WRITELIST-MIRROR-STATE')
-# ### b764: DECLARED and DECLARED_LINES set by hand from b764's probes (standing-a1 :20, :22, :23 at 07:06:06Z; standing-a2 :38, :126 at
-# ### 07:10:43Z): three of the four arms b763 declared, each line read against b764's own state (data/b764_events.txt (84), (85)): b764 banks
-# ### no cut bank and no search, and no kernel branch is removed; G-DELETE-FREE passing (b764 has no page tool, the probe of standing-a2
-# ### :79), so not declared. NEWLY the twelve of `tools/standing/prelock.py print b764` at 08:08:13Z (read 116, failing 34, at b763's
-# ### pre-run 23, banks absent NONE): b763's thirteen less G-DELETE-FREE, each an object of the record, the lock or the seal not yet
-# ### written, G-DELETES-ONE-BRANCH reading the command bank data/b764_commands.txt, written at the record. Set again from the last
-# ### comparison before the gate where it differs.
+# ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes
+DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN', 'G-DELETE-FREE')
+DECLARED_LINES = (
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried; the arm at tools/standing/fold/checks.tpl :1783) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b763 carried it (data/b763_events.txt (85)).",
+    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :127), as at b763`s pre-run. b764 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b764_*cut.txt in the tree), so it adds to neither count, and the searches read fail NONE (:38). (R374) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11; the arm at tools/standing/fold/checks.tpl :1779); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean, b726`s certificates (commit c9add92) carried onto main with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`, as at b763. The axioms print of run 44670834879, the run that built v0.43`s tree at main 819e4a83, reads each C2Walk.cert_m<n> with no axiom (its artifact`s axioms.txt :136-:153, as b763 read it, data/b763_events.txt (85)), so no fallback branch was taken and sorryAx stands nowhere in its print; the counter counts the text. b764 writes no Lean byte: its one kernel write is the workflow`s file on push-b764-runner, and the kernel`s clone stood at main when standing-a1 ran (data/b764_events.txt (57)); (R374) removes no kernel branch ((4)), and the M<n> files stand as landed.",
+    "### `G-DELETE-FREE` reads the act`s own tools, their code with prose stripped, for a delete call of any kind, a temporary folder`s cleanup set apart where the call`s first argument is a name the same file bound from tempfile or a parameter every call of which passes one (tools/standing/fold/checks.tpl :1814, tools/standing/deletefree.py :1-:12); it fails on five lines of tools/b764_repair_controls.py, the controls` cleanups in their finally blocks at :874-:876, :957-:959, :1047-:1049, :1137-:1139 and :1237-:1239, each `shutil.rmtree(t_, ignore_errors=True)` in a loop over the block`s own tempfile.mkdtemp folders, the path read absolute and its name by the control`s own prefix before the call, a loop variable the reader does not follow (the probe of standing-a2 :80; data/b764_defects.txt (i)). Each removes a folder its own block made under the system`s temporary folder, and nothing of the record is deleted. The tool ran and banked in that form (data/b764_repair_controls.txt) and is not edited, as b762 kept its own for b762 (j); the reader`s gap for a loop is a fault of tools/standing/, which (R374)(12) moves under (5) and (7) alone, carried to the next act of the record`s upkeep.",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and appended to the post-seal events bank at step [21] for the next corrigendum, not a letter (the ferry`s Component 5, data/b764_ferry.txt :155; (R374)(5) [K10]).",
+)
+NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETE-FREE', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD',
+         'G-LOCKGATE-EIGHT', 'G-NOTHING-RAN-AHEAD', 'G-ROOTDRY-READY', 'G-RULE-SCORES-BEFORE-SEAL', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS',
+         'G-WRITELIST-MIRROR-STATE')
+# ### b764: DECLARED and DECLARED_LINES set by hand from b764's probes (standing-a1 :20, :22, :23 at 01:16:37Z; standing-a2 :38, :80, :127
+# ### at 01:21:42Z, and again at 02:30:37Z with the same 25 failing by name): b763's three, each line read against b764's own state, and
+# ### G-DELETE-FREE for defect (i) (data/b764_events.txt (62), (64)). NEWLY the thirteen of `tools/standing/prelock.py print b764` at
+# ### 02:38:52Z (read 116, failing 35, at b763's pre-run 22, banks absent NONE): b763's twelve (data/b763_prelock.txt :3-:15), each an
+# ### object of the record, the lock or the seal not yet written, and G-DELETE-FREE. Set again from the last comparison before the gate
+# ### where it differs.
 
 
 def shift(s):
