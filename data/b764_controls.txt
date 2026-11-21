@@ -1,0 +1,46 @@
+b764 -- (R374)(7): THE RUNNER ON A RESTORED BUILD, THE DISPATCHES AND THE READS, EACH READ BY ITS RUN ID (2026-11-21T00:05:36Z)
+
+## THE CONTROLS
+  (1) the axioms reader on a wrapped standard line: ('propext', 'Classical.choice', 'Quot.sound') -> AS WANTED
+  (2) on an axiom-free line: () -> AS WANTED
+  (3) on a name with a prime: ('propext',) -> AS WANTED
+  (4) a planted sorryAx line and a target with no line: outside ['a'] ; missing ['c'] ; sorryAx True -> AS WANTED
+  (5) each price row`s cap, its upper dispatch figure (data/b764_price.json): {'(7) reference+save': 2, '(7) restore': 1} -> AS WANTED
+  (6) the kernel`s cap (the worklist`s MAX_DISPATCHES) against (7)`s rows` upper figures, and SIDE-dirichlet-mod-24`s 0: (3, 3, 0) -> AS WANTED
+  (7) twelve planted dispatches refused (an item in SIDE-dirichlet-mod-24, b763`s item, past the kernel`s cap of 3, out of series, under the hold, under the floor, a third kernel, rowed already, the save twice, the reference before the save, the restore before the save`s read, the restore where the save`s read shows nothing saved): [True, True, True, True, True, True, True, True, True, True, True, True] -> AS WANTED
+  (8) four planted dispatches taken (the save first ; the reference after the save`s read showing the build saved ; the restore after it ; the restore third, after the reference): [None, None, None, None] -> AS WANTED
+  (9) the price row`s cap read: with (7) reference+save planted at 1, the reference after the save refused at the row`s upper figure: the price row (7) reference+save`s dispatch 2 past its upper figure 1 ((R374) N1) -> AS WANTED
+  (10) (7)`s licence at the committed ferry bank, the commit and the line: ('3c8e5ebc', 26) -> AS WANTED
+  (11) a needle the ferry does not carry refused: True -> AS WANTED
+  (12) each kernel`s remote read from its own config, printed masked: {'ef': ('<account>/SIDE-explicit-formula', True), 'm24': ('<account>/SIDE-dirichlet-mod-24', True)} -> AS WANTED
+  (13) targets at the branch tip 38a57e02: a module taken, a name with no file refused, a vendored module under its srcDir taken (refused by the tree alone): ([], 1, [], 1) -> AS WANTED
+  (14) the axioms print`s state on three planted files (an import failure, the NOT RUN line, a clean print): ['FAILED, NO AXIOMS LINE: ', 'NOT RUN: NOT RUN: the bu', 'RAN'] -> AS WANTED
+  (15) the row`s own target check on a planted dispatch row of the vendored module: given the srcDir-aware list, taken ; given the kernel`s folder alone, refused: [None, '### THE ROW REFUSED, NOTHING WRITTEN: targets not modules of'] -> AS WANTED
+  (16) the remote tip: push-b764-runner`s tip taken ; another push-b764-* branch`s refused ; main`s refused (the run must read the branch`s workflow) ; no tip refused ; no commit refused ; b763`s push branch refused: (None, True, True, True, True, True) -> AS WANTED
+  (17) THE POSITIVE CONTROL: the targets reader at a3aad4cc against b759`s targets bank (data/b759_targets.json: 99 modules for 489 names, 0 refused): ('a3aad4cc', 99, 489, 0) -> AS WANTED
+  (18) the workflow`s predicates for (7): each true at the branch tip 38a57e02 ; THE PLANTED FAULT, main`s workflow at 819e4a83, each false: (6, 6, 0) -> AS WANTED
+  (19) the cache`s record on four planted files (the save run, the restoring run, the reference, a record cut short): (read, restored, saved, from source): [(True, False, True, True), (True, True, False, False), (True, False, False, True), (False, False, False, False)] -> AS WANTED
+  (20) the axioms comparison on four planted pairs (equal ; line 2 differing ; one line short ; both empty): (positions equal, first difference, equal): [(3, None, True), (2, 2, False), (2, 3, False), (0, None, False)] -> AS WANTED
+  (21) the minutes on planted times (a build of 93.5 min ; a build with no end ; a run of 12.1 min): (93.5, None, 12.1) -> AS WANTED
+  (22) the trial`s verdict on five planted readings (all met ; the axioms differing ; the restoring run exiting 1 ; its build not restored ; no restoring run read): ['REPRODUCES', 'DIFFERS', 'FAILS', 'FAILS', 'NOT TRIED'] -> AS WANTED
+  (23) the sentence of REPRODUCES with its fields filled, and of DIFFERS: ('A dispatch of SIDE-explicit-formula on a restored build prin', 'on its branch and main is not moved; builds stay from source') -> AS WANTED
+  (24) the rows bank: 6 rows, refused by standing.dispatchrows NONE -> AS WANTED
+  (25) the free read and the disk read now: 5812 MB at 2026-11-21T00:05:36Z ; {'C:/': 26803, 'D:/': 615958} -> AS WANTED
+  the tool`s controls 25 of 25 as wanted
+
+## SIDE-explicit-formula: 3 DISPATCHES OF AT MOST 3 ; SENDS REFUSED BY THE HOST 0
+  1 | save      | restore on | sha 38a57e02 at push-b764-runner | run 44826208702 | free 6263 MB | licence 3c8e5ebc :26 | KERNEL, exit 0, built True, the workflow at the dispatched commit True, 0 errors, sorry warnings 0, targets 559, axiom lines 557, within 557, outside 0, missing 2, sorryAx False, axioms file 611 lines sha256 e3aa4721cb769f17, runner low 4020 MB, minutes 94.2 (build 91.3)
+      the axioms print: RAN ; the cache`s record: input on, hit none, files before the build 0, completed true, key present before the save none, save success -> restored False, saved True, from source True
+  2 | reference | restore off | sha 38a57e02 at push-b764-runner | run 44838771976 | free 5999 MB | licence 3c8e5ebc :26 | STOPPED UNDER THE HOLD, exit 143, built True, the workflow at the dispatched commit True, 0 errors, sorry warnings 0, targets 559, axiom lines 0, within 0, outside 0, missing 559, sorryAx False, axioms file 1 lines sha256 8e54aa71fcdc95d6, runner low 2447 MB, minutes 15.0 (build 13.1)
+      the axioms print: NOT RUN: NOT RUN: the build did not complete under the hold ; the cache`s record: input off, hit none, files before the build 0, completed false, key present before the save none, save skipped -> restored False, saved False, from source True
+  3 | restore   | restore on | sha 38a57e02 at push-b764-runner | run 44838852797 | free 6054 MB | licence 3c8e5ebc :26 | KERNEL, exit 0, built True, the workflow at the dispatched commit True, 0 errors, sorry warnings 0, targets 559, axiom lines 557, within 557, outside 0, missing 2, sorryAx False, axioms file 611 lines sha256 e3aa4721cb769f17, runner low 14467 MB, minutes 3.2 (build 0.1)
+      the axioms print: RAN ; the cache`s record: input on, hit true, files before the build 3040, completed true, key present before the save true, save skipped -> restored True, saved False, from source False
+
+## SIDE-dirichlet-mod-24: 0 DISPATCHES OF AT MOST 0 ; SENDS REFUSED BY THE HOST 0
+
+## THE TRIAL OF (R374)(7)
+  the verdict: FAILS ; the reference`s exit file 143; the reference`s axioms print NOT RUN: NOT RUN: the build did not complete under the hold
+  the fields: lines equal 0 ; the restoring run`s minutes 3.2 (its build 0.1) ; the reference`s 15.0 (its build 13.1) ; runs [44826208702, 44838771976, 44838852797] ; the comparison {'lines_a': 1, 'lines_b': 611, 'equal_positions': 0, 'first_diff': 1, 'equal': False}
+  THE SENTENCE: A dispatch of SIDE-explicit-formula on a restored build did not reproduce the from-source build: the reference`s exit file 143; the reference`s axioms print NOT RUN: NOT RUN: the build did not complete under the hold; the workflow's change stays on its branch and main is not moved; builds stay from source
+
+### ### **DISPATCHES 3 (SIDE-explicit-formula 3 OF 3, SIDE-dirichlet-mod-24 0 OF 0) ; READ KERNEL (THE BUILD EXITING 0) 2 ; THE TRIAL FAILS ; THE TOOL`S CONTROLS 25 OF 25.**
