@@ -1,6 +1,6 @@
 {
  "act": "b765",
- "at": "2026-11-21T13:13:08Z",
+ "at": "2026-11-21T15:05:52Z",
  "source": "kinds",
  "patterns": [
   "relay/data/b765_*",
@@ -33,7 +33,9 @@
   "SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean",
   "SIDE-explicit-formula/SIDEExplicitFormula/SquaresAt24.lean",
   "SIDE-explicit-formula/SIDEExplicitFormula/GaussArchQ.lean",
-  "SIDE-explicit-formula/SIDEExplicitFormula/GaussArchQSteps.lean"
+  "SIDE-explicit-formula/SIDEExplicitFormula/GaussArchQSteps.lean",
+  "relay/tools/project_set.py",
+  "PLACE-project-set/*"
  ],
  "sources": {
   "data/b765_ferry.txt": "3a563595f4360e1410c80fd4802e2e3b9bc8fe4d327d8fcd8d8840f1b53387a0",
@@ -41,7 +43,7 @@
   "tools/b765_worklist.py#PP_EDITED": "6af5cb14afabce75b55c4a51a066b1731477b00dcf174f0797bff7305b0fad13",
   "data/b765_face.txt": "ABSENT",
   "tools/b765_face_blocks.txt": "ABSENT",
-  "tools/b765_worklist.py#W_WORDS": "f93c622e142d559e08d68aabc5dcf481f493a3369a90b1aa4a4d613baa66276d"
+  "tools/b765_worklist.py#W_WORDS": "053c5b26f4fd2170c1bc41aef02cae4850d72df96c5fc50c39fb37ce6b81028e"
  },
  "word_rows": [
   {
@@ -91,6 +93,14 @@
   {
    "pattern": "SIDE-explicit-formula/SIDEExplicitFormula/GaussArchQSteps.lean",
    "clause": "(R375)(5)(b), (13): the files of (5) in the kernel`s source folder -- the lemma`s proof in steps, each a theorem that compiles with no sorry, as far as the ceiling allows"
+  },
+  {
+   "pattern": "relay/tools/project_set.py",
+   "clause": "(R375)(7), (11), (13): the builder`s step under tools/, outside tools/standing/ -- it writes the Project`s set into a clone of the repository of (7) after the mirror reads CLEAN and commits there, with its md5 control and its planted byte, committed before its run"
+  },
+  {
+   "pattern": "PLACE-project-set/*",
+   "clause": "(R375)(7), (13): the repository of (7) whole -- PLACE-project-set under the account, private, its clone outside every repository of the record, written by the builder`s step alone and edited by no hand"
   }
  ]
 }
