@@ -122,3 +122,47 @@ STEP ZERO:
      at :240832. The ferry read whole (two reads), the author's words read whole, this bank read whole; the step-zero, defects and
      refusals banks not yet written (no data/b765_hook_refusals.txt). The restatement stated in ten lines before the next write (scratch
      facts765f.py, 10:37Z).
+
+b764'S THREE FINDINGS AFTER ITS LOCK, FROM THE SEAT'S CLOSING MESSAGE (transcript line 239073, 2026-11-21T09:12:36.213Z, "Problems found after the lock", the lock 8d55d1bf at 04:50:12Z), ENTERED AS b765'S EVENTS BY (R375)(1), IN THE MESSAGE'S ORDER, EACH TIME AS THE MESSAGE GIVES IT;
+b764's post-seal bank (data/b764_events_postseal.txt rows (70)-(84), appended at step [21] and committed with its closing, e9893630) holds them
+and is not edited; each tag read from b764's own row. The message's note that the closing step row's scan wrote the next act's bank, read as
+designed by [K19], is not a finding:
+    (19) THE HOOK'S [CLOSE ; REPEAT b764 events (55)]: A READ WITH NO LIMIT REFUSED, THE FIRST SEND AFTER A SUMMARY. At
+     2026-11-21T04:50:37Z, after the summary at transcript line 236624 (04:50:25.190Z), the first after b764's lock (8d55d1bf, 04:50:12Z),
+     the hook refused the seat's Read of a memory note sent with no limit (the kind READ, data/b764_hook_refusals.txt :7, counted by kind
+     and given no letter by [U3]); sent again with an offset and a limit (b764's post-seal row (71)).
+
+    (20) THE SEAT'S [CLOSE ; NEW]: G-COEFFS-LAW FAILS BEYOND THE FACE, THE LOCK GATE'S CARRY READ AFTER THE HANDOFF. At 2026-11-21T05:56:39Z
+     the pre-run's act part read the arm failing, and the pre-push run (07:52:24Z) and the post-push run (08:55:24Z) the same: the
+     worklist's CHAIN does not hold the lock gate's carry ec439ca3, so the act module's chain reads it after the handoff 6d4d47f5, out of
+     time order; the act part's probe passed at 01:08:01Z, before HANDOFF_COMMIT was set; the worklist tracked at the lock, the arm stands
+     failing (b764's post-seal rows (73), (81), (83)). The fault [K21] names.
+
+    (21) THE TOOL'S [CLOSE ; REPEAT b764 events (16)]: THE ENTRY'S AND THE TRAIL'S NEXT LINES DO NOT CARRY THE AUTHOR'S ANSWER GIVEN IN
+     WORDS. At 2026-11-21T06:48:40Z the entry's Carried to and Next lines (FINDINGS :15921, :15923) stood as composed, the author's answer
+     at the root not in them, and the trail's Next line (OPEN_TRAILS :19131) the same: tools/standing/nextact.py word() takes an answer only
+     where it says "<next act> is" or does not open with BEGIN, and [K8]'s planted control held an answer chosen among the options alone
+     (b764's post-seal row (78)). The fault [K20] names.
+
+THE NAVIGATOR'S CLAIMS, FROM (R375)(1) (data/b765_ferry.txt :11), EACH ENTERED AS THE NAVIGATOR'S, CLAIM, IN THE RULING'S WORDS:
+    (22) THE NAVIGATOR'S [CLAIM ; NEW]: (i) (R374)(7) capped the dispatches at three and wrote no sentence for a reference build stopped
+     under the workflow's memory hold, though data/b763_events.txt :330 records such a stop cured by one retry; the trial failed by its
+     letter while the save's from-source axioms file equalled the restoring run's (data/b764_misses.txt :15; data/b764_controls.txt
+     :32-:44).
+
+    (23) THE NAVIGATOR'S [CLAIM ; NEW]: (ii) (R374)(7) ordered a third dispatch as reference where the save, itself built from source, was
+     one.
+
+    (24) THE NAVIGATOR'S [CLAIM ; NEW]: (iii) (R374)(13) ordered the full run of tools/research/reproduce.py and barred the opening of a row
+     of a bank of zeros, which that run makes (data/b764_misses.txt :16).
+
+    (25) THE NAVIGATOR'S [CLAIM ; NEW]: (iv) (R374)(8) placed in the act two orders that close outside it as b724 re-scoped them, and a
+     third whose generator lies outside the (W) list (data/b764_misses.txt :3-:4), their entries read by the navigator no further than their
+     opening words.
+
+    (26) THE NAVIGATOR'S [CLAIM ; REPEAT b764 events (78)]: (v) the navigator's paste for the root opened with BEGIN, a form the reader of
+     tools/standing/nextact.py does not take, and the entry's Carried-to and Next lines went without the author's answer
+     (data/b764_events_postseal.txt :82).
+
+    (27) THE NAVIGATOR'S [CLAIM ; NEW]: (vi) item (2) of the author's word of 2026-11-20, drafted by the navigator, says the upstream source
+     enters by a fetch; the host has held the clone at its pin since b596 (data/b596_lemmas.txt :2).
