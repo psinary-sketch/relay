@@ -286,17 +286,21 @@ def c1(*a):
 # ### FORMS -- where a note says "b754, Component 4/6/7" with a commit this act does not have, it is an earlier act's note under b754's name.
 # ### b754's own changes are marked "b754, Component 3". The runner overrides read the act's dispatch rows: (R364)(3)(c) allows two print
 # ### dispatches, none sent, so no row exists (data/b754_dispatch_rows.json absent) and the runner arms read VACUOUS.
+# ### b765, Component 5 (the Edit tool, defect (s)): SIDE-explicit-formula's workflow read at the act's entering main K.EF_BASE (819e4a83), not
+# ### at HEAD -- (4)'s HELD moved main to 0ba9cd61 with the workflow's key, restore and planted input (281 lines against 147), so the diff of
+# ### rebuild-b721's tip against HEAD read 137 lines where b721 copied the workflow b764 entered with; against 819e4a83 the wanted three
+# ### (scratch wfcmp765.py, read-only, 20:54:22Z); the standing-a2 probe (flag 20:39:23Z) read G-WORKFLOW-FILES FAIL where b764's read PASS
 #⟪OVERRIDE checks MARK 8df6a527436b 13⟫
 def rebuild_wf_ok(S):
     """(R363)(7), as b753 left the branches (no kernel commit this act): the workflow at each rebuild branch's tip -- the five kernels other
-    than SIDE-frobenius carrying build-module.yml on main; SIDE-frobenius none on main, its tip's workflow SIDE-explicit-formula's with b721's
-    two lines (the push trigger to the branch, the target fixed) and nothing else, the hold kept; SIDE-kernel's tip carrying main's
-    build-module.yml changed in the four places of b723's kdraft4_clear row (data/b723_axiom_rows.json) and nothing else; no identifier of
-    the author and no secret at either tip."""
+    than SIDE-frobenius carrying build-module.yml on main; SIDE-frobenius none on main, its tip's workflow SIDE-explicit-formula's at the
+    act's entering main with b721's two lines (the push trigger to the branch, the target fixed) and nothing else, the hold kept; SIDE-kernel's
+    tip carrying main's build-module.yml changed in the four places of b723's kdraft4_clear row (data/b723_axiom_rows.json) and nothing else;
+    no identifier of the author and no secret at either tip."""
     import difflib
     st = S['rebuild_state'] or {}
     fr, kn = st.get('SIDE-frobenius') or {}, st.get('SIDE-kernel') or {}
-    src = read_blob(EF, 'HEAD:.github/workflows/build-module.yml') or ''
+    src = read_blob(EF, K.EF_BASE + ':.github/workflows/build-module.yml') or ''
     tip = fr.get('wf_tip') or ''
     d = [x for x in difflib.unified_diff(src.split(NL), tip.split(NL), lineterm='', n=0) if x[:1] in '+-' and x[:3] not in ('+++', '---')]
     km = read_blob('D:/SIDE-kernel', 'main:.github/workflows/build-module.yml') or ''
@@ -309,20 +313,24 @@ def rebuild_wf_ok(S):
         and bool(kt) and bool(want) and kd == want and not any(w in (x or '').lower() for x in (tip, kt) for w in IDENT_WF) \
         and 'hold_mb: "2560"' in tip.lower()
 #⟪END⟫
+# ### b765, Component 5 (the Edit tool, defect (r)): the cap read as (R375)(4)'s 13 where b764's override pinned (R374)(7)'s 3 -- `carry.py
+# ### ruled` named this override among the readers of MAX_DISPATCHES at step zero (events (7)), and the seat set the arm's description
+# ### (checks 56) and not its predicate; the standing-a2 probe (flag 20:39:23Z) read G-RUNNER-READ FAIL, its other six clauses true over
+# ### the 22 dispatch rows (scratch runcl765.py, read-only, 20:55:05Z)
 #⟪OVERRIDE checks MARK aed8852d751b 16⟫
 def runner_ok(S):
-    """N1, b764 ((R374)(7), N1: "the dispatches are the three of (7) and no other"; b763's form rewritten at step zero by the Edit tool for
-    the ruled figures MAX_DISPATCHES 3 and EF_RUNS, empty until (7) dispatches): every dispatch of the act a row of the dispatch bank, its
+    """N1, b765 ((R375)(4), N1: "the dispatches of SIDE-explicit-formula number at most 13 and are those of (4)"; b764's form, its cap set to
+    the ruled figure MAX_DISPATCHES 13 and EF_RUNS the eleven run ids as dispatched): every dispatch of the act a row of the dispatch bank, its
     kernel named, its free memory read before the send at or above the hold; the run ids the worklist's, EF_RUNS in SIDE-explicit-formula
-    within MAX_DISPATCHES (3) and none in SIDE-dirichlet-mod-24 (M24_RUNS empty, its cap 0), no dispatch row of another kernel; a dispatch
-    row present exactly when the worklist names a run (none where (7) is carried by the ceiling); each read once after it by that id, the
-    read's free memory at or above the hold; the plant a dispatch row with no kernel and no read refused."""
+    within MAX_DISPATCHES (13) and none in SIDE-dirichlet-mod-24 (M24_RUNS empty, its cap 0), no dispatch row of another kernel; a dispatch
+    row present exactly when the worklist names a run; each read once after it by that id, the read's free memory at or above the hold;
+    the plant a dispatch row with no kernel and no read refused."""
     rows = S['drows'] or []
     ds = [r for r in rows if r.get('kind') == 'dispatch']
     rs = [r for r in rows if r.get('kind') == 'read']
     ef_ = [int(r.get('run')) for r in ds if r.get('kernel') == 'SIDE-explicit-formula']
     m4_ = [int(r.get('run')) for r in ds if r.get('kernel') == 'SIDE-dirichlet-mod-24']
-    return bool(ds) == bool(K.EF_RUNS) and ef_ == list(K.EF_RUNS) and len(ef_) <= K.MAX_DISPATCHES == 3 and m4_ == list(K.M24_RUNS) and len(m4_) <= K.MAX_DISPATCHES_M24 \
+    return bool(ds) == bool(K.EF_RUNS) and ef_ == list(K.EF_RUNS) and len(ef_) <= K.MAX_DISPATCHES == 13 and m4_ == list(K.M24_RUNS) and len(m4_) <= K.MAX_DISPATCHES_M24 \
         and len(ds) == len(ef_) + len(m4_) \
         and all(str(r.get('free_mb', '')).isdigit() and int(r.get('free_mb')) >= KS.HOLD for r in ds + rs) \
         and all(sum(1 for x in rs if str(x.get('run')) == str(d.get('run'))) == 1
