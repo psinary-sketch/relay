@@ -196,7 +196,10 @@ def control():
     idx = {nm: {'SIDEExplicitFormula/H2Sign.lean': dm.get(nm)}}
     ok2 = dm.get(nm) is not None and verdict(nm, dm[nm], idx)[0] == 'SAME' and verdict(nm, dm[nm] + ' x', idx)[0] == 'ANOTHER STATEMENT' \
         and verdict(nm + 'Z', dm[nm], idx)[0] == 'ABSENT'
-    ok3 = all('<identifier>' in mask('a %s b' % n) for n in _NEEDLES) and mask('see github.com/abc/def') == 'see github.com/<account>/def'
+    # ### the ORCID needle is masked by its form to <orcid> before the needles are read, as scratch mask760.py's control reads it: either
+    # ### placeholder is the mask (the first run, 12:46:59Z, wanted <identifier> alone and read NOT AS WANTED, nothing read further)
+    ok3 = all(('<identifier>' in mask('a %s b' % n) or '<orcid>' in mask('a %s b' % n)) and n not in mask('a %s b' % n) for n in _NEEDLES) \
+        and mask('see github.com/abc/def') == 'see github.com/<account>/def'
     lines = ['  THE READER`S CONTROL: the planted text read for its declarations %s (%d read, %d wanted) ; a declaration of main at %s '
              '(H2Sign.lean, h2_sign_imp_aim) read SAME against itself, ANOTHER STATEMENT against a planted change, ABSENT by another name '
              '%s ; the mask over each of its %d needles and the github form %s ; %s' % (
