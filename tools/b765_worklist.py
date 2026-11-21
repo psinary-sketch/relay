@@ -287,7 +287,8 @@ W_WORDS = (('relay/HANDOFF.md', '(R375)(13): HANDOFF.md'),
            ('relay/tools/acts/b765.py', '(R375)(13): tools/acts/b765.py'),
            ('SIDE-explicit-formula/.github/workflows/build-module.yml', '(R375)(4), (13): in SIDE-explicit-formula the workflow`s file -- the save keyed by the toolchain, the manifest and the commit, the restore by their prefix, on push-b765-centre cut from push-b764-runner at 38a57e02'),
            ('SIDE-explicit-formula/print_targets.txt', '(R375)(5)(a), (13): in SIDE-explicit-formula print_targets.txt -- the statement`s name joins it'),
-           ('SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean', '(R375)(5)(a), (13): the files of (5) in the kernel`s source folder -- the statement, a definition of a Prop in a file of its own'))
+           ('SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean', '(R375)(5)(a), (13): the files of (5) in the kernel`s source folder -- the statement, a definition of a Prop in a file of its own'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/SquaresAt24.lean', '(R375)(4)(a): the planted build -- on push-b765-planted alone, cut from push-b765-centre at d540bc98, one module the kernel already builds and no module imports, its closing theorem`s statement replaced by a false one; (13) names it not, read in the misses'))
 #   ### b765 step zero: (R375)(13)'s (W) list in words: the banks as data/b765_* and their generators as tools/b765_*.py; tools/acts/b765.py;
 #   ### b764's carried files by name ((R375)(3): the closing push-out bank, data/b765_address_scan_commits.txt and tools/mirror_prevbuild.json);
 #   ### HANDOFF.md; tools/standing/ with VERSION (a standing kind; moved by (8) and, where the dispatch route needs it, (4) alone, (R375)(11));

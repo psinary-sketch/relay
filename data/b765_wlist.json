@@ -1,6 +1,6 @@
 {
  "act": "b765",
- "at": "2026-11-21T10:03:16Z",
+ "at": "2026-11-21T11:46:39Z",
  "source": "kinds",
  "patterns": [
   "relay/data/b765_*",
@@ -30,7 +30,8 @@
   "relay/data/b764_relay_push-b764-closing_push_out.txt",
   "SIDE-explicit-formula/.github/workflows/build-module.yml",
   "SIDE-explicit-formula/print_targets.txt",
-  "SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean"
+  "SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean",
+  "SIDE-explicit-formula/SIDEExplicitFormula/SquaresAt24.lean"
  ],
  "sources": {
   "data/b765_ferry.txt": "3a563595f4360e1410c80fd4802e2e3b9bc8fe4d327d8fcd8d8840f1b53387a0",
@@ -38,7 +39,7 @@
   "tools/b765_worklist.py#PP_EDITED": "6af5cb14afabce75b55c4a51a066b1731477b00dcf174f0797bff7305b0fad13",
   "data/b765_face.txt": "ABSENT",
   "tools/b765_face_blocks.txt": "ABSENT",
-  "tools/b765_worklist.py#W_WORDS": "6c4d0bf562df7c28bc463c73dd84c8e10a3b13457cb95e8f53ff09fd5f78a5f3"
+  "tools/b765_worklist.py#W_WORDS": "8397fc41f1eaa4a8b4f518ef3d995422b753ffeb2ceab86c2c3b4c2bd4287c7a"
  },
  "word_rows": [
   {
@@ -76,6 +77,10 @@
   {
    "pattern": "SIDE-explicit-formula/SIDEExplicitFormula/ControlFailureExists.lean",
    "clause": "(R375)(5)(a), (13): the files of (5) in the kernel`s source folder -- the statement, a definition of a Prop in a file of its own"
+  },
+  {
+   "pattern": "SIDE-explicit-formula/SIDEExplicitFormula/SquaresAt24.lean",
+   "clause": "(R375)(4)(a): the planted build -- on push-b765-planted alone, cut from push-b765-centre at d540bc98, one module the kernel already builds and no module imports, its closing theorem`s statement replaced by a false one; (13) names it not, read in the misses"
   }
  ]
 }
