@@ -1,0 +1,146 @@
+b764 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b763_face.py -> tools/b764_face.py (2026-11-21T00:24:24Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b763 -> b764, b762 -> b763, R373 -> R374, R372 -> R373); 233 lines, 53 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b763_tool_repairs.txt AND data/b763_repairdiff_face.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b763; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 1
+  :44 data/b763_rules.txt (the source line cited data/b762_rules.txt, data/b763_rules.txt)
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 5 (OWN 5)
+  :36 OWN data/b764_ferry.txt :3 (the source line cited data/b763_ferry.txt :3)
+  :42 OWN data/b764_ferry.txt :137 (the source line cited data/b763_ferry.txt :137)
+  :53 OWN data/b764_ferry.txt :143 (the source line cited data/b763_ferry.txt :143)
+  :145 OWN b764 events (24) (the source line cited b763 events (24))
+  :146 OWN b764 events (67) (the source line cited b763 events (67))
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b763_face.py
+  +++ tools/b764_face.py
+  @@ -2,7 +2,7 @@
+  -"""b763_face.py -- THE ACT'S FACE, COMPOSED: b762's sealed face (lines above its lock block) read unedited, the standing paragraphs between b762's blocks carried by the
+  -act shift, the act's own blocks from tools/b763_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  -written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b762's own blocks' first and last lines in b762's face, no line number kept.
+  -Writes data/b763_registration_<DATE>.txt alone, and only before the lock: it refuses when the face already carries a lock block. Carried from tools/b762_face.py by tools/b763_carry.py (data/b763_carry_face.txt),
+  -its OLD, MAP, PAT, the LOGS comment, FIXES and the summaries reader set by hand (data/b763_events.txt (67)), and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes
+  -(data/b763_probe_<part>.txt) and the pre-lock comparison.
+  -### (R373)(13): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py, no amendment row at b763 (data/b763_amendments.json absent, the author's word since the delivery none), the regeneration printed into the face's (W) section before the lock.
+  +"""b764_face.py -- THE ACT'S FACE, COMPOSED: b763's sealed face (lines above its lock block) read unedited, the standing paragraphs between b763's blocks carried by the
+  +act shift, the act's own blocks from tools/b764_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
+  +written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b763's own blocks' first and last lines in b763's face, no line number kept.
+  +Writes data/b764_registration_<DATE>.txt alone, and only before the lock: it refuses when the face already carries a lock block. Carried from tools/b763_face.py by tools/b764_carry.py (data/b764_carry_face.txt),
+  +its OLD, MAP, PAT, the LOGS comment, FIXES and the summaries reader set by hand (data/b764_events.txt (67)), and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes
+  +(data/b764_probe_<part>.txt) and the pre-lock comparison.
+  +### (R374)(13): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py, no amendment row at b764 (data/b764_amendments.json absent, the author's word since the delivery none), the regeneration printed into the face's (W) section before the lock.
+  @@ -25,4 +25,4 @@
+  -import b763_worklist as K   # noqa: E402
+  -OLD, NEW = os.path.join(D, 'b762_registration_2026-11-19.txt'), os.path.join(D, 'b763_registration_%s.txt' % K.DATE)
+  -OLD_BLOCKS, BLOCKS = os.path.join(T, 'b762_face_blocks.txt'), os.path.join(T, 'b763_face_blocks.txt')
+  -FERRY = os.path.join(D, 'b763_ferry.txt')
+  +import b764_worklist as K   # noqa: E402
+  +OLD, NEW = os.path.join(D, 'b763_registration_2026-11-19.txt'), os.path.join(D, 'b764_registration_%s.txt' % K.DATE)
+  +OLD_BLOCKS, BLOCKS = os.path.join(T, 'b763_face_blocks.txt'), os.path.join(T, 'b764_face_blocks.txt')
+  +FERRY = os.path.join(D, 'b764_ferry.txt')
+  @@ -31,6 +31,6 @@
+  -# ### b763: the shift of b762's face by one act (b762 -> b763, b761 -> b762, R372 -> R373); tools/standing/ moved by (R373)(5) alone, v1.37.1
+  -# ### to v1.37.2 (data/b763_standing_v1372.txt), which b763's own blocks say; a name two acts back, push-b759-weil and data/b759_outcomes.txt
+  -# ### among them, stands unshifted (the carry had left b762's pair b760 -> b761 carried to b760 -> b762 and its OLD at b761's date)
+  -MAP = {'b762_registration_2026-11-19': 'b763_registration_%s' % K.DATE, 'b762': 'b763', 'b761': 'b762', '(R372)': '(R373)', 'R372': 'R373'}
+  -PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b762_registration_2026-11-19', '(R372)', 'R372', 'b762', 'b761')))
+  -# ### b763: b762's closing commits as (R373)'s SCOPE READ gives them, relay 3fe5b17c and PLACE-papers 87cab4f2 (data/b763_ferry.txt :3), the
+  +# ### b764: the shift of b763's face by one act (b763 -> b764, b761 -> b763, R373 -> R374); tools/standing/ moved by (R374)(5) alone, v1.37.1
+  +# ### to v1.37.2 (data/b764_standing_v1372.txt), which b764's own blocks say; a name two acts back, push-b759-weil and data/b759_outcomes.txt
+  +# ### among them, stands unshifted (the carry had left b763's pair b760 -> b761 carried to b760 -> b763 and its OLD at b761's date)
+  +MAP = {'b763_registration_2026-11-19': 'b764_registration_%s' % K.DATE, 'b763': 'b764', 'b761': 'b763', '(R373)': '(R374)', 'R373': 'R374'}
+  +PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b763_registration_2026-11-19', '(R373)', 'R373', 'b763', 'b761')))
+  +# ### b764: b763's closing commits as (R374)'s SCOPE READ gives them, relay 3fe5b17c and PLACE-papers 87cab4f2 (data/b764_ferry.txt :3), the
+  @@ -40,6 +40,6 @@
+  -# ### b763: (G1)'s order as b762's face carries it between its blocks, "-> COMPONENTS 0-5 AND COMPONENT 6`S BANKS (the listings before any
+  -# ### clause;" (data/b762_registration_2026-11-19.txt :200), is b763's own: b763 ran the ferry's Components 0 to 5 and Component 6's banks
+  -# ### before this face (data/b763_ferry.txt :137-:143), so nothing is set. The (W) list is (R373)(13)'s, as (R372)'s was its (13), the shift
+  -# ### carrying b762's "(R372)(13)`s (W) list" (:242) to it with nothing set. b762's face already carries its rules sentence as set at b762,
+  -# ### "(R372) ordering no rules row and no data/b762_rules.txt written" (:277), which the shift carries to (R373) and data/b763_rules.txt:
+  -# ### (R373) orders no rules row and none is written (the act module's G-RULES-ROW-ENTERED reads so), so FIXES is empty and nothing is set.
+  +# ### b764: (G1)'s order as b763's face carries it between its blocks, "-> COMPONENTS 0-5 AND COMPONENT 6`S BANKS (the listings before any
+  +# ### clause;" (data/b763_registration_2026-11-19.txt :200), is b764's own: b764 ran the ferry's Components 0 to 5 and Component 6's banks
+  +# ### before this face (data/b764_ferry.txt :137-:143), so nothing is set. The (W) list is (R374)(13)'s, as (R373)'s was its (13), the shift
+  +# ### carrying b763's "(R373)(13)`s (W) list" (:242) to it with nothing set. b763's face already carries its rules sentence as set at b763,
+  +# ### "(R373) ordering no rules row and no data/b763_rules.txt written" (:277), which the shift carries to (R374) and data/b764_rules.txt:
+  +# ### (R374) orders no rules row and none is written (the act module's G-RULES-ROW-ENTERED reads so), so FIXES is empty and nothing is set.
+  @@ -50,4 +50,4 @@
+  -    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b762 carried it (data/b762_events.txt (50)).",
+  -    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :126), as at b762`s pre-run. b763 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b763_*cut.txt in the tree; its re-cut inputs bank, data/b763_recut_inputs.txt, does not end in cut.txt), so it adds to neither count, and the searches read fail NONE (:38). (R373) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+  -    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean at :10 or :11, b726`s certificates (commit c9add92) carried onto main with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`, as at b762. The axioms print of run 44670834879, the run that built v0.43`s tree at main 819e4a83, reads each C2Walk.cert_m<n> with no axiom (its artifact`s axioms.txt :136-:153), so no fallback branch was taken and sorryAx stands nowhere in its print; the counter counts the text (data/b762_events.txt (50)). The one pair the first standing-a1 probe read unequal, the kernel`s clone checked out at push-b763-keiper, was returned to main by the one-call tool`s switch before the probe these cites read (data/b763_events.txt (84)); (R373) removes no kernel branch ((4)), and the M<n> files stand as landed.",
+  -    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 6, data/b763_ferry.txt :143).",
+  +    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b763 carried it (data/b763_events.txt (50)).",
+  +    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :126), as at b763`s pre-run. b764 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b764_*cut.txt in the tree; its re-cut inputs bank, data/b764_recut_inputs.txt, does not end in cut.txt), so it adds to neither count, and the searches read fail NONE (:38). (R374) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+  +    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean at :10 or :11, b726`s certificates (commit c9add92) carried onto main with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`, as at b763. The axioms print of run 44670834879, the run that built v0.43`s tree at main 819e4a83, reads each C2Walk.cert_m<n> with no axiom (its artifact`s axioms.txt :136-:153), so no fallback branch was taken and sorryAx stands nowhere in its print; the counter counts the text (data/b763_events.txt (50)). The one pair the first standing-a1 probe read unequal, the kernel`s clone checked out at push-b764-keiper, was returned to main by the one-call tool`s switch before the probe these cites read (data/b764_events.txt (84)); (R374) removes no kernel branch ((4)), and the M<n> files stand as landed.",
+  +    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and carried to the next corrigendum, not a letter (the ferry`s Component 6, data/b764_ferry.txt :143).",
+  @@ -57,6 +57,6 @@
+  -# ### b763: DECLARED and DECLARED_LINES set by hand from b763's probes (standing-a1 :20, :22, :23 at 07:06:06Z; standing-a2 :38, :126 at
+  -# ### 07:10:43Z): three of the four arms b762 declared, each line read against b763's own state (data/b763_events.txt (84), (85)): b763 banks
+  -# ### no cut bank and no search, and no kernel branch is removed; G-DELETE-FREE passing (b763 has no page tool, the probe of standing-a2
+  -# ### :79), so not declared. NEWLY the twelve of `tools/standing/prelock.py print b763` at 08:08:13Z (read 116, failing 34, at b762's
+  -# ### pre-run 23, banks absent NONE): b762's thirteen less G-DELETE-FREE, each an object of the record, the lock or the seal not yet
+  -# ### written, G-DELETES-ONE-BRANCH reading the command bank data/b763_commands.txt, written at the record. Set again from the last
+  +# ### b764: DECLARED and DECLARED_LINES set by hand from b764's probes (standing-a1 :20, :22, :23 at 07:06:06Z; standing-a2 :38, :126 at
+  +# ### 07:10:43Z): three of the four arms b763 declared, each line read against b764's own state (data/b764_events.txt (84), (85)): b764 banks
+  +# ### no cut bank and no search, and no kernel branch is removed; G-DELETE-FREE passing (b764 has no page tool, the probe of standing-a2
+  +# ### :79), so not declared. NEWLY the twelve of `tools/standing/prelock.py print b764` at 08:08:13Z (read 116, failing 34, at b763's
+  +# ### pre-run 23, banks absent NONE): b763's thirteen less G-DELETE-FREE, each an object of the record, the lock or the seal not yet
+  +# ### written, G-DELETES-ONE-BRANCH reading the command bank data/b764_commands.txt, written at the record. Set again from the last
+  @@ -83,1 +83,1 @@
+  -    """the paragraphs of b762's face standing between its blocks: gap[k], the lines after block k up to the next; the lines found by each block's own last
+  +    """the paragraphs of b763's face standing between its blocks: gap[k], the lines after block k up to the next; the lines found by each block's own last
+  @@ -124,3 +124,3 @@
+  -    """### b763, from the bank (no count kept by hand): the hook's refusals before this lock counted by kind, against b762's bank, and the kinds
+  -    above b762's count, each one event by [U3] (data/b754_rules.txt (12)). Returns (n, kinds, sentence)."""
+  -    own, prev = _refusal_rows('b763'), _refusal_rows('b762')
+  +    """### b764, from the bank (no count kept by hand): the hook's refusals before this lock counted by kind, against b763's bank, and the kinds
+  +    above b763's count, each one event by [U3] (data/b754_rules.txt (12)). Returns (n, kinds, sentence)."""
+  +    own, prev = _refusal_rows('b764'), _refusal_rows('b763')
+  @@ -131,2 +131,2 @@
+  -        return '0', 'NONE', ('The hook refused nothing before this lock (data/b763_hook_refusals.txt absent), so by [U3] no kind stands above '
+  -                             'b762`s count (data/b762_hook_refusals.txt: %s).' % pk)
+  +        return '0', 'NONE', ('The hook refused nothing before this lock (data/b764_hook_refusals.txt absent), so by [U3] no kind stands above '
+  +                             'b763`s count (data/b763_hook_refusals.txt: %s).' % pk)
+  @@ -135,2 +135,2 @@
+  -    s = ('The hook refused %d call%s before this lock, each before it ran (data/b763_hook_refusals.txt: %s), counted by kind %s against b762`s '
+  -         'bank`s %s; by [U3] each kind above b762`s count is one event of data/b763_events.txt and takes no letter: %s.'
+  +    s = ('The hook refused %d call%s before this lock, each before it ran (data/b764_hook_refusals.txt: %s), counted by kind %s against b763`s '
+  +         'bank`s %s; by [U3] each kind above b763`s count is one event of data/b764_events.txt and takes no letter: %s.'
+  @@ -142,1 +142,1 @@
+  -    """### b763, from the events bank: the act's summaries of the session, the host's rows whose head line names a SUMMARY (b763's rows read
+  +    """### b764, from the events bank: the act's summaries of the session, the host's rows whose head line names a SUMMARY (b764's rows read
+  @@ -144,5 +144,5 @@
+  -    and one more for each " AND A "), the summary before the delivery and any row headed "... AFTER b762'S LOCK" left out, and b762's own
+  -    summary after its lock (b763 events (24)) left out by its section, from its head "b762'S FINDINGS AFTER ITS LOCK" to the next, "THE
+  -    NAVIGATOR'S OWN" (b763 events (67)). Returns the phrase "<n words> summaries within it (events (a), ..., (z))"."""
+  -    t = open(os.path.join(D, 'b763_events.txt'), encoding='utf-8').read()
+  -    a_, b_ = "\nb762'S FINDINGS AFTER ITS LOCK", "\nTHE NAVIGATOR'S OWN, FROM (R373)(1)"
+  +    and one more for each " AND A "), the summary before the delivery and any row headed "... AFTER b763'S LOCK" left out, and b763's own
+  +    summary after its lock (b764 events (24)) left out by its section, from its head "b763'S FINDINGS AFTER ITS LOCK" to the next, "THE
+  +    NAVIGATOR'S OWN" (b764 events (67)). Returns the phrase "<n words> summaries within it (events (a), ..., (z))"."""
+  +    t = open(os.path.join(D, 'b764_events.txt'), encoding='utf-8').read()
+  +    a_, b_ = "\nb763'S FINDINGS AFTER ITS LOCK", "\nTHE NAVIGATOR'S OWN, FROM (R374)(1)"
+  @@ -150,1 +150,1 @@
+  -        raise SystemExit("REFUSED: the events bank's section of b762's findings after its lock not found once, before the navigator's own")
+  +        raise SystemExit("REFUSED: the events bank's section of b763's findings after its lock not found once, before the navigator's own")
+  @@ -153,1 +153,1 @@
+  -            if re.search(r'\bSUMMARY\b', m.group(2)) and 'BEFORE THE DELIVERY' not in m.group(2) and "AFTER b762'S LOCK" not in m.group(2)]
+  +            if re.search(r'\bSUMMARY\b', m.group(2)) and 'BEFORE THE DELIVERY' not in m.group(2) and "AFTER b763'S LOCK" not in m.group(2)]
+  @@ -186,1 +186,1 @@
+  -    t = t.replace('@@NEWLY@@', 'PENDING (tools/standing/prelock.py print b763 not yet run)' if NEWLY is None else (' '.join('`%s`' % a for a in NEWLY) if NEWLY else 'NONE'))
+  +    t = t.replace('@@NEWLY@@', 'PENDING (tools/standing/prelock.py print b764 not yet run)' if NEWLY is None else (' '.join('`%s`' % a for a in NEWLY) if NEWLY else 'NONE'))
+  @@ -197,1 +197,1 @@
+  -    stale = sorted(set(re.findall(r'b763_registration_(?!%s)[\d-]+' % K.DATE, t)))
+  +    stale = sorted(set(re.findall(r'b764_registration_(?!%s)[\d-]+' % K.DATE, t)))
+  @@ -202,1 +202,1 @@
+  -    rows = AM.rows_of('b763')
+  +    rows = AM.rows_of('b764')
+  @@ -209,1 +209,1 @@
+  -    regen = AM.regenerate('b763', ferry, t, rows)
+  +    regen = AM.regenerate('b764', ferry, t, rows)
+
+### ### **CARRIED tools/b764_face.py ; LINES 233 ; CHANGED BY THE SUBSTITUTION 53 ; REPAIR SPANS AT b763 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
