@@ -11,9 +11,15 @@ push-b765-planted would restore nothing and build from source, and the planted b
 THE ITEMS, each with the needle of its clause in the ferry bank (one line), its price row (data/b765_price.json) and its input restore:
   statement        (5)(a), restore on, the tip of push-b765-centre; the no-zero control of (R373)(7) (tools/b763_presend.py, unchanged) passed
                    over the statement's file at the commit before it is sent; the first restore-on dispatch builds from source and saves
-  planted          (4)(a), restore on, the tip of push-b765-planted, its parent a commit of push-b765-centre, exactly one .lean file of the
-                   targets changed and nothing else; sent after a read shows a build saved to the cache; wanted: exit not 0, the log
-                   naming the module, the build restored
+  planted          (4)(a) as the author's word of 2026-11-21 on the runner's cache orders it (its (i); data/b765_amendments.json row 2):
+                   restore on, the centre's tip, the workflow's input planted on (e83e0deb on), which takes into the runner's checkout the
+                   one module the tip of push-b765-planted changes against its parent (a commit of the centre, the module at the tip sent
+                   equal to its file there); sent after a read shows a build saved to the cache at the commit sent, so that the run
+                   restores the exact key and its record reads "restore hit: true", a hit by either reading; scored only where the record
+                   names a key restored, exact or by the prefix (the record's restore line other than none), else printed, NOT SCORED and
+                   not counted toward (a); wanted: exit not 0, the log naming the module
+  mainsave         the word's (iii): under HELD alone, after main's read-back at the closing commit, one dispatch at main with the restore
+                   on, among the ten; wanted: no key restored and a save; where the cap would be passed, the one carried
   lemma-statement  (5)(b), restore on, the centre's tip
   lemma-step       (5)(b), restore on, the centre's tip
   lemma-later      (5)(b), restore on, the centre's tip
@@ -32,10 +38,17 @@ remote is read from its own git config at each call and its account printed mask
   targets <rev>                          the whole tree's targets at rev (print_targets.txt, each line resolved to its one module by
                                          tools/b757_join.py's reader), written to data/b765_targets_<sha8>.json for --targets-json
   zero <rev>                             the no-zero control over the statement's file at rev, printed
-  planted <rev> --targets-json <file>    the planted commit read: its parent, its one changed module, its lines changed, printed
-  dispatch <sha> <n> <item> --targets-json <file>   the holds, the caps, the series and the order, the licence, the commit the remote tip of
-                                         the item's branch, the workflow at the centre's tip and at the commit carrying the cache steps, the
-                                         targets modules of the tree; then gh workflow run at the centre; the row; the run id read back
+  planted <rev> --targets-json <file>    the planted context at the centre's commit rev (the word's (i)): push-b765-planted's remote tip,
+                                         its parent, its one changed module, its lines changed, the parent an ancestor of rev, the module's
+                                         file equal at rev and at the parent, printed
+  dispatch <sha> <n> <item> --targets-json <file>   the holds, the caps, the series and the order, the licence (the ferry's bank, or the
+                                         author's words bank for the word's items), the commit the remote tip of the item's branch, the
+                                         workflow at the centre's tip and at the commit carrying the cache steps and the planted input, the
+                                         targets modules of the tree; then gh workflow run at the centre (at main for the save on main), the
+                                         planted input on for the planted item alone; the row; the run id read back
+  THE VERDICTS gain, by the word: a planted run NOT SCORED where its record names no key restored; the pair NOT SCORABLE where the
+  restore-on build at the closing commit names none; the save on main's state. A planted run not scored leaves PART ONE UNFORESEEN, a
+  reading neither the ruling nor the word names, for the author.
   status <run> | download <run> | read <n> <run> | errors <run> | axioms <run> | compare <run_a> <run_b>   as b764's
   verdict                                the planted state, the pair, H-RUNNER-RESTORE and the statement's state, printed
   bank                                   data/b765_controls.txt through standing.figbank: the controls, the dispatches and reads, the verdicts
@@ -88,15 +101,26 @@ STATEMENT_NAME = 'SIDEExplicitFormula.B321.ControlFailureExists'
 N4 = "(4) THE RUNNER'S CACHE, TRIED AGAIN, under W-ORD-RUNNER-CACHE (OPEN_TRAILS :19059)."
 N5A = '(a) THE STATEMENT, reading [L-ii] of data/b764_price.txt :55.'
 N5B = "(b) GAUSS'S INTEGRAL FOR THE ARCHIMEDEAN TERM, the lemma inside readings [L-i] and [L-iii]"
+# ### the author's word of 2026-11-21 on the runner's cache, banked verbatim at data/b765_author_words_preseal.txt :18-:28 (amendment row 2)
+WORDS = 'data/b765_author_words_preseal.txt'
+W_I = '(i) THE PLANTED BUILD OF (4)(a) is scored on a run whose cache record, out/cache_kernel.txt, reads a restore hit'
+W_III = "(iii) THE SAVE ON MAIN. Under the HELD outcome, after main's read-back, one dispatch runs on main with the restore on"
+MAIN = 'main'
+PLANT_COMMIT = 'e83e0deb'  # ### the centre's commit carrying the workflow's input planted
 # ### each item: the needle of its clause, its price row, the input restore it sends (None: the stopped build's), its branch (None: the stopped build's)
 ITEMS = {'statement': (N5A, '(5)(a)', 'on', CENTRE),
-         'planted': (N4, '(4)(a) planted', 'on', PLANTED),
+         'planted': (W_I, '(4)(a) planted', 'on', CENTRE),
          'lemma-statement': (N5B, '(5)(b) statement', 'on', CENTRE),
          'lemma-step': (N5B, '(5)(b) first step', 'on', CENTRE),
          'lemma-later': (N5B, '(5)(b) later lemmas', 'on', CENTRE),
          'closing': (N4, '(4)(b) closing', 'off', CENTRE),
-         'repeat': (N4, '(4)(b) closing', None, None)}
-ON_ITEMS = ('statement', 'lemma-statement', 'lemma-step', 'lemma-later')
+         'repeat': (N4, '(4)(b) closing', None, None),
+         'mainsave': (W_III, '(4) the save on main', 'on', MAIN)}
+LICENCE_BANK = {'planted': WORDS, 'mainsave': WORDS}   # ### the bank carrying each item's needle; the ferry's bank for the others
+EXTRA_CAPS = {'(4) the save on main': 1}               # ### a row the price table (banked before the word) does not carry: the word's one
+ON_ITEMS = ('statement', 'lemma-statement', 'lemma-step', 'lemma-later', 'mainsave')
+PLANTED_KEYS = (('input', 'planted input: '), ('ref', 'planted ref: '), ('tip', 'planted tip: '), ('parent', 'planted parent: '),
+                ('count', 'planted files: '), ('built', 'the commit built: '))
 AX_DEP = re.compile(r"'([^\n]+?)' depends on axioms: \[([^\]]*)\]")
 AX_NONE = re.compile(r"'([^\n]+?)' does not depend on any axioms")
 CACHE_KEYS = (('input', 'restore input: '), ('key', 'key: '), ('hit', 'restore hit: '), ('matched', 'restored key: '),
@@ -112,7 +136,7 @@ def price_rows():
 def row_caps(pr=None):
     """{price row: its upper dispatch figure} for the rows the items name, read from data/b765_price.json."""
     pr = pr or price_rows()
-    return dict((v[1], int(pr[v[1]]['dispatches'][1])) for v in ITEMS.values())
+    return dict((v[1], EXTRA_CAPS[v[1]] if v[1] in EXTRA_CAPS else int(pr[v[1]]['dispatches'][1])) for v in ITEMS.values())
 
 
 def git(repo, *a):
@@ -174,6 +198,26 @@ def cache_record(text):
     f['from_source'] = f['read'] and nb == 0 and not got
     f['untouched'] = (f['read'] and f['input'] == 'off' and f['hit'] == 'none' and not got and nb == 0 and f['present_before'] == 'none'
                       and f['save'] in ('skipped', 'none'))
+    return f
+
+
+def planted_record(text):
+    """out/planted.txt read (the workflow at e83e0deb on): the input, the ref, the tip, the parent, each file taken, the count, the commit built,
+    the refusal lines; taken where the input is on, the ref push-b765-planted, one file taken and counted, and no refusal; read False where the
+    input's line is missing (a run of a workflow before e83e0deb)."""
+    f = dict(files=[], refused=[])
+    for l in (text or '').replace('\r', '').split(NL):
+        if l.startswith('planted file: '):
+            f['files'].append(l[len('planted file: '):].split(' sha256 ')[0].strip())
+        elif l.startswith('planted file refused'):
+            f['refused'].append(l[:200])
+        else:
+            for k, pre in PLANTED_KEYS:
+                if l.startswith(pre) and k not in f:
+                    f[k] = l[len(pre):].strip()
+    f['read'] = 'input' in f
+    f['taken'] = bool(f['read'] and f.get('input') == 'on' and f.get('ref') == PLANTED and len(f['files']) == 1 and f.get('count') == '1'
+                      and not f['refused'])
     return f
 
 
@@ -241,13 +285,22 @@ def wf_predicates(text):
         key_commit='echo "key=$p$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"' in t and t.count('hashFiles(') == 1,
         restore_keys='restore-keys: ${{ steps.key.outputs.prefix }}' in t and 'echo "prefix=$p" >> "$GITHUB_OUTPUT"' in t,
         matched_recorded='steps.restore.outputs.cache-matched-key' in t and 'echo "restored key: ${MATCHED:-none}" >> out/cache_kernel.txt' in t,
-        probe_gated="if: always() && inputs.restore == 'on' && steps.built.outputs.ok == 'true'\n        uses: actions/cache/restore@v4" in t and 'lookup-only: true' in t,
-        save_gated=("if: always() && inputs.restore == 'on' && steps.built.outputs.ok == 'true' && steps.probe.outputs.cache-hit != 'true'" in t
-                    and 'uses: actions/cache/save@v4' in t),
-        records='out/cache_kernel.txt' in t and 'out/build_times.txt' in t)
+        probe_gated=bool(re.search(r"if: always\(\) && inputs\.restore == 'on'(?: && inputs\.planted != 'on')? && steps\.built\.outputs\.ok == 'true'\n"
+                                   r"        uses: actions/cache/restore@v4", t)) and 'lookup-only: true' in t,
+        save_gated=(bool(re.search(r"if: always\(\) && inputs\.restore == 'on'(?: && inputs\.planted != 'on')? && steps\.built\.outputs\.ok == 'true' "
+                                   r"&& steps\.probe\.outputs\.cache-hit != 'true'", t)) and 'uses: actions/cache/save@v4' in t),
+        records='out/cache_kernel.txt' in t and 'out/build_times.txt' in t,
+        # ### the author's word of 2026-11-21, (i): the input planted, off by default; its step taking push-b765-planted's files, each equal at
+        # ### the commit built to its parent's; the probe and the save not run with it on; its record
+        input_planted=bool(re.search(r'^      planted:\n(?:        .*\n)*?        default: "off"$', t, re.M)),
+        plant_step=("if: inputs.planted == 'on'" in t and 'PLANTED_REF: push-b765-planted' in t and 'git show "$tip:$f" > "$f"' in t
+                    and 'if [ "$(git rev-parse "HEAD:$f")" != "$(git rev-parse "$base:$f")" ]; then' in t),
+        plant_no_save=t.count("inputs.restore == 'on' && inputs.planted != 'on' && steps.built.outputs.ok == 'true'") == 2,
+        plant_record='echo "planted input: $PLANTED" > out/planted.txt' in t and 'echo "planted files: $n" >> out/planted.txt' in t)
 
 
 B764_PREDICATES = ('input_restore', 'restore_step', 'records')   # ### true at 38a57e02 as at the centre; the other five b765's alone
+PLANT_PREDICATES = ('input_planted', 'plant_step', 'plant_no_save', 'plant_record')   # ### true from e83e0deb on, false at d540bc98
 
 
 # ================================================================================ the planted commit
@@ -278,6 +331,24 @@ def planted_of(sha, modules):
     num = [tuple(l.split('\t')) for l in git(KPATH, 'diff', '--numstat', parent, sha).split(NL) if l.count('\t') == 2]
     mod, why = planted_judge(names, num, set(DR.tree_files(KPATH, parent)), modules)
     return mod, why, parent, sum(int(a) + int(d) for a, d, _q in num if a.isdigit() and d.isdigit())
+
+
+def planted_ctx(full, modules, heads):
+    """the word's (i) at the centre's commit `full`: push-b765-planted's remote tip from `heads`, held locally; its one changed module judged
+    against `modules` (the targets at `full`); its parent an ancestor of `full`; the module's file equal at `full` and at the parent, so that
+    the workflow's step takes the planted change and nothing else."""
+    ptip = next((sha for sha, ref in heads if ref == 'refs/heads/' + PLANTED), None)
+    if not ptip:
+        return dict(planted=(None, '%s not read at the remote' % PLANTED), parent_on_centre=False, module_equal=False)
+    if subprocess.run(['git', '-C', KPATH, 'cat-file', '-e', ptip + '^{commit}'], capture_output=True).returncode != 0:
+        return dict(planted=(None, 'the planted tip %s not held in the kernel`s clone' % ptip[:8]), parent_on_centre=False, module_equal=False)
+    mod, why, parent, nl = planted_of(ptip, modules)
+    names = [l for l in git(KPATH, 'diff', '--name-only', parent, ptip).split(NL) if l.strip()]
+    anc = subprocess.run(['git', '-C', KPATH, 'merge-base', '--is-ancestor', parent, full], capture_output=True).returncode == 0
+    eq = (len(names) == 1 and subprocess.run(['git', '-C', KPATH, 'diff', '--quiet', parent, full, '--', names[0]],
+                                             capture_output=True).returncode == 0)
+    return dict(planted=(mod, why), parent_on_centre=anc, module_equal=eq, planted_tip=ptip, planted_parent=parent, planted_lines=nl,
+                planted_path=names[0] if len(names) == 1 else None)
 
 
 def log_names(log, module):
@@ -316,8 +387,8 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
     last = mine[-1] if mine else None
     if last and int(last['run']) not in reads:
         return 'dispatch %d (run %s) not yet read: one run read before the next is sent' % (last['n'], last['run'])
-    if any(r.get('item') == 'closing' for r in mine) and item != 'repeat':
-        return 'the closing build sent: after it, the repeat of a stopped closing build alone'
+    if any(r.get('item') == 'closing' for r in mine) and item not in ('repeat', 'mainsave'):
+        return 'the closing build sent: after it, the repeat of a stopped build and the save on main alone'
     if item == 'repeat':
         if any(r.get('item') == 'repeat' for r in mine):
             return 'the one repeat of (4) sent already'
@@ -332,7 +403,7 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
         if len(cl) + 1 > caps.get('(4)(b) closing', 0):
             return 'the price row (4)(b) closing`s dispatch %d past its upper figure %d' % (len(cl) + 1, caps.get('(4)(b) closing', 0))
         return None
-    if item in ('planted', 'closing') and any(r.get('item') == item for r in mine):
+    if item in ('planted', 'closing', 'mainsave') and any(r.get('item') == item for r in mine):
         return 'the item %s dispatched already: once' % item
     row_ = ITEMS[item][1]
     of_row = [r for r in mine if r.get('item') != 'repeat' and ITEMS.get(r.get('item'), (None, None))[1] == row_]
@@ -347,11 +418,23 @@ def dispatch_refusal(item, n, sha, rows, read, dk, caps=None, ctx=None):
     if item == 'planted':
         if not any(r.get('kind') == 'read' and (r.get('cache') or {}).get('saved') for r in rows):
             return 'the planted build sent before a read shows a build saved to the cache at the centre: it would build from source'
+        # ### the record's own line for a key restored by the prefix reads "restore hit: false": a save at the commit sent gives the planted
+        # ### run the exact key, "restore hit: true", a hit by either reading of the word's (i)
+        if not any(r.get('kind') == 'read' and (r.get('cache') or {}).get('saved') and r.get('built_ref') == sha for r in rows):
+            return 'no save read at the commit sent %s: the planted run would restore by the prefix, its record reading "restore hit: false"' % str(sha)[:8]
         pm = ctx.get('planted') or (None, 'the planted commit not read')
         if pm[1]:
             return 'the planted commit refused: %s' % pm[1]
         if not ctx.get('parent_on_centre'):
-            return 'the planted commit`s parent is no commit of %s' % CENTRE
+            return 'the planted commit`s parent is no ancestor of the commit sent on %s' % CENTRE
+        if not ctx.get('module_equal'):
+            return 'the planted module at the commit sent differs from its file at the planted commit`s parent: more than the planted change would be taken'
+    if item == 'mainsave':
+        hv = verdicts(rows)['h']
+        if hv[0] != 'HELD':
+            return 'the save on main where H-RUNNER-RESTORE reads %s: the author`s word of 2026-11-21 (iii) sends it under HELD alone' % hv[0]
+        if not ctx.get('main_read_back'):
+            return 'the save on main before main`s read-back at the closing commit'
     if item == 'closing':
         ok_on = [r for r in reads.values() if r.get('restore_input') == 'on' and r.get('item') != 'planted' and r.get('built_ref') == sha
                  and r.get('build_exit') == '0']
@@ -398,11 +481,27 @@ def planted_state(rd):
         return 'PENDING'
     if rd.get('verdict') == STOPPED:
         return 'STOPPED'
+    # ### the author's word of 2026-11-21, (i): a run whose record does not show the module taken is no planted build, and one whose cache
+    # ### record names no key restored is printed, not scored and not counted toward (a); each read before the exit file
+    if not (rd.get('planted_rec') or {}).get('taken'):
+        return 'NOT A PLANTED BUILD'
+    if not (rd.get('cache') or {}).get('restored'):
+        return 'NOT SCORED'
     if rd.get('build_exit') == '0':
         return 'EXIT 0'
-    if not (rd.get('cache') or {}).get('restored'):
-        return 'VACUOUS'
     return 'AS WANTED' if rd.get('names_module') else 'NOT AS WANTED'
+
+
+def mainsave_state(rd):
+    """the word's (iii): the save on main's read; wanted exit 0, the record read with the input on, no key restored and a save."""
+    if not rd:
+        return 'PENDING'
+    if rd.get('verdict') == STOPPED:
+        return 'STOPPED'
+    c = rd.get('cache') or {}
+    ok = (rd.get('build_exit') == '0' and c.get('read') and c.get('input') == 'on' and c.get('hit') == 'none' and c.get('matched') == 'none'
+          and c.get('saved'))
+    return 'AS WANTED' if ok else 'NOT AS WANTED'
 
 
 def _ran(r):
@@ -436,9 +535,11 @@ def pair_verdict(on, off):
     if where:
         return dict(state='NOT AS WANTED', where='; '.join(where))
     if not (on.get('cache') or {}).get('restored'):
-        return dict(state='VACUOUS', where='the restore-on build at the closing commit was not restored (restored key %s, files before the build %s)' % (
-            (on.get('cache') or {}).get('matched'), (on.get('cache') or {}).get('files_before')))
-    return dict(state='AS WANTED', where='', sha=on.get('axioms_sha256'), commit=on.get('built_ref'), runs=(on.get('run'), off.get('run')))
+        return dict(state='NOT SCORABLE', where='the restore-on build at the closing commit read no restore hit, a build from source (restored key %s, '
+                    'files before the build %s): the pair NOT SCORABLE by it (the author`s word of 2026-11-21, (ii))' % (
+                        (on.get('cache') or {}).get('matched'), (on.get('cache') or {}).get('files_before')))
+    return dict(state='AS WANTED', where='', sha=on.get('axioms_sha256'), commit=on.get('built_ref'), runs=(on.get('run'), off.get('run')),
+                hit=(on.get('cache') or {}).get('hit'))
 
 
 def h_verdict(pl, pr, stopped_both):
@@ -448,6 +549,8 @@ def h_verdict(pl, pr, stopped_both):
         return 'REFUTED', 'the pair`s axioms files differ'
     if stopped_both:
         return 'NOT SCORABLE', 'the closing build from source stopped under the hold at both dispatches'
+    if pr['state'] == 'NOT SCORABLE':
+        return 'NOT SCORABLE', pr.get('where') or 'the pair not scorable'
     if pl == 'AS WANTED' and pr['state'] == 'AS WANTED':
         return 'HELD', ''
     if pl in ('PENDING', 'STOPPED') or pr['state'] in ('PENDING', 'STOPPED'):
@@ -476,7 +579,13 @@ def verdicts(rows):
                and reads[int(r['run'])].get('build_exit') == '0']
         pr = pair_verdict(ons[-1] if ons else None, offs[-1] if offs else None)
     hv = h_verdict(pl, pr, stopped_both)
-    return dict(planted=pl, planted_read=prd, pair=pr, stopped_both=stopped_both, h=hv)
+    md = [r for r in disp if r.get('item') == 'mainsave']
+    mrd = reads.get(int(md[0]['run'])) if md else None
+    rp_m = [r for r in disp if r.get('item') == 'repeat' and md and r.get('n', 0) > md[0]['n'] and r.get('sha') == md[0]['sha']]
+    if mrd and mrd.get('verdict') == STOPPED and rp_m:
+        mrd = reads.get(int(rp_m[0]['run'])) or mrd
+    return dict(planted=pl, planted_read=prd, pair=pr, stopped_both=stopped_both, h=hv, mainsave=mainsave_state(mrd) if md else 'NOT SENT',
+                mainsave_read=mrd)
 
 
 def statement_state(ax_text, build_exit):
@@ -523,18 +632,31 @@ def cmd_dispatch(sha, n, item, *rest):
         ctx['zero_ok'] = zp
     pmod = None
     if item == 'planted':
-        pmod, pwhy, parent, nlines = planted_of(full, tj['modules'])
-        anc = bool(ctip) and subprocess.run(['git', '-C', KPATH, 'merge-base', '--is-ancestor', parent, ctip]).returncode == 0
-        print('  the planted commit %s: parent %s (on %s at its remote tip %s: %s) ; the module %s ; lines changed %d ; %s' % (
-            full[:8], parent[:8], CENTRE, str(ctip)[:8], anc, pmod, nlines, pwhy or 'TAKEN'))
-        ctx.update(planted=(pmod, pwhy), parent_on_centre=anc)
+        ctx.update(planted_ctx(full, tj['modules'], heads))
+        pmod = ctx['planted'][0]
+        print('  the planted context at %s (the word`s (i)): %s`s remote tip %s, parent %s, an ancestor of %s: %s ; the module %s (%s) ; lines '
+              'changed %s ; its file equal at %s and at the parent: %s ; %s' % (
+                  full[:8], PLANTED, str(ctx.get('planted_tip'))[:8], str(ctx.get('planted_parent'))[:8], full[:8], ctx['parent_on_centre'], pmod,
+                  ctx.get('planted_path'), ctx.get('planted_lines'), full[:8], ctx['module_equal'], ctx['planted'][1] or 'TAKEN'))
+    if item == 'mainsave':
+        mtip = next((sha for sha, ref in heads if ref == 'refs/heads/' + MAIN), None)
+        pc = verdicts(rows)['pair'].get('commit')
+        ctx['main_read_back'] = bool(mtip) and mtip == pc == full
+        print('  main at the remote %s ; the pair`s closing commit %s ; the commit sent %s: main`s read-back %s' % (
+            str(mtip)[:8], str(pc)[:8], full[:8], ctx['main_read_back']))
     why = dispatch_refusal(item, int(n), full, rows, read, dk, ctx=ctx)
     if why:
         sys.exit('### NOT DISPATCHED: %s' % why)
     mine = [r for r in rows if r.get('kind') == 'dispatch' and r.get('kernel') == EF]
     mode, branch = ITEMS[item][2], ITEMS[item][3]
+    planted_on = item == 'planted'
     if item == 'repeat':
         mode, branch = mine[-1].get('restore'), mine[-1].get('branch')
+        planted_on = mine[-1].get('planted_input') == 'on'
+        pmod = mine[-1].get('planted_module') if planted_on else None
+        for k in ('planted_tip', 'planted_parent'):
+            ctx[k] = mine[-1].get(k)
+    wref = MAIN if branch == MAIN else CENTRE
     target = ' '.join(tj['modules'])
     print('  the targets from %s: %d modules, read at %s' % (rest[1], len(tj['modules']), tj['rev'][:8]))
     for at_, what in ((ctip, 'the centre`s remote tip'), (full, 'the commit')):
@@ -548,19 +670,22 @@ def cmd_dispatch(sha, n, item, *rest):
     if bad:
         sys.exit('### NOT DISPATCHED: targets not modules of the tree at %s: %s' % (full[:8], bad))
     try:
-        lic = DR.licence(ANSWERS, ITEMS[item][0], by=read[1])
+        lic = DR.licence(LICENCE_BANK.get(item, ANSWERS), ITEMS[item][0], by=read[1])
     except DR.Refused as e:
         sys.exit(str(e))
-    print('  dispatch %s, %s (restore %s) at %s on %s, the workflow at %s ; the licence %s :%d, committed %s ; free %d MB at %s, the hold %d ; volumes %s, the floor %d' % (
-        n, item, mode, full[:8], branch, CENTRE, lic['commit'][:8], lic['line'], lic['committed_at'], read[0], read[1], DR.HOLD, dk, FLOOR))
+    print('  dispatch %s, %s (restore %s, planted %s) at %s on %s, the workflow at %s ; the licence %s %s :%d, committed %s ; free %d MB at %s, the hold %d ; '
+          'volumes %s, the floor %d' % (n, item, mode, 'on' if planted_on else 'off', full[:8], branch, wref, lic['bank'], lic['commit'][:8], lic['line'],
+                                        lic['committed_at'], read[0], read[1], DR.HOLD, dk, FLOOR))
     at0 = _now()
-    cmd = ['gh', 'workflow', 'run', WORKFLOW, '--repo', slug, '--ref', CENTRE, '-f', 'ref=' + full, '-f', 'target=' + target, '-f', 'restore=' + mode]
+    cmd = ['gh', 'workflow', 'run', WORKFLOW, '--repo', slug, '--ref', wref, '-f', 'ref=' + full, '-f', 'target=' + target, '-f', 'restore=' + mode]
+    if planted_on:
+        cmd += ['-f', 'planted=on']
     r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
     print(mask((r.stdout or '') + (r.stderr or ''), owner).strip())
     rows = _rows()
     if r.returncode != 0:
         rows.append(DR.row('dispatch_refused', read, kernel=EF, item=item, n=int(n), sha=full, target=target, at=at0, restore=mode, branch=branch,
-                           at_ref=CENTRE, error=mask(r.stderr or '', owner)[:300]))
+                           at_ref=wref, planted_input='on' if planted_on else 'off', error=mask(r.stderr or '', owner)[:300]))
     else:
         m = re.search(r'/runs/(\d+)', r.stdout + r.stderr)
         rid = m.group(1) if m else ''
@@ -568,17 +693,18 @@ def cmd_dispatch(sha, n, item, *rest):
             if rid:
                 break
             time.sleep(5)
-            lst = json.loads(subprocess.run(['gh', 'run', 'list', '--repo', slug, '--workflow', WORKFLOW, '--event', 'workflow_dispatch', '--branch', CENTRE,
+            lst = json.loads(subprocess.run(['gh', 'run', 'list', '--repo', slug, '--workflow', WORKFLOW, '--event', 'workflow_dispatch', '--branch', wref,
                                              '--limit', '5', '--json', 'databaseId,createdAt'], capture_output=True, text=True, encoding='utf-8').stdout or '[]')
             new = sorted((x['createdAt'], x['databaseId']) for x in lst if x['createdAt'] >= at0)
             rid = str(new[0][1]) if new else ''
         if not rid:
             sys.exit('### DISPATCHED, NO RUN ID READ BACK in 40 s -- no row written; read `gh run list` by hand and row it before any other dispatch')
-        rows.append(DR.row('dispatch', read, kernel=EF, item=item, n=int(n), workflow=WORKFLOW, at_ref=CENTRE, branch=branch, restore=mode, sha=full,
+        rows.append(DR.row('dispatch', read, kernel=EF, item=item, n=int(n), workflow=WORKFLOW, at_ref=wref, branch=branch, restore=mode, sha=full,
                            target=target, run=int(rid), at=at0, licence=lic, disk_mb=dk, tree=module_files(KPATH, full), planted_module=pmod,
-                           centre_tip=ctip))
+                           centre_tip=ctip, planted_input='on' if planted_on else 'off', planted_tip=ctx.get('planted_tip'),
+                           planted_parent=ctx.get('planted_parent')))
     DR.write(ROWS, rows)
-    print(dict((x, rows[-1].get(x)) for x in ('kind', 'item', 'n', 'restore', 'branch', 'sha', 'run', 'free_mb', 'at')))
+    print(dict((x, rows[-1].get(x)) for x in ('kind', 'item', 'n', 'restore', 'planted_input', 'branch', 'at_ref', 'sha', 'run', 'free_mb', 'at')))
 
 
 def _view(run):
@@ -640,11 +766,20 @@ def cmd_read(n, run, *rest):
     verdict = STOPPED if (stop or ex == '143') else 'KERNEL' if ex == '0' else 'BREAKS'
     axp = axioms_print(axt, ax)
     cr = cache_record(_f(art, 'cache_kernel.txt'))
+    pr_ = planted_record(_f(art, 'planted.txt'))
+    if d[0].get('planted_input') == 'on' and pr_.get('tip') != d[0].get('planted_tip'):
+        pr_['taken'] = False
+        pr_['refused'].append('the planted tip the run took %s is not the tip its row names %s' % (str(pr_.get('tip'))[:8], str(d[0].get('planted_tip'))[:8]))
+    if d[0].get('planted_input') == 'on' and pr_.get('built') != d[0]['sha']:
+        pr_['taken'] = False
+        pr_['refused'].append('the commit built %s is not the commit dispatched %s' % (str(pr_.get('built'))[:8], d[0]['sha'][:8]))
     names = log_names(log, d[0].get('planted_module'))
     st = statement_state(axt, ex)
     rows.append(DR.row('read', DR.free(), kernel=EF, n=int(n), run=int(run), item=d[0].get('item'), restore_input=d[0].get('restore'),
+                       planted_input=d[0].get('planted_input', 'off'), planted_rec=pr_, at_ref=d[0].get('at_ref', CENTRE),
                        branch=d[0].get('branch'), status=v['status'], conclusion=v['conclusion'], workflow_branch=v['headBranch'], workflow_sha=v['headSha'],
                        workflow_at_centre=v['headBranch'] == CENTRE and v['headSha'] == d[0].get('centre_tip'),
+                       workflow_at_ref=v['headBranch'] == d[0].get('at_ref', CENTRE),
                        built_ref=ref[0] if ref else None, built_equal=bool(ref) and ref[0] == d[0]['sha'], toolchain=ref[-1] if len(ref) > 1 else None,
                        build_exit=ex, verdict=verdict, stop=stop[:3], errors=errs[:40], sorry_warnings=len(warn_sorry), targets=len(targets),
                        axiom_lines=ax['lines'], axiom_within=ax['within'], axiom_outside=dict((a, list(b)) for a, b in ax['outside'].items()),
@@ -664,6 +799,10 @@ def cmd_read(n, run, *rest):
     print('  THE CACHE`S RECORD: %s' % dict((x, cr.get(x)) for x in ('read', 'input', 'hit', 'matched', 'files_before', 'completed', 'present_before', 'save',
                                                                       'restored', 'by_prefix', 'saved', 'from_source', 'untouched')))
     print('  THE STATEMENT %s: %s (%s)' % (STATEMENT_NAME, st[0], st[1]))
+    print('  THE PLANTED RECORD (out/planted.txt): %s' % dict((x, pr_.get(x)) for x in ('read', 'input', 'ref', 'tip', 'parent', 'files', 'count', 'built',
+                                                                                     'refused', 'taken')))
+    if d[0].get('item') in ('planted', 'mainsave') or d[0].get('planted_input') == 'on':
+        print('  THE STATE BY THE WORD OF 2026-11-21: %s' % (planted_state(r) if d[0].get('planted_input') == 'on' else mainsave_state(r)))
     if d[0].get('planted_module'):
         print('  THE PLANTED MODULE %s NAMED BY THE LOG IN %d LINES:' % (d[0]['planted_module'], len(names)))
         for l in names:
@@ -746,11 +885,13 @@ def cmd_planted(rev, *rest):
     tj = _tj(rest[1])
     if tj.get('rev') != full:
         sys.exit('### the targets file read at %s, not at %s' % (str(tj.get('rev'))[:8], full[:8]))
-    mod, why, parent, nl = planted_of(full, tj['modules'])
-    ctip = centre_tip(heads_now())
-    anc = bool(ctip) and subprocess.run(['git', '-C', KPATH, 'merge-base', '--is-ancestor', parent, ctip]).returncode == 0
-    print('### THE PLANTED COMMIT %s: parent %s, on %s at its remote tip %s: %s ; the module %s ; lines changed %d ; %s' % (
-        full[:8], parent[:8], CENTRE, str(ctip)[:8], anc, mod, nl, why or 'TAKEN'))
+    heads = heads_now()
+    ctip = centre_tip(heads)
+    c = planted_ctx(full, tj['modules'], heads)
+    print('### THE PLANTED CONTEXT AT %s (%s`s remote tip %s, the commit the remote tip: %s): %s`s tip %s, parent %s, an ancestor: %s ; the module '
+          '%s (%s) ; lines changed %s ; its file equal at the commit and at the parent: %s ; %s' % (
+              full[:8], CENTRE, str(ctip)[:8], ctip == full, PLANTED, str(c.get('planted_tip'))[:8], str(c.get('planted_parent'))[:8],
+              c['parent_on_centre'], c['planted'][0], c.get('planted_path'), c.get('planted_lines'), c['module_equal'], c['planted'][1] or 'TAKEN'))
 
 
 def verdict_lines(rows=None):
@@ -761,9 +902,18 @@ def verdict_lines(rows=None):
          '  THE PLANTED BUILD: %s%s' % (v['planted'], (' (run %s, the module %s, exit %s, restored %s, the log naming it in %d lines)' % (
              v['planted_read'].get('run'), v['planted_read'].get('planted_module'), v['planted_read'].get('build_exit'),
              (v['planted_read'].get('cache') or {}).get('restored'), len(v['planted_read'].get('names_module') or []))) if v['planted_read'] else ''),
-         '  THE PAIR: %s%s' % (pr['state'], (' ; ' + pr['where']) if pr.get('where') else (' ; at %s, sha256 %s, runs %s' % (
-             str(pr.get('commit'))[:8], str(pr.get('sha'))[:16], pr.get('runs')) if pr['state'] == 'AS WANTED' else '')),
-         '  H-RUNNER-RESTORE: %s%s' % (v['h'][0], (' ; ' + v['h'][1]) if v['h'][1] else '')]
+         '  THE PAIR: %s%s' % (pr['state'], (' ; ' + pr['where']) if pr.get('where') else (' ; at %s, sha256 %s, runs %s, the restore-on build`s restore line %s' % (
+             str(pr.get('commit'))[:8], str(pr.get('sha'))[:16], pr.get('runs'), pr.get('hit')) if pr['state'] == 'AS WANTED' else '')),
+         '  H-RUNNER-RESTORE: %s%s' % (v['h'][0], (' ; ' + v['h'][1]) if v['h'][1] else ''),
+         '  THE SAVE ON MAIN (the word`s (iii)): %s%s' % (v['mainsave'], (' (run %s, exit %s, hit %s, restored key %s, saved %s)' % (
+             v['mainsave_read'].get('run'), v['mainsave_read'].get('build_exit'), (v['mainsave_read'].get('cache') or {}).get('hit'),
+             (v['mainsave_read'].get('cache') or {}).get('matched'), (v['mainsave_read'].get('cache') or {}).get('saved'))) if v['mainsave_read'] else '')]
+    if v['planted_read']:
+        L.append('  THE PLANTED RECORD: taken %s, tip %s, parent %s, files %s, the commit built %s, refused %s ; the cache`s restore line %s, restored key %s' % (
+            (v['planted_read'].get('planted_rec') or {}).get('taken'), str((v['planted_read'].get('planted_rec') or {}).get('tip'))[:8],
+            str((v['planted_read'].get('planted_rec') or {}).get('parent'))[:8], (v['planted_read'].get('planted_rec') or {}).get('files'),
+            str((v['planted_read'].get('planted_rec') or {}).get('built'))[:8], (v['planted_read'].get('planted_rec') or {}).get('refused'),
+            (v['planted_read'].get('cache') or {}).get('hit'), str((v['planted_read'].get('cache') or {}).get('matched'))[:48]))
     st = [r for r in rows if r.get('kind') == 'read' and r.get('item') == 'statement']
     for r in st:
         L.append('  THE STATEMENT, run %s at %s: %s (%s)' % (r.get('run'), str(r.get('built_ref'))[:8], (r.get('statement') or ['?', '?'])[0],
@@ -793,11 +943,13 @@ def controls():
     c('a planted sorryAx line and a target with no line', 'outside %s ; missing %s ; sorryAx %s' % (sorted(s['outside']), s['missing'], s['sorryAx']),
       list(s['outside']) == ['a'] and s['missing'] == ['c'] and s['sorryAx'] and s['within'] == 1)
     caps = row_caps()
-    want_caps = {'(5)(a)': 2, '(4)(a) planted': 1, '(5)(b) statement': 1, '(5)(b) first step': 2, '(5)(b) later lemmas': 5, '(4)(b) closing': 2}
-    c('each price row`s cap, its upper dispatch figure (data/b765_price.json)', caps, caps == want_caps)
+    want_caps = {'(5)(a)': 2, '(4)(a) planted': 1, '(5)(b) statement': 1, '(5)(b) first step': 2, '(5)(b) later lemmas': 5, '(4)(b) closing': 2,
+                 '(4) the save on main': 1}
+    c('each price row`s cap, its upper dispatch figure (data/b765_price.json), and the word`s save on main at 1 beside them', caps, caps == want_caps)
     on_sum = sum(caps[ITEMS[i][1]] for i in ON_ITEMS)
-    c('the kernel`s cap (the worklist`s MAX_DISPATCHES) against the rows` upper figures, and the restore-on rows` sum against the ten of (4)',
-      (K.MAX_DISPATCHES, sum(caps.values()), on_sum, ON_CAP), K.MAX_DISPATCHES == sum(caps.values()) == 13 and on_sum == ON_CAP == 10)
+    c('the kernel`s cap (the worklist`s MAX_DISPATCHES) against the rows` upper figures, the restore-on rows` sum against the ten of (4): the '
+      'price rows 13 and 10, the word`s one beside them, held by the 13 and the ten (where the cap would be passed, the save on main carried)',
+      (K.MAX_DISPATCHES, sum(caps.values()), on_sum, ON_CAP), K.MAX_DISPATCHES == 13 and sum(caps.values()) == 14 and on_sum == 11 and ON_CAP == 10)
     good, dk = (5000, _now()), {'C:/': 20000, 'D:/': 20000}
     A, B = 'a' * 40, 'b' * 40
 
@@ -807,7 +959,7 @@ def controls():
     def R_(run, item, restore='on', ex='0', verdict='KERNEL', saved=False, sha=A):
         return dict(kind='read', kernel=EF, run=run, item=item, restore_input=restore, build_exit=ex, verdict=verdict, built_ref=sha, cache=dict(saved=saved))
     okz = dict(zero_ok=True)
-    okp = dict(planted=('SIDEExplicitFormula.X', None), parent_on_centre=True)
+    okp = dict(planted=('SIDEExplicitFormula.X', None), parent_on_centre=True, module_equal=True)
     st1 = [D_(1, 'statement', 11), R_(11, 'statement', saved=True)]
     tenlater = []
     for i in range(10):
@@ -820,8 +972,10 @@ def controls():
               ('statement', 1, A, [D_(1, 'statement', 11)], good, dk, None, okz),
               ('lemma-step', 2, A, [D_(1, 'statement', 11)], good, dk, None, okz),
               ('planted', 1, B, [], good, dk, None, okp),
-              ('planted', 2, B, st1, good, dk, None, dict(planted=(None, 'two files changed'), parent_on_centre=True)),
-              ('planted', 2, B, st1, good, dk, None, dict(planted=('SIDEExplicitFormula.X', None), parent_on_centre=False)),
+              ('planted', 2, A, st1, good, dk, None, dict(planted=(None, 'two files changed'), parent_on_centre=True, module_equal=True)),
+              ('planted', 2, A, st1, good, dk, None, dict(planted=('SIDEExplicitFormula.X', None), parent_on_centre=False, module_equal=True)),
+              ('planted', 2, A, st1, good, dk, None, dict(planted=('SIDEExplicitFormula.X', None), parent_on_centre=True, module_equal=False)),
+              ('planted', 2, B, st1, good, dk, None, okp),
               ('statement', 1, A, [], good, dk, None, dict(zero_ok=False)),
               ('closing', 2, A, [D_(1, 'statement', 11), R_(11, 'statement', ex='1', verdict='BREAKS')], good, dk, None, {}),
               ('closing', 2, A, [D_(1, 'statement', 11, sha=B), R_(11, 'statement', sha=B)], good, dk, None, {}),
@@ -835,13 +989,14 @@ def controls():
               ('repeat', 2, A, [D_(1, 'closing', 11, restore='off', sha=B), R_(11, 'closing', restore='off', verdict=STOPPED, ex='143', sha=B)],
                good, dk, None, {})]
     got = [dispatch_refusal(p[0], p[1], p[2], p[3], p[4], p[5], caps=p[6] or want_caps, ctx=p[7]) for p in plants]
-    c('twenty planted dispatches refused (an item (R375) does not order, under the hold, under the floor, past 13, out of series, rowed already, '
-      'the last run unread, the planted before any save, the planted commit refused, its parent off the centre, the no-zero control not passed, '
+    c('twenty-two planted dispatches refused (an item (R375) does not order, under the hold, under the floor, past 13, out of series, rowed already, '
+      'the last run unread, the planted before any save, the planted commit refused, its parent no ancestor of the commit sent, its module`s file '
+      'differing at the commit sent from the parent`s, the planted at a commit with no save read there, the no-zero control not passed, '
       'the closing before a restore-on build exiting 0, the closing at another commit than that build, (5)(a)`s third, the eleventh with the '
       'restore on, a repeat of a build not stopped, a second repeat, an item after the closing, the planted twice, a repeat at another commit)',
       [bool(x) for x in got], all(got))
     passes = [dispatch_refusal('statement', 1, A, [], good, dk, caps=want_caps, ctx=okz),
-              dispatch_refusal('planted', 2, B, st1, good, dk, caps=want_caps, ctx=okp),
+              dispatch_refusal('planted', 2, A, st1, good, dk, caps=want_caps, ctx=okp),
               dispatch_refusal('closing', 3, A, st1 + [D_(2, 'planted', 12, sha=B), R_(12, 'planted', ex='1', verdict='BREAKS', sha=B)], good, dk,
                                caps=want_caps, ctx={}),
               dispatch_refusal('repeat', 4, A, st1 + [D_(2, 'planted', 12, sha=B), R_(12, 'planted', ex='1', verdict='BREAKS', sha=B),
@@ -851,13 +1006,17 @@ def controls():
     c('five planted dispatches taken (the statement first ; the planted after a save`s read ; the closing after the restore-on build at its commit ; '
       'the repeat of a stopped closing build ; a lemma step after the statement)', passes, passes == [None] * 5)
     lic = {}
-    for nd, want_line in ((N4, 17), (N5A, 20), (N5B, 21)):
+    for bank_, nd, want_line in ((ANSWERS, N4, 17), (ANSWERS, N5A, 20), (ANSWERS, N5B, 21), (WORDS, W_I, 23), (WORDS, W_III, 25)):
         try:
-            x = DR.licence(ANSWERS, nd)
+            x = DR.licence(bank_, nd)
             lic[nd[:12]] = (x['commit'][:8], x['line'], x['line'] == want_line)
         except DR.Refused as e:
             lic[nd[:12]] = str(e)[:60]
-    c('the licences at the committed ferry bank: (4) at :17, (5)(a) at :20, (5)(b) at :21', lic, all(isinstance(v, tuple) and v[2] for v in lic.values()))
+    c('the licences at the committed banks: the ferry`s (4) at :17, (5)(a) at :20, (5)(b) at :21 ; the author`s words bank`s word of 2026-11-21 on '
+      'the cache, its (i) at :23 and its (iii) at :25', lic, all(isinstance(v, tuple) and v[2] for v in lic.values()))
+    c('each item`s licence bank: the planted and the save on main at the author`s words bank, the others at the ferry`s',
+      dict((i, LICENCE_BANK.get(i, ANSWERS)) for i in sorted(ITEMS)),
+      all(LICENCE_BANK.get(i, ANSWERS) == (WORDS if i in ('planted', 'mainsave') else ANSWERS) for i in ITEMS))
     try:
         DR.licence(ANSWERS, '(15) A CLAUSE THE RULING DOES NOT HAVE')
         miss = False
@@ -879,18 +1038,32 @@ def controls():
       pl[0].startswith('FAILED, NO AXIOMS LINE') and pl[1].startswith('NOT RUN') and pl[2] == 'RAN')
     heads = [(A, 'refs/heads/' + CENTRE), (B, 'refs/heads/' + PLANTED), ('c' * 40, 'refs/heads/main'), ('e' * 40, 'refs/heads/push-b764-runner')]
     tp = (tip_refusal(A, heads, CENTRE), tip_refusal(B, heads, PLANTED), bool(tip_refusal(B, heads, CENTRE)), bool(tip_refusal('c' * 40, heads, CENTRE)),
-          bool(tip_refusal('e' * 40, heads, CENTRE)), bool(tip_refusal('', heads, CENTRE)), centre_tip(heads) == A)
+          bool(tip_refusal('e' * 40, heads, CENTRE)), bool(tip_refusal('', heads, CENTRE)), centre_tip(heads) == A, tip_refusal('c' * 40, heads, MAIN),
+          bool(tip_refusal(A, heads, MAIN)))
     c('the remote tip: the centre`s tip taken for the centre ; the planted tip for the planted ; the planted tip refused for the centre ; main`s, '
-      'push-b764-runner`s and no commit refused ; the centre`s tip read', tp, tp == (None, None, True, True, True, True, True))
+      'push-b764-runner`s and no commit refused for the centre ; the centre`s tip read ; main`s tip taken for main, the centre`s refused for it',
+      tp, tp == (None, None, True, True, True, True, True, None, True))
+    tj7 = json.load(io.open(os.path.join(D, 'b765_targets_7d86a245.json'), encoding='utf-8'))
+    p_tip = git(KPATH, 'rev-parse', '7d86a245').strip()
+    pcx = [planted_ctx(git(KPATH, 'rev-parse', PLANT_COMMIT).strip(), tj7['modules'], [(p_tip, 'refs/heads/' + PLANTED)]),
+           planted_ctx(git(KPATH, 'rev-parse', K.RUNNER_COMMIT).strip(), tj7['modules'], [(p_tip, 'refs/heads/' + PLANTED)]),
+           planted_ctx(git(KPATH, 'rev-parse', PLANT_COMMIT).strip(), tj7['modules'], [])]
+    pv_ = [(x['planted'][0], x['parent_on_centre'], x['module_equal']) for x in pcx]
+    c('the planted context at real commits (the planted tip 7d86a245 as push-b765-planted`s remote tip): at %s the module taken, the parent an '
+      'ancestor, its file equal ; at b764`s 38a57e02 the parent no ancestor ; with no remote tip read, refused' % PLANT_COMMIT, pv_,
+      pv_[0] == ('SIDEExplicitFormula.SquaresAt24', True, True) and pv_[1][1] is False and pv_[2] == (None, False, False))
     tf, tm, tb, tn = targets_of(K.EF_BASE_B763)
     bj = json.load(io.open(os.path.join(D, 'b759_targets.json'), encoding='utf-8'))
     c('THE POSITIVE CONTROL: the targets reader at a3aad4cc against b759`s targets bank (data/b759_targets.json: %d modules for %d names)' % (
         len(bj['modules']), bj['names']), (tf[:8], len(tm), tn, len(tb)), tf == bj['rev'] and tm == sorted(bj['modules']) and tn == bj['names'] and not tb)
-    wn = wf_predicates(git(KPATH, 'show', 'd540bc98:%s' % WF))
+    wn = wf_predicates(git(KPATH, 'show', '%s:%s' % (PLANT_COMMIT, WF)))
+    wd = wf_predicates(git(KPATH, 'show', 'd540bc98:%s' % WF))
     wo = wf_predicates(git(KPATH, 'show', '%s:%s' % (K.RUNNER_COMMIT, WF)))
-    c('the workflow`s predicates for (R375)(4): each true at the centre`s d540bc98 ; THE PLANTED FAULT, b764`s workflow at 38a57e02: its three true '
-      'and the five of b765 false', (sum(wn.values()), len(wn), sorted(k for k, v in wo.items() if v)),
-      all(wn.values()) and sorted(k for k, v in wo.items() if v) == sorted(B764_PREDICATES))
+    c('the workflow`s predicates for (R375)(4) and the word`s (i): each true at the centre`s %s ; at d540bc98 the four of the planted input false '
+      'and the others true ; THE PLANTED FAULT, b764`s workflow at 38a57e02: its three true and the others false' % PLANT_COMMIT,
+      (sum(wn.values()), len(wn), sorted(k for k, v in wd.items() if not v), sorted(k for k, v in wo.items() if v)),
+      all(wn.values()) and sorted(k for k, v in wd.items() if not v) == sorted(PLANT_PREDICATES)
+      and sorted(k for k, v in wo.items() if v) == sorted(B764_PREDICATES))
     recs = [cache_record('restore input: on\nkey: kernel-build-x-aaaa\nrestore hit: false\nrestored key: none\nfiles under .lake/build before the build: 0\n'
                          'build completed under the hold: true\nkey present before the save: false\nsave step: success\n'),
             cache_record('restore input: on\nkey: kernel-build-x-bbbb\nrestore hit: false\nrestored key: kernel-build-x-aaaa\n'
@@ -930,26 +1103,58 @@ def controls():
           pair_verdict(dict(on, cache=recs[0]), off)['state'], pair_verdict(on, dict(off, build_exit='1', verdict='BREAKS'))['state'],
           pair_verdict(on, None)['state'], pair_verdict(on, dict(off, verdict=STOPPED, build_exit='143'))['state'],
           pair_verdict(None, off)['state']]
-    c('the pair on seven planted readings (as wanted ; the files differing ; the restore-on build not restored ; the closing exiting 1 ; no closing '
-      'read ; the closing stopped ; no restore-on build)', pv,
-      pv == ['AS WANTED', 'DIFFERS', 'VACUOUS', 'NOT AS WANTED', 'PENDING', 'STOPPED', 'NOT AS WANTED'])
-    prd = dict(build_exit='1', verdict='BREAKS', cache=recs[1], names_module=['error: ./SIDEExplicitFormula/X.lean:3:2'])
+    c('the pair on seven planted readings (as wanted ; the files differing ; the restore-on build reading no restore hit, NOT SCORABLE by the '
+      'word`s (ii) ; the closing exiting 1 ; no closing read ; the closing stopped ; no restore-on build)', pv,
+      pv == ['AS WANTED', 'DIFFERS', 'NOT SCORABLE', 'NOT AS WANTED', 'PENDING', 'STOPPED', 'NOT AS WANTED'])
+    prec = planted_record('planted input: on\nplanted ref: %s\nplanted tip: %s\nplanted parent: %s\nplanted file: SIDEExplicitFormula/X.lean sha256 %s\n'
+                          'planted files: 1\nthe commit built: %s\n' % (PLANTED, B, 'd' * 40, '0' * 64, A))
+    precs = [prec, planted_record('planted input: off\n'),
+             planted_record('planted input: on\nplanted ref: %s\nplanted tip: %s\nplanted file refused (the file at the commit built differs from '
+                            'the parent`s): SIDEExplicitFormula/X.lean\n' % (PLANTED, B)),
+             planted_record(''),
+             planted_record('planted input: on\nplanted ref: push-b764-runner\nplanted file: SIDEExplicitFormula/X.lean sha256 0\nplanted files: 1\n')]
+    pq = [(x['read'], x['taken'], len(x['files'])) for x in precs]
+    c('the planted record on five planted files (taken ; the input off ; a file refused ; no file, a run before e83e0deb ; another ref): (read, '
+      'taken, files)', pq, pq == [(True, True, 1), (True, False, 0), (True, False, 0), (False, False, 0), (True, False, 1)])
+    prd = dict(build_exit='1', verdict='BREAKS', cache=recs[1], names_module=['error: ./SIDEExplicitFormula/X.lean:3:2'], planted_rec=prec)
     ps = [planted_state(prd), planted_state(dict(prd, build_exit='0', verdict='KERNEL')), planted_state(dict(prd, cache=recs[0])),
-          planted_state(dict(prd, names_module=[])), planted_state(dict(prd, verdict=STOPPED, build_exit='143')), planted_state(None)]
-    c('the planted state on six planted reads (as wanted ; exit 0 ; not restored ; the log not naming it ; stopped ; unread)', ps,
-      ps == ['AS WANTED', 'EXIT 0', 'VACUOUS', 'NOT AS WANTED', 'STOPPED', 'PENDING'])
+          planted_state(dict(prd, names_module=[])), planted_state(dict(prd, verdict=STOPPED, build_exit='143')), planted_state(None),
+          planted_state(dict(prd, planted_rec=precs[1])), planted_state(dict(prd, cache=recs[0], build_exit='0', verdict='KERNEL')),
+          planted_state(dict(prd, cache=recs[2]))]
+    c('the planted state on nine planted reads (as wanted, restored by the prefix ; exit 0 ; no key restored, NOT SCORED by the word`s (i) ; the log '
+      'not naming it ; stopped ; unread ; the module not taken ; exit 0 with no key restored, NOT SCORED before the exit ; as wanted, an exact key)', ps,
+      ps == ['AS WANTED', 'EXIT 0', 'NOT SCORED', 'NOT AS WANTED', 'STOPPED', 'PENDING', 'NOT A PLANTED BUILD', 'NOT SCORED', 'AS WANTED'])
     aw, df, pe = dict(state='AS WANTED'), dict(state='DIFFERS'), dict(state='PENDING')
     hv = [h_verdict('AS WANTED', aw, False)[0], h_verdict('EXIT 0', aw, False)[0], h_verdict('AS WANTED', df, False)[0],
           h_verdict('AS WANTED', dict(state='STOPPED'), True)[0], h_verdict('PENDING', pe, False)[0],
-          h_verdict('VACUOUS', aw, False)[0]]
-    c('H-RUNNER-RESTORE on six planted pairs (both as wanted ; the planted exiting 0 ; the files differing ; the closing stopped twice ; pending ; '
-      'the planted not restored)', hv, hv == ['HELD', 'REFUTED', 'REFUTED', 'NOT SCORABLE', 'OPEN', 'UNFORESEEN'])
-    vr = verdicts([D_(1, 'statement', 11), dict(R_(11, 'statement', saved=True), cache=recs[0], axioms_print='RAN', built_equal=True, axioms_sha256='f' * 64),
-                   D_(2, 'planted', 12, sha=B), dict(prd, kind='read', kernel=EF, run=12, item='planted', restore_input='on', built_ref=B),
-                   D_(3, 'lemma-step', 13), dict(on, kind='read', kernel=EF, run=13, item='lemma-step'),
-                   D_(4, 'closing', 14, restore='off'), dict(off, kind='read', kernel=EF, run=14, item='closing')])
+          h_verdict('NOT SCORED', aw, False)[0], h_verdict('AS WANTED', dict(state='NOT SCORABLE', where='x'), False)[0],
+          h_verdict('NOT A PLANTED BUILD', aw, False)[0]]
+    c('H-RUNNER-RESTORE on eight planted pairs (both as wanted ; the planted exiting 0 ; the files differing ; the closing stopped twice ; pending ; '
+      'the planted not scored, a reading neither the ruling nor the word names ; the pair NOT SCORABLE by the word`s (ii) ; no planted build)', hv,
+      hv == ['HELD', 'REFUTED', 'REFUTED', 'NOT SCORABLE', 'OPEN', 'UNFORESEEN', 'NOT SCORABLE', 'UNFORESEEN'])
+    held_rows = [D_(1, 'statement', 11), dict(R_(11, 'statement', saved=True), cache=recs[0], axioms_print='RAN', built_equal=True, axioms_sha256='f' * 64),
+                 D_(2, 'planted', 12, sha=B), dict(prd, kind='read', kernel=EF, run=12, item='planted', restore_input='on', built_ref=B),
+                 D_(3, 'lemma-step', 13), dict(on, kind='read', kernel=EF, run=13, item='lemma-step'),
+                 D_(4, 'closing', 14, restore='off'), dict(off, kind='read', kernel=EF, run=14, item='closing')]
+    vr = verdicts(held_rows)
     c('the verdicts over a planted series (the statement saved, the planted failing restored, a restored lemma build, the closing from source)',
-      (vr['planted'], vr['pair']['state'], vr['h'][0]), (vr['planted'], vr['pair']['state'], vr['h'][0]) == ('AS WANTED', 'AS WANTED', 'HELD'))
+      (vr['planted'], vr['pair']['state'], vr['h'][0], vr['mainsave']), (vr['planted'], vr['pair']['state'], vr['h'][0], vr['mainsave']) == (
+          'AS WANTED', 'AS WANTED', 'HELD', 'NOT SENT'))
+    real1 = cache_record(_f(_art(44900549948), 'cache_kernel.txt'))
+    ms = [mainsave_state(dict(build_exit='0', cache=real1)), mainsave_state(dict(build_exit='0', cache=recs[1])),
+          mainsave_state(dict(build_exit='0', cache=recs[2])), mainsave_state(dict(build_exit='1', cache=real1)), mainsave_state(None),
+          mainsave_state(dict(build_exit='0', cache=recs[0]))]
+    c('the save on main`s state: THE POSITIVE CONTROL, the real record of dispatch 1 (run 44900549948, the centre`s first save, from source, '
+      'its restore line none), then five planted reads (restored by the prefix ; an exact key, no save ; exit 1 ; unread ; a restore line '
+      'false with no key)', ms, ms == ['AS WANTED', 'NOT AS WANTED', 'NOT AS WANTED', 'NOT AS WANTED', 'PENDING', 'NOT AS WANTED'])
+    mr = [dispatch_refusal('mainsave', 5, A, held_rows, good, dk, caps=want_caps, ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave', 5, A, held_rows, good, dk, caps=want_caps, ctx={}),
+          dispatch_refusal('mainsave', 2, A, st1, good, dk, caps=want_caps, ctx=dict(main_read_back=True)),
+          dispatch_refusal('mainsave', 6, A, held_rows + [D_(5, 'mainsave', 15), dict(R_(15, 'mainsave'), cache=recs[0])], good, dk, caps=want_caps,
+                           ctx=dict(main_read_back=True)),
+          dispatch_refusal('lemma-step', 5, A, held_rows, good, dk, caps=want_caps, ctx={})]
+    c('the save on main`s dispatch (taken under HELD after main`s read-back ; refused before it ; refused where H-RUNNER-RESTORE reads OPEN ; '
+      'refused a second time ; a lemma step refused after the closing)', [x is None for x in mr], [x is None for x in mr] == [True, False, False, False, False])
     ss = [statement_state("'%s' depends on axioms: [propext]" % STATEMENT_NAME, '0')[0], statement_state("'%s' depends on axioms: [propext]" % STATEMENT_NAME, '1')[0],
           statement_state("'other' depends on axioms: [propext]", '0')[0], statement_state("'%s' depends on axioms: [sorryAx]" % STATEMENT_NAME, '0')[0]]
     c('the statement`s state on four planted prints (its line in the three ; the exit 1 ; no line ; sorryAx)', ss,
@@ -969,7 +1174,8 @@ def controls():
 
 def cmd_control(*a):
     L, ok = controls()
-    out = ['%s -- tools/b765_controls.py`s OWN CONTROLS, (R375)(4) AND (5), BEFORE ITS OPENING DISPATCH (%s)' % (ACT, _now()), '', '## THE CONTROLS'] + L + [
+    out = ['%s -- tools/b765_controls.py`s OWN CONTROLS, (R375)(4) AND (5) AND THE AUTHOR`S WORD OF 2026-11-21 ON THE RUNNER`S CACHE (%s)' % (
+        ACT, _now()), '', '## THE CONTROLS'] + L + [
         '', '### ### **THE TOOL`S CONTROLS: %d OF %d AS WANTED ; %s.**' % (sum(ok), len(ok), 'ALL AS WANTED' if all(ok) else 'NOT ALL AS WANTED')]
     print(NL.join(out))
     if '--bank' in a:
@@ -1004,14 +1210,16 @@ def cmd_bank(*_a):
                            cr.get('present_before'), cr.get('save'), cr.get('restored'), cr.get('by_prefix'), cr.get('saved'), cr.get('from_source'),
                            cr.get('untouched')))
             if r.get('planted_module'):
-                out.append('      the planted module %s, named by the log in %d lines' % (r['planted_module'], len(rd.get('names_module') or [])))
+                out.append('      the planted module %s, named by the log in %d lines ; the planted input %s, the record taken %s (tip %s)' % (
+                    r['planted_module'], len(rd.get('names_module') or []), r.get('planted_input'), (rd.get('planted_rec') or {}).get('taken'),
+                    str((rd.get('planted_rec') or {}).get('tip'))[:8]))
     out.append('')
     vl, v = verdict_lines(rows)
     out += vl + ['']
     nd = len(disp)
-    out.append('### ### **DISPATCHES %d OF AT MOST %d (WITH THE RESTORE ON %d OF AT MOST %d) ; THE PLANTED %s ; THE PAIR %s ; H-RUNNER-RESTORE %s ; THE TOOL`S '
-               'CONTROLS %d OF %d.**' % (nd, K.MAX_DISPATCHES, sum(1 for r in disp if r.get('item') in ON_ITEMS), ON_CAP, v['planted'], v['pair']['state'],
-                                         v['h'][0], sum(ok), len(ok)))
+    out.append('### ### **DISPATCHES %d OF AT MOST %d (WITH THE RESTORE ON %d OF AT MOST %d) ; THE PLANTED %s ; THE PAIR %s ; H-RUNNER-RESTORE %s ; THE SAVE '
+               'ON MAIN %s ; THE TOOL`S CONTROLS %d OF %d.**' % (nd, K.MAX_DISPATCHES, sum(1 for r in disp if r.get('item') in ON_ITEMS), ON_CAP, v['planted'],
+                                                                v['pair']['state'], v['h'][0], v['mainsave'], sum(ok), len(ok)))
     r = FB.write(BANK, NL.join(out))
     print(NL.join(out))
     print('written data/b765_controls.txt ; figbank: %s' % r['why'])
