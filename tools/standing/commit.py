@@ -150,7 +150,8 @@ KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # #
                'b758': ('SIDE-explicit-formula',),   # ### v1.35.9, (R368)(5), (10): "lifted for SIDE-explicit-formula in this act alone"; SIDE-dirichlet-mod-24's local main by (6)(i)'s route alone
                'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5), (11): "lifted for SIDE-explicit-formula in this act alone"; "no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3)"
                'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): "No kernel beyond SIDE-explicit-formula is written"
-               'b764': ('SIDE-explicit-formula',)}   # ### v1.38.18, (R374)(7): push-b764-runner made at main and its commit of the workflow's file; "there the workflow's file alone"
+               'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): push-b764-runner made at main and its commit of the workflow's file; "there the workflow's file alone"
+               'b765': ('SIDE-explicit-formula',)}   # ### v1.38.21, (R375)(4), (5), (12) "no kernel touched beyond SIDE-explicit-formula": push-b765-centre cut from push-b764-runner, push-b765-planted from it, the files of (5), print_targets.txt and the workflow's file (the seat's read of (11), data/b765_misses.txt (2))
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
@@ -158,7 +159,8 @@ NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   
 FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'),
            'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5): the local main following the remote's after the gated push moves it to v0.41
            'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): the local main following the remote's after each gated push that moves main (v0.42 and on)
-           'b764': ('SIDE-explicit-formula',)}   # ### v1.38.18, (R374)(7): the local main following the remote's after the gated push moves main on the trial's success alone
+           'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): the local main following the remote's after the gated push moves main on the trial's success alone
+           'b765': ('SIDE-explicit-formula',)}   # ### v1.38.21, (R375)(4): the local main following the remote's after the gated push moves main under the HELD outcome alone
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}
