@@ -30,6 +30,18 @@ count (b763's item (14)); from b764 a count of 0 reads "zero", before it num_wor
 
   carried_to(act, text, data) -> the Carried-to line's body     trail(act, text, data) -> the trail with its Next line read through line()
   count_word(n, act, nw) -> the Resolved line's count word (nw the record's num_word)
+
+v1.38.19, (R375)(8) [K20], b764's post-seal row (78) (data/b764_events_postseal.txt :82): THE ROOT'S ANSWER IN THE AUTHOR'S WORDS. word()
+took an answer only where an author's word said "<next act> is", or where the RESULT of a prompt headed with the next act did not open with
+BEGIN; b764's root answer opened with BEGIN and named the next act as "The act after b764", so word() returned None and the entry's
+Carried-to and Next lines and the trail's Next line stood as composed beside a bank that held the answer. From here word() reads, in this
+order: (1) a line of an author's word saying "<next act> is", as before; (2) a prompt headed with the next act: an answer chosen among the
+options as before ("the author chose: ..."), and an answer given in the author's words between BEGIN and END, taken as "the author answered
+in words: " with its first sentence and, where a later sentence names the next act (by its name, or as "the act after <act>"), that
+sentence beside it (begin_answer()); (3) a line of an author's word that names the next act as "the act after <act>" with no "<next act>
+is". The prompt is read before (3), so the root's answer stands before a word that only mentions the act after.
+
+  begin_answer(ans, act) -> the words word() takes from an answer given between BEGIN and END, or None
 """
 import os
 import re
@@ -50,6 +62,24 @@ def _next(act):
     return 'b%d' % (int(act[1:]) + 1)
 
 
+def _names_next(s, act):
+    """v1.38.19, [K20]: a sentence names the act that follows by its name or as "the act after <act>"."""
+    return bool(re.search(r'\b%s\b' % _next(act), s) or re.search(r'(?i)\bthe act after %s\b' % act, s))
+
+
+def begin_answer(ans, act):
+    """v1.38.19, [K20]: an answer given in the author's words between BEGIN and END (a RESULT line holds it with its line breaks taken out,
+    so a sentence may follow a full stop with no space): its sentences, the first kept and, where a later one names the act that follows,
+    that one beside it; None where it holds no words."""
+    t = ans[len('BEGIN'):] if ans.startswith('BEGIN') else ans
+    t = (t[:-len('END')] if t.endswith('END') else t).strip()
+    sents = [s.strip() for s in re.split(r'(?<=[.!?])\s*(?=[A-Z(])', t) if s.strip()]
+    if not sents:
+        return None
+    named = next((s for s in sents[1:] if _names_next(s, act)), None)
+    return 'the author answered in words: %s' % (sents[0] + (' ' + named if named else ''))
+
+
 def word(act, data=D):
     p = os.path.join(data, '%s_author_answers.txt' % act)
     if not os.path.exists(p):
@@ -58,12 +88,15 @@ def word(act, data=D):
         L = f.read().replace('\r', '').split('\n')
     nx = _next(act)
     head = False
+    after = None   # ### v1.38.19, [K20] (3): the first word line naming "the act after <act>", read after the prompts
     for i, l in enumerate(L):
         if l.startswith('### THE AUTHOR`S WORD'):
             head = True
             continue
         if head and l.strip() and re.search(r'\b%s is\b' % nx, l):
             return i + 1, l.strip()
+        if head and l.strip() and after is None and re.search(r'(?i)\bthe act after %s\b' % act, l):
+            after = (i + 1, l.strip())
         if l.startswith('### ') and not l.startswith('### THE AUTHOR`S WORD'):
             head = False
     prompt = None
@@ -75,8 +108,11 @@ def word(act, data=D):
             ans = l.rsplit('"="', 1)[1].rsplit('"', 1)[0]
             if not ans.startswith('BEGIN'):
                 return i + 1, 'the author chose: %s' % ans
+            b = begin_answer(ans, act)   # ### v1.38.19, [K20] (2): the answer in the author's words, before (3)
+            if b:
+                return i + 1, b
             prompt = None
-    return None
+    return after
 
 
 def line(act, text='', data=D):
