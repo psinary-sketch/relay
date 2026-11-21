@@ -14,3 +14,15 @@ WHERE THIS WORD ARRIVES. Before the price table is banked: the reading is priced
 ---- end [H4]
 In [T3] of (R375), the clause on W-ORD-H2-PI1 reads: "`W-ORD-H2-PI1` (:16563), the word given and Route A chosen on 2026-11-21, the reading made at this act".
 END
+
+## APPENDED BY tools/standing/append.py AT 2026-11-21T13:11:58Z FROM b765_word_cache.txt (sha256 b87588c7c49ca5a1), VERBATIM:
+BEGIN
+THE AUTHOR'S WORD OF 2026-11-21 ON THE RUNNER'S CACHE, AN AMENDMENT TO (R375)(4); THE HYPOTHESIS OF PART ONE OF [G2] IS NOT CHANGED.
+THE FACT. The runner's cache is scoped by branch: a run restores a cache saved on its own branch or on the default branch, and not one saved on a sibling or a child branch (GitHub's reference on dependency caching, its section on the restrictions for accessing a cache). So the cache b764 saved on push-b764-runner is not read from push-b765-centre, which is why dispatch 1 built from source with the restore on; and a run on push-b765-planted cannot read a cache saved on push-b765-centre.
+THE CHANGES.
+(i) THE PLANTED BUILD OF (4)(a) is scored on a run whose cache record, out/cache_kernel.txt, reads a restore hit, and on no other. It runs on push-b765-centre after a save stands there, with the planted change applied in the runner's checkout by an input of the workflow, off by default, that takes the changed module from push-b765-planted; no planted commit enters push-b765-centre. A planted run whose record reads no hit is printed, is not scored, and does not count toward (a).
+(ii) THE PAIR OF (4)(b): the build with the restore on at the closing commit is scored where its record reads a restore hit; where it reads none it is a build from source, and the pair is NOT SCORABLE by it.
+(iii) THE SAVE ON MAIN. Under the HELD outcome, after main's read-back, one dispatch runs on main with the restore on; its record is wanted to read no hit and a save. That save is the one that later branches read. It counts among the ten of the cap. Under the other outcomes it is not sent.
+(iv) [C5] gains at its end: "a branch reads the cache from its own saves and from main's, and a save stands on main at <commit>".
+THE OUTCOMES OF THIS WORD. Where the planted dispatch has not been sent: it is sent as (i) orders. Where it has been sent on push-b765-planted: that run is printed with its record's lines and is not scored, and (i) is sent after it, the cap of 13 standing with that run counted in it. Where the cap would be passed, the save on main of (iii) is the dispatch that is carried, named in the closing message.
+END
