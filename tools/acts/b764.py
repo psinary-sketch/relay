@@ -2419,7 +2419,8 @@ def _g1_composed(X_):
     reg_ = (rdn('%s_registration.txt' % ACT, optional=True) or '').replace(chr(13), '')
     dm_ = re.search(r'WRITTEN BEFORE ANY CELL IS COMPUTED \((\d{4}-\d\d-\d\d)\)', reg_)
     W_ = (rdn('%s_author_words_preseal.txt' % ACT, optional=True) or '').replace(chr(13), '').split(NL)
-    q_ = lambda pre_, lead_: [l_[l_.index(lead_) + len(lead_):l_.rindex('"')] for l_ in W_ if l_.startswith(pre_)]
+    # ### defect (l): the word is banked twice, its repeat at :15-:34 (events (53)); equal copies read once, unequal copies refuse
+    q_ = lambda pre_, lead_: list(dict.fromkeys(l_[l_.index(lead_) + len(lead_):l_.rindex('"')] for l_ in W_ if l_.startswith(pre_)))
     r1_ = q_('(i) In [G1], THE GROUNDS reads: "', 'THE GROUNDS reads: "')
     r2_ = q_('(ii) In [G1], WHAT THE NAVIGATOR HAD SEEN gains this sentence at its end: "', 'gains this sentence at its end: "')
     r3_ = q_('(iii) In [G1], the closing sentence of HELD, from "b232\'s reading" to "the author\'s fetch", reads: "', 'to "the author\'s fetch", reads: "')
@@ -2474,7 +2475,7 @@ def _texts_n3(f):
     otl_ = _blob('HEAD', 'OPEN_TRAILS.md').decode('utf-8', 'replace').replace(chr(13), '').split(NL)
     erl_ = _blob('HEAD', 'ERRATA.md').decode('utf-8', 'replace').replace(chr(13), '').split(NL)
     W_ = (rdn('%s_author_words_preseal.txt' % ACT, optional=True) or '').replace(chr(13), '').split(NL)
-    w4_ = [l_[l_.index('reads: "') + 8:l_.rindex('"')] for l_ in W_ if l_.startswith('(iv) In [M1], the closing sentence reads: "')]
+    w4_ = list(dict.fromkeys(l_[l_.index('reads: "') + 8:l_.rindex('"')] for l_ in W_ if l_.startswith('(iv) In [M1], the closing sentence reads: "')))   # ### defect (l)
     xf_ = dict((p_, str(v_)) for p_, v_ in ((f.get('xline') or {}).get('fields') or []))
     want_f_ = dict(M1={'<n>': str(f['it_cells']), '<d>': str(f['it_digits'])}, C2=xf_, C3=xf_)
     rows_ = []
