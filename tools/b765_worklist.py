@@ -456,7 +456,7 @@ B714_ROOT = 'ca188c5bd053ba6319dc4b8194c57d5df7c6895910f5b969cb6ba08895d5263a'  
 B723_ROOT_BANKS = 'f4ffbeff'  # ### b764's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = ('e179b18b', '899f2767')   # ### (R375)(8): [K20] v1.38.19 (step 9, 11:02:49Z) and [K21] v1.38.20 (step 11, 11:11:58Z) in Component 1 before the opening pass, one commit a key, VERSION with each
-C1_LOCKGATE = None           # ### b765: set when tools/b765_lockgate.py is carried and committed with the face and probe-path tools at Component 5
+C1_LOCKGATE = 'd03be64e'     # ### b765: tools/b765_lockgate.py carried and set, committed before any run with the face and probe-path tools (step 55, 17:44:02Z); in CHAIN too (b764's trap)
 C1_LOCKGATE_B764 = 'ec439ca3'   # ### b764's, kept beside: tools/b764_lockgate.py carried and set, committed before any run with the face and probe-path tools (step 69, 00:27:48Z)
 C1_STANDING_LATER = (('(8)(ii)', 'v1.35.5', 'e0428564'),)   # ### Component 6, (R367)(8)(ii): the closing's one count in one form, a version commit of its own with its controls 6 of 6 (step 51)
 C5_FAULTS = ()   # ### (carried name) no fault count this act
@@ -630,7 +630,7 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          ('rulings_gen', '1c03384b'),
          # ### b765, Component 4 (the Edit tool, 17:3xZ): the relay's commits after rulings_gen read from git (git log 1c03384b..HEAD) and the
          # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
-         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'))
+         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'), ('lockgate_carry', 'd03be64e'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -673,7 +673,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'rows9': 'dispatch 9 read, the pair as wanted and H-RUNNER-RESTORE HELD', 'rows9_step': 'its step row',
                     'controls_ms2': 'the dispatch tool given the second save on main by the author`s word',
                     'rows10': 'main moved and v0.44 cut, dispatch 10 stopped, the author`s word on the save on main banked',
-                    'rows11': 'the dispatch tool`s controls 36 of 36 banked, dispatch 11 sent, the ledgers tool and the act module set'})
+                    'rows11': 'the dispatch tool`s controls 36 of 36 banked, dispatch 11 sent, the ledgers tool and the act module set',
+                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set before any run'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit
