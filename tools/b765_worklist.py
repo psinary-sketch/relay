@@ -627,7 +627,10 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          ('map_gen', 'f2939784'), ('map', '86f223c7'), ('word', '33f1c248'), ('controls_word', '6808aa6b'),
          ('premise_gen', 'be98ed62'), ('premise_fix', '32573c78'), ('premise', '8cedc214'),
          ('rows45', '43e7b675'), ('rows67', 'b46622d9'), ('rows8', 'aaf247c0'), ('builder', '2528de22'), ('builder_ctl', 'a59051fc'),
-         ('rulings_gen', '1c03384b'))
+         ('rulings_gen', '1c03384b'),
+         # ### b765, Component 4 (the Edit tool, 17:3xZ): the relay's commits after rulings_gen read from git (git log 1c03384b..HEAD) and the
+         # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
+         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -666,7 +669,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'premise_gen': 'the premise positions` tool of (6)(a)', 'premise_fix': 'its edge print widened', 'premise': 'the premise positions banked',
                     'rows45': 'dispatches 4 and 5 read', 'rows67': 'dispatches 6 and 7 read, the lemma proved whole',
                     'rows8': 'the closing build from source sent', 'builder': 'the builder`s step of (7)', 'builder_ctl': 'its controls and the repository created',
-                    'rulings_gen': 'the ledgers tool of (4)-(9)'})
+                    'rulings_gen': 'the ledgers tool of (4)-(9)',
+                    'rows9': 'dispatch 9 read, the pair as wanted and H-RUNNER-RESTORE HELD', 'rows9_step': 'its step row',
+                    'controls_ms2': 'the dispatch tool given the second save on main by the author`s word',
+                    'rows10': 'main moved and v0.44 cut, dispatch 10 stopped, the author`s word on the save on main banked'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit

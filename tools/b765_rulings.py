@@ -9,9 +9,11 @@ names (data/b765_misses.txt (9)).
 
   ledgers dry|write   appended at OPEN_TRAILS' end, no line moving, <DATE> the UTC date of the write: one dated head and under it, each a
                       paragraph of its own, in the ruling's order --
-                      [C5] where H-RUNNER-RESTORE reads HELD and the save on main AS WANTED, [C6] where it reads REFUTED or NOT SCORABLE,
-                        by the dispatch tool's own reading (tools/b765_controls.py verdicts() over data/b765_dispatch_rows.json), [C5]
-                        gaining at its end the clause of the author's word of 2026-11-21 (iv) (data/b765_author_words_preseal.txt :26);
+                      [C5] where H-RUNNER-RESTORE reads HELD, [C6] where it reads REFUTED or NOT SCORABLE, by the dispatch tool's own
+                        reading (tools/b765_controls.py verdicts() over data/b765_dispatch_rows.json); under HELD, by the author's word on
+                        the save on main (data/b765_author_words_preseal.txt :30-:36), [C5] gaining at its end the clause of the word of
+                        2026-11-21 on the runner's cache, (iv) (:26), where a save on main is read, and [C5] as (R375) gives it where the
+                        second save stopped as the first did; the write refused while the save on main is open;
                       [S1] from the statement's read, COMPILED; [S2] from the closing commit's restore-on read and its run's axioms file;
                       [W1] from data/b765_window.txt; [Q1] from data/b765_premise_positions.txt's foot; [M3] from data/b765_map_pair.txt;
                       [B2] from data/b765_held_branches.txt's reading; [H4] from the author's word of 2026-11-21, Route A (:12-:14), its
@@ -206,19 +208,27 @@ def fill(tpl, values):
 
 # ================================================================================ THE FIELDS, FROM THE BANKS
 def runner():
-    """the dispatch tool's own reading: (key, values, why, the runs cited) or (None, ..) while the pair is open."""
+    """the dispatch tool's own reading: (key, values, why, the runs cited) or (None, ..) while the pair is open. Under HELD the save on main is
+    read as the author's word on the save on main orders it (data/b765_author_words_preseal.txt :30-:36, amendment row 3): a save read, from
+    the second save where it was sent, [C5] with the word's (iv) and the save's commit in its field ('C5'); the second save stopped as the
+    first did, [C5] as (R375) gives it, without the clause of (iv) ('C5R'), the save carried by name with its stop in the closing message."""
     import b765_controls as C
     rows = C._rows()
     v = C.verdicts(rows)
     h, pr = v['h'], v['pair']
     if h[0] == 'HELD':
-        if v['mainsave'] != 'AS WANTED':
-            return None, [], 'H-RUNNER-RESTORE HELD, THE SAVE ON MAIN %s' % v['mainsave'], v, []
         main_ = git(EF, 'rev-parse', 'refs/remotes/origin/main').strip()
-        save_ = str((v['mainsave_read'] or {}).get('built_ref') or '')
-        vals = [('<commit>', str(pr['commit'])[:8]), ('<hash>', str(pr['sha'])[:16]), ('<commit>', main_[:8]), ('<commit>', save_[:8])]
-        runs = [str(x) for x in pr.get('runs') or ()] + [str((v['mainsave_read'] or {}).get('run'))]
-        return 'C5', vals, 'HELD, the save on main AS WANTED', v, runs
+        base_ = [('<commit>', str(pr['commit'])[:8]), ('<hash>', str(pr['sha'])[:16]), ('<commit>', main_[:8])]
+        prun = [str(x) for x in pr.get('runs') or ()]
+        if v['save_on_main'] == 'AS WANTED':
+            sr = v['save_on_main_read'] or {}
+            return ('C5', base_ + [('<commit>', str(sr.get('built_ref') or '')[:8])], 'HELD, the save on main AS WANTED (run %s)' % sr.get('run'), v,
+                    prun + [str(sr.get('run'))])
+        if v['mainsave'] == 'STOPPED' and v['mainsave2'] == 'STOPPED':
+            return ('C5R', base_, 'HELD, the save on main STOPPED at both its dispatches (runs %s and %s): [C5] as (R375) gives it, by the author`s '
+                    'word on the save on main' % ((v['mainsave_read'] or {}).get('run'), (v['mainsave2_read'] or {}).get('run')), v,
+                    prun + [str((v['mainsave_read'] or {}).get('run')), str((v['mainsave2_read'] or {}).get('run'))])
+        return None, [], 'H-RUNNER-RESTORE HELD, THE SAVE ON MAIN %s, THE SECOND %s' % (v['mainsave'], v['mainsave2']), v, []
     if h[0] in ('REFUTED', 'NOT SCORABLE'):
         k = 'EXIT 0' if v['planted'] == 'EXIT 0' else 'DIFFERS' if pr['state'] == 'DIFFERS' else 'STOPPED BOTH' if v['stopped_both'] else None
         if not k:
@@ -325,7 +335,14 @@ def compose(date, base):
     X = texts(ferry())
     W = words()
     TP = templates(X, W)
-    rk, rvals, rwhy, rv, rruns = runner()
+    rk0, rvals, rwhy, rv, rruns = runner()
+    rk = rk0
+    if rk0 == 'C5R':
+        # ### the author's word on the save on main, a second stop: [C5] as (R375) gives it, its text at the ferry's :54 unchanged
+        TP['C5'] = X['C5'][2]
+        rk = 'C5'
+    c5form = ('the ruling`s, without the clause of the word`s (iv)' if rk0 == 'C5R' else 'with the word`s (iv) at its end') if rk == 'C5' else None
+    wcite = ':12-:15' + (', :26' if rk0 == 'C5' else '') + (', :30-:36' if rk == 'C5' else '')
     st, st_run = statement_field()
     ga = gauss_field()
     wi = window_field(X)
@@ -374,16 +391,16 @@ def compose(date, base):
         miss.append('[T3]: the upstream read not found')
     n_ot = len(base.split(NL)) - 1
     head = ('**Dated head, %s, b765, `(R375)`(4) to (9) and the author’s words of 2026-11-21: the lines the ruling orders for OPEN_TRAILS** '
-            '(relay data/b765_ferry.txt :53-:115; data/b765_author_words_preseal.txt :12-:15, :26), appended at the end of the file after b764’s '
+            '(relay data/b765_ferry.txt :53-:115; data/b765_author_words_preseal.txt %s), appended at the end of the file after b764’s '
             'trail (its last line :%d) and before this act’s own trail, so that no line of the trail moves: the runner’s cache by its outcome; the '
             'statement of the control’s failure; Gauss’s integral for the archimedean term; the window banked as data; the four readings beside the '
             'dispatches; the three lines of the author’s word of 2026-11-20. The line of the project’s mirror repository is entered in this act’s '
-            'trail, after the repository is written at the close.' % (date, n_ot))
+            'trail, after the repository is written at the close.' % (date, wcite, n_ot))
     order = ['C5', 'C6', 'S1', 'S2', 'W1', 'Q1', 'M3', 'B2', 'H4', 'T1', 'T2', 'T3']
     paras = [head] + [E[k] for k in order if k in E]
     ot = NL.join(sum(([p, ''] for p in paras), []))[:-1]
-    return dict(X=X, TP=TP, E=E, miss=miss, text=ot, new=base + NL + ot + NL, head=head, order=order, runner=(rk, rwhy, rruns), v=rv,
-                st_run=st_run, ga=ga, wi=wi, pm=pm, mp=mp, n_ot=n_ot)
+    return dict(X=X, TP=TP, E=E, miss=miss, text=ot, new=base + NL + ot + NL, head=head, order=order, runner=(rk0, rwhy, rruns), v=rv,
+                st_run=st_run, ga=ga, wi=wi, pm=pm, mp=mp, n_ot=n_ot, c5form=c5form, wcite=wcite)
 
 
 def ledgers(mode):
@@ -413,8 +430,9 @@ def ledgers(mode):
     present = [k for k, v in E.items() if v in base]
     ctl = [('PLACE-papers` HEAD the corrigendum`s commit %s, the act`s one commit there before this write (%s)' % (C1PP, pp_head[:8]), pp_head.startswith(C1PP)),
            ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
-           ('each text as entered equals the ruling`s with its fields filled ([C5] with the word`s (iv) at its end, [T3] with the word`s clause, [H4] '
-            'the word`s), each whole in the appended text: %s' % ' '.join('%s %s' % (k, eq[k]) for k in sorted(eq)), bool(eq) and all(eq.values())),
+           ('each text as entered equals the ruling`s with its fields filled ([C5] %s, [T3] with the word`s clause, [H4] '
+            'the word`s), each whole in the appended text: %s' % (C['c5form'] or 'not entered', ' '.join('%s %s' % (k, eq[k]) for k in sorted(eq))),
+            bool(eq) and all(eq.values())),
            ('every text of the order composed (%s)' % ('; '.join(C['miss']) or 'none missing'), not C['miss']),
            ('no field left in the appended text (%s)' % (left or 'none'), not left),
            ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
@@ -432,8 +450,8 @@ def ledgers(mode):
     P = ['%s -- (R375)(4) TO (9) AND THE AUTHOR`S WORDS OF 2026-11-21: OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, utc()), '',
          '### tools/b765_rulings.py ledgers; PLACE-papers HEAD %s; the texts from the ferry bank (data/b765_ferry.txt :%d-:%d) and the author`s words bank'
          % (pp_head[:8], WANT['C5'][0], WANT['T3'][1]),
-         '### (data/b765_author_words_preseal.txt :%d-:%d, :%d, :%d), the fields from the act`s banks, the runner`s line by tools/b765_controls.py`s reading of'
-         % (WORDS_H4[0], WORDS_H4[1], WORDS_T3, WORDS_C5),
+         '### (data/b765_author_words_preseal.txt %s), the fields from the act`s banks, the runner`s line by tools/b765_controls.py`s reading of'
+         % C['wcite'],
          '### data/b765_dispatch_rows.json (sha256 %s); <DATE> %s; [R1] entered in the act`s trail at the close; each text by line and sha256 here.'
          % (fsha(os.path.join(D, 'b765_dispatch_rows.json')), date), '', '## THE CONTROLS']
     P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
