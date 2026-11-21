@@ -583,7 +583,8 @@ GENS = (('the repairs` planted controls', 'tools/b765_repair_controls.py', ('e17
         ('the held branches of (6)(c)', 'tools/b765_held_branches.py', ('274285ed', 'e6d7be1c'), 'data/b765_held_branches.txt', '3ce343bc'),
         ('the map`s files of (6)(b)', 'tools/b765_map_pair.py', ('f2939784',), 'data/b765_map_pair.txt', '86f223c7'),
         ('the premise positions of (6)(a)', 'tools/b765_premise_positions.py', ('be98ed62', '32573c78'), 'data/b765_premise_positions.txt', '8cedc214'),
-        ('the builder`s controls of (7)', 'tools/project_set.py', ('2528de22',), 'data/b765_project_set_control.txt', 'a59051fc'))
+        ('the builder`s controls of (7)', 'tools/project_set.py', ('2528de22',), 'data/b765_project_set_control.txt', 'a59051fc'),
+        ('the trial of (4)', 'tools/b765_controls.py', ('d9d459dc', '6808aa6b', '881803be', '62ffe878'), 'data/b765_controls.txt', '48fe0805'))   # ### b765: banked after dispatch 11's read (step 58, 18:59:20Z); the ledgers' row appended after its bank's commit
 GENS_B764 = ()   # ### b764's seven stand in git at tools/b764_worklist.py
 GENS_B763 = ()   # ### b763's nine stand in git at tools/b763_worklist.py
 GENS_B762 = ()   # ### b762's five stand in git at tools/b762_worklist.py
@@ -632,7 +633,7 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
          ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'), ('lockgate_carry', 'd03be64e'),
          # ### b765, Component 5 (the Edit tool, 18:1xZ): appended as made, each read from git and the step rows (steps 56 and 57)
-         ('reproduce', '83b9c7ee'), ('module_c5', 'a5d5a2b0'))
+         ('reproduce', '83b9c7ee'), ('module_c5', 'a5d5a2b0'), ('trial', '48fe0805'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -646,7 +647,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### b764: the corrigendum for b763 (FINDINGS, step 7); the ledgers of (7), (8) and (9) (ERRATA, OPEN_TRAILS and BIBLIOGRAPHY.md) appended
 # ### when written
 # ### b765: the corrigendum for b764 (FINDINGS, step 7); the lines of (4)-(9) and the author's words (OPEN_TRAILS) appended when written
-PP_CHAIN = (('c1pp', 'd9c03949'),)
+PP_CHAIN = (('c1pp', 'd9c03949'), ('ledgerspp', 'fb094a44'))   # ### b765: the lines of (4)-(9) and the author's words in OPEN_TRAILS (step 59, 19:00:21Z), after the trial's bank
 PP_CHAIN_B764 = (('c1pp', 'e383d313'), ('ledgerspp', '772d5cf0'))   # ### b764's, kept for the carried readers that cite them
 PP_CHAIN_B763 = (('c1pp', '6034501c'), ('ledgerspp', '387713dd'))   # ### b763's, kept for the carried readers that cite them
 # ### the order by time, relay and PLACE-papers together: each PLACE-papers key after the relay commit whose tool cut it; the ledgers written
@@ -678,7 +679,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'rows11': 'the dispatch tool`s controls 36 of 36 banked, dispatch 11 sent, the ledgers tool and the act module set',
                     'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set before any run',
                     'reproduce': 'the full reproduction run of (12) banked',
-                    'module_c5': 'the act module set for the three words, the worklist given dispatch 11 among its runs and the face`s blocks file'})
+                    'module_c5': 'the act module set for the three words, the worklist given dispatch 11 among its runs and the face`s blocks file',
+                    'trial': 'dispatch 11 read and the trial banked, the second save on main as wanted',
+                    'ledgerspp': 'the lines of (4)-(9) and the author`s words of 2026-11-21 in OPEN_TRAILS'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit
@@ -806,7 +809,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = (('corr', 'FINDINGS.md', 'd9c03949'),)   # ### b765 (R375)(1): the corrigendum for b764 (Component 1, step 7); the lines of (4)-(9) in OPEN_TRAILS appended when written
+PP_WRITES = (('corr', 'FINDINGS.md', 'd9c03949'), ('trails', 'OPEN_TRAILS.md', 'fb094a44'))   # ### b765 (R375)(1): the corrigendum for b764 (Component 1, step 7); the lines of (4)-(9) in OPEN_TRAILS (step 59)
 PP_WRITES_B764 = (('corr', 'FINDINGS.md', 'e383d313'), ('errata', 'ERRATA.md', '772d5cf0'), ('trails', 'OPEN_TRAILS.md', '772d5cf0'),
                   ('register', 'BIBLIOGRAPHY.md', '772d5cf0'))   # ### b764's, kept beside
 PP_WRITES_B763 = (('corr', 'FINDINGS.md', '6034501c'), ('trails', 'OPEN_TRAILS.md', '387713dd'),
