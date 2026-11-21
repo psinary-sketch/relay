@@ -1,0 +1,1134 @@
+b764 closed: relay 828d0b7e, PLACE-papers 1198a63; suite 111 of 116; root ca188c5bd053ba63…; 1 prompt answered; scores 7 of 8 HELD; 13 defects
+========================================================================================================
+b764 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND NINETY-ONE, THE RECORD’S UPKEEP: b763 AT ITS WEIGHT; THE REPAIRS BY CLASS, 17 REPAIRED, 1 READ AS DESIGNED AND 1 REMOVED, EACH WITH ITS PLANTED CONTROL; THE CLOSE’S HOURS AND YIELD MEASURED; THE RUNNER ON A RESTORED BUILD NOT REPRODUCING THE FROM-SOURCE BUILD; TWO OF THE FIVE ORDERS BUILT, THE OTHERS CARRIED WITH THEIR PRICES; AN ERRATUM FILED, THE FINITE PART OF THE ARCHIMEDEAN TERM HELD AT 9 CELLS TO 6 DIGITS AND THE CENTRE PRICED ANEW; THE NAVIGATOR’S PREDICTIONS BANKED; UNDER (R374).**
+========================================================================================================
+### THE COUNTER ((R374) Component 5, the act`s events and defects together; relay data/b764_defects.txt, data/b764_events.txt): CLAIM 5, CLOSE 92, REPEAT 76 OF 97 ; THE SET: DEFECTS 13, EVENTS 84, THE LAST event (84)
+
+### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b764_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):
+      b764_address_scan.py           seal 10e80fd6b25e1af3 ; close 10e80fd6b25e1af3 ; AGREE
+      b764_carry.py                  seal 1054820e7ecf5b8a ; close 1054820e7ecf5b8a ; AGREE
+      b764_ceiling.py                seal fe878b87c520c6d2 ; close fe878b87c520c6d2 ; AGREE
+      b764_controls.py               seal 7debd67ed7d9d0e5 ; close 7debd67ed7d9d0e5 ; AGREE
+      b764_face.py                   seal f923e47d8d4bb8f0 ; close f923e47d8d4bb8f0 ; AGREE
+      b764_imp2tau.py                seal 52d02f87f9ffb1ba ; close 52d02f87f9ffb1ba ; AGREE
+      b764_lockgate.py               seal 089129c15de67aa4 ; close 089129c15de67aa4 ; AGREE
+      b764_prepaths.py               seal 3b8cae7c00fb6ce7 ; close 3b8cae7c00fb6ce7 ; AGREE
+      b764_repair_controls.py        seal 1ff1423fd9a9df21 ; close 1ff1423fd9a9df21 ; AGREE
+      b764_rulings.py                seal 8f8eab487bffb9d3 ; close 8f8eab487bffb9d3 ; AGREE
+      b764_worklist.py               seal 33bbaba0d73f7e15 ; close 33bbaba0d73f7e15 ; AGREE
+      b764_yield.py                  seal 037ff42463c15707 ; close 037ff42463c15707 ; AGREE
+      standing/VERSION               seal f1db33b437c73ecc ; close f1db33b437c73ecc ; AGREE
+      standing/act.py                seal 428d3c723207df47 ; close 428d3c723207df47 ; AGREE
+      standing/actlog.py             seal 506e5d630ad9f42e ; close 506e5d630ad9f42e ; AGREE
+      standing/actmodule.py          seal dc64678909778a11 ; close dc64678909778a11 ; AGREE
+      standing/allow.py              seal bccf549eba732208 ; close bccf549eba732208 ; AGREE
+      standing/amend.py              seal 3726715416cb49aa ; close 3726715416cb49aa ; AGREE
+      standing/append.py             seal 4ae46dff21c89358 ; close 4ae46dff21c89358 ; AGREE
+      standing/armnorm.py            seal 8d6b095848aec3ba ; close 8d6b095848aec3ba ; AGREE
+      standing/arms.py               seal 5de7abdf63a5aa28 ; close 5de7abdf63a5aa28 ; AGREE
+      standing/authorwords.py        seal d213dfa55d8e6bd3 ; close d213dfa55d8e6bd3 ; AGREE
+      standing/cadence.py            seal dfd7dddcb40e6517 ; close dfd7dddcb40e6517 ; AGREE
+      standing/carry.py              seal 28443dd32af5a772 ; close 28443dd32af5a772 ; AGREE
+      standing/chain.py              seal 8cca3dbf3899dd2c ; close 8cca3dbf3899dd2c ; AGREE
+      standing/citeprint.py          seal 0ec6535fc836aaff ; close 0ec6535fc836aaff ; AGREE
+      standing/cites.py              seal 2c723e9b0831262e ; close 2c723e9b0831262e ; AGREE
+      standing/classes.py            seal 0ccf4ec896e66baf ; close 0ccf4ec896e66baf ; AGREE
+      standing/close.py              seal 0cbd029f87230053 ; close 0cbd029f87230053 ; AGREE
+      standing/closebound.py         seal 76115a079c6718e4 ; close 76115a079c6718e4 ; AGREE
+      standing/commit.py             seal f13133315613b3da ; close f13133315613b3da ; AGREE
+      standing/compilecontrol.py     seal bee6747ffef89282 ; close bee6747ffef89282 ; AGREE
+      standing/components.py         seal f5f131c6c11043a2 ; close f5f131c6c11043a2 ; AGREE
+      standing/controls.py           seal fcf5d36240253801 ; close fcf5d36240253801 ; AGREE
+      standing/counter.py            seal 48d47fb2699b6d94 ; close 48d47fb2699b6d94 ; AGREE
+      standing/counterline.py        seal bb3feb9076243d1e ; close bb3feb9076243d1e ; AGREE
+      standing/cuts.py               seal 9c43b9b55f0ed6ca ; close 9c43b9b55f0ed6ca ; AGREE
+      standing/defectids.py          seal de294ce0d63d5123 ; close de294ce0d63d5123 ; AGREE
+      standing/defectrow.py          seal 70b219bf160541a3 ; close 70b219bf160541a3 ; AGREE
+      standing/deletefree.py         seal cd4f2fe63246588b ; close cd4f2fe63246588b ; AGREE
+      standing/deletes.py            seal 7ab51fb8de472709 ; close 7ab51fb8de472709 ; AGREE
+      standing/delread.py            seal 043e39be6f7e3e6d ; close 043e39be6f7e3e6d ; AGREE
+      standing/dispatchrate.py       seal a52c0039c37d3f26 ; close a52c0039c37d3f26 ; AGREE
+      standing/dispatchrows.py       seal 043843f1ed6e3681 ; close 043843f1ed6e3681 ; AGREE
+      standing/facebranches.py       seal 4aed6d1e40d973c8 ; close 4aed6d1e40d973c8 ; AGREE
+      standing/faceform.py           seal 503517e6ed4f1fa8 ; close 503517e6ed4f1fa8 ; AGREE
+      standing/figbank.py            seal ffe26adc2eb476ee ; close ffe26adc2eb476ee ; AGREE
+      standing/fold.py               seal 71c6696c618c0d6e ; close 71c6696c618c0d6e ; AGREE
+      standing/gitwrite.py           seal 86160482c3b01fcd ; close 86160482c3b01fcd ; AGREE
+      standing/haltprice.py          seal 0a37f8aa676f206f ; close 0a37f8aa676f206f ; AGREE
+      standing/handoff.py            seal e8d92b84fa31c17b ; close e8d92b84fa31c17b ; AGREE
+      standing/harness.py            seal 0e9ab2c2e92e7200 ; close 0e9ab2c2e92e7200 ; AGREE
+      standing/harnessmoves.py       seal db0957db1dac164d ; close db0957db1dac164d ; AGREE
+      standing/hold.py               seal b22e3ab24507f474 ; close b22e3ab24507f474 ; AGREE
+      standing/hook.py               seal b3f3ed1975768594 ; close b3f3ed1975768594 ; AGREE
+      standing/keystone.py           seal 30229a8111c4c9b7 ; close 30229a8111c4c9b7 ; AGREE
+      standing/ledgers.py            seal de0f835bdf08a2ce ; close de0f835bdf08a2ce ; AGREE
+      standing/legacy.py             seal aa7846f9505eb38f ; close aa7846f9505eb38f ; AGREE
+      standing/limits.py             seal 87ac78066b959218 ; close 87ac78066b959218 ; AGREE
+      standing/linematch.py          seal dd14ddb0342d2a4b ; close dd14ddb0342d2a4b ; AGREE
+      standing/lockdate.py           seal 8435bb32b58719cc ; close 8435bb32b58719cc ; AGREE
+      standing/lsrread.py            seal 3642607fad2379a4 ; close 3642607fad2379a4 ; AGREE
+      standing/manifest.py           seal d9ce2013a15ea0fa ; close d9ce2013a15ea0fa ; AGREE
+      standing/needle.py             seal 6bbf1de138389bdc ; close 6bbf1de138389bdc ; AGREE
+      standing/needles.py            seal 375b1bbd0480ce59 ; close 375b1bbd0480ce59 ; AGREE
+      standing/nextact.py            seal 571c7d67dc492a63 ; close 571c7d67dc492a63 ; AGREE
+      standing/nouns.py              seal 836a1d8c2e7914cd ; close 836a1d8c2e7914cd ; AGREE
+      standing/onereader.py          seal 350965b62b35afd7 ; close 350965b62b35afd7 ; AGREE
+      standing/orders.py             seal 18003e0b113c6e9e ; close 18003e0b113c6e9e ; AGREE
+      standing/orderstate.py         seal 41aa13031a6916b3 ; close 41aa13031a6916b3 ; AGREE
+      standing/originsearch.py       seal 2cafc50b3c1fdf18 ; close 2cafc50b3c1fdf18 ; AGREE
+      standing/outbound.py           seal a63f6408e84b0623 ; close a63f6408e84b0623 ; AGREE
+      standing/peek.py               seal 55955817773c1895 ; close 55955817773c1895 ; AGREE
+      standing/phases.py             seal 33b3b9e7ed8d483d ; close 33b3b9e7ed8d483d ; AGREE
+      standing/postseal.py           seal 9dc58f0c6a6b6ed2 ; close 9dc58f0c6a6b6ed2 ; AGREE
+      standing/prelock.py            seal 4d3a08cb2a6b6c24 ; close 4d3a08cb2a6b6c24 ; AGREE
+      standing/prevdry.py            seal f2c7d62e36d6c60e ; close f2c7d62e36d6c60e ; AGREE
+      standing/pricebank.py          seal 51119cf98eb519c8 ; close 51119cf98eb519c8 ; AGREE
+      standing/probes.py             seal 48c76d2d83f5fc64 ; close 48c76d2d83f5fc64 ; AGREE
+      standing/publishstate.py       seal e46a9fe979795699 ; close e46a9fe979795699 ; AGREE
+      standing/pushcheck.py          seal bcae2d05a2a9625d ; close bcae2d05a2a9625d ; AGREE
+      standing/ranahead.py           seal b9f2bb458cf6d976 ; close b9f2bb458cf6d976 ; AGREE
+      standing/readfirst.py          seal 5fb4ff72fcc2ffca ; close 5fb4ff72fcc2ffca ; AGREE
+      standing/refused.py            seal 2c9192115aef2e54 ; close 2c9192115aef2e54 ; AGREE
+      standing/relaypath.py          seal 7024425dea360b8b ; close 7024425dea360b8b ; AGREE
+      standing/remotecache.py        seal ea0ce6f21ccfc2b5 ; close ea0ce6f21ccfc2b5 ; AGREE
+      standing/remoteread.py         seal 91a1bb6ae5921d9c ; close 91a1bb6ae5921d9c ; AGREE
+      standing/repaircommits.py      seal 46267ada6ec1fdc7 ; close 46267ada6ec1fdc7 ; AGREE
+      standing/repairs.py            seal d6ed41236cf5d43c ; close d6ed41236cf5d43c ; AGREE
+      standing/repeat.py             seal 5010b087812eafd2 ; close 5010b087812eafd2 ; AGREE
+      standing/replay.py             seal e83382723e0c07ed ; close e83382723e0c07ed ; AGREE
+      standing/reportdry.py          seal 7382bbd2d4ba2c86 ; close 7382bbd2d4ba2c86 ; AGREE
+      standing/rootbanks.py          seal 7152ecbb8be5c5ab ; close 7152ecbb8be5c5ab ; AGREE
+      standing/rootparts.py          seal 33af9505a137242c ; close 33af9505a137242c ; AGREE
+      standing/rootprompt.py         seal 8f0dc5abf4a39e3e ; close 8f0dc5abf4a39e3e ; AGREE
+      standing/roster.py             seal 6784722bc6f6f902 ; close 6784722bc6f6f902 ; AGREE
+      standing/rowid.py              seal 246e848147315034 ; close 246e848147315034 ; AGREE
+      standing/runs.py               seal 6d0f1af26b88625f ; close 6d0f1af26b88625f ; AGREE
+      standing/salthead.py           seal df5f82d4bd93a97f ; close df5f82d4bd93a97f ; AGREE
+      standing/scan.py               seal e5753fef4e4c5833 ; close e5753fef4e4c5833 ; AGREE
+      standing/scratchfsck.py        seal 3c40433ff13b7210 ; close 3c40433ff13b7210 ; AGREE
+      standing/sealcheck.py          seal 5c45631ca492395b ; close 5c45631ca492395b ; AGREE
+      standing/seatfile.py           seal cefc818c997288b8 ; close cefc818c997288b8 ; AGREE
+      standing/sectionput.py         seal c88f0ce68de8f610 ; close c88f0ce68de8f610 ; AGREE
+      standing/standingdry.py        seal 62af1fb35c7906d6 ; close 62af1fb35c7906d6 ; AGREE
+      standing/statedir.py           seal 2b1925cbf4334777 ; close 2b1925cbf4334777 ; AGREE
+      standing/subject.py            seal e80a708074bc1e5b ; close e80a708074bc1e5b ; AGREE
+      standing/subjects.py           seal a9595b203bba0452 ; close a9595b203bba0452 ; AGREE
+      standing/tablescratch.py       seal 7ae1c939e151a482 ; close 7ae1c939e151a482 ; AGREE
+      standing/title.py              seal 9679d862a34a6242 ; close 9679d862a34a6242 ; AGREE
+      standing/titlerule.py          seal b33f91cfb8763864 ; close b33f91cfb8763864 ; AGREE
+      standing/toset.py              seal c0d501c304bd38d4 ; close c0d501c304bd38d4 ; AGREE
+      standing/used.py               seal 130a09591306a0c1 ; close 130a09591306a0c1 ; AGREE
+      standing/v1100.py              seal efd18867d3a7c9ee ; close efd18867d3a7c9ee ; AGREE
+      standing/v1110.py              seal 81c4f09d720a2af7 ; close 81c4f09d720a2af7 ; AGREE
+      standing/v1120.py              seal 5f2858353de3e9cf ; close 5f2858353de3e9cf ; AGREE
+      standing/v1130.py              seal 2574e909767b2000 ; close 2574e909767b2000 ; AGREE
+      standing/v1140.py              seal 5305681e9c54a879 ; close 5305681e9c54a879 ; AGREE
+      standing/v1150.py              seal 2609fbde09302cee ; close 2609fbde09302cee ; AGREE
+      standing/v1160.py              seal e24a5d36eb0eb5ed ; close e24a5d36eb0eb5ed ; AGREE
+      standing/v1170.py              seal 68022e2dae0cf8e3 ; close 68022e2dae0cf8e3 ; AGREE
+      standing/v1180.py              seal 4f044515a4766f01 ; close 4f044515a4766f01 ; AGREE
+      standing/v1190.py              seal b2bcc7f04c9a95a3 ; close b2bcc7f04c9a95a3 ; AGREE
+      standing/v1200.py              seal 384a8d9e9dd293ea ; close 384a8d9e9dd293ea ; AGREE
+      standing/v121.py               seal ffd9f39096fce689 ; close ffd9f39096fce689 ; AGREE
+      standing/v1210.py              seal e35c2c7cc8d6d2e0 ; close e35c2c7cc8d6d2e0 ; AGREE
+      standing/v122.py               seal 2a522a0e4cc127d2 ; close 2a522a0e4cc127d2 ; AGREE
+      standing/v1220.py              seal 943e9eea06b3d8dc ; close 943e9eea06b3d8dc ; AGREE
+      standing/v1230.py              seal 6c59a1ede9ff8929 ; close 6c59a1ede9ff8929 ; AGREE
+      standing/v1240.py              seal 1d422f455eb18a9e ; close 1d422f455eb18a9e ; AGREE
+      standing/v1250.py              seal 0b79682392cab881 ; close 0b79682392cab881 ; AGREE
+      standing/v1260.py              seal 67d0b7e703b82929 ; close 67d0b7e703b82929 ; AGREE
+      standing/v1270.py              seal 1b8e5e0881edf676 ; close 1b8e5e0881edf676 ; AGREE
+      standing/v1280.py              seal 02a72b4342ff57d3 ; close 02a72b4342ff57d3 ; AGREE
+      standing/v1281.py              seal d01781f9aad89bbf ; close d01781f9aad89bbf ; AGREE
+      standing/v1290.py              seal 9d354580be5fd9c2 ; close 9d354580be5fd9c2 ; AGREE
+      standing/v130.py               seal bb13697fa9812105 ; close bb13697fa9812105 ; AGREE
+      standing/v1300.py              seal 0dedf917e35c3ca1 ; close 0dedf917e35c3ca1 ; AGREE
+      standing/v1310.py              seal 218d85118bfc7739 ; close 218d85118bfc7739 ; AGREE
+      standing/v1320.py              seal fe421db0bad38e6c ; close fe421db0bad38e6c ; AGREE
+      standing/v1330.py              seal cf04e2d1a290a280 ; close cf04e2d1a290a280 ; AGREE
+      standing/v1340.py              seal 483b24510445cb79 ; close 483b24510445cb79 ; AGREE
+      standing/v1341.py              seal 3dc17110c0b8087c ; close 3dc17110c0b8087c ; AGREE
+      standing/v1342.py              seal 8e75704bd7f63d10 ; close 8e75704bd7f63d10 ; AGREE
+      standing/v1343.py              seal 02427c1d2b501d67 ; close 02427c1d2b501d67 ; AGREE
+      standing/v1344.py              seal 5b1066123fe208f6 ; close 5b1066123fe208f6 ; AGREE
+      standing/v1345.py              seal 5c25905042b3d913 ; close 5c25905042b3d913 ; AGREE
+      standing/v1346.py              seal 881d1b8bcb0223ef ; close 881d1b8bcb0223ef ; AGREE
+      standing/v1347.py              seal 4f406d48ab730be7 ; close 4f406d48ab730be7 ; AGREE
+      standing/v1348.py              seal c698f8184ba367bc ; close c698f8184ba367bc ; AGREE
+      standing/v1349.py              seal 26cf970c92f05fb0 ; close 26cf970c92f05fb0 ; AGREE
+      standing/v1350.py              seal 4f08f7b5bcb3f1c0 ; close 4f08f7b5bcb3f1c0 ; AGREE
+      standing/v1351.py              seal 291edfdecd07d87b ; close 291edfdecd07d87b ; AGREE
+      standing/v1352.py              seal d88643e8cefd7e97 ; close d88643e8cefd7e97 ; AGREE
+      standing/v1353.py              seal af8bf795310b13af ; close af8bf795310b13af ; AGREE
+      standing/v1354.py              seal 46436838ec47094a ; close 46436838ec47094a ; AGREE
+      standing/v1355.py              seal e15470e081d473d4 ; close e15470e081d473d4 ; AGREE
+      standing/v1356.py              seal a7c112935d1c128d ; close a7c112935d1c128d ; AGREE
+      standing/v1357.py              seal 3645e5141020721b ; close 3645e5141020721b ; AGREE
+      standing/v1358.py              seal 53661e260c578bc3 ; close 53661e260c578bc3 ; AGREE
+      standing/v1359.py              seal 0922da3f9a5a4fb3 ; close 0922da3f9a5a4fb3 ; AGREE
+      standing/v1360.py              seal ac3f30cc3d421b29 ; close ac3f30cc3d421b29 ; AGREE
+      standing/v1361.py              seal 28fb9667428b4ef8 ; close 28fb9667428b4ef8 ; AGREE
+      standing/v1362.py              seal fc7a3a964bc16675 ; close fc7a3a964bc16675 ; AGREE
+      standing/v1363.py              seal 75fd133d1a745605 ; close 75fd133d1a745605 ; AGREE
+      standing/v1364.py              seal fced604577e7af98 ; close fced604577e7af98 ; AGREE
+      standing/v1365.py              seal 8c00e09bfa4d57f6 ; close 8c00e09bfa4d57f6 ; AGREE
+      standing/v1366.py              seal 07ac37026e7965bb ; close 07ac37026e7965bb ; AGREE
+      standing/v1367.py              seal b1fde0c24f67ce8a ; close b1fde0c24f67ce8a ; AGREE
+      standing/v1368.py              seal e5ad3341ed83bcc1 ; close e5ad3341ed83bcc1 ; AGREE
+      standing/v1369.py              seal 53b44172aea573c5 ; close 53b44172aea573c5 ; AGREE
+      standing/v1370.py              seal e311ea66efacd3ee ; close e311ea66efacd3ee ; AGREE
+      standing/v1371.py              seal 097609f070837ad9 ; close 097609f070837ad9 ; AGREE
+      standing/v1372.py              seal 4b5e161c97b15e29 ; close 4b5e161c97b15e29 ; AGREE
+      standing/v140.py               seal 57c0f35b8b6352b2 ; close 57c0f35b8b6352b2 ; AGREE
+      standing/v150.py               seal e444484955b2a5b4 ; close e444484955b2a5b4 ; AGREE
+      standing/v160.py               seal 243ce38a848eab28 ; close 243ce38a848eab28 ; AGREE
+      standing/v170.py               seal f6084ddc3644f033 ; close f6084ddc3644f033 ; AGREE
+      standing/v180.py               seal 5ab059b30e714a03 ; close 5ab059b30e714a03 ; AGREE
+      standing/v190.py               seal 9be5ecadc49e0df2 ; close 9be5ecadc49e0df2 ; AGREE
+      standing/wlist.py              seal d3afe7d3177b7fb3 ; close d3afe7d3177b7fb3 ; AGREE
+      standing/words.py              seal 37f4d3450d457634 ; close 37f4d3450d457634 ; AGREE
+      standing/fold/checks.tpl       seal e920c21b3af678e9 ; close e920c21b3af678e9 ; AGREE
+      standing/fold/citation.tpl     seal 2f66a730232dce64 ; close 2f66a730232dce64 ; AGREE
+      standing/fold/closing.tpl      seal 8f9cf1f3d0310c9e ; close 8f9cf1f3d0310c9e ; AGREE
+      standing/fold/record.tpl       seal fb692af22801ddf7 ; close fb692af22801ddf7 ; AGREE
+      standing/fold/reg_gate.tpl     seal 2d00a99e4e660cbd ; close 2d00a99e4e660cbd ; AGREE
+      standing/fold/regspec.tpl      seal dcf1f69006799860 ; close dcf1f69006799860 ; AGREE
+      acts/b764.py                   seal 8bebe4b42ab19015 ; close 8bebe4b42ab19015 ; AGREE
+      ### AGREE 189 of 189
+
+### THE CITATION CHECK (the gate step at step zero; relay data/b764_citation_check.txt): CITES CHECKED 85 ; OK 85 ; MISSES 0 ; the misses as the bank lists them: 0 (NONE) ; the answers checked ((R278)(4)), by their needles: NONE, the prints NONE ; entered as the defects bank letters them: the navigator`s NONE
+
+### THE RECORD LINES ((R374)(1); relay data/b764_record_lines.json): 
+
+### THE DRY RUN ((R267)(2), standing; relay data/b764_reg_gate.txt, the gate`s step before the lock): THE DRY-RUN STEP : CLEAN ; THE TRAIL`S DEFECTS LINE AGAINST THE BANK: THE TRAIL`S DEFECTS LINE EQUAL TO THE DEFECTS BANK True ; THE TRAIL`S RESOLVED LINE AGAINST THE BANK: THE TRAIL`S RESOLVED LINE EQUAL TO THE DEFECTS BANK True ; THE CLOSING`S DRY RUN (relay data/b675_rules.txt row 1): THE CLOSING DRY-RUN STEP : CLEAN
+
+### THE CORRIGENDUM ((R374)(1)-(2)):
+    the generated entry for b763`s events and defects, CLAIM or CLOSE, NEW or REPEAT (relay data/b764_corrigendum.txt): ITEMS 127: EVENTS 110, DEFECTS 17 ; CLAIM 5, CLOSE 122 ; REPEAT 91 ; THE CLAIM ITEMS OF b763`S BANKS 5, PRINTED IN FULL ; THE FINDINGS AFTER THE LOCK 12: CLAIM 0, CLOSE 12, REPEAT 8 ; THE NAVIGATOR`S OWN 5, CLAIM 5 ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :15865
+    b763 at its weight, as its closing record`s head line gives it ((R374)(1)) (relay data/b763_closing.txt): b763 closed: relay d4ec1edb, PLACE-papers 7db9a66; suite 112 of 116; root 34de7cffdf0093e2…; 1 prompt answered; scores 6 of 8 HELD; 17 defects
+    the seat`s read of what the ruling misses, made after the citation check and the deletes ((R374)(3)), its head (relay data/b764_misses.txt): b764 -- THE SEAT'S READ OF WHAT (R374) MISSES ((R374)(3): ten lines or fewer, made at step zero after the citation check, the deletes and the price table, 2026-11-20T17:4xZ; printed to the author before Component 1 and once more before the lock)
+    the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b764_root_banks_dry.txt): BANKS 78 ; CLEAN AND EQUAL AT HEAD 78 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY True
+
+### THE PRICE AND THE CEILING ((R374)(3)):
+    the price table from banked timings, banked before Component 1, the seat`s own readings printed as the seat`s (relay data/b764_price.txt): THE PRICE TABLE: STEP ZERO 0.83 h ; THE LOWER SUM 17.37 h AGAINST THE CEILING 24 h, NOTHING CARRIED ; THE UPPER SUM 44.96 h ; (5) 4.38-16.74 h OVER 19 KEYS ; (7) 2.11-5.58 h IN 3 DISPATCHES ; (8) 2.30-7.00 h ; (9)(c)`S CHEAPEST READING [L-ii] AT 1.73 h UPPER
+    the reading against 24 hours at the table`s lower figures after Component 2, banked by the committed tool (relay data/b764_ceiling.txt): THE CEILING: READINGS 1 ; THE LAST AFTER COMPONENT 2 AT 2026-11-20T21:40:01Z, 16.26 h AT THE LOWER FIGURES AGAINST 24 h, NOTHING CARRIED ; BUILT WHERE IT FITS: E0-RANK-PROPAGATION, LATE-BANKS, MATCHER-SHAPE, BIBLIOGRAPHY-LINK, CORRESPONDENCE-BEHIND-SCOPE ; (7) TRIED WHERE THE CEILING LEAVES IT ; DISPATCHES 0 OF 3
+
+### THE REPAIRS BY CLASS ((R374)(5)):
+    each key`s planted control, read at the commit before its repair and at the repair`s commit, (7)`s standing change beside them (relay data/b764_repair_controls.txt): [R7] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True
+    the repairs bank, one row a key in the order of repair, each with its state, its version, its control and its sentence, its foot the states by count (relay data/b764_repairs.txt): ### NO VERDICT LINE
+
+### THE CLOSE`S HOURS AND YIELD ((R374)(6)):
+    the close`s hours and each standing arm`s faults over b754 to b763, the controls before the figures, the sentence of (6) at its end (relay data/b764_close_yield.txt): From b754 to b763 an act ran 8.46 to 49.01 hours from its opening row to its closing, 2.81 to 7.37 of them from the lock to the closing; of 85 standing arms 9 read a fault at one act or more of the ten and 76 at none, the 76 listed in relay data/b764_close_yield.txt for the author's strike
+
+### THE RUNNER ON A RESTORED BUILD ((R374)(7)):
+    the dispatch and read tool`s controls, the tool committed before its opening dispatch (relay data/b764_controls_control.txt): THE TOOL`S CONTROLS: 25 OF 25 AS WANTED ; ALL AS WANTED
+    the three dispatches of the trial, each read by its run id from its artifact, the exit file governing, and the trial`s verdict (relay data/b764_controls.txt): DISPATCHES 3 (SIDE-explicit-formula 3 OF 3, SIDE-dirichlet-mod-24 0 OF 0) ; READ KERNEL (THE BUILD EXITING 0) 2 ; THE TRIAL FAILS ; THE TOOL`S CONTROLS 25 OF 25
+
+### THE ORDERS THE UPKEEP CARRIES ((R374)(8)):
+    W-ORD-LATE-BANKS read, W-ORD-MATCHER-SHAPE drafted, W-ORD-CORRESPONDENCE-BEHIND-SCOPE not built, each carried by name with its price (relay data/b764_orders_reading.txt): THE THREE ORDERS: W-ORD-LATE-BANKS READ, ITS QUESTION CARRIED ; W-ORD-MATCHER-SHAPE DRAFTED AS ROW (84) OF v9`S SUCCESSOR ; W-ORD-CORRESPONDENCE-BEHIND-SCOPE NOT BUILT, BOTH ROUTES OF ITS PART (2) WRITING A PAGE (13) AND N3 BAR ; EACH CARRIED BY NAME WITH ITS PRICE, NO LINE IN OPEN_TRAILS
+
+### THE ERRATUM, THE FINITE PART AND THE CENTRE ((R374)(9), the author`s word of 2026-11-20):
+    the read of outputs/ for a deposited copy of the paper of row 1.5c-15, for [E1]`s clause (relay data/b764_deposit_read.txt): THE DEPOSIT READ: FILES 14 ; FOUND 0 ; CONTROLS 5 OF 5 ; WRITTEN
+    [G1], H-TAU-FINITE-PART, committed alone before the tool`s run, the author`s word`s words in place (relay data/b764_registration.txt): b764 -- THE REGISTRATION H-TAU-FINITE-PART, WRITTEN BEFORE ANY CELL IS COMPUTED (2026-11-20), under (R374)(9)(b).
+    the finite part F at each banked diagonal cell beside the kernel`s A, the controls before any cell (relay data/b764_imp2tau.txt): H-TAU-FINITE-PART: HELD ; CELLS 9 TO 6 DIGITS ; CONTROLS 17 OF 17 ; 310 s
+    [E1] in ERRATA; [F1], [C1], the trial`s line, [D1], [D2], [M1], [L1] and [B1] under one dated head at OPEN_TRAILS` end; the register`s section, no line moving (relay data/b764_ledgers.txt): THE LEDGERS: FILES 3 OF 3 APPENDED, NO LINE MOVING ; [E1] IN ERRATA ; 8 LINES IN OPEN_TRAILS UNDER ONE HEAD (F1, C1, C3, D1, D2, M1, L1, B1) ; THE REGISTER`S §6, FIVE WORKS ; CONTROLS 12 OF 12 AS WANTED ; WRITTEN
+    the roster read after them by tools/standing/orders.py, its count at PLACE-papers HEAD (relay data/b764_orders.txt): ORDERS 226 ; OPEN 81 ; CLOSED 145
+
+### THE NAVIGATOR`S PREDICTIONS ((R374)(10)):
+    [P1] banked verbatim from the ferry and committed alone before Component 1, no verdict reading it (relay data/b764_navigator_predictions.txt): THE NAVIGATOR'S PREDICTIONS OF 2026-11-20, BANKED BEFORE ANY OF THEIR DATA STANDS IN THE RECORD. A bank of texts; nothing here is computed by the act that banks it.
+
+### THE RESEARCH INSTRUMENTS REPRODUCED ((R374)(13), the standing arm G-RESEARCH-REPRODUCES):
+    tools/research/reproduce.py`s full run in the foreground (relay data/b764_reproduce.txt): ROWS 68 ; REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 ; 376 s
+
+### THE NAME AND ADDRESS (N5):
+    the scan over every commit and bank of the act, the counts alone (relay data/b764_address_scan.txt): PREVIOUS ADDRESS: 0 ; THE AUTHOR`S NAME: 0 ; PREVIOUS NAME: 0 ; THE ORCID: 0 ; PLACES 210 ; CONTROLS 8 OF 8 AS WANTED ; 9 s
+
+### THE TOUCH READ (standing clauses v9):
+    every line found for the entry`s objects, AGREES or DIFFERS, by hand before the root (relay data/b764_touch.txt): ### ### **ROWS 37 ; AGREES 37 ; DIFFERS 0 AT THIS READ (rows (7) and (20) read DIFFERS first and set before the record, events (55) and (56) ; rows (3), (15), (18), (20), (21), (23), (24), (26), (28), (31) to (37) read again at the record, the gate, the root or the closing).**
+
+### THE STANDING ARMS:
+    the four figures against b763`s, read by b706`s tool (relay data/b764_standing_figures.txt): FIGURES AT b764: CORRESPONDENCE 1 ; README 1 ; PARTNERS 0 (ONE COPY 20 OF 20 TABLES) ; PINS 0 -- AGAINST b763`S 1, 1, 0, 0 ; THE ROSTER b706`S, 20 TABLES
+
+### THE STANDING REPORT ((R374)(3), its lines in footing order KERNEL, CERTIFIED, REGISTERED, HELD; relay data/b764_report.txt, by the unsealed tools/b764_report.py before the root; its scores line printed after the root by `tools/b764_report.py scores`, written nowhere):
+    (1) CERTIFIED -- THE REPAIRS BY CLASS ((R374)(5)), EACH BY ITS PLANTED CONTROL: tools/standing/ from v1.37.2 to v1.38.18 by 19 commits, one a key of (5) repaired or removed and one for (7), VERSION moved by each, the control read at the commit before each repair and at its commit, both printed; 17 repaired, 1 read as designed, 1 removed, 0 carried. SOURCE relay data/b764_repairs.txt :11 ; sha256 99be047b8c5969af.
+    (2) CERTIFIED -- THE CLOSE`S HOURS AND YIELD BY ITS CONTROLS: tools/b764_yield.py, carried from tools/b754_yield.py and committed before its run, its controls 48 of 48 as wanted, printed before its figures; From b754 to b763 an act ran 8.46 to 49.01 hours from its opening row to its closing, 2.81 to 7.37 of them from the lock to the closing; of 85 standing arms 9 read a fault at one act or more of the ten and 76 at none, the 76 listed in relay data/b764_close_yield.txt for the author's strike. SOURCE relay data/b764_close_yield.txt :54 ; sha256 5b1c3fbfa8674394.
+    (3) CERTIFIED -- tools/b764_controls.py BY ITS OWN CONTROLS: 25 of 25 as wanted, committed before its opening dispatch; every run read by its id from the downloaded artifact, the exit file governing, 3 dispatches in SIDE-explicit-formula against the worklist`s 3 and none elsewhere. SOURCE relay data/b764_controls_control.txt :30 ; sha256 28dc9361846f8a9d.
+    (4) CERTIFIED -- H-TAU-FINITE-PART HELD AT 9 CELLS TO 6 DIGITS, ITS REGISTRATION COMMITTED ALONE BEFORE THE TOOL`S RUN: [G1] at relay 6fd013e9 (2026-11-20) with the author`s word of 2026-11-20 in its words; tools/b764_imp2tau.py committed before its run, its controls 17 of 17 printed before any cell; At 9 cells the kernel's archimedean term equals F - (log 2 pi + gamma) f(1) to 6 digits, F the finite part at rho = 1 of the integral as OPEN_TRAILS :3375 transcribes it. That integral's finite part is therefore A + (log 2 pi + gamma) f(1), and -A is (log 4 pi + gamma) f(1) plus the integral with the classical subtraction. This agrees with FINDINGS :3113, where the corpus's A is the source's W_infinity; b232's verdict wInf = -A (relay data/b232_sign_of_A.txt :9) is read beside the two at the next act that leans on it. SOURCE relay data/b764_imp2tau.txt :52 ; sha256 eba972bf15b9f17f.
+    (5) CERTIFIED -- THE RESEARCH INSTRUMENTS REPRODUCED: tools/research/reproduce.py`s full run in the foreground, rows 68, reproducing 64, differing 0, not run 4 (I-56, I-57, I-61, I-107), the planted controls 64 of 64 as wanted, 376 s. SOURCE relay data/b764_reproduce.txt :275 ; sha256 5c7a3528d648200a.
+    (6) REGISTERED -- THE CORRIGENDUM FOR b763, SHORT: 127 items, CLAIM 5, CLOSE 122, 91 repeats; b763`s 5 CLAIM items printed in full; the findings after its lock entered as events, the navigator`s own as CLAIM; at FINDINGS :15865, the corrigenda bank`s row (84); PLACE-papers e383d313. SOURCE relay data/b764_corrigendum.txt :15 ; sha256 dd5bd5c356b35af7.
+    (7) REGISTERED -- THE PRICE AND THE CEILING OF (3): the table banked before Component 1 from banked timings, the lower sum 17.37 h against 24 h at step zero, nothing carried, the upper sum 44.96 h; the ceiling read after Component 2 at 2026-11-20T21:40:01Z, 16.26 h at the lower figures, nothing carried; its plan BUILT WHERE IT FITS: E0-RANK-PROPAGATION, LATE-BANKS, MATCHER-SHAPE, BIBLIOGRAPHY-LINK, CORRESPONDENCE-BEHIND-SCOPE ; (7) TRIED WHERE THE CEILING LEAVES IT; dispatches 0 against 3 at that reading. SOURCE relay data/b764_price.txt :72 ; sha256 9b88fa3ffe11e8c4 ; relay data/b764_ceiling.txt :45 ; sha256 3e4d54bcbbdb57fa.
+    (8) REGISTERED -- THE ERRATUM, THE LINES AND THE REGISTER ((R374)(7)-(9)): the deposit read over PLACE-papers outputs/, 14 files, none holding the paper; ERRATA took [E1] at its end from :1149; OPEN_TRAILS took [F1] at :19055, [C1] at :19057, [C3] at :19059, [D1] at :19061, [D2] at :19063, [M1] at :19065, [L1] at :19067, [B1] at :19069 under one dated head at :19053, no line moving; BIBLIOGRAPHY.md took its section 6 at :249; controls 12 of 12; the roster 82 open before and 81 after; at HEAD orders 226, open 81, closed 145. SOURCE relay data/b764_deposit_read.txt :31 ; sha256 9275623f8f68de10 ; relay data/b764_ledgers.txt :34 ; sha256 e881fffcdb76687a ; relay data/b764_orders.txt :238 ; sha256 a4ecc3b0f1a0608a.
+    (9) REGISTERED -- THE NAVIGATOR`S PREDICTIONS BANKED BEFORE THEIR DATA: [P1] verbatim from the ferry, committed alone at relay 69200958 before Component 1; a bank of texts, nothing of it computed and no verdict reading it. SOURCE relay data/b764_navigator_predictions.txt :1 ; sha256 49bb42fb8dc2a25b.
+    (10) HELD -- THE RUNNER ON A RESTORED BUILD, NOT REPRODUCED (fails): A dispatch of SIDE-explicit-formula on a restored build did not reproduce the from-source build: the reference’s exit file 143; the reference’s axioms print NOT RUN: NOT RUN: the build did not complete under the hold; the workflow's change stays on its branch and main is not moved; builds stay from source; main not moved, no tag cut, builds stay from source; the rule entered: a tag is cut on a run with the restore off and on no other. SOURCE relay data/b764_controls.txt :41 ; sha256 dd38a0188dbd6509.
+    (11) HELD -- THE ORDERS OF (8) NOT BUILT, EACH CARRIED BY NAME WITH ITS PRICE, NO LINE WRITTEN FOR IT: W-ORD-LATE-BANKS, 0.2 to 0.6 h over 0 dispatches; W-ORD-MATCHER-SHAPE, 0.2 to 0.6 h over 0 dispatches; W-ORD-CORRESPONDENCE-BEHIND-SCOPE, 1.5 to 4.5 h over 0 dispatches. SOURCE relay data/b764_orders_reading.txt :56 ; sha256 533fc535abecc6a4 ; relay data/b764_price.txt :72 ; sha256 9b88fa3ffe11e8c4.
+    (12) HELD -- THE CENTRE, PRICED ANEW AND NOT BUILT ((R374)(9)(c)): no statement and no line of a proof sent; four readings priced, each the seat`s own -- [L-i] 3.24 to 57.15 h over 10 to 33 dispatches, [L-ii] 0.12 to 1.73 h over 1 dispatch, [L-iii] 2.7 to 46.76 h over 8 to 27 dispatches, [L-iv] 1.13 to 5.2 h over 1 to 3 dispatches -- the cheapest by its upper figure (9)(c) [L-ii]; W-ORD-LI-ARITH carried by [L1]. SOURCE relay data/b764_price.txt :72 ; sha256 9b88fa3ffe11e8c4.
+    (13) HELD -- the draft at v5, unpublished, nothing deposits; no Zenodo call this act. SOURCE relay data/b764_ferry.txt :42 ; sha256 594aa5dbae2a1a72.
+
+### THE KERNELS: the face`s reading of the kernels (relay data/b764_kernels_face.json): 24 kernels read before the seal, none written ((R374)(13)), SIDE-explicit-formula alone written, its workflow`s file alone ; SIDE-explicit-formula main 819e4a832700 (unmoved, no tag cut), v0.37 38e273477257, v0.17 5a1630b8292b, v0.38 peeling to 14ca572560f5, v0.39 to v0.43 as b758, b759 and b763 cut them, the held branches off main, the challenge branch challenge-b720-h2-sign-iff-rh at 3391647518cd standing ; SIDE-lv-conservation main 305a87c9e09c (b735`s [41]), v0.10.0 93c27ec2cb9b (the deposit), port-b707 cb0aea56354a (b712`s tip, KEPT, no commit this act), v0.14.0 peeled cb0aea56354a (b714`s tag, unmoved) ; SIDE-faces-join main 11a472b90553 (unmoved), its tag v0.1.0 unmoved
+
+### THE ROOT`S BANKS (relay data/b764_root_banks.txt): BANKS 143 ; CLEAN AND EQUAL AT HEAD 143 ; HEAD THE REMOTE MAIN True ; READY True
+
+### THE MIRROR (relay data/b764_mirror.txt, the b670 form, after the root and the last PLACE-papers push): mirror-refresh-2026-11-20-b764.zip ; 5079269 bytes ; sha256 bc7587f5c72f38dc ; MANIFEST md5 146b1906ae9b5adea580a10aff91edbf ; entries 85 ; Act root: b764 ca188c5bd053ba6319dc4b8194c57d5df7c6895910f5b969cb6ba08895d5263a ; CLEAN ON ALL THREE CLAUSES ; ### THE SPAN: every roster and ledger change of b764 (the last export b763`s, mirror-refresh-2026-11-19-b763.zip) ; the roster read from PLACE-papers main at the build ((R374)(5)), its MANIFEST control AS WANTED ; tools/mirror_prevbuild.json unchanged since its last commit b17f66d6 (blob 1a65ff76, equal at HEAD and in the working tree), not committed with this closing
+
+### THE CARRY`S DIFFS (each carried tool against its b763 source, by tools/b764_carry.py; relay data/b764_carry_*.txt): 8 banks -- b764_carry_acts.txt, b764_carry_address_scan.txt, b764_carry_carry.txt, b764_carry_ceiling.txt, b764_carry_face.txt, b764_carry_lockgate.txt, b764_carry_prepaths.txt, b764_carry_worklist.txt
+    the remote reads this run: 38 repositories, one call each in sequence ; empty reads re-read alone: NONE
+
+### THE AUTHOR'S WORD AFTER THE SEAL (data/b764_author_words.txt): NONE RECEIVED
+
+### THE AUTHOR`S ANSWERS AND WORDS (relay data/b764_author_answers.txt): 1 prompt(s) put by the seat in this act (2026-11-20), banked verbatim with the options and the recommended mark
+    ### COMPONENT 0 : step row 1 relay afb63f4b (step zero) ; step row 2 relay baff91ad (step zero) ; step row 3 relay 8f4c353d (step zero) ; step row 4 relay 69200958 (step zero) ; step row 5 relay 3c8e5ebc (step zero) ; the banks they carry (23): data/act_current.json, data/b763_relay_push-b763-closing_push_out.txt, data/b764_address_scan_commits.txt, data/b764_navigator_predictions.txt, data/b764_bank_hashes.json, data/b764_carry_acts.txt, data/b764_carry_address_scan.txt, data/b764_carry_carry.txt, data/b764_carry_worklist.txt, data/b764_citation_check.json, data/b764_citation_check.txt, data/b764_defects.txt, data/b764_events.txt, data/b764_ferry.txt, data/b764_ferry_scan.txt, data/b764_misses.txt, data/b764_price.json, data/b764_price.txt, data/b764_readfirst.txt, data/b764_readfirst_rows.json, data/b764_rowgen_stepzero.txt, data/b764_stepzero.txt, data/b764_wlist.json ; N3 PENDING ; N4 HELD
+    ### COMPONENT 1 : step row 6 relay f66a6878 (component 1) ; step row 7 pp e383d313 (component 1) ; step row 8 relay 89fbe2f4 (component 1) ; the banks they carry (7): data/b764_events.txt, PLACE-papers FINDINGS.md, data/b675_corrigenda.txt, data/b764_address_scan_commits.txt, data/b764_corrigendum.json, data/b764_corrigendum.txt, data/b764_corrigendum_landing.json ; no score reading names these banks
+    ### COMPONENT 2 : step row 9 relay 8720475f (component 2) ; step row 10 relay c04a71d1 (component 2) ; step row 11 relay 77b7aefa (component 2) ; step row 12 relay bc92a870 (component 2) ; step row 13 relay c6f30631 (component 2) ; step row 14 relay af463213 (component 2) ; step row 15 relay f87571ed (component 2) ; step row 16 relay 61207c77 (component 2) ; step row 17 relay 0c28ed08 (component 2) ; step row 18 relay fac115f5 (component 2) ; step row 19 relay 9ad8e487 (component 2) ; step row 20 relay 973ec3d0 (component 2) ; step row 21 relay 69e6ef4a (component 2) ; step row 22 relay 93ab33f2 (component 2) ; step row 23 relay f40c501b (component 2) ; step row 24 relay 8c9633ae (component 2) ; step row 25 relay a574576e (component 2) ; step row 26 relay 5dd7fe2b (component 2) ; step row 27 relay 9ad60e0c (component 2) ; step row 28 relay 18d60162 (component 2) ; step row 29 relay 149a680b (component 2) ; step row 30 relay 32d22753 (component 2) ; step row 31 relay b6e23b07 (component 2) ; step row 32 relay 32b8e2a0 (component 2) ; step row 33 relay 0698ff43 (component 2) ; step row 34 relay 132c8f59 (component 2) ; step row 35 relay fa3a436d (component 2) ; step row 36 relay 9a15c01a (component 2) ; step row 37 relay da8ba8d3 (component 2) ; step row 38 relay 9fcc2434 (component 2) ; step row 39 relay ead40832 (component 2) ; step row 40 relay 542354bf (component 2) ; step row 41 relay 5dfa369b (component 2) ; step row 42 relay 4efe6a2c (component 2) ; step row 43 relay f7890c02 (component 2) ; step row 44 relay 9155ed34 (component 2) ; step row 45 relay 9de63b15 (component 2) ; step row 46 relay 216873cd (component 2) ; step row 47 relay f90b5cc0 (component 2) ; step row 48 relay 5eecbb4a (component 2) ; step row 49 relay cee11f73 (component 2) ; step row 50 relay c3c1e278 (component 2) ; step row 51 relay 815d0d6b (component 2) ; step row 52 relay 7e93bb18 (component 2) ; step row 53 relay 38918d61 (component 2) ; step row 54 relay f0a63237 (component 2) ; step row 55 relay f0ad4589 (component 2) ; the banks they carry (14): data/b764_address_scan_commits.txt, data/b764_standing_dry.txt, data/b764_repair_controls.txt, data/b764_repairs.txt, data/b764_author_words_preseal.txt, data/b764_events.txt, data/b764_misses.txt, data/b764_needle_calls.txt, data/b764_kernel_bases.json, data/b764_carry_ceiling.txt, data/b764_defects.txt, data/b764_close_yield.txt, data/b764_ceiling.json, data/b764_ceiling.txt ; no score reading names these banks
+    ### COMPONENT 3 : step row 56 SIDE-explicit-formula 38a57e02 (component 3) ; step row 57 relay d92fb452 (component 3) ; step row 58 relay 80c2f299 (component 3) ; step row 59 relay 894a5c88 (component 3) ; step row 65 relay 96dc32d8 (component 3) ; the banks they carry (13): data/b764_SIDE-explicit-formula_push-b764-runner_push_out.txt, data/b764_address_scan_commits.txt, data/b764_bank_hashes.json, data/b764_events.txt, data/b764_controls_control.txt, data/b764_targets.json, data/b764_defects.txt, data/b764_dispatch_rows.json, data/b764_controls.txt, data/b764_hook_refusals.txt, data/b764_reproduce.json, data/b764_reproduce.txt, data/b764_xlines.json ; N1 HELD
+    ### COMPONENT 4 : step row 60 relay 6fd013e9 (component 4) ; step row 61 relay 65c12c76 (component 4) ; step row 62 relay becb7dd3 (component 4) ; step row 63 relay 8f9224dd (component 4) ; step row 64 relay 11a00f11 (component 4) ; step row 66 pp 772d5cf0 (component 4) ; step row 67 relay 59395552 (component 4) ; the banks they carry (14): data/b764_registration.txt, data/b764_address_scan_commits.txt, data/b764_events.txt, data/b764_imp2tau.json, data/b764_imp2tau.txt, data/b764_orders_reading.txt, data/b764_deposit_read.json, data/b764_deposit_read.txt, PLACE-papers BIBLIOGRAPHY.md, PLACE-papers ERRATA.md, PLACE-papers OPEN_TRAILS.md, data/b764_ledgers.json, data/b764_ledgers.txt, data/b764_orders.txt ; no score reading names these banks
+    ### COMPONENT 5 : step row 68 relay 48e24225 (component 5) ; step row 69 relay ec439ca3 (component 5) ; step row 70 relay a4712152 (component 5) ; step row 71 relay 4f27f0e2 (component 5) ; step row 72 relay 33fe6df9 (component 5) ; step row 73 relay 023985ee (component 5) ; step row 74 relay f9157721 (component 5) ; step row 75 relay 93cc52ab (component 5) ; step row 76 relay 69f9616d (component 5) ; step row 77 relay 6d4d47f5 (component 5) ; step row 78 relay 08f01de8 (component 5) ; step row 79 relay c744c335 (component 5) ; step row 80 relay 28bc15e4 (component 5) ; step row 81 relay 8e48dcb9 (component 5) ; step row 82 relay 0859ddef (component 5) ; step row 83 relay 9c5bfb96 (gate) ; step row 84 relay ed600d4b (component 5) ; step row 85 relay e67ce0dd (component 5) ; step row 86 relay 8d55d1bf (lock) ; step row 87 relay 45bdf4a1 (seal) ; step row 88 relay 2a737f69 (pre-root) ; step row 89 pp 35b75536 (pre-root) ; step row 90 relay c604474c (pre-root) ; step row 91 relay f4ffbeff (root) ; the banks they carry (148): data/b764_address_scan.txt, data/b764_address_scan_commits.txt, data/b764_events.txt, data/b764_misses.txt, data/b764_carry_face.txt, data/b764_carry_lockgate.txt, data/b764_carry_prepaths.txt, data/b764_author_words_preseal.txt, data/b764_needle_calls.txt, data/b764_repairs.txt, data/b764_touch.txt, data/b764_kernels_face.json, data/b764_pathrefusal.txt, data/b764_defects.txt, data/b764_hook_refusals.txt, data/b764_wlist.json, data/audit_b764_reg_satisfiable.txt, data/b764_bank_hashes.json, data/b764_census_stepzero.txt, data/b764_closing_dry.txt, data/b764_commands.json, data/b764_commands.txt, data/b764_faces_census_stepzero.txt, data/b764_guard_dry.json, data/b764_guard_dry.txt, data/b764_pins_stepzero.txt, data/b764_prelock.txt, data/b764_prevdry_act.json, data/b764_prevdry_standing-a1.json, data/b764_prevdry_standing-a2.json, data/b764_prevdry_standing-b1.json, data/b764_prevdry_standing-b2a.json, data/b764_prevdry_standing-b2b.json, data/b764_prevdry_standing-b2c.json, data/b764_prevdry_standing-b2d.json, data/b764_prevdry_standing-b3.json, data/b764_prevdry_standing-c.json, data/b764_reg_gate.txt, data/b764_reg_termscan.txt, data/b764_registration_2026-11-20.txt, data/b764_regspec_run.txt, data/b764_report_dry.txt, data/b764_satisfiable.json, data/b764_scores_dry.txt, data/b764_standing_figures.json, data/b764_standing_figures.txt, data/b764_root_banks_dry.json, data/b764_root_banks_dry.txt, data/b764_lockgate.json, data/b764_lockgate_notes.txt, data/b764_address_scan_postlock.txt, data/b764_arm_seconds.json, data/b764_arm_seconds.txt, data/b764_arm_seconds_act.json, data/b764_arm_seconds_standing-a1.json, data/b764_arm_seconds_standing-a2.json, data/b764_arm_seconds_standing-b1.json, data/b764_arm_seconds_standing-b2a.json, data/b764_arm_seconds_standing-b2b.json, data/b764_arm_seconds_standing-b2c.json, data/b764_arm_seconds_standing-b2d.json, data/b764_arm_seconds_standing-b3.json, data/b764_arm_seconds_standing-c.json, data/b764_arms_prerun.txt, data/b764_arms_prerun_act.txt, data/b764_arms_prerun_standing-a1.txt, data/b764_arms_prerun_standing-a2.txt, data/b764_arms_prerun_standing-b1.txt, data/b764_arms_prerun_standing-b2a.txt, data/b764_arms_prerun_standing-b2b.txt, data/b764_arms_prerun_standing-b2c.txt, data/b764_arms_prerun_standing-b2d.txt, data/b764_arms_prerun_standing-b3.txt, data/b764_arms_prerun_standing-c.txt, data/b764_close_dry.txt, data/b764_exercise_act.json, data/b764_exercise_standing-a1.json, data/b764_exercise_standing-a2.json, data/b764_exercise_standing-b1.json, data/b764_exercise_standing-b2a.json, data/b764_exercise_standing-b2b.json, data/b764_exercise_standing-b2c.json, data/b764_exercise_standing-b2d.json, data/b764_exercise_standing-b3.json, data/b764_exercise_standing-c.json, data/b764_lsr_prerun_act.json, data/b764_lsr_prerun_standing-a1.json, data/b764_lsr_prerun_standing-a2.json, data/b764_lsr_prerun_standing-b1.json, data/b764_lsr_prerun_standing-b2a.json, data/b764_lsr_prerun_standing-b2b.json, data/b764_lsr_prerun_standing-b2c.json, data/b764_lsr_prerun_standing-b2d.json, data/b764_lsr_prerun_standing-b3.json, data/b764_lsr_prerun_standing-c.json, data/b764_prevrun_act.json, data/b764_prevrun_act.txt, data/b764_prevrun_exercise_act.json, data/b764_prevrun_exercise_standing-a1.json, data/b764_prevrun_exercise_standing-a2.json, data/b764_prevrun_exercise_standing-b1.json, data/b764_prevrun_exercise_standing-b2a.json, data/b764_prevrun_exercise_standing-b2b.json, data/b764_prevrun_exercise_standing-b2c.json, data/b764_prevrun_exercise_standing-b2d.json, data/b764_prevrun_exercise_standing-b3.json, data/b764_prevrun_exercise_standing-c.json, data/b764_prevrun_standing-a1.json, data/b764_prevrun_standing-a1.txt, data/b764_prevrun_standing-a2.json, data/b764_prevrun_standing-a2.txt, data/b764_prevrun_standing-b1.json, data/b764_prevrun_standing-b1.txt, data/b764_prevrun_standing-b2a.json, data/b764_prevrun_standing-b2a.txt, data/b764_prevrun_standing-b2b.json, data/b764_prevrun_standing-b2b.txt, data/b764_prevrun_standing-b2c.json, data/b764_prevrun_standing-b2c.txt, data/b764_prevrun_standing-b2d.json, data/b764_prevrun_standing-b2d.txt, data/b764_prevrun_standing-b3.json, data/b764_prevrun_standing-b3.txt, data/b764_prevrun_standing-c.json, data/b764_prevrun_standing-c.txt, data/b764_seal_hashes.json, data/b764_author_answers.json, data/b764_author_answers.txt, data/b764_put_1.json, data/b764_rootprompt_remote.json, PLACE-papers FINDINGS.md, data/b764_findings.json, data/b764_report.json, data/b764_report.txt, data/b764_scores.json, data/b764_table_final.json, data/b764_table_final.txt, data/terminal_table_prior.json, data/act_roots.txt, data/b764_PLACE-papers_push-b764-preroot_push_out.txt, data/b764_act_root.json, data/b764_act_root.txt, data/b764_relay_push-b764-preroot_push_out.txt, data/b764_root_arm.json, data/b764_root_arm.txt, data/b764_root_banks.json, data/b764_root_banks.txt, data/b764_root_banks_parts.json ; FINDINGS :15877 ; the root ca188c5bd053ba63 ; OPEN_TRAILS :19071 ; the mirror after the root ; N2 REFUTED ; N5 HELD ; S1 PENDING ; S2 PENDING ; S3 HELD
+    (N1) HELD (N2) REFUTED (N3) HELD (N4) HELD (N5) HELD ; (S1) HELD (S2) HELD (S3) HELD
+
+### THE SCORES IN FULL (relay data/b764_scores.json, written once before the entry; a reading that waited, from relay data/b764_scores_close.json):
+    (N1) HELD -- the seat`s commands running lean or lake on this host (relay data/b764_commands.json): NONE; dispatch commands in the capture: 3, against the dispatch rows 3 and the sends refused by the host (no run) 0; by kernel, dispatches against the worklist`s cap (the three of (7), N1) and the worklist`s runs each a dispatch row`s and a read row`s: SIDE-explicit-formula 3 of 3, the runs True, SIDE-dirichlet-mod-24 0 of 0, the runs True; the items of SIDE-explicit-formula`s dispatches: save (restore on), reference (restore off), restore (restore on); reads 3, a run read twice: none; each read`s exit file: explicit-formula 44826208702 exit 0 KERNEL; explicit-formula 44838852797 exit 0 KERNEL; explicit-formula 44838771976 exit 143 STOPPED UNDER THE HOLD; a read with no exit read: NONE; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: NONE; dispatch rows not naming the licence 3c8e5ebc: 0 (relay data/b764_dispatch_rows.json); suite parts sent in the background: 0, refused BACKGROUND: 0 [record]
+    (N2) REFUTED -- the chain read, the step-zero reads and the carry printed before any write, in that order (the chain read 16:53:28Z, the step-zero reads 16:53:28Z, the carry 16:55:09Z, each by the step-zero bank, before the act_current commit afb63f4b): True; tools/standing/ moved by the 19 commits of (5) and (7) alone, in their order, the last 815d0d6b, its tree at HEAD that commit`s (trees d1bc62eba0be and d1bc62eba0be), the act`s commits under it 8720475f 77b7aefa c6f30631 973ec3d0 93ab33f2 8c9633ae 5dd7fe2b 18d60162 32d22753 32b8e2a0 132c8f59 9a15c01a 9fcc2434 542354bf 4efe6a2c 9155ed34 216873cd cee11f73 815d0d6b, VERSION v1.38.18 against v1.38.18, moved from v1.37.2, each commit`s VERSION its row`s and each control AS WANTED at its row`s commit ([K10] True, [K1] True, [K5] True, [K8] True, [K15] True, [K16] True, [K7] True, [K17] True, [K13] True, [K12] True, [K11] True, [K2] True, [K3] True, [K14] True, [K18] True, [K6] True, [K9] True, [K4] True, [R7] True): True; SIDE-explicit-formula`s main 819e4a83, the trial FAILS, the runner`s tip 38a57e02, the restoring run`s built commits 38a57e02, tags at the runner`s tip none, kernel deletes 0: True; the standing commit admitting b764 before the kernel`s one commit: True; the repairs bank`s rows by state (19 of 19 read, REPAIRED 17, READ AS DESIGNED 1, REMOVED 1, CARRIED 0): True; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (the close`s yield of (6) True, the ceiling True, the dispatch tool`s controls True, the finite part of (9)(b) True, the deposit read of (9)(a) True, the trial of (7) True, the ledgers of (7) to (9) True, the repairs` planted controls True): True; each act tool committed before its first run, a dry run of its controls among its runs (tool, its first commit and time, its first run read from the command bank): tools/b764_ceiling.py 542354bf@1795207301 first run 20:37:15Z False, tools/b764_controls.py d92fb452@1795212135 first run 22:02:33Z True, tools/b764_imp2tau.py 65c12c76@1795213525 first run 22:25:43Z True, tools/b764_repair_controls.py 8720475f@1795198359 first run 18:12:58Z True, tools/b764_rulings.py 8f9224dd@1795214924 first run 22:49:01Z True, tools/b764_yield.py 7e93bb18@1795210574 first run 21:36:31Z True: False; the (W) regeneration printed in the face: True; the pre-lock comparison banked with the prev-mode dry: True; the probe-path refusal banked and clear: True; the act`s 64 commits in the worklist`s order by time, relay and PLACE-papers together: True (actcur afb63f4b@1795194375 stepzero 3c8e5ebc@1795197077 c1 f66a6878@1795197763 c1pp e383d313@1795197837 corr 89fbe2f4@1795197886 k10 8720475f@1795198359 k10_row c04a71d1@1795199121 k1 77b7aefa@1795199151 k1_row bc92a870@1795199968 k5 c6f30631@1795199997 k5_ctl1 af463213@1795200087 k5_sec60 f87571ed@1795200285 k5_conv 61207c77@1795200409 k5_c1set 0c28ed08@1795200586 k5_needles fac115f5@1795200772 k5_row 9ad8e487@1795201315 k8 973ec3d0@1795201988 k8_row 69e6ef4a@1795202056 k15 93ab33f2@1795202508 k15_row f40c501b@1795202572 k16 8c9633ae@1795202966 k16_row a574576e@1795203018 k7 5dd7fe2b@1795203423 k7_row 9ad60e0c@1795203474 k17 18d60162@1795204189 k17_row 149a680b@1795204254 k13 32d22753@1795204608 k13_row b6e23b07@1795204657 k12 32b8e2a0@1795205079 k12_row 0698ff43@1795205128 k11 132c8f59@1795205537 k11_row fa3a436d@1795205595 k2 9a15c01a@1795206100 k2_row da8ba8d3@1795206153 k3 9fcc2434@1795206770 k3_row ead40832@1795206833 k14 542354bf@1795207301 k14_row 5dfa369b@1795207373 k18 4efe6a2c@1795207898 k18_row f7890c02@1795207951 k6 9155ed34@1795208463 k6_row 9de63b15@1795208519 k9 216873cd@1795208739 k9_row f90b5cc0@1795208797 k19_row 5eecbb4a@1795208897 k4 cee11f73@1795209764 k4_row c3c1e278@1795209955 r7 815d0d6b@1795210251 yield_gen 7e93bb18@1795210574 yield_fix 38918d61@1795210725 yield f0a63237@1795210780 ceiling_c2 f0ad4589@1795210829 controls_gen d92fb452@1795212135 controls_bank 80c2f299@1795212391 send1 894a5c88@1795212752 reg 6fd013e9@1795212920 imp2_gen 65c12c76@1795213525 imp2 becb7dd3@1795213925 rulings_gen 8f9224dd@1795214924 deposit 11a00f11@1795214991 trial 96dc32d8@1795219657 ledgerspp 772d5cf0@1795219716 ledgers 59395552@1795219859 handoff 6d4d47f5@1795230206); the tools` controls before their figures: b764_address_scan.txt True, b764_pathrefusal.txt True, b764_close_yield.txt True, b764_ceiling.txt True, b764_controls.txt True, b764_imp2tau.txt True, b764_deposit_read.txt True, b764_ledgers.txt True [record]
+    (N3) HELD -- each bank`s foot its last line carrying its grade: b764_corrigendum.txt True, b764_price.txt True, b764_ceiling.txt True, b764_controls_control.txt True, b764_controls.txt True, b764_imp2tau.txt True, b764_deposit_read.txt True, b764_orders_reading.txt True, b764_ledgers.txt True, b764_reproduce.txt True, b764_citation_check.txt True, b764_address_scan.txt True; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, a navigator`s price caught where no navigator is named, passed where one is, and a longer number passed, a table row naming the navigator before its semicolon caught by the sentence cut and passed read whole, and a row naming none caught): cat True, lit True, loc True, loc_c True, loc_e True, loc_k True, loc_w True, nav True, nav_row True, neg True, quote True, side True, side_dated True, side_result True; (a) the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act`s base 7db9a66c: NONE: True; (b) REGISTRY`s bytes at HEAD its bytes at the base, not written: True; (c) OPEN_TRAILS, FINDINGS and ERRATA each a byte prefix of its bytes at HEAD: OPEN_TRAILS.md True, FINDINGS.md True, ERRATA.md True: True; (d) each text of the ruling as entered equal to the ruling`s text with its fields filled (DATE 2026-11-21; the trial`s fields data/b764_xlines.json`s, [M1]`s the finite part`s cells and digits, its closing sentence the author`s word`s (iv); [G1] with the word`s (i) to (iii)): E1 in ERRATA.md True (:1149, fields 1, the fields as their banks give them), F1 in OPEN_TRAILS.md True (:19055, fields 0, the fields as their banks give them), C1 in OPEN_TRAILS.md True (:19057, fields 1, the fields as their banks give them), C3 in OPEN_TRAILS.md True (:19059, fields 1, the fields as their banks give them), D1 in OPEN_TRAILS.md True (:19061, fields 2, the fields as their banks give them), D2 in OPEN_TRAILS.md True (:19063, fields 3, the fields as their banks give them), M1 in OPEN_TRAILS.md True (:19065, fields 2, the fields as their banks give them), L1 in OPEN_TRAILS.md True (:19067, fields 4, the fields as their banks give them), B1 in OPEN_TRAILS.md True (:19069, fields 0, the fields as their banks give them), G1 in data/b764_registration.txt True (the registration the ruling`s [G1] with the word`s (i) to (iii) applied: True), P1 in data/b764_navigator_predictions.txt True (verbatim: True); (e) [P1] and [G1] each committed alone, [G1] before the tool`s run: [P1] 69200958, files ['data/b764_navigator_predictions.txt'], its bytes at HEAD its commit`s True True; [G1] 6fd013e9, files ['data/b764_registration.txt'], its bytes at HEAD its commit`s True True; [G1] at 22:15:20Z against the tool`s first run 22:25:43Z and the bank`s commit becb7dd3 True; the roster beside (graded by no clause of (R374)), the trail tool`s (relay data/b764_ledgers.json) and tools/standing/orders.py`s foot at HEAD (relay data/b764_orders.txt) agreeing True: open 82 -> 81, added ['W-ORD-RUNNER-CACHE'], moved [['W-ORD-BIBLIOGRAPHY-LINK', 'OPEN', 'CLOSED'], ['W-ORD-E0-RANK-PROPAGATION', 'OPEN', 'CLOSED']] ; the foot at HEAD ORDERS 226 ; OPEN 81 ; CLOSED 145 ;; over 2221 of the act`s own sentences in its banks and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation (graded by no clause of (R374)): ["G-RULES-ROW-ENTERED, run for the first time, took 103.8 s of the part's 105.0."]; read from the landed entry`s lines (PLACE-papers FINDINGS.md :15877 at HEAD), a sentence of the entry calling the work the earliest of its kind in any assistant (graded by no clause of (R374)): NONE; (f) a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: NONE; (g) a sentence about the control speaking of positivity with no side named, the lines a dated record heads left out ((R368)(9)): NONE; a sentence saying the mechanism catalogue has or has not met the zero ((R369)`s clause, graded by no clause of (R374)): NONE, in the PLACE-papers writes NONE; over 77 units of the act`s PLACE-papers writes (the three ledgers` appended text, the quoted spans dropped), the hits of the centre and side matchers by place and digest, the words not quoted: NONE, of the centre matcher passed by no hand verdict: NONE, of the side matcher passed by no hand verdict: NONE; (h) a sentence printing a figure of the navigator`s workspace with no navigator named: NONE; the entry`s last line (11)`s INTEGRATION line (INTEGRATION: cluster method ; keystone phase1.5/method/THE_METHOD_CANON.md ; stage BANKED; the table`s rows naming THE_METHOD_CANON: 0, so the cluster the rule`s default; the stage the rule`s word): True; the banks` nouns absent from the entry: NONE; the root prompt`s sentences about the entry not the composer`s: NONE [close]
+    (N4) HELD -- the lock at 2026-11-21T04:50:12Z, its commit 8d55d1bf; the commits after it (relay) 1, touching the face, a tool or a bank tracked at the lock commit: NONE; the working tree`s changes to them: NONE; appended by design and read apart: data/b764_steps.json, data/b764_bank_hashes.json, data/b764_hook_refusals.txt, data/b764_address_scan_postlock.txt, tools/mirror_prevbuild.json, data/b764_address_scan_commits.txt, data/b764_author_answers.txt, data/b764_author_answers.json, data/b764_answer_check.txt, data/b764_author_words.txt, data/b764_author_words_preseal.txt, data/b764_events_postseal.txt; the letters the seal records (relay data/b764_seal_hashes.json) 13, the defects bank`s letters now 13, letters after the seal NONE; the step bank`s commits after the seal (relay data/b764_steps.json) 1, each with a post-seal phase: True; what is found after the lock entered in the bank written after the lock by design and printed with its times in the closing message, no bank tracked at the lock written (step [21] at v1.38.0, (R374)(5) [K10]; (R365)(2)(ii), (R366)(1)(ii)), relay data/b764_events_postseal.txt absent, nothing found after the lock; no bank after the root (relay data/b764_root_arm.json) waits on the root; the pushes through push_gated.sh in the capture 1, each with its capture: every one, each capture printing its repository`s visibility: every one; the author`s word after the seal (relay data/b764_author_words.txt) not yet composed (appended after the root by design, v1.30.0), printed from its bank by the closing, record and trail tools; the banks this tool wrote, by its hashes bank (relay data/b764_bank_hashes.json, 11), edited by hand since: NONE; the closing`s head line carrying commits read from the remotes: waits on the closing; the clauses that wait read again at `scores close` [record]
+    (N5) HELD -- the address scan (relay data/b764_address_scan.txt): PREVIOUS ADDRESS: 0; THE AUTHOR`S NAME: 0; PREVIOUS NAME: 0; THE ORCID: 0; a commit after the act`s opening commit on any ref of any kernel, the act owning push-b764-runner and, where the trial moved it, SIDE-explicit-formula`s main (at 819e4a83, the runner`s tip 38a57e02), no tag, or a .lean file in a kernel`s tree (38 kernels read): NONE; the act`s own refs read: SIDE-explicit-formula push-b764-runner 38a57e02; the rebuild-b721 branch kept on the wave 1 kernels: 6 of 6; SIDE-dirichlet-mod-24`s tag v0.2.0 peeling locally to e5ebdd15, its local main e5ebdd15: True; SIDE-explicit-formula: main read back at the remote in the runner`s capture main NONE True; the tags v0.39* to v0.45* ['v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43'], v0.38 at 14ca5725, v0.39 at d1afb4fc, v0.40 at 630cba16, v0.41 at a3aad4cc by its tag object 390506fc, v0.42 at 4964e957, v0.43 at 819e4a83; the kernel branches this act removes none, b760`s removal of push-b759-weil as b760 left it, its tracking ref absent in the clone and its local branch kept at its tip, b763`s four branches at their tips and push-b764-runner read back in its capture (push-b759-weil a3aad4cc; tracking refs left NONE; push-b759-weil True, push-b763-arith True, push-b763-keiper True, push-b763-form True, push-b763-squares True, push-b764-runner True): True; gh repo edit run by a captured command (the carried reader): NONE; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b757_ghcalls.py): NONE, none wanted: True; release, a new version, a publish or a repository`s edit in the Zenodo banks: NONE; a Zenodo bank or write request this act (none ruled): NONE; nothing deposits or publishes: the deposit route untouched (the Zenodo banks read, standing.act.zenodo_requests: banks NONE ; write requests NONE ; releases, new versions, publishes or repository edits NONE); no release route in the act`s tools: True; every kernel as the face read it: True; every kernel`s main and tags as b763`s face read them (relay data/b763_kernels_face.json), moved: NONE; the rebuild`s SIDE-frobenius commits on its main: NONE; SIDE-explicit-formula`s main against b763`s face moved by the trial`s success alone and its tags as b763`s face read them ((R374)(7), (13): main at the runner`s tip where the trial reproduced and at v0.43 otherwise; no tag cut; v0.38 to v0.43 as before; read in full in N5`s kernel clause below), the challenge branch challenge-b720-h2-sign-iff-rh at 33916475 with no tag and off main (True): True; SIDE-lv-conservation`s main and deposit untouched, port-b707 at cb0aea56, the one tag v0.14.0 at it, unmoved: True; the join kernel`s main at 11a472b9 with the one tag v0.1.0: True; the re-cut`s merge a86c9429 on PLACE-papers main: True; the standing arms added beyond b763`s face, the act arms apart: NONE (True); shared tools edited beyond the membrane ['tools/acts/b764.py', 'tools/b764_address_scan.py', 'tools/b764_carry.py', 'tools/b764_ceiling.py', 'tools/b764_controls.py', 'tools/b764_face.py', 'tools/b764_face_blocks.txt', 'tools/b764_imp2tau.py', 'tools/b764_lockgate.py', 'tools/b764_prepaths.py', 'tools/b764_repair_controls.py', 'tools/b764_rulings.py', 'tools/b764_worklist.py', 'tools/b764_yield.py', 'tools/standing/VERSION', 'tools/standing/act.py', 'tools/standing/append.py', 'tools/standing/armnorm.py', 'tools/standing/carry.py', 'tools/standing/cites.py', 'tools/standing/close.py', 'tools/standing/commit.py', 'tools/standing/controls.py', 'tools/standing/dispatchrate.py', 'tools/standing/fold/checks.tpl', 'tools/standing/fold/closing.tpl', 'tools/standing/fold/record.tpl', 'tools/standing/lsrread.py', 'tools/standing/needle.py', 'tools/standing/nextact.py', 'tools/standing/remotecache.py', 'tools/standing/repeat.py', 'tools/standing/rootparts.py', 'tools/standing/toset.py']: NONE; sealed tools not agreeing: NONE; commits amended after the seal (relay, PLACE-papers, SIDE-lv-conservation, SIDE-explicit-formula): NONE; deletes with anything chained after: NONE; a kept branch deleted (port-b707): NONE; one git write per message (messages carrying a git write 187 ; with more than one NONE): True; PLACE-papers beyond the face`s (W) list: NONE; papers moved or renamed: NONE; relay files beyond the face`s (W) list: NONE; the glossary unchanged: True; outbound requests other than git and gh 0, an identifier of the author in NONE; the clauses that wait (the hashes at the close, no bank after the root) read again at `scores close` [record]
+    (S1) HELD -- the table at the end against relay HEAD`s: moved 0, gone 0, added 0, grade moved 0 [close]
+    (S2) HELD -- the root recomputed equal, the one-byte control moving it, the root order holding locally [close]
+    (S3) HELD -- the sealed tools` hashes {'agree': 189} [record]
+
+### THIS ACT`S DEFECTS (the desk), THE SEAT`S AND THE NAVIGATOR`S.
+b764 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)(2), v9 row (80)) AND NEW OR REPEAT WITH THE ACT AND LETTER OF ITS CLASS (2026-11-20)
+
+### rows are defects, each opening four spaces: (letter) THE <ACTOR>'S [TAG ; NEW | REPEAT <act> (<letter>)]: what was done, when, and what the
+### standing rows say. Rows (a)-(e) are step zero's. The hook's refusals stand in data/b764_hook_refusals.txt, which the hook appends: none at
+### step zero. By [U3] (data/b754_rules.txt (12)) a refusal takes no letter and is counted by kind. The seat's model: claude-opus-5-5
+### throughout; two summaries within step zero (data/b764_events.txt (7)).
+
+    (a) THE SEAT'S [CLOSE ; REPEAT b763 (c)]: THE CITATION CHECK HALTED ON TWO LEAN-PATH ROWS, THE TREES SET FROM MAIN ALONE. The worklist's first stage (scratch wl764.py, 17:02:46Z) set LEAN_TREES to SIDE-explicit-formula's main pin 819e4a83 alone, beside SIDE-dirichlet-mod-24's. (R374)'s SCOPE READ (data/b764_ferry.txt :3) names SIDEExplicitFormula/ControlFailureStatement.lean on push-b763-arith at ec14e9d9 and SIDEExplicitFormula/KeiperPolygamma.lean on push-b763-keiper at a59632eb. The citation check's dry (17:25:53Z) read both absent at main's pin and halted, halts 2, nothing banked. Both cites are true at their pins (the file at ec14e9d9 declares ControlFailureB and ControlFailureA; the file at a59632eb stands; scratch facts764f.py, predicates alone). LEAN_TREES set to the three pins SCOPE READ names (17:27:32Z), the dry again CLEAN (17:27:49Z), banked (17:28:17Z). b763 (c) halted on a Lean-path row by the clause reader's form, b753 (e) the same; this halt's cause is the trees. The defective step: the worklist's trees set from the kernel's main where the ruling's scope read names files at two branch pins.
+
+    (b) THE SEAT'S [CLOSE ; NEW]: A CITATION ROW THAT READ A BANK APPENDED BY DESIGN AS LEFT UNCOMMITTED. Citation 8's row, written by the seat from b763's row on the files the previous act left uncommitted, read data/b764_address_scan_commits.txt clean at HEAD after its commit (8f4c353d, step 3). Each later commit's scan appends its rows to that bank by design (tools/b764_address_scan.py, the per-commit bank), and step 4's scan (17:08:35Z) had appended; the dry read MISS, "M data/b764_address_scan_commits.txt" (17:25:53Z). Rewritten (17:27:38Z): the bank's bytes at 8f4c353d a prefix of its working bytes, carriage returns set aside; the dry again OK. The defective step: a predicate on a bank written without reading the bank's writer.
+
+    (c) THE SEAT'S [CLOSE ; REPEAT b763 (d)]: A STANDING READER RUN WITH NO FLAG READ BEFORE IT. The seat's file orders the restart flag, the free memory and both volumes read before each route. `carry.py ruled b764 b763 data/b764_ferry.txt` ran at 17:24:18Z and through the capture at 17:24:24Z with no flag read before either; each read only, nothing written. The flag reads either side stood: 17:18:59Z free memory 6,627 MB and 17:25:53Z 6,460 MB, each volume above its floor, no restart key; the ruled reader's earlier runs (17:04:33Z, 17:05:23Z) and its later one (17:45:47Z) each took one first. The defective step: a standing reader run as a bare read between two writes of the act module.
+
+    (d) THE TOOL'S [CLOSE ; REPEAT b763 (k)]: THE SCAN TOOL'S EXCEPTION CITES SHIFTED BY THE CARRY. tools/b764_address_scan.py, carried at 16:55:54Z, cites (R374)'s N5 at "data/b764_ferry.txt :145" (:158, :179) and names "b764 defect (k)" (:158, :187) and "b763 (e) REPEAT at b764 (b)" (:162); each is b763's cite with its act names shifted by one. (R374)'s N5 stands at the ferry's :157, and b764 has no defect (k). Read at the writing of the read-first rows (17:18:51Z, data/b764_readfirst_rows.json, its note N5 AT THIS ACT); the scan's verdicts read N5's text by pattern at run time and not these cites (:172, :183), so no verdict moved. This is the fault [K2] names (b763 defects (k), REPEAT b762 (f)), repaired by class under [K2] in Component 2. The defective step: a carried comment's clause and line cite shifted with the act names.
+
+    (e) THE SEAT'S [CLOSE ; REPEAT b760 (d)]: A SCRATCH FILE WRITTEN AFTER A SUMMARY BEFORE THE RESTATEMENT. After the summary at line 214433 (17:13:05.054Z), the chain read with a flag read first (17:13:20Z) and the ferry read whole (17:13:51Z); the restatement of CLAUDE.md ((R364)(3)(xviii)), ten lines or fewer, was not stated. The seat wrote scratch render764.py (17:16:21Z), then data/b764_readfirst_rows.json (17:18:51Z), before any restatement. After the second summary (17:33:23Z) the restatement was stated before the next write. b763 (m) and b759 (f) the same class. The defective step: the restatement read as the ferry's read and not stated.
+
+    (f) THE TOOL'S [CLOSE ; REPEAT b764 (d)]: THE KERNEL BRANCH NAMES IN b763'S CARRIED CONSTANTS SHIFTED BY THE CARRY. The worklist carried at 16:55:38Z (tools/standing/carry.py; data/b764_carry_*.txt) holds b763's kernel commits and branches under KERNEL_COMMITS (:626-:631 at cee11f73), WEIL_BRANCH (:636), ORDER_BRANCHES (:640-:641) and ARITH_BRANCH (:644), six values in code, each b763's tip (ec14e9d9, a59632eb, 4964e957, 819e4a83) with its branch name shifted from push-b763-* to push-b764-*. b763's worklist at 0f9b1df2 names push-b763-arith, push-b763-keiper, push-b763-form and push-b763-squares at :610, :612, :617, :621, :622 and :625, the four kernel branches the merged listing printed (17:04:09Z) and (R374)(4) keeps. Read at 21:24Z, listing for [K4] the constants under the words "set as each is made" (scratch kshift764.py, read-only). N5 and G-OFFSET-POST-HOC read KERNEL_COMMITS (:624-:625's comment), so none of them is a constant [K4] removes. No arm has run on them at b764; each is set for b764 at Component 3, before any arm that reads it. The class of (d) and of b763 (k), REPEAT b762 (f): the carry's shift of act names reaching values that name the previous act's objects. The defective step: the carry's name shift applied to a carried value without reading whose object the value names.
+
+    (g) THE SEAT'S [CLOSE ; NEW]: THE WORKFLOW'S CACHE MADE AS (7) WORDS IT, NOT AS THE SEAT'S READ OF THE MISSES SAID IT WOULD BE. data/b764_misses.txt (4), printed to the author before Component 1, said that the seat keys the save by the toolchain, the manifest and the commit and restores by the prefix of the first two, and that it reads a run with the restore off as touching no cache. The workflow committed on push-b764-runner (SIDE-explicit-formula 38a57e02, step 56, 21:52:37Z) keys the cache by the toolchain and the manifest alone, as (7) words it ("keyed by the toolchain and the manifest"), and its input turns the restore alone off: a run with the restore off looks the key up after a completed build and saves where the key is not held. The seat read item (4) again at 22:1xZ, after dispatch 1 (run 44826208702, 22:07:04Z) was sent on that file; the trial is three dispatches of the branch's tip within N1's cap of three, so the file stands as committed and the departure is entered here. In this trial the reference is sent after the save's read shows the key held, so it saves nothing (data/b764_controls_control.txt (7), (8): the reference and the restore refused before the save's read). The limit item (4) named stands: the runner's cache does not overwrite a key, so the first build saved stands for every later restore until the toolchain or the manifest moves, and a later restore rebuilds what changed since. The defective step: the workflow written from the ruling's words without reading the seat's own printed item on the same clause.
+
+    (h) THE TOOL'S [CLOSE ; NEW]: THE AXIOMS PRINT'S NOT RUN PREFIXED TWICE IN THE TRIAL'S WHERE. tools/b764_controls.py's read (:272) prints a run whose axioms print did not run as "NOT RUN: " followed by the axioms file's first line; the workflow writes that line itself as "NOT RUN: the build did not complete under the hold", so the reference's read row (run 44838771976, 23:59:44Z) holds "NOT RUN: NOT RUN: ...", and the trial's where and its sentence carry it as composed (`trial`, 00:00:21Z; data/b764_controls.txt). The tool's own control (14) plants the NOT RUN line and wants the doubled words ("NOT RUN: NOT RUN: the bu", data/b764_controls.txt, 00:05:36Z), so the control read the fault as designed. The where's other words and its verdict stand; the row is not rewritten, the read having run once, and the sentence is entered with the tool's words. The defective step: a read that prefixes a line written by the workflow without reading the workflow's own form of it.
+
+    (i) THE SEAT'S [CLOSE ; REPEAT b762 (j)]: A TEMPORARY CLEANUP WRITTEN IN A FORM THE DELETE ARM DOES NOT SET APART. tools/b764_repair_controls.py, the planted controls of the repairs of (5), written by the Write and Edit tools at Component 2 and committed before each run, removes the temporary folders its controls make by tempfile.mkdtemp in five finally blocks (:874-:876, and the same three lines at :957-:959, :1047-:1049, :1137-:1139 and :1237-:1239), each a loop `for t_, pre in ((tmp, ...), (inst, ...))` (at :874 `tmpd` for `inst`) whose body calls shutil.rmtree(t_, ignore_errors=True) after reading the path absolute and its folder name opening with the control's own prefix. The standing arm G-DELETE-FREE (tools/standing/fold/checks.tpl :1814, tools/standing/deletefree.py) sets a temporary cleanup apart where the call's first argument is a name the same file bound from tempfile, or a parameter of a function every call of which passes such a name (deletefree.py :1-:12); a loop variable over such names is neither, so the five lines read as delete calls. The probe of standing-a2 (flag 01:21:42Z, 703 s, moved to the background by the harness at the 600 s limit) read the arm FAIL where b763's probe of the part read it PASS (data/b763_probe_standing-a2.txt :133); found by comparing the two failing lists by name and located by scratch delfree764.py (read only, the standing reader's words and temporary-cleanup reader over b763's and b764's act tools: b763 0 hits, b764 5, each in this tool, 01:3xZ). Each removes a folder the same block made under the system's temporary folder; nothing of the record is deleted. The tool ran and banked in its committed form (data/b764_repair_controls.txt) and is not edited; the arm is declared on the face with its reason before the lock, as b762 declared it for b762 (j); the reader's gap for a loop over temporary names is a fault of tools/standing/, which (R374)(12) moves under (5) and (7) alone, carried to the next act of the record's upkeep. The defective step: an act tool's cleanup written without running the standing arm that reads the act's tools for a delete call over it, the class b762 (j) and b720 (m) named.
+
+    (j) THE SEAT'S [CLOSE ; REPEAT b763 (q)]: THREE FACE SENTENCES READ BY THE GATE'S SCREENS, [K5]'S BAR CALL NOT MADE AT THEIR WRITING. The face's block file (tools/b764_face_blocks.txt, written by the Write tool before the twenty-third summary, committed at step 76, relay 69f9616d, 03:02:05Z, and set by the Edit tool at 03:00Z and 03:07Z) carried "two arms on carried values set" in its Component 5 paragraph (the face's :50) and "both routes of its part (2)" in reading (viii) (the face's :99), each words the bar-floor screen takes as a multi-arm bar (tools/registration_gate.py :111-:113, MULTIARM) in a paragraph with no word of the arms' independence (ARMWORD, :114); and its tools paragraph (the face's :145) named `G-DELETE-FREE` beside the words committed, git and the mirror with no side of the push, which the straddle screen reads as undeclared (:210-:238). The gate's first run (flag 03:07:35Z, 67 s, exit 1) read multi-arm 2, ARM MISSES 2, and arm+repo-state paragraphs 3, UNDECLARED 1, each refusing the verdict (tools/standing/fold/reg_gate.tpl :82); located by scratch bar764.py over the module's own patterns (read only, 03:09Z). [K5] (v1.38.2) gave tools/standing/needle.py its bar mode for b763 (q)'s class (needle.py :23-:24), and the seat did not run it over the face before the gate; that mode reads the bar-floor screen and not the straddle screen. The three sentences reworded by the Edit tool, the first and the third naming what they counted or cited without a count or an arm name; the (W) bank regenerated after each, two Edits sent together after the first refused by the hook for the bank stale (03:10:47Z and 03:10:48Z, the kind WLIST at 3 against b763's 4, counted by kind and given no letter by [U3]; events (67)); the face and the gate run again. The defective step: b763 (q)'s class, a face sentence reporting the seat's own work written without reading the gate's screens over it, the repaired key's call at hand.
+
+    (k) THE SEAT'S [CLOSE ; REPEAT b757 (s)]: TWO ACT TOOLS RUN BEFORE THE COMMIT OF THEIR WRITTEN FORM. tools/b764_ceiling.py, carried from b763 by tools/standing/carry.py (20:37:15Z and 20:37:23Z) and rewritten for (R374) under [K14], was run by the seat for its controls in the dry form (flag 20:38:52Z) before the commit that first carried it, relay 542354bf ([K14]'s, 20:41:41Z). tools/b764_face.py, committed at ec439ca3 (step 69, 00:27:48Z) and set by the Edit tool after the probes (its FIXES, DECLARED and NEWLY), was run with --dry (flag 02:59:58Z) and imported by scratch facechk764.py, its composition in memory with nothing written (03:00:37Z), before the commit of those edits, relay 69f9616d (step 76, 03:02:05Z). The score routes' dry form (flag 03:12:16Z, data/b764_scores_dry.txt :7) read N2's clause "each act tool committed before its first run" False for the ceiling tool, its first run read from the command bank at 20:37:15Z, the carry's command, which names the tool as its destination; the controls' run at 20:38:52Z is the tool's own first run, and it too stands before the commit (scratch ceilrun764.py and facerun764.py, read only, 03:1xZ). The face tool's first run follows its first commit, and the arm reads the first commit alone and not the edits after it (tools/acts/b764.py, the N2 section's comment), so it does not read the face tool; b757 (s) lettered an edited face tool's dry before its commit, and it is entered here with the ceiling's. No bank was written by an uncommitted form: the ceiling's bank by the committed tool after Component 2 (21:39:59Z), and the face by the committed tool (03:07:23Z). N2 reads REFUTED on the ceiling's run, and the score stands as the clause reads it. The defective step: an act tool's controls or dry run between its write and its commit, the class of b757 (o) and (s).
+
+    (l) THE SEAT'S [CLOSE ; REPEAT b764 (b)]: THE N3 READER OF THE AUTHOR'S WORD WRITTEN FOR ONE COPY, THE WORD THEN BANKED TWICE. The act module's N3 reader of the ruling's texts (tools/acts/b764.py, _g1_composed and _texts_n3, written by the Edit tool at Component 5 and committed with the act module before the probes) took each of the author's replacements (i) to (iv) from data/b764_author_words_preseal.txt as the one line opening with its words, and composed nothing where it found more or fewer than one. The author's question of 00:31:54Z repeated the word, and by its WHERE BANKED it was banked as a repeat beneath the word (00:33:34Z, :15-:34; events (53)), so each replacement stands twice, at :6-:9 and at :23-:26, the two copies equal. The score routes' dry form (flag 03:12:16Z, data/b764_scores_dry.txt :8) read [M1] in OPEN_TRAILS False, "A FIELD NOT AS ITS BANK GIVES IT" (the pattern unmet, the word's (iv) not swapped in), and [G1] in data/b764_registration.txt False; read at 03:1xZ from the reader's code with the two copies counted. The reader set by the Edit tool to read equal copies once and to refuse where they differ, and committed before the score routes run again. The defective step: a reader of a bank appended by design written for the bank as it stood and not read again when a later append landed, the class of (b).
+
+    (m) THE SEAT'S [CLOSE ; REPEAT b764 (j)]: THE FACE'S (W) ROW NAMED THE STANDING CHANGES BY THEIR BANK AND NOT BY THEIR FILES. The face's block file (tools/b764_face_blocks.txt, committed at 69f9616d) wrote the seat's row of the (W) table from b763's (data/b763_registration_2026-11-19.txt :295), which names b763's one standing change by its files, each backticked, with VERSION; b764's row named VERSION alone and sent the files to data/b764_repairs.txt. The N5 reader takes every backticked path of the face's (W) table and nothing else (tools/act_close.py w_patterns, :37-:55, through tools/standing/fold/record.tpl :2579-:2586), and the hook's list is made from the same table (tools/standing/wlist.py). The score routes' dry form (flag 03:12:16Z, data/b764_scores_dry.txt :10) read N5 REFUTED: the 19 files that the commits of (5) and (7) moved under tools/standing/ (act.py to toset.py, with fold/checks.tpl, fold/closing.tpl and fold/record.tpl) each read as a relay file beyond the face's (W) list and as a shared tool beyond the membrane, where (R374)(14) names "tools/standing/ with VERSION". The row set by the Edit tool to name the 19 files, each backticked; the (W) bank regenerated (flag 03:19:23Z, patterns 88 from 69); the face and the score routes run again. b763 set its own row the same way after its score routes' dry read N5 on it (b763 events (88), "the face's row naming them in words where its reader takes paths"), and b764's blocks were carried from b763's sealed face, which already named its files. The defective step: (j)'s class, a face row written without reading the reader that scores it.
+
+### THE EVENTS AFTER THE SEAL (standing clauses v2 row (52); relay data/b764_events.txt and data/b764_events_postseal.txt, unlettered, for the next act`s corrigendum):
+    (1) THE AUTHOR'S [CLOSE ; REPEAT b763 events (1)]: THE RULING DELIVERED IN ONE PART. RULING (R374), its texts and its ferry, one part,
+     were delivered by paste in session 11d67961 at transcript line 213526, 2026-11-20T16:52:08.852Z; the receipt confirmed in full, its
+     tail present. Banked by the transcript reader (scratch ferry764.py, dry 16:56:39Z, written 16:57:57Z): data/b764_ferry.txt from 1
+     user record, 47,348 characters as held, carriage returns 0, 159 lines, 47,349 bytes, sha256 594aa5dbae2a1a72..., its 26 marker lines
+     each once, before anything of it was used. The transcript reader's route (`fold.py citation ferry --act b764`, 17:03:10Z) read the
+     ferry equal, ferry_scan exit 0.
+    (2) THE SEAT'S [CLOSE ; REPEAT b763 events (2)]: THE CHAIN READ AND THE STEP-ZERO READS. The chain read the first route after the
+     delivery (16:53:28Z, a flag read before it, by the act's sessions: 213,625 rows, 0 lost, 0 after line 191164, 252 boundaries, each
+     logical parent in the file). No restart key; free memory 6,362 MB against the hold 2,560 MB; both volumes above the floor (system
+     26,835 MB, data 616,077 MB). The process listing by name and memory alone (16:54:09Z: 241 processes, working sets 8,010 MB; python 1,
+     git 0, lean 0, lake 0). The harness 2.1.322 and the model claude-opus-5-5 at effort xhigh (16:54:22Z), as at b763: no change of
+     session, harness or store.
+    (3) THE TOOL'S [CLOSE ; REPEAT b763 events (3)]: THE CARRY, ITS PAIRS SET BY HAND. tools/standing/carry.py carried tools/b763_carry.py
+     to tools/b764_carry.py (16:55:09Z, 263 lines, 19 changed, 2 shifted, one cite of an absent bank). Its chained pairs were set by three
+     Edits (16:55:20Z-16:55:22Z) before the tool's first use. The worklist (16:55:38Z, 831 lines, 129 changed), the act module (16:55:45Z,
+     3,141 lines, 539 changed) and the scan tool (16:55:54Z, 332 lines, 30 changed) carried by it (data/b764_carry_*.txt); no repair span
+     at b763 for any of them.
+    (4) THE SEAT'S [CLOSE ; REPEAT b763 events (4)]: data/act_current.json FOR b764 AND b763'S CARRIED FILES. act_current written at
+     16:57:52Z (dry 16:57:46Z: 18 replacements; chain row 141 from 140, the previous root 34de7cff) and committed alone, relay afb63f4b
+     (step 1, 17:06:15Z). b763's closing push-out capture alone, baff91ad (step 2, 17:06:43Z). tools/mirror_prevbuild.json differed from
+     its blob by its line ends alone: its add (17:07:06Z) staged nothing and the commit sent after it (17:07:21Z) was refused, "nothing
+     staged", nothing committed, no row written; not carried, the refusal printed, as (R374)(3) orders. data/b764_address_scan_commits.txt
+     alone, 8f4c353d (step 3, 17:07:49Z). Each commit's scan 8 of 8 controls AS WANTED, every count 0.
+    (5) THE SEAT'S [CLOSE ; NEW]: THE NAVIGATOR'S PREDICTIONS BANKED AND COMMITTED ALONE. [P1] read from the ferry's bank at :121-:137, its
+     markers at :120 and :138 (scratch pred764.py, dry 17:08:18Z, written 17:08:26Z): data/b764_navigator_predictions.txt, 17 lines, 5,261
+     bytes, sha256 49bb42fb8dc2a25b..., verbatim; committed alone through the one-call tool, 69200958 (step 4, 17:08:35Z), before Component
+     1, its subject read back EQUAL ((R374)(10)). Nothing of it computed; no verdict reads it.
+    (6) THE TOOL'S [CLOSE ; REPEAT b763 events (6)]: `carry.py ruled` REFUSED SIX, THEN FOUR. The worklist's first stage (17:02:46Z: 48
+     constants, 5 exact replacements, stubs 0, compiles) left EF_RUNS and the deletes at b763's; the ruled reader (17:04:33Z) refused 6, R3
+     EF_RUNS and R2 5, exit 13. The deletes and their tips set from the merged listing (17:04:09Z, relay 3 and PLACE-papers 2, each merged
+     into main) and EF_RUNS read for (R374)(7) (17:04:29Z-17:05:18Z); the reader again (17:05:23Z): REFUSED 6, R2 6. After the act module's
+     runner and checks sections were written for (7)'s three dispatches (17:25:38Z-17:25:42Z), the reader at 17:45:47Z refused 4, R2 4:
+     the sections closing 8, record 8, record 29 and regspec 17, each written at Component 5. The reader is read before the opening call;
+     no gate reads it.
+    (7) THE HOST'S [CLOSE ; REPEAT b763 events (5)]: TWO SUMMARIES WITHIN STEP ZERO. A summary of the session at transcript line 214433
+     (17:13:05.054Z), after [P1]'s commit; the chain read the first route after it (17:13:20Z, a flag read before it: 214,488 rows, 0
+     lost, 0 after line 213525, 253 boundaries); the ferry read whole; the restatement not stated before the next write (defect (e)). A
+     second at line 215344 (17:33:23.417Z), during the price's reads; the chain read after it (17:33:32Z, a flag read before it: 215,416
+     rows, 0 lost, 254 boundaries); the ferry read whole and the restatement, ten lines, before the next write.
+    (8) THE TOOL'S [CLOSE ; REPEAT b763 events (7)]: THE CITATION CHECK HALTED, THEN CLEAN. The dry (17:25:53Z): CITES CHECKED 85 ; OK 84 ;
+     MISSES 1, the scan bank's clean-at-HEAD row (defect (b)); halts 2, the Lean paths ControlFailureStatement.lean and KeiperPolygamma.lean
+     read at main's pin alone (defect (a)). LEAN_TREES set to the pins SCOPE READ names (17:27:32Z) and the scan bank's row to a prefix
+     predicate (17:27:38Z); the dry again (17:27:49Z) CLEAN; banked (17:28:17Z): CITES CHECKED 85 ; OK 85 ; MISSES 0 ; THE FERRY'S PATHS
+     50 ; OK 43 ; NONE 0 ; halts 0. The read-first bank written by its tool before it (17:18:59Z; ferry rows 20, own rows 9).
+    (9) THE SEAT'S [CLOSE ; REPEAT b763 events (9)]: THE FIVE BRANCHES OF (4) DELETED AFTER THE CHECK. The merged listing printed (17:04:09Z,
+     and again 17:28:54Z); relay push-b763-closing (was 0f9b1df2f, 17:29:02Z), push-b763-preroot (was 109f5ba71, 17:29:11Z),
+     push-b763-record (was d4ec1edb4, 17:29:17Z); PLACE-papers push-b763-preroot (was b302009, 17:29:24Z), push-b763-record (was 7db9a66,
+     17:29:30Z); one a message, each after a flag read, none forced. SIDE-explicit-formula's four push-b763-* branches kept by (4).
+    (10) THE SEAT'S [CLOSE ; REPEAT b763 events (10)]: THE PRICE TABLE UNDER THE CEILING, ITS FIRST FIGURES CORRECTED BEFORE THE BANK. scratch price764.py
+     printed at 17:39:26Z and 17:40:50Z before banking: (9)(b)'s lower read from b763's two rows naming the tool, 0.02 h apart (the tool's
+     commit and its bank, timing no work), was replaced by b763's price for the order (b763_price :30, 0.50 h); the readings of (9)(c) took
+     the banked line rate beside their dispatches; [L-iv]'s count first read 18 and 3 of 29 by two shapes, the number's zero (ne_zero,
+     zero_mem) caught by both, and read 20 and 21 once it was set aside (scratch oz764.py, tokens alone). Banked 17:41:09Z and again at
+     17:41:56Z with the arm of (7) on success named in (7)'s main row: THE LOWER SUM 17.37 h against 24 h, NOTHING CARRIED; THE UPPER SUM
+     44.96 h; dispatches 3.
+    (11) THE SEAT'S [CLOSE ; REPEAT b763 events (11)]: THE MISSES READ AND PRINTED. data/b764_misses.txt, six items (17:4xZ), printed to the author before
+     Component 1: two orders of (8) closing outside this act; CORRESPONDENCE-BEHIND-SCOPE's generator outside the (W) list and its page
+     route barred; four of section 9.10's five works held only as cited; (7)'s cache key; (14)'s cheapest reading a statement; (7)'s
+     standing change made in Component 2.
+    (12) THE SEAT'S [CLOSE ; REPEAT b763 events (7)]: THE SUBJECT READ AND THE ROWGEN DIFF. The subject read's control (17:46:39Z) AS
+     WANTED; b764's own (17:47:01Z), 14 nouns: HITS 301 ; CITED 0 ; UNCITED 301 ; TWO OR MORE 3 (FACES_LEDGER :28 and :104,
+     BALANCE_AND_POSITIVITY :52). `fold.py record rowgen --act b764` (17:47:42Z): exit 0, tables 19, re-pointed 8, STALE 0 of 153.
+    (13) THE TOOL'S [CLOSE ; REPEAT b763 events (18)]: DIVERGE 20 IN THE PASS IN THE PREVIOUS ACT'S MODE. At 2026-11-20T11:14:34Z that
+     pass's standing-a2 part read DIVERGE 20, where b762's pass read 16; at 11:25:08Z its act part read DIVERGE 18, with 1 not run by b762
+     (b763 events (94)). Of the class [K17] of (R374)(5) names, each row to be read and given its cause.
+    (14) THE TOOL'S [CLOSE ; REPEAT b762 events (17)]: close.py DRY EXITED 3 ON THE LINE ENDS OF tools/mirror_prevbuild.json. At
+     2026-11-20T11:29:43Z (the closing message: 11:30Z) close.py's dry exited 3 on the file, edited after its last commit by its line ends
+     alone, as at b761; its time touched with no byte written (11:30:43Z) and the file restored (11:30:51Z), the dry then exited 0
+     (11:31:06Z). The fault [K12] names.
+    (15) THE SEAT'S [CLOSE ; REPEAT b763 events (21)]: THE POST-LOCK ADDRESS SCAN AFTER close.py's SEAL ROUTE. At 2026-11-20T11:31:37Z the
+     post-lock address scan ran after the seal route and before the seal commit (77a72b91, 11:32:39Z), as at b761 and b762; it read 0 on
+     every target. The place [K11] gives it by a written rule.
+    (16) THE TOOL'S [CLOSE ; REPEAT b763 events (22)]: THE ENTRY'S AND THE TRAIL'S NEXT LINES LIST THE RULING'S OPTIONS. At
+     2026-11-20T12:11:13Z the entry's Carried to line (FINDINGS :15857) and Next line (:15859), and at 12:31:08Z the trail's Next line
+     (OPEN_TRAILS :19051), listed the ruling's options and not the author's answer of 12:08:12Z; item (14) of the trail's Resolved line
+     carried no count. The fault [K8] names.
+    (17) THE TOOL'S [CLOSE ; NEW]: THE FINAL TABLE REGENERATED. At 2026-11-20T12:12:20Z the final table regenerated, its kernel column
+     moved to SIDE-explicit-formula's main 819e4a83 and its loose cells from 1624 to 1630 (b763 events (101)).
+    (18) THE HOST'S [CLOSE ; REPEAT b763 events (23)]: ROOT PART 1 PAST THE 600 s LIMIT. At 2026-11-20T12:16:32Z root part 1 began; it ran
+     682 s by the capture and the harness moved it to the background at the limit; no second copy was sent, and it read READY. The guard
+     class [K15] names.
+    (19) THE TOOL'S [CLOSE ; REPEAT b763 events (25)]: THE DESK ROUTE'S MARKER NOT MET, AT A THIRD ACT. At 2026-11-20T12:31:38Z the desk
+     route exited 0 and printed one empty line, so its marker was not met, as at b761 and b762. The marker [K13] names.
+    (20) THE TOOL'S [CLOSE ; NEW]: G-ENTRY-TITLE-FORM FAILS BEYOND THE FACE, IN BOTH SUITES. At 2026-11-20T13:17:10Z the pre-push act part
+     read the arm failing, and the post-push the same; read at 14:2xZ, the landed title equals the composed title and reads 84 open to
+     82, true to data/b763_orders.txt, and the arm's sealed needle wants 84 open to 83, the ruling's WANTED figure before the build
+     lines. The needle is wrong and the entry right (b763 events (106)). The needle [K6] names.
+    (21) THE HOST'S [CLOSE ; REPEAT b763 events (28)]: THE POST-PUSH STANDING-B2A'S REMOTE READ EMPTY. At 2026-11-20T13:44:26Z the
+     post-push standing-b2a read the remotes of PLACE-papers and the relay as answering nothing, so b624 to b627 read UNREAD; a direct
+     read at 13:49:49Z answered d4ec1edb, and run again alone at 13:50:02Z the part read all four AGREE. Of the parts [K16] names.
+    (22) THE SEAT'S [CLOSE ; NEW]: STEP [21] COST N4. At 2026-11-20T14:28:29Z the seat committed b763's rows (92)-(110), appended to
+     data/b763_events.txt, a bank tracked at the lock, as the close order's step [21] names it (d784c1da); at 14:29:57Z scores close read
+     N4 REFUTED on that commit. The rule the closing message cites, (R365)(2)(ii) and (R366)(1)(ii), puts what is found after the lock in
+     the closing message; b761 and b762 did not take [21] and held N4. Undoing it would take a further post-lock commit or a rewrite,
+     each refused; the scores read 6 of 8. The fault [K10] names.
+    (23) THE TOOL'S [CLOSE ; NEW]: THE STEP-ROWS COMMIT REFUSED FOR ITS WORDS. At 2026-11-20T14:35:20Z the one-call tool refused the
+     step-rows commit, its words not naming each row in its own form; nothing committed; resent with the words the tool gives, it landed
+     (0f9b1df2).
+    (24) THE TOOL'S [CLOSE ; REPEAT b763 events (30)]: THE CLOSING STEP ROW'S SCAN WROTE THE NEXT ACT'S BANK. At 2026-11-20T14:35:34Z the
+     scan in the closing step-row commit appended to data/b764_address_scan_commits.txt, the next act's bank, as at b759 to b762;
+     committed at this act's step zero (step 3, 8f4c353d). The scan [K19] names.
+    (25) THE NAVIGATOR'S [CLAIM ; NEW]: (i) (R373)(7)'s control that no zero is used read a file's imports and barred a directory by its
+     path, so that over the import closure each form fails it (data/b763_misses.txt (1)) and the kernel's ball arithmetic and gamma
+     values, which stand in that directory, are barred with it, their rebuilding carried in FORM B's price (misses (3)).
+    (26) THE NAVIGATOR'S [CLAIM ; NEW]: (ii) (R373)(7) let the window be chosen with b709's family in view and ordered no read of the
+     statement's constants: the frequency constant of the compiled statement is the ordinate of the control's located zero as
+     data/b709_grid.txt :46 prints it, 23 digits of it, so the statement of a proof that uses no zero carries one zero's ordinate.
+    (27) THE NAVIGATOR'S [CLAIM ; NEW]: (iii) (R373)(6) ordered the six names of [P1] printed at each run and (R373)(3) read the ceiling
+     against a dispatch at 0.325 h, where a dispatch that prints the kernel's names builds the kernel whole in 67.7 to 103.9 minutes
+     (misses (11)).
+    (28) THE NAVIGATOR'S [CLAIM ; REPEAT b763 (n)]: (iv) (R373)(9) gave the roster's WANTED figure before the build lines and none for the
+     close, and the title arm's needle was cut from it (the seat's finding 8 after the lock).
+    (29) THE NAVIGATOR'S [CLAIM ; REPEAT b763 (c)]: (v) SCOPE READ of (R373) wrote a Lean cite as a path, the word at and a name, a form the
+     clause reader halts on, for the second time (data/b763_defects.txt (c)).
+    (30) THE HOST'S [CLOSE ; REPEAT b764 events (7)]: A THIRD AND A FOURTH SUMMARY. A summary at transcript line 216136
+     (17:52:47.542Z), after the step-zero banks' commit (3c8e5ebc, 17:51:17Z); the chain read the first route after it (17:52:59Z, a flag
+     read before it: 216,207 rows, 0 lost, 0 after line 213525, 255 boundaries); the restatement stated at 17:53:52Z, before the first
+     write (a scratch file, 17:54:11Z). A summary at line 217116 (18:16:45.790Z), within [K1]'s repair, after [K10]'s control (18:12:59Z);
+     the chain read first (18:16:58Z, a flag read before it: 217,197 rows, 0 lost, 256 boundaries); the ferry read whole in two Reads and
+     the step-zero, events, defects and refusals banks whole; the restatement, ten lines, stated in the seat's message at 18:18:00Z before
+     the first write (a scratch file, 18:20:53Z). The session's transcript holds no text record of that restatement: the assistant
+     records at :217278 and :217279 (18:18:00.849Z, 18:18:00.856Z) carry thinking blocks alone (scratch restate764.py, read-only,
+     18:31Z), so a reader of the transcript finds no restatement after :217116; the one after :216136 stands as a text record at :216265.
+    (31) THE AUTHOR'S [CLOSE ; NEW]: THE WORD ON (R374)(9)(b), AMENDING [G1], [M1] AND [M2] BEFORE [G1] IS COMMITTED. Delivered by paste
+     during [K5]'s reads at transcript line 217631 (a queued message, 2026-11-20T18:28:37.331Z; its attachment at :217637), BEGIN and END
+     present, 12 lines, 2,600 characters, sha256 6476ae7865129f84, carriage returns 0, each of its copies in the transcript equal (scratch
+     word764.py, read-only); banked verbatim by `tools/standing/append.py b764 preseal` (flag 18:29:54Z, GO) as
+     data/b764_author_words_preseal.txt, 13 lines beneath none. It withdraws (R374)'s two statements that the classical form is read at
+     source nowhere in the record and that its reading goes to the author's fetch (FINDINGS :3111, :3113, :3115, cited by the word; not
+     read by the seat), and replaces words of [G1]'s THE GROUNDS, WHAT THE NAVIGATOR HAD SEEN and HELD, of [M1] and of [M2]. [G1] stands
+     uncommitted, so it is committed at Component 4 with the word's words in place; the navigator's claim entered as item (7) of
+     data/b764_misses.txt (18:30Z), in the word's own words.
+    (32) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A FIFTH SUMMARY. A summary at transcript line 218494 (19:00:32.406Z), after [K5]'s
+     control (18:56:39Z) and the add of its banks (19:00:31Z), before their commit; the chain read the first route after it (19:00:44Z, a
+     flag read before it: 218,611 rows, 0 lost, 0 after line 213525, 257 boundaries); the ferry read whole in two Reads, the author's word
+     and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message
+     before the next write, [K5]'s banks' commit (9ad8e487, step 19, 19:01:55Z).
+    (33) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A SIXTH SUMMARY. A summary at transcript line 219861 (19:30:55.616Z), after [K16]'s
+     banks' commit (a574576e, step 25, 19:30:18Z), within [K7]'s reads of tools/standing/cites.py; the chain read the first route after it
+     (19:31:09Z, a flag read before it: 219,954 rows, 0 lost, 0 after line 213525, 258 boundaries); the ferry read whole in two Reads, the
+     author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the
+     seat's message before the next write, this row.
+    (34) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A SEVENTH SUMMARY. A summary at transcript line 221075 (19:58:33.256Z), after [K13]'s
+     banks' commit (b6e23b07, step 31, 19:57:37Z), within [K12]'s reads of tools/standing/close.py; the chain read the first route after it
+     (19:58:49Z, a flag read before it: 221,184 rows, 0 lost, 0 after line 213525, 259 boundaries); the ferry read whole in two Reads, the
+     author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the
+     seat's message before the next write, this row.
+    (35) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: AN EIGHTH SUMMARY. A summary at transcript line 222274 (20:25:46.253Z), after [K2]'s
+     banks' commit (da8ba8d3, step 37, 20:22:33Z), within [K3]'s reads of tools/standing/commit.py and carry.py; the chain read the first
+     route after it (20:26:03Z, a flag read before it: 222,362 rows, 0 lost, 0 after line 213525, 260 boundaries); the ferry read whole in
+     two Reads, the author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated
+     as text in the seat's message before the next write, this row.
+    (36) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A NINTH SUMMARY. A summary at transcript line 223371 (20:53:16.327Z), after [K18]'s
+     banks' commit (f7890c02, step 43, 20:52:31Z), within [K6]'s reads of tools/acts/b764.py; the chain read the first route after it
+     (20:53:31Z, a flag read before it: 223,453 rows, 0 lost, 0 after line 213525, 261 boundaries); the ferry read whole in two Reads, the
+     author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the
+     seat's message before the next write, this row.
+    (37) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TENTH SUMMARY. A summary at transcript line 224496 (21:20:21.828Z), after [K4]'s
+     standing dry (21:19:35Z) and before its add, within [K4]'s repair; the chain read the first route after it (21:20:38Z, a flag read
+     before it: 224,568 rows, 0 lost, 0 after line 213525, 262 boundaries); the ferry read whole in two Reads, the author's word and the
+     step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before
+     the next write, this row.
+    (38) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: AN ELEVENTH SUMMARY. A summary at transcript line 225555 (21:44:29.708Z), after
+     the ceiling's commit after Component 2 (f0ad4589, step 55, 21:40:29Z), within Component 3's reads of SIDE-explicit-formula's workflow
+     at 819e4a83 (scratch wf764.py, read-only, through the mask, the mask changing 0 lines), tools/push_gated.sh and tools/b763_controls.py;
+     the chain read the first route after it (21:44:44Z, a flag read before it: 225,636 rows, 0 lost, 0 after line 213525, 263
+     boundaries); the ferry read whole in two Reads, the author's word and the step-zero, events, defects and refusals banks whole; the
+     restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (39) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWELFTH SUMMARY. A summary at transcript line 226353 (22:10:50.953Z), after
+     dispatch 1 of (7) (run 44826208702, the save, the restore on, 22:07:04Z) and its status read once (in progress), within Component 4's
+     reads for the orders of (8) (W-ORD-E0-RANK-PROPAGATION's entry and FINDINGS :3040-:3119 through the masks, scratch e0764.py and
+     ord764.py, read-only; tools/standing/repeat.py phases and the design list's readers for W-ORD-LATE-BANKS), defect (g) written and not
+     yet committed; the chain read the first route after it (22:11:09Z, a flag read before it: 226,430 rows, 0 lost, 0 after line 213525,
+     264 boundaries); the ferry read whole in two Reads, the author's word and the step-zero, events, defects and refusals banks whole; the
+     restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (40) THE SEAT'S [CLOSE ; NEW]: THE TEST SET OF (9)(b) READ AFTER [G1]'S COMMIT, TWO BANKS WITH A ZERO-SIDE COLUMN AMONG THE READS. After
+     [G1] was committed alone (6fd013e9, step 60, 22:15:20Z), the seat read the order's lines (OPEN_TRAILS :3365-:3382 through the masks,
+     scratch ord764.py), data/b232_sign_of_A.txt :1-:160, and, to find "the banked diagonal a^2 cells", tools/e16/carto_atlas.py,
+     tools/b333_derive.py :86-:127, tools/e16/b116_density_bank.py, tools/e16/b38_act10.py :1-:60 and tools/e16/b40_act12.py :1-:60 (22:1xZ
+     to 22:2xZ). Two reads touched a bank holding the zero side of an explicit formula as a column: data/carto_atlas.jsonl's 13 rows were
+     loaded and their keys and the a column alone printed, the `zero` column unprinted; a Grep of data/b40_2026-08-18.txt printed its nine
+     cell lines, each with its Z field (b40's zero side at the cell), which nothing of the act uses. Neither bank lists a zero; the seat
+     reads N4's "no row of a bank of zeros is opened" as barring a bank that lists zeros (data/b694_witness_zeros.txt the one CLAUDE.md
+     names), and enters the two reads here for the author's strike. The test set read from them: a^2 = 2, 3, 4, 8, 9, 12 (b36 to b40) and 16,
+     25, 36 (b40 alone), w the atlas's bump on [-log a, log a] and k = w * w (tools/e16/b40_act12.py family); tools/b764_imp2tau.py reads
+     the A field alone (data/b764_imp2tau.txt (15)).
+    (41) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A THIRTEENTH SUMMARY. A summary at transcript line 227127 (22:36:16.231Z), after
+     the imp2tau bank's commit (becb7dd3, step 62, 22:32:05Z) and dispatch 1's status read once (22:3xZ, in progress, 25.3 minutes), within
+     the reads for (9)(a) and the orders of (8): the files under PLACE-papers outputs/ against the paper of REGISTRY's row 1.5c-15 and the
+     paper's :246-:292 by predicate (scratch dep764.py and sd764.py, counts and booleans alone, no line printed), W-ORD-LATE-BANKS's and
+     W-ORD-MATCHER-SHAPE's entries (OPEN_TRAILS :13830 and :6650 through the masks) with data/b724_orders_triage.txt :413-:468, and
+     BIBLIOGRAPHY.md through the masks; the chain read the first route after it (22:36:34Z, a flag read before it: 227,214 rows, 0 lost, 0
+     after line 213525, 265 boundaries); the ferry read whole in two Reads, the author's word and the step-zero, events, defects and refusals
+     banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (42) THE SEAT'S [CLOSE ; NEW]: TWO ITEMS OF THE SEAT'S READ OF THE MISSES MET OTHERWISE ON READING. data/b764_misses.txt was printed to
+     the author before Component 1 and is printed again before the lock unedited; two of its items read otherwise when the orders were built
+     (22:4xZ). Item (2) said that only the generator's route of W-ORD-CORRESPONDENCE-BEHIND-SCOPE's part (2) is open: a row brought under the
+     generator is a row its landing rewrites where its kernel cell's leading clause stands behind its tag (data/b691_behind.txt :20), and the
+     19 rows stand in papers (13) and N3 leave unwritten, so neither route lands and the order is not built (data/b764_orders_reading.txt).
+     Item (3) said that each of the five works enters the register with its title marked unverified in the Epstein document's words: X.-J.
+     Li's title, venue and pages stand in a bank of the record, the pinned source math/0404394's reference [35] (relay
+     data/b358_source_lagarias0404394.txt :3005-:3006), so that work enters at POINTER-ONLY with them, and the three works no bank titles
+     enter TITLE-UNVERIFIED; Y. Lee's paper, read in full at b751, enters READ-AT-CONTENT (tools/b764_rulings.py BIB_TEXT).
+    (43) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A FOURTEENTH SUMMARY. A summary at transcript line 227816 (22:53:10.761Z), after
+     the deposit read's commit (11a00f11, step 64) and dispatch 1's status reads (in progress, 45.5 minutes at the last, 22:52Z), within
+     Component 5's survey of the act module's sections carried from b763 (tools/acts/b764.py record 4, 5 and 29 to 35, the worklist's
+     constants and tools/standing/fold/record.tpl's _figs with its slots, each read-only); the chain read the first route after it
+     (22:53:28Z, a flag read before it: 227,881 rows, 0 lost, 0 after line 213525, 266 boundaries); the ferry read whole in two Reads, the
+     author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the
+     seat's message before the next write, this row.
+    (44) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A FIFTEENTH SUMMARY. A summary at transcript line 228594 (23:07:25.504Z), after
+     dispatch 1's status reads (in progress, 59.4 minutes at 23:06:27Z), within Component 5's rewrite of the act module's sections for b764
+     (tools/acts/b764.py checks 1, 2, 7 to 9, 12 and 13 and closing 1, 2 and 4 to 8, the Edit tool, uncommitted); a Grep of the worklist's
+     constants and the trial's status read (23:07:38Z, a flag read before it, 60.6 minutes) came before the chain read, each read-only, nothing
+     written; the chain read after them (23:07:56Z, a flag read before it: 228,695 rows, 0 lost, 0 after line 213525, 267 boundaries); the
+     ferry read whole in two Reads, the author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines
+     or fewer, stated as text in the seat's message before the next write, this row.
+    (45) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A SIXTEENTH SUMMARY. A summary at transcript line 229390 (23:24:08.712Z), after
+     dispatch 1's status reads (in progress, 76.7 minutes at 23:23:42Z), within Component 5's rewrite of the act module's sections for b764
+     (tools/acts/b764.py record 20 to 31, the N3 to N5 arms, the title and the guard, the Edit tool, uncommitted); the chain read the first
+     route after it (23:24:25Z, a flag read before it: 229,448 rows, 0 lost, 0 after line 213525, 268 boundaries), the two reads the host
+     attached to the summary (a scratch reader and the refusals bank) standing before it unsent by the seat; the ferry read whole in two
+     Reads, the author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as
+     text in the seat's message before the next write, this row.
+    (46) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A SEVENTEENTH SUMMARY. A summary at transcript line 230006 (23:38:05.067Z), after
+     dispatch 1's status reads (in progress, 90.1 minutes at 23:37:12Z), within Component 5's rewrite of the act module's sections for b764
+     (tools/acts/b764.py checks 14 to 31, report 1 to 5 and three headings of record 34, the Edit tool, uncommitted); the chain read the
+     first route after it (23:38:26Z, a flag read before it: 230,060 rows, 0 lost, 0 after line 213525, 269 boundaries), the host's
+     re-read notices of four scratch readers standing before it unsent by the seat; the ferry read whole in two Reads, the author's word
+     and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's
+     message before the next write, this row.
+    (47) THE SEAT'S [CLOSE ; NEW]: THE TRIAL'S SAVE READ, THE REFERENCE AND THE RESTORE SENT, THE RESTORE READ. Dispatch 1 (the save,
+     run 44826208702) completed at 23:41:19Z, success, 94.2 minutes, 91.3 of them the build; downloaded (23:42:03Z) and read by its run id
+     (23:42:11Z, a flag read before each): KERNEL, the exit file 0, 557 of 559 targets with an axioms line within the standard three, the
+     two others refused by the workflow's grammar (two names of Schema.ZQ carrying a letter outside its pattern, the same two in each
+     run), the axioms file 611 lines, sha256 e3aa4721cb769f17; the cache's record: no key held before, built from source, saved. Dispatch
+     2 (the reference, the restore off, run 44838771976) sent at 23:42:38Z and dispatch 3 (the restore, run 44838852797) at 23:43:21Z,
+     each after a flag read of its own, one a message, the restore sent while the reference builds as the tool's own control takes it
+     ("the restore third, after the reference", data/b764_controls_control.txt). Dispatch 3 completed at 23:46:32Z, 3.2 minutes; read
+     (23:47:27Z): KERNEL, the exit file 0, the same 557 of 559, the axioms file 611 lines with the same sha256 e3aa4721cb769f17 as the
+     save's; the cache's record: the key held, 3,040 files restored, the build 0.1 minutes, nothing saved. The trial's verdict reads the
+     reference and waits on its read.
+    (48) THE SEAT'S [CLOSE ; NEW]: THE REPRODUCTION RUN OF (13), ONE OF ITS ROWS READING A BANK OF ZEROS. `tools/research/reproduce.py run
+     --bank data/b764_reproduce` in the foreground (flag 23:52:07Z, GO; 376 s, under the 600 s limit), while dispatch 2 builds: ROWS 68 ;
+     REPRODUCES 64 ; DIFFERS 0 ; NOT RUN 4 ; PLANTED CONTROLS AS WANTED 64 OF 64 (data/b764_reproduce.txt and .json). Its row I-88
+     (b694_witness) compares a figure the tool reads at data/b694_witness_zeros.txt :5, the bank CLAUDE.md names as a bank of zeros, and
+     prints it in the run's output; the seat did not open the bank by hand and nothing of this act was computed from it. (R374)(13) orders
+     both "no row of a bank of zeros opened" and "tools/research/reproduce.py's full run made and banked as the standing clauses order
+     it"; the full run opens that row, as at b762 and b763, where it ran the same and was not entered. Entered for the author's strike:
+     the row's exemption, or the run with I-88 set NOT RUN by a reason the tool reads.
+    (49) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: AN EIGHTEENTH SUMMARY. A summary at transcript line 230755 (00:00:22.520Z), after
+     the trial's verdict read (flag 00:00:21Z), within Component 3's reads of the reference's run and Component 5's rewrite of the act
+     module's sections for b764 (tools/acts/b764.py regspec 1 to 20, the seven tools rendered, compiled and loaded at 23:51Z, the Edit tool,
+     uncommitted); the chain read the first route after it (00:00:47Z, a flag read before it: 230,827 rows, 0 lost, 0 after line 213525,
+     270 boundaries), the host's re-read notices of three scratch readers standing before it unsent by the seat; the ferry read whole in two
+     Reads, the author's word and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as
+     text in the seat's message before the next write, this row.
+    (50) THE SEAT'S [CLOSE ; NEW]: THE REFERENCE READ; THE TRIAL OF (7) FAILS. Dispatch 2 (the reference, the restore off, run
+     44838771976) completed at 23:57:39Z, the run's conclusion success, 15.0 minutes; its status read (23:59:26Z), downloaded (23:59:35Z)
+     and read by its run id (23:59:44Z), a flag read before each: STOPPED UNDER THE HOLD, the exit file 143, the build stopped at 13.1
+     minutes with the runner's free memory at its low 2,447 MB, the axioms print not run (the axioms file 1 line, sha256 8e54aa71fcdc95d6),
+     0 of 559 targets with an axioms line, sorry warnings 0, errors 0; the cache's record: the restore off, no key read, the build not
+     completed, the save skipped, from source. The tool's verdict (`trial`, flag 00:00:21Z): FAILS, its where "the reference`s exit file
+     143; the reference`s axioms print NOT RUN: NOT RUN: the build did not complete under the hold", lines equal 0, the restoring run 3.2
+     minutes against the reference's 15.0, runs 44826208702, 44838771976 and 44838852797. The three dispatches N1 allows are spent and
+     none is sent again. By (7): the workflow's change stays on push-b764-runner, main is not moved, no tag is cut, and [C3] is entered
+     with the FAILS sentence. Beside the verdict and not in it, the seat's reading: the save (run 44826208702, the restore on with no key
+     held) built from source at the same commit and exited 0, and its axioms file, 611 lines, has the restoring run's sha256
+     e3aa4721cb769f17; (7) names the run with the restore off the reference, so the save is not read in its place. Against the price's row
+     (7) reference+save (data/b764_price.txt :38, the two sent together): the save was sent alone and the reference after the save's read,
+     as the tool's controls order it (defect (g)), the waits read one after the other, 94.2 + 15.0 minutes, within the row's 1.13-1.73 h
+     with the restore's 3.2 beside it.
+    (51) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A NINETEENTH SUMMARY. A summary at transcript line 231615 (00:18:24.578Z), after
+     the address scan's bank (00:14:21Z) and the entry and the trail composed in memory (scratch entry764.py, writing nothing, 00:16:44Z and
+     00:17:05Z), within Component 5's rewrite of the act module's entry and trail composers and the second printing of data/b764_misses.txt
+     (the Edit tool, uncommitted); the chain read the first route after it (00:18:36Z, a flag read before it: 231,682 rows, 0 lost, 0 after
+     line 213525, 271 boundaries), the host's re-read notices of two scratch readers and data/b764_xlines.json standing before it unsent by
+     the seat; the ferry read whole in two Reads, the author's word and the step-zero, events, defects and refusals banks whole; the
+     restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (52) THE SEAT'S [CLOSE ; REPEAT b763 events (68)]: THE RECORD COMPOSED DRY, THE DRYCHECK REFUSED ON THE FACE, AND THE THREE TOOLS OF THE
+     LOCK CARRIED. The entry's dry by the route (flag 00:20:04Z) clean on every screen, the trail's (00:20:25Z) the same, its one unread
+     figure 'None', the root and the entry's own line, neither yet made; the record's drycheck (00:20:46Z) REFUSED, exit 1, on
+     data/b764_registration_2026-11-20.txt, the act's registration face, which the face tool writes after the probes and before the gate,
+     as at b763 (relay 256c3e8d, its face first written then). The act module, the worklist's ledgers commits, the address scan bank, the
+     misses' second printing (items (8) and (9)) and row (51) committed, relay 48e24225 (step 68, 00:23:28Z), the second printing printed to
+     the author in the message after that commit. tools/b764_lockgate.py, tools/b764_face.py and tools/b764_prepaths.py carried by
+     tools/b764_carry.py (00:24:01Z, 00:24:24Z, 00:25:10Z; data/b764_carry_lockgate.txt, _face.txt, _prepaths.txt) and set by the Edit tool
+     before any run: the lock gate's cite of the ferry's Component 5 at :155, the carry's [K2] reader having printed the shift's move of
+     b763's :143 onto b764's own :143, a blank line (data/b764_carry_lockgate.txt :11); the face tool's pairs (b763 -> b764, b762 -> b763,
+     (R373) -> (R374)), where the carry had left b763's b761 -> b762 carried to b761 -> b763, its LOGS comment at 0f9b1df2 and 7db9a66c, and
+     its summaries reader at the events bank's head "b763'S TWELVE FINDINGS AFTER ITS LOCK" and counting row (7)'s "TWO SUMMARIES", the
+     reader then reading nineteen summaries over rows (7) to (51) (scratch call, 00:27Z); committed, relay ec439ca3 (step 69, 00:27:48Z),
+     the worklist's C1_LOCKGATE set to it. The face tool's declared arms, its FIXES and its blocks file are set from the probes before the
+     face.
+    (53) THE AUTHOR'S [CLOSE ; REPEAT b764 events (31)]: THE QUESTION AND WORD ON (R374)(9)(b), A REPEAT OF THE WORD BANKED, ANSWERED
+     BANKED. Delivered by paste during the touch read's locator, a queued message at transcript line 232262 (2026-11-21T00:31:54.772Z; its
+     attachment at :232265), BEGIN and END present, 19 lines, 4,021 characters, sha256 83406cd26a22a80f, carriage returns 0, each of its
+     copies in the transcript equal (scratch word764b.py, read-only, word764.py's form). Its question: whether the act's record holds an
+     author's word of 2026-11-20 that withdraws the ruling's statement on FINDINGS :3111 and replaces words in [G1], [M1] and [M2], to be
+     answered in one line from the act's banks before anything of it is entered. The answer, printed in the seat's message: BANKED, relay
+     data/b764_author_words_preseal.txt :3, the word of 2026-11-20 on (R374)(9)(b) appended verbatim at 2026-11-20T18:29:55Z (BEGIN :2, END
+     :13; row (31)), its (i) to (iii) in [G1] as committed alone at 6fd013e9 (step 60) and its (iv) in [M1] at OPEN_TRAILS :19065. By the
+     paste's WHERE BANKED, nothing of it is entered again: the paste banked as a repeat of that word by `tools/standing/append.py b764
+     preseal` (flag 00:33:34Z, GO), data/b764_author_words_preseal.txt :15-:34 beneath the 13 lines, nothing rewritten, the chain read
+     beside it 0 lost; no text of [G1], [M1] or [M2] moved, no misses item added (its navigator's claim stands as item (7)), and the act goes
+     on.
+    (54) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTIETH SUMMARY. A summary at transcript line 232352 (00:34:08.954Z), after
+     the author's question was banked as a repeat (00:33:34Z) and row (53) written, before the answer's line was printed, within the touch
+     read's locator (scratch touch764.py, its feet part run at 00:29:59Z, read-only); the chain read the first route after it (00:34:33Z, a
+     flag read before it: 232,419 rows, 0 lost, 0 after line 213525, 272 boundaries), the host's re-read notices of two files (a scratch
+     reader and tools/b764_prepaths.py) standing before it unsent by the seat; the ferry read whole in two Reads, the author's words and
+     the step-zero, events, defects and refusals banks whole; row (53)'s two cites read again before the answer was printed ([G1]'s :9,
+     :11 and :12 holding the word's (i) to (iii); the words of (iv) in OPEN_TRAILS once, a count read); the answer's line, BANKED at relay
+     data/b764_author_words_preseal.txt :3, and the restatement, ten lines or fewer, stated as text in the seat's message before the next
+     write, this row.
+    (55) THE HOOK'S [CLOSE ; REPEAT b762 events (41)]: TWO REFUSALS, READ, THE KIND ABOVE b763'S COUNT. The hook refused two Read calls
+     before they ran, each with a limit above 200: tools/standing/fold/checks.tpl with a limit of 215 (2026-11-20T18:14:34Z), within
+     [K5]'s reads, and tools/acts/b764.py with a limit of 240 (23:01:12Z), within Component 5's survey of the act module's sections;
+     each sent again with an offset and a limit of 200 or less (data/b764_hook_refusals.txt :1 and :3). b763's bank holds no READ row, so
+     by [U3] (data/b754_rules.txt (12)) the kind is one event of this bank and takes no letter. The bank's third row, LIMIT (22:55:51Z, the
+     close order's reader sent with a timeout beneath its 600 s limit and sent again with 600000 ms, :2), stands at b763's count of one
+     and takes no event. Written at the touch read (00:4xZ), where the entry's refusals line reads "one event each" and no row of this bank
+     held the READ kind.
+    (56) THE SEAT'S [CLOSE ; NEW]: [K19]'S CITE OF tools/standing/commit.py MOVED BY v1.38.18, SET AT THE TOUCH READ. The repairs bank's
+     [K19] row (data/b764_repairs.txt :295 and its sentence's :299, committed at 5eecbb4a, 21:08:17Z) cited the rule's enforcement at
+     tools/standing/commit.py :1194-:1199, true at that commit (1,291 lines; the comment of v1.34.0, (R364)(3)(iii), and the scan's
+     bank_act at :1194-:1199). The kernel route of (7), v1.38.18 (815d0d6b, 21:30:51Z), added ten lines above it, so at HEAD (1,301 lines)
+     :1194-:1199 hold the post-lock refusal and the step-rows check, and the enforcement stands at :1204-:1209 (scratch k19cite764.py,
+     read-only, 00:41:08Z). The bank unpushed (no remote ref holding 5eecbb4a; the relay's origin/main at 0f9b1df2), both cites set to
+     :1204-:1209 by the Edit tool before the record, tools/standing/ at its last version of the act. Found by the touch read and entered
+     here as b763 entered its touch read's set (b763 events (80)); its class: a line cite of a standing tool banked before a later standing
+     commit of the same act, not read again after it.
+    (57) THE TOOL'S [CLOSE ; REPEAT b763 events (81)]: THE TOUCH READ COMMITTED; THE PROBE-PATH BANK, THE KERNELS FACE AND THE CLONE AT
+     MAIN, BEFORE THE PROBES. The touch bank (37 rows, AGREES 37 after the two sets; its foot read through tools/standing/needle.py foot,
+     STANDS, and G-TOUCH-READ through needle.py arm, PASS on the composed sources in 224.6 s, 00:46:48Z-00:50:33Z, data/b764_needle_calls.txt),
+     rows (55) and (56), the repairs bank's two set cites and the act module's two carried comments set (G-TOUCH-READ's docstring at the
+     ferry's Component 5, :155, where it read "Component 6 of (R374)"; G-DIFFERS-ERRATA's comment naming (R374)'s one ERRATA entry, where the
+     carry had shifted b763's comment on (R373), which ordered none) committed at step 71, relay 4f27f0e2 (00:51:00Z). `tools/b764_prepaths.py
+     --bank` with the 600 s limit (flag 00:51:25Z, GO): THE PROBE-PATH REFUSAL : CLEAR ; 40651 TRACKED PATHS READ ; CONTROLS 4 OF 4
+     (data/b764_pathrefusal.txt). `fold.py record kernels --act b764` through scratch cap760.py (flag 00:54:36Z, GO, 18 s, exit 0): kernels
+     read 24, SIDE-explicit-formula at main 819e4a83, unmoved, v0.43 peeling to 819e4a83 as b763 cut it, no tag cut by this act, this act's
+     branch push-b764-runner at 38a57e02 with the workflow's change alone, b763's branches kept (data/b764_kernels_face.json). The kernel's
+     clone, checked out at push-b764-runner since the trial, returned to main by the one-call tool's switch (flag 00:55:18Z, GO), as b763
+     returned it before its standing-a1 (b763 events (84)): branch main, HEAD = main = origin/main = 819e4a83, push-b764-runner at 38a57e02,
+     tracked changes 0. The probe banks stay untracked, as b761's to b763's.
+    (58) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-FIRST SUMMARY. A summary at transcript line 233203 (01:04:13.754Z), after
+     the act part's probe (flag 00:56:26Z, 260 s, exit 1) and three Edits of tools/acts/b764.py setting two arms' carried values,
+     uncommitted (row (59)); the chain read the first route after it (01:04:33Z, a flag read before it: 233,315 rows, 0 lost, 0 after line
+     213525, 273 boundaries), the host's re-read notices of two scratch readers standing before it unsent by the seat; the ferry read whole
+     in two Reads, the author's words and the step-zero, events, defects and refusals banks whole; the restatement, ten lines or fewer,
+     stated as text in the seat's message before the next write, this row.
+    (59) THE TOOL'S [CLOSE ; REPEAT b763 events (82)]: THE ACT PART'S PROBE; TWO ARMS ON CARRIED VALUES SET, SIX CONSTANTS NAMED LEFT EMPTY
+     BY THEIR CLAUSES. `fold.py checks --part act` through scratch cap760.py in the foreground (flag 00:56:26Z, GO; run at 00:56:39Z, 260 s,
+     exit 1): ARMS 31 ; LIVE PASSING 16 ; LIVE FAILING 11 ; NEGATIVE-CONTROL FAILURES 0 ; WITHHELD, NOT EXERCISABLE 4 (data/b764_probe_act.txt,
+     untracked). b763's probe at this place read 10 failing (data/b763_probe_act.txt :59), the arms that read the gate, the closing's dry,
+     the entry, the face's (W) row, the guard and the root, none yet made; b764's 11 hold those and two beside them. G-LISTINGS-BEFORE-CLAUSES:
+     its needle on the step-zero bank wanted b763's "THE --MERGED LISTING (19:08:17Z)" and its command matcher a plain `git branch --merged`,
+     where b764's listings ran inside scratch merged764.py (data/b764_stepzero.txt :24 and :62); set to b764's words and to b761's matcher
+     with b764's scratch named (tools/acts/b764.py, the checks override at MARK 3938376d9390 and the line binding first_listing_ts).
+     G-CORRIGENDUM-ENTERED: its carried override wanted items 70, b763's figure; set to b764's 127 (data/b764_corrigendum.json). The four
+     withheld by [K1]'s rule (v1.38.1), each printed with its constants before the arms ran: G-ARMS-RETIRED (STANDING_ADDED),
+     G-DELETES-ONE-BRANCH (KERNEL_DELETES), G-OFFSET-POST-HOC (KERNEL_DELETES, ORDER_TAGS, SITTING_TIPS, WEIL_TAG) and G-RULES-ROW-ENTERED
+     (C1_RULES); `tools/standing/toset.py b764` (flag 01:06:09Z) read 113 still to set and 2 left empty. Each of the six is empty by the
+     ruling, and each comment now names its clause in the rule's words (the Edit tool, tools/b764_worklist.py): KERNEL_DELETES BY (R374)(4),
+     C1_RULES and STANDING_ADDED BY (R374)(12), WEIL_TAG, ORDER_TAGS and SITTING_TIPS BY (R374)(13); read again (flag 01:06:58Z): 107 still
+     to set, 8 left empty. The fault [K1] names, met by its own repair's print at its first part.
+    (60) THE AUTHOR'S [CLOSE ; NEW]: THE WORD ON THE ORDERS THAT WAIT ON IT, BANKED AS GIVEN. Delivered by paste during the act part's
+     second probe, a queued message at transcript line 233515 (2026-11-21T01:08:47.431Z; its attachment at :233518), BEGIN and END
+     present, 13 lines, 2,817 characters, sha256 06f24a5c27be2204, carriage returns 0, each of its five copies in the transcript equal
+     (scratch word764c.py, word764b.py's form, read-only); banked verbatim by `tools/standing/append.py b764 preseal` (flag 01:14:46Z, GO),
+     data/b764_author_words_preseal.txt :36-:49 beneath its 34 lines, nothing rewritten, the chain read beside it 0 lost. Its ten items,
+     each taken up at the act the next ruling names: the author's word given for W-ORD-PNT-CHI, W-ORD-VENDOR-FINALMULT and W-ORD-H2-PI1,
+     each with its object; W-ORD-PREMISE-POSITIONS's act named by the next ruling; W-ORD-SEAM-UPSTREAM's word not given, the order standing
+     as written; W-ORD-DETECTION-DUAL's trigger rewritten and W-ORD-ROUTE-DE-EQUIV's written; the federation map's two names read side by
+     side; SIDE-explicit-formula's four held branches read, none removed without a further word; the Project's mirror ordered with a trial.
+     By its own words no order is started by it: nothing of it is entered in a ledger at b764, no trigger line of OPEN_TRAILS written, the
+     roster and the open orders as they stand, no held branch read or removed; the closing message names it beside the root's question,
+     which stands as (R374)(14) composes it.
+    (61) THE TOOL'S [CLOSE ; REPEAT b763 events (82)]: THE ACT PART'S PROBE AGAIN, AFTER THE SETS. Row (59)'s sets committed, relay 023985ee
+     (step 73, 01:07:42Z); `fold.py checks --part act` through scratch cap760.py in the foreground (flag 01:08:01Z, GO; 354 s by the capture,
+     330 s by the part): ARMS 31 ; LIVE PASSING 21 ; LIVE FAILING 10 ; NEGATIVE-CONTROL FAILURES 0 ; WITHHELD, NOT EXERCISABLE 0; [K1]'s
+     line NONE. The ten are b763's ten at this place (data/b763_probe_act.txt :59), G-R374-ENTERED for G-R373-ENTERED, each reading a bank
+     the close writes after the probes: the gate (G-DRY-STEP-CLEAN), the closing's dry (G-CLOSING-DRY-STEP), the entry (G-R374-ENTERED,
+     G-ENTRY-SCORES-EQUAL, G-ENTRY-TITLE-FORM), the command bank (G-DELETES-ONE-BRANCH, its count line, checks.tpl :834), the face's (W) row
+     (G-WRITELIST-MIRROR-STATE), the guard (G-GUARD-HELD) and the root (G-POSTROOT-WRITES-NONE, G-ROOTDRY-READY). G-LISTINGS-BEFORE-CLAUSES,
+     G-CORRIGENDUM-ENTERED and the four withheld now pass; G-RULES-ROW-ENTERED, run for the first time, took 103.8 s of the part's 105.0.
+    (62) THE SEAT'S [CLOSE ; REPEAT b763 events (84)]: STANDING-A1 AND STANDING-A2 PROBED; G-DELETE-FREE BEYOND b763'S, DECLARED; THE
+     RUNNER ARMS' CONSTANT NAMED LEFT EMPTY. Each part by `fold.py checks --part <part>` through scratch cap760.py in the foreground after a
+     flag read of its own, the kernel's clone at main since row (57). standing-a1 (flag 01:16:37Z, GO; 297 s, exit 0): no arm, its rows banked
+     for standing-a2 (data/b764_chain_half_nsm1_probe.json), 23 kernels' mains read, pairs unequal 0, sorry in code 15 (SIDE-explicit-formula's
+     C2Field/M<n>.lean, as at b763), remote reads 23 of 23 by the part, none from the run cache, the part READ. standing-a2 (flag 01:21:42Z,
+     GO): the harness moved it to the background at the 600 s limit (01:31:42Z), no second copy sent, its completion read from the task's
+     output (703 s by the capture, 643 s by the part, exit 1): ARMS 78 ; LIVE PASSING 51 ; LIVE FAILING 25 ; NEGATIVE-CONTROL FAILURES 0 ;
+     WITHHELD 2, remote reads 22 of 22, the part READ. The 25 are b763's 24 at this place (data/b763_probe_standing-a2.txt :133), each an
+     object of the lock, the seal, the root, the entry, the trail or the scores not yet written or an arm b763 declared, and G-DELETE-FREE
+     beside them: five temporary cleanups of tools/b764_repair_controls.py written as a loop the standing reader does not set apart (defect
+     (i)); the tool not edited and the arm declared on the face, as b762 declared it. G-RUNNER-READ and G-RUNNER-GATE withheld by [K1]'s rule
+     on M24_RUNS, empty by the ruling (no kernel beyond SIDE-explicit-formula, so no SIDE-dirichlet-mod-24 dispatch); its comment set to name
+     its clause, LEFT EMPTY BY (R374)(13) (the Edit tool, tools/b764_worklist.py). G-RULE-RECUT-QUOTE fails on b757's cut bank as at b763
+     (the reading's line: acts with more cut banks than searches [757]); G-AXIOM-CLAIM reads 0 claims and G-NO-SORRY-MAIN the 15 counted
+     texts, as at b763.
+    (63) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-SECOND SUMMARY. A summary at transcript line 234089 (02:39:22.563Z),
+     after the pre-lock comparison (flag 02:38:52Z) and the read-only reads for the face's declared lines (the probe banks of standing-a1
+     and standing-a2 by Grep, data/b763_registration_2026-11-19.txt's declared headings, tools/standing/fold/checks.tpl :1783,
+     tools/b649_checks.py :450-:455 and tools/rule_arms.py :389), nothing written after row (62)'s commit (93cc52ab, step 75) but the
+     untracked probe banks; the chain read the first route after it (02:39:42Z, a flag read before it: 234,164 rows, 0 lost, 0 after line
+     213525, 274 boundaries), the host's re-read notices of three files (data/b764_defects.txt, a scratch reader and a task's output)
+     standing before it unsent by the seat; the ferry read whole in two Reads, the author's words and the step-zero, events, defects and
+     refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (64) THE TOOL'S [CLOSE ; REPEAT b763 events (84)]: THE REMAINING PARTS PROBED, STANDING-A2 AGAIN, AND THE PRE-LOCK COMPARISON PRINTED.
+     Row (62)'s sets committed, relay 93cc52ab (step 75, 01:36:42Z); each part by `fold.py checks --part <part>` through scratch cap760.py
+     in the foreground after a flag read of its own (each GO), one a message, each under the 600 s limit: standing-c (flag 01:37:00Z; 554 s
+     by the capture, 508 s by the part, exit 0): ARMS 5 ; LIVE PASSING 5 ; LIVE FAILING 0, remote reads 2 of 2 by the part, the part READ;
+     standing-b1 (01:46:29Z; 353 s, 328 s, exit 0): ARMS 1 ; LIVE PASSING 1, no repository read, [K16]'s line THE PART NOT READ -- NONE,
+     COUNTED APART FROM A PASS; standing-b2a (01:52:29Z; 438 s, 413 s, exit 0): no arm, the chain's part A1 b624-b627 each AGREE, remote
+     reads 37 by the part and 1 from the run cache, the part READ; standing-b2b (01:59:54Z; 429 s, 405 s), standing-b2c (02:07:10Z; 476 s,
+     453 s) and standing-b2d (02:15:13Z; 481 s, 458 s), each exit 0 and no arm: parts A2 b628-b631, A3 b632-b635 and A4 b636-b658 each
+     AGREE, every remote read from the run cache, each THE PART NOT READ -- CACHED, COUNTED APART FROM A PASS; standing-b3 (02:23:22Z; 422
+     s, 398 s, exit 0): ARMS 1 ; LIVE PASSING 1 (G-ACTROOT-VERIFY), part B b659-b763 each AGREE, the first half 35 acts AGREE 35 at HEAD
+     93cc52ab, the boundary equal, NOT READ -- CACHED. Each part's WITHHELD 0 and NEGATIVE-CONTROL FAILURES 0 (data/b764_probe_standing-*.txt,
+     untracked). [K16]'s print met by its own repair, as (R374)(5) names it for c, b2b, b2c, b2d and b3 at b763; standing-c read its two
+     remotes itself at this pass. standing-a2 again, after M24_RUNS was named (02:30:37Z; 487 s by the capture, 428 s by the part, in the
+     foreground, exit 1): ARMS 78 ; LIVE PASSING 53 ; LIVE FAILING 25, the same 25 by name ; WITHHELD 0, G-RUNNER-READ and G-RUNNER-GATE
+     run and passing; remote reads 3 by the part and 19 from the run cache, the part READ. `tools/standing/prelock.py print b764` (flag
+     02:38:52Z, GO; it prints and writes nothing, the gate's route writing data/b764_prelock.txt): arms read 116 ; failing here 35 ; failing
+     at b763's pre-run 22 ; banks absent NONE ; NEWLY FAILING 13: G-ARMS-DECLARED-EQ-RUN, G-LOCKGATE-EIGHT, G-NOTHING-RAN-AHEAD,
+     G-RULE-SCORES-BEFORE-SEAL, G-SEAL-VERIFIES and G-SEALED-AFTER-COMPONENTS (standing-a2), G-CLOSING-DRY-STEP, G-DELETES-ONE-BRANCH,
+     G-DRY-STEP-CLEAN, G-GUARD-HELD, G-ROOTDRY-READY and G-WRITELIST-MIRROR-STATE (act), the twelve of b763's own comparison by name
+     (data/b763_prelock.txt :3-:15), each an object the close writes after the probes; and G-DELETE-FREE (standing-a2), defect (i). The face
+     names the thirteen before the gate.
+    (65) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-THIRD SUMMARY. A summary at transcript line 234610 (02:54:30.976Z), after
+     rows (63) and (64), the two needle calls of [K5] (data/b764_needle_calls.txt: the entry 49 of 49 standing; the trail 27 of 28, the
+     close's yield head standing in the converted form alone), the gaps reader over b763's sealed face (scratch gaps764.py, read-only) and
+     tools/b764_face_blocks.txt written by the Write tool, each uncommitted; the chain read the first route after it (02:54:44Z, a flag read
+     before it: 234,645 rows, 0 lost, 0 after line 213525, 275 boundaries), the host's re-read notices of two files (a scratch reader and
+     data/b764_defects.txt) standing before it unsent by the seat; the ferry read whole in two Reads, the author's words and the step-zero,
+     events, defects and refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next
+     write, this row. This row's first Edit was refused by the hook (WLIST, 02:56:00Z, data/b764_hook_refusals.txt :4): the (W) bank stale,
+     its source now the blocks file's (W) table (tools/standing/wlist.py :116-:123); `wlist.py show b764` then `bank b764` (flags 02:56:32Z
+     and 02:56:44Z, GO): the source face (tools/b764_face_blocks.txt), patterns 69, the seven word rows, written. The kind stands at 1
+     against b763's 4 (data/b763_hook_refusals.txt), so by [U3] it takes no event of its own.
+    (66) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-FOURTH SUMMARY. A summary at transcript line 235452 (03:13:46.001Z), after
+     the gate's first run (flag 03:07:35Z, NOT CLEAR), the face's three sentences set by the Edit tool with defect (j) entered, and the score
+     routes' dry form (flag 03:12:16Z, 83 s, exit 0, data/b764_scores_dry.txt), each uncommitted; the chain read the first route after it
+     (03:14:10Z, a flag read before it: 235,535 rows, 0 lost, 0 after line 213525, 276 boundaries), the host's re-read notice of a scratch
+     reader standing before it unsent by the seat; the ferry read whole in two Reads, the author's words and the step-zero, events, defects
+     and refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (67) THE SEAT'S [CLOSE ; REPEAT b763 events (87)]: HANDOFF, THE FIGURES, THE GUARD AND THE COMMAND BANK; THE GATE'S FIRST RUN NOT CLEAR
+     AND ITS ITEMS SET; THE SCORE ROUTES' DRY FORM TWICE; THE PASS IN THE PREVIOUS ACT'S MODE DRY, CLEAR. HANDOFF.md written once by
+     tools/standing/handoff.py, its dry read whole first (03:02:31Z, written 03:02:41Z: 154 lines, sha256 d41904c83a03311e), committed at
+     step 77, relay 6d4d47f5 (03:03:26Z), the worklist's HANDOFF_COMMIT set to it at step 78, relay 08f01de8. By their routes, each through
+     scratch cap760.py after a flag read of its own (each GO): the standing figures (03:04:59Z, 16 s: 1, 1, 0, 0, as b763's), the guard's
+     dry (03:05:23Z, 25 s, HELD) and the command bank (03:05:55Z, 44 s: COMMANDS 691, OFFENCES 0, LOCAL lean OR lake 0, DISPATCHES 3,
+     REDIRECTS AND PIPES OF ANY KIND 0, MOVE OR DELETE 5, the five deletes of (4), BRANCH DELETES OF ONE BRANCH 5 OF 5, OUTBOUND REQUESTS 0).
+     The face composed by tools/b764_face.py (03:07:23Z, 380 lines) and the gate's first run (flag 03:07:35Z, 67 s, exit 1): GATE VERDICT
+     NOT CLEAR, on the bar-floor screen's multi-arm phrases at the face's :50 and :99 and the straddle screen at :145 (defect (j)), on the
+     score routes' dry form absent and on the pass in the previous act's mode not run in any of its ten parts; the dry-run step CLEAN (the
+     entry's needles 49 of 49, the trail's 27 of 27, the Defects line's letters equal, the Resolved line equal), the closing's dry CLEAN
+     (its counter CLAIM 5, CLOSE 69, REPEAT 55 OF 74, the last event (65)), the report's dry CLEAN, the pre-lock comparison's thirteen newly
+     failing each on the face, the tags 74 rows, [U3] CLEAR. The three sentences set by the Edit tool, the (W) bank regenerated after each
+     (two Edits refused by the hook for the bank stale, data/b764_hook_refusals.txt :5 and :6). `fold.py record scores dry` (flag
+     03:12:16Z, 83 s, data/b764_scores_dry.txt): N1 HELD; N2 REFUTED, the ceiling tool's first run before its first commit (defect (k));
+     N3 REFUTED on [M1] and [G1], the act module's reader of the author's word finding it twice (defect (l)); N4 PENDING; N5 REFUTED on the
+     19 standing files read beyond the face's (W) list (defect (m)) and on the sealed tools not yet hashed; S1 to S3 PENDING. The reader
+     set to read equal copies once and the (W) row set to name the 19 files (flag 03:19:23Z, patterns 88 from 69), defects (j) to (m),
+     rows (66) and the blocks committed at step 79, relay c744c335 (03:21:54Z). The face composed again by the committed tool (03:22:13Z,
+     380 lines) and the score routes' dry form again (flag 03:22:19Z, 82 s): N1 HELD; N2 REFUTED on (k), standing as the clause reads it;
+     N3 PENDING on its one unread clause, the root prompt not yet banked; N4 PENDING; N5 REFUTED on the sealed tools not yet hashed alone,
+     the files beyond the (W) list and the shared tools beyond the membrane NONE, as b762's and b763's dry forms read before their seals;
+     S1 to S3 PENDING. `tools/standing/prevdry.py run <part>` for each of the ten parts, one a message, each in the foreground after a flag
+     read of its own (each GO) and its predecessor's bank, under the 600 s limit: standing-a1 (03:24:16Z, 285.6 s), standing-a2 (03:29:09Z,
+     415.8 s), standing-c (03:36:11Z, 250.0 s), standing-b1 (03:40:27Z, 336.2 s), standing-b2a (03:46:11Z, 406.6 s), standing-b2b
+     (03:53:05Z, 417.8 s), standing-b2c (04:00:09Z, 465.1 s), standing-b2d (04:08:01Z, 470.0 s), standing-b3 (04:15:58Z, 410.7 s) and act
+     (04:22:55Z, 233.8 s), each SOURCES OK (data/b764_prevdry_<part>.json); `prevdry.py print` (flag 04:26:55Z): THE PREV-MODE DRY : CLEAR
+     (parts 10 ; not clear NONE).
+    (68) THE TOOL'S [CLOSE ; NEW]: THE GATE'S SECOND RUN NOT CLEAR ON [U3] ALONE, A DEFECT ROW CITING THE REFUSALS BANK BY LINE. Row (67),
+     the blocks and the (W) bank committed at step 80, relay 28bc15e4 (04:28:21Z); the face composed by the committed tool (04:28:38Z, 380
+     lines) and read through [K5]'s bar call before the gate (flag 04:28:46Z: threshold paragraphs 0, multi-arm paragraphs 0, FLOOR MISSES 0,
+     ARM MISSES 0, data/b764_needle_calls.txt) and by scratch bar764.py for the straddle screen beside it (read only: no paragraph). The
+     gate again (flag 04:29:14Z, 66 s, exit 1): the index-query arm exit 0; thresholds 0, multi-arm 0, arm+repo-state paragraphs 2,
+     UNDECLARED 0; the dry-run step CLEAN (the Defects line 13 lettered); the closing's dry CLEAN (its counter CLAIM 5, CLOSE 75, REPEAT 61
+     OF 80, the last event (67)); the report's dry CLEAN; the pre-lock comparison's thirteen newly failing each on the face, the score
+     routes' dry form STANDS, the prev-mode dry CLEAR, the tags 80 rows; [U3] NOT CLEAR: defect (j) cited the two refusals of 03:10:47Z and
+     03:10:48Z by the refusals bank's path and line (data/b764_hook_refusals.txt :5 and :6), which the reader takes as a refusal given a
+     letter (tools/standing/counter.py :117-:119, a defect row holding the bank's path with a line); GATE VERDICT NOT CLEAR on it alone.
+     Defect (j)'s words set by the Edit tool to name the two by their times and their kind, counted by kind and given no letter, and to
+     point to row (67), which carries the bank's cite; no other defect row cites the bank by line (a count read); the gate run again.
+    (69) THE SEAT'S [CLOSE ; REPEAT b763 events (91)]: THE GATE CLEAR; THE GATE BANKS, A BANNED STEM IN THE FACE SET; THE GATE COMMIT; THE
+     ROOT ROUTE DRY READY. Defect (j)'s words and row (68) committed at step 81, relay 8e48dcb9 (04:31:49Z); the face composed again
+     (04:32:09Z, 380 lines) and the gate a third time (flag 04:32:16Z, 65 s, exit 0): GATE VERDICT CLEAR, [U3] CLEAR, none lettered.
+     As b763 did before its gate commit (b763 events (90)), the standing figures (flag 04:34:26Z, 16 s: 1, 1, 0, 0), the guard's dry
+     (04:34:48Z, 25 s, HELD) and the command bank (04:35:20Z, 44 s: COMMANDS 740, OFFENCES 0, LOCAL lean OR lake 0, DISPATCHES 3, REDIRECTS
+     OF ANY STREAM 0, MOVE OR DELETE 5, BRANCH DELETES OF ONE BRANCH 5 OF 5, OUTBOUND REQUESTS 0) run again by their routes, the face's
+     sentence keeping the first run's figures (COMMANDS 691), as b763's face kept 774 beside its bank's 831; the face again (04:36:21Z) and
+     the gate (04:36:28Z, 66 s): CLEAR. `fold.py record gatebanks` (flag 04:37:41Z, 130 s): banned_terms rc 1, NOT CLEAN, one live hit at
+     the face's :83, a banned stem in the face tool's declared line for the delete arm (tools/b764_face.py :60, written at Component 5);
+     regspec 0 artifact-count predictions; reg_satisfiable JOINTLY SATISFIABLE; the step-zero census NONE, the faces census missing 0, the
+     pins hard-failing 0. The line reworded by the Edit tool and committed before the tool ran again, step 82, relay 0859ddef (04:41:20Z);
+     the face (04:41:37Z, 380 lines) and the gate (04:41:44Z, 66 s): CLEAR; the gate banks again (04:42:56Z, 130 s): banned_terms CLEAN,
+     the rest as before, the four stamps d085501daf41bc77. The gate's 32 files staged by the one-call tool (04:45:37Z) in b763's form
+     (relay fbb9d53f) and the gate commit, its subject composed by the tool: step 83, relay 9c5bfb96 (04:45:58Z). `fold.py record rootdry`
+     (flag 04:46:17Z, 20 s): BANKS 78 ; CLEAN AND EQUAL AT HEAD 77, data/b764_needle_calls.txt unequal at HEAD, the bar call's row of
+     04:28:46Z uncommitted; READY False. The bank committed alone, step 84, relay ed600d4b (04:47:32Z); the root dry again (04:47:50Z, 21
+     s): BANKS 78 ; CLEAN AND EQUAL AT HEAD 78 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False (the record's push after the seal) ;
+     THE DRY RUN READY True.
+     e67ce0dd (04:48:53Z). The lock gate's controls (flag 04:49:17Z, 0 s: THE LIFT'S CONTROLS 2 OF 2 AS WANTED, nothing written), the close
+     order printed by its route (04:49:24Z, 12 s, [1] to [25], step [21] naming data/b764_events_postseal.txt) and the lock gate (04:49:42Z,
+     2 s): GATES READ 8, PASSING 8, FACE-SUBJECT GATES CHECKED BY DIGEST 4, the probe-path refusal 90 tracked paths, the compile control 8 OF
+     8, no commit to tools/standing/ after 815d0d6b leaving VERSION unmoved; VERDICT LOCK PERMITTED (data/b764_lockgate_notes.txt). The lock
+     by the one-call tool (flag 04:49:59Z): 109,438 bytes locked, sha256 d085501daf41bc77..., the lock block in the commit, the digest above
+     it EQUAL to the gate record's face_sha; step 86, relay 8d55d1bf (04:50:12Z). From the opening row (step 1, 17:06:15Z) to the lock, 11.73 h.
+    (71) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-FIFTH SUMMARY. A summary at transcript line 236624 (04:50:25.190Z), after
+     the lock commit, the first after the lock; the seat's first send after it was a Read of a memory note with no limit, refused by the
+     hook (READ, 04:50:37Z, data/b764_hook_refusals.txt :7; the kind READ at 3 against b763's 0, one event of this bank by [U3], row (55)),
+     sent again with a limit; the chain read the first route after it (04:51:10Z, a flag read before it: 236,773 rows, 0 lost, 0 after line
+     213525, 277 boundaries); the ferry read whole in two Reads, the author's words and the step-zero, events, defects and refusals banks
+     whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this file. From the lock the
+     events bank stands as committed at step 85 (N4); what is found after the lock is written here, a scratch source, and appended at step
+     [21] by tools/standing/append.py b764 events into data/b764_events_postseal.txt, and printed with its times in the closing.
+    (72) THE TOOL'S [CLOSE ; REPEAT b763 events (93)]: THE PRE-RUN IN TEN PARTS AND ITS COMBINE. Each part one message, in the foreground,
+     after a flag read of its own (each GO), each under the 590 s guard: standing-a1 04:53:16Z (278 s by the part: no arm, 23 kernels' mains,
+     23 remote reads by the part, READ), a2 04:58:25Z (446 s, exit 1: ARMS 78, LIVE PASSING 59, LIVE FAILING 19, b763's 18 at this part
+     with G-DELETE-FREE beside them, declared; 22 remote reads, READ), c 05:07:07Z (246 s: 5 of 5, NOT READ -- CACHED), b1 05:12:05Z (332 s:
+     1 of 1, NOT READ -- NONE), b2a 05:18:09Z (402 s: b624 to b627 AGREE, 2 remote reads, READ), b2b 05:25:21Z (415 s), b2c 05:32:45Z (462
+     s) and b2d 05:40:57Z (473 s): b628 to b658 AGREE, the boundary equal, each NOT READ -- CACHED; b3 05:49:21Z (408 s: G-ACTROOT-VERIFY
+     passing, b659 to b764 AGREE, NOT READ -- CACHED); act 05:56:39Z (335 s, exit 1: ARMS 31, LIVE PASSING 26, LIVE FAILING 5, b763's four
+     at this part, G-R374-ENTERED for G-R373-ENTERED, and G-COEFFS-LAW, row (73)). The combine (06:04:58Z, 12 s): ARMS RUN 116, LIVE
+     PASSING 92, LIVE FAILING 24 (data/b764_arms_prerun.txt), where b763's read 94 and 22 (b763 events (93)); the parts' seconds summed
+     3,793, the longest 473 s; the four declared failing, G-NO-SORRY-MAIN, G-AXIOM-CLAIM, G-RULE-RECUT-QUOTE and G-DELETE-FREE.
+    (73) THE SEAT'S [CLOSE ; NEW]: G-COEFFS-LAW FAILS BEYOND THE FACE: THE LOCK GATE'S CARRY READ AFTER THE HANDOFF. The arm reads the act's
+     relay commits in the order the act module's chain gives them (tools/acts/b764.py _chain, :632-:642): v9, the worklist's CHAIN, then the
+     handoff page and the lock gate's carry where each is made and not already in CHAIN, in that order; it wants their times sorted and each
+     consecutive pair an ancestor (:1013-:1024). b763's CHAIN held its lock gate's carry as 'close_carry' (tools/b763_worklist.py :555,
+     dbd562bb), so b763 read it at its place. b764's CHAIN (tools/b764_worklist.py :577) does not hold ec439ca3 (step 69, 00:27:48Z), so the
+     chain appends it after the handoff, 6d4d47f5 (step 77, 03:03:26Z): the times out of order and the pair handoff -> lockgate no ancestor
+     (scratch coeffs764.py, read only, 06:0xZ: chain keys 62, the lock gate in CHAIN False, ancestry False). The act part's probe (01:08:01Z)
+     read the arm passing, before HANDOFF_COMMIT was set (step 78, 03:0xZ), and no probe of the act part ran after; the pre-lock comparison
+     read the probe. The worklist is a tool tracked at the lock and is not edited (N4); the arm stands failing in the suites, beyond the
+     face. The class: a control taken before the change it reads, and a carried list read without the key b763's list held.
+    (74) THE TOOL'S [CLOSE ; REPEAT b763 events (94)]: THE PASS IN THE PREVIOUS ACT'S MODE. standing-a1 (06:05:36Z, 286 s): no arm,
+     PLACE-papers' changed files 5 against b763's allowed 3, the previous mode's reading; standing-a2 (06:10:54Z, 454 s, exit 1): PASS 55,
+     FAILED AS b763 FAILED 3, DIVERGE 20, each of the twenty printed with its cause by [K17]'s reader, where b763's pass read DIVERGE 20
+     with none given its cause (b763 events (94)); standing-c, b1, b2a to b2d and b3 (06:19:35Z-06:21:37Z): NOT RUN in mode prev, none of
+     them a sitting; act (06:21:59Z, 239 s, exit 1): PASS 12, FAILED AS b763 FAILED 1 (G-ENTRY-TITLE-FORM), DIVERGE 17, NOT RUN BY b763 1
+     (G-R374-ENTERED), each divergence with its cause, where b763's read DIVERGE 18. The arms' seconds (06:26:40Z): 85 of 85, the slowest
+     G-NOTHING-RAN-AHEAD 33.31 s. close.py dry (06:26:58Z): exit 0 on the first run, tools/mirror_prevbuild.json read by its content
+     ([K12]), where b763's dry exited 3 on its line ends (b763 events (95)); the letters entered before the seal 13, NEG controls shown
+     failing 116 of 116.
+    (75) THE SEAT'S [CLOSE ; REPEAT b763 events (96)]: THE SEAL, AND THE POST-LOCK ADDRESS SCAN AFTER THE SEAL ROUTE. The seal route
+     (06:27:22Z, data/b764_seal_hashes.json written, the relay head recorded 8d55d1bf); the post-lock address scan (06:27:36Z): PLACES
+     382, 0 on each of its four targets, controls 8 of 8 (data/b764_address_scan_postlock.txt), after the seal route and before the seal
+     commit, the place [K11]'s rule gives it; the seal's 79 files staged in b763's form (77a72b91) by the one-call tool (06:28:20Z) and the
+     seal commit, its subject composed by the tool: step 87, relay 45bdf4a1 (06:28:45Z), the sealed tools' hashes, 189 files.
+    (76) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-SIXTH SUMMARY. The scores written by their route (06:29:23Z: N1, N4, N5
+     and S3 HELD, N2 REFUTED on defect (k), N3, S1 and S2 PENDING, data/b764_scores.json); the root prompt's two remote reads by
+     `tools/standing/rootprompt.py remote`, one a message, each after a flag read of its own (each GO): the relay (06:31:23Z) "relay remote
+     at 0f9b1df2; local 84 commits past it", PLACE-papers (06:31:29Z) "PLACE-papers remote at 7db9a66c; local 2 commits past it" (data/
+     b764_rootprompt_remote.json); the question's draft (scratch put764.json) and its check by the composer's own pure functions (scratch
+     putcheck764.py, read only, 06:3xZ: put_check PASSED, costs unnamed NONE, sentences about the entry NONE). A summary at transcript line
+     237590 (06:34:39.172Z), after that check and before the question was put; the chain read the first route after it (06:35:38Z, a flag
+     read before it: 237,664 rows, 0 lost, 0 after line 213525, 278 boundaries), the host's re-read notices of four scratch files standing
+     before it unsent by the seat; the ferry read whole in two Reads, the author's words and the step-zero, events, defects and refusals
+     banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (77) THE AUTHOR'S [CLOSE ; REPEAT b763 events (99)]: THE ROOT'S QUESTION PUT AND ANSWERED; THE ANSWERS, THE REPORT AND THE ENTRY BY
+     THEIR ROUTES. The draft corrected after the summary (the repairs' states cited to the scores line, data/b764_scores.json :8, in place
+     of the registration face; two clauses no bank backs taken out of the options) and checked again (scratch putcheck764.py: put_check
+     PASSED, costs unnamed NONE); `tools/standing/rootprompt.py put b764` (flag 06:37:25Z, GO): data/b764_put_1.json, 1 question; the list
+     of (6), the 76 arms by name with the bank's limit on the reading (6 from the run cache, 1 VAC), printed in the seat's message beside
+     the question; the question put as banked (transcript line 237802, 06:37:53.066Z) and answered at 06:45:09.923Z (:237803): the
+     author's answer between BEGIN and END, route 4 in the author's words, the centre taken up in steps with readings beside it, the
+     ruling (R375) to follow the push. `fold.py record answers dry` (flag 06:45:18Z, 45 s: prompts 1, words 4, the bank standing 0 lines,
+     50 composed to append, nothing written) and `record answers` (flag 06:46:18Z, 45 s, exit 0): data/b764_author_answers.txt and .json.
+     The first pre-root add (06:47:29Z) in b763's form (b763's :212202, the act's names) and its commit, the scan over the staged set 8 of
+     8, PLACES 311, every count 0: step 88, relay 2a737f69 (06:47:53Z). `fold.py report bank` (flag 06:48:20Z, 12 s): 13 lines, sources 15,
+     seated 15 (data/b764_report.txt). `fold.py record findings` (flag 06:48:40Z, 13 s): every screen clean, the entry at FINDINGS :15877,
+     its INTEGRATION line bare as its last line (:15927), read by the Read tool alone.
+    (78) THE TOOL'S [CLOSE ; REPEAT b764 events (16)]: THE ENTRY'S CARRIED-TO AND NEXT LINES DO NOT CARRY THE AUTHOR'S ANSWER GIVEN IN
+     WORDS. FINDINGS :15921 (Carried to) lists (R374)(14)'s four routes as composed, and :15923 (Next) names the answers bank by its path
+     with no line and no answer, then the routes "as put", beside a bank that holds the author's answer (data/b764_author_answers.txt, the
+     RESULT of transcript line 237803 and the word from it). The reader (tools/standing/nextact.py word(), :53-:79, v1.38.3) takes an answer
+     only where a word of the author says "<next act> is", or where the prompt's RESULT does not open with BEGIN; the answer opens with
+     BEGIN and names the next act as "The act after b764", so word() returns None, line() puts the bank with no answer and carried_to()
+     leaves the line as composed (read from the code, 06:5xZ). [K8]'s planted control (data/b764_repair_controls.txt :89) read an answer
+     chosen among the options ("the author chose: ..."), not one given in words between BEGIN and END. The entry is the sealed tool's and
+     stands as composed (N4); the class [K8] names, met again by an answer form its control did not plant. The trail, written by its
+     route after the root (flag 06:59:27Z, record at OPEN_TRAILS :19071), carries the same in its Next line (:19131), read through the same
+     line(); its Resolved line's item (10) reads "the zero navigator misses", [K8]'s count word as repaired.
+    (79) THE TOOL'S [CLOSE ; REPEAT b763 events (101)]: THE ENTRY COMMITTED, THE FINAL TABLE, THE SECOND PRE-ROOT COMMIT AND THE PRE-ROOT
+     PUSHES. FINDINGS.md staged alone (06:50:17Z) and committed, the scan 8 of 8, PLACES 318: step 89, PLACE-papers 35b75536 (06:50:37Z).
+     `fold.py record table_final` (flag 06:50:55Z, 44 s): ROWS MOVED 0 ; ADDED 0 ; GONE 0 ; GRADE MOVED 0, data/terminal_table_prior.json
+     moved and the terminal table's two files not. The second pre-root add (06:52:05Z) in b763's form (b763's :212321, the act's names,
+     the prior alone of the table's three) and its commit, the scan 8 of 8, PLACES 317: step 90, relay c604474c (06:52:26Z); the step
+     row's commit, relay 08a551de (06:53:01Z, the scan PLACES 320, no row of its own). push-b764-preroot made in the relay (06:53:21Z) and
+     in PLACE-papers (06:53:27Z) by the one-call tool, one a message; the gated pushes, the relay first as at b763: the relay (flag
+     06:53:57Z) 0f9b1df2 to 08a551de, main read back equal, 0 tags; PLACE-papers (flag 06:54:40Z) 7db9a66c to 35b75536, the table gate PASS
+     (rows 2110, grade cells moved 0), main read back equal, 0 tags (data/b764_relay_push-b764-preroot_push_out.txt,
+     data/b764_PLACE-papers_push-b764-preroot_push_out.txt).
+    (80) THE TOOL'S [CLOSE ; REPEAT b763 events (102)]: THE ROOT IN ITS PARTS UNDER THE GUARD, THE ROOT COMMIT, THE TRAIL AND THE DESK.
+     Root part 1 (flag 06:55:29Z, 28 s by the capture): BANKS 143 ; CLEAN AND EQUAL AT HEAD 143 ; HEAD THE REMOTE MAIN True ; READY True,
+     the part's seconds 16.0 against the guard 590 s, b763's part 1 670.5 s, in the foreground; part 2 (06:56:13Z): 21.8 s, banks 143, not
+     clean or not equal 0, READY; the root (06:57:02Z, part 3 21.2 s): ACT ROOT b764 ca188c5bd053ba63..., previous b763 34de7cff,
+     repositories 38, tags 45, banks 143, written data/act_roots.txt (+1), data/b764_act_root.json and .txt; the root arm (06:57:43Z): the
+     recomputed root equal True, the one-byte control changes it True, the root order holds locally True. The root add (06:58:11Z) in
+     b763's form (b763's :212500, the act's names) and the commit: step 91, relay f4ffbeff (06:58:32Z). The trail dry (06:59:07Z) clean on
+     every screen and the trail by its route (06:59:27Z): OPEN_TRAILS :19071. The desk (07:00:05Z, 12 s): "THE DESK WRITTEN:
+     data/b764_desk_notes.txt, 45 lines, sha256 dd6e5a2a06752507", the marker met on the route's first line where b761 to b763 printed one
+     empty line ([K13], b763 events (104)). Root part 1 under the guard at its first run after [K15] (b763 events (102): 682 s, moved to the
+     background).
+    (81) THE TOOL'S [CLOSE ; REPEAT b763 events (105)]: THE PRE-PUSH SUITE, 111 OF 116, G-COEFFS-LAW FAILING BEYOND THE FACE; THE
+     COMPONENTS, THE TRAIL COMMIT, THE RECORD COMMIT AND ITS PUSHES. Each part one message, in the foreground, after a flag read of its own
+     (each GO), each under the 590 s guard: standing-a1 07:00:35Z (177 s by the part: no arm, 23 remote reads by the part, READ), a2
+     07:04:03Z (346 s, exit 4: ARMS 78, LIVE PASSING 74, LIVE FAILING 4, the four declared on the face; 22 remote reads, READ), c
+     07:10:57Z (356 s: 5 of 5, NOT READ -- CACHED), b1 07:17:46Z (230 s: 1 of 1, NOT READ -- NONE), b2a 07:22:08Z (299 s: b624 to b627
+     AGREE, 2 remote reads, READ), b2b 07:27:38Z (311 s), b2c 07:33:20Z (361 s) and b2d 07:39:57Z (368 s): b628 to b658 AGREE, the
+     boundary equal, each NOT READ -- CACHED; b3 07:46:43Z (310 s: G-ACTROOT-VERIFY passing, b659 to b764 AGREE, NOT READ -- CACHED); act
+     07:52:24Z (261 s, exit 1: ARMS 31, LIVE PASSING 30, LIVE FAILING 1, G-COEFFS-LAW, row (73); the entry's arms G-R374-ENTERED,
+     G-ENTRY-SCORES-EQUAL and G-ENTRY-TITLE-FORM passing). The combine (07:57:19Z, 12 s): ARMS RUN 116, LIVE PASSING 111, LIVE FAILING
+     5, WITHHELD 0, where b763's pre-push read 112 and 4 (b763 events (105)); the parts' seconds summed 3,019, the longest 368 s. The
+     components (07:57:40Z, 16 s). OPEN_TRAILS.md staged alone (07:58:02Z) and committed, the scan PLACES 358: step 92, PLACE-papers
+     1198a637 (07:58:23Z). The record add (07:59:04Z) in b763's form (b763's :212747, the act's names, 42 files, the ten exercise banks
+     the suite rewrites among them) and the commit, the scan PLACES 330: step 93, relay 173336ba (07:59:27Z); its step row, relay 828d0b7e
+     (07:59:54Z). push-b764-record in PLACE-papers (08:00:15Z) and its gated push (08:00:22Z): 35b75536 to 1198a637, the table gate PASS,
+     main read back equal, 0 tags; push-b764-record in the relay (08:01:01Z) and its gated push (08:01:07Z): 08a551de to 828d0b7e, main
+     read back equal, 0 tags.
+    (82) THE HOST'S [CLOSE ; REPEAT b764 events (30)]: A TWENTY-SEVENTH SUMMARY. A summary at transcript line 238564 (08:53:15.863Z),
+     after the post-push suite's standing-b3 (flag 08:47:36Z) and before its act part; the chain read the first route after it (08:53:27Z,
+     a flag read before it: 238,650 rows, 0 lost, 0 after line 213525, 279 boundaries), the host's re-read notices of two scratch files
+     standing before it unsent by the seat; the ferry read whole in two Reads, the author's words and the step-zero, events, defects and
+     refusals banks whole; the restatement, ten lines or fewer, stated as text in the seat's message before the next write, this row.
+    (83) THE TOOL'S [CLOSE ; REPEAT b763 events (109)]: THE POST-PUSH SUITE, 111 OF 116, AS THE PRE-PUSH. Each part by `fold.py checks
+     --rerun-postpush` through scratch cap760.py, one message, in the foreground, after a flag read of its own (each GO), each under the
+     590 s guard, the run key b764_run_8fafd6e500b35262: standing-a1 08:01:35Z (176 s by the part: no arm, 23 kernels' mains, pairs unequal
+     0, sorry in code 15, 23 remote reads by the part, READ), a2 08:05:02Z (421 s, exit 4: ARMS 78, LIVE PASSING 74, LIVE FAILING 4, the
+     four declared on the face; 22 remote reads, READ), c 08:13:11Z (277 s: 5 of 5, tracked files written 263 each against the (W) globs,
+     uncovered NONE, NOT READ -- CACHED), b1 08:18:42Z (230 s: 1 of 1, NOT READ -- NONE), b2a 08:23:06Z (301 s: b624 to b627 AGREE, 2
+     remote reads by the part, PLACE-papers among them, READ, where b763's post-push b2a read its remotes empty, b763 events (108)), b2b
+     08:28:38Z (310 s), b2c 08:34:19Z (358 s) and b2d 08:40:50Z (370 s): b628 to b658 AGREE, the boundary equal, each NOT READ -- CACHED; b3
+     08:47:36Z (309 s: G-ACTROOT-VERIFY passing, b659 to b764 AGREE, NOT READ -- CACHED); act 08:55:24Z (233 s, exit 1: ARMS 31, LIVE
+     PASSING 30, LIVE FAILING 1, G-COEFFS-LAW, row (73)). The summary of row (82) fell between b3 and act. The combine (08:59:57Z, 12 s):
+     ARMS RUN 116, LIVE PASSING 111, LIVE FAILING 5 (G-NO-SORRY-MAIN, G-AXIOM-CLAIM, G-DELETE-FREE and G-RULE-RECUT-QUOTE declared, and
+     G-COEFFS-LAW beyond the face), WITHHELD 0, as the pre-push read, where b763's post-push read 112 and 4 (b763 events (109)); the parts'
+     seconds summed 2,985, the longest 421 s (data/b764_checks_postpush.txt).
+    (84) THE SEAT'S [CLOSE ; REPEAT b763 events (110)]: STEP [21] TAKEN BY ITS ROUTE. The close order read again (flag 09:00:20Z, 11 s):
+     step [21] names data/b764_events_postseal.txt, appended by tools/standing/append.py's events kind and by no hand. Rows (70) to (84)
+     written from the lock on in a scratch source by the Edit tool, each at its time, and appended to that bank in one call; no bank
+     tracked at the lock written, the events bank standing as committed at step 85 (N4). b763's rows (92) to (110) were appended to its
+     own events bank by the Edit tool and committed (d784c1da), its N4 REFUTED on that commit (b764 events (22)). What is found after
+     this append goes to the closing message.
+    ### EVENTS 83 ; THE HEAD LINE`S 0
+
+### THE COMMITS, THE CENSUSES.
+    pre-push : ARMS RUN : 116. ### LIVE PASSING : 111. ### LIVE FAILING : 5 ['G-NO-SORRY-MAIN', 'G-AXIOM-CLAIM', 'G-DELETE-FREE', 'G-RULE-RECUT-QUOTE', 'G-COEFFS-LAW']. ### WITHHELD, NOT EXERCISABLE : 0 .
+    pre-push : VERDICT : NOT CLEAN 
+    post-push : ARMS RUN : 116. ### LIVE PASSING : 111. ### LIVE FAILING : 5 ['G-NO-SORRY-MAIN', 'G-AXIOM-CLAIM', 'G-DELETE-FREE', 'G-RULE-RECUT-QUOTE', 'G-COEFFS-LAW']. ### WITHHELD, NOT EXERCISABLE : 0 .
+    post-push : VERDICT : NOT CLEAN 
+      relay                            main 828d0b7e48b9 ; remote 828d0b7e48b9 ; AGREE
+      PLACE-papers                     main 1198a637590d ; remote 1198a637590d ; AGREE
+      SIDE-global-section              main 504e146bc038 ; remote 504e146bc038 ; AGREE
+      SIDE-explicit-formula            main 819e4a832700 ; remote 819e4a832700 ; AGREE
+      SIDE-faces-join                  main 11a472b90553 ; remote 11a472b90553 ; AGREE
+      SIDE-kernel                      main f8534ef26322 ; remote f8534ef26322 ; AGREE
+      SIDE-lv-conservation             main 305a87c9e09c ; remote 305a87c9e09c ; AGREE
+      SIDE-effects                     main db0575c6a0cd ; remote db0575c6a0cd ; AGREE
+      SIDE-silence-principle           main e7ee890ed1f9 ; remote e7ee890ed1f9 ; AGREE
+      SIDE-omega-b                     main f44b98a18ab0 ; remote f44b98a18ab0 ; AGREE
+      SIDE-cosmo                       main a1847d66f35e ; remote a1847d66f35e ; AGREE
+      SIDE-trivium                     main 18a351a13b3b ; remote 18a351a13b3b ; AGREE
+      SIDE-residual-bridge             main 0936c87202ff ; remote 0936c87202ff ; AGREE
+      SIDE-yang-mills-formation        main 1bfc716b6c55 ; remote 1bfc716b6c55 ; AGREE
+      SIDE-substrate-cluster           main d6aaac346edf ; remote d6aaac346edf ; AGREE
+      SIDE-constants                   main 545dde2671c2 ; remote 545dde2671c2 ; AGREE
+      SIDE-simplicity                  main 967f747c4365 ; remote 967f747c4365 ; AGREE
+      SIDE-bsd-formation-transfer      main 1eb78bad0659 ; remote 1eb78bad0659 ; AGREE
+      SIDE-bsd-multiplicity            main d77ce309e6bd ; remote d77ce309e6bd ; AGREE
+      SIDE-t7-topology-cmb             main 936cd65de384 ; remote 936cd65de384 ; AGREE
+      SIDE-local-cosmic-interface      main 4a7e75f12138 ; remote 4a7e75f12138 ; AGREE
+      SIDE-quaternionic-dark-sector    main ec4557b7b77f ; remote ec4557b7b77f ; AGREE
+      SIDE-spinor                      main 25c76d8ea207 ; remote 25c76d8ea207 ; AGREE
+      SIDE-bijection                   main 909836d01b5d ; remote 909836d01b5d ; AGREE
+      SIDE-class-coupling              main 406e05f39d55 ; remote 406e05f39d55 ; AGREE
+      SIDE-coupling                    main cbe66d9c9438 ; remote cbe66d9c9438 ; AGREE
+      SIDE-formation-arithmetic        main cd64a5c280bc ; remote cd64a5c280bc ; AGREE
+      SIDE-meta                        main a80bc3a59851 ; remote a80bc3a59851 ; AGREE
+      SIDE-orchestrator                main 5d0a34109fd0 ; remote 5d0a34109fd0 ; AGREE
+      SIDE-structural-error-correction main 5eabc6cf2c7e ; remote 5eabc6cf2c7e ; AGREE
+      SIDE-carrier-spec                main dd54a6163c17 ; remote dd54a6163c17 ; AGREE
+      SIDE-grh-transfer                main 6e149db34ab5 ; remote 6e149db34ab5 ; AGREE
+      SIDE-window                      main b9055074f965 ; remote b9055074f965 ; AGREE
+      SIDE-class-number-anomaly        main 68df58d440be ; remote 68df58d440be ; AGREE
+      SIDE-li-map                      main 9e02bc0010f1 ; remote 9e02bc0010f1 ; AGREE
+      SIDE-rcurve                      main 0bcb6c1d7076 ; remote 0bcb6c1d7076 ; AGREE
+      SIDE-archimedean                 main b71ffb8aa3fd ; remote b71ffb8aa3fd ; AGREE
+      SIDE-interfaces                  main d7a6c64e55ff ; remote d7a6c64e55ff ; AGREE
+      SIDE-explicit-formula            v0.37 peeled 38e273477257 ; at the remote 38e273477257 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.36 peeled dfadc8cb6b36 ; at the remote dfadc8cb6b36 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.35 peeled d4e046adbb84 ; at the remote d4e046adbb84 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.34.1 peeled e5fcda7b08f1 ; at the remote e5fcda7b08f1 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.34 peeled 8fbc27bef051 ; at the remote 8fbc27bef051 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.17 peeled 5a1630b8292b ; at the remote 5a1630b8292b (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.2 peeled 5c72cad24303 ; at the remote 5c72cad24303 (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-explicit-formula            v0.1 peeled baed4df861da ; at the remote baed4df861da (annotated, peeled) ; main 819e4a832700 ; AGREE
+      SIDE-substrate-cluster           v0.4.1 peeled 0c98a9a23cdb ; at the remote 0c98a9a23cdb (annotated, peeled) ; main d6aaac346edf ; AGREE
+      SIDE-substrate-cluster           v0.4 peeled 06b61c3afe80 ; at the remote 06b61c3afe80 (lightweight, its own line) ; main d6aaac346edf ; AGREE
+      SIDE-simplicity                  v0.1.2 peeled 967f747c4365 ; at the remote 967f747c4365 (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-simplicity                  v0.1.1 peeled 53df27fb6dcc ; at the remote 53df27fb6dcc (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-simplicity                  v0.1.0 peeled 54ba4f38b729 ; at the remote 54ba4f38b729 (annotated, peeled) ; main 967f747c4365 ; AGREE
+      SIDE-interfaces                  v0.2.1 peeled c8bd217af5ff ; at the remote c8bd217af5ff (annotated, peeled) ; main d7a6c64e55ff ; AGREE
+      SIDE-interfaces                  v0.2 peeled 172879629642 ; at the remote 172879629642 (annotated, peeled) ; main d7a6c64e55ff ; AGREE
+      SIDE-archimedean                 v0.1.1 peeled fcecc454077c ; at the remote fcecc454077c (annotated, peeled) ; main b71ffb8aa3fd ; AGREE
+      SIDE-archimedean                 v0.1.0 peeled 8019d9dfee87 ; at the remote 8019d9dfee87 (annotated, peeled) ; main b71ffb8aa3fd ; AGREE
+      SIDE-rcurve                      v0.1.1 peeled 54c9040709cf ; at the remote 54c9040709cf (annotated, peeled) ; main 0bcb6c1d7076 ; AGREE
+      SIDE-rcurve                      v0.1.0 peeled d5f33b44ef7b ; at the remote d5f33b44ef7b (annotated, peeled) ; main 0bcb6c1d7076 ; AGREE
+      SIDE-li-map                      v0.1.1 peeled 9e02bc0010f1 ; at the remote 9e02bc0010f1 (annotated, peeled) ; main 9e02bc0010f1 ; AGREE
+      SIDE-spinor                      v0.1.2 peeled 7e570eeddb57 ; at the remote 7e570eeddb57 (annotated, peeled) ; main 25c76d8ea207 ; AGREE
+      SIDE-class-number-anomaly        v0.2.1 peeled 68df58d440be ; at the remote 68df58d440be (annotated, peeled) ; main 68df58d440be ; AGREE
+      SIDE-window                      v0.5.2 peeled b9055074f965 ; at the remote b9055074f965 (annotated, peeled) ; main b9055074f965 ; AGREE
+      SIDE-trivium                     v0.1.2 peeled 6ede9af61387 ; at the remote 6ede9af61387 (annotated, peeled) ; main 18a351a13b3b ; AGREE
+      SIDE-silence-principle           v0.2.2 peeled 716b686ea846 ; at the remote 716b686ea846 (annotated, peeled) ; main e7ee890ed1f9 ; AGREE
+      SIDE-bijection                   v0.2.1 peeled b800504350f0 ; at the remote b800504350f0 (annotated, peeled) ; main 909836d01b5d ; AGREE
+      SIDE-grh-transfer                v0.5.1 peeled 6e149db34ab5 ; at the remote 6e149db34ab5 (annotated, peeled) ; main 6e149db34ab5 ; AGREE
+      SIDE-cosmo                       v0.3.1 peeled ca04c8cf467a ; at the remote ca04c8cf467a (annotated, peeled) ; main a1847d66f35e ; AGREE
+      SIDE-effects                     v0.1.1 peeled 78bbcff533b7 ; at the remote 78bbcff533b7 (annotated, peeled) ; main db0575c6a0cd ; AGREE
+      SIDE-carrier-spec                v0.4.2 peeled dd54a6163c17 ; at the remote dd54a6163c17 (annotated, peeled) ; main dd54a6163c17 ; AGREE
+      SIDE-structural-error-correction v0.2.3 peeled 5476ef356920 ; at the remote 5476ef356920 (annotated, peeled) ; main 5eabc6cf2c7e ; AGREE
+      SIDE-lv-conservation             v0.14.0 peeled cb0aea56354a ; at the remote cb0aea56354a (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-lv-conservation             v0.13.0 peeled 8e3bc76cbb32 ; at the remote 8e3bc76cbb32 (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-lv-conservation             v0.10.0 peeled 93c27ec2cb9b ; at the remote 93c27ec2cb9b (annotated, peeled) ; main 305a87c9e09c ; AGREE
+      SIDE-global-section              v0.3.0 peeled 504e146bc038 ; at the remote 504e146bc038 (annotated, peeled) ; main 504e146bc038 ; AGREE
+      SIDE-kernel                      v1.8 peeled 70aba3cd7392 ; at the remote 70aba3cd7392 (annotated, peeled) ; main f8534ef26322 ; AGREE
+      port-b707                        local cb0aea56354a ; remote cb0aea56354a ; AGREE (the forward-port`s branch, KEPT under (R374)(12): b712`s tip cb0aea56, no commit this act, tagged v0.14.0)
+      recut-b712-silence               local absent ; remote 0aeca8341ae4 ; ### DIFFER (the re-cut, merged into main at a86c9429 by b714, its second parent 0aeca834, on main True; deleted at b763`s step zero, (R373)(9))
+      SIDE-faces-join                  tags local ['v0.1.0'] ; at the remote ['refs/tags/v0.1.0', 'refs/tags/v0.1.0^{}'] ; v0.1.0 peeled 11a472b90553 ; AGREE (the join`s tag, b712`s, unmoved)
+      sorry-quarantine-SIDE-kernel     local a28f62f1f5f8 ; remote a28f62f1f5f8 ; AGREE (the quarantine and its legacy map)
+      sorry-quarantine-SIDE-lv-conserv local 011121e5d446 ; remote 011121e5d446 ; AGREE (the quarantine and its legacy map)
+      detection-region-b559            local 8faf7ded8754 ; remote 8faf7ded8754 ; AGREE (kept)
+      li-weil-b561                     local 2df46d79bd59 ; remote 2df46d79bd59 ; AGREE (kept)
+      grh-weil-b562                    local de1f175ec026 ; remote de1f175ec026 ; AGREE (kept)
+      li-weil-b563                     local 1e4a00792008 ; remote 1e4a00792008 ; AGREE (kept)
+      grh-weil-b564                    local 6ec71b302998 ; remote 6ec71b302998 ; AGREE (kept)
+      vendor-bulka-backport-b566       local 76c1f11eff5b ; remote 76c1f11eff5b ; AGREE (kept)
+      vendor-bulka-forward-b566        local e5a5a8347af1 ; remote e5a5a8347af1 ; AGREE (kept)
+      residue-discharge-b567           local fee07817fd27 ; remote fee07817fd27 ; AGREE (kept)
+      grh-weil-b567                    local 6baed63ae664 ; remote 6baed63ae664 ; AGREE (kept)
+      grh-weil-b569                    local 19b7d1e48a40 ; remote 19b7d1e48a40 ; AGREE (kept)
+      grh-weil-b569-held               local 0fdbe6545659 ; remote 0fdbe6545659 ; AGREE (kept)
+      grh-weil-b570                    local 141e844b7445 ; remote 141e844b7445 ; AGREE (kept)
+      grh-weil-b571                    local ac157c1d0024 ; remote ac157c1d0024 ; AGREE (kept)
+      grh-weil-b572                    local 4dce7b97eb29 ; remote 4dce7b97eb29 ; AGREE (kept)
+      grh-weil-b573                    local 21c8c522bfc8 ; remote 21c8c522bfc8 ; AGREE (kept)
+      epstein-b590                     local c404e727d7f7 ; remote c404e727d7f7 ; AGREE (kept)
+      simplicity-b596                  local 5a1630b8292b ; remote 5a1630b8292b ; AGREE (kept)
+      product-b600                     local 1dd5cd739bcc ; remote 1dd5cd739bcc ; AGREE (kept)
+      doubling-keiper-b601             local 5fc0c878182d ; remote 5fc0c878182d ; AGREE (kept)
+      sign-window-b602                 local 914c4137e196 ; remote 914c4137e196 ; AGREE (kept)
+      family-b603                      local 1d5d4dd9a481 ; remote 1d5d4dd9a481 ; AGREE (kept)
+      platt-b626                       local e939c9282e0c ; remote e939c9282e0c ; AGREE (kept)
+      cite-b628                        local 98b7668d1989 ; remote 98b7668d1989 ; AGREE (kept)
+      nb-b629                          local aa17442f98cc ; remote aa17442f98cc ; AGREE (kept)
+      dedekind-b631                    local 8c51431ada77 ; remote 8c51431ada77 ; AGREE (kept)
+      sec-axiom-b623                   local 6bf19ab0ef6a ; v0.2.2 peeled 6bf19ab0ef6a, at the remote 6bf19ab0ef6a (annotated, peeled) ; main 5eabc6cf2c7e (unmoved by this act) ; AGREE (kept, local)
+      TECHNE-Core                      main 36352a0b10e6 ; remote-tracking 29208f635b13 ; ahead 4, behind 0 -- PRIVATE, NOT PUSHED, NOT WRITTEN BY THIS ACT
+    censuses : the handoff count STOPPED ((R364)(5)[H1] (a), b754: HANDOFF.md regenerated by tools/standing/handoff.py) / TOTAL MISSING : 0
+    pins : REPOS HARD-FAILING : 0
+    pre-push, (R374)(2) : 111 OF 116 RUN ; FAILING 5 ['G-AXIOM-CLAIM', 'G-COEFFS-LAW', 'G-DELETE-FREE', 'G-NO-SORRY-MAIN', 'G-RULE-RECUT-QUOTE'] ; VACUOUS 0 [] ; THE CLAIM ARMS PASSING 34 OF 38 ; UNTAGGED ['G-R374-ENTERED', 'G-RESEARCH-REPRODUCES']
+    post-push, (R374)(2) : 111 OF 116 RUN ; FAILING 5 ['G-AXIOM-CLAIM', 'G-COEFFS-LAW', 'G-DELETE-FREE', 'G-NO-SORRY-MAIN', 'G-RULE-RECUT-QUOTE'] ; VACUOUS 0 [] ; THE CLAIM ARMS PASSING 34 OF 38 ; UNTAGGED ['G-R374-ENTERED', 'G-RESEARCH-REPRODUCES']
+    kernels written, N5`s clause as the ferry words it: no kernel beyond SIDE-explicit-formula is touched, and there the workflow's file alone ; no tag is cut ; no identifier of the author in anything the act writes beyond a byline, and this act writes no byline, the kernel's commit among what it writes ;
+    SIDE-explicit-formula`s workflow`s file alone, as (R374)(7) opens it: one commit 38a57e02 on push-b764-runner made at main 819e4a83, pushed --scratch and read back, kept for the next act`s step zero ; main from 819e4a83 unmoved, no tag cut, by the gated push`s default mode, never forced ; v0.38 to v0.43 peeling as before ;
+    the local main of SIDE-explicit-formula unmoved ; SIDE-dirichlet-mod-24`s main e5ebdd15 and v0.2.0 peeling to e5ebdd15, unmoved, nothing pushed there ;
+    the four held branches of SIDE-explicit-formula at their tips, zq-b730 at 1e658870 unmoved ; push-b763-arith, push-b763-keiper, push-b763-form, push-b763-squares kept ((R374)(4)) ; no kernel branch removed by this act ((R374)(4)) ; the rebuild-b721 branches of the wave 1 kernels as b764 found them ;
+    3 runner dispatches in SIDE-explicit-formula of the 3 the trial of (7) orders (N1), each read by its run id from its artifact, the exit file governing (relay data/b764_dispatch_rows.json, data/b764_controls.txt) ; none in SIDE-dirichlet-mod-24 (0 rows) ; no pin moved ;
+    port-b707 of SIDE-lv-conservation at b712`s tip cb0aea56, KEPT, its tag v0.14.0 unmoved ; SIDE-lv-conservation`s deposit v0.10.0 unmoved ;
+    SIDE-faces-join`s main 11a472b9 with its tag v0.1.0 unmoved ; N1: no lean or lake process on this host ; free memory read before each record route, suite part and dispatch ;
+    the push-b763-* branches of relay and PLACE-papers deleted at step zero by name, one per message, the --merged listing printed before them as captured shell commands ; N2: the step-zero reads, the chain read and the carry before any write ; tools/standing/ moved by (5) one commit a key and by (7) once, v1.37.2 to v1.38.18, VERSION moved by each, each with its planted control printed before and after (relay data/b764_repair_controls.txt) ; each act tool committed before its run ; the kernel`s main moved after the trial`s success alone ; the (W) regeneration and the pre-lock dry before the lock gate, the lock block in the lock commit, the scan over the staged set before every commit to its own bank ;
+    N3: no file under day1/, phase1.5/, phase2/ or internal/ differing from its bytes at 7db9a66c ; REGISTRY not written ; OPEN_TRAILS, FINDINGS and ERRATA each a prefix of its new bytes ; each text of the ruling as entered equal to the ruling`s text with its fields filled (relay data/b764_ledgers.json) ; [P1] and [G1] each committed alone, [G1] before the tool`s run ; no sentence of the act saying that anything of zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved ; a sentence about the control naming the side ; the navigator`s figures named as the navigator`s ; the entry`s INTEGRATION line in the form (11) gives ;
+    N5: of PLACE-papers and the other private repositories, what rows (6) to (9) of relay data/b754_rules.txt allow, and of the lines of [Q]`s row (3) their path, line and digest ; the reproduction run as (13) orders it ; no identifier of the author in anything the act wrote, committed or pushed, the kernel`s commit among them, and no byline (relay data/b764_address_scan.txt, data/b764_address_scan_postlock.txt, data/b764_address_scan_commits.txt) ;
+    the commits under the GitHub login and its noreply address ; no identifier of the author in any outbound request header, URL, input or payload, or in any workflow file ; no secret added ; the outbound reads: the seat`s plain requests to github.com ; gh reads under the GitHub login ;
+    nothing deposited ; no new Zenodo version ; no Zenodo call ; no draft published, the draft held at v5 ; no anchor edited ; in OPEN_TRAILS under one dated head [F1], [C1], the trial`s line, [D1], [D2], [M1], [L1] and [B1] ; no order entered, retired or closed by the seat beyond those lines and the roster`s reading of them ;
+    on PLACE-papers main FINDINGS (the corrigendum, the entry), ERRATA ([E1] at its end), OPEN_TRAILS (the lines of (7)-(9) and the trail), BIBLIOGRAPHY.md (the register`s section at its end) ; no sentence of a paper written or edited ; no paper moved or renamed ;
+    no FOUNDATIONS or faces page byte ; data/act_roots.txt (b764`s root) and the corrigenda bank appended ; data/act_current.json written at step zero ; data/arm_tags.json unedited ; no rules bank written, data/b754_rules.txt not rewritten ; the standing clauses` bank not rewritten ;
+    tools/standing/ v1.37.2 to v1.38.18, 19 version commits each with its planted control (relay data/b764_repairs.txt, data/b764_repair_controls.txt) ; HANDOFF.md written once by tools/standing/handoff.py before the gate, at relay 6d4d47f5 ; act_current`s shared_edits as standing/carry.py shared reads them ; the mirror zip and the two ledgers` cuts written outside every repository by tools/mirror_build.ps1 over the
+    roster it reads from PLACE-papers main, the builder`s state file tools/mirror_prevbuild.json written at the build and named in (W) ; nothing of any patent written
+
+### CARRIED FORWARD.
+    (a) ### **THE NEXT**: the act after this one, as the author answers at the root (the answers bank) ((R374)(14)): relay data/b764_author_answers.txt; as put: the proof of the control`s failure from its coefficients, in the reading whose upper price the table of (9)(c) puts below the others, opened by the trial of (7) where that was carried; or the registration H-ONSET-DENSITY, with W-ORD-ADMISSIBLE-CONE joined to it by [A2] of (R373); or the reading of the eighteen named premises under W-ORD-PREMISE-POSITIONS; or another the author names.
+    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-GW-IMPORT and W-ORD-TABLE-SHAPE read RETIRED by [A11] and [A12], W-ORD-PREMISE-POSITIONS ENTERED by [B2], the other renderings carried with their triggers ((R374)(9));
+        W-ORD-LI-ARITH, W-ORD-SIGN-SECTORS and W-ORD-STATEMENT-FILE by the build lines of (6), (7) and the author`s word; none entered, retired or closed by the seat; the orders before this act as they stand.
+    (c) For the next act, each from its bank: the root`s one question on the act after this one ((R374)(14)), the list of (6) printed beside it, its answer in relay data/b764_author_answers.txt ;
+        W-ORD-LI-ARITH carried with its four readings priced anew ([L1], relay data/b764_price.txt) ; W-ORD-LI-WEIL-BRIDGE by [B1] ; W-ORD-IMP2-TAU by [M1], its object the identity compiled for k in classK ; W-ORD-RUNNER-CACHE as the trial left it (relay data/b764_controls.txt) ;
+        the orders of (8) not built, each carried by name with its price (relay data/b764_orders_reading.txt, data/b764_price.txt) ; the fact item of [F1] for the paper`s next edition ; the registration H-ONSET-DENSITY as b763 left it ; [P1]`s predictions, each a registration at the act that computes it ;
+        the measure of (11) for the next act`s corrigendum: its hours from the lock to the closing beside b763`s 4.59, and its lettered defects tagged REPEAT whose class is a key this act`s repairs bank reads REPAIRED, wanted 0 (relay data/b764_repairs.txt) ;
+        the items of the seat`s read of what the ruling misses, printed again before the lock (relay data/b764_misses.txt) ; the defects of relay data/b764_defects.txt for the next corrigendum ; the draft held at v5.
+    (d) b628`s full intake bank, the navigator`s export, b671`s uncompressed points file, b681`s units file, data/b694_witness_units.jsonl,
+        data/b696_witness_balls_units.jsonl, data/b707_onset_units.jsonl, b709`s grid and pairs units files, b711`s, b713`s and b717`s
+        units files, b714`s rectangle units file (declared in their tools` heads) and records.json at relay`s root
+        (2026-09-24, not this act`s) stay local and untracked.
+    (e) The act root of b764 is relay data/act_roots.txt`s last line, chained from b763`s root; the mirror export carries it in MANIFEST.
+    (f) Branches left for the next act`s step zero: the push-b764* branches of relay and PLACE-papers. KEPT, not for deletion:
+        port-b707 of SIDE-lv-conservation (at the remote at cb0aea56, tagged v0.14.0); keiper-b725 at 01fd33c2, c2-b725 at 0395f15d, detect-b729 at 1023301c and zq-b730 at 1e658870 of
+        SIDE-explicit-formula, off main, zq-b730 carrying the tag v0.38 at 14ca5725 and b745`s Lean past it to 1e658870, unmoved this act; push-b759-weil, removed at the kernel`s remote by b760, its local branch on the clone kept at a3aad4cc;
+        push-b763-arith at ec14e9d9, push-b763-keiper at a59632eb, push-b763-form at 4964e957, push-b763-squares at 819e4a83 of SIDE-explicit-formula, b763`s, kept by (R374)(4) ; push-b764-runner at 38a57e02, this act`s, at the remote and on the clone, for the next act`s step zero;
+        push-b757-workflow of SIDE-dirichlet-mod-24, a local branch of its clone, merged into its main at e5ebdd15; scratch-b724 of SIDE-lv-conservation; corrigendum-b723 of relay;
+        challenge-b720-h2-sign-iff-rh of SIDE-explicit-formula; the pin-b718-de5ce8a9 branches; the rebuild-b721 branches of the wave 1 kernels as b764 found them.
+    (g) This act`s closing push-out bank gains the as-of lines after its push; the next act commits it.
+========================================================================================================
