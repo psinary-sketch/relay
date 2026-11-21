@@ -166,3 +166,22 @@ THE NAVIGATOR'S CLAIMS, FROM (R375)(1) (data/b765_ferry.txt :11), EACH ENTERED A
 
     (27) THE NAVIGATOR'S [CLAIM ; NEW]: (vi) item (2) of the author's word of 2026-11-20, drafted by the navigator, says the upstream source
      enters by a fetch; the host has held the clone at its pin since b596 (data/b596_lemmas.txt :2).
+
+COMPONENT 1 (the repairs' own rows stand in data/b765_repairs.txt, their controls in data/b765_repair_controls.txt):
+    (28) THE SEAT'S [CLOSE ; NEW]: THE CORRIGENDUM FOR b764 BY THE c1 ROUTE, ITS CORRIGENDA ROW BY HAND. The act module's c1 route written
+     for (R375)(1) inside its repair override (the Edit tool, tools/acts/b765.py), reading b764's events (1)-(69), its post-seal rows
+     (70)-(84) and its defects (a)-(m), its five CLAIM items in full, b765's rows (19)-(21) as the findings after the lock and (22)-(27)
+     as the navigator's claims. Rows (19)-(27) written by scratch nav765.py (10:48:51Z) and committed with the route, relay 8a9f386c (step
+     6, 10:52:16Z). The dry (10:51:46Z): ITEMS 97: EVENTS 69, POST-SEAL 15, DEFECTS 13 ; CLAIM 5, CLOSE 92 ; REPEAT 76, equal to b764's
+     counter (data/b765_ferry.txt :11). The write (10:52:36Z, `fold.py record c1 corrigendum write --act b765`): data/b765_corrigendum.txt,
+     .json and _landing.json; the corrigendum landed at FINDINGS :15929. data/b675_corrigenda.txt row (85) appended by the Edit tool after
+     the write, as b764's step 8 added row (84). PLACE-papers d9c03949 (step 7, 10:54:35Z) and relay 78f504a2 (step 8, 10:55:13Z), each
+     after a flag read of its own (GO), its scan 8 of 8 AS WANTED, every count 0, its subject read back EQUAL.
+
+    (29) THE HOST'S [CLOSE ; REPEAT b765 events (12)]: A FOURTH SUMMARY, THE FIRST AFTER STEP ZERO. A summary of the session at transcript
+     line 241744 (10:58:33.992Z), within [K20]'s repair: tools/standing/nextact.py edited to v1.38.19, VERSION written and
+     tools/b765_repair_controls.py written, none committed. The chain read the first route after it (10:58:47Z, a flag read before it: GO,
+     free memory 6,249 MB): `chain.py sessions`: 1 session from :239082, 241,808 rows, 0 lost, 283 boundaries, the last at :241744. The
+     ferry read whole (two reads), the author's words read whole, the step-zero, events and defects banks read whole, the refusals bank
+     absent (no data/b765_hook_refusals.txt). The restatement stated in ten lines before the next write (scratch find765corr.py,
+     read-only, 11:00:41Z).
