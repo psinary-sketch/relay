@@ -1,0 +1,525 @@
+b765 -- THE HELD BRANCHES OF SIDE-explicit-formula, READ UNDER (R375)(6)(c): A READING AND NO BUILD (2026-11-21T12:50:15Z)
+
+### the reader tools/b765_held_branches.py, sha256 d779b8a9a5d48e26, committed at relay e6d7be1c before its run; local git alone, no fetch and no remote read; main at 819e4a83 (819e4a832700). For each branch: its commits past main,
+### its files changed from its merge base with main, and for each declaration it holds (new or changed from the merge base) its verdict: SAME (main carries
+### a declaration of that name and statement), ANOTHER STATEMENT (the name on main, its statement differing) or ABSENT (no declaration of that name on main),
+### read by predicate, no statement text written. The orders: the W-ORD names in the branch`s own commit subjects and on the OPEN_TRAILS lines naming the branch,
+### by line number and name alone. No branch of the four is removed.
+
+  THE READER`S CONTROL: the planted text read for its declarations True (5 read, 5 wanted) ; a declaration of main at 819e4a83 (H2Sign.lean, h2_sign_imp_aim) read SAME against itself, ANOTHER STATEMENT against a planted change, ABSENT by another name True ; the mask over each of its 4 needles and the github form True ; AS WANTED
+
+## detection-region-b559
+  the ref refs/heads/detection-region-b559 at 8faf7ded ; the merge base with main 5c72cad2 ; commits past main 1 ; main past the branch 215
+    commit 8faf7de 2026-09-29T09:16:48 b559 -- HELD, NOT MERGED: DetectionRegion.lean under (R169), W-ORD-DETECTION-REGION, on the branch detection-region-b559 from v0.2
+  files changed from the merge base: 2
+    A AxiomCheckDetection.lean
+    A SIDEExplicitFormula/DetectionRegion.lean
+  its declarations, new or changed from the merge base: 9 ; SAME 5 ; ANOTHER STATEMENT 0 ; ABSENT 4
+    SIDEExplicitFormula.B321.detection_region ; new ; SIDEExplicitFormula/DetectionRegion.lean ; ABSENT
+    SIDEExplicitFormula.B321.ellOf ; new ; SIDEExplicitFormula/DetectionRegion.lean ; ABSENT
+    SIDEExplicitFormula.B321.forall_upto_iff_rh ; new ; SIDEExplicitFormula/DetectionRegion.lean ; SAME
+    SIDEExplicitFormula.B321.h2_sign_iff_forall_upto ; new ; SIDEExplicitFormula/DetectionRegion.lean ; SAME
+    SIDEExplicitFormula.B321.h2_sign_imp_upto ; new ; SIDEExplicitFormula/DetectionRegion.lean ; SAME
+    SIDEExplicitFormula.B321.h2_sign_upto ; new ; SIDEExplicitFormula/DetectionRegion.lean ; SAME
+    SIDEExplicitFormula.B321.h2_sign_upto_mono ; new ; SIDEExplicitFormula/DetectionRegion.lean ; ABSENT
+    SIDEExplicitFormula.B321.j₀ ; new ; SIDEExplicitFormula/DetectionRegion.lean ; ABSENT
+    SIDEExplicitFormula.B321.upto_all_imp_h2_sign ; new ; SIDEExplicitFormula/DetectionRegion.lean ; SAME
+  the orders: in its commit subjects ['W-ORD-DETECTION-REGION'] ; on the OPEN_TRAILS lines naming it none (lines :11491, :11497, :11510)
+  [B2]`S FIELD FOR IT: carried on main by 5 of its 9 declarations (forall_upto_iff_rh, h2_sign_iff_forall_upto, h2_sign_imp_upto, h2_sign_upto, upto_all_imp_h2_sign); detection_region, ellOf, h2_sign_upto_mono, j₀ still owed under W-ORD-DETECTION-REGION
+
+## vendor-bulka-backport-b566
+  the ref refs/heads/vendor-bulka-backport-b566 at 76c1f11e ; the merge base with main 6ec71b30 ; commits past main 1 ; main past the branch 204
+    commit 76c1f11 2026-09-30T18:51:04 b566 -- TRIAL (a), BACKPORT, under (R176)(3) step one: the closure of Lc.LiCriterion.Fidelity in github.com/<account>/li-criterion-rh-equivalence-lean at 35df682f (33 files, bodies byte-identical under Zeta23's header form; its LICENSE carried whole) under Vendored/Bulka, a lean_lib of its own in lakefile.toml, NOTICE's attribution block; built at the kernel's pins v4.33.0-rc2 / 51e6992e: 27 calls exit 0, Hadamard.General.Factorization exits 1 (3 errors: ite_eq_right, ite_eq_left unknown -- core lemmas added at v4.34.0-rc1), 5 downstream modules blocked. No source edit.
+  files changed from the merge base: 36
+    M NOTICE
+    A Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean
+    A Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean
+    A Vendored/Bulka/Hadamard/Basic.lean
+    A Vendored/Bulka/Hadamard/General.lean
+    A Vendored/Bulka/Hadamard/General/Factorization.lean
+    A Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean
+    A Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean
+    A Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean
+    A Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean
+    A Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean
+    A Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean
+    A Vendored/Bulka/Hadamard/OrderOne/QuotientCancellation.lean
+    A Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean
+    A Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean
+    A Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean
+    A Vendored/Bulka/Hadamard/Theorem.lean
+    A Vendored/Bulka/Hadamard/ZeroCounting.lean
+    A Vendored/Bulka/Hadamard/ZeroSet.lean
+    A Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean
+    A Vendored/Bulka/LICENSE
+    A Vendored/Bulka/Lc/LiCriterion/Basic.lean
+    A Vendored/Bulka/Lc/LiCriterion/Fidelity.lean
+    A Vendored/Bulka/Lc/LiCriterion/GenusOne.lean
+    A Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean
+    A Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean
+    A Vendored/Bulka/Lc/LiCriterion/HadamardSummabilityBridge.lean
+    A Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean
+    A Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean
+    A Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean
+    A Vendored/Bulka/Lc/LiCriterion/RHBridge.lean
+    A Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean
+    A Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean
+    A Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean
+    A Vendored/Bulka/Lc/XiZeros.lean
+    M lakefile.toml
+  its declarations, new or changed from the merge base: 423 ; SAME 423 ; ANOTHER STATEMENT 0 ; ABSENT 0
+    EntireLog.entire_has_entire_log_of_no_zeros ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/EntireLog.lean ; SAME
+    Hadamard.General.analyticOrderNatAt_canonicalProductZeroSetMultiplicityRank ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.analyticOrderNatAt_weierstrass_E_div ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.canonicalProductZeroSetMultiplicityRank ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.canonicalProductZeroSetMultiplicityRank_differentiable ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.canonicalProductZeroSetMultiplicityRank_eq_tprod_pow ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.canonicalProductZeroSetMultiplicityRank_eq_zero_iff ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.canonicalProductZeroSetMultiplicityRank_one ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.cofinal_zerosBallFinset_of_entire ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.exists_pow_two_lt_and_le_two_mul ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.exists_quotient_entire ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.hadamard_factorization_general ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.multipliable_pow_weierstrass_E_div_generic ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.multipliable_pow_weierstrass_E_div_of_summable ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.order_Q_le_lam_of_factorization ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.sigmaFiberSplitEquiv ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.sum_mult_div_norm_pow_le_rpow_of_two_pow ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.summable_inv_norm_pow_zWithMultiplicity ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.summable_mult_div_norm_pow_of_order_le ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.summable_sigma_inv_norm_pow_generic ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.tprod_pow_weierstrass_E_div_ne_zero_generic ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.tprod_pow_weierstrass_E_split_generic ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.tprod_sigma_weierstrass_E_eq_tprod_pow_generic ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.tsum_mult_div_norm_pow_tail_le_rpow_of_two_pow ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.tsum_zeroWithMultiplicity_eq_weighted_tsum_of_nonneg ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.General.weierstrass_E_away_from_one_lower_bound_explicit ; new ; Vendored/Bulka/Hadamard/General/Factorization.lean ; SAME
+    Hadamard.OrderOne.WithMultiplicity ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean ; SAME
+    Hadamard.OrderOne.card_zerosBallFinset ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.cofinal_zerosBallFinset ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.differentiableOn_tprod_weierstrass_E_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean ; SAME
+    Hadamard.OrderOne.differentiableOn_tprod_weierstrass_E_one_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean ; SAME
+    Hadamard.OrderOne.differentiable_tprod_weierstrass_E_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean ; SAME
+    Hadamard.OrderOne.exists_analyticAt_update_div_of_analyticOrderNatAt_eq ; new ; Vendored/Bulka/Hadamard/OrderOne/QuotientCancellation.lean ; SAME
+    Hadamard.OrderOne.finite_norm_le_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean ; SAME
+    Hadamard.OrderOne.finite_norm_le_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean ; SAME
+    Hadamard.OrderOne.hasProdLocallyUniformlyOn_weierstrass_E_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean ; SAME
+    Hadamard.OrderOne.hasProdLocallyUniformlyOn_weierstrass_E_one_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LocallyUniformProduct.lean ; SAME
+    Hadamard.OrderOne.logDeriv_exp_mul_tprod_weierstrass_E_one_eq_tsum_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.logDeriv_tprod_weierstrass_E_one_eq_tsum_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.logDeriv_tprod_weierstrass_E_one_eq_tsum_of_summable_mul_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean ; SAME
+    Hadamard.OrderOne.logDeriv_weierstrass_E_one_div ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.mem_divisor_support_of_simple_zero ; new ; Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean ; SAME
+    Hadamard.OrderOne.mem_divisor_support_of_zero ; new ; Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean ; SAME
+    Hadamard.OrderOne.mem_zerosBallFinset_iff ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.mem_zerosBallFinset_of_entire_iff ; new ; Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean ; SAME
+    Hadamard.OrderOne.multipliable_weierstrass_E_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean ; SAME
+    Hadamard.OrderOne.multipliable_weierstrass_E_one_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean ; SAME
+    Hadamard.OrderOne.ncard_zeros_le_of_order_le_one ; new ; Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean ; SAME
+    Hadamard.OrderOne.ncard_zeros_le_rpow ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.sum_invNorm_le_rpow_of_two_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.sum_multiplicity_zeros_le_of_order_le ; new ; Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean ; SAME
+    Hadamard.OrderOne.sum_multiplicity_zeros_le_of_order_le_one ; new ; Vendored/Bulka/Hadamard/OrderOne/ZeroCountingBounds.lean ; SAME
+    Hadamard.OrderOne.sum_multiplicity_zeros_le_rpow ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.sum_multiplicity_zeros_le_rpow_of_order_le ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.summable_analyticOrderNatAt_div_norm_pow_of_order_le ; new ; Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean ; SAME
+    Hadamard.OrderOne.summable_analyticOrderNatAt_div_norm_sq_of_order_le_one ; new ; Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean ; SAME
+    Hadamard.OrderOne.summable_inv_norm_sq_withMultiplicity_of_summable_mul_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean ; SAME
+    Hadamard.OrderOne.summable_logDeriv_weierstrass_E_one_div_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.summable_norm_weierstrass_E_one_sub_one_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean ; SAME
+    Hadamard.OrderOne.summable_norm_weierstrass_E_sub_one_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/MultipliableFactors.lean ; SAME
+    Hadamard.OrderOne.tendsto_norm_atTop_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/CofiniteControl.lean ; SAME
+    Hadamard.OrderOne.tprod_weierstrass_E_div_ne_zero_of_summable_inv_norm_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.tprod_weierstrass_E_one_div_ne_zero_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.tsum_fintype_eq_mul_tsum_term ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean ; SAME
+    Hadamard.OrderOne.tsum_invNorm_sq_tail_le_rpow_of_two_pow ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.tsum_withMultiplicity_eq_tsum_sigma ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDerivMultiplicity.lean ; SAME
+    Hadamard.OrderOne.weierstrass_E_div_ne_zero ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.weierstrass_E_one_div_ne_zero ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.weierstrass_E_one_eq_zero_iff ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.weierstrass_E_one_ne_zero ; new ; Vendored/Bulka/Hadamard/OrderOne/LogDeriv.lean ; SAME
+    Hadamard.OrderOne.zerosBallFinite ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.zerosBallFinite_of_entire ; new ; Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean ; SAME
+    Hadamard.OrderOne.zerosBallFinset ; new ; Vendored/Bulka/Hadamard/OrderOne/TailEstimates.lean ; SAME
+    Hadamard.OrderOne.zerosBallFinset_of_entire ; new ; Vendored/Bulka/Hadamard/OrderOne/SummabilityMultiplicity.lean ; SAME
+    Hadamard.ZeroCounting.card_zeros_le_of_maxModulus ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.card_zeros_le_of_max_one_maxModulus ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.isBoundedUnder_orderAux_of_hasFiniteOrder ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.maxModulus_le_exp_rpow_of_order_le ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.maxModulus_le_exp_rpow_of_order_le_one ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.mul_card_le_sum_of_forall_le ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.orderAux ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroCounting.sum_zeros_multiplicity_le_of_max_one_maxModulus ; new ; Vendored/Bulka/Hadamard/ZeroCounting.lean ; SAME
+    Hadamard.ZeroSet ; new ; Vendored/Bulka/Hadamard/ZeroSet.lean ; SAME
+    Hadamard.ZeroSetMultiplicity ; new ; Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean ; SAME
+    Hadamard.ZeroSetMultiplicity.ZeroWithMultiplicity ; new ; Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean ; SAME
+    Hadamard.ZeroSetMultiplicity.canonicalProductZeroSetMultiplicity ; new ; Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean ; SAME
+    Hadamard.ZeroSetMultiplicity.zWithMultiplicity ; new ; Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean ; SAME
+    Hadamard.ZeroSetMultiplicity.zWithMultiplicity_mk ; new ; Vendored/Bulka/Hadamard/ZeroSetMultiplicity.lean ; SAME
+    Hadamard.blaschke_on_sphere_norm_one ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.canonicalProduct ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.canonicalProductPartial ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.canonicalProductPartial_empty ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.canonicalProductZeroSet ; new ; Vendored/Bulka/Hadamard/ZeroSet.lean ; SAME
+    Hadamard.canonicalProduct_at_zero ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.cauchy_estimate_iteratedDeriv_at_zero ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.circleAverage_log_norm_of_hasLog ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.circleAverage_of_analytic ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.deriv_weierstrass_E_at_one_ne_zero ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.differentiableOn_weierstrass_product ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.differentiableOn_weierstrass_product_of_tendsto_norm_atTop ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.entire_no_zeros_is_exp_polynomial ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.exp_constraint_from_symmetry ; new ; Vendored/Bulka/Hadamard/Theorem.lean ; SAME
+    Hadamard.finite_sum_pow_bound ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.hasFiniteOrder ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.hasFiniteOrder_mul ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.jensen_formula ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.linear_coeff_zero_of_real_symmetry ; new ; Vendored/Bulka/Hadamard/Theorem.lean ; SAME
+    Hadamard.logTaylor_neg_eq_neg_sum ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.maxModulus ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.maxModulus_le_of_forall_norm_le ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.maxModulus_mono_of_differentiable ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.maxModulus_subseq_bound_of_order ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.norm_le_maxModulus_of_norm_le ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.norm_le_maxModulus_on_circle ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.order ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.orderAux_eventually_ge_neg_one ; new ; Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean ; SAME
+    Hadamard.order_formula ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.order_le_of_eventually_maxModulus_le_exp_rpow ; new ; Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean ; SAME
+    Hadamard.order_le_of_forall_pos_eventually_maxModulus_le_exp_rpow_add ; new ; Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean ; SAME
+    Hadamard.order_le_one_of_forall_pos_eventually_maxModulus_le_exp_rpow_one_add ; new ; Vendored/Bulka/Hadamard/OrderOne/OrderFromMaxModulus.lean ; SAME
+    Hadamard.polynomial_eval_eq_linear_of_natDegree_le_one ; new ; Vendored/Bulka/Hadamard/Theorem.lean ; SAME
+    Hadamard.polynomial_from_growth ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.re_le_of_norm_exp_le ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.re_lt_of_norm_exp_lt ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_analyticOrderAt_one ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_analyticOrderNatAt_one ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_at_one ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_away_from_one_lower_bound ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_continuous ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_differentiable ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_eq_zero_iff_general ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_ne_zero_general ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_one ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_one_eq_zero_iff ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_one_ne_zero ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_small_disk_log_norm_le ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_small_disk_lower_bound ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_small_disk_norm_sub_one_le ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_zero ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_E_zero' ; new ; Vendored/Bulka/Hadamard/Theorem.lean ; SAME
+    Hadamard.weierstrass_E_zero_arg ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_product_hasProdLocallyUniformlyOn ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    Hadamard.weierstrass_product_hasProdLocallyUniformlyOn_of_tendsto_norm_atTop ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+    LZCBorelCaratheodory.BallToUnitBall ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.BallToUnitBall.schwarz_bound ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.borel_caratheodory_point ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.boundaryRealSup ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.div_one_sub_mono ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius_differentiable ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius_inversion_bound ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius_maps_to_unit_ball ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius_norm_formula ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.mobius_zero ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.norm_lt_one_of_div_eq ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.real_part_le_boundaryRealSup ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LZCBorelCaratheodory.real_part_le_boundaryRealSup_closedBall ; new ; Vendored/Bulka/FunctionsOfOneComplexVariable/BorelCaratheodory.lean ; SAME
+    LiCriterion.NontrivialZero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.NontrivialZero.ne_half ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.NontrivialZero.ne_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.NontrivialZero.ne_zero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.XiGrowth.PR ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.bnd ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.bnd_le_exp ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.bnd_mono ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.completedRiemannZeta₀_eq_mellin ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.cst ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.cst_pos ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.exists_kernel_bound ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.exists_xi_bound ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.f_modif_eq_of_lt_one ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.f_modif_eq_of_one_lt ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.integrand_le_of_mem_Ioc ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.integrand_le_of_mem_Ioi ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.maxlog_mono ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_completedRiemannZeta₀_le ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_f_modif_of_lt_one ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_f_modif_of_one_lt ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_mellin_f_modif_le ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_mellin_le_bnd ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.norm_riemannXi_le_exp ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.riemannXi_hasFiniteOrder ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.riemannXi_order_le_one ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.rpow_mul_exp_neg_le ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiGrowth.term_le ; new ; Vendored/Bulka/Lc/LiCriterion/XiGrowth.lean ; SAME
+    LiCriterion.XiZeroWithMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.analyticAt_finset_prod ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.analyticAt_inv_linear ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.analyticAt_logDeriv_phi_riemannXi_of_real ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.analyticOrderAt_riemannXi_ne_top ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.analyticOrderNatAt_riemannXi_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.analyticOrderNatAt_riemannXi_pairedZero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.biconditional_rh_li_of_hadamard_order_one ; new ; Vendored/Bulka/Lc/LiCriterion/RHBridge.lean ; SAME
+    LiCriterion.biconditional_rh_li_of_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/RHBridge.lean ; SAME
+    LiCriterion.biconditional_rh_li_of_weighted_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/RHBridge.lean ; SAME
+    LiCriterion.coe_pairedZeroEquiv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.coe_pairedZeroWithMultiplicityEquiv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.coeff_sum_formula_precise_reduction ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.completedHurwitzZetaEven₀_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.completedRiemannZeta_ne_zero_of_one_lt_re ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.completedRiemannZeta₀_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.conj_indicator ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.conj_inv_two ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.conj_iteratedDeriv_zero_of_conj_invariant ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.conj_two ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.core ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.core_eq_neg_sq_div ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.deriv_conj_eq_of_conj_invariant ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.deriv_iterate_tendsto_of_uniform ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.deriv_one_div_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.deriv_single_factor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.deriv_xiPairedFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.deriv_xiPairedLinearFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.differentiableAt_finset_prod ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.differentiableOn_logDeriv_phi_on_ball ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.eventually_le_norm_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.eventually_le_norm_of_summable_inv_norm_sq_withMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.exists_increasing_finite_cover_of_countable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.exists_increasing_finite_cover_zeros ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.exists_increasing_finite_cover_zeros_with_multiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.f_analytic_of_differentiable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.forward_direction_key_geometric_fact ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.g ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.generating_function_on_finiteZeros ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.generating_function_on_finset ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.genus_one_of_weighted_genus ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.geometric_expansion ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.hasSum_taylorCoeff_logDeriv_on_ball ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.hurwitzEvenFEPair_f_modif_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.inv_norm_mul_pairedZero_le_of_two_le_norm ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.inv_norm_sub_half_sq_le ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.isolated_points_countable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.iter_deriv_inv_linear_eval_zero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.iteratedDeriv_conj_eq_of_conj_invariant ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.iteratedDeriv_const_mul_field ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.iteratedDeriv_finset_sum ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.iteratedDeriv_zero_fun ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.liPairedSummand ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.liPairedSummand_eq ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.liSummand ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.liSummand_pairedZero ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.liTerm ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.liTerm_add_liTerm_inv ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.li_criterion_equiv ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_criterion_equiv_of_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_criterion_equiv_of_weighted_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_criterion_from_sum_formula ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_criterion_rh_iff ; new ; Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean ; SAME
+    LiCriterion.li_equiv_from_sum_formula ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_equiv_from_weighted_sum_formula ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_pos_implies_rh ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.li_single_term_bound ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_algebraic_identity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_congr_of_eventuallyEq ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.logDeriv_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_eq_rootLogDeriv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_finite_prod ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_holomorphic ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_phi_finite ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.logDeriv_phi_riemannXi_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.mellin_conj_real ; new ; Vendored/Bulka/Lc/LiCriterion/Pringsheim.lean ; SAME
+    LiCriterion.modulus_criterion ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.modulus_one_minus_one_div_on_critical_line ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.multipliable_xiE1ProdWithMultiplicity_term_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.multipliable_xiE1ShiftedProd_term_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.multipliable_xiPairedLinearFactor_withMultiplicity_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.nhdsWithin_neBot_punctured ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.norm_core_le_const_mul_norm_sub_one_sq ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.norm_div_sub_half_le_half ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.norm_eq_re_of_im_eq_zero_of_re_nonneg ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.norm_le_three_halves_of_norm_sub_one_le_half ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.norm_logDeriv_le_of_norm ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.norm_mul_pow_le ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.norm_sq_diff ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.norm_sq_eq_to_re_half ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.norm_sq_ineq_to_re ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.norm_sq_lt_norm_sq ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.norm_zseq_lt ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.not_analyticAt_logDeriv_of_analyticAt_of_eq_zero ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.not_continuousAt_of_tendsto_norm_atTop ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.not_eventuallyEq_zero_phi ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.one_div_le_quarter_of_one_div_sq_le_sixteenth ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.one_half_le_norm_of_norm_sub_one_le_half ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.one_lt_modulus_iff_re_lt_half ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.one_minus_cos_nonneg ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.one_sub_div_sub_one_eq_one_div_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.one_sub_inv_mul_one_sub_inv_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.one_sub_inv_ne_zero ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.one_sub_one_div_one_sub_eq_inv_one_sub_one_div ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.one_sub_zpow_unitCircle_nonneg ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.pairedZero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZeroEquiv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZeroWithMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZeroWithMultiplicityEquiv ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZeroWithMultiplicity_involutive ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZero_involutive ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.pairedZero_val ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.paired_liTerm_eq_core ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.paired_sum_formula_of_mtest_and_cauchy ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.paired_sum_formula_of_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.paired_term_eq_s_sq_div ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.paired_term_pair_eq ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_analytic ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_differentiable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_eq ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_min_zero ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.phi_nonzero_in_unit_disk ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_nonzero_unit_disk_of_nonneg ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.phi_riemannXi_ne_zero_of_real ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.phi_zeros ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.positivity_implies_RH ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.re_le_half_of_phi_nonzero ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.re_mul_ofReal_pow ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.re_tsum_nonneg_of_nonneg_terms ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.real_part_of_unit_circle_power ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.rh_equiv_mathlib ; new ; Vendored/Bulka/Lc/LiCriterion/RHBridge.lean ; SAME
+    LiCriterion.riemannXi ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.riemannXi_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.riemannXi_ne_zero_of_one_lt_re ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.riemannXi_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.separation_radius_exists_of_summable_inv_norm_sq ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.sq_sub_expand ; new ; Vendored/Bulka/Lc/LiCriterion/MobiusMap.lean ; SAME
+    LiCriterion.sum_const_mul ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.summable_Li_paired_summand_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.summable_Li_paired_summand_withMultiplicity_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.summable_inv_mul_pairedZero_withMultiplicity_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.summable_inv_norm_sq_zeros_with_multiplicity_of_weighted_genus ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.summable_li_symmetrized ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.summable_weighted_Li_paired_summand_of_weighted_genus ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.t_lt_one ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.t_nonneg ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.taylorCoeff ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_const_mul ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_eq_li_symmetrized ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.taylorCoeff_eq_weighted_tsum ; new ; Vendored/Bulka/Lc/LiCriterion/Fidelity.lean ; SAME
+    LiCriterion.taylorCoeff_finite_Li ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_finite_on_finiteZeros ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.taylorCoeff_riemannXi_conj ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_riemannXi_im ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_singleLinearFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_square_singleLinearFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_xiPairedFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_xiPairedLinearFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.taylorCoeff_xi_sq ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.tendsto_atTop_sub_of_bounded ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.tendsto_norm_add_div_atTop ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.tendsto_norm_div_sub_atTop ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.tendsto_norm_inv_sub ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.tendsto_norm_logDeriv_of_analyticAt_of_eq_zero ; new ; Vendored/Bulka/Lc/LiCriterion/LogDerivPole.lean ; SAME
+    LiCriterion.tendsto_zseq_nhds ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.tendsto_zseq_punctured ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.term_eq ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.tsum_Li_paired_summand_withMultiplicity_eq_weighted_tsum ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.two_sub_add_inv_eq_neg_sq_div ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOne.lean ; SAME
+    LiCriterion.unitCircle_of_re_half ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.unit_circle_polar_form ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.weierstrass_E_one_eq_zero_iff ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.weierstrass_E_one_mul_neg ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.weierstrass_E_one_mul_paired_linear ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.weighted_paired_sum_formula_of_mtest_and_cauchy ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.weighted_paired_sum_formula_of_standard_hypotheses ; new ; Vendored/Bulka/Lc/LiCriterion/GenusOnePairedSumFormula.lean ; SAME
+    LiCriterion.xiE1ProdWithMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiE1ProdWithMultiplicity_sq_eq_exp_mul_tprod_xiPairedLinearFactor_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiE1ShiftedProd ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiE1ShiftedProd_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiE1ShiftedProd_sq_eq_tprod_xiPairedFactor_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiMultiplicityE1Prod ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xiMultiplicityE1Prod_eq_xiE1ProdWithMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xiPairedFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_differentiable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_eq_const_mul_pairLinear ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_differentiableOn_ball ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_multipliableLocallyUniformlyOn_ball_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_ne_zero_of_separation ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_norm_sub_one_le_eventually_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_norm_sub_one_le_of_one_le_norm ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_norm_sub_one_le_of_one_le_norm_on_ball ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedFactor_phi_tprod_ne_zero_of_separation_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_differentiable ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_one_sub ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_phi_differentiableOn_ball ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_phi_ne_zero_of_separation ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_phi_sub_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiPairedLinearFactor_sub_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xiZeroSet ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardSummabilityBridge.lean ; SAME
+    LiCriterion.xiZeroSetMultiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xi_entire ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_factorization_prod_with_multiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_factorization_prod_with_multiplicity_of_hadamard_order_one ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xi_factorization_shifted_prod ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_functional_equation ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_genus_one_of_hadamard_order_one ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardSummabilityBridge.lean ; SAME
+    LiCriterion.xi_hadamard_factorization_with_multiplicity ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xi_hadamard_factorization_with_multiplicity_polynomial ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardBridge.lean ; SAME
+    LiCriterion.xi_hadamard_genus_one_shifted ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_hadamard_genus_one_shifted_linear_coeff_zero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_half_ne_zero ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_hasFiniteOrder ; new ; Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean ; SAME
+    LiCriterion.xi_nonzero_away_from_nontrivial_zeros ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_order_le_one ; new ; Vendored/Bulka/Lc/LiCriterion/XiOrderBridge.lean ; SAME
+    LiCriterion.xi_sq_factorization_pairedLinear_withMultiplicity_of_weighted_genus ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_sq_factorization_paired_of_genus_one ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.xi_weighted_genus_one_of_hadamard_order_one ; new ; Vendored/Bulka/Lc/LiCriterion/HadamardSummabilityBridge.lean ; SAME
+    LiCriterion.xi_zeros_are_nontrivial_zeros ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.zero_pairing ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.zeros_conjugate_pairs ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.zeros_isolated ; new ; Vendored/Bulka/Lc/LiCriterion/Basic.lean ; SAME
+    LiCriterion.zseq ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    LiCriterion.φ ; new ; Vendored/Bulka/Lc/LiCriterion/ReverseDirection.lean ; SAME
+    XiZeros.Lambda_zero_implies_zeta_zero ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.NontrivialZero ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.mul_eq_zero_of_ne_zero_left ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.riemannXi ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.xi_eq_half_s_sm1_Lambda ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.xi_ne_zero_at_trivial_points ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.xi_zeros_are_nontrivial_zeros ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    XiZeros.zeta_zero_implies_Lambda_zero ; new ; Vendored/Bulka/Lc/XiZeros.lean ; SAME
+    entire_has_entire_log_of_no_zeros ; new ; Vendored/Bulka/Hadamard/Basic.lean ; SAME
+  the orders: in its commit subjects none ; on the OPEN_TRAILS lines naming it none (lines :11653)
+  [B2]`S FIELD FOR IT: carried on main by its 423 declarations, each of that name and statement
+
+## grh-weil-b569-held
+  the ref refs/heads/grh-weil-b569-held at 0fdbe654 ; the merge base with main 3c0a8dca ; commits past main 1 ; main past the branch 185
+    commit 0fdbe65 2026-10-01T02:56:06 b569 -- HELD: SIDEExplicitFormula/Chi/VerticalLine.lean under (R179)(6), DOES NOT COMPILE, not for main. The chi-analogue of Zeta23/WeilEF/VerticalLine.lean attempted at its archimedean step: norm_logDeriv_gammaFactor_le. Even chi is Zeta23's norm_logDeriv_Gammaℝ_le; odd chi (gammaFactor = Gammaℝ(s+1)) asks that bound at sigma + 1 in [3/2, 5/2], outside its range [1/2, 3/2] (digamma growth on 3/4 <= Re w <= 5/4 is not stated by Zeta23's digamma_growth_strip, 1/4 <= Re w <= 1). One error: linarith at the step sigma + 1 <= 3/2
+  files changed from the merge base: 1
+    A SIDEExplicitFormula/Chi/VerticalLine.lean
+  its declarations, new or changed from the merge base: 2 ; SAME 2 ; ANOTHER STATEMENT 0 ; ABSENT 0
+    SIDEExplicitFormula.GRHWeil.logDeriv_comp_add_one ; new ; SIDEExplicitFormula/Chi/VerticalLine.lean ; SAME
+    SIDEExplicitFormula.GRHWeil.norm_logDeriv_gammaFactor_le ; new ; SIDEExplicitFormula/Chi/VerticalLine.lean ; SAME
+  the orders: in its commit subjects none ; on the OPEN_TRAILS lines naming it ['W-ORD-BULKA-GENERIC', 'W-ORD-GRH-WEIL'] (lines :11722)
+  [B2]`S FIELD FOR IT: carried on main by its 2 declarations, each of that name and statement
+
+## challenge-b720-h2-sign-iff-rh
+  the ref refs/heads/challenge-b720-h2-sign-iff-rh at 33916475 ; the merge base with main badacccb ; commits past main 1 ; main past the branch 92
+    commit 3391647 2026-10-28T03:42:46 b720 under (R330)(5)(ii): the challenge file for h2_sign_iff_rh, form (A) of relay data/b718_challenge_price.txt -- SIDEExplicitFormula/Challenge/H2SignIffRH.lean, the statement alone over its definitions' imports, proof sorry; ChainProbe.lean at the root (imported by no module), the statement check and its two controls for build-module.yml's probe step; nothing else changed; main untouched, no tag
+  files changed from the merge base: 2
+    A ChainProbe.lean
+    A SIDEExplicitFormula/Challenge/H2SignIffRH.lean
+  its declarations, new or changed from the merge base: 2 ; SAME 0 ; ANOTHER STATEMENT 0 ; ABSENT 2
+    b720_probe_term_check ; new ; ChainProbe.lean ; ABSENT
+    h2_sign_iff_rh_challenge ; new ; SIDEExplicitFormula/Challenge/H2SignIffRH.lean ; ABSENT
+  the orders: in its commit subjects none ; on the OPEN_TRAILS lines naming it none (lines :16230, :16246)
+  [B2]`S FIELD FOR IT: still owed under no order named, none of its 2 declarations on main by name and statement
+
+## THE READING
+  detection-region-b559: carried on main by 5 of its 9 declarations (forall_upto_iff_rh, h2_sign_iff_forall_upto, h2_sign_imp_upto, h2_sign_upto, upto_all_imp_h2_sign); detection_region, ellOf, h2_sign_upto_mono, j₀ still owed under W-ORD-DETECTION-REGION
+  vendor-bulka-backport-b566: carried on main by its 423 declarations, each of that name and statement
+  grh-weil-b569-held: carried on main by its 2 declarations, each of that name and statement
+  challenge-b720-h2-sign-iff-rh: still owed under no order named, none of its 2 declarations on main by name and statement
+  no branch removed
