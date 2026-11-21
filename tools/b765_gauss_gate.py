@@ -119,21 +119,30 @@ def grid_row(point):
 
 
 def gl_rule(n):
-    """Gauss-Legendre on [-1, 1]: the nodes by Newton's method from the float guesses, each held as a point; the weights 2 / ((1 - x^2) P_n'(x)^2)."""
+    """Gauss-Legendre on [-1, 1]: the nodes by Newton's method from the float guesses; the weights 2 / ((1 - x^2) P_n'(x)^2). Computed at twice
+    the working precision and held as points, nodes and weights alike: the three-term recurrence widens a ball by about 2^n, so a weight
+    computed as a ball at the working precision carries a radius that is the recurrence's and not the rule's (b765's first run at :426:
+    4.5e-10 on the weights at n = 80 and 128 bits, the right side's radius 7.7e-7 over the gate's tolerance 5e-7, every node value of k and
+    of the integrand within 1e-26; data/b765_events.txt (40))."""
+    prec0 = ctx.prec
+    ctx.prec = 2 * prec0
     out = []
-    for i in range(1, n + 1):
-        x = arb(math.cos(math.pi * (i - 0.25) / (n + 0.5)))
-        for _ in range(14):
+    try:
+        for i in range(1, n + 1):
+            x = arb(math.cos(math.pi * (i - 0.25) / (n + 0.5)))
+            for _ in range(16):
+                p0, p1 = arb(1), x
+                for k in range(2, n + 1):
+                    p0, p1 = p1, ((2 * k - 1) * x * p1 - (k - 1) * p0) / k
+                dp = n * (x * p1 - p0) / (x * x - 1)
+                x = arb((x - p1 / dp).mid())
             p0, p1 = arb(1), x
             for k in range(2, n + 1):
                 p0, p1 = p1, ((2 * k - 1) * x * p1 - (k - 1) * p0) / k
             dp = n * (x * p1 - p0) / (x * x - 1)
-            x = arb((x - p1 / dp).mid())
-        p0, p1 = arb(1), x
-        for k in range(2, n + 1):
-            p0, p1 = p1, ((2 * k - 1) * x * p1 - (k - 1) * p0) / k
-        dp = n * (x * p1 - p0) / (x * x - 1)
-        out.append((x, 2 / ((1 - x * x) * dp * dp)))
+            out.append((arb(x.mid()), arb((2 / ((1 - x * x) * dp * dp)).mid())))
+    finally:
+        ctx.prec = prec0
     return out
 
 
@@ -212,10 +221,18 @@ def bank(*a):
          % (PREC, NODES[0], NODES[1]),
          '### form; data/b709_grid.txt read at :426 and :439 alone; nothing computed at a zero; no bank of zeros opened.', '',
          '## THE GATE, CELL BY CELL']
+    allu = []
+    for l in io.open(UNITS, encoding='utf-8'):
+        if l.strip():
+            allu.append(json.loads(l))
     ok = True
     for p in GRID_ROWS:
         u = U['gate/' + p]
         ok = ok and u['passes']
+        for e in [x for x in allu if x['key'] == 'gate/' + p][:-1]:
+            L.append('  %s, AN EARLIER RUN (tool %s, %s): S by the right side %s ; difference %s ; to 6 digits %s ; the quadrature`s two readings '
+                     'differ by %s ; %s, not the reading entered' % (p, e['tool']['commit'], e['at'], fmt(bl(e['S_gauss'])), e['diff'],
+                                                                      e['passes'], e['quad_diff'], 'PASSES' if e['passes'] else 'FAILS'))
         L.append('  %s (%s :%d, index %d): S by the right side %s ; banked S_NN %s +- %s ; difference %s ; to 6 digits %s ; A by the right side %s ; '
                  'A by the kernel`s bracket integral %s ; difference %s ; the quadrature`s two readings differ by %s ; %s' % (
                      p, GRID, u['line'], u['index'], fmt(bl(u['S_gauss'])), u['banked'][0], u['banked'][1], u['diff'], u['passes'],

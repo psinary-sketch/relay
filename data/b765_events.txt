@@ -274,3 +274,15 @@ COMPONENT 2:
      A 651.013011685; 16365 coefficients, all nonzero; 269 rational products), the ball HELD; M 8 d 3 -3.16752116493 and M 32 d 3
      -7.47322631634, reported. The bank (12:22:20Z): data/b765_window.txt and data/b765_window.json (16365 coefficients as rationals,
      sha256 4cbe7be1203883a6), [W1] to be entered at the record. No figure of the navigator's workspace printed as a banked figure.
+
+COMPONENT 3:
+    (40) THE SEAT'S [CLOSE ; NEW]: (5)(b)'S GATE, ITS FIRST RUN FAILING AT :426 BY THE TOOL'S OWN RADIUS; THE RULE REPAIRED. tools/b765_gauss_gate.py
+     (the navigator's right side at b709's N window, Gauss-Legendre on the six pieces of k in [0, 2L] at 40 and 80 nodes a piece, the
+     tail in closed form, P and PR b709's own) committed relay d2afdf53 (step 23, 12:24:53Z) before its run. Its first runs (12:25:1xZ):
+     at :439 S -7.49119104859 +- 7.66e-7, difference 1.2e-12, PASSES; at :426 S 0.259397287168 +- 7.72e-7, the midpoints differing by
+     -1.57e-13 and the right side's A from the kernel's bracket integral by -4.5e-16, the two quadratures by -2.3e-16, but the ball's
+     radius 7.72e-7 above the predicate's tolerance 5e-7: FAILS by the predicate's letter (defect (h)). The read-only diagnostic (scratch
+     diag765gate.py, 12:26:34Z): the weights of the rule carry 4.5e-10 (the three-term recurrence widening a ball by about 2^80), every
+     node value of k and of the integrand within 1e-26. The rule set to be computed at twice the precision and held as points, nodes and
+     weights alike, by the Edit tool; the predicate unchanged; the bank set to print each earlier run beside the reading entered; the
+     tool committed again before its next run.
