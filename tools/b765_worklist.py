@@ -577,7 +577,7 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### dispatch rows the dispatch tool's routes, the reproduce bank tools/research/reproduce.py's and the address scan's bank its standing
 # ### route's: each stands apart. The runner's bank and the ledgers appended as made
 GENS = (('the repairs` planted controls', 'tools/b765_repair_controls.py', ('e179b18b', '899f2767', 'fb7147dc', 'c2df59d7'), 'data/b765_repair_controls.txt', '45fc9622'),
-        ('the dispatch tool`s controls', 'tools/b765_controls.py', ('d9d459dc', '6808aa6b'), 'data/b765_controls_control.txt', 'd83c98a7'),   # ### the 33 of 33 bank of events (49), committed with row (58) (step 51)
+        ('the dispatch tool`s controls', 'tools/b765_controls.py', ('d9d459dc', '6808aa6b', '881803be', '62ffe878'), 'data/b765_controls_control.txt', '9cbe5247'),   # ### the 36 of 36 bank of events (60), committed with row (60) (step 54); the 33 of 33 of (49) at d83c98a7 before it
         ('the window of (5)(c)', 'tools/b765_window.py', ('e229ed54',), 'data/b765_window.txt', '9bbf85d2'),
         ('the gate of (5)(b)', 'tools/b765_gauss_gate.py', ('d2afdf53', '9c86b259'), 'data/b765_gauss_gate.txt', 'd69c0547'),
         ('the held branches of (6)(c)', 'tools/b765_held_branches.py', ('274285ed', 'e6d7be1c'), 'data/b765_held_branches.txt', '3ce343bc'),
@@ -630,7 +630,7 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          ('rulings_gen', '1c03384b'),
          # ### b765, Component 4 (the Edit tool, 17:3xZ): the relay's commits after rulings_gen read from git (git log 1c03384b..HEAD) and the
          # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
-         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'))
+         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -672,7 +672,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'rulings_gen': 'the ledgers tool of (4)-(9)',
                     'rows9': 'dispatch 9 read, the pair as wanted and H-RUNNER-RESTORE HELD', 'rows9_step': 'its step row',
                     'controls_ms2': 'the dispatch tool given the second save on main by the author`s word',
-                    'rows10': 'main moved and v0.44 cut, dispatch 10 stopped, the author`s word on the save on main banked'})
+                    'rows10': 'main moved and v0.44 cut, dispatch 10 stopped, the author`s word on the save on main banked',
+                    'rows11': 'the dispatch tool`s controls 36 of 36 banked, dispatch 11 sent, the ledgers tool and the act module set'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit
