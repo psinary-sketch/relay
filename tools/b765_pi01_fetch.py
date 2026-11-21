@@ -7,7 +7,10 @@ header naming anyone, no cookie, no retry; each text written into its own new, e
 local bank, untracked; no path of it is written by this tool into any tracked file). Prints, for each: the address, the final address after
 redirects, the HTTP status, the content type, the size in bytes and the sha256. An address refused prints its status and writes nothing.
 
-Route: `fetch <root>`, refused unless this file is committed and unchanged at the relay's HEAD, and refused where either folder exists."""
+Route: `fetch <root>`, refused unless this file is committed and unchanged at the relay's HEAD, and refused where either folder exists.
+Route: `again <name> <root>`: the same address of that name requested once more, alone, into its own new folder <name>_again -- the test
+of whether a refusal is transient (b765's first run, 12:52:43Z: the arXiv text reached, HTTP 200; the FOM message HTTP 404). The same
+address and no other; once."""
 import datetime, hashlib, io, os, subprocess, sys, urllib.error, urllib.request
 
 R = 'D:/relay'
@@ -30,15 +33,17 @@ def self_commit():
 
 def main():
     a = sys.argv[1:]
-    if len(a) != 2 or a[0] != 'fetch':
-        sys.exit('### usage: b765_pi01_fetch.py fetch <root>')
-    root = os.path.abspath(a[1])
+    if not ((len(a) == 2 and a[0] == 'fetch') or (len(a) == 3 and a[0] == 'again' and a[1] in [x[0] for x in ADDRESSES])):
+        sys.exit('### usage: b765_pi01_fetch.py fetch <root> | again <arxiv|fom> <root>')
+    root = os.path.abspath(a[-1])
     head = self_commit()
-    for name, _, _ in ADDRESSES:
+    todo = ADDRESSES if a[0] == 'fetch' else tuple((n + '_again', u, e) for n, u, e in ADDRESSES if n == a[1])
+    for name, _, _ in todo:
         if os.path.exists(os.path.join(root, name)):
             sys.exit('### the folder %s exists under the root -- nothing fetched (each text into its own new, empty folder)' % name)
-    print('### b765 (R375)(6)(d): the two fetches, the tool committed at relay %s ; the User-Agent %r' % (head, UA))
-    for name, url, ext in ADDRESSES:
+    print('### b765 (R375)(6)(d): %s, the tool committed at relay %s ; the User-Agent %r' % (
+        'the two fetches' if a[0] == 'fetch' else 'the address %s once more, alone' % a[1], head, UA))
+    for name, url, ext in todo:
         at = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
         req = urllib.request.Request(url, headers={'User-Agent': UA})
         try:
