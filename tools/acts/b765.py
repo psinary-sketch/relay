@@ -603,7 +603,7 @@ FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in '
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b765_misses.txt', 'data/b765_price.txt', 'data/b765_price.json', 'data/b765_registration.txt',     # ### step zero, (3) and [G2]
-                  'data/b765_author_words_preseal.txt', 'data/b765_amendments.json',                                     # ### the author's two words of 2026-11-21
+                  'data/b765_author_words_preseal.txt', 'data/b765_amendments.json',                                     # ### the author's three words of 2026-11-21
                   'data/b765_corrigendum.txt', 'data/b765_corrigendum.json',                                             # ### Component 1, (1)
                   'data/b765_repairs.txt', 'data/b765_repair_controls.txt', 'data/b765_standing_dry.txt', 'data/b765_kernel_bases.json',   # ### Component 1, (8); (4)'s route
                   'data/b765_controls_control.txt', 'data/b765_dispatch_rows.json', 'data/b765_controls.txt',            # ### (4) and (5)'s dispatches, the trial's bank
@@ -1050,13 +1050,13 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     bank at HEAD its blob there (the repairs' planted controls, the dispatch tool's controls, the window, the gate, the held branches, the
     map's files, the premise positions, the builder's controls, the trial's bank and the ledgers: ten); K.GENS_WITH_BANK empty and no
     ceiling bank, the reading after Component 2 standing in the events bank; the feet as the entry reads them -- the dispatch tool's
-    controls 33 of 33, the premise positions 14, 0, 0 and 4, the builder's controls 12 of 12, the reading of (6)(d) two addresses and one
+    controls 36 of 36, the premise positions 14, 0, 0 and 4, the builder's controls 12 of 12, the reading of (6)(d) two addresses and one
     reached, the price table and the corrigendum, each its fixed words; the window HELD, the gate passing and no held branch removed, each
     by its line; the trial's foot within the worklist's cap and the ten, its controls whole; the ledgers' foot one file appended with its
     controls whole, and the roster's after figure the orders bank's OPEN; the reproduction run's foot, its rows summing and its planted
     controls whole."""
     gk_ = _gens_ok(S)
-    feet_ = [('b765_controls_control.txt', 'THE TOOL`S CONTROLS: 33 OF 33 AS WANTED ; ALL AS WANTED.'),
+    feet_ = [('b765_controls_control.txt', 'THE TOOL`S CONTROLS: 36 OF 36 AS WANTED ; ALL AS WANTED.'),   # ### b765: 36 since the item mainsave2 (relay 62ffe878, banked 17:21:32Z), 33 before
              ('b765_premise_positions.txt', 'PREMISES 18: A HYPOTHESIS BY DESIGN 14, DERIVED 0, OF THE HYPOTHESIS`S STRENGTH 0, NONE OF THESE COMPILED 4 ; THE CONTROL AS WANTED ; NO ORDER RETIRED.'),
              ('b765_project_set_control.txt', 'THE CONTROLS: 12 OF 12 AS WANTED'),
              ('b765_price.txt', 'THE PRICE TABLE: STEP ZERO 0.72 h ; THE LOWER SUM 18.55 h AGAINST THE CEILING 24 h, NOTHING CARRIED ; THE UPPER SUM 56.09 h ; DISPATCHES 6-13 OF AT MOST 13 ; (6)(d) PRICED 0.40-1.20 h.'),
@@ -3421,7 +3421,7 @@ def _ot_line(n, sha16):
 
 
 def _finding_text_b765(f, S, rep, tot):
-    """b765's paragraphs over b765's objects ((R375)(1)-(13) and the author's two words of 2026-11-21): every figure from a bank's foot or line
+    """b765's paragraphs over b765's objects ((R375)(1)-(13) and the author's three words of 2026-11-21): every figure from a bank's foot or line
     as _figs reads it, each outcome by the ledgers' entered line, nothing typed; the entry's last line the INTEGRATION line of (10)."""
     b7h_ = _b7_head()
     cj_ = jl('%s_corrigendum.json' % ACT) or {}
@@ -3472,7 +3472,7 @@ def _finding_text_b765(f, S, rep, tot):
              'the statement of the control`s failure compiled as a definition and Gauss`s integral for its archimedean term %s, each by its run`s axioms print; every '
              'build a runner dispatch read by its run id, %d in SIDE-explicit-formula and none elsewhere (relay data/b765_dispatch_rows.json); no lean process on this host.' % (
                  'proved whole' if 'S2' in le_ else 'not proved whole', f['disp_ef'])), '',
-         '*Filed at b765 on the author’s ruling `(R375)` and the author’s two words of 2026-11-21, Route A on W-ORD-H2-PI1 and the runner’s cache; %d question%s put '
+         '*Filed at b765 on the author’s ruling `(R375)` and the author’s three words of 2026-11-21, Route A on W-ORD-H2-PI1, the runner’s cache and the save on main; %d question%s put '
          'before the root%s. Banks: relay `data/b765_misses.txt`, `data/b765_price.txt`, `data/b765_registration.txt`, `data/b765_author_words_preseal.txt`, '
          '`data/b765_amendments.json`, `data/b765_corrigendum.txt`, `data/b765_repairs.txt`, `data/b765_repair_controls.txt`, `data/b765_standing_dry.txt`, '
          '`data/b765_kernel_bases.json`, `data/b765_controls_control.txt`, `data/b765_dispatch_rows.json`, `data/b765_controls.txt`, `data/b765_window.txt`, '
@@ -3961,7 +3961,7 @@ def _trail_text_b765():
     psb_ = f['ps_build'] or {}
     cnt_, repl_ = _measure()
     rows_ = ['', TRAIL_HEAD(), '',
-             '**(R375) ratified.** Its components as the ferry orders them (relay data/b765_ferry.txt), each read below from its bank; the author`s two words of 2026-11-21 amending it, Route A on W-ORD-H2-PI1 joined to (6) as (6)(d) and the runner`s cache amending (4), each an amendment row, [G2] PART ONE`s hypothesis unchanged (relay data/b765_author_words_preseal.txt, data/b765_amendments.json).', '',
+             '**(R375) ratified.** Its components as the ferry orders them (relay data/b765_ferry.txt), each read below from its bank; the author`s three words of 2026-11-21 amending it, Route A on W-ORD-H2-PI1 joined to (6) as (6)(d), the runner`s cache amending (4), and the save on main amending (4) and the word on the cache`s (iii), each an amendment row, [G2] PART ONE`s hypothesis unchanged (relay data/b765_author_words_preseal.txt, data/b765_amendments.json).', '',
              '**Entered:** FINDINGS.md:%s (the corrigendum for b764), :%s (the entry); OPEN_TRAILS.md:%s under one dated head, %s; this record, [R1] in it.' % (
                  f['corr_line'], fj.get('entry_line'), f['led_head'][0], ', '.join('[%s] at %s' % (k_, ln_(k_)) for k_ in f['led_keys'])), '',
              '**b764 at its weight** ((R375)(1)): closed at relay %s and PLACE-papers %s, the scores %d of %s HELD (%s); the corrigendum short at FINDINGS :%s, b764`s %s CLAIM items printed in full, the findings after its lock entered as events, the navigator`s own %d entered CLAIM, no weight line (relay data/b764_scores_close.json, data/b765_corrigendum.txt).' % (
