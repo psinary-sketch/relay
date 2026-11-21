@@ -48,3 +48,15 @@ b765 -- THE PLANTED CONTROLS OF THE REPAIRS, (R375)(8), one section a key, each 
     AFTER: CLEAN
   (diff)   the acts each table gains and loses, BEFORE to AFTER: FF_ACTS +b765 -none ; KERNEL_ACTS +b765 -none ; NAMED_CONFLICTS +none -none ; PUSHTO_ACTS +none -none ; RDELETE_ACTS +none -none -- b765 GAINED BY KERNEL_ACTS AND FF_ACTS ALONE
 ### ### **[R4] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K21] THE PLANTED CONTROL (2026-11-21T22:19:11Z): BEFORE relay 15e75494, THE REPAIR`S COMMIT relay 899f2767, its first parent 15e75494 -- THE COMMIT BEFORE
+  THE RECORD INSTANCE: b764`s worklist at its lock (relay 8d55d1bf) and in the working tree: EQUAL (sha256 33bbaba0d73f7e15) ; its constants read: ALL 10
+    CHAIN 59 keys, the lock gate`s carry ec439ca3 in it: False ; HANDOFF_COMMIT 6d4d47f5 ; PASSED_BANK None
+  BEFORE (relay 15e75494): the files tools/acts/b765.py present, tools/standing/act.py present
+    b764`s chain through this composition: chain keys 62, its last four ['trial', 'ledgers', 'handoff', 'lockgate'] ; the arm`s keys, their last four ['ledgerspp', 'ledgers', 'handoff', 'lockgate'] ; their times sorted: False ; ancestry pairs 61, not ancestors ['handoff->lockgate'] ; the lock gate at 61, the handoff at 60 ; act.py`s two functions present: False
+    BEFORE: THE FAULT READ
+  AFTER (relay 899f2767): the files tools/acts/b765.py present, tools/standing/act.py present
+    b764`s chain through this composition: chain keys 62, its last four ['trial', 'ledgers', 'lockgate', 'handoff'] ; the arm`s keys, their last four ['ledgerspp', 'ledgers', 'lockgate', 'handoff'] ; their times sorted: True ; ancestry pairs 61, not ancestors none ; the lock gate at 60, the handoff at 61 ; act.py`s two functions present: True
+    AFTER: CLEAN
+  b765`S OWN CHAIN (HANDOFF_COMMIT ab9d680e) through the repair`s composition (relay 899f2767): chain keys 47, its last four ['module_c5', 'trial', 'ledgers', 'handoff'] ; the arm`s keys, their last four ['trial', 'ledgerspp', 'ledgers', 'handoff'] ; their times sorted: True ; ancestry pairs 46, not ancestors none ; the lock gate at None, the handoff at 46 ; act.py`s two functions present: True -- CLEAN
+### ### **[K21] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
