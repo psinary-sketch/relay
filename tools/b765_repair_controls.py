@@ -156,7 +156,153 @@ def control_k20(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and all(ok for _p, _n, _s, ok in shas)
 
 
-CONTROLS = dict(K20=control_k20)
+# ================================================================================ [K21] THE ARM G-COEFFS-LAW BEYOND THE FACE
+K21_PATHS = ('tools/acts/b765.py', 'tools/standing/act.py')
+K21_LOCK = '8d55d1bf'   # ### b764's lock: its worklist and act module as they stood when the arm failed beyond the face
+K21_NAMES = ('STANDING_COMMIT', 'CHAIN', 'PASSED_BANK', 'HANDOFF_COMMIT', 'C1_LOCKGATE', 'TIME_ORDER', 'PP_CHAIN', 'C1_RELAY', 'STEPZERO_BANKS',
+             'ACT_CURRENT_COMMIT')
+K21_CONSTS = r'''
+import importlib, json, sys
+sys.path.insert(0, 'D:/relay/tools')
+name, names = sys.argv[1], sys.argv[2].split(',')
+K = importlib.import_module(name)
+out, err = {}, {}
+for n in names:
+    try:
+        v = getattr(K, n)
+        json.dumps(v)
+        out[n] = v
+    except Exception as e:
+        err[n] = '%s: %s' % (type(e).__name__, str(e)[:120])
+print(json.dumps(dict(consts=out, errors=err)))
+'''
+K21_PROBE = r'''
+import json, os, subprocess, sys, types
+snap, kjson = sys.argv[1], sys.argv[2]
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import act as STANDING_ACT
+ROOT, PP = 'D:/relay', 'D:/MY-DOwnloads/PLACE-papers'
+k = json.load(open(kjson, encoding='utf-8'))
+K = types.SimpleNamespace(**k)
+K.CHAIN = tuple(tuple(x) for x in k['CHAIN']); K.PP_CHAIN = tuple(tuple(x) for x in k['PP_CHAIN']); K.TIME_ORDER = tuple(k['TIME_ORDER'])
+def gs(repo, *a):
+    return subprocess.run(['git', '-C', repo] + list(a), capture_output=True, text=True, encoding='utf-8', errors='replace').stdout.strip()
+def _ct(repo, rev):
+    t = gs(repo, 'log', '-1', '--format=%ct', rev) if rev else ''
+    return int(t) if t.isdigit() else None
+src = open(os.path.join(snap, 'tools', 'acts', 'b765.py'), encoding='utf-8').read().replace('\r', '').split('\n')
+i = next(n for n, l in enumerate(src) if l.startswith('def _chain():'))
+j = next(n for n in range(i + 1, len(src)) if src[n].startswith(('def ', '#\u27ea')))
+ns = dict(K=K, STANDING_ACT=STANDING_ACT, _ct=_ct, ROOT=ROOT)
+exec('\n'.join(src[i:j]), ns)
+chain = ns['_chain']()
+sec = next(n for n, l in enumerate(src) if l.startswith('#\u27eaSECTION checks 33\u27eb'))
+ksl = next(src[n] for n in range(sec, len(src)) if src[n].startswith('    ks_ = '))
+t = dict([(k_, _ct(ROOT, h_)) for k_, h_ in chain] + [(k_, _ct(PP, h_)) for k_, h_ in K.PP_CHAIN]
+         + [('c1', _ct(ROOT, K.C1_RELAY)), ('stepzero', _ct(ROOT, K.STEPZERO_BANKS)), ('actcur', _ct(ROOT, K.ACT_CURRENT_COMMIT))])
+S = dict(r366_chain=chain, t=t)
+ks = eval(ksl.split('=', 1)[1].split('#', 1)[0].strip(), dict(S=S, K=K, STANDING_ACT=STANDING_ACT, t_=t))
+srt = all(t.get(x) for x in ks) and [t[x] for x in ks] == sorted(t[x] for x in ks)
+anc = [(a[0], b[0], subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', a[1], b[1]]).returncode == 0) for a, b in zip(chain, chain[1:])]
+keys = [x[0] for x in chain]
+print(json.dumps(dict(n=len(chain), tail=keys[-4:], ks_tail=list(ks[-4:]), sorted=srt, anc_n=len(anc), anc_false=['%s->%s' % (a, b) for a, b, ok in anc if not ok],
+                      lockgate=keys.index('lockgate') if 'lockgate' in keys else None, handoff=keys.index('handoff') if 'handoff' in keys else None,
+                      fn=hasattr(STANDING_ACT, 'chain_in_time') and hasattr(STANDING_ACT, 'keys_in_time'))))
+'''
+
+
+def _k21_consts(name, dest):
+    """the worklist's constants the arm reads, imported in an interpreter of their own (`python -I`) from the relay's tools/, as JSON at dest."""
+    j = probe(K21_CONSTS, name, ','.join(K21_NAMES))
+    if 'error' not in j and not j.get('errors'):
+        with open(dest, 'w', encoding='utf-8', newline='\n') as fh:
+            json.dump(j['consts'], fh)
+    return j
+
+
+def _k21_line(j):
+    return ('chain keys %d, its last four %s ; the arm`s keys, their last four %s ; their times sorted: %s ; ancestry pairs %d, not ancestors %s ; '
+            'the lock gate at %s, the handoff at %s ; act.py`s two functions present: %s' % (
+                j['n'], j['tail'], j['ks_tail'], j['sorted'], j['anc_n'], j['anc_false'] or 'none', j['lockgate'], j['handoff'], j['fn']))
+
+
+def control_k21(before, after):
+    """[K21]: the record instance -- b764's worklist at its lock (relay 8d55d1bf, tools/b764_worklist.py, its blob there and at HEAD read by
+    sha256), its CHAIN without the lock gate's carry ec439ca3, its HANDOFF_COMMIT 6d4d47f5 set -- read through each revision's composition of
+    the arm: the act module's _chain() (tools/acts/b765.py, the function's text taken from the revision and run apart) with the revision's
+    tools/standing/act.py, and the arm's key line of checks 33 (its `ks_` line, evaluated apart); each commit's time and each consecutive
+    pair's ancestry read from the relay by git. FAULT: the arm's keys out of time order, or a consecutive pair of the chain no ancestor.
+    CLEAN: the keys in time order, every pair an ancestor, the lock gate's carry in the chain. And b765's own chain at the repair's
+    composition, read from tools/b765_worklist.py where its HANDOFF_COMMIT is set, PENDING where it is not ((R375)(8): the control runs after
+    the handoff commit is set), its reading printed and not scored before then."""
+    L, res = [], {}
+    inst = tempfile.mkdtemp(prefix='b765k21i_')
+    try:
+        rc, b_lock = git('show', '%s:tools/b764_worklist.py' % K21_LOCK)
+        with open(os.path.join(ROOT, 'tools', 'b764_worklist.py'), 'rb') as fh:
+            b_head = fh.read().replace(b'\r', b'')
+        eq = rc == 0 and hashlib.sha256(b_lock.replace(b'\r', b'')).hexdigest() == hashlib.sha256(b_head).hexdigest()
+        kj = os.path.join(inst, 'b764.json')
+        c = _k21_consts('b764_worklist', kj)
+        L.append('  THE RECORD INSTANCE: b764`s worklist at its lock (relay %s) and in the working tree: %s (sha256 %s) ; its constants read: %s' % (
+            K21_LOCK, 'EQUAL' if eq else 'DIFFER', hashlib.sha256(b_head).hexdigest()[:16],
+            'ALL %d' % len(K21_NAMES) if ('error' not in c and not c.get('errors')) else (c.get('error') or c.get('errors'))))
+        if 'error' not in c and not c.get('errors'):
+            cc = c['consts']
+            L.append('    CHAIN %d keys, the lock gate`s carry %s in it: %s ; HANDOFF_COMMIT %s ; PASSED_BANK %s' % (
+                len(cc['CHAIN']), cc['C1_LOCKGATE'], any(h_[:8] == (cc['C1_LOCKGATE'] or '')[:8] for _k, h_ in cc['CHAIN']), cc['HANDOFF_COMMIT'],
+                cc['PASSED_BANK']))
+        for name, rev in (('BEFORE', before), ('AFTER', after)):
+            tmp = tempfile.mkdtemp(prefix='b765k21_')
+            try:
+                got = snapshot(rev, K21_PATHS, tmp)
+                j = probe(K21_PROBE, tmp, kj) if (eq and os.path.exists(kj)) else dict(error='the record instance not read')
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b765k21_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+                res[name] = None
+                continue
+            clean = j['sorted'] and not j['anc_false'] and j['lockgate'] is not None and j['fn']
+            fault = (not j['sorted']) or bool(j['anc_false'])
+            L += ['  %s (relay %s): the files %s' % (name, rev[:8], ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)),
+                  '    b764`s chain through this composition: ' + _k21_line(j),
+                  '    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ'))]
+            res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+        kj5 = os.path.join(inst, 'b765.json')
+        c5 = _k21_consts('b765_worklist', kj5)
+        if 'error' not in c5 and 'HANDOFF_COMMIT' in (c5.get('consts') or {}) and not c5['consts']['HANDOFF_COMMIT']:
+            L.append('  b765`S OWN CHAIN (tools/b765_worklist.py, the working tree): PENDING -- HANDOFF_COMMIT not yet set; the control runs again after '
+                     'it is set ((R375)(8)), this reading not scored%s' % (
+                         ' (constants not yet readable: %s)' % ', '.join(sorted(c5['errors'])) if c5.get('errors') else ''))
+            res['OWN'] = 'PENDING'
+        elif 'error' in c5 or c5.get('errors'):
+            L.append('  b765`S OWN CHAIN (tools/b765_worklist.py, the working tree): NOT READ: %s' % (c5.get('error') or c5.get('errors')))
+            res['OWN'] = 'NOT READ'
+        else:
+            tmp = tempfile.mkdtemp(prefix='b765k21_')
+            try:
+                snapshot(after, K21_PATHS, tmp)
+                j = probe(K21_PROBE, tmp, kj5)
+            finally:
+                if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b765k21_'):
+                    shutil.rmtree(tmp, ignore_errors=True)
+            if 'error' in j:
+                L.append('  b765`S OWN CHAIN: THE PROBE FAILED: %s' % j['error'])
+                res['OWN'] = None
+            else:
+                ok5 = j['sorted'] and not j['anc_false'] and j['fn']
+                L.append('  b765`S OWN CHAIN (HANDOFF_COMMIT %s) through the repair`s composition (relay %s): %s -- %s' % (
+                    c5['consts']['HANDOFF_COMMIT'], after[:8], _k21_line(j), 'CLEAN' if ok5 else 'NOT CLEAN'))
+                res['OWN'] = 'CLEAN' if ok5 else 'NOT CLEAN'
+    finally:
+        if os.path.isabs(inst) and os.path.basename(inst).startswith('b765k21i_'):
+            shutil.rmtree(inst, ignore_errors=True)
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and res.get('OWN') in ('PENDING', 'CLEAN')
+
+
+CONTROLS = dict(K20=control_k20, K21=control_k21)
 
 
 def main(argv):

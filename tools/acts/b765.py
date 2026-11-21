@@ -630,10 +630,11 @@ def _chain():
     not already in CHAIN, in
     that order; read from the worklist at the call. A lock gate tool committed inside CHAIN is read at its place there and not again (N2's
     "each act tool commits before it runs" read there)."""
-    c = [('v9', K.STANDING_COMMIT)] + list(K.CHAIN)
-    in_ = set(h_[:8] for _k, h_ in K.CHAIN)
-    c += [(k_, h_) for k_, h_ in (('passed', K.PASSED_BANK), ('handoff', K.HANDOFF_COMMIT), ('lockgate', K.C1_LOCKGATE)) if h_ and h_[:8] not in in_]
-    return c
+    # ### b765, (R375)(8) [K21] (the Edit tool): the tail placed by its commit time among CHAIN by tools/standing/act.py chain_in_time()
+    # ### (v1.38.20), where b764's form appended it in a fixed order after CHAIN and read its lock gate's carry after its handoff
+    return STANDING_ACT.chain_in_time(('v9', K.STANDING_COMMIT), K.CHAIN,
+                                      (('passed', K.PASSED_BANK), ('handoff', K.HANDOFF_COMMIT), ('lockgate', K.C1_LOCKGATE)),
+                                      lambda h_: _ct(ROOT, h_))
 
 
 def _anc_pairs():
@@ -1011,7 +1012,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     carrying the controls bank, and each control's verdict line, "[K] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.",
     at its line in the controls bank at HEAD and in that bank's blob at the row's commit."""
     t_ = S['t']
-    ks_ = list(K.TIME_ORDER) + [k_ for k_, _h in S['r366_chain'] if k_ in ('passed', 'handoff', 'lockgate') and k_ not in K.TIME_ORDER]
+    ks_ = STANDING_ACT.keys_in_time(K.TIME_ORDER, [k_ for k_, _h in S['r366_chain'] if k_ in ('passed', 'handoff', 'lockgate')], t_)   # ### b765, [K21] (v1.38.20): the tail keys by their times
     sr_ = []
     for k_, v_, c_, r_, l_ in K.STANDING_REPAIRS:
         d_ = (S['strepairs'] or {}).get(k_) or {}

@@ -415,3 +415,51 @@ def shared_tools_changed(repo, base, act):
     out = subprocess.run(['git', '-C', repo, 'diff', '--name-only', base, 'HEAD', '--', 'tools/'], capture_output=True, text=True,
                          encoding='utf-8', errors='replace').stdout.split()
     return sorted(p for p in out if not p.startswith(('tools/%s_' % act, 'tools/acts/', 'tools/standing/')))
+
+
+def chain_in_time(head, chain, tail, ct):
+    """v1.38.20, (R375)(8) [K21], b764's post-seal row (73) (data/b764_events_postseal.txt :30): THE ACT'S RELAY CHAIN READ IN TIME ORDER, THE
+    LOCK GATE'S CARRY AMONG IT. `head` (key, commit) first -- the standing clauses' commit -- then the worklist's CHAIN in its own order, with
+    each (key, commit) of `tail` (the passed bank, the handoff page, the lock gate's carry) that is set and not already in CHAIN placed by its
+    commit time among them: after every commit of no later time, before the first of a later time at the chain's end. ct(commit) -> its
+    commit time (seconds), None where it does not resolve; a tail commit with no time goes at the end. CHAIN's own order is not changed, so
+    the arm's ancestry pairs still read it. Before v1.38.20 an act module appended the tail after CHAIN in a fixed order (passed, handoff,
+    lock gate), and b764's lock gate carry ec439ca3 (00:27:48Z), absent from its CHAIN, was read after its handoff 6d4d47f5 (03:03:26Z): the
+    times out of order and the pair handoff -> lock gate no ancestor, G-COEFFS-LAW failing beyond the face."""
+    out = list(chain)
+    have = set((h_ or '')[:8] for _k, h_ in out)
+    for k_, h_ in tail:
+        if not h_ or h_[:8] in have:
+            continue
+        t_ = ct(h_)
+        i_ = len(out)
+        if t_ is not None:
+            while i_ > 0:
+                p_ = ct(out[i_ - 1][1])
+                if p_ is None or p_ <= t_:
+                    break
+                i_ -= 1
+        out.insert(i_, (k_, h_))
+        have.add(h_[:8])
+    return [head] + out
+
+
+def keys_in_time(order, extra, t):
+    """v1.38.20, (R375)(8) [K21]: the arm's keys in time order: the worklist's TIME_ORDER as written, then each key of `extra` (the tail keys
+    chain_in_time() placed, in the chain's order) not already in it, placed by its time in `t` {key: time} after every key of no later time;
+    a key with no time goes at the end. TIME_ORDER's own order is not changed, so the arm still reads it against the times. Before v1.38.20
+    the tail keys followed TIME_ORDER in the chain's fixed order."""
+    out = list(order)
+    for k_ in extra:
+        if k_ in out:
+            continue
+        t_ = t.get(k_)
+        i_ = len(out)
+        if t_ is not None:
+            while i_ > 0:
+                p_ = t.get(out[i_ - 1])
+                if p_ is None or p_ <= t_:
+                    break
+                i_ -= 1
+        out.insert(i_, k_)
+    return out
