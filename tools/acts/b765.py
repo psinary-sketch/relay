@@ -402,15 +402,16 @@ def runner_ok(S):
 # ### (data/b759_events.txt (24)), which the standing capture reader (tools/standing/delread.py v1.30.0, its TOOL_ARGS) does not read: the
 # ### act's reader below reads them segment by segment as delread reads the delete route, wanted equal to the worklist's KERNEL_DELETES; every
 # ### delete of either route read against the ruling's own delete clauses through the standing allowance reader; port-b707 undeleted at its tip
-# ### b765, Component 5 (the Edit tool): (R375)(4) removes push-b765-planted from the kernel's clone by the one-call tool's delete route (the
-# ### worklist's KERNEL_DELETES, names alone), no rdelete route run for b765: the deletes beyond the step-zero five are KERNEL_DELETES exactly
+# ### b765, Component 5 (the Edit tool): (R375)(4) sends push-b765-planted's delete from the kernel's clone to the one-call tool's delete route (the
+# ### worklist's KERNEL_DELETES, names alone; refused there at 19:19:48Z, not fully merged, KERNEL_DELETES_REFUSED), no rdelete route run for b765:
+# ### the deletes the capture holds beyond the step-zero five are KERNEL_DELETES exactly
 #⟪OVERRIDE checks MARK 61379f7e4609 2⟫
         and _rdeletes(S) == [] and sorted(b for b in got if b not in NAMED_PUSH) == sorted(K.KERNEL_DELETES) \
         and STW.deletes_read([('-', b) for b in got + _rdeletes(S)], S['ferry'], STW.words_of(ACTN))['ok'] \
         and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 23e17a97edcc 1⟫
-    ('G-DELETES-ONE-BRANCH', '(⟪RUL⟫)(4): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the five step-zero deletes of the push-b764-* branches by the tool`s delete route, and push-b765-planted removed from the kernel`s clone by the same route ((4), the worklist`s KERNEL_DELETES), each allowed by the ruling`s own delete clause read through tools/standing/allow.py; no rdelete route run, the planted branch`s remote kept; port-b707 undeleted at its tip; the command bank`s count',
+    ('G-DELETES-ONE-BRANCH', '(⟪RUL⟫)(4): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the five step-zero deletes of the push-b764-* branches by the tool`s delete route, and push-b765-planted`s delete sent by the same route ((4), the worklist`s KERNEL_DELETES) and refused there, not fully merged, the branch kept (KERNEL_DELETES_REFUSED), each allowed by the ruling`s own delete clause read through tools/standing/allow.py; no rdelete route run, the planted branch`s remote kept; port-b707 undeleted at its tip; the command bank`s count',
 #⟪END⟫
 # ### b759, before the lock: b758's override of the plant (plant_every_kept, after b758's lock on the author's word) retired -- v1.36.4
 # ### (relay 4622b017, (R369)(4)(ii)) gave tools/standing/allow.py's plant_kept the reading of every covering clause, so the template's
@@ -535,7 +536,7 @@ REG = os.path.join(D, 'b765_registration_%s.txt' % __import__('b765_worklist').D
     ('scratch branches cut on a kernel', 0, 0, 'branches', '### none: the planted module of (4)(a) on push-b765-planted, a push branch, and the standing controls read in the relay`s own tools (data/b765_repair_controls.txt), no scratch branch of a kernel.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK a2b9535083e6 1⟫
-    ('push branches cut on a kernel for the push procedure', 2, 2, 'branches', '### (R375)(4): push-b765-centre cut from push-b764-runner at 38a57e02 and push-b765-planted cut from the centre at d540bc98 in SIDE-explicit-formula, each by the one-call tool`s kernel branch route and pushed --scratch by the gated push`s branch mode; the centre kept for the next act`s step zero, the planted branch`s clone ref removed before the lock and its remote kept.'),
+    ('push branches cut on a kernel for the push procedure', 2, 2, 'branches', '### (R375)(4): push-b765-centre cut from push-b764-runner at 38a57e02 and push-b765-planted cut from the centre at d540bc98 in SIDE-explicit-formula, each by the one-call tool`s kernel branch route and pushed --scratch by the gated push`s branch mode; the centre kept for the next act`s step zero; the planted branch kept in the clone and at its remote, the one-call tool`s delete route refusing it before the lock, not fully merged, named in the closing message.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 42ab3bdb112d 1⟫
     ('kernel merges made', 0, 0, 'merges', '### none: main moved to the closing Lean commit by the gated push under HELD alone, a fast-forward.'),
@@ -547,10 +548,10 @@ REG = os.path.join(D, 'b765_registration_%s.txt' % __import__('b765_worklist').D
     ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38', 'v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() not in ('v0.1.0', 'v0.2.0')]   # ### b765: v0.38 b745`s, v0.39 and v0.40 b758`s, v0.41 b759`s, v0.42 and v0.43 b763`s, v0.2.0 b757`s; the tags past them, the act`s own
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 100638d8d84e 1⟫
-    ('kernel branches deleted', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### (R375)(4): push-b765-planted removed from the clone before the lock by the one-call tool`s delete route, its listing printed, its remote kept and named in the closing message (the route removes no branch at a kernel`s remote for b765); port-b707, the pin, challenge and rebuild branches, the held branches and every other push branch kept.'),
+    ('kernel branches deleted', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### (R375)(4): none -- push-b765-planted`s delete sent by the one-call tool`s delete route before the lock, its listing printed, and refused there, not fully merged (KERNEL_DELETES_REFUSED), so the branch stays in the clone and at its remote, named in the closing message for removal by the author`s word (the route removes no branch at a kernel`s remote for b765); port-b707, the pin, challenge and rebuild branches, the held branches and every other push branch kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 51acd0ac8ef1 1⟫
-    ('branches deleted beyond the step zero`s list', len(K.KERNEL_DELETES), len(K.KERNEL_DELETES), 'branches', '### push-b765-planted`s clone ref alone, by (R375)(4) and N5; the five push-b764-* refs of the relay and PLACE-papers deleted at step zero; port-b707 kept.'),
+    ('branches deleted beyond the step zero`s list', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### none: push-b765-planted`s clone ref, the one delete (R375)(4) and N5 allow, refused by the route, not fully merged, and kept; the five push-b764-* refs of the relay and PLACE-papers deleted at step zero; port-b707 kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK b6204f4e0fa8 1⟫
     ('census editions written on main', 0, 0, 'editions', '### none: no census written this act ((R375)(12)).'),
@@ -1101,8 +1102,9 @@ def _iso_epoch(x):
     and peel the worklist's (v0.39 to d1afb4fc, v0.40 to 630cba16, v0.41's object 390506fc to a3aad4cc, v0.42's 001e94ff to 4964e957,
     v0.43's bcd4d481 to 819e4a83), v0.38's object 21c6edaf and peel 14ca5725; its four held branches at their entering tips locally and at
     origin, zq-b730 at 1e658870; push-b765-centre at the closing commit, push-b764-runner and b763's four push-b763-* branches at their
-    tips, each locally and at origin; push-b765-planted deleted locally (the worklist's KERNEL_DELETES, that branch alone) and at origin at
-    its one commit, kept there and named in the closing message; push-b759-weil absent from its tracking refs as b760 left it, its local
+    tips, each locally and at origin; push-b765-planted's delete sent by the route (the worklist's KERNEL_DELETES, that branch alone): absent
+    locally where the route removed it, and at its one commit locally where the route refused it (KERNEL_DELETES_REFUSED, not fully merged);
+    at origin at its one commit either way, kept there and named in the closing message; push-b759-weil absent from its tracking refs as b760 left it, its local
     branch kept at a3aad4cc; the act's nine kernel commits each on its branch at origin, the eight of the centre on the remote main where
     main moved and not otherwise, the planted commit on no main; SIDE-dirichlet-mod-24's main at e5ebdd15 at its tracking ref and
     locally, v0.2.0's object e5c84316 peeling to e5ebdd15, v0.1.0 at 597b0869 and no other tag, push-b757-mod24 absent from its tracking
@@ -1129,7 +1131,8 @@ def _iso_epoch(x):
         and all(h_(ef_, 'refs/tags/' + n_) == o_ and p_(ef_, 'refs/tags/' + n_) == pl_ for n_, o_, pl_ in tags_) \
         and all(h_(ef_, 'refs/heads/' + b_) == t_ == h_(ef_, 'refs/remotes/origin/' + b_)
                 for b_, t_ in (K.WEIL_BRANCH, K.WEIL_BRANCH_B764, K.WEIL_BRANCH_B763, K.ARITH_BRANCH_B763) + tuple(K.ORDER_BRANCHES_B763)) \
-        and K.KERNEL_DELETES == (pl_b_,) and 'refs/heads/' + pl_b_ not in ef_ and h_(ef_, 'refs/remotes/origin/' + pl_b_) == pl_t_ \
+        and K.KERNEL_DELETES == (pl_b_,) and (('refs/heads/' + pl_b_ not in ef_) if pl_b_ in K.KERNEL_REMOVED else h_(ef_, 'refs/heads/' + pl_b_) == pl_t_) \
+        and h_(ef_, 'refs/remotes/origin/' + pl_b_) == pl_t_ \
         and 'refs/remotes/origin/' + K.WEIL_BRANCH_B759[0] not in ef_ \
         and h_(ef_, 'refs/heads/' + K.WEIL_BRANCH_B759[0]) == K.WEIL_BRANCH_B759[1]
     kc_ = len(K.KERNEL_COMMITS) == 9 \
@@ -1265,7 +1268,7 @@ def research_reproduces_ok(S):
      lambda S: coeffs_law_ok(S), lambda S: _mut(S, 'anc', lambda d: d.update({next(iter(d), 'none'): False}))),   # ### b765: the first pair of the chain's ancestry set False (b764's planted key stood in no state of b765's)
     ('G-DERIVATION-GRADED', '(R375)(3)-(9), (12), N2, N3: each of the act`s ten generator rows (the repairs` planted controls, the dispatch tool`s controls, the window, the gate, the held branches, the map`s files, the premise positions, the builder`s controls, the trial`s bank, the ledgers) first added by a commit of its own, every one of its commits without its bank and the bank`s without it, the bank at HEAD its blob there; no row riding with its tool and no ceiling bank; the feet of the controls, the premise positions, the builder, the reading of (6)(d), the price, the corrigendum, the window, the gate, the held branches, the trial, the ledgers, the roster and the reproduction run',
      lambda S: derivation_graded_ok(S), lambda S: put(S, 'trialt', (S['trialt'] or '').replace('THE TOOL`S CONTROLS', 'THE TOOLS CONTROLS'))),   # ### b765: the trial's foot made unreadable (the carried plant moved the ceiling bank, which b765 has not)
-    ('G-OFFSET-POST-HOC', 'N1, N5, (R375)(4), (13): the two kernels as the act left them -- SIDE-explicit-formula`s main locally and at origin at the closing Lean commit 0ba9cd61 with v0.44 cut on it where H-RUNNER-RESTORE reads HELD, and at v0.43`s peel 819e4a83 with no tag cut otherwise; v0.39 to v0.43 each at its object and peel, v0.38 peeling to 14ca5725; its four held branches at their tips; push-b765-centre, push-b764-runner and b763`s four push-b763-* branches at their tips locally and at origin; push-b765-planted deleted locally and kept at origin at its commit; push-b759-weil absent at origin, its local branch kept; the act`s nine kernel commits on their remote branches, the centre`s eight on the remote main where main moved alone; SIDE-dirichlet-mod-24`s main at e5ebdd15 at origin, push-b757-mod24 absent there, v0.2.0 peeling to main, v0.1.0 at 597b0869 and no other tag',
+    ('G-OFFSET-POST-HOC', 'N1, N5, (R375)(4), (13): the two kernels as the act left them -- SIDE-explicit-formula`s main locally and at origin at the closing Lean commit 0ba9cd61 with v0.44 cut on it where H-RUNNER-RESTORE reads HELD, and at v0.43`s peel 819e4a83 with no tag cut otherwise; v0.39 to v0.43 each at its object and peel, v0.38 peeling to 14ca5725; its four held branches at their tips; push-b765-centre, push-b764-runner and b763`s four push-b763-* branches at their tips locally and at origin; push-b765-planted at its commit at origin, and locally where the delete route refused it (absent there where it removed it); push-b759-weil absent at origin, its local branch kept; the act`s nine kernel commits on their remote branches, the centre`s eight on the remote main where main moved alone; SIDE-dirichlet-mod-24`s main at e5ebdd15 at origin, push-b757-mod24 absent there, v0.2.0 peeling to main, v0.1.0 at 597b0869 and no other tag',
      lambda S: offset_post_hoc_ok(S), lambda S: _mut(S, 'kst', lambda d: d['ef'].update({'refs/tags/v0.40': ('0' * 40, K.WEIL_TAG_B759[2])}))),   # ### b765: v0.40's peel planted at b759's main a3aad4cc, a tag moved
     ('G-SURGERY-CARRIED', 'standing clauses v9 binding the act whole as b723 landed it: the text its blob at d9739558 and at the act`s base, VERSION 9; v8 at HEAD its blob at the base; no v10; v9`s commit an ancestor of v1.34.0`s',
      lambda S: surgery_carried_ok(S), lambda S: put(S, 'v9', (S['v9'] or '').replace('  (83) ', '  (84) '))),
@@ -1652,8 +1655,9 @@ act ((R375)(13)); the report and THE MEASURE of (10). The standing report prints
 tool's scores route and written nowhere. SIDE-explicit-formula alone written this act ((R375)(4), (5), (12), N5): eight commits by the
 one-call tool on push-b765-centre cut from push-b764-runner and one on push-b765-planted, each branch pushed by the gated push's branch
 mode, each dispatch sent by tools/b765_controls.py and read by its run id from its artifact, the exit file governing; main moved to the
-closing Lean commit by the gated push under HELD alone, v0.44 cut after main's read-back on the run with the restore off; the local
-push-b765-planted removed, its remote kept; no other kernel written, no other tag moved, no pin moved.
+closing Lean commit by the gated push under HELD alone, v0.44 cut after main's read-back on the run with the restore off;
+push-b765-planted's delete refused by the one-call tool's route, not fully merged, the branch kept in the clone and at its remote; no
+other kernel written, no other tag moved, no pin moved.
 #⟪END⟫
 #⟪SECTION closing 3⟫
     """the carried items for the act after b765 ((R375)(13) and the author's words of 2026-11-21); the open orders by tools/standing/orders.py's output over the trail, not a hand list."""
@@ -1676,8 +1680,11 @@ TITLE_LINE = ('b765 -- THE CLOSING RECORD. ### **LANE TWO, ACT ONE HUNDRED AND N
                   _WV5))   # ### the ferry`s ACT line (data/b765_ferry.txt :121) adjusted to what the act did
 _K5_MAIN = ('moved to the closing Lean commit %s under HELD, %s' % (WL.RUNNER_COMMIT[:8], ('%s cut on the run with the restore off' % WL.WEIL_TAG[0]) if WL.WEIL_TAG else 'no tag cut')) \
     if WL.EF_MAIN[:8] == WL.RUNNER_COMMIT[:8] else 'unmoved, no tag cut'
-_K5_DEL = ('%s removed from the clone before the lock by the one-call tool, its remote kept and named here ((R375)(4))' % ', '.join(WL.KERNEL_DELETES)) if WL.KERNEL_DELETES \
-    else 'no kernel branch removed by this act ((R375)(4))'
+_K5_DEL = ('%s removed from the clone before the lock by the one-call tool, its remote kept and named here ((R375)(4))' % ', '.join(WL.KERNEL_REMOVED)) if WL.KERNEL_REMOVED \
+    else ('no kernel branch removed by this act: %s ((R375)(4))' % '; '.join(
+        '%s`s delete refused by the one-call tool`s route at %s, %s, the branch kept in the clone and at its remote, its name its warning, named here for removal by the author`s word' % r_
+        for r_ in WL.KERNEL_DELETES_REFUSED)) if WL.KERNEL_DELETES_REFUSED \
+    else 'no kernel branch removed by this act ((R375)(4))'   # ### b765: the route refused push-b765-planted (KERNEL_DELETES_REFUSED)
 #⟪END⟫
 #⟪SECTION closing 5⟫
     """the act's sections over this act's banks (b764's sections over b764's objects not carried, b765's set at Component 5), headed as CLOSING_SECTIONS names them. A row
@@ -1743,7 +1750,7 @@ _K5_DEL = ('%s removed from the clone before the lock by the one-call tool, its 
     '        W-ORD-LI-ARITH with its statement, its lemma and its window as entered, the proof by the banked window its next step where [W1] stands (relay data/b765_window.json) ; W-ORD-RUNNER-CACHE as the pair left it (relay data/b765_controls.txt) ; W-ORD-H2-PI1 by [H4], the form its open text gives printed for the next ruling (relay data/b765_pi01_reading.txt) ;',
     '        the premise rows for the author`s strike (relay data/b765_premise_positions.txt) ; the map`s two files for the author`s ruling (relay data/b765_map_pair.txt) ; challenge-b720-h2-sign-iff-rh, its declarations owed under no order named (relay data/b765_held_branches.txt) ; the registration H-ONSET-DENSITY as b764 left it ;',
     '        THE MEASURE of (10): this act`s hours from the lock to the closing beside b764`s 4.32 and b763`s 4.59, and its lettered defects tagged REPEAT whose class is a key that data/b764_repairs.txt reads REPAIRED, wanted 0, both printed in this message ;',
-    '        the gated push`s captures standing uncommitted, each holding the remote`s address, for the author`s word on whether a capture masks it ; push-b765-planted at the kernel`s remote, for removal by the author`s word ;',
+    '        the gated push`s captures standing uncommitted, each holding the remote`s address, for the author`s word on whether a capture masks it ; push-b765-planted in the kernel`s clone and at its remote, the delete route refusing it, not fully merged, for removal by the author`s word ;',
     '        the items of the seat`s read of what the ruling misses, printed again before the lock (relay data/b765_misses.txt) ; the defects of relay data/b765_defects.txt for the next corrigendum ; the draft held at v5.',
 #⟪END⟫
 #⟪SECTION closing 11⟫
@@ -1770,13 +1777,14 @@ _K5_DEL = ('%s removed from the clone before the lock by the one-call tool, its 
 #⟪END⟫
 #⟪SECTION record 1⟫
     # ### b765 (R375)(4), (5), (12): SIDE-explicit-formula written on push-b765-centre and push-b765-planted; main moved to the closing Lean
-    # ### commit under HELD alone, v0.44 cut there alone; b764's and b763's branches kept; the local push-b765-planted removed (KERNEL_DELETES),
-    # ### its remote kept; SIDE-dirichlet-mod-24 untouched, as b759 left it
+    # ### commit under HELD alone, v0.44 cut there alone; b764's and b763's branches kept; push-b765-planted's delete sent (KERNEL_DELETES)
+    # ### and refused by the route (KERNEL_DELETES_REFUSED), the branch kept locally and at its remote; SIDE-dirichlet-mod-24 untouched, as b759 left it
     print('  kernels read: %d (SIDE-explicit-formula at main %s, %s, %s peeling to %s as b763 cut it, %s by this act; this act`s branches '
-          '%s at %s and %s at %s, the local one removed: %s; the earlier branches kept, none removed: %s; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s, untouched)' % (
+          '%s at %s and %s at %s, removed from the clone: %s; the earlier branches kept, none removed: %s; SIDE-dirichlet-mod-24 at main %s with %s peeling to %s, untouched)' % (
               len(ks), K.EF_MAIN[:8], 'moved to the closing Lean commit under HELD' if K.EF_MAIN[:8] == K.RUNNER_COMMIT[:8] else 'unmoved',
               K.ORDER_TAGS_B763[-1][0], K.ORDER_TAGS_B763[-1][2][:8], ('%s cut at %s' % (K.WEIL_TAG[0], K.WEIL_TAG[2][:8])) if K.WEIL_TAG else 'no tag cut',
-              K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8], K.PLANTED_BRANCH[0], K.PLANTED_BRANCH[1][:8], ', '.join(K.KERNEL_DELETES) or 'none',
+              K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8], K.PLANTED_BRANCH[0], K.PLANTED_BRANCH[1][:8],
+              ', '.join(K.KERNEL_REMOVED) or ('none, the delete route refusing %s' % ', '.join('%s at %s (%s)' % r_ for r_ in K.KERNEL_DELETES_REFUSED) if K.KERNEL_DELETES_REFUSED else 'none'),
               ', '.join('%s at %s' % (b_, s_[:8]) for b_, s_ in (K.WEIL_BRANCH_B764, K.ARITH_BRANCH_B763, K.ORDER_BRANCHES_B763[1], K.WEIL_BRANCH_B763, K.ORDER_BRANCHES_B763[0])),
               K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
 #⟪END⟫
@@ -2090,8 +2098,8 @@ def _cmd_epoch(ts):
     the four states, each REPAIRED and REMOVED row's control AS WANTED in its bank at its row's commit; each tool of K.GENS first added by
     a commit of its own carrying it and not its bank, its commits before the bank's, the bank's commit not the tool; each act tool
     committed before its first run, read from the command bank; SIDE-explicit-formula's main the closing Lean commit with v0.44 at it where
-    H-RUNNER-RESTORE held and its build from source read exit 0, and the entering main with no tag otherwise; push-b765-planted removed
-    from the clone alone; each tool's controls before its figures; the (W) regeneration, the pre-lock comparison and the probe-path refusal
+    H-RUNNER-RESTORE held and its build from source read exit 0, and the entering main with no tag otherwise; push-b765-planted the one
+    delete sent from the clone, removed or refused by the route as KERNEL_DELETES_REFUSED reads; each tool's controls before its figures; the (W) regeneration, the pre-lock comparison and the probe-path refusal
     before the lock gate."""
     ct_ = lambda r_, h_: int((g(r_, 'log', '-1', '--format=%ct', h_) or '0').strip() or 0)
     keyed_ = dict([(k_, (ROOT, h_)) for k_, h_ in K.CHAIN] + [(k_, (PP, h_)) for k_, h_ in K.PP_CHAIN]
@@ -2155,8 +2163,8 @@ def _cmd_epoch(ts):
     runs_ok_ = bool(cmr_) and len(runs_) == len(tools_) and all(o_ for *_x, o_ in runs_)
     # ### b765, (R375)(4), N2: the kernel's main moved under H-RUNNER-RESTORE's HELD and at no other time -- where the trial's bank reads
     # ### HELD, main the closing Lean commit, a read of that commit with the restore off (the closing item or its repeat) exit 0 and KERNEL,
-    # ### and v0.44 the one tag at it, its peel the closing commit; otherwise the entering main and no tag; push-b765-planted alone removed
-    # ### from the clone (KERNEL_DELETES, names alone); ORDER_TAGS empty
+    # ### and v0.44 the one tag at it, its peel the closing commit; otherwise the entering main and no tag; push-b765-planted the one delete
+    # ### sent from the clone (KERNEL_DELETES, names alone), refused by the route (KERNEL_DELETES_REFUSED); ORDER_TAGS empty
     drw_ = jl('%s_dispatch_rows.json' % ACT) or []
     built_ = set((r_.get('built_ref') or '')[:8] for r_ in _ef_kind(drw_, 'read') if r_.get('verdict') == 'KERNEL' and str(r_.get('build_exit')) == '0'
                  and r_.get('item') in ('closing', 'repeat') and r_.get('restore_input') == 'off')
@@ -2186,7 +2194,7 @@ def _cmd_epoch(ts):
             ', '.join('%s %s' % (n_, ('%sZ' % m_.group(1)) if m_ else 'unread') for n_, m_ in szt_), K.ACT_CURRENT_COMMIT, stepzero_,
             len(K.STANDING_REPAIRS), st_last_[:8], st_tree_[0][:12] or 'NONE', st_tree_[1][:12] or 'NONE', ' '.join(h_[:8] for h_ in st_commits_) or 'none', st_ver_ or 'unread',
             K.STANDING_VERSION, st_ver0_ or 'unread', ', '.join('%s %s' % x_ for x_ in st_each_), standing_,
-            efm_[:8] or 'NONE', tv_ or 'unread', K.RUNNER_COMMIT[:8], ' '.join(sorted(built_)) or 'none', ' '.join(tags_at_) or 'none', len(K.KERNEL_DELETES), before_kw_, anc_,
+            efm_[:8] or 'NONE', tv_ or 'unread', K.RUNNER_COMMIT[:8], ' '.join(sorted(built_)) or 'none', ' '.join(tags_at_) or 'none', len(K.KERNEL_REMOVED), before_kw_, anc_,
             len(rst_), ', '.join('%s %d' % (s_, rst_.count(s_)) for s_ in ('REPAIRED', 'READ AS DESIGNED', 'REMOVED', 'CARRIED')), states_ok_,
             ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_,
             ', '.join('%s %s@%d first run %s %s' % (t_, f_, c_, time.strftime('%H:%M:%SZ', time.gmtime(r_)) if r_ else 'unread', o_) for t_, f_, c_, r_, o_ in runs_) if cmr_ else 'the command bank unread', runs_ok_,
@@ -3003,10 +3011,12 @@ def _post_lock_edits():
     v043_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.43^{commit}').strip()
     v044_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.44^{commit}').strip()
     v044o_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/v0.44').strip()
-    # ### b765, (R375)(4): push-b765-planted removed from the clone (KERNEL_DELETES, names alone), its tracking ref kept at its one commit;
+    # ### b765, (R375)(4): push-b765-planted's delete sent (KERNEL_DELETES, names alone): absent from the clone where the route removed it, at
+    # ### its one commit there where the route refused it (KERNEL_DELETES_REFUSED, not fully merged), its tracking ref kept at its one commit;
     # ### b760's removal of push-b759-weil as b760 left it, its tracking ref absent in the clone and the clone's own branch kept at its tip;
     # ### b763's four branches and push-b764-runner on the clone at their tips; push-b765-centre read back at the remote in its capture at its tip
-    pl5_ = [(b_, not g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip()
+    pl5_ = [(b_, (not g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip() if b_ in K.KERNEL_REMOVED
+                  else g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip() == K.PLANTED_BRANCH[1])
              and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/remotes/origin/%s' % b_).strip() == K.PLANTED_BRANCH[1]) for b_ in K.KERNEL_DELETES]
     rm_trk_ = [b_ for b_, _t in (K.WEIL_BRANCH_B759,) if g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/remotes/origin/%s' % b_).strip()]
     rm_loc_ = [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip()[:8] or 'NONE') for b_, _t in (K.WEIL_BRANCH_B759,)]
@@ -3040,14 +3050,14 @@ def _post_lock_edits():
 #⟪SECTION record 27⟫
             'the address scan (relay data/b765_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of any '
             'kernel, the act owning push-b765-centre and push-b765-planted and, where H-RUNNER-RESTORE held, SIDE-explicit-formula`s main (at %s, the closing commit %s) and v0.44, or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
-            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: main read back at the remote in the centre`s capture %s; the tags v0.39* to v0.45* %s, v0.38 at %s, v0.39 at %s, v0.40 at %s, v0.41 at %s by its tag object %s, v0.42 at %s, v0.43 at %s, v0.44 at %s by its tag object %s; the kernel branches this act removes from the clone, the remote kept, %s (%s), b760`s removal of %s as b760 left it, its tracking ref absent in the clone and its local branch kept at its tip, b763`s four branches and push-b764-runner at their tips and push-b765-centre read back in its capture (%s): %s; '
+            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: main read back at the remote in the centre`s capture %s; the tags v0.39* to v0.45* %s, v0.38 at %s, v0.39 at %s, v0.40 at %s, v0.41 at %s by its tag object %s, v0.42 at %s, v0.43 at %s, v0.44 at %s by its tag object %s; the kernel branches this act`s delete route was sent for, removed from the clone or kept there where the route refused them, the remote kept, %s (%s), b760`s removal of %s as b760 left it, its tracking ref absent in the clone and its local branch kept at its tip, b763`s four branches and push-b764-runner at their tips and push-b765-centre read back in its capture (%s): %s; '
             'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b757_ghcalls.py): %s, none wanted: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
                 (addr.groups() if addr else ('UNREAD',) * 4) + (main5_[:8], K.RUNNER_COMMIT[:8], len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
                 K.M24_TAG[0], m24_loc_[:8] or 'NONE', m24_main_[:8] or 'NONE', m24_ok,
                 ', '.join('%s %s %s' % x_ for x_ in efl_),
                 ef_new_tags_ or 'NONE', v038_[:8] or 'NONE', v039_[:8] or 'NONE', v040_[:8] or 'NONE', v041_[:8] or 'NONE', v041o_[:8] or 'NONE', v042_[:8] or 'NONE', v043_[:8] or 'NONE',
                 v044_[:8] or 'NONE', v044o_[:8] or 'NONE',
-                ', '.join(K.KERNEL_DELETES) or 'none', ', '.join('%s %s' % x_ for x_ in pl5_) or 'none', K.WEIL_BRANCH_B759[0],
+                ', '.join('%s %s' % (b_, 'REMOVED' if b_ in K.KERNEL_REMOVED else 'REFUSED, KEPT') for b_ in K.KERNEL_DELETES) or 'none', ', '.join('%s %s' % x_ for x_ in pl5_) or 'none', K.WEIL_BRANCH_B759[0],
                 ', '.join('%s %s' % x_ for x_ in rm_loc_) + '; tracking refs left %s; ' % (rm_trk_ or 'NONE') + ', '.join('%s %s' % x_ for x_ in ef_rb_), efb_ok,
                 'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or ('UNREAD (no command bank)' if gho_ is None else 'NONE'), gh_ok,   # ### defect (x): NONE printed unread
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
@@ -3502,13 +3512,17 @@ def _finding_text_b765(f, S, rep, tot):
          '**The runner’s cache, tried again** ((R375)(4) and the author’s word of 2026-11-21 on it): push-b765-centre cut from push-b764-runner at 38a57e02; the workflow`s key at %s, the save keyed by the toolchain, the manifest and the commit and the restore by the prefix of the toolchain and the manifest; the planted input of the word`s (i), off by default, at %s; [G2] PART ONE committed alone at relay %s before any dispatch (relay data/b765_registration.txt). '
          'The dispatch and the read by tools/b765_controls.py, committed before its opening dispatch, its controls %d of %d (relay data/b765_controls_control.txt); every dispatch read by its run id from the downloaded artifact, the exit file governing: %s (relay data/b765_dispatch_rows.json). '
          'THE PLANTED BUILD: %s. THE PAIR: %s. H-RUNNER-RESTORE %s%s; the tool`s controls %d of %d (relay data/b765_controls.txt). The seat`s reading of "a restore hit", printed before the planted dispatch: the record`s restore line other than none, an exact key or a key by the prefix (relay data/b765_events.txt (48)). '
-         '%s W-ORD-RUNNER-CACHE %s at %s. push-b765-planted deleted from the kernel`s clone before the lock by the one-call tool`s route; at the remote it stays, its name its warning, named in the closing message.' % (
+         '%s W-ORD-RUNNER-CACHE %s at %s. %s' % (
              kc_.get('workflow', '-')[:8], kc_.get('planted_input', '-')[:8], (K.REG_COMMIT or '-')[:8], f['cc_ctl'][0], f['cc_ctl'][1], rnw_,
              f['tr_planted_line'], f['tr_pair_line'], f['tr_verdict'], ('; ' + f['tr_why']) if f['tr_why'] else '', f['tr_ctl'][0], f['tr_ctl'][1],
              ('Main moved from %s to the closing Lean commit %s by the gated push, never forced, and read back at the remote; the kernel`s local main fast-forwarded by the one-call tool and read back equal; %s. The save on main of the word`s (iii): %s.' % (
                  K.EF_BASE[:8], (K.RUNNER_COMMIT or '-')[:8], ('the tag %s cut after main`s read-back, on run %s with the restore off and on no other' % (tag_[0], off_['run'] if off_ else '-')) if tag_ else 'no tag cut',
                  f['tr_main_line'])) if moved_ else 'Main stands at %s; no tag cut; the Lean stands on push-b765-centre, cited by commit; builds stay from source; the save on main of the word`s (iii) not sent.' % K.EF_BASE[:8],
-             'DISCHARGED by [C5]' if xk_ == 'C5' else 'CARRIED by [C6]', ln_(xk_ or '-')), '',
+             'DISCHARGED by [C5]' if xk_ == 'C5' else 'CARRIED by [C6]', ln_(xk_ or '-'),
+             ('push-b765-planted deleted from the kernel`s clone before the lock by the one-call tool`s route; at the remote it stays, its name its warning, named in the closing message.'
+              if K.PLANTED_BRANCH[0] in K.KERNEL_REMOVED else
+              'push-b765-planted`s delete sent by the one-call tool`s route before the lock and refused there, %s (%s): the branch stays in the kernel`s clone and at its remote, its name its warning, named in the closing message for removal by the author`s word ((R375)(4)).' % (
+                  (dict((r_[0], r_[2]) for r_ in K.KERNEL_DELETES_REFUSED).get(K.PLANTED_BRANCH[0]) or 'refused'), (dict((r_[0], r_[1]) for r_ in K.KERNEL_DELETES_REFUSED).get(K.PLANTED_BRANCH[0]) or '-')))), '',   # ### b765: the route refused it at 19:19:48Z
          '**The statement of the control’s failure** ((R375)(5)(a)): SIDEExplicitFormula/ControlFailureExists.lean at %s, a definition of a Prop in a file of its own: there is a k in classK, vanishing outside [-log 1024, log 1024], at which the real part of the control`s arithmetic side, poleTerm k - primeTermQ cQ k + archTermQ k, is below 0; it names no frequency and no zero; its imports H2Sign, Schema.EpsteinZQ and the module that defines cQ, the control of (R373)(7) reading its import closure PASSED before its dispatch; its name joining print_targets.txt. %s; entered as a definition and not a result, its position DEFINITION, the proof carried; [S1] at %s. The statement file of b763 stays on push-b763-arith, unmerged.' % (
              kc_.get('statement', '-')[:8], ('Compiled at run %s, its axioms %s' % (st_[0], st_[3])) if st_ else 'Not compiled', ln_('S1')), '',
          '**Gauss’s integral for the archimedean term** ((R375)(5)(b)): the gate before any dispatch of it, a control and no registration, by tools/b765_gauss_gate.py committed before its run: the form computed with the navigator`s right side in place of the kernel`s integral at the kernel`s window, %s; THE GATE %s, its first runs printed beside the readings entered, the first failing at :426 by the tool`s own radius (relay data/b765_gauss_gate.txt; data/b765_defects.txt (h)). '
@@ -3568,7 +3582,7 @@ def _finding_text_b765(f, S, rep, tot):
              len(cnt_), len(repl_), ', '.join('(%s)' % x_ for x_ in cnt_) or 'none'), '',
          '**Read in mutual light** ((R204)(3)(ii)-(iii)): the window of (5)(c) and the lemma of (5)(b) read the one archimedean term two ways, the window`s tool taking it by Gauss`s integral in closed forms over the spline basis and the kernel proving that integral from its own definitions, so that the proof by the banked window can cite a compiled lemma for the term it computes; the statement of (5)(a) names what that proof would prove, and no more; the runner`s cache reads whether each step of that proof can be dispatched at a restored build`s price; the four readings set the premises, the map, the held branches and the order on the Pi-0-1 form beside the centre without building them. Each is a statement about the record, its tools or the Epstein zeta function of x^2 + xy + 6y^2, promoting nothing, and none is a finding about zeta.', '',
          '**Carried to:** %s, per (R375)(13), as the author answers the one question at the root: the proof of the control`s failure by the banked window, where [W1] stands%s; or the registration H-ONSET-DENSITY with W-ORD-ADMISSIBLE-CONE and the navigator`s predictions, the search for a window carried in it; or another the author names; printed beside it for the author`s strike, the rows of (6)(a) whose consequence is retirement and the recommendation of (6)(b). '
-         'W-ORD-LI-ARITH with its statement, its lemma and its window as entered; W-ORD-RUNNER-CACHE %s; W-ORD-H2-PI1 carried by [H4]. Orders open after the act: %d (relay data/b765_orders.txt); push-b765-centre, push-b764-runner and the four push-b763-* branches of SIDE-explicit-formula kept, push-b765-planted at the remote named in the closing message; the draft held at v5.' % (
+         'W-ORD-LI-ARITH with its statement, its lemma and its window as entered; W-ORD-RUNNER-CACHE %s; W-ORD-H2-PI1 carried by [H4]. Orders open after the act: %d (relay data/b765_orders.txt); push-b765-centre, push-b764-runner and the four push-b763-* branches of SIDE-explicit-formula kept, push-b765-planted in the clone and at the remote, the delete route refusing it, named in the closing message; the draft held at v5.' % (
              K.NEXT_ACT, ' (it stands)' if f['w_verdict'] == 'HELD' else ' (it does not stand)', 'discharged by [C5]' if xk_ == 'C5' else 'carried by [C6]', f['ord_head'][1]), '',
          '**Next.** %s.' % K.next_line(), '',
          '*Nothing here is a statement that RH or GRH holds or fails, that Weil positivity on classK holds or fails for zeta, or about the zeros of zeta.*', '',
@@ -3980,7 +3994,7 @@ def _trail_text_b765():
                  kc_.get('statement', '-')[:8], ln_('S1'), f['g_verdict'], kc_.get('gauss_statement', '-')[:8], kc_.get('step10', '-')[:8],
                  ('gaussArchQ proved whole, its axioms print %s' % s2p_.group(1)) if s2p_ else 'not proved whole', ln_('S2'),
                  f['w_verdict'], f['w_json'][0], '1' if f['w_verdict'] == 'HELD' else '2', ln_('W1' if f['w_verdict'] == 'HELD' else 'W2')), '',
-             '**The readings** ((R375)(6)): (a) the eighteen premises, A HYPOTHESIS BY DESIGN %d, DERIVED %d, OF THE HYPOTHESIS`S STRENGTH %d, none of these compiled %d, no order retired, [Q1] at %s; (b) the map`s two files differing in %d lines, no line written, [M3] at %s; (c) the four held branches read, none removed, [B2] at %s; (d) W-ORD-H2-PI1 by Route A, %d of %d addresses reached and read, the order standing, [H4] at %s (relay data/b765_premise_positions.txt, data/b765_map_pair.txt, data/b765_held_branches.txt, data/b765_pi01_reading.txt).' % (
+             '**The readings** ((R375)(6)): (a) the eighteen premises, A HYPOTHESIS BY DESIGN %d, DERIVED %d, OF THE HYPOTHESIS’S STRENGTH %d, none of these compiled %d, no order retired, [Q1] at %s; (b) the map`s two files differing in %d lines, no line written, [M3] at %s; (c) the four held branches read, none removed, [B2] at %s; (d) W-ORD-H2-PI1 by Route A, %d of %d addresses reached and read, the order standing, [H4] at %s (relay data/b765_premise_positions.txt, data/b765_map_pair.txt, data/b765_held_branches.txt, data/b765_pi01_reading.txt).' % (
                  f['q_counts'][1], f['q_counts'][2], f['q_counts'][3], f['q_counts'][4], ln_('Q1'), f['m_lines'][0], ln_('M3'), ln_('B2'),
                  f['pi_counts'][1], f['pi_counts'][0], ln_('H4')), '']
     rows_ += ([r1_, ''] if r1_ else [])
@@ -4017,7 +4031,7 @@ def _trail_text_b765():
               'report tool (relay data/b765_report.txt).' % f['ver'], '']
     aw = AC.author_words_section(ACT)   # ### the author's word after the seal, from its bank, verbatim
     rows_ += ['**' + aw[0][4:].rstrip(':') + ':**'] + ['> ' + l[4:] if l.startswith('    ') else '> ' + l for l in aw[1:]] + ['']
-    rows_ += ['**The kernels:** SIDE-explicit-formula`s main at %s (entering at %s), %s; %s, kept for the next act`s step zero; push-b765-planted removed from the clone before the lock and kept at its remote, named in the closing message; %s, v0.38 to %s unmoved; %s removed at its remote by b760, the clone`s branch kept at %s; zq-b730 at %s, unmoved; SIDE-dirichlet-mod-24`s main at %s, %s at %s, unmoved; no kernel beyond SIDE-explicit-formula touched, and there the files of (5), print_targets.txt and the workflow`s file, the planted module on its branch alone; the %s branches as b765 found them; port-b707 at %s, '
+    rows_ += ['**The kernels:** SIDE-explicit-formula`s main at %s (entering at %s), %s; %s, kept for the next act`s step zero; push-b765-planted kept in the clone and at its remote, the one-call tool`s delete route refusing it before the lock, not fully merged, named in the closing message; %s, v0.38 to %s unmoved; %s removed at its remote by b760, the clone`s branch kept at %s; zq-b730 at %s, unmoved; SIDE-dirichlet-mod-24`s main at %s, %s at %s, unmoved; no kernel beyond SIDE-explicit-formula touched, and there the files of (5), print_targets.txt and the workflow`s file, the planted module on its branch alone; the %s branches as b765 found them; port-b707 at %s, '
               'its tag %s at it; SIDE-faces-join at %s with its one tag %s; no lean process on this host.' % (
                   (K.EF_MAIN or '-')[:8], K.EF_BASE[:8], 'moved to the closing Lean commit under HELD, read back at the remote' if moved_ else 'unmoved',
                   ', '.join('%s at %s' % (b_, t_[:8]) for b_, t_ in (K.WEIL_BRANCH, K.WEIL_BRANCH_B764, K.ARITH_BRANCH_B763, K.ORDER_BRANCHES_B763[1], K.WEIL_BRANCH_B763, K.ORDER_BRANCHES_B763[0])),
@@ -4144,7 +4158,7 @@ def _trail_text_b764_kept():
 #⟪SECTION regspec 2⟫
     ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b765*.'),
     ('rebuild branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
-    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved; b763`s four push-b763-* branches, b764`s push-b764-runner and this act`s push-b765-centre beside them, push-b765-planted removed from the clone; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
+    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved; b763`s four push-b763-* branches, b764`s push-b764-runner and this act`s push-b765-centre beside them, push-b765-planted kept in the clone, the delete route refusing it; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
     ('kernel branches removed at a kernel`s remote', 0, 0, 'branches', '### none ((R375)(4): the route removes no branch at a kernel`s remote for b765, so push-b765-planted stands there, named in the closing message for removal by the author`s word); push-b759-weil removed at SIDE-explicit-formula`s remote by b760; the four held branches of b725 to b730 kept.'),
     ('rebuild-b721 branches kept on the wave 1 kernels', 'RBBRANCHES', 'RBBRANCHES', 'branches', '### as b765 found them, the six; MEASURED off the six kernels` refs/heads.'),
     ('rebuild-b721 branches standing at their origins', 'RBPUSHED', 'RBPUSHED', 'branches', '### MEASURED off each kernel`s refs/remotes/origin/rebuild-b721.'),
