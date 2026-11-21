@@ -630,7 +630,9 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          ('rulings_gen', '1c03384b'),
          # ### b765, Component 4 (the Edit tool, 17:3xZ): the relay's commits after rulings_gen read from git (git log 1c03384b..HEAD) and the
          # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
-         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'), ('lockgate_carry', 'd03be64e'))
+         ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'), ('lockgate_carry', 'd03be64e'),
+         # ### b765, Component 5 (the Edit tool, 18:1xZ): appended as made, each read from git and the step rows (steps 56 and 57)
+         ('reproduce', '83b9c7ee'), ('module_c5', 'a5d5a2b0'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -674,7 +676,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'controls_ms2': 'the dispatch tool given the second save on main by the author`s word',
                     'rows10': 'main moved and v0.44 cut, dispatch 10 stopped, the author`s word on the save on main banked',
                     'rows11': 'the dispatch tool`s controls 36 of 36 banked, dispatch 11 sent, the ledgers tool and the act module set',
-                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set before any run'})
+                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set before any run',
+                    'reproduce': 'the full reproduction run of (12) banked',
+                    'module_c5': 'the act module set for the three words, the worklist given dispatch 11 among its runs and the face`s blocks file'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit
