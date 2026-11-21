@@ -1196,7 +1196,7 @@ def research_reproduces_ok(S):
         and bool(src) and src == _s(blob(ROOT, '%s:%s' % (PRE['relay'], tool))) and src == (read(os.path.join(ROOT, *tool.split('/'))) or '')
 #⟪END⟫
 #⟪SECTION checks 41⟫
-    """standing clauses v9 (Component 6 of (R374): the close "as the standing clauses order them", the touch read of v9 banked before the root), N4: the touch read banked as data/b764_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
+    """standing clauses v9 (the ferry's Component 5 under (R374), data/b764_ferry.txt :155: the close "as the standing clauses order them", the touch read of v9 banked before the root), N4: the touch read banked as data/b764_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
 #⟪END⟫
 #⟪SECTION checks 42⟫
     # ### b763's G-RESEARCH-REPRODUCES stands untagged beside the act shift, and G-READFIRST-DIFF-BANKED, out of the arm list at v1.3.0, stays
@@ -1255,9 +1255,9 @@ def research_reproduces_ok(S):
      lambda S: count_route_priced_ok(S), lambda S: _mut(S, 'ledgersj', lambda d: (d.get('roster') or {}).update(before_open=83))),   # ### b764: the roster planted at 83 open before the lines, where 82 is wanted
     ('G-DIFFERS-ERRATA', '(R374)(1), (9)(a), (13): [E1] the one ERRATA entry and no DIFFERS entry -- ERRATA.md`s bytes at the act`s base a prefix of its new bytes, in the ledgers` PLACE-papers commit alone, its head at the worklist`s ERRATA_LINE as the ledgers json enters it; no differs bank; the corrigendum in e383d313, FINDINGS the one file there, its head at FINDINGS :15865; no weight line, (R374)(1) ordering none',
 #⟪END⟫
-# ### b764, Component 6: G-DIFFERS-ERRATA for (R374), which orders no ERRATA entry ((13)'s (W) list names no ERRATA.md) and no weight line
-# ### -- the template's predicate (checks.tpl :1562-:1567) wants a weight line in FINDINGS; replaced whole here, b763's override (its two
-# ### ERRATA entries of BLOCK E) retired with it
+# ### b764, Component 5 (the Edit tool; the carry had shifted b763's comment on (R373) here): G-DIFFERS-ERRATA for (R374), which orders
+# ### one ERRATA entry, [E1] by (9)(a) ((14)'s (W) list names ERRATA.md), and no weight line -- the template's predicate (checks.tpl
+# ### :1562-:1567) wants a weight line in FINDINGS; replaced whole here, b763's override (its two ERRATA entries of BLOCK E) retired with it
 #⟪OVERRIDE checks MARK dd4dd9cb3d4b 6⟫
     """(R374)(1), (9)(a), (13): one ERRATA entry this act and no DIFFERS entry -- ERRATA.md's bytes at the act's base a prefix of its
     working tree's, longer by [E1] alone, in the ledgers' PLACE-papers commit (ledgerspp) and in no other commit of the act; its head at the

@@ -292,11 +292,11 @@ b764 -- THE REPAIRS BY CLASS, (R374)(5): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      rows ((R364)(3)(iii))", read at 21:07Z (scratch k19facts764.py, read-only) ; STATE: READ AS DESIGNED ; THE RULE: (R364)(3)(iii)
      (data/b754_ferry.txt :13), "The scan of the closing step-row commit is taken over its staged set before that commit, as every other
      commit's is, and its rows are written to the next act's per-commit scan bank as that bank's opening rows; nothing is appended to a pushed
-     bank", enforced by tools/standing/commit.py :1194-:1199 (v1.34.0), the next act's step zero committing those rows (b764's step 3,
+     bank", enforced by tools/standing/commit.py :1204-:1209 (v1.34.0), the next act's step zero committing those rows (b764's step 3,
      8f4c353d) ; VERSION: none moved, no tool changed ; THE CONTROL: none, the state ordering none ; PRICE: 0.16-0.62 h ; TOOK: 0.02 h
      (21:06:37Z-21:07:46Z, the row's add)
      "[K19] read as designed: (R364)(3)(iii) (data/b754_ferry.txt :13), which writes the closing step-row commit's scan to the next act's
-     per-commit bank as that bank's opening rows and appends nothing to a pushed bank, enforced at tools/standing/commit.py :1194-:1199; from
+     per-commit bank as that bank's opening rows and appends nothing to a pushed bank, enforced at tools/standing/commit.py :1204-:1209; from
      this act the close does not print it as a finding"
      THE READ: no tool of the close prints it (tools/standing/, its templates and tools/acts/b764.py read for the words, none found); the
      finding was the seat's own line in b763's closing message, and from this act the seat's closing message does not list it.
