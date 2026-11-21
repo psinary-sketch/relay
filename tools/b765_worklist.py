@@ -584,7 +584,8 @@ GENS = (('the repairs` planted controls', 'tools/b765_repair_controls.py', ('e17
         ('the map`s files of (6)(b)', 'tools/b765_map_pair.py', ('f2939784',), 'data/b765_map_pair.txt', '86f223c7'),
         ('the premise positions of (6)(a)', 'tools/b765_premise_positions.py', ('be98ed62', '32573c78'), 'data/b765_premise_positions.txt', '8cedc214'),
         ('the builder`s controls of (7)', 'tools/project_set.py', ('2528de22',), 'data/b765_project_set_control.txt', 'a59051fc'),
-        ('the trial of (4)', 'tools/b765_controls.py', ('d9d459dc', '6808aa6b', '881803be', '62ffe878'), 'data/b765_controls.txt', '48fe0805'))   # ### b765: banked after dispatch 11's read (step 58, 18:59:20Z); the ledgers' row appended after its bank's commit
+        ('the trial of (4)', 'tools/b765_controls.py', ('d9d459dc', '6808aa6b', '881803be', '62ffe878'), 'data/b765_controls.txt', '48fe0805'),   # ### b765: banked after dispatch 11's read (step 58, 18:59:20Z)
+        ('the ledgers of (4)-(9)', 'tools/b765_rulings.py', ('1c03384b', '9cbe5247'), 'data/b765_ledgers.txt', '6d8d2802'))   # ### b765: written to OPEN_TRAILS (PLACE-papers fb094a44, step 59), banked with the roster (step 60, 19:02:47Z)
 GENS_B764 = ()   # ### b764's seven stand in git at tools/b764_worklist.py
 GENS_B763 = ()   # ### b763's nine stand in git at tools/b763_worklist.py
 GENS_B762 = ()   # ### b762's five stand in git at tools/b762_worklist.py
@@ -633,7 +634,7 @@ CHAIN = (('c1', '8a9f386c'), ('corr', '78f504a2'),
          # ### step rows (scratch steprows765.py, 17:34:07Z), the step-row commit ce2c6c4f writing no row of its own; later commits appended as made
          ('rows9', 'd83c98a7'), ('rows9_step', 'ce2c6c4f'), ('controls_ms2', '881803be'), ('rows10', '62ffe878'), ('rows11', '9cbe5247'), ('lockgate_carry', 'd03be64e'),
          # ### b765, Component 5 (the Edit tool, 18:1xZ): appended as made, each read from git and the step rows (steps 56 and 57)
-         ('reproduce', '83b9c7ee'), ('module_c5', 'a5d5a2b0'), ('trial', '48fe0805'))
+         ('reproduce', '83b9c7ee'), ('module_c5', 'a5d5a2b0'), ('trial', '48fe0805'), ('ledgers', '6d8d2802'))
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
@@ -681,7 +682,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b764`s findings after its lock and 
                     'reproduce': 'the full reproduction run of (12) banked',
                     'module_c5': 'the act module set for the three words, the worklist given dispatch 11 among its runs and the face`s blocks file',
                     'trial': 'dispatch 11 read and the trial banked, the second save on main as wanted',
-                    'ledgerspp': 'the lines of (4)-(9) and the author`s words of 2026-11-21 in OPEN_TRAILS'})
+                    'ledgerspp': 'the lines of (4)-(9) and the author`s words of 2026-11-21 in OPEN_TRAILS',
+                    'ledgers': 'the ledgers` banks and the roster'})
 # ### the standing versions of the act, each (version, its commit, its controls bank, its cases): none at b761 ((R371)(11), tools/standing/
 # ### tree-equal to b760's close, VERSION v1.37.1); b760's four kept under their own names for the carried readers
 # ### b764, Component 5 (the Edit tool): the nineteen standing versions of (5) and (7), each (key, version, the version's commit, the commit
