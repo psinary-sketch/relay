@@ -759,7 +759,7 @@ def _kernel_state():
                + [('c1', _ct(ROOT, K.C1_RELAY)), ('stepzero', _ct(ROOT, K.STEPZERO_BANKS)), ('actcur', _ct(ROOT, K.ACT_CURRENT_COMMIT))]),
 #⟪END⟫
 #⟪SECTION checks 9⟫
-                   corr=files_of(ROOT, K.C1_CORR), standing=files_of(ROOT, K.C1_STANDING) if K.C1_STANDING else [], lockgate=files_of(ROOT, K.C1_LOCKGATE) if K.C1_LOCKGATE else [], c2=[],   # ### b757: the lock gate set when made; no Component 2 relay bank of b756's kind
+                   corr=files_of(ROOT, K.C1_CORR), standing=sorted(set(x_ for h_ in ((K.C1_STANDING,) if isinstance(K.C1_STANDING, str) else (K.C1_STANDING or ())) for x_ in files_of(ROOT, h_))), lockgate=files_of(ROOT, K.C1_LOCKGATE) if K.C1_LOCKGATE else [], c2=[],   # ### b757: the lock gate set when made; no Component 2 relay bank of b756's kind ; ### b765 (the touch read's arm call, 20:03:57Z): C1_STANDING names (8)'s two commits, a tuple where b764's was None, files_of taking one commit; each commit's files read and joined
                    v9=files_of(ROOT, K.STANDING_COMMIT), handoff=files_of(ROOT, K.HANDOFF_COMMIT) if K.HANDOFF_COMMIT else [],
                    **dict([('rc_' + k_, files_of(ROOT, h_)) for k_, h_ in K.CHAIN] + [('pp_' + k_, files_of(PP, h_)) for k_, h_ in K.PP_CHAIN]),   # ### b756: each commit of the two chains by its key
 #⟪END⟫
