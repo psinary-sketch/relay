@@ -1068,7 +1068,7 @@ def controls():
     tj7 = json.load(io.open(os.path.join(D, 'b765_targets_7d86a245.json'), encoding='utf-8'))
     p_tip = git(KPATH, 'rev-parse', '7d86a245').strip()
     pcx = [planted_ctx(git(KPATH, 'rev-parse', PLANT_COMMIT).strip(), tj7['modules'], [(p_tip, 'refs/heads/' + PLANTED)]),
-           planted_ctx(git(KPATH, 'rev-parse', K.RUNNER_COMMIT).strip(), tj7['modules'], [(p_tip, 'refs/heads/' + PLANTED)]),
+           planted_ctx(git(KPATH, 'rev-parse', K.RUNNER_COMMIT_B764).strip(), tj7['modules'], [(p_tip, 'refs/heads/' + PLANTED)]),
            planted_ctx(git(KPATH, 'rev-parse', PLANT_COMMIT).strip(), tj7['modules'], [])]
     pv_ = [(x['planted'][0], x['parent_on_centre'], x['module_equal']) for x in pcx]
     c('the planted context at real commits (the planted tip 7d86a245 as push-b765-planted`s remote tip): at %s the module taken, the parent an '
@@ -1080,7 +1080,8 @@ def controls():
         len(bj['modules']), bj['names']), (tf[:8], len(tm), tn, len(tb)), tf == bj['rev'] and tm == sorted(bj['modules']) and tn == bj['names'] and not tb)
     wn = wf_predicates(git(KPATH, 'show', '%s:%s' % (PLANT_COMMIT, WF)))
     wd = wf_predicates(git(KPATH, 'show', 'd540bc98:%s' % WF))
-    wo = wf_predicates(git(KPATH, 'show', '%s:%s' % (K.RUNNER_COMMIT, WF)))
+    # ### b764's workflow by its own constant: the worklist's RUNNER_COMMIT names b765's closing Lean commit since (4)'s HELD (defect (l))
+    wo = wf_predicates(git(KPATH, 'show', '%s:%s' % (K.RUNNER_COMMIT_B764, WF)))
     c('the workflow`s predicates for (R375)(4) and the word`s (i): each true at the centre`s %s ; at d540bc98 the four of the planted input false '
       'and the others true ; THE PLANTED FAULT, b764`s workflow at 38a57e02: its three true and the others false' % PLANT_COMMIT,
       (sum(wn.values()), len(wn), sorted(k for k, v in wd.items() if not v), sorted(k for k, v in wo.items() if v)),
