@@ -21,3 +21,21 @@ b765 -- THE REPAIRS BY CLASS, (R375)(8): ONE ROW A KEY, IN THE ORDER OF REPAIR (
      answer; its planted control, an answer in each form, read the fault before and reads clean after (data/b765_repair_controls.txt :16)"
      THE REPAIR'S LIMIT: an answer naming the act that follows in neither form (neither its name nor the act after this one) gives its first
      sentence alone; a word naming the act after this one with no prompt answered is taken from the first such line of the word sections.
+
+    [K21] CLASS ONE, WHAT AN ACT INHERITS BY COPY (b764's row (73) names its class "a carried list read without the key b763's list held":
+     the act module's _chain() and the worklist's CHAIN carried act to act, b763's CHAIN holding its lock gate's carry and b764's not) ;
+     EVIDENCE: b764's finding after its lock (data/b765_events.txt (20); data/b764_events_postseal.txt (73) :30-:39, (81) and
+     (83): its CHAIN without the lock gate's carry ec439ca3 (00:27:48Z), read after its handoff 6d4d47f5 (03:03:26Z), the times out of
+     order and the pair handoff -> lock gate no ancestor, the act part's probe of 01:08:01Z run before HANDOFF_COMMIT was set) ; STATE:
+     REPAIRED ; VERSION: v1.38.20, relay 899f2767 (tools/standing/act.py chain_in_time() and keys_in_time(); tools/acts/b765.py's _chain()
+     and checks 33's key line reading them) ; THE CONTROL: data/b765_repair_controls.txt :18-:28, its part on b765's own chain PENDING
+     until b765's handoff commit is set, when it runs again ((R375)(8)) ; PRICE: 0.34-1.24 h ; TOOK: 0.17 h (11:03:17Z-11:13:35Z; the
+     control's first run, 11:12:17Z, NOT AS WANTED on b765's carried handoff, defect (f), its predicate set and committed, fb7147dc,
+     before the banked run)
+     "[K21] repaired at v1.38.20: the arm G-COEFFS-LAW reads the act's relay chain in time order -- tools/standing/act.py's chain_in_time()
+     places the passed bank, the handoff page and the lock gate's carry, where set and not already in the worklist's CHAIN, by commit time
+     among CHAIN, and keys_in_time() places their keys by time among TIME_ORDER, where the act module had appended them after CHAIN in a
+     fixed order; its planted control read b764's chain at its lock with the fault before and reads it clean after, every consecutive pair
+     an ancestor (data/b765_repair_controls.txt :28), and runs again on b765's own chain after its handoff commit is set"
+     THE REPAIR'S LIMIT: CHAIN's own order is the worklist's and is not re-sorted, so a CHAIN out of time order still fails the arm, as
+     designed; a commit of the tail with no time goes at the chain's end.
