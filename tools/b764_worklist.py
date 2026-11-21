@@ -545,7 +545,7 @@ GENS = (('the close`s yield of (6)', 'tools/b764_yield.py', ('7e93bb18', '38918d
         ('the finite part of (9)(b)', 'tools/b764_imp2tau.py', ('65c12c76',), 'data/b764_imp2tau.txt', 'becb7dd3'),
         ('the deposit read of (9)(a)', 'tools/b764_rulings.py', ('8f9224dd',), 'data/b764_deposit_read.txt', '11a00f11'),
         ('the trial of (7)', 'tools/b764_controls.py', ('d92fb452',), 'data/b764_controls.txt', '96dc32d8'),
-        ('the ledgers of (7) to (9)', 'tools/b764_rulings.py', ('8f9224dd',), 'data/b764_ledgers.txt', '<LEDGERS>'))
+        ('the ledgers of (7) to (9)', 'tools/b764_rulings.py', ('8f9224dd',), 'data/b764_ledgers.txt', '59395552'))
 GENS_B763 = ()   # ### b763's nine stand in git at tools/b763_worklist.py
 GENS_B762 = ()   # ### b762's five stand in git at tools/b762_worklist.py
 GENS_B760 = ()   # ### b760's nine stand in git at tools/b760_worklist.py
@@ -586,7 +586,7 @@ CHAIN = (('c1', 'f66a6878'), ('corr', '89fbe2f4'),
          ('yield_gen', '7e93bb18'), ('yield_fix', '38918d61'), ('yield', 'f0a63237'), ('ceiling_c2', 'f0ad4589'),
          ('controls_gen', 'd92fb452'), ('controls_bank', '80c2f299'), ('send1', '894a5c88'),
          ('reg', '6fd013e9'), ('imp2_gen', '65c12c76'), ('imp2', 'becb7dd3'), ('rulings_gen', '8f9224dd'), ('deposit', '11a00f11'),
-         ('trial', '96dc32d8'), ('ledgers', '<LEDGERS>'))
+         ('trial', '96dc32d8'), ('ledgers', '59395552'))
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
 CHAIN_B762 = ()   # ### b762's thirteen keys stand in git at tools/b762_worklist.py
 CHAIN_B761 = ()   # ### b761's twenty-one keys stand in git at tools/b761_worklist.py
