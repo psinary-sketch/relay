@@ -1963,7 +1963,7 @@ def _trail_resolved(text):
                 xline=xj_,
                 reg_date=rg_[0], reg_commit=(K.REG_COMMIT or '')[:8],
                 # ### (5)(c), (5)(b)'s gate, (6) and (7)
-                w_verdict=wv_[0], w_sentence=ws_[0].replace('`', '’'), w_cells=wc_, w_json=(int(wj_[0]), wj_[1]),
+                w_verdict=wv_[0], w_sentence=ws_[0].replace('`', '’'), w_cells=wc_, w_json=(int(wj_[0]), wj_[1], hashlib.sha256(open(os.path.join(ROOT, 'data', '%s_window.json' % ACT), 'rb').read()).hexdigest()[:16]),   # ### b765: the file's bytes' sha256 beside the tool's figure, which hashes the text before its writer's final newline (the touch read, 19:5xZ)
                 g_verdict=gv_[0], g_cells=gc_,
                 q_counts=tuple(int(x_) for x_ in pp6_[:5]), q_ctl=pp6_[5],
                 m_lines=tuple(int(x_) for x_ in mp_), m_acts=ma_[0],
@@ -3444,7 +3444,7 @@ def _finding_text_b765(f, S, rep, tot):
     r10h_, r10p_ = _report10()
     rs_, le_ = f['rep_states'], f['led_entered']
     ln_ = lambda k_: ('OPEN_TRAILS :%d' % le_[k_][0]) if k_ in le_ else 'not entered'
-    rg_ = lambda a_, b_, u_: ('%s %s' % (a_, u_)) if a_ == b_ else '%s to %s %s' % (a_, b_, u_)
+    rg_ = lambda a_, b_, u_: ('%s %s' % (a_, u_[:-2] if (u_ == 'dispatches' and a_ == 1) else u_)) if a_ == b_ else '%s to %s %s' % (a_, b_, u_)   # ### b765: one dispatch singular, as the closing's and the report's rg_ (the touch read, 19:4xZ)
     pw_ = lambda k_: rg_(f['pr_rows'][k_]['lo_h'], f['pr_rows'][k_]['hi_h'], 'h')
     pd_ = lambda k_: '%s over %s' % (pw_(k_), rg_(f['pr_rows'][k_]['dispatches'][0], f['pr_rows'][k_]['dispatches'][1], 'dispatches'))
     kc_ = dict((k_, c_) for k_, _r, c_, _b in K.KERNEL_COMMITS)
@@ -3504,7 +3504,8 @@ def _finding_text_b765(f, S, rep, tot):
          '**The price and the ceiling** ((R375)(3)): the price table banked at step zero, before Component 1, each item of (4) to (9) with its lines, its dispatches and its hours, a dispatch priced by its kind -- a build from source at %s minutes and a restored build at %s, each as b764 banked it -- the seat`s own readings printed as the seat`s: step zero %s h, the lower sum %s h against %d h, %s, the upper sum %s h; the reading of the author`s word of 2026-11-21 on W-ORD-H2-PI1 priced in it as (6)(d) (relay data/b765_price.txt). '
          'Read again after Component 2 by a read-only reading at %s, entered in the events bank: %s h spent from the delivery, the lower sum %s h against %d h, under by %s h, %s (relay data/b765_events.txt (52)). '
          'The seat`s read of what the ruling misses printed to the author before Component 1 and once more before the lock (relay data/b765_misses.txt).' % (
-             f['pr_minutes'][1], f['pr_minutes'][0], f['pr_step0'], f['pr_lower'], f['pr_ceiling'], f['pr_carried'].lower(), f['pr_upper'],
+             *[(lambda m_: ('%s to %s' % (m_[0], m_[1]) if m_[0] != m_[1] else '%s' % m_[0]) if isinstance(m_, (list, tuple)) else '%s' % m_)(f['pr_minutes'][i_]) for i_ in (1, 0)],   # ### b765: a kind's range printed as its figures, not as a list (the touch read, 19:4xZ)
+             f['pr_step0'], f['pr_lower'], f['pr_ceiling'], f['pr_carried'].lower(), f['pr_upper'],
              f['ce_at'], f['ce_spent'], f['ce_sum'], f['ce_ceiling'], f['ce_under'], f['ce_word'].lower()), '',
          '**The two repairs** ((R375)(8)), in Component 1 before the opening pass, each with its planted control read at the commit before the repair and at the repair`s commit, both printed (relay data/b765_repairs.txt, data/b765_repair_controls.txt): tools/standing/ moved from %s to %s by %d commits, the two keys of (8) and the kernel route that (4) and (11) allow (relay data/b765_events.txt (30)), VERSION moved by each, the standing dry before each (relay data/b765_standing_dry.txt); %s, %s, %s and %d carried. %s' % (
              f['st_entering'], f['st_version'], len(K.STANDING_REPAIRS), sti_('REPAIRED'), sti_('READ AS DESIGNED'), sti_('REMOVED'), len(rs_['CARRIED']),
@@ -3531,9 +3532,9 @@ def _finding_text_b765(f, S, rep, tot):
              f['g_verdict'], kc_.get('gauss_statement', '-')[:8], kc_.get('steps14', '-')[:8], kc_.get('step5', '-')[:8], kc_.get('steps69', '-')[:8], kc_.get('step10', '-')[:8],
              ('SIDEExplicitFormula.B321.GaussArchQSteps.gaussArchQ at %s, a proof of GaussArchQ, its axioms print %s: proved whole' % ((K.RUNNER_COMMIT or '-')[:8], s2p_.group(1))) if s2p_ else 'not proved whole',
              ln_('S2')), '',
-         '**The spline window, computed and banked as data** ((R375)(5)(c)): [G2] PART TWO committed with PART ONE at relay %s before any dispatch and before the tool`s run; tools/b765_window.py, carried in form from tools/b667_epstein_certify.py and committed before its run, the constants exact and every value a ball, its own control and the registration`s controls as wanted before any cell. H-SPLINE-WINDOW %s: %s Reported beside it, unregistered: at M 8 the arithmetic side %s and at M 32 %s, with d 3; nonzero coefficients %s, %s and %s of %s, %s and %s at M 16, 8 and 32; the prime side`s rational products %s each (relay data/b765_window.txt; data/b765_window.json, %d coefficients as rationals, sha256 %s). [W%s] at %s. No figure of the navigator`s workspace printed as a banked figure.' % (
+         '**The spline window, computed and banked as data** ((R375)(5)(c)): [G2] PART TWO committed with PART ONE at relay %s before any dispatch and before the tool`s run; tools/b765_window.py, carried in form from tools/b667_epstein_certify.py and committed before its run, the constants exact and every value a ball, its own control and the registration`s controls as wanted before any cell. H-SPLINE-WINDOW %s: %s Reported beside it, unregistered: at M 8 the arithmetic side %s and at M 32 %s, with d 3; nonzero coefficients %s, %s and %s of %s, %s and %s at M 16, 8 and 32; the prime side`s rational products %s each (relay data/b765_window.txt; data/b765_window.json, %d coefficients as rationals, its text sha256 %s as the tool printed it, taken before its writer`s final newline, the file`s bytes sha256 %s). [W%s] at %s. No figure of the navigator`s workspace printed as a banked figure.' % (
              (K.REG_COMMIT or '-')[:8], f['w_verdict'], f['w_sentence'].rstrip('.') + '.', wc_['8'][0], wc_['32'][0], wc_['16'][2], wc_['8'][2], wc_['32'][2], wc_['16'][3], wc_['8'][3], wc_['32'][3],
-             wc_['16'][4], f['w_json'][0], f['w_json'][1], '1' if f['w_verdict'] == 'HELD' else '2', ln_('W1' if f['w_verdict'] == 'HELD' else 'W2')), '',
+             wc_['16'][4], f['w_json'][0], f['w_json'][1], f['w_json'][2], '1' if f['w_verdict'] == 'HELD' else '2', ln_('W1' if f['w_verdict'] == 'HELD' else 'W2')), '',
          '**Four readings beside the dispatches** ((R375)(6) and the author’s word of 2026-11-21 on W-ORD-H2-PI1), each a reading and no build. '
          '(a) W-ORD-PREMISE-POSITIONS: the eighteen open premises, each at its statement at its pin, given its position under canon XXV by tools/b765_premise_positions.py, committed before its run, its rule in its head: A HYPOTHESIS BY DESIGN %d, DERIVED %d, OF THE HYPOTHESIS’S STRENGTH %d, none of these compiled %d; its control %s; no order retired, the rows whose consequence is retirement printed beside the root`s question (relay data/b765_premise_positions.txt); [Q1] at %s. '
          '(b) The federation map`s files: SPIRAL_MAP.md and SPIRAL_MAP_v0_7.md differ in %d lines, %d of SPIRAL_MAP_v0_7.md and %d of SPIRAL_MAP.md, in %d ranges, each by path, line and digest; the lines of SPIRAL_MAP.md alone written by %s; the seat`s recommendation beside the root`s question; no line of either file written (relay data/b765_map_pair.txt); [M3] at %s. '
