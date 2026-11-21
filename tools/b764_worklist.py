@@ -239,7 +239,7 @@ CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b764'))
 CHAIN_QUARTERS = (('b624', 'b627'), ('b628', 'b631'), ('b632', 'b635'), ('b636', 'b658'))   # ### carried from b753
 FACES_PAGE = 'THE_CLAUSE_AND_ITS_COMPILED_FACES.md'
 ARCHIVE_DIR = 'archive/2026-10-22-b706-partner-copies'
-STANDING_ADDED = ()          # ### set by the Edit tool when a component adds a standing arm
+STANDING_ADDED = ()          # ### LEFT EMPTY BY (R374)(12): tools/standing/ moved under (5) and (7) alone, and no repair of (5) or change of (7) added a standing arm (the act part's freeze line, 00:56:39Z: none added); set at Component 5 by [K1]'s rule
 SHARED_APPENDED = ('data/b675_corrigenda.txt',)   # ### (R364)(2): the corrigenda row
 CENSUS_PREV = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_2.md'
 CENSUS_NEW = 'phase2/method/THE_KEYSTONE_CENSUS_v0_8_3.md'    # ### the census at its current version (the touch read's source)
@@ -444,7 +444,7 @@ C1_CORR_B762 = '6918f5d9'    # ### b762's, kept beside for the carried arms
 C1_CORR_B761 = '9a33e6b3'    # ### b761's, kept beside for the carried arms
 B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under v1.35.7, committed under component 1 (01:07:08Z, events (19))
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
-KERNEL_DELETES = ()   # ### b763: (R373)(4) removes no kernel branch; this act's push-b763-* branches stay for the next act's step zero
+KERNEL_DELETES = ()   # ### LEFT EMPTY BY (R374)(4): no branch of a kernel is removed; b763's four push-b763-* kernel branches and this act's push-b764-runner stay for the next act's step zero
 KERNEL_DELETES_B760 = (('push-b759-weil', 'a3aad4cc'),)   # ### b760's (R370)(4): removed at SIDE-explicit-formula's remote by `commit.py SIDE-explicit-formula rdelete push-b759-weil` under v1.37.1 (flag 09:34:35Z), read back ABSENT
 KERNEL_DELETES_B759 = (('push-b757-join', '6568e9c7'), ('push-b757-coeff', '596d1c9e'), ('push-b758-land', 'd1afb4fc'), ('push-b758-coeff', '630cba16'),
                        ('push-b757-mod24', 'e5ebdd15'))   # ### b759's five, the carry's shift of b758's names set back
@@ -457,7 +457,7 @@ KERNEL_DELETES_HALT = ()
 # ### and push-b758-coeff, carried for want of the route; removed at b759 by (R369)(3) above
 KERNEL_DELETES_HALT_B758 = ('the delete of a kernel`s branch at its remote', 'push-b757-join', 'push-b757-coeff', 'push-b758-land', 'push-b758-coeff')
 CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in the entry's order paragraph, set with CHAIN at Component 5
-C1_RULES = None        # ### b761: (R371) orders no rules bank and no data/b761_rules.txt is written; b760's was data/b760_rules.txt row (a) at relay 34390a25; data/b756_rules.txt's rows (a)-(c) in force
+C1_RULES = None        # ### LEFT EMPTY BY (R374)(12): the standing clauses' bank not rewritten, a rule this act writes standing in the repairs bank and its tool, so no data/b764_rules.txt; data/b756_rules.txt's rows (a)-(c) in force
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
 C1_CEILING = 'f0ad4589'      # ### b764 (R374)(3): the commit carrying data/b764_ceiling.txt's one reading after Component 2 (21:40:01Z, step 55); (3) orders readings at step zero (the price table) and after Component 2 alone
@@ -669,14 +669,14 @@ KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'), 
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
 WEIL_BRANCH = ('push-b764-runner', '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a')   # ### b764 (R374)(7): the act's one kernel branch, made at main 819e4a83 by the one-call tool (21:50:3xZ), its one commit 38a57e02 (step 56), pushed alone by the gated push's branch mode, scratch, and read back (data/b764_SIDE-explicit-formula_push-b764-runner_push_out.txt); kept for the next act's step zero ((R374)(4))
-WEIL_TAG = None   # ### b764 (R374)(7), (13), N5: no tag cut at this act, the trial's success moving main with no tag; every reader of WEIL_TAG is rewritten for b764 at Component 5
+WEIL_TAG = None   # ### LEFT EMPTY BY (R374)(13): no tag cut or moved at this act (N5); the trial of (7) failed, main unmoved; every reader of WEIL_TAG is rewritten for b764 at Component 5
 RUNNER_COMMIT = '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a'   # ### b764 (R374)(7): the commit whose workflow bytes the arm that reads the workflow's file takes, by this clause's commit and no other
 WEIL_BRANCH_B763 = ('push-b763-form', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### b763's (R373)(6): made at main a3aad4cc (20:14:10Z); commits ec82fed0, 0f849552, 4964e957; main moved from it (02:22:05Z); kept by (R374)(4)
 WEIL_TAG_B763 = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e95758a7b1bc8c49d0972ebb18877d4f945f')   # ### b763's (R373)(6): name, tag object, peel read back at the remote (data/b763_SIDE-explicit-formula_push-b763-form_push_out.txt, 02:22:05Z); peels as before ((R374) N5)
 WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
 ORDER_BRANCHES = ()   # ### b764 (R374)(8): no order of (8) writes a kernel (each is a relay or PLACE-papers build), so no order branch is made
-ORDER_TAGS = ()   # ### b764 (R374)(7), (13): no tag cut
+ORDER_TAGS = ()   # ### LEFT EMPTY BY (R374)(13): no tag cut
 ORDER_BRANCHES_B763 = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### b763's (R373)(8), under the names the remote holds: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z); kept by (R374)(4)
                        ('push-b763-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z); kept by (R374)(4)
 ORDER_TAGS_B763 = (('v0.43', 'bcd4d4818520fc7a477c98e2c79548b80295725f', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### b763's (R373)(8): W-ORD-SQUARES-AT-24 at main's read-back (data/b763_SIDE-explicit-formula_push-b763-squares_push_out.txt, 05:34Z); peels as before ((R374) N5)
@@ -891,7 +891,7 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-WRITELIST-MIRROR-STATE')
 
 # ### b754 writes no kernel ((R364)(5)): no main touched, no branch made on a kernel
-SITTING_TIPS = {}
+SITTING_TIPS = {}   # ### LEFT EMPTY BY (R374)(13): no kernel touched beyond SIDE-explicit-formula's workflow file, so no sitting's tips
 SITTING_BASE = EF_BASE
 SITTING_REPOS = tuple(sorted(SITTING_TIPS))
 SITTING_BRANCH = None

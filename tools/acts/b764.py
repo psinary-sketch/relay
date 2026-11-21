@@ -356,8 +356,10 @@ def runner_ok(S):
 # ### b761, Component 6: "THE --MERGED LISTING (21:59:32Z, scratch merged761.py)" and "THE DELETES, AFTER THE CHECK, ONE PER MESSAGE" (data/b761_stepzero.txt :63, :65)
 # ### b762, Component 6: "THE --MERGED LISTING (10:12:5xZ)" and "THE DELETES, AFTER THE CHECK, ONE PER MESSAGE" (data/b762_stepzero.txt :64, :66)
 # ### b763, Component 3 (the Edit tool): "THE --MERGED LISTING (19:08:17Z)" and "THE DELETES, AFTER THE CHECK, ONE PER MESSAGE" (data/b763_stepzero.txt :65, :67)
+# ### b764, Component 5 (the Edit tool, the act part's probe at 00:56:39Z failing the arm on b763's carried time): "THE --MERGED LISTING
+# ### (17:04:09Z, scratch merged764.py)" and "THE DELETES, AFTER THE CHECK, ONE PER MESSAGE" (data/b764_stepzero.txt :24, :63)
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE --MERGED LISTING (19:08:17Z)' in z and 'THE DELETES, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING (17:04:09Z, scratch merged764.py)' in z and 'THE DELETES, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's overrides of checks 1516 and 1659 (hook.py edited by b753's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b754 as it stands
@@ -368,8 +370,10 @@ def runner_ok(S):
 # ### b756, Component 6 (the Edit tool): the corrigendum's json (data/b756_corrigendum.json, written by the act's c1 route) carries the
 # ### counts and no rows -- items 46, CLAIM 0, CLOSE 46, REPEAT 20, the CLAIM items 0, the corrigenda row (76); the rows stand in the bank by
 # ### their banks (data/b756_corrigendum.txt); the template's row range read as the json's counts
+# ### b764, Component 5 (the Edit tool, the act part's probe at 00:56:39Z failing the arm): the items set to b764's corrigendum's 127
+# ### (data/b764_corrigendum.json; its foot :15), where the carry left b763's 70
 #⟪OVERRIDE checks MARK bcd4d281b141 1⟫
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 70 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 127 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's override of checks 1476-1482 (one ERRATA entry at b753's (R363)(5)) removed -- (R364)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b754 as it stands
@@ -478,7 +482,7 @@ def _rdeletes(S):
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
 #⟪OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)⟫
-    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged', c) is not None)   # ### b764, Component 2 (the Edit tool), at [K5]'s needle call: the carried stub set, b763's body (b764's listings at 17:04:09Z and 17:28:54Z ran inside scratch merged764.py, data/b764_stepzero.txt :24 and :62, read at Component 5)
+    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged|merged764\.py', c) is not None)   # ### b764, Component 5 (the Edit tool, the act part's probe at 00:56:39Z failing the arm): b761's body, and the scratch that made b764's listings (17:04:09Z and 17:28:54Z, data/b764_stepzero.txt :24 and :62), whose git branch --merged runs inside it, where b763's body read a plain git command alone
 #⟪END⟫
 # ### b754, Component 4's dry composition: v1.27.0's rdn (repair (7)) refuses a missing file, and the record reads three banks the root and the
 # ### close write -- the answers bank, the answer check and the events bank -- before they can exist (the entry's dry composition for the touch
