@@ -1,0 +1,1513 @@
+{
+ "at": "2026-11-22T17:06:33Z",
+ "act": "b766",
+ "group": "c5",
+ "date": "2026-11-22",
+ "pp_head": "2d9d51aeba7edc54cd17734c06c4148f1f5523f9",
+ "file": {
+  "path": "OPEN_TRAILS.md",
+  "lines_before": 19267,
+  "lines_after": 19271,
+  "first_new": 19269,
+  "sha_before": "83d84cfdf556a7a8",
+  "sha_after": "951e9d1ae549ddd4",
+  "text_sha": "b8c8f9affd5f32d3",
+  "prefix": true
+ },
+ "entered": {
+  "P2": [
+   19271,
+   "5fecf2badaaba15b"
+  ]
+ },
+ "head": [
+  19269,
+  "fd4f4db5d0741b3d"
+ ],
+ "keys": [
+  "P2"
+ ],
+ "run": 45046730935,
+ "commit": "3c67b8b5",
+ "e0": [
+  {
+   "name": "SIDEExplicitFormula.Window.primeTermQ_eq_finite_sum",
+   "path": "SIDEExplicitFormula/Window/PrimeFinite.lean",
+   "line": 22,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hN : 2 ≤ N, hc1 : c 1 = 0, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.primeTermQ_cQ_eq_finite_sum",
+   "path": "SIDEExplicitFormula/Window/PrimeFinite.lean",
+   "line": 54,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hN : 2 ≤ N, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.contDiff_tpow3",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 85,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.contDiff_cubicB",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 111,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.contDiff_splineH",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 137,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.splineH_eq_zero",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 144,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hy : y ≤ 1 ∨ 1024 ≤ y",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.contDiff_gWin",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 156,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.hasCompactSupport_gWin",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 178,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_classK",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 194,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_eq_zero",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 212,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hu : Real.log 1024 < |u|",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowH_contDiff",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 30,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowH_eq_zero",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 33,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hy : y < 1 ∨ 1024 < y",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_classK",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 37,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_eq_zero",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 40,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hu : Real.log 1024 < |u|",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_eq_integral_shift",
+   "path": "SIDEExplicitFormula/Window/KValues.lean",
+   "line": 22,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.gWin_add_mul_gWin",
+   "path": "SIDEExplicitFormula/Window/KValues.lean",
+   "line": 31,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_eq_integral",
+   "path": "SIDEExplicitFormula/Window/KValues.lean",
+   "line": 47,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_log",
+   "path": "SIDEExplicitFormula/Window/KValues.lean",
+   "line": 72,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_log",
+   "path": "SIDEExplicitFormula/Window/KValues.lean",
+   "line": 83,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.continuous_cubicB",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 23,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.support_cubicB_affine",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 26,
+   "grade": "DERIVES",
+   "why": "domain conditions only: ha : 0 < a",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.hasCompactSupport_cubicB_affine",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 39,
+   "grade": "DERIVES",
+   "why": "domain conditions only: ha : 0 < a",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB_mul_cubicB",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 45,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_splineH_mul",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 70,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowKOf_log_eq_basis",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 117,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_log_eq_basis",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 130,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kappaB_eq_zero",
+   "path": "SIDEExplicitFormula/Window/KBasis.lean",
+   "line": 137,
+   "grade": "DERIVES",
+   "why": "domain conditions only: he : e ≤ -4 ∨ 4 * (n : ℤ) ≤ e",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cubicB_eq_sum",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 50,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cubicB_mul_cubicB_eq",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 56,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.hasDerivAt_kapF",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 66,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_tpow3_mul_tpow3",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 79,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n, hk : 0 ≤ k",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kappaB_eq_intervalIntegral",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 120,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kappaB_eq_sum",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 132,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kapT_eq",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 154,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n, hk : k ≤ 4",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kapTt_eq",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 179,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 ≤ n, hk : k ≤ 4",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_bw_kapF4",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 191,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_bw_kapG",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 197,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_sum_bw_kapF4",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 202,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_sum_bw_ite",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 210,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kapTilde_cast",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 225,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kappaB_eq_kapTilde",
+   "path": "SIDEExplicitFormula/Window/KappaClosed.lean",
+   "line": 232,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kapTilde_eq_kD",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 45,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kD_eq_zero",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 54,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hx : x ≤ -4",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kD_pos",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 61,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hx : 0 ≤ x",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kE_eq_zero",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 67,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : x ≤ -4 ∨ 4 ≤ x",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kE_vals",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 80,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kF_rec",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 88,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kF_zero",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 109,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hT : 16384 ≤ T",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.coeffInt_eq_zero",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 115,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : ¬ (16 ≤ j ∧ j ≤ 16380)",
+   "state": "COMPILED",
+   "axioms": "[propext]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.chkA_spec",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 129,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.a_ok",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 151,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.aGet_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 153,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.allDC_spec",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 172,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sumDC_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 208,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_0",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 252,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_1",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 254,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_2",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 256,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_3",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 258,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_4",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 260,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_5",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 262,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_6",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 264,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_7",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 266,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_8",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 268,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_9",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 270,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_10",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 272,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_11",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 274,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_12",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 276,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_13",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 278,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_14",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 280,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok_15",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 282,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.f_ok",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 284,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hc : c < 16",
+   "state": "COMPILED",
+   "axioms": "[propext]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.rec_holds",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 303,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : 16 ≤ T, h2 : T < 16384",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.locA_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 313,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.loc_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 318,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hT : 3 ≤ T",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.Ffast_eq_aux",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 346,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.Ffast_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 362,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : 16 ≤ T",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.Kt_eq",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 370,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.Kt_eq_trunc",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 388,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_bw_kF",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 418,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n, hm : 16 ≤ m",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.Kt_eq_fast",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 430,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_log_eq_Kt",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 444,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hn : 0 < n",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_0",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 464,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_1",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 466,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_2",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 468,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_3",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 470,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_4",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 472,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_5",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 474,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_ok_6",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 476,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.all_append_kt",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 478,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.kt_all",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 486,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_log_kt",
+   "path": "SIDEExplicitFormula/Window/KFast.lean",
+   "line": 492,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.allDC_at",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 23,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hl : len ≤ 2 ^ d, h : allDC p lo len d = true, h1 : lo ≤ n, h2 : n < lo + len",
+   "state": "COMPILED",
+   "axioms": "[propext, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_reps_ok",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 40,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqReps_spec",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 42,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk1 : 1 ≤ k, hk : k ≤ 1023",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_idx_ok",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 57,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_bounds",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 60,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk : k ≤ 1023, h : Schema.Q0form m n = (k : ℤ)",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_reps_complete",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 72,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk1 : 1 ≤ k, hk : k ≤ 1023, h : Schema.Q0form q.1 q.2 = (k : ℤ)",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_mem_boxF",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 92,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk0 : k ≠ 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqReps_toFinset",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 102,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk1 : 1 ≤ k, hk : k ≤ 1023",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.rQ_eq_cqR",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 109,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk1 : 1 ≤ k, hk : k ≤ 1023",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.primeList_nodup",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 123,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.primeList_two_le",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 125,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.mem_cqPF",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 130,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_prod_ok",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 138,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.log_eq_cqEv",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 141,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h1 : 1 ≤ n, h : n ≤ 1023",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqZ_of_mod",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 167,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : n % p ≠ 0",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqEvp_of_mod",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 171,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqEv_of_mod",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 177,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : n % p ≠ 0",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqTree_zero",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 179,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqTree_one",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 181,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqZ_zero",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 183,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cqZ_one",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 188,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_0",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 198,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_1",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 200,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_2",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 202,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_3",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 204,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_4",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 206,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_5",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 208,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_6",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 210,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok_7",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 212,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_ok",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 214,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h2 : 2 ≤ n, hn : n ≤ 1023",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_holds",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 231,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h2 : 2 ≤ n, hn : n ≤ 1023, hp : p ∈ primeList, hpn : n % p = 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cQ_eq_comb",
+   "path": "SIDEExplicitFormula/Window/CQValues.lean",
+   "line": 240,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.paperFT_gWin_neg_half_I",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 26,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.paperFT_gWin_half_I",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 34,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.poleTerm_windowKOf_exp",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 43,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_gWin_mul_exp",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 56,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_gWin_mul_exp_neg",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 78,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.hasDerivAt_tpow4_shift",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 103,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_tpow3_shift",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 112,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk0 : 0 ≤ k, hk4 : k ≤ 4",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB_Icc",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 121,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 140,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB_affine",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 153,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_splineH",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 162,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.hasDerivAt_poleG",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 189,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hu : u + j ≠ 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.continuousOn_tpow3_div",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 202,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hj : 0 < j",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.intervalIntegrable_of_Ici",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 211,
+   "grade": "INTERFACES",
+   "why": "hf : ContinuousOn f (Set.Ici 0)",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_tpow3_div",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 219,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hk0 : 0 ≤ k, hk4 : k ≤ 4, hj : 0 < j",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB_div",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 246,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hj : 0 < j",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_cubicB_affine_div",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 280,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hj : 1 ≤ j",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_splineH_div",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 299,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.poleTerm_windowKOf",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 349,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.poleTerm_windowK",
+   "path": "SIDEExplicitFormula/Window/Pole.lean",
+   "line": 356,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.intH_ok",
+   "path": "SIDEExplicitFormula/Window/PoleSum.lean",
+   "line": 22,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_coeffInt",
+   "path": "SIDEExplicitFormula/Window/PoleSum.lean",
+   "line": 25,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sum_coeff",
+   "path": "SIDEExplicitFormula/Window/PoleSum.lean",
+   "line": 33,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.integral_splineH_window",
+   "path": "SIDEExplicitFormula/Window/PoleSum.lean",
+   "line": 38,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.poleTerm_windowK_intH",
+   "path": "SIDEExplicitFormula/Window/PoleSum.lean",
+   "line": 44,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.archTermQ_windowK",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 24,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.sumDC_split",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 34,
+   "grade": "DERIVES",
+   "why": "domain conditions only: ha : a ≤ 2 ^ d₁, hb : b ≤ 2 ^ d₂, hab : a + b ≤ 2 ^ d",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.k0_blk0",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 41,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.k0_blk1",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 45,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.k0_blk2",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 49,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.k0_blk3",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 53,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.k0_ok",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 56,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.windowK_zero",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 66,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.archTermQ_windowK_k0",
+   "path": "SIDEExplicitFormula/Window/Arch.lean",
+   "line": 72,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]"
+  }
+ ],
+ "controls": [
+  [
+   "PLACE-papers` HEAD the act`s last commit there before this write, [X1] to [X3] 2d9d51ae (2d9d51ae)",
+   true
+  ],
+  [
+   "OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves",
+   true
+  ],
+  [
+   "each text as entered equals the ruling`s with its fields filled, each whole in the appended text: P2 True",
+   true
+  ],
+  [
+   "every text of the group composed (none missing)",
+   true
+  ],
+  [
+   "no field left in the appended text (none)",
+   true
+  ],
+  [
+   "each appended line`s backticks even (odd at none)",
+   true
+  ],
+  [
+   "the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, never printed)",
+   true
+  ],
+  [
+   "none of the texts in OPEN_TRAILS before the write (none)",
+   true
+  ],
+  [
+   "THE RUN: dispatch 14 read, built at 3c67b8b5 with exit 0 (run 45046730935)",
+   true
+  ],
+  [
+   "THE POPULATION: the names of SIDEExplicitFormula.Window. in print_targets.txt at 3c67b8b5 (157) equal both ways to those the read of dispatch 14 names (157)",
+   true
+  ],
+  [
+   "THE E0 GATE: each of the 157 theorems found once by its declaration line among the 17 Window files at the commit, read at its statement and graded (DERIVES 156, INTERFACES 1)",
+   true
+  ],
+  [
+   "each COMPILED in the read, its axioms within [propext, Classical.choice, Quot.sound], sorryAx in none (the prints: [] 39; [propext, Classical.choice, Quot.sound] 110; [propext, Quot.sound] 4; [propext] 4)",
+   true
+  ],
+  [
+   "the nine names the text gives each in the population and COMPILED (absent: none)",
+   true
+  ],
+  [
+   "PLANTED: a gate row with no statement read as the gate`s failure, and a planted name as the population`s (FAILED, DIFFER)",
+   true
+  ],
+  [
+   "the appended lines outside a hand section (inside at none)",
+   true
+  ],
+  [
+   "the roster: no order moving and none added (moved none ; added none)",
+   true
+  ]
+ ]
+}

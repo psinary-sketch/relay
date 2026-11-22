@@ -478,13 +478,20 @@ def _rdeletes(S):
 #⟪END⟫
 # ### b754, the Edit tool: v1.9.0's tools/standing/reportdry.py carries the word report and is no report tool; the needle read it as one (the mid probe's LIVE FAIL)
 #⟪OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)⟫
-        and (_ for _ in ()).throw(SystemExit('### b766`s a probe`s needle (OVERRIDE checks MARK 70c819b3e902 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED'))   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+        and not any('report' in t for t in K.SEALED if t != 'standing/reportdry.py') and 'b766_report.py' not in (S['sealj'].get('tools') or {})   # ### b766, Component 3 (the Edit tool): the carried stub set for the act, b765's body with the act's name
 #⟪END⟫
 # ### b754, Component 7 (the Edit tool): G-CONVERSION-ONE's needle `def conv(` read tools/b754_c2_check.py's Dirichlet convolution
 # ### conv(A, B, cut) as a second text conversion (the probe's LIVE FAIL); the needle tightened on content to the conversion's own shape, a
 # ### one-argument def conv (b652_record's conv(t)), which a planted `def conv(t):` still meets
 #⟪OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)⟫
-    raise SystemExit('### b766`s a probe`s needle (OVERRIDE checks MARK 02e1cbdc95b7 8 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 8 code lines, stands in the carry`s diff bank
+    toks = ['def _' + P, 'def ' + P, '._' + P, '.' + P, ' ' + P, '(' + P, '=' + P, 'Q.' + 'line_of', 'Q.' + 'guard_absent', 'Q.' + 'append_to']
+    one_arg = re.compile(r'(?m)^\s*def ' + r'conv\(\s*\w+\s*\)')
+    bad = []
+    for f in sorted(os.listdir(T)):
+        if (f.startswith('b766_') and f.endswith('.py')) or f in REPAIRED_TOOLS or f in NEW_TOOLS:   # ### b766, Component 3 (the Edit tool): the carried stub set for the act, b765's body with the act's name
+            t = strip_prose(read(os.path.join(T, f)))
+            if any(x in t for x in toks) or one_arg.search(t):
+                bad.append(f)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): the closing's counter line with the repeat count beside it (Component 4 of (R364): the counter
 # ### line "CLAIM n, CLOSE m, REPEAT r of t"; v9 row (83): "the closing prints the count of repeats")
@@ -506,7 +513,7 @@ def _rdeletes(S):
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
 #⟪OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)⟫
-    raise SystemExit('### b766`s a probe`s needle (OVERRIDE checks MARK 50e2a7dc436a 1 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 1 code lines, stands in the carry`s diff bank
+    S['first_listing_ts'] = _first_ts(cmds, lambda c: re.search(r'branch(?:\s+-[\w-]+)*\s+--merged|merged766\.py', c) is not None)   # ### b766, Component 3 (the Edit tool): b765's body, and the scratch that made b766's listing (07:00:57Z, data/b766_stepzero.txt :32), whose git branch --merged runs inside it
 #⟪END⟫
 # ### b754, Component 4's dry composition: v1.27.0's rdn (repair (7)) refuses a missing file, and the record reads three banks the root and the
 # ### close write -- the answers bank, the answer check and the events bank -- before they can exist (the entry's dry composition for the touch
@@ -595,9 +602,8 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### removed; the ledger exclusion unchanged. The arm stands in tools/standing/arms.py's RETIRED and is not in the run list; read so, its
 # ### template line :971 would fire on N3's label of the landed entry (record.tpl :2444, a string naming FINDINGS.md), not edited here
 #⟪OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)⟫
-    raise SystemExit('### b766`s a probe`s needle (OVERRIDE checks MARK 295ca0b779b3 2 REPAIR (needle)) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')
     # ### b764, Component 2 (the Edit tool), at [K5]'s needle call: the carried stub's refusal taken out, b763's body kept as it stood (the arm RETIRED);
-    # ### b765, Component 5 (the Edit tool): the carried stub's refusal taken out again, the body as it stood
+    # ### b765, Component 5 (the Edit tool): the carried stub's refusal taken out again, the body as it stood; b766, Component 3 (the Edit tool): again
     return bool(n) and '_commands.json' in n and "_dispatch_rows.json' % ACT" in n and 'N2_CONTROLS' in n and '_first_add(' in n \
         and "_walk.txt' % ACT" in n and '_seal_hashes.json' in n and '_steps.json' in n and 'jl(HASHES)' in n \
 #⟪END⟫
@@ -1353,11 +1359,10 @@ def research_reproduces_ok(S):
     ('G-PP-SCOPE', 'PLACE-papers` changed files on main against the act`s list (FINDINGS: the corrigendum and the entry; OPEN_TRAILS: the lines of (4) to (9) under the dated head, and the trail; (R376)(1), (4)-(9), (13)); REGISTRY and ERRATA not written (N3); no rename (N5)',
 #⟪END⟫
 #⟪SECTION checks 60⟫
-    (_ for _ in ()).throw(SystemExit('### b766`s a block reading an act ordinal or the read-first needles (SECTION checks 60) IS A CARRIED STUB (tools/standing/carry.py v1.34.0), ITS CODE KEPT BEHIND THIS REFUSAL, UNREACHED: written for the act before use -- NOTHING COMPOSED')),
-    # ### b766, Component 5 (the Edit tool): the carried stub replaced -- b765's trail head as OPEN_TRAILS :19071 carries it (scratch ot765.py
-    # ### through the masks, 2026-11-21T16:1xZ, the line's sha256 c0fab7901a717ad9), the apostrophe typographic as the landed file holds it,
-    # ### in place of the carried needle, which named b763's head under b765's name
-    ('G-PRIOR-CLOSED-PUSHED', 'b765`s trail record on OPEN_TRAILS (:19071) and its root in the chain', lambda S: '### b765 — lane two, act one hundred and ninety-one, The record’s upkeep under (R375)' in S['ot']
+    # ### b766, Component 3 (the Edit tool): the carried stub replaced -- b765's trail head as OPEN_TRAILS :19157 carries it (scratch ot766.py,
+    # ### 2026-11-22T17:02:15Z, one line opening with it, its sha256 d373d7e5e1c295c9; b764's head at :19071, b765's needle, its control), the
+    # ### apostrophe typographic as the landed file holds it, in place of the carried needle, which named b764's head under b765's name
+    ('G-PRIOR-CLOSED-PUSHED', 'b765`s trail record on OPEN_TRAILS (:19157) and its root in the chain', lambda S: '### b765 — lane two, act one hundred and ninety-two, The centre in steps under (R375)' in S['ot']
 #⟪END⟫
 #⟪SECTION checks 61⟫
     rec('  ### PLACE-papers` changed files on main %d against the allowed %d (FINDINGS and OPEN_TRAILS): beyond %s' % (
@@ -3135,7 +3140,20 @@ def _post_lock_edits():
                 ghe_ or 'NONE', zdel_ or 'NONE')) +
 #⟪END⟫
 #⟪SECTION record 28⟫
-    raise SystemExit('### b766`s a block reading an act ordinal or the read-first needles (SECTION record 28) IS A CARRIED STUB (tools/standing/carry.py v1.34.0): written for the act before use -- NOTHING COMPOSED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the body carried, 10 code lines, stands in the carry`s diff bank
+    # ### b766, Component 3 (the Edit tool): the ruling's ordinal and title (the ferry's ACT line, data/b766_ferry.txt :114) as the act did it,
+    # ### read from the banks: the ledgers' entered keys by group (data/b766_ledgers_c2.json to _c5.json: [E1], [F1], [F2] or [F3], [P1] or
+    # ### [P2]) and the standing version; the apostrophe typographic, (R368)(3)
+    le_ = {}
+    for g_ in ('c2', 'c3', 'c4', 'c5'):
+        le_.update((jl('%s_ledgers_%s.json' % (ACT, g_)) or {}).get('entered') or {})
+    return ('### b766 — lane two, act one hundred and ninety-three, The proof by the banked window, in steps, under (R376): b765 at its weight; '
+            'the plan and the certificate as data%s; the prime side as a finite sum %s; the window in Lean %s; the later steps as far as the '
+            'ceiling allows, %s; three readings toward the keystone set; the map and the premise rows ruled; three repairs; the author’s words '
+            'placed; tools/standing/ from %s to %s' % (
+                ', [E1]' if 'E1' in le_ else ', [E2]', 'compiled' if 'F1' in le_ else 'not compiled',
+                'compiled' if 'F2' in le_ else ('compiled in part' if 'F3' in le_ else 'not compiled'),
+                'the proof whole' if 'P1' in le_ else ('the proof in part' if 'P2' in le_ else 'not entered'),
+                K.STANDING_VERSION_ENTERING, K.STANDING_VERSION))
 #⟪END⟫
 #⟪SECTION record 29⟫
 # ### b756: the figures of the title, entry and trail read from the banks' feet (_figs); the guard refuses where the feet disagree with
