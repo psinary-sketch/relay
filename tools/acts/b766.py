@@ -3966,11 +3966,12 @@ def _finding_text_b766(f, S, rep, tot):
          'head line gives it; the relay’s main read back at %s after its closing push (relay data/b765_closing.txt, data/b765_scores_close.json). The corrigendum, short, in the form of b765’s: '
          'b765’s %s events, %s rows after its seal and %s defects by count from their banks, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats -- its %s CLAIM '
          'items printed in full; what the seat found after b765’s lock entered as this act’s events (%s) to (%s) from the seat’s closing message, each with its time, CLAIM %s, CLOSE %s, '
-         '%s repeats; the navigator’s own %d claims entered as the navigator’s, CLAIM, events (%s) to (%s); at FINDINGS :%s, the corrigenda bank appended at row (%s); no weight line '
+         '%s; the navigator’s own %d claims entered as the navigator’s, CLAIM, events (%s) to (%s); at FINDINGS :%s, the corrigenda bank appended at row (%s); no weight line '
          '(relay data/b766_corrigendum.txt, route %s, banks %s; PLACE-papers %s).' % (
              b7h_.group(1), b7h_.group(2), b7h_.group(3), b7h_.group(4), f['b7_held'], b7h_.group(7), ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', b7h_.group(8),
              K.PRE_RELAY[:8], f['corr_events'], f['corr_postseal'], f['corr_defects'], f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_claim'],
-             fr_[0], fr_[-1], f['corr_findings'][0], f['corr_findings'][1], f['corr_findings'][2], len(nr_), nr_[0], nr_[-1], f['corr_line'], f['corr_row'],
+             fr_[0], fr_[-1], f['corr_findings'][0], f['corr_findings'][1],
+             '%s repeat%s' % (f['corr_findings'][2], '' if str(f['corr_findings'][2]) == '1' else 's'), len(nr_), nr_[0], nr_[-1], f['corr_line'], f['corr_row'],
              K.C1_RELAY[:8], K.C1_CORR[:8], K.C1_PP[:8]), '',
          '**The price and the ceiling** ((R376)(3)): the price table banked at step zero before Component 1, each item of (4) to (7) with its lines, its dispatches and its hours, a dispatch '
          'priced by its kind, a build from source at %s minutes and a restored build at %s, each as b765 banked it: step zero %s h, the lower sum %s h against %d h, %s, the upper sum %s h; '
@@ -3983,11 +3984,10 @@ def _finding_text_b766(f, S, rep, tot):
              f['ce_at'], f['ce_spent'], f['ce_left'], f['ce_sum'], f['ce_ceiling'], f['ce_under'], f['ce_word'].lower()), '',
          '**The three repairs** ((R376)(7)), in Component 1 before the opening pass, each with its planted control read at the commit before the repair and at the repair’s commit, both printed '
          '(relay data/b766_repairs.txt, data/b766_repair_controls.txt): tools/standing/ moved from %s to %s by %d commits, VERSION moved by each, the standing dry before each (relay '
-         'data/b766_standing_dry.txt); %s, %s, %s and %d carried. %s After [K22], push-b765-planted removed at the kernel’s remote and in its clone, listed before and read absent after '
-         '(relay data/b766_events.txt (37)); after [K23], b765’s captures written masked: files %d, the name %d times before and %d after, the mask’s control %d of %d (relay '
-         'data/b766_capture_mask.txt); the fifteen captures of b763 and b764 not opened, standing as pushed.' % (
+         'data/b766_standing_dry.txt); %s, %s, %s and %d carried. %s The masking’s figures: files %d, the mask’s control %d of %d (relay data/b766_capture_mask.txt); the removal’s '
+         'listing before and its absence after (relay data/b766_events.txt (37)).' % (
              f['st_entering'], f['st_version'], len(K.STANDING_REPAIRS), sti_('REPAIRED'), sti_('READ AS DESIGNED'), sti_('REMOVED'), len(rs_['CARRIED']),
-             ' '.join(r_['sentence'].rstrip('.') + '.' for r_ in f['reps']), f['mask'][0], f['mask'][3], f['mask'][4], f['mask_ctl'][0], f['mask_ctl'][1]), '',
+             ' '.join(r_['sentence'].rstrip('.') + '.' for r_ in f['reps']), f['mask'][0], f['mask_ctl'][0], f['mask_ctl'][1]), '',
          '**The plan and the certificate, banked as data before any dispatch** ((R376)(4)(a)): tools/b766_certificate.py, carried from tools/b765_window.py and committed before its run, read '
          'data/b765_window.json, its sha256 equal to data/b765_window.txt :26, and wrote the certificate: K(n) as exact rationals at the %d n from 2 to 1023 at which cQ(n) is not 0; k(0), '
          'the integral of H and the sum of the |c_j|; the arithmetic side as one combination of 1, Euler’s constant, log pi and the logarithms of %s primes, each coefficient an exact '
@@ -4028,7 +4028,7 @@ def _finding_text_b766(f, S, rep, tot):
          'of a paper written by them. (a) The registry’s rows, by tools/b766_registry_cells.py committed before its run: %s; its controls %d of %d (relay data/b766_registry_cells.txt); read '
          'after dispatch 7 had completed, where the clause names the slot while a dispatch runs (relay data/b766_defects.txt (i)); [X1] at %s. (b) The Lean joined to the papers, by '
          'tools/b766_lean_join.py committed before its run: %s; its controls %d of %d (relay data/b766_lean_join.txt); [X2] at %s. (c) The findings ledger against the keystones, the tool’s '
-         'pass, by tools/b766_sweep.py committed before its run: %s; its controls %d of %d (relay data/b766_sweep.txt); no stage line written; [X3] at %s.' % (
+         'pass, by tools/b766_sweep.py committed before its run: %s; its controls %d of %d; [X3] at %s.' % (
              f['x1_fields'].rstrip('.'), f['x1'][4], f['x1'][5], ln_('X1'), f['x2_fields'].rstrip('.'), f['x2'][5], f['x2'][6], ln_('X2'),
              f['x3_fields'].rstrip('.'), f['x3'][7], f['x3'][8], ln_('X3')), '',
          '**The rulings entered** ((R376)(6)), each by the author’s ratification of its clause, by the rulings tool’s group c2: [M4] at %s, SPIRAL_MAP.md carrying the map, with the order '
