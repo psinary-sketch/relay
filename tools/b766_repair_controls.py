@@ -3,7 +3,9 @@
 git, snapshot, probe, main). Each control reads the fault at the commit before the repair and reads clean at the repair's commit, both
 printed. Read-only over the relay: each revision's files are taken by `git show <rev>:<path>` into a scratch folder of the system's
 temporary directory (removed after), and each revision is probed in its own interpreter (`python -I`), so no module of one revision is read
-by the other; the probe calls the revision's functions, writes nothing, runs no git command and prints one JSON line. --bank appends the
+by the other; the probe calls the revision's functions, writes nothing, runs no git command and prints one JSON line. [K23]'s control runs
+each revision's tools/push_gated.sh under Git's bash over a scratch repository in that folder, its origin an address never contacted (the
+existing-tag mode refuses at the clone before any remote is read), and prints counts, never a capture's line. --bank appends the
 reading to data/b766_repair_controls.txt beneath a head naming the key and both commits; nothing else is written. The repair's commit must
 have the commit before it as its first parent, read and printed.
 
@@ -205,7 +207,88 @@ def control_k22(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and diff_ok is True
 
 
-CONTROLS = dict(K22=control_k22)
+# ================================================================================ [K23] THE CAPTURES MASK THE ACCOUNT
+K23_PATHS = ('tools/push_gated.sh', 'tools/standing/VERSION')
+K23_VERSION = 'v1.38.23'
+BASH = 'C:/Program Files/Git/bin/bash.exe'   # ### Git's bash, as tools/standing/v1230.py names it; the gated push runs under it
+K23_PLANTED = 'planted-acct'
+K23_LINES = ('To https://github.com/%s/relay.git' % K23_PLANTED, 'To git@github.com:%s/SIDE-explicit-formula.git' % K23_PLANTED,
+             'remote:      https://github.com/%s/PLACE-papers/pull/new/push-b766-proof' % K23_PLANTED,
+             'cloned to %s/PLACE-project-set' % K23_PLANTED, 'push_gated: DONE -- branch push-b766-proof pushed alone and read back')
+
+
+def _k23_run(tmp):
+    """push_gated.sh of the snapshot run over a scratch repository whose origin names the planted account (an address never contacted: the
+    existing-tag mode refuses a tag the clone lacks, exit 10, before any remote is read), the capture named by PUSH_GATED_LOG under folders
+    github.com/<planted>/PLACE-project-set, the tag's name github.com/<planted>/x; (exit, the capture's text)."""
+    repo = os.path.join(tmp, 'repo')
+    os.makedirs(repo)
+    subprocess.run(['git', 'init', '-q', repo], capture_output=True)
+    subprocess.run(['git', '-C', repo, 'remote', 'add', 'origin', 'https://github.com/%s/PLACE-project-set.git' % K23_PLANTED], capture_output=True)
+    cdir = os.path.join(tmp, 'cap', 'github.com', K23_PLANTED, 'PLACE-project-set')
+    os.makedirs(cdir)
+    cap = os.path.join(cdir, 'push_out.txt')
+    env = dict(os.environ, PUSH_GATED_LOG=cap.replace('\\', '/'))
+    r = subprocess.run([BASH, os.path.join(tmp, 'tools', 'push_gated.sh').replace('\\', '/'), repo.replace('\\', '/'), '--existing-tag',
+                        'github.com/%s/x' % K23_PLANTED], capture_output=True, text=True, encoding='utf-8', errors='replace', env=env, timeout=120)
+    text = io.open(cap, encoding='utf-8', errors='replace').read() if os.path.exists(cap) else ''
+    return r.returncode, text, r.stdout + r.stderr
+
+
+def _k23_expr(tmp):
+    """the snapshot's mask expression (the one line `cap_mask='...'`), or None; applied by Git's sed to K23_LINES: (the lines out, exit)."""
+    p = os.path.join(tmp, 'tools', 'push_gated.sh')
+    m = [l for l in io.open(p, encoding='utf-8').read().split(NL) if l.strip().startswith("cap_mask='")]
+    if len(m) != 1:
+        return None, None
+    expr = m[0].strip()[len("cap_mask='"):].rstrip("'")
+    r = subprocess.run([BASH, '-c', 'sed -u -E "$1"', '_', expr], input=NL.join(K23_LINES) + NL, capture_output=True, text=True, encoding='utf-8',
+                       errors='replace', timeout=60)
+    return r.stdout.split(NL)[:len(K23_LINES)], r.returncode
+
+
+def control_k23(before, after):
+    """(R376)(7) [K23]: tools/push_gated.sh writes each capture with the account replaced by <account>. FAULT: the planted capture carries
+    the planted account's name. CLEAN: it carries none, <account> in its place, the exit and the line count those of the run before; the
+    script's expression masks a remote's address in each form (github.com/ and github.com:) and the trail's form, and leaves a line with
+    no name unchanged; VERSION v1.38.23. The run reads no remote: the existing-tag mode refuses at the clone (exit 10)."""
+    L, res, runs = [], {}, {}
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b766k23_')
+        try:
+            got = snapshot(rev, K23_PATHS, tmp)
+            rc, text, both = _k23_run(tmp)
+            lines_out, erc = _k23_expr(tmp)
+            ver = version_of(tmp)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b766k23_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        n_pl = text.count(K23_PLANTED)
+        n_acc = text.count('<account>')
+        n_lines = text.count(NL)
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        L.append('    (run)    push_gated.sh --existing-tag over the planted repository: exit %d ; the capture %d lines ; the planted name %d ; <account> %d' % (
+            rc, n_lines, n_pl, n_acc))
+        if lines_out is None:
+            L.append('    (expr)   no mask expression in the script')
+        else:
+            L.append('    (expr)   the script`s expression over the five planted lines (exit %s): %s' % (
+                erc, ' | '.join(l.replace(K23_PLANTED, '<PLANTED>') for l in lines_out)))
+        want_lines = ['To https://github.com/<account>/relay.git', 'To git@github.com:<account>/SIDE-explicit-formula.git',
+                      'remote:      https://github.com/<account>/PLACE-papers/pull/new/push-b766-proof',
+                      'cloned to <account>/PLACE-project-set', K23_LINES[4]]
+        fault = rc == 10 and n_pl > 0 and lines_out is None
+        clean = rc == 10 and n_pl == 0 and n_acc >= 2 and lines_out == want_lines and erc == 0 and ver == K23_VERSION
+        runs[name] = (rc, n_lines)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    same = runs.get('BEFORE') == runs.get('AFTER')
+    L.append('  (same)   the exit and the capture`s line count, BEFORE and AFTER: %s and %s -- %s' % (runs.get('BEFORE'), runs.get('AFTER'),
+                                                                                                 'EQUAL' if same else 'DIFFER'))
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and same
+
+
+CONTROLS = dict(K22=control_k22, K23=control_k23)
 
 
 def main(argv):

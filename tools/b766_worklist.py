@@ -720,7 +720,7 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b765`s findings after its lock and 
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = ()   # ### b766 step zero, (R376)(7), (8): the keys [K22], [K23] and [K24] in place of [K20] and [K21], each (key, version, commit, the commit carrying its row and its control, the control's verdict line) set as made
+STANDING_REPAIRS = (('[K22]', 'v1.38.22', 'b7c3ed87', '4e6d52ce', 31),)   # ### b766 step zero, (R376)(7), (8): the keys [K22], [K23] and [K24] in place of [K20] and [K21], each (key, version, commit, the commit carrying its row and its control, the control's verdict line) set as made
 STANDING_REPAIRS_B765 = (('[K20]', 'v1.38.19', 'e179b18b', '15e75494', 16), ('[K21]', 'v1.38.20', '899f2767', 'bcf47fa6', 28),
                          ('[R4]', 'v1.38.21', 'c2df59d7', '45fc9622', 50))   # ### b765's three, kept beside
 STANDING_REPAIRS_B764 = ()   # ### b764's nineteen stand in git at tools/b764_worklist.py
