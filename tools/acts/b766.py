@@ -569,43 +569,43 @@ REG = os.path.join(D, 'b766_registration_%s.txt' % __import__('b766_worklist').D
 # ### b757, Component 6 (the Edit tool): the template's lines that read "none" of kernel writes, true of every act since b745 and not of this
 # ### one, each replaced for b757 by its count and its source ((R367)(3)-(6), (9)); the template stays, the earlier acts' renders unchanged
 #⟪OVERRIDE regspec MARK 254ae4810dcb 1⟫
-    ('commits on any kernel`s main', 'EFMAINCOMMITS', 'EFMAINCOMMITS', 'commits', '### (R376)(4): SIDE-explicit-formula`s main moved from 819e4a83 to the closing Lean commit 0ba9cd61 by the gated push`s default mode under HELD alone, push-b765-runner`s commit and push-b766-centre`s eight with it; unmoved otherwise; SIDE-dirichlet-mod-24`s main unmoved; MEASURED off git rev-list --count 819e4a83..main.'),
+    ('commits on any kernel`s main', 'EFMAINCOMMITS', 'EFMAINCOMMITS', 'commits', '### (R376)(4): none -- SIDE-explicit-formula`s main stays at 0ba9cd61, the closing build from source and its repeat each stopped under the hold (the author`s word, (R376) words :31); SIDE-dirichlet-mod-24`s main unmoved; MEASURED off git rev-list --count 0ba9cd61..main.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 18c1a19a6cb6 1⟫
-    ('scratch branches cut on a kernel', 0, 0, 'branches', '### none: the planted module of (4)(a) on push-b766-planted, a push branch, and the standing controls read in the relay`s own tools (data/b766_repair_controls.txt), no scratch branch of a kernel.'),
+    ('scratch branches cut on a kernel', 0, 0, 'branches', '### none: no planted build at this act ((R376)(4)), and the standing controls read in the relay`s own tools and scratch repositories (data/b766_repair_controls.txt), no scratch branch of a kernel.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK a2b9535083e6 1⟫
-    ('push branches cut on a kernel for the push procedure', 2, 2, 'branches', '### (R376)(4): push-b766-centre cut from push-b765-runner at 38a57e02 and push-b766-planted cut from the centre at d540bc98 in SIDE-explicit-formula, each by the one-call tool`s kernel branch route and pushed --scratch by the gated push`s branch mode; the centre kept for the next act`s step zero; the planted branch kept in the clone and at its remote, the one-call tool`s delete route refusing it before the lock, not fully merged, named in the closing message.'),
+    ('push branches cut on a kernel for the push procedure', 1, 1, 'branches', '### (R376)(4), (8): push-b766-proof cut from main at 0ba9cd61 in SIDE-explicit-formula by the one-call tool`s kernel branch route (09:41:02Z) and pushed by the gated push`s branch mode, fourteen commits to 3c67b8b5; kept at its remote and in its clone, no route removing it (the author`s word, (R376) words :31).'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 42ab3bdb112d 1⟫
-    ('kernel merges made', 0, 0, 'merges', '### none: main moved to the closing Lean commit by the gated push under HELD alone, a fast-forward.'),
+    ('kernel merges made', 0, 0, 'merges', '### none: main not moved ((R376)(4), the two stops).'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 63e5424dd90e 1⟫
-    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5, (R376)(4), (12): v0.44 at the closing Lean commit 0ba9cd61 under HELD alone, cut after main`s read-back on the run with the restore off, its peel read back at the remote equal to main; none otherwise; v0.38 to v0.43 and v0.2.0 unmoved; MEASURED off SIDE-explicit-formula`s tags past v0.43, SIDE-dirichlet-mod-24`s past v0.2.0, and the template`s other kernels as before.'),
+    ('tags made or moved', 'TAGSMADE', 'TAGSMADE', 'tags', '### N5, (R376)(4): none -- v0.45 not cut, the build from source not passing the hold (the author`s word, (R376) words :31); v0.38 to v0.44 and v0.2.0 unmoved; MEASURED off SIDE-explicit-formula`s tags past v0.44, SIDE-dirichlet-mod-24`s past v0.2.0, and the template`s other kernels as before.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 5381b10a2ae6 1⟫
-    ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38', 'v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() not in ('v0.1.0', 'v0.2.0')]   # ### b765: v0.38 b745`s, v0.39 and v0.40 b758`s, v0.41 b759`s, v0.42 and v0.43 b763`s, v0.2.0 b757`s; the tags past them, the act`s own
+    ef_tags_after = [t for t in _git(K.EF_DIR, 'tag', '--contains', K.EF_V037).split(chr(10)) if t.strip() and t.strip() not in ('v0.37', 'v0.38', 'v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43', 'v0.44')] + [t for t in _git(K.M24_DIR, 'tag', '--list').split(chr(10)) if t.strip() and t.strip() not in ('v0.1.0', 'v0.2.0')]   # ### b766: v0.38 b745`s, v0.39 and v0.40 b758`s, v0.41 b759`s, v0.42 and v0.43 b763`s, v0.44 b765`s, v0.2.0 b757`s; the tags past them, the act`s own
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 100638d8d84e 1⟫
-    ('kernel branches deleted', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### (R376)(4): none -- push-b766-planted`s delete sent by the one-call tool`s delete route before the lock, its listing printed, and refused there, not fully merged (KERNEL_DELETES_REFUSED), so the branch stays in the clone and at its remote, named in the closing message for removal by the author`s word (the route removes no branch at a kernel`s remote for b766); port-b707, the pin, challenge and rebuild branches, the held branches and every other push branch kept.'),
+    ('kernel branches deleted', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### (R376)(7) [K22], N5: push-b765-planted, removed at SIDE-explicit-formula`s remote by the rdelete route and in its clone by the delete route after [K22] forced its local delete for that one name (data/b766_events.txt (37)), its listing printed before and its absence read after; port-b707, the pin, challenge and rebuild branches, the held branches, push-b766-proof and every other push branch kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 51acd0ac8ef1 1⟫
-    ('branches deleted beyond the step zero`s list', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### none: push-b766-planted`s clone ref, the one delete (R376)(4) and N5 allow, refused by the route, not fully merged, and kept; the five push-b765-* refs of the relay and PLACE-papers deleted at step zero; port-b707 kept.'),
+    ('branches deleted beyond the step zero`s list', len(K.KERNEL_REMOVED), len(K.KERNEL_REMOVED), 'branches', '### push-b765-planted`s clone ref, the one delete beyond step zero that (R376)(7) and N5 allow, after [K22]; the five push-b765-* refs of the relay and PLACE-papers deleted at step zero; port-b707 kept.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK b6204f4e0fa8 1⟫
-    ('census editions written on main', 0, 0, 'editions', '### none: no census written this act ((R376)(12)).'),
+    ('census editions written on main', 0, 0, 'editions', '### none: no census written this act ((R376)(11)).'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 0daf7a1cb287 1⟫
-    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS and REGISTRY', 0, 0, 'papers', '### none ((R376)(12), N3): no paper written beyond FINDINGS and OPEN_TRAILS, REGISTRY not written; none moved or renamed.'),
+    ('papers moved, renamed or written beyond FINDINGS, OPEN_TRAILS and REGISTRY', 0, 0, 'papers', '### none ((R376)(11), N3): no paper written beyond FINDINGS and OPEN_TRAILS, REGISTRY not written; none moved or renamed.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 46160108b751 1⟫
     ('README edits', 0, 0, 'edits', '### none this act: no kernel`s README written.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 2d7a99569826 1⟫
-    ('orders and annotations entered at OPEN_TRAILS before the seal', 'OTBLOCK', 'OTBLOCK', 'lines', '### (R376)(4)-(9) and the author`s words: the block at the file`s end, no line moving -- under one dated head the runner`s line ([C5] or [C6]), [S1], [S2], [W1], [Q1], [M3], [B2], [H4], [T1], [T2] and [T3] -- by one PLACE-papers commit; MEASURED off relay data/b766_ledgers.json`s OPEN_TRAILS row.'),
+    ('orders and annotations entered at OPEN_TRAILS before the seal', 'OTBLOCK', 'OTBLOCK', 'lines', '### (R376)(4)-(6) and the author`s words: four blocks at the file`s end, no line moving, each under its dated head by the rulings tool`s groups -- c2 [E1], [M4], [Q2] eleven lines, [H5], [A1]; c3 [F1], [F2]; c4 [X1], [X2], [X3]; c5 [P2] -- by four PLACE-papers commits (a183880f, 92108a44, 2d9d51ae and the c5 commit); MEASURED off relay data/b766_ledgers_c2.json to _c5.json`s OPEN_TRAILS rows.'),
 #⟪END⟫
 #⟪OVERRIDE regspec MARK 44ff8bc9f5d4 1⟫
-    ('faces ledger update blocks appended', 0, 0, 'blocks', '### none: FACES_LEDGER not written this act ((R376)(13)`s list).'),
+    ('faces ledger update blocks appended', 0, 0, 'blocks', '### none: FACES_LEDGER not written this act ((R376)(12)`s (W) list).'),
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): N1's dispatch commands are the seat's `gh workflow run build-module.yml` ((R364)(4)(iii)-(iv));
 # ### the carried pattern named the template's rebuild tool, which b754 does not have
@@ -639,20 +639,23 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijk'))   # ### b765, Component 5 (the Edit tool): the rows of data/b765_defects.txt as the template's reader takes them, (a) to (k) -- (d) THE TOOL'S, the ten others THE SEAT'S, the reader counting each row's letter ((a)-(d) at step zero, (e)-(g) at Components 1 and 2, (h)-(j) at Component 3, (k) at (7)'s builder); set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklm'))   # ### b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
-REQUIRED_BANKS = ('data/b766_misses.txt', 'data/b766_price.txt', 'data/b766_price.json', 'data/b766_registration.txt',     # ### step zero, (3) and [G2]
-                  'data/b766_author_words_preseal.txt', 'data/b766_amendments.json',                                     # ### the author's three words of 2026-11-21
+REQUIRED_BANKS = ('data/b766_misses.txt', 'data/b766_price.txt', 'data/b766_price.json', 'data/b766_ceiling.txt',          # ### step zero, (3); the ceiling after (4)(c)
+                  'data/b766_author_words_preseal.txt',                                                                  # ### the author's words, step zero to the close
                   'data/b766_corrigendum.txt', 'data/b766_corrigendum.json',                                             # ### Component 1, (1)
-                  'data/b766_repairs.txt', 'data/b766_repair_controls.txt', 'data/b766_standing_dry.txt', 'data/b766_kernel_bases.json',   # ### Component 1, (8); (4)'s route
-                  'data/b766_controls_control.txt', 'data/b766_dispatch_rows.json', 'data/b766_controls.txt',            # ### (4) and (5)'s dispatches, the trial's bank
-                  'data/b766_window.txt', 'data/b766_window.json', 'data/b766_gauss_gate.txt',                           # ### (5)(c) and (5)(b)'s gate
-                  'data/b766_held_branches.txt', 'data/b766_map_pair.txt', 'data/b766_premise_positions.txt', 'data/b766_pi01_reading.txt',   # ### (6)(a)-(d)
-                  'data/b766_project_set_control.txt', 'data/b766_project_set_repo.json',                                # ### (7)
-                  'data/b766_ledgers.txt', 'data/b766_ledgers.json', 'data/b766_orders.txt',                             # ### the lines of (4)-(9)
-                  'data/b766_reproduce.txt', 'data/b766_reproduce.json',                                                 # ### (12)
-                  'data/b766_author_answers.txt', 'data/b766_address_scan.txt', 'data/b766_touch.txt',   # ### b765, Component 5 (the Edit tool): the act's banks by its components, in place of b764's carried names; no rules bank this act (none written); the template's standing banks follow
+                  'data/b766_repairs.txt', 'data/b766_repair_controls.txt', 'data/b766_standing_dry.txt', 'data/b766_kernel_bases.json',   # ### Component 1, (7)
+                  'data/b766_capture_mask.txt',                                                                          # ### [K23]'s captures
+                  'data/b766_certificate.txt', 'data/b766_certificate.json', 'data/b766_plan.txt',                       # ### (4)(a)
+                  'data/b766_controls_control.txt', 'data/b766_dispatch_rows.json', 'data/b766_controls.txt',            # ### (4)'s dispatches and the tool's bank
+                  'data/b766_window_data.txt', 'data/b766_kdata.txt', 'data/b766_cqdata.txt', 'data/b766_poledata.txt',  # ### (4)(c) and (d), the data files
+                  'data/b766_poledata_rewrite.txt', 'data/b766_k0data.txt', 'data/b766_k0blocks.txt',
+                  'data/b766_registry_cells.txt', 'data/b766_lean_join.txt', 'data/b766_sweep.txt',                      # ### (5)(a)-(c)
+                  'data/b766_ledgers_c2.txt', 'data/b766_ledgers_c3.txt', 'data/b766_ledgers_c4.txt', 'data/b766_ledgers_c5.txt',   # ### the lines of (4)-(6)
+                  'data/b766_orders.txt',
+                  'data/b766_reproduce.txt', 'data/b766_reproduce.json',                                                 # ### (11)
+                  'data/b766_author_answers.txt', 'data/b766_address_scan.txt', 'data/b766_touch.txt',   # ### b766, Component 5 (the Edit tool, before any run): the act's banks by its components, in place of b765's carried names (its registration, window, gate, readings, project set and single ledgers bank, none written by b766); no rules bank this act; the template's standing banks follow
 #⟪END⟫
 #⟪SECTION checks 3⟫
 STANDING_BANK = 'data/standing_clauses_v7.txt'   # ### a shared bank by version, outside the act's prefix, named apart: b710's row (1) reads it at VERSION 7, unchanged since the act's base; v9 binds b754 whole, unchanged since d9739558, read by G-SURGERY-CARRIED
@@ -4246,32 +4249,32 @@ def _trail_text_b765_kept():
     # ### v1.38.17, (R375)(5) [K4]: record.tpl :2767-:2824, the b72x body the template keeps after SLOT 35, REMOVED from this act's render with the retained def that held it (_trail_text_b764, never called): it read the worklist's C3_RELAY
 #⟪END⟫
 #⟪SECTION regspec 1⟫
-    ('runner dispatch commands made', K.MAX_DISPATCHES, 'DISPATCHES', 'dispatches', '### N1: within the worklist`s MAX_DISPATCHES 13 in SIDE-explicit-formula ((R376)(4) and the author`s word of 2026-11-21: the planted 1, at most ten with the restore on, the save on main among them, the closing build from source, one repeat of a stopped build) and none in SIDE-dirichlet-mod-24; MEASURED off the command bank (each dispatch command at a command`s head).'),
+    ('runner dispatch commands made', K.MAX_DISPATCHES, 'DISPATCHES', 'dispatches', '### N1: within the worklist`s MAX_DISPATCHES 20 in SIDE-explicit-formula ((R376)(4): at most 18 with the restore on, the closing build from source, one repeat of a build stopped under the hold; no planted kind) and none in SIDE-dirichlet-mod-24; sixteen sent, fourteen with the restore on, the build from source and its repeat each stopped under the hold; MEASURED off the command bank (each dispatch command at a command`s head).'),
     ('runner runs read by their ids', 'EFRUNS', 'EFRUNS', 'runs', '### N1: every run read by its id from its artifact, the exit file governing (data/b766_dispatch_rows.json); MEASURED off the worklist`s EF_RUNS and M24_RUNS.'),
 #⟪END⟫
 #⟪SECTION regspec 2⟫
     ('pin branches cut on a kernel', 'PINBRANCHES', 'PINBRANCHES', 'branches', '### none: the pin-b718-de5ce8a9 branches left as banked; MEASURED off the twelve kernels` refs/heads/pin-b765*.'),
     ('rebuild branches cut on a kernel', 0, 0, 'branches', '### none this act.'),
-    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved; b763`s four push-b763-* branches, b765`s push-b765-runner and this act`s push-b766-centre beside them, push-b766-planted kept in the clone, the delete route refusing it; MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
-    ('kernel branches removed at a kernel`s remote', 0, 0, 'branches', '### none ((R376)(4): the route removes no branch at a kernel`s remote for b766, so push-b766-planted stands there, named in the closing message for removal by the author`s word); push-b759-weil removed at SIDE-explicit-formula`s remote by b760; the four held branches of b725 to b730 kept.'),
+    ('working branches on SIDE-explicit-formula', 'EFBRANCHES', 'EFBRANCHES', 'branches', '### keiper-b725, c2-b725, detect-b729 and zq-b730 kept, unmoved; b763`s four push-b763-* branches, b764`s push-b764-runner, b765`s push-b765-centre and this act`s push-b766-proof beside them, push-b766-proof kept at its remote and in its clone by the author`s word ((R376) words :31); MEASURED off its refs/heads against the worklist`s EF_BRANCHES.'),
+    ('kernel branches removed at a kernel`s remote', 1, 1, 'branches', '### (R376)(7) [K22], N5: push-b765-planted removed at SIDE-explicit-formula`s remote by the one-call tool`s rdelete route after [K22], its listing printed before and its absence read after (data/b766_events.txt (37)); no other; push-b766-proof and the four held branches of b725 to b730 kept.'),
     ('rebuild-b721 branches kept on the wave 1 kernels', 'RBBRANCHES', 'RBBRANCHES', 'branches', '### as b766 found them, the six; MEASURED off the six kernels` refs/heads.'),
     ('rebuild-b721 branches standing at their origins', 'RBPUSHED', 'RBPUSHED', 'branches', '### MEASURED off each kernel`s refs/remotes/origin/rebuild-b721.'),
     ('commits on a rebuild branch beyond its pin', 'RBBEYOND', 'RBBEYOND', 'commits', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 3⟫
-    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing, read by (6)(c) and kept; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b765*.'),
+    ('challenge branches cut on a kernel', 'CHBRANCH', 'CHBRANCH', 'branches', '### none this act: challenge-b720-h2-sign-iff-rh standing and kept; MEASURED off SIDE-explicit-formula`s refs/heads/challenge-b766*.'),
 #⟪END⟫
 #⟪SECTION regspec 4⟫
     ('Lean files written on a rebuild branch', 'RBLEAN', 'RBLEAN', 'files', '### beyond the pins, b721`s and b723`s; MEASURED off each branch against its pin.'),
-    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b745`s, none this act, the four unmoved; MEASURED off each branch against the act`s entering main 819e4a83.'),
-    ('Lean files changed on SIDE-explicit-formula`s main', 3 if K.EF_MAIN[:8] == K.RUNNER_COMMIT[:8] else 0, 'EFMAINLEAN', 'files', '### (R376)(4), (5): under HELD main moved to the closing Lean commit, its Lean files past 819e4a83 the three modules of (5) added (ControlFailureExists, GaussArchQ, GaussArchQSteps), none edited; none otherwise; SIDE-dirichlet-mod-24 unmoved; MEASURED off git diff --name-only from 819e4a83 to main.'),
-    ('tags cut by this act', 1 if K.WEIL_TAG else 0, 'EFTAGS', 'tags', '### N5, (R376)(4), (12): v0.44 under HELD alone, cut at the closing Lean commit after main`s read-back; none otherwise; v0.38 to v0.43 and v0.2.0 unmoved; MEASURED off SIDE-explicit-formula`s tags past v0.43.'),
+    ('Lean files on SIDE-explicit-formula`s four branches', 'EFLEAN', 'EFLEAN', 'files', '### b725`s, b726`s and b730-b745`s, none this act, the four unmoved; MEASURED off each branch against the act`s entering main 0ba9cd61.'),
+    ('Lean files changed on SIDE-explicit-formula`s main', 17 if K.EF_MAIN[:8] == K.RUNNER_COMMIT[:8] else 0, 'EFMAINLEAN', 'files', '### (R376)(4): main not moved -- the closing build from source and its repeat each stopped under the hold, so by the author`s word ((R376) words :31) main stays at 0ba9cd61, the act`s seventeen Window files standing on push-b766-proof at 3c67b8b5; SIDE-dirichlet-mod-24 unmoved; MEASURED off git diff --name-only from 0ba9cd61 to main.'),
+    ('tags cut by this act', 1 if K.WEIL_TAG else 0, 'EFTAGS', 'tags', '### N5, (R376)(4): none -- v0.45 not cut, the build from source not passing the hold (the author`s word, (R376) words :31); v0.38 to v0.44 and v0.2.0 unmoved; MEASURED off SIDE-explicit-formula`s tags past v0.44.'),
 #⟪END⟫
 #⟪SECTION regspec 5⟫
-    ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b765-closing, push-b765-preroot, push-b765-record; PLACE-papers push-b765-preroot, push-b765-record; each by name, through the one-call tool, one per message, after the --merged listing and the citation check (data/b766_stepzero.txt :71-:74).'),
+    ('branches deleted at step zero', 5, 5, 'branches', '### relay push-b765-closing, push-b765-preroot, push-b765-record; PLACE-papers push-b765-preroot, push-b765-record; each by name, through the one-call tool, one per message, after the --merged listing and the citation check (data/b766_stepzero.txt :67-:70).'),
 #⟪END⟫
 #⟪SECTION regspec 6⟫
-    ('workflow files written by this act`s kernel commits', 1, 1, 'files', '### (R376)(4) and the author`s word of 2026-11-21: .github/workflows/build-module.yml on push-b766-centre, the save keyed by the toolchain, the manifest and the commit and the restore by their prefix (70c50d37), and the planted input off by default (e83e0deb).'),
+    ('workflow files written by this act`s kernel commits', 0, 0, 'files', '### none: the fourteen kernel commits on push-b766-proof write the Window files of (4) and print_targets.txt alone; the workflow b765 moved to main at 0ba9cd61 ran each dispatch as it stands.'),
     ('workflow files on a kernel branch beyond its pin', 'RBWF', 'RBWF', 'files', '### b721`s and b723`s, none this act; MEASURED off each branch against its pin.'),
 #⟪END⟫
 #⟪SECTION regspec 7⟫
@@ -4279,35 +4282,35 @@ def _trail_text_b765_kept():
     ('REGISTRY lines removed or edited', 'REGREMOVED', 'REGREMOVED', 'lines', '### none: REGISTRY not written; MEASURED off git diff --numstat from the act`s first PLACE-papers head to HEAD -- REGISTRY.md.'),
 #⟪END⟫
 #⟪SECTION regspec 8⟫
-    ('generated corrigendum entries', 1, 1, 'entries', '### (R376)(1): FINDINGS :15929 (relay data/b766_corrigendum.json).'),
-    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R376)(1): row (85).'),
-    ('ERRATA entries filed', 0, 'ERRATAN', 'entries', '### none: ERRATA not written ((R376)(12), N3); MEASURED off relay data/b766_ledgers.json`s entered.'),
-    ('the ruling`s texts entered, each equal to its text with its fields filled', 'RULINGS', 'RULINGS', 'texts', '### (R376)(4)-(9) and the author`s words: the runner`s line ([C5] or [C6]), [S1], [S2], [W1], [Q1], [M3], [B2], [H4], [T1], [T2] and [T3] in OPEN_TRAILS under one dated head, [R1] in the trail; MEASURED off relay data/b766_ledgers.json`s entered.'),
-    ('orders leaving the open count in the roster`s form', 'ORDCLOSED', 'ORDCLOSED', 'orders', '### (R376)(4)-(9): W-ORD-RUNNER-CACHE by [C5] where PART ONE held, and any order a line of (5)-(9) closes in the roster`s form; MEASURED off relay data/b766_ledgers.json`s roster (the open count before, the orders added, the open count after).'),
-    ('repairs rows, one a key of (8)', 2, 'REPAIRS', 'rows', '### (R376)(8): [K20] and [K21] in the order of repair, each REPAIRED, READ AS DESIGNED, REMOVED or CARRIED; MEASURED off relay data/b766_repairs.txt`s states.'),
-    ('the runner`s line composed for OPEN_TRAILS from its runs', 1, 'TRIALLINE', 'lines', '### (R376)(4): [C5] where PART ONE held, [C6] otherwise, its fields and runs in relay data/b766_ledgers.json; MEASURED off it.'),
-    ('integration lines in the canon`s form', 1, 1, 'lines', '### (R376)(10): this act`s own, the entry`s last line, bare, as (10) gives it, written by no reader of the act`s banks.'),
-    ('standing changes landed', 3, 'STANDINGV', 'changes', '### (R376)(8), (4), (11): v1.38.19 to v1.38.21, one commit a key of (8) in its order of repair and one for the kernel route of (4), VERSION moved by each, each with its planted control (relay data/b766_repair_controls.txt); MEASURED off git log of tools/standing/ from the act`s base.'),
-    ('orders entered with the trail', 0, 'ORDADDED', 'orders', '### none: no text of (R376) enters an order; MEASURED off relay data/b766_ledgers.json`s roster added.'),
-    ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: tools/research/reproduce.py`s full run at b766 as (R376)(12) orders it, in the foreground; MEASURED off data/b766_reproduce.json.'),
+    ('generated corrigendum entries', 1, 1, 'entries', '### (R376)(1): FINDINGS :15997 (relay data/b766_corrigendum.json).'),
+    ('corrigenda bank rows appended', 1, 1, 'rows', '### (R376)(1): row (86).'),
+    ('ERRATA entries filed', 0, 'ERRATAN', 'entries', '### none: ERRATA not written ((R376)(11), N3); MEASURED off the lines git diff adds to ERRATA.md from the act`s first PLACE-papers head to HEAD.'),
+    ('the ruling`s texts entered, each equal to its text with its fields filled', 'RULINGS', 'RULINGS', 'texts', '### (R376)(4)-(6) and the author`s words: [E1], [M4], [Q2] for each of eleven orders, [H5] and [A1] (group c2), [F1] and [F2] (c3), [X1], [X2] and [X3] (c4), [P2] (c5), in OPEN_TRAILS under four dated heads; no [C7] by the author`s word ((R376) words :31); MEASURED off relay data/b766_ledgers_c2.json to _c5.json`s entered.'),
+    ('orders leaving the open count in the roster`s form', 'ORDCLOSED', 'ORDCLOSED', 'orders', '### (R376)(6)(b): the eleven premise orders RETIRED by [Q2] in the roster`s form, W-ORD-MAP-MERGE entered open by [M4]; MEASURED off relay data/b766_ledgers_c2.json to _c5.json`s rosters (the open count before, the orders added, the open count after).'),
+    ('repairs rows, one a key of (7)', 3, 'REPAIRS', 'rows', '### (R376)(7): [K22], [K23] and [K24] in the order of repair, each REPAIRED, READ AS DESIGNED, REMOVED or CARRIED; MEASURED off relay data/b766_repairs.txt`s states.'),
+    ('the runner`s line composed for OPEN_TRAILS from its runs', 0, 'TRIALLINE', 'lines', '### none: (R376) carries no [C5] or [C6], and [C7] is not entered by the author`s word ((R376) words :31), no axioms file having differed; MEASURED off relay data/b766_ledgers_c2.json to _c5.json.'),
+    ('integration lines in the canon`s form', 1, 1, 'lines', '### (R376)(9): this act`s own, the entry`s last line, bare, as (9) gives it, written by no reader of the act`s banks.'),
+    ('standing changes landed', 3, 'STANDINGV', 'changes', '### (R376)(7), (10): v1.38.21 to v1.38.24, one commit a key of (7) in its order of repair, VERSION moved by each, each with its planted control (relay data/b766_repair_controls.txt); MEASURED off git log of tools/standing/ from the act`s base.'),
+    ('orders entered with the trail', 1, 'ORDADDED', 'orders', '### (R376)(6)(a): W-ORD-MAP-MERGE by [M4], in the entry form tools/standing/orderstate.py :26 reads; no other; MEASURED off relay data/b766_ledgers_c2.json to _c5.json`s rosters added.'),
+    ('reproduction rows, one per instrument', 'REPROWS', 'REPROWS', 'rows', '### the standing arm G-RESEARCH-REPRODUCES: tools/research/reproduce.py`s full run at b766 as (R376)(11) orders it, in the foreground; MEASURED off data/b766_reproduce.json.'),
 #⟪END⟫
 #⟪SECTION regspec 9⟫
-    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record, the runner`s prints and the reproduction run as (R376)(12) orders it, nothing computed at a zero: the price, the repairs` planted controls, the dispatch tool`s controls, the dispatches, the gate, the window, the premise positions, the map`s pair, the held branches, the builder`s controls and build, the corrigendum, the ledgers, the orders, the reproduction, the address scan; MEASURED off the banks present.'),
-    ('registrations committed alone', 1, 'REGALONE', 'commits', '### (R376)(4), (5)(c): [G2], H-RUNNER-RESTORE and H-SPLINE-WINDOW, as data/b766_registration.txt at relay 7907161c, before any dispatch and before the window tool`s run; MEASURED off git.'),
-    ('figure banks of a registered object first committed after the registrations', 4, 'REGS', 'banks', '### (R376)(4), (5)(c): the window`s bank and its json (data/b766_window.txt and .json), the dispatch rows and the dispatch bank (data/b766_dispatch_rows.json and data/b766_controls.txt), each first added after [G2]`s commit; no row of a bank of zeros opened by the seat`s hand ((R376)(12)); MEASURED off git.'),
-    ('banks holding a figure at a registered object before its registration', 0, 'PREREG', 'banks', '### none (N2, N3): [G2] before any dispatch and any cell, nothing computed at a zero; MEASURED off git.'),
+    ('computations banked, each by its own tool writing its bank alone', 'COMPUTE', 'COMPUTE', 'computations', '### the tools` runs over the record, the runner`s prints and the reproduction run as (R376)(11) orders it, nothing computed at a zero: the price, the repairs` planted controls, the captures` mask, the certificate, the dispatch tool`s controls and bank, the data files of the window, K, cQ, the pole term and k(0), the ceiling, the three readings, the ledgers, the corrigendum, the orders, the reproduction, the address scan; MEASURED off the banks present.'),
+    ('registrations committed alone', 0, 'REGALONE', 'commits', '### none: (R376)(4)(a) registers no hypothesis at this act, the values being b765`s; MEASURED off git.'),
+    ('figure banks of a registered object first committed after the registrations', 0, 'REGS', 'banks', '### none: no registration at this act; the certificate and the plan of (4)(a) committed before any dispatch (relay f4a7744b), no row of a bank of zeros opened by the seat`s hand ((R376)(11)); MEASURED off git.'),
+    ('banks holding a figure at a registered object before its registration', 0, 'PREREG', 'banks', '### none (N2, N3): no registered object; nothing computed at a zero; MEASURED off git.'),
 #⟪END⟫
 #⟪SECTION regspec 10⟫
-    ('Lean modules written on the act`s branches', 3, 'EFNEW', 'modules', '### (R376)(5): ControlFailureExists.lean, GaussArchQ.lean and GaussArchQSteps.lean on push-b766-centre, each a module of its own; MEASURED off the act`s branch against 819e4a83.'),
-    ('Lean files edited by the act`s own commits', 0, 'EFEDIT', 'files', '### none on push-b766-centre; SquaresAt24.lean`s closing statement made false on push-b766-planted alone, the planted module of (4)(a), never on the centre; MEASURED off the act`s branch against 819e4a83.'),
+    ('Lean modules written on the act`s branches', 17, 'EFNEW', 'modules', '### (R376)(4)(b)-(d): the seventeen files of SIDEExplicitFormula/Window/ on push-b766-proof at 3c67b8b5, from PrimeFinite.lean ([F1]) and Coeffs.lean, Spline.lean and Instance.lean ([F2]) to ArchBlocks.lean, each a module of its own; MEASURED off the act`s branch against 0ba9cd61.'),
+    ('Lean files edited by the act`s own commits', 0, 'EFEDIT', 'files', '### none: no Lean file of main edited on push-b766-proof; MEASURED off the act`s branch against 0ba9cd61.'),
 #⟪END⟫
 #⟪SECTION regspec 11⟫
-    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R376)(8), (4), (7): tools/standing/ v1.38.19 to v1.38.21 by three version commits, VERSION and the files each key and the kernel route changed, each with its planted control (relay data/b766_repair_controls.txt); tools/project_set.py under tools/, outside tools/standing/, by (7); MEASURED off the worklist`s lists.'),
+    ('shared tools written by ruling', 'STANDINGWRITTEN', 'STANDINGWRITTEN', 'tools', '### (R376)(7), (10): tools/standing/ v1.38.21 to v1.38.24 by three version commits, VERSION and the files each key changed, each with its planted control (relay data/b766_repair_controls.txt); tools/push_gated.sh ([K23]) and tools/project_set.py ([K24]) under tools/, outside tools/standing/, by (7); MEASURED off the worklist`s lists.'),
     ('arms out of the suite`s run list by retirement', 'RETIRED', 'RETIRED', 'arms', '### tools/standing/arms.py RETIRED, unchanged; MEASURED off it.'),
     ('arms left the arm list this act', 0, 0, 'arms', '### none: the run list 116.'),
 #⟪END⟫
 #⟪SECTION regspec 12⟫
-    ('shared banks written by ruling', 4, 4, 'banks', '### data/act_current.json at step zero and its shared_edits by amend.py shared; the corrigenda bank, appended; HANDOFF.md by tools/standing/handoff.py before the gate ((R376)(13)); data/act_roots.txt at the root; data/arm_tags.json not written (outside (W)).'),
+    ('shared banks written by ruling', 4, 4, 'banks', '### data/act_current.json at step zero and its shared_edits by amend.py shared at [K23] and [K24]; the corrigenda bank, appended, row (86); HANDOFF.md by tools/standing/handoff.py before the gate ((R376)(12)); data/act_roots.txt at the root; data/arm_tags.json not written (outside (W)).'),
 #⟪END⟫
 #⟪SECTION regspec 13⟫
     ('computations run with free memory beneath the hold', 'BENEATH', 'BENEATH', 'computations', '### the 2,560 MB hold read before each suite part and computation; MEASURED off the defects bank.'),
@@ -4318,7 +4321,7 @@ def _trail_text_b765_kept():
     ('banks, faces or tools edited after the lock gate', 0, 0, 'edits', '### N4: a restore an edit; a correction found after the lock stands as an event.'),
 #⟪END⟫
 #⟪SECTION regspec 15⟫
-    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, the dispatches and the artifact downloads, the gh reads under the GitHub login, the repository of (7) created and read back, and the two addresses of the author`s word of 2026-11-21 under the standing User-Agent, the one refused fetched once more alone; none carries an identifier, nothing else fetched from the web ((R376)(12)).'),
+    ('outbound fetches by a tool of this act carrying an identifier of the author', 0, 0, 'fetches', '### N5: the outbound requests are the pushes and their ls-remote read-backs, the dispatches and the artifact downloads, the gh reads under the GitHub login, and the Project`s repository written and read back at the close under [K24]; none carries an identifier, nothing fetched from the web ((R376)(8), (11)).'),
 #⟪END⟫
 #⟪SECTION regspec 16⟫
         return bool(c) and bool(K.REG_COMMIT) and c != K.REG_COMMIT \
@@ -4326,46 +4329,53 @@ def _trail_text_b765_kept():
 
     def anc(a, b):
         return subprocess.run(['git', '-C', ROOT, 'merge-base', '--is-ancestor', a, b], capture_output=True).returncode == 0
-    # ### b765 (R375)(4), (5)(c): the registered objects H-RUNNER-RESTORE and H-SPLINE-WINDOW, their figure banks the window's bank and json
-    # ### and the dispatch rows and bank, each first added after [G2]'s commit (K.REG_COMMIT 7907161c)
-    fig_banks = [p for p in ('data/b766_window.txt', 'data/b766_window.json', 'data/b766_dispatch_rows.json', 'data/b766_controls.txt')
+    # ### b766, Component 5 (the Edit tool, before any run): the four ledgers banks of the rulings tool's groups c2 to c5, summed -- b766 writes
+    # ### no data/b766_ledgers.json, so b765's single reader read 0 here by its exception
+    def jsum(f):
+        return sum(jcount('b766_ledgers_%s.json' % g_, f) for g_ in ('c2', 'c3', 'c4', 'c5'))
+    # ### b766 (R376)(4)(a): no hypothesis registered at this act, so no figure bank of a registered object (b765's four were its [G2]'s)
+    fig_banks = [p for p in ()
 #⟪END⟫
 #⟪SECTION regspec 17⟫
                     REGS=len([p for p in fig_banks if after_reg(first_add(p))]),
-                    # ### b765: the runs' count read against the worklist's caps (SIDE-explicit-formula's alone, at most 13, M24_RUNS empty)
+                    # ### b766: the runs' count read against the worklist's caps (SIDE-explicit-formula's alone, at most 20, M24_RUNS empty)
                     EFRUNS=len(K.EF_RUNS) + len(K.M24_RUNS),
-                    # ### b765: main's Lean and commits past the entering main 819e4a83 (EF_BASE), the tags past v0.43, the texts entered, the
-                    # ### ERRATA entries, the orders leaving the open count and added, the repairs rows, the runner's line, the standing commits
+                    # ### b766 (the Edit tool, before any run): main's Lean and commits past the entering main 0ba9cd61 (EF_BASE), the tags past
+                    # ### v0.44 (b765's v0.44 stands at 0ba9cd61; the carried pattern from v0.44 would have read it as this act's), the texts entered,
+                    # ### the ERRATA entries read off ERRATA.md (the carried reader took an entered key opening E as an ERRATA entry, which [E1] is
+                    # ### not), the orders leaving the open count and added, the repairs rows, the runner's line, the standing commits; the four
+                    # ### ledgers banks summed by jsum (regspec section 16)
                     EFMAINLEAN=sum(1 for f_ in _git(K.EF_DIR, 'diff', '--name-only', K.EF_BASE, 'main').split() if f_.endswith('.lean')),
-                    EFTAGS=sum(1 for t_ in _git(K.EF_DIR, 'tag', '--list', 'v0.*').split() if re.match(r'^v0\.(4[4-9]|[5-9]\d)$', t_)),
-                    RULINGS=jcount('b766_ledgers.json', lambda j: len(j.get('entered') or {})),
-                    ERRATAN=jcount('b766_ledgers.json', lambda j: len([k_ for k_ in (j.get('entered') or {}) if k_.startswith('E')])),
+                    EFTAGS=sum(1 for t_ in _git(K.EF_DIR, 'tag', '--list', 'v0.*').split() if re.match(r'^v0\.(4[5-9]|[5-9]\d)$', t_)),
+                    RULINGS=jsum(lambda j: len(j.get('entered') or {})),
+                    ERRATAN=len([l_ for l_ in _git(K.PP, 'diff', '--unified=0', K.PRE_PP, 'HEAD', '--', 'ERRATA.md').split(chr(10)) if l_.startswith('+') and not l_.startswith('+++')]),
                     # ### the orders leaving the open count: those open before, with the orders added, less those open after
-                    ORDCLOSED=jcount('b766_ledgers.json', lambda j: int((j.get('roster') or {}).get('before_open') or 0) + len((j.get('roster') or {}).get('added') or [])
-                                     - int((j.get('roster') or {}).get('after_open') or 0)),
-                    ORDADDED=jcount('b766_ledgers.json', lambda j: len((j.get('roster') or {}).get('added') or [])),
+                    ORDCLOSED=jsum(lambda j: int((j.get('roster') or {}).get('before_open') or 0) + len((j.get('roster') or {}).get('added') or [])
+                                   - int((j.get('roster') or {}).get('after_open') or 0)),
+                    ORDADDED=jsum(lambda j: len((j.get('roster') or {}).get('added') or [])),
                     REPAIRS=len(re.findall(r'; STATE: (?:REPAIRED|READ AS DESIGNED|REMOVED|CARRIED)\b', ' '.join(l_.strip() for l_ in io.open(os.path.join(ROOT, 'data', 'b766_repairs.txt'), encoding='utf-8').read().replace(chr(13), '').split(chr(10))))),
-                    TRIALLINE=jcount('b766_ledgers.json', lambda j: 1 if ((j.get('runner') or {}).get('key') in ('C5', 'C6')) else 0),
+                    TRIALLINE=jsum(lambda j: 1 if ((j.get('runner') or {}).get('key') in ('C5', 'C6', 'C7')) else 0),
                     STANDINGV=len([h_ for h_ in _git(ROOT, 'log', '--format=%H', '%s..HEAD' % K.PRE_RELAY, '--', 'tools/standing').split() if h_.strip()]),
                     EFMAINCOMMITS=int(_git(K.EF_DIR, 'rev-list', '--count', '%s..main' % K.EF_BASE) or 0),
-                    OTBLOCK=jcount('b766_ledgers.json', lambda j: (int((j.get('file') or {}).get('lines_after') or 0) - int((j.get('file') or {}).get('lines_before') or 0))
-                                   if (j.get('file') or {}).get('path') == 'OPEN_TRAILS.md' else 0),   # ### b765: the ledgers tool writes one file, its row a dict
+                    OTBLOCK=jsum(lambda j: (int((j.get('file') or {}).get('lines_after') or 0) - int((j.get('file') or {}).get('lines_before') or 0))
+                                 if (j.get('file') or {}).get('path') == 'OPEN_TRAILS.md' else 0),   # ### b766: four groups, each writing one file, its row a dict
                     REPROWS=jcount('b766_reproduce.json', lambda j: len(j.get('rows') or [])),
                     ADDRESS=tfirst('b766_address_scan.txt', r'\*\*PREVIOUS ADDRESS: (\d+) ; THE AUTHOR`S NAME: (\d+) ;'),
                     EFBRANCHES=sum(1 for b, t in K.EF_BRANCHES if _git(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/' + b).strip() == t),
                     EFLEAN=sum(1 for _b, t in K.EF_BRANCHES for f_ in _git(K.EF_DIR, 'diff', '--name-only', K.EF_BASE, t).split() if f_.endswith('.lean')),
-                    # ### b765: the modules the centre adds past 819e4a83 ((R375)(5): three) and the Lean files its commits edit (none)
+                    # ### b766: the modules push-b766-proof adds past 0ba9cd61 ((R376)(4): seventeen) and the Lean files its commits edit (none)
                     EFNEW=len(set(f_ for b_ in [K.WEIL_BRANCH]
                                   for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=A', K.EF_BASE, b_[1]).split() if f_.endswith('.lean'))),
                     EFEDIT=len(set(f_ for b_ in [K.WEIL_BRANCH]
                                    for f_ in _git(K.EF_DIR, 'diff', '--name-only', '--diff-filter=M', K.EF_BASE, b_[1]).split() if f_.endswith('.lean'))),
 #⟪END⟫
 #⟪SECTION regspec 18⟫
-                    COMPUTE=len([n_ for n_ in ('price', 'repair_controls', 'controls_control', 'controls', 'gauss_gate', 'window', 'premise_positions',
-                                               'map_pair', 'held_branches', 'project_set_control', 'project_set_build', 'corrigendum', 'ledgers', 'orders',
+                    COMPUTE=len([n_ for n_ in ('price', 'repair_controls', 'capture_mask', 'certificate', 'controls_control', 'controls', 'window_data',
+                                               'kdata', 'cqdata', 'poledata', 'poledata_rewrite', 'k0data', 'k0blocks', 'ceiling', 'registry_cells',
+                                               'lean_join', 'sweep', 'ledgers_c2', 'ledgers_c3', 'ledgers_c4', 'ledgers_c5', 'corrigendum', 'orders',
                                                'reproduce', 'address_scan')
                                  if os.path.exists(os.path.join(ROOT, 'data', 'b766_%s.txt' % n_))]),
-                    # ### b765: [G2] as data/b765_registration.txt (the template's alone() reads the plural name), its commit carrying it alone
+                    # ### b766: no registration at this act ((R376)(4)(a)); the reader kept in b765's form, reading none
                     REGALONE=len([c_ for c_ in _git(ROOT, 'log', '--format=%H', '--', 'data/b766_registration.txt').split()
                                   if _git(ROOT, 'diff-tree', '--no-commit-id', '--name-only', '-r', c_).split() == ['data/b766_registration.txt']]),
 #⟪END⟫
@@ -4374,9 +4384,10 @@ def _trail_text_b765_kept():
               'CHBRANCH', 'REGREMOVED', 'REGALONE', 'EFMAINLEAN', 'EFTAGS', 'RULINGS', 'ERRATAN', 'ORDCLOSED', 'ORDADDED', 'REPAIRS', 'TRIALLINE', 'STANDINGV', 'EFMAINCOMMITS', 'OTBLOCK',
 #⟪END⟫
 #⟪SECTION regspec 20⟫
-    spec = {"registration": ("data/b766_registration_%s.txt -- b766, THE CENTRE IN STEPS: b765 AT ITS WEIGHT; THE RUNNER`S CACHE TRIED AGAIN; "
-                             "THE STATEMENT OF THE CONTROL`S FAILURE; GAUSS`S INTEGRAL FOR THE ARCHIMEDEAN TERM; A SPLINE WINDOW BANKED AS DATA; "
-                             "FOUR READINGS; THE PROJECT`S MIRROR REPOSITORY; THE AUTHOR`S WORD PLACED; NO DEPOSIT, UNDER (R376)" % K.DATE),
+    spec = {"registration": ("data/b766_registration_%s.txt -- b766, THE PROOF BY THE BANKED WINDOW, IN STEPS: b765 AT ITS WEIGHT; THE PLAN AND "
+                             "THE CERTIFICATE AS DATA; THE PRIME SIDE AS A FINITE SUM; THE WINDOW IN LEAN; THE LATER STEPS AS FAR AS THE CEILING ALLOWS; "
+                             "THREE READINGS TOWARD THE KEYSTONE SET; THE MAP AND THE PREMISE ROWS RULED; THREE REPAIRS; THE AUTHOR`S WORDS PLACED; "
+                             "NO DEPOSIT, UNDER (R376)" % K.DATE),
 #⟪END⟫
 #⟪SECTION report 1⟫
 Carried from b765's standing report by the fold (tools/standing/fold/report.tpl) and its lines rewritten for b766: b765's lines read banks this
