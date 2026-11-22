@@ -5,7 +5,9 @@ printed. Read-only over the relay: each revision's files are taken by `git show 
 temporary directory (removed after), and each revision is probed in its own interpreter (`python -I`), so no module of one revision is read
 by the other; the probe calls the revision's functions, writes nothing, runs no git command and prints one JSON line. [K23]'s control runs
 each revision's tools/push_gated.sh under Git's bash over a scratch repository in that folder, its origin an address never contacted (the
-existing-tag mode refuses at the clone before any remote is read), and prints counts, never a capture's line. --bank appends the
+existing-tag mode refuses at the clone before any remote is read), and prints counts, never a capture's line. [K24]'s probe reads each
+revision's close order over data/standing_clauses_v5.txt, writes its planted mirror banks and export in a scratch folder of its own
+(removed after), and reads b765's close export by data/b765_mirror.json, its digest alone, no member opened. --bank appends the
 reading to data/b766_repair_controls.txt beneath a head naming the key and both commits; nothing else is written. The repair's commit must
 have the commit before it as its first parent, read and printed.
 
@@ -288,7 +290,175 @@ def control_k23(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and same
 
 
-CONTROLS = dict(K22=control_k22, K23=control_k23)
+# ================================================================================ [K24] THE PROJECT SET'S BUILD IN THE CLOSE'S ORDER
+K24_PATHS = ('tools/standing/act.py', 'tools/standing/commit.py', 'tools/project_set.py', 'tools/act_close.py', 'tools/standing/VERSION')
+K24_VERSION = 'v1.38.24'
+K24_THREE = ('data/b999_project_set_build.json', 'data/b999_project_set_build.txt', 'data/b999_PLACE-project-set_push-b999-set_push_out.txt')
+K24_MIRROR = tuple('data/b999_%s' % n for n in ('mirror.txt', 'mirror.json', 'mirror_build.json', 'mirror_root.json', 'mirror_verify.txt'))
+K24_PROBE = r'''
+import ast, hashlib, json, os, re, shutil, sys, tempfile
+snap, v5, relay_data = sys.argv[1], sys.argv[2], sys.argv[3]
+THREE = %r
+MIRROR = %r
+def defs(rel, want, ns):
+    src = open(os.path.join(snap, *rel.split('/')), encoding='utf-8').read()
+    tree = ast.parse(src)
+    nodes = [n for n in tree.body if (isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name in want)
+             or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') in want)]
+    exec(compile(ast.Module(body=nodes, type_ignores=[]), rel, 'exec'), ns)
+    return src, tree, sorted(getattr(n, 'name', None) or n.targets[0].id for n in nodes)
+out = {}
+A = dict(re=re, os=os, T=os.path.join(snap, 'tools'))
+_s, _t, out['act_defs'] = defs('tools/standing/act.py', ('STEP_21', 'STEP_8A', 'STEP_23A', 'STEP_25_WORDS', 'CLOSE_COMMITS', 'close_order',
+                                                         'close_dry', 'close_carried', 'project_set_banks'), A)
+order = A['close_order'](open(v5, encoding='utf-8').read())
+out['keys'] = [str(s[0]) for s in order]
+out['words'] = dict((str(s[0]), s[1]) for s in order)
+out['slot'] = [str(s[0]) for s in order if 'project_set_build' in s[2]]
+if 'close_dry' in A:
+    out['dry'] = A['close_dry']('b999', order)
+    b = [s for s in order if str(s[0]) == '23a']
+    rest = [s for s in order if str(s[0]) != '23a']
+    i14 = [i for i, s in enumerate(rest) if s[0] == 14][0]
+    out['dry_before_root'] = A['close_dry']('b999', rest[:i14] + b + rest[i14:])
+    out['dry_no_25'] = A['close_dry']('b999', [s for s in order if s[0] != 25])
+C = dict(re=re, os=os)
+_s, _t, out['commit_defs'] = defs('tools/standing/commit.py', ('close_left_out',), C)
+if 'close_left_out' in C and 'close_carried' in A:
+    banks = A['close_carried']('b999')
+    out['carried_has'] = [x in banks for x in THREE + MIRROR]
+    allw = list(THREE + MIRROR)
+    g = C['close_left_out']
+    out['g_left'] = [x for x in allw if x in (g(banks, [], allw) or '')]
+    out['g_staged'] = g(banks, allw, allw)
+    out['g_none'] = g(banks, [], [])
+    out['g_other'] = g(banks, [], ['data/b998_project_set_build.json', 'data/b998_mirror.json'])
+    out['g_one'] = [x for x in allw if x in (g(banks, allw[:2] + allw[3:], allw) or '')]
+P = dict(os=os, json=json, hashlib=hashlib, re=re, act=lambda: 'b999')
+src, tree, out['ps_defs'] = defs('tools/project_set.py', ('close_export',), P)
+mi = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'mirror']
+out['mirror_own'] = bool(mi) and 'mirror_build.ps1' in (ast.get_source_segment(src, mi[0]) or '')
+if 'close_export' in P:
+    tmp = tempfile.mkdtemp(prefix='b766k24p_')
+    try:
+        dd, ee = os.path.join(tmp, 'data'), os.path.join(tmp, 'exports')
+        os.makedirs(dd)
+        os.makedirs(ee)
+        zb = b'PK planted export of b999'
+        open(os.path.join(ee, 'mirror-refresh-x-b999.zip'), 'wb').write(zb)
+        good = dict(root_line='Act root: b999 0123abcd', clean=True, manifest_ok=True, zip='mirror-refresh-x-b999.zip',
+                    zip_sha256=hashlib.sha256(zb).hexdigest())
+        def case(rec):
+            mp = os.path.join(dd, 'b999_mirror.json')
+            if rec is None:
+                if os.path.exists(mp):
+                    os.remove(mp)
+            else:
+                open(mp, 'w', encoding='utf-8').write(json.dumps(rec))
+            try:
+                z, _r = P['close_export']('b999', data=dd, exports=ee)
+                return 'RETURNED ' + os.path.basename(z)
+            except SystemExit as e:
+                return 'REFUSED' if str(e).startswith('###') else 'EXIT ' + str(e)[:60]
+        out['x_none'] = case(None)
+        out['x_other_root'] = case(dict(good, root_line='Act root: b998 0123abcd'))
+        out['x_no_root'] = case(dict(good, root_line=''))
+        out['x_not_clean'] = case(dict(good, clean=False))
+        out['x_sha'] = case(dict(good, zip_sha256='0' * 64))
+        out['x_good'] = case(good)
+    finally:
+        if os.path.basename(tmp).startswith('b766k24p_'):
+            shutil.rmtree(tmp, ignore_errors=True)
+    try:
+        z, r = P['close_export']('b765', data=relay_data, exports='D:/MY-DOwnloads')
+        out['x_b765'] = 'RETURNED %%s ; its root line names b765 %%s' %% (os.path.basename(z), (r.get('root_line') or '').startswith('Act root: b765 '))
+    except SystemExit as e:
+        out['x_b765'] = 'REFUSED ' + str(e)[:120]
+print(json.dumps(out))
+''' % (K24_THREE, K24_MIRROR)
+
+
+def control_k24(before, after):
+    """(R376)(7) [K24]: the Project set's build in the close's order. FAULT: the order holds no slot for the build, no tool refuses a commit
+    leaving the builder's banks behind, the builder reads no export of the close's and its mirror route builds an export of its own. CLEAN:
+    [23a] stands between [23] and [24], naming [23]'s export and [25], and [25] names [23a]'s banks, the order otherwise as before; the
+    dry run of the order as printed leaves no bank of the builder outside a commit (written at [23a], carried at [25], none read by the
+    root [14]), while a planted order with the build before the root reads its three banks outside a commit at the root, as b765's root
+    part 1 did, and a planted order without [25] leaves them outside every commit; the one-call tool's guard refuses a commit leaving any
+    of the close's banks untracked and unstaged, and no other; the builder takes the close's own export alone (a planted mirror bank with
+    no root line, another act's, a verification not clean or a changed export refused; b765's close export read as the close's), and its
+    mirror route builds nothing; VERSION v1.38.24."""
+    L, res, got = [], {}, {}
+    v5 = os.path.join(D, 'standing_clauses_v5.txt')
+    for name, rev in (('BEFORE', before), ('AFTER', after)):
+        tmp = tempfile.mkdtemp(prefix='b766k24_')
+        try:
+            files = snapshot(rev, K24_PATHS, tmp)
+            r = probe(K24_PROBE, tmp, v5, D)
+            ver = version_of(tmp)
+        finally:
+            if os.path.isabs(tmp) and os.path.basename(tmp).startswith('b766k24_'):
+                shutil.rmtree(tmp, ignore_errors=True)
+        got[name] = r
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in files)))
+        if 'error' in r:
+            L.append('    ### THE PROBE FAILED: %s' % r['error'])
+            res[name] = 'NEITHER'
+            continue
+        k = r['keys']
+        L.append('    (order)  %d steps: %s ; the build`s slot %s' % (len(k), ' '.join(k), r['slot'] or 'NONE'))
+        L.append('    (words)  [23a] %r ; [25] %r' % (r['words'].get('23a', 'ABSENT')[:90], r['words'].get('25', 'ABSENT')[:90]))
+        if 'dry' in r:
+            for lab in ('dry', 'dry_before_root', 'dry_no_25'):
+                d = r[lab]
+                L.append('    (%s) slot %s ; carried at %s ; read by the root outside a commit %d %s ; outside every commit %d %s' % (
+                    {'dry': 'dry, the order as printed', 'dry_before_root': 'dry, PLANTED: the build before the root [14]',
+                     'dry_no_25': 'dry, PLANTED: the order without [25]'}[lab], d['slot'], d['carried_at'], len(d['at_root']),
+                    d['at_root'] or '', len(d['outside']), d['outside'] or ''))
+        else:
+            L.append('    (dry)    no dry run of the close`s order in the tools (close_dry absent)')
+        if 'g_left' in r:
+            L.append('    (guard)  close_left_out: eight banks untracked, none staged -> names %d of 8 ; all staged -> %s ; none written -> %s ; '
+                     'another act`s untracked -> %s ; the push capture alone unstaged -> names %s' % (
+                         len(r['g_left']), r['g_staged'], r['g_none'], r['g_other'], [x.split('_', 1)[1] for x in r['g_one']]))
+            L.append('    (banks)  close_carried holds the three of the build and the five of the mirror: %s' % r['carried_has'])
+        else:
+            L.append('    (guard)  no refusal of a commit leaving the close`s banks behind (close_left_out absent)')
+        if 'x_good' in r:
+            L.append('    (export) close_export: no mirror bank %s ; another act`s root line %s ; no root line %s ; not clean %s ; the export`s sha256 '
+                     'not the bank`s %s ; the planted export as banked %s' % (r['x_none'], r['x_other_root'], r['x_no_root'], r['x_not_clean'],
+                                                                              r['x_sha'], r['x_good']))
+            L.append('    (record) b765`s close export by data/b765_mirror.json: %s' % r['x_b765'])
+        else:
+            L.append('    (export) the builder reads no export of the close`s (close_export absent)')
+        L.append('    (mirror) the builder`s mirror route builds an export of its own (tools/mirror_build.ps1 in its body): %s' % r['mirror_own'])
+        fault = (not r['slot']) and 'dry' not in r and 'g_left' not in r and 'x_good' not in r and r['mirror_own'] is True
+        three = list(K24_THREE)
+        clean = (r['slot'] == ['23a'] and k.index('23a') == k.index('23') + 1 and k[k.index('23a') + 1] == '24'
+                 and '[23]' in r['words']['23a'][:90] and '[25]' in r['words']['23a'][:90] and '[23a]' in r['words']['25'][:90]
+                 and r.get('dry') == dict(slot='23a', carried_at=25, at_root=[], outside=[])
+                 and r['dry_before_root']['at_root'] == three and r['dry_before_root']['slot'] == '23a'
+                 and r['dry_no_25']['outside'] == three
+                 and len(r['g_left']) == 8 and r['g_staged'] is None and r['g_none'] is None and r['g_other'] is None
+                 and r['g_one'] == [three[2]] and all(r['carried_has'])
+                 and [r[x] for x in ('x_none', 'x_other_root', 'x_no_root', 'x_not_clean', 'x_sha')] == ['REFUSED'] * 5
+                 and r['x_good'] == 'RETURNED mirror-refresh-x-b999.zip'
+                 and r['x_b765'] == 'RETURNED mirror-refresh-2026-11-21-b765.zip ; its root line names b765 True'
+                 and r['mirror_own'] is False and ver == K24_VERSION)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    same = None
+    if 'keys' in got.get('BEFORE', {}) and 'keys' in got.get('AFTER', {}):
+        b, a = got['BEFORE'], got['AFTER']
+        kept = [x for x in a['keys'] if x != '23a'] == b['keys']
+        moved = sorted(x for x in b['keys'] if b['words'].get(x) != a['words'].get(x))
+        same = kept and moved == ['25']
+        L.append('  (diff)   the order BEFORE to AFTER: steps gained %s ; the steps before otherwise in their order %s ; words changed at %s -- %s' % (
+            sorted(set(a['keys']) - set(b['keys'])), kept, moved or 'none', '[23a] GAINED AND [25]`S WORDS ALONE MOVED' if same else 'ANOTHER STEP MOVED'))
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and same is True
+
+
+CONTROLS = dict(K22=control_k22, K23=control_k23, K24=control_k24)
 
 
 def main(argv):
