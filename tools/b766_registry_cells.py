@@ -365,9 +365,9 @@ def read_rows(rows, L, Q, I, qw, TG, info):
                 tl = [(k, m.group(1)) for k, l in enumerate(Dl[:h2 - 1], 1) for m in [TIER.search(l)] if m]
                 if tl:
                     r['tier_line'], r['tier'] = tl[0]
-                ti = next((k for k, l in enumerate(Dl[:20], 1) if l.startswith('# ')), None)
+                ti = next((k for k, l in enumerate(Dl[:20], 1) if l.lstrip('﻿').startswith('# ')), None)   # ### a byte-order mark read past
                 if ti:
-                    t = R61.plain(Dl[ti - 1].lstrip('#').strip())
+                    t = R61.plain(Dl[ti - 1].lstrip('﻿').lstrip('#').strip())
                     r['title_line'] = ti
                     r['flag'] = flag(t)
                     if (r['path'] in ONEPAGE and ti == 3) or qw.lower() in t.lower() or R61.idcount(t, I):
@@ -458,7 +458,10 @@ def run(mode):
                    for m in [re.match(r'^\| (?:### \*\*)?`([^`]+)`', L[k - 1])] if m)
     not720 = [r['id'] for r in num if r['id'] not in c720_any]
     nyr720 = [r['id'] for r in num if r['id'] in c720_any and r['id'] not in c720]
+    c761 = block_cells(L, P, info['b761'], len(L))
+    neither = [x for x in not720 + nyr720 if x not in c761]
     prot = info['prot']
+    prot_num = [k for k, _d, w in prot if w == 'a numbered row' and k not in Q]
     scoped = [(r['id'], 'SCOPE-DROPPED' if re.search(r'(?i)scope-drop', r['status']) else 'RECLASSIFIED', cell_text(r)) for r in rows
               if not r['sw'] and re.search(r'(?i)scope-drop|reclassified', r['status'])]
     # ### THE CONTROLS
@@ -493,6 +496,12 @@ def run(mode):
              info['stop'], len(num) - len(not720) - len(nyr720), len(num), len(nyr720), len(not720), len(nyr720) + len(not720), NAV_52),
          '  named as not yet read: %s' % (', '.join(nyr720) or 'none'),
          '  not named: %s' % (', '.join(not720) or 'none'),
+         '  of the %d not reached, read by b761`s block (:%d) %d, by neither %d; with the %d numbered rows on protected lines outside rule [Q]`s '
+         'section (:%s), by neither %d, beside the navigator`s %d: %s' % (
+             len(not720) + len(nyr720), info['b761'], len(not720) + len(nyr720) - len(neither), len(neither), len(prot_num),
+             ', :'.join(str(k) for k in prot_num) or '-', len(neither) + len(prot_num), NAV_52,
+             'EQUAL' if len(neither) + len(prot_num) == NAV_52 else 'DIFFERING'),
+         '  by neither block: %s' % (', '.join(neither) or 'none'),
          '## THE ROWS ON A LINE RULE [Q] PROTECTS (its section from :%d, and two lines either side of a line carrying the word, as the seat`s '
          'reader takes it), each by its line and the line`s sha256 alone: %s' % (
              R61.QLINE, '; '.join(':%d %s (%s)' % (k, d, w) for k, d, w in prot) or 'none'), '']
@@ -505,6 +514,11 @@ def run(mode):
     P += ['', '## THE COUNTS',
           '  by the keystone cell: %s' % ' ; '.join('%s %d' % (c, counts.get(c, 0)) for c in (KEY, CS, APP, SN, SNN, WS, UNP)),
           '  the keystones by phase: %s' % ' ; '.join('%s %d' % (p, len(kp.get(p, []))) for p in (DAY1, P1_2, P1_5, METHOD, P2, SUP, INTL, ANX)),
+          '  the keystone rows` documents: %d distinct of %d rows%s' % (
+              len(set(r['path'] for r in rows if r['cell'] == KEY)), counts.get(KEY, 0),
+              ''.join(' ; %s under %s' % (p_, ', '.join(r['id'] for r in rows if r['cell'] == KEY and r['path'] == p_))
+                      for p_ in sorted(set(r['path'] for r in rows if r['cell'] == KEY and r['path']))
+                      if sum(1 for r in rows if r['cell'] == KEY and r['path'] == p_) > 1)),
           '  the four rows (R376)(5)(a) names KEYSTONE read: %s' % ' ; '.join('%s %s' % (r['id'], cell_text(r)) for r in rows if r['id'] in NAMED_KEYSTONES),
           '  the keystones` clusters: %s' % ' ; '.join('%s %d (%s)' % (c, len(v), ', '.join(x['id'] for x in v)) for c, v in sorted(ks.items())), '',
           '## THE FOUR LISTS, FOR THE AUTHOR`S STRIKE AT THE ROOT',
@@ -553,7 +567,7 @@ def run(mode):
     if mode != 'write' or not ok:
         return 0 if ok else 1
     J = dict(at=utc(), act=ACT, pp_head=head, registry_lines=len(L), rows=len(rows), tables=len(tables), numbered=len(num), not_in_b720=not720,
-             not_yet_read_in_b720=nyr720, not_reached=len(not720) + len(nyr720), nav_52=NAV_52, protected=[[k, d, w] for k, d, w in prot],
+             not_yet_read_in_b720=nyr720, not_reached=len(not720) + len(nyr720), by_neither_block=neither, nav_52=NAV_52, protected=[[k, d, w] for k, d, w in prot],
              scoped=[list(x) for x in scoped], counts=counts, keystones_by_phase=kp, differs=[[r['id'], r['phase'], r['filed']] for r in differs],
              unplaced=[r['id'] for r in unplaced], flagged=[[r['id'], r['flag']] for r in flagged], sentence=sentence,
              controls=[[w, o] for w, o in ctl],
