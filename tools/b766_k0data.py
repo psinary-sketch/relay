@@ -18,6 +18,17 @@ moved by one, read as a difference against the certificate; no decimal literal a
   python -X utf8 -u tools/b766_k0data.py dry      compose in memory, the control over the composed text, nothing written
   python -X utf8 -u tools/b766_k0data.py write    write the file, read it back from the disk, the control; data/b766_k0data.txt
   python -X utf8 -u tools/b766_k0data.py control  the control over the file on the disk, printed
+
+THE BLOCKS (dispatch 13, run 45045547342, STOPPED UNDER THE HOLD while Window.Arch built: one kernel evaluation of KtFast 1 over its 16,365
+strided terms took the runner from 14,468 MB to 2,159 MB in 106 s; L6 (c)'s checks hold at most 4,100 strided terms each, tools/b766_kdata.py
+KT_CAP): SIDEExplicitFormula/Window/ArchBlocks.lean, a second file, holds k0Blk0 to k0Blk3, the strided sum at n = 1 over the blocks of m
+from 16, 4112, 8208 and 12304, of 4096, 4096, 4096 and 4077 places, each within 2^12, so that the Lean checks each block apart and sums them
+by KFast.lean's sumDC_eq; ArchData.lean is not rewritten. THE BLOCKS' CONTROL: the four sums by the F table equal to Kt(1) together; Kt(1)
+over 80640 10^34 the certificate's k0 again; the blocks contiguous from 16, their lengths within 2^12 and summing to mtop 1 + 1 - 16; each
+literal read back once, in order, equal to its block; ArchData.lean's k0Num on the disk equal to their sum; the head's three digests; a
+planted block moved by one read as a difference of the sum; no decimal literal and no barred word; the file opening with its import.
+
+  python -X utf8 -u tools/b766_k0data.py blocks dry|write|control   the same three forms for ArchBlocks.lean; data/b766_k0blocks.txt
 """
 import hashlib
 import io
@@ -53,6 +64,12 @@ IMPORT = 'import Mathlib.Data.Real.Basic'
 DECIMAL = re.compile(r'\d\.\d')
 BARRED = re.compile(r'(?i)frequen|ordinate|riemannZeta')
 LIT = re.compile(r'^def k0Num : ℤ := (-?\d+)$', re.M)
+REL_B = 'SIDEExplicitFormula/Window/ArchBlocks.lean'
+OUT_B = os.path.join(CT.KERNELS[EF], REL_B)
+BANK_B = os.path.join(D_, 'b766_k0blocks.txt')
+BDEPTH = 12
+BLOCKS = ((16, 4096), (16 + 4096, 4096), (16 + 2 * 4096, 4096), (16 + 3 * 4096, 4077))
+LITB = re.compile(r'^def k0Blk(\d) : ℤ := (-?\d+)$', re.M)
 
 
 def _now():
@@ -123,7 +140,116 @@ def control(text, F):
     return L, ok
 
 
+def block_sums(a, F):
+    ff = lambda T: F[T] if T < KD.TOP else 0   # noqa: E731  (as tools/b766_kdata.py kt_fast reads it, n = 1)
+    return [sum(a[m] * sum(KD.W[k] * ff(m + k) for k in range(5)) for m in range(lo, lo + ln)) for lo, ln in BLOCKS]
+
+
+def compose_blocks(bs, dig):
+    out = [IMPORT, '',
+           '/-!',
+           '# The strided sum at `n = 1` in four blocks, as data',
+           '',
+           '`k0Blk0` to `k0Blk3` are the strided sum `Kt 1` of KFast.lean over the blocks of `m` from 16, 4112, 8208 and 12304, each a',
+           'halving sum of at most `2 ^ 12` places, so that the kernel evaluates each apart; their sum is `k0Num` (ArchData.lean). Written by',
+           'relay tools/b766_k0data.py under (R376)(4)(d); edited by no hand.',
+           '',
+           'The bank`s sha256, less its final line end: %s' % dig['text_sha'],
+           'The bank`s sha256, the file whole: %s' % dig['file_sha'],
+           'The coefficients` sha256, as the bank`s own field coef_sha: %s' % dig['coef_sha'],
+           '-/', '',
+           'namespace SIDEExplicitFormula',
+           'namespace Window', '']
+    for i, v in enumerate(bs):
+        out += ['/-- The strided sum at `n = 1` over its block %d. -/' % i, 'def k0Blk%d : ℤ := %d' % (i, v), '']
+    out += ['end Window', 'end SIDEExplicitFormula', '']
+    return NL.join(out)
+
+
+def control_blocks(text, F, bs):
+    L, ok = [], []
+
+    def c(what, got, want):
+        ok.append(bool(want))
+        L.append('  (%d) %s: %s -> %s' % (len(ok), what, got, 'AS WANTED' if want else 'NOT AS WANTED'))
+    kt1, dig, cert = F['kt1'], F['dig'], F['cert']
+    c('the four blocks` sums by the F table against Kt(1), the strided sum whole', 'EQUAL' if sum(bs) == kt1 else 'DIFFER', sum(bs) == kt1)
+    eq = Fraction(sum(bs), DEN) == Fraction(str(cert.get('k0')).strip())
+    c('their sum over 80640 * 10^34 against data/b766_certificate.json`s k0, exactly', 'EQUAL' if eq else 'DIFFER', eq)
+    cont = all(BLOCKS[i][0] + BLOCKS[i][1] == BLOCKS[i + 1][0] for i in range(len(BLOCKS) - 1)) and BLOCKS[0][0] == J0
+    lens = [ln for _lo, ln in BLOCKS]
+    want_len = KD.mtop(1) + 1 - J0
+    c('THE LEAN`S BLOCKS: contiguous from 16, each length within 2^%d, the lengths summing to mtop 1 + 1 - 16' % BDEPTH,
+      'lengths %s ; sum %d against %d ; contiguous %s' % (lens, sum(lens), want_len, cont),
+      cont and all(ln <= 2 ** BDEPTH for ln in lens) and sum(lens) == want_len)
+    got = LITB.findall(text)
+    c('the four literals read back from the text, each once and in order, against the blocks',
+      '%s ; lines matching %d' % ('EQUAL' if [int(v) for _i, v in got] == bs else 'DIFFER', len(got)),
+      [i for i, _v in got] == ['0', '1', '2', '3'] and [int(v) for _i, v in got] == bs)
+    dk = io.open(OUT, encoding='utf-8', newline='').read() if os.path.exists(OUT) else ''
+    m = LIT.search(dk)
+    c('ArchData.lean`s k0Num on the disk against the blocks` sum', 'EQUAL' if m and int(m.group(1)) == sum(bs) else 'DIFFER OR ABSENT',
+      bool(m) and int(m.group(1)) == sum(bs))
+    hs = (re.search(r'less its final line end: ([0-9a-f]{64})$', text, re.M), re.search(r'the file whole: ([0-9a-f]{64})$', text, re.M),
+          re.search(r'own field coef_sha: ([0-9a-f]{16})$', text, re.M))
+    hs = tuple(h.group(1) if h else None for h in hs)
+    c('the head`s three digests against the bank`s', tuple((h or '')[:16] for h in hs), hs == (dig['text_sha'], dig['file_sha'], dig['coef_sha']))
+    pl = re.sub(r'^def k0Blk2 : ℤ := (-?\d+)$', lambda mm: 'def k0Blk2 : ℤ := %d' % (int(mm.group(1)) + 1), text, flags=re.M)
+    ps = sum(int(v) for _i, v in LITB.findall(pl))
+    c('PLANTED: block 2 moved by one, its sum read as a difference against Kt(1)', 'DIFFER' if ps != kt1 else 'NOT READ', ps != kt1)
+    nd, nb = len(DECIMAL.findall(text)), len(BARRED.findall(text))
+    c('no decimal literal and no barred word in the text (tools/b766_controls.py`s Lean text check)', 'decimal %d ; barred %d' % (nd, nb), nd == 0 and nb == 0)
+    first = text.split(NL)[0]
+    c('the file opens with its import, so that the integers` notation resolves (defect (k))', first, first == IMPORT)
+    return L, ok
+
+
+def main_blocks(sub):
+    F = facts()
+    bs = block_sums(F['a'], KD.ftable(F['a']))
+    text = compose_blocks(bs, F['dig'])
+    H = ['%s -- (R376)(4)(d) L9, ITS FIRST DATUM IN FOUR BLOCKS, AFTER DISPATCH 13 STOPPED UNDER THE HOLD, SIDE-explicit-formula %s (blocks %s, %s)' % (
+        ACT, REL_B, sub, _now()), ''] + F['RL'] + [
+        '', '## THE FILE COMPOSED',
+        '  k0Blk0 to k0Blk3, the strided sum at n = 1 over the blocks %s ; no value printed' % (', '.join('%d+%d' % b for b in BLOCKS)),
+        '  lines %d ; bytes %d ; sha256 %s' % (len(text.split(NL)) - 1, len(text.encode('utf-8')), hashlib.sha256(text.encode('utf-8')).hexdigest()[:16])]
+    if sub == 'dry':
+        L, ok = control_blocks(text, F, bs)
+        print(NL.join(H + ['', '## THE CONTROL OVER THE COMPOSED TEXT (nothing written)'] + L + [
+            '', '### ### **THE CONTROL %d OF %d ; NOTHING WRITTEN.**' % (sum(ok), len(ok))]))
+        return
+    if sub == 'write':
+        if os.path.exists(OUT_B):
+            sys.exit('### %s STANDS ALREADY -- nothing written (the file is written once; read it by `blocks control`)' % REL_B)
+        L0, ok0 = control_blocks(text, F, bs)
+        if not all(ok0):
+            sys.exit('### THE CONTROL OVER THE COMPOSED TEXT %d OF %d -- nothing written' % (sum(ok0), len(ok0)))
+        with io.open(OUT_B, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+    if sub not in ('write', 'control'):
+        sys.exit(__doc__)
+    if not os.path.exists(OUT_B):
+        sys.exit('### %s ABSENT -- nothing read' % REL_B)
+    disk = io.open(OUT_B, encoding='utf-8', newline='').read()
+    L, ok = control_blocks(disk, F, bs)
+    eq = disk == text
+    out = H + ['', '## THE FILE ON THE DISK, READ BACK',
+               '  %s: bytes %d ; sha256 %s ; carriage returns %d ; equal to the composed text: %s' % (
+                   REL_B, len(disk.encode('utf-8')), hashlib.sha256(disk.encode('utf-8')).hexdigest()[:16], disk.count('\r'), eq),
+               '', '## THE CONTROL OVER THE FILE AS WRITTEN'] + L + [
+        '', '### ### **THE BLOCKS FILE %s ; THE CONTROL %d OF %d %s ; NO VALUE PRINTED.**' % (
+            'WRITTEN AND READ BACK' if sub == 'write' else 'READ', sum(ok), len(ok), 'AS WANTED' if all(ok) and eq else 'NOT AS WANTED')]
+    print(NL.join(out))
+    if sub == 'write':
+        with io.open(BANK_B, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(NL.join(out) + NL)
+        print('written data/%s' % os.path.basename(BANK_B))
+
+
 def main(cmd):
+    if cmd == 'blocks':
+        main_blocks(sys.argv[2] if len(sys.argv) > 2 else '')
+        return
     F = facts()
     text = compose(F['kt1'], F['dig'])
     H = ['%s -- (R376)(4)(d) L9, ITS FIRST DATUM: THE WINDOW`S AUTOCORRELATION AT 0 AS THE CERTIFICATE`S k0, SIDE-explicit-formula %s (%s, %s)' % (
