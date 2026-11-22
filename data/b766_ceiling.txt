@@ -1,0 +1,43 @@
+b766 -- THE CEILING READ AFTER (4)(c), (R376)(3): 24 HOURS AGAINST THE PRICE TABLE`S LOWER FIGURES, READ-ONLY (2026-11-22T10:15:38Z)
+
+## THE CONTROLS
+  (1) the table read whole: its rows` lower figures summed against the table`s own sum (data/b766_price.txt :42, the table 19.13): 24 rows, 19.13 -> AS WANTED
+  (2) the spent hours read at the table`s time from the delivery, against its STEP ZERO line (0.90 h): 0.90 h -> AS WANTED
+  (3) each row named done is a row of the table: named 12, absent 0 [] -> AS WANTED
+  (4) PLANTED: a row left moved by 1.00 h moves the lower sum left by 1.00 h: 15.87 -> 16.87 -> AS WANTED
+
+## THE ROWS DONE, BY NAME (their lower figures leave the sum; the hours they took stand in the spent hours)
+  (1)                    the corrigendum, PLACE-papers 7a36f281 (events (32))
+  (7) [K22]              relay b7c3ed87 (events (36))
+  (7) [K22] removal      push-b765-planted removed 08:23:20Z (events (37))
+  (7) [K23]              relay d91f1093 and the eight captures (events (38), (39))
+  (7) [K24]              relay 751b9e7a (events (41))
+  (4) branch and tool    relay 54967dce, push-b766-proof 09:41:02Z (events (47), (48))
+  (4)(a) certificate     relay 7bde5827, [E1] (events (42))
+  (4)(a) plan            relay f4a7744b (events (42))
+  (4)(c) data file       relay 26815673, Coeffs.lean (events (49))
+  (4)(b)                 kernel 48d151e3, dispatch 1, [F1] (events (48))
+  (4)(c) theorems        kernel d814154e, dispatch 2 run 45011065297, [F2] (events (51))
+  (6)                    PLACE-papers a183880f (events (44))
+
+## THE ROWS LEFT, AT THE TABLE`S LOWER FIGURES (data/b766_price.json)
+  (4)(d) K values         0.90 h (upper  7.78 h ; dispatches 1-3)
+  (4)(d) pole term        0.21 h (upper  2.06 h ; dispatches 1-1)
+  (4)(d) archimedean      0.79 h (upper  5.50 h ; dispatches 1-2)
+  (4)(d) enclosures       0.90 h (upper  6.24 h ; dispatches 1-2)
+  (4)(d) inequality       0.68 h (upper  5.17 h ; dispatches 1-2)
+  (4)(d) closing          0.21 h (upper  2.14 h ; dispatches 1-1)
+  (4) closing build       1.10 h (upper  3.28 h ; dispatches 1-2)
+  (4) main                0.11 h (upper  0.60 h ; dispatches 0-0)
+  (5)(a)                  1.00 h (upper  3.00 h ; dispatches 0-0)
+  (5)(b)                  0.60 h (upper  2.00 h ; dispatches 0-0)
+  (5)(c)                  0.60 h (upper  2.00 h ; dispatches 0-0)
+  close                   8.77 h (upper 11.91 h ; dispatches 0-0)
+  THE LOWER SUM LEFT 15.87 h
+
+## THE READING
+  spent from the delivery (its first part at 2026-11-22T06:42:48Z, as the table reads it) to 2026-11-22T10:15:38Z: 3.55 h
+  the lower sum left 3.55 + 15.87 = 19.42 h against 24 h: UNDER BY 4.58 h
+  the carry order where it goes over, from the last: (4)(d)`s closing theorem, the inequality, the enclosures, the archimedean term, the pole term, the K values, then (5)(c), (5)(b), (5)(a) (data/b766_price.txt :63)
+
+### ### **THE CEILING READ AFTER (4)(c) ((R376)(3), read-only, 10:15:38Z): SPENT 3.55 h FROM THE DELIVERY ; THE LOWER SUM LEFT 3.55 + 15.87 = 19.42 h AGAINST 24 h, UNDER BY 4.58 h ; NOTHING CARRIED.**
