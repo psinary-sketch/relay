@@ -1,0 +1,75 @@
+b766 -- THE PLAN OF THE PROOF OF ControlFailureExists BY THE BANKED WINDOW, (R376)(4)(a): THE SEAT'S LEMMAS IN THE ORDER IT WILL SEND THEM (2026-11-22)
+
+### Written by the seat by the Write tool after the certificate (data/b766_certificate.txt, [E1], 5 of 5 controls AS WANTED) and before any
+### dispatch; no Lean sent. The statements read at SIDE-explicit-formula 0ba9cd61: ControlFailureExists (SIDEExplicitFormula/
+### ControlFailureExists.lean :23-:25), primeTermQ (SIDEExplicitFormula/Schema/EpsteinZQ.lean :112-:113), archTermQ (:121-:122), poleTerm
+### (SIDEExplicitFormula/B321Identity.lean :29-:30), cQ (SIDEExplicitFormula/Schema/ZQ/LogDeriv.lean :63-:65, the recursion of
+### tools/b694_witness_terms.py :291-:317 with b = r/2), classK (SIDEExplicitFormula/H2Sign.lean :24-:26), weilTest (Zeta23/
+### ExplicitFormula.lean :68), GaussArchQ and gaussArchQ (SIDEExplicitFormula/GaussArchQ.lean :27-:32, SIDEExplicitFormula/
+### GaussArchQSteps.lean :630, proved at b765). Each lemma: its name as planned; in ordinary terms; its statement's opening; its kind
+### (ANALYSIS, true of each window of the family; DATA, true of this window by evaluation; ENCLOSURE, a rational bound on a constant); the
+### datum of the certificate it consumes; its lines and its dispatches, priced. The Lean names no frequency; the window stands in the bank.
+
+## THE ROUTE FOR THE DATA LEMMAS (the seat's choice)
+  Each DATA lemma states that a finite sum over the window's rationals equals a rational, or a rational combination of logarithms, of the
+  certificate. Lean evaluates it by kernel reduction (`decide`, `rfl`) over the integers, the coefficients held as integers C_j over one
+  power of ten as tools/b765_window.py scaled holds them, the arithmetic on literals carried by the kernel's own big-number operations; no
+  native_decide and no tactic that adds an axiom beyond propext, Classical.choice and Quot.sound. Where kernel reduction does not finish in
+  a dispatch, a sum is cut into blocks, each its own lemma closed by `norm_num`, and the blocks summed by `linarith`; the upper prices below
+  are the block route's. THE RISK, named: the K values are 197 sums of about 4n x (16,380 / n) products each, some 13 million products in
+  all, a size of kernel reduction untried in this kernel.
+
+## THE LEMMAS, IN THE ORDER OF SENDING
+  (b) L1 primeTermQ_eq_finite_sum -- for a continuous k vanishing where |u| > log N (N >= 2) and c with c 1 = 0, the prime-power side is the
+      sum over n from 2 to N - 1; the term at N is 0 by continuity. `theorem primeTermQ_eq_finite_sum (c : ℕ → ℝ) (hc : c 1 = 0) ... :
+      Schema.primeTermQ c k = ∑ n ∈ Finset.Ico 2 N, ...`. ANALYSIS. Datum: none. Lines 40-120 ; dispatches 1-2. ([F1])
+  (c) L2 the data file (SIDEExplicitFormula/Window/ in the kernel's source folder): the 16,365 rationals of data/b765_window.json, its head
+      the bank's sha256, written by a relay tool committed before its run. DATA. Datum: the bank itself. Lines 16,365 + 20, generated.
+  (c) L3 windowH_contDiff -- H = SUM c_j B(16 y - j) is twice continuously differentiable, B the cubic B-spline (C^2 at its simple knots).
+      `theorem windowH_contDiff : ContDiff ℝ 2 windowH`. ANALYSIS. Datum: none. Lines 150-400.
+  (c) L4 windowH_eq_zero -- H is 0 outside [1, 1024]. `theorem windowH_eq_zero (y : ℝ) (hy : y < 1 ∨ 1024 < y) : windowH y = 0`. ANALYSIS.
+      Lines 40-100.
+  (c) L5 windowK_classK and windowK_eq_zero -- h(v) = e^(v/2) H(e^v) is C^2 with support in [0, log 1024], so k = weilTest h h is even,
+      C^2, compactly supported and of the form h * h~, and 0 where |u| > log 1024. `theorem windowK_classK : B321.classK windowK`. ANALYSIS.
+      Lines 210-550. Dispatches for L2-L5 together 1-3. ([F2] or [F3])
+  (d) L6 the K values -- (a) n^(-1/2) k(log n) = INT H(y) H(n y) dy, by y = e^t in the convolution, ANALYSIS, lines 80-200; (b) that integral
+      is (1/(16 S^2)) SUM_e kappa_n(e) Gamma_n(e), kappa_n(e) = INT_0^4 B(u) B(n u - e) du an exact polynomial integral, ANALYSIS, lines
+      200-500; (c) for each of the 197 n at which cQ(n) is not 0 the finite sum equals the certificate's K(n), DATA, lines 400-1,500 (197
+      statements; the block route at the upper). Datum: K (197 rationals). Dispatches 2-4.
+  (d) L7 the values of cQ -- cQ(n) for n up to 1023 as rational combinations of log p, 0 at the 825 n of 2 to 1023 where the certificate's loop reads 0:
+      rQ evaluated by decide, the recursion unfolded by cQ_eq (LogDeriv.lean :71) against a table computed by the same loop, by strong
+      induction. DATA with ANALYSIS. Datum: the combination's prime part (the values of cQ recomputed by tools/b766_certificate.py
+      lambda_q_exact and banked with the Lean data at (d)). Lines 200-600 ; dispatches 1-3.
+  (d) L8 the pole term -- poleTerm k = 2 (INT H)(INT H / y), the transform of h at i/2 and -i/2 read as H's Mellin transform at 1 and 0,
+      ANALYSIS, lines 150-400; INT H = the certificate's intH and INT H / y = SUM c_j rho(j), rho(j) in log(j + q), DATA, lines 100-300.
+      Datum: intH and the combination's pole part. Dispatches 1-2.
+  (d) L9 the archimedean term as the combination -- gaussArchQ (proved) gives 2 k(0) (log(sqrt 23 / 2 pi) - gamma) + 2 J; J = INT H(z)
+      INT_0^z (H(z) - H(w)) / (z - w) dw dz by x = e^t, ANALYSIS, lines 200-600; J in the B-spline basis, (11/6) k(0) + (1/16)(the band
+      sum in F_l) - (1/16)(the sum in lam), the closed forms G_l, F_l of tools/b765_window.py :23-:32, ANALYSIS, lines 400-1,200; the sums
+      equal the combination's coefficients, DATA, lines 300-1,000. Datum: k(0) and the combination. Dispatches 2-4.
+  (d) L10 the enclosures -- gamma, log pi and log p for the 1,900 primes of the combination, each a rational interval. Mathlib holds pi to
+      several digits and log 2 to nine; gamma it bounds coarsely (between 1/2 and 2/3), so gamma's own enclosure is a lemma, from the
+      monotone sequences H_n - log(n + 1) and H_n - log n; each log p by k log 2 + log(p / 2^k) and the series of log((1 + x)/(1 - x)), its
+      remainder bounded. ENCLOSURE. Datum: the budget. THE BUDGET IN THE LEAN: the certificate's equal shares (gamma 6 digits, log pi 6, the
+      log p 0 to 24) are its rule; the inequality needs only SUM |r| x half-width < |S| / 2, so the Lean may give gamma and log pi wide
+      shares and the primes narrow ones, each share printed beside the certificate's. Lines 600-2,500 ; dispatches 2-4.
+  (d) L11 window_arith_neg -- the inequality: L1 at N = 1024 with L6 to L9 rewrites the arithmetic side as the combination, L10 bounds it,
+      and its real part is below 0. `theorem window_arith_neg : (B321.poleTerm windowK - Schema.primeTermQ Schema.ZQ.cQ windowK +
+      Schema.archTermQ windowK).re < 0`. ANALYSIS over DATA and ENCLOSURE. Datum: S's sign and its margin. Lines 100-400 ; dispatches 1-2.
+  (d) L12 controlFailureExists -- the closing theorem: the window's k, L5, L5's support and L11. `theorem controlFailureExists :
+      B321.ControlFailureExists`. ANALYSIS. Lines 10-30 ; dispatch 1. ([P1])
+
+## THE TOTALS
+  the Lean written by hand 3,180-10,400 lines (step zero's table 2,500-8,000), beside the data file's 16,385; the lemmas sent in the order
+  above, several to a dispatch, within (4)'s cap: 8-16 with the restore on (the table's figure), the closing build from source 1, a repeat 1.
+  The steps of (d) in the plan's order are those (3)'s carry order names, from the last: L12, L11, L10, L9, L8, L6 with L7.
+
+## THE NOTE, PRICED AND NOT BUILT (the navigator's, (R376)(4)(a))
+  THE DATA LEMMAS AT 16,365 COEFFICIENTS (this window): L2 16,385 lines generated; L6(c), L7, L8's and L9's DATA parts 1,000-3,400 lines
+  by hand; dispatches 4-9, the block route at the upper; the enclosures over 1,900 primes as L10 prices them.
+  THE TOOL'S SECOND ROUTE AT KNOTS GRADED BY OCTAVE, 2^j (16 + i)/16 for j from 0 to 9 (tools/b765_window.py :33-:34, exact piecewise
+  integration in y): the tool's route 150-300 lines of python, 0 dispatches, 0.5-1.5 h, the window computed again and its cell read at
+  b765's controls; the window some 163 coefficients; L2 some 200 lines; the DATA lemmas 400-1,500 lines, dispatches 2-5, the K values'
+  sums some 197 x 163 products and no block route. Its archimedean term carries logarithms at the differences of the knots, whose primes
+  are not counted at this act, so L10's price there is not set. No such window is computed at this act; whether one is registered is the
+  author's ruling at the root.
