@@ -1875,13 +1875,13 @@ def _trail_resolved(text):
     prow_ = dict((r_['key'], r_) for r_ in list(prj_['rows']) + list(prj_.get('beside') or []))
     prf_ = _bfig('%s_price.txt' % ACT, r'\*\*THE PRICE TABLE: STEP ZERO ([\d.]+) h ; THE LOWER SUM ([\d.]+) h AGAINST THE CEILING (\d+) h, (NOTHING CARRIED|CARRIED [^;]+?) ; '
                  r'THE UPPER SUM ([\d.]+) h ;', 'the price table`s foot')
-    # ### (3): the ceiling read after Component 2 by a read-only scratch and entered in the events bank (row (52)); no ceiling bank
-    evj_ = ' '.join(l_.strip() for l_ in rdn('%s_events.txt' % ACT).replace(chr(13), '').split(NL))
-    ce_ = re.search(r'THE CEILING READ AFTER COMPONENT 2 \(\(R376\)\(3\), scratch ceil765\.py, read-only, (\d\d:\d\d:\d\dZ)\): spent ([\d.]+) h from the delivery; '
-                    r'.*?the lower sum ([\d.]+) \+ ([\d.]+) = ([\d.]+) h against (\d+) h, UNDER BY ([\d.]+) h; (NOTHING CARRIED)', evj_)
-    if not ce_:
-        sys.exit('### data/%s_events.txt DOES NOT CARRY THE CEILING`S READING AFTER COMPONENT 2 -- NOTHING COMPOSED' % ACT)
-    ce_ = ce_.groups()
+    # ### b766, Component 1 (the Edit tool, before [K22]'s standing dry): (R376)(3) reads the ceiling "at step zero and after (4)(c)", where
+    # ### b765's (R375)(3) read it after Component 2 into its events bank (row (52), scratch ceil765.py), a carried constant with b765's meaning.
+    # ### b766 banks the reading after (4)(c) as data/b766_ceiling.txt, the form b765's module first gave it (data/b765_standing_dry.txt :38),
+    # ### read strictly here: absent until (4)(c), the record refuses by the bank's name. Its foot, eight figures in the carried order.
+    ce_ = _bfig('%s_ceiling.txt' % ACT, r'\*\*THE CEILING READ AFTER \(4\)\(c\) \(\(R376\)\(3\), read-only, (\d\d:\d\d:\d\dZ)\): SPENT ([\d.]+) h FROM THE '
+                r'DELIVERY ; THE LOWER SUM LEFT ([\d.]+) \+ ([\d.]+) = ([\d.]+) h AGAINST (\d+) h, (?:UNDER|OVER) BY ([\d.]+) h ; (NOTHING CARRIED|CARRIED [^*]+?)\.\*\*',
+                'the ceiling`s reading after (4)(c)')
     # ### (5): each key's row of the repairs bank -- its class and state from its head, its sentence the quoted lines after it, from its
     # ### opening quote to the first line that ends in a quote -- beside the worklist's STANDING_REPAIRS (version, commit, row commit,
     # ### control line) and each control's verdict line in its bank
