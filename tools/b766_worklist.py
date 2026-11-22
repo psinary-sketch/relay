@@ -303,6 +303,7 @@ W_WORDS = (('relay/HANDOFF.md', '(R376)(12): HANDOFF.md'),
            ('relay/tools/push_gated.sh', '(R376)(7) [K23], (12): tools/push_gated.sh -- each capture written with the account replaced by <account>, its planted capture the control'),
            ('relay/tools/project_set.py', '(R376)(7) [K24], (12): tools/project_set.py -- the set built from the close`s own export, the one carrying the root line, its banks committed where the mirror`s bank is'),
            ('SIDE-explicit-formula/print_targets.txt', '(R376)(4), (12): in SIDE-explicit-formula print_targets.txt -- each compiled theorem`s name joins it'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/Window/*', '(R376)(4), (12): in SIDE-explicit-formula the files of (4) in the kernel`s source folder -- the folder SIDEExplicitFormula/Window/ holding each, named at Component 3 before the first is written (the prime side (4)(b), the data file, the spline and the window (4)(c), the steps of (4)(d))'),
            ('PLACE-project-set/*', '(R376)(7), (12): the Project`s repository whole -- PLACE-project-set under the account, private, its clone outside every repository of the record, written by the builder`s step alone and edited by no hand'))
 #   ### b766 step zero: (R376)(12)'s (W) list in words: the banks as data/b766_* and their generators as tools/b766_*.py; tools/acts/b766.py;
 #   ### b765's carried files by name ((R376)(3): data/b766_address_scan_commits.txt, and b765's eight push captures under (7) [K23]);

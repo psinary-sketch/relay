@@ -1,0 +1,129 @@
+b766 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b765_controls.py -> tools/b766_controls.py (2026-11-22T09:28:30Z)
+
+### the substitution alone (b765 -> b766); 1290 lines, 42 changed
+### SHIFTED PAST WHAT EXISTS: :2 b766_controls; :1229 b766_controls
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 0 (OWN 0)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b765_controls.py
+  +++ tools/b766_controls.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b765_controls.py -- (R375)(4), (5): THE RUNNER'S CACHE TRIED AGAIN, THE DISPATCH AND THE READ, carried from tools/b764_controls.py
+  -(b763's form, b759's and b745's before it) by the Write tool and set for b765 before its first run.
+  +"""tools/b766_controls.py -- (R375)(4), (5): THE RUNNER'S CACHE TRIED AGAIN, THE DISPATCH AND THE READ, carried from tools/b764_controls.py
+  +(b763's form, b759's and b745's before it) by the Write tool and set for b766 before its first run.
+  @@ -5,1 +5,1 @@
+  -THE WORKFLOW AT push-b765-centre (70c50d37 on): the save keyed by the toolchain, the manifest and the commit built, the restore by the prefix
+  +THE WORKFLOW AT push-b766-centre (70c50d37 on): the save keyed by the toolchain, the manifest and the commit built, the restore by the prefix
+  @@ -7,1 +7,1 @@
+  -this act is dispatched AT push-b765-centre (`gh workflow run --ref push-b765-centre`, the commit to build given as the input ref), so that the
+  +this act is dispatched AT push-b766-centre (`gh workflow run --ref push-b766-centre`, the commit to build given as the input ref), so that the
+  @@ -9,1 +9,1 @@
+  -push-b765-planted would restore nothing and build from source, and the planted build would test no restored build.
+  +push-b766-planted would restore nothing and build from source, and the planted build would test no restored build.
+  @@ -11,2 +11,2 @@
+  -THE ITEMS, each with the needle of its clause in the ferry bank (one line), its price row (data/b765_price.json) and its input restore:
+  -  statement        (5)(a), restore on, the tip of push-b765-centre; the no-zero control of (R373)(7) (tools/b763_presend.py, unchanged) passed
+  +THE ITEMS, each with the needle of its clause in the ferry bank (one line), its price row (data/b766_price.json) and its input restore:
+  +  statement        (5)(a), restore on, the tip of push-b766-centre; the no-zero control of (R373)(7) (tools/b763_presend.py, unchanged) passed
+  @@ -14,1 +14,1 @@
+  -  planted          (4)(a) as the author's word of 2026-11-21 on the runner's cache orders it (its (i); data/b765_amendments.json row 2):
+  +  planted          (4)(a) as the author's word of 2026-11-21 on the runner's cache orders it (its (i); data/b766_amendments.json row 2):
+  @@ -16,1 +16,1 @@
+  -                   one module the tip of push-b765-planted changes against its parent (a commit of the centre, the module at the tip sent
+  +                   one module the tip of push-b766-planted changes against its parent (a commit of the centre, the module at the tip sent
+  @@ -23,2 +23,2 @@
+  -  mainsave2        the author's word of 2026-11-21 on the save on main (data/b765_author_words_preseal.txt :30-:36, amendment row 3, the
+  -                   answer to data/b765_put_1.json): after the save on main read STOPPED, one more dispatch at main with the restore on, under
+  +  mainsave2        the author's word of 2026-11-21 on the save on main (data/b766_author_words_preseal.txt :30-:36, amendment row 3, the
+  +                   answer to data/b766_put_1.json): after the save on main read STOPPED, one more dispatch at main with the restore on, under
+  @@ -34,1 +34,1 @@
+  -untouched by the cache: both exit 0, the axioms files equal by sha256); H-RUNNER-RESTORE (data/b765_registration.txt PART ONE): HELD,
+  +untouched by the cache: both exit 0, the axioms files equal by sha256); H-RUNNER-RESTORE (data/b766_registration.txt PART ONE): HELD,
+  @@ -40,1 +40,1 @@
+  -  control [--bank]                       the tool's own controls, planted and printed (data/b765_controls_control.txt with --bank)
+  +  control [--bank]                       the tool's own controls, planted and printed (data/b766_controls_control.txt with --bank)
+  @@ -42,1 +42,1 @@
+  -                                         tools/b757_join.py's reader), written to data/b765_targets_<sha8>.json for --targets-json
+  +                                         tools/b757_join.py's reader), written to data/b766_targets_<sha8>.json for --targets-json
+  @@ -44,1 +44,1 @@
+  -  planted <rev> --targets-json <file>    the planted context at the centre's commit rev (the word's (i)): push-b765-planted's remote tip,
+  +  planted <rev> --targets-json <file>    the planted context at the centre's commit rev (the word's (i)): push-b766-planted's remote tip,
+  @@ -57,1 +57,1 @@
+  -  bank                                   data/b765_controls.txt through standing.figbank: the controls, the dispatches and reads, the verdicts
+  +  bank                                   data/b766_controls.txt through standing.figbank: the controls, the dispatches and reads, the verdicts
+  @@ -78,1 +78,1 @@
+  -import b765_worklist as K        # noqa: E402
+  +import b766_worklist as K        # noqa: E402
+  @@ -84,7 +84,7 @@
+  -ACT = 'b765'
+  -ROWS = os.path.join(D, 'b765_dispatch_rows.json')
+  -BANK = os.path.join(D, 'b765_controls.txt')
+  -CONTROL_BANK = os.path.join(D, 'b765_controls_control.txt')
+  -ANSWERS = 'data/b765_ferry.txt'
+  -PRICE = os.path.join(D, 'b765_price.json')
+  -RUNS = 'D:/b765-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  +ACT = 'b766'
+  +ROWS = os.path.join(D, 'b766_dispatch_rows.json')
+  +BANK = os.path.join(D, 'b766_controls.txt')
+  +CONTROL_BANK = os.path.join(D, 'b766_controls_control.txt')
+  +ANSWERS = 'data/b766_ferry.txt'
+  +PRICE = os.path.join(D, 'b766_price.json')
+  +RUNS = 'D:/b766-runs'      # ### the artifacts' folder on the data volume, outside every repository; one new empty folder a run
+  @@ -97,2 +97,2 @@
+  -CENTRE = 'push-b765-centre'
+  -PLANTED = 'push-b765-planted'
+  +CENTRE = 'push-b766-centre'
+  +PLANTED = 'push-b766-planted'
+  @@ -107,2 +107,2 @@
+  -# ### the author's word of 2026-11-21 on the runner's cache, banked verbatim at data/b765_author_words_preseal.txt :18-:28 (amendment row 2)
+  -WORDS = 'data/b765_author_words_preseal.txt'
+  +# ### the author's word of 2026-11-21 on the runner's cache, banked verbatim at data/b766_author_words_preseal.txt :18-:28 (amendment row 2)
+  +WORDS = 'data/b766_author_words_preseal.txt'
+  @@ -111,1 +111,1 @@
+  -# ### the author's word of 2026-11-21 on the save on main, banked verbatim at data/b765_author_words_preseal.txt :30-:36 (amendment row 3)
+  +# ### the author's word of 2026-11-21 on the save on main, banked verbatim at data/b766_author_words_preseal.txt :30-:36 (amendment row 3)
+  @@ -144,1 +144,1 @@
+  -    """{price row: its upper dispatch figure} for the rows the items name, read from data/b765_price.json."""
+  +    """{price row: its upper dispatch figure} for the rows the items name, read from data/b766_price.json."""
+  @@ -213,1 +213,1 @@
+  -    the refusal lines; taken where the input is on, the ref push-b765-planted, one file taken and counted, and no refusal; read False where the
+  +    the refusal lines; taken where the input is on, the ref push-b766-planted, one file taken and counted, and no refusal; read False where the
+  @@ -300,1 +300,1 @@
+  -        # ### the author's word of 2026-11-21, (i): the input planted, off by default; its step taking push-b765-planted's files, each equal at
+  +        # ### the author's word of 2026-11-21, (i): the input planted, off by default; its step taking push-b766-planted's files, each equal at
+  @@ -303,1 +303,1 @@
+  -        plant_step=("if: inputs.planted == 'on'" in t and 'PLANTED_REF: push-b765-planted' in t and 'git show "$tip:$f" > "$f"' in t
+  +        plant_step=("if: inputs.planted == 'on'" in t and 'PLANTED_REF: push-b766-planted' in t and 'git show "$tip:$f" > "$f"' in t
+  @@ -309,1 +309,1 @@
+  -B764_PREDICATES = ('input_restore', 'restore_step', 'records')   # ### true at 38a57e02 as at the centre; the other five b765's alone
+  +B764_PREDICATES = ('input_restore', 'restore_step', 'records')   # ### true at 38a57e02 as at the centre; the other five b766's alone
+  @@ -344,1 +344,1 @@
+  -    """the word's (i) at the centre's commit `full`: push-b765-planted's remote tip from `heads`, held locally; its one changed module judged
+  +    """the word's (i) at the centre's commit `full`: push-b766-planted's remote tip from `heads`, held locally; its one changed module judged
+  @@ -886,1 +886,1 @@
+  -    out = os.path.join(D, 'b765_targets_%s.json' % full[:8])
+  +    out = os.path.join(D, 'b766_targets_%s.json' % full[:8])
+  @@ -970,1 +970,1 @@
+  -    c('each price row`s cap, its upper dispatch figure (data/b765_price.json), and the two words` saves on main at 1 each beside them', caps, caps == want_caps)
+  +    c('each price row`s cap, its upper dispatch figure (data/b766_price.json), and the two words` saves on main at 1 each beside them', caps, caps == want_caps)
+  @@ -1068,1 +1068,1 @@
+  -    tj7 = json.load(io.open(os.path.join(D, 'b765_targets_7d86a245.json'), encoding='utf-8'))
+  +    tj7 = json.load(io.open(os.path.join(D, 'b766_targets_7d86a245.json'), encoding='utf-8'))
+  @@ -1074,1 +1074,1 @@
+  -    c('the planted context at real commits (the planted tip 7d86a245 as push-b765-planted`s remote tip): at %s the module taken, the parent an '
+  +    c('the planted context at real commits (the planted tip 7d86a245 as push-b766-planted`s remote tip): at %s the module taken, the parent an '
+  @@ -1083,1 +1083,1 @@
+  -    # ### b764's workflow by its own constant: the worklist's RUNNER_COMMIT names b765's closing Lean commit since (4)'s HELD (defect (l))
+  +    # ### b764's workflow by its own constant: the worklist's RUNNER_COMMIT names b766's closing Lean commit since (4)'s HELD (defect (l))
+  @@ -1229,1 +1229,1 @@
+  -    out = ['%s -- tools/b765_controls.py`s OWN CONTROLS, (R375)(4) AND (5) AND THE AUTHOR`S WORD OF 2026-11-21 ON THE RUNNER`S CACHE (%s)' % (
+  +    out = ['%s -- tools/b766_controls.py`s OWN CONTROLS, (R375)(4) AND (5) AND THE AUTHOR`S WORD OF 2026-11-21 ON THE RUNNER`S CACHE (%s)' % (
+  @@ -1279,1 +1279,1 @@
+  -    print('written data/b765_controls.txt ; figbank: %s' % r['why'])
+  +    print('written data/b766_controls.txt ; figbank: %s' % r['why'])
+
+### ### **CARRIED tools/b766_controls.py ; LINES 1290 ; CHANGED 42 ; SHIFTED 2 (WRITTEN BY --shifted) ; CITES OF AN ABSENT BANK 0**
