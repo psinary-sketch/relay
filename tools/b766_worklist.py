@@ -682,7 +682,9 @@ CHAIN = (('c1', 'a2ab7fbe'), ('corr', '06dea7e2'),
          ('rulings_c4', 'f2b08550'), ('rulings_c4_fix', 'b1d4c2dc'), ('ledgers_c4', '69bc2357'),
          ('rows81', '812b8266'), ('poledata_gen', '01710c94'), ('poledata_fix', 'b9c3eca2'), ('k0data_gen', 'a98f6775'), ('rows87', '67adb48f'),
          ('k0blocks_gen', '99b807f6'), ('rows89', '0e664b93'), ('rulings_c5_fix', '4e38d2b3'), ('ledgers_c5', '28b27f9d'),
-         ('reproduce', '68afc073'), ('lockgate_carry', '72733b77'), ('module_c5', '0906192b'))
+         ('reproduce', '68afc073'), ('lockgate_carry', '72733b77'), ('module_c5', '0906192b'),
+         # ### b766, Component 5 (the Edit tool, 20:2xZ, the touch read): appended as made, each read from git and the step rows (steps 70-74)
+         ('chain_c5', '55fe5bc6'), ('module_rec', '6533a424'), ('scan', '535090f2'), ('trail_set', '86cbc5b3'), ('face_blocks', 'a81d7048'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -736,7 +738,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b765`s findings after its lock and 
                     'rows89': 'dispatch 13 stopped, dispatch 14 sent, the rulings tool`s group c5', 'rulings_c5_fix': 'its head`s plain wording',
                     'c5pp': '[P2] in OPEN_TRAILS as the author ratified it', 'ledgers_c5': 'the c5 ledger banks, dispatches 14 to 16 and the question',
                     'reproduce': 'the full reproduction run of (11) banked', 'lockgate_carry': 'the lock gate, the face and the probe-path tools carried, dispatch 16 and the author`s word banked',
-                    'module_c5': 'the face`s constants and the first act module edits'})
+                    'module_c5': 'the face`s constants and the first act module edits',
+                    'chain_c5': 'the worklist given b766`s own chain, generators and order', 'module_rec': 'the act module`s record, trail, report, closing and checks sections for (R376) (defect (n))',
+                    'scan': 'the address scan banked and three entry sentences set', 'trail_set': 'the trail composer`s three sentences',
+                    'face_blocks': 'the face`s block file for b766, row (110) and the (W) bank'})
 CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b765`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b765',
                     'corr': 'the corrigendum banks', 'k20': '[K20] repaired at tools/standing/ v1.38.19', 'k20_row': '[K20]`s row and its planted control banked',
                     'k21': '[K21] repaired at tools/standing/ v1.38.20', 'k21_fix': '[K21]`s control set to read the act`s own handoff alone (defect (f))',
@@ -830,7 +835,7 @@ KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
-WEIL_BRANCH = ('push-b766-proof', '3c67b8b58d6f323b1db62249a77453963368aaf7')   # ### b766 step zero, (R376)(4), (8): the act's Lean branch, cut from main at 0ba9cd61 and not from a runner's branch; its tip the closing Lean commit 3c67b8b5 (step 62), kept at the remote and in the clone by the author's word (data/b766_author_words_preseal.txt :31)
+WEIL_BRANCH = ('push-b766-proof', '3c67b8b58d6f323b1db62249a77453963368aaf7')   # ### b766 step zero, (R376)(4), (8): the act's Lean branch, cut from main at 0ba9cd61 and not from a runner's branch; its tip the closing Lean commit 3c67b8b5 (step 62), kept at the remote and in the clone by the author's word (data/b766_author_words_preseal.txt :32)
 WEIL_BRANCH_B765 = ('push-b765-centre', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept at its tip, local and remote (b766 step zero: the carry had shifted its name). b765 (R375)(4): the act's Lean branch, cut from push-b764-runner at 38a57e02 by the one-call tool (11:21:41Z), its tip the closing Lean commit 0ba9cd61 (step 45), pushed alone by the gated branch mode and read back (15:01:21Z)
 PLANTED_BRANCH = ('push-b765-planted', '7d86a2459d167673252372a46185329b33f25970')   # ### b766 step zero, (R376)(7) [K22]: b765's planted branch, which this act removes at the kernel's remote and in its clone (the carry had shifted its name to push-b766-planted); (R376)(4) orders no planted build. b765 (R375)(4)(a): cut at d540bc98 (11:46:03Z), its one commit 7d86a245 (step 19), pushed alone and read back (11:47:22Z); the local branch deleted before the lock where the route allows, the remote kept and named in the closing message
 WEIL_BRANCH_B764 = ('push-b764-runner', '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a')   # ### b764's (R374)(7), kept at its tip, local and remote (b766 step zero: the carry's push-b765-runner set back)

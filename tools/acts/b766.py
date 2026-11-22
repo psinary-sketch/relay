@@ -3856,8 +3856,10 @@ def _ot_line(n, sha16):
     return l_
 
 
-ITEM_PROSE = {'b': 'L1, the prime side as a finite sum', 'c': 'L2 to L5, the window in Lean', 'd-k': 'L6 and L7, the K values and the values of cQ',
-              'd-pole': 'L8, the pole term', 'd-arch': 'L9 in part, the archimedean term', 'closing': 'the closing build from source', 'repeat': 'its one repeat'}
+ITEM_PROSE = {'b': 'L1, the prime side as a finite sum', 'c': 'L2 to L5, the window in Lean', 'd-k': 'the K values row of L6 and L7',
+              'd-pole': 'the pole term row of L8', 'd-arch': 'the archimedean row of L9', 'closing': 'the closing build from source', 'repeat': 'its one repeat'}
+# ### b766 touch read (20:2xZ): each dispatch of (4)(d) named by the price row it was charged to, where 'L6 and L7, the K values and the
+# ### values of cQ' stood beside dispatches 3 to 7, which built L6 alone (data/b766_events.txt (54)-(66)); the lemmas each built stand in [P2]
 DATA_FILES = {'window_data': 'Coeffs.lean', 'kdata': 'KData.lean', 'cqdata': 'CQData.lean', 'poledata': 'PoleData.lean', 'poledata_rewrite': 'PoleData.lean rewritten',
               'k0data': 'ArchData.lean', 'k0blocks': 'ArchBlocks.lean'}
 
@@ -3881,7 +3883,7 @@ def _finding_text_b766(f, S, rep, tot):
         sys.exit('### THE FOUR GROUPS DO NOT CARRY THIS ACT`S ENTERED LINES, [P2] THE PROOF`S ONE OUTCOME -- NOTHING COMPOSED')
     ln_ = lambda k_: ('OPEN_TRAILS :%d' % le_[k_][0]) if k_ in le_ else 'not entered'
     rg_ = lambda a_, b_, u_: ('%s %s' % (a_, u_[:-2] if (u_ == 'dispatches' and a_ == 1) else u_)) if a_ == b_ else '%s to %s %s' % (a_, b_, u_)
-    pw_ = lambda k_: rg_(f['pr_rows'][k_]['lo_h'], f['pr_rows'][k_]['hi_h'], 'h')
+    pw_ = lambda k_: rg_('%.2f' % float(f['pr_rows'][k_]['lo_h']), '%.2f' % float(f['pr_rows'][k_]['hi_h']), 'h')   # ### b766 touch read: two places, as the bank prints them
     pd_ = lambda k_: '%s over %s' % (pw_(k_), rg_(f['pr_rows'][k_]['dispatches'][0], f['pr_rows'][k_]['dispatches'][1], 'dispatches'))
     sti_ = lambda s_: '%d %s (%s)' % (len(rs_[s_]), s_.lower(), ', '.join(rs_[s_]) or 'none')
     ap_ = lambda s_: str(s_).replace('`', '’')
@@ -4075,7 +4077,10 @@ def _finding_text_b766(f, S, rep, tot):
          scores_line(S), '',
          '**The report of (9)**: the hours by the step rows: %s (the closing comes after this entry and its row is printed in the closing message). The step rows summed by component, each '
          'row’s span from the row before it given to its own phase, the act’s step rows of every repository to this entry (relay data/b766_steps.json):' % r10h_, '',
-         '| component | step rows | hours |', '| --- | ---: | ---: |'] + ['| %s | %d | %.2f |' % (p_, n_, h_) for p_, n_, h_ in sh_] + ['| all | %d | %.2f |' % (shn_, sht_), '',
+         '| component | step rows | hours |', '| --- | ---: | ---: |'] + ['| %s | %d | %.2f |' % (p_, n_, h_) for p_, n_, h_ in sh_] + ['| all | %d | %.2f |' % (shn_, sht_), ''] + (
+         [] if any(p_ == 'component 4' for p_, _n4, _h4 in sh_) else [
+             'Component 4, the closing build from source, holds no step row of its own: its two dispatches sent, and the first read, within the spans of component 3’s rows, the second '
+             'read within component 5’s (relay data/b766_events.txt (91), (94), (97)).', '']) + [
          'Each dispatch by its run id, its kind and its minutes: %s (relay data/b766_dispatch_rows.json). The price table’s figures beside what each item took: %s (relay data/b766_price.txt; '
          'tools/b766_controls.py ROW_RAISES). THE MEASURE, read at this act’s close: the hours from the lock to the closing, beside b765’s %s and b764’s %s, printed in the closing message; '
          'the lettered defects tagged REPEAT whose class is a key that data/b764_repairs.txt or data/b765_repairs.txt reads REPAIRED, %d of the %d tagged REPEAT (%s), wanted 0; the lettered '
