@@ -3,7 +3,7 @@
 act shift, the act's own blocks from tools/b766_face_blocks.txt, the field of pre-face commits read from the logs ((R338)(2)(iv)(a)), and the (W) row of the standing composer: the files the ruling's clauses order
 written, read from the ruling, added to the list where it does not cover them (b731's (R341)(2)(i)). The carried paragraphs are found by b765's own blocks' first and last lines in b765's face, no line number kept.
 Writes data/b766_registration_<DATE>.txt alone, and only before the lock: it refuses when the face already carries a lock block. Carried from tools/b765_face.py by tools/b766_carry.py (data/b766_carry_face.txt),
-its OLD, MAP, PAT, the LOGS comment, FIXES and the summaries reader set by hand before any run (data/b766_events.txt (61)), and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes
+its OLD, MAP, PAT, the LOGS comment, FIXES and the summaries reader set by hand before any run (data/b766_events.txt (101)), and the arms declared before the lock (DECLARED, DECLARED_LINES, NEWLY) set by hand from the probes
 (data/b766_probe_<part>.txt) and the pre-lock comparison, empty and PENDING until then.
 ### (R376)(13): the (W) row and N5's write clause regenerated from the ruling by tools/standing/amend.py over the act's three amendment rows (data/b766_amendments.json: the author's words of 2026-11-21 on W-ORD-H2-PI1, on the runner's cache and on the save on main, each widening none and narrowing none), the regeneration printed into the face's (W) section before the lock.
 ### The face is written whole to a scratch name beside it and moved over the face only after the write returns (no zero-byte husk on an error).
@@ -23,56 +23,59 @@ from standing import faceform as FF   # noqa: E402,F401
 from standing.faceform import PRE_FACE_TITLE   # noqa: E402
 from standing import amend as AM   # noqa: E402
 import b766_worklist as K   # noqa: E402
-OLD, NEW = os.path.join(D, 'b765_registration_2026-11-20.txt'), os.path.join(D, 'b766_registration_%s.txt' % K.DATE)   # ### b766: b765's face by its own date (the carry shifted b763's -11-19)
+OLD, NEW = os.path.join(D, 'b765_registration_2026-11-21.txt'), os.path.join(D, 'b766_registration_%s.txt' % K.DATE)   # ### b766: b765's face by its own date (the carry shifted b764's -11-20)
 OLD_BLOCKS, BLOCKS = os.path.join(T, 'b765_face_blocks.txt'), os.path.join(T, 'b766_face_blocks.txt')
 FERRY = os.path.join(D, 'b766_ferry.txt')
 ORDER = ('HEAD', 'ZERO', 'A', 'B_TOOLS', 'B_LAST', 'C', 'D', 'NEEDLES', 'G2', 'G2_RUN', 'W', 'Z')
 KEEP = ('keiper-b725', 'c2-b725', 'detect-b729', 'zq-b730', 'scratch-b724', 'rebuild-b721', 'b732_phase2_frontdoors')
-# ### b766 (the Edit tool, before any run): the shift of b765's face by one act (b765 -> b766, b763 -> b765, R375 -> R376), one pass of one
-# ### alternation so that no name is shifted twice; tools/standing/ moved by (R376)(8) and (4), v1.38.19 to v1.38.21 (data/b766_repairs.txt),
-# ### which b766's own blocks say; a name two acts back, push-b759-weil and data/b759_outcomes.txt among them, stands unshifted (the carry
-# ### had left b765's pair b762 -> b763 carried to b762 -> b765, and b765's face's date as b763's -11-19)
-MAP = {'b765_registration_2026-11-20': 'b766_registration_%s' % K.DATE, 'b765': 'b766', 'b763': 'b765', '(R375)': '(R376)', 'R375': 'R376'}
-PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b765_registration_2026-11-20', '(R375)', 'R375', 'b765', 'b763')))
-# ### b766: b765's closing commits as (R376)'s SCOPE READ gives them, relay 306162ad and PLACE-papers 1198a637 (data/b766_ferry.txt :3), the
-# ### worklist's PRE_RELAY and PRE_PP: the pre-face commits after them (the carry had left b763's 0f9b1df2 and 7db9a66c in this comment)
+# ### b766 (the Edit tool, before any run, data/b766_events.txt (101)): the shift of b765's face by one act (b765 -> b766, b764 -> b765,
+# ### R375 -> R376), one pass of one alternation so that no name is shifted twice; tools/standing/ moved by (R376)(7) alone, v1.38.21 to
+# ### v1.38.24 (data/b766_repairs.txt), which b766's own blocks say; a name two acts back, b763's among them, stands unshifted (the carry
+# ### had left b765's pair b763 -> b764 carried to b763 -> b765, and b765's face's date as b764's -11-20)
+MAP = {'b765_registration_2026-11-21': 'b766_registration_%s' % K.DATE, 'b765': 'b766', 'b764': 'b765', '(R375)': '(R376)', 'R375': 'R376'}
+PAT = re.compile('|'.join(re.escape(x) for x in KEEP + ('b765_registration_2026-11-21', '(R375)', 'R375', 'b765', 'b764')))
+# ### b766: b765's closing commits as (R376)'s SCOPE READ gives them, relay 29d4c9b7 and PLACE-papers 5638a9ad (data/b766_ferry.txt :3), the
+# ### worklist's PRE_RELAY and PRE_PP: the pre-face commits after them (the carry had left b764's 306162ad and 1198a637 in this comment)
 LOGS = ((ROOT, K.PRE_RELAY), (K.PP, K.PRE_PP))
 W_ANCHOR = '### No Zeta23 or vendored byte;'
-# ### b766 (the Edit tool, before any run): three sentences of b765's face carried between its blocks read against b766 (b765's face :200,
-# ### :242, :250 and :277, the Read tool, 17:4xZ) and set. (G1)'s order at :200 names "COMPONENTS 0-4 AND COMPONENT 5`S BANKS", b765's ferry's
-# ### components and b766's alike (data/b766_ferry.txt :127-:132), and stands. The freeze paragraph (:242) and the arms' paragraph (:277)
-# ### name "(R375)(14)`s (W) list" and "(R375)(14)`s (W) row", carried as (R376)(14)'s; b766's (W) list is (R376)(13)'s (:41). The arms'
-# ### paragraph (:250) reads G-DELETES-ONE-BRANCH's allowance "through tools/standing/allow.py at v1.38.18", b765's VERSION; b766's is
-# ### v1.38.21. b765's rules sentence (:277), "(R376) ordering no rules row and no data/b766_rules.txt written" after the shift, is true of
-# ### b766 (C1_RULES None, the standing clauses' bank not rewritten, (R376)(11)) and stands. b765's four kept below as b765 set them
+# ### b766 (the Edit tool, before any run, data/b766_events.txt (101)): three sentences of b765's face carried between its blocks read
+# ### against b766 (b765's face :201, :243, :251 and :278, the search tool, 18:2xZ) and set. (G1)'s order at :201 names "COMPONENTS 0-4 AND
+# ### COMPONENT 5`S BANKS", b765's ferry's components and b766's alike (data/b766_ferry.txt :120-:125), and stands. The freeze paragraph
+# ### (:243) and the arms' paragraph (:278) name "(R375)(13)`s (W) list" and "(R375)(13)`s (W) row", carried as (R376)(13)'s; b766's (W)
+# ### list is (R376)(12)'s (:46). The arms' paragraph (:251) reads G-DELETES-ONE-BRANCH's allowance "through tools/standing/allow.py at
+# ### v1.38.21", b765's VERSION; b766's is v1.38.24 (tools/standing/VERSION :1). b765's three kept below as b765 set them
 FIXES = (
-    ('(outside (R376)(14)`s (W) list)', '(outside (R376)(13)`s (W) list)'),
-    ('read (R376)(14)`s (W) row and the rules banks', 'read (R376)(13)`s (W) row and the rules banks'),
+    ('(outside (R376)(13)`s (W) list)', '(outside (R376)(12)`s (W) list)'),
+    ('read (R376)(13)`s (W) row and the rules banks', 'read (R376)(12)`s (W) row and the rules banks'),
+    ('tools/standing/allow.py at v1.38.21', 'tools/standing/allow.py at v1.38.24'),
+)
+FIXES_B765 = (
+    ('(outside (R375)(14)`s (W) list)', '(outside (R375)(13)`s (W) list)'),
+    ('read (R375)(14)`s (W) row and the rules banks', 'read (R375)(13)`s (W) row and the rules banks'),
     ('tools/standing/allow.py at v1.38.18', 'tools/standing/allow.py at v1.38.21'),
 )
-FIXES_B764 = (
-    ('COMPONENTS 0-5 AND COMPONENT 6`S BANKS', 'COMPONENTS 0-4 AND COMPONENT 5`S BANKS'),
-    ('(outside (R375)(13)`s (W) list)', '(outside (R375)(14)`s (W) list)'),
-    ('read (R375)(13)`s (W) row and the rules banks', 'read (R375)(14)`s (W) row and the rules banks'),
-    ('tools/standing/allow.py at v1.37.1', 'tools/standing/allow.py at v1.38.18'),
-)
-# ### the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes. b766 (the
-# ### Edit tool, 22:2xZ): b765's four, each line read against b766's own state from b766's probes (standing-a1 :20, :23 at 20:33:44Z;
+# ### b766 (the Edit tool, before any run, data/b766_events.txt (101)): the arms failing at the pre-run on real state, declared by name before
+# ### the lock, each with its reason, are set from b766's own probes and its pre-lock comparison when they are run; until then None, and the
+# ### face refuses to compose (main() below). b765's three, as carried (the carry's substitution shifting their names), kept beside.
+DECLARED = DECLARED_LINES = NEWLY = None
+# ### b765's, as b765 wrote them: the arms failing at the pre-run on real state, declared by name before the lock, each with its reason; set from the probes. b765 (the
+# ### Edit tool, 22:2xZ): b764's four, each line read against b766's own state from b766's probes (standing-a1 :20, :23 at 20:33:44Z;
 # ### standing-a2 :38, :80, :127 at 20:59:57Z, its 25 failing b765's 25 by name), G-DELETE-FREE now on tools/project_set.py :340 (defect
 # ### (t)); every cite read at its line before it was written (checks.tpl :1779, :1783, :1814; b649_checks.py :452-:454; no_sorry_main.py
 # ### :4-:11; rule_arms.py :389, :617; deletefree.py :1-:12; project_set.py :308, :332, :340, :348). NEWLY the twelve of
 # ### `tools/standing/prelock.py print b766` at 22:11:44Z, G-DELETE-FREE not among them, failing at b765's pre-run.
-DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN', 'G-DELETE-FREE')
-DECLARED_LINES = (
+DECLARED_B765 = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN', 'G-DELETE-FREE')
+DECLARED_LINES_B765 = (
     "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried; the arm at tools/standing/fold/checks.tpl :1783) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b765 declared it on its face (data/b765_registration_2026-11-20.txt).",
     "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :127), as at b765`s pre-run. b766 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b766_*cut* in the tree; the cuts of (7) are written beside the archive, outside the relay), so it adds to neither count, and the searches read fail NONE (:38). (R376) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
     "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11; the arm at tools/standing/fold/checks.tpl :1779); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20): each SIDE-explicit-formula/SIDEExplicitFormula/C2Field/M<n>.lean, b726`s certificates carried onto main with c2-b725`s tree, each a `first` whose second branch is `sorry` after `decide +kernel`, as at b765. b766`s three files of (5), on main since (4)`s HELD, add no token: the count stands at b765`s 15, and each build that compiled them read sorry warnings 0 (data/b766_events.txt (48), (54), (58)). The axioms print of run 44918855502, the build from source of v0.44`s tree at main 0ba9cd61, reads 593 axiom lines each within the standard three and sorryAx nowhere, the 18 certificate names of print_targets.txt among its targets (read at main by count), so no fallback branch was taken (data/b766_events.txt (58)); the counter counts the text.",
     "### `G-DELETE-FREE` reads the act`s own tools, their code with prose stripped, for a delete call of any kind, a temporary folder`s cleanup set apart where the call`s first argument is a name the same file bound from tempfile or a parameter every call of which passes one (tools/standing/fold/checks.tpl :1814, tools/standing/deletefree.py :1-:12); it fails on one line of tools/project_set.py, (7)`s builder: in its control, `os.remove(os.path.join(tmp, gone))` at :340, the planted removal of one copy from the folder the control made by tempfile.mkdtemp at :332, which the case A COPY REMOVED reads as MISSING, a joined path the reader does not set apart; the tool`s two folder cleanups by shutil.rmtree at :308 and :348 set apart (the probe of standing-a2 :80; data/b766_defects.txt (t)). It removes a file the same control copied under the system`s temporary folder, and nothing of the record is deleted. The tool ran and banked in that form (data/b766_project_set_control.txt) and is not edited, as b765 kept its own for b765 (i); that the reader does not follow a joined temporary path is a fault of tools/standing/, which (R376)(11) moves under (8) and (4) alone, carried to the next reading of the close.",
     "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and appended to the post-seal events bank at step [21] for the next corrigendum, not a letter (the ferry`s Component 5, data/b766_ferry.txt :132; (R375)(5) [K10], standing).",
 )
-NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-LOCKGATE-EIGHT',
+NEWLY_B765 = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-LOCKGATE-EIGHT',
          'G-NOTHING-RAN-AHEAD', 'G-ROOTDRY-READY', 'G-RULE-SCORES-BEFORE-SEAL', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS',
          'G-WRITELIST-MIRROR-STATE')
+# ### b764's, as b765 kept them (the carry's substitution shifting their names)
 DECLARED_B764 = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN', 'G-DELETE-FREE')
 DECLARED_LINES_B764 = (
     "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried; the arm at tools/standing/fold/checks.tpl :1783) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction; tools/axiom_claim.py outside (W), no bank rewritten, carried as b765 carried it (data/b765_events.txt (85)).",
@@ -166,18 +169,17 @@ def refusals():
 
 
 def summaries():
-    """### b766 (the Edit tool, before any run), from the events bank: the act's summaries of the session, the rows of any actor whose head
-    names a SUMMARY or SUMMARIES -- b766 entered its first eight and its tenth in the host's rows ((6) to (46), (50)) and the rest in the seat's
-    rows beside the work ((48), (52), (53), (55), (56), (58), (59), (60)), so b765's reader of the host's rows alone would miss them. A row's
-    head is read across its lines, from its tag to the first full stop after which most letters of the next thirty characters are small (the
-    body's opening, "A summary of the session ..." among them); each row counted for each
+    """### b766 (the Edit tool, before any run, data/b766_events.txt (101)), from the events bank: the act's summaries of the session, the rows
+    of any actor whose head names a SUMMARY or SUMMARIES -- b766 entered each in the host's rows, (4) to (99), and the reader takes any
+    actor's as b765's did. A row's head is read across its lines, from its tag to the first full stop after which most letters of the next
+    thirty characters are small (the body's opening, "A summary of the session ..." among them); each row counted for each
     summary its head names (two for "TWO SUMMARIES", three for "THREE SUMMARIES"; otherwise one, and one more for each " AND A " in the clause
-    naming it), and b765's findings after its lock (b766 events (19) to (21), (19) naming a summary of b765's) left out by their section, from
-    its head "b765'S THREE FINDINGS AFTER ITS LOCK" to the next, "THE NAVIGATOR'S CLAIMS, FROM (R376)(1)" (b766 events :126 and :147). The
-    count read against the chain read's boundaries after the delivery's line by hand before the face is composed (21 at :254171). Returns the
+    naming it), and b765's findings after its lock (b766 events (20) to (23)) left out by their section, from its head "b765'S FOUR FINDINGS
+    AFTER ITS LOCK" to the next, "THE NAVIGATOR'S CLAIMS, FROM (R376)(1)" (b766 events :135 and :155). The count read against the chain
+    read's boundaries after the delivery's line by hand before the face is composed (24 to :283114 at the summary of 18:19:30Z). Returns the
     phrase "<n words> summaries within it (events (a), ..., (z))"."""
     t = open(os.path.join(D, 'b766_events.txt'), encoding='utf-8').read()
-    a_, b_ = "\nb765'S THREE FINDINGS AFTER ITS LOCK", "\nTHE NAVIGATOR'S CLAIMS, FROM (R376)(1)"
+    a_, b_ = "\nb765'S FOUR FINDINGS AFTER ITS LOCK", "\nTHE NAVIGATOR'S CLAIMS, FROM (R376)(1)"
     if t.count(a_) != 1 or t.count(b_) != 1 or t.index(a_) > t.index(b_):
         raise SystemExit("REFUSED: the events bank's section of b765's findings after its lock not found once, before the navigator's claims")
     t = t[:t.index(a_)] + t[t.index(b_):]
@@ -211,6 +213,9 @@ def pre_face():
 def main():
     if os.path.exists(NEW) and 'THE REGISTRATION LOCK' in open(NEW, encoding='utf-8').read():
         print('REFUSED: the face carries its lock block')
+        return 2
+    if DECLARED is None or DECLARED_LINES is None:   # ### b766: the declared arms set from b766's probes before any composition
+        print('REFUSED: DECLARED and DECLARED_LINES not set from b766`s probes')
         return 2
     o = open(OLD, encoding='utf-8', newline='').read().split('\n')
     o = o[:o.index(next(l for l in o if l.startswith('### THE REGISTRATION LOCK'))) - 1]

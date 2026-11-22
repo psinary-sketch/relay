@@ -306,6 +306,10 @@ def c1(*a):
 # ### at HEAD -- (4)'s HELD moved main to 0ba9cd61 with the workflow's key, restore and planted input (281 lines against 147), so the diff of
 # ### rebuild-b721's tip against HEAD read 137 lines where b721 copied the workflow b764 entered with; against 819e4a83 the wanted three
 # ### (scratch wfcmp765.py, read-only, 20:54:22Z); the standing-a2 probe (flag 20:39:23Z) read G-WORKFLOW-FILES FAIL where b764's read PASS
+# ### b766, Component 5 (the Edit tool, before any run): b766's K.EF_BASE is main entering b766, 0ba9cd61, the workflow b765 moved there with
+# ### its key and restore; b721 copied the workflow of 819e4a83, b765's entering main, so the comparison is read at that commit by its name
+# ### here and not through K.EF_BASE, which a carried meaning would have read at 0ba9cd61 (the class (R376)(1) names)
+WF_BASE_B721 = '819e4a83'   # ### b766: the main whose workflow rebuild-b721 copied, b765's entering main (b765's K.EF_BASE)
 #⟪OVERRIDE checks MARK 8df6a527436b 13⟫
 def rebuild_wf_ok(S):
     """(R363)(7), as b753 left the branches (no kernel commit this act): the workflow at each rebuild branch's tip -- the five kernels other
@@ -316,7 +320,7 @@ def rebuild_wf_ok(S):
     import difflib
     st = S['rebuild_state'] or {}
     fr, kn = st.get('SIDE-frobenius') or {}, st.get('SIDE-kernel') or {}
-    src = read_blob(EF, K.EF_BASE + ':.github/workflows/build-module.yml') or ''
+    src = read_blob(EF, WF_BASE_B721 + ':.github/workflows/build-module.yml') or ''   # ### b766: b721's base by its name (the note above)
     tip = fr.get('wf_tip') or ''
     d = [x for x in difflib.unified_diff(src.split(NL), tip.split(NL), lineterm='', n=0) if x[:1] in '+-' and x[:3] not in ('+++', '---')]
     km = read_blob('D:/SIDE-kernel', 'main:.github/workflows/build-module.yml') or ''
@@ -333,20 +337,24 @@ def rebuild_wf_ok(S):
 # ### ruled` named this override among the readers of MAX_DISPATCHES at step zero (events (7)), and the seat set the arm's description
 # ### (checks 56) and not its predicate; the standing-a2 probe (flag 20:39:23Z) read G-RUNNER-READ FAIL, its other six clauses true over
 # ### the 22 dispatch rows (scratch runcl765.py, read-only, 20:55:05Z)
+# ### b766, Component 5 (the Edit tool, before any run): the cap read as (R376)(4)'s 20 where b765's override pinned (R375)(4)'s 13, `carry.py
+# ### ruled` naming this override among the readers of MAX_DISPATCHES at step zero (events (16)); the restore-on kind at most 18 beside it
 #⟪OVERRIDE checks MARK aed8852d751b 16⟫
 def runner_ok(S):
-    """N1, b765 ((R375)(4), N1: "the dispatches of SIDE-explicit-formula number at most 13 and are those of (4)"; b764's form, its cap set to
-    the ruled figure MAX_DISPATCHES 13 and EF_RUNS the eleven run ids as dispatched): every dispatch of the act a row of the dispatch bank, its
-    kernel named, its free memory read before the send at or above the hold; the run ids the worklist's, EF_RUNS in SIDE-explicit-formula
-    within MAX_DISPATCHES (13) and none in SIDE-dirichlet-mod-24 (M24_RUNS empty, its cap 0), no dispatch row of another kernel; a dispatch
-    row present exactly when the worklist names a run; each read once after it by that id, the read's free memory at or above the hold;
-    the plant a dispatch row with no kernel and no read refused."""
+    """N1, b766 ((R376)(4), N1: "the dispatches of SIDE-explicit-formula number at most 20 and are those of (4)"; b765's form, its cap set to
+    the ruled figure MAX_DISPATCHES 20, at most 18 of them with the restore on, and EF_RUNS the sixteen run ids as dispatched): every dispatch
+    of the act a row of the dispatch bank, its kernel named, its free memory read before the send at or above the hold; the run ids the
+    worklist's, EF_RUNS in SIDE-explicit-formula within MAX_DISPATCHES (20) and none in SIDE-dirichlet-mod-24 (M24_RUNS empty, its cap 0), no
+    dispatch row of another kernel; a dispatch row present exactly when the worklist names a run; each read once after it by that id, the
+    read's free memory at or above the hold; the plant a dispatch row with no kernel and no read refused."""
     rows = S['drows'] or []
     ds = [r for r in rows if r.get('kind') == 'dispatch']
     rs = [r for r in rows if r.get('kind') == 'read']
     ef_ = [int(r.get('run')) for r in ds if r.get('kernel') == 'SIDE-explicit-formula']
     m4_ = [int(r.get('run')) for r in ds if r.get('kernel') == 'SIDE-dirichlet-mod-24']
-    return bool(ds) == bool(K.EF_RUNS) and ef_ == list(K.EF_RUNS) and len(ef_) <= K.MAX_DISPATCHES == 13 and m4_ == list(K.M24_RUNS) and len(m4_) <= K.MAX_DISPATCHES_M24 \
+    on_ = [r for r in ds if r.get('kernel') == 'SIDE-explicit-formula' and str(r.get('restore')).lower() in ('true', 'on')]   # ### b766: the restore-on kind, at most 18
+    return bool(ds) == bool(K.EF_RUNS) and ef_ == list(K.EF_RUNS) and len(ef_) <= K.MAX_DISPATCHES == 20 and m4_ == list(K.M24_RUNS) and len(m4_) <= K.MAX_DISPATCHES_M24 \
+        and len(on_) <= dict(K.MAX_DISPATCHES_KINDS)['restore'] == 18 \
         and len(ds) == len(ef_) + len(m4_) \
         and all(str(r.get('free_mb', '')).isdigit() and int(r.get('free_mb')) >= KS.HOLD for r in ds + rs) \
         and all(sum(1 for x in rs if str(x.get('run')) == str(d.get('run'))) == 1
@@ -384,8 +392,10 @@ def runner_ok(S):
 # ### (17:04:09Z, scratch merged764.py)" and "THE DELETES, AFTER THE CHECK, ONE PER MESSAGE" (data/b764_stepzero.txt :24, :63)
 # ### b765, Component 5 (the Edit tool): "THE --MERGED LISTING (10:03:33Z, scratch merged765.py)" and "THE DELETES, AFTER THE CHECK, ONE PER
 # ### MESSAGE" (data/b765_stepzero.txt :32, :71), where the carry left b764's time and scratch name
+# ### b766, Component 5 (the Edit tool, before any run): "THE --MERGED LISTING (07:00:57Z, scratch merged766.py)" and "THE REMOVALS, AFTER THE
+# ### CHECK, ONE PER MESSAGE" (data/b766_stepzero.txt :32, :67), b766's bank naming the deletes by (R376)(3)'s word, "THE REMOVALS"
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE --MERGED LISTING (10:03:33Z, scratch merged765.py)' in z and 'THE DELETES, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING (07:00:57Z, scratch merged766.py)' in z and 'THE REMOVALS, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's overrides of checks 1516 and 1659 (hook.py edited by b753's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b754 as it stands
@@ -400,8 +410,10 @@ def runner_ok(S):
 # ### (data/b764_corrigendum.json; its foot :15), where the carry left b763's 70
 # ### b765, Component 5 (the Edit tool): the items set to b765's corrigendum's 97 (CLAIM 5, CLOSE 92; data/b765_events.txt (28)), where the
 # ### carry left b764's 127
+# ### b766, Component 5 (the Edit tool, before any run): the items set to b766's corrigendum's 114 (CLAIM 7, CLOSE 107; data/b766_events.txt
+# ### (32)), where the carry left b765's 97
 #⟪OVERRIDE checks MARK bcd4d281b141 1⟫
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 97 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 114 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's override of checks 1476-1482 (one ERRATA entry at b753's (R363)(5)) removed -- (R364)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b754 as it stands
@@ -419,7 +431,7 @@ def runner_ok(S):
 # ### -preroot and -record, data/b759_events.txt (9)); b759's citation check carries the kept row under (R369)(3), data/b759_citation_check.txt
 # ### :56, "| ruling (3) | port-b707 kept on SIDE-lv-conservation | local |"
 #⟪OVERRIDE checks MARK 3feae0b5e0b8 1⟫
-        and '| ruling (4) | port-b707 kept on SIDE-lv-conservation | local |' in (S['citation'] or '') and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP
+        and '| ruling (3), N5 | port-b707 kept on SIDE-lv-conservation | local |' in (S['citation'] or '') and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP   # ### b766: data/b766_citation_check.txt :63
 #⟪END⟫
 # ### b759, before the lock (the Edit tool): G-DELETES-ONE-BRANCH over b759's deletes -- the five step-zero refs, each by the one-call tool's
 # ### delete route, and (3)'s five kernel branches, each removed at its kernel's remote by (4)(i)'s route `<repo> rdelete <branch>`
@@ -429,13 +441,16 @@ def runner_ok(S):
 # ### b765, Component 5 (the Edit tool): (R375)(4) sends push-b765-planted's delete from the kernel's clone to the one-call tool's delete route (the
 # ### worklist's KERNEL_DELETES, names alone; refused there at 19:19:48Z, not fully merged, KERNEL_DELETES_REFUSED), no rdelete route run for b765:
 # ### the deletes the capture holds beyond the step-zero five are KERNEL_DELETES exactly
+# ### b766, Component 5 (the Edit tool, before any run): (R376)(7) [K22] removes push-b765-planted at the kernel's remote by the rdelete route
+# ### and in its clone by the delete route, [K22] forcing the local delete for that one name (data/b766_events.txt (37)): the rdelete route's
+# ### deletes are KERNEL_DELETES exactly, and the delete route's beyond the step-zero five likewise; none refused (KERNEL_DELETES_REFUSED empty)
 #⟪OVERRIDE checks MARK 61379f7e4609 2⟫
-        and _rdeletes(S) == [] and sorted(b for b in got if b not in NAMED_PUSH) == sorted(K.KERNEL_DELETES) \
+        and _rdeletes(S) == list(K.KERNEL_DELETES) and sorted(b for b in got if b not in NAMED_PUSH) == sorted(K.KERNEL_DELETES) and not K.KERNEL_DELETES_REFUSED \
         and STW.deletes_read([('-', b) for b in got + _rdeletes(S)], S['ferry'], STW.words_of(ACTN))['ok'] \
         and all(b in got for b in NAMED_PUSH) and K.PORT_BRANCH not in got and S['kept_tips'].get(K.PORT_BRANCH) == K.PORT_TIP \
 #⟪END⟫
 #⟪OVERRIDE checks MARK 23e17a97edcc 1⟫
-    ('G-DELETES-ONE-BRANCH', '(⟪RUL⟫)(4): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the five step-zero deletes of the push-b765-* branches by the tool`s delete route, and push-b766-planted`s delete sent by the same route ((4), the worklist`s KERNEL_DELETES) and refused there, not fully merged, the branch kept (KERNEL_DELETES_REFUSED), each allowed by the ruling`s own delete clause read through tools/standing/allow.py; no rdelete route run, the planted branch`s remote kept; port-b707 undeleted at its tip; the command bank`s count',
+    ('G-DELETES-ONE-BRANCH', '(⟪RUL⟫)(3), (7): the command capture`s branch deletes, each one branch, no glob, no variable, nothing chained after; the five step-zero deletes of the push-b765-* branches by the tool`s delete route, and push-b765-planted removed after [K22] at the kernel`s remote by the rdelete route and in its clone by the delete route (the worklist`s KERNEL_DELETES, none refused), each allowed by the ruling`s own delete clause read through tools/standing/allow.py; port-b707 undeleted at its tip; push-b766-proof kept; the command bank`s count',
 #⟪END⟫
 # ### b759, before the lock: b758's override of the plant (plant_every_kept, after b758's lock on the author's word) retired -- v1.36.4
 # ### (relay 4622b017, (R369)(4)(ii)) gave tools/standing/allow.py's plant_kept the reading of every covering clause, so the template's
@@ -507,8 +522,8 @@ def _rdeletes(S):
 # ### Component 6 (the Edit tool, defect (n)): the plan's pass read where it stands, b752's [P1] (relay data/b752_attribution_plan.txt; data/
 # ### b752_closing.txt :182), where the carries shifted its act name to b753 (b754's closing :2407) and here to b754, a bank absent from the tree
 #⟪OVERRIDE closing MARK 92495058e2fb 2⟫
-    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-RUNNER-CACHE DISCHARGED by [C5], W-ORD-PREMISE-POSITIONS READ by [Q1], W-ORD-H2-PI1 CARRIED by [H4], W-ORD-DETECTION-DUAL and W-ORD-ROUTE-DE-EQUIV given their triggers by [T1] and [T2] ((R376)(4)-(9), the author`s words);',
-    '        W-ORD-LI-ARITH by [S1], [S2] and [W1]; none entered or retired by the seat; the orders before this act as they stand.',
+    '    (b) The open orders: the trail`s open-orders line written from tools/standing/orders.py`s output, none carried by hand; W-ORD-LI-ARITH carried by [P2] in part, [F1] and [F2] entered; W-ORD-WINDOW-CERTIFY by [E1]; W-ORD-MAP-MERGE entered by [M4]; eleven premise orders retired by [Q2]; W-ORD-RUNNER-CACHE as [C5] left it, [H5] read, no [C7] ((R376)(4)-(6), the author`s words);',
+    '        none entered or retired by the seat; the orders before this act as they stand.',
 #⟪END⟫
 # ### b754, Component 4's probe: G-LISTINGS-BEFORE-CLAUSES read no listing -- step zero ran `git -C D:/relay branch -v --merged main --list`
 # ### (12:2xZ, before the first delete), and the needle `branch\s+--merged` takes no flag between the two words; widened to flags before --merged
