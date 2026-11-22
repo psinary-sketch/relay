@@ -19,7 +19,9 @@ THE ITEMS, each with the needle of its clause in the ferry bank (one line), its 
   repeat     (4) THE DISPATCHES AND THE CAP: the one repeat of a build stopped under the hold (exit 143), at the stopped build's commit, its
              input and its branch
 THE CAP ((R376)(4), (8), N1): 20 (the worklist's MAX_DISPATCHES): at most 18 with the restore on, the closing one from source and one
-repeat; each price row's upper figure besides; one run read before the next is sent.
+repeat; each price row's upper figure besides, the seat's estimate and its guard, a row the author raised read at the raised figure
+(ROW_RAISES: (4)(d) K values 6, the author's word of 2026-11-22, data/b766_author_words_preseal.txt :23); one run read before the next is
+sent.
 THE RESTORE'S KIND ([H5], the author's word of 2026-11-22): exact (a restore line of true, a key restored), prefix (a line of false, a key
 restored by the prefix) or none (no key restored), recorded beside each run with the line itself.
 THE LEAN NAMES NO FREQUENCY ((R376)(4)(c)): before each dispatch the files under SIDEExplicitFormula/Window/ at the commit are read for a
@@ -83,6 +85,11 @@ WORKFLOW = 'build-module.yml'
 BRANCH = K.WEIL_BRANCH[0]  # ### push-b766-proof, (R376)(4)
 WF = '.github/workflows/build-module.yml'
 ON_CAP = 18                # ### (R376)(4), (8): at most eighteen with the restore on, the closing one from source and the repeat beside them
+# ### the author's word of 2026-11-22 (data/b766_author_words_preseal.txt :23, the question data/b766_put_1.json): the row (4)(d) K values
+# ### raised to 6 dispatches, its priced upper 3 spent by dispatches 3, 4 and 5; the 18 with the restore on (ON_CAP), the 20 (the
+# ### worklist's MAX_DISPATCHES) and the 24-hour ceiling stand; the overrun printed beside the row's price in the report; L6 (c) not
+# ### compiled within the 6 is carried by name to [P2] and the seat asks before a further raise
+ROW_RAISES = {'(4)(d) K values': 6}
 STOPPED = 'STOPPED UNDER THE HOLD'
 ACT_NS = 'SIDEExplicitFormula.Window.'   # ### the namespace of every declaration this act writes
 LEAN_DIR = 'SIDEExplicitFormula/Window/'
@@ -116,10 +123,12 @@ def price_rows():
     return dict((r['key'], r) for r in json.load(io.open(PRICE, encoding='utf-8'))['rows'])
 
 
-def row_caps(pr=None):
-    """{price row: its upper dispatch figure} for the rows the items name, read from data/b766_price.json."""
+def row_caps(pr=None, raises=None):
+    """{price row: its upper dispatch figure} for the rows the items name, read from data/b766_price.json; a row the author raised
+    (ROW_RAISES, or `raises` given) at the raised figure. raises={} reads the rows as priced."""
     pr = pr or price_rows()
-    return dict((v[1], int(pr[v[1]]['dispatches'][1])) for v in ITEMS.values() if v[1])
+    raises = ROW_RAISES if raises is None else raises
+    return dict((v[1], int(raises.get(v[1], pr[v[1]]['dispatches'][1]))) for v in ITEMS.values() if v[1])
 
 
 def git(repo, *a):
@@ -735,14 +744,18 @@ def controls():
     s = axioms_read("'a' depends on axioms: [propext, sorryAx]\n'b' does not depend on any axioms", ['a', 'b', 'c'])
     c('a planted sorryAx line and a target with no line', 'outside %s ; missing %s ; sorryAx %s' % (sorted(s['outside']), s['missing'], s['sorryAx']),
       list(s['outside']) == ['a'] and s['missing'] == ['c'] and s['sorryAx'] and s['within'] == 1)
-    caps = row_caps()
-    want_caps = {'(4)(b)': 2, '(4)(c) theorems': 3, '(4)(d) K values': 3, '(4)(d) pole term': 1, '(4)(d) archimedean': 2, '(4)(d) enclosures': 2,
-                 '(4)(d) inequality': 2, '(4)(d) closing': 1, '(4) closing build': 2}
-    c('each price row`s cap, its upper dispatch figure (data/b766_price.json)', caps, caps == want_caps)
-    on_sum = sum(caps[ITEMS[i][1]] for i in ON_ITEMS)
+    caps, priced = row_caps(), row_caps(raises={})
+    want_priced = {'(4)(b)': 2, '(4)(c) theorems': 3, '(4)(d) K values': 3, '(4)(d) pole term': 1, '(4)(d) archimedean': 2, '(4)(d) enclosures': 2,
+                   '(4)(d) inequality': 2, '(4)(d) closing': 1, '(4) closing build': 2}
+    want_caps = dict(want_priced, **{'(4)(d) K values': 6})
+    c('each price row`s upper dispatch figure as priced (data/b766_price.json)', priced, priced == want_priced)
+    c('each row`s cap with the author`s raise of 2026-11-22 (ROW_RAISES): (4)(d) K values 6, every other row at its priced figure', caps,
+      caps == want_caps and ROW_RAISES == {'(4)(d) K values': 6})
+    on_sum, on_priced = sum(caps[ITEMS[i][1]] for i in ON_ITEMS), sum(priced[ITEMS[i][1]] for i in ON_ITEMS)
     c('the kernel`s cap (the worklist`s MAX_DISPATCHES) against the rows` upper figures, the restore-on rows` sum against the eighteen of (4): '
-      'the price rows 18 and 16, held by the 20 and the eighteen', (K.MAX_DISPATCHES, sum(caps.values()), on_sum, ON_CAP),
-      K.MAX_DISPATCHES == 20 and sum(caps.values()) == 18 and on_sum == 16 and ON_CAP == 18)
+      'the price rows as priced 18 and 16, held by the 20 and the eighteen; with the raise 21 and 19, the 20 and the eighteen standing and '
+      'refusing in the tool', (K.MAX_DISPATCHES, sum(priced.values()), on_priced, sum(caps.values()), on_sum, ON_CAP),
+      K.MAX_DISPATCHES == 20 and sum(priced.values()) == 18 and on_priced == 16 and sum(caps.values()) == 21 and on_sum == 19 and ON_CAP == 18)
     good, dk = (5000, _now()), {'C:/': 20000, 'D:/': 20000}
     A, B = 'a' * 40, 'b' * 40
     lean_ok = dict(lean=[])
@@ -756,6 +769,9 @@ def controls():
     eighteen = []
     for i in range(18):
         eighteen += [D_(i + 1, 'd-k', 100 + i), R_(100 + i, 'd-k')]
+    # ### the act's own series to dispatch 5 ((4)(b), (4)(c), then three of (4)(d) K values), and one with six of K values
+    series5 = b1 + [D_(2, 'c', 12), R_(12, 'c')] + [x for i in range(3) for x in (D_(3 + i, 'd-k', 13 + i), R_(13 + i, 'd-k'))]
+    series8 = b1 + [D_(2, 'c', 12), R_(12, 'c')] + [x for i in range(6) for x in (D_(3 + i, 'd-k', 13 + i), R_(13 + i, 'd-k'))]
     plants = [('form', 1, A, [], good, dk, None, lean_ok),
               ('b', 1, A, [], (2000, _now()), dk, None, lean_ok),
               ('b', 1, A, [], good, {'C:/': 4000, 'D:/': 20000}, None, lean_ok),
@@ -775,20 +791,26 @@ def controls():
                good, dk, None, lean_ok),
               ('d-closing', 2, A, [D_(1, 'd-closing', 11), R_(11, 'd-closing')], good, dk, None, lean_ok),
               ('b', 1, A, [], good, dk, None, dict(lean=[('SIDEExplicitFormula/Window/X.lean', 'a decimal literal (1)')])),
-              ('b', 1, A, [], good, dk, None, {})]
+              ('b', 1, A, [], good, dk, None, {}),
+              ('d-k', 9, A, series8, good, dk, None, lean_ok),
+              ('d-k', 6, A, series5, good, dk, want_priced, lean_ok)]
     got = [dispatch_refusal(p[0], p[1], p[2], p[3], p[4], p[5], caps=p[6] or want_caps, ctx=p[7]) for p in plants]
-    c('eighteen planted dispatches refused (an item (R376)(4) does not order, under the hold, under the floor, past 20, out of series, rowed '
+    c('twenty planted dispatches refused (an item (R376)(4) does not order, under the hold, under the floor, past 20, out of series, rowed '
       'already, the last run unread, the closing before a restore-on build exiting 0, the closing at another commit than that build, (4)(b)`s '
       'third, the nineteenth with the restore on, a repeat of a build not stopped, a second repeat, an item after the closing, a repeat at '
-      'another commit, (4)(d)`s closing twice, a Lean file with a decimal literal, the Lean text not read)', [bool(x) for x in got], all(got))
+      'another commit, (4)(d)`s closing twice, a Lean file with a decimal literal, the Lean text not read, (4)(d) K values` seventh at the '
+      'raised 6, its fourth at the priced 3)', [bool(x) for x in got], all(got))
     passes = [dispatch_refusal('b', 1, A, [], good, dk, caps=want_caps, ctx=lean_ok),
               dispatch_refusal('c', 2, A, b1, good, dk, caps=want_caps, ctx=lean_ok),
               dispatch_refusal('closing', 2, A, b1, good, dk, caps=want_caps, ctx=lean_ok),
               dispatch_refusal('repeat', 3, A, b1 + [D_(2, 'closing', 12, restore='off'), R_(12, 'closing', restore='off', verdict=STOPPED, ex='143')],
                                good, dk, caps=want_caps, ctx={}),
-              dispatch_refusal('repeat', 2, A, [D_(1, 'c', 11), R_(11, 'c', verdict=STOPPED, ex='143')], good, dk, caps=want_caps, ctx={})]
-    c('five planted dispatches taken ((4)(b) first ; (4)(c) after it ; the closing after the restore-on build at its commit ; the repeat of a '
-      'stopped closing build ; the repeat of a stopped step build)', passes, passes == [None] * 5)
+              dispatch_refusal('repeat', 2, A, [D_(1, 'c', 11), R_(11, 'c', verdict=STOPPED, ex='143')], good, dk, caps=want_caps, ctx={}),
+              dispatch_refusal('d-k', 6, A, series5, good, dk, caps=want_caps, ctx=lean_ok),
+              dispatch_refusal('d-k', 6, A, series5, good, dk, ctx=lean_ok)]
+    c('seven planted dispatches taken ((4)(b) first ; (4)(c) after it ; the closing after the restore-on build at its commit ; the repeat of a '
+      'stopped closing build ; the repeat of a stopped step build ; the act`s dispatch 6, (4)(d) K values` fourth, at the raised 6, by the '
+      'planted caps and by the tool`s own read of the price bank)', passes, passes == [None] * 7)
     lic = {}
     for nd, want_line in ((N4B, 19), (N4C, 20), (N4D, 21), (N4CAP, 22), (N4MAIN, 23)):
         try:
