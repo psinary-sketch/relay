@@ -23,17 +23,27 @@ one that differs DIFFERS, a file of no row EXTRA.
   python -X utf8 -u tools/project_set.py create              the repository made private under the account where it is absent, read back
   python -X utf8 -u tools/project_set.py clone               the empty repository cloned to CLONE, outside every repository, its HEAD the
                                                              act's branch push-<act>-set, its core.autocrlf false
-  python -X utf8 -u tools/project_set.py mirror <tag>        tools/mirror_build.ps1 -DateTag <tag>, unedited, refused unless PLACE-papers'
-                                                             HEAD is its remote's main
-  python -X utf8 -u tools/project_set.py verify <tag>        tools/mirror_verify.py over that export, run from PLACE-papers (clause 2's cwd)
-  python -X utf8 -u tools/project_set.py write <tag>         the set from the export read CLEAN written into the empty clone, compared, a
-                                                             planted byte read in a copy, then staged (one git write)
-  python -X utf8 -u tools/project_set.py commit <tag>        the clone's commit, its message naming the two source commits (one git write)
-  python -X utf8 -u tools/project_set.py readback <tag>      after `bash tools/push_gated.sh <clone> push-<act>-set`: the remote's main read
+  python -X utf8 -u tools/project_set.py mirror              REFUSED from b766 ((R376)(7) [K24]): the set is built from the close's own export
+  python -X utf8 -u tools/project_set.py branch              the clone's branch push-<act>-set made at its HEAD, refused unless that HEAD is
+                                                             the remote's main and the clone stands clean (one git write in the clone)
+  python -X utf8 -u tools/project_set.py write               the set from the close's own export (close_export) written over the clone, the
+                                                             files of no row removed, compared, a planted byte read in a copy, then staged
+                                                             (one git write); the index read whole against the set by name and md5
+  python -X utf8 -u tools/project_set.py commit              the clone's commit, its message naming the two source commits (one git write)
+  python -X utf8 -u tools/project_set.py readback            after `bash tools/push_gated.sh <clone> push-<act>-set`: the remote's main read
                                                              against the commit, each blob of its tree against the set, the repository read
                                                              private; data/<act>_project_set_build.txt rendered
-The routes create and clone write data/<act>_project_set_repo.json; mirror, verify, write, commit and readback write
-data/<act>_project_set_build.json; verify banks the verifier's print as data/<act>_project_set_verify.txt.
+The routes create and clone write data/<act>_project_set_repo.json; branch, write, commit and readback write data/<act>_project_set_build.json.
+
+v1.38.24, (R376)(7) [K24], data/b765_misses.txt (9), b765 post-seal rows (87)-(88): THE BUILD IN THE CLOSE'S ORDER. b765 built from an
+export its own mirror route made under a tag of its own, before the root, and its banks stood outside a commit when the root read them. From
+b766 the build is the close's step [23a] (tools/standing/act.py STEP_23A), after the mirror [23] and from that step's export, the one that
+carries the root line: close_export reads data/<act>_mirror.json (the record tool's mbank, written after mroot appended the root line) and
+refuses a bank absent, a root line not the act's, a verification not CLEAN or a MANIFEST control not AS WANTED, and an export whose sha256 is
+not the bank's; the mirror route builds nothing, and the verifier's run is the close's own (data/<act>_mirror_verify.txt, read CLEAN in the
+mirror bank). The builder's banks are committed by the closing commit [25] with the mirror's (tools/standing/commit.py close_left_out). From
+this act the set is built at each close, over the clone the last build left: the act's branch made at the remote's main, the files of no
+row removed, the set written over.
 """
 import hashlib
 import json
@@ -73,7 +83,7 @@ SECOND = re.compile(r'^Second source: the relay at commit ([0-9a-f]{7,40}) \(its
 PROFILE = re.compile(r'[A-Za-z]:[\\/]+Users[\\/]+[^\\/\s\'"]+', re.I)
 CUT_NAMES = ('FINDINGS_CUT.md', 'OPEN_TRAILS_CUT.md')
 LEFT_OUT = ('FINDINGS.md',)   # rule (16): the cut in its place
-BUILD_ROUTES = ('mirror', 'verify', 'write', 'commit', 'readback')
+BUILD_ROUTES = ('mirror', 'branch', 'write', 'commit', 'readback')   # ### v1.38.24, [K24]: each takes no tag; the export is the close's
 
 
 def act():
@@ -157,6 +167,34 @@ def zip_of(tag):
 
 def cuts_of(zpath):
     return zpath[:-4] + '-cuts'
+
+
+def close_export(act_=None, data=None, exports=None):
+    """v1.38.24, (R376)(7) [K24]: the close's own export, the one step [23] banked -- (zpath, the mirror bank's record). Read from
+    data/<act>_mirror.json, which the record tool's mbank writes after mroot has appended the root line; refused where that bank is absent,
+    where its root line is not the act's, where the close's verification is not CLEAN or its MANIFEST control not AS WANTED, where the export
+    it names is absent, or where the export's sha256 is not the bank's (another export, or the export changed after its bank). `data` and
+    `exports` name the folders for a control; nothing is written."""
+    act_ = act_ or act()
+    p = os.path.join(data or D, '%s_mirror.json' % act_)
+    head = '### (R376)(7) [K24]: THE SET IS BUILT FROM THE CLOSE`S OWN EXPORT, AFTER STEP [23] -- '
+    if not os.path.isfile(p):
+        raise SystemExit(head + 'NO MIRROR BANK data/%s_mirror.json; NOTHING DONE' % act_)
+    with open(p, encoding='utf-8') as f:
+        rec = json.load(f)
+    if not (rec.get('root_line') or '').startswith('Act root: %s ' % act_):
+        raise SystemExit(head + 'THE MIRROR BANK`S ROOT LINE IS NOT %s`S (%r); NOTHING DONE' % (act_, (rec.get('root_line') or 'NONE')[:24]))
+    if not (rec.get('clean') is True and rec.get('manifest_ok') is True):
+        raise SystemExit(head + 'THE CLOSE`S EXPORT NOT READ CLEAN (verification %s, MANIFEST control %s); NOTHING DONE' % (
+            rec.get('clean'), rec.get('manifest_ok')))
+    zpath = '%s/%s' % (exports or EXPORTS, rec.get('zip') or '')
+    if not rec.get('zip') or not os.path.isfile(zpath):
+        raise SystemExit(head + 'THE EXPORT THE MIRROR BANK NAMES (%s) IS NOT FOUND; NOTHING DONE' % rec.get('zip'))
+    with open(zpath, 'rb') as fh:
+        sha = hashlib.sha256(fh.read()).hexdigest()
+    if sha != rec.get('zip_sha256'):
+        raise SystemExit(head + 'THE EXPORT`S sha256 %s IS NOT THE MIRROR BANK`S %s; NOTHING DONE' % (sha[:16], (rec.get('zip_sha256') or 'NONE')[:16]))
+    return zpath, rec
 
 
 def in_repository(p):
@@ -428,90 +466,113 @@ def clone(*a):
     return 0 if ok else 1
 
 
-def mirror(tag):
+def mirror(*a):
+    """v1.38.24, (R376)(7) [K24]: refused. b765's route ran the export builder under a date tag of its own; the set is built from the
+    close's own export, the one step [23] banked with the root line."""
+    raise SystemExit('### (R376)(7) [K24]: THE SET IS BUILT FROM THE CLOSE`S OWN EXPORT, THE ONE STEP [23] BANKED WITH THE ROOT LINE '
+                     '(data/<act>_mirror.json), AND NOT FROM AN EXPORT OF ITS OWN -- NOTHING BUILT; the build`s routes: branch, write, commit, '
+                     'the gated push, readback')
+
+
+def index_names():
+    return sorted(x for x in git(CLONE, 'ls-files')[1].replace('\r', '').split(NL) if x)
+
+
+def index_blobs(items):
+    """each file of the set read from the clone's index (`git show :<flat>`) against its want by md5 and bytes: [(flat, state)]."""
+    out = []
+    for it in items:
+        r = subprocess.run(['git', '-C', CLONE, 'show', ':%s' % it['flat']], capture_output=True)
+        b = r.stdout if r.returncode == 0 else None
+        out.append((it['flat'], 'MISSING' if b is None else ('EQUAL' if (md5(b) == it['md5'] and len(b) == it['bytes']) else 'DIFFERS')))
+    return out
+
+
+def branch_route(*a):
+    """v1.38.24, [K24]: the clone's branch push-<act>-set, made at the clone's HEAD where that HEAD is the remote's main (the last build's
+    commit, read by ls-remote) and the clone stands clean; one git write in the clone."""
     committed()
-    zpath = zip_of(tag)
-    stage = os.path.join(os.environ.get('TEMP', ''), 'mirror-build-%s' % tag)
-    if os.path.exists(zpath) or os.path.exists(cuts_of(zpath)) or os.path.exists(stage):
-        raise SystemExit('### THE EXPORT, ITS CUTS OR ITS STAGE STANDS FOR THE TAG %s -- NOT BUILT' % tag)
-    loc = A.gs('pp', 'rev-parse', 'HEAD') or ''
-    rc0, out0, _e0 = git(PP, 'ls-remote', 'origin', 'refs/heads/main')
-    rem = (out0.split() or [''])[0]
-    if not loc or loc != rem:
-        raise SystemExit('### PLACE-papers HEAD %s IS NOT ITS REMOTE`S MAIN %s -- NOT BUILT (clause 2 would read the export stale)' % (loc[:8], rem[:8]))
-    t0 = time.time()
-    rc, out, err = run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', os.path.join(T, 'mirror_build.ps1'), '-DateTag', tag])
     B = jl(build_bank())
-    B['mirror'] = dict(at=utc(), tag=tag, rc=rc, seconds=int(time.time() - t0), pp_head=loc, export=os.path.basename(zpath),
-                       out=mask(out).replace('\r', '').split(NL), err=mask(err).replace('\r', '').split(NL))
+    if not os.path.isdir(os.path.join(CLONE, '.git')):
+        raise SystemExit('### NO CLONE AT %s -- NO BRANCH MADE' % CLONE)
+    head = git(CLONE, 'symbolic-ref', '--short', 'HEAD')[1].strip()
+    loc = git(CLONE, 'rev-parse', 'HEAD')[1].strip()
+    rc0, out0, _e0 = git(CLONE, 'ls-remote', 'origin', 'refs/heads/main')
+    remote = (out0.split() or [''])[0]
+    dirty = [x for x in git(CLONE, 'status', '--porcelain')[1].replace('\r', '').split(NL) if x]
+    if head == branch():
+        raise SystemExit('### THE CLONE STANDS ON %s ALREADY -- NO BRANCH MADE' % head)
+    if not loc or loc != remote or dirty:
+        raise SystemExit('### THE CLONE`S HEAD %s IS NOT THE REMOTE`S MAIN %s, OR THE CLONE IS NOT CLEAN (%d) -- NO BRANCH MADE' % (
+            loc[:8], remote[:8], len(dirty)))
+    rc, out, err = git(CLONE, 'checkout', '-q', '-b', branch())
+    after = git(CLONE, 'symbolic-ref', '--short', 'HEAD')[1].strip()
+    at = git(CLONE, 'rev-parse', 'HEAD')[1].strip()
+    ok = rc == 0 and after == branch() and at == remote
+    B['branch'] = dict(at=utc(), from_branch=head, base=loc, remote_main=remote, rc=rc, head_after=after, as_wanted=ok)
     put(build_bank(), B)
-    for line in mask(out).replace('\r', '').split(NL)[-8:]:
-        print('  ' + line)
-    print('  exit %d ; %d s ; PLACE-papers %s, its remote main equal' % (rc, B['mirror']['seconds'], loc[:8]))
+    print('  from %s at %s, the remote`s main %s ; checkout -b %s exit %d ; HEAD now %s at %s ; %s' % (
+        head, loc[:8], remote[:8], branch(), rc, after, at[:8], 'AS WANTED' if ok else '### NOT AS WANTED'))
     print('written', 'data/%s' % build_bank())
-    return 0 if rc == 0 and os.path.isfile(zpath) else 1
+    return 0 if ok else 1
 
 
-def verify(tag):
+def write(*a):
     committed()
-    zpath = zip_of(tag)
-    if not os.path.isfile(zpath):
-        raise SystemExit('### NO EXPORT FOR THE TAG %s -- NOTHING VERIFIED' % tag)
-    env = dict(os.environ, PYTHONIOENCODING='utf-8')
-    rc, out, err = run([sys.executable, os.path.join(T, 'mirror_verify.py'), zpath, 'origin', 'main'], cwd=PP, env=env)
-    clean = CLEAN in out
-    L = ['%s -- THE EXPORT FOR THE PROJECT`S REPOSITORY VERIFIED BY tools/mirror_verify.py, run from PLACE-papers, its print verbatim (%s)' % (act(), utc()),
-         '### the export: %s' % os.path.basename(zpath), ''] + mask(out + err).replace('\r', '').split(NL) + ['### exit %d' % rc]
-    put('%s_project_set_verify.txt' % act(), text=L)
+    zpath, mrec = close_export()   # ### v1.38.24, [K24]: the close's own export, read CLEAN by the close's verification
     B = jl(build_bank())
-    B['verify'] = dict(at=utc(), rc=rc, export=os.path.basename(zpath), clean=clean)
-    put(build_bank(), B)
-    print('  %s ; exit %d' % (CLEAN if clean else '### NOT CLEAN', rc))
-    print('written', 'data/%s_project_set_verify.txt' % act(), 'and', 'data/%s' % build_bank())
-    return 0 if clean else 1
-
-
-def write(tag):
-    committed()
-    zpath = zip_of(tag)
-    B = jl(build_bank())
-    v = B.get('verify') or {}
-    if not (v.get('clean') and v.get('export') == os.path.basename(zpath)):
-        raise SystemExit('### THE EXPORT %s IS NOT READ CLEAN BY THE verify ROUTE -- NOTHING WRITTEN' % os.path.basename(zpath))
     if B.get('write'):
         raise SystemExit('### THE SET IS WRITTEN ALREADY (the bank`s write) -- NOTHING WRITTEN')
+    if not (B.get('branch') or {}).get('as_wanted'):
+        raise SystemExit('### THE ACT`S BRANCH NOT READ MADE BY THE branch ROUTE -- NOTHING WRITTEN')
     if not os.path.isdir(os.path.join(CLONE, '.git')):
         raise SystemExit('### NO CLONE AT %s -- NOTHING WRITTEN' % CLONE)
     head = git(CLONE, 'symbolic-ref', '--short', 'HEAD')[1].strip()
     crlf = git(CLONE, 'config', 'core.autocrlf')[1].strip()
-    held = sorted(set(os.listdir(CLONE)) - {'.git'})
-    if head != branch() or crlf != 'false' or held:
-        raise SystemExit('### THE CLONE IS NOT AS THE clone ROUTE LEFT IT (HEAD %s, core.autocrlf %s, files %d) -- NOTHING WRITTEN' % (head, crlf, len(held)))
+    dirty = [x for x in git(CLONE, 'status', '--porcelain')[1].replace('\r', '').split(NL) if x]
+    if head != branch() or crlf != 'false' or dirty:
+        raise SystemExit('### THE CLONE IS NOT AS THE branch ROUTE LEFT IT (HEAD %s, core.autocrlf %s, changes %d) -- NOTHING WRITTEN' % (head, crlf, len(dirty)))
     items, meta = plan(zpath, act())
+    flats = sorted(it['flat'] for it in items)
+    held = index_names()
+    if any('/' in x or x.startswith('.') for x in held):
+        raise SystemExit('### THE CLONE`S INDEX HOLDS A NAME NOT FLAT (%s) -- NOTHING WRITTEN' % [x for x in held if '/' in x or x.startswith('.')][:3])
+    gone = sorted(set(held) - set(flats))
+    for x in gone:
+        os.remove(os.path.join(CLONE, x))
     write_set(CLONE, items, zpath)
     c = compare(CLONE, items)
     t = tally(c)
     victim, pt, pok = planted(CLONE, items)
     ok = t == {'EQUAL': len(items)} and pok
-    rec = dict(at=utc(), meta=meta, items=[dict((k, it[k]) for k in ('flat', 'path', 'bytes', 'md5', 'against')) for it in items],
-               states=c, tally=t, planted=dict(victim=victim, tally=pt, as_wanted=pok))
+    rec = dict(at=utc(), meta=meta, export=dict(zip=os.path.basename(zpath), sha256=mrec.get('zip_sha256'), root_line=mrec.get('root_line'),
+                                                bank='data/%s_mirror.json' % act(), step='[23]'),
+               items=[dict((k, it[k]) for k in ('flat', 'path', 'bytes', 'md5', 'against')) for it in items],
+               removed=gone, states=c, tally=t, planted=dict(victim=victim, tally=pt, as_wanted=pok))
     if not ok:
         B['write_refused'] = rec
         put(build_bank(), B)
         raise SystemExit('### THE SET AS WRITTEN IS NOT AS WANTED (%s ; the planted byte %s) -- NOTHING STAGED; the files stand in the clone, unstaged' % (t, pok))
     rc, out, err = git(CLONE, 'add', '-A')
-    staged = sorted(x for x in git(CLONE, 'diff', '--cached', '--name-only')[1].replace('\r', '').split(NL) if x)
-    rec.update(add_rc=rc, staged=staged, staged_equal=(staged == sorted(it['flat'] for it in items)))
+    staged = index_names()
+    blobs = index_blobs(items)
+    changed = [x for x in git(CLONE, 'diff', '--cached', '--name-status')[1].replace('\r', '').split(NL) if x]
+    rec.update(add_rc=rc, staged=staged, index_blobs=tally(blobs), changed=changed,
+               staged_equal=(staged == flats and all(s == 'EQUAL' for _f, s in blobs)))
     B['write'] = rec
     put(build_bank(), B)
-    print('  the export %s (sha256 %s) from PLACE-papers %s and the relay %s' % (meta['export'], meta['export_sha256'][:16], meta['pp'][:8], (meta['relay'] or '-')[:8]))
-    print('  the set: %d files ; compared %s ; the planted byte in the copy of %s %s' % (len(items), t, victim, 'DIFFERS, AS WANTED' if pok else '### NOT AS WANTED'))
-    print('  staged %d ; equal to the set %s ; add exit %d' % (len(staged), rec['staged_equal'], rc))
+    print('  the close`s export %s (sha256 %s, data/%s_mirror.json), its root line %s' % (meta['export'], meta['export_sha256'][:16], act(),
+                                                                                        (mrec.get('root_line') or '')[:24]))
+    print('  from PLACE-papers %s and the relay %s' % (meta['pp'][:8], (meta['relay'] or '-')[:8]))
+    print('  the set: %d files ; removed %d (%s) ; compared %s ; the planted byte in the copy of %s %s' % (
+        len(items), len(gone), ', '.join(gone) or 'none', t, victim, 'DIFFERS, AS WANTED' if pok else '### NOT AS WANTED'))
+    print('  the index %d names, equal to the set %s ; its blobs %s ; changed %d ; add exit %d' % (
+        len(staged), staged == flats, tally(blobs), len(changed), rc))
     print('written', 'data/%s' % build_bank())
     return 0 if rc == 0 and rec['staged_equal'] else 1
 
 
-def commit(tag):
+def commit(*a):
     committed()
     B = jl(build_bank())
     w = B.get('write') or {}
@@ -519,9 +580,8 @@ def commit(tag):
         raise SystemExit('### THE SET IS NOT READ STAGED BY THE write ROUTE -- NOT COMMITTED')
     if B.get('commit'):
         raise SystemExit('### THE CLONE`S COMMIT IS MADE ALREADY (the bank`s commit) -- NOT COMMITTED')
-    staged = sorted(x for x in git(CLONE, 'diff', '--cached', '--name-only')[1].replace('\r', '').split(NL) if x)
-    if staged != sorted(it['flat'] for it in w['items']):
-        raise SystemExit('### THE STAGED SET IS NOT THE SET -- NOT COMMITTED')
+    if index_names() != sorted(it['flat'] for it in w['items']) or not all(s == 'EQUAL' for _f, s in index_blobs(w['items'])):
+        raise SystemExit('### THE INDEX IS NOT THE SET, BY NAME OR BY md5 -- NOT COMMITTED')
     em = git(CLONE, 'config', 'user.email')[1].strip()
     if not em.endswith(NOREPLY):
         raise SystemExit('### THE COMMIT IDENTITY IS NOT A NOREPLY ADDRESS -- NOT COMMITTED')
@@ -540,7 +600,7 @@ def commit(tag):
     return 0 if rc == 0 and subj == msg else 1
 
 
-def readback(tag):
+def readback(*a):
     committed()
     o = owner()
     B = jl(build_bank())
@@ -564,13 +624,16 @@ def readback(tag):
                          tree_files=len(names), blobs=tally(blobs), extra=extra, as_wanted=ok)
     put(build_bank(), B)
     meta = w['meta']
+    ex = w.get('export') or {}
     st = dict(blobs)
-    L = ['%s -- THE PROJECT`S MIRROR REPOSITORY BUILT ((R375)(7)), by tools/project_set.py, each route`s record in data/%s (%s)' % (act(), build_bank(), utc()),
+    L = ['%s -- THE PROJECT`S MIRROR REPOSITORY BUILT AT THE CLOSE`S STEP [23a] ((R376)(7) [K24]), by tools/project_set.py, each route`s record in '
+         'data/%s (%s)' % (act(), build_bank(), utc()),
          '',
          '### THE REPOSITORY: <account>/%s, %s (read by the host`s tool) ; its clone %s, outside every repository of the record' % (NAME, v.get('visibility'), CLONE),
-         '### THE EXPORT: %s, sha256 %s, built under the tag %s (exit %s) and verified %s' % (
-             meta['export'], meta['export_sha256'][:16], (B.get('mirror') or {}).get('tag'), (B.get('mirror') or {}).get('rc'),
-             'CLEAN ON ALL THREE CLAUSES' if (B.get('verify') or {}).get('clean') else '### NOT CLEAN'),
+         '### THE EXPORT: %s, sha256 %s, the close`s own of step [23] (%s), its root line %r, read CLEAN ON ALL THREE CLAUSES by the close`s '
+         'verification (data/%s_mirror_verify.txt) ; the branch %s made at the remote`s main %s' % (
+             meta['export'], meta['export_sha256'][:16], ex.get('bank'), (ex.get('root_line') or 'NONE')[:24], act(),
+             (B.get('branch') or {}).get('head_after'), ((B.get('branch') or {}).get('remote_main') or '-')[:8]),
          '### THE SOURCES: PLACE-papers %s ; the relay %s (the export`s second source, its HEAD at the build)' % (meta['pp'][:8], (meta['relay'] or '-')[:8]),
          '### THE SET: %d files -- by the MANIFEST`s rows %d, md5 and bytes ; the cuts %d, by bytes to the MANIFEST`s project rows and by md5 to the cut '
          'rebuilt at the source head ; the MANIFEST 1, the export`s own ; left out by rule (16): %s' % (
@@ -591,14 +654,14 @@ def readback(tag):
     return 0 if ok else 1
 
 
-ROUTES = dict(control=control, create=create, clone=clone, mirror=mirror, verify=verify, write=write, commit=commit, readback=readback)
+ROUTES = dict(control=control, create=create, clone=clone, mirror=mirror, branch=branch_route, write=write, commit=commit, readback=readback)
 
 
 def main(argv):
     if not argv or argv[0] not in ROUTES:
         sys.exit(__doc__)
-    if argv[0] in BUILD_ROUTES and len(argv) != 2:
-        sys.exit('### THE ROUTE %s TAKES ONE TAG' % argv[0])
+    if argv[0] in BUILD_ROUTES and len(argv) != 1:   # ### v1.38.24, [K24]: no tag; the export is the close's own (close_export)
+        sys.exit('### THE ROUTE %s TAKES NO TAG: THE EXPORT IS THE CLOSE`S OWN, READ FROM data/%s_mirror.json' % (argv[0], act()))
     return ROUTES[argv[0]](*argv[1:]) or 0
 
 

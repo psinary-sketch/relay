@@ -233,9 +233,40 @@ def postlock_place(act, seal_at, bank_text, staged):
     return True, 'the run of %s, at or after the seal record`s %s, its bank staged with the seal' % (after[-1], seal_at)
 
 
+# ### v1.38.24, (R376)(7) [K24], data/b765_misses.txt (9), b765 post-seal rows (87)-(88), data/b765_put_3.json: THE PROJECT SET'S BUILD IN
+# ### THE CLOSE'S ORDER. (R375)(7) set the build at the record commit; b765 built after PLACE-papers' pre-root push, from an export of its
+# ### own made by tools/project_set.py's mirror route, and its three banks, written after the relay's pre-root push, stood outside a commit
+# ### when root part 1 read them (150 of 153, READY False). The build takes step [23a]: after the mirror [23], from that step's export, the
+# ### one carrying the root line (tools/project_set.py close_export, read from data/<act>_mirror.json), so that the Project's repository
+# ### equals that export file for file by md5; its banks are committed with the mirror's by the closing commit [25], and the one-call tool
+# ### refuses any relay commit while one of them stands written and untracked (tools/standing/commit.py close_left_out). The standing
+# ### clauses' bank is not rewritten ((R376)(10)); [25] keeps its evidence and its number, so no lower-step reading moves.
+STEP_23A = ('23a', 'the Project set from [23]`s export, root line in it, banks committed at [25] ([K24]): `tools/project_set.py branch`, '
+                   '`write` and `commit`, the gated push of push-<act>-set, then `readback`; the repository equal to that export file for '
+                   'file by md5 ((R376)(7))', 'data/<act>_project_set_build.txt')
+STEP_25_WORDS = 'the closing and its push, captured, the commit carrying [23]`s and [23a]`s banks ([K24])'
+CLOSE_COMMITS = (19, 25)   # ### v1.38.24, [K24]: the relay's commits of the close after the root, the record commit and the closing commit
+
+
+def project_set_banks(act):
+    """v1.38.24, (R376)(7) [K24]: the banks tools/project_set.py and the gated push of push-<act>-set write (the build's json and its
+    rendering, the push's capture; the control's, the verifier's and the repository's banks where their routes run)."""
+    return tuple('data/%s_%s' % (act, n) for n in ('project_set_build.json', 'project_set_build.txt', 'project_set_verify.txt',
+                                                   'project_set_control.txt', 'project_set_repo.json',
+                                                   'PLACE-project-set_push-%s-set_push_out.txt' % act))
+
+
+def close_carried(act):
+    """v1.38.24, (R376)(7) [K24]: the banks the closing commit [25] carries -- the mirror's of [23] (the record tool's mbuild, mroot, mverify
+    and mbank, as b765's closing commit c90a62d7 carried them) and the Project set's of [23a]."""
+    return tuple('data/%s_%s' % (act, n) for n in ('mirror.txt', 'mirror.json', 'mirror_build.json', 'mirror_root.json',
+                                                   'mirror_verify.txt')) + project_set_banks(act)
+
+
 def close_order(text=None):
     """v1.38.0, (R374)(5) [K10]: the close order as the seat reads it -- tools/act_close.py close_steps_printed (v5 row (79), with [5a] and
-    [7a]), its step [21] taken from STEP_21. v1.38.10 ([K11]): step [8a], the post-lock address scan's place (STEP_8A), after [8]. [(n, words,
+    [7a]), its step [21] taken from STEP_21. v1.38.10 ([K11]): step [8a], the post-lock address scan's place (STEP_8A), after [8]. v1.38.24
+    ([K24]): step [23a], the Project set's build (STEP_23A), after [23], and [25]'s words naming the banks its commit carries. [(n, words,
     evidence)]; pure in the row's text."""
     import sys as _sys
     if T not in _sys.path:
@@ -243,10 +274,39 @@ def close_order(text=None):
     import act_close as _AC
     out = []
     for s in _AC.close_steps_printed(text):
-        out.append(STEP_21 if s[0] == 21 else s)
+        if s[0] == 21:
+            out.append(STEP_21)
+        elif s[0] == 25:
+            out.append((25, STEP_25_WORDS, s[2]))
+        else:
+            out.append(s)
         if s[0] == 8:
             out.append(STEP_8A)
+        if s[0] == 23:
+            out.append(STEP_23A)
     return out
+
+
+def close_dry(act, order=None):
+    """v1.38.24, (R376)(7) [K24]: a dry run of the close's order over the builder's banks; nothing run, nothing written. Each step taken in
+    its order: the step whose evidence is the build's bank (STEP_23A's) writes the three banks the build writes at every close (its json,
+    its rendering and the push's capture); the root [14] reads each bank written before it as outside a commit (root part 1 wants every
+    named bank clean and equal at HEAD, tools/standing/rootparts.py :104, :150); a relay commit step of CLOSE_COMMITS carries each bank
+    written before it. Returns dict(slot, carried_at, at_root, outside): the build's step, the commit step that first carries its banks, the
+    banks the root reads outside a commit and the banks no commit carries. Pure in `order` (the close order as printed where None)."""
+    order = close_order() if order is None else order
+    three = ('data/<act>_project_set_build.json', 'data/<act>_project_set_build.txt', 'data/<act>_PLACE-project-set_push-<act>-set_push_out.txt')
+    written, carried, at_root, slot, carried_at = [], set(), [], None, None
+    for k, _w, e in order:
+        if e == STEP_23A[2]:
+            slot = k
+            written += [b.replace('<act>', act) for b in three]
+        if k == 14:
+            at_root = [b for b in written if b not in carried]
+        if k in CLOSE_COMMITS and written and not carried >= set(written):
+            carried |= set(written)
+            carried_at = k if carried_at is None else carried_at
+    return dict(slot=slot, carried_at=carried_at, at_root=at_root, outside=[b for b in written if b not in carried])
 
 
 APPEND_HEAD = '## APPENDED BY %s AT %s: %d LINE(S); NO LINE ALREADY IN THE BANK REWRITTEN'

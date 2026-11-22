@@ -659,6 +659,18 @@ def scan_left_out(act, names, untracked):
     return ('THE SCAN LEFT OUT OF A COMMIT: %s written and untracked, not staged -- stage it in this commit (the add is its own message)' % ', '.join(left)) if left else None
 
 
+def close_left_out(banks, names, untracked):
+    """v1.38.24, (R376)(7) [K24], b765 post-seal row (88): None, or the refusal, for a relay commit staging `names` while a bank of the close's
+    mirror [23] or of the Project set's build [23a] (`banks`, standing.act.close_carried) stands written and untracked (`untracked`, the
+    relay's untracked paths) and is not staged. b765's builder's three banks, written after the relay's pre-root push, stood outside a commit
+    when its root read them; from b766 the build follows the mirror after the root, the closing commit [25] carries its banks with the
+    mirror's, and no relay commit leaves one behind. Pure."""
+    u, n = set(untracked or ()), set(names or ())
+    left = [b for b in banks or () if b in u and b not in n]
+    return ('THE CLOSE`S BANKS LEFT OUT OF A COMMIT ((R376)(7) [K24]): %s written and untracked, not staged -- the closing commit [25] carries '
+            'the mirror`s banks and the Project set`s together (the add is its own message)' % ', '.join(left)) if left else None
+
+
 def version_refusal(names, head_version, staged_version):
     """v1.34.0, (R364)(3)(vi), (R345)(2)(iv), b753 events (7), (8), (9): None, or the refusal, for a relay commit staging `names`: a path under
     tools/standing/ staged without tools/standing/VERSION staged with it and moved (its staged text not its HEAD text; a patch number
@@ -1233,7 +1245,8 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
             if bad:
                 raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)
-            bad = scan_left_out(act, names, [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p])
+            unt = [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p]
+            bad = scan_left_out(act, names, unt) or close_left_out(A.close_carried(act), names, unt)   # ### v1.38.24, (R376)(7) [K24]
             if bad:
                 raise Refused(bad)
         if phase == 'seal' and os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.38.10, (R374)(5) [K11]: the post-lock scan in its place, step [8a]
