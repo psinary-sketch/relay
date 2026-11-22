@@ -41,3 +41,27 @@ b766 -- THE PLANTED CONTROLS OF THE REPAIRS, (R376)(7), one section a key, each 
     AFTER: CLEAN
   (same)   the exit and the capture`s line count, BEFORE and AFTER: (10, 3) and (10, 3) -- EQUAL
 ### ### **[K23] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K24] THE PLANTED CONTROL (2026-11-22T08:51:11Z): BEFORE relay a2b0e378, THE REPAIR`S COMMIT relay 751b9e7a, its first parent a2b0e378 -- THE COMMIT BEFORE
+  BEFORE (relay a2b0e378, VERSION v1.38.23): the files tools/standing/act.py present, tools/standing/commit.py present, tools/project_set.py present, tools/act_close.py present, tools/standing/VERSION present
+    (order)  28 steps: 1 2 3 4 5 5a 6 7 7a 8 8a 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 ; the build`s slot NONE
+    (words)  [23a] 'ABSENT' ; [25] 'the closing and its push, captured'
+    (dry)    no dry run of the close`s order in the tools (close_dry absent)
+    (guard)  no refusal of a commit leaving the close`s banks behind (close_left_out absent)
+    (export) the builder reads no export of the close`s (close_export absent)
+    (mirror) the builder`s mirror route builds an export of its own (tools/mirror_build.ps1 in its body): True
+    BEFORE: THE FAULT READ
+  AFTER (relay 751b9e7a, VERSION v1.38.24): the files tools/standing/act.py present, tools/standing/commit.py present, tools/project_set.py present, tools/act_close.py present, tools/standing/VERSION present
+    (order)  29 steps: 1 2 3 4 5 5a 6 7 7a 8 8a 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 23a 24 25 ; the build`s slot ['23a']
+    (words)  [23a] 'the Project set from [23]`s export, root line in it, banks committed at [25] ([K24]): `too' ; [25] 'the closing and its push, captured, the commit carrying [23]`s and [23a]`s banks ([K24])'
+    (dry, the order as printed) slot 23a ; carried at 25 ; read by the root outside a commit 0  ; outside every commit 0 
+    (dry, PLANTED: the build before the root [14]) slot 23a ; carried at 19 ; read by the root outside a commit 3 ['data/b999_project_set_build.json', 'data/b999_project_set_build.txt', 'data/b999_PLACE-project-set_push-b999-set_push_out.txt'] ; outside every commit 0 
+    (dry, PLANTED: the order without [25]) slot 23a ; carried at None ; read by the root outside a commit 0  ; outside every commit 3 ['data/b999_project_set_build.json', 'data/b999_project_set_build.txt', 'data/b999_PLACE-project-set_push-b999-set_push_out.txt']
+    (guard)  close_left_out: eight banks untracked, none staged -> names 8 of 8 ; all staged -> None ; none written -> None ; another act`s untracked -> None ; the push capture alone unstaged -> names ['PLACE-project-set_push-b999-set_push_out.txt']
+    (banks)  close_carried holds the three of the build and the five of the mirror: [True, True, True, True, True, True, True, True]
+    (export) close_export: no mirror bank REFUSED ; another act`s root line REFUSED ; no root line REFUSED ; not clean REFUSED ; the export`s sha256 not the bank`s REFUSED ; the planted export as banked RETURNED mirror-refresh-x-b999.zip
+    (record) b765`s close export by data/b765_mirror.json: RETURNED mirror-refresh-2026-11-21-b765.zip ; its root line names b765 True
+    (mirror) the builder`s mirror route builds an export of its own (tools/mirror_build.ps1 in its body): False
+    AFTER: CLEAN
+  (diff)   the order BEFORE to AFTER: steps gained ['23a'] ; the steps before otherwise in their order True ; words changed at ['25'] -- [23a] GAINED AND [25]`S WORDS ALONE MOVED
+### ### **[K24] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
