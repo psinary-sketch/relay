@@ -813,7 +813,7 @@ def ledgers_c5(mode):
     n_ot = len(base.split(NL)) - 1
     head = ('**Dated head, %s, b766, `(R376)`(4)(d): the line the ruling orders for OPEN_TRAILS where the closing theorem does not compile at '
             'this act** (relay data/b766_ferry.txt :74-:76), appended at the end of the file (its last line :%d), so that no line before it '
-            'moves: each compiled theorem of the act`s Lean read at its statement by the E0 gate (relay tools/e0_rule.py) before it is entered, '
+            'moves: each compiled theorem of the Lean of this act read at its statement by the E0 gate (relay tools/e0_rule.py) before it is entered, '
             'its name in print_targets.txt at its commit and its axioms print banked (relay data/b766_dispatch_rows.json and '
             'data/b766_ledgers_c5.txt). Where the closing build from source and the restored build print different axioms files, [C7] is '
             'appended beneath it in Component 4.' % (date, n_ot))
