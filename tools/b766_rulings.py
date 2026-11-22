@@ -28,8 +28,15 @@ the register nor the two files of the map, so OPEN_TRAILS is the one file here.
                          its first `:=`) and graded by tools/e0_rule.py grade(head, 'theorem'), an exception read UNCLASSED; the texts say
                          DERIVED, so the write is refused unless each grade is DERIVES; each name read in print_targets.txt at its commit.
                          Bank: data/b766_ledgers_c3.txt and .json, each grade by name, file and line.
-The texts of the later steps of (4)(d) ([P1], [P2], [C7]) and of the readings ([X1] to [X3]) are groups this tool gains, by an Edit
-committed before its run, when their banks stand.
+  ledgers c4 dry|write   Component 3, (R376)(5) (data/b766_ferry.txt :82-:92), appended at OPEN_TRAILS' end as c2 and c3 are, under one
+                         dated head: [X1], [X2] and [X3], each one's fields from its reading's bank, read where that bank's controls each
+                         read AS WANTED and its PLACE-papers HEAD is the HEAD at the write: [X1] from data/b766_registry_cells.json's sentence
+                         (its sixteen figures in the text's order), [X2] from data/b766_lean_join.json (the four counts, the three kernels
+                         holding the most of the last, and the navigator's candidate read reproduced where the four counts at 29d4c9b7 equal
+                         1,990, 152, 870 and 968, and differing as printed where they do not), [X3] from data/b766_sweep.json (its seven
+                         figures); a figure of four digits or more printed with its thousands' commas. Bank: data/b766_ledgers_c4.txt and .json.
+The texts of the later steps of (4)(d) ([P1], [P2], [C7]) are a group this tool gains, by an Edit committed before its run, when their
+banks stand.
 
 No PLACE-papers line is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -68,7 +75,13 @@ CERT_TXT, CERT_JSON = os.path.join(D, 'b766_certificate.txt'), os.path.join(D, '
 CERT_FOOT = '### ### **THE CERTIFICATE BANKED, [E1]: 5 OF 5 CONTROLS AS WANTED ; THE EXACT FORM WRITTEN.**'
 BUDGET_RE = re.compile(r'^  THE BUDGET: constants (\d+), each an equal share of \|S\| / 2: gamma (\d+) digits, log pi (\d+) digits, the log p from '
                        r'(\d+) to (\d+) digits ; SUM \|r\| 10\^-digits ([0-9.]+) < \|S\| / 2 ([0-9.]+): True ; one width for all, (\d+) digits$')
-GROUPS = dict(c2=('E1', 'M4', 'Q2', 'H5', 'A1'), c3=('F1', 'F2'))
+GROUPS = dict(c2=('E1', 'M4', 'Q2', 'H5', 'A1'), c3=('F1', 'F2'), c4=('X1', 'X2', 'X3'))
+C3PP = '92108a44'                # ### PLACE-papers' last commit of the act before the c4 write: [F1] and [F2] (step 30, data/b766_events.txt (55))
+X1_RE = re.compile(r'^(\d+) rows of (\d+) tables \(relay data/b766_registry_cells\.txt\); KEYSTONE (\d+), CLUSTER SYNTHESIS (\d+), APPARATUS (\d+), '
+                   r'SOURCE NAMED (\d+), SOURCE NOT NAMED (\d+), WITHDRAWN OR SUPERSEDED (\d+), UNPLACED (\d+); the keystones by phase: the Day 1 '
+                   r'cluster (\d+), Phase 1\.2 (\d+), Phase 1\.5 (\d+), method (\d+), Phase 2 (\d+); (\d+) rows filed under a table other than their '
+                   r'phase by subject; (\d+) titles flagged$')
+CANDIDATE = (1990, 152, 870, 968)   # ### (R376)(5)(b): the navigator's candidate at the relay's 29d4c9b7, printed as the navigator's
 EF = K.EF_DIR
 C2PP = 'a183880f'                # ### PLACE-papers' last commit of the act before the c3 write: the lines of (6) (step 20, data/b766_events.txt (44))
 STD3 = '[propext, Classical.choice, Quot.sound]'
@@ -581,12 +594,153 @@ def ledgers_c3(mode):
     print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
 
 
+def num(n):
+    return '{:,}'.format(int(n))
+
+
+def jbank(name):
+    with open(os.path.join(D, name), encoding='utf-8') as f:
+        return json.load(f)
+
+
+def c4_fields(pp_head):
+    """[X1] to [X3]'s fields from their readings' banks; each bank read where its controls each read AS WANTED and its PLACE-papers HEAD
+    is the HEAD at the write."""
+    fields, miss, src = {}, [], {}
+    for key, name in (('X1', 'b766_registry_cells.json'), ('X2', 'b766_lean_join.json'), ('X3', 'b766_sweep.json')):
+        try:
+            j = jbank(name)
+        except (OSError, ValueError) as ex:
+            miss.append('[%s]: data/%s not read (%s)' % (key, name, type(ex).__name__))
+            continue
+        ctl = j.get('controls') or []
+        good = bool(ctl) and all(bool(c[1]) for c in ctl)
+        src[key] = dict(bank='data/' + name, sha=fsha(os.path.join(D, name)), controls=len(ctl), good=good, pp_head=j.get('pp_head'))
+        if not good or not pp_head.startswith(str(j.get('pp_head'))):
+            miss.append('[%s]: data/%s controls %s, PLACE-papers HEAD %s against %s' % (key, name, good, j.get('pp_head'), pp_head[:8]))
+            continue
+        if key == 'X1':
+            m = X1_RE.match(j.get('sentence', ''))
+            if not m:
+                miss.append('[X1]: the sentence of data/%s not in its form' % name)
+                continue
+            fields['X1'] = [('<n>', num(x)) for x in m.groups()]
+        elif key == 'X2':
+            four = tuple(int(x) for x in (j.get('at_nav_rev') or {}).get('four') or ())
+            top = j.get('top') or []
+            if len(four) != 4 or len(top) < 3:
+                miss.append('[X2]: data/%s holds no four counts at 29d4c9b7 or fewer than three kernels' % name)
+                continue
+            names = ', '.join('%s %s' % (k, num(v)) for k, v in top[:2]) + ' and %s %s' % (top[2][0], num(top[2][1]))
+            fields['X2'] = [('<n>', num(j['decls'])), ('<n>', num(j['paper'])), ('<n>', num(j['pages_alone'])), ('<n>', num(j['neither'])),
+                            ('<names with counts>', names),
+                            ('<reproduced | differing as printed>', 'reproduced' if four == CANDIDATE else 'differing as printed')]
+            src[key]['four_at_29d4c9b7'] = four
+        else:
+            fields['X3'] = [('<n>', num(j[k])) for k in ('entries', 'named', 'carried', 'not_carried', 'no_keystone', 'nameless', 'nameless_lines')]
+    return fields, miss, src
+
+
+def ledgers_c4(mode):
+    from standing import orders as O
+    group, date = 'c4', today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    TP = dict((k, v[2]) for k, v in texts(ferry()).items())
+    fields, miss, src = c4_fields(pp_head)
+    E = dict((k, fill(TP[k], fields[k])) for k in GROUPS[group] if k in fields)
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b766, `(R376)`(5): the lines the ruling orders for OPEN_TRAILS for the three readings toward the keystone set** '
+            '(relay data/b766_ferry.txt :82-:92), appended at the end of the file (its last line :%d), so that no line before them moves: each '
+            'text`s fields from its reading`s bank (relay data/b766_registry_cells.json, data/b766_lean_join.json and data/b766_sweep.json), each '
+            'bank`s controls AS WANTED; no line of REGISTRY, of the census or of a paper written. The lines of the later steps of (4)(d) are '
+            'appended beneath them later in Component 3.' % (date, n_ot))
+    paras = [head] + [E[k] for k in GROUPS[group] if k in E]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    I, acct = ids(), account()
+    eq = dict((k, bool(re.fullmatch(pattern(TP[k]), v, re.S)) and (NL + v + NL) in (NL + text + NL)) for k, v in E.items())
+    left = sorted(set(FIELD.findall(text)))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R, n: (R.get(n) or {}).get('status')   # noqa: E731
+    before, after = dict(O.read(base.split(NL))), dict(O.read(new.split(NL)))
+    moved = sorted(n for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    hf = O.hand_flags(new.split(NL))
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    present = [k for k, v in E.items() if v in base]
+    planted = fill(TP['X3'], [('<n>', '1')] * 7)
+    ctl = [('PLACE-papers` HEAD the act`s last commit there before this write, [F1] and [F2] %s (%s)' % (C3PP, pp_head[:8]), pp_head.startswith(C3PP)),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
+           ('each reading`s bank read, its controls each AS WANTED and its PLACE-papers HEAD the HEAD now: %s' % (
+               '; '.join('%s %s %s controls %d %s' % (k, v['bank'], v['sha'], v['controls'], v['good']) for k, v in sorted(src.items()))),
+            len(src) == 3 and all(v['good'] for v in src.values())),
+           ('each text as entered equals the ruling`s with its fields filled, each whole in the appended text: %s' % (
+               ' '.join('%s %s' % (k, eq[k]) for k in sorted(eq))), len(eq) == len(GROUPS[group]) and all(eq.values())),
+           ('every text of the group composed (%s)' % ('; '.join(miss) or 'none missing'), not miss),
+           ('the field matcher`s planted control: [X3] filled with seven planted figures read equal to its template, and a planted word in it not',
+            bool(re.fullmatch(pattern(TP['X3']), planted, re.S)) and not re.fullmatch(pattern(TP['X3']), planted + ' planted', re.S)),
+           ('no field left in the appended text (%s)' % (left or 'none'), not left),
+           ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+           ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+            'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+           ('none of the texts in OPEN_TRAILS before the write (%s)' % (present or 'none'), not present),
+           ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand),
+           ('the roster: no order moving and none added (moved %s ; added %s)' % (
+               [(n, st(before, n), st(after, n)) for n in moved] or 'none', added or 'none'), not moved and not added)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R376)(5), GROUP C4: OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, utc()), '',
+         '### tools/b766_rulings.py ledgers c4; PLACE-papers HEAD %s; the texts from the ferry bank (data/b766_ferry.txt, sha256 %s), the fields from'
+         % (pp_head[:8], FERRY_SHA),
+         '### the three readings` banks (named in the controls with their sha256); <DATE> %s; each text by line and sha256 here; no PLACE-papers line'
+         % date,
+         '### printed but the texts composed.', '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)',
+          '  orders %d -> %d ; statuses moving %s ; added %s' % (len(before), len(after), moved or 'none', added or 'none')]
+    nl_ = new.split(NL)
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    rows = [('head', head)] + [(k, E[k]) for k in GROUPS[group] if k in E]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in rows]
+    P += ['', '### ### **THE LEDGERS, GROUP C4: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINES UNDER ONE HEAD ([X1], [X2], [X3]) ; CONTROLS %d OF %d '
+          'AS WANTED ; %s.**' % (len(paras) - 1, sum(1 for _w, o in ctl if o), len(ctl),
+                                 ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b766_ledgers_c4.txt'), os.path.join(D, 'b766_ledgers_c4.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group=group, date=date, pp_head=pp_head,
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, first_new=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            entered=dict((k, [nl_.index(v) + 1, sha(v)[:16]]) for k, v in E.items()), head=[nl_.index(head) + 1, sha(head)[:16]],
+                            keys=list(GROUPS[group]), sources=src,
+                            controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+
+
 def main(argv):
     what, group, mode = (argv + ['', '', ''])[:3]
     if what != 'ledgers' or group not in GROUPS or mode not in ('dry', 'write'):
         sys.exit(__doc__)
     if group == 'c3':
         ledgers_c3(mode)
+    elif group == 'c4':
+        ledgers_c4(mode)
     else:
         ledgers(group, mode)
 
