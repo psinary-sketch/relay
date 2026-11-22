@@ -18,6 +18,8 @@ as a difference against the certificate; no decimal literal and no barred word.
 
   python -X utf8 -u tools/b766_poledata.py dry      compose in memory, the control over the composed text, nothing written
   python -X utf8 -u tools/b766_poledata.py write    write the file, read it back from the disk, the control; data/b766_poledata.txt
+  python -X utf8 -u tools/b766_poledata.py rewrite  replace the file where the disk holds exactly the first composition (no import,
+                                                    dispatch 11 BROKE on it), read back, the control; data/b766_poledata_rewrite.txt
   python -X utf8 -u tools/b766_poledata.py control  the control over the file on the disk, printed
 """
 import hashlib
@@ -47,6 +49,7 @@ REL = 'SIDEExplicitFormula/Window/PoleData.lean'
 COEFFS = 'SIDEExplicitFormula/Window/Coeffs.lean'
 OUT = os.path.join(CT.KERNELS[EF], REL)
 BANK = os.path.join(D_, 'b766_poledata.txt')
+BANK_RW = os.path.join(D_, 'b766_poledata_rewrite.txt')   # ### the rewrite's bank; the first write's bank stands beside it
 CERT = os.path.join(D_, 'b766_certificate.json')
 J0, J1 = 16, 16380
 M_WANT = 16
@@ -68,8 +71,11 @@ def sum_dc(f, lo, ln, d):
     return sum_dc(f, lo, h, d - 1) + sum_dc(f, lo + h, ln - h, d - 1)
 
 
-def compose(n_int, dig):
-    out = ['/-!',
+def compose(n_int, dig, with_import=True):
+    """with_import False: the first composition (written 16:19:19Z, dispatch 11 BROKE on it: with no import `ℤ` stood as an
+    auto-bound type and the literal found no OfNat instance); read only by `rewrite`, to recognise the file it replaces."""
+    head = ['import Mathlib.Data.Real.Basic', ''] if with_import else []
+    out = head + ['/-!',
            '# The integral of the window`s spline, as data',
            '',
            '`intHNum` is the sum of the integer numerators `coeffInt j`, `j` from %d to %d, of the window banked at relay' % (J0, J1),
@@ -138,6 +144,9 @@ def control(text, F):
     c('PLANTED: the literal moved by one, read as a difference against the certificate', 'DIFFER' if pd else 'NOT READ', pd)
     nd, nb = len(DECIMAL.findall(text)), len(BARRED.findall(text))
     c('no decimal literal and no barred word in the text (tools/b766_controls.py`s Lean text check)', 'decimal %d ; barred %d' % (nd, nb), nd == 0 and nb == 0)
+    first = text.split(NL)[0]
+    c('the file opens with the import Coeffs.lean opens with, so that the integers` notation resolves (dispatch 11`s break)', first,
+      first == 'import Mathlib.Data.Real.Basic')
     return L, ok
 
 
@@ -160,7 +169,16 @@ def main(cmd):
             sys.exit('### %s STANDS ALREADY -- nothing written (the file is written once; read it by `control`)' % REL)
         with io.open(OUT, 'w', encoding='utf-8', newline='\n') as f:
             f.write(text)
-    if cmd not in ('write', 'control'):
+    if cmd == 'rewrite':
+        if not os.path.exists(OUT):
+            sys.exit('### %s ABSENT -- nothing written (rewrite replaces the first composition alone)' % REL)
+        old = io.open(OUT, encoding='utf-8', newline='').read()
+        if old != compose(n_int, F['dig'], with_import=False):
+            sys.exit('### %s IS NOT THE FIRST COMPOSITION -- nothing written' % REL)
+        print('  the file on the disk equal to the first composition (no import): replaced')
+        with io.open(OUT, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+    if cmd not in ('write', 'rewrite', 'control'):
         sys.exit(__doc__)
     if not os.path.exists(OUT):
         sys.exit('### %s ABSENT -- nothing read' % REL)
@@ -172,13 +190,14 @@ def main(cmd):
                    REL, len(disk.encode('utf-8')), hashlib.sha256(disk.encode('utf-8')).hexdigest()[:16], disk.count('\r'), eq),
                '', '## THE CONTROL OVER THE FILE AS WRITTEN'] + L + [
         '', '### ### **THE DATA FILE %s ; THE CONTROL %d OF %d %s ; NO VALUE PRINTED.**' % (
-            'WRITTEN AND READ BACK' if cmd == 'write' else 'READ', sum(ok), len(ok), 'AS WANTED' if all(ok) and eq else 'NOT AS WANTED')]
+            'WRITTEN AND READ BACK' if cmd in ('write', 'rewrite') else 'READ', sum(ok), len(ok), 'AS WANTED' if all(ok) and eq else 'NOT AS WANTED')]
     print(NL.join(out))
-    if cmd == 'write':
+    if cmd in ('write', 'rewrite'):
+        bank_ = BANK if cmd == 'write' else BANK_RW
         s = NL.join(out) + NL
-        with io.open(BANK, 'w', encoding='utf-8', newline='\n') as f:
+        with io.open(bank_, 'w', encoding='utf-8', newline='\n') as f:
             f.write(s)
-        print('written data/%s' % os.path.basename(BANK))
+        print('written data/%s' % os.path.basename(bank_))
 
 
 if __name__ == '__main__':

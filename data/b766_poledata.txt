@@ -1,0 +1,26 @@
+b766 -- (R376)(4)(d) L8, ITS DATA HALF: THE INTEGRAL OF THE WINDOW`S SPLINE AS THE CERTIFICATE`S intH, SIDE-explicit-formula SIDEExplicitFormula/Window/PoleData.lean (write, 2026-11-22T16:19:19Z)
+
+## THE WINDOW`S BANK, data/b765_window.json
+  its sha256 less its final line end 4cbe7be1203883a6 ; data/b765_window.txt :26 gives 4cbe7be1203883a6 -- EQUAL
+  the file whole bd228144d213356c ; 778941 bytes
+  coefficients 16365 (the line gives 16365) ; each (m, e) against its rational: EQUAL ; their sha256 4702881bfa6f928f, the bank`s coef_sha 4702881bfa6f928f -- EQUAL
+  M 16, d 3 ; no coefficient printed ; THE BANK AS WANTED
+
+## THE FILE COMPOSED
+  intHNum the sum of 16365 integers over 10^17 ; its digits 16 ; no value printed
+  lines 21 ; bytes 919 ; sha256 79707fd6db392837
+
+## THE FILE ON THE DISK, READ BACK
+  SIDEExplicitFormula/Window/PoleData.lean: bytes 919 ; sha256 79707fd6db392837 ; carriage returns 0 ; equal to the composed text: True
+
+## THE CONTROL OVER THE FILE AS WRITTEN
+  (1) Coeffs.lean as it stands in the kernel read back: its scale and its integers against the bank`s (no value printed): scale 10^17 against 10^17 ; integers 16365 of 16365 equal ; its head`s digests the bank`s True -> AS WANTED
+  (2) the certificate`s window: M and coef_sha: M 16 ; coef_sha 4702881bfa6f928f against the bank`s 4702881bfa6f928f -> AS WANTED
+  (3) intHNum / (16 * 10^E) against data/b766_certificate.json`s intH, exactly: EQUAL -> AS WANTED
+  (4) THE LEAN`S CHECK MODELLED: sumDC aGet 16 16365 14 against intHNum, the length within 2^14: EQUAL ; 16365 <= 16384 True -> AS WANTED
+  (5) the literal read back from the text, once, against intHNum: EQUAL ; lines matching 1 -> AS WANTED
+  (6) the head`s three digests against the bank`s: ('4cbe7be1203883a6', 'bd228144d213356c', '4702881bfa6f928f') -> AS WANTED
+  (7) PLANTED: the literal moved by one, read as a difference against the certificate: DIFFER -> AS WANTED
+  (8) no decimal literal and no barred word in the text (tools/b766_controls.py`s Lean text check): decimal 0 ; barred 0 -> AS WANTED
+
+### ### **THE DATA FILE WRITTEN AND READ BACK ; THE CONTROL 8 OF 8 AS WANTED ; NO VALUE PRINTED.**
