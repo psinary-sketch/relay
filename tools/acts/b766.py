@@ -2606,7 +2606,7 @@ N3_UNWRITTEN = ('REGISTRY.md', 'ERRATA.md', 'phase2/method/THE_KEYSTONE_CENSUS_v
 # ### b766, N3 (g): "a theorem of a step is entered as its own statement and nowhere as the closing theorem" -- a sentence naming the
 # ### closing theorem (ControlFailureExists, the closing theorem, L12, [P1]) with a word of a result (proved, proven, compiled, holds,
 # ### established, discharged, a proof of it given), outside a negation, the plan's prices and the not-sent carry passing by their negation
-N3_DEF_SUBJ = r'\bControlFailureExists\b|\bthe closing theorem\b|\bL12\b|\[P1\]'
+N3_DEF_SUBJ = r'\bControlFailureExists\b|\b(?i:the closing theorem)\b|\bL12\b|\[P1\]'   # ### b766 defect (u): the phrase in any case, the control's "The closing theorem compiled at 3c67b8b5." caught as its words say
 N3_DEF_RES = r'\b(?:proved|proven|compiled|holds|established|DISCHARGED|discharged|is true)\b'
 # ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by (path, line, the sentence's
 # ### digest (sha256, 16 hex)) -> the verdict, each read before the lock; the words not quoted. b764: none pinned until the scores dry
@@ -2626,7 +2626,8 @@ def _def_bad(x):
     """N3 (g), (R376): a sentence entering the closing theorem as compiled -- its subject and a result's word, outside a negation, the
     ruling's own outcome sentences of [P1] (read as the ruling's, "where the closing theorem compiles") passing by their condition."""
     # ### b766 defect (u): the condition word read in either case, so the control's "Where the closing theorem is proved, [P1] is
-    # ### entered." passes as its own words say; at the score routes' dry of 23:37:03Z the word read lower case alone and defn read False
+    # ### entered." passes as its own words say, and the subject's phrase in any case (N3_DEF_SUBJ), so its "The closing theorem compiled
+    # ### at 3c67b8b5." is caught; at the score routes' dry of 23:37:03Z each read lower case alone and defn read False on both
     return bool(re.search(N3_DEF_SUBJ, x) and re.search(N3_DEF_RES, x) and not re.search(N3_NEG, x)
                 and not re.search(r'\b(?:where|if|unless|until|whether)\b', x, re.I))
 
