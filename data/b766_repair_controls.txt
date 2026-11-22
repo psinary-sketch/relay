@@ -29,3 +29,15 @@ b766 -- THE PLANTED CONTROLS OF THE REPAIRS, (R376)(7), one section a key, each 
     AFTER: CLEAN
   (diff)   the acts each table gains and loses, BEFORE to AFTER: FF_ACTS +b766 -none ; FORCED_DELETES +b766 -none ; KERNEL_ACTS +b766 -none ; NAMED_CONFLICTS +none -none ; PUSHTO_ACTS +none -none ; RDELETE_ACTS +b766 -none -- b766 GAINED BY KERNEL_ACTS, FF_ACTS, RDELETE_ACTS AND FORCED_DELETES ALONE
 ### ### **[K22] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K23] THE PLANTED CONTROL (2026-11-22T08:32:08Z): BEFORE relay 281e3e71, THE REPAIR`S COMMIT relay d91f1093, its first parent 281e3e71 -- THE COMMIT BEFORE
+  BEFORE (relay 281e3e71, VERSION v1.38.22): the files tools/push_gated.sh present, tools/standing/VERSION present
+    (run)    push_gated.sh --existing-tag over the planted repository: exit 10 ; the capture 3 lines ; the planted name 2 ; <account> 0
+    (expr)   no mask expression in the script
+    BEFORE: THE FAULT READ
+  AFTER (relay d91f1093, VERSION v1.38.23): the files tools/push_gated.sh present, tools/standing/VERSION present
+    (run)    push_gated.sh --existing-tag over the planted repository: exit 10 ; the capture 3 lines ; the planted name 0 ; <account> 2
+    (expr)   the script`s expression over the five planted lines (exit 0): To https://github.com/<account>/relay.git | To git@github.com:<account>/SIDE-explicit-formula.git | remote:      https://github.com/<account>/PLACE-papers/pull/new/push-b766-proof | cloned to <account>/PLACE-project-set | push_gated: DONE -- branch push-b766-proof pushed alone and read back
+    AFTER: CLEAN
+  (same)   the exit and the capture`s line count, BEFORE and AFTER: (10, 3) and (10, 3) -- EQUAL
+### ### **[K23] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
