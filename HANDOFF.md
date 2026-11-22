@@ -1,14 +1,24 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.21) at relay `4d3f37b5` and PLACE-papers `fb094a44`, 2026-11-21T22:14:18Z, from the banks: the closings and ferries of b753 to b764 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b765_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.24) at relay `b03249a2` and PLACE-papers `ff328d86`, 2026-11-22T23:20:15Z, from the banks: the closings and ferries of b754 to b765 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b766_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b765_ferry.txt :39:
+The last ruling`s clause on them, data/b766_ferry.txt :44:
 
-> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag cut or moved beyond v0.44 under (4); no sentence of any paper written or edited; REGISTRY, ERRATA and the register not written; nothing fetched from the web by the seat; nothing computed at a zero. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
+> (11) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag cut or moved beyond v0.45 under (4); no sentence of a paper written or edited; REGISTRY, ERRATA, the census, the register and the two files of the map not written; nothing fetched from the web by the seat; nothing computed at a zero, and the window's frequency read by name and not printed. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
 
 ## The last twelve acts, newest first
+
+### b765
+
+data/b765_closing.txt :1:
+
+> b765 closed: relay a7bd1c51, PLACE-papers 5638a9a; suite 110 of 116; root e2ab4e4ab1b32c15…; 3 prompts answered; scores 7 of 8 HELD; 23 defects
+
+data/b765_ferry.txt :13, THE ACT`S PLACE:
+
+> (2) THE ACT'S PLACE. b764 repaired the close and priced the centre; it sent no statement. The trial of the runner's cache failed for want of a reference the runner itself stopped, and so each dispatch of a proof stands priced at a build from source. This act removes that price where the cache holds, lands the statement that names no zero, begins the one lemma that the proof and three other orders share, and computes the window whose certificate the proof will check. The proof by that window is the act after this one.
 
 ### b764
 
@@ -120,27 +130,17 @@ data/b754_ferry.txt :64, THE ACT`S PLACE:
 
 > (10) THE ACT'S PLACE. The refresh read the system's own documents against the record and found the reference layer saying of the Riemann Hypothesis what the registry stopped saying on 2026-09-25, the criterion kernel's door denying the theorems listed beneath it, and a close that took ten hours of an act's fifteen. This act brings the layer and the doors to the kernels at their present pins, in sentences that say what is compiled and say once, in its own anchor, that the positivity is open; it gives the seat a file it reads at every start, the record a cadence fitted to what each pass has caught, and the ledgers entries that carry findings. It computes nothing. The act after it is the walk, confirmed or renamed at this act's root: the fourteen unused fields of class number 3 against their registered table; the navigator's candidates reproduced, each with its planted error; and a prediction of the zeros off the line, read from the primes alone, registered at a field where nothing has been computed. Then the build of T0 and T1, and sections 6 to 8 of the Epstein document from the compiled statements.
 
-### b753
-
-data/b753_closing.txt :1:
-
-> b753 closed: relay feaae42a, PLACE-papers 04fef04; suite 110 of 116; root 696aa4eb0dc87fdf…; 8 prompts answered; scores 6 of 8 HELD; 52 defects
-
-data/b753_ferry.txt :29, THE ACT`S PLACE:
-
-> (11) THE ACT'S PLACE: on 2026-11-10 the author asked that the navigator know where every keystone's and kernel's state is held before more is synthesised from them. Since then a month's results on the Epstein coefficients were found uncited by the next month's rulings, a public kernel's opening sentence was found denying the theorems listed beneath it, and four anchors of the reference layer were found carrying the sentences they had in July. On 2026-11-11 the system volume filled beneath the session, its transcript lost rows, and the hold that followed found the record's transcripts under a 30-day life of the harness's that the navigator's search of the mirror's ledgers found in no line, two sessions that tools name already gone. This act reads each system document against the record it is meant to index, banks what differs, and puts to the author the writes that would make the index current. It builds nothing and re-cuts no door. The act after this one is the sitting, confirmed or renamed at this act's root; then the walk and the build, where T1 is priced two ways (the direct unfolding of the plan; the row (−23, 48, −2, 1) by cert and (L2) of C2Walk with a statement relating bL to cQ); then sections 6 to 8 of the Epstein document. Carried with a date on it: the ledger split (OPEN_TRAILS :14438; its price at data/b724_split_price.txt), since at the pace of b746 to b752 the Project's free capacity lasts about fifteen acts of FINDINGS' growth and nothing besides.
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :19131, the trail of b764 headed at :19071:
+PLACE-papers OPEN_TRAILS.md :19219, the trail of b765 headed at :19157:
 
-> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R374)(14)): relay data/b764_author_answers.txt; as put: the proof of the control’s failure from its coefficients, in the reading whose upper price the table of (9)(c) puts below the others, opened by the trial of (7) where that was carried; or the registration H-ONSET-DENSITY, with W-ORD-ADMISSIBLE-CONE joined to it by [A2] of (R373); or the reading of the eighteen named premises under W-ORD-PREMISE-POSITIONS; or another the author names; the open orders whose status names b765 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R375)(13)): relay data/b765_author_answers.txt :14, the author chose: The proof by the banked window (Recommended); as put: the proof of the control’s failure by the banked window, where [W1] stands; or, where it does not, the registration H-ONSET-DENSITY computed with W-ORD-ADMISSIBLE-CONE and the navigator’s predictions, the search for a window carried in it; or another the author names; the open orders whose status names b766 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-80 open of 226 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `fb094a44`:
+70 open of 227 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `ff328d86`:
 
-`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-DEALIGNED`, `W-ORD-PREMISE-DEALIGNEDAT`, `W-ORD-PREMISE-IDEMPOTENTADD`, `W-ORD-PREMISE-ISEVENFN`, `W-ORD-PREMISE-ISEXPANSION`, `W-ORD-PREMISE-ISSIGNEDCOMPLETION`, `W-ORD-PREMISE-ISTRIVIALPOINT`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-NOTDIV`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-PROPER`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-SELFDUALFE`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IDENTITY`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`
+`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`, `W-ORD-MAP-MERGE`
 
 ## Where each kind of state is held
 
