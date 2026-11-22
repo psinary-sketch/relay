@@ -652,8 +652,8 @@ def ledgers_c4(mode):
     n_ot = len(base.split(NL)) - 1
     head = ('**Dated head, %s, b766, `(R376)`(5): the lines the ruling orders for OPEN_TRAILS for the three readings toward the keystone set** '
             '(relay data/b766_ferry.txt :82-:92), appended at the end of the file (its last line :%d), so that no line before them moves: each '
-            'text`s fields from its reading`s bank (relay data/b766_registry_cells.json, data/b766_lean_join.json and data/b766_sweep.json), each '
-            'bank`s controls AS WANTED; no line of REGISTRY, of the census or of a paper written. The lines of the later steps of (4)(d) are '
+            'text\'s fields from its reading\'s bank (relay data/b766_registry_cells.json, data/b766_lean_join.json and data/b766_sweep.json), each '
+            'bank\'s controls AS WANTED; no line of REGISTRY, of the census or of a paper written. The lines of the later steps of (4)(d) are '
             'appended beneath them later in Component 3.' % (date, n_ot))
     paras = [head] + [E[k] for k in GROUPS[group] if k in E]
     text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
