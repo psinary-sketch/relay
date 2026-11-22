@@ -639,7 +639,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklm'))   # ### b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmno'))   # ### b766 touch read (20:3xZ): (n) and (o) added, each THE SEAT'S. b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b766_misses.txt', 'data/b766_price.txt', 'data/b766_price.json', 'data/b766_ceiling.txt',          # ### step zero, (3); the ceiling after (4)(c)
