@@ -4660,16 +4660,15 @@ def _trail_text_b766():
     rows_ = ['', TRAIL_HEAD(), '',
              '**(R376) ratified.** Its components as the ferry orders them (relay data/b766_ferry.txt), each read below from its bank; the author’s three words of 2026-11-22 and word of '
              '2026-11-21 on the deposits and the keystones banked at step zero, and the author’s four words during the act (relay data/b766_author_words_preseal.txt :23, :26, :29, :32).', '',
-             '**Entered:** FINDINGS.md:%s (the corrigendum for b765), :%s (the entry); OPEN_TRAILS.md in four groups, each under its own dated head, %s; this record.' % (
-                 f['corr_line'], fj.get('entry_line'), keys_), '',
+             '**Entered:** FINDINGS.md:%s (the corrigendum for b765), %s; OPEN_TRAILS.md in four groups, each under its own dated head, %s; this record.' % (
+                 f['corr_line'], (':%s (the entry)' % fj['entry_line']) if fj.get('entry_line') else 'the entry at step [12], not yet landed', keys_), '',
              '**b765 at its weight** ((R376)(1)): closed at relay %s and PLACE-papers %s, the scores %d of %s HELD (%s); the corrigendum short at FINDINGS :%s, b765’s %s CLAIM items printed in '
              'full, the findings after its lock entered as events, the navigator’s own %d entered CLAIM, no weight line (relay data/b765_scores_close.json, data/b766_corrigendum.txt).' % (
                  b7h_.group(1), b7h_.group(2), f['b7_held'], b7h_.group(7), ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', f['corr_line'], f['corr_claim'], len(nr_)), '',
              '**The repairs** ((R376)(7)): tools/standing/ from %s to %s by %d commits, the three keys of (7), each with its planted control; %d repaired, %d read as designed, %d removed, %d '
-             'carried. %s After [K22], push-b765-planted removed at the kernel’s remote and in its clone; after [K23], b765’s captures written masked, the name %d times before and %d after '
-             '(relay data/b766_repairs.txt, data/b766_repair_controls.txt, data/b766_capture_mask.txt).' % (
+             'carried. %s The rows and their controls: relay data/b766_repairs.txt, data/b766_repair_controls.txt and data/b766_capture_mask.txt.' % (
                  f['st_entering'], f['st_version'], len(K.STANDING_REPAIRS), len(rs_['REPAIRED']), len(rs_['READ AS DESIGNED']), len(rs_['REMOVED']), len(rs_['CARRIED']),
-                 ' '.join(r_['sentence'].rstrip('.') + '.' for r_ in f['reps']), f['mask'][3], f['mask'][4]), '',
+                 ' '.join(r_['sentence'].rstrip('.') + '.' for r_ in f['reps'])), '',
              '**The plan and the certificate** ((R376)(4)(a)): the certificate banked, [%s] at %s, its controls %d of %d, K(n) at %d n, the arithmetic side one combination over %s primes; '
              'the plan, %d lemmas in the order of sending, at relay %s before the first dispatch (relay data/b766_certificate.txt, data/b766_plan.txt).' % (
                  f['cert_key'], ln_(f['cert_key']), f['cert_ctl'][0], f['cert_ctl'][1], f['cert_k'], cm_(f['cert_primes']), len(f['plan_lemmas']), f['plan_commit']), '',
@@ -4693,7 +4692,7 @@ def _trail_text_b766():
              '[25]; printed in the closing message.', '',
              '**The dispatches:** SIDE-explicit-formula %d of at most %d, %d with the restore on of at most %d, the build from source and its repeat one each, each read by its run id, the exit '
              'file governing: %s; none elsewhere (relay data/b766_dispatch_rows.json).' % (
-                 f['disp_ef'], K.MAX_DISPATCHES, f['tr_on'][0], on_max_, '; '.join('dispatch %d, the %s, restore %s (%s), run %s at %s, %s, %s min' % (
+                 f['disp_ef'], K.MAX_DISPATCHES, f['tr_on'][0], on_max_, '; '.join('dispatch %d, item %s, the restore %s (%s), run %s at %s, %s, %s min' % (
                      r_['n'], r_['item'], r_['restore'], r_['kind'] or 'unread', r_['run'], r_['sha'], r_['verdict'] or 'not read', '-' if r_['run_min'] is None else r_['run_min'])
                      for r_ in sorted(f['runs'], key=lambda r2_: r2_['n'])) or 'none'), '',
              '**The reproduction run** ((R376)(11)): rows %d, reproducing %d, differing %d, not run %d, controls %d of %d (relay data/b766_reproduce.txt).' % (
