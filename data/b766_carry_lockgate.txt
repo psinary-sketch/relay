@@ -1,0 +1,52 @@
+b766 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b765_lockgate.py -> tools/b766_lockgate.py (2026-11-22T18:15:25Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b765 -> b766, b764 -> b765, R375 -> R376, R374 -> R375); 153 lines, 13 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b765_tool_repairs.txt AND data/b765_repairdiff_lockgate.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b765; the seat reads this diff`s hunks alone
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 0
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 1 (OWN 1)
+  :2 OWN data/b766_ferry.txt :132 (the source line cited data/b765_ferry.txt :132)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b765_lockgate.py
+  +++ tools/b766_lockgate.py
+  @@ -2,2 +2,2 @@
+  -"""tools/b765_lockgate.py -- b765: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, the ferry's Component 5 under (R375) (data/b765_ferry.txt :132): carried from
+  -tools/b764_lockgate.py by tools/b765_carry.py (data/b765_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  +"""tools/b766_lockgate.py -- b766: THE LOCK GATE WITH THE HANDOFF CENSUS READ AS STOPPED, the ferry's Component 5 under (R376) (data/b766_ferry.txt :132): carried from
+  +tools/b765_lockgate.py by tools/b766_carry.py (data/b766_carry_lockgate.txt) and committed before it runs. b754's lift, from b754's defect
+  @@ -5,3 +5,3 @@
+  -:192). ### b765, the carry's note: the substitution b764 -> b765 alone, which moved no citation of b754's banks or of (R364)(5)[H1]
+  -(:3-:5, :11-:12, :103-:104 read after it); the ferry's line at :2, which the shift carried as b765's :155 where b765's ferry has 136 lines
+  -(the carry's [K2] reader printed it OWN, data/b765_carry_lockgate.txt :11), set by the Edit tool before any run to b765's :132, the ferry's
+  +:192). ### b766, the carry's note: the substitution b765 -> b766 alone, which moved no citation of b754's banks or of (R364)(5)[H1]
+  +(:3-:5, :11-:12, :103-:104 read after it); the ferry's line at :2, which the shift carried as b766's :155 where b766's ferry has 136 lines
+  +(the carry's [K2] reader printed it OWN, data/b766_carry_lockgate.txt :11), set by the Edit tool before any run to b766's :132, the ferry's
+  @@ -9,1 +9,1 @@
+  -:104); N2 named under (R375) (:22).
+  +:104); N2 named under (R376) (:22).
+  @@ -23,1 +23,1 @@
+  -committed before its run ((R375) N2, each generator commits before it runs).
+  +committed before its run ((R376) N2, each generator commits before it runs).
+  @@ -25,2 +25,2 @@
+  -  python -X utf8 -u tools/b765_lockgate.py controls b765 <face>
+  -  python -X utf8 -u tools/b765_lockgate.py b765 <face>
+  +  python -X utf8 -u tools/b766_lockgate.py controls b766 <face>
+  +  python -X utf8 -u tools/b766_lockgate.py b766 <face>
+  @@ -43,1 +43,1 @@
+  -ACT = 'b765'
+  +ACT = 'b766'
+  @@ -86,1 +86,1 @@
+  -    tmp = tempfile.mkdtemp(prefix='b765lg_')
+  +    tmp = tempfile.mkdtemp(prefix='b766lg_')
+  @@ -105,1 +105,1 @@
+  -    L = ['  ### THE FERRY`S COMPONENT 5 UNDER (R375), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  +    L = ['  ### THE FERRY`S COMPONENT 5 UNDER (R376), b754`S LIFT CARRIED (data/b754_put_11.json, option 2, "Lock gate and census stopped", 2026-11-14T10:23:59.652Z;',
+  @@ -132,1 +132,1 @@
+  -        print('usage: b765_lockgate.py [controls] b765 <face> -- this act`s tool, for b765 alone; nothing read, nothing written')
+  +        print('usage: b766_lockgate.py [controls] b766 <face> -- this act`s tool, for b766 alone; nothing read, nothing written')
+
+### ### **CARRIED tools/b766_lockgate.py ; LINES 153 ; CHANGED BY THE SUBSTITUTION 13 ; REPAIR SPANS AT b765 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
