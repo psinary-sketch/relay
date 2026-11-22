@@ -20,8 +20,16 @@ the register nor the two files of the map, so OPEN_TRAILS is the one file here.
                          Controls before the write, printed; the roster by tools/standing/orders.py's rule in memory, before and after: the
                          eleven moving from OPEN to CLOSED, W-ORD-MAP-MERGE added OPEN, no other order moving. Bank: data/b766_ledgers_c2.txt
                          and .json, each text by line and sha256; the texts' words printed by the dry run alone.
-The texts of Component 3 ([F1] to [F3], [P1], [P2], [C7], [X1] to [X3]) are a group this tool gains, by an Edit committed before its run,
-when their banks stand.
+  ledgers c3 dry|write   Component 3, (R376)(4)(b) and (4)(c) (data/b766_ferry.txt :58-:64), appended at OPEN_TRAILS' end as c2 is, under
+                         one dated head: [F1] and [F2], their fields from the read of each one's dispatch (data/b766_dispatch_rows.json: the
+                         run, the commit built, each name COMPILED with its axioms print) and from the kernel at the commit. (R376)(4) "Each
+                         compiled theorem is read at its statement by the E0 gate before it is entered; its name joins print_targets.txt and
+                         its axioms print is banked": each of the fourteen theorems is read at its commit (git show, the text from its name to
+                         its first `:=`) and graded by tools/e0_rule.py grade(head, 'theorem'), an exception read UNCLASSED; the texts say
+                         DERIVED, so the write is refused unless each grade is DERIVES; each name read in print_targets.txt at its commit.
+                         Bank: data/b766_ledgers_c3.txt and .json, each grade by name, file and line.
+The texts of the later steps of (4)(d) ([P1], [P2], [C7]) and of the readings ([X1] to [X3]) are groups this tool gains, by an Edit
+committed before its run, when their banks stand.
 
 No PLACE-papers line is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -60,7 +68,20 @@ CERT_TXT, CERT_JSON = os.path.join(D, 'b766_certificate.txt'), os.path.join(D, '
 CERT_FOOT = '### ### **THE CERTIFICATE BANKED, [E1]: 5 OF 5 CONTROLS AS WANTED ; THE EXACT FORM WRITTEN.**'
 BUDGET_RE = re.compile(r'^  THE BUDGET: constants (\d+), each an equal share of \|S\| / 2: gamma (\d+) digits, log pi (\d+) digits, the log p from '
                        r'(\d+) to (\d+) digits ; SUM \|r\| 10\^-digits ([0-9.]+) < \|S\| / 2 ([0-9.]+): True ; one width for all, (\d+) digits$')
-GROUPS = dict(c2=('E1', 'M4', 'Q2', 'H5', 'A1'))
+GROUPS = dict(c2=('E1', 'M4', 'Q2', 'H5', 'A1'), c3=('F1', 'F2'))
+EF = K.EF_DIR
+C2PP = 'a183880f'                # ### PLACE-papers' last commit of the act before the c3 write: the lines of (6) (step 20, data/b766_events.txt (44))
+STD3 = '[propext, Classical.choice, Quot.sound]'
+NS = 'SIDEExplicitFormula.Window.'
+COEFFS, COEFFS_SHA = 'SIDEExplicitFormula/Window/Coeffs.lean', 'f06bd20ca2854d06'   # ### data/b766_window_data.txt: the data file as written
+WINDOW_SHA = '4cbe7be1203883a6'  # ### data/b765_window.txt :26: the bank's sha256 less its final line end, which the data file's head names
+C3 = dict(F1=dict(read=1, commit='48d151e3', items=(('SIDEExplicitFormula/Window/PrimeFinite.lean', ('primeTermQ_eq_finite_sum', 'primeTermQ_cQ_eq_finite_sum')),)),
+          F2=dict(read=2, commit='d814154e', items=(('SIDEExplicitFormula/Window/Spline.lean', ('contDiff_tpow3', 'contDiff_cubicB', 'contDiff_splineH',
+                                                                                                'splineH_eq_zero', 'contDiff_gWin', 'hasCompactSupport_gWin',
+                                                                                                'windowKOf_classK', 'windowKOf_eq_zero')),
+                                                    ('SIDEExplicitFormula/Window/Instance.lean', ('windowH_contDiff', 'windowH_eq_zero', 'windowK_classK',
+                                                                                                  'windowK_eq_zero')))))
+DECL = r'^(?:@\[[^\]\n]*\]\s*)?(?:(?:protected|private|nonrec)\s+)*theorem\s+%s(?=[\s(\[{:])'
 
 
 def die(w):
@@ -394,11 +415,180 @@ def ledgers(group, mode):
     print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
 
 
+# ================================================================================ COMPONENT 3: [F1] AND [F2], THE E0 GATE BEFORE THEM
+def read_row(n):
+    with open(os.path.join(D, 'b766_dispatch_rows.json'), encoding='utf-8') as f:
+        rows = json.load(f)
+    rr = [r for r in rows if r.get('kind') == 'read' and r.get('n') == n]
+    return rr[-1] if rr else None
+
+
+def e0_read(commit, path, short):
+    """the theorem's statement at the commit, from its name to its first `:=`, graded by tools/e0_rule.py; None where it is not found."""
+    import e0_rule as E0
+    src = git(EF, 'show', '%s:%s' % (commit, path))
+    m = re.search(DECL % re.escape(short), src, re.M)
+    if not m:
+        return None
+    end = src.find(':=', m.end())
+    head = src[m.end():end] if end > 0 else ''
+    try:
+        g, why, _b = E0.grade(head, 'theorem')
+    except Exception as ex:   # noqa: BLE001
+        g, why = 'UNCLASSED', ' '.join(str(ex).split())[:300]
+    return dict(line=src.count(NL, 0, m.start()) + 1, head=' '.join(head.split()), grade=g, why=' '.join(str(why).split()))
+
+
+def c3_fields():
+    gates, miss, runs = [], [], {}
+    for key in GROUPS['c3']:
+        spec = C3[key]
+        r = read_row(spec['read'])
+        if not r:
+            miss.append('[%s]: no read of dispatch %d in data/b766_dispatch_rows.json' % (key, spec['read']))
+            continue
+        runs[key] = r.get('run')
+        st = dict((x[0], (x[1], x[2])) for x in (r.get('names') or []))
+        pt = set(x.strip() for x in git(EF, 'show', '%s:print_targets.txt' % spec['commit']).split(NL))
+        built = str(r.get('built_ref') or '').startswith(spec['commit']) and str(r.get('build_exit')) == '0'
+        for path, shorts in spec['items']:
+            for s in shorts:
+                full = NS + s
+                e = e0_read(spec['commit'], path, s) or {}
+                state, ax = st.get(full, (None, None))
+                gates.append(dict(key=key, name=full, commit=spec['commit'], path=path, line=e.get('line'), grade=e.get('grade', 'NOT READ'),
+                                  why=e.get('why', ''), head=e.get('head', ''), state=state, axioms=ax, target=full in pt, run=r.get('run'),
+                                  built=built))
+    cs = git(EF, 'show', '%s:%s' % (C3['F2']['commit'], COEFFS), raw=True)
+    coeffs = dict(sha=sha(cs)[:16] if cs else 'ABSENT', head=bool(cs) and WINDOW_SHA in cs[:4096].decode('utf-8', 'replace'))
+    fields = {}
+    if 'F1' in runs:
+        fields['F1'] = [('<name>', '`%sprimeTermQ_eq_finite_sum` (with `primeTermQ_cQ_eq_finite_sum`, its reading at cQ)' % NS),
+                        ('<commit>', '%s (SIDEExplicitFormula/Window/PrimeFinite.lean, built by runner run %s with the restore on)' % (
+                            C3['F1']['commit'], runs['F1'])),
+                        ('<the print>', '%s, each name as printed in that run (relay data/b766_dispatch_rows.json)' % STD3)]
+    if 'F2' in runs:
+        fields['F2'] = [('<commit>', '%s (SIDEExplicitFormula/Window/Coeffs.lean, Spline.lean and Instance.lean, built by runner run %s with the '
+                                     'restore on)' % (C3['F2']['commit'], runs['F2'])),
+                        ('<names>', '`windowH_contDiff`, `windowH_eq_zero`, `windowK_classK` and `windowK_eq_zero` of `SIDEExplicitFormula.Window`, '
+                                    'from eight theorems of Spline.lean that hold for every choice of weights'),
+                        ('<the print>', '%s for each of the twelve, as printed in that run (relay data/b766_dispatch_rows.json)' % STD3)]
+    return fields, gates, miss, coeffs, runs
+
+
+def ledgers_c3(mode):
+    from standing import orders as O
+    group, date = 'c3', today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    TP = dict((k, v[2]) for k, v in texts(ferry()).items())
+    fields, gates, miss, coeffs, runs = c3_fields()
+    E = dict((k, fill(TP[k], fields[k])) for k in GROUPS[group] if k in fields)
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b766, `(R376)`(4)(b) and (4)(c): the lines the ruling orders for OPEN_TRAILS where the theorems of (4)(b) and (4)(c) '
+            'compile** (relay data/b766_ferry.txt :58-:64), appended at the end of the file (its last line :%d), so that no line before them moves: '
+            'each theorem read at its statement by the E0 gate (relay tools/e0_rule.py) before it is entered, each graded DERIVES, its name in '
+            'print_targets.txt at its commit and its axioms print banked (relay data/b766_dispatch_rows.json and data/b766_ledgers_c3.txt). The '
+            'lines of the later steps of (4)(d) and of the three readings are appended beneath them later in Component 3.' % (date, n_ot))
+    paras = [head] + [E[k] for k in GROUPS[group] if k in E]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    I, acct = ids(), account()
+    eq = dict((k, bool(re.fullmatch(pattern(TP[k]), v, re.S)) and (NL + v + NL) in (NL + text + NL)) for k, v in E.items())
+    left = sorted(set(FIELD.findall(text)))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R, n: (R.get(n) or {}).get('status')   # noqa: E731
+    before, after = dict(O.read(base.split(NL))), dict(O.read(new.split(NL)))
+    moved = sorted(n for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    hf = O.hand_flags(new.split(NL))
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    present = [k for k, v in E.items() if v in base]
+    grades = {}
+    for g in gates:
+        grades[g['grade']] = grades.get(g['grade'], 0) + 1
+    n_all = sum(len(s) for k in GROUPS[group] for _p, s in C3[k]['items'])
+    ctl = [('PLACE-papers` HEAD the act`s last commit there before this write, the lines of (6) %s (%s)' % (C2PP, pp_head[:8]), pp_head.startswith(C2PP)),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
+           ('each text as entered equals the ruling`s with its fields filled, each whole in the appended text: %s' % (
+               ' '.join('%s %s' % (k, eq[k]) for k in sorted(eq))), len(eq) == len(GROUPS[group]) and all(eq.values())),
+           ('every text of the group composed (%s)' % ('; '.join(miss) or 'none missing'), not miss),
+           ('no field left in the appended text (%s)' % (left or 'none'), not left),
+           ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+           ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+            'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+           ('none of the texts in OPEN_TRAILS before the write (%s)' % (present or 'none'), not present),
+           ('THE E0 GATE: each of the %d theorems read at its statement at its commit and graded (%s), each DERIVES' % (
+               n_all, ', '.join('%s %d' % kv for kv in sorted(grades.items()))),
+            len(gates) == n_all and all(g['line'] and g['grade'] == 'DERIVES' for g in gates)),
+           ('each name in print_targets.txt at its commit (absent: %s)' % ([g['name'] for g in gates if not g['target']] or 'none'),
+            bool(gates) and all(g['target'] for g in gates)),
+           ('each name COMPILED in the read of its dispatch, built at its commit with exit 0, its axioms %s (runs %s)' % (STD3, runs),
+            bool(gates) and all(g['state'] == 'COMPILED' and g['axioms'] == STD3 and g['built'] for g in gates)),
+           ('[F2]: %s at %s its sha256 %s as data/b766_window_data.txt banks it (%s), its head naming the bank`s sha256 %s (%s)' % (
+               COEFFS, C3['F2']['commit'], COEFFS_SHA, coeffs['sha'], WINDOW_SHA, coeffs['head']),
+            coeffs['sha'] == COEFFS_SHA and coeffs['head']),
+           ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand),
+           ('the roster: no order moving and none added (moved %s ; added %s)' % (
+               [(n, st(before, n), st(after, n)) for n in moved] or 'none', added or 'none'), not moved and not added)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R376)(4)(b) AND (4)(c), GROUP C3: OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, utc()), '',
+         '### tools/b766_rulings.py ledgers c3; PLACE-papers HEAD %s; the texts from the ferry bank (data/b766_ferry.txt, sha256 %s), the fields from'
+         % (pp_head[:8], FERRY_SHA),
+         '### data/b766_dispatch_rows.json (sha256 %s) and SIDE-explicit-formula at %s and %s; <DATE> %s; each text by line and sha256 here; no'
+         % (fsha(os.path.join(D, 'b766_dispatch_rows.json')), C3['F1']['commit'], C3['F2']['commit'], date),
+         '### PLACE-papers line printed but the texts composed.', '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE E0 GATE (tools/e0_rule.py grade(head, \'theorem\'), the head the statement from the name to its first `:=`, read at the commit)']
+    P += ['  [%s] %-58s %s %s :%s ; GRADE %s ; %s ; %s ; target %s' % (
+        g['key'], g['name'], g['commit'], g['path'], g['line'], g['grade'], g['why'] or '-', g['state'], g['target']) for g in gates]
+    P += ['', '## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)',
+          '  orders %d -> %d ; statuses moving %s ; added %s' % (len(before), len(after), moved or 'none', added or 'none')]
+    nl_ = new.split(NL)
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    rows = [('head', head)] + [(k, E[k]) for k in GROUPS[group] if k in E]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in rows]
+    P += ['', '### ### **THE LEDGERS, GROUP C3: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINES UNDER ONE HEAD ([F1], [F2]) ; THE E0 GATE %d OF %d '
+          'DERIVES ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+              len(paras) - 1, sum(1 for g in gates if g['grade'] == 'DERIVES'), n_all, sum(1 for _w, o in ctl if o), len(ctl),
+              ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b766_ledgers_c3.txt'), os.path.join(D, 'b766_ledgers_c3.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group=group, date=date, pp_head=pp_head,
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, first_new=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            entered=dict((k, [nl_.index(v) + 1, sha(v)[:16]]) for k, v in E.items()), head=[nl_.index(head) + 1, sha(head)[:16]],
+                            keys=list(GROUPS[group]), runs=runs, coeffs=coeffs,
+                            e0=[dict((x, g[x]) for x in ('key', 'name', 'commit', 'path', 'line', 'grade', 'why', 'state', 'axioms', 'target')) for g in gates],
+                            controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+
+
 def main(argv):
     what, group, mode = (argv + ['', '', ''])[:3]
     if what != 'ledgers' or group not in GROUPS or mode not in ('dry', 'write'):
         sys.exit(__doc__)
-    ledgers(group, mode)
+    if group == 'c3':
+        ledgers_c3(mode)
+    else:
+        ledgers(group, mode)
 
 
 if __name__ == '__main__':
