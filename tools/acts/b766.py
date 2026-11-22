@@ -309,7 +309,9 @@ def c1(*a):
 # ### b766, Component 5 (the Edit tool, before any run): b766's K.EF_BASE is main entering b766, 0ba9cd61, the workflow b765 moved there with
 # ### its key and restore; b721 copied the workflow of 819e4a83, b765's entering main, so the comparison is read at that commit by its name
 # ### here and not through K.EF_BASE, which a carried meaning would have read at 0ba9cd61 (the class (R376)(1) names)
-WF_BASE_B721 = '819e4a83'   # ### b766: the main whose workflow rebuild-b721 copied, b765's entering main (b765's K.EF_BASE)
+# ### b766 (the standing-a2 probe, 21:10:58Z, defect (q)): the constant first written on this line, between the blocks, which the fold does
+# ### not render, so the override raised a NameError at the probe; the override reads the worklist's K.EF_BASE_B765 (819e4a83, b765's
+# ### entering main, whose workflow rebuild-b721 copied) in its place
 #⟪OVERRIDE checks MARK 8df6a527436b 13⟫
 def rebuild_wf_ok(S):
     """(R363)(7), as b753 left the branches (no kernel commit this act): the workflow at each rebuild branch's tip -- the five kernels other
@@ -320,7 +322,7 @@ def rebuild_wf_ok(S):
     import difflib
     st = S['rebuild_state'] or {}
     fr, kn = st.get('SIDE-frobenius') or {}, st.get('SIDE-kernel') or {}
-    src = read_blob(EF, WF_BASE_B721 + ':.github/workflows/build-module.yml') or ''   # ### b766: b721's base by its name (the note above)
+    src = read_blob(EF, K.EF_BASE_B765 + ':.github/workflows/build-module.yml') or ''   # ### b766: b721's base by its name, the worklist's EF_BASE_B765 (the note above; defect (q))
     tip = fr.get('wf_tip') or ''
     d = [x for x in difflib.unified_diff(src.split(NL), tip.split(NL), lineterm='', n=0) if x[:1] in '+-' and x[:3] not in ('+++', '---')]
     km = read_blob('D:/SIDE-kernel', 'main:.github/workflows/build-module.yml') or ''
@@ -639,7 +641,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnop'))   # ### b766 touch read (20:3xZ): (n) and (o) added, each THE SEAT'S; (p) at the arm's needle call (20:4xZ). b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqr'))   # ### b766 touch read (20:3xZ): (n) and (o) added, each THE SEAT'S; (p) at the arm's needle call (20:4xZ); (q) and (r) at the standing-a2 probe (21:4xZ). b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b766_misses.txt', 'data/b766_price.txt', 'data/b766_price.json', 'data/b766_ceiling.txt',          # ### step zero, (3); the ceiling after (4)(c)
