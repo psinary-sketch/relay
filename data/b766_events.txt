@@ -199,3 +199,37 @@ COMPONENT 1 (the repairs' own rows stand in data/b766_repairs.txt, their control
      1 session from :265841, 269,274 rows, 0 lost, 319 boundaries, the last at :269158. The ferry read whole (two reads), the author's words,
      the step-zero, events and defects banks read whole, the refusals bank absent (no data/b766_hook_refusals.txt). The restatement stated in
      ten lines before the next write, the relay's commit of the staged set, 06dea7e2 (step 6, 08:12:22Z, a flag read before it: GO).
+
+    (34) THE TOOL'S [CLOSE ; NEW]: THE FIRST STANDING DRY OVER [K22] NOT CLEAN, ON THE ACT MODULE'S CARRIED CEILING CHECK. tools/standing/
+     standingdry.py run (08:17:49Z, a flag read before it): renders 322, new failures 0; `record findings dry` exit 1, its halt the act
+     module's own line "data/b766_events.txt DOES NOT CARRY THE CEILING`S READING AFTER COMPONENT 2", which the dry's classifier reads as no
+     named halt, NOT CLEAN (data/b766_standing_dry.txt as first written). The check is b765's (tools/acts/b765.py :1833, scratch ceil765.py,
+     the ceiling after Component 2), carried unread into record section 4, which Component 5 rewrites; (R376)(3) reads the ceiling after
+     (4)(c). b765's dry read PENDING at the same section because its module then read data/b765_ceiling.txt (data/b765_standing_dry.txt
+     :38). The check set to read b766's reading after (4)(c) from its own bank, data/b766_ceiling.txt, by one Edit, committed before the dry
+     ran it, relay 9308c806 (step 8, 08:20:35Z); the dry again (08:20:55Z): PENDING on b766_ceiling.txt, a bank a component writes before
+     the record, renders new 0.
+
+    (35) THE SEAT'S [CLOSE ; NEW]: [K22]'S COMMIT FIRST SENT BY THE REPAIR PHASE. At 08:22:05Z (a flag read before it) the commit was sent as
+     `commit.py relay repair`, a phase that stands between the lock and the seal; refused "NO LOCK ROW", nothing committed and no row
+     written. Sent again by the component phase as b765's standing commits were (e179b18b, c2df59d7), 08:22:24Z.
+
+    (36) THE SEAT'S [CLOSE ; REPEAT b765 events (30)]: [K22], THE KERNEL ROUTE FOR b766 AND push-b765-planted BY ITS ONE NAME. The control
+     tool tools/b766_repair_controls.py carried from b765's frame by the Write tool with the [K22] control, committed before any run of it,
+     relay df0be70a (step 7, 08:17:22Z). tools/standing/commit.py edited by eight Edits and VERSION by one (between the flag reads of
+     08:13:53Z and 08:17:12Z): b766 in
+     KERNEL_ACTS and FF_ACTS at SIDE-explicit-formula; RDELETE_ACTS naming push-b765-planted for b766; FORCED_DELETES naming the same one
+     name, read by kernel_delete_args() (the local delete, branch -D) and by rdelete_plan()'s forced form (a tip not merged), both requiring
+     the name in RDELETE_ACTS. Committed with the standing dry beside it, relay b7c3ed87 (step 9, 08:22:28Z), its scan 8 of 8 AS WANTED,
+     every count 0. Its planted control (08:22:48Z unbanked; 08:22:58Z banked, data/b766_repair_controls.txt :3-:31): before, b766 refused
+     in both tables, the removal and the local delete refusing push-b765-planted; after, admitted, the planted second name push-b763-arith
+     refused by the removal and by the local delete with it planted in FORCED_DELETES, SIDE-dirichlet-mod-24, b767, main and a kept name
+     refused, the tables gaining b766 alone: AS WANTED. The seat's read of the forcing for both routes in data/b766_repairs.txt [K22].
+
+    (37) THE SEAT'S [CLOSE ; NEW]: push-b765-planted REMOVED AT THE KERNEL'S REMOTE AND IN ITS CLONE. Listed before (08:23:09Z, a flag read
+     before it): the remote's refs/heads/push-b765-planted 7d86a245 and main 0ba9cd61; the clone's push-b765-planted 7d86a245 and
+     push-b765-centre 0ba9cd61, no upstream set, HEAD main. `commit.py SIDE-explicit-formula rdelete push-b765-planted` (08:23:20Z): "REMOVED
+     AT THE REMOTE, NO PUSH FORCED ... NOT an ancestor of the remote`s main 0ba9cd61, taken by its name in FORCED_DELETES ... read back by
+     ls-remote ABSENT". `commit.py SIDE-explicit-formula delete push-b765-planted` (08:23:30Z): "Deleted branch push-b765-planted (was
+     7d86a24)". Read after (08:23:37Z): the remote's push-b765-* holds push-b765-centre alone, at main's commit 0ba9cd61; the clone's
+     push-b765-centre alone; no tracking ref for the removed name. push-b765-centre is named for removal by no clause and stands (N5).

@@ -1,0 +1,27 @@
+b766 -- THE REPAIRS BY CLASS, (R376)(7): ONE ROW A KEY, IN THE ORDER OF REPAIR (2026-11-22)
+
+### each row: the key, its class (by data/b764_repairs.txt's classes), its evidence by bank and line, its state (REPAIRED, READ AS DESIGNED or
+### CARRIED), the version and its commit, the control's bank and line, its price (data/b766_price.txt) and what it took (from the end of the
+### key before -- its control's reading, or Component 1's last commit for the first -- to the control's reading, a summary of the session
+### within it named); then the state's sentence with its fields filled, as the FINDINGS entry and the trail take it. Each repair under
+### tools/standing/ moves VERSION by its own commit, the standing dry beside it ((R376)(7), (10)). The controls: tools/b766_repair_controls.py,
+### each revision probed apart in its own interpreter, banked in data/b766_repair_controls.txt.
+
+    [K22] CLASS THREE, THE CLOSE ORDER, ITS GUARDS AND ITS RATES (the one-call tool's tables, opened act by act and kernel by kernel) ;
+     EVIDENCE: data/b765_misses.txt (2) and (3) (the kernel route's tables not opened for b765 by (R375)(11), RDELETE_ACTS not given b765);
+     b765's worklist KERNEL_DELETES_REFUSED (push-b765-planted, 2026-11-21T19:19:48Z, "not fully merged", kept at 7d86a245); the navigator's
+     claim (ii) (data/b766_events.txt (25)) ; STATE: REPAIRED ; VERSION: v1.38.22, relay b7c3ed87 (tools/standing/commit.py, 57 lines added and
+     11 removed: KERNEL_ACTS, FF_ACTS and RDELETE_ACTS given b766, FORCED_DELETES, forced_name(), kernel_delete_args(), rdelete_plan()'s
+     forced form, rdelete_route()'s line for a tip not merged) ; THE CONTROL: data/b766_repair_controls.txt :3-:31 ; PRICE: 0.15-1.00 h, the
+     removal 0.05-0.20 h ; TOOK: 0.18 h (08:12:22Z-08:22:58Z, the summary of 08:10:16Z before it; the first standing dry NOT CLEAN on the act
+     module's carried ceiling check, 08:17:49Z, the check read from its own bank, relay 9308c806, and the dry again PENDING on a component bank,
+     new 0, 08:20:55Z; the commit first sent by the repair phase and refused, no lock row, 08:22:05Z); the removal 0.01 h (08:23:09Z-08:23:37Z)
+     "[K22] repaired at v1.38.22: tools/standing/commit.py opens SIDE-explicit-formula for b766 in KERNEL_ACTS and FF_ACTS, RDELETE_ACTS names
+     push-b765-planted for b766 at that kernel alone, and FORCED_DELETES names the same one name, which the local delete takes with branch -D
+     and the removal at the remote takes though its tip is not merged, no push forced; its planted control read the fault before and reads
+     clean after, a second name planted in FORCED_DELETES refused by both routes (data/b766_repair_controls.txt :31); push-b765-planted,
+     7d86a245, then removed at the kernel's remote and in its clone, listed before and read absent after"
+     THE REPAIR'S LIMIT: a name in FORCED_DELETES is taken only where RDELETE_ACTS names it for the same act and kernel; the remote's removal
+     still wants the tip in the clone and the remote's main read; the clone's tracking refs are not pruned by the route (none stood for the
+     name). THE SEAT'S READ: (R376)(7) forces "the local delete"; the removal at the remote refused a tip not merged (rdelete_plan, v1.36.3),
+     and the ruling orders the branch removed "at the kernel's remote and in its clone", so the one name's forcing is read for both.
