@@ -15,7 +15,9 @@ a table row's first cell above b720's block (:1100), at its first row that is no
 `REGISTRY.md:`), the lines of rule [Q] (3)'s section set aside; (ii) THE ROWS OF THE TABLES WHOSE ROWS CARRY NO NUMBER: the SUPPORT TIER,
 INTERNAL, PHASE ROW and ANNEX tables, and the ratified public titles' rows whose id cell names no numbered row and whose document is no
 numbered row's (the method layer's m5 rows among them); a public title's row naming a numbered row is that row's title and is not read
-again. A row's document: the first `.md` path its File cell names, at HEAD, or by its name where one tracked file carries that name; a
+again. A row on a line rule [Q] protects (its section, and two lines either side of a line carrying the protected word, as the seat's
+reader takes it) is counted and cited by its line and the line's sha256 alone, and not read. NOT REACHED by b720's block: a numbered row
+the block does not name, or names as not yet read. A row's document: the first `.md` path its File cell names, at HEAD, or by its name where one tracked file carries that name; a
 row outside the repository's tree (ANNEX) is named by its table and line alone.
 THE PHASE BY SUBJECT ((R376)(5)(a)): the eight rows of Day 1, THE DAY 1 CLUSTER; 1.5a-1 to 1.5a-10 and 1.5g-1 to 1.5g-4, PHASE 1.2; the
 other rows of 1.5A to 1.5G, PHASE 1.5; the rows of 1.5H and the rows under no phase heading, METHOD, PHASE 2 IN TIME; the rows of Phase 2,
@@ -236,16 +238,14 @@ def names_it(text, rid, path):
 
 
 # ================================================================================ THE ROWS
-def collect(L, Q, H, tracked):
+def collect(L, Q, P, H, tracked):
     b720 = [k for k, l in enumerate(L, 1) if l.startswith('## SUBJECT / TO-KC ATTRIBUTE')]
     b761 = [k for k, l in enumerate(L, 1) if l.startswith('## SUBJECT / TO-KC CELLS OF PHASE 1.5')]
     if len(b720) != 1 or len(b761) != 1:
         die('b720`S OR b761`S BLOCK NOT READ ONCE (%s, %s)' % (b720, b761))
     stop = b720[0]
-    rows, seen = [], set()
+    rows, seen, prot = [], set(), []
     for k, l in enumerate(L[:stop - 1], 1):
-        if k in Q:
-            continue
         m = R61.ROW_ID.match(l)
         if not m:
             continue
@@ -254,6 +254,9 @@ def collect(L, Q, H, tracked):
             continue
         rid = m.group(1)
         seen.add(rid)
+        if k in P:
+            prot.append((k, sha(l)[:16], 'a numbered row'))
+            continue
         a, hdr = table_of(L, k)
         si = next((i for i, x in enumerate(hdr) if x.lower() == 'status'), None)
         fi = next((i for i, x in enumerate(hdr) if x.lower() == 'file'), 3)
@@ -278,6 +281,9 @@ def collect(L, Q, H, tracked):
         fi = next((i for i, x in enumerate(hdr) if 'file' in x.lower()), 1)
         for i in range(a + 2, k):
             c = [x.strip() for x in L[i - 1].split('|')]
+            if i in P:
+                prot.append((i, sha(L[i - 1])[:16], 'a row of the table headed %s' % pre[3:].split(':')[0].split(' —')[0].strip()))
+                continue
             if ph == ANX:
                 path, where = None, 'OUTSIDE THE TREE, NOT READ'
             else:
@@ -290,10 +296,13 @@ def collect(L, Q, H, tracked):
     tend = next((k for k in range(th[0] + 1, stop) if re.match(r'^##\s', L[k - 1])), stop)
     for i in range(th[0] + 1, tend):
         l = L[i - 1]
-        if not l.startswith('|') or i in Q or re.match(r'^\|[\s:|-]+\|?\s*$', l):
+        if not l.startswith('|') or re.match(r'^\|[\s:|-]+\|?\s*$', l):
             continue
         c = [x.strip() for x in l.split('|')]
         if len(c) < 3 or not re.search(r'`[^`]+?\.md`', c[1]):
+            continue
+        if i in P:
+            prot.append((i, sha(l)[:16], 'a row of the public titles'))
             continue
         idc = c[2].strip('`* ')
         path, where = resolve(c[1], tracked)
@@ -303,7 +312,7 @@ def collect(L, Q, H, tracked):
         rid = idc if re.match(r'^m\d+-\d+$', idc) else 'PUBLIC TITLES :%d' % i
         rows.append(dict(id=rid, line=i, table=table_of(L, i)[0], head=th[0], htext=L[th[0] - 1], filed=NOPH, cluster=None, path=path,
                          where=where, status='', numbered=False))
-    return rows, dict(stop=stop, b761=b761[0], skipped=skipped)
+    return rows, dict(stop=stop, b761=b761[0], skipped=skipped, prot=prot)
 
 
 def block_cells(L, Q, start, end):
@@ -431,19 +440,27 @@ def run(mode):
     I = R61.ids()
     TG = R61.tags()
     Q = q_section(L)
+    WL = [k for k, l in enumerate(L, 1) if re.search(r'\b%s\b' % re.escape(qw), l, re.I)]
+    P = Q | set(x for w in WL for x in range(max(1, w - 2), min(len(L), w + 2) + 1))   # ### rule [Q] as the seat's reader takes it
     H = heading_of(L)
     out, _rc = R61.git(PP, 'ls-tree', '-r', '--name-only', 'HEAD')
     tracked = set(x for x in out.split(NL) if x)
     head = R61.git(PP, 'rev-parse', '--short=8', 'HEAD')[0].strip()
-    rows, info = collect(L, Q, H, tracked)
-    rows = read_rows(rows, L, Q, I, qw, TG, info)
+    rows, info = collect(L, Q, P, H, tracked)
+    rows = read_rows(rows, L, P, I, qw, TG, info)
     rows, ks = classify(rows)
     for r in rows:
         r['phase'] = phase(r['id'], r['filed']) if r['numbered'] else (r['filed'] if r['filed'] in (SUP, INTL, ANX) else METHOD)
         r['differs'] = r['phase'] != r['filed'] and not (r['filed'] == NOPH and r['phase'] == METHOD)
     num = [r for r in rows if r['numbered']]
-    c720_any = set(m.group(1) for k in range(info['stop'], info['b761']) for m in [re.match(r'^\| (?:### \*\*)?`([^`]+)`', L[k - 1])] if m)
+    c720 = block_cells(L, P, info['stop'], info['b761'] - 1)
+    c720_any = set(m.group(1) for k in range(info['stop'], info['b761']) if k not in P
+                   for m in [re.match(r'^\| (?:### \*\*)?`([^`]+)`', L[k - 1])] if m)
     not720 = [r['id'] for r in num if r['id'] not in c720_any]
+    nyr720 = [r['id'] for r in num if r['id'] in c720_any and r['id'] not in c720]
+    prot = info['prot']
+    scoped = [(r['id'], 'SCOPE-DROPPED' if re.search(r'(?i)scope-drop', r['status']) else 'RECLASSIFIED', cell_text(r)) for r in rows
+              if not r['sw'] and re.search(r'(?i)scope-drop|reclassified', r['status'])]
     # ### THE CONTROLS
     d1 = [r for r in rows if r['id'].startswith('d1-')]
     canon = [r for r in rows if (r['path'] or '').endswith('THE_METHOD_CANON.md')]
@@ -468,11 +485,17 @@ def run(mode):
          '### no line of REGISTRY, of the census or of a paper written; each title line and clause composed here from the document at HEAD; the',
          '### protected word neither printed nor stored. One row a registry row: its id or its table and line | its document | its title line |',
          '### THE PHASE BY SUBJECT | the table filed under | SUBJECT | TO KC | THE KEYSTONE CELL | THE TITLE FLAG.', '',
-         '## THE ROWS READ: numbered %d (b720`s block at :%d names %d of them and not %d, the navigator`s count of the rows it does not reach %d, '
-         'printed as the navigator`s) ; of the tables whose rows carry no number %d ; %d rows of %d tables ; the public titles` rows naming a '
-         'numbered row, not read again, %d' % (len(num), info['stop'], len(num) - len(not720), len(not720), NAV_52, len(rows) - len(num), len(rows),
-                                                len(tables), len(info['skipped'])),
-         '  the numbered rows b720`s block does not name: %s' % ', '.join(not720), '']
+         '## THE ROWS READ: numbered %d ; of the tables whose rows carry no number %d ; %d rows of %d tables ; the public titles` rows naming a '
+         'numbered row, not read again, %d ; on a line rule [Q] protects, cited by line and digest alone and not read, %d (below)' % (
+             len(num), len(rows) - len(num), len(rows), len(tables), len(info['skipped']), len(prot)),
+         '## b720`S BLOCK (:%d) AND THE NUMBERED ROWS READ: it reads %d of the %d, names %d as not yet read and does not name %d: NOT REACHED %d ; '
+         'the navigator`s count of the rows it does not reach %d, printed as the navigator`s' % (
+             info['stop'], len(num) - len(not720) - len(nyr720), len(num), len(nyr720), len(not720), len(nyr720) + len(not720), NAV_52),
+         '  named as not yet read: %s' % (', '.join(nyr720) or 'none'),
+         '  not named: %s' % (', '.join(not720) or 'none'),
+         '## THE ROWS ON A LINE RULE [Q] PROTECTS (its section from :%d, and two lines either side of a line carrying the word, as the seat`s '
+         'reader takes it), each by its line and the line`s sha256 alone: %s' % (
+             R61.QLINE, '; '.join(':%d %s (%s)' % (k, d, w) for k, d, w in prot) or 'none'), '']
     for r in rows:
         P.append('  %s | %s | %s | %s | filed under %s (:%d) | SUBJECT %s | TO KC %s | %s | %s' % (
             r['id'], ('%s (%s)' % (r['path'], r['where'])) if r['path'] else r['where'],
@@ -489,7 +512,9 @@ def run(mode):
           '  (2) THE ROWS WHOSE PHASE BY SUBJECT DIFFERS FROM THE TABLE FILED UNDER (%d): %s' % (
               len(differs), '; '.join('%s %s under %s' % (r['id'], r['phase'], r['filed']) for r in differs)),
           '  (3) THE ROWS READING UNPLACED (%d): %s' % (len(unplaced), ', '.join(r['id'] for r in unplaced)),
-          '  (4) THE ROWS CARRYING A TITLE FLAG (%d): %s' % (len(flagged), '; '.join('%s (%s)' % (r['id'], ', '.join(r['flag'])) for r in flagged)), '']
+          '  (4) THE ROWS CARRYING A TITLE FLAG (%d): %s' % (len(flagged), '; '.join('%s (%s)' % (r['id'], ', '.join(r['flag'])) for r in flagged)),
+          '  BESIDE THEM, THE ROWS WHOSE STATUS READS SCOPE-DROPPED OR RECLASSIFIED, not WITHDRAWN OR SUPERSEDED by the rule`s words (%d): %s' % (
+              len(scoped), '; '.join('%s %s, read %s' % x for x in scoped) or 'none'), '']
     ctl = [('the eight rows of Day 1 read KEYSTONE: %d rows, %s' % (len(d1), [(r['id'], r['cell']) for r in d1]),
             len(d1) == 8 and all(r['cell'] == KEY for r in d1)),
            ('the canon reads APPARATUS: %s' % [(r['id'], r['cell']) for r in canon], len(canon) == 1 and canon[0]['cell'] == APP),
@@ -528,7 +553,8 @@ def run(mode):
     if mode != 'write' or not ok:
         return 0 if ok else 1
     J = dict(at=utc(), act=ACT, pp_head=head, registry_lines=len(L), rows=len(rows), tables=len(tables), numbered=len(num), not_in_b720=not720,
-             nav_52=NAV_52, counts=counts, keystones_by_phase=kp, differs=[[r['id'], r['phase'], r['filed']] for r in differs],
+             not_yet_read_in_b720=nyr720, not_reached=len(not720) + len(nyr720), nav_52=NAV_52, protected=[[k, d, w] for k, d, w in prot],
+             scoped=[list(x) for x in scoped], counts=counts, keystones_by_phase=kp, differs=[[r['id'], r['phase'], r['filed']] for r in differs],
              unplaced=[r['id'] for r in unplaced], flagged=[[r['id'], r['flag']] for r in flagged], sentence=sentence,
              controls=[[w, o] for w, o in ctl],
              cells=[dict(id=r['id'], line=r['line'], path=r['path'], where=r['where'], phase=r['phase'], filed=r['filed'], cell=r['cell'],
