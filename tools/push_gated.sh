@@ -60,7 +60,12 @@ if [ -z "$cap" ]; then
   esac
 fi
 if [ -n "$cap" ]; then
-  exec > >(tee -a "$cap") 2>&1
+  # ### v1.38.23, (R376)(7) [K23], by the author's word of 2026-11-22 ("The seven captures: mask the account."): THE CAPTURE MASKS THE
+  # ### ACCOUNT. Every line this script and the git commands it runs write passes one filter before it is printed and appended: the name
+  # ### after github.com/ or github.com: in a remote's address, and the name before /PLACE-project-set (the pattern the trail uses), each
+  # ### written <account>. The expression stands on its one line alone, read there by the control (tools/b766_repair_controls.py K23).
+  cap_mask='s#(github\.com[/:])[A-Za-z0-9][A-Za-z0-9-]*#\1<account>#g; s#[A-Za-z0-9][A-Za-z0-9-]*/PLACE-project-set#<account>/PLACE-project-set#g'
+  exec > >(sed -u -E "$cap_mask" | tee -a "$cap") 2>&1
   echo "push_gated: capture on -> $cap ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
   # ### (R324)(2), standing clauses v5 row (72), b714: THE REPOSITORY'S VISIBILITY BESIDE ITS CAPTURE, read from the visibility map
   # ### (relay data/repo_visibility.txt, rows `VISIBILITY | name | ...`) by the origin's repository name; a name the map does not carry
