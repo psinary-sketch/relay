@@ -1,0 +1,34 @@
+b766 -- (R376)(4)(d) L6 (c): THE VALUES K(n) OF THE CERTIFICATE ENTER THE KERNEL AS DATA, SIDE-explicit-formula SIDEExplicitFormula/Window/KData.lean (write, 2026-11-22T13:07:48Z)
+
+## THE WINDOW`S BANK, data/b765_window.json
+  its sha256 less its final line end 4cbe7be1203883a6 ; data/b765_window.txt :26 gives 4cbe7be1203883a6 -- EQUAL
+  the file whole bd228144d213356c ; 778941 bytes
+  coefficients 16365 (the line gives 16365) ; each (m, e) against its rational: EQUAL ; their sha256 4702881bfa6f928f, the bank`s coef_sha 4702881bfa6f928f -- EQUAL
+  M 16, d 3 ; no coefficient printed ; THE BANK AS WANTED
+
+## THE FILE COMPOSED
+  F(T) at 16384 T, 0 to 16383, the largest 30 digits ; the coefficients at 16384 m, the largest 18 digits ; each tree 64 subtrees of 256 leaves
+  Kt at 197 n, 4 to 1018, the largest 46 digits ; the strided terms 24853 in 7 groups (KT_CAP 4100), the groups` terms [4080, 2715, 3837, 3950, 3974, 4096, 2201] and their n [1, 1, 2, 4, 10, 36, 143]
+  lines 8744 ; bytes 1422378 ; sha256 6eb83939d491b5c6
+
+## THE FILE ON THE DISK, READ BACK
+  SIDEExplicitFormula/Window/KData.lean: bytes 1422378 ; sha256 6eb83939d491b5c6 ; carriage returns 0 ; equal to the composed text: True
+
+## THE CONTROL OVER THE FILE AS WRITTEN
+  (1) Kt(n) / (80640 n^4 10^34) against the certificate`s K(n), its own route (no value printed): n 197 ; differences 0 -> AS WANTED
+  (2) F against its definition, the full sum over j, at twelve T: differences 0 [] -> AS WANTED
+  (3) Kt by the direct double sum with kapTilde at the first, middle and last n: differences 0 -> AS WANTED
+  (4) E on -3 .. 3, the spline`s constants (KFast.lean`s evv): [1, 120, 1191, 2416, 1191, 120, 1] -> AS WANTED
+  (5) the F tree read back from the text, its value at each T against the composed: 16384 of 16384 -> AS WANTED
+  (6) the coefficient tree read back, at each m against the composed: 16384 of 16384 -> AS WANTED
+  (7) Coeffs.lean`s integers read from the disk against the coefficient tree at 16 .. 16380: read 16365 ; differences 0 -> AS WANTED
+  (8) the table of Kt read back, its groups in order and each pair against the composed: 7 groups, 197 pairs ; the line names 7 -> AS WANTED
+  (9) the head`s three digests (the window bank less its final line end ; the certificate bank whole ; Coeffs.lean whole): ('4cbe7be1203883a6', '4bfd9e780d9af63f', 'f06bd20ca2854d06') -> AS WANTED
+  (10) the subtrees defined in order before their top tree, in each tree: 65 and 65 -> AS WANTED
+  (11) THE LEAN`S CHECKS MODELLED over the text: the recurrence at T from 16 to 16399, the walk over Coeffs.lean`s list, the halving sums at each n: recurrence failures 0 ; walk True ; Kt failures 0 -> AS WANTED
+  (12) PLANTED: one leaf of the F tree moved in its last digit, read as one difference at its T, and the modelled recurrence failing: [5000] ; recurrence failures 5 -> AS WANTED
+  (13) PLANTED: one leaf of the coefficient tree moved, read as one difference at its m, and the modelled walk failing: [8016] ; walk False -> AS WANTED
+  (14) PLANTED: one Kt of the table moved in its last digit, read as one difference at its index, and the modelled sum failing at its n: [100] ; Kt failures 1 -> AS WANTED
+  (15) no decimal literal and no barred word in the text (tools/b766_controls.py`s Lean text check): decimal 0 ; barred 0 -> AS WANTED
+
+### ### **THE DATA FILE WRITTEN AND READ BACK ; THE CONTROL 15 OF 15 AS WANTED ; NO COEFFICIENT, NO F AND NO K(n) PRINTED.**
