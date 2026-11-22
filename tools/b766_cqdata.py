@@ -270,22 +270,22 @@ def control(text, cq, reps, r, bad, K):
         rep_bad, count_eq, cnt, prod_bad, cq_bad = model(rb, cb, P)
         row('THE LEAN`S CHECKS MODELLED: repOK at each k (%d fail) ; the box`s count %d equal to the lists` total ; prodOK at each n (%d fail) ; '
             'cqOK at each n (%d fail)' % (len(rep_bad), cnt, len(prod_bad), len(cq_bad)), not rep_bad and count_eq and not prod_bad and not cq_bad)
-        # ### the planted digits
-        lst = cb[PLANT_CQ]
+        # ### the planted digits: in cqTree at the first n from PLANT_CQ whose leaf is not empty and stands once in the text
+        pc = next((n for n in range(PLANT_CQ, TOP) if cb[n] and text.count(list_leaf(cb[n])) == 1), None)
+        lst = cb[pc] if pc is not None else []
         t2 = None
         if lst:
             old = list_leaf(lst)
             new = list_leaf([(lst[0][0], lst[0][1] + 1)] + lst[1:])
-            if text.count(old) == 1:
-                t2 = text.replace(old, new)
+            t2 = text.replace(old, new)
         if t2 is not None:
             r2, c2, P2 = read_back(t2)
             diffs = [i for i in range(TOP) if c2[i] != cb[i]]
             m2 = model(r2, c2, P2)
-            row('a planted digit in cqTree at n %d read as the one difference (%s) and as a failure of cqOK there (%s)' % (PLANT_CQ, diffs, m2[4][:3]),
-                diffs == [PLANT_CQ] and PLANT_CQ in m2[4])
+            row('a planted digit in cqTree at n %d read as the one difference (%s) and as a failure of cqOK there (%s)' % (pc, diffs, m2[4][:3]),
+                diffs == [pc] and pc in m2[4])
         else:
-            row('a planted digit in cqTree at n %d: its leaf not found once in the text' % PLANT_CQ, False)
+            row('a planted digit in cqTree from n %d: no leaf not empty and standing once in the text' % PLANT_CQ, False)
         lst = rb[PLANT_REP]
         t3 = None
         if lst:
