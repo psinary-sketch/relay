@@ -113,6 +113,17 @@ v1.38.18, (R374)(7) AND (12): THE KERNEL ROUTE OPENED FOR b764 AT SIDE-explicit-
   SIDE-explicit-formula, and there the workflow's file alone"); no file is named for a conflicted merge; PUSHTO_ACTS and RDELETE_ACTS do
   not name b764, (4) removing no kernel branch and push-b764-runner staying for the next act's step zero.
 
+v1.38.22, (R376)(7) [K22]: THE KERNEL ROUTE FOR b766, AND ONE BRANCH NOT MERGED REMOVED BY ITS NAME. KERNEL_ACTS and FF_ACTS named b757 to
+  b765, so (4)'s branch push-b766-proof, its commits and the local main after the gated push were refused for b766 before anything was read;
+  RDELETE_ACTS named b759 and b760, and the local delete took the act's own push-<act>-* names alone, `git branch -d` refusing a branch not
+  merged (b765's worklist KERNEL_DELETES_REFUSED: push-b765-planted, 7d86a245, "not fully merged"). b766 opens SIDE-explicit-formula in
+  KERNEL_ACTS and FF_ACTS; RDELETE_ACTS names push-b765-planted for b766 at that kernel alone; FORCED_DELETES names the same one name, "for
+  which one name the local delete forces a branch that is not merged": kernel_delete_args() admits that name to the local delete with
+  `git branch -D`, and rdelete_plan() takes its tip though it is no ancestor of the remote's main (the seat's read: the ruling orders the
+  branch "removed at the kernel's remote and in its clone", and the removal route refused a tip not merged, so the one name's forcing reads
+  for both; the remote's ref is removed by `git push origin :refs/heads/<branch>`, which forces no push). Every other name stands as
+  before: a second name, the act's own branch not merged, main and SIDE-dirichlet-mod-24 refused or taken as v1.38.21 took them.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -151,7 +162,8 @@ KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # #
                'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5), (11): "lifted for SIDE-explicit-formula in this act alone"; "no kernel touched beyond SIDE-explicit-formula's tree and the five branches of (3)"
                'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): "No kernel beyond SIDE-explicit-formula is written"
                'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): push-b764-runner made at main and its commit of the workflow's file; "there the workflow's file alone"
-               'b765': ('SIDE-explicit-formula',)}   # ### v1.38.21, (R375)(4), (5), (12) "no kernel touched beyond SIDE-explicit-formula": push-b765-centre cut from push-b764-runner, push-b765-planted from it, the files of (5), print_targets.txt and the workflow's file (the seat's read of (11), data/b765_misses.txt (2))
+               'b765': ('SIDE-explicit-formula',),   # ### v1.38.21, (R375)(4), (5), (12) "no kernel touched beyond SIDE-explicit-formula": push-b765-centre cut from push-b764-runner, push-b765-planted from it, the files of (5), print_targets.txt and the workflow's file (the seat's read of (11), data/b765_misses.txt (2))
+               'b766': ('SIDE-explicit-formula',)}   # ### v1.38.22, (R376)(7) [K22], (4), (11) "no kernel touched beyond SIDE-explicit-formula": push-b766-proof cut from main at 0ba9cd61, the files of (4) in the kernel's source folder and print_targets.txt; the local delete of push-b765-planted by FORCED_DELETES
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
@@ -160,7 +172,8 @@ FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'),
            'b759': ('SIDE-explicit-formula',),   # ### v1.36.7, (R369)(5): the local main following the remote's after the gated push moves it to v0.41
            'b763': ('SIDE-explicit-formula',),   # ### v1.37.2, (R373)(5): the local main following the remote's after each gated push that moves main (v0.42 and on)
            'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): the local main following the remote's after the gated push moves main on the trial's success alone
-           'b765': ('SIDE-explicit-formula',)}   # ### v1.38.21, (R375)(4): the local main following the remote's after the gated push moves main under the HELD outcome alone
+           'b765': ('SIDE-explicit-formula',),   # ### v1.38.21, (R375)(4): the local main following the remote's after the gated push moves main under the HELD outcome alone
+           'b766': ('SIDE-explicit-formula',)}   # ### v1.38.22, (R376)(7) [K22], (4): the local main following the remote's after the gated push moves main to the closing Lean commit on equal axioms files alone
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}
@@ -171,7 +184,14 @@ RDELETE_ACTS = {'b759': {'SIDE-explicit-formula': ('push-b757-join', 'push-b757-
                          'SIDE-dirichlet-mod-24': ('push-b757-mod24',)},
                 # ### v1.37.1, (R370)(5)(iv) and (4): "The branch push-b759-weil of SIDE-explicit-formula is deleted at its remote by the standing
                 # ### removal route, read there to be an ancestor of main before and read absent after"; no other kernel and no other name
-                'b760': {'SIDE-explicit-formula': ('push-b759-weil',)}}
+                'b760': {'SIDE-explicit-formula': ('push-b759-weil',)},
+                # ### v1.38.22, (R376)(7) [K22]: "RDELETE_ACTS names push-b765-planted for b766"; its tip 7d86a245 not merged, taken by FORCED_DELETES
+                'b766': {'SIDE-explicit-formula': ('push-b765-planted',)}}
+# ### v1.38.22, (R376)(7) [K22]: "for which one name the local delete forces a branch that is not merged" -- the one name, act by act and kernel
+# ### by kernel, that the local delete takes with -D though it is not the act's own push branch, and that the removal at the remote takes though
+# ### its tip is no ancestor of the remote's main (the seat's read, the ruling ordering it "removed at the kernel's remote and in its clone");
+# ### a name here must stand in RDELETE_ACTS for the same act and kernel, or neither route takes it
+FORCED_DELETES = {'b766': {'SIDE-explicit-formula': ('push-b765-planted',)}}
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
@@ -815,7 +835,7 @@ def kernel_write(key, verb, args, act, repo):
             raise Refused('NOT A COMMIT OF %s: %s' % (key, args[0]))
         return ['merge', '--no-ff', '--no-commit', full]
     if verb == 'delete':
-        bad = kernel_branch_refusal(act, args[0])
+        bad, _a = kernel_delete_args(key, act, args[0], False)
         if bad:
             raise Refused(bad)
         tip = _commit_of(repo, 'refs/heads/%s' % args[0])
@@ -824,8 +844,28 @@ def kernel_write(key, verb, args, act, repo):
         if _head_branch(repo) == args[0]:
             raise Refused('THE BRANCH IS CHECKED OUT: %s -- switch first' % args[0])
         held = _git(repo, 'merge-base', '--is-ancestor', tip, 'refs/remotes/origin/main').returncode == 0
-        return ['branch', '-D' if (held or args[0].startswith('push-%s-control' % act)) else '-d', args[0]]
+        return kernel_delete_args(key, act, args[0], held)[1]
     raise Refused('the write %r is not one of %s' % (verb, ' | '.join(WRITES)))
+
+
+def forced_name(key, act, name, table=None, rtable=None):
+    """v1.38.22, (R376)(7) [K22]: the name stands in FORCED_DELETES (or `table`, a control's) and in RDELETE_ACTS (or `rtable`) for the act at
+    the kernel. Pure."""
+    t = FORCED_DELETES if table is None else table
+    r = RDELETE_ACTS if rtable is None else rtable
+    return name in ((t.get(act) or {}).get(key) or ()) and name in ((r.get(act) or {}).get(key) or ())
+
+
+def kernel_delete_args(key, act, name, held, table=None, rtable=None):
+    """v1.38.22, (R376)(7) [K22]: (refusal, None) or (None, the git arguments) for a kernel's local branch delete: the one name FORCED_DELETES
+    names for the act at the kernel, `branch -D`; else the act's push branch, `-D` where the remote's main holds its tip (`held`) or for the
+    act's control branches and `-d` otherwise; any other name refused. Pure."""
+    if forced_name(key, act, name, table=table, rtable=rtable):
+        return None, ['branch', '-D', name]
+    bad = kernel_branch_refusal(act, name)
+    if bad:
+        return bad, None
+    return None, ['branch', '-D' if (held or name.startswith('push-%s-control' % act)) else '-d', name]
 
 
 def kernel_merge_after(key, act, repo, rc, out):
@@ -1016,8 +1056,9 @@ def rdelete_refusal(key, act, name, table=None, kept=None):
     return None
 
 
-def rdelete_plan(main_sha, tip, main_local, tip_local, ancestor):
-    """'remove', or Refused: the remote's main read, the branch at the remote, both commits in the clone, the tip an ancestor of main. Pure."""
+def rdelete_plan(main_sha, tip, main_local, tip_local, ancestor, forced=False):
+    """'remove', or Refused: the remote's main read, the branch at the remote, both commits in the clone, the tip an ancestor of main -- or,
+    v1.38.22, (R376)(7) [K22], `forced`, the one name FORCED_DELETES names, its tip read in the clone and taken though not merged. Pure."""
     if not main_sha:
         raise Refused('THE REMOTE`S MAIN NOT READ -- nothing removed ((R369)(4)(i))')
     if not tip:
@@ -1026,20 +1067,22 @@ def rdelete_plan(main_sha, tip, main_local, tip_local, ancestor):
         raise Refused('THE REMOTE`S MAIN %s IS NOT IN THE CLONE -- the ancestry unread, nothing removed ((R369)(4)(i))' % main_sha[:8])
     if not tip_local:
         raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT IN THE CLONE -- the ancestry unread, nothing removed ((R369)(4)(i))' % tip[:8])
-    if not ancestor:
+    if not ancestor and not forced:
         raise Refused('THE BRANCH`S REMOTE TIP %s IS NOT AN ANCESTOR OF THE REMOTE`S MAIN %s -- UNMERGED, nothing removed ((R369)(4)(i))' % (
             tip[:8], main_sha[:8]))
     return 'remove'
 
 
-def rdelete_route(key, args, act, repo, table=None, kept=None):
-    """v1.36.3, (R369)(4)(i): `rdelete <branch>` in a kernel RDELETE_ACTS opens; the line printed, or Refused."""
+def rdelete_route(key, args, act, repo, table=None, kept=None, ftable=None):
+    """v1.36.3, (R369)(4)(i): `rdelete <branch>` in a kernel RDELETE_ACTS opens; the line printed, or Refused. v1.38.22, (R376)(7) [K22]: the
+    one name FORCED_DELETES names (or `ftable`, a control's) taken though its tip is not merged."""
     if len(args) != 1:
         raise Refused('ONE BRANCH PER CALL: `rdelete <branch>` ((R369)(4)(i))')
     name = args[0]
     bad = rdelete_refusal(key, act, name, table=table, kept=kept)
     if bad:
         raise Refused(bad)
+    forced = forced_name(key, act, name, table=ftable, rtable=table)
     main_sha, rc1 = remote_head(repo, 'main')
     if rc1 != 0:
         raise Refused('THE REMOTE`S MAIN NOT READ (ls-remote exit %d) -- nothing removed ((R369)(4)(i))' % rc1)
@@ -1049,12 +1092,15 @@ def rdelete_route(key, args, act, repo, table=None, kept=None):
     main_local = _commit_of(repo, main_sha) if main_sha else ''
     tip_local = _commit_of(repo, tip) if tip else ''
     anc = bool(main_local and tip_local) and _git(repo, 'merge-base', '--is-ancestor', tip_local, main_local).returncode == 0
-    rdelete_plan(main_sha, tip, main_local, tip_local, anc)
+    rdelete_plan(main_sha, tip, main_local, tip_local, anc, forced=forced)
     r = _git(repo, 'push', '--porcelain', 'origin', ':refs/heads/%s' % name)
     back, rc3 = remote_head(repo, name)
     if r.returncode != 0 or rc3 != 0 or back:
         raise Refused('THE REMOVAL FAILED OR ITS READ-BACK IS NOT ABSENT: git push exit %d (%s) ; the remote reads %s (exit %d)' % (
             r.returncode, ((r.stderr or r.stdout) or '').strip()[:120], back[:8] or 'absent', rc3))
+    if not anc:
+        return ('REMOVED AT THE REMOTE, NO PUSH FORCED: refs/heads/%s (its tip %s, NOT an ancestor of the remote`s main %s, taken by its name in '
+                'FORCED_DELETES, (R376)(7) [K22]) ; read back by ls-remote ABSENT' % (name, tip[:8], main_sha[:8]))
     return 'REMOVED AT THE REMOTE, NOT FORCED: refs/heads/%s (its tip %s, an ancestor of the remote`s main %s) ; read back by ls-remote ABSENT' % (
         name, tip[:8], main_sha[:8])
 
