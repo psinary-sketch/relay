@@ -684,7 +684,11 @@ CHAIN = (('c1', 'a2ab7fbe'), ('corr', '06dea7e2'),
          ('k0blocks_gen', '99b807f6'), ('rows89', '0e664b93'), ('rulings_c5_fix', '4e38d2b3'), ('ledgers_c5', '28b27f9d'),
          ('reproduce', '68afc073'), ('lockgate_carry', '72733b77'), ('module_c5', '0906192b'),
          # ### b766, Component 5 (the Edit tool, 20:2xZ, the touch read): appended as made, each read from git and the step rows (steps 70-74)
-         ('chain_c5', '55fe5bc6'), ('module_rec', '6533a424'), ('scan', '535090f2'), ('trail_set', '86cbc5b3'), ('face_blocks', 'a81d7048'))
+         ('chain_c5', '55fe5bc6'), ('module_rec', '6533a424'), ('scan', '535090f2'), ('trail_set', '86cbc5b3'), ('face_blocks', 'a81d7048'),
+         # ### b766, Component 5 (the Edit tool, 23:2xZ, after the handoff's commit): appended as made, each read from the step rows (steps
+         # ### 75-82); the handoff (f2a6ba69, step 83) stands as HANDOFF_COMMIT and is placed by its time, as b765's stood outside its CHAIN
+         ('touch_set', 'e9d78e28'), ('touch', 'bc4a8535'), ('regcommit', 'e033d072'), ('needle_arm', '8faae353'), ('probe_act', '9cba7faa'),
+         ('wf_override', 'c025ac07'), ('defect_s', 'b8cb91d6'), ('face_declared', 'b03249a2'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -741,7 +745,12 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b765`s findings after its lock and 
                     'module_c5': 'the face`s constants and the first act module edits',
                     'chain_c5': 'the worklist given b766`s own chain, generators and order', 'module_rec': 'the act module`s record, trail, report, closing and checks sections for (R376) (defect (n))',
                     'scan': 'the address scan banked and three entry sentences set', 'trail_set': 'the trail composer`s three sentences',
-                    'face_blocks': 'the face`s block file for b766, row (110) and the (W) bank'})
+                    'face_blocks': 'the face`s block file for b766, row (110) and the (W) bank',
+                    'touch_set': 'four entry sentences the touch read found set before the record (defect (o))', 'touch': 'the touch bank, 57 rows',
+                    'regcommit': 'the worklist`s REG_COMMIT read as no files by the checks sources (defect (p))',
+                    'needle_arm': 'the arm`s needle call on the touch read passing', 'probe_act': 'the probe-path bank, the kernels face and the act part`s probe',
+                    'wf_override': 'the workflow override reading b765`s entering main by name (defect (q)) and defect (r)',
+                    'defect_s': 'defect (s) and the probes whole', 'face_declared': 'the face`s six declared arms and the needle calls on the entry and the trail'})
 CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b765`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b765',
                     'corr': 'the corrigendum banks', 'k20': '[K20] repaired at tools/standing/ v1.38.19', 'k20_row': '[K20]`s row and its planted control banked',
                     'k21': '[K21] repaired at tools/standing/ v1.38.20', 'k21_fix': '[K21]`s control set to read the act`s own handoff alone (defect (f))',
@@ -900,7 +909,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### none at b766: (R376) holds no sitting (carried name)
 SITTING_STATES = {}
-HANDOFF_COMMIT = None   # ### b766: written once by tools/standing/handoff.py before the gate ((R376)(12)'s (W) list names HANDOFF.md); set when made (the carry had left b765's ab9d680e)
+HANDOFF_COMMIT = 'f2a6ba69'   # ### b766's, written once by tools/standing/handoff.py before the gate ((R376)(12)'s (W) list names HANDOFF.md), 154 lines, 16387 bytes, sha256 3b8aac8558128978 (step 83, 23:20:42Z); the carry had left b765's ab9d680e
 HANDOFF_COMMIT_B765 = 'ab9d680e'   # ### b765's, 154 lines, 17603 bytes, sha256 a45ff3a51ae02d56 (step 70, 22:14:41Z)
 HANDOFF_COMMIT_B764 = '6d4d47f5'   # ### b764's, 154 lines, sha256 d41904c83a03311e (step 77, 03:03:26Z)
 HANDOFF_COMMIT_B763 = '26be95bb'   # ### b763's, 154 lines (step 78, 08:17:27Z)
