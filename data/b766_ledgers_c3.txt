@@ -1,0 +1,49 @@
+b766 -- (R376)(4)(b) AND (4)(c), GROUP C3: OPEN_TRAILS, APPENDED AT ITS END (2026-11-22T10:38:04Z)
+
+### tools/b766_rulings.py ledgers c3; PLACE-papers HEAD a183880f; the texts from the ferry bank (data/b766_ferry.txt, sha256 c5cac8a5077d0f8c), the fields from
+### data/b766_dispatch_rows.json (sha256 5955a72679118ee3) and SIDE-explicit-formula at 48d151e3 and d814154e; <DATE> 2026-11-22; each text by line and sha256 here; no
+### PLACE-papers line printed but the texts composed.
+
+## THE CONTROLS
+  PLACE-papers` HEAD the act`s last commit there before this write, the lines of (6) a183880f (a183880f)                                                 AS WANTED
+  OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves                                                                                    AS WANTED
+  each text as entered equals the ruling`s with its fields filled, each whole in the appended text: F1 True F2 True                                      AS WANTED
+  every text of the group composed (none missing)                                                                                                        AS WANTED
+  no field left in the appended text (none)                                                                                                              AS WANTED
+  each appended line`s backticks even (odd at none)                                                                                                      AS WANTED
+  the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, never printed) AS WANTED
+  none of the texts in OPEN_TRAILS before the write (none)                                                                                               AS WANTED
+  THE E0 GATE: each of the 14 theorems read at its statement at its commit and graded (DERIVES 14), each DERIVES                                         AS WANTED
+  each name in print_targets.txt at its commit (absent: none)                                                                                            AS WANTED
+  each name COMPILED in the read of its dispatch, built at its commit with exit 0, its axioms [propext, Classical.choice, Quot.sound] (runs {'F1': 45009051176, 'F2': 45011065297}) AS WANTED
+  [F2]: SIDEExplicitFormula/Window/Coeffs.lean at d814154e its sha256 f06bd20ca2854d06 as data/b766_window_data.txt banks it (f06bd20ca2854d06), its head naming the bank`s sha256 4cbe7be1203883a6 (True) AS WANTED
+  the appended lines outside a hand section (inside at none)                                                                                             AS WANTED
+  the roster: no order moving and none added (moved none ; added none)                                                                                   AS WANTED
+
+## THE E0 GATE (tools/e0_rule.py grade(head, 'theorem'), the head the statement from the name to its first `:=`, read at the commit)
+  [F1] SIDEExplicitFormula.Window.primeTermQ_eq_finite_sum        48d151e3 SIDEExplicitFormula/Window/PrimeFinite.lean :22 ; GRADE DERIVES ; domain conditions only: hN : 2 ≤ N, hc1 : c 1 = 0, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0 ; COMPILED ; target True
+  [F1] SIDEExplicitFormula.Window.primeTermQ_cQ_eq_finite_sum     48d151e3 SIDEExplicitFormula/Window/PrimeFinite.lean :54 ; GRADE DERIVES ; domain conditions only: hN : 2 ≤ N, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0 ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.contDiff_tpow3                  d814154e SIDEExplicitFormula/Window/Spline.lean :85 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.contDiff_cubicB                 d814154e SIDEExplicitFormula/Window/Spline.lean :111 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.contDiff_splineH                d814154e SIDEExplicitFormula/Window/Spline.lean :137 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.splineH_eq_zero                 d814154e SIDEExplicitFormula/Window/Spline.lean :144 ; GRADE DERIVES ; domain conditions only: hy : y ≤ 1 ∨ 1024 ≤ y ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.contDiff_gWin                   d814154e SIDEExplicitFormula/Window/Spline.lean :156 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.hasCompactSupport_gWin          d814154e SIDEExplicitFormula/Window/Spline.lean :178 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowKOf_classK                d814154e SIDEExplicitFormula/Window/Spline.lean :194 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowKOf_eq_zero               d814154e SIDEExplicitFormula/Window/Spline.lean :212 ; GRADE DERIVES ; domain conditions only: hu : Real.log 1024 < |u| ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowH_contDiff                d814154e SIDEExplicitFormula/Window/Instance.lean :30 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowH_eq_zero                 d814154e SIDEExplicitFormula/Window/Instance.lean :33 ; GRADE DERIVES ; domain conditions only: hy : y < 1 ∨ 1024 < y ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowK_classK                  d814154e SIDEExplicitFormula/Window/Instance.lean :37 ; GRADE DERIVES ; no hypothesis binder ; COMPILED ; target True
+  [F2] SIDEExplicitFormula.Window.windowK_eq_zero                 d814154e SIDEExplicitFormula/Window/Instance.lean :40 ; GRADE DERIVES ; domain conditions only: hu : Real.log 1024 < |u| ; COMPILED ; target True
+
+## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)
+  orders 227 -> 227 ; statuses moving none ; added none
+
+## THE FILE: OPEN_TRAILS.md | lines 19253 -> 19259 | the appended text from :19255 | its sha256 1c12e064f174db68 | the file`s sha256 747e7faf08a80582 -> e4062b7a424797c4
+
+## THE PARAGRAPHS BY LINE
+  head       :19255 (sha256 0c37c9e3786171da)
+  F1         :19257 (sha256 466cf9d4dd9fcff5)
+  F2         :19259 (sha256 6cd573dcab6027a1)
+
+### ### **THE LEDGERS, GROUP C3: OPEN_TRAILS APPENDED, NO LINE MOVING ; 2 LINES UNDER ONE HEAD ([F1], [F2]) ; THE E0 GATE 14 OF 14 DERIVES ; CONTROLS 14 OF 14 AS WANTED ; WRITTEN.**

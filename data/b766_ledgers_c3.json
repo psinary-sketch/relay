@@ -1,0 +1,271 @@
+{
+ "at": "2026-11-22T10:38:04Z",
+ "act": "b766",
+ "group": "c3",
+ "date": "2026-11-22",
+ "pp_head": "a183880f2acc09c190348a77e31ad867cd74c79f",
+ "file": {
+  "path": "OPEN_TRAILS.md",
+  "lines_before": 19253,
+  "lines_after": 19259,
+  "first_new": 19255,
+  "sha_before": "747e7faf08a80582",
+  "sha_after": "e4062b7a424797c4",
+  "text_sha": "1c12e064f174db68",
+  "prefix": true
+ },
+ "entered": {
+  "F1": [
+   19257,
+   "466cf9d4dd9fcff5"
+  ],
+  "F2": [
+   19259,
+   "6cd573dcab6027a1"
+  ]
+ },
+ "head": [
+  19255,
+  "0c37c9e3786171da"
+ ],
+ "keys": [
+  "F1",
+  "F2"
+ ],
+ "runs": {
+  "F1": 45009051176,
+  "F2": 45011065297
+ },
+ "coeffs": {
+  "sha": "f06bd20ca2854d06",
+  "head": true
+ },
+ "e0": [
+  {
+   "key": "F1",
+   "name": "SIDEExplicitFormula.Window.primeTermQ_eq_finite_sum",
+   "commit": "48d151e3",
+   "path": "SIDEExplicitFormula/Window/PrimeFinite.lean",
+   "line": 22,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hN : 2 ≤ N, hc1 : c 1 = 0, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F1",
+   "name": "SIDEExplicitFormula.Window.primeTermQ_cQ_eq_finite_sum",
+   "commit": "48d151e3",
+   "path": "SIDEExplicitFormula/Window/PrimeFinite.lean",
+   "line": 54,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hN : 2 ≤ N, hk : Continuous k, hsupp : ∀ u : ℝ, Real.log N < |u| → k u = 0",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.contDiff_tpow3",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 85,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.contDiff_cubicB",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 111,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.contDiff_splineH",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 137,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.splineH_eq_zero",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 144,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hy : y ≤ 1 ∨ 1024 ≤ y",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.contDiff_gWin",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 156,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.hasCompactSupport_gWin",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 178,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowKOf_classK",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 194,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowKOf_eq_zero",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Spline.lean",
+   "line": 212,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hu : Real.log 1024 < |u|",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowH_contDiff",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 30,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowH_eq_zero",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 33,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hy : y < 1 ∨ 1024 < y",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowK_classK",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 37,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  },
+  {
+   "key": "F2",
+   "name": "SIDEExplicitFormula.Window.windowK_eq_zero",
+   "commit": "d814154e",
+   "path": "SIDEExplicitFormula/Window/Instance.lean",
+   "line": 40,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hu : Real.log 1024 < |u|",
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "target": true
+  }
+ ],
+ "controls": [
+  [
+   "PLACE-papers` HEAD the act`s last commit there before this write, the lines of (6) a183880f (a183880f)",
+   true
+  ],
+  [
+   "OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves",
+   true
+  ],
+  [
+   "each text as entered equals the ruling`s with its fields filled, each whole in the appended text: F1 True F2 True",
+   true
+  ],
+  [
+   "every text of the group composed (none missing)",
+   true
+  ],
+  [
+   "no field left in the appended text (none)",
+   true
+  ],
+  [
+   "each appended line`s backticks even (odd at none)",
+   true
+  ],
+  [
+   "the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, never printed)",
+   true
+  ],
+  [
+   "none of the texts in OPEN_TRAILS before the write (none)",
+   true
+  ],
+  [
+   "THE E0 GATE: each of the 14 theorems read at its statement at its commit and graded (DERIVES 14), each DERIVES",
+   true
+  ],
+  [
+   "each name in print_targets.txt at its commit (absent: none)",
+   true
+  ],
+  [
+   "each name COMPILED in the read of its dispatch, built at its commit with exit 0, its axioms [propext, Classical.choice, Quot.sound] (runs {'F1': 45009051176, 'F2': 45011065297})",
+   true
+  ],
+  [
+   "[F2]: SIDEExplicitFormula/Window/Coeffs.lean at d814154e its sha256 f06bd20ca2854d06 as data/b766_window_data.txt banks it (f06bd20ca2854d06), its head naming the bank`s sha256 4cbe7be1203883a6 (True)",
+   true
+  ],
+  [
+   "the appended lines outside a hand section (inside at none)",
+   true
+  ],
+  [
+   "the roster: no order moving and none added (moved none ; added none)",
+   true
+  ]
+ ]
+}
