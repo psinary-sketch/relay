@@ -471,7 +471,7 @@ def c3_fields():
         fields['F2'] = [('<commit>', '%s (SIDEExplicitFormula/Window/Coeffs.lean, Spline.lean and Instance.lean, built by runner run %s with the '
                                      'restore on)' % (C3['F2']['commit'], runs['F2'])),
                         ('<names>', '`windowH_contDiff`, `windowH_eq_zero`, `windowK_classK` and `windowK_eq_zero` of `SIDEExplicitFormula.Window`, '
-                                    'from eight theorems of Spline.lean that hold for every choice of weights'),
+                                    'which follow from eight theorems of Spline.lean that hold for every choice of weights,'),
                         ('<the print>', '%s for each of the twelve, as printed in that run (relay data/b766_dispatch_rows.json)' % STD3)]
     return fields, gates, miss, coeffs, runs
 
