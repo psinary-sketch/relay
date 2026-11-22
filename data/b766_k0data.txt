@@ -1,0 +1,27 @@
+b766 -- (R376)(4)(d) L9, ITS FIRST DATUM: THE WINDOW`S AUTOCORRELATION AT 0 AS THE CERTIFICATE`S k0, SIDE-explicit-formula SIDEExplicitFormula/Window/ArchData.lean (write, 2026-11-22T16:36:36Z)
+
+## THE WINDOW`S BANK, data/b765_window.json
+  its sha256 less its final line end 4cbe7be1203883a6 ; data/b765_window.txt :26 gives 4cbe7be1203883a6 -- EQUAL
+  the file whole bd228144d213356c ; 778941 bytes
+  coefficients 16365 (the line gives 16365) ; each (m, e) against its rational: EQUAL ; their sha256 4702881bfa6f928f, the bank`s coef_sha 4702881bfa6f928f -- EQUAL
+  M 16, d 3 ; no coefficient printed ; THE BANK AS WANTED
+
+## THE FILE COMPOSED
+  k0Num = Kt(1), the strided sum at n = 1 over 16365 places ; its digits 42 ; no value printed
+  lines 22 ; bytes 887 ; sha256 d6f64198590d813b
+
+## THE FILE ON THE DISK, READ BACK
+  SIDEExplicitFormula/Window/ArchData.lean: bytes 887 ; sha256 d6f64198590d813b ; carriage returns 0 ; equal to the composed text: True
+
+## THE CONTROL OVER THE FILE AS WRITTEN
+  (1) Kt(1) by the F table`s strided sum (the form KtFast reads) against the direct double sum over the coefficients: EQUAL -> AS WANTED
+  (2) the certificate`s window: coef_sha: coef_sha 4702881bfa6f928f against the bank`s 4702881bfa6f928f -> AS WANTED
+  (3) Kt(1) / (80640 * 10^34) against data/b766_certificate.json`s k0, exactly: EQUAL -> AS WANTED
+  (4) THE LEAN`S HALVING AT n = 1: its length mtop 1 + 1 - 16 within 2^14: 16365 <= 16384 -> AS WANTED
+  (5) the literal read back from the text, once, against Kt(1): EQUAL ; lines matching 1 -> AS WANTED
+  (6) the head`s three digests against the bank`s: ('4cbe7be1203883a6', 'bd228144d213356c', '4702881bfa6f928f') -> AS WANTED
+  (7) PLANTED: the literal moved by one, read as a difference against the certificate: DIFFER -> AS WANTED
+  (8) no decimal literal and no barred word in the text (tools/b766_controls.py`s Lean text check): decimal 0 ; barred 0 -> AS WANTED
+  (9) the file opens with its import, so that the integers` notation resolves (defect (k)): import Mathlib.Data.Real.Basic -> AS WANTED
+
+### ### **THE DATA FILE WRITTEN AND READ BACK ; THE CONTROL 9 OF 9 AS WANTED ; NO VALUE PRINTED.**
