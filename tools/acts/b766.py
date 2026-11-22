@@ -641,7 +641,7 @@ DISPATCH_CMD = re.compile(r'(^|&&\s*|;\s*)gh workflow run\b|_record\.py (?:port)
 # ### b754: b753's override of G-DIFFERS-ERRATA (two ERRATA entries at its sitting) retired; b754 writes no ERRATA entry ((R364)(6)), so
 # ### the template's arm, ERRATA at HEAD byte-equal to its blob at the act's base, reads b754 as it stands
 #⟪SECTION checks 1⟫
-FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrs'))   # ### b766 touch read (20:3xZ): (n) and (o) added, each THE SEAT'S; (p) at the arm's needle call (20:4xZ); (q) and (r) at the standing-a2 probe (21:4xZ); (s) at the delete arm's locator (23:0xZ). b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
+FLOORS = dict(prompts=1, calls=1, checks=1, defects=tuple((c, 'SEAT') for c in 'abcdefghijklmnopqrstu'))   # ### b766 touch read (20:3xZ): (n) and (o) added, each THE SEAT'S; (p) at the arm's needle call (20:4xZ); (q) and (r) at the standing-a2 probe (21:4xZ); (s) at the delete arm's locator (23:0xZ); (t) and (u) at the score routes' dry (23:4xZ). b766, Component 5 (the Edit tool, before any run): the rows of data/b766_defects.txt as the template's reader takes them, (a) to (m), each THE SEAT'S ((a)-(e) at step zero, (f)-(m) at Component 3), where the carry left b765's (a) to (k) with its (d) THE TOOL'S; set again at the seal where a row is added; no navigator's row
 #⟪END⟫
 #⟪SECTION checks 2⟫
 REQUIRED_BANKS = ('data/b766_misses.txt', 'data/b766_price.txt', 'data/b766_price.json', 'data/b766_ceiling.txt',          # ### step zero, (3); the ceiling after (4)(c)
@@ -2625,8 +2625,10 @@ def _side_bad(x):
 def _def_bad(x):
     """N3 (g), (R376): a sentence entering the closing theorem as compiled -- its subject and a result's word, outside a negation, the
     ruling's own outcome sentences of [P1] (read as the ruling's, "where the closing theorem compiles") passing by their condition."""
+    # ### b766 defect (u): the condition word read in either case, so the control's "Where the closing theorem is proved, [P1] is
+    # ### entered." passes as its own words say; at the score routes' dry of 23:37:03Z the word read lower case alone and defn read False
     return bool(re.search(N3_DEF_SUBJ, x) and re.search(N3_DEF_RES, x) and not re.search(N3_NEG, x)
-                and not re.search(r'\b(?:where|if|unless|until|whether)\b', x))
+                and not re.search(r'\b(?:where|if|unless|until|whether)\b', x, re.I))
 
 
 # ### (R368)(9), THE SIDE RULE NARROWED, from b757 defect (v): "A sentence the act writes about a result names the side where it speaks of
