@@ -1,0 +1,20 @@
+b767 -- (R377)(4)(d) L11b: THE FACTORIZATION OF EACH INTEGER FROM 1 TO 16,390, GENERATED FOR THE KERNEL (tools/b767_natdata.py write)
+
+## THE CONTROLS
+  (1) the keys: the primes up to 16,390 as tools/b767_logdata.py reads them, 1,900, the largest 16,381, each below 16,391: AS WANTED ; 1900 keys, the largest 16381
+  (2) each list`s product its index, m from 1 to 16,390: AS WANTED ; lists 16390, products wrong 0
+  (3) each factor a key, the factors ascending and each exponent at least 1: AS WANTED ; a factor not a key 0 ; out of order or an exponent below 1 0
+  (4) the runs: five of 3,278 from 1, 3,279, 6,557, 9,835 and 13,113, the last ending at 16,390, each within KT_CAP 4,100: AS WANTED ; [('A', 1, 3278), ('B', 3279, 3278), ('C', 6557, 3278), ('D', 9835, 3278), ('E', 13113, 3278)]
+  (5) the kernel`s natChk read in Python over each run from its first index, none refused: AS WANTED ; [None, None, None, None, None]
+  (6) the kernel`s nfac read in Python at each run`s two ends and at 1, 2, 16,381, 16,384 and 16,390: AS WANTED ; 13 of 13
+  (7) four planted runs each refused by the conjunct planted (12 read as 60, the product ; 4 as 4^1, not a key ; 1 and 2 exchanged, the product ; a run shifted by one, the product): AS WANTED ; ['product', 'key', 'product', 'product']
+  (8) each run`s def written under `set_option maxRecDepth 100000 in`, the line before its doc comment, b767 (n): five of five: AS WANTED ; runs 5, not under it 0
+  (9) the kernel`s file: its first line its import, each top-level list within KT_CAP 4,100 (the largest 3278), five runs and five of each theorem: AS WANTED ; places 15 lists, the largest 3278
+  CONTROLS 9 OF 9 AS WANTED
+
+## THE DATA
+  lists 16390 (m from 1 to 16,390) ; factor pairs 40729, the most in one list 5 ; the keys the 1,900 primes up to 16,390
+  runs [('A', 1, 3278), ('B', 3279, 3278), ('C', 6557, 3278), ('D', 9835, 3278), ('E', 13113, 3278)]
+  the kernel`s file SIDEExplicitFormula/Window/LogNatData.lean: 16468 lines, 432610 bytes, sha256 4108f27df720d7d26d66970a8419e209fb0945adb85b182d95135ac2672a93f6
+
+Nothing computed at a zero; no window coefficient, no K(n) and no combination r read or printed.
