@@ -1,0 +1,37 @@
+b767 -- THE CEILING READ BEFORE THE LOCK, (R377)(3): 30 HOURS FROM THE OPENING ROW, 16 OF THEM IN RESERVE FOR THE RECORD AND THE CLOSE, READ-ONLY (2026-11-23T21:16:57Z)
+
+## THE CONTROLS
+  (1) the table read whole by its own rule (data/b767_price.txt :33): step zero 0.91 h plus its 16 rows each as read at its kind, against its lower sum 25.78: 25.78 -> AS WANTED
+  (2) the opening row read from the step rows (step 1, relay da86dfe0, 08:34:03) against the table`s opening row 08:34:03 -> AS WANTED
+  (3) the last step dispatch read from the dispatch rows (items b to e): dispatch 16 at 18:11:38, at or before the bar 22:34:03; step dispatches past the bar 0 -> AS WANTED
+  (4) each row named done is a row of the table: named 15, absent 0 [] ; left 1 (close) -> AS WANTED
+  (5) PLANTED: a read 6.00 h later moves the spent hours and the close by 6.00 h each (12.71 -> 18.71 ; 26.46 -> 32.47), and a read at 17.00 h prints "THE ACT WOULD PASS 30 h AT ITS CLOSE" (the close at 30.75 h) -> AS WANTED
+  (6) PLANTED: a step dispatch row 57 s past the bar read as past it: 1 -> AS WANTED
+
+## THE ROWS DONE, BY NAME (each row of (4) to (8) ended: done, or ended under (3) and (4) with [P2] naming what was not sent; the hours they took stand in the spent hours, each beside its price in the report of (10))
+  (1)                    the corrigendum, PLACE-papers 216d9715, FINDINGS :16080 (events (41))
+  (8) [K25]              relay 374c1e80, its planted control AS WANTED (events (43))
+  (4) branch and tool    push-b767-proof cut at 3c67b8b5 12:16:44Z, the dispatch tool relay 9013bb62 (events (58), (63))
+  (4)(a) plan            relay b7d31fb8 with the certificate`s three forms, before any dispatch (events (46), (47))
+  (5)(a) read            data/b767_source_build.txt, relay f7d46184 and 980af315 (events (49), (59))
+  (5)(b) route           route (i) in the workflow, kernel f6f60590 (events (60))
+  (5)(c) trial           dispatches 1 and 2, runs 45179223796 and 45179932496, [S2] (events (64), (68), (84))
+  (6)                    the registration relay b9224ba6, the window relay 0681d03e, [G1] (events (51), (52))
+  (7)                    [S1], [G1], [R1] and [A2], PLACE-papers ba23945a (events (55))
+  (4)(b) L9`s remainder  L9a and L9b compiled through 89fd5b54, dispatches 3 to 6 and 11 to 16; L9c not sent (events (67)-(80), (93)-(106))
+  (4)(c) L10             kernel caa7b338, dispatch 7 (events (83), (86))
+  (4)(d) L11             L11a kernel 356e1cfb, dispatch 8; L11b kernel ed88b486, dispatches 9 and 10; L11c and L11d not sent (events (87)-(92), (106))
+  (4)(e) L12             not sent, reading L11d (events (106))
+  (4) closing build      dispatch 17, run 45236921224, the restore off, THE PAIR AS WANTED (events (107), (118))
+  (4) main               main 89fd5b54 by the gated push, v0.45 cut after main`s read-back, object dbfa7b87 (events (119))
+
+## THE ROWS LEFT, AT THE TABLE`S FIGURES (data/b767_price.json)
+  close                  13.75 h (upper 16.00 h ; dispatches 0-0)
+
+## THE READING
+  spent from the opening row (2026-11-23T08:34:03Z, step 1) to 2026-11-23T21:16:57Z: 12.71 h
+  the last step dispatch: dispatch 16, item b, its row 18:11:38, 9.63 h from the opening row and 3.09 h before this read; none after it, the bar of (3) at 22:34:03 (14 h) reached by none; the closing build sent after it as dispatch 17 (events (106), (107))
+  left: 17.29 h of 30 h, the reserve 16 h within what is left
+  the close at b766`s rows from this read, the first row of Component 5 (data/b767_price.txt :32): its first Component 5 row to its lock 8.105 h, its lock to its closing 5.645 h, 13.75 h in all: the lock at 20.82 h and the close at 26.46 h from the opening row; at the reserve`s 16 h, 28.71 h: within the ceiling
+
+### ### **THE CEILING READ BEFORE THE LOCK ((R377)(3), read-only, 21:16:57Z): SPENT 12.71 h FROM THE OPENING ROW ; THE LAST STEP DISPATCH AT 18:11:38Z, 9.63 h FROM THE OPENING ROW ; LEFT 17.29 h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b766`S 5.645 h FROM ITS LOCK, 26.46 h FROM THE OPENING ROW ; WITHIN THE CEILING.**
