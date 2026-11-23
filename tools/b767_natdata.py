@@ -26,6 +26,11 @@ BOUND = 16391           # ### LogNatBase.lean natChk: LPTree.facOK 16391
 RUN = 3278              # ### five runs of 3,278 = 16,390
 NAMES = 'ABCDE'
 KT_CAP = 4100
+# ### b767 (n): dispatch 9 (run 45212341085) broke at each run of 3,278 lists, "maximum recursion depth has been reached" at the def; the
+# ### elaborator's own limit, which KT_CAP (the kernel's places) does not read. The kernel's precedent: `set_option maxRecDepth 100000` over
+# ### its data files (SIDEExplicitFormula/C2Field/P403/S001.lean :8), `set_option maxRecDepth 4096 in` (Schema/ZQ/Mechanism/CoeffSign.lean
+# ### :102). Each run's def is written under it.
+RECDEPTH = 'set_option maxRecDepth 100000 in'
 NL = '\n'
 
 
@@ -107,6 +112,7 @@ def lean_text(blocks):
            'namespace SIDEExplicitFormula.Window',
            '']
     for nm, s, n, L in blocks:
+        out.append(RECDEPTH)
         out.append('/-- The factorizations of %d to %d. -/' % (s, s + n - 1))
         out.append('def nf%s : List (List (ℕ × ℕ)) := [' % nm)
         for i, f in enumerate(L):
@@ -178,8 +184,13 @@ def controls(keys, tab):
     c('(7) four planted runs each refused by the conjunct planted (12 read as 60, the product ; 4 as 4^1, not a key ; 1 and 2 exchanged, '
       'the product ; a run shifted by one, the product)', pl == ['product', 'key', 'product', 'product'], str(pl))
     text = lean_text(bl)
+    tl = text.split(NL)
+    under = [i for i, l in enumerate(tl) if l.startswith('def nf') and not l.startswith('def nfac') and not (i >= 2 and tl[i - 2] == RECDEPTH)]
+    ndefs = sum(1 for l in tl if l.startswith('def nf') and not l.startswith('def nfac'))
+    c('(8) each run`s def written under `%s`, the line before its doc comment, b767 (n): five of five' % RECDEPTH,
+      ndefs == 5 and not under and text.count(RECDEPTH) == 5, 'runs %d, not under it %d' % (ndefs, len(under)))
     places = top_places(text)
-    c('(8) the kernel`s file: its first line its import, each top-level list within KT_CAP 4,100 (the largest %d), five runs and five of each '
+    c('(9) the kernel`s file: its first line its import, each top-level list within KT_CAP 4,100 (the largest %d), five runs and five of each '
       'theorem' % max(places), text.split(NL)[0] == 'import %s' % BASE and max(places) <= KT_CAP and text.count('theorem nf_ok_') == 5
       and text.count('theorem nf_len_') == 5 and text.count('def nf') == 6, 'places %d lists, the largest %d' % (len(places), max(places)))
     return rows, bl, text
