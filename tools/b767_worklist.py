@@ -705,7 +705,9 @@ CHAIN = (('c1', 'd75c8a50'), ('corr', 'ea50f0ee'),
          # ### b767, Component 5 (the Edit tool, 22:1xZ, the touch read): appended as made, each read from git (scratch touch767.py logs,
          # ### 22:05:32Z, read-only): the step-rows commit 57792b7d among them, a relay commit of the act with no row of its own
          ('rows_c4', '57792b7d'), ('closing_read', '84374079'), ('module_readers', '47d45214'), ('ceiling', '72861d88'),
-         ('misses2', '8dd2b1e2'), ('scan', '12e42a45'), ('trail_set', '00f59ccd'), ('face_blocks', '08a8da90'))
+         ('misses2', '8dd2b1e2'), ('scan', '12e42a45'), ('trail_set', '00f59ccd'), ('face_blocks', '08a8da90'),
+         # ### b767, Component 5 (the Edit tool, 22:4xZ): the touch read's two sets and its bank, each read from its step row
+         ('touch_set', '169ce52a'), ('touch_trail', 'e632f435'), ('touch', 'e2772e01'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -774,7 +776,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b766`s findings after its lock and 
                     'module_readers': 'the act module`s carried readers set to b767, the reproduction banks and the scan bank',
                     'ceiling': 'the ceiling read before the lock, within the ceiling (defect (r))', 'misses2': 'the misses printed again before the lock',
                     'scan': 'the address scan banked and three of the entry`s sentences set', 'trail_set': 'the trail`s sentence on b766`s close set',
-                    'face_blocks': 'the face`s block file for b767 and the (W) bank regenerated from it'})
+                    'face_blocks': 'the face`s block file for b767 and the (W) bank regenerated from it',
+                    'touch_set': 'the seat`s price at graded knots in the entry and the record line, and the chain given the commits after 78a259ea, set at the touch read',
+                    'touch_trail': 'the trail head`s proof branch given its own separator, set at the touch read',
+                    'touch': 'the touch bank by hand, defects (s) to (u) and events rows (132) to (135)'})
 CHAIN_WORDS_B766 =({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
                     'corr': 'the corrigendum banks and the corrigenda row (86)',
                     'k22_ctl': 'the planted controls tool of the three repairs with [K22]`s control', 'ceil_check': 'the record section reading the ceiling after (4)(c) from its own bank',
