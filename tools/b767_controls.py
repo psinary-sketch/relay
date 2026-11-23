@@ -1181,36 +1181,45 @@ def controls():
               ('b', 2, A, [], good, dk, ok_ctx, early),
               ('b', 1, A, [D_(1, 'b', 11)], good, dk, ok_ctx, early),
               ('c', 2, A, [D_(1, 'b', 11)], good, dk, ok_ctx, early),
-              ('closing', 5, A, trial_s2 + [D_(3, 'b', 13, sha=B), R_(13, 'b', sha=B)], good, dk, ok_ctx, early),
-              ('closing', 5, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b', ex='1', verdict='BREAKS')], good, dk, ok_ctx, early),
+              ('closing', 4, A, trial_s2 + [D_(3, 'b', 13, sha=B), R_(13, 'b', sha=B)], good, dk, ok_ctx, early),
+              ('closing', 4, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b', ex='1', verdict='BREAKS')], good, dk, ok_ctx, early),
               ('closing', 5, A, trial_s3 + [D_(4, 'b', 14), R_(14, 'b')], good, dk, ok_ctx, early),
               ('closing', 3, A, [D_(1, 'trial-on', 11, sha=TC), R_(11, 'trial-on', sha=TC, **full_on), D_(2, 'b', 12), R_(12, 'b')], good, dk, ok_ctx, early),
               ('b', 37, A, on36, good, dk, ok_ctx, early),
               ('repeat', 3, TC, trial_s2[:4], good, dk, ok_ctx, early),
               ('repeat', 4, TC, trial_s3, good, dk, ok_ctx, early),
               ('repeat', 2, A, [D_(1, 'b', 11), R_(11, 'b', ex='143', verdict=STOPPED)], good, dk, ok_ctx, early),
-              ('c', 6, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b'), D_(4, 'closing', 14), R_(14, 'closing')], good, dk, ok_ctx, early),
+              ('c', 5, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b'), D_(4, 'closing', 14), R_(14, 'closing')], good, dk, ok_ctx, early),
               ('repeat', 3, B, [D_(1, 'trial-on', 11, sha=TC), R_(11, 'trial-on', sha=TC), D_(2, 'trial-off', 12, sha=TC),
                                 R_(12, 'trial-off', sha=TC, ex='143', verdict=STOPPED)], good, dk, ok_ctx, early),
               ('b', 1, A, [], good, dk, ok_ctx, late),
               ('trial-on', 1, A, [], good, dk, ok_ctx, early),
-              ('trial-off', 5, TC, trial_s2, good, dk, ok_ctx, early),
+              ('trial-off', 3, TC, trial_s2, good, dk, ok_ctx, early),
               ('b', 1, A, [], good, dk, dict(lean=[('SIDEExplicitFormula/Window/X.lean', 'a decimal literal (1)')], presend=[]), early),
               ('b', 1, A, [], good, dk, dict(presend=[]), early),
               ('b', 1, A, [], good, dk, dict(lean=[], presend=['X.lean does not open with its imports']), early),
               ('b', 1, A, [], good, dk, dict(lean=[]), early)]
+    why_want = ('an item (R377)(4) and (5) do not order', 'under the hold', 'under the floor', 'past the act', 'is not the next in the series',
+                'rowed already', 'not yet read', 'sent before a build with the restore on', 'sent before a build with the restore on',
+                'the trial reads [S3]', 'the trial reads PENDING', 'past the 36', 'not read as stopped under the hold', 'the one repeat',
+                'no build with the restore off to repeat', 'the closing build sent: after it', 'where the stopped build was at',
+                'past the last hour', 'reads the act`s opening Lean commit', 'sent already: one dispatch with the restore on',
+                'the Lean text check refuses', 'the Lean text check not read', 'the checks before a dispatch refuse',
+                'the checks before a dispatch ((R377)(4)) not read')
     got = [dispatch_refusal(p[0], p[1], p[2], p[3], p[4], p[5], ctx=p[6], now=p[7]) for p in plants]
-    c('twenty-four planted dispatches refused (an item not ordered, under the hold, under the floor, past 40, out of series, rowed already, '
-      'the last run of its lane unread, the closing at another commit than its restore-on build, the closing before a restore-on build '
-      'exiting 0, the closing after the trial at [S3], the closing with the trial pending, the 37th with the restore on, a repeat of a '
-      'build not stopped, a second repeat, a repeat of a restored step, a step after the closing, a repeat at another commit, a step past '
-      'the last hour, the trial at another commit, a second trial-off, a Lean file with a decimal literal, the Lean text not read, a check '
-      'before the dispatch refusing, the checks not read)', [bool(x) for x in got], all(got) and len(got) == 24)
+    own = [bool(g) and w in g for g, w in zip(got, why_want)]
+    c('twenty-four planted dispatches refused, EACH FOR THE REASON PLANTED (an item not ordered, under the hold, under the floor, past 40, out '
+      'of series, rowed already, the last run of its lane unread, the closing at another commit than its restore-on build, the closing before '
+      'a restore-on build exiting 0, the closing after the trial at [S3], the closing with the trial pending, the 37th with the restore on, a '
+      'repeat of a build not stopped, a second repeat, a repeat of a restored step, a step after the closing, a repeat at another commit, a '
+      'step past the last hour, the trial at another commit, a second trial-off, a Lean file with a decimal literal, the Lean text not read, '
+      'a check before the dispatch refusing, the checks not read)', [('own' if o else 'OTHER: %s' % g) for o, g in zip(own, got)],
+      all(own) and len(got) == 24 == len(why_want))
     passes = [dispatch_refusal('trial-on', 1, TC, [], good, dk, ctx=ok_ctx, now=early),
               dispatch_refusal('trial-off', 2, TC, [D_(1, 'trial-on', 11, sha=TC)], good, dk, ctx=ok_ctx, now=early),
               dispatch_refusal('b', 3, A, [D_(1, 'trial-on', 11, sha=TC), R_(11, 'trial-on', sha=TC), D_(2, 'trial-off', 12, sha=TC)],
                                good, dk, ctx=ok_ctx, now=early),
-              dispatch_refusal('closing', 5, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b')], good, dk, ctx=ok_ctx, now=late),
+              dispatch_refusal('closing', 4, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b')], good, dk, ctx=ok_ctx, now=late),
               dispatch_refusal('repeat', 3, TC, trial_s2[:3] + [R_(12, 'trial-off', sha=TC, ex='143', verdict=STOPPED)], good, dk, ctx={}, now=early),
               dispatch_refusal('repeat', 6, A, trial_s2 + [D_(3, 'b', 13), R_(13, 'b'), D_(4, 'b', 14), R_(14, 'b'), D_(5, 'closing', 15),
                                                      R_(15, 'closing', ex='143', verdict=STOPPED)], good, dk, ctx={}, now=late),
