@@ -5244,9 +5244,11 @@ def _trail_text_b767():
              '**(R377) ratified.** Its components as the ferry orders them (relay data/b767_ferry.txt), each read below from its bank; no author’s word beside the ruling before the root.', '',
              '**Entered:** FINDINGS.md:%s (the corrigendum for b766), %s; OPEN_TRAILS.md in %d groups, each under its own dated head, %s; this record.' % (
                  f['corr_line'], (':%s (the entry)' % fj['entry_line']) if fj.get('entry_line') else 'the entry at step [12], not yet landed', len(f['led_groups']), keys_), '',
-             '**b766 at its weight** ((R377)(1)): closed at relay %s and PLACE-papers %s, the scores %d of %s HELD (%s); the corrigendum short at FINDINGS :%s, b766’s %s CLAIM items printed in '
+             '**b766 at its weight** ((R377)(1)): closed at relay %s and PLACE-papers %s by its record’s head line, its closing step row relay %s as (R377)(1) names it, the scores %d of %s HELD (%s); '
+             'the corrigendum short at FINDINGS :%s, b766’s %s CLAIM items printed in '
              'full, the findings after its lock entered as events, the navigator’s %d claims entered CLAIM, no weight line (relay data/b766_scores_close.json, data/b767_corrigendum.txt).' % (
-                 b7h_.group(1), b7h_.group(2), f['b7_held'], b7h_.group(7), ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', f['corr_line'], f['corr_claim'], len(nr_)), '',
+                 b7h_.group(1), b7h_.group(2), str((((jl('b766_steps.json') or {}).get('rows') or [{}])[-1]).get('commit') or '-')[:8],
+                 f['b7_held'], b7h_.group(7), ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', f['corr_line'], f['corr_claim'], len(nr_)), '',
              '**One key** ((R377)(8)): tools/standing/ from %s to %s by %d commit, with its planted control; %d repaired, %d read as designed, %d removed, %d carried. %s The row and its '
              'control: relay data/b767_repairs.txt, data/b767_repair_controls.txt.' % (
                  f['st_entering'], f['st_version'], len(K.STANDING_REPAIRS), len(rs_['REPAIRED']), len(rs_['READ AS DESIGNED']), len(rs_['REMOVED']), len(rs_['CARRIED']),
