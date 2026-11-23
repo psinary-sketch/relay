@@ -640,7 +640,8 @@ GENS = (('the repairs` planted controls', 'tools/b767_repair_controls.py', ('565
         ('the ledgers of group c2', 'tools/b767_rulings.py', ('0808b6ef',), 'data/b767_ledgers_c2.txt', '78932bfa'),
         ('the prime table of L10', 'tools/b767_logdata.py', ('9e15918c',), 'data/b767_logdata.txt', '0fc6efb4'),
         ('the factor runs of L11b', 'tools/b767_natdata.py', ('c8416cec', 'fb2344d7', 'd34704af'), 'data/b767_natdata.txt', 'c1046ae8'),
-        ('the ledgers of group c5', 'tools/b767_rulings.py', ('0808b6ef', 'b363e9d9', '6d0d73f7'), 'data/b767_ledgers_c5.txt', '36b38f6f'))
+        ('the ledgers of group c5', 'tools/b767_rulings.py', ('0808b6ef', 'b363e9d9', '6d0d73f7'), 'data/b767_ledgers_c5.txt', '36b38f6f'),
+        ('the dispatch tool`s bank', 'tools/b767_controls.py', ('312ec756', '9013bb62', '922f34c4', '4f4c7c07', 'bf9ce5c2', '78a259ea'), 'data/b767_controls.txt', '84374079'))   # ### b767, Component 4 (the Edit tool): the bank of 20:21:37Z after dispatch 17's read, committed at 84374079 (step 66); the tool's six commits by git log (20:28:58Z, a flag read before it), 78a259ea its BASE_PROOF set to WEIL_BRANCH_BASE (events (111))
 GENS_B766 = ()   # ### b766's eighteen stand in git at tools/b766_worklist.py
 GENS_B765 = ()   # ### b765's ten stand in git at tools/b765_worklist.py
 GENS_B764 = ()   # ### b764's seven stand in git at tools/b764_worklist.py
