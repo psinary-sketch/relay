@@ -573,6 +573,7 @@ def price(u):
 
 def bank(*a):
     commit, sha = committed()
+    ctx.prec = PREC     # ### the units' balls read back at the precision they were written at
     U = units()
     cu, ce = U.get('control'), U.get('cell')
     hours = (time.time() - reg_time()) / 3600.0
