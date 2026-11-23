@@ -10,7 +10,8 @@ highest job reached, the modules built, the Window modules built and not built, 
 THE MODULES BUILDING AT THE STOP: the import graph of the kernel at the commit built, each file's import lines read by predicate through
 `git cat-file --batch` (no line printed); the frontier is each kernel module not built in the log whose kernel imports are each built
 there. Lake runs every ready job, so the frontier is the set of modules that were building, or ready to build, when lake was stopped.
-ITS CONTROLS: each kernel module named in each log resolves to a file at the commit; each run's ref is the commit 3c67b8b5; the stopped
+ITS CONTROLS: each kernel module named in each log resolves to a file at the commit; each run's ref is its dispatch row's commit
+(RUN_COMMIT); the route's premise, no module outside the Window folder reaching a Window module by its imports; the stopped
 runs' memory logs carry a STOP line beneath the hold; the restored run's log builds KFast and its low equals data/b767_price.txt :21's
 7565 MB; PLANTED: KFast taken as built in run 45047352154's set leaves the frontier, and the frontier gains only modules that import it.
 THE ROUTE ((R377)(5)(b)): the seat's statement, in ROUTE below, written after the read and before the trial; `write` refuses while it
@@ -40,13 +41,37 @@ HOLD = 2560
 RESTORED_LOW = 7565   # ### data/b767_price.txt :21, KFast on a restored build
 RUNSET = ((45047352154, 'dispatch 15 of b766, the closing build from source, the restore off'),
           (45051503982, 'dispatch 16 of b766, its repeat, the restore off'),
-          (45027497489, 'KFast built on a restored build, the restore on'))
+          (45027497489, 'dispatch 7 of b766, KFast built on a restored build, the restore on'))
+RUN_COMMIT = {45047352154: '3c67b8b5', 45051503982: '3c67b8b5',   # ### data/b766_closing.txt events (91): dispatches 15 and 16 at 3c67b8b5
+              45027497489: '448dd77b'}                           # ### data/b766_controls.txt :174: dispatch 7, sha 448dd77b on push-b766-proof
 STOPPED = (45047352154, 45051503982)
 PREFIXES = ('SIDEExplicitFormula', 'Zeta23', 'Lc', 'Hadamard', 'FunctionsOfOneComplexVariable')
 SRC = (('SIDEExplicitFormula/', ''), ('Zeta23/', ''), ('Vendored/Bulka/', 'Vendored/Bulka/'))   # ### lakefile.toml :9-:20, the vendored library's srcDir :18
 WINDOW = 'SIDEExplicitFormula.Window.'
 KFAST = 'SIDEExplicitFormula.Window.KFast'
-ROUTE = ()   # ### the seat's statement of (5)(b), set after the read and committed before the write
+ROUTE = (   # ### the seat's statement of (5)(b), set after the read (the dry of 11:40:12Z) and committed before the write
+    'THE ROUTE CHOSEN, (i): THE WORKFLOW BUILDING THE LIBRARY IN TWO PARTS WITHIN ONE RUN, THE RESTORE OFF. Part one: `lake build` of each',
+    'module under SIDEExplicitFormula/ and Zeta23/ outside SIDEExplicitFormula/Window/, by name; part two: `lake build` of the target as now;',
+    'each part under the same hold and memory logger, each part`s log and exit kept in the artifact. The Lean of 3c67b8b5 stands as it is;',
+    'the workflow`s file alone changes, on push-b767-proof ((R377)(9)). Its premise is the control above: no module outside the folder',
+    'reaches one inside it, so part one builds every module outside the folder.',
+    'WHY: (1) at both stops lake had reached job 8,956 of 9,105, 13 of the folder`s 17 modules built and KFast not, KFast ready beside 19',
+    'modules outside the folder (the frontier above); (2) on a restored build KFast built with KData alone beside it in 407 s, the memory',
+    'log`s low 7,565 MB, 5,005 MB above the hold; (3) in part two KFast`s four imports (KData, KappaClosed, KBasis, Coeffs) build first,',
+    'and only the folder`s modules stand beside it. The navigator`s reading holds by the read: KFast`s importers are CQValues, PoleSum and',
+    'Arch, and at each stop KFast stood ready beside modules outside the folder, from which no chain of imports among the four parts it;',
+    'the two parts do.',
+    'NOT CHOSEN: (ii) the heavy evaluations cut smaller, which moves the Lean of 3c67b8b5 where the read shows no stop with KFast alone',
+    'beside the folder; (iii) lake`s worker count: this toolchain`s lake (v4.34.0-rc1) is not on this host and nothing is fetched from the',
+    'web, so its source is not read and the option is not assumed; the host`s v4.28.0 lake names no worker count in its command line`s',
+    'help (Lake/CLI/Help.lean), a reading of another version and not of this toolchain.',
+    'THE RISK, named: part two`s peak with KFast beside the folder`s small modules is not measured from source; the trial reads it.',
+    'A LARGER RUNNER, PRICED AND NOT ORDERED: these runs began at 14,495 to 14,754 MB available (the memory logs` first samples), a runner',
+    'of 16 GB; at the stop some 12,100 to 12,460 MB stood in use with KFast beside 19 modules; a runner with twice the memory would hold',
+    'that load with the hold beside it. Its rate per minute is not read at this act (no fetch from the web): the seat`s estimate, unread,',
+    'is a larger GitHub-hosted Linux runner billed by the minute at about twice the standard rate for twice the cores and memory, and',
+    'offered to an organisation on a paid plan; a build from source 66.0 to 92.4 min (b765`s, data/b766_price.txt :9) at that rate. Put',
+    'to the author at the root where [S3] stands, the navigator to read the rate before any order.')
 
 
 def utc():
@@ -179,10 +204,15 @@ def run_read():
                          win_not=[m for m in win_all if m not in set(x for x, _s in win_built)], fr=fr, kern_named=len(kern_named))
         ctl.append(('run %d: each kernel module its log names resolves to a file at %s' % (run, COMMIT),
                     'named %d, unresolved %d' % (len(kern_named), len(unresolved)), not unresolved))
-        ctl.append(('run %d: the commit built is %s' % (run, COMMIT), (ref[0][:8] if ref else 'none'), bool(ref) and ref[0].startswith(COMMIT)))
+        ctl.append(('run %d: the commit built is %s, its dispatch row`s' % (run, RUN_COMMIT[run]), (ref[0][:8] if ref else 'none'),
+                    bool(ref) and ref[0].startswith(RUN_COMMIT[run])))
         if run in STOPPED:
             ctl.append(('run %d: the memory log carries a STOP line beneath the hold %d' % (run, HOLD), stop[0] if stop else 'none',
                         bool(stop) and 'beneath the hold %d' % HOLD in stop[0]))
+    outside_reach = sorted(m for m in target if not m.startswith(WINDOW) and any(x.startswith(WINDOW) for x in reach(imports, imports[m])))
+    ctl.append(('THE ROUTE`S PREMISE: no module outside the Window folder reaches a Window module by its imports, so part one builds them all',
+                'outside %d, reaching the folder %d%s' % (len([m for m in target if not m.startswith(WINDOW)]), len(outside_reach),
+                                                          (': ' + ', '.join(outside_reach[:8])) if outside_reach else ''), not outside_reach))
     rr = rows[45027497489]
     kf = [(m, s) for m, s in rr['win_built'] if m == KFAST]
     ctl.append(('run 45027497489: its log builds KFast, and its low equals %d MB (data/b767_price.txt :21)' % RESTORED_LOW,
