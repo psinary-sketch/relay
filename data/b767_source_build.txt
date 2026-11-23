@@ -1,6 +1,6 @@
-b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON A RESTORED BUILD, (R377)(5)(a), AND THE ROUTE, (5)(b); no dispatch (2026-11-23T11:42:18Z)
+b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON A RESTORED BUILD, (R377)(5)(a), AND THE ROUTE, (5)(b); no dispatch (2026-11-23T12:23:41Z)
 
-### the tool tools/b767_source_build.py, sha256 974cac6a96ef6b77, committed at relay f7d46184 before its run; the artifacts read as text under the data volume`s run folder of
+### the tool tools/b767_source_build.py, sha256 832deb1172a30e3b, committed at relay 980af315 before its run; the artifacts read as text under the data volume`s run folder of
 ### b766 (tools/b766_controls.py :77), nothing of them run; the kernel`s import graph at 3c67b8b5 read by predicate through git cat-file, no
 ### line of a kernel file printed; the hold 2560 MB (the workflow`s HOLD_MB, .github/workflows/build-module.yml :161 at 3c67b8b5)
 
@@ -15,7 +15,8 @@ b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON 
   the Window modules built (13): KData 64.0s, ArchData 1.8s, ArchBlocks 1.9s, CQData 8.1s, Spline 5.4s, PoleData 3.1s, Coeffs 287.0s, Instance 3.1s, KValues 3.4s, KBasis 4.8s, KappaClosed 8.1s, Pole 7.7s, PrimeFinite 5.2s
   the Window modules not built (4): Arch, CQValues, KFast, PoleSum
   the heaviest kernel modules built, by their seconds: Window.Coeffs 287s, C2Field.M187 209s, Hadamard.General.Factorization 147s, C2Field.M232 125s, Window.KData 64s, Lc.LiCriterion.Basic 60s, Zeta23.FromPNTPlus.ZetaBounds 52s, TwoPropertyWindow 44s, C2Field.M148 44s, KeiperGammaBound 43s, C2Field.M115 38s, Zeta23.WeilEF.GoodHeights 33s
-  THE MODULES BUILDING, OR READY, AT THE STOP (20): in the Window folder KFast ; outside it (19) C2Field.M235, Chi.Generic, FirstOrderBound, KeiperBounds, KeiperFinite, NymanBeurling, PlattRung, Product, RegisterDepth, SaltCheckKeiperSign, Schema.PlateauRamp, Schema.SaltCheckEpstein, Schema.ZQ.OffZero.Nodes0, Schema.ZQ.OffZero.Nodes1, Schema.ZQ.OffZero.Nodes2, Schema.ZQ.OffZero.Nodes3, Schema.ZQ.OffZero.Omega, Simplicity, TransversalityWidth
+  THE MODULES BUILDING, OR READY, AT THE STOP, within the closure of the run`s target (399 modules) (7): in the Window folder KFast ; outside it (6) C2Field.M235, Schema.ZQ.OffZero.Nodes0, Schema.ZQ.OffZero.Nodes1, Schema.ZQ.OffZero.Nodes2, Schema.ZQ.OffZero.Nodes3, Schema.ZQ.OffZero.Omega
+  BESIDE IT, the first write`s frontier over the whole library (20), which lake did not build: 13 more, outside the target`s closure (Chi.Generic, FirstOrderBound, KeiperBounds, KeiperFinite, NymanBeurling, PlattRung, Product, RegisterDepth, SaltCheckKeiperSign, Schema.PlateauRamp, Schema.SaltCheckEpstein, Simplicity, TransversalityWidth)
 
 ## RUN 45051503982 -- dispatch 16 of b766, its repeat, the restore off
   built 3c67b8b5 at leanprover/lean4:v4.34.0-rc1 ; the exit file 143 ; the build 2026-11-22T17:50:17Z to 2026-11-22T18:03:02Z, 12.8 min
@@ -24,7 +25,8 @@ b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON 
   the Window modules built (13): KData 55.0s, ArchData 1.5s, ArchBlocks 1.6s, CQData 6.7s, Spline 4.0s, PoleData 2.5s, Coeffs 177.0s, Instance 2.0s, KValues 4.6s, KBasis 4.3s, KappaClosed 6.2s, Pole 5.8s, PrimeFinite 2.8s
   the Window modules not built (4): Arch, CQValues, KFast, PoleSum
   the heaviest kernel modules built, by their seconds: C2Field.M187 188s, Window.Coeffs 177s, C2Field.M232 128s, Hadamard.General.Factorization 104s, Window.KData 55s, Zeta23.FromPNTPlus.ZetaBounds 39s, Lc.LiCriterion.Basic 39s, C2Field.M115 35s, C2Field.M148 34s, TwoPropertyWindow 31s, C2Field.M123 27s, Zeta23.WeilEF.GoodHeights 25s
-  THE MODULES BUILDING, OR READY, AT THE STOP (20): in the Window folder KFast ; outside it (19) C2Field.M235, Chi.Generic, FirstOrderBound, KeiperBounds, KeiperFinite, NymanBeurling, PlattRung, Product, RegisterDepth, SaltCheckKeiperSign, Schema.PlateauRamp, Schema.SaltCheckEpstein, Schema.ZQ.OffZero.Nodes0, Schema.ZQ.OffZero.Nodes1, Schema.ZQ.OffZero.Nodes2, Schema.ZQ.OffZero.Nodes3, Schema.ZQ.OffZero.Omega, Simplicity, TransversalityWidth
+  THE MODULES BUILDING, OR READY, AT THE STOP, within the closure of the run`s target (399 modules) (7): in the Window folder KFast ; outside it (6) C2Field.M235, Schema.ZQ.OffZero.Nodes0, Schema.ZQ.OffZero.Nodes1, Schema.ZQ.OffZero.Nodes2, Schema.ZQ.OffZero.Nodes3, Schema.ZQ.OffZero.Omega
+  BESIDE IT, the first write`s frontier over the whole library (20), which lake did not build: 13 more, outside the target`s closure (Chi.Generic, FirstOrderBound, KeiperBounds, KeiperFinite, NymanBeurling, PlattRung, Product, RegisterDepth, SaltCheckKeiperSign, Schema.PlateauRamp, Schema.SaltCheckEpstein, Simplicity, TransversalityWidth)
 
 ## RUN 45027497489 -- dispatch 7 of b766, KFast built on a restored build, the restore on
   built 448dd77b at leanprover/lean4:v4.34.0-rc1 ; the exit file 0 ; the build 2026-11-22T13:28:22Z to 2026-11-22T13:35:38Z, 7.3 min
@@ -36,12 +38,17 @@ b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON 
 
 ## THE NAVIGATOR`S READING, CHECKED AGAINST THE READ ((R377)(5)(b))
   "CQValues, PoleSum and Arch each import KFast": KFast`s importers read Arch, CQValues, PoleSum
-  "so KFast built beside modules outside the Window folder": at the stop of run 45047352154 the frontier outside the Window folder holds 19 modules ; of run 45051503982, 19
+  "so KFast built beside modules outside the Window folder": at the stop of run 45047352154 the frontier outside the Window folder holds 6 modules ; of run 45051503982, 6
 
 ## THE CONTROLS
+  run 45047352154: its target read from its own dispatch row (data/b766_dispatch_rows.json), each module a module of the kernel at 3c67b8b5: modules 124, not of the kernel 0 -- AS WANTED
+  run 45051503982: its target read from its own dispatch row (data/b766_dispatch_rows.json), each module a module of the kernel at 3c67b8b5: modules 124, not of the kernel 0 -- AS WANTED
+  PART ONE, THE TARGET`S MODULES OUTSIDE THE FOLDER (run 45047352154`s row): their closure holds every module outside the folder that the target`s closure holds, and no Window module: by name 113 ; their closure 382 ; the outside modules the target needs 382, left out 0 ; Window modules in it 0 ; the library`s modules outside the folder 376, 27 of them outside the target`s closure -- AS WANTED
+  run 45047352154: every module its log names lies in its target`s closure, and the frontier within it: named outside the closure 0 ; the frontier 7, outside the closure 0 by construction ; the library`s frontier 20, of it outside the closure 13 -- AS WANTED
   run 45047352154: each kernel module its log names resolves to a file at 3c67b8b5: named 250, unresolved 0 -- AS WANTED
   run 45047352154: the commit built is 3c67b8b5, its dispatch row`s: 3c67b8b5 -- AS WANTED
   run 45047352154: the memory log carries a STOP line beneath the hold 2560: STOP 2026-11-22T17:22:25Z avail_mb=2557 beneath the hold 2560 -- AS WANTED
+  run 45051503982: every module its log names lies in its target`s closure, and the frontier within it: named outside the closure 0 ; the frontier 7, outside the closure 0 by construction ; the library`s frontier 20, of it outside the closure 13 -- AS WANTED
   run 45051503982: each kernel module its log names resolves to a file at 3c67b8b5: named 250, unresolved 0 -- AS WANTED
   run 45051503982: the commit built is 3c67b8b5, its dispatch row`s: 3c67b8b5 -- AS WANTED
   run 45051503982: the memory log carries a STOP line beneath the hold 2560: STOP 2026-11-22T18:03:02Z avail_mb=2291 beneath the hold 2560 -- AS WANTED
@@ -53,12 +60,15 @@ b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON 
 
 ## THE ROUTE, (R377)(5)(b), THE SEAT`S STATEMENT BEFORE THE TRIAL
   THE ROUTE CHOSEN, (i): THE WORKFLOW BUILDING THE LIBRARY IN TWO PARTS WITHIN ONE RUN, THE RESTORE OFF. Part one: `lake build` of each
-  module under SIDEExplicitFormula/ and Zeta23/ outside SIDEExplicitFormula/Window/, by name; part two: `lake build` of the target as now;
+  module of the target outside SIDEExplicitFormula/Window/, by name, whose closure holds every module outside the folder that the
+  target needs (the control above); part two: `lake build` of the target as now;
   each part under the same hold and memory logger, each part`s log and exit kept in the artifact. The Lean of 3c67b8b5 stands as it is;
-  the workflow`s file alone changes, on push-b767-proof ((R377)(9)). Its premise is the control above: no module outside the folder
-  reaches one inside it, so part one builds every module outside the folder.
-  WHY: (1) at both stops lake had reached job 8,956 of 9,105, 13 of the folder`s 17 modules built and KFast not, KFast ready beside 19
-  modules outside the folder (the frontier above); (2) on a restored build KFast built with KData alone beside it in 407 s, the memory
+  the workflow`s file alone changes, on push-b767-proof ((R377)(9)). Its premise is the controls above: no module outside the folder
+  reaches one inside it, and the target`s modules outside the folder reach every module outside it that the target needs, so part two
+  builds the folder`s modules alone. The first statement (11:42:17Z) named each module under SIDEExplicitFormula/ and Zeta23/ outside the
+  folder, 27 of which the target does not reach and no run of b766 or b767 builds; not taken.
+  WHY: (1) at both stops lake had reached job 8,956 of 9,105, 13 of the folder`s 17 modules built and KFast not, KFast ready beside 6
+  modules outside the folder within the target`s closure (the frontier above); (2) on a restored build KFast built with KData alone beside it in 407 s, the memory
   log`s low 7,565 MB, 5,005 MB above the hold; (3) in part two KFast`s four imports (KData, KappaClosed, KBasis, Coeffs) build first,
   and only the folder`s modules stand beside it. The navigator`s reading holds by the read: KFast`s importers are CQValues, PoleSum and
   Arch, and at each stop KFast stood ready beside modules outside the folder, from which no chain of imports among the four parts it;
@@ -69,10 +79,10 @@ b767 -- THE BUILD FROM SOURCE: THE READ OF THE TWO STOPPED RUNS AND OF KFast ON 
   help (Lake/CLI/Help.lean), a reading of another version and not of this toolchain.
   THE RISK, named: part two`s peak with KFast beside the folder`s small modules is not measured from source; the trial reads it.
   A LARGER RUNNER, PRICED AND NOT ORDERED: these runs began at 14,495 to 14,754 MB available (the memory logs` first samples), a runner
-  of 16 GB; at the stop some 12,100 to 12,460 MB stood in use with KFast beside 19 modules; a runner with twice the memory would hold
+  of 16 GB; at the stop some 12,100 to 12,460 MB stood in use with KFast beside 6 modules; a runner with twice the memory would hold
   that load with the hold beside it. Its rate per minute is not read at this act (no fetch from the web): the seat`s estimate, unread,
   is a larger GitHub-hosted Linux runner billed by the minute at about twice the standard rate for twice the cores and memory, and
   offered to an organisation on a paid plan; a build from source 66.0 to 92.4 min (b765`s, data/b766_price.txt :9) at that rate. Put
   to the author at the root where [S3] stands, the navigator to read the rate before any order.
 
-### ### **THE READ MADE: 11 OF 11 CONTROLS AS WANTED ; THE ROUTE STATED.**
+### ### **THE READ MADE: 16 OF 16 CONTROLS AS WANTED ; THE ROUTE STATED.**
