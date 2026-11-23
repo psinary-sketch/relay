@@ -3662,10 +3662,12 @@ def _post_lock_edits():
     for g_ in ('c2', 'c5', 'c6'):
         le_.update((jl('%s_ledgers_%s.json' % (ACT, g_)) or {}).get('entered') or {})
     return ('### b767 — lane two, act one hundred and ninety-four, The proof by the banked window continued, under (R377): b766 at its weight; '
-            'the plan amended; the archimedean term as the combination, the enclosures and the inequality %s; the build from source given its '
+            'the plan amended; the archimedean term as the combination, the enclosures and the inequality%s; the build from source given its '
             'order, its route %s; main and the tag %s; the window at knots graded by octave %s; the author’s rulings entered; one key; '
             'tools/standing/ from %s to %s' % (
-                'with the closing theorem, the proof whole' if 'P1' in le_ else ('the proof in part' if 'P2' in le_ else 'not entered'),
+                # ### b767, Component 5 (the Edit tool, the touch read): each branch carries its own separator, the [P2] branch having read
+                # ### "the inequality the proof in part" with none
+                ' with the closing theorem, the proof whole' if 'P1' in le_ else (', the proof in part' if 'P2' in le_ else ', not entered'),
                 'held' if 'S2' in le_ else ('not held' if 'S3' in le_ else 'not tried'),
                 ('moved to the closing commit with %s' % K.WEIL_TAG[0]) if K.WEIL_TAG else ('unmoved, [C7]' if 'C7' in le_ else ('unmoved, [C8]' if 'C8' in le_ else 'unmoved')),
                 'held' if 'G1' in le_ else ('refuted' if 'G2' in le_ else ('not scored' if 'G3' in le_ else 'not entered')),
