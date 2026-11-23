@@ -1,0 +1,470 @@
+b767 -- THE CARRY BY DIFF (data/b709_rules.txt row (1)): tools/b766_worklist.py -> tools/b767_worklist.py (2026-11-23T08:17:09Z)
+
+### the previous act`s tool carried by the act names` substitution alone (b766 -> b767, b765 -> b766, R376 -> R377, R375 -> R376); 1094 lines, 167 lines changed by the substitution; the seat reads
+### the carried tool through the spans the previous act`s banks name for it (below) and this diff, by offset and limit, not whole.
+### THE SPANS data/b766_tool_repairs.txt AND data/b766_repairdiff_worklist.txt NAME FOR THIS TOOL (the bank`s line ; the row or hunk header):
+  NONE: no repair of this tool at b766; the seat reads this diff`s hunks alone
+
+### THE STUBS THE CARRY LEFT ((R364)(3)(ii), tools/standing/carry.py v1.34.0), each refusing itself when used until written for the act: 47
+  :40 the stage-one value PRE_PP
+  :41 the stage-one value PRE_RELAY
+  :42 the stage-one value PRE_PP_REMOTE_AT_START
+  :43 the stage-one value PRE_RELAY_REMOTE_AT_START
+  :44 the stage-one value B718_RELAY_HEAD
+  :45 the stage-one value B718_PP_HEAD
+  :46 the stage-one value DATE
+  :47 the stage-one value SESSION_ID
+  :48 the stage-one value SP
+  :53 the stage-one value SESSIONS_AFTER
+  :54 the stage-one value PREV_SESSION
+  :55 the stage-one value PREV_ANCHOR
+  :63 the stage-one value B711_ENTRY
+  :64 the stage-one value B711_WEIGHT
+  :65 the stage-one value B711_CORRIGENDUM
+  :67 the stage-one value B711_TRAIL
+  :68 the stage-one value B711_FACE
+  :69 the stage-one value MIRROR_ZIP
+  :76 the stage-one value TRAIL_ORDERS
+  :77 the stage-one value TRAIL_RESOLVED
+  :78 the stage-one value TRAIL_RETIRED
+  :204 the stage-one value SECTION_BANK
+  :235 the stage-one value COMPUTE_BANKS
+  :354 the stage-one value NEXT
+  :355 the stage-one value NEXT_ACT
+  :388 the stage-one value ACT_CURRENT_COMMIT
+  :389 the stage-one value STEPZERO
+  :422 the stage-one value STEPZERO_PREVBUILD
+  :428 the stage-one value STEPZERO_BANKS
+  :454 the stage-one value STANDING_VERSION
+  :455 the stage-one value STANDING_VERSION_ENTERING
+  :456 the stage-one value LEAN_TREES
+  :463 the stage-one value COMPARATIVE_BANKS
+  :476 the stage-one value B714_CLOSING
+  :477 the stage-one value B714_RECORD
+  :478 the stage-one value B714_ROOT
+  :479 the stage-one value B723_ROOT_BANKS
+  :481 the stage-one value C1_STANDING
+  :491 the stage-one value C1_RELAY
+  :524 the stage-one value C1_PP
+  :528 the stage-one value WEIGHT_LINE
+  :529 the stage-one value CORR_LINE
+  :534 the stage-one value C2_PLAN_FIRST
+  :535 the stage-one value C2_RELAY
+  :883 the stage-one value C1_DEFECTS
+  :910 the stage-one value SITTING_ITEMS
+  :955 the stage-one value C4_LINE
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 5
+  :240 data/b729_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b765_read_calls.txt, data/b766_read_calls.txt)
+  :240 data/b730_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b765_read_calls.txt, data/b766_read_calls.txt)
+  :240 data/b766_read_calls.txt (the source line cited data/b729_read_calls.txt, data/b730_read_calls.txt, data/b765_read_calls.txt, data/b766_read_calls.txt)
+  :300 data/b766_SIDE-explicit-formula_push-b766-centre_push_out.txt (the source line cited data/b765_SIDE-explicit-formula_push-b765-centre_push_out.txt)
+  :301 data/b766_SIDE-explicit-formula_push-b766-planted_push_out.txt (the source line cited data/b765_SIDE-explicit-formula_push-b765-planted_push_out.txt)
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 0 (OWN 0)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b766_worklist.py
+  +++ tools/b767_worklist.py
+  @@ -2,1 +2,1 @@
+  -"""b766_worklist.py -- THE ACT'S DATA, UNDER (R376). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  +"""b767_worklist.py -- THE ACT'S DATA, UNDER (R377). ### DATA AND READ-ONLY HELPERS ONLY; NOTHING HERE WRITES.
+  @@ -4,1 +4,1 @@
+  -### ### b766: LANE TWO, ACT ONE HUNDRED AND NINETY-THREE, THE PROOF BY THE BANKED WINDOW, IN STEPS -- b765 AT ITS WEIGHT; THE PLAN
+  +### ### b767: LANE TWO, ACT ONE HUNDRED AND NINETY-THREE, THE PROOF BY THE BANKED WINDOW, IN STEPS -- b766 AT ITS WEIGHT; THE PLAN
+  @@ -9,1 +9,1 @@
+  -### Carried by diff from b765_worklist.py (data/b766_carry_worklist.txt); its stage one set at step zero with this act's figures by the
+  +### Carried by diff from b766_worklist.py (data/b767_carry_worklist.txt); its stage one set at step zero with this act's figures by the
+  @@ -11,1 +11,1 @@
+  -### (R376) was delivered in two parts in session 11d67961 (b765's session): the author's word on the deposits and the keystones at
+  +### (R377) was delivered in two parts in session 11d67961 (b766's session): the author's word on the deposits and the keystones at
+  @@ -14,1 +14,1 @@
+  -### b765 closed (relay 29d4c9b7, PLACE-papers 5638a9ad); its carried files ((R376)(3)) committed at step zero.
+  +### b766 closed (relay 29d4c9b7, PLACE-papers 5638a9ad); its carried files ((R377)(3)) committed at step zero.
+  @@ -34,0 +34,1 @@
+  +from standing.carry import Carried as _Carried   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one values below refuse on use until written
+  @@ -39,9 +40,9 @@
+  -PRE_PP = '5638a9adf4395ac7d7c8475838df8e935ec580ae'    # ### PLACE-papers main before the act's own commits: b765's record (the trail), pushed
+  -PRE_RELAY = '29d4c9b7e297729a8415b70cd3dc7e5dd9b6a141'  # ### relay main before the act's own commits: b765's closing step row, pushed
+  -PRE_PP_REMOTE_AT_START = '5638a9a'       # ### PLACE-papers origin/main at the act's start, read from the tracking ref (no remote read at step zero), equal to local
+  -PRE_RELAY_REMOTE_AT_START = '29d4c9b7'   # ### relay origin/main at the act's start, read from the tracking ref, equal to local
+  -B718_RELAY_HEAD = '29d4c9b'  # ### the names kept for the carried readers: the previous act's last relay head (b765's closing step row)
+  -B718_PP_HEAD = '5638a9a'     # ### the previous act's last PLACE-papers head (b765's record)
+  -DATE = '2026-11-22'
+  -SESSION_ID = '11d67961-2aa4-4353-bc12-a982038bfa55'   # ### the transcript the ruling and the ferry stand in (two parts: the author's word at line 265817, 2026-11-22T06:42:48Z; the ruling, its texts and its ferry at line 265841, 06:44:38Z), b765's session; the act runs in it, one seat, no change of session, harness or store
+  -SP = 'C:/Users/ECHOCH~1/AppData/Local/Temp/claude/0fa2f3b7e932577a/11d67961-2aa4-4353-bc12-a982038bfa55/scratchpad'   # ### the seat's scratchpad as the harness names it (session 11d67961, the act's own)
+  +PRE_PP = _Carried('b767`s PRE_PP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_RELAY = _Carried('b767`s PRE_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_PP_REMOTE_AT_START = _Carried('b767`s PRE_PP_REMOTE_AT_START')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PRE_RELAY_REMOTE_AT_START = _Carried('b767`s PRE_RELAY_REMOTE_AT_START')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B718_RELAY_HEAD = _Carried('b767`s B718_RELAY_HEAD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B718_PP_HEAD = _Carried('b767`s B718_PP_HEAD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +DATE = _Carried('b767`s DATE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +SESSION_ID = _Carried('b767`s SESSION_ID')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +SP = _Carried('b767`s SP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -49,2 +50,2 @@
+  -ANCHOR = 'RULING (R376) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  -RULING_ANCHOR = 'RULING (R376) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  +ANCHOR = 'RULING (R377) BEGIN'           # ### the act's capture anchor, as data/act_current.json
+  +RULING_ANCHOR = 'RULING (R377) BEGIN'    # ### the ruling's BEGIN line, the citation tool's ferry source
+  @@ -52,3 +53,3 @@
+  -SESSIONS_AFTER = ()   # ### none: the act runs in the session its ruling was delivered in (b671's form not needed)
+  -PREV_SESSION = '11d67961-2aa4-4353-bc12-a982038bfa55'   # ### b765 ran in this session from its delivery (2026-11-21T09:49:58Z) to its closing push (after its step row 29d4c9b7, 2026-11-22T05:39:40Z); (R376) was delivered in it after that close
+  -PREV_ANCHOR = 'RULING (R375) BEGIN'   # ### the first user row of 11d67961 holding b765's ruling's first line (2026-11-21T09:49:58Z), before b765's post-push combine (before its closing commit c90a62d7, 2026-11-22T05:38:49Z); G-EDIT-ROUTE's window from that combine to (R376)'s anchor
+  +SESSIONS_AFTER = _Carried('b767`s SESSIONS_AFTER')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PREV_SESSION = _Carried('b767`s PREV_SESSION')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +PREV_ANCHOR = _Carried('b767`s PREV_ANCHOR')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -59,1 +60,1 @@
+  -CITATION_BANK = 'b766_citation_check.txt'
+  +CITATION_BANK = 'b767_citation_check.txt'
+  @@ -62,3 +63,3 @@
+  -B711_ENTRY = 15941          # ### FINDINGS: b765's entry head (at d2d8b00f, unmoved at 5638a9ad)
+  -B711_WEIGHT = None          # ### FINDINGS: b765 wrote no weight line of its own; b764 at its weight stands in b765's entry (:15947)
+  -B711_CORRIGENDUM = 15929    # ### FINDINGS: b765's corrigendum for b764
+  +B711_ENTRY = _Carried('b767`s B711_ENTRY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_WEIGHT = _Carried('b767`s B711_WEIGHT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_CORRIGENDUM = _Carried('b767`s B711_CORRIGENDUM')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -66,3 +67,3 @@
+  -B711_TRAIL = 19157          # ### OPEN_TRAILS: b765's trail record (PLACE-papers 5638a9ad)
+  -B711_FACE = 'data/b765_registration_2026-11-21.txt'   # ### b765's face
+  -MIRROR_ZIP = 'D:/MY-DOwnloads/mirror-refresh-2026-11-21-b765.zip'   # ### the last export built, b765's (data/b765_mirror_build.json, its step [23], 2026-11-22T05:34:00Z); the set's export of (R375)(7) (mirror-refresh-2026-11-22-b765-set.zip, 02:56:47Z) built before it
+  +B711_TRAIL = _Carried('b767`s B711_TRAIL')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B711_FACE = _Carried('b767`s B711_FACE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +MIRROR_ZIP = _Carried('b767`s MIRROR_ZIP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -75,3 +76,3 @@
+  -TRAIL_ORDERS = 19187        # ### OPEN_TRAILS: the last open-orders line, b765's, written from the generator's output
+  -TRAIL_RESOLVED = 19213      # ### OPEN_TRAILS: b765's items for the author's strike, in its trail
+  -TRAIL_RETIRED = 19199       # ### OPEN_TRAILS: b765's count line of the author's prompts
+  +TRAIL_ORDERS = _Carried('b767`s TRAIL_ORDERS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +TRAIL_RESOLVED = _Carried('b767`s TRAIL_RESOLVED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +TRAIL_RETIRED = _Carried('b767`s TRAIL_RETIRED')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -97,4 +98,4 @@
+  -DELETE = (('D:/relay', ('push-b765-closing', 'push-b765-preroot', 'push-b765-record')),
+  -          ('D:/MY-DOwnloads/PLACE-papers', ('push-b765-preroot', 'push-b765-record')))
+  -DELETE_TIPS = {('D:/relay', 'push-b765-closing'): '29d4c9b7', ('D:/relay', 'push-b765-preroot'): '35a3581d', ('D:/relay', 'push-b765-record'): 'a7bd1c51',
+  -               ('D:/MY-DOwnloads/PLACE-papers', 'push-b765-preroot'): 'd2d8b00f', ('D:/MY-DOwnloads/PLACE-papers', 'push-b765-record'): '5638a9ad'}
+  +DELETE = (('D:/relay', ('push-b766-closing', 'push-b766-preroot', 'push-b766-record')),
+  +          ('D:/MY-DOwnloads/PLACE-papers', ('push-b766-preroot', 'push-b766-record')))
+  +DELETE_TIPS = {('D:/relay', 'push-b766-closing'): '29d4c9b7', ('D:/relay', 'push-b766-preroot'): '35a3581d', ('D:/relay', 'push-b766-record'): 'a7bd1c51',
+  +               ('D:/MY-DOwnloads/PLACE-papers', 'push-b766-preroot'): 'd2d8b00f', ('D:/MY-DOwnloads/PLACE-papers', 'push-b766-record'): '5638a9ad'}
+  @@ -203,1 +204,1 @@
+  -SECTION_BANK = 'data/b765_ledgers.txt'      # ### b765's ledgers bank (the orders by their triggers), read not written
+  +SECTION_BANK = _Carried('b767`s SECTION_BANK')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -209,1 +210,1 @@
+  -RULES_747 = 'data/b766_rules.txt'                     # ### (R364)(3): the seat's reading of the corrigendum's repairs, each for the author's strike
+  +RULES_747 = 'data/b767_rules.txt'                     # ### (R364)(3): the seat's reading of the corrigendum's repairs, each for the author's strike
+  @@ -234,2 +235,1 @@
+  -COMPUTE_BANKS = ('data/b766_corrigendum.txt', 'data/b766_price.txt', 'data/b766_certificate.json', 'data/b766_plan.txt',
+  -                 'data/b766_registry_cells.txt', 'data/b766_lean_join.txt', 'data/b766_sweep.txt', 'data/b766_address_scan.txt')
+  +COMPUTE_BANKS = _Carried('b767`s COMPUTE_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -240,1 +240,1 @@
+  -              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b765_read_calls.txt', 'data/b766_read_calls.txt')
+  +              'data/b729_read_calls.txt', 'data/b730_read_calls.txt', 'data/b766_read_calls.txt', 'data/b767_read_calls.txt')
+  @@ -247,1 +247,1 @@
+  -CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b766'))
+  +CHAIN_HALVES = (('b624', 'b658'), ('b659', 'b767'))
+  @@ -291,17 +291,17 @@
+  -W_WORDS = (('relay/HANDOFF.md', '(R376)(12): HANDOFF.md'),
+  -           ('relay/data/b766_address_scan_commits.txt', '(R376)(3), (12): b765`s carried files -- this act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  -           ('relay/data/b767_address_scan_commits.txt', '(R364)(3)(iii): the next act`s per-commit scan bank, written by the one-call tool`s scan after this act`s closing commit (b764 [K19]); (R376)(12) names it not, read in the misses'),
+  -           ('relay/data/b765_relay_push-b765-closing_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_relay_push-b765-preroot_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_relay_push-b765-record_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_PLACE-papers_push-b765-preroot_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_PLACE-papers_push-b765-record_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_PLACE-project-set_push-b765-set_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_SIDE-explicit-formula_push-b765-centre_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/data/b765_SIDE-explicit-formula_push-b765-planted_push_out.txt', '(R376)(3), (7) [K23], (12): b765`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  -           ('relay/tools/acts/b766.py', '(R376)(12): tools/acts/b766.py'),
+  -           ('relay/tools/push_gated.sh', '(R376)(7) [K23], (12): tools/push_gated.sh -- each capture written with the account replaced by <account>, its planted capture the control'),
+  -           ('relay/tools/project_set.py', '(R376)(7) [K24], (12): tools/project_set.py -- the set built from the close`s own export, the one carrying the root line, its banks committed where the mirror`s bank is'),
+  -           ('SIDE-explicit-formula/print_targets.txt', '(R376)(4), (12): in SIDE-explicit-formula print_targets.txt -- each compiled theorem`s name joins it'),
+  -           ('SIDE-explicit-formula/SIDEExplicitFormula/Window/*', '(R376)(4), (12): in SIDE-explicit-formula the files of (4) in the kernel`s source folder -- the folder SIDEExplicitFormula/Window/ holding each, named at Component 3 before the first is written (the prime side (4)(b), the data file, the spline and the window (4)(c), the steps of (4)(d))'),
+  -           ('PLACE-project-set/*', '(R376)(7), (12): the Project`s repository whole -- PLACE-project-set under the account, private, its clone outside every repository of the record, written by the builder`s step alone and edited by no hand'))
+  +W_WORDS = (('relay/HANDOFF.md', '(R377)(12): HANDOFF.md'),
+  +           ('relay/data/b767_address_scan_commits.txt', '(R377)(3), (12): b766`s carried files -- this act`s per-commit scan bank, by (R364)(3)(iii)`s route'),
+  +           ('relay/data/b767_address_scan_commits.txt', '(R364)(3)(iii): the next act`s per-commit scan bank, written by the one-call tool`s scan after this act`s closing commit (b764 [K19]); (R377)(12) names it not, read in the misses'),
+  +           ('relay/data/b766_relay_push-b766-closing_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_relay_push-b766-preroot_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_relay_push-b766-record_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_PLACE-papers_push-b766-preroot_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_PLACE-papers_push-b766-record_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_PLACE-project-set_push-b766-set_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_SIDE-explicit-formula_push-b766-centre_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/data/b766_SIDE-explicit-formula_push-b766-planted_push_out.txt', '(R377)(3), (7) [K23], (12): b766`s carried files -- a push capture, written with the account masked by the tool beside tools/push_gated.sh and committed'),
+  +           ('relay/tools/acts/b767.py', '(R377)(12): tools/acts/b767.py'),
+  +           ('relay/tools/push_gated.sh', '(R377)(7) [K23], (12): tools/push_gated.sh -- each capture written with the account replaced by <account>, its planted capture the control'),
+  +           ('relay/tools/project_set.py', '(R377)(7) [K24], (12): tools/project_set.py -- the set built from the close`s own export, the one carrying the root line, its banks committed where the mirror`s bank is'),
+  +           ('SIDE-explicit-formula/print_targets.txt', '(R377)(4), (12): in SIDE-explicit-formula print_targets.txt -- each compiled theorem`s name joins it'),
+  +           ('SIDE-explicit-formula/SIDEExplicitFormula/Window/*', '(R377)(4), (12): in SIDE-explicit-formula the files of (4) in the kernel`s source folder -- the folder SIDEExplicitFormula/Window/ holding each, named at Component 3 before the first is written (the prime side (4)(b), the data file, the spline and the window (4)(c), the steps of (4)(d))'),
+  +           ('PLACE-project-set/*', '(R377)(7), (12): the Project`s repository whole -- PLACE-project-set under the account, private, its clone outside every repository of the record, written by the builder`s step alone and edited by no hand'))
+  @@ -354,2 +354,2 @@
+  -NEXT = 'the act after this one, as the author answers at the root (the answers bank) ((R376)(12)): where [P1] stands, the registry`s block and the map`s merge under the author`s strikes, and the navigator brings The Epstein Control Object to the deposit rubric with the proof in it; where [P2] stands, the proof continued at the step that did not compile, the registry`s block and the map`s merge beside its dispatches; or another the author names'
+  -NEXT_ACT = 'b767'
+  +NEXT = _Carried('b767`s NEXT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +NEXT_ACT = _Carried('b767`s NEXT_ACT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -388,2 +388,2 @@
+  -ACT_CURRENT_COMMIT = '6778cecf'   # ### data/act_current.json for b766 committed alone through the one-call tool ((R376)(3)), the scan in the call (07:05:00Z, 8 of 8); its row step 1
+  -STEPZERO = 'c323bf50'       # ### the first of b765's carried files committed alone ((R376)(3)): data/b766_address_scan_commits.txt as b765's closing step-row commit began it, with this act's step-zero runs, step 2 (07:05:30Z); b765's eight push captures follow [K23] in Component 1 ((R376)(7))
+  +ACT_CURRENT_COMMIT = _Carried('b767`s ACT_CURRENT_COMMIT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +STEPZERO = _Carried('b767`s STEPZERO')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -407,3 +407,3 @@
+  -STEPZERO_CARRIED = (('c323bf50', 2, 'data/b766_address_scan_commits.txt'),)   # ### b766's one at step zero; the captures after [K23]
+  -STEPZERO_CARRIED_B765 = (('3c200e7c', 2, 'the closing push-out capture'), ('2a237834', 3, 'data/b765_address_scan_commits.txt'))   # ### b765's, kept beside (the carry had shifted its scan bank's name to b766's)
+  -STEPZERO_CARRIED_B764 = (('baff91ad', 2, 'the closing push-out capture'), ('8f4c353d', 3, 'data/b765_address_scan_commits.txt'))   # ### b764's, kept beside (the carry had shifted its scan bank's name to b765's)
+  +STEPZERO_CARRIED = (('c323bf50', 2, 'data/b767_address_scan_commits.txt'),)   # ### b766's one at step zero; the captures after [K23]
+  +STEPZERO_CARRIED_B765 = (('3c200e7c', 2, 'the closing push-out capture'), ('2a237834', 3, 'data/b766_address_scan_commits.txt'))   # ### b765's, kept beside (the carry had shifted its scan bank's name to b766's)
+  +STEPZERO_CARRIED_B764 = (('baff91ad', 2, 'the closing push-out capture'), ('8f4c353d', 3, 'data/b766_address_scan_commits.txt'))   # ### b764's, kept beside (the carry had shifted its scan bank's name to b765's)
+  @@ -411,1 +411,1 @@
+  -                         ('dc063f7d', 4, 'data/b765_address_scan_commits.txt'))   # ### b763's, kept beside (the carry had shifted its scan bank's name to b764's)
+  +                         ('dc063f7d', 4, 'data/b766_address_scan_commits.txt'))   # ### b763's, kept beside (the carry had shifted its scan bank's name to b764's)
+  @@ -416,1 +416,1 @@
+  -STEPZERO_CARRIED_B762 = (('6052a453', 2, 'the closing push-out capture'), ('6096dca3', 3, 'data/b765_address_scan_commits.txt'))   # ### b762's, kept beside
+  +STEPZERO_CARRIED_B762 = (('6052a453', 2, 'the closing push-out capture'), ('6096dca3', 3, 'data/b766_address_scan_commits.txt'))   # ### b762's, kept beside
+  @@ -422,1 +422,1 @@
+  -STEPZERO_PREVBUILD = None   # ### NOT CARRIED: tools/mirror_prevbuild.json equal to HEAD at step zero (git status, 2026-11-22T06:56Z)
+  +STEPZERO_PREVBUILD = _Carried('b767`s STEPZERO_PREVBUILD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -428,1 +428,1 @@
+  -STEPZERO_BANKS = 'f85c5899'      # ### step zero's banks and carried tools, one commit (data/b766_stepzero.txt among them), step 3 (08:00:14Z), its scan 8 of 8 AS WANTED
+  +STEPZERO_BANKS = _Carried('b767`s STEPZERO_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -452,1 +452,1 @@
+  -                          and f != 'report.tpl')) + ('acts/b766.py',)
+  +                          and f != 'report.tpl')) + ('acts/b767.py',)
+  @@ -454,3 +454,3 @@
+  -STANDING_VERSION = 'v1.38.24'            # ### (R376)(7) moved tools/standing/ one commit a key ([K22] v1.38.22, [K23] v1.38.23, [K24] v1.38.24), VERSION with each, and nowhere else ((R376)(10)); VERSION at HEAD v1.38.24 (scratch facts766s.py, 18:45:56Z)
+  -STANDING_VERSION_ENTERING = 'v1.38.21'
+  -LEAN_TREES = (('D:/SIDE-explicit-formula', '0ba9cd61'), ('D:/SIDE-explicit-formula', 'ec14e9d9'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R376) SCOPE READ's Lean pins: at v0.44 (0ba9cd61, main, the branch push-b766-proof's base by (4)), on push-b763-arith at ec14e9d9 (ControlFailureStatement.lean); SIDE-dirichlet-mod-24 at v0.2.0, untouched (N5); SIDE-kernel unmoved
+  +STANDING_VERSION = _Carried('b767`s STANDING_VERSION')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +STANDING_VERSION_ENTERING = _Carried('b767`s STANDING_VERSION_ENTERING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +LEAN_TREES = _Carried('b767`s LEAN_TREES')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -463,1 +463,1 @@
+  -COMPARATIVE_BANKS = ('data/b766_corrigendum.txt', 'data/b766_price.txt', 'data/b766_defects.txt')
+  +COMPARATIVE_BANKS = _Carried('b767`s COMPARATIVE_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -476,4 +476,4 @@
+  -B714_CLOSING = '29d4c9b7'    # ### b765's last commit (its closing step row), the act's relay base
+  -B714_RECORD = 'c4e79c96'     # ### b765's record commit (relay)
+  -B714_ROOT = 'e2ab4e4ab1b32c151e887e6d47d524757e556ff537a6621222aa3fb9ff70ef9e'   # ### b765's root, data/act_roots.txt's last row
+  -B723_ROOT_BANKS = '5ba67645'  # ### b765's root commit, the banks its root rode with
+  +B714_CLOSING = _Carried('b767`s B714_CLOSING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B714_RECORD = _Carried('b767`s B714_RECORD')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B714_ROOT = _Carried('b767`s B714_ROOT')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +B723_ROOT_BANKS = _Carried('b767`s B723_ROOT_BANKS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -481,1 +481,1 @@
+  -C1_STANDING = ('b7c3ed87', 'd91f1093', '751b9e7a')   # ### (R376)(7): [K22], [K23] and [K24] in Component 1 before the opening pass, one commit a key, VERSION with each (steps 9, 12 and 15)
+  +C1_STANDING = _Carried('b767`s C1_STANDING')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -487,1 +487,1 @@
+  -DOORS = ('tools/b766_doors.py', '2bc7eca8', 'data/b766_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
+  +DOORS = ('tools/b767_doors.py', '2bc7eca8', 'data/b767_doors.txt', 'c98beed0')   # ### (R367)(8)(v): the two passed descriptions sent by gh and each read back equal (tool step 48, bank step 50)
+  @@ -491,1 +491,1 @@
+  -C1_RELAY = 'a2ab7fbe'        # ### b766: the c1 route set to b765's banks with rows (20)-(31), committed before any run of it (step 4, 08:07:57Z)
+  +C1_RELAY = _Carried('b767`s C1_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -501,2 +501,2 @@
+  -KERNEL_DELETES = ('push-b765-planted',)   # ### b766 step zero, (R376)(7) [K22], N5: push-b765-planted removed at the kernel's remote and in its clone after [K22], its listing printed before and its absence read after; no other kernel branch (the carry had shifted the name to push-b766-planted)
+  -KERNEL_DELETES_B765 = ('push-b765-planted',)   # ### b765's, kept beside. b765 (R375)(4), N5: the delete sent by the one-call tool's delete route before the lock, its listing printed (the command capture's deletes read by G-DELETES-ONE-BRANCH); the remote branch stays (RDELETE_ACTS not given b765, data/b765_misses.txt (3)), named in the closing message. b763's four push-b763-* branches and push-b764-runner kept
+  +KERNEL_DELETES = ('push-b766-planted',)   # ### b766 step zero, (R376)(7) [K22], N5: push-b765-planted removed at the kernel's remote and in its clone after [K22], its listing printed before and its absence read after; no other kernel branch (the carry had shifted the name to push-b766-planted)
+  +KERNEL_DELETES_B765 = ('push-b766-planted',)   # ### b765's, kept beside. b765 (R375)(4), N5: the delete sent by the one-call tool's delete route before the lock, its listing printed (the command capture's deletes read by G-DELETES-ONE-BRANCH); the remote branch stays (RDELETE_ACTS not given b765, data/b765_misses.txt (3)), named in the closing message. b763's four push-b763-* branches and push-b764-runner kept
+  @@ -504,1 +504,1 @@
+  -KERNEL_DELETES_REFUSED_B765 = (('push-b765-planted', '2026-11-21T19:19:48Z', 'not fully merged'),)   # ### b765's, kept beside (b766 step zero: the carry had shifted its name). b765: the route's `git branch -d` refused the branch, no upstream set and its tip on no main and not in HEAD, nothing written; by (4) "where the route does not, the branch stays, its name its warning, named in the closing message for removal by the author's word" -- kept in the clone and at its remote at 7d86a245
+  +KERNEL_DELETES_REFUSED_B765 = (('push-b766-planted', '2026-11-21T19:19:48Z', 'not fully merged'),)   # ### b765's, kept beside (b766 step zero: the carry had shifted its name). b765: the route's `git branch -d` refused the branch, no upstream set and its tip on no main and not in HEAD, nothing written; by (4) "where the route does not, the branch stays, its name its warning, named in the closing message for removal by the author's word" -- kept in the clone and at its remote at 7d86a245
+  @@ -524,1 +524,1 @@
+  -C1_PP = '7a36f281'           # ### PLACE-papers: FINDINGS -- the corrigendum for b765 (Component 1, step 5, 08:09:43Z)
+  +C1_PP = _Carried('b767`s C1_PP')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -528,2 +528,2 @@
+  -WEIGHT_LINE = None   # ### LEFT EMPTY BY (R376)(1): no weight line of its own, b765 at its weight within the corrigendum (data/b766_corrigendum.json weight_line None, entry_line 15997)
+  -CORR_LINE = 15997    # ### FINDINGS: the corrigendum for b765 (Component 1), landed at :15997 by the c1 route's write (08:08:53Z, data/b766_corrigendum.json entry_line; events (32))
+  +WEIGHT_LINE = _Carried('b767`s WEIGHT_LINE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +CORR_LINE = _Carried('b767`s CORR_LINE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -534,2 +534,2 @@
+  -C2_PLAN_FIRST = '7bde5827'   # ### Component 2's first relay commit: the certificate tool of (4)(a), committed before its run (step 17, 09:00:45Z)
+  -C2_RELAY = '968affda'   # ### the last of Component 2's relay commits: the c2 ledger banks (step 21, 09:14:12Z)
+  +C2_PLAN_FIRST = _Carried('b767`s C2_PLAN_FIRST')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  +C2_RELAY = _Carried('b767`s C2_RELAY')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -537,5 +537,5 @@
+  -C2_MAP = (('the constellation rerun', 'tools/b766_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
+  -           'data/b766_constellation_summary.txt', '069271bb'),
+  -          ('the reverse read', 'tools/b766_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b766_reverse_read.txt', '069271bb'),
+  -          ('what the two find beyond (3)', 'tools/b766_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b766_beyond_three.txt', '069271bb'))
+  -C2_WALK = ('tools/b766_coeffs.py', '3bdb6561', 'data/b766_walk.txt', '9a989df8')   # ### (generator, its commit, bank, the bank's commit)
+  +C2_MAP = (('the constellation rerun', 'tools/b767_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
+  +           'data/b767_constellation_summary.txt', '069271bb'),
+  +          ('the reverse read', 'tools/b767_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b767_reverse_read.txt', '069271bb'),
+  +          ('what the two find beyond (3)', 'tools/b767_reverse.py', ('d2f78fab', '16ba8fbb'), 'data/b767_beyond_three.txt', '069271bb'))
+  +C2_WALK = ('tools/b767_coeffs.py', '3bdb6561', 'data/b767_walk.txt', '9a989df8')   # ### (generator, its commit, bank, the bank's commit)
+  @@ -546,6 +546,6 @@
+  -C3_CANDS = (('(a)', 'tools/b766_closed.py', ('a7034608',), 'data/b766_cand_a.txt', '1b84e4b1'),
+  -            ('(h)', 'tools/b766_zlist.py', ('1b84e4b1',), 'data/b766_cand_h.txt', 'ea99215e'),
+  -            ('(c)', 'tools/b766_cands.py', ('ea99215e', '1b361013'), 'data/b766_cand_c.txt', 'b4668b52'),
+  -            ('(j)', 'tools/b766_cands.py', ('ea99215e', '1b361013'), 'data/b766_cand_j.txt', 'b4668b52'),
+  -            ('(k)', 'tools/b766_cands.py', ('ea99215e', '1b361013'), 'data/b766_cand_k.txt', 'b4668b52'),
+  -            ('(l)', 'tools/b766_cands.py', ('ea99215e', '1b361013'), 'data/b766_cand_l.txt', 'b4668b52'))
+  +C3_CANDS = (('(a)', 'tools/b767_closed.py', ('a7034608',), 'data/b767_cand_a.txt', '1b84e4b1'),
+  +            ('(h)', 'tools/b767_zlist.py', ('1b84e4b1',), 'data/b767_cand_h.txt', 'ea99215e'),
+  +            ('(c)', 'tools/b767_cands.py', ('ea99215e', '1b361013'), 'data/b767_cand_c.txt', 'b4668b52'),
+  +            ('(j)', 'tools/b767_cands.py', ('ea99215e', '1b361013'), 'data/b767_cand_j.txt', 'b4668b52'),
+  +            ('(k)', 'tools/b767_cands.py', ('ea99215e', '1b361013'), 'data/b767_cand_k.txt', 'b4668b52'),
+  +            ('(l)', 'tools/b767_cands.py', ('ea99215e', '1b361013'), 'data/b767_cand_l.txt', 'b4668b52'))
+  @@ -614,18 +614,18 @@
+  -GENS = (('the repairs` planted controls', 'tools/b766_repair_controls.py', ('df0be70a', '281e3e71', 'a2b0e378'), 'data/b766_repair_controls.txt', 'd4b10aa0'),
+  -        ('the captures` mask of [K23]', 'tools/b766_mask_captures.py', ('281e3e71',), 'data/b766_capture_mask.txt', 'd09d93ab'),
+  -        ('the certificate of (4)(a)', 'tools/b766_certificate.py', ('7bde5827',), 'data/b766_certificate.txt', 'f4a7744b'),
+  -        ('the ledgers of group c2', 'tools/b766_rulings.py', ('7ce95973',), 'data/b766_ledgers_c2.txt', '968affda'),
+  -        ('the dispatch tool`s controls', 'tools/b766_controls.py', ('54967dce',), 'data/b766_controls_control.txt', '26815673'),
+  -        ('the window`s data file of (4)(c)', 'tools/b766_window_data.py', ('26815673',), 'data/b766_window_data.txt', '15008621'),
+  -        ('the ledgers of group c3', 'tools/b766_rulings.py', ('7ce95973', '4c6c770e', '24a5696b'), 'data/b766_ledgers_c3.txt', '8c06f308'),
+  -        ('the K values` data file of L6 (c)', 'tools/b766_kdata.py', ('ab02d40a',), 'data/b766_kdata.txt', 'd57adbd0'),
+  -        ('the registry`s rows of (5)(a)', 'tools/b766_registry_cells.py', ('9f00b413', 'c0a5a0b0', '98112ac0'), 'data/b766_registry_cells.txt', '68a505da'),
+  -        ('the cQ data file of L7', 'tools/b766_cqdata.py', ('d63f7618', '24a2df1d'), 'data/b766_cqdata.txt', '27aa24c6'),
+  -        ('the Lean joined to the papers of (5)(b)', 'tools/b766_lean_join.py', ('68a505da',), 'data/b766_lean_join.txt', '27aa24c6'),
+  -        ('the findings ledger of (5)(c)', 'tools/b766_sweep.py', ('27aa24c6',), 'data/b766_sweep.txt', 'f2b08550'),
+  -        ('the ledgers of group c4', 'tools/b766_rulings.py', ('7ce95973', '4c6c770e', '24a5696b', 'f2b08550', 'b1d4c2dc'), 'data/b766_ledgers_c4.txt', '69bc2357'),
+  -        ('the pole data rewrite of L8', 'tools/b766_poledata.py', ('01710c94', 'b9c3eca2'), 'data/b766_poledata_rewrite.txt', 'a98f6775'),
+  -        ('the k(0) data file of L9', 'tools/b766_k0data.py', ('a98f6775',), 'data/b766_k0data.txt', '67adb48f'),
+  -        ('the k(0) blocks of L9', 'tools/b766_k0data.py', ('a98f6775', '99b807f6'), 'data/b766_k0blocks.txt', '0e664b93'),
+  -        ('the ledgers of group c5', 'tools/b766_rulings.py', ('7ce95973', '4c6c770e', '24a5696b', 'f2b08550', 'b1d4c2dc', '0e664b93', '4e38d2b3'), 'data/b766_ledgers_c5.txt', '28b27f9d'),
+  -        ('the dispatch tool`s bank', 'tools/b766_controls.py', ('54967dce', 'a3848ce7', '27aa24c6'), 'data/b766_controls.txt', '72733b77'))
+  +GENS = (('the repairs` planted controls', 'tools/b767_repair_controls.py', ('df0be70a', '281e3e71', 'a2b0e378'), 'data/b767_repair_controls.txt', 'd4b10aa0'),
+  +        ('the captures` mask of [K23]', 'tools/b767_mask_captures.py', ('281e3e71',), 'data/b767_capture_mask.txt', 'd09d93ab'),
+  +        ('the certificate of (4)(a)', 'tools/b767_certificate.py', ('7bde5827',), 'data/b767_certificate.txt', 'f4a7744b'),
+  +        ('the ledgers of group c2', 'tools/b767_rulings.py', ('7ce95973',), 'data/b767_ledgers_c2.txt', '968affda'),
+  +        ('the dispatch tool`s controls', 'tools/b767_controls.py', ('54967dce',), 'data/b767_controls_control.txt', '26815673'),
+  +        ('the window`s data file of (4)(c)', 'tools/b767_window_data.py', ('26815673',), 'data/b767_window_data.txt', '15008621'),
+  +        ('the ledgers of group c3', 'tools/b767_rulings.py', ('7ce95973', '4c6c770e', '24a5696b'), 'data/b767_ledgers_c3.txt', '8c06f308'),
+  +        ('the K values` data file of L6 (c)', 'tools/b767_kdata.py', ('ab02d40a',), 'data/b767_kdata.txt', 'd57adbd0'),
+  +        ('the registry`s rows of (5)(a)', 'tools/b767_registry_cells.py', ('9f00b413', 'c0a5a0b0', '98112ac0'), 'data/b767_registry_cells.txt', '68a505da'),
+  +        ('the cQ data file of L7', 'tools/b767_cqdata.py', ('d63f7618', '24a2df1d'), 'data/b767_cqdata.txt', '27aa24c6'),
+  +        ('the Lean joined to the papers of (5)(b)', 'tools/b767_lean_join.py', ('68a505da',), 'data/b767_lean_join.txt', '27aa24c6'),
+  +        ('the findings ledger of (5)(c)', 'tools/b767_sweep.py', ('27aa24c6',), 'data/b767_sweep.txt', 'f2b08550'),
+  +        ('the ledgers of group c4', 'tools/b767_rulings.py', ('7ce95973', '4c6c770e', '24a5696b', 'f2b08550', 'b1d4c2dc'), 'data/b767_ledgers_c4.txt', '69bc2357'),
+  +        ('the pole data rewrite of L8', 'tools/b767_poledata.py', ('01710c94', 'b9c3eca2'), 'data/b767_poledata_rewrite.txt', 'a98f6775'),
+  +        ('the k(0) data file of L9', 'tools/b767_k0data.py', ('a98f6775',), 'data/b767_k0data.txt', '67adb48f'),
+  +        ('the k(0) blocks of L9', 'tools/b767_k0data.py', ('a98f6775', '99b807f6'), 'data/b767_k0blocks.txt', '0e664b93'),
+  +        ('the ledgers of group c5', 'tools/b767_rulings.py', ('7ce95973', '4c6c770e', '24a5696b', 'f2b08550', 'b1d4c2dc', '0e664b93', '4e38d2b3'), 'data/b767_ledgers_c5.txt', '28b27f9d'),
+  +        ('the dispatch tool`s bank', 'tools/b767_controls.py', ('54967dce', 'a3848ce7', '27aa24c6'), 'data/b767_controls.txt', '72733b77'))
+  @@ -642,1 +642,1 @@
+  -GENS_WITH_BANK = (('the pole data of L8', 'tools/b766_poledata.py', 'data/b766_poledata.txt', 'b9c3eca2', 'b9c3eca2'),)   # ### b766: written by the tool as committed at 01710c94 (16:19:19Z) and committed with the tool's repair (defect (k)), b9c3eca2 (scratch gens766.py)
+  +GENS_WITH_BANK = (('the pole data of L8', 'tools/b767_poledata.py', 'data/b767_poledata.txt', 'b9c3eca2', 'b9c3eca2'),)   # ### b766: written by the tool as committed at 01710c94 (16:19:19Z) and committed with the tool's repair (defect (k)), b9c3eca2 (scratch gens766.py)
+  @@ -644,1 +644,1 @@
+  -GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b765_repair_controls.py', 'data/b765_repair_controls.txt', 'af463213', '7e93bb18'),)   # ### b764's, kept beside
+  +GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b766_repair_controls.py', 'data/b766_repair_controls.txt', 'af463213', '7e93bb18'),)   # ### b764's, kept beside
+  @@ -721,1 +721,1 @@
+  -CHAIN_WORDS.update({'c1': 'the c1 route with b765`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b765',
+  +CHAIN_WORDS.update({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
+  @@ -724,1 +724,1 @@
+  -                    'k22': '[K22] repaired at tools/standing/ v1.38.22', 'k22_row': '[K22]`s row and its planted control banked, push-b765-planted removed',
+  +                    'k22': '[K22] repaired at tools/standing/ v1.38.22', 'k22_row': '[K22]`s row and its planted control banked, push-b766-planted removed',
+  @@ -726,1 +726,1 @@
+  -                    'k23_row': 'b765`s eight captures masked, [K23]`s row and control banked', 'k24_ctl': '[K24]`s control',
+  +                    'k23_row': 'b766`s eight captures masked, [K23]`s row and control banked', 'k24_ctl': '[K24]`s control',
+  @@ -746,1 +746,1 @@
+  -                    'chain_c5': 'the worklist given b766`s own chain, generators and order', 'module_rec': 'the act module`s record, trail, report, closing and checks sections for (R376) (defect (n))',
+  +                    'chain_c5': 'the worklist given b767`s own chain, generators and order', 'module_rec': 'the act module`s record, trail, report, closing and checks sections for (R377) (defect (n))',
+  @@ -748,1 +748,1 @@
+  -                    'face_blocks': 'the face`s block file for b766, row (110) and the (W) bank',
+  +                    'face_blocks': 'the face`s block file for b767, row (110) and the (W) bank',
+  @@ -752,1 +752,1 @@
+  -                    'wf_override': 'the workflow override reading b765`s entering main by name (defect (q)) and defect (r)',
+  +                    'wf_override': 'the workflow override reading b766`s entering main by name (defect (q)) and defect (r)',
+  @@ -754,1 +754,1 @@
+  -CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b765`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b765',
+  +CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
+  @@ -794,2 +794,2 @@
+  -REPAIRS_BANK = 'data/b766_repairs.txt'
+  -REPAIR_CONTROLS_BANK = 'data/b766_repair_controls.txt'
+  +REPAIRS_BANK = 'data/b767_repairs.txt'
+  +REPAIR_CONTROLS_BANK = 'data/b767_repair_controls.txt'
+  @@ -813,21 +813,21 @@
+  -KERNEL_COMMITS = (('prime', 'SIDE-explicit-formula', '48d151e3', 'push-b766-proof'),    # ### b766 Component 3: the act's kernel commits of (R376)(4), on push-b766-proof cut from main at 0ba9cd61, each set when made. (4)(b) L1 (step 23, 09:42:43Z)
+  -                  ('window', 'SIDE-explicit-formula', 'd814154e', 'push-b766-proof'),   # ### (4)(c): the data file, the spline and the instance (step 25, 10:07:04Z)
+  -                  ('kvalues', 'SIDE-explicit-formula', 'a6328fbe', 'push-b766-proof'),  # ### (4)(d) L6 (a): the autocorrelation at log n as an integral (step 27, 10:28:34Z)
+  -                  ('kbasis', 'SIDE-explicit-formula', '0f9d9f7e', 'push-b766-proof'),   # ### (4)(d) L6 (b): the integral in the B-spline basis (step 31, 10:46:40Z), broke at dispatch 4
+  -                  ('kbasis2', 'SIDE-explicit-formula', '6b4a67ab', 'push-b766-proof'),  # ### (4)(d) L6 (b) repaired: le_or_gt for le_or_lt (step 32, 10:57:16Z)
+  -                  ('kappa', 'SIDE-explicit-formula', '1848e7c0', 'push-b766-proof'),    # ### (4)(d) L6 (b): kappa in closed form, 5040 n^4 kappa an integer double sum (step 34, 11:18:35Z); dispatch 6 refused by the row's priced 3, raised to 6 by the author's word (11:56:45Z)
+  -                  ('kvalues', 'SIDE-explicit-formula', '448dd77b', 'push-b766-proof'),    # ### (4)(d) L6 (c): KData.lean by tools/b766_kdata.py (13:07:48Z) and KFast.lean, the values K(n) by the recurrence of F and halving sums (step 37, 13:23:25Z)
+  -                  ('cqvalues', 'SIDE-explicit-formula', 'edc05812', 'push-b766-proof'),   # ### (4)(d) L7: CQData.lean by tools/b766_cqdata.py (14:40:02Z) and CQValues.lean, cQ to 1023 as the combination the data holds (step 45, 14:40:55Z)
+  -                  ('cqrepair', 'SIDE-explicit-formula', '5e9ab5d1', 'push-b766-proof'),
+  -                  ('pole', 'SIDE-explicit-formula', '5266fb0a', 'push-b766-proof'),
+  -                  ('poledata', 'SIDE-explicit-formula', '1d3b1bdf', 'push-b766-proof'),
+  -                  ('polerepair', 'SIDE-explicit-formula', 'c6a46950', 'push-b766-proof'),
+  -                  ('arch', 'SIDE-explicit-formula', '9a389982', 'push-b766-proof'),
+  -                  ('archblocks', 'SIDE-explicit-formula', '3c67b8b5', 'push-b766-proof'))   # ### (4)(d) L9 in part, the strided sum at 1 in four blocks after dispatch 13 stopped under the hold (step 62, 16:55:11Z); L9 in part, the archimedean term by Gauss's integral and k(0) as data (step 59, 16:39:02Z); L8's data half repaired, the data file given its import (step 57, 16:30:54Z); L8's data half, the integral of the spline as intH (step 55, 16:21:24Z); L8 the pole term in the B-spline basis (step 52, 16:02:28Z); L7 repaired by the author's word of 15:20Z (words :26): the box replaced by a check over natural indices (step 47, 15:33:36Z)
+  -KERNEL_COMMITS_B765 = (('workflow', 'SIDE-explicit-formula', '70c50d37', 'push-b765-centre'),     # ### b765's nine, kept beside under the names the kernel's refs hold (b766 step zero: the carry had shifted them to push-b766-*). (4): the key by toolchain, manifest and commit; the restore by the prefix (step 16, 11:26:26Z)
+  -                       ('statement', 'SIDE-explicit-formula', 'd540bc98', 'push-b765-centre'),    # ### (5)(a): ControlFailureExists (step 17, 11:29:43Z)
+  -                       ('gauss_statement', 'SIDE-explicit-formula', 'a8c2eddc', 'push-b765-centre'),   # ### (5)(b): GaussArchQ, the statement apart (step 26, 12:37:55Z)
+  -                       ('planted_input', 'SIDE-explicit-formula', 'e83e0deb', 'push-b765-centre'),     # ### the word's (i): the workflow's planted input (step 36, 13:19:12Z)
+  -                       ('steps14', 'SIDE-explicit-formula', '7cbc7143', 'push-b765-centre'),       # ### (5)(b) steps 1-4 (step 41, 13:58:01Z)
+  -                       ('step5', 'SIDE-explicit-formula', '390cddef', 'push-b765-centre'),         # ### step 5, digamma_integral (step 42, 14:10:06Z)
+  -                       ('steps69', 'SIDE-explicit-formula', '5222cd88', 'push-b765-centre'),       # ### steps 6-9, bracketQ_eq (step 44, 14:35:33Z)
+  +KERNEL_COMMITS = (('prime', 'SIDE-explicit-formula', '48d151e3', 'push-b767-proof'),    # ### b766 Component 3: the act's kernel commits of (R376)(4), on push-b766-proof cut from main at 0ba9cd61, each set when made. (4)(b) L1 (step 23, 09:42:43Z)
+  +                  ('window', 'SIDE-explicit-formula', 'd814154e', 'push-b767-proof'),   # ### (4)(c): the data file, the spline and the instance (step 25, 10:07:04Z)
+  +                  ('kvalues', 'SIDE-explicit-formula', 'a6328fbe', 'push-b767-proof'),  # ### (4)(d) L6 (a): the autocorrelation at log n as an integral (step 27, 10:28:34Z)
+  +                  ('kbasis', 'SIDE-explicit-formula', '0f9d9f7e', 'push-b767-proof'),   # ### (4)(d) L6 (b): the integral in the B-spline basis (step 31, 10:46:40Z), broke at dispatch 4
+  +                  ('kbasis2', 'SIDE-explicit-formula', '6b4a67ab', 'push-b767-proof'),  # ### (4)(d) L6 (b) repaired: le_or_gt for le_or_lt (step 32, 10:57:16Z)
+  +                  ('kappa', 'SIDE-explicit-formula', '1848e7c0', 'push-b767-proof'),    # ### (4)(d) L6 (b): kappa in closed form, 5040 n^4 kappa an integer double sum (step 34, 11:18:35Z); dispatch 6 refused by the row's priced 3, raised to 6 by the author's word (11:56:45Z)
+  +                  ('kvalues', 'SIDE-explicit-formula', '448dd77b', 'push-b767-proof'),    # ### (4)(d) L6 (c): KData.lean by tools/b766_kdata.py (13:07:48Z) and KFast.lean, the values K(n) by the recurrence of F and halving sums (step 37, 13:23:25Z)
+  +                  ('cqvalues', 'SIDE-explicit-formula', 'edc05812', 'push-b767-proof'),   # ### (4)(d) L7: CQData.lean by tools/b766_cqdata.py (14:40:02Z) and CQValues.lean, cQ to 1023 as the combination the data holds (step 45, 14:40:55Z)
+  +                  ('cqrepair', 'SIDE-explicit-formula', '5e9ab5d1', 'push-b767-proof'),
+  +                  ('pole', 'SIDE-explicit-formula', '5266fb0a', 'push-b767-proof'),
+  +                  ('poledata', 'SIDE-explicit-formula', '1d3b1bdf', 'push-b767-proof'),
+  +                  ('polerepair', 'SIDE-explicit-formula', 'c6a46950', 'push-b767-proof'),
+  +                  ('arch', 'SIDE-explicit-formula', '9a389982', 'push-b767-proof'),
+  +                  ('archblocks', 'SIDE-explicit-formula', '3c67b8b5', 'push-b767-proof'))   # ### (4)(d) L9 in part, the strided sum at 1 in four blocks after dispatch 13 stopped under the hold (step 62, 16:55:11Z); L9 in part, the archimedean term by Gauss's integral and k(0) as data (step 59, 16:39:02Z); L8's data half repaired, the data file given its import (step 57, 16:30:54Z); L8's data half, the integral of the spline as intH (step 55, 16:21:24Z); L8 the pole term in the B-spline basis (step 52, 16:02:28Z); L7 repaired by the author's word of 15:20Z (words :26): the box replaced by a check over natural indices (step 47, 15:33:36Z)
+  +KERNEL_COMMITS_B765 = (('workflow', 'SIDE-explicit-formula', '70c50d37', 'push-b766-centre'),     # ### b765's nine, kept beside under the names the kernel's refs hold (b766 step zero: the carry had shifted them to push-b766-*). (4): the key by toolchain, manifest and commit; the restore by the prefix (step 16, 11:26:26Z)
+  +                       ('statement', 'SIDE-explicit-formula', 'd540bc98', 'push-b766-centre'),    # ### (5)(a): ControlFailureExists (step 17, 11:29:43Z)
+  +                       ('gauss_statement', 'SIDE-explicit-formula', 'a8c2eddc', 'push-b766-centre'),   # ### (5)(b): GaussArchQ, the statement apart (step 26, 12:37:55Z)
+  +                       ('planted_input', 'SIDE-explicit-formula', 'e83e0deb', 'push-b766-centre'),     # ### the word's (i): the workflow's planted input (step 36, 13:19:12Z)
+  +                       ('steps14', 'SIDE-explicit-formula', '7cbc7143', 'push-b766-centre'),       # ### (5)(b) steps 1-4 (step 41, 13:58:01Z)
+  +                       ('step5', 'SIDE-explicit-formula', '390cddef', 'push-b766-centre'),         # ### step 5, digamma_integral (step 42, 14:10:06Z)
+  +                       ('steps69', 'SIDE-explicit-formula', '5222cd88', 'push-b766-centre'),       # ### steps 6-9, bracketQ_eq (step 44, 14:35:33Z)
+  @@ -835,1 +835,1 @@
+  -                       ('planted', 'SIDE-explicit-formula', '7d86a245', 'push-b765-planted'))      # ### (4)(a): SquaresAt24.lean's closing theorem made false (step 19, 11:47:03Z)
+  +                       ('planted', 'SIDE-explicit-formula', '7d86a245', 'push-b766-planted'))      # ### (4)(a): SquaresAt24.lean's closing theorem made false (step 19, 11:47:03Z)
+  @@ -847,3 +847,3 @@
+  -WEIL_BRANCH = ('push-b766-proof', '3c67b8b58d6f323b1db62249a77453963368aaf7')   # ### b766 step zero, (R376)(4), (8): the act's Lean branch, cut from main at 0ba9cd61 and not from a runner's branch; its tip the closing Lean commit 3c67b8b5 (step 62), kept at the remote and in the clone by the author's word (data/b766_author_words_preseal.txt :32)
+  -WEIL_BRANCH_B765 = ('push-b765-centre', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept at its tip, local and remote (b766 step zero: the carry had shifted its name). b765 (R375)(4): the act's Lean branch, cut from push-b764-runner at 38a57e02 by the one-call tool (11:21:41Z), its tip the closing Lean commit 0ba9cd61 (step 45), pushed alone by the gated branch mode and read back (15:01:21Z)
+  -PLANTED_BRANCH = ('push-b765-planted', '7d86a2459d167673252372a46185329b33f25970')   # ### b766 step zero, (R376)(7) [K22]: b765's planted branch, which this act removes at the kernel's remote and in its clone (the carry had shifted its name to push-b766-planted); (R376)(4) orders no planted build. b765 (R375)(4)(a): cut at d540bc98 (11:46:03Z), its one commit 7d86a245 (step 19), pushed alone and read back (11:47:22Z); the local branch deleted before the lock where the route allows, the remote kept and named in the closing message
+  +WEIL_BRANCH = ('push-b767-proof', '3c67b8b58d6f323b1db62249a77453963368aaf7')   # ### b766 step zero, (R376)(4), (8): the act's Lean branch, cut from main at 0ba9cd61 and not from a runner's branch; its tip the closing Lean commit 3c67b8b5 (step 62), kept at the remote and in the clone by the author's word (data/b766_author_words_preseal.txt :32)
+  +WEIL_BRANCH_B765 = ('push-b766-centre', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept at its tip, local and remote (b766 step zero: the carry had shifted its name). b765 (R375)(4): the act's Lean branch, cut from push-b764-runner at 38a57e02 by the one-call tool (11:21:41Z), its tip the closing Lean commit 0ba9cd61 (step 45), pushed alone by the gated branch mode and read back (15:01:21Z)
+  +PLANTED_BRANCH = ('push-b766-planted', '7d86a2459d167673252372a46185329b33f25970')   # ### b766 step zero, (R376)(7) [K22]: b765's planted branch, which this act removes at the kernel's remote and in its clone (the carry had shifted its name to push-b766-planted); (R376)(4) orders no planted build. b765 (R375)(4)(a): cut at d540bc98 (11:46:03Z), its one commit 7d86a245 (step 19), pushed alone and read back (11:47:22Z); the local branch deleted before the lock where the route allows, the remote kept and named in the closing message
+  @@ -883,1 +883,1 @@
+  -C1_DEFECTS = ()   # ### the defects bank's commits
+  +C1_DEFECTS = _Carried('b767`s C1_DEFECTS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -901,1 +901,1 @@
+  -C3_PUTS = (('defect (c)', 'data/b766_put_1.json', '77ae83fe'), ('N5`s folder clause', 'data/b766_put_2.json', 'cb14bae1'))   # ### (subject, the put bank, the commit carrying it)
+  +C3_PUTS = (('defect (c)', 'data/b767_put_1.json', '77ae83fe'), ('N5`s folder clause', 'data/b767_put_2.json', 'cb14bae1'))   # ### (subject, the put bank, the commit carrying it)
+  @@ -910,1 +910,1 @@
+  -SITTING_ITEMS = None          # ### none at b766: (R376) holds no sitting (carried name)
+  +SITTING_ITEMS = _Carried('b767`s SITTING_ITEMS')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -945,2 +945,2 @@
+  -C4_READ = ('tools/b766_orders.py', '5b3d5a60', ('data/b766_orders_read.txt', 'data/b766_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
+  -C4_PUT = ('data/b766_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
+  +C4_READ = ('tools/b767_orders.py', '5b3d5a60', ('data/b767_orders_read.txt', 'data/b767_instruments_draft.txt'), 'f56557dd')   # ### the orders read and the two drafts
+  +C4_PUT = ('data/b767_put_1.json', '0803754c')   # ### the one put, three questions, and the answers pair by its route, all three passed as recommended (step 22)
+  @@ -949,3 +949,3 @@
+  -C4_HERE = ('v1.34.8', '5b7aa91e', 'data/b766_standing_v1348.txt')   # ### W-ORD-LABEL-READER's predicate and control, controls 11 of 11 (step 26)
+  -C4_MOVES = ('tools/b766_moves.py', '208eee6a', 'data/b766_orders_moves.txt', 'a26f30b9')   # ### the twelve status lines for this act's trail, controls 12 of 12 (steps 27, 28)
+  -C4_CEILING = ('tools/b766_ceiling.py', 'a26f30b9', 'data/b766_ceiling_c4.txt')   # ### the ceiling after Component 4: 17.53 h against 24 h, nothing carried
+  +C4_HERE = ('v1.34.8', '5b7aa91e', 'data/b767_standing_v1348.txt')   # ### W-ORD-LABEL-READER's predicate and control, controls 11 of 11 (step 26)
+  +C4_MOVES = ('tools/b767_moves.py', '208eee6a', 'data/b767_orders_moves.txt', 'a26f30b9')   # ### the twelve status lines for this act's trail, controls 12 of 12 (steps 27, 28)
+  +C4_CEILING = ('tools/b767_ceiling.py', 'a26f30b9', 'data/b767_ceiling_c4.txt')   # ### the ceiling after Component 4: 17.53 h against 24 h, nothing carried
+  @@ -955,1 +955,1 @@
+  -C4_LINE = 'INTEGRATION: cluster The Epstein instance ; keystone phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md ; stage CLUSTERED'   # ### Component 5: the act's INTEGRATION line, (R376)(9)'s words (data/b766_ferry.txt :40) between its backticks, bare as the entry's last line
+  +C4_LINE = _Carried('b767`s C4_LINE')   # ### CARRIED STUB (tools/standing/carry.py v1.34.0): the stage-one value, written for the act at step zero
+  @@ -982,1 +982,1 @@
+  -LV_ROWS = 'data/b766_lv_rows.json'
+  +LV_ROWS = 'data/b767_lv_rows.json'
+  @@ -1070,1 +1070,1 @@
+  -DISPATCH_ROWS = 'data/b766_dispatch_rows.json'
+  +DISPATCH_ROWS = 'data/b767_dispatch_rows.json'
+  @@ -1077,1 +1077,1 @@
+  -SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b766_') and f.endswith('.py') and f != 'b766_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  +SEALED = tuple(sorted(f for f in os.listdir(os.path.join(ROOT, 'tools')) if f.startswith('b767_') and f.endswith('.py') and f != 'b767_report.py')) + NEW_TOOLS + COMPUTE_TOOLS + REPAIRED_TOOLS
+  @@ -1083,1 +1083,1 @@
+  -            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R376-ENTERED',
+  +            'G-MEMBRANE-WIRED', 'G-OFFSET-POST-HOC', 'G-POSTROOT-WRITES-NONE', 'G-PREDICTION-FIRST', 'G-R377-ENTERED',
+  @@ -1092,2 +1092,2 @@
+  -SITTING_BANK = 'data/b766_sitting.txt'   # ### the record of the sitting, one row per item
+  -KERNEL_BASES = 'data/b766_kernel_bases.json'
+  +SITTING_BANK = 'data/b767_sitting.txt'   # ### the record of the sitting, one row per item
+  +KERNEL_BASES = 'data/b767_kernel_bases.json'
+
+### ### **CARRIED tools/b767_worklist.py ; LINES 1094 ; CHANGED BY THE SUBSTITUTION 167 ; REPAIR SPANS AT b766 0 ; THE SEAT READS THE SPANS, NOT THE WHOLE.**
