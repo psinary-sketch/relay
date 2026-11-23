@@ -462,7 +462,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b767.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.38.24'            # ### entering; (R377)(8) moves tools/standing/ by one commit ([K25]), VERSION with it, and nowhere else ((R377)(11)); set at the close
+STANDING_VERSION = 'v1.38.25'            # ### (R377)(8) moved tools/standing/ by one commit ([K25] v1.38.25, relay 374c1e80, step 11), VERSION with it, and nowhere else ((R377)(11))
 STANDING_VERSION_ENTERING = 'v1.38.24'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '0ba9cd61'), ('D:/SIDE-explicit-formula', '3c67b8b5'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R377) SCOPE READ's and readfirst's Lean pins: main at v0.44 (0ba9cd61: ControlFailureExists.lean, GaussArchQ.lean, GaussArchQSteps.lean, CoeffSign.lean, OnePageStatement.lean); push-b766-proof at 3c67b8b5 (the Window files and the workflow, push-b767-proof's base by (4)); SIDE-dirichlet-mod-24 at v0.2.0, untouched (N5); SIDE-kernel unmoved
 # ### b764 step zero (17:3xZ, after the citation check's dry halted on two Lean paths): the trees are the pins (R374)'s SCOPE READ names for
@@ -489,7 +489,7 @@ B714_RECORD = '44573e30'     # ### b766's record commit (relay)
 B714_ROOT = '1f57b5d368f905c786e0f1effafa8b183cf12b44e0edabeaf803e23f00589d9e'   # ### b766's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '01054ec2'  # ### b766's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### (R377)(8): [K25] in Component 1 before the opening pass, one commit, VERSION with it; set as made
+C1_STANDING = '374c1e80'     # ### (R377)(8): [K25] in Component 1 before the opening pass, one commit, VERSION with it (step 11, 09:43:34Z)
 C1_LOCKGATE = ''     # ### b767: tools/b767_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B766 = '72733b77'     # ### b766: tools/b766_lockgate.py carried and its cite set, committed before any run with the face and probe-path tools (step 68, 18:17:59Z); in CHAIN too (b764's trap). The carry had left b765's d03be64e
 C1_LOCKGATE_B765 = 'd03be64e'   # ### b765's, kept beside
@@ -500,10 +500,10 @@ DOORS = ('tools/b767_doors.py', '2bc7eca8', 'data/b767_doors.txt', 'c98beed0')  
 C5_LANDED, C5_CARRIED = 5, 0   # ### the repairs of (8): (i) the cut, (ii) v1.35.5, (iii) the gh-call reader, (iv) REGISTRY's header, (v) the two descriptions; none carried
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
+C1_RELAY = 'd75c8a50'        # ### b767: the c1 route set to b766's banks with rows (18)-(39), committed before any run of it (step 6, 09:32:02Z)
 C1_CEILING_TOOL = ()         # ### b765: no ceiling tool -- the ceiling read at step zero in the price table and after Component 2 by a read-only scratch (events (52), 14:13:35Z), banked in no file
 C1_CEILING_TOOL_B764 = ('542354bf',)   # ### b764's, kept beside
-C1_CORR = ''         # ### b767: the corrigendum banks for b766 (Component 1), set when made
+C1_CORR = 'ea50f0ee'         # ### b767: the corrigendum banks, data/b767_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (87) (step 8, 09:34:31Z)
 C1_CORR_B766 = '06dea7e2'         # ### b766: the corrigendum banks, data/b766_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (86) (step 6, 08:12:22Z)
 C1_CORR_B765 = '78f504a2'    # ### b765's, kept beside
 C1_CORR_B764 = '89fbe2f4'    # ### b764's, kept beside
@@ -536,7 +536,7 @@ C1_CEILING = ''      # ### b767 (R377)(3): the ceiling read, set when banked
 C1_CEILING_B766 = '15008621'      # ### b766 (R376)(3): the ceiling read after (4)(c), data/b766_ceiling.txt, UNDER BY 4.58 h, NOTHING CARRIED (step 26, 10:16:16Z, events (52)); the carry had left b765's LEFT EMPTY marker by (R375)(3)
 C1_CEILING_B765 = None       # ### b765's: no ceiling bank
 C1_CEILING_B764 = 'f0ad4589'   # ### b764's, kept beside
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- the corrigendum for b766 (Component 1)
+C1_PP = '216d9715'           # ### PLACE-papers: FINDINGS -- the corrigendum for b766 (Component 1, step 7, 09:33:32Z)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
@@ -768,7 +768,7 @@ CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b766`s findings after its lock and
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = ()   # ### b767 (R377)(8): [K25] alone, (key, version, commit, its control's commit, the control's rows), set as made
+STANDING_REPAIRS = (('[K25]', 'v1.38.25', '374c1e80', '2a128592', 31),)   # ### b767 (R377)(8): [K25] alone, (key, version, commit, the commit carrying its row and its control, the control's verdict line) (steps 11 and 12)
 STANDING_REPAIRS_B766 = (('[K22]', 'v1.38.22', 'b7c3ed87', '4e6d52ce', 31), ('[K23]', 'v1.38.23', 'd91f1093', 'd09d93ab', 43),
                     ('[K24]', 'v1.38.24', '751b9e7a', 'd4b10aa0', 67))   # ### b766 step zero, (R376)(7), (8): the keys [K22], [K23] and [K24] in place of [K20] and [K21], each (key, version, commit, the commit carrying its row and its control, the control's verdict line) set as made
 STANDING_REPAIRS_B765 = (('[K20]', 'v1.38.19', 'e179b18b', '15e75494', 16), ('[K21]', 'v1.38.20', '899f2767', 'bcf47fa6', 28),
