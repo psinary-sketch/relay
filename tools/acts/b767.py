@@ -3835,8 +3835,9 @@ def _runs3_line():
     for l, c in r:
         by.setdefault(c.split(' -> ')[0], []).append(l)
     return ('the classes repeating three acts running, by the tags of the lettered rows and of the findings after a lock (v9 row (83), each the '
-            'next act’s opening component, printed for the author beside the next act of %s): %d rows in %d classes -- %s' % (
-                __import__('standing.cites', fromlist=['next_clause']).next_clause(rdn('%s_ferry.txt' % ACT)) or '(R377)(13)', len(r), len(by), '; '.join(
+            'next act’s opening component, printed for the author beside the next act of %s): %d row%s in %d class%s -- %s' % (
+                __import__('standing.cites', fromlist=['next_clause']).next_clause(rdn('%s_ferry.txt' % ACT)) or '(R377)(13)', len(r), '' if len(r) == 1 else 's',
+                len(by), '' if len(by) == 1 else 'es', '; '.join(
                     '%s as %s' % (k, ', '.join(v)) for k, v in sorted(by.items())) or 'none'))
 
 
@@ -4287,12 +4288,14 @@ def _finding_text_b767(f, S, rep, tot):
              n_ans, '' if n_ans == 1 else 's', (' (and %d refused at the hook before it was shown, put again through the composer)' % n_ref) if n_ref else '',
              '`data/b767_ledgers_c6.txt`, ' if c6_ else ''), '',
          '**b766 at its weight and the corrigendum** ((R377)(1)): b766 closed at relay %s and PLACE-papers %s, suite %s of %s, its scores %d of %s HELD (%s), %s defects, as its closing record’s '
-         'head line gives it; the relay’s main read back at %s after its closing push (relay data/b766_closing.txt, data/b766_scores_close.json). The corrigendum, short, in the form of b766’s: '
+         'head line gives it, that relay commit push-b766-record’s tip; its closing step row relay %s, as (R377)(1) names it (relay data/b766_steps.json, data/b767_misses.txt (3)); '
+         'the relay’s main read back at %s after its closing push (relay data/b766_closing.txt, data/b766_scores_close.json). The corrigendum, short, in the form of b766’s: '
          'b766’s %s events, %s rows after its seal and %s defects by count from their banks, %s items each CLAIM or CLOSE and NEW or REPEAT -- CLAIM %s, CLOSE %s, %s repeats -- its %s CLAIM '
          'items printed in full; what the seat found after b766’s lock entered as this act’s events (%s) to (%s) from the seat’s closing message, each with its time, CLAIM %s, CLOSE %s, '
          '%s; the navigator’s %d claims entered as the navigator’s, CLAIM, events (%s) to (%s), the navigator’s sums printed as the navigator’s; at FINDINGS :%s, the corrigenda bank '
          'appended at row (%s); no weight line (relay data/b767_corrigendum.txt, route %s, banks %s; PLACE-papers %s).' % (
              b7h_.group(1), b7h_.group(2), b7h_.group(3), b7h_.group(4), f['b7_held'], b7h_.group(7), ', '.join('%s REFUTED' % k_ for k_ in f['b7_refuted']) or 'none refuted', b7h_.group(8),
+             str((((jl('b766_steps.json') or {}).get('rows') or [{}])[-1]).get('commit') or '-')[:8],   # ### b767: (R377)(1)'s b635bc94, b766's closing step row
              K.PRE_RELAY[:8], f['corr_events'], f['corr_postseal'], f['corr_defects'], f['corr_items'], f['corr_claim'], f['corr_close'], f['corr_repeat'], f['corr_claim'],
              fr_[0], fr_[-1], f['corr_findings'][0], f['corr_findings'][1],
              '%s repeat%s' % (f['corr_findings'][2], '' if str(f['corr_findings'][2]) == '1' else 's'), len(nr_), nr_[0], nr_[-1], f['corr_line'], f['corr_row'],
