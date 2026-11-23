@@ -1,0 +1,25 @@
+b767 -- (R377)(4)(c) L10a: THE TABLE OF THE LOGARITHMS OF THE PRIMES, GENERATED FOR THE KERNEL (tools/b767_logdata.py write)
+
+## THE CONTROLS
+  (1) the keys: the primes up to 16,390, 1,900 of them, the largest 16,381: AS WANTED ; 1900, the largest 16381
+  (2) the kernel`s check, read in Python, at each entry: AS WANTED ; fails 0
+  (3) each interval holds log p, read by arb at 400 bits apart from the chain: AS WANTED ; outside 0
+  (4) Euler`s constant and log pi within their ends, read by arb: AS WANTED ; gamma True, log pi True
+  (5) the widest interval within 2/10^22: AS WANTED ; the widest 1.735e-29
+  (6) four subtrees and three top entries cover the keys once, each block within KT_CAP 4,100: AS WANTED ; blocks [475, 474, 474, 474]
+  (7) the tree`s descent finds each key at its own entry: AS WANTED ; missed 0
+  (8) five planted entries, each refused by the conjunct planted: AS WANTED ; L one above: the lower end above; H one below: the upper end below; a factor dropped: the factors` product not p - 1; a factor not a key: a factor not a key; the width planted wide: the width above 2/10^22
+  (9) the two constants` widths within 2/10^3: AS WANTED ; gamma 1.998004e-03, log pi 4.840000e-07
+  (10) the log pi ends strict against the kernel`s two sums: AS WANTED ; below by 1.7e-09, above by 2.0e-09
+  CONTROLS 10 OF 10 AS WANTED
+
+## THE TABLE
+  keys 1900 (the primes up to 16,390) ; scale 2^100 ; the remainder bound 2^-112 ; the series` lengths the most 112, the sum 17107
+  blocks [475, 474, 474, 474] and three top entries ; the widest interval 1.735e-29 against 2/10^22
+  the kernel`s file SIDEExplicitFormula/Window/LogData.lean: 3958 lines, 341496 bytes, sha256 b2e91f3a5221f6045fef0cdd46ac8edd7a2af0d73998ab5fb19b809dad44b872
+
+## L10b AND L10c`S ENDS (the hand file SIDEExplicitFormula/Window/LogConst.lean reads them)
+  gLo 36013583 / 62500000 ; gHi 144553833 / 250000000 (Euler`s constant by Mathlib`s two sequences at 500, log 501 and log 500 from the table)
+  pLo 228945919 / 200000000 ; pHi 1144730079 / 1000000000 (log pi by 22/7, pi`s six-digit bounds and log y between 1 - 1/y and y - 1)
+
+Nothing computed at a zero; no window coefficient, no K(n) and no combination r read or printed.
