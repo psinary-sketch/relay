@@ -1,0 +1,218 @@
+## APPENDED BY tools/standing/append.py AT 2026-11-23T07:33:33Z FROM b766_postlock_rows.txt (sha256 ae4e6ae214905f25), VERBATIM:
+    (132) THE SEAT'S [CLOSE ; REPEAT b765 events (80)]: THE LOCK. Row (131) committed with the root dry banks, relay c4fdde00 (step 95,
+     02:08:04Z). The close order printed by its route (`fold.py record closeorder`, flag 02:08:30Z, GO, 14 s: [1] to [25], [23a] the
+     Project set from [23]'s export with its banks committed at [25], step [21] the bank written after the lock by design) and the lock
+     gate (`tools/b766_lockgate.py b766 data/b766_registration_2026-11-22.txt`, flag 02:08:55Z, GO, 2 s): GATES READ 8, PASSING 8,
+     FACE-SUBJECT GATES CHECKED BY DIGEST 4, each recorded 2689256f833ff577, the probe-path refusal 119 tracked paths read, the compile
+     control 8 OF 8, no commit to tools/standing/ after the version's 751b9e7a leaving VERSION unmoved; VERDICT LOCK PERMITTED
+     (data/b766_lockgate_notes.txt), its lift's controls 2 of 2 AS WANTED before it (row (128)). The lock gate's two banks, the scan bank
+     and the step rows staged (02:09:18Z), b765's lock commit carrying the same four with its face (git show of b94d5e3a, read only,
+     02:09:05Z); the lock by the one-call tool (flag 02:09:24Z, GO): 121,925 bytes locked, sha256 2689256f833ff577..., the lock block in the
+     commit, the digest above it EQUAL to the gate record's face_sha; step 96, relay 9ae3ed95 (02:09:38Z), its scan 8 of 8 AS WANTED. From
+     the opening row (step 1, 2026-11-22T07:05:00Z) to the lock, 19.08 h.
+
+    (133) THE TOOL'S [CLOSE ; REPEAT b765 events (81)]: THE PRE-RUN IN TEN PARTS AND ITS COMBINE. `fold.py checks --part <part> --prerun`,
+     each part one message, in the foreground through scratch cap760.py, after a flag read of its own (each GO), under the 600 s limit:
+     standing-a1 02:10:13Z (351 s by the part: no arm, 23 kernels' mains, pairs unequal 0, 23 remote reads by the part, READ); a2
+     02:16:53Z (moved to the background by the harness at 600 s, no second copy sent, 562 s by the part, exit 1: ARMS 78, LIVE PASSING 57,
+     LIVE FAILING 21, b765's 19 at this part by name and beyond them G-PUSHOUT-COMMITTED and G-RUNNER-GATE, each declared on the face,
+     none short; scratch prediff766.py, read only, 02:27:46Z; 22 remote reads, READ); c 02:27:54Z (333 s: 5 of 5; the tracked files
+     written 163, each against the (W) globs, uncovered NONE; NOT READ -- CACHED); b1 02:34:24Z (425 s: G-SHARED-ADDITIVE, 1 of 1, NOT
+     READ -- NONE); b2a 02:42:02Z (493 s: b624 to b627 AGREE, the boundary equal, 2 remote reads, READ); b2b 02:50:51Z (508 s), b2c
+     02:59:54Z (560 s) and b2d 03:09:57Z (579 s by the part, moved to the background at 600 s by the capture, no second copy): b628 to b658
+     AGREE, each NOT READ -- CACHED; b3 03:20:13Z (503 s: G-ACTROOT-VERIFY passing, b659 to b766 AGREE, NOT READ -- CACHED); act 03:29:10Z
+     (443 s, exit 1: ARMS 31, LIVE PASSING 26, LIVE FAILING 5: G-R376-ENTERED for b765's G-R375-ENTERED, G-DELETES-ONE-BRANCH,
+     G-ENTRY-SCORES-EQUAL, G-ENTRY-TITLE-FORM and G-POSTROOT-WRITES-NONE, b765's at this part; G-DERIVATION-GRADED passing, where b765's
+     failed beyond its face; scratch prediff766.py, 03:37:10Z). Each part's NEGATIVE-CONTROL FAILURES 0 and WITHHELD 0. The combine
+     (`fold.py checks --combine b766_arms_prerun.txt --prerun`, flag 03:37:22Z, GO, 14 s, exit 1): ARMS RUN 116, LIVE PASSING 90, LIVE
+     FAILING 26 (data/b766_arms_prerun.txt), b765's 25 less G-DERIVATION-GRADED with G-PUSHOUT-COMMITTED and G-RUNNER-GATE; the parts'
+     seconds summed 4,756, the longest 579 s, under the 590 s guard; the six declared on the face, G-AXIOM-CLAIM, G-RULE-RECUT-QUOTE,
+     G-NO-SORRY-MAIN, G-DELETE-FREE, G-RUNNER-GATE and G-PUSHOUT-COMMITTED, among the 26.
+
+    (134) THE TOOL'S [CLOSE ; REPEAT b765 events (83)]: THE PASS IN THE PREVIOUS ACT'S MODE; THE ARMS' SECONDS; close.py DRY. `fold.py
+     checks --part <part> --prev`, each part one message in the foreground through scratch cap760.py after a flag read of its own (each
+     GO): standing-a1 (03:38:03Z, 357 s): no arm, 23 kernels' mains read, READ; standing-a2 (03:44:34Z, moved to the background by the
+     harness at 600 s, no second copy sent, 562 s by the part, exit 1): PASS 56, FAILED AS b765 FAILED 4, DIVERGE 18, each of the eighteen
+     printed with its cause by [K17]'s reader, where b765's pass read 55, 4 and 19 (b765 events (83)); standing-c, b1, b2a to b2d and b3
+     (03:55:14Z-03:57:24Z): NOT RUN in mode prev, the act no sitting, each its banks written; act (03:57:46Z, 310 s, exit 1): PASS 12,
+     FAILED AS b765 FAILED 2 (G-DELETES-ONE-BRANCH, G-DERIVATION-GRADED), DIVERGE 16, NOT RUN BY b765 1 (G-R376-ENTERED), each divergence
+     with its cause, where b765's read 12, 1, 17 and 1. The arms' seconds (`fold.py record armsecs`, flag 04:03:31Z, GO, 13 s): 85 of 85,
+     the slowest G-NOTHING-RAN-AHEAD 41.35 s. close.py dry (flag 04:04:03Z, GO, 8 s): exit 0 on the first run; the letters entered before
+     the seal 22, (a) to (v); NEG controls shown failing 116 of 116; withheld 0; the relay head 9ae3ed95 (data/b766_close_dry.txt).
+
+    (135) THE SEAT'S [CLOSE ; REPEAT b765 events (84)]: THE SEAL, AND THE POST-LOCK ADDRESS SCAN AFTER THE SEAL ROUTE. The seal route
+     (`close.py seal`, flag 04:04:55Z, GO, 8 s: data/b766_seal_hashes.json written, the relay head recorded 9ae3ed95); the post-lock
+     address scan (`tools/b766_address_scan.py scan --bank`, flag 04:05:09Z, GO, 12 s): PLACES 374, 0 on each of its four targets,
+     controls 8 of 8, no byline excepted (data/b766_address_scan_postlock.txt), after the seal route and before the seal commit, the place
+     [8a] gives it; the seal's 79 files staged in b765's form (git show of 56a0d418, read only, by scratch sealadd766.py, 04:05:40Z, a flag
+     read before it: 76 untracked and 3 modified, each present) by the one-call tool (04:05:58Z) and the seal commit, its subject composed
+     by the tool: step 97, relay eaa4d022 (04:06:22Z), the sealed tools' hashes, 198 files, its scan 8 of 8 AS WANTED.
+
+    (136) THE HOST'S [CLOSE ; REPEAT b766 events (129)]: A FORTIETH SUMMARY, AFTER THE ROOT PROMPT'S TWO REMOTE READS. A summary of the
+     session at transcript line 294515 (04:12:42.022Z), after rows (137) and (138) were done and before they were written: the scores,
+     the reads of their N4 line, the two remote reads and the composer's code read; nothing written to the relay since the seal commit but
+     the routes' own banks. The chain read the first route after it (04:13:48Z, a flag read before it, free memory 5,146 MB): `chain.py
+     sessions b766`, 294,582 rows, 0 lost, 354 boundaries, the last :294515, each logical parent in the file. The ferry read whole (two
+     reads), the author's words (33 lines), the step-zero (120), events (1,533, eight reads) and defects (302, two reads) banks read whole,
+     the refusals bank at :1 alone. The restatement stated in ten lines before the next write, this row.
+
+    (137) THE HOST'S [CLOSE ; REPEAT b765 events (85)]: THE SCORES BY THEIR ROUTE; THE ROOT PROMPT'S TWO REMOTE READS. The scores written
+     by their route (`fold.py record scores --act b766` through scratch cap760.py, flag 04:07:07Z, GO, 135 s, exit 0): N1, N2 and N3
+     REFUTED as at the score routes' dry (events (124), (126); defects (h), (t), (u)); N4 REFUTED (row (138)); N5 HELD, the address scan 0
+     in each count; S3 HELD, the sealed tools' hashes agreeing 198; S1 and S2 PENDING on the final table and the root
+     (data/b766_scores.json). The root prompt's two remote reads by `tools/standing/rootprompt.py remote`, one a message, each after a
+     flag read of its own (each GO): the relay (04:12:22Z) "relay remote at 29d4c9b7; local 78 commits past it", PLACE-papers (04:12:30Z)
+     "PLACE-papers remote at 5638a9ad; local 5 commits past it" (data/b766_rootprompt_remote.json); the composer's code read by the Read
+     tool (tools/standing/rootprompt.py :1-:373).
+
+    (138) THE SEAT'S [CLOSE ; NEW]: THE COMMAND BANK REWRITTEN BETWEEN THE GATE COMMIT AND THE LOCK AND LEFT UNCOMMITTED; N4 REFUTED ON
+     IT, FOUND AFTER THE LOCK. The scores' N4 line read whole by scratch n4read766.py (read-only, 04:09:43Z, a flag read before it): the
+     commits after the lock touching the face, a tool or a bank tracked at the lock commit NONE, and "the working tree`s changes to them:
+     ['data/b766_commands.json', 'data/b766_commands.txt']", each modified in the working tree, its last commit the gate commit 0c6305b8
+     (step 92, 01:51:17Z). Their modification time (scratch mtime766.py, read-only, 04:09:54Z, a flag read before it) 02:04:25Z, inside
+     `record gatebanks`'s second run (flag 02:03:15Z, 105 s, events (130)), after the gate commit and before the lock (02:09:38Z); not
+     among the six banks events (130)'s read named as rewritten (02:05:29Z), and staged by none of step 94, step 95 or the lock. b765's
+     command bank stands committed at its gate commit c67d74de alone (git log, 04:10:41Z, a flag read before it), its gate banks run once
+     before that commit. The root names neither file (data/b766_root_banks_dry.txt names no command bank; scratch excl766.py, read-only,
+     04:16:22Z, a flag read before it), so the root reads them apart. No route mends it after the lock: a commit of the two is a commit
+     after the lock touching a bank tracked at it, and a restore a write over a bank after the lock, each the offence N4's clause names;
+     N4 stands REFUTED as its reader reads it, the reader not edited (b765 (w)'s ground), and the scores stand at most 4 of 8, S1 and S2
+     pending. The defective step: a route run again after its commit, its rewritten banks read by a list and not by git's status before
+     the lock. Named in the closing message.
+
+    (139) THE HOST'S [CLOSE ; REPEAT b766 events (136)]: A FORTY-FIRST SUMMARY, AFTER THE ENTRY BY ITS ROUTE. A summary of the session at
+     transcript line 295044 (04:32:13.641Z), after row (140)'s work was done to the entry and before it was written: the root's question
+     put and answered, the answers pair, the first pre-root commit, the report and the entry by their routes, FINDINGS uncommitted. The
+     chain read the first route after it (04:32:36Z, a flag read before it, free memory 4,990 MB): `chain.py sessions b766`, 295,113 rows,
+     0 lost, 355 boundaries, the last :295044, each logical parent in the file. The ferry read whole (two reads), the author's words (33
+     lines), the step-zero (120), events (1,533, eight reads) and defects (302, two reads) banks read whole, the refusals bank at :1 alone.
+     The restatement stated in ten lines before the next write, this row.
+
+    (140) THE AUTHOR'S [CLOSE ; REPEAT b765 events (86)]: THE ROOT'S QUESTION PUT AND ANSWERED; THE ANSWERS, THE REPORT AND THE ENTRY BY
+     THEIR ROUTES; THE PRE-ROOT COMMITS AND PUSHES. The draft (scratch put766_5.json) from the banks' lines found by a read-only finder
+     (scratch rootfind766.py, flag 04:18:14Z, GO), checked by the composer's pure functions with the banked remote heads passed (scratch
+     putcheck766.py, read only, flag 04:19:52Z, GO): put_check PASSED, costs unnamed NONE, sentences about the entry NONE, figures before
+     five cites not on their lines, each a figure of a path or a clause standing in the same sentence before the cite, set by four Edits
+     that split or reworded those sentences; again (flag 04:20:51Z, GO) every figure before each of the 21 cites on its line.
+     `tools/standing/rootprompt.py put b766` (flag 04:21:01Z, GO): data/b766_put_5.json, 1 question, its header b767, two options; the
+     four lists of (5)(a) (data/b766_registry_cells.txt :176-:179) with the 13 rows beside them (:180), (5)(b)'s figures with the
+     navigator's candidate, (5)(c)'s, and the note's two prices (data/b766_plan.txt :68-:75) printed in the seat's message beside the
+     question; the question put as banked (transcript line 294912, 04:21:50.549Z) and answered (line 294913, 04:26:45.004Z), option 1 in
+     part, in the author's typed words (data/b766_author_answers.txt :33): b767 the proof and nothing beside it, on push-b766-proof from
+     3c67b8b5 at L9's remainder, then the enclosures, the inequality and the plan's last step, its ruling naming the order of the hold's
+     finding and pricing the closing build from source against it; the registry's block and the map's merge not beside its dispatches;
+     the four lists standing as printed, not struck and not ratified at this root, one row noted for that act; a window with knots graded
+     by octave registered at b767 by the tool's route with no dispatch. `fold.py record answers dry` (flag 04:26:55Z, GO, 57 s: prompts
+     5, words 0, composed 34, nothing written) and `record answers` (flag 04:28:08Z, GO, 56 s, exit 0: appended 28, calls 5):
+     data/b766_author_answers.txt and .json (04:29:03Z by their modification times, scratch mtime766.py, flag 04:29:42Z, GO). The first
+     pre-root add (04:30:28Z) in b765's form (git show of c3bbbd43, read only, by scratch addlist766.py, flag 04:30:12Z, GO: seven files
+     under b766's names, put_5 for put_2, which stands tracked; the command bank's two files left as N4 reads them, row (138)) and its
+     commit, the scan 8 of 8, PLACES 303: step 98, relay 9b711766 (04:30:58Z). `fold.py report bank` (flag 04:31:19Z, GO, 15 s): 15 lines
+     in footing order, sources 20, seated 20 (data/b766_report.txt). `fold.py record findings` (flag 04:31:46Z, GO): every screen clean,
+     the entry at FINDINGS :16011, its INTEGRATION line bare as its last line (:16078), its Carried to and Next lines carrying the
+     author's answer from the answers bank :33, read by the Read tool alone. FINDINGS.md staged alone (04:35:50Z) and committed, the scan
+     8 of 8, PLACES 310: step 99, PLACE-papers 487e3095 (04:36:28Z). `fold.py record table_final` (flag 04:36:48Z, GO, 53 s): ROWS MOVED
+     0 ; ADDED 0 ; GONE 0 ; GRADE MOVED 0; data/terminal_table.json and .md unmoved, SIDE-explicit-formula's main unmoved at 0ba9cd61, and
+     data/terminal_table_prior.json rewritten by the route to the table's bytes at HEAD (sha256 4539251de8d7285d, 1,036 lines changed),
+     the case of b764's pre-root commit c604474c, which carried the prior (scratch priorread766.py, read only, flag 04:39:06Z, GO); b765's
+     scan files of the entry and the trail stand untracked, as this act's entry scan file stands. The second pre-root add (04:42:11Z) in
+     b765's form (git show of d09f859f, read only, by scratch addlist766.py, flag 04:38:01Z, GO), the prior in place of the table's two
+     files, and its commit, the scan 8 of 8, PLACES 309: step 100, relay 9e1002b2 (04:42:50Z); the step row's commit, relay b95c2f2f
+     (04:44:15Z flag, the scan PLACES 312, no row of its own). push-b766-preroot made in the relay (04:44:57Z flag) and in PLACE-papers
+     (04:45:03Z flag) by the one-call tool, one a message. The gated pushes, the relay first as at b765: the relay at its third send
+     (row (141)), 29d4c9b7 to b95c2f2f, main read back equal, 0 tags; PLACE-papers (flag 04:48:47Z, GO) 5638a9a to 487e3095, the table
+     gate PASS (rows 2,110, added 0, gone 0, grade cells moved 0, named on the face 0), main read back equal, 0 tags. Their two captures
+     (data/b766_relay_push-b766-preroot_push_out.txt, data/b766_PLACE-papers_push-b766-preroot_push_out.txt) carry <account> where the
+     remote's address names the account, by [K23]'s mask, and stand untracked, a kind the root sets apart.
+
+    (141) THE HOST'S [CLOSE ; REPEAT b751 events (5)]: THE RELAY'S PRE-ROOT PUSH REFUSED TWICE AT THE NETWORK, PUSHED AT THE THIRD SEND.
+     `bash tools/push_gated.sh` with the relay and push-b766-preroot (flag 04:45:11Z, GO; the capture's stamp 04:45:12Z): pushcheck
+     CLEAR, then "error: RPC failed; curl 7 Recv failure: Connection was reset" and "fatal: the remote end hung up unexpectedly", MAIN
+     PUSH REFUSED, the script's exit 3, nothing pushed and no tag. The remote read once alone (flag 04:46:07Z, GO, one ls-remote): main
+     at 29d4c9b7, unmoved. Sent again alone (flag 04:46:24Z, GO): "error: RPC failed; HTTP 408 curl 22", refused as before, exit 3. The
+     push's size read (scratch packsize766.py, read only, flag 04:47:16Z, GO): 81 commits, 842 objects, 87,344,580 bytes on disk, beside
+     b765's pre-root push range 306162ad to 5ca769db, 75 commits, 670 objects, 75,503,021 bytes, pushed at one send (b765 events (86)).
+     Sent a third time (flag 04:47:50Z, GO; the capture's stamp 04:47:51Z): 29d4c9b7..b95c2f2f, main read back at the remote equal to
+     the branch's tip, 0 tags. The three attempts stand in the one capture in their order, the script appending (tools/push_gated.sh
+     :68). Between the third send and PLACE-papers' push, one command named a scratch launcher that does not exist (04:48:23Z, after a
+     flag read), refused by the interpreter, nothing run; the PLACE-papers push was then sent in b765's form.
+
+    (142) THE SEAT'S [CLOSE ; REPEAT b765 events (90)]: THE ROOT IN ITS PARTS, ITS FIRST PART STOPPED AT A REMOTE READ; THE ROOT, ITS
+     ARM AND ITS COMMIT; THE TRAIL AND THE DESK. Each route after a flag read of its own (each GO), through scratch cap760.py where
+     captured, one git write a message. `tools/standing/limits.py` read once with no flag read before it (04:52Z), a reader printing the
+     table alone, the class of defect (c). Root part 1 (flag 04:52:34Z, 24 s, exit 1): "FAILED: git ... ls-remote origin refs/heads/main
+     -- exit 128: ... Could not resolve host: github.com", the route's own words "a failed remote read, not an empty answer; the route
+     stops, its one retry an event"; nothing written (scratch status766.py, read only, flag 04:53:14Z: the act's changed banks the scan
+     bank and row (138)'s two alone). Sent again alone (flag 04:53:45Z, 33 s): BANKS 173 ; CLEAN AND EQUAL AT HEAD 173 ; HEAD THE REMOTE
+     MAIN True ; READY True, 20.2 s by the part beside b765's 17.4; part 2 (flag 04:54:25Z): banks 173, not clean or not equal 0, READY,
+     29.7 s beside 23.5; the root (flag 04:55:15Z, part 3 23.9 s beside 22.2): ACT ROOT b766 1f57b5d368f905c7..., previous b765
+     e2ab4e4a, repositories 38, tags 45, banks 173, HEAD b95c2f2f the remote main, written data/act_roots.txt (+1),
+     data/b766_act_root.json and .txt. The root arm's route read in the record template (record.tpl :3958, `root_arm`; git grep after a
+     flag read, 04:57:23Z) and run (flag 04:57:31Z, 13 s): the recomputed root equal True, the one-byte control changes it True, the
+     root order holds locally True. The root add (04:57:52Z) in b765's form (git show of 5ba67645, read only, by scratch addlist766.py,
+     flag 04:56:57Z: nine files, the push captures left out) and its commit, the scan 8 of 8, PLACES 317: step 101, relay 01054ec2
+     (04:58:13Z). The trail dry (flag 04:58:36Z), every screen clean, its first 9,000 characters printed; the trail by its route (flag
+     04:59:00Z): OPEN_TRAILS :19273, read by the Read tool from :19295 to its Next line at :19335, the author's answer there. The desk
+     (flag 04:59:33Z, 13 s): data/b766_desk_notes.txt, 314 lines, sha256 ede27c685f5baad3.
+
+    (143) THE HOST'S [CLOSE ; REPEAT b766 events (139)]: A FORTY-SECOND SUMMARY, IN THE PRE-PUSH SUITE. A summary of the session at
+     transcript line 295845 (05:56:34.605Z), after the pre-push suite's parts standing-a1 to standing-b2d, row (144)'s work in part done
+     and not yet written. The chain read the first route after it (05:56:59Z, a flag read before it, free memory 4,955 MB): `chain.py
+     sessions b766`, 295,922 rows, 0 lost, 356 boundaries, the last :295845, each logical parent in the file. The ferry read whole (two
+     reads), the author's words (33 lines), the step-zero (120), events (1,533, eight reads) and defects (302, two reads) banks read
+     whole, the refusals bank at :1 alone. The restatement stated in ten lines before the next write, this row.
+
+    (144) THE TOOL'S [CLOSE ; REPEAT b765 events (91)]: THE PRE-PUSH SUITE 109 OF 116, G-DELETES-ONE-BRANCH FAILING BEYOND THE FACE; THE
+     COMPONENTS, THE TRAIL COMMIT, THE RECORD COMMIT AND ITS STEP ROW. Each part one message, in the foreground through scratch cap760.py,
+     after a flag read of its own (each GO), under the 590 s guard: standing-a1 05:00:06Z (225 s by the part: no arm, 23 remote reads,
+     READ); a2 05:04:25Z (509 s, exit 4: ARMS 78, LIVE PASSING 72, LIVE FAILING 6, each read "THE CARRIED FAILURE DECLARED ON THE FACE"
+     in the capture by the search tool; 22 remote reads, READ); c 05:14:07Z (457 s: 5 of 5; the tracked files written 258, each against
+     the (W) globs, uncovered NONE; NOT READ -- CACHED); b1 05:22:41Z (296 s: 1 of 1, NOT READ -- NONE); b2a 05:28:12Z (366 s: b624 to
+     b627 AGREE, the boundary equal, READ; the part's own retry of PLACE-papers' remote read, the two timings 11.14 s and 1.17 s, an
+     event); b2b 05:34:53Z (367 s), b2c 05:41:36Z (412 s) and b2d 05:49:01Z (426 s): b628 to b658 AGREE, each NOT READ -- CACHED; b3
+     06:00:10Z (378 s: G-ACTROOT-VERIFY passing, b659 to b766 AGREE, b766 at b95c2f2f, NOT READ -- CACHED); act 06:07:01Z (351 s, exit
+     1: ARMS 31, LIVE PASSING 30, LIVE FAILING 1, G-DELETES-ONE-BRANCH, failing at this act's pre-run (row (133)) and at b765's, so not
+     among the pre-lock print's newly failing and not declared; the terminal table's generator re-run by the suite, rows added 0, gone 0).
+     Each part's NEGATIVE-CONTROL FAILURES 0 and WITHHELD 0. The combine (`fold.py checks --combine b766_checks.txt`, flag 06:14:05Z, 14
+     s, exit 1): ARMS RUN 116, LIVE PASSING 109, LIVE FAILING 7, the six declared on the face (G-AXIOM-CLAIM, G-RULE-RECUT-QUOTE,
+     G-NO-SORRY-MAIN, G-DELETE-FREE, G-RUNNER-GATE, G-PUSHOUT-COMMITTED) and G-DELETES-ONE-BRANCH beyond it; the parts' seconds summed
+     3,787, the longest 509 s. The components (flag 06:14:30Z, 17 s): Components 0 to 5 by their step rows, Component 4 with no step row.
+     OPEN_TRAILS.md staged alone (06:15:05Z) and committed, PLACES 352: step 102, PLACE-papers 29de0836 (06:15:30Z). The record add
+     (06:16:04Z) in b765's form (git show of c4e79c96, read only, by scratch addlist766.py, flag 06:15:51Z: 43 paths under b766's names,
+     each present; the push captures, the command bank and the scan files left out) and its commit, PLACES 324: step 103, relay 44573e30
+     (06:16:28Z); its step row, relay 603451cf (06:16:55Z flag, PLACES 327). push-b766-record made in PLACE-papers (06:17:17Z flag).
+
+    (145) THE HOST'S [CLOSE ; REPEAT b766 events (141)]: PLACE-papers' RECORD PUSH REFUSED TWICE AT THE NETWORK. `bash tools/push_gated.sh`
+     with PLACE-papers and push-b766-record (flag 06:17:52Z, GO; the capture's stamp 06:17:53Z): pushcheck CLEAR, the table gate PASS (rows
+     2,110, added 0, gone 0, grade cells moved 0, named on the face 0), then "fatal: unable to access ... Could not resolve host:
+     github.com", MAIN PUSH REFUSED (exit 128), the script's exit 3, nothing pushed and no tag. The remote read once alone (flag 06:18:52Z,
+     GO, one ls-remote): main at 487e3095, unmoved. Sent again alone (flag 06:19:13Z, GO; the stamp 06:19:14Z): refused as before. The
+     host's name lookup read by a read-only waiter (scratch dnswait766.py, a lookup every 5 s and no request sent, its exit at three
+     successes in a row or at 600 s; in the background after a flag read) before a third send. The waiter (flag 06:20:19Z, GO): RESOLVED
+     3 IN A ROW after 10 s (06:20:19Z to 06:20:29Z). Sent a third time (flag 06:21:00Z, GO; the stamp 06:21:01Z): the table gate PASS as
+     before, 487e309..29de083, main read back at the remote equal to the branch's tip, 0 tags. The three attempts stand in the one capture
+     in their order (tools/push_gated.sh :68), data/b766_PLACE-papers_push-b766-record_push_out.txt.
+
+    (146) THE TOOL'S [CLOSE ; REPEAT b765 events (91)]: THE RELAY'S RECORD PUSH; THE POST-PUSH SUITE 109 OF 116, AS THE PRE-PUSH.
+     push-b766-record made in the relay (06:21:40Z flag) and its gated push (flag 06:21:46Z, GO): b95c2f2f to 603451cf, main read back
+     equal, 0 tags, at one send. THE POST-PUSH, each part by `fold.py checks --rerun-postpush b766_checks_postpush.txt --part <part>`, the
+     base named so that no pre-push bank is rewritten (checks.tpl :2005-:2007), through scratch cap760.py in the foreground after a flag
+     read of its own (each GO), the run key b766_run_f24be934dff536c7: standing-a1 06:22:40Z (211 s by the part: no arm, 23 kernels'
+     mains, pairs unequal 0, sorry in code 15, 23 remote reads, READ); a2 06:26:43Z (502 s, exit 4: ARMS 78, LIVE PASSING 72, LIVE
+     FAILING 6, the six declared on the face; 22 remote reads by the part, twelve of them retried by the part, each classed an event,
+     SIDE-li-map and SIDE-silence-principle at about 21 s then 11 s, SIDE-omega-b at 0.08 s then 1.52 s and nine at under 0.1 s twice,
+     the reads classed PASS and the part READ; the twelve read from its bank's :128 by a one-line read-only program after a flag read,
+     07:30:44Z); c 06:36:18Z (372 s: 5 of 5, the tracked files written 289, each against the (W) globs, uncovered NONE, NOT READ --
+     CACHED); b1 06:43:25Z (297 s: 1 of 1, NOT READ -- NONE); b2a 06:48:56Z (353 s: b624 to b627 AGREE, the boundary equal, 11 remote
+     reads by the part, READ); b2b 06:55:23Z (370 s), b2c 07:02:10Z (429 s) and b2d 07:09:52Z (438 s): b628 to b658 AGREE, each NOT READ
+     -- CACHED; b3 07:17:44Z (378 s: G-ACTROOT-VERIFY passing, b659 to b766 AGREE, NOT READ -- CACHED); act 07:24:35Z (306 s, exit 1:
+     ARMS 31, LIVE PASSING 30, LIVE FAILING 1, G-DELETES-ONE-BRANCH). Each part's NEGATIVE-CONTROL FAILURES 0 and WITHHELD 0. The combine
+     (`fold.py checks --combine b766_checks_postpush.txt`, flag 07:30:18Z, 14 s, exit 1): ARMS RUN 116, LIVE PASSING 109, LIVE FAILING 7,
+     WITHHELD 0, as the pre-push; the parts' seconds summed 3,656, the longest 502 s (data/b766_checks_postpush.txt).
+
+    (147) THE SEAT'S [CLOSE ; REPEAT b764 events (84)]: STEP [21] TAKEN BY ITS ROUTE. The close order read again (flag 07:31:04Z, 13 s):
+     step [21] enters what is found after the lock in the bank written after the lock by design, by `tools/standing/append.py <act>
+     events <source>` and by no hand, no bank tracked at the lock written (N4). Rows (132) to (147) written from the lock on in a scratch
+     source by the Edit tool, each at its time, this row the last, written before the append, where b765 wrote none for its step [21]
+     (b766 events (22)); appended to data/b766_events_postseal.txt in one call with no dry form; the events bank stands as committed
+     before the lock. What is found after this append goes to the closing message.
