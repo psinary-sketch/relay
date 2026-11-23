@@ -1996,12 +1996,17 @@ def _trail_resolved(text):
     if not isinstance(prj_, dict) or not prj_.get('rows'):
         sys.exit('### data/%s_price.json DOES NOT CARRY ITS ROWS -- NOTHING COMPOSED' % ACT)
     prow_ = dict((r_['key'], r_) for r_ in list(prj_['rows']) + list(prj_.get('beside') or []))
-    prf_ = _bfig('%s_price.txt' % ACT, r'\*\*THE PRICE TABLE: STEP ZERO ([\d.]+) h ; THE LOWER SUM ([\d.]+) h AGAINST THE CEILING (\d+) h, (NOTHING CARRIED|CARRIED [^;]+?) ; '
-                 r'THE UPPER SUM ([\d.]+) h ;', 'the price table`s foot')
-    # ### b767, Component 1 (the Edit tool, before [K22]'s standing dry): (R377)(3) reads the ceiling "at step zero and after (4)(c)", where
-    # ### b766's (R376)(3) read it after Component 2 into its events bank (row (52), scratch ceil765.py), a carried constant with b766's meaning.
-    # ### b767 banks the reading after (4)(c) as data/b767_ceiling.txt, the form b766's module first gave it (data/b766_standing_dry.txt :38),
-    # ### read strictly here: absent until (4)(c), the record refuses by the bank's name. Its foot, eight figures in the carried order.
+    # ### b767, Component 1 (the Edit tool, after [K25]'s first standing dry, 09:38:32Z, NOT CLEAN on this line): the price table's foot read
+    # ### in b767's own form (data/b767_price.txt :54), where the carried pattern read b766's "AGAINST THE CEILING 24 h, NOTHING CARRIED" --
+    # ### (R377)(3) carries no rows past the ceiling, its reserve standing in place of them; thirteen figures in the foot's order, the carried
+    # ### word read as none (pr_carried None), the texts after that print it rewritten with section 4 at Component 5.
+    prf_ = _bfig('%s_price.txt' % ACT, r'\*\*THE PRICE TABLE: STEP ZERO ([\d.]+) h ; THE LOWER SUM ([\d.]+) h AGAINST THE CEILING (\d+) h ; THE UPPER SUM '
+                 r'([\d.]+) h ; DISPATCHES (\d+)-(\d+) OF AT MOST (\d+), WITH THE RESTORE ON (\d+)-(\d+) OF AT MOST (\d+) ; THE LEAN (\d+)-(\d+) LINES ; '
+                 r'THE LAST STEP DISPATCH BY (\d\d:\d\d:\d\dZ)\.\*\*', 'the price table`s foot')
+    # ### b767, Component 1 (the Edit tool, the same dry): the comment carried here put b766's words in (R377)(3)'s mouth ("reads the ceiling
+    # ### at step zero and after (4)(c)"); (R377)(3) orders no reading after (4)(c) -- its ceiling of 30 h with 16 in reserve, no step
+    # ### dispatch after 14 h, and the act's passing 30 h printed before the lock. The strict read of data/b767_ceiling.txt below is b766's,
+    # ### carried and left PENDING until Component 5 rewrites this section for what (R377)(3) does order.
     ce_ = _bfig('%s_ceiling.txt' % ACT, r'\*\*THE CEILING READ AFTER \(4\)\(c\) \(\(R377\)\(3\), read-only, (\d\d:\d\d:\d\dZ)\): SPENT ([\d.]+) h FROM THE '
                 r'DELIVERY ; THE LOWER SUM LEFT ([\d.]+) \+ ([\d.]+) = ([\d.]+) h AGAINST (\d+) h, (?:UNDER|OVER) BY ([\d.]+) h ; (NOTHING CARRIED|CARRIED [^*]+?)\.\*\*',
                 'the ceiling`s reading after (4)(c)')
@@ -2170,7 +2175,7 @@ def _trail_resolved(text):
                 corr_postseal=_bfig('%s_corrigendum.txt' % ACT, r'\*\*ITEMS \d+: EVENTS \d+, POST-SEAL (\d+), DEFECTS \d+ ;', 'the corrigendum`s post-seal count')[0],
                 corr_findings=((co.get('findings') or {}).get('claim'), (co.get('findings') or {}).get('close'), (co.get('findings') or {}).get('repeat')),
                 # ### b767, Component 5 (the Edit tool): the figures of (1) to (11) over b767's banks, read in record 4
-                pr_rows=prow_, pr_step0=prf_[0], pr_lower=prf_[1], pr_ceiling=int(prf_[2]), pr_carried=prf_[3], pr_upper=prf_[4],
+                pr_rows=prow_, pr_step0=prf_[0], pr_lower=prf_[1], pr_ceiling=int(prf_[2]), pr_carried=None, pr_upper=prf_[3], pr_last=prf_[12],
                 pr_minutes=(prj_.get('closure_min'), prj_.get('whole_min')), pr_disp=tuple(prj_.get('dispatches') or ()),
                 pr_on=tuple(prj_.get('restore_on') or ()), pr_lean=tuple(prj_.get('lean_lines') or ()),
                 ce_at=ce_[0], ce_spent=ce_[1], ce_left=ce_[3], ce_sum=ce_[4], ce_ceiling=int(ce_[5]), ce_under=ce_[6], ce_word=ce_[7],
