@@ -782,25 +782,31 @@ LEDGER_ENTRY_LINES = dict(c2=2, c5=0)
 
 def _gwb_state():
     """b766, N2: each row of K.GENS_WITH_BANK -- the tool's first add, the files of the commit carrying both, the bank in the working
-    tree and its blob at that commit, the bank's last commit, and the times of the first add and of that commit."""
+    tree and its blob at the row's fifth field, the bank's own commit (b767, defect (v): b766's form read the blob at the commit carrying
+    both and left the fifth field unread), the bank's last commit, and the times of the first add, of that commit and of the bank's."""
     out = {}
-    for n_, tool_, data_, both_, _k in K.GENS_WITH_BANK:
+    for n_, tool_, data_, both_, k_ in K.GENS_WITH_BANK:
         fa_ = [h_ for h_ in gs(ROOT, 'log', '--diff-filter=A', '--format=%H', '--', tool_).split() if h_.strip()][-1:]
-        out[n_] = dict(tool=tool_, data=data_, both=both_, first=fa_, both_files=files_of(ROOT, both_), bank=rd(data_.split('/', 1)[1]),
-                       blob=_s(blob(ROOT, '%s:%s' % (both_, data_))), last=gs(ROOT, 'log', '-1', '--format=%H', '--', data_).strip(),
-                       t_first=_ct(ROOT, fa_[0]) if fa_ else None, t_both=_ct(ROOT, both_))
+        out[n_] = dict(tool=tool_, data=data_, both=both_, bankc=k_, first=fa_, both_files=files_of(ROOT, both_),
+                       bank_files=files_of(ROOT, k_), bank=rd(data_.split('/', 1)[1]),
+                       blob=_s(blob(ROOT, '%s:%s' % (k_, data_))), last=gs(ROOT, 'log', '-1', '--format=%H', '--', data_).strip(),
+                       t_first=_ct(ROOT, fa_[0]) if fa_ else None, t_both=_ct(ROOT, both_), t_bank=_ct(ROOT, k_))
     return out
 
 
 def _gwb_ok(S):
     """each row of K.GENS_WITH_BANK: the tool first added by a commit before the one carrying both, that commit carrying the tool and
-    the bank, the bank last committed there and at HEAD its blob there; (name, ok) each."""
+    the bank; the bank's own commit (the row's fifth field) carrying the bank, not before the commit carrying both, the bank last
+    committed there and at HEAD its blob there (b767, defect (v): the bank's commit read from the row, where b766's form took the commit
+    carrying both for it); (name, ok) each."""
     out = []
     for n_, d_ in sorted((S['gwb'] or {}).items()):
         b_ = _txt(d_.get('bank'))
         out.append((n_, bool(b_) and b_ == _txt(d_.get('blob')) and bool(d_.get('first')) and d_['tool'] in (d_.get('both_files') or [])
-                    and d_['data'] in (d_.get('both_files') or []) and (d_.get('last') or '')[:8] == d_['both'][:8]
-                    and bool(d_.get('t_first')) and bool(d_.get('t_both')) and d_['t_first'] < d_['t_both']))
+                    and d_['data'] in (d_.get('both_files') or []) and d_['data'] in (d_.get('bank_files') or [])
+                    and (d_.get('last') or '')[:8] == (d_.get('bankc') or '')[:8]
+                    and bool(d_.get('t_first')) and bool(d_.get('t_both')) and bool(d_.get('t_bank'))
+                    and d_['t_first'] < d_['t_both'] <= d_['t_bank']))
     return out
 #⟪END⟫
 #⟪SECTION checks 5⟫
