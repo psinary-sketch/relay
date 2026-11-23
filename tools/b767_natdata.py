@@ -48,14 +48,15 @@ def fac_prod(f):
 
 
 def nat_chk(keyset, m, L):
-    """the kernel's natChk, read in Python: each list's product its index from m, each factor a key below BOUND."""
+    """the kernel's natChk, read in Python: each list's product its index from m, each factor a key below BOUND. None where the run
+    passes; else the conjunct that refuses it first ('product' or 'key'), so that a plant is read for the reason planted (b767 (i))."""
     for f in L:
         if fac_prod(f) != m:
-            return False
+            return 'product'
         if not all(q in keyset and q < BOUND for q, _e in f):
-            return False
+            return 'key'
         m += 1
-    return True
+    return None
 
 
 def nfac(blocks, m):
@@ -159,7 +160,7 @@ def controls(keys, tab):
       [s for _nm, s, _n in starts] == [1, 3279, 6557, 9835, 13113] and starts[-1][1] + starts[-1][2] - 1 == NMAX
       and all(n <= KT_CAP for _nm, _s, n in starts), str(starts))
     chk = [nat_chk(keyset, s, L) for _nm, s, _n, L in bl]
-    c('(5) the kernel`s natChk read in Python over each run from its first index', all(chk), str(chk))
+    c('(5) the kernel`s natChk read in Python over each run from its first index, none refused', chk == [None] * 5, str(chk))
     probes = [1, 2, 3278, 3279, 6556, 6557, 9834, 9835, 13112, 13113, 16381, 16384, 16390]
     got = [nfac(bl, m) == tab[m] for m in probes]
     c('(6) the kernel`s nfac read in Python at each run`s two ends and at 1, 2, 16,381, 16,384 and 16,390', all(got),
@@ -174,8 +175,8 @@ def controls(keys, tab):
     p3[0], p3[1] = p3[1], p3[0]                   # 1 and 2 exchanged: the index
     p4 = [tab[m] for m in range(2, 2 + RUN)]      # the run from 2 read from 1: shifted by one
     pl = [nat_chk(keyset, 1, p1), nat_chk(keyset, 1, p2), nat_chk(keyset, 1, p3), nat_chk(keyset, 1, p4)]
-    c('(7) four planted runs each refused (12 read as 60 ; 4 as 4^1, not a key ; 1 and 2 exchanged ; a run shifted by one)',
-      pl == [False, False, False, False], str(pl))
+    c('(7) four planted runs each refused by the conjunct planted (12 read as 60, the product ; 4 as 4^1, not a key ; 1 and 2 exchanged, '
+      'the product ; a run shifted by one, the product)', pl == ['product', 'key', 'product', 'product'], str(pl))
     text = lean_text(bl)
     places = top_places(text)
     c('(8) the kernel`s file: its first line its import, each top-level list within KT_CAP 4,100 (the largest %d), five runs and five of each '
