@@ -8,8 +8,10 @@ built on a restored build). For each: the commit and toolchain built (ref.txt), 
 (build_times.txt), the memory log's samples, its low and its time, its STOP line (mem.log), and the build log's job lines (build.log): the
 highest job reached, the modules built, the Window modules built and not built, the heaviest modules by their seconds.
 THE MODULES BUILDING AT THE STOP: the import graph of the kernel at the commit built, each file's import lines read by predicate through
-`git cat-file --batch` (no line printed); the frontier is each kernel module not built in the log whose kernel imports are each built
-there. Lake runs every ready job, so the frontier is the set of modules that were building, or ready to build, when lake was stopped.
+`git cat-file --batch` (no line printed); the frontier is each module of the closure of the run's own target (its dispatch row's, in
+data/b766_dispatch_rows.json) not built in the log whose kernel imports are each built there. Lake runs every ready job of its target,
+so the frontier is the set of modules that were building, or ready to build, when lake was stopped. (The first write took it over the
+whole library, where lake builds the target's closure alone; that frontier is printed beside, defect (h).)
 ITS CONTROLS: each kernel module named in each log resolves to a file at the commit; each run's ref is its dispatch row's commit
 (RUN_COMMIT); the route's premise, no module outside the Window folder reaching a Window module by its imports; the stopped
 runs' memory logs carry a STOP line beneath the hold; the restored run's log builds KFast and its low equals data/b767_price.txt :21's
@@ -45,18 +47,25 @@ RUNSET = ((45047352154, 'dispatch 15 of b766, the closing build from source, the
 RUN_COMMIT = {45047352154: '3c67b8b5', 45051503982: '3c67b8b5',   # ### data/b766_closing.txt events (91): dispatches 15 and 16 at 3c67b8b5
               45027497489: '448dd77b'}                           # ### data/b766_controls.txt :174: dispatch 7, sha 448dd77b on push-b766-proof
 STOPPED = (45047352154, 45051503982)
+ROWS_B766 = 'data/b766_dispatch_rows.json'   # ### each run's own dispatch row: the target lake built (its `target`, the modules by name)
+# ### b767 Component 3 (12:2xZ, before the trial): the frontier is taken over the import closure of the run's own target, not over the
+# ### library; the first write (11:42:17Z) took it over the library, where lake builds the target's closure alone (defect (h))
 PREFIXES = ('SIDEExplicitFormula', 'Zeta23', 'Lc', 'Hadamard', 'FunctionsOfOneComplexVariable')
 SRC = (('SIDEExplicitFormula/', ''), ('Zeta23/', ''), ('Vendored/Bulka/', 'Vendored/Bulka/'))   # ### lakefile.toml :9-:20, the vendored library's srcDir :18
 WINDOW = 'SIDEExplicitFormula.Window.'
 KFAST = 'SIDEExplicitFormula.Window.KFast'
-ROUTE = (   # ### the seat's statement of (5)(b), set after the read (the dry of 11:40:12Z) and committed before the write
+ROUTE = (   # ### the seat's statement of (5)(b), set after the read (the dry of 11:40:12Z) and committed before the write; part one and (1)
+    # ### set before the trial (Component 3, 12:2xZ) where the first write took the frontier over the library (defect (h))
     'THE ROUTE CHOSEN, (i): THE WORKFLOW BUILDING THE LIBRARY IN TWO PARTS WITHIN ONE RUN, THE RESTORE OFF. Part one: `lake build` of each',
-    'module under SIDEExplicitFormula/ and Zeta23/ outside SIDEExplicitFormula/Window/, by name; part two: `lake build` of the target as now;',
+    'module of the target outside SIDEExplicitFormula/Window/, by name, whose closure holds every module outside the folder that the',
+    'target needs (the control above); part two: `lake build` of the target as now;',
     'each part under the same hold and memory logger, each part`s log and exit kept in the artifact. The Lean of 3c67b8b5 stands as it is;',
-    'the workflow`s file alone changes, on push-b767-proof ((R377)(9)). Its premise is the control above: no module outside the folder',
-    'reaches one inside it, so part one builds every module outside the folder.',
-    'WHY: (1) at both stops lake had reached job 8,956 of 9,105, 13 of the folder`s 17 modules built and KFast not, KFast ready beside 19',
-    'modules outside the folder (the frontier above); (2) on a restored build KFast built with KData alone beside it in 407 s, the memory',
+    'the workflow`s file alone changes, on push-b767-proof ((R377)(9)). Its premise is the controls above: no module outside the folder',
+    'reaches one inside it, and the target`s modules outside the folder reach every module outside it that the target needs, so part two',
+    'builds the folder`s modules alone. The first statement (11:42:17Z) named each module under SIDEExplicitFormula/ and Zeta23/ outside the',
+    'folder, 27 of which the target does not reach and no run of b766 or b767 builds; not taken.',
+    'WHY: (1) at both stops lake had reached job 8,956 of 9,105, 13 of the folder`s 17 modules built and KFast not, KFast ready beside 6',
+    'modules outside the folder within the target`s closure (the frontier above); (2) on a restored build KFast built with KData alone beside it in 407 s, the memory',
     'log`s low 7,565 MB, 5,005 MB above the hold; (3) in part two KFast`s four imports (KData, KappaClosed, KBasis, Coeffs) build first,',
     'and only the folder`s modules stand beside it. The navigator`s reading holds by the read: KFast`s importers are CQValues, PoleSum and',
     'Arch, and at each stop KFast stood ready beside modules outside the folder, from which no chain of imports among the four parts it;',
@@ -67,7 +76,7 @@ ROUTE = (   # ### the seat's statement of (5)(b), set after the read (the dry of
     'help (Lake/CLI/Help.lean), a reading of another version and not of this toolchain.',
     'THE RISK, named: part two`s peak with KFast beside the folder`s small modules is not measured from source; the trial reads it.',
     'A LARGER RUNNER, PRICED AND NOT ORDERED: these runs began at 14,495 to 14,754 MB available (the memory logs` first samples), a runner',
-    'of 16 GB; at the stop some 12,100 to 12,460 MB stood in use with KFast beside 19 modules; a runner with twice the memory would hold',
+    'of 16 GB; at the stop some 12,100 to 12,460 MB stood in use with KFast beside 6 modules; a runner with twice the memory would hold',
     'that load with the hold beside it. Its rate per minute is not read at this act (no fetch from the web): the seat`s estimate, unread,',
     'is a larger GitHub-hosted Linux runner billed by the minute at about twice the standard rate for twice the cores and memory, and',
     'offered to an organisation on a paid plan; a build from source 66.0 to 92.4 min (b765`s, data/b766_price.txt :9) at that rate. Put',
@@ -178,11 +187,41 @@ def reach(imports, roots):
     return seen
 
 
+def run_targets():
+    """{run: [the modules of its dispatch row's target]} from data/b766_dispatch_rows.json, each run's own row."""
+    import json
+    with open(os.path.join(ROOT, *ROWS_B766.split('/')), encoding='utf-8') as f:
+        R = json.load(f)
+    out = {}
+    for r in R:
+        if r.get('kind') == 'dispatch' and int(r.get('run') or 0) in dict(RUNSET):
+            out[int(r['run'])] = (r.get('target') or '').split()
+    return out
+
+
 def run_read():
     rows, ctl = {}, []
     imports = graph(COMMIT)
     target = reach(imports, [m for m in imports if m.startswith('SIDEExplicitFormula.') or m.startswith('Zeta23.')])
     importers = dict((m, sorted(x for x, imps in imports.items() if m in imps)) for m in imports)
+    RT = run_targets()
+    for run in STOPPED:
+        tg = RT.get(run) or []
+        ctl.append(('run %d: its target read from its own dispatch row (%s), each module a module of the kernel at %s' % (run, ROWS_B766, COMMIT),
+                    'modules %d, not of the kernel %d' % (len(tg), len([m for m in tg if m not in imports])), bool(tg) and all(m in imports for m in tg)))
+    tg0 = RT.get(STOPPED[0]) or []
+    tclos0 = reach(imports, tg0)
+    narrow = [m for m in tg0 if not m.startswith(WINDOW)]
+    nclos = reach(imports, narrow)
+    need = set(m for m in tclos0 if not m.startswith(WINDOW))
+    lib_out = [m for m in imports if (m.startswith('SIDEExplicitFormula.') or m.startswith('Zeta23.')) and not m.startswith(WINDOW)]
+    ctl.append(('PART ONE, THE TARGET`S MODULES OUTSIDE THE FOLDER (run %d`s row): their closure holds every module outside the folder that the '
+                'target`s closure holds, and no Window module' % STOPPED[0],
+                'by name %d ; their closure %d ; the outside modules the target needs %d, left out %d ; Window modules in it %d ; the library`s '
+                'modules outside the folder %d, %d of them outside the target`s closure' % (
+                    len(narrow), len(nclos), len(need), len(need - nclos), len([m for m in nclos if m.startswith(WINDOW)]), len(lib_out),
+                    len([m for m in lib_out if m not in tclos0])),
+                bool(narrow) and need <= nclos and not any(m.startswith(WINDOW) for m in nclos)))
     for run, role in RUNSET:
         ref = (text(run, 'ref.txt') or '').split()
         ex = (text(run, 'build_exit.txt') or '').strip()
@@ -198,10 +237,19 @@ def run_read():
         heavy = sorted(((s, m) for _n, _N, v, m, s in log if v == 'Built' and s is not None and m.split('.')[0] in PREFIXES), reverse=True)[:12]
         win_built = [(m, s) for _n, _N, v, m, s in log if v == 'Built' and m.startswith(WINDOW)]
         win_all = sorted(m for m in imports if m.startswith(WINDOW))
-        fr = frontier(dict((m, imports[m]) for m in target), built) if run in STOPPED else []
+        tclos = reach(imports, RT.get(run) or [])
+        fr = frontier(dict((m, imports[m]) for m in tclos), built) if run in STOPPED else []
+        fr_lib = frontier(dict((m, imports[m]) for m in target), built) if run in STOPPED else []
         rows[run] = dict(role=role, ref=ref, ex=ex, b0=b0.group(1) if b0 else None, b1=b1.group(1) if b1 else None, log=log, samples=samples,
                          stop=stop, low=low, built=built, unresolved=unresolved, heavy=heavy, win_built=win_built,
-                         win_not=[m for m in win_all if m not in set(x for x, _s in win_built)], fr=fr, kern_named=len(kern_named))
+                         win_not=[m for m in win_all if m not in set(x for x, _s in win_built)], fr=fr, fr_lib=fr_lib, kern_named=len(kern_named),
+                         tclos=len(tclos))
+        if run in STOPPED:
+            ctl.append(('run %d: every module its log names lies in its target`s closure, and the frontier within it' % run,
+                        'named outside the closure %d ; the frontier %d, outside the closure 0 by construction ; the library`s frontier %d, of it '
+                        'outside the closure %d' % (len([m for m in kern_named if m not in tclos]), len(fr), len(fr_lib),
+                                                    len([m for m in fr_lib if m not in tclos])),
+                        all(m in tclos for m in kern_named)))
         ctl.append(('run %d: each kernel module its log names resolves to a file at %s' % (run, COMMIT),
                     'named %d, unresolved %d' % (len(kern_named), len(unresolved)), not unresolved))
         ctl.append(('run %d: the commit built is %s, its dispatch row`s' % (run, RUN_COMMIT[run]), (ref[0][:8] if ref else 'none'),
@@ -219,7 +267,7 @@ def run_read():
                 'KFast %s ; low %s' % ('%.1f s' % kf[0][1] if kf and kf[0][1] is not None else 'absent', rr['low'][1] if rr['low'] else 'none'),
                 bool(kf) and bool(rr['low']) and rr['low'][1] == RESTORED_LOW))
     r15 = rows[45047352154]
-    tgt = dict((m, imports[m]) for m in target)
+    tgt = dict((m, imports[m]) for m in tclos0)   # ### the run's own target's closure, as the frontier is now taken
     planted = frontier(tgt, r15['built'] | {KFAST})
     gained = sorted(set(planted) - set(r15['fr']))
     ctl.append(('PLANTED: KFast taken as built in run 45047352154`s set: it leaves the frontier, and the frontier gains only modules importing it',
@@ -264,9 +312,12 @@ def lines(rows, ctl, imports, importers, target, commit, sha):
         if run in STOPPED:
             win = [m for m in r['fr'] if m.startswith(WINDOW)]
             out = [m for m in r['fr'] if not m.startswith(WINDOW)]
-            L += ['  THE MODULES BUILDING, OR READY, AT THE STOP (%d): in the Window folder %s ; outside it (%d) %s' % (
-                len(r['fr']), ', '.join(m.replace(WINDOW, '') for m in win) or 'none', len(out),
-                ', '.join(m.replace('SIDEExplicitFormula.', '') for m in out) or 'none')]
+            lib_only = [m for m in r['fr_lib'] if m not in r['fr']]
+            L += ['  THE MODULES BUILDING, OR READY, AT THE STOP, within the closure of the run`s target (%d modules) (%d): in the Window folder %s ; '
+                  'outside it (%d) %s' % (r['tclos'], len(r['fr']), ', '.join(m.replace(WINDOW, '') for m in win) or 'none', len(out),
+                                         ', '.join(m.replace('SIDEExplicitFormula.', '') for m in out) or 'none'),
+                  '  BESIDE IT, the first write`s frontier over the whole library (%d), which lake did not build: %d more, outside the target`s '
+                  'closure (%s)' % (len(r['fr_lib']), len(lib_only), ', '.join(m.replace('SIDEExplicitFormula.', '') for m in lib_only) or 'none')]
     L += ['', '## THE NAVIGATOR`S READING, CHECKED AGAINST THE READ ((R377)(5)(b))',
           '  "CQValues, PoleSum and Arch each import KFast": KFast`s importers read %s' % ', '.join(
               x.replace(WINDOW, '') for x in importers.get(KFAST, [])),
