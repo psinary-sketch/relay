@@ -28,7 +28,8 @@ the register nor the two files of the map, so OPEN_TRAILS is the one file here.
                            the step not sent, L9c, with the plan's later steps, each absent from the commit; every theorem of
                            `SIDEExplicitFormula.Window` in print_targets.txt at the commit found once by its declaration line (its
                            namespaces read from `namespace`, `section` and `end`), read at its statement (from its name to its first `:=`)
-                           and graded by tools/e0_rule.py grade(head, 'theorem'), its axioms print from the read of its run;
+                           and graded by tools/e0_rule.py grade(head, 'theorem'), its lexicon extended in this tool by the two types
+                           this act declares (E0_EXTENSION, the shared file not edited), its axioms print from the read of its run;
                          [S2] (data/b767_ferry.txt :78), where the trial reads [S2] by tools/b767_controls.py trial_state(): its fields from
                            the two reads of the trial and the route's words at data/b767_source_build.txt :62.
                          Controls before the write, printed; the roster by tools/standing/orders.py's rule in memory: no order moving, none
@@ -393,6 +394,22 @@ P2_STEP = ("L9c `archJ_comb`, the sums of L9b as the combination's coefficients,
            "`window_arith_neg` and L12 `controlFailureExists`")
 DECL_RE = re.compile(r'^(?:@\[[^\]\n]*\]\s*)?(?:(?:protected|private|nonrec)\s+)*(?:theorem|lemma)\s+([^\s(\[{:]+)')
 NS_RE, SEC_RE, END_RE = re.compile(r'^namespace\s+(\S+)\s*$'), re.compile(r'^section(?:\s+\S+)?\s*$'), re.compile(r'^end(?:\s+\S+)?\s*$')
+# ### the E0 rule's lexicon extended in this tool, the shared tools/e0_rule.py not edited (the form of tools/b735_ef.py :133 and
+# ### tools/b703_record.py :571): the two types this act declares, each data, each read at its declaration line at the commit
+E0_EXTENSION = {'LPEntry': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Window/LogBounds.lean :16 (structure, b767)'),
+                'LPTree': ('data', 'SIDE-explicit-formula SIDEExplicitFormula/Window/LogBounds.lean :24 (inductive, b767)')}
+E0_EXT_DECL = {'LPEntry': ('SIDEExplicitFormula/Window/LogBounds.lean', 16, 'structure LPEntry where'),
+               'LPTree': ('SIDEExplicitFormula/Window/LogBounds.lean', 24, 'inductive LPTree where')}
+_EXT = {}
+
+
+def e0_extend():
+    """the extension laid over the shared lexicon once; returns the keys the shared lexicon held before it (wanted none)."""
+    import e0_rule as E0
+    if 'held' not in _EXT:
+        _EXT['held'] = sorted(k for k in E0_EXTENSION if k in E0.LEXICON)
+        E0.LEXICON.update(E0_EXTENSION)
+    return _EXT['held']
 
 
 def drows():
@@ -439,6 +456,7 @@ def decls(src):
 def e0_at(src, line):
     """the theorem's statement at its declaration line, from its name to its first `:=`, graded by tools/e0_rule.py."""
     import e0_rule as E0
+    e0_extend()
     L = src.split(NL)
     m = DECL_RE.match(L[line - 1])
     start = sum(len(x) + 1 for x in L[:line - 1]) + m.end()
@@ -508,9 +526,10 @@ def p2_fields(R):
     with open(PLAN, encoding='utf-8') as f:
         PL = f.read().replace('\r', '').split(NL)
     plan = [(lab, nm, ln, len(PL) >= ln and ('%s %s ' % (lab, nm)) in PL[ln - 1] + ' ') for lab, nm, ln in P2_PLAN]
+    ext = [(k, p, ln, p in srcs and len(srcs[p].split(NL)) >= ln and srcs[p].split(NL)[ln - 1] == want) for k, (p, ln, want) in sorted(E0_EXT_DECL.items())]
     fields = [('<commit>', commit), ('<names>', P2_NAMES), ('<its name in the plan>', P2_STEP), ("<the error's opening line | not sent>", 'not sent')]
     return dict(fields=fields, gates=gates, read_names=sorted(n for n in st if n.startswith(NS)), r=r, last=last, later=later_steps,
-                closing=closing, files=len(files), where=where, plan=plan, V=V)
+                closing=closing, files=len(files), where=where, plan=plan, V=V, ext=ext, held=e0_extend())
 
 
 def ledgers_c5(mode):
@@ -525,7 +544,7 @@ def ledgers_c5(mode):
     E, miss = {}, []
     if p2.get('miss'):
         miss.append(p2['miss'])
-        p2 = dict(gates=[], read_names=[], r=None, last=False, later=[], closing=[], files=0, where={}, plan=[], fields=None)
+        p2 = dict(gates=[], read_names=[], r=None, last=False, later=[], closing=[], files=0, where={}, plan=[], fields=None, ext=[], held=['NOT READ'])
     else:
         E['P2'] = fill(TP['P2'], p2['fields'])
     if s2:
@@ -593,6 +612,10 @@ def ledgers_c5(mode):
             not p2['later'] and len(p2['closing']) == 1),
            ('[P2]: THE POPULATION: the names of %s in print_targets.txt at %s (%d) equal both ways to those the read of dispatch %d names (%d)' % (
                NS, P2['commit'], len(pop), P2['read'], len(p2['read_names'])), bool(pop) and pop == p2['read_names']),
+           ('[P2]: THE E0 RULE`S LEXICON extended in this tool, tools/e0_rule.py not edited: %s each data, each read at its declaration line at the '
+            'commit (%s), none held by the shared lexicon before (held: %s)' % (
+                ' and '.join(sorted(E0_EXTENSION)), ' '.join('%s :%d %s' % (k, ln, ok_) for k, _p, ln, ok_ in p2['ext']) or 'none', p2['held'] or 'none'),
+            len(p2['ext']) == len(E0_EXTENSION) and all(x[3] for x in p2['ext']) and not p2['held']),
            ('[P2]: THE E0 GATE: each of the %d theorems found once by its declaration line among the %d Window files at the commit, read at its '
             'statement and graded (%s)' % (len(gates), p2['files'], ', '.join('%s %d' % kv for kv in sorted(grades.items()))), gate_ok(gates)),
            ('[P2]: each COMPILED in the read, its axioms within %s, sorryAx in none (the prints: %s)' % (
