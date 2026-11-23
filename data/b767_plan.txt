@@ -1,0 +1,125 @@
+b767 -- THE PLAN AMENDED, (R377)(4)(a): L9'S REMAINDER, L10, L11 AND L12, IN THE ORDER THE SEAT WILL SEND THEM (2026-11-23)
+
+### Written by the seat by the Write tool after the certificate's three forms (data/b767_certificate.txt, 10 of 10 controls AS WANTED, the
+### tool committed at relay bc6d92cd before its run) and before any dispatch; no Lean sent. The statements read at push-b766-proof 3c67b8b5
+### through `git show` (scratch kthm767.py, lines from :10, 10:02Z): Window/Arch.lean :24-:28 archTermQ_windowK and :72-:78
+### archTermQ_windowK_k0; Window/PoleSum.lean :44-:46 poleTerm_windowK_intH, its data half not proved (:10-:12); Window/CQValues.lean :240
+### cQ_eq_comb (cQ n over the primes cqPF, n to 1023) and :136-:141 (cqProdOK, log_eq_cqEv); Window/KValues.lean :47 and :83; at main
+### 0ba9cd61 ControlFailureExists.lean :23-:25. The Mathlib names below searched in the pinned Mathlib of the kernel's clone (git grep,
+### 10:03:41Z and 10:04:14Z), each found at the file and line given. Each lemma: its name as planned; in ordinary terms; its statement's
+### opening; its kind (ANALYSIS, true of each window of the family; DATA, true of this window by evaluation; ENCLOSURE, a rational bound on
+### a constant); the datum it consumes; its lines and dispatches, priced from b766's steps (data/b767_price.txt :11-:12, b766's rate of
+### Component 3, 248 hand lines an hour). The Lean names no frequency; the window stands in the bank.
+
+## WHAT b766 COMPILED AND WHAT REMAINS (data/b766_closing.txt events (87), (91); data/b767_price.txt :11-:12)
+  COMPILED at 3c67b8b5, 157 names under SIDEExplicitFormula.Window: L1 the prime side as a finite sum (PrimeFinite); L2-L5 the window, its
+  16,365 coefficients and classK (Coeffs, Spline, Instance); L6 the K values (KValues, KBasis, KappaClosed, KFast, KData); L7 cQ to 1023
+  over the primes (CQValues, CQData); L8 the pole term, its first factor as data (Pole, PoleSum, PoleData); L9 in part, the archimedean
+  term by Gauss's integral with k(0) as data (Arch, ArchData, ArchBlocks).
+  REMAINING: J in the B-spline basis and its sums (L9's remainder); the pole term's data half, the sum of coeff j times rhoLog j as a
+  combination (PoleSum.lean :10-:12), which b766's plan put in L8 and this plan carries in L11; the enclosures (L10); the inequality (L11);
+  the closing theorem (L12).
+
+## THE FORM L10 ENCLOSES: THE PRIMES, (p) (data/b767_certificate.txt, THE FORMS)
+  THE THREE FORMS: (p) the primes, N 1,902, SUM |r| 2.97e21, one width 21 digits; (i) the integers before factoring, N 16,383, SUM |r|
+  7.15e21, 22 digits; (ii) by parts, order 1, N 16,385, SUM |r| 3.68e21, 22 digits; order 2, SUM |r| 5.93e22, 23 digits, so (ii) stops at
+  order 2 and order 1 is its least. Each form's value by balls equal to S, -6.62468014575, to 10 digits.
+  WHY THE PRIMES: (1) the least sum of the |r| and the least width of the three; (2) the fewest constants, 1,902 against 16,383 and 16,385:
+  1,900 logarithms to enclose where the other forms need 16,381 or 16,383; (3) cQ is compiled over the same primes (CQValues.lean :240), so
+  PR enters L11 in this form with no further step, and the closed forms' log m (m to 16,390) are factored into the primes by an exponent
+  table that the kernel checks, as CQValues.lean :136-:141 did to 1023: an identity, which asks no enclosure.
+  THE NAVIGATOR'S NOTE READ AGAINST THE FIGURES: summation by parts over log(n + 1) - log n halves the integer form's sum (7.15e21 to
+  3.68e21), so some cancellation stands between neighbouring integers; the second differences raise it sixteen-fold (5.93e22); the primes'
+  sum stays below both, and neither order removes the size of 10^21. THE SEAT'S READING, NOT MEASURED AT THIS ACT: each closed form
+  G_l(c) = (-c)^l (log(c + 1) - log c) + b_l carries a coefficient of size c^l (c to 16,390, l to 7) against a rational b_l of like size,
+  so the size may stand within each closed form, between its logarithm and its rational part, where summation by parts over the
+  logarithms does not reach.
+
+## THE BUDGET IN THE LEAN (data/b767_certificate.txt, THE BUDGET IN THE LEAN), beside the certificate's (data/b766_certificate.txt :18)
+  THE CERTIFICATE'S: each constant an equal share, gamma 6 digits, log pi 6 digits, the log p from 0 to 24 digits ; SUM |r| 10^-digits
+  1.315 < |S| / 2 3.31234.
+  THE LEAN'S: gamma 3 digits, log pi 3 digits, each log p 22 digits ; by group gamma 0.258, log pi 0.258, the primes 0.297 ; total 0.813
+  < 3.31234. WHY: gamma and log pi carry |r| of one size and their enclosures are the costly ones in the Lean (gamma by the harmonic number
+  at 500, log pi from Mathlib's bounds on pi), so each takes a wide share; each log p is a few terms of one series whether at 21 or 22
+  digits, so the primes take the narrow share. Beside it: one width of 21 digits for all (b766's) totals 2.972, a margin of 0.34; gamma 4,
+  log pi 4, the primes 21 totals 3.024; the Lean's shares leave 2.50. Gamma at 2 digits would spend 2.58 alone, past that margin.
+
+## THE LEMMAS, IN THE ORDER OF SENDING
+  (4)(b) L9'S REMAINDER, THE ARCHIMEDEAN TERM AS THE COMBINATION, in three parts:
+  L9a archJ_eq_double -- Gauss's integral at the window (Arch.lean :76-:78, over t > 0) equals J = INT H(z) INT_0^z (H(z) - H(w)) / (z - w)
+      dw dz, by x = e^t and k(t) = e^(t/2) K(e^t), K(x) = INT H(y) H(x y) dy (tools/b765_window.py :14-:19; KValues.lean :47
+      windowKOf_eq_integral). `theorem archJ_eq_double : (∫ t in Set.Ioi (0 : ℝ), ((Real.exp (-t) : ℂ) * windowK 0 - (Real.exp (-t / 2)
+      : ℂ) * windowK t) / (1 - (Real.exp (-t) : ℂ))) = ((∫ z in Set.Ioi 1, splineH coeff z * ∫ w in (0 : ℝ)..z, ...) : ℂ)`. ANALYSIS.
+      Datum: none. Lines 200-600 (b766's plan :47) ; dispatches 1-3.
+  L9b archJ_basis -- the double integral in the B-spline basis: J = (11/6) k(0) + (1/16) SUM_i SUM_(|d| <= 3) c_i c_(i-d) Lg(i, d) -
+      (1/16) SUM_d lam(d) C(|d|), Lg and lam by the closed forms G_l and F_l (tools/b765_window.py :23-:32), each an exact integral of a
+      polynomial against a logarithm over a unit piece, as Pole.lean :219-:280 did for rhoLog. `theorem archJ_basis : (∫ z in Set.Ioi 1,
+      ...) = 11 / 6 * k0 + (1 / 16) * bandSum coeff - (1 / 16) * lamSum coeff`. ANALYSIS. Datum: none. Lines 400-1,200 (b766's plan :48) ;
+      dispatches 1-3.
+  L9c archJ_comb -- the sums of L9b equal a rational constant and, for each integer m to 16,390, a rational coefficient of log m, the
+      coefficients generated by a relay tool committed before its run from the certificate's closed forms (tools/b766_certificate.py
+      band_comb and lam_comb) and checked by the kernel in blocks within KT_CAP 4,100 places (tools/b766_kdata.py :65). DATA. Datum: the
+      band and lam parts of the combination in the integer form (data/b767_certificate.txt, (i)). Lines 300-1,000 (b766's plan :49), the
+      data generated ; dispatches 1-2.
+      THE PRICE: 900-2,800 lines ; dispatches 3-8 ; 3.63-11.29 h (data/b767_price.txt :26) ; b766's like rows, L9 in part 0.48 h with 82
+      hand lines and 2 dispatches, L6 3.48 h with 1,003 hand lines and 5 dispatches.
+  (4)(c) L10, THE ENCLOSURES OF THE PRIME FORM, in three parts:
+  L10a logPrime_bounds -- for each of the 1,900 primes p of the combination a rational interval [lo p, hi p] of width at most 2 x 10^-22
+      holding log p: log 2 = log(1 + 1/1); log p = log(p - 1) + log(1 + 1/(p - 1)), log(p - 1) from the smaller primes by its factors;
+      log(1 + 1/a) by Real.hasSum_log_one_add_inv (Mathlib/Analysis/SpecialFunctions/Log/Deriv.lean :396), its partial sums from below
+      (each term positive) and a geometric tail above. The table (p, lo p, hi p, the series' length) generated by a relay tool committed
+      before its run; one Boolean check over it evaluated by the kernel in blocks within 4,100; the soundness theorem proved once, by strong
+      induction over the table. `theorem logPrime_bounds : ∀ p ∈ combPrimes, ((lo p : ℚ) : ℝ) ≤ Real.log p ∧ Real.log p ≤ ((hi p : ℚ) :
+      ℝ)`. ENCLOSURE with ANALYSIS. Datum: the combination's 1,900 primes and the budget's 22 digits. Lines 300-1,000 by hand, the table
+      some 1,900 lines generated ; dispatches 1-3.
+  L10b gamma_bounds -- Euler's constant in an interval of width at most 2 x 10^-3: eulerMascheroniSeq 500 < gamma <
+      eulerMascheroniSeq' 500 (Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean :156 and :161; the sequences at :48 and :80), the
+      harmonic number at 500 one rational (harmonic_eq_sum_Icc, Mathlib/NumberTheory/Harmonic/Bounds.lean :20) checked by the kernel, log
+      500 and log 501 from L10a (500 = 2^2 5^3, 501 = 3 x 167), log(501/500) below 2 x 10^-3. `theorem gamma_bounds : (gLo : ℝ) <
+      Real.eulerMascheroniConstant ∧ Real.eulerMascheroniConstant < gHi`. ENCLOSURE. Datum: the budget's 3 digits. Lines 60-200 ;
+      dispatches 1. THE RISK, named: the harmonic number at 500 is a rational of some 215 digits, its kernel evaluation untried in this
+      kernel; it is cut in blocks where it passes the cap.
+  L10c logPi_bounds -- log pi in an interval of width at most 2 x 10^-3: pi between 3.141592 and 3.141593 (Mathlib/Analysis/Real/Pi/
+      Bounds.lean :178 and :184); log pi = log(22/7) + log(7 pi / 22), log(22/7) from L10a, and log y between 1 - 1/y and y - 1
+      (Mathlib/Analysis/SpecialFunctions/Log/Basic.lean :312 and :307). `theorem logPi_bounds : (pLo : ℝ) < Real.log Real.pi ∧
+      Real.log Real.pi < pHi`. ENCLOSURE. Datum: the budget's 3 digits. Lines 40-120 ; dispatches with L10b.
+      THE PRICE: the parts 400-1,320 lines by hand and some 1,900 generated, within the row's 600-2,500 lines ; dispatches 2-6 ; 2.42-10.08
+      h (data/b767_price.txt :27) ; b766's like row, L7, 1.72 h with 312 hand lines, 2 dispatches and a data file of 4,131 lines.
+  (4)(d) L11, THE INEQUALITY, in four parts:
+  L11a poleSum_comb -- the pole term's data half (PoleSum.lean :10-:12): SUM_j coeff j rhoLog j as a rational constant and a rational
+      coefficient for each log m, checked by the kernel in blocks. DATA. Datum: the pole part of the combination (tools/b766_certificate.py
+      rho_comb). Lines 100-300 (L7's like row, 312 hand lines) ; dispatches 1-2.
+  L11b logNat_primes -- for each m from 2 to 16,390 at which a closed form reads log m, log m = SUM_p e(m, p) log p over the combination's
+      primes, by an exponent table checked by the kernel (CQValues.lean :136-:141, cqProdOK and log_eq_cqEv, carried to 16,390). DATA.
+      Lines 60-200, the table generated ; dispatches with L11a.
+  L11c arith_eq_comb -- the arithmetic side at the window equals r_0 + r_gamma gamma + r_pi log pi + SUM_p r_p log p, each r the
+      certificate's exact rational (data/b766_certificate.json): L1 at N = 1024, cQ_eq_comb, the K values, L8 with L11a, L9 with L11b.
+      `theorem arith_eq_comb : (B321.poleTerm windowK - Schema.primeTermQ Schema.ZQ.cQ windowK + Schema.archTermQ windowK).re = r0 + ...`.
+      ANALYSIS over DATA. Lines 100-400 (b766's plan :56-:58) ; dispatches 1-2.
+  L11d window_arith_neg -- `theorem window_arith_neg : (B321.poleTerm windowK - Schema.primeTermQ Schema.ZQ.cQ windowK +
+      Schema.archTermQ windowK).re < 0`: L11c with each constant replaced by the end of its interval of L10 that its coefficient's sign
+      gives, one rational inequality checked by the kernel in blocks. ANALYSIS over DATA and ENCLOSURE. Datum: S's sign and its margin,
+      |S| / 2 3.31234 against the Lean's shares' 0.813. Lines 40-150 ; dispatches 1.
+      THE PRICE: 300-1,050 lines ; dispatches 2-5 ; at b766's rate 1.21-4.23 h, against the table's row 0.40-1.61 h (data/b767_price.txt
+      :28): the pole's data half and the factoring table, which b766's plan put in L8 and L9, pass the row's upper; printed in the report as
+      (R377)(3) orders, and no question.
+  (4)(e) L12 controlFailureExists -- the closing theorem from the window's k, L5 (windowK_classK, Instance.lean, and the window's support)
+      and L11d. `theorem controlFailureExists : B321.ControlFailureExists`. ANALYSIS. Lines 10-30 ; dispatches 1-2 ([P1]). THE PRICE
+      0.12-1.00 h (data/b767_price.txt :29).
+
+## THE ORDER, THE HOURS AND THE CHECKS
+  THE ORDER: (4)(b) to (4)(e) as above, several lemmas to a dispatch, each dispatch with the restore on; the trial of (5) beside them; the
+  last step dispatch by 2026-11-23T22:34:03Z (data/b767_price.txt :49). Where L9's remainder breaks at an item whose next send would not
+  return before that hour, the seat moves to L10, which reads nothing of L9, so that the hours left go to a step that can compile; the
+  order is otherwise this plan's.
+  THE SEAT'S FORECAST, not the ceiling's rule: the four lemmas 1,810-6,380 lines, at b766's rate 7.3-25.7 h, beside some 11 h from the end
+  of Component 2 to the last step dispatch; L9's remainder and L10 may compile within them and L11 and L12 likelier not, so [P2] reads
+  the likelier outcome; what compiles by the last hour stands and [P2] names the rest.
+  THE CHECKS BEFORE A DISPATCH ((R377)(4)): each Mathlib name a commit newly uses searched in the pinned Mathlib by git grep, or printed as
+  not found (the names above found, 10:03:41Z and 10:04:14Z); each data file read to begin with its import; each kernel evaluation above
+  KT_CAP 4,100 places for one declaration (tools/b766_kdata.py :65) cut in blocks before it is sent.
+
+## THE TOTALS
+  the Lean 1,810-6,380 lines, the generated tables beside; dispatches with the restore on 8-21 for the steps (L9 3-8, L10 2-6, L11 2-5,
+  L12 1-2) and 1 for the trial's restored run, within (4)'s 36; with the restore off the trial, the closing build and one repeat of each,
+  within 40.

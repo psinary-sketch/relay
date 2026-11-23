@@ -1,0 +1,192 @@
+{
+ "act": "b767",
+ "ruling": "(R377)(4)(a)",
+ "at": "2026-11-23T09:59:38Z",
+ "tool": {
+  "path": "tools/b767_certificate.py",
+  "commit": "bc6d92cd",
+  "sha256": "c0f28e6f7f40acc8",
+  "carried": "tools/b766_certificate.py",
+  "carried_sha256": "765c98b84923c010"
+ },
+ "window": {
+  "bank": "data/b765_window.json",
+  "sha256_less_final_line_end": "4cbe7be1203883a6d2688b32ed3e1994760530a7acc8942560169267a37048f0",
+  "coef_sha": "4702881bfa6f928f",
+  "M": 16,
+  "d": 3
+ },
+ "forms": [
+  {
+   "form": "(p) the primes",
+   "constants": 1902,
+   "terms": 1900,
+   "sum_abs_r": "2.97205e+21",
+   "sum_abs_r_log10": "21.473",
+   "largest_numerator_digits": 377,
+   "uniform_digits": 21,
+   "gamma_digits": 6,
+   "logpi_digits": 6,
+   "others_digits": [
+    0,
+    24
+   ],
+   "equal_share_total": "1.315",
+   "below_half": true
+  },
+  {
+   "form": "(i) the integers",
+   "constants": 16383,
+   "terms": 16381,
+   "sum_abs_r": "7.14858e+21",
+   "sum_abs_r_log10": "21.854",
+   "largest_numerator_digits": 359,
+   "uniform_digits": 22,
+   "gamma_digits": 7,
+   "logpi_digits": 7,
+   "others_digits": [
+    1,
+    23
+   ],
+   "equal_share_total": "1.332",
+   "below_half": true
+  },
+  {
+   "form": "(ii) by parts, order 1",
+   "constants": 16385,
+   "terms": 16383,
+   "sum_abs_r": "3.6809e+21",
+   "sum_abs_r_log10": "21.566",
+   "largest_numerator_digits": 683,
+   "uniform_digits": 22,
+   "gamma_digits": 7,
+   "logpi_digits": 7,
+   "others_digits": [
+    -3,
+    23
+   ],
+   "equal_share_total": "1.274",
+   "below_half": true
+  },
+  {
+   "form": "(ii) by parts, order 2",
+   "constants": 16385,
+   "terms": 16382,
+   "sum_abs_r": "5.92801e+22",
+   "sum_abs_r_log10": "22.773",
+   "largest_numerator_digits": 698,
+   "uniform_digits": 23,
+   "gamma_digits": 7,
+   "logpi_digits": 7,
+   "others_digits": [
+    2,
+    23
+   ],
+   "equal_share_total": "1.311",
+   "below_half": true
+  }
+ ],
+ "by_parts_stop": 2,
+ "least": "(ii) by parts, order 1",
+ "equal_shares_total": "1.315",
+ "half_S": "3.31234",
+ "lean_budget": [
+  {
+   "shares": "one width for all, 21 digits (b766`s)",
+   "gamma_digits": 21,
+   "logpi_digits": 21,
+   "logp_digits": 21,
+   "gamma": "2.58e-19",
+   "logpi": "2.58e-19",
+   "primes": "2.97",
+   "total": "2.972",
+   "below_half": true
+  },
+  {
+   "shares": "gamma 3, log pi 3, each log p 22 digits",
+   "gamma_digits": 3,
+   "logpi_digits": 3,
+   "logp_digits": 22,
+   "gamma": "0.258",
+   "logpi": "0.258",
+   "primes": "0.297",
+   "total": "0.813",
+   "below_half": true
+  },
+  {
+   "shares": "gamma 4, log pi 4, each log p 21 digits",
+   "gamma_digits": 4,
+   "logpi_digits": 4,
+   "logp_digits": 21,
+   "gamma": "0.0258",
+   "logpi": "0.0258",
+   "primes": "2.97",
+   "total": "3.024",
+   "below_half": true
+  },
+  {
+   "shares": "gamma 6, log pi 6, each log p 24 digits",
+   "gamma_digits": 6,
+   "logpi_digits": 6,
+   "logp_digits": 24,
+   "gamma": "0.000258",
+   "logpi": "0.000258",
+   "primes": "0.00297",
+   "total": "0.003488",
+   "below_half": true
+  }
+ ],
+ "controls": [
+  {
+   "name": "the prime form`s S against b765`s -6.62468014575 to 10 digits",
+   "got": "-6.62468014575",
+   "as_wanted": true
+  },
+  {
+   "name": "the prime form`s primes and its one width against b766`s 1900 and 21 digits (data/b766_certificate.txt :16, :18)",
+   "got": "primes 1900, one width 21",
+   "as_wanted": true
+  },
+  {
+   "name": "the integer form factored against the prime form, each prime exactly",
+   "got": "primes 1900 against 1900, equal True",
+   "as_wanted": true
+  },
+  {
+   "name": "each order of (ii) inverted against the order before it, exactly",
+   "got": "[True, True]",
+   "as_wanted": true
+  },
+  {
+   "name": "(p) the primes: its value by balls against S to 10 digits",
+   "got": "-6.62468014575 (radius 6.81e-131)",
+   "as_wanted": true
+  },
+  {
+   "name": "(i) the integers: its value by balls against S to 10 digits",
+   "got": "-6.62468014575 (radius 2.3e-131)",
+   "as_wanted": true
+  },
+  {
+   "name": "(ii) by parts, order 1: its value by balls against S to 10 digits",
+   "got": "-6.62468014575 (radius 8.79e-132)",
+   "as_wanted": true
+  },
+  {
+   "name": "(ii) by parts, order 2: its value by balls against S to 10 digits",
+   "got": "-6.62468014575 (radius 2e-130)",
+   "as_wanted": true
+  },
+  {
+   "name": "PLANTED: one coefficient T_k of (ii)`s order 1, at the middle k, moved by 1, its inversion read at m = k and m = k + 1 alone",
+   "got": "differences at [8192, 8193] (k 8192, so m 8192 and 8193)",
+   "as_wanted": true
+  },
+  {
+   "name": "the equal shares` sum over the prime form against b766`s 1.315 (data/b766_certificate.txt :18)",
+   "got": "1.315",
+   "as_wanted": true
+  }
+ ],
+ "rule": "each constant an equal share: digits floor(log10(2 N |r| / |S|)) + 1; one width floor(log10(2 SUM |r| / |S|)) + 1"
+}

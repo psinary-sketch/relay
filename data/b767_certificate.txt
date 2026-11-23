@@ -1,0 +1,42 @@
+b767 -- THE COMBINATION`S THREE FORMS AT THE WINDOW M 16, d 3: THE SUMS OF |r| AND THE BUDGETS, (R377)(4)(a); no Lean, no dispatch (2026-11-23T09:59:38Z)
+
+### the tool tools/b767_certificate.py, sha256 c0f28e6f7f40acc8, committed at relay bc6d92cd before its run, importing tools/b766_certificate.py unedited (sha256 765c98b84923c010); every r an exact
+### rational (python-flint fmpq), the values read by balls at 512 bits; nothing computed at a zero, no bank of zeros opened, the
+### window`s frequency not read, no coefficient and no K(n) printed
+
+## THE WINDOW`S BANK, data/b765_window.json
+  its sha256 less its final line end 4cbe7be1203883a6 ; data/b765_window.txt :26 gives 4cbe7be1203883a6 -- EQUAL
+  the file whole bd228144d213356c ; 778941 bytes
+  coefficients 16365 (the line gives 16365) ; each (m, e) against its rational: EQUAL ; their sha256 4702881bfa6f928f, the bank`s coef_sha 4702881bfa6f928f -- EQUAL
+  M 16, d 3 ; no coefficient printed ; THE BANK AS WANTED
+
+## THE COMBINATION, EXACT: cQ(n) not 0 at 197 n of 2 to 1023 ; K(n) computed at 197 n ; the integer form`s logarithms 16381 ; seconds exact 6 ; forms 2
+
+## THE FORMS (each: the constants N with gamma and log pi among them ; the sum of the |r| ; the largest numerator ; THE BUDGET by b766`s rule, gamma`s, log pi`s and the others` digits ; the one width for all)
+  (p) the primes               N  1902 ; SUM |r| 2.97205e+21 (10^21.473) ; numerator 377 digits ; gamma 6, log pi 6, the others 0-24 digits ; the equal shares` sum 1.315 < |S| / 2: True ; ONE WIDTH 21 DIGITS
+  (i) the integers             N 16383 ; SUM |r| 7.14858e+21 (10^21.854) ; numerator 359 digits ; gamma 7, log pi 7, the others 1-23 digits ; the equal shares` sum 1.332 < |S| / 2: True ; ONE WIDTH 22 DIGITS
+  (ii) by parts, order 1       N 16385 ; SUM |r| 3.6809e+21 (10^21.566) ; numerator 683 digits ; gamma 7, log pi 7, the others -3-23 digits ; the equal shares` sum 1.274 < |S| / 2: True ; ONE WIDTH 22 DIGITS
+  (ii) by parts, order 2       N 16385 ; SUM |r| 5.92801e+22 (10^22.773) ; numerator 698 digits ; gamma 7, log pi 7, the others 2-23 digits ; the equal shares` sum 1.311 < |S| / 2: True ; ONE WIDTH 23 DIGITS
+  (ii) stopped at order 2: its sum of |r| not below order 1`s, so order 1 is the least
+  the least sum of |r| among (ii)`s orders: (ii) by parts, order 1, SUM |r| 3.6809e+21, one width 22 digits
+
+## THE BUDGET IN THE LEAN, over the prime form: |r| 10^-digits summed by group, the total against |S| / 2 3.31234
+  the certificate`s equal shares               gamma 6, log pi 6, the log p 0-24 digits (data/b766_certificate.txt :18) ; total 1.315 ; below: True
+  one width for all, 21 digits (b766`s)        gamma 21, log pi 21, each log p 21 digits ; gamma 2.58e-19, log pi 2.58e-19, the primes 2.97 ; total 2.972 ; below: True
+  gamma 3, log pi 3, each log p 22 digits      gamma 3, log pi 3, each log p 22 digits ; gamma 0.258, log pi 0.258, the primes 0.297 ; total 0.813 ; below: True
+  gamma 4, log pi 4, each log p 21 digits      gamma 4, log pi 4, each log p 21 digits ; gamma 0.0258, log pi 0.0258, the primes 2.97 ; total 3.024 ; below: True
+  gamma 6, log pi 6, each log p 24 digits      gamma 6, log pi 6, each log p 24 digits ; gamma 0.000258, log pi 0.000258, the primes 0.00297 ; total 0.003488 ; below: True
+
+## THE CONTROLS
+  the prime form`s S against b765`s -6.62468014575 to 10 digits: -6.62468014575 -- AS WANTED
+  the prime form`s primes and its one width against b766`s 1900 and 21 digits (data/b766_certificate.txt :16, :18): primes 1900, one width 21 -- AS WANTED
+  the integer form factored against the prime form, each prime exactly: primes 1900 against 1900, equal True -- AS WANTED
+  each order of (ii) inverted against the order before it, exactly: [True, True] -- AS WANTED
+  (p) the primes: its value by balls against S to 10 digits: -6.62468014575 (radius 6.81e-131) -- AS WANTED
+  (i) the integers: its value by balls against S to 10 digits: -6.62468014575 (radius 2.3e-131) -- AS WANTED
+  (ii) by parts, order 1: its value by balls against S to 10 digits: -6.62468014575 (radius 8.79e-132) -- AS WANTED
+  (ii) by parts, order 2: its value by balls against S to 10 digits: -6.62468014575 (radius 2e-130) -- AS WANTED
+  PLANTED: one coefficient T_k of (ii)`s order 1, at the middle k, moved by 1, its inversion read at m = k and m = k + 1 alone: differences at [8192, 8193] (k 8192, so m 8192 and 8193) -- AS WANTED
+  the equal shares` sum over the prime form against b766`s 1.315 (data/b766_certificate.txt :18): 1.315 -- AS WANTED
+
+### ### **THE THREE FORMS READ: 10 OF 10 CONTROLS AS WANTED ; THE PRIMES` ONE WIDTH 21 DIGITS, THE INTEGERS` 22, BY PARTS AT ITS LEAST 22 (ORDER 1).**
