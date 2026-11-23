@@ -501,6 +501,18 @@ def mathlib_closure(tokens, kg, mg):
     return seen
 
 
+def kernel_closure(tokens, kg):
+    """the kernel's modules a file importing `tokens` sees, through kg, a module with no import line among them (b767 (k))."""
+    seen, todo = set(), list(tokens)
+    while todo:
+        t = todo.pop()
+        if t == 'Mathlib' or t.startswith('Mathlib.') or t in seen:
+            continue
+        seen.add(t)
+        todo.extend(kg.get(t, ()))
+    return seen
+
+
 def _chunks(items, n=80):
     items = sorted(items)
     return [items[i:i + n] for i in range(0, len(items), n)]
@@ -536,22 +548,28 @@ def text_found(mrev, lasts):
     return found
 
 
-def names_reading(added, imports, sha, mrev, kg, mg):
+def names_reading(added, imports, sha, mrev, kg, mg, own=None):
     """the names a file's added lines newly carry: each found by a text search of the pinned Mathlib's source or printed as not found
     ((R377)(4)); and each Mathlib declaration read against the file's own import closure (b763 (i), b767 (h)): in it, only outside it, or no
-    declaration line found (a name made by an attribute, a local, a field: printed, never refused)."""
+    declaration line found (a name made by an attribute, a local, a field: printed, never refused). b767 (k): each name the kernel declares
+    read against the file's own module and its kernel closure; one declared in the kernel only outside them, and by no Mathlib module
+    within the closure, kept in kernel_outside."""
     q, s = qnames(added), snakes(added)
     names = q + [x for x in s if x not in set(n.split('.')[-1] for n in q)]
     last = dict((n, n.split('.')[-1]) for n in names)
     kd = decl_hits(KPATH, sha, sorted(set(last.values())), ['*.lean'], kmodule)
     kernel = sorted(n for n in names if kd.get(last[n]))
     rest = [n for n in names if n not in kernel]
+    kclo = kernel_closure(imports, kg) | ({own} if own else set())
+    kout = [n for n in kernel if not (kd[last[n]] & kclo)]
     rl = sorted(set(last[n] for n in rest))
+    ml = sorted(set(rl) | set(last[n] for n in kout))
     fl = text_found(mrev, rl) if mrev and rl else set()
-    md = decl_hits(MATHLIB, mrev, rl, MATHLIB_SPEC, mmodule) if mrev and rl else {}
+    md = decl_hits(MATHLIB, mrev, ml, MATHLIB_SPEC, mmodule) if mrev and ml else {}
     clo = mathlib_closure(imports, kg, mg)
     out = dict(qualified=q, snake=[x for x in names if x not in q], kernel=kernel, found=sorted(n for n in rest if last[n] in fl),
-               not_found=sorted(n for n in rest if last[n] not in fl), in_closure=[], outside={}, undeclared=[], closure=len(clo))
+               not_found=sorted(n for n in rest if last[n] not in fl), in_closure=[], outside={}, undeclared=[], closure=len(clo),
+               kernel_outside={}, kclosure=len(kclo))
     for n in rest:
         mods = md.get(last[n]) or set()
         if not mods:
@@ -560,6 +578,9 @@ def names_reading(added, imports, sha, mrev, kg, mg):
             out['in_closure'].append(n)
         else:
             out['outside'][n] = sorted(mods)[:3]
+    for n in kout:
+        if not ((md.get(last[n]) or set()) & clo):
+            out['kernel_outside'][n] = sorted(kd[last[n]])[:3]
     return out
 
 
@@ -591,10 +612,14 @@ def presend(sha):
     rep['mathlib'] = dict(rev=mrev, clone_head=mhead, equal=bool(mrev) and mrev == mhead)
     kg = import_graph(KPATH, sha, ['*.lean'], kmodule) if changed else {}
     mg = mathlib_graph(mrev) if changed and mrev else {}
-    agg = dict(qualified=0, snake=0, kernel=0, found=0, not_found=[], in_closure=0, outside={}, undeclared=[])
+    agg = dict(qualified=0, snake=0, kernel=0, found=0, not_found=[], in_closure=0, outside={}, undeclared=[], kernel_outside={})
     for p in changed:
         added = [l[1:] for l in git(KPATH, 'diff', '-U0', BASE_PROOF, sha, '--', p).split(NL) if l.startswith('+') and not l.startswith('+++')]
-        r = names_reading(added, file_imports(files[p]), sha, mrev, kg, mg)
+        r = names_reading(added, file_imports(files[p]), sha, mrev, kg, mg, own=kmodule(p))
+        for n, mods in r['kernel_outside'].items():
+            agg['kernel_outside']['%s (%s)' % (n, p.replace(LEAN_DIR, ''))] = mods
+            refusals.append('%s: %s declared in the kernel only outside the file`s import closure (%s), b767 (k)' % (
+                p.replace(LEAN_DIR, ''), n, ', '.join(mods)))
         for k in ('qualified', 'snake', 'kernel', 'found', 'in_closure'):
             agg[k] += len(r[k])
         agg['not_found'] += r['not_found']
@@ -628,8 +653,9 @@ def presend_lines(sha, refusals, rep):
                 rep['names']['qualified'], rep['names']['snake'], rep['names']['kernel'], rep['names']['found'], len(rep['names']['not_found']),
                 rep['names']['not_found'][:30]),
             '    against each file`s own import closure (b763 (i), b767 (h)): declared within it %d ; DECLARED ONLY OUTSIDE IT %d %s ; no declaration '
-            'line found (an attribute`s name, a local, a field) %d' % (rep['names']['in_closure'], len(rep['names']['outside']),
-                                                                       sorted(rep['names']['outside'].items())[:12], len(rep['names']['undeclared'])),
+            'line found (an attribute`s name, a local, a field) %d ; THE KERNEL`S NAMES DECLARED ONLY OUTSIDE IT (b767 (k)) %d %s' % (
+                rep['names']['in_closure'], len(rep['names']['outside']), sorted(rep['names']['outside'].items())[:12],
+                len(rep['names']['undeclared']), len(rep['names']['kernel_outside']), sorted(rep['names']['kernel_outside'].items())[:12]),
             '    the kernel evaluations by decide in the changed files: the largest %d places against KT_CAP %d ; over it %d %s' % (
                 rep['kt']['largest'], KT_CAP, len(rep['kt']['over']), rep['kt']['over'][:4]),
             '    THE CHECKS: %s' % ('CLEAR' if not refusals else 'REFUSED: %s' % '; '.join(refusals[:6]))]
@@ -1373,6 +1399,17 @@ def controls():
       'imports (wider than Rat.Defs`s, above 1,000 modules) ; the graphs` sizes (kernel above 400, Mathlib above 5,000)', cl,
       cl[0] == (['Real.sinh_nonneg_iff'], [], ['SIDEExplicitFormula.Window.primeTermQ_eq_finite_sum'], ['Real.no_such_name_planted_by_b767'],
                 ['Real.no_such_name_planted_by_b767']) and cl[1] == ([], ['Real.sinh_nonneg_iff']) and cl[2][0] and cl[2][1] > 400 and cl[2][2] > 5000)
+    lk = ['  rw [cubicB_eq_sum]']
+    ka = names_reading(lk, ['SIDEExplicitFormula.Window.KValues'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB767')
+    kb = names_reading(lk, ['SIDEExplicitFormula.Window.KappaClosed'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB767')
+    kc = names_reading(lk, ['SIDEExplicitFormula.Window.KBasis'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.KappaClosed')
+    kcl = (sorted(ka['kernel_outside'].items()), ka['kernel'], sorted(kb['kernel_outside']), sorted(kc['kernel_outside']),
+           kb['kclosure'] > ka['kclosure'])
+    c('THE KERNEL`S NAMES AGAINST THE FILE`S CLOSURE, b767 (k), at the trial commit on three planted files naming cubicB_eq_sum: importing '
+      'KValues alone, declared only outside (in KappaClosed) ; importing KappaClosed, within ; importing KBasis as KappaClosed itself, its '
+      'own module within ; the closure through KappaClosed wider than KValues`s', kcl,
+      kcl[0] == [('cubicB_eq_sum', ['SIDEExplicitFormula.Window.KappaClosed'])] and kcl[1] == ['cubicB_eq_sum'] and kcl[2] == []
+      and kcl[3] == [] and kcl[4])
     mrev = mathlib_rev(TRIAL_COMMIT)
     mf = (bool(mathlib_found(mrev, 'hasSum_log_one_add_inv')), bool(mathlib_found(mrev, 'eulerMascheroniSeq')),
           bool(mathlib_found(mrev, 'no_such_name_planted_by_b767')))
