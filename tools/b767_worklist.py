@@ -153,7 +153,7 @@ def _kernel_paths():
 
 KERNEL_PATHS = _kernel_paths()
 PATHS = ('D:/relay', PP, KERNEL_DIR, LV_DIR) + tuple(k for k in KERNEL_PATHS if k not in (KERNEL_DIR, LV_DIR))   # ### (R364)'s PATHS
-EF_MAIN = '0ba9cd61e1a071446fd366896c710ae13356bf3e'    # ### b766 step zero: main entering at 0ba9cd61, v0.44; (R376)(4) moves it to the closing Lean commit alone, and only where the two axioms files are equal. b765's words: b765 (R375)(4): H-RUNNER-RESTORE HELD (16:31:02Z), so main moved from 819e4a83 (EF_BASE) to the closing Lean commit 0ba9cd61 by the gated push`s default mode (16:35:3xZ, read back at the remote), v0.44 made at the read-back; the local main fast-forwarded by the one-call tool (16:35:4xZ, read back EQUAL). b764's words: main at the close unmoved at v0.43, the trial of (R374)(7) failing. b763's words: main at the close -- moved from push-b763-form at v0.42 (02:22:05Z, tag object 001e94ff) after run 44646848292's success, then from push-b763-squares at v0.43 (05:34Z, tag object bcd4d481) after run 44670834879's, (8)'s W-ORD-SQUARES-AT-24 built in full (entering at a3aad4cc, EF_BASE); the local main fast-forwarded by the one-call tool after each (05:34:3xZ the second)
+EF_MAIN = '89fd5b54941b246d707bd2e9708a8a24e222ba5c'    # ### b767, Component 4 (the Edit tool, 20:2xZ): (R377)(4) -- the closing build from source at 89fd5b54 (dispatch 17, run 45236921224, route (i), the restore off) exited 0 and its axioms file equals by sha256 9c2cb7f7a216790c the restored run 45235741926's, THE PAIR AS WANTED; main moved from 0ba9cd61 (EF_BASE) to 89fd5b54 by the gated push`s default mode (20:19:4xZ, read back at the remote), v0.45 made at the read-back; the local main fast-forwarded by the one-call tool (20:20:3xZ, read back EQUAL). Readers searched before this Edit (Grep, 20:2xZ): checks.tpl :1261 and record.tpl :2563, the act module's sections, none reading it as the entering main. b766's words: main entering at 0ba9cd61, v0.44; (R376)(4) moves it to the closing Lean commit alone, and only where the two axioms files are equal. b765's words: b765 (R375)(4): H-RUNNER-RESTORE HELD (16:31:02Z), so main moved from 819e4a83 (EF_BASE) to the closing Lean commit 0ba9cd61 by the gated push`s default mode (16:35:3xZ, read back at the remote), v0.44 made at the read-back; the local main fast-forwarded by the one-call tool (16:35:4xZ, read back EQUAL). b764's words: main at the close unmoved at v0.43, the trial of (R374)(7) failing. b763's words: main at the close -- moved from push-b763-form at v0.42 (02:22:05Z, tag object 001e94ff) after run 44646848292's success, then from push-b763-squares at v0.43 (05:34Z, tag object bcd4d481) after run 44670834879's, (8)'s W-ORD-SQUARES-AT-24 built in full (entering at a3aad4cc, EF_BASE); the local main fast-forwarded by the one-call tool after each (05:34:3xZ the second)
 EF_MAIN_V042 = '4964e95758a7b1bc8c49d0972ebb18877d4f945f'   # ### b763: main after (6) alone, at v0.42, before (8)'s landing
 EF_MAIN_B759 = 'a3aad4cceb41705fe9929c9b5600976eaf7434b5'    # ### b759's main at its close, v0.41, b763's entering main
 LV_MAIN = '305a87c9e09c45cc8a935b1065f26f929634c707'    # ### SIDE-lv-conservation's main at the sitting's [41] (README.md alone, (R364)(3))
@@ -436,7 +436,7 @@ STEPZERO_SCAN_B766 = 'c323bf50'   # ### data/b766_address_scan_commits.txt as b7
 STEPZERO_SCAN_B765 = '2a237834'   # ### b765's, kept beside
 STEPZERO_SCAN_B764 = '8f4c353d'   # ### b764's, kept beside
 STEPZERO_SCAN_B763 = 'dc063f7d'   # ### b763's, kept beside
-STEPZERO_BANKS = None      # ### step zero's banks and carried tools, one commit (data/b767_stepzero.txt among them)
+STEPZERO_BANKS = 'f6225683'   # ### step zero's banks and carried tools, one commit (data/b767_stepzero.txt among them): b767 step 5 (09:20:13Z), 26 files; the dispatch licences' commit (data/b767_events.txt (107)); its readers searched (Grep, 19:4xZ): tools/acts/b767.py :870, :2340-:2343, :2434 and the order paragraphs; record.tpl :3641, :3646; checks.tpl :586, :591; carry.py :443
 STEPZERO_AFTER = STEPZERO_BANKS      # ### b756: no restart and no stop at step zero; step zero's banks the last step-zero commit; the name kept for the carried arms (b754's 65972bf1), each rewritten at Component 6
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
@@ -490,7 +490,7 @@ B714_ROOT = '1f57b5d368f905c786e0f1effafa8b183cf12b44e0edabeaf803e23f00589d9e'  
 B723_ROOT_BANKS = '01054ec2'  # ### b766's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
 C1_STANDING = '374c1e80'     # ### (R377)(8): [K25] in Component 1 before the opening pass, one commit, VERSION with it (step 11, 09:43:34Z)
-C1_LOCKGATE = ''     # ### b767: tools/b767_lockgate.py carried and its cite set, committed before any run, set when made
+C1_LOCKGATE = '78a259ea'     # ### b767: tools/b767_lockgate.py carried and its cite set, committed before any run with the face and probe-path tools (step 65, 18:47:36Z); in CHAIN too (b764's trap)
 C1_LOCKGATE_B766 = '72733b77'     # ### b766: tools/b766_lockgate.py carried and its cite set, committed before any run with the face and probe-path tools (step 68, 18:17:59Z); in CHAIN too (b764's trap). The carry had left b765's d03be64e
 C1_LOCKGATE_B765 = 'd03be64e'   # ### b765's, kept beside
 C1_LOCKGATE_B764 = 'ec439ca3'   # ### b764's, kept beside: tools/b764_lockgate.py carried and set, committed before any run with the face and probe-path tools (step 69, 00:27:48Z)
@@ -513,9 +513,9 @@ B757_CLOSE = '401d3bda'      # ### b758 (R368)(1): b757's steps [22]-[25] under 
 STATEMENTS_GEN = '4f069656'  # ### (R368)(7): tools/b758_statements.py as last committed before its bank (events (42))
 KERNEL_DELETES = ()   # ### b767 step zero, (R377)(12), N5: no kernel branch removed; push-b766-proof kept at 3c67b8b5 and read there at the close
 KERNEL_DELETES_B766 = ('push-b765-planted',)   # ### b766 step zero, (R376)(7) [K22], N5: push-b765-planted removed at the kernel's remote and in its clone after [K22], its listing printed before and its absence read after; no other kernel branch (the carry had shifted the name to push-b766-planted)
-KERNEL_DELETES_B765 = ('push-b766-planted',)   # ### b765's, kept beside. b765 (R375)(4), N5: the delete sent by the one-call tool's delete route before the lock, its listing printed (the command capture's deletes read by G-DELETES-ONE-BRANCH); the remote branch stays (RDELETE_ACTS not given b765, data/b765_misses.txt (3)), named in the closing message. b763's four push-b763-* branches and push-b764-runner kept
-KERNEL_DELETES_REFUSED = ()   # ### LEFT EMPTY BY (R376)(7): [K22] forces the local delete of push-b765-planted, a branch not merged, for b766 and that one name; removed at the remote and in the clone, none refused (events (37))
-KERNEL_DELETES_REFUSED_B765 = (('push-b766-planted', '2026-11-21T19:19:48Z', 'not fully merged'),)   # ### b765's, kept beside (b766 step zero: the carry had shifted its name). b765: the route's `git branch -d` refused the branch, no upstream set and its tip on no main and not in HEAD, nothing written; by (4) "where the route does not, the branch stays, its name its warning, named in the closing message for removal by the author's word" -- kept in the clone and at its remote at 7d86a245
+KERNEL_DELETES_B765 = ('push-b765-planted',)   # ### b765's, kept beside. b765 (R375)(4), N5: the delete sent by the one-call tool's delete route before the lock, its listing printed (the command capture's deletes read by G-DELETES-ONE-BRANCH); the remote branch stays (RDELETE_ACTS not given b765, data/b765_misses.txt (3)), named in the closing message. b763's four push-b763-* branches and push-b764-runner kept
+KERNEL_DELETES_REFUSED = ()   # ### LEFT EMPTY BY (R377)(12): no kernel branch removed, so no delete sent and none refused
+KERNEL_DELETES_REFUSED_B765 = (('push-b765-planted', '2026-11-21T19:19:48Z', 'not fully merged'),)   # ### b765's, kept beside (b766 step zero: the carry had shifted its name). b765: the route's `git branch -d` refused the branch, no upstream set and its tip on no main and not in HEAD, nothing written; by (4) "where the route does not, the branch stays, its name its warning, named in the closing message for removal by the author's word" -- kept in the clone and at its remote at 7d86a245
 KERNEL_REMOVED = tuple(b_ for b_ in KERNEL_DELETES if b_ not in [r_[0] for r_ in KERNEL_DELETES_REFUSED])   # ### the branches the route removed from the clone: none
 KERNEL_DELETES_B760 = (('push-b759-weil', 'a3aad4cc'),)   # ### b760's (R370)(4): removed at SIDE-explicit-formula's remote by `commit.py SIDE-explicit-formula rdelete push-b759-weil` under v1.37.1 (flag 09:34:35Z), read back ABSENT
 KERNEL_DELETES_B759 = (('push-b757-join', '6568e9c7'), ('push-b757-coeff', '596d1c9e'), ('push-b758-land', 'd1afb4fc'), ('push-b758-coeff', '630cba16'),
@@ -541,13 +541,13 @@ C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
 WEIGHT_LINE = None   # ### FINDINGS: no weight line ((R377)(1) orders b766 at its weight within the corrigendum's act), set when written
-CORR_LINE = None     # ### FINDINGS: the corrigendum for b766 (Component 1), set when written
+CORR_LINE = 16080    # ### FINDINGS: the corrigendum for b766 (Component 1), landed at :16080 by the c1 route's write (09:32:45Z, data/b767_corrigendum.json entry_line; events (41))
 NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
 DIFFERS_LINE = None   # ### LEFT EMPTY BY (R376)(11): no DIFFERS entry, REGISTRY, ERRATA and the register not written, FINDINGS and OPEN_TRAILS the two PLACE-papers files (v1.38.1 [K1]'s marker; b765's (R375)(12) set to b766's clause at Component 5)
 ERRATA_LINE = None   # ### ERRATA_LINE LEFT EMPTY BY (R376)(11): REGISTRY, ERRATA and the register not written
 ERRATA_LINE_B764 = 1149   # ### b764 (R374)(9)(a): [E1], E-2026-11-21-1, at ERRATA's end from :1149, PLACE-papers 772d5cf0, kept beside
-C2_PLAN_FIRST = None   # ### Component 2's first relay commit
-C2_RELAY = None   # ### the last of Component 2's relay commits
+C2_PLAN_FIRST = '3fce02a2'   # ### Component 2's first relay commit: the certificate tool of (4)(a), committed before its run (step 14, 09:56:44Z)
+C2_RELAY = '78932bfa'   # ### the last of Component 2's relay commits: the c2 ledger banks (step 26, 12:14:09Z)
 # ### (R366)(4): each tool of the map beside its banks -- (name, generator, the generator's commits before the bank, bank, the bank's commit)
 C2_MAP = (('the constellation rerun', 'tools/b767_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
            'data/b767_constellation_summary.txt', '069271bb'),
@@ -626,7 +626,21 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### the listed ones); the carry had left b765's ten rows, whose tools and banks b766 does not hold. The rulings tool's four groups each a
 # ### row with the tool's commits before that group's bank; the dispatch tool's controls bank (24 of 24) before the tool's raises, its own
 # ### bank after them; the pole data's first bank in GENS_WITH_BANK (it rode with the tool's repair, b9c3eca2)
-GENS = ()   # ### b767: every tool of the act committed before the bank it wrote, (name, tool, its commits before the bank, bank, the bank's commit), set as made
+# ### b767, Component 4 (the Edit tool, before any run): b767's tools and banks, each row read from git and the step rows (scratch
+# ### steps767r.py and gens767.py, read-only, 18:49:19Z and 18:50:54Z: 9 rows read, each tool's commits and its bank's since b766's close);
+# ### the source-build bank written again after its tool's repair (980af315, defect (h)) and committed alone at 057c50dc; the dispatch
+# ### tool's controls bank in GENS_WITH_BANK (it rode once with the tool's repair, 4f4c7c07); the dispatch tool's own bank appended at the
+# ### close. The registration, the repairs bank, the misses read, the plan and the price table the seat's by the Write tool or a scratch
+# ### writer, the corrigendum the act module's c1 route, the dispatch rows and the targets the dispatch tool's routes, the reproduce bank
+# ### tools/research/reproduce.py's and the address scan's bank its standing route's: each stands apart
+GENS = (('the repairs` planted controls', 'tools/b767_repair_controls.py', ('565a80ff',), 'data/b767_repair_controls.txt', '2a128592'),
+        ('the certificate of (4)(a)', 'tools/b767_certificate.py', ('3fce02a2', 'bc6d92cd'), 'data/b767_certificate.txt', 'b7d31fb8'),
+        ('the read of the two stopped runs and the route of (5)(a) and (b)', 'tools/b767_source_build.py', ('7ca2e940', 'f7d46184', '980af315'), 'data/b767_source_build.txt', '057c50dc'),
+        ('the window at knots graded by octave of (6)', 'tools/b767_window.py', ('36b1abc2', '6d181357'), 'data/b767_window.txt', '0681d03e'),
+        ('the ledgers of group c2', 'tools/b767_rulings.py', ('0808b6ef',), 'data/b767_ledgers_c2.txt', '78932bfa'),
+        ('the prime table of L10', 'tools/b767_logdata.py', ('9e15918c',), 'data/b767_logdata.txt', '0fc6efb4'),
+        ('the factor runs of L11b', 'tools/b767_natdata.py', ('c8416cec', 'fb2344d7', 'd34704af'), 'data/b767_natdata.txt', 'c1046ae8'),
+        ('the ledgers of group c5', 'tools/b767_rulings.py', ('0808b6ef', 'b363e9d9', '6d0d73f7'), 'data/b767_ledgers_c5.txt', '36b38f6f'))
 GENS_B766 = ()   # ### b766's eighteen stand in git at tools/b766_worklist.py
 GENS_B765 = ()   # ### b765's ten stand in git at tools/b765_worklist.py
 GENS_B764 = ()   # ### b764's seven stand in git at tools/b764_worklist.py
@@ -638,7 +652,7 @@ GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 # ### b761: two banks of the sitting tool rode in a commit with a later state of their tool, each written by the tool as last committed before
 # ### the write (the tool committed before each run, (N2)): (name, tool, bank, the commit carrying both, the bank's commit as it stands at HEAD)
-GENS_WITH_BANK = ()   # ### b767: none yet
+GENS_WITH_BANK = (('the dispatch tool`s controls', 'tools/b767_controls.py', 'data/b767_controls_control.txt', '4f4c7c07', 'c8416cec'),)   # ### b767: the bank of 14:26:06Z, written by the tool as committed at 922f34c4, rode with the tool's repair of defect (l), 4f4c7c07 (step 39); written again by the tool at bf9ce5c2 (15:46:50Z) and committed alone at c8416cec (step 46), its commit at HEAD (scratch gens767.py, 18:50:54Z)
 GENS_WITH_BANK_B766 = (('the pole data of L8', 'tools/b766_poledata.py', 'data/b766_poledata.txt', 'b9c3eca2', 'b9c3eca2'),)   # ### b766: written by the tool as committed at 01710c94 (16:19:19Z) and committed with the tool's repair (defect (k)), b9c3eca2 (scratch gens766.py)
 GENS_WITH_BANK_B765 = ()   # ### b765's: none
 GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b766_repair_controls.py', 'data/b766_repair_controls.txt', 'af463213', '7e93bb18'),)   # ### b764's, kept beside
@@ -669,7 +683,24 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b766_repair_cont
 # ### their order, read from data/b766_steps.json and git (scratch steps766r.py, read-only, 18:38:32Z: 69 rows, each commit with its files,
 # ### PLACE-papers' five steps and the kernel's fourteen apart); the carry had left b765's keys and commits, none of them b766's; later
 # ### commits appended as made. b765's keys stand in git at tools/b765_worklist.py
-CHAIN = ()   # ### b767: the act's relay commits after step zero's banks, in their order, appended as made; b766's stands in git at tools/b766_worklist.py
+# ### b767, Component 4 (the Edit tool, before any run): the act's relay commits after step zero's banks (f6225683, step 5), every one, in
+# ### their order, read from data/b767_steps.json and git (scratch steps767r.py, read-only, 18:49:19Z: 65 rows, each relay commit with its
+# ### files, PLACE-papers' three steps and the kernel's fifteen apart); the carry had left it empty; later commits appended as made.
+# ### b766's keys stand in git at tools/b766_worklist.py
+CHAIN = (('c1', 'd75c8a50'), ('corr', 'ea50f0ee'),
+         ('k25_ctl', '565a80ff'), ('price_foot', 'aa39d98e'), ('k25', '374c1e80'), ('k25_row', '2a128592'), ('wl_c1', '4c36eb75'),
+         ('cert_gen', '3fce02a2'), ('cert_budget', 'bc6d92cd'), ('cert', 'b7d31fb8'),
+         ('sbuild_gen', '7ca2e940'), ('sbuild_route', 'f7d46184'), ('sbuild', '4ffb6b34'),
+         ('reg', 'b9224ba6'), ('window_gen', '36b1abc2'), ('window_fix', '6d181357'), ('window', '0681d03e'),
+         ('rulings_gen', '0808b6ef'), ('ledgers_c2', '78932bfa'),
+         ('sbuild_closure', '980af315'), ('sbuild_again', '057c50dc'),
+         ('controls_gen', '312ec756'), ('controls_fix', '9013bb62'), ('trial_sent', 'bc954257'), ('rows67', 'f29f3c38'),
+         ('checks_closure', '922f34c4'), ('checks_comments', '4f4c7c07'), ('rows75', '5e9cf2a5'),
+         ('logdata_gen', '9e15918c'), ('rows82', '0fc6efb4'), ('checks_rfl', 'bf9ce5c2'),
+         ('natdata_gen', 'c8416cec'), ('natdata_fix', 'fb2344d7'), ('natdata_depth', 'd34704af'), ('rows88', 'c1046ae8'),
+         ('rows92', 'cd27af7c'), ('rows99', '3f64a0a4'), ('closing_sent', '75dbc6b3'),
+         ('rulings_c5', 'b363e9d9'), ('rulings_c5_e0', '6d0d73f7'), ('ledgers_c5', '36b38f6f'),
+         ('lockgate_carry', '78a259ea'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -686,7 +717,9 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### b765: the corrigendum for b764 (FINDINGS, step 7); the lines of (4)-(9) and the author's words (OPEN_TRAILS) appended when written
 # ### b766: the corrigendum for b765 (FINDINGS, step 5); the four groups of the rulings tool in OPEN_TRAILS, each after the tool's commit
 # ### that cut it and before its relay banks (steps 20, 30, 50 and 65); the carry had left b765's two
-PP_CHAIN = ()   # ### b767: the act's PLACE-papers commits in their order, appended as made
+# ### b767: the corrigendum for b766 (FINDINGS, step 7); the rulings tool's groups c2 and c5 in OPEN_TRAILS, each after the tool's commit
+# ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
+PP_CHAIN = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
 PP_CHAIN_B765 = (('c1pp', 'd9c03949'), ('ledgerspp', 'fb094a44'))   # ### b765's, kept for the carried readers that cite them
 PP_CHAIN_B764 = (('c1pp', 'e383d313'), ('ledgerspp', '772d5cf0'))   # ### b764's, kept for the carried readers that cite them
@@ -696,14 +729,45 @@ PP_CHAIN_B763 = (('c1pp', '6034501c'), ('ledgerspp', '387713dd'))   # ### b763's
 _KEYS = tuple(k_ for k_, _h in CHAIN)
 # ### b766: each PLACE-papers key placed before the relay commit that follows it in time -- the corrigendum before its banks, each rulings
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps766r.py: 08:09:43Z, 09:13:20Z, 10:38:25Z, 15:42:39Z, 17:49:47Z)
-_PP_BEFORE = {}   # ### b767: each PLACE-papers write's key beside the chain key before it, set as made
+# ### b767: each PLACE-papers key placed before the relay commit that follows it in time -- the corrigendum before its banks, each rulings
+# ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps767r.py: 09:33:32Z, 12:13:27Z, 18:32:52Z)
+_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c5': 'c5pp'}
 TIME_ORDER = ('actcur', 'stepzero') + tuple(x_ for k_ in _KEYS for x_ in ((_PP_BEFORE[k_], k_) if k_ in _PP_BEFORE else (k_,)))
 # ### b766, Component 5 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps766r.py,
 # ### 18:38:32Z); later keys given words as made. b765's kept below under its own name, read by nothing
+# ### b767, Component 4 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps767r.py,
+# ### 18:49:19Z); later keys given words as made. b766's kept below as CHAIN_WORDS_B766 (the carry shifting its names), read by nothing
 CHAIN_WORDS.update({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
+                    'corr': 'the corrigendum banks and the corrigenda row (87)',
+                    'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b767`s form',
+                    'k25': '[K25] repaired at tools/standing/ v1.38.25', 'k25_row': '[K25]`s row and its planted control banked',
+                    'wl_c1': 'the worklist`s Component 1 constants',
+                    'cert_gen': 'the certificate tool of the three forms of (4)(a)', 'cert_budget': 'its budget in the Lean by group',
+                    'cert': 'the certificate banked and the plan amended before any dispatch',
+                    'sbuild_gen': 'the read tool of the two stopped runs of (5)(a)', 'sbuild_route': 'its route in two parts within one run',
+                    'sbuild': 'the build from source read and its route stated', 'reg': 'the registration of H-GRADED-WINDOW alone',
+                    'window_gen': 'the window tool at graded knots', 'window_fix': 'its balls read back at 512 bits (defect (g))',
+                    'window': 'the window read HELD, [G1]', 'rulings_gen': 'the rulings tool for [S1], [G1], [R1] and [A2]',
+                    'c2pp': '[S1], [G1], [R1] and [A2] in OPEN_TRAILS', 'ledgers_c2': 'the c2 ledger banks',
+                    'sbuild_closure': 'the source-build tool read over each target`s closure (defect (h))',
+                    'sbuild_again': 'the source-build bank again and route (i) pushed at f6f60590',
+                    'controls_gen': 'the dispatch tool for (R377)', 'controls_fix': 'its plants set to their series (defect (i))',
+                    'trial_sent': 'its controls banked and the trial pair sent', 'rows67': 'L9a at dispatches 3 and 4',
+                    'checks_closure': 'the checks given the kernel`s names against each file`s closure (defect (k))',
+                    'checks_comments': 'the checks read past block comments (defect (l))', 'rows75': 'dispatch 5 broken and dispatch 6 compiled',
+                    'logdata_gen': 'the prime table tool of L10', 'rows82': 'L10 whole at dispatch 7 and the trial read [S2]',
+                    'checks_rfl': 'the checks reading rfl as an evaluation only as a proof (defect (m))',
+                    'natdata_gen': 'the factor runs tool of L11b', 'natdata_fix': 'its plants read for the conjunct planted',
+                    'natdata_depth': 'its runs under the recursion depth option (defect (n))', 'rows88': 'L11a whole and L11b at dispatches 9 and 10',
+                    'rows92': 'L11b whole and L9b`s first two parts compiled', 'rows99': 'L9b`s third part compiled',
+                    'closing_sent': 'L9b whole and the closing build sent at 89fd5b54',
+                    'rulings_c5': 'the rulings tool`s group c5 for [P2] and [S2]', 'rulings_c5_e0': 'its E0 lexicon extended by the act`s two types',
+                    'c5pp': '[P2] and [S2] in OPEN_TRAILS', 'ledgers_c5': 'the c5 ledger banks',
+                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set, the branch`s base named'})
+CHAIN_WORDS_B766 = ({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
                     'corr': 'the corrigendum banks and the corrigenda row (86)',
                     'k22_ctl': 'the planted controls tool of the three repairs with [K22]`s control', 'ceil_check': 'the record section reading the ceiling after (4)(c) from its own bank',
-                    'k22': '[K22] repaired at tools/standing/ v1.38.22', 'k22_row': '[K22]`s row and its planted control banked, push-b766-planted removed',
+                    'k22': '[K22] repaired at tools/standing/ v1.38.22', 'k22_row': '[K22]`s row and its planted control banked, push-b765-planted removed',
                     'k23_gen': 'the captures` mask tool and [K23]`s control', 'k23': '[K23] repaired at tools/standing/ v1.38.23',
                     'k23_row': 'b766`s eight captures masked, [K23]`s row and control banked', 'k24_ctl': '[K24]`s control',
                     'k24': '[K24] repaired at tools/standing/ v1.38.24', 'k24_row': '[K24]`s row and its planted control banked',
@@ -793,7 +857,24 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
 # ### names the remote holds (push-b763-arith, push-b763-keiper), which the carry had shifted to push-b764-*.
 # ### b765, Component 5 (the Edit tool): the act's eight kernel commits on push-b765-centre, cut from push-b764-runner at 38a57e02 ((R375)(4)),
 # ### and the planted commit on push-b765-planted, each by the one-call tool and pushed alone by the gated branch mode, read back (step rows)
-KERNEL_COMMITS = ()   # ### b767 Components 2 and 3: the act's kernel commits of (R377)(4) and (5), on push-b767-proof cut from push-b766-proof at 3c67b8b5, each set when made
+# ### b767, Component 4 (the Edit tool, before any run): the act's fifteen kernel commits on push-b767-proof, cut from push-b766-proof at
+# ### 3c67b8b5 ((R377)(4)), each by the one-call tool and pushed alone by the gated branch mode, read back (the step rows, scratch
+# ### steps767r.py, 18:49:19Z); the branch each stands on at the close, push-b767-proof, set to main where the closing build moves main
+KERNEL_COMMITS = (('route', 'SIDE-explicit-formula', 'f6f60590', 'push-b767-proof'),          # ### (5)(c): route (i) in the workflow, the act's opening Lean commit (step 28, 12:24:00Z)
+                  ('archj', 'SIDE-explicit-formula', 'efd46832', 'push-b767-proof'),          # ### (4)(b) L9a: ArchJ.lean (step 33, 13:18:28Z)
+                  ('archj2', 'SIDE-explicit-formula', '2e7caf01', 'push-b767-proof'),         # ### (4)(b) L9a: ArchJ2.lean, archJ_eq_double (step 34, 13:36:41Z)
+                  ('archj3', 'SIDE-explicit-formula', '1f0e9edb', 'push-b767-proof'),         # ### (4)(b) L9b: ArchJ3.lean (step 36, 14:04:07Z), broke at dispatch 5
+                  ('archj3_fix', 'SIDE-explicit-formula', '6cf6e87b', 'push-b767-proof'),     # ### ArchJ3 repaired (step 38, 14:30:48Z)
+                  ('logs', 'SIDE-explicit-formula', 'caa7b338', 'push-b767-proof'),           # ### (4)(c) L10: LogData, LogBounds, LogConst (step 42, 15:17:33Z)
+                  ('polecomb', 'SIDE-explicit-formula', '356e1cfb', 'push-b767-proof'),       # ### (4)(d) L11a: PoleComb.lean (step 44, 15:37:52Z)
+                  ('lognat', 'SIDE-explicit-formula', 'f7a292e4', 'push-b767-proof'),         # ### (4)(d) L11b: LogNatBase, LogNatData, LogNat (step 48, 15:59:08Z), broke at dispatch 9
+                  ('lognat_fix', 'SIDE-explicit-formula', 'ed88b486', 'push-b767-proof'),     # ### L11b's data under the recursion depth option (step 50, 16:10:50Z)
+                  ('archpiece', 'SIDE-explicit-formula', 'a0a70ac6', 'push-b767-proof'),      # ### (4)(b) L9b part (i): ArchPiece.lean (step 52, 16:31:04Z)
+                  ('archband', 'SIDE-explicit-formula', '7f3749c4', 'push-b767-proof'),       # ### L9b part (ii): ArchBand.lean (step 53, 16:44:36Z)
+                  ('archclosed', 'SIDE-explicit-formula', '7d8b45c6', 'push-b767-proof'),     # ### L9b part (iii): ArchClosed.lean (step 55, 17:13:48Z)
+                  ('archlam', 'SIDE-explicit-formula', '1fe55606', 'push-b767-proof'),        # ### L9b part (iv): ArchLam.lean (step 57, 17:38:11Z)
+                  ('archbasis', 'SIDE-explicit-formula', '3e7710f9', 'push-b767-proof'),      # ### L9b whole: ArchBasis.lean, archJ_basis (step 58, 17:50:04Z)
+                  ('archbandlocal', 'SIDE-explicit-formula', '89fd5b54', 'push-b767-proof'))  # ### L9b in the plan's form: ArchBandLocal.lean, the closing Lean commit (step 59, 18:06:20Z)
 KERNEL_COMMITS_B766 = (('prime', 'SIDE-explicit-formula', '48d151e3', 'push-b766-proof'),    # ### b766 Component 3: the act's kernel commits of (R376)(4), on push-b766-proof cut from main at 0ba9cd61, each set when made. (4)(b) L1 (step 23, 09:42:43Z)
                   ('window', 'SIDE-explicit-formula', 'd814154e', 'push-b766-proof'),   # ### (4)(c): the data file, the spline and the instance (step 25, 10:07:04Z)
                   ('kvalues', 'SIDE-explicit-formula', 'a6328fbe', 'push-b766-proof'),  # ### (4)(d) L6 (a): the autocorrelation at log n as an integral (step 27, 10:28:34Z)
@@ -808,15 +889,15 @@ KERNEL_COMMITS_B766 = (('prime', 'SIDE-explicit-formula', '48d151e3', 'push-b766
                   ('polerepair', 'SIDE-explicit-formula', 'c6a46950', 'push-b766-proof'),
                   ('arch', 'SIDE-explicit-formula', '9a389982', 'push-b766-proof'),
                   ('archblocks', 'SIDE-explicit-formula', '3c67b8b5', 'push-b766-proof'))   # ### (4)(d) L9 in part, the strided sum at 1 in four blocks after dispatch 13 stopped under the hold (step 62, 16:55:11Z); L9 in part, the archimedean term by Gauss's integral and k(0) as data (step 59, 16:39:02Z); L8's data half repaired, the data file given its import (step 57, 16:30:54Z); L8's data half, the integral of the spline as intH (step 55, 16:21:24Z); L8 the pole term in the B-spline basis (step 52, 16:02:28Z); L7 repaired by the author's word of 15:20Z (words :26): the box replaced by a check over natural indices (step 47, 15:33:36Z)
-KERNEL_COMMITS_B765 = (('workflow', 'SIDE-explicit-formula', '70c50d37', 'push-b766-centre'),     # ### b765's nine, kept beside under the names the kernel's refs hold (b766 step zero: the carry had shifted them to push-b766-*). (4): the key by toolchain, manifest and commit; the restore by the prefix (step 16, 11:26:26Z)
-                       ('statement', 'SIDE-explicit-formula', 'd540bc98', 'push-b766-centre'),    # ### (5)(a): ControlFailureExists (step 17, 11:29:43Z)
-                       ('gauss_statement', 'SIDE-explicit-formula', 'a8c2eddc', 'push-b766-centre'),   # ### (5)(b): GaussArchQ, the statement apart (step 26, 12:37:55Z)
-                       ('planted_input', 'SIDE-explicit-formula', 'e83e0deb', 'push-b766-centre'),     # ### the word's (i): the workflow's planted input (step 36, 13:19:12Z)
-                       ('steps14', 'SIDE-explicit-formula', '7cbc7143', 'push-b766-centre'),       # ### (5)(b) steps 1-4 (step 41, 13:58:01Z)
-                       ('step5', 'SIDE-explicit-formula', '390cddef', 'push-b766-centre'),         # ### step 5, digamma_integral (step 42, 14:10:06Z)
-                       ('steps69', 'SIDE-explicit-formula', '5222cd88', 'push-b766-centre'),       # ### steps 6-9, bracketQ_eq (step 44, 14:35:33Z)
+KERNEL_COMMITS_B765 = (('workflow', 'SIDE-explicit-formula', '70c50d37', 'push-b765-centre'),     # ### b765's nine, kept beside under the names the kernel's refs hold (b766 step zero: the carry had shifted them to push-b766-*). (4): the key by toolchain, manifest and commit; the restore by the prefix (step 16, 11:26:26Z)
+                       ('statement', 'SIDE-explicit-formula', 'd540bc98', 'push-b765-centre'),    # ### (5)(a): ControlFailureExists (step 17, 11:29:43Z)
+                       ('gauss_statement', 'SIDE-explicit-formula', 'a8c2eddc', 'push-b765-centre'),   # ### (5)(b): GaussArchQ, the statement apart (step 26, 12:37:55Z)
+                       ('planted_input', 'SIDE-explicit-formula', 'e83e0deb', 'push-b765-centre'),     # ### the word's (i): the workflow's planted input (step 36, 13:19:12Z)
+                       ('steps14', 'SIDE-explicit-formula', '7cbc7143', 'push-b765-centre'),       # ### (5)(b) steps 1-4 (step 41, 13:58:01Z)
+                       ('step5', 'SIDE-explicit-formula', '390cddef', 'push-b765-centre'),         # ### step 5, digamma_integral (step 42, 14:10:06Z)
+                       ('steps69', 'SIDE-explicit-formula', '5222cd88', 'push-b765-centre'),       # ### steps 6-9, bracketQ_eq (step 44, 14:35:33Z)
                        ('step10', 'SIDE-explicit-formula', '0ba9cd61', 'main'),        # ### step 10, gaussArchQ: the closing Lean commit (step 45, 15:00:59Z), main moved to it at v0.44
-                       ('planted', 'SIDE-explicit-formula', '7d86a245', 'push-b766-planted'))      # ### (4)(a): SquaresAt24.lean's closing theorem made false (step 19, 11:47:03Z)
+                       ('planted', 'SIDE-explicit-formula', '7d86a245', 'push-b765-planted'))      # ### (4)(a): SquaresAt24.lean's closing theorem made false (step 19, 11:47:03Z)
 KERNEL_COMMITS_B764 = (('runner', 'SIDE-explicit-formula', '38a57e02', 'push-b764-runner'),)   # ### b764's (R374)(7) workflow change alone, kept beside (b766 step zero: the carry's push-b765-runner set back)
 KERNEL_COMMITS_B763 = (('form13', 'SIDE-explicit-formula', 'ec82fed0', 'main'),       # ### (R373)(6) (S1)-(S3) and [P1]'s six names (20:32:07Z, step 16), on main at v0.42
                        ('form45', 'SIDE-explicit-formula', '0f849552', 'main'),       # ### (S3)'s import repaired, (S4) and (S5) (21:52:14Z, step 21), on main at v0.42
@@ -831,11 +912,11 @@ KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), 
 WEIL_BRANCH = ('push-b767-proof', '89fd5b54941b246d707bd2e9708a8a24e222ba5c')   # ### b767 step zero, (R377)(4), (9): the act's Lean branch, cut from push-b766-proof at 3c67b8b5 and not from main; its tip the closing Lean commit 89fd5b54 (step 59), pushed and read back at the remote (18:06:41Z), set at Component 4 (data/b767_events.txt (111)); push-b766-proof read at 3c67b8b5 (18:43:43Z)
 WEIL_BRANCH_BASE = '3c67b8b58d6f323b1db62249a77453963368aaf7'   # ### b767 Component 4 (data/b767_events.txt (111)): the act's Lean branch's base, push-b766-proof's commit 3c67b8b5, which tools/b767_controls.py read as WEIL_BRANCH[1] (BASE_PROOF, its checks' diff and the base's workflow) while WEIL_BRANCH[1] held the base; WEIL_BRANCH[1] now the tip, as b766's carried readers in tools/acts/b767.py take it, and the base read here
 WEIL_BRANCH_B766 = ('push-b766-proof', '3c67b8b58d6f323b1db62249a77453963368aaf7')   # ### b766 step zero, (R376)(4), (8): the act's Lean branch, cut from main at 0ba9cd61 and not from a runner's branch; its tip the closing Lean commit 3c67b8b5 (step 62), kept at the remote and in the clone by the author's word (data/b766_author_words_preseal.txt :32)
-WEIL_BRANCH_B765 = ('push-b766-centre', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept at its tip, local and remote (b766 step zero: the carry had shifted its name). b765 (R375)(4): the act's Lean branch, cut from push-b764-runner at 38a57e02 by the one-call tool (11:21:41Z), its tip the closing Lean commit 0ba9cd61 (step 45), pushed alone by the gated branch mode and read back (15:01:21Z)
+WEIL_BRANCH_B765 = ('push-b765-centre', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept at its tip, local and remote (b766 step zero: the carry had shifted its name; b767, Component 4: shifted again by b767's carry to push-b766-centre and set back to the name the kernel's refs hold, for-each-ref 19:06:14Z, with the four constants of b765 beside it). b765 (R375)(4): the act's Lean branch, cut from push-b764-runner at 38a57e02 by the one-call tool (11:21:41Z), its tip the closing Lean commit 0ba9cd61 (step 45), pushed alone by the gated branch mode and read back (15:01:21Z)
 PLANTED_BRANCH = ('', '')   # ### b767 step zero, (R377)(4): no planted build ordered at this act, so no planted branch
 PLANTED_BRANCH_B766 = ('push-b765-planted', '7d86a2459d167673252372a46185329b33f25970')   # ### b766 step zero, (R376)(7) [K22]: b765's planted branch, which this act removes at the kernel's remote and in its clone (the carry had shifted its name to push-b766-planted); (R376)(4) orders no planted build. b765 (R375)(4)(a): cut at d540bc98 (11:46:03Z), its one commit 7d86a245 (step 19), pushed alone and read back (11:47:22Z); the local branch deleted before the lock where the route allows, the remote kept and named in the closing message
 WEIL_BRANCH_B764 = ('push-b764-runner', '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a')   # ### b764's (R374)(7), kept at its tip, local and remote (b766 step zero: the carry's push-b765-runner set back)
-WEIL_TAG = None   # ### LEFT EMPTY BY (R376)(4): no tag cut -- the closing build from source and its repeat each stopped under the hold, no axioms file printed, main not moved and no [C7] by the author's word (data/b766_author_words_preseal.txt :32); the ceiling v0.45 unreached
+WEIL_TAG = ('v0.45', 'dbfa7b876440bae2413e04b63babbc109dda466a', '89fd5b54941b246d707bd2e9708a8a24e222ba5c')   # ### b767 (R377)(4), Component 4 (the Edit tool): v0.45 cut by the gated push after main`s read-back at 89fd5b54, on run 45236921224 with the restore off and on no other; (name, object, peel), the peel read back at the remote equal (data/b767_SIDE-explicit-formula_push-b767-proof_push_out.txt, 20:19:4xZ). b766's words: LEFT EMPTY BY (R376)(4): no tag cut -- the closing build from source and its repeat each stopped under the hold, no axioms file printed, main not moved and no [C7] by the author's word (data/b766_author_words_preseal.txt :32); the ceiling v0.45 unreached
 WEIL_TAG_CEILING = 'v0.45'   # ### (R376)(8): in place of v0.44
 WEIL_TAG_B765 = ('v0.44', 'bd0248375a7930985f6b18886b6af5a9b125fa27', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept beside. b765 (R375)(4): v0.44 cut under HELD by the gated push after main's read-back at 0ba9cd61, on run 44918855502 with the restore off and on no other; (name, object, peel), the peel read back at the remote equal
 WEIL_TAG_B764 = None   # ### b764 cut none
@@ -912,7 +993,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = ()   # ### b767: the act's PLACE-papers writes (key, file, commit), appended as made
+PP_WRITES = (('corr', 'FINDINGS.md', '216d9715'), ('trails_c2', 'OPEN_TRAILS.md', 'ba23945a'), ('trails_c5', 'OPEN_TRAILS.md', 'adadfd62'))   # ### b767: the act's PLACE-papers writes (key, file, commit), read from the step rows (steps 7, 25 and 63); the entry and the trail appended as made
 PP_WRITES_B766 = (('corr', 'FINDINGS.md', '7a36f281'), ('trails_c2', 'OPEN_TRAILS.md', 'a183880f'), ('trails_c3', 'OPEN_TRAILS.md', '92108a44'),
              ('trails_c4', 'OPEN_TRAILS.md', '2d9d51ae'), ('trails_c5', 'OPEN_TRAILS.md', 'ff328d86'))   # ### b766 (R376)(1), (4)-(6): the corrigendum for b765 (step 5); the four groups of the rulings tool in OPEN_TRAILS (steps 20, 30, 50, 65)
 PP_WRITES_B765 = (('corr', 'FINDINGS.md', 'd9c03949'), ('trails', 'OPEN_TRAILS.md', 'fb094a44'))   # ### b765's, kept beside
@@ -1043,7 +1124,11 @@ EF_BRANCHES = (('keiper-b725', '01fd33c2d7dc62d4702b075de3dda9253c5c2f87'),   # 
                ('detect-b729', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e'),   # ### b729's (R339)(5): the statement alone, not compiled; kept, unmoved
                (ZQ_BRANCH, ZQ_TIP))                                           # ### (R364)(3)-(4): the fields
 EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2906716ccb1f09ca24171d7a921210', '1023301c89ab16f8d437b2a1f08a824bc95b6b0e', ZQ_ENTERING)   # ### the four entering the act
-EF_RUNS = ()   # ### b767: the act's dispatches of SIDE-explicit-formula by run id, each appended when read from its artifact
+# ### b767: the act's dispatches of SIDE-explicit-formula by run id, in their order, as rowed in data/b767_dispatch_rows.json (17 rows of
+# ### kind dispatch, read 18:54:22Z): 1 trial-on, 2 trial-off, 3-6 L9a and L9b part one, 7 L10, 8-10 L11a and L11b, 11-16 L9b, 17 the closing
+# ### build from source at 89fd5b54 (restore off); a repeat appended where the closing build stops under the hold
+EF_RUNS = (45179223796, 45179932496, 45183337569, 45186143428, 45190830447, 45197769158, 45204986880, 45209587647, 45212341085, 45215343184,
+           45218909055, 45221153344, 45226620548, 45231087000, 45233987503, 45235741926, 45236921224)
 EF_RUNS_B766 = (45009051176, 45011065297, 45012810770, 45014250426, 45015072464, 45020375424, 45027497489, 45034393612, 45039260081, 45041946380, 45043631697, 45044513076, 45045547342, 45046730935, 45047352154, 45051503982)# ### dispatch 16 (repeat, the cap's one, of dispatch 15 stopped under the hold, 3c67b8b5, restore off, sent 17:48:30Z); dispatch 15 (closing, the closing Lean commit 3c67b8b5 from source, restore off, sent 17:04:22Z, STOPPED UNDER THE HOLD, exit 143); dispatch 14 (d-arch, L9 in part in four blocks at 3c67b8b5, sent 16:57:54Z, the archimedean row's second of 4, COMPILED, 5.2 min); dispatch 13 (d-arch, L9 in part at 9a389982, sent 16:44:52Z, the archimedean row's first of 4, STOPPED UNDER THE HOLD, exit 143, 3.7 min, not scored, defect (l)); dispatch 12 (d-pole, L8's data half repaired at c6a46950, sent 16:33:34Z, the pole row's last of 3, COMPILED, 3.7 min); dispatch 11 (d-pole, L8's data half at 1d3b1bdf, sent 16:24:05Z, BREAKS, 2.0 min, defect (k)); dispatch 10 (d-pole, L8 at 5266fb0a, sent 16:06:16Z, KERNEL, 6.9 min, the pole row's first of 3); dispatch 7 (d-k, L6 (c) at 448dd77b, sent 13:26:27Z, the row's fifth of 6). b766 step zero, after `carry.py ruled` refused b765's eleven carried unchanged (R3): (R376)(4)'s dispatches, at most 20, each set by its run id when sent (N1). Component 3: dispatch 1 (b, KERNEL, 3.2 min), 2 (c, KERNEL, 4.6 min), 3 (d-k, KERNEL, 2.8 min), 4 (d-k, BREAKS, 2.2 min), 5 (d-k, KERNEL, 2.8 min), 6 (d-k, KERNEL, 2.8 min, the closed form of kappa at 1848e7c0 under the row raised to 6), each with the restore on, restored by prefix (data/b766_dispatch_rows.json)
 EF_RUNS_B765 = (44900549948, 44909786283, 44910107851, 44911649707, 44912710052, 44914928608, 44917105908, 44917471908, 44918855502, 44925522330, 44929638998)   # ### b765's eleven, read not re-run, kept beside. b765: the eleventh, the second save on main by the author's word of 2026-11-21 on it (sent 17:21:54Z, the Edit tool after). N1: this act's SIDE-explicit-formula runs, those of (R375)(4) and the word of 2026-11-21 alone, each read by its run id from the artifact (data/b765_dispatch_rows.json): the statement, the lemma's statement, the planted, lemma-step, three lemma-later, the closing from source (STOPPED UNDER THE HOLD), its one repeat (KERNEL, the pair equal: H-RUNNER-RESTORE HELD) and the save on main of the word's (iii) (sent 16:36:41Z)
 EF_RUNS_B764 = (44826208702, 44838771976, 44838852797)   # ### b764's three, read not re-run (data/b764_dispatch_rows.json): the save (KERNEL, 94.2 min), the reference with the restore off (STOPPED UNDER THE HOLD, exit 143, 15.0 min) and the restore (KERNEL, 3.2 min): THE TRIAL FAILED
