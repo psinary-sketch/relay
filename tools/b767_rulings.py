@@ -21,7 +21,19 @@ the register nor the two files of the map, so OPEN_TRAILS is the one file here.
                          Controls before the write, printed; the roster by tools/standing/orders.py's rule in memory, before and after: the two
                          orders added OPEN and no other order added or moving. Bank: data/b767_ledgers_c2.txt and .json, each text by line and
                          sha256; the texts' words printed by the dry run alone.
-The groups of Component 3 to 5 ([P1] or [P2], [S2] or [S3], [C7] or [C8]) are groups this tool gains by Edits committed before their runs.
+  ledgers c5 dry|write   Component 3's end, (R377)(4) and (5)(c), appended at OPEN_TRAILS' end, no line moving, under one dated head --
+                         [P2] (data/b767_ferry.txt :62), where the closing theorem does not compile at this act: <commit> the act's closing
+                           Lean commit, the last at which a restored build read exit 0 by tools/b767_controls.py verdicts() over
+                           data/b767_dispatch_rows.json; <names> the plan's lemmas compiled there, each name in the population and COMPILED;
+                           the step not sent, L9c, with the plan's later steps, each absent from the commit; every theorem of
+                           `SIDEExplicitFormula.Window` in print_targets.txt at the commit found once by its declaration line (its
+                           namespaces read from `namespace`, `section` and `end`), read at its statement (from its name to its first `:=`)
+                           and graded by tools/e0_rule.py grade(head, 'theorem'), its axioms print from the read of its run;
+                         [S2] (data/b767_ferry.txt :78), where the trial reads [S2] by tools/b767_controls.py trial_state(): its fields from
+                           the two reads of the trial and the route's words at data/b767_source_build.txt :62.
+                         Controls before the write, printed; the roster by tools/standing/orders.py's rule in memory: no order moving, none
+                         added. Bank: data/b767_ledgers_c5.txt and .json.
+[C7] or [C8] is a group this tool gains by an Edit committed before its run, where the closing build's read gives it.
 
 No PLACE-papers line is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -52,7 +64,7 @@ WANT = dict(P1=(58, 58), P2=(62, 62), C7=(66, 66), C8=(70, 70), S1=(74, 74), S2=
             G3=(94, 94), R1=(98, 98), A2=(102, 102))
 FIELD = re.compile(r'<[A-Za-z][^<>\n]*>')
 SOURCE, RIDERS = 'W-ORD-SOURCE-BUILD', 'W-ORD-NOVEMBER-RIDERS'
-GROUPS = dict(c2=('S1', 'G1', 'R1', 'A2'))
+GROUPS = dict(c2=('S1', 'G1', 'R1', 'A2'), c5=('P2', 'S2'))
 WTXT, WJSON = os.path.join(D, 'b767_window.txt'), os.path.join(D, 'b767_window.json')
 WCTL = '  THE CONTROL AS WANTED (unit at '
 SREF16 = '-6.62468014575'
@@ -354,9 +366,304 @@ def ledgers(group, mode):
     return 0
 
 
+# ================================================================================ GROUP c5: [P2] AND [S2]
+C2PP = 'ba23945a'                # ### PLACE-papers' last commit of the act before the c5 write: the lines of (5), (6) and (7) (step 25, data/b767_events.txt (55))
+EF, EFK = K.EF_DIR, 'SIDE-explicit-formula'
+NS = 'SIDEExplicitFormula.Window.'
+WIN_DIR = 'SIDEExplicitFormula/Window/'
+STD3 = '[propext, Classical.choice, Quot.sound]'
+AX3 = {'propext', 'Classical.choice', 'Quot.sound'}
+DROWS = os.path.join(D, 'b767_dispatch_rows.json')
+SBANK = os.path.join(D, 'b767_source_build.txt')
+PLAN = os.path.join(D, 'b767_plan.txt')
+S2_ROUTE_LINE = 62               # ### data/b767_source_build.txt :62: THE ROUTE CHOSEN, (i), in the bank's words
+S2_ROUTE = 'the workflow building the library in two parts within one run, the restore off'
+P2 = dict(read=16, commit='89fd5b54')   # ### dispatch 16, the act's last restored build exiting 0 (data/b767_events.txt (105), (106))
+STEP_ITEMS = ('b', 'c', 'd', 'e')
+P2_PLAN = (('L9a', 'archJ_eq_double', 49), ('L9b', 'archJ_basis', 54), ('L9c', 'archJ_comb', 59), ('L10a', 'logPrime_bounds', 67),
+           ('L10b', 'gamma_bounds', 75), ('L10c', 'logPi_bounds', 82), ('L11a', 'poleSum_comb', 89), ('L11b', 'logNat_primes', 92),
+           ('L11c', 'arith_eq_comb', 95), ('L11d', 'window_arith_neg', 99), ('L12', 'controlFailureExists', 106))   # ### data/b767_plan.txt
+P2_COMPILED = ('archJ_eq_double', 'archJ_basis', 'archJ_basis_local', 'logPrime_bounds', 'gamma_bounds', 'logPi_bounds', 'poleSum_comb',
+               'logNat_eq', 'logNat_bounds')
+P2_NOT = ('archJ_comb', 'arith_eq_comb', 'window_arith_neg', 'controlFailureExists')
+P2_NAMES = ("of L9, L9a `archJ_eq_double` and L9b `archJ_basis` with `archJ_basis_local`, the band over the pairs within three knots; L10 "
+            "whole, L10a `logPrime_bounds`, L10b `gamma_bounds` and L10c `logPi_bounds`; of L11, L11a `poleSum_comb` and L11b, the factoring "
+            "of the integers to 16,390, as `logNat_eq` and `logNat_bounds`")
+P2_STEP = ("L9c `archJ_comb`, the sums of L9b as the combination's coefficients, and after it L11c `arith_eq_comb`, L11d "
+           "`window_arith_neg` and L12 `controlFailureExists`")
+DECL_RE = re.compile(r'^(?:@\[[^\]\n]*\]\s*)?(?:(?:protected|private|nonrec)\s+)*(?:theorem|lemma)\s+([^\s(\[{:]+)')
+NS_RE, SEC_RE, END_RE = re.compile(r'^namespace\s+(\S+)\s*$'), re.compile(r'^section(?:\s+\S+)?\s*$'), re.compile(r'^end(?:\s+\S+)?\s*$')
+
+
+def drows():
+    with open(DROWS, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def reads_of(R):
+    return dict((int(r['run']), r) for r in R if r.get('kind') == 'read' and r.get('kernel') == EFK)
+
+
+def ax_within(ax):
+    s = str(ax or '').strip()
+    if not (s.startswith('[') and s.endswith(']')):
+        return False
+    return set(x.strip() for x in s[1:-1].split(',') if x.strip()) <= AX3
+
+
+def gate_ok(gates):
+    return bool(gates) and all(g['line'] and g['grade'] not in ('NOT READ', 'UNCLASSED') for g in gates)
+
+
+def decls(src):
+    """{full name: [line, ...]} for each theorem or lemma of a Lean source, its namespaces read from `namespace`, `section` and `end`."""
+    stack, out = [], {}
+    for i, l in enumerate(src.split(NL)):
+        m = NS_RE.match(l)
+        if m:
+            stack.append(m.group(1))
+            continue
+        if SEC_RE.match(l):
+            stack.append(None)
+            continue
+        if END_RE.match(l):
+            if stack:
+                stack.pop()
+            continue
+        m = DECL_RE.match(l)
+        if m:
+            out.setdefault('.'.join([s for s in stack if s] + [m.group(1)]), []).append(i + 1)
+    return out
+
+
+def e0_at(src, line):
+    """the theorem's statement at its declaration line, from its name to its first `:=`, graded by tools/e0_rule.py."""
+    import e0_rule as E0
+    L = src.split(NL)
+    m = DECL_RE.match(L[line - 1])
+    start = sum(len(x) + 1 for x in L[:line - 1]) + m.end()
+    end = src.find(':=', start)
+    head = src[start:end] if end > 0 else ''
+    try:
+        g, why, _b = E0.grade(head, 'theorem')
+    except Exception as ex:   # noqa: BLE001
+        g, why = 'UNCLASSED', ' '.join(str(ex).split())[:300]
+    return dict(line=line, grade=g, why=' '.join(str(why).split()))
+
+
+def s2_fields(R):
+    """[S2]'s fields from the trial's two reads; None where tools/b767_controls.py trial_state() does not read [S2]."""
+    import b767_controls as C
+    tr = C.trial_state(R)
+    if tr['state'] != '[S2]':
+        return None, 'the trial reads %s (%s)' % (tr['state'], tr.get('where'))
+    pr, off = tr['pair'], tr['offs'][-1]
+    on = reads_of(R).get(int(pr['runs'][0]))
+    with open(SBANK, encoding='utf-8') as f:
+        SB = f.read().replace('\r', '').split(NL)
+    rl = SB[S2_ROUTE_LINE - 1] if len(SB) >= S2_ROUTE_LINE else ''
+    low = off.get('runner_low_mb')
+    lows = [x for x in (off.get('low_part_one'), off.get('low_part_two')) if x is not None]
+    facts = dict(off_run=off.get('run'), on_run=on.get('run') if on else None, commit=str(off.get('built_ref'))[:8], low=low, lows=lows,
+                 part_one_exit=off.get('part_one_exit'), untouched=bool((off.get('cache') or {}).get('untouched')),
+                 sha_on=str(on.get('axioms_sha256'))[:16] if on else None, sha_off=str(off.get('axioms_sha256'))[:16],
+                 route_line=bool(rl.startswith('  THE ROUTE CHOSEN, (i): ') and S2_ROUTE.upper() in rl))
+    fields = [("<the route in the bank's words>", 'route (i), %s (relay data/b767_source_build.txt :%d)' % (S2_ROUTE, S2_ROUTE_LINE)),
+              ('<commit>', facts['commit']), ('<id>', str(off.get('run'))), ('<figure>', '{:,}'.format(int(low)) if low is not None else 'NONE'),
+              ('<id>', str(on.get('run') if on else 'NONE')), ('<hash>', str(pr.get('sha'))[:16])]
+    return dict(fields=fields, facts=facts, tr=tr), None
+
+
+def p2_fields(R):
+    import b767_controls as C
+    V = C.verdicts(R)
+    lk = V['last_kernel'] or {}
+    reads = reads_of(R)
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('kernel') == EFK]
+    d = [r for r in disp if r.get('n') == P2['read']]
+    r = reads.get(int(d[-1]['run'])) if d else None
+    if not r:
+        return dict(miss='[P2]: no read of dispatch %d in data/b767_dispatch_rows.json' % P2['read'])
+    commit = P2['commit']
+    st = dict((x[0], (x[1], x[2])) for x in (r.get('names') or []))
+    built = str(r.get('built_ref') or '').startswith(commit) and str(r.get('build_exit')) == '0' and r.get('verdict') == 'KERNEL'
+    last = bool(lk) and int(lk.get('run', 0)) == int(r['run'])
+    later_steps = [x.get('n') for x in disp if x.get('n', 0) > P2['read'] and x.get('item') in STEP_ITEMS]
+    closing = [x for x in disp if x.get('item') == 'closing' and str(x.get('sha')).startswith(commit)]
+    pt = [x.strip() for x in git(EF, 'show', '%s:print_targets.txt' % commit).split(NL) if x.strip().startswith(NS)]
+    files = [p.strip() for p in git(EF, 'ls-tree', '--name-only', commit, WIN_DIR).split(NL) if p.strip().endswith('.lean')]
+    where, srcs = {}, {}
+    for p in files:
+        srcs[p] = git(EF, 'show', '%s:%s' % (commit, p)).replace('\r', '')
+        for full, lines in decls(srcs[p]).items():
+            for ln in lines:
+                where.setdefault(full, []).append((p, ln))
+    gates = []
+    for full in pt:
+        loc = where.get(full, [])
+        e = e0_at(srcs[loc[0][0]], loc[0][1]) if len(loc) == 1 else {}
+        state, ax = st.get(full, (None, None))
+        gates.append(dict(name=full, path=loc[0][0] if len(loc) == 1 else ('NOT FOUND' if not loc else 'IN %d PLACES' % len(loc)),
+                          line=e.get('line'), grade=e.get('grade', 'NOT READ'), why=e.get('why', ''), state=state, axioms=ax, built=built))
+    with open(PLAN, encoding='utf-8') as f:
+        PL = f.read().replace('\r', '').split(NL)
+    plan = [(lab, nm, ln, len(PL) >= ln and ('%s %s ' % (lab, nm)) in PL[ln - 1] + ' ') for lab, nm, ln in P2_PLAN]
+    fields = [('<commit>', commit), ('<names>', P2_NAMES), ('<its name in the plan>', P2_STEP), ("<the error's opening line | not sent>", 'not sent')]
+    return dict(fields=fields, gates=gates, read_names=sorted(n for n in st if n.startswith(NS)), r=r, last=last, later=later_steps,
+                closing=closing, files=len(files), where=where, plan=plan, V=V)
+
+
+def ledgers_c5(mode):
+    from standing import orders as O
+    group, date = 'c5', today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    TP = dict((k, v[2]) for k, v in texts(ferry()).items())
+    R = drows()
+    s2, s2why = s2_fields(R)
+    p2 = p2_fields(R)
+    E, miss = {}, []
+    if p2.get('miss'):
+        miss.append(p2['miss'])
+        p2 = dict(gates=[], read_names=[], r=None, last=False, later=[], closing=[], files=0, where={}, plan=[], fields=None)
+    else:
+        E['P2'] = fill(TP['P2'], p2['fields'])
+    if s2:
+        E['S2'] = fill(TP['S2'], s2['fields'])
+    else:
+        miss.append('[S2]: %s' % s2why)
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b767, `(R377)`(4) and (5)(c): the lines the ruling orders for OPEN_TRAILS where the closing theorem does not '
+            'compile at this act and where the trial\'s run from source exits 0 with the restored run\'s axioms file** (relay '
+            'data/b767_ferry.txt :61-:63 and :77-:79), appended at the end of the file (its last line :%d), so that no line before them moves: '
+            'each compiled theorem of the Lean of this act read at its statement by the E0 gate (relay tools/e0_rule.py) before it is entered, '
+            'its name in print_targets.txt at its commit and its axioms print banked (relay data/b767_dispatch_rows.json and '
+            'data/b767_ledgers_c5.txt). Where the closing build from source and the restored build print different axioms files, [C7] is '
+            'appended beneath them; where the closing build and its repeat each stop under the hold, [C8].' % (date, n_ot))
+    paras = [head] + [E[k] for k in GROUPS[group] if k in E]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    I, acct = ids(), account()
+    eq = dict((k, bool(re.fullmatch(pattern(TP[k]), v, re.S)) and (NL + v + NL) in (NL + text + NL)) for k, v in E.items())
+    left = sorted(set(FIELD.findall(text)))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R_, n: (R_.get(n) or {}).get('status')   # noqa: E731
+    before, after = dict(O.read(base.split(NL))), dict(O.read(new.split(NL)))
+    moved = sorted(n for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    hf = O.hand_flags(new.split(NL))
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    present = [k for k, v in E.items() if v in base]
+    gates = p2['gates']
+    grades, axs = {}, {}
+    for g in gates:
+        grades[g['grade']] = grades.get(g['grade'], 0) + 1
+        axs[str(g['axioms'])] = axs.get(str(g['axioms']), 0) + 1
+    pop = sorted(g['name'] for g in gates)
+    plant_gate = gate_ok([dict(gates[0], line=None, grade='NOT READ')] + gates[1:]) if gates else True
+    plant_pop = (pop + [NS + 'b999_planted']) == p2['read_names']
+    r = p2['r'] or {}
+    sf = (s2 or {}).get('facts') or {}
+    absent = [s for s in P2_COMPILED if NS + s not in pop or dict((g['name'], g['state']) for g in gates).get(NS + s) != 'COMPILED']
+    present_not = [s for s in P2_NOT if NS + s in pop or NS + s in p2['where']]
+    ctl = [('PLACE-papers` HEAD the act`s last commit there before this write, the lines of (5), (6) and (7) %s (%s)' % (C2PP, pp_head[:8]),
+            pp_head.startswith(C2PP)),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
+           ('each text as entered equals the ruling`s with its fields filled, each whole in the appended text: %s' % (
+               ' '.join('%s %s' % (k, eq[k]) for k in GROUPS[group] if k in eq)), len(eq) == len(GROUPS[group]) and all(eq.values())),
+           ('every text of the group composed (%s)' % ('; '.join(miss) or 'none missing'), not miss),
+           ('no field left in the appended text (%s)' % (left or 'none'), not left),
+           ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+           ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+            'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+           ('none of the texts in OPEN_TRAILS before the write (%s)' % (present or 'none'), not present),
+           ('[S2]: tools/b767_controls.py trial_state() reads [S2] (%s)' % (s2['tr']['state'] if s2 else s2why), bool(s2)),
+           ('[S2]: the run from source %s at %s, its cache untouched, its part one`s exit %s; the restored run %s; the axioms files` sha256 %s and %s' % (
+               sf.get('off_run'), sf.get('commit'), sf.get('part_one_exit'), sf.get('on_run'), sf.get('sha_on'), sf.get('sha_off')),
+            bool(sf) and sf['untouched'] and sf['part_one_exit'] == '0' and sf['sha_on'] == sf['sha_off'] and sf['on_run'] is not None),
+           ('[S2]: its low %s MB the least of its two parts` lows %s and above the hold`s 2,560' % (sf.get('low'), sf.get('lows')),
+            bool(sf) and sf['low'] is not None and bool(sf['lows']) and sf['low'] == min(sf['lows']) and sf['low'] > 2560),
+           ('[S2]: the route`s words read at data/b767_source_build.txt :%d, THE ROUTE CHOSEN, (i)' % S2_ROUTE_LINE, bool(sf) and sf['route_line']),
+           ('[P2]: THE RUN: dispatch %d read, built at %s with exit 0, KERNEL (run %s)' % (P2['read'], P2['commit'], r.get('run')),
+            bool(gates) and all(g['built'] for g in gates)),
+           ('[P2]: <commit> the act`s closing Lean commit: the last restored read exiting 0 by verdicts() is dispatch %d`s (%s)' % (
+               P2['read'], p2['last']), p2['last']),
+           ('[P2]: no step dispatched after it (%s) and the closing build sent at %s (%d row)' % (p2['later'] or 'none', P2['commit'], len(p2['closing'])),
+            not p2['later'] and len(p2['closing']) == 1),
+           ('[P2]: THE POPULATION: the names of %s in print_targets.txt at %s (%d) equal both ways to those the read of dispatch %d names (%d)' % (
+               NS, P2['commit'], len(pop), P2['read'], len(p2['read_names'])), bool(pop) and pop == p2['read_names']),
+           ('[P2]: THE E0 GATE: each of the %d theorems found once by its declaration line among the %d Window files at the commit, read at its '
+            'statement and graded (%s)' % (len(gates), p2['files'], ', '.join('%s %d' % kv for kv in sorted(grades.items()))), gate_ok(gates)),
+           ('[P2]: each COMPILED in the read, its axioms within %s, sorryAx in none (the prints: %s)' % (
+               STD3, '; '.join('%s %d' % kv for kv in sorted(axs.items()))),
+            bool(gates) and all(g['state'] == 'COMPILED' and ax_within(g['axioms']) for g in gates)),
+           ('[P2]: the %d names <names> gives each in the population and COMPILED (absent: %s)' % (len(P2_COMPILED), absent or 'none'), not absent),
+           ('[P2]: the %d names of the steps not sent each declared nowhere at the commit (present: %s)' % (len(P2_NOT), present_not or 'none'),
+            not present_not),
+           ('[P2]: the plan`s steps each at its line of data/b767_plan.txt (%s)' % (
+               ' '.join('%s:%d %s' % (lab, ln, ok_) for lab, _nm, ln, ok_ in p2['plan']) or 'none'),
+            len(p2['plan']) == len(P2_PLAN) and all(x[3] for x in p2['plan'])),
+           ('PLANTED: a gate row with no statement read as the gate`s failure, and a planted name as the population`s (%s, %s)' % (
+               'FAILED' if not plant_gate else 'PASSED', 'DIFFER' if not plant_pop else 'EQUAL'), not plant_gate and not plant_pop),
+           ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand),
+           ('the roster: no order moving and none added (moved %s ; added %s)' % (
+               [(n, st(before, n), st(after, n)) for n in moved] or 'none', added or 'none'), not moved and not added)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R377)(4) AND (5)(c), GROUP C5: [P2] AND [S2], OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, utc()), '',
+         '### tools/b767_rulings.py ledgers c5; PLACE-papers HEAD %s; the texts from the ferry bank (data/b767_ferry.txt, sha256 %s), the fields from'
+         % (pp_head[:8], FERRY_SHA),
+         '### data/b767_dispatch_rows.json (sha256 %s), data/b767_source_build.txt (sha256 %s) and SIDE-explicit-formula at %s; <DATE> %s; each'
+         % (fsha(DROWS), fsha(SBANK), P2['commit'], date),
+         '### text by line and sha256 here; no PLACE-papers line printed but the texts composed.', '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE E0 GATE (tools/e0_rule.py grade(head, \'theorem\'), the head the statement from the name to its first `:=`, read at %s)' % P2['commit']]
+    P += ['  %-60s %s :%s ; GRADE %s ; %s ; %s %s' % (g['name'], g['path'], g['line'], g['grade'], g['why'] or '-', g['state'], g['axioms'])
+          for g in gates]
+    P += ['', '## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)',
+          '  orders %d -> %d ; statuses moving %s ; added %s' % (len(before), len(after), moved or 'none', added or 'none')]
+    nl_ = new.split(NL)
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    rows = [('head', head)] + [(k, E[k]) for k in GROUPS[group] if k in E]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in rows]
+    P += ['', '### ### **THE LEDGERS, GROUP C5: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINES UNDER ONE HEAD ([P2], [S2]) ; THE E0 GATE %d OF %d '
+          'READ ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+              len(paras) - 1, sum(1 for g in gates if g['line']), len(gates), sum(1 for _w, o in ctl if o), len(ctl),
+              ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return 0 if ok else 1
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b767_ledgers_c5.txt'), os.path.join(D, 'b767_ledgers_c5.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group=group, date=date, pp_head=pp_head,
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, first_new=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            entered=dict((k, [nl_.index(v) + 1, sha(v)[:16]]) for k, v in E.items()), head=[nl_.index(head) + 1, sha(head)[:16]],
+                            keys=list(GROUPS[group]), run=r.get('run'), commit=P2['commit'], s2=sf,
+                            e0=[dict((x, g[x]) for x in ('name', 'path', 'line', 'grade', 'why', 'state', 'axioms')) for g in gates],
+                            controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+    return 0
+
+
 def main(argv):
     if len(argv) != 3 or argv[0] != 'ledgers' or argv[1] not in GROUPS or argv[2] not in ('dry', 'write'):
         sys.exit(__doc__)
+    if argv[1] == 'c5':
+        return ledgers_c5(argv[2])
     return ledgers(argv[1], argv[2])
 
 
