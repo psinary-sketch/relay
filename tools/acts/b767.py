@@ -2171,6 +2171,10 @@ def _trail_resolved(text):
     wu_ = _bfig('%s_window.txt' % ACT, r'; the uniform window M 16, d 3: S (\S+) \+- ', 'the control`s uniform cell')
     wk_ = _bfig('%s_window.txt' % ACT, r'(?m)^  (THE CONTROL AS WANTED) \(unit at ', 'the control`s verdict')
     wj_ = _bfig('%s_window.txt' % ACT, r'(?m)^  data/b767_window\.json: written, (\d+) coefficients as rationals, sha256 ([0-9a-f]{16})$', 'the window json`s line')
+    # ### b767, Component 5 (the Edit tool, the touch read): the seat's price there, which (R377)(6) reports beside the cell, read from its line
+    wp_ = _bfig('%s_window.txt' % ACT, r'(?m)^  THE SEAT`S PRICE THERE: the DATA lemmas at (\d+) coefficients: the coefficients` lemma (\d+) lines generated \(L2\), the DATA parts '
+                r'([\d,]+)-([\d,]+) lines by hand and (\d+)-(\d+) dispatches \([^)]*\); the enclosures over (\d+) primes: the table (\d+) lines generated and '
+                r'([\d,]+)-([\d,]+) lines by hand, (\d+)-(\d+) dispatches, at (\d+) digits', 'the seat`s price at graded knots')
     if not str(K.REG_COMMIT or '-').startswith(wv_[3][:8]) or wj_[0] != wc_[1] or wr_[0] != wc_[1] or not isinstance(jl('%s_window.json' % ACT), dict):
         sys.exit('### data/%s_window.txt DOES NOT CARRY THE REGISTRATION`S COMMIT, ITS CELL`S COEFFICIENTS AND ITS JSON ALIKE -- NOTHING COMPOSED' % ACT)
     # ### (4)(c), (4)(d): the data files of L10a and L11b, each by its controls and its table's line
@@ -2332,6 +2336,7 @@ def _trail_resolved(text):
                 win_reading=wv_[0], win_key=wv_[1], win_hours=wv_[2], win_reg=wv_[3], win_upper=wv_[4], win_knots=int(wc_[0]), win_ncoef=int(wc_[1]),
                 win_S=wc_[3], win_rad=wc_[4], win_products=int(wr_[1]), win_primes=int(wr_[2]), win_constants=int(wr_[3]), win_sumr=wr_[4],
                 win_digits=int(wr_[5]), win_uniform=wu_[0], win_control=wk_[0], win_json=(int(wj_[0]), wj_[1]),
+                win_price='the seat’s price there: the DATA lemmas at %s coefficients, the coefficients’ lemma %s lines generated and the DATA parts %s to %s lines by hand over %s to %s dispatches; the enclosures over %s primes, the table %s lines generated and %s to %s lines by hand over %s to %s dispatches, at %s digits' % tuple(wp_),
                 # ### (4)(c), (4)(d): the data files of L10a and L11b
                 ld_ctl=(int(ldc_[0]), int(ldc_[1])), ld_keys=int(ldt_[0]), ld_upto=ldt_[1], ld_most=int(ldt_[2]), ld_sum=int(ldt_[3]),
                 ld_blocks=ldw_[0], ld_widest=ldw_[1], nd_ctl=(int(ndc_[0]), int(ndc_[1])), nd_lists=int(ndt_[0]), nd_upto=ndt_[1], nd_pairs=int(ndt_[2]),
@@ -4360,11 +4365,11 @@ def _finding_text_b767(f, S, rep, tot):
          'data/b767_registration.txt); tools/b767_window.py committed before its run, by exact piecewise integration in y; THE CONTROL first, the uniform window at M 16, d 3 printing %s '
          'to 10 digits and a planted coefficient read as a difference: %s; THE CELL, %d knots and %d coefficients: the control’s arithmetic side %s with its ball of radius %s %s, '
          'H-GRADED-WINDOW %s, [%s] at %s. REPORTED BESIDE IT, unregistered: %d coefficients; rational products %d; the combination’s primes %d and constants %d, the sum of the |r| %s; '
-         'the budget’s one width %d digits; %s h from the registration’s commit against the price’s upper %s h (relay data/b767_window.txt; data/b767_window.json, %d coefficients as '
+         'the budget’s one width %d digits; %s; %s h from the registration’s commit against the price’s upper %s h (relay data/b767_window.txt; data/b767_window.json, %d coefficients as '
          'rationals, sha256 %s). No step of the proof moved to it; nothing computed at a zero; the window’s frequency read by name and printed nowhere.' % (
              f['win_reg'], f['win_uniform'], f['win_control'].lower(), f['win_knots'], f['win_ncoef'], f['win_S'], f['win_rad'],
              'below 0' if f['win_reading'] == 'HELD' else 'not below 0', f['win_reading'], f['win_key'], ln_(f['win_key']), f['win_ncoef'], f['win_products'], f['win_primes'],
-             f['win_constants'], f['win_sumr'], f['win_digits'], f['win_hours'], f['win_upper'], f['win_json'][0], f['win_json'][1]), '',
+             f['win_constants'], f['win_sumr'], f['win_digits'], f['win_price'], f['win_hours'], f['win_upper'], f['win_json'][0], f['win_json'][1]), '',
          '**The rulings entered** ((R377)(7)), each by the author’s ratification of its clause, by the rulings tool’s group c2: [R1] at %s, the order W-ORD-NOVEMBER-RIDERS with its entry '
          'line at :%s, its trigger the act after [P1]; [A2] at %s, one line for (a), (b), (d) and (e); no line of ERRATA or of a paper written. The roster by tools/standing/orders.py’s '
          'rule: open %d before and %d after, %s added, none moving; at PLACE-papers HEAD orders %d, open %d, closed %d (relay data/b767_orders.txt). The two prices of (7)(d) are put '
@@ -6019,10 +6024,10 @@ read before the lock, the plan amended, the window at graded knots with its regi
     keys['WINDOW'] = ('REGISTERED -- THE WINDOW AT KNOTS GRADED BY OCTAVE OF (6), H-GRADED-WINDOW %s, [%s]: the registration committed alone at relay %s before the '
                       'tool’s run; %s at the uniform window, S %s against the banked -6.62468014575; at %d knots and %d coefficients the control’s arithmetic side '
                       'S %s +- %s; reported beside it, unregistered: rational products %d, the combination’s primes %d, constants %d, the sum of the |r| %s, the '
-                      'budget’s one width %d digits; %s h from the registration’s commit against the price’s upper %s h; no step of the proof moved to it, nothing '
+                      'budget’s one width %d digits; %s; %s h from the registration’s commit against the price’s upper %s h; no step of the proof moved to it, nothing '
                       'computed at a zero, the window’s frequency not printed. SOURCE %s ; %s.' % (
                           f['win_reading'], f['win_key'], f['win_reg'][:8], f['win_control'].lower(), f['win_uniform'], f['win_knots'], f['win_ncoef'], f['win_S'],
-                          f['win_rad'], f['win_products'], f['win_primes'], f['win_constants'], f['win_sumr'], f['win_digits'], f['win_hours'], f['win_upper'],
+                          f['win_rad'], f['win_products'], f['win_primes'], f['win_constants'], f['win_sumr'], f['win_digits'], f['win_price'], f['win_hours'], f['win_upper'],
                           srg_['text'], swn_['text']))
     seats.extend([srg_, swn_])
     # ------------------------------------------------------------------ REGISTERED: (R377)(4)-(7), the lines in OPEN_TRAILS by group, with the roster

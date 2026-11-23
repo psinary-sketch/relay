@@ -701,7 +701,11 @@ CHAIN = (('c1', 'd75c8a50'), ('corr', 'ea50f0ee'),
          ('natdata_gen', 'c8416cec'), ('natdata_fix', 'fb2344d7'), ('natdata_depth', 'd34704af'), ('rows88', 'c1046ae8'),
          ('rows92', 'cd27af7c'), ('rows99', '3f64a0a4'), ('closing_sent', '75dbc6b3'),
          ('rulings_c5', 'b363e9d9'), ('rulings_c5_e0', '6d0d73f7'), ('ledgers_c5', '36b38f6f'),
-         ('lockgate_carry', '78a259ea'))
+         ('lockgate_carry', '78a259ea'),
+         # ### b767, Component 5 (the Edit tool, 22:1xZ, the touch read): appended as made, each read from git (scratch touch767.py logs,
+         # ### 22:05:32Z, read-only): the step-rows commit 57792b7d among them, a relay commit of the act with no row of its own
+         ('rows_c4', '57792b7d'), ('closing_read', '84374079'), ('module_readers', '47d45214'), ('ceiling', '72861d88'),
+         ('misses2', '8dd2b1e2'), ('scan', '12e42a45'), ('trail_set', '00f59ccd'), ('face_blocks', '08a8da90'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -764,8 +768,14 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b766`s findings after its lock and 
                     'closing_sent': 'L9b whole and the closing build sent at 89fd5b54',
                     'rulings_c5': 'the rulings tool`s group c5 for [P2] and [S2]', 'rulings_c5_e0': 'its E0 lexicon extended by the act`s two types',
                     'c5pp': '[P2] and [S2] in OPEN_TRAILS', 'ledgers_c5': 'the c5 ledger banks',
-                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set, the branch`s base named'})
-CHAIN_WORDS_B766 = ({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
+                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set, the branch`s base named',
+                    'rows_c4': 'the step rows for 36b38f6f and 78a259ea',
+                    'closing_read': 'the closing build from source read as wanted, main moved and v0.45 cut, the dispatch tool`s bank and the orders bank',
+                    'module_readers': 'the act module`s carried readers set to b767, the reproduction banks and the scan bank',
+                    'ceiling': 'the ceiling read before the lock, within the ceiling (defect (r))', 'misses2': 'the misses printed again before the lock',
+                    'scan': 'the address scan banked and three of the entry`s sentences set', 'trail_set': 'the trail`s sentence on b766`s close set',
+                    'face_blocks': 'the face`s block file for b767 and the (W) bank regenerated from it'})
+CHAIN_WORDS_B766 =({'c1': 'the c1 route with b766`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b766',
                     'corr': 'the corrigendum banks and the corrigenda row (86)',
                     'k22_ctl': 'the planted controls tool of the three repairs with [K22]`s control', 'ceil_check': 'the record section reading the ceiling after (4)(c) from its own bank',
                     'k22': '[K22] repaired at tools/standing/ v1.38.22', 'k22_row': '[K22]`s row and its planted control banked, push-b765-planted removed',
