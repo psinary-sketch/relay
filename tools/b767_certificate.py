@@ -22,6 +22,9 @@ ITS CONTROLS: the prime form's S against b765's -6.62468014575 to 10 digits; its
 (c_k = T_(k-1) - T_k, the first terms read back) equal to the order before it exactly; each form's value by balls against S to 10 digits;
 PLANTED: one coefficient T_k of (ii)'s order 1, at the middle k, moved by 1, its inversion read as the two differences it makes, at
 m = k and m = k + 1, and at no other m.
+THE BUDGET IN THE LEAN ((R377)(4)(a)), over the prime form: for each set of shares in LEAN_SHARES (digits for gamma, for log pi and for
+every log p), the three sums |r| 10^-digits by group (gamma, log pi, the primes) and their total against |S| / 2; the certificate's equal
+shares beside them, their total read against b766's 1.315 (data/b766_certificate.txt :18) as a further control. No r is printed.
 
   python -X utf8 -u tools/b767_certificate.py dry       computed and printed; nothing written
   python -X utf8 -u tools/b767_certificate.py write     data/b767_certificate.txt and data/b767_certificate.json (figures, no coefficient)
@@ -52,6 +55,11 @@ PREC = 512
 SREF, DIGITS = '-6.62468014575', 10
 B766_PRIMES, B766_UNIFORM = 1900, 21
 MAX_ORDER = 16
+B766_EQUAL = '1.315'   # ### data/b766_certificate.txt :18, SUM |r| 10^-digits at the equal shares
+LEAN_SHARES = (('one width for all, 21 digits (b766`s)', (21, 21, 21)),
+               ('gamma 3, log pi 3, each log p 22 digits', (3, 3, 22)),
+               ('gamma 4, log pi 4, each log p 21 digits', (4, 4, 21)),
+               ('gamma 6, log pi 6, each log p 24 digits', (6, 6, 24)))
 
 _spec = importlib.util.spec_from_file_location('b766_certificate', os.path.join(ROOT, *CARRIED.split('/')))
 B6 = importlib.util.module_from_spec(_spec)
@@ -242,6 +250,17 @@ def forms(R):
     return out, checks[:len(sums)], orders, Sp
 
 
+def lean_budget(R, aS):
+    """each set of LEAN_SHARES over the prime form: (name, shares, (gamma's, log pi's, the primes' |r| 10^-digits), total, below |S| / 2)."""
+    sg, sp, sq = arb(abs(R['rg'])), arb(abs(R['rpi'])), arb(sum((abs(x) for x in R['rp'].values()), fmpq(0)))
+    out = []
+    for name, (dg, dp, dq) in LEAN_SHARES:
+        parts = (sg * arb(10) ** (-dg), sp * arb(10) ** (-dp), sq * arb(10) ** (-dq))
+        tot = parts[0] + parts[1] + parts[2]
+        out.append((name, (dg, dp, dq), parts, tot, bool(tot < aS / 2)))
+    return out
+
+
 def planted(R):
     orders, _c = by_parts(R['ai'])
     T = dict(orders[0][1])
@@ -277,6 +296,9 @@ def run(write):
         ctl.append(('%s: its value by balls against S to %d digits' % (name, DIGITS), '%.12g (radius %.3g)' % (float(m_), float(v.rad())), ok))
     ctl.append(('PLANTED: one coefficient T_k of (ii)`s order 1, at the middle k, moved by 1, its inversion read at m = k and m = k + 1 alone',
                 'differences at %s (k %d, so m %d and %d)' % (diff, k0, k0, k0 + 1), diff == [k0, k0 + 1]))
+    LB = lean_budget(R, abs(Sp))
+    eqt = '%.4g' % float(pform['total'].mid())
+    ctl.append(('the equal shares` sum over the prime form against b766`s %s (data/b766_certificate.txt :18)' % B766_EQUAL, eqt, eqt == B766_EQUAL))
     allok = all(c[2] for c in ctl)
     fl = []
     best = min(F[2:], key=lambda t: t[2]['sabs']) if len(F) > 2 else None
@@ -309,7 +331,14 @@ def run(write):
                                               else 'the cap of %d orders reached' % MAX_ORDER),
           '  the least sum of |r| among (ii)`s orders: %s, SUM |r| %s, one width %d digits' % (
               best[0], '%.6g' % float(arb(best[2]['sabs']).mid()), best[2]['uniform']) if best else '  (ii): none', '',
-          '## THE CONTROLS']
+          '## THE BUDGET IN THE LEAN, over the prime form: |r| 10^-digits summed by group, the total against |S| / 2 %.6g' % float((abs(Sp) / 2).mid()),
+          '  %-44s gamma %d, log pi %d, the log p %d-%d digits (data/b766_certificate.txt :18) ; total %s ; below: %s' % (
+              'the certificate`s equal shares', pform['digits'][0][1] if pform['digits'][0][0] == 'gamma' else -1,
+              dict(pform['digits']).get('log pi', -1), min(d for n, d in pform['digits'] if n not in ('gamma', 'log pi')),
+              max(d for n, d in pform['digits'] if n not in ('gamma', 'log pi')), eqt, pform['below'])]
+    L += ['  %-44s gamma %d, log pi %d, each log p %d digits ; gamma %.3g, log pi %.3g, the primes %.3g ; total %.4g ; below: %s' % (
+        name, sh[0], sh[1], sh[2], float(pt[0].mid()), float(pt[1].mid()), float(pt[2].mid()), float(tot.mid()), bl) for name, sh, pt, tot, bl in LB]
+    L += ['', '## THE CONTROLS']
     L += ['  %s: %s -- %s' % (n, g, 'AS WANTED' if ok else '### NOT AS WANTED') for n, g, ok in ctl]
     L += ['', '### ### **THE THREE FORMS %s: %d OF %d CONTROLS AS WANTED ; THE PRIMES` ONE WIDTH %d DIGITS, THE INTEGERS` %d, BY PARTS AT ITS LEAST %d '
               '(ORDER %s).**' % ('READ' if allok else 'WITH A CONTROL FAILED', sum(1 for c in ctl if c[2]), len(ctl), fl[0]['uniform_digits'],
@@ -318,7 +347,10 @@ def run(write):
     if write:
         js = dict(act=ACT, ruling='(R377)(4)(a)', at=utc(), tool=dict(path=SELF, commit=commit, sha256=sha[:16], carried=CARRIED, carried_sha256=sha6[:16]),
                   window=dict(bank=B6.WJSON, sha256_less_final_line_end=R['dig']['text_sha'], coef_sha=R['dig']['coef_sha'], M=R['M'], d=R['d']),
-                  forms=fl, by_parts_stop=stop, least=best[0] if best else None,
+                  forms=fl, by_parts_stop=stop, least=best[0] if best else None, equal_shares_total=eqt, half_S='%.6g' % float((abs(Sp) / 2).mid()),
+                  lean_budget=[dict(shares=name, gamma_digits=sh[0], logpi_digits=sh[1], logp_digits=sh[2], gamma='%.3g' % float(pt[0].mid()),
+                                    logpi='%.3g' % float(pt[1].mid()), primes='%.3g' % float(pt[2].mid()), total='%.4g' % float(tot.mid()),
+                                    below_half=bl) for name, sh, pt, tot, bl in LB],
                   controls=[dict(name=n, got=g, as_wanted=ok) for n, g, ok in ctl],
                   rule='each constant an equal share: digits floor(log10(2 N |r| / |S|)) + 1; one width floor(log10(2 SUM |r| / |S|)) + 1')
         for rel, s in ((CJSON, json.dumps(js, ensure_ascii=False, indent=1) + NL), (CTXT, NL.join(L) + NL)):
