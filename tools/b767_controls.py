@@ -553,7 +553,9 @@ def names_reading(added, imports, sha, mrev, kg, mg, own=None):
     ((R377)(4)); and each Mathlib declaration read against the file's own import closure (b763 (i), b767 (h)): in it, only outside it, or no
     declaration line found (a name made by an attribute, a local, a field: printed, never refused). b767 (k): each name the kernel declares
     read against the file's own module and its kernel closure; one declared in the kernel only outside them, and by no Mathlib module
-    within the closure, kept in kernel_outside."""
+    within the closure, kept in kernel_outside. The added lines read past their comments as one text first, so a block comment over
+    several lines names nothing (b767 (k))."""
+    added = strip_comments(NL.join(added)).split(NL)
     q, s = qnames(added), snakes(added)
     names = q + [x for x in s if x not in set(n.split('.')[-1] for n in q)]
     last = dict((n, n.split('.')[-1]) for n in names)
@@ -1403,13 +1405,15 @@ def controls():
     ka = names_reading(lk, ['SIDEExplicitFormula.Window.KValues'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB767')
     kb = names_reading(lk, ['SIDEExplicitFormula.Window.KappaClosed'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB767')
     kc = names_reading(lk, ['SIDEExplicitFormula.Window.KBasis'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.KappaClosed')
+    kd0 = names_reading(['/-- the window by', '  cubicB_eq_sum and Arch.lean, archTermQ_windowK -/', '  exact rfl'],
+                        ['SIDEExplicitFormula.Window.KValues'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB767')
     kcl = (sorted(ka['kernel_outside'].items()), ka['kernel'], sorted(kb['kernel_outside']), sorted(kc['kernel_outside']),
-           kb['kclosure'] > ka['kclosure'])
-    c('THE KERNEL`S NAMES AGAINST THE FILE`S CLOSURE, b767 (k), at the trial commit on three planted files naming cubicB_eq_sum: importing '
+           kb['kclosure'] > ka['kclosure'], (sorted(kd0['kernel_outside']), kd0['kernel'], kd0['qualified'], kd0['snake']))
+    c('THE KERNEL`S NAMES AGAINST THE FILE`S CLOSURE, b767 (k), at the trial commit on four planted files: naming cubicB_eq_sum, importing '
       'KValues alone, declared only outside (in KappaClosed) ; importing KappaClosed, within ; importing KBasis as KappaClosed itself, its '
-      'own module within ; the closure through KappaClosed wider than KValues`s', kcl,
-      kcl[0] == [('cubicB_eq_sum', ['SIDEExplicitFormula.Window.KappaClosed'])] and kcl[1] == ['cubicB_eq_sum'] and kcl[2] == []
-      and kcl[3] == [] and kcl[4])
+      'own module within ; the closure through KappaClosed wider than KValues`s ; three names in a block comment over two lines, none read',
+      kcl, kcl[0] == [('cubicB_eq_sum', ['SIDEExplicitFormula.Window.KappaClosed'])] and kcl[1] == ['cubicB_eq_sum'] and kcl[2] == []
+      and kcl[3] == [] and kcl[4] and kcl[5] == ([], [], [], []))
     mrev = mathlib_rev(TRIAL_COMMIT)
     mf = (bool(mathlib_found(mrev, 'hasSum_log_one_add_inv')), bool(mathlib_found(mrev, 'eulerMascheroniSeq')),
           bool(mathlib_found(mrev, 'no_such_name_planted_by_b767')))
