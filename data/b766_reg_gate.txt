@@ -31,8 +31,8 @@ b766 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
 
 --- THE CLOSING DRY-RUN STEP (b675 rules row 1): the closing tool run dry, its readings ---
     ### THE CLOSING DRY-RUN, its readings (written to relay data/, D:\relay\data\b766_closing_dry.txt):
-      b766 closed: relay none read, PLACE-papers none read; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 22 defects
-      ### THE COUNTER ((R376) Component 5, the act`s events and defects together; relay data/b766_defects.txt, data/b766_events.txt): CLAIM 8, CLOSE 141, REPEAT 108 OF 149 ; THE SET: DEFECTS 22, EVENTS 127, THE LAST event (127)
+      b766 closed: relay 29d4c9b7, PLACE-papers 5638a9a; suite ### NOT READ; root ### NOT READ; 0 prompts answered; scores ### NOT READ; 22 defects
+      ### THE COUNTER ((R376) Component 5, the act`s events and defects together; relay data/b766_defects.txt, data/b766_events.txt): CLAIM 8, CLOSE 143, REPEAT 110 OF 151 ; THE SET: DEFECTS 22, EVENTS 129, THE LAST event (129)
       ### THE SEALED TOOLS` HASHES AT THE CLOSE (OPEN_TRAILS :13307; recorded at the seal, relay data/b766_seal_hashes.json; the report tool unsealed by data/b708_rules.txt row (1)):
       ### THE CITATION CHECK (the gate step at step zero; relay data/b766_citation_check.txt): CITES CHECKED 92 ; OK 92 ; MISSES 0 ; the misses as the bank lists them: 0 (NONE) ; the answers checked ((R278)(4)), by their needles: NONE, the prints NONE ; entered as the defects bank letters them: the navigator`s NONE
       ### THE RECORD LINES ((R376)(1); relay data/b766_record_lines.json): 
@@ -40,7 +40,7 @@ b766 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
       ### THE CORRIGENDUM ((R376)(1)-(2)):
           the generated entry for b765`s events and defects, CLAIM or CLOSE, NEW or REPEAT (relay data/b766_corrigendum.txt): ITEMS 114: EVENTS 79, POST-SEAL 12, DEFECTS 23 ; CLAIM 7, CLOSE 107 ; REPEAT 60 ; THE CLAIM ITEMS OF b765`S BANKS 7, PRINTED IN FULL ; THE FINDINGS AFTER THE LOCK 4: CLAIM 0, CLOSE 4, REPEAT 1 ; THE NAVIGATOR`S CLAIMS 8, CLAIM 8 ; THE NAVIGATOR`S FIGURES PRINTED AS THE NAVIGATOR`
           the seat`s read of what the ruling misses, made after the citation check and the deletes ((R376)(3)), its head (relay data/b766_misses.txt): b766 -- THE SEAT'S READ OF WHAT (R376) MISSES ((R376)(3): ten lines or fewer, printed to the author before Component 1 and once more before the lock; 2026-11-22, step zero)
-          the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b766_root_banks_dry.txt): ### ABSENT
+          the root route`s dry run on the pre-root tree (data/b706_rules.txt row (1)) (relay data/b766_root_banks_dry.txt): BANKS 108 ; CLEAN AND EQUAL AT HEAD 108 ; CR LF NONE ; MISSING NONE ; HEAD THE REMOTE MAIN False ; THE DRY RUN READY True
       ### THE PRICE AND THE CEILING ((R376)(3)):
           the price table from banked timings, banked before Component 1, the seat`s own readings printed as the seat`s (relay data/b766_price.txt): THE PRICE TABLE: STEP ZERO 0.90 h ; THE LOWER SUM 20.03 h AGAINST THE CEILING 24 h, NOTHING CARRIED ; THE UPPER SUM 74.07 h ; DISPATCHES 9-18 OF AT MOST 20, WITH THE RESTORE ON 8-16 OF AT MOST 18 ; THE LEAN 2500-8000 LINES
           the ceiling read again after (4)(c), read-only over the price table`s figures (relay data/b766_ceiling.txt): THE CEILING READ AFTER (4)(c) ((R376)(3), read-only, 10:15:38Z): SPENT 3.55 h FROM THE DELIVERY ; THE LOWER SUM LEFT 3.55 + 15.87 = 19.42 h AGAINST 24 h, UNDER BY 4.58 h ; NOTHING CARRIED
@@ -75,7 +75,7 @@ b766 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
       ### THE ROOT`S BANKS (relay data/b766_root_banks.txt): TO BE READ AT THE ROOT, before it is computed
       ### THE MIRROR (relay data/b766_mirror.txt, the b670 form, after the root and the last PLACE-papers push): ### TO BE BUILT AFTER THE ROOT AND THE LAST PLACE-papers PUSH (the b670 form, mirror-refresh-2026-11-22-b766.zip; over the roster read from PLACE-papers main ((R376)(5), relay data/b766_roster.txt), the builder`s state file tools/mirror_prevbuild.json named in (W))
       ### THE CARRY`S DIFFS (each carried tool against its b765 source, by tools/b766_carry.py; relay data/b766_carry_*.txt): 8 banks -- b766_carry_acts.txt, b766_carry_address_scan.txt, b766_carry_carry.txt, b766_carry_controls.txt, b766_carry_face.txt, b766_carry_lockgate.txt, b766_carry_prepaths.txt, b766_carry_worklist.txt
-          the remote reads this run: 38 repositories, one call each in sequence ; empty reads re-read alone: relay : first read empty ; re-read alone: ### EMPTY AGAIN; PLACE-papers : first read empty ; re-read alone: ### EMPTY AGAIN; SIDE-global-section : first read empty ; re-read alone: ### EMPTY AGAIN; SIDE-explicit-formula : first read empty ; re-read alone: ### EMPTY AGAIN; SIDE-faces-join : first 
+          the remote reads this run: 38 repositories, one call each in sequence ; empty reads re-read alone: NONE
       ### THE AUTHOR'S WORD AFTER THE SEAL (data/b766_author_words.txt): COMPOSED AT THE CLOSE FROM ITS BANK, which is appended after the root by design and read apart; not yet composed
       ### THE AUTHOR`S ANSWERS AND WORDS (relay data/b766_author_answers.txt): ### NOT YET WRITTEN BY ITS ROUTE (written after the lock by design; the root`s prompt, after the seal; prompts 0, sitting rows 0 read apart)
           (N1) ? (N2) ? (N3) ? (N4) ? (N5) ? ; (S1) ? (S2) ? (S3) ?
@@ -238,6 +238,8 @@ b766 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
           (125) THE HOST'S [CLOSE ; REPEAT b766 events (123)]: A THIRTY-EIGHTH SUMMARY, AFTER THE SCORE ROUTES' DRY AGAIN AND THE MATCHER'S
           (126) THE SEAT'S [CLOSE ; REPEAT b765 events (77)]: THE SCORE ROUTES' DRY A THIRD TIME, N3'S CONTROLS TRUE; THE FACE THROUGH THE
           (127) THE SEAT'S [CLOSE ; REPEAT b765 events (77)]: THE GATE'S SECOND RUN CLEAR; THE FIGURES, THE GUARD AND THE COMMAND BANK AGAIN.
+          (128) THE SEAT'S [CLOSE ; REPEAT b765 events (78)]: THE GATE BANKS CLEAN; THE GATE COMMIT; THE ROOT ROUTE DRY READY; THE LOCK GATE'S
+          (129) THE HOST'S [CLOSE ; REPEAT b766 events (125)]: A THIRTY-NINTH SUMMARY, AFTER THE MISSES READ'S SECOND PRINTING. A summary of the
       ### THE COMMITS, THE CENSUSES.
           the local main of SIDE-explicit-formula unmoved ; SIDE-dirichlet-mod-24`s main e5ebdd15 and v0.2.0 peeling to e5ebdd15, unmoved, nothing pushed there ;
           the held branches of SIDE-explicit-formula at their tips, none removed, zq-b730 at 1e658870 unmoved ; push-b765-centre, push-b764-runner, push-b763-arith, push-b763-keiper, push-b763-form, push-b763-squares kept ; push-b766-proof kept at the remote and in the clone by the author`s word ; push-b765-planted removed at the kernel`s remote and in its clone after [K22], by the one-call tool`s two r
@@ -293,7 +295,7 @@ b766 -- THE REGISTRATION GATE, RUN BEFORE THE LOCK.
       standing-b3    SOURCES OK in 515.7 s (2026-11-23T01:31:50Z)
       act            SOURCES OK in 333.1 s (2026-11-23T01:37:31Z)
     ### THE PREV-MODE DRY : CLEAR (parts 10 ; not clear NONE)
-    THE TAGS ((R354)(2)(iv)): every row tagged, 149 rows read
+    THE TAGS ((R354)(2)(iv)): every row tagged, 151 rows read
     THE REFUSALS BY KIND ((R364)(5)[U3], relay data/b754_rules.txt (12)): Refusals by the hook before a call ran ([U3]): 5 -- PIPE 1, READ 3, WLIST 1; none lettered; kinds above b765’s count: READ 3 against 2, one event each (relay data/b766_hook_refusals.txt).
       kinds above b765`s count, each named by an event row naming the kind and data/b766_hook_refusals.txt: 1 of 1
       defect rows citing data/b766_hook_refusals.txt (a refusal given a letter): NONE
