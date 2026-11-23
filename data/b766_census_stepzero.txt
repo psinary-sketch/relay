@@ -1,0 +1,21 @@
+====================================================================================================
+b307_handoff_census.py -- b766. ### THE COUNT AGAINST `HANDOFF.md`, STOPPED.
+====================================================================================================
+  fixture                                                    got/exp        agree
+  finds an act id that is there                              True/True      YES
+  ### does NOT find one that is absent                       False/False    YES
+  ### and b30 is NOT found inside b300                       False/False    YES
+  ### nor b3 inside b307                                     False/False    YES
+  finds a work-order name                                    True/True      YES
+  ### does not find an absent work-order                     False/False    YES
+  census over empty text reports everything missing          True/True      YES
+  ### census over text naming one act drops it from missing  False/False    YES
+  self-test : PASS
+
+  ### ### **THE HANDOFF COUNT STOPPED by (R364)(5)[H1] (a)**
+  ### HANDOFF.md is regenerated whole by tools/standing/handoff.py from banks alone; the lists this tool
+  ### declares are those of the page of b307, which stands in the file`s history. No name is counted and
+  ### no total is printed.
+  ### ### **`U-2`'s `SURVIVES` CLAUSE IS NOT MET BY A STOPPED COUNT: THIS TOOL LICENSES NO PHRASE
+  ### ### ABOUT `HANDOFF.md`.**
+====================================================================================================
