@@ -32,8 +32,9 @@ file at the commit opens, past its comments, with its imports; (2) each name the
 unqualified with an underscore, the tactics' names left out), and that no kernel file declares, found by a text search (`git grep -w -F`)
 of the pinned Mathlib's source in the kernel's clone at the manifest's rev, or printed as not found; and beside the order, by b763 (i)'s
 class (b767 defect (h)), each name's Mathlib declaration read against the changed file's own import closure (the kernel's import lines at
-the commit, Mathlib's at the rev); (3) no declaration of a changed Window file that the kernel evaluates (by `decide` or `rfl`) carries,
-in itself or in a declaration of the file it names, a list literal or a range of more than KT_CAP 4,100 places (tools/b766_kdata.py :65):
+the commit, Mathlib's at the rev); (3) no declaration of a changed Window file that the kernel evaluates (by `decide`, or by `rfl` as its
+proof or a tactic and not as an argument, b767 (m)) carries, in itself or in a declaration of the file it names, a list literal or a range of
+more than KT_CAP 4,100 places (tools/b766_kdata.py :65):
 cut in blocks before it is sent. (1), (3) and a qualified name declared in Mathlib only outside the file's closure refuse; the rest prints.
 THE RESTORE'S KIND ([H5]): exact, prefix or none, recorded beside each run with the line itself.
 THE LEAN NAMES NO FREQUENCY: before each dispatch the files under SIDEExplicitFormula/Window/ at the commit are read for a decimal literal
@@ -406,9 +407,15 @@ def own_size(body):
     return max(list_sizes(body) + rng + [0])
 
 
+# ### b767 (m): `rfl` read as the kernel's evaluation only where it is the declaration's proof or a tactic (`:= rfl`, `by rfl`, `exact rfl`,
+# ### `<;> rfl`, a line of its own), not where it is given as an argument (`Finset.sum_congr rfl ...`), which evaluates nothing
+KEVAL = re.compile(r'\bdecide\b|:=\s*rfl\b|\bby\s+rfl\b|\bexact\s+rfl\b|<;>\s*rfl\b|^\s*rfl\s*$', re.M)
+
+
 def eval_sizes(text):
-    """[(head, places)] for each declaration the kernel evaluates (by `decide` or `rfl`): the largest list literal or range in it, or in a
-    declaration of the same file that it names (a table defined apart and evaluated by name, b766's KData form)."""
+    """[(head, places)] for each declaration the kernel evaluates (by `decide`, or by `rfl` as its proof or a tactic, KEVAL): the largest
+    list literal or range in it, or in a declaration of the same file that it names (a table defined apart and evaluated by name, b766's
+    KData form)."""
     ds = decls(text)
     sizes = {}
     for h, b in ds:
@@ -417,7 +424,7 @@ def eval_sizes(text):
             sizes[m.group(1)] = own_size(b)
     out = []
     for h, b in ds:
-        if not re.search(r'\b(decide|rfl)\b', b):
+        if not KEVAL.search(b):
             continue
         m = DECL_NAME.search(h)
         me = m.group(1) if m else None
@@ -1374,16 +1381,21 @@ def controls():
     nodec = 'def tbl : List Nat := [%s]' % ', '.join(str(i) for i in range(KT_CAP + 1))
     rng = 'theorem r : (List.range 4101).all (fun x => x < 5000) = true := by decide'
     refd = nodec + '\ntheorem t : tbl.all (fun x => x < 5000) = true := by decide'
-    ev = [max([s for _h, s in eval_sizes(x)] + [0]) for x in (big, fit, nodec, rng, refd)]
+    arg = ('theorem s : ∑ j ∈ Finset.range 16385, f j = ∑ j ∈ Finset.range 16385, g j := by\n'
+           '  refine Finset.sum_congr rfl (fun j _ => ?_)\n  ring')
+    prf = 'theorem r2 : (List.range 4101).length = 4101 := rfl'
+    tac = 'theorem r3 : (List.range 4101).length = 4101 := by\n  rfl'
+    ev = [max([s for _h, s in eval_sizes(x)] + [0]) for x in (big, fit, nodec, rng, refd, arg, prf, tac)]
     imp = [imports_first('/- head -/\n-- a line\nimport Mathlib\n\ndef x := 1'), imports_first('def x := 1\nimport Mathlib'), imports_first('')]
     qn = qnames(['  exact Real.add_pow_le_pow_mul_pow_of_sq_le_sq _ hx.le (Finset.sum_congr rfl fun i _ => by simp) -- Real.ignored_in_comment',
                  '  exact (Real.sinh_nonneg_iff.mpr hx).trans le_rfl'])
     sn = snakes(['  nlinarith [mul_pos ha hb, sq_nonneg (a - b)] -- one_add_one_eq_two', '  norm_num [Real.log_le_sub_one_of_pos]'])
     c('the checks before a dispatch on planted texts (a decide over 4,101 places ; over 4,100 ; a table of 4,101 with no decide ; a range of '
-      '4,101 under decide ; a decide naming the table of 4,101 defined apart ; the imports first past comments ; a def before the import ; '
-      'empty ; the qualified names of two lines, the comment and a local`s field left out, the projections .mpr and .trans cut ; the '
-      'unqualified names, the comment`s, the tactic`s and the qualified name`s left out)', (ev, imp, qn, sn),
-      ev == [KT_CAP + 1, KT_CAP, 0, KT_CAP + 1, KT_CAP + 1] and imp == [True, False, True]
+      '4,101 under decide ; a decide naming the table of 4,101 defined apart ; rfl given as an argument over a range of 16,385, not '
+      'evaluated (b767 (m)) ; rfl as the proof over 4,101 ; rfl as a tactic over 4,101 ; the imports first past comments ; a def before '
+      'the import ; empty ; the qualified names of two lines, the comment and a local`s field left out, the projections .mpr and .trans '
+      'cut ; the unqualified names, the comment`s, the tactic`s and the qualified name`s left out)', (ev, imp, qn, sn),
+      ev == [KT_CAP + 1, KT_CAP, 0, KT_CAP + 1, KT_CAP + 1, 0, KT_CAP + 1, KT_CAP + 1] and imp == [True, False, True]
       and qn == ['Finset.sum_congr', 'Real.add_pow_le_pow_mul_pow_of_sq_le_sq', 'Real.sinh_nonneg_iff'] and sn == ['mul_pos', 'sq_nonneg'])
     kg0 = import_graph(KPATH, TRIAL_COMMIT, ['*.lean'], kmodule)
     mrev0 = mathlib_rev(TRIAL_COMMIT)
