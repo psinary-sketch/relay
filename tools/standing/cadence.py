@@ -38,8 +38,20 @@ store, a kernel's clone by the kernel's name) and its path under it; a file unde
 and so counts as changed. A bare `rev-parse` of a ref and an ancestry read (`merge-base`) read no bank and are not recorded. A remote read is
 the parts' that keep their place.
 
-  python -X utf8 -u tools/standing/cadence.py show <act>     (prints each part's decision in each held mode; writes nothing)
+v1.38.27, (R378)(8) [K27], THE KIND OF AN ACT THAT WRITES LEAN AND NO PAPER, in force from b768 (the second price of (R377)(7)(d) as the root
+printed it, data/b767_put_2.json, taken by the author's ratification of the clause). The act's kind is read from its (W) list
+(data/<act>_wlist.json, its patterns): LEAN AND NO PAPER where a pattern names a kernel's files (a path under SIDE-<name>/) and no pattern
+reaches a path under day1/, phase1.5/, phase2/ or internal/ of PLACE-papers, by a name under one of them or as a glob that matches one;
+PAPER otherwise, a list not read among them. At LEAN AND NO PAPER the act-root chain's four parts, standing-b2a to standing-b2d, which
+recompute b624 to b658 from those acts' own banks, are not run in any mode of the suite (prerun, prev, post-push, pre-push, mid and rerun),
+each writing its banks under the mode's own names with no arm run; standing-b3's group after the push is itself alone; and standing-b3 runs
+its own half, b659 to the act, with the boundary's two lines of data/act_roots.txt read as before (tools/standing/fold/checks.tpl). The
+prev-mode dry and the lock gate's read of it hold the four likewise (tools/standing/prevdry.py). The four run again at the next act of the
+other kind.
+
+  python -X utf8 -u tools/standing/cadence.py show <act>     (prints the act's kind and each part's decision in each held mode; writes nothing)
 """
+import fnmatch
 import hashlib
 import json
 import os
@@ -64,6 +76,16 @@ NAMED = re.compile(r'^([^:\s-][^:\s]*):(.+)$')
 LISTING = ('ls-files', 'diff', 'log', 'ls-tree', 'status', 'show', 'grep', 'blame', 'rev-list', 'whatchanged', 'cat-file', 'diff-tree',
            'diff-index', 'diff-files', 'shortlog', 'name-rev', 'describe')
 STATUS_KINDS = ('status', 'ls-files', 'diff-files', 'diff-index')
+# ### v1.38.27, (R378)(8) [K27]: THE KIND OF AN ACT THAT WRITES LEAN AND NO PAPER
+KIND_FROM = 768
+KIND_VERSION = 'v1.38.27'
+KIND_RULE = '(R378)(8) [K27]'
+LEAN_ONLY, PAPER = 'LEAN AND NO PAPER', 'PAPER'
+CHAIN_QUARTERS = ('standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d')
+PAPER_DIRS = ('day1/', 'phase1.5/', 'phase2/', 'internal/')
+KERNEL_PATTERN = re.compile(r'^SIDE-[A-Za-z0-9-]+/')
+RELAY_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SUITE_LABEL = {'prerun': 'PRE-SEAL (R202)(3)', 'post-push': 'POST-PUSH', 'pre-push': 'PRE-PUSH', 'mid': 'MID-ACT', 'rerun': 'POST-PUSH'}
 
 
 def in_force(act):
@@ -114,14 +136,67 @@ def sitting(root, act):
     return None
 
 
+# ================================================================================ v1.38.27, (R378)(8) [K27]: THE KIND OF AN ACT
+def kind_in_force(act):
+    try:
+        return int(str(act).lstrip('b')) >= KIND_FROM
+    except ValueError:
+        return False
+
+
+def wlist_patterns(root, act):
+    """the act's (W) patterns from data/<act>_wlist.json, or None where the list is not read."""
+    try:
+        with open(os.path.join(root, 'data', '%s_wlist.json' % act), encoding='utf-8') as fh:
+            p = json.load(fh).get('patterns')
+        return list(p) if isinstance(p, list) else None
+    except (OSError, ValueError, AttributeError):
+        return None
+
+
+def kind_from_patterns(patterns):
+    """(kind, why) from (W) patterns: LEAN AND NO PAPER where a pattern names a kernel's files and none reaches a path under day1/, phase1.5/,
+    phase2/ or internal/ of PLACE-papers (a name under one of them, or a glob matching one); PAPER otherwise, a list not read among them."""
+    if patterns is None:
+        return PAPER, 'the (W) list not read: an act of the other kind, the four parts required'
+    kern = [x for x in patterns if KERNEL_PATTERN.match(x)]
+    paper = [x for x in patterns if any(x.startswith('PLACE-papers/' + d) or fnmatch.fnmatchcase('PLACE-papers/%sx.md' % d, x) for d in PAPER_DIRS)]
+    if paper:
+        return PAPER, 'the (W) list reaches a paper`s path (%s)' % ', '.join(paper[:3])
+    if not kern:
+        return PAPER, 'the (W) list names no kernel`s files'
+    return LEAN_ONLY, 'the (W) list names a kernel`s files (%d patterns) and no path under %s of PLACE-papers' % (len(kern), ', '.join(PAPER_DIRS))
+
+
+def kind_of(act, root=None, patterns=None):
+    """dict(kind, why, version, rule): [K27]'s kind of an act, in force from b768, every act before it of the other kind; `patterns` read in
+    place of the act's (W) list (a planted list)."""
+    d = dict(version=KIND_VERSION, rule=KIND_RULE)
+    if not kind_in_force(act):
+        return dict(d, kind=PAPER, why='the kind is in force from b%d' % KIND_FROM)
+    k, why = kind_from_patterns(wlist_patterns(root or RELAY_ROOT, act) if patterns is None else patterns)
+    return dict(d, kind=k, why=why)
+
+
+def chain_quarters_run(act, root=None, kind=None):
+    """True where the act-root chain's four parts, standing-b2a to standing-b2d, run (an act of the other kind); False at LEAN AND NO PAPER,
+    where standing-b3 joins no half bank of theirs and G-ACTROOT-VERIFY reads standing-b3's half and the boundary."""
+    return (kind or kind_of(act, root))['kind'] != LEAN_ONLY
+
+
 # ================================================================================ the bank names, as the suite's writer composes them
 def text_name(act, mode, part):
     base = {'prerun': '%s_arms_prerun.txt', 'prev': '%s_prevrun.txt', 'pre-push': '%s_checks.txt', 'post-push': '%s_checks_postpush.txt'}[mode] % act
     return base.replace('.txt', '_%s.txt' % part)
 
 
+def lsr_of(act, tn):
+    """the remote reads' bank of a part bank named tn, as the suite's writer derives it (v1.38.27: from the name the suite gives)."""
+    return tn.replace('%s_arms_prerun' % act, '%s_lsr_prerun' % act).replace('%s_checks' % act, '%s_lsr' % act).replace('.txt', '.json')
+
+
 def lsr_name(act, mode, part):
-    return text_name(act, mode, part).replace('%s_arms_prerun' % act, '%s_lsr_prerun' % act).replace('%s_checks' % act, '%s_lsr' % act).replace('.txt', '.json')
+    return lsr_of(act, text_name(act, mode, part))
 
 
 def exercise_name(act, part, mode, tracked):
@@ -433,12 +508,23 @@ def _post_state(root, act, part, rts):
         part, len(rec.get('files') or {}), len(rec.get('blobs') or {}), len(rec.get('listings') or {}))
 
 
-def decide(act, part, mode, root, rts):
-    """dict(run, held, mode, part, why, source): the cadence's decision for one part run. Not in force before b757."""
+def decide(act, part, mode, root, rts, kind=None):
+    """dict(run, held, mode, part, why, source): the cadence's decision for one part run. Not in force before b757. v1.38.27, (R378)(8)
+    [K27]: at an act of the kind LEAN AND NO PAPER (from b768) standing-b2a to standing-b2d are not run in any mode and standing-b3's group
+    after the push is itself alone; `kind` read in place of the act's own (a planted kind, kind_of's dict)."""
     d = dict(run=True, held='run', mode=mode, part=part, why='', source=None, version=VERSION, rule=RULE, fit=FIT)
     if not in_force(act):
         d['why'] = 'the cadence is in force from b%d' % FROM_ACT
         return d
+    lean = False
+    if part in CHAIN_QUARTERS or part in CHAIN_GROUP:
+        kd = kind or kind_of(act, root)
+        lean = kd['kind'] == LEAN_ONLY
+        if lean and part in CHAIN_QUARTERS:
+            d.update(run=False, held='not run', kind=kd['kind'], kind_rule=KIND_RULE,
+                     why='%s, the act writes Lean and no paper (%s): the act-root chain`s four parts, standing-b2a to standing-b2d, not run in the '
+                         'mode %s; standing-b3 runs its own half with the boundary`s two lines read as before' % (KIND_RULE, kd['why'], mode))
+            return d
     if mode not in HELD_MODES:
         d['why'] = 'every part runs in the mode %s' % mode
         return d
@@ -467,7 +553,7 @@ def decide(act, part, mode, root, rts):
         d.update(run=False, held='not run', why='not a sitting (data/%s_ferry.txt: its title carries no SITTING): the pass in the previous act`s mode '
                                                 'held to the parts that keep their place' % act)
         return d
-    group = CHAIN_GROUP if part in CHAIN_GROUP else (part,)
+    group = CHAIN_GROUP if (part in CHAIN_GROUP and not lean) else (part,)   # ### v1.38.27 [K27]: standing-b3 alone at LEAN AND NO PAPER
     states = [(p, _post_state(root, act, p, rts)) for p in group]
     mine = dict(states)[part]
     if any(s[0] in ('run', 'ran') for _p, s in states):
@@ -502,9 +588,12 @@ def _footer_now(text, secs):
     return t.rstrip(NL).split(NL), int(m.group(10))
 
 
-def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, carried=()):
+def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, carried=(), text=None, ex_mode=None):
     """write a held part's banks under the mode's names; returns the exit code the part's run would return on the source's verdicts (0
-    clean; 4 where every live failure is a carried failure declared on the face and no control misbehaves; else 1)."""
+    clean; 4 where every live failure is a carried failure declared on the face and no control misbehaves; else 1). v1.38.27, (R378)(8)
+    [K27]: `text`, the part bank's name as the suite composes it (_part_name of its base: every mode's, mid and rerun among them), and
+    `ex_mode`, the exercise bank's mode as the suite writes it; a part not run writes its exercise bank in that mode (prev where not given in
+    the prev mode, as before)."""
     if d.get('run') or d.get('held') not in ('read', 'not run') or (d['held'] == 'read' and not d.get('source')):
         raise SystemExit('### THE CADENCE: held() CALLED WITH A DECISION THAT RUNS THE PART (%s, %s) -- NOTHING WRITTEN' % (d.get('held'), d.get('why')))
     t0 = t0 or time.time()
@@ -517,6 +606,9 @@ def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, ca
     bar = '=' * 104
     src = d.get('source') or {}
     cad = dict(version=VERSION, rule=RULE, fit=FIT, held=d['held'], why=d['why'], at=now)
+    if d.get('kind'):
+        cad.update(kind=d['kind'], kind_rule=d.get('kind_rule'), kind_version=KIND_VERSION)
+    tn = text or text_name(act, mode, part)
     if d['held'] == 'read':
         secs = time.time() - t0
         lines, src_secs = _footer_now(src['text'], secs)
@@ -538,17 +630,21 @@ def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, ca
         code = 0 if not (lf or df or nf) else (4 if (not df and nf == 0 and all(f in tuple(carried or ()) for f in lf)) else 1)
     else:
         secs = time.time() - t0
-        L = [bar, '%s -- THE SUITE. ### **ON %s`S BANKS.** ### PART %s ### NOT RUN BY THE CADENCE (%s, tools/standing/cadence.py %s).' % (
-                 act, prev_act(act), part, RULE, VERSION),
-             '### THE CADENCE: %s.' % d['why'], bar, '  (no arm run in this part at this act)', '',
+        if mode == 'prev':
+            h1 = '%s -- THE SUITE. ### **ON %s`S BANKS.** ### PART %s ### NOT RUN BY THE CADENCE (%s, tools/standing/cadence.py %s).' % (
+                act, prev_act(act), part, d.get('kind_rule') or RULE, KIND_VERSION if d.get('kind') else VERSION)
+        else:   # ### v1.38.27 [K27]: a part not run outside the prev mode, its reading named as the suite names it
+            h1 = '%s -- THE SUITE. ### **%s READING.** ### PART %s ### NOT RUN BY THE CADENCE (%s, tools/standing/cadence.py %s).' % (
+                act, SUITE_LABEL.get(mode, mode.upper()), part, d.get('kind_rule') or RULE, KIND_VERSION if d.get('kind') else VERSION)
+        L = [bar, h1, '### THE CADENCE: %s.' % d['why'], bar, '  (no arm run in this part at this act)', '',
              '  ### PART %s : ARMS 0 ; LIVE PASSING 0 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; '
              'DECLARED EQ RUN NOTRUN ; %d s ; WITHHELD, NOT EXERCISABLE 0 NONE' % (part, int(secs)), bar]
-        ex = dict(exercise={}, run=0, live_failing=[], defective=[], neg_failures=0, withheld=[], part=part, mode='prev', at=now, relay_head=head,
+        ex = dict(exercise={}, run=0, live_failing=[], defective=[], neg_failures=0, withheld=[], part=part,
+                  mode=ex_mode or {'rerun': 'post-push'}.get(mode, mode), at=now, relay_head=head,
                   pass_on_prev=[], fail_as_prev=[], diverge=[], not_run_by_prev=[], cadence=cad)
         code = 0
-    tn = text_name(act, mode, part)
     _put(os.path.join(d_dir, tn), (NL.join(L) + NL).encode('utf-8'), membrane)
-    ln = lsr_name(act, mode, part)
+    ln = lsr_of(act, tn)
     _put(os.path.join(d_dir, ln), (json.dumps(dict(run=tn, lsr={}, key=rc_key, times={}, classed=lsv[0], events=lsv[1], cadence=cad),
                                               indent=1, ensure_ascii=False) + NL).encode('utf-8'), membrane)
     en = exercise_name(act, part, ex['mode'], tracked)
@@ -585,6 +681,8 @@ def run_fields(d, reads):
 def show(act, root, rts):
     from importlib import import_module
     parts = import_module('%s_worklist' % act).PARTS
+    k = kind_of(act, root)
+    print('  THE KIND (%s, %s): %s -- %s' % (k['rule'], k['version'], k['kind'], k['why']))
     for mode in HELD_MODES:
         for p in parts:
             d = decide(act, p, mode, root, rts)

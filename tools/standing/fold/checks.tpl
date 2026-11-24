@@ -1357,15 +1357,20 @@ def root_last_ok(S):
 
 def verify_ok(S):
     """the chain recomputed at commit in parts: the first half's banked quarters (QUARTER_PARTS over KS.CHAIN_QUARTERS) and
-    standing-b3's second half (b659-⟪ACT⟫), every act AGREE, the boundary link equal, b680 read through its corrigendum row, ⟪ACT⟫ written LF."""
+    standing-b3's second half (b659-⟪ACT⟫), every act AGREE, the boundary link equal, b680 read through its corrigendum row, ⟪ACT⟫ written LF.
+    v1.38.27, (R378)(8) [K27]: at an act that writes Lean and no paper (tools/standing/cadence.py's kind) the four quarters are not run and
+    standing-b3's join marks its first half `quarters` False: the range read from the second half's first act, the boundary's two lines of
+    relay data/act_roots.txt read as before (standing-b3's own), and no first half's boundary asked."""
     ha = S['half_a'] or {}
+    kq = ha.get('quarters', True)
     v = [tuple(x[:2]) for x in (ha.get('acts') or [])] + [tuple(x[:2]) for x in (S['ar_verify'] or [])]
     r = dict(ha.get('reads') or {}, **(S['ar_reads'] or {}))
     af = AC.act_figures(act=ACT_NOW)   # ### v5 (ii): the range read now, through the act's own row where it stands (⟪PREV⟫'s literal stale)
-    return ha.get('head') == gs(ROOT, 'rev-parse', 'HEAD') and [x[0] for x in v] == ['b%d' % i for i in af['range']] \
+    want = ['b%d' % i for i in af['range'] if kq or i >= int(KS.CHAIN_HALVES[1][0][1:])]
+    return ha.get('head') == gs(ROOT, 'rev-parse', 'HEAD') and [x[0] for x in v] == want \
         and all(x[1] == 'AGREE' for x in v) and (r.get('b%d' % af['range_last']) or {}).get('crlf') == 0 and (r.get('b680') or {}).get('corrected') == 4 \
-        and (ha.get('boundary') or {}).get('equal') is True and S['boundary'].get('equal') is True \
-        and (ha.get('boundary') or {}).get('root') == S['boundary'].get('root')
+        and S['boundary'].get('equal') is True \
+        and (not kq or ((ha.get('boundary') or {}).get('equal') is True and (ha.get('boundary') or {}).get('root') == S['boundary'].get('root')))
 
 
 def unedited_all(S):
@@ -2087,7 +2092,7 @@ def combine():
         parts.append((part, m, t))
         heads.append(t.split(NL)[1] if len(t.split(NL)) > 1 else '')
     n, lp, lf, ng, pc, fails, defs, wh = _combine_tally(parts, withheld_field())
-    deq = all(m.group(9) == 'True' for _p, m, _t in parts)
+    deq = all(STC.part_declared(m) for _p, m, _t in parts)   # ### v1.38.27, (R378)(8) [K27]: a part the cadence did not run (NOTRUN, ARMS 0) read as declared
     nread = []   # ### v1.38.5, (R374)(5) [K16]: each part's own verdict from its remote-reads bank; NOT READ counted apart from a pass
     for p_, _m, _t in parts:
         lj_ = jl(_part_name(base, p_).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json')) or {}
@@ -2188,9 +2193,12 @@ def main():
     _CAD = __import__('standing.cadence', fromlist=['decide'])
     _cd = _CAD.decide('⟪ACT⟫', PART, _CAD.mode_of(PREV, PRERUN, MID, PROBE, RERUN, pushed), ROOT, _CAD.roots(ROOT, PP, PROJ))
     if not _cd['run']:
-        return _CAD.held(_cd, '⟪ACT⟫', ROOT, D, rc_key=RC_KEY, membrane=_membrane, t0=t_start, carried=CARRIED_FAILING)
+        # ### v1.38.27, (R378)(8) [K27]: a part not run at the act's kind writes its banks under the names this run gives (every mode's), its exercise bank in this run's mode
+        _hk = dict(text=_part_name(base, PART), ex_mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push') if _cd.get('kind') else {}
+        return _CAD.held(_cd, '⟪ACT⟫', ROOT, D, rc_key=RC_KEY, membrane=_membrane, t0=t_start, carried=CARRIED_FAILING, **_hk)
     _reads = _CAD.Reads(_CAD.roots(ROOT, PP, PROJ)).start() if _CAD.in_force('⟪ACT⟫') else None
-    if PART == 'standing-b3':   # ### v1.25.0, (⟪RUL⟫)(2)(iii), b744 events (2): the four chain parts' banks before b3, or b3 does not run
+    # ### v1.38.27, (R378)(8) [K27]: at an act that writes Lean and no paper the four chain parts are not run and standing-b3 joins no bank of theirs
+    if PART == 'standing-b3' and _CAD.chain_quarters_run('⟪ACT⟫', ROOT):   # ### v1.25.0, (⟪RUL⟫)(2)(iii), b744 events (2): the four chain parts' banks before b3, or b3 does not run
         _hb = [half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(KS.CHAIN_QUARTERS))]
         _ab = __import__('standing.repeat', fromlist=['b3_absent']).b3_absent(_hb, lambda n: os.path.exists(os.path.join(D, n)))
         if _ab:
@@ -2208,7 +2216,9 @@ def main():
     rec('=' * 104)
     S = sources(NEED[PART])
     S['pushed'] = pushed
-    if PART == 'standing-b3':
+    if PART == 'standing-b3' and not _CAD.chain_quarters_run('⟪ACT⟫', ROOT):   # ### v1.38.27, (R378)(8) [K27]: no first half joined; G-ACTROOT-VERIFY reads b3's half and the boundary
+        S['half_a'] = dict(head=gs(ROOT, 'rev-parse', 'HEAD'), acts=[], reads={}, boundary={}, quarters=False)
+    elif PART == 'standing-b3':
         jh = _JL_OWN or jl
         qs = [jh(half_bank('a%d' % (q + 1), _run_key(base))) for q in range(len(KS.CHAIN_QUARTERS))]
         heads = set(x.get('head') for x in qs)
@@ -2270,10 +2280,16 @@ def main():
         else:
             ha = S['half_a'] or {}
             rec('  ### the reads at commit, b680: %s ; %s: %s' % (S['ar_reads'].get('b680'), ACT_NOW, S['ar_reads'].get(ACT_NOW)))
-            rec('  ### THE FIRST HALF AS %s BANKED IT (relay %s): %d acts, AGREE %d, at HEAD %s (now %s), its boundary equal %s' % (
-                ', '.join(QUARTER_PARTS), ', '.join('data/' + half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(QUARTER_PARTS))),
-                len(ha.get('acts') or []), sum(1 for x in ha.get('acts') or [] if x[1] == 'AGREE'),
-                (ha.get('head') or '-')[:12], gs(ROOT, 'rev-parse', 'HEAD')[:12], (ha.get('boundary') or {}).get('equal')))
+            if not ha.get('quarters', True):   # ### v1.38.27, (R378)(8) [K27]
+                rec('  ### THE FIRST HALF, %s-%s, NOT RECOMPUTED AT THIS ACT`S KIND (%s, tools/standing/cadence.py %s, %s): %s not run; '
+                    'G-ACTROOT-VERIFY reads this part`s half, %s-%s, and the boundary`s two lines of relay data/act_roots.txt' % (
+                        KS.CHAIN_QUARTERS[0][0], KS.CHAIN_QUARTERS[-1][1], _CAD.KIND_RULE, _CAD.KIND_VERSION, _CAD.LEAN_ONLY,
+                        ', '.join(QUARTER_PARTS), span[0], span[1]))
+            else:
+                rec('  ### THE FIRST HALF AS %s BANKED IT (relay %s): %d acts, AGREE %d, at HEAD %s (now %s), its boundary equal %s' % (
+                    ', '.join(QUARTER_PARTS), ', '.join('data/' + half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(QUARTER_PARTS))),
+                    len(ha.get('acts') or []), sum(1 for x in ha.get('acts') or [] if x[1] == 'AGREE'),
+                    (ha.get('head') or '-')[:12], gs(ROOT, 'rev-parse', 'HEAD')[:12], (ha.get('boundary') or {}).get('equal')))
         write_half(key, _run_key(base), av, S['ar_reads'], span)
     sj = S['sealj'].get('tools') or {}
     rec('  ### THE SEALED TOOLS, recorded at the seal %s : %s' % (S['sealj'].get('at', '### NOT RECORDED'), '; '.join(

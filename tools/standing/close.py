@@ -171,10 +171,17 @@ def combine_tally(parts, W):
     return n, lp, lf, ng, pc, fails, defs, wh
 
 
+def part_declared(m):
+    """v1.38.27, (R378)(8) [K27]: a part's footer (PART_FOOT's match) read as declared equal to its run: DECLARED EQ RUN True, or NOTRUN with
+    no arm, the footer tools/standing/cadence.py writes for a part it did not run (the act-root chain's four quarters at an act that writes
+    Lean and no paper among them); a NOTRUN footer counting an arm is not."""
+    return bool(m) and (m.group(9) == 'True' or (m.group(9) == 'NOTRUN' and m.group(2) == '0'))
+
+
 def tally_lines(parts, W, carried):
     """the combine's three figure lines (arms, controls, verdict), in the form the combine prints them."""
     n, lp, lf, ng, pc, fails, defs, wh = combine_tally(parts, W)
-    deq = all(m.group(9) == 'True' for _p, m, _t in parts)
+    deq = all(part_declared(m) for _p, m, _t in parts)   # ### v1.38.27 [K27]: a part not run, ARMS 0 and NOTRUN, read as declared
     car = [f for f in fails if f in carried]
     ok = lf == len(car) and pc == 0 and ng == 0 and deq
     return dict(arms=n, passing=lp, failing=lf, fails=fails, neg=ng, pos=pc, defs=defs, withheld=wh, lines=[

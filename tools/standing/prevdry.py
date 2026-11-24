@@ -8,10 +8,15 @@ the foreground, one per call; the result banked as data/<act>_prevdry_<part>.jso
 read as not run. The lock gate (standing/prelock.py gate) reads every part of the act banked OK at the module's present blob, or is NOT CLEAR.
 Written at b744 by the Write tool.
 
-  python -X utf8 -u tools/standing/prevdry.py run <part>      one part, banked
+v1.38.27, (R378)(8) [K27]: at an act that writes Lean and no paper (tools/standing/cadence.py's kind) the act-root chain's four parts,
+standing-b2a to standing-b2d, are not run at the prev-mode dry: `run` sends none of them and banks nothing for it, and the gate (the lock
+gate's prev-mode read) prints each HELD and asks no bank of it, its reading held to the parts that run. At an act of the other kind the
+four are required as before.
+
+  python -X utf8 -u tools/standing/prevdry.py run <part>      one part, banked (a part held at the act's kind: nothing sent, nothing banked)
   python -X utf8 -u tools/standing/prevdry.py print           every part's bank read, nothing written
   exercise(act, part, module_text=None)                      the child's verdict, dict(ok, part, err, line, secs)
-  gate(act)                                                  (clear, lines), the lock gate's reading
+  gate(act, parts=None, kind=None)                           (clear, lines), the lock gate's reading; kind: cadence.kind_of's dict, planted
 """
 import hashlib
 import json
@@ -131,13 +136,32 @@ def write_bank(act, part, out):
     return p
 
 
-def gate(act, parts=None):
-    """(clear, lines): every part of the act banked, its sources() OK in prev mode, at the act module's present blob."""
+def _cadence():
+    if T not in sys.path:
+        sys.path.insert(0, T)
+    from standing import cadence as CD
+    return CD
+
+
+def held_parts(act, kind=None):
+    """(the parts held at the act's kind, the kind's dict): v1.38.27, (R378)(8) [K27], the four chain parts at LEAN AND NO PAPER, else none."""
+    CD = _cadence()
+    kd = kind or CD.kind_of(act, RELAY)
+    return (tuple(CD.CHAIN_QUARTERS) if kd['kind'] == CD.LEAN_ONLY else ()), kd
+
+
+def gate(act, parts=None, kind=None):
+    """(clear, lines): every part of the act banked, its sources() OK in prev mode, at the act module's present blob; v1.38.27 [K27]: a part
+    held at the act's kind printed HELD and asked no bank."""
     parts = tuple(parts or _cur().get('parts') or ())
+    hp, kd = held_parts(act, kind)
     blob = module_blob(act)
     L = ['  THE PRE-LOCK DRY IN PREV MODE ((R354)(2)(i)): every part`s sources() on the previous act`s banks, the act module at %s' % (blob or 'ABSENT')[:8]]
     bad = []
     for q in parts:
+        if q in hp:
+            L.append('    %-14s HELD, NOT RUN AT THIS ACT`S KIND (%s, %s): %s' % (q, kd.get('rule'), kd.get('kind'), kd.get('why')))
+            continue
         p = bank_path(act, q)
         if not os.path.exists(p):
             bad.append(q)
@@ -154,7 +178,9 @@ def gate(act, parts=None):
         else:
             L.append('    %-14s SOURCES OK in %s s (%s)' % (q, j.get('secs'), j.get('at')))
     clear = bool(parts) and not bad
-    L.append('  ### THE PREV-MODE DRY : %s (parts %d ; not clear %s)' % ('CLEAR' if clear else 'NOT CLEAR', len(parts), bad or 'NONE'))
+    hq = [q for q in parts if q in hp]
+    L.append('  ### THE PREV-MODE DRY : %s (parts %d ; not clear %s%s)' % ('CLEAR' if clear else 'NOT CLEAR', len(parts), bad or 'NONE',
+                                                                         ' ; held at the act`s kind %s' % hq if hq else ''))
     return clear, L
 
 
@@ -164,6 +190,10 @@ def main(argv):
     act = _cur()['act']
     if argv[:1] == ['run'] and len(argv) == 2:
         sys.path.insert(0, T)
+        hp, kd = held_parts(act)
+        if argv[1] in hp:   # ### v1.38.27, (R378)(8) [K27]: nothing sent, nothing banked
+            print('  %s %s: HELD, NOT RUN AT THIS ACT`S KIND (%s, %s) -- nothing sent, nothing banked: %s' % (act, argv[1], kd.get('rule'), kd.get('kind'), kd.get('why')))
+            return 0
         import b703_checks as C3
         fm = C3.free_mb()
         print('  free %s MB, the hold 2560 %s' % (fm, 'MET' if isinstance(fm, int) and fm >= 2560 else '### NOT MET'))
