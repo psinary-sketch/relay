@@ -131,6 +131,13 @@ v1.38.25, (R377)(8) [K25]: THE KERNEL ROUTE FOR b767. KERNEL_ACTS and FF_ACTS na
   branch removed", push-b766-proof kept at 3c67b8b5); SIDE-dirichlet-mod-24 stays closed ("no kernel touched beyond SIDE-explicit-formula");
   no file is named for a conflicted merge; PUSHTO_ACTS does not name b767.
 
+v1.38.26, (R378)(8) [K26]: THE KERNEL ROUTE FOR b768. KERNEL_ACTS and FF_ACTS named b757 to b767, so (4)'s branch push-b768-proof, cut
+  from push-b767-proof at 89fd5b54, its commits and the local main after the gated push were refused for b768 before anything was read.
+  b768 opens SIDE-explicit-formula in KERNEL_ACTS and FF_ACTS ("tools/standing/commit.py admits b768 to KERNEL_ACTS and FF_ACTS at
+  SIDE-explicit-formula"); RDELETE_ACTS and FORCED_DELETES name nothing for b768 ("RDELETE_ACTS names nothing for b768"; (12) "no kernel
+  branch removed", push-b767-proof kept at 89fd5b54 and push-b766-proof at 3c67b8b5); SIDE-dirichlet-mod-24 stays closed ("no kernel
+  touched beyond SIDE-explicit-formula"); no file is named for a conflicted merge; PUSHTO_ACTS does not name b768.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
@@ -171,7 +178,8 @@ KERNEL_ACTS = {'b757': ('SIDE-explicit-formula', 'SIDE-dirichlet-mod-24'),   # #
                'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): push-b764-runner made at main and its commit of the workflow's file; "there the workflow's file alone"
                'b765': ('SIDE-explicit-formula',),   # ### v1.38.21, (R375)(4), (5), (12) "no kernel touched beyond SIDE-explicit-formula": push-b765-centre cut from push-b764-runner, push-b765-planted from it, the files of (5), print_targets.txt and the workflow's file (the seat's read of (11), data/b765_misses.txt (2))
                'b766': ('SIDE-explicit-formula',),   # ### v1.38.22, (R376)(7) [K22], (4), (11) "no kernel touched beyond SIDE-explicit-formula": push-b766-proof cut from main at 0ba9cd61, the files of (4) in the kernel's source folder and print_targets.txt; the local delete of push-b765-planted by FORCED_DELETES
-               'b767': ('SIDE-explicit-formula',)}   # ### v1.38.25, (R377)(8) [K25], (4), (12) "no kernel touched beyond SIDE-explicit-formula": push-b767-proof cut from push-b766-proof at 3c67b8b5, the files of (4) in the kernel's source folder, print_targets.txt and, under (5), the workflow's file
+               'b767': ('SIDE-explicit-formula',),   # ### v1.38.25, (R377)(8) [K25], (4), (12) "no kernel touched beyond SIDE-explicit-formula": push-b767-proof cut from push-b766-proof at 3c67b8b5, the files of (4) in the kernel's source folder, print_targets.txt and, under (5), the workflow's file
+               'b768': ('SIDE-explicit-formula',)}   # ### v1.38.26, (R378)(8) [K26], (4), (12) "no kernel touched beyond SIDE-explicit-formula": push-b768-proof cut from push-b767-proof at 89fd5b54, the files of (4) in the kernel's source folder and print_targets.txt
 NAMED_CONFLICTS = {'b757': {'SIDE-explicit-formula': ('print_targets.txt',)},   # ### (R367)(4): "the one file this ruling names for (3)'s conflicted merge"
                    'b758': {'SIDE-explicit-formula': ('print_targets.txt',)}}   # ### v1.35.9, (R368)(5): "One file is named for a conflicted merge: print_targets.txt"
 # ### v1.36.0, (R368)(6)(i): `ff main`, a kernel's local main fast-forwarded to its remote's main, opened act by act by its own table and
@@ -182,7 +190,8 @@ FF_ACTS = {'b758': ('SIDE-dirichlet-mod-24', 'SIDE-explicit-formula'),
            'b764': ('SIDE-explicit-formula',),   # ### v1.38.18, (R374)(7): the local main following the remote's after the gated push moves main on the trial's success alone
            'b765': ('SIDE-explicit-formula',),   # ### v1.38.21, (R375)(4): the local main following the remote's after the gated push moves main under the HELD outcome alone
            'b766': ('SIDE-explicit-formula',),   # ### v1.38.22, (R376)(7) [K22], (4): the local main following the remote's after the gated push moves main to the closing Lean commit on equal axioms files alone
-           'b767': ('SIDE-explicit-formula',)}   # ### v1.38.25, (R377)(8) [K25], (4): the local main following the remote's after the gated push moves main to the closing Lean commit on equal axioms files alone
+           'b767': ('SIDE-explicit-formula',),   # ### v1.38.25, (R377)(8) [K25], (4): the local main following the remote's after the gated push moves main to the closing Lean commit on equal axioms files alone
+           'b768': ('SIDE-explicit-formula',)}   # ### v1.38.26, (R378)(8) [K26], (4): the local main following the remote's after the gated push moves main to the closing Lean commit on equal axioms files alone
 # ### v1.36.1, (R368)(6)(ii): `pushto <commit> <branch>`, a named commit pushed to a named non-main branch of a kernel, not forced, opened act by
 # ### act by its own table -- "It has no use in this act once (5) lands, zq-b730 staying at 1e658870; it is built for the acts after": none opened
 PUSHTO_ACTS = {}
@@ -203,6 +212,8 @@ RDELETE_ACTS = {'b759': {'SIDE-explicit-formula': ('push-b757-join', 'push-b757-
 FORCED_DELETES = {'b766': {'SIDE-explicit-formula': ('push-b765-planted',)}}
 # ### v1.38.25, (R377)(8) [K25]: "RDELETE_ACTS names nothing for b767" -- neither table is given b767, so the removal at a remote and the forced
 # ### local delete refuse every name for b767, push-b766-proof among them ((12) "no kernel branch removed")
+# ### v1.38.26, (R378)(8) [K26]: "RDELETE_ACTS names nothing for b768" -- neither table is given b768, so the removal at a remote and the forced
+# ### local delete refuse every name for b768, push-b767-proof and push-b766-proof among them ((12) "no kernel branch removed")
 NOREPLY = '@users.noreply.github.com'
 REPOS.update(KERNELS)
 if S not in sys.path:
