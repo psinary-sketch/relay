@@ -100,6 +100,7 @@ KPATH = CT.KERNELS[EF]
 WORKFLOW = 'build-module.yml'
 BRANCH = K.WEIL_BRANCH[0]  # ### push-b768-proof, (R378)(4)
 BASE_PROOF = K.WEIL_BRANCH_BASE   # ### 89fd5b54, push-b767-proof's commit and main's, the branch's base ((R378)(4), (9)): read from the worklist's WEIL_BRANCH_BASE, as b767's tool read its own after its WEIL_BRANCH[1] took the tip (data/b767_events.txt (111))
+E0_TRIAL = 'e0baa6677f5c240acf5d8b802269e7e99ae6f004'   # ### b768's dispatch 1 (run 45439584241), read by the control of b768 (65) alone
 TRIAL_COMMIT = 'f6f60590454d1a03847ced5067aba22ba28ebe1d'   # ### b767's trial commit, its opening Lean commit (route (i) alone): read by this tool's controls alone, b768 sending no trial ((R378)(4))
 NO_ROUTE_COMMIT = '3c67b8b5'   # ### push-b766-proof's commit: the eight cache steps and no route (i), the controls' planted fault of the workflow's predicates
 WF = '.github/workflows/build-module.yml'
@@ -604,12 +605,54 @@ def full_names(repo, rev, path, last):
     return out
 
 
-def ns_declaring(repo, rev, mods, n):
+OPEN_LINE = re.compile(r'^\s*open\s+(.*)$')
+OPEN_STOP = ('in', 'hiding', 'renaming', 'scoped', 'private', 'public')
+
+
+def file_opens(text):
+    """b768 (data/b768_events.txt (65)): the namespaces an unqualified name of the file resolves in: the root (''), each namespace open in
+    the file by its `namespace` lines with each of its prefixes, and each name an `open` line opens, alone and joined to those namespaces.
+    Read wide: a namespace too many makes the reading find more declarations, so it can refuse less, never more."""
+    ops, stack, scopes = set(['']), [], []
+    for l in strip_comments(text).split(NL):
+        m = SCOPE_OPEN.match(l)
+        if m:
+            parts = m.group(2).split('.') if m.group(1) == 'namespace' and m.group(2) else []
+            scopes.append(parts)
+            stack = [p for s in scopes for p in s]
+            for k in range(1, len(stack) + 1):
+                ops.add('.'.join(stack[:k]))
+            continue
+        if SCOPE_END.match(l):
+            if scopes:
+                scopes.pop()
+            stack = [p for s in scopes for p in s]
+            continue
+        o = OPEN_LINE.match(l)
+        if o:
+            for w in re.findall(r"[A-Za-z_][A-Za-z0-9_'.]*", o.group(1).split('(')[0]):
+                if w in ('in', 'hiding', 'renaming'):
+                    break
+                if w in OPEN_STOP:
+                    continue
+                ops.add(w)
+                for k in range(1, len(stack) + 1):
+                    ops.add('.'.join(stack[:k] + [w]))
+    return ops
+
+
+def ns_declaring(repo, rev, mods, n, opens=None):
     """the modules of `mods` whose file declares the qualified name n: a declaration whose full name is n or ends in `.n` (a name written
     from inside one of its namespaces). A declaration of n's last word in another namespace is not read as declaring n. An unqualified
-    name keeps every module, as before."""
-    if '.' not in n or not mods:
+    name with the file's `opens` read (b768 (65)): a declaration whose full name is n at the root or n in a namespace the file opens; with
+    no `opens`, every module, as before."""
+    if not mods:
         return set(mods)
+    if '.' not in n:
+        if opens is None:
+            return set(mods)
+        want = set(n if p == '' else p + '.' + n for p in opens)
+        return set(m for m in mods if (repo, m) in _MPATH and any(f in want for f in full_names(repo, rev, _MPATH[(repo, m)], n)))
     last = n.rsplit('.', 1)[1]
     return set(m for m in mods if (repo, m) in _MPATH and any(f == n or f.endswith('.' + n) for f in full_names(repo, rev, _MPATH[(repo, m)], last)))
 
@@ -626,20 +669,22 @@ def text_found(mrev, lasts):
     return found
 
 
-def names_reading(added, imports, sha, mrev, kg, mg, own=None):
+def names_reading(added, imports, sha, mrev, kg, mg, own=None, opens=None):
     """the names a file's added lines newly carry: each found by a text search of the pinned Mathlib's source or printed as not found
     ((R378)(4)); and each Mathlib declaration read against the file's own import closure (b763 (i), b767 (h)): in it, only outside it, or no
     declaration line found (a name made by an attribute, a local, a field: printed, never refused). b767 (k): each name the kernel declares
     read against the file's own module and its kernel closure; one declared in the kernel only outside them, and by no Mathlib module
     within the closure, kept in kernel_outside. The added lines read past their comments as one text first, so a block comment over
     several lines names nothing (b767 (k)). b768 (data/b768_events.txt (61)): a qualified name, in the kernel and in Mathlib, declared
-    only by a declaration whose full name is it or ends in it (ns_declaring), not by one of its last word in another namespace."""
+    only by a declaration whose full name is it or ends in it (ns_declaring), not by one of its last word in another namespace. b768 (65):
+    with the file's `opens` (file_opens), an unqualified name declared only by a declaration at the root or in a namespace the file opens,
+    so an unqualified Mathlib name so declared only outside the closure is refused by presend, as a qualified one is."""
     added = strip_comments(NL.join(added)).split(NL)
     q, s = qnames(added), snakes(added)
     names = q + [x for x in s if x not in set(n.split('.')[-1] for n in q)]
     last = dict((n, n.split('.')[-1]) for n in names)
     kd = decl_hits(KPATH, sha, sorted(set(last.values())), ['*.lean'], kmodule)
-    km = dict((n, ns_declaring(KPATH, sha, kd.get(last[n]) or set(), n)) for n in names)   # ### b768 (61): a qualified name by its namespaces
+    km = dict((n, ns_declaring(KPATH, sha, kd.get(last[n]) or set(), n, opens)) for n in names)   # ### b768 (61), (65): by its namespaces
     kernel = sorted(n for n in names if km[n])
     rest = [n for n in names if n not in kernel]
     kclo = kernel_closure(imports, kg) | ({own} if own else set())
@@ -648,7 +693,7 @@ def names_reading(added, imports, sha, mrev, kg, mg, own=None):
     ml = sorted(set(rl) | set(last[n] for n in kout))
     fl = text_found(mrev, rl) if mrev and rl else set()
     md = decl_hits(MATHLIB, mrev, ml, MATHLIB_SPEC, mmodule) if mrev and ml else {}
-    mm = dict((n, ns_declaring(MATHLIB, mrev, md.get(last[n]) or set(), n)) for n in rest + kout) if md else {}
+    mm = dict((n, ns_declaring(MATHLIB, mrev, md.get(last[n]) or set(), n, opens)) for n in rest + kout) if md else {}
     clo = mathlib_closure(imports, kg, mg)
     out = dict(qualified=q, snake=[x for x in names if x not in q], kernel=kernel, found=sorted(n for n in rest if last[n] in fl),
                not_found=sorted(n for n in rest if last[n] not in fl), in_closure=[], outside={}, undeclared=[], closure=len(clo),
@@ -698,7 +743,7 @@ def presend(sha):
     agg = dict(qualified=0, snake=0, kernel=0, found=0, not_found=[], in_closure=0, outside={}, undeclared=[], kernel_outside={})
     for p in changed:
         added = [l[1:] for l in git(KPATH, 'diff', '-U0', BASE_PROOF, sha, '--', p).split(NL) if l.startswith('+') and not l.startswith('+++')]
-        r = names_reading(added, file_imports(files[p]), sha, mrev, kg, mg, own=kmodule(p))
+        r = names_reading(added, file_imports(files[p]), sha, mrev, kg, mg, own=kmodule(p), opens=file_opens(files[p]))
         for n, mods in r['kernel_outside'].items():
             agg['kernel_outside']['%s (%s)' % (n, p.replace(LEAN_DIR, ''))] = mods
             refusals.append('%s: %s declared in the kernel only outside the file`s import closure (%s), b767 (k)' % (
@@ -709,8 +754,8 @@ def presend(sha):
         agg['undeclared'] += r['undeclared']
         for n, mods in r['outside'].items():
             agg['outside']['%s (%s)' % (n, p.replace(LEAN_DIR, ''))] = mods
-            if n in r['qualified']:
-                refusals.append('%s: %s declared in Mathlib only outside the file`s import closure (%s)' % (p.replace(LEAN_DIR, ''), n, ', '.join(mods)))
+            # ### b768 (65): an unqualified name refused too, read at the root and the file's opens (run 45439584241: abs_mul, Packed.lean :182)
+            refusals.append('%s: %s declared in Mathlib only outside the file`s import closure (%s)' % (p.replace(LEAN_DIR, ''), n, ', '.join(mods)))
     agg['not_found'] = sorted(set(agg['not_found']))[:60]
     agg['undeclared'] = sorted(set(agg['undeclared']))[:60]
     rep['names'] = agg
@@ -1501,6 +1546,28 @@ def controls():
       'word alone, the reading replaced, finds a declaration of sum_congr and of cons_append in Mathlib and of sum_comm in the kernel, each '
       'in another namespace ; the control above still reading Real.sinh_nonneg_iff declared only outside', nsr,
       nsr == ([], [], [], ['Finset.sum_comm', 'Finset.sum_congr', 'List.cons_append', 'List.length_cons'], True, True, True))
+    # ### b768 (data/b768_events.txt (65)): run 45439584241 broke on Packed.lean :182, `abs_mul` unknown, its module outside the file's closure
+    pk_imp = ['Mathlib.Algebra.BigOperators.Intervals', 'Mathlib.Algebra.BigOperators.Ring.Finset', 'Mathlib.Algebra.Order.BigOperators.Group.Finset',
+              'Mathlib.Data.List.GetD', 'Mathlib.Tactic.Linarith', 'Mathlib.Tactic.Ring']
+    pk_ops = file_opens(NL.join(['namespace SIDEExplicitFormula', 'namespace Window', 'theorem planted : True := trivial', 'end Window',
+                                 'end SIDEExplicitFormula']))
+    la = ['    · rw [abs_mul]', '    exact le_trans (abs_nonneg _) h']
+    own26 = 'SIDEExplicitFormula.Window.PlantedB768'
+    ua = names_reading(la, pk_imp, TRIAL_COMMIT, mrev0, kg0, mg0, own=own26, opens=pk_ops)
+    ub = names_reading(la, pk_imp + ['Mathlib.Algebra.Order.Ring.Abs'], TRIAL_COMMIT, mrev0, kg0, mg0, own=own26, opens=pk_ops)
+    uc = names_reading(la, pk_imp, TRIAL_COMMIT, mrev0, kg0, mg0, own=own26)
+    ops2 = file_opens(NL.join(['namespace A.B', 'open Finset Real in', 'open Nat (succ_le)', 'end A.B', 'open List hiding foo']))
+    pr26, _rp26 = presend(E0_TRIAL)
+    ur = (sorted(ua['outside'].items()), 'abs_nonneg' in ua['outside'], ub['in_closure'], 'abs_mul' in uc['outside'], 'abs_mul' in uc['qualified'],
+          sorted(ops2), pr26)
+    c('THE UNQUALIFIED NAME READ AT THE ROOT AND THE FILE`S OPENS, b768 (65), at the trial commit and the pinned Mathlib: `abs_mul` under '
+      'Packed.lean`s six imports read declared only outside (in Mathlib.Algebra.Order.Ring.Abs) and so refused, `abs_nonneg` not ; with that '
+      'module imported, within ; THE READING REPLACED (no opens): abs_mul not read outside, or unqualified, so not refused, as at e0baa667 ; '
+      'the opens of a planted file (its namespaces with their prefixes, the names its open lines open, alone and joined) ; THE CHECKS AT '
+      'e0baa667 refusing Packed.lean`s abs_mul and nothing else', ur,
+      ur[0] == [('abs_mul', ['Mathlib.Algebra.Order.Ring.Abs'])] and not ur[1] and ur[2] == ['abs_mul'] and not (ur[3] and ur[4])
+      and ur[5] == ['', 'A', 'A.B', 'A.B.Finset', 'A.B.Nat', 'A.B.Real', 'A.Finset', 'A.Nat', 'A.Real', 'Finset', 'List', 'Nat', 'Real']
+      and len(pr26) == 1 and 'Packed.lean: abs_mul declared in Mathlib only outside' in pr26[0])
     mrev = mathlib_rev(TRIAL_COMMIT)
     mf = (bool(mathlib_found(mrev, 'hasSum_log_one_add_inv')), bool(mathlib_found(mrev, 'eulerMascheroniSeq')),
           bool(mathlib_found(mrev, 'no_such_name_planted_by_b768')))
