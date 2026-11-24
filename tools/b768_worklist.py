@@ -474,7 +474,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b768.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.38.25'            # ### entering; (R378)(8) moves tools/standing/ by three commits ([K26], [K27], [K28]), VERSION with each, and nowhere else ((R378)(11)); set at the close
+STANDING_VERSION = 'v1.38.28'            # ### (R378)(8) moved tools/standing/ by three commits ([K26] v1.38.26 relay 70aefe23, [K27] v1.38.27 690c4238, [K28] v1.38.28 a7d37ec2; steps 10, 13 and 17), VERSION with each, and nowhere else ((R378)(11))
 STANDING_VERSION_ENTERING = 'v1.38.25'
 LEAN_TREES = (('D:/SIDE-explicit-formula', '89fd5b54'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R378) SCOPE READ's and readfirst's Lean pins: main at v0.45 (89fd5b54, push-b767-proof's tip and push-b768-proof's base by (4): the Window files, ControlFailureExists.lean, C2Walk.lean, C2Theorem.lean and the workflow); SIDE-dirichlet-mod-24 at v0.2.0, untouched (N5); SIDE-kernel unmoved
 # ### b764 step zero (17:3xZ, after the citation check's dry halted on two Lean paths): the trees are the pins (R374)'s SCOPE READ names for
@@ -501,7 +501,7 @@ B714_RECORD = 'bb11b77c'     # ### b767's record commit (relay)
 B714_ROOT = '7cb2c9c7fa0a81915c3cd96ac6d7ef9375939088add84c43acc4086236ffc5af'   # ### b767's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = 'b93d2658'  # ### b767's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### (R378)(8): [K26], [K27] and [K28] in Component 1 before the opening pass, three commits, VERSION with each; set as made
+C1_STANDING = ('70aefe23', '690c4238', 'a7d37ec2')   # ### (R378)(8): [K26], [K27] and [K28] in Component 1 before the opening pass, three commits, VERSION with each (steps 10, 13 and 17, 14:37:37Z-15:17:07Z); a tuple, as checks 9 reads it (b765's form)
 C1_LOCKGATE = ''     # ### b768: tools/b768_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B767 = '78a259ea'     # ### b767: tools/b767_lockgate.py carried and its cite set, committed before any run with the face and probe-path tools (step 65, 18:47:36Z); in CHAIN too (b764's trap)
 C1_LOCKGATE_B766 = '72733b77'     # ### b766: tools/b766_lockgate.py carried and its cite set, committed before any run with the face and probe-path tools (step 68, 18:17:59Z); in CHAIN too (b764's trap). The carry had left b765's d03be64e
@@ -700,7 +700,10 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b767_repair_cont
 # ### b766's keys stand in git at tools/b766_worklist.py
 # ### b768, Component 1 (the Edit tool): the act's relay commits after step zero's banks (850b09d5, step 4), in their order, each read from
 # ### its step row (steps 5 and 7), appended as made; b767's stands in git at tools/b767_worklist.py
-CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'))
+CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
+         ('k26_ctl', 'c17aaf34'), ('k26', '70aefe23'), ('k26_row', 'ec61c120'),
+         ('k27_ctl', '279e11fa'), ('k27', '690c4238'), ('k27_row', 'b5e8b01c'),
+         ('k28_ctl', '2421d857'), ('k28_ctl_fix', 'd7c06a39'), ('k28', 'a7d37ec2'), ('k28_row', 'ea46d65a'))   # ### steps 8-18, each from its step row
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -847,7 +850,8 @@ CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b767`s findings after its lock and
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = ()   # ### b768 (R378)(8): [K26], [K27] and [K28], (key, version, commit, its control's commit, the control's rows), set as made
+STANDING_REPAIRS = (('[K26]', 'v1.38.26', '70aefe23', 'ec61c120', 31), ('[K27]', 'v1.38.27', '690c4238', 'b5e8b01c', 62),
+                    ('[K28]', 'v1.38.28', 'a7d37ec2', 'ea46d65a', 81))   # ### b768 (R378)(8): [K26], [K27] and [K28], each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b768_repair_controls.txt), read from the step rows (steps 10-11, 13-14, 17-18) and the controls bank's feet
 STANDING_REPAIRS_B767 = (('[K25]', 'v1.38.25', '374c1e80', '2a128592', 31),)   # ### b767 (R377)(8): [K25] alone, (key, version, commit, the commit carrying its row and its control, the control's verdict line) (steps 11 and 12)
 STANDING_REPAIRS_B766 = (('[K22]', 'v1.38.22', 'b7c3ed87', '4e6d52ce', 31), ('[K23]', 'v1.38.23', 'd91f1093', 'd09d93ab', 43),
                     ('[K24]', 'v1.38.24', '751b9e7a', 'd4b10aa0', 67))   # ### b766 step zero, (R376)(7), (8): the keys [K22], [K23] and [K24] in place of [K20] and [K21], each (key, version, commit, the commit carrying its row and its control, the control's verdict line) set as made

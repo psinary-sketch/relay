@@ -1159,10 +1159,11 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     the one standing commit of (8) before its row, the certificate and the plan before the dispatch tool and the opening dispatch, the
     registration before the window's tool, each act tool before its bank, each group of the rulings tool's OPEN_TRAILS commit and its
     relay banks after it), then the handoff page and the lock gate where made, each placed by its time ([K21]); by ancestry within the
-    relay through each commit of _chain; the act's commits under tools/standing/ the one of K.STANDING_REPAIRS and no other ((R378)(11):
-    (8) alone moves tools/standing/), moving tools/standing/VERSION to its version, its row's commit carrying the controls bank, and the
-    control's verdict line, "[K] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.", at its line in the controls bank at
-    HEAD and in that bank's blob at the row's commit."""
+    relay through each commit of _chain; the act's commits under tools/standing/ the three of K.STANDING_REPAIRS and no other ((R378)(11):
+    (8) alone moves tools/standing/, by [K26], [K27] and [K28], three commits), each moving tools/standing/VERSION to its version, its row's
+    commit carrying the controls bank, and the control's verdict line, "[K] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER:
+    True.", at its line in the controls bank at HEAD and in that bank's blob at the row's commit. b768, Component 1 (the Edit tool): the
+    count of keys set from b767's one to (R378)(9)'s three, found by the readers' search ahead of STANDING_REPAIRS' setting."""
     t_ = S['t']
     ks_ = STANDING_ACT.keys_in_time(K.TIME_ORDER, [k_ for k_, _h in S['r366_chain'] if k_ in ('passed', 'handoff', 'lockgate')], t_)   # ### b765, [K21] (v1.38.20): the tail keys by their times
     sr_ = []
@@ -1174,7 +1175,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     st_ = [h_[:8] for h_ in S['st_commits'] or []] == [c_[:8] for _k, _v, c_, _r, _l in K.STANDING_REPAIRS]
     return all(t_.get(k_) for k_ in ks_) and [t_[k_] for k_ in ks_] == sorted(t_[k_] for k_ in ks_) \
         and bool(S['anc']) and len(S['anc']) == len(S['r366_chain']) - 1 and all(v is True for v in S['anc'].values()) \
-        and len(sr_) == len(K.STANDING_REPAIRS) == 1 and all(sr_) and st_
+        and len(sr_) == len(K.STANDING_REPAIRS) == 3 and all(sr_) and st_
 #⟪END⟫
 #⟪SECTION checks 34⟫
     """(R378)(3)-(8), (12), N2, N3 (the name the frozen run list carries): each tool of K.GENS first added by a commit of its own, every
