@@ -566,7 +566,52 @@ def decl_hits(repo, rev, lasts, pathspec, name_of):
             for x in ch:
                 if re.search(r"\b%s\s+(?:\S*\.)?%s(?:[^A-Za-z0-9_'!?.]|$)" % (DECL_KW, re.escape(x)), text):
                     out[x].add(name_of(path))
+                    _MPATH[(repo, name_of(path))] = path
     return out
+
+
+# ### b768 (data/b768_events.txt (59), (61)): a qualified name read against each declaration's full name, the namespaces open at its line
+# ### read from the file's scope lines; before this, a declaration of the same last word in another namespace was read as declaring it
+# ### (SkewMonoidAlgebra's sum_congr as Finset.sum_congr, made by @[to_additive] with no declaration line of its own; Stream'.Seq's
+# ### cons_append as core's List.cons_append; the kernel's Schema.Family.sum_comm as Finset.sum_comm), and the trial was refused for them
+_MPATH, _FULL = {}, {}
+SCOPE_OPEN = re.compile(r'^\s*(?:@\[[^\]\n]*\]\s*)?(?:(?:noncomputable|public|private|meta)\s+)*(namespace|section|mutual)\b[ \t]*(\S*)')
+SCOPE_END = re.compile(r'^\s*end\b')
+
+
+def full_names(repo, rev, path, last):
+    """the full names of the file's declarations of `last` at rev: the namespaces open at each declaration line (from the file's
+    `namespace`, `section`, `mutual` and `end` lines past its comments) joined to the name as written; a name written from `_root_.` as
+    written."""
+    key = (repo, rev, path)
+    if key not in _FULL:
+        _FULL[key] = strip_comments(git(repo, 'show', '%s:%s' % (rev, path)))
+    pat = re.compile(r"\b%s\s+((?:[^\s:(\[{⦃]*\.)?%s)(?:[^A-Za-z0-9_'!?.]|$)" % (DECL_KW, re.escape(last)))
+    stack, out = [], set()
+    for l in _FULL[key].split(NL):
+        m = SCOPE_OPEN.match(l)
+        if m:
+            stack.append(m.group(2).split('.') if m.group(1) == 'namespace' and m.group(2) else [])
+            continue
+        if SCOPE_END.match(l):
+            if stack:
+                stack.pop()
+            continue
+        d = pat.search(l)
+        if d:
+            w = d.group(2)
+            out.add(w[len('_root_.'):] if w.startswith('_root_.') else '.'.join([p for s in stack for p in s] + [w]))
+    return out
+
+
+def ns_declaring(repo, rev, mods, n):
+    """the modules of `mods` whose file declares the qualified name n: a declaration whose full name is n or ends in `.n` (a name written
+    from inside one of its namespaces). A declaration of n's last word in another namespace is not read as declaring n. An unqualified
+    name keeps every module, as before."""
+    if '.' not in n or not mods:
+        return set(mods)
+    last = n.rsplit('.', 1)[1]
+    return set(m for m in mods if (repo, m) in _MPATH and any(f == n or f.endswith('.' + n) for f in full_names(repo, rev, _MPATH[(repo, m)], last)))
 
 
 def text_found(mrev, lasts):
@@ -587,26 +632,29 @@ def names_reading(added, imports, sha, mrev, kg, mg, own=None):
     declaration line found (a name made by an attribute, a local, a field: printed, never refused). b767 (k): each name the kernel declares
     read against the file's own module and its kernel closure; one declared in the kernel only outside them, and by no Mathlib module
     within the closure, kept in kernel_outside. The added lines read past their comments as one text first, so a block comment over
-    several lines names nothing (b767 (k))."""
+    several lines names nothing (b767 (k)). b768 (data/b768_events.txt (61)): a qualified name, in the kernel and in Mathlib, declared
+    only by a declaration whose full name is it or ends in it (ns_declaring), not by one of its last word in another namespace."""
     added = strip_comments(NL.join(added)).split(NL)
     q, s = qnames(added), snakes(added)
     names = q + [x for x in s if x not in set(n.split('.')[-1] for n in q)]
     last = dict((n, n.split('.')[-1]) for n in names)
     kd = decl_hits(KPATH, sha, sorted(set(last.values())), ['*.lean'], kmodule)
-    kernel = sorted(n for n in names if kd.get(last[n]))
+    km = dict((n, ns_declaring(KPATH, sha, kd.get(last[n]) or set(), n)) for n in names)   # ### b768 (61): a qualified name by its namespaces
+    kernel = sorted(n for n in names if km[n])
     rest = [n for n in names if n not in kernel]
     kclo = kernel_closure(imports, kg) | ({own} if own else set())
-    kout = [n for n in kernel if not (kd[last[n]] & kclo)]
+    kout = [n for n in kernel if not (km[n] & kclo)]
     rl = sorted(set(last[n] for n in rest))
     ml = sorted(set(rl) | set(last[n] for n in kout))
     fl = text_found(mrev, rl) if mrev and rl else set()
     md = decl_hits(MATHLIB, mrev, ml, MATHLIB_SPEC, mmodule) if mrev and ml else {}
+    mm = dict((n, ns_declaring(MATHLIB, mrev, md.get(last[n]) or set(), n)) for n in rest + kout) if md else {}
     clo = mathlib_closure(imports, kg, mg)
     out = dict(qualified=q, snake=[x for x in names if x not in q], kernel=kernel, found=sorted(n for n in rest if last[n] in fl),
                not_found=sorted(n for n in rest if last[n] not in fl), in_closure=[], outside={}, undeclared=[], closure=len(clo),
                kernel_outside={}, kclosure=len(kclo))
     for n in rest:
-        mods = md.get(last[n]) or set()
+        mods = mm.get(n) or set()
         if not mods:
             out['undeclared'].append(n)
         elif mods & clo:
@@ -614,8 +662,8 @@ def names_reading(added, imports, sha, mrev, kg, mg, own=None):
         else:
             out['outside'][n] = sorted(mods)[:3]
     for n in kout:
-        if not ((md.get(last[n]) or set()) & clo):
-            out['kernel_outside'][n] = sorted(kd[last[n]])[:3]
+        if not ((mm.get(n) or set()) & clo):
+            out['kernel_outside'][n] = sorted(km[n])[:3]
     return out
 
 
@@ -1441,6 +1489,18 @@ def controls():
       'own module within ; the closure through KappaClosed wider than KValues`s ; three names in a block comment over two lines, none read',
       kcl, kcl[0] == [('cubicB_eq_sum', ['SIDEExplicitFormula.Window.KappaClosed'])] and kcl[1] == ['cubicB_eq_sum'] and kcl[2] == []
       and kcl[3] == [] and kcl[4] and kcl[5] == ([], [], [], []))
+    ln = ['  refine Finset.sum_congr rfl (fun i _ => ?_)', '  rw [List.cons_append, List.length_cons, Finset.sum_comm]']
+    rn = names_reading(ln, ['Mathlib.Algebra.BigOperators.Intervals'], TRIAL_COMMIT, mrev0, kg0, mg0, own='SIDEExplicitFormula.Window.PlantedB768')
+    lw = decl_hits(MATHLIB, mrev0, ['sum_congr', 'cons_append'], MATHLIB_SPEC, mmodule)
+    kw = decl_hits(KPATH, TRIAL_COMMIT, ['sum_comm'], ['*.lean'], kmodule)
+    nsr = (sorted(rn['outside']), sorted(rn['kernel_outside']), rn['kernel'], sorted(rn['undeclared']), bool(lw['sum_congr']),
+           bool(lw['cons_append']), bool(kw['sum_comm']))
+    c('THE NAMESPACE READING, b768 (data/b768_events.txt (61)), at the trial commit and the pinned Mathlib on one planted file importing '
+      'BigOperators.Intervals: Finset.sum_congr and Finset.sum_comm (each made by @[to_additive] with no declaration line of its own) and '
+      'List.cons_append and List.length_cons (core`s) read with no declaration found, none refused and none the kernel`s ; where the last '
+      'word alone, the reading replaced, finds a declaration of sum_congr and of cons_append in Mathlib and of sum_comm in the kernel, each '
+      'in another namespace ; the control above still reading Real.sinh_nonneg_iff declared only outside', nsr,
+      nsr == ([], [], [], ['Finset.sum_comm', 'Finset.sum_congr', 'List.cons_append', 'List.length_cons'], True, True, True))
     mrev = mathlib_rev(TRIAL_COMMIT)
     mf = (bool(mathlib_found(mrev, 'hasSum_log_one_add_inv')), bool(mathlib_found(mrev, 'eulerMascheroniSeq')),
           bool(mathlib_found(mrev, 'no_such_name_planted_by_b768')))
