@@ -302,6 +302,13 @@ def target_names(num, gam):
     return out
 
 
+def doc_before_option(text):
+    """The doc comments standing directly above a `set_option ... in` line, which Lean refuses ("unexpected token 'set_option';
+    expected 'lemma'", dispatch 6, run 45469187228): the option goes first and the doc comment after it."""
+    ls = text.split('\n')
+    return sum(1 for i in range(len(ls) - 1) if ls[i].rstrip().endswith('-/') and ls[i + 1].lstrip().startswith('set_option'))
+
+
 def targets_text(old, names):
     """print_targets.txt with the names not yet in it entered after ANCHOR, its newline kept."""
     nl = '\r\n' if '\r\n' in old else '\n'
@@ -348,8 +355,8 @@ def texts(den, ip, num, gam, blob):
             for j, c in enumerate(cks):
                 lo = g * GROUP + j * CHUNK
                 L += PD.lean_list(names[j], 'The places %d to %d.' % (lo, lo + len(c) - 1), c)
-                L += ['/-- The places %d to %d checked at the window of `autoD` from its place %d. -/' % (lo, lo + len(c) - 1, rows[j][0]),
-                      'set_option maxHeartbeats 0 in',
+                L += ['set_option maxHeartbeats 0 in',
+                      '/-- The places %d to %d checked at the window of `autoD` from its place %d. -/' % (lo, lo + len(c) - 1, rows[j][0]),
                       'theorem %s%d_%02d : winOK %s (autoD.drop %d) %d %s = true := by decide +kernel' % (chk, g, j, fn, rows[j][0], rows[j][1], names[j]), '']
             L += ['/-- The places %d to %d. -/' % (g * GROUP, g * GROUP + len(part) - 1),
                   'def %s%d : List ℤ := %s' % (base, g, rjoin(names)), '',
@@ -426,10 +433,11 @@ def cmd_gen(mode):
     ok = b['ok']
     for k in sorted(tx):
         tc = PD.text_checks(tx[k])
-        good = not tc['decimal'] and not tc['barred'] and tc['import_first'] and tc['longest_list'] <= CHUNK
+        dbo = doc_before_option(tx[k])
+        good = not tc['decimal'] and not tc['barred'] and tc['import_first'] and tc['longest_list'] <= CHUNK and dbo == 0
         ok = ok and good
-        print('  %s.lean: lines %d, bytes %d, sha256 %s ; decimal literals %d ; barred words %d ; imports first %s ; the longest list %d -> %s' % (
-            k, tc['lines'], tc['bytes'], tc['sha256'], tc['decimal'], tc['barred'], tc['import_first'], tc['longest_list'], 'OK' if good else 'REFUSED'))
+        print('  %s.lean: lines %d, bytes %d, sha256 %s ; decimal literals %d ; barred words %d ; imports first %s ; the longest list %d ; doc comments above an option %d -> %s' % (
+            k, tc['lines'], tc['bytes'], tc['sha256'], tc['decimal'], tc['barred'], tc['import_first'], tc['longest_list'], dbo, 'OK' if good else 'REFUSED'))
         print('    declarations (name:line), the data chunks left out: %s' % ', '.join(decl_lines(tx[k])))
     tpath = os.path.join(KPATH, 'print_targets.txt')
     told = io.open(tpath, 'r', encoding='utf-8', newline='').read()
@@ -486,6 +494,10 @@ def cmd_control():
     tt, nn, at = targets_text('a\nSIDEExplicitFormula.Window.gam_ok3\nb\n', ['SIDEExplicitFormula.Window.far_ok0_00', 'a'])
     c('print_targets.txt`s entry on a planted file: one new name after the anchor, one present left out', (tt, nn, at),
       tt == 'a\nSIDEExplicitFormula.Window.gam_ok3\nSIDEExplicitFormula.Window.far_ok0_00\nb\n' and nn == 1 and at == 2)
+    bad = '/-- d -/\nset_option maxHeartbeats 0 in\ntheorem x : True := trivial\n'
+    good_t = 'set_option maxHeartbeats 0 in\n/-- d -/\ntheorem x : True := trivial\n'
+    c('A PLANTED FAULT: a doc comment above `set_option ... in` (dispatch 6`s order) read 1, the option first read 0',
+      (doc_before_option(bad), doc_before_option(good_t)), doc_before_option(bad) == 1 and doc_before_option(good_t) == 0)
     b = build(verbose=False)
     c('the sources read as the base holds them, the checks before a write (the direct readings at aKM, the polynomials at five points)',
       b is not None and b['ok'], b is not None and b['ok'])
@@ -505,6 +517,8 @@ def cmd_control():
         c('the groups: 4 of the log n data (4,096 x 3 and 4,082) and 4 of the constant (4,096 x 3 and 4,081)',
           ([len(x) for x in groups(b['num'])], [len(x) for x in groups(b['gam'])]),
           [len(x) for x in groups(b['num'])] == [4096, 4096, 4096, 4082] and [len(x) for x in groups(b['gam'])] == [4096, 4096, 4096, 4081])
+        c('the ten texts: no doc comment directly above a `set_option ... in` line', sum(doc_before_option(tx[k]) for k in tx),
+          sum(doc_before_option(tx[k]) for k in tx) == 0)
         tn = target_names(b['num'], b['gam'])
         c('the chunks` checks: 128 of the log n data and 128 of the constant, each name once', (len(tn), len(set(tn))),
           len(tn) == 256 and len(set(tn)) == 256)
