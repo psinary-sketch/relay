@@ -6,10 +6,10 @@ both printed. Read-only over the relay: each revision's files are taken by `git 
 temporary directory (removed after), and each revision is probed in its own interpreter (`python -I`), so no module of one revision is
 read by the other; the probe executes the standing tool's pure tables and functions apart, runs no git command (the [K27] probe stubs the
 cadence's two git readers) and prints one JSON line; it writes nothing outside its own snapshot folder ([K27]'s probe writes the banks of a
-held part into that folder alone, removed with it). --bank appends the reading to data/b768_repair_controls.txt beneath a head naming the
+held part, and [K28]'s a planted send's mark, into that folder alone, removed with it). --bank appends the reading to data/b768_repair_controls.txt beneath a head naming the
 key and both commits; nothing else is written. The repair's commit must have the commit before it as its first parent, read and printed.
 
-  python -X utf8 -u tools/b768_repair_controls.py <K26|K27> <before> <after> [--bank]
+  python -X utf8 -u tools/b768_repair_controls.py <K26|K27|K28> <before> <after> [--bank]
 """
 import io
 import json
@@ -355,7 +355,94 @@ def control_k27(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
-CONTROLS = dict(K26=control_k26, K27=control_k27)
+# ================================================================================ [K28] THE PREV-MODE DRY'S SECOND SEND
+K28_PATHS = ('tools/standing/prevdry.py', 'tools/standing/cadence.py', 'tools/standing/VERSION', 'data/b768_wlist.json')
+K28_VERSION = 'v1.38.28'
+K28_PROBE = r'''
+import contextlib, inspect, io, json, os, sys, types
+snap = sys.argv[1]
+sys.path.insert(0, os.path.join(snap, 'tools'))
+sys.path.insert(1, os.path.join(snap, 'tools', 'standing'))
+fake = types.ModuleType('b703_checks')
+fake.free_mb = lambda: 6000
+sys.modules['b703_checks'] = fake
+import prevdry as PD
+PD._cur = lambda: dict(act='b768', parts=['act'])
+PART = 'standing-c'
+TO = lambda lim: dict(ok=False, part=PART, err='TIMEOUT after %d s -- THE %d s GUARD HIT: LETTER IT AS A DEFECT WHEN IT HAPPENS ((R358)(3)(x))' % (lim, lim), line=None, blob='b')
+OK = lambda: dict(ok=True, part=PART, err=None, line=None, n=3, secs=700.0, blob='b')
+ERR = lambda: dict(ok=False, part=PART, err='KeyError: x', line=10, at='x', secs=5.0, blob='b')
+SC = dict(guard_then_ok=lambda lim: TO(lim) if lim == 590 else OK(), ok=lambda lim: OK(), error=lambda lim: ERR(), both=lambda lim: TO(lim))
+out = dict(default=inspect.signature(PD.exercise).parameters['timeout'].default)
+mk = os.path.join(snap, 'data', 'b768_prevdry_%s.running' % PART)
+def go(name, plant=False):
+    calls, banks = [], []
+    def ex(act, part, module_text=None, timeout=590):
+        calls.append(timeout)
+        return SC[name](timeout)
+    PD.exercise = ex
+    PD.write_bank = lambda act, part, o: (banks.append(o), os.path.join(snap, 'data', 'x.json'))[1]
+    if plant:
+        with open(mk, 'w') as fh:
+            fh.write('{}')
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            rc = PD.main(['run', PART])
+    except SystemExit as e:
+        rc = 'exit %s' % str(e)[:120]
+    left = os.path.exists(mk)
+    if plant and left:
+        os.remove(mk)
+    t = buf.getvalue()
+    return dict(calls=calls, banks=len(banks), rc=rc, ok=[b.get('ok') for b in banks], first=['first_send' in b for b in banks],
+                one_event=('ONE EVENT' in t and 'NO DEFECT' in t), author=('LETTER' in t and 'AUTHOR' in t), mark_left=left)
+for n in ('guard_then_ok', 'ok', 'error', 'both'):
+    out[n] = go(n)
+out['planted'] = go('guard_then_ok', plant=True)
+print(json.dumps(out))
+'''
+
+
+def control_k28(before, after):
+    """(R378)(8) [K28]: the prev-mode dry's second send, read in each revision in its own interpreter, prevdry's run route driven with its
+    exercise() and write_bank() replaced by recorders (no child sent, no bank of the act written), the memory reader and the act's file
+    stubbed, the part standing-c (one that runs at b768's kind). FAULT: a first send ended at the 590 s guard banked as it fell, one send,
+    exit 1. CLEAN: exercise()'s own limit still 590; a first send at the guard followed by one send under 900 s, the result banked once with
+    the first send recorded beside it, exit 0, the pair printed as one event and no defect, the send's mark gone after; a send that passes,
+    or fails with another error, sent once and banked once, no pair printed; a second send ending at 900 s banked once, exit 1, printed to be
+    lettered and put to the author, no third send; a send's mark standing (a copy of the run still going, as where the harness moves the
+    call to the background), nothing sent and nothing banked; VERSION v1.38.28."""
+    L, res = [], {}
+    for name, rev, got, j, ver in two_revisions(K28_PATHS, before, after, K28_PROBE, 'b768k28_'):
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        L.append('    (guard)   exercise()`s own limit: %s s' % j['default'])
+        for k, label in (('guard_then_ok', 'the first send at the 590 s guard, the second passing'), ('ok', 'a send that passes'),
+                         ('error', 'a send failing by another error'), ('both', 'both sends at their limits'),
+                         ('planted', 'a send`s mark standing (a copy still going)')):
+            s = j[k]
+            L.append('    (%s) %s: sends %s ; banked %d (ok %s ; the first send recorded %s) ; exit %s ; one event, no defect printed %s ; lettered '
+                     'and put to the author printed %s ; the mark left %s' % (k, label, s['calls'], s['banks'], s['ok'], s['first'], s['rc'],
+                                                                             s['one_event'], s['author'], s['mark_left']))
+        g, o, e, b, p = j['guard_then_ok'], j['ok'], j['error'], j['both'], j['planted']
+        fault = g['calls'] == [590] and g['rc'] == 1 and g['banks'] == 1
+        clean = (j['default'] == 590
+                 and g['calls'] == [590, 900] and g['banks'] == 1 and g['ok'] == [True] and g['first'] == [True] and g['rc'] == 0
+                 and g['one_event'] is True and g['mark_left'] is False
+                 and o['calls'] == [590] and o['banks'] == 1 and o['first'] == [False] and o['rc'] == 0 and o['one_event'] is False and o['mark_left'] is False
+                 and e['calls'] == [590] and e['banks'] == 1 and e['rc'] == 1 and e['one_event'] is False and e['mark_left'] is False
+                 and b['calls'] == [590, 900] and b['banks'] == 1 and b['ok'] == [False] and b['rc'] == 1 and b['author'] is True and b['mark_left'] is False
+                 and p['calls'] == [] and p['banks'] == 0 and p['rc'] == 5 and ver == K28_VERSION)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K26=control_k26, K27=control_k27, K28=control_k28)
 
 
 def main(argv):
