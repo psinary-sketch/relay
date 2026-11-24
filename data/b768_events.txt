@@ -1117,3 +1117,23 @@ COMPONENT 3:
      the restore on, lane steps, on push-b768-proof at e204ee77, run 45510384327 at 23:29:23Z, its row in data/b768_dispatch_rows.json.
      Dispatches 11 of 40, with the restore on 11 of 36. ArithNeg.lean holds L12's theorem beside L11d's; whether (4)(e) takes a dispatch of
      its own is read from the dispatch tool's order after this run's read.
+
+    (100) THE RUNNER'S [CLOSE ; REPEAT b768 events (78)]: DISPATCH 11 READ: STOPPED UNDER THE HOLD AS FOUR OF THE WALK'S FIVE FILES BUILT
+     TOGETHER; ARITHFRAME.LEAN BUILT; THE CHUNK FILES CHAINED TWO A LANE. The dispatch tool's order read (tools/b768_controls.py :836-:885
+     and its planted passes :1400-:1411, counted first: no line flagged, 23:30:49Z): item e taken after a read of item d and not required
+     beside it. Scratch wait768.py (read-only: the tool's `status` every 60 s until the run reads completed, sent in the background,
+     23:32:23Z, a flag read before it): poll 10, completed, success, updated 23:41:01Z. `download` and `read 11` (23:41:55Z, a flag read
+     before them, the read captured by scratch cap767.py as read768_11.txt, the [Q] word 0, the mask 0, counted: no line flagged): the
+     workflow at push-b768-proof e204ee77, built equal; the exit file 143, STOPPED UNDER THE HOLD; errors 0; sorry warnings 0; targets
+     2,040; the axioms print NOT RUN; the build 9.6 min, the run 11.6 min; the runner's low 1,853 MB; the restore by prefix, the cache not
+     saved; each name NOT COMPILED by the exit file. The run's mem.log read whole and its build.log by the module names alone (the Grep
+     tool, each counted first, 23:43:05Z, no line flagged; the artifacts' folder found by the Glob tool after the tool's RUNS constant,
+     one count sent first to a folder name the tool does not write, exit 1, nothing read): 14,779 MB at 23:31:06Z, then a sawtooth
+     between some 4,000 and 10,500 MB for nine minutes, 3,176 MB at 23:40:39Z and 1,853 MB at 23:40:44Z, STOP beneath the hold 2,560;
+     Built ArithData, ArithFrame, ArithB and ArithA0, the last two at the log's end, so ArithA1-4 were building together at the stop and
+     ArithJoin and ArithNeg were not reached (defect (n)). ArithFrame.lean's thirty theorems built, so the frame's proofs hold.
+     tools/b768_arith_data.py by five Edits: CHAINS 2, ArithA<i> importing ArithA<i-2> for i >= 2 (A0 -> A2 -> A4, A1 -> A3), so at most
+     two of the five build at once; THE CHAINS printed and read (each file's import against the want, the files free to build at once
+     against 2) and joined to ALL GOOD; print_targets.txt's 186 names, listed after arith_eq_comb in order by the write at 23:04:59Z,
+     read as already entered and left unchanged, a partial listing still refused (540 lines, COMPILES by scratch compctl768.py by its key,
+     23:45:13Z, counted: no line flagged). Dispatches 11 of 40, with the restore on 11 of 36.

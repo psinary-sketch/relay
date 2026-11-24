@@ -45,6 +45,8 @@ DIR = 'SIDEExplicitFormula/Window/'
 N_M = 16390          # ### m < 16390: arith_eq_comb's sum
 CH_A = 128           # ### places of the walk a declaration: the far sum's chunks compiled at 128 (data/b768_defects.txt (l))
 PER_FILE = 26        # ### chunks a file: 129 chunks in five files
+CHAINS = 2           # ### ArithA files free to build at once: dispatch 11 (run 45510384327) stopped under the hold with four building
+                     # ### together, so ArithA<i> imports ArithA<i-2> (A0 -> A2 -> A4, A1 -> A3)
 N_LO, N_HI = 2, 1023 # ### the prime side's n
 CH_B = 128           # ### the prime side's chunks: cq_ok's (CQValues.lean :198-:212)
 D = 2 ** 100         # ### lpD (LogBounds.lean :29)
@@ -340,7 +342,7 @@ def texts(o):
                      '/-- The walk over `m` from %d, %d places. -/' % (a, k),
                      'theorem arithA_c%02d : arWalk %d %d (arX0.dr %d) = %d := by decide +kernel' % (j, k, a, a, S[j]), '']
         tx[DIR + 'ArithA%d.lean' % fi] = NL.join([
-            'import SIDEExplicitFormula.Window.ArithFrame', '',
+            'import SIDEExplicitFormula.Window.' + ('ArithFrame' if fi < CHAINS else 'ArithA%d' % (fi - CHAINS)), '',
             '/-!', '# L11d: the walk over `m`, chunks %d to %d' % (fi * PER_FILE, min(len(S), (fi + 1) * PER_FILE) - 1), '',
             HEAD_DOC, '-/', '', 'namespace SIDEExplicitFormula', 'namespace Window', ''] + body +
             ['end Window', 'end SIDEExplicitFormula', ''])
@@ -485,7 +487,14 @@ def main():
     o = compute()
     tx, names = texts(o)
     allc = report(o, tx)
-    good = all(o['checks'].values()) and allc and o['U'] < 0
+    afiles = sorted(p for p in tx if re.fullmatch(re.escape(DIR) + r'ArithA\d+\.lean', p))
+    chain = [(p.split('/')[-1], tx[p].split(NL)[0].split('.')[-1]) for p in afiles]
+    want = [('ArithA%d.lean' % i, 'ArithFrame' if i < CHAINS else 'ArithA%d' % (i - CHAINS)) for i in range(len(afiles))]
+    free = sum(1 for _p, imp in chain if imp == 'ArithFrame')
+    chain_ok = chain == want and free == CHAINS
+    print('  THE CHAINS: %s ; free to build at once %d against %d ; %s' % (
+        ' '.join('%s<-%s' % (p.replace('.lean', ''), imp) for p, imp in chain), free, CHAINS, 'AS WANTED' if chain_ok else 'NOT AS WANTED'))
+    good = all(o['checks'].values()) and allc and o['U'] < 0 and chain_ok
     frame_ok = os.path.exists(os.path.join(KPATH, FRAME)) and os.path.exists(os.path.join(KPATH, NEG))
     fnames, nnames = [], []
     if frame_ok:
@@ -501,18 +510,23 @@ def main():
     lines = pt.split(NL)
     full = ['SIDEExplicitFormula.Window.' + n for n in fnames + names + nnames]
     already = [n for n in full if n in lines]
-    print('  PRINT_TARGETS: %d names to enter after %s, already listed %d ; anchor present %s' % (
-        len(full), ANCHOR.split('.')[-1], len(already), ANCHOR in lines))
+    at = lines.index(ANCHOR) + 1 if ANCHOR in lines else 0
+    listed_all = bool(full) and already == full and lines[at:at + len(full)] == full
+    print('  PRINT_TARGETS: %d names to enter after %s, already listed %d ; anchor present %s ; all listed after it in order %s' % (
+        len(full), ANCHOR.split('.')[-1], len(already), ANCHOR in lines, listed_all))
     if mode == 'dry':
-        print('  DRY: nothing written ; ALL GOOD %s' % (good and frame_ok))
+        print('  DRY: nothing written ; ALL GOOD %s' % (good and frame_ok and (not already or listed_all)))
         return
-    if not (good and frame_ok and ANCHOR in lines and not already):
+    if not (good and frame_ok and ANCHOR in lines and (not already or listed_all)):
         sys.exit('### NOT WRITTEN: a check, the inequality, the hand files or print_targets.txt refused')
     for p, t in tx.items():
         with open(os.path.join(KPATH, p), 'w', encoding='utf-8', newline='\n') as fh:
             fh.write(t)
         back = rd(p)
         print('  WRITTEN %-40s read back %s' % (p.split('/')[-1], 'EQUAL' if back == t else 'DIFFERS'))
+    if listed_all:
+        print('  print_targets.txt: the %d names listed after %s already, in order: unchanged' % (len(full), ANCHOR.split('.')[-1]))
+        return
     i = lines.index(ANCHOR)
     new = lines[:i + 1] + full + lines[i + 1:]
     nt = NL.join(new)
