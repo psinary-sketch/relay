@@ -372,7 +372,7 @@ PART = 'standing-c'
 TO = lambda lim: dict(ok=False, part=PART, err='TIMEOUT after %d s -- THE %d s GUARD HIT: LETTER IT AS A DEFECT WHEN IT HAPPENS ((R358)(3)(x))' % (lim, lim), line=None, blob='b')
 OK = lambda: dict(ok=True, part=PART, err=None, line=None, n=3, secs=700.0, blob='b')
 ERR = lambda: dict(ok=False, part=PART, err='KeyError: x', line=10, at='x', secs=5.0, blob='b')
-SC = dict(guard_then_ok=lambda lim: TO(lim) if lim == 590 else OK(), ok=lambda lim: OK(), error=lambda lim: ERR(), both=lambda lim: TO(lim))
+SC = dict(guard_then_ok=lambda lim: TO(lim) if lim == 590 else OK(), ok=lambda lim: OK(), fails=lambda lim: ERR(), both=lambda lim: TO(lim))
 out = dict(default=inspect.signature(PD.exercise).parameters['timeout'].default)
 mk = os.path.join(snap, 'data', 'b768_prevdry_%s.running' % PART)
 def go(name, plant=False):
@@ -397,7 +397,7 @@ def go(name, plant=False):
     t = buf.getvalue()
     return dict(calls=calls, banks=len(banks), rc=rc, ok=[b.get('ok') for b in banks], first=['first_send' in b for b in banks],
                 one_event=('ONE EVENT' in t and 'NO DEFECT' in t), author=('LETTER' in t and 'AUTHOR' in t), mark_left=left)
-for n in ('guard_then_ok', 'ok', 'error', 'both'):
+for n in ('guard_then_ok', 'ok', 'fails', 'both'):   # ### no scenario named 'error': the frame reads that key as the probe's failure
     out[n] = go(n)
 out['planted'] = go('guard_then_ok', plant=True)
 print(json.dumps(out))
@@ -422,13 +422,13 @@ def control_k28(before, after):
         L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
         L.append('    (guard)   exercise()`s own limit: %s s' % j['default'])
         for k, label in (('guard_then_ok', 'the first send at the 590 s guard, the second passing'), ('ok', 'a send that passes'),
-                         ('error', 'a send failing by another error'), ('both', 'both sends at their limits'),
+                         ('fails', 'a send failing by another error'), ('both', 'both sends at their limits'),
                          ('planted', 'a send`s mark standing (a copy still going)')):
             s = j[k]
             L.append('    (%s) %s: sends %s ; banked %d (ok %s ; the first send recorded %s) ; exit %s ; one event, no defect printed %s ; lettered '
                      'and put to the author printed %s ; the mark left %s' % (k, label, s['calls'], s['banks'], s['ok'], s['first'], s['rc'],
                                                                              s['one_event'], s['author'], s['mark_left']))
-        g, o, e, b, p = j['guard_then_ok'], j['ok'], j['error'], j['both'], j['planted']
+        g, o, e, b, p = j['guard_then_ok'], j['ok'], j['fails'], j['both'], j['planted']
         fault = g['calls'] == [590] and g['rc'] == 1 and g['banks'] == 1
         clean = (j['default'] == 590
                  and g['calls'] == [590, 900] and g['banks'] == 1 and g['ok'] == [True] and g['first'] == [True] and g['rc'] == 0
