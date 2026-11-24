@@ -60,3 +60,22 @@ b768 -- THE PLANTED CONTROLS OF THE THREE KEYS, (R378)(8), appended by tools/b76
     (verify)  G-ACTROOT-VERIFY`s predicate: b768`s second half with the boundary True ; a whole chain True ; an act dropped False ; the boundary unequal False
     AFTER: CLEAN
 ### ### **[K27] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K28] THE PLANTED CONTROL (2026-11-24T15:17:31Z): BEFORE relay d7c06a39, THE REPAIR`S COMMIT relay a7d37ec2, its first parent d7c06a39 -- THE COMMIT BEFORE
+  BEFORE (relay d7c06a39, VERSION v1.38.27): the files tools/standing/prevdry.py present, tools/standing/cadence.py present, tools/standing/VERSION present, data/b768_wlist.json present
+    (guard)   exercise()`s own limit: 590 s
+    (guard_then_ok) the first send at the 590 s guard, the second passing: sends [590] ; banked 1 (ok [False] ; the first send recorded [False]) ; exit 1 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (ok) a send that passes: sends [590] ; banked 1 (ok [True] ; the first send recorded [False]) ; exit 0 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (fails) a send failing by another error: sends [590] ; banked 1 (ok [False] ; the first send recorded [False]) ; exit 1 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (both) both sends at their limits: sends [590] ; banked 1 (ok [False] ; the first send recorded [False]) ; exit 1 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (planted) a send`s mark standing (a copy still going): sends [590] ; banked 1 (ok [False] ; the first send recorded [False]) ; exit 1 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left True
+    BEFORE: THE FAULT READ
+  AFTER (relay a7d37ec2, VERSION v1.38.28): the files tools/standing/prevdry.py present, tools/standing/cadence.py present, tools/standing/VERSION present, data/b768_wlist.json present
+    (guard)   exercise()`s own limit: 590 s
+    (guard_then_ok) the first send at the 590 s guard, the second passing: sends [590, 900] ; banked 1 (ok [True] ; the first send recorded [True]) ; exit 0 ; one event, no defect printed True ; lettered and put to the author printed False ; the mark left False
+    (ok) a send that passes: sends [590] ; banked 1 (ok [True] ; the first send recorded [False]) ; exit 0 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (fails) a send failing by another error: sends [590] ; banked 1 (ok [False] ; the first send recorded [False]) ; exit 1 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left False
+    (both) both sends at their limits: sends [590, 900] ; banked 1 (ok [False] ; the first send recorded [True]) ; exit 1 ; one event, no defect printed True ; lettered and put to the author printed True ; the mark left False
+    (planted) a send`s mark standing (a copy still going): sends [] ; banked 0 (ok [] ; the first send recorded []) ; exit 5 ; one event, no defect printed False ; lettered and put to the author printed False ; the mark left True
+    AFTER: CLEAN
+### ### **[K28] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
