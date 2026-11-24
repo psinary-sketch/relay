@@ -370,7 +370,8 @@ def texts(o):
         'namespace SIDEExplicitFormula', 'namespace Window', ''] + body + ['end Window', 'end SIDEExplicitFormula', ''])
     # the join
     P, QB = o['P'], o['QB']
-    j_lines = ['/-- The walk over `m < 16390`, its chunks joined. -/',
+    j_lines = ['set_option maxHeartbeats 0 in',
+               '/-- The walk over `m < 16390`, its chunks joined. -/',
                'theorem arithA_all : arWalk 16390 0 (arX0.dr 0) = %d := by' % P[0]]
     for j in range(len(S) - 1):
         a = starts[j]
@@ -378,7 +379,8 @@ def texts(o):
         j_lines.append('  refine ar_walk_chunk arX0 %d %d %d %d %s %s %s (by norm_num) arithA_c%02d ?_ (by norm_num)'
                        % (CH_A, rest, a, a + CH_A, par(S[j]), par(P[j + 1]), par(P[j]), j))
     j_lines += ['  exact arithA_c%02d' % (len(S) - 1), '']
-    j_lines += ['/-- The table summed over `2 ≤ n ≤ 1023`, its chunks joined. -/',
+    j_lines += ['set_option maxHeartbeats 0 in',
+                '/-- The table summed over `2 ≤ n ≤ 1023`, its chunks joined. -/',
                 'theorem arithB_all : arSum arTq 2 1022 = %d := by' % QB[0]]
     for j in range(len(TB) - 1):
         a = bstarts[j]
@@ -386,7 +388,8 @@ def texts(o):
         j_lines.append('  refine ar_sum_chunk arTq %d %d %d %d %s %s %s (by norm_num) ar_tq_sum_%d ?_ (by norm_num)'
                        % (CH_B, rest, a, a + CH_B, par(TB[j]), par(QB[j + 1]), par(QB[j]), j))
     j_lines += ['  exact ar_tq_sum_%d' % (len(TB) - 1), '']
-    j_lines += ['/-- Each entry of the table at most its bound, `2 ≤ n ≤ 1023`. -/',
+    j_lines += ['set_option maxHeartbeats 0 in',
+                '/-- Each entry of the table at most its bound, `2 ≤ n ≤ 1023`. -/',
                 'theorem ar_tq_all : ∀ n, 2 ≤ n → n ≤ 1023 → arTqOK n = true := by', '  intro n h2 hn']
     for j, a in enumerate(bstarts):
         hi_ = a + CH_B
@@ -401,6 +404,7 @@ def texts(o):
                 '/-- Each `n`, `2 ≤ n ≤ 1023`, covered by ktTable where its coefficients are not all `0`. -/',
                 'theorem ar_cov_all : ∀ n, 2 ≤ n → n ≤ 1023 → arKtCov n = true :=',
                 '  fun n h2 hn => allDC_at (by norm_num) ar_kt_cov h2 (by omega)', '',
+                'set_option maxHeartbeats 0 in',
                 '/-- The three bounds` sum, evaluated: below `0`. -/',
                 'theorem arith_num : arithE + arithA - arithB < 0 := by',
                 '  unfold arithE arithA arithB',
