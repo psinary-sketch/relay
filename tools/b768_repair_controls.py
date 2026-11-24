@@ -4,11 +4,12 @@ carried: git, snapshot, probe, version_of, main; [K25]'s probe set to the kernel
 and committed before its first run. The control reads the fault at the commit before the repair and reads clean at the repair's commit,
 both printed. Read-only over the relay: each revision's files are taken by `git show <rev>:<path>` into a scratch folder of the system's
 temporary directory (removed after), and each revision is probed in its own interpreter (`python -I`), so no module of one revision is
-read by the other; the probe executes the standing tool's pure tables and functions apart, writes nothing, runs no git command and prints
-one JSON line. --bank appends the reading to data/b768_repair_controls.txt beneath a head naming the key and both commits; nothing else is
-written. The repair's commit must have the commit before it as its first parent, read and printed.
+read by the other; the probe executes the standing tool's pure tables and functions apart, runs no git command (the [K27] probe stubs the
+cadence's two git readers) and prints one JSON line; it writes nothing outside its own snapshot folder ([K27]'s probe writes the banks of a
+held part into that folder alone, removed with it). --bank appends the reading to data/b768_repair_controls.txt beneath a head naming the
+key and both commits; nothing else is written. The repair's commit must have the commit before it as its first parent, read and printed.
 
-  python -X utf8 -u tools/b768_repair_controls.py <K26> <before> <after> [--bank]
+  python -X utf8 -u tools/b768_repair_controls.py <K26|K27> <before> <after> [--bank]
 """
 import io
 import json
@@ -181,7 +182,180 @@ def control_k26(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN' and diff_ok is True
 
 
-CONTROLS = dict(K26=control_k26)
+# ================================================================================ [K27] THE CLOSE OF AN ACT THAT WRITES LEAN AND NO PAPER
+K27_PATHS = ('tools/standing/cadence.py', 'tools/standing/prevdry.py', 'tools/standing/close.py', 'tools/standing/fold/checks.tpl',
+             'tools/standing/VERSION', 'data/b768_wlist.json')   # ### tools/standing/ holds no __init__.py: a namespace package, read so in the probe
+K27_VERSION = 'v1.38.27'
+LEAN, PAPER = 'LEAN AND NO PAPER', 'PAPER'
+QUARTERS = ('standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d')
+K27_PROBE = r'''
+import ast, json, os, re, sys, types
+snap = sys.argv[1]
+sys.path.insert(0, os.path.join(snap, 'tools'))
+sys.path.insert(1, os.path.join(snap, 'tools', 'standing'))
+import standing
+fake_l = types.ModuleType('standing.lsrread')
+fake_l.verdict = lambda a, b: ('CLASSED', [])
+def _exn(act, part, mode, tracked):
+    if mode == 'prev':
+        return '%s_prevrun_exercise_%s.json' % (act, part)
+    if mode == 'mid':
+        return '%s_mid_exercise_%s.json' % (act, part)
+    n = '%s_exercise_%s.json' % (act, part)
+    return '%s_exercise_%s_%s.json' % (act, part, act) if mode == 'prerun' and tracked(n) else n
+fake_r = types.ModuleType('standing.repeat')
+fake_r.exercise_name = _exn
+sys.modules['standing.lsrread'], sys.modules['standing.repeat'] = fake_l, fake_r
+standing.lsrread, standing.repeat = fake_l, fake_r
+from standing import cadence as C
+C._git = lambda *a: None
+C._blob = lambda *a: None
+QUARTERS = ('standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d')
+MODES = ('prerun', 'prev', 'post-push', 'pre-push', 'mid', 'rerun')
+wl = json.load(open(os.path.join(snap, 'data', 'b768_wlist.json'), encoding='utf-8'))['patterns']
+has_kind = hasattr(C, 'kind_of')
+out = dict(has_kind=has_kind)
+PLANTS = dict(day1=wl + ['PLACE-papers/day1/A_Place_to_Stand.md'], glob=wl + ['PLACE-papers/*'],
+              phase15=wl + ['PLACE-papers/phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md'],
+              nokernel=[p for p in wl if not p.startswith('SIDE-')], empty=[])
+pk = None
+if has_kind:
+    kd = lambda patterns=None, act='b768': C.kind_of(act, snap, patterns=patterns)['kind']
+    out['kinds'] = dict(b768=kd(), b767=kd(act='b767'), b769=kd(act='b769'), **dict((k, kd(v)) for k, v in PLANTS.items()))
+    pk = C.kind_of('b768', snap, patterns=PLANTS['day1'])
+def dec(part, mode, kind=None):
+    if kind is None:
+        return C.decide('b768', part, mode, snap, {})
+    return C.decide('b768', part, mode, snap, {}, kind=kind)
+out['four'] = dict(('%s %s' % (p, m), dec(p, m)['held']) for p in QUARTERS for m in MODES)
+out['b3_post_together'] = 'together' in dec('standing-b3', 'post-push')['why']
+if pk is not None:
+    out['planted_four'] = dict(('%s %s' % (p, m), dec(p, m, pk)['held']) for p in QUARTERS for m in MODES)
+    out['planted_b3_together'] = 'together' in dec('standing-b3', 'post-push', pk)['why']
+import prevdry as PD
+PARTS = ('standing-a1', 'standing-a2', 'standing-c', 'standing-b1') + QUARTERS + ('standing-b3', 'act')
+def gate_read(kind=None):
+    clear, L = PD.gate('b768', parts=PARTS) if kind is None else PD.gate('b768', parts=PARTS, kind=kind)
+    got = {}
+    for q in PARTS:
+        ln = next((l for l in L if l.startswith('    %-14s' % q)), '')
+        got[q] = 'HELD' if 'HELD, NOT RUN AT THIS ACT' in ln else ('ABSENT' if 'NOT RUN (data/' in ln else ln.strip()[:60])
+    return got
+out['gate'] = gate_read()
+if pk is not None:
+    out['planted_gate'] = gate_read(pk)
+dd = os.path.join(snap, 'heldprobe')
+os.makedirs(dd)
+banks = {}
+for part, mode, text in (('standing-b2a', 'pre-push', 'b768_checks_standing-b2a.txt'), ('standing-b2b', 'prerun', 'b768_arms_prerun_standing-b2b.txt'),
+                         ('standing-b2c', 'mid', 'b768_checks_mid_standing-b2c.txt'), ('standing-b2d', 'prev', 'b768_prevrun_standing-b2d.txt')):
+    d = dec(part, mode)
+    if d['run']:
+        banks[part] = 'RUNS'
+        continue
+    seen = set(os.listdir(dd))
+    C.held(d, 'b768', snap, dd, text=text, ex_mode=mode, out=lambda *a: None)
+    new = sorted(set(os.listdir(dd)) - seen)
+    exn = [n for n in new if 'exercise' in n]
+    ex = json.load(open(os.path.join(dd, exn[0]), encoding='utf-8')) if len(exn) == 1 else {}
+    t = open(os.path.join(dd, text), encoding='utf-8').read() if text in new else ''
+    banks[part] = dict(files=new, ex_mode=ex.get('mode'), run=ex.get('run'), foot=('ARMS 0 ;' in t and 'DECLARED EQ RUN NOTRUN' in t),
+                       kind=(ex.get('cadence') or {}).get('kind'))
+out['held'] = banks
+src = open(os.path.join(snap, 'tools', 'standing', 'close.py'), encoding='utf-8').read()
+nodes = [n for n in ast.parse(src).body if (isinstance(n, ast.FunctionDef) and n.name == 'part_declared')
+         or (isinstance(n, ast.Assign) and getattr(n.targets[0], 'id', '') == 'PART_FOOT')]
+ns = dict(re=re)
+exec(compile(ast.Module(body=nodes, type_ignores=[]), 'close_k27', 'exec'), ns)
+foot = '  ### PART %s : ARMS %d ; LIVE PASSING %d ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; DECLARED EQ RUN %s ; 3 s'
+if 'part_declared' in ns:
+    out['declared'] = [bool(ns['part_declared'](ns['PART_FOOT'].search(foot % (p, n, n, v)))) for p, n, v in
+                       (('standing-b2a', 0, 'NOTRUN'), ('standing-b2a', 3, 'NOTRUN'), ('act', 5, 'True'), ('act', 5, 'False'))]
+tpl = open(os.path.join(snap, 'tools', 'standing', 'fold', 'checks.tpl'), encoding='utf-8').read()
+out['tpl'] = dict(guard=tpl.count("_CAD.chain_quarters_run('⟪ACT⟫', ROOT)"), quarters=tpl.count("ha.get('quarters', True)"),
+                  declared=tpl.count('STC.part_declared('), names=tpl.count('text=_part_name(base, PART)'))
+i = tpl.index('def verify_ok(S):')
+j = tpl.index('\ndef ', i + 1)
+H = 'h' * 40
+g = dict(gs=lambda *a: H, ROOT='R', ACT_NOW='b768',
+         AC=types.SimpleNamespace(act_figures=lambda dd=None, roots_text=None, act=None: dict(range=list(range(624, 769)), range_last=768)),
+         KS=types.SimpleNamespace(CHAIN_HALVES=(('b624', 'b658'), ('b659', 'b768'))))
+exec(compile(tpl[i:j], 'verify_k27', 'exec'), g)
+second = [('b%d' % k, 'AGREE', []) for k in range(659, 769)]
+reads = {'b768': {'crlf': 0}, 'b680': {'corrected': 4}}
+lean = dict(half_a=dict(head=H, acts=[], reads={}, boundary={}, quarters=False), ar_verify=second, ar_reads=reads, boundary=dict(equal=True, root='r1'))
+paper = dict(half_a=dict(head=H, acts=[['b%d' % k, 'AGREE'] for k in range(624, 659)], reads={}, boundary=dict(equal=True, root='r1')),
+             ar_verify=second, ar_reads=reads, boundary=dict(equal=True, root='r1'))
+out['verify'] = dict(lean=bool(g['verify_ok'](lean)), paper=bool(g['verify_ok'](paper)), lean_neg=bool(g['verify_ok'](dict(lean, ar_verify=second[:-1]))),
+                     lean_unequal=bool(g['verify_ok'](dict(lean, boundary=dict(equal=False, root='r1')))))
+print(json.dumps(out))
+'''
+K27_HELD = {
+    'standing-b2a': dict(files=['b768_checks_standing-b2a.txt', 'b768_exercise_standing-b2a.json', 'b768_lsr_standing-b2a.json'], ex_mode='pre-push'),
+    'standing-b2b': dict(files=['b768_arm_seconds_standing-b2b.json', 'b768_arms_prerun_standing-b2b.txt', 'b768_exercise_standing-b2b.json',
+                                'b768_lsr_prerun_standing-b2b.json'], ex_mode='prerun'),
+    'standing-b2c': dict(files=['b768_checks_mid_standing-b2c.txt', 'b768_lsr_mid_standing-b2c.json', 'b768_mid_exercise_standing-b2c.json'], ex_mode='mid'),
+    'standing-b2d': dict(files=['b768_prevrun_exercise_standing-b2d.json', 'b768_prevrun_standing-b2d.json', 'b768_prevrun_standing-b2d.txt'], ex_mode='prev')}
+
+
+def control_k27(before, after):
+    """(R378)(8) [K27]: the kind of an act that writes Lean and no paper, read in each revision in its own interpreter with git stubbed (no git
+    command run; the held part's banks written into the probe's own snapshot folder alone, removed with it). FAULT: no kind, and b768's four
+    chain parts standing-b2a to standing-b2d required (run) in the pre-push mode; G-ACTROOT-VERIFY's predicate refuses standing-b3's half
+    alone; no reader of a NOTRUN footer. CLEAN: b768 of the kind LEAN AND NO PAPER from its (W) list; the planted acts of the other kind
+    (a paper's path under day1/ or phase1.5/, a glob reaching one, a list with no kernel's files, an empty list), b767 (before the key) and
+    an act whose list is not read each PAPER; b768's four NOT RUN in every mode of the suite, prerun, prev, post-push, pre-push, mid and
+    rerun, and the planted act's four required in every mode; standing-b3's post-push group reduced to itself at b768 and the chain group
+    whole at the planted act; the prev-mode dry's gate (the lock gate's read) holding the four at b768 and requiring them at the planted
+    act, the other six parts read as before; held() writing each not-run part's banks under the mode's own names (pre-push, prerun, mid,
+    prev), ARMS 0 and NOTRUN in the footer, the kind in the exercise bank; a NOTRUN footer of 0 arms read as declared and one of 3 arms not;
+    the template carrying the kind at the b3 join, the arm's predicate, the held call and the combine; the predicate passing b768's second
+    half with the boundary, a whole chain as before, and failing a dropped act or an unequal boundary; VERSION v1.38.27."""
+    L, res = [], {}
+    for name, rev, got, j, ver in two_revisions(K27_PATHS, before, after, K27_PROBE, 'b768k27_'):
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        L.append('    (kind)    %s' % (' ; '.join('%s %s' % kv for kv in sorted(j['kinds'].items())) if j.get('has_kind') else 'NO KIND IN cadence.py'))
+        fv = sorted(set(j['four'].values()))
+        L.append('    (four)    b768`s standing-b2a to standing-b2d in the modes prerun, prev, post-push, pre-push, mid, rerun: %s ; pre-push %s' % (
+            ', '.join(fv), ', '.join(j['four']['%s pre-push' % p] for p in QUARTERS)))
+        if 'planted_four' in j:
+            L.append('    (planted) the planted act of the other kind (a paper`s path under day1/), its four in the six modes: %s ; standing-b3`s '
+                     'post-push group whole %s' % (', '.join(sorted(set(j['planted_four'].values()))), j['planted_b3_together']))
+        L.append('    (b3)      b768`s standing-b3 in the post-push mode read with the chain group: %s' % j['b3_post_together'])
+        L.append('    (gate)    the prev-mode dry`s gate at b768: %s' % ' ; '.join('%s %s' % (q, j['gate'][q]) for q in sorted(j['gate'])))
+        if 'planted_gate' in j:
+            L.append('    (gate)    at the planted act: the four %s' % ', '.join(j['planted_gate'][q] for q in QUARTERS))
+        for p in QUARTERS:
+            h = j['held'].get(p)
+            L.append('    (held)    %s: %s' % (p, h if isinstance(h, str) else 'files %s ; exercise mode %s ; run %s ; footer ARMS 0 and NOTRUN %s ; kind %s' % (
+                ', '.join(h['files']), h['ex_mode'], h['run'], h['foot'], h['kind'])))
+        L.append('    (declared) a NOTRUN footer of 0 arms, of 3 arms, a True footer, a False footer: %s' % (j['declared'] if 'declared' in j else 'NO part_declared IN close.py'))
+        L.append('    (tpl)     the kind at the b3 join %d, the predicate`s quarters %d, the combine`s declared %d, the held call`s names %d' % (
+            j['tpl']['guard'], j['tpl']['quarters'], j['tpl']['declared'], j['tpl']['names']))
+        L.append('    (verify)  G-ACTROOT-VERIFY`s predicate: b768`s second half with the boundary %s ; a whole chain %s ; an act dropped %s ; the '
+                 'boundary unequal %s' % (j['verify']['lean'], j['verify']['paper'], j['verify']['lean_neg'], j['verify']['lean_unequal']))
+        fault = (not j.get('has_kind') and all(j['four']['%s pre-push' % p] == 'run' for p in QUARTERS) and j['verify']['lean'] is False
+                 and 'declared' not in j)
+        held_ok = all(isinstance(j['held'].get(p), dict) and j['held'][p]['files'] == K27_HELD[p]['files'] and j['held'][p]['ex_mode'] == K27_HELD[p]['ex_mode']
+                      and j['held'][p]['run'] == 0 and j['held'][p]['foot'] is True and j['held'][p]['kind'] == LEAN for p in QUARTERS)
+        clean = (j.get('has_kind') and j['kinds'] == dict(b768=LEAN, b767=PAPER, b769=PAPER, day1=PAPER, glob=PAPER, phase15=PAPER, nokernel=PAPER, empty=PAPER)
+                 and set(j['four'].values()) == {'not run'} and set(j.get('planted_four', {}).values()) == {'run'}
+                 and j['b3_post_together'] is False and j.get('planted_b3_together') is True
+                 and all(j['gate'][q] == ('HELD' if q in QUARTERS else 'ABSENT') for q in j['gate'])
+                 and all(j['planted_gate'][q] == 'ABSENT' for q in j['planted_gate'])
+                 and held_ok and j.get('declared') == [True, False, True, False]
+                 and j['tpl']['guard'] >= 2 and j['tpl']['quarters'] >= 1 and j['tpl']['declared'] >= 1 and j['tpl']['names'] >= 1
+                 and j['verify'] == dict(lean=True, paper=True, lean_neg=False, lean_unequal=False) and ver == K27_VERSION)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K26=control_k26, K27=control_k27)
 
 
 def main(argv):
