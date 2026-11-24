@@ -489,17 +489,41 @@ def mmodule(path):
     return path[:-5].replace('/', '.')
 
 
+# ### b768 (data/b768_events.txt (66)): Lean reads a file's imports in its header alone; an `import` line in a doc comment's example
+# ### (Mathlib/Tactic/FunProp.lean :48, `import Mathlib.Analysis.Complex.Trigonometric`) was read as an import, and the closure so read
+# ### reached Mathlib.Algebra.Order.Ring.Abs from Packed.lean's six imports, which Lean's does not (run 45439584241). The header ends at
+# ### the first doc comment, attribute, `public section` or command line; an import line past it is not read.
+HEADER_END_ERE = (r'^(/-!|/--|@\[|public (section|noncomputable)|noncomputable |namespace |section|open |variable|universe |theorem |lemma |'
+                  r'def |abbrev |instance|class |structure |inductive |example|set_option |attribute |macro|syntax |elab|end|#)')
+
+
 def import_graph(repo, rev, pathspec, name_of):
-    """{module: [the modules it imports]} from one git grep of the import lines at rev (no line printed)."""
-    r = subprocess.run(['git', '-C', repo, 'grep', '-E', '-e', r'^(public |private )?(meta )?import ', rev, '--'] + list(pathspec), capture_output=True)
-    out, pre = {}, rev + ':'
+    """{module: [the modules it imports]} from one git grep of the import lines and the header's end at rev (no line printed): an
+    import line read only above the file's first line that ends its header (b768 (66))."""
+    r = subprocess.run(['git', '-C', repo, 'grep', '-n', '-E', '-e', r'^(public |private )?(meta )?import ', '-e', HEADER_END_ERE, rev, '--']
+                       + list(pathspec), capture_output=True)
+    imps, ends, pre = {}, {}, rev + ':'
     for l in r.stdout.decode('utf-8', 'replace').replace('\r', '').split(NL):
         if not l.startswith(pre):
             continue
-        path, text = l[len(pre):].split(':', 1)
+        try:
+            path, ln, text = l[len(pre):].split(':', 2)
+            ln = int(ln)
+        except ValueError:
+            continue
+        if not path.endswith('.lean'):
+            continue
         m = IMPORT_RE.match(text)
-        if m and path.endswith('.lean'):
-            out.setdefault(name_of(path), []).extend(m.group(1).split('--')[0].split())
+        if m:
+            imps.setdefault(path, []).append((ln, m.group(1).split('--')[0].split()))
+        else:
+            ends[path] = min(ends.get(path, ln), ln)
+    out = {}
+    for path, xs in imps.items():
+        e = ends.get(path)
+        for ln, toks in xs:
+            if e is None or ln < e:
+                out.setdefault(name_of(path), []).extend(toks)
     return out
 
 
@@ -513,7 +537,15 @@ def mathlib_graph(mrev):
 
 
 def file_imports(text):
-    return [t for l in (text or '').replace('\r', '').split(NL) for m in [IMPORT_RE.match(l)] if m for t in m.group(1).split('--')[0].split()]
+    """the file's imports, read past its comments and above its header's end (b768 (66))."""
+    out = []
+    for l in strip_comments((text or '').replace('\r', '')).split(NL):
+        m = IMPORT_RE.match(l)
+        if m:
+            out += m.group(1).split('--')[0].split()
+        elif re.match(HEADER_END_ERE.replace('(section|noncomputable)', '(?:section|noncomputable)'), l):
+            break
+    return out
 
 
 def mathlib_closure(tokens, kg, mg):
@@ -1558,16 +1590,24 @@ def controls():
     uc = names_reading(la, pk_imp, TRIAL_COMMIT, mrev0, kg0, mg0, own=own26)
     ops2 = file_opens(NL.join(['namespace A.B', 'open Finset Real in', 'open Nat (succ_le)', 'end A.B', 'open List hiding foo']))
     pr26, _rp26 = presend(E0_TRIAL)
+    fp = mg0.get('Mathlib.Tactic.FunProp') or []
+    fimp = file_imports(NL.join(['/- a planted head -/', 'module', 'public import Mathlib.Tactic.Ring', 'import Mathlib.Data.List.GetD', '',
+                                 '/-!', '# a doc', 'import Mathlib.Analysis.Complex.Trigonometric', '-/', '@[expose] public section',
+                                 'import Mathlib.Data.EReal.Inv']))
     ur = (sorted(ua['outside'].items()), 'abs_nonneg' in ua['outside'], ub['in_closure'], 'abs_mul' in uc['outside'], 'abs_mul' in uc['qualified'],
-          sorted(ops2), pr26)
-    c('THE UNQUALIFIED NAME READ AT THE ROOT AND THE FILE`S OPENS, b768 (65), at the trial commit and the pinned Mathlib: `abs_mul` under '
-      'Packed.lean`s six imports read declared only outside (in Mathlib.Algebra.Order.Ring.Abs) and so refused, `abs_nonneg` not ; with that '
-      'module imported, within ; THE READING REPLACED (no opens): abs_mul not read outside, or unqualified, so not refused, as at e0baa667 ; '
-      'the opens of a planted file (its namespaces with their prefixes, the names its open lines open, alone and joined) ; THE CHECKS AT '
-      'e0baa667 refusing Packed.lean`s abs_mul and nothing else', ur,
-      ur[0] == [('abs_mul', ['Mathlib.Algebra.Order.Ring.Abs'])] and not ur[1] and ur[2] == ['abs_mul'] and not (ur[3] and ur[4])
+          sorted(ops2), pr26, ('Mathlib.Tactic.FunProp.Core' in fp, 'Mathlib.Analysis.Complex.Trigonometric' in fp),
+          'Mathlib.Algebra.Order.Ring.Abs' in mathlib_closure(pk_imp, kg0, mg0), fimp)
+    c('THE UNQUALIFIED NAME READ AT THE ROOT AND THE FILE`S OPENS, b768 (65), AND THE IMPORTS READ IN THE HEADER ALONE, b768 (66), at the '
+      'trial commit and the pinned Mathlib: `abs_mul` under Packed.lean`s six imports read declared only outside (in '
+      'Mathlib.Algebra.Order.Ring.Abs) and so refused, `abs_nonneg` not ; with that module imported, within ; THE READING REPLACED (no '
+      'opens): abs_mul not read outside, or unqualified, so not refused, as at e0baa667 ; the opens of a planted file (its namespaces with '
+      'their prefixes, the names its open lines open, alone and joined) ; THE CHECKS AT e0baa667 refusing Packed.lean`s abs_mul and '
+      'nothing else ; Mathlib.Tactic.FunProp`s imports read with FunProp.Core and without its doc comment`s Complex.Trigonometric ; '
+      'Ring.Abs outside Packed.lean`s closure ; a planted header`s imports, the doc comment`s and the one past the header`s end not read',
+      ur, ur[0] == [('abs_mul', ['Mathlib.Algebra.Order.Ring.Abs'])] and not ur[1] and ur[2] == ['abs_mul'] and not (ur[3] and ur[4])
       and ur[5] == ['', 'A', 'A.B', 'A.B.Finset', 'A.B.Nat', 'A.B.Real', 'A.Finset', 'A.Nat', 'A.Real', 'Finset', 'List', 'Nat', 'Real']
-      and len(pr26) == 1 and 'Packed.lean: abs_mul declared in Mathlib only outside' in pr26[0])
+      and len(pr26) == 1 and 'Packed.lean: abs_mul declared in Mathlib only outside' in pr26[0] and ur[7] == (True, False) and not ur[8]
+      and ur[9] == ['Mathlib.Tactic.Ring', 'Mathlib.Data.List.GetD'])
     mrev = mathlib_rev(TRIAL_COMMIT)
     mf = (bool(mathlib_found(mrev, 'hasSum_log_one_add_inv')), bool(mathlib_found(mrev, 'eulerMascheroniSeq')),
           bool(mathlib_found(mrev, 'no_such_name_planted_by_b768')))

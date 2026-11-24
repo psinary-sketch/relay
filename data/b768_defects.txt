@@ -112,13 +112,18 @@ b768 -- THE ACT'S DEFECTS, LETTERED AS FOUND, EACH TAGGED CLAIM OR CLOSE ((R332)
      UNQUALIFIED NAME BY ITS LAST WORD AND REFUSING ONLY A QUALIFIED ONE. Dispatch 1, run 45439584241 (item a, the restore on, at
      e0baa667), read at 16:58:10Z: the build's exit 1, one error, SIDEExplicitFormula/Window/Packed.lean :182, `abs_mul` unknown; its
      declaration in the pinned Mathlib at Mathlib/Algebra/Order/Ring/Abs.lean :49, a module none of the file's six imports reaches. The
-     checks before that dispatch read CLEAR (data/b768_events.txt (62)): tools/b768_controls.py's ns_declaring kept every module declaring
-     an unqualified name's last word in any namespace, and presend refused a name declared only outside the closure only where it was
-     qualified (b767 (h)'s form, carried); so abs_mul was not refused, and abs_nonneg and abs_zero, which the build took, were printed as
-     only outside. So PackedTrial.lean, which imports Packed.lean, was not built, and the trial's kernel checks are not read. A search of
+     checks before that dispatch read CLEAR (data/b768_events.txt (62)), on two faults of tools/b768_controls.py, the second found after
+     the first's repair was committed (events (66)): the Mathlib import graph read an `import` line wherever it stood, so the line in
+     Mathlib/Tactic/FunProp.lean :48's doc comment, an example's `import Mathlib.Analysis.Complex.Trigonometric`, was read as an import,
+     and the closure so read reached Mathlib.Algebra.Order.Ring.Abs from Packed.lean's six imports (a probe, 17:08:49Z: 1,331 modules,
+     Ring.Abs among them) and abs_mul read within it; and ns_declaring kept every module declaring an unqualified name's last word in any
+     namespace, with presend refusing a name declared only outside the closure only where it was qualified (b767 (h)'s form, carried), so
+     abs_nonneg and abs_zero, which the build took (the root names made by an attribute, no declaration line), were printed as only
+     outside by CFC.abs_nonneg, CFC.abs_zero and EReal.abs_zero. So PackedTrial.lean, which imports Packed.lean, was not built, and the
+     trial's kernel checks are not read. A search of
      data/b75*_defects.txt to data/b76*_defects.txt by the rule's words (the Grep tool, 17:03Z: CLOSURE, IMPORT, UNKNOWN IDENTIFIER,
      OUTSIDE): b763 (i), NEW, a name read in Mathlib's tree and not in the file's closure; b767 (h), REPEAT b763 (i); b767 (k), REPEAT b767
      (h), the kernel's own names; b766 (k), a data file with no import, another class. FOR THE MEASURE: REPEAT b767 (k), no key's evidence
      in data/b766_repairs.txt or data/b767_repairs.txt (their keys [K22] to [K25] read the close order's tables and a text's form); not the
-     class of a carried constant. The defective step: a check's refusal held to qualified names, and an unqualified name read without the
-     namespaces the file resolves it in.
+     class of a carried constant. The defective step: a module's imports read from every line of its file and not from its header, a
+     check's refusal held to qualified names, and an unqualified name read without the namespaces the file resolves it in.

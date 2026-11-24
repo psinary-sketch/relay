@@ -580,4 +580,20 @@ COMPONENT 3:
      qualified one; a control added (abs_mul under Packed.lean's six imports read only outside and refused, abs_nonneg not; within with
      Mathlib.Algebra.Order.Ring.Abs; the reading replaced not refusing it; a planted file's opens; the checks at e0baa667 refusing
      Packed.lean's abs_mul and nothing else); compiled by scratch compctl768.py, which names no tool's path (17:02:50Z, 1,658 lines,
-     COMPILES), counted (no line flagged). Committed before any run with this row and defect (k).
+     COMPILES), counted (no line flagged). Committed before any run with this row and defect (k), relay 26c49bdb (step 32, 17:03:58Z), its
+     scan 8 of 8 AS WANTED, every count 0.
+
+    (66) THE TOOL'S [CLOSE ; NEW]: THE REPAIRED CONTROLS READ 30 OF 31; THE IMPORT GRAPH READ PAST THE HEADER; ITS REPAIR BEFORE ITS RUN.
+     `tools/b768_controls.py control --bank` (17:04:19Z, a flag read before it, captured by scratch cap767.py, 237 s, the [Q] word 0, the
+     mask 0): 30 of 31, control (26) NOT AS WANTED: abs_mul under Packed.lean's six imports read within the closure and the checks at
+     e0baa667 refusing nothing; data/b768_controls_control.txt written by the tool with the failure in it. Read by scratch absprobe768.py
+     (17:08:49Z, read-only, a flag read before it), importing the committed tool: the closure of the six imports 1,331 modules with
+     Mathlib.Algebra.Order.Ring.Abs among them; abs_mul declared at the root in Ring.Abs and as EReal.abs_mul in Mathlib.Data.EReal.Inv;
+     abs_nonneg and abs_zero by CFC's and EReal's alone; the chain to Ring.Abs through Mathlib.Tactic.FunProp, whose :48, by the Grep tool,
+     is `import Mathlib.Analysis.Complex.Trigonometric` inside its doc comment (defect (k)). tools/b768_controls.py by the Edit tool:
+     import_graph reading the import lines and the header's end by one git grep with line numbers, an import line read only above the
+     first doc comment, attribute, `public section` or command line; file_imports reading the imports past comments and above the header's
+     end; control (26) given the graph's read of FunProp (FunProp.Core in, Complex.Trigonometric out), Ring.Abs outside Packed.lean's
+     closure, and a planted header whose doc comment's import and import past the header's end are not read; compiled by scratch
+     compctl768.py, which names no tool's path (17:10:23Z, 1,698 lines, COMPILES), counted (no line flagged). Committed before its run with
+     this row.
