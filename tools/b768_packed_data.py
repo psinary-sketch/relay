@@ -11,6 +11,11 @@ one-call tool; this tool commits nothing and dispatches nothing.
              the first two lists of Coeffs.lean (512 numerators), the same list turned in two chunks of 256, the convolution sums
              in four chunks of 256 (the last place 0), the packed value of each chunk, the joined product, the sizes, and the
              convolution sums read from the general lemmas of Packed.lean (conv_of_packedL); every identity checked here first
+  full       L9c1's data ((R378)(4)(a), (b); data/b768_plan.txt :67-:70): the seven files SIDEExplicitFormula/Window/AutoData0.lean,
+             AutoData1.lean (the autocorrelation A(d), d = 0 to 16,364, from the balanced digits of P x Q), AutoP.lean and AutoQ.lean (the
+             numerators and their turn packed chunk by chunk), AutoR0.lean and AutoR1.lean (the convolution sums, A laid symmetrically
+             about the place 16,364, packed chunk by chunk) and AutoConv.lean (the joins, the product, the lengths and sizes, and auto_conv
+             by conv_of_packedL); each kernel evaluation 16 chunks, 4,096 places at most; every identity checked here first
   control    the tool's own controls, planted and printed
 
 THE BASE: 2^133 (the navigator's sizing, data/b768_ferry.txt :19, data/b768_plan.txt :31). THE BOUND on each numerator's absolute
@@ -23,6 +28,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 T = os.path.dirname(os.path.abspath(__file__))
 RELAY = os.path.dirname(T)
@@ -240,6 +246,236 @@ def cmd_trial(mode='dry'):
                                                                      back == t.encode('utf-8')))
 
 
+FULL_DIR = 'SIDEExplicitFormula/Window/'
+BLK = 16        # ### chunks per kernel evaluation: 16 x 256 = 4,096 places, within the 4,100 of the seat's rule ((R378)(4), KT_CAP)
+NB = 133        # ### the base 2^133 by its bits
+
+
+def bits_pack(digs, nb=NB):
+    """sum digs[k] (2^nb)^k for digits each in [-2^(nb-1), 2^(nb-1)), by one binary text (linear in the places)."""
+    h = 1 << (nb - 1)
+    s = ''.join(format(d + h, '0%db' % nb) for d in reversed(digs))
+    return int(s, 2) - int(('1' + '0' * (nb - 1)) * len(digs), 2)
+
+
+def bits_digits(R, n, nb=NB):
+    """the n balanced digits of R in the base 2^nb, each in [-2^(nb-1), 2^(nb-1)), or None where R has no such n places."""
+    h = 1 << (nb - 1)
+    Rp = R + int(('1' + '0' * (nb - 1)) * n, 2)
+    if Rp < 0 or Rp >> (nb * n):
+        return None
+    s = format(Rp, 'b').zfill(nb * n)
+    L = len(s)
+    return [int(s[L - nb * (k + 1): L - nb * k], 2) - h for k in range(n)]
+
+
+def join_g(infos, nb=NB):
+    v = 0
+    for x, n in reversed(infos):
+        v = x + (v << (nb * n))
+    return v
+
+
+def full_data(lists):
+    """the data of L9c1 from Coeffs.lean's 64 lists: the numerators l, their turn r, the product's balanced digits D (the convolution sums),
+    the autocorrelation A (A[d] = D[N - 1 + d]), and the chunks of P, Q and D in the order the Lean joins them."""
+    l = [v for c in lists for v in c]
+    N = len(l)
+    r = l[::-1]
+    P, Q = bits_pack(l), bits_pack(r)
+    D = bits_digits(P * Q, 2 * N) or []
+    A = D[N - 1:2 * N - 1]
+    aC = [A[256 * k:256 * (k + 1)] for k in range(64)]
+    head, t00 = A[:1], A[1:256]
+    pch = [('coeffChunk%02d' % k, lists[k]) for k in range(64)]
+    qch = [('coeffChunk%02d.reverse' % k, list(reversed(lists[k]))) for k in range(63, -1, -1)]
+    dch = ([('autoC%02d.reverse' % k, list(reversed(aC[k]))) for k in range(63, 0, -1)] + [('autoT00.reverse', list(reversed(t00))),
+           ('autoHead', head), ('autoT00', t00)] + [('autoC%02d' % k, aC[k]) for k in range(1, 64)] + [('autoZero', [0])])
+    info = lambda ch: [(pack(BASE, c), len(c)) for _n, c in ch]
+    pi, qi, di = info(pch), info(qch), info(dch)
+    chk = dict(
+        lengths=(N == N_ALL and len(D) == 2 * N and len(dch) == 130 and sum(len(c) for _n, c in dch) == 2 * N and max(len(c) for _n, c in dch) <= CHUNK),
+        digits=(bool(D) and bits_pack(D) == P * Q),
+        flat_d=([v for _n, c in dch for v in c] == D),
+        flat_q=([v for _n, c in qch for v in c] == r),
+        top_zero=(bool(D) and D[-1] == 0),
+        symmetric=(bool(D) and all(D[k] == D[2 * N - 2 - k] for k in range(2 * N - 1))),
+        sizes=(bool(D) and all(-BASE < 2 * x < BASE for x in D)),
+        bound=all(-BOUND <= x <= BOUND for x in l),
+        base_bound=(2 * (N * BOUND * BOUND) < BASE),
+        auto_direct=(bool(A) and all(A[d] == sum(l[i] * l[i + d] for i in range(N - d)) for d in (0, 1, 2, 3, 255, 256, 8191, 16363, 16364))),
+        joined=(join_g(pi) == P and join_g(qi) == Q and join_g(di) == P * Q),
+        joined_product=(join_g(pi) * join_g(qi) == join_g(di)))
+    return dict(N=N, D=D, A=A, aC=aC, head=head, t00=t00, pch=pch, qch=qch, dch=dch, pi=pi, qi=qi, di=di), chk
+
+
+def _ns(body):
+    return ['namespace SIDEExplicitFormula', 'namespace Window', ''] + body + ['end Window', 'end SIDEExplicitFormula', '']
+
+
+def _blocks(prefix, ch, vals, letter, imports_doc):
+    """the value defs, the block lists, the info lists and the block checks of one packing's chunks."""
+    L = []
+    for i, ((nm, _c), (v, n)) in enumerate(zip(ch, vals)):
+        L += ['/-- The packed value of `%s`, %d places. -/' % (nm, n), 'def %s%s : ℤ := %d' % (prefix, vals_name(i), v), '']
+    nb = (len(ch) + BLK - 1) // BLK
+    for b in range(nb):
+        part = list(range(b * BLK, min(len(ch), (b + 1) * BLK)))
+        L += ['/-- The chunks %d to %d of the %s packing. -/' % (part[0], part[-1], letter),
+              'def %sBlk%d : List (List ℤ) := [%s]' % (prefix, b, ', '.join(ch[i][0] for i in part)), '',
+              '/-- Their packed values with their lengths. -/',
+              'def %sI%d : List (ℤ × ℕ) := [%s]' % (prefix, b, ', '.join('(%s%s, %d)' % (prefix, vals_name(i), vals[i][1]) for i in part)), '',
+              'set_option maxHeartbeats 0 in',
+              'theorem %s_info%d : %sBlk%d.map (chunkInfo packBase) = %sI%d := by decide +kernel' % (prefix, b, prefix, b, prefix, b), '']
+    return L, nb
+
+
+def vals_name(i):
+    return 'v%03d' % i
+
+
+def full_texts(fd, rep):
+    head = lambda doc: ['/-!', doc, '', 'Written by relay tools/b768_packed_data.py from Coeffs.lean as its blob stands at the branch`s base (blob %s);'
+                        % rep['blob'][:16], 'edited by no hand.', '-/', '']
+    out = {}
+    aC, A = fd['aC'], fd['A']
+    d0 = lean_list('autoHead', 'The autocorrelation at the lag 0.', fd['head']) + lean_list('autoT00', 'The autocorrelation at the lags 1 to 255.', fd['t00'])
+    for k in range(1, 32):
+        d0 += lean_list('autoC%02d' % k, 'The autocorrelation at the lags %d to %d.' % (256 * k, 256 * k + len(aC[k]) - 1), aC[k])
+    out['AutoData0'] = (['import SIDEExplicitFormula.Window.PackedJoin', ''] +
+                        head('# The autocorrelation of the window`s numerators, the lags 0 to 8191, as data') + _ns(d0))
+    d1 = []
+    for k in range(32, 64):
+        d1 += lean_list('autoC%02d' % k, 'The autocorrelation at the lags %d to %d.' % (256 * k, 256 * k + len(aC[k]) - 1), aC[k])
+    d1 += lean_list('autoZero', 'The place past the last lag.', [0])
+    out['AutoData1'] = (['import SIDEExplicitFormula.Window.PackedJoin', ''] +
+                        head('# The autocorrelation of the window`s numerators, the lags 8192 to 16364, as data') + _ns(d1))
+    pb, _ = _blocks('autoP', fd['pch'], fd['pi'], 'numerators`', None)
+    for b in range(4):
+        pb += ['set_option maxHeartbeats 0 in',
+               'theorem autoP_bd%d : (autoPBlk%d.all fun c => c.all fun x => decide (-numBound ≤ x ∧ x ≤ numBound)) = true := by' % (b, b),
+               '  decide +kernel', '']
+    out['AutoP'] = (['import SIDEExplicitFormula.Window.PackedJoin', 'import SIDEExplicitFormula.Window.Coeffs', ''] +
+                    head('# The numerators packed in the base `2 ^ 133`, chunk by chunk, each value checked by the kernel') + _ns(pb))
+    qb, _ = _blocks('autoQ', fd['qch'], fd['qi'], 'turned', None)
+    for b in range(4):
+        qb += ['set_option maxHeartbeats 0 in',
+               'theorem autoQ_bd%d : (autoQBlk%d.all fun c => c.all fun x => decide (-numBound ≤ x ∧ x ≤ numBound)) = true := by' % (b, b),
+               '  decide +kernel', '']
+    out['AutoQ'] = (['import SIDEExplicitFormula.Window.PackedJoin', 'import SIDEExplicitFormula.Window.Coeffs', ''] +
+                    head('# The numerators turned, packed in the base `2 ^ 133`, chunk by chunk, each value checked by the kernel') + _ns(qb))
+    dch, di = fd['dch'], fd['di']
+    for part, lo, hi, blo in (('AutoR0', 0, 64, 0), ('AutoR1', 64, 130, 4)):
+        L = []
+        for i in range(lo, hi):
+            L += ['/-- The packed value of `%s`, %d places. -/' % (dch[i][0], di[i][1]), 'def autoR%s : ℤ := %d' % (vals_name(i), di[i][0]), '']
+        for b in range(blo, (hi + BLK - 1) // BLK if hi < 130 else 9):
+            idx = list(range(b * BLK, min(130, (b + 1) * BLK)))
+            idx = [i for i in idx if lo <= i < hi]
+            if not idx:
+                continue
+            L += ['/-- The chunks %d to %d of the convolution sums. -/' % (idx[0], idx[-1]),
+                  'def autoRBlk%d : List (List ℤ) := [%s]' % (b, ', '.join(dch[i][0] for i in idx)), '',
+                  '/-- Their packed values with their lengths. -/',
+                  'def autoRI%d : List (ℤ × ℕ) := [%s]' % (b, ', '.join('(autoR%s, %d)' % (vals_name(i), di[i][1]) for i in idx)), '',
+                  'set_option maxHeartbeats 0 in',
+                  'theorem autoR_info%d : autoRBlk%d.map (chunkInfo packBase) = autoRI%d := by decide +kernel' % (b, b, b), '',
+                  'set_option maxHeartbeats 0 in',
+                  'theorem autoR_bd%d : (autoRBlk%d.all fun c => c.all fun x => decide (-packBase < 2 * x ∧ 2 * x < packBase)) = true := by' % (b, b),
+                  '  decide +kernel', '']
+        out[part] = (['import SIDEExplicitFormula.Window.AutoData0', 'import SIDEExplicitFormula.Window.AutoData1', ''] +
+                     head('# The convolution sums packed in the base `2 ^ 133`, chunk by chunk, each value checked by the kernel') + _ns(L))
+    pB = ' ++ '.join('autoPBlk%d' % b for b in range(4))
+    qB = ' ++ '.join('autoQBlk%d' % b for b in range(4))
+    rB = ' ++ '.join('autoRBlk%d' % b for b in range(9))
+    pI = ' ++ '.join('autoPI%d' % b for b in range(4))
+    qI = ' ++ '.join('autoQI%d' % b for b in range(4))
+    rI = ' ++ '.join('autoRI%d' % b for b in range(9))
+    ma = lambda n: ', '.join(['List.map_append'] * n)
+    infos = lambda pre, n: ', '.join('%s_info%d' % (pre, b) for b in range(n))
+    bds = lambda pre, n: ', '.join('%s_bd%d' % (pre, b) for b in range(n))
+    blks = lambda pre, n: ', '.join('%sBlk%d' % (pre, b) for b in range(n))
+    C = ['/-- The convolution sums of the numerators and their turn: the autocorrelation laid symmetrically about the place 16364,',
+         'the last place `0`. -/', 'def autoD : List ℤ := (%s).flatten' % rB, '',
+         'theorem coeffList_blocks : coeffList = (%s).flatten := by' % pB,
+         '  simp only [coeffList, %s, List.cons_append, List.nil_append, List.flatten_cons, List.flatten_nil,' % blks('autoP', 4),
+         '    List.append_nil, List.append_assoc]', '',
+         'theorem coeffList_rev_blocks : coeffList.reverse = (%s).flatten := by' % qB,
+         '  simp only [coeffList, %s, List.reverse_append, List.cons_append, List.nil_append, List.flatten_cons,' % blks('autoQ', 4),
+         '    List.flatten_nil, List.append_nil, List.append_assoc]', '',
+         'theorem auto_P : packL packBase coeffList = joinG packBase (%s) := by' % pI,
+         '  rw [coeffList_blocks, packL_flatten_gen, %s, %s]' % (ma(3), infos('autoP', 4)), '',
+         'theorem auto_Q : packL packBase coeffList.reverse = joinG packBase (%s) := by' % qI,
+         '  rw [coeffList_rev_blocks, packL_flatten_gen, %s, %s]' % (ma(3), infos('autoQ', 4)), '',
+         'theorem auto_R : packL packBase autoD = joinG packBase (%s) := by' % rI,
+         '  unfold autoD', '  rw [packL_flatten_gen, %s, %s]' % (ma(8), infos('autoR', 9)), '',
+         'set_option maxHeartbeats 0 in',
+         'theorem auto_join_ok : joinG packBase (%s) * joinG packBase (%s) =' % (pI, qI), '    joinG packBase (%s) := by decide +kernel' % rI, '',
+         '/-- The product of the packed numerators and the packed numerators turned is the packed convolution sums. -/',
+         'theorem auto_prod : packL packBase coeffList * packL packBase coeffList.reverse = packL packBase autoD := by',
+         '  rw [auto_P, auto_Q, auto_R]', '  exact auto_join_ok', '',
+         'theorem coeffList_len : coeffList.length = 16365 := by',
+         '  rw [coeffList_blocks, length_flatten_gen packBase, %s, %s]' % (ma(3), infos('autoP', 4)), '  decide +kernel', '',
+         'theorem coeffList_rev_len : coeffList.reverse.length = coeffList.length := by',
+         '  first', '  | exact List.length_reverse _', '  | exact List.length_reverse', '  | simp', '',
+         'theorem autoD_len : autoD.length = 2 * coeffList.length := by',
+         '  rw [coeffList_len]', '  unfold autoD', '  rw [length_flatten_gen packBase, %s, %s]' % (ma(8), infos('autoR', 9)), '  decide +kernel', '',
+         'theorem coeffList_bd : ∀ x ∈ coeffList, -numBound ≤ x ∧ x ≤ numBound := by',
+         '  rw [coeffList_blocks]', '  refine all_flatten (P := fun x => -numBound ≤ x ∧ x ≤ numBound) _ ?_',
+         '  simp only [List.all_append, %s, Bool.and_self]' % bds('autoP', 4), '',
+         'theorem coeffList_rev_bd : ∀ x ∈ coeffList.reverse, -numBound ≤ x ∧ x ≤ numBound := by',
+         '  rw [coeffList_rev_blocks]', '  refine all_flatten (P := fun x => -numBound ≤ x ∧ x ≤ numBound) _ ?_',
+         '  simp only [List.all_append, %s, Bool.and_self]' % bds('autoQ', 4), '',
+         'theorem autoD_bd : ∀ x ∈ autoD, -packBase < 2 * x ∧ 2 * x < packBase := by',
+         '  unfold autoD', '  refine all_flatten (P := fun x => -packBase < 2 * x ∧ 2 * x < packBase) _ ?_',
+         '  simp only [List.all_append, %s, Bool.and_self]' % bds('autoR', 9), '',
+         'theorem auto_bM : 2 * ((coeffList.length : ℤ) * (numBound * numBound)) < packBase := by',
+         '  rw [coeffList_len]', '  decide +kernel', '',
+         '/-- **L9c1**: each convolution sum of the numerators and their turn is the place of `autoD` at its index. -/',
+         'theorem auto_conv : ∀ k < 2 * coeffList.length,',
+         '    convR coeffList.length (fun i => coeffList.getD i 0) (fun j => coeffList.reverse.getD j 0) k = autoD.getD k 0 :=',
+         '  conv_of_packedL (M := numBound) packBase_ge coeffList coeffList.reverse autoD coeffList_rev_len autoD_len coeffList_bd',
+         '    coeffList_rev_bd auto_bM autoD_bd auto_prod', '']
+    out['AutoConv'] = (['import SIDEExplicitFormula.Window.AutoP', 'import SIDEExplicitFormula.Window.AutoQ',
+                        'import SIDEExplicitFormula.Window.AutoR0', 'import SIDEExplicitFormula.Window.AutoR1', ''] +
+                       head('# L9c1: the autocorrelation of the window`s numerators, by one product of packed integers') + _ns(C))
+    return dict((k, NL.join(v)) for k, v in out.items())
+
+
+def cmd_full(mode='dry'):
+    lists, rep = read_coeffs()
+    print('  Coeffs.lean: blob %s, at the base %s, at HEAD %s -> EQUAL %s ; lists %d ; numerators %d ; each within the round bound %s' % (
+        rep['blob'][:12], rep['at_base'][:12], rep['at_head'][:12], rep['equal'], rep['chunks'], rep['total'], rep['within_bound']))
+    if not (rep['equal'] and rep['chunks'] == 64 and rep['names_in_order'] and rep['joined_in_order'] and rep['total'] == N_ALL
+            and rep['within_bound']):
+        sys.exit('### NOT WRITTEN: Coeffs.lean is not read as the base holds it')
+    t0 = time.time()
+    fd, chk = full_data(lists)
+    print('  the checks before the write (%.1f s): %s' % (time.time() - t0, ' ; '.join('%s %s' % kv for kv in chk.items())))
+    texts = full_texts(fd, rep)
+    ok = all(chk.values())
+    for k in ('AutoData0', 'AutoData1', 'AutoP', 'AutoQ', 'AutoR0', 'AutoR1', 'AutoConv'):
+        tc = text_checks(texts[k])
+        good = not tc['decimal'] and not tc['barred'] and tc['import_first'] and tc['longest_list'] <= CHUNK
+        ok = ok and good
+        print('  %s.lean: lines %d, bytes %d, sha256 %s ; decimal literals %d ; barred words %d ; imports first %s ; the longest list %d -> %s' % (
+            k, tc['lines'], tc['bytes'], tc['sha256'], tc['decimal'], tc['barred'], tc['import_first'], tc['longest_list'], 'OK' if good else 'REFUSED'))
+        dl = [x for x in decl_lines(texts[k]) if not re.match(r'auto(C\d\d|T00|Head|Zero|[PQR]v\d{3}|Rv\d{3}):', x)]
+        print('    declarations (name:line), the data and the values left out: %s' % ', '.join(dl))
+    if not ok:
+        sys.exit('### NOT WRITTEN: a check failed')
+    if mode != 'write':
+        print('### DRY: nothing written')
+        return
+    for k, t in sorted(texts.items()):
+        out = os.path.join(KPATH, FULL_DIR + k + '.lean')
+        with io.open(out, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(t)
+        back = open(out, 'rb').read()
+        print('### WRITTEN %s%s.lean: %d bytes, sha256 %s, read back EQUAL %s' % (FULL_DIR, k, len(back), hashlib.sha256(back).hexdigest()[:16],
+                                                                             back == t.encode('utf-8')))
+
+
 def cmd_control():
     res = []
 
@@ -275,6 +511,25 @@ def cmd_control():
       all(chk.values()) and not tc['decimal'] and not tc['barred'] and tc['import_first'] and tc['longest_list'] <= CHUNK)
     c('THE TEXT CHECK`S POSITIVE CONTROL: a planted decimal literal and a barred word read', text_checks('import X\n-- 1.5 frequency\n'),
       text_checks('import X\n-- 1.5 frequency\n')['decimal'] == 1 and text_checks('import X\n-- 1.5 frequency\n')['barred'] == 1)
+    dg = [5, -7, 0, 2 ** 131, -(2 ** 132), 1]
+    rt = bits_digits(bits_pack(dg), len(dg))
+    c('the balanced packing and its digits by binary text, on planted digits at both ends of the range: the digits read back', rt == dg, rt == dg)
+    c('A PLANTED FAULT: a value past the places asked, no digits read', bits_digits(bits_pack(dg) << NB, len(dg)),
+      bits_digits(bits_pack(dg) << NB, len(dg)) is None)
+    ch = [[3, -1, 4], [1], [-5, 9, 2, 6]]
+    c('the join of chunks of uneven lengths: the packed value of the flattened list', join_g([(pack(BASE, x), len(x)) for x in ch]) == pack(BASE, [v for x in ch for v in x]),
+      join_g([(pack(BASE, x), len(x)) for x in ch]) == pack(BASE, [v for x in ch for v in x]))
+    fd, fchk = full_data(lists)
+    texts = full_texts(fd, rep)
+    tcs = [text_checks(texts[k]) for k in sorted(texts)]
+    c('the full data`s checks and its seven texts (each identity ; no decimal literal, no barred word, imports first, lists of 256 at most)',
+      (all(fchk.values()), len(texts), sum(t['decimal'] + t['barred'] for t in tcs), all(t['import_first'] for t in tcs), max(t['longest_list'] for t in tcs)),
+      all(fchk.values()) and len(texts) == 7 and not sum(t['decimal'] + t['barred'] for t in tcs) and all(t['import_first'] for t in tcs)
+      and max(t['longest_list'] for t in tcs) <= CHUNK)
+    di2 = list(fd['di'])
+    di2[70] = (di2[70][0] + 1, di2[70][1])
+    c('A PLANTED FAULT: one chunk value of the convolution sums moved by 1, the joined product check reads it',
+      join_g(fd['pi']) * join_g(fd['qi']) == join_g(di2), join_g(fd['pi']) * join_g(fd['qi']) != join_g(di2))
     print('### THE TOOL`S CONTROLS: %d OF %d AS WANTED' % (sum(res), len(res)))
 
 
@@ -282,6 +537,8 @@ if __name__ == '__main__':
     a = sys.argv[1:]
     if a[:1] == ['trial']:
         cmd_trial(*(a[1:2] or ['dry']))
+    elif a[:1] == ['full']:
+        cmd_full(*(a[1:2] or ['dry']))
     elif a[:1] == ['control']:
         cmd_control()
     else:
