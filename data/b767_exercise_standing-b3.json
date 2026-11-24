@@ -8,7 +8,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the chain recomputed at commit in parts by act with the suite`s own remote reads: standing-b2a`s banked b624-b627, standing-b2b`s banked b628-b631, standing-b2c`s banked b632-b635, standing-b2d`s banked b636-b658 and standing-b3`s b659-b767 all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), b767 written LF",
-   "secs": 0.0791
+   "secs": 0.0892
   }
  },
  "run": 1,
@@ -17,20 +17,20 @@
  "neg_failures": 0,
  "withheld": [],
  "part": "standing-b3",
- "mode": "pre-push",
- "at": "2026-11-24T10:24:15Z",
- "relay_head": "b93d26580c59d99adbbbf2a08e70d5fc8a11b146",
+ "mode": "post-push",
+ "at": "2026-11-24T11:35:02Z",
+ "relay_head": "c8cf696699de3e5c77262d5d98feaf66daac27d4",
  "cadence": {
   "version": "v1.34.9",
   "held": "run",
-  "why": "every part runs in the mode pre-push",
-  "mode": "pre-push",
+  "why": "every part runs in the mode rerun",
+  "mode": "rerun",
   "reads": {
    "files": {
-    "other|3c5c11980966c8f2": "UNREADABLE",
-    "other|8f92180f89dfd5cf": "UNREADABLE",
+    "other|4a65f9ee1ef1e344": "UNREADABLE",
+    "other|678a983b5dbc84cf": "UNREADABLE",
+    "other|6f568ccda2e24396": "UNREADABLE",
     "other|cbc26fe1e7567a58": "UNREADABLE",
-    "other|dce342d093d5457b": "UNREADABLE",
     "pp|ERRATA.md": "193698:4c08eabdaf0790249fd0300a46e7b6c7e239ab81d8668f7670971612419e9ef4",
     "pp|FINDINGS.md": "3164052:c769342e6114c58ffaf592da10bc6ed12fc1ba71a4491cd95b9cc6f7417f6318",
     "pp|OPEN_TRAILS.md": "3334587:9a01bc480ddae8d2d3aac1211b3cad087ba4f289ed06d4d1184ca4a188c69b7b",
@@ -58,7 +58,7 @@
     "pp|phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md": "86826:87cbdc6933f7c257cf6352adf445347c7c87d79ca1a81bd86aa902212727ea8d",
     "pp|phase2/method/THE_KEYSTONE_CENSUS_v0_8.md": "194757:a4a76c09bf64b403adf1c1635af78611f3171c7b31260de5146dc96c679daefc",
     "pp|phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md": "202833:eee740b340e594f93b20d53ef13a257b6cd63c3ccfd0be724ac2d718963a36d4",
-    "proj|11d67961-2aa4-4353-bc12-a982038bfa55.jsonl": "1182214557:b97cf9731270e5cae9b92401e57d0833107dc508bf28887a283866491f2633f4",
+    "proj|11d67961-2aa4-4353-bc12-a982038bfa55.jsonl": "1182759469:e84e34b5b42e3ecd6009fbfd217ef0839413a38d6394c434d249ee15a5acc15d",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a3b4009d4d1b04de9.jsonl": "1597623:f9a7b87904500a310e64b74fb68ddf354d5b6e88eab9e759b068ec941cfe8484",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a7e3a28d8edaaec9b.jsonl": "946835:7cbd058f0eb808e3b6223d9959c9c6ae6b3ed052abc722b1f210aa7681f9a4a7",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a85ffc021f82f799e.jsonl": "1471661:aa8aaa170c12ec8afd119678e5097bcb007d9a79ec20ab8f581df923de95e162",
@@ -250,10 +250,10 @@
     "relay|data/b767_ceiling.txt": "4064:54b8ba95f13d59860ab44bb607a0f219f7094b8787755358341145055dc01b47",
     "relay|data/b767_certificate.json": "4765:5796582856b85af53075abfb6441fb369ec148103b31d03b954680efd3a8bbd5",
     "relay|data/b767_certificate.txt": "4690:13ee756503847788b8d3fd5cde998d5c121639df1f8bdf7df175be5d96e0a329",
-    "relay|data/b767_chain_half_a1_checks.json": "1136:8cf2e72ad0048ba93a179a416e2bac08e7d74721da6b3c2d7882707d0d5cf405",
-    "relay|data/b767_chain_half_a2_checks.json": "1136:17528da843d101ed992ea47b939f2f0f3dd88f1252063ac282467d6bec27cfd8",
-    "relay|data/b767_chain_half_a3_checks.json": "1136:4e08cb454394bff0446ff294a97a50e49c2c86e9929e0a4ae50ec81a45ee55b0",
-    "relay|data/b767_chain_half_a4_checks.json": "4745:d6ccdd4a466da43659b7ea392580b68774872d22653c75ea18075772212a5436",
+    "relay|data/b767_chain_half_a1_checks_postpush.json": "1136:b0ccd0529bb8a0a80e77c5b3a6873238a0b9a62a667f214b1c298f09b3981a32",
+    "relay|data/b767_chain_half_a2_checks_postpush.json": "1136:20054235fddca78120157efcda87fac61f9589343ec33e43ec14ecde2b072431",
+    "relay|data/b767_chain_half_a3_checks_postpush.json": "1136:562e4af8c522c50ce630acf912ebd5f649d54f9eb5c20afc88ec449b5a84361f",
+    "relay|data/b767_chain_half_a4_checks_postpush.json": "4745:911609b9edb9e278c074bd7e1cd0cc0cfab3cc74682f76386dede4afca4fd04c",
     "relay|data/b767_citation_check.json": "26381:7cb83a03ac70827f93a3f93e6c2901fa101e0784ffa6285adf840d2dd479bc5d",
     "relay|data/b767_citation_check.txt": "28305:b2d97fff3dc6e7903fa8832c1f527cac191f9829e334fcbb43bb48ae445915c5",
     "relay|data/b767_commands.json": "461661:5c652394a8644e485a581373233a2fb8c84bc0e1cf086bfbe7409319620b68f9",
@@ -321,7 +321,7 @@
     "relay|data/b767_standing_control.txt": "ABSENT",
     "relay|data/b767_standing_figures.json": "16982:2e694cdbb8a0bc7e20eb8380a5a66363424f21b30a0c1a495f09dc923430e802",
     "relay|data/b767_standing_figures.txt": "7820:b1fd37b27d93f09aee42d622127253985b4ecdca412fb0e79b8f483970829854",
-    "relay|data/b767_steps.json": "27972:63068771ac9f891cb46a9ba74a42085c4103deaac316bcf8c8fd0e55d36b94fc",
+    "relay|data/b767_steps.json": "28554:e3575afdad44ff946a6194313668337d10df95ba886d92307681a8e030f20b0d",
     "relay|data/b767_stepzero.txt": "11732:162d92461e61167537ad0afb4383fc677650e1b1cfbdfc8bb3ed95fe5b66061c",
     "relay|data/b767_table_final.json": "105:21f9cf6f1d79889dbdbfe998634ee55814bb0f4783fa1b21ae2620d0f734d677",
     "relay|data/b767_tests_stepzero.json": "ABSENT",
@@ -1066,9 +1066,9 @@
     "relay|HEAD:tools/test_push_gated.sh": "9ec495a3eea80109a75f4a8432f699e4ca217f1d"
    },
    "listings": {
-    "pp|tree": "tree:d314b4ff9ad917b5c2b640bb302e784c9df4ef31",
-    "relay|status": "status:a2ab26eb841608b890dea65188c3ba6992861ab3b45e6ebd93f70c78ec7a742d",
-    "relay|tree": "tree:a781d479b826ff050e879ed52c3e88a58179e0a0"
+    "pp|tree": "tree:37dc8d204eb4e702e0056aef152709299e3415b8",
+    "relay|status": "status:6f6fdcd8cb6fecdcc5494699c1ee65d13454d4919d662a4543a9b89291f74642",
+    "relay|tree": "tree:f6ddb214d309e6e2e2b9cb565c564e32b1a813de"
    }
   }
  }
