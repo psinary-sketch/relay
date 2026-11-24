@@ -513,10 +513,10 @@ DOORS = ('tools/b768_doors.py', '2bc7eca8', 'data/b768_doors.txt', 'c98beed0')  
 C5_LANDED, C5_CARRIED = 5, 0   # ### the repairs of (8): (i) the cut, (ii) v1.35.5, (iii) the gh-call reader, (iv) REGISTRY's header, (v) the two descriptions; none carried
 C1_STANDING_REPAIR = None          # ### none in Component 1
 C4_STANDING = None                 # ### none
-C1_RELAY = None              # ### the c1 route, the corrigendum banks
+C1_RELAY = 'ede70bce'        # ### b768: the c1 route and events rows (20)-(40), committed before any run of it (step 5, 14:21:51Z)
 C1_CEILING_TOOL = ()         # ### b765: no ceiling tool -- the ceiling read at step zero in the price table and after Component 2 by a read-only scratch (events (52), 14:13:35Z), banked in no file
 C1_CEILING_TOOL_B764 = ('542354bf',)   # ### b764's, kept beside
-C1_CORR = ''         # ### b768: the corrigendum banks for b767 (Component 1), set when made
+C1_CORR = '1ddea88d'         # ### b768: the corrigendum banks, data/b768_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (88) (step 7, 14:24:20Z)
 C1_CORR_B767 = 'ea50f0ee'         # ### b767: the corrigendum banks, data/b767_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (87) (step 8, 09:34:31Z)
 C1_CORR_B766 = '06dea7e2'         # ### b766: the corrigendum banks, data/b766_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (86) (step 6, 08:12:22Z)
 C1_CORR_B765 = '78f504a2'    # ### b765's, kept beside
@@ -552,15 +552,15 @@ C1_CEILING_B767 = '72861d88'      # ### b767 (R377)(3): the ceiling read before 
 C1_CEILING_B766 = '15008621'      # ### b766 (R376)(3): the ceiling read after (4)(c), data/b766_ceiling.txt, UNDER BY 4.58 h, NOTHING CARRIED (step 26, 10:16:16Z, events (52)); the carry had left b765's LEFT EMPTY marker by (R375)(3)
 C1_CEILING_B765 = None       # ### b765's: no ceiling bank
 C1_CEILING_B764 = 'f0ad4589'   # ### b764's, kept beside
-C1_PP = None                 # ### PLACE-papers: FINDINGS -- the corrigendum for b767 (Component 1)
+C1_PP = '9c43f4bb'           # ### PLACE-papers: FINDINGS -- the corrigendum for b767 (Component 1, step 6, 14:23:33Z)
 C1_TAG_PP = ()                     # ### (carried name) no tag note this act
 C1_DISCHARGE_PP = ()               # ### (carried name) no discharge this act
 C2_TOOL = None                     # ### (carried name) no driver this act
-WEIGHT_LINE = None   # ### FINDINGS: no weight line ((R378)(1) orders b767 at its weight within the corrigendum's act), set when written
-CORR_LINE = None     # ### FINDINGS: the corrigendum for b767 (Component 1), set when written
+WEIGHT_LINE = None   # ### LEFT EMPTY BY (R378)(1): no weight line of its own, b767 at its weight within the corrigendum (data/b768_corrigendum.txt)
+CORR_LINE = 16164    # ### FINDINGS: the corrigendum for b767 (Component 1), landed at :16164 by the c1 route's write (14:22:46Z, data/b768_corrigendum.json)
 NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
-DIFFERS_LINE = None   # ### LEFT EMPTY BY (R377)(12): no DIFFERS entry, REGISTRY, ERRATA, the census, the register and the map not written, FINDINGS and OPEN_TRAILS the two PLACE-papers files (v1.38.1 [K1]'s marker; b766's clause (R376)(11) set to b767's at Component 5)
-ERRATA_LINE = None   # ### ERRATA_LINE LEFT EMPTY BY (R377)(12): REGISTRY, ERRATA, the census, the register and the map not written (b766's clause (R376)(11) set to b767's at Component 5)
+DIFFERS_LINE = None   # ### LEFT EMPTY BY (R378)(12): no DIFFERS entry, REGISTRY, ERRATA, the census, the register and the map not written, FINDINGS and OPEN_TRAILS the two PLACE-papers files (v1.38.1 [K1]'s marker; b766's clause (R376)(11) set to b767's at Component 5)
+ERRATA_LINE = None   # ### ERRATA_LINE LEFT EMPTY BY (R378)(12): REGISTRY, ERRATA, the census, the register and the map not written (b766's clause (R376)(11) set to b767's at Component 5)
 ERRATA_LINE_B764 = 1149   # ### b764 (R374)(9)(a): [E1], E-2026-11-21-1, at ERRATA's end from :1149, PLACE-papers 772d5cf0, kept beside
 C2_PLAN_FIRST = None   # ### Component 2's first relay commit
 C2_RELAY = None   # ### the last of Component 2's relay commits
@@ -698,7 +698,9 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b767_repair_cont
 # ### their order, read from data/b767_steps.json and git (scratch steps767r.py, read-only, 18:49:19Z: 65 rows, each relay commit with its
 # ### files, PLACE-papers' three steps and the kernel's fifteen apart); the carry had left it empty; later commits appended as made.
 # ### b766's keys stand in git at tools/b766_worklist.py
-CHAIN = ()   # ### b768: the act's relay commits after step zero's banks, in their order, appended as made; b767's stands in git at tools/b767_worklist.py
+# ### b768, Component 1 (the Edit tool): the act's relay commits after step zero's banks (850b09d5, step 4), in their order, each read from
+# ### its step row (steps 5 and 7), appended as made; b767's stands in git at tools/b767_worklist.py
+CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -717,7 +719,9 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 20, 30, 50 and 65); the carry had left b765's two
 # ### b767: the corrigendum for b766 (FINDINGS, step 7); the rulings tool's groups c2 and c5 in OPEN_TRAILS, each after the tool's commit
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
-PP_CHAIN = ()   # ### b768: the act's PLACE-papers commits in their order, appended as made
+# ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
+# ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
+PP_CHAIN = (('c1pp', '9c43f4bb'),)   # ### b768: the act's PLACE-papers commits in their order, appended as made
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
 PP_CHAIN_B765 = (('c1pp', 'd9c03949'), ('ledgerspp', 'fb094a44'))   # ### b765's, kept for the carried readers that cite them
@@ -1013,7 +1017,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = ()   # ### b768: the act's PLACE-papers writes (key, file, commit), appended as made
+PP_WRITES = (('corr', 'FINDINGS.md', '9c43f4bb'),)   # ### b768: the act's PLACE-papers writes (key, file, commit), read from the step rows (step 6), appended as made
 PP_WRITES_B767 = (('corr', 'FINDINGS.md', '216d9715'), ('trails_c2', 'OPEN_TRAILS.md', 'ba23945a'), ('trails_c5', 'OPEN_TRAILS.md', 'adadfd62'))   # ### b767: the act's PLACE-papers writes (key, file, commit), read from the step rows (steps 7, 25 and 63); the entry and the trail appended as made
 PP_WRITES_B766 = (('corr', 'FINDINGS.md', '7a36f281'), ('trails_c2', 'OPEN_TRAILS.md', 'a183880f'), ('trails_c3', 'OPEN_TRAILS.md', '92108a44'),
              ('trails_c4', 'OPEN_TRAILS.md', '2d9d51ae'), ('trails_c5', 'OPEN_TRAILS.md', 'ff328d86'))   # ### b766 (R376)(1), (4)-(6): the corrigendum for b765 (step 5); the four groups of the rulings tool in OPEN_TRAILS (steps 20, 30, 50, 65)

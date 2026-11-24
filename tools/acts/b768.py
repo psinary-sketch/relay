@@ -982,26 +982,26 @@ TITLE_NEEDLES = ('## The proof by the banked window continued, under (R378): b76
                       r"(?: \(\([a-z][`'’]?\)(?:, \([a-z][`'’]?\))*\))? and the seat’s (\w+) defects? as lettered\.$", re.M)   # ### a primed letter read (defect (e`))
 #⟪END⟫
 #⟪SECTION checks 17⟫
-    """(R378)(1): the generated corrigendum for b767's record landed, short (its line in the json, FINDINGS :16080, the title at that line
-    through conv): b767's 131 events, 16 post-seal rows and 22 defects by count from their banks, 169 items, CLAIM 8 and CLOSE 161, REPEAT
-    126 (the ruling's counter, data/b768_ferry.txt :11), the eight CLAIM items (b767's events (24)-(31)) printed in full; the eleven
-    findings after b767's lock entered as b768's events (20)-(30) (CLAIM 0, CLOSE 11, REPEAT 8), each with its time; the navigator's nine
-    claims of (1) entered as b768's events (31)-(39), CLAIM 9; no weight line; the corrigenda bank appended at row (87) and nothing before
-    it changed; in Component 1's commits (the figures read from data/b768_corrigendum.json and the bank's foot; b768, Component 4, the Edit
-    tool, where b767's figures for b765's record stood)."""
+    """(R378)(1): the generated corrigendum for b767's record landed, short (its line in the json, FINDINGS :16164, the title at that line
+    through conv): b767's 152 events, 16 post-seal rows and 40 defects by count from their banks, 208 items, CLAIM 9 and CLOSE 199, REPEAT
+    181 (the ruling's counter, data/b768_ferry.txt :11), the nine CLAIM items (b767's events (31)-(39)) printed in full; the ten findings
+    after b767's lock entered as b768's events (22)-(31) (CLAIM 0, CLOSE 10, REPEAT 9), each with its time; the navigator's nine claims of
+    (1) entered as b768's events (32)-(40), CLAIM 9; the navigator's three figures and nine letters printed as the navigator's; no weight
+    line; the corrigenda bank appended at row (88) and nothing before it changed; in Component 1's commits (the figures read from
+    data/b768_corrigendum.json and the bank's foot; b768, Component 1, the Edit tool, where b767's figures for b766's record stood)."""
 #⟪END⟫
 #⟪SECTION checks 18⟫
-        and j.get('row') == 87 and j.get('claim') == 8 == len(j.get('claims') or []) and j.get('close') == 161 and j.get('repeat') == 126 and j.get('items') == 169 \
-        and '### ### **ITEMS 169: EVENTS 131, POST-SEAL 16, DEFECTS 22 ; CLAIM 8, CLOSE 161 ; REPEAT 126 ; THE CLAIM ITEMS OF b767`S BANKS 8, PRINTED IN FULL ; THE FINDINGS AFTER THE LOCK 11: CLAIM 0, CLOSE 11, REPEAT 8 ; ' in (S['corrt'] or '') \
-        and 'THE NAVIGATOR`S CLAIMS 9, CLAIM 9 ; THE NAVIGATOR`S FIGURES PRINTED AS THE NAVIGATOR`S ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :16080.**' in (S['corrt'] or '') \
+        and j.get('row') == 88 and j.get('claim') == 9 == len(j.get('claims') or []) and j.get('close') == 199 and j.get('repeat') == 181 and j.get('items') == 208 \
+        and '### ### **ITEMS 208: EVENTS 152, POST-SEAL 16, DEFECTS 40 ; CLAIM 9, CLOSE 199 ; REPEAT 181 ; THE CLAIM ITEMS OF b767`S BANKS 9, PRINTED IN FULL ; THE FINDINGS AFTER THE LOCK 10: CLAIM 0, CLOSE 10, REPEAT 9 ; ' in (S['corrt'] or '') \
+        and 'THE NAVIGATOR`S CLAIMS 9, CLAIM 9 ; THE NAVIGATOR`S FIGURES AND NINE LETTERS PRINTED AS THE NAVIGATOR`S ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :16164.**' in (S['corrt'] or '') \
 #⟪END⟫
 #⟪SECTION checks 19⟫
-        and [(c_.get('bank'), c_.get('id')) for c_ in (j.get('claims') or [])] == [('events', str(n_)) for n_ in range(24, 32)] and j.get('in_full') == 8 \
-        and (j.get('findings') or {}).get('rows') == [str(n_) for n_ in range(20, 31)] \
-        and [(j.get('findings') or {}).get(k_) for k_ in ('claim', 'close', 'repeat')] == [0, 11, 8] \
-        and (j.get('navigator') or {}).get('rows') == [str(n_) for n_ in range(31, 40)] and (j.get('navigator') or {}).get('claim') == 9 \
-        and j.get('weight_line') is None and j.get('entry_line') == K.CORR_LINE == 16080 \
-        and '  (87) ' in S['corrigenda'] and '  (88) ' not in S['corrigenda'] \
+        and [(c_.get('bank'), c_.get('id')) for c_ in (j.get('claims') or [])] == [('events', str(n_)) for n_ in range(31, 40)] and j.get('in_full') == 9 \
+        and (j.get('findings') or {}).get('rows') == [str(n_) for n_ in range(22, 32)] \
+        and [(j.get('findings') or {}).get(k_) for k_ in ('claim', 'close', 'repeat')] == [0, 10, 9] \
+        and (j.get('navigator') or {}).get('rows') == [str(n_) for n_ in range(32, 41)] and (j.get('navigator') or {}).get('claim') == 9 \
+        and j.get('weight_line') is None and j.get('entry_line') == K.CORR_LINE == 16164 \
+        and '  (88) ' in S['corrigenda'] and '  (89) ' not in S['corrigenda'] \
 #⟪END⟫
 #⟪SECTION checks 20⟫
     worklist's SEALED naming no report tool. (R378) orders no rules bank for this act; the rule it works by is b756's, data/b756_rules.txt,
@@ -1379,7 +1379,7 @@ def research_reproduces_ok(S):
         and bool(src) and src == _s(blob(ROOT, '%s:%s' % (PRE['relay'], tool))) and src == (read(os.path.join(ROOT, *tool.split('/'))) or '')
 #⟪END⟫
 #⟪SECTION checks 41⟫
-    """standing clauses v9 (the ferry's Component 5 under (R378), data/b768_ferry.txt :120: the close "as the standing clauses and [K24] order them", the touch read of v9 banked before the root), N4: the touch read banked as data/b768_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
+    """standing clauses v9 (the ferry's Component 5 under (R378), data/b768_ferry.txt :100: the close "as the standing clauses, [K24] and [K27] order them", the touch read of v9 banked before the root), N4: the touch read banked as data/b768_touch.txt by hand before the root -- its rows each marked AGREES or DIFFERS
 #⟪END⟫
 #⟪SECTION checks 42⟫
     # ### b767's G-RESEARCH-REPRODUCES stands untagged beside the act shift, and G-READFIRST-DIFF-BANKED, out of the arm list at v1.3.0, stays
@@ -2351,9 +2351,12 @@ def _ef_kind(rows, kind):
     return [r for r in rows or [] if r.get('kind') == kind]
 #⟪END⟫
 #⟪SECTION record 7⟫
-    """N1 (R378), data/b768_ferry.txt :122: "no lean process runs on this host; each build is a runner dispatch read by its run id from the
-    artifact, the exit file governing; the dispatches of SIDE-explicit-formula number at most 40 and are those of (4) and (5); nothing is
-    fetched from the web by the seat; each record route and dispatch under the holds." Read (b759's form, b768's items): no seat command
+    """N1 (R378), data/b768_ferry.txt :102: "no lean process runs on this host; each build is a runner dispatch read by its run id from the
+    artifact, the exit file governing; the dispatches of SIDE-explicit-formula number at most 40 and are those of (4); the dispatch commands
+    in the capture are the dispatch rows, the sends the host refused and the commands the dispatch tool refused ahead of a send, each of the
+    last entered as an event at its refusal; nothing is fetched from the web by the seat; each record route and dispatch under the holds."
+    (b768, Component 1, the Edit tool: the cite and the words set to (R378)'s; the reading after is b767's, written again with its reader
+    when (4)'s dispatches are.) Read (b759's form, b768's items): no seat command
     running lean or lake; each dispatch row with one read row of its run, the read's exit read; the dispatch counts within the worklist's
     caps, MAX_DISPATCHES (40) in SIDE-explicit-formula and 0 in SIDE-dirichlet-mod-24, the worklist's EF_RUNS and M24_RUNS each the runs of
     its kernel's dispatch and read rows; the dispatch rows' items those of tools/b768_controls.py's ITEMS for (4) and (5) -- the trial with
@@ -2470,10 +2473,11 @@ def _cmd_epoch(ts):
         return None
 #⟪END⟫
 #⟪SECTION record 11⟫
-    """N2 (R378), data/b768_ferry.txt :122: "the step-zero reads, the chain read and the carry print before any write, a scratch file among
-    the writes; each tool this act writes commits before its run in any form; tools/standing/ at the close differs from tools/standing/ at
-    b767's close by the commit of (8) and by no other, VERSION moved by it; the amended plan of (4)(a) is committed before any dispatch and
-    the registration of (6) before the tool's run at graded knots; the kernel's main moves under (4) and at no other time." Read: the chain
+    """N2 (R378), data/b768_ferry.txt :102: "the step-zero reads, the chain read and the carry print before any write, a scratch file among
+    the writes; each tool this act writes commits before its run, a compile check that does not name the tool's path counting as no run;
+    tools/standing/ at the close differs from tools/standing/ at b767's close by the three commits of (8) and by no other, VERSION moved by
+    each; the amended plan of (4)(a) is committed before any dispatch; the kernel's main moves under (4) and at no other time." (b768,
+    Component 1, the Edit tool: the cite and the words set to (R378)'s; the reading after is b767's, written again with its reader.) Read: the chain
     read, the step-zero reads and the carry by the step-zero bank's times, in that order, before the act_current commit; the act's commits
     in the worklist's TIME_ORDER by time, relay and PLACE-papers together; tools/standing/ moved by the commit of K.STANDING_REPAIRS alone
     ([K25]), VERSION at it that row's version and at HEAD K.STANDING_VERSION, moved from b767's close; the repairs bank's one row in one of
@@ -2857,15 +2861,16 @@ _INTEG = {}
 # ### (tools/b761_lines.py :106-:109: the heading '## ' and the names joined)
 INTEG_NAMES = ('b768_corrigendum', 'b768_repairs', 'b768_certificate', 'b768_plan', 'b768_source_build', 'b768_registration', 'b768_window',
                'b768_controls', 'b768_dispatch_rows', 'b768_logdata', 'b768_natdata', 'b768_ledgers_c2', 'b768_ledgers_c5', 'b768_orders')   # ### b767, Component 4 (the Edit tool): the act's finding banks in place of b766's
-INTEG_KEYSTONE = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md'   # ### (R377)(10): the keystone the ruling's line names
+INTEG_KEYSTONE = 'phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md'   # ### (R378)(10), as (R377)(10): the keystone the ruling's line names
 INTEG_TABLE_NAME = 'THE_EPSTEIN_CONTROL_OBJECT'                          # ### the cluster table's row naming the keystone, read against the ruling's cluster
 INTEG_DEFAULT = None                                                     # ### b766: the ruling gives the line whole; no default
-INTEG_FERRY_LINE = 47                                                    # ### b767, Component 4 (the Edit tool): data/b767_ferry.txt :47, (R377)(10): the line between its backticks (b766's :40, (R376)(9))
+INTEG_FERRY_LINE = 51                                                    # ### b768, Component 1 (the Edit tool): data/b768_ferry.txt :51, (R378)(10): the line between its backticks (b767's :47, (R377)(10); b766's :40, (R376)(9))
 
 
 def _integ_line(f):
     """b767, (R377)(10): the entry's last line, bare, the ruling's own: `INTEGRATION: cluster The Epstein instance ; keystone
-    phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md ; stage CLUSTERED`, read from the ferry's bank at :47 between its backticks and
+    phase1.5/spectral/THE_EPSTEIN_CONTROL_OBJECT_v0_2.md ; stage CLUSTERED`, read from the ferry's bank at INTEG_FERRY_LINE (b768's :51,
+    (R378)(10), the same line) between its backticks and
     refused where it is not that one line of the canon's shape. Beside it, read and not used to compose: SPIRAL_MAP's cluster table at
     PLACE-papers HEAD (between its '### Clusters' and '### Cross-cluster bridges' heads), the one row whose cells name the keystone, its bold
     name against the ruling's cluster; the canon's form (THE_METHOD_CANON.md :351) as the line's shape. b764's composer (the cluster read
@@ -3299,12 +3304,13 @@ def _pp_units():
     return units_, hits_, cat_
 #⟪END⟫
 #⟪SECTION record 15⟫
-    """N3 (R378), data/b768_ferry.txt :122: "no file under day1/, phase1.5/, phase2/ or internal/ differs from its bytes at 29de0836;
+    """N3 (R378), data/b768_ferry.txt :102: "no file under day1/, phase1.5/, phase2/ or internal/ differs from its bytes at a8be5811;
     REGISTRY, ERRATA, the census and the two files of the map are not written; OPEN_TRAILS and FINDINGS are each a byte prefix of their new
     bytes; each text of this ruling as entered equals the ruling's text with its fields filled; no sentence of the act says that anything of
     zeta, RH, GRH or Weil positivity on classK for zeta holds, fails or moved; no sentence about the control speaks of positivity without
     naming the side; a theorem of a step is entered as its own statement and nowhere as the closing theorem; no figure of the navigator's
-    workspace is printed as a banked figure." Read: (a) the files changed under the four trees, none; (b) REGISTRY's, ERRATA's, the
+    workspace is printed as a banked figure, the navigator's trial of (4)(a) among them." (b768, Component 1, the Edit tool: the cite, the
+    base and the words set to (R378)'s.) Read: (a) the files changed under the four trees, none; (b) REGISTRY's, ERRATA's, the
     census's and the map's two files' bytes at HEAD their bytes at the base; (c) OPEN_TRAILS and FINDINGS each a byte prefix; (d) the
     rulings tool's groups' texts in OPEN_TRAILS ([S1] with its order's entry line, [G1], [R1] with its order's entry line, [A2]; [P2] and
     [S2]; [C7] or [C8] where entered), each matching its template with its fields filled and by its group's line and digest, and the texts
@@ -3672,7 +3678,7 @@ def _guard(f):
         sys.exit('### THE REPRODUCTION RUN`S ROWS DO NOT SUM -- NOTHING COMPOSED')
 #⟪END⟫
 #⟪SECTION record 30⟫
-    """the entry's title by its objects (the ferry's ACT line, data/b768_ferry.txt :109, adjusted to what the act did): b767 at its weight
+    """the entry's title by its objects (the ferry's ACT line, data/b768_ferry.txt :89, adjusted to what the act did): b767 at its weight
     (b768_corrigendum); the one key of (8) (b768_repairs); the plan amended and the certificate's three forms of (4)(a) (b768_plan,
     b768_certificate); the steps of (4)(b) to (4)(e) by [P1] or [P2] (b768_ledgers_c5); the source-build read and the trial of (5)
     (b768_source_build, b768_controls); the closing build from source and main and the tag of (4) (b768_controls); the window at graded
@@ -4150,6 +4156,8 @@ def _finding_text_b768(f, S, rep, tot):
     cm_ = lambda x_: '{:,}'.format(int(x_)) if (isinstance(x_, (int, float)) and float(x_).is_integer()) or str(x_).isdigit() else str(x_)
     sti_ = lambda s_: '%d %s (%s)' % (len(rs_[s_]), s_.lower(), ', '.join(rs_[s_]) or 'none')
     # ### (10)'s measure: b766's and b765's hours and b766's count of the carried-constant class, the ruling's own figures at the ferry's :47
+    # ### b768, Component 1 (the Edit tool): (R378)(10) stands at b768's ferry :51 in five parts (b767's 5.73 and b766's 5.645; b767's 14.72;
+    # ### wanted 0; b767's one; b767's nine); this reader of b767's :47 is written again with b768's paragraphs at Component 5
     m10_ = re.search(r"beside b767's ([\d.]+) and b765's ([\d.]+);.*?beside b767's (\w+)\.", (rdn('%s_ferry.txt' % ACT).replace(chr(13), '').split(NL) + [''] * 47)[46])
     if not m10_:
         sys.exit('### THE FERRY`S :47 DOES NOT CARRY THE MEASURE`S TWO HOURS AND b767`S COUNT -- NOTHING COMPOSED')
