@@ -31,6 +31,8 @@ for p_ in (T, os.path.join(T, 'standing')):
         sys.path.insert(0, p_)
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys, 'set_int_max_str_digits'):
+    sys.set_int_max_str_digits(0)   # ### the packed values run to some 10,000 digits; Python's text limit is 4,300 (the first run, 16:16:00Z)
 import commit as CT              # noqa: E402  (KERNELS: the kernels' keys and folders, the one source)
 
 NL = '\n'
