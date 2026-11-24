@@ -29,3 +29,34 @@ b768 -- THE PLANTED CONTROLS OF THE THREE KEYS, (R378)(8), appended by tools/b76
     AFTER: CLEAN
   (diff)   the acts each table gains and loses, BEFORE to AFTER: FF_ACTS +b768 -none ; FORCED_DELETES +none -none ; KERNEL_ACTS +b768 -none ; NAMED_CONFLICTS +none -none ; PUSHTO_ACTS +none -none ; RDELETE_ACTS +none -none -- b768 GAINED BY KERNEL_ACTS AND FF_ACTS ALONE
 ### ### **[K26] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K27] THE PLANTED CONTROL (2026-11-24T15:08:41Z): BEFORE relay 279e11fa, THE REPAIR`S COMMIT relay 690c4238, its first parent 279e11fa -- THE COMMIT BEFORE
+  BEFORE (relay 279e11fa, VERSION v1.38.26): the files tools/standing/cadence.py present, tools/standing/prevdry.py present, tools/standing/close.py present, tools/standing/fold/checks.tpl present, tools/standing/VERSION present, data/b768_wlist.json present
+    (kind)    NO KIND IN cadence.py
+    (four)    b768`s standing-b2a to standing-b2d in the modes prerun, prev, post-push, pre-push, mid, rerun: run ; pre-push run, run, run, run
+    (b3)      b768`s standing-b3 in the post-push mode read with the chain group: True
+    (gate)    the prev-mode dry`s gate at b768: act ABSENT ; standing-a1 ABSENT ; standing-a2 ABSENT ; standing-b1 ABSENT ; standing-b2a ABSENT ; standing-b2b ABSENT ; standing-b2c ABSENT ; standing-b2d ABSENT ; standing-b3 ABSENT ; standing-c ABSENT
+    (held)    standing-b2a: RUNS
+    (held)    standing-b2b: RUNS
+    (held)    standing-b2c: RUNS
+    (held)    standing-b2d: RUNS
+    (declared) a NOTRUN footer of 0 arms, of 3 arms, a True footer, a False footer: NO part_declared IN close.py
+    (tpl)     the kind at the b3 join 0, the predicate`s quarters 0, the combine`s declared 0, the held call`s names 0
+    (verify)  G-ACTROOT-VERIFY`s predicate: b768`s second half with the boundary False ; a whole chain True ; an act dropped False ; the boundary unequal False
+    BEFORE: THE FAULT READ
+  AFTER (relay 690c4238, VERSION v1.38.27): the files tools/standing/cadence.py present, tools/standing/prevdry.py present, tools/standing/close.py present, tools/standing/fold/checks.tpl present, tools/standing/VERSION present, data/b768_wlist.json present
+    (kind)    b767 PAPER ; b768 LEAN AND NO PAPER ; b769 PAPER ; day1 PAPER ; empty PAPER ; glob PAPER ; nokernel PAPER ; phase15 PAPER
+    (four)    b768`s standing-b2a to standing-b2d in the modes prerun, prev, post-push, pre-push, mid, rerun: not run ; pre-push not run, not run, not run, not run
+    (planted) the planted act of the other kind (a paper`s path under day1/), its four in the six modes: run ; standing-b3`s post-push group whole True
+    (b3)      b768`s standing-b3 in the post-push mode read with the chain group: False
+    (gate)    the prev-mode dry`s gate at b768: act ABSENT ; standing-a1 ABSENT ; standing-a2 ABSENT ; standing-b1 ABSENT ; standing-b2a HELD ; standing-b2b HELD ; standing-b2c HELD ; standing-b2d HELD ; standing-b3 ABSENT ; standing-c ABSENT
+    (gate)    at the planted act: the four ABSENT, ABSENT, ABSENT, ABSENT
+    (held)    standing-b2a: files b768_checks_standing-b2a.txt, b768_exercise_standing-b2a.json, b768_lsr_standing-b2a.json ; exercise mode pre-push ; run 0 ; footer ARMS 0 and NOTRUN True ; kind LEAN AND NO PAPER
+    (held)    standing-b2b: files b768_arm_seconds_standing-b2b.json, b768_arms_prerun_standing-b2b.txt, b768_exercise_standing-b2b.json, b768_lsr_prerun_standing-b2b.json ; exercise mode prerun ; run 0 ; footer ARMS 0 and NOTRUN True ; kind LEAN AND NO PAPER
+    (held)    standing-b2c: files b768_checks_mid_standing-b2c.txt, b768_lsr_mid_standing-b2c.json, b768_mid_exercise_standing-b2c.json ; exercise mode mid ; run 0 ; footer ARMS 0 and NOTRUN True ; kind LEAN AND NO PAPER
+    (held)    standing-b2d: files b768_prevrun_exercise_standing-b2d.json, b768_prevrun_standing-b2d.json, b768_prevrun_standing-b2d.txt ; exercise mode prev ; run 0 ; footer ARMS 0 and NOTRUN True ; kind LEAN AND NO PAPER
+    (declared) a NOTRUN footer of 0 arms, of 3 arms, a True footer, a False footer: [True, False, True, False]
+    (tpl)     the kind at the b3 join 2, the predicate`s quarters 2, the combine`s declared 1, the held call`s names 1
+    (verify)  G-ACTROOT-VERIFY`s predicate: b768`s second half with the boundary True ; a whole chain True ; an act dropped False ; the boundary unequal False
+    AFTER: CLEAN
+### ### **[K27] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
