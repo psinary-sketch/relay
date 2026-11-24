@@ -13,6 +13,13 @@ standing-b2a to standing-b2d, are not run at the prev-mode dry: `run` sends none
 gate's prev-mode read) prints each HELD and asks no bank of it, its reading held to the parts that run. At an act of the other kind the
 four are required as before.
 
+v1.38.28, (R378)(8) [K28], THE PREV-MODE DRY'S SECOND SEND, the form of tools/b767_b2dsend.py: where `run`'s send of a part ends at the
+590 s guard of exercise() (:97, its constant unmoved), the route sends that part once more by exercise() under a limit of 900 s, in the
+foreground, and banks the result by write_bank() with the first send recorded beside it (first_send, second_send); the pair is one event
+and no defect. A second send that ends at 900 s is printed to be lettered and put to the author, and no third is sent. One copy of the run
+at a time: its mark, data/<act>_prevdry_<part>.running, is made before the send and removed after it, and a run that finds it sends
+nothing (where the harness moves the call to the background at its 600 s, no second copy is sent).
+
   python -X utf8 -u tools/standing/prevdry.py run <part>      one part, banked (a part held at the act's kind: nothing sent, nothing banked)
   python -X utf8 -u tools/standing/prevdry.py print           every part's bank read, nothing written
   exercise(act, part, module_text=None)                      the child's verdict, dict(ok, part, err, line, secs)
@@ -126,6 +133,26 @@ def bank_path(act, part):
     return os.path.join(D, '%s_prevdry_%s.json' % (act, part))
 
 
+# ### v1.38.28, (R378)(8) [K28]: THE SECOND SEND
+GUARD = 590          # ### exercise()'s own limit, its constant unmoved (:97)
+SECOND_LIMIT = 900
+K28_RULE, K28_VERSION = '(R378)(8) [K28]', 'v1.38.28'
+
+
+def _now():
+    return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+
+
+def guard_hit(out, limit):
+    """True where the send ended at its limit: exercise()'s TIMEOUT verdict for that limit."""
+    return (not out.get('ok')) and str(out.get('err') or '').startswith('TIMEOUT after %d s' % limit)
+
+
+def run_mark(act, part):
+    """the mark of a run of the part standing (data/<act>_prevdry_<part>.running), made before its send and removed after it."""
+    return os.path.join(D, '%s_prevdry_%s.running' % (act, part))
+
+
 def write_bank(act, part, out):
     out = dict(out, act=act, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
     s = json.dumps(out, indent=1, ensure_ascii=False) + NL   # ### composed whole before the file opens (b328's zero-byte husk)
@@ -199,10 +226,40 @@ def main(argv):
         print('  free %s MB, the hold 2560 %s' % (fm, 'MET' if isinstance(fm, int) and fm >= 2560 else '### NOT MET'))
         if not isinstance(fm, int) or fm < 2560:
             return 3
-        out = exercise(act, argv[1])
-        p = write_bank(act, argv[1], out)
+        # ### v1.38.28, (R378)(8) [K28]: one copy of the run at a time, its mark made before the send and removed after it
+        mk = run_mark(act, argv[1])
+        try:
+            with open(mk, 'x', encoding='utf-8', newline='\n') as f:
+                f.write(json.dumps(dict(act=act, part=argv[1], pid=os.getpid(), started=_now()), indent=1) + NL)
+        except FileExistsError:
+            try:
+                with open(mk, encoding='utf-8') as f:
+                    was = json.load(f)
+            except (OSError, ValueError):
+                was = {}
+            print('### REFUSED: A SEND OF %s STANDS (data/%s, started %s, pid %s) -- NOTHING SENT, NO SECOND COPY (%s): where the harness moved the '
+                  'call to the background, wait for its notice; where no process holds it, remove the mark by its absolute path' % (
+                      argv[1], os.path.basename(mk), was.get('started'), was.get('pid'), K28_RULE))
+            return 5
+        try:
+            t_first = _now()
+            out = exercise(act, argv[1])
+            if guard_hit(out, GUARD):   # ### [K28]: the part sent once more by exercise() under 900 s, its result banked by write_bank()
+                first = dict(err=out.get('err'), limit=GUARD, started=t_first, ended=_now())
+                print('  ### %s %s: THE FIRST SEND ENDED AT THE %d s GUARD (%s) -- THE SECOND SEND, BY exercise() UNDER %d s, IN THE FOREGROUND; '
+                      'THE PAIR ONE EVENT, NO DEFECT (%s, tools/standing/prevdry.py %s)' % (act, argv[1], GUARD, first['ended'], SECOND_LIMIT, K28_RULE, K28_VERSION))
+                out = exercise(act, argv[1], timeout=SECOND_LIMIT)
+                out = dict(out, first_send=first, second_send=dict(limit=SECOND_LIMIT, started=first['ended'], ended=_now(), rule=K28_RULE,
+                                                                   version=K28_VERSION))
+            p = write_bank(act, argv[1], out)
+        finally:
+            if os.path.exists(mk):
+                os.remove(mk)
         print('  %s %s: %s%s (%s s) -> %s' % (act, argv[1], 'SOURCES OK' if out['ok'] else '### FAILS', '' if out['ok'] else ' %s at line %s: %s' % (out.get('err'), out.get('line'), out.get('at')),
                                               out.get('secs'), os.path.relpath(p, RELAY)))
+        if out.get('second_send') and guard_hit(out, SECOND_LIMIT):
+            print('  ### %s %s: THE SECOND SEND ENDED AT ITS %d s LIMIT -- LETTER IT AND PUT IT TO THE AUTHOR (%s); NO THIRD SEND' % (
+                act, argv[1], SECOND_LIMIT, K28_RULE))
         return 0 if out['ok'] else 1
     if argv[:1] == ['print']:
         clear, L = gate(act)
