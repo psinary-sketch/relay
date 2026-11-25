@@ -1,0 +1,90 @@
+b769 -- (R379)(5): THE LINES [E2] TO [E5] CITE, READ FOR THEIR QUOTED PHRASES, AND outputs/ READ FOR A DEPOSITED COPY (2026-11-25T21:25:11Z)
+
+### tools/b769_errata.py read; the papers` repository at HEAD 41170e41 (the act`s start e52e2bae); the entries from the ferry bank (data/b769_ferry.txt,
+### sha256 20ab92c5b57a9b5c); each quoted phrase a needle at the line it is quoted from; each file under outputs/ by its lines, a copy of a paper where it
+### holds 25% of the paper`s distinct lines of 40 characters or more, deposited under outputs/DEPOSITED; counts, booleans and line numbers alone.
+
+## THE CONTROLS
+  the cited papers at the papers` repository`s HEAD 41170e41 each its bytes at the act`s start e52e2bae (N3): 7 of 7                                     AS WANTED
+  each entry`s quoted phrases, read from its "What the lines say." paragraph, the needles this tool reads: E2 True E3 True E4 True E5 True               AS WANTED
+  each entry`s cited lines, read from its "Records affected" sentence, the lines the needles are read at: E2 True E3 True E4 True E5 True                AS WANTED
+  PLANTED: [E3]`s :416 with one word of its phrase changed reads the phrase not carried, the entry not filed (NOT FILED)                                 AS WANTED
+  PLANTED: a copy of phase1.5/rcurve/R_CURVE_CRITERION.md under outputs/DEPOSITED-PLANTED/R_CURVE_CRITERION.md reads a copy of the paper holding [E3]`s phrase of :416 (FOUND) AS WANTED
+  the paper with its lines of 40 characters or more taken out reads no copy (NO COPY)                                                                    AS WANTED
+  the files under outputs/ read: 14, 12 of them under a DEPOSITED folder                                                                                 AS WANTED
+  each needle held by a deposited file is held in a copy of its own paper (elsewhere none)                                                               AS WANTED
+
+## THE NEEDLES AT THEIR CITED LINES: entry | paper | line | the phrase | carried exactly | carried normalised
+  E2 | day1/A_Place_to_Stand.md | :1380 | "folds at some" | True | True
+  E2 | day1/A_Place_to_Stand.md | :1382 | "attains a local maximum and returns to zero" | True | True
+  E2 | day1/A_Place_to_Stand.md | :315 | "no R-curve folds" | True | True
+  E2 | day1/A_Place_to_Stand.md | :1402 | "the absence of folds implies" | True | True
+  E2 | day1/A_Place_to_Stand.md | :1428 | "excluded off-line zeros" | True | True
+  E2 | phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md | :558 | "which is equivalent to the Riemann Hypothesis" | True | True
+  E2 | phase1.5/deep-structure/TRIVIUM_IDENTITY_SUBSPACE.md | :562 | "a chain of four independent events" | True | True
+  E2 | phase1.5/rcurve/R_CURVE_CRITERION.md | :46 | "each R-curve carries exactly one zero" | True | True
+  E2 | phase1.5/rcurve/R_CURVE_CRITERION.md | :108 | "without a second crossing" | True | True
+  E2 | phase1.5/rcurve/R_CURVE_CRITERION.md | :120 | "to vanish simultaneously" | True | True
+  E3 | phase1.5/rcurve/R_CURVE_CRITERION.md | :416 | "Speiser (1934) proved RH" | True | True
+  E3 | phase1.5/rcurve/P22_REPORT.md | :88 | "connected to Speiser's theorem" | True | True
+  E4 | phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md | :156 | "The transversality magnitude grows as" | True | True
+  E4 | phase1.5/simplicity/SIMPLICITY_OF_RIEMANN_ZEROS.md | :349 | "would dramatically improve" | True | True
+  E4 | phase1.5/proofs/THE_UNCONDITIONAL_SURROUND.md | :159 | "holds steady at" | True | True
+  E4 | day1/A_Place_to_Stand.md | :694 | "grows as approximately" | True | True
+  E4 | day1/A_Place_to_Stand.md | :1420 | "grows as" | True | True
+  E4 | day1/A_Place_to_Stand.md | :1422 | "growth persists at all heights" | True | True
+  E4 | day1/A_Place_to_Stand.md | :1792 | "growth rate" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :173 | "for the Dirichlet" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :67 | "Hooley (1967) proved" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :248 | "closes given GRH" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :571 | "carried as read" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :575 | "carried as read" | True | True
+  E5 | phase1.5/spectral/GRH_CASCADE.md | :175 | "With GRH established" | True | True
+
+## THE FILES UNDER outputs/: path | lines | the cited papers` lines in it (the papers by their file names), a copy marked *
+  outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | 2184 | A_Place_to_Stand.md 689* ; TRIVIUM_IDENTITY_SUBSPACE.md 5 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/ERRATA.md | 107 | 
+  outputs/DEPOSITED-v1.1.2/Exhaustive_Enumeration.md | 148 | A_Place_to_Stand.md 3 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/FORMATION_ARCHITECTURE.html | 247 | 
+  outputs/DEPOSITED-v1.1.2/ONE_PAGE_PROOF.md | 68 | A_Place_to_Stand.md 11 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/PAPER_DEPENDENCIES.svg | 65 | 
+  outputs/DEPOSITED-v1.1.2/Seven_Mechanism_Classes.md | 263 | THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/Silence_of_Foundations.md | 193 | THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/Spectral_Inertness.md | 161 | THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/Third_Identity_Element.md | 229 | A_Place_to_Stand.md 1 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED-v1.1.2/Which_Structure_Confines.md | 163 | THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | 2064 | A_Place_to_Stand.md 600* ; TRIVIUM_IDENTITY_SUBSPACE.md 5 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+  outputs/prime-core-lattice-b416.svg | 180 | 
+  outputs/v54_deposit_line.md | 2064 | A_Place_to_Stand.md 600* ; TRIVIUM_IDENTITY_SUBSPACE.md 5 ; THE_UNCONDITIONAL_SURROUND.md 1 ; GRH_CASCADE.md 1
+
+## THE DEPOSITED COPIES HOLDING A NEEDLE: entry | copy | the cited line -> the copy`s line, the way
+  E2 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1380 -> :1373, the line whole
+  E2 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1382 -> :1375, the line whole
+  E2 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :315 -> :308, the needle alone
+  E2 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1402 -> :1395, the needle alone
+  E2 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1428 -> :1419, the line whole
+  E2 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1380 -> :1347, the line whole
+  E2 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1382 -> :1349, the line whole
+  E2 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :315 -> :286, the needle alone
+  E2 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1402 -> :1369, the needle alone
+  E3 | none
+  E4 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :694 -> :687, the line whole
+  E4 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1420 -> :1411, the line whole
+  E4 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1422 -> :1413, the line whole
+  E4 | outputs/DEPOSITED-v1.1.2/A_Place_to_Stand.md | A_Place_to_Stand.md :1792 -> :1769, the line whole
+  E4 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :694 -> :665, the line whole
+  E4 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1420 -> :1385, the line whole
+  E4 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1422 -> :1387, the line whole
+  E4 | outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md | A_Place_to_Stand.md :1792 -> :1708, the nearest of 2 lines holding the needle (ratio 0.75 against 0.14)
+  E5 | none
+
+## FILES OUTSIDE THE DEPOSITED FOLDERS HOLDING A NEEDLE (a reading, no verdict): file | the needles | its lines equal to a deposited file`s
+  outputs/v54_deposit_line.md | E2 :1380, E2 :1382, E2 :1402, E2 :315, E4 :1420, E4 :1422, E4 :1792, E4 :694 | ['outputs/DEPOSITED/A_Place_to_Stand.v5.4.EARLIER-DEPOSIT-SNAPSHOT.md']
+
+## THE VERDICTS
+  [E2] FILED: each phrase carried at its line ; a deposited copy holding a quoted phrase: FOUND; holding the theorem (:1380): FOUND
+  [E3] FILED: each phrase carried at its line ; a deposited copy holding a quoted phrase: NONE
+  [E4] FILED: each phrase carried at its line ; a deposited copy holding a quoted phrase: FOUND
+  [E5] FILED: each phrase carried at its line ; a deposited copy holding a quoted phrase: NONE
+
+### ### **THE ERRATA READ: NEEDLES 25, CARRIED 25 ; ENTRIES TO FILE 4 OF 4 ; FILES 14, DEPOSITED 12 ; DEPOSITED COPIES HOLDING A PHRASE FOR [E2], [E4] ; CONTROLS 8 OF 8 AS WANTED ; WRITTEN.**
