@@ -738,7 +738,11 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('arc_banks', '362c0446'),   # ### step 30: the source record's banks, counts alone
          ('rul_c2b', '92e1cab4'),   # ### step 31: the rulings tool's group c2b (step 32 the papers` repository's)
          ('c2b_banks', '7f2c52d7'),   # ### step 33: the ledgers of group c2b, Component 2 complete
-         ('err_tool', '01c2ffd3'))   # ### step 34: tools/b769_errata.py (step 35 the papers` repository's); later commits appended as made
+         ('err_tool', '01c2ffd3'),   # ### step 34: tools/b769_errata.py (step 35 the papers` repository's)
+         ('c3_banks', '59f2d538'),   # ### step 36: the read's and the ledgers' banks of Component 3
+         ('waves_tool', '5e4c4d98'), ('waves_fix', '3fed8ec7'),   # ### steps 37-38: tools/b769_waves.py and its version matcher's repair
+         ('zen_tool', 'b9b16c6a'), ('zen_fix', '9138ba1d'),   # ### steps 39-40: the waves banks with tools/b769_zenodo.py, and its one-request rule
+         ('rul_c4', 'e4d5ed97'))   # ### step 41: the records' and the draft's banks with the rulings tool's group c4 (step 42 the papers` repository's); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -759,7 +763,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'), ('c2pp_c2b', '41170e41'), ('c3pp', '5111e451'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25, 29, 32 and 35: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record, [B1] and [A4] with [C9], the four entries of ERRATA with [F2]-[F5] and [R3]), b768's keys
+PP_CHAIN = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'), ('c2pp_c2b', '41170e41'), ('c3pp', '5111e451'), ('c4pp', '3deb3dca'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25, 29, 32, 35 and 42: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record, [B1] and [A4] with [C9], the four entries of ERRATA with [F2]-[F5] and [R3], [V1]), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
