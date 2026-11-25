@@ -737,7 +737,10 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('needles', '4b110980'),   # ### step 85, the needle calls (Component 5)
          ('probe_paths', '2848e356'),   # ### step 86, the probe-path refusal, the kernels face and four markers (Component 5)
          ('probe_fix', 'caf329a1'),   # ### step 87, the act probe's three repairs, rows (147)-(150) and defects (w)-(b') (Component 5)
-         ('probes', 'b25c6233'))   # ### step 88, the parts probed, the face's declared arms and the block file (Component 5); the handoff (step 89, 5588d3b5) placed by its time outside CHAIN as b767's stood; later commits appended as made
+         ('probes', 'b25c6233'),   # ### step 88, the parts probed, the face's declared arms and the block file (Component 5); later commits appended as made
+         ('handoff', '5588d3b5'),   # ### step 89, HANDOFF.md alone (Component 5): placed in CHAIN at its time, since relay commits follow it before the gate where b767's handoff was its last; the N2 order arm (tools/acts/b768.py :2573) appends a handoff absent from TIME_ORDER after it, and chain_in_time (tools/standing/act.py :492) skips a tail commit CHAIN holds
+         ('handoff_chain', 'f31ed36a'),   # ### step 90, the worklist given HANDOFF_COMMIT and the chain to b25c6233 (Component 5)
+         ('record_banks', '60ea1e18'))   # ### step 91, the four standing figures, the guard dry, the command bank, rows (154)-(157) and the block file's two sets (Component 5)
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -824,7 +827,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                     'needles': 'the needle calls with rows 142 and 143 and defect u and the face count set',
                     'probe_paths': 'the probe-path refusal and the kernels face banked and four worklist markers set before the probes',
                     'probe_fix': 'the act probe repairs of the two carried overrides and PP_WRITES with rows 147 to 150 and defects w to b-prime before the probe again',
-                    'probes': 'the act part probe again and the standing parts probed with rows 151 to 153 and the face declared arms and the block file defects line set'})
+                    'probes': 'the act part probe again and the standing parts probed with rows 151 to 153 and the face declared arms and the block file defects line set',
+                   'handoff': 'the handoff page written once by its tool',
+                   'handoff_chain': 'the worklist given HANDOFF_COMMIT and the chain to b25c6233',
+                   'record_banks': 'the four standing figures and the guard dry and the command bank with rows 154 to 157 and the block file scope sentence and Component 5 field'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
