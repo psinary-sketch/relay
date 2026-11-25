@@ -85,9 +85,25 @@ FIXES_B765 = (
 # ### b768 (the Edit tool, before any run, data/b768_events.txt (118)): the arms failing at the pre-run on real state, declared by name before
 # ### the lock, each with its reason, set by hand from b768's probes and `tools/standing/prelock.py print b768` when they are run; None until
 # ### then, and main() refuses while DECLARED or DECLARED_LINES is None (the carry had left b767's under these names).
-DECLARED = None
-DECLARED_LINES = None
-NEWLY = None
+# ### b768 (the Edit tool, 2026-11-25T08:0xZ, after the six probes run, act, standing-a1, a2, c, b1 and b3, and `tools/standing/prelock.py
+# ### print b768` at 08:00:56Z: arms read 116, failing 34, NEWLY FAILING 11, the four held parts' banks absent by [K27]): three of b767's
+# ### four stand, each ground read again at its line before it was written (the probes of standing-a1 :20, :22, :23 and standing-a2 :38,
+# ### :66, :68, :127; tools/b649_checks.py :452-:454; tools/standing/fold/checks.tpl :1784 and :1788, five below b767's cites since [K27]'s
+# ### edit; tools/rule_arms.py :389, :617; tools/no_sorry_main.py :4-:11; data/b757_defects.txt (q) at :30; no data/b768_*cut* by name,
+# ### 08:02:58Z; the sorry hits by kernel and folder in the probe of standing-a1 :22, 15 of 15 in SIDEExplicitFormula/C2Field/).
+# ### G-DELETES-ONE-BRANCH is not declared: (R378)(3)'s sentence is worded for tools/standing/allow.py :50 and its reader reads the five
+# ### step-zero deletes inside the ruling (data/b768_events.txt (12)); at the act part's probe its nine conjuncts read true and the command
+# ### bank absent, `record commands` not yet run (data/b768_events.txt (147), (151); the probe of the act part :29). NEWLY the eleven of
+# ### the pre-lock print, equal to b767's eleven by name.
+DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN')
+DECLARED_LINES = (
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried; the arm at tools/standing/fold/checks.tpl :1788) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction (the probe of standing-a2 :68); tools/axiom_claim.py outside (W), no bank rewritten, carried as b767 declared it on its face.",
+    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :127), as at b767`s pre-run. b768 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b768_*cut* in the tree, read 2026-11-25T08:02:58Z), so it adds to neither count, and the searches read failing NONE (:38). (R378) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11; the arm at tools/standing/fold/checks.tpl :1784); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22; standing-a2 :66), each a file of SIDE-explicit-formula`s SIDEExplicitFormula/C2Field/ folder (the probe of standing-a1 :22 by kernel and folder: 15 of 15), the fifteen b767 declared on its face. b768 moved SIDE-explicit-formula`s main under (R378)(4) alone, 89fd5b54 to ffefddc6 by the gated push after the closing build from source, 89fd5b54 an ancestor of ffefddc6 (data/b768_events.txt (124)), its changes fifty Lean files added under SIDEExplicitFormula/Window/ and none modified (data/b768_events.txt (132)), so the C2Field files stand on main as before and the count stands at b767`s 15; the act`s fifty Window files carry none (the axioms print of run 45521560784, the build from source at ffefddc6 with the restore off, reads 2,038 axiom lines with sorryAx in none, data/b768_events.txt (122)), and the kernel`s clone stood at main when standing-a1 ran (data/b768_events.txt (146)); the counter counts the text.",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and appended to the post-seal events bank at step [21] for the next corrigendum, not a letter (the ferry`s Component 5, data/b768_ferry.txt :100; (R374)(5) [K10], standing).",
+)
+NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-LOCKGATE-EIGHT', 'G-NOTHING-RAN-AHEAD',
+         'G-ROOTDRY-READY', 'G-RULE-SCORES-BEFORE-SEAL', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS', 'G-WRITELIST-MIRROR-STATE')
 # ### b767's, as b767 wrote them (the carry shifting their names): b768 (the Edit tool, 2026-11-24T00:5xZ, after the ten probes and
 # ### `tools/standing/prelock.py print b768` at 00:55:49Z): the arms failing
 # ### at the pre-run on real state, declared by name before the lock, each with its reason. b767's six read against b768's probes: G-DELETE-FREE,
