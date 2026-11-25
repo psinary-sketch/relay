@@ -30,3 +30,24 @@ b769 -- THE PLANTED CONTROLS OF THE TWO KEYS, (R379)(8), appended by tools/b769_
     (verify)  G-ACTROOT-VERIFY`s predicate: b769`s second half with the boundary True ; a whole chain True ; an act dropped False ; the boundary unequal False
     AFTER: CLEAN
 ### ### **[K29] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K30] THE PLANTED CONTROL (2026-11-25T20:23:04Z): BEFORE relay 9faf0b1a, THE REPAIR`S COMMIT relay 84333f27, its first parent 9faf0b1a -- THE COMMIT BEFORE
+  BEFORE (relay 9faf0b1a, VERSION v1.38.29): the files tools/standing/roster.py present, tools/standing/v1345.py present, tools/standing/v1340.py present, tools/standing/VERSION present, tools/mirror_roster.json present, tools/mirror_project_set.json present
+    (rule)    apply_current takes the act False ; the refusal False ; the constants [None, None, None, None]
+    (apply)   absent_768 ['a.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; absent_769 ['a.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; e52_768 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; e52_769 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; main_768 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md']
+    (at)      roster_at: e52_768 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; e52_769 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; main_768 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md']
+    (print)   the builder`s print_lines: main_768 {'r': ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'], 'lines': ['UNDECIDED SPIRAL_MAP.md  (a tie at v0.7: SPIRAL_MAP.md, SPIRAL_MAP_v0_7.md ; carried as the rule of data/b715_rules.txt (1) carries it: SPIR']} ; main_769 {'r': ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'], 'lines': ['UNDECIDED SPIRAL_MAP.md  (a tie at v0.7: SPIRAL_MAP.md, SPIRAL_MAP_v0_7.md ; carried as the rule of data/b715_rules.txt (1) carries it: SPIR']}
+    (project) the Project set`s rows of the family: main_768 ['SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md']
+    (planted) THE PLANTED ROSTER: both_768 NO GUARD ; both_769 NO GUARD ; edition_769 NO GUARD ; one_769 NO GUARD
+    (checks)  v1345.py {'old': True, 'new': False, 'project': True} ; v1340.py {'map': True, 'edition': False}
+    BEFORE: THE FAULT READ
+  AFTER (relay 84333f27, VERSION v1.38.30): the files tools/standing/roster.py present, tools/standing/v1345.py present, tools/standing/v1340.py present, tools/standing/VERSION present, tools/mirror_roster.json present, tools/mirror_project_set.json present
+    (rule)    apply_current takes the act True ; the refusal True ; the constants [{'SPIRAL_MAP.md': 'SPIRAL_MAP.md'}, 769, '(R379)(8) [K30]', 'v1.38.30']
+    (apply)   absent_768 ['a.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; absent_769 REFUSED: ### THE ROSTER CARRIES SPIRAL_MAP_v0_7.md, WHERE THE FAMILY`S ONE NAME IS SPIRAL_MAP.md ((R379)(8) [K30], v1.38.30, W-ORD-MAP-MERGE) -- REFUSED, NOTHING PRINTED OR BUILT ; e52_768 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; e52_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md'] ; main_768 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md']
+    (at)      roster_at: e52_768 ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md'] ; e52_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md'] ; main_768 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md']
+    (print)   the builder`s print_lines: main_768 {'r': ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md'], 'lines': ['UNDECIDED SPIRAL_MAP.md  (a tie at v0.7: SPIRAL_MAP.md, SPIRAL_MAP_v0_7.md ; carried as the rule of data/b715_rules.txt (1) carries it: SPIR']} ; main_769 {'r': ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md'], 'lines': ['LEAVES BY EDITION SPIRAL_MAP_v0_7.md  (family SPIRAL_MAP.md ; its own line v0.7 at :2 ; the current edition SPIRAL_MAP.md)']}
+    (project) the Project set`s rows of the family: main_768 ['SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'] ; main_769 ['SPIRAL_MAP.md']
+    (planted) THE PLANTED ROSTER: both_768 PASSES ; both_769 REFUSED: ### THE ROSTER CARRIES SPIRAL_MAP_v0_7.md, WHERE THE FAMILY`S ONE NAME IS SPIRAL_MAP.md ((R379)(8) [K30], v1.38.30, W-ORD-MAP-MERGE) -- REFUSED, NOTHING PRINTED OR BUILT ; edition_769 REFUSED: ### THE ROSTER CARRIES SPIRAL_MAP_v0_7.md, WHERE THE FAMILY`S ONE NAME IS SPIRAL_MAP.md ((R379)(8) [K30], v1.38.30, W-ORD-MAP-MERGE) -- REFUSED, NOTHING PRINTED OR BUILT ; one_769 PASSES
+    (checks)  v1345.py {'old': False, 'new': True, 'project': True} ; v1340.py {'map': True, 'edition': False}
+    AFTER: CLEAN
+### ### **[K30] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
