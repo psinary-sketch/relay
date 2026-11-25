@@ -448,7 +448,7 @@ STEPZERO_SCAN_B766 = 'c323bf50'   # ### data/b766_address_scan_commits.txt as b7
 STEPZERO_SCAN_B765 = '2a237834'   # ### b765's, kept beside
 STEPZERO_SCAN_B764 = '8f4c353d'   # ### b764's, kept beside
 STEPZERO_SCAN_B763 = 'dc063f7d'   # ### b763's, kept beside
-STEPZERO_BANKS = None      # ### step zero's banks and carried tools, one commit (data/b768_stepzero.txt among them)
+STEPZERO_BANKS = '850b09d5'      # ### step zero's banks and carried tools, one commit (data/b768_stepzero.txt among them): b768 step 4 (14:12:24Z), 26 files; the dispatch licences' commit (data/b768_events.txt (62)); set at Component 4 (the Edit tool, while dispatch 14 built), found None by scratch chainchk768.py (02:02:49Z); its readers searched (the Grep tool, 02:03Z): tools/acts/b768.py :412-:415, :887, :2458-:2467, :2562 and the order paragraphs; tools/standing/fold/checks.tpl and record.tpl twice each; tools/standing/carry.py once
 STEPZERO_AFTER = STEPZERO_BANKS      # ### b756: no restart and no stop at step zero; step zero's banks the last step-zero commit; the name kept for the carried arms (b754's 65972bf1), each rewritten at Component 6
 STEPZERO_BANK_COMMIT = STEPZERO_BANKS
 STEPZERO_ANSWERS = None
@@ -712,7 +712,19 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('k26_ctl', 'c17aaf34'), ('k26', '70aefe23'), ('k26_row', 'ec61c120'),
          ('k27_ctl', '279e11fa'), ('k27', '690c4238'), ('k27_row', 'b5e8b01c'),
          ('k28_ctl', '2421d857'), ('k28_ctl_fix', 'd7c06a39'), ('k28', 'a7d37ec2'), ('k28_row', 'ea46d65a'),   # ### steps 8-18, each from its step row
-         ('wl_c1', 'e7e0edfd'), ('plan', '996fea1c'), ('rulings_gen', '1a18f7f5'))   # ### steps 19-21, each from its step row (Component 2)
+         ('wl_c1', 'e7e0edfd'), ('plan', '996fea1c'), ('rulings_gen', '1a18f7f5'),   # ### steps 19-21, each from its step row (Component 2)
+         ('ledgers_c2', 'b0ba8314'),   # ### step 23
+         # ### b768, Component 4 (the Edit tool, while dispatch 14 built): steps 24-72, each relay row of data/b768_steps.json in its order
+         # ### (scratch steps768.py, read-only, 02:00:20Z: 72 rows, PLACE-papers' steps 6, 22 and 66 and the kernel's fourteen apart)
+         ('controls_gen', '6354744a'), ('packed_gen', 'e2e3d1a0'), ('packed_fix', 'fcf63216'), ('controls_ns', 'd18e58cf'),
+         ('trial_sent', 'a28d4860'), ('packed_full', 'e1fe991c'), ('controls_opens', '26c49bdb'), ('controls_graph', 'e7f39dc2'),
+         ('trial_again', '85f17b9a'), ('rows71', 'ef522acc'), ('rows74', '4a27551f'), ('far_gen', '79474217'), ('rows76', '7ddcbd97'),
+         ('far_chunks', '6d2c4465'), ('rows79', 'ce6ae7cf'), ('far_option', 'b2a169a5'), ('rows82', '851fe41e'), ('rows84', 'f2e1d60a'),
+         ('band_gen', 'a512ba6b'), ('rows88', 'bbb693d0'), ('rows91', 'bbcfbbb0'), ('rows94', '3b7c6d51'), ('arith_gen', 'a2513e90'),
+         ('arith_heart', '263fbb0f'), ('rows99', '37a71b9a'), ('arith_chains', '38ac3000'), ('rows101', '67f40277'),
+         ('rulings_c5', 'a02dbe2a'), ('ledgers_c5', '243d4c0b'),   # ### steps 24-67 (Component 3)
+         ('closing_stopped', 'd1fde170'), ('rows109', 'fe2aa624'), ('module_c5a', 'bc2e9195'), ('module_c5b', '34db91a3'),
+         ('reproduce', '4dbb48db'))   # ### steps 68-72 (Component 4); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -733,7 +745,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6 and 22)
+PP_CHAIN = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
 PP_CHAIN_B765 = (('c1pp', 'd9c03949'), ('ledgerspp', 'fb094a44'))   # ### b765's, kept for the carried readers that cite them
@@ -746,13 +758,45 @@ _KEYS = tuple(k_ for k_, _h in CHAIN)
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps766r.py: 08:09:43Z, 09:13:20Z, 10:38:25Z, 15:42:39Z, 17:49:47Z)
 # ### b767: each PLACE-papers key placed before the relay commit that follows it in time -- the corrigendum before its banks, each rulings
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps767r.py: 09:33:32Z, 12:13:27Z, 18:32:52Z)
-_PP_BEFORE = {}   # ### b768: each PLACE-papers write's key beside the chain key before it, set as made
+# ### b768: each PLACE-papers key placed before the relay commit that follows it in time -- the corrigendum before its banks, each rulings
+# ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps768.py: 14:23:33Z, 15:35:31Z, 00:23:41Z)
+_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c5': 'c5pp'}
 TIME_ORDER = ('actcur', 'stepzero') + tuple(x_ for k_ in _KEYS for x_ in ((_PP_BEFORE[k_], k_) if k_ in _PP_BEFORE else (k_,)))
 # ### b766, Component 5 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps766r.py,
 # ### 18:38:32Z); later keys given words as made. b765's kept below under its own name, read by nothing
 # ### b767, Component 4 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps767r.py,
 # ### 18:49:19Z); later keys given words as made. b766's kept below as CHAIN_WORDS_B766 (the carry shifting its names), read by nothing
+# ### b768, Component 4 (the Edit tool, while dispatch 14 built): each key's words, from its commit's subject (scratch steps768.py,
+# ### 02:00:20Z); later keys given words as made. b767's kept below as CHAIN_WORDS_B767 (the carry having left them under b768's name), read
+# ### by nothing
 CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
+                    'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
+                    'k26_ctl': 'the planted control tool of [K26]', 'k26': '[K26] repaired at tools/standing/ v1.38.26',
+                    'k26_row': '[K26]`s row and its planted control banked', 'k27_ctl': '[K27]`s control',
+                    'k27': '[K27] repaired at tools/standing/ v1.38.27', 'k27_row': '[K27]`s row and its planted control banked',
+                    'k28_ctl': '[K28]`s control', 'k28_ctl_fix': 'its scenario renamed before any banked run (defect (h))',
+                    'k28': '[K28] repaired at tools/standing/ v1.38.28', 'k28_row': '[K28]`s row and its planted control banked',
+                    'wl_c1': 'the worklist`s constants of the three keys', 'plan': 'the plan amended before any dispatch with the route for L9c`s datum',
+                    'rulings_gen': 'the rulings tool for [R2] and [A3]', 'c2pp': '[R2] and [A3] in OPEN_TRAILS', 'ledgers_c2': 'the c2 ledger banks',
+                    'controls_gen': 'the dispatch tool for (R378)', 'packed_gen': 'the packed data tool of the trial',
+                    'packed_fix': 'its integer text limit lifted', 'controls_ns': 'the checks reading a qualified name by its namespaces',
+                    'trial_sent': 'the trial at small size sent at dispatch 1', 'packed_full': 'the packed data tool given L9c1`s full mode',
+                    'controls_opens': 'dispatch 1 read and the checks given a file`s opens (defect (k))',
+                    'controls_graph': 'the import graph read in each header alone (defect (k))',
+                    'trial_again': 'the trial at small size sent again at dispatch 2', 'rows71': 'the trial compiled and L9c1 sent at dispatch 3',
+                    'rows74': 'dispatch 3 read and dispatch 4 sent', 'far_gen': 'the far data tool of L9c2', 'rows76': 'L9c2 generated and dispatch 5 sent',
+                    'far_chunks': 'the far checks one chunk a declaration (defect (l))', 'rows79': 'the chunked checks and dispatch 6 sent',
+                    'far_option': 'the option set before each doc comment', 'rows82': 'the far data files and dispatch 7 sent',
+                    'rows84': 'dispatch 7 read and dispatch 8 sent', 'band_gen': 'the band data tool of L9c3',
+                    'rows88': 'L9c2 compiled and L9c3 with archJ_comb sent at dispatch 9', 'rows91': 'L9c compiled and L11c sent at dispatch 10 (defect (m))',
+                    'rows94': 'L11c compiled', 'arith_gen': 'the arithmetic data tool of L11d', 'arith_heart': 'its heartbeat option on the join',
+                    'rows99': 'L11d and L12 sent at dispatch 11', 'arith_chains': 'the walk files chained two a lane (defect (n))',
+                    'rows101': 'dispatch 12 sent', 'rulings_c5': 'the rulings tool`s group c5 for [P1]', 'c5pp': '[P1] in OPEN_TRAILS',
+                    'ledgers_c5': 'the c5 ledger banks and the closing build sent',
+                    'closing_stopped': 'the closing build stopped in part one and its repeat sent',
+                    'rows109': 'the dispatch tool`s readers set (defect (p))', 'module_c5a': 'the act module`s checks and record sections set for b768',
+                    'module_c5b': 'the act module`s composer, trail, report and texts set for b768', 'reproduce': 'the full reproduction run of (12) banked'})
+CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
                     'k25': '[K25] repaired at tools/standing/ v1.38.25', 'k25_row': '[K25]`s row and its planted control banked',

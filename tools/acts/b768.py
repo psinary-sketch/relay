@@ -2455,15 +2455,16 @@ def _ef_kind(rows, kind):
     bg_ = [l for l in rdn('%s_hook_refusals.txt' % ACT).split(NL) if '| BACKGROUND |' in l]
     bgc_ = [r['n'] for r in ((cm.get('rows') or []) if cm else []) if r.get('bg') and re.search(r'fold\.py"? checks\b|_checks\.py', r.get('cmd') or '')]
     refused_ = _ef_kind(rows_, 'dispatch_refused')
-    # ### b768, Component 4 (the Edit tool): a licence is step zero's banks (K.STEPZERO_BANKS, f6225683) at the ferry's line, the line its
-    # ### item's clause (tools/b768_controls.py ITEMS: :19 (b), :20 (c), :21 (d), :22 (e), :25 the cap for a repeat, :26 main and the tag
-    # ### for the closing build, :31 the trial) and its needle standing on it
+    # ### b768, Component 4 (the Edit tool, while dispatch 14 built; b767's lines and commit, carried under b768's name, set to b768's): a
+    # ### licence is step zero's banks (K.STEPZERO_BANKS, 850b09d5) at the ferry's line, the line its item's clause (tools/b768_controls.py
+    # ### N4A-N4MAIN, :118-:124: :21 (a) the seat's trial, :22 (b), :23 (c), :24 (d), :25 (e), :28 the cap for the repeat, :29 main and the
+    # ### tag for the closing build) and its needle standing on it
     fl_ = rdn('%s_ferry.txt' % ACT).replace(chr(13), '').split(NL)
     wlic_ = (K.STEPZERO_BANKS[:8],)
     licd_ = lambda r: r.get('licence') if isinstance(r.get('licence'), dict) else {'commit': r.get('licence') or ''}
     lic_ = [r for r in _ef_kind(rows_, 'dispatch')
             if not (licd_(r).get('bank') == 'data/%s_ferry.txt' % ACT and str(licd_(r).get('commit') or '').startswith(K.STEPZERO_BANKS[:8])
-                    and licd_(r).get('line') in (19, 20, 21, 22, 25, 26, 31) and bool(licd_(r).get('needle'))
+                    and licd_(r).get('line') in (21, 22, 23, 24, 25, 28, 29) and bool(licd_(r).get('needle'))
                     and str(licd_(r).get('needle')) in (fl_ + [''] * 40)[int(licd_(r).get('line')) - 1])]
     its_ = [r.get('item') for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula']   # ### b768: (4)'s and (5)'s items (tools/b768_controls.py ITEMS)
     off_ = ('trial-off', 'closing', 'repeat')   # ### (R378)(4), (9): the trial from source, the closing build and a repeat of each, the restore off
@@ -2554,7 +2555,7 @@ def _cmd_epoch(ts):
     time, and the registration's commit (K.REG_COMMIT) carrying it alone before tools/b768_window.py's first run; SIDE-explicit-formula's
     main the closing Lean commit with v0.45 at it where a build from source read exit 0 with its axioms file equal to the restored read's,
     the dispatch tool's line MAIN MOVES TO the closing commit, and the entering main with no tag otherwise; no kernel branch removed
-    (KERNEL_DELETES, KERNEL_REMOVED and KERNEL_DELETES_REFUSED none); the standing commit admitting b768 ([K25]) before the kernel's first
+    (KERNEL_DELETES, KERNEL_REMOVED and KERNEL_DELETES_REFUSED none); the standing commit admitting b768 ([K26]) before the kernel's first
     commit; each tool's controls before its figures; the (W) regeneration, the pre-lock comparison and the probe-path refusal before the
     lock gate."""
     ct_ = lambda r_, h_: int((g(r_, 'log', '-1', '--format=%ct', h_) or '0').strip() or 0)
