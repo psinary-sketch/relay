@@ -8,7 +8,7 @@
    "pos_raised": null,
    "shown_failing": true,
    "reads": "the chain recomputed at commit in parts by act with the suite`s own remote reads: standing-b2a`s banked b624-b627, standing-b2b`s banked b628-b631, standing-b2c`s banked b632-b635, standing-b2d`s banked b636-b658 and standing-b3`s b659-b768 all AGREE, the boundary link equal, b680 read through its corrigendum row (4 banks), b768 written LF",
-   "secs": 0.0874
+   "secs": 0.0969
   }
  },
  "run": 1,
@@ -17,20 +17,20 @@
  "neg_failures": 0,
  "withheld": [],
  "part": "standing-b3",
- "mode": "pre-push",
- "at": "2026-11-25T15:24:01Z",
- "relay_head": "c4c1bb4ceb9c79655390e5aef5745743828f3ca6",
+ "mode": "post-push",
+ "at": "2026-11-25T16:17:53Z",
+ "relay_head": "3c9810fc74a3f8144533d6c841d2b8b594f55bfd",
  "cadence": {
   "version": "v1.34.9",
   "held": "run",
-  "why": "every part runs in the mode pre-push",
-  "mode": "pre-push",
+  "why": "every part runs in the mode rerun",
+  "mode": "rerun",
   "reads": {
    "files": {
-    "other|8299bd05fd1f6771": "UNREADABLE",
+    "other|11ced514f6ae3d9d": "UNREADABLE",
+    "other|933600422c1d993d": "UNREADABLE",
+    "other|97da5da63908808b": "UNREADABLE",
     "other|cbc26fe1e7567a58": "UNREADABLE",
-    "other|eed712dde9ad5cbf": "UNREADABLE",
-    "other|fd3b9f3d47d46e77": "UNREADABLE",
     "pp|ERRATA.md": "193698:4c08eabdaf0790249fd0300a46e7b6c7e239ab81d8668f7670971612419e9ef4",
     "pp|FINDINGS.md": "3210846:f04e349fddc6ff90fc6cfaca57b775cbba998eb00eacaefe137ee58b1f10f279",
     "pp|OPEN_TRAILS.md": "3356516:4a3e6828d10baf9ab73f079325086a22fd88c10c32990ade0d4e20b080820125",
@@ -58,7 +58,7 @@
     "pp|phase1.5/structural/FOUNDATIONS_OF_THE_SIDE_PROGRAMME.md": "86826:87cbdc6933f7c257cf6352adf445347c7c87d79ca1a81bd86aa902212727ea8d",
     "pp|phase2/method/THE_KEYSTONE_CENSUS_v0_8.md": "194757:a4a76c09bf64b403adf1c1635af78611f3171c7b31260de5146dc96c679daefc",
     "pp|phase2/method/THE_KEYSTONE_CENSUS_v0_8_1.md": "202833:eee740b340e594f93b20d53ef13a257b6cd63c3ccfd0be724ac2d718963a36d4",
-    "proj|11d67961-2aa4-4353-bc12-a982038bfa55.jsonl": "1389312020:eb000a9f19417375032eb8a835ca4b46f284d57cee33ff08ff63da287f0dda76",
+    "proj|11d67961-2aa4-4353-bc12-a982038bfa55.jsonl": "1393871034:1ebb735a0636b941d973bdde934c526cccd4126fb0ddc1da7900aea6f39e9fc0",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a3b4009d4d1b04de9.jsonl": "1597623:f9a7b87904500a310e64b74fb68ddf354d5b6e88eab9e759b068ec941cfe8484",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a7e3a28d8edaaec9b.jsonl": "946835:7cbd058f0eb808e3b6223d9959c9c6ae6b3ed052abc722b1f210aa7681f9a4a7",
     "proj|11d67961-2aa4-4353-bc12-a982038bfa55/subagents/agent-a85ffc021f82f799e.jsonl": "1471661:aa8aaa170c12ec8afd119678e5097bcb007d9a79ec20ab8f581df923de95e162",
@@ -270,7 +270,7 @@
     "relay|data/b768_guard_dry.json": "191:a75029a908c7f5d426c076d8564064f87d2b500a0a457c794393e2f8bb4e3d10",
     "relay|data/b768_guard_dry.txt": "1278:ccfe59c960073aa3cb8cabdac372e1dd53a6eade82b26dfd52fa0617320f472b",
     "relay|data/b768_hook_control.txt": "ABSENT",
-    "relay|data/b768_hook_refusals.txt": "2058:f07b7129fdcab420bc513837f1722bc678c7c5f537d7658e5f10cf6ae6d8e52c",
+    "relay|data/b768_hook_refusals.txt": "2279:4b9aaf135409f12892f2eb605bb5add02944fe32a2d4b3566016aed67132690e",
     "relay|data/b768_kernels_face.json": "10202:b112bbf2e2f458d804720c13838d4e7724979fde9837006d44b78f8ccbdedce2",
     "relay|data/b768_ledgers_c2.json": "2175:36264e2fa5d854fc45be828ba87e81787c859c8877223f7f62b2cacd79e31922",
     "relay|data/b768_ledgers_c2.txt": "2991:cf34d4462716876161ff50918af4e489a96c3082aec39a0e2c7012a15921332d",
@@ -316,7 +316,7 @@
     "relay|data/b768_standing_control.txt": "ABSENT",
     "relay|data/b768_standing_figures.json": "16982:b45aa39a05e3f1f4d290bcee77f84c014077821c6d51cae050078bbabfabd818",
     "relay|data/b768_standing_figures.txt": "7820:6d41ea0ba7fdf0824c3e04555fa764ae108d5676cc7c44686677b6ce111d6919",
-    "relay|data/b768_steps.json": "31734:0af8829cb84863bf6337ba120c9a9735cd96f749adb50dbd59679ad302304f34",
+    "relay|data/b768_steps.json": "32305:318a718e7dd4f2a244d12fd18510295fae83057e64c2f4ce3e3f54a1b7e33c90",
     "relay|data/b768_stepzero.txt": "12360:627aa9aa60afbbfcacd316d1c758c794c5bf4d6455a049e7d214d16bf3b8e5d2",
     "relay|data/b768_table_final.json": "105:6ecb0676ec506dc30ea63ea5bfd06febf27a4489bde0c47e4527a13dff06faee",
     "relay|data/b768_tests_stepzero.json": "ABSENT",
@@ -1052,9 +1052,9 @@
     "relay|HEAD:tools/test_push_gated.sh": "9ec495a3eea80109a75f4a8432f699e4ca217f1d"
    },
    "listings": {
-    "pp|tree": "tree:c6bd0f925b8996b974a3c1c30776ff6a3a514c3b",
-    "relay|status": "status:f6f5f26c1cbcd1efbbaf7fce70fc31f6c5d087a795c28376a48207f00240a1c9",
-    "relay|tree": "tree:6e43aab65d3d5d78af36f95bf30a883db3525e8b"
+    "pp|tree": "tree:cc66720253e25e1309c86d650afa555284df62c7",
+    "relay|status": "status:945e672d487df212d72ea00649473dcb6b44d5c5448cabe7b7a228cf8e8da6e4",
+    "relay|tree": "tree:5c2c0b3deaec392d919470b47b9ccdce73a88355"
    }
   }
  }
