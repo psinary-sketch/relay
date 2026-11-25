@@ -725,7 +725,13 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('arith_heart', '263fbb0f'), ('rows99', '37a71b9a'), ('arith_chains', '38ac3000'), ('rows101', '67f40277'),
          ('rulings_c5', 'a02dbe2a'), ('ledgers_c5', '243d4c0b'),   # ### steps 24-67 (Component 3)
          ('closing_stopped', 'd1fde170'), ('rows109', 'fe2aa624'), ('module_c5a', 'bc2e9195'), ('module_c5b', '34db91a3'),
-         ('reproduce', '4dbb48db'))   # ### steps 68-72 (Component 4); later commits appended as made
+         ('reproduce', '4dbb48db'),   # ### steps 68-72 (Component 4)
+         # ### b768, Component 5, at the touch read (the Edit tool, after the thirty-ninth summary): steps 73-82 with the step-rows commit
+         # ### ab776558, a relay commit with no row of its own, each from git's log over 048085dd..HEAD (scratch touch768.py logs, 04:49:57Z)
+         ('wl_chains', '1cbc8961'), ('lockgate_carry', '4f354292'), ('closing_read', '237a1fa0'), ('rows_c4', 'ab776558'),
+         ('main_tag', 'c50a2184'), ('bank_orders', 'd934366b'),   # ### steps 73-77 with the step-rows commit (Component 4)
+         ('ceiling', '03fd29f9'), ('misses2', '552e843a'), ('scan', 'ee8d7452'), ('module_c5c', '8fb844e2'),
+         ('face_blocks', 'f1d63785'))   # ### steps 78-82 (Component 5); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -796,7 +802,17 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                     'ledgers_c5': 'the c5 ledger banks and the closing build sent',
                     'closing_stopped': 'the closing build stopped in part one and its repeat sent',
                     'rows109': 'the dispatch tool`s readers set (defect (p))', 'module_c5a': 'the act module`s checks and record sections set for b768',
-                    'module_c5b': 'the act module`s composer, trail, report and texts set for b768', 'reproduce': 'the full reproduction run of (12) banked'})
+                    'module_c5b': 'the act module`s composer, trail, report and texts set for b768', 'reproduce': 'the full reproduction run of (12) banked',
+                    'wl_chains': 'the worklist`s chains, order and words, STEPZERO_BANKS and the licence reader set',
+                    'lockgate_carry': 'the lock gate, the face and the probe-path tools carried and set for b768',
+                    'closing_read': 'the closing build`s one repeat from source read exit 0, its axioms file equal to the restored run`s',
+                    'rows_c4': 'the step rows for 4f354292 and 237a1fa0',
+                    'main_tag': 'main moved to ffefddc6 by the gated push and v0.46 cut after main`s read-back',
+                    'bank_orders': 'the dispatch tool`s bank and the orders bank',
+                    'ceiling': 'the ceiling read before the lock, within the ceiling', 'misses2': 'the misses printed again before the lock',
+                    'scan': 'the address scan banked and the entry`s two sentences on the stopped closing build set',
+                    'module_c5c': 'the act module`s closing, record, checks and regspec sections set for b768',
+                    'face_blocks': 'the face`s block file for b768 and the (W) bank regenerated from it'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
