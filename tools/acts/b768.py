@@ -2434,9 +2434,10 @@ def _ef_kind(rows, kind):
     when (4)'s dispatches are.) Read (b759's form, b768's items): no seat command
     running lean or lake; each dispatch row with one read row of its run, the read's exit read; the dispatch counts within the worklist's
     caps, MAX_DISPATCHES (40) in SIDE-explicit-formula and 0 in SIDE-dirichlet-mod-24, the worklist's EF_RUNS and M24_RUNS each the runs of
-    its kernel's dispatch and read rows; the dispatch rows' items those of tools/b768_controls.py's ITEMS for (4) and (5) -- the trial with
-    the restore on and the steps of (4)(b) to (4)(e) (trial-on, b, c, d, e), at most 36 by MAX_DISPATCHES_KINDS, and with the restore off
-    the trial (trial-off) and the closing build once each and a repeat of each at most, no planted build ((R378)(4), (9)); each dispatch
+    its kernel's dispatch and read rows; the dispatch rows' items those of tools/b768_controls.py's ITEMS for (4) -- the seat's trial at
+    small size and the steps of (4)(b) to (4)(e) with the restore on (a, b, c, d, e), at most 36 by MAX_DISPATCHES_KINDS, and with the
+    restore off the closing build once and one repeat of it at most, no planted build and no trial of b767's kind ((R378)(4), (9); b768
+    defect (d'): b767's trial-on and trial-off read at the score routes' dry, where b768's tool names the trial a); each dispatch
     under the memory hold (free_mb at or above 2,560 MB) and the disk hold (each volume at or above 5,000 MB) as its row banks them, each
     read row carrying free_mb; each dispatch row naming its licence: step zero's banks at the ferry's line, the line its item's clause
     (:19-:22 the steps, :25 the cap for a repeat, :26 main and the tag for the closing build, :31 the trial) and its needle on it; the
@@ -2475,18 +2476,21 @@ def _ef_kind(rows, kind):
                     and licd_(r).get('line') in (21, 22, 23, 24, 25, 28, 29) and bool(licd_(r).get('needle'))
                     and str(licd_(r).get('needle')) in (fl_ + [''] * 40)[int(licd_(r).get('line')) - 1])]
     its_ = [r.get('item') for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula']   # ### b768: (4)'s and (5)'s items (tools/b768_controls.py ITEMS)
-    off_ = ('trial-off', 'closing', 'repeat')   # ### (R378)(4), (9): the trial from source, the closing build and a repeat of each, the restore off
-    on_ = ('trial-on', 'b', 'c', 'd', 'e')   # ### the trial with the restore on and the steps of (4)(b)-(e), at most 36 ((R378)(4))
+    # ### b768, Component 5 (the Edit tool, defect (d')): the items of tools/b768_controls.py's ITEMS for (R378)(4) -- a the seat's trial at
+    # ### small size and b to e the steps, the restore on, at most 36; the closing build and one repeat of it, the restore off; b767's
+    # ### trial-on and trial-off, carried here under b768's name, read b768's two dispatches of a outside both sets at the score routes' dry
+    off_ = ('closing', 'repeat')   # ### (R378)(4), (9): the closing build and one repeat of it, the restore off
+    on_ = ('a', 'b', 'c', 'd', 'e')   # ### the seat's trial at small size and the steps of (4)(b)-(e), the restore on, at most 36 ((R378)(4))
     non_ = sum(1 for x_ in its_ if x_ in on_)
     kd_ = dict(K.MAX_DISPATCHES_KINDS)
     rs_ok_ = all(r.get('restore') == ('off' if r.get('item') in off_ else 'on') for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula')
-    items_ok_ = set(its_) <= set(off_ + on_) and all(its_.count(x_) <= 1 for x_ in ('trial-on', 'trial-off', 'closing')) \
+    items_ok_ = set(its_) <= set(off_ + on_) and its_.count('closing') <= kd_['closing'] \
         and its_.count('repeat') <= kd_['repeat'] and non_ <= kd_['restore'] and rs_ok_
     ok = bool(cm) and not seat_lean and len(disp or []) == len(_ef_kind(rows_, 'dispatch')) + len(refused_) and runs_ and not twice_ \
         and not free_ and not unexit_ and not lic_ and not bg_ and not bgc_ and items_ok_
 #⟪END⟫
 #⟪SECTION record 9⟫
-        'the seat`s commands running lean or lake on this host (relay data/b768_commands.json): %s; dispatch commands in the capture: %s, against the dispatch rows %d and the sends refused by the host (no run) %d; by kernel, dispatches against the worklist`s cap ((R378)(4)`s 40, N1) and the worklist`s runs each a dispatch row`s and a read row`s: %s; the items of SIDE-explicit-formula`s dispatches: %s; those of (4) and (5), the trial and the steps with the restore on %d of at most %d, and with the restore off the trial and the closing build once each and a repeat of each at most: %s; reads %d, a run read twice: %s; each read`s exit file: %s; a read with no exit read: %s; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: %s; dispatch rows not naming their licence (step zero`s banks %s at a line of (4) in the ferry, its needle on that line): %s (relay data/b768_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
+        'the seat`s commands running lean or lake on this host (relay data/b768_commands.json): %s; dispatch commands in the capture: %s, against the dispatch rows %d and the sends refused by the host (no run) %d; by kernel, dispatches against the worklist`s cap ((R378)(4)`s 40, N1) and the worklist`s runs each a dispatch row`s and a read row`s: %s; the items of SIDE-explicit-formula`s dispatches: %s; those of (4), the seat`s trial at small size and the steps with the restore on %d of at most %d, and with the restore off the closing build once and one repeat of it at most: %s; reads %d, a run read twice: %s; each read`s exit file: %s; a read with no exit read: %s; dispatch rows under the memory hold 2,560 MB or the disk hold 5,000 MB, or a row without free_mb: %s; dispatch rows not naming their licence (step zero`s banks %s at a line of (4) in the ferry, its needle on that line): %s (relay data/b768_dispatch_rows.json); suite parts sent in the background: %s, refused BACKGROUND: %s' % (
             (seat_lean or 'NONE') if cm else 'unread', len(disp) if cm else 'unread', len(_ef_kind(rows_, 'dispatch')), len(refused_),
             ', '.join('%s %d of %d, the runs %s' % (k_, n_, c_, o_) for k_, n_, c_, o_ in per_),
             ', '.join(r.get('item') + ' (restore ' + str(r.get('restore')) + ')' for r in _ef_kind(rows_, 'dispatch') if r.get('kernel') == 'SIDE-explicit-formula') or 'none',
@@ -2555,13 +2559,14 @@ def _cmd_epoch(ts):
     each; the amended plan of (4)(a) is committed before any dispatch; the kernel's main moves under (4) and at no other time." (b768,
     Component 1, the Edit tool: the cite and the words set to (R378)'s; the reading after is b767's, written again with its reader.) Read: the chain
     read, the step-zero reads and the carry by the step-zero bank's times, in that order, before the act_current commit; the act's commits
-    in the worklist's TIME_ORDER by time, relay and PLACE-papers together; tools/standing/ moved by the commit of K.STANDING_REPAIRS alone
-    ([K25]), VERSION at it that row's version and at HEAD K.STANDING_VERSION, moved from b767's close; the repairs bank's one row in one of
-    the four states, its control AS WANTED in its bank at its row's commit; each tool of K.GENS first added by a commit of its own carrying
-    it and not its bank, its commits before the bank's, the bank's commit not the tool; each act tool committed before its first run, read
-    from the command bank; the certificate's banks and the plan in one commit (the certificate's row of K.GENS) before the first dispatch's
-    time, and the registration's commit (K.REG_COMMIT) carrying it alone before tools/b768_window.py's first run; SIDE-explicit-formula's
-    main the closing Lean commit with v0.45 at it where a build from source read exit 0 with its axioms file equal to the restored read's,
+    in the worklist's TIME_ORDER by time, relay and PLACE-papers together; tools/standing/ moved by the three commits of K.STANDING_REPAIRS
+    alone ([K26] to [K28]), VERSION at each that row's version and at HEAD K.STANDING_VERSION, moved from b767's close; the repairs bank's
+    three rows each in one of the four states, each control AS WANTED in its bank at its row's commit; each tool of K.GENS first added by a
+    commit of its own carrying it and not its bank, its commits before the bank's, the bank's commit not the tool; each act tool committed
+    before its first run, read from the command bank; the amended plan first added by the plan's commit (K.C2_PLAN_FIRST) before the first
+    dispatch's time; no registration at this act ((R378)(6), (9)): K.REG_COMMIT empty, no registration bank and no window tool ever added
+    (b768 defect (d'): b767's certificate row, registration commit and window tool read at the score routes' dry); SIDE-explicit-formula's
+    main the closing Lean commit with v0.46 at it where a build from source read exit 0 with its axioms file equal to the restored read's,
     the dispatch tool's line MAIN MOVES TO the closing commit, and the entering main with no tag otherwise; no kernel branch removed
     (KERNEL_DELETES, KERNEL_REMOVED and KERNEL_DELETES_REFUSED none); the standing commit admitting b768 ([K26]) before the kernel's first
     commit; each tool's controls before its figures; the (W) regeneration, the pre-lock comparison and the probe-path refusal before the
@@ -2649,24 +2654,24 @@ def _cmd_epoch(ts):
         (efm_ == K.EF_MAIN == K.RUNNER_COMMIT and bool(K.WEIL_TAG) and K.WEIL_TAG[2] == K.RUNNER_COMMIT and tags_at_ == [K.WEIL_TAG[0]]
          and str(tv_ or '').startswith('MAIN MOVES TO %s ' % K.RUNNER_COMMIT[:8])) if moved_ else
         (efm_ == K.EF_MAIN == K.EF_BASE and K.WEIL_TAG is None and not tags_at_ and str(tv_ or '').startswith('MAIN NOT MOVED')))
-    # ### the standing commit that admits b767 at SIDE-explicit-formula ([K25], v1.38.25) before the kernel's first commit
+    # ### the standing commit that admits b768 at SIDE-explicit-formula ([K26], v1.38.26) before the kernel's first commit
     anc_ = 0 < ct_(ROOT, K.STANDING_REPAIRS[0][2]) < ct_(K.EF_DIR, K.KERNEL_COMMITS[0][2])
-    # ### (R377) N2: "the amended plan of (4)(a) is committed before any dispatch and the registration of (6) before the tool's run at graded
-    # ### knots" -- the certificate's two banks and the plan in one relay commit, the certificate's row of K.GENS (b766's typed f4a7744b not
-    # ### carried), each bank's last commit, its time before the first dispatch row's; the registration's commit carrying it alone, its time
-    # ### before tools/b767_window.py's first run as the command bank reads it (runs_ above)
-    plan_c_ = [b_ for _n, _t, _g, d_, b_ in K.GENS if d_ == 'data/b768_certificate.txt'][0]
-    pc_files_ = files_(plan_c_)
+    # ### b768, Component 5 (the Edit tool, defect (d')): (R378) N2, "the amended plan of (4)(a) is committed before any dispatch" -- the
+    # ### plan's first commit (K.C2_PLAN_FIRST, 996fea1c, step 20) carrying data/b768_plan.txt and first adding it, its time before the first
+    # ### dispatch row's ((A6), entered later at bbcfbbb0 as (4)(a) lets the seat amend, read by the plan's own commits); and (R378)(6), (9):
+    # ### nothing registered, REG_COMMIT empty again, no registration bank and no window tool ever added and none run. b767's (R377) reading
+    # ### (the certificate's row of K.GENS, the registration's commit before tools/b767_window.py's first run), carried here under b768's
+    # ### names, stopped the score routes' dry on an index of an empty list (data/b768_events.txt (161))
+    plan_c_ = K.C2_PLAN_FIRST
+    pc_files_ = files_(plan_c_) if plan_c_ else []
     d0_ = min((_cmd_epoch(r_.get('at') or '') or 0) for r_ in _ef_kind(drw_, 'dispatch')) if _ef_kind(drw_, 'dispatch') else 0
-    plan_first_ = all(p_ in pc_files_ for p_ in ('data/b768_certificate.json', 'data/b768_certificate.txt', 'data/b768_plan.txt')) \
-        and all(g(ROOT, 'log', '-1', '--format=%h', '--abbrev=8', '--', p_).strip()[:8] == plan_c_[:8] for p_ in ('data/b768_certificate.json', 'data/b768_plan.txt')) \
-        and 0 < ct_(ROOT, plan_c_) < d0_
+    plan_first_ = bool(plan_c_) and 'data/b768_plan.txt' in pc_files_ \
+        and (_first_add('data/b768_plan.txt') or '')[:8] == plan_c_[:8] and 0 < ct_(ROOT, plan_c_) < d0_
     wrun_ = [r_ for t_, _f, _c, r_, _o in runs_ if t_ == 'tools/b768_window.py']
-    reg_first_ = bool(K.REG_COMMIT) and [x for x in g(ROOT, 'show', '--name-only', '--format=', K.REG_COMMIT).split() if x.strip()] == ['data/b768_registration.txt'] \
-        and bool(wrun_) and bool(wrun_[0]) and 0 < ct_(ROOT, K.REG_COMMIT) < wrun_[0]
-    # ### b767: the repairs bank's one row ([K25]) in one of the four states
+    reg_first_ = not K.REG_COMMIT and _first_add('data/b768_registration.txt') is None and _first_add('tools/b768_window.py') is None and not wrun_
+    # ### b768: the repairs bank's three rows ([K26] to [K28]) each in one of the four states
     rst_ = re.findall(r'; STATE: (REPAIRED|READ AS DESIGNED|REMOVED|CARRIED)\b', ' '.join(l_.strip() for l_ in rdn('%s_repairs.txt' % ACT).replace(chr(13), '').split(NL)))
-    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 1
+    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 3
     sect_ = stepzero_ and standing_ and gen_ and before_kw_ and runs_ok_ and states_ok_ and plan_first_ and reg_first_
     route_ = sect_
     regen_ = N2_REGEN in (rd(FACE) or '')
@@ -2771,12 +2776,13 @@ def _cmd_epoch(ts):
 # ### The graded feet: each bank closing on a `### ### **` line, its words fixed where the bank stands written and the run's figures left
 # ### free; the registration, the window, the plan and the two data files of L10a and L11b close on no such line and are read by the arms
 # ### of checks 34 (feet767.py, read-only, 19:51:17Z)
-N3_GRADED = (('b768_corrigendum.txt', ('ITEMS 169', 'NO WEIGHT LINE', 'FINDINGS :16080')),
-             ('b768_price.txt', ('THE PRICE TABLE: STEP ZERO', 'THE UPPER SUM', 'THE LAST STEP DISPATCH BY 22:34:03Z')),
+# ### b768, Component 5 (the Edit tool, defect (d')): the feet b768's banks close on (scratch feet768.py, read-only, 09:09:44Z), in place of
+# ### b767's carried words (ITEMS 169, FINDINGS :16080, 22:34:03Z) and b767's certificate and source-build banks, which b768 does not write
+# ### ((R378)(5), (6)) and whose read refused the score routes' dry on an absent bank
+N3_GRADED = (('b768_corrigendum.txt', ('ITEMS 208', 'NO WEIGHT LINE', 'FINDINGS :16164')),
+             ('b768_price.txt', ('THE PRICE TABLE: STEP ZERO', 'THE UPPER SUM', 'THE LAST STEP DISPATCH BY 03:06:09Z')),
              ('b768_ceiling.txt', ('THE CEILING READ BEFORE THE LOCK', 'THE RESERVE 16 h')),
              ('b768_repair_controls.txt', ('THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.',)),
-             ('b768_certificate.txt', ('THE THREE FORMS READ: ', 'CONTROLS AS WANTED', 'THE PRIMES` ONE WIDTH')),
-             ('b768_source_build.txt', ('THE READ MADE: ', 'CONTROLS AS WANTED', 'THE ROUTE STATED.')),
              ('b768_controls_control.txt', ('THE TOOL`S CONTROLS: ', 'ALL AS WANTED')),
              ('b768_controls.txt', ('DISPATCHES ', ' ; THE TRIAL ', ' ; THE PAIR ', ' ; MAIN AND THE TAG: ', 'THE TOOL`S CONTROLS ')),
              ('b768_ledgers_c2.txt', ('THE LEDGERS, GROUP C2: OPEN_TRAILS APPENDED, NO LINE MOVING', 'CONTROLS ', 'WRITTEN.')),
@@ -2803,9 +2809,8 @@ N3_LOC = (r'(?:\b(?:RH|GRH)\b|ζ|\bRiemann(?:`s|\'s)? zeta\b|(?<!Epstein )\bzeta
 # ### b759, N3's last clause: "no sentence says the mechanism catalogue has or has not met the zero" -- a negation does not pass it
 N3_CAT = r'\bcatalogue\b[^.;]*\b(?:has|have|had)(?: not)? met\b'
 N3_SIDE = r'\bpositivity\b'
-N3_BANKS = ('stepzero', 'misses', 'corrigendum', 'price', 'ceiling', 'repairs', 'repair_controls', 'certificate', 'plan', 'source_build',
-            'registration', 'window', 'controls_control', 'controls', 'logdata', 'natdata', 'ledgers_c2', 'ledgers_c5', 'reproduce', 'events',
-            'defects')   # ### b767, Component 4 (the Edit tool): the act's own banks in place of b766's carried names
+N3_BANKS = ('stepzero', 'misses', 'corrigendum', 'price', 'ceiling', 'repairs', 'repair_controls', 'plan', 'controls_control', 'controls',
+            'ledgers_c2', 'ledgers_c5', 'reproduce', 'events', 'defects')   # ### b768, Component 5 (the Edit tool, defect (d')): b768's own banks; b767's certificate, source_build, registration, window, logdata and natdata, which b768 does not write, out
 N3_BANKS_OPTIONAL = ('ledgers_c6',)   # ### b767: written only where the closing pair enters [C7] or [C8]
 # ### N3 (h), (R374): no figure of the navigator's workspace printed as a banked figure, the figures of (9)(c) and of [P1] standing as the
 # ### navigator's and so named -- the workspace figures of (9)(c) (data/b764_ferry.txt :33: the form -7.775, its prime-power side 659.93,
@@ -2831,7 +2836,13 @@ N3_NAV_FIGS_B766 = r'(?<![\d.,])(?:1,990|3\.89|2\.48|13\.15)(?![\d])|\b152,? (?:
 # ### was put 11.02 hours after the opening row and the closing came 13.70 hours after that prompt") -- each in the form the ruling prints
 # ### it; the bare 8.61 not read, standing in the act's own reading of b766's step rows (data/b767_price.txt :9, :26), and read only in the
 # ### navigator's form; claim (viii)'s bare 48 not read, the kernel's main holding it compiled and the act's own counts carrying the number
-N3_NAV_FIGS = r'(?<![\d.,])(?:21\.43|12\.82|11\.02|13\.70)(?![\d])|\b8\.61 stand under Component 3\b'
+N3_NAV_FIGS_B767 = r'(?<![\d.,])(?:21\.43|12\.82|11\.02|13\.70)(?![\d])|\b8\.61 stand under Component 3\b'   # ### b767's, kept beside
+# ### b768, Component 5 (the Edit tool, defect (d')): N3 (h), (R378)(9), "the navigator's figures that N3 reads: those of clause (1) of
+# ### this ruling" -- (1)'s reading of b767's closing table printed as the navigator's (data/b768_ferry.txt :11: "of 27.46 hours of step
+# ### rows, 6.08 stand under Component 3 and 9.05 under Component 5 before the gate"), each in the form the ruling prints it; the bare
+# ### 27.46 not read, b767's own closing figure (data/b767_closing.txt) standing in the act's banks, nor the bare 6.08 and 9.05, read only
+# ### in the navigator's form as b767 read its 8.61
+N3_NAV_FIGS = r'\b[Oo]f 27\.46 hours of step rows\b|\b6\.08 stand under Component 3\b|\b9\.05 under Component 5 before the gate\b'
 # ### b762, N3 (a) to (f): the trees the act may not change but for the page of (6), added; the three files that take appended bytes alone;
 # ### the page against BLOCK P; each of the ruling's texts by the file it is entered in -- the trail's twenty-two by the trail tool's digests
 # ### (data/b762_ledgers.json entered, sha256 of the filled text, as tools/b762_rulings.py writes them), [G1] and [G2] in REGISTRY, [H] the
@@ -3462,11 +3473,12 @@ def _pp_units():
         nsides_ += _side_sentences(t_)   # ### (R368)(9): the lines headed by a dated record left out of the side matcher alone
         navs_ += _nav_units(t_)   # ### defect (w): the navigator's figures read with each table row whole
     neg_ = N3_NEG
-    # ### b767, Component 4 (the Edit tool): the rows and the controls set to (R377)(1)'s figures, b766's (1,990 and its candidate) read nowhere
-    row_n_ = '  reserve navigator  AS THE NAVIGATOR READ IT: the close after the prompt; its hours | 13.70\n'
-    row_x_ = '  reserve  THE HOURS: the close after the prompt; its hours | 13.70\n'
-    line_n_ = 'the navigator’s figures, printed as the navigator’s: of 21.43 hours of step rows; the closing came 13.70 hours after that prompt.\n'
-    line_x_ = 'the figures as read: of 21.43 hours of step rows; the closing came 13.70 hours after that prompt.\n'
+    # ### b768, Component 5 (the Edit tool, defect (d')): the rows and the controls set to (R378)(1)'s figures, b767's (21.43, 13.70, 8.61)
+    # ### read nowhere at b768
+    row_n_ = '  close navigator  AS THE NAVIGATOR READ IT: b767`s table; of 27.46 hours of step rows, 6.08 stand under Component 3 | 6.08\n'
+    row_x_ = '  close  THE HOURS: b767`s table; of 27.46 hours of step rows, 6.08 stand under Component 3 | 6.08\n'
+    line_n_ = 'the navigator’s figures, printed as the navigator’s: of 27.46 hours of step rows; 9.05 under Component 5 before the gate.\n'
+    line_x_ = 'the figures as read: of 27.46 hours of step rows; 9.05 under Component 5 before the gate.\n'
     ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The join is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
                  # ### b759: (5)'s ruled sentence, its head as the ruling writes it, passed; the same words for zeta caught
@@ -3486,12 +3498,12 @@ def _pp_units():
                      'failure held numerically at b726`s two windows, stated by no declaration then; true of its act\n      sha256 92c4460ac53deb3b\n')),
                  quote=not any(re.search(N3_LIT, x_, re.I) for x_ in _own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n'))
                  and 'The bank reads on.' in ' '.join(_own_sentences('  T9.a  X (:1): "Many zeros are listed here, as far as\n        we know, for the first time." The bank reads on.\n')),
-                 # ### b767, (h): (1)'s readings of b766's table caught where no navigator is named, passed where one is; the act's own 8.61
-                 # ### of the price bank, the seat's 13.75 and a longer number passed; the navigator's form of 8.61 caught
-                 nav=_nav_bad('The closing came 13.70 hours after that prompt.') and not _nav_bad('By the navigator`s reading the closing came 13.70 hours after that prompt.')
-                 and not _nav_bad('Component 3 took 8.61 h at b767`s rate.') and _nav_bad('Of the step rows, 8.61 stand under Component 3.')
-                 and _nav_bad('The prompt was put 11.02 hours after the opening row.') and not _nav_bad('The seat`s first Component 5 row took 13.75 h.')
-                 and not _nav_bad('The run took 11.021 minutes.'),
+                 # ### b768, (h) (defect (d')): (1)'s readings of b767's table caught where no navigator is named, passed where one is; the
+                 # ### act's own bare 6.08 and 9.05 and b767's own 27.46 hours passed; each of the three navigator's forms caught
+                 nav=_nav_bad('Of the step rows, 6.08 stand under Component 3.') and not _nav_bad('By the navigator`s reading, of 27.46 hours of step rows, 6.08 stand under Component 3.')
+                 and _nav_bad('Of 27.46 hours of step rows, the most stand under Component 5.') and _nav_bad('Of the hours, 9.05 under Component 5 before the gate.')
+                 and not _nav_bad('Component 3 took 6.08 h at b767`s rate.') and not _nav_bad('The seat`s Component 5 rows took 9.05 h.')
+                 and not _nav_bad('b767 closed 27.46 hours after its opening row.'),
                  nav_row=any(_nav_bad(x_) for x_ in _own_sentences(row_n_)) and not any(_nav_bad(x_) for x_ in _nav_units(row_n_))
                  and any(_nav_bad(x_) for x_ in _nav_units(row_x_)),
                  # ### b767: a prose line naming the navigator read whole, its later parts passed; the same line with no navigator caught
@@ -3523,11 +3535,12 @@ def _pp_units():
     navfig_ = [x[:80] for x in navs_ + sents if _nav_bad(x)]
     il_ = _integ_line(f)
     integ_ = __import__('standing.act', fromlist=['entry_ends_with']).entry_ends_with(text, il_, conv)
-    # ### b767, Component 4 (the Edit tool): the entry's nouns b767's -- its banks and the four orders the entry composer names (scratch
-    # ### nouns767.py over _finding_text_b767, 20:50:01Z) -- in place of b766's three readings' banks, W-ORD-RUNNER-CACHE and W-ORD-MAP-MERGE
-    nouns_ = [w_ for w_ in ('data/%s_corrigendum.txt' % ACT, 'data/%s_price.txt' % ACT, 'data/%s_repairs.txt' % ACT, 'data/%s_controls.txt' % ACT,
-                            'data/%s_certificate.txt' % ACT, 'data/%s_plan.txt' % ACT, 'data/%s_source_build.txt' % ACT,
-                            'data/%s_window.txt' % ACT, 'data/%s_reproduce.txt' % ACT,
+    # ### b768, Component 5 (the Edit tool, defect (d')): the entry's nouns b768's -- its banks and the four orders the entry composer names
+    # ### (scratch nouns768.py over _finding_text()[1] through conv, 09:09:44Z: 29 banks of b768 and four orders) -- in place of b767's
+    # ### certificate, source-build and window banks, which b768 does not write
+    nouns_ = [w_ for w_ in ('data/%s_corrigendum.txt' % ACT, 'data/%s_price.txt' % ACT, 'data/%s_ceiling.txt' % ACT, 'data/%s_repairs.txt' % ACT,
+                            'data/%s_repair_controls.txt' % ACT, 'data/%s_plan.txt' % ACT, 'data/%s_controls.txt' % ACT,
+                            'data/%s_ledgers_c2.txt' % ACT, 'data/%s_ledgers_c5.txt' % ACT, 'data/%s_reproduce.txt' % ACT,
                             'W-ORD-LI-ARITH', 'W-ORD-WINDOW-CERTIFY', 'W-ORD-SOURCE-BUILD', 'W-ORD-NOVEMBER-RIDERS')
               if w_ not in text]
     ans_ = rdn('%s_author_answers.txt' % ACT, optional=True) or ''
@@ -3540,7 +3553,7 @@ def _pp_units():
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (1)`s readings of b767`s closing table caught where no navigator is named, passed where one is, the act`s own 8.61 of the price bank, the seat`s 13.75 and a longer number passed, the navigator`s form of 8.61 caught, a table row and a prose line naming the navigator before a semicolon each caught by the sentence cut and passed read whole, and a row and a line naming none caught, the closing theorem entered as compiled caught twice and passed as not sent, as the ruling`s condition and as a step`s own theorem): %s; '
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (1)`s readings of b767`s closing table caught where no navigator is named, passed where one is, the act`s own bare figures and b767`s own hours passed, each of the navigator`s three forms caught, a table row and a prose line naming the navigator before a semicolon each caught by the sentence cut and passed read whole, and a row and a line naming none caught, the closing theorem entered as compiled caught twice and passed as not sent, as the ruling`s condition and as a step`s own theorem): %s; '
         '(a) the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act`s base %s: %s: %s; '
         '(b) REGISTRY`s, ERRATA`s, the census`s and the map`s two files` bytes at HEAD their bytes at the base, not written: %s (%s); (c) OPEN_TRAILS and FINDINGS each a byte prefix of its bytes at HEAD: %s: %s; '
         '(d) each text of the ruling as entered equal to the ruling`s text with its fields filled (the rulings tool`s groups, dates %s; [S1] and [R1] each with its order`s entry line; the texts of the outcomes b768 did not reach entered nowhere): %s; '
@@ -3625,18 +3638,22 @@ def _post_lock_edits():
         _want_tags5[K.WEIL_TAG[0]] = K.RUNNER_COMMIT[:7]
     tag_one = _ef_now[0] == _main5[:7] and dict(_ef_now[1] or {}) == _want_tags5
     moved = [k_ for k_ in moved if not (k_ == 'SIDE-explicit-formula' and tag_one)]
-    _contains5 = set(['v0.37', 'v0.38', 'v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43', 'v0.44'] + ([K.WEIL_TAG[0]] if _held5 else []))
+    # ### b768, Component 5 (the Edit tool, defect (d')): (R378) N5, "v0.38 to v0.45 and v0.2.0 peel as before at the close" -- b767's v0.45
+    # ### (K.WEIL_TAG_B767) among the tags containing v0.37 and peeling to 89fd5b54, and v0.46 where cut; b766's set, v0.37 to v0.44 and the
+    # ### act's tag, carried here under b768's name, read v0.45 as an extra tag at the score routes' probe
+    _contains5 = set(['v0.37', 'v0.38', 'v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43', 'v0.44', K.WEIL_TAG_B767[0]] + ([K.WEIL_TAG[0]] if _held5 else []))
     ef_ok = ef_main.startswith(_main5[:8]) and _main5 == K.EF_MAIN \
         and set(t_ for t_ in g(K.EF_DIR, 'tag', '--contains', K.EF_V037).split() if t_.strip()) == _contains5 \
         and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.38^{commit}').strip().startswith('14ca5725') \
         and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.41^{commit}').strip().startswith(K.WEIL_TAG_B759[2][:8]) \
         and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.43^{commit}').strip().startswith(K.ORDER_TAGS_B763[-1][2][:8]) \
         and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.44^{commit}').strip() == K.WEIL_TAG_B765[2] \
+        and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', '%s^{commit}' % K.WEIL_TAG_B767[0]).strip() == K.WEIL_TAG_B767[2] \
         and (not _held5 or g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', '%s^{commit}' % K.WEIL_TAG[0]).strip() == K.RUNNER_COMMIT) and ch_ok \
         and bool(prev) and tag_one and not moved and not pins_on_main
 #⟪END⟫
 #⟪OVERRIDE record MARK 68d2d745304d 1⟫
-            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main against b767`s face moved by (4) alone and its tags as b767`s face read them ((R378)(4), (11): main at the closing Lean commit with v0.45 where a build from source exited 0 with the restored read`s axioms file, and at v0.44`s 0ba9cd61 otherwise -- the pair stopped, main unmoved and no tag cut by the author`s word; v0.38 to v0.44 as before; read in full in N5`s kernel clause below), the challenge branch %s at %s with no tag and '
+            'rebuild`s SIDE-frobenius commits on its main: %s; SIDE-explicit-formula`s main against b767`s face moved by (4) alone and its tags as b767`s face read them ((R378)(4), (11): main at the closing Lean commit with v0.46 where a build from source exited 0 with the restored read`s axioms file, and at v0.45`s 89fd5b54 otherwise; v0.38 to v0.45 as before; read in full in N5`s kernel clause below), the challenge branch %s at %s with no tag and '
 #⟪END⟫
 #⟪SECTION record 24⟫
         'the lock at %s, its commit %s; the commits after it (relay) %d, touching the face, a tool or a bank tracked at the lock commit: %s; the '
@@ -3696,7 +3713,8 @@ def _post_lock_edits():
     rbm5_ = re.findall(r'(?m)^push_gated: main read back at the remote: ([0-9a-f]{40})$', cap5_)
     efl_ = [('main', (rbm5_[-1:] or ['NONE'])[0][:8], (rbm5_[-1:] == [K.RUNNER_COMMIT] and g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/main').strip() == K.RUNNER_COMMIT)
              if moved5_ else not rbm5_)]
-    ef_new_tags_ = sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--list', 'v0.39*', 'v0.40*', 'v0.41*', 'v0.42*', 'v0.43*', 'v0.44*', 'v0.45*').split() if t_.strip())
+    # ### b768 (defect (d')): the tags v0.39* to v0.46*, v0.45 b767's at 89fd5b54 by its tag object and v0.46 this act's where cut
+    ef_new_tags_ = sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--list', 'v0.39*', 'v0.40*', 'v0.41*', 'v0.42*', 'v0.43*', 'v0.44*', 'v0.45*', 'v0.46*').split() if t_.strip())
     v038_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.38^{commit}').strip()
     v039_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.39^{commit}').strip()
     v040_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.40^{commit}').strip()
@@ -3708,6 +3726,8 @@ def _post_lock_edits():
     v044o_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/v0.44').strip()
     v045_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.45^{commit}').strip()
     v045o_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/v0.45').strip()
+    v046_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'v0.46^{commit}').strip()
+    v046o_ = g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/tags/v0.46').strip()
     # ### b766, (R376)(7) [K22]: push-b765-planted removed at the remote by the removal route and in the clone by the local delete
     # ### (KERNEL_DELETES and KERNEL_REMOVED, that one name): absent from the clone and from its tracking refs (events (37) holds the
     # ### route's read-back); b760's removal of push-b759-weil as b760 left it, its tracking ref absent in the clone and the clone's own branch
@@ -3724,13 +3744,15 @@ def _post_lock_edits():
     # ### b767, Component 4 (the Edit tool, found carried with b766's meaning while the record sections were read for their constants):
     # ### (R377)(4), (12), N5 -- no kernel branch removed (KERNEL_DELETES, KERNEL_REMOVED and KERNEL_DELETES_REFUSED none), where b766's
     # ### predicate below wanted [K22]'s one name removed; push-b766-proof on the clone at 3c67b8b5 as b766's [P2] cites it
-    ef_rb_ += [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip() == t_) for b_, t_ in (K.WEIL_BRANCH_B766,)]
-    efb_ok = ef_new_tags_ == ['v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43', 'v0.44'] + ([K.WEIL_TAG[0]] if K.WEIL_TAG else []) and all(o_ for _t, _l, o_ in efl_) \
+    # ### b768 (defect (d')): (R378)(9), N5 -- push-b767-proof read at 89fd5b54 beside push-b766-proof at 3c67b8b5, each written by nothing
+    ef_rb_ += [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip() == t_) for b_, t_ in (K.WEIL_BRANCH_B766, K.WEIL_BRANCH_B767)]
+    efb_ok = ef_new_tags_ == ['v0.39', 'v0.40', 'v0.41', 'v0.42', 'v0.43', 'v0.44', K.WEIL_TAG_B767[0]] + ([K.WEIL_TAG[0]] if K.WEIL_TAG else []) and all(o_ for _t, _l, o_ in efl_) \
         and v038_.startswith('14ca5725') and v039_.startswith('d1afb4fc') and v040_.startswith('630cba16') \
         and v041_.startswith(K.WEIL_TAG_B759[2][:8]) and v041o_.startswith(K.WEIL_TAG_B759[1][:8]) and v042_.startswith(K.WEIL_BRANCH_B763[1][:8]) \
         and v043_.startswith(K.ORDER_TAGS_B763[-1][2][:8]) \
         and v044_ == K.WEIL_TAG_B765[2] and v044o_ == K.WEIL_TAG_B765[1] \
-        and ((v045_ == K.WEIL_TAG[2] and v045o_ == K.WEIL_TAG[1]) if K.WEIL_TAG else not v045_) \
+        and v045_ == K.WEIL_TAG_B767[2] and v045o_ == K.WEIL_TAG_B767[1] \
+        and ((v046_ == K.WEIL_TAG[2] and v046o_ == K.WEIL_TAG[1]) if K.WEIL_TAG else not v046_) \
         and K.KERNEL_DELETES == () == K.KERNEL_REMOVED and not K.KERNEL_DELETES_REFUSED and all(o_ for _b, o_ in pl5_) and all(o_ for _b, o_ in ef_rb_)
     # ### N5: a repository edit read by the taught reader (tools/b757_ghcalls.py over this act's capture, unedited): no captured command runs
     # ### gh repo edit, and no tool the capture runs sends one ((R368) orders no description)
@@ -3751,14 +3773,14 @@ def _post_lock_edits():
 #⟪END⟫
 #⟪SECTION record 27⟫
             'the address scan (relay data/b768_address_scan.txt): PREVIOUS ADDRESS: %s; THE AUTHOR`S NAME: %s; PREVIOUS NAME: %s; THE ORCID: %s; a commit after the act`s opening commit on any ref of any '
-            'kernel, the act owning push-b768-proof and, where a build from source exited 0 with the restored read`s axioms file, SIDE-explicit-formula`s main (at %s, the closing commit %s) and v0.45, or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
-            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: main read back at the remote in the branch`s capture %s; the tags v0.39* to v0.45* %s, v0.38 at %s, v0.39 at %s, v0.40 at %s, v0.41 at %s by its tag object %s, v0.42 at %s, v0.43 at %s, v0.44 at %s by its tag object %s, v0.45 at %s; kernel branches removed by this act, none ruled ((R378)(12)): %s (%s), b760`s removal of %s as b760 left it, its tracking ref absent in the clone and its local branch kept at its tip, b763`s four branches, push-b764-runner and push-b765-centre at their tips, push-b768-proof read back in its capture and push-b767-proof on the clone at 3c67b8b5 (%s): %s;'
+            'kernel, the act owning push-b768-proof and, where a build from source exited 0 with the restored read`s axioms file, SIDE-explicit-formula`s main (at %s, the closing commit %s) and v0.46, or a .lean file in a kernel`s tree (%d kernels read): %s; the act`s own refs read: %s; the %s branch kept on the wave 1 '
+            'kernels: %d of %d; SIDE-dirichlet-mod-24`s tag %s peeling locally to %s, its local main %s: %s; SIDE-explicit-formula: main read back at the remote in the branch`s capture %s; the tags v0.39* to v0.46* %s, v0.38 at %s, v0.39 at %s, v0.40 at %s, v0.41 at %s by its tag object %s, v0.42 at %s, v0.43 at %s, v0.44 at %s by its tag object %s, v0.45 at %s by its tag object %s, v0.46 at %s by its tag object %s; kernel branches removed by this act, none ruled ((R378)(12)): %s (%s), b760`s removal of %s as b760 left it, its tracking ref absent in the clone and its local branch kept at its tip, b763`s four branches, push-b764-runner and push-b765-centre at their tips, push-b768-proof read back in its capture, push-b766-proof on the clone at 3c67b8b5 and push-b767-proof at 89fd5b54 (%s): %s;'
             'gh repo edit run by a captured command (the carried reader): %s; gh repo edit sent from inside a tool, read by its rows bank (the taught reader, tools/b757_ghcalls.py): %s, none wanted: %s; release, a new version, a publish or a repository`s edit in the Zenodo banks: %s; a Zenodo bank or write request this act (none ruled): %s; ' % (
                 (addr.groups() if addr else ('UNREAD',) * 4) + (main5_[:8], K.RUNNER_COMMIT[:8], len(kps_), lean_w or 'NONE', ', '.join(own_r) or 'NONE', K.REBUILD_BRANCH, len(rb_kept), len(K.WAVE1),
                 K.M24_TAG[0], m24_loc_[:8] or 'NONE', m24_main_[:8] or 'NONE', m24_ok,
                 ', '.join('%s %s %s' % x_ for x_ in efl_),
                 ef_new_tags_ or 'NONE', v038_[:8] or 'NONE', v039_[:8] or 'NONE', v040_[:8] or 'NONE', v041_[:8] or 'NONE', v041o_[:8] or 'NONE', v042_[:8] or 'NONE', v043_[:8] or 'NONE',
-                v044_[:8] or 'NONE', v044o_[:8] or 'NONE', v045_[:8] or 'NONE',
+                v044_[:8] or 'NONE', v044o_[:8] or 'NONE', v045_[:8] or 'NONE', v045o_[:8] or 'NONE', v046_[:8] or 'NONE', v046o_[:8] or 'NONE',
                 ', '.join('%s %s' % (b_, 'REMOVED' if b_ in K.KERNEL_REMOVED else 'REFUSED, KEPT') for b_ in K.KERNEL_DELETES) or 'none', ', '.join('%s %s' % x_ for x_ in pl5_) or 'none', K.WEIL_BRANCH_B759[0],
                 ', '.join('%s %s' % x_ for x_ in rm_loc_) + '; tracking refs left %s; ' % (rm_trk_ or 'NONE') + ', '.join('%s %s' % x_ for x_ in ef_rb_), efb_ok,
                 'UNREAD (no command bank)' if gho_ is None else (ghr_ or 'NONE'), '; '.join('tools/%s.py %s' % (s_, v_) for s_, v_ in ghs_.items()) or ('UNREAD (no command bank)' if gho_ is None else 'NONE'), gh_ok,   # ### defect (x): NONE printed unread
