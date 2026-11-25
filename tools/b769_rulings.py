@@ -36,7 +36,15 @@ bracket and is used on [X4] and [M5] alone; a later group confirms it on its own
                          0). Controls before the write, among them four that can fire: [C9] resolved to the [B2] sentence reads another
                          row; [C9] resolved by ' | ' refused; a row taking an ID REGISTRY holds refused by the ROWID rule; [B1] with one
                          literal word changed read unequal. Bank: data/b769_ledgers_c2b.txt and .json.
-Component 3's and 4's texts are groups this tool gains by an Edit committed before its run.
+  ledgers c4 dry|write   Component 4 (data/b769_ferry.txt :25 and :156-:158): [V1] (:157) appended at OPEN_TRAILS' end under one dated
+                         head, its fields from data/b769_waves.json (the rows by wave and the counts IN ALL), data/b769_zenodo_read.json
+                         (the records read back of those asked) and data/b769_draft_read.txt (the draft's status, and its state, version
+                         and files where it answered 200), each bank committed at the relay's HEAD; its alternative ' | ' resolved to
+                         "each answering" where every record asked answered with a status, a redirect among them, and to the other form
+                         by nothing here. Controls before the write, among them three that can fire: [V1] resolved to its other branch
+                         reads another text; a label the text does not carry refused; one literal word changed read unequal. Bank:
+                         data/b769_ledgers_c4.txt and .json.
+Component 3's texts are tools/b769_errata.py's (its ledgers route).
 
 No PLACE-papers line is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -606,11 +614,179 @@ def ledgers_c2b(mode):
     return 0
 
 
+# ================================================================================ GROUP c4: [V1] IN OPEN_TRAILS
+# ### b769, Component 4 (the Edit tool, after the records' and the draft's reads and before any run of this group): (R379)(6) -- [V1]
+# ### (data/b769_ferry.txt :157), its fields from the three banks of (6), each committed at the relay's HEAD before this group runs; its
+# ### alternative ' | ' resolved to "each answering" where every record asked answered with a status (a redirect, not followed, among them).
+C4PP = '5111e451'   # ### the papers` repository's last commit of the act before this write: ERRATA's four entries (step 35, events (63))
+WAVES_BANK, ZREAD_BANK, DREAD_BANK = (os.path.join(D, n) for n in ('b769_waves.json', 'b769_zenodo_read.json', 'b769_draft_read.txt'))
+WAVE_KEYS = ('THE DAY 1 CLUSTER', 'PHASE 1.2', 'PHASE 1.5')
+V1_OTHER = 'those that did not answer, by id'
+DRAFT_ID = '23228113'
+GROUPS['c4'] = ('V1',)
+FORMS.update(V1='each answering')
+
+
+def committed(p):
+    """(the bank's bytes at the relay's HEAD equal to its working bytes, its relay path)."""
+    rel = os.path.relpath(p, RELAY).replace(os.sep, '/')
+    b = git(RELAY, 'show', 'HEAD:' + rel, raw=True)
+    try:
+        with open(p, 'rb') as f:
+            w = f.read()
+    except OSError:
+        return False, rel
+    return bool(b) and b == w, rel
+
+
+def c4_fields():
+    """[V1]'s fields, in the order of its template's fields, and its conditions, from the three banks of (6)."""
+    W, Z = jload(WAVES_BANK), jload(ZREAD_BANK)
+    with open(DREAD_BANK, encoding='utf-8') as f:
+        dt = f.read()
+    dl = dt.split(NL)
+    C = W['counts']
+    A = C['ALL']
+    byw = [C[k]['rows'] for k in WAVE_KEYS]
+    g = [m for m in (re.match(r'^### GET https://zenodo\.org/api/deposit/depositions/(\d+) : HTTP (-?\d+) ;', l) for l in dl) if m]
+    dst = int(g[0].group(2)) if len(g) == 1 and g[0].group(1) == DRAFT_ID else None
+    field = lambda name: next((l.split(None, 1)[1].strip() for l in dl if l.startswith('  ' + name + ' ')), None)   # noqa: E731
+    if dst == 200:
+        nf = next((re.match(r'^## THE FILES \((\d+)\)', l).group(1) for l in dl if re.match(r'^## THE FILES \((\d+)\)', l)), None)
+        state, version, files = field('state'), field('version'), nf
+    elif dst is not None:
+        state, version, files = ('HTTP 404, not found' if dst == 404 else 'HTTP %d' % dst), 'none read', 'none read'
+    else:
+        state = version = files = None
+    vals = [('<n>', str(byw[0])), ('<n>', str(byw[1])), ('<n>', str(byw[2])), ('<n>', str(A['deposited'])),
+            ('<n>', str(A['errata'] + A['facts'])), ('<n>', str(A['orders'])), ('<n>', str(A['current'])), ('<n>', str(A['stale'])),
+            ('<n>', str(A['names'])), ('<n>', str(A['at_head'])), ('<n>', str(A['not_'])), ('<n>', str(A['public'])), ('<n>', str(A['flagged'])),
+            ('<n>', str(Z['answered'])), ('<n>', str(Z['asked'])), ('<state>', str(state)), ('<version>', str(version)), ('<n>', str(files))]
+    cw, rw = committed(WAVES_BANK)
+    cz, rz = committed(ZREAD_BANK)
+    cd, rd = committed(DREAD_BANK)
+    rows = dict((r['id'], r) for r in Z['rows'])
+    redir = [(r['id'], r.get('redirect_to')) for r in Z['rows'] if 300 <= r['status'] < 400]
+    sums = all(A[k] == sum(C[w][k] for w in WAVE_KEYS) for k in ('rows', 'deposited', 'errata', 'facts', 'current', 'stale', 'names', 'at_head', 'not_'))
+    cond = [('the waves bank committed at the relay`s HEAD (%s %s), its controls %d of %d as wanted, read at the papers` repository`s %s, rows %s by wave and '
+             'the counts IN ALL their sums' % (rw, cw, sum(1 for _t, o in W['controls'] if o), len(W['controls']), str(W['pp_head'])[:8], byw, ),
+             cw and len(W['controls']) == 5 and all(o for _t, o in W['controls']) and str(W['pp_head']).startswith(C4PP)
+             and byw == [8, 6, 6] and sums),
+            ('the records bank committed (%s %s) and complete (%s): asked %d of %d, answered %d, redirected %d, not answering %s; each redirect '
+             'naming a record the route read with HTTP 200 (%s)' % (rz, cz, Z.get('complete'), Z['asked'], Z['to_ask'], Z['answered'], len(Z['redirected']),
+                                                                    Z['not_answering'] or 'none', ' '.join('%s>%s' % x for x in redir) or 'none'),
+             cz and Z.get('complete') is True and Z['asked'] == Z['to_ask'] == len(Z['rows']) and not Z['not_answering']
+             and Z['answered'] + len(Z['redirected']) == Z['asked'] and all((rows.get(t) or {}).get('status') == 200 for _i, t in redir)),
+            ('the draft bank committed (%s %s): one GET of the draft %s read, its status %s; its state, version and files %s, %s, %s' % (
+                rd, cd, DRAFT_ID, dst, state, version, files),
+             cd and dst is not None and None not in (state, version, files))]
+    return vals, cond, dict(W=W, Z=Z, dst=dst, redir=redir)
+
+
+def ledgers_c4(mode):
+    from standing import orders as O
+    date = today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    X = texts(ferry())
+    tpl = X['V1'][2]
+    vals, cond, B = c4_fields()
+    R1, ch1, why1 = resolve(tpl, FORMS['V1'])
+    E1 = fill(R1, vals) if R1 else ''
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b769, `(R379)`(6): the line the ruling orders for OPEN_TRAILS at Component 4** (relay data/b769_ferry.txt :25 and '
+            ':156-:158), appended at the end of the file (its last line :%d), so that no line before it moves: the waves read record by record '
+            'and the deposited records read back, by [V1].' % (date, n_ot))
+    paras = [head, E1]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    I, acct = ids(), account()
+    eq = bool(R1) and bool(re.fullmatch(pattern(R1), E1, re.S)) and (NL + E1 + NL) in (NL + text + NL)
+    sub1 = bool(ch1) and all(b in tpl for b in ch1)
+    left = sorted(set(FIELD.findall(text)) | set(x for x in ('<', '>') if x in text))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R_, n: (R_.get(n) or {}).get('status')   # noqa: E731
+    bl, nl_ = base.split(NL), new.split(NL)
+    before, after = dict(O.read(bl)), dict(O.read(nl_))
+    moved = sorted((n, st(before, n), st(after, n)) for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    names = sorted(set(O.NAME.findall(O.mask(E1))))
+    hf = O.hand_flags(nl_)
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    present = E1 in base if E1 else False
+    # ### the planted checks, in memory alone
+    p_tpl, _pc, _pw = resolve(tpl, V1_OTHER)
+    q_tpl, _qc, q_why = resolve(tpl, 'each answered')
+    w_line = E1.replace('a reading and no build', 'a reading and no write', 1)
+    w_eq = bool(R1) and w_line != E1 and bool(re.fullmatch(pattern(R1), w_line, re.S))
+    ctl = [('the papers` repository`s HEAD the act`s last commit there before this write, ERRATA`s four entries %s (%s)' % (C4PP, pp_head[:8]),
+            pp_head.startswith(C4PP)),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base))]
+    ctl += [('[V1] each answering: %s' % w, o) for w, o in cond]
+    ctl += [('[V1]`s alternative resolved by ` | ` to "%s", the chosen branch a substring of the ruling`s text (%s)' % (FORMS['V1'], why1 or 'resolved'),
+             bool(R1) and sub1 and ch1 == [FORMS['V1']]),
+            ('the text as entered equals the ruling`s with its form chosen and its fields filled, whole in the appended text: %s' % eq, eq),
+            ('no field and no bracket left in the appended text (%s)' % (left or 'none'), not left),
+            ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+            ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+             'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+            ('[V1] not in OPEN_TRAILS before the write (%s)' % ('PRESENT' if present else 'absent'), not present),
+            ('[V1] names no order (%s); the roster moves none and adds none (moved %s ; added %s)' % (names or 'none', moved or 'none', added or 'none'),
+             not names and not moved and not added),
+            ('PLANTED: [V1] resolved to its other branch reads another text (%s)' % ('DIFFERS' if p_tpl and p_tpl != R1 else 'NOT READ'),
+             bool(p_tpl) and p_tpl != R1 and V1_OTHER in p_tpl),
+            ('PLANTED: [V1] resolved by a label its text does not carry (each answered) is refused (%s)' % (q_why or 'NOT REFUSED'), q_tpl is None and bool(q_why)),
+            ('PLANTED: [V1] with one literal word changed reads unequal (%s)' % ('EQUAL' if w_eq else 'UNEQUAL'), bool(E1) and w_line != E1 and not w_eq),
+            ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R379)(6), GROUP C4: [V1] IN OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, utc()), '',
+         '### tools/b769_rulings.py ledgers c4; the papers` repository at HEAD %s; the text from the ferry bank (data/b769_ferry.txt, sha256 %s); the' % (
+             pp_head[:8], FERRY_SHA),
+         '### fields from data/b769_waves.json (sha256 %s), data/b769_zenodo_read.json (sha256 %s) and data/b769_draft_read.txt (sha256 %s); <DATE> %s.' % (
+             fsha(WAVES_BANK), fsha(ZREAD_BANK), fsha(DREAD_BANK), date), '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE FIELDS', '  ' + ' ; '.join('%s %s' % (ph, v) for ph, v in vals)]
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in (('head', head), ('V1', E1)) if v in nl_]
+    P += ['', '### ### **THE LEDGERS, GROUP C4: OPEN_TRAILS APPENDED, NO LINE MOVING ; [V1] EACH ANSWERING ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+        sum(1 for _w, o in ctl if o), len(ctl), ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return 0 if ok else 1
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b769_ledgers_c4.txt'), os.path.join(D, 'b769_ledgers_c4.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group='c4', date=date, pp_head=pp_head, forms=dict(V1=FORMS['V1']),
+                            fields=dict(V1=[[ph, v] for ph, v in vals]),
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, first_new=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            entered=dict(V1=[nl_.index(E1) + 1, sha(E1)[:16]]), head=[nl_.index(head) + 1, sha(head)[:16]],
+                            draft_status=B['dst'], redirects=[list(x) for x in B['redir']],
+                            controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+    return 0
+
+
 def main(argv):
     if len(argv) != 3 or argv[0] != 'ledgers' or argv[1] not in GROUPS or argv[2] not in ('dry', 'write'):
         sys.exit(__doc__)
     if argv[1] == 'c2b':
         return ledgers_c2b(argv[2])
+    if argv[1] == 'c4':
+        return ledgers_c4(argv[2])
     return ledgers(argv[1], argv[2])
 
 
