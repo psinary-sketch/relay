@@ -1,0 +1,36 @@
+b768 -- THE CEILING READ BEFORE THE LOCK, (R378)(3): 30 HOURS FROM THE OPENING ROW, 16 OF THEM IN RESERVE FOR THE RECORD AND THE CLOSE, READ-ONLY (2026-11-25T03:21:58Z)
+
+## THE CONTROLS
+  (1) the table read whole by its own rule (data/b768_price.txt :32): step zero 1.12 h plus its 15 rows each as read at its kind, against its lower sum 21.46: 21.46 -> AS WANTED
+  (2) the opening row read from the step rows (step 1, relay f4243da1, 13:06:09) against the table`s opening row 13:06:09 -> AS WANTED
+  (3) the last step dispatch read from the dispatch rows (items a to e): dispatch 12 at 00:03:05, at or before the bar 03:06:09; step dispatches past the bar 0 -> AS WANTED
+  (4) each row named done is a row of the table: named 14, absent 0 [] ; left 1 (close) -> AS WANTED
+  (5) PLANTED: a read 6.00 h later moves the spent hours and the close by 6.00 h each (14.26 -> 20.26 ; 26.48 -> 32.48), and a read at 18.00 h prints "THE ACT WOULD PASS 30 h AT ITS CLOSE" (the close at 30.22 h) -> AS WANTED
+  (6) PLANTED: a step dispatch row 57 s past the bar read as past it: 1 -> AS WANTED
+
+## THE ROWS DONE, BY NAME (each row of (1), (4), (7) and (8) ended; the hours they took stand in the spent hours, each beside its price in the report of (10))
+  (1)                    the corrigendum, PLACE-papers 9c43f4bb, FINDINGS :16164 (events (41))
+  (8) [K26]              relay 70aefe23, its planted control AS WANTED (events (45))
+  (8) [K27]              relay 690c4238, its planted control AS WANTED (events (48))
+  (8) [K28]              relay a7d37ec2, its planted control AS WANTED (events (49))
+  (4) branch and tool    push-b768-proof cut at 89fd5b54 15:56:01Z, the dispatch tool relay 6354744a (events (55), (57))
+  (4)(a) plan            relay 996fea1c, before any dispatch (events (51))
+  (7)                    [R2] and [A3], PLACE-papers eea70a2d (events (54))
+  (4)(a) trial           dispatches 1 and 2, runs 45439584241 and 45447787162, compiled at 6d93bd31 (events (62), (65)-(69))
+  (4)(b) L9c             archJ_comb compiled at 17db013f, dispatches 3 to 9 (events (71)-(90))
+  (4)(c) L11c            arith_eq_comb compiled at 9b2a69e0, dispatch 10 (events (91), (94))
+  (4)(d) L11d            window_arith_neg compiled at ffefddc6, dispatches 11 and 12 (events (97)-(103))
+  (4)(e) L12             controlFailureExists compiled at ffefddc6 with L11d, dispatch 12, [P1] (events (99), (103), (104))
+  (4) closing build      dispatch 13, run 45518506879, stopped under the hold in part one; its one repeat, dispatch 14, run 45521560784, exit 0, its axioms file equal by sha256 2a9e26774e7e0c96 to the restored run 45514975816`s (events (107), (122))
+  (4) main               main moved to ffefddc6 by the gated push, v0.46 cut after main`s read-back, its object 56a00b65 (events (124))
+
+## THE ROWS LEFT, AT THE TABLE`S FIGURES (data/b768_price.json)
+  close                  12.22 h (upper 16.00 h ; dispatches 0-0)
+
+## THE READING
+  spent from the opening row (2026-11-24T13:06:09Z, step 1) to 2026-11-25T03:21:58Z: 14.26 h
+  the last step dispatch: dispatch 12, item d, its row 00:03:05, 10.95 h from the opening row and 3.31 h before this read; none after it, the bar of (3) at 03:06:09 (14 h) reached by none; the steps ended by [P1] before the bar, so the closing build was sent then as dispatch 13 and its one repeat as dispatch 14, each outside the bar (events (104), (107), (108))
+  left: 15.74 h of 30 h, the reserve 16 h PAST what is left
+  the close at the table`s close row from this read (data/b768_price.txt :31: b767`s rows from its first Component 5 row less the seat`s reading of about 2.5 h for [K27]): its first Component 5 row to its lock 6.490 h, its lock to its closing 5.730 h (b767`s), 12.22 h in all: the lock at 20.75 h and the close at 26.48 h from the opening row; at the reserve`s 16 h, 30.26 h: within the ceiling
+
+### ### **THE CEILING READ BEFORE THE LOCK ((R378)(3), read-only, 03:21:58Z): SPENT 14.26 h FROM THE OPENING ROW ; THE LAST STEP DISPATCH AT 00:03:05Z, 10.95 h FROM THE OPENING ROW ; LEFT 15.74 h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b767`S 5.73 h FROM ITS LOCK, 26.48 h FROM THE OPENING ROW ; WITHIN THE CEILING.**

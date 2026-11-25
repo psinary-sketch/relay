@@ -657,7 +657,8 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### seat's by the Write tool or a scratch writer, the corrigendum the act module's c1 route: each stands apart
 GENS = (('the repairs` planted controls', 'tools/b768_repair_controls.py', ('c17aaf34', '279e11fa', '2421d857', 'd7c06a39'), 'data/b768_repair_controls.txt', 'ea46d65a'),
         ('the ledgers of group c2', 'tools/b768_rulings.py', ('1a18f7f5',), 'data/b768_ledgers_c2.txt', 'b0ba8314'),
-        ('the ledgers of group c5', 'tools/b768_rulings.py', ('1a18f7f5', 'a02dbe2a'), 'data/b768_ledgers_c5.txt', '243d4c0b'))
+        ('the ledgers of group c5', 'tools/b768_rulings.py', ('1a18f7f5', 'a02dbe2a'), 'data/b768_ledgers_c5.txt', '243d4c0b'),
+        ('the dispatch tool`s bank', 'tools/b768_controls.py', ('6354744a', 'd18e58cf', '26c49bdb', 'e7f39dc2'), 'data/b768_controls.txt', 'd934366b'))   # ### b768, Component 4 (the Edit tool): the bank of 03:17:25Z after dispatch 14's read, committed at d934366b (step 77); the tool's four commits by git log (03:18:40Z, a flag read before it, data/b768_events.txt (125))
 GENS_B767 = ()   # ### b767's stand in git at tools/b767_worklist.py
 GENS_B766 = ()   # ### b766's eighteen stand in git at tools/b766_worklist.py
 GENS_B765 = ()   # ### b765's ten stand in git at tools/b765_worklist.py
