@@ -732,7 +732,8 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('main_tag', 'c50a2184'), ('bank_orders', 'd934366b'),   # ### steps 73-77 with the step-rows commit (Component 4)
          ('ceiling', '03fd29f9'), ('misses2', '552e843a'), ('scan', 'ee8d7452'), ('module_c5c', '8fb844e2'),
          ('face_blocks', 'f1d63785'),   # ### steps 78-82 (Component 5)
-         ('touch_set', 'fc0da1c2'))   # ### step 83, the touch read's set (Component 5); later commits appended as made
+         ('touch_set', 'fc0da1c2'),   # ### step 83, the touch read's set (Component 5)
+         ('touch', '1cb14a5a'))   # ### step 84, the touch bank (Component 5); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -814,7 +815,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                     'scan': 'the address scan banked and the entry`s two sentences on the stopped closing build set',
                     'module_c5c': 'the act module`s closing, record, checks and regspec sections set for b768',
                     'face_blocks': 'the face`s block file for b768 and the (W) bank regenerated from it',
-                    'touch_set': 'the chain given the eleven commits after 4dbb48db, set at the touch read'})
+                    'touch_set': 'the chain given the eleven commits after 4dbb48db, set at the touch read',
+                    'touch': 'the touch bank by hand with rows 140 and 141 and the chain given fc0da1c2'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
