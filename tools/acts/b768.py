@@ -429,8 +429,10 @@ def runner_ok(S):
 # ### CHECK, ONE PER MESSAGE" (data/b766_stepzero.txt :32, :67), b766's bank naming the deletes by (R376)(3)'s word, "THE REMOVALS"
 # ### b767, Component 4 (the Edit tool, before any run): "THE --MERGED LISTING (08:27:50Z, scratch merged767.py)" and "THE REMOVALS, AFTER
 # ### THE CHECK, ONE PER MESSAGE" (data/b767_stepzero.txt :27, :58), where the carry left b766's time and scratch name
+# ### b768, Component 5 (the Edit tool, the act part's probe at 05:38:27Z failing the arm on b767's carried time, defect (w)): "THE --MERGED
+# ### LISTING (13:00:03Z, scratch merged768.py)" and "THE REMOVALS, AFTER THE CHECK, ONE PER MESSAGE" (data/b768_stepzero.txt :26, :57)
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE --MERGED LISTING (08:27:50Z, scratch merged767.py)' in z and 'THE REMOVALS, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING (13:00:03Z, scratch merged768.py)' in z and 'THE REMOVALS, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's overrides of checks 1516 and 1659 (hook.py edited by b753's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b754 as it stands
@@ -449,8 +451,10 @@ def runner_ok(S):
 # ### (32)), where the carry left b765's 97
 # ### b767, Component 4 (the Edit tool, before any run): the items set to b767's corrigendum's 169 (CLAIM 8, CLOSE 161; data/b767_corrigendum.json
 # ### :5-:8; data/b767_events.txt (41)), where the carry left b766's 114
+# ### b768, Component 5 (the Edit tool, the act part's probe at 05:38:27Z failing the arm, defect (w)): the items set to b768's corrigendum's
+# ### 208 (CLAIM 9, CLOSE 199; data/b768_corrigendum.json; data/b768_events.txt (41)), where the carry left b767's 169
 #⟪OVERRIDE checks MARK bcd4d281b141 1⟫
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 169 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 208 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's override of checks 1476-1482 (one ERRATA entry at b753's (R363)(5)) removed -- (R364)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b754 as it stands

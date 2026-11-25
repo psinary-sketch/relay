@@ -733,7 +733,9 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('ceiling', '03fd29f9'), ('misses2', '552e843a'), ('scan', 'ee8d7452'), ('module_c5c', '8fb844e2'),
          ('face_blocks', 'f1d63785'),   # ### steps 78-82 (Component 5)
          ('touch_set', 'fc0da1c2'),   # ### step 83, the touch read's set (Component 5)
-         ('touch', '1cb14a5a'))   # ### step 84, the touch bank (Component 5); later commits appended as made
+         ('touch', '1cb14a5a'),   # ### step 84, the touch bank (Component 5)
+         ('needles', '4b110980'),   # ### step 85, the needle calls (Component 5)
+         ('probe_paths', '2848e356'))   # ### step 86, the probe-path refusal, the kernels face and four markers (Component 5); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -816,7 +818,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                     'module_c5c': 'the act module`s closing, record, checks and regspec sections set for b768',
                     'face_blocks': 'the face`s block file for b768 and the (W) bank regenerated from it',
                     'touch_set': 'the chain given the eleven commits after 4dbb48db, set at the touch read',
-                    'touch': 'the touch bank by hand with rows 140 and 141 and the chain given fc0da1c2'})
+                    'touch': 'the touch bank by hand with rows 140 and 141 and the chain given fc0da1c2',
+                    'needles': 'the needle calls with rows 142 and 143 and defect u and the face count set',
+                    'probe_paths': 'the probe-path refusal and the kernels face banked and four worklist markers set before the probes'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
@@ -1112,7 +1116,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = (('corr', 'FINDINGS.md', '9c43f4bb'), ('trails_c2', 'OPEN_TRAILS.md', 'eea70a2d'))   # ### b768: the act's PLACE-papers writes (key, file, commit), read from the step rows (steps 6 and 22), appended as made
+PP_WRITES = (('corr', 'FINDINGS.md', '9c43f4bb'), ('trails_c2', 'OPEN_TRAILS.md', 'eea70a2d'), ('trails_c5', 'OPEN_TRAILS.md', '45f187d1'))   # ### b768: the act's PLACE-papers writes (key, file, commit), read from the step rows (steps 6, 22 and 66), appended as made; trails_c5 given at Component 5 after the act part's probe read G-REGISTRATIONS-FIRST's c5 row without it (defect (x)), its one reader the checks' pp_shas (tools/acts/b768.py :868)
 PP_WRITES_B767 = (('corr', 'FINDINGS.md', '216d9715'), ('trails_c2', 'OPEN_TRAILS.md', 'ba23945a'), ('trails_c5', 'OPEN_TRAILS.md', 'adadfd62'))   # ### b767: the act's PLACE-papers writes (key, file, commit), read from the step rows (steps 7, 25 and 63); the entry and the trail appended as made
 PP_WRITES_B766 = (('corr', 'FINDINGS.md', '7a36f281'), ('trails_c2', 'OPEN_TRAILS.md', 'a183880f'), ('trails_c3', 'OPEN_TRAILS.md', '92108a44'),
              ('trails_c4', 'OPEN_TRAILS.md', '2d9d51ae'), ('trails_c5', 'OPEN_TRAILS.md', 'ff328d86'))   # ### b766 (R376)(1), (4)-(6): the corrigendum for b765 (step 5); the four groups of the rulings tool in OPEN_TRAILS (steps 20, 30, 50, 65)
