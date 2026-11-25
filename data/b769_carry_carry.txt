@@ -1,0 +1,63 @@
+b769 -- THE CARRY BY DIFF (tools/standing/carry.py): tools/b768_carry.py -> tools/b769_carry.py (2026-11-25T17:34:27Z)
+
+### the substitution alone (b768 -> b769, b767 -> b768, R378 -> R379, R377 -> R378); 267 lines, 19 changed
+### SHIFTED PAST WHAT EXISTS: :2 b769_carry; :264 b769_carry
+
+### CITES SHIFTED TO A BANK ABSENT FROM THE TREE (v1.35.1, b755 (n)), each read against the act before any write: 1
+  :8 data/b768_tool_repairs.txt (the source line cited data/b767_tool_repairs.txt)
+
+### CITES THE SHIFT MOVED BY A LINE OR A LETTER (v1.38.11, (R374)(5) [K2]), OWN where onto this act`s own ferry or rows, each read against this act`s ruling before any run: 0 (OWN 0)
+
+### THE DIFF OF THE SUBSTITUTION, FROM autojunk=False OPCODES:
+  --- tools/b768_carry.py
+  +++ tools/b769_carry.py
+  @@ -2,1 +2,1 @@
+  -"""b768_carry.py -- THE CARRY BY DIFF, data/b709_rules.txt row (1) ((R319)(2), binding from b709; (R328) "The close runs each step as the
+  +"""b769_carry.py -- THE CARRY BY DIFF, data/b709_rules.txt row (1) ((R319)(2), binding from b709; (R328) "The close runs each step as the
+  @@ -7,7 +7,7 @@
+  -### `carry <name>`: tools/b767_<name>.py -> tools/b768_<name>.py with b767 -> b768, b766 -> b767, (R377) -> (R378), (R376) -> (R377); the diff
+  -### banked in data/b768_carry_<name>.txt (autojunk=False opcodes, b697's trap) with the spans data/b767_tool_repairs.txt names for the tool;
+  -### `prune` removes the previous act's routes over its own objects (banked in data/b768_prune_<name>.txt); `repairdiff` banks the carry-time
+  -### repairs as a diff against the carried form; `spans` summarises in data/b768_carry_spans.txt; `acts` carries the act's sections file,
+  -### tools/acts/b767.py -> tools/acts/b768.py, by the same substitution, its diff banked in data/b768_carry_acts.txt (the fold's file from
+  -### v1.3.0, (R333)(2)(i)). Written at b768 from tools/b767_carry.py (267 lines) by tools/standing/carry.py (data/b768_carry_carry.txt)
+  -### (b767 -> b768, b766 -> b767, R377 -> R378, R376 -> R377); the SUBS line at :31 set by hand (the shift run over this file's own table
+  +### `carry <name>`: tools/b768_<name>.py -> tools/b769_<name>.py with b768 -> b769, b766 -> b768, (R378) -> (R379), (R376) -> (R378); the diff
+  +### banked in data/b769_carry_<name>.txt (autojunk=False opcodes, b697's trap) with the spans data/b768_tool_repairs.txt names for the tool;
+  +### `prune` removes the previous act's routes over its own objects (banked in data/b769_prune_<name>.txt); `repairdiff` banks the carry-time
+  +### repairs as a diff against the carried form; `spans` summarises in data/b769_carry_spans.txt; `acts` carries the act's sections file,
+  +### tools/acts/b768.py -> tools/acts/b769.py, by the same substitution, its diff banked in data/b769_carry_acts.txt (the fold's file from
+  +### v1.3.0, (R333)(2)(i)). Written at b769 from tools/b768_carry.py (267 lines) by tools/standing/carry.py (data/b769_carry_carry.txt)
+  +### (b768 -> b769, b766 -> b768, R378 -> R379, R376 -> R378); the SUBS line at :31 set by hand (the shift run over this file's own table
+  @@ -31,2 +31,2 @@
+  -PREV, ACT = 'b767', 'b768'
+  -SUBS = (('b767', 'b768'), ('b766', 'b767'), ('R377', 'R378'), ('R376', 'R377'))   # ### b716's carry-time repair kept: the bare pairs in
+  +PREV, ACT = 'b768', 'b769'
+  +SUBS = (('b768', 'b769'), ('b766', 'b768'), ('R378', 'R379'), ('R376', 'R378'))   # ### b716's carry-time repair kept: the bare pairs in
+  @@ -50,1 +50,1 @@
+  -        import b768_record as REC
+  +        import b769_record as REC
+  @@ -58,1 +58,1 @@
+  -    """the act names shifted by one act, in order so that b767 -> b768 runs before b719 -> b767; v1.13.0: through the standing route, a kept branch's name held out."""
+  +    """the act names shifted by one act, in order so that b768 -> b769 runs before b719 -> b768; v1.13.0: through the standing route, a kept branch's name held out."""
+  @@ -96,1 +96,1 @@
+  -    """`acts`: the act's sections file, tools/acts/b767.py -> tools/acts/b768.py, by the substitution alone; its diff in data/b768_carry_acts.txt."""
+  +    """`acts`: the act's sections file, tools/acts/b768.py -> tools/acts/b769.py, by the substitution alone; its diff in data/b769_carry_acts.txt."""
+  @@ -165,2 +165,2 @@
+  -    """`prune <name> <start prefix> <end prefix>`: the lines of tools/b768_<name>.py from the one line starting with <start prefix> up to (not
+  -    including) the one line starting with <end prefix> removed, the removal banked as a hunk in data/b768_prune_<name>.txt (appended)."""
+  +    """`prune <name> <start prefix> <end prefix>`: the lines of tools/b769_<name>.py from the one line starting with <start prefix> up to (not
+  +    including) the one line starting with <end prefix> removed, the removal banked as a hunk in data/b769_prune_<name>.txt (appended)."""
+  @@ -190,2 +190,2 @@
+  -    """`repairdiff <name>`: the carry-time repairs of tools/b768_<name>.py as a diff against its carried form; a pruned span printed as its hunk
+  -    header with its line count, every other change in full; written to data/b768_repairdiff_<name>.txt."""
+  +    """`repairdiff <name>`: the carry-time repairs of tools/b769_<name>.py as a diff against its carried form; a pruned span printed as its hunk
+  +    header with its line count, every other change in full; written to data/b769_repairdiff_<name>.txt."""
+  @@ -243,1 +243,1 @@
+  -    """`spanlist <name>`: the new-side line ranges of the previous act's repairdiff bank for the tool (data/b767_repairdiff_<name>.txt, its hunk
+  +    """`spanlist <name>`: the new-side line ranges of the previous act's repairdiff bank for the tool (data/b768_repairdiff_<name>.txt, its hunk
+  @@ -264,1 +264,1 @@
+  -        print('usage: b768_carry.py carry <name> [again] | acts [again] | prune <name> <start prefix> <end prefix> | repairdiff <name> | spans')
+  +        print('usage: b769_carry.py carry <name> [again] | acts [again] | prune <name> <start prefix> <end prefix> | repairdiff <name> | spans')
+
+### ### **CARRIED tools/b769_carry.py ; LINES 267 ; CHANGED 19 ; SHIFTED 2 (WRITTEN BY --shifted) ; CITES OF AN ABSENT BANK 1**
