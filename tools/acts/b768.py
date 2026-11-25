@@ -2682,7 +2682,7 @@ def _cmd_epoch(ts):
     ok = route_ and regen_ and bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper() and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
 #⟪END⟫
 #⟪SECTION record 13⟫
-        'the chain read, the step-zero reads and the carry printed before any write, in that order (%s, each by the step-zero bank, before the act_current commit %s): %s; tools/standing/ moved by the %d commit of (8) alone, the last %s, its tree at HEAD that commit`s (trees %s and %s), the act`s commits under it %s, VERSION %s against %s, moved from %s, each commit`s VERSION its row`s and each control AS WANTED at its row`s commit (%s): %s; SIDE-explicit-formula`s main %s, the dispatch tool`s verdict on main and the tag %s, the closing commit %s, its builds from source read exit 0 with the restored read`s axioms file %s, tags at the closing commit %s, kernel branches removed at the remote and from the clone %d: %s; the standing commit admitting b768 ([K25]) before the kernel`s first commit: %s; the repairs bank`s rows by state (%d of 1 read, %s): %s; the certificate`s banks and the plan in %s before the first dispatch, the registration alone at %s before the window tool`s first run: %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; each act tool committed before its first run, a dry run of its controls among its runs (tool, its first commit and time, its first run read from the command bank): %s: %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, relay and PLACE-papers together: %s (%s); the tools` controls before their figures: %s' % (
+        'the chain read, the step-zero reads and the carry printed before any write, in that order (%s, each by the step-zero bank, before the act_current commit %s): %s; tools/standing/ moved by the %d commit of (8) alone, the last %s, its tree at HEAD that commit`s (trees %s and %s), the act`s commits under it %s, VERSION %s against %s, moved from %s, each commit`s VERSION its row`s and each control AS WANTED at its row`s commit (%s): %s; SIDE-explicit-formula`s main %s, the dispatch tool`s verdict on main and the tag %s, the closing commit %s, its builds from source read exit 0 with the restored read`s axioms file %s, tags at the closing commit %s, kernel branches removed at the remote and from the clone %d: %s; the standing commit admitting b768 ([K26]) before the kernel`s first commit: %s; the repairs bank`s rows by state (%d of 3 read, %s): %s; the plan in %s before the first dispatch ((R378)(4)(a)), no registration at this act (its commit %s) and no window tool added or run ((R378)(6), (9)): %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; each act tool committed before its first run, a dry run of its controls among its runs (tool, its first commit and time, its first run read from the command bank): %s: %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, relay and PLACE-papers together: %s (%s); the tools` controls before their figures: %s' % (
             ', '.join('%s %s' % (n_, ('%sZ' % m_.group(1)) if m_ else 'unread') for n_, m_ in szt_), K.ACT_CURRENT_COMMIT, stepzero_,
             len(K.STANDING_REPAIRS), st_last_[:8], st_tree_[0][:12] or 'NONE', st_tree_[1][:12] or 'NONE', ' '.join(h_[:8] for h_ in st_commits_) or 'none', st_ver_ or 'unread',
             K.STANDING_VERSION, st_ver0_ or 'unread', ', '.join('%s %s' % x_ for x_ in st_each_), standing_,
@@ -2856,6 +2856,20 @@ N3_UNWRITTEN = ('REGISTRY.md', 'ERRATA.md', 'phase2/method/THE_KEYSTONE_CENSUS_v
 # ### established, discharged, a proof of it given), outside a negation, the plan's prices and the not-sent carry passing by their negation
 N3_DEF_SUBJ = r'\bControlFailureExists\b|\b(?i:the closing theorem)\b|\bL12\b|\[P1\]'   # ### b766 defect (u): the phrase in any case, the control's "The closing theorem compiled at 3c67b8b5." caught as its words say
 N3_DEF_RES = r'\b(?:proved|proven|compiled|holds|established|DISCHARGED|discharged|is true)\b'
+# ### b768, Component 5 (the Edit tool, defect (d')): (R378) N3 keeps the words "a theorem of a step is entered as its own statement and
+# ### nowhere as the closing theorem". b766 and b767 read them where the closing theorem had not compiled, so a sentence entering
+# ### ControlFailureExists, the closing theorem, L12 or [P1] as compiled could only enter something else as it. At b768 [P1] stands
+# ### (OPEN_TRAILS :19431, data/b768_ledgers_c5.json entered; data/b768_events.txt (103), (104)): controlFailureExists, L12's own theorem,
+# ### proves ControlFailureExists at ffefddc6, and a sentence entering it so is the outcome the clause names. Where [P1] is entered the
+# ### clause reads a step's theorem or label (L9c, L11c, L11d, archJ_comb, arith_eq_comb, window_arith_neg) entered as the closing
+# ### theorem: a phrase of entry (is, as, entered as, enters, proves, a proof of, the proof of) before the closing theorem's name with the
+# ### nearest name before it a step's and not the closing theorem's own (controlFailureExists, L12), or the closing theorem's name with a
+# ### step's in apposition after it; outside a negation and a condition, as before. Where [P1] is not entered, b766's reading stands.
+N3_P1 = 'P1' in ((jl('b768_ledgers_c5.json') or {}).get('entered') or {})
+N3_STEP_NAMES = r'\b(?:L9c\d?|L11c|L11d|archJ_comb|arith_eq_comb|window_arith_neg)\b'
+N3_OWN_NAMES = r'\b(?:controlFailureExists|L12)\b'
+N3_AS_CLOSING = r'\b(?i:is|as|entered as|enters|proves|proving|a proof of|the proof of)\s+(?:(?i:the closing theorem)|ControlFailureExists)\b'
+N3_CLOSING_APPOS = r'(?:(?i:the closing theorem)|ControlFailureExists),?\s+' + N3_STEP_NAMES
 # ### a hit of the matchers over the act's PLACE-papers writes passes only by a hand verdict pinned here by (path, line, the sentence's
 # ### digest (sha256, 16 hex)) -> the verdict, each read before the lock; the words not quoted. b764: none pinned until the scores dry
 # ### reads the act's writes (b763's one pin, a line of the canon, not carried: no paper is edited at b764)
@@ -2871,6 +2885,26 @@ def _side_bad(x):
 
 
 def _def_bad(x):
+    """N3 (g), (R378): where [P1] is entered, a step's theorem entered as the closing theorem (_step_as_closing); where it is not, b766's
+    reading (_def_bad_b766). b768 defect (d')."""
+    return _step_as_closing(x) if N3_P1 else _def_bad_b766(x)
+
+
+def _step_as_closing(x):
+    """N3 (g) at [P1] (b768 defect (d')): a phrase of entry before the closing theorem's name whose nearest name before it is a step's,
+    or the closing theorem's name with a step's in apposition after it; outside a negation and a condition."""
+    if re.search(N3_NEG, x) or re.search(r'\b(?:where|if|unless|until|whether)\b', x, re.I):
+        return False
+    if re.search(N3_CLOSING_APPOS, x):
+        return True
+    for m_ in re.finditer(N3_AS_CLOSING, x):
+        nm_ = [n_.group(0) for n_ in re.finditer(N3_STEP_NAMES + '|' + N3_OWN_NAMES, x[:m_.start()])]
+        if nm_ and re.fullmatch(N3_STEP_NAMES, nm_[-1]):
+            return True
+    return False
+
+
+def _def_bad_b766(x):
     """N3 (g), (R376): a sentence entering the closing theorem as compiled -- its subject and a result's word, outside a negation, the
     ruling's own outcome sentences of [P1] (read as the ruling's, "where the closing theorem compiles") passing by their condition."""
     # ### b766 defect (u): the condition word read in either case, so the control's "Where the closing theorem is proved, [P1] is
@@ -3400,9 +3434,14 @@ def _orders_n3():
     (data/b766_orders.txt), its open count the roster's after. Returns (agree, the reading)."""
     ro_ = (jl('%s_ledgers_c2.json' % ACT) or {}).get('roster') or {}
     ft_ = re.search(r'(?m)^### ### \*\*ORDERS (\d+) ; OPEN (\d+) ; CLOSED (\d+) ;', rdn('%s_orders.txt' % ACT, optional=True) or '')
-    ok_ = bool(ft_) and int(ft_.group(2)) == ro_.get('after_open')
-    return ok_, 'open %s -> %s, added %s, moved %s ; the foot at HEAD %s' % (ro_.get('before_open'), ro_.get('after_open'), ro_.get('added') or 'none',
-                                                                            ', '.join(str(m_[0]) for m_ in ro_.get('moved') or []) or 'none', ft_.group(0)[10:] if ft_ else 'UNREAD')
+    # ### b768, Component 5 (the Edit tool, defect (d')): group c5's [P1] closes W-ORD-LI-ARITH and W-ORD-WINDOW-CERTIFY after c2's write
+    # ### (data/b768_ledgers_c5.txt :1476, the json carrying no roster, as checks 40 reads it), so the foot's open count is c2's after
+    # ### figure less c5's closes; b766's form compared c2's alone, no later group moving an order there
+    mv5_ = re.search(r"(?m)^  orders (\d+) -> (\d+) ; statuses moving (\[.*\]) ; added none$", rdn('%s_ledgers_c5.txt' % ACT, optional=True) or '')
+    cl5_ = len(re.findall(r"'OPEN', 'CLOSED'\)", mv5_.group(3))) if mv5_ else 0
+    ok_ = bool(ft_) and isinstance(ro_.get('after_open'), int) and int(ft_.group(2)) == ro_.get('after_open') - cl5_
+    return ok_, 'open %s -> %s, added %s, moved %s, group c5 closing %d ; the foot at HEAD %s' % (ro_.get('before_open'), ro_.get('after_open'), ro_.get('added') or 'none',
+                                                                                                ', '.join(str(m_[0]) for m_ in ro_.get('moved') or []) or 'none', cl5_, ft_.group(0)[10:] if ft_ else 'UNREAD')
 
 
 def _pp_units():
@@ -3446,8 +3485,9 @@ def _pp_units():
     [S2]; [C7] or [C8] where entered), each matching its template with its fields filled and by its group's line and digest, and the texts
     entered at no outcome of b768 opening no appended line; (e) the centre matcher over the act's own sentences -- its banks', the entry's
     and its PLACE-papers writes' -- a PLACE-papers hit passing by a pinned hand verdict alone; (f) the side matcher over the same; (g) the
-    closing-theorem matcher over the same, a sentence entering ControlFailureExists, the closing theorem, L12 or [P1] as compiled outside a
-    negation; (h) a figure of the navigator's workspace ((1)'s readings of b767's closing table) with no navigator named, each table row and
+    closing-theorem matcher over the same: where [P1] is entered, a step's theorem or label (L9c, L11c, L11d, archJ_comb, arith_eq_comb,
+    window_arith_neg) entered as the closing theorem, and where it is not, a sentence entering ControlFailureExists, the closing theorem, L12
+    or [P1] as compiled, each outside a negation (b768 defect (d'): b766's reading carried where [P1] stands); (h) a figure of the navigator's workspace ((1)'s readings of b767's closing table) with no navigator named, each table row and
     each prose line naming the navigator with its figure read whole; each bank's foot carrying its grade; each matcher's control caught;
     the entry's last line (10)'s INTEGRATION line; the banks' nouns in the entry; the root prompt's sentences about the entry the
     composer's ((R378)(13), "composed from the banks"). The roster, the novelty and catalogue matchers printed with their yields and graded
@@ -3510,11 +3550,23 @@ def _pp_units():
                  nav_line=any(_nav_bad(x_) for x_ in _own_sentences(line_n_)) and not any(_nav_bad(x_) for x_ in _nav_units(line_n_))
                  and any(_nav_bad(x_) for x_ in _nav_units(line_x_)),
                  # ### b766, (g): the closing theorem entered as compiled caught twice; the carry not sent, the ruling's conditional outcome and a
-                 # ### step's own theorem passed
-                 defn=_def_bad('ControlFailureExists is proved at 3c67b8b5.') and _def_bad('The closing theorem compiled at 3c67b8b5.')
-                 and not _def_bad('L12, the closing theorem, was not sent.')
-                 and not _def_bad('Where the closing theorem is proved, [P1] is entered.')
-                 and not _def_bad('archTermQ_windowK_k0 compiled at 3c67b8b5, a theorem of L9.'))
+                 # ### step's own theorem passed -- b766's reading, kept where [P1] is not entered
+                 defn=_def_bad_b766('ControlFailureExists is proved at 3c67b8b5.') and _def_bad_b766('The closing theorem compiled at 3c67b8b5.')
+                 and not _def_bad_b766('L12, the closing theorem, was not sent.')
+                 and not _def_bad_b766('Where the closing theorem is proved, [P1] is entered.')
+                 and not _def_bad_b766('archTermQ_windowK_k0 compiled at 3c67b8b5, a theorem of L9.')
+                 # ### b768 (defect (d')): at [P1], a step's theorem entered as the closing theorem caught four ways; the closing theorem's own
+                 # ### entry as compiled, the four steps and their theorems named beside it, the not-sent carry, the ruling's condition and a
+                 # ### step's own theorem passed; the reading in use the one [P1]'s entry gives
+                 and _step_as_closing('window_arith_neg is the closing theorem.') and _step_as_closing('L11d, entered as the closing theorem, compiled at ffefddc6.')
+                 and _step_as_closing('archJ_comb proves ControlFailureExists.') and _step_as_closing('The closing theorem, arith_eq_comb, compiled at ffefddc6.')
+                 and not _step_as_closing('controlFailureExists proves ControlFailureExists at ffefddc6.')
+                 and not _step_as_closing('ControlFailureExists is proved at ffefddc6.')
+                 and not _step_as_closing('So L11d, window_arith_neg, and L12, controlFailureExists, a proof of ControlFailureExists, stand compiled at ffefddc6.')
+                 and not _step_as_closing('L12, the closing theorem, was not sent.')
+                 and not _step_as_closing('Where window_arith_neg is the closing theorem, [P1] is entered.')
+                 and not _step_as_closing('arith_eq_comb compiled at 9b2a69e0, a theorem of L11c.')
+                 and _def_bad('window_arith_neg is the closing theorem.') == N3_P1 and _def_bad('The closing theorem compiled at 3c67b8b5.') == (not N3_P1))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
@@ -3553,12 +3605,12 @@ def _pp_units():
     ok = ok_rest and unb_ == []
 #⟪END⟫
 #⟪SECTION record 21⟫
-        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (1)`s readings of b767`s closing table caught where no navigator is named, passed where one is, the act`s own bare figures and b767`s own hours passed, each of the navigator`s three forms caught, a table row and a prose line naming the navigator before a semicolon each caught by the sentence cut and passed read whole, and a row and a line naming none caught, the closing theorem entered as compiled caught twice and passed as not sent, as the ruling`s condition and as a step`s own theorem): %s; '
+        'each bank`s foot its last line carrying its grade: %s; the matchers` controls (a planted novelty sentence and two centre sentences each caught, an Epstein sentence and (7)`s classK sentence passed, (5)`s ruled sentence passed and its words for zeta caught, the catalogue clause caught either way and a sentence of the open order passed, a negation read, a sentence of positivity at the control naming no side caught and one naming the arithmetic side passed, a quotation wrapped over two lines dropped and the text after it kept, (1)`s readings of b767`s closing table caught where no navigator is named, passed where one is, the act`s own bare figures and b767`s own hours passed, each of the navigator`s three forms caught, a table row and a prose line naming the navigator before a semicolon each caught by the sentence cut and passed read whole, and a row and a line naming none caught, the closing theorem entered as compiled caught twice by b766`s reading and passed as not sent, as the ruling`s condition and as a step`s own theorem, and at [P1] a step`s theorem entered as the closing theorem caught four ways and the closing theorem`s own entry as compiled, the steps named beside it, the not-sent carry, the ruling`s condition and a step`s own theorem passed): %s; '
         '(a) the files under day1/, phase1.5/, phase2/ and internal/ differing at PLACE-papers HEAD from the act`s base %s: %s: %s; '
         '(b) REGISTRY`s, ERRATA`s, the census`s and the map`s two files` bytes at HEAD their bytes at the base, not written: %s (%s); (c) OPEN_TRAILS and FINDINGS each a byte prefix of its bytes at HEAD: %s: %s; '
-        '(d) each text of the ruling as entered equal to the ruling`s text with its fields filled (the rulings tool`s groups, dates %s; [S1] and [R1] each with its order`s entry line; the texts of the outcomes b768 did not reach entered nowhere): %s; '
+        '(d) each text of the ruling as entered equal to the ruling`s text with its fields filled (the rulings tool`s groups, dates %s; [R2] and [A3] in group c2 with no entry line, [P1] in group c5; the texts of the outcomes b768 did not reach entered nowhere): %s; '
         'the roster beside (graded by no clause of (R378)), the rulings tool`s group c2 (relay data/%s_ledgers_c2.json) and tools/standing/orders.py`s foot at HEAD (relay data/%s_orders.txt) agreeing %s: %s; '
-        'over %d of the act`s own sentences in its banks and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation (graded by no clause of (R378)): %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant (graded by no clause of (R378)): %s; (e) a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; (f) a sentence about the control speaking of positivity with no side named, the lines a dated record heads left out ((R368)(9)): %s; (g) a sentence entering the closing theorem (ControlFailureExists, the closing theorem, L12, [P1]) as compiled outside a negation: %s; a sentence saying the mechanism catalogue has or has not met the zero ((R369)`s clause, graded by no clause of (R378)): %s, in the PLACE-papers writes %s; '
+        'over %d of the act`s own sentences in its banks and the entry`s, a sentence calling a result new or the earliest of its kind outside a negation (graded by no clause of (R378)): %s; read from %s, a sentence of the entry calling the work the earliest of its kind in any assistant (graded by no clause of (R378)): %s; (e) a sentence saying zeta, RH, GRH or Weil positivity on classK holds, fails or moved outside a negation: %s; (f) a sentence about the control speaking of positivity with no side named, the lines a dated record heads left out ((R368)(9)): %s; (g) where [P1] is entered, a sentence entering a step`s theorem (L9c, L11c, L11d, archJ_comb, arith_eq_comb, window_arith_neg) as the closing theorem, and where it is not, one entering the closing theorem (ControlFailureExists, the closing theorem, L12, [P1]) as compiled, outside a negation: %s;a sentence saying the mechanism catalogue has or has not met the zero ((R369)`s clause, graded by no clause of (R378)): %s, in the PLACE-papers writes %s; '
         'over %d units of the act`s PLACE-papers writes (the groups` appended text, the quoted spans dropped), the hits of the centre, side and closing-theorem matchers by place and digest, the words not quoted: %s, of the centre matcher passed by no hand verdict: %s, of the side matcher passed by no hand verdict: %s, of the closing-theorem matcher passed by no hand verdict: %s; '
         '(h) a sentence printing a figure of the navigator`s workspace with no navigator named: %s; the entry`s last line (10)`s INTEGRATION line (%s; %s): %s; the banks` nouns absent from the entry: %s; the root prompt`s sentences about the entry not the composer`s: %s' % (
             ', '.join('%s %s' % g_ for g_ in graded), ', '.join('%s %s' % kv_ for kv_ in sorted(ctl3_.items())),
