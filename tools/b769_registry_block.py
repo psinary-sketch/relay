@@ -123,10 +123,16 @@ def cells69(r, I, qw, TG):
         return dict(kind='absent', path=path, subject='absent at HEAD, as its row names it (REGISTRY :%d, `%s`); no text read' % (k, path),
                     tokc='absent; no text read')
     j2 = None
+    marker = False
     if not d['k']:
         subj, cl_, cut = 'no %s sentence read (`%s`)' % (d['src'], path), '', False
     else:
-        cl_, cut = R61.clause_of(d['line'])
+        # ### the corpus's `### ` marker read off the source's end as plain() reads it before a space: plain() strips the source first, so a
+        # ### PURPOSE group ending `— ### ` before a bold annotation kept `###` (p2-16, the dry of 19:46:52Z, its read-back guard holding)
+        src_ = d['line']
+        if re.search(r'(?:^|\s)#{3}$', src_):
+            src_, marker = re.sub(r'(?:^|\s)#{3}$', '', src_).rstrip(), True
+        cl_, cut = R61.clause_of(src_)
         j2 = next((x for x in range(d['k'], d['j'] + 1) if cl_ in R61.span_text(d['D'], d['k'], x)), d['j'])
         where = '%s :%d' % (d['src'], d['k']) + ('–:%d' % j2 if j2 > d['k'] else '')
         if qw.lower() in cl_.lower() or R61.idcount(cl_, I) or (path in R66.ONEPAGE and d['k'] <= 3 <= j2):
@@ -146,7 +152,7 @@ def cells69(r, I, qw, TG):
     else:
         parts.append('not a candidate by b720’s rule')
     return dict(kind='read', path=path, src=d['src'], k=d['k'], j=j2, clause=cl_, cut=cut, subject=subj, tokc=' · '.join(parts),
-                cls=d['cls'], heads=d['heads'], tag=d['tag'][:2] if d['tag'] else None,
+                cls=d['cls'], heads=d['heads'], tag=d['tag'][:2] if d['tag'] else None, marker=marker,
                 line_text=NL.join(d['D'][d['k'] - 1:j2]) if d['k'] else '')
 
 
@@ -315,7 +321,9 @@ def run(mode):
          '  by neither block: %s' % (', '.join(R['neither']) or 'none'),
          '## THE ROWS ON A LINE RULE [Q] PROTECTS, each by its line and the line`s sha256 alone: %s' % (
              '; '.join(':%d %s (%s)' % x for x in R['prot']) or 'none'), '',
-         '## THE CELLS OF THE ROWS NO EARLIER BLOCK READS: id | its row | kind | the SUBJECT`s source and lines | the clause`s sha256 | class | the newest tag | candidate']
+         '## THE CELLS OF THE ROWS NO EARLIER BLOCK READS: id | its row | kind | the SUBJECT`s source and lines | the clause`s sha256 | class | the newest tag | candidate',
+         '  the corpus`s ### marker read off a clause source`s end (b769, the read-back guard of the dry of 19:46:52Z): %s' % (
+             ', '.join(c['id'] for c in nc if c.get('marker')) or 'none')]
     for c in nc:
         if c.get('kind') == 'read':
             P.append('  %s | :%d | read | %s :%s-%s | %s%s | %s | %s | %s' % (
