@@ -881,7 +881,24 @@ STANDING_BANKS_B758 = (('v1.35.6', 'ac6a0a77', 'data/b758_standing_v1356.txt', 1
 # ### b767, Component 4 (the Edit tool, before any run): the act's fifteen kernel commits on push-b767-proof, cut from push-b766-proof at
 # ### 3c67b8b5 ((R377)(4)), each by the one-call tool and pushed alone by the gated branch mode, read back (the step rows, scratch
 # ### steps767r.py, 18:49:19Z); the branch each stands on at the close, push-b767-proof, set to main where the closing build moves main
-KERNEL_COMMITS = ()   # ### b768 Component 3: the act's kernel commits of (R378)(4), on push-b768-proof cut from push-b767-proof at 89fd5b54, each set when made
+# ### b768, Component 4 (the Edit tool, 2026-11-25, while dispatch 13 builds; readers searched first by the Grep tool: checks 35, the
+# ### record's sections and one line each of checks.tpl and record.tpl): the act's fourteen kernel commits on push-b768-proof, cut from
+# ### push-b767-proof at 89fd5b54 ((R378)(4)), each by the one-call tool and pushed alone by the gated branch mode, read back (git log
+# ### 89fd5b54..push-b768-proof, 00:41:57Z); the branch each stands on at the close push-b768-proof, as b767's stood on push-b767-proof
+KERNEL_COMMITS = (('trial', 'SIDE-explicit-formula', 'd4c8c173', 'push-b768-proof'),        # ### (4)(a) the trial at small size: Packed and PackedTrial (step 27, 16:17:51Z), refused ahead of a send
+                  ('trial_fix', 'SIDE-explicit-formula', 'e0baa667', 'push-b768-proof'),    # ### Packed set (step 29, 16:29:40Z), dispatch 1 BREAKS (abs_mul)
+                  ('trial_import', 'SIDE-explicit-formula', '6d93bd31', 'push-b768-proof'), # ### Packed given Ring.Abs, PackedJoin (step 34, 17:16:56Z), dispatch 2 KERNEL
+                  ('l9c12', 'SIDE-explicit-formula', 'b7198735', 'push-b768-proof'),        # ### (4)(b) L9c1's seven files, FarLags, FarClosed, FarKernel (step 36, 17:50:07Z), dispatch 3 BREAKS
+                  ('wincheck', 'SIDE-explicit-formula', '49ccee24', 'push-b768-proof'),     # ### fG_zero set, WinCheck (step 38, 18:19:58Z), dispatch 4 BREAKS
+                  ('l9c2', 'SIDE-explicit-formula', 'b64dfeb6', 'push-b768-proof'),         # ### L9c2's data, FarWin, FarComb (step 41, 18:43:01Z), dispatch 5 STOPPED UNDER THE HOLD
+                  ('l9c2_chunks', 'SIDE-explicit-formula', 'cf3cf10f', 'push-b768-proof'),  # ### one chunk a declaration (step 44, 19:10:40Z), dispatch 6 BREAKS
+                  ('l9c2_option', 'SIDE-explicit-formula', '9dd90f3d', 'push-b768-proof'),  # ### the option before each doc comment (step 47, 19:39:27Z), dispatch 7 BREAKS
+                  ('l9c2_comb', 'SIDE-explicit-formula', 'ada0678e', 'push-b768-proof'),    # ### far_pair and far_comb set (step 49, 20:04:58Z), dispatch 8 KERNEL, L9c2 compiled
+                  ('l9c', 'SIDE-explicit-formula', '17db013f', 'push-b768-proof'),          # ### L9c3 the band and L9c archJ_comb (step 52, 21:03:17Z), dispatch 9 KERNEL
+                  ('l11c', 'SIDE-explicit-formula', '2f920d64', 'push-b768-proof'),         # ### (4)(c) L11c arith_eq_comb (step 54, 21:33:32Z), refused ahead of a send
+                  ('l11c_fix', 'SIDE-explicit-formula', '9b2a69e0', 'push-b768-proof'),     # ### the projection taken apart (step 55, 21:37:57Z), dispatch 10 KERNEL
+                  ('l11d_l12', 'SIDE-explicit-formula', 'e204ee77', 'push-b768-proof'),     # ### (4)(d), (e) L11d and L12 with the walk's data (step 60, 23:13:55Z), dispatch 11 STOPPED UNDER THE HOLD
+                  ('l11d_chains', 'SIDE-explicit-formula', 'ffefddc6', 'push-b768-proof'))  # ### the walk files chained two a lane, the closing Lean commit (step 63, 23:48:05Z), dispatch 12 KERNEL, [P1]
 KERNEL_COMMITS_B767 = (('route', 'SIDE-explicit-formula', 'f6f60590', 'push-b767-proof'),          # ### (5)(c): route (i) in the workflow, the act's opening Lean commit (step 28, 12:24:00Z)
                   ('archj', 'SIDE-explicit-formula', 'efd46832', 'push-b767-proof'),          # ### (4)(b) L9a: ArchJ.lean (step 33, 13:18:28Z)
                   ('archj2', 'SIDE-explicit-formula', '2e7caf01', 'push-b767-proof'),         # ### (4)(b) L9a: ArchJ2.lean, archJ_eq_double (step 34, 13:36:41Z)
@@ -931,7 +948,7 @@ KERNEL_COMMITS_B762 = ()   # ### b762 made none ((R372)(12))
 KERNEL_COMMITS_B759 = (('prints', 'SIDE-explicit-formula', 'ddb3efb9', 'main'),   # ### (R369)(5) commit one: the four print lines, on main at v0.41
                        ('weil', 'SIDE-explicit-formula', 'a3aad4cc', 'main'))     # ### (R369)(5) commit two: zq_weil_positivity_fails, main at v0.41
 KERNEL_COMMITS_B758 = (('rename', 'SIDE-explicit-formula', 'd1afb4fc', 'main'), ('merge', 'SIDE-explicit-formula', '630cba16', 'main'))   # ### b758's two, on main at v0.39 and v0.40
-WEIL_BRANCH = ('push-b768-proof', '89fd5b54941b246d707bd2e9708a8a24e222ba5c')   # ### b768 step zero, (R378)(4), (9): the act's Lean branch, cut from push-b767-proof at 89fd5b54, which is main; [1] its tip, the base until a commit is made, the closing Lean commit when set
+WEIL_BRANCH = ('push-b768-proof', 'ffefddc61b05fcca089ff20cc8cd2f103dd0a5f1')   # ### b768 step zero, (R378)(4), (9): the act's Lean branch, cut from push-b767-proof at 89fd5b54, which is main; [1] its tip, the closing Lean commit ffefddc6 (step 63), pushed and read back at the remote (23:52:51Z), set at Component 4 (the Edit tool, 2026-11-25, the dispatch tool reading [0] and WEIL_BRANCH_BASE alone, data/b768_events.txt (106))
 WEIL_BRANCH_B767 = ('push-b767-proof', '89fd5b54941b246d707bd2e9708a8a24e222ba5c')   # ### b767 step zero, (R377)(4), (9): the act's Lean branch, cut from push-b766-proof at 3c67b8b5 and not from main; its tip the closing Lean commit 89fd5b54 (step 59), pushed and read back at the remote (18:06:41Z), set at Component 4 (data/b767_events.txt (111)); push-b766-proof read at 3c67b8b5 (18:43:43Z)
 WEIL_BRANCH_BASE = '89fd5b54941b246d707bd2e9708a8a24e222ba5c'   # ### b768 step zero, (R378)(9): the act's Lean branch's base, push-b767-proof's commit 89fd5b54 (main and v0.45), named apart from the tip
 WEIL_BRANCH_BASE_B767 = '3c67b8b58d6f323b1db62249a77453963368aaf7'   # ### b767 Component 4 (data/b767_events.txt (111)): the act's Lean branch's base, push-b766-proof's commit 3c67b8b5, which tools/b767_controls.py read as WEIL_BRANCH[1] (BASE_PROOF, its checks' diff and the base's workflow) while WEIL_BRANCH[1] held the base; WEIL_BRANCH[1] now the tip, as b766's carried readers in tools/acts/b767.py take it, and the base read here
@@ -947,7 +964,7 @@ WEIL_TAG_CEILING = 'v0.46'   # ### (R378)(9): in place of v0.45
 WEIL_TAG_CEILING_B767 = 'v0.45'   # ### (R376)(8): in place of v0.44
 WEIL_TAG_B765 = ('v0.44', 'bd0248375a7930985f6b18886b6af5a9b125fa27', '0ba9cd61e1a071446fd366896c710ae13356bf3e')   # ### b765's, kept beside. b765 (R375)(4): v0.44 cut under HELD by the gated push after main's read-back at 0ba9cd61, on run 44918855502 with the restore off and on no other; (name, object, peel), the peel read back at the remote equal
 WEIL_TAG_B764 = None   # ### b764 cut none
-RUNNER_COMMIT = ''   # ### b768: the act's closing Lean commit, the last at which a restored build read exit 0 ((R378)(4)), set when read
+RUNNER_COMMIT = 'ffefddc61b05fcca089ff20cc8cd2f103dd0a5f1'   # ### b768: the act's closing Lean commit, the last at which a restored build read exit 0 ((R378)(4)): ffefddc6 (step 63), dispatch 12, run 45514975816, axioms sha256 2a9e26774e7e0c96 (data/b768_events.txt (103)); built once from source by route (i) at dispatch 13, run 45518506879 (events (104)); set at Component 4 (events (106))
 RUNNER_COMMIT_B767 = '89fd5b54941b246d707bd2e9708a8a24e222ba5c'   # ### b767: the act's closing Lean commit, the last at which a restored build read exit 0 ((R377)(4)): 89fd5b54 (step 59), dispatch 16, run 45235741926, axioms sha256 9c2cb7f7a216790c (data/b767_events.txt (105)); built once from source by route (i) at dispatch 17, run 45236921224 (events (107)); set at Component 4 (events (111))
 RUNNER_COMMIT_B766 = '3c67b8b58d6f323b1db62249a77453963368aaf7'   # ### b766: the act's closing Lean commit 3c67b8b5 (step 62), built from source twice and stopped under the hold twice (dispatches 15, 16), main not moved and no tag cut; step zero read main entering at 0ba9cd61, the workflow's bytes b765's closing Lean commit's; (R376)(4) does not write the workflow. b765 (R375)(4): the closing Lean commit, its workflow bytes those of e83e0deb (the key of 70c50d37 and the word's planted input), read by the arm that reads the workflow's file
 RUNNER_COMMIT_B764 = '38a57e02074a22eebbf33c6ff9ce5c7e58335d4a'   # ### b764's, kept beside
@@ -956,7 +973,7 @@ WEIL_TAG_B763 = ('v0.42', '001e94ff09537595adfe0b59acddfb45635a0e86', '4964e9575
 WEIL_BRANCH_B759 = ('push-b759-weil', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, kept
 WEIL_TAG_B759 = ('v0.41', '390506fc8e1128976f68ca63219ac91d02ffa532', 'a3aad4cceb41705fe9929c9b5600976eaf7434b5')   # ### b759's, unmoved by b763 (N5)
 ORDER_BRANCHES = ()   # ### b764 (R374)(8): no order of (8) writes a kernel (each is a relay or PLACE-papers build), so no order branch is made
-ORDER_TAGS = ()   # ### LEFT EMPTY BY (R377)(12): no tag cut or moved beyond v0.45 under (4), which WEIL_TAG holds (cut at 89fd5b54 after main's read-back); no order's tag (b766's clause (R376)(4) set to b767's at Component 5)
+ORDER_TAGS = ()   # ### LEFT EMPTY BY (R378)(12): no tag cut or moved beyond v0.46 under (4), which WEIL_TAG holds where cut; no order's tag (b767's clause (R377)(12) set to b768's at Component 4)
 ORDER_BRANCHES_B763 = (('push-b763-squares', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),   # ### b763's (R373)(8), under the names the remote holds: SQUARES-AT-24 made at main 4964e957 (03:48:11Z), pushed alone and read back (03:52:35Z); kept by (R374)(4)
                        ('push-b763-keiper', 'a59632eb3e8f4164c491ced038130b583f4893df'))   # ### KEIPER-FACE made at main 4964e957 (04:22:20Z), pushed alone and read back (04:27:35Z); kept by (R374)(4)
 ORDER_TAGS_B763 = (('v0.43', 'bcd4d4818520fc7a477c98e2c79548b80295725f', '819e4a832700038d103b4efc1e0ee0f1343f7c6e'),)   # ### b763's (R373)(8): W-ORD-SQUARES-AT-24 at main's read-back (data/b763_SIDE-explicit-formula_push-b763-squares_push_out.txt, 05:34Z); peels as before ((R374) N5)
@@ -1161,7 +1178,11 @@ EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2
 # ### b767: the act's dispatches of SIDE-explicit-formula by run id, in their order, as rowed in data/b767_dispatch_rows.json (17 rows of
 # ### kind dispatch, read 18:54:22Z): 1 trial-on, 2 trial-off, 3-6 L9a and L9b part one, 7 L10, 8-10 L11a and L11b, 11-16 L9b, 17 the closing
 # ### build from source at 89fd5b54 (restore off); a repeat appended where the closing build stops under the hold
-EF_RUNS = ()   # ### b768: the act's dispatches of SIDE-explicit-formula by run id, each appended when read from its artifact
+# ### b768: the act's dispatches of SIDE-explicit-formula by run id, in their order, as rowed in data/b768_dispatch_rows.json: 1-2 the trial at
+# ### small size (item a), 3-9 L9c (item b), 10 L11c (item c), 11-12 L11d and L12 (item d), 13 the closing build from source at ffefddc6
+# ### (restore off, route (i)); a repeat appended where the closing build stops under the hold (set at Component 4, events (106))
+EF_RUNS = (45439584241, 45447787162, 45454217113, 45459715839, 45463999522, 45469187228, 45474141600, 45478679725, 45489301040, 45494658063,
+           45510384327, 45514975816, 45518506879)
 EF_RUNS_B767 = (45179223796, 45179932496, 45183337569, 45186143428, 45190830447, 45197769158, 45204986880, 45209587647, 45212341085, 45215343184,
            45218909055, 45221153344, 45226620548, 45231087000, 45233987503, 45235741926, 45236921224)
 EF_RUNS_B766 = (45009051176, 45011065297, 45012810770, 45014250426, 45015072464, 45020375424, 45027497489, 45034393612, 45039260081, 45041946380, 45043631697, 45044513076, 45045547342, 45046730935, 45047352154, 45051503982)# ### dispatch 16 (repeat, the cap's one, of dispatch 15 stopped under the hold, 3c67b8b5, restore off, sent 17:48:30Z); dispatch 15 (closing, the closing Lean commit 3c67b8b5 from source, restore off, sent 17:04:22Z, STOPPED UNDER THE HOLD, exit 143); dispatch 14 (d-arch, L9 in part in four blocks at 3c67b8b5, sent 16:57:54Z, the archimedean row's second of 4, COMPILED, 5.2 min); dispatch 13 (d-arch, L9 in part at 9a389982, sent 16:44:52Z, the archimedean row's first of 4, STOPPED UNDER THE HOLD, exit 143, 3.7 min, not scored, defect (l)); dispatch 12 (d-pole, L8's data half repaired at c6a46950, sent 16:33:34Z, the pole row's last of 3, COMPILED, 3.7 min); dispatch 11 (d-pole, L8's data half at 1d3b1bdf, sent 16:24:05Z, BREAKS, 2.0 min, defect (k)); dispatch 10 (d-pole, L8 at 5266fb0a, sent 16:06:16Z, KERNEL, 6.9 min, the pole row's first of 3); dispatch 7 (d-k, L6 (c) at 448dd77b, sent 13:26:27Z, the row's fifth of 6). b766 step zero, after `carry.py ruled` refused b765's eleven carried unchanged (R3): (R376)(4)'s dispatches, at most 20, each set by its run id when sent (N1). Component 3: dispatch 1 (b, KERNEL, 3.2 min), 2 (c, KERNEL, 4.6 min), 3 (d-k, KERNEL, 2.8 min), 4 (d-k, BREAKS, 2.2 min), 5 (d-k, KERNEL, 2.8 min), 6 (d-k, KERNEL, 2.8 min, the closed form of kappa at 1848e7c0 under the row raised to 6), each with the restore on, restored by prefix (data/b766_dispatch_rows.json)
@@ -1170,7 +1191,7 @@ EF_RUNS_B764 = (44826208702, 44838771976, 44838852797)   # ### b764's three, rea
 EF_RUNS_B763 = (44610575175, 44625270777, 44641876790, 44646848292, 44661759569, 44670834879, 44674735311)   # ### b763's seven, read not re-run (data/b763_dispatch_rows.json): dispatch 1 BREAKS, 2 KERNEL, 3 STOPPED UNDER THE HOLD, 4 KERNEL, 5 KERNEL ((7)'s statement), 6 KERNEL (SQUARES-AT-24), 7 KERNEL (KEIPER-FACE's first file)
 EF_RUNS_B762 = ()   # ### b762's: none
 EF_RUNS_B759 = (44162171267,)   # ### b759's one, read not re-run
-M24_RUNS = ()   # ### LEFT EMPTY BY (R377)(12): no kernel touched beyond SIDE-explicit-formula, so no SIDE-dirichlet-mod-24 dispatch (N1: the dispatches those of (4) and (5); b766's clause (R376)(11) set to b767's at Component 5)
+M24_RUNS = ()   # ### LEFT EMPTY BY (R378)(12): no kernel touched beyond SIDE-explicit-formula, so no SIDE-dirichlet-mod-24 dispatch (N1: the dispatches those of (4); b767's clause (R377)(12) set to b768's at Component 4)
 EF_RUNS_B758 = (43997787796, 44007490629)   # ### b758's two, read not re-run: (4)'s join at v0.39 = d1afb4fc, (5)'s three results at v0.40 = 630cba16 (data/b758_outcomes.txt)
 EF_RUNS_B757 = (43818699881, 43834018078, 43835333285, 43836818700, 43839463729, 43841545568)   # ### b757's six, read not re-run (tools/b757_controls.py): the join KERNEL (the print failed at the import), T0 KERNEL (print stopped at maxErrors), T0 KERNEL (10 names), T1 BREAKS (recursion depth), T1 KERNEL (31 names), the wide direction KERNEL (24 names)
 M24_RUNS_B757 = (43835913340, 43836415096)   # ### b757's two SIDE-dirichlet-mod-24 runs, read not re-run: the workflow's control KERNEL (2 names), the module KERNEL (8 names)
@@ -1199,7 +1220,7 @@ ACT_ARMS = ('G-ACT-CURRENT', 'G-ARM-TAGS', 'G-ARMS-RETIRED', 'G-BRANCHES-BANKED'
             'G-WRITELIST-MIRROR-STATE')
 
 # ### b754 writes no kernel ((R364)(5)): no main touched, no branch made on a kernel
-SITTING_TIPS = {}   # ### LEFT EMPTY BY (R377)(12): no kernel touched beyond SIDE-explicit-formula, so no sitting's tips (b766's clause (R376)(11) set to b767's at Component 5)
+SITTING_TIPS = {}   # ### LEFT EMPTY BY (R378)(12): no kernel touched beyond SIDE-explicit-formula, so no sitting's tips (b767's clause (R377)(12) set to b768's at Component 4)
 SITTING_BASE = EF_BASE
 SITTING_REPOS = tuple(sorted(SITTING_TIPS))
 SITTING_BRANCH = None

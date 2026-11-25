@@ -363,11 +363,14 @@ def rebuild_wf_ok(S):
 # ### b767, Component 4 (the Edit tool, before any run; `carry.py ruled` R2 at 09:15:19Z and 12:02:32Z, data/b767_events.txt (17), (51)):
 # ### the cap read as (R377)(4)'s 40 where b766's override pinned (R376)(4)'s 20; the restore-on kind at most 36; with the restore off the
 # ### trial, the closing build and one repeat of each, the items trial-off, closing and repeat alone (MAX_DISPATCHES_KINDS)
+# ### b768, Component 5 (the Edit tool, 2026-11-25, before any run; `carry.py ruled` R2, data/b768_events.txt (17)): (R378)(4) and (9)
+# ### keep the cap 40 and the restore-on kind 36, and with the restore off the closing build and one repeat of it, the trial's kind of
+# ### b767 not carried; the items closing and repeat alone, each at most once (MAX_DISPATCHES_KINDS, its trial kind absent)
 #⟪OVERRIDE checks MARK aed8852d751b 16⟫
 def runner_ok(S):
-    """N1, b767 ((R377)(4), N1: "the dispatches of SIDE-explicit-formula number at most 40 and are those of (4) and (5)"; b766's form, its cap
-    set to the ruled figure MAX_DISPATCHES 40, at most 36 of them with the restore on, and with the restore off the trial, the closing build
-    and one repeat of each, and EF_RUNS the run ids as dispatched): every dispatch of the act a row of the dispatch bank, its kernel named,
+    """N1, b768 ((R378)(4), N1: "the dispatches of SIDE-explicit-formula number at most 40 and are those of (4)"; b767's form, its cap the
+    ruled figure MAX_DISPATCHES 40, at most 36 of them with the restore on, and with the restore off the closing build and one repeat of it
+    where it stopped under the hold, the trial's kind not used, and EF_RUNS the run ids as dispatched): every dispatch of the act a row of the dispatch bank, its kernel named,
     its free memory read before the send at or above the hold; the run ids the worklist's, EF_RUNS in SIDE-explicit-formula within
     MAX_DISPATCHES (40) and none in SIDE-dirichlet-mod-24 (M24_RUNS empty, its cap 0), no dispatch row of another kernel; a dispatch row
     present exactly when the worklist names a run; each read once after it by that id, the read's free memory at or above the hold; the
@@ -382,9 +385,9 @@ def runner_ok(S):
     kinds_ = dict(K.MAX_DISPATCHES_KINDS)
     return bool(ds) == bool(K.EF_RUNS) and ef_ == list(K.EF_RUNS) and len(ef_) <= K.MAX_DISPATCHES == 40 and m4_ == list(K.M24_RUNS) and len(m4_) <= K.MAX_DISPATCHES_M24 \
         and len(on_) <= kinds_['restore'] == 36 \
-        and all(r.get('item') in ('trial-off', 'closing', 'repeat') for r in off_) \
-        and sum(1 for r in off_ if r.get('item') == 'trial-off') <= kinds_['trial'] and sum(1 for r in off_ if r.get('item') == 'closing') <= kinds_['closing'] \
-        and sum(1 for r in off_ if r.get('item') == 'repeat') <= kinds_['repeat'] \
+        and all(r.get('item') in ('closing', 'repeat') for r in off_) and 'trial' not in kinds_ \
+        and sum(1 for r in off_ if r.get('item') == 'closing') <= kinds_['closing'] == 1 \
+        and sum(1 for r in off_ if r.get('item') == 'repeat') <= kinds_['repeat'] == 1 \
         and len(ds) == len(ef_) + len(m4_) \
         and all(str(r.get('free_mb', '')).isdigit() and int(r.get('free_mb')) >= KS.HOLD for r in ds + rs) \
         and all(sum(1 for x in rs if str(x.get('run')) == str(d.get('run'))) == 1
@@ -1038,9 +1041,9 @@ REPORT_KEYS = ('KERNEL -- THE STEPS OF (4)(b) TO (4)(d) COMPILED', 'KERNEL -- TH
     """N1, N4, b768 ((R378)(4), (9), N1; b759's form): every runner dispatch of the act sent by tools/b768_controls.py's dispatch route,
     each command of that route in the capture a dispatch row's or a refused send's -- refused at the network and rowed dispatch_refused
     with its number, or refused by the tool before any send and pinned by its time and number -- (one to MAX_DISPATCHES, forty, at most
-    thirty-six with the restore on, and with the restore off the trial, the closing build and one repeat of each, each in
-    SIDE-explicit-formula, none in SIDE-dirichlet-mod-24; no cap by price row), each read once after it by its run id, every dispatch and
-    read row's free memory at or above the hold; no earlier act's rebuild, axiom or lv route at all."""
+    thirty-six with the restore on, and with the restore off the closing build and one repeat of it where it stopped under the hold, each
+    in SIDE-explicit-formula, none in SIDE-dirichlet-mod-24; no cap by price row; the trial's kind of b767 not used), each read once after
+    it by its run id, every dispatch and read row's free memory at or above the hold; no earlier act's rebuild, axiom or lv route at all."""
 #⟪END⟫
 #⟪SECTION checks 25⟫
     seq_ = [r for r in rows if r.get('kind') in ('dispatch', 'read')]   # ### b767: the act's own rows, each dispatch and its read; the order read by the loop above, by run id
@@ -1049,13 +1052,11 @@ REPORT_KEYS = ('KERNEL -- THE STEPS OF (4)(b) TO (4)(d) COMPILED', 'KERNEL -- TH
     cmds = [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and route.search(r['cmd'])]
     old = re.compile(r'(?:^|&&\s*|;\s*)python(?:\s+-[A-Za-z]+(?:\s+utf8)?)*\s+\S*(?:tools/b72[1-4]_(?:rebuild|axiom)|lv724)\.py '
                      r'(push|dispatch|push_run|plan|kcommit|commit|read)\b', re.M)
-    # ### b768, Component 4 (the Edit tool, found by scratch cmd767.py at 20:56:57Z, before any run of the checks): the capture holds 25
-    # ### commands of the dispatch route against 17 dispatch rows -- five sends refused at the network, each rowed dispatch_refused with its
-    # ### number (2, 7, 11, and 15 twice), and three refused by the tool before any send with no row (dispatch 6: at 14:31:36Z the checks'
-    # ### false refusal of names in block comments, defect (l); at 14:39:58Z and 14:43:17Z "not the remote tip", data/b768_events.txt (78));
-    # ### b767's predicate, one command for each dispatch row, read none of them. Each command read by its number: a dispatch's by its row,
-    # ### a rowed refusal by its row, the tool's three by the pins here (the command's time and number)
-    TOOL_REFUSED_ = (('2026-11-23T14:31:36', 6), ('2026-11-23T14:39:58', 6), ('2026-11-23T14:43:17', 6))
+    # ### b768, Component 5 (the Edit tool, 2026-11-25, before any run of the checks; b767's pins of 2026-11-23 carried by the
+    # ### substitution and set here): b768's three refused sends ((R378)(4), data/b768_ferry.txt :28; data/b768_events.txt (59) and (91))
+    # ### were the dispatch tool's `lean` and `presend` refusing ahead of a send, with no command of the dispatch route sent, and no send
+    # ### was refused at the network; so each command of the route is a dispatch row's, read by its number, and the tool pinned none
+    TOOL_REFUSED_ = ()
     dnum_ = lambda c_: (re.search(r'b768_controls\.py"? dispatch \S+ (\d+)\b', c_['cmd']) or [None, None])[1]
     refused_ = [r for r in rows if r.get('kind') == 'dispatch_refused']
     sends_ok_ = len(cmds) == len([r for r in rows if r.get('kind') == 'dispatch']) + len(refused_) + len(TOOL_REFUSED_) \
@@ -1067,10 +1068,10 @@ REPORT_KEYS = ('KERNEL -- THE STEPS OF (4)(b) TO (4)(d) COMPILED', 'KERNEL -- TH
         and len([r for r in rows if r.get('kind') == 'dispatch']) == len(K.EF_RUNS) + len(K.M24_RUNS) and sends_ok_ \
         and len(K.EF_RUNS) <= K.MAX_DISPATCHES == 40 and len(K.M24_RUNS) == K.MAX_DISPATCHES_M24 == 0 \
         and len([r for r in rows if r.get('kind') == 'dispatch' and r.get('restore') == 'on']) <= dict(K.MAX_DISPATCHES_KINDS)['restore'] == 36 \
-        and (lambda ro_: set(ro_) <= {'trial-off', 'closing', 'repeat'} and ro_.count('trial-off') <= dict(K.MAX_DISPATCHES_KINDS)['trial'] == 1
-             and ro_.count('closing') <= dict(K.MAX_DISPATCHES_KINDS)['closing'] == 1 and ro_.count('repeat') <= dict(K.MAX_DISPATCHES_KINDS)['repeat'] == 2)(
+        and (lambda ro_: set(ro_) <= {'closing', 'repeat'} and 'trial' not in dict(K.MAX_DISPATCHES_KINDS)
+             and ro_.count('closing') <= dict(K.MAX_DISPATCHES_KINDS)['closing'] == 1 and ro_.count('repeat') <= dict(K.MAX_DISPATCHES_KINDS)['repeat'] == 1)(
             [r.get('item') for r in rows if r.get('kind') == 'dispatch' and r.get('restore') != 'on']) \
-        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])]   # ### b768, N1 (Component 4, the Edit tool, where b767's cap of 20 and 18 and its restore-off items stood): the runs those of (4) and (5), forty at most, thirty-six at most with the restore on, the restore off for the trial, the closing build and one repeat of each, none in SIDE-dirichlet-mod-24
+        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])]   # ### b768, N1 (Component 5, the Edit tool, 2026-11-25, where b767's trial kind and its two repeats stood): the runs those of (4) and (5), forty at most, thirty-six at most with the restore on, the restore off for the closing build and one repeat of it, the trial's kind not used, none in SIDE-dirichlet-mod-24
 #⟪END⟫
 #⟪SECTION checks 27⟫
         and beyond == {'SIDE-archimedean': '1', 'SIDE-rcurve': '1', 'SIDE-spinor': '1', 'SIDE-frobenius': '3', 'SIDE-kernel': '1'} \
