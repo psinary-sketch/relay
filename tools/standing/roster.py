@@ -33,6 +33,12 @@ put (relay data/b756_orders_read.txt (3); data/b756_author_answers.txt :4, :18):
 on the document's own label line, never where it follows a kernel's name. version_of passes over a heading's version string that follows a
 kernel's name (after_kernel, label_on) for the next on the line; a heading with none other is not the version line and the read goes on.
 The other rules are unchanged. Its controls: tools/standing/v1348.py, ONE_PAGE_PROOF's kernel tag planted as a heading at its head.
+
+v1.38.30, (R379)(8) [K30], W-ORD-MAP-MERGE, b769: THE MAP'S ONE NAME. From b769's mirror on the family SPIRAL_MAP.md is carried by its one
+name, SPIRAL_MAP.md, whatever the two files' version lines read (they tie at v0.7 after (R379)(4)(b)'s merge); SPIRAL_MAP_v0_7.md stands as
+an edition and no roster of b769 on carries it; apply_current refuses a roster of b769 on that carries another name of the family
+(one_name_refusal), before any route prints or builds from it. A build of an act before b769 is read as it was built. Its control: relay
+tools/b769_repair_controls.py K30.
 """
 import json
 import os
@@ -93,7 +99,7 @@ def roster_at(rev='main', act=None):
     build of `act` (default the current act) from b754 on, the current edition of rule (13) applied."""
     tree = main_tree(rev)
     r = resolve(base(), tree, added(act))[0]
-    return apply_current(r, tree, rev)[0] if current_rule(act) else r
+    return apply_current(r, tree, rev, act=act)[0] if current_rule(act) else r
 
 
 # ================================================================================ v1.34.5, (R364)(5)[M2] (a) to (c), b754
@@ -140,6 +146,32 @@ def current_rule(act=None):
     return act_number(act) >= CURRENT_FROM
 
 
+# ================================================================================ v1.38.30, (R379)(8) [K30], b769: THE MAP'S ONE NAME
+# ### W-ORD-MAP-MERGE (the papers' OPEN_TRAILS :19227, [M4] at :19225, (R376)(6)(a)) and (R379)(4)(b): SPIRAL_MAP.md carries the map. b769's
+# ### merge set into it the 81 lines SPIRAL_MAP_v0_7.md alone held (relay data/b769_map_merge.txt), so the two files' own version lines tie
+# ### at v0.7 and rule (13) alone would carry both. From b769's mirror on the family is carried by its one name, whatever the version lines
+# ### read; SPIRAL_MAP_v0_7.md stands as an edition and is carried by no roster of b769 on. A build of an act before b769 is read as built.
+ONE_NAME_FROM = 769
+ONE_NAME = {'SPIRAL_MAP.md': 'SPIRAL_MAP.md'}   # ### the family -> its one name
+ONE_NAME_RULE, ONE_NAME_VERSION = '(R379)(8) [K30]', 'v1.38.30'
+
+
+def one_name_rule(act=None):
+    return act_number(act) >= ONE_NAME_FROM
+
+
+def one_name_refusal(r, act=None):
+    """v1.38.30, [K30]: the refusal's words where the roster `r` of an act from b769 on carries a name of a ONE_NAME family other than its
+    one name, the edition beside the map or alone; else None."""
+    if not one_name_rule(act):
+        return None
+    bad = [norm(p) for p in r if family(p) in ONE_NAME and norm(p) != ONE_NAME[family(p)]]
+    if not bad:
+        return None
+    return '### THE ROSTER CARRIES %s, WHERE THE FAMILY`S ONE NAME IS %s (%s, %s, W-ORD-MAP-MERGE) -- REFUSED, NOTHING PRINTED OR BUILT' % (
+        ', '.join(bad), ', '.join(sorted(set(ONE_NAME[family(p)] for p in bad))), ONE_NAME_RULE, ONE_NAME_VERSION)
+
+
 def version_of(text_lines):
     """(line, version tuple) of a file's own version line, or (None, None). v1.34.8: a heading's version string after a kernel's name is
     not the document's label (label_on); a heading carrying no other is passed over."""
@@ -163,12 +195,14 @@ def text_at(rev, path):
     return None if b is None else b.decode('utf-8', 'replace').replace('\r', '').split(NL)
 
 
-def current_editions(r, tree, rev, reader=None):
+def current_editions(r, tree, rev, reader=None, act=None):
     """for each family of the roster `r`: (family, candidates on the tree, carried, {path: (line, version)}, current or None, why). The
     current edition is the one candidate where the family has one; else the candidate whose own version line is the highest, every
     candidate's line read and no two sharing the highest; else None, the family undecided. `reader(path)` gives a file's lines (default
-    its blob at `rev`)."""
+    its blob at `rev`). v1.38.30, [K30]: for an act from b769 on (`act`, default the current act) a ONE_NAME family's current edition is
+    its one name where the tree holds it, whatever the version lines read; where it does not, the family is undecided."""
     reader = reader or (lambda p: text_at(rev, p) or [])
+    one = one_name_rule(act)
     fams = []
     for p in r:
         if family(p) not in fams:
@@ -179,7 +213,10 @@ def current_editions(r, tree, rev, reader=None):
         cands = sorted(p for p in md if family(p) == f)
         present = [p for p in r if family(p) == f]
         vers = dict((p, version_of(reader(p))) for p in cands) if len(cands) > 1 else {}
-        if len(cands) == 1:
+        if one and f in ONE_NAME:
+            cur, why = (ONE_NAME[f], 'the family`s one name (%s, %s, W-ORD-MAP-MERGE)' % (ONE_NAME_RULE, ONE_NAME_VERSION)) if ONE_NAME[f] in cands else (
+                None, 'the family`s one name %s not on the tree (%s)' % (ONE_NAME[f], ONE_NAME_RULE))
+        elif len(cands) == 1:
             cur, why = cands[0], 'one file'
         elif cands and all(vers[p][1] for p in cands):
             top = max(vers[p][1] for p in cands)
@@ -192,9 +229,11 @@ def current_editions(r, tree, rev, reader=None):
     return rows
 
 
-def apply_current(r, tree, rev, reader=None):
-    """the roster `r` with rule (13) applied: each decided family carried by its current edition at its first slot; (roster, rows)."""
-    rows = current_editions(r, tree, rev, reader)
+def apply_current(r, tree, rev, reader=None, act=None):
+    """the roster `r` with rule (13) applied: each decided family carried by its current edition at its first slot; (roster, rows).
+    v1.38.30, [K30]: `act` (default the current act) gates the one name, and a roster of b769 on that carries another name of a ONE_NAME
+    family is refused here, before any route prints or builds from it."""
+    rows = current_editions(r, tree, rev, reader, act)
     cur = dict((f, c) for f, _c, _p, _v, c, _w in rows if c)
     out, seen = [], set()
     for p in r:
@@ -205,6 +244,9 @@ def apply_current(r, tree, rev, reader=None):
                 out.append(cur[f])
         else:
             out.append(p)
+    x = one_name_refusal(out, act)
+    if x:
+        raise SystemExit(x)
     return out, rows
 
 
@@ -223,7 +265,7 @@ def project(rev='main', act=None, with_cuts=True):
     figures and their meta."""
     tree = main_tree(rev)
     r0 = resolve(base(), tree, added())[0]
-    rr, rows_c = (apply_current(r0, tree, rev) if current_rule(act) else (r0, []))
+    rr, rows_c = (apply_current(r0, tree, rev, act=act) if current_rule(act) else (r0, []))
     cur = dict((f, c) for f, _c, _p, _v, c, _w in rows_c if c)
     rows, seen = [], set()
     for p in project_list():
@@ -352,7 +394,7 @@ def print_lines(b=None, tree=None, act=None, rev='main'):
     L += ['  LEAVES %s  (%s)' % (p, why) for p, why in leaves] or ['  LEAVES none']
     L += ['  NOT JOINED %s  (family %s ; %s)' % (p, f, why) for p, f, why in nj]
     if current_rule(act):
-        r, rows = apply_current(r, tree, rev)
+        r, rows = apply_current(r, tree, rev, act=act)
         L += current_lines(rows, r)
     plus, removed = sorted(set(r) - set(b)), sorted(set(b) - set(r))
     L.append('### THE DIFF AGAINST THE BASE ROSTER (tools/mirror_roster.json, lastChanged %s): added %d %s ; removed %d %s' % (

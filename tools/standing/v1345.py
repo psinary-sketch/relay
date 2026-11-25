@@ -7,7 +7,7 @@ control. No write reaches the relay or PLACE-papers. Written at b754 by the Writ
 here.
 
   (current)  rule (13), THE CURRENT EDITION: tools/standing/roster.py at main, BASE's route and BASE's added list against the route on
-             disk: 82 entries, every edition carried, against 83, Which_Structure_Confines_v2_4_0 in and SPIRAL_MAP.md out; the builder's
+             disk: 82 entries, every edition carried, against 83, Which_Structure_Confines_v2_4_0 in and, by [K30], SPIRAL_MAP_v0_7.md out; the builder's
              json route equal to roster_at; planted families read by their own version lines (a filename edition below the file's line, a
              line not read, a tie, the slot kept); an act before b754 read by the rule it was built under; b753's export at clause 3 CLEAN
              through roster_at at b753, NOT CLEAN through the rule of b754.
@@ -100,10 +100,10 @@ def control_current():
     rn = RO.roster_at('main')
     w24, sm, sm7 = 'day1/Which_Structure_Confines_v2_4_0.md', 'SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'
     n += 1
-    g += case(L, 'current', 'the roster at main: entries ; Which_Structure_Confines v2.4.0 in ; SPIRAL_MAP.md (v0.6) carried beside its v0.7',
+    g += case(L, 'current', 'the roster at main: entries ; Which_Structure_Confines v2.4.0 in ; the map`s one name SPIRAL_MAP.md in and its edition v0.7 out ((R379)(8) [K30], v1.38.30)',
               'BASE`s route and added list: %d ; %s ; %s' % (len(ro), w24 in ro, sm in ro and sm7 in ro),
-              'roster_at(main) on disk: %d ; %s ; %s' % (len(rn), w24 in rn, sm in rn and sm7 in rn),
-              w24 not in ro and sm in ro, len(rn) == 83 and w24 in rn and sm not in rn and sm7 in rn)
+              'roster_at(main) on disk: %d ; %s ; %s' % (len(rn), w24 in rn, sm in rn and sm7 not in rn),
+              w24 not in ro and sm in ro, len(rn) == 83 and w24 in rn and sm in rn and sm7 not in rn)
     _L, rj = RO.print_lines()
     _Lo, rjo = OM.print_lines()
     n += 1
