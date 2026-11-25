@@ -2333,7 +2333,10 @@ def _trail_resolved(text):
                   verdict=(rdr_.get(str(r_.get('run'))) or {}).get('verdict'), run_min=(rdr_.get(str(r_.get('run'))) or {}).get('run_min'),
                   build_min=(rdr_.get(str(r_.get('run'))) or {}).get('build_min'),
                   # ### the exit file, the axioms file's digest and lines and the cache's from-source word, for the seat's reading beside the verdict
-                  exit=(rdr_.get(str(r_.get('run'))) or {}).get('build_exit'), ax_sha=str((rdr_.get(str(r_.get('run'))) or {}).get('axioms_sha256') or '')[:16],
+                  # ### b768, Component 5 (the Edit tool, events (128)): a digest only where the axioms print RAN; a stopped run's file is the workflow's
+                  # ### one NOT RUN line, whose digest the entry's first dry printed as the axioms file's sha256 (dispatch 13)
+                  exit=(rdr_.get(str(r_.get('run'))) or {}).get('build_exit'), ax_sha=(str((rdr_.get(str(r_.get('run'))) or {}).get('axioms_sha256') or '')[:16]
+                                                                                       if str((rdr_.get(str(r_.get('run'))) or {}).get('axioms_print') or '').startswith('RAN') else ''),
                   ax_lines=(rdr_.get(str(r_.get('run'))) or {}).get('axioms_file_lines'),
                   from_source=((rdr_.get(str(r_.get('run'))) or {}).get('cache') or {}).get('from_source'),
                   # ### b768: the cache record's restore line (true an exact key, false a key by the prefix, none nothing restored) and the save
@@ -4370,7 +4373,9 @@ def _finding_text_b768(f, S, rep, tot):
     dfr_ = [x_ for x_ in re.split(r"(?m)^(?=    \([a-z]'*\) )", rdn('%s_defects.txt' % ACT).replace(chr(13), '')) if re.match(r"^    \([a-z]'*\) ", x_)]
     dl_ = lambda run_: ', '.join('(%s)' % re.match(r"^    \(([a-z]'*)\)", x_).group(1) for x_ in dfr_ if str(run_) in ' '.join(x_.split()))
     lw_ = lambda x_: cm_(x_) if x_ is not None else '-'
-    p1_ = lambda r_: (', route (i)’s part one %s modules, its exit %s, the lows %s and %s MB' % (r_['p1_mods'], r_['p1_exit'], lw_(r_['low_p1']), lw_(r_['low_p2']))) if r_['p1_exit'] is not None else ''
+    # ### b768, Component 5 (events (128)): part two's low read only where part two ran; a run stopped in part one prints its one low and "part two not run"
+    p1_ = lambda r_: (', route (i)’s part one %s modules, its exit %s, %s' % (r_['p1_mods'], r_['p1_exit'], ('the lows %s and %s MB' % (lw_(r_['low_p1']), lw_(r_['low_p2'])))
+                                                                            if r_['low_p2'] is not None else ('its low %s MB, part two not run' % lw_(r_['low_p1'])))) if r_['p1_exit'] is not None else ''
     dd_ = lambda it_: '; '.join('dispatch %d, run %s, %s%s' % (r_['n'], r_['run'], vs_(r_), (' (defect %s)' % dl_(r_['run'])) if r_['verdict'] != 'KERNEL' and dl_(r_['run']) else '')
                                 for r_ in ru_(it_)) or 'not sent'
     rnw_ = '; '.join('dispatch %d, run %s, %s at %s, the restore %s%s, %s%s, build %s min and run %s min, the runner’s low %s MB%s' % (
@@ -6445,8 +6450,9 @@ roster (REGISTERED); the closing build from source where main did not move, and 
     keys['MAIN'] = ('%s -- THE CLOSING BUILD FROM SOURCE, MAIN AND THE TAG ((R378)(4)): at the closing Lean commit %s by route (i) with the restore off, %s; a run stopped '
                     'under the hold printed and not scored; THE PAIR: %s; MAIN AND THE TAG: %s; %s; push-b767-proof at %s and push-b766-proof at %s. SOURCE %s.' % (
                         'KERNEL' if moved_ else 'HELD', (K.RUNNER_COMMIT or '-')[:8],
-                        '; '.join('dispatch %d, run %s, %s, part one %s modules, its exit %s, the lows %s and %s MB against the hold’s 2,560, build %s min, its axioms '
-                                  'file %s' % (r_['n'], r_['run'], vs_(r_), r_['p1_mods'], r_['p1_exit'], lw_(r_['low_p1']), lw_(r_['low_p2']), r_['build_min'],
+                        '; '.join('dispatch %d, run %s, %s, part one %s modules, its exit %s, %s against the hold’s 2,560, build %s min, its axioms '
+                                  'file %s' % (r_['n'], r_['run'], vs_(r_), r_['p1_mods'], r_['p1_exit'], ('the lows %s and %s MB' % (lw_(r_['low_p1']), lw_(r_['low_p2'])))
+                                               if r_['low_p2'] is not None else ('its low %s MB, part two not run' % lw_(r_['low_p1'])), r_['build_min'],
                                                ('sha256 %s' % r_['ax_sha']) if r_['ax_sha'] else 'not printed') for r_ in cl_ + rr_),
                         f['tr_pair_line'], f['tr_main_line'],
                         ('main at %s and %s (object %s) peeling to it, each read back at the remote' % ((K.EF_MAIN or '-')[:8], K.WEIL_TAG[0], K.WEIL_TAG[1][:8])) if moved_ else (
