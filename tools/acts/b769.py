@@ -1173,11 +1173,12 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     the one standing commit of (8) before its row, the certificate and the plan before the dispatch tool and the opening dispatch, the
     registration before the window's tool, each act tool before its bank, each group of the rulings tool's OPEN_TRAILS commit and its
     relay banks after it), then the handoff page and the lock gate where made, each placed by its time ([K21]); by ancestry within the
-    relay through each commit of _chain; the act's commits under tools/standing/ the three of K.STANDING_REPAIRS and no other ((R379)(11):
-    (8) alone moves tools/standing/, by [K26], [K27] and [K28], three commits), each moving tools/standing/VERSION to its version, its row's
+    relay through each commit of _chain; the act's commits under tools/standing/ the two of K.STANDING_REPAIRS and no other ((R379)(11):
+    (8) alone moves tools/standing/, by [K29] and [K30], two commits), each moving tools/standing/VERSION to its version, its row's
     commit carrying the controls bank, and the control's verdict line, "[K] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER:
-    True.", at its line in the controls bank at HEAD and in that bank's blob at the row's commit. b769, Component 1 (the Edit tool): the
-    count of keys set from b768's one to (R379)(9)'s three, found by the readers' search ahead of STANDING_REPAIRS' setting."""
+    True.", at its line in the controls bank at HEAD and in that bank's blob at the row's commit. b769, Component 2 (the Edit tool, after
+    (4)(b)'s control read as wanted and [K30]'s commit, 84333f27): the count of keys set from b768's three, which the carry left, to
+    (R379)(9)'s two, found by the readers' search at Component 1 (data/b769_events.txt (48))."""
     t_ = S['t']
     ks_ = STANDING_ACT.keys_in_time(K.TIME_ORDER, [k_ for k_, _h in S['r366_chain'] if k_ in ('passed', 'handoff', 'lockgate')], t_)   # ### b765, [K21] (v1.38.20): the tail keys by their times
     sr_ = []
@@ -1189,7 +1190,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
     st_ = [h_[:8] for h_ in S['st_commits'] or []] == [c_[:8] for _k, _v, c_, _r, _l in K.STANDING_REPAIRS]
     return all(t_.get(k_) for k_ in ks_) and [t_[k_] for k_ in ks_] == sorted(t_[k_] for k_ in ks_) \
         and bool(S['anc']) and len(S['anc']) == len(S['r366_chain']) - 1 and all(v is True for v in S['anc'].values()) \
-        and len(sr_) == len(K.STANDING_REPAIRS) == 3 and all(sr_) and st_
+        and len(sr_) == len(K.STANDING_REPAIRS) == 2 and all(sr_) and st_
 #⟪END⟫
 #⟪SECTION checks 34⟫
     """(R379)(3), (4), (7), (8), (12), N2, N3 (the name the frozen run list carries): each tool of K.GENS first added by a commit of its
@@ -2143,12 +2144,14 @@ def _trail_resolved(text):
         i_ = k_ + 1
     srep_ = dict((k_.strip('[]'), (v_, c_, r_, l_)) for k_, v_, c_, r_, l_ in K.STANDING_REPAIRS)
     rctl_ = rdn(K.REPAIR_CONTROLS_BANK.split('/', 1)[1]).replace(chr(13), '').split(NL)
-    if [r_['key'] for r_ in reps_] != ['K26', 'K27', 'K28'] \
+    # ### b769, Component 2 (the Edit tool, after [K30]'s commit): (R379)(8)'s two keys, [K29] and [K30], where the carry left b768's
+    # ### three ([K26] to [K28]), a constant (R379)(9) moves that the readers' search of Component 1 did not name (data/b769_events.txt (57))
+    if [r_['key'] for r_ in reps_] != ['K29', 'K30'] \
             or any(r_['state'] is None or r_['sentence'] is None or not r_['sentence'].startswith('[%s] ' % r_['key']) for r_ in reps_) \
             or any((r_['key'] in srep_) != (r_['state'] in ('REPAIRED', 'REMOVED')) for r_ in reps_) \
             or any(not (rctl_ + [''] * (l_ + 1))[l_ - 1].startswith('### ### **%s THE CONTROL AS WANTED: ' % k_) for k_, _v, _c, _r, l_ in K.STANDING_REPAIRS) \
             or any(('%s at %s:' % ({'REPAIRED': 'repaired', 'REMOVED': 'removed'}[r_['state']], srep_[r_['key']][0])) not in r_['sentence'] for r_ in reps_ if r_['key'] in srep_):
-        sys.exit('### data/%s_repairs.txt DOES NOT CARRY THE THREE KEYS OF (8) WITH THEIR STATES, SENTENCES, VERSIONS AND '
+        sys.exit('### data/%s_repairs.txt DOES NOT CARRY THE TWO KEYS OF (8) WITH THEIR STATES, SENTENCES, VERSIONS AND '
                  'CONTROLS AS WANTED -- NOTHING COMPOSED' % ACT)
     # ### (4), (5)(c): the dispatch tool's controls and its bank, its foot and its trial's, pair's and main's lines and the last step's
     # ### dispatch, each line as its foot gives it (tools/b769_controls.py cmd_bank, verdict_lines)
@@ -2621,9 +2624,10 @@ def _cmd_epoch(ts):
         and (_first_add('data/b769_plan.txt') or '')[:8] == plan_c_[:8] and 0 < ct_(ROOT, plan_c_) < d0_
     wrun_ = [r_ for t_, _f, _c, r_, _o in runs_ if t_ == 'tools/b769_window.py']
     reg_first_ = not K.REG_COMMIT and _first_add('data/b769_registration.txt') is None and _first_add('tools/b769_window.py') is None and not wrun_
-    # ### b768: the repairs bank's three rows ([K26] to [K28]) each in one of the four states
+    # ### b769, Component 2 (the Edit tool, after [K30]'s commit): the repairs bank's two rows ([K29] and [K30]) each in one of the four
+    # ### states, the count (R379)(9) sets; b768's three ([K26] to [K28]) as the carry left it
     rst_ = re.findall(r'; STATE: (REPAIRED|READ AS DESIGNED|REMOVED|CARRIED)\b', ' '.join(l_.strip() for l_ in rdn('%s_repairs.txt' % ACT).replace(chr(13), '').split(NL)))
-    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 3
+    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 2
     sect_ = stepzero_ and standing_ and gen_ and before_kw_ and runs_ok_ and states_ok_ and plan_first_ and reg_first_
     route_ = sect_
     regen_ = N2_REGEN in (rd(FACE) or '')
@@ -3806,9 +3810,11 @@ def _guard(f):
     on as many as it counts; the dispatch tool's and the groups' controls whole; the groups' files each OPEN_TRAILS; the roster's counts
     summing at HEAD; the reproduction run's rows summing. A verdict otherwise than wanted is printed, never refused here. (b768, Component
     4, the Edit tool: b767's one key, its certificate, its source-build read and its two data files out, none banked at this act.)"""
-    if len(f['reps']) != 3 or sum(len(v_) for v_ in f['rep_states'].values()) != 3 or f['ver'] != K.STANDING_VERSION \
+    # ### b769, Component 2 (the Edit tool, after [K30]'s commit): the keys' count (R379)(9) sets, two ([K29] and [K30]), where the carry
+    # ### left b768's three; the rest of this guard is b768's and is set with record 29 before its run
+    if len(f['reps']) != 2 or sum(len(v_) for v_ in f['rep_states'].values()) != 2 or f['ver'] != K.STANDING_VERSION \
             or sorted(f['rep_states']['REPAIRED'] + f['rep_states']['REMOVED']) != sorted(k_ for k_ in f['srep'] if k_.startswith('K')):
-        sys.exit('### THE REPAIRS BANK`S THREE ROWS, THE STANDING VERSIONS OR VERSION AT HEAD DISAGREE -- NOTHING COMPOSED')
+        sys.exit('### THE REPAIRS BANK`S TWO ROWS, THE STANDING VERSIONS OR VERSION AT HEAD DISAGREE -- NOTHING COMPOSED')
     on_ = ('a', 'b', 'c', 'd', 'e')   # ### tools/b768_controls.py's items with the restore on (ON_ITEMS): the seat's trial at small size and the steps
     if f['disp_m24'] != 0 or f['read_ef'] != f['disp_ef'] or f['tr_disp'] != (f['disp_ef'], K.MAX_DISPATCHES) \
             or f['tr_on'] != (sum(1 for r_ in f['runs'] if r_['item'] in on_), dict(K.MAX_DISPATCHES_KINDS)['restore']):

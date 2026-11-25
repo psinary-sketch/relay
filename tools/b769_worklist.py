@@ -579,7 +579,7 @@ NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b7
 DIFFERS_LINE = None   # ### LEFT EMPTY BY (R378)(12): no DIFFERS entry, REGISTRY, ERRATA, the census, the register and the map not written, FINDINGS and OPEN_TRAILS the two PLACE-papers files (v1.38.1 [K1]'s marker; b766's clause (R376)(11) set to b767's at Component 5)
 ERRATA_LINE = None   # ### ERRATA_LINE LEFT EMPTY BY (R378)(12): REGISTRY, ERRATA, the census, the register and the map not written (b766's clause (R376)(11) set to b767's at Component 5)
 ERRATA_LINE_B764 = 1149   # ### b764 (R374)(9)(a): [E1], E-2026-11-21-1, at ERRATA's end from :1149, PLACE-papers 772d5cf0, kept beside
-C2_PLAN_FIRST = None   # ### Component 2's first relay commit (no plan at this act: the registry's block tool's first commit)
+C2_PLAN_FIRST = 'a8ee636d'   # ### Component 2's first relay commit (no plan at this act: the registry's block tool's first commit, step 13, 19:46:29Z)
 C2_RELAY = None   # ### the last of Component 2's relay commits
 # ### (R366)(4): each tool of the map beside its banks -- (name, generator, the generator's commits before the bank, bank, the bank's commit)
 C2_MAP = (('the constellation rerun', 'tools/b769_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
@@ -726,7 +726,11 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b768_repair_cont
 # ### b768, Component 1 (the Edit tool): the act's relay commits after step zero's banks (850b09d5, step 4), in their order, each read from
 # ### its step row (steps 5 and 7), appended as made; b767's stands in git at tools/b767_worklist.py
 CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
-         ('k29_ctl', 'd69d7ee4'), ('price_foot', 'f3fc19df'), ('k29', '48ccc5c7'), ('k29_row', '28be31c6'))   # ### b769: steps 5 and 7-11, each from its step row (step 6 PLACE-papers'), appended as made; b768's stands in git at tools/b768_worklist.py
+         ('k29_ctl', 'd69d7ee4'), ('price_foot', 'f3fc19df'), ('k29', '48ccc5c7'), ('k29_row', '28be31c6'),   # ### b769: steps 5 and 7-11, each from its step row (step 6 PLACE-papers'); b768's stands in git at tools/b768_worklist.py
+         ('wl_c1', '646309de'),   # ### step 12
+         ('reg_tool', 'a8ee636d'), ('reg_fix', 'ff721241'), ('reg_banks', '9eef1fbe'),   # ### steps 13, 14 and 16 (Component 2, (4)(a); step 15 PLACE-papers')
+         ('merge_tool', '8133f4b0'),   # ### step 17 ((4)(b); step 18 PLACE-papers')
+         ('k30_ctl', '9faf0b1a'), ('k30', '84333f27'), ('k30_row', 'b2982d66'))   # ### steps 19-21, each from its step row; later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -747,7 +751,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = ()   # ### b769: the act's PLACE-papers commits in their order, appended as made
+PP_CHAIN = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15 and 18: the corrigendum, the registry's block, the map's merge), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
@@ -936,7 +940,7 @@ CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b768`s findings after its lock and
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = (('[K29]', 'v1.38.29', '48ccc5c7', '28be31c6', 32),)   # ### b769 (R379)(8): [K29] (steps 10-11), [K30] appended as made where (4)(b)'s control reads as wanted; each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b769_repair_controls.txt), b768's form
+STANDING_REPAIRS = (('[K29]', 'v1.38.29', '48ccc5c7', '28be31c6', 32), ('[K30]', 'v1.38.30', '84333f27', 'b2982d66', 53))   # ### b769 (R379)(8): [K29] (steps 10-11, Component 1) and [K30] (steps 20-21, Component 2, after (4)(b)'s control read as wanted), two commits of tools/standing/; each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b769_repair_controls.txt), b768's form
 STANDING_REPAIRS_B768 = (('[K26]', 'v1.38.26', '70aefe23', 'ec61c120', 31), ('[K27]', 'v1.38.27', '690c4238', 'b5e8b01c', 62),
                     ('[K28]', 'v1.38.28', 'a7d37ec2', 'ea46d65a', 81))   # ### b768 (R378)(8): [K26], [K27] and [K28], each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b768_repair_controls.txt), read from the step rows (steps 10-11, 13-14, 17-18) and the controls bank's feet
 STANDING_REPAIRS_B767 = (('[K25]', 'v1.38.25', '374c1e80', '2a128592', 31),)   # ### b767 (R377)(8): [K25] alone, (key, version, commit, the commit carrying its row and its control, the control's verdict line) (steps 11 and 12)
@@ -1090,7 +1094,7 @@ COEFF_LAND_BRANCH = ('push-b758-coeff', '630cba16e228a018f9dd986196142fc6feb704e
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
-C2_PP = ()               # ### no PLACE-papers write in Component 2 ((R364)(3)-(5): banks of this act alone)
+C2_PP = ('5cfb9577', '9aab5f65')   # ### b769, Component 2: REGISTRY's block ((4)(a), step 15) and SPIRAL_MAP.md's merge ((4)(b), step 18); appended as made (no reader in the act module at this setting)
 PRICE_LINE = 17400
 DOORS_COMMIT = None
 MECH_COMMIT = None
