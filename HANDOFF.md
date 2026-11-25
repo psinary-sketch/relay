@@ -1,14 +1,24 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.25) at relay `f7f88518` and PLACE-papers `adadfd62`, 2026-11-24T01:05:22Z, from the banks: the closings and ferries of b755 to b766 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b767_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.28) at relay `b25c6233` and PLACE-papers `45f187d1`, 2026-11-25T08:08:41Z, from the banks: the closings and ferries of b756 to b767 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b768_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b767_ferry.txt :51:
+The last ruling`s clause on them, data/b768_ferry.txt :55:
 
-> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag cut or moved beyond v0.45 under (4); no kernel branch removed; no sentence of a paper written or edited; REGISTRY, ERRATA, the census, the register and the two files of the map not written; nothing fetched from the web by the seat; nothing computed at a zero, and the window's frequency read by name and not printed. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
+> (12) THE DRAFT stands at v5, HELD; no deposit; no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag cut or moved beyond v0.46 under (4); no kernel branch removed; no sentence of a paper written or edited; REGISTRY, ERRATA, the census, the register and the two files of the map not written; nothing fetched from the web by the seat; nothing computed at a zero, and the window's frequency read by name and not printed. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
 
 ## The last twelve acts, newest first
+
+### b767
+
+data/b767_closing.txt :1:
+
+> b767 closed: relay c8cf6966, PLACE-papers a8be581; suite 112 of 116; root 7cb2c9c7fa0a8191…; 2 prompts answered; scores 5 of 8 HELD; 40 defects
+
+data/b767_ferry.txt :13, THE ACT`S PLACE:
+
+> (2) THE ACT'S PLACE. b766 compiled, on its Lean branch, eight of the plan's twelve lemmas and part of the ninth: the prime side as a finite sum, the window with its 16,365 rational coefficients, its values at the logarithms of the integers, the control's coefficients to 1023 as integer combinations of logarithms of primes, the pole term, and Gauss's integral for the archimedean term with its value at 0. A restored build compiles each of them; a build from source of the same commit was stopped twice for memory, so the kernel's main and its tag did not move. What remains of the proof is the archimedean term's double integral written in the window's spline basis, rational bounds on Euler's constant, log pi and the logarithms of 1,900 primes, the inequality they give, and the closing theorem. The combination's coefficients are large against its value of -6.62: the certificate reads one width for all its constants at 21 digits. This act continues the proof there and does nothing beside it that takes a dispatch from it. It gives the build from source its order and tries a route ahead of the close, so that the tag does not wait on the last hour. It computes, with no dispatch, the window at knots graded by octave that the author registered at the root. And it enters the author's rulings of 2026-11-22 as orders with their triggers.
 
 ### b766
 
@@ -120,27 +130,17 @@ data/b756_ferry.txt :36, THE ACT`S PLACE:
 
 > (9) THE ACT'S PLACE. The walk left results that stand in banks and in no document a reader would open, and the read-in left a list of sentences that later results had overtaken. This act writes both into the documents they bear on, as notes beside the text and in words fixed here before the act runs; it runs the programme's own map of dependent statements again after six weeks, so that the next such list comes from a tool and not from a reading; and it places the work left in flight. It proves nothing and computes nothing. The build follows it from a record that agrees with itself.
 
-### b755
-
-data/b755_closing.txt :1:
-
-> b755 closed: relay 93796794, PLACE-papers 9011a84; suite 111 of 116; root 0ed5cf5ded61ecf1…; 3 prompts answered; scores 7 of 8 HELD; 19 defects
-
-data/b755_ferry.txt :34, THE ACT`S PLACE:
-
-> (10) THE ACT'S PLACE. The coefficient law says at which index the logarithmic derivative of an Epstein zeta function turns negative, from the three least primes its principal form fails to represent. This act tests it at fourteen fields chosen before any was computed. The same primes steer the zeros: the act then asks, at one field whose function has not been evaluated, whether the zeros far from the line can be listed from those primes in advance and whether their heights recur as the two least of those primes predict. Each of the two answers is a result either way. What the act adds to the published work is the certified comparison; the equations it uses are credited where they stand in print. It says nothing of zeta.
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :19335, the trail of b766 headed at :19273:
+PLACE-papers OPEN_TRAILS.md :19421, the trail of b767 headed at :19357:
 
-> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R376)(12)): relay data/b766_author_answers.txt :33, the author chose: Option 1 in part, typed. b767 is the proof and nothing beside it: it continues on push-b766-proof from 3c67b8b5 at L9's remainder, then the enclosures, the inequality and the closing step of the plan, and its ruling names the order of the hold's finding and prices the closing build from source against it. The registry's block and the map's merge are not beside its dispatches; they wait for the act after the closing step compiles. The four lists of (5)(a) stand as printed, not struck and not ratified at this root; one row is noted for that act: Invariance Barriers in Analytic Number Theory is listed twice, at 1.5h-8 and at p2-3, whose status reads MOVED. The note: a window with knots graded by octave is registered at b767 by the tool's route with no dispatch, its outcome sentences written in the ruling; no step of the proof moves to that window at b767.; as put: where [P1] stands, the registry’s block and the map’s merge under the author’s strikes, and the navigator brings The Epstein Control Object to the deposit rubric with the proof in it; where [P2] stands, the proof continued at the step that did not compile, the registry’s block and the map’s merge beside its dispatches; or another the author names; the open orders whose status names b767 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R377)(13)): relay data/b767_author_answers.txt; as put: where [P1] stands, the registry’s block and the map’s merge under the author’s strikes, W-ORD-NOVEMBER-RIDERS taken up, and the navigator brings The Epstein Control Object to the deposit rubric with the proof in it; where [P2] stands, the proof continued at the step that did not compile; or another the author names; the open orders whose status names b768 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-72 open of 229 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `adadfd62`:
+70 open of 229 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `45f187d1`:
 
-`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-WINDOW-CERTIFY`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-LI-ARITH`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`, `W-ORD-MAP-MERGE`, `W-ORD-SOURCE-BUILD`, `W-ORD-NOVEMBER-RIDERS`
+`W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`, `W-ORD-MAP-MERGE`, `W-ORD-SOURCE-BUILD`, `W-ORD-NOVEMBER-RIDERS`
 
 ## Where each kind of state is held
 
