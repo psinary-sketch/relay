@@ -49,6 +49,14 @@ its own half, b659 to the act, with the boundary's two lines of data/act_roots.t
 prev-mode dry and the lock gate's read of it hold the four likewise (tools/standing/prevdry.py). The four run again at the next act of the
 other kind.
 
+v1.38.29, (R379)(8) [K29], THE KIND OF AN ACT THAT WRITES NO PAPER AND NO LEAN, in force from b769: where no pattern of the (W) list names a
+kernel's files and none reaches a path under day1/, phase1.5/, phase2/ or internal/ of PLACE-papers, the kind is NO PAPER AND NO LEAN (an
+act before b769 reads PAPER there, as [K27] read it). At it the four parts are held in each mode as at LEAN AND NO PAPER (HOLD_KINDS, the
+kinds at which they are held), standing-b3's group after the push is itself alone, and G-ACTROOT-VERIFY reads standing-b3's own half and the
+boundary's two lines of data/act_roots.txt as [K27] was repaired to read them at b768 (relay 690c4238). From b769 the kind's dict carries
+the rule that gives the kind ([K27]'s for LEAN AND NO PAPER, [K29]'s for the others) and the version that read it, and a held part's banks
+name both. The four run again at the next act that writes a paper.
+
   python -X utf8 -u tools/standing/cadence.py show <act>     (prints the act's kind and each part's decision in each held mode; writes nothing)
 """
 import fnmatch
@@ -81,6 +89,12 @@ KIND_FROM = 768
 KIND_VERSION = 'v1.38.27'
 KIND_RULE = '(R378)(8) [K27]'
 LEAN_ONLY, PAPER = 'LEAN AND NO PAPER', 'PAPER'
+# ### v1.38.29, (R379)(8) [K29]: THE KIND OF AN ACT THAT WRITES NO PAPER AND NO LEAN
+NEITHER_FROM = 769
+NEITHER_VERSION = 'v1.38.29'
+NEITHER_RULE = '(R379)(8) [K29]'
+NEITHER = 'NO PAPER AND NO LEAN'
+HOLD_KINDS = (LEAN_ONLY, NEITHER)   # ### the kinds at which the act-root chain's four parts are held
 CHAIN_QUARTERS = ('standing-b2a', 'standing-b2b', 'standing-b2c', 'standing-b2d')
 PAPER_DIRS = ('day1/', 'phase1.5/', 'phase2/', 'internal/')
 KERNEL_PATTERN = re.compile(r'^SIDE-[A-Za-z0-9-]+/')
@@ -144,6 +158,14 @@ def kind_in_force(act):
         return False
 
 
+def neither_in_force(act):
+    """v1.38.29, (R379)(8) [K29]: True from b769, where the kind NO PAPER AND NO LEAN is read."""
+    try:
+        return int(str(act).lstrip('b')) >= NEITHER_FROM
+    except ValueError:
+        return False
+
+
 def wlist_patterns(root, act):
     """the act's (W) patterns from data/<act>_wlist.json, or None where the list is not read."""
     try:
@@ -154,9 +176,11 @@ def wlist_patterns(root, act):
         return None
 
 
-def kind_from_patterns(patterns):
+def kind_from_patterns(patterns, neither=False):
     """(kind, why) from (W) patterns: LEAN AND NO PAPER where a pattern names a kernel's files and none reaches a path under day1/, phase1.5/,
-    phase2/ or internal/ of PLACE-papers (a name under one of them, or a glob matching one); PAPER otherwise, a list not read among them."""
+    phase2/ or internal/ of PLACE-papers (a name under one of them, or a glob matching one); PAPER otherwise, a list not read among them.
+    v1.38.29, (R379)(8) [K29]: with `neither` (an act from b769), NO PAPER AND NO LEAN where no pattern names a kernel's files and none
+    reaches such a path, an empty list among them."""
     if patterns is None:
         return PAPER, 'the (W) list not read: an act of the other kind, the four parts required'
     kern = [x for x in patterns if KERNEL_PATTERN.match(x)]
@@ -164,24 +188,31 @@ def kind_from_patterns(patterns):
     if paper:
         return PAPER, 'the (W) list reaches a paper`s path (%s)' % ', '.join(paper[:3])
     if not kern:
+        if neither:   # ### v1.38.29 [K29]
+            return NEITHER, 'the (W) list names no kernel`s files and no path under %s of PLACE-papers (%d patterns)' % (', '.join(PAPER_DIRS), len(patterns))
         return PAPER, 'the (W) list names no kernel`s files'
     return LEAN_ONLY, 'the (W) list names a kernel`s files (%d patterns) and no path under %s of PLACE-papers' % (len(kern), ', '.join(PAPER_DIRS))
 
 
 def kind_of(act, root=None, patterns=None):
     """dict(kind, why, version, rule): [K27]'s kind of an act, in force from b768, every act before it of the other kind; `patterns` read in
-    place of the act's (W) list (a planted list)."""
+    place of the act's (W) list (a planted list). v1.38.29, (R379)(8) [K29]: from b769 the kind NO PAPER AND NO LEAN beside the two, the
+    dict's version [K29]'s and its rule the one that gives the kind, [K27]'s for LEAN AND NO PAPER and [K29]'s for the others."""
     d = dict(version=KIND_VERSION, rule=KIND_RULE)
     if not kind_in_force(act):
         return dict(d, kind=PAPER, why='the kind is in force from b%d' % KIND_FROM)
-    k, why = kind_from_patterns(wlist_patterns(root or RELAY_ROOT, act) if patterns is None else patterns)
+    nf = neither_in_force(act)
+    k, why = kind_from_patterns(wlist_patterns(root or RELAY_ROOT, act) if patterns is None else patterns, neither=nf)
+    if nf:
+        d = dict(version=NEITHER_VERSION, rule=KIND_RULE if k == LEAN_ONLY else NEITHER_RULE)
     return dict(d, kind=k, why=why)
 
 
 def chain_quarters_run(act, root=None, kind=None):
-    """True where the act-root chain's four parts, standing-b2a to standing-b2d, run (an act of the other kind); False at LEAN AND NO PAPER,
-    where standing-b3 joins no half bank of theirs and G-ACTROOT-VERIFY reads standing-b3's half and the boundary."""
-    return (kind or kind_of(act, root))['kind'] != LEAN_ONLY
+    """True where the act-root chain's four parts, standing-b2a to standing-b2d, run (an act that writes a paper); False at LEAN AND NO
+    PAPER and, v1.38.29 [K29], at NO PAPER AND NO LEAN (HOLD_KINDS), where standing-b3 joins no half bank of theirs and G-ACTROOT-VERIFY
+    reads standing-b3's half and the boundary."""
+    return (kind or kind_of(act, root))['kind'] not in HOLD_KINDS
 
 
 # ================================================================================ the bank names, as the suite's writer composes them
@@ -511,7 +542,8 @@ def _post_state(root, act, part, rts):
 def decide(act, part, mode, root, rts, kind=None):
     """dict(run, held, mode, part, why, source): the cadence's decision for one part run. Not in force before b757. v1.38.27, (R378)(8)
     [K27]: at an act of the kind LEAN AND NO PAPER (from b768) standing-b2a to standing-b2d are not run in any mode and standing-b3's group
-    after the push is itself alone; `kind` read in place of the act's own (a planted kind, kind_of's dict)."""
+    after the push is itself alone; `kind` read in place of the act's own (a planted kind, kind_of's dict). v1.38.29, (R379)(8) [K29]: the
+    same at NO PAPER AND NO LEAN (from b769), the decision naming the kind's own rule and version."""
     d = dict(run=True, held='run', mode=mode, part=part, why='', source=None, version=VERSION, rule=RULE, fit=FIT)
     if not in_force(act):
         d['why'] = 'the cadence is in force from b%d' % FROM_ACT
@@ -519,11 +551,13 @@ def decide(act, part, mode, root, rts, kind=None):
     lean = False
     if part in CHAIN_QUARTERS or part in CHAIN_GROUP:
         kd = kind or kind_of(act, root)
-        lean = kd['kind'] == LEAN_ONLY
+        lean = kd['kind'] in HOLD_KINDS   # ### v1.38.29 [K29]: NO PAPER AND NO LEAN held as LEAN AND NO PAPER
         if lean and part in CHAIN_QUARTERS:
-            d.update(run=False, held='not run', kind=kd['kind'], kind_rule=KIND_RULE,
-                     why='%s, the act writes Lean and no paper (%s): the act-root chain`s four parts, standing-b2a to standing-b2d, not run in the '
-                         'mode %s; standing-b3 runs its own half with the boundary`s two lines read as before' % (KIND_RULE, kd['why'], mode))
+            kr = kd.get('rule') or KIND_RULE
+            d.update(run=False, held='not run', kind=kd['kind'], kind_rule=kr, kind_version=kd.get('version') or KIND_VERSION,
+                     why='%s, the act writes %s (%s): the act-root chain`s four parts, standing-b2a to standing-b2d, not run in the '
+                         'mode %s; standing-b3 runs its own half with the boundary`s two lines read as before' % (
+                             kr, 'Lean and no paper' if kd['kind'] == LEAN_ONLY else 'no paper and no Lean', kd['why'], mode))
             return d
     if mode not in HELD_MODES:
         d['why'] = 'every part runs in the mode %s' % mode
@@ -553,7 +587,7 @@ def decide(act, part, mode, root, rts, kind=None):
         d.update(run=False, held='not run', why='not a sitting (data/%s_ferry.txt: its title carries no SITTING): the pass in the previous act`s mode '
                                                 'held to the parts that keep their place' % act)
         return d
-    group = CHAIN_GROUP if (part in CHAIN_GROUP and not lean) else (part,)   # ### v1.38.27 [K27]: standing-b3 alone at LEAN AND NO PAPER
+    group = CHAIN_GROUP if (part in CHAIN_GROUP and not lean) else (part,)   # ### v1.38.27 [K27]: standing-b3 alone at LEAN AND NO PAPER; v1.38.29 [K29] at NO PAPER AND NO LEAN
     states = [(p, _post_state(root, act, p, rts)) for p in group]
     mine = dict(states)[part]
     if any(s[0] in ('run', 'ran') for _p, s in states):
@@ -607,7 +641,7 @@ def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, ca
     src = d.get('source') or {}
     cad = dict(version=VERSION, rule=RULE, fit=FIT, held=d['held'], why=d['why'], at=now)
     if d.get('kind'):
-        cad.update(kind=d['kind'], kind_rule=d.get('kind_rule'), kind_version=KIND_VERSION)
+        cad.update(kind=d['kind'], kind_rule=d.get('kind_rule'), kind_version=d.get('kind_version') or KIND_VERSION)   # ### v1.38.29 [K29]: the kind's own
     tn = text or text_name(act, mode, part)
     if d['held'] == 'read':
         secs = time.time() - t0
@@ -632,10 +666,10 @@ def held(d, act, root, d_dir, rc_key=None, membrane=None, t0=None, out=print, ca
         secs = time.time() - t0
         if mode == 'prev':
             h1 = '%s -- THE SUITE. ### **ON %s`S BANKS.** ### PART %s ### NOT RUN BY THE CADENCE (%s, tools/standing/cadence.py %s).' % (
-                act, prev_act(act), part, d.get('kind_rule') or RULE, KIND_VERSION if d.get('kind') else VERSION)
+                act, prev_act(act), part, d.get('kind_rule') or RULE, (d.get('kind_version') or KIND_VERSION) if d.get('kind') else VERSION)
         else:   # ### v1.38.27 [K27]: a part not run outside the prev mode, its reading named as the suite names it
             h1 = '%s -- THE SUITE. ### **%s READING.** ### PART %s ### NOT RUN BY THE CADENCE (%s, tools/standing/cadence.py %s).' % (
-                act, SUITE_LABEL.get(mode, mode.upper()), part, d.get('kind_rule') or RULE, KIND_VERSION if d.get('kind') else VERSION)
+                act, SUITE_LABEL.get(mode, mode.upper()), part, d.get('kind_rule') or RULE, (d.get('kind_version') or KIND_VERSION) if d.get('kind') else VERSION)
         L = [bar, h1, '### THE CADENCE: %s.' % d['why'], bar, '  (no arm run in this part at this act)', '',
              '  ### PART %s : ARMS 0 ; LIVE PASSING 0 ; LIVE FAILING 0 NONE ; NEGATIVE-CONTROL FAILURES 0 ; POSITIVE-CONTROL PASSES 0 NONE ; '
              'DECLARED EQ RUN NOTRUN ; %d s ; WITHHELD, NOT EXERCISABLE 0 NONE' % (part, int(secs)), bar]

@@ -171,10 +171,11 @@ def _cadence():
 
 
 def held_parts(act, kind=None):
-    """(the parts held at the act's kind, the kind's dict): v1.38.27, (R378)(8) [K27], the four chain parts at LEAN AND NO PAPER, else none."""
+    """(the parts held at the act's kind, the kind's dict): v1.38.27, (R378)(8) [K27], the four chain parts at LEAN AND NO PAPER, else none;
+    v1.38.29, (R379)(8) [K29], at NO PAPER AND NO LEAN likewise (the cadence's HOLD_KINDS)."""
     CD = _cadence()
     kd = kind or CD.kind_of(act, RELAY)
-    return (tuple(CD.CHAIN_QUARTERS) if kd['kind'] == CD.LEAN_ONLY else ()), kd
+    return (tuple(CD.CHAIN_QUARTERS) if kd['kind'] in CD.HOLD_KINDS else ()), kd
 
 
 def gate(act, parts=None, kind=None):

@@ -2197,7 +2197,7 @@ def main():
         _hk = dict(text=_part_name(base, PART), ex_mode='prev' if PREV else 'prerun' if PRERUN else 'mid' if MID else 'post-push' if pushed else 'pre-push') if _cd.get('kind') else {}
         return _CAD.held(_cd, '⟪ACT⟫', ROOT, D, rc_key=RC_KEY, membrane=_membrane, t0=t_start, carried=CARRIED_FAILING, **_hk)
     _reads = _CAD.Reads(_CAD.roots(ROOT, PP, PROJ)).start() if _CAD.in_force('⟪ACT⟫') else None
-    # ### v1.38.27, (R378)(8) [K27]: at an act that writes Lean and no paper the four chain parts are not run and standing-b3 joins no bank of theirs
+    # ### v1.38.27, (R378)(8) [K27]: at an act that writes Lean and no paper the four chain parts are not run and standing-b3 joins no bank of theirs; v1.38.29, (R379)(8) [K29]: at one that writes no paper and no Lean likewise
     if PART == 'standing-b3' and _CAD.chain_quarters_run('⟪ACT⟫', ROOT):   # ### v1.25.0, (⟪RUL⟫)(2)(iii), b744 events (2): the four chain parts' banks before b3, or b3 does not run
         _hb = [half_bank('a%d' % (q + 1), _run_key(base)) for q in range(len(KS.CHAIN_QUARTERS))]
         _ab = __import__('standing.repeat', fromlist=['b3_absent']).b3_absent(_hb, lambda n: os.path.exists(os.path.join(D, n)))
@@ -2280,10 +2280,11 @@ def main():
         else:
             ha = S['half_a'] or {}
             rec('  ### the reads at commit, b680: %s ; %s: %s' % (S['ar_reads'].get('b680'), ACT_NOW, S['ar_reads'].get(ACT_NOW)))
-            if not ha.get('quarters', True):   # ### v1.38.27, (R378)(8) [K27]
+            if not ha.get('quarters', True):   # ### v1.38.27, (R378)(8) [K27]; v1.38.29, (R379)(8) [K29]: the act's own kind, its rule and version
+                _kd = _CAD.kind_of('⟪ACT⟫', ROOT)
                 rec('  ### THE FIRST HALF, %s-%s, NOT RECOMPUTED AT THIS ACT`S KIND (%s, tools/standing/cadence.py %s, %s): %s not run; '
                     'G-ACTROOT-VERIFY reads this part`s half, %s-%s, and the boundary`s two lines of relay data/act_roots.txt' % (
-                        KS.CHAIN_QUARTERS[0][0], KS.CHAIN_QUARTERS[-1][1], _CAD.KIND_RULE, _CAD.KIND_VERSION, _CAD.LEAN_ONLY,
+                        KS.CHAIN_QUARTERS[0][0], KS.CHAIN_QUARTERS[-1][1], _kd['rule'], _kd['version'], _kd['kind'],
                         ', '.join(QUARTER_PARTS), span[0], span[1]))
             else:
                 rec('  ### THE FIRST HALF AS %s BANKED IT (relay %s): %d acts, AGREE %d, at HEAD %s (now %s), its boundary equal %s' % (
