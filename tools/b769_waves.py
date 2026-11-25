@@ -6,8 +6,8 @@ Written by the Write tool and committed before its run (N2). THE ROWS: each keys
 Phase 1.2 and Phase 1.5 (data/b769_registry_block.json `keystones_by_phase`; 8, 6 and 6 at b766, data/b766_registry_cells.txt :170 and
 :176), each read again KEYSTONE in its phase by b766's reading of the rows at the papers` repository's HEAD (tools/b769_registry_block.py
 reading(), as committed). For each row, at that HEAD:
-  (i)   its document's title line (b766's: the first line opening '# ' in its first twenty) and its version line (the first line of its head,
-        before its first '## ', holding the word version with a dotted number after it, or opening with v and a dotted number);
+  (i)   its document's title line (b766's: the first line opening '# ' in its first twenty) and its version line (the first of its first 60
+        lines opening, its marks set aside, with v and a dotted number, or holding the word version or edition with one);
   (ii)  the files under outputs/ holding a copy of it, in the form of tools/b764_rulings.py deposit as tools/b769_errata.py carries it: each
         file by its lines; a copy where it holds a quarter or more of the document's distinct lines of 40 characters or more; deposited where
         it stands under outputs/DEPOSITED; and the record REGISTRY names for it: the ids of seven to nine digits its row's line carries within
@@ -28,7 +28,7 @@ reading(), as committed). For each row, at that HEAD:
         carries at the kernel's head it read (present_at holding HEAD); NOT, the rest (naming none, or only declarations at a tag); b766's
         join's count of declarations named printed beside; and for each kernel named, the table's head beside the clone's HEAD now;
   (vii) its ratified public title (REGISTRY's table headed at :638, its row matched by the ID cell, else by the file cell) beside its title
-        line, and its title flag (list (4)'s, b766's flag() over the title line).
+        line, EQUAL or DIFFERS with case, emphasis and spacing set aside, and its title flag (list (4)'s, b766's flag() over the title line).
 THE COUNTS by wave at the bank's foot, and in all.
 
 CONTROLS, each printed, all AS WANTED before the bank is written: list (1)'s ids 8, 6 and 6, each KEYSTONE in its phase at HEAD; a planted
@@ -77,8 +77,9 @@ KN = r'(SIDE-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)'
 REF = r'(v\d+(?:\.\d+)*|(?=[0-9]*[a-f])[0-9a-f]{7,40})(?![\w]|\.\d)'
 PIN1 = re.compile(KN + r"`?(?:’s|'s)?[ \t]*(?:(?:,|@|=|\(|\bat\b|\btag\b)[ \t]*){0,2}`?" + REF)
 PIN2 = re.compile(r'(?<![\w.])`?(v\d+(?:\.\d+)*)`?[ \t]+(?:of|on|in)[ \t]+`?' + KN + r'(?![A-Za-z0-9-])')
-VER = re.compile(r'\bv?\d+(?:\.\d+)+[a-z]?\b')
+LEAD = re.compile(r'^[\s|>#+\-]*(?:\d+\.\s+)?')
 PLANT_ROW = '| planted | `zz_b769_planted_decl` | SIDE-planted |'
+FIRST_DRY_VERSIONS = 12   # ### the first dry's yield (21:46:25Z, relay 5e4c4d98): version lines read by the head-only rule, 12 of 20
 
 
 def names_file(text, path):
@@ -259,16 +260,20 @@ def titles(L, P):
 
 
 def version(Dl):
-    h2 = next((k for k, l in enumerate(Dl, 1) if l.startswith('## ')), len(Dl) + 1)
-    for k in range(1, min(h2, 81)):
+    """the first of the document's first 60 lines that opens, its table, list, quote and heading marks set aside, with v and a dotted number;
+    or holds the word version or edition with v and a dotted number on it, or with a dotted number straight after the word. (The first
+    dry read the head alone, before the first '## ', and found none in eight documents whose edition lines stand after it, the
+    monograph's v5.18 at :19 below its first '## ' at :13: repaired before the second run.)"""
+    for k in range(1, min(len(Dl), 60) + 1):
         p = R61.plain(Dl[k - 1])
-        m = re.search(r'(?i)\bversion\b', p)
+        q = LEAD.sub('', p, count=1)
+        m = re.match(r'v\d+(?:\.\d+)+[a-z]?\b', q)
         if m:
-            v = VER.search(p[m.end():])
+            return k, m.group(0), p, 'opening with it'
+        if re.search(r'(?i)\b(version|edition)\b', p):
+            v = re.search(r'\bv\d+(?:\.\d+)+[a-z]?\b', p) or re.search(r'(?i)\b(?:version|edition)\s*:?\s*(v?\d+(?:\.\d+)+[a-z]?)\b', p)
             if v:
-                return k, v.group(0), p
-        elif re.match(r'^v\d+(?:\.\d+)+\b', p):
-            return k, VER.match(p).group(0), p
+                return k, v.group(v.lastindex or 0), p, 'beside the word version or edition'
     return None
 
 
@@ -292,9 +297,9 @@ def read_row(r, wave, X):
     o['title_cite'] = r['title_cite']
     v = version(Dl)
     if v and safe(v[2], I, qw, acct):
-        o['version'] = dict(line=v[0], number=v[1], text=v[2][:160])
+        o['version'] = dict(line=v[0], number=v[1], text=v[2][:160], by=v[3])
     elif v:
-        o['version'] = dict(line=v[0], number=v[1], text='cited by line and digest alone (sha256 %s)' % sha(Dl[v[0] - 1])[:16])
+        o['version'] = dict(line=v[0], number=v[1], text='cited by line and digest alone (sha256 %s)' % sha(Dl[v[0] - 1])[:16], by=v[3])
     else:
         o['version'] = None
     # (ii)
@@ -354,7 +359,8 @@ def read_row(r, wave, X):
 def block(o):
     out = ['## %s (%s) %s, REGISTRY :%d' % (o['id'], o['wave'], o['path'], o['reg_line'])]
     tl = ('title :%d "%s"' % (o['title_line'], o['title'])) if o['title'] else ('title %s' % o['title_cite'] if o['title_cite'] else 'no title line read')
-    vl = ('version :%d %s, the line "%s"' % (o['version']['line'], o['version']['number'], o['version']['text'])) if o['version'] else 'no version line in its head'
+    vl = ('version :%d %s (a line %s), the line "%s"' % (o['version']['line'], o['version']['number'], o['version']['by'], o['version']['text'])
+          if o['version'] else 'no version line in its first 60 lines')
     out.append('  (i)   %s ; %s' % (tl, vl))
     dp = '; '.join('%s (%d of %d)' % (rel, h, o['keys']) for rel, h in o['deposited']) or 'none'
     oc = '; '.join('%s (%d of %d)' % (rel, h, o['keys']) for rel, h in o['other_copies']) or 'none'
@@ -380,7 +386,8 @@ def block(o):
                                          (' %s' % ', '.join('`%s`' % n for n in c['absent_names'])) if c['absent_names'] else '', c['tag_only'],
                                          (' %s' % ', '.join('`%s`' % n for n in c['tag_names'])) if c['tag_names'] else '', c['declared'], kh))
     pb = o['public']
-    pt = ('"%s" (REGISTRY :%d, by %s; %s)' % (pb['title'], pb['line'], pb['by'], 'EQUAL to its title line' if pb['equal'] else 'DIFFERS from its title line')
+    pt = ('"%s" (REGISTRY :%d, by %s; %s, case, emphasis and spacing set aside)' % (
+        pb['title'], pb['line'], pb['by'], 'EQUAL to its title line' if pb['equal'] else 'DIFFERS from its title line')
           if pb and pb['by'] else ('%s (REGISTRY :%d)' % (pb['title'], pb['line']) if pb else 'no row of the table'))
     out.append('  (vii) ratified public title %s ; title flag %s' % (pt, ', '.join(o['flag']) if o['flag'] else 'none'))
     return out
@@ -491,6 +498,8 @@ def run(mode):
              '## THE CONTROLS']
     for t, ok in ctl:
         lines.append('  %-150s %s' % (t, 'AS WANTED' if ok else 'NOT AS WANTED'))
+    lines += ['', '## THE VERSION MATCHER`S YIELD: version lines read %d of %d by this rule; the first dry`s head-only rule read %d of %d (21:46:25Z)' % (
+        sum(1 for o in rows if o['version']), len(rows), FIRST_DRY_VERSIONS, len(rows))]
     lines += ['', '## THE KERNELS NAMED, their newest tags as the clones read them']
     kk = sorted(set(p['kernel'] for o in rows for p in o['pins']) | set(x['kernel'] for o in rows for x in o['kernel_heads']))
     for k in kk:
