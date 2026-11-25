@@ -264,9 +264,12 @@ def m5_fields():
     want_line = '### ### **[K30] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**'
     k30_line = (cl + [''] * 999)[k30[0][4] - 1].rstrip() if k30 else ''
     vals = [('<n>', str(M['differing_old'])), ('<n>', str(M['differing']))]
-    cond = [('SPIRAL_MAP.md at HEAD the merge`s written bytes: sha256 %s against %s, lines %d against %d' % (
-                sha(smap)[:16], M['sha_after'], smap.count(b'\n'), M['lines_after']),
-             sha(smap)[:16] == M['sha_after'] and smap.count(b'\n') == M['lines_after']),
+    # ### the merge bank counts lines as b765 counts them, the text split at its line ends with the empty piece after the last kept
+    # ### (data/b769_map_merge.json "pre": "SPIRAL_MAP.md 548, as b765 counts them"), so its count is the line ends and one; the first
+    # ### dry read the line ends alone against it and held (data/b769_events.txt (59))
+    cond = [('SPIRAL_MAP.md at HEAD the merge`s written bytes: sha256 %s against %s, lines as b765 counts them %d against %d (line ends %d)' % (
+                sha(smap)[:16], M['sha_after'], smap.count(b'\n') + 1, M['lines_after'], smap.count(b'\n')),
+             sha(smap)[:16] == M['sha_after'] and smap.count(b'\n') + 1 == M['lines_after']),
             ('SPIRAL_MAP_v0_7.md at HEAD its bytes at N3`s reference %s: sha256 %s, %s, the bank`s %s' % (
                 pre_pp[:8], sha(old_h)[:16], sha(old_r)[:16], M['old_sha']),
              bool(old_h) and old_h == old_r and sha(old_h)[:16] == M['old_sha']),
