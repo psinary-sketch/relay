@@ -11,7 +11,9 @@ tree's copies of the key's files are read in place of a commit's, for the readin
 never banked. --bank appends the reading to data/b769_repair_controls.txt beneath a head naming the key and both commits; nothing else is
 written. The repair's commit must have the commit before it as its first parent, read and printed.
 
-  python -X utf8 -u tools/b769_repair_controls.py <K29> <before> <after|WORKTREE> [--bank]
+  python -X utf8 -u tools/b769_repair_controls.py <K29|K30> <before> <after|WORKTREE> [--bank]
+
+[K30]'s control added at Component 2 after (4)(b)'s merge (PLACE-papers 9aab5f65), committed before its first run.
 """
 import io
 import json
@@ -256,7 +258,135 @@ def control_k29(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
-CONTROLS = dict(K29=control_k29)
+# ================================================================================ [K30] THE MAP'S ONE NAME
+K30_PATHS = ('tools/standing/roster.py', 'tools/standing/v1345.py', 'tools/standing/v1340.py', 'tools/standing/VERSION',
+             'tools/mirror_roster.json', 'tools/mirror_project_set.json')
+K30_VERSION = 'v1.38.30'
+K30_PROBE = r'''
+import json, os, sys, types
+snap = sys.argv[1]
+fake = types.ModuleType('act')
+fake.T, fake.D = os.path.join(snap, 'tools'), os.path.join(snap, 'data')
+fake.current = lambda: {'act': 'b769'}
+fake.gs = lambda *a, **k: 'h' * 8   # ### no git command: a fixed head for the print's line, no size read
+def _nogit(*a, **k):
+    raise RuntimeError('the probe runs no git command')
+fake.git = fake.blob = fake.jl = _nogit
+fake.prev_of = lambda a: 'b%d' % (int(a[1:]) - 1)
+sys.modules['act'] = fake
+sys.path.insert(0, os.path.join(snap, 'tools', 'standing'))
+import roster as RO
+SM, SM7 = 'SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'
+R = ['a.md', SM, 'b.md', 'c.md', SM7]
+ONE, EDN = ['a.md', SM, 'b.md', 'c.md'], ['a.md', SM7, 'b.md', 'c.md']
+NOONE = [p for p in R if p != SM]
+E52 = {SM: ['# MAP', 'v0.6'], SM7: ['# MAP', 'v0.7']}
+MAIN = {SM: ['# MAP', 'v0.7'], SM7: ['# MAP', 'v0.7']}
+state = dict(tree=list(R), lines=MAIN)
+RO.main_tree = lambda rev='main': list(state['tree'])
+RO.text_at = lambda rev, p: state['lines'].get(p)
+RO.base = lambda: list(R)
+RO.added = lambda act=None: []
+RO.project_list = lambda: ['a.md', SM, SM7]
+RO.second_rows = lambda rev='HEAD': []
+has_act = 'act' in RO.apply_current.__code__.co_varnames
+def call(f):
+    try:
+        return f()
+    except SystemExit as e:
+        return 'REFUSED: %s' % str(e)[:200]
+def ac(lines, act, roster=R):
+    kw = {'act': act} if has_act else {}
+    return call(lambda: RO.apply_current(list(roster), list(roster), 'PLANTED', lambda p: lines.get(p, []), **kw)[0])
+def at(lines, act):
+    state['lines'], state['tree'] = lines, list(R)
+    return call(lambda: RO.roster_at('main', act=act))
+def pl(lines, act):
+    state['lines'], state['tree'] = lines, list(R)
+    def f():
+        L, r = RO.print_lines(b=list(R), tree=list(R), act=act)
+        return dict(r=r, lines=[l.strip()[:140] for l in L if 'BY EDITION' in l or 'UNDECIDED' in l])
+    return call(f)
+def pj(lines, act):
+    state['lines'], state['tree'] = lines, list(R)
+    return call(lambda: [n for n, _b, _w in RO.project('main', act, with_cuts=False)[0] if 'SPIRAL_MAP' in n])
+guard = getattr(RO, 'one_name_refusal', None)
+def gd(r, act):
+    if guard is None:
+        return 'NO GUARD'
+    x = call(lambda: guard(list(r), act))
+    return 'PASSES' if x is None else ('REFUSED: %s' % x if not str(x).startswith('REFUSED') else x)
+out = dict(has_act=has_act, guard=guard is not None,
+           ac=dict(e52_769=ac(E52, 'b769'), main_769=ac(MAIN, 'b769'), e52_768=ac(E52, 'b768'), main_768=ac(MAIN, 'b768'),
+                   absent_769=ac(E52, 'b769', NOONE), absent_768=ac(E52, 'b768', NOONE)),
+           at=dict(main_769=at(MAIN, 'b769'), e52_769=at(E52, 'b769'), main_768=at(MAIN, 'b768'), e52_768=at(E52, 'b768')),
+           pl=dict(main_769=pl(MAIN, 'b769'), main_768=pl(MAIN, 'b768')),
+           pj=dict(main_769=pj(MAIN, 'b769'), main_768=pj(MAIN, 'b768')),
+           guard_reads=dict(both_769=gd(R, 'b769'), edition_769=gd(EDN, 'b769'), one_769=gd(ONE, 'b769'), both_768=gd(R, 'b768')),
+           consts=[getattr(RO, 'ONE_NAME', None), getattr(RO, 'ONE_NAME_FROM', None), getattr(RO, 'ONE_NAME_RULE', None),
+                   getattr(RO, 'ONE_NAME_VERSION', None)])
+v5 = open(os.path.join(snap, 'tools', 'standing', 'v1345.py'), encoding='utf-8').read()
+v4 = open(os.path.join(snap, 'tools', 'standing', 'v1340.py'), encoding='utf-8').read()
+out['v1345'] = dict(old='sm not in rn and sm7 in rn' in v5, new='sm in rn and sm7 not in rn' in v5,
+                    project="sum(1 for x in files if 'SPIRAL_MAP' in x) == 1" in v5)
+out['v1340'] = dict(map="_git('show', 'HEAD:SPIRAL_MAP.md', repo=pp)" in v4, edition='SPIRAL_MAP_v0_7' in v4)
+print(json.dumps(out))
+'''
+K30_ONE, K30_EDN = ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md'], ['a.md', 'SPIRAL_MAP_v0_7.md', 'b.md', 'c.md']
+K30_R = ['a.md', 'SPIRAL_MAP.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md']
+
+
+def refused(x):
+    return isinstance(x, str) and x.startswith('REFUSED')
+
+
+def control_k30(before, after):
+    """(R379)(8) [K30]: the map's one name, read in each revision in its own interpreter, tools/standing/act.py stood in for by a module of
+    the probe's own (no git command run), the papers' tree and the two files' version lines planted in memory: the map's name at the
+    family's first slot and the edition after it, their lines read as at e52e2bae (v0.6 beside v0.7) and as at main after (4)(b)'s merge
+    (v0.7 beside v0.7). FAULT: rule (13) alone, the roster carrying the edition and not the map at e52e2bae's lines and both names at
+    main's, the Project set two rows of the family, no refusal of a roster carrying the edition beside the map, and v1345.py :106 wanting
+    the edition in and the map out. CLEAN: from b769 the family carried by its one name SPIRAL_MAP.md at its first slot at either reading,
+    by apply_current, roster_at and the builder's print_lines alike, the edition LEAVING BY EDITION in the print and the Project set one
+    row; THE PLANTED ROSTER carrying the edition's name beside the map's READ REFUSED, the edition alone refused, the map alone passing;
+    a tree without the map refused at b769; a build of b768 read as it was built (the edition at e52e2bae's lines, both at main's, the
+    Project set two rows, no refusal); the rule's constants ONE_NAME, 769, (R379)(8) [K30] and v1.38.30; v1345.py :106 wanting the map
+    in and the edition out, its Project case one row; v1340.py :556 reading HEAD:SPIRAL_MAP.md and no edition, in both; VERSION v1.38.30."""
+    L, res = [], {}
+    for name, rev, got, j, ver in two_revisions(K30_PATHS, before, after, K30_PROBE, 'b769k30_'):
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        L.append('    (rule)    apply_current takes the act %s ; the refusal %s ; the constants %s' % (j['has_act'], j['guard'], j['consts']))
+        L.append('    (apply)   %s' % ' ; '.join('%s %s' % kv for kv in sorted(j['ac'].items())))
+        L.append('    (at)      roster_at: %s' % ' ; '.join('%s %s' % kv for kv in sorted(j['at'].items())))
+        L.append('    (print)   the builder`s print_lines: %s' % ' ; '.join('%s %s' % kv for kv in sorted(j['pl'].items())))
+        L.append('    (project) the Project set`s rows of the family: %s' % ' ; '.join('%s %s' % kv for kv in sorted(j['pj'].items())))
+        L.append('    (planted) THE PLANTED ROSTER: %s' % ' ; '.join('%s %s' % kv for kv in sorted(j['guard_reads'].items())))
+        L.append('    (checks)  v1345.py %s ; v1340.py %s' % (j['v1345'], j['v1340']))
+        a, p_, t, g = j['ac'], j['pl'], j['at'], j['guard_reads']
+        fault = (not j['has_act'] and not j['guard'] and a['e52_769'] == K30_EDN and a['main_769'] == K30_R and t['main_769'] == K30_R
+                 and j['pj']['main_769'] == ['SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'] and g['both_769'] == 'NO GUARD'
+                 and j['v1345']['old'] and not j['v1345']['new'])
+        clean = (j['has_act'] and j['guard'] and a['e52_769'] == K30_ONE and a['main_769'] == K30_ONE and a['e52_768'] == K30_EDN
+                 and a['main_768'] == K30_R and refused(a['absent_769']) and a['absent_768'] == ['a.md', 'b.md', 'c.md', 'SPIRAL_MAP_v0_7.md']
+                 and t == dict(main_769=K30_ONE, e52_769=K30_ONE, main_768=K30_R, e52_768=K30_EDN)
+                 and isinstance(p_['main_769'], dict) and p_['main_769']['r'] == K30_ONE
+                 and any(l.startswith('LEAVES BY EDITION SPIRAL_MAP_v0_7.md') for l in p_['main_769']['lines'])
+                 and isinstance(p_['main_768'], dict) and p_['main_768']['r'] == K30_R
+                 and any(l.startswith('UNDECIDED SPIRAL_MAP.md') for l in p_['main_768']['lines'])
+                 and j['pj'] == dict(main_769=['SPIRAL_MAP.md'], main_768=['SPIRAL_MAP.md', 'SPIRAL_MAP_v0_7.md'])
+                 and refused(g['both_769']) and refused(g['edition_769']) and g['one_769'] == 'PASSES' and g['both_768'] == 'PASSES'
+                 and j['consts'] == [{'SPIRAL_MAP.md': 'SPIRAL_MAP.md'}, 769, '(R379)(8) [K30]', K30_VERSION]
+                 and j['v1345'] == dict(old=False, new=True, project=True) and j['v1340'] == dict(map=True, edition=False) and ver == K30_VERSION)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K29=control_k29, K30=control_k30)
 
 
 def main(argv):
