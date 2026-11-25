@@ -57,7 +57,15 @@ GIT_FILE_LIMIT = 100 * 1024 * 1024    # ### the remote's refusal size for one fi
 UNPACK_CAP = 4 * 1024 * 1024 * 1024   # ### the members' total size unpacked, at most
 RATIO_CAP = 200                       # ### a member's size over its compressed size, at most
 DIGEST_NAME = re.compile(r'(?i)(^|/)(sha256sums?|sha256|checksums?|manifest|digests?|hashes)([._-][^/]*)?$|\.sha256$')
-HEX64 = re.compile(r'(?<![0-9a-fA-F])[0-9a-fA-F]{64}(?![0-9a-fA-F])')
+# ### a digest read by its length, the list's own kind: 32 hex digits md5, 40 sha1, 64 sha256. The first dry (20:59:36Z) read sha256 alone
+# ### and so read no entry of the two lists, which carry md5 (scratch digestshape769.py, 21:00:14Z: 43 and 22 tokens of 32 digits, each
+# ### beside a member's name; data/b769_events.txt (60))
+HEXD = re.compile(r'(?<![0-9a-fA-F])([0-9a-fA-F]{64}|[0-9a-fA-F]{40}|[0-9a-fA-F]{32})(?![0-9a-fA-F])')
+ALGO = {32: 'md5', 40: 'sha1', 64: 'sha256'}
+
+
+def digest_of(algo, data):
+    return hashlib.new(algo, data).hexdigest()
 
 
 def die(w):
@@ -161,7 +169,8 @@ def safe_parts(name):
 
 
 def digest_lists(z, members):
-    """{member path: listed sha256} read from every member named as a digest list; and the lists' count."""
+    """{member path: (the digest's kind, the listed digest)} read from every member named as a digest list, each digest's kind by its
+    length; and the lists' count and the lines read."""
     paths = [i.filename for i in members]
     lists = [i for i in members if DIGEST_NAME.search(i.filename)]
     out, n_lines = {}, 0
@@ -173,13 +182,13 @@ def digest_lists(z, members):
 
     def walk(o):
         if isinstance(o, dict):
-            hx = [v for v in o.values() if isinstance(v, str) and HEX64.fullmatch(v.strip())]
+            hx = [v for v in o.values() if isinstance(v, str) and HEXD.fullmatch(v.strip())]
             nm = [v for v in o.values() if isinstance(v, str) and match(v)]
             if len(hx) == 1 and len(nm) == 1:
-                out[match(nm[0])] = hx[0].strip().lower()
+                out[match(nm[0])] = (ALGO[len(hx[0].strip())], hx[0].strip().lower())
             for k, v in o.items():
-                if isinstance(v, str) and HEX64.fullmatch(v.strip()) and match(k):
-                    out[match(k)] = v.strip().lower()
+                if isinstance(v, str) and HEXD.fullmatch(v.strip()) and match(k):
+                    out[match(k)] = (ALGO[len(v.strip())], v.strip().lower())
                 walk(v)
         elif isinstance(o, list):
             for v in o:
@@ -193,7 +202,7 @@ def digest_lists(z, members):
         except ValueError:
             pass
         for l in raw.replace('\r', '').split(NL):
-            h = HEX64.findall(l)
+            h = HEXD.findall(l)
             if len(h) != 1:
                 continue
             n_lines += 1
@@ -201,7 +210,7 @@ def digest_lists(z, members):
             cand = [p for p in paths if p in rest or p.split('/')[-1] in rest]
             best = sorted(cand, key=len, reverse=True)
             if best and (len(best) == 1 or len(best[0]) > len(best[1])):
-                out[best[0]] = h[0].lower()
+                out[best[0]] = (ALGO[len(h[0])], h[0].lower())
     return out, len(lists), n_lines
 
 
@@ -241,13 +250,14 @@ def read_archive(path, k, base, TG, acct):
             for x in c:
                 scanned[x] += c[x]
             if name in dl:
-                if dl[name] == h:
+                if digest_of(dl[name][0], data) == dl[name][1]:
                     eq += 1
                 else:
                     neq += 1
     listed_missing = sum(1 for p in dl if p not in [r[0] for r in rows]) if rows else len(dl)
     return dict(path=path, name=os.path.basename(path), size=len(whole), sha=sha(whole), members=len(members), rows=rows, unsafe=len(unsafe),
                 total=total, ratio=ratio, lists=n_lists, list_lines=n_lines, listed=len(dl), equal=eq, unequal=neq, listed_missing=listed_missing,
+                kinds=sorted(set(a for a, _h in dl.values())),
                 unlisted=sum(1 for r in rows if r[0] not in dl and not DIGEST_NAME.search(r[0])) if dl else None,
                 scanned=scanned, inner=inner, binary=binary)
 
@@ -278,17 +288,18 @@ def manifest_rows(text):
 def controls(TG, acct):
     out = []
     # ### a digest list with one hash altered reads one unequal, read in memory alone
-    buf = io.BytesIO()
-    with zipfile.ZipFile(buf, 'w') as z:
-        z.writestr('w/a.txt', b'alpha\n')
-        z.writestr('w/b.txt', b'beta\n')
-        z.writestr('w/SHA256SUMS', ('%s  a.txt\n%s  b.txt\n' % (sha(b'alpha\n'), sha(b'BETA\n'))).encode())
-    z = zipfile.ZipFile(io.BytesIO(buf.getvalue()))
-    mem = [i for i in z.infolist() if not i.is_dir()]
-    dl, nl_, _l = digest_lists(z, mem)
-    got = [(p, dl.get(p) == sha(z.read(p))) for p in ('w/a.txt', 'w/b.txt')]
-    out.append(('PLANTED: a digest list with one hash altered reads one equal and one unequal (%s)' % got,
-                got == [('w/a.txt', True), ('w/b.txt', False)] and nl_ == 1))
+    for algo, lname in (('sha256', 'w/SHA256SUMS'), ('md5', 'w/DIGESTS.txt')):
+        buf = io.BytesIO()
+        with zipfile.ZipFile(buf, 'w') as z:
+            z.writestr('w/a.txt', b'alpha\n')
+            z.writestr('w/b.txt', b'beta\n')
+            z.writestr(lname, ('%s  a.txt\n%s  b.txt\n' % (digest_of(algo, b'alpha\n'), digest_of(algo, b'BETA\n'))).encode())
+        z = zipfile.ZipFile(io.BytesIO(buf.getvalue()))
+        mem = [i for i in z.infolist() if not i.is_dir()]
+        dl, nl_, _l = digest_lists(z, mem)
+        got = [(p, p in dl and dl[p][0] == algo and digest_of(dl[p][0], z.read(p)) == dl[p][1]) for p in ('w/a.txt', 'w/b.txt')]
+        out.append(('PLANTED: a %s digest list with one digest altered reads one equal and one unequal (%s)' % (algo, got),
+                    got == [('w/a.txt', True), ('w/b.txt', False)] and nl_ == 1))
     # ### each target planted alone in a text of its own counts at least one on its own kind (two targets may be one string, so each
     # ### planted apart), and a clean text counts none
     AL = dict(TG, account=acct)
@@ -333,10 +344,11 @@ def run(mode, scratch):
             ('each member unpacked and read: %s' % ', '.join('%d of %d' % (len(a['rows']), a['members']) for a in A),
              all(len(a['rows']) == a['members'] > 0 for a in A)),
             ('each listed member equal to its archive`s own list of digests where one is carried: %s' % ' ; '.join(
-                '%s: lists %d, listed %d, equal %d, unequal %d, listed and absent %d' % (
-                    'the bundle' if k == 0 else 'the supplement', a['lists'], a['listed'], a['equal'], a['unequal'], a['listed_missing'])
+                '%s: lists %d (%s), listed %d, equal %d, unequal %d, listed and absent %d' % (
+                    'the bundle' if k == 0 else 'the supplement', a['lists'], ', '.join(a['kinds']) or 'no digest read', a['listed'], a['equal'],
+                    a['unequal'], a['listed_missing'])
                 for k, a in enumerate(A)),
-             all(a['unequal'] == 0 and a['listed_missing'] == 0 for a in A)),
+             all(a['unequal'] == 0 and a['listed_missing'] == 0 and (a['lists'] == 0 or a['listed'] > 0) for a in A)),
             ('the address scan over the members unpacked to scratch, 0 on each target: %s' % ' '.join(
                 '%s %d' % (k, tg_sum[k]) for k in TG), not any(tg_sum[k] for k in TG)),
             ('the papers` repository`s HEAD the act`s last commit there before this write %s (%s), the cluster`s folder absent at HEAD and on disk' % (
@@ -373,7 +385,8 @@ def run(mode, scratch):
         die('THE BANK STANDS ALREADY')
     bank = dict(at=utc(), act=ACT, mode=mode, pp_head=pp_head, verdict=verdict,
                 members=dict(bundle=A[0]['members'], supplement=A[1]['members'], together=len(man_rows), writer_count=writer_count),
-                digests=[dict(lists=a['lists'], listed=a['listed'], equal=a['equal'], unequal=a['unequal'], listed_missing=a['listed_missing']) for a in A],
+                digests=[dict(lists=a['lists'], kinds=a['kinds'], listed=a['listed'], equal=a['equal'], unequal=a['unequal'],
+                              listed_missing=a['listed_missing'], unlisted=a['unlisted']) for a in A],
                 scan=dict((k, tg_sum[k]) for k in TG), account_beside=tg_sum['account'], binary=[a['binary'] for a in A], inner=[a['inner'] for a in A],
                 controls=[[w, o] for w, o in ctl], conditions=[[w, o] for w, o in cond])
     if ok:
