@@ -735,7 +735,9 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('touch_set', 'fc0da1c2'),   # ### step 83, the touch read's set (Component 5)
          ('touch', '1cb14a5a'),   # ### step 84, the touch bank (Component 5)
          ('needles', '4b110980'),   # ### step 85, the needle calls (Component 5)
-         ('probe_paths', '2848e356'))   # ### step 86, the probe-path refusal, the kernels face and four markers (Component 5); later commits appended as made
+         ('probe_paths', '2848e356'),   # ### step 86, the probe-path refusal, the kernels face and four markers (Component 5)
+         ('probe_fix', 'caf329a1'),   # ### step 87, the act probe's three repairs, rows (147)-(150) and defects (w)-(b') (Component 5)
+         ('probes', 'b25c6233'))   # ### step 88, the parts probed, the face's declared arms and the block file (Component 5); the handoff (step 89, 5588d3b5) placed by its time outside CHAIN as b767's stood; later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -820,7 +822,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                     'touch_set': 'the chain given the eleven commits after 4dbb48db, set at the touch read',
                     'touch': 'the touch bank by hand with rows 140 and 141 and the chain given fc0da1c2',
                     'needles': 'the needle calls with rows 142 and 143 and defect u and the face count set',
-                    'probe_paths': 'the probe-path refusal and the kernels face banked and four worklist markers set before the probes'})
+                    'probe_paths': 'the probe-path refusal and the kernels face banked and four worklist markers set before the probes',
+                    'probe_fix': 'the act probe repairs of the two carried overrides and PP_WRITES with rows 147 to 150 and defects w to b-prime before the probe again',
+                    'probes': 'the act part probe again and the standing parts probed with rows 151 to 153 and the face declared arms and the block file defects line set'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
@@ -1100,7 +1104,7 @@ SITTING_GH = ()
 SITTING_SETTINGS = ()
 SITTING_ITEMS = None          # ### none at b768: (R378) holds no sitting (carried name)
 SITTING_STATES = {}
-HANDOFF_COMMIT = ''   # ### b768's, written once by tools/standing/handoff.py before the gate ((R378)(13)'s (W) list names HANDOFF.md), set when made
+HANDOFF_COMMIT = '5588d3b5'   # ### b768's, written once by tools/standing/handoff.py before the gate ((R378)(13)'s (W) list names HANDOFF.md), 154 lines, 17037 bytes, sha256 11ee46e64f20f244 (step 89, 2026-11-25T08:15:13Z), committed alone
 HANDOFF_COMMIT_B767 = 'aadb0eb5'   # ### b767's, written once by tools/standing/handoff.py before the gate ((R377)(13)'s (W) list names HANDOFF.md), 154 lines, 17388 bytes, sha256 49306d4b3f490139 (step 79, 2026-11-24T01:05:49Z), committed alone
 HANDOFF_COMMIT_B766 = 'f2a6ba69'   # ### b766's, written once by tools/standing/handoff.py before the gate ((R376)(12)'s (W) list names HANDOFF.md), 154 lines, 16387 bytes, sha256 3b8aac8558128978 (step 83, 23:20:42Z); the carry had left b765's ab9d680e
 HANDOFF_COMMIT_B765 = 'ab9d680e'   # ### b765's, 154 lines, 17603 bytes, sha256 a45ff3a51ae02d56 (step 70, 22:14:41Z)
