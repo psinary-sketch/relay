@@ -8,8 +8,9 @@ from this file. Written by the Write tool and committed before its run (N2).
              zenodo.org/api/records/<id>, no token and no identity in any header (the User-Agent the generic reader's), two seconds
              between; kept, as b726 kept them, the title, version, publication date, description and notes, with the DOI, the concept id
              and the count of files beside; the creators dropped; the author's name and ORCID masked in every string; a record that does
-             not answer printed and banked with its status and asked again by nothing at this act. Bank: data/b769_zenodo_read.json. The
-             route refuses where the bank stands already: one GET a record at this act.
+             not answer printed and banked with its status and asked again by nothing at this act; a redirect (a concept's id may answer
+             so) banked with its status and the record it names, and not followed, one request on the wire a record where b726's urlopen
+             followed them. Bank: data/b769_zenodo_read.json. The route refuses where the bank stands already: one GET a record at this act.
   draft      THE DRAFT 23228113, by the route of tools/b747_zenodo.py: one GET at zenodo.org/api/deposit/depositions/23228113 with the
              token read from the environment inside this process, sent in the Authorization header alone and printed nowhere; its state,
              version, files by name, size and md5, and its description's length and opening line; the creators as a count; where it does
@@ -114,7 +115,8 @@ def masker(I, acct):
         n = 0
         s, k = GH.subn('[a repository link]', s)
         n += k
-        for v, w in ((I['name'], '[the author]'), (I['orcid'], '[the author`s ORCID]'), (I['address'], '[an address]'), (acct, '[the account]')):
+        for v, w in ((I['name'], '[the author]'), (I['orcid'], '[the author`s ORCID]'), (I['address'], '[an address]'),
+                     (I.get('user'), '[a previous name]'), (acct, '[the account]')):
             if v:
                 s, k = re.subn(re.escape(v), w, s, flags=re.I)
                 n += k
@@ -122,23 +124,52 @@ def masker(I, acct):
     return m
 
 
+def idents():
+    """RU.ids() with the previous name beside it, as the one-call tool's scan reads PREVIOUS NAME (tools/b726_zenodo_read.py :34)."""
+    import b769_address_scan as SC
+    I = dict(RU.ids())
+    I['user'] = SC.previous_username()
+    return I
+
+
 def leaks(text, I, acct):
-    return [k for k, v in RU.idcount(text, I, acct).items() if v > 0]
+    c = RU.idcount(text, I, acct)
+    c['previous name'] = text.lower().count(I['user'].lower()) if I.get('user') else 0
+    return [k for k, v in c.items() if v > 0]
+
+
+class NoFollow(urllib.request.HTTPRedirectHandler):
+    """a redirect is an answer and is not followed: one request on the wire a record, N1's one GET (b726's urlopen followed them)."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+OPENER = urllib.request.build_opener(NoFollow)
 
 
 def get(url, token=None):
+    """(status, body, seconds, the Location a redirect names or None); one request, no redirect followed."""
     h = {'User-Agent': UA, 'Accept': 'application/json'}
     if token:
         h['Authorization'] = 'Bearer ' + token
     req = urllib.request.Request(url, method='GET', headers=h)
     t0 = time.time()
     try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return r.status, r.read(), time.time() - t0
+        with OPENER.open(req, timeout=60) as r:
+            return r.status, r.read(), time.time() - t0, None
     except urllib.error.HTTPError as e:
-        return e.code, e.read(), time.time() - t0
+        return e.code, e.read(), time.time() - t0, (e.headers.get('Location') if e.headers else None)
     except Exception as e:   # ### a record that does not answer: its status printed, asked again by nothing
-        return 0, ('%s' % type(e).__name__).encode('utf-8'), time.time() - t0
+        return 0, ('%s' % type(e).__name__).encode('utf-8'), time.time() - t0, None
+
+
+def compose(rows, R, complete):
+    ok = sum(1 for r in rows if r['status'] == 200)
+    rd = [r['id'] for r in rows if 300 <= r['status'] < 400]
+    J = dict(read_utc=utc(), act=ACT, route='tools/b769_zenodo.py records, by tools/b726_zenodo_read.py`s route, no redirect followed',
+             pp_head=R['head'], user_agent=UA, to_ask=len(R['asked']), asked=len(rows), complete=complete, answered=ok, redirected=rd,
+             not_answering=[r['id'] for r in rows if r['status'] != 200 and not 300 <= r['status'] < 400], rows=rows)
+    return J, json.dumps(J, indent=1, ensure_ascii=False) + NL
 
 
 def records():
@@ -148,21 +179,25 @@ def records():
     show_ids(R)
     if not R['ctl'][1]:
         die('THE IDS RULE`S CONTROL NOT AS WANTED; NOTHING ASKED')
-    I = RU.ids()
+    I = idents()
     acct = RU.account()
     mk = masker(I, acct)
-    pm, pn = mk('by %s (%s), the account %s, see https://github.com/%s/SIDE-kernel' % (I['name'], I['orcid'], acct, acct))
-    if leaks(pm, I, acct) or pn < 3:
+    pm, pn = mk('by %s (%s, %s), the account %s, see https://github.com/%s/SIDE-kernel' % (I['name'], I['orcid'], I['user'], acct, acct))
+    if leaks(pm, I, acct) or pn < 4:
         die('THE MASK`S PLANTED LINE NOT MASKED WHOLE (%d masked); NOTHING ASKED' % pn)
-    print('## THE MASK: a planted line naming the author, the ORCID, the account and a link to its repository masked whole (%d masked, 0 surviving) AS WANTED' % pn)
+    print('## THE MASK: a planted line naming the author, the ORCID, the previous name, the account and a link to its repository masked whole (%d masked, 0 surviving) AS WANTED' % pn)
     rows = []
     for i in R['asked']:
-        st, body, secs = get('https://zenodo.org/api/records/' + i)
+        st, body, secs, loc = get('https://zenodo.org/api/records/' + i)
         if st == 0 and not rows:
             die('THE FIRST ASK REACHED NO SERVER (%s): NO HTTP STATUS, SO NO RECORD WAS READ; NOTHING BANKED' % body.decode('utf-8', 'replace'))
         row = dict(id=i, forms=R['ids'][i]['forms'], lines=R['ids'][i]['lines'], status=st, seconds=round(secs, 2), masked=0)
+        try:
+            o = json.loads(body.decode('utf-8')) if st == 200 else None
+        except ValueError:
+            o, st = None, -st   # ### HTTP 200 with a body that is not JSON: banked as -200, asked again by nothing
+            row['status'] = st
         if st == 200:
-            o = json.loads(body.decode('utf-8'))
             m = o.get('metadata') or {}
             row.update(doi=o.get('doi'), conceptrecid=o.get('conceptrecid'), files=len(o.get('files') or []))
             for k in KEEP:
@@ -173,6 +208,11 @@ def records():
                     row[k] = s
             print('## %s HTTP 200 %.2f s: v%s %s | %s (concept %s, files %d, masked %d)' % (
                 i, secs, row.get('version'), row.get('publication_date'), row.get('title'), row.get('conceptrecid'), row['files'], row['masked']))
+        elif 300 <= st < 400:
+            to = re.search(r'/records/(\d+)', loc or '')
+            row['redirect_to'] = to.group(1) if to else None
+            row['answer'] = 'A REDIRECT, NOT FOLLOWED: HTTP %s to the record %s; one GET a record' % (st, row['redirect_to'])
+            print('## %s HTTP %s %.2f s: A REDIRECT TO THE RECORD %s, NOT FOLLOWED (ONE GET A RECORD)' % (i, st, secs, row['redirect_to']))
         else:
             row['answer'] = 'DID NOT ANSWER: HTTP %s; asked again by nothing at this act' % st
             print('## %s HTTP %s %.2f s: DID NOT ANSWER; ASKED AGAIN BY NOTHING AT THIS ACT' % (i, st, secs))
@@ -182,17 +222,16 @@ def records():
             row['dropped'] = 'title, version, date, description and notes dropped: an identifier survived the mask'
             print('   %s: AN IDENTIFIER SURVIVED THE MASK; ITS KEPT FIELDS DROPPED FROM THE BANK' % i)
         rows.append(row)
+        J, t = compose(rows, R, len(rows) == len(R['asked']))
+        bad = leaks(t, I, acct)
+        if bad:
+            die('AN IDENTIFIER SURVIVES THE MASK (%s) after %d asks; nothing banked, and the route not to be sent again at this act' % (', '.join(bad), len(rows)))
+        put(RBANK, t)   # ### banked after each ask, so that a route stopped part way stands banked and refuses a second ask
         time.sleep(2)
-    ok = sum(1 for r in rows if r['status'] == 200)
-    J = dict(read_utc=utc(), act=ACT, route='tools/b769_zenodo.py records, by tools/b726_zenodo_read.py`s route', pp_head=R['head'],
-             user_agent=UA, asked=len(rows), answered=ok, not_answering=[r['id'] for r in rows if r['status'] != 200], rows=rows)
-    t = json.dumps(J, indent=1, ensure_ascii=False) + NL
-    bad = [k for k, v in RU.idcount(t, I, acct).items() if v > 0]
-    if bad:
-        die('AN IDENTIFIER SURVIVES THE MASK (%s)' % ', '.join(bad))
-    put(RBANK, t)
-    print('### ### **THE PUBLIC RECORDS READ BACK: ASKED %d, ANSWERED %d%s ; NOTHING WRITTEN TO ZENODO ; WRITTEN data/b769_zenodo_read.json.**' % (
-        len(rows), ok, (' ; NOT ANSWERING ' + ', '.join(J['not_answering'])) if J['not_answering'] else ''))
+    ok = J['answered']
+    rd = J['redirected']
+    print('### ### **THE PUBLIC RECORDS READ BACK: ASKED %d, ANSWERED %d, REDIRECTED %d%s ; NOTHING WRITTEN TO ZENODO ; WRITTEN data/b769_zenodo_read.json.**' % (
+        len(rows), ok, len(rd), (' ; NOT ANSWERING ' + ', '.join(J['not_answering'])) if J['not_answering'] else ''))
 
 
 def draft():
@@ -210,14 +249,14 @@ def draft():
         put(DBANK, text)
         print('written data/b769_draft_read.txt')
         return
-    st, body, secs = get(url, tok)
+    st, body, secs, _loc = get(url, tok)
     if st == 0:
         die('THE ASK REACHED NO SERVER (%s): NO HTTP STATUS, SO THE DRAFT WAS NOT READ; NOTHING BANKED' % body.decode('utf-8', 'replace'))
     out.append('### GET %s : HTTP %s ; %d bytes ; %.2f s ; the token from the environment, in the Authorization header alone, printed nowhere' % (url, st, len(body), secs))
     if st != 200:
         out += ['', '### ### **THE DRAFT %s: HTTP %s ; NOTHING READ BACK ; ASKED AGAIN BY NOTHING AT THIS ACT ; NOTHING WRITTEN TO ZENODO.**' % (DRAFT, st)]
     else:
-        I = RU.ids()
+        I = idents()
         mk = masker(I, RU.account())
         d = json.loads(body.decode('utf-8'))
         m = d.get('metadata') or {}
@@ -240,7 +279,7 @@ def draft():
             out.append('  %-60s %10s  %s' % (f.get('filename'), f.get('filesize'), (f.get('checksum') or '').replace('md5:', '')))
         out += ['', '### ### **THE DRAFT %s READ BACK: STATE %s, VERSION %s, %d FILES ; NOTHING WRITTEN TO ZENODO.**' % (
             DRAFT, d.get('state'), m.get('version'), len(files))]
-    I, acct = RU.ids(), RU.account()
+    I, acct = idents(), RU.account()
     tb = tok.encode('utf-8')
     for k, l in enumerate(out):
         if tb in l.encode('utf-8') or leaks(l, I, acct):
