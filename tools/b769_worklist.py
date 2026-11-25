@@ -63,7 +63,7 @@ CITATION_BANK = 'b769_citation_check.txt'
 # ### the ledger lines of the previous act (the carried tools' B711_* names read the previous act's lines)
 B711_ENTRY = 16178          # ### FINDINGS: b768's entry head (at aa52597, unmoved at e52e2ba)
 B711_WEIGHT = None          # ### FINDINGS: b768 wrote no weight line of its own; b767 at its weight stands in b768's entry (:16184)
-B711_CORRIGENDUM = 16164    # ### FINDINGS: b768's corrigendum for b767
+B711_CORRIGENDUM = 16247    # ### FINDINGS: b769's corrigendum for b768 (banked 19:07:48Z by the c1 route, data/b769_corrigendum.json); b768's for b767 at :16164
 B718_CLASSES = 10847        # ### FINDINGS: b718's CLOSE classes line (carried name, unmoved)
 B711_TRAIL = 19433          # ### OPEN_TRAILS: b768's trail record (PLACE-papers e52e2ba)
 B711_FACE = 'data/b768_registration_2026-11-24.txt'   # ### b768's face
