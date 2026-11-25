@@ -748,7 +748,10 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('prevdry_labels', '35c92719'),   # ### step 96, the prev-mode dries CLEAR, the block file's labels without parentheses, its defects line and field, and row (168) (Component 5)
          ('row169', '9c877650'),   # ### step 97, row (169) after the face again and its bar call clear, and the chain given 4a594f36 and 35c92719 (Component 5)
          ('held_probes', 'd0f7045e'),   # ### step 98, the gate's second run, the four held parts' probe calls, defect (f'), row (170) and the block file's defects line (Component 5)
-         ('gate_third', '914958a0'))   # ### step 99, rows (171) and (172), the gate's third run CLEAR, the face as written with its bar call, and the chain given 9c877650 and d0f7045e (Component 5); later commits appended as made
+         ('gate_third', '914958a0'),   # ### step 99, rows (171) and (172), the gate's third run CLEAR, the face as written with its bar call, and the chain given 9c877650 and d0f7045e (Component 5)
+         ('rows173', 'f6a9552b'),   # ### step 100, rows (173) and (174), defect (g'), the block file's sentence set, the face a fourth time with its bar call, and the chain given 914958a0 (Component 5)
+         ('prevdry_banks', 'f1fecee5'),   # ### step 101, the prev-mode dry banks of the six parts this act runs and the score routes' dry, before the gate commit (Component 5)
+         ('gate', 'e801f2b8'))   # ### step 102, the gate commit, its subject composed by the one-call tool from its banks (Component 5); the root-dry commit after it stands outside CHAIN as b767's did (tools/b767_worklist.py :713)
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -846,7 +849,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                    'prevdry_labels': 'the prev-mode dry clear and the block file labels set without parentheses with its defects line and field and row 168',
                    'row169': 'row 169 after the face again and its bar call clear and the worklist chain given 4a594f36 and 35c92719',
                    'held_probes': 'the gate second run and the four held parts probe calls with defect f-prime and row 170 and the block file defects line',
-                   'gate_third': 'rows 171 and 172 with the gate third run clear and the face as written with its bar call and the worklist chain given 9c877650 and d0f7045e'})
+                   'gate_third': 'rows 171 and 172 with the gate third run clear and the face as written with its bar call and the worklist chain given 9c877650 and d0f7045e',
+                   'rows173': 'rows 173 and 174 with defect g-prime and the block file sentence set without its numeral and the face again with its bar call and the worklist chain given 914958a0',
+                   'prevdry_banks': 'the prev-mode dry banks of the six parts this act runs and the score routes dry before the gate commit',
+                   'gate': 'the gate commit with its subject composed by the one-call tool from its banks'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
