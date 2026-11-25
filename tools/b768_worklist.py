@@ -743,7 +743,9 @@ CHAIN = (('c1', 'ede70bce'), ('corr', '1ddea88d'), ('cites', '27ea5444'),
          ('record_banks', '60ea1e18'),   # ### step 91, the four standing figures, the guard dry, the command bank, rows (154)-(157) and the block file's two sets (Component 5)
          ('chain_set', 'e929ea65'),   # ### step 92, rows (158)-(160), defect (c') and the chain given steps 89 to 91 with the handoff at its time (Component 5)
          ('scores_set', '4683c04b'),   # ### step 93, the five score predicates set for b768, rows (161)-(164), defect (d') and the chain given e929ea65 (Component 5)
-         ('closing_p1', '3250e040'))   # ### step 94, N3's (g) read at [P1] with the texts and the roster, defects (d') extended and (e'), rows (165)-(166) and the chain given 4683c04b (Component 5); later commits appended as made
+         ('closing_p1', '3250e040'),   # ### step 94, N3's (g) read at [P1] with the texts and the roster, defects (d') extended and (e'), rows (165)-(166) and the chain given 4683c04b (Component 5)
+         ('row167', '4a594f36'),   # ### step 95, row (167) after the score routes' dry and the chain given 3250e040 (Component 5)
+         ('prevdry_labels', '35c92719'))   # ### step 96, the prev-mode dries CLEAR, the block file's labels without parentheses, its defects line and field, and row (168) (Component 5); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -836,7 +838,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b767`s findings after its lock and 
                    'record_banks': 'the four standing figures and the guard dry and the command bank with rows 154 to 157 and the block file scope sentence and Component 5 field',
                    'chain_set': 'rows 158 to 160 and defect c-prime with the worklist chain given steps 89 to 91 and the handoff placed in the chain at its time',
                    'scores_set': 'the five score predicates set for b768 with defect d-prime and rows 161 to 164 and the worklist chain given e929ea65',
-                   'closing_p1': 'the closing theorem clause read at P1 with the texts and the roster and defects d-prime and e-prime with rows 165 and 166 and the chain given 4683c04b'})
+                   'closing_p1': 'the closing theorem clause read at P1 with the texts and the roster and defects d-prime and e-prime with rows 165 and 166 and the chain given 4683c04b',
+                   'row167': 'row 167 after the score routes dry and the worklist chain given 3250e040',
+                   'prevdry_labels': 'the prev-mode dry clear and the block file labels set without parentheses with its defects line and field and row 168'})
 CHAIN_WORDS_B767 = ({'c1': 'the c1 route with b767`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b767',
                     'corr': 'the corrigendum banks and the corrigenda row (87)',
                     'k25_ctl': 'the planted control tool of [K25]', 'price_foot': 'the record section reading the price table`s foot in b768`s form',
