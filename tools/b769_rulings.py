@@ -27,7 +27,16 @@ bracket and is used on [X4] and [M5] alone; a later group confirms it on its own
                          unequal. The roster by tools/standing/orders.py's rule in memory: W-ORD-MAP-MERGE moving from OPEN to CLOSED,
                          no other moving, none added. Bank: data/b769_ledgers_c2.txt and .json, each text by line and sha256; the
                          texts' words printed by the dry run alone.
-[C9] (REGISTRY), [B1] or [B2], [A4], and Component 3's and 4's texts are groups this tool gains by an Edit committed before its run.
+  ledgers c2b dry|write  Component 2 continued (data/b769_ferry.txt :20-:21, :27-:33 and :60-:66, :160-:162): [B1] (:65) in its ENTERED
+                         form and [A4] (:161), which carries no field, appended at OPEN_TRAILS' end under one dated head; [C9] (:61),
+                         REGISTRY's row addition in the form of REGISTRY :1086-:1096, its ID the next of 1.5a by tools/standing/rowid.py
+                         over the file at HEAD, its alternative parted by ' ; ' and resolved to the sentence where [B1] stands, appended
+                         at REGISTRY's end; one write of both files. [B1]'s condition from data/b769_archives.json and the papers`
+                         repository at HEAD (the manifest's bytes by sha256 beside the two archives, each listed member equal, the scan
+                         0). Controls before the write, among them four that can fire: [C9] resolved to the [B2] sentence reads another
+                         row; [C9] resolved by ' | ' refused; a row taking an ID REGISTRY holds refused by the ROWID rule; [B1] with one
+                         literal word changed read unequal. Bank: data/b769_ledgers_c2b.txt and .json.
+Component 3's and 4's texts are groups this tool gains by an Edit committed before its run.
 
 No PLACE-papers line is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -183,28 +192,28 @@ def outer(tpl):
     return out
 
 
-def branches(inner):
-    """the inner text split at ' | ' outside nested brackets; one item where it carries none."""
+def branches(inner, sep=' | '):
+    """the inner text split at `sep` outside nested brackets; one item where it carries none."""
     out, depth, cur, i = [], 0, '', 0
     while i < len(inner):
         ch = inner[i]
         depth += (ch == '<') - (ch == '>')
-        if depth == 0 and inner.startswith(' | ', i):
+        if depth == 0 and inner.startswith(sep, i):
             out.append(cur)
-            cur, i = '', i + 3
+            cur, i = '', i + len(sep)
             continue
         cur += ch
         i += 1
     return out + [cur]
 
 
-def resolve(tpl, label):
-    """the template with each alternative (an outermost <...> holding ' | ') resolved to the branch `label` names -- a branch equal to
+def resolve(tpl, label, sep=' | '):
+    """the template with each alternative (an outermost <...> holding `sep`) resolved to the branch `label` names -- a branch equal to
     the label, or opening with the label and ': ', entered without the label. Returns (text, [the chosen branches], None) or (None, [],
-    why)."""
+    why). [X4] and [M5] part their branches by ' | '; [C9] by ' ; ', each branch opening with its sentence's label."""
     out, at, chosen, alts = [], 0, [], 0
     for s, e, inner in outer(tpl):
-        bs = branches(inner)
+        bs = branches(inner, sep)
         if len(bs) < 2:
             continue
         alts += 1
@@ -420,9 +429,188 @@ def ledgers(group, mode):
     return 0
 
 
+# ================================================================================ GROUP c2b: [B1] AND [A4] IN OPEN_TRAILS, [C9] IN REGISTRY
+# ### b769, Component 2 (the Edit tool, after the source record's commit 4570c462 and before any run of this group): (R379)(4)(c), (4)(d)
+# ### and (7) -- [B1] (data/b769_ferry.txt :65) in OPEN_TRAILS where the archives were committed, its fields from data/b769_archives.json
+# ### and the papers` repository at HEAD; [A4] (:161), which carries no field; and [C9] (:61), REGISTRY's row addition in the form of
+# ### REGISTRY :1086-:1096 (a comment, a heading naming b769 and `(R379)`(4)(c), the eight-column head, the row, the comment), its ID the
+# ### next of 1.5a by tools/standing/rowid.py's next_id over the file at HEAD, its alternative ' ; ' resolved to the sentence where [B1]
+# ### stands. Both files appended at their ends, no line moving, in one write and one commit of the papers` repository.
+C2BPP = '4570c462'   # ### the papers` repository's last commit of the act before this write: the cluster's source record (step 29, events (60))
+ARC_BANK = os.path.join(D, 'b769_archives.json')
+C9_LABEL = ('where [B1] stands, this sentence', 'where [B2] stands, this one in its place')
+GROUPS['c2b'] = ('B1', 'A4', 'C9')
+FORMS.update(B1='ENTERED', A4='AS WRITTEN', C9='WITH [B1]')
+
+
+def c2b_fields():
+    """[B1]'s and [C9]'s fields and [B1]'s condition, from the source record's bank and the papers` repository at HEAD."""
+    A = jload(ARC_BANK)
+    man = A.get('manifest') or {}
+    mb = git(PP, 'show', 'HEAD:' + (man.get('path') or 'NONE'), raw=True)
+    tree = [l for l in git(PP, 'ls-tree', '--name-only', 'HEAD', 'clusters/lean-archive-november-2026/').split(NL) if l.strip()]
+    dg = A.get('digests') or []
+    listed, equal = sum(d['listed'] for d in dg), sum(d['equal'] for d in dg)
+    vals_b1 = [('<n>', str(man.get('rows'))), ('<hash>', str(man.get('sha256'))), ('<n>', str(equal)), ('<n>', str(listed))]
+    cond = [('the source record`s bank WRITTEN, its manifest %s of %s rows, sha256 %s, and at HEAD the manifest`s bytes that sha256 (%s) beside the two '
+             'archives (%d paths in the folder)' % (man.get('path'), man.get('rows'), man.get('sha256'), sha(mb)[:16] if mb else 'ABSENT', len(tree)),
+             A.get('verdict') == 'WRITTEN' and bool(mb) and sha(mb)[:16] == man.get('sha256') and len(tree) == 3
+             and man.get('rows') == (A.get('members') or {}).get('together')),
+            ('each listed member equal to its archive`s own list: %d of %d, unequal %d, listed and absent %d' % (
+                equal, listed, sum(d['unequal'] for d in dg), sum(d['listed_missing'] for d in dg)),
+             listed > 0 and equal == listed and not any(d['unequal'] or d['listed_missing'] for d in dg)),
+            ('the address scan 0 on each target (%s)' % ' '.join('%s %d' % kv for kv in sorted((A.get('scan') or {}).items())),
+             bool(A.get('scan')) and not any((A.get('scan') or {}).values()))]
+    return A, man, vals_b1, cond
+
+
+def c2b_registry(base_reg, date, man):
+    """[C9]'s row composed and its block, appended at REGISTRY's end in the form of :1086-:1096; the ID by rowid.next_id at HEAD."""
+    import rowid as RI
+    X = texts(ferry())
+    tpl = X['C9'][2]
+    rid = RI.next_id(base_reg, '1.5a')
+    R9, ch9, why9 = resolve(tpl, C9_LABEL[0], ' ; ')
+    row = fill(R9, [('<the next free number of 1.5a>', rid), ('<DATE>', date), ('<the manifest' + "'" + 's path>', man.get('path') or ''),
+                    ('<hash>', str(man.get('sha256'))), ('<n>', str(man.get('rows')))]) if R9 else None
+    note = '<!-- b769 (R379)(4)(c) ROW ADDITION, %s -->' % date
+    head = ('## Row addition — %s (Phase 1.2; b769, under the author’s ruling `(R379)`(4)(c): the home of the subject cluster on the Lean archive '
+            'of November 2026, its source record by (4)(d))' % date)
+    block = [note, '', head, '', '| ID | Title | File | Version | Conf | Status | Words | Provenance |',
+             '|:---|:------|:-----|:--------|:-----|:-------|:------|:-----------|', row or '', '', note, '',
+             '*Appended by b769 under `(R379)`(4)(c). No row above is edited. Nothing deposits.*']
+    return dict(tpl=tpl, rid=rid, R=R9, chosen=ch9, why=why9, row=row, block=NL.join(block), new=base_reg + NL + NL.join(block) + NL, head=head)
+
+
+def ledgers_c2b(mode):
+    from standing import orders as O
+    import rowid as RI
+    date = today()
+    base, base_reg = at_head(OT), at_head(REG)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    X = texts(ferry())
+    TP = dict((k, X[k][2]) for k in X)
+    A, man, vals_b1, cond_b1 = c2b_fields()
+    E = dict(B1=fill(TP['B1'], vals_b1), A4=TP['A4'])
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b769, `(R379)`(4)(d) and (7): the lines the ruling orders for OPEN_TRAILS at Component 2, continued** (relay '
+            'data/b769_ferry.txt :21, :27-:33, :64-:66 and :160-:162), appended at the end of the file (its last line :%d), so that no line '
+            'before them moves: the source record of the cluster by [B1]; the rulings of the author of 2026-11-24 and 2026-11-25 by [A4]. The '
+            'row of the cluster in REGISTRY, [C9], is written in the same commit.' % (date, n_ot))
+    paras = [head, E['B1'], E['A4']]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    G = c2b_registry(base_reg, date, man)
+    I, acct = ids(), account()
+    eq = dict(B1=bool(re.fullmatch(pattern(TP['B1']), E['B1'], re.S)) and (NL + E['B1'] + NL) in (NL + text + NL),
+              A4=E['A4'] == TP['A4'] and (NL + E['A4'] + NL) in (NL + text + NL),
+              C9=bool(G['R']) and bool(re.fullmatch(pattern(G['R']), G['row'] or '', re.S)) and (NL + (G['row'] or '') + NL) in (NL + G['block'] + NL))
+    sub9 = bool(G['chosen']) and all(b in G['tpl'] for b in G['chosen'])
+    left = sorted(set(FIELD.findall(text + NL + (G['row'] or ''))))
+    ticks = [k + 1 for k, l in enumerate((text + NL + G['block']).split(NL)) if l.count('`') % 2]
+    cells = lambda l: len(l.strip().strip('|').split(' | '))   # noqa: E731
+    st = lambda R_, n: (R_.get(n) or {}).get('status')   # noqa: E731
+    bl, nl_ = base.split(NL), new.split(NL)
+    before, after = dict(O.read(bl)), dict(O.read(nl_))
+    moved = sorted((n, st(before, n), st(after, n)) for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    names = sorted(set(O.NAME.findall(O.mask(E['B1'] + ' ' + E['A4']))))
+    hf = O.hand_flags(nl_)
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib = idcount(base + base_reg, I, acct)
+    ia = idcount(new + G['new'], I, acct)
+    it = idcount(text + NL + G['block'], I, acct)
+    present = [k for k, v in (('B1', E['B1']), ('A4', E['A4']), ('C9', G['row'] or '\0')) if v in (base + base_reg)]
+    ref = RI.refusals(base_reg, G['new'])
+    ids_at = [r for r in RI.rows(base_reg) if r[1] == G['rid']]
+    # ### the planted checks, in memory alone
+    p_tpl, _pc, p_why = resolve(G['tpl'], C9_LABEL[1], ' ; ')
+    q_tpl, _qc, q_why = resolve(G['tpl'], C9_LABEL[0])   # ### the separator of [X4] and [M5], which [C9] does not carry
+    held_id = (RI.rows(base_reg) or [(0, '1.5a-1')])[-1][1]
+    p_ref = RI.refusals(base_reg, base_reg + '| %s | planted | — |\n' % held_id)
+    w_line = E['B1'].replace('nothing of them run', 'nothing of them read', 1)
+    w_eq = bool(re.fullmatch(pattern(TP['B1']), w_line, re.S))
+    ctl = [('the papers` repository`s HEAD the act`s last commit there before this write, the source record %s (%s)' % (C2BPP, pp_head[:8]),
+            pp_head.startswith(C2BPP)),
+           ('OPEN_TRAILS` and REGISTRY`s bytes at HEAD each a prefix of its new bytes: no line moves', new.startswith(base) and G['new'].startswith(base_reg))]
+    ctl += [('[B1] ENTERED: %s' % w, o) for w, o in cond_b1]
+    ctl += [('[C9]`s alternative resolved by its separator ` ; ` to the sentence where [B1] stands, the chosen branch a substring of the ruling`s text (%s)' % (
+                G['why'] or 'resolved'), bool(G['R']) and sub9),
+            ('each text as entered equals the ruling`s with its fields filled ([A4] as written, no field), each whole in its file: %s' % (
+                ' '.join('%s %s' % (k, eq[k]) for k in ('B1', 'A4', 'C9'))), all(eq.values())),
+            ('no field left in the appended text or the row (%s)' % (left or 'none'), not left),
+            ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+            ('[C9]`s ID %s the next of 1.5a by tools/standing/rowid.py over REGISTRY at HEAD, held by no row there (%d), the row`s cells %d as the head`s %d, '
+             'the commit`s ROWID refusals none (%s)' % (G['rid'], len(ids_at), cells(G['row'] or ''), cells('| ID | Title | File | Version | Conf | Status | Words | Provenance |'),
+                                                         ref or 'none'),
+             not ids_at and not ref and cells(G['row'] or '') == 8),
+            ('the identifiers` counts and the account`s equal before and after over both files, and 0 in what is appended (the account read from the relay`s '
+             'remote, never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+            ('none of the texts in OPEN_TRAILS or REGISTRY before the write (%s)' % (present or 'none'), not present),
+            ('[B1] and [A4] name no order (%s); the roster moves none and adds none (moved %s ; added %s)' % (names or 'none', moved or 'none', added or 'none'),
+             not names and not moved and not added),
+            ('PLANTED: [C9] resolved to the sentence where [B2] stands reads its second form, another row (%s)' % ('DIFFERS' if p_tpl and p_tpl != G['R'] else 'NOT READ'),
+             bool(p_tpl) and p_tpl != G['R'] and 'not yet entered' in p_tpl),
+            ('PLANTED: [C9] resolved by the separator ` | `, which it does not carry, is refused (%s)' % (q_why or 'NOT REFUSED'), q_tpl is None and bool(q_why)),
+            ('PLANTED: a row taking an ID REGISTRY holds (%s) is refused by the ROWID rule (%d refusal)' % (held_id, len(p_ref)), len(p_ref) == 1),
+            ('PLANTED: [B1] with one literal word changed reads unequal (%s)' % ('EQUAL' if w_eq else 'UNEQUAL'), not w_eq),
+            ('the appended lines of OPEN_TRAILS outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R379)(4)(c), (4)(d) AND (7), GROUP C2B: [B1] AND [A4] IN OPEN_TRAILS, [C9] IN REGISTRY, EACH APPENDED AT ITS END (%s)' % (ACT, utc()), '',
+         '### tools/b769_rulings.py ledgers c2b; the papers` repository at HEAD %s; the texts from the ferry bank (data/b769_ferry.txt, sha256 %s); the' % (
+             pp_head[:8], FERRY_SHA),
+         '### fields from data/b769_archives.json (sha256 %s) and the papers` repository at HEAD; <DATE> %s; each text by line and sha256 here.' % (
+             fsha(ARC_BANK), date), '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    rl = G['new'].split(NL)
+    P += ['', '## THE FILES',
+          '  OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+              n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16]),
+          '  REGISTRY.md | lines %d -> %d | the block from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+              len(base_reg.split(NL)) - 1, len(rl) - 1, len(base_reg.split(NL)) + 1, sha(G['block'])[:16], sha(base_reg)[:16], sha(G['new'])[:16])]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s OPEN_TRAILS :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16])
+                                             for k, v in (('head', head), ('B1', E['B1']), ('A4', E['A4']))]
+    P += ['  %-10s REGISTRY :%d (sha256 %s), its ID %s' % ('C9', rl.index(G['row']) + 1 if G['row'] in rl else 0, sha(G['row'] or '')[:16], G['rid'])]
+    P += ['', '### ### **THE LEDGERS, GROUP C2B: OPEN_TRAILS AND REGISTRY APPENDED, NO LINE MOVING ; [B1] ENTERED, [A4] AS WRITTEN, [C9] %s WITH [B1] ; '
+          'CONTROLS %d OF %d AS WANTED ; %s.**' % (G['rid'], sum(1 for _w, o in ctl if o), len(ctl),
+                                                   ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        print(NL + '### THE BLOCK APPENDED TO REGISTRY.md (the dry run`s print alone):')
+        print(G['block'])
+        return 0 if ok else 1
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b769_ledgers_c2b.txt'), os.path.join(D, 'b769_ledgers_c2b.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    for path, data in ((OT, new), (REG, G['new'])):
+        with open(os.path.join(PP, path), 'wb') as f:
+            f.write(data.encode('utf-8'))
+        if fsha(os.path.join(PP, path)) != sha(data)[:16]:
+            die('THE WRITTEN FILE %s IS NOT ITS COMPOSITION' % path)
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group='c2b', date=date, pp_head=pp_head, c9_id=G['rid'],
+                            fields=dict(B1=[[ph, v] for ph, v in vals_b1]),
+                            files=dict(OPEN_TRAILS=dict(lines_before=n_ot, lines_after=len(nl_) - 1, sha_before=sha(base)[:16], sha_after=sha(new)[:16]),
+                                       REGISTRY=dict(lines_before=len(base_reg.split(NL)) - 1, lines_after=len(rl) - 1, sha_before=sha(base_reg)[:16],
+                                                     sha_after=sha(G['new'])[:16])),
+                            entered=dict(B1=[nl_.index(E['B1']) + 1, sha(E['B1'])[:16]], A4=[nl_.index(E['A4']) + 1, sha(E['A4'])[:16]],
+                                         C9=[rl.index(G['row']) + 1, sha(G['row'])[:16]]),
+                            head=[nl_.index(head) + 1, sha(head)[:16]], controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md and REGISTRY.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+    return 0
+
+
 def main(argv):
     if len(argv) != 3 or argv[0] != 'ledgers' or argv[1] not in GROUPS or argv[2] not in ('dry', 'write'):
         sys.exit(__doc__)
+    if argv[1] == 'c2b':
+        return ledgers_c2b(argv[2])
     return ledgers(argv[1], argv[2])
 
 
