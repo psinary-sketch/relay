@@ -777,15 +777,17 @@ def _kernel_state():
     return out
 
 
-# ### b767, Component 4 (the Edit tool): the data files' banks of L10a and L11b, neither closing on a bold foot, each read by its controls
-# ### line (feet767.py, read-only, 19:51:17Z: no `### ### **` line in either), and the rulings tool's groups c2 and c5, each a bank and a
-# ### json of its own; a group c6 joins where [C7] or [C8] is entered, by the Edit that gives the rulings tool that group
-DATA_BANKS = (('logdata', r'(?m)^  CONTROLS (\d+) OF (\d+) AS WANTED'), ('natdata', r'(?m)^  CONTROLS (\d+) OF (\d+) AS WANTED'))
+# ### b768, Component 4 (the Edit tool, before any run): no data file's relay bank at this act -- the kernel's data files are written by
+# ### tools/b768_packed_data.py, _far_data.py, _band_data.py and _arith_data.py into the kernel and banked nowhere in the relay, where
+# ### b767's L10a and L11b each banked its controls; the rulings tool's groups c2 and c5, each a bank and a json of its own; a group c6
+# ### joins where [C7] or [C8] is entered, by the Edit that gives the rulings tool that group
+DATA_BANKS = ()
 LEDGER_GROUPS = ('c2', 'c5') + (('c6',) if os.path.exists(os.path.join(D, 'b768_ledgers_c6.json')) else ())
-# ### each group's keys as (R377)'s texts enter them (data/b767_ledgers_c2.json and _c5.json `entered`), group c2 with its two orders'
-# ### entry lines beside [S1] and [R1]
-LEDGER_KEYS = dict(c2=['A2', 'G1', 'R1', 'S1'], c5=['P2', 'S2'])
-LEDGER_ENTRY_LINES = dict(c2=2, c5=0)
+# ### each group's keys as (R378)'s texts enter them (data/b768_ledgers_c2.json and _c5.json `entered`, read by the Grep tool, 01:03Z):
+# ### group c2 [R2] and [A3], neither with an entry line ([R2] gives W-ORD-NOVEMBER-RIDERS passages, its entry line standing from b767's
+# ### [R1]); group c5 [P1]
+LEDGER_KEYS = dict(c2=['A3', 'R2'], c5=['P1'])
+LEDGER_ENTRY_LINES = dict(c2=0, c5=0)
 
 
 def _gwb_state():
@@ -1179,47 +1181,50 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
         and len(sr_) == len(K.STANDING_REPAIRS) == 3 and all(sr_) and st_
 #⟪END⟫
 #⟪SECTION checks 34⟫
-    """(R378)(3)-(8), (12), N2, N3 (the name the frozen run list carries): each tool of K.GENS first added by a commit of its own, every
-    one of its commits carrying it and not its bank, the bank's commit carrying the bank and not the tool and after every tool commit, the
-    bank at HEAD its blob there (the repairs' planted controls, the certificate, the source-build read, the window at graded knots, the
-    groups c2 and c5, the prime table of L10, the factor runs of L11b and the dispatch tool's bank: nine); the one row of
-    K.GENS_WITH_BANK, the dispatch tool's controls riding once with its tool's repair, its tool first added before it; the ceiling read
-    before the lock banked at C1_CEILING, its blob there, its foot in the record's form; the plan at its commit before the first dispatch,
-    its blob there; the feet as the entry reads them -- the dispatch tool's controls 29 of 29, the price table, the corrigendum, the
-    certificate's three forms and the source-build read, each its fixed words; the two data files' controls lines whole; the window's
-    reading the key its group entered and its control as wanted; the dispatch tool's foot within (R378)(4)'s caps, its main by the
-    worklist's main and tag, its controls whole; each group's foot one file appended with its keys, its entry lines and controls whole, and
-    group c2's roster after figure the orders bank's OPEN; the reproduction run's foot, its rows summing and its planted controls whole.
-    (b768, Component 4, the Edit tool: the feet read by feet767.py, read-only, 19:51:17Z.)"""
+    """(R378)(3), (4), (7), (8), (12), N2, N3 (the name the frozen run list carries): each tool of K.GENS first added by a commit of its
+    own, every one of its commits carrying it and not its bank, the bank's commit carrying the bank and not the tool and after every tool
+    commit, the bank at HEAD its blob there (the repairs' planted controls, the groups c2 and c5 and the dispatch tool's bank: four); the
+    one row of K.GENS_WITH_BANK, the dispatch tool's controls riding once with its tool's repair, its tool first added before it; the
+    ceiling read before the lock banked at C1_CEILING, its blob there, its foot in the record's form; the plan first added at
+    K.C2_PLAN_FIRST before the first dispatch's time and last committed at PLAN_COMMIT ((A6)), its blob there; the feet as the entry reads
+    them -- the dispatch tool's controls 31 of 31, the price table and the corrigendum, each its fixed words; the dispatch tool's foot
+    within (R378)(4)'s caps, the trial NOT AT THIS ACT, its main by the worklist's main and tag and [C7] or [C8] where a group entered it,
+    its controls whole; each group's foot one file appended with its keys, no entry line, its controls whole; the roster: group c2 moving
+    no order and group c5 moving W-ORD-LI-ARITH and W-ORD-WINDOW-CERTIFY from OPEN to CLOSED by its own control, so the orders bank's OPEN
+    group c2's after figure less two; the reproduction run's foot, its rows summing and its planted controls whole. No data file's relay
+    bank, no certificate, no source-build read and no window at graded knots at this act ((R378)(4)-(6)), so b767's five readers of them
+    are not carried. (b768, Component 4, the Edit tool: the feet read from the banks by the Grep tool, 00:54Z; the dispatch tool's foot
+    from its bank route, tools/b768_controls.py :1683-:1685.)"""
     gk_ = _gens_ok(S)
     wk_ = _gwb_ok(S)
-    feet_ = [('b768_controls_control.txt', 'THE TOOL`S CONTROLS: 29 OF 29 AS WANTED ; ALL AS WANTED.'),
-             ('b768_price.txt', 'THE PRICE TABLE: STEP ZERO 0.91 h ; THE LOWER SUM 25.78 h AGAINST THE CEILING 30 h ; THE UPPER SUM 63.58 h ; '
-                                'DISPATCHES 9-25 OF AT MOST 40, WITH THE RESTORE ON 8-21 OF AT MOST 36 ; THE LEAN 1610-5730 LINES ; THE LAST STEP DISPATCH BY 22:34:03Z.'),
-             ('b768_corrigendum.txt', 'ITEMS 169: EVENTS 131, POST-SEAL 16, DEFECTS 22 ; CLAIM 8, CLOSE 161 ; REPEAT 126 ; THE CLAIM ITEMS OF b767`S BANKS 8, PRINTED IN FULL ; '
-                                      'THE FINDINGS AFTER THE LOCK 11: CLAIM 0, CLOSE 11, REPEAT 8 ; THE NAVIGATOR`S CLAIMS 9, CLAIM 9 ; THE NAVIGATOR`S FIGURES PRINTED AS THE NAVIGATOR`S ; '
-                                      'NO WEIGHT LINE ; THE ENTRY AT FINDINGS :16080.'),
-             ('b768_certificate.txt', 'THE THREE FORMS READ: 10 OF 10 CONTROLS AS WANTED ; THE PRIMES` ONE WIDTH 21 DIGITS, THE INTEGERS` 22, BY PARTS AT ITS LEAST 22 (ORDER 1).'),
-             ('b768_source_build.txt', 'THE READ MADE: 16 OF 16 CONTROLS AS WANTED ; THE ROUTE STATED.')]
+    feet_ = [('b768_controls_control.txt', 'THE TOOL`S CONTROLS: 31 OF 31 AS WANTED ; ALL AS WANTED.'),
+             ('b768_price.txt', 'THE PRICE TABLE: STEP ZERO 1.12 h ; THE LOWER SUM 21.46 h AGAINST THE CEILING 30 h ; THE UPPER SUM 68.60 h ; '
+                                'DISPATCHES 8-21 OF AT MOST 40, WITH THE RESTORE ON 7-19 OF AT MOST 36 ; THE LEAN 700-2610 LINES ; THE LAST STEP DISPATCH BY 03:06:09Z.'),
+             ('b768_corrigendum.txt', 'ITEMS 208: EVENTS 152, POST-SEAL 16, DEFECTS 40 ; CLAIM 9, CLOSE 199 ; REPEAT 181 ; THE CLAIM ITEMS OF b767`S BANKS 9, PRINTED IN FULL ; '
+                                      'THE FINDINGS AFTER THE LOCK 10: CLAIM 0, CLOSE 10, REPEAT 9 ; THE NAVIGATOR`S CLAIMS 9, CLAIM 9 ; THE NAVIGATOR`S FIGURES AND NINE LETTERS '
+                                      'PRINTED AS THE NAVIGATOR`S ; NO WEIGHT LINE ; THE ENTRY AT FINDINGS :16164.')]
     ft_ = [_vlast(_txt(rd(n_))) == w_ for n_, w_ in feet_]
-    dt_ = [bool(m_) and m_.group(1) == m_.group(2) for m_ in (re.search(p_, _txt((S['datat'] or {}).get(n_))) for n_, p_ in DATA_BANKS)]
-    wm_ = re.search(r'(?m)^  H-GRADED-WINDOW: (HELD|REFUTED|NOT SCORED), \[(G[123])\] ;', _txt(S['wint']))
-    wn_ = bool(wm_) and wm_.group(2) == dict(HELD='G1', REFUTED='G2').get(wm_.group(1), 'G3') \
-        and wm_.group(2) in (((S['ledgersj'] or {}).get('c2') or {}).get('entered') or {}) and re.search(r'(?m)^  THE CONTROL AS WANTED \(unit at ', _txt(S['wint'])) is not None
     cer_ = re.match(r'^THE CEILING READ BEFORE THE LOCK \(\(R378\)\(3\), read-only, \d\d:\d\d:\d\dZ\): SPENT [\d.]+ h FROM THE OPENING ROW ; THE LAST STEP DISPATCH AT '
                     r'\d\d:\d\d:\d\dZ, [\d.]+ h FROM THE OPENING ROW ; LEFT -?[\d.]+ h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b767`S [\d.]+ h FROM ITS LOCK, [\d.]+ h FROM '
                     r'THE OPENING ROW ; (WITHIN THE CEILING|THE ACT WOULD PASS 30 h AT ITS CLOSE)\.$', _vlast(_txt(S['ceilt'])))
     ce_ = bool(K.C1_CEILING) and bool(_txt(S['ceilt'])) and _txt(S['ceilt']) == _txt(blob(ROOT, '%s:data/b768_ceiling.txt' % K.C1_CEILING)) \
         and gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/b768_ceiling.txt').strip()[:8] == K.C1_CEILING[:8] and bool(cer_)
+    # ### b768: the plan first added before the first dispatch ((R378)(4)(a), N2) and last committed with (A6) during Component 3
+    # ### (data/b768_events.txt (91)), read from git: 996fea1c (step 20, 15:28:49Z) and bbcfbbb0 (step 56, 21:49:49Z)
+    pf_ = [h_ for h_ in gs(ROOT, 'log', '--diff-filter=A', '--format=%H', '--', 'data/b768_plan.txt').split() if h_.strip()][-1:]
+    d0_ = [e_ for e_ in (_iso_epoch(r_.get('at') or '') for r_ in (jl('b768_dispatch_rows.json') or [])
+                         if isinstance(r_, dict) and r_.get('kind') == 'dispatch') if e_]
     pl_ = bool(_txt(S['plant'])) and _txt(S['plant']) == _txt(blob(ROOT, '%s:data/b768_plan.txt' % PLAN_COMMIT)) \
-        and gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/b768_plan.txt').strip()[:8] == PLAN_COMMIT
-    tv_ = re.match(r'^DISPATCHES (\d+) OF AT MOST (\d+) \(WITH THE RESTORE ON (\d+) OF AT MOST (\d+)\) ; THE TRIAL (\S+) ; THE PAIR (.+?) ; MAIN AND THE TAG: (.+) ; '
+        and gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/b768_plan.txt').strip()[:8] == PLAN_COMMIT \
+        and bool(pf_) and pf_[0][:8] == K.C2_PLAN_FIRST[:8] and bool(d0_) and 0 < _ct(ROOT, pf_[0]) < min(d0_)
+    tv_ = re.match(r'^DISPATCHES (\d+) OF AT MOST (\d+) \(WITH THE RESTORE ON (\d+) OF AT MOST (\d+)\) ; THE TRIAL (.+?) ; THE PAIR (.+?) ; MAIN AND THE TAG: (.+) ; '
                    r'THE TOOL`S CONTROLS (\d+) OF (\d+)\.$', _vlast(_txt(S['trialt'])))
     moved_ = K.EF_MAIN == K.RUNNER_COMMIT
+    keys_ = sum((list(v_) for v_ in LEDGER_KEYS.values()), [])
     tr_ = bool(tv_) and int(tv_.group(1)) <= int(tv_.group(2)) == K.MAX_DISPATCHES and int(tv_.group(3)) <= int(tv_.group(4)) == dict(K.MAX_DISPATCHES_KINDS)['restore'] \
-        and int(tv_.group(1)) == len(K.EF_RUNS) and tv_.group(8) == tv_.group(9) and tv_.group(5) == '[S2]' and tv_.group(7) != 'PENDING' \
+        and int(tv_.group(1)) == len(K.EF_RUNS) and tv_.group(8) == tv_.group(9) and tv_.group(5) == 'NOT AT THIS ACT' and tv_.group(7) != 'PENDING' \
         and tv_.group(7).startswith('MAIN MOVES TO %s' % K.RUNNER_COMMIT[:8]) == moved_ and (K.WEIL_TAG is not None) == moved_ \
-        and (moved_ or K.EF_MAIN == K.EF_BASE)
+        and (moved_ or K.EF_MAIN == K.EF_BASE) and tv_.group(7).startswith('[C7]') == ('C7' in keys_) and tv_.group(7).startswith('[C8]') == ('C8' in keys_)
     lj_ = S['ledgersj'] if isinstance(S['ledgersj'], dict) else {}
     lt_ = S['ledgerst'] if isinstance(S['ledgerst'], dict) else {}
     led_ = []
@@ -1232,17 +1237,23 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
                     and bool(j_.get('controls')) and all(o_ for _w, o_ in j_['controls']) and isinstance(j_.get('file'), dict)
                     and en_ == LEDGER_KEYS.get(g_) and len(j_.get('entry_lines') or {}) == LEDGER_ENTRY_LINES.get(g_, 0)
                     and int(lv_.group(2)) == len(en_) + len(j_.get('entry_lines') or {}))   # ### [S1] and [R1] each carry their order's entry line beside them
+    # ### b768: group c2's roster in its json (open 72 before and after, none moving, none added); group c5's json holds no roster and
+    # ### reads it by its last control (tools/b768_rulings.py :497-:498: the two orders OPEN to CLOSED, no other moving, none added), so the
+    # ### orders bank's OPEN is c2's after figure less two; b767's form read c2's figure alone, its later groups moving none
     lr_ = (lj_.get('c2') or {}).get('roster') or {}
+    c5r_ = [o_ for w_, o_ in ((lj_.get('c5') or {}).get('controls') or [])
+            if str(w_).startswith('the roster: W-ORD-LI-ARITH and W-ORD-WINDOW-CERTIFY moving from OPEN to CLOSED by [P1]`s status words, no other moving, none added')]
     om_ = re.match(r'^ORDERS (\d+) ; OPEN (\d+) ; CLOSED (\d+) ;', _vlast(_txt(S['orderst'])))
-    ro_ = bool(om_) and int(om_.group(2)) == lr_.get('after_open') and int(om_.group(1)) == int(om_.group(2)) + int(om_.group(3)) \
-        and not any((lj_.get(g_) or {}).get('roster') for g_ in LEDGER_GROUPS[1:])   # ### b768: groups after c2 move no order
+    ro_ = bool(om_) and lr_.get('moved') == [] and lr_.get('added') == [] and lr_.get('before_open') == lr_.get('after_open') \
+        and c5r_ == [True] and int(om_.group(2)) == int(lr_.get('after_open') or 0) - 2 and int(om_.group(1)) == int(om_.group(2)) + int(om_.group(3)) \
+        and 'c6' not in LEDGER_GROUPS   # ### a group c6 ([C7] or [C8]) read here by its own roster where it is written
     rp_ = re.match(r'^ROWS (\d+) ; REPRODUCES (\d+) ; DIFFERS 0 ; NOT RUN (\d+) ; PLANTED CONTROLS AS WANTED (\d+) OF (\d+) ; \d+ s\.$', _vlast(_txt(S['reproduce'])))
     rep_ = bool(rp_) and int(rp_.group(1)) == int(rp_.group(2)) + int(rp_.group(3)) and rp_.group(4) == rp_.group(5)
-    return len(gk_) == len(K.GENS) == 9 and all(o_ for _n, o_ in gk_) and len(wk_) == len(K.GENS_WITH_BANK) == 1 and all(o_ for _n, o_ in wk_) \
-        and ce_ and pl_ and all(ft_) and len(dt_) == 2 and all(dt_) and wn_ and tr_ and len(led_) == len(LEDGER_GROUPS) and all(led_) and ro_ and rep_
+    return len(gk_) == len(K.GENS) == 4 and all(o_ for _n, o_ in gk_) and len(wk_) == len(K.GENS_WITH_BANK) == 1 and all(o_ for _n, o_ in wk_) \
+        and ce_ and pl_ and all(ft_) and DATA_BANKS == () and tr_ and len(led_) == len(LEDGER_GROUPS) and all(led_) and ro_ and rep_
 
 
-PLAN_COMMIT = 'b7d31fb8'   # ### b768: data/b768_plan.txt by the Write tool and two Edits (10:05:59Z-10:06Z), committed with the certificate's banks at step 16, before any dispatch (feet767.py, 19:51:17Z: its last commit b7d31fb8)
+PLAN_COMMIT = 'bbcfbbb0'   # ### b768: data/b768_plan.txt by the Write tool (15:28Z), first committed at 996fea1c (step 20, 15:28:49Z) before any dispatch, and given (A6) by the Edit tool and committed at bbcfbbb0 (step 56, 21:49:49Z), its last commit (git log, 01:01:36Z; events (51), (91))
 
 
 def _iso_epoch(x):
@@ -2445,7 +2456,7 @@ N2_CONTROLS = (('data/b768_address_scan.txt', '## THE CONTROLS FIRST', '## THE P
 # ### commit before its repair and at the repair's commit); the dispatch tool's controls in their own bank, read by time against the opening
 # ### dispatch
 N2_USES = ()
-N2_GENS_N = 10   # ### b768: K.GENS nine (the repairs' planted controls, the certificate, the source-build read, the window at graded knots, the groups c2 and c5, the prime table of L10, the factor runs of L11b, and the dispatch tool's bank, which joins GENS at its commit) and K.GENS_WITH_BANK one (the dispatch tool's controls, which rode once with its tool's repair)
+N2_GENS_N = 5   # ### b768, Component 4 (the Edit tool): K.GENS four (the repairs' planted controls, the groups c2 and c5, and the dispatch tool's bank, which joins GENS at its commit) and K.GENS_WITH_BANK one (the dispatch tool's controls, which rode once with its tool's repair); b767's ten not carried
 N2_REGEN = '### THE (W) REGENERATION'   # ### the regeneration printed in the face, before the lock gate
 N2_SECTIONS = ()
 N2_RIDERS = ('data/b768_steps.json', 'data/b768_address_scan_commits.txt')   # ### the step row and the per-commit scan, riding in every commit by the one-call tool

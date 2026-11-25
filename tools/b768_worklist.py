@@ -649,7 +649,15 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### close. The registration, the repairs bank, the misses read, the plan and the price table the seat's by the Write tool or a scratch
 # ### writer, the corrigendum the act module's c1 route, the dispatch rows and the targets the dispatch tool's routes, the reproduce bank
 # ### tools/research/reproduce.py's and the address scan's bank its standing route's: each stands apart
-GENS = ()   # ### b768: every tool of the act committed before the bank it wrote, (name, tool, its commits before the bank, bank, the bank's commit), set as made
+# ### b768, Component 4 (the Edit tool, before any run): b768's tools and banks, each row read from git (scratch gens768.py, read-only,
+# ### 00:44:31Z: each tool's commits since b767's close and its bank's last commit, data/b768_events.txt (106)); the dispatch tool's controls
+# ### bank in GENS_WITH_BANK (it rode once with the tool's repair, e7f39dc2); the dispatch tool's own bank joins GENS at its commit at the
+# ### close. The generators of the kernel's data files (tools/b768_packed_data.py, _far_data.py, _band_data.py and _arith_data.py) write
+# ### kernel files and no relay bank, so no row; the plan, the price table, the misses read, the repairs bank and the ceiling read the
+# ### seat's by the Write tool or a scratch writer, the corrigendum the act module's c1 route: each stands apart
+GENS = (('the repairs` planted controls', 'tools/b768_repair_controls.py', ('c17aaf34', '279e11fa', '2421d857', 'd7c06a39'), 'data/b768_repair_controls.txt', 'ea46d65a'),
+        ('the ledgers of group c2', 'tools/b768_rulings.py', ('1a18f7f5',), 'data/b768_ledgers_c2.txt', 'b0ba8314'),
+        ('the ledgers of group c5', 'tools/b768_rulings.py', ('1a18f7f5', 'a02dbe2a'), 'data/b768_ledgers_c5.txt', '243d4c0b'))
 GENS_B767 = ()   # ### b767's stand in git at tools/b767_worklist.py
 GENS_B766 = ()   # ### b766's eighteen stand in git at tools/b766_worklist.py
 GENS_B765 = ()   # ### b765's ten stand in git at tools/b765_worklist.py
@@ -662,7 +670,7 @@ GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 # ### b761: two banks of the sitting tool rode in a commit with a later state of their tool, each written by the tool as last committed before
 # ### the write (the tool committed before each run, (N2)): (name, tool, bank, the commit carrying both, the bank's commit as it stands at HEAD)
-GENS_WITH_BANK = ()   # ### b768: none yet
+GENS_WITH_BANK = (('the dispatch tool`s controls', 'tools/b768_controls.py', 'data/b768_controls_control.txt', 'e7f39dc2', '85f17b9a'),)   # ### b768: the bank of 17:04:19Z, written by the tool as committed at 26c49bdb, rode with the tool's repair of the import graph, e7f39dc2 (step 33, events (66)); written again by the tool at e7f39dc2 (17:11:15Z, 31 of 31, events (67)) and committed at 85f17b9a, its commit at HEAD (scratch gens768.py, 00:44:31Z)
 GENS_WITH_BANK_B767 = (('the dispatch tool`s controls', 'tools/b767_controls.py', 'data/b767_controls_control.txt', '4f4c7c07', 'c8416cec'),)   # ### b767: the bank of 14:26:06Z, written by the tool as committed at 922f34c4, rode with the tool's repair of defect (l), 4f4c7c07 (step 39); written again by the tool at bf9ce5c2 (15:46:50Z) and committed alone at c8416cec (step 46), its commit at HEAD (scratch gens767.py, 18:50:54Z)
 GENS_WITH_BANK_B766 = (('the pole data of L8', 'tools/b767_poledata.py', 'data/b767_poledata.txt', 'b9c3eca2', 'b9c3eca2'),)   # ### b766: written by the tool as committed at 01710c94 (16:19:19Z) and committed with the tool's repair (defect (k)), b9c3eca2 (scratch gens766.py)
 GENS_WITH_BANK_B765 = ()   # ### b765's: none
