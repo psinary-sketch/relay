@@ -732,7 +732,9 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('merge_tool', '8133f4b0'),   # ### step 17 ((4)(b); step 18 PLACE-papers')
          ('k30_ctl', '9faf0b1a'), ('k30', '84333f27'), ('k30_row', 'b2982d66'),   # ### steps 19-21, each from its step row
          ('wl_c2', '9f0ffc7a'),   # ### step 22: the worklist's constants of [K30] and the count of keys
-         ('rul_tool', '3290820d'), ('rul_fix', 'fbecfd83'))   # ### steps 23-24 (step 25 the papers` repository's); later commits appended as made
+         ('rul_tool', '3290820d'), ('rul_fix', 'fbecfd83'),   # ### steps 23-24 (step 25 the papers` repository's)
+         ('rul_c2_banks', '81163694'),   # ### step 26: the ledgers of group c2
+         ('arc_tool', '6d71764d'), ('arc_fix', 'fe96b145'))   # ### steps 27-28 (step 29 the papers` repository's); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -753,7 +755,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18 and 25: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS), b768's keys
+PP_CHAIN = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25 and 29: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
 PP_CHAIN_B766 = (('c1pp', '7a36f281'), ('c2pp', 'a183880f'), ('c3pp', '92108a44'), ('c4pp', '2d9d51ae'), ('c5pp', 'ff328d86'))
@@ -1096,7 +1098,7 @@ COEFF_LAND_BRANCH = ('push-b758-coeff', '630cba16e228a018f9dd986196142fc6feb704e
 C1_DEFECTS = ()   # ### the defects bank's commits
 C2_AMEND_RELAY = None        # ### no amendment this act
 C2_AMEND_PP = C1_TAG_PP      # ### (carried name)
-C2_PP = ('5cfb9577', '9aab5f65', 'd4808187')   # ### b769, Component 2: REGISTRY's block ((4)(a), step 15), SPIRAL_MAP.md's merge ((4)(b), step 18) and [X4] with [M5] in OPEN_TRAILS (step 25); appended as made (no reader in the act module at this setting)
+C2_PP = ('5cfb9577', '9aab5f65', 'd4808187', '4570c462')   # ### b769, Component 2: REGISTRY's block ((4)(a), step 15), SPIRAL_MAP.md's merge ((4)(b), step 18), [X4] with [M5] in OPEN_TRAILS (step 25) and the cluster's source record ((4)(d), step 29); appended as made (no reader in the act module at this setting)
 PRICE_LINE = 17400
 DOORS_COMMIT = None
 MECH_COMMIT = None
