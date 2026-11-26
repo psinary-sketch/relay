@@ -4774,7 +4774,9 @@ def _measure_r378(act=ACT):
             rep_.append(m_.group(1))
             if 'reads REPAIRED' in t_ and "no key's evidence" not in t_:
                 cnt_.append(m_.group(1))
-        if re.search(r'(?<!not )the class of a carried constant', t_, re.I):
+        # ### b769, Component 5, after the entry's second dry (the Edit tool): a row whose sentence stands it "beside the class of a carried
+        # ### constant ... and not in it" (b769's (g)) read as not of the class, as "not the class" is; the second dry had counted (g)
+        if re.search(r'(?<!not )(?<!beside )the class of a carried constant', t_, re.I):
             cc_.append(m_.group(1))
     return cnt_, rep_, cc_, all_
 
@@ -4946,7 +4948,7 @@ def _finding_text_b769(f, S, rep, tot):
              f['st_entering'], f['st_version'], len(K.STANDING_REPAIRS), sti_('REPAIRED'), sti_('READ AS DESIGNED'), sti_('REMOVED'), len(rs_['CARRIED']),
              ' '.join(ap_(r_['sentence']).rstrip('.') + '.' for r_ in f['reps'])), '',
          '**The registry’s block** ((R379)(4)(a), under [X1]): by tools/b769_registry_block.py, carried from tools/b766_registry_cells.py and committed before its run, the rows of '
-         'REGISTRY read again at the papers` repository’s head and one block written at the file’s end in the form of b761’s block, no row above it edited and no title changed: '
+         'REGISTRY read again at the papers’ repository’s head and one block written at the file’s end in the form of b761’s block, no row above it edited and no title changed: '
          '%d rows of %d tables read, KEYSTONE %d, the SUBJECT and TO KC cells of the %d numbered rows no earlier block reads, the author’s strikes on the four lists none, so each '
          'list as the tool reads it; its controls %d of %d and its guards %d of %d as wanted; written at REGISTRY :%d (relay data/b769_registry_block.txt). [X4] %s at %s.' % (
              rb_['rows'], rb_['tables'], rb_['keystone'], rb_['unread'], rb_['ctl'][0], rb_['ctl'][1], rb_['guards'][0], rb_['guards'][1], rb_['at'],
@@ -4964,7 +4966,7 @@ def _finding_text_b769(f, S, rep, tot):
          '(relay data/b769_archives.txt). [B1] at %s; [C9] at %s, row %s, the cluster’s home in Phase 1.2 by subject, workspace grade, its paper not yet written.' % (
              ar_['listed'], ar_['equal'], ar_['unequal'], ar_['scan'], arj_.get('rows') or ar_['members'], arj_.get('sha256') or '-', ar_['ctl'][0], ar_['ctl'][1],
              ar_['cond'][0], ar_['cond'][1], ln_('B1'), ln_('C9'), (gj_.get('c2b') or {}).get('c9_id') or '-'), '',
-         '**The errors of W-ORD-NOVEMBER-RIDERS entered** ((R379)(5)): by tools/b769_errata.py, committed before its run, each line an entry cites read at the papers` repository’s '
+         '**The errors of W-ORD-NOVEMBER-RIDERS entered** ((R379)(5)): by tools/b769_errata.py, committed before its run, each line an entry cites read at the papers’ repository’s '
          'head for the words it quotes, %d quoted phrases, %d carried; outputs/ read for a deposited copy holding a phrase, in the form of tools/b764_rulings.py deposit, %d files '
          'read, %d deposited, deposited copies holding a phrase for %s; the entries to file %d of %d; its controls %d of %d as wanted (relay data/b769_errata_read.txt). Filed at '
          'ERRATA’s end, each the navigator’s text ratified with the ruling, no line of a paper edited: %s; their fact items %s; [R3] at %s, the order standing for its scope '
@@ -4981,7 +4983,7 @@ def _finding_text_b769(f, S, rep, tot):
              wl_, wv_['rows'], wv_['ctl'][0], wv_['ctl'][1], zr_['asked'], zr_['answered'], len(zr_['redirected']), rd_, dr_['id'], dr_['status'], ap_(dr_['words']).lower(),
              ln_('V1')), '',
          '**The rulings entered** ((R379)(7)), each by the author’s ratification of its clause: [A4] at %s, one line for (a) to (e). The roster by tools/standing/orders.py’s rule: '
-         'open %d before the lines and %d after, %s added, W-ORD-MAP-MERGE closed by [M5]; at the papers` repository’s HEAD orders %d, open %d, closed %d (relay '
+         'open %d before the lines and %d after, %s added, W-ORD-MAP-MERGE closed by [M5]; at the papers’ repository’s HEAD orders %d, open %d, closed %d (relay '
          'data/b769_orders.txt).' % (
              ln_('A4'), f['led_roster'][0], f['ord_head'][1], ', '.join(f['led_roster'][2]) or 'none', f['ord_head'][0], f['ord_head'][1], f['ord_head'][2]), '',
          '**The ledgers** ((R379)(4)-(7)): by tools/b769_rulings.py (groups c2, c2b and c4) and tools/b769_errata.py (group c3), each committed before its run, each file’s bytes '
@@ -7471,7 +7473,7 @@ the lock, the records read back and the texts of (4) to (7) with the roster (REG
     # ------------------------------------------------------------------ CERTIFIED: (R379)(4)(a), the registry's block by its controls and guards
     sb_ = seat('%s_registry_block.txt' % ACT, '**THE REGISTRY`S BLOCK: ')
     keys['BLOCK'] = ('CERTIFIED -- THE REGISTRY’S BLOCK OF (4)(a), BY ITS CONTROLS AND GUARDS: tools/b769_registry_block.py committed before its run, %d rows of %d '
-                     'tables read at the papers` repository’s head, KEYSTONE %d, the cells of %d rows no earlier block reads, the author’s strikes none; controls %d of '
+                     'tables read at the papers’ repository’s head, KEYSTONE %d, the cells of %d rows no earlier block reads, the author’s strikes none; controls %d of '
                      '%d and guards %d of %d as wanted; written at REGISTRY :%d, no row above it edited. SOURCE %s.' % (
                          rb_['rows'], rb_['tables'], rb_['keystone'], rb_['unread'], rb_['ctl'][0], rb_['ctl'][1], rb_['guards'][0], rb_['guards'][1], rb_['at'], sb_['text']))
     seats.append(sb_)
