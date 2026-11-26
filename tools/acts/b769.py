@@ -4806,21 +4806,44 @@ TOOK_NOTES9 = {'(4)(b) merge': 'the second span the rulings tool’s group c2, [
 TOOK_WITHIN9 = {'(7) [A4]': 'within the span of (4)(c) [C9], the rulings tool’s group c2b entering it beside [B1] and [C9]'}
 
 
-GUARD_EVENT_RX = r"(?m)^    \((\d+)\) THE [A-Z ]+'S \[(?:CLAIM|CLOSE) ; [^\]]+\]: [^\n]*\bA SEND ENDED AT (?:A|THE) (?:\d+ s )?GUARD\b"
+GUARD_EVENT_RX = r"\bA SEND (?:THAT )?ENDED AT (?:A|THE) (?:\d+ s )?GUARD\b"
+GUARD_EVENT_HEAD = r"^    \((\d+)\) THE [A-Z ]+'S \[(?:CLAIM|CLOSE) ; [^\]]+\]: (.*)$"
 GUARD_EVENT_PLANT = ("    (1) THE TOOL'S [CLOSE ; NEW]: A SEND ENDED AT THE 590 s GUARD, SENT ONCE MORE UNDER 900 s.\n"
                      "    (2) THE TOOL'S [CLOSE ; REPEAT b768 events (23)]: A PRE-RUN PART PAST THE 590 s GUARD, A READING.\n"
-                     "     no send ended at a guard\n")
+                     "     no send ended at a guard\n"
+                     "    (3) THE HOOK'S [CLOSE ; NEW]: AN EDIT REFUSED, THE BANK STALE SINCE THE BLOCK FILE'S\n"
+                     "     WRITE, A SEND THAT ENDED AT A GUARD. Its body.\n"
+                     "    (4) THE SEAT'S [CLOSE ; NEW]: A ROW ON ANOTHER MATTER. Its body naming A SEND ENDED AT A GUARD, not its head.\n")
+
+
+def _event_heads(text_):
+    """Each events row's number and its whole head: the row's first line after its tag and the continuation lines (five spaces) joined
+    to it, cut at the head's first period before a space or the row's end. b769, at the touch read (events (93)): a head wraps where
+    the bank's lines wrap, as row (91)'s does."""
+    rows_, cur_ = [], None
+    for l_ in text_.replace(chr(13), '').split(NL):
+        m_ = re.match(GUARD_EVENT_HEAD, l_)
+        if m_:
+            cur_ = [m_.group(1), m_.group(2)]
+            rows_.append(cur_)
+        elif cur_ is not None and l_.startswith('     ') and l_.strip():
+            cur_[1] += ' ' + l_.strip()
+        else:
+            cur_ = None
+    return [(n_, re.split(r'\.(?:\s|$)', t_, 1)[0]) for n_, t_ in rows_]
 
 
 def _guard_events(act=ACT):
     """(R379)(9) and (10): the sends that ended at a guard as the events bank enters them ([K28] banks the second send beside the first in
-    the part's prev-mode bank, the pair one event and no defect): the act's events rows whose head line reads "A SEND ENDED AT THE <n> s
-    GUARD" (or "A GUARD"), the form an events row of such a send takes at b769. The planted control read first: of three planted lines
-    the one such head counted, a head naming the guard without a send ended at it and a continuation line saying none not counted; the
-    composer refuses where it reads otherwise. Returns the rows' numbers."""
-    if re.findall(GUARD_EVENT_RX, GUARD_EVENT_PLANT) != ['1']:
-        sys.exit('### THE READER OF THE SENDS ENDED AT A GUARD MISSES ITS PLANTED ROW -- NOTHING COMPOSED')
-    return re.findall(GUARD_EVENT_RX, rdn('%s_events.txt' % act).replace(chr(13), ''))
+    the part's prev-mode bank, the pair one event and no defect; a write the hook refused, the send ending at its guard, one event and no
+    defect by [U3]): the act's events rows whose head, read whole across its wrapped lines, reads "A SEND ENDED AT THE <n> s GUARD", "A
+    SEND ENDED AT A GUARD" or "A SEND THAT ENDED AT A GUARD". b769, at the touch read (events (93)): the reader read the head's first line
+    alone and the words without "THAT", so row (91)'s head, wrapped and in that wording, read 0. The planted control read first: of four
+    planted rows the two such heads counted, one of them wrapped, a head naming the guard without a send ended at it, a continuation line
+    saying none and a body naming the words not counted; the composer refuses where it reads otherwise. Returns the rows' numbers."""
+    if [n_ for n_, h_ in _event_heads(GUARD_EVENT_PLANT) if re.search(GUARD_EVENT_RX, h_)] != ['1', '3']:
+        sys.exit('### THE READER OF THE SENDS ENDED AT A GUARD MISSES ITS PLANTED ROWS -- NOTHING COMPOSED')
+    return [n_ for n_, h_ in _event_heads(rdn('%s_events.txt' % act)) if re.search(GUARD_EVENT_RX, h_)]
 
 
 def _finding_text_b769(f, S, rep, tot):
@@ -5028,8 +5051,8 @@ def _finding_text_b769(f, S, rep, tot):
          'row’s span from the row before it given to its own phase, the act’s step rows of every repository to this entry (relay data/b769_steps.json):' % r10h_, '',
          '| component | step rows | hours |', '| --- | ---: | ---: |'] + ['| %s | %d | %.2f |' % (p_, n_, h_) for p_, n_, h_ in sh_] + ['| all | %d | %.2f |' % (shn_, sht_), ''] + [
          'No dispatch at this act ((R379)(9), N1). The price table’s figures beside what each item took: %s (relay data/b769_price.txt, data/b769_steps.json); the rows past their '
-         'upper figure: %s, printed and asking no question ((R379)(3)). The hours [K29] took from the close: about %s h by the seat’s reading at step zero (the four parts’ %s s in '
-         'prev mode and %s s at the pre-run at b768, %s sends; relay data/b769_price.json), beside the seat’s reading of about %s for [K27]; the hours as the close reads them printed '
+         'upper figure: %s, printed and asking no question ((R379)(3)). The hours [K29] took from the close: about %s h by the seat’s reading at step zero (the four parts at b767, '
+         'the last act that ran them, %s s in prev mode and %s s at the pre-run, %s sends; relay data/b769_price.txt :34, data/b769_price.json), beside the seat’s reading of about %s for [K27]; the hours as the close reads them printed '
          'in the closing message. THE MEASURE, read at this act’s close: the hours from the lock to the closing, beside b768’s %s and b767’s %s, and the hours from the leading '
          'Component 5 row to the closing, beside b768’s %s, each printed in the closing message; the lettered defects tagged REPEAT whose class is a key that data/b767_repairs.txt or '
          'data/b768_repairs.txt reads REPAIRED, %d of the %d tagged REPEAT (%s), wanted 0; the lettered defects of the class a carried constant read with its previous meaning, %d '
