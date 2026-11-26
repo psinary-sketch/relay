@@ -1642,3 +1642,17 @@ COMPONENT 5:
      lockgate769_refused folder and read back equal, the originals removed. Defects (w) and (x) sent again after the move, in a message
      of their own, and landed. By [U3] the refusal takes no letter; by [K28] the send is entered as an event and no defect, and is
      counted in (R379)(10)'s measure of the sends that ended at a guard: 3 by the events bank with rows (91) and (98), beside b768's none.
+
+    (126) THE SEAT'S [CLOSE ; REPEAT b769 events (97)]: THE FOUR PROBE BANKS OUT OF THE INDEX, THEIR BYTES PUT BACK UNTRACKED; THE
+     PROBE-PATH REFUSAL CLEAR AGAIN. After relay 895c738c (step 69, 07:59:45Z, rows (123) to (125), defects (w) and (x) and the four
+     removals), its scan 8 of 8 AS WANTED, PLACES 240, every count 0, its subject read back EQUAL. Scratch move769.py, by verified
+     absolute paths under the relay's data/b769_ alone, each copy read back by sha256 before any removal: out (flag 07:59:09Z), the four
+     of 16,309, 15,032, 25,186 and 8,514 bytes, each equal to its blob at HEAD (sha256 20766134d51396d7, a799346d1c3fa181,
+     744a5608a312e651 and 82dd75c24a06c419), held in the scratchpad's probes769_held folder and read back equal, the working file
+     removed; the add (flag 07:59:16Z) staging the four removals with the rows, the staged set read by `git diff --cached --name-status`
+     (07:59:25Z: four deleted, four modified); the commit 895c738c; back (flag 08:00:08Z), each put back equal by sha256 and untracked,
+     as b768's stood. `tools/b769_prepaths.py --bank` (flag 08:00:19Z, captured by scratch cap767.py as prepaths769b.txt, 200 s, exit 0,
+     2 lines; the capture and the bank counted, 2 and 14 lines, no line flagged; the bank read whole): controls 4 OF 4 AS WANTED; no
+     tracked path is a probe output, 42,122 tracked paths read; THE PROBE-PATH REFUSAL : CLEAR (data/b769_pathrefusal.txt). The relay's
+     tracked changes by `git status` (08:03:53Z): the scan bank, the step rows and this bank, beside the never-staged refusals banks of
+     b764 and b765 and the terminal table's four files. Committed with this row before the lock gate's next run.
