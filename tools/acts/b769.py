@@ -1010,9 +1010,13 @@ CLOSING_SECTIONS = ('CORRIGENDUM ((R379)(1)-(2))',   # ### the template's headin
     # ### b768, Component 4 (the Edit tool, where b767's needles for b766's record stood under b768's name): (R378)(1), b767 at its weight
     # ### in the corrigendum's line, FINDINGS :16164 (PLACE-papers 9c43f4bb, step 6); the needles phrases of its head line, the json's title
     # ### (data/b768_corrigendum.json :4, read by the Grep tool, 01:09Z)
+    # ### b769, Component 5 (the Edit tool, the standing-a2 probe at 03:06:33Z failing the arm on b768's needles for b767's record carried
+    # ### under b769's name, defect (p)): (R379)(1), b768 at its weight in the corrigendum's line, FINDINGS :16247 (the papers` repository
+    # ### b382b95e, step 6); the needles phrases of its head line, the json's title (data/b769_corrigendum.json :4, read by the Read tool,
+    # ### 03:27Z)
     return landed(S if S['rl'] else dict(S, rl=jl('b769_corrigendum_landing.json')), 0,
-                  ['b768’s record, short', 'data/b768_events.txt rows (1)-(152)', 'data/b768_events_postseal.txt rows (153)-(168)',
-                   'data/b768_defects.txt (a)-(n’)', 'its nine CLAIM items printed in full', 'the ten findings after the lock entered as events with their times',
+                  ['b768’s record, short', 'data/b768_events.txt rows (1)-(178)', 'data/b768_events_postseal.txt rows (179)-(220)',
+                   'data/b768_defects.txt (a)-(g’)', 'its eleven CLAIM items printed in full', 'the thirteen findings after the lock entered as events with their times',
                    'the navigator’s claims entered as CLAIM'])
 #⟪END⟫
 #⟪SECTION checks 15⟫
@@ -1094,10 +1098,11 @@ REPORT_KEYS = ('CERTIFIED -- THE TWO KEYS OF (8), EACH BY ITS PLANTED CONTROL', 
                'REGISTERED -- THE DEPOSITED RECORDS READ BACK OF (6), ONE REQUEST A RECORD', 'REGISTERED -- THE TEXTS OF (4) TO (7) ENTERED, IN',
 #⟪END⟫
 #⟪SECTION checks 24⟫
-    """N1, N4, b769 ((R379)(9), N1: the dispatch cap 0, no dispatch of any kernel at this act; b759's form at a cap of none): no command of
-    a dispatch route in the capture (a workflow run, or an act tool's dispatch route, its dry included), no row of the dispatch bank of the
-    kinds dispatch, dispatch_refused or read, the worklist naming no run, no kind and no refused-send pin; no earlier act's rebuild, axiom
-    or lv route at all."""
+    """N1, N4, b769 ((R379)(9), N1: the dispatch cap 0, no dispatch of any kernel at this act; b751's form at a cap of none, b744's before
+    it, the clause after the template's memory and order reads taking the act with no row, defect (q)): no command of a dispatch route in
+    the capture (a workflow run, or an act tool's dispatch route, its dry included), no row of the dispatch bank of the kinds dispatch,
+    dispatch_refused or read, the worklist naming no run, no kind and no refused-send pin; no earlier act's rebuild, axiom or lv route at
+    all; the plant a dispatch row below the hold."""
 #⟪END⟫
 #⟪SECTION checks 25⟫
     seq_ = [r for r in rows if r.get('kind') in ('dispatch', 'read')]   # ### b768: the act's own rows, each dispatch and its read; the order read by the loop above, by run id
@@ -1116,7 +1121,10 @@ REPORT_KEYS = ('CERTIFIED -- THE TWO KEYS OF (8), EACH BY ITS PLANTED CONTROL', 
 #⟪SECTION checks 26⟫
         and not [r for r in rows if r.get('kind') == 'dispatch'] and sends_ok_ \
         and tuple(K.EF_RUNS) == () and tuple(K.M24_RUNS) == () and K.MAX_DISPATCHES == 0 and K.MAX_DISPATCHES_M24 == 0 and not K.MAX_DISPATCHES_KINDS \
-        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])]   # ### b769, N1 (before the lock, the Edit tool, 2026-11-25, where b768's cap of 40, its restore-on kind of 36 and its restore-off items stood): (R379)(9)'s cap 0, no run, no kind, none in SIDE-dirichlet-mod-24
+        and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])] \
+        or (not rows and not mem and not seq_ and sends_ok_ and tuple(K.EF_RUNS) == () and tuple(K.M24_RUNS) == ()
+            and K.MAX_DISPATCHES == 0 and K.MAX_DISPATCHES_M24 == 0 and not K.MAX_DISPATCHES_KINDS
+            and not [r for r in S['cmds'] if r['tool'] in ('Bash', 'PowerShell') and old.search(r['cmd'])])   # ### b769, N1 (before the lock, the Edit tool, 2026-11-25, where b768's cap of 40, its restore-on kind of 36 and its restore-off items stood): (R379)(9)'s cap 0, no run, no kind, none in SIDE-dirichlet-mod-24; Component 5 (the Edit tool, the standing-a2 probe at 03:06:33Z failing the arm, defect (q)): b751's clause for an act with no row, the template's bool(mem) and its wave 1 order asking a row this act has none of
 #⟪END⟫
 #⟪SECTION checks 27⟫
         and beyond == {'SIDE-archimedean': '1', 'SIDE-rcurve': '1', 'SIDE-spinor': '1', 'SIDE-frobenius': '3', 'SIDE-kernel': '1'} \
@@ -1581,7 +1589,13 @@ def research_reproduces_ok(S):
     ('G-RUNNER-READ', 'N1, (R379)(9): no dispatch of any kernel at this act -- the dispatch bank holding no row of the kinds dispatch, dispatch_refused or read; the worklist naming no run id (EF_RUNS and M24_RUNS empty), no kind, and both caps 0; the plant a dispatch row refused',
 #⟪END⟫
 #⟪SECTION checks 57⟫
-    ('G-RUNNER-GATE', 'N1, N4, (R379)(9): the cap 0 -- no command of a dispatch route in the capture (a workflow run, or an act tool`s dispatch route, its dry included), no dispatch, read or refused-send row, no refused send pinned by the tool, the worklist naming no run and no kind; no b721-b724 rebuild or axiom route this act',
+    ('G-RUNNER-GATE', 'N1, N4, (R379)(9): the cap 0 -- no command of a dispatch route in the capture (a workflow run, or an act tool`s dispatch route, its dry included), no dispatch, read or refused-send row, no refused send pinned by the tool, the worklist naming no run and no kind; no b721-b724 rebuild or axiom route this act; the plant a dispatch row below the hold refused',
+#⟪END⟫
+# ### b769, Component 5 (the Edit tool, defect (q)): the template's plant (checks.tpl :1779, its mark read by scratch mark769.py at
+# ### 03:30:14Z, one span) sets the free memory of the dispatch rows, and this act has none, so it would mutate nothing (b751's probe read
+# ### it VACUOUS, data/b751_probe_standing-a2.txt :59); the plant adds one dispatch row below the hold, which the act with no row refuses
+#⟪OVERRIDE checks MARK 9084f57ceffd 1⟫
+     lambda S: gate_ok(S), lambda S: put(S, 'rebuild_rows', (S['rebuild_rows'] or []) + [dict(kind='dispatch', item='(N1) planted', run=1, kernel='SIDE-explicit-formula', free_mb=100)])),
 #⟪END⟫
 #⟪SECTION checks 58⟫
     ('G-MERGES-ON-GATE', 'no kernel written ((R379)(9), (12); SIDE-explicit-formula`s main and tags read by G-OFFSET-POST-HOC): each repaired wave 1 kernel`s rebuild-b721 as b768 left it, beyond its pin by b723`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at the worklist`s EF_MAIN, ffefddc6, unmoved, and v0.37 unmoved; SIDE-lv-conservation`s deposit, port-b707 and v0.14.0 unmoved; the join kernel`s main and its one tag v0.1.0',
