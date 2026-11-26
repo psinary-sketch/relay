@@ -6509,7 +6509,9 @@ def _trail_text_b769():
                   f['figs']['correspondence'], f['figs']['readme'], f['figs']['partners'], f['figs']['pins'],
                   f['figs10']['correspondence'], f['figs10']['readme'], f['figs10']['partners'], f['figs10']['pins']), '',
               '**The sealed tools at the record:** %s.' % ', '.join('%s %s' % (t_, v) for t_, v in sh), '',
-              '**Resolved by the seat, for the author’s strike:** %s.' % _for_author(), '',
+              # ### b769, Component 5, after the trail's first dry (the Edit tool): the misses items carry the bank's possessive backtick ("the
+              # ### papers` repository", item (5)), which the trail printed alone (scratch trailnone769.py, 01:10:42Z: line 60); read through ap_
+              '**Resolved by the seat, for the author’s strike:** %s.' % ap_(_for_author()), '',
               '**Defects** (relay data/b769_defects.txt): %s.' % ('; '.join(_letters_now()) or 'none'), '',
               '**' + ' · '.join('%s %s' % (k2, _sv(S, k2)) for k2 in NK + SK) + '.** (the scores bank; the readings that waited, at the close)', '',
               '**Next:** %s.' % ap_(K.next_line()), '']
