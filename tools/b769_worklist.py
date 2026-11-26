@@ -767,7 +767,8 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('ceiling', '2285c3f7'),   # ### step 45: the ceiling read before the lock, the leading Component 5 row
          ('wl_ceiling', '3d1c13a5'), ('scan', '0fc68b3f'), ('entry_fix', '96ab72fd'), ('trail_fix', 'eab58d10'),   # ### steps 46-49, each from its step row (set at the touch read, events (93))
          ('face_tools', '849f9978'),   # ### step 50: the lock gate, face and probe-path tools carried and set before any run
-         ('touch_set', '5138210b'))   # ### step 51: the touch read's set (events (93)); later commits appended as made
+         ('touch_set', '5138210b'),   # ### step 51: the touch read's set (events (93))
+         ('touch_bank', '8df93b66'))   # ### step 52: the touch bank by hand (events (94)); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -847,7 +848,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b768`s findings after its lock and 
                     'entry_fix': 'the entry`s apostrophes and the carried-constant reader set after its second dry',
                     'trail_fix': 'the trail`s Resolved line read through the apostrophe after its first dry',
                     'face_tools': 'the lock gate, face and probe-path tools carried and set before any run',
-                    'touch_set': 'the chain given steps 46 to 50 and the measure`s events-bank reader and the [K29] sentence set at the touch read'})
+                    'touch_set': 'the chain given steps 46 to 50 and the measure`s events-bank reader and the [K29] sentence set at the touch read',
+                    'touch_bank': 'the touch bank by hand with its events row and the chain given the touch read`s set'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b768`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b768',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
                     'k26_ctl': 'the planted control tool of [K26]', 'k26': '[K26] repaired at tools/standing/ v1.38.26',
