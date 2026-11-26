@@ -568,7 +568,7 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None        # ### LEFT EMPTY BY (R379)(11): the standing clauses' bank not rewritten, the two keys standing in the repairs bank and its tool, so no rules bank of this act; data/b756_rules.txt's rows (a)-(c) in force (b768's clause (R378)(11) set to b769's before the lock)
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
-C1_CEILING = ''      # ### b769 (R379)(3): the ceiling read, set when banked
+C1_CEILING = '2285c3f7'      # ### b769 (R379)(3), Component 5 (the Edit tool): the ceiling read before the lock, data/b769_ceiling.txt, WITHIN THE CEILING, the close read at 20.26 h from the opening row (step 45, 00:54:19Z, events (79)); its readers searched first (Grep with -o, 00:58Z): checks 34 :1300-:1301 (the bank's blob at this commit and its last commit), and a kept b755 text at :6300 and :6303 that record 34's return for b769 passes by
 C1_CEILING_B768 = '03fd29f9'      # ### b768 (R378)(3), Component 5 (the Edit tool): the ceiling read before the lock, data/b768_ceiling.txt, WITHIN THE CEILING, the close read at 26.48 h from the opening row (step 78, 03:23:17Z, events (126)); its readers searched first (Grep with -o, 03:2xZ): checks 34 :1262-:1263 (the bank's blob at this commit and its last commit), and a carried finding text at :5578 and :5581
 C1_CEILING_B767 = '72861d88'      # ### b767 (R377)(3): the ceiling read before the lock, data/b767_ceiling.txt, WITHIN THE CEILING, the close forecast at 26.46 h from the opening row (step 68, 21:18:26Z, events (126))
 C1_CEILING_B766 = '15008621'      # ### b766 (R376)(3): the ceiling read after (4)(c), data/b766_ceiling.txt, UNDER BY 4.58 h, NOTHING CARRIED (step 26, 10:16:16Z, events (52)); the carry had left b765's LEFT EMPTY marker by (R375)(3)
@@ -762,7 +762,9 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('waves_tool', '5e4c4d98'), ('waves_fix', '3fed8ec7'),   # ### steps 37-38: tools/b769_waves.py and its version matcher's repair
          ('zen_tool', 'b9b16c6a'), ('zen_fix', '9138ba1d'),   # ### steps 39-40: the waves banks with tools/b769_zenodo.py, and its one-request rule
          ('rul_c4', 'e4d5ed97'),   # ### step 41: the records' and the draft's banks with the rulings tool's group c4 (step 42 the papers` repository's)
-         ('c4_banks', '3049b684'))   # ### step 43: the ledgers of group c4, Component 4 complete (scratch chainchk769.py, 22:25:24Z); later commits appended as made
+         ('c4_banks', '3049b684'),   # ### step 43: the ledgers of group c4, Component 4 complete (scratch chainchk769.py, 22:25:24Z); later commits appended as made
+         ('prelock', '6b951d93'),   # ### step 44: the pre-lock pass, under Component 4's phase word
+         ('ceiling', '2285c3f7'))   # ### step 45: the ceiling read before the lock, the leading Component 5 row
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -834,7 +836,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b768`s findings after its lock and 
                     'waves_tool': 'the waves tool committed before its run', 'waves_fix': 'the waves tool reads the version line in the first sixty lines',
                     'zen_tool': 'the waves banks and the Zenodo tool committed before any ask', 'zen_fix': 'the Zenodo tool follows no redirect and banks after each ask',
                     'rul_c4': 'the records and the draft read back and the rulings tool`s group c4', 'c4pp': '[V1] in OPEN_TRAILS',
-                    'c4_banks': 'the ledgers of group c4, Component 4 complete'})
+                    'c4_banks': 'the ledgers of group c4, Component 4 complete',
+                    'prelock': 'the pre-lock pass, the act module and worklist set to (R379) and the misses printed again',
+                    'ceiling': 'the ceiling read before the lock, within the ceiling'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b768`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b768',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
                     'k26_ctl': 'the planted control tool of [K26]', 'k26': '[K26] repaired at tools/standing/ v1.38.26',
