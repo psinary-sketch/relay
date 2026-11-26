@@ -205,6 +205,26 @@ def text_names(src):
     return out
 
 
+def margin(cur, R):
+    """the second shape: (the lines inside a block at the margin of an assignment's or a def's shape, the distinct tool:names on them,
+    those of them the reader read), with no string or statement read."""
+    L = io.open(os.path.join(ROOT, *cur.split('/')), encoding='utf-8').read().replace('\r', '').split(NL)
+    tool, n, names = None, 0, set()
+    for l in L:
+        m = SEC.match(l)
+        if m:
+            tool = m.group(2)
+            continue
+        if l.startswith('#⟪'):
+            tool = None if l.startswith('#⟪END') else tool
+            continue
+        mm = tool and (DEFN.match(l) or ASSIGN.match(l))
+        if mm:
+            n += 1
+            names.add('%s:%s' % (tool, mm.group(2) if DEFN.match(l) else mm.group(1)))
+    return n, len(names), len(names & set(R))
+
+
 def text_reads(code, refs, tool):
     """True where the code calls a reader or names a name of its own tool read so (refs: {tool: one pattern of those names})."""
     if any(reader_call(c) for c in CALL.findall(code)):
@@ -252,7 +272,7 @@ def classify(cur, prev, form, subs, ruling, stage_one):
         cited = any(cite.search(e[4]) for e in es)
         if nm not in P:
             out[nm] = ('RULED', 'new' + (', cited' if cited else ''), line)
-        elif [e[2] for e in es] != [e[2] for e in P[nm]]:
+        elif sorted(set(e[2] for e in es)) != sorted(set(e[2] for e in P[nm])):   # ### as sets: a line repeated (an import the carry wrote twice) is no move
             out[nm] = ('RULED', 'moved' + (', cited' if cited else ''), line)
         elif cited:
             out[nm] = ('RULED', 'cited', line)
@@ -263,7 +283,7 @@ def classify(cur, prev, form, subs, ruling, stage_one):
 
 PW0 = ['import json', "A = json.load(open('data/x.json'))", 'def _rows():', "    return open('data/y.txt').read()", '', '', 'B = _rows()', 'CAP = 0',
        'NL = chr(10)', "DATE = '2026-11-25'", 'Z = 1', "T = 'b998 tag'"]
-PW1 = PW0[:7] + ['CAP = 40', 'NL = chr(10)', "DATE = '2026-11-26'", '# ### (R999)(9): set by the ruling', 'Z = 1', "T = 'b999 tag'", "W = 'new'"]
+PW1 = ['import json'] + PW0[:7] + ['CAP = 40', 'NL = chr(10)', "DATE = '2026-11-26'", '# ### (R999)(9): set by the ruling', 'Z = 1', "T = 'b999 tag'", "W = 'new'"]
 WANT_W = dict(json='STANDING', A='READ', _rows='READ', B='READ', CAP='RULED', NL='STANDING', DATE='READ', Z='RULED', T='STANDING', W='RULED')
 PS0 = ['#⟪SECTION record 1⟫', 'CAP2 = 0', 'NL2 = chr(10)', "R2 = io.open('data/z.txt').read()", 'R3 = R2[:4]', "T2 = 'b998 x'", 'def f2():', '    """a docstring',
        'FAKE = 1', '    """', '    return 1', '    INNER = 3', '#⟪END⟫']
@@ -325,6 +345,8 @@ def run(mode):
         if form == 'text':
             tools = sorted(set(k.split(':')[0] for k in R))
             L.append('    the sections reader`s yield by tool: %s' % ' ; '.join('%s %d' % (t, sum(1 for k in R if k.startswith(t + ':'))) for t in tools))
+            L.append('    the second shape beside it: lines inside a block at the margin opening an assignment or a def %d, distinct names on them %d, '
+                     'read as names %d (the rest inside a triple-quoted string or a statement`s continuation)' % margin(cur, R))
     L.append('  IN ALL: names %d ; READ %d ; RULED %d ; STANDING %d' % (sum(tot.values()), tot['READ'], tot['RULED'], tot['STANDING']))
     for cur, prev, form, R in res:
         rr = sorted((v[2], k, v[1]) for k, v in R.items() if v[0] == 'RULED')
