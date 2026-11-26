@@ -773,7 +773,8 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('kernels_face', '2dcae3ae'),   # ### step 54: the probe-path refusal and the kernels face, record 1 set (events (97), (98), defect (n))
          ('kernels_again', '958a564f'),   # ### step 55: the kernels face again after the set (events (99))
          ('probe_act', '370420c7'),   # ### step 56: the act part's probe, two overrides set (events (100), defect (o))
-         ('probes_a', 'eddc4fa9'))   # ### step 57: the probes of the act part, standing-a1 and standing-a2, two arms set (events (101)-(103), defects (p), (q)); later commits appended as made
+         ('probes_a', 'eddc4fa9'),   # ### step 57: the probes of the act part, standing-a1 and standing-a2, two arms set (events (101)-(103), defects (p), (q))
+         ('mask_r', '0cbd368c'))   # ### step 58: the paths-written print masked for the archives of (4)(d) (events (104), (105), defect (r)); later commits appended as made
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -859,7 +860,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b768`s findings after its lock and 
                     'kernels_face': 'the probe-path refusal and the kernels face banked with the kernels route set to b769',
                     'kernels_again': 'the kernels face again after the set with its hash and the step rows and the scan bank',
                     'probe_act': 'the act part probe bank with the two overrides set to b769',
-                    'probes_a': 'the probes of the act part and standing-a1 and a2 with two carried arms set'})
+                    'probes_a': 'the probes of the act part and standing-a1 and a2 with two carried arms set',
+                    'mask_r': 'the paths-written print masked for the archives with standing-c read and the a1 and a2 banks again'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b768`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b768',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
                     'k26_ctl': 'the planted control tool of [K26]', 'k26': '[K26] repaired at tools/standing/ v1.38.26',

@@ -100,9 +100,30 @@ FIXES_B765 = (
 # ### the lock, each with its reason, set by hand from b769's probes and `tools/standing/prelock.py print b769` when they are run; None until
 # ### then, and main() refuses while DECLARED or DECLARED_LINES is None (the carry had left b768's under these names, kept below as
 # ### DECLARED_B768, DECLARED_LINES_B768 and NEWLY_B768, read by nothing).
-DECLARED = None
-DECLARED_LINES = None
-NEWLY = None
+# ### b769 (the Edit tool, 2026-11-26T05:09Z, after every part probed at 0cbd368c, the four held parts called and `tools/standing/prelock.py
+# ### print b769` at 05:06:23Z: arms read 116, failing 34, banks absent NONE, NEWLY FAILING 12; data/b769_events.txt (106), (107)): b768's
+# ### three stand, each ground read again at its line at 05:08Z before it was written, every file counted first (the probes of standing-a1
+# ### :20, :22, :23 and standing-a2 :38, :66, :68, :127; tools/b649_checks.py :452-:454; tools/standing/fold/checks.tpl :1784 and :1788;
+# ### tools/rule_arms.py :389, :617; tools/no_sorry_main.py :4-:11; data/b757_defects.txt (q) at :30; no data/b769_*cut* tracked or
+# ### untracked by `git ls-files`, 05:08:24Z; the sorry hits by kernel and folder in the probe of standing-a1 :22, 15 of 15 in
+# ### SIDEExplicitFormula/C2Field/). G-DELETES-ONE-BRANCH is not declared: (R379)(3)'s sentence is worded for tools/standing/allow.py :50
+# ### and its reader reads the five step-zero deletes inside the ruling (data/b769_events.txt (15)); at the act part's probe it reads the
+# ### command bank `record commands` writes, absent until that route runs before the lock (data/b769_events.txt (100); the probe of the act
+# ### part :29), as at b768's second probe (data/b768_events.txt (151)). NEWLY the twelve of the pre-lock print: b768's eleven
+# ### (data/b768_prelock.txt :3-:13) and G-DELETES-ONE-BRANCH, which b768's pre-run lists do not hold failing, as the comparison reads
+# ### them (tools/standing/prelock.py :72-:88). The [K10] line cites b769's Component 5 at the ferry's :179 (clause (9), :40, names it),
+# ### where the carry left b768's line number, :100. G-NO-SORRY-MAIN's clone cites row (97), the clone at main with no switch sent, and
+# ### the probe of standing-a1 :20, its pair read equal, where the carry left b768's rows.
+DECLARED = ('G-AXIOM-CLAIM', 'G-RULE-RECUT-QUOTE', 'G-NO-SORRY-MAIN')
+DECLARED_LINES = (
+    "### `G-AXIOM-CLAIM` reads 0 claims (tools/axiom_claim.py at standing-a1: CONTRADICTED 0, UNVERIFIABLE 0, VERIFIED 0, UNBOUND 0, MENTION 0; the probe of standing-a1 :23); its predicate (tools/b649_checks.py :452-:454, carried; the arm at tools/standing/fold/checks.tpl :1788) asks at least one row as well as none CONTRADICTED, so it fails on the empty reading, not on a contradiction (the probe of standing-a2 :68); tools/axiom_claim.py outside (W), no bank rewritten, carried as b768 declared it on its face.",
+    "### `G-RULE-RECUT-QUOTE` counts every data/b<act>_*cut.txt as a cut bank of a paper`s re-cut (tools/rule_arms.py :389) and wants a quotation-search bank for each (:617); b757 banked (R367)(8)(i)`s check as data/b757_cut.txt, a name the pattern takes, re-cut no paper and banked no search (data/b757_defects.txt (q)), so the arm reads \"acts with more cut banks than searches [757]\" (the probe of standing-a2 :38, :127), as at b768`s pre-run. b769 re-cuts no paper and banks neither a cut bank the pattern takes nor a quotation search (no data/b769_*cut* tracked or untracked, read 2026-11-26T05:08:24Z), so it adds to neither count, and the searches read failing NONE (:38). (R379) names neither the pattern nor b757`s bank, so neither is changed and no pushed bank is rewritten.",
+    "### `G-NO-SORRY-MAIN` wants each kernel`s remote main, its clone`s HEAD and its local main equal and no token `sorry` outside comments and strings in any file a lean_lib of its main reaches, any hit failing the arm (tools/no_sorry_main.py :4-:11; the arm at tools/standing/fold/checks.tpl :1784); it reads 23 kernels, pairs unequal 0, sorry in code 15 (the probe of standing-a1 :20, :22; standing-a2 :66), each a file of SIDE-explicit-formula`s SIDEExplicitFormula/C2Field/ folder (the probe of standing-a1 :22 by kernel and folder: 15 of 15), the fifteen b768 declared on its face. b769 touches no kernel and moves no kernel ref ((R379)(9), (12), N5): SIDE-explicit-formula`s main stands at ffefddc6 as b768 left it (the probe of standing-a1 :19), so the C2Field files stand on main as before and the count stands at b768`s 15; the kernel`s clone stood at main with no switch sent (data/b769_events.txt (97)), its pair read equal when standing-a1 ran (the probe of standing-a1 :20); the counter counts the text.",
+    "### An arm failing at step [7] on real state beyond these is printed with its time in the closing message and appended to the post-seal events bank at step [21] for the next corrigendum, not a letter (the ferry`s Component 5, data/b769_ferry.txt :179; (R374)(5) [K10], standing).",
+)
+NEWLY = ('G-ARMS-DECLARED-EQ-RUN', 'G-CLOSING-DRY-STEP', 'G-DELETES-ONE-BRANCH', 'G-DRY-STEP-CLEAN', 'G-GUARD-HELD', 'G-LOCKGATE-EIGHT',
+         'G-NOTHING-RAN-AHEAD', 'G-ROOTDRY-READY', 'G-RULE-SCORES-BEFORE-SEAL', 'G-SEAL-VERIFIES', 'G-SEALED-AFTER-COMPONENTS',
+         'G-WRITELIST-MIRROR-STATE')
 # ### b768's, as b768 wrote them (the carry shifting their names): b768 (the Edit tool, 2026-11-25T08:0xZ, after the six probes run, act,
 # ### standing-a1, a2, c, b1 and b3, and `tools/standing/prelock.py
 # ### print b768` at 08:00:56Z: arms read 116, failing 34, NEWLY FAILING 11, the four held parts' banks absent by [K27]): three of b767's
