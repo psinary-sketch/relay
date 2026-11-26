@@ -1628,6 +1628,15 @@ def research_reproduces_ok(S):
 #⟪OVERRIDE record MARK 8aa097f94edc 1⟫
     moved = [k for k, v in prev.items() if k in now and (now[k][0] != v[0] or now[k][1] != v[1]) and not (K.SITTING_TIPS.get(k, '').startswith(now[k][0]) and now[k][1] == v[1])]
 #⟪END⟫
+# ### b769, Component 5 (the Edit tool, defect (t)): the command bank's json kept every command whole (record.tpl :612, its mark read by
+# ### scratch mark769.py at 05:56:16Z, one span), and the papers` repository's add of step 29 (21:02:16Z) named the two archives of (4)(d)
+# ### by their own names in its command line, so data/b769_commands.json carried them, where (4)(d) keeps the relay to the manifest's
+# ### sha256 and its counts; each command banked with an archive under the folder of (4)(d), and any name of an archive's shape, read as
+# ### the folder and its role, every other character as before; the offences, deletes and outbound rows read from the commands before
+# ### the write, as the template reads them, and the text bank's first lines cut at 160 characters as before
+#⟪OVERRIDE record MARK ecfadf8a8582 1⟫
+    put_json('%s_commands.json' % ACT, dict(at=utc(), anchor=K.ANCHOR, rows=[(dict(r, cmd=re.sub(r'[A-Z][A-Z0-9_]{15,}\.zip', 'ARCHIVE_OF_4D_BY_MANIFEST', re.sub(r'(clusters/lean-archive-november-2026/)[^/\s"\']+\.zip', r'\1ARCHIVE_OF_4D_BY_MANIFEST', r['cmd']))) if isinstance(r.get('cmd'), str) else r) for r in rows],
+#⟪END⟫
 #⟪SECTION citation 1⟫
     # ### b769: (R379)'s rows, written at step zero in place of b768's carried rows (the carry's stub, its body in the carry's diff bank); each
     # ### needle read from the line it names before the row was written (scratch facts769.py a-f, read-only, 18:07Z-18:12Z; PLACE-papers lines
