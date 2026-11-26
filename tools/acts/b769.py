@@ -416,8 +416,11 @@ def runner_ok(S):
 # ### THE CHECK, ONE PER MESSAGE" (data/b767_stepzero.txt :27, :58), where the carry left b766's time and scratch name
 # ### b768, Component 5 (the Edit tool, the act part's probe at 05:38:27Z failing the arm on b767's carried time, defect (w)): "THE --MERGED
 # ### LISTING (13:00:03Z, scratch merged768.py)" and "THE REMOVALS, AFTER THE CHECK, ONE PER MESSAGE" (data/b768_stepzero.txt :26, :57)
+# ### b769, Component 5 (the Edit tool, the act part's probe at 02:43:37Z failing the arm on b768's carried time, defect (o), where
+# ### (R379)(9) names the time and scratch name as set at this act's step zero): "THE --MERGED LISTING (17:43:35Z, scratch merged769.py)"
+# ### and "THE REMOVALS, AFTER THE CHECK, ONE PER MESSAGE" (data/b769_stepzero.txt :19, :48)
 #⟪OVERRIDE checks MARK 3938376d9390 1⟫
-        and 'THE --MERGED LISTING (13:00:03Z, scratch merged768.py)' in z and 'THE REMOVALS, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
+        and 'THE --MERGED LISTING (17:43:35Z, scratch merged769.py)' in z and 'THE REMOVALS, AFTER THE CHECK' in z and all(b in z for b in NAMED_PUSH)
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's overrides of checks 1516 and 1659 (hook.py edited by b753's v1.4.0) removed -- v1.5.0 left
 # ### tools/standing/hook.py unedited (relay 7be1601c's files), so the template's lines (its blob at the act's base) read b754 as it stands
@@ -438,8 +441,11 @@ def runner_ok(S):
 # ### :5-:8; data/b767_events.txt (41)), where the carry left b766's 114
 # ### b768, Component 5 (the Edit tool, the act part's probe at 05:38:27Z failing the arm, defect (w)): the items set to b768's corrigendum's
 # ### 208 (CLAIM 9, CLOSE 199; data/b768_corrigendum.json; data/b768_events.txt (41)), where the carry left b767's 169
+# ### b769, Component 5 (the Edit tool, the act part's probe at 02:43:37Z failing the arm on b768's carried count, defect (o), where
+# ### (R379)(9) names the count as set at this act's corrigendum): the items set to b769's corrigendum's 253 (CLAIM 11, CLOSE 242;
+# ### data/b769_corrigendum.json :5-:8; data/b769_events.txt (45)), where the carry left b768's 208
 #⟪OVERRIDE checks MARK bcd4d281b141 1⟫
-    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 208 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
+    return bool(e) and fline(S, e) == conv(j.get('title') or '\x00') and j.get('items') == 253 == j.get('claim') + j.get('close') and evs == [] and dfs == [] \
 #⟪END⟫
 # ### b754, Component 4 (the Edit tool): b753's override of checks 1476-1482 (one ERRATA entry at b753's (R363)(5)) removed -- (R364)
 # ### orders no ERRATA entry; the template's arm (ERRATA.md byte-equal to its blob at the act's base, no id) reads b754 as it stands
