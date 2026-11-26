@@ -2134,13 +2134,17 @@ _K5_DEL = 'no kernel branch removed by this act; %s kept at %s, %s at %s and %s 
     _le1_ = {}
     for _g1_ in N3_GROUPS:
         _le1_.update((jl('%s_ledgers_%s.json' % (ACT, _g1_)) or {}).get('entered') or {})
-    print('  kernels read: %d (SIDE-explicit-formula at main %s, %s, %s peeling to %s as b768 cut it, %s by this act; this act`s branch '
-          '%s at %s, the closing Lean commit, cut from %s at %s; no kernel branch removed; the earlier branches kept: %s; '
+    # ### b769, Component 5 (the Edit tool, defect (n)): b768's sentence read the worklist's WEIL_BRANCH as this act's branch cut from
+    # ### WEIL_BRANCH_B767 at WEIL_BRANCH_BASE and WEIL_TAG_B767 as the tag the act before cut, where (R379)(9) cuts no branch and no tag and
+    # ### WEIL_BRANCH holds b768's push-b768-proof, written by nothing; set to b769's reading: v0.46 (WEIL_TAG_B768) as b768 cut it, no
+    # ### Lean branch cut, push-b768-proof b768's and kept with the earlier branches
+    print('  kernels read: %d (SIDE-explicit-formula at main %s, %s, %s peeling to %s as b768 cut it, %s by this act; no Lean branch '
+          'cut by this act ((R379)(9)): %s at %s, b768`s, written by nothing; no kernel branch removed; the earlier branches kept: %s; '
           'SIDE-dirichlet-mod-24 at main %s with %s peeling to %s, untouched)' % (
               len(ks), K.EF_MAIN[:8], 'moved to the closing Lean commit' if K.EF_MAIN[:8] == K.RUNNER_COMMIT[:8] else (
                   'unmoved, [C7]' if 'C7' in _le1_ else 'unmoved, [C8]' if 'C8' in _le1_ else 'unmoved'),
-              K.WEIL_TAG_B767[0], K.WEIL_TAG_B767[2][:8], ('%s cut at %s' % (K.WEIL_TAG[0], K.WEIL_TAG[2][:8])) if K.WEIL_TAG else 'no tag cut',
-              K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8], K.WEIL_BRANCH_B767[0], K.WEIL_BRANCH_BASE[:8],
+              K.WEIL_TAG_B768[0], K.WEIL_TAG_B768[2][:8], ('%s cut at %s' % (K.WEIL_TAG[0], K.WEIL_TAG[2][:8])) if K.WEIL_TAG else 'no tag cut',
+              K.WEIL_BRANCH[0], K.WEIL_BRANCH[1][:8],
               ', '.join('%s at %s' % (b_, s_[:8]) for b_, s_ in (K.WEIL_BRANCH_B767, K.WEIL_BRANCH_B766, K.WEIL_BRANCH_B765, K.WEIL_BRANCH_B764, K.ARITH_BRANCH_B763, K.ORDER_BRANCHES_B763[1],
                                                                   K.WEIL_BRANCH_B763, K.ORDER_BRANCHES_B763[0])),
               K.M24_MAIN[:8], K.M24_TAG[0], K.M24_TAG[2][:8]))
