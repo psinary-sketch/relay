@@ -779,7 +779,8 @@ CHAIN = (('c1', 'be44c7ad'), ('corr', '1c4e6109'),
          ('handoff', 'fdd92da2'),   # ### step 60, HANDOFF.md alone: placed in CHAIN at its time, as b768's, relay commits following it before the gate; later commits appended as made
          ('handoff_set', '9b5da731'),   # ### step 61: the worklist's HANDOFF_COMMIT and chain (events (110))
          ('record_banks', '7d6217d1'),   # ### step 62: the record's banks, rows (111) to (114), defect (s) (events (111)-(114))
-         ('w_rows', '416c51f7'))   # ### step 63: the face's (W) rows and the command bank's mask, row (115), defect (t) (events (115))
+         ('w_rows', '416c51f7'),   # ### step 63: the face's (W) rows and the command bank's mask, row (115), defect (t) (events (115))
+         ('face_chain', 'e95595f1'))   # ### step 64: the face, the chain, the prev-mode and score dry banks, rows (116)-(118) (events (118), (120))
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -871,7 +872,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b768`s findings after its lock and 
                     'handoff': 'the handoff page written once by its tool',
                     'handoff_set': 'the worklist given HANDOFF_COMMIT and the chain to fdd92da2 with row 110',
                     'record_banks': 'the record banks and rows (111) to (114) with defect (s), the block file and the (W) bank',
-                    'w_rows': 'the (W) rows and the command bank mask with row (115) and defect (t)'})
+                    'w_rows': 'the (W) rows and the command bank mask with row (115) and defect (t)',
+                    'face_chain': 'the face and the chain with rows (116) to (118), the prev-mode and score dry banks and the masked command bank'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b768`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b768',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
                     'k26_ctl': 'the planted control tool of [K26]', 'k26': '[K26] repaired at tools/standing/ v1.38.26',
