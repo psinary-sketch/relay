@@ -542,7 +542,7 @@ B714_RECORD = 'b5c98385'     # ### b769's record commit (relay)
 B714_ROOT = '14ebaf2f7e6633aca40602902b3f163ca9d09c038d53753ccc32fb1467d63ba3'   # ### b769's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '2b666a38'  # ### b769's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = None           # ### (R380)(8): [K31], [K32] and [K33] in Component 1 before the opening pass; VERSION with each; set as made
+C1_STANDING = ('60e769a5',)   # ### (R380)(8): [K31] v1.38.31 (step 16, 23:19:58Z); [K32] and [K33] in Component 1 before the opening pass, appended as made; VERSION with each; a tuple, as checks 9 reads it (b765's form)
 C1_LOCKGATE = ''     # ### b770: tools/b770_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B769 = ''     # ### b769: tools/b769_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B768 = ''     # ### b768: tools/b768_lockgate.py carried and its cite set, committed before any run, set when made
@@ -559,7 +559,7 @@ C4_STANDING = None                 # ### none
 C1_RELAY = '767a8641'        # ### b770: the c1 route, events rows (31)-(50) and the worklist's STEPZERO_BANKS, committed before any run of it (step 11, 23:03:51Z)
 C1_CEILING_TOOL = ()         # ### b765: no ceiling tool -- the ceiling read at step zero in the price table and after Component 2 by a read-only scratch (events (52), 14:13:35Z), banked in no file
 C1_CEILING_TOOL_B764 = ('542354bf',)   # ### b764's, kept beside
-C1_CORR = ''         # ### b770: the corrigendum banks for b769 (Component 1), set when made
+C1_CORR = '4d274231'         # ### b770: the corrigendum banks for b769, data/b770_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (90), with events rows (51)-(52) and the worklist (step 13, 23:09:58Z); its readers checks 8 and the record's composers
 C1_CORR_B769 = '1c4e6109'         # ### b769: the corrigendum banks, data/b769_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (89) (step 7, 19:10:21Z, git show --name-only); b769, before the lock (the Edit tool, 2026-11-26): set where Component 1 left it empty, its readers checks 8 and the record's composers
 C1_CORR_B768 = '1ddea88d'         # ### b768: the corrigendum banks, data/b768_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (88) (step 7, 14:24:20Z)
 C1_CORR_B767 = 'ea50f0ee'         # ### b767: the corrigendum banks, data/b767_corrigendum.txt, .json, the landing bank and the corrigenda bank's row (87) (step 8, 09:34:31Z)
@@ -762,7 +762,8 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b769_repair_cont
 # ### b766's keys stand in git at tools/b766_worklist.py
 # ### b768, Component 1 (the Edit tool): the act's relay commits after step zero's banks (850b09d5, step 4), in their order, each read from
 # ### its step row (steps 5 and 7), appended as made; b767's stands in git at tools/b767_worklist.py
-CHAIN = ()   # ### b770: the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
+         ('k31_ctl', '14221add'), ('price_foot', '90085aff'), ('k31', '60e769a5'), ('k31_row', '99a723a1'))   # ### b770: steps 11 and 13-17, each from its step row (step 12 the papers` repository's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -783,7 +784,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = ()   # ### b770: the act's PLACE-papers commits in their order, appended as made
+PP_CHAIN = (('c1pp', '11fe9707'),)   # ### b770: the act's PLACE-papers commits in their order, appended as made (step 12, the corrigendum at FINDINGS :16329)
 PP_CHAIN_B769 = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'), ('c2pp_c2b', '41170e41'), ('c3pp', '5111e451'), ('c4pp', '3deb3dca'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25, 29, 32, 35 and 42: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record, [B1] and [A4] with [C9], the four entries of ERRATA with [F2]-[F5] and [R3], [V1]), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
@@ -1022,7 +1023,7 @@ CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b769`s findings after its lock and
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = ()   # ### b770 (R380)(8): [K31], [K32] and [K33], three commits of tools/standing/, each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b770_repair_controls.txt), set as made
+STANDING_REPAIRS = (('[K31]', 'v1.38.31', '60e769a5', '99a723a1', 26),)   # ### b770 (R380)(8): [K31] (steps 16-17); [K32] and [K33] appended as made, three commits of tools/standing/, each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b770_repair_controls.txt), set as made
 STANDING_REPAIRS_B769 = (('[K29]', 'v1.38.29', '48ccc5c7', '28be31c6', 32), ('[K30]', 'v1.38.30', '84333f27', 'b2982d66', 53))   # ### b769 (R379)(8): [K29] (steps 10-11, Component 1) and [K30] (steps 20-21, Component 2, after (4)(b)'s control read as wanted), two commits of tools/standing/; each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b769_repair_controls.txt), b768's form
 STANDING_REPAIRS_B768 = (('[K26]', 'v1.38.26', '70aefe23', 'ec61c120', 31), ('[K27]', 'v1.38.27', '690c4238', 'b5e8b01c', 62),
                     ('[K28]', 'v1.38.28', 'a7d37ec2', 'ea46d65a', 81))   # ### b768 (R378)(8): [K26], [K27] and [K28], each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b768_repair_controls.txt), read from the step rows (steps 10-11, 13-14, 17-18) and the controls bank's feet
