@@ -542,7 +542,7 @@ B714_RECORD = 'b5c98385'     # ### b769's record commit (relay)
 B714_ROOT = '14ebaf2f7e6633aca40602902b3f163ca9d09c038d53753ccc32fb1467d63ba3'   # ### b769's root, data/act_roots.txt's last row
 B723_ROOT_BANKS = '2b666a38'  # ### b769's root commit, the banks its root rode with
 # ### later stages: the commits of the components, read from the logs after each was made (None until made)
-C1_STANDING = ('60e769a5',)   # ### (R380)(8): [K31] v1.38.31 (step 16, 23:19:58Z); [K32] and [K33] in Component 1 before the opening pass, appended as made; VERSION with each; a tuple, as checks 9 reads it (b765's form)
+C1_STANDING = ('60e769a5', '75a8c747')   # ### (R380)(8): [K31] v1.38.31 (step 16, 23:19:58Z); [K32] v1.38.32 (step 20, 23:49:51Z); [K32] and [K33] in Component 1 before the opening pass, appended as made; VERSION with each; a tuple, as checks 9 reads it (b765's form)
 C1_LOCKGATE = ''     # ### b770: tools/b770_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B769 = ''     # ### b769: tools/b769_lockgate.py carried and its cite set, committed before any run, set when made
 C1_LOCKGATE_B768 = ''     # ### b768: tools/b768_lockgate.py carried and its cite set, committed before any run, set when made
@@ -763,7 +763,8 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b769_repair_cont
 # ### b768, Component 1 (the Edit tool): the act's relay commits after step zero's banks (850b09d5, step 4), in their order, each read from
 # ### its step row (steps 5 and 7), appended as made; b767's stands in git at tools/b767_worklist.py
 CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
-         ('k31_ctl', '14221add'), ('price_foot', '90085aff'), ('k31', '60e769a5'), ('k31_row', '99a723a1'))   # ### b770: steps 11 and 13-17, each from its step row (step 12 the papers` repository's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+         ('k31_ctl', '14221add'), ('price_foot', '90085aff'), ('k31', '60e769a5'), ('k31_row', '99a723a1'),
+         ('wl_k31', '04c35afa'), ('k32_ctl', 'af2d623a'), ('k32', '75a8c747'), ('k32_row', '4f318345'))   # ### b770: steps 11 and 13-21, each from its step row (step 12 the papers` repository's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -1023,7 +1024,7 @@ CHAIN_WORDS_B765 = ({'c1': 'the c1 route with b769`s findings after its lock and
 # ### carrying its row and its control, the control's verdict line in data/b765_repair_controls.txt), read from data/b765_repairs.txt, the
 # ### controls bank's feet and the step rows (scratch steprows765.py, 15:3xZ); [R4] has no row in the repairs bank, its control alone, as
 # ### b764's [R7]
-STANDING_REPAIRS = (('[K31]', 'v1.38.31', '60e769a5', '99a723a1', 26),)   # ### b770 (R380)(8): [K31] (steps 16-17); [K32] and [K33] appended as made, three commits of tools/standing/, each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b770_repair_controls.txt), set as made
+STANDING_REPAIRS = (('[K31]', 'v1.38.31', '60e769a5', '99a723a1', 26), ('[K32]', 'v1.38.32', '75a8c747', '4f318345', 49))   # ### b770 (R380)(8): [K31] (steps 16-17), [K32] (steps 20-21); [K32] and [K33] appended as made, three commits of tools/standing/, each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b770_repair_controls.txt), set as made
 STANDING_REPAIRS_B769 = (('[K29]', 'v1.38.29', '48ccc5c7', '28be31c6', 32), ('[K30]', 'v1.38.30', '84333f27', 'b2982d66', 53))   # ### b769 (R379)(8): [K29] (steps 10-11, Component 1) and [K30] (steps 20-21, Component 2, after (4)(b)'s control read as wanted), two commits of tools/standing/; each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b769_repair_controls.txt), b768's form
 STANDING_REPAIRS_B768 = (('[K26]', 'v1.38.26', '70aefe23', 'ec61c120', 31), ('[K27]', 'v1.38.27', '690c4238', 'b5e8b01c', 62),
                     ('[K28]', 'v1.38.28', 'a7d37ec2', 'ea46d65a', 81))   # ### b768 (R378)(8): [K26], [K27] and [K28], each (key, version, commit, the commit carrying its row and its control, the control's verdict line in data/b768_repair_controls.txt), read from the step rows (steps 10-11, 13-14, 17-18) and the controls bank's feet
