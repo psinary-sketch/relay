@@ -1,0 +1,33 @@
+b769 -- THE CEILING READ BEFORE THE LOCK, (R379)(3): 30 HOURS FROM THE OPENING ROW, 16 OF THEM IN RESERVE FOR THE RECORD AND THE CLOSE, READ-ONLY (2026-11-26T00:53:48Z)
+
+## THE CONTROLS
+  (1) the table read whole by its own rule (data/b769_price.txt :27): step zero 1.05 h plus its 12 rows each as read at its kind, against its lower sum 17.79: 17.79 -> AS WANTED
+  (2) the opening row read from the step rows (step 1, relay 511040d1, 17:55:04) against the table`s opening row 17:55:04 -> AS WANTED
+  (3) each item of (4) to (6) entered by a commit of the step rows (7 of 7; commits not in the rows none), the last at 22:12:04, each at or before the bar 2026-11-26T07:55:04Z (14 h): past the bar 0 -> AS WANTED
+  (4) each row named done is a row of the table: named 11, absent 0 [] ; left 1 (close) -> AS WANTED
+  (5) PLANTED: a read 6.00 h later moves the spent hours and the close by 6.00 h each (6.98 -> 12.98 ; 20.26 -> 26.26), and a read at 18.00 h prints "THE ACT WOULD PASS 30 h AT ITS CLOSE" (the close at 31.28 h) -> AS WANTED
+  (6) PLANTED: an item of (4) to (6) entered 57 s past the bar read as past it: 1 -> AS WANTED
+
+## THE ROWS DONE, BY NAME (each row of (1), (4) to (8) ended; the hours they took stand in the spent hours, each beside its price in the report of (10))
+  (1)                    the corrigendum, PLACE-papers b382b95e, FINDINGS :16247 (events (45))
+  (8) [K29]              relay 48ccc5c7, v1.38.29, its planted control AS WANTED (events (47))
+  (4)(a) block           the registry`s block at REGISTRY :1340, PLACE-papers 5cfb9577; [X4] WRITTEN, PLACE-papers d4808187 (events (51), (59))
+  (4)(b) merge           SPIRAL_MAP.md merged, 93 of 93 present, PLACE-papers 9aab5f65; [M5] DISCHARGED, PLACE-papers d4808187 (events (54), (59))
+  (8) [K30]              relay 84333f27, v1.38.30, its planted control AS WANTED (events (56))
+  (4)(c) [C9]            REGISTRY :1567 as 1.5a-11, PLACE-papers 41170e41 (events (62))
+  (4)(d) archives        the two archives and MANIFEST.txt, PLACE-papers 4570c462; [B1] ENTERED, PLACE-papers 41170e41 (events (60), (62))
+  (7) [A4]               [A4] at OPEN_TRAILS :19509, PLACE-papers 41170e41 (events (62))
+  (5) errata             ERRATA E-2026-11-25-1 to -4 with [F2] to [F5] and [R3], PLACE-papers 5111e451 (events (63))
+  (6) waves              data/b769_waves.txt, relay b9b16c6a (events (65))
+  (6) records            data/b769_zenodo_read.json and data/b769_draft_read.txt, relay e4d5ed97; [V1], PLACE-papers 3deb3dca (events (69), (70))
+
+## THE ROWS LEFT, AT THE TABLE`S FIGURES (data/b769_price.json)
+  close                  13.28 h (upper 16.00 h ; dispatches 0-0)
+
+## THE READING
+  spent from the opening row (2026-11-25T17:55:04Z, step 1) to 2026-11-26T00:53:48Z: 6.98 h
+  the last item of (4) to (6) entered: (6) records, its row 22:12:04 (pp 3deb3dca), 4.28 h from the opening row and 2.70 h before this read; none after the bar of (3) at 2026-11-26T07:55:04Z (14 h); no dispatch at this act ((R379)(9)), so no step dispatch is read
+  left: 23.02 h of 30 h, the reserve 16 h within what is left
+  the close at the table`s close row from this read (data/b769_price.txt :26: b768`s rows from its first Component 5 row to its closing, at the kind [K27] gave it and [K29] gives this act): its first Component 5 row to its lock 8.430 h, its lock to its closing 4.850 h (b768`s), 13.28 h in all: the lock at 15.41 h and the close at 20.26 h from the opening row; at the reserve`s 16 h, 22.98 h: within the ceiling
+
+### ### **THE CEILING READ BEFORE THE LOCK ((R379)(3), read-only, 00:53:48Z): SPENT 6.98 h FROM THE OPENING ROW ; THE LAST ITEM OF (4) TO (6) ENTERED AT 22:12:04Z, 4.28 h FROM THE OPENING ROW ; LEFT 23.02 h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b768`S 4.85 h FROM ITS LOCK, 20.26 h FROM THE OPENING ROW ; WITHIN THE CEILING.**
