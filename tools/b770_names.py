@@ -23,6 +23,7 @@ and the act's), each name of each class read as planted, a name inside a docstri
   control  prints the controls; writes nothing
   dry      the controls and the bank printed; writes nothing
   write    the same, then data/b770_names.txt (refused where it stands)
+  again    the same over a standing bank, the earlier bank named in the new one's head by its digest, its time and its totals
 """
 import ast
 import io
@@ -164,6 +165,21 @@ def code_of(text):
     return ' '.join(re.sub(r'#.*$', '', l) for l in t.split(NL)).split()
 
 
+def opening(L, i):
+    """the quote a block opens inside: '' where its triple quotes close from a closed start; else the triple quote that closes them from
+    an open one (a block the template opens inside a docstring, its closing quote among its lines -- b770's residue, record 34)."""
+    j = i + 1
+    while j < len(L) and not L[j].startswith('#⟪'):
+        j += 1
+    for q in ('', '"""', "'''"):
+        tq = q
+        for k in range(i + 1, j):
+            tq = scan(L[k], tq)[1]
+        if not tq:
+            return q
+    return ''
+
+
 def text_names(src):
     """{tool:name: [(line, kind, code, None, cite text)]} of a sections file's names at the left margin."""
     L = src.replace('\r', '').split(NL)
@@ -172,7 +188,7 @@ def text_names(src):
         l = L[i]
         m = SEC.match(l)
         if m:
-            tool, tq, i = m.group(2), '', i + 1
+            tool, tq, i = m.group(2), opening(L, i), i + 1
             continue
         if l.startswith('#⟪'):
             tool = None if l.startswith('#⟪END') else tool
@@ -289,7 +305,10 @@ PS0 = ['#⟪SECTION record 1⟫', 'CAP2 = 0', 'NL2 = chr(10)', "R2 = io.open('da
        'FAKE = 1', '    """', '    return 1', '    INNER = 3', '#⟪END⟫']
 PS1 = ['#⟪SECTION record 1⟫', 'CAP2 = (36,', '        0)', 'NL2 = chr(10)   # ### (R998) a cite of an older ruling', "R2 = io.open('data/z.txt').read()",
        'R3 = R2[:4]', "T2 = 'b999 x'", 'def f2():', '    """a docstring', 'FAKE = 1', '    """', '    return 1', '    INNER = 3', '#⟪END⟫']
-WANT_S = {'record:CAP2': 'RULED', 'record:NL2': 'STANDING', 'record:R2': 'READ', 'record:R3': 'READ', 'record:T2': 'STANDING', 'record:f2': 'STANDING'}
+PS_IN = ['#⟪SECTION record 2⟫', '    the end of a docstring the template opened."""', 'G2 = 1', '#⟪END⟫']   # ### a block opening inside a string
+PS0, PS1 = PS0 + PS_IN, PS1 + PS_IN
+WANT_S = {'record:CAP2': 'RULED', 'record:NL2': 'STANDING', 'record:R2': 'READ', 'record:R3': 'READ', 'record:T2': 'STANDING', 'record:f2': 'STANDING',
+          'record:G2': 'STANDING'}
 
 
 def controls():
@@ -298,7 +317,7 @@ def controls():
     gw = dict((k, v[0]) for k, v in w.items())
     gs = dict((k, v[0]) for k, v in s.items())
     return [('a planted worklist pair: %s' % ' ; '.join('%s %s' % (k, gw.get(k, 'ABSENT')) for k in sorted(WANT_W)), gw == WANT_W and w['DATE'][1] == 'step zero'),
-            ('a planted sections pair: %s ; names read %d (FAKE in a docstring and INNER indented read as none)' % (
+            ('a planted sections pair: %s ; names read %d (FAKE in a docstring and INNER indented read as none; G2 after a block`s opening inside a string read)' % (
                 ' ; '.join('%s %s' % (k.split(':')[1], gs.get(k, 'ABSENT')) for k in sorted(WANT_S)), len(gs)), gs == WANT_S)]
 
 
@@ -330,6 +349,15 @@ def run(mode):
          '### names at the left margin keyed by tool) classed READ (its value from git or a bank at run time, or a stage-one value set so at step',
          '### zero, counted apart), RULED (else, its value differing from b768`s after the substitution, new at b769, or cited to (R379)) or',
          '### STANDING (neither); the predicate is the tool`s docstring; no line of either module printed but its names.', '', '## THE CONTROLS']
+    if mode == 'again':   # ### the earlier bank named in this one's head, by its digest, its time and its totals
+        import hashlib
+        ob = open(BANK, 'rb').read()
+        ot = ob.decode('utf-8').split(NL)
+        last = [x for x in ot if x.startswith('### ### ')]
+        L[6:6] = ['### WRITTEN AGAIN over the earlier bank (sha256 %s, written %s), whose residue was read by hand after it was written: its' % (
+                      hashlib.sha256(ob).hexdigest()[:16], (re.findall(r'\((\d{4}-[\d-]+T[\d:]+Z)\)$', ot[0]) or ['at no time read'])[0]),
+                  '### sections reader read a block that opens inside a docstring (record 34) as opening a string, so the names after that block`s',
+                  '### closing quote went unread; its totals: %s' % (last[-1][8:].strip('*') if last else 'none')]
     L += ['  %-150s %s' % (t, 'AS WANTED' if ok else 'NOT AS WANTED') for t, ok in ctl]
     L += ['', '## THE COUNTS']
     tot = dict(READ=0, RULED=0, STANDING=0)
@@ -353,16 +381,18 @@ def run(mode):
         L += ['', '## THE NAMES CLASSED RULED, %s (%d), by line: the name -- why' % (cur, len(rr))]
         L += ['  :%d %s -- %s' % x for x in rr]
     L += ['', '### ### **THE NAMES CLASSED: NAMES %d ; READ %d ; RULED %d ; STANDING %d ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
-        sum(tot.values()), tot['READ'], tot['RULED'], tot['STANDING'], n_ok, len(ctl), 'DRY, NOTHING WRITTEN' if mode == 'dry' else 'WRITTEN')]
+        sum(tot.values()), tot['READ'], tot['RULED'], tot['STANDING'], n_ok, len(ctl), 'DRY, NOTHING WRITTEN' if mode == 'dry' else ('WRITTEN AGAIN' if mode == 'again' else 'WRITTEN'))]
     text = NL.join(L) + NL
     if guard_ids(text):
         die('AN IDENTIFIER IN THE COMPOSED BANK')
     print(text)
-    if mode == 'write':
+    if mode in ('write', 'again'):
         if n_ok != len(ctl):
             die('CONTROLS %d OF %d' % (n_ok, len(ctl)))
-        if os.path.exists(BANK):
+        if os.path.exists(BANK) and mode == 'write':
             die('data/b770_names.txt STANDS')
+        if mode == 'again' and not os.path.exists(BANK):
+            die('`again` WITH NO BANK STANDING')
         import act_membrane as MEM
         try:
             import b770_record as REC
@@ -378,6 +408,6 @@ def run(mode):
 
 if __name__ == '__main__':
     m = sys.argv[1] if len(sys.argv) > 1 else ''
-    if m not in ('control', 'dry', 'write'):
+    if m not in ('control', 'dry', 'write', 'again'):
         sys.exit(__doc__)
     run(m)
