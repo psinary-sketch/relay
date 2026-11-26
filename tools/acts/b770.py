@@ -2227,14 +2227,16 @@ def _trail_resolved(text):
     if not isinstance(prj_, dict) or not prj_.get('rows'):
         sys.exit('### data/%s_price.json DOES NOT CARRY ITS ROWS -- NOTHING COMPOSED' % ACT)
     prow_ = dict((r_['key'], r_) for r_ in list(prj_['rows']) + list(prj_.get('beside') or []))
-    # ### b770, Component 1 (the Edit tool, after [K29]'s first standing dry, 19:21:34Z, NOT CLEAN on this line, the class of b767 events
-    # ### (42)): the price table's foot read in b770's own form (data/b770_price.txt :42), where the pattern carried from b769 read its
-    # ### dispatches, its restore and its Lean lines -- (R380)(9) sets the dispatch cap at 0 and the act writes no Lean; ten figures in the
-    # ### foot's order (step zero, the lower sum, the ceiling, the upper sum, the dispatches, the last item begun, the growth cut's two hours
-    # ### and its saving, [K29]'s hours), handed on in record 5; the texts that print them rewritten with section 4 at Component 5.
+    # ### b770, Component 1 (the Edit tool, 2026-11-26, before [K31]'s standing dry, as b769's events (46) found its carried reader halting the
+    # ### dry): the price table's foot read in b770's own form (data/b770_price.txt :69), where the pattern carried from b769 read b769's foot
+    # ### (one dispatch figure, NO LEAN, the growth cut and [K29]'s hours) -- (R380)(9) sets the cap at 40, at most 36 with the restore on, and
+    # ### the act writes Lean; b768's form (tools/acts/b768.py :2158-:2160) with the names classed of (R380)(3) and the last step dispatch by
+    # ### its full date and time; fourteen figures in the foot's order (step zero, the lower sum, the ceiling, the upper sum, the dispatches'
+    # ### two and their cap, the restore on's two and its cap, the Lean's two, the names classed, the last step dispatch), handed on in record
+    # ### 5; the texts that print them rewritten with section 4 at Component 5.
     prf_ = _bfig('%s_price.txt' % ACT, r'\*\*THE PRICE TABLE: STEP ZERO ([\d.]+) h ; THE LOWER SUM ([\d.]+) h AGAINST THE CEILING (\d+) h ; THE UPPER SUM '
-                 r'([\d.]+) h ; DISPATCHES (\d+) ; NO LEAN ; THE LAST ITEM BEGUN BY (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ) ; THE GROWTH CUT ([\d.]+)-([\d.]+) h '
-                 r'FOR AT MOST ([\d.]+) h AN ACT ; \[K29\] ABOUT ([\d.]+) h FROM THE CLOSE\.\*\*', 'the price table`s foot')
+                 r'([\d.]+) h ; DISPATCHES (\d+)-(\d+) OF AT MOST (\d+), WITH THE RESTORE ON (\d+)-(\d+) OF AT MOST (\d+) ; THE LEAN (\d+)-(\d+) LINES ; '
+                 r'THE NAMES CLASSED AT ([\d.]+) h ; THE LAST STEP DISPATCH BY (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ)\.\*\*', 'the price table`s foot')
     # ### b770, Component 1 (the same Edit): the comment carried here from b769 named b769's ceiling words; (R380)(3)'s ceiling is 30 h
     # ### with 16 in reserve, no item of (4), (5) or (6) begun later than 14 h after the opening row, and the act's passing 30 h printed
     # ### before the lock.
@@ -2490,11 +2492,14 @@ def _trail_resolved(text):
                 corr_repeat=ci[5], corr_row=co.get('row'),
                 corr_postseal=_bfig('%s_corrigendum.txt' % ACT, r'\*\*ITEMS \d+: EVENTS \d+, POST-SEAL (\d+), DEFECTS \d+ ;', 'the corrigendum`s post-seal count')[0],
                 corr_findings=((co.get('findings') or {}).get('claim'), (co.get('findings') or {}).get('close'), (co.get('findings') or {}).get('repeat')),
-                # ### b770, Component 1 (the Edit tool, with record 4's price-foot reader): the price figures in b770's foot's order; the foot
-                # ### carries no dispatch range, restore or Lean line, so pr_on, pr_oncap and pr_lean stand None and pr_disp is its one figure
-                pr_rows=prow_, pr_step0=prf_[0], pr_lower=prf_[1], pr_ceiling=int(prf_[2]), pr_carried=None, pr_upper=prf_[3], pr_last=prf_[5],
-                pr_minutes=(prj_.get('closure_min'), prj_.get('whole_min')), pr_disp=(int(prf_[4]), int(prf_[4])), pr_cap=K.MAX_DISPATCHES,
-                pr_on=None, pr_oncap=None, pr_lean=None, pr_cut=(prf_[6], prf_[7]), pr_saving=prf_[8], pr_k29=prf_[9], pr_reserve=prj_.get('reserve_h'),
+                # ### b770, Component 1 (the Edit tool, with record 4's price-foot reader, 2026-11-26): the fourteen price figures in b770's
+                # ### foot's order, b768's hand-off (tools/acts/b768.py :2390-:2392) with pr_names and pr_last at the foot's date and time; b769's
+                # ### growth cut and [K29] hours stand in no foot of b770, so pr_cut, pr_saving and pr_k29 are None for the carried texts that
+                # ### read them, each rewritten at Component 5
+                pr_rows=prow_, pr_step0=prf_[0], pr_lower=prf_[1], pr_ceiling=int(prf_[2]), pr_carried=None, pr_upper=prf_[3], pr_last=prf_[13],
+                pr_minutes=(prj_.get('closure_min'), prj_.get('whole_min')), pr_disp=(int(prf_[4]), int(prf_[5])), pr_cap=int(prf_[6]),
+                pr_on=(int(prf_[7]), int(prf_[8])), pr_oncap=int(prf_[9]), pr_lean=(int(prf_[10]), int(prf_[11])), pr_names=prf_[12],
+                pr_cut=None, pr_saving=None, pr_k29=None, pr_reserve=prj_.get('reserve_h'),
                 ce_at=ce_[0], ce_spent=ce_[1], ce_last=ce_[2], ce_last_h=ce_[3], ce_left=ce_[4], ce_ceiling=int(ce_[5]), ce_reserve=int(ce_[6]),
                 ce_b769=ce_[7], ce_close=ce_[8], ce_word=ce_[9],
                 reps=reps_, rep_states=dict((s_, [r_['key'] for r_ in reps_ if r_['state'] == s_]) for s_ in ('REPAIRED', 'READ AS DESIGNED', 'REMOVED', 'CARRIED')),
