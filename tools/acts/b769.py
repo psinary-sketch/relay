@@ -4657,10 +4657,24 @@ def _measure(act=ACT):
 
 def _ot_line(n, sha16, file_='OPEN_TRAILS'):
     """the line of OPEN_TRAILS (or, b769, of the file the group's entered key names: REGISTRY for [C9], ERRATA for [E2] to [E5]) at
-    PLACE-papers HEAD at :n, refused unless its sha256 is the one the rulings tool's group entered (data/b769_ledgers_c2.json to _c4.json)."""
+    PLACE-papers HEAD at :n, refused unless its sha256 is the one the rulings tool's group entered (data/b769_ledgers_c2.json to _c4.json).
+    b769, Component 5, after the entry's first dry (the Edit tool): group c3 banks each ERRATA key at its heading's line with the digest of
+    the entry whole (tools/b769_errata.py :504, sha(E[e])), so an ERRATA key is read as the block from :n to the line before the next
+    entry's heading or the file's end, its trailing blank lines set aside, as N3's reader reads it by its template's lines (:3445-:3453);
+    the heading's line is returned. Read first by scratch errblock769.py (01:03:24Z): the four by the block, none by the one line, each
+    planted block unequal; OPEN_TRAILS's five by the one line."""
     ls_ = g(PP, 'show', 'HEAD:%s.md' % file_).replace(chr(13), '').split(NL)
     l_ = ls_[n - 1] if 0 < n <= len(ls_) else ''
-    if __import__('hashlib').sha256(l_.encode('utf-8')).hexdigest()[:16] != sha16:
+    d_ = l_
+    if file_ == 'ERRATA' and l_.startswith('## E-'):
+        e_ = n
+        while e_ < len(ls_) and not ls_[e_].startswith('## E-'):
+            e_ += 1
+        bl_ = ls_[n - 1:e_]
+        while bl_ and not bl_[-1].strip():
+            bl_.pop()
+        d_ = NL.join(bl_)
+    if __import__('hashlib').sha256(d_.encode('utf-8')).hexdigest()[:16] != sha16:
         sys.exit('### %s :%d AT HEAD IS NOT THE LINE THE LEDGERS ENTERED -- NOTHING COMPOSED' % (file_, n))
     return l_
 
