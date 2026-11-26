@@ -1597,6 +1597,15 @@ def research_reproduces_ok(S):
 #⟪OVERRIDE checks MARK 9084f57ceffd 1⟫
      lambda S: gate_ok(S), lambda S: put(S, 'rebuild_rows', (S['rebuild_rows'] or []) + [dict(kind='dispatch', item='(N1) planted', run=1, kernel='SIDE-explicit-formula', free_mb=100)])),
 #⟪END⟫
+# ### b769, Component 5 (the Edit tool, defect (r)): standing-c's reading of the tracked files written (checks.tpl :2394-:2395, its mark
+# ### read by scratch mark769.py at 04:03:26Z, one span) printed every path the act wrote, the two archives of (4)(d) by their own names
+# ### among them, into the relay's probe bank (data/b769_probe_standing-c.txt :34 as first written, uncommitted), where (4)(d) reads
+# ### "Nothing of them goes to the relay beyond the manifest's sha256 and its counts"; each archive printed by its folder and its role,
+# ### the manifest by its name, the list's length and every other path as before
+#⟪OVERRIDE checks MARK 4cd7f1e524a7 2⟫
+        rec('  ### tracked files written (%d), each against the (W) globs: uncovered %s' % (len(S['written']), [(f if not f.startswith('PLACE-papers/clusters/lean-archive-november-2026/') or f.endswith('/MANIFEST.txt') else 'PLACE-papers/clusters/lean-archive-november-2026/<an archive of (4)(d), named in MANIFEST.txt>') for f in S['written']
+                                                                                              if not any(fnmatch.fnmatch(f, p) for p in S['globs'])] or 'NONE'))
+#⟪END⟫
 #⟪SECTION checks 58⟫
     ('G-MERGES-ON-GATE', 'no kernel written ((R379)(9), (12); SIDE-explicit-formula`s main and tags read by G-OFFSET-POST-HOC): each repaired wave 1 kernel`s rebuild-b721 as b768 left it, beyond its pin by b723`s axiom seat`s commits (one each; SIDE-frobenius three, its first two b721`s rebuild seat`s), off main and untagged, each equal to its remote; SIDE-explicit-formula`s main at the worklist`s EF_MAIN, ffefddc6, unmoved, and v0.37 unmoved; SIDE-lv-conservation`s deposit, port-b707 and v0.14.0 unmoved; the join kernel`s main and its one tag v0.1.0',
 #⟪END⟫
