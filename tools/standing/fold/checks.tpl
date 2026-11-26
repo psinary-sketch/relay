@@ -149,7 +149,7 @@ RC_MODE = 'prev' if PREV else 'probe' if PROBE else 'prerun' if PRERUN else 'mid
 RC_KEY = RCACHE.run_key(ACTN, RC_MODE, (ROOT.replace('\\', '/'), PP, EF))
 RC_LOG = {}
 KC0.remote_refs = RCACHE.wrap(KC0.remote_refs, RC_KEY, RC_LOG)
-from standing import lsrread as LSRD   # noqa: E402  ### v1.26.0, (⟪RUL⟫)(3)(v): RETRIED an event with its two timings, CACHED no pass
+from standing import lsrread as LSRD; from standing import hostmask as HMK   # noqa: E402,E702  ### v1.26.0, (⟪RUL⟫)(3)(v): RETRIED an event with its two timings, CACHED no pass; v1.38.32, (R380)(8) [K32]: the host's folders masked in every line and bank this suite writes, on line 152, the line count kept
 L = []
 # ### the sealed figures, the floors the count arms read at HEAD (standing from (R291)(3)): one prompt -- the root's ((⟪RUL⟫)(8): "the root's
 # ### prompt once"; no prompt before the seal this act), one call, its answer checked once per (R278)(4); the letters at the seal, every one the
@@ -232,7 +232,7 @@ STR.guard_listable(REQUIRED_BANKS, ACT_NOW, K.SHARED_APPENDED)   # ### v1.9.0, (
 
 
 def rec(s=''):
-    L.append(s)
+    s = HMK.mask(s); L.append(s)   # noqa: E702  ### v1.38.32, (R380)(8) [K32]: the line masked at its source, banked and printed so
     print(s)
 
 
@@ -2026,7 +2026,7 @@ def _membrane(p):
 
 def _write(name, lines):
     out = os.path.join(D, name)
-    b = (NL.join(lines) + NL).encode('utf-8')
+    b = (NL.join(HMK.mask_lines(lines)) + NL).encode('utf-8')   # ### v1.38.32, (R380)(8) [K32]
     _membrane(out)
     with open(out + '.tmp', 'wb') as fh:
         fh.write(b)
@@ -2430,7 +2430,7 @@ def main():
     rec('=' * 104)
     out = _write(_part_name(base, PART), L)
     lp = os.path.join(D, _part_name(base, PART).replace('⟪ACT⟫_arms_prerun', '⟪ACT⟫_lsr_prerun').replace('⟪ACT⟫_checks', '⟪ACT⟫_lsr').replace('.txt', '.json'))
-    lb = (json.dumps(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG, classed=lsv[0], events=lsv[1], part_read=PRD[0], part_read_why=PRD[1]), indent=1, ensure_ascii=False) + NL).encode('utf-8')
+    lb = (json.dumps(HMK.mask_obj(dict(run=os.path.basename(out), lsr=lsr, key=RC_KEY, times=RC_LOG, classed=lsv[0], events=lsv[1], part_read=PRD[0], part_read_why=PRD[1])), indent=1, ensure_ascii=False) + NL).encode('utf-8')   # ### v1.38.32, (R380)(8) [K32]: the run cache's map keyed by path, masked
     _membrane(lp)
     with open(lp + '.tmp', 'wb') as fh:
         fh.write(lb)
@@ -2443,7 +2443,7 @@ def main():
     ep = os.path.join(D, __import__('standing.repeat', fromlist=['exercise_name']).exercise_name('⟪ACT⟫', PART, ex['mode'], lambda n: bool(gs(ROOT, 'ls-files', 'data/' + n))))   # ### v1.10.0, (⟪RUL⟫)(2)(iii)
     _membrane(ep)
     with open(ep + '.tmp', 'wb') as fh:
-        fh.write((json.dumps(ex, indent=1, ensure_ascii=False) + NL).encode('utf-8'))
+        fh.write((json.dumps(HMK.mask_obj(ex), indent=1, ensure_ascii=False) + NL).encode('utf-8'))   # ### v1.38.32, (R380)(8) [K32]
     os.replace(ep + '.tmp', ep)
     # ### THE GUARD HELD -- the per-part seconds bank (root-named, gathered by the record tool's armsecs before the seal) is written by the pre-run
     # ### alone, as tools/b700_checks.py :1669 had it and b702 restored; the pre-push and post-push runs write no root-named bank

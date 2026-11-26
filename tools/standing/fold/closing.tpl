@@ -30,7 +30,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 sys.path.insert(0, T)
 import ⟪ACT⟫_worklist as WL   # noqa: E402
-from standing import nextact as NXA   # noqa: E402  ### v1.21.0, (R351)(2)(vi): the carried item (a) from the author's answers bank
+from standing import nextact as NXA; from standing import hostmask as HMK   # noqa: E402,E702  ### v1.21.0, (R351)(2)(vi): the carried item (a) from the author's answers bank; v1.38.32, (R380)(8) [K32]: the host's folders masked in the closing's banks, on line 33, the line count kept
 
 OUTD = WL.SP if DRY else D
 
@@ -428,7 +428,7 @@ def main():
                       ('b303_pins.py', '⟪ACT⟫_pins_closing.txt')):
         _guard(out)
         rc, o = run([sys.executable, os.path.join(T, tool), ACT])
-        b = o.replace(chr(13), '').encode('utf-8')
+        b = HMK.mask(o.replace(chr(13), '')).encode('utf-8')   # ### v1.38.32, (R380)(8) [K32]: the pins bank's print of each repository's path
         p = os.path.join(OUTD, out)
         with open(p + '.tmp', 'wb') as fh:
             fh.write(b)
@@ -557,7 +557,7 @@ def main():
           '    post-push, (⟪RUL⟫)(2) : %s' % claim_figure(post)]
     L += KERNEL_LINES + ['']
     L += ['### CARRIED FORWARD.'] + carried() + ['=' * 104]
-    b = (NL.join(L) + NL).encode('utf-8')
+    L = HMK.mask_lines(L); b = (NL.join(L) + NL).encode('utf-8')   # noqa: E702  ### v1.38.32, (R380)(8) [K32]: the record and its prints masked
     _guard('⟪ACT⟫_closing.txt')
     # ### (⟪RUL⟫)(4)(iv) and (vi), standing clauses v4 rows (65) and (68), a repair at ⟪ACT⟫: the dry run is step [3] of the close's order and
     # ### writes its bank to relay data/ (⟪PREV⟫ wrote it to the scratchpad, so its order left no evidence of the step), refused once the lock

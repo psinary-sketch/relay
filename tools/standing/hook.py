@@ -725,9 +725,18 @@ def refuse(kind, detail, tool, inp, relay=RELAY):
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     shown = inp.get('command') if tool != 'Read' else inp.get('file_path')
     reason = 'REFUSED %s: %s. ROW ENFORCED: %s' % (kind, detail, ROWS[kind])
+    shown_s = json.dumps(shown, ensure_ascii=False)
+    try:   # ### v1.38.32, (R380)(8) [K32], b770: the row masked by tools/standing/hostmask.py, loaded by its path, before its cut; the hook never fails on it
+        import importlib.util as _ilu
+        _sp = _ilu.spec_from_file_location('_hook_hostmask', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'hostmask.py'))
+        _hm = _ilu.module_from_spec(_sp)
+        _sp.loader.exec_module(_hm)
+        shown_s, detail = _hm.mask(shown_s), _hm.mask(detail)
+    except Exception:  # noqa: BLE001
+        pass
     try:
         with open(refusals_path(relay), 'a', encoding='utf-8', newline='\n') as f:
-            f.write('%s | %s | %s | %s | %s\n' % (stamp, kind, tool, json.dumps(shown, ensure_ascii=False)[:300],
+            f.write('%s | %s | %s | %s | %s\n' % (stamp, kind, tool, shown_s[:300],
                                                    detail))
     except OSError:
         pass

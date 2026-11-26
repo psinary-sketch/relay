@@ -15,6 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import act as A   # noqa: E402
+import hostmask as HM   # noqa: E402  ### v1.38.32, (R380)(8) [K32], b770: the papers` repository's lists masked, each archive of (R379)(4)(d) by its numbered role
 
 NL = '\n'
 SCORE_KEYS = ('N1', 'N2', 'N3', 'N4', 'N5', 'S1', 'S2', 'S3')
@@ -31,7 +32,7 @@ def banks_of(act, repo, commit):
     fs = files_of(repo, commit)
     if repo == 'relay':
         return [f for f in fs if f.startswith('data/') and f != 'data/%s_steps.json' % act]
-    return ['%s %s' % (A.NAMES['pp'], f) for f in fs]
+    return HM.mask_list(['%s %s' % (A.NAMES['pp'], f) for f in fs])   # ### v1.38.32 [K32]: two archives two, by their numbered roles
 
 
 def title_of(c):
@@ -82,7 +83,7 @@ def main(route):
     """step [18] of the close (standing clauses v5 row (79)): `bank` writes data/<act>_components.txt for the act data/act_current.json
     names, once (a bank present is never written twice); `dry` prints the lines."""
     cur = A.current()
-    L = composed(cur['act'], cur.get('components') or [], cur.get('ruling'))
+    L = HM.mask_lines(composed(cur['act'], cur.get('components') or [], cur.get('ruling')))   # ### v1.38.32 [K32]: the bank and its print masked
     if route == 'bank':
         p = os.path.join(A.D, '%s_components.txt' % cur['act'])
         if os.path.exists(p):

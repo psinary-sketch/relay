@@ -47,6 +47,16 @@ def _cur():
         return json.load(f)
 
 
+def _hmk():
+    """v1.38.32, (R380)(8) [K32], b770: THE PREV-MODE PRINT MASKED. tools/standing/hostmask.py beside this file, loaded by its path (no entry
+    made on sys.path); the bank this tool writes and the lines it prints pass its mask."""
+    import importlib.util
+    sp = importlib.util.spec_from_file_location('_prevdry_hostmask', os.path.join(S, 'hostmask.py'))
+    m = importlib.util.module_from_spec(sp)
+    sp.loader.exec_module(m)
+    return m
+
+
 def module_blob(act, text=None):
     """the act module's git blob id, of the text given or of tools/acts/<act>.py on disk (LF, as git stores it)."""
     if text is None:
@@ -155,7 +165,7 @@ def run_mark(act, part):
 
 def write_bank(act, part, out):
     out = dict(out, act=act, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
-    s = json.dumps(out, indent=1, ensure_ascii=False) + NL   # ### composed whole before the file opens (b328's zero-byte husk)
+    s = json.dumps(_hmk().mask_obj(out), indent=1, ensure_ascii=False) + NL   # ### composed whole before the file opens (b328's zero-byte husk); v1.38.32 [K32]: masked
     p = bank_path(act, part)
     with open(p + '.tmp', 'wb') as f:
         f.write(s.encode('utf-8'))
@@ -256,15 +266,15 @@ def main(argv):
         finally:
             if os.path.exists(mk):
                 os.remove(mk)
-        print('  %s %s: %s%s (%s s) -> %s' % (act, argv[1], 'SOURCES OK' if out['ok'] else '### FAILS', '' if out['ok'] else ' %s at line %s: %s' % (out.get('err'), out.get('line'), out.get('at')),
-                                              out.get('secs'), os.path.relpath(p, RELAY)))
+        print(_hmk().mask('  %s %s: %s%s (%s s) -> %s' % (act, argv[1], 'SOURCES OK' if out['ok'] else '### FAILS', '' if out['ok'] else ' %s at line %s: %s' % (out.get('err'), out.get('line'), out.get('at')),
+                                                         out.get('secs'), os.path.relpath(p, RELAY))))   # ### v1.38.32 [K32]: masked
         if out.get('second_send') and guard_hit(out, SECOND_LIMIT):
             print('  ### %s %s: THE SECOND SEND ENDED AT ITS %d s LIMIT -- LETTER IT AND PUT IT TO THE AUTHOR (%s); NO THIRD SEND' % (
                 act, argv[1], SECOND_LIMIT, K28_RULE))
         return 0 if out['ok'] else 1
     if argv[:1] == ['print']:
         clear, L = gate(act)
-        print(NL.join(L))
+        print(NL.join(_hmk().mask_lines(L)))   # ### v1.38.32, (R380)(8) [K32]: the prev-mode print masked
         return 0 if clear else 1
     sys.exit(__doc__)
 

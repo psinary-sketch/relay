@@ -65,7 +65,12 @@ if [ -n "$cap" ]; then
   # ### after github.com/ or github.com: in a remote's address, and the name before /PLACE-project-set (the pattern the trail uses), each
   # ### written <account>. The expression stands on its one line alone, read there by the control (tools/b766_repair_controls.py K23).
   cap_mask='s#(github\.com[/:])[A-Za-z0-9][A-Za-z0-9-]*#\1<account>#g; s#[A-Za-z0-9][A-Za-z0-9-]*/PLACE-project-set#<account>/PLACE-project-set#g'
-  exec > >(sed -u -E "$cap_mask" | tee -a "$cap") 2>&1
+  # ### v1.38.32, (R380)(8) [K32], b770: THE CAPTURE MASKS THE HOST'S FOLDERS. After the account's mask each line passes
+  # ### tools/standing/hostmask.py's filter, which writes the papers` repository's path and its parent folder by their roles (read at run
+  # ### time from tools/standing/act.py, never typed here), so a capture for the papers` repository carries neither; python is this
+  # ### script's own requirement already (pushcheck.py below). The control: tools/b770_repair_controls.py K32 runs this exec line's filters.
+  hm_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  exec > >(sed -u -E "$cap_mask" | python -X utf8 -u "$hm_dir/standing/hostmask.py" filter | tee -a "$cap") 2>&1
   echo "push_gated: capture on -> $cap ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
   # ### (R324)(2), standing clauses v5 row (72), b714: THE REPOSITORY'S VISIBILITY BESIDE ITS CAPTURE, read from the visibility map
   # ### (relay data/repo_visibility.txt, rows `VISIBILITY | name | ...`) by the origin's repository name; a name the map does not carry
