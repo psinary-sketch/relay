@@ -794,7 +794,8 @@ CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
          ('sitting_fix', '2d4d28d7'), ('sitting', 'a2a39a09'), ('rulings_c2s', '9d95c615'), ('wl_wwords', 'bb496b75'),
          ('rows_66_76', '81d8ac6a'), ('rows_77_81', '68d3fc5b'), ('rulings_c3', '4bfa29e4'), ('rulings_c4', 'ea1a9943'),
          ('read_8', '7f6ca3aa'),
-         ('ledgers_c4', '40ffd737'), ('prelock', 'db67cc2f'), ('prelock_stubs', '1ae60670'), ('ceiling', '7bdb8198'))   # ### b770, Component 5 (the Edit tool): steps 59 to 62, each from its step row (scratch ceilfacts770.py, 06:22:40Z; step 58 the papers` repository's c4pp); later commits appended as made. b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52, 54, 56 and 57, each from its step row (scratch steps770s.py, 03:43:41Z; steps 56 and 57 from commit.py's row lines, 03:52:00Z and 03:55:29Z; steps 12, 29, 38, 44, 55 and 58 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+         ('ledgers_c4', '40ffd737'), ('prelock', 'db67cc2f'), ('prelock_stubs', '1ae60670'), ('ceiling', '7bdb8198'),
+         ('wl_ceiling', '4d2a4df0'), ('scans', 'f3e6db4f'), ('tools_lock', 'd2d68e90'))   # ### b770, Component 5 (the Edit tool, 08:29Z): steps 63 to 65, each from its subject (git log, 08:29:04Z). b770, Component 5 (the Edit tool): steps 59 to 62, each from its step row (scratch ceilfacts770.py, 06:22:40Z; step 58 the papers` repository's c4pp); later commits appended as made. b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52, 54, 56 and 57, each from its step row (scratch steps770s.py, 03:43:41Z; steps 56 and 57 from commit.py's row lines, 03:52:00Z and 03:55:29Z; steps 12, 29, 38, 44, 55 and 58 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -882,6 +883,9 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b769`s findings after its lock and 
                     'prelock': 'the act module`s pre-lock pass where b769`s forms stood under b770`s name',
                     'prelock_stubs': 'the act module`s carried stubs set from b769`s bodies and the step-zero bank`s two rows from the transcript',
                     'ceiling': 'the ceiling read before the lock, within the ceiling, with its four readers set to b768`s close',
+                    'wl_ceiling': 'the worklist`s last constants before the lock with events rows (92) to (110) and defects (i) to (l)',
+                    'scans': 'the address scan, the reproduction run and the orders bank with events rows (111) to (113) and defects (m) to (o)',
+                    'tools_lock': 'the lock gate, the face and the probe-path tool carried and set before any run with events rows (114) to (116) and defects (p) to (r)',
                     'gate': 'the gate commit with its subject composed by the one-call tool from its banks'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b769`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b769',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
@@ -1446,8 +1450,10 @@ EF_RUNS_B738 = (41732413170, 41732882564, 41733411736, 41734667160, 41735082430,
 ZQ_RUN = 41483457057   # ### b737's grade run, the discharge's, read not re-run
 EF_RUNS_B731 = (41371666217, 41372597450, 41373409167, 41374121055, 41374814817)   # ### b731's five, read not re-run
 DISPATCH_ROWS = 'data/b770_dispatch_rows.json'
-ERRATA_ID = 'E-2026-11-25-1'   # ### (R379)(5): the first of the four entries, ERRATA :1163 (b769, before the lock, the Edit tool: b762's E-2026-11-18-1 under (R370) set to b769's; its one reader, the template's G-DIFFERS-ERRATA predicate, overridden in the act module)
-ERRATA_IDS = ('E-2026-11-25-1', 'E-2026-11-25-2', 'E-2026-11-25-3', 'E-2026-11-25-4')   # ### (R379)(5): [E2] to [E5] at ERRATA :1163, :1177, :1191 and :1205 (data/b769_events.txt (63)); read by nothing (b761's empty value set to b769's)
+ERRATA_ID = None   # ### b770, before the lock (the Edit tool, 08:29Z): no ERRATA entry by (R380)(12), where the carry left b769's E-2026-11-25-1; its one reader, the template's G-DIFFERS-ERRATA predicate (checks.tpl :1572, which wants None), overridden in the act module (MARK dd4dd9cb3d4b), git grep 08:28:03Z
+ERRATA_IDS = ()   # ### b770, before the lock (the Edit tool, 08:29Z): no ERRATA entry by (R380)(12); read by nothing (git grep 08:28:03Z)
+ERRATA_ID_B769 = 'E-2026-11-25-1'   # ### (R379)(5): b769's first of four, ERRATA :1163, kept under its own name, read by nothing
+ERRATA_IDS_B769 = ('E-2026-11-25-1', 'E-2026-11-25-2', 'E-2026-11-25-3', 'E-2026-11-25-4')   # ### (R379)(5): b769's [E2] to [E5] at ERRATA :1163, :1177, :1191 and :1205, kept under their own name, read by nothing
 ERRATA_IDS_B760 = ('E-2026-11-18-1', 'E-2026-11-18-2')   # ### (R370)(10): b760's BLOCK E's two entries at the file's end (PLACE-papers f47d90f0)
 RETIRED_COUNT = 0
 # ### the sealed list by the standing rule (tools/standing/close.py sealed_list: tools/<act>_*.py less the report tool, tools/standing/*.py and
