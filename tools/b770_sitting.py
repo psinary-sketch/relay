@@ -512,9 +512,12 @@ def inputs(mode, struck):
     P.append('')
     cnt = dict((w, sum(1 for i in final if i['final'].startswith(w))) for w in ('SYNTHESISED', 'CLUSTERED', 'BANKED', 'STRUCK'))
     passed = [i['n'] for i in clu if i['n'] not in struck]
-    P.append('## FOR [S5]: items %d ; SYNTHESISED %d ; CLUSTERED %d ; BANKED %d ; put to the author %s ; passed %s ; struck %s' % (
-        len(final), A['counts']['SYNTHESISED'], A['counts']['CLUSTERED'], A['counts']['BANKED'],
-        ', '.join(str(i['n']) for i in clu) or 'none', ', '.join(map(str, passed)) or 'none', ', '.join(map(str, struck)) or 'none'))
+    s5 = dict(n=len(final), k=cnt['SYNTHESISED'], c=cnt['CLUSTERED'], b=cnt['BANKED'] + cnt['STRUCK'], asked=[i['n'] for i in clu],
+              passed=passed, struck=list(struck), maps=[A['counts']['SYNTHESISED'], A['counts']['CLUSTERED'], A['counts']['BANKED']])
+    P.append('## FOR [S5], after the author`s answer: items %d ; SYNTHESISED %d ; an input of a keystone`s re-cut %d ; banked with no seat %d ; '
+             'put to the author %s (%s) ; passed %s ; struck %s ; by the maps` rules alone SYNTHESISED %d, CLUSTERED %d, BANKED %d' % (
+                 s5['n'], s5['k'], s5['c'], s5['b'], len(clu) or 'none', ', '.join(str(i['n']) for i in clu) or 'none',
+                 ', '.join(map(str, passed)) or 'none', ', '.join(map(str, struck)) or 'none', *s5['maps']))
     I = RG.ids()
     qw = RG.qword(show('REGISTRY.md'))
     ctl += [('every input read not carried: none of its names carried by its keystone, by the maps` read and by its own line`s (VACUOUS for the '
@@ -536,7 +539,10 @@ def inputs(mode, struck):
         if not ok:
             die('A CONTROL NOT AS WANTED')
         put(INPUTS, text)
-        print('written data/b770_recut_inputs.txt (%d lines)' % len(P))
+        put(INPUTS[:-4] + '.json', json.dumps(dict(at=utc(), act=ACT, answer=[ANSWERS, rk, chosen], s5=s5, inputs=dict(
+            (kp, [i['n'] for i in final if kp in i['keys'] and i['final'].startswith('CLUSTERED')]) for kp in keys),
+            controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+        print('written data/b770_recut_inputs.txt (%d lines) and data/b770_recut_inputs.json' % len(P))
 
 
 if __name__ == '__main__':
