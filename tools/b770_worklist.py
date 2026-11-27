@@ -611,8 +611,8 @@ NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b7
 DIFFERS_LINE = None   # ### LEFT EMPTY BY (R379)(12): no DIFFERS entry, no clause of (R379) ordering one; REGISTRY, ERRATA and SPIRAL_MAP.md written under (4) and (5) alone (v1.38.1 [K1]'s marker; b769, before the lock, the Edit tool: b768's (R378)(12) and its two PLACE-papers files set to b769's)
 ERRATA_LINE = 1163   # ### ERRATA: E-2026-11-25-1, the first of (R379)(5)'s four entries, at :1163 (group c3, PLACE-papers 5111e451; data/b769_events.txt (63)); b769, before the lock (the Edit tool): set where the carry left b768's LEFT EMPTY BY (R378)(12), ERRATA being written at this act
 ERRATA_LINE_B764 = 1149   # ### b764 (R374)(9)(a): [E1], E-2026-11-21-1, at ERRATA's end from :1149, PLACE-papers 772d5cf0, kept beside
-C2_PLAN_FIRST = None   # ### Component 2's first relay commit (the plan of (4)(a), committed before any dispatch)
-C2_RELAY = None   # ### the last of Component 2's relay commits
+C2_PLAN_FIRST = '365e5ecb'   # ### Component 2's first relay commit: the plan of (4)(a), data/b770_plan.txt, committed before any dispatch (step 27, 00:30:29Z)
+C2_RELAY = '4ca72b16'   # ### the last of Component 2's relay commits, set as made: the ledger of [A5] and events rows (59)-(63) (step 30, 00:41:20Z)
 # ### (R366)(4): each tool of the map beside its banks -- (name, generator, the generator's commits before the bank, bank, the bank's commit)
 C2_MAP = (('the constellation rerun', 'tools/b770_constellation.py', ('3e112065', 'd2f78fab', '16ba8fbb', 'e4701c5f'),
            'data/b770_constellation_summary.txt', '069271bb'),
@@ -765,7 +765,8 @@ GENS_WITH_BANK_B764 = (('the repairs` planted controls', 'tools/b769_repair_cont
 CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
          ('k31_ctl', '14221add'), ('price_foot', '90085aff'), ('k31', '60e769a5'), ('k31_row', '99a723a1'),
          ('wl_k31', '04c35afa'), ('k32_ctl', 'af2d623a'), ('k32', '75a8c747'), ('k32_row', '4f318345'),
-         ('wl_k32', '1991ee50'), ('k33_ctl', '5a7ec193'), ('k33', '9432d7ce'), ('k33_row', '0e99a945'))   # ### b770: steps 11 and 13-25, each from its step row (step 12 the papers` repository's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+         ('wl_k32', '1991ee50'), ('k33_ctl', '5a7ec193'), ('k33', '9432d7ce'), ('k33_row', '0e99a945'),
+         ('wl_k33', 'f9e41612'), ('plan', '365e5ecb'), ('rulings_gen', '745e234d'), ('ledgers_c2', '4ca72b16'))   # ### b770: steps 11, 13-28 and 30, each from its step row (steps 12 and 29 the papers` repository's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -786,7 +787,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = (('c1pp', '11fe9707'),)   # ### b770: the act's PLACE-papers commits in their order, appended as made (step 12, the corrigendum at FINDINGS :16329)
+PP_CHAIN = (('c1pp', '11fe9707'), ('c2pp', 'f945cbd9'))   # ### b770: the act's PLACE-papers commits in their order, appended as made (step 12, the corrigendum at FINDINGS :16329; step 29, [A5] at OPEN_TRAILS :19595)
 PP_CHAIN_B769 = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'), ('c2pp_c2b', '41170e41'), ('c3pp', '5111e451'), ('c4pp', '3deb3dca'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25, 29, 32, 35 and 42: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record, [B1] and [A4] with [C9], the four entries of ERRATA with [F2]-[F5] and [R3], [V1]), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
@@ -805,7 +806,7 @@ _KEYS = tuple(k_ for k_, _h in CHAIN)
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps768.py: 14:23:33Z, 15:35:31Z, 00:23:41Z)
 # ### b769, before the lock (the Edit tool, 2026-11-25): each PLACE-papers key placed before the relay commit that follows it in time
 # ### (scratch chainchk769.py, 22:25:24Z: 19:08:47Z, 19:54:20Z, 20:06:39Z, 20:47:18Z, 21:02:32Z, 21:13:23Z, 21:26:24Z and 22:12:04Z)
-_PP_BEFORE = {}   # ### b770: each PLACE-papers write's key beside the chain key before it, set as made
+_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp'}   # ### b770: each papers` repository write's key placed before the relay commit that follows it in time, from the step rows (step 12 between steps 11 and 13; step 29 between steps 28 and 30), set as made
 TIME_ORDER = ('actcur', 'stepzero') + tuple(x_ for k_ in _KEYS for x_ in ((_PP_BEFORE[k_], k_) if k_ in _PP_BEFORE else (k_,)))
 # ### b766, Component 5 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps766r.py,
 # ### 18:38:32Z); later keys given words as made. b765's kept below under its own name, read by nothing
@@ -1231,7 +1232,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### b762, Component 6: PLACE-papers' writes before the record, each (item, the file, the PLACE-papers commit), read by the act module's N3
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
-PP_WRITES = ()   # ### b770 (R380)(9): each write of this act in PLACE-papers, OPEN_TRAILS and FINDINGS and no other file, (key, file, commit), appended as made
+PP_WRITES = (('corr', 'FINDINGS.md', '11fe9707'), ('trails_c2', 'OPEN_TRAILS.md', 'f945cbd9'))   # ### b770 (R380)(9): each write of this act in the papers` repository, OPEN_TRAILS and FINDINGS and no other file, (key, file, commit), from the step rows (steps 12 and 29), appended as made
 PP_WRITES_B769 = (('corr', 'FINDINGS.md', 'b382b95e'), ('registry_block', 'REGISTRY.md', '5cfb9577'), ('map_merge', 'SPIRAL_MAP.md', '9aab5f65'),
              ('trails_c2', 'OPEN_TRAILS.md', 'd4808187'), ('archives', 'clusters/lean-archive-november-2026/MANIFEST.txt', '4570c462'),
              ('trails_c2b', 'OPEN_TRAILS.md', '41170e41'), ('registry_c2b', 'REGISTRY.md', '41170e41'), ('errata_c3', 'ERRATA.md', '5111e451'),
