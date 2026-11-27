@@ -2815,9 +2815,13 @@ def _execs_tool(cmd, tool):
     # ### b769, before the lock (the Edit tool, 2026-11-25; read-only at 00:00:43Z: v0.46 alone at ffefddc6, the three kept branches at
     # ### their pins): N2 "no ref of a kernel moves" ((R379)(9), (12), N5) -- the tags at the entering main, where b768's read them at the
     # ### closing Lean commit (K.RUNNER_COMMIT, empty at b769); the kept branches by the worklist's pins; main moved by nothing
-    tags_at_ = sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--points-at', K.EF_BASE).split() if t_.strip())
+    # ### b770, Component 4 (the Edit tool, while dispatch 8 builds; b768's section read at tools/acts/b768.py :2634-:2696): (R380)(4), N2
+    # ### "the kernel's main moves under (4) and at no other time" -- b769's no-move form set to b768's: the tags read at the closing Lean
+    # ### commit (K.RUNNER_COMMIT, cc2f3ba8, set at Component 4), main moved where a read with the restore off exits 0 KERNEL with the
+    # ### restored read's axioms file; the kept branches by the worklist's pins kept beside it ((R380)(9), N5)
+    tags_at_ = sorted(t_ for t_ in g(K.EF_DIR, 'tag', '--points-at', K.RUNNER_COMMIT).split() if t_.strip()) if K.RUNNER_COMMIT else []
     kept_ = [(b_, g(K.EF_DIR, 'rev-parse', '--verify', '--quiet', 'refs/heads/%s' % b_).strip()) for b_, _t in (K.WEIL_BRANCH_B768, K.WEIL_BRANCH_B767, K.WEIL_BRANCH_B766)]
-    moved_ = False
+    moved_ = bool(K.RUNNER_COMMIT) and K.RUNNER_COMMIT[:8] in built_
     # ### b767, Component 4 (the Edit tool, found carried with b766's meaning while the record sections were read for their constants):
     # ### (R377)(4), (12), N2 -- main moved under (4) alone, its line in the dispatch tool's words (MAIN MOVES TO <commit> ..., where b766's
     # ### predicate read 'MAIN MOVED' and no b767 line begins so); no kernel branch removed, where b766's predicate wanted [K22]'s one name
@@ -2825,12 +2829,17 @@ def _execs_tool(cmd, tool):
     # ### b769, before the lock (the Edit tool): where b768's predicate read main moved to the closing Lean commit by the dispatch tool's
     # ### line MAIN MOVES TO, or the entering main by MAIN NOT MOVED, b769 has no dispatch tool and no line: main at the entering main
     # ### (K.EF_MAIN == K.EF_BASE, v0.46's peel), v0.46 the one tag at it, no tag cut, the kept branches at their pins, no dispatch row
-    before_kw_ = K.KERNEL_DELETES == () == K.KERNEL_REMOVED and not K.KERNEL_DELETES_REFUSED and not K.ORDER_TAGS and K.WEIL_TAG is None \
-        and efm_ == K.EF_MAIN == K.EF_BASE == K.WEIL_TAG_B768[2] and tags_at_ == [K.WEIL_TAG_B768[0]] and not _ef_kind(drw_, 'dispatch') \
+    # ### b770, Component 4 (the Edit tool): b768's predicate carried, the not-moved line read where it stands in the dispatch tool's
+    # ### words (tools/b770_controls.py main_decision: '[C11]: ... ; MAIN NOT MOVED, ...' or '[C10]: MAIN NOT MOVED, ...', where b768's
+    # ### line opened with the words), the kept branches at their pins beside it
+    before_kw_ = K.KERNEL_DELETES == () == K.KERNEL_REMOVED and not K.KERNEL_DELETES_REFUSED and not K.ORDER_TAGS and (
+        (efm_ == K.EF_MAIN == K.RUNNER_COMMIT and bool(K.WEIL_TAG) and K.WEIL_TAG[2] == K.RUNNER_COMMIT and tags_at_ == [K.WEIL_TAG[0]]
+         and str(tv_ or '').startswith('MAIN MOVES TO %s ' % K.RUNNER_COMMIT[:8])) if moved_ else
+        (efm_ == K.EF_MAIN == K.EF_BASE and K.WEIL_TAG is None and not tags_at_ and 'MAIN NOT MOVED' in str(tv_ or ''))) \
         and kept_ == [(b_, t_) for b_, t_ in (K.WEIL_BRANCH_B768, K.WEIL_BRANCH_B767, K.WEIL_BRANCH_B766)]
-    # ### b769: no kernel commit at this act ((R379)(9), (12); [K28] stands, no kernel route admitted), where b768's arm read [K26]'s commit
-    # ### before the kernel's first commit (K.KERNEL_COMMITS[0], an index of an empty tuple at b769)
-    anc_ = K.KERNEL_COMMITS == () and not g(K.EF_DIR, 'rev-list', '%s..refs/heads/main' % K.EF_BASE).strip()
+    # ### b770: the standing commit that admits b770 at SIDE-explicit-formula ([K31], v1.38.31) before the kernel's first commit, b768's
+    # ### arm, where b769's read no kernel commit at its act
+    anc_ = bool(K.KERNEL_COMMITS) and 0 < ct_(ROOT, K.STANDING_REPAIRS[0][2]) < ct_(K.EF_DIR, K.KERNEL_COMMITS[0][2])
     # ### b768, Component 5 (the Edit tool, defect (d')): (R378) N2, "the amended plan of (4)(a) is committed before any dispatch" -- the
     # ### plan's first commit (K.C2_PLAN_FIRST, 996fea1c, step 20) carrying data/b768_plan.txt and first adding it, its time before the first
     # ### dispatch row's ((A6), entered later at bbcfbbb0 as (4)(a) lets the seat amend, read by the plan's own commits); and (R378)(6), (9):
@@ -2840,13 +2849,20 @@ def _execs_tool(cmd, tool):
     # ### b769, before the lock (the Edit tool): (R379)(9) and N1, no plan and no dispatch at this act -- no plan bank ever added and no
     # ### dispatch row, where b768's predicate read its plan's first commit before its first dispatch (no dispatch at b769, so its 0 < t < 0
     # ### would have read False); K.C2_PLAN_FIRST names Component 2's first relay commit and is not read here
-    plan_first_ = _first_add('data/b770_plan.txt') is None and not _ef_kind(drw_, 'dispatch')
+    # ### b770, Component 4 (the Edit tool, FOUND (iii) of the seat's pending list): (R380) N2 "the plan of (4)(a) is committed before any
+    # ### dispatch" -- b768's predicate: the plan's first commit (K.C2_PLAN_FIRST, 365e5ecb, step 27) carrying data/b770_plan.txt and
+    # ### first adding it, its time before the first dispatch row's
+    plan_c_ = K.C2_PLAN_FIRST
+    pc_files_ = files_(plan_c_) if plan_c_ else []
+    d0_ = min((_cmd_epoch(r_.get('at') or '') or 0) for r_ in _ef_kind(drw_, 'dispatch')) if _ef_kind(drw_, 'dispatch') else 0
+    plan_first_ = bool(plan_c_) and 'data/b770_plan.txt' in pc_files_ \
+        and (_first_add('data/b770_plan.txt') or '')[:8] == plan_c_[:8] and 0 < ct_(ROOT, plan_c_) < d0_
     wrun_ = [r_ for t_, _f, _c, r_, _o in runs_ if t_ == 'tools/b770_window.py']
     reg_first_ = not K.REG_COMMIT and _first_add('data/b770_registration.txt') is None and _first_add('tools/b770_window.py') is None and not wrun_
-    # ### b769, Component 2 (the Edit tool, after [K30]'s commit): the repairs bank's two rows ([K29] and [K30]) each in one of the four
-    # ### states, the count (R379)(9) sets; b768's three ([K26] to [K28]) as the carry left it
+    # ### b770, Component 4 (the Edit tool): the repairs bank's three rows ([K31] to [K33]) each in one of the four states, the count
+    # ### (R380)(9) sets ("the count of keys that the checks read is set to that number"), where the carry left b769's two
     rst_ = re.findall(r'; STATE: (REPAIRED|READ AS DESIGNED|REMOVED|CARRIED)\b', ' '.join(l_.strip() for l_ in rdn('%s_repairs.txt' % ACT).replace(chr(13), '').split(NL)))
-    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 2
+    states_ok_ = len(rst_) == len(K.STANDING_REPAIRS) == 3
     sect_ = stepzero_ and standing_ and gen_ and before_kw_ and runs_ok_ and states_ok_ and plan_first_ and reg_first_
     route_ = sect_
     regen_ = N2_REGEN in (rd(FACE) or '')
@@ -2857,13 +2873,14 @@ def _execs_tool(cmd, tool):
     ok = route_ and regen_ and bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper() and '**THE PROBE-PATH REFUSAL : CLEAR' in fg_ and anc_ and order_ and all(o for _p, o in ctl)
 #⟪END⟫
 #⟪SECTION record 13⟫
-        'the chain read, the step-zero reads and the carry printed before any write, in that order (%s, each by the step-zero bank, before the act_current commit %s): %s; tools/standing/ moved by the %d commit of (8) alone, the last %s, its tree at HEAD that commit`s (trees %s and %s), the act`s commits under it %s, VERSION %s against %s, moved from %s, each commit`s VERSION its row`s and each control AS WANTED at its row`s commit (%s): %s; no ref of a kernel moved ((R380)(9), (12)): SIDE-explicit-formula`s main %s, the entering main %s, the tags at it %s, no tag cut, the kept branches %s, kernel branches removed %d, no dispatch row: %s; no kernel commit at this act: %s; the repairs bank`s rows by state (%d of 2 read, %s): %s; no plan and no dispatch ((R380)(9)), no registration at this act (its commit %s) and no window tool added or run: %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; each act tool committed before the command that executes it, a count, a read, a search or a compile check naming its path no run (tool, its first commit and time, its first run read from the command bank): %s: %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, the relay and the papers` repository together: %s (%s); the tools` controls before their figures: %s' % (
+        'the chain read, the step-zero reads and the carry printed before any write, in that order (%s, each by the step-zero bank, before the act_current commit %s): %s; tools/standing/ moved by the %d commit of (8) alone, the last %s, its tree at HEAD that commit`s (trees %s and %s), the act`s commits under it %s, VERSION %s against %s, moved from %s, each commit`s VERSION its row`s and each control AS WANTED at its row`s commit (%s): %s; SIDE-explicit-formula`s main %s, the dispatch tool`s verdict on main and the tag %s, the closing commit %s, its builds from source read exit 0 with the restored read`s axioms file %s, tags at the closing commit %s, the kept branches %s, kernel branches removed at the remote and from the clone %d: %s; the standing commit admitting b770 ([K31]) before the kernel`s first commit: %s; the repairs bank`s rows by state (%d of 3 read, %s): %s; the plan in %s before the first dispatch ((R380)(4)(a)), no registration at this act (its commit %s) and no window tool added or run ((R380)(9)): %s; each tool first added by a commit of its own carrying it and not its bank, its commits before the bank`s, the bank`s commit not the tool (%s): %s; each act tool committed before the command that executes it, a count, a read, a search or a compile check naming its path no run (tool, its first commit and time, its first run read from the command bank): %s: %s; the (W) regeneration printed in the face: %s; the pre-lock comparison banked with the prev-mode dry: %s; the probe-path refusal banked and clear: %s; the act`s %d commits in the worklist`s order by time, the relay and the papers` repository together: %s (%s); the tools` controls before their figures: %s' % (
             ', '.join('%s %s' % (n_, ('%sZ' % m_.group(1)) if m_ else 'unread') for n_, m_ in szt_), K.ACT_CURRENT_COMMIT, stepzero_,
             len(K.STANDING_REPAIRS), st_last_[:8], st_tree_[0][:12] or 'NONE', st_tree_[1][:12] or 'NONE', ' '.join(h_[:8] for h_ in st_commits_) or 'none', st_ver_ or 'unread',
             K.STANDING_VERSION, st_ver0_ or 'unread', ', '.join('%s %s' % x_ for x_ in st_each_), standing_,
-            efm_[:8] or 'NONE', K.EF_BASE[:8], ' '.join(tags_at_) or 'none', ', '.join('%s %s' % (b_, (h_ or 'NONE')[:8]) for b_, h_ in kept_), len(K.KERNEL_REMOVED), before_kw_, anc_,
+            efm_[:8] or 'NONE', tv_ or 'unread', (K.RUNNER_COMMIT or 'NONE')[:8], ' '.join(sorted(built_)) or 'none', ' '.join(tags_at_) or 'none',
+            ', '.join('%s %s' % (b_, (h_ or 'NONE')[:8]) for b_, h_ in kept_), len(K.KERNEL_REMOVED), before_kw_, anc_,
             len(rst_), ', '.join('%s %d' % (s_, rst_.count(s_)) for s_ in ('REPAIRED', 'READ AS DESIGNED', 'REMOVED', 'CARRIED')), states_ok_,
-            (K.REG_COMMIT or '-')[:8], plan_first_ and reg_first_,
+            (plan_c_ or 'NONE')[:8], (K.REG_COMMIT or '-')[:8], plan_first_ and reg_first_,
             ', '.join('%s %s' % x_ for x_ in gens_ok_), gen_,
             ', '.join('%s %s@%d first run %s %s' % (t_, f_, c_, time.strftime('%H:%M:%SZ', time.gmtime(r_)) if r_ else 'unread', o_) for t_, f_, c_, r_, o_ in runs_) if cmr_ else 'the command bank unread', runs_ok_,
             regen_, bool(tz) and 'THE PRE-LOCK DRY IN PREV MODE' in tz.upper(), '**THE PROBE-PATH REFUSAL : CLEAR' in fg_,
