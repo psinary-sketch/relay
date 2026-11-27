@@ -60,7 +60,7 @@ BENCH = 'data/b675_li_bench.txt'
 # ### each cite: (its key, the repository, the path, the needle -- the figure with the name beside it --, the line the ruling or the
 # ### seat's read gives it, the range read for its sentence, the comment lines alone where True)
 CITES = [
-    ('5938.arity', 'pp', ARITY, 'first negative index 5938', 344, (344, 344), False),
+    ('5938.arity', 'pp', ARITY, 'ran to its registered depth and returned **first negative index 5938**', 344, (344, 344), False),
     ('5938.report_head', 'relay', REPORT, 'THE ARITHMETIC-SIDE VALIDATION', 1, (1, 1), False),
     ('5938.report_number', 'relay', REPORT, 'FIRST NEGATIVE INDEX = 5938', 65, (65, 65), False),
     ('5938.report_certified', 'relay', REPORT, 'The sign at 5938 is certified', 82, (82, 86), False),
@@ -80,6 +80,10 @@ PREDICATES = {
              ('5101.depth', 'threshold')],
 }
 PRIMARY = {'5938': '5938.arity', '10034': '10034.instruments', '5101': '5101.magnitude'}   # ### the cite each figure's [I1] or [I2] gives
+# ### b770 (the first run, 01:28:15Z): the needle of 5938 at its figure and the name beside it alone ('first negative index 5938') yields
+# ### two lines of INDEX_ARITY, :344 and :451, the second the edition note v0.18 restating it in other words; the cite's needle carries the
+# ### words beside the figure at :344. The wider needle's yield is printed at every run beside the cite's.
+WIDE = {'5938.arity': ('first negative index 5938', 'the edition note v0.18 at :451 restating the result')}
 
 
 def sha(s):
@@ -242,6 +246,9 @@ def run(mode):
                 where, v['want'], v['needle'], v['hits'], 'YES' if v['at_want'] else 'NO', 'EQUAL' if v['head_equal'] else 'DIFFERS',
                 v['line_sha'][:16]))
             L.append('    "%s"' % v['sentence'])
+            if key in WIDE:
+                tw = tx[(v['repo'], v['path'])][0] or ''
+                L.append('    the wider needle %r alone: hits %s (%s)' % (WIDE[key][0], search(tw.split(NL), WIDE[key][0], False), WIDE[key][1]))
         L.append('')
     L.append("## THE NAVIGATOR'S READING, workspace grade, the navigator's and no banked figure (data/b770_ferry.txt :29)")
     L.append('  "%s"' % nav)
