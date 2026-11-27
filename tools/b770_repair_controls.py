@@ -330,7 +330,144 @@ def control_k32(before, after):
     return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
 
 
-CONTROLS = dict(K31=control_k31, K32=control_k32)
+# ================================================================================ [K33] THE CLOSING ACT HELD UNTIL ITS COMMIT
+K33_PATHS = ('tools/standing/hook.py', 'tools/standing/act.py', 'tools/standing/commit.py', 'tools/standing/VERSION')
+K33_VERSION = 'v1.38.33'
+# ### the probe: in the revision's snapshot, four planted relays (a closing record written or not, the closing commit's row in the step bank
+# ### or not) read by the revision's hook (bank_act, refusals_path) and by its one-call tool's choice of the commits bank (the `nxt = ...`
+# ### line of tools/standing/commit.py's run(), evaluated as written with its names planted: a rows-only closing commit, the closing commit, a
+# ### component commit); then planted banks of the close in the snapshot's data/ (the mirror's and the Project set's, the act's push captures,
+# ### the relay's closing capture and one of b769's) read by close_left_out over the list the revision's close_carried gives at the closing,
+# ### and the revision's closing route (`add --close`, commit.py's close_add) where it stands. commit.py's functions are taken from its
+# ### syntax tree and executed apart; no git command runs; only names, counts and booleans are printed.
+K33_PROBE = r'''
+import ast, importlib.util, json, os, re, sys
+snap = sys.argv[1]
+S = os.path.join(snap, 'tools', 'standing')
+def load(name, path):
+    sp = importlib.util.spec_from_file_location(name, path)
+    m = importlib.util.module_from_spec(sp)
+    sp.loader.exec_module(m)
+    return m
+A = load('k33_act', os.path.join(S, 'act.py'))
+H = load('k33_hook', os.path.join(S, 'hook.py'))
+P = os.path.join(snap, 'plant')
+PD = os.path.join(P, 'data')
+DD = os.path.join(snap, 'data')
+os.makedirs(PD, exist_ok=True)
+os.makedirs(DD, exist_ok=True)
+def wr(d, n, s):
+    with open(os.path.join(d, n), 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write(s)
+def rm(d, n):
+    q = os.path.join(d, n)
+    if os.path.exists(q):
+        os.remove(q)
+def row(ph, c):
+    return dict(repo='relay', commit=c, ct=0, at='2026-11-27T00:00:00Z', phase=ph, subject='b770 %s: a planted row' % ph)
+def steps(closing):
+    rows = [row('component 1', '1' * 40)] + ([row('closing', '2' * 40)] if closing else [])
+    wr(PD, 'b770_steps.json', json.dumps(dict(at='2026-11-27T00:00:00Z', rows=rows)))
+wr(PD, 'act_current.json', json.dumps(dict(act='b770', next='b771')))
+src = open(os.path.join(S, 'commit.py'), encoding='utf-8').read()
+tree = ast.parse(src)
+want = ('close_left_out', 'close_add', 'scan_bank_act', 'rows_only')
+ns = dict(os=os)
+exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in want], type_ignores=[]), 'commit_k33', 'exec'), ns)
+nx = re.findall(r'^[ \t]*nxt = (.+?)[ \t]*(?:#.*)?$', src, re.M)
+NXT = nx[0] if len(nx) == 1 else None
+out = dict(bank=[], refusals=[], nxt=[], agree=[], nxt_lines=len(nx),
+           has=[hasattr(A, 'closed'), hasattr(H, 'closed_act'), 'close_add' in ns, 'scan_bank_act' in ns])
+for rec, closing in ((False, False), (True, False), (True, True), (False, True)):
+    if rec:
+        wr(PD, 'b770_closing.txt', 'b770 -- a planted closing record\n')
+    else:
+        rm(PD, 'b770_closing.txt')
+    steps(closing)
+    out['bank'].append(H.bank_act(P))
+    out['refusals'].append(os.path.basename(H.refusals_path(P)))
+    v = []
+    for only, phase in ((True, 'closing'), (False, 'closing'), (False, 'component 1')):
+        try:
+            v.append(eval(NXT, dict(ns, act='b770', only=only, phase=phase, A=A, data=PD, repo=P, RELAY=P)) if NXT else 'UNREAD')
+        except Exception as e:
+            v.append('ERROR ' + type(e).__name__)
+    out['nxt'].append(v)
+    if hasattr(A, 'closed') and hasattr(H, 'closed_act'):
+        out['agree'].append(bool(A.closed('b770', PD)) == bool(H.closed_act('b770', P)))
+PPN = os.path.basename(os.path.normpath(A.REPOS['pp']))
+caps = ['b770_relay_push-b770-preroot_push_out.txt', 'b770_relay_push-b770-record_push_out.txt', 'b770_%s_push-b770-preroot_push_out.txt' % PPN,
+        'b770_%s_push-b770-record_push_out.txt' % PPN, 'b770_SIDE-explicit-formula_push-b770-proof_push_out.txt']
+later = ['b770_relay_push-b770-closing_push_out.txt', 'b769_relay_push-b769-closing_push_out.txt']
+base = [p[5:] for p in A.close_carried('b770')]
+for n in caps + later + base:
+    wr(DD, n, 'a planted bank of the close\n')
+def carried(closing):
+    try:
+        return list(A.close_carried('b770', closing=closing))
+    except TypeError:
+        return list(A.close_carried('b770'))
+LACK = 'data/b770_relay_push-b770-record_push_out.txt'
+unt = ['data/' + n for n in caps + later + base]
+full = ['data/' + n for n in caps + base]
+cc = carried(True)
+r_lack = ns['close_left_out'](cc, [p for p in full if p != LACK], unt)
+out['close'] = [r_lack is not None, bool(r_lack) and LACK[5:] in r_lack, ns['close_left_out'](cc, full, unt) is None,
+                ns['close_left_out'](carried(False), [], ['data/' + n for n in caps]) is None, len(cc), sum(1 for c in cc if c.endswith('_push_out.txt'))]
+if 'close_add' in ns:
+    lst = ns['close_add'](['data/b770_closing.txt'], cc, lambda p: os.path.isfile(os.path.join(snap, *p.split('/'))))
+    out['add'] = [len(lst), lst[:1] == ['data/b770_closing.txt'], all(p in lst for p in full), 'data/' + later[0] not in lst,
+                  not any(p.startswith('data/b769_') for p in lst), len(set(lst)) == len(lst)]
+else:
+    out['add'] = None
+out['needles'] = [src.count("args[0] == '--close'"), src.count('close_carried(act, closing='), src.count('close_add(')]
+print(json.dumps(out))
+'''
+K33_BANK_BEFORE = ['b770', 'b771', 'b771', 'b770']
+K33_BANK_AFTER = ['b770', 'b770', 'b771', 'b770']
+
+
+def control_k33(before, after):
+    """[K33]: BEFORE (the commit before the repair) a planted closing record with no closing commit reads the act closed -- the hook's bank
+    the next act's, its refusal bank the next act's, the commits bank of a rows-only closing commit the next act's -- and a planted closing
+    list lacking one push capture is not refused, no closing route standing: THE FAULT READ. AFTER (the repair's commit) the act reads closed
+    only where its closing record is written and its closing commit's row stands, the hook and standing.act agreeing in all four planted
+    relays; the closing list lacking the relay's record capture refused and naming it, the list whole passing, a commit before the closing
+    with the captures untracked passing; `add --close` staging the named path and every bank of the close that stands, the act's push
+    captures among them, the relay's closing capture and b769's left out; VERSION v1.38.33 -- CLEAN."""
+    L, res = [], {}
+    for name, rev, got, j, ver in two_revisions(K33_PATHS, before, after, K33_PROBE, 'b770k33_'):
+        if 'error' in j:
+            L.append('  %s (%s): THE PROBE FAILED: %s' % (name, rev[:8], j['error']))
+            res[name] = None
+            continue
+        L.append('  %s (relay %s, VERSION %s): the files %s' % (name, rev[:8], ver, ', '.join('%s %s' % (p, 'present' if ok else 'ABSENT') for p, ok in got)))
+        cases = ('none', 'the record alone', 'record and row', 'the row alone')
+        L.append('    (hook)    bank_act over four planted relays (the closing record written ; the closing commit`s row in the step bank): %s' % (
+            ' ; '.join('%s %s' % kv for kv in zip(cases, j['bank']))))
+        L.append('    (refusal) the refusal bank in each: %s' % ', '.join(j['refusals']))
+        L.append('    (scan)    the next act whose commits bank takes the run (a rows-only closing commit, the closing commit, a component commit), '
+                 'the run() line read %d time(s): %s' % (j['nxt_lines'], ' ; '.join('%s %s' % kv for kv in zip(cases, j['nxt']))))
+        L.append('    (agree)   standing.act.closed and the hook`s closed_act agree: %s ; closed, closed_act, close_add, scan_bank_act present %s' % (
+            j['agree'] or 'NOT READ', j['has']))
+        L.append('    (close)   the closing list lacking the relay`s record capture refused %s, naming it %s ; the list whole passing %s ; a commit before '
+                 'the closing, the captures untracked, passing %s ; the list %d banks, push captures %d' % tuple(j['close']))
+        L.append('    (route)   `add --close`: %s' % ('ABSENT' if j['add'] is None else (
+            'paths %d ; the named path first %s ; every planted bank of the act %s ; the relay`s closing capture left out %s ; no bank of b769 %s ; '
+            'no path twice %s' % tuple(j['add']))))
+        L.append('    (needles) the route`s test %d ; close_carried at the closing %d ; close_add %d' % tuple(j['needles']))
+        c, a = j['close'], j['add']
+        fault = j['bank'] == K33_BANK_BEFORE and j['refusals'][1] == 'b771_hook_refusals.txt' and not c[0] and a is None and j['nxt'][1][0] == 'b771'
+        clean = (j['bank'] == K33_BANK_AFTER and j['refusals'] == ['%s_hook_refusals.txt' % x for x in K33_BANK_AFTER]
+                 and j['nxt'] == [[None] * 3, [None] * 3, ['b771'] * 3, [None] * 3] and j['nxt_lines'] == 1 and j['agree'] == [True] * 4
+                 and j['has'] == [True] * 4 and c == [True, True, True, True, 16, 6] and a == [17, True, True, True, True, True]
+                 and j['needles'][0] == 1 and j['needles'][1] >= 2 and j['needles'][2] >= 2 and ver == K33_VERSION)
+        L.append('    %s: %s' % (name, 'THE FAULT READ' if fault else ('CLEAN' if clean else 'NEITHER: NOT CLEAN AND NO FAULT READ')))
+        res[name] = 'FAULT' if fault else ('CLEAN' if clean else 'NEITHER')
+    return L, res.get('BEFORE') == 'FAULT' and res.get('AFTER') == 'CLEAN'
+
+
+CONTROLS = dict(K31=control_k31, K32=control_k32, K33=control_k33)
 
 
 def main(argv):
