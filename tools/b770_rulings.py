@@ -15,8 +15,15 @@ the register nor SPIRAL_MAP.md, so OPEN_TRAILS is the one file here.
                          (a check that can fire); the roster by tools/standing/orders.py's rule in memory, before and after: no order added
                          and none moving. Bank: data/b770_ledgers_c2.txt and .json, the text by line and sha256; its words printed by the
                          dry run alone.
-The later texts -- [I1] or [I2] for (6), [S5] for (7), each of (4)'s pair of texts and [C10] or [C11] -- are groups this tool gains by an
-Edit committed before its run; their lines are checked here already (WANT).
+  ledgers c2i dry|write  Component 2 ((6), data/b770_ferry.txt :29: "Where the tool's three sentences agree with that reading, [I1] is
+                         entered ...; where one does not, [I2] is entered"): [I1] where data/b770_li_index.json reads AS READ, else [I2], its
+                         fields filled from that bank (for 5938, 10034 and 5101 in turn, its primary cite's path and line and its defining
+                         sentence's opening; for [I2] the figures failing), appended beneath [A5]'s dated head at OPEN_TRAILS' end with no
+                         head of its own (the head says the index banks' line is appended beneath it). The bank committed and unmodified
+                         before the write, read as a control. Bank: data/b770_ledgers_c2i.txt and .json. Added by an Edit committed before
+                         its run (b770, after tools/b770_li_index.py's write).
+The later texts -- [S5] for (7), each of (4)'s pair of texts and [C10] or [C11] -- are groups this tool gains by an Edit committed before
+its run; their lines are checked here already (WANT).
 
 No line of the papers` repository is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -48,8 +55,15 @@ WANT = dict(A5=(52, 52), Z1=(56, 56), Z2=(60, 60), U1=(64, 64), U2=(68, 68), D1=
             C10=(88, 88), C11=(92, 92), I1=(96, 96), I2=(100, 100), S5=(104, 104))
 FIELD = re.compile(r'<[A-Za-z][^<>\n]*>')
 LI_INDEX = 'W-ORD-LI-INDEX'      # ### the one order [A5] names, at its (k) (data/b770_ferry.txt :52)
-GROUPS = dict(c2=('A5',))
-PLANT_FROM, PLANT_TO = LI_INDEX + ' is read', LI_INDEX + ' CLOSED, is read'   # ### the planted status word, read in memory alone
+GROUPS = dict(c2=('A5',), c2i=('I1',))   # ### c2i: [I1], or [I2] where data/b770_li_index.json reads NOT AS READ (set at run time)
+# ### the papers` repository's HEAD before each group's write: c2 after the corrigendum (step 12), c2i after [A5] (step 29)
+PP_BEFORE = dict(c2=C1PP, c2i='f945cbd9')
+CLAUSE = dict(c2='7', c2i='6')
+# ### the planted status word set after the order's name in each text, read in memory alone
+PLANTS = dict(A5=(LI_INDEX + ' is read', LI_INDEX + ' CLOSED, is read'), I1=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX),
+              I2=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX))
+LI_JSON = os.path.join(D, 'b770_li_index.json')
+LI_REL = 'data/b770_li_index.json'
 
 
 def die(w):
@@ -146,20 +160,56 @@ def pattern(tpl):
     return pat
 
 
+def fill(tpl, vals):
+    """the template with its fields filled in reading order by `vals`, one value a field."""
+    parts, fields = FIELD.split(tpl), FIELD.findall(tpl)
+    if len(fields) != len(vals):
+        die('THE FIELDS (%d) AND THE VALUES (%d) DIFFER IN NUMBER' % (len(fields), len(vals)))
+    return ''.join(p + (vals[i] if i < len(vals) else '') for i, p in enumerate(parts))
+
+
+def opening(s, n=200):
+    """a defining sentence's opening: the sentence whole to n characters, its closing stop taken off; else cut at a word and marked."""
+    s = s.strip().rstrip('.')
+    return s if len(s) <= n else s[:n].rsplit(' ', 1)[0] + ' ...'
+
+
+def li_fill():
+    """(key, values, the bank) for [I1] or [I2] from data/b770_li_index.json: for 5938, 10034 and 5101 in turn, its primary cite's path and
+    line and its defining sentence's opening; for [I2] the figures failing after them."""
+    with open(LI_JSON, encoding='utf-8') as f:
+        J = json.load(f)
+    key = 'I1' if J['reading'] == 'AS READ' else 'I2'
+    vals = []
+    for fig in ('5938', '10034', '5101'):
+        c = J['cites'][J['primary'][fig]]
+        vals += ['%s :%d' % (c['path'], c['want']), opening(c['sentence'])]
+    if key == 'I2':
+        vals.append(', '.join(J['failing']))
+    return key, vals, J
+
+
 # ================================================================================ THE LEDGER
 def compose(group, date, base):
     X = texts(ferry())
     TP = dict((k, X[k][2]) for k in X)
     keys = GROUPS[group]
-    E = dict((k, TP[k]) for k in keys)
+    fills = {}
+    if group == 'c2i':
+        key, vals, _J = li_fill()
+        keys = (key,)
+        fills[key] = vals
+    E = dict((k, fill(TP[k], fills[k]) if k in fills else TP[k]) for k in keys)
     n_ot = len(base.split(NL)) - 1
-    head = ('**Dated head, %s, b770, `(R380)`(7): the line the ruling orders for OPEN_TRAILS at Component 2** (relay '
-            'data/b770_ferry.txt :31 and :51-:53), appended at the end of the file (its last line :%d), so that no line before it moves: '
-            'the author’s rulings of 2026-11-26 by [A5]. The lines of the two index banks and of the sitting are appended beneath it in '
-            'Component 2, and those of the statements and of the closing build from source at Component 3 and after.' % (date, n_ot))
-    paras = [head] + [E[k] for k in keys]
+    head = None
+    if group == 'c2':
+        head = ('**Dated head, %s, b770, `(R380)`(7): the line the ruling orders for OPEN_TRAILS at Component 2** (relay '
+                'data/b770_ferry.txt :31 and :51-:53), appended at the end of the file (its last line :%d), so that no line before it moves: '
+                'the author’s rulings of 2026-11-26 by [A5]. The lines of the two index banks and of the sitting are appended beneath it in '
+                'Component 2, and those of the statements and of the closing build from source at Component 3 and after.' % (date, n_ot))
+    paras = ([head] if head else []) + [E[k] for k in keys]
     ot = NL.join(sum(([p, ''] for p in paras), []))[:-1]
-    return dict(X=X, TP=TP, E=E, text=ot, new=base + NL + ot + NL, head=head, keys=keys, n_ot=n_ot, paras=paras)
+    return dict(X=X, TP=TP, E=E, text=ot, new=base + NL + ot + NL, head=head, keys=keys, n_ot=n_ot, paras=paras, fills=fills)
 
 
 def ledgers(group, mode):
@@ -185,34 +235,45 @@ def ledgers(group, mode):
     in_hand = [i + 1 for i in range(C['n_ot'], len(hf)) if hf[i]]
     ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
     present = [k for k, v in E.items() if v in base]
-    a5_names = sorted(set(O.NAME.findall(E['A5'])))
-    a5_status = dict((n, O._status(O.mask(E['A5']), n)) for n in a5_names)
-    planted = E['A5'].replace(PLANT_FROM, PLANT_TO, 1)
-    p_status = O._status(O.mask(planted), LI_INDEX) if planted != E['A5'] else None
+    k0 = C['keys'][0]
+    a5_names = sorted(set(O.NAME.findall(E[k0])))
+    a5_status = dict((n, O._status(O.mask(E[k0]), n)) for n in a5_names)
+    planted = E[k0].replace(PLANTS[k0][0], PLANTS[k0][1], 1)
+    p_status = O._status(O.mask(planted), LI_INDEX) if planted != E[k0] else None
     p_after = dict(O.read(bl + [planted]))
-    ctl = [('the papers` repository`s HEAD the corrigendum`s commit %s, the act`s one commit there before this write (%s)' % (C1PP, pp_head[:8]),
-            pp_head.startswith(C1PP)),
+    extra = []
+    if group == 'c2i':
+        tracked = git(RELAY, 'show', 'HEAD:' + LI_REL, raw=True)
+        with open(LI_JSON, 'rb') as f:
+            wb = f.read()
+        extra = [('the index bank %s committed at HEAD and its working file equal to it (%d bytes)' % (LI_REL, len(wb)),
+                  bool(tracked) and tracked == wb),
+                 ('[A5] the last line of OPEN_TRAILS before the write, so [%s] stands beneath its dated head' % k0,
+                  [l for l in bl if l.strip()][-1:] == [TP['A5']])]
+    ctl = [('the papers` repository`s HEAD %s, the act`s last commit there before this write (%s)' % (PP_BEFORE[group], pp_head[:8]),
+            pp_head.startswith(PP_BEFORE[group])),
            ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
            ('the text as entered equals the ruling`s, whole in the appended text: %s' % (
                ' '.join('%s %s' % (k, eq[k]) for k in C['keys'] if k in eq)), len(eq) == len(C['keys']) and all(eq.values())),
-           ('the text carries no field in the ruling (with fields %s), and no field is left in the appended text (%s)' % (
-               fields_in or 'none', left or 'none'), not fields_in and not left),
+           ('each text with fields in the ruling filled from its bank (with fields %s ; filled %s), and no field left in the appended text '
+            '(%s)' % (fields_in or 'none', sorted(C['fills']) or 'none', left or 'none'), fields_in == sorted(C['fills']) and not left),
            ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
            ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
             'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
            ('the text not in OPEN_TRAILS before the write (%s)' % (present or 'none'), not present),
-           ('[A5]`s one order %s in OPEN_TRAILS before the write, OPEN by the rule (the orders [A5] names: %s)' % (LI_INDEX, a5_names or 'none'),
-            a5_names == [LI_INDEX] and LI_INDEX in before and st(before, LI_INDEX) == 'OPEN'),
-           ('[A5] gives the order it names no status word by the rule (%s): it stays OPEN' % (
-               ' '.join('%s %s' % (n, s or 'none') for n, s in sorted(a5_status.items())) or 'none'),
+           ('[%s]`s one order %s in OPEN_TRAILS before the write, OPEN by the rule (the orders [%s] names: %s)' % (
+               k0, LI_INDEX, k0, a5_names or 'none'), a5_names == [LI_INDEX] and LI_INDEX in before and st(before, LI_INDEX) == 'OPEN'),
+           ('[%s] gives the order it names no status word by the rule (%s): it stays OPEN' % (
+               k0, ' '.join('%s %s' % (n, s or 'none') for n, s in sorted(a5_status.items())) or 'none'),
             bool(a5_status) and not any(a5_status.values())),
-           ('PLANTED: [A5] with a status word set after the order`s name, read in memory alone, reads a status (%s) and moves the order to %s' % (
-               p_status, st(p_after, LI_INDEX)), bool(p_status) and p_status[0] == 'CLOSED' and st(p_after, LI_INDEX) == 'CLOSED'),
+           ('PLANTED: [%s] with a status word set after the order`s name, read in memory alone, reads a status (%s) and moves the order to %s' % (
+               k0, p_status, st(p_after, LI_INDEX)), bool(p_status) and p_status[0] == 'CLOSED' and st(p_after, LI_INDEX) == 'CLOSED'),
            ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand),
            ('the roster: no order moving and none added (moved %s ; added %s)' % (
-               [(n, st(before, n), st(after, n)) for n in moved] or 'none', added or 'none'), not moved and not added)]
+               [(n, st(before, n), st(after, n)) for n in moved] or 'none', added or 'none'), not moved and not added)] + extra
     ok = all(o for _w, o in ctl)
-    P = ['%s -- (R380)(7), GROUP %s: [A5], OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, group.upper(), utc()), '',
+    P = ['%s -- (R380)(%s), GROUP %s: %s, OPEN_TRAILS, APPENDED AT ITS END (%s)' % (
+        ACT, CLAUSE[group], group.upper(), ' '.join('[%s]' % k for k in C['keys']), utc()), '',
          '### tools/b770_rulings.py ledgers %s; the papers` repository at HEAD %s; the texts from the ferry bank (data/b770_ferry.txt, sha256 %s);'
          % (group, pp_head[:8], FERRY_SHA),
          '### <DATE> %s; the text by line and sha256 here; no line of the papers` repository printed but the text composed.' % date, '',
@@ -224,10 +285,11 @@ def ledgers(group, mode):
     first = C['n_ot'] + 2
     P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
         C['n_ot'], len(nl_) - 1, first, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
-    rows = [('head', C['head'])] + [(k, E[k]) for k in C['keys']]
+    rows = ([('head', C['head'])] if C['head'] else []) + [(k, E[k]) for k in C['keys']]
     P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in rows]
-    P += ['', '### ### **THE LEDGERS, GROUP %s: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINE UNDER ONE HEAD ([A5]) ; CONTROLS %d OF %d '
-          'AS WANTED ; %s.**' % (group.upper(), len(C['paras']) - 1, sum(1 for _w, o in ctl if o), len(ctl),
+    P += ['', '### ### **THE LEDGERS, GROUP %s: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINE %s (%s) ; CONTROLS %d OF %d '
+          'AS WANTED ; %s.**' % (group.upper(), len(C['keys']), 'UNDER ONE HEAD' if C['head'] else 'BENEATH [A5]`S DATED HEAD',
+                                 ' '.join('[%s]' % k for k in C['keys']), sum(1 for _w, o in ctl if o), len(ctl),
                                  ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
     print(NL.join(P))
     if mode == 'dry':
@@ -250,7 +312,8 @@ def ledgers(group, mode):
                             file=dict(path=OT, lines_before=C['n_ot'], lines_after=len(nl_) - 1, first_new=first, sha_before=sha(base)[:16],
                                       sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
                             entered=dict((k, [nl_.index(v) + 1, sha(v)[:16]]) for k, v in E.items()),
-                            head=[nl_.index(C['head']) + 1, sha(C['head'])[:16]], keys=list(C['keys']),
+                            head=[nl_.index(C['head']) + 1, sha(C['head'])[:16]] if C['head'] else None, keys=list(C['keys']),
+                            fills=C['fills'],
                             roster=dict(before_open=open_b, after_open=open_a, added=added, moved=[[n, st(before, n), st(after, n)] for n in moved]),
                             controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
     print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))

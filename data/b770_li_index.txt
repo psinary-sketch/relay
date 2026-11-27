@@ -1,0 +1,51 @@
+b770 -- (R380)(6): THE TWO INDEX BANKS READ UNDER W-ORD-LI-INDEX (OPEN_TRAILS :18627); A READING, NOTHING COMPUTED (2026-11-27T01:29:55Z)
+
+### tools/b770_li_index.py: each line taken by a search for its figure and the name beside it, one hit wanted at the line cited; the
+### papers` repository read at 78685602 (the act`s start) and at its HEAD, each cited line compared; data/b675_li_bench.txt searched in its
+### comment lines alone, no row of it read. Each sentence cut from the cited range, its markdown`s stars taken out.
+
+## 5938
+  the papers` repository phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md :344 -- the needle 'ran to its registered depth and returned **first negative index 5938**': hits [344], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 46b6b6a6164158d2
+    "The arithmetic-side validation of the Li channel on the disc −23 Epstein object ran to its registered depth and returned first negative index 5938."
+    the wider needle 'first negative index 5938' alone: hits [344, 451] (the edition note v0.18 at :451 restating the result)
+  the relay reports/2026-08-08-completion-registered-depth.md :1 -- the needle 'THE ARITHMETIC-SIDE VALIDATION': hits [1], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 aacd36241a76009a
+    "THE ARITHMETIC-SIDE VALIDATION REACHES ITS REGISTERED DEPTH — COMPLETION PROTOCOL — 2026-08-08"
+  the relay reports/2026-08-08-completion-registered-depth.md :65 -- the needle 'FIRST NEGATIVE INDEX = 5938': hits [65], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 2935ea619f1f71ca
+    "FIRST NEGATIVE INDEX = 5938"
+  the relay reports/2026-08-08-completion-registered-depth.md :82 -- the needle 'The sign at 5938 is certified': hits [82], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 a02bebd0772a1d60
+    "The sign at 5938 is certified by a margin of 3.7×10¹¹ times the stage's error bound — and the bound at n = 5938 is smaller than the stage figure by a further factor of ~10⁻⁵⁷⁸, since it scales as (1+1/r)ⁿ."
+
+## 10034
+  the papers` repository phase1.5/method/INSTRUMENTS.md :664 -- the needle 'least n certified below 0 n_obs = 10034': hits [664], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 69152500682f9e7d
+    "The Li-coefficient bench P_n over 360 certified points with U_n, its sign by n: n* = 63676 (the v0.32 bound's onset were HStrip to hold), least n certified below 0 n_obs = 10034, window [n*, n*+200] with 102 of 201 NEG."
+  the papers` repository FINDINGS.md :8881 -- the needle 'the certified onset n_obs = 10034': hits [8881], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 a9da4817d57aa518
+    "The Li index at Q0: HStrip fails for the configuration, held on the 34 certified real parts; the v0.32 bound’s onset, were HStrip to hold, n* = 63676; the certified onset n_obs = 10034; P_n + U_n negative at 102 of 201 n over [n*, n* + 200]; T-COUNT assumed"
+  the relay data/b675_li_bench.txt :4 -- the needle 'P_n over the 360 certified points': hits [4], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 1340ed0d1251e4c9
+    "P_n over the 360 certified points in Arb balls at 256 bits, powers by exp(n·log z); U_n the plan`s inequality on (-1/2, 3/2) under T-COUNT (an ASSUMPTION: P3, HCount Z 10)."
+  the relay data/b675_li_bench.txt :848 -- the needle 'THE LEAST n WITH P_n + U_n CERTIFIED BELOW 0: 10034': hits [848], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 9eb82588d4e83aa7
+    "n_obs, THE LEAST n WITH P_n + U_n CERTIFIED BELOW 0: 10034 ; UNDECIDED n OVER [1, 63876]: 0"
+
+## 5101
+  the papers` repository phase1.5/method/INSTRUMENTS.md :209 -- the needle 'n ≈ 5101': hits [209], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 4a13115822e62787
+    "The magnitude form — |cₙ| clearing five times the background — needs n ≈ 5101 for the same witness."
+  the papers` repository phase1.5/method/INSTRUMENTS.md :233 -- the needle 'n_det = (γ²/δ) × log(threshold × background)': hits [233], at the cited line YES ; at HEAD EQUAL ; the line`s sha256 13acc3a95e6fa615
+    "The detection depth carries a logarithmic factor: n_det = (γ²/δ) × log(threshold × background) and it checks exactly: 586.4 × log(6000) = 586.4 × 8.6995 = 5101."
+
+## THE NAVIGATOR'S READING, workspace grade, the navigator's and no banked figure (data/b770_ferry.txt :29)
+  "5938 is the least index at which the control's Li coefficient, computed from the arithmetic side, is negative with its sign certified; 10034 is the least index at which a partial sum over 360 certified zeros, with a bound for the rest, is certified below 0; 5101 is a detection depth set by a threshold on magnitude; three quantities, the second at no index below the leading one."
+
+## THE PREDICATES ON THE DEFINING SENTENCES, each a word the navigator`s reading asks of the sentence
+  5938: arity 'arithmetic-side' HOLDS ; arity 'first negative index' HOLDS ; report_certified 'is certified' HOLDS
+  10034: instruments '360 certified points' HOLDS ; instruments 'U_n' HOLDS ; instruments 'certified below 0' HOLDS ; bench_head 'U_n' HOLDS ; bench_line 'CERTIFIED BELOW 0' HOLDS
+  5101: magnitude 'magnitude form' HOLDS ; magnitude 'five times the background' HOLDS ; depth 'detection' HOLDS ; depth 'threshold' HOLDS
+  the order: 10034 at no index below 5938: HOLDS
+
+## THE CONTROLS
+  (1) (6)`S CONTROL: a planted copy of the cited line of 5938 (INDEX_ARITY :344) with its figure changed to 5939 reads as differing from the bank`s sha256 of the line ; an unchanged copy reads equal: (True, False, True) -> AS WANTED
+  (2) the search on planted lines: a needle twice yields 2, a comment needle read with the comment lines alone 1, a needle in a row not opening ### read with them 0: ([2, 4], [5], []) -> AS WANTED
+  (3) the navigator`s reading read by its predicates on a planted sentence lacking the word arithmetic-side: NOT AS READ at 5938 alone: ('NOT AS READ', ['5938']) -> AS WANTED
+  (4) the predicates on the sentences as read, printed beside the planted fault (the reading itself, not a control of it): ('AS READ', []) -> AS WANTED
+  (5) the sentence cut on a planted range: the sentence carrying the needle, its neighbours left out: The arithmetic-side validation returned first negative index 5938. -> AS WANTED
+  (6) the navigator`s reading cut from data/b770_ferry.txt :29 between its markers: (True, "5938 is the least index at which the control's Li coefficien") -> AS WANTED
+
+### ### **THE READING: AS READ ; CITES 10, EACH ONE HIT AT ITS LINE True, EACH EQUAL AT HEAD True ; CONTROLS 6 OF 6.**

@@ -1,0 +1,172 @@
+{
+ "act": "b770",
+ "at": "2026-11-27T01:29:55Z",
+ "pp_at": "78685602",
+ "reading": "AS READ",
+ "failing": [],
+ "order": true,
+ "navigator": "5938 is the least index at which the control's Li coefficient, computed from the arithmetic side, is negative with its sign certified; 10034 is the least index at which a partial sum over 360 certified zeros, with a bound for the rest, is certified below 0; 5101 is a detection depth set by a threshold on magnitude; three quantities, the second at no index below the leading one.",
+ "cites": {
+  "5938.arity": {
+   "repo": "pp",
+   "path": "phase1.5/proofs/INDEX_ARITY_AT_THE_CRITICAL_LINE.md",
+   "needle": "ran to its registered depth and returned **first negative index 5938**",
+   "want": 344,
+   "hits": [
+    344
+   ],
+   "at_want": true,
+   "line_sha": "46b6b6a6164158d2cb7b1a3d402a51e8c6d953317489a0b1a917ff0a44ea33c4",
+   "head_equal": true,
+   "sentence": "The arithmetic-side validation of the Li channel on the disc −23 Epstein object ran to its registered depth and returned first negative index 5938."
+  },
+  "5938.report_head": {
+   "repo": "relay",
+   "path": "reports/2026-08-08-completion-registered-depth.md",
+   "needle": "THE ARITHMETIC-SIDE VALIDATION",
+   "want": 1,
+   "hits": [
+    1
+   ],
+   "at_want": true,
+   "line_sha": "aacd36241a76009ac47d8c598205efa4031e4e4523c7d9012abf05ef53ab67e5",
+   "head_equal": true,
+   "sentence": "THE ARITHMETIC-SIDE VALIDATION REACHES ITS REGISTERED DEPTH — COMPLETION PROTOCOL — 2026-08-08"
+  },
+  "5938.report_number": {
+   "repo": "relay",
+   "path": "reports/2026-08-08-completion-registered-depth.md",
+   "needle": "FIRST NEGATIVE INDEX = 5938",
+   "want": 65,
+   "hits": [
+    65
+   ],
+   "at_want": true,
+   "line_sha": "2935ea619f1f71ca07fc38159dc6daa137473cdd67a2c26a38a503a169da95f0",
+   "head_equal": true,
+   "sentence": "FIRST NEGATIVE INDEX = 5938"
+  },
+  "5938.report_certified": {
+   "repo": "relay",
+   "path": "reports/2026-08-08-completion-registered-depth.md",
+   "needle": "The sign at 5938 is certified",
+   "want": 82,
+   "hits": [
+    82
+   ],
+   "at_want": true,
+   "line_sha": "a02bebd0772a1d6001a4c987ac8da3c0876616ad812cc2dc209a3a9496cc27b3",
+   "head_equal": true,
+   "sentence": "The sign at 5938 is certified by a margin of 3.7×10¹¹ times the stage's error bound — and the bound at n = 5938 is smaller than the stage figure by a further factor of ~10⁻⁵⁷⁸, since it scales as (1+1/r)ⁿ."
+  },
+  "10034.instruments": {
+   "repo": "pp",
+   "path": "phase1.5/method/INSTRUMENTS.md",
+   "needle": "least n certified below 0 n_obs = 10034",
+   "want": 664,
+   "hits": [
+    664
+   ],
+   "at_want": true,
+   "line_sha": "69152500682f9e7d88a8d750b0b363679875de6b34bb32fdb6221a32a04b9b9f",
+   "head_equal": true,
+   "sentence": "The Li-coefficient bench P_n over 360 certified points with U_n, its sign by n: n* = 63676 (the v0.32 bound's onset were HStrip to hold), least n certified below 0 n_obs = 10034, window [n*, n*+200] with 102 of 201 NEG."
+  },
+  "10034.findings": {
+   "repo": "pp",
+   "path": "FINDINGS.md",
+   "needle": "the certified onset n_obs = 10034",
+   "want": 8881,
+   "hits": [
+    8881
+   ],
+   "at_want": true,
+   "line_sha": "a9da4817d57aa518876c7ad28b30375c205f6f83a16cf31e04d70a0d333ae49c",
+   "head_equal": true,
+   "sentence": "The Li index at Q0: HStrip fails for the configuration, held on the 34 certified real parts; the v0.32 bound’s onset, were HStrip to hold, n* = 63676; the certified onset n_obs = 10034; P_n + U_n negative at 102 of 201 n over [n*, n* + 200]; T-COUNT assumed"
+  },
+  "10034.bench_head": {
+   "repo": "relay",
+   "path": "data/b675_li_bench.txt",
+   "needle": "P_n over the 360 certified points",
+   "want": 4,
+   "hits": [
+    4
+   ],
+   "at_want": true,
+   "line_sha": "1340ed0d1251e4c937ebeb414e103c0e4508a4eba5a02d9b526049252c2120e6",
+   "head_equal": true,
+   "sentence": "P_n over the 360 certified points in Arb balls at 256 bits, powers by exp(n·log z); U_n the plan`s inequality on (-1/2, 3/2) under T-COUNT (an ASSUMPTION: P3, HCount Z 10)."
+  },
+  "10034.bench_line": {
+   "repo": "relay",
+   "path": "data/b675_li_bench.txt",
+   "needle": "THE LEAST n WITH P_n + U_n CERTIFIED BELOW 0: 10034",
+   "want": 848,
+   "hits": [
+    848
+   ],
+   "at_want": true,
+   "line_sha": "9eb82588d4e83aa78a80ad3b7908639476871c2c8decdae8c37790f1970a2164",
+   "head_equal": true,
+   "sentence": "n_obs, THE LEAST n WITH P_n + U_n CERTIFIED BELOW 0: 10034 ; UNDECIDED n OVER [1, 63876]: 0"
+  },
+  "5101.magnitude": {
+   "repo": "pp",
+   "path": "phase1.5/method/INSTRUMENTS.md",
+   "needle": "n ≈ 5101",
+   "want": 209,
+   "hits": [
+    209
+   ],
+   "at_want": true,
+   "line_sha": "4a13115822e62787e85502bd79072e8a5b4a77233f969a19c421e518a43b5df1",
+   "head_equal": true,
+   "sentence": "The magnitude form — |cₙ| clearing five times the background — needs n ≈ 5101 for the same witness."
+  },
+  "5101.depth": {
+   "repo": "pp",
+   "path": "phase1.5/method/INSTRUMENTS.md",
+   "needle": "n_det = (γ²/δ) × log(threshold × background)",
+   "want": 233,
+   "hits": [
+    233
+   ],
+   "at_want": true,
+   "line_sha": "13acc3a95e6fa615e454f2c00291e29120f4ae310a2ca9150f7d7b5a31ab16fb",
+   "head_equal": true,
+   "sentence": "The detection depth carries a logarithmic factor: n_det = (γ²/δ) × log(threshold × background) and it checks exactly: 586.4 × log(6000) = 586.4 × 8.6995 = 5101."
+  }
+ },
+ "primary": {
+  "5938": "5938.arity",
+  "10034": "10034.instruments",
+  "5101": "5101.magnitude"
+ },
+ "controls": [
+  [
+   "(6)`S CONTROL: a planted copy of the cited line of 5938 (INDEX_ARITY :344) with its figure changed to 5939 reads as differing from the bank`s sha256 of the line ; an unchanged copy reads equal",
+   true
+  ],
+  [
+   "the search on planted lines: a needle twice yields 2, a comment needle read with the comment lines alone 1, a needle in a row not opening ### read with them 0",
+   true
+  ],
+  [
+   "the navigator`s reading read by its predicates on a planted sentence lacking the word arithmetic-side: NOT AS READ at 5938 alone",
+   true
+  ],
+  [
+   "the predicates on the sentences as read, printed beside the planted fault (the reading itself, not a control of it)",
+   true
+  ],
+  [
+   "the sentence cut on a planted range: the sentence carrying the needle, its neighbours left out",
+   true
+  ],
+  [
+   "the navigator`s reading cut from data/b770_ferry.txt :29 between its markers",
+   true
+  ]
+ ]
+}
