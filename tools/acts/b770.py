@@ -5366,7 +5366,7 @@ def _finding_text_b770(f, S, rep, tot):
          'of the control’s zeros has a point with real part other than 1/2, by contradiction from %s, the control’s explicit formula and `controlFailureExists`, its file’s '
          'import closure holding no module under SIDEExplicitFormula/Schema/ZQ/OffZero/: %s. (c) %s: positivity up to a support bound for an arithmetic side, its passage '
          'from a larger bound to a smaller, its agreement with `h2_sign_upto` at the arithmetic side of zeta’s explicit formula, and the control’s arithmetic side not '
-         'positive up to L for each L at or above log 1024: %s. (d) %s: on the premise, stated as one proposition, that each zero of each Dirichlet L-function in the strip '
+         'positive up to L for each L at or above log 1024: %s; by this step the control’s critical width, the least support bound at which its arithmetic side takes a negative value, is at most log 1024, so the criterion detects the control, the term’s earlier use standing under FINDINGS :9990 by its heading (relay data/b770_misses.txt (6)). (d) %s: on the premise, stated as one proposition, that each zero of each Dirichlet L-function in the strip '
          '0 < Re s < 1 has real part 1/2, Weil positivity on classK for the summed configuration of the characters of each modulus other than the trivial one; and with '
          'Mathlib’s `RiemannHypothesis` beside it as a second premise, that and Weil positivity on classK at zeta in one statement, its half at zeta `rh_imp_h2_sign` as '
          'compiled at an earlier act: %s. (e) %s and %s: c(48) negative and c(n) at least 0 for each n below 48, c the coefficients of minus the logarithmic derivative of '
